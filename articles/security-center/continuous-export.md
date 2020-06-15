@@ -8,12 +8,12 @@ ms.service: security-center
 ms.topic: conceptual
 ms.date: 03/13/2020
 ms.author: memildin
-ms.openlocfilehash: 19fdcc7b590c6ad6873c7808ae26d218bbda7f5b
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: c30fef5c82f831365a11bcb14559b0914a9eda4c
+ms.sourcegitcommit: d118ad4fb2b66c759b70d4d8a18e6368760da3ad
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80158965"
+ms.lasthandoff: 06/02/2020
+ms.locfileid: "84299942"
 ---
 # <a name="export-security-alerts-and-recommendations"></a>Exporter les alertes et recommandations de sécurité
 
@@ -26,6 +26,21 @@ Cet article décrit l’ensemble des outils qui sont à votre disposition pour e
 * Exporter en continu vers des espaces de travail Log Analytics
 * Exporter en continu vers des Azure Event Hubs (pour les intégrations à des solutions SIEM tierces)
 * Exporter vers un fichier CSV (opération unique)
+
+
+
+
+## <a name="availability"></a>Disponibilité
+
+- État de sortie : **En disponibilité générale**
+- Rôles et autorisations obligatoires :
+    - **Lecteur** sur l’abonnement contenant la configuration d’exportation
+    - **Rôle d’administrateur de sécurité** sur le groupe de ressources (ou **Propriétaire**)
+    - Doit également disposer d’autorisations en écriture sur la ressource cible
+- Clouds : 
+    - ✔ Clouds commerciaux
+    - ✔ US Gov
+    - ✘ Chine Gov, autres Gov
 
 
 ## <a name="setting-up-a-continuous-export"></a>Configuration d’une exportation continue

@@ -13,16 +13,16 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 08/07/2019
 ms.author: allensu
-ms.openlocfilehash: 37a458aea659cb6215cf29e6abcbc3341c7e0b7b
-ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
+ms.openlocfilehash: 0e46905ad280cd76d66befb1156e428b23f35664
+ms.sourcegitcommit: f1132db5c8ad5a0f2193d751e341e1cd31989854
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83643255"
+ms.lasthandoff: 05/31/2020
+ms.locfileid: "84235644"
 ---
 # <a name="outbound-connections-in-azure"></a>Connexions sortantes dans Azure
 
-Azure assure la connectivité sortante pour les déploiements de clients via différents mécanismes. Cet article décrit les scénarios, les situations où ils s’appliquent, comment ils fonctionnent et comment les gérer.
+Azure Load Balancer fournit une connectivité sortante pour les déploiements clients via plusieurs mécanismes différents. Cet article décrit les scénarios, les situations où ils s’appliquent, comment ils fonctionnent et comment les gérer. Si vous rencontrez des problèmes de connectivité sortante via un équilibreur Azure Load Balancer, consultez le [guide de résolution des problèmes liés aux connexions sortantes] (../load-balancer/troubleshoot-outbound-connection.md).
 
 >[!NOTE] 
 >Cet article traite des déploiements Resource Manager uniquement. Consultez [Connexions sortantes dans Azure (Classic)](load-balancer-outbound-connections-classic.md) pour découvrir l’ensemble des scénarios de déploiement Classic dans Azure.
@@ -31,7 +31,7 @@ Un déploiement dans Azure peut communiquer avec des points de terminaison en de
 
 Pour exécuter cette fonction, Azure utilise une traduction d’adresses réseau sources. Quand plusieurs adresses IP privées se dissimulent derrière une adresse IP publique, Azure utilise une [traduction d’adresse de port](#pat) pour masquer les adresses IP privées. Les ports éphémères utilisés pour la traduction d’adresse de port sont [préaffectés](#preallocatedports) en fonction de la taille du pool.
 
-Il existe plusieurs [scénarios sortants](#scenarios). Vous pouvez éventuellement combiner ces scénarios. Examinez-les soigneusement pour comprendre les fonctionnalités, les contraintes et les structures qui s’appliquent à vos modèle de déploiement et scénario d’application. Prenez connaissance des conseils relatifs à la [gestion de ces scénarios](#snatexhaust).
+Il existe plusieurs [scénarios sortants](#scenarios). Vous pouvez éventuellement combiner ces scénarios. Examinez-les soigneusement pour comprendre les fonctionnalités, les contraintes et les structures qui s’appliquent à vos modèle de déploiement et scénario d’application. Prenez connaissance des conseils relatifs à la [gestion de ces scénarios](../load-balancer/troubleshoot-outbound-connection.md#snatexhaust).
 
 >[!IMPORTANT] 
 >Standard Load Balancer et les adresses IP Standard introduisent de nouvelles fonctionnalités et des comportements différents pour la connectivité sortante.  Ils ne sont pas identiques aux références SKU De base.  Si vous souhaitez une connectivité sortante lorsque vous travaillez avec des références SKU Standard, vous devez explicitement la définir avec des adresses IP publiques Standard ou l’équilibreur de charge public Standard.  Cela inclut la création de la connectivité sortante lors de l’utilisation d’un équilibreur de charge Standard interne.  Nous vous recommandons de toujours utiliser des règles de trafic sortant sur un équilibreur de charge public Standard.  Le [scénario 3](#defaultsnat) n’est pas disponible avec la référence SKU Standard.  Cela signifie que lorsqu’un équilibreur de charge interne Standard est utilisé, vous devez prendre des mesures pour créer une connectivité sortante pour les machines virtuelles dans le pool principal si la connectivité sortante est souhaitée.  Dans le contexte de la connectivité sortante, une seule machine virtuelle autonome, toutes les machines virtuelles d’un groupe à haute disponibilité, toutes les instances dans un VMSS se comportent comme un groupe. Cela signifie que, si une seule machine virtuelle d’un groupe à haute disponibilité est associée à une référence SKU Standard, toutes les instances de machine virtuelle au sein de ce groupe à haute disponibilité se comportent maintenant selon les mêmes règles que si elles étaient associées avec la référence SKU Standard, même si une instance individuelle n’est pas directement associée. Ce comportement est également observé dans le cas d’une machine virtuelle autonome avec plusieurs cartes d’interface réseau attachées à un équilibreur de charge. Si une carte réseau est ajoutée comme composant autonome, elle aura le même comportement. Lisez attentivement la totalité de ce document pour comprendre les concepts généraux, passer en revue [Standard Load Balancer](load-balancer-standard-overview.md) pour connaître les différentes entre les références SKU et les [règles de trafic sortant](load-balancer-outbound-rules-overview.md).  L’utilisation de règles de trafic sortant vous permet un contrôle précis de tous les aspects de la connectivité sortante.
@@ -43,7 +43,7 @@ Azure Load Balancer et les ressources associées sont définis explicitement qua
 | Références (SKU) | Scénario | Méthode | Protocoles IP | Description |
 | --- | --- | --- | --- | --- |
 | Standard, De base | [1. Machine virtuelle avec une adresse IP publique de niveau d’instance (avec ou sans Load Balancer)](#ilpip) | Traduction d’adresses réseau sources, masquage de port non utilisé | TCP, UDP, ICMP, ESP | Azure utilise l’adresse IP publique affectée à la configuration IP de la carte d’interface réseau de l’instance. L’instance a tous les ports éphémères disponibles. Lors de l’utilisation de Standard Load Balancer, les [règles de trafic sortant](load-balancer-outbound-rules-overview.md) ne sont pas prises en charge si une IP publique est attribuée à la machine virtuelle. |
-| Standard, De base | [2. Load Balancer public associé à une machine virtuelle (aucune adresse IP publique sur l’instance)](#lb) | Traduction d’adresses réseau sources avec masquage de port (traduction d’adresse de port) en utilisant des frontends Load Balancer | TCP, UDP |Azure partage l’adresse IP publique des frontends Load Balancer publics avec plusieurs adresses IP privées. Azure utilise les ports éphémères des frontends pour la traduction d’adresse de port. Vous devez utiliser des [règles de trafic sortant](load-balancer-outbound-rules-overview.md) pour définir explicitement la connectivité sortante. |
+| Standard, De base | [2. Load Balancer public associé à une machine virtuelle (aucune adresse IP publique sur l’instance)](#lb) | Traduction d’adresses réseau sources avec masquage de port (traduction d’adresse de port) en utilisant des frontends Load Balancer | TCP, UDP |Azure partage l’adresse IP publique des frontends Load Balancer publics avec plusieurs adresses IP privées. Azure utilise les ports éphémères des frontends pour la traduction d’adresse de port. Quand vous utilisez Standard Load Balancer, vous devez utiliser des [règles de trafic sortant](load-balancer-outbound-rules-overview.md) pour définir explicitement la connectivité sortante. |
 | Aucune ou De base | [3. Machine virtuelle autonome (sans Load Balancer, sans adresse IP publique)](#defaultsnat) | Traduction d’adresses réseau sources avec masquage de port (traduction d’adresse de port) | TCP, UDP | Azure désigne automatiquement une adresse IP publique pour la traduction d’adresses réseau sources, partage cette adresse IP publique avec plusieurs adresses IP privées du groupe à haute disponibilité, puis utilise les ports éphémères de cette adresse IP publique. Ce scénario est une solution de secours pour les scénarios précédents. Nous vous le déconseillons si vous avez besoin de visibilité et de contrôle. |
 
 Si vous voulez empêcher une machine virtuelle de communiquer avec des points de terminaison en dehors d’Azure dans l’espace d’adressage IP public, vous pouvez utiliser des groupes de sécurité réseau (NSG) pour bloquer l’accès comme il se doit. La section [Empêchement des connexions sortantes](#preventoutbound) traite de façon plus détaillée des groupes de sécurité réseau. Les conseils sur la conception, l’implémentation et la gestion d’un réseau virtuel sans accès sortant n’entrent pas dans le cadre de cet article.
@@ -54,7 +54,7 @@ Dans ce scénario, une adresse IP publique est affectée à la machine virtuelle
 
 Une adresse IP publique affectée à une machine virtuelle constitue une relation 1:1 (non pas une relation 1-à-plusieurs) ; elle est implémentée comme un NAT 1:1 sans état.  Le masquage de port (traduction d’adresse de port) n’est pas utilisé et la machine virtuelle peut utiliser tous les ports éphémères.
 
-Si votre application lance de nombreux flux sortants et que vous subissez un épuisement des ports de traduction d’adresses réseau sources, envisagez d’affecter une [adresse IP publique pour atténuer les contraintes de traduction d’adresses réseau sources](#assignilpip). Lisez [Gestion de l’épuisement de la traduction d’adresses réseau sources](#snatexhaust) dans son intégralité.
+Si votre application lance de nombreux flux sortants et que vous subissez un épuisement des ports de traduction d’adresses réseau sources, envisagez d’affecter une [adresse IP publique pour atténuer les contraintes de traduction d’adresses réseau sources](../load-balancer/troubleshoot-outbound-connection.md#assignilpip). Lisez [Gestion de l’épuisement de la traduction d’adresses réseau sources](../load-balancer/troubleshoot-outbound-connection.md#snatexhaust) dans son intégralité.
 
 ### <a name="scenario-2-load-balanced-vm-without-a-public-ip-address"></a><a name="lb"></a>Scénario 2 : Machine virtuelle à charge équilibrée sans adresse IP publique
 
@@ -66,7 +66,7 @@ Lorsque la machine virtuelle à charge équilibrée crée un flux sortant, Azure
 
 Les ports éphémères du frontend d’adresse IP publique de l’équilibreur de charge servent à faire la distinction entre les différents flux en provenance de la machine virtuelle. La traduction d’adresses réseau utilise dynamiquement des [ports éphémères préaffectés](#preallocatedports) lors de la création de flux sortants. Dans ce contexte, les ports éphémères utilisés pour la traduction d’adresses réseau sources sont appelés ports SNAT.
 
-Les ports SNAT sont préaffectés comme décrit dans la section [Présentation de la traduction d’adresses réseau sources et de la traduction d’adresse de port](#snat). Il s’agit d’une ressource limitée sujette à épuisement. Il est important de comprendre comment ils sont [consommés](#pat). Pour savoir comment concevoir en fonction de cette consommation et d’en atténuer éventuellement les effets, consultez [Gestion de l’épuisement de la traduction d’adresses réseau sources](#snatexhaust).
+Les ports SNAT sont préaffectés comme décrit dans la section [Présentation de la traduction d’adresses réseau sources et de la traduction d’adresse de port](#snat). Il s’agit d’une ressource limitée sujette à épuisement. Il est important de comprendre comment ils sont [consommés](#pat). Pour savoir comment concevoir en fonction de cette consommation et d’en atténuer éventuellement les effets, consultez [Gestion de l’épuisement de la traduction d’adresses réseau sources](../load-balancer/troubleshoot-outbound-connection.md#snatexhaust).
 
 Si [plusieurs adresses IP (publiques) sont associées à un équilibreur de charge de base](load-balancer-multivip-overview.md), toutes ces adresses sont candidates pour les flux sortants, mais une seule d’entre elles est sélectionnée au hasard.  
 
@@ -81,13 +81,13 @@ Dans ce scénario, la machine virtuelle ne fait pas partie d’un pool Load Bala
 
 Pour exécuter cette fonction, Azure utilise la traduction d’adresses réseau sources avec masquage de port ([traduction d’adresse de port](#pat)). Ce scénario est similaire au [scénario 2](#lb), sauf qu’il n’existe aucun contrôle de l’adresse IP utilisée. Il s’agit d’un scénario de secours quand les scénarios 1 et 2 n’existent pas. Nous vous déconseillons ce scénario si vous voulez exercer un contrôle sur l’adresse sortante. Si les connexions sortantes sont un élément essentiel de votre application, choisissez plutôt un autre scénario.
 
-Les ports SNAT sont préaffectés comme décrit dans la section [Présentation de la traduction d’adresses réseau sources et de la traduction d’adresse de port](#snat).  Le nombre de machines virtuelles qui partagent un groupe à haute disponibilité détermine quel niveau de pré-allocation s’applique.  Une machine virtuelle autonome sans un groupe à haute disponibilité est effectivement un pool de 1 dans le cadre de la détermination de la pré-allocation (ports SNAT 1024). Les ports SNAT sont une ressource limitée qui peut être épuisée. Il est important de comprendre comment ils sont [consommés](#pat). Pour savoir comment concevoir en fonction de cette consommation et d’en atténuer éventuellement les effets, consultez [Gestion de l’épuisement de la traduction d’adresses réseau sources](#snatexhaust).
+Les ports SNAT sont préaffectés comme décrit dans la section [Présentation de la traduction d’adresses réseau sources et de la traduction d’adresse de port](#snat).  Le nombre de machines virtuelles qui partagent un groupe à haute disponibilité détermine quel niveau de pré-allocation s’applique.  Une machine virtuelle autonome sans un groupe à haute disponibilité est effectivement un pool de 1 dans le cadre de la détermination de la pré-allocation (ports SNAT 1024). Les ports SNAT sont une ressource limitée qui peut être épuisée. Il est important de comprendre comment ils sont [consommés](#pat). Pour savoir comment concevoir en fonction de cette consommation et d’en atténuer éventuellement les effets, consultez [Gestion de l’épuisement de la traduction d’adresses réseau sources](../load-balancer/troubleshoot-outbound-connection.md#snatexhaust).
 
 ### <a name="multiple-combined-scenarios"></a><a name="combinations"></a>Plusieurs scénarios combinés
 
 Vous pouvez combiner les scénarios décrits dans les sections précédentes pour obtenir un résultat particulier. En présence de plusieurs scénarios, un ordre de priorité s’applique : le [scénario 1](#ilpip) est prioritaire sur les [scénarios 2](#lb) et [3](#defaultsnat). Le [scénario 2](#lb) remplace le [scénario 3](#defaultsnat).
 
-Un exemple est un déploiement Azure Resource Manager où l’application dépend fortement des connexions sortantes à un nombre limité de destinations, mais reçoit également des flux entrants sur un serveur frontal d’équilibreur de charge. Dans ce cas, vous pouvez combiner les scénarios 1 et 2 pour alléger la charge. Pour d’autres modèles, consultez [Gestion de l’épuisement de la traduction d’adresses réseau sources](#snatexhaust).
+Un exemple est un déploiement Azure Resource Manager où l’application dépend fortement des connexions sortantes à un nombre limité de destinations, mais reçoit également des flux entrants sur un serveur frontal d’équilibreur de charge. Dans ce cas, vous pouvez combiner les scénarios 1 et 2 pour alléger la charge. Pour d’autres modèles, consultez [Gestion de l’épuisement de la traduction d’adresses réseau sources](../load-balancer/troubleshoot-outbound-connection.md#snatexhaust).
 
 ### <a name="multiple-frontends-for-outbound-flows"></a><a name="multife"></a> Plusieurs serveurs frontaux pour les flux sortants
 
@@ -139,11 +139,11 @@ Une fois qu’un port a été libéré, le port peut être réutilisé en foncti
  
 #### <a name="exhaustion"></a>Épuisement
 
-En cas d’épuisement des ressources de port SNAT, les flux sortants échouent tant que les flux existants ne libèrent pas des ports SNAT. L’équilibreur de charge récupère les ports de traduction d’adresses réseau sources lorsque le flux se ferme, et utilise un [délai d’inactivité de 4 minutes](#idletimeout) pour récupérer les ports de traduction d’adresses réseau sources des flux inactifs.
+En cas d’épuisement des ressources de port SNAT, les flux sortants échouent tant que les flux existants ne libèrent pas des ports SNAT. L’équilibreur de charge récupère les ports de traduction d’adresses réseau sources lorsque le flux se ferme, et utilise un [délai d’inactivité de 4 minutes](../load-balancer/troubleshoot-outbound-connection.md#idletimeout) pour récupérer les ports de traduction d’adresses réseau sources des flux inactifs.
 
 Les Ports SNAT UDP s’épuisent généralement beaucoup plus rapidement que les ports SNAT TCP, car l’algorithme utilisé n’est pas le même. Vous devez concevoir et adapter les tests en tenant compte de cette différence.
 
-Pour découvrir des modèles permettant d’atténuer les conditions qui aboutissent généralement à un épuisement des ports SNAT, consultez la section [Gestion de l’épuisement de la traduction d’adresses réseau sources](#snatexhaust).
+Pour découvrir des modèles permettant d’atténuer les conditions qui aboutissent généralement à un épuisement des ports SNAT, consultez la section [Gestion de l’épuisement de la traduction d’adresses réseau sources](../load-balancer/troubleshoot-outbound-connection.md#snatexhaust).
 
 ### <a name="ephemeral-port-preallocation-for-port-masquerading-snat-pat"></a><a name="preallocatedports"></a>Préaffectation de port éphémère pour la traduction d’adresses réseau sources (traduction d’adresse de port) pour le masquage de port
 
@@ -154,7 +154,7 @@ Un nombre identique de ports SNAT est préalloué pour UDP et TCP respectivement
 >[!IMPORTANT]
 >La programmation SKU SNAT standard s’effectue par protocole de transport IP et est dérivée de la règle d’équilibrage de charge.  Si seulement une règle d’équilibrage de charge TCP existe, SNAT est disponible exclusivement pour TCP. Si vous posséder uniquement une règle d’équilibrage de charge TCP et avez besoin d’une instance SNAT sortante pour UDP, créez une règle d’équilibrage de charge UDP du même pool frontal vers le même pool principal.  Cette opération déclenchera la programmation SNAT pour UDP.  Aucune règle de travail ou sonde d’intégrité ne sont requises.  La programmation SKU SNAT de base programme toujours SNAT pour les 2 protocoles de transport IP, indépendamment du protocole de transport spécifié dans la règle d’équilibrage de charge.
 
-Azure préaffecte des ports de traduction d’adresses réseau sources à la configuration IP de la carte d’interface réseau de chaque machine virtuelle. Quand une configuration IP est ajoutée au pool, les ports de traduction d’adresses réseau sources sont préaffectés pour cette configuration IP en fonction de la taille du pool principal. Au moment où les flux sortants sont créés, la [traduction d’adresse de port](#pat) consomme (jusqu’à la limite préaffectée) et libère dynamiquement ces ports quand le flux se ferme ou en cas de [délais d’inactivité](#idletimeout).
+Azure préaffecte des ports de traduction d’adresses réseau sources à la configuration IP de la carte d’interface réseau de chaque machine virtuelle. Quand une configuration IP est ajoutée au pool, les ports de traduction d’adresses réseau sources sont préaffectés pour cette configuration IP en fonction de la taille du pool principal. Au moment où les flux sortants sont créés, la [traduction d’adresse de port](#pat) consomme (jusqu’à la limite préaffectée) et libère dynamiquement ces ports quand le flux se ferme ou en cas de [délais d’inactivité](../load-balancer/troubleshoot-outbound-connection.md#idletimeout).
 
 Le tableau suivant présente les préaffectations de ports SNAT pour les différents niveaux de tailles de pool backend :
 
@@ -170,7 +170,7 @@ Le tableau suivant présente les préaffectations de ports SNAT pour les différ
 >[!NOTE]
 > Lorsque vous utilisez l’équilibreur de charge standard avec [plusieurs serveurs frontaux](load-balancer-multivip-overview.md), chaque adresse IP de serveur frontal multiplie le nombre de ports SNAT disponibles dans la table précédente. Par exemple, un pool de back-ends de 50 machines virtuelles avec deux règles d’équilibrage de charge, chacun avec une adresse IP front-end séparée, utilise 2048 ports SNAT (2 x 1024) par règle. Affichez les détails pour [plusieurs serveurs frontaux](#multife).
 
-Ne perdez pas de vue que le nombre de ports SNAT disponibles ne se traduit pas directement en nombre de flux. Un port de traduction d’adresses réseau sources peut être réutilisé pour plusieurs destinations uniques. Les ports ne sont consommés que si cela permet de rendre les flux uniques. Pour obtenir des conseils concernant la conception et l’atténuation, consultez la section qui explique [comment gérer cette ressource épuisable](#snatexhaust), ainsi que la section qui décrit la [traduction d’adresse de port](#pat).
+Ne perdez pas de vue que le nombre de ports SNAT disponibles ne se traduit pas directement en nombre de flux. Un port de traduction d’adresses réseau sources peut être réutilisé pour plusieurs destinations uniques. Les ports ne sont consommés que si cela permet de rendre les flux uniques. Pour obtenir des conseils concernant la conception et l’atténuation, consultez la section qui explique [comment gérer cette ressource épuisable](../load-balancer/troubleshoot-outbound-connection.md#snatexhaust), ainsi que la section qui décrit la [traduction d’adresse de port](#pat).
 
 La modification de la taille de votre pool backend peut affecter certains de vos flux établis. Si la taille du pool backend augmente et passe au niveau suivant, la moitié des ports SNAT préaffectés sont récupérés pendant la transition vers le niveau de pool backend supérieur suivant. Les flux associés à un port SNAT récupéré expirent et doivent être rétablis. En cas de tentative de lancement d’un nouveau flux, celui-ci réussit immédiatement du moment que des ports préaffectés sont disponibles.
 
@@ -187,62 +187,6 @@ Les allocations de ports SNAT sont spécifiques au protocole de transport IP (TC
 ### <a name="udp-snat-port-release"></a>Mis à disposition du port UDP SNAT
 
 - Si le délai d’inactivité est atteint, le port est mis à disposition.
-
-## <a name="problem-solving"></a><a name="problemsolving"></a> Résolution des problèmes 
-
-Cette section vise à pallier l’insuffisance de SNAT et d’autres problèmes pouvant se produire avec des connexions sortantes dans Azure.
-
-### <a name="managing-snat-pat-port-exhaustion"></a><a name="snatexhaust"></a>Gestion de l’insuffisance de ports (PAT) SNAT
-Les [ports éphémères](#preallocatedports) utilisés pour [PAT](#pat) sont une ressource épuisable, comme cela est décrit dans [Machine virtuelle autonome sans adresse IP publique](#defaultsnat) et [Machine virtuelle à charge équilibrée sans adresse IP publique](#lb). Vous pouvez surveiller l’utilisation des ports éphémères et les comparer à votre répartition actuelle pour déterminer le risque ou confirmer l’insuffisance de ports SNAT à l’aide de [ce guide](https://docs.microsoft.com/azure/load-balancer/load-balancer-standard-diagnostics#how-do-i-check-my-snat-port-usage-and-allocation).
-
-Si vous savez que vous lancez de nombreuses connexions TCP ou UDP sortantes vers les mêmes adresse IP et port de destination et constatez que des connexions sortantes échouent, ou si l’équipe de support vous signale que les ports SNAT ([ports éphémères](#preallocatedports) préaffectés) utilisés par la [PAT](#pat) arrivent à épuisement, plusieurs options d’atténuation générales s’offrent à vous. Passez en revue ces options et choisissez l’option disponible la plus appropriée pour votre scénario. Plusieurs options peuvent être adaptées à votre scénario.
-
-Si vous avez des difficultés à comprendre le comportement des connexions sortantes, vous pouvez utiliser les statistiques de pile IP (netstat). Il peut aussi être utile d’observer les comportements de connexion à travers les captures de paquets. Vous pouvez effectuer ces captures de paquets dans le SE invité de votre instance, ou utiliser le [Network Watcher pour la capture des paquets](../network-watcher/network-watcher-packet-capture-manage-portal.md). 
-
-#### <a name="manually-allocate-snat-ports-to-maximize-snat-ports-per-vm"></a><a name ="manualsnat"></a>Allouer manuellement les ports SNAT pour augmenter le nombre de ports SNAT par machine virtuelle
-Comme défini dans [ports préaffectés](#preallocatedports), l’équilibreur de charge alloue automatiquement les ports en fonction du nombre de machines virtuelles dans le serveur principal. Par défaut, cette opération est effectuée de manière restrictive pour garantir l’extensibilité. Si vous connaissez le nombre maximal de machines virtuelles que vous aurez dans le serveur principal, vous pouvez allouer manuellement les ports SNAT en le configurant dans chaque règle de trafic sortant. Par exemple, si vous savez qu’il y a un maximum de 10 machines virtuelles, vous pouvez allouer 6 400 ports SNAT par machine virtuelle plutôt que les 1 024 par défaut. 
-
-#### <a name="modify-the-application-to-reuse-connections"></a><a name="connectionreuse"></a>Modifier l’application pour réutiliser des connexions 
-Vous pouvez réduire la demande pour les ports éphémères utilisés pour la traduction d’adresses réseau sources en réutilisant des connexions dans votre application. Cette méthode s’applique tout particulièrement aux protocoles comme HTTP/1.1, où la réutilisation des connexions est la règle par défaut. D’autres protocoles qui utilisent HTTP comme transport (par exemple REST) peuvent aussi en bénéficier. 
-
-Il est toujours préférable de réutiliser les connexions que de recourir à des connexions TCP individuelles et atomiques pour chaque demande. La réutilisation produit des transactions TCP plus performantes et très efficaces.
-
-#### <a name="modify-the-application-to-use-connection-pooling"></a><a name="connection pooling"></a>Modifier l’application pour utiliser un regroupement de connexions
-Vous pouvez utiliser un schéma de regroupement de connexions dans votre application, dans lequel les demandes sont distribuées en interne sur un ensemble fixe de connexions (chacune étant réutilisée dans la mesure du possible). Ce schéma limite le nombre de ports éphémères utilisés et crée un environnement plus prévisible. Il peut aussi accroître le débit des demandes en autorisant plusieurs opérations simultanées quand une seule connexion se bloque sur la réponse d’une opération.  
-
-Il est possible que le regroupement de connexions existe déjà dans le framework que vous utilisez pour développer votre application ou dans les paramètres de configuration de votre application. Vous pouvez associer le regroupement de connexions à la réutilisation des connexions. Vos diverses demandes consomment alors un nombre de ports fixe et prévisible vers les mêmes adresse IP et port de destination. Les demandes profitent aussi d’une utilisation efficace des transactions TCP, ce qui réduit la latence et l’utilisation de ressources. Cela peut aussi être bénéfique pour les transactions UDP, car la gestion du nombre de flux UDP peut à son tour éviter des conditions d’épuisement et gérer l’utilisation des ports SNAT.
-
-#### <a name="modify-the-application-to-use-less-aggressive-retry-logic"></a><a name="retry logic"></a>Modifier l’application pour utiliser une logique de nouvelle tentative moins agressive
-Quand les [ports éphémères préaffectés](#preallocatedports) utilisés pour la [traduction d’adresse de port](#pat) sont épuisés, ou quand des échecs d’application se produisent, les nouvelles tentatives de connexion agressives ou par force brute sans logique de réduction ou d’interruption entraînent la survenance ou la persistance de l’épuisement. Vous pouvez réduire la demande de ports éphémères en utilisant une logique de nouvelle tentative moins agressive. 
-
-Les ports éphémères ont un délai d’inactivité de 4 minutes (non ajustable). Si les nouvelles tentatives sont trop agressives, le problème d’épuisement ne peut pas se résoudre de lui-même. Par conséquent, il est essentiel de pouvoir évaluer comment et selon quelle fréquence votre application relance les transactions.
-
-#### <a name="assign-a-public-ip-to-each-vm"></a><a name="assignilpip"></a>Assigner une adresse IP publique à chaque machine virtuelle
-L’attribution d’une adresse IP publique modifie votre scénario sur [Adresse IP publique sur une machine virtuelle](#ilpip). Les ports éphémères de l’adresse IP publique qui sont utilisés pour chaque machine virtuelle sont tous accessibles à la machine virtuelle. (Contrairement aux scénarios où les ports éphémères d’une adresse IP publique sont partagés avec toutes les machines virtuelles associés au pool backend correspondant.) Des compromis sont à prendre en compte, notamment le coût supplémentaire des adresses IP publiques et l’impact possible de la mise sur liste verte d’un nombre important d’adresses IP individuelles.
-
->[!NOTE] 
->Cette option n’est pas disponible pour les rôles de travail web.
-
-#### <a name="use-multiple-frontends"></a><a name="multifesnat"></a>Utiliser plusieurs serveurs frontaux
-
-Lorsque vous utilisez l’équilibreur de charge standard public, vous assignez [plusieurs adresses IP de serveur frontal pour les connexions sortantes](#multife) et [multipliez le nombre de ports SNAT disponibles](#preallocatedports).  Créez une configuration IP de serveur frontal, une règle et un pool principal pour déclencher la programmation du SNAT sur l’adresse IP publique du serveur frontal.  La règle n’a pas besoin de fonctionner et une sonde d’intégrité n’a pas besoin d’aboutir.  Si vous utilisez plusieurs frontends pour le trafic entrant également (plutôt que simplement pour le trafic sortant), vous devez correctement utiliser les sondes d’intégrité personnalisées pour garantir la fiabilité.
-
->[!NOTE]
->Dans la plupart des cas, l’insuffisance des ports SNAT résulte d’une mauvaise conception.  Assurez-vous que vous comprenez la raison de l’insuffisance de ports avant d’utiliser plus de serveurs frontaux pour ajouter des ports SNAT.  Vous pouvez masquer un problème qui peut provoquer une défaillance ultérieure.
-
-#### <a name="scale-out"></a><a name="scaleout"></a>Scale-out
-
-Des [ports préalloués](#preallocatedports) sont attribués en fonction de la taille du pool backend et regroupés en niveaux afin de réduire les interruptions dans les situations où certains des ports doivent être réalloués pour prendre en charge le prochain niveau immédiatement supérieur de taille de pool backend.  Vous pouvez avoir l’option d’augmenter l’intensité d’utilisation des ports SNAT pour un frontend donné en mettant à l’échelle votre pool backend vers la taille maximale pour un niveau donné.  Pour ce faire, il est nécessaire que l’application effectue un scale-out de manière efficace.
-
-Par exemple, deux machines virtuelles du pool principal auraient 1024 ports SNAT disponibles par configuration IP, pour un total de 2 048 ports SNAT pris en charge pour le déploiement.  Si le déploiement devait être augmenté de 50 machines virtuelles, même si le nombre de ports préalloués demeure constant par machine virtuelle, un total de 51 200 (50 x 1 024) ports SNAT peut être utilisé par le déploiement.  Si vous souhaitez effectuer un scale-out de votre déploiement, vérifiez le nombre de [ports préalloués](#preallocatedports) par niveau pour vous assurer que vous configurez votre scale-out sur la valeur maximale pour le niveau respectif.  Dans l’exemple précédent, si vous choisissez d’effectuer un scale-out à 51 instances et non à 50, vous atteignez le niveau suivant et obtenez moins de ports SNAT par machine virtuelle et au total.
-
-Si vous effectuez un scale-out vers le niveau immédiatement supérieur de taille de pool principal et que l’opération nécessite une réallocation des ports alloués, certaines de vos connexions peuvent expirer.  Si vous utilisez uniquement certains de vos ports SNAT, une telle montée en charge n’affectera pas vos connexions.  La moitié des ports existants seront réaffectés à chaque fois que vous passerez au niveau de pool principal suivant.  Si vous ne voulez pas que cela se produise, vous devez configurer votre déploiement en fonction de la taille de niveau considérée.  Sinon, assurez-vous que votre application peut détecter et effectuer autant de tentatives que nécessaire.  Les conservations de connexion active TCP peuvent contribuer à détecter un dysfonctionnement des ports SNAT suite à une réallocation.
-
-### <a name="use-keepalives-to-reset-the-outbound-idle-timeout"></a><a name="idletimeout"></a>Utiliser des conservations de connexion active pour réinitialiser le délai d’inactivité en sortie
-
-Les connexions sortantes ont un délai d’inactivité de 4 minutes. Vous pouvez ajuster ce délai d’expiration à l’aide de [règles de trafic sortant](../load-balancer/load-balancer-outbound-rules-overview.md#idletimeout). Vous pouvez également utiliser un transport (par exemple, des conservations de connexion active TCP) ou des conservations de connexion active de couche Application pour actualiser un flux inactif et réinitialiser ce délai d’inactivité, si nécessaire.  
-
-Lorsque vous utilisez des conservations de connexion active TCP, il suffit de les activer sur un côté de la connexion. Par exemple, il suffit de les activer sur le côté serveur uniquement pour réinitialiser la minuterie d’inactivité ; il est inutile que les 2 côtés lancent des conservations de connexion active.  Des concepts similaires existent pour la couche d’application, notamment les configurations client-serveur de base de données.  Examinez le côté serveur à la recherche d’options de conservations de connexion active spécifiques aux applications.
 
 ## <a name="discovering-the-public-ip-that-a-vm-uses"></a><a name="discoveroutbound"></a>Découverte de l’adresse IP publique utilisée par une machine virtuelle
 Il existe de nombreuses manières de déterminer l’adresse IP source publique d’une connexion sortante. OpenDNS fournit un service qui peut vous indiquer l’adresse IP publique votre machine virtuelle. 
@@ -262,7 +206,194 @@ Si un groupe de sécurité réseau bloque les demandes d’analyse d’intégrit
 
 Il n’est pas nécessaire de disposer d’une connectivité sortante via les scénarios ci-dessus pour vous connecter au Stockage Azure dans la même région que la machine virtuelle. Si vous n’en souhaitez pas, utilisez les groupes de sécurité réseau (NSG), comme expliqué ci-dessus. Pour la connectivité vers le Stockage Azure dans d’autres régions, une connectivité sortante est requise. Lorsque vous vous connectez au Stockage Azure à partir d’une machine virtuelle dans la même région, l’adresse IP source dans les journaux de diagnostic de stockage est une adresse de fournisseur interne, et non l’adresse IP publique de votre machine virtuelle. Si vous souhaitez restreindre l’accès à votre compte de stockage aux machines virtuelles dans un ou plusieurs sous-réseaux du réseau virtuel dans la même région, utilisez des [points de terminaison de service du réseau virtuel](../virtual-network/virtual-network-service-endpoints-overview.md) et non votre adresse IP publique lors de la configuration de votre pare-feu de compte de stockage. Une fois les points de terminaison de service configurés, l’adresse IP privée de votre réseau virtuel apparaît dans vos journaux de diagnostic de stockage, mais pas l’adresse interne du fournisseur.
 
+## <a name="azure-load-balancer-outbound-rules"></a><a name="outboundrules"></a>Règles de trafic sortant dans Azure Load Balancer
+
+Azure Load Balancer fournit la connectivité sortante à partir d’un réseau virtuel en plus de la connectivité entrante.  Les règles de trafic sortant facilitent la configuration de la traduction des adresses réseau sortantes publiques dans [Standard Load Balancer](load-balancer-standard-overview.md).  Vous pouvez contrôler entièrement la connectivité sortante de manière déclarative pour la mettre à l’échelle et l’adapter en fonction de vos besoins spécifiques.
+
+![Règles de trafic sortant dans Load Balancer](media/load-balancer-outbound-rules-overview/load-balancer-outbound-rules.png)
+
+Avec des règles de trafic sortant, vous pouvez utiliser Load Balancer pour : 
+- définir la NAT de trafic sortant à partir de zéro ;
+- mettre à l’échelle et adapter le comportement de la NAT de trafic sortant existante. 
+
+Les règles de trafic sortant vous permettent de déterminer :
+- quelles machines virtuelles doivent être traduites vers quelles adresses IP publiques, 
+- le mode d’allocation des [ports SNAT sortants](load-balancer-outbound-connections.md#snat),
+- les protocoles qui fournissent la traduction sortante,
+- la durée à utiliser comme délai d’inactivité des connexions sortantes (de 4 à 120 minutes),
+- la réinitialisation TCP au terme du délai d’inactivité.
+
+Les règles de trafic sortant étendent le [scénario 2](load-balancer-outbound-connections.md#lb) décrit dans l’article sur les [connexions sortantes](load-balancer-outbound-connections.md), mais la priorité du scénario reste la même.
+
+### <a name="outbound-rule"></a>Règle de trafic sortant
+
+Comme toutes les règles dans Load Balancer, les règles de trafic sortant suivent la syntaxe habituelle des règles d’équilibrage de charge et des règles de NAT de trafic entrant :
+
+**frontend** + **parameters** + **backend pool**
+
+Une règle de trafic sortant configure la NAT de trafic sortant pour que _toutes les machines virtuelles identifiées par le pool backend_ soient traduites sur le _frontend_.  Les _paramètres_ permettent de contrôler avec plus de précision l’algorithme de la NAT de trafic sortant.
+
+Dans l’API version « 2018-07-01 », une définition de règle de trafic sortant a la structure suivante :
+
+```json
+      "outboundRules": [
+        {
+          "frontendIPConfigurations": [ list_of_frontend_ip_configuations ],
+          "allocatedOutboundPorts": number_of_SNAT_ports,
+          "idleTimeoutInMinutes": 4 through 66,
+          "enableTcpReset": true | false,
+          "protocol": "Tcp" | "Udp" | "All",
+          "backendAddressPool": backend_pool_reference,
+        }
+      ]
+```
+
+>[!NOTE]
+>La configuration de la NAT de trafic sortant effective est composée à partir de l’ensemble des règles de trafic sortant et règles d’équilibrage de charge. Les règles de trafic sortant sont incrémentielles pour les règles d’équilibrage de charge. Pour savoir comment gérer la NAT de trafic sortant effective quand plusieurs règles s’appliquent à une machine virtuelle, consultez [Désactiver la NAT de trafic sortant pour une règle d’équilibrage de charge](#disablesnat). Vous devez [désactiver la SNAT de trafic sortant](#disablesnat) quand vous définissez une règle de trafic sortant qui utilise la même adresse IP publique qu’une règle d’équilibrage de charge.
+
+#### <a name="scale-outbound-nat-with-multiple-ip-addresses"></a><a name="scale"></a> Mettre à l’échelle la NAT de trafic sortant avec plusieurs adresses IP
+
+Une règle de trafic sortant peut être utilisée avec une seule adresse IP publique, mais les règles de trafic sortant facilitent la configuration de la mise à l’échelle de la NAT de trafic sortant. Vous pouvez utiliser plusieurs adresses IP pour vos scénarios à grande échelle et utiliser des règles de trafic sortant afin de limiter les risques [d’épuisement de ports SNAT](troubleshoot-outbound-connection.md#snatexhaust).  
+
+Chaque adresse IP supplémentaire fournie par un frontend met à disposition 64 000 ports éphémères que Load Balancer peut utiliser en tant que ports SNAT. Alors que les règles d’équilibrage de charge ou les règles NAT de trafic entrant ont un seul frontend, la règle de trafic sortant étend la notion de frontend et permet l’utilisation de plusieurs frontends par règle.  Avec plusieurs frontends par règle, le nombre de ports SNAT disponibles est multiplié avec chaque adresse IP publique, ce qui rend possible la prise en charge de scénarios à grande échelle.
+
+De plus, vous pouvez utiliser un [préfixe d’adresse IP publique](https://aka.ms/lbpublicipprefix) directement avec une règle de trafic sortant.  L’utilisation d’un préfixe d’adresse IP publique simplifie la mise à l’échelle et la mise sur liste verte des flux provenant de votre déploiement Azure. Vous pouvez configurer une configuration IP frontend au sein de la ressource Load Balancer pour référencer directement un préfixe d’adresse IP publique.  De cette manière, Load Balancer conserve un contrôle exclusif sur le préfixe d’adresse IP publique, et la règle de trafic sortant utilise automatiquement toutes les adresses IP publiques contenues dans le préfixe d’adresse IP publique pour les connexions sortantes.  Chacune des adresses IP dans la plage du préfixe d’adresse IP publique fournit 64 000 ports éphémères que Load Balancer peut utiliser en tant que ports SNAT.   
+
+Avec cette option, vous ne pouvez pas créer des ressources d’adresse IP publique de manière individuelle à partir du préfixe d’adresse IP publique, car la règle de trafic sortant doit avoir un contrôle total sur le préfixe d’adresse IP publique.  Si vous souhaitez un contrôle plus précis, créez une ressource d’adresse IP publique individuelle à partir du préfixe d’adresse IP publique et assignez plusieurs adresses IP publiques individuellement au frontend d’une règle de trafic sortant.
+
+#### <a name="tune-snat-port-allocation"></a><a name="snatports"></a> Paramétrer l’allocation de ports SNAT
+
+Vous pouvez utiliser des règles de trafic sortant pour paramétrer [l’allocation de ports SNAT automatique en fonction de la taille du pool backend](load-balancer-outbound-connections.md#preallocatedports) et pour changer le nombre de ports SNAT alloués automatiquement.
+
+Utilisez le paramètre suivant pour allouer 10 000 ports SNAT par machine virtuelle (configuration IP de carte réseau).
+ 
+
+          "allocatedOutboundPorts": 10000
+
+Chaque adresse IP publique de tous les frontends d’une règle de trafic sortant fournit jusqu’à 64 000 ports éphémères en tant que ports SNAT.  Load Balancer alloue des ports SNAT par multiples de huit. Si vous indiquez une valeur non divisible par huit, l’opération de configuration est rejetée.  Si vous essayez d’allouer plus de ports SNAT qu’il n’y a de ports disponibles par rapport au nombre d’adresses IP publiques, l’opération de configuration est rejetée.  Par exemple, si vous allouez 10 000 ports par machine virtuelle et que sept machines virtuelles d’un pool principal partagent la même adresse IP publique, la configuration est rejetée (7 x 10 000 ports SNAT > 64 000 ports SNAT).  Dans ce scénario, vous devrez donc ajouter des adresses IP publiques supplémentaires sur le frontend de la règle de trafic sortant.
+
+Vous pouvez revenir à une [allocation de ports SNAT automatique en fonction de la taille du pool backend](load-balancer-outbound-connections.md#preallocatedports) en spécifiant 0 comme nombre de ports. Dans ce cas, les 50 premières instances de machine virtuelle obtiennent 1 024 ports, les instances de machine virtuelle 51 à 100 obtiennent 512 ports, et ainsi de suite selon la table.
+
+#### <a name="control-outbound-flow-idle-timeout"></a><a name="idletimeout"></a> Contrôler le délai d’inactivité des flux sortants
+
+Les règles de trafic sortant ont un paramètre de configuration qui permet de contrôler le délai d’inactivité des flux sortants et de l’ajuster en fonction des besoins de votre application.  Le délai d’inactivité des flux sortants est de 4 minutes par défaut.  Le paramètre peut être défini sur une valeur comprise entre 4 et 120, selon le nombre de minutes du délai d’inactivité nécessaire pour les flux auxquels cette règle particulière s’applique.
+
+Pour définir le délai d’inactivité des flux sortants à une (1) heure, utilisez le paramètre suivant :
+
+          "idleTimeoutInMinutes": 60
+
+#### <a name="enable-tcp-reset-on-idle-timeout"></a><a name="tcprst"></a> <a name="tcpreset"></a> Activer la réinitialisation TCP au terme du délai d’inactivité
+
+Le comportement par défaut de Load Balancer consiste à supprimer silencieusement des flux quand le délai d’inactivité d’un flux sortant est atteint.  Avec le paramètre enableTCPReset, vous pouvez définir un comportement plus prévisible de l’application et contrôler s’il faut déclencher une réinitialisation TCP (TCP RST) bidirectionnelle quand le délai d’inactivité d’un flux sortant est atteint. 
+
+Pour activer la réinitialisation TCP sur une règle de trafic sortant, utilisez le paramètre suivant :
+
+           "enableTcpReset": true
+
+Pour plus d’informations, y compris sur la disponibilité dans les régions, consultez [Réinitialisation TCP au terme du délai d’inactivité](https://aka.ms/lbtcpreset).
+
+#### <a name="support-both-tcp-and-udp-transport-protocols-with-a-single-rule"></a><a name="proto"></a> Prendre en charge les protocoles de transport TCP et UDP avec une seule règle
+
+Vous choisirez probablement l’option "All" pour le protocole de transport de la règle de trafic sortant, mais vous pouvez également appliquer la règle de trafic sortant à un protocole de transport spécifique, par choix ou par nécessité.
+
+Pour définir le protocole sur TCP ou UDP, utilisez le paramètre suivant :
+
+          "protocol": "All"
+
+#### <a name="disable-outbound-nat-for-a-load-balancing-rule"></a><a name="disablesnat"></a> Désactiver la NAT de trafic sortant pour une règle d’équilibrage de charge
+
+Comme indiqué précédemment, les règles d’équilibrage de charge fournissent une programmation automatique de la NAT de trafic sortant. Toutefois, dans certains scénarios, il est préférable, ou obligatoire, de désactiver la programmation automatique de la NAT de trafic sortant par la règle d’équilibrage de charge pour que vous puissiez contrôler ou adapter vous-même le comportement.  Dans certains scénarios de règles de trafic sortant, il est important de désactiver la programmation automatique de la NAT de trafic sortant.
+
+Vous pouvez utiliser ce paramètre de deux manières :
+- Suppression facultative de l’utilisation de l’adresse IP entrante pour la NAT de trafic sortant.  Les règles de trafic sortant sont incrémentielles pour les règles d’équilibrage de charge et, avec ce paramètre défini, la règle de trafic sortant est contrôlée.
+  
+- Paramétrage de la NAT de trafic sortant d’une adresse IP utilisée à la fois pour le trafic entrant et le trafic sortant.  La programmation automatique de la NAT de trafic sortant doit être désactivée pour permettre le contrôle par une règle de trafic sortant.  Par exemple, ce paramètre doit être défini sur true si vous souhaitez changer l’allocation de ports SNAT d’une adresse qui est également utilisée pour le trafic entrant.  Si vous essayez d’utiliser une règle de trafic sortant pour redéfinir les paramètres d’une adresse IP également utilisée pour le trafic entrant, mais que vous n’avez pas désactivé la programmation de la NAT de trafic sortant pour la règle d’équilibrage de charge, la configuration d’une règle de trafic sortant échoue.
+
+>[!IMPORTANT]
+> Votre machine virtuelle n’aura pas de connectivité sortante si vous définissez ce paramètre sur true et que vous n’avez pas créé de règle de trafic sortant (ou un [scénario d’adresse IP publique de niveau d’instance](load-balancer-outbound-connections.md#ilpip)) pour définir la connectivité sortante.  Certaines opérations de votre machine virtuelle ou application peuvent avoir besoin d’une connectivité sortante. Assurez-vous de bien comprendre toutes les dépendances de votre scénario, ainsi que les conséquences d’un tel changement.
+
+Pour désactiver la SNAT de trafic sortant sur la règle d’équilibrage de charge, définissez ce paramètre de configuration :
+
+```json
+      "loadBalancingRules": [
+        {
+          "disableOutboundSnat": true
+        }
+      ]
+```
+
+Le paramètre disableOutboundSNAT est défini sur false par défaut, ce qui signifie que la règle d’équilibrage de charge **fournit** une NAT de trafic sortant automatique comme image miroir de la configuration de la règle d’équilibrage de charge.  
+
+Si vous définissez disableOutboundSnat sur true pour la règle d’équilibrage de charge, celle-ci redonne le contrôle à la place de la programmation automatique de la NAT de trafic sortant.  En conséquence, la SNAT de trafic sortant est désactivée.
+
+#### <a name="reuse-existing-or-define-new-backend-pools"></a>Réutiliser des pools backend existants ou en définir de nouveaux
+
+Les règles de trafic sortant n’introduisent pas de nouveau concept pour la définition du groupe de machines virtuelles auquel la règle doit s’appliquer.  À la place, elles reprennent le concept de pool backend, qui est également utilisé pour les règles d’équilibrage de charge. Cela simplifie la configuration, car vous pouvez ainsi soit réutiliser une définition de pool backend existant, soit créer un pool backend spécifique pour une règle de trafic sortant.
+
+### <a name="scenarios"></a>Scénarios
+
+#### <a name="groom-outbound-connections-to-a-specific-set-of-public-ip-addresses"></a><a name="groom"></a> Grouper les connexions sortantes dans un ensemble spécifique d’adresses IP publiques
+
+Vous pouvez utiliser une règle de trafic sortant pour préparer les connexions sortantes de sorte qu’elles semblent provenir d’un ensemble spécifique d’adresses IP publiques. Cette pratique facilite les scénarios de mise sur liste verte.  Cette adresse IP publique source peut être la même que celle utilisée par une règle d’équilibrage de charge ou être un ensemble d’adresses IP publiques différent de celui utilisé par une règle d’équilibrage de charge.  
+
+1. Créer un [préfixe d’adresse IP publique](https://aka.ms/lbpublicipprefix) (ou plusieurs adresses IP publiques à partir du préfixe d’adresse IP publique)
+2. Créer un équilibreur de charge standard public
+3. Créer des frontends référençant le préfixe d’adresse IP publique (ou les adresses IP publiques) que vous souhaitez utiliser
+4. Réutiliser un pool backend existant ou créer un pool backend et placer les machines virtuelles dans un pool backend de l’équilibreur de charge public
+5. Configurer une règle de trafic sortant sur l’équilibreur de charge public pour programmer la NAT de trafic sortant sur ces machines virtuelles utilisant les frontends
+   
+Si vous ne souhaitez pas utiliser la règle d’équilibrage de charge pour le trafic sortant, vous devez [désactiver la SNAT de trafic sortant](#disablesnat) sur la règle d’équilibrage de charge.
+
+#### <a name="modify-snat-port-allocation"></a><a name="modifysnat"></a> Modifier l’allocation de ports SNAT
+
+Vous pouvez utiliser des règles de trafic sortant pour paramétrer [l’allocation de ports SNAT automatique en fonction de la taille du pool backend](load-balancer-outbound-connections.md#preallocatedports).
+
+Par exemple, si vous avez deux machines virtuelles qui partagent une seule adresse IP publique pour la NAT de trafic sortant, vous pouvez augmenter le nombre de ports SNAT alloués (1 024 ports par défaut) en cas d’épuisement des ports SNAT. Chaque adresse IP publique peut fournir jusqu’à 64 000 ports éphémères.  Si vous configurez une règle de trafic sortant avec une seule adresse IP publique frontend, vous pouvez distribuer un total de 64 000 ports SNAT sur les machines virtuelles du pool backend.  Pour deux machines virtuelles, un maximum de 32 000 ports SNAT peut être alloué avec une règle de trafic sortant (2 x 32 000 = 64 000).
+
+Consultez l’article [Connexions sortantes](load-balancer-outbound-connections.md) et la section sur l’allocation et l’utilisation des ports [SNAT](load-balancer-outbound-connections.md#snat).
+
+#### <a name="enable-outbound-only"></a><a name="outboundonly"></a> Activer pour le trafic sortant uniquement
+
+Vous pouvez utiliser un équilibreur de charge standard public afin de fournir la NAT de trafic sortant dans un groupe de machines virtuelles. Dans ce scénario, vous pouvez utiliser une règle de trafic sortant uniquement, sans avoir besoin d’autres règles.
+
+##### <a name="outbound-nat-for-vms-only-no-inbound"></a>NAT de trafic sortant pour les machines virtuelles uniquement (pas en entrée)
+
+Définissez un équilibreur de charge standard public, placez les machines virtuelles dans le pool backend, et configurez une règle de trafic sortant pour programmer la NAT de trafic sortant et préparer les connexions sortantes de sorte qu’elles semblent provenir d’une adresse IP publique spécifique. Vous pouvez également utiliser un préfixe d’adresse IP publique pour simplifier la mise sur liste verte des connexions sortantes sources.
+
+1. Créez un équilibreur de charge standard public.
+2. Créez un pool backend et placez les machines virtuelles dans un pool backend de l’équilibreur de charge public.
+3. Configurez une règle de trafic sortant sur l’équilibreur de charge public pour programmer la NAT de trafic sortant sur ces machines virtuelles.
+
+##### <a name="outbound-nat-for-internal-standard-load-balancer-scenarios"></a>NAT de trafic sortant dans les scénarios avec un équilibreur de charge standard interne
+
+Lorsque vous utilisez un équilibreur de charge standard interne, la NAT de trafic sortant n’est pas disponible tant que la connectivité sortante n’a pas été explicitement déclarée. Vous pouvez définir la connectivité sortante à l’aide d’une règle de trafic sortant pour fournir la connectivité sortante requise par les machines virtuelles placées derrière un équilibreur de charge standard interne comme suit :
+
+1. Créez un équilibreur de charge standard public.
+2. Créez un pool backend et placez les machines virtuelles dans un pool backend de l’équilibreur de charge public en plus de l’équilibreur de charge interne.
+3. Configurez une règle de trafic sortant sur l’équilibreur de charge public pour programmer la NAT de trafic sortant sur ces machines virtuelles.
+
+##### <a name="enable-both-tcp--udp-protocols-for-outbound-nat-with-a-public-standard-load-balancer"></a>Activer les protocoles TCP et UDP pour la NAT de trafic sortant avec un équilibreur de charge standard public
+
+- Quand vous utilisez un équilibreur de charge standard public, la programmation automatique de la NAT de trafic sortant utilise le protocole de transport de la règle d’équilibrage de charge.  
+
+   1. Désactivez la NAT de trafic sortant sur la règle d’équilibrage de charge.
+   2. Configurez une règle de trafic sortant sur le même équilibreur de charge.
+   3. Réutilisez le pool backend de vos machines virtuelles.
+   4. Spécifiez "protocol": "All" dans la définition de la règle de trafic sortant.
+
+- Si vous utilisez uniquement des règles de NAT de trafic entrant, aucune NAT de trafic sortant n’est fournie.
+
+   1. Placez les machines virtuelles dans un pool backend.
+   2. Définissez une ou plusieurs configurations IP frontend avec une ou plusieurs adresses IP publiques ou avec un préfixe d’adresse IP publique.
+   3. Configurez une règle de trafic sortant sur le même équilibreur de charge.
+   4. Spécifiez "protocol": "All" dans la définition de la règle de trafic sortant
+
+
 ## <a name="limitations"></a>Limites
+- Le nombre maximal de ports éphémères utilisables par adresse IP frontend est de 64 000.
+- Le délai d’inactivité défini pour un flux sortant doit être compris entre 4 et 120 minutes (240 à 7 200 secondes).
+- L’équilibreur de charge ne prend pas en charge ICMP pour la NAT de trafic sortant.
+- Les règles de trafic sortant peuvent uniquement être appliquées à la configuration d’adresse IP principale d’une carte réseau.  La présence de plusieurs cartes réseau est prise en charge.
 - Les rôles de travail web sans réseau virtuel et d’autres services de plateforme Microsoft peuvent être accessibles alors que seul un équilibreur de charge Standard interne est utilisé, en raison d’un effet secondaire du fonctionnement des services pré-réseau virtuel et des autres services de plateforme. Ne comptez pas sur cet effet secondaire, car le service lui-même ou la plateforme sous-jacente peuvent changer sans préavis. Vous devez toujours supposer que vous devez créer explicitement des connectivités sortantes si cela est souhaitable lors de l’utilisation d’un équilibreur de charge interne standard uniquement. Le scénario [SNAT par défaut](#defaultsnat) 3 décrit dans cet article n’est pas disponible.
 
 ## <a name="next-steps"></a>Étapes suivantes

@@ -5,12 +5,12 @@ author: sideeksh
 manager: rochakm
 ms.date: 04/29/2019
 ms.topic: conceptual
-ms.openlocfilehash: 1ac42a5451da0347779475e96ce557633a02c59f
-ms.sourcegitcommit: 0b80a5802343ea769a91f91a8cdbdf1b67a932d3
+ms.openlocfilehash: b4b92b907d9cd6d469163bc7bf457da42e9b673c
+ms.sourcegitcommit: d118ad4fb2b66c759b70d4d8a18e6368760da3ad
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/25/2020
-ms.locfileid: "83834575"
+ms.lasthandoff: 06/02/2020
+ms.locfileid: "84299780"
 ---
 # <a name="common-questions-azure-to-azure-disaster-recovery"></a>Questions courantes : Récupération d'urgence d'Azure vers Azure
 
@@ -52,6 +52,14 @@ Oui. Site Recovery prend en charge la récupération d’urgence des machines vi
 - Site Recovery prend en charge Azure Disk Encryption version 0.1 dont le schéma requiert Azure Active Directory (Azure AD). Site Recovery prend également en charge la version 1.1 qui ne requiert pas Azure AD. [Apprenez-en davantage sur les schémas d’extension pour Azure Disk Encryption](../virtual-machines/extensions/azure-disk-enc-windows.md#extension-schema).
   - Pour Azure Disk Encryption version 1.1, vous devez utiliser les machines virtuelles Windows avec des disques managés.
   - [En savoir plus](azure-to-azure-how-to-enable-replication-ade-vms.md) sur l’activation de la réplication pour les machines virtuelles chiffrées.
+
+### <a name="can-i-select-an-automation-account-from-a-different-resource-group"></a>Puis-je sélectionner un compte Automation d’un autre groupe de ressources ?
+
+Cette option n’est actuellement pas prise en charge par le biais du portail, mais vous pouvez choisir un compte Automation d’un autre groupe de ressources par le biais de PowerShell.
+
+### <a name="after-specifying-an-automation-account-that-is-in-a-different-resource-group-than-the-vault-am-i-permitted-to-delete-the-runbook-if-there-is-no-other-vault-to-specify"></a>Après avoir spécifié un compte Automation qui se trouve dans un groupe de ressources que celui du coffre, puis-je supprimer le runbook s’il n’y a aucun autre coffre à spécifier ?
+
+Le runbook personnalisé créé est un outil que vous pouvez supprimer en toute sécurité s’il n’est plus nécessaire.
 
 ### <a name="can-i-replicate-vms-to-another-subscription"></a>Puis-je répliquer des machines virtuelles vers un autre abonnement ?
 
@@ -172,6 +180,10 @@ Le premier point de récupération qui est généré possède la copie complète
 ### <a name="does-increasing-the-retention-period-of-recovery-points-increase-the-storage-cost"></a>L’accroissement de la période de rétention des points de récupération augmente-t-elle le coût de stockage ?
 
 Si vous allongez la période de rétention de 24 à 72 heures, Site Recovery enregistre les points de récupération pendant 48 heures supplémentaires. Cette durée supplémentaire occasionne des frais de stockage. Par exemple, un point de récupération unique peut avoir des modifications différentielles de 10 Go avec un coût par Go de 0,16 USD par mois. Les frais supplémentaires sont alors de 1,60 × 48 USD par mois.
+
+### <a name="can-i-enable-replication-with-app-consistency-in-linux-servers"></a>Puis-je activer la réplication avec la cohérence des applications dans les serveurs Linux ?
+
+Oui. Azure Site Recovery pour le système d’exploitation Linux prend en charge les scripts personnalisés des applications à des fins de cohérence. Le script personnalisé avec options pré et post-script sera utilisé par l’agent Mobilité Azure Site Recovery durant la cohérence des applications. [En savoir plus](https://docs.microsoft.com/azure/site-recovery/site-recovery-faq#can-i-enable-replication-with-app-consistency-in-linux-servers)
 
 ## <a name="multi-vm-consistency"></a>Cohérence multimachine virtuelle
 

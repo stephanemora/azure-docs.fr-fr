@@ -1,16 +1,16 @@
 ---
 title: Fonctionnement d’Azure Dev Spaces
 services: azure-dev-spaces
-ms.date: 03/24/2020
+ms.date: 06/02/2020
 ms.topic: conceptual
 description: Décrit les processus sur lesquels repose Azure Dev Spaces
 keywords: Azure Dev Spaces, Dev Spaces, Docker, Kubernetes, Azure, AKS, Azure Kubernetes Service, conteneurs
-ms.openlocfilehash: 99b0b3309d115b450bfca94871b6defd885349fe
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: dca9f1246a093471cd9538d010bf78116be1b3c7
+ms.sourcegitcommit: 69156ae3c1e22cc570dda7f7234145c8226cc162
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80234955"
+ms.lasthandoff: 06/03/2020
+ms.locfileid: "84307365"
 ---
 # <a name="how-azure-dev-spaces-works"></a>Fonctionnement d’Azure Dev Spaces
 
@@ -22,9 +22,9 @@ Azure Dev Spaces vous offre plusieurs façons de parcourir et de déboguer rapid
 
 Azure Dev Spaces réduit l’effort de développement, de test et d’itération de votre application Kubernetes dans le contexte de votre cluster AKS. Cette réduction des efforts permet aux développeurs de se concentrer sur la logique métier de leurs applications plutôt que sur la configuration de leurs services pour qu’ils s’exécutent dans Kubernetes.
 
-### <a name="connect-your-development-machine-to-aks"></a>Connecter votre machine de développement à AKS
+### <a name="local-process-with-kubernetes"></a>Local Process with Kubernetes
 
-Avec Azure Dev Spaces, vous pouvez connecter votre ordinateur de développement à votre cluster AKS, ce qui vous permet d’exécuter et de déboguer du code sur votre ordinateur de développement comme s’il s’exécutait sur le cluster. Azure Dev Spaces redirige le trafic de votre cluster AKS connecté en exécutant un pod sur votre cluster qui joue le rôle d’agent distant pour rediriger le trafic entre votre ordinateur de développement et le cluster. Cette redirection du trafic permet au code sur votre ordinateur de développement et les services en cours d’exécution dans votre cluster AKS de communiquer comme s’ils se trouvaient dans le même cluster AKS. Pour plus d’informations sur la connexion de votre ordinateur de développement à AKS, consultez [Comment fonctionne la connexion de votre ordinateur de développement à votre cluster AKS][how-it-works-connect].
+Avec Local Process with Kubernetes, vous pouvez connecter votre ordinateur de développement à votre cluster Kubernetes et ainsi exécuter et déboguer du code sur votre ordinateur de développement comme s’il s’exécutait sur le cluster. Azure Dev Spaces redirige le trafic de votre cluster connecté en exécutant un pod sur votre cluster, qui joue le rôle d’agent distant pour rediriger le trafic entre votre ordinateur de développement et le cluster. Cette redirection du trafic permet au code sur votre ordinateur de développement et aux services en cours d’exécution dans votre cluster de communiquer comme s’ils se trouvaient dans le même cluster. Pour plus d’informations sur la connexion de votre ordinateur de développement à un cluster Kubernetes, consultez [Fonctionnement de Processus local avec Kubernetes][how-it-works-local-process-kubernetes].
 
 ### <a name="run-your-code-in-aks"></a>Exécuter votre code dans AKS
 
@@ -44,12 +44,12 @@ Vous pouvez également utiliser des actions GitHub avec Azure Dev Spaces pour te
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Pour commencer à connecter votre ordinateur de développement local à votre cluster AKS, consultez [Connecter l’ordinateur de développement à un cluster AKS][connect].
+Pour commencer à connecter votre ordinateur de développement local à votre cluster AKS, consultez [Connecter votre ordinateur de développement à un cluster AKS][connect].
 
 Pour commencer à utiliser Azure Dev Spaces pour le développement en équipe, consultez le Guide de démarrage rapide [Développement en équipe dans Azure Dev Spaces][quickstart-team].
 
-[connect]: how-to/connect.md
-[how-it-works-connect]: how-dev-spaces-works-connect.md
+[connect]: how-to/local-process-kubernetes-vs-code.md
+[how-it-works-local-process-kubernetes]: how-dev-spaces-works-local-process-kubernetes.md
 [how-it-works-prep]: how-dev-spaces-works-prep.md
 [how-it-works-remote-debugging]: how-dev-spaces-works-remote-debugging.md
 [how-it-works-routing]: how-dev-spaces-works-routing.md

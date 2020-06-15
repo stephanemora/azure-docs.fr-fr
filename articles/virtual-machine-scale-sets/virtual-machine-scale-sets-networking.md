@@ -9,12 +9,12 @@ ms.subservice: networking
 ms.date: 07/17/2017
 ms.reviewer: mimckitt
 ms.custom: mimckitt
-ms.openlocfilehash: 46a12006274ca8516c936e37189c9233dde9b410
-ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
+ms.openlocfilehash: 39539f29df48d19b956b8bab6f63da50473453d4
+ms.sourcegitcommit: 12f23307f8fedc02cd6f736121a2a9cea72e9454
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/12/2020
-ms.locfileid: "83125194"
+ms.lasthandoff: 05/30/2020
+ms.locfileid: "84221297"
 ---
 # <a name="networking-for-azure-virtual-machine-scale-sets"></a>Mise en réseau pour des groupes de machines virtuelles identiques Azure
 
@@ -51,6 +51,8 @@ Lorsque vous utilisez des groupes de machines virtuelles identiques et un équil
   * Chaque groupe de machines virtuelles identiques doit avoir une règle NAT de trafic entrant.
   * Une fois le groupe identique créé, le port principal ne peut pas être modifié lorsqu'une règle d'équilibrage de charge est utilisée par une sonde d'intégrité pour l'équilibreur de charge. Pour modifier le port, vous pouvez supprimer la sonde d'intégrité en mettant à jour le groupe identique de machines virtuelles Azure, puis mettre à jour le port et reconfigurer la sonde d'intégrité.
   * Lorsque vous utilisez un groupe de machines virtuelles identiques dans le pool principal de l’équilibreur de charge, des règles NAT de trafic entrant par défaut sont automatiquement créées.
+* **Pool NAT de trafic entrant** :
+  * Le pool NAT de trafic entrant est un ensemble de règles NAT de trafic entrant. Un pool NAT de trafic entrant ne peut pas prendre en charge plusieurs groupes de machines virtuelles identiques.
 * **Règles d’équilibrage de charge** :
   * Lorsque vous utilisez un groupe de machines virtuelles identiques dans le pool principal de l’équilibreur de charge, des règles d’équilibrage de charge par défaut sont automatiquement créées.
 * **Règles de trafic sortant** :

@@ -12,12 +12,12 @@ ms.reviewer: douglasl
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 04/09/2020
-ms.openlocfilehash: 795247cd0d6adfd27115b73c1d0de02e6810d670
-ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
+ms.openlocfilehash: e1b70e0e3eb54253972afded1bd37363d1a868e7
+ms.sourcegitcommit: 1f48ad3c83467a6ffac4e23093ef288fea592eb5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/12/2020
-ms.locfileid: "83201137"
+ms.lasthandoff: 05/29/2020
+ms.locfileid: "84195710"
 ---
 # <a name="configure-the-azure-ssis-integration-runtime-with-sql-database-geo-replication-and-failover"></a>Configurer Azure-SSIS Integration Runtime avec la géoréplication et le basculement SQL Database
 
@@ -29,11 +29,11 @@ Pour plus d’informations sur la géoréplication et le basculement de SQL Data
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-## <a name="azure-ssis-ir-failover-with-a-sql-database-managed-instance"></a>Basculement du runtime Azure-SSIS IR avec une instance gérée SQL Database
+## <a name="azure-ssis-ir-failover-with-a-sql-managed-instance"></a>Basculement du runtime Azure-SSIS IR avec Azure SQL Managed Instance
 
 ### <a name="prerequisites"></a>Prérequis
 
-Les instances gérées SQL Database utilisent une clé *DMK (clé principale de base de données)* pour sécuriser les données, les informations d’identification et les informations de connexion stockées dans une base de données. Pour activer le déchiffrement automatique de la clé DMK, une copie de la clé est chiffrée à l’aide de la *clé SMK (clé principale du serveur)* . 
+Azure SQL Managed Instance utilise une clé *DMK (clé principale de base de données)* pour sécuriser les données, les informations d’identification et les informations de connexion stockées dans une base de données. Pour activer le déchiffrement automatique de la clé DMK, une copie de la clé est chiffrée à l’aide de la *clé SMK (clé principale du serveur)* . 
 
 La SMK n’est pas répliquée dans le groupe de basculement. Vous devez ajouter un mot de passe à la fois sur les instances principale et secondaire pour le déchiffrement DMK après le basculement.
 
@@ -43,7 +43,7 @@ La SMK n’est pas répliquée dans le groupe de basculement. Vous devez ajouter
     ALTER MASTER KEY ADD ENCRYPTION BY PASSWORD = 'password'
     ```
 
-2. Créez un groupe de basculement sur une instance gérée SQL Database.
+2. Créez un groupe de basculement sur SQL Managed Instance.
 
 3. Exécutez **sp_control_dbmasterkey_password** sur l’instance secondaire avec le nouveau mot de passe de chiffrement.
 
@@ -87,27 +87,27 @@ Lorsque le basculement se produit, procédez comme suit :
 2. Modifiez le runtime Azure-SSIS IR avec les nouvelles informations sur la région, le point de terminaison et le réseau virtuel de l’instance secondaire.
 
     ```powershell
-    Set-AzDataFactoryV2IntegrationRuntime -Location "new region" `
-                -CatalogServerEndpoint "Azure SQL Database server endpoint" `
-                -CatalogAdminCredential "Azure SQL Database server admin credentials" `
-                -VNetId "new VNet" `
-                -Subnet "new subnet" `
-                -SetupScriptContainerSasUri "new custom setup SAS URI"
-    ```
+      Set-AzDataFactoryV2IntegrationRuntime -Location "new region" `
+                    -CatalogServerEndpoint "Azure SQL Database endpoint" `
+                    -CatalogAdminCredential "Azure SQL Database admin credentials" `
+                    -VNetId "new VNet" `
+                    -Subnet "new subnet" `
+                    -SetupScriptContainerSasUri "new custom setup SAS URI"
+        ```
 
-3. Redémarrez Azure-SSIS IR.
+3. Restart the Azure-SSIS IR.
 
-### <a name="scenario-3-azure-ssis-ir-is-pointing-to-a-public-endpoint-of-a-sql-database-managed-instance"></a>Scénario 3 : Azure-SSIS IR pointe vers un point de terminaison public d’une instance gérée SQL Database
+### Scenario 3: Azure-SSIS IR is pointing to a public endpoint of a SQL Managed Instance
 
-Ce scénario convient si Azure-SSIS IR pointe vers le point de terminaison public d’une instance gérée SQL Database et s’il n’est pas joint au réseau virtuel. La seule différence avec le scénario 2 vient du fait que vous n’avez pas besoin de modifier les informations relatives au réseau virtuel d’Azure-SSIS IR après le basculement.
+This scenario is suitable if the Azure-SSIS IR is pointing to a public endpoint of a Azure SQL Managed Instance and it doesn't join to a virtual network. The only difference from scenario 2 is that you don't need to edit virtual network information for the Azure-SSIS IR after failover.
 
-#### <a name="solution"></a>Solution
+#### Solution
 
-Lorsque le basculement se produit, procédez comme suit :
+When failover occurs, take the following steps:
 
-1. Arrêtez Azure-SSIS IR dans la région primaire.
+1. Stop the Azure-SSIS IR in the primary region.
 
-2. Modifiez Azure-SSIS IR avec les nouvelles informations relatives à la région et au point de terminaison pour l’instance secondaire.
+2. Edit the Azure-SSIS IR with the new region and endpoint information for the secondary instance.
 
     ```powershell
     Set-AzDataFactoryV2IntegrationRuntime -Location "new region" `
@@ -131,7 +131,7 @@ Lorsque le basculement se produit, procédez comme suit.
 
 1. Arrêtez Azure-SSIS IR dans la région primaire.
 
-2. Exécutez une procédure stockée pour mettre à jour les métadonnées dans SSISDB afin d’accepter les connexions à partir de **\<new_data_factory_name\>** et **\<new_integration_runtime_name\>** .
+2. Exécutez une procédure stockée pour mettre à jour les métadonnées dans SSISDB afin d’accepter les connexions provenant de **\<new_data_factory_name\>** et **\<new_integration_runtime_name\>** .
    
     ```sql
     EXEC [catalog].[failover_integration_runtime] @data_factory_name='<new_data_factory_name>', @integration_runtime_name='<new_integration_runtime_name>'
@@ -202,12 +202,12 @@ Lorsque le basculement se produit, procédez comme suit :
 2. Modifiez le runtime Azure-SSIS IR avec les nouvelles informations sur la région, le point de terminaison et le réseau virtuel de l’instance secondaire.
 
     ```powershell
-    Set-AzDataFactoryV2IntegrationRuntime -Location "new region" `
-                    -CatalogServerEndpoint "Azure SQL Database server endpoint" `
-                    -CatalogAdminCredential "Azure SQL Database server admin credentials" `
-                    -VNetId "new VNet" `
-                    -Subnet "new subnet" `
-                    -SetupScriptContainerSasUri "new custom setup SAS URI"
+      Set-AzDataFactoryV2IntegrationRuntime -Location "new region" `
+                        -CatalogServerEndpoint "Azure SQL Database endpoint" `
+                        -CatalogAdminCredential "Azure SQL Database admin credentials" `
+                        -VNetId "new VNet" `
+                        -Subnet "new subnet" `
+                        -SetupScriptContainerSasUri "new custom setup SAS URI"
     ```
 
 3. Redémarrez Azure-SSIS IR.
@@ -225,7 +225,7 @@ Lorsque le basculement se produit, procédez comme suit.
 
 1. Arrêtez Azure-SSIS IR dans la région primaire.
 
-2. Exécutez une procédure stockée pour mettre à jour les métadonnées dans SSISDB afin d’accepter les connexions à partir de **\<new_data_factory_name\>** et **\<new_integration_runtime_name\>** .
+2. Exécutez une procédure stockée pour mettre à jour les métadonnées dans SSISDB afin d’accepter les connexions provenant de **\<new_data_factory_name\>** et **\<new_integration_runtime_name\>** .
    
     ```sql
     EXEC [catalog].[failover_integration_runtime] @data_factory_name='<new_data_factory_name>', @integration_runtime_name='<new_integration_runtime_name>'

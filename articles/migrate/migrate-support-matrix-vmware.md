@@ -3,12 +3,12 @@ title: Prise en charge de l’évaluation VMware dans Azure Migrate
 description: Découvrez la prise en charge pour l’évaluation de machines virtuelles VMware à l’aide de l’outil Évaluation de serveur d’Azure Migrate.
 ms.topic: conceptual
 ms.date: 05/04/2020
-ms.openlocfilehash: 0ec7006ce240df8c6e07afffa886e78ca9bc2a4d
-ms.sourcegitcommit: 1f25aa993c38b37472cf8a0359bc6f0bf97b6784
+ms.openlocfilehash: 8e0b6f3babcc862e1a78effcdb1a61f430c01646
+ms.sourcegitcommit: 309cf6876d906425a0d6f72deceb9ecd231d387c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/26/2020
-ms.locfileid: "83849363"
+ms.lasthandoff: 06/01/2020
+ms.locfileid: "84267883"
 ---
 # <a name="support-matrix-for-vmware-assessment"></a>Tableau de prise en charge pour l’évaluation VMware 
 
@@ -49,7 +49,7 @@ Outre la découverte des machines, Évaluation de serveur peut découvrir les ap
 
 **VMware** | **Détails**
 --- | ---
-**Machines virtuelles VMware** | L’évaluation est prise en charge pour tous les systèmes d’exploitation Windows et Linux.
+**Machines virtuelles VMware** | Tous les systèmes d’exploitation peuvent être évalués dans une optique de migration. 
 **vCenter Server** | Les machines que vous souhaitez découvrir et évaluer doivent être gérées par vCenter Server version 5.5, 6.0, 6.5 ou 6.7.
 **Autorisations (évaluation)** | Compte vCenter Server en lecture seule.
 **Autorisations (découverte d’application)** | Compte vCenter Server disposant d’un accès en lecture seule et privilèges activés pour les **machines virtuelles > opérations d’invité**.

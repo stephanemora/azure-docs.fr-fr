@@ -6,26 +6,26 @@ author: swmachan
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: translator-text
-ms.date: 02/21/2019
+ms.date: 05/26/2020
 ms.author: swmachan
 ms.topic: conceptual
-ms.openlocfilehash: d7c38a44e3111a319e4146b3c9b71a22b0d31bfd
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: d397e481fcd11e534e4bb5cf98f8c402435e890e
+ms.sourcegitcommit: fc718cc1078594819e8ed640b6ee4bef39e91f7f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "72675463"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "83997075"
 ---
 # <a name="what-are-parallel-documents"></a>Que sont des documents parallèles ?
 
 Les documents parallèles sont des paires de documents dont un document est la traduction de l’autre. Un document de la paire contient des phrases dans la langue source et l’autre document contient ces phrases traduites dans la langue cible.
-Peu importe quelle langue est marquée comme « source » et quelle langue est marquée comme « cible » : un document parallèle peut être utilisé pour entraîner un système de traduction dans les deux sens.
+Peu importe la langue marquée comme « source » et celle marquée comme « cible » : un document parallèle peut être utilisé pour entraîner un système de traduction dans les deux sens.
 
 ## <a name="requirements"></a>Spécifications
 
 Vous aurez besoin d’un minimum de 10 000 phrases parallèles et alignées uniques pour entraîner un système. Cette limitation est un filet de sécurité qui garantit que vos phrases parallèles contiendront suffisamment de vocabulaire unique pour entraîner correctement un modèle de traduction. Une bonne pratique consiste à ajouter en permanence plus de contenu parallèle et à répéter l’entraînement afin d’améliorer la qualité de votre système de traduction. Consultez [Alignement de phrases](https://docs.microsoft.com/azure/cognitive-services/translator/custom-translator/sentence-alignment).
 
-Microsoft exige que les documents chargés dans le Custom Translator respectent les droits d’auteur et la propriété intellectuelle d’un tiers. Pour plus d’informations, veuillez consulter les [conditions d’utilisation](https://azure.microsoft.com/support/legal/cognitive-services-terms/).
+Microsoft exige que les documents chargés dans Custom Translator respectent les droits d’auteur et la propriété intellectuelle d’un tiers. Pour plus d’informations, veuillez consulter les [conditions d’utilisation](https://azure.microsoft.com/support/legal/cognitive-services-terms/).
 Le chargement d’un document à l’aide du portail ne transfère pas les droits de propriété intellectuelle du document lui-même.
 
 ## <a name="use-of-parallel-documents"></a>Utilisation de documents parallèles

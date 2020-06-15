@@ -6,12 +6,12 @@ ms.author: lufittl
 ms.service: mysql
 ms.topic: conceptual
 ms.date: 01/22/2019
-ms.openlocfilehash: 0c56652b4e098213bae0c69d4be5ac77e1b1393c
-ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
+ms.openlocfilehash: a94b2897b3e84688cd7dc5c7bca96a0f7a4449d1
+ms.sourcegitcommit: f0b206a6c6d51af096a4dc6887553d3de908abf3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83635284"
+ms.lasthandoff: 05/28/2020
+ms.locfileid: "84142076"
 ---
 # <a name="use-azure-active-directory-for-authenticating-with-mysql"></a>Utiliser Azure Active Directory pour l’authentification avec MySQL
 
@@ -74,6 +74,7 @@ Une fois authentifié auprès d’Active Directory, vous récupérez un jeton. C
 
 ## <a name="additional-considerations"></a>Considérations supplémentaires
 
+- L’authentification Azure Active Directory est disponible uniquement pour MySQL 5.7 et versions ultérieures.
 - Un seul utilisateur administrateur Azure AD peut être configuré pour un serveur Azure Database pour MySQL à tout moment.
 - Seul un administrateur d’Azure AD pour MySQL peut se connecter initialement au serveur Azure Database pour MySQL à l’aide d’un compte Azure Active Directory. L’administrateur Active Directory peut configurer les utilisateurs de base de données Azure AD suivants.
 - Si un utilisateur est supprimé d’Azure AD, il ne pourra plus s’authentifier auprès d’Azure AD, et il ne sera donc plus possible d’acquérir un code d'accès pour cet utilisateur. Dans ce cas, bien que l'utilisateur correspondant se trouve toujours dans la base de données, il ne sera pas possible de se connecter au serveur avec cet utilisateur.

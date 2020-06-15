@@ -4,15 +4,15 @@ description: Résoudre les problèmes liés à Azure Files sous Windows
 author: jeffpatt24
 ms.service: storage
 ms.topic: conceptual
-ms.date: 01/02/2019
+ms.date: 05/31/2019
 ms.author: jeffpatt
 ms.subservice: files
-ms.openlocfilehash: b4e1ef4fbc3ade38b55fc06f8e4e9a119938581b
-ms.sourcegitcommit: ea006cd8e62888271b2601d5ed4ec78fb40e8427
+ms.openlocfilehash: 40b8616f40f2ce33332fc42ec68532e4ae0ecdb0
+ms.sourcegitcommit: 309cf6876d906425a0d6f72deceb9ecd231d387c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/14/2020
-ms.locfileid: "81383902"
+ms.lasthandoff: 06/01/2020
+ms.locfileid: "84267815"
 ---
 # <a name="troubleshoot-azure-files-problems-in-windows"></a>Résoudre les problèmes liés à Azure Files sous Windows
 
@@ -348,6 +348,18 @@ L’applet de commande effectue dans l’ordre les vérifications ci-dessous, pu
 6. CheckSidHasAadUser : vérifier que l’utilisateur AD connecté est synchronisé avec Azure AD
 
 Nous travaillons activement à l’extension de cette applet de commande de diagnostics pour fournir des conseils de dépannage plus performants.
+
+## <a name="unable-to-configure-directoryfile-level-permissions-windows-acls-with-windows-file-explorer"></a>Impossible de configurer des autorisations au niveau des répertoires/fichiers (listes de contrôle d’accès Windows) avec l’Explorateur de fichiers Windows
+
+### <a name="symptom"></a>Symptôme
+
+Vous pouvez être confronté aux symptômes décrits ci-dessous quand vous tentez de configurer des listes de contrôle d’accès Windows avec l’Explorateur de fichiers sur un partage de fichiers monté :
+- Quand vous cliquez sur Modifier l’autorisation sous l’onglet Sécurité, l’Assistant Autorisation ne se charge pas. 
+- Quand vous essayez de sélectionner un nouvel utilisateur ou un nouveau groupe, l’emplacement du domaine n’affiche pas le bon domaine AD DS. 
+
+### <a name="solution"></a>Solution
+
+Pour contourner le problème, nous vous recommandons d’utiliser l’[outil icacls](https://docs.microsoft.com/windows-server/administration/windows-commands/icacls) afin de configurer des autorisations au niveau des répertoires/fichiers. 
 
 ## <a name="need-help-contact-support"></a>Vous avez besoin d’aide ? Contactez le support technique.
 Si vous avez encore besoin d’aide, [contactez le support technique](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) pour résoudre rapidement votre problème.

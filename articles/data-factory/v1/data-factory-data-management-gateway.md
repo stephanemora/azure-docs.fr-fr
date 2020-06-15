@@ -12,12 +12,12 @@ ms.topic: conceptual
 ms.date: 01/10/2018
 ms.author: abnarain
 robots: noindex
-ms.openlocfilehash: 1340c205477b256e3d96ff7ccacb64e575725c2c
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: a2d4c9ad5a64fecaad023907351101942c4edac2
+ms.sourcegitcommit: 1f48ad3c83467a6ffac4e23093ef288fea592eb5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80065403"
+ms.lasthandoff: 05/29/2020
+ms.locfileid: "84188304"
 ---
 # <a name="data-management-gateway"></a>Passerelle de gestion de données
 > [!NOTE]
@@ -28,7 +28,7 @@ ms.locfileid: "80065403"
 
 La passerelle de gestion des données est un agent client que vous devez installer dans votre environnement local pour permettre la copie des données entre les magasins de données cloud et locaux. Les magasins de données locaux pris en charge par Data Factory sont répertoriés dans la section [Sources de données prises en charge](data-factory-data-movement-activities.md#supported-data-stores-and-formats) .
 
-Cet article vient compléter la procédure pas à pas de l’article [Déplacement de données entre des sources locales et le cloud à l’aide de la passerelle de gestion des données](data-factory-move-data-between-onprem-and-cloud.md) . Dans cette procédure pas à pas, vous créez un pipeline qui utilise la passerelle qui déplace les données d’une base de données SQL Server locale vers un objet blob Azure. Cet article fournit des informations détaillées sur la passerelle de gestion des données.
+Cet article vient compléter la procédure pas à pas de l’article [Déplacement de données entre des sources locales et le cloud à l’aide de la passerelle de gestion des données](data-factory-move-data-between-onprem-and-cloud.md) . Dans cette procédure pas à pas, vous créez un pipeline qui utilise la passerelle qui déplace les données d’une base de données SQL Server vers un objet blob Azure. Cet article fournit des informations détaillées sur la passerelle de gestion des données.
 
 Vous pouvez effectuer un scale-out d’une passerelle de gestion des données en associant plusieurs machines locales avec la passerelle. Vous pouvez monter en puissance une passerelle en augmentant le nombre de travaux de déplacement des données qui peuvent s’exécuter simultanément sur un nœud. Cette fonctionnalité est également disponible pour une passerelle logique à nœud unique. Consultez l’article [Mise à l’échelle de la passerelle de gestion des données dans Azure Data Factory](data-factory-data-management-gateway-high-availability-scalability.md) pour plus d’informations.
 
@@ -161,10 +161,10 @@ Assurez-vous que les règles de pare-feu sont correctement activées sur le pare
 Par exemple, pour copier à partir d’une **banque de données locale vers un récepteur Azure SQL Database ou un récepteur Azure SQL Data Warehouse**, effectuez les opérations suivantes :
 
 * Autorisez le trafic **TCP** sortant sur le port **1433** pour le pare-feu Windows et le pare-feu d’entreprise.
-* Configurez les paramètres de pare-feu du serveur SQL Azure pour ajouter l’adresse IP de l’ordinateur de passerelle à la liste d’adresses IP autorisées.
+* Configurez les paramètres de pare-feu du serveur SQL logique pour ajouter l’adresse IP de l’ordinateur de passerelle à la liste d’adresses IP autorisées.
 
 > [!NOTE]
-> Si votre pare-feu n’autorise pas le port de sortie 1433, la passerelle ne peut pas accéder directement à Azure SQL. Dans ce cas, vous pouvez utiliser la [copie intermédiaire](https://docs.microsoft.com/azure/data-factory/data-factory-copy-activity-performance#staged-copy) sur SQL Azure Database/SQL Azure DW. Dans ce scénario, vous auriez uniquement besoin du protocole HTTPS (port 443) pour le déplacement des données.
+> Si votre pare-feu n’autorise pas le port de sortie 1433, la passerelle ne peut pas accéder directement à Azure SQL. Dans ce cas, vous pouvez utiliser la [copie intermédiaire](https://docs.microsoft.com/azure/data-factory/data-factory-copy-activity-performance#staged-copy) sur SQL Database/SQL Managed Instance/SQL Azure DW. Dans ce scénario, vous auriez uniquement besoin du protocole HTTPS (port 443) pour le déplacement des données.
 >
 >
 
@@ -543,4 +543,4 @@ Remove-AzDataFactoryGateway -Name JasonHDMG_byPSRemote -ResourceGroupName ADF_Re
 ```
 
 ## <a name="next-steps"></a>Étapes suivantes
-* Consultez la page [Déplacement de données entre des sources locales et le cloud à l’aide de la passerelle de gestion des données](data-factory-move-data-between-onprem-and-cloud.md) . Dans cette procédure pas à pas, vous créez un pipeline qui utilise la passerelle qui déplace les données d’une base de données SQL Server locale vers un objet blob Azure.
+* Consultez la page [Déplacement de données entre des sources locales et le cloud à l’aide de la passerelle de gestion des données](data-factory-move-data-between-onprem-and-cloud.md) . Dans cette procédure pas à pas, vous créez un pipeline qui utilise la passerelle qui déplace les données d’une base de données SQL Server vers un objet blob Azure.

@@ -1,31 +1,31 @@
 ---
 title: Intégration en tant que partenaire Azure Event Grid
-description: Intégration en tant que type de rubrique de partenaire Azure Event Grid. Découvrez comment fonctionne le modèle de ressources et le flux de publication des rubriques de partenaire.
+description: Intégration en tant que type de rubrique de partenaire Azure Event Grid. Découvrez comment fonctionnent le modèle de ressource et le flux de publication des rubriques de partenaire.
 services: event-grid
 author: banisadr
 ms.service: event-grid
 ms.topic: conceptual
 ms.date: 05/18/2020
 ms.author: babanisa
-ms.openlocfilehash: 2a1f35b86e21099c9fdd0397ae8a3b20aed3cd5d
-ms.sourcegitcommit: 0690ef3bee0b97d4e2d6f237833e6373127707a7
+ms.openlocfilehash: 2a7e2b9f731dbf05dfeb2ac01f1ae258c5250827
+ms.sourcegitcommit: 1692e86772217fcd36d34914e4fb4868d145687b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/21/2020
-ms.locfileid: "83758824"
+ms.lasthandoff: 05/29/2020
+ms.locfileid: "84169999"
 ---
 # <a name="onboard-as-an-azure-event-grid-partner"></a>Intégration en tant que partenaire Azure Event Grid
 
-Cet article explique comment utiliser les ressources du partenaire Event Grid de manière privée et comment effectuer la conversion en type de rubrique de partenaire disponible publiquement.
+Cet article explique comment utiliser les ressources de partenaire Azure Event Grid de manière privée et comment effectuer la conversion en type de rubrique de partenaire disponible publiquement.
 
 Vous n’avez pas besoin d’une autorisation spéciale pour commencer à utiliser les types de ressources Event Grid associés à la publication d’événements en tant que partenaire Event Grid. En fait, vous pouvez les utiliser dès aujourd’hui pour publier des événements de manière privée sur vos propres abonnements Azure et tester le modèle de ressource si vous envisagez de devenir partenaire.
 
-## <a name="becoming-an-event-grid-partner"></a>Devenir un partenaire Event Grid
+## <a name="become-an-event-grid-partner"></a>Devenir partenaire Event Grid
 
-Si vous souhaitez devenir un partenaire Event Grid public, commencez par remplir [ce formulaire](https://aka.ms/gridpartnerform), puis contactez l’équipe Event Grid à l’adresse [GridPartner@microsoft.com](mailto:gridpartner@microsoft.com).
+Si vous souhaitez devenir partenaire Event Grid public, commencez par remplir [ce formulaire](https://aka.ms/gridpartnerform). Ensuite, contactez l’équipe Event Grid à l’adresse [GridPartner@microsoft.com](mailto:gridpartner@microsoft.com).
 
 ## <a name="how-partner-topics-work"></a>Fonctionnement des rubriques de partenaire
-Les rubriques de partenaires exploitent l’architecture déjà utilisée dans Event Grid pour publier des événements à partir de ressources Azure, telles que le stockage et IoT Hub, et rend ces outils accessibles publiquement à tous les utilisateurs. Par défaut, l’utilisation de ces outils est privée pour votre abonnement Azure uniquement. Pour rendre vos événements disponibles publiquement, renseignez le formulaire ci-dessus et [contactez l’équipe Event Grid](mailto:gridpartner@microsoft.com).
+Les rubriques de partenaires exploitent l’architecture déjà utilisée dans Event Grid pour publier des événements à partir de ressources Azure, telles que le stockage Azure et Azure IoT Hub, et rendent ces outils accessibles publiquement à tous les utilisateurs. Par défaut, l’utilisation de ces outils est privée pour votre abonnement Azure uniquement. Pour rendre vos événements disponibles publiquement, renseignez le formulaire et [contactez l’équipe Event Grid](mailto:gridpartner@microsoft.com).
 
 Les rubriques de partenaires vous permettent de publier des événements dans Azure Event Grid à des fins de consommation mutualisée.
 
@@ -34,81 +34,82 @@ Les rubriques de partenaires vous permettent de publier des événements dans Az
 #### <a name="partner-flow"></a>Flux du partenaire
 
 1. Créez un locataire Azure, le cas échéant.
-1. À l’aide de l’interface CLI, créez une instance Event Grid `partnerRegistration`. Cette ressource contient des informations telles que le nom d’affichage, la description, l’URI d’installation, etc.
+1. Utilisez l’interface de ligne de commande Azure pour créer une instance Event Grid `partnerRegistration`. Cette ressource contient des informations telles que le nom d’affichage, la description, l’URI d’installation, etc.
 
     ![Créer une rubrique de partenaire](./media/partner-onboarding-how-to/create-partner-registration.png)
 
-1. Créez un ou plusieurs éléments `partnerNamespaces` dans chaque région pour laquelle vous souhaitez publier des événements. Dans le cadre de cet article, le service Event Grid approvisionne un point de terminaison de publication (par exemple, `https://contoso.westus-1.eventgrid.azure.net/api/events`) ainsi que des clés d’accès.
+1. Créez un ou plusieurs espaces de noms de partenaire dans chaque région dans laquelle vous souhaitez publier des événements. Le service Event Grid provisionne un point de terminaison de publication (par exemple, `https://contoso.westus-1.eventgrid.azure.net/api/events`) ainsi que des clés d’accès.
 
     ![Créer un espace de noms de partenaire](./media/partner-onboarding-how-to/create-partner-namespace.png)
 
 1. Permet aux clients d’indiquer à votre système qu’ils veulent bénéficier d’une rubrique de partenaire.
-1. Contactez l’équipe Event Grid pour nous indiquer que vous souhaitez que votre type de rubrique de partenaire devienne public.
+1. Contactez l’équipe Event Grid pour lui indiquer que vous souhaitez que votre type de rubrique de partenaire devienne public.
 
 #### <a name="customer-flow"></a>Flux du client
 
-1. Votre client se rend sur le Portail Azure pour noter l’ID d’abonnement Azure et le groupe de ressources au sein desquels créer le sujet partenaire.
-1. Le client demande alors un sujet partenaire via votre système. En réponse, vous créez un tunnel d’événements pour votre espace de noms de partenaire.
-1. Event Grid crée un sujet partenaire **en attente** dans le groupe de ressources et l’abonnement Azure du client.
+1. Votre client se rend sur le portail Azure pour noter l’ID d’abonnement Azure et le groupe de ressources au sein desquels créer la rubrique de partenaire.
+1. Le client demande une rubrique de partenaire par le biais de votre système. En réponse, vous créez un tunnel d’événements pour votre espace de noms de partenaire.
+1. Event Grid crée une rubrique de partenaire **en attente** dans le groupe de ressources et l’abonnement Azure du client.
 
     ![Créer un canal d’événements](./media/partner-onboarding-how-to/create-event-tunnel-partner-topic.png)
 
-1. Le client active le sujet partenaire via le Portail Azure. Les événements peuvent maintenant passer de votre service à l’abonnement Azure du client.
+1. Le client active la rubrique de partenaire dans le portail Azure. Les événements peuvent maintenant passer de votre service à l’abonnement Azure du client.
 
-    ![Activer un sujet partenaire](./media/partner-onboarding-how-to/activate-partner-topic.png)
+    ![Activer une rubrique de partenaire](./media/partner-onboarding-how-to/activate-partner-topic.png)
 
 ## <a name="resource-model"></a>Modèle de ressource
 
-Vous trouverez ci-dessous le modèle de ressource des sujets partenaire.
+
+Le modèle de ressource suivant est destiné aux rubriques de partenaire.
 
 ### <a name="partner-registrations"></a>Inscriptions de partenaires
 * Ressource : `partnerRegistrations`
 * Utilisée par : Partenaires
-* Description : Capture les métadonnées globales du partenaire SaaS (par exemple, le nom, le nom complet, la description et l’URI d’installation).
+* Description : Capturent les métadonnées globales du partenaire SaaS (logiciel en tant que service), par exemple, le nom, le nom d’affichage, la description et l’URI d’installation.
     
-    La création ou mise à jour d’une inscription de partenaire est une opération que les partenaires peuvent effectuer en libre-service. Ainsi, ils peuvent créer et tester le processus complet de bout en bout.
+    La création ou la mise à jour d’une inscription de partenaire est une opération que les partenaires peuvent effectuer en libre-service. Ainsi, ils peuvent créer et tester le processus complet de bout en bout.
     
-    Seules les inscriptions de partenaires (partnerRegistrations) approuvées par Microsoft peuvent être découvertes par les clients.
-* Étendue : Élément créé dans l’abonnement Azure du partenaire. Les métadonnées sont visibles pour les clients une fois devenues publiques.
+    Seules les inscriptions de partenaires approuvées par Microsoft peuvent être découvertes par les clients.
+* Étendue : Créées dans l’abonnement Azure du partenaire. Les métadonnées sont visibles pour les clients dès lors qu’elles sont rendues publiques.
 
 ### <a name="partner-namespaces"></a>Espaces de noms de partenaires
 * Ressource : partnerNamespaces
 * Utilisée par : Partenaires
-* Description : Fournit une ressource régionale dans laquelle publier des événements clients. Chaque espace de noms de partenaire possède un point de terminaison de publication et des clés d’authentification. C’est également par l’espace de noms que le partenaire demande une rubrique de partenaire pour un client donné et répertorie les clients actifs.
-* Étendue : Fonctionne au sein de l’abonnement du partenaire.
+* Description : Fournit une ressource régionale dans laquelle publier des événements clients. Chaque espace de noms de partenaire possède un point de terminaison de publication et des clés d’authentification. C’est également par l’espace de noms que le partenaire demande une rubrique de partenaire pour un client donné et liste les clients actifs.
+* Étendue : Existent au sein de l’abonnement du partenaire.
 
 ### <a name="event-channel"></a>Canal d’événements
 * Ressource : `partnerNamespaces/eventChannels`
 * Utilisée par : Partenaires
-* Description : Les tunnels d’événements sont un miroir de la rubrique de partenaire du client. En créant un tunnel d’événements et en spécifiant l’abonnement Azure et le groupe de ressources du client dans les métadonnées, vous indiquez à Event Grid de créer une rubrique de partenaire pour le client. Event Grid émet un appel ARM pour créer un élément partnerTopic correspondant dans l’abonnement du client. La rubrique de partenaire est créée à l’état « En attente ». Il existe également une liaison 1-1 entre chaque élément eventTunnel et partnerTopic.
-* Étendue : Fonctionne au sein de l’abonnement du partenaire.
+* Description : Les tunnels d’événements sont un miroir de la rubrique de partenaire du client. En créant un tunnel d’événements et en spécifiant l’abonnement Azure et le groupe de ressources du client dans les métadonnées, vous indiquez à Event Grid de créer une rubrique de partenaire pour le client. Event Grid émet un appel ARM pour créer un élément partnerTopic correspondant dans l’abonnement du client. La rubrique de partenaire est créée à l’état « En attente ». Il existe un lien un-à-un entre chaque tunnel d’événements et chaque rubrique de partenaire.
+* Étendue : Existe au sein de l’abonnement du partenaire.
 
 ### <a name="partner-topics"></a>Rubriques de partenaire
 * Ressource : `partnerTopics`
 * Utilisée par : Clients
-* Description : Les rubriques de partenaires sont similaires aux rubriques personnalisées et système disponibles dans Event Grid. Chaque rubrique de partenaire est associée à une « source » spécifique (par exemple, `Contoso:myaccount`) et à un type de rubrique de partenaire spécifique (par exemple, « contoso »). Les clients créent des abonnements d’événements dans la rubrique de partenaire, afin d’acheminer les événements vers différents gestionnaires d’événements.
+* Description : Les rubriques de partenaires sont similaires aux rubriques personnalisées et système disponibles dans Event Grid. Chaque rubrique de partenaire est associée à une source spécifique (par exemple, `Contoso:myaccount`) et à un type de rubrique de partenaire spécifique (par exemple, Contoso). Les clients créent des abonnements d’événements dans la rubrique de partenaire pour router les événements vers différents gestionnaires d’événements.
 
     Les clients ne peuvent pas créer cette ressource directement. La seule façon de créer une rubrique de partenaire consiste à effectuer une opération de partenaire pour créer un tunnel d’événements.
-* Étendue : Fonctionne au sein de l’abonnement du client.
+* Étendue : Existent au sein de l’abonnement du client.
 
 ### <a name="partner-topic-types"></a>Types de rubrique de partenaire
 * Ressource : `partnerTopicTypes`
 * Utilisée par : Clients
-* Description : Les types de rubriques de partenaire sont des types de ressources permettant aux clients de découvrir la liste des types de rubriques de partenaire approuvés. Les URL se présentent comme suit : https://management.azure.com/providers/Microsoft.EventGrid/partnerTopicTypes)
+* Description : Les types de rubriques de partenaire sont des types de ressource au niveau locataire, permettant aux clients de découvrir la liste des types de rubriques de partenaire approuvés. L’URL est de type https://management.azure.com/providers/Microsoft.EventGrid/partnerTopicTypes).
 * Étendue : Global
 
-## <a name="publishing-events-to-event-grid"></a>Publication d’événements dans Event Grid
-Lorsque vous créez un élément partnerNamespace dans une région Azure, vous obtenez un point de terminaison régional et les clés d’authentification correspondantes. Publiez des lots d’événements sur ce point de terminaison pour tous les tunnels d’événements clients dans cet espace de noms. En fonction du champ « source » de l’événement, Azure Event Grid mappe chaque événement avec la ou les rubriques de partenaire correspondantes.
+## <a name="publish-events-to-event-grid"></a>Publier des événements sur Event Grid
+Quand vous créez un espace de noms de partenaire dans une région Azure, vous obtenez un point de terminaison régional et les clés d’authentification correspondantes. Publiez des lots d’événements sur ce point de terminaison pour tous les tunnels d’événements clients dans cet espace de noms. En fonction du champ source de l’événement, Azure Event Grid mappe chaque événement avec les rubriques de partenaire correspondantes.
 
-### <a name="event-schema-cloudevents-v10"></a>Schéma d’événement : CloudEvents v1.0
-Publiez des événements sur Azure Event Grid à l’aide du schéma CloudEvents 1.0. Event Grid prend en charge le mode structuré et le mode par lot. CloudEvents 1.0 est le seul schéma d’événement pris en charge pour les espaces de noms de partenaire.
+### <a name="event-schema-cloudevents-v10"></a>Schéma d’événement : CloudEvents v1.0
+Publiez des événements sur Azure Event Grid à l’aide du schéma CloudEvents 1.0. Event Grid prend en charge le mode structuré et le mode par lot. CloudEvents 1.0 est le seul schéma d’événement pris en charge pour les espaces de noms de partenaire.
 
 ### <a name="example-flow"></a>Exemple de flux
 
 1.  Le service de publication effectue une publication HTTP sur `https://contoso.westus2-1.eventgrid.azure.net/api/events?api-version=2018-01-01`.
-2.  Dans la requête, incluez une valeur d’en-tête nommée aeg-sas-key, qui contient une clé pour l’authentification. Cette clé est approvisionnée pendant la création de l’élément partnerNamespace. Par exemple, une valeur d’en-tête valide est aeg-sas-key: VXbGWce53249Mt8wuotr0GPmyJ/nDT4hgdEj9DpBeRr38arnnm5OFg = =.
-3.  Définissez l’en-tête Content-Type sur « application/cloudevents-batch+json; charset=UTF-8 ».
-4.  Effectuez une publication HTTP sur l’URL de publication ci-dessus, avec un lot d’événements correspondant à cette région. Par exemple :
+1.  Dans la requête, incluez une valeur d’en-tête nommée aeg-sas-key, qui contient une clé pour l’authentification. Cette clé est provisionnée pendant la création de l’espace de noms de partenaire. Par exemple, une valeur d’en-tête valide est aeg-sas-key: VXbGWce53249Mt8wuotr0GPmyJ/nDT4hgdEj9DpBeRr38arnnm5OFg = =.
+1.  Définissez l’en-tête Content-Type sur « application/cloudevents-batch+json; charset=UTF-8a ».
+1.  Envoyez une requête HTTP POST à l’URL de publication avec un lot d’événements correspondant à cette région. Par exemple :
 
 ``` json
 [
@@ -153,7 +154,7 @@ Après la publication sur le point de terminaison partnerNamespace, vous recevez
 | Point de terminaison incorrecte                 | 404 Introuvable         |
 | La taille du tableau ou de l’événement dépasse la limite autorisée | 413 charge utile maximale dépassée |
 
-## <a name="reference"></a>Informations de référence
+## <a name="references"></a>References
 
   * [Swagger](https://github.com/ahamad-MS/azure-rest-api-specs/blob/master/specification/eventgrid/resource-manager/Microsoft.EventGrid/preview/2020-04-01-preview/EventGrid.json)
   * [Modèle ARM](https://docs.microsoft.com/azure/templates/microsoft.eventgrid/allversions)

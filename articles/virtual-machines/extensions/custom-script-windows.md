@@ -10,12 +10,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 05/02/2019
 ms.author: robreed
-ms.openlocfilehash: 2c7cad2dfdcd55073a1cf09d79e5223b666ced5f
-ms.sourcegitcommit: efefce53f1b75e5d90e27d3fd3719e146983a780
+ms.openlocfilehash: a8b1c53a5c060f2124a36b69365bdd9b62896b56
+ms.sourcegitcommit: 12f23307f8fedc02cd6f736121a2a9cea72e9454
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/01/2020
-ms.locfileid: "80478155"
+ms.lasthandoff: 05/30/2020
+ms.locfileid: "84220957"
 ---
 # <a name="custom-script-extension-for-windows"></a>Extension de script personnalisé pour Windows
 
@@ -30,7 +30,17 @@ Ce document explique en détail l’utilisation de l’extension de script perso
 
 ### <a name="operating-system"></a>Système d’exploitation
 
-L’extension de script personnalisé pour Windows s’exécute sur les systèmes d’exploitation pris en charge par l’extension. Pour plus d’informations, consultez les [systèmes d’exploitation pris en charge par l’extension Azure](https://support.microsoft.com/help/4078134/azure-extension-supported-operating-systems).
+L’extension de script personnalisé pour Windows s’exécute sur les systèmes d’exploitation pris en charge par l’extension.
+### <a name="windows"></a>Windows
+
+* Windows Server 2008 R2
+* Windows Server 2012
+* Windows Server 2012 R2
+* Windows 10
+* Windows Server 2016
+* Windows Server 2016 Core
+* Windows Server 2019
+* Windows Server 2019 Core
 
 ### <a name="script-location"></a>Emplacement du script
 

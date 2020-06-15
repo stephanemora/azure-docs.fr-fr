@@ -1,35 +1,33 @@
 ---
-title: Types pris en charge pour la reconnaissance d’entité nommée
+title: Catégories prises en charge pour la reconnaissance d’entité nommée
 titleSuffix: Azure Cognitive Services
-description: En savoir plus sur les types d’entités pris en charge dans l’API Analyse de texte.
+description: Découvrez plus d’informations sur les catégories d’entité prises en charge dans l’API Analyse de texte.
 services: cognitive-services
 author: aahill
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: text-analytics
 ms.topic: article
-ms.date: 02/06/2020
+ms.date: 03/30/2020
 ms.author: aahi
-ms.openlocfilehash: 164e803a6af8a7d1ccdc9c70cc3e42b787857b3a
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 9800eb9ec8ae9aa800e5281131148b600e42725f
+ms.sourcegitcommit: f0b206a6c6d51af096a4dc6887553d3de908abf3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "77086876"
+ms.lasthandoff: 05/28/2020
+ms.locfileid: "84140918"
 ---
-# <a name="supported-types-for-named-entity-recognition-version-3-preview"></a>Types pris en charge pour la reconnaissance d’entité nommée version 3 (préversion)
+# <a name="supported-entity-categories-in-named-entity-recognition-v3"></a>Catégories d’entité prises en charge dans la reconnaissance d’entité nommée v3
 
-L’API Analyse de texte permet d’identifier et de lever toute ambiguïté sur les entités trouvées dans le texte. La [reconnaissance d’entité nommée](how-tos/text-analytics-how-to-entity-linking.md) (NER) est la capacité d’identifier différentes entités dans du texte et de les classer en classes prédéfinies.
+Utilisez cet article pour rechercher les catégories d’entité qui peuvent être retournées par la [Reconnaissance d’entité nommée](how-tos/text-analytics-how-to-entity-linking.md) (NER). Une préversion de NER v3.1 est également disponible, elle permet de détecter les informations personnelles (`PII`) et médicales (`PHI`).
 
-## <a name="entity-types"></a>Types d’entités
-
-Les types et les sous-types d’entité pris en charge (le cas échéant) sont répertoriés ci-dessous :
+## <a name="entity-categories"></a>Catégories d’entité
 
 #### <a name="general"></a>[Généralités](#tab/general)
 
 [!INCLUDE [supported entity types - general](./includes/entity-types/general-entities.md)]
 
-#### <a name="personal-information"></a>[Informations personnelles](#tab/personal)
+#### <a name="personal-and-health"></a>[Personnelles et médicales](#tab/personal)
 
 [!INCLUDE [supported entity types - personally identifying information](./includes/entity-types/personal-information-entities.md)]
 

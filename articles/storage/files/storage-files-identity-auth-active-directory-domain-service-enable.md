@@ -4,15 +4,15 @@ description: Découvrez comment activer l’authentification basée sur l’iden
 author: roygara
 ms.service: storage
 ms.topic: conceptual
-ms.date: 02/21/2020
+ms.date: 04/21/2020
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: cb173bcbf7cd163dca16c211d45018e0fe056edd
-ms.sourcegitcommit: 67addb783644bafce5713e3ed10b7599a1d5c151
+ms.openlocfilehash: ccaa1945101c252f7dd32be6f9340b51541ed48d
+ms.sourcegitcommit: d118ad4fb2b66c759b70d4d8a18e6368760da3ad
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/05/2020
-ms.locfileid: "80666848"
+ms.lasthandoff: 06/02/2020
+ms.locfileid: "84296632"
 ---
 # <a name="enable-azure-active-directory-domain-services-authentication-on-azure-files"></a>Activer l’authentification Azure Active Directory Domain Services sur Azure Files
 
@@ -22,6 +22,7 @@ Pour obtenir une vue d’ensemble de l’authentification Azure AD sur SMB pour 
 
 > [!NOTE]
 > Azure Files prend en charge l’authentification Kerberos avec Azure AD DS et le chiffrement RC4-HMAC. Le chiffrement Kerberos AES n’est pas encore pris en charge.
+> Azure Files prend en charge l’authentification pour Azure AD DS avec une synchronisation complète avec Azure AD. Si vous avez activé la synchronisation délimitée dans Azure AD DS qui synchronise uniquement un ensemble limité d’identités d’Azure AD, l’authentification et l’autorisation ne sont pas prises en charge.
 
 ## <a name="prerequisites"></a>Prérequis
 
@@ -119,7 +120,7 @@ Set-AzStorageAccount -ResourceGroupName "<resource-group-name>" `
 
 Pour activer l’authentification Azure AD sur SMB avec Azure CLI, installez la dernière version de l’interface CLI (version 2.0.70 ou ultérieure). Pour plus d’informations sur l'installation de l’interface de ligne de commande Azure, consultez [Installer l’interface de ligne de commande Azure](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest).
 
-Pour créer un compte de stockage, appelez [az storage account update](https://docs.microsoft.com/cli/azure/storage/account?view=azure-cli-latest#az-storage-account-create) et définissez la propriété `--enable-files-aadds` sur **true**. Dans l’exemple ci-dessous, remplacez les valeurs d’espace réservé par vos propres valeurs. (Si vous utilisiez le module en préversion précédent, le paramètre pour l’activation des fonctionnalités est **file-aad**.)
+Pour créer un compte de stockage, appelez [az storage account create](https://docs.microsoft.com/cli/azure/storage/account?view=azure-cli-latest#az-storage-account-create) et définissez la propriété `--enable-files-aadds` avec la valeur **true**. Dans l’exemple ci-dessous, remplacez les valeurs d’espace réservé par vos propres valeurs. (Si vous utilisiez le module en préversion précédent, le paramètre pour l’activation des fonctionnalités est **file-aad**.)
 
 ```azurecli-interactive
 # Create a new storage account

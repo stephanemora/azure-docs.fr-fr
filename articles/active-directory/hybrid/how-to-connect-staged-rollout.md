@@ -6,20 +6,20 @@ manager: daveba
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 05/12/2020
+ms.date: 05/29/2020
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 9fbe76fb18e33efaa161d2e2b488b48fa5c8580d
-ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
+ms.openlocfilehash: 886a25fbf78f6071db55c02517621146b507f4ac
+ms.sourcegitcommit: 12f23307f8fedc02cd6f736121a2a9cea72e9454
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83644168"
+ms.lasthandoff: 05/30/2020
+ms.locfileid: "84221274"
 ---
 # <a name="migrate-to-cloud-authentication-using-staged-rollout-preview"></a>Migrer vers l’authentification cloud à l’aide du lancement intermédiaire (préversion)
 
-Grâce au lancement intermédiaire, vous pouvez migrer de l’authentification fédérée vers l’authentification cloud. Cet article explique comment procéder. Toutefois, avant d’effectuer le lancement intermédiaire, vous devez prendre en compte les implications si une ou plusieurs des conditions suivantes sont remplies :
+En utilisant une approche de déploiement intermédiaire, vous pouvez éviter le basculement de l’ensemble de votre domaine.  Cela vous permet de tester de manière sélective des groupes d’utilisateurs avec des fonctionnalités d’authentification cloud, comme Azure Multi-Factor Authentication (MFA), l’accès conditionnel, Identity Protection pour les informations d’identification divulguées, Identity Governance, etc.  Cet article explique comment procéder. Toutefois, avant d’effectuer le lancement intermédiaire, vous devez prendre en compte les implications si une ou plusieurs des conditions suivantes sont remplies :
     
 -  Vous utilisez actuellement un serveur Multi-Factor Authentication local. 
 -  Vous utilisez des cartes à puce pour l’authentification. 
@@ -38,8 +38,8 @@ Pour obtenir une vue d’ensemble de ces fonctionnalités, consultez « Azure 
 -   Vous disposez d’un locataire Azure Active Directory (Azure AD) avec des domaines fédérés.
 
 -   Vous avez décidé de passer à l’une des deux options suivantes :
-    - **Option A** - *synchronisation de hachage de mot de passe* + *authentification unique transparente (SSO)*
-    - **Option B** - *authentification directe* + *authentification unique transparente*
+    - **Option A** - *synchronisation de hachage de mot de passe* + *authentification unique transparente (SSO)* .  Pour plus d’informations, consultez [Qu’est-ce que la synchronisation de hachage de mot de passe ?](whatis-phs.md) et [Qu’est-ce que l’authentification unique transparente ?](how-to-connect-sso.md)
+    - **Option B** - *authentification directe* + *authentification unique transparente*.  Pour plus d’informations, consultez [Qu’est-ce que l’authentification directe ?](how-to-connect-pta.md).  
     
     Bien que *l’authentification unique transparente* soit facultative, nous vous recommandons de l’activer pour obtenir une expérience de connexion silencieuse pour les utilisateurs qui utilisent des ordinateurs joints au domaine à partir du réseau d’entreprise.
 
@@ -76,12 +76,14 @@ Les scénarios suivants ne sont pas pris en charge pour le lancement intermédia
     - Les groupes dynamiques *ne sont pas pris en charge* pour le lancement intermédiaire.
     - Les objets contact du groupe bloquent l’ajout du groupe.
 
-- Vous devez encore effectuer le basculement final de l’authentification fédérée à l’authentification cloud à l’aide d’Azure AD Connect ou de PowerShell. Le lancement intermédiaire ne fait pas basculer les domaines d’un état fédéré à managé.
+- Vous devez encore effectuer le basculement final de l’authentification fédérée à l’authentification cloud à l’aide d’Azure AD Connect ou de PowerShell. Le lancement intermédiaire ne fait pas basculer les domaines d’un état fédéré à managé.  Pour plus d’informations sur le basculement de domaine, consultez [Passer de la fédération à la synchronisation de hachage de mot de passe](plan-migrate-adfs-password-hash-sync.md) et [Passer de la fédération à l’authentification directe](plan-migrate-adfs-pass-through-authentication.md)
+
+
 
 - Lorsque vous ajoutez pour la première fois un groupe de sécurité au lancement intermédiaire, vous êtes limité à 200 utilisateurs pour éviter que l’expérience utilisateur n’expire. Une fois que vous avez ajouté le groupe, vous pouvez y ajouter directement d’autres utilisateurs, selon les besoins.
 
 >[!NOTE]
-> Étant donné que les points de terminaison avec locataire n’envoient pas d’indicateurs de connexion, ils ne sont pas pris en charge lors du lancement intermédiaire.  Les applications SAML utilisent les points de terminaison avec locataire et ne sont pas non plus prises en charge lors du lancement intermédiaire.
+> Étant donné que les points de terminaison avec locataire n’envoient pas d’indicateurs de connexion, ils ne sont pas pris en charge lors du lancement intermédiaire. 
 
 ## <a name="get-started-with-staged-rollout"></a>Prise en main du lancement intermédiaire
 

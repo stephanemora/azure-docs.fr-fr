@@ -7,12 +7,12 @@ ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 04/14/2020
 ms.author: dsindona
-ms.openlocfilehash: 20f8e0bea460c20ed3af0c2844ebc3510bd2d6b6
-ms.sourcegitcommit: cf7caaf1e42f1420e1491e3616cc989d504f0902
+ms.openlocfilehash: 9c70f8d728786e8aff8da33f9a39b8c2cfaafdc4
+ms.sourcegitcommit: d118ad4fb2b66c759b70d4d8a18e6368760da3ad
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/22/2020
-ms.locfileid: "83800801"
+ms.lasthandoff: 06/02/2020
+ms.locfileid: "84295573"
 ---
 # <a name="commercial-marketplace-partner-and-customer-usage-attribution"></a>Attribution de partenaires de place de marché et d’utilisation de client
 
@@ -58,6 +58,9 @@ Vous pouvez également suivre l’utilisation à un niveau plus granulaire en in
 Les GUID doivent être inscrits dans l’Espace partenaires pour activer l’attribution de l’utilisation de client.
 
 Une fois que vous avez ajouté un GUID à votre modèle ou dans l’agent utilisateur et inscrit le GUID dans l’Espace partenaires, les déploiements futurs font l’objet d’un suivi.
+
+> [!NOTE]
+> Si vous publiez votre offre [Azure Application](./partner-center-portal/create-new-azure-apps-offer.md) sur la Place de marché Azure via l’Espace partenaires, tout nouveau GUID utilisé dans votre modèle est automatiquement inscrit dans votre profil d’Espace partenaires au moment où le modèle est chargé.  
 
 1. Connectez-vous à l’[Espace partenaires](https://partner.microsoft.com/dashboard).
 
@@ -242,11 +245,11 @@ Les partenaires doivent informer leurs clients des déploiements utilisant l’a
 
 ### <a name="notification-for-resource-manager-template-deployments"></a>Notification des déploiements de modèle Resource Manager
 
-Lorsque vous déployez ce modèle, Microsoft peut identifier l’installation du logiciel \<PARTNER> avec les ressources Azure déployées. Microsoft peut mettre en corrélation les ressources Azure utilisées pour prendre en charge le logiciel. Microsoft collecte ces informations pour fournir les meilleures expériences possibles avec leurs produits et pour gérer leur activité. Les données sont collectées et régies par les stratégies de confidentialité de Microsoft, qui se trouvent à l’adresse https://www.microsoft.com/trustcenter.
+Quand vous déployez ce modèle, Microsoft peut identifier l’installation du logiciel \<PARTNER> avec les ressources Azure déployées. Microsoft peut mettre en corrélation les ressources Azure utilisées pour prendre en charge le logiciel. Microsoft collecte ces informations pour fournir les meilleures expériences possibles avec leurs produits et pour gérer leur activité. Les données sont collectées et régies par les stratégies de confidentialité de Microsoft, qui se trouvent à l’adresse https://www.microsoft.com/trustcenter.
 
 ### <a name="notification-for-sdk-or-api-deployments"></a>Notification de déploiement des kits SDK ou d’API
 
-Lorsque vous déployez le logiciel \<PARTNER>, Microsoft peut identifier l’installation du logiciel \<PARTNER> avec les ressources Azure déployées. Microsoft peut mettre en corrélation les ressources Azure utilisées pour prendre en charge le logiciel. Microsoft collecte ces informations pour fournir les meilleures expériences possibles avec leurs produits et pour gérer leur activité. Les données sont collectées et régies par les stratégies de confidentialité de Microsoft, qui se trouvent à l’adresse https://www.microsoft.com/trustcenter.
+Quand vous déployez le logiciel \<PARTNER>, Microsoft peut identifier l’installation du logiciel \<PARTNER> avec les ressources Azure déployées. Microsoft peut mettre en corrélation les ressources Azure utilisées pour prendre en charge le logiciel. Microsoft collecte ces informations pour fournir les meilleures expériences possibles avec leurs produits et pour gérer leur activité. Les données sont collectées et régies par les stratégies de confidentialité de Microsoft, qui se trouvent à l’adresse https://www.microsoft.com/trustcenter.
 
 ## <a name="get-support"></a>Obtenir de l’aide
 

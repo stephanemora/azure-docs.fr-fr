@@ -1,91 +1,95 @@
 ---
-title: 'Démarrage rapide : Créer une commande personnalisée avec Paramètres (préversion) - Service Speech'
+title: 'Démarrage rapide : Créer une application Commandes personnalisées (préversion) avec des paramètres - Service Speech'
 titleSuffix: Azure Cognitive Services
-description: Dans cet article, vous allez ajouter des paramètres à une application Commandes personnalisées.
+description: Dans cet article, vous allez ajouter des paramètres à une application Commandes personnalisées, afin qu’elle puisse activer ou désactiver plusieurs appareils.
 services: cognitive-services
-author: don-d-kim
+author: nitinme
 manager: yetian
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 04/30/2020
-ms.author: donkim
-ms.openlocfilehash: bf77616123f9311f7384fea515f250e47b354c8c
-ms.sourcegitcommit: c535228f0b77eb7592697556b23c4e436ec29f96
+ms.author: nitinme
+ms.openlocfilehash: 940b3604487fbef7736c0d8f4f9299563b0b86d5
+ms.sourcegitcommit: 5504d5a88896c692303b9c676a7d2860f36394c1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/06/2020
-ms.locfileid: "82853623"
+ms.lasthandoff: 06/08/2020
+ms.locfileid: "84509302"
 ---
-# <a name="quickstart-create-a-custom-commands-application-with-parameters-preview"></a>Démarrage rapide : Créer une application Commandes personnalisées avec des paramètres (préversion)
+# <a name="quickstart-create-a-custom-commands-preview-application-with-parameters"></a>Démarrage rapide : Créer une application Commandes personnalisées (préversion) avec des paramètres
 
 Dans l'[article précédent](./quickstart-custom-speech-commands-create-new.md), vous avez créé une application Commandes personnalisées simple sans paramètres.
 
-Dans cet article, vous allez ajouter des paramètres à cette application afin qu'elle puisse gérer l'activation et la désactivation de plusieurs appareils.
+Dans cet article, vous allez étendre cette application avec des paramètres, afin qu’elle puisse activer ou désactiver plusieurs appareils.
 
 ## <a name="create-parameters"></a>Créer des paramètres
 
-1. Ouvrez le projet [que vous avez créé précédemment](./quickstart-custom-speech-commands-create-new.md).
-1. Nous allons modifier la commande existante pour activer et désactiver plusieurs appareils.
-1. Dans la mesure où la commande pourra désormais être activée et désactivée, renommez-la `TurnOnOff`.
-   - Dans le volet gauche, sélectionnez la commande `TurnOn`, puis cliquez sur l'icône `...` en regard de `+ New command`, en haut du volet.
-   
-   - Sélectionnez l'icône `Rename`. Dans la fenêtre contextuelle **Renommer la commande**, remplacez **Nom** par `TurOnOff`. Puis sélectionnez **Enregistrer**.
+1. Ouvrez le projet que vous avez créé dans l’[article précédent](./quickstart-custom-speech-commands-create-new.md).
 
-1. Vous allez ensuite créer un paramètre qui permettra d'indiquer si l'utilisateur souhaite activer ou désactiver l'appareil.
-   - Sélectionnez l'icône `+ Add` en haut du volet central. Dans la liste déroulante, sélectionnez **Paramètre**.
-   - Le volet le plus à droite contient la section de configuration **Paramètres**.
-   - Attribuez une valeur au **Nom**.
-   - Cochez la case **Obligatoire**. Dans la fenêtre **Ajouter une réponse pour un paramètre obligatoire**, sélectionnez **Éditeur simple** et, pour la **Première variante**, ajoutez
+   Nous allons modifier la commande existante afin de pouvoir l’utiliser pour activer et désactiver plusieurs appareils.
+1. Dans la mesure où la commande pourra désormais gérer à la fois l’activation et la désactivation, renommez-la **ActiverDésactiver**.
+   1. Dans le volet gauche, sélectionnez la commande **TurnOn**, puis cliquez sur le bouton points de suspension ( **...** ) en regard de **Nouvelle commande** en haut du volet.
+   
+   1. Sélectionnez **Renommer**. Dans la fenêtre **Renommer la commande**, définissez le **Nom** sur **ActiverDésactiver**. Sélectionnez **Enregistrer**.
+
+1. Créez un paramètre pour indiquer si l’utilisateur souhaite activer ou désactiver l’appareil.
+   1. Sélectionnez **Ajouter** en haut du volet central. Dans la liste déroulante, sélectionnez **Paramètre**.
+   1. Dans le volet droit, dans la section **Paramètres**, ajoutez une valeur dans la zone **Nom**.
+   1. Sélectionnez **Obligatoire**. Dans la fenêtre **Ajouter une réponse pour un paramètre obligatoire**, sélectionnez **Éditeur simple**. Dans la zone **Première variante**, entrez le texte suivant :
         ```
         On or Off?
         ```
-   - Sélectionnez **Update**.
+   1. Sélectionnez **Update**.
 
        > [!div class="mx-imgBorder"]
        > ![Créer une réponse pour un paramètre obligatoire](media/custom-speech-commands/add-required-on-off-parameter-response.png)
    
-   - Nous allons ensuite configurer le reste des propriétés du paramètre comme suit et sélectionner `Save` pour enregistrer toutes les configurations dans le paramètre.
+1. Configurez le reste des propriétés du paramètre comme suit :
        
 
-       | Configuration      | Valeur suggérée     | Description                                                      |
-       | ------------------ | ----------------| ---------------------------------------------------------------------|
-       | Nom               | ActiverDésactiver           | Nom descriptif du paramètre                                                                           |
-       | Est global          | non cochée       | Case à cocher indiquant si une valeur de ce paramètre est globalement appliquée à toutes les commandes de l'application|
-       | Obligatoire           | cochée         | Case à cocher indiquant si une valeur de ce paramètre est requise avant d'exécuter la commande |
-       | Réponse pour le paramètre obligatoire      |Éditeur simple -> activé ou désactivé ?      | Invite permettant de demander la valeur de ce paramètre lorsqu'elle n'est pas connue |
-       | Type               | String          | Type du paramètre, par exemple Nombre, Chaîne ou Date/heure ou Zone géographique   |
-       | Configuration      | Accepter les valeurs d'entrée prédéfinies du catalogue interne | Pour les chaînes, cela limite les entrées à un ensemble de valeurs possibles |
-       | Valeurs d'entrée prédéfinies     | on, off             | Ensemble de valeurs possibles et leurs alias         |
+    | Configuration      | Valeur suggérée     | Description                                                      |
+    | ------------------ | ----------------| ---------------------------------------------------------------------|
+    | **Nom**               | **ActiverDésactiver**           | Nom descriptif du paramètre.                                                                  |
+    | **Est global**          | Désactivé       | Case à cocher qui indique si une valeur du paramètre est globalement appliquée à toutes les commandes de l’application.|
+    | **Obligatoire**           | Volumes sélectionnés         | Case à cocher qui indique si une valeur est nécessaire pour le paramètre.  |
+    | **Réponse pour le paramètre obligatoire**      |**Éditeur simple -> activé ou désactivé ?**      | Invite permettant de demander la valeur du paramètre quand elle n’est pas connue. |
+    | **Type**               | **Chaîne**          | Type de paramètre. Par exemple, Nombre, Chaîne, Date et heure, Zone géographique.   |
+    | **Configuration**      | **Accepter les valeurs d’entrée prédéfinies du catalogue interne** | Pour les chaînes, ce paramètre limite les entrées à un ensemble de valeurs possibles. |
+    | **Valeurs d’entrée prédéfinies**     | **activé**, **désactivé**             | Ensemble de valeurs possibles et leurs alias.         |
        
-        > [!div class="mx-imgBorder"]
-        > ![Créer un paramètre](media/custom-speech-commands/create-on-off-parameter.png)
 
-   - Ensuite, sélectionnez à nouveau l'icône `+ Add` pour ajouter un deuxième paramètre représentant le nom des appareils avec la configuration suivante.
+
+    > [!div class="mx-imgBorder"]
+    > ![Créer un paramètre](media/custom-speech-commands/create-on-off-parameter.png)
+
+1. Sélectionnez **Enregistrer** pour enregistrer les paramètres.
+
+ 1. Resélectionnez **Ajouter** pour ajouter un deuxième paramètre. Ce paramètre représente le nom de l’appareil. Utilisez les paramètres suivants :
    
 
        | Paramètre            | Valeur suggérée       | Description                                                                                               |
        | ------------------ | --------------------- | --------------------------------------------------------------------------------------------------------- |
-       | Nom               | AppareilSujet         | Nom descriptif du paramètre                                                                     |
-       | Est global          | non cochée             | Case à cocher indiquant si une valeur de ce paramètre est globalement appliquée à toutes les commandes de l'application |
-       | Obligatoire           | cochée               | Case à cocher indiquant si une valeur de ce paramètre est requise avant d'exécuter la commande          |
-       | Éditeur simple      | Quel appareil ?    | Invite permettant de demander la valeur de ce paramètre lorsqu'elle n'est pas connue                                       |
-       | Type               | String                | Type du paramètre, par exemple Nombre, Chaîne ou Date/heure ou Zone géographique                                                |
-       | Configuration      | Accepter les valeurs d'entrée prédéfinies du catalogue interne | Pour les chaînes, une liste de chaînes limite les entrées à un ensemble de valeurs possibles       |
-       | Valeurs d'entrée prédéfinies | télé, ventilateur               | Ensemble de valeurs possibles et leurs alias                               |
-       | Alias (TV)      | télévision, TV     | Alias facultatifs pour chaque valeur d'entrée prédéfinie possible                                 |
+       | **Nom**               | **AppareilSujet**         | Nom descriptif du paramètre.                                                                     |
+       | **Est global**          | Désactivé             | Case à cocher qui indique si une valeur du paramètre est globalement appliquée à toutes les commandes de l’application. |
+       | **Obligatoire**           | Volumes sélectionnés               | Case à cocher qui indique si une valeur est nécessaire pour le paramètre.          |
+       | **Éditeur simple**      | **Quel appareil ?**    | Invite permettant de demander la valeur du paramètre quand elle n’est pas connue                                       |
+       | **Type**               | **Chaîne**                | Type de paramètre. Par exemple, Nombre, Chaîne, Date et heure, Zone géographique.                                                |
+       | **Configuration**      | **Accepter les valeurs d’entrée prédéfinies du catalogue interne** | Pour les chaînes, ce paramètre limite les entrées à un ensemble de valeurs possibles.       |
+       | **Valeurs d’entrée prédéfinies** | **télé**, **ventilateur**               | Ensemble de valeurs possibles et leurs alias.                               |
+       | **Alias** (TV)      | **télévision**, **TV**     | Alias facultatifs pour chacune des valeurs d’entrée prédéfinies possibles.                                 |
 
 ## <a name="add-example-sentences"></a>Ajouter des exemples de phrases
 
-Avec les commandes avec paramètres, il convient d'ajouter des exemples de phrases couvrant toutes les combinaisons possibles. Par exemple :
+Pour les commandes qui ont des paramètres, il convient d’ajouter des exemples de phrases couvrant toutes les combinaisons possibles. Par exemple :
 
-1. Informations complètes sur les paramètres - `turn {OnOff} the {SubjectDevice}`
-1. Informations partielles sur les paramètres - `turn it {OnOff}`
-1. Aucune information sur les paramètres - `turn something`
+- Informations complètes sur les paramètres : `turn {OnOff} the {SubjectDevice}`
+- Informations partielles sur les paramètres : `turn it {OnOff}`
+- Aucune information sur les paramètres : `turn something`
 
-Les exemples de phrases, qui peuvent contenir différents degrés d'informations, permettent à l'application Commandes personnalisées de procéder à des résolutions en une ou plusieurs fois avec des informations partielles.
+Les exemples de phrases, qui peuvent contenir plus ou moins d’informations, permettent à l’application Commandes personnalisées de procéder à des résolutions en une ou plusieurs fois comportant des informations partielles.
 
-Sachant cela, modifiez les exemples de phrases pour utiliser les paramètres suggérés ci-dessous.
+Sachant cela, modifiez les exemples de phrases pour utiliser les paramètres suggérés ici :
 
 ```
 turn {OnOff} the {SubjectDevice}
@@ -95,36 +99,40 @@ turn something {OnOff}
 turn something
 ```
 > [!TIP]
-> Dans l'éditeur d'exemples de phrases, utilisez des accolades pour faire référence à vos paramètres. - `turn {OnOff} the {SubjectDevice}` Utilisez l'onglet de la saisie semi-automatique basée sur les paramètres créés précédemment.
+> Dans l’éditeur d’exemples de phrases, utilisez des accolades pour faire référence à vos paramètres : `turn {OnOff} the {SubjectDevice}`.
+>
+> Utilisez la touche Tab pour l’autocomplétion définie par les paramètres créés.
 
-## <a name="add-parameters-to-completion-rules"></a>Ajouter des paramètres aux règles de saisie semi-automatique
+## <a name="add-parameters-to-completion-rules"></a>Ajouter des paramètres aux règles d’exécution
 
-Modifiez la règle de saisie semi-automatique que nous avons créée dans [le précédent guide de démarrage rapide](./quickstart-custom-speech-commands-create-new.md).
+Modifiez la règle d’exécution que vous avez créée dans le [précédent guide de démarrage rapide](./quickstart-custom-speech-commands-create-new.md).
 
-1. Dans la section **Conditions**, ajoutez une nouvelle condition en sélectionnant **+ Ajouter une condition**.
-1. Dans la nouvelle fenêtre contextuelle **Nouvelle condition**, sélectionnez `Required parameters` à partir de la liste déroulante **Type**. Dans la liste de contrôle ci-dessous, cochez `OnOff` et `SubjectDevice`.
-1. Cliquez sur **Créer**.
-1. Dans la section **Actions**, modifiez l'action existante Envoyer une réponse vocale en pointant l'action et en cliquant sur l'icône de modification. Cette fois, nous allons utiliser les paramètres `OnOff` et `SubjectDevice` que nous venons de créer.
+1. Dans la section **Conditions**, sélectionnez **Ajouter une condition**.
+1. Dans la fenêtre **Nouvelle condition**, dans la liste **Type**, sélectionnez **Paramètres requis**. Dans la liste, sélectionnez à la fois **ActiverDésactiver** et **ActiverDésactiver**.
+1. Sélectionnez **Create** (Créer).
+1. Dans la section **Actions**, modifiez l’action existante **Envoyer une réponse vocale** en pointant l’action et en sélectionnant le bouton de modification. Cette fois-ci, utilisez les nouveaux paramètres `OnOff` et `SubjectDevice` :
 
     ```
     Ok, turning {OnOff} the {SubjectDevice}
     ```
 
 ## <a name="try-it-out"></a>Faites un essai
-1. Sélectionnez l'icône `Train` en haut du volet droit.
+1. Sélectionnez **Entraîner** en haut du volet droit.
 
-1. Une fois l'apprentissage terminé, sélectionnez `Test`.
-    - Une nouvelle fenêtre **Tester votre application** apparaît.
-    - Essayez quelques interactions.
+1. Une fois l’entraînement terminé, sélectionnez **Tester**.
+    
+    Une fenêtre **Tester votre application** apparaît.
 
-        - Entrée : éteindre la télé
-        - Sortie : OK, éteindre la télé        
-        - Entrée : éteindre la télévision
-        - Sortie : OK, éteindre la télé
-        - Entrée : éteindre
-        - Sortie : Quel appareil ?
-        - Entrée : la télé
-        - Sortie : OK, éteindre la télé
+1. Essayez quelques interactions.
+
+        - Input: turn off the tv
+        - Output: Ok, turning off the tv        
+        - Input: turn off the television
+        - Output: Ok, turning off the tv
+        - Input: turn it off
+        - Output: Which device?
+        - Input: the tv
+        - Output: Ok, turning off the tv
 
 ## <a name="next-steps"></a>Étapes suivantes
 > [!div class="nextstepaction"]

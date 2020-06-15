@@ -5,18 +5,18 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: devices
 ms.topic: conceptual
-ms.date: 06/04/2019
+ms.date: 05/28/2020
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: jairoc
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e09de5911ca0946bfcbcb77d1ad4131c8feac9f0
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 79474d85d9b2349c79aeff0c33ffed9afad690fb
+ms.sourcegitcommit: 1692e86772217fcd36d34914e4fb4868d145687b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79230473"
+ms.lasthandoff: 05/29/2020
+ms.locfileid: "84169691"
 ---
 # <a name="manage-device-identities-using-the-azure-portal"></a>Gérer les identités de l’appareil à l’aide du portail Microsoft Azure
 
@@ -26,6 +26,8 @@ Cet article :
 
 - Suppose que vous avez lu la [Présentation de la gestion des identités des appareils dans Azure Active Directory](overview.md)
 - Fournit des informations sur la gestion des identités des appareils avec le portail Azure AD
+
+![Vue Tous les appareils dans le portail Azure](./media/device-management-azure-portal/all-devices-azure-portal.png)
 
 ## <a name="manage-device-identities"></a>Gérer les identités des appareils
 
@@ -47,7 +49,7 @@ Pour gérer les identités de vos appareils avec le portail Azure AD, vous devez
 
 La page des paramètres de l’appareil vous permet de configurer les paramètres relatifs aux identités des appareils :
 
-![Gérer un appareil Intune](./media/device-management-azure-portal/21.png)
+![Paramètres d’appareil associés à Azure AD](./media/device-management-azure-portal/device-settings-azure-portal.png)
 
 - **Les utilisateurs peuvent joindre des appareils à Azure AD** : ce paramètre vous permet de sélectionner les utilisateurs qui peuvent inscrire leurs appareils en tant qu’appareils joints à Azure AD. La valeur par défaut est **Tous**.
 
@@ -55,7 +57,7 @@ La page des paramètres de l’appareil vous permet de configurer les paramètre
 > Le paramètre **Les utilisateurs peuvent joindre des appareils à Azure AD** s’applique uniquement à Azure AD Join sous Windows 10.
 
 - **Administrateurs locaux supplémentaires sur les appareils joints à Azure AD** : vous pouvez sélectionner les utilisateurs qui peuvent disposer de droits d’administrateur local sur un appareil. Les utilisateurs ajoutés ici sont ajoutés au rôle *Administrateurs d’appareils* dans Azure AD. Les administrateurs généraux Azure AD et les propriétaires d’appareils bénéficient de droits d’administrateur local par défaut. Cette option est une fonctionnalité de l’édition Premium disponible dans les produits comme Azure AD Premium ou EMS (Enterprise Mobility Suite).
-- **Les utilisateurs peuvent inscrire leurs appareils sur Azure AD** : vous devez configurer ce paramètre pour permettre l’inscription des appareils Windows 10 Personnel, iOS, Android, et macOS dans Azure AD. Si vous sélectionnez **Aucun**, les appareils ne peuvent pas être inscrits dans Azure AD. L’inscription auprès de Microsoft Intune ou de la Gestion des appareils mobiles (MDM) pour Office 365 nécessite l’enregistrement de l’appareil. Si vous avez configuré l’un de ces services, l’option **TOUS** est sélectionnée et l’option **AUCUN** est désactivée.
+- **Les utilisateurs peuvent inscrire leurs appareils sur Azure AD** : vous devez configurer ce paramètre pour permettre l’inscription des appareils Windows 10 Personnel, iOS, Android et macOS dans Azure AD. Si vous sélectionnez **Aucun**, les appareils ne peuvent pas être inscrits dans Azure AD. L’inscription auprès de Microsoft Intune ou de la Gestion des appareils mobiles (MDM) pour Office 365 nécessite l’enregistrement de l’appareil. Si vous avez configuré l’un de ces services, l’option **TOUS** est sélectionnée et l’option **AUCUN** est désactivée.
 - **Exiger Multi-factor Auth pour joindre des appareils** : vous pouvez déterminer si les utilisateurs doivent fournir un facteur d’authentification supplémentaire lorsqu’ils veulent joindre leurs appareils à Azure AD. La valeur par défaut est **No**. Il est recommandé d’exiger une authentification multifacteur au moment de l’inscription d’un appareil. Avant d’activer l’authentification multifacteur pour ce service, vous devez vérifier que l’authentification multifacteur est configurée pour les utilisateurs qui inscrivent leurs appareils. Pour plus d’informations sur les services d’authentification multifacteur Azure, consultez [Bien démarrer avec l’authentification multifacteur Azure](../authentication/concept-mfa-whichversion.md). 
 
 > [!NOTE]
@@ -82,13 +84,9 @@ Ces deux options permettent d’accéder à une vue qui :
 - Fournit une vue d’ensemble détaillée des appareils inscrits et joints
 - Permet d’effectuer les tâches courantes de gestion des appareils
 
-![Tous les appareils](./media/device-management-azure-portal/51.png)
-
 >[!TIP]
 >
 >* Si vous voyez un appareil « joint à une version hybride d’Azure AD » avec l’état « En attente » dans la colonne REGISTERED (Inscrit), cela signifie que l’appareil a été synchronisé à partir d’Azure AD Connect et qu’il attend de terminer l’inscription à partir du client. Pour en savoir plus, consultez [Planifier votre implémentation de la jointure d’Azure AD Hybride](hybrid-azuread-join-plan.md). Pour plus d’informations, consultez le [Forum aux questions sur les appareils](faq.md).
->
->   ![Appareils en attente](./media/device-management-azure-portal/75.png)
 >
 >* Pour certains appareils iOS, les noms d’appareils qui contiennent des apostrophes peuvent utiliser d’autres caractères qui ressemblent à des apostrophes. La recherche de ces appareils peut donc être difficile. Si les résultats que vous attendez ne s’affichent pas, vérifiez que la chaîne de recherche contient les caractères d’apostrophe attendus.
 
@@ -170,6 +168,27 @@ Pour afficher ou copier les clés BitLocker, vous devez être le propriétaire d
 
 > [!NOTE]
 > Les appareils Windows 10 hybrides joints à Azure AD n’ont pas de propriétaire. Par conséquent, si vous cherchiez un appareil à l’aide de son propriétaire et ne l’avez pas trouvé, recherchez-le à l’aide de son ID.
+
+### <a name="device-list-filtering-preview"></a>Filtrage de la liste des appareils (préversion)
+
+Auparavant, vous pouviez uniquement filtrer la liste des appareils par activité et état activé. Cette préversion vous permet désormais de filtrer la liste des appareils en fonction des attributs suivants sur un appareil :
+
+- État activé
+- État conforme
+- Type de jonction (jonction Azure AD, jonction Azure AD Hybride, inscrit sur Azure AD)
+- Timestamp d’activité
+- Système d’exploitation
+- Type d’appareil (imprimantes, machines virtuelles sécurisées, appareils partagés, appareils inscrits)
+
+Pour activer la fonctionnalité de filtrage en préversion dans la vue **Tous les appareils** :
+
+![Activer la fonctionnalité de filtrage en préversion](./media/device-management-azure-portal/device-filter-preview-enable.png)
+
+1. Connectez-vous au [portail Azure](https://portal.azure.com).
+1. Accédez à **Azure Active Directory** > **Appareils**.
+1. Sélectionnez la bannière qui indique : **Essayez les améliorations apportées au filtrage des appareils. Cliquez pour activer la préversion.**
+
+Vous avez maintenant la possibilité d’**Ajouter des filtres** à votre vue **Tous les appareils**.
 
 ## <a name="audit-logs"></a>Journaux d’audit
 

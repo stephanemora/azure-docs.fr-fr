@@ -4,12 +4,12 @@ description: Guide pratique pour basculer des machines virtuelles/serveurs physi
 ms.service: site-recovery
 ms.topic: article
 ms.date: 12/10/2019
-ms.openlocfilehash: 99a197e8f5ebac8a3b0be1b567ee41b43a2c4476
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: bebc4cd56f248d09579dcde2fc234f63dd65a09f
+ms.sourcegitcommit: 69156ae3c1e22cc570dda7f7234145c8226cc162
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79471266"
+ms.lasthandoff: 06/03/2020
+ms.locfileid: "84309966"
 ---
 # <a name="run-a-failover-from-on-premises-to-azure"></a>Effectuer un basculement depuis le site local vers Azure
 
@@ -52,6 +52,7 @@ Exécutez le basculement du plan de récupération comme suit :
 4. Dans **Basculer**, sélectionnez un **point de récupération** vers lequel effectuer le basculement.
 
     - **Les dernières** : Utilisez le point le plus récent. Cela traite toutes les données qui ont été envoyées au service Site Recovery et crée un point de récupération pour chaque ordinateur. Cette option fournit l’objectif de point de récupération (RPO) le plus faible, car la machine virtuelle créée après le basculement comporte toutes les données répliquées vers Site Recovery au moment où le basculement a été déclenché.
+    Notez que lorsque la région source tombe en panne, il n’y a plus de traitement des journaux possible. Vous devez donc basculer vers le dernier point de récupération traité. Pour en savoir plus, consultez le point suivant.
    - **Dernier point traité** : Utilisez cette option pour basculer les machines virtuelles vers le dernier point de récupération déjà traité par Site Recovery. Vous pouvez voir le dernier point de récupération traité dans les **derniers points de récupération** de la machine virtuelle. Cette option fournit un objectif de délai de récupération faible, car aucun temps n’est consacré à traiter les données non traitées.
    - **Dernier point de cohérence des applications** : Utilisez cette option pour basculer les machines virtuelles vers le dernier point de récupération de cohérence des applications traité par Site Recovery.
    - **Dernier point multimachine virtuelle traité** :  Avec cette option, les machines virtuelles appartenant à un groupe de réplication basculent vers le point de récupération multimachine virtuelle cohérent commun. Les autres machines virtuelles basculent vers leur dernier point de récupération traité. Cette option est disponible uniquement pour les plans de récupération qui incluent au moins une machine virtuelle avec la cohérence multimachine virtuelle activée.

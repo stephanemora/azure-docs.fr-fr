@@ -3,12 +3,12 @@ title: Appliance Azure Migrate
 description: Présente une vue d’ensemble de l’utilisation de l’appliance Azure Migrate pour l’évaluation et la migration de serveurs.
 ms.topic: conceptual
 ms.date: 05/04/2020
-ms.openlocfilehash: 98398510acb1eec29ea603d869f1e9ec383cb210
-ms.sourcegitcommit: 0690ef3bee0b97d4e2d6f237833e6373127707a7
+ms.openlocfilehash: 5995242f84738eca1b2be680e3f744e36831d78f
+ms.sourcegitcommit: f1132db5c8ad5a0f2193d751e341e1cd31989854
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/21/2020
-ms.locfileid: "83758943"
+ms.lasthandoff: 05/31/2020
+ms.locfileid: "84235335"
 ---
 # <a name="azure-migrate-appliance"></a>Appliance Azure Migrate
 
@@ -206,11 +206,77 @@ Opérations d’écriture du disque par seconde | virtualDisk.numberWriteAverage
 Débit de lecture de la carte d’interface réseau (Mo par seconde) | net.received.average | Calcul de la taille de machine virtuelle
 Débit des écritures de la carte réseau (Mo par seconde) | net.transmitted.average  |Calcul de la taille de machine virtuelle
 
+
+### <a name="installed-apps-metadata"></a>Métadonnées des applications installées
+
+La découverte des applications collecte les données des applications et du système d’exploitation installées.
+
+#### <a name="windows-vm-apps-data"></a>Données des applications de machine virtuelle Windows
+
+Voici les données des applications installées que l’appliance collecte auprès de chaque machine virtuelle activée pour la détection des applications. Ces données sont envoyées à Azure.
+
+**Données** | **Emplacement du registre** | **Clé**
+--- | --- | ---
+Nom de l’application  | HKLM:\Software\Microsoft\Windows\CurrentVersion\Uninstall\* <br/> HKLM:\Software\Wow6432Node\Microsoft\Windows\CurrentVersion\Uninstall\*  | DisplayName
+Version  | HKLM:\Software\Microsoft\Windows\CurrentVersion\Uninstall\*  <br/> HKLM:\Software\Wow6432Node\Microsoft\Windows\CurrentVersion\Uninstall\*  | DisplayVersion 
+Fournisseur  | HKLM:\Software\Microsoft\Windows\CurrentVersion\Uninstall\*  <br/> HKLM:\Software\Wow6432Node\Microsoft\Windows\CurrentVersion\Uninstall\*  | Serveur de publication
+
+#### <a name="windows-vm-features-data"></a>Données des fonctionnalités de machine virtuelle Windows
+
+Voici les données des fonctionnalités que l’appliance collecte auprès de chaque machine virtuelle activée pour la détection des applications. Ces données sont envoyées à Azure.
+
+**Données**  | **Applet de commande PowerShell** | **Propriété**
+--- | --- | ---
+Nom  | Get-WindowsFeature  | Nom
+Type de fonctionnalité | Get-WindowsFeature  | FeatureType
+Parent  | Get-WindowsFeature  | Parent
+
+#### <a name="windows-vm-sql-server-metadata"></a>Métadonnées SQL Server de machine virtuelle Windows
+
+Voici les métadonnées de serveur SQL Server que l’appliance collecte auprès des machines virtuelles exécutant un serveur Microsoft SQL Server activé pour la détection des applications. Ces données sont envoyées à Azure.
+
+**Données**  | **Emplacement du registre**  | **Clé**
+--- | --- | ---
+Nom  | HKLM:\SOFTWARE\Microsoft\Microsoft SQL Server\Instance Names\SQL  | installedInstance
+Édition  | HKLM:\SOFTWARE\Microsoft\Microsoft SQL Server\\\<InstanceName>\Setup  | Édition 
+Service Pack  | HKLM:\SOFTWARE\Microsoft\Microsoft SQL Server\\\<InstanceName>\Setup  | SP
+Version  | HKLM:\SOFTWARE\Microsoft\Microsoft SQL Server\\\<InstanceName>\Setup  | Version 
+
+#### <a name="windows-vm-operating-system-data"></a>Données de système d’exploitation de machine virtuelle Windows
+
+Voici les données de système d’exploitation que l’appliance collecte auprès de chaque machine virtuelle activée pour la détection des applications. Ces données sont envoyées à Azure.
+
+Données  | Classe WMI  | Propriété de classe WMI
+--- | --- | ---
+Nom  | Win32_operatingsystem  | Caption
+Version  | Win32_operatingsystem  | Version
+Architecture  | Win32_operatingsystem  | OSArchitecture
+
+#### <a name="linux-vm-apps-data"></a>Données des applications de machine virtuelle Linux
+
+Voici les données des applications installées que l’appliance collecte auprès de chaque machine virtuelle activée pour la détection des applications. En fonction du système d’exploitation de la machine virtuelle, une ou plusieurs des commandes sont exécutées. Ces données sont envoyées à Azure.
+
+Données  | Commande
+--- | --- 
+Nom | rpm, dpkg-query, snap
+Version | rpm, dpkg-query, snap
+Fournisseur | rpm, dpkg-query, snap
+
+#### <a name="linux-vm-operating-system-data"></a>Données de système d’exploitation de machine virtuelle Linux
+
+Voici les données de système d’exploitation que l’appliance collecte auprès de chaque machine virtuelle activée pour la détection des applications. Ces données sont envoyées à Azure.
+
+**Données**  | **Commande** 
+--- | --- | ---
+Nom <br/> version | Collectées dans un ou plusieurs des fichiers suivants :<br/> <br/>/etc/os-release  <br> /usr/lib/os-release  <br> /etc/enterprise-release  <br> /etc/redhat-release  <br> /etc/oracle-release  <br> /etc/SuSE-release  <br> /etc/lsb-release  <br> /etc/debian_version 
+Architecture | uname
+
+
 ### <a name="app-dependencies-metadata"></a>Métadonnées des dépendances d’application
 
 L’analyse des dépendances sans agent collecte les données de connexion et de processus.
 
-#### <a name="connection-data"></a>Données de connexion
+#### <a name="windows-vm-app-dependencies-data"></a>Données des dépendances des applications de machine virtuelle Windows
 
 Voici les données de connexion que l’appliance collecte auprès de chaque machine virtuelle activée pour l’analyse des dépendances sans agent. Ces données sont envoyées à Azure.
 
@@ -224,7 +290,7 @@ Adresse IP distante | netstat
 ID du processus | netstat
 Nombre de connexions actives | netstat
 
-#### <a name="process-data"></a>Traitement des données
+
 Voici les données de processus que l’appliance collecte auprès de chaque machine virtuelle activée pour l’analyse des dépendances sans agent. Ces données sont envoyées à Azure.
 
 **Données** | **Classe WMI** | **Propriété de classe WMI**
@@ -233,7 +299,7 @@ Nom du processus | Win32_Process | ExecutablePath
 Arguments de processus | Win32_Process | CommandLine
 Nom de l'application | Win32_Process | Paramètre VersionInfo.ProductName de la propriété ExecutablePath
 
-#### <a name="linux-vm-data"></a>Données des machines virtuelles Linux
+#### <a name="linux-vm-app-dependencies-data"></a>Données des dépendances des applications de machine virtuelle Linux
 
 Voici les données de connexion et de processus que l’appliance collecte auprès de chaque machine virtuelle Linux activée pour l’analyse des dépendances sans agent. Ces données sont envoyées à Azure.
 

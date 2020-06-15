@@ -7,14 +7,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: forms-recognizer
 ms.topic: conceptual
-ms.date: 04/14/2020
+ms.date: 05/19/2020
 ms.author: pafarley
-ms.openlocfilehash: c2b67989cbffb03eb182b4de2bf471a02ee33e7b
-ms.sourcegitcommit: 1895459d1c8a592f03326fcb037007b86e2fd22f
+ms.openlocfilehash: e3bf279142383ccdb3e82ffee49bd593640bb937
+ms.sourcegitcommit: fc718cc1078594819e8ed640b6ee4bef39e91f7f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/01/2020
-ms.locfileid: "82627991"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "83996820"
 ---
 # <a name="whats-new-in-form-recognizer"></a>Nouveautés de Form Recognizer
 
@@ -27,11 +27,10 @@ Le service Form Recognizer est régulièrement mis à jour. Lisez cet article po
 
 ### <a name="new-features"></a>Nouvelles fonctionnalités
 * **Prise en charge du SDK pour la préversion publique de l’API Form Recognizer v 2.0** Ce mois-ci, nous avons étendu notre support technique pour inclure une préversion du SDK de Form Recognizer v2.0 (préversion). Utilisez les liens ci-dessous pour bien démarrer avec le langage de votre choix : 
-   * [Kit de développement logiciel (SDK) .NET](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/formrecognizer/Azure.AI.FormRecognizer)
-   * [Kit SDK Java](https://github.com/Azure/azure-sdk-for-java/tree/master/sdk/formrecognizer/azure-ai-formrecognizer)
-   * [Kit de développement logiciel (SDK) Python](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/formrecognizer/azure-ai-formrecognizer)
-   * [Kit de développement logiciel (SDK) JavaScript](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/formrecognizer/ai-form-recognizer)
-
+   * [Kit de développement logiciel (SDK) .NET](https://docs.microsoft.com/dotnet/api/overview/azure/formrecognizer?view=azure-dotnet-preview)
+   * [Kit SDK Java](https://docs.microsoft.com/java/api/overview/azure/formrecognizer?view=azure-java-preview)
+   * [Kit de développement logiciel (SDK) Python](https://docs.microsoft.com/python/api/overview/azure/formrecognizer?view=azure-python-previewr)
+   * [Kit de développement logiciel (SDK) JavaScript](https://docs.microsoft.com/javascript/api/overview/azure/formrecognizer?view=azure-node-preview)
 
   Le nouveau SDK prend en charge toutes les fonctionnalités de l’API REST v2.0 pour Form Recognizer. Par exemple, vous pouvez entraîner un modèle avec ou sans étiquettes pour extraire du texte, des paires clé-valeur et des tables de vos formulaires, extraire des données à partir de reçus avec le service des reçus préintégré et extraire du texte et des tables de vos documents avec le service de disposition. Vous pouvez partager vos commentaires sur les SDK à l’aide du [formulaire de commentaires sur les SDK](https://aka.ms/FR_SDK_v1_feedback).
  
@@ -39,6 +38,10 @@ Le service Form Recognizer est régulièrement mis à jour. Lisez cet article po
    * API REST [Générer une autorisation de copie](https://westus2.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-preview/operations/CopyCustomFormModelAuthorization)
    * API REST [Copier un modèle personnalisé](https://westus2.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-preview/operations/CopyCustomFormModel) 
 
+### <a name="security-improvements"></a>Améliorations de sécurité
+
+* Les clés gérées par le client sont maintenant disponibles pour Form Recognizer. Pour plus d’informations, consultez [Chiffrement des données au repos pour Form Recognizer](https://docs.microsoft.com/azure/cognitive-services/form-recognizer/form-recognizer-encryption-of-data-at-rest).
+* Utilisez des identités managées pour accéder aux ressources Azure avec Azure Active Directory. Pour plus d’informations, consultez [Autoriser l’accès aux identités managées](https://docs.microsoft.com/azure/cognitive-services/authentication#authorize-access-to-managed-identities).
 
 ## <a name="march-2020"></a>Mars 2020 
 

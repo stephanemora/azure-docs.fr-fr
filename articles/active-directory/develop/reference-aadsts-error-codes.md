@@ -12,12 +12,12 @@ ms.date: 04/30/2020
 ms.author: ryanwi
 ms.reviewer: hirsin
 ms.custom: aaddev
-ms.openlocfilehash: 3ec1e7e9aa84c01cd62836f3c09f22cdb143817a
-ms.sourcegitcommit: 50ef5c2798da04cf746181fbfa3253fca366feaa
+ms.openlocfilehash: dabaecfd31ac9ec6250e7b482fde7699a13df044
+ms.sourcegitcommit: 309cf6876d906425a0d6f72deceb9ecd231d387c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/30/2020
-ms.locfileid: "82611328"
+ms.lasthandoff: 06/01/2020
+ms.locfileid: "84266591"
 ---
 # <a name="azure-ad-authentication-and-authorization-error-codes"></a>Codes d’erreur d’authentification et d’autorisation Azure AD
 
@@ -63,12 +63,12 @@ Le champ `error` a plusieurs valeurs possibles : consultez les liens de documen
 | Code d'erreur         | Description        | Action du client    |
 |--------------------|--------------------|------------------|
 | `invalid_request`  | Erreur de protocole, tel qu’un paramètre obligatoire manquant. | Corrigez l’erreur, puis envoyez à nouveau la demande.|
-| `invalid_grant`    | Le matériel d’authentification (code d’authentification, jeton d’actualisation, jeton d’accès, PKCE (Proof Key for Code Exchange, clé de preuve pour l’échange de code)) était en partie non valide, non analysable, manquant ou inutilisable. | Essayez d’envoyer une nouvelle requête au point de terminaison `/authorize` pour obtenir un nouveau code d’autorisation.  Songez à examiner et valider l’utilisation des protocoles par cette application. |
+| `invalid_grant`    | Le matériel d’authentification (code d’authentification, jeton d’actualisation, jeton d’accès, vérification PKCE (Proof Key for Code Exchange)) était en partie non valide, non analysable, manquant ou inutilisable. | Essayez d’envoyer une nouvelle requête au point de terminaison `/authorize` pour obtenir un nouveau code d’autorisation.  Songez à examiner et valider l’utilisation des protocoles par cette application. |
 | `unauthorized_client` | Le client authentifié n’est pas autorisé à utiliser ce type d’octroi d’autorisation. | Cela se produit généralement lorsque l’application cliente n’est pas inscrite dans Azure AD ou n’est pas ajoutée au client Azure AD de l’utilisateur. L’application peut proposer à l’utilisateur des instructions pour installer l’application et l’ajouter à Azure AD. |
 | `invalid_client` | Échec d’authentification du client.  | Les informations d’identification du client ne sont pas valides. Pour résoudre le problème, l’administrateur de l’application met à jour les informations d’identification.   |
 | `unsupported_grant_type` | Le serveur d’autorisation ne prend pas en charge le type d’octroi d’autorisation. | Modifiez le type d’octroi dans la demande. Ce type d’erreur doit se produire uniquement lors du développement et doit être détecté lors du test initial. |
 | `invalid_resource` | La ressource cible n’est pas valide car elle n’existe pas, Azure AD ne la trouve pas ou elle n’est pas configurée correctement. | Cela indique que la ressource, si elle existe, n’a pas été configurée dans le client. L’application peut proposer à l’utilisateur des instructions pour installer l’application et l’ajouter à Azure AD.  Dans le cadre du développement, cela indique généralement qu’un locataire de test est mal configuré ou que le nom de l’étendue demandée contient une faute de frappe. |
-| `interaction_required` | La demande nécessite une interaction utilisateur. Par exemple, une étape d’authentification supplémentaire est nécessaire. | Relancez la demande avec la même ressource, mais de manière interactive, afin que l’utilisateur puisse effectuer les vérifications requises.  |
+| `interaction_required` | La demande nécessite une interaction utilisateur. Par exemple, une étape d’authentification supplémentaire est nécessaire. | Relancez la demande avec la même ressource, mais de manière interactive, afin que l’utilisateur puisse effectuer les vérifications demandées.  |
 | `temporarily_unavailable` | Le serveur est temporairement trop occupé pour traiter la demande. | Relancez la requête. L’application cliente peut expliquer à l’utilisateur que sa réponse est reportée en raison d’une condition temporaire. |
 
 ## <a name="lookup-current-error-code-information"></a>Rechercher les informations actuelles sur les codes d’erreur
@@ -173,7 +173,7 @@ Effectuez une recherche sur la partie numérique du code d’erreur retourné.  
 | AADSTS50187 | DeviceInformationNotProvided : le service n’a pas réussi à authentifier l’appareil. |
 | AADSTS50196 | LoopDetected : une boucle client a été détectée. Vérifiez la logique de l’application pour vous assurer que la mise en cache des jetons est implémentée et que les conditions d’erreur sont gérées correctement.  L’application a effectué un trop grand nombre de requêtes sur une période trop brève, indiquant qu’elle est dans un état défectueux ou qu’elle demande trop de jetons. |
 | AADSTS50197 | ConflictingIdentities : impossible de trouver l’utilisateur. Réessayez de vous connecter. |
-| AADSTS50199 | CmsiInterrupt : pour des raisons de sécurité, une confirmation de l’utilisateur est requise pour cette demande.  Étant donné qu’il s’agit d’une erreur « interaction_required », le client doit effectuer une authentification interactive.  Cela est dû au fait qu’un affichage web système a été utilisé pour demander un jeton pour une application native : l’utilisateur doit être invité à préciser s’il s’agissait effectivement de l’application à laquelle il voulait se connecter.|
+| AADSTS50199 | CmsiInterrupt : pour des raisons de sécurité, une confirmation de l’utilisateur est requise pour cette demande.  Étant donné qu’il s’agit d’une erreur « interaction_required », le client doit effectuer une authentification interactive.  Cela est dû au fait qu’un affichage web système a été utilisé pour demander un jeton pour une application native : l’utilisateur doit être invité à préciser s’il s’agissait effectivement de l’application à laquelle il voulait se connecter. Pour éviter cette invite, l’URI de redirection doit faire partie de la liste approuvée suivante : <br />http://<br />https://<br />msauth://(iOS uniquement)<br />msauthv2://(iOS uniquement)<br />chrome-extension:// (navigateur Chrome appareil de bureau uniquement) |
 | AADSTS51000 | RequiredFeatureNotEnabled : la fonctionnalité est désactivée. |
 | AADSTS51001 | DomainHintMustbePresent : l’indicateur de domaine doit être présent avec l’identificateur de sécurité local ou l’UPN local. |
 | AADSTS51004 | UserAccountNotInDirectory : le compte d’utilisateur n’existe pas dans le répertoire. |
@@ -314,7 +314,7 @@ Effectuez une recherche sur la partie numérique du code d’erreur retourné.  
 | AADSTS700022 | InvalidMultipleResourcesScope : la valeur fournie pour l’étendue du paramètre d’entrée n’est pas valide car elle contient plusieurs ressources. |
 | AADSTS700023 | InvalidResourcelessScope : la valeur fournie pour l’étendue du paramètre d’entrée n’est pas valide pour demander un jeton d’accès. |
 | AADSTS7000215 | La clé secrète client fournie n’est pas valide. Erreur du développeur : l’application tente de se connecter sans les paramètres d’authentification nécessaires ou corrects.|
-| AADSTS7000222| InvalidClientSecretExpiredKeysProvided : les clés secrètes client fournies ont expiré. Visitez le portail Azure pour créer des clés pour votre application ou envisagez d’utiliser des informations d’identification de certificat pour renforcer la sécurité : https://aka.ms/certCreds |
+| AADSTS7000222 | InvalidClientSecretExpiredKeysProvided : les clés secrètes client fournies ont expiré. Visitez le portail Azure afin de créer de nouvelles clés pour votre application, ou envisagez d’utiliser des informations d’identification de certificat pour renforcer la sécurité : [https://aka.ms/certCreds](https://aka.ms/certCreds) |
 | AADSTS700005 | InvalidGrantRedeemAgainstWrongTenant : le code d’autorisation fourni est destiné à être utilisé auprès d’un autre locataire et a donc été rejeté. Le code d’autorisation OAuth2 doit être échangé auprès du même locataire pour lequel il a été acquis (/common ou /{tenant-ID}, le cas échéant) |
 | AADSTS1000000 | UserNotBoundError : l’API Bind nécessite que l’utilisateur Azure AD s’authentifie également auprès d’un fournisseur d’identité externe, ce qui n’a pas encore été effectué. |
 | AADSTS1000002 | BindCompleteInterruptError : la liaison s’est terminée correctement, mais l’utilisateur doit être informé. |

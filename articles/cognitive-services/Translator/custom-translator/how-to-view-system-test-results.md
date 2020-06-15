@@ -6,15 +6,15 @@ author: swmachan
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: translator-text
-ms.date: 02/21/2019
+ms.date: 05/26/2020
 ms.author: swmachan
 ms.topic: conceptual
-ms.openlocfilehash: eee2271b6d1fb51ff4b27c0d612306b1f7f8747a
-ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
+ms.openlocfilehash: 3361241bf0a330abc18701f93460208b8804a7dc
+ms.sourcegitcommit: fc718cc1078594819e8ed640b6ee4bef39e91f7f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83584720"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "83994258"
 ---
 # <a name="view-system-test-results"></a>Afficher les résultats de test système
 
@@ -54,7 +54,7 @@ Cliquez sur le lien Télécharger les traductions pour télécharger un fichier 
 
 Cette archive zip téléchargée contient trois fichiers.
 
-1.  **custom.mt.txt :** ce fichier contient la traduction automatique des phrases de la langue source vers la langue cible effectuée par le modèle formé avec les données de l’utilisateur.
+1.  **custom.mt.txt :** ce fichier contient la traduction automatique des phrases de la langue source vers la langue cible effectuée par le modèle entraîné avec les données de l’utilisateur.
 
 2.  **ref.txt :** ce fichier contient les traductions fournies par l’utilisateur des phrases de la langue source vers la langue cible.
 
@@ -68,7 +68,7 @@ Pour demander un déploiement :
 
 1.  Sélectionnez un projet, accédez à l’onglet Modèles.
 
-2. Pour un modèle formé réussi, il affiche le bouton « Déployer », s'il n'est pas déployé.
+2. Pour un modèle qui a été entraîné, mais qui n’a pas encore été déployé, le bouton « Déployer » s’affiche.
 
     ![Déployer un modèle](media/how-to/how-to-deploy-model.png)
 
@@ -77,7 +77,7 @@ Pour demander un déploiement :
 
     ![Déployer un modèle](media/how-to/how-to-deploy-model-regions.png)
 
-5.  Vous pouvez afficher l’état de votre modèle dans la colonne « État ».
+5.  Vous pouvez voir l’état de votre modèle dans la colonne « État ».
 
 >[!Note]
 >Custom Translator prend en charge 10 modèles déployés au sein d’un espace de travail à tout moment.

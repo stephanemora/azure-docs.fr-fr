@@ -3,12 +3,12 @@ title: Rubriques avancées sur la mise à niveau d’application
 description: Cet article traite de sujets avancés se rapportant à la mise à niveau d’une application Service Fabric.
 ms.topic: conceptual
 ms.date: 03/11/2020
-ms.openlocfilehash: a12d2ec55bda95c1c61d4a73c76f4a777f4237f2
-ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
+ms.openlocfilehash: 98d8213cc50f73ef2c053e1fe5574fe33a2f3cb6
+ms.sourcegitcommit: 309cf6876d906425a0d6f72deceb9ecd231d387c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "81414499"
+ms.lasthandoff: 06/01/2020
+ms.locfileid: "84263089"
 ---
 # <a name="service-fabric-application-upgrade-advanced-topics"></a>Mise à niveau des applications Service Fabric : Rubriques avancées
 
@@ -20,9 +20,9 @@ De même, des types de services peuvent également être supprimés d’une appl
 
 ## <a name="avoid-connection-drops-during-stateless-service-planned-downtime"></a>Éviter les abandons de connexion pendant les temps d’arrêt planifiés de service sans état
 
-Pour des temps d’arrêt planifiés d’instance sans état, tels que pour la mise à niveau d’application/de cluster ou la désactivation de nœud, des connexions peuvent être abandonnées en raison de la suppression du point de terminaison une fois l'instance arrêtée, ce qui se traduit par des fermetures de connexion forcées.
+Pour des temps d’arrêt planifiés d’instance sans état, tels que pour la mise à niveau d’application/de cluster ou la désactivation de nœud, des connexions peuvent être abandonnées en raison de la suppression du point de terminaison une fois l’instance arrêtée, ce qui se traduit par des fermetures de connexion forcées.
 
-Pour éviter cela, configurez la fonctionnalité *RequestDrain* (préversion) en ajoutant une *durée de délai de fermeture d’instance* à la configuration du service afin d'autoriser le vidage tout en recevant des requêtes d’autres services du cluster au sein du cluster et en utilisant un proxy inversé ou l'API Resolve avec un modèle de notification pour mettre à jour les points de terminaison. Cela garantit que le point de terminaison publié par l’instance sans état est supprimé *avant* le démarrage du délai précédant la fermeture de l’instance. Ce délai permet un vidage correct des demandes existantes avant l’arrêt réel de l’instance. Les clients sont avertis du changement de point de terminaison par la fonction de rappel, au moment du démarrage du délai, et peuvent ainsi résoudre le point de terminaison et éviter d’envoyer de nouvelles demandes à l’instance en cours d’arrêt.
+Pour éviter cela, configurez la fonctionnalité *RequestDrain* en ajoutant une *durée de délai de fermeture d’instance* dans la configuration du service pour permettre aux demandes existantes depuis le cluster de se vider sur les points de terminaison exposés. Cette configuration est atteinte quand le point de terminaison publié par l’instance sans état est supprimé *avant* le démarrage du délai précédant la fermeture de l’instance. Ce délai permet un vidage correct des demandes existantes avant l’arrêt réel de l’instance. Les clients sont avertis du changement de point de terminaison par la fonction de rappel, au moment du démarrage du délai, et peuvent ainsi résoudre le point de terminaison et éviter d’envoyer de nouvelles demandes à l’instance en cours d’arrêt. Ces demandes peuvent provenir de clients utilisant un [proxy inversé](https://docs.microsoft.com/azure/service-fabric/service-fabric-reverseproxy) ou l’API de résolution du point de terminaison de service avec le modèle de notification ([ServiceNotificationFilterDescription](https://docs.microsoft.com/dotnet/api/system.fabric.description.servicenotificationfilterdescription)) pour la mise à jour des points de terminaison.
 
 ### <a name="service-configuration"></a>Configuration de service
 
@@ -31,7 +31,7 @@ Il existe plusieurs façons de configurer le délai côté service.
  * **Lors de la création d’un service**, spécifiez une valeur `-InstanceCloseDelayDuration` :
 
     ```powershell
-    New-ServiceFabricService -Stateless [-ServiceName] <Uri> -InstanceCloseDelayDuration <TimeSpan>`
+    New-ServiceFabricService -Stateless [-ServiceName] <Uri> -InstanceCloseDelayDuration <TimeSpan>
     ```
 
  * **Lors de la définition du service dans la section des valeurs par défaut du manifeste de l’application**, attribuez la propriété `InstanceCloseDelayDurationSeconds` :
@@ -46,6 +46,33 @@ Il existe plusieurs façons de configurer le délai côté service.
 
     ```powershell
     Update-ServiceFabricService [-Stateless] [-ServiceName] <Uri> [-InstanceCloseDelayDuration <TimeSpan>]`
+    ```
+
+ * **Lors de la création ou de la mise à jour d’un service existant par le biais du modèle ARM**, spécifiez la valeur `InstanceCloseDelayDuration` (version d’API minimale prise en charge : 2019-11-01-preview) :
+
+    ```ARM template to define InstanceCloseDelayDuration of 30seconds
+    {
+      "apiVersion": "2019-11-01-preview",
+      "type": "Microsoft.ServiceFabric/clusters/applications/services",
+      "name": "[concat(parameters('clusterName'), '/', parameters('applicationName'), '/', parameters('serviceName'))]",
+      "location": "[variables('clusterLocation')]",
+      "dependsOn": [
+        "[concat('Microsoft.ServiceFabric/clusters/', parameters('clusterName'), '/applications/', parameters('applicationName'))]"
+      ],
+      "properties": {
+        "provisioningState": "Default",
+        "serviceKind": "Stateless",
+        "serviceTypeName": "[parameters('serviceTypeName')]",
+        "instanceCount": "-1",
+        "partitionDescription": {
+          "partitionScheme": "Singleton"
+        },
+        "serviceLoadMetrics": [],
+        "servicePlacementPolicies": [],
+        "defaultMoveCost": "",
+        "instanceCloseDelayDuration": "00:00:30.0"
+      }
+    }
     ```
 
 ### <a name="client-configuration"></a>Configuration de client
@@ -63,15 +90,17 @@ Start-ServiceFabricApplicationUpgrade [-ApplicationName] <Uri> [-ApplicationType
 Start-ServiceFabricClusterUpgrade [-CodePackageVersion] <String> [-ClusterManifestVersion] <String> [-InstanceCloseDelayDurationSec <UInt32>]
 ```
 
-La durée du délai s’applique uniquement à l’instance de mise à niveau appelée, et ne modifie pas les configurations de délai de services individuels. Par exemple, vous pouvez l’utiliser pour spécifier un délai de `0` afin d’ignorer des délais de mise à niveau préconfigurés.
+La durée du délai modifiée s’applique uniquement à l’instance de mise à niveau appelée, et ne modifie pas les configurations de délai de services individuels. Par exemple, vous pouvez l’utiliser pour spécifier un délai de `0` afin d’ignorer des délais de mise à niveau préconfigurés.
 
 > [!NOTE]
-> Le paramètre permettant de vider les requêtes n’est pas respecté pour les requêtes émanant d’Azure Load Balancer. Le paramètre n’est pas respecté si le service appelant utilise une résolution basée sur une réclamation.
+> * Les paramètres de vidage des demandes ne peuvent pas empêcher l’équilibreur de charge Azure d’envoyer de nouvelles demandes aux points de terminaison en cours de maintenance.
+> * Un mécanisme de résolution basé sur une réclamation n’entraîne pas le vidage approprié des demandes, car il déclenche une résolution de service après une défaillance. Comme décrit précédemment, il est préférable de l’améliorer pour vous abonner aux notifications de modification de point de terminaison en utilisant [ServiceNotificationFilterDescription](https://docs.microsoft.com/dotnet/api/system.fabric.description.servicenotificationfilterdescription).
+> * Les paramètres ne sont pas honorés quand la mise à niveau n’a aucun impact, c.-à-d. quand les réplicas ne sont pas arrêtés pendant la mise à niveau.
 >
 >
 
 > [!NOTE]
-> Cette fonctionnalité peut être configurée dans les services existants à l’aide de la cmdlet Update-ServiceFabricService, comme indiqué ci-dessus, lorsque la version du code de cluster est 7.1.XXX ou supérieure.
+> Cette fonctionnalité peut être configurée dans les services existants à l’aide de l’applet de commande Update-ServiceFabricService ou du modèle ARM, comme indiqué ci-dessus, lorsque la version du code de cluster est 7.1.XXX ou supérieure.
 >
 >
 

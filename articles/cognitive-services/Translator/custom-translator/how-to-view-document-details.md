@@ -6,15 +6,15 @@ author: swmachan
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: translator-text
-ms.date: 02/21/2019
+ms.date: 05/26/2020
 ms.author: swmachan
 ms.topic: conceptual
-ms.openlocfilehash: cf0d96414c40784210723e315da5d885d61198c5
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 22c982babbed1322e97127379be75e7b070ed81f
+ms.sourcegitcommit: fc718cc1078594819e8ed640b6ee4bef39e91f7f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "68595579"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "83994240"
 ---
 # <a name="view-document-details"></a>Afficher les détails du document
 
@@ -22,7 +22,7 @@ La page de liste des documents affiche les 10 premiers documents dans votre esp
 
 Cliquez sur un document pour afficher la page d’informations détaillées à son sujet. La page d’informations détaillées d’un document contient une liste des phrases extraites de ce document.
 
-- La « langue source » est sélectionnée par défaut dans le champ de liste déroulante, mais vous pouvez changer cela pour afficher les phrases dans la « langue cible ».
+- La langue « source » est sélectionnée par défaut dans le champ de liste déroulante, mais vous pouvez choisir de voir les phrases dans la langue cible.
 - Par défaut, chaque page affiche 20 phrases. Vous pouvez utiliser le contrôle de pagination pour naviguer entre les pages.
 
 ![Informations détaillées sur le document](media/how-to/how-to-view-document-details.png)

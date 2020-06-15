@@ -3,12 +3,12 @@ title: Sauvegarde de SQL Server sur Azure en tant que charge de travail DPM
 description: Présentation de la sauvegarde de bases de données SQL Server à l’aide du service Sauvegarde Azure
 ms.topic: conceptual
 ms.date: 01/30/2019
-ms.openlocfilehash: 01504fcfd81040d75e57ce62a9f77a5bb248d59b
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: f6a612bc56d1fa6b70ac89ed48f28d1ae48da2e6
+ms.sourcegitcommit: 1f48ad3c83467a6ffac4e23093ef288fea592eb5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82183787"
+ms.lasthandoff: 05/29/2020
+ms.locfileid: "84195790"
 ---
 # <a name="back-up-sql-server-to-azure-as-a-dpm-workload"></a>Sauvegarde de SQL Server sur Azure en tant que charge de travail DPM
 
@@ -43,7 +43,7 @@ Pour protéger des bases de données SQL Server dans Azure, commencez par créer
 1. Sélectionnez **Serveurs**.
 
     ![Sélectionner le type de groupe de protection Serveurs](./media/backup-azure-backup-sql/pg-servers.png)
-1. Développez l'ordinateur SQL Server sur lequel se trouvent les bases de données que vous souhaitez sauvegarder. Vous accédez aux sources de données qui peuvent être sauvegardées à partir de ce serveur. Développez **Tous les partages SQL**, puis sélectionnez les bases de données que vous souhaitez sauvegarder. Dans cet exemple, nous sélectionnons ReportServer$MSDPM2012 et ReportServer$MSDPM2012TempDB. Sélectionnez ensuite **Suivant**.
+1. Développez la machine virtuelle SQL Server sur laquelle se trouvent les bases de données que vous souhaitez sauvegarder. Vous accédez aux sources de données qui peuvent être sauvegardées à partir de ce serveur. Développez **Tous les partages SQL**, puis sélectionnez les bases de données que vous souhaitez sauvegarder. Dans cet exemple, nous sélectionnons ReportServer$MSDPM2012 et ReportServer$MSDPM2012TempDB. Sélectionnez ensuite **Suivant**.
 
     ![Sélectionner une base de données SQL Server](./media/backup-azure-backup-sql/pg-databases.png)
 1. Nommez le groupe de protection, puis sélectionnez **Je souhaite une protection en ligne**.
@@ -80,7 +80,7 @@ Pour protéger des bases de données SQL Server dans Azure, commencez par créer
 
     ![Choisir quand exécuter une vérification de cohérence](./media/backup-azure-backup-sql/pg-consistent.png)
 
-    DPM peut exécuter une vérification de cohérence sur l’intégrité du point de sauvegarde. Il calcule la somme de contrôle du fichier de sauvegarde sur le serveur de production (ordinateur SQL Server dans cet exemple) et les données sauvegardées pour ce fichier sur DPM. Si la vérification détecte un conflit, le fichier sauvegardé dans DPM est supposé endommagé. DPM corrige les données sauvegardées en envoyant les blocs correspondant à l’incohérence de somme contrôle. La vérification de cohérence étant une opération exigeante en matière de performances, les administrateurs peuvent la planifier ou l’exécuter automatiquement.
+    DPM peut exécuter une vérification de cohérence sur l’intégrité du point de sauvegarde. Il calcule la somme de contrôle du fichier de sauvegarde sur le serveur de production (ordinateur SQL Server dans cet exemple) et les données sauvegardées pour ce fichier dans DPM. Si la vérification détecte un conflit, le fichier sauvegardé dans DPM est supposé endommagé. DPM corrige les données sauvegardées en envoyant les blocs correspondant à l’incohérence de somme contrôle. La vérification de cohérence étant une opération exigeante en matière de performances, les administrateurs peuvent la planifier ou l’exécuter automatiquement.
 
 1. Sélectionnez les sources de données à protéger dans Azure. Sélectionnez ensuite **Suivant**.
 

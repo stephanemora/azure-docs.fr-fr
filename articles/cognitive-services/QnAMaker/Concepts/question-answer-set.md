@@ -1,29 +1,29 @@
 ---
 title: Concevoir une base de connaissances – QnA Maker
-description: Une base de connaissances QnA Maker est composée d’un jeu de questions-réponses (QnA) et de métadonnées facultatives associées à chaque paire QnA.
+description: Une base de connaissances QnA Maker est composée d’un ensemble de paires de questions/réponses (QnA) et de métadonnées facultatives associées à chaque paire QnA.
 ms.topic: conceptual
 ms.date: 01/27/2020
-ms.openlocfilehash: 1d24434d1343f4174cfbfeb3a30c36737b213168
-ms.sourcegitcommit: 441db70765ff9042db87c60f4aa3c51df2afae2d
+ms.openlocfilehash: e75a9313f02a6b5cc4235cdcccb381585d2192ae
+ms.sourcegitcommit: fc718cc1078594819e8ed640b6ee4bef39e91f7f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/06/2020
-ms.locfileid: "80756784"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "83992995"
 ---
-# <a name="question-and-answer-set-concepts"></a>Concepts des jeux de questions-réponses
+# <a name="question-and-answer-pair-concepts"></a>Concepts des paires question/réponse
 
-Une base de connaissances est composée de jeux de questions-réponses (QnA).  Chaque jeu a une réponse et contient toutes les informations associées à cette _réponse_. Une réponse peut un peu s’apparenter à une ligne de base de données ou à une instance de structure de données.
+Une base de connaissances est composée de paires question/réponse (Q/R).  Chaque paire a une réponse et contient toutes les informations associées à cette _réponse_. Une réponse peut un peu s’apparenter à une ligne de base de données ou à une instance de structure de données.
 
-## <a name="question-and-answer-sets"></a>Jeux de questions-réponses
+## <a name="question-and-answer-pairs"></a>Paires de questions-réponses
 
-Les paramètres **obligatoires** dans un jeu de questions-réponses (QnA) sont les suivants :
+Les paramètres **obligatoires** dans une paire question/réponse (Q/R) sont les suivants :
 
 * Une **question** : texte de la requête utilisateur, utilisé pour le machine learning de QnA Maker, afin de s’aligner avec le texte de la question de l’utilisateur ayant une formulation différente mais la même réponse.
-* La **réponse** : la réponse du jeu est ce qui est retourné quand une correspondance est établie entre une requête utilisateur et la question associée.
+* La **réponse** : la réponse de la paire est ce qui est retourné quand une correspondance est établie entre une requête utilisateur et la question associée.
 
-Chaque jeu est représenté par un **ID**.
+Chaque paire est représenté par un **ID**.
 
-Les paramètres **facultatifs** pour un jeu sont les suivants :
+Les paramètres **facultatifs** pour une paire sont les suivants :
 
 * **Autres formes de la question** : aident QnA Maker à retourner la bonne réponse pour une variété plus large de formulations de questions.
 * **Métadonnées** : les métadonnées sont des étiquettes associées à une paire QnA. Elles sont représentées sous forme de paires clé-valeur. Les balises de métadonnées servent à filtrer les paires QnA et à limiter le jeu sur lequel la mise en correspondance de requête est effectuée.

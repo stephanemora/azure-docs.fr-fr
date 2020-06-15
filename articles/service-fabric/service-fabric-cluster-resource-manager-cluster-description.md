@@ -5,12 +5,12 @@ author: masnider
 ms.topic: conceptual
 ms.date: 08/18/2017
 ms.author: masnider
-ms.openlocfilehash: 7142e3f9aaa25e7ba327194c04ad6a9b5f4e3ad1
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: a9699eae17657e96b38b3bccc95e8f84326efbb3
+ms.sourcegitcommit: 223cea58a527270fe60f5e2235f4146aea27af32
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79229405"
+ms.lasthandoff: 06/01/2020
+ms.locfileid: "84259471"
 ---
 # <a name="describe-a-service-fabric-cluster-by-using-cluster-resource-manager"></a>Décrire un cluster Service Fabric à l’aide de Cluster Resource Manager
 La fonctionnalité Cluster Resource Manager d’Azure Service Fabric fournit plusieurs mécanismes permettant de décrire un cluster :
@@ -83,9 +83,9 @@ Le diagramme suivant illustre trois domaines de mise à niveau répartis sur tro
 
 Il existe des avantages et des inconvénients au fait de disposer de nombreux domaines de mise à niveau. Davantage de domaines de mise à niveau signifie que chaque étape de la mise à niveau est plus précise et qu’elle affecte un plus petit nombre de nœuds ou de services. Il y a moins de services à déplacer simultanément, ce qui limite l’activité au sein du système. Cela tend à améliorer la fiabilité, car un pan moins important du service est affecté dans le cas de l’introduction d’un problème pendant la mise à niveau. Une quantité plus élevée de domaines de mise à niveau signifie aussi que vos besoins en mémoire tampon sur les autres nœuds sont moindres pour gérer l’impact de la mise à niveau. 
 
-Par exemple, si vous avez cinq domaines de mise à niveau, les nœuds présents dans chacun gèrent environ 20 pour cent du trafic. Si vous avez besoin d’arrêter un domaine de mise à niveau pour effectuer une mise à niveau, cette charge doit en principe être affectée autre part. Comme il vous reste quatre domaines de mise à niveau, chacun d’eux doit pouvoir prendre en charge environ 5 pour cent du trafic total. Une quantité plus élevée de domaines de mise à niveau signifie moins de besoins en mémoire tampon sur les nœuds du cluster. 
+Par exemple, si vous avez cinq domaines de mise à niveau, les nœuds présents dans chacun gèrent environ 20 pour cent du trafic. Si vous avez besoin d’arrêter un domaine de mise à niveau pour effectuer une mise à niveau, cette charge doit en principe être affectée autre part. Comme il vous reste quatre domaines de mise à niveau, chacun d’eux doit pouvoir prendre en charge environ 25 pour cent du trafic total. Une quantité plus élevée de domaines de mise à niveau signifie moins de besoins en mémoire tampon sur les nœuds du cluster.
 
-Imaginez que vous disposez de 10 domaines de mise à niveau. Dans ce cas, chaque domaine de mise à niveau ne gèrerait qu’environ 10 pour cent du trafic total. Quand une mise à jour parcourt le cluster, chaque domaine n’aurait besoin de prendre en charge qu’environ 1,1 pour cent du trafic total. Le fait de disposer d’un plus grand nombre de domaines de mise à niveau vous permet généralement d’exécuter vos nœuds à un taux d’utilisation plus élevé, car vous avez moins besoin de capacité réservée. Cela vaut aussi pour les domaines d’erreur.  
+Imaginez que vous disposez de 10 domaines de mise à niveau. Dans ce cas, chaque domaine de mise à niveau ne gèrerait qu’environ 10 pour cent du trafic total. Quand une mise à jour parcourt le cluster, chaque domaine n’aurait besoin de prendre en charge qu’environ 11 pour cent du trafic total. Le fait de disposer d’un plus grand nombre de domaines de mise à niveau vous permet généralement d’exécuter vos nœuds à un taux d’utilisation plus élevé, car vous avez moins besoin de capacité réservée. Cela vaut aussi pour les domaines d’erreur.  
 
 L’inconvénient dans le fait d’avoir un grand nombre de domaines de mise à niveau est que les mises à niveau ont tendance à prendre plus de temps. À la fin de l’opération sur le domaine de mise à niveau, Service Fabric attend un bref instant et effectue des vérifications avant de commencer la mise à niveau du suivant. Ces laps de temps permettent de détecter les problèmes introduits par la mise à niveau avant son exécution. Le compromis est acceptable, car il empêche les modifications incorrectes d’affecter une trop grande partie du service à la fois.
 

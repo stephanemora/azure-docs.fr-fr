@@ -3,12 +3,12 @@ title: Résoudre les problèmes de sauvegarde de base de données SQL Server
 description: Informations de résolution des problèmes de sauvegarde de bases de données SQL Server exécutées sur des machines virtuelles Azure avec Sauvegarde Azure.
 ms.topic: troubleshooting
 ms.date: 06/18/2019
-ms.openlocfilehash: cec3f8530d8a48a870c672d418d42d12a62aa2a4
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: a4397f0bfa50990a7ad8080579261ed4587c4958
+ms.sourcegitcommit: 8017209cc9d8a825cc404df852c8dc02f74d584b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82183328"
+ms.lasthandoff: 06/01/2020
+ms.locfileid: "84247952"
 ---
 # <a name="troubleshoot-sql-server-database-backup-by-using-azure-backup"></a>Résoudre les problèmes de sauvegarde des bases de données SQL Server avec Sauvegarde Azure
 
@@ -267,4 +267,4 @@ Ce fichier doit être placé avant de déclencher l’opération de restauration
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Pour plus d’informations sur Sauvegarde Azure pour les machines virtuelles SQL Server (préversion publique), consultez [Sauvegarde Azure pour machines virtuelles SQL](../virtual-machines/windows/sql/virtual-machines-windows-sql-backup-recovery.md#azbackup).
+Pour plus d’informations sur Sauvegarde Azure pour les machines virtuelles SQL Server (préversion publique), consultez [Sauvegarde Azure pour machines virtuelles SQL](../azure-sql/virtual-machines/windows/backup-restore.md#azbackup).

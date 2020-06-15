@@ -3,18 +3,18 @@ title: FAQ - Sauvegarder des bases de données SAP HANA sur des machines virtuel
 description: Dans cet article, découvrez des réponses à des questions courantes sur la sauvegarde de bases de données SAP HANA avec le service Sauvegarde Microsoft Azure.
 ms.topic: conceptual
 ms.date: 11/7/2019
-ms.openlocfilehash: 56f98dddb00eb3ffc87eb27da73066de807a1ee1
-ms.sourcegitcommit: 595cde417684e3672e36f09fd4691fb6aa739733
+ms.openlocfilehash: 08e0eaf5f744ebb0ada07a944f627cc1ff1ac496
+ms.sourcegitcommit: 8017209cc9d8a825cc404df852c8dc02f74d584b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/20/2020
-ms.locfileid: "83701015"
+ms.lasthandoff: 06/01/2020
+ms.locfileid: "84248802"
 ---
 # <a name="frequently-asked-questions--back-up-sap-hana-databases-on-azure-vms"></a>Forum aux questions – Sauvegarde de bases de données SAP HANA sur des machines virtuelles Azure
 
 Cet article fournit des réponses à des questions courantes sur la sauvegarde de bases de données SAP HANA avec le service Sauvegarde Microsoft Azure.
 
-## <a name="backup"></a>Backup
+## <a name="backup"></a>Sauvegarde
 
 ### <a name="how-many-full-backups-are-supported-per-day"></a>Combien de sauvegardes complètes sont-elles prises en charge par jour ?
 
@@ -86,6 +86,10 @@ Assurez-vous que l’option **Forcer le remplacement** est sélectionnée lors d
 ### <a name="why-do-i-see-the-source-and-target-systems-for-restore-are-incompatible-error"></a>Pourquoi l’erreur : « Les systèmes source et cible pour la restauration ne sont pas compatibles » apparaît-elle ?
 
 Reportez-vous à la note SAP HANA [1642148](https://launchpad.support.sap.com/#/notes/1642148) pour voir quels types de restauration sont actuellement pris en charge.
+
+### <a name="can-i-use-a-backup-of-a-database-running-on-sles-to-restore-to-a-rhel-hana-system-or-vice-versa"></a>Puis-je utiliser une sauvegarde d’une base de données exécutée sur SLES pour effectuer une restauration vers un système RHEL HANA ou vice versa ?
+
+Oui, vous pouvez utiliser des sauvegardes en continu déclenchées sur une base de données HANA en cours d’exécution sur SLES pour la restaurer vers un système RHEL HANA, et vice versa. Autrement dit, la restauration entre systèmes d’exploitation est possible à l’aide de sauvegardes en continu. Toutefois, vous devez vous assurer que le système HANA vers lequel vous souhaitez restaurer et le système HANA utilisé pour la restauration sont tous deux compatibles pour la restauration en fonction de SAP. Pour connaître les types de restauration compatibles, consultez la Note SAP HANA [1642148](https://launchpad.support.sap.com/#/notes/1642148).
 
 ## <a name="next-steps"></a>Étapes suivantes
 

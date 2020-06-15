@@ -7,12 +7,12 @@ ms.service: static-web-apps
 ms.topic: conceptual
 ms.date: 05/08/2020
 ms.author: buhollan
-ms.openlocfilehash: 8425c2c1f653d874d24053a12d511c64a3b9ee9d
-ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
+ms.openlocfilehash: 0f8e1be92d77dc928389dffb61da52f2db4c804d
+ms.sourcegitcommit: f0b206a6c6d51af096a4dc6887553d3de908abf3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83655237"
+ms.lasthandoff: 05/28/2020
+ms.locfileid: "84142059"
 ---
 # <a name="setup-a-custom-domain-in-azure-static-web-apps-preview"></a>Configurer un domaine personnalisé dans Azure Static Web Apps en préversion
 
@@ -80,7 +80,7 @@ Un enregistrement CNAME mappe un domaine à un autre. Vous pouvez utiliser un en
 
 1. Cliquez sur le bouton **Valider**.
 
-À présent que le domaine personnalisé est configuré, le fournisseur DNS peut prendre plusieurs heures pour se propager les modifications dans le monde entier. Vous pouvez vérifier l’état de la propagation en accédant à [dnspropagation.net](https://dnspropagation.net). Entrez votre domaine personnalisé, y compris la partie `www`, sélectionnez CNAME dans la liste déroulante, puis sélectionnez **Démarrer**.
+À présent que le domaine personnalisé est configuré, le fournisseur DNS peut prendre plusieurs heures pour propager les modifications dans le monde entier. Vous pouvez vérifier l’état de la propagation en accédant à [dnspropagation.net](https://dnspropagation.net). Entrez votre domaine personnalisé, y compris la partie `www`, sélectionnez CNAME dans la liste déroulante, puis sélectionnez **Démarrer**.
 
 Si vos modifications DNS sont indiquées, le site web renvoie l’URL générée automatiquement de votre application Static Web App (par exemple, _random-name-123456789c.azurestaticapps.net_).
 

@@ -11,12 +11,12 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.date: 12/19/2018
-ms.openlocfilehash: a5cdb24a80dcbd95e4ccc59dd55f4acb9ae18060
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 150ee15adb042841f74ffbf3b75338b2dd569333
+ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81417893"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "84017662"
 ---
 # <a name="web-activity-in-azure-data-factory"></a>Activité Web dans Azure Data Factory
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
@@ -91,7 +91,7 @@ Le tableau suivant affiche la configuration requise pour le contenu JSON :
 | Type non-JSON | Non pris en charge | Non pris en charge |
 ||||
 
-## <a name="authentication"></a>Authentication
+## <a name="authentication"></a>Authentification
 
 Voici les types d’authentification pris en charge dans l’activité web.
 
@@ -161,7 +161,7 @@ Lorsque vous utilisez la méthode POST/PUT, la propriété body représente la c
 ```
 
 ## <a name="example"></a>Exemple
-Dans cet exemple, l’activité web dans le pipeline appelle un point de terminaison REST. Elle transmet un service lié Azure SQL et un jeu de données Azure SQL au point de terminaison. Le point de terminaison REST utilise la chaîne de connexion Azure SQL pour se connecter au serveur Azure SQL et retourne le nom de l’instance du serveur SQL.
+Dans cet exemple, l’activité web dans le pipeline appelle un point de terminaison REST. Elle transmet un service lié Azure SQL et un jeu de données Azure SQL au point de terminaison. Le point de terminaison REST utilise la chaîne de connexion Azure SQL pour se connecter au serveur SQL logique et retourne le nom de l’instance du serveur SQL.
 
 ### <a name="pipeline-definition"></a>Définition de pipeline
 

@@ -5,12 +5,12 @@ ms.date: 03/24/2020
 ms.topic: conceptual
 description: Décrit les processus d’exécution de votre code sur le service Azure Kubernetes avec Azure Dev Spaces
 keywords: azds.yaml, Azure Dev Spaces, Dev Spaces, Docker, Kubernetes, Azure, AKS, Azure Kubernetes Service, conteneurs
-ms.openlocfilehash: 6851c04ac0b72db1bd13c991875c16b0beadc573
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 02b928009b1f82e2b6a193a41376265f8bfb9ea7
+ms.sourcegitcommit: 69156ae3c1e22cc570dda7f7234145c8226cc162
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80241231"
+ms.lasthandoff: 06/03/2020
+ms.locfileid: "84307467"
 ---
 # <a name="how-running-your-code-with-azure-dev-spaces-works"></a>Comment fonctionne l’exécution de votre code avec Azure Dev Spaces
 
@@ -130,7 +130,7 @@ La propriété *install.set* vous permet de configurer une ou plusieurs valeurs 
 
 Dans l'exemple ci-dessus, la propriété *install.set.replicaCount* indique au contrôleur combien d'instances de votre application doivent être exécutées dans votre espace de développement. Selon votre scénario, vous pouvez augmenter cette valeur, mais cela aura un impact sur la connexion d'un débogueur au pod de votre application. Pour plus d’informations, consultez l’[article de dépannage][troubleshooting].
 
-Dans le graphique Helm généré, l'image du conteneur est définie sur *{{ .Values.image.repository }}:{{ .Values.image.tag }}* . Le ficher `azds.yaml` définit la propriété *install.set.image.tag* sur *$(tag)* par défaut, utilisée comme valeur pour *{{ .Values.image.tag }}* . En définissant la propriété *install.set.image.tag* de cette façon, l’image du conteneur de votre application sera étiquetée d'une manière distincte lors de l'exécution des espaces de développement Azure. Dans ce cas spécifique, l'image est étiquetée ainsi : *\<valeur de image.repository>:$(tag)* . Vous devez utiliser la variable *$(tag)* comme valeur de *install.set.image.tag* pour que Dev Spaces reconnaisse et situe le conteneur dans le cluster AKS.
+Dans le graphique Helm généré, l'image du conteneur est définie sur *{{ .Values.image.repository }}:{{ .Values.image.tag }}* . Le ficher `azds.yaml` définit la propriété *install.set.image.tag* sur *$(tag)* par défaut, utilisée comme valeur pour *{{ .Values.image.tag }}* . En définissant la propriété *install.set.image.tag* de cette façon, l’image du conteneur de votre application sera étiquetée d'une manière distincte lors de l'exécution des espaces de développement Azure. Dans ce cas spécifique, l’image est marquée *\<value from image.repository>:$(tag)* . Vous devez utiliser la variable *$(tag)* comme valeur de *install.set.image.tag* pour que Dev Spaces reconnaisse et situe le conteneur dans le cluster AKS.
 
 Dans l'exemple ci-dessus, `azds.yaml` définit *install.set.ingress.hosts*. La propriété *install.set.ingress.hosts* définit un format de nom d'hôte pour les points de terminaison publics. Cette propriété utilise également *$$(spacePrefix)* , *$(rootSpacePrefix)* , et *$(hostSuffix)* , valeurs fournies par le contrôleur.
 
@@ -199,7 +199,7 @@ ingress:
 
 Pour en savoir plus sur la mise en réseau et la façon dont les requêtes sont routées dans Azure Dev Spaces consultez [Fonctionnement du routage avec Azure Dev Spaces][how-it-works-routing].
 
-Pour en savoir plus sur l’utilisation d’Azure Dev Spaces pour accélérer l’itération et le développement, consultez [Comment fonctionne la connexion de votre ordinateur de développement à votre espace de développement][how-it-works-connect] et [Comment fonctionne le débogage à distance de votre code avec Azure Dev Spaces][how-it-works-remote-debugging].
+Pour en savoir plus sur l’utilisation d’Azure Dev Spaces pour accélérer l’itération et le développement, consultez [Fonctionnement de Processus local avec Kubernetes][how-it-works-local-process-kubernetes] et [Comment fonctionne le débogage à distance de votre code avec Azure Dev Spaces][how-it-works-remote-debugging].
 
 Pour commencer à utiliser Azure Dev Spaces pour exécuter votre projet, consultez les guides de démarrage rapide suivants :
 
@@ -212,7 +212,7 @@ Pour commencer à utiliser Azure Dev Spaces pour exécuter votre projet, consult
 
 [azds-yaml-section]: #how-running-your-code-is-configured
 [helm-upgrade]: https://helm.sh/docs/intro/using_helm/#helm-upgrade-and-helm-rollback-upgrading-a-release-and-recovering-on-failure
-[how-it-works-connect]: how-dev-spaces-works-connect.md
+[how-it-works-local-process-kubernetes]: how-dev-spaces-works-local-process-kubernetes.md
 [how-it-works-prep]: how-dev-spaces-works-prep.md
 [how-it-works-remote-debugging]: how-dev-spaces-works-remote-debugging.md
 [how-it-works-routing]: how-dev-spaces-works-routing.md

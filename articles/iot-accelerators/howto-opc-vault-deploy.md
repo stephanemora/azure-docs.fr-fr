@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: industrial-iot
 services: iot-industrialiot
 manager: philmea
-ms.openlocfilehash: 7ee186684b702a42335c6e1a7832cc5c761a69d0
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 3c6385ff804b047cca11587ce5da5a0a682fdce8
+ms.sourcegitcommit: 69156ae3c1e22cc570dda7f7234145c8226cc162
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81686934"
+ms.lasthandoff: 06/03/2020
+ms.locfileid: "84307926"
 ---
 # <a name="build-and-deploy-the-opc-vault-certificate-management-service"></a>Générer et déployer le service de gestion de certificats OPC Vault
 
@@ -76,7 +76,7 @@ Un script PowerShell permet de déployer facilement le microservice OPC Vault et
    > En cas de problèmes, consultez la section « Résoudre les problèmes de déploiement » plus loin dans cet article.
 
 8. Ouvrez le navigateur de votre choix, puis ouvrez la page de l’application : `https://myResourceGroup.azurewebsites.net`
-8. Accordez à l’application web et au microservice OPC Vault quelques minutes de préparation après le déploiement. À la première utilisation, il est possible que la page d’accueil web se bloque pendant au maximum une minute avant que les premières réponses vous parviennent.
+8. Accordez à l’application web et au microservice OPC Vault quelques minutes de préparation après le déploiement. Il se peut que la page d’accueil web se fige pendant une minute tout au plus, avant que les premières réponses ne vous parviennent.
 11. Pour examiner l’API Swagger, ouvrez : `https://myResourceGroup-service.azurewebsites.net`
 13. Pour démarrer un serveur GDS local avec dotnet, démarrez `.\myResourceGroup-gds.cmd`. Avec Docker, démarrez `.\myResourceGroup-dockergds.cmd`.
 

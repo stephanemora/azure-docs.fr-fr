@@ -3,12 +3,12 @@ title: Questions courantes sur la récupération d’urgence pour Hyper-V avec A
 description: Cet article récapitule les questions courantes sur la configuration de la reprise d’activité de machines virtuelles Hyper-V locales sur Azure à l’aide du site Azure Site Recovery.
 ms.date: 11/12/2019
 ms.topic: conceptual
-ms.openlocfilehash: 7c5f55fbea67567ddf7a2afa6a61f6c76568d829
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: b175e7157364f0471192dd713db8767e074dd483
+ms.sourcegitcommit: 1f48ad3c83467a6ffac4e23093ef288fea592eb5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "75498193"
+ms.lasthandoff: 05/29/2020
+ms.locfileid: "84195256"
 ---
 # <a name="common-questions---hyper-v-to-azure-disaster-recovery"></a>Questions courantes sur la reprise d’activité d’Hyper-V sur Azure
 
@@ -159,7 +159,7 @@ Pour la réplication, une machine virtuelle Hyper-V doit exécuter un système d
 
 ### <a name="how-often-can-i-replicate-to-azure"></a>À quelle fréquence puis-je répliquer vers Azure ?
 
-Les machines virtuelles Hyper-V peuvent être répliquées toutes les 30 secondes (sauf pour le stockage premium), toutes les 5 minutes ou toutes les 15 minutes.
+Les machines virtuelles Hyper-V peuvent être répliquées toutes les 30 secondes (sauf pour le stockage premium) ou toutes les 5 minutes.
 
 ### <a name="can-i-extend-replication"></a>Puis-je étendre la réplication ?
 La réplication étendue ou chaînée n’est pas prise en charge. Demandez cette fonctionnalité dans le [forum de commentaires](https://feedback.azure.com/forums/256299-site-recovery/suggestions/6097959).

@@ -12,12 +12,12 @@ ms.date: 11/15/2018
 ms.author: mimart
 ms.reviewer: japere
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 3737603360d3fce9d6e11e6c4ce9b2de58f76a6d
-ms.sourcegitcommit: b9d4b8ace55818fcb8e3aa58d193c03c7f6aa4f1
+ms.openlocfilehash: b80d20084f45dd2212cdc03f9c7417a67833d887
+ms.sourcegitcommit: 6a9f01bbef4b442d474747773b2ae6ce7c428c1f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "82583110"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "84116613"
 ---
 # <a name="understand-azure-ad-application-proxy-connectors"></a>Présentation des connecteurs de proxy d’application Azure AD
 
@@ -49,7 +49,7 @@ TLS 1.2 doit être activé sur le serveur Windows Server avant l’installation 
 
 Pour plus d’informations sur la configuration réseau requise pour le serveur du connecteur, consultez [Prise en main du proxy d’application et de l’installation d’un connecteur](application-proxy-add-on-premises-application.md).
 
-## <a name="maintenance"></a>Maintenance 
+## <a name="maintenance"></a>Maintenance
 
 Les connecteurs et le service se chargent de toutes les tâches de haut niveau de disponibilité. Vous pouvez les ajouter ou supprimer de manière dynamique. Chaque fois qu’une nouvelle requête arrive, elle est acheminée vers un des connecteurs actuellement disponibles. Si un connecteur est temporairement indisponible, il ne répond pas à ce trafic.
 
@@ -175,9 +175,9 @@ et les compteurs de performances Windows.
 
 ![Ajouter des compteurs au connecteur avec l’Analyseur de performances](./media/application-proxy-connectors/performance-monitor.png)
 
-Les connecteurs ont des journaux d’activité de session et admin. Les journaux d’activité admin incluent les événements principaux et leurs erreurs. Les journaux d’activité de session incluent toutes les transactions et les détails de traitement.
+Les connecteurs ont des journaux de **session** et d’**administration**. Le journal d’**administration** inclut les événements principaux et leurs erreurs. Le journal de **session** contient toutes les transactions et les détails de leur traitement.
 
-Pour afficher les journaux d’activité, accédez l’Observateur d’événements, ouvrez le menu **Affichage**, puis activez **Afficher les journaux d’activité d’analyse et de débogage**. Ensuite, permettez-leur de lancer la collecte d’événements. Ces journaux d’activité n’apparaissent pas dans le proxy d’application web dans Windows Server 2012 R2, car les connecteurs sont basés sur une version plus récente.
+Pour voir les journaux, ouvrez l’**Observateur d’événements** et accédez à **Journaux des applications et des services** > **Microsoft** > **AadApplicationProxy** > **Connecteur**. Pour rendre le journal de **session** visible, dans le menu **Affichage**, sélectionnez **Afficher les journaux d’analyse et de débogage**. Le journal de **session** est généralement utilisé pour la résolution des problèmes. Il est désactivé par défaut. Activez-le pour commencer à collecter des événements, et désactivez-le lorsqu’il n’est plus nécessaire.
 
 Vous pouvez examiner l’état du service dans la fenêtre Services. Le connecteur se compose de deux services Windows : le connecteur lui-même et le programme de mise à jour. Tous deux doivent s’exécuter en permanence.
 

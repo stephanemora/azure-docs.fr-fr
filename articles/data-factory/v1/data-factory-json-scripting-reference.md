@@ -11,12 +11,12 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.date: 01/10/2018
-ms.openlocfilehash: 3492f917be8116d0eed0c7ec03ed8aa9ff506520
-ms.sourcegitcommit: 8a9c54c82ab8f922be54fb2fcfd880815f25de77
+ms.openlocfilehash: cc316636c3f708d4b3ef81a22f57dab9b140d2fa
+ms.sourcegitcommit: 1f48ad3c83467a6ffac4e23093ef288fea592eb5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "80346592"
+ms.lasthandoff: 05/29/2020
+ms.locfileid: "84195954"
 ---
 # <a name="azure-data-factory---json-scripting-reference"></a>Azure Data Factory - Référence de script JSON
 > [!NOTE]
@@ -2446,15 +2446,15 @@ Pour plus d’informations, consultez l’article [SAP HANA connector (connecteu
 ## <a name="sql-server"></a>SQL Server
 
 ### <a name="linked-service"></a>Service lié
-Vous créez un service lié de type **OnPremisesSqlServer** pour lier une base de données SQL Server locale à une fabrique de données. Le tableau suivant fournit la description des éléments JSON spécifiques au service lié SQL Server local.
+Vous créez un service lié de type **OnPremisesSqlServer** pour lier une base de données SQL Server à une fabrique de données. Le tableau suivant fournit la description des éléments JSON spécifiques au service lié SQL Server.
 
 Le tableau suivant fournit la description des éléments JSON spécifiques au service lié SQL Server.
 
 | Propriété | Description | Obligatoire |
 | --- | --- | --- |
 | type |La propriété de type doit être définie sur : **OnPremisesSqlServer**. |Oui |
-| connectionString |Spécifiez les informations connectionString nécessaires pour connecter la base de données SQL Server locale à l’aide de l’authentification SQL ou de l’authentification Windows. |Oui |
-| gatewayName |Nom de la passerelle que le service Data Factory doit utiliser pour se connecter à la base de données SQL Server locale. |Oui |
+| connectionString |Spécifiez les informations connectionString nécessaires pour établir une connexion à la base de données SQL Server à l’aide de l’authentification SQL ou de l’authentification Windows. |Oui |
+| gatewayName |Nom de la passerelle que le service Data Factory doit utiliser pour se connecter à la base de données SQL Server. |Oui |
 | username |Spécifiez le nom d’utilisateur si vous utilisez l’authentification Windows. Exemple : **domainname\\username**. |Non |
 | mot de passe |Spécifiez le mot de passe du compte d’utilisateur que vous avez spécifié pour le nom d’utilisateur. |Non |
 
@@ -2481,7 +2481,7 @@ Vous pouvez chiffrer les informations d’identification à l’aide de la cmdle
 ```
 #### <a name="example-json-for-using-windows-authentication"></a>Exemple : JSON pour utilisation de l’authentification Windows
 
-Si le nom d’utilisateur et le mot de passe sont spécifiés, la passerelle les utilise pour identifier le compte utilisateur spécifié pour connecter la base de données SQL Server locale. Dans le cas contraire, la passerelle se connecte directement à SQL Server avec le contexte de sécurité de la passerelle (son compte de démarrage).
+Si le nom d’utilisateur et le mot de passe sont spécifiés, la passerelle les utilise pour emprunter l’identité du compte utilisateur spécifié pour la connexion à la base de données SQL Server. Dans le cas contraire, la passerelle se connecte directement à SQL Server avec le contexte de sécurité de la passerelle (son compte de démarrage).
 
 ```json
 {
@@ -5001,15 +5001,15 @@ L’exemple suivant présente la définition JSON pour le service lié Analytiqu
 Créez un service lié à SQL Server et utilisez-le avec l’ [activité de procédure stockée](data-factory-stored-proc-activity.md) pour appeler une procédure stockée à partir d’un pipeline Data Factory.
 
 ### <a name="linked-service"></a>Service lié
-Vous créez un service lié de type **OnPremisesSqlServer** pour lier une base de données SQL Server locale à une fabrique de données. Le tableau suivant fournit la description des éléments JSON spécifiques au service lié SQL Server local.
+Vous créez un service lié de type **OnPremisesSqlServer** pour lier une base de données SQL Server à une fabrique de données. Le tableau suivant fournit la description des éléments JSON spécifiques au service lié SQL Server.
 
 Le tableau suivant fournit la description des éléments JSON spécifiques au service lié SQL Server.
 
 | Propriété | Description | Obligatoire |
 | --- | --- | --- |
 | type |La propriété de type doit être définie sur : **OnPremisesSqlServer**. |Oui |
-| connectionString |Spécifiez les informations connectionString nécessaires pour connecter la base de données SQL Server locale à l’aide de l’authentification SQL ou de l’authentification Windows. |Oui |
-| gatewayName |Nom de la passerelle que le service Data Factory doit utiliser pour se connecter à la base de données SQL Server locale. |Oui |
+| connectionString |Spécifiez les informations connectionString nécessaires pour établir une connexion à la base de données SQL Server à l’aide de l’authentification SQL ou de l’authentification Windows. |Oui |
+| gatewayName |Nom de la passerelle que le service Data Factory doit utiliser pour se connecter à la base de données SQL Server. |Oui |
 | username |Spécifiez le nom d’utilisateur si vous utilisez l’authentification Windows. Exemple : **domainname\\username**. |Non |
 | mot de passe |Spécifiez le mot de passe du compte d’utilisateur que vous avez spécifié pour le nom d’utilisateur. |Non |
 
@@ -5036,7 +5036,7 @@ Vous pouvez chiffrer les informations d’identification à l’aide de la cmdle
 ```
 #### <a name="example-json-for-using-windows-authentication"></a>Exemple : JSON pour utilisation de l’authentification Windows
 
-Si le nom d’utilisateur et le mot de passe sont spécifiés, la passerelle les utilise pour identifier le compte utilisateur spécifié pour connecter la base de données SQL Server locale. Dans le cas contraire, la passerelle se connecte directement à SQL Server avec le contexte de sécurité de la passerelle (son compte de démarrage).
+Si le nom d’utilisateur et le mot de passe sont spécifiés, la passerelle les utilise pour emprunter l’identité du compte utilisateur spécifié pour la connexion à la base de données SQL Server. Dans le cas contraire, la passerelle se connecte directement à SQL Server avec le contexte de sécurité de la passerelle (son compte de démarrage).
 
 ```json
 {

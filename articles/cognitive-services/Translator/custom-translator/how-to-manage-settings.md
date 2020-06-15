@@ -6,15 +6,15 @@ author: swmachan
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: translator-text
-ms.date: 02/21/2019
+ms.date: 05/26/2020
 ms.author: swmachan
 ms.topic: conceptual
-ms.openlocfilehash: fe2c0eed2d476d01dffd22a61dd431140f26c475
-ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
+ms.openlocfilehash: 50bff8e55d1b125f56696ac485bc1e05193dea55
+ms.sourcegitcommit: fc718cc1078594819e8ed640b6ee4bef39e91f7f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83587230"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "83992944"
 ---
 # <a name="how-to-manage-settings"></a>Comment gérer les paramètres
 
@@ -31,7 +31,7 @@ Pour accéder à la page des paramètres :
 
 Vous devez avoir une clé d’abonnement à Translator associée à votre espace de travail pour entrainer ou déployer des modèles.
 
-Si vous n’avez pas d’abonnement, procédez comme suit :
+Si vous n’avez pas d’abonnement, effectuez les étapes suivantes :
 
 1. Abonnez-vous à Translator. Cet article explique comment s’abonner à Translator.
 2. Notez la clé de votre abonnement à Translator. Key1 ou Key2 sont acceptables.
@@ -39,17 +39,17 @@ Si vous n’avez pas d’abonnement, procédez comme suit :
 
 ### <a name="add-existing-key"></a>Ajouter une clé existante
 
-1.  Accédez à la page « Paramètres » de votre espace de travail.
-2.  Cliquez sur Ajouter une clé
+1.    Accédez à la page « Paramètres » de votre espace de travail.
+2.    Cliquez sur Ajouter une clé
 
-    ![Comment ajouter une clé d’abonnement](media/how-to/how-to-add-subscription-key.png)
+   ![Comment ajouter une clé d’abonnement](media/how-to/how-to-add-subscription-key.png)
 
 3. Dans la boîte de dialogue, entrez la clé de votre abonnement à Translator, puis cliquez sur le bouton « Ajouter ».
 
     ![Comment ajouter une clé d’abonnement](media/how-to/how-to-add-subscription-key-dialog.png)
-4.  Vous pouvez modifier ou supprimer à tout moment une clé ajoutée.
+4.    Une fois que vous avez ajouté une clé, vous pouvez la modifier ou la supprimer à tout moment.
 
-    ![Après l’ajout d’une clé d'abonnement](media/how-to/subscription-key-after-add.png)
+   ![Après l’ajout d’une clé d'abonnement](media/how-to/subscription-key-after-add.png)
 
 ## <a name="manage-your-workspace"></a>Gérer votre espace de travail
 
@@ -59,47 +59,47 @@ Si différentes parties de votre travail doivent être partagées avec différen
 
 ## <a name="create-a-new-workspace"></a>Créer un espace de travail
 
-1.  Accédez à la page « Paramètres » de l’espace de travail.
-2.  Cliquez sur le bouton « Nouvel espace de travail » dans la section « Créer un espace de travail ».
+1.    Accédez à la page « Paramètres » de l’espace de travail.
+2.    Cliquez sur le bouton « Nouvel espace de travail » dans la section « Créer un espace de travail ».
 
-    ![Créer un espace de travail](media/how-to/create-new-workspace.png)
+   ![Créer un espace de travail](media/how-to/create-new-workspace.png)
 
-4.  Dans la boîte de dialogue, entrez le nom du nouvel espace de travail.
-5.  Cliquez sur « Créer ».
+4.    Dans la boîte de dialogue, entrez le nom du nouvel espace de travail.
+5.    Cliquez sur « Créer ».
 
-    ![Créer une boîte de dialogue d’espace de travail](media/how-to/create-new-workspace-dialog.png)
+   ![Créer une boîte de dialogue d’espace de travail](media/how-to/create-new-workspace-dialog.png)
 
 ## <a name="share-your-workspace"></a>Partager votre espace de travail
 
 Dans Custom Translator, vous pouvez partager votre espace de travail avec d’autres utilisateurs si certaines parties de votre travail doivent être partagées avec différentes personnes.
 
-1.  Accédez à la page « Paramètres » de l’espace de travail.
-2.  Cliquez sur le bouton « Partager » dans la section « Paramètres de partage ».
+1.    Accédez à la page « Paramètres » de l’espace de travail.
+2.    Cliquez sur le bouton « Partager » dans la section « Paramètres de partage ».
 
-    ![Partager l’espace de travail](media/how-to/share-workspace.png)
+   ![Partager l’espace de travail](media/how-to/share-workspace.png)
 
-3.  Dans la boîte de dialogue, entrez une liste séparée par des virgules des adresses e-mail avec lesquelles vous souhaitez partager cet espace de travail. Assurez-vous que vous partagez bien avec l’adresse e-mail que la personne concernée utilise pour se connecter à Custom Translator. Ensuite, sélectionnez le niveau d’autorisation de partage approprié.
+3.    Dans la boîte de dialogue, entrez une liste séparée par des virgules des adresses e-mail avec lesquelles vous souhaitez partager cet espace de travail. Assurez-vous que vous partagez bien avec l’adresse e-mail que la personne concernée utilise pour se connecter à Custom Translator. Ensuite, sélectionnez le niveau d’autorisation de partage approprié.
 
-4.  Si votre espace de travail a toujours le nom par défaut « Mon espace de travail », vous devrez le modifier avant de le partager.
-5.  Cliquez sur « Enregistrer ».
+4.    Si votre espace de travail a toujours le nom par défaut « Mon espace de travail », vous devez le changer avant de le partager.
+5.    Cliquez sur « Enregistrer ».
 
 ## <a name="sharing-permissions"></a>Autorisations de partage
 
-1.  **Lecteur :** un lecteur dans l’espace de travail sera en mesure d’afficher toutes les informations dans l’espace de travail.
+1.    **Lecteur :** un lecteur dans l’espace de travail sera en mesure d’afficher toutes les informations dans l’espace de travail.
 
-2.  **Éditeur :** un éditeur dans l’espace de travail sera en mesure d’ajouter des documents, de former des modèles et de supprimer des documents et des projets. Il peut ajouter une clé d’abonnement, mais ne peut pas modifier les personnes avec lesquelles l’espace de travail est partagé, supprimer l’espace de travail ou modifier son nom.
+2.    **Éditeur :** un éditeur dans l’espace de travail sera en mesure d’ajouter des documents, de former des modèles et de supprimer des documents et des projets. Il peut ajouter une clé d’abonnement, mais ne peut pas modifier les personnes avec lesquelles l’espace de travail est partagé, supprimer l’espace de travail ou modifier son nom.
 
-3.  **Propriétaire :** un propriétaire dispose d’autorisations complètes pour l’espace de travail.
+3.    **Propriétaire :** un propriétaire dispose d’autorisations complètes pour l’espace de travail.
 
 ## <a name="change-sharing-permission"></a>Autorisation de modification du partage
 
 Quand un espace de travail est partagé, la section « Paramètres de partage » affiche toutes les adresses e-mail avec lesquelles il est partagé. Vous pouvez modifier une autorisation de partage existante pour chaque adresse e-mail si vous avez un accès propriétaire à l’espace de travail.
 
-1.  Dans la section « Paramètres de partage » de chaque e-mail, un menu déroulant montre le niveau d’autorisation actuel.
+1.    Dans la section « Paramètres de partage » de chaque e-mail, un menu déroulant montre le niveau d’autorisation actuel.
 
-2.  Cliquez sur le menu déroulant et sélectionnez le nouveau niveau d’autorisation que vous souhaitez affecter à cette adresse e-mail.
+2.    Cliquez sur le menu déroulant et sélectionnez le nouveau niveau d’autorisation que vous souhaitez affecter à cette adresse e-mail.
 
-    ![Paramètres d’autorisation de partage](media/how-to/sharing-permission-settings.png)
+   ![Paramètres d’autorisation de partage](media/how-to/sharing-permission-settings.png)
 
 ## <a name="next-steps"></a>Étapes suivantes
 

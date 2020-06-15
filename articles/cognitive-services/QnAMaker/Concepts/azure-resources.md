@@ -3,12 +3,12 @@ title: Ressources Azure – QnA Maker
 description: QnA Maker utilise plusieurs sources Azure, dont chacune a un objectif différent. Comprendre comment elles sont utilisées individuellement vous permet de planifier et de sélectionner le niveau tarifaire approprié ou de savoir quand modifier celui-ci. Comprendre comment elles sont utilisées en combinaison vous permet d’épingler et de résoudre des problèmes quand ils se produisent.
 ms.topic: conceptual
 ms.date: 03/25/2020
-ms.openlocfilehash: 581029d2372f7a2ef704dcf02f266b66440aa246
-ms.sourcegitcommit: 2d7910337e66bbf4bd8ad47390c625f13551510b
+ms.openlocfilehash: 916f5b9b012d233c6a28d5cbb75ea0b4e073d064
+ms.sourcegitcommit: f1132db5c8ad5a0f2193d751e341e1cd31989854
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/08/2020
-ms.locfileid: "80873903"
+ms.lasthandoff: 05/31/2020
+ms.locfileid: "84236085"
 ---
 # <a name="azure-resources-for-qna-maker"></a>Ressources Azure pour QnA Maker
 
@@ -48,7 +48,7 @@ Le tableau suivant vous donne des indications d’ordre général.
 | ---------------------- | -------------------- | ----------- | ------------ | -------------------------------- |
 | Expérimentation        | Référence SKU Gratuite             | Niveau Gratuit   | Niveau Gratuit    | Publier jusqu’à 2 Ko, taille de 50 Mo  |
 | Environnement de test/développement   | Référence SKU standard         | Partagé      | De base        | Publier jusqu’à 14 Ko, taille de 2 Go    |
-| Environnement de production | Référence SKU standard         | De base       | standard     | Publier jusqu’à 49 Ko, taille de 25 Go |
+| Environnement de production | Référence SKU standard         | De base       | Standard     | Publier jusqu’à 49 Ko, taille de 25 Go |
 
 ## <a name="recommended-settings"></a>Paramètres recommandés
 
@@ -182,6 +182,14 @@ Utilisez ces clés lorsque vous adressez des demandes au service via des API.
 Les expressions clé de création et clé de point de terminaison de requête sont rectificatives. L’expression utilisée précédemment était **clé d’abonnement**. Si vous lisez une autre documentation faisant référence à des clés d’abonnement, celles-ci correspondent aux clés de création et de point de terminaison de requête (utilisées dans le runtime).
 
 Pour savoir quelle clé vous devez trouver, vous devez savoir à quoi la clé permet d’accéder, à la gestion de la base de connaissances ou à l’interrogation de la base de connaissances.
+
+## <a name="recommended-settings-for-network-isolation"></a>Paramétrages recommandés pour l’isolement réseau
+
+* Protégez la ressource Cognitive Services contre l’accès public en [configurant le réseau virtuel](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-virtual-networks?tabs=portal).
+* Protégez App Service (Runtime QnA) contre l’accès public :
+    * Autorisez le trafic uniquement à partir des adresses IP Cognitive Services. Celles-ci sont déjà incluses dans l’étiquette de service « CognitiveServicesManagement ». Les API de création (création/mise à jour de base de connaissances) peuvent ainsi appeler le service d’application et mettre à jour le service Recherche Azure en conséquence.
+    * Assurez-vous que vous autorisez également d’autres points d’entrée, tels que Bot Service ou le portail QnA Maker (éventuellement votre réseau d’entreprise), pour accéder à l’API de prédiction « GenerateAnswer ».
+    * Consultez d’[autres informations sur les étiquettes de service](https://docs.microsoft.com/azure/virtual-network/service-tags-overview).
 
 ## <a name="next-steps"></a>Étapes suivantes
 

@@ -6,15 +6,15 @@ author: swmachan
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: translator-text
-ms.date: 02/21/2019
+ms.date: 05/26/2020
 ms.author: swmachan
 ms.topic: conceptual
-ms.openlocfilehash: 41b15cc998a7bacd033ef2fe083fc99f1bff0286
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: e976b59c0128adef6536e78985e7cf89d256062c
+ms.sourcegitcommit: fc718cc1078594819e8ed640b6ee4bef39e91f7f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "68595857"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "83992706"
 ---
 # <a name="document-formats-and-naming-convention-guidance"></a>Guide sur les formats de documents et les conventions d’affectation de noms
 
@@ -47,7 +47,7 @@ Chaque document du fichier zip avec l’extension TXT, HTML, HTM, PDF, DOCX, ALI
 
 {nom du document} \_{code de langue} où {nom du document} correspond au nom de votre document, {code de langue} correspond au LanguageID ISO (deux caractères), indiquant que le document contient des phrases dans cette langue. Il doit y avoir le code de langue doit être précédé d’un trait de soulignement (_).
 
-Par exemple, pour télécharger deux documents parallèles au sein d’un fichier compressé pour un système traduisant de l’anglais en espagnol, les fichiers doivent être nommés « data_en » et « data_es ».
+Par exemple, afin de charger deux documents parallèles dans un fichier zip pour un système traduisant de l’anglais vers l’espagnol, les fichiers doivent être nommés « data_en » et « data_es ».
 
 Cette convention de nommage utilisée pour indiquer une langue spécifique ne s’applique pas aux fichiers de mémoire de traduction (TMX, XLF, XLIFF, LCL, XLSX) .  
 

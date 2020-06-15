@@ -3,12 +3,12 @@ title: Sauvegarder une batterie de serveurs SharePoint dans Azure avec MABS
 description: Le serveur de sauvegarde Azure vous permet de sauvegarder et de restaurer vos données SharePoint. Cet article fournit des informations vous permettant de configurer votre batterie de serveurs SharePoint, afin de pouvoir stocker les données souhaitées dans Azure. Vous pouvez restaurer des données SharePoint protégées à partir d’un disque ou d’Azure.
 ms.topic: conceptual
 ms.date: 04/26/2020
-ms.openlocfilehash: 7e429eeb5319a12c3483510072fd82c69c8d8ab3
-ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
+ms.openlocfilehash: 62fcb434ef00df43ce2950a5df569e346a06903a
+ms.sourcegitcommit: f1132db5c8ad5a0f2193d751e341e1cd31989854
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83657276"
+ms.lasthandoff: 05/31/2020
+ms.locfileid: "84234785"
 ---
 # <a name="back-up-a-sharepoint-farm-to-azure-with-mabs"></a>Sauvegarder une batterie de serveurs SharePoint dans Azure avec MABS
 
@@ -68,10 +68,9 @@ Pour sauvegarder la batterie de serveurs SharePoint, configurez la protection po
 
     * Entrez les informations d'identification de l’administrateur de la batterie de serveurs. Ce compte doit être membre du groupe administrateur local sur le serveur Web frontal (WFE). Si l’administrateur de la batterie de serveurs n’est pas un administrateur local, accordez les autorisations suivantes sur le serveur web frontal (WFE) :
 
-        * Accordez au groupe WSS\_Admin\_WPG un contrôle total sur le dossier MABS \(%Program Files%\\Data Protection Manager\\DPM\).
-            -A
+        * Accordez au groupe **WSS_Admin_WPG** le contrôle total du dossier MABS (`%Program Files%\Data Protection Manager\DPM\`).
 
-        * Accordez au groupe WSS\_Admin\_WPG un droit d’accès en lecture à la clé de Registre MABS \(HKEY\_LOCAL\_MACHINE\\SOFTWARE\\Microsoft\\Microsoft Data Protection Manager\).
+        * Accordez au groupe **WSS_Admin_WPG** un accès en lecture à la clé de Registre MABS (`HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Microsoft Data Protection Manager`).
 
         Après l’exécution de ConfigureSharePoint.exe, vous devrez le réexécuter à chaque modification des informations d’identification de l’administrateur de la batterie de serveurs SharePoint.
 

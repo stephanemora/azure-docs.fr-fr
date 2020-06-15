@@ -12,14 +12,15 @@ ms.topic: conceptual
 ms.date: 01/10/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: 5e4bbe1e6bd944787d47c5e3ed98de582c088a52
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: fe9a50b5557e6165835abf1df67f7486c260c1c5
+ms.sourcegitcommit: 1f48ad3c83467a6ffac4e23093ef288fea592eb5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79231557"
+ms.lasthandoff: 05/29/2020
+ms.locfileid: "84195918"
 ---
-# <a name="move-data-to-and-from-sql-server-on-premises-or-on-iaas-azure-vm-using-azure-data-factory"></a>Déplacement des données vers et depuis SQL Server local ou sur IaaS (Machine virtuelle Azure) à l’aide d’Azure Data Factory
+# <a name="move-data-to-and-from-sql-server-using-azure-data-factory"></a>Déplacer des données vers et à partir de SQL Server à l’aide d’Azure Data Factory
+
 > [!div class="op_single_selector" title1="Sélectionnez la version du service Data Factory que vous utilisez :"]
 > * [Version 1](data-factory-sqlserver-connector.md)
 > * [Version 2 (version actuelle)](../connector-sql-server.md)
@@ -27,7 +28,7 @@ ms.locfileid: "79231557"
 > [!NOTE]
 > Cet article s’applique à la version 1 de Data Factory. Si vous utilisez la version actuelle du service Data Factory, consultez [Connecteur SQL Server dans V2](../connector-sql-server.md).
 
-Cet article explique comment utiliser l’activité de copie dans Azure Data Factory pour déplacer des données vers/à partir d’une base de données SQL Server locale. Il s’appuie sur l’article [Activités de déplacement des données](data-factory-data-movement-activities.md), qui présente une vue d’ensemble du déplacement de données avec l’activité de copie.
+Cet article explique comment utiliser l’activité de copie dans Azure Data Factory pour déplacer des données vers ou à partir d’une base de données SQL Server. Il s’appuie sur l’article [Activités de déplacement des données](data-factory-data-movement-activities.md), qui présente une vue d’ensemble du déplacement de données avec l’activité de copie.
 
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
@@ -51,7 +52,7 @@ Consultez l’article [Déplacement de données entre des emplacements locaux et
 Vous pouvez installer la passerelle sur la même machine locale ou l’instance de machine virtuelle cloud en tant que serveur SQL Server pour de meilleures performances. Nous recommandons de les installer sur des machines séparées ou les machines virtuelles Cloud. Placer la passerelle et SQL Server sur des ordinateurs distincts réduit les conflits de ressources.
 
 ## <a name="getting-started"></a>Prise en main
-Vous pouvez créer un pipeline avec une activité de copie qui déplace les données vers/depuis une base de données SQL Server à l’aide de différents outils/API.
+Vous pouvez créer un pipeline avec une activité de copie qui déplace les données vers/à partir d’une base de données SQL Server à l’aide de différents outils/API.
 
 Le moyen le plus simple de créer un pipeline consiste à utiliser **l’Assistant Copie**. Voir le [tutoriel : Créer un pipeline avec l’activité de copie à l’aide de l’Assistant Copie](data-factory-copy-data-wizard-tutorial.md) pour obtenir une procédure pas à pas rapide sur la création d’un pipeline à l’aide de l’Assistant Copie de données.
 
@@ -64,20 +65,20 @@ Que vous utilisiez des outils ou des API, la création d’un pipeline qui dépl
 3. Création de **jeux de données** pour représenter les données d’entrée et de sortie de l’opération de copie. Dans l’exemple mentionné à la dernière étape, vous créez un jeu de données pour spécifier la table SQL de votre base de données SQL Server qui doit contenir les données d’entrée. Ensuite, vous créez un autre jeu de données pour spécifier le conteneur d’objets blob et le dossier qui contient les données copiées à partir de la base de données SQL Server. Pour plus d’informations sur les propriétés de jeu de données qui sont spécifiques à la base de données SQL Server, consultez la section [Propriétés du jeu de données](#dataset-properties).
 4. Création d’un **pipeline** avec une activité de copie qui utilise un jeu de données en tant qu’entrée et un jeu de données en tant que sortie. Dans l’exemple mentionné plus haut, vous utilisez SqlSource comme source et BlobSink comme récepteur pour l’activité de copie. De la même façon, si vous copiez des données du stockage Blob Azure vers une base de données SQL Server, vous utilisez BlobSource et SqlSink dans l’activité de copie. Pour plus d’informations sur les propriétés de l’activité de copie qui sont spécifiques à la base de données SQL Server, consultez la section [Propriétés de l’activité de copie](#copy-activity-properties). Pour plus d’informations sur l’utilisation d’un magasin de données comme source ou comme récepteur, cliquez sur le lien de la section précédente de votre magasin de données.
 
-Lorsque vous utilisez l’Assistant, les définitions JSON de ces entités Data Factory (services liés, jeux de données et pipeline) sont automatiquement créées pour vous. Lorsque vous utilisez des outils/API (à l’exception de l’API .NET), vous devez définir ces entités Data Factory au format JSON. Pour obtenir des exemples comportant des définitions JSON pour les entités Data Factory utilisées pour copier les données vers ou à partir d’une base de données SQL Server locale, consultez la section [Exemples JSON](#json-examples-for-copying-data-from-and-to-sql-server) de cet article.
+Lorsque vous utilisez l’Assistant, les définitions JSON de ces entités Data Factory (services liés, jeux de données et pipeline) sont automatiquement créées pour vous. Lorsque vous utilisez des outils/API (à l’exception de l’API .NET), vous devez définir ces entités Data Factory au format JSON. Pour obtenir des exemples comportant des définitions JSON pour les entités Data Factory utilisées pour copier les données vers ou à partir d’une base de données SQL Server, consultez la section [Exemples JSON](#json-examples-for-copying-data-from-and-to-sql-server) de cet article.
 
 Les sections suivantes fournissent des informations sur les propriétés JSON utilisées pour définir les entités Data Factory spécifiques à SQL Server :
 
 ## <a name="linked-service-properties"></a>Propriétés du service lié
-Vous créez un service lié de type **OnPremisesSqlServer** pour lier une base de données SQL Server locale à une fabrique de données. Le tableau suivant fournit la description des éléments JSON spécifiques au service lié SQL Server local.
+Vous créez un service lié de type **OnPremisesSqlServer** pour lier une base de données SQL Server à une fabrique de données. Le tableau suivant fournit la description des éléments JSON spécifiques au service lié SQL Server.
 
 Le tableau suivant fournit la description des éléments JSON spécifiques au service lié SQL Server.
 
 | Propriété | Description | Obligatoire |
 | --- | --- | --- |
 | type |La propriété de type doit être définie sur : **OnPremisesSqlServer**. |Oui |
-| connectionString |Spécifiez les informations connectionString nécessaires pour connecter la base de données SQL Server locale à l’aide de l’authentification SQL ou de l’authentification Windows. |Oui |
-| gatewayName |Nom de la passerelle que le service Data Factory doit utiliser pour se connecter à la base de données SQL Server locale. |Oui |
+| connectionString |Spécifiez les informations connectionString nécessaires pour établir une connexion à la base de données SQL Server à l’aide de l’authentification SQL ou de l’authentification Windows. |Oui |
+| gatewayName |Nom de la passerelle que le service Data Factory doit utiliser pour se connecter à la base de données SQL Server. |Oui |
 | username |Spécifiez le nom d’utilisateur si vous utilisez l’authentification Windows. Exemple : **domainname\\username**. |Non |
 | mot de passe |Spécifiez le mot de passe du compte d’utilisateur que vous avez spécifié pour le nom d’utilisateur. |Non |
 
@@ -105,7 +106,7 @@ Vous pouvez chiffrer les informations d’identification à l’aide de la cmdle
 ```
 **JSON pour utilisation de l’authentification Windows**
 
-La passerelle de gestion des données utilisera l’identité du compte utilisateur spécifié pour se connecter à la base de données SQL Server locale.
+La passerelle de gestion des données empruntera l’identité du compte utilisateur spécifié pour se connecter à la base de données SQL Server.
 
 ```json
 {
@@ -554,7 +555,7 @@ Le pipeline contient une activité de copie qui est configurée pour utiliser ce
 3. Dans la même fenêtre, double-cliquez sur **TCP/IP** pour lancer la fenêtre des **propriétés de TCP/IP**.
 4. Allez sous l’onglet **Adresses IP** . Faites défiler l’écran vers le bas jusqu’à la section **IPAll** . Notez le **port TCP** (par défaut, il s’agit du port **1433**).
 5. Créez une **règle de Pare-feu Windows** sur l’ordinateur pour autoriser le trafic à entrer par ce port.
-6. **Vérifiez la connexion** : Pour vous connecter à SQL Server en utilisant un nom qualifié complet, utilisez SQL Server Management Studio sur un autre ordinateur. Par exemple : « \<machine\>.\<domaine\>.corp.\<societe\>.com,1433 ».
+6. **Vérifiez la connexion** : Pour vous connecter à SQL Server en utilisant un nom qualifié complet, utilisez SQL Server Management Studio sur un autre ordinateur. Par exemple : « \<machine\>\<domain\>.corp\<company\>.com, 1433 ».
 
    > [!IMPORTANT]
    > 

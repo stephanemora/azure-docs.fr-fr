@@ -4,12 +4,12 @@ description: Résume la prise en charge de la récupération d’urgence des mac
 ms.topic: article
 ms.date: 01/10/2020
 ms.author: raynew
-ms.openlocfilehash: 970046f000a844ce6ee7207ad1bb33f4a327a63d
-ms.sourcegitcommit: 1f25aa993c38b37472cf8a0359bc6f0bf97b6784
+ms.openlocfilehash: 484a0e6e7c4beaffc86aaf26964ea1ec1736dd52
+ms.sourcegitcommit: 1692e86772217fcd36d34914e4fb4868d145687b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/26/2020
-ms.locfileid: "83848105"
+ms.lasthandoff: 05/29/2020
+ms.locfileid: "84171427"
 ---
 # <a name="support-matrix-for-azure-vm-disaster-recovery-between-azure-regions"></a>Prendre en charge la matrice de la récupération d’urgence de machines virtuelles Azure entre les régions Azure
 
@@ -256,7 +256,7 @@ Disque Premium P20 ou P30 ou P40 ou P50 | 16 Ko ou plus |20 Mo/s | 1 684 Go 
 ## <a name="replicated-machines---networking"></a>Machines répliquées - Mise en réseau
 **Paramètre** | **Support** | **Détails**
 --- | --- | ---
-Carte d’interface réseau | Nombre maximal pris en charge pour une taille de machine virtuelle Azure spécifique | Les cartes réseau sont créées lors de la création de la machine virtuelle pendant le basculement.<br/><br/> Le nombre de cartes réseau sur la machine virtuelle de basculement dépend du nombre de cartes réseau que possède la machine virtuelle source au moment de l’activation de la réplication. Si vous ajoutez ou supprimez une carte réseau après l’activation de la réplication, cela n’affecte pas le nombre de cartes réseau sur la machine virtuelle répliquée après le basculement. Notez qu'il n'est pas garanti que l'ordre des cartes réseau après basculement soit le même que l’ordre d’origine.
+Carte d’interface réseau | Nombre maximal pris en charge pour une taille de machine virtuelle Azure spécifique | Les cartes réseau sont créées lors de la création de la machine virtuelle pendant le basculement.<br/><br/> Le nombre de cartes réseau sur la machine virtuelle de basculement dépend du nombre de cartes réseau que possède la machine virtuelle source au moment de l’activation de la réplication. Si vous ajoutez ou supprimez une carte réseau après l’activation de la réplication, cela n’affecte pas le nombre de cartes réseau sur la machine virtuelle répliquée après le basculement. <br/><br/> Il n’est pas garanti que l’ordre des cartes réseau après basculement soit le même que l’ordre d’origine. <br/><br/> Vous pouvez renommer des cartes réseau dans la région cible conformément aux conventions de nommage de votre organisation.
 Équilibreur de charge Internet | Prise en charge | Associez l’équilibreur de charge préconfiguré à l’aide d’un script Azure Automation dans un plan de récupération.
 Équilibreur de charge interne | Prise en charge | Associez l’équilibreur de charge préconfiguré à l’aide d’un script Azure Automation dans un plan de récupération.
 Adresse IP publique | Prise en charge | Associez une adresse IP publique existante à la carte réseau. Ou, créez une adresse IP publique et associez-la à la carte réseau à l’aide d’un script Azure Automation dans un plan de récupération.

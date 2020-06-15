@@ -6,12 +6,12 @@ ms.suite: integration
 ms.reviewer: jonfan, logicappspm
 ms.topic: article
 ms.date: 04/24/2020
-ms.openlocfilehash: f2a2ee7a2806a753ffd159c91ed782634e74c704
-ms.sourcegitcommit: 11572a869ef8dbec8e7c721bc7744e2859b79962
+ms.openlocfilehash: ede385670dec6629cc3e75a9d09c0ceb14362bdc
+ms.sourcegitcommit: 6a9f01bbef4b442d474747773b2ae6ce7c428c1f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/05/2020
-ms.locfileid: "82838653"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "84119382"
 ---
 # <a name="connectors-for-azure-logic-apps"></a>Connecteurs pour Azure Logic Apps
 
@@ -106,7 +106,7 @@ Logic Apps fournit des actions intégrées permettant d’exécuter votre propre
 
 |   |   |   |   |
 |---|---|---|---|
-| [![Icône d’API][azure-functions-icon]<br>**Azure Functions**][azure-functions-doc] | Appelez les fonctions Azure qui exécutent des extraits de code personnalisés (C# ou Node.js) à partir de vos applications logiques. | [![Icône d’API][inline-code-icon]<br>**Code inline**][azure-functions-doc] | Ajoutez et exécutez des extraits de code JavaScript à partir de vos applications logiques. |
+| [![Icône d’API][azure-functions-icon]<br>**Azure Functions**][azure-functions-doc] | Appelez les fonctions Azure qui exécutent des extraits de code personnalisés (C# ou Node.js) à partir de vos applications logiques. | [![Icône d’API][inline-code-icon]<br>**Code inline**][inline-code-doc] | Ajoutez et exécutez des extraits de code JavaScript à partir de vos applications logiques. |
 |||||
 
 ### <a name="control-workflow"></a>Contrôler le flux de travail
@@ -388,6 +388,7 @@ Pour appeler des API qui exécutent du code personnalisé ou qui ne sont pas dis
 [http-response-doc]: ./connectors-native-reqres.md "Répondre aux requêtes HTTP à partir de vos applications logiques"
 [http-swagger-doc]: ./connectors-native-http-swagger.md "Appeler des points de terminaison REST à partir de vos applications logiques"
 [http-webhook-doc]: ./connectors-native-webhook.md "Attendre des événements à partir de points de terminaison HTTP ou HTTPS"
+[inline-code-doc]: ../logic-apps/logic-apps-add-run-inline-code.md "Ajouter et exécuter des extraits de code JavaScript à partir de vos applications logiques"
 [nested-logic-app-doc]: ../logic-apps/logic-apps-http-endpoint.md "Intégrer des applications logiques à des flux de travail imbriqués"
 [query-doc]: ../logic-apps/logic-apps-perform-data-operations.md#filter-array-action "Sélectionner et filtrer des tableaux avec l’action de requête"
 [schedule-doc]: ../logic-apps/concepts-schedule-automated-recurring-tasks-workflows.md "Exécuter des applications logiques selon une planification"

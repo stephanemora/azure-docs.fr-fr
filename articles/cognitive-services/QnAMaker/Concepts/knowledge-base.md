@@ -1,18 +1,18 @@
 ---
 title: Importation depuis des sources de données – QnA Maker
-description: Une base de connaissances QnA Maker est composée d’un jeu d’ensembles de questions-réponses (QnA) et de métadonnées facultatives associées à chaque paire QnA.
+description: Une base de connaissances QnA Maker est composée d’un ensemble de paires question/réponse (Q/R) et de métadonnées facultatives associées à chaque paire QnA.
 ms.topic: conceptual
 ms.date: 03/16/2020
-ms.openlocfilehash: f648e15be803159dadb3f8bd047b2f46885eec91
-ms.sourcegitcommit: 6397c1774a1358c79138976071989287f4a81a83
+ms.openlocfilehash: eaa19cb2abf84f31cda9d8894e91ec1540980b27
+ms.sourcegitcommit: fc718cc1078594819e8ed640b6ee4bef39e91f7f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/07/2020
-ms.locfileid: "80804280"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "83993097"
 ---
 # <a name="importing-from-data-sources"></a>Importation depuis des sources de données
 
-Une base de connaissances est constituée d’ensembles de questions-réponses apportés par des URL et des fichiers publics.
+Une base de connaissances est constituée de paires question/réponse apportées par des URL et des fichiers publics.
 
 ## <a name="data-source-locations"></a>Emplacements des sources de données
 
@@ -26,7 +26,7 @@ L’ensemble de contenu QnA des bavardages est proposé sous la forme d’une so
 
 ## <a name="structured-data-format-through-import"></a>Format de données structurées via l’importation
 
-L’importation d’une base de connaissances remplace le contenu de la base de connaissances existante. L’importation requiert un fichier `.tsv` structuré qui contient des questions et leur réponse. Ces informations aident QnA Maker à regrouper les ensembles de question-réponse et à les attribuer à une source de données en particulier.
+L’importation d’une base de connaissances remplace le contenu de la base de connaissances existante. L’importation requiert un fichier `.tsv` structuré qui contient des questions et leur réponse. Ces informations aident QnA Maker à regrouper les paires de question-réponse et à les attribuer à une source de données en particulier.
 
 | Question  | Réponse  | Source| Métadonnées (1 clé : 1 valeur) |
 |-----------|---------|----|---------------------|
@@ -58,7 +58,7 @@ Le **displayOrder** est numérique et le **displayText** est un texte qui ne doi
 
 Si vous ne savez pas comment représenter votre paire QnA dans le fichier `.tsv` :
 * Utilisez cet [exemple téléchargeable à partir de GitHub](https://github.com/Azure-Samples/cognitive-services-sample-data-files/blob/master/qna-maker/data-source-formats/Structured-multi-turn-format.xlsx?raw=true)
-* Ou créez le jeu dans le portail QnA Maker, enregistrez, puis exportez la base de connaissances pour obtenir un exemple illustrant la façon de représenter le jeu.
+* Ou créez la paire dans le portail QnA Maker, enregistrez, puis exportez la base de connaissances pour obtenir un exemple illustrant la façon de représenter la paire.
 
 ## <a name="next-steps"></a>Étapes suivantes
 

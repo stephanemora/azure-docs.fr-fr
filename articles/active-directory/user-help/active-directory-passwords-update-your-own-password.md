@@ -9,20 +9,20 @@ ms.service: active-directory
 ms.workload: identity
 ms.subservice: user-help
 ms.topic: end-user-help
-ms.date: 01/15/2020
+ms.date: 05/28/2020
 ms.author: curtand
-ms.openlocfilehash: 9606bf0108186cd73adbdb38aef3ac428da229d6
-ms.sourcegitcommit: 0b80a5802343ea769a91f91a8cdbdf1b67a932d3
+ms.openlocfilehash: 58ec2c00e75b12d6010b106ca7daed0da234bf1d
+ms.sourcegitcommit: 309cf6876d906425a0d6f72deceb9ecd231d387c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/25/2020
-ms.locfileid: "83828404"
+ms.lasthandoff: 06/01/2020
+ms.locfileid: "84266115"
 ---
 # <a name="reset-your-work-or-school-password-using-security-info"></a>Réinitialiser votre mot de passe professionnel ou scolaire avec des informations de sécurité
 
 Si vous avez oublié votre mot de passe professionnel ou scolaire, que votre organisation ne vous en a jamais envoyé un ou que votre compte a été verrouillé, vous pouvez utiliser vos informations de sécurité et votre appareil mobile pour le réinitialiser. Votre administrateur doit activer cette fonctionnalité pour vous permettre de configurer vos informations et [réinitialiser votre propre mot de passe](https://docs.microsoft.com/azure/active-directory/user-help/active-directory-passwords-reset-register).
 
-Si vous connaissez votre mot de passe mais que vous voulez le changer, consultez les sections [Comment modifier votre mot de passe](https://docs.microsoft.com/azure/active-directory/user-help/active-directory-passwords-update-your-own-password#how-to-change-your-password) de cet article.
+Si vous connaissez votre mot de passe et que vous voulez le changer, consultez les étapes dans [Comment modifier votre mot de passe](https://docs.microsoft.com/azure/active-directory/user-help/active-directory-passwords-update-your-own-password#how-to-change-your-password) de cet article.
 
 >[!Important]
 >Cet article s’adresse aux utilisateurs qui tentent de réinitialiser un mot de passe inconnu ou oublié d’un compte professionnel ou scolaire. Si vous êtes administrateur et que vous recherchez des informations sur la façon d’activer la réinitialisation de mot de passe en libre-service pour vos employés ou d’autres utilisateurs, consultez [Déployer la réinitialisation de mot de passe en libre-service Azure AD et autres articles](https://docs.microsoft.com/azure/active-directory/authentication/howto-sspr-deployment).
@@ -103,7 +103,7 @@ Vous n’avez peut-être pas accès à votre compte Azure Active Directory (Azur
 
      Si vous ne pouvez toujours pas accéder à votre compte, contactez l’administrateur de votre organisation pour obtenir de l’aide.
 
-Après la réinitialisation du mot de passe, vous recevrez peut-être un courrier de confirmation provenant d’un compte tel que « Microsoft de la part de \<*votre entreprise*> ». Si vous recevez un e-mail de ce type sans avoir récemment réinitialisé votre mot de passe, contactez immédiatement l’administrateur de votre organisation.
+Après la réinitialisation du mot de passe, vous pouvez recevoir un e-mail de confirmation provenant d’un compte tel que « Microsoft de la part de \<*your_organization*> ». Si vous recevez un e-mail de ce type sans avoir récemment réinitialisé votre mot de passe, contactez immédiatement l’administrateur de votre organisation.
 
 ## <a name="how-to-change-your-password"></a>Comment modifier votre mot de passe
 

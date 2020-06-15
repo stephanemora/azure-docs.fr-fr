@@ -6,15 +6,15 @@ services: storage
 author: tamram
 ms.service: storage
 ms.topic: conceptual
-ms.date: 05/11/2020
+ms.date: 05/28/2020
 ms.author: tamram
 ms.subservice: blobs
-ms.openlocfilehash: 66682e953e4e262604d1b0c07720ebaab5995364
-ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
+ms.openlocfilehash: 5dcbd3748215575edb37525e7350bedfb980650c
+ms.sourcegitcommit: 1f48ad3c83467a6ffac4e23093ef288fea592eb5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/12/2020
-ms.locfileid: "83195214"
+ms.lasthandoff: 05/29/2020
+ms.locfileid: "84193369"
 ---
 # <a name="point-in-time-restore-for-block-blobs-preview"></a>Restauration dans le temps pour les objets blob de blocs (préversion)
 
@@ -26,15 +26,13 @@ Pour savoir comment activer la restauration jusqu’à une date et heure pour un
 
 Pour activer la restauration dans le temps, vous créez une stratégie de gestion pour le compte de stockage et spécifiez une période de rétention. Pendant la période de rétention, vous pouvez restaurer les objets blob de blocs de l’état actuel à un état passé.
 
-Pour lancer une restauration dans le temps, appelez l'opération [Restaurer les plages d’objets blob](/rest/api/storagerp/storageaccounts/restoreblobranges) et spécifiez un point de restauration en heure UTC. Vous pouvez spécifier une plage lexicographique de noms de conteneurs et d’objets blob à restaurer ou omettre la plage pour restaurer tous les conteneurs dans le compte de stockage. L’opération **Restaurer les plages d'objets blob** retourne un ID de restauration qui identifie de façon unique l’opération.
+Pour lancer une restauration dans le temps, appelez l'opération [Restaurer les plages d’objets blob](/rest/api/storagerp/storageaccounts/restoreblobranges) et spécifiez un point de restauration en heure UTC. Vous pouvez spécifier des plages lexicographiques de noms de conteneurs et d’objets blob à restaurer ou omettre la plage pour restaurer tous les conteneurs dans le compte de stockage. Dix plages lexicographiques sont prises en charge par opération de restauration.
 
 Stockage Azure analyse toutes les modifications apportées aux objets blob spécifiés entre le point de restauration demandé, spécifié en heure UTC, et le moment présent. L’opération de restauration est atomique, ce qui signifie qu’elle réussit entièrement à restaurer toutes les modifications ou qu’elle échoue. S’il existe des objets blob qui ne peuvent pas être restaurés, l’opération échoue, et les opérations de lecture et d’écriture sur les conteneurs concernés reprennent.
 
-Lorsque vous demandez une opération de restauration, Stockage Azure bloque les opérations de données sur les objets blob de la plage en cours de restauration pendant la durée de l’opération. Les opérations de lecture, d’écriture et de suppression sont bloquées dans l’emplacement principal. Les opérations de lecture à partir de l’emplacement secondaire peuvent se poursuivre pendant l’opération de restauration si le compte de stockage est géorépliqué.
-
 Une seule opération de restauration à la fois peut être exécutée sur un compte de stockage. Une opération de restauration ne peut pas être annulée une fois qu’elle est en cours, mais une deuxième opération de restauration peut être effectuée pour annuler la première opération.
 
-Pour vérifier l’état d’une restauration dans le temps, appelez l’opération **Obtenir l’état de la restauration** avec l’ID de restauration renvoyé par l’opération **Restaurer les plages d'objets blob**.
+L’opération **Restaurer les plages d'objets blob** retourne un ID de restauration qui identifie de façon unique l’opération. Pour vérifier l’état d’une restauration dans le temps, appelez l’opération **Obtenir l’état de la restauration** avec l’ID de restauration renvoyé par l’opération **Restaurer les plages d'objets blob**.
 
 Gardez à l’esprit les limitations suivantes sur les opérations de restauration :
 
@@ -42,6 +40,11 @@ Gardez à l’esprit les limitations suivantes sur les opérations de restaurati
 - Un objet blob avec un bail actif ne peut pas être restauré. Si un objet blob avec un bail actif est inclus dans la plage d’objets blob à restaurer, l’opération de restauration échoue de façon atomique.
 - Les instantanés ne sont pas créés ou supprimés dans le cadre d’une opération de restauration. Seul l’objet blob de base est restauré à son état précédent.
 - Si un objet blob a été déplacé entre les niveaux chaud et froid pendant la période comprise entre le moment présent et le point de restauration, l’objet blob est restauré à son niveau précédent. Toutefois, un objet blob qui a été déplacé vers le niveau archive n’est pas restauré.
+
+> [!IMPORTANT]
+> Lorsque vous effectuez une opération de restauration, Stockage Azure bloque les opérations de données sur les objets blob de la plage en cours de restauration pendant toute la durée de l’opération. Les opérations de lecture, d’écriture et de suppression sont bloquées dans l’emplacement principal. C’est la raison pour laquelle les opérations telles que l’énumération des conteneurs sur le portail Azure peuvent ne pas se dérouler comme prévu pendant que l’opération de restauration est en cours.
+>
+> Les opérations de lecture à partir de l’emplacement secondaire peuvent se poursuivre pendant l’opération de restauration si le compte de stockage est géorépliqué.
 
 > [!CAUTION]
 > La limite de restauration dans le temps prend en charge la restauration des opérations sur les objets blob de blocs uniquement. Les opérations sur les conteneurs ne peuvent pas être restaurées. Si vous supprimez un conteneur du compte de stockage en appelant l’opération [Supprimer le conteneur](/rest/api/storageservices/delete-container) au cours de la restauration dans le temps en préversion, ce conteneur ne peut pas être restauré à l’aide d’une opération de restauration. Pendant la préversion, au lieu de supprimer un conteneur, supprimez les objets blob individuels si vous souhaitez les restaurer.
@@ -90,8 +93,9 @@ La préversion présente les limitations suivantes :
 
 ### <a name="register-for-the-preview"></a>S’inscrire pour la préversion
 
-Pour vous inscrire à la préversion, exécutez les commandes suivantes dans Azure PowerShell :
+Pour vous inscrire à la préversion, exécutez les commandes suivantes :
 
+# <a name="powershell"></a>[PowerShell](#tab/powershell)
 ```powershell
 # Register for the point-in-time restore preview
 Register-AzProviderFeature -FeatureName RestoreBlobRanges -ProviderNamespace Microsoft.Storage
@@ -100,24 +104,47 @@ Register-AzProviderFeature -FeatureName RestoreBlobRanges -ProviderNamespace Mic
 Register-AzProviderFeature -FeatureName Changefeed -ProviderNamespace Microsoft.Storage
 
 # Register for blob versioning (preview)
-Register-AzProviderFeature -ProviderNamespace Microsoft.Storage `
-    -FeatureName Versioning
+Register-AzProviderFeature -FeatureName Versioning -ProviderNamespace Microsoft.Storage
 
 # Refresh the Azure Storage provider namespace
 Register-AzResourceProvider -ProviderNamespace Microsoft.Storage
 ```
+# <a name="azure-cli"></a>[Azure CLI](#tab/azure-cli)
+```azurecli
+az feature register --namespace Microsoft.Storage --name RestoreBlobRanges
+az feature register --namespace Microsoft.Storage --name Changefeed
+az feature register --namespace Microsoft.Storage --name Versioning
+az provider register --namespace 'Microsoft.Storage'
+```
+
+---
 
 ### <a name="check-registration-status"></a>Vérifier l’état de l’inscription
 
 Pour vérifier l’état de votre inscription, exécutez les commandes suivantes :
 
+# <a name="powershell"></a>[PowerShell](#tab/powershell)
 ```powershell
 Get-AzProviderFeature -ProviderNamespace Microsoft.Storage `
     -FeatureName RestoreBlobRanges
 
 Get-AzProviderFeature -ProviderNamespace Microsoft.Storage `
     -FeatureName Changefeed
+    
+Get-AzProviderFeature -ProviderNamespace Microsoft.Storage `
+    -FeatureName Versioning
 ```
+
+# <a name="azure-cli"></a>[Azure CLI](#tab/azure-cli)
+
+```azurecli
+az feature list -o table --query "[?contains(name, 'Microsoft.Storage/RestoreBlobRanges')].{Name:name,State:properties.state}"
+az feature list -o table --query "[?contains(name, 'Microsoft.Storage/Changefeed')].{Name:name,State:properties.state}"
+az feature list -o table --query "[?contains(name, 'Microsoft.Storage/Versioning')].{Name:name,State:properties.state}"
+```
+
+---
+
 
 ## <a name="pricing-and-billing"></a>Tarification et facturation
 

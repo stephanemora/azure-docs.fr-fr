@@ -8,12 +8,12 @@ ms.devlang: multiple
 ms.topic: article
 ms.date: 11/08/2019
 ms.author: cawa
-ms.openlocfilehash: 7886d5a1ad0745550767b7d6f19592ca3c84b00a
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 11166d5578b90fe6ec936389bcd173c4c26b4852
+ms.sourcegitcommit: 1692e86772217fcd36d34914e4fb4868d145687b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79235873"
+ms.lasthandoff: 05/29/2020
+ms.locfileid: "84171240"
 ---
 # <a name="get-started-with-storage-explorer"></a>Prise en main de l’Explorateur Stockage
 
@@ -23,7 +23,7 @@ L’Explorateur Stockage Microsoft Azure est une application autonome qui vous p
 
 ![Explorateur Stockage Microsoft Azure][0]
 
-## <a name="prerequisites"></a>Conditions préalables requises
+## <a name="prerequisites"></a>Prérequis
 
 # <a name="windows"></a>[Windows](#tab/windows)
 
@@ -33,7 +33,7 @@ L’Explorateur Stockage est pris en charge sur les versions suivantes de Window
 * Windows 8
 * Windows 7
 
-Pour toutes les versions de Windows, l’Explorateur Stockage requiert le .NET Framework 4.6.2 ou une version ultérieure.
+Pour toutes les versions de Windows, l’Explorateur Stockage nécessite au minimum .NET Framework 4.7.2.
 
 # <a name="macos"></a>[macOS](#tab/macos)
 

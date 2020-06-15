@@ -2,15 +2,15 @@
 title: Utiliser des zones de disponibilité dans Azure Kubernetes Service (AKS)
 description: Découvrez comment créer un cluster qui distribue les nœuds entre les zones de disponibilité dans Azure Kubernetes Service (AKS)
 services: container-service
-ms.custom: fasttrack-edit
+ms.custom: fasttrack-edit, references_regions
 ms.topic: article
 ms.date: 02/27/2020
-ms.openlocfilehash: 35aaad31728f4a0cd73913ecf397d8123b3f909a
-ms.sourcegitcommit: 6fd8dbeee587fd7633571dfea46424f3c7e65169
+ms.openlocfilehash: 06507c75d486717a77676154818f2032b7e8c807
+ms.sourcegitcommit: 1f48ad3c83467a6ffac4e23093ef288fea592eb5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/21/2020
-ms.locfileid: "83725094"
+ms.lasthandoff: 05/29/2020
+ms.locfileid: "84195566"
 ---
 # <a name="create-an-azure-kubernetes-service-aks-cluster-that-uses-availability-zones"></a>Créer un cluster Azure Kubernetes Service (AKS) qui utilise des zones de disponibilité
 

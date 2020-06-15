@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 10/01/2017
 ms.author: abnarain
 robots: noindex
-ms.openlocfilehash: 09d51de3ae0bd4baca585d2abdd936b1a29567d0
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 390cddf557905e95e313896f9f172e30b81352b9
+ms.sourcegitcommit: 1f48ad3c83467a6ffac4e23093ef288fea592eb5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80065031"
+ms.lasthandoff: 05/29/2020
+ms.locfileid: "84195938"
 ---
 # <a name="troubleshoot-issues-with-using-data-management-gateway"></a>Résoudre les problèmes liés à l’utilisation de la passerelle de gestion des données
 Cet article fournit des informations sur la résolution des problèmes liés à l’utilisation de la passerelle de gestion des données.
@@ -24,7 +24,7 @@ Cet article fournit des informations sur la résolution des problèmes liés à 
 > [!NOTE]
 > Cet article s’applique à la version 1 d’Azure Data Factory. Si vous utilisez la version actuelle du service Data Factory, consultez [Guide pratique pour créer et configurer le runtime d’intégration auto-hébergé dans Data Factory](../create-self-hosted-integration-runtime.md).
 
-Pour obtenir des informations détaillées sur la passerelle, consultez l’article [Passerelle de gestion des données](data-factory-data-management-gateway.md). Pour connaître la procédure de déplacement de données d’une base de données SQL Server locale vers un stockage Blob Microsoft Azure avec la passerelle, consultez l’article [Déplacer des données entre un site local et le cloud](data-factory-move-data-between-onprem-and-cloud.md).
+Pour obtenir des informations détaillées sur la passerelle, consultez l’article [Passerelle de gestion des données](data-factory-data-management-gateway.md). Pour connaître la procédure de déplacement de données d’une base de données SQL Server vers un stockage Blob Microsoft Azure avec la passerelle, consultez l’article [Déplacer des données entre un site local et le cloud](data-factory-move-data-between-onprem-and-cloud.md).
 
 ## <a name="failed-to-install-or-register-gateway"></a>Échec de l’inscription ou de l’installation de la passerelle
 ### <a name="1-problem"></a>1. Problème

@@ -6,15 +6,15 @@ author: swmachan
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: translator-text
-ms.date: 02/21/2019
+ms.date: 05/26/2020
 ms.author: swmachan
 ms.topic: conceptual
-ms.openlocfilehash: b2a249a40d8c782d54a12df43d33655f3409753c
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: aaebf849cc69db7c85d1472f4d71774bc599be11
+ms.sourcegitcommit: fc718cc1078594819e8ed640b6ee4bef39e91f7f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "73647386"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "83994301"
 ---
 # <a name="upload-a-document"></a>Charger un document
 
@@ -24,7 +24,7 @@ Avant de charger vos documents, consultez [l’aide relatives à la convention d
 
 ## <a name="how-to-upload-document"></a>Comment charger un document ?
 
-À partir du portail [Custom Translator](https://portal.customtranslator.azure.ai), cliquez sur l’onglet de « Documents » pour accéder à la page des documents.
+À partir du portail [Custom Translator](https://portal.customtranslator.azure.ai), cliquez sur l’onglet « Documents » pour accéder à la page des documents.
 
 ![Lien de chargement de documents](media/how-to/how-to-upload-1.png)
 
@@ -37,35 +37,35 @@ Avant de charger vos documents, consultez [l’aide relatives à la convention d
 
     a.  Type de document :
 
-    -  Formation : ces documents seront utilisés pour un ensemble de formation.
-    -  Réglage : ces documents seront utilisés pour un ensemble de réglage.
-    -  Tests : ces documents seront utilisés pour un ensemble de tests.
-    -  Dictionnaire d’expressions : ces documents seront utilisés pour un dictionnaire d’expressions.
-    -  Dictionnaire de phrases : ces documents seront utilisés pour un dictionnaire de phrases.
+    -  Formation : Ces documents seront utilisés pour un ensemble de formation.
+    -  Réglage : Ces documents seront utilisés pour un ensemble de réglage.
+    -  Test : Ces documents seront utilisés pour un ensemble de test.
+    -  Dictionnaire d’expressions : Ces documents seront utilisés pour le dictionnaire d’expressions.
+    -  Dictionnaire de phrases : Ces documents seront utilisés pour le dictionnaire de phrases.
 
     b.  Paire de langues
 
-    c.  Remplacer un document existant : cochez cette case si vous souhaitez remplacer des documents existants portant le même nom.
+    c.  Remplacer un document existant : Cochez cette case pour remplacer des documents existants portant le même nom.
 
     d.  Remplissez la section appropriée pour les données en parallèle ou les données de liste déroulante.
 
     -  Copie parallèle :
-        -  Fichier source : sélectionnez un fichier de langue source sur votre ordinateur local.
-        -  Fichier cible : sélectionnez un fichier de langue cible sur votre ordinateur local.
-        -  Nom du document : utilisé uniquement si vous chargez des fichiers parallèles.
+        -  Fichier source : Sélectionnez un fichier de langue source sur votre ordinateur local.
+        -  Fichier cible : Sélectionnez un fichier de langue cible sur votre ordinateur local.
+        -  Nom du document : Utilisé uniquement si vous chargez des fichiers parallèles.
 
     - Données de liste déroulante :
-        -  Fichier de liste déroulante : sélectionnez le fichier de liste déroulante à partir de votre ordinateur local. Votre fichier de liste déroulante contient à la fois les phrases des langues source et cible. La [convention d’affectation de noms](document-formats-naming-convention.md) est importante pour les fichiers de liste déroulante.
+        -  Fichier de liste déroulante : Sélectionnez le fichier de liste déroulante à partir de votre ordinateur local. Votre fichier de liste déroulante contient à la fois les phrases des langues source et cible. La [convention d’affectation de noms](document-formats-naming-convention.md) est importante pour les fichiers de liste déroulante.
 
     e.  Cliquez sur Charger
 
     ![Chargez la boîte de dialogue des documents](media/how-to/how-to-upload-dialog.png)
 
-3.  À ce stade, nous traitons vos documents et tentons d’extraire les phrases. Vous pouvez cliquer sur « Afficher la progression du chargement » pour vérifier l’état de vos documents pendant le traitement.
+3.  À ce stade, nous traitons vos documents et tentons d’extraire les phrases. Vous pouvez cliquer sur « Voir la progression du chargement » pour vérifier l’état de vos documents pendant le traitement.
 
     ![Charger la boîte de dialogue de traitement de documents](media/how-to/how-to-upload-processing-dialog.png)
 
-4.  Cette page affiche l’état et les erreurs pour chaque fichier dans votre chargement. Vous pouvez afficher l’état après le chargement à tout moment en cliquant sur l’onglet « Charger l’historique ».
+4.  Cette page affiche l’état et les erreurs pour chaque fichier dans votre chargement. Vous pouvez voir l’état après le chargement à tout moment en cliquant sur l’onglet « Historique de chargement ».
 
     ![Charger la boîte de dialogue de l’historique des documents](media/how-to/how-to-upload-document-history.png)
 

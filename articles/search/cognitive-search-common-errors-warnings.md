@@ -8,12 +8,12 @@ ms.author: abmotley
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 11/04/2019
-ms.openlocfilehash: b5e18fcc5dc23bdbd9027de62a5bee0fb7d4ceff
-ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
+ms.openlocfilehash: 83c3797cc3d9232f8589527285cc56c5cbff9a8a
+ms.sourcegitcommit: 12f23307f8fedc02cd6f736121a2a9cea72e9454
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/12/2020
-ms.locfileid: "83125092"
+ms.lasthandoff: 05/30/2020
+ms.locfileid: "84221313"
 ---
 # <a name="troubleshooting-common-indexer-errors-and-warnings-in-azure-cognitive-search"></a>Résoudre les erreurs et les avertissements courants de l’indexeur dans la Recherche cognitive Azure
 
@@ -40,7 +40,7 @@ L’indexation des avertissements ne s’arrête pas, mais certaines conditions 
 | details | Tous les détails supplémentaires qui peuvent être utiles pour diagnostiquer le problème, tels que la réponse WebApi en cas d’échec de l’exécution d’une compétence personnalisée. | `link-cryptonyms-list - Error processing the request record : System.ArgumentNullException: Value cannot be null. Parameter name: source at System.Linq.Enumerable.All[TSource](IEnumerable`1 source, Func`2 predicate) at Microsoft.CognitiveSearch.WebApiSkills.JfkWebApiSkills.` …reste de l’arborescence des appels de procédure… |
 | documentationLink | Lien vers la documentation appropriée contenant des informations détaillées pour déboguer et résoudre le problème. Ce lien mène souvent sur cette page, à l’une des sections ci-dessous. | https://go.microsoft.com/fwlink/?linkid=2106475 |
 
-<a name="could-not-read-document"/>
+<a name="could-not-read-document"></a>
 
 ## <a name="error-could-not-read-document"></a>Erreur : Impossible de lire le document
 
@@ -52,7 +52,7 @@ L'indexeur n'a pas pu lire le document à partir de la source de données. Cela 
 | erreurs provenant du service sous-jacent de la source de données | (de Cosmos DB) `{"Errors":["Request rate is large"]}` | Vérifiez l’intégrité de votre instance de stockage. Vous devrez peut-être ajuster votre mise à l'échelle/partitionnement. |
 | problèmes temporaires | Une erreur de niveau transport s’est produite lors de la réception des résultats à partir du serveur. (fournisseur : Fournisseur TCP, erreur : 0 - Une connexion existante a été fermée de force par l'hôte distant | Certains problèmes de connectivité inattendus peuvent survenir. Essayez d'exécuter ultérieurement le document dans votre indexeur. |
 
-<a name="could-not-extract-document-content"/>
+<a name="could-not-extract-document-content"></a>
 
 ## <a name="error-could-not-extract-content-or-metadata-from-your-document"></a>Erreur : Impossible d’extraire le contenu ou les métadonnées de votre document
 L’indexeur avec une source de données Blob n’a pas pu extraire le contenu ou les métadonnées du document (par exemple, un fichier PDF). Cela peut se produire si :
@@ -64,24 +64,24 @@ L’indexeur avec une source de données Blob n’a pas pu extraire le contenu o
 | L’objet Blob est chiffré | Le document n'a pas pu être traité car il est peut-être chiffré ou protégé par un mot de passe. | Vous pouvez ignorer le blob grâce aux [paramètres de blob](search-howto-indexing-azure-blob-storage.md#controlling-which-parts-of-the-blob-are-indexed). |
 | problèmes temporaires | « Erreur de traitement des objets blob : La demande a été abandonnée : La demande a été annulée. » « Le document a expiré pendant le traitement ». | Certains problèmes de connectivité inattendus peuvent survenir. Essayez d'exécuter ultérieurement le document dans votre indexeur. |
 
-<a name="could-not-parse-document"/>
+<a name="could-not-parse-document"></a>
 
 ## <a name="error-could-not-parse-document"></a>Erreur : Impossible d’analyser le document
 L’indexeur a lu le document à partir de la source de données, mais un problème est survenu lors de la conversion du contenu du document au schéma de mappage de champs spécifié. Cela peut se produire si :
 
 | Motif | Détails/Exemple | Résolution |
 | --- | --- | --- |
-| La clé du document est manquante | La clé du document ne peut pas être manquante ou vide | Vérifiez que tous les documents contiennent des clés de documents valides |
+| La clé du document est manquante | La clé du document ne peut pas être manquante ou vide | Vérifiez que tous les documents contiennent des clés de documents valides. La clé de document est déterminée en définissant la propriété « clé » dans le cadre de la [définition d’index](https://docs.microsoft.com/rest/api/searchservice/create-index#request-body). Les indexeurs émettent cette erreur quand la propriété marquée en tant que « clé » est introuvable dans un document particulier. |
 | La clé du document n’est pas valide | La clé du document ne peut pas contenir plus de 1024 caractères | Modifiez la clé du document pour répondre aux exigences de validation. |
 | Impossible d'appliquer le mappage de champs à un champ | Impossible d'appliquer la fonction de mappage `'functionName'` au champ `'fieldName'`. Le tableau ne peut pas être null. Nom du paramètre : octets | Vérifiez soigneusement les [mappages de champs](search-indexer-field-mappings.md) définis sur l'indexeur, puis comparez ces valeurs avec les données du champ spécifié du document en échec. Il peut être nécessaire de modifier les mappages de champs ou les données du document. |
 | Impossible de lire la valeur du champ | Impossible de lire la valeur de la colonne `'fieldName'` à l'index `'fieldIndex'`. Une erreur de niveau transport s’est produite lors de la réception des résultats à partir du serveur. (fournisseur : Fournisseur TCP, erreur : 0 - Une connexion existante a été fermée de force par l'hôte distant.) | Ces erreurs sont généralement dues à des problèmes de connectivité inattendus avec le service sous-jacent de la source de données. Essayez d'exécuter ultérieurement le document dans votre indexeur. |
 
-<a name="Could not map output field '`xyz`' to search index due to deserialization problem while applying mapping function '`abc`'"/>
+<a name="Could not map output field '`xyz`' to search index due to deserialization problem while applying mapping function '`abc`'"></a>
 
 ## <a name="error-could-not-map-output-field-xyz-to-search-index-due-to-deserialization-problem-while-applying-mapping-function-abc"></a>Erreur : Impossible de mapper le champ de sortie « `xyz` » avec l’index de recherche en raison d’un problème de désérialisation lors de l’application de la fonction de mappage « `abc` »
 Le mappage de sortie a peut-être échoué, car les données de sortie sont dans un format incorrect pour la fonction de mappage que vous utilisez. Par exemple, l’application de la fonction de mappage Base64Encode sur des données binaires génère cette erreur. Pour résoudre le problème, réexécutez l’indexeur sans spécifier la fonction de mappage ou assurez-vous que la fonction de mappage est compatible avec le type de données du champ de sortie. Pour plus d’informations, consultez [Mappage de champs de sortie](cognitive-search-output-field-mapping.md).
 
-<a name="could-not-execute-skill"/>
+<a name="could-not-execute-skill"></a>
 
 ## <a name="error-could-not-execute-skill"></a>Erreur : Impossible d’exécuter une compétence
 L’indexeur n’a pas pu exécuter une compétence dans l’ensemble de compétences.
@@ -92,19 +92,19 @@ L’indexeur n’a pas pu exécuter une compétence dans l’ensemble de compét
 | Bogue potentiel du produit | Une erreur inattendue s’est produite. | Cela indique une classe de défaillance inconnue et peut signifier qu’il existe un bogue de produit. Pour obtenir de l’aide, créez un [ticket de support](https://ms.portal.azure.com/#create/Microsoft.Support). |
 | Une compétence a rencontré une erreur lors de son exécution | (à partir de Compétence Fusion) Une ou plusieurs valeurs de décalage n’étaient pas valides. Il n’a pas été possible de les analyser. Des éléments ont été insérés à la fin du texte | Utilisez les informations contenues dans le message d’erreur pour résoudre le problème. La résolution de ce type de défaillance nécessite une action. |
 
-<a name="could-not-execute-skill-because-the-web-api-request-failed"/>
+<a name="could-not-execute-skill-because-the-web-api-request-failed"></a>
 
 ## <a name="error-could-not-execute-skill-because-the-web-api-request-failed"></a>Erreur : Impossible d’exécuter la compétence en raison de l’échec de la requête de l’API web
 L’exécution de la compétence a échoué parce que l’appel de l’API web a échoué. En règle générale, cette classe de défaillance se produit lorsque des compétences personnalisées sont utilisées. Dans ce cas, vous devez déboguer votre code personnalisé pour résoudre le problème. Si au contraire l’échec provient d’une compétence intégrée, consultez le message d’erreur dans lequel vous trouverez peut-être de l’aide pour résoudre le problème.
 
 Lors du débogage de ce problème, prêtez attention aux éventuels [avertissements d’entrée de compétence](#warning-skill-input-was-invalid) pour cette compétence. Le point de terminaison de votre API web peut échouer, car l’indexeur lui transmet une entrée inattendue.
 
-<a name="could-not-execute-skill-because-web-api-skill-response-is-invalid"/>
+<a name="could-not-execute-skill-because-web-api-skill-response-is-invalid"></a>
 
 ## <a name="error-could-not-execute-skill-because-web-api-skill-response-is-invalid"></a>Erreur : Impossible d’exécuter la compétence parce que la réponse concernant la compétence de l’API web n’est pas valide
 L’exécution de la compétence a échoué parce que l’API web a retourné une réponse non valide. En règle générale, cette classe de défaillance se produit lorsque des compétences personnalisées sont utilisées. Dans ce cas, vous devez déboguer votre code personnalisé pour résoudre le problème. Si au contraire l’échec est dû à une compétence intégrée, créez un [ticket de support](https://ms.portal.azure.com/#create/Microsoft.Support) pour obtenir de l’aide.
 
-<a name="skill-did-not-execute-within-the-time-limit"/>
+<a name="skill-did-not-execute-within-the-time-limit"></a>
 
 ## <a name="error-skill-did-not-execute-within-the-time-limit"></a>Erreur : La compétence n'a pas été exécutée dans le délai imparti
 Il existe deux cas dans lesquels vous pouvez rencontrer ce message d'erreur, chacun d'entre eux devant être traité différemment. Veuillez suivre les instructions ci-dessous en fonction de la compétence qui a retourné cette erreur.
@@ -141,7 +141,7 @@ Si vous rencontrez une erreur d’expiration d’une compétence personnalisée 
 
 La valeur maximale que vous pouvez définir pour le paramètre `timeout` est de 230 secondes.  Si votre compétence personnalisée ne peut pas s'exécuter de façon constante en 230 secondes, vous pouvez réduire la valeur `batchSize` de votre compétence personnalisée afin qu'elle ait moins de documents à traiter en une seule exécution.  Si vous avez déjà réglé votre valeur `batchSize` sur 1, vous devrez réécrire la compétence pour pouvoir l'exécuter en moins de 230 secondes ou la diviser en plusieurs compétences personnalisées de sorte que le délai d'exécution d'une seule compétence personnalisée soit au maximum de 230 secondes. Pour plus d'informations, consultez la [documentation sur les compétences personnalisées](cognitive-search-custom-skill-web-api.md).
 
-<a name="could-not-mergeorupload--delete-document-to-the-search-index"/>
+<a name="could-not-mergeorupload--delete-document-to-the-search-index"></a>
 
 ## <a name="error-could-not-mergeorupload--delete-document-to-the-search-index"></a>Erreur : Impossible de « `MergeOrUpload` » | « `Delete` » le document dans l’index de recherche
 
@@ -157,7 +157,7 @@ Le document a été lu et traité, mais l’indexeur n’a pas pu l’ajouter à
 | Échec dans la ressource de calcul/réseau sous-jacente (rare) | Échec de l’établissement d’une connexion pour mettre à jour l’index. Une erreur inconnue s’est produite. | Configurer les indexeurs pour une [exécution selon une planification](search-howto-schedule-indexers.md) pour récupérer d’un état d’échec.
 | Une requête d’indexation envoyée à l’index cible n’a pas reçu d’accusé de réception pendant la période définie en raison de problèmes réseau. | Impossible d’établir la connexion à l’index de recherche en temps opportun. | Configurer les indexeurs pour une [exécution selon une planification](search-howto-schedule-indexers.md) pour récupérer d’un état d’échec. Essayez également de réduire la [taille du lot](https://docs.microsoft.com/rest/api/searchservice/create-indexer#parameters) de l’indexeur si cet état d’erreur persiste.
 
-<a name="could-not-index-document-because-the-indexer-data-to-index-was-invalid"/>
+<a name="could-not-index-document-because-the-indexer-data-to-index-was-invalid"></a>
 
 ## <a name="error-could-not-index-document-because-some-of-the-documents-data-was-not-valid"></a>Erreur : impossible d’indexer le document parce que certaines données de celui-ci n’étaient pas valides
 
@@ -177,13 +177,13 @@ Dans tous ces cas, consultez les [types de données pris en charge ](https://doc
 
 Cela s’applique aux tables SQL, et se produit généralement lorsque la clé est définie en tant que clé composite ou, lorsque la table a défini un index cluster unique (comme avec l’index SQL, mais pas l’index Azure Search). Ceci est principalement dû au fait que l’attribut de clé est transformé en une clé primaire composite dans le cas d’un [index cluster unique](https://docs.microsoft.com/sql/relational-databases/indexes/clustered-and-nonclustered-indexes-described?view=sql-server-ver15). Dans ce cas, vérifiez que votre table SQL n’a pas d’index cluster unique, ou que vous mappez le champ clé à un champ pour lequel les valeurs en double sont impossibles.
 
-<a name="could-not-process-document-within-indexer-max-run-time"/>
+<a name="could-not-process-document-within-indexer-max-run-time"></a>
 
 ## <a name="error-could-not-process-document-within-indexer-max-run-time"></a>Erreur : Impossible de traiter le document en respectant le temps d’exécution max. de l’indexeur
 
 Cette erreur se produit lorsque l’indexeur ne peut pas terminer le traitement d’un document unique à partir de la source de données en respectant le temps d’exécution autorisé. [Le temps d’exécution maximal](search-limits-quotas-capacity.md#indexer-limits) est plus court quand des ensembles de compétences sont utilisés. Lorsque cette erreur se produit, si maxFailedItems est défini sur une valeur autre que 0, l’indexeur ignore le document pour les prochaines exécutions, de façon que l’indexation puisse progresser. Si vous ne pouvez pas vous permettre d’ignorer un document, ou si vous voyez cette erreur en permanence, pensez à diviser les documents en documents plus petits pour qu’une seule exécution de l’indexeur puisse traiter une partie de ces derniers.
 
-<a name="could-not-project-document"/>
+<a name="could-not-project-document></a>
 
 ## <a name="error-could-not-project-document"></a>Erreur : Impossible de projeter le document
 
@@ -195,7 +195,7 @@ Cette erreur se produit lorsque l’indexeur tente de [projeter des données dan
 | Impossible de mettre à jour l’objet blob de projection `'blobUri'` dans le conteneur `'containerName'` |Impossible d’écrire les données dans la connexion de transport : une connexion existante a dû être fermée par l’hôte distant. | Il s’agit d’un échec temporaire au niveau du stockage Azure. Pour résoudre le problème, vous devez réexécuter l’indexeur. Si vous rencontrez cette erreur de manière systématique, créez un [ticket de support](https://ms.portal.azure.com/#create/Microsoft.Support) afin que nous examinions le problème plus en détail.  |
 | Impossible de mettre à jour la ligne `'projectionRow'` dans la table `'tableName'` | Le serveur est occupé. | Il s’agit d’un échec temporaire au niveau du stockage Azure. Pour résoudre le problème, vous devez réexécuter l’indexeur. Si vous rencontrez cette erreur de manière systématique, créez un [ticket de support](https://ms.portal.azure.com/#create/Microsoft.Support) afin que nous examinions le problème plus en détail.  |
 
-<a name="could-not-execute-skill-because-a-skill-input-was-invalid"/>
+<a name="could-not-execute-skill-because-a-skill-input-was-invalid"></a>
 
 ## <a name="warning-skill-input-was-invalid"></a>Avertissement : Entrée de compétence non valide
 Il manque une entrée à la compétence, un type est incorrect ou non valide. Le message d’avertissement indique l’impact :
@@ -232,7 +232,7 @@ Si vous souhaitez fournir une valeur par défaut en cas d’entrée manquante, v
 | Une entrée de compétence est manquante | « L’entrée de compétence requise est manquante. Nom : `text`, source : `/document/merged_content` » « Valeur manquante `/document/normalized_images/0/imageTags`. »  « Impossible de sélectionner `0` dans un tableau `/document/pages` de longueur `0`. » | Si tous les documents reçoivent cet avertissement, il est hautement probable que les chemins d’entrée contiennent une faute de frappe et vous devriez vérifier attentivement la casse du nom de propriété, un signe `*` manquant ou en trop dans le chemin. Vérifiez aussi que les documents de la source de données définissent les entrées nécessaires. |
 | L’entré du code de la langue de la compétence n’est pas valide | L’entrée de compétence `languageCode` a les codes de langue suivants `X,Y,Z`, dont au moins un n’est pas valide. | Pour plus de détails, voir [ci-dessous](cognitive-search-common-errors-warnings.md#skill-input-languagecode-has-the-following-language-codes-xyz-at-least-one-of-which-is-invalid) |
 
-<a name="skill-input-languagecode-has-the-following-language-codes-xyz-at-least-one-of-which-is-invalid"/>
+<a name="skill-input-languagecode-has-the-following-language-codes-xyz-at-least-one-of-which-is-invalid"></a>
 
 ## <a name="warning--skill-input-languagecode-has-the-following-language-codes-xyz-at-least-one-of-which-is-invalid"></a>Avertissement :  L'entrée de compétence 'languageCode' contient les codes de langue suivants 'X,Y,Z', dont au moins un élément n’est pas valide.
 Une ou plusieurs des valeurs passées dans l'entrée optionnelle `languageCode` d'une compétence en aval n'est pas prise en charge. Cela peut se produire si vous passez la sortie de [LanguageDetectionSkill](cognitive-search-skill-language-detection.md) à des compétences ultérieures, et que la sortie comporte plus de langues que celles prises en charge dans ces compétences en aval.
@@ -259,7 +259,7 @@ Voici quelques références pour les langues actuellement prises en charge pour 
 * [Langues prises en charge par le traducteur](https://docs.microsoft.com/azure/cognitive-services/translator/language-support) (pour [Text TranslationSkill](cognitive-search-skill-text-translation.md))
 * [Text SplitSkill](cognitive-search-skill-textsplit.md) - langues prises en charge : `da, de, en, es, fi, fr, it, ko, pt`
 
-<a name="skill-input-was-truncated"/>
+<a name="skill-input-was-truncated"></a>
 
 ## <a name="warning-skill-input-was-truncated"></a>Avertissement : L'entrée de la compétence a été tronquée
 Les compétences cognitives comportent des limites quant à la longueur du texte qui peut être analysé en une seule fois. Si la saisie de texte pour ces compétences dépasse cette limite, nous tronquerons le texte pour respecter la limite, puis appliquerons un enrichissement à ce texte tronqué. Cela signifie que la compétence est exécutée, mais pas sur toutes vos données.
@@ -281,12 +281,12 @@ Dans l'exemple LanguageDetectionSkill ci-dessous, le champ de saisie `'text'` pe
 
 Si vous voulez vous assurer que tout le texte est analysé, pensez à utiliser la [compétence Split](cognitive-search-skill-textsplit.md).
 
-<a name="web-api-skill-response-contains-warnings"/>
+<a name="web-api-skill-response-contains-warnings"></a>
 
 ## <a name="warning-web-api-skill-response-contains-warnings"></a>Avertissement : La réponse de compétence de l’API web contient des avertissements
 Indexer a pu exécuter une compétence dans l’ensemble de compétences, mais la réponse à la demande de l’API web indique qu’il y a eu des avertissements durant l’exécution. Examinez les avertissements pour comprendre l’impact sur vos données et déterminer si une action est requise ou non.
 
-<a name="the-current-indexer-configuration-does-not-support-incremental-progress"/>
+<a name="the-current-indexer-configuration-does-not-support-incremental-progress"></a>
 
 ## <a name="warning-the-current-indexer-configuration-does-not-support-incremental-progress"></a>Avertissement : La configuration actuelle de l’indexeur ne prend pas en charge la progression incrémentielle
 
@@ -300,20 +300,20 @@ Il est possible de modifier ce comportement en activant la progression incrémen
 
 Pour plus d’informations, consultez [Progression incrémentielle et requêtes personnalisées](search-howto-index-cosmosdb.md#IncrementalProgress).
 
-<a name="some-data-was-lost-during projection-row-x-in-table-y-has-string-property-z-which-was-too-long"/>
+<a name="some-data-was-lost-during projection-row-x-in-table-y-has-string-property-z-which-was-too-long"></a>
 
 ## <a name="warning-some-data-was-lost-during-projection-row-x-in-table-y-has-string-property-z-which-was-too-long"></a>Avertissement : Certaines données ont été perdues pendant la projection. La ligne« X » dans la table « Y » présente la propriété de chaîne « Z » qui était trop longue.
 
 Le [service Stockage Table](https://azure.microsoft.com/services/storage/tables) impose des limites sur la taille des [propriétés d’entité](https://docs.microsoft.com/rest/api/storageservices/understanding-the-table-service-data-model#property-types). Les chaînes peuvent comporter 32 000 caractères ou moins. Si une ligne présentant une propriété de chaîne de plus de 32 000 caractères est en cours de projection, seuls les 32 000 premiers caractères sont conservés. Pour contourner ce problème, évitez de projeter des lignes comportant des propriétés de chaîne de plus de 32 000 caractères.
 
-<a name="truncated-extracted-text-to-x-characters"/>
+<a name="truncated-extracted-text-to-x-characters"></a>
 
 ## <a name="warning-truncated-extracted-text-to-x-characters"></a>Avertissement : Texte extrait tronqué à X caractères
 Les indexeurs limitent la quantité de texte qui peut être extraite d’un document. Cette limite dépend du niveau tarifaire : 32 000 caractères pour le niveau Gratuit, 64 000 pour le niveau De base, 4 millions pour le niveau Standard, 8 millions pour le niveau Standard S2 et 16 millions pour le niveau Standard S3. Le texte qui a été tronqué ne sera pas indexé. Pour éviter cet avertissement, essayez en scindant les documents avec de grandes quantités de texte en plusieurs documents plus petits. 
 
 Pour plus d’informations, consultez [Limites des indexeurs](search-limits-quotas-capacity.md#indexer-limits).
 
-<a name="could-not-map-output-field-x-to-search-index"/>
+<a name="could-not-map-output-field-x-to-search-index"></a>
 
 ## <a name="warning-could-not-map-output-field-x-to-search-index"></a>Avertissement : Impossible de mapper le champ de sortie « X » à l’index de recherche
 Les mappages de champs de sortie qui font référence à des données inexistantes/null génèrent des avertissements pour chaque document et créent un champ d’index vide. Pour contourner ce problème, vérifiez que les chemins sources de mappage de champs de sortie sont corrects ou définissez une valeur par défaut à l’aide de la [compétence conditionnelle](cognitive-search-skill-conditional.md#sample-skill-definition-2-set-a-default-value-for-a-value-that-doesnt-exist). Pour plus d’informations, consultez [Mappage de champs de sortie](cognitive-search-output-field-mapping.md).
@@ -323,12 +323,12 @@ Les mappages de champs de sortie qui font référence à des données inexistant
 | Impossible d’effectuer une itération sur le non-tableau | « Impossible d’effectuer une itération sur le non-tableau `/document/normalized_images/0/imageCelebrities/0/detail/celebrities` ». | Cette erreur se produit lorsque la sortie n’est pas un tableau. Si vous pensez que la sortie doit être un tableau, recherchez les erreurs dans le chemin d’accès du champ de source de sortie indiqué. Par exemple, vous pouvez avoir un `*` manquant ou supplémentaire dans le nom du champ source. Il est également possible que l’entrée de cette qualification soit Null, ce qui se traduit par un tableau vide. Trouvez des détails similaires dans la section [Entrée de compétence non valide](cognitive-search-common-errors-warnings.md#warning-skill-input-was-invalid).    |
 | Impossible de sélectionner `0` dans le non-tableau | « Impossible de sélectionner `0` dans le non-tableau `/document/pages` ». | Cela peut se produire si la sortie des compétences ne produit pas de tableau et que le nom du champ de source de sortie a un index de tableau ou `*` dans son chemin d’accès. Vérifiez les chemins d’accès fournis dans les noms de champs de source de sortie et la valeur de champ pour le nom de champ indiqué. Trouvez des détails similaires dans la section [Entrée de compétence non valide](cognitive-search-common-errors-warnings.md#warning-skill-input-was-invalid).  |
 
-<a name="the-data-change-detection-policy-is-configured-to-use-key-column-x"/>
+<a name="the-data-change-detection-policy-is-configured-to-use-key-column-x"></a>
 
 ## <a name="warning-the-data-change-detection-policy-is-configured-to-use-key-column-x"></a>Avertissement : La stratégie de détection des modifications de données est configurée pour utiliser la colonne clé « X ».
 Pour détecter les modifications, les [stratégies de détection des modifications de données](https://docs.microsoft.com/rest/api/searchservice/create-data-source#data-change-detection-policies) ont des exigences spécifiques pour les colonnes qu’elles utilisent. L’une de ces exigences est que la colonne est mise à jour chaque fois que l’élément source est modifié. Une autre exigence est que la nouvelle valeur de cette colonne est supérieure à la valeur précédente. Les colonnes clés ne respectent pas cette exigence, car elles ne changent pas à chaque mise à jour. Pour contourner ce problème, sélectionnez une autre colonne pour la stratégie de détection des modifications.
 
-<a name="document-text-appears-to-be-utf-16-encoded-but-is-missing-a-byte-order-mark"/>
+<a name="document-text-appears-to-be-utf-16-encoded-but-is-missing-a-byte-order-mark"></a>
 
 ## <a name="warning-document-text-appears-to-be-utf-16-encoded-but-is-missing-a-byte-order-mark"></a>Avertissement : Le texte du document semble être encodé en UTF-16, mais il manque une marque d’ordre d’octet
 
@@ -344,7 +344,7 @@ Si aucune marque d’ordre d’octet n’est présente, le texte est supposé ê
 
 Pour contourner cet avertissement, déterminez l’encodage de texte pour ce blob et ajoutez la marque d’ordre d’octet appropriée.
 
-<a name="cosmos-db-collection-has-a-lazy-indexing-policy"/>
+<a name="cosmos-db-collection-has-a-lazy-indexing-policy"></a>
 
 ## <a name="warning-cosmos-db-collection-x-has-a-lazy-indexing-policy-some-data-may-be-lost"></a>Avertissement : La collection « X » de Cosmos DB a une stratégie d’indexation différée. Certaines données peuvent être perdues.
 

@@ -12,12 +12,12 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 03/11/2020
-ms.openlocfilehash: 6df1903e828c0c4cafa6589d4a85f4016bed893e
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 694f10b53d02d44d189cbe7cbe492f48ac3b5669
+ms.sourcegitcommit: d118ad4fb2b66c759b70d4d8a18e6368760da3ad
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81414141"
+ms.lasthandoff: 06/02/2020
+ms.locfileid: "84299772"
 ---
 # <a name="troubleshoot-copy-activity-performance"></a>Résoudre les problèmes de performances de l’activité de copie
 
@@ -40,6 +40,7 @@ Dans certains scénarios, lorsque vous exécutez une activité de copie dans Dat
 | Spécifique au magasin de données   | Chargement de données dans **Azure Synpase Analytics (anciennement SQL DW)**  : suggérez l’utilisation de PolyBase ou de l’instruction COPY si elle n’est pas utilisée. |
 | &nbsp;                | Copie de données depuis/vers **Azure SQL Database** : lorsque la DTU est très utilisée, suggérez une mise à niveau vers un niveau supérieur. |
 | &nbsp;                | Copie de données depuis/vers **Azure Cosmos DB** : lorsque la RU est très utilisée, suggérez une mise à niveau vers une RU plus importante. |
+|                       | Copie de données à partir d’une **table SAP** : quand de grandes quantités de données sont copiées, nous suggérons de tirer parti de l’option de partition du connecteur SAP pour activer la charge parallèle et augmenter le nombre maximal de partitions. |
 | &nbsp;                | Ingestion de données à partir d’**Amazon Redshift** : suggérez l’utilisation de UNLOAD si elle n’est pas utilisée. |
 | Limitation du magasin de données | Si plusieurs opérations de lecture/écriture sont limitées par le magasin de données au cours de la copie, suggérez de vérifier et d’augmenter le taux de requêtes autorisées pour le magasin de données ou de réduire la charge de travail simultanée. |
 | Runtime d’intégration  | Si vous utilisez un **runtime d’intégration (IR) auto-hébergé** et que l’activité de copie attend longtemps dans la file d’attente avant que le runtime d’intégration ne dispose des ressources nécessaires à son exécution, suggérez une montée en charge ou en puissance de votre IR. |
@@ -181,7 +182,7 @@ Voici des références relatives au monitoring et au réglage des performances p
 * Azure SQL Database : Vous pouvez [surveiller les performances](../sql-database/sql-database-single-database-monitor.md) et vérifier le pourcentage de l’unité de transaction de base de données (DTU).
 * Azure SQL Data Warehouse : Sa capacité est mesurée en DWU (Data Warehouse Units). Consultez [Gestion de la puissance de calcul dans Azure SQL Data Warehouse (Vue d’ensemble)](../synapse-analytics/sql-data-warehouse/sql-data-warehouse-manage-compute-overview.md).
 * Azure Cosmos DB : [Niveaux de performances dans Azure Cosmos DB](../cosmos-db/performance-levels.md).
-* Serveur SQL Server local : [Surveiller et régler les performances](https://msdn.microsoft.com/library/ms189081.aspx).
+* SQL Server : [Surveiller et régler les performances](https://msdn.microsoft.com/library/ms189081.aspx).
 * Serveur de fichiers local : [Réglage des performances des serveurs de fichiers](https://msdn.microsoft.com/library/dn567661.aspx).
 
 ## <a name="next-steps"></a>Étapes suivantes

@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 03/23/2020
 ms.author: trbye
-ms.openlocfilehash: 8ec4c87dc4f19c140c5ac02779c5551016dfb0b3
-ms.sourcegitcommit: 958f086136f10903c44c92463845b9f3a6a5275f
+ms.openlocfilehash: 855feaf9b5b47b7b725ee7927418a2b3a9e25393
+ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/20/2020
-ms.locfileid: "83714319"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "84017765"
 ---
 # <a name="improve-synthesis-with-speech-synthesis-markup-language-ssml"></a>Améliorer la synthèse avec le langage de balisage de synthèse vocale (SSML, Speech Synthesis Markup Language)
 
@@ -330,7 +330,7 @@ Les alphabets phonétiques sont constitués de phonèmes composés de lettres, d
 
 | Attribut | Description | Obligatoire/facultatif |
 |-----------|-------------|---------------------|
-| `alphabet` | Spécifie l’alphabet phonétique à utiliser lors de la synthèse de la prononciation de la chaîne dans l’attribut `ph`. La chaîne spécifiant l’alphabet doit être en lettres minuscules. Les alphabets que vous pouvez spécifier sont les suivants.<ul><li>`ipa` &ndash; <a href="https://en.wikipedia.org/wiki/International_Phonetic_Alphabet" target="_blank">Alphabet phonétique international <span class="docon docon-navigate-external x-hidden-focus"></span></a></li><li>`sapi` &ndash; [Alphabet phonétique du service Speech](speech-ssml-phonetic-sets.md)</li><li>`ups` &ndash; Jeu de phonèmes universel</li></ul><br>L’alphabet s’applique uniquement au `phoneme` dans l’élément. | Facultatif |
+| `alphabet` | Spécifie l’alphabet phonétique à utiliser lors de la synthèse de la prononciation de la chaîne dans l’attribut `ph`. La chaîne spécifiant l’alphabet doit être en lettres minuscules. Les alphabets que vous pouvez spécifier sont les suivants.<ul><li>`ipa` &ndash; <a href="https://en.wikipedia.org/wiki/International_Phonetic_Alphabet" target="_blank">Alphabet phonétique international <span class="docon docon-navigate-external x-hidden-focus"></span></a></li><li>`sapi` &ndash; [Alphabet phonétique du service Speech](speech-ssml-phonetic-sets.md)</li><li>`ups` &ndash;<a href="https://documentation.help/Microsoft-Speech-Platform-SDK-11/17509a49-cae7-41f5-b61d-07beaae872ea.htm" target="_blank"> Jeu de phonèmes universel</a></li></ul><br>L’alphabet s’applique uniquement au `phoneme` dans l’élément. | Facultatif |
 | `ph` | Chaîne contenant des phonèmes spécifiant la prononciation du mot figurant dans l’élément `phoneme`. Si la chaîne spécifiée contient des phonèmes non reconnus, le service de synthèse vocale rejette la totalité du document SSML et ne produit aucune des sorties vocales spécifiées dans le document. | Requis en cas d’utilisation de phonèmes. |
 
 **Exemples**

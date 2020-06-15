@@ -3,26 +3,27 @@ title: Matrice de prise en charge de la sauvegarde de partage de fichiers Azure
 description: Fournit un récapitulatif des limitations et des paramètres de prise en charge lors de la sauvegarde de partages de fichiers Azure.
 ms.topic: conceptual
 ms.date: 5/07/2020
-ms.openlocfilehash: 42578cc83ef193801fa700ec7d136385411e5f79
-ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
+ms.custom: references_regions
+ms.openlocfilehash: 8198c06c1151dd86d99bc64f825764d0a4988287
+ms.sourcegitcommit: 1f48ad3c83467a6ffac4e23093ef288fea592eb5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/20/2020
-ms.locfileid: "83684624"
+ms.lasthandoff: 05/29/2020
+ms.locfileid: "84193863"
 ---
 # <a name="support-matrix-for-azure-file-share-backup"></a>Matrice de prise en charge de la sauvegarde de partage de fichiers Azure
 
 Vous pouvez utiliser le [service Sauvegarde Azure](https://docs.microsoft.com/azure/backup/backup-overview) pour sauvegarder des partages de fichiers Azure. Cet article récapitule les paramètres de prise en charge lorsque vous sauvegardez des partages de fichiers Azure avec Sauvegarde Azure.
 
-## <a name="supported-geos"></a>Zones géographiques prises en charge
+## <a name="supported-regions"></a>Régions prises en charge
 
-La sauvegarde pour les partages de fichiers Azure est disponible dans les zones géographiques suivantes :
+### <a name="ga-regions-for-azure-file-shares-backup"></a>Régions GA pour la sauvegarde des partages de fichiers Azure
 
-**Régions en disponibilité générale** :<br>
-Australie sud-est (ASE), Canada Centre (CNC), USA Centre-Ouest (WCUS), USA Centre Sud (SCUS), USA Ouest 2 (WUS 2), Inde du Sud (INS), USA Centre Nord (NCUS), Japon Est (JPE), Brésil Sud (BRS), Asie Sud-Est (SEA), Suisse Ouest (SZW), Émirats Arabes Unis Centre (UAC), Norvège Est (NWE), Inde de l’Ouest (INW), Australie Centre (ACL), Corée Centre (KRC), Japon Ouest (JPW), Afrique du Sud Nord (SAN), Royaume-Uni SUD (UKS), Royaume-Uni Ouest (UKW), Corée Sud (KRS), Europe Nord (NE), Allemagne Nord (GN), Norvège Ouest (NWW), Afrique du Sud Ouest (SAW), Suisse Nord (SZN), Allemagne Centre-Ouest (GWC), Émirats arabes unis Nord (UAN), France Centre (FRC), Inde Centre (INC), Canada Est (CNE), Asie Est (EA), Australie Est (AE), USA Centre (WUS), US Gov Arizona (UGA), US Gov Texas (UGT), US Gov Virginie (UGV), US DoD Centre (UDC), US DoD Est (UDE)
+La sauvegarde des partages de fichiers Azure est disponible dans toutes les régions **sauf** : Allemagne Centre (souverain), Allemagne Nord-Est (souverain), Chine Est, Chine Est 2, Chine Nord, Chine Nord 2, US Gov Iowa
 
-**Régions prises en charge (dans le cadre de la préversion) mais pas encore en disponibilité générale** :<br>
-USA Est (EUS), USA Est 2 (EUS2), Europe Ouest (WE)
+### <a name="supported-regions-for-accidental-delete-protection"></a>Régions prises en charge pour la protection contre la suppression accidentelle
+
+Centre-USA Ouest
 
 ## <a name="supported-storage-accounts"></a>Comptes de stockage pris en charge
 
@@ -36,7 +37,7 @@ USA Est (EUS), USA Est 2 (EUS2), Europe Ouest (WE)
 
 | Type de partage de fichiers                                   | Support   |
 | -------------------------------------------------- | --------- |
-| standard                                           | Prise en charge |
+| Standard                                           | Prise en charge |
 | grand                                              | Prise en charge |
 | Premium                                            | Prise en charge |
 | Partages de fichiers connectés au service Azure File Sync | Prise en charge |

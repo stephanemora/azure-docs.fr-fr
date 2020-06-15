@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 01/10/2018
 ms.author: abnarain
 robots: noindex
-ms.openlocfilehash: 838e523f74a21c44958ddb6dc88e4dab3526d81a
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 405beb5cb8c2e74951aa54ba371be04d290ad3a2
+ms.sourcegitcommit: 1f48ad3c83467a6ffac4e23093ef288fea592eb5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80064993"
+ms.lasthandoff: 05/29/2020
+ms.locfileid: "84194469"
 ---
 # <a name="release-notes-for-data-management-gateway"></a>Notes de version pour la passerelle de gestion des données
 > [!NOTE]
@@ -51,8 +51,8 @@ Nous ne conservons plus les notes de publication ici. Pour obtenir les dernière
  Service Bus au lieu d’autoriser toutes les adresses IP Azure dans votre pare-feu (si nécessaire). Plus de détails ici.
 -   Vous pouvez maintenant copier les données vers ou à partir d’un seul objet blob de blocs jusqu’à 4,75 To. Il s’agit de la taille maximale prise en charge pour ces objets (la limite antérieure était de 195 Go).
 -   Résolu : problème de mémoire insuffisante lors de la décompression de plusieurs petits fichiers pendant l’activité de copie.
--   Résolu : problème d’index hors plage lors de la copie de Document DB vers le système SQL Server local avec la fonctionnalité d’idempotence.
--   Résolu : le script de nettoyage SQL ne fonctionne pas avec la version locale de SQL Server à partir de l’Assistant de copie.
+-   Résolu : problème d’index hors plage durant la copie de Document DB vers SQL Server avec la fonctionnalité d’idempotence.
+-   Résolu : le script de nettoyage SQL ne fonctionne pas avec SQL Server à partir de l’Assistant de copie.
 -   Résolu : le nom de colonne avec un espace à la fin ne fonctionne pas dans l’activité de copie.
 
 ## <a name="28662833"></a>2.8.66283.3
@@ -113,7 +113,7 @@ Nous ne conservons plus les notes de publication ici. Pour obtenir les dernière
 *  Le pilote DB2 prend désormais en charge z/OS et DB2 pour i (AS/400), ainsi que les plateformes déjà prises en charge (Windows, Unix et Linux).
 *  Prend en charge l’utilisation d’Azure Cosmos DB comme source ou destination des banques de données locales
 *  Prend en charge la copie de données depuis/vers un stockage d’objet blob à chaud ou à froid, ainsi que le compte de stockage à usage général déjà pris en charge.
-*  Permet de vous connecter l’instance SQL Server locale via la passerelle avec des droits de connexion à distance.  
+*  Permet de vous connecter à SQL Server par le biais de la passerelle avec des droits de connexion à distance.  
 
 ## <a name="2060131"></a>2.0.6013.1
 
@@ -128,7 +128,7 @@ Nous ne conservons plus les notes de publication ici. Pour obtenir les dernière
     *  Commandes réorganisées et simplifiées.
 
     *  Vous pouvez copier des données à partir d’un stockage à l’aide de [l’outil de copie sans code](data-factory-copy-data-wizard-tutorial.md). Pour plus d’informations sur cette fonctionnalité, consultez [Copie intermédiaire](data-factory-copy-activity-performance.md#staged-copy) .
-*  Vous pouvez utiliser la passerelle de gestion des données pour entrer des données directement à partir d’une base de données SQL Server locale dans Azure Machine Learning.
+*  Vous pouvez utiliser la passerelle de gestion des données pour entrer des données directement à partir d’une base de données SQL Server dans Azure Machine Learning.
 
 *  Optimisation des performances
 

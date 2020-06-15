@@ -3,12 +3,13 @@ title: Récupérer des fichiers et des dossiers à partir d’une sauvegarde de 
 description: Dans cet article, découvrez comment récupérer des fichiers et des dossiers à partir d’un point de récupération de machine virtuelle Azure.
 ms.topic: conceptual
 ms.date: 03/01/2019
-ms.openlocfilehash: c72794999abbbf5d29b376615015fb5778b7d9fe
-ms.sourcegitcommit: 0690ef3bee0b97d4e2d6f237833e6373127707a7
+ms.custom: references_regions
+ms.openlocfilehash: 91918bb053c1f26e33d08dde3b68debfcffe350e
+ms.sourcegitcommit: 1f48ad3c83467a6ffac4e23093ef288fea592eb5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/21/2020
-ms.locfileid: "83757974"
+ms.lasthandoff: 05/29/2020
+ms.locfileid: "84195749"
 ---
 # <a name="recover-files-from-azure-virtual-machine-backup"></a>Récupérer des fichiers à partir d’une sauvegarde de machine virtuelle Azure
 
@@ -228,7 +229,7 @@ Si vous exécutez le script sur un ordinateur avec un accès restreint, vérifie
 
 - `download.microsoft.com`
 - URL Recovery Services (le nom de zone géographique fait référence à la région où réside le coffre Recovery Services.)
-  - `https://pod01-rec2.geo-name.backup.windowsazure.com` (Pour les zones géographiques Azure publiques)
+  - `https://pod01-rec2.geo-name.backup.windowsazure.com` (Pour les régions publiques Azure)
   - `https://pod01-rec2.geo-name.backup.windowsazure.cn` (Pour Azure Chine 21Vianet)
   - `https://pod01-rec2.geo-name.backup.windowsazure.us` (Pour Azure US Government)
   - `https://pod01-rec2.geo-name.backup.windowsazure.de` (Pour Azure Allemagne)

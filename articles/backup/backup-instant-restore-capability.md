@@ -4,12 +4,12 @@ description: Présentation de la fonctionnalité de restauration instantanée et
 ms.reviewer: sogup
 ms.topic: conceptual
 ms.date: 04/23/2019
-ms.openlocfilehash: fc29d1ac4c2e4c22ce6e6f8356927e768dc274e3
-ms.sourcegitcommit: acc558d79d665c8d6a5f9e1689211da623ded90a
+ms.openlocfilehash: 6225a7eb8198ffcca0d1e3e15f64e2b3c977dc16
+ms.sourcegitcommit: 8017209cc9d8a825cc404df852c8dc02f74d584b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/30/2020
-ms.locfileid: "82597652"
+ms.lasthandoff: 06/01/2020
+ms.locfileid: "84248275"
 ---
 # <a name="get-improved-backup-and-restore-performance-with-azure-backup-instant-restore-capability"></a>Améliorer les performances de sauvegarde et de restauration avec la fonctionnalité de restauration instantanée de Sauvegarde Azure
 
@@ -48,7 +48,7 @@ Par défaut, les instantanés sont conservés pendant 2 jours. Cette fonctionna
 * Il s’agit d’une mise à niveau unidirectionnelle. Une fois la mise à niveau vers la restauration instantanée effectuée, vous ne pouvez plus revenir en arrière.
 
 >[!NOTE]
->Avec cette mise à niveau de restauration instantanée, la durée de rétention d’instantanés de tous les clients (**tant nouveaux et qu’existants**) est définie sur une valeur par défaut de deux jours. Vous pouvez cependant définir une durée de 1 à 5 jours en fonction de vos besoins.
+>Avec cette mise à niveau de restauration instantanée, la durée de rétention d’instantanés de tous les clients (**tant nouveaux et qu’existants**) est définie sur une valeur par défaut de deux jours. Vous pouvez cependant définir une durée de un à cinq jours en fonction de vos besoins.
 
 ## <a name="cost-impact"></a>Impact sur les coûts
 
@@ -110,7 +110,7 @@ Le nouveau modèle n’autorise la suppression du point de restauration (niveau�
 
 ### <a name="why-is-my-snapshot-existing-even-after-the-set-retention-period-in-backup-policy"></a>Pourquoi mon instantané existe-t-il même après la période de conservation définie dans la stratégie de sauvegarde ?
 
-Si le point de récupération a un instantané et qu’il s’agit du dernier point de récupération disponible, il est conservé jusqu’à la prochaine sauvegarde réussie. C’est conforme à la stratégie de « garbage collection » (GC) actuelle, qui exige qu’au moins un point de récupération récent soit toujours présent au cas où toutes les sauvegardes ultérieures échoueraient en raison d’un problème sur la machine virtuelle. Dans les scénarios ordinaires, les points de récupération sont nettoyés au maximum 24 heures après leur expiration.
+Si le point de récupération a un instantané et qu’il s’agit du dernier point de récupération disponible, il est conservé jusqu’à la prochaine sauvegarde réussie. Ceci est conforme à la stratégie de « garbage collection » (GC) actuelle, qui exige qu’au moins un point de récupération récent soit toujours présent au cas où toutes les sauvegardes ultérieures échoueraient en raison d’un problème sur la machine virtuelle. Dans les scénarios ordinaires, les points de récupération sont nettoyés au maximum 24 heures après leur expiration.
 
 ### <a name="i-dont-need-instant-restore-functionality-can-it-be-disabled"></a>Je n’ai pas besoin de la fonctionnalité de restauration instantanée. Peut-elle être désactivée ?
 

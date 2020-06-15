@@ -7,12 +7,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 1/27/2020
 ms.author: raynew
-ms.openlocfilehash: fd10468e823201bfa67aaf7c570071bd075ec4ac
-ms.sourcegitcommit: 7581df526837b1484de136cf6ae1560c21bf7e73
+ms.openlocfilehash: 99204657b7604250826ff0a4a870ad92fdb4df32
+ms.sourcegitcommit: 8017209cc9d8a825cc404df852c8dc02f74d584b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/31/2020
-ms.locfileid: "80420827"
+ms.lasthandoff: 06/01/2020
+ms.locfileid: "84249142"
 ---
 # <a name="support-matrix-for-disaster-recovery-of-on-premises-hyper-v-vms-to-azure"></a>Prendre en charge la matrice pour effectuer une récupération d’urgence de machines virtuelles Hyper-V locales vers Azure
 
@@ -32,7 +32,7 @@ Hyper-V sans Virtual Machine Manager | Vous pouvez effectuer la récupération d
 
 **Serveur** | **Configuration requise** | **Détails**
 --- | --- | ---
-Hyper-V (exécuté sans Virtual Machine Manager) |  Windows Server 2019, Windows Server 2016 (installation de Server Core incluse), Windows Server 2012 R2 avec les dernières mises à jour | Si vous avez déjà configuré Windows Server 2012 R2 avec/ou SCVMM 2012 R2 avec Azure Site Recovery et que vous prévoyez de mettre à niveau le système d’exploitation, suivez les instructions de la [documentation.](upgrade-2012R2-to-2016.md) 
+Hyper-V (exécuté sans Virtual Machine Manager) |  Windows Server 2019, Windows Server 2016 (installation de Server Core incluse), Windows Server 2012 R2 avec les dernières mises à jour | Si vous avez déjà configuré Windows Server 2012 R2 avec/ou SCVMM 2012 R2 avec Azure Site Recovery et que vous prévoyez de mettre à niveau le système d’exploitation, suivez les instructions de la [documentation.](upgrade-2012R2-to-2016.md) <br/><br/> Remarque : La restauration automatique n’est pas prise en charge pour la version principale de Windows Server 2019.
 Hyper-V (exécuté avec Virtual Machine Manager) | Virtual Machine Manager 2019, Virtual Machine Manager 2016, Virtual Machine Manager 2012 R2 | Si Virtual Machine Manager est utilisé, les hôtes Windows Server 2019 doivent être managés dans Virtual Machine Manager 2019. De même, les hôtes Windows Server 2016 doivent être gérés dans Virtual Machine Manager 2016.<br/><br/> Remarque : La restauration automatique vers un autre emplacement n’est pas prise en charge pour les hôtes Windows Server 2019.
 
 

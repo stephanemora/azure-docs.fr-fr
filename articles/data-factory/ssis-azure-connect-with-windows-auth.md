@@ -10,12 +10,12 @@ ms.technology: integration-services
 author: swinarko
 ms.author: sawinark
 ms.reviewer: maghan
-ms.openlocfilehash: 6f2983b375e3eeb73a0372e123d4d2763b3c65ec
-ms.sourcegitcommit: 1895459d1c8a592f03326fcb037007b86e2fd22f
+ms.openlocfilehash: 5dd8e483751010a6090e0ec415c40d381e978fd9
+ms.sourcegitcommit: 6a9f01bbef4b442d474747773b2ae6ce7c428c1f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/01/2020
-ms.locfileid: "82629386"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "84118805"
 ---
 # <a name="access-data-stores-and-file-shares-with-windows-authentication-from-ssis-packages-in-azure"></a>Accéder à des magasins de données et à des partages de fichiers avec l’authentification Windows à partir de packages SSIS sur Azure
 
@@ -34,7 +34,7 @@ Vous pouvez utiliser l’authentification Windows pour accéder à des magasins 
 > [!WARNING]
 > Si vous n’utilisez aucune des méthodes ci-dessus pour accéder à des magasins de données avec l’Authentification Windows, les packages qui dépendent de l’Authentification Windows ne peuvent pas y accéder et échouent au moment de l’exécution. 
 
-La suite de cet article explique comment configurer le catalogue SSIS (SSISDB) hébergé sur le serveur Azure SQL Database/Managed Instance pour exécuter des packages sur le runtime Azure-SSIS IR qui utilise l’authentification Windows pour accéder aux magasins de données. 
+La suite de cet article explique comment configurer le catalogue SSIS (SSISDB) hébergé dans une base de données SQL/une instance managée SQL pour exécuter des packages sur le runtime d’intégration Azure-SSIS utilisant l’authentification Windows pour accéder aux magasins de données. 
 
 ## <a name="you-can-only-use-one-set-of-credentials"></a>Vous ne pouvez utiliser qu’un seul jeu d’informations d’identification
 
@@ -44,7 +44,7 @@ Si vous utilisez l’authentification Windows dans un package SSIS, vous ne pouv
 
 Suivez les étapes ci-dessous pour fournir des informations d’identification de domaine permettant aux packages d’utiliser l’authentification Windows afin d’accéder à des magasins de données sur site :
 
-1. Avec SQL Server Management Studio (SSMS) ou un autre outil, connectez-vous au serveur Azure SQL Database/Managed Instance qui héberge SSISDB. Pour plus d’informations, voir [Se connecter à SSISDB sur Azure](https://docs.microsoft.com/sql/integration-services/lift-shift/ssis-azure-connect-to-catalog-database).
+1. Avec SSMS (SQL Server Management Studio) ou un autre outil, connectez-vous à la base de données SQL/l’instance managée SQL qui héberge SSISDB. Pour plus d’informations, voir [Se connecter à SSISDB sur Azure](https://docs.microsoft.com/sql/integration-services/lift-shift/ssis-azure-connect-to-catalog-database).
 
 2. La base de données SSISDB étant la base de données active, ouvrez une fenêtre de requête.
 
@@ -60,7 +60,7 @@ Suivez les étapes ci-dessous pour fournir des informations d’identification d
 
 Pour afficher les informations d’identification de domaine actives, effectuez les actions suivantes :
 
-1. Avec SSMS ou un autre outil, connectez-vous au serveur Azure SQL Database/Managed Instance qui héberge SSISDB. Pour plus d’informations, voir [Se connecter à SSISDB sur Azure](https://docs.microsoft.com/sql/integration-services/lift-shift/ssis-azure-connect-to-catalog-database).
+1. Avec SSMS ou un autre outil, connectez-vous à la base de données SQL/l’instance managée SQL qui héberge SSISDB. Pour plus d’informations, voir [Se connecter à SSISDB sur Azure](https://docs.microsoft.com/sql/integration-services/lift-shift/ssis-azure-connect-to-catalog-database).
 
 2. La base de données SSISDB étant la base de données active, ouvrez une fenêtre de requête.
 
@@ -75,7 +75,7 @@ Pour afficher les informations d’identification de domaine actives, effectuez 
 ### <a name="clear-domain-credentials"></a>Effacer les informations d’identification de domaine
 Pour effacer et supprimer les informations d’identification que vous avez fournies, comme indiqué dans cet article, effectuez les actions suivantes :
 
-1. Avec SSMS ou un autre outil, connectez-vous au serveur Azure SQL Database/Managed Instance qui héberge SSISDB. Pour plus d’informations, voir [Se connecter à SSISDB sur Azure](https://docs.microsoft.com/sql/integration-services/lift-shift/ssis-azure-connect-to-catalog-database).
+1. Avec SSMS ou un autre outil, connectez-vous à la base de données SQL/l’instance managée SQL qui héberge SSISDB. Pour plus d’informations, voir [Se connecter à SSISDB sur Azure](https://docs.microsoft.com/sql/integration-services/lift-shift/ssis-azure-connect-to-catalog-database).
 
 2. La base de données SSISDB étant la base de données active, ouvrez une fenêtre de requête.
 
@@ -140,7 +140,7 @@ Suivez les étapes ci-dessous pour accéder à un partage de fichiers sur site �
 
 Suivez les étapes ci-dessous pour accéder à un partage de fichiers sur les Machines virtuelles Azure à partir de packages qui s’exécutent sur Azure :
 
-1. Avec SSMS ou un autre outil, connectez-vous au serveur Azure SQL Database/Managed Instance qui héberge SSISDB. Pour plus d’informations, voir [Se connecter à SSISDB sur Azure](https://docs.microsoft.com/sql/integration-services/lift-shift/ssis-azure-connect-to-catalog-database).
+1. Avec SSMS ou un autre outil, connectez-vous à la base de données SQL/l’instance managée SQL qui héberge SSISDB. Pour plus d’informations, voir [Se connecter à SSISDB sur Azure](https://docs.microsoft.com/sql/integration-services/lift-shift/ssis-azure-connect-to-catalog-database).
 
 2. La base de données SSISDB étant la base de données active, ouvrez une fenêtre de requête.
 
@@ -156,7 +156,7 @@ Pour plus d’informations sur Azure Files, consultez [Azure Files](https://azur
 
 Suivez les étapes ci-dessous pour accéder à un partage de fichiers sur Azure Files à partir de packages qui s’exécutent sur Azure :
 
-1. Avec SSMS ou un autre outil, connectez-vous au serveur Azure SQL Database/Managed Instance qui héberge SSISDB. Pour plus d’informations, voir [Se connecter à SSISDB sur Azure](https://docs.microsoft.com/sql/integration-services/lift-shift/ssis-azure-connect-to-catalog-database).
+1. Avec SSMS ou un autre outil, connectez-vous à la base de données SQL/l’instance managée SQL qui héberge SSISDB. Pour plus d’informations, voir [Se connecter à SSISDB sur Azure](https://docs.microsoft.com/sql/integration-services/lift-shift/ssis-azure-connect-to-catalog-database).
 
 2. La base de données SSISDB étant la base de données active, ouvrez une fenêtre de requête.
 

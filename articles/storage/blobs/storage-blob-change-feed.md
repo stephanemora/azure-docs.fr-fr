@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: storage
 ms.subservice: blobs
 ms.reviewer: sadodd
-ms.openlocfilehash: 4287bd766d73d7fae42aec54950ad5a3f09b5ba3
-ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
+ms.openlocfilehash: bf22e10bc0a4b969c41d4a377ddba7fcadd9c147
+ms.sourcegitcommit: 1f48ad3c83467a6ffac4e23093ef288fea592eb5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/12/2020
-ms.locfileid: "83120417"
+ms.lasthandoff: 05/29/2020
+ms.locfileid: "84193394"
 ---
 # <a name="change-feed-support-in-azure-blob-storage-preview"></a>Prise en charge du flux de modification dans Stockage Blob Azure (préversion)
 
@@ -37,7 +37,7 @@ La prise en charge des flux de modification convient parfaitement aux scénarios
 
   - Créer des pipelines d’application connectés qui réagissent aux événements de modification ou planifier des exécutions en fonction de l’objet créé ou modifié.
   
-Le flux de modification est une fonctionnalité requise pour [une restauration dans le temps pour les objets blob de blocs](point-in-time-restore-overview.md).
+Le flux de modification est une fonctionnalité prérequise pour la [réplication d’objets](object-replication-overview.md) et la [restauration dans le temps pour les objets blob de blocs](point-in-time-restore-overview.md).
 
 > [!NOTE]
 > Le flux de modification fournit un modèle de journal durable et ordonné des modifications apportées à un objet blob. Les modifications sont écrites et mises à disposition dans votre journal de flux de modification quelques minutes après la modification. Si votre application doit réagir aux événements plus rapidement que cela, envisagez d’utiliser des [événements Stockage Blob](storage-blob-event-overview.md) à la place. Les [événements Stockage Blob](storage-blob-event-overview.md) sont des événements uniques en temps réel qui permettent à vos fonctions ou applications Azure de réagir rapidement aux modifications apportées à un objet blob. 

@@ -7,20 +7,20 @@ ms.service: event-grid
 ms.topic: conceptual
 ms.date: 05/18/2020
 ms.author: babanisa
-ms.openlocfilehash: 4546874b8a6cd8a7e45c3e6957a5181d66c7433f
-ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
+ms.openlocfilehash: f47d63ce79846e94e992df93af1768aad3c17e67
+ms.sourcegitcommit: 1692e86772217fcd36d34914e4fb4868d145687b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/20/2020
-ms.locfileid: "83690035"
+ms.lasthandoff: 05/29/2020
+ms.locfileid: "84170951"
 ---
 # <a name="partner-topics-in-azure-event-grid-preview"></a>Rubriques de partenaire dans Azure Event Grid (préversion)
-Les rubriques partenaires vous permettent de connecter des sources d’événements tiers directement à Event Grid. Cette intégration vous permet de vous abonner à des événements de partenaires de la même façon que vous vous abonnez à des événements de services Azure. 
+Les rubriques partenaires vous permettent de connecter des sources d’événements tiers directement à Azure Event Grid. Cette intégration vous permet de vous abonner à des événements de partenaires de la même façon que vous vous abonnez à des événements de services Azure. 
 
 ## <a name="available-partners"></a>Partenaires disponibles
-Le premier partenaire disponible via les rubriques de partenaire Event Grid est Auth0. La [rubrique de partenaire Auth0](auth0-overview.md) vous permet de connecter vos comptes Auth0 et Azure. L’intégration pour traiter, journaliser et surveiller les événements Auth0 en temps réel.
+Le premier partenaire disponible via les rubriques de partenaire Event Grid est Auth0. Vous pouvez utiliser la [rubrique de partenaire Auth0](auth0-overview.md) pour connecter vos comptes Auth0 et Azure. L’intégration vous permet de traiter, journaliser et surveiller les événements Auth0 en temps réel.
 
-[Essayez-le](auth0-how-to.md) dès aujourd’hui en vous connectant à votre compte Auth0 et en créant une intégration Event Grid. Après avoir cliqué sur Créer dans Auth0, vous voyez une rubrique Auth0 en attente dans votre compte Azure. Cliquez sur Activer pour créer des abonnements aux événements, ainsi qu’acheminer, filtrer et remettre vos événements comme pour toute autre source d’événement.
+[Essayez-le](auth0-how-to.md) en vous connectant à votre compte Auth0 et en créant une intégration Event Grid. Après avoir sélectionné **Créer** dans Auth0, vous voyez une rubrique Auth0 en attente dans votre compte Azure. Sélectionnez **Activer** pour créer des abonnements Event Grid afin d’acheminer, filtrer et remettre vos événements comme pour toute autre source d’événement.
 
 ## <a name="pricing"></a>Tarifs
 Les rubriques de partenaires sont facturées au même tarif que les rubriques système.

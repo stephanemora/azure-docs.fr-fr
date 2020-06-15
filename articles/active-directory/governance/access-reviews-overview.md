@@ -16,12 +16,12 @@ ms.date: 01/10/2020
 ms.author: ajburnle
 ms.reviewer: mwahl
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 5499c8808c3916842071df1f03a865efd98719f6
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: a711fa522f6b105eb98d57d4f63afb90be255b3f
+ms.sourcegitcommit: fc718cc1078594819e8ed640b6ee4bef39e91f7f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79230425"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "83995035"
 ---
 # <a name="what-are-azure-ad-access-reviews"></a>Présentation des révisions d’accès Azure AD
 
@@ -78,6 +78,12 @@ Pour créer des révisions d’accès, effectuez les étapes suivantes :
 
    ![Page de démarrage des révisions d'accès](./media/access-reviews-overview/access-reviews-overview-create-access-reviews.png) 
 
+### <a name="creating-access-review-on-a-group-that-can-be-assigned-to-azure-ad-role"></a>Création de la révision d’accès sur un groupe pouvant être affecté au rôle Azure AD
+Si vous êtes dans la version la plus récente des révisions d’accès (vos réviseurs sont dirigés vers **Mon accès** par défaut), seul l’administrateur général peut donc créer une révision d’accès sur les groupes assignables par rôle. Toutefois, si vous utilisez une version antérieure des révisions d’accès (vos réviseurs sont dirigés vers le **Volet d’accès** par défaut), l’administrateur général et l’administrateur d’utilisateurs peuvent donc créer une révision d’accès sur des groupes assignables par rôle.  
+
+La nouvelle expérience sera déployée pour tous les clients le 1er août 2020, mais si vous souhaitez procéder à une mise à niveau plus tôt, veuillez effectuer une demande ici [Révisions d’accès Azure AD – Expérience du réviseur mise à jour dans Inscription à Mon Accès](https://forms.microsoft.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbR5dv-S62099HtxdeKIcgO-NUOFJaRDFDWUpHRk8zQ1BWVU1MMTcyQ1FFUi4u).
+
+[En savoir plus sur l’affectation de groupes aux rôles Azure AD](https://go.microsoft.com/fwlink/?linkid=2103037).
 
 ## <a name="learn-about-access-reviews"></a>En savoir plus sur les révisions d’accès
 

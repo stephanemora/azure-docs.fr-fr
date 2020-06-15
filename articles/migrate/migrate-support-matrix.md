@@ -4,12 +4,12 @@ description: Fournit un résumé des limitations et des paramètres de prise en 
 ms.topic: conceptual
 ms.date: 04/19/2020
 ms.author: raynew
-ms.openlocfilehash: ec267053a0bc675d05e6488665f77467da9370e0
-ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
+ms.openlocfilehash: c1ed127834b826488d02b39304dd943866171441
+ms.sourcegitcommit: 1f48ad3c83467a6ffac4e23093ef288fea592eb5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/21/2020
-ms.locfileid: "83746850"
+ms.lasthandoff: 05/29/2020
+ms.locfileid: "84193569"
 ---
 # <a name="azure-migrate-support-matrix"></a>Tableau de prise en charge Azure Migrate
 
@@ -40,7 +40,7 @@ Migration de serveur Azure Migrate | N/D | Migrer des [machines virtuelles VMwar
 [Cloudamize](https://www.cloudamize.com/platform#tab-0)| Évaluer des machines virtuelles VMware, des machines virtuelles Hyper-V, des serveurs physiques et des charges de travail de cloud public. | N/D
 [Corent Technology](https://go.microsoft.com/fwlink/?linkid=2084928) | Évaluer et migrer des machines virtuelles VMware, des machines virtuelles Hyper-V, des serveurs physiques et des charges de travail de cloud public. |  Migrer des machines virtuelles VMware, des machines virtuelles Hyper-V, des serveurs physiques et des charges de travail de cloud public.
 [Device 42](https://go.microsoft.com/fwlink/?linkid=2097158) | Évaluer des machines virtuelles VMware, des machines virtuelles Hyper-V, des serveurs physiques et des charges de travail de cloud public.| N/D
-[DMA](https://docs.microsoft.com/sql/dma/dma-overview?view=sql-server-2017) | Évaluer des bases de données SQL Server locales. | N/D
+[DMA](https://docs.microsoft.com/sql/dma/dma-overview?view=sql-server-2017) | Évaluer des bases de données SQL Server. | N/D
 [DMS](https://docs.microsoft.com/azure/dms/dms-overview) | N/D | Migrer SQL Server, Oracle, MySQL, PostgreSQL, MongoDB. 
 [Lakeside](https://go.microsoft.com/fwlink/?linkid=2104908) | Évaluer Virtual Desktop Infrastructure (VDI) | N/D
 [Movere](https://www.movere.io/) | Évaluer des machines virtuelles VMWare, des machines virtuelles Hyper-V, des machines virtuelles Xen, des machines physiques, des stations de travail (y compris VDI) et des charges de travail de cloud public | N/D

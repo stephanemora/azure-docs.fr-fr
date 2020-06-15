@@ -9,12 +9,12 @@ ms.service: cognitive-services
 ms.topic: conceptual
 ms.date: 08/22/2019
 ms.author: diberry
-ms.openlocfilehash: ec997c802f83b0d1eea54c0710b0ebc4684397fe
-ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
+ms.openlocfilehash: 42717b1e9b4ba12c2fe42dbd13ef44223ef2ba43
+ms.sourcegitcommit: 12f23307f8fedc02cd6f736121a2a9cea72e9454
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83584618"
+ms.lasthandoff: 05/30/2020
+ms.locfileid: "84220213"
 ---
 # <a name="cognitive-services-and-machine-learning"></a>Cognitive Services et machine learning
 
@@ -139,7 +139,7 @@ Cognitive Services qui fournissent des modèles exportés pour d’autres outils
 ## <a name="next-steps"></a>Étapes suivantes
 
 * Créez votre compte Cognitive Services dans le [portail Azure](cognitive-services-apis-create-account.md) ou avec [Azure CLI](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account-cli).
-* Découvrez comment vous [authentifier](authentication.md) auprès d’un service cognitif.
+* Découvrez comment vous [authentifier](authentication.md) sur un service cognitif.
 * Utilisez la [journalisation des diagnostics](diagnostic-logging.md) pour l’identification et le débogage des problèmes. 
 * Déployez un service cognitif dans un [conteneur](cognitive-services-container-support.md) Docker.
 * Restez à jour avec les [mises à jour de service](https://azure.microsoft.com/updates/?product=cognitive-services).

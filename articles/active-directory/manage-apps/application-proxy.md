@@ -13,12 +13,12 @@ ms.author: mimart
 ms.reviewer: japere
 ms.collection: M365-identity-device-management
 ms.custom: has-adal-ref
-ms.openlocfilehash: 24e18f5b1766f0dde5e677ac40d24edd5597a20d
-ms.sourcegitcommit: 50ef5c2798da04cf746181fbfa3253fca366feaa
+ms.openlocfilehash: 5ba82b34da8e4c3156d6854934ad873428bf121a
+ms.sourcegitcommit: 1692e86772217fcd36d34914e4fb4868d145687b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/30/2020
-ms.locfileid: "82609950"
+ms.lasthandoff: 05/29/2020
+ms.locfileid: "84168724"
 ---
 # <a name="remote-access-to-on-premises-applications-through-azure-active-directorys-application-proxy"></a>Accès à distance aux applications locales via le service Proxy d’application Azure Active Directory
 
@@ -41,7 +41,7 @@ Proxy d’application fonctionne avec les ressources suivantes :
 * Applications web qui utilisent l’accès [basé sur un en-tête](application-proxy-configure-single-sign-on-with-ping-access.md) ou sur un formulaire
 * API web que vous voulez exposer aux applications enrichies sur différents appareils
 * Applications hébergées derrière une [passerelle Bureau à distance](application-proxy-integrate-with-remote-desktop-services.md)
-* Applications clientes complètes intégrées à Active Directory Authentication Library (ADAL)
+* Applications clientes complètes intégrées à la bibliothèque d’authentification Microsoft (MSAL)
 
 Proxy d’application prend en charge l’authentification unique. Pour plus d’informations sur les méthodes prises en charge, consultez [Choix d’une méthode d’authentification unique](what-is-single-sign-on.md#choosing-a-single-sign-on-method).
 

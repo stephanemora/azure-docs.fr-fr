@@ -13,12 +13,12 @@ ms.date: 04/17/2020
 ms.author: ryanwi
 ms.custom: aaddev, identityplatformtop40
 ms.reviewer: hirsin, jlu, annaba
-ms.openlocfilehash: 3e66cd6a05a7c616b22eefffdd9d132aa0f4d36d
-ms.sourcegitcommit: c535228f0b77eb7592697556b23c4e436ec29f96
+ms.openlocfilehash: bf53afc0168417bc223a55cd73f9a97b5bb3ac47
+ms.sourcegitcommit: d118ad4fb2b66c759b70d4d8a18e6368760da3ad
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/06/2020
-ms.locfileid: "82853971"
+ms.lasthandoff: 06/02/2020
+ms.locfileid: "84299976"
 ---
 # <a name="configurable-token-lifetimes-in-azure-active-directory-preview"></a>Durées de vie des jetons configurables dans Azure Active Directory (préversion)
 
@@ -545,3 +545,9 @@ Remove-AzureADServicePrincipalPolicy -Id <ObjectId of ServicePrincipal>  -Policy
 | --- | --- | --- |
 | <code>&#8209;Id</code> |**ObjectId (Id)** de l’application. | `-Id <ObjectId of Application>` |
 | <code>&#8209;PolicyId</code> |**ID d’objet** de la stratégie. | `-PolicyId <ObjectId of Policy>` |
+
+## <a name="license-requirements"></a>Conditions de licence :
+
+L'utilisation de cette fonctionnalité nécessite une licence Azure AD Premium P1. Pour trouver la licence appropriée à vos besoins, consultez [Comparaison des fonctionnalités mises à la disposition générale des éditions Gratuite et Premium](https://azure.microsoft.com/pricing/details/active-directory/).
+
+Les clients avec [des licences Microsoft 365 Business](https://docs.microsoft.com/office365/servicedescriptions/microsoft-365-service-descriptions/microsoft-365-business-service-description) ont également accès aux fonctionnalités d’accès conditionnel.

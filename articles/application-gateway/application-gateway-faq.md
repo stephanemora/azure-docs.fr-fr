@@ -7,12 +7,13 @@ ms.service: application-gateway
 ms.topic: article
 ms.date: 05/26/2020
 ms.author: victorh
-ms.openlocfilehash: fd5617af2da9aa00cb75deb82f83be29db78d79d
-ms.sourcegitcommit: 64fc70f6c145e14d605db0c2a0f407b72401f5eb
+ms.custom: references_regions
+ms.openlocfilehash: e61ce629e723f56524ee22d8b127243f9568a835
+ms.sourcegitcommit: 1f48ad3c83467a6ffac4e23093ef288fea592eb5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "83873502"
+ms.lasthandoff: 05/29/2020
+ms.locfileid: "84196501"
 ---
 # <a name="frequently-asked-questions-about-application-gateway"></a>Forum aux questions sur Application Gateway
 
@@ -211,7 +212,7 @@ Consultez [Ordre de traitement des règles](https://docs.microsoft.com/azure/app
 
 ### <a name="for-custom-probes-what-does-the-host-field-signify"></a>À quoi correspond le champ Hôte pour les sondes personnalisées ?
 
-Le champ hôte Spécifie le nom auquel envoyer la sonde lorsque vous avez configuré plusieurs sites sur Application Gateway. Sinon, utilisez « 127.0.0.1 ». Cette valeur est différente du nom d’hôte de la machine virtuelle. Elle se présente au format \<protocole\>://\<hôte\>:\<port\>\<chemin\>.
+Le champ hôte Spécifie le nom auquel envoyer la sonde lorsque vous avez configuré plusieurs sites sur Application Gateway. Sinon, utilisez « 127.0.0.1 ». Cette valeur est différente du nom d’hôte de la machine virtuelle. Son format est \<protocol\>://\<host\>:\<port\>\<path\>.
 
 ### <a name="can-i-allow-application-gateway-access-to-only-a-few-source-ip-addresses"></a>Puis-je autoriser l’accès d’Application Gateway à quelques adresses IP sources uniquement ?
 
@@ -411,8 +412,6 @@ Toutefois, si vous souhaitez utiliser Application Gateway v2 avec uniquement une
 
 Exemple de configuration de groupe de sécurité réseau pour un accès d’adresse IP privée uniquement : ![Configuration Application Gateway v2 NSG pour l’accès IP privé uniquement](./media/application-gateway-faq/appgw-privip-nsg.png)
 
-### <a name="does-application-gateway-affinity-cookie-support-samesite-attribute"></a>Le cookie d’affinité d’Application Gateway prend-il en charge l’attribut SameSite ?
-Oui, la [mise à jour v80](https://chromiumdash.appspot.com/schedule) du [navigateur Chromium](https://www.chromium.org/Home) a permis que les cookies HTTP sans attribut SameSite soient traités comme SameSite=Lax. Cela signifie que le cookie d’affinité d’Application Gateway ne sera pas envoyé par le navigateur dans un contexte tiers. Pour prendre en charge ce scénario, Application Gateway injecte un autre cookie appelé *ApplicationGatewayAffinityCORS* en plus du cookie *ApplicationGatewayAffinity* existant.  Ces cookies sont similaires, mais le cookie *ApplicationGatewayAffinityCORS* a deux attributs supplémentaires qui lui sont ajoutés : *SameSite=None; Secure*. Ces attributs maintiennent les sessions rémanentes même pour les requêtes cross-origin. Pour plus d’informations, consultez la [section Affinité basée sur les cookies](configuration-overview.md#cookie-based-affinity).
 
 ## <a name="next-steps"></a>Étapes suivantes
 

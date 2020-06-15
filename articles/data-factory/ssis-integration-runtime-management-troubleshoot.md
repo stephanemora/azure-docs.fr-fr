@@ -11,12 +11,12 @@ ms.reviewer: sawinark
 manager: mflasko
 ms.custom: seo-lt-2019
 ms.date: 07/08/2019
-ms.openlocfilehash: 0324044d93f12f6ac6ec96ff1a31be8ee02ada41
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: e928a6b54e53f9076ffe184ed4868e7741661d7e
+ms.sourcegitcommit: 6a9f01bbef4b442d474747773b2ae6ce7c428c1f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81414693"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "84118830"
 ---
 # <a name="troubleshoot-ssis-integration-runtime-management-in-azure-data-factory"></a>Résoudre les problèmes de gestion du runtime d’intégration SSIS dans Azure Data Factory
 
@@ -30,27 +30,27 @@ Si vous rencontrez un problème lors du provisionnement ou de l’annulation du 
 
 Si le code d’erreur est InternalServerError, le service a des problèmes temporaires et vous devez retenter l’opération ultérieurement. Si la nouvelle tentative échoue, contactez l’équipe du support Azure Data Factory.
 
-Sinon, 3 dépendances externes majeures peuvent entraîner des erreurs : un serveur Azure SQL Database ou une instance managée, un script d’installation personnalisée et une configuration de réseau virtuel.
+Sinon, sachez que trois dépendances externes principales peuvent provoquer des erreurs : Azure SQL Database ou Azure SQL Managed Instance, un script d’installation personnalisé et une configuration de réseau virtuel.
 
-## <a name="azure-sql-database-server-or-managed-instance-issues"></a>Problèmes relatifs au serveur Azure SQL Database ou à Azure SQL Database Managed Instance
+## <a name="sql-database-or-sql-managed-instance-issues"></a>Problèmes liés à SQL Database ou SQL Managed Instance
 
-Si vous provisionnez le runtime d’intégration SSIS avec la base de données du catalogue SSIS, vous avez besoin d’un serveur Azure SQL Database ou d’une instance managée. Le runtime d’intégration SSIS doit être capable d’accéder au serveur Azure SQL Database ou à l’instance managée. De plus, le compte du serveur Azure SQL Database ou de l’instance managée doit avoir l’autorisation de créer une base de données de catalogue SSIS (SSISDB). En cas d’erreur, un code d’erreur avec un message d’exception SQL détaillé s’affiche dans le portail Data Factory. Utilisez les informations dans la liste suivante pour résoudre les codes d’erreurs.
+Si vous provisionnez le runtime d’intégration SSIS avec une base de données du catalogue SSIS, vous avez besoin de SQL Database ou d’une instance managée SQL. Le runtime d’intégration SSIS doit pouvoir accéder à SQL Database ou à l’instance managée SQL. De plus, le compte de connexion pour SQL Database ou l’instance managée SQL doit avoir l’autorisation de créer une base de données de catalogue SSIS (SSISDB). En cas d’erreur, un code d’erreur avec un message d’exception SQL détaillé s’affiche dans le portail Data Factory. Utilisez les informations dans la liste suivante pour résoudre les codes d’erreurs.
 
 ### <a name="azuresqlconnectionfailure"></a>AzureSqlConnectionFailure
 
 Ce message d’erreur peut s’afficher lors du provisionnement d’un nouveau runtime d’intégration SSIS ou lors de l’exécution d’un runtime d’intégration. Si vous rencontrez cette erreur lors du provisionnement du runtime d’intégration, vous pouvez obtenir un message SqlException détaillé dans le message d’erreur qui indique l’un des problèmes suivants :
 
-* Problème de connexion réseau. Vérifiez si le serveur SQL Server ou le nom d’hôte de l’instance managée est accessible. Vérifiez également qu’aucun pare-feu ni groupe de sécurité réseau ne bloque l’accès du runtime d’intégration SSIS au serveur.
+* Problème de connexion réseau. Vérifiez si le nom d’hôte pour SQL Database ou l’instance managée SQL est accessible. Vérifiez également qu’aucun pare-feu ni groupe de sécurité réseau ne bloque l’accès du runtime d’intégration SSIS au serveur.
 * La connexion a échoué pendant l’authentification SQL. Le compte fourni ne peut pas se connecter à la base de données SQL Server. Vérifiez que le bon compte d’utilisateur a été fourni.
 * La connexion a échoué lors de l’authentification Microsoft Azure Active Directory (Azure AD) (identité managée). Ajoutez l’identité managée de votre fabrique à un groupe AAD et vérifiez que l’identité a accès à votre serveur de base de données de catalogue.
 * Expiration de la connexion. Cette erreur est toujours due à une configuration liée à la sécurité. Nous vous recommandons :
   1. Créez une machine virtuelle.
   1. Joignez la machine virtuelle au même réseau virtuel Microsoft Azure que le runtime d’intégration si ce dernier se trouve dans un réseau virtuel.
-  1. Installez SSMS et vérifiez l’état du serveur Azure SQL Database ou de l’instance managée.
+  1. Installez SSMS et vérifiez l’état de SQL Database ou de l’instance managée.
 
-Pour les autres problèmes, corrigez le problème indiqué dans le message d’erreur d’exception SQL détaillé. Si vous rencontrez encore des problèmes, contactez l’équipe du support Azure SQL Database Managed Instance ou du support Azure SQL Database.
+Pour les autres problèmes, corrigez le problème indiqué dans le message d’erreur d’exception SQL détaillé. Si vous rencontrez encore des problèmes, contactez l’équipe du support technique SQL Database ou SQL Managed Instance.
 
-Si l’erreur s’affiche lorsque le runtime d’intégration est en cours d’exécution, les modifications du groupe de sécurité réseau ou du pare-feu empêchent probablement le nœud Worker du runtime d’intégration SSIS d’accéder au serveur Azure SQL Database ou à l’instance managée. Débloquez le nœud Worker du runtime d’intégration SSIS pour lui permettre d’accéder au serveur Azure SQL Database ou à l’instance managée.
+Si voyez l’erreur quand le runtime d’intégration est en cours d’exécution, les modifications du groupe de sécurité réseau ou du pare-feu empêchent probablement le nœud Worker du runtime d’intégration SSIS d’accéder à SQL Database ou à l’instance managée SQL. Débloquez le nœud Worker du runtime d’intégration SSIS pour lui permettre d’accéder à SQL Database ou à l’instance managée SQL.
 
 ### <a name="catalogcapacitylimiterror"></a>CatalogCapacityLimitError
 
@@ -65,20 +65,20 @@ Voici les solutions possibles :
 
 ### <a name="catalogdbbelongstoanotherir"></a>CatalogDbBelongsToAnotherIR
 
-Cette erreur signifie que le serveur Azure SQL Database ou l’instance managée inclut déjà une base de données SSIS qui est utilisée par un autre runtime d’intégration. Vous devez fournir un autre serveur Azure SQL Database ou une autre instance managée, ou sinon, supprimer la base de données SSIS existante et redémarrer le nouveau runtime d’intégration.
+Cette erreur signifie que SQL Database ou l’instance managée SQL inclut déjà une base de données SSIS qui est utilisée par un autre runtime d’intégration. Vous devez spécifier une autre base de données SQL ou une autre instance managée ou supprimer la base de données SSIS existante et redémarrer le nouveau runtime d’intégration.
 
 ### <a name="catalogdbcreationfailure"></a>CatalogDbCreationFailure
 
 Ce problème peut se produire pour l’une des raisons suivantes :
 
 * Le compte d’utilisateur configuré pour le runtime d’intégration SSIS n’est pas autorisé à créer la base de données. Vous pouvez autoriser l’utilisateur à créer la base de données.
-* Le délai imparti expire lors de la création de la base de données, en raison par exemple de l’expiration d’un délai d’exécution ou d’opération de base de données. Vous devez retenter l’opération plus tard. Si la nouvelle tentative échoue, contactez l’équipe du support Azure SQL Database Managed Instance ou celle chargée des serveurs Azure SQL Database.
+* Le délai imparti expire lors de la création de la base de données, en raison par exemple de l’expiration d’un délai d’exécution ou d’opération de base de données. Vous devez retenter l’opération plus tard. Si la nouvelle tentative échoue, contactez l’équipe du support technique SQL Database ou SQL Managed Instance.
 
-Pour les autres problèmes, reportez-vous aux informations détaillées du message d’erreur d’exception SQL et corrigez le problème signalé dans les détails de l’erreur. Si vous rencontrez encore des problèmes, contactez l’équipe du support Azure SQL Database Managed Instance ou du support Azure SQL Database.
+Pour les autres problèmes, reportez-vous aux informations détaillées du message d’erreur d’exception SQL et corrigez le problème signalé dans les détails de l’erreur. Si vous rencontrez encore des problèmes, contactez l’équipe du support technique SQL Database ou SQL Managed Instance.
 
 ### <a name="invalidcatalogdb"></a>InvalidCatalogDb
 
-Ce type de message d’erreur ressemble à ceci : « Nom d’objet non valide 'catalog.catalog_properties » Dans ce cas, soit vous avez déjà une base de données nommée SSISDB, mais celle-ci n’a pas été créée par le runtime d’intégration SSIS, soit l’état de la base de données n’est pas valide, en raison d’erreurs survenues lors du dernier provisionnement du runtime d’intégration SSIS. Vous pouvez supprimer une base de données existante portant le nom de SSISDB, ou configurer un nouveau serveur Azure SQL Database ou une nouvelle instance Azure SQL Database Managed Instance pour le runtime d’intégration.
+Ce type de message d’erreur ressemble à ceci : « Nom d’objet non valide 'catalog.catalog_properties » Dans ce cas, soit vous avez déjà une base de données nommée SSISDB, mais celle-ci n’a pas été créée par le runtime d’intégration SSIS, soit l’état de la base de données n’est pas valide, en raison d’erreurs survenues lors du dernier provisionnement du runtime d’intégration SSIS. Vous pouvez supprimer la base de données existante nommée SSISDB ou configurer une nouvelle base de données SQL ou une nouvelle instance managée SQL pour le runtime d’intégration.
 
 ## <a name="custom-setup-issues"></a>Problèmes lors de l’installation personnalisée
 

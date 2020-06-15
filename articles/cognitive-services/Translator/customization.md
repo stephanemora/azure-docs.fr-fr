@@ -8,18 +8,18 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: translator-text
 ms.topic: conceptual
-ms.date: 06/04/2019
+ms.date: 05/26/2020
 ms.author: swmachan
-ms.openlocfilehash: c1928f9aa2c2b011e1cf54b4ef6cfc5cb8251904
-ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
+ms.openlocfilehash: 6db43300632ec5b2c4f6c18848442901a40561b0
+ms.sourcegitcommit: fc718cc1078594819e8ed640b6ee4bef39e91f7f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83588647"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "83996996"
 ---
 # <a name="customize-your-text-translations"></a>Personnaliser vos traductions de texte
 
-Custom Translator est une fonctionnalité du service Microsoft Translator, qui permet aux utilisateurs de personnaliser la traduction automatique neurale avancée de Microsoft Translator lors de la traduction de texte à l’aide de Translator (version 3 uniquement).
+Custom Translator est une fonctionnalité du service Microsoft Translator qui permet aux utilisateurs de personnaliser la traduction automatique neuronale avancée de Microsoft Translator pour la traduction de texte à l’aide de Translator (version 3 uniquement).
 
 Cette fonctionnalité peut également être utilisée pour personnaliser la traduction vocale quand elle est utilisée avec [Cognitive Services Speech](https://docs.microsoft.com/azure/cognitive-services/speech-service/).
 
@@ -49,12 +49,12 @@ Vous trouverez plus de détails sur les différents niveaux de personnalisation 
 
 |   | **Concentrateur** | **Custom Translator**|
 |:-----|:----:|:----:|
-|État de la fonctionnalité de personnalisation   | Disponibilité générale  | Disponibilité générale |
-| Version de l'API de texte  | V2 uniquement   | V3 uniquement |
-| Personnalisation TA statistique | Oui   | Non |
-| Personnalisation TA neuronale | Non    | Oui |
-| Nouvelle personnalisation unifiée des services vocaux | Non    | Oui |
-| [Sans trace](https://www.aka.ms/notrace) | Oui  | Oui |
+|État de la fonctionnalité de personnalisation    | Disponibilité générale    | Disponibilité générale |
+| Version de l'API de texte    | V2 uniquement    | V3 uniquement |
+| Personnalisation TA statistique    | Oui    | Non |
+| Personnalisation TA neuronale    | Non    | Oui |
+| Nouvelle personnalisation unifiée des services vocaux    | Non    | Oui |
+| [Sans trace](https://www.aka.ms/notrace) | Oui    | Oui |
 
 ## <a name="collaborative-translations-framework"></a>Infrastructure de traductions collaboratives
 

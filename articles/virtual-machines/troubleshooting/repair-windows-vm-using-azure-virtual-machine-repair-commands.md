@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-windows
 ms.devlang: azurecli
 ms.date: 09/10/2019
 ms.author: v-miegge
-ms.openlocfilehash: 6520d508a025aeeecf0c1890224a0691eae09f74
-ms.sourcegitcommit: 318d1bafa70510ea6cdcfa1c3d698b843385c0f6
+ms.openlocfilehash: b754c9e02567939569bf2ef59359dbb2614a6647
+ms.sourcegitcommit: 12f23307f8fedc02cd6f736121a2a9cea72e9454
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/21/2020
-ms.locfileid: "83774426"
+ms.lasthandoff: 05/30/2020
+ms.locfileid: "84219894"
 ---
 # <a name="repair-a-windows-vm-by-using-the-azure-virtual-machine-repair-commands"></a>Réparer une machine virtuelle Windows à l’aide des commandes de réparation de machine virtuelle Azure
 
@@ -72,20 +72,19 @@ Pour obtenir de la documentation et des instructions supplémentaires, consultez
    az extension update -n vm-repair
    ```
 
-3. Exécutez `az vm repair create`. Cette commande permet de créer une copie du disque de système d’exploitation de la machine virtuelle hors service, de créer une machine virtuelle de réparation dans un nouveau groupe de ressources, et d’attacher une copie du disque de système d’exploitation.  La machine virtuelle de réparation aura la même taille et sera dans la même région que la machine virtuelle hors service spécifiée.
+3. Exécutez `az vm repair create`. Cette commande permet de créer une copie du disque de système d’exploitation de la machine virtuelle hors service, de créer une machine virtuelle de réparation dans un nouveau groupe de ressources, et d’attacher une copie du disque de système d’exploitation.  La machine virtuelle de réparation aura la même taille et sera dans la même région que la machine virtuelle hors service spécifiée. Le groupe de ressources et le nom de la machine virtuelle utilisés au cours des différentes étapes serviront à la machine virtuelle hors service.
 
    ```azurecli-interactive
    az vm repair create -g MyResourceGroup -n myVM --repair-username username --repair-password password!234 --verbose
    ```
 
-4. Exécutez `az vm repair run`. Cette commande permet d’exécuter le script de réparation spécifié sur le disque attaché via la machine virtuelle de réparation.  Si le guide de résolution des problèmes que vous utilisez spécifie un ID d’exécution, utilisez-le ici. Autrement, vous pouvez utiliser la commande `az vm repair list-scripts` pour afficher les scripts de réparation disponibles.
+4. Exécutez `az vm repair run`. Cette commande permet d’exécuter le script de réparation spécifié sur le disque attaché via la machine virtuelle de réparation. Si le guide de résolution des problèmes que vous utilisez spécifie un ID d’exécution, utilisez-le ici. Autrement, vous pouvez utiliser la commande `az vm repair list-scripts` pour afficher les scripts de réparation disponibles. Le groupe de ressources et le nom de la machine virtuelle utilisés ici serviront à la machine virtuelle hors service de l’étape 3.
 
    ```azurecli-interactive
-
-   az vm repair run  –g MyResourceGroup –n MyVM -–run-on-repair --run-id win-hello-world --verbose
+   az vm repair run -g MyResourceGroup -n MyVM --run-on-repair --run-id win-hello-world --verbose
    ```
 
-5. Exécutez `az vm repair restore`. Cette commande permet de remplacer le disque de système d’exploitation réparé par le disque de système d’exploitation d’origine de la machine virtuelle.
+5. Exécutez `az vm repair restore`. Cette commande permet de remplacer le disque de système d’exploitation réparé par le disque de système d’exploitation d’origine de la machine virtuelle. Le groupe de ressources et le nom de la machine virtuelle utilisés ici serviront à la machine virtuelle hors service de l’étape 3.
 
    ```azurecli-interactive
    az vm repair restore -g MyResourceGroup -n MyVM --verbose

@@ -12,12 +12,12 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.date: 01/10/2018
-ms.openlocfilehash: 49ad9be7c70602132436b14234f01a4086d8e1fe
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 02d6c11e3880f69f5020fb51f90a72c3233e2f25
+ms.sourcegitcommit: 1f48ad3c83467a6ffac4e23093ef288fea592eb5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "70139134"
+ms.lasthandoff: 05/29/2020
+ms.locfileid: "84195882"
 ---
 # <a name="use-case---product-recommendations"></a>Cas d’utilisation - Recommandations de produits
 Azure Data Factory est l’un des nombreux services permettant d’implémenter la solution d’accélérateurs Cortana Intelligence Suite.  Consultez la page [Cortana Intelligence Suite](https://www.microsoft.com/cortanaanalytics) pour plus de détails. Dans ce document, nous décrivons un cas d’utilisation courant que les utilisateurs Azure ont déjà résolu et implémenté à l’aide d’Azure Data Factory et d’autres services Cortana Intelligence.
@@ -41,7 +41,7 @@ Enfin, les détaillants doivent mesurer l'efficacité de leur approche par un su
 ## <a name="solution-overview"></a>Vue d'ensemble de la solution
 Cet exemple de cas d’utilisation a été résolu et implémenté par de vrais utilisateurs Azure avec Azure Data Factory et d’autres services Cortana Intelligence, notamment [HDInsight](https://azure.microsoft.com/services/hdinsight/) et [Power BI](https://powerbi.microsoft.com/).
 
-Le détaillant en ligne utilise un magasin d'objets blob Azure, un serveur SQL local, une base de données SQL Azure et un mini-Data Warehouse relationnel options de stockage des données tout au long du flux de travail.  Le magasin d'objets blob contient des informations sur les clients, des données sur les habitudes des clients et des informations sur les produits. Les informations sur les produits incluent des informations sur les marques de produits ainsi qu’un catalogue de produits stocké localement dans un SQL Data Warehouse. 
+Le détaillant en ligne utilise un magasin d’objets blob Azure, un serveur SQL local, Azure SQL Database et un mini-Data Warehouse relationnel comme options de stockage des données tout au long du workflow.  Le magasin d'objets blob contient des informations sur les clients, des données sur les habitudes des clients et des informations sur les produits. Les informations sur les produits incluent des informations sur les marques de produits ainsi qu’un catalogue de produits stocké localement dans un SQL Data Warehouse. 
 
 Toutes les données sont combinées et chargées dans un système de recommandations de produit pour fournir des recommandations personnalisées selon les intérêts et les actions du client à mesure que l'utilisateur parcourt le catalogue de produits sur le site web. Le client peut également voir des produits liés à celui qu'il recherche, selon des modèles d'utilisation du site web qui ne sont spécifiques à aucun utilisateur.
 

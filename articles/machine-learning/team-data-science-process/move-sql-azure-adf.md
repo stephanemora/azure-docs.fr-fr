@@ -1,5 +1,5 @@
 ---
-title: Données à partir d’un serveur SQL local vers SQL Azure avec Azure Data Factory - Processus Team Data Science
+title: Données SQL Server vers SQL Database avec Azure Data Factory - Processus Team Data Science
 description: Configuration d’un pipeline ADF composé de deux activités de migration des données qui déplacent quotidiennement les données entre des bases de données locales et sur le cloud.
 services: machine-learning
 author: marktab
@@ -11,16 +11,16 @@ ms.topic: article
 ms.date: 01/10/2020
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
-ms.openlocfilehash: 8f696f1c6c414cd9db082e79e0f34c56156e1ee0
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: a484a6c9a55eac4d166a711a9eae7990c4305cb4
+ms.sourcegitcommit: 1f48ad3c83467a6ffac4e23093ef288fea592eb5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "76722490"
+ms.lasthandoff: 05/29/2020
+ms.locfileid: "84194406"
 ---
-# <a name="move-data-from-an-on-premises-sql-server-to-sql-azure-with-azure-data-factory"></a>Déplacement de données à partir d’un serveur SQL local vers SQL Azure avec Azure Data Factory
+# <a name="move-data-from-a-sql-server-database-to-sql-database-with-azure-data-factory"></a>Déplacer des données d’une base de données SQL Server vers SQL Database avec Azure Data Factory
 
-Cet article explique comment déplacer des données à partir d’une base de données SQL Server locale vers une base de données SQL Azure via Stockage Blob Azure à l’aide d’Azure Data Factory (ADF) : cette méthode est une approche héritée prise en charge qui présente les avantages d’une copie intermédiaire répliquée, même si [nous vous suggérons de consulter notre page sur la migration des données pour connaître les options les plus récentes](https://datamigration.microsoft.com/scenario/sql-to-azuresqldb?step=1).
+Cet article explique comment déplacer des données d’une base de données SQL Server vers Azure SQL Database via le Stockage Blob Azure à l’aide d’ADF (Azure Data Factory) : cette méthode est une approche héritée prise en charge qui présente les avantages d’une copie de préproduction répliquée. Toutefois, [nous vous suggérons de consulter notre page sur la migration des données pour connaître les options les plus récentes](https://datamigration.microsoft.com/scenario/sql-to-azuresqldb?step=1).
 
 Pour accéder à un tableau résumant les différentes options de déplacement de données dans une base de données Azure SQL, consultez [Déplacer des données dans une base de données Azure SQL pour Azure Machine Learning](move-sql-azure.md).
 
@@ -37,13 +37,13 @@ Utilisez plutôt ADF :
 ADF permet la planification et la surveillance des travaux à l'aide de scripts JSON simples qui gèrent le déplacement des données sur une base périodique. ADF dispose également d'autres fonctionnalités comme la prise en charge des opérations complexes. Pour plus d'informations sur ADF, consultez la documentation relative à [Azure Data Factory (ADF)](https://azure.microsoft.com/services/data-factory/).
 
 ## <a name="the-scenario"></a><a name="scenario"></a>Scénario
-Nous allons configurer un pipeline ADF qui se compose de deux activités de migration de données. Ensemble, ces activités déplacent les données quotidiennement entre une instance SQL Database locale et une instance Azure SQL Database dans le cloud. Les deux activités sont :
+Nous allons configurer un pipeline ADF qui se compose de deux activités de migration de données. Ensemble, ces activités permettent de déplacer des données quotidiennement entre une base de données SQL Server et Azure SQL Database. Les deux activités sont :
 
-* copie de données depuis une base de données SQL Server locale vers un compte de stockage d’objets blob Azure ;
-* copie de données à partir du compte Stockage Blob Azure vers une base de données Azure SQL.
+* Copier des données d’une base de données SQL Server vers un compte de Stockage Blob Azure
+* Copier des données du compte de Stockage Blob Azure vers Azure SQL Database.
 
 > [!NOTE]
-> Les étapes présentées ici ont été adaptées du tutoriel plus détaillé fourni par l’équipe ADF : [Copier des données depuis une base de données SQL Server locale vers un stockage Blob Azure](https://docs.microsoft.com/azure/data-factory/tutorial-hybrid-copy-portal/) fait référence aux sections appropriées de cette rubrique sont fournies si nécessaire.
+> Les étapes présentées ici ont été adaptées du tutoriel plus détaillé fourni par l’équipe ADF : [Copier des données depuis une base de données SQL Server vers Stockage Blob Azure](https://docs.microsoft.com/azure/data-factory/tutorial-hybrid-copy-portal/). Les références aux sections appropriées de cette rubrique sont fournies si nécessaire.
 >
 >
 
@@ -60,10 +60,10 @@ Ce didacticiel part du principe que vous disposez de :
 >
 >
 
-## <a name="upload-the-data-to-your-on-premises-sql-server"></a><a name="upload-data"></a> Téléchargement des données sur votre SQL Server local
+## <a name="upload-the-data-to-your-sql-server-instance"></a><a name="upload-data"></a> Charger les données vers votre instance de SQL Server
 Nous utilisons le [jeu de données NYC Taxi](https://chriswhong.com/open-data/foil_nyc_taxi/) pour illustrer le processus de migration. Le jeu de données NYC Taxi est disponible, comme mentionné dans cet article, sur Azure Blob Storage [données NYC Taxi](https://www.andresmh.com/nyctaxitrips/). Les données comprennent deux fichiers : le fichier trip_data.csv qui contient les détails de voyage et le fichier trip_far.csv qui contient les détails des prix payés pour chaque voyage. Un échantillon et une description de ces fichiers sont fournis dans la [description du jeu de données des voyages NYC Taxi](sql-walkthrough.md#dataset).
 
-Vous pouvez adapter les procédures fournies ici à un jeu de vos propres données ou suivre les étapes décrites à l'aide du jeu de données NYC Taxi. Pour télécharger le jeu de données NYC Taxi dans votre base de données SQL Server locale, suivez la procédure décrite dans [Importer des données en bloc dans SQL Server Database](sql-walkthrough.md#dbload). Ces instructions concernent un SQL Server sur une machine virtuelle Azure, mais la procédure de téléchargement vers le serveur local SQL Server est la même.
+Vous pouvez adapter les procédures fournies ici à un jeu de vos propres données ou suivre les étapes décrites à l'aide du jeu de données NYC Taxi. Pour charger le jeu de données NYC Taxi dans votre base de données SQL Server, suivez la procédure décrite dans [Importer des données en bloc dans une base de données SQL Server](sql-walkthrough.md#dbload).
 
 ## <a name="create-an-azure-data-factory"></a><a name="create-adf"></a> Création d’une Azure Data Factory
 Les instructions pour la création d’une fabrique de données Azure Data Factory et d’un groupe de ressources dans le [portail Azure](https://portal.azure.com/) sont fournies dans [Créer une fabrique de données Azure Data Factory](../../data-factory/tutorial-hybrid-copy-portal.md#create-a-data-factory). Nommez la nouvelle instance ADF *adfdsp* et nommez le groupe de ressources créé *adfdsprg*.
@@ -93,7 +93,7 @@ Créez des tables qui spécifient la structure, l'emplacement et la disponibilit
 
 Les définitions reposant sur JSON dans les tables utilisent les noms suivants :
 
-* Le **nom de table** sur le serveur SQL local est *nyctaxi_data*
+* le **nom de table** sur le serveur SQL Server est *nyctaxi_data*
 * the **nom de conteneur** dans le compte de stockage d’objets blob Azure est *containername*
 
 Trois définitions de table sont nécessaires pour ce pipeline ADF :
@@ -108,7 +108,7 @@ Trois définitions de table sont nécessaires pour ce pipeline ADF :
 >
 
 ### <a name="sql-on-premises-table"></a><a name="adf-table-onprem-sql"></a>Table SQL locale
-La définition de table pour le SQL Server local est spécifié dans le fichier JSON suivant :
+La définition de table pour le serveur SQL Server est spécifiée dans le fichier JSON suivant :
 
 ```json
 {
@@ -226,12 +226,12 @@ En utilisant les définitions de table fournies précédemment, la définition d
     "name": "AMLDSProcessPipeline",
     "properties":
     {
-        "description" : "This pipeline has one Copy activity that copies data from an on-premises SQL to Azure blob",
+        "description" : "This pipeline has one Copy activity that copies data from SQL Server to Azure blob",
         "activities":
         [
             {
                 "name": "CopyFromSQLtoBlob",
-                "description": "Copy data from on-premises SQL server to blob",
+                "description": "Copy data from SQL Server to blob",
                 "type": "CopyActivity",
                 "inputs": [ {"name": "OnPremSQLTable"} ],
                 "outputs": [ {"name": "OutputBlobTable"} ],

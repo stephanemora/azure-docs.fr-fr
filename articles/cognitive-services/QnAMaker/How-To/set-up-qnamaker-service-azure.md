@@ -2,13 +2,13 @@
 title: Configurer un service QnA Maker - QnA Maker
 description: Avant de pouvoir créer des bases de connaissances QnA Maker, vous devez tout d’abord configurer un service QnA Maker dans Azure. Toute personne disposant d’autorisations pour créer des ressources dans un abonnement peut configurer un service QnA Maker.
 ms.topic: conceptual
-ms.date: 03/19/2020
-ms.openlocfilehash: 563a56fdb288568e7fe667fa54658400064a560f
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.date: 05/28/2020
+ms.openlocfilehash: 106796533f42250a2656735d97878ea04d6fa57f
+ms.sourcegitcommit: f1132db5c8ad5a0f2193d751e341e1cd31989854
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "81402985"
+ms.lasthandoff: 05/31/2020
+ms.locfileid: "84235516"
 ---
 # <a name="manage-qna-maker-resources"></a>Gérer les ressources QnA Maker
 
@@ -58,6 +58,7 @@ Cette procédure permet de créer les ressources Azure nécessaires pour gérer 
    ![Service QnA Maker créé par une ressource](../media/qnamaker-how-to-setup-service/resources-created.png)
 
     La ressource avec le type _Cognitive Services_ a vos clés _d’abonnement_.
+
 
 ## <a name="find-subscription-keys-in-the-azure-portal"></a>Rechercher les clés d’abonnement dans le portail Azure
 
@@ -209,6 +210,34 @@ Pour que l’application de point de terminaison de prédiction soit chargée m�
 1. Vous êtes invité à redémarrer l’application pour qu’elle utilise le nouveau paramètre. Sélectionnez **Continuer**.
 
 En savoir plus sur la configuration des [Paramètres généraux](../../../app-service/configure-common.md#configure-general-settings) de l’App Service .
+## <a name="configure-app-service-environment-to-host-qna-maker-app-service"></a>Configurer App Service Environment pour héberger le service d’application QnA Maker
+App Service Environment peut être utilisé pour héberger le service d’application QnA Maker. Si App Service Environment est interne, vous devez suivre les étapes suivantes :
+1. Créez un service d’application et un service Recherche Azure.
+2. Exposez le service d’application sur un DNS public et placez l’étiquette de service QnA Maker : CognitiveServicesManagement dans une liste verte ou conservez-la côté Internet.
+3. Créez une instance de service cognitif QnA Maker (Microsoft.CognitiveServices/accounts) à l’aide d’Azure Resource Manager, où le point de terminaison QnA Maker doit être défini sur App Service Environment. 
+
+## <a name="business-continuity-with-traffic-manager"></a>Continuité d'activité avec Traffic Manager
+
+L’objectif principal du plan de continuité d’activité est de créer un point de terminaison de base de connaissances résilient qui garantit qu’il n’y a aucun temps d’arrêt du bot ou de l’application qui la consomme.
+
+> [!div class="mx-imgBorder"]
+> ![Plan de continuité d’activité QnA Maker](../media/qnamaker-how-to-bcp-plan/qnamaker-bcp-plan.png)
+
+L’idée générale représentée plus haut est la suivante :
+
+1. Configurez deux [services QnA Maker](set-up-qnamaker-service-azure.md) parallèles dans des [régions Azure associées](https://docs.microsoft.com/azure/best-practices-availability-paired-regions).
+
+1. [Sauvegardez](../../../app-service/manage-backup.md) votre service d'application QnA Maker principal et [restaurez-le](../../../app-service/web-sites-restore.md) dans la configuration secondaire. Ainsi, les deux configurations fonctionneront avec les mêmes nom d'hôte et clés.
+
+1. Synchronisez les index de recherche Azure principal et secondaire. Utilisez l’exemple GitHub [ici](https://github.com/pchoudhari/QnAMakerBackupRestore) pour savoir comment sauvegarder/restaurer les index Azure.
+
+1. Sauvegardez Application Insights avec [exportation continue](../../../application-insights/app-insights-export-telemetry.md).
+
+1. Une fois que les piles principale et secondaire ont été configurées, utilisez [Gestionnaire de trafic](../../../traffic-manager/traffic-manager-overview.md) pour configurer les deux points de terminaison et définir une méthode de routage.
+
+1. Vous devez créer un certificat Transport Layer Security (TLS), anciennement Secure Sockets Layer (SSL), pour le point de terminaison de votre gestionnaire de trafic. [Liez le certificat TLS/SSL](../../../app-service/configure-ssl-bindings.md) dans vos services d’application.
+
+1. Enfin, utilisez le point de terminaison du gestionnaire de trafic dans votre bot ou dans votre application.
 
 ## <a name="delete-azure-resources"></a>Supprimer les ressources Azure
 
@@ -219,4 +248,4 @@ Si vous supprimez l’une des ressources Azure utilisées pour vos bases de conn
 Découvrez-en plus sur [App Service](../../../app-service/index.yml) et le [service de recherche](../../../search/index.yml).
 
 > [!div class="nextstepaction"]
-> [Créer et publier une base de connaissances](../Quickstarts/create-publish-knowledge-base.md)
+> [Découvrir comment créer en équipe](../how-to/collaborate-knowledge-base.md)

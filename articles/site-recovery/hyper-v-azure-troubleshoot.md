@@ -8,12 +8,12 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 04/14/2019
 ms.author: rajanaki
-ms.openlocfilehash: 0a3e5c922009353e4ba9ccab12cf70ea2b5992da
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 6ba1568e5fb05954313f50e63364a2e475dfbab7
+ms.sourcegitcommit: 1f48ad3c83467a6ffac4e23093ef288fea592eb5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "73961483"
+ms.lasthandoff: 05/29/2020
+ms.locfileid: "84195273"
 ---
 # <a name="troubleshoot-hyper-v-to-azure-replication-and-failover"></a>Résoudre les problèmes de réplication et de basculement de Hyper-V sur Azure
 
@@ -116,8 +116,9 @@ Une capture instantanée de cohérence des applications est un instantané à un
         - Ce taux d’activité des données va augmenter ou se maintenir à un niveau élevé, selon le niveau d’activité de la machine virtuelle ou de ses applications.
         - L’activité moyenne des données du disque source est de 2 Mo/s pour le stockage standard d’Azure Site Recovery. [En savoir plus](hyper-v-deployment-planner-analyze-report.md#azure-site-recovery-limits)
     - En outre, vous pouvez [vérifier les objectifs d’évolutivité du stockage](https://docs.microsoft.com/azure/storage/common/storage-scalability-targets).
-8. Exécutez le [Planificateur de déploiement](hyper-v-deployment-planner-run.md).
-9. Passez en revue les recommandations pour le [réseau](hyper-v-deployment-planner-analyze-report.md#recommendations-with-available-bandwidth-as-input) et le [stockage](hyper-v-deployment-planner-analyze-report.md#recommendations-with-available-bandwidth-as-input).
+8. Vérifiez que, si vous utilisez un serveur Linux, vous avez activé la cohérence des applications. [En savoir plus](https://docs.microsoft.com/azure/site-recovery/site-recovery-faq#replication)
+9. Exécutez le [Planificateur de déploiement](hyper-v-deployment-planner-run.md).
+10. Passez en revue les recommandations pour le [réseau](hyper-v-deployment-planner-analyze-report.md#recommendations-with-available-bandwidth-as-input) et le [stockage](hyper-v-deployment-planner-analyze-report.md#recommendations-with-available-bandwidth-as-input).
 
 
 ### <a name="vss-failing-inside-the-hyper-v-host"></a>Échec de VSS à l’intérieur de l’hôte Hyper-V
@@ -129,7 +130,7 @@ Une capture instantanée de cohérence des applications est un instantané à un
 
 2. Pour générer des captures instantanées VSS pour la machine virtuelle, vérifiez que les services d’intégration de Hyper-V sont installés sur la machine virtuelle et que le service d’intégration de sauvegarde (VSS) est activé.
     - Assurez-vous que le service VSS/les démons des services d’intégration sont en cours d’exécution sur l’invité et qu’ils sont dans un état **OK**.
-    - Pour le vérifier, ouvrez une session PowerShell avec élévation de privilèges sur l’hôte Hyper-V et exécutez la commande **et-VMIntegrationService -VMName\<VMName>-Name VSS**. Vous pouvez également obtenir ces informations en vous connectant à la machine virtuelle invitée. [Plus d’informations](https://docs.microsoft.com/windows-server/virtualization/hyper-v/manage/manage-hyper-v-integration-services)
+    - Pour le vérifier, ouvrez une session PowerShell avec élévation de privilèges sur l’hôte Hyper-V et exécutez la commande **Get-VMIntegrationService -VMName\<VMName>-Name VSS**. Vous pouvez également obtenir ces informations en vous connectant à la machine virtuelle invitée. [Plus d’informations](https://docs.microsoft.com/windows-server/virtualization/hyper-v/manage/manage-hyper-v-integration-services)
     - Assurez-vous que les services d’intégration Sauvegarde Microsoft Azure/VSS sur la machine virtuelle sont en cours d’exécution et intègres. Si tel n’est pas le cas, redémarrez ces services et le service Requête du service VSS Microsoft Hyper-V sur le serveur hôte Hyper-V.
 
 ### <a name="common-errors"></a>Erreurs courantes

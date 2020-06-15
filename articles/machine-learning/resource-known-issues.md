@@ -1,7 +1,7 @@
 ---
 title: Problèmes connus et résolutions
 titleSuffix: Azure Machine Learning
-description: Liste des problèmes connus, des solutions de contournement et des résolutions pour Azure Machine Learning.
+description: Obtenez de l’aide pour trouver et corriger des erreurs ou des défaillances dans Azure Machine Learning. Découvrez les problèmes connus et leur mode de résolution ainsi que des solutions de contournement.
 services: machine-learning
 author: j-martens
 ms.author: jmartens
@@ -9,19 +9,25 @@ ms.reviewer: mldocs
 ms.service: machine-learning
 ms.subservice: core
 ms.topic: conceptual
+ms.custom: contperfq4
 ms.date: 03/31/2020
-ms.openlocfilehash: 93015da810f163a48529704e69e1747ac1aec401
-ms.sourcegitcommit: b396c674aa8f66597fa2dd6d6ed200dd7f409915
+ms.openlocfilehash: 169dd7f71b86c77717226872fecb493a6eb5bf0d
+ms.sourcegitcommit: 69156ae3c1e22cc570dda7f7234145c8226cc162
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/07/2020
-ms.locfileid: "82889391"
+ms.lasthandoff: 06/03/2020
+ms.locfileid: "84309847"
 ---
-# <a name="known-issues-and-troubleshooting-azure-machine-learning"></a>Problèmes connus et dépannage d’Azure Machine Learning
+# <a name="known-issues-and-troubleshooting-in-azure-machine-learning"></a>Problèmes connus et résolution des problèmes dans Azure Machine Learning
 
-Cet article vous permet de rechercher et de corriger les erreurs ou défaillances que vous pouvez rencontrer lors de l’utilisation d’Azure Machine Learning.
+Cet article vous aide à résoudre les problèmes connus que vous pouvez rencontrer durant l’utilisation d’Azure Machine Learning. 
 
-## <a name="diagnostic-logs"></a>Journaux de diagnostic
+Pour plus d’informations sur la résolution des problèmes, consultez [Étapes suivantes](#next-steps) à la fin de cet article.
+
+> [!TIP]
+> Les erreurs ou autres problèmes rencontrés sont parfois dus aux [quotas de ressources](how-to-manage-quotas.md) auxquels vous êtes confrontés quand vous travaillez avec Azure Machine Learning. 
+
+## <a name="access-diagnostic-logs"></a>Accéder aux journaux de diagnostic
 
 Parfois, fournir des informations de diagnostic quand vous demandez de l’aide peut se révéler utile. Pour afficher certains journaux : 
 1. Visitez [Azure Machine Learning Studio](https://ml.azure.com). 
@@ -34,17 +40,13 @@ Parfois, fournir des informations de diagnostic quand vous demandez de l’aide 
 > Azure Machine Learning consigne des informations de diverses sources pendant la formation, telles que AutoML ou le conteneur Docker qui exécute le travail de formation. La plupart de ces journaux ne sont pas documentés. Si vous rencontrez des problèmes et que vous contactez le support Microsoft, il pourra peut-être utiliser ces journaux pendant la résolution des problèmes.
 
 
-## <a name="resource-quotas"></a>Quotas de ressources
-
-Découvrez plus d’informations sur les [quotas des ressources](how-to-manage-quotas.md) que vous pouvez rencontrer quand vous utilisez Azure Machine Learning.
-
 ## <a name="installation-and-import"></a>Installation et importation
                            
-* **Installation de pip : il n’est pas garanti que les dépendances soient cohérentes avec l’installation à ligne unique** : 
+* **Installation de pip : il n’est pas garanti que les dépendances soient cohérentes avec l’installation monoligne :** 
 
    Il s’agit d’une limitation connue de pip, car il ne dispose pas d’un outil de résolution des dépendances fonctionnel lorsque vous effectuez une installation à partir d’une ligne unique. La première dépendance unique est la seule qu’il examine. 
 
-   Dans le code suivant, `azure-ml-datadrift` et `azureml-train-automl` sont tous deux installés à l’aide d’une installation pip à ligne unique. 
+   Dans le code suivant, `azure-ml-datadrift` et `azureml-train-automl` sont tous deux installés à l’aide d’une installation pip monoligne. 
      ```
        pip install azure-ml-datadrift, azureml-train-automl
      ```
@@ -57,15 +59,15 @@ Découvrez plus d’informations sur les [quotas des ressources](how-to-manage-q
         pip install azureml-train-automl 
      ```
      
-* **L’installation du package d’explication n’est pas garantie lors de l’installation d’azureml-train-automl-client :** 
+* **L’installation du package d’explication n’est pas garantie durant l’installation de azureml-train-automl-client :** 
    
-   Lors de l’exécution d’une exécution automl distante avec explication du modèle activée, vous verrez le message d’erreur « Installez le package azureml-explain-model pour les explications du modèle. » Il s’agit d’un problème connu et, dans le cadre d’une solution de contournement, effectuez l’une des étapes suivantes :
+   Durant une exécution AutoML distante avec activation des explications du modèle, vous verrez le message d’erreur « Installez le package azureml-explain-model pour les explications du modèle. » Il s'agit d'un problème connu. Pour contourner ce problème, suivez l’une des étapes ci-dessous :
   
   1. Installez azureml-explain-model en local.
    ```
       pip install azureml-explain-model
    ```
-  2. Désactivez entièrement la fonctionnalité d’explicabilité en transmettant model_explainability=False dans la configuration d’automl.
+  2. Désactivez entièrement la fonctionnalité d’explicabilité en passant model_explainability=False dans la configuration AutoML.
    ```
       automl_config = AutoMLConfig(task = 'classification',
                              path = '.',
@@ -81,7 +83,7 @@ Découvrez plus d’informations sur les [quotas des ressources](how-to-manage-q
     
 * **Erreurs Panda : généralement visibles pendant l’expérience AutoML :**
    
-   Lorsque vous configurez manuellement votre environnement à l’aide de pip, vous remarquerez des erreurs d’attributs (en particulier des pandas) dues à l’installation de versions non prises en charge des paquets. Pour éviter ce type d’erreur, [installez le Kit de développement logiciel (SDK) AutoML à l’aide de la commande automl_setup.cmd](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/automated-machine-learning/README.md) :
+   Quand vous configurez manuellement votre environnement à l’aide de pip, vous pouvez remarquer des erreurs d’attributs (en particulier de Pandas) en raison de l’installation de versions de package non prises en charge. Pour éviter ce type d’erreur, [installez le Kit de développement logiciel (SDK) AutoML à l’aide de la commande automl_setup.cmd](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/automated-machine-learning/README.md) :
    
     1. Ouvrez une invite Anaconda et clonez le référentiel GitHub pour un ensemble d’exemples de notebooks.
 
@@ -174,9 +176,9 @@ Si vous utilisez le partage de fichiers pour d’autres charges de travail, tell
 
 |Problème  |Résolution  |
 |---------|---------|
-|Seuls des jeux de données créés sur des magasins de données blob peuvent être utilisés     |  Il s’agit d’une limitation connue de la version actuelle.       |
-|Après la création, le projet affiche le message « Initialisation » pendant une longue période de temps     | Actualisez la page manuellement. L’initialisation doit se faire à environ 20 points de données par seconde. L’absence d’actualisation automatique est un problème connu.         |
-|Lors du passage en revue des images, les images récemment étiquetées ne sont pas affichées     |   Pour charger toutes les images étiquetées, choisissez le bouton **Premier**. Le bouton **Premier** vous ramène au début de la liste, mais charge toutes les données étiquetées.      |
+|Seuls des jeux de données créés dans des magasins de données d’objets blob peuvent être utilisés.     |  Il s’agit d’une limitation connue de la version actuelle.       |
+|Une fois la création effectuée, le projet affiche le message « Initialisation » pendant une longue période.     | Actualisez la page manuellement. L’initialisation doit se faire à environ 20 points de données par seconde. L’absence d’actualisation automatique est un problème connu.         |
+|Au moment du passage en revue des images, les images récemment étiquetées ne sont pas affichées.     |   Pour charger toutes les images étiquetées, choisissez le bouton **Premier**. Le bouton **Premier** vous ramène au début de la liste, mais charge toutes les données étiquetées.      |
 |Appuyer sur la touche Échap lors de l’étiquetage pour la détection d’objet crée une étiquette de taille zéro dans l’angle supérieur gauche. L’envoi d’étiquettes dans cet état échoue.     |   Pour supprimer l’étiquette, cliquez sur la croix en regard de celle-ci.  |
 
 ## <a name="azure-machine-learning-designer"></a>Concepteur Azure Machine Learning
@@ -187,11 +189,11 @@ Problèmes connus :
 
 ## <a name="train-models"></a>Entraîner des modèles
 
-* **ModuleErrors (aucun module nommé)**  :  Si vous rencontrez des erreurs de module (ModuleErrors) lors de la soumission d’expériences dans Azure ML, cela signifie que le script d’apprentissage attend qu’un package soit installé, mais qu’il n’est pas ajouté. Une fois que vous avez fourni le nom du package, Azure ML installe le package dans l’environnement utilisé pour l’exécution de votre script d’apprentissage. 
+* **ModuleErrors (aucun module nommé)**  :  Si vous rencontrez des erreurs de module (ModuleErrors) lors de la soumission d’expériences dans Azure ML, cela signifie que le script d’apprentissage attend qu’un package soit installé, mais qu’il n’est pas ajouté. Une fois que vous avez fourni le nom du package, Azure ML installe ce dernier dans l’environnement utilisé pour l’entraînement. 
 
     Si vous utilisez des [Estimateurs](concept-azure-machine-learning-architecture.md#estimators) pour soumettre des expériences, vous pouvez spécifier un nom de package à l’aide du paramètre `pip_packages` ou `conda_packages` dans l’estimateur en fonction de la source à partir de laquelle vous souhaitez installer le package. Vous pouvez également spécifier un fichier yml avec toutes vos dépendances à l’aide de `conda_dependencies_file` ou répertorier toutes vos exigences PIP dans un fichier txt à l’aide du paramètre `pip_requirements_file`. Si vous souhaitez remplacer l’image par défaut utilisée par l’estimateur dans votre propre objet d’environnement Azure ML, vous pouvez spécifier cet environnement par le bais du paramètre `environment` du constructeur estimateur.
 
-    Azure ML fournit également des estimateurs spécifiques à l’infrastructure pour Tensorflow, PyTorch, Chainer et SKLearn. À l’aide de ces estimateurs, assurez-vous que les dépendances d’infrastructure principales sont installées pour vous dans l’environnement utilisé pour la formation. Vous avez la possibilité de spécifier des dépendances supplémentaires comme décrit ci-dessus. 
+    Azure ML fournit également des estimateurs spécifiques au framework pour TensorFlow, PyTorch, Chainer et SKLearn. À l’aide de ces estimateurs, assurez-vous que les dépendances d’infrastructure principales sont installées pour vous dans l’environnement utilisé pour la formation. Vous avez la possibilité de spécifier des dépendances supplémentaires comme décrit ci-dessus. 
  
     Azure ML a géré les images Docker dont le contenu est visible dans [AzureML Containers](https://github.com/Azure/AzureML-Containers).
     Les dépendances spécifiques à l’infrastructure sont répertoriées dans la documentation de l’infrastructure correspondante, [Chainer](https://docs.microsoft.com/python/api/azureml-train-core/azureml.train.dnn.chainer?view=azure-ml-py#remarks), [PyTorch](https://docs.microsoft.com/python/api/azureml-train-core/azureml.train.dnn.pytorch?view=azure-ml-py#remarks), [TensorFlow](https://docs.microsoft.com/python/api/azureml-train-core/azureml.train.dnn.tensorflow?view=azure-ml-py#remarks) et [SKLearn](https://docs.microsoft.com/python/api/azureml-train-core/azureml.train.sklearn.sklearn?view=azure-ml-py#remarks).
@@ -218,7 +220,7 @@ Problèmes connus :
 
 ## <a name="automated-machine-learning"></a>Machine learning automatisé
 
-* **Flux de tenseur** : Le machine learning automatisé ne prend actuellement pas en charge la version 1.13 des flux de tenseur. Si vous installez cette version, les dépendances de package cesseront de fonctionner. Nous nous efforçons de résoudre ce problème dans une version ultérieure.
+* **TensorFlow** : Le machine learning automatisé ne prend pas en charge TensorFlow version 1.13. Si vous installez cette version, les dépendances de package cesseront de fonctionner. Nous nous efforçons de résoudre ce problème dans une version ultérieure.
 
 * **Graphiques d’expérience** : Les graphiques de classification binaire (rappel de précision, ROC, obtenir la courbe, etc.) indiqués dans les itérations d’expériences ML automatisées ne sont pas correctement rendus dans l’interface utilisateur depuis le 12/04. Les tracés de graphique affichent actuellement les résultats inverses, ainsi les modèles plus performants sont affichés avec les résultats les plus bas. Une résolution est en cours d’investigation.
 
@@ -286,7 +288,7 @@ az aks get-credentials -g <rg> -n <aks cluster name>
 
 ## <a name="authentication-errors"></a>Erreurs d’authentification
 
-Si vous effectuez une opération de gestion sur une cible de calcul à partir d'un travail distant, vous recevrez l'une des erreurs suivantes :
+Si vous effectuez une opération de gestion sur une cible de calcul à partir d'un travail distant, vous recevrez l'une des erreurs suivantes : 
 
 ```json
 {"code":"Unauthorized","statusCode":401,"message":"Unauthorized","details":[{"code":"InvalidOrExpiredToken","message":"The request token was either invalid or expired. Please try again with a valid token."}]}
@@ -297,3 +299,13 @@ Si vous effectuez une opération de gestion sur une cible de calcul à partir d'
 ```
 
 Par exemple, vous recevrez une erreur si vous essayez de créer ou de joindre une cible de calcul à partir d'un pipeline Machine Learning soumis en vue d'une exécution à distance.
+
+## <a name="next-steps"></a>Étapes suivantes
+
+Consultez d’autres articles de résolution des problèmes liés à Azure Machine Learning :
+
+* [Résolution des problèmes de déploiement Docker liés à Azure Machine Learning](how-to-troubleshoot-deployment.md)
+* [Déboguer des pipelines de machine learning](how-to-debug-pipelines.md)
+* [Déboguer la classe ParallelRunStep du kit SDK Azure Machine Learning](how-to-debug-parallel-run-step.md)
+* [Débogage interactif d’une instance de Capacité de calcul Machine Learning avec VS Code](how-to-set-up-vs-code-remote.md)
+* [Utiliser Application Insights pour déboguer des pipelines de machine learning](how-to-debug-pipelines-application-insights.md)

@@ -8,12 +8,12 @@ ms.subservice: disk
 ms.topic: conceptual
 ms.date: 05/20/2020
 ms.author: v-grpr
-ms.openlocfilehash: 2933eb216b7faed7b28fb53d79fec2f50bc4458d
-ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
+ms.openlocfilehash: c26f50d858d316cab0d4533187494e023cea5071
+ms.sourcegitcommit: 309cf6876d906425a0d6f72deceb9ecd231d387c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/21/2020
-ms.locfileid: "83748928"
+ms.lasthandoff: 06/01/2020
+ms.locfileid: "84266166"
 ---
 # <a name="use-self-managed-shipping-for-azure-data-box-in-the-azure-portal"></a>Utilisez l’expédition autogérée pour Azure Data Box dans le Portail Azure
 
@@ -36,12 +36,12 @@ Quand vous passez une commande de Data Box, vous pouvez choisir l’option d’e
 1. Dans votre commande Azure Data Box, sous **Détails du contact**, sélectionnez **+ Ajouter une adresse de livraison**.
    ![Expédition autogérée](media\data-box-portal-customer-managed-shipping\choose-self-managed-shipping-1.png)
 
-2. Lorsque vous choisissez le type d’expédition, sélectionnez l’option **expédition autogérée**. Cette option est disponible uniquement si vous êtes dans une des régions prises en charge, comme décrit dans les conditions préalables.
+2. Lorsque vous choisissez le type d’expédition, sélectionnez l’option **expédition autogérée**. Cette option est disponible uniquement si vous êtes dans une des régions prises en charge, comme cela est décrit dans les prérequis.
 
 3. Une fois que vous avez fourni votre adresse de livraison, vous devez la valider et terminer votre commande.
    ![Expédition autogérée](media\data-box-portal-customer-managed-shipping\choose-self-managed-shipping-2.png)
 
-4. Une fois l’appareil préparé, vous pouvez planifier un enlèvement.
+4. Quand l’appareil a été préparé et que vous en avez été informé par e-mail, vous pouvez planifier un prélèvement.
 
    Dans votre commande Azure Data Box, accédez à **Vue d’ensemble** puis sélectionnez **Planifier l’enlèvement**.
 
@@ -57,7 +57,7 @@ Quand vous passez une commande de Data Box, vous pouvez choisir l’option d’e
 
    ![Affichage de votre code d’autorisation](media\data-box-portal-customer-managed-shipping\data-box-portal-auth-01b.png)
 
-   Notez ce **code d’autorisation**. Conformément aux exigences de sécurité, au moment de la planification de l’enlèvement et du dépôt, il est nécessaire de donner le nom de la personne qui sera présente lors de l’enlèvement et du dépôt.
+   Notez ce **code d’autorisation**. Conformément aux exigences de sécurité, au moment de la planification de l’enlèvement, il est nécessaire de donner le nom de la personne qui sera présente pour l’enlèvement.
 
    Vous devez également fournir des détails sur les personnes qui se rendront au centre de données pour l’enlèvement. Vous ou le point de contact devez posséder une pièce d’identité avec photo approuvée par le gouvernement qui sera validé par le centre de donnée.
 

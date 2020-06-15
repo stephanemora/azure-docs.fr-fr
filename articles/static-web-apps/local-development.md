@@ -7,12 +7,12 @@ ms.service: static-web-apps
 ms.topic: how-to
 ms.date: 05/08/2020
 ms.author: buhollan
-ms.openlocfilehash: 36d580b7659325d4bf5f13889f774ddaa2ab0702
-ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
+ms.openlocfilehash: a7215790a7f052227b08f51dcd7ad5dd337bb4e9
+ms.sourcegitcommit: 223cea58a527270fe60f5e2235f4146aea27af32
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83594248"
+ms.lasthandoff: 06/01/2020
+ms.locfileid: "84259267"
 ---
 # <a name="set-up-local-development-for-azure-static-web-apps-preview"></a>Configurer le développement local pour Azure Static Web Apps en préversion
 
@@ -64,7 +64,7 @@ L’extension Live Server pour Visual Studio Code fournit un serveur web de dév
 
 #### <a name="create-a-repository"></a>Créer un référentiel
 
-1. Accédez à [https://github.com/staticwebdev/vanilla-api/generate](https://github.com/staticwebdev/vanilla-api/generate) et créez un nouveau projet GitHub nommé **vanille-api**, à l’aide de ce modèle.
+1. Vérifiez que vous êtes connecté à GitHub et accédez à [https://github.com/staticwebdev/vanilla-api/generate](https://github.com/staticwebdev/vanilla-api/generate) pour créer un projet GitHub nommé **vanilla-api**, en utilisant ce modèle.
 
     :::image type="content" source="media/local-development/vanilla-api.png" alt-text="Nouvelle fenêtre de référentiel GitHub":::
 

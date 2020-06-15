@@ -1,0 +1,93 @@
+---
+title: Séries Edv4 et Edsv4 - Machines virtuelles Microsoft Azure
+description: Spécifications relatives aux machines virtuelles des séries Ev4, Edv4, Esv4 et Edsv4.
+author: brbell
+ms.author: brbell
+ms.reviewer: cynthn
+ms.custom: mimckitt
+ms.service: virtual-machines
+ms.topic: conceptual
+ms.date: 02/04/2020
+ms.openlocfilehash: 795891f56985504a3584089d7377f753605ba4dd
+ms.sourcegitcommit: 309cf6876d906425a0d6f72deceb9ecd231d387c
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 06/01/2020
+ms.locfileid: "84263038"
+---
+# <a name="edv4-and-edsv4-series"></a>Séries Edv4 et Edsv4
+
+Les séries Edv4 et Edsv4 s’exécutent sur les processeurs Intel&reg; Xeon&reg; Platinum 8272CL (Cascade Lake) dans une configuration hyper-thread. Idéales pour les applications d’entreprise gourmandes en mémoire, elles proposent jusqu’à 504 Gio de RAM, la [technologie Intel&reg; Turbo Boost 2.0](https://www.intel.com/content/www/us/en/architecture-and-technology/turbo-boost/turbo-boost-technology.html), la [technologie Intel&reg; Hyper-Threading](https://www.intel.com/content/www/us/en/architecture-and-technology/hyper-threading/hyper-threading-technology.html) et la [technologie Intel&reg; Advanced Vector Extensions 512 (Intel&reg; AVX-512)](https://www.intel.com/content/www/us/en/architecture-and-technology/avx-512-overview.html). Ces nouvelles tailles de machines virtuelles disposeront d’un stockage local 50 % plus volumineux ainsi que de meilleures IOPS de disque local en lecture et en écriture par rapport aux tailles [Ev3/Esv3](https://docs.microsoft.com/azure/virtual-machines/ev3-esv3-series) avec des [machines virtuelles Gen2](https://docs.microsoft.com/azure/virtual-machines/linux/generation-2).
+
+
+> [!IMPORTANT]
+> Si vous déployez une nouvelle machine virtuelle avec les séries Edv4 ou Edsv4 et que vous comptez utiliser une image Linux, vous devez utiliser RHEL 8.x, CentOS 8.x ou Oracle 7.x (ou version plus récente). Si vous choisissez RHEL 7.x, CentOS 7.x ou Oracle 6.x, une erreur de type Alerte sur le noyau se produira. Microsoft procède actuellement au déploiement d'un correctif. Seuls RHEL, CentOS et Oracle sont concernés.
+
+## <a name="edv4-series"></a>Série Edv4
+
+Les tailles de la série Edv4 s’exécutent sur les processeurs Intel &reg;​​Xeon&reg; Platinum 8272CL (Cascade Lake). Les tailles de machine virtuelle Edv4 proposent jusqu’à 504 Gio de RAM, en plus du stockage SSD local rapide et volumineux (jusqu’à 2 400 Gio). Ces machines virtuelles sont idéales pour les applications d’entreprise gourmandes en mémoire et les applications qui bénéficient d’un stockage local à faible latence et à haut débit. Vous pouvez associer les stockages de disque SSD Standard et HDD Standard aux machines virtuelles Edv4. 
+
+ACU : 195 - 210
+
+Premium Storage :  Non pris en charge
+
+Mise en cache du Stockage Premium :  Non pris en charge
+
+Migration dynamique : Prise en charge
+
+Mises à jour avec préservation de la mémoire : Prise en charge
+
+| Taille | Processeurs virtuels | Mémoire : Gio | Stockage temporaire (SSD) en Gio | Disques de données max. | Débit de stockage temporaire et mis en cache max. : IOPS/Mbits/s | Nombre max. de cartes réseau/Bande passante réseau attendue (Mbits/s) |
+|---|---|---|---|---|---|---|
+| Standard_E2d_v4  | 2 | 16 | 75 | 4 | 19000/120 | 2/1 000 |
+| Standard_E4d_v4  | 4 | 32 | 150 | 8 | 38500/242 | 2/2 000 |
+| Standard_E8d_v4 | 8 | 64 | 300 | 16 | 77000/485 | 4/4 000 |
+| Standard_E16d_v4 | 16 | 128 | 600 | 32 | 154000/968 | 8/8 000 |
+| Standard_E20d_v4 | 20 | 160 | 750 | 32 | 193000/1211  | 8/10 000 |
+| Standard_E32d_v4 | 32 | 256 | 1200 | 32 | 308000/1936 | 8/16 000 |
+| Standard_E48d_v4 | 48 | 384 | 1800 | 32 | 462000/2904 | 8/24 000 |
+| Standard_E64d_v4 | 64 | 504 | 2 400 | 32 | 615000/3872 | 8/30 000 |
+
+
+## <a name="edsv4-series"></a>Série Edsv4
+
+Les tailles de la série Edsv4 s’exécutent sur les processeurs Intel &reg;​​Xeon&reg; Platinum 8272CL (Cascade Lake). Les tailles de machine virtuelle Edsv4 proposent jusqu’à 504 Gio de RAM, en plus du stockage SSD local rapide et volumineux (jusqu’à 2 400 Gio). Ces machines virtuelles sont idéales pour les applications d’entreprise gourmandes en mémoire et les applications qui bénéficient d’un stockage local à faible latence et à haut débit.
+
+ACU : 195-210
+
+Premium Storage :  Prise en charge
+
+Mise en cache du Stockage Premium :  Prise en charge
+
+Migration dynamique : Prise en charge
+
+Mises à jour avec préservation de la mémoire : Prise en charge
+
+| Taille | Processeurs virtuels | Mémoire : Gio | Stockage temporaire (SSD) en Gio | Disques de données max. | Débit de stockage temporaire et mis en cache max. : IOPS/MBps | Débit du disque non mis en cache max. : IOPS/Mbits/s | Nombre max. de cartes réseau/Bande passante réseau attendue (Mbits/s) |
+|---|---|---|---|---|---|---|---|
+| Standard_E2ds_v4  | 2 | 16 | 75 | 4 | 19000/120(50) | 3 200/48 | 2/1 000 |
+| Standard_E4ds_v4  | 4 | 32 | 150 | 8 | 38500/242(100) | 6 400/96 | 2/2 000 |
+| Standard_E8ds_v4 | 8 | 64 | 300 | 16 | 77000/485(200) | 12 800/192 | 4/4 000 |
+| Standard_E16ds_v4 | 16 | 128 | 600 | 32 | 154000/968(400) | 25 600/384 | 8/8 000 |
+| Standard_E20ds_v4 | 20 | 160 | 750 | 32 | 193000/1211(500)  | 32 000/480  | 8/10 000 |
+| Standard_E32ds_v4 | 32 | 256 | 1200 | 32 | 308000/1936(800) | 51 200/768  | 8/16 000 |
+| Standard_E48ds_v4 | 48 | 384 | 1800 | 32 | 462000/2904(1200) | 76 800/1152 | 8/24 000 |
+| Standard_E64ds_v4 <sup>1</sup> | 64 | 504 | 2 400 | 32 | 615000/3872(1600) | 80 000/1 200 | 8/30 000 |
+
+<sup>1</sup> [Tailles avec nombre de cœurs limité disponibles](https://docs.microsoft.com/azure/virtual-machines/windows/constrained-vcpu).
+
+
+[!INCLUDE [virtual-machines-common-sizes-table-defs](../../includes/virtual-machines-common-sizes-table-defs.md)]
+
+## <a name="other-sizes"></a>Autres tailles
+
+- [Usage général](sizes-general.md)
+- [Mémoire optimisée](sizes-memory.md)
+- [Optimisé pour le stockage](sizes-storage.md)
+- [Optimisé pour le GPU](sizes-gpu.md)
+- [Calcul haute performance](sizes-hpc.md)
+- [Générations précédentes](sizes-previous-gen.md)
+
+## <a name="next-steps"></a>Étapes suivantes
+
+Lisez-en davantage sur les [Unités de calcul Azure (ACU)](acu.md) pour découvrir comment comparer les performances de calcul entre les références Azure.

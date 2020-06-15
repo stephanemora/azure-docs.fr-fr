@@ -1,0 +1,72 @@
+---
+title: Quotas de Live Video Analytics sur IoT Edge - Azure
+description: Cet article décrit les quotas et limitations de Live Video Analytics sur IoT Edge.
+ms.topic: conceptual
+ms.date: 05/22/2020
+ms.openlocfilehash: 9b01db8f1120174806f4b687f7e9ebc4e2386f3d
+ms.sourcegitcommit: 223cea58a527270fe60f5e2235f4146aea27af32
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 06/01/2020
+ms.locfileid: "84260342"
+---
+# <a name="quotas-and-limitations"></a>Quotas et limitations
+
+Cet article énumère les quotas et limitations du module Live Video Analytics sur IoT Edge.
+
+## <a name="maximum-period-of-disconnected-use"></a>Période maximale d’utilisation déconnectée
+
+Le module de périphérie peut supporter une perte temporaire de connectivité réseau. Si le module reste déconnecté pendant plus de 36 heures, il désactive toutes les instances de graphe en cours d’exécution. De plus, les appels de méthodes directes qui suivent sont bloqués.
+
+Pour ramener le module de périphérie à un état opérationnel, vous devez restaurer la connectivité réseau. De plus, le module doit pouvoir communiquer correctement avec le compte Azure Media Services.
+
+## <a name="maximum-number-of-graph-instances"></a>Nombre maximal d’instances de graphe
+
+Vous pouvez avoir au maximum 1 000 instances de graphe par module (créées via GraphInstanceSet).
+
+## <a name="maximum-number-of-graph-topologies"></a>Nombre maximal de topologies de graphe
+
+Vous pouvez avoir au maximum 50 topologies de graphe par module (créées via GraphTopologySet).
+
+## <a name="limitations-on-graph-topologies-at-preview"></a>Limitations relatives aux topologies de graphe dans la préversion
+
+Avec la préversion, il existe des limitations sur les différents nœuds qui peuvent être connectés ensemble dans une topologie de graphe multimédia.
+
+* Source RTSP
+   * Une seule source RTSP est autorisée par topologie de graphe.
+* Processeur de filtre de fréquence d’images
+   * Doit être immédiatement en aval de la source RTSP ou du processeur de détection de mouvement.
+   * Ne peut pas être utilisé en aval d’un processeur d’extension HTTP.
+   * Ne peut pas être en amont d’un processeur de détection de mouvement.
+* Processeur d’extension HTTP
+   * Il ne peut exister qu’un seul processeur de ce type par topologie de graphe.
+* Processeur de détection de mouvement
+   * Doit être immédiatement en aval de la source RTSP.
+   * Il ne peut exister qu’un seul processeur de ce type par topologie de graphe.
+   * Ne peut pas être utilisé en aval d’un processeur d’extension HTTP.
+* Processeur de porte de signal
+   * Doit être immédiatement en aval de la source RTSP.
+* Récepteur de ressources 
+   * Il ne peut exister qu’un seul nœud de ce type par topologie de graphe.
+      * Si un récepteur de ressources est utilisé, un récepteur de fichiers ne peut pas être présent, et inversement.
+   * Doit être immédiatement en aval de la source RTSP ou du processeur de porte de signal.
+* Récepteur de fichiers
+   * Il ne peut exister qu’un seul nœud de ce type par topologie de graphe (consultez la remarque ci-dessus relative au récepteur de ressources).
+   * Doit être immédiatement en aval du processeur de porte de signal.
+   * Ne peut pas être immédiatement en aval du processeur d’extension HTTP ou du processeur de détection de mouvement
+* Récepteur IoT Hub
+   * Ne peut pas être immédiatement en aval d’une source IoT Hub.
+
+Si les nœuds de processeur de détection de mouvement et de taux de filtrage sont utilisés, ils doivent être dans la même chaîne de nœuds menant au nœud source RTSP.
+
+## <a name="limitations-on-media-service-operations-at-preview"></a>Limitations relatives aux opérations Media Services dans la préversion
+
+Au lancement de la préversion, Live Video Analytics sur IoT Edge ne prend pas en charge les éléments suivants :
+
+* Possibilité de migrer le compte Media Services d’un abonnement à un autre sans interruption.
+* Possibilité d’utiliser plusieurs comptes de stockage avec le compte Media Services.
+* Possibilité de changer dynamiquement les informations du principal de service dans les propriétés souhaitées du module, sans redémarrage.
+
+## <a name="next-steps"></a>Étapes suivantes
+
+[Vue d'ensemble](overview.md)

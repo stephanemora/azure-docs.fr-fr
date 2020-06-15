@@ -7,12 +7,12 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 08/2/2019
 ms.author: mayg
-ms.openlocfilehash: 3a3d8ee1d0c1625c9e7d3d83b590f38dcd8847fe
-ms.sourcegitcommit: 0b80a5802343ea769a91f91a8cdbdf1b67a932d3
+ms.openlocfilehash: 1db32d506cc455b020fc6c0f2bba10361e961324
+ms.sourcegitcommit: 1f48ad3c83467a6ffac4e23093ef288fea592eb5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/25/2020
-ms.locfileid: "83836411"
+ms.lasthandoff: 05/29/2020
+ms.locfileid: "84197043"
 ---
 # <a name="troubleshoot-replication-issues-for-vmware-vms-and-physical-servers"></a>Résoudre les problèmes de réplication pour les serveurs physiques et machines virtuelles VMware
 
@@ -77,7 +77,7 @@ Pour résoudre le problème :
     - Accédez au panneau Disques de la machine répliquée concernée et copiez le nom du disque de réplica.
     - Accédez à ce disque managé de réplica.
     - Vous pouvez voir une bannière dans le panneau Vue d’ensemble indiquant qu’une URL de signature d’accès partagé a été générée. Cliquez sur cette bannière et annulez l’exportation. Ignorez cette étape si vous ne voyez pas la bannière.
-    - Dès que l’URL de la signature d’accès partagé est révoquée, accédez au panneau Configuration du disque managé et augmentez la taille de manière à ce que la récupération automatique du système prenne en charge le débit observé sur le disque source.
+    - Dès que l’URL de la signature d’accès partagé est révoquée, accédez au panneau Configuration du disque managé et augmentez la taille de manière à ce qu’Azure Site Recovery prenne en charge le débit observé sur le disque source.
 - Si le taux d’évolution observé est temporaire, attendez quelques heures que le chargement des données en attente rattrape son retard et crée des points de récupération.
 - Si le disque contient des données non critiques, comme des journaux temporaires ou des données de test, déplacez ces données ou excluez l’intégralité de ce disque de la réplication.
 - Si le problème persiste, utilisez le [Planificateur de déploiement](site-recovery-deployment-planner.md#overview) Site Recovery pour faciliter la planification de la réplication.
@@ -146,6 +146,8 @@ Certains des problèmes les plus courants sont répertoriés ci-dessous
 #### <a name="cause-3-known-issue-in-sql-server-2016-and-2017"></a>Cause 3 : Problème connu dans SQL Server 2016 et 2017
 **Procédure de résolution** : Référez-vous à cet [article](https://support.microsoft.com/help/4493364/fix-error-occurs-when-you-back-up-a-virtual-machine-with-non-component) de la base de connaissances
 
+#### <a name="cause-4-app-consistency-not-enabled-on-linux-servers"></a>Cause 4 : Cohérence des applications non activée sur les serveurs Linux
+**Procédure de résolution** : Azure Site Recovery pour le système d’exploitation Linux prend en charge les scripts personnalisés des applications à des fins de cohérence. Le script personnalisé avec options pré et post-script sera utilisé par l’agent Mobilité Azure Site Recovery pour la cohérence des applications. [Voici](https://docs.microsoft.com/azure/site-recovery/site-recovery-faq#replication) les étapes pour l’activer.
 
 ### <a name="more-causes-due-to-vss-related-issues"></a>Autres causes provoquées par des problèmes liés à VSS :
 
@@ -162,12 +164,12 @@ Dans l’exemple ci-dessus, **2147754994** est le code d’erreur qui vous infor
 
 #### <a name="vss-writer-is-not-installed---error-2147221164"></a>L’enregistreur VSS n’est pas installé - erreur 2147221164
 
-*Procédure de résolution* : Pour générer une balise de cohérence d’application, Azure Site Recovery utilise le service VSS (cliché instantané de volume) de Microsoft. Il installe un fournisseur VSS pour que l’opération prenne des clichés instantanés de la cohérence d’application. Ce fournisseur VSS est installé en tant que service. Si le service de fournisseur VSS n’est pas installé, la création de clichés instantanés de la cohérence d’application échoue et l’ID d’erreur 0x80040154 « Classe non inscrite » s’affiche. </br>
+*Procédure de résolution* : Pour générer une balise de cohérence d’application, Azure Site Recovery utilise le service VSS (cliché instantané de volume) de Microsoft. Il installe un fournisseur VSS pour que l’opération prenne des clichés instantanés de la cohérence d’application. Ce fournisseur VSS est installé en tant que service. Si le service de fournisseur VSS n’est pas installé, la création de clichés instantanés de la cohérence d’application échoue et l’ID d’erreur 0x80040154 « Classe non inscrite » s’affiche. </br>
 Consultez [l’article relatif au dépannage de l’installation de l’enregistreur VSS](https://docs.microsoft.com/azure/site-recovery/vmware-azure-troubleshoot-push-install#vss-installation-failures)
 
 #### <a name="vss-writer-is-disabled---error-2147943458"></a>L’enregistreur VSS est désactivé - erreur 2147943458
 
-**Procédure de résolution** : Pour générer une balise de cohérence d’application, Azure Site Recovery utilise le service VSS (cliché instantané de volume) de Microsoft. Il installe un fournisseur VSS pour que l’opération prenne des clichés instantanés de la cohérence d’application. Ce fournisseur VSS est installé en tant que service. Si le service de fournisseur VSS est désactivé, la création de clichés instantanés de la cohérence d’application échoue et l’ID d’erreur « Le service spécifié est désactivé et ne peut pas être démarré (0x80070422) » s’affiche. </br>
+**Procédure de résolution** : Pour générer une balise de cohérence d’application, Azure Site Recovery utilise le service VSS (cliché instantané de volume) de Microsoft. Il installe un fournisseur VSS pour que l’opération prenne des clichés instantanés de la cohérence d’application. Ce fournisseur VSS est installé en tant que service. Si le service de fournisseur VSS est désactivé, la création de clichés instantanés de la cohérence d’application échoue et l’ID d’erreur « Le service spécifié est désactivé et ne peut pas être démarré (0x80070422) » s’affiche. </br>
 
 - Si le service VSS est désactivé :
     - Vérifiez que le type de démarrage du service fournisseur VSS est défini sur **Automatique**.

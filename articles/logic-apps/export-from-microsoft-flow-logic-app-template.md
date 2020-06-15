@@ -3,24 +3,26 @@ title: Exporter des flux de Power Automate vers Azure Logic Apps
 description: Migrez des flux de Power Automate vers Azure Logic Apps en les exportant sous forme de modèles Azure Resource Manager.
 services: logic-apps
 ms.suite: integration
-ms.reviewer: klam, logicappspm
+ms.reviewer: jonfan, logicappspm
 ms.topic: conceptual
 ms.date: 07/10/2019
-ms.openlocfilehash: 616f10b32d0a9c1a05d759a0e27550cd2808808b
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: b30a2ae8d90a193e23229dc6743c7e92ebf83b52
+ms.sourcegitcommit: d118ad4fb2b66c759b70d4d8a18e6368760da3ad
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "75428883"
+ms.lasthandoff: 06/02/2020
+ms.locfileid: "84298718"
 ---
 # <a name="export-flows-from-power-automate-and-deploy-to-azure-logic-apps"></a>Exporter des flux de Power Automate et les déployer sur Azure Logic Apps
 
 Pour étendre les fonctionnalités de votre flux, vous pouvez le migrer de [Power Automate](https://flow.microsoft.com) vers [Azure Logic Apps](../logic-apps/logic-apps-overview.md). Vous pouvez exporter votre flux en tant que modèle Azure Resource Manager pour une application logique, déployer ce modèle d’application logique dans un groupe de ressources Azure, puis ouvrir cette application logique dans le Concepteur d’application logique.
 
 > [!NOTE]
-> Les connecteurs Power Automate ne sont pas tous disponibles dans Azure Logic Apps. Vous pouvez importer des flux qui ont des [connecteurs équivalents](../connectors/apis-list.md) dans Azure Logic Apps. Par exemple, le déclencheur de bouton, le connecteur d’approbation et le connecteur de notification sont propres à Power Automate.
+> Les connecteurs Power Automate ne sont pas tous disponibles dans Azure Logic Apps. Vous pouvez migrer uniquement les flux Power Automate qui ont les connecteurs équivalents dans Azure Logic Apps. Par exemple, le déclencheur de bouton, le connecteur d’approbation et le connecteur de notification sont propres à Power Automate. Les flux basés sur OpenAPI dans Power Automate ne sont pas pris en charge pour l’exportation et le déploiement en tant que modèles d’application logique.
 >
-> Le déploiement sous forme de modèles d’applications logiques des flux basés sur OpenAPI et exportés à partir de Power Automate n’est pas pris en charge actuellement. 
+> * Pour connaître les connecteurs Power Automate qui n’ont pas d’équivalents Logic Apps, consultez [Connecteurs Power Automate](https://docs.microsoft.com/connectors/connector-reference/connector-reference-powerautomate-connectors).
+>
+> * Pour connaître les connecteurs Logic Apps qui n’ont pas d’équivalents Power Automate, consultez [Connecteurs Logic Apps](https://docs.microsoft.com/connectors/connector-reference/connector-reference-powerautomate-connectors).
 
 ## <a name="prerequisites"></a>Prérequis
 

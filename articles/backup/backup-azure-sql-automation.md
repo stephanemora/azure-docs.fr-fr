@@ -4,12 +4,12 @@ description: Sauvegardez et restaurez des bases de données SQL dans des machine
 ms.topic: conceptual
 ms.date: 03/15/2019
 ms.assetid: 57854626-91f9-4677-b6a2-5d12b6a866e1
-ms.openlocfilehash: 9608b02869b1d41d901ec77a42cfaa6d882040e2
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 21c8ea5ff50cc78b60ccb3b09c953b184757f3c9
+ms.sourcegitcommit: 8017209cc9d8a825cc404df852c8dc02f74d584b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80131828"
+ms.lasthandoff: 06/01/2020
+ms.locfileid: "84246983"
 ---
 # <a name="back-up-and-restore-sql-databases-in-azure-vms-with-powershell"></a>Sauvegarder et restaurer des bases de données SQL dans des machines virtuelles Azure à l’aide de PowerShell
 
@@ -335,7 +335,7 @@ Pour la restauration de bases de données SQL, les scénarios de restauration su
 * Restauration de la base de données SQL en tant que nouvelle base de données dans une autre machine virtuelle SQL - AlternateWorkloadRestore
 * Restauration de la base de données SQL en tant que fichiers.bak - RestoreAsFiles
 
-Après la récupération du point de récupération approprié (distinct ou point dans le temps de journal), utilisez la cmdlet PS [Get-AzRecoveryServicesBackupWorkloadRecoveryConfig](https://docs.microsoft.com/powershell/module/az.recoveryservices/Get-AzRecoveryServicesBackupWorkloadRecoveryConfig?view=azps-1.5.0) pour récupérer l’objet de configuration de récupération conformément au plan de récupération souhaité.
+Après la récupération du point de récupération approprié (distinct ou point dans le temps de journal), utilisez l’applet de commande PS [Get-AzRecoveryServicesBackupWorkloadRecoveryConfig](https://docs.microsoft.com/powershell/module/az.recoveryservices/Get-AzRecoveryServicesBackupWorkloadRecoveryConfig?view=azps-1.5.0) pour récupérer l’objet de configuration de récupération conformément au plan de récupération souhaité.
 
 #### <a name="original-workload-restore"></a>Restauration de la charge de travail d’origine
 

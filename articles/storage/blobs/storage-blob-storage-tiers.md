@@ -8,12 +8,12 @@ ms.service: storage
 ms.subservice: blobs
 ms.topic: conceptual
 ms.reviewer: clausjor
-ms.openlocfilehash: c803d489b70cda6910865f6096d21c2021c4ae3a
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 41b7dc2b7ddcf5d8bd15043d117a25771a278f95
+ms.sourcegitcommit: 0fa52a34a6274dc872832560cd690be58ae3d0ca
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81393702"
+ms.lasthandoff: 05/29/2020
+ms.locfileid: "84204869"
 ---
 # <a name="azure-blob-storage-hot-cool-and-archive-access-tiers"></a>Stockage Blob Azure : niveaux d’accès chaud, froid et archive
 
@@ -59,9 +59,9 @@ Le niveau d’accès froid possède des coûts de stockage plus faibles et des c
 
 ## <a name="archive-access-tier"></a>Niveau d’accès archive
 
-Le niveau d’accès archive présente le coût de stockage le plus faible. Toutefois, les coûts d’extraction des données sont plus élevés par rapport aux niveaux d’accès chaud et froid. La récupération des données dans le niveau d’accès archive peut prendre plusieurs heures. Les données doivent rester dans le niveau d’accès archive pendant au moins 180 jours ; sinon, elles sont soumises à des frais de suppression anticipée.
+Le niveau d’accès archive présente le coût de stockage le plus faible. Toutefois, les coûts d’extraction des données sont plus élevés par rapport aux niveaux d’accès chaud et froid. Les données doivent rester dans le niveau d’accès archive pendant au moins 180 jours ; sinon, elles sont soumises à des frais de suppression anticipée. La récupération des données du niveau de stockage archive peut prendre plusieurs heures selon la priorité de la réactivation. Pour les petits objets, une réactivation de haute priorité permet de récupérer l’objet à partir de l’archive en moins d’une heure. Pour en savoir plus, consultez [Réalimenter les données d’objets blob à partir du niveau Archive](storage-blob-rehydration.md).
 
-Tant qu’un objet blob se trouve dans un stockage archive, les données Blob sont en mode hors connexion et ne peuvent pas être lues, remplacées ou modifiées. Pour lire ou télécharger un objet blob dans une archive, vous devez d’abord le réalimenter vers un niveau en ligne. Vous ne pouvez pas prendre de captures instantanées d’un objet blob dans un stockage archive. Toutefois, les métadonnées de l’objet blob restent en ligne et disponible, ce qui vous permet de répertorier l’objet blob et ses propriétés. Pour les objets blob en archive, les seules opérations valides sont GetBlobProperties, GetBlobMetadata, ListBlobs, SetBlobTier, CopyBlob et DeleteBlob. Pour en savoir plus, consultez [Réalimenter les données d’objets blob à partir du niveau Archive](storage-blob-rehydration.md).
+Tant qu’un objet blob se trouve dans un stockage archive, les données Blob sont en mode hors connexion et ne peuvent pas être lues, remplacées ou modifiées. Pour lire ou télécharger un objet blob dans une archive, vous devez d’abord le réalimenter vers un niveau en ligne. Vous ne pouvez pas prendre de captures instantanées d’un objet blob dans un stockage archive. Toutefois, les métadonnées de l’objet blob restent en ligne et disponibles, ce qui vous permet de lister l’objet blob, ses propriétés, ses métadonnées et ses balises d’index. La définition ou la modification des métadonnées de l’objet blob en archive ne sont pas autorisées ; toutefois, vous pouvez définir et modifier ses balises d’index. Pour les objets blob en archive, les seules opérations valides sont GetBlobProperties, GetBlobMetadata, SetBlobTags, GetBlobTags, FindBlobsByTags, ListBlobs, SetBlobTier, CopyBlob et DeleteBlob.
 
 Voici quelques exemples de scénarios d’utilisation pour le niveau d’accès archive :
 
@@ -155,7 +155,7 @@ Dans cette section, les scénarios suivants sont présentés en utilisant le por
 
 ![Changer le niveau du compte de stockage](media/storage-tiers/account-tier.png)
 
-# <a name="powershell"></a>[Powershell](#tab/azure-powershell)
+# <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
 Le script PowerShell suivant permet de changer le niveau du compte. La variable `$rgName` doit être initialisée avec le nom de votre groupe de ressources. La variable `$accountName` doit être initialisée avec le nom de votre compte de stockage. 
 ```powershell
 #Initialize the following with your resource group and storage account names
@@ -185,7 +185,7 @@ Set-AzStorageAccount -ResourceGroupName $rgName -Name $accountName -AccessTier H
 
 ![Changer le niveau du compte de stockage](media/storage-tiers/blob-access-tier.png)
 
-# <a name="powershell"></a>[Powershell](#tab/azure-powershell)
+# <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
 Le script PowerShell suivant permet de changer le niveau de l’objet blob. La variable `$rgName` doit être initialisée avec le nom de votre groupe de ressources. La variable `$accountName` doit être initialisée avec le nom de votre compte de stockage. La variable `$containerName` doit être initialisée avec le nom de votre conteneur. La variable `$blobName` doit être initialisée avec le nom de votre objet blob. 
 ```powershell
 #Initialize the following with your resource group, storage account, container, and blob names
@@ -252,7 +252,7 @@ Les objets blob au niveau d’accès froid ont un contrat de niveau de service S
 
 **Est-ce que les opérations dans les niveaux chaud, froid et archive sont les mêmes ?**
 
-Toutes les opérations entre les niveaux chaud et froid sont 100% cohérents. Toutes les opérations d’archivage valides, notamment GetBlobProperties, GetBlobMetadata, ListBlobs, SetBlobTier et DeleteBlob sont cohérentes à 100 % avec les niveaux chaud et froid. Les données d’objet blob ne peuvent pas être lues ou modifiées dans le niveau archive tant qu’elles ne sont pas réalimentées ; seules les opérations de lecture des métadonnées d’objet blob sont prises en charge dans l’archive.
+Toutes les opérations entre les niveaux chaud et froid sont 100% cohérents. Toutes les opérations d’archivage valides, notamment GetBlobMetadata, SetBlobTags, GetBlobTags, FindBlobsByTags, ListBlobs, SetBlobTier et DeleteBlob sont cohérentes à 100 % avec les niveaux chaud et froid. Les données d’objet blob ne peuvent pas être lues ou modifiées dans le niveau archive tant qu’elles ne sont pas réalimentées ; seules les opérations de lecture des métadonnées d’objet blob sont prises en charge dans l’archive. Toutefois, les balises d’index d’objet blob peuvent être lues, définies ou modifiées dans l’archive.
 
 **Lors de la réalimentation d’un objet blob depuis le niveau archive vers le niveau chaud ou froid, comment serais-je averti de la fin de la réalimentation ?**
 

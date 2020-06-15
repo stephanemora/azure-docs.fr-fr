@@ -9,12 +9,12 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.date: 02/10/2020
-ms.openlocfilehash: 8d0b49b73ef6b67653fbf32db1174880a51d432d
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: b8bd471c5fd5346fcc7e95b9afb49e833e7c6384
+ms.sourcegitcommit: 1f48ad3c83467a6ffac4e23093ef288fea592eb5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81412944"
+ms.lasthandoff: 05/29/2020
+ms.locfileid: "84187288"
 ---
 # <a name="azure-data-factory-faq"></a>Forum Aux Questions Azure Data Factory
 
@@ -83,11 +83,11 @@ Depuis la préversion publique initiale de 2017, les fonctionnalités suivantes 
 
 -    Prise en charge de trois configurations/variantes supplémentaires d’Azure SQL Database pour héberger la base de données SSIS (SSISDB) des projets/packages :
 -    SQL Database avec points de terminaison de service de réseau virtuel
--    Instance gérée
+-    Instance managée SQL
 -    Pool élastique
 -    Prise en charge d’un réseau virtuel Azure Resource Manager sur un réseau virtuel classique qui sera dépréciée dans le futur : ceci vous permet d’injecter/joindre votre runtime d’intégration Azure-SSIS à un réseau virtuel configuré pour SQL Database avec des points de terminaison de service de réseau virtuel/MI/accès aux données locales. Pour plus d’informations, consultez également [Joindre un runtime d’intégration Azure-SSIS à un réseau virtuel](join-azure-ssis-integration-runtime-virtual-network.md).
 -    Prise en charge de l’authentification Azure Active Directory (AAD) et de l’authentification SQL pour se connecter à la SSISDB : ceci vous permet d’utiliser l’authentification Azure AD avec votre identité managée Data Factory pour des ressources Azure
--    Prise en charge de votre propre licence SQL Server locale pour réaliser des économies substantielles avec l’option Azure Hybrid Benefit
+-    Prise en charge de votre licence SQL Server existante pour réaliser des économies substantielles avec l’option Azure Hybrid Benefit
 -    Prise en charge de l’édition Entreprise du runtime d’intégration Azure-SSIS, qui vous permet d’utiliser des fonctionnalités avancées/Premium, un programme d’installation personnalisé pour installer des composants/extensions supplémentaires, et un écosystème de partenaires. Pour plus d’informations, consultez également [Enterprise Edition, Custom Setup, and 3rd Party Extensibility for SSIS in ADF](https://blogs.msdn.microsoft.com/ssis/2018/04/27/enterprise-edition-custom-setup-and-3rd-party-extensibility-for-ssis-in-adf/). 
 -    Une intégration plus étroite de SSIS dans Data Factory, qui vous permet d’appeler/déclencher des activités étendues d’exécution de package SSIS dans des pipelines Data Factory et de les planifier via SSMS. Pour plus d’informations, consultez [Modernize and extend your ETL/ELT workflows with SSIS activities in ADF pipelines](https://blogs.msdn.microsoft.com/ssis/2018/05/23/modernize-and-extend-your-etlelt-workflows-with-ssis-activities-in-adf-pipelines/).
 
@@ -126,7 +126,7 @@ Les services liés ressemblent à des chaînes de connexion. Ils définissent le
 
 Les services liés ont deux objectifs dans Data Factory :
 
-- Représenter un *magasin de données* qui inclut, mais sans s’y limiter, une base de données SQL Server locale, une instance de base de données Oracle, un partage de fichiers ou un compte de stockage d’objets blob Azure. Pour obtenir la liste des magasins de données pris en charge, consultez [Activité de copie dans Azure Data Factory](copy-activity-overview.md).
+- Représenter un *magasin de données* qui inclut, mais sans s’y limiter, une instance SQL Server, une instance de base de données Oracle, un partage de fichiers ou un compte de stockage d’objets blob Azure. Pour obtenir la liste des magasins de données pris en charge, consultez [Activité de copie dans Azure Data Factory](copy-activity-overview.md).
 - Pour représenter une *ressource de calcul* qui peut héberger l’exécution d’une activité. Par exemple, l’activité HDInsight Hive s’exécute sur un cluster HDInsight Hadoop. Pour obtenir la liste des activités de transformation et des environnements de calcul pris en charge, consultez [Transformer des données dans Azure Data Factory](transform-data.md).
 
 ### <a name="triggers"></a>Déclencheurs

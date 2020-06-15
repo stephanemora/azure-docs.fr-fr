@@ -3,12 +3,12 @@ title: Nouveautés du serveur de sauvegarde Microsoft Azure
 description: Le serveur de sauvegarde Microsoft Azure offre des capacités de sauvegarde améliorées pour protéger les machines virtuelles, les fichiers et dossiers, les charges de travail et plus encore. Découvrez comment installer le serveur de sauvegarde Azure v3 ou effectuer une mise à niveau vers ce dernier.
 ms.topic: conceptual
 ms.date: 11/13/2018
-ms.openlocfilehash: 61430ce06d3e441fcfe0443eaaf5de3755b04624
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 358de6f2986036621accde90550e2afcc47f9135
+ms.sourcegitcommit: 8017209cc9d8a825cc404df852c8dc02f74d584b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "77582804"
+ms.lasthandoff: 06/01/2020
+ms.locfileid: "84247544"
 ---
 # <a name="whats-new-in-microsoft-azure-backup-server"></a>Nouveautés du serveur de sauvegarde Microsoft Azure
 
@@ -26,7 +26,7 @@ Dans les entreprises, MABS est géré par une équipe d’administrateurs. Malgr
 
 ## <a name="custom-size-allocation"></a>Allocation de taille personnalisée
 
-Le stockage de sauvegarde moderne (MBS) consomme peu de stockage, selon les besoins. Pour cela, MABS calcule la taille des données à sauvegarder lorsqu’il est configuré dans une optique de protection. Toutefois, si cela représente de nombreux fichiers et dossiers, comme dans le cas d’un serveur de fichiers, le calcul de la taille risque de prendre beaucoup de temps. Avec MABS v3, vous pouvez configurer MABS de façon à ce que, au lieu de calculer la taille de chaque fichier, il accepte la taille du volume comme valeur par défaut, ce qui fait gagner le temps.
+Le stockage de sauvegarde moderne (MBS) consomme peu de stockage, selon les besoins. Pour cela, MABS calcule la taille des données à sauvegarder lorsqu’il est configuré dans une optique de protection. Toutefois, si cela représente de nombreux fichiers et dossiers, comme dans le cas d’un serveur de fichiers, le calcul de la taille risque de prendre beaucoup de temps. Avec MABS v3, vous pouvez configurer MABS de façon à ce que, au lieu de calculer la taille de chaque fichier, il accepte la taille du volume comme valeur par défaut, ce qui fait gagner du temps.
 
 ## <a name="optimized-cc-for-rct-vms"></a>CC optimisé pour les machines virtuelles RCT
 

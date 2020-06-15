@@ -3,12 +3,12 @@ title: Utiliser PowerShell pour sauvegarder Windows Server dans Azure
 description: Dans cet article, découvrez comment utiliser PowerShell pour configurer Sauvegarde Azure sur un serveur Windows Server ou sur un client Windows, ainsi que pour gérer les sauvegardes et la récupération.
 ms.topic: conceptual
 ms.date: 12/2/2019
-ms.openlocfilehash: 67c80a76720dd544da355ee00540cd11a22bfb10
-ms.sourcegitcommit: 1f25aa993c38b37472cf8a0359bc6f0bf97b6784
+ms.openlocfilehash: 696da2c94a439e5efaebbd148f6e05a9e0e15f37
+ms.sourcegitcommit: 8017209cc9d8a825cc404df852c8dc02f74d584b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/26/2020
-ms.locfileid: "83848162"
+ms.lasthandoff: 06/01/2020
+ms.locfileid: "84247748"
 ---
 # <a name="deploy-and-manage-backup-to-azure-for-windows-serverwindows-client-using-powershell"></a>Déployer et gérer une sauvegarde vers Azure pour un serveur/client Windows à l’aide de PowerShell
 
@@ -42,7 +42,7 @@ Les étapes suivantes vous montrent comment créer un coffre Recovery Services. 
     New-AzRecoveryServicesVault -Name "testvault" -ResourceGroupName " test-rg" -Location "WestUS"
     ```
 
-4. Spécifiez le type de redondance de stockage à utiliser : [Stockage localement redondant (LRS)](../storage/common/storage-redundancy-lrs.md) ou [Stockage géo-redondant (GRS)](../storage/common/storage-redundancy-grs.md). L’exemple suivant montre que l’option -BackupStorageRedundancy pour testVault a la valeur GeoRedundant.
+4. Spécifiez le type de redondance de stockage à utiliser : [Stockage localement redondant (LRS)](../storage/common/storage-redundancy-lrs.md) ou [Stockage géoredondant (GRS)](../storage/common/storage-redundancy-grs.md). L’exemple suivant montre que l’option -BackupStorageRedundancy pour testVault a la valeur GeoRedundant.
 
    > [!TIP]
    > De nombreuses applets de commande Azure Backup nécessitent l’objet coffre Recovery Services en tant qu’entrée. Pour cette raison, il est pratique de stocker l’objet coffre Backup Recovery Services dans une variable.
@@ -694,7 +694,7 @@ La désinstallation des fichiers binaires de l'agent de l'ordinateur a certaines
 * Toutes les informations de stratégie sont supprimées de l'ordinateur, mais elles continuent à être stockées dans le service.
 * Toutes les planifications de sauvegarde sont supprimées, et aucune autre sauvegarde n'est effectuée.
 
-Cependant, les données stockées dans Azure sont conservées selon la stratégie de rétention que vous avez définie. Les points plus anciens deviennent automatiquement obsolètes.
+Cependant, les données stockées dans Azure sont conservées conformément à la stratégie de conservation que vous avez définie. Les points plus anciens deviennent automatiquement obsolètes.
 
 ## <a name="remote-management"></a>Gestion à distance
 

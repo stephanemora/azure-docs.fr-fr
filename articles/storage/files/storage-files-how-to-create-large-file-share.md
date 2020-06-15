@@ -4,15 +4,15 @@ description: Dans cet article, vous allez apprendre à activer et à créer des 
 author: roygara
 ms.service: storage
 ms.topic: conceptual
-ms.date: 11/20/2019
+ms.date: 05/29/2020
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: add2805d9a360d3d9cd45ab54f476a6852fb7bd5
-ms.sourcegitcommit: c535228f0b77eb7592697556b23c4e436ec29f96
+ms.openlocfilehash: 16a183776bebad2fd365c3182ae64ea54befe41d
+ms.sourcegitcommit: 12f23307f8fedc02cd6f736121a2a9cea72e9454
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/06/2020
-ms.locfileid: "82858582"
+ms.lasthandoff: 05/30/2020
+ms.locfileid: "84219092"
 ---
 # <a name="enable-and-create-large-file-shares"></a>Activer et créer des partages de fichiers volumineux
 
@@ -32,7 +32,7 @@ L’activation de partages de fichiers volumineux sur un compte est un processus
 
 ## <a name="create-a-new-storage-account"></a>Création d’un nouveau compte de stockage
 
-### <a name="portal"></a>Portail
+# <a name="portal"></a>[Portail](#tab/azure-portal)
 
 1. Connectez-vous au [portail Azure](https://portal.azure.com).
 1. Dans le portail Azure, sélectionnez **Tous les services**. 
@@ -51,7 +51,7 @@ L’activation de partages de fichiers volumineux sur un compte est un processus
    |Champ  |Valeur  |
    |---------|---------|
    |Modèle de déploiement     |Gestionnaire de ressources         |
-   |Performances     |standard         |
+   |Performances     |Standard         |
    |Type de compte     |StorageV2 (usage général v2)         |
    |Niveau d’accès     |À chaud         |
 
@@ -62,7 +62,7 @@ L’activation de partages de fichiers volumineux sur un compte est un processus
 
 1. Sélectionnez **Create** (Créer).
 
-### <a name="cli"></a>Interface de ligne de commande
+# <a name="azure-cli"></a>[Azure CLI](#tab/azure-cli)
 
 Tout d’abord, [installez la dernière version d’Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest) pour pouvoir activer les partages de fichiers volumineux.
 
@@ -73,7 +73,7 @@ Pour créer un compte de stockage avec des partages de fichiers volumineux activ
 az storage account create --name <yourStorageAccountName> -g <yourResourceGroup> -l <yourDesiredRegion> --sku Standard_LRS --kind StorageV2 --enable-large-file-share
 ```
 
-### <a name="powershell"></a>PowerShell
+# <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
 
 Tout d’abord, [installez la dernière version de PowerShell](https://docs.microsoft.com/powershell/azure/install-az-ps?view=azps-3.0.0) pour pouvoir activer les partages de fichiers volumineux.
 
@@ -83,12 +83,13 @@ Pour créer un compte de stockage avec des partages de fichiers volumineux activ
 ## This command creates a large file share–enabled account. It will not support GZRS, GRS, RA-GRS, or RA-GZRS.
 New-AzStorageAccount -ResourceGroupName <yourResourceGroup> -Name <yourStorageAccountName> -Location <yourDesiredRegion> -SkuName Standard_LRS -EnableLargeFileShare;
 ```
+---
 
 ## <a name="enable-large-files-shares-on-an-existing-account"></a>Activer les partages de fichiers volumineux sur un compte existant
 
 Vous pouvez aussi activer les partages de fichiers volumineux sur vos comptes existants. Si vous activez les partages de fichiers volumineux, vous ne pourrez plus convertir votre compte en GZRS, GRS, RA-GRS ou RA-GZRS. L’activation des partages de fichiers volumineux est irréversible sur ce compte de stockage.
 
-### <a name="portal"></a>Portail
+# <a name="portal"></a>[Portail](#tab/azure-portal)
 
 1. Ouvrez le [portail Azure](https://portal.azure.com) et accédez au compte de stockage où vous voulez activer les partages de fichiers volumineux.
 1. Ouvrez le compte de stockage et sélectionnez **Configuration**.
@@ -97,11 +98,9 @@ Vous pouvez aussi activer les partages de fichiers volumineux sur vos comptes ex
 
 ![Sélection de la case d’option « Activé » sur un compte de stockage existant dans le portail Azure](media/storage-files-how-to-create-large-file-share/enable-large-file-shares-on-existing.png)
 
-Vous avez maintenant activé les partages de fichiers volumineux sur votre compte de stockage. Ensuite, vous devez mettre à jour le quota du partage existant pour tirer parti de l’augmentation de la capacité et de l’échelle.
+Vous avez maintenant activé les partages de fichiers volumineux sur votre compte de stockage. Ensuite, vous devez [mettre à jour le quota du partage existant](#expand-existing-file-shares) pour tirer parti de l’augmentation de la capacité et de l’échelle.
 
-Si vous recevez le message d’erreur « Les partages de fichiers volumineux ne sont pas encore disponibles pour le compte », c’est que leur déploiement est en cours dans votre région. Contactez le support si vous avez un besoin urgent des partages de fichiers volumineux.
-
-### <a name="cli"></a>Interface de ligne de commande
+# <a name="azure-cli"></a>[Azure CLI](#tab/azure-cli)
 
 Pour activer les partages de fichiers volumineux sur votre compte existant, utilisez la commande suivante. Remplacez `<yourStorageAccountName>` et `<yourResourceGroup>` par vos informations.
 
@@ -109,7 +108,9 @@ Pour activer les partages de fichiers volumineux sur votre compte existant, util
 az storage account update --name <yourStorageAccountName> -g <yourResourceGroup> --enable-large-file-share
 ```
 
-### <a name="powershell"></a>PowerShell
+Vous avez maintenant activé les partages de fichiers volumineux sur votre compte de stockage. Ensuite, vous devez [mettre à jour le quota du partage existant](#expand-existing-file-shares) pour tirer parti de l’augmentation de la capacité et de l’échelle.
+
+# <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
 
 Pour activer les partages de fichiers volumineux sur votre compte existant, utilisez la commande suivante. Remplacez `<yourStorageAccountName>` et `<yourResourceGroup>` par vos informations.
 
@@ -117,11 +118,15 @@ Pour activer les partages de fichiers volumineux sur votre compte existant, util
 Set-AzStorageAccount -ResourceGroupName <yourResourceGroup> -Name <yourStorageAccountName> -EnableLargeFileShare
 ```
 
+Vous avez maintenant activé les partages de fichiers volumineux sur votre compte de stockage. Ensuite, vous devez [mettre à jour le quota du partage existant](#expand-existing-file-shares) pour tirer parti de l’augmentation de la capacité et de l’échelle.
+
+---
+
 ## <a name="create-a-large-file-share"></a>Créer un partage de fichiers volumineux
 
 Une fois que vous avez activé les partages de fichiers volumineux sur votre compte de stockage, vous pouvez créer des partages de fichiers dans ce compte avec des quotas plus élevés. 
 
-### <a name="portal"></a>Portail
+# <a name="portal"></a>[Portail](#tab/azure-portal)
 
 La création d’un partage de fichiers volumineux est presque identique à la création d’un partage de fichiers standard. La principale différence est que vous pouvez définir un quota allant jusqu’à 100 Tio.
 
@@ -131,7 +136,7 @@ La création d’un partage de fichiers volumineux est presque identique à la c
 
 ![Interface utilisateur du portail Azure montrant les zones Nom et Quota](media/storage-files-how-to-create-large-file-share/large-file-shares-create-share.png)
 
-### <a name="cli"></a>Interface de ligne de commande
+# <a name="azure-cli"></a>[Azure CLI](#tab/azure-cli)
 
 Pour créer un partage de fichiers volumineux, utilisez la commande suivante. Remplacez `<yourStorageAccountName>`, `<yourStorageAccountKey>` et `<yourFileShareName>` par vos informations.
 
@@ -139,7 +144,7 @@ Pour créer un partage de fichiers volumineux, utilisez la commande suivante. Re
 az storage share create --account-name <yourStorageAccountName> --account-key <yourStorageAccountKey> --name <yourFileShareName>
 ```
 
-### <a name="powershell"></a>PowerShell
+# <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
 
 Pour créer un partage de fichiers volumineux, utilisez la commande suivante. Remplacez `<YourStorageAccountName>`, `<YourStorageAccountKey>` et `<YourStorageAccountFileShareName>` par vos informations.
 
@@ -151,12 +156,13 @@ $shareName="<YourStorageAccountFileShareName>"
 $ctx = New-AzStorageContext -StorageAccountName $storageAccountName -StorageAccountKey $storageAccountKey
 New-AzStorageShare -Name $shareName -Context $ctx
 ```
+---
 
 ## <a name="expand-existing-file-shares"></a>Étendre des partages de fichiers existants
 
 Une fois que vous avez activé les partages de fichiers volumineux sur votre compte de stockage, vous pouvez aussi étendre les partages de fichiers existants dans ce compte avec un quota plus élevé. 
 
-### <a name="portal"></a>Portail
+# <a name="portal"></a>[Portail](#tab/azure-portal)
 
 1. À partir de votre compte de stockage, sélectionnez **Partages de fichiers**.
 1. Cliquez avec le bouton droit sur votre partage de fichiers, puis sélectionnez **Quota**.
@@ -164,7 +170,7 @@ Une fois que vous avez activé les partages de fichiers volumineux sur votre com
 
 ![Interface utilisateur du portail Azure avec le quota des partages de fichiers existants](media/storage-files-how-to-create-large-file-share/update-large-file-share-quota.png)
 
-### <a name="cli"></a>Interface de ligne de commande
+# <a name="azure-cli"></a>[Azure CLI](#tab/azure-cli)
 
 Pour définir le quota sur la taille maximale, utilisez la commande suivante. Remplacez `<yourStorageAccountName>`, `<yourStorageAccountKey>` et `<yourFileShareName>` par vos informations.
 
@@ -172,7 +178,7 @@ Pour définir le quota sur la taille maximale, utilisez la commande suivante. Re
 az storage share update --account-name <yourStorageAccountName> --account-key <yourStorageAccountKey> --name <yourFileShareName> --quota 102400
 ```
 
-### <a name="powershell"></a>PowerShell
+# <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
 
 Pour définir le quota sur la taille maximale, utilisez la commande suivante. Remplacez `<YourStorageAccountName>`, `<YourStorageAccountKey>` et `<YourStorageAccountFileShareName>` par vos informations.
 
@@ -185,6 +191,7 @@ $ctx = New-AzStorageContext -StorageAccountName $storageAccountName -StorageAcco
 # update quota
 Set-AzStorageShareQuota -ShareName $shareName -Context $ctx -Quota 102400
 ```
+---
 
 ## <a name="next-steps"></a>Étapes suivantes
 

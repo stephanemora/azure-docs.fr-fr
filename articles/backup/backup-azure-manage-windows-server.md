@@ -3,12 +3,12 @@ title: Gérer les serveurs et les coffres Azure Recovery Services
 description: Dans cet article, découvrez comment utiliser le tableau de bord Vue d’ensemble du coffre Recovery Services pour gérer et effectuer le monitorage de vos coffres Recovery Services.
 ms.topic: conceptual
 ms.date: 07/08/2019
-ms.openlocfilehash: 1a4d23c157700f42422cfe7ca8fa1c49e2cf128a
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 598e9198ee7e153d8008389f97c0be399a0186ba
+ms.sourcegitcommit: f1132db5c8ad5a0f2193d751e341e1cd31989854
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80131973"
+ms.lasthandoff: 05/31/2020
+ms.locfileid: "84234610"
 ---
 # <a name="monitor-and-manage-recovery-services-vaults"></a>Surveiller et gérer les coffres Recovery Services
 
@@ -233,7 +233,7 @@ Vous pouvez afficher une seule opération ou toutes les opérations. Vous ne pou
 * Toutes les opérations
 * Inscrire
 * Configurer une sauvegarde
-* Backup
+* Sauvegarde
 * Restaurer
 * Désactiver la sauvegarde
 * Supprimer les données de sauvegarde

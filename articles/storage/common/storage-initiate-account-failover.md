@@ -6,16 +6,16 @@ services: storage
 author: tamram
 ms.service: storage
 ms.topic: how-to
-ms.date: 05/05/2020
+ms.date: 05/28/2020
 ms.author: tamram
 ms.reviewer: cbrooks
 ms.subservice: common
-ms.openlocfilehash: 2d07195e28c964a540eafdfba94a958e6c9f6981
-ms.sourcegitcommit: f57297af0ea729ab76081c98da2243d6b1f6fa63
+ms.openlocfilehash: 905554d1763bdd3c5990a43c5c8d98f336e1c442
+ms.sourcegitcommit: 1692e86772217fcd36d34914e4fb4868d145687b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/06/2020
-ms.locfileid: "82871343"
+ms.lasthandoff: 05/29/2020
+ms.locfileid: "84171206"
 ---
 # <a name="initiate-a-storage-account-failover"></a>Lancer un basculement de compte de stockage
 
@@ -48,8 +48,8 @@ Pour lancer un basculement de compte à partir du portail Azure, procédez comme
 
     ![Capture d'écran représentant l'état de géoréplication et de basculement](media/storage-initiate-account-failover/portal-failover-prepare.png)
 
-3. Vérifiez que votre compte de stockage est configuré en tant que stockage géoredondant (GRS) ou stockage géographiquement redondant avec accès en lecture (RA-GRS). Si ce n'est pas le cas, sélectionnez **Configuration** sous **Paramètres** pour mettre à jour votre compte et le rendre géoredondant. 
-4. La propriété **Heure de la dernière de synchronisation** indique le décalage entre le secondaire et le primaire. **Heure de la dernière de synchronisation** fournit une estimation de l'étendue de la perte de données que vous connaîtrez une fois le basculement terminé.
+3. Vérifiez que votre compte de stockage est configuré en tant que stockage géoredondant (GRS) ou stockage géographiquement redondant avec accès en lecture (RA-GRS). Si ce n'est pas le cas, sélectionnez **Configuration** sous **Paramètres** pour mettre à jour votre compte et le rendre géoredondant.
+4. La propriété **Heure de la dernière de synchronisation** indique le décalage entre le secondaire et le primaire. **Heure de la dernière de synchronisation** fournit une estimation de l'étendue de la perte de données que vous connaîtrez une fois le basculement terminé. Pour plus d’informations sur la vérification de la propriété **Heure de la dernière synchronisation**, consultez [Vérification de la propriété Heure de la dernière synchronisation d’un compte de stockage](last-sync-time-get.md).
 5. Sélectionnez **Préparer un basculement**.
 6. Passez en revue la boîte de dialogue de confirmation. Lorsque vous êtes prêt, entrez **Oui** pour confirmer votre choix et lancer le basculement.
 
@@ -105,7 +105,7 @@ az storage account failover \ --name accountName
 
 Lorsque vous lancez un basculement de compte pour votre compte de stockage, les enregistrements DNS du point de terminaison secondaire sont mis à jour pour que le point de terminaison secondaire devienne le point de terminaison principal. Assurez-vous de bien comprendre les conséquences possibles sur votre compte de stockage avant de procéder à un basculement.
 
-Pour estimer l'étendue de la perte de données probable avant de procéder à un basculement, consultez la propriété **Heure de la dernière synchronisation** en utilisant la cmdlet PowerShell `Get-AzStorageAccount`, et incluez le paramètre `-IncludeGeoReplicationStats`. Consultez ensuite la propriété `GeoReplicationStats` de votre compte.
+Pour estimer l'étendue de la perte de données probable avant de procéder à un basculement, consultez la propriété **Heure de la dernière synchronisation**. Pour plus d’informations sur la vérification de la propriété **Heure de la dernière synchronisation**, consultez [Vérification de la propriété Heure de la dernière synchronisation d’un compte de stockage](last-sync-time-get.md).
 
 Au terme du basculement, votre compte de stockage devient un compte de stockage localement redondant (LRS) dans la nouvelle région primaire. Vous pouvez réactiver le stockage géoredondant (GRS) ou le stockage géographiquement redondant avec accès en lecture (RA-GRS) pour le compte. Notez que la conversion de LRS en GRS ou RA-GRS entraîne un coût supplémentaire. Pour plus d'informations, consultez [Détails de la tarification de la bande passante](https://azure.microsoft.com/pricing/details/bandwidth/).
 
@@ -114,5 +114,6 @@ Une fois que vous avez réactivé GRS pour votre compte de stockage, Microsoft c
 ## <a name="next-steps"></a>Étapes suivantes
 
 - [Récupération d'urgence et basculement de compte de stockage](storage-disaster-recovery-guidance.md)
+- [Vérifier la propriété Heure de la dernière synchronisation pour un compte de stockage](last-sync-time-get.md)
 - [Utilisez la géo-redondance pour concevoir des applications hautement disponibles](geo-redundant-design.md)
 - [Tutoriel : Générer une application hautement disponible avec le stockage Blob](../blobs/storage-create-geo-redundant-storage.md)

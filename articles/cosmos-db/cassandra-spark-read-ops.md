@@ -2,20 +2,20 @@
 title: Lecture des données de tables de l’API Cassandra à l’aide de Spark
 titleSufix: Azure Cosmos DB
 description: Cet article explique comment lire les données stockées des tables de l’API Cassandra dans Azure Cosmos DB.
-author: kanshiG
-ms.author: govindk
+author: TheovanKraay
+ms.author: thvankra
 ms.reviewer: sngun
 ms.service: cosmos-db
 ms.subservice: cosmosdb-cassandra
 ms.topic: conceptual
-ms.date: 12/06/2018
+ms.date: 06/02/2020
 ms.custom: seodec18
-ms.openlocfilehash: 01a9582062d8eb0d039473a03901fc83fe179020
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: c01d9970de1ab610333c129505cef75dfcaa35b1
+ms.sourcegitcommit: 69156ae3c1e22cc570dda7f7234145c8226cc162
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "60893388"
+ms.lasthandoff: 06/03/2020
+ms.locfileid: "84309717"
 ---
 # <a name="read-data-from-azure-cosmos-db-cassandra-api-tables-using-spark"></a>Lire les données de tables de l’API Cassandra dans Azure Cosmos DB à l’aide de Spark
 
@@ -83,7 +83,7 @@ readBooksDF.show
 
 ### <a name="apply-filters"></a>Appliquer des filtres
 
-Le pushdown de prédicats n’étant pas pris en charge, les exemples ci-dessous reflètent le filtrage côté client. 
+Vous pouvez effectuer un pushdown de prédicats vers la base de données pour optimiser encore les requêtes Spark. Un prédicat est une condition sur une requête, généralement dans la clause WHERE, qui retourne true ou false. Un pushdown de prédicat filtre les données dans la requête de base de données, réduisant ainsi le nombre d’entrées récupérées à partir de la base de données et améliorant les performances des requêtes. Par défaut, l’API Spark DataSet effectue automatiquement un pushdown des clauses WHERE valides vers la base de données. 
 
 ```scala
 val readBooksDF = spark
@@ -102,6 +102,10 @@ readBooksDF.printSchema
 readBooksDF.explain
 readBooksDF.show
 ```
+
+La section PushedFilters du plan physique comprend le filtre pushdown GreaterThan. 
+
+![partitions](./media/cassandra-spark-read-ops/pushdown-predicates.png)
 
 ## <a name="rdd-api"></a>API pour le jeu de donnée distribué résilient
 

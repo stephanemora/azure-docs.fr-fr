@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: translator-text
 ms.topic: conceptual
-ms.date: 03/17/2020
+ms.date: 05/26/2020
 ms.author: swmachan
-ms.openlocfilehash: 386f34e001457da4c5ae0e170ab2c090725ad5b7
-ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
+ms.openlocfilehash: 100084a244944bcaf0d566e347d56dd4a03ecfae
+ms.sourcegitcommit: fc718cc1078594819e8ed640b6ee4bef39e91f7f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83592234"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "83995783"
 ---
 # <a name="request-limits-for-translator"></a>Limites de requête pour Translator
 
@@ -27,14 +27,14 @@ Chaque demande de traduction est limitée à 5 000 caractères, dans toutes les
 
 Les tableaux suivants répertorient les limites d’éléments de tableau et de caractères pour chaque opération de Translator.
 
-| Opération | Taille maximale d’un élément de tableau |   Nombre maximal d’éléments de tableau |  Taille de requête maximale (caractères) |
+| Opération | Taille maximale d’un élément de tableau |    Nombre maximal d’éléments de tableau |    Taille de requête maximale (caractères) |
 |:----|:----|:----|:----|
-| Translate | 5 000 | 100   | 5 000 |
-| Transliterate | 5 000 | 10    | 5 000 |
-| Detect | 10 000 | 100 |   50 000 |
-| BreakSentence | 10 000    | 100 | 50 000 |
-| Recherche dans le dictionnaire| 100 |  10  | 1 000 |
-| Exemples de dictionnaire | 100 pour le texte et 100 pour la traduction (200 au total)| 10|   2 000 |
+| Translate | 5 000    | 100    | 5 000 |
+| Transliterate | 5 000    | 10    | 5 000 |
+| Detect | 10 000 |    100 |    50 000 |
+| BreakSentence | 10 000    | 100 |    50 000 |
+| Recherche dans le dictionnaire| 100 |    10    | 1 000 |
+| Exemples de dictionnaire | 100 pour le texte et 100 pour la traduction (200 au total)| 10|    2 000 |
 
 ## <a name="character-limits-per-hour"></a>Limites de caractères par heure
 
@@ -58,7 +58,7 @@ Ces limites s’appliquent uniquement aux modèles de traduction standard de Mic
 
 ## <a name="latency"></a>Latence
 
-Translator a une latence maximale de 15 secondes avec les modèles standards et de 120 secondes avec les modèles personnalisés. En général, les réponses *pour un texte de moins de 100 caractères* sont retournées dans un délai de 150 à 300 millisecondes. Les modèles de traducteurs personnalisés ont des caractéristiques de latence similaires sur le taux de requêtes soutenu et peuvent avoir une latence plus élevée lorsque le taux de requêtes est intermittent. Les temps de réponse peuvent varier en fonction de la taille de la requête et de la paire de langues. Si vous ne recevez pas une traduction ou une [réponse d’erreur](https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-reference#errors) pendant ce laps de temps, vérifiez votre code et votre connexion réseau, puis réessayez. 
+Translator a une latence maximale de 15 secondes avec les modèles standards et de 120 secondes avec les modèles personnalisés. En général, les réponses *pour un texte de moins de 100 caractères* sont retournées dans un délai de 150 à 300 millisecondes. Les modèles de traducteurs personnalisés ont des caractéristiques de latence similaires sur le taux de requêtes soutenu et peuvent avoir une latence plus élevée lorsque le taux de requêtes est intermittent. Les temps de réponse peuvent varier en fonction de la taille de la requête et de la paire de langues. Si vous ne recevez pas de traduction ou de [réponse d’erreur](https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-reference#errors) pendant ce laps de temps, vérifiez votre code et votre connexion réseau, puis réessayez. 
 
 ## <a name="sentence-length-limits"></a>Limites de longueur de phrase
 

@@ -11,12 +11,12 @@ ms.topic: article
 ms.date: 01/10/2020
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
-ms.openlocfilehash: b8a01b5f2f5ec64fea014468356408220f9c4f1a
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: be1abe415955b52cbd639faef703e5c2fbd257b6
+ms.sourcegitcommit: 1f48ad3c83467a6ffac4e23093ef288fea592eb5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "76721368"
+ms.lasthandoff: 05/29/2020
+ms.locfileid: "84194366"
 ---
 # <a name="move-data-to-sql-server-on-an-azure-virtual-machine"></a>Déplacer des données vers SQL Server sur une machine virtuelle Azure
 
@@ -174,7 +174,7 @@ Vous pouvez également utiliser les stratégies de migration suivantes :
 Chacune de ces options est décrite ci-après :
 
 ### <a name="deploy-a-sql-server-database-to-a-microsoft-azure-vm-wizard"></a>Assistant de déploiement d'une base de données SQL Server sur une machine virtuelle Microsoft Azure
-L’ **Assistant de déploiement d’une base de données SQL Server sur une machine virtuelle Microsoft Azure** est une méthode simple et recommandée pour déplacer des données d’une instance SQL Server locale vers un serveur SQL Server sur une machine virtuelle Azure. Pour des instructions détaillées, ainsi qu’une présentation des autres possibilités, consultez [Migration d’une base de données vers SQL Server sur une machine virtuelle Azure](../../virtual-machines/windows/sql/virtual-machines-windows-migrate-sql.md).
+L’ **Assistant de déploiement d’une base de données SQL Server sur une machine virtuelle Microsoft Azure** est une méthode simple et recommandée pour déplacer des données d’une instance SQL Server locale vers un serveur SQL Server sur une machine virtuelle Azure. Pour des instructions détaillées, ainsi qu’une présentation des autres possibilités, consultez [Migration d’une base de données vers SQL Server sur une machine virtuelle Azure](../../azure-sql/virtual-machines/windows/migrate-to-vm-from-sql-server.md).
 
 ### <a name="export-to-flat-file"></a><a name="export-flat-file"></a>Exporter dans un fichier plat
 Plusieurs méthodes peuvent être utilisées pour exporter en bloc des données à partir d’un serveur SQL Server local et sont documentées dans la section [Importation et exportation de données en bloc (SQL Server)](https://msdn.microsoft.com/library/ms175937.aspx) . Ce document utilise l’outil BCP (Bulk Copy Program) à titre d’exemple. Une fois les données exportées dans un fichier plat, il est possible de les importer en bloc dans une autre instance SQL Server.
@@ -185,7 +185,7 @@ Plusieurs méthodes peuvent être utilisées pour exporter en bloc des données 
 2. Créez la base de données et la table sur la machine virtuelle SQL Server sur Azure à l’aide de `create database` et de `create table` pour le schéma de table exporté à l’étape 1.
 3. Créez un fichier de format décrivant le schéma de table des données exportées ou importées. Les détails du fichier de format sont décrits dans [créer un fichier de Format (SQL Server)](https://msdn.microsoft.com/library/ms191516.aspx).
 
-    Génération du fichier de format en cas d’exécution de BCP à partir de la machine SQL Server
+    Génération du fichier de format en cas d’exécution de BCP à partir de l’ordinateur SQL Server
 
         bcp dbname..tablename format nul -c -x -f exportformatfilename.xml -S servername\sqlinstance -T -t \t -r \n
 
@@ -203,16 +203,16 @@ Plusieurs méthodes peuvent être utilisées pour exporter en bloc des données 
 SQL Server prend en charge :
 
 1. La [fonctionnalité de sauvegarde et de restauration de base de données](https://msdn.microsoft.com/library/ms187048.aspx) (dans un fichier local ou par exportation d’un bacpac dans un objet blob) et les [applications de la couche Données](https://msdn.microsoft.com/library/ee210546.aspx) (à l’aide de bacpac).
-2. La possibilité de créer directement des instances SQL Server VM on Azure avec une base de données copiée ou de copier une base de données SQL Azure. Pour plus d'informations, consultez [Use the Copy Database Wizard](https://msdn.microsoft.com/library/ms188664.aspx).
+2. La possibilité de créer directement des machines virtuelles SQL Server sur Azure avec une base de données copiée ou de copier une base de données existante dans SQL Database. Pour plus d'informations, consultez [Use the Copy Database Wizard](https://msdn.microsoft.com/library/ms188664.aspx).
 
 Voici une copie d’écran des options de sauvegarde/restauration de base de données dans SQL Server Management Studio.
 
 ![Outil d’importation SQL Server][1]
 
 ## <a name="resources"></a>Ressources
-[Migration d'une base de données vers SQL Server sur une machine virtuelle Azure](../../virtual-machines/windows/sql/virtual-machines-windows-migrate-sql.md)
+[Migration d'une base de données vers SQL Server sur une machine virtuelle Azure](../../azure-sql/virtual-machines/windows/migrate-to-vm-from-sql-server.md)
 
-[Vue d’ensemble de SQL Server sur les machines virtuelles Azure](../../virtual-machines/windows/sql/virtual-machines-windows-sql-server-iaas-overview.md)
+[Vue d’ensemble de SQL Server sur les machines virtuelles Azure](../../azure-sql/virtual-machines/windows/sql-server-on-azure-vm-iaas-what-is-overview.md)
 
 [1]: ./media/move-sql-server-virtual-machine/sqlserver_builtin_utilities.png
 [2]: ./media/move-sql-server-virtual-machine/database_migration_wizard.png

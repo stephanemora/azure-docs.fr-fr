@@ -13,14 +13,14 @@ ms.topic: conceptual
 ms.date: 01/22/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: cc2f0a513219a671dd8a75ee00af4fc9d4c6a68a
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 7c81c4cd72a34f69632c2b1264ba2d276ff03de4
+ms.sourcegitcommit: 6a9f01bbef4b442d474747773b2ae6ce7c428c1f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "75979725"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "84118585"
 ---
-# <a name="tutorial-copy-data-from-blob-storage-to-sql-database-using-data-factory"></a>Didacticiel : Copie de données de Stockage Blob vers SQL Database à l’aide de Data Factory
+# <a name="tutorial-copy-data-from-blob-storage-to-sql-database-using-data-factory"></a>Tutoriel : Copie de données Blob Storage vers une base de données SQL à l’aide de Data Factory
 > [!div class="op_single_selector"]
 > * [Vue d’ensemble et composants requis](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md)
 > * [Assistant de copie](data-factory-copy-data-wizard-tutorial.md)
@@ -66,7 +66,7 @@ Pour réaliser ce didacticiel, vous avez besoin du nom et de la clé de votre co
 7. Fermez tous les panneaux en cliquant sur **X**.
 
 ## <a name="collect-sql-server-database-user-names"></a>Récupérer les noms de serveur SQL, de base de données et d’utilisateur
-Pour réaliser ce didacticiel, vous avez besoin des noms du serveur SQL Azure, de la base de données et de l’utilisateur. Notez les noms du **serveur**, de la **base de données** et de **l’utilisateur** pour votre base de données Azure SQL.
+Pour suivre ce tutoriel, vous avez besoin des noms du serveur SQL logique, de la base de données et de l’utilisateur. Notez les noms du **serveur**, de la **base de données** et de **l’utilisateur** pour votre base de données Azure SQL.
 
 1. Dans le **portail Azure**, cliquez sur **Tous les services** dans le volet gauche, puis sélectionnez **Bases de données SQL**.
 2. Dans le panneau **Bases de données SQL**, sélectionnez la **base de données** que vous souhaitez utiliser dans le cadre de ce didacticiel. Notez le **nom de la base de données**.  
@@ -75,7 +75,7 @@ Pour réaliser ce didacticiel, vous avez besoin des noms du serveur SQL Azure, d
 5. Fermez tous les panneaux en cliquant sur **X**.
 
 ## <a name="allow-azure-services-to-access-sql-server"></a>Autoriser les services Azure à accéder au serveur
-Vérifiez que le paramètre **Autoriser l’accès aux services Azure** est **ACTIVÉ** pour votre serveur SQL Azure pour que le service Data Factory puisse accéder à votre serveur SQL Azure. Pour vérifier et activer ce paramètre, procédez comme suit :
+Vérifiez que le paramètre **Autoriser l’accès aux services Azure** est **ACTIVÉ** pour votre serveur afin que le service Data Factory puisse y accéder. Pour vérifier et activer ce paramètre, procédez comme suit :
 
 1. Cliquez sur le hub **Tous les services** sur la gauche, puis sur **Serveurs SQL**.
 2. Sélectionnez votre serveur, puis cliquez sur **Pare-feu** sous **PARAMÈTRES**.
@@ -107,9 +107,9 @@ Vérifiez que le paramètre **Autoriser l’accès aux services Azure** est **AC
     CREATE CLUSTERED INDEX IX_emp_ID ON dbo.emp (ID);
     ```
 
-    **Si vous avez installé SQL Server 2012/2014 sur votre ordinateur :** suivez les instructions de l’article [Gestion des bases de données Azure SQL à l’aide de SQL Server Management Studio](../../sql-database/sql-database-manage-azure-ssms.md) pour vous connecter à votre serveur Azure SQL et exécuter le script SQL.
+    **Si vous avez installé SQL Server 2012/2014 sur votre ordinateur :** suivez les instructions de l’article [Gestion des bases de données Azure SQL à l’aide de SQL Server Management Studio](../../sql-database/sql-database-manage-azure-ssms.md) pour vous connecter à votre serveur et exécuter le script SQL.
 
-    Si votre client n’est pas autorisé à accéder au serveur SQL Azure, vous devez configurer le pare-feu pour votre serveur SQL Azure afin d’autoriser l’accès à partir de votre ordinateur (adresse IP). Consultez [cet article](../../sql-database/sql-database-configure-firewall-settings.md) pour savoir comment configurer le pare-feu de votre serveur SQL Azure.
+    Si votre client n’est pas autorisé à accéder au serveur SQL logique, vous devez configurer le pare-feu pour votre serveur afin d’autoriser l’accès à partir de votre ordinateur (adresse IP). Consultez [cet article](../../sql-database/sql-database-configure-firewall-settings.md) pour savoir comment configurer le pare-feu de votre serveur.
 
 ## <a name="create-a-data-factory"></a>Créer une fabrique de données
 Vous avez terminé les étapes préalables requises. Créez une fabrique de données à l’aide de l’une des manières suivantes. Cliquez sur l’une des options de la liste déroulante en haut ou sur les liens suivants pour suivre le didacticiel.     
@@ -122,6 +122,6 @@ Vous avez terminé les étapes préalables requises. Créez une fabrique de donn
 * [API .NET](data-factory-copy-activity-tutorial-using-dotnet-api.md)
 
 > [!NOTE]
-> Dans ce didacticiel, le pipeline de données copie les données d’un magasin de données source vers un magasin de données de destination. Il ne transforme pas les données d’entrée pour produire des données de sortie. Pour un didacticiel sur la transformation des données à l’aide d’Azure Data Factory, voir [Didacticiel : Générer votre premier pipeline pour traiter les données à l’aide du cluster Hadoop](data-factory-build-your-first-pipeline.md).
+> Dans ce didacticiel, le pipeline de données copie les données d’un magasin de données source vers un magasin de données de destination. Il ne transforme pas les données d’entrée pour produire des données de sortie. Pour suivre un tutoriel sur la transformation des données à l’aide d’Azure Data Factory, consultez [Tutoriel : Générer votre premier pipeline pour transformer les données à l’aide du cluster Hadoop](data-factory-build-your-first-pipeline.md).
 >
 > Vous pouvez chaîner deux activités (une après l’autre) en configurant le jeu de données de sortie d’une activité en tant que jeu de données d’entrée de l’autre activité. Pour plus d’informations, voir [Planification et exécution dans Data Factory](data-factory-scheduling-and-execution.md).

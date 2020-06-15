@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.topic: conceptual
 ms.custom: seoapr2020
 ms.date: 04/27/2020
-ms.openlocfilehash: 48b322f32bd6e8f2a2da0c5be8eb7b7987881f83
-ms.sourcegitcommit: 67bddb15f90fb7e845ca739d16ad568cbc368c06
+ms.openlocfilehash: 27cc1052a2f35382b2d6a93482b7af219a9a187a
+ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82204115"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "84015163"
 ---
 # <a name="use-apache-oozie-with-apache-hadoop-to-define-and-run-a-workflow-on-linux-based-azure-hdinsight"></a>Utiliser Apache Oozie avec Apache Hadoop pour définir et exécuter un workflow sur Azure HDInsight Linux
 
@@ -232,7 +232,7 @@ Les définitions de workflow Oozie sont écrites en langage de définition de pr
     sudo apt-get --assume-yes install freetds-dev freetds-bin
     ```
 
-2. Modifiez le code ci-dessous pour remplacer `<serverName>` par votre nom de serveur Azure SQL et `<sqlLogin>` par l’identifiant du serveur Azure SQL.  Entrez la commande pour vous connecter à la base de données SQL mentionnée dans les prérequis.  Entrez le mot de passe à l’invite.
+2. Modifiez le code ci-dessous pour remplacer `<serverName>` par votre nom de [serveur SQL Server logique](../azure-sql/database/logical-servers.md) et `<sqlLogin>` par le compte de connexion du serveur.  Entrez la commande pour vous connecter à la base de données SQL mentionnée dans les prérequis.  Entrez le mot de passe à l’invite.
 
     ```bash
     TDSVER=8.0 tsql -H <serverName>.database.windows.net -U <sqlLogin> -p 1433 -D oozietest
@@ -301,9 +301,9 @@ La définition du travail indique où se trouve le fichier workflow.xml. Elle in
     |---|---|
     |wasbs://mycontainer\@mystorageaccount.blob.core.windows.net| Valeur obtenue à l’étape 1.|
     |admin| Votre ID de connexion pour le cluster HDInsight si vous n’êtes pas administrateur.|
-    |serverName| Nom du serveur de base de données Azure SQL.|
-    |sqlLogin| Identifiant du serveur de base de données Azure SQL.|
-    |sqlPassword| Mot de passe de connexion du serveur de base de données Azure SQL.|
+    |serverName| Nom du serveur Azure SQL Database.|
+    |sqlLogin| Compte de connexion du serveur Azure SQL Database.|
+    |sqlPassword| Mot de passe du compte de connexion du serveur Azure SQL Database.|
 
     ```xml
     <?xml version="1.0" encoding="UTF-8"?>
@@ -449,7 +449,7 @@ Les étapes suivantes utilisent la commande Oozie pour soumettre et gérer des f
 
     Si vous vérifiez l’état après cette commande, il sera en cours d’exécution et des informations pour les actions au sein du travail seront renvoyées.  L’exécution de ce travail nécessite quelques minutes.
 
-6. Modifiez le code ci-dessous pour remplacer `<serverName>` par votre nom de serveur Azure SQL et `<sqlLogin>` par l’identifiant du serveur Azure SQL.  *Une fois la tâche terminée* et réussie, vous pouvez vérifier que les données ont été générées et exportées vers la table de base de données SQL en utilisant la commande suivante.  Entrez le mot de passe à l’invite.
+6. Modifiez le code ci-dessous pour remplacer `<serverName>` par votre nom de serveur et `<sqlLogin>` par le compte de connexion du serveur.  *Une fois la tâche terminée* et réussie, vous pouvez vérifier que les données ont été générées et exportées vers la table de base de données SQL en utilisant la commande suivante.  Entrez le mot de passe à l’invite.
 
     ```bash
     TDSVER=8.0 tsql -H <serverName>.database.windows.net -U <sqlLogin> -p 1433 -D oozietest
