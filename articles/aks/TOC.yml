@@ -256,12 +256,10 @@
           href: limit-egress-traffic.md
         - name: Activer l’intégration d’Azure Active Directory
           items:
-            - name: Intégrer Azure AD (préversion)
+            - name: AAD géré par AKS (préversion)
               href: managed-aad.md
             - name: "Utilisation de l’interface de ligne de commande Microsoft\_Azure"
               href: azure-ad-integration-cli.md
-            - name: Utilisation du portail Azure
-              href: azure-ad-integration.md
         - name: Utiliser le contrôle d’accès en fonction du rôle (RBAC) Kubernetes avec l’intégration d’Azure AD
           href: azure-ad-rbac.md
           maintainContext: true

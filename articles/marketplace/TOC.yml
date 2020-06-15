@@ -408,6 +408,8 @@
               href: ./partner-center-portal/commercial-marketplace-lead-management-instructions-salesforce.md
         - name: Service de mesure de la Place de marché
           items:
+            - name: Service de détection d’anomalie
+              href: ./partner-center-portal/anomaly-detection-service-for-metered-billing.md
             - name: Stratégies d’authentification
               href: ./partner-center-portal/marketplace-metering-service-authentication.md
             - name: API de service de mesure de la Place de marché

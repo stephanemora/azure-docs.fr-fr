@@ -12,6 +12,8 @@
       href: language-support.md
     - name: Prise en charge de la région
       href: regions.md
+    - name: Nouveautés dans la documentation
+      href: whats-new.md
 - name: Reconnaissance vocale
   items:
     - name: Documentation sur la reconnaissance vocale

@@ -166,8 +166,12 @@
       href: evaluate-recommender.md
     - name: Noter le générateur de recommandations SVD
       href: score-svd-recommender.md
+    - name: Générateur de recommandations Score Wide and Deep
+      href: score-wide-and-deep-recommender.md
     - name: Entraîner le générateur de recommandations SVD
       href: train-svd-recommender.md
+    - name: Générateur de recommandations Train Wide and Deep
+      href: train-wide-and-deep-recommender.md
 - name: Détection des anomalies
   items:
     - name: Détection des anomalies reposant sur le PCA

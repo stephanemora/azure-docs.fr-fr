@@ -222,12 +222,12 @@
               href: cognitive-search-create-custom-skill-example.md
             - name: Exemple - Azure Form Recognizer
               href: cognitive-search-custom-skill-form.md
+            - name: Exemple - Azure Machine Learning
+              href: cognitive-search-tutorial-aml-custom-skill.md
             - name: Exemple - Conteneurs
               href: 'https://go.microsoft.com/fwlink/?linkid=2089500'
         - name: Conseils de conception
           href: cognitive-search-concept-troubleshooting.md
-        - name: Liens vers la documentation
-          href: cognitive-search-resources-documentation.md
         - name: Magasin de connaissances
           items:
             - name: Créer avec REST et Postman
@@ -338,7 +338,7 @@
               href: search-security-api-keys.md
             - name: Configurer un pare-feu IP
               href: service-configure-firewall.md
-            - name: Créer un point de terminaison privé
+            - name: Créer un Private Endpoint
               href: service-create-private-endpoint.md
         - name: Accès basé sur l’identité
           items:
@@ -464,6 +464,8 @@
               href: cognitive-search-skill-text-translation.md
         - name: Compétences personnalisées
           items:
+            - name: Azure Machine Learning (AML)
+              href: cognitive-search-aml-skill.md
             - name: "API\_web personnalisée"
               href: cognitive-search-custom-skill-web-api.md
         - name: Compétences dépréciées
@@ -481,6 +483,8 @@
       href: 'https://feedback.azure.com/forums/263029-azure-search'
     - name: Conformité et certifications
       href: 'https://aka.ms/azurecompliance'
+    - name: Liens vers la documentation (exploration de connaissances)
+      href: cognitive-search-resources-documentation.md
     - name: Sites de démonstration
       items:
         - name: Présentation des fichiers financiers
