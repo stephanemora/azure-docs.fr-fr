@@ -2,14 +2,14 @@
 title: Évaluer des machines virtuelles Hyper-V pour la migration vers Azure avec Azure Migrate | Microsoft Docs
 description: Décrit comment évaluer des machines virtuelles Hyper-V locales pour la migration vers Azure avec Azure Migrate Server Assessment.
 ms.topic: tutorial
-ms.date: 04/15/2020
+ms.date: 06/03/2020
 ms.custom: mvc
-ms.openlocfilehash: c627902268af3a91e172223c1741dd24ea21fa92
-ms.sourcegitcommit: 31ef5e4d21aa889756fa72b857ca173db727f2c3
+ms.openlocfilehash: 2c4233df6566f3187c8366188b0eb960189b43c5
+ms.sourcegitcommit: 79508e58c1f5c58554378497150ffd757d183f30
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "81535449"
+ms.lasthandoff: 06/03/2020
+ms.locfileid: "84331761"
 ---
 # <a name="assess-hyper-v-vms-with-azure-migrate-server-assessment"></a>Évaluer des machines virtuelles Hyper-V Azure Migrate Server Assessment
 
@@ -96,12 +96,20 @@ Vérifiez que le fichier compressé est sécurisé avant de le déployer.
     - ```C:\>Get-FileHash -Path <file_location> -Algorithm [Hashing Algorithm]```
     - Exemple d’utilisation : ```C:\>Get-FileHash -Path ./AzureMigrateAppliance_v1.19.06.27.zip -Algorithm SHA256```
 
-3.  Pour l’appliance version 2.19.07.30, le hachage généré doit correspondre à ces valeurs.
+3.  Vérifiez les toutes dernières versions de l’appliance et les valeurs de hachage :
 
-  **Algorithme** | **Valeur de hachage**
-  --- | ---
-  MD5 | 29a7531f32bcf69f32d964fa5ae950bc
-  SHA256 | 37b3f27bc44f475872e355f04fcb8f38606c84534c117d1609f2d12444569b31
+    - Pour le cloud public Azure :
+
+        **Scénario** | **Télécharger** | **SHA256**
+        --- | --- | ---
+        Hyper-V (8,93 Mo) | [Version la plus récente](https://aka.ms/migrate/appliance/hyperv) |  572be425ea0aca69a9aa8658c950bc319b2bdbeb93b440577264500091c846a1
+
+    - Pour Azure Government :
+
+        **Scénario*** | **Télécharger** | **SHA256**
+        --- | --- | ---
+        Hyper-V (63,1 Mo) | [Version la plus récente](https://go.microsoft.com/fwlink/?linkid=2120200&clcid=0x409) |  2c5e73a1e5525d4fae468934408e43ab55ff397b7da200b92121972e683f9aa3
+
 
 ### <a name="create-the-appliance-vm"></a>Créer la machine virtuelle de l’appliance
 

@@ -11,15 +11,14 @@ author: mumian
 ms.author: jgao
 ms.reviewer: carlrab
 ms.date: 06/28/2019
-ms.openlocfilehash: 03d598e0c0756cd304248ab19ab28a25836c57ab
-ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
+ms.openlocfilehash: 02e0947de3e7e5c6ce5110740127571ea393b168
+ms.sourcegitcommit: 61d850bc7f01c6fafee85bda726d89ab2ee733ce
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "84052407"
+ms.lasthandoff: 06/03/2020
+ms.locfileid: "84343861"
 ---
 # <a name="quickstart-create-a-single-database-in-azure-sql-database-using-the-azure-resource-manager-template"></a>Démarrage rapide : Créer une base de données unique dans Azure SQL Database à l’aide du modèle Azure Resource Manager
-[!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
 
 La création d’une [base de données unique](single-database-overview.md) est la méthode la plus rapide et la plus simple pour créer une base de données dans Azure SQL Database. Ce guide de démarrage rapide montre comment créer une base de données unique à l’aide du modèle Azure Resource Manager.
 
@@ -29,7 +28,7 @@ Si vous n’avez pas d’abonnement Azure, [créez un compte gratuit](https://az
 
 ## <a name="prerequisites"></a>Prérequis
 
-None
+Aucun.
 
 ## <a name="create-a-single-database"></a>Créer une base de données unique
 
@@ -73,7 +72,7 @@ New-AzResourceGroupDeployment -ResourceGroupName $resourceGroupName -TemplateUri
 Read-Host -Prompt "Press [ENTER] to continue ..."
 ```
 
-# <a name="azure-cli"></a>[Azure CLI](#tab/azure-cli)
+# <a name="the-azure-cli"></a>[L’interface de ligne de commande Microsoft Azure](#tab/azure-cli)
 
 ```azurecli-interactive
 $projectName = Read-Host -Prompt "Enter a project name that is used for generating resource names"
@@ -112,7 +111,7 @@ $resourceGroupName = Read-Host -Prompt "Enter the Resource Group name"
 Remove-AzResourceGroup -Name $resourceGroupName
 ```
 
-# <a name="azure-cli"></a>[Azure CLI](#tab/azure-cli)
+# <a name="the-azure-cli"></a>[L’interface de ligne de commande Microsoft Azure](#tab/azure-cli)
 
 ```azurecli-interactive
 echo "Enter the Resource Group name:" &&
@@ -128,6 +127,7 @@ az group delete --name $resourceGroupName
 - Après avoir créé une règle de pare-feu au niveau du serveur, [connectez et interrogez](connect-query-content-reference-guide.md) votre base de données à l’aide de plusieurs outils et langues différents.
   - [Se connecter et effectuer des requêtes à l’aide de SQL Server Management Studio](connect-query-ssms.md)
   - [Se connecter et effectuer des requêtes à l’aide d’Azure Data Studio](https://docs.microsoft.com/sql/azure-data-studio/quickstart-sql-database?toc=/azure/sql-database/toc.json)
-- Pour créer une base de données unique à l’aide d’Azure CLI, consultez [Exemples d’interface de ligne de commande Azure](az-cli-script-samples-content-guide.md).
+- Pour créer une base de données unique à l’aide de l’interface Azure CLI, consultez [Exemples d’interface de ligne de commande Azure](az-cli-script-samples-content-guide.md).
 - Pour créer une base de données unique à l’aide d’Azure PowerShell, consultez [Exemples Azure PowerShell](powershell-script-content-guide.md).
 - Pour savoir comment créer un modèle Resource Manager, consultez [Créer votre premier modèle](../../azure-resource-manager/templates/template-tutorial-create-first-template.md).
+ 

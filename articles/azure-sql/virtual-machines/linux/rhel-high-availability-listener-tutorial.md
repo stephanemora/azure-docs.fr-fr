@@ -1,5 +1,5 @@
 ---
-title: Configurer un écouteur de groupe de disponibilité pour SQL Server sur des machines virtuelles RHEL dans Azure – Machines virtuelles Linux | Microsoft Docs
+title: Configurer un écouteur de groupe de disponibilité pour SQL Server sur des machines virtuelles RHEL dans Azure - Machines virtuelles Linux | Microsoft Docs
 description: Apprendre à configurer un écouteur de groupe de disponibilité dans SQL Server sur des machines virtuelles RHEL dans Azure
 ms.service: virtual-machines-linux
 ms.subservice: ''
@@ -8,22 +8,22 @@ author: VanMSFT
 ms.author: vanto
 ms.reviewer: jroth
 ms.date: 03/11/2020
-ms.openlocfilehash: edd9b83de0feff3b9ef12c67cdca19501eaa63a2
-ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
+ms.openlocfilehash: f60cb3f28c57d6df4a309a7630d078c593d75410
+ms.sourcegitcommit: 61d850bc7f01c6fafee85bda726d89ab2ee733ce
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "84025064"
+ms.lasthandoff: 06/03/2020
+ms.locfileid: "84343759"
 ---
-# <a name="tutorial-configure-availability-group-listener-for-sql-server-on-rhel-virtual-machines-in-azure"></a>Tutoriel : Configurer un écouteur de groupe de disponibilité pour SQL Server sur des machines virtuelles RHEL dans Azure
+# <a name="tutorial-configure-an-availability-group-listener-for-sql-server-on-rhel-virtual-machines-in-azure"></a>Tutoriel : Configurer un écouteur de groupe de disponibilité pour SQL Server sur des machines virtuelles RHEL dans Azure
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
 
 > [!NOTE]
 > Ce tutoriel est en **préversion publique**. 
 >
-> Dans ce tutoriel, nous utilisons SQL Server 2017 avec RHEL 7.6, mais il est possible d’utiliser SQL Server 2019 dans RHEL 7 ou RHEL 8 pour configurer la haute disponibilité. Les commandes permettant de configurer les ressources du groupe de disponibilité ont été modifiées dans RHEL 8. Il est donc recommandé de consulter l’article [Créer une ressource de groupe de disponibilité](/sql/linux/sql-server-linux-availability-group-cluster-rhel#create-availability-group-resource) et d’étudier les ressources RHEL 8 pour connaître les nouvelles commandes.
+> Dans ce tutoriel, nous utilisons SQL Server 2017 avec RHEL 7.6, mais il est possible d’utiliser SQL Server 2019 dans RHEL 7 ou RHEL 8 pour configurer la haute disponibilité. Les commandes permettant de configurer les ressources d’un groupe de disponibilité ont changé dans RHEL 8. Il est donc recommandé de consulter l’article [Créer une ressource de groupe de disponibilité](/sql/linux/sql-server-linux-availability-group-cluster-rhel#create-availability-group-resource) et d’étudier les ressources RHEL 8 pour obtenir des informations sur les commandes appropriées.
 
-Ce tutoriel passe en revue les étapes à suivre pour créer un écouteur de groupe de disponibilité pour vos serveurs SQL Server sur des machines virtuelles RHEL dans Azure. Vous apprendrez à :
+Ce tutoriel passe en revue les étapes à suivre pour créer un écouteur de groupe de disponibilité pour vos serveurs SQL Server sur des machines virtuelles RHEL dans Azure. Vous apprendrez à :
 
 > [!div class="checklist"]
 > - Créer un équilibreur de charge sur le portail Azure
@@ -37,7 +37,7 @@ Ce tutoriel passe en revue les étapes à suivre pour créer un écouteur de gro
 
 ## <a name="prerequisite"></a>Configuration requise
 
-[**Tutoriel : Configurer des groupes de disponibilité pour SQL Server sur des machines virtuelles RHEL dans Azure**](rhel-high-availability-stonith-tutorial.md) effectué
+Avoir suivi le [Tutoriel : Configurer des groupes de disponibilité pour SQL Server sur des machines virtuelles RHEL dans Azure](rhel-high-availability-stonith-tutorial.md)
 
 ## <a name="create-the-load-balancer-in-the-azure-portal"></a>Créer l’équilibrage de charge dans le portail Azure
 
@@ -115,9 +115,9 @@ La sonde définit la façon dont Azure identifie l’instance de SQL Server qui 
 
 Azure crée la sonde puis l’utilise pour identifier l’instance de SQL Server qui a l’écouteur pour le groupe de disponibilité.
 
-### <a name="set-the-load-balancing-rules"></a>Configurer les règles d’équilibrage de charge
+### <a name="set-the-load-balancing-rules"></a>Définir les règles d’équilibrage de charge
 
-Les règles d’équilibrage de charge déterminent comment l’équilibreur de charge route le trafic vers les instances de SQL Server. Pour cet équilibreur de charge, vous activez le retour direct du serveur, car une seule des trois instances de SQL Server est propriétaire de la ressource d’écouteur de groupe de disponibilité à un moment donné.
+Les règles d’équilibrage de charge déterminent comment l’équilibreur de charge route le trafic vers les instances de SQL Server. Pour cet équilibreur de charge, vous activez le retour direct du serveur, car une seule des trois instances de SQL Server est propriétaire de la ressource d’écouteur de groupe de disponibilité à un moment donné.
 
 1. Dans le panneau **Paramètres** de l’équilibrage de charge, cliquez sur **Règles d’équilibrage de charge**. 
 
@@ -127,7 +127,7 @@ Les règles d’équilibrage de charge déterminent comment l’équilibreur de 
 
    | Paramètre | Valeur |
    | --- | --- |
-   | **Nom** |Nom de la règle d’équilibrage de charge. Par exemple, **SQLAlwaysOnEndPointListener**. |
+   | **Nom** |Nom représentant la règle d’équilibrage de charge. Par exemple, **SQLAlwaysOnEndPointListener**. |
    | **Protocole** |**TCP** |
    | **Port** |*1433* |
    | **Port principal** |*1433*. Cette valeur est ignorée, car cette règle utilise **Adresse IP flottante (retour direct du serveur)** . |
@@ -220,9 +220,9 @@ Les règles d’équilibrage de charge déterminent comment l’équilibreur de 
 
 ## <a name="test-the-listener-and-a-failover"></a>Tester l’écouteur et un basculement
 
-### <a name="test-logging-into-sql-server-using-the-availability-group-listener"></a>Tester la journalisation dans SQL Server à l’aide de l’écouteur de groupe de disponibilité
+### <a name="test-logging-in-to-sql-server-using-the-availability-group-listener"></a>Tester la journalisation dans SQL Server à l’aide de l’écouteur de groupe de disponibilité
 
-1. Utilisez SQLCMD pour vous connecter au nœud principal de SQL Server en utilisant le nom de l’écouteur de groupe de disponibilité :
+1. Utilisez SQLCMD pour vous connecter au nœud principal de SQL Server en utilisant le nom de l’écouteur de groupe de disponibilité :
 
     - Utilisez un compte de connexion qui a été créé précédemment et remplacez `<YourPassword>` par le mot de passe correct. L’exemple ci-dessous utilise le compte de connexion `sa` qui a été créé avec SQL Server.
 
@@ -238,11 +238,11 @@ Les règles d’équilibrage de charge déterminent comment l’équilibreur de 
 
     Votre sortie doit présenter le nœud principal actif. Si vous n’avez jamais testé un basculement, il s’agit de `VM1`.
 
-    Quittez la session SQL en tapant la commande `exit`.
+    Quittez la session SQL Server en tapant la commande `exit`.
 
 ### <a name="test-a-failover"></a>Tester un basculement
 
-1. Exécutez la commande suivante pour faire basculer manuellement le réplica principal vers `<VM2>` ou un autre réplica. Remplacez `<VM2>` par le nom du serveur.
+1. Exécutez la commande suivante pour faire basculer manuellement le réplica principal vers `<VM2>` ou vers un autre réplica. Remplacez `<VM2>` par le nom du serveur.
 
     ```bash
     sudo pcs resource move ag_cluster-master <VM2> --master
@@ -280,7 +280,7 @@ Les règles d’équilibrage de charge déterminent comment l’équilibreur de 
 
     ```bash
     sqlcmd -S ag1-listener -U sa -P <YourPassword>
-    ```
+     ```
 
 1. Vérifiez le serveur auquel vous êtes connecté. Exécutez la commande suivante dans SQLCMD :
 
@@ -295,4 +295,4 @@ Les règles d’équilibrage de charge déterminent comment l’équilibreur de 
 Pour plus d’informations sur les équilibreurs de charge dans Azure, consultez :
 
 > [!div class="nextstepaction"]
-> [Configurer un équilibreur de charge pour un groupe de disponibilité sur des machines virtuelles Azure SQL Server](../windows/availability-group-load-balancer-portal-configure.md)
+> [Configurer un équilibreur de charge pour un groupe de disponibilité sur SQL Server sur des machines virtuelles Azure](../windows/availability-group-load-balancer-portal-configure.md)

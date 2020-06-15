@@ -122,11 +122,9 @@
     - name: Exemples
       href: analysis-services-samples.md
     - name: Blog de l’équipe Analysis Services
-      href: 'https://blogs.msdn.microsoft.com/analysisservices/'
-    - name: Page de questions Microsoft Q&A sur Azure Analysis Services
-      href: 'https://docs.microsoft.com/answers/topics/azure-analysis-services.html'
-    - name: Feuille de route Azure
-      href: 'https://azure.microsoft.com/roadmap/?category=intelligence-analytics'
+      href: 'https://powerbi.microsoft.com/blog/category/analysis-services/'
+    - name: Mises à jour Azure
+      href: 'https://azure.microsoft.com/updates/?query=Analysis%20Services'
     - name: État Azure
       href: 'https://azure.microsoft.com/status/'
     - name: Commentaires

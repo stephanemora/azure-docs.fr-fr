@@ -8,17 +8,18 @@ author: asudbring
 manager: KumudD
 Customer intent: I want to test a NAT gateway for outbound connectivity for my virtual network.
 ms.service: virtual-network
+ms.subservice: nat
 ms.devlang: na
 ms.topic: tutorial
 ms.workload: infrastructure-services
 ms.date: 02/18/2020
 ms.author: allensu
-ms.openlocfilehash: b3e10b3abbe5c9815e51ce67786882dbd294df3f
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: b1ca26a63c910861d333f707d13946c5e046f599
+ms.sourcegitcommit: 61d850bc7f01c6fafee85bda726d89ab2ee733ce
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "79202216"
+ms.lasthandoff: 06/03/2020
+ms.locfileid: "84340978"
 ---
 # <a name="tutorial-create-a-nat-gateway-using-azure-cli-and-test-the-nat-service"></a>Tutoriel : Créer une passerelle NAT avec Azure CLI et tester le service NAT
 
@@ -390,7 +391,7 @@ Vous êtes désormais prêt à tester le service NAT.
 
 Quand vous êtes connecté à la machine virtuelle source, vous pouvez utiliser **curl** et **hey** pour générer des requêtes vers l’adresse IP de destination.
 
-Utilisez curl pour récupérer le fichier de 100 Ko.  Remplacez **\<ip-address-destination>** dans l’exemple ci-dessous par l’adresse IP de destination que vous avez copiée précédemment.  Le paramètre **--output** indique que le fichier récupéré sera ignoré.
+Utilisez curl pour récupérer le fichier de 100 Ko.  Dans l’exemple ci-dessous, remplacez **\<ip-address-destination>** par l’adresse IP de destination que vous avez copiée précédemment.  Le paramètre **--output** indique que le fichier récupéré sera ignoré.
 
 ```bash
 curl http://<ip-address-destination>/100k --output /dev/null

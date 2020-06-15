@@ -9,13 +9,13 @@ ms.topic: tutorial
 ms.author: sacartac
 ms.reviewer: nibaccam
 author: cartacioS
-ms.date: 05/19/2020
-ms.openlocfilehash: 46c11ef3b3a1fa1a1861f9e944c93ffdf94f7c5a
-ms.sourcegitcommit: 6a9f01bbef4b442d474747773b2ae6ce7c428c1f
+ms.date: 06/04/2020
+ms.openlocfilehash: 3786b7a2b8b8fc40b1cf393aa452c15d72c5b963
+ms.sourcegitcommit: b55d1d1e336c1bcd1c1a71695b2fd0ca62f9d625
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "84118890"
+ms.lasthandoff: 06/04/2020
+ms.locfileid: "84433704"
 ---
 # <a name="tutorial-forecast-demand-with-automated-machine-learning"></a>Tutoriel : Prévoir la demande avec le Machine Learning automatisé
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-enterprise-sku.md)]
@@ -124,7 +124,7 @@ Une fois vos données chargées et configurées, configurez votre cible de calcu
 
     1. Sélectionnez **Suivant**.
 
-## <a name="select-task-type-and-settings"></a>Sélectionner le type de tâche et les paramètres
+## <a name="select-forecast-settings"></a>Sélectionner les paramètres de prévision
 
 Terminez la configuration de votre expérience de ML automatisé en spécifiant le type de tâche de Machine Learning et les paramètres de configuration.
 

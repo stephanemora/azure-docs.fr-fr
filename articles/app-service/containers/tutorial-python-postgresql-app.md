@@ -9,12 +9,13 @@ ms.custom:
 - seodec18
 - seo-python-october2019
 - cli-validate
-ms.openlocfilehash: 504e2f7c07d8d29e4fe4dad52dc008c895517a3d
-ms.sourcegitcommit: 50ef5c2798da04cf746181fbfa3253fca366feaa
+- tracking-python
+ms.openlocfilehash: 4a2f80ea30fc68ae1dfea72983fd2b229d40c711
+ms.sourcegitcommit: 964af22b530263bb17fff94fd859321d37745d13
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/30/2020
-ms.locfileid: "82609780"
+ms.lasthandoff: 06/09/2020
+ms.locfileid: "84559281"
 ---
 # <a name="tutorial-deploy-a-python-django-web-app-with-postgresql-in-azure-app-service"></a>Tutoriel : Déployer une application web Python (Django) avec PostgreSQL dans Azure App Service
 
@@ -146,7 +147,7 @@ Dans cette section, vous allez créer l’application App Service. Vous allez c
 
 Vérifiez que vous êtes à nouveau à la racine du dépôt (`djangoapp`), car l’application sera déployée à partir de ce répertoire.
 
-Créez une application App Service avec la commande [`az webapp up`](/cli/azure/webapp#az-webapp-up), comme indiqué dans l’exemple suivant. Remplacez *\<app-name>* par un nom *unique* (le point de terminaison de serveur est *https://\<app-name>.azurewebsites.net*). Les caractères autorisés pour *\<app-name>* sont `A`-`Z`, `0`-`9`, et `-`.
+Créez une application App Service avec la commande [`az webapp up`](/cli/azure/webapp#az-webapp-up), comme indiqué dans l’exemple suivant. Remplacez *\<app-name>* par un nom *unique* (le point de terminaison de serveur est *https://\<app-name>.azurewebsites.net*). Les caractères autorisés pour *\<app-name>* sont `A`-`Z`, `0`-`9` et `-`.
 
 ```azurecli
 az webapp up --plan myAppServicePlan --location westus2 --sku B1 --name <app-name>
@@ -205,7 +206,7 @@ Pour plus d’informations sur la façon dont votre code accède à ces paramèt
 
 ### <a name="run-database-migrations"></a>Exécuter des migrations de base de données
 
-Pour exécuter des migrations de base de données dans App Service, ouvrez une session SSH dans le navigateur en accédant à *https://\<app-name>.scm.azurewebsites.net/webssh/host* :
+Pour exécuter des migrations de base de données dans App Service, ouvrez une session SSH dans le navigateur en accédant à *https://\<app-name>.scm.azurewebsites.net/webssh/host* :
 
 <!-- doesn't work when container not started -->
 <!-- ```azurecli
@@ -229,9 +230,9 @@ python manage.py createsuperuser
 
 Accédez à l’application déployée avec l’URL *http:\//\<app-name>.azurewebsites.net* dans un navigateur. Vous devez voir le message **No polls are available** (Aucun sondage n’est disponible). 
 
-Accédez à *http:\//\<app-name>.azurewebsites.net/admin*, puis connectez-vous à l’aide de l’utilisateur administrateur que vous avez créé à la dernière étape. Sélectionnez **Add** (Ajouter) en regard de **Questions** et créez une question de sondage à choix multiple.
+Accédez à *http:\//\<app-name>.azurewebsites.net/admin*, puis connectez-vous avec l’utilisateur administrateur que vous avez créé à la dernière étape. Sélectionnez **Add** (Ajouter) en regard de **Questions** et créez une question de sondage à choix multiple.
 
-Accédez à l’application déployée avec l’URL *http:\//\<app-name>.azurewebsites.net/admin*, puis créez des questions de sondage. Vous pouvez voir les questions à l’adresse *http:\//\<app-name>.azurewebsites.net/* . 
+Accédez à l’application déployée avec l’URL *http:\//\<app-name>.azurewebsites.net/admin*, puis créez des questions de sondage. Vous pouvez voir les questions sur *http:\//\<app-name>.azurewebsites.net/* . 
 
 ![Exécuter l’application Python Django dans App Services dans Azure](./media/tutorial-python-postgresql-app/deploy-python-django-app-in-azure.png)
 

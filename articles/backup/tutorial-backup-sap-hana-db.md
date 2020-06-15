@@ -3,12 +3,12 @@ title: Tutoriel - Sauvegarder des bases de données SAP HANA dans des machines 
 description: Dans ce tutoriel, découvrez comment sauvegarder des bases de données SAP HANA s’exécutant sur une machine virtuelle Azure dans un coffre Recovery Services de Sauvegarde Azure.
 ms.topic: tutorial
 ms.date: 02/24/2020
-ms.openlocfilehash: 31958a4d4e3af4f747ab2f9de7b1bc67560e87d7
-ms.sourcegitcommit: 8017209cc9d8a825cc404df852c8dc02f74d584b
+ms.openlocfilehash: 52ffc6bf83ff2a2dcc22fd7c5ad8ab1480f9ce50
+ms.sourcegitcommit: 8e5b4e2207daee21a60e6581528401a96bfd3184
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/01/2020
-ms.locfileid: "84248241"
+ms.lasthandoff: 06/04/2020
+ms.locfileid: "84417291"
 ---
 # <a name="tutorial-back-up-sap-hana-databases-in-an-azure-vm"></a>Tutoriel : Sauvegarder des bases de données SAP HANA dans une machine virtuelle Azure
 
@@ -31,7 +31,7 @@ Avant de configurer les sauvegardes, prenez soin d’effectuer les opérations s
 
 * Autorisez la connectivité de la machine virtuelle à Internet pour lui permettre d’atteindre Azure comme décrit dans la procédure [Configurer la connectivité réseau](#set-up-network-connectivity) ci-dessous.
 * Le **hdbuserstore** doit inclure une clé qui respecte les critères suivants :
-  * Elle doit être présente dans le **hdbuserstore** par défaut.
+  * Elle doit être présente dans le **hdbuserstore** par défaut. Par défaut, il s’agit du compte `<sid>adm` sous lequel SAP HANA est installé.
   * Pour MDC, la clé doit pointer vers le port SQL de **NAMESERVER**. Pour SDC, elle doit pointer vers le port SQL de **INDEXSERVER**.
   * Elle doit disposer des informations d’identification nécessaires pour ajouter et supprimer des utilisateurs.
 * Exécutez le script de configuration de sauvegarde SAP HANA (script de préinscription) dans la machine virtuelle où HANA est installé en tant qu’utilisateur racine. [Ce script](https://aka.ms/scriptforpermsonhana) prépare le système HANA pour la sauvegarde. Pour en savoir plus sur le script de préinscription, reportez-vous à la section [Ce que fait le script de préinscription](#what-the-pre-registration-script-does).
@@ -100,7 +100,7 @@ Utiliser un proxy HTTP | Le contrôle granulaire dans le proxy sur les URL de st
 
 Le script de préinscription assure les fonctions suivantes :
 
-* Il installe ou met à jour tous les packages nécessaires à l’agent de Sauvegarde Azure sur votre distribution.
+* En fonction de votre distribution Linux, le script installe ou met à jour tous les packages nécessaires à l’agent de Sauvegarde Azure sur votre distribution.
 * Il effectue les vérifications de connectivité réseau sortante avec les serveurs de Sauvegarde Azure et les services dépendants comme Azure Active Directory et Stockage Azure.
 * Il se connecte à votre système HANA à l’aide de la clé utilisateur figurant dans les [prérequis](#prerequisites). La clé utilisateur permet de créer un utilisateur de sauvegarde (AZUREWLBACKUPHANAUSER) dans le système HANA et peut être supprimée dès lors que le script de préinscription a été correctement exécuté.
 * AZUREWLBACKUPHANAUSER reçoit les rôles et autorisations nécessaires suivants :

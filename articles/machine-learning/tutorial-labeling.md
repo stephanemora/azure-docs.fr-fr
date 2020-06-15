@@ -10,12 +10,12 @@ ms.author: sgilley
 author: sdgilley
 ms.reviewer: ranku
 ms.date: 04/09/2020
-ms.openlocfilehash: 54f09c4b35f31619c3dcaa027c70444595c4352e
-ms.sourcegitcommit: 1f48ad3c83467a6ffac4e23093ef288fea592eb5
+ms.openlocfilehash: 5f3a73ed6c7843c13d35a91a75189fe9dd8d4dbd
+ms.sourcegitcommit: d7fba095266e2fb5ad8776bffe97921a57832e23
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/29/2020
-ms.locfileid: "84196509"
+ms.lasthandoff: 06/09/2020
+ms.locfileid: "84628379"
 ---
 # <a name="tutorial-create-a-labeling-project-preview-for-multi-class-image-classification"></a>Tutoriel : Créer un projet d’étiquetage (préversion) pour la classification d’images multiclasse 
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -109,6 +109,12 @@ Maintenant que vous disposez de l’accès aux données à étiqueter, créez vo
     1. Sélectionnez le cercle en regard du nom du jeu de données dans la liste, par exemple **images-for-tutorial**.
 
 1. Sélectionnez **Suivant** pour poursuivre la création du projet.
+
+### <a name="incremental-refresh"></a>Actualisation incrémentielle
+
+Si vous envisagez d’ajouter de nouvelles images à votre jeu de données, l’actualisation incrémentielle recherche ces nouvelles images et les ajoute à votre projet.  Lorsque vous activez cette fonctionnalité, le projet recherche régulièrement de nouvelles images.  Comme vous n’allez pas ajouter de nouvelles images au magasin de données pour ce tutoriel, laissez cette fonctionnalité désactivée.
+
+Sélectionnez **Suivant** pour continuer.
 
 ### <a name="label-classes"></a>Classes d’étiquettes
 

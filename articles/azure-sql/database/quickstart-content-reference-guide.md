@@ -1,6 +1,6 @@
 ---
 title: Informations de référence des guides de démarrage rapide sur les bases de données uniques
-description: Consultez les informations de référence de tous les guides de démarrage rapide qui vous aideront à démarrer rapidement avec des bases de données uniques dans Azure SQL Database
+description: Consultez les informations de référence de tous les guides de démarrage rapide qui vous aident à démarrer vite et bien avec les bases de données uniques dans Azure SQL Database.
 services: sql-database
 ms.service: sql-database
 ms.subservice: single-database
@@ -11,21 +11,21 @@ author: jovanpop-msft
 ms.author: jovanpop
 ms.reviewer: carlr
 ms.date: 07/29/2019
-ms.openlocfilehash: c4a699a6b531feee98f9c6f83ba19cfef9d27620
-ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
+ms.openlocfilehash: 3265b1f8234e1f2a2f19fb488d5c311e501c770e
+ms.sourcegitcommit: 61d850bc7f01c6fafee85bda726d89ab2ee733ce
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "84052902"
+ms.lasthandoff: 06/03/2020
+ms.locfileid: "84338292"
 ---
 # <a name="getting-started-with-single-databases-in-azure-sql-database"></a>Bien démarrer avec des bases de données uniques dans Azure SQL Database
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
 
-Une [base de données unique](../index.yml) est une base de données en tant que service PaaS entièrement managée qui constitue le moteur de stockage idéal pour les applications cloud modernes. Dans cette section, vous allez découvrir comment configurer et créer rapidement une base de données unique dans Azure SQL Database.
+[Une base de données unique](../index.yml) est une base de données DbaaS (base de données en tant que service) PaaS (plateforme en tant que service) complètement managée, qui constitue le moteur de stockage idéal pour les applications cloud modernes. Dans cette section, vous allez apprendre à configurer et créer rapidement une base de données unique dans Azure SQL Database.
 
 ## <a name="quickstart-overview"></a>Vue d’ensemble du guide de démarrage rapide
 
-Cette section contient une vue d’ensemble des articles disponibles qui peuvent vous aider à démarrer rapidement avec des bases de données uniques. Les guides de démarrage rapide suivants vous permettent de créer une base de données unique, de configurer une règle de pare-feu au niveau du serveur, puis d’importer une base de données dans la nouvelle base de données unique au moyen d’un fichier `.bacpac` :
+Cette section contient une vue d’ensemble des articles disponibles qui peuvent vous aider à démarrer rapidement avec les bases de données uniques. Les guides de démarrage rapide suivants vous permettent de créer une base de données unique, de configurer une règle de pare-feu au niveau du serveur, puis d’importer une base de données dans la nouvelle base de données unique au moyen d’un fichier `.bacpac` :
 
 - [Créez une base de données unique à l’aide du portail Azure](single-database-create-quickstart.md).
 - Après avoir créé la base de données, vous devez [la sécuriser en configurant des règles de pare-feu](firewall-create-server-level-portal-quickstart.md).
@@ -48,14 +48,14 @@ Ces guides de démarrage rapide vous permettent de créer ou d’importer votre 
 Les modules Microsoft Learn suivants vous aident à vous familiariser gratuitement avec Azure SQL Database.
 
 - [Provisionner une base de données dans SQL Database pour stocker les données d’application](https://docs.microsoft.com/learn/modules/provision-azure-sql-db/)
-- [Développer et configurer une application ASP.NET qui interroge une base de données Azure SQL Database](https://docs.microsoft.com/learn/modules/develop-app-that-queries-azure-sql/)
-- [Sécuriser votre base de données Azure SQL Database](https://docs.microsoft.com/learn/modules/secure-your-azure-sql-database/).
+- [Développer et configurer une application ASP.NET qui interroge une base de données dans Azure SQL Database](https://docs.microsoft.com/learn/modules/develop-app-that-queries-azure-sql/)
+- [Sécuriser votre base de données dans Azure SQL Database](https://docs.microsoft.com/learn/modules/secure-your-azure-sql-database/)
 
 ## <a name="next-steps"></a>Étapes suivantes
 
 - Découvrez une [liste générale des fonctionnalités prises en charge dans Azure SQL Database](features-comparison.md).
 - Découvrez comment [renforcer la sécurité de votre base de données](secure-database-tutorial.md).
 - Consultez l’article sur l’[utilisation d’une base de données unique dans Azure SQL Database](how-to-content-reference-guide.md) pour accéder à des guides pratiques plus avancés.
-- Découvrez plus d’exemples de scripts écrits en [PowerShell](powershell-script-content-guide.md) et [Azure CLI](az-cli-script-samples-content-guide.md).
+- Découvrez plus d’exemples de scripts écrits dans [PowerShell](powershell-script-content-guide.md) et dans [l’interface Azure CLI](az-cli-script-samples-content-guide.md).
 - Découvrez plus d’informations sur l’[API de gestion](single-database-manage.md) que vous pouvez utiliser pour configurer vos bases de données.
-- [Identifiez la bonne référence SKU d’Azure SQL Database ou de SQL Managed Instance pour votre base de données locale](/sql/dma/dma-sku-recommend-sql-db/).
+- [Identifiez la bonne référence SKU Azure SQL Database ou Azure SQL Managed Instance pour votre base de données locale](/sql/dma/dma-sku-recommend-sql-db/).

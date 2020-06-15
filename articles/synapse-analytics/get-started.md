@@ -9,12 +9,12 @@ ms.reviewer: jrasnick
 ms.service: synapse-analytics
 ms.topic: quickstart
 ms.date: 05/19/2020
-ms.openlocfilehash: 24a34ae6f00eca7154021162184f5e71503da06b
-ms.sourcegitcommit: 8017209cc9d8a825cc404df852c8dc02f74d584b
+ms.openlocfilehash: 00f93086fec62c08c5241d868fc5104a1197cff3
+ms.sourcegitcommit: 1de57529ab349341447d77a0717f6ced5335074e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/01/2020
-ms.locfileid: "84248326"
+ms.lasthandoff: 06/09/2020
+ms.locfileid: "84605406"
 ---
 # <a name="getting-started-with-azure-synapse-analytics"></a>Prise en main d’Azure Synapse Analytics
 
@@ -164,7 +164,7 @@ Des données sont disponibles dans une table de `SQLDB1`. À présent, nous les 
 
 1. Accédez au hub **Données**, cliquez avec le bouton de droite sur **Bases de données**, puis sélectionnez **Actualiser**.
 1. Les bases de données suivantes s’affichent à présent :
-    - SQLDB (pool SQL)
+    - SQLDB1 (pool SQL)
     - nyctaxi (Spark)
       
 ## <a name="analyze-the-nyc-taxi-data-using-spark-and-notebooks"></a>Analyser les données des taxis de New York à l’aide de Spark et des notebooks
@@ -190,10 +190,10 @@ Des données sont disponibles dans une table de `SQLDB1`. À présent, nous les 
       WHERE TripDistanceMiles > 0 AND PassengerCount > 0
       GROUP BY PassengerCount
       ORDER BY PassengerCount
-    """) 
-    display(df)
-    df.write.saveAsTable("nyctaxi.passengercountstats")
-    ```
+   """) 
+   display(df)
+   df.write.saveAsTable("nyctaxi.passengercountstats")
+   ```
 
 1. Dans les résultats de la cellule, sélectionnez **Graphique** pour afficher les données visualisées
  
@@ -282,7 +282,7 @@ df.write.mode("overwrite").parquet("/NYCTaxi/PassengerCountStats.parquet")
 1. Sélectionner **utilisateurs (Principaux) »**
 1. Vous devriez voir un dossier nommé `NYCTaxi`. Celui-ci doit comprendre les deux dossiers `PassengerCountStats.csv` et `PassengerCountStats.parquet`.
 1. Accédez au dossier `PassengerCountStats.parquet`.
-1. Cliquez avec le bouton de droite sur le fichier parquet à l’intérieur, puis sélectionnez **nouveau notebook**, cela permettra de créer un notebook avec une cellule semblable à celle-ci :
+1. Cliquez avec le bouton droit sur le fichier `.parquet` à l’intérieur, puis sélectionnez **nouveau notebook** pour qu’un notebook soit créé avec une cellule semblable à celle-ci :
 
     ```py
     %%pyspark

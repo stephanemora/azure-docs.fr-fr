@@ -11,12 +11,12 @@ ms.workload: identity
 ms.date: 03/20/2019
 ms.author: nacanuma
 ms.custom: aaddev, identityplatformtop40
-ms.openlocfilehash: 6f0253490d39e69d491dd5fd3ab0d0d0a32d47bb
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 573aef4f0d340d0d32dc4977e0937bca9c6d3cef
+ms.sourcegitcommit: 61d850bc7f01c6fafee85bda726d89ab2ee733ce
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82181560"
+ms.lasthandoff: 06/03/2020
+ms.locfileid: "84338922"
 ---
 # <a name="sign-in-users-and-call-the-microsoft-graph-api-from-a-javascript-single-page-application-spa"></a>Connecter les utilisateurs et appeler l’API Microsoft Graph à partir d’une application monopage (SPA) JavaScript
 
@@ -56,13 +56,26 @@ Ce guide utilise la bibliothèque suivante :
 
 * Les instructions de ce guide sont basées sur un serveur web intégré à Node.js. Nous vous recommandons d’utiliser [Visual Studio Code](https://code.visualstudio.com/download) comme environnement de développement intégré (IDE).
 
+* Un navigateur web moderne. Cet exemple JavaScript utilise les conventions [ES6](http://www.ecma-international.org/ecma-262/6.0/). Il ne prend donc **pas** en charge **Internet Explorer**.
+
 ## <a name="create-your-project"></a>Créer votre projet
 
 Vérifiez que [Node.js](https://nodejs.org/en/download/) est installé, puis créez un dossier pour héberger votre application. Nous allons y implémenter un serveur web [Express](https://expressjs.com/) simple pour servir votre fichier `index.html`.
 
-1. Tout d’abord, à l’aide du terminal intégré Visual Studio Code, localisez votre dossier de projet, puis installez Express à l’aide de NPM.
+1. À l’aide d’un terminal (par exemple, le terminal intégré de Visual Studio Code), localisez votre dossier de projet, puis tapez :
 
-1. Ensuite, créez un fichier .js nommé `server.js`, puis ajoutez le code suivant :
+   ```console
+   npm init
+   ```
+
+2. Installez ensuite les dépendances nécessaires :
+
+   ```console
+   npm install express --save
+   npm install morgan --save
+   ```
+
+1. À présent, créez un fichier .js nommé `index.js`, puis ajoutez le code suivant :
 
    ```JavaScript
    const express = require('express');
@@ -269,7 +282,7 @@ Avant de poursuivre l’authentification, inscrivez votre application sur **Azur
 
 > ### <a name="set-a-redirect-url-for-nodejs"></a>Définir d’une URL de redirection pour Node.js
 >
-> Pour Node.js, vous pouvez définir le port du serveur web dans le fichier *server.js*. Ce tutoriel utilise le port 3000, mais vous pouvez utiliser tout autre port disponible.
+> Pour Node.js, vous pouvez définir le port du serveur web dans le fichier *index.js*. Ce tutoriel utilise le port 3000, mais vous pouvez utiliser tout autre port disponible.
 >
 > Pour configurer une URL de redirection dans les informations d’inscription de l’application, retournez dans le volet **Inscription d’application** et effectuez l’une des opérations suivantes :
 >
@@ -310,7 +323,7 @@ Créez un fichier .js nommé `authConfig.js`, qui contiendra vos paramètres de
  Où :
  - *\<Enter_the_Application_Id_Here>* est l’**ID d’application (client)** de l’application que vous avez inscrite.
  - *\<Enter_the_Cloud_Instance_Id_Here>* est l’instance du cloud Azure. Pour le cloud Azure principal ou mondial, entrez simplement *https://login.microsoftonline.com* . Pour les clouds **nationaux** (par exemple, Chine), consultez [Clouds nationaux](https://docs.microsoft.com/azure/active-directory/develop/authentication-national-cloud).
- - *\<Enter_the_Tenant_info_here >* est défini sur une des options suivantes :
+ - *\<Enter_the_Tenant_info_here>* est défini sur l’une des options suivantes :
    - Si votre application prend en charge les *Comptes dans cet annuaire organisationnel*, remplacez cette valeur par l’**ID de locataire** ou le **nom du locataire** (par exemple, *contoso.microsoft.com*).
    - Si votre application prend en charge les *Comptes dans un annuaire organisationnel*, remplacez cette valeur par **organizations**.
    - Si votre application prend en charge les *Comptes dans un annuaire organisationnel et comptes personnels Microsoft*, remplacez cette valeur par **common**. Pour limiter la prise en charge aux *Comptes Microsoft personnels uniquement*, remplacez cette valeur par **consumers**.
@@ -433,7 +446,7 @@ La méthode `acquireTokenSilent` gère l’acquisition et le renouvellement de j
    ```
 
    Où :
-   - *\<Enter_the_Graph_Endpoint_Here>* est l’instance de l’API MS Graph. Pour utiliser le point de terminaison global de l’API MS Graph, remplacez simplement cette chaîne par `https://graph.microsoft.com`. Pour des déploiements sur les clouds nationaux, consultez la [documentation de l’API Graph](https://docs.microsoft.com/graph/deployments).
+   - *\<Enter_the_Graph_Endpoint_Here>* est l’instance de l’API MS Graph. Pour utiliser le point de terminaison global de l’API MS Graph, remplacez simplement cette chaîne par `https://graph.microsoft.com`. Pour des déploiements sur les clouds nationaux, consultez la [documentation de l’API Graph](https://docs.microsoft.com/graph/deployments).
 
 1. Ensuite, créez un fichier .js nommé `graph.js`, qui effectuera un appel REST à l’API Microsoft Graph, et ajoutez le code suivant :
 
@@ -496,7 +509,5 @@ L’API Microsoft Graph nécessite l’étendue *user.read* pour lire le profil 
 
 > [!NOTE]
 > L’utilisateur peut être invité à donner des consentements supplémentaires à mesure que vous augmentez le nombre d’étendues.
-
-Si une API back-end ne nécessite pas d’étendue (non recommandé), vous pouvez utiliser *clientId* comme étendue dans les appels pour acquérir des jetons.
 
 [!INCLUDE [Help and support](../../../includes/active-directory-develop-help-support-include.md)]

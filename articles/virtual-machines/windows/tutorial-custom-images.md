@@ -9,12 +9,12 @@ ms.workload: infrastructure
 ms.date: 05/01/2020
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: 9061cbbae0b30881fffe1762208216cb8009594a
-ms.sourcegitcommit: e0330ef620103256d39ca1426f09dd5bb39cd075
+ms.openlocfilehash: 1ded745b5a734fd92a8ace851e3ecfc4a7a487d5
+ms.sourcegitcommit: ce44069e729fce0cf67c8f3c0c932342c350d890
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/05/2020
-ms.locfileid: "82791576"
+ms.lasthandoff: 06/09/2020
+ms.locfileid: "84636391"
 ---
 # <a name="tutorial-create-windows-vm-images-with-azure-powershell"></a>Tutoriel : Créer des images de machines virtuelles Windows avec Azure PowerShell
 
@@ -33,7 +33,7 @@ Vous pouvez utiliser des images pour démarrer des déploiements et en garantir 
 
 Les étapes ci-dessous expliquent comment prendre une machine virtuelle existante et la transformer en une image personnalisée réutilisable pour créer de nouvelles machines virtuelles.
 
-Pour exécuter l’exemple dans ce tutoriel, vous devez disposer d’une machine virtuelle. Si nécessaire, vous pouvez consulter le [guide de démarrage rapide PowerShell](quick-create-powershell.md) pour créer une machine virtuelle à utiliser pour ce tutoriel. Au cours du tutoriel, remplacez les noms des ressources si nécessaire.
+Pour exécuter l’exemple dans ce didacticiel, vous devez disposer d’une machine virtuelle. Si nécessaire, vous pouvez consulter le [guide de démarrage rapide PowerShell](quick-create-powershell.md) pour créer une machine virtuelle à utiliser pour ce tutoriel. Au cours du tutoriel, remplacez les noms des ressources si nécessaire.
 
 ## <a name="overview"></a>Vue d’ensemble
 
@@ -140,7 +140,7 @@ La réplication de l’image à l’ensemble des régions cibles peut prendre un
 
 ## <a name="create-a-vm"></a>Créer une machine virtuelle 
 
-Une fois que vous disposez d’une image spécialisée, vous pouvez créer une ou plusieurs nouvelles machines virtuelles. Utilisation de l’applet de commande [New-AzVM](https://docs.microsoft.com/powershell/module/az.compute/new-azvm). Pour utiliser l’image, définissez « Set-AzVMSourceImage` and set the `-Id » sur l’ID de définition d’image ($galleryImage.Id dans le cas présent) afin de toujours utiliser la dernière version de l’image. 
+Une fois que vous disposez d’une image spécialisée, vous pouvez créer une ou plusieurs nouvelles machines virtuelles. Utilisation de l’applet de commande [New-AzVM](https://docs.microsoft.com/powershell/module/az.compute/new-azvm). Pour vous servir de l’image, utilisez `Set-AzVMSourceImage` et définissez `-Id` sur l’ID de définition d’image ($galleryImage.Id dans le cas présent) afin de toujours utiliser la version la plus récente de l’image. 
 
 Remplacez les noms de ressources en fonction des besoins dans cet exemple. 
 

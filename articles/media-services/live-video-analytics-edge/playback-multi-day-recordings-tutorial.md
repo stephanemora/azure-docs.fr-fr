@@ -3,12 +3,12 @@ title: Lecture d’enregistrements sur plusieurs jours - Azure
 description: Dans ce tutoriel, vous allez apprendre à utiliser les API Azure Media Services pour lire un enregistrement vidéo continu de plusieurs jours.
 ms.topic: tutorial
 ms.date: 05/27/2020
-ms.openlocfilehash: 0b294769fce58f5aaae82fec590c783e8328d826
-ms.sourcegitcommit: 223cea58a527270fe60f5e2235f4146aea27af32
+ms.openlocfilehash: 52ef33e8c4380e9c21e99c4ba45b7f25f7c57780
+ms.sourcegitcommit: b55d1d1e336c1bcd1c1a71695b2fd0ca62f9d625
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/01/2020
-ms.locfileid: "84260041"
+ms.lasthandoff: 06/04/2020
+ms.locfileid: "84433657"
 ---
 # <a name="tutorial-playback-of-multi-day-recordings"></a>Tutoriel : Lecture d’enregistrements sur plusieurs jours  
 
@@ -57,7 +57,7 @@ Dans le cadre du [tutoriel CVR](continuous-video-recording-tutorial.md), vous av
 }
 ```
 
-Ensuite, dans Visual Studio Code, ouvrez src/ams-asset-player. Ce dossier contient les fichiers nécessaires à ce tutoriel. Ouvrez le fichier appsettings.json et copiez son contenu dans un nouveau fichier, appsettings.Developer.json. Apportez les modifications suivantes à ce fichier :
+Ensuite, dans Visual Studio Code, ouvrez src/ams-asset-player. Ce dossier contient les fichiers nécessaires à ce tutoriel. Ouvrez le fichier appsettings.json et copiez son contenu dans un nouveau fichier, appsettings.development.json. Apportez les modifications suivantes à ce fichier :
 
 ```
   "AMS" : {

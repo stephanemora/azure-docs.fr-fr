@@ -5,14 +5,14 @@ author: markjbrown
 ms.service: cosmos-db
 ms.subservice: cosmosdb-cassandra
 ms.topic: sample
-ms.date: 9/25/2019
+ms.date: 06/03/2020
 ms.author: mjbrown
-ms.openlocfilehash: 8edeb6b0c64057f892fa8af4ed1680d5371805a1
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: ff4029b13c503413686fbc52c8d59b7d2745cb8e
+ms.sourcegitcommit: 5504d5a88896c692303b9c676a7d2860f36394c1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "71274976"
+ms.lasthandoff: 06/08/2020
+ms.locfileid: "84509506"
 ---
 # <a name="azure-cli-samples-for-azure-cosmos-db-cassandra-api"></a>Exemples Azure CLI pour l’API Cassandra Azure Cosmos DB
 
@@ -27,4 +27,5 @@ Le tableau suivant comprend des liens vers des exemples de scripts Azure CLI po
 | [Sécuriser avec le pare-feu IP](scripts/cli/common/ipfirewall.md?toc=%2fcli%2fazure%2ftoc.json)| Créez un compte Cosmos avec le pare-feu IP configuré.|
 | [Sécuriser un nouveau compte avec des points de terminaison de service](scripts/cli/common/service-endpoints.md?toc=%2fcli%2fazure%2ftoc.json)| Créez un compte Cosmos et sécurisez-le avec des points de terminaison de service.|
 | [Sécuriser un compte existant avec des points de terminaison de service](scripts/cli/common/service-endpoints-ignore-missing-vnet.md?toc=%2fcli%2fazure%2ftoc.json)| Mettez à jour un compte Cosmos pour le sécuriser avec des points de terminaison de service quand le sous-réseau est finalement configuré.|
+| [Verrouiller des ressources contre la suppression](scripts/cli/cassandra/lock.md?toc=%2fcli%2fazure%2ftoc.json)| Empêchez la suppression de ressources à l’aide de verrous de ressources.|
 |||

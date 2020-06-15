@@ -2,14 +2,14 @@
 title: 'Évaluer les machines virtuelles VMware avec Azure Migrate : Évaluation du serveur'
 description: Décrit comment évaluer des machines virtuelles VMware locales pour la migration vers Azure avec Azure Migrate Server Assessment.
 ms.topic: tutorial
-ms.date: 04/15/2020
+ms.date: 06/03/2020
 ms.custom: mvc
-ms.openlocfilehash: bd9e6b5923207297b1aa70a67052a7796b901781
-ms.sourcegitcommit: 31ef5e4d21aa889756fa72b857ca173db727f2c3
+ms.openlocfilehash: 87eac5979176fe9a71db15961e4c5f822b56568e
+ms.sourcegitcommit: 79508e58c1f5c58554378497150ffd757d183f30
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "81535364"
+ms.lasthandoff: 06/03/2020
+ms.locfileid: "84331880"
 ---
 # <a name="assess-vmware-vms-with-server-assessment"></a>Évaluer les machines virtuelles VMware avec Server Assessment
 
@@ -85,18 +85,26 @@ Après avoir créé l’appliance, vérifiez qu’elle peut se connecter à Azur
 Vérifiez que le fichier OVA est sécurisé avant de le déployer :
 
 1. Sur l’ordinateur où vous avez téléchargé le fichier, ouvrez une fenêtre de commande d’administrateur.
-1. Exécutez la commande suivante pour générer le code de hachage du fichier OVA :
+2. Exécutez la commande suivante pour générer le code de hachage du fichier OVA :
   
    ```C:\>CertUtil -HashFile <file_location> [Hashing Algorithm]```
    
    Exemple d’utilisation : ```C:\>CertUtil -HashFile C:\AzureMigrate\AzureMigrate.ova SHA256```
 
-Pour la version 2.19.07.30, le code de hachage généré doit correspondre à ces valeurs :
+3. Vérifiez les toutes dernières versions de l’appliance et les valeurs de hachage :
 
-**Algorithme** | **Valeur de hachage**
---- | ---
-MD5 | c06ac2a2c0f870d3b274a0b7a73b78b1
-SHA256 | 4ce4faa3a78189a09a26bfa5b817c7afcf5b555eb46999c2fad9d2ebc808540c
+    - Pour le cloud public Azure :
+    
+        **Algorithme** | **Télécharger** | **SHA256**
+        --- | --- | ---
+        VMware (10,9 Go) | [Version la plus récente](https://aka.ms/migrate/appliance/vmware) | cacbdaef927fe5477fa4e1f494fcb7203cbd6b6ce7402b79f234bc0fe69663dd
+
+    - Pour Azure Government :
+    
+        **Algorithme** | **Télécharger** | **SHA256**
+        --- | --- | ---
+        VMware (63,1 Mo) | [Version la plus récente](https://go.microsoft.com/fwlink/?linkid=2120300&clcid=0x409 ) | 3d5822038646b81f458d89d706832c0a2c0e827bfa9b0a55cc478eaf2757a4de
+
 
 ### <a name="create-the-appliance-vm"></a>Créer la machine virtuelle de l’appliance
 

@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 01/31/2020
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e812e1b03637a3ecd7a45f02664c4e3547f1aef1
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: 1da910cbf700845bdb6d5c07a6ee375a73579e75
+ms.sourcegitcommit: ba8df8424d73c8c4ac43602678dae4273af8b336
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "79138975"
+ms.lasthandoff: 06/05/2020
+ms.locfileid: "84456859"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-github"></a>Tutoriel : Intégration de l’authentification unique Azure Active Directory à GitHub
 
@@ -163,7 +163,7 @@ Dans cette section, vous allez autoriser B.Simon à utiliser l’authentificatio
 
     d. Cliquez sur l’icône **Modifier** pour changer la **méthode de signature** et la **méthode Digest** de **RSA-SHA1** et **SHA1** en **RSA-SHA256** et **SHA256** comme indiqué ci-dessous.
     
-    e. Mettez à jour l’**URL de l’assertion consumer service (URL de réponse)** à partir de l’URL par défaut pour que l’URL dans Github corresponde à celle de l’inscription de l’application Azure.
+    e. Mettez à jour l’**URL Assertion Consumer Service (URL de réponse)** à partir de l’URL par défaut pour que l’URL dans GitHub corresponde à celle de l’inscription de l’application Azure.
 
     ![image](./media/github-tutorial/tutorial_github_sha.png)
 

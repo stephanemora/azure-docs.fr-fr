@@ -10,14 +10,14 @@ ms.author: vanto
 ms.reviewer: carlrab
 ms.date: 09/03/2019
 ms.custom: seoapril2019 sqldbrb=1
-ms.openlocfilehash: 7181dd74963a1af05438b16e00e2442478daac03
-ms.sourcegitcommit: 309cf6876d906425a0d6f72deceb9ecd231d387c
+ms.openlocfilehash: a709d0d4aa9b7c4e3ab06e6d34bbb199cb1b5917
+ms.sourcegitcommit: 58ff2addf1ffa32d529ee9661bbef8fbae3cddec
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/01/2020
-ms.locfileid: "84267898"
+ms.lasthandoff: 06/03/2020
+ms.locfileid: "84323924"
 ---
-# <a name="tutorial-secure-an-azure-sql-database"></a>Tutoriel : Sécuriser une base de données Azure SQL
+# <a name="tutorial-secure-a-database-in-azure-sql-database"></a>Tutoriel : Sécuriser une base de données dans Azure SQL Database
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
 
 Ce didacticiel vous montre comment effectuer les opérations suivantes :
@@ -25,7 +25,7 @@ Ce didacticiel vous montre comment effectuer les opérations suivantes :
 > [!div class="checklist"]
 >
 > - Créer des règles de pare-feu au niveau du serveur et de la base de données
-> - Configurer un administrateur Azure Active Directory (AD)
+> - Configurer un administrateur Azure Active Directory (Azure AD)
 > - Gérer l’accès utilisateur avec l’authentification SQL, l’authentification Azure AD et des chaînes de connexion sécurisées
 > - Activer des fonctionnalités de sécurité, comme Advanced Data Security, l’audit, le masquage des données et le chiffrement
 
@@ -42,7 +42,7 @@ Azure SQL Database sécurise les données en vous permettant d’effectuer les o
 Pour plus d’informations, consultez les articles [Vue d’ensemble de la sécurité dans Azure SQL Database](/azure/sql-database/sql-database-security-index) et [Capacités](security-overview.md).
 
 > [!TIP]
-> Les modules Microsoft Learn suivants vous aident à vous familiariser gratuitement avec [la sécurisation de votre base de données Azure SQL Database](https://docs.microsoft.com/learn/modules/secure-your-azure-sql-database/).
+> Les modules Microsoft Learn suivants vous permettent de vous familiariser gratuitement avec la façon de [sécuriser votre base de données dans Azure SQL Database](https://docs.microsoft.com/learn/modules/secure-your-azure-sql-database/).
 
 ## <a name="prerequisites"></a>Prérequis
 
@@ -50,7 +50,7 @@ Pour suivre le tutoriel, vérifiez que les prérequis ci-dessous sont remplis :
 
 - [SQL Server Management Studio](/sql/ssms/download-sql-server-management-studio-ssms)
 - Un [serveur](logical-servers.md) et une base de données unique
-  - Créez-les à l’aide du [portail Azure](single-database-create-quickstart.md), de [CLI](az-cli-script-samples-content-guide.md) ou de [PowerShell](powershell-script-content-guide.md).
+  - Créez-les à l’aide du [portail Azure](single-database-create-quickstart.md), de l’interface [CLI](az-cli-script-samples-content-guide.md) ou de [PowerShell](powershell-script-content-guide.md).
 
 Si vous ne disposez pas d’abonnement Azure, créez un [compte gratuit](https://azure.microsoft.com/free/) avant de commencer.
 
@@ -73,7 +73,7 @@ Les règles de pare-feu IP au niveau du serveur s’appliquent à toutes les bas
 
 Pour configurer une règle de pare-feu au niveau du serveur :
 
-1. Dans le portail Azure, sélectionnez **Bases de données SQL** dans le menu de gauche, puis sélectionnez votre base de données dans la page **Bases de données SQL**.
+1. Dans le portail Azure, sélectionnez **Bases de données SQL** dans le menu de gauche, puis sélectionnez votre base de données dans la page **Bases de données SQL**.
 
     ![règle de pare-feu de serveur](./media/secure-database-tutorial/server-name.png)
 
@@ -119,7 +119,7 @@ Vérifiez que vous utilisez le domaine géré Azure Active Directory (AD) approp
 
 Pour définir l’administrateur Azure AD :
 
-1. Dans le portail Azure, Dans la page **Serveur SQL**, sélectionnez **Administrateur Active Directory**. Sélectionnez ensuite **Définir l’administrateur**.
+1. Dans la page **Serveur SQL** du portail Azure, sélectionnez **Administrateur Active Directory**. Sélectionnez ensuite **Définir l’administrateur**.
 
     ![Sélectionner Active Directory](./media/secure-database-tutorial/admin-settings.png)  
 
@@ -157,7 +157,7 @@ Pour ajouter des utilisateurs, choisissez le type d’authentification de base d
 
 - **Authentification SQL** : utilisez un nom d’utilisateur et un mot de passe pour les connexions qui sont uniquement valides dans le contexte d’une base de données spécifique au sein du serveur.
 
-- **Authentification Azure AD** : utilisez des identités managées par Azure AD.
+- **Authentification Azure AD** : utilisez des identités gérées par Azure AD.
 
 ### <a name="sql-authentication"></a>Authentification SQL
 
@@ -223,7 +223,7 @@ La connexion est établie à l’aide du protocole TLS (Transport Layer Security
 
 Pour copier une chaîne de connexion sécurisée :
 
-1. Dans le portail Azure, sélectionnez **Bases de données SQL** dans le menu de gauche, puis sélectionnez votre base de données dans la page **Bases de données SQL**.
+1. Dans le portail Azure, sélectionnez **Bases de données SQL** dans le menu de gauche, puis sélectionnez votre base de données dans la page **Bases de données SQL**.
 
 1. Dans la page **Vue d’ensemble**, sélectionnez **Afficher les chaînes de connexion de la base de données**.
 
@@ -244,7 +244,7 @@ La fonctionnalité Advanced Data Security détecte les menaces potentielles quan
 
 Pour activer Advanced Data Security :
 
-1. Dans le portail Azure, sélectionnez **Bases de données SQL** dans le menu de gauche, puis sélectionnez votre base de données dans la page **Bases de données SQL**.
+1. Dans le portail Azure, sélectionnez **Bases de données SQL** dans le menu de gauche, puis sélectionnez votre base de données dans la page **Bases de données SQL**.
 
 1. Dans la page **Vue d’ensemble**, sélectionnez le lien **Nom du serveur**. La page du serveur s’ouvre.
 
@@ -270,7 +270,7 @@ La fonctionnalité d’audit effectue le suivi des événements de la base de do
 
 Pour activer l’audit :
 
-1. Dans le portail Azure, sélectionnez **Bases de données SQL** dans le menu de gauche, puis sélectionnez votre base de données dans la page **Bases de données SQL**.
+1. Dans le portail Azure, sélectionnez **Bases de données SQL** dans le menu de gauche, puis sélectionnez votre base de données dans la page **Bases de données SQL**.
 
 1. Dans la section **Sécurité**, sélectionnez **Audit**.
 
@@ -309,7 +309,7 @@ La fonctionnalité de masquage des données permet de masquer automatiquement le
 
 Pour activer le masquage des données :
 
-1. Dans le portail Azure, sélectionnez **Bases de données SQL** dans le menu de gauche, puis sélectionnez votre base de données dans la page **Bases de données SQL**.
+1. Dans le portail Azure, sélectionnez **Bases de données SQL** dans le menu de gauche, puis sélectionnez votre base de données dans la page **Bases de données SQL**.
 
 1. Dans la section **Sécurité**, sélectionnez **Dynamic Data Masking**.
 
@@ -327,7 +327,7 @@ La fonctionnalité de chiffrement permet de chiffrer automatiquement vos donnée
 
 Pour activer ou vérifier le chiffrement :
 
-1. Dans le portail Azure, sélectionnez **Bases de données SQL** dans le menu de gauche, puis sélectionnez votre base de données dans la page **Bases de données SQL**.
+1. Dans le portail Azure, sélectionnez **Bases de données SQL** dans le menu de gauche, puis sélectionnez votre base de données dans la page **Bases de données SQL**.
 
 1. Dans la section **Sécurité**, sélectionnez **Transparent Data Encryption**.
 

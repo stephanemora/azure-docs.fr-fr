@@ -8,13 +8,13 @@ ms.author: xshi
 ms.date: 01/04/2019
 ms.topic: tutorial
 ms.service: iot-edge
-ms.custom: mvc
-ms.openlocfilehash: 71b22bf9bf040abcdf513a4f8baa916930c8972e
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.custom: mvc, tracking-python
+ms.openlocfilehash: 7e17da94ba124c3b20fdede93ad6b4716247c6ba
+ms.sourcegitcommit: 1de57529ab349341447d77a0717f6ced5335074e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "76772224"
+ms.lasthandoff: 06/09/2020
+ms.locfileid: "84610115"
 ---
 # <a name="tutorial-develop-and-deploy-a-nodejs-iot-edge-module-for-linux-devices"></a>Tutoriel : Développer et déployer un module IoT Edge Node.js pour des appareils Linux
 
@@ -86,7 +86,7 @@ Utilisez **npm** pour créer un modèle de solution Node.js sur lequel vous pouv
    | Provide a solution name (Nommer la solution) | Entrez un nom descriptif pour votre solution ou acceptez le nom par défaut (**EdgeSolution**). |
    | Select module template (Sélectionner un modèle de module) | Choisissez **Module Node.js**. |
    | Provide a module name (Nommer le module) | Nommez votre module **NodeModule**. |
-   | Provide Docker image repository for the module (Indiquer le référentiel d’images Docker pour le module) | Un référentiel d’images comprend le nom de votre registre de conteneurs et celui de votre image conteneur. L’image conteneur est préremplie avec le nom que vous avez indiqué à la dernière étape. Remplacez **localhost:5000** par la valeur de serveur de connexion de votre registre de conteneurs Azure. Vous pouvez récupérer le serveur de connexion à partir de la page Vue d’ensemble de votre registre de conteneurs dans le Portail Azure. <br><br>Le référentiel d’images final ressemble à ceci : \<nom_registre\>.azurecr.io/nodemodule. |
+   | Provide Docker image repository for the module (Indiquer le référentiel d’images Docker pour le module) | Un référentiel d’images comprend le nom de votre registre de conteneurs et celui de votre image conteneur. L’image conteneur est préremplie avec le nom que vous avez indiqué à la dernière étape. Remplacez **localhost:5000** par la valeur de serveur de connexion de votre registre de conteneurs Azure. Vous pouvez récupérer le serveur de connexion à partir de la page Vue d’ensemble de votre registre de conteneurs dans le Portail Azure. <br><br>Le dépôt d’images final ressemble à \<registry name\>.azurecr.io/nodemodule. |
 
    ![Fourniture du référentiel d’images Docker](./media/tutorial-node-module/repository.png)
 

@@ -7,12 +7,12 @@ ms.service: azure-migrate
 ms.topic: tutorial
 ms.date: 10/23/2019
 ms.author: raynew
-ms.openlocfilehash: 484dfd7834a206dce6805dc38b0eabeae2ee352a
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 519520538c16b1bde18f0810344864d37090accf
+ms.sourcegitcommit: 61d850bc7f01c6fafee85bda726d89ab2ee733ce
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "82114562"
+ms.lasthandoff: 06/03/2020
+ms.locfileid: "84342644"
 ---
 # <a name="assess-servers-by-using-imported-data"></a>Évaluer des serveurs à l’aide de données importées
 
@@ -106,27 +106,28 @@ Le tableau suivant récapitule les champs du fichier à remplir :
 **Nom du champ** | **Obligatoire** | **Détails**
 --- | --- | ---
 **Nom du serveur** | Oui | Nous vous recommandons de spécifier le nom de domaine complet (FQDN).
-**Adresse IP** | Non  | Adresse du serveur.
+**Adresse IP** | Non | Adresse du serveur.
 **Cœurs** | Oui | Nombre de cœurs de processeur alloués au serveur.
 **Mémoire** | Oui | RAM totale, en Mo, allouée au serveur.
 **Nom du système d’exploitation** | Oui | Système d’exploitation du serveur. <br/> Les noms de système d’exploitation qui correspondent aux noms ou qui contiennent les noms figurant dans [cette liste](#supported-operating-system-names) sont reconnus par l’évaluation.
-**Version du SE** | Non  | Version du système d’exploitation du serveur.
-**Nombre de disques** | Non  | Inutile si les détails sur le disque individuel sont fournis.
-**Taille du disque 1**  | Non  | Taille maximale du disque, en Go<br/>Vous pouvez ajouter les détails d’autres disques en [ajoutant des colonnes](#add-multiple-disks) dans le modèle. Vous pouvez ajouter jusqu’à huit disques.
-**Opérations de lecture sur le disque 1** | Non  | Opérations de lecture sur le disque par seconde.
-**Opérations d’écriture sur le disque 1** | Non  | Opérations d’écriture sur le disque par seconde.
-**Débit de lecture sur le disque 1** | Non  | Données lues à partir du disque par seconde, en Mo par seconde.
-**Débit d’écriture sur le disque 1** | Non  | Données écrites sur le disque par seconde, en Mo par seconde.
-**Pourcentage d’utilisation du processeur** | Non  | Pourcentage d’utilisation du processeur.
-**Pourcentage d’utilisation de la mémoire** | Non  | Pourcentage de RAM utilisé.
-**Total des opérations de lecture sur les disques** | Non  | Opérations de lecture sur le disque par seconde.
-**Total des opérations d’écriture sur les disques** | Non  | Opérations d’écriture sur le disque par seconde.
-**Total du débit de lecture sur les disques** | Non  | Données lues à partir du disque, en Mo par seconde.
-**Total du débit d’écriture sur les disques** | Non  | Données écrites sur le disque, en Mo par seconde.
-**Débit d’entrée réseau** | Non  | Données reçues par le serveur, en Mo par seconde.
-**Débit de sortie réseau** | Non  | Données transmises par le serveur, en Mo par seconde.
-**Type de microprogramme** | Non  | Microprogramme du serveur. Les valeurs peuvent être « BIOS » ou « UEFI ».
-**Adresse MAC**| Non  | Adresse MAC du serveur.
+**Version du SE** | Non | Version du système d’exploitation du serveur.
+**Architecture du système d’exploitation** | Non | Architecture du système d’exploitation serveur <br/> Les valeurs valides sont : x64, x86, amd64, 32 bits ou 64 bits
+**Nombre de disques** | Non | Inutile si les détails sur le disque individuel sont fournis.
+**Taille du disque 1**  | Non | Taille maximale du disque, en Go<br/>Vous pouvez ajouter les détails d’autres disques en [ajoutant des colonnes](#add-multiple-disks) dans le modèle. Vous pouvez ajouter jusqu’à huit disques.
+**Opérations de lecture sur le disque 1** | Non | Opérations de lecture sur le disque par seconde.
+**Opérations d’écriture sur le disque 1** | Non | Opérations d’écriture sur le disque par seconde.
+**Débit de lecture sur le disque 1** | Non | Données lues à partir du disque par seconde, en Mo par seconde.
+**Débit d’écriture sur le disque 1** | Non | Données écrites sur le disque par seconde, en Mo par seconde.
+**Pourcentage d’utilisation du processeur** | Non | Pourcentage d’utilisation du processeur.
+**Pourcentage d’utilisation de la mémoire** | Non | Pourcentage de RAM utilisé.
+**Total des opérations de lecture sur les disques** | Non | Opérations de lecture sur le disque par seconde.
+**Total des opérations d’écriture sur les disques** | Non | Opérations d’écriture sur le disque par seconde.
+**Total du débit de lecture sur les disques** | Non | Données lues à partir du disque, en Mo par seconde.
+**Total du débit d’écriture sur les disques** | Non | Données écrites sur le disque, en Mo par seconde.
+**Débit d’entrée réseau** | Non | Données reçues par le serveur, en Mo par seconde.
+**Débit de sortie réseau** | Non | Données transmises par le serveur, en Mo par seconde.
+**Type de microprogramme** | Non | Microprogramme du serveur. Les valeurs peuvent être « BIOS » ou « UEFI ».
+**Adresse MAC**| Non | Adresse MAC du serveur.
 
 
 ### <a name="add-operating-systems"></a>Ajouter des systèmes d’exploitation

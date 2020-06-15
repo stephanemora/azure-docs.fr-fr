@@ -14,12 +14,12 @@ ms.reviewer: davidph
 manager: cgronlun
 ms.date: 04/11/2019
 ROBOTS: NOINDEX
-ms.openlocfilehash: 6dee5d6e1bb2802114d7bba14a57b91dbab09e19
-ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
+ms.openlocfilehash: 37cc50a31f2f31c0cb7fc49102328f2072c6570a
+ms.sourcegitcommit: 58ff2addf1ffa32d529ee9661bbef8fbae3cddec
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "84053243"
+ms.lasthandoff: 06/03/2020
+ms.locfileid: "84324587"
 ---
 # <a name="quickstart-create-and-train-a-predictive-model-in-r-with-azure-sql-database-machine-learning-services-preview"></a>Démarrage rapide : Créer et former un modèle prédictif dans R avec Azure SQL Database Machine Learning Services (préversion)
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -51,11 +51,11 @@ Les exigences d’un modèle linéaire sont simples :
 > [!TIP]
 > Si vous avez besoin de rafraîchir vos connaissances sur les modèles linéaires, consultez le tutoriel suivant, qui décrit le processus d’ajustement des modèles linéaire à l’aide de rxLInMod : [Ajustement des modèles linéaires](https://docs.microsoft.com/machine-learning-server/r/how-to-revoscaler-linear-model)
 
-Dans les étapes suivantes, vous allez configurer les données d’apprentissage, créer un modèle de régression, puis le former avec les données d’apprentissage et enregistrer le modèle dans une table SQL.
+Dans les étapes suivantes, vous allez configurer les données d’entraînement, créer un modèle de régression, puis l’entraîner avec les données d’entraînement et l’enregistrer dans une table SQL.
 
-1. Ouvrez **SQL Server Management Studio**, puis connectez-vous à votre base de données SQL.
+1. Ouvrez **SQL Server Management Studio** et connectez-vous à votre base de données.
 
-   Si vous avez besoin d’aide pour la connexion, consultez [Démarrage rapide : utiliser SQL Server Management Studio pour se connecter à une base de données Azure SQL et l’interroger](connect-query-ssms.md).
+   Si vous avez besoin d’aide pour la connexion, consultez [Démarrage rapide : Utiliser SQL Server Management Studio pour se connecter à une base de données dans Azure SQL Database et l’interroger](connect-query-ssms.md).
 
 1. Créez la table **CarSpeed** pour enregistrer les données d’apprentissage.
 
@@ -139,7 +139,7 @@ Dans les étapes suivantes, vous allez configurer les données d’apprentissage
 
 En règle générale, la sortie de R de la procédure stockée [sp_execute_external_script](https://docs.microsoft.com/sql/relational-databases/system-stored-procedures/sp-execute-external-script-transact-sql) est limité à une seule trame de données. Toutefois, vous pouvez retourner des sorties d’autres types, telles que des valeurs scalaires, en plus de la trame de données.
 
-Par exemple, supposons que vous souhaitiez former un modèle, mais afficher immédiatement la table de coefficients à partir de ce dernier. Pour ce faire, créez la table de coefficients comme jeu de résultats principal et retournez la sortie du modèle formé dans une variable SQL. Vous pouvez immédiatement réutiliser le modèle en appelant la variable, ou vous pouvez enregistrer le modèle dans une table, comme indiqué ici.
+Par exemple, supposons que vous souhaitiez former un modèle, mais afficher immédiatement la table de coefficients à partir de ce dernier. Pour ce faire, créez la table de coefficients en tant que jeu de résultats principal, et retournez la sortie du modèle entraîné dans une variable SQL. Vous pouvez immédiatement réutiliser le modèle en appelant la variable, ou vous pouvez enregistrer le modèle dans une table, comme indiqué ici.
 
 ```sql
 DECLARE @model VARBINARY(max)

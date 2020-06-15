@@ -7,12 +7,12 @@ ms.author: sgilley
 ms.service: machine-learning
 ms.topic: tutorial
 ms.date: 04/09/2020
-ms.openlocfilehash: 40c31d4dd4a6c675691f75d3717f7865d6b847f7
-ms.sourcegitcommit: 1692e86772217fcd36d34914e4fb4868d145687b
+ms.openlocfilehash: 45097b948c76413785ca5ec48c31faa83b3883ee
+ms.sourcegitcommit: d7fba095266e2fb5ad8776bffe97921a57832e23
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/29/2020
-ms.locfileid: "84171551"
+ms.lasthandoff: 06/09/2020
+ms.locfileid: "84629632"
 ---
 # <a name="create-a-data-labeling-project-and-export-labels"></a>Créer un projet d’étiquetage des données et exporter des étiquettes 
 
@@ -40,7 +40,6 @@ Dans cet article, vous allez apprendre à :
 
 ## <a name="prerequisites"></a>Prérequis
 
-
 * Les données à étiqueter, dans des fichiers locaux ou un stockage Blog Azure.
 * L’ensemble d’étiquettes à appliquer.
 * Des instructions pour l’étiquetage.
@@ -67,6 +66,8 @@ Quand vous êtes prêt à continuer, sélectionnez **Suivant**.
 
 Si vous avez déjà créé un jeu de données qui contient vos données, sélectionnez-le dans la liste déroulante **Sélectionner un jeu de données existant**. Sinon, sélectionnez **Créer un jeu de données** pour utiliser un magasin de données Azure existant ou pour charger des fichiers locaux.
 
+> [!NOTE]
+> Un projet ne peut pas contenir plus de 500 000 images.  Si votre jeu de données en contient davantage, seules les 500 000 premières images sont chargées.  
 
 ### <a name="create-a-dataset-from-an-azure-datastore"></a>Créer un jeu de données à partir d’un magasin de données Azure
 
@@ -85,8 +86,6 @@ Pour créer un jeu de données à partir de données que vous avez déjà stock�
 1. Sélectionnez **Suivant**.
 1. Vérifiez les détails. Sélectionnez **Précédent** pour modifier les paramètres, ou **Créer** pour créer le jeu de données.
 
-> [!NOTE]
-> Les données que vous choisissez sont chargées dans votre projet.  L’ajout de données supplémentaires au magasin de données n’apparaît pas dans ce projet une fois que celui-ci est créé.  
 
 ### <a name="create-a-dataset-from-uploaded-data"></a>Créer un jeu de données à partir des données chargées
 
@@ -102,6 +101,19 @@ Pour charger directement vos données :
 1. Vérifiez les détails. Sélectionnez **Précédent** pour modifier les paramètres, ou **Créer** pour créer le jeu de données.
 
 Les données sont chargées dans le magasin d’objets blob par défaut (« workspaceblobstore ») de votre espace de travail Machine Learning.
+
+## <a name="configure-incremental-refresh"></a><a name="incremental-refresh"> </a> Configurer l’actualisation incrémentielle
+
+Si vous envisagez d’ajouter de nouvelles images à votre jeu de données, utilisez l’actualisation incrémentielle pour ajouter ces nouvelles images à votre projet.   Quand l’**actualisation incrémentielle** est activée, des recherches sont régulièrement effectuées dans le jeu de données pour que de nouvelles images soient ajoutées à un projet, en fonction du taux d’achèvement de l’étiquetage.   La recherche de nouvelles données s’arrête quand le projet contient le nombre maximal de 500 000 images.
+
+Pour ajouter d’autres images à votre projet, utilisez l’[Explorateur Stockage Azure](https://azure.microsoft.com/features/storage-explorer/) à charger dans le dossier approprié du stockage Blob. 
+
+Cochez la case **Activer l’actualisation incrémentielle** quand vous souhaitez que votre projet supervise continuellement les nouvelles données dans le magasin de données.
+
+Décochez cette case si vous ne souhaitez pas que les nouvelles images qui apparaissent dans le magasin de données soient ajoutées à votre projet.
+
+Vous trouverez l’horodatage de la dernière actualisation dans la section **Actualisation incrémentielle** de l’onglet **Détails** pour votre projet.
+
 
 ## <a name="specify-label-classes"></a>Spécifier des classes d’étiquettes
 

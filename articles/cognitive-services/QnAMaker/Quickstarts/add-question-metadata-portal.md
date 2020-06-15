@@ -3,16 +3,16 @@ title: 'Démarrage rapide : Ajouter des questions et des réponses dans le port
 description: Ce guide de démarrage rapide montre comment ajouter des paires question/réponse avec des métadonnées pour permettre à vos utilisateurs de trouver la réponse à leur question.
 ms.topic: quickstart
 ms.date: 05/26/2020
-ms.openlocfilehash: e35f7437f0028fedffea7cbcb6216fb7e1fad1f8
-ms.sourcegitcommit: 309cf6876d906425a0d6f72deceb9ecd231d387c
+ms.openlocfilehash: a832d9f421d3a1851401c286f129e29d0196ec99
+ms.sourcegitcommit: 79508e58c1f5c58554378497150ffd757d183f30
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/01/2020
-ms.locfileid: "84266574"
+ms.lasthandoff: 06/03/2020
+ms.locfileid: "84331387"
 ---
 # <a name="quickstart-add-questions-and-answer-with-qna-maker-portal"></a>Démarrage rapide : Ajouter des questions et des réponses à l’aide du portail QnA Maker
 
-Une fois qu’une base de connaissances est créée, ajoutez des paires question/réponse (Q/R) avec des métadonnées pour filtrer la réponse. Les questions du tableau ci-dessous concernent les limites du service Azure. Toutefois, chacune d’entre elles concerne un service Azure distinct.
+Une fois qu’une base de connaissances est créée, ajoutez des paires question/réponse (Q/R) avec des métadonnées pour filtrer la réponse. Les questions du tableau ci-dessous portent sur les limites des services Azure. Toutefois, chacune d’elles concerne un service de recherche Azure différent.
 
 <a name="qna-table"></a>
 

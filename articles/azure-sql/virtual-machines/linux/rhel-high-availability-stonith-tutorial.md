@@ -1,6 +1,6 @@
 ---
-title: Configurer des groupes de disponibilité pour SQL Server sur des machines virtuelles RHEL dans Azure - Machines virtuelles Linux | Microsoft Docs
-description: Découvrez comment configurer la haute disponibilité dans un environnement de cluster RHEL et comment configurer STONITH
+title: Configurer des groupes de disponibilité pour SQL Server sur des machines virtuelles RHEL dans Azure - Machines virtuelles Linux | Microsoft Docs
+description: Découvrir comment configurer la haute disponibilité dans un environnement de cluster RHEL et comment configurer STONITH
 ms.service: virtual-machines-linux
 ms.subservice: ''
 ms.topic: tutorial
@@ -8,12 +8,12 @@ author: VanMSFT
 ms.author: vanto
 ms.reviewer: jroth
 ms.date: 02/27/2020
-ms.openlocfilehash: 445ab97e2e980cdcafe333fa05a340c0e5fef24b
-ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
+ms.openlocfilehash: d323d89b13a89a8dd9f2dac6292a01215bf6068a
+ms.sourcegitcommit: 61d850bc7f01c6fafee85bda726d89ab2ee733ce
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "84024635"
+ms.lasthandoff: 06/03/2020
+ms.locfileid: "84343779"
 ---
 # <a name="tutorial-configure-availability-groups-for-sql-server-on-rhel-virtual-machines-in-azure"></a>Tutoriel : Configurer des groupes de disponibilité pour SQL Server sur des machines virtuelles RHEL dans Azure 
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
@@ -21,21 +21,21 @@ ms.locfileid: "84024635"
 > [!NOTE]
 > Ce tutoriel est en **préversion publique**. 
 >
-> Dans ce tutoriel, nous utilisons SQL Server 2017 avec RHEL 7.6, mais il est possible d’utiliser SQL Server 2019 dans RHEL 7 ou RHEL 8 pour configurer la haute disponibilité. Les commandes permettant de configurer les ressources du groupe de disponibilité ont été modifiées dans RHEL 8. Il est donc recommandé de consulter l’article [Créer une ressource de groupe de disponibilité](/sql/linux/sql-server-linux-availability-group-cluster-rhel#create-availability-group-resource) et d’étudier les ressources RHEL 8 pour connaître les nouvelles commandes.
+> Dans ce tutoriel, nous utilisons SQL Server 2017 avec RHEL 7.6, mais il est possible d’utiliser SQL Server 2019 dans RHEL 7 ou RHEL 8 pour configurer la haute disponibilité. Les commandes permettant de configurer les ressources d’un groupe de disponibilité ont changé dans RHEL 8. Il est donc recommandé de consulter l’article [Créer une ressource de groupe de disponibilité](/sql/linux/sql-server-linux-availability-group-cluster-rhel#create-availability-group-resource) et d’étudier les ressources RHEL 8 pour obtenir des informations sur les commandes appropriées.
 
 Dans ce tutoriel, vous allez apprendre à :
 
 > [!div class="checklist"]
-> - Créer un groupe de ressources, un groupe à haute disponibilité et des machines virtuelles Linux Azure
+> - Créer un groupe de ressources, un groupe à haute disponibilité et des machines virtuelles Linux
 > - Activer la haute disponibilité
 > - Créez un cluster Pacemaker
 > - Configurer un agent d’isolation en créant un appareil STONITH
 > - Installer SQL Server et mssql-tools sur RHEL
-> - Configurer un groupe de disponibilité SQL Server AlwaysOn
+> - Configurer un groupe de disponibilité SQL Server AlwaysOn
 > - Configurer les ressources de groupe de disponibilité dans le cluster Pacemaker
 > - Tester un basculement et l’agent d’isolation
 
-Ce tutoriel utilise l’interface de ligne de commande Azure pour déployer des ressources dans Azure.
+Ce tutoriel utilise l’interface Azure CLI pour déployer des ressources dans Azure.
 
 Si vous n’avez pas d’abonnement Azure, créez un [compte gratuit](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) avant de commencer.
 
@@ -43,7 +43,7 @@ Si vous n’avez pas d’abonnement Azure, créez un [compte gratuit](https://az
 
 Si vous préférez installer et utiliser l’interface de ligne de commande localement, vous aurez besoin d’Azure CLI version 2.0.30 ou ultérieure pour ce tutoriel. Exécutez `az --version` pour trouver la version. Si vous devez installer ou mettre à niveau, voir [Installer Azure CLI]( /cli/azure/install-azure-cli).
 
-## <a name="create-a-resource-group"></a>Création d’un groupe de ressources
+## <a name="create-a-resource-group"></a>Créer un groupe de ressources
 
 Si vous avez plusieurs abonnements, [sélectionnez l’abonnement](/cli/azure/manage-azure-subscriptions-azure-cli) dans lequel vous souhaitez déployer ces ressources.
 
@@ -91,7 +91,7 @@ Une fois l’exécution de la commande terminée, vous devez obtenir les résult
 ## <a name="create-rhel-vms-inside-the-availability-set"></a>Créer des machines virtuelles RHEL dans le groupe à haute disponibilité
 
 > [!WARNING]
-> Si vous choisissez une image RHEL avec paiement à l’utilisation (PAYG) et si vous configurez la haute disponibilité , vous devrez peut-être inscrire votre abonnement. Cela peut vous obliger à payer deux fois pour l’abonnement, car vous devrez payer à la fois pour l’abonnement RHEL Microsoft Azure de la machine virtuelle et pour l’abonnement à Red Hat. Pour plus d’informations, consultez https://access.redhat.com/solutions/2458541.
+> Si vous choisissez une image RHEL avec paiement à l’utilisation (PAYG) et que vous configurez la haute disponibilité, vous devrez peut-être inscrire votre abonnement. Cela peut vous obliger à payer deux fois pour l’abonnement, car vous devrez payer à la fois pour l’abonnement RHEL Microsoft Azure de la machine virtuelle et pour l’abonnement à Red Hat. Pour plus d’informations, consultez https://access.redhat.com/solutions/2458541.
 >
 > Pour éviter cette « double facturation », utilisez une image de haute disponibilité RHEL lors de la création de la machine virtuelle Azure. Les images proposées en tant qu’images RHEL de haute disponibilité sont également des images avec paiement à l’utilisation pour lesquelles est préactivé un dépôt de haute disponibilité.
 
@@ -134,7 +134,7 @@ Une fois l’exécution de la commande terminée, vous devez obtenir les résult
     > [!IMPORTANT]
     > Pour la configuration du groupe de disponibilité, les noms de machines doivent comporter moins de 15 caractères. Le nom d’utilisateur ne peut pas contenir de caractères majuscules, et les mots de passe doivent comporter plus de 12 caractères.
 
-1. Nous voulons créer trois machines virtuelles dans le groupe à haute disponibilité. Remplacez ce qui suit dans la commande ci-dessous :
+1. Nous voulons créer 3 machines virtuelles dans le groupe à haute disponibilité. Remplacez ce qui suit dans la commande ci-dessous :
 
     - `<resourceGroupName>`
     - `<VM-basename>`
@@ -452,7 +452,7 @@ Exécutez les commandes suivantes sur le nœud 1 :
 
 - Remplacez `<ApplicationID>` par la valeur d’ID obtenue lors de l’inscription de votre application.
 - Remplacez `<servicePrincipalPassword>` par la valeur du secret client.
-- Remplacez `<resourceGroupName>` par le groupe de ressources de l’abonnement utilisé pour ce tutoriel.
+- Remplacez `<resourceGroupName>` par le groupe de ressources de l’abonnement que vous utilisez pour ce tutoriel.
 - Remplacez `<tenantID>` et `<subscriptionId>` par ceux de votre abonnement Azure.
 
 ```bash
@@ -472,7 +472,7 @@ sudo firewall-cmd --reload
 
 ## <a name="install-sql-server-and-mssql-tools"></a>Installer SQL Server et mssql-tools
  
-Utilisez la section ci-dessous pour installer SQL Server et mssql-tools sur les machines virtuelles. Effectuez chacune de ces actions sur tous les nœuds. Pour plus d’informations, consultez [Installer SQL Server sur une machine virtuelle Red Hat](/sql/linux/quickstart-install-connect-red-hat).
+Utilisez la section ci-dessous pour installer SQL Server et mssql-tools sur les machines virtuelles. Effectuez chacune de ces actions sur tous les nœuds. Pour plus d’informations, consultez [Installer SQL Server sur une machine virtuelle Red Hat](/sql/linux/quickstart-install-connect-red-hat).
 
 ### <a name="installing-sql-server-on-the-vms"></a>Installation de SQL Server sur les machines virtuelles
 
@@ -531,13 +531,13 @@ Vous devez normalement voir la sortie suivante.
            └─11640 /opt/mssql/bin/sqlservr
 ```
 
-## <a name="configure-sql-server-always-on-availability-group"></a>Configurer un groupe de disponibilité SQL Server AlwaysOn
+## <a name="configure-an-availability-group"></a>Configurer un groupe de disponibilité
 
-Effectuez les étapes suivantes pour configurer le groupe de disponibilité AlwaysOn SQL Server sur vos machines virtuelles. Pour plus d’informations, consultez [Configurer le groupe de disponibilité AlwaysOn SQL Server sur Linux](/sql/linux/sql-server-linux-availability-group-configure-ha).
+Effectuez les étapes suivantes pour configurer un groupe de disponibilité AlwaysOn SQL Server sur vos machines virtuelles. Pour plus d’informations, consultez [Configurer des groupes de disponibilité AlwaysOn SQL Server pour la haute disponibilité sur Linux](/sql/linux/sql-server-linux-availability-group-configure-ha).
 
-### <a name="enable-alwayson-availability-groups-and-restart-mssql-server"></a>Activer les groupes de disponibilité AlwaysOn et redémarrer mssql-server
+### <a name="enable-always-on-availability-groups-and-restart-mssql-server"></a>Activer les groupes de disponibilité AlwaysOn et redémarrer mssql-server
 
-Activez les groupes de disponibilité AlwaysOn sur chaque nœud qui héberge une instance. Ensuite, redémarrez mssql-server. Exécutez le script suivant :
+Activez les groupes de disponibilité AlwaysOn sur chaque nœud qui héberge une instance SQL Server. Ensuite, redémarrez mssql-server. Exécutez le script suivant :
 
 ```
 sudo /opt/mssql/bin/mssql-conf set hadr.hadrenabled 1
@@ -548,7 +548,7 @@ sudo systemctl restart mssql-server
 
 L’authentification Active Directory n’est pas prise en charge sur le point de terminaison du groupe de disponibilité. Par conséquent, nous devons utiliser un certificat pour le chiffrement du point de terminaison du groupe de disponibilité.
 
-1. Connectez-vous à **tous les nœuds** à l’aide de SQL Server Management Studio (SSMS) ou de SQL CMD. Exécutez les commandes suivantes pour activer la session AlwaysOn_health et créer une clé principale :
+1. Connectez-vous à **tous les nœuds** à l’aide de SQL Server Management Studio (SSMS) ou de SQL CMD. Exécutez les commandes suivantes pour activer une session AlwaysOn_health et créer une clé principale :
 
     > [!IMPORTANT]
     > Si vous vous connectez à distance à votre instance SQL Server, le port 1433 doit être ouvert dans votre pare-feu. Vous devez également autoriser les connexions entrantes sur le port 1433 de votre groupe de sécurité réseau pour chaque machine virtuelle. Pour plus d’informations sur la création d’une règle de sécurité de trafic entrant, consultez [Créer une règle de sécurité](../../../virtual-network/manage-network-security-group.md#create-a-security-rule).
@@ -566,19 +566,19 @@ L’authentification Active Directory n’est pas prise en charge sur le point d
 1. Connectez-vous au réplica principal à l’aide de SSMS ou de SQL CMD. Les commandes ci-dessous créent un certificat dans `/var/opt/mssql/data/dbm_certificate.cer` et une clé privée dans `var/opt/mssql/data/dbm_certificate.pvk` sur votre réplica de SQL Server principal :
 
     - Remplacez `<Private_Key_Password>` par votre propre mot de passe.
-
-```sql
-CREATE CERTIFICATE dbm_certificate WITH SUBJECT = 'dbm';
-GO
-
-BACKUP CERTIFICATE dbm_certificate
-   TO FILE = '/var/opt/mssql/data/dbm_certificate.cer'
-   WITH PRIVATE KEY (
-           FILE = '/var/opt/mssql/data/dbm_certificate.pvk',
-           ENCRYPTION BY PASSWORD = '<Private_Key_Password>'
-       );
-GO
-```
+    
+    ```sql
+    CREATE CERTIFICATE dbm_certificate WITH SUBJECT = 'dbm';
+    GO
+    
+    BACKUP CERTIFICATE dbm_certificate
+       TO FILE = '/var/opt/mssql/data/dbm_certificate.cer'
+       WITH PRIVATE KEY (
+               FILE = '/var/opt/mssql/data/dbm_certificate.pvk',
+               ENCRYPTION BY PASSWORD = '<Private_Key_Password>'
+           );
+    GO
+    ```
 
 Quittez la session SQL CMD en exécutant la commande `exit`, puis revenez à votre session SSH.
  
@@ -631,7 +631,7 @@ Quittez la session SQL CMD en exécutant la commande `exit`, puis revenez à vo
 
 ### <a name="create-the-database-mirroring-endpoints-on-all-replicas"></a>Créer les points de terminaison de mise en miroir de bases de données sur tous les réplicas
 
-Exécutez le script suivant sur toutes les instances SQL à l’aide de SQL CMD ou de SSMS :
+Exécutez le script suivant sur toutes les instances SQL Server à l’aide de SQL CMD ou de SSMS :
 
 ```sql
 CREATE ENDPOINT [Hadr_endpoint]
@@ -647,7 +647,7 @@ ALTER ENDPOINT [Hadr_endpoint] STATE = STARTED;
 GO
 ```
 
-### <a name="create-the-availability-group"></a>Création du groupe de disponibilité
+### <a name="create-the-availability-group"></a>Créez le groupe de disponibilité
 
 Connectez-vous à l’instance SQL Server qui héberge le réplica principal à l’aide de SQL CMD ou de SSMS. Exécutez la commande suivante pour créer le groupe de disponibilité :
 
@@ -687,7 +687,7 @@ GO
 
 ### <a name="create-a-sql-server-login-for-pacemaker"></a>Créer une connexion SQL Server pour Pacemaker
 
-Sur tous les serveurs SQL Server, créez un compte de connexion SQL pour Pacemaker. Le code Transact-SQL ci-dessous a pour effet de créer un compte de connexion.
+Sur toutes les instances SQL Server, créez un compte de connexion SQL Server pour Pacemaker. Le code Transact-SQL ci-dessous a pour effet de créer un compte de connexion.
 
 - Remplacez `<password>` par votre propre mot de passe complexe.
 
@@ -702,7 +702,7 @@ ALTER SERVER ROLE [sysadmin] ADD MEMBER [pacemakerLogin];
 GO
 ```
 
-Sur tous les serveurs SQL Server, enregistrez les informations d’identification du compte de connexion SQL Server. 
+Sur toutes les instances SQL Server, enregistrez les informations d’identification utilisées pour le compte de connexion SQL Server. 
 
 1. Créez le fichier :
 
@@ -745,7 +745,7 @@ Sur tous les serveurs SQL Server, enregistrez les informations d’identificatio
     GO
     ```
 
-1. Exécutez le script Transact-SQL suivant sur le réplica SQL Server principal et sur chaque réplica secondaire :
+1. Exécutez le script Transact-SQL suivant sur le réplica principal et sur chaque réplica secondaire :
 
     ```sql
     GRANT ALTER, CONTROL, VIEW DEFINITION ON AVAILABILITY GROUP::ag1 TO pacemakerLogin;
@@ -959,7 +959,7 @@ Pour vérifier que la configuration a réussi, nous allons tester un basculement
     virtualip      (ocf::heartbeat:IPaddr2):       Started <VM2>
     ```
 
-## <a name="test-fencing"></a>Test de l’isolation
+## <a name="test-fencing"></a>Tester l’isolation
 
 Vous pouvez tester STONITH en exécutant la commande suivante. Essayez d’exécuter la commande ci-dessous à partir de `<VM1>` pour `<VM3>`.
 
@@ -985,7 +985,7 @@ Pour plus d’informations sur le test d’un appareil d’isolation, consultez 
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Pour utiliser un écouteur de groupe de disponibilité pour vos serveurs SQL, vous devez créer et configurer un équilibreur de charge.
+Pour utiliser un écouteur de groupe de disponibilité pour vos instances SQL Server, vous devez créer et configurer un équilibreur de charge.
 
 > [!div class="nextstepaction"]
-> [Tutoriel : Configurer un écouteur de groupe de disponibilité pour SQL Server sur des machines virtuelles RHEL dans Azure](rhel-high-availability-listener-tutorial.md)
+> [Tutoriel : Configurer un écouteur de groupe de disponibilité pour SQL Server sur des machines virtuelles RHEL dans Azure](rhel-high-availability-listener-tutorial.md)

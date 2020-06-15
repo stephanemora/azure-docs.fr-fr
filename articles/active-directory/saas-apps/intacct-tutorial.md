@@ -16,12 +16,12 @@ ms.topic: tutorial
 ms.date: 08/12/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 731ed4664d10d3957be160bf9e8001d5470a6f38
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 0d05e48cdaf75af5acb09713679d3aa21450b433
+ms.sourcegitcommit: 5504d5a88896c692303b9c676a7d2860f36394c1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "82201344"
+ms.lasthandoff: 06/08/2020
+ms.locfileid: "84509370"
 ---
 # <a name="tutorial-integrate-sage-intacct-with-azure-active-directory"></a>Tutoriel : Intégrer Sage Intacct à Azure Active Directory
 
@@ -88,13 +88,12 @@ Effectuez les étapes suivantes pour activer l’authentification unique Azure A
 
     ![image](common/edit-attribute.png)
 
-1. En plus de ce qui précède, l’application Sage Intacct s’attend à ce que quelques attributs supplémentaires soient repassés dans la réponse SAML. Dans la section **Revendications des utilisateurs** de la boîte de dialogue **Attributs utilisateur**, effectuez les étapes suivantes pour ajouter le jeton SAML comme indiqué dans le tableau ci-dessous :
+1. En plus de ce qui précède, l’application Sage Intacct s’attend à ce que quelques attributs supplémentaires soient repassés dans la réponse SAML. Dans la boîte de dialogue **Attributs utilisateur et revendications**, effectuez les étapes suivantes pour ajouter l’attribut de jeton SAML, comme indiqué dans le tableau ci-dessous :
 
-    | Nom  |  Attribut source|
+    | Nom de l'attribut  |  Attribut source|
     | ---------------| --------------- |
     | Nom de l’entreprise | **ID de société Sage Intacct** |
     | name | La valeur doit être la même que l’**ID d’utilisateur** Sage Intacct que vous entrez dans la **section Créer un utilisateur de test Sage Intacct**, décrite plus loin dans ce didacticiel. |
-    | `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/nameidentifier` | La valeur doit être la même que l’**ID d’utilisateur de l’authentification unique fédérée** Sage Intacct que vous entrez dans la **section Créer un utilisateur de test Sage Intacct**, décrite plus loin dans ce didacticiel. |
 
     a. Cliquez sur le bouton **Ajouter une nouvelle revendication** pour ouvrir la boîte de dialogue **Gérer les revendications des utilisateurs**.
 
@@ -104,7 +103,7 @@ Effectuez les étapes suivantes pour activer l’authentification unique Azure A
 
     d. Sélectionnez Source comme **Attribut**.
 
-    e. Dans la liste **Attribut de la source**, tapez la valeur d’attribut indiquée pour cette ligne.
+    e. Dans la liste **Attribut source**, tapez ou sélectionnez la valeur d’attribut affichée pour cette ligne.
 
     f. Cliquez sur **OK**
 

@@ -1,5 +1,5 @@
 ---
-title: Copier de façon incrémentielle des données avec Change Tracking
+title: Copier de façon incrémentielle des données avec Change Tracking sur le portail Azure
 description: Dans ce tutoriel, vous créez un pipeline Azure Data Factory qui copie de façon incrémentielle des données delta de plusieurs tables d’une base de données SQL Server dans une base de données Azure SQL.
 services: data-factory
 ms.author: yexu
@@ -11,14 +11,14 @@ ms.workload: data-services
 ms.topic: tutorial
 ms.custom: seo-lt-2019; seo-dt-2019
 ms.date: 01/12/2018
-ms.openlocfilehash: 842531b7f4bdd3690258262b32a42a19366c1830
-ms.sourcegitcommit: 1f48ad3c83467a6ffac4e23093ef288fea592eb5
+ms.openlocfilehash: 51d8d1c7405622ea8fd3bb847937abcb0e748523
+ms.sourcegitcommit: 964af22b530263bb17fff94fd859321d37745d13
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/29/2020
-ms.locfileid: "84196297"
+ms.lasthandoff: 06/09/2020
+ms.locfileid: "84559791"
 ---
-# <a name="incrementally-load-data-from-azure-sql-database-to-azure-blob-storage-using-change-tracking-information"></a>Charger de façon incrémentielle des données d’Azure SQL Database dans le stockage Blob Azure à l’aide de la technologie de suivi des modifications
+# <a name="incrementally-load-data-from-azure-sql-database-to-azure-blob-storage-using-change-tracking-information-using-the-azure-portal"></a>Charger de façon incrémentielle des données d’Azure SQL Database sur le Stockage Blob Azure en utilisant les informations de suivi des modifications sur le portail Azure
 
 [!INCLUDE[appliesto-adf-xxx-md](includes/appliesto-adf-xxx-md.md)]
 
