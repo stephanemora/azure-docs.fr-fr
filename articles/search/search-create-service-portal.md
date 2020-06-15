@@ -1,5 +1,5 @@
 ---
-title: 'Démarrage rapide : Créer un service de recherche dans le portail'
+title: Créer un service de recherche dans le portail
 titleSuffix: Azure Cognitive Search
 description: Dans ce guide démarrage rapide du portail, découvrez comment configurer une ressource Recherche cognitive Azure dans le portail Azure. Choisissez les groupes de ressources, régions et références SKU ou niveaux tarifaires.
 manager: nitinme
@@ -7,17 +7,17 @@ author: tchristiani
 ms.author: terrychr
 ms.service: cognitive-search
 ms.topic: quickstart
-ms.date: 02/10/2020
-ms.openlocfilehash: 3bc3edcd0e75d8f6e3e4d6f9b200032909318040
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.date: 06/07/2020
+ms.openlocfilehash: 83b723c815825a255727e9a48d415fedd405c942
+ms.sourcegitcommit: 20e246e86e25d63bcd521a4b4d5864fbc7bad1b0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "77209356"
+ms.lasthandoff: 06/08/2020
+ms.locfileid: "84488220"
 ---
 # <a name="quickstart-create-an-azure-cognitive-search-service-in-the-portal"></a>Démarrage rapide : Créer un service Recherche cognitive Azure dans le portail
 
-La Recherche cognitive Azure est une ressource autonome utilisée pour raccorder une expérience de recherche à des applications personnalisées. Elle s’intègre facilement à de nombreux autres services Azure, à des applications situées sur des serveurs réseau ou à des logiciels s’exécutant sur d’autres plateformes cloud.
+La Recherche cognitive Azure est une ressource autonome utilisée pour raccorder une expérience de recherche à des applications personnalisées. La Recherche cognitive s’intègre facilement à de nombreux autres services Azure, à des applications situées sur des serveurs réseau ou à des logiciels s’exécutant sur d’autres plateformes cloud.
 
 Dans cet article, découvrez comment créer une ressource dans le [portail Azure](https://portal.azure.com/).
 
@@ -34,8 +34,10 @@ Vous pouvez également [activer les avantages d’abonnement MSDN](https://azure
 ## <a name="find-azure-cognitive-search"></a>Localiser la Recherche cognitive Azure
 
 1. Connectez-vous au [portail Azure](https://portal.azure.com/).
-2. Cliquez sur le signe plus (« + Créer une ressource ») en haut à gauche.
-3. Utilisez la barre de recherche pour trouver la « Recherche cognitive Azure », ou accédez à la ressource via **Web** > **Recherche cognitive Azure**.
+
+1. Cliquez sur le signe plus (« + Créer une ressource ») en haut à gauche.
+
+1. Utilisez la barre de recherche pour trouver la « Recherche cognitive Azure », ou accédez à la ressource via **Web** > **Recherche cognitive Azure**.
 
 ![Créer une ressource dans le portail](./media/search-create-service-portal/find-search3.png "Créer une ressource dans le portail")
 
@@ -75,14 +77,20 @@ Configuration requise du nom du service :
 
 ## <a name="choose-a-location"></a>Choisir un emplacement
 
-En tant que service Azure, la Recherche cognitive Azure peut être hébergée dans les centres de données du monde entier. Vous trouverez la liste des régions prises en charge dans la [page de tarification](https://azure.microsoft.com/pricing/details/search/). 
-
-Vous pouvez réduire ou éviter les frais de bande passante en choisissant le même emplacement pour plusieurs services. Par exemple, si vous indexez des données fournies par un autre service Azure (Stockage Azure, Azure Cosmos DB, Azure SQL Database), la création de votre service Recherche cognitive Azure dans la même région évite les frais de bande passante (il n’existe aucun frais pour les données sortantes quand les services se trouvent dans la même région).
-
-Si vous utilisez des enrichissements par IA, créez votre service de recherche dans la même région que Cognitive Services. *La colocalisation de la Recherche cognitive Azure et de Cognitive Services dans la même région est obligatoire pour l’enrichissement par IA*.
+La Recherche cognitive Azure est disponible dans la plupart des régions. Vous trouverez la liste des régions prises en charge dans la [page de tarification](https://azure.microsoft.com/pricing/details/search/).
 
 > [!Note]
-> Inde Centre est actuellement indisponible pour les nouveaux services. Pour les services déjà dans la région Inde Centre, vous pouvez effectuer un scale-up sans aucune restriction, et votre service est entièrement pris en charge dans cette région. La restriction appliquée à cette région est temporaire et ne concerne que les nouveaux services. Nous supprimerons cette note lorsque la restriction ne s’appliquera plus.
+> Les régions Inde Centre et Émirats arabes unis Nord sont actuellement indisponibles pour les nouveaux services. Pour les services déjà présents dans ces régions, vous pouvez effectuer un scale-up sans aucune restriction, et votre service est entièrement pris en charge dans cette région. Les restrictions sont temporaires et ne concernent que les nouveaux services. Nous supprimerons cette note lorsque la restriction ne s’appliquera plus.
+
+### <a name="requirements"></a>Spécifications
+
+ Si vous utilisez des enrichissements par IA, créez votre service de recherche dans la même région que Cognitive Services. *La colocalisation de la Recherche cognitive Azure et de Cognitive Services dans la même région est obligatoire pour l’enrichissement par IA*.
+
+ Les clients ayant des exigences en matière de continuité d’activité et reprise d’activité (BCDR) doivent créer leurs services dans des [paires régionales](https://docs.microsoft.com/azure/best-practices-availability-paired-regions#azure-regional-pairs). Par exemple, si vous opérez en Amérique du Nord, vous pouvez choisir USA Est et USA Ouest, ou USA Centre Nord et USA Centre Sud, pour chaque service.
+
+### <a name="recommendations"></a>Recommandations
+
+Si vous utilisez plusieurs services Azure, choisissez une région qui héberge également votre service de données ou d’application. Cela réduit au minimum voire évite les frais de bande passante pour les données sortantes. Il n’y a aucuns frais liés aux données sortantes lorsque les services se trouvent dans la même région.
 
 ## <a name="choose-a-pricing-tier-sku"></a>Sélectionner un niveau tarifaire (SKU)
 
@@ -142,9 +150,11 @@ La plupart des clients n’utilisent qu’un seul service provisionné à un niv
 
 Bien que la plupart des clients utilisent un seul service, une redondance des services peut être nécessaire en cas d’exigences opérationnelles particulières, notamment :
 
-* Récupération d’urgence (panne du centre de données). La Recherche cognitive Azure ne fournit pas de basculement instantané en cas de panne. Pour obtenir de l’aide et des recommandations, consultez la page [Administration des services](search-manage.md).
-* Vos recherches sur la modélisation d’une architecture mutualisée ont déterminé que des services supplémentaires représentent la conception optimale. Pour plus d’informations, consultez la page [Conception pour une architecture mutualisée](search-modeling-multitenant-saas-applications.md).
-* Pour les applications déployées mondialement, vous pouvez avoir besoin d’une instance de la Recherche cognitive Azure dans plusieurs régions afin de réduire la latence du trafic international de votre application.
++ [Continuité d’activité et reprise d’activité (BCDR)](https://docs.microsoft.com/azure/best-practices-availability-paired-regions). La Recherche cognitive Azure ne fournit pas de basculement instantané en cas de panne.
+
++ Les [architectures mutualisées](search-modeling-multitenant-saas-applications.md) appellent parfois deux ou plusieurs services.
+
++ Les applications déployées à l’échelle mondiale peuvent nécessiter des services de recherche dans chaque zone géographique pour réduire au minimum la latence.
 
 > [!NOTE]
 > Dans la Recherche cognitive Azure, vous ne pouvez pas séparer les opérations d’indexation et d’interrogation. Vous ne créez donc jamais plusieurs services pour des charges de travail distinctes. Un index est toujours interrogé sur le service dans lequel il a été créé (vous ne pouvez pas créer un index dans un service et le copier dans un autre).

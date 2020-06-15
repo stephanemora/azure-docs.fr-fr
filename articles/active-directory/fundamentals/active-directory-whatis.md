@@ -7,16 +7,16 @@ manager: daveba
 ms.service: active-directory
 ms.subservice: fundamentals
 ms.topic: overview
-ms.date: 07/31/2019
+ms.date: 06/05/2020
 ms.author: ajburnle
-ms.custom: it-pro, seodec18, seo-update-azuread-jan
+ms.custom: it-pro, seodec18, seo-update-azuread-jan, contperfq4
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: dd7b412e99526935738c2494d31a16fded7101a6
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.openlocfilehash: 2a6b7d40512fe3537610efa42ccc33c9f8e80212
+ms.sourcegitcommit: f57fa5f3ce40647eda93f8be4b0ab0726d479bca
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "79215807"
+ms.lasthandoff: 06/07/2020
+ms.locfileid: "84484386"
 ---
 # <a name="what-is-azure-active-directory"></a>Qu’est-ce qu’Azure Active Directory ?
 
@@ -24,9 +24,9 @@ Azure Active Directory (Azure AD) est le service de gestion de l’accès et de
 
 - Ressources externes telles que Microsoft Office 365, le portail Azure et des milliers d’autres applications SaaS.
 
-- Ressources internes telles que les applications situées sur votre réseau d’entreprise et intranet ainsi que les applications cloud développées par votre propre organisation.
+- Ressources internes telles que les applications situées sur votre réseau d’entreprise et intranet ainsi que les applications cloud développées par votre propre organisation. Pour plus d’informations sur la création d’un locataire pour votre organisation, consultez [Démarrage rapide : Créer un locataire dans Azure Active Directory](active-directory-access-create-new-tenant.md).
 
-Vous pouvez utiliser les différentes affiches de la [série Microsoft Cloud pour architectes d’entreprise](https://docs.microsoft.com/office365/enterprise/microsoft-cloud-it-architecture-resources#identity) afin de mieux comprendre les services d’identité de base dans Azure, Azure AD et Office 365.
+Pour connaître la différence entre Azure AD et Active Directory Domain Services, consultez [Comparer Active Directory et Azure Active Directory](active-directory-compare-azure-ad-to-ad.md). Vous pouvez également utiliser les différentes affiches de la [série Microsoft Cloud pour architectes d’entreprise](https://docs.microsoft.com/office365/enterprise/microsoft-cloud-it-architecture-resources#identity) afin de mieux comprendre les services d’identité de base dans Azure, Azure AD et Office 365.
 
 ## <a name="who-uses-azure-ad"></a>Qui utilise Azure AD ?
 
@@ -57,28 +57,7 @@ Pour enrichir votre implémentation Azure AD, vous pouvez ajouter des fonctionn
 
 - **Licences pour les fonctionnalités avec « paiement à l’utilisation ».** Vous pouvez également obtenir des licences pour des fonctionnalités supplémentaires, par exemple Azure Active Directory B2C (entreprise-client). B2C peut vous aider à doter vos applications orientées clients de solutions de gestion des identités et des accès. Pour plus d’informations, consultez la [documentation sur Azure Active Directory B2C](../../active-directory-b2c/index.yml).
 
-Pour plus d’informations sur l’association d’un abonnement Azure à Azure AD, consultez [Guide pratique pour associer ou ajouter un abonnement Azure à Azure Active Directory](active-directory-how-subscriptions-associated-directory.md). Pour plus d’informations sur l’attribution de licences à vos utilisateurs, consultez [Guide pratique pour affecter ou supprimer des licences Azure Active Directory](license-users-groups.md).
-
-## <a name="terminology"></a>Terminologie
-
-Pour mieux comprendre Azure AD et sa documentation, nous vous recommandons de passer en revue les termes suivants.
-
-|Terme ou concept|Description|
-|---------------|-----------|
-|Identité| Une chose qui peut être authentifiée. Une identité peut être un utilisateur avec un nom d’utilisateur et un mot de passe. Les identités incluent également des applications ou autres serveurs qui peuvent nécessiter l’authentification via des clés secrètes ou des certificats.|
-|Compte| Une identité qui a des données associées. Vous ne pouvez pas avoir de compte sans identité.|
-|Compte Azure AD| Identité créée par le biais d’Azure AD ou d’un autre service cloud Microsoft comme Office 365. Les identités sont stockées dans Azure AD et sont accessibles à tout abonnement à un service cloud de votre organisation. Ce compte est parfois appelé un compte professionnel ou scolaire.|
-|Abonnement Azure| Permet de payer les services cloud Azure. Vous pouvez avoir plusieurs abonnements, lesquels sont liés à une carte de crédit.|
-|Client Azure| Instance dédiée et approuvée d’Azure AD qui est automatiquement créée quand votre organisation souscrit un abonnement à un service cloud Microsoft tel que Microsoft Azure, Microsoft Intune ou Office 365. Un locataire Azure représente une seule organisation.|
-|Locataire unique| Un locataire Azure qui accède à d’autres services dans un environnement dédié est considéré comme un locataire unique.|
-|Multi-locataire| Les locataires Azure qui accèdent à d’autres services dans un environnement partagé entre plusieurs organisations sont considérés comme multilocataires.|
-|Annuaire Azure AD|Chaque locataire Azure a un annuaire Azure AD dédié et approuvé. L’annuaire Azure AD inclut les utilisateurs, groupes et applications du locataire. Il permet d’effectuer les fonctions de gestion des identités et des accès pour les ressources des locataires.|
-|Domaine personnalisé|Chaque nouvel annuaire Azure AD est fourni avec un nom de domaine initial au format nomdomaine.onmicrosoft.com. En plus de ce nom initial, vous pouvez ajouter à la liste les noms de domaine de votre organisation, notamment ceux que vous utilisez pour exercer votre activité commerciale et dont vos utilisateurs se servent pour accéder aux ressources de votre organisation. L’ajout de noms de domaine personnalisés vous permet de créer des noms d’utilisateur qui sont familiers à vos utilisateurs, par exemple alain@contoso.com.|
-|Administrateur de comptes|Ce rôle d’administrateur d’abonnement classique est théoriquement le propriétaire du compte de facturation d’un abonnement. Ce rôle a accès au [Centre des comptes Azure](https://account.azure.com/Subscriptions) et vous permet de gérer tous les abonnements d’un compte. Pour plus d’informations, consultez [Rôles d’administrateur d’abonnement classique, contrôle d’accès en fonction du rôle Azure (RBAC) et rôles d’administrateur Azure AD](../../role-based-access-control/rbac-and-directory-admin-roles.md).|
-|Administrateur de services|Ce rôle d’administrateur d’abonnement classique vous permet de gérer toutes les ressources Azure, notamment l’accès à celles-ci. Ce rôle a un droit d’accès équivalent à celui d’un utilisateur qui se voit attribuer le rôle Propriétaire au niveau de l’étendue de l’abonnement. Pour plus d’informations, consultez [Rôles d’administrateur d’abonnement classique, rôles RBAC Azure et rôles d’administrateur Azure AD](../../role-based-access-control/rbac-and-directory-admin-roles.md).|
-|Propriétaire|Ce rôle vous permet de gérer toutes les ressources Azure, notamment l’accès à celles-ci. Ce rôle est basé sur un système d’autorisation plus récent appelé « contrôle d’accès en fonction du rôle » (RBAC) qui permet de gérer avec précision l’accès aux ressources Azure. Pour plus d’informations, consultez [Rôles d’administrateur d’abonnement classique, rôles RBAC Azure et rôles d’administrateur Azure AD](../../role-based-access-control/rbac-and-directory-admin-roles.md).|
-|Administrateur général Azure AD|Ce rôle d’administrateur est automatiquement attribué au créateur du locataire Azure AD. Les administrateurs généraux peuvent effectuer toutes les fonctions d’administration pour Azure AD et tout service fédéré sur Azure AD, comme Exchange Online, SharePoint Online et Skype Entreprise Online. Vous pouvez avoir plusieurs administrateurs généraux, mais seuls les administrateurs généraux peuvent attribuer des rôles d’administrateur (notamment d’autres rôles Administrateur général) aux utilisateurs.<br><br>**Remarque**<br>Ce rôle d’administrateur est appelé Administrateur général dans le portail Azure, mais il a pour nom **Administrateur d’entreprise** dans l’API Microsoft Graph et Azure AD PowerShell.<br><br>Pour plus d’informations sur les rôles d’administrateur, consultez [Autorisations de rôles d’administrateur dans Azure Active Directory](../users-groups-roles/directory-assign-admin-roles.md).|
-|Compte Microsoft (également appelé MSA)|Comptes personnels qui donnent accès à vos produits et services cloud Microsoft orientés consommateurs, comme Outlook, OneDrive, Xbox LIVE ou Office 365. Votre compte Microsoft est créé et stocké dans le système de comptes d’identité des consommateurs de Microsoft.|
+Pour plus d’informations sur l’association d’un abonnement Azure à Azure AD, consultez [Associer ou ajouter un abonnement Azure à Azure Active Directory](active-directory-how-subscriptions-associated-directory.md). Pour plus d’informations sur l’attribution de licences à vos utilisateurs, consultez [ Assigner ou supprimer des licences Azure Active Directory](license-users-groups.md).
 
 ## <a name="which-features-work-in-azure-ad"></a>Quelles sont les fonctionnalités disponibles dans Azure AD ?
 
@@ -87,11 +66,11 @@ Après avoir choisi votre licence Azure AD, vous avez accès à une partie ou �
 |Category|Description|
 |-------|-----------|
 |Gestion des applications|Gérez vos applications cloud et locales avec le proxy d’application, l’authentification unique, le portail Mes applications (également appelé panneau d’accès) et les applications SaaS (software as a service). Pour plus d’informations, consultez [Guide pratique pour offrir un accès à distance sécurisé aux applications locales](../manage-apps/application-proxy.md) et la [documentation sur la gestion des applications](../manage-apps/index.yml).|
-|Authentication|Gérez la réinitialisation de mot de passe libre-service Azure Active Directory, l’authentification multifacteur, la liste de mots de passe interdits et le verrouillage intelligent. Pour plus d’informations, consultez la [documentation sur Azure AD Authentication](../authentication/index.yml).|
+|Authentification|Gérez la réinitialisation de mot de passe libre-service Azure Active Directory, l’authentification multifacteur, la liste de mots de passe interdits et le verrouillage intelligent. Pour plus d’informations, consultez la [documentation sur Azure AD Authentication](../authentication/index.yml).|
+|Azure Active Directory pour les développeurs|Créez des applications qui connectent toutes les identités Microsoft et obtiennent des jetons pour appeler Microsoft Graph, d’autres API Microsoft ou des API personnalisées. Pour plus d’informations, consultez [Plateforme d’identités Microsoft (Azure Active Directory pour développeurs)](../develop/index.yml).|
 |Entreprise-entreprise (B2B)|Gérez vos utilisateurs invités et partenaires externes tout en conservant le contrôle de vos données d’entreprise. Pour plus d’informations, consultez la [documentation sur Azure Active Directory B2B](../b2b/index.yml).|
 |Entreprise-client (B2C)|Personnalisez et contrôlez la façon dont les utilisateurs s’inscrivent, se connectent et gèrent leurs profils quand ils utilisent vos applications. Pour plus d’informations, consultez la [documentation sur Azure Active Directory B2C](../../active-directory-b2c/index.yml).|
 |Accès conditionnel|Gérez l’accès à vos applications cloud. Pour plus d’informations, consultez la [documentation sur l’accès conditionnel dans Azure AD](../conditional-access/index.yml).|
-|Azure Active Directory pour les développeurs|Créez des applications qui connectent toutes les identités Microsoft et obtiennent des jetons pour appeler Microsoft Graph, d’autres API Microsoft ou des API personnalisées. Pour plus d’informations, consultez [Plateforme d’identités Microsoft (Azure Active Directory pour développeurs)](../develop/index.yml).|
 |Gestion des appareils|Gérez la façon dont vos appareils cloud ou locaux accèdent à vos données d’entreprise. Pour plus d’informations, consultez la [documentation sur la gestion des appareils Azure AD](../devices/index.yml).|
 |Services de domaine|Joignez des machines virtuelles Azure à un domaine sans contrôleur de domaine. Pour plus d’informations, consultez la [documentation sur Azure AD Domain Services](../../active-directory-domain-services/index.yml).|
 |Utilisateurs d’entreprise|Gérez l’attribution des licences, accédez à des applications et configurez des délégués à l’aide de groupes et de rôles d’administrateur. Pour plus d’informations, consultez la [documentation sur la gestion des utilisateurs Azure Active Directory](../users-groups-roles/index.yml).|
@@ -102,12 +81,31 @@ Après avoir choisi votre licence Azure AD, vous avez accès à une partie ou �
 |Privileged Identity Management (PIM)|Gérez, contrôlez et supervisez l’accès au sein de votre organisation. Cette fonctionnalité inclut l’accès aux ressources dans Azure AD et Azure, ainsi qu’à d’autres services en ligne Microsoft, comme Office 365 ou Intune. Pour plus d’informations, consultez [Qu’est-ce qu’Azure AD Privileged Identity Management ?](../privileged-identity-management/index.yml).|
 |Rapports et analyse|Obtenez des insights sur la sécurité et les modèles d’utilisation de votre environnement. Pour plus d’informations, consultez [Rapports et supervision Azure Active Directory](../reports-monitoring/index.yml).|
 
+## <a name="terminology"></a>Terminologie
+
+Pour mieux comprendre Azure AD et sa documentation, nous vous recommandons de passer en revue les termes suivants.
+
+|Terme ou concept|Description|
+|---------------|-----------|
+|Identité| Une chose qui peut être authentifiée. Une identité peut être un utilisateur avec un nom d’utilisateur et un mot de passe. Les identités incluent également des applications ou autres serveurs qui peuvent nécessiter l’authentification via des clés secrètes ou des certificats.|
+|Compte| Une identité qui a des données associées. Vous ne pouvez pas avoir de compte sans identité.|
+|Compte Azure AD| Identité créée par le biais d’Azure AD ou d’un autre service cloud Microsoft comme Office 365. Les identités sont stockées dans Azure AD et sont accessibles à tout abonnement à un service cloud de votre organisation. Ce compte est parfois appelé un compte professionnel ou scolaire.|
+|Administrateur de comptes|Ce rôle d’administrateur d’abonnement classique est théoriquement le propriétaire du compte de facturation d’un abonnement. Ce rôle a accès au [Centre des comptes Azure](https://account.azure.com/Subscriptions) et vous permet de gérer tous les abonnements d’un compte. Pour plus d’informations, consultez [Rôles d’administrateur d’abonnement classique, contrôle d’accès en fonction du rôle Azure (RBAC) et rôles d’administrateur Azure AD](../../role-based-access-control/rbac-and-directory-admin-roles.md).|
+|Administrateur de services|Ce rôle d’administrateur d’abonnement classique vous permet de gérer toutes les ressources Azure, notamment l’accès à celles-ci. Ce rôle a un droit d’accès équivalent à celui d’un utilisateur qui se voit attribuer le rôle Propriétaire au niveau de l’étendue de l’abonnement. Pour plus d’informations, consultez [Rôles d’administrateur d’abonnement classique, rôles RBAC Azure et rôles d’administrateur Azure AD](../../role-based-access-control/rbac-and-directory-admin-roles.md).|
+|Propriétaire|Ce rôle vous permet de gérer toutes les ressources Azure, notamment l’accès à celles-ci. Ce rôle est basé sur un système d’autorisation plus récent appelé « contrôle d’accès en fonction du rôle » (RBAC) qui permet de gérer avec précision l’accès aux ressources Azure. Pour plus d’informations, consultez [Rôles d’administrateur d’abonnement classique, rôles RBAC Azure et rôles d’administrateur Azure AD](../../role-based-access-control/rbac-and-directory-admin-roles.md).|
+|Administrateur général Azure AD|Ce rôle d’administrateur est automatiquement attribué au créateur du locataire Azure AD. Les administrateurs généraux peuvent effectuer toutes les fonctions d’administration pour Azure AD et tout service fédéré sur Azure AD, comme Exchange Online, SharePoint Online et Skype Entreprise Online. Vous pouvez avoir plusieurs administrateurs généraux, mais seuls les administrateurs généraux peuvent attribuer des rôles d’administrateur (notamment d’autres rôles Administrateur général) aux utilisateurs. Remarque : ce rôle d’administrateur est appelé Administrateur général dans le portail Azure, mais il a pour nom **Administrateur d’entreprise** dans l’API Microsoft Graph et Azure AD PowerShell. Pour plus d’informations sur les différents rôles d’administrateur, consultez [Autorisations de rôle d’administrateur dans Azure Active Directory](../users-groups-roles/directory-assign-admin-roles.md).|
+|Abonnement Azure| Permet de payer les services cloud Azure. Vous pouvez avoir plusieurs abonnements, lesquels sont liés à une carte de crédit.|
+|Client Azure| Instance dédiée et approuvée d’Azure AD qui est automatiquement créée quand votre organisation souscrit un abonnement à un service cloud Microsoft tel que Microsoft Azure, Microsoft Intune ou Office 365. Un locataire Azure représente une seule organisation.|
+|Locataire unique| Un locataire Azure qui accède à d’autres services dans un environnement dédié est considéré comme un locataire unique.|
+|Multi-locataire| Les locataires Azure qui accèdent à d’autres services dans un environnement partagé entre plusieurs organisations sont considérés comme multilocataires.|
+|Annuaire Azure AD|Chaque locataire Azure a un annuaire Azure AD dédié et approuvé. L’annuaire Azure AD inclut les utilisateurs, groupes et applications du locataire. Il permet d’effectuer les fonctions de gestion des identités et des accès pour les ressources des locataires.|
+|Domaine personnalisé|Chaque nouvel annuaire Azure AD est fourni avec un nom de domaine initial au format nomdomaine.onmicrosoft.com. En plus de ce nom initial, vous pouvez ajouter à la liste les noms de domaine de votre organisation, notamment ceux que vous utilisez pour exercer votre activité commerciale et dont vos utilisateurs se servent pour accéder aux ressources de votre organisation. L’ajout de noms de domaine personnalisés vous permet de créer des noms d’utilisateur qui sont familiers à vos utilisateurs, par exemple alain@contoso.com.|
+|Compte Microsoft (également appelé MSA)|Comptes personnels qui donnent accès à vos produits et services cloud Microsoft orientés consommateurs, comme Outlook, OneDrive, Xbox LIVE ou Office 365. Votre compte Microsoft est créé et stocké dans le système de comptes d’identité des consommateurs de Microsoft.|
+
 ## <a name="next-steps"></a>Étapes suivantes
 
 - [S’inscrire à Azure Active Directory Premium](active-directory-get-started-premium.md)
 
 - [Associer un abonnement Azure à votre annuaire Azure Active Directory](active-directory-how-subscriptions-associated-directory.md)
-
-- [Accéder à Azure Active Directory et créer un locataire](active-directory-access-create-new-tenant.md)
 
 - [Check-list pour le déploiement des fonctionnalités d’Azure Active Directory Premium P2](active-directory-deployment-checklist-p2.md)
