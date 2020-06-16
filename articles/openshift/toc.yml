@@ -70,7 +70,7 @@
 - name: Informations de référence
   items:
     - name: Interface CLI Azure Red Hat OpenShift
-      href: /cli/azure/openshift
+      href: /cli/azure/aro
     - name: API REST Azure Red Hat OpenShift
       href: /rest/api/openshift
 - name: Ressources

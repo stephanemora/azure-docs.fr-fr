@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 05/13/2020
 ms.author: yinhew
-ms.openlocfilehash: 555ae9e48f538c1100bab8b35ce61742baa88451
-ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
+ms.openlocfilehash: c4eb1419859d4a87e53371a266dcef52e632b6c8
+ms.sourcegitcommit: ce44069e729fce0cf67c8f3c0c932342c350d890
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83659822"
+ms.lasthandoff: 06/09/2020
+ms.locfileid: "84636085"
 ---
 # <a name="speech-to-text-rest-api"></a>API REST de reconnaissance vocale
 
@@ -114,8 +114,10 @@ var pronAssessmentParamsBytes = Encoding.UTF8.GetBytes(pronAssessmentParamsJson)
 var pronAssessmentHeader = Convert.ToBase64String(pronAssessmentParamsBytes);
 ```
 
+Nous recommandons vivement un chargement par streaming (transfert en bloc) lors de la publication des données audio, ce qui peut réduire considérablement la latence. Consultez [exemple de code dans différents langages de programmation](https://github.com/Azure-Samples/Cognitive-Speech-TTS/tree/master/PronunciationAssessment) pour voir comment activer le streaming.
+
 >[!NOTE]
->La fonctionnalité d’évaluation de la prononciation n’est actuellement disponible que dans les régions `westus` et `eastasia`. Par ailleurs, cette fonctionnalité n’est pour le moment disponible que dans la langue `en-US`.
+>La fonctionnalité d’évaluation de la prononciation est actuellement disponible uniquement dans les régions `westus`, `eastasia` et `centralindia`. Par ailleurs, cette fonctionnalité n’est pour le moment disponible que dans la langue `en-US`.
 
 ## <a name="sample-request"></a>Exemple de requête
 

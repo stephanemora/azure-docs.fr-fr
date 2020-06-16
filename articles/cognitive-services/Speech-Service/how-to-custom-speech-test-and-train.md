@@ -10,16 +10,35 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 03/27/2020
 ms.author: trbye
-ms.openlocfilehash: bc79dabe82ab02166e3aa60a378ff394bca25028
-ms.sourcegitcommit: 6fd8dbeee587fd7633571dfea46424f3c7e65169
+ms.openlocfilehash: f43f7894c46a75894eb648f02ec378f3a8b2633d
+ms.sourcegitcommit: d7fba095266e2fb5ad8776bffe97921a57832e23
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/21/2020
-ms.locfileid: "83725548"
+ms.lasthandoff: 06/09/2020
+ms.locfileid: "84628053"
 ---
 # <a name="prepare-data-for-custom-speech"></a>Préparer des données pour Custom Speech
 
-Lors du test de la précision de la reconnaissance vocale Microsoft ou de l’apprentissage de vos modèles personnalisés, vous aurez besoin de données audio et texte. Dans cette page, nous nous intéressons aux types de données, à la façon dont ils sont utilisés et à leur gestion.
+Lors du test de la précision de la reconnaissance vocale Microsoft ou de l’apprentissage de vos modèles personnalisés, vous aurez besoin de données audio et texte. Dans cette page, nous abordons les types de données requis par un modèle Custom Speech.
+
+## <a name="data-diversity"></a>Diversité des données
+
+Le texte et l’audio utilisés pour tester et entraîner un modèle personnalisé doivent inclure des échantillons issus d’un ensemble diversifié de haut-parleurs et de scénarios que votre modèle doit reconnaître.
+Tenez compte des facteurs suivants lors de la collecte de données pour le test et l’entraînement de modèles personnalisés :
+
+* Vos données texte et audio doivent couvrir les types d’instructions verbales que vos utilisateurs prononceront lorsqu’ils interagiront avec votre modèle. Par exemple, un modèle chargé d’élever et d’abaisser la température nécessite un entraînement sur des instructions possibles permettant de demander de telles modifications.
+* Vos données doivent inclure toutes les variantes de langage que votre modèle doit reconnaître. De nombreux facteurs peuvent faire varier l’audio, y compris les accents, les dialectes, le mélange de langues, l’âge, le sexe, la hauteur de la voix, le degré de stress et l’heure de la journée.
+* Vous devez inclure des échantillons provenant de différents environnements (en intérieur, en extérieur, avec bruits de route) où votre modèle sera utilisé.
+* Le contenu audio doit être collecté à l’aide des périphériques matériels que le système de production utilisera. Si votre modèle doit identifier la parole enregistrée sur des appareils d’enregistrement de diverses qualités, les données audio que vous fournissez pour entraîner votre modèle doivent également être caractéristiques de ces différents scénarios.
+* Vous pouvez ajouter ultérieurement des données à votre modèle, mais veillez à utiliser un jeu de données diversifié et représentatif des besoins de votre projet.
+* L’insertion de données qui *ne figurent pas* dans les besoins de reconnaissance de modèle personnalisé peut nuire à la qualité globale de la reconnaissance. N’insérez donc pas de données dont votre modèle n’a pas besoin pour transcrire.
+
+Un modèle entraîné dans le cadre d’un sous-ensemble de scénarios ne peut fonctionner correctement que dans ces scénarios. Choisissez soigneusement les données qui représentent l’étendue complète des scénarios que votre modèle personnalisé doit reconnaître.
+
+> [!TIP]
+> Commencez avec de petits ensembles d’exemples de données correspondant à la langue et à l’acoustique que votre modèle rencontrera.
+> Par exemple, enregistrez un petit échantillon représentatif du contenu audio sur le même matériel et dans le même environnement acoustique que votre modèle rencontrera dans les scénarios de production.
+> De petits jeux de données représentatifs peuvent exposer des problèmes avant que vous ayez investi dans la collecte de jeux de données beaucoup plus volumineux à des fins d’entraînement.
 
 ## <a name="data-types"></a>Types de données
 
@@ -63,7 +82,7 @@ Servez-vous de ce tableau pour vérifier que le format de vos fichiers audio con
 | Longueur maximale par fichier audio | 2 heures               |
 | Format d’échantillonnage            | PCM, 16 bits           |
 | Format d’archive           | .zip                  |
-| Taille d’archive maximale     | 2 Go                  |
+| Taille d’archive maximale     | 2 Go                  |
 
 [!INCLUDE [supported-audio-formats](includes/supported-audio-formats.md)]
 
@@ -91,7 +110,7 @@ Les fichiers audio peuvent avoir un silence au début et à la fin de l’enregi
 | Longueur maximale par fichier audio | 2 heures (test) /60 s (entraînement) |
 | Format d’échantillonnage            | PCM, 16 bits                         |
 | Format d’archive           | .zip                                |
-| Taille maximale de zip         | 2 Go                                |
+| Taille maximale de zip         | 2 Go                                |
 
 [!INCLUDE [supported-audio-formats](includes/supported-audio-formats.md)]
 

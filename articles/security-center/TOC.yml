@@ -198,8 +198,6 @@
       href: security-center-features-retirement-july2019.md
     - name: Évaluation de la protection de point de terminaison et recommandations
       href: security-center-endpoint-protection.md
-    - name: Degré de sécurisation (hérité)
-      href: security-center-secure-score.md
 - name: Ressources
   items:
     - name: Développer vos compétences avec Microsoft Learn

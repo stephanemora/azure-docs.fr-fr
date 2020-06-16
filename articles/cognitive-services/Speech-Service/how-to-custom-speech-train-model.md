@@ -10,16 +10,16 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 09/06/2019
 ms.author: erhopf
-ms.openlocfilehash: 09867d6739998902ea0fd11281d1b975866c1242
-ms.sourcegitcommit: 6fd8dbeee587fd7633571dfea46424f3c7e65169
+ms.openlocfilehash: bf9209e0c256412ccb06ea62a197046a7b012e00
+ms.sourcegitcommit: d7fba095266e2fb5ad8776bffe97921a57832e23
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/21/2020
-ms.locfileid: "83722624"
+ms.lasthandoff: 06/09/2020
+ms.locfileid: "84629021"
 ---
 # <a name="train-a-model-for-custom-speech"></a>Entraîner un modèle pour Custom Speech
 
-La formation d’un modèle de reconnaissance vocale peut améliorer la précision de la reconnaissance du modèle de référence de Microsoft. L’entraînement d’un modèle s’appuie sur des transcriptions étiquetées à la main et sur le texte associé. Ces jeux de données et les données audio chargées précédemment servent à affiner et entraîner le modèle de reconnaissance vocale pour reconnaître les mots, les expressions, les acronymes, les noms et d’autres termes propres à un produit. Plus vous fournirez de jeux de données propres au domaine (données en rapport avec ce que les utilisateurs diront et ce qui, selon vous, sera reconnu), plus votre modèle sera précis, ce qui aura pour effet d’améliorer la reconnaissance. Gardez à l’esprit qu’en incorporant des données sans rapport dans votre entraînement, vous pouvez amoindrir la précision de votre modèle ou nuire à celle-ci.
+La formation d’un modèle de reconnaissance vocale peut améliorer la précision de la reconnaissance du modèle de référence de Microsoft. L’entraînement d’un modèle s’appuie sur des transcriptions étiquetées à la main et sur le texte associé. Ces jeux de données, ainsi que les données audio précédemment chargées, permettent d’affiner et d’entraîner le modèle de reconnaissance vocale.
 
 ## <a name="use-training-to-resolve-accuracy-issues"></a>Utiliser l’entraînement pour résoudre les problèmes de précision
 
@@ -39,7 +39,7 @@ Si vous rencontrez des problèmes de reconnaissance avec votre modèle, l’util
 La première étape pour entraîner un modèle consiste à charger des données d’entraînement. Consultez [Préparer et tester les données](how-to-custom-speech-test-data.md) pour préparer des transcriptions étiquetées à la main et du texte associé (énoncés et prononciations) en suivant des instructions pas à pas. Après avoir chargé des données d’entraînement, suivez ces instructions pour commencer à entraîner votre modèle :
 
 1. Connectez-vous au [portail Custom Speech](https://speech.microsoft.com/customspeech).
-2. Accédez à **Speech-to-text > Custom Speech > Training**.
+2. Accédez à **Synthèse vocale > Custom Speech > [nom du projet] > Entraînement en cours**.
 3. Cliquez sur **Train model**.
 4. Ensuite, nommez et décrivez votre entraînement dans les champs **Name** et **Description**.
 5. À partir du menu déroulant **Scenario and Baseline model** (Scénario et modèle de référence), sélectionnez le scénario qui correspond le mieux à votre domaine. Si vous ne savez pas quel scénario choisir, sélectionnez **General**. Le modèle de référence est le point de départ de votre entraînement. Le modèle le plus récent est généralement le meilleur choix.

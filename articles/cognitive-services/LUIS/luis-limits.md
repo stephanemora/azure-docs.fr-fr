@@ -2,13 +2,13 @@
 title: Limites - LUIS
 description: Cet article liste les limites connues d’Azure Cognitive Services Language Understanding (LUIS). LUIS a plusieurs zones de limites. La limite de modèle contrôle les intentions, les entités et les caractéristiques dans LUIS. La limite de quota dépend du type de clé. La combinaison de touches contrôle le site web de LUIS.
 ms.topic: reference
-ms.date: 05/06/2020
-ms.openlocfilehash: d4a6162758fab7e5c9592b98974620bbf06ba978
-ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
+ms.date: 06/04/2020
+ms.openlocfilehash: aa4362fba09834758d47f3ef063068c1854b9280
+ms.sourcegitcommit: 0a5bb9622ee6a20d96db07cc6dd45d8e23d5554a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/20/2020
-ms.locfileid: "83684602"
+ms.lasthandoff: 06/05/2020
+ms.locfileid: "84449496"
 ---
 # <a name="limits-for-your-luis-model-and-keys"></a>Limites de vos clés et de votre modèle LUIS
 LUIS a plusieurs zones de limites. La première est la [limite de modèle](#model-limits), qui contrôle les intentions, les entités et les caractéristiques dans LUIS. Le deuxième domaine est la [limite de quota](#key-limits), qui est fonction du type de clé. La troisième zone de limites est la [séquence de touches](#keyboard-controls) pour contrôler le site web LUIS. Un quatrième domaine est le [mappage de régions du monde](luis-reference-regions.md) entre le site web de création de LUIS et les API du [point de terminaison](luis-glossary.md#endpoint) de LUIS.
@@ -37,8 +37,8 @@ Si votre application dépasse les limites de modèle LUIS, utilisez une applicat
 | [Entités prédéfinies](./luis-prebuilt-entities.md) | aucune limite|
 | [Entité d’expression régulière](./luis-concept-entity-types.md)|20 entités<br>500 caractères maximum par modèle d’entité d’expression régulière|
 | [Rôles](luis-concept-roles.md)|300 rôles par application. 10 rôles par entité|
-| [Énoncé][utterances] | 500 caractères|
-| [Énoncés][utterances] | 15 000 par application, il n’existe aucune limite du nombre d’énoncés par intention|
+| [Énoncé][utterances] | 500 caractères<br><br>Si vous avez un texte d’une longueur supérieure à cette limite de caractères, vous devez segmenter l’énoncé avant de l’entrer dans LUIS et fusionner les réponses en conséquence. Vous pouvez utiliser des arrêts évidents, tels que les signes de ponctuation et les pauses marquées dans le discours.|
+| [Exemples d’énoncés][utterances] | 15 000 par application, il n’existe aucune limite du nombre d’énoncés par intention<br><br>Si vous devez entraîner l’application avec plus d’exemples, utilisez une approche de modèle [dispatch](https://github.com/Microsoft/botbuilder-tools/tree/master/packages/Dispatch). Vous entraînez les applications LUIS individuelles (appelées « applications enfants » par rapport à l’application de distribution parente) avec une ou plusieurs intentions, puis vous entraînez une application de distribution qui échantillonne les énoncés de chaque application LUIS enfant pour diriger la demande de prédiction vers l’application enfant appropriée. |
 | [Versions](luis-concept-version.md)| 100 versions par application |
 | [Nom de version][luis-how-to-manage-versions] | 128 caractères |
 

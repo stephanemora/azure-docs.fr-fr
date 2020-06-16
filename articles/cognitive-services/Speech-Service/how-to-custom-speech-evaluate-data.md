@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 09/06/2019
 ms.author: erhopf
-ms.openlocfilehash: f710b8bfdd4dcfd3b7a63aa0b457036ab7037016
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 27229d36dbe9592b6ad6fc2740f7714f99fd6857
+ms.sourcegitcommit: d7fba095266e2fb5ad8776bffe97921a57832e23
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "74806094"
+ms.lasthandoff: 06/09/2020
+ms.locfileid: "84629057"
 ---
 # <a name="evaluate-custom-speech-accuracy"></a>Évaluer la précision de Custom Speech
 
@@ -52,7 +52,7 @@ Si vous souhaitez tester la qualité du modèle de reconnaissance vocale de réf
 Pour évaluer des modèles côte à côte :
 
 1. Connectez-vous au [portail Custom Speech](https://speech.microsoft.com/customspeech).
-2. Accédez à **Speech-to-text > Custom Speech > Testing**.
+2. Accédez à **Synthèse vocale > Custom Speech > [nom du projet] > Test en cours**.
 3. Cliquez sur **Add Test** (Ajouter un test).
 4. Sélectionnez **Évaluer la précision**. Donnez au test un nom et une description et sélectionnez votre jeu de données de transcription audio + étiquetées à la main.
 5. Sélectionnez les modèles que vous voulez tester (deux au maximum).
