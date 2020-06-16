@@ -10,5 +10,7 @@
   href: 'https://github.com/Azure/azure-remote-rendering'
 - name: API REST pour la gestion des ressources Azure Mixed Reality
   href: 'https://docs.microsoft.com/rest/api/mixedreality/'
-- name: 'Documentation sur l’API C#'
+- name: Documentation sur l’API C#
   href: 'https://docs.microsoft.com/dotnet/api/Microsoft.Azure.RemoteRendering'
+- name: Documentation sur l’API C++
+  href: 'https://docs.microsoft.com/cpp/api/remote-rendering'

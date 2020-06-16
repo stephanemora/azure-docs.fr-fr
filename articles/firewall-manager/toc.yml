@@ -24,7 +24,7 @@
       href: secured-virtual-hub.md
     - name: Processus général de déploiement
       href: deployment-overview.md
-    - name: Partenaires de sécurité de confiance
+    - name: Fournisseurs de partenaire de sécurité
       href: trusted-security-partners.md
     - name: Logique de traitement des règles
       href: rule-processing.md
@@ -32,7 +32,7 @@
       href: vhubs-and-vnets.md
 - name: Guides pratiques
   items:
-    - name: Déployer des partenaires de sécurité de confiance
+    - name: Déployer des fournisseurs de partenaire de sécurité
       href: deploy-trusted-security-partner.md
     - name: Migrer vers une stratégie de pare-feu - PowerShell
       href: migrate-to-policy.md

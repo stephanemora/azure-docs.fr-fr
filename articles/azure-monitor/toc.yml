@@ -197,7 +197,7 @@
             - name: Vue d’ensemble
               href: platform/agents-overview.md
             - name: Questions fréquentes (FAQ)
-              href: 'faq.md#agents'
+              href: faq.md#agents
             - name: Extension Diagnostics Azure
               items:
                 - name: Vue d’ensemble
@@ -905,7 +905,7 @@
         - name: Questions fréquentes (FAQ) sur la disponibilité générale
           href: insights/vminsights-ga-release-faq.md
         - name: Questions fréquentes (FAQ)
-          href: 'faq.md#azure-monitor-for-vms'
+          href: faq.md#azure-monitor-for-vms
         - name: Activer la supervision
           items:
             - name: Vue d’ensemble de l’activation de la supervision
@@ -937,7 +937,7 @@
         - name: Vue d’ensemble
           href: insights/container-insights-overview.md
         - name: Questions fréquentes (FAQ)
-          href: 'faq.md#azure-monitor-for-containers'
+          href: faq.md#azure-monitor-for-containers
         - name: Activer la supervision
           items:
             - name: Vue d’ensemble de l’activation de la supervision
@@ -952,6 +952,8 @@
               href: insights/container-insights-azure-redhat-setup.md
             - name: "Activer pour Azure Red Hat OpenShift\_v4"
               href: insights/container-insights-azure-redhat4-setup.md
+            - name: Activer pour le cluster prenant en charge Arc
+              href: insights/container-insights-enable-arc-enabled-clusters.md
             - name: Correspondances de régions
               href: insights/container-insights-region-mapping.md
         - name: Superviser les performances

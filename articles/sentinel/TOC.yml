@@ -27,6 +27,8 @@
       href: roles.md
     - name: Détection avancée des attaques en plusieurs étapes
       href: fusion.md
+    - name: Étendre Azure Sentinel dans les espaces de travail et les locataires
+      href: extend-sentinel-across-workspaces-tenants.md
 - name: Guides pratiques
   items:
     - name: Connecter des sources de données
@@ -84,8 +86,6 @@
               href: connect-syslog.md
             - name: Zimperium Mobile Threat Defense
               href: connect-zimperium-mtd.md
-            - name: Utilisation de Logstash
-              href: connect-logstash.md
             - name: Solutions basées sur CEF
               href: connect-common-event-format.md
               items:
