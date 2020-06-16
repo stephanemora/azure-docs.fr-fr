@@ -107,3 +107,13 @@
               href: pim-resource-roles-perform-access-review.md
             - name: Effectuer une révision d’accès
               href: pim-resource-roles-complete-access-review.md
+- name: Informations de référence
+  items:
+    - name: API Graph
+      href: 'https://developer.microsoft.com/graph/docs/api-reference/v1.0/resources/azure_ad_overview'
+    - name: CLI Azure AD
+      href: 'https://docs.microsoft.com/cli/azure/ad'
+    - name: Azure AD PowerShell pour Graph
+      href: 'https://docs.microsoft.com/powershell/azure/active-directory/install-adv2?view=azureadps-2.0'
+    - name: Limites du service Azure AD
+      href: ../users-groups-roles/directory-service-limits-restrictions.md
