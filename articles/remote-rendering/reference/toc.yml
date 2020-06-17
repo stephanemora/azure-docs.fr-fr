@@ -1,3 +1,5 @@
+- name: Tailles de machine virtuelle
+  href: vm-sizes.md
 - name: Mappage de matériaux pour les formats de modèle
   href: material-mapping.md
 - name: Régions

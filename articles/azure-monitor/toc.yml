@@ -946,14 +946,14 @@
               href: insights/container-insights-enable-new-cluster.md
             - name: Activer pour un cluster AKS existant
               href: insights/container-insights-enable-existing-clusters.md
+            - name: Activer pour le cluster prenant en charge Arc
+              href: insights/container-insights-enable-arc-enabled-clusters.md
             - name: Activer pour un cluster hybride
               href: insights/container-insights-hybrid-setup.md
             - name: "Activer pour Azure Red Hat OpenShift\_v3"
               href: insights/container-insights-azure-redhat-setup.md
             - name: "Activer pour Azure Red Hat OpenShift\_v4"
               href: insights/container-insights-azure-redhat4-setup.md
-            - name: Activer pour le cluster prenant en charge Arc
-              href: insights/container-insights-enable-arc-enabled-clusters.md
             - name: Correspondances de régions
               href: insights/container-insights-region-mapping.md
         - name: Superviser les performances

@@ -33,7 +33,7 @@
     - name: Se connecter à un groupe de machines virtuelles identiques
       href: bastion-connect-vm-scale-set.md
     - name: Se connecter à des machines virtuelles DevTest Labs
-      href: ../lab-services/enable-browser-connection-lab-virtual-machines.md?toc=%2fazure%2fbastion%2ftoc.json
+      href: ../devtest-labs/enable-browser-connection-lab-virtual-machines.md?toc=%2fazure%2fbastion%2ftoc.json
     - name: Travailler avec une session d’ordinateur virtuel
       items:
         - name: Copier et coller

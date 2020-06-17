@@ -493,6 +493,8 @@
               href: ../linux/image-builder-overview.md?toc=/azure/virtual-machines/windows/toc.json&bc=/azure/virtual-machines/windows/breadcrumb/toc.json
             - name: "Utiliser l’interface de ligne de commande Microsoft\_Azure"
               href: image-builder.md
+            - name: Utilisation d'Azure PowerShell
+              href: image-builder-powershell.md
             - name: Créer pour des galeries d’images
               href: image-builder-gallery.md
             - name: Mettre à jour une image existante
