@@ -23,6 +23,8 @@
           href: b2b-tutorial-require-mfa.md
     - name: Exemples
       items:
+        - name: Exemples d’inscription en libre-service
+          href: code-samples-self-service-sign-up.md
         - name: Code et exemples Azure PowerShell
           href: code-samples.md
     - name: Concepts

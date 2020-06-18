@@ -10,19 +10,22 @@
   items:
     - name: Exécuter votre première requête - Portail Azure
       displayName: 'portal, resource, graph, explorer'
-      href: first-query-portal.md
+      href: ./first-query-portal.md
     - name: Exécuter votre première requête - Azure CLI
       displayName: 'extension, docker'
-      href: first-query-azurecli.md
-    - name: Exécuter votre première requête - PowerShell
+      href: ./first-query-azurecli.md
+    - name: Exécuter votre première requête - Azure PowerShell
       displayName: 'module, docker, Az.ResourceGraph'
-      href: first-query-powershell.md
+      href: ./first-query-powershell.md
+    - name: Exécuter votre première requête - Go
+      displayName: 'package, sdk, golang'
+      href: ./first-query-go.md
     - name: Exécuter votre première requête – Python
       displayName: 'library, azure-mgmt, cli'
-      href: first-query-python.md
+      href: ./first-query-python.md
     - name: Déployer une requête partagée - Modèle ARM
       displayName: 'resource manager, queries'
-      href: shared-query-template.md
+      href: ./shared-query-template.md
 - name: Tutoriels
   items:
     - name: Créer et partager une requête dans le portail Azure

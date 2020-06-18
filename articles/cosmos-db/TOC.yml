@@ -863,7 +863,7 @@
               href: table-storage-how-to-use-c-plus.md
             - name: Ruby
               href: table-storage-how-to-use-ruby.md
-            - name: 'F#'
+            - name: F#
               href: /dotnet/articles/fsharp/using-fsharp-on-azure/table-storage
               maintainContext: true
         - name: Concepts
@@ -1055,7 +1055,7 @@
           href: import-github-notebooks.md
         - name: Utiliser les commandes de notebook Python intégrées
           href: use-python-notebook-features-and-commands.md
-        - name: 'Utiliser les commandes de notebook C# intégrées'
+        - name: Utiliser les commandes de notebook C# intégrées
           href: use-csharp-notebook-features-and-commands.md
     - name: Programmation côté serveur
       items:
@@ -1155,6 +1155,8 @@
           href: ../data-factory/connector-azure-cosmos-db.md?toc=/azure/cosmos-db/toc.json&bc=/azure/cosmos-db/breadcrumb/toc.json
         - name: Azure Stream Analytics
           href: ../stream-analytics/stream-analytics-documentdb-output.md?toc=/azure/cosmos-db/toc.json&bc=/azure/cosmos-db/breadcrumb/toc.json
+        - name: Explorateur de données Azure
+          href: 'https://github.com/Azure/azure-kusto-labs/tree/master/cosmosdb-adx-integration'
         - name: Azure Event Hubs et stockage Azure
           href: 'https://github.com/hdinsight/hdinsight-storm-examples/blob/master/IotExample/README.md'
         - name: Utiliser Spring Boot Starter

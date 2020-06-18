@@ -24,27 +24,6 @@
       items:
         - name: Développer avec Helm
           href: quickstart-helm.md
-        - name: Azure Dev Spaces
-          expanded: true
-          items:
-            - name: Utiliser Azure Dev Spaces pour le développement en équipe
-              href: ../dev-spaces/quickstart-team-development.md
-              maintainContext: true
-            - name: Utiliser Visual Studio Code
-              href: ../dev-spaces/quickstart-netcore.md
-              maintainContext: true
-            - name: Utiliser Visual Studio
-              href: ../dev-spaces/quickstart-netcore-visualstudio.md
-              maintainContext: true
-            - name: Utiliser l’interface CLI
-              href: ../dev-spaces/quickstart-cli.md
-              maintainContext: true
-            - name: Utiliser Azure Dev Spaces avec Java
-              href: ../dev-spaces/quickstart-java.md
-              maintainContext: true
-            - name: Utiliser Azure Dev Spaces avec Node.js
-              href: ../dev-spaces/quickstart-nodejs.md
-              maintainContext: true
 - name: Tutoriels
   items:
     - name: 1 - Préparer l’application pour AKS
@@ -302,54 +281,10 @@
           href: 'https://docs.microsoft.com/virtualization/windowscontainers/manage-docker/optimize-windows-dockerfile?context=/azure/aks/context/aks-context'
     - name: Développer et exécuter des applications
       items:
-        - name: Développer avec Dev Spaces
-          href: ../dev-spaces/azure-dev-spaces.md
-          maintainContext: true
-          items:
-            - name: Java (VS Code & CLI)
-              items:
-                - name: 1 - Prise en main
-                  href: ../dev-spaces/get-started-java.md
-                  maintainContext: true
-                - name: 2 - Développement multiservice
-                  href: ../dev-spaces/multi-service-java.md
-                  maintainContext: true
-                - name: 3 - Développement en équipe
-                  href: ../dev-spaces/team-development-java.md
-                  maintainContext: true
-            - name: .NET Core (VS Code et CLI)
-              items:
-                - name: 1 - Prise en main
-                  href: ../dev-spaces/get-started-netcore.md
-                  maintainContext: true
-                - name: 2 - Développement multiservice
-                  href: ../dev-spaces/multi-service-netcore.md
-                  maintainContext: true
-                - name: 3 - Développement en équipe
-                  href: ../dev-spaces/team-development-netcore.md
-                  maintainContext: true
-            - name: .NET Core (Visual Studio 2017)
-              items:
-                - name: 1 - Prise en main
-                  href: ../dev-spaces/get-started-netcore-visualstudio.md
-                  maintainContext: true
-                - name: 2 - Développement multiservice
-                  href: ../dev-spaces/multi-service-netcore-visualstudio.md
-                  maintainContext: true
-                - name: 3 - Développement en équipe
-                  href: ../dev-spaces/team-development-netcore-visualstudio.md
-                  maintainContext: true
-            - name: Node.js (VS Code et CLI)
-              items:
-                - name: 1 - Prise en main
-                  href: ../dev-spaces/get-started-nodejs.md
-                  maintainContext: true
-                - name: 2 - Développement multiservice
-                  href: ../dev-spaces/multi-service-nodejs.md
-                  maintainContext: true
-                - name: 3 - Développement en équipe
-                  href: ../dev-spaces/team-development-nodejs.md
-                  maintainContext: true
+        - name: Utiliser Local Process with Kubernetes avec Visual Studio Code (préversion)
+          href: ../dev-spaces/how-to/local-process-kubernetes-vs-code.md
+        - name: Utiliser Processus local avec Kubernetes avec Visual Studio (préversion)
+          href: ../dev-spaces/how-to/local-process-kubernetes-visual-studio.md
         - name: Installer des applications existantes avec Helm
           href: kubernetes-helm.md
         - name: Utiliser OpenFaaS

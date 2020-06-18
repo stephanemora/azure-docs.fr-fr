@@ -43,7 +43,7 @@
               href: time-series-insights-authentication-and-authorization.md
             - name: "Interroger des données à l’aide de\_C#"
               href: time-series-insights-query-data-csharp.md
-            - name: 'Gérer des données de référence dans C#'
+            - name: Gérer des données de référence dans C#
               href: time-series-insights-manage-reference-data-csharp.md
             - name: Partager un affichage personnalisé
               href: time-series-insights-parameterized-urls.md
@@ -111,6 +111,12 @@
           href: time-series-insights-update-how-to-shape-events.md
         - name: Se connecter à Power BI
           href: how-to-connect-power-bi.md
+- name: Dernières modifications
+  items:
+    - name: Préversion d’Azure Time Series Insights
+      items:
+        - name: Ajout de la prise en charge du type de données Long
+          href: time-series-insights-long-data-type.md
 - name: Informations de référence
   items:
     - name: Time Series Insights

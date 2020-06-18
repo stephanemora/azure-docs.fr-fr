@@ -33,6 +33,8 @@
           href: create-data-warehouse-portal.md
         - name: PowerShell
           href: create-data-warehouse-powershell.md
+        - name: Modèle ARM
+          href: quickstart-arm-template.md
     - name: Charger les données
       items:
         - name: Instruction COPY
@@ -407,7 +409,7 @@
       href: 'https://stackoverflow.com/questions/tagged/azure-sqldw/'
     - name: Support
       href: sql-data-warehouse-get-started-create-support-ticket.md
-    - name: Videos
+    - name: Vidéos
       href: sql-data-warehouse-videos.md
     - name: Partenaires
       items:
