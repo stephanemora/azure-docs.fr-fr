@@ -1,5 +1,5 @@
 ---
-title: 'Démarrage rapide : Créer une passerelle NAT - Modèle Resource Manager'
+title: 'Tutoriel : Créer une passerelle NAT - Modèle Resource Manager'
 titleSuffix: Azure Virtual Network NAT
 description: Ce guide de démarrage rapide montre comment créer une passerelle NAT en utilisant le modèle Azure Resource Manager.
 services: load-balancer
@@ -10,20 +10,20 @@ Customer intent: I want to create a NAT gateway by using an Azure Resource Manag
 ms.service: virtual-network
 ms.subservice: nat
 ms.devlang: na
-ms.topic: quickstart
+ms.topic: tutorial
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/09/2020
 ms.author: allensu
 ms.custom: subject-armqs
-ms.openlocfilehash: 5e0d62885598aea6f1656d0cdcef5f0c3406e7dd
-ms.sourcegitcommit: 61d850bc7f01c6fafee85bda726d89ab2ee733ce
+ms.openlocfilehash: fbc8b48f4ff6a6df687d45a53008a159c5322084
+ms.sourcegitcommit: 537c539344ee44b07862f317d453267f2b7b2ca6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/03/2020
-ms.locfileid: "84341029"
+ms.lasthandoff: 06/11/2020
+ms.locfileid: "84703568"
 ---
-# <a name="quickstart-create-a-nat-gateway---resource-manager-template"></a>Démarrage rapide : Créer une passerelle NAT - Modèle Resource Manager
+# <a name="tutorial-create-a-nat-gateway---resource-manager-template"></a>Tutoriel : Créer une passerelle NAT - Modèle Resource Manager
 
 Commencez à utiliser un service NAT de réseau virtuel à l’aide d’un modèle Azure Resource Manager.  Ce modèle déploie un réseau virtuel, une ressource de passerelle NAT et une machine virtuelle Ubuntu. La machine virtuelle Ubuntu est déployée sur un sous-réseau associé à la ressource de passerelle NAT.
 

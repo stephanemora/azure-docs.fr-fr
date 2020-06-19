@@ -2,7 +2,7 @@
 title: Sécurité SQL Managed Instance à l’aide de principaux de serveur (connexions) Azure AD
 description: Découvrir les techniques et fonctionnalités permettant de sécuriser Azure SQL Managed Instance à l’aide de principaux de serveur (connexions) Azure AD
 services: sql-database
-ms.service: sql-database
+ms.service: sql-managed-instance
 ms.subservice: security
 ms.custom: sqldbrb=1
 ms.topic: tutorial
@@ -10,12 +10,12 @@ author: GitHubMirek
 ms.author: mireks
 ms.reviewer: vanto
 ms.date: 11/06/2019
-ms.openlocfilehash: 5152f78b428008d3f9a76264f2253167e6c5a138
-ms.sourcegitcommit: 12f23307f8fedc02cd6f736121a2a9cea72e9454
+ms.openlocfilehash: 05103052308b6dbf1314348f7d45abc9cba79827
+ms.sourcegitcommit: 537c539344ee44b07862f317d453267f2b7b2ca6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/30/2020
-ms.locfileid: "84219810"
+ms.lasthandoff: 06/11/2020
+ms.locfileid: "84706428"
 ---
 # <a name="tutorial-security-in-azure-sql-managed-instance-using-azure-ad-server-principals-logins"></a>Tutoriel : Sécurité dans Azure SQL Managed Instance à l’aide de principaux de serveur (connexions) Azure AD
 [!INCLUDE[appliesto-sqlmi](../includes/appliesto-sqlmi.md)]

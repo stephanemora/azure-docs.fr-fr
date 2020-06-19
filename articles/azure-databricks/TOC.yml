@@ -11,7 +11,7 @@
       items:
         - name: Portail
           href: quickstart-create-databricks-workspace-portal.md
-        - name: PowerShell
+        - name: Azure PowerShell
           href: quickstart-create-databricks-workspace-powershell.md
         - name: Modèle ARM
           displayName: Resource Manager
@@ -1260,7 +1260,7 @@
             - name: L’interface utilisateur Apache Spark affiche moins que la mémoire totale du nœud
               href: /azure/databricks/kb/clusters/spark-shows-less-memory
               maintainContext: true
-            - name: La limite de noyau de processeur empêche la création de cluster
+            - name: La limite de cœur de processeur empêche la création de cluster
               href: /azure/databricks/kb/clusters/azure-core-limit
               maintainContext: true
             - name: La limite d’adresse IP empêche la création de cluster

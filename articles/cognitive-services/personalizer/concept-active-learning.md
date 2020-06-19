@@ -4,11 +4,11 @@ description: Les paramètres d’apprentissage déterminent les *hyperparamètre
 ms.topic: conceptual
 ms.date: 02/20/2020
 ms.openlocfilehash: abe6a2a2ec9b9978230d894c69193469f6e932e6
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 537c539344ee44b07862f317d453267f2b7b2ca6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79218567"
+ms.lasthandoff: 06/11/2020
+ms.locfileid: "84700730"
 ---
 # <a name="learning-policy-and-settings"></a>Stratégie et paramètres d’apprentissage
 

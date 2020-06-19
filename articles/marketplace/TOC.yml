@@ -330,6 +330,8 @@
               href: ./partner-center-portal/azure-vm-create-offer.md
             - name: Créer une ressource technique de machine virtuelle Azure
               items:
+                - name: Certification des machines virtuelles - problèmes et solutions
+                  href: ./partner-center-portal/vm-certification-issues-solutions.md
                 - name: Créer une ressource technique de machine virtuelle Azure
                   href: ./partner-center-portal/create-azure-vm-technical-asset.md
                 - name: Questions fréquentes (FAQ) sur une ressource technique de machine virtuelle Azure
