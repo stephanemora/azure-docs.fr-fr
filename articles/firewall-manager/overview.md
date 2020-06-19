@@ -5,14 +5,14 @@ author: vhorne
 ms.service: firewall-manager
 services: firewall-manager
 ms.topic: overview
-ms.date: 03/13/2020
+ms.date: 06/11/2020
 ms.author: victorh
-ms.openlocfilehash: 149782f627d586e927c828506a7d4f1b5437b987
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: bef948def487e2b60764641e6cf38a3e122e2f87
+ms.sourcegitcommit: 6571e34e609785e82751f0b34f6237686470c1f3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "79366272"
+ms.lasthandoff: 06/15/2020
+ms.locfileid: "84792153"
 ---
 # <a name="what-is-azure-firewall-manager-preview"></a>Présentation de la préversion d’Azure Firewall Manager
 
@@ -22,16 +22,16 @@ Azure Firewall Manager en préversion est un service de gestion de la sécurité
 
 Firewall Manager assure la gestion de la sécurité pour deux types d’architecture réseau :
 
-- **hub virtuel sécurisé**
+- **Hub virtuel sécurisé**
 
-   Un [hub Azure Virtual WAN](../virtual-wan/virtual-wan-about.md#resources) est une ressource managée par Microsoft qui vous permet de créer facilement des architectures « Hub and Spoke ». Lorsque les stratégies de sécurité et de routage sont associées à un hub, elles sont appelées *[hub virtuel sécurisé](secured-virtual-hub.md)* . 
-- **réseau virtuel hub**
+   Un [hub Azure Virtual WAN](../virtual-wan/virtual-wan-about.md#resources) est une ressource gérée par Microsoft qui vous permet de créer facilement des architectures « Hub and Spoke ». Lorsque les stratégies de sécurité et de routage sont associées à un hub, elles sont appelées *[hub virtuel sécurisé](secured-virtual-hub.md)* . 
+- **Réseau virtuel hub**
 
    Il s’agit d’un réseau virtuel Azure standard que vous créez et gérez vous-même. Quand des stratégies de sécurité sont associées à un hub de ce type, on parle de *réseau virtuel hub*. Pour l’instant, seule la stratégie de pare-feu Azure est prise en charge. Vous pouvez appairer des réseaux virtuels spoke qui contiennent vos services et serveurs de charge de travail. Vous pouvez également gérer les pare-feu dans des réseaux virtuels autonomes qui ne sont associés à aucun réseau spoke.
 
 Pour avoir une comparaison détaillée des architectures de *hub virtuel sécurisé* et de *réseau virtuel hub*, consultez [Quelles sont les options d’architecture d’Azure Firewall Manager ?](vhubs-and-vnets.md)
 
-![firewall-manager](media/overview/firewallmanagerv5.png)
+![firewall-manager](media/overview/trusted-security-partners.png)
 
 ## <a name="azure-firewall-manager-preview-features"></a>Fonctionnalités de la préversion d’Azure Firewall Manager
 

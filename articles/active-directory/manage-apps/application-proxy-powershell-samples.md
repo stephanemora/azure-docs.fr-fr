@@ -2,22 +2,22 @@
 title: Exemples PowerShell pour le proxy d’application Azure AD
 description: Utilisez ces exemples PowerShell pour le proxy d’application Azure AD pour obtenir des informations sur les applications et les connecteurs du proxy d’application dans votre annuaire, affecter des utilisateurs et des groupes à des applications et obtenir des informations sur les certificats.
 services: active-directory
-author: msmimart
-manager: CelesteDG
+author: kenwith
+manager: celestedg
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.workload: identity
-ms.topic: conceptual
+ms.topic: sample
 ms.date: 12/05/2019
-ms.author: mimart
+ms.author: kenwith
 ms.reviewer: japere
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 476bdfdd2c0b81d86900cee18024cc261ee80a07
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 6e624be8103097a8356ae4167cb8f21cce819649
+ms.sourcegitcommit: bc943dc048d9ab98caf4706b022eb5c6421ec459
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79481260"
+ms.lasthandoff: 06/14/2020
+ms.locfileid: "84760170"
 ---
 # <a name="azure-ad-powershell-examples-for-azure-ad-application-proxy"></a>Exemples Azure AD PowerShell pour le proxy d’application Azure AD
 

@@ -6,14 +6,14 @@ ms.service: cosmos-db
 ms.subservice: cosmosdb-sql
 ms.devlang: java
 ms.topic: tutorial
-ms.date: 05/11/2020
+ms.date: 06/11/2020
 ms.author: anfeldma
-ms.openlocfilehash: 34341e39f2db78d8f0d3355d180a2781229f232f
-ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
+ms.openlocfilehash: 8357c10ad8a623a0c9cfc90c236ea28d89cc332a
+ms.sourcegitcommit: c4ad4ba9c9aaed81dfab9ca2cc744930abd91298
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83651138"
+ms.lasthandoff: 06/12/2020
+ms.locfileid: "84738462"
 ---
 # <a name="how-to-create-a-java-application-that-uses-azure-cosmos-db-sql-api-and-change-feed-processor"></a>Guide pratique pour créer une application Java qui utilise l’API SQL Azure Cosmos DB et le processeur de flux de modification
 
@@ -91,17 +91,7 @@ mvn clean package
 
     ### <a name="java-sdk-v4-maven-comazureazure-cosmos-async-api"></a><a id="java4-connection-policy-async"></a>API async du SDK Java V4 (Maven com.azure::azure-cosmos)
 
-    ```java
-    changeFeedProcessorInstance = getChangeFeedProcessor("SampleHost_1", feedContainer, leaseContainer);
-    changeFeedProcessorInstance.start()
-        .subscribeOn(Schedulers.elastic())
-        .doOnSuccess(aVoid -> {
-            isProcessorRunning.set(true);
-        })
-        .subscribe();
-
-    while (!isProcessorRunning.get()); //Wait for change feed processor start
-    ```
+    [!code-java[](~/azure-cosmos-java-sql-app-example/src/main/java/com/azure/cosmos/workedappexample/SampleGroceryStore.java?name=InitializeCFP)]
 
     ```"SampleHost_1"``` est le nom du worker du processeur de flux de modification. ```changeFeedProcessorInstance.start()``` est ce qui démarre le processeur de flux de modification.
 
@@ -113,30 +103,7 @@ mvn clean package
 
     ### <a name="java-sdk-v4-maven-comazureazure-cosmos-async-api"></a><a id="java4-connection-policy-async"></a>API async du SDK Java V4 (Maven com.azure::azure-cosmos)
 
-    ```java
-    public static ChangeFeedProcessor getChangeFeedProcessor(String hostName, CosmosAsyncContainer feedContainer, CosmosAsyncContainer leaseContainer) {
-        ChangeFeedProcessorOptions cfOptions = new ChangeFeedProcessorOptions();
-        cfOptions.setFeedPollDelay(Duration.ofMillis(100));
-        cfOptions.setStartFromBeginning(true);
-        return ChangeFeedProcessor.changeFeedProcessorBuilder()
-            .setOptions(cfOptions)
-            .setHostName(hostName)
-            .setFeedContainer(feedContainer)
-            .setLeaseContainer(leaseContainer)
-            .setHandleChanges((List<JsonNode> docs) -> {
-                for (JsonNode document : docs) {
-                        //Duplicate each document update from the feed container into the materialized view container
-                        updateInventoryTypeMaterializedView(document);
-                }
-
-            })
-            .build();
-    }
-
-    private static void updateInventoryTypeMaterializedView(JsonNode document) {
-        typeContainer.upsertItem(document).subscribe();
-    }
-    ```
+    [!code-java[](~/azure-cosmos-java-sql-app-example/src/main/java/com/azure/cosmos/workedappexample/SampleGroceryStore.java?name=CFPCallback)]
 
 1. Laissez le code s’exécuter pendant 5 à 10 secondes. Ensuite, retournez dans l’Explorateur de données du portail Azure et accédez à **InventoryContainer > Éléments**. Vous devez voir que les éléments sont insérés dans le conteneur d’inventaire. Notez la clé de partition (```id```).
 
@@ -154,32 +121,7 @@ mvn clean package
     
     ### <a name="java-sdk-v4-maven-comazureazure-cosmos-async-api"></a><a id="java4-connection-policy-async"></a>API async du SDK Java V4 (Maven com.azure::azure-cosmos)
 
-    ```java
-    public static void deleteDocument() {
-
-        String jsonString =    "{\"id\" : \"" + idToDelete + "\""
-                + ","
-                + "\"brand\" : \"Jerry's\""
-                + ","
-                + "\"type\" : \"plums\""
-                + ","
-                + "\"quantity\" : \"50\""
-                + ","
-                + "\"ttl\" : 5"
-                + "}";
-
-        ObjectMapper mapper = new ObjectMapper();
-        JsonNode document = null;
-
-        try {
-            document = mapper.readTree(jsonString);
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-
-        feedContainer.upsertItem(document,new CosmosItemRequestOptions()).block();
-    }    
-    ```
+    [!code-java[](~/azure-cosmos-java-sql-app-example/src/main/java/com/azure/cosmos/workedappexample/SampleGroceryStore.java?name=DeleteWithTTL)]
 
     Le flux de modification ```feedPollDelay``` est défini à 100 ms. Il répond donc presque instantanément à cette mise à jour et appelle ```updateInventoryTypeMaterializedView()``` comme illustré ci-dessus. Ce dernier appel de fonction fait un upsert du nouveau document avec une durée de vie de cinq secondes dans **InventoryContainer-pktype**.
 

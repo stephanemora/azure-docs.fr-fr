@@ -188,6 +188,8 @@
       items:
         - name: Activer l’écriture différée des appareils
           href: how-to-connect-device-writeback.md
+        - name: Activer l’écriture différée des groupes
+          href: how-to-connect-group-writeback.md
         - name: Options de l’appareil
           href: how-to-connect-device-options.md
         - name: Fonctionnalités supplémentaires dans Azure AD Connect

@@ -56,12 +56,8 @@
       href: tutorial-azure-devops-blue-green-strategy.md
     - name: 15d - CI/CD avec Azure Pipelines (YAML)
       href: tutorial-build-deploy-azure-pipelines.md
-    - name: 16a - Créer une pile LAMP
+    - name: 16 - Créer une pile LAMP
       href: tutorial-lamp-stack.md
-    - name: 16b - Créer une pile LEMP
-      href: tutorial-lemp-stack.md
-    - name: 16c - Créer une pile MEAN
-      href: tutorial-mean-stack.md
     - name: 17 - Sécuriser un serveur web avec SSL
       href: tutorial-secure-web-server.md
 - name: Exemples
