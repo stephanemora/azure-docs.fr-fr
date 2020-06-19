@@ -8,11 +8,11 @@ ms.author: bwren
 ms.date: 08/19/2019
 ms.custom: mvc, sec-javascript-october2019
 ms.openlocfilehash: 2e63b2ca0ee7246009068e6a2875795a14aeddb3
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.sourcegitcommit: 537c539344ee44b07862f317d453267f2b7b2ca6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "79215167"
+ms.lasthandoff: 06/11/2020
+ms.locfileid: "84695366"
 ---
 # <a name="collect-data-from-an-azure-virtual-machine-with-azure-monitor"></a>Collecter des données à partir d’une machine virtuelle Azure avec Azure Monitor
 

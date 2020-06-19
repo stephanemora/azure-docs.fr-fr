@@ -9,11 +9,11 @@ ms.date: 02/21/2020
 ms.author: victorh
 ms.custom: mvc
 ms.openlocfilehash: 064fcf618914bca31ad9e7e60c76df8f599cd8bf
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.sourcegitcommit: 537c539344ee44b07862f317d453267f2b7b2ca6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "79223646"
+ms.lasthandoff: 06/11/2020
+ms.locfileid: "84687189"
 ---
 # <a name="tutorial-deploy-and-configure-azure-firewall-using-the-azure-portal"></a>Tutoriel : Déployer et configurer un pare-feu Azure à l’aide du portail Azure
 
@@ -140,7 +140,7 @@ Déployez le pare-feu dans le réseau virtuel.
 
    |Paramètre  |Valeur  |
    |---------|---------|
-   |Abonnement     |\<votre abonnement\>|
+   |Abonnement     |\<your subscription\>|
    |Resource group     |**Test-FW-RG** |
    |Nom     |**Test-FW01**|
    |Emplacement     |Sélectionnez le même emplacement que celui utilisé précédemment|
