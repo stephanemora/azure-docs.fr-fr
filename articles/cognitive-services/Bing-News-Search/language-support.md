@@ -11,11 +11,11 @@ ms.topic: conceptual
 ms.date: 1/10/2019
 ms.author: aahi
 ms.openlocfilehash: d15058126f43fff328acfc563ffd081164a69a90
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.sourcegitcommit: 537c539344ee44b07862f317d453267f2b7b2ca6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "79218875"
+ms.lasthandoff: 06/11/2020
+ms.locfileid: "84710556"
 ---
 # <a name="language-and-region-support-for-the-bing-news-search-api"></a>Langages et régions pris en charge par l’API Recherche d’actualités Bing
 
@@ -39,7 +39,7 @@ Pour obtenir la liste des codes pays/régions que vous pouvez spécifier dans le
 |Allemagne|Allemand|de-DE|
 |Australie|Anglais|en-AU|
 |Canada|Anglais|en-CA|
-|United Kingdom|Anglais|en-GB|
+|Royaume-Uni|Anglais|en-GB|
 |Indonésie|Anglais|en-ID|
 |Irlande|Anglais|en-IE|
 |Inde|Anglais|en-IN|
@@ -68,7 +68,7 @@ Pour obtenir la liste des codes pays/régions que vous pouvez spécifier dans le
 |Taïwan|Chinois traditionnel|zh-TW|
 |Japon|Japonais|ja-JP|  
 |Corée du Sud|Coréen|ko-KR|  
-|Pays-bas|Néerlandais|nl-NL|  
+|Pays-Bas|Néerlandais|nl-NL|  
 |République populaire de Chine|Chinois|zh-CN|  
 |Brésil|Portugais|pt-br|
 |Russie|Russe|ru-RU|  
@@ -85,7 +85,7 @@ Pour obtenir la liste des codes pays/régions que vous pouvez spécifier dans le
 |Danemark|Danois|da-DK|
 |Allemagne|Allemand|de-DE|
 |Australie|Anglais|en-AU|
-|United Kingdom|Anglais|en-GB|
+|Royaume-Uni|Anglais|en-GB|
 |États-Unis|Anglais|fr-FR|
 |Anglais|général|en-WW|
 |Chili|Espagnol|es-CL|
@@ -107,7 +107,7 @@ Pour obtenir la liste des codes pays/régions que vous pouvez spécifier dans le
 |---------------------|--------------|-----------------|
 |Allemagne|Allemand|de-DE|
 |Australie|Anglais|en-AU|
-|United Kingdom|Anglais|en-GB|
+|Royaume-Uni|Anglais|en-GB|
 |États-Unis|Anglais|fr-FR|
 |Canada|Anglais|en-CA|
 |Inde|Anglais|en-IN|
@@ -143,7 +143,7 @@ Vous trouverez ci-dessous les codes pays/régions que vous pouvez spécifier dan
 |Corée du Sud|KR|  
 |Malaisie|MY|  
 |Mexique|MX|  
-|Pays-bas|NL|  
+|Pays-Bas|NL|  
 |Nouvelle-Zélande|NZ|  
 |Norvège|Non|  
 |République populaire de Chine|CN|  
@@ -158,7 +158,7 @@ Vous trouverez ci-dessous les codes pays/régions que vous pouvez spécifier dan
 |Suisse|CH|  
 |Taïwan|TW|  
 |Turquie|TR|  
-|United Kingdom|Go|  
+|Royaume-Uni|Go|  
 |États-Unis|US|
 
 ## <a name="next-steps"></a>Étapes suivantes

@@ -8,19 +8,19 @@ ms.topic: include
 ms.date: 01/23/2019
 ms.author: danlep
 ms.custom: include file
-ms.openlocfilehash: cd97c61e7493249785293ae331713ba1a98efee3
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.openlocfilehash: d7c813c748d2af60ace71f61ba3efa43a18da00d
+ms.sourcegitcommit: 4ac596f284a239a9b3d8ed42f89ed546290f4128
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "67177618"
+ms.lasthandoff: 06/12/2020
+ms.locfileid: "84752168"
 ---
 ## <a name="run-image-from-registry"></a>Exécuter l’image à partir du registre
 
 Vous pouvez à présent extraire (pull) et exécuter l’image conteneur `hello-world:v1` à partir de votre registre de conteneurs à l’aide de [docker run][docker-run] :
 
 ```
-docker run <acrLoginServer>/hello-world:v1  
+docker run <login-server>/hello-world:v1  
 ```
 
 Exemple de sortie : 

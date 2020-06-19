@@ -4,15 +4,15 @@ description: Cet article explique comment créer un hôte Azure Bastion à parti
 services: bastion
 author: charwen
 ms.service: bastion
-ms.topic: conceptual
+ms.topic: quickstart
 ms.date: 03/11/2020
 ms.author: charwen
-ms.openlocfilehash: a420a3253040fff8b767a81f298ede283c1d214b
-ms.sourcegitcommit: bc738d2986f9d9601921baf9dded778853489b16
+ms.openlocfilehash: 3c2780c8c99fd4568a7213b625ce785d3a99129c
+ms.sourcegitcommit: 24f31287b6a526e23ff5b5469113522d1ccd4467
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/02/2020
-ms.locfileid: "80619251"
+ms.lasthandoff: 06/12/2020
+ms.locfileid: "84743981"
 ---
 # <a name="quickstart-connect-to-a-virtual-machine-using-a-private-ip-address-and-azure-bastion"></a>Démarrage rapide : Se connecter à une machine virtuelle à l’aide d’une adresse IP privée et d’Azure Bastion
 

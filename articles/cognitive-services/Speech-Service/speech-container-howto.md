@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 05/05/2020
 ms.author: aahi
-ms.openlocfilehash: 1d4fde8dd21911b70d5a1c0f3b23304a3468a2a6
-ms.sourcegitcommit: fc0431755effdc4da9a716f908298e34530b1238
+ms.openlocfilehash: e120eb20d247ce2def7f7c322ead3066c1d4386e
+ms.sourcegitcommit: 9bfd94307c21d5a0c08fe675b566b1f67d0c642d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/24/2020
-ms.locfileid: "83816231"
+ms.lasthandoff: 06/17/2020
+ms.locfileid: "84974651"
 ---
 # <a name="install-and-run-speech-service-containers-preview"></a>Installer et exécuter des conteneurs du service Speech (préversion)
 
@@ -24,14 +24,14 @@ Les conteneurs vous permettent d’exécuter certaines des API du service Speech
 Les conteneurs Speech permettent aux clients de créer une architecture d’application Speech optimisée pour tirer parti des fonctionnalités robustes du cloud et de la localité en périphérie. Quatre conteneurs différents sont disponibles. Les deux conteneurs standard sont **Reconnaissance vocale** et **Synthèse vocale**. Les deux conteneurs personnalisés sont **Reconnaissance vocale personnalisée** et **Synthèse vocale personnalisée**. Les [tarifs](https://azure.microsoft.com/pricing/details/cognitive-services/speech-services/) des conteneurs Speech sont identiques à ceux des services Azure Speech basés sur le cloud.
 
 > [!IMPORTANT]
-> Tous les conteneurs Speech sont actuellement proposés dans le cadre d’une [préversion « contingentée » publique](../cognitive-services-container-support.md#public-gated-preview-container-registry-containerpreviewazurecrio). Une annonce sera effectuée quand les conteneurs Speech passeront en disponibilité générale.
+> Tous les conteneurs Speech sont actuellement proposés dans le cadre d’une [préversion « contingentée » publique](../cognitive-services-container-support.md#container-availability-in-azure-cognitive-services). Une annonce sera effectuée quand les conteneurs Speech passeront en disponibilité générale.
 
 | Fonction | Fonctionnalités | Latest |
 |--|--|--|
-| Reconnaissance vocale | Analyse les sentiments et transcrit de façon continue de la parole en temps réel ou des enregistrements audio par lots, avec des résultats intermédiaires.  | 2.2.0 |
-| Reconnaissance vocale personnalisée | À l’aide d’un modèle personnalisé issu du [portail Custom Speech](https://speech.microsoft.com/customspeech), transcrit en continu de la parole en temps réel ou des enregistrements audio en texte, avec des résultats intermédiaires. | 2.2.0 |
-| Synthèse vocale | Convertit le texte en paroles naturelles par le biais d’une entrée de texte brut ou du langage de balisage SSML (Speech Synthesis Markup Language). | 1.4.0 |
-| Synthèse vocale personnalisée | À l’aide d’un modèle personnalisé issu du [portail Custom Voice](https://aka.ms/custom-voice-portal), convertit le texte en paroles naturelles par le biais d’une entrée de texte brut ou du langage de balisage SSML (Speech Synthesis Markup Language). | 1.4.0 |
+| Reconnaissance vocale | Analyse les sentiments et transcrit de façon continue de la parole en temps réel ou des enregistrements audio par lots, avec des résultats intermédiaires.  | 2.3.1 |
+| Reconnaissance vocale personnalisée | À l’aide d’un modèle personnalisé issu du [portail Custom Speech](https://speech.microsoft.com/customspeech), transcrit en continu de la parole en temps réel ou des enregistrements audio en texte, avec des résultats intermédiaires. | 2.3.1 |
+| Synthèse vocale | Convertit le texte en paroles naturelles par le biais d’une entrée de texte brut ou du langage de balisage SSML (Speech Synthesis Markup Language). | 1.5.0 |
+| Synthèse vocale personnalisée | À l’aide d’un modèle personnalisé issu du [portail Custom Voice](https://aka.ms/custom-voice-portal), convertit le texte en paroles naturelles par le biais d’une entrée de texte brut ou du langage de balisage SSML (Speech Synthesis Markup Language). | 1.5.0 |
 
 Si vous n’avez pas d’abonnement Azure, créez un [compte gratuit](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) avant de commencer.
 
@@ -165,7 +165,7 @@ Toutes les balises, à l’exception de `latest`, respectent le format suivant e
 La balise suivante illustre le format :
 
 ```
-2.2.0-amd64-en-us-preview
+2.3.1-amd64-en-us-preview
 ```
 
 Pour tous les paramètres régionaux pris en charge du conteneur de **reconnaissance vocale**, consultez les [étiquettes d’images de reconnaissance vocale](../containers/container-image-tags.md#speech-to-text).
@@ -194,7 +194,7 @@ docker pull containerpreview.azurecr.io/microsoft/cognitive-services-text-to-spe
 ```
 
 > [!IMPORTANT]
-> La balise `latest` extrait les paramètres régionaux `en-US` et la voix `jessarus`. Pour d’autres paramètres régionaux, consultez [Paramètres régionaux de synthèse vocale](#text-to-speech-locales).
+> La balise `latest` extrait les paramètres régionaux `en-US` et la voix `ariarus`. Pour d’autres paramètres régionaux, consultez [Paramètres régionaux de synthèse vocale](#text-to-speech-locales).
 
 #### <a name="text-to-speech-locales"></a>Paramètres régionaux de synthèse vocale
 
@@ -207,13 +207,13 @@ Toutes les balises, à l’exception de `latest`, respectent le format suivant e
 La balise suivante illustre le format :
 
 ```
-1.3.0-amd64-en-us-jessarus-preview
+1.5.0-amd64-en-us-ariarus-preview
 ```
 
 Pour tous les paramètres régionaux et voix correspondantes pris en charge du conteneur de **synthèse vocale**, consultez les [étiquettes d’images de synthèse vocale](../containers/container-image-tags.md#text-to-speech).
 
 > [!IMPORTANT]
-> Lors de la construction d’une requête HTTP POST de *synthèse vocale standard*, le message [SSML (Speech Synthesis Markup Language)](speech-synthesis-markup.md) nécessite un élément `voice` avec un attribut `name`. La valeur correspond aux paramètres régionaux et à la voix du conteneur correspondant, également appelés [« nom court »](language-support.md#standard-voices). Par exemple, le nom de la voix pour la balise `latest` est `en-US-JessaRUS`.
+> Lors de la construction d’une requête HTTP POST de *synthèse vocale standard*, le message [SSML (Speech Synthesis Markup Language)](speech-synthesis-markup.md) nécessite un élément `voice` avec un attribut `name`. La valeur correspond aux paramètres régionaux et à la voix du conteneur correspondant, également appelés [« nom court »](language-support.md#standard-voices). Par exemple, le nom de la voix pour la balise `latest` est `en-US-AriaRUS`.
 
 # <a name="custom-text-to-speech"></a>[Synthèse vocale personnalisée](#tab/ctts)
 

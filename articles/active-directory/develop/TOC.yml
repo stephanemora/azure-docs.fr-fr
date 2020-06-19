@@ -305,7 +305,7 @@
         - name: iOS et macOS
           items:
             - name: Intégrer avec Azure AD B2C
-              href: 'config-authority.md#b2c'
+              href: config-authority.md#b2c
             - name: Migrer vers MSAL.iOS / macOS
               href: migrate-objc-adal-msal.md
             - name: Mode d’appareil partagé pour les appareils iOS
@@ -376,6 +376,11 @@
               displayName: 'shared device mode, firstline worker, frontline worker, flw'
             - name: Gérer les changements de cookie SameSite dans le navigateur Chrome
               href: howto-handle-samesite-cookie-changes-chrome-browser.md
+            - name: Étendues pour une API web acceptant des jetons v1.0
+              href: msal-v1-app-scopes.md
+            - name: Migrer des applications d’ADAL vers MSAL
+              href: msal-migration.md
+              displayName: migration
     - name: Protocoles d’authentification
       displayName: Auth protocol
       items:
@@ -471,6 +476,34 @@
           href: /azure/active-directory/app-provisioning/scim-graph-scenarios
         - name: Automatiser la configuration avec MS Graph
           href: /azure/active-directory/app-provisioning/application-provisioning-configure-api
+    - name: Articles d’aide sur le portail Azure
+      items:
+        - name: Valeurs par défaut de la durée de vie des jetons pour une application personnalisée
+          href: registration-config-change-token-lifetime-how-to.md
+        - name: Découvrir des points de terminaison
+          href: registration-config-how-to.md
+        - name: Sélectionner les autorisations pour une API donnée
+          href: perms-for-given-api.md
+        - name: Protocoles d’authentification
+          href: active-directory-authentication-protocols.md
+        - name: Différences entre les autorisations déléguées et d’application
+          href: delegated-and-app-perms.md
+        - name: Fonctionnement du consentement d’application
+          href: consent-framework-links.md
+        - name: Rechercher une API spécifique requise pour une application personnalisée
+          href: api-find-an-api-how-to.md
+        - name: Informations de référence sur l’inscription des applications
+          href: active-directory-v2-registration-portal.md
+        - name: Champs d’inscription du portail Azure pour les applications personnalisées
+          href: registration-config-specific-application-property-how-to.md
+        - name: Configurer une nouvelle application multilocataire
+          href: setup-multi-tenant-app.md
+        - name: Ajouter une application mutualisée dans la galerie d’applications Azure AD
+          href: registration-config-multi-tenant-application-add-to-gallery-how-to.md
+        - name: "Intégration avec Azure\_Active\_Directory"
+          href: active-directory-how-to-integrate.md
+        - name: Configurer l’authentification unique pour une application
+          href: registration-config-sso-how-to.md
 - name: Guides pratiques
   items:
     - name: Authentification

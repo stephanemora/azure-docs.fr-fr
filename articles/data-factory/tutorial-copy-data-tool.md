@@ -11,13 +11,13 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: tutorial
 ms.custom: seo-lt-2019
-ms.date: 03/03/2020
-ms.openlocfilehash: a0ed57657a461e4af8e58931b133437e5897796a
-ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
+ms.date: 06/08/2020
+ms.openlocfilehash: 2165efd6b522d3809dba285cf2c3050fc50b2d28
+ms.sourcegitcommit: 5a8c8ac84c36859611158892422fc66395f808dc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "84022059"
+ms.lasthandoff: 06/10/2020
+ms.locfileid: "84660966"
 ---
 # <a name="copy-data-from-azure-blob-storage-to-a-sql-database-by-using-the-copy-data-tool"></a>Copier des données du stockage Blob Azure vers une base de données SQL Database en utilisant l’outil Copier les données
 
@@ -156,11 +156,13 @@ Préparez votre stockage Blob et votre base de données SQL Database pour ce tut
     ![Page de mappage de colonnes](./media/tutorial-copy-data-tool/column-mapping.png)
 
 1. Sur la page **Paramètres**, cliquez sur **Suivant**.
-1. Sur la page **Résumé**, vérifiez les paramètres, puis sélectionnez **Suivant**.
-1. Sur la page **Déploiement**, sélectionnez **Surveiller** pour surveiller le pipeline (tâche).
- 
-    ![Surveillance d’un pipeline](./media/tutorial-copy-data-tool/monitor-pipeline.png)
 
+1. Sur la page **Résumé**, vérifiez les paramètres, puis sélectionnez **Suivant**.
+
+1. Sur la page **Déploiement**, sélectionnez **Surveiller** pour surveiller le pipeline (tâche).
+
+    ![Surveillance d’un pipeline](./media/tutorial-copy-data-tool/monitor-pipeline.png)
+    
 1. Dans la page Exécutions de pipeline, sélectionnez **Actualiser** pour actualiser la liste. Cliquez sur le lien en dessous de **Nom du pipeline** pour afficher les détails de l’exécution de l’activité ou réexécuter le pipeline. 
     ![Exécution du pipeline](./media/tutorial-copy-data-tool/pipeline-run.png)
 
@@ -168,9 +170,7 @@ Préparez votre stockage Blob et votre base de données SQL Database pour ce tut
 
     ![Surveiller des exécutions d’activités](./media/tutorial-copy-data-tool/activity-monitoring.png)
 
-
 1. Vérifiez que les données sont insérées dans la table **dbo.emp** dans votre base de données SQL Database.
-
 
 1. Sélectionnez l’onglet **Auteur** sur la gauche pour basculer en mode éditeur. Vous pouvez mettre à jour les services, jeux de données et pipelines liés créés par l’outil à l’aide de l’éditeur. Pour plus de détails sur la modification de ces entités dans l’interface utilisateur de Data Factory, consultez [la version du portail Azure de ce didacticiel](tutorial-copy-data-portal.md).
 

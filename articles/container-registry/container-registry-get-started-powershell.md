@@ -4,12 +4,12 @@ description: Apprenez rapidement à créer un registre de conteneurs Docker priv
 ms.topic: quickstart
 ms.date: 01/22/2019
 ms.custom: seodec18, mvc
-ms.openlocfilehash: 792146abeaad137a29bfea25a59a957c5f69c5ac
-ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
+ms.openlocfilehash: ed0790f79ef4a83f42519ce6f89ee36f54558f4b
+ms.sourcegitcommit: 4ac596f284a239a9b3d8ed42f89ed546290f4128
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/20/2020
-ms.locfileid: "83682762"
+ms.lasthandoff: 06/12/2020
+ms.locfileid: "84752200"
 ---
 # <a name="quickstart-create-a-private-container-registry-using-azure-powershell"></a>Démarrage rapide : Créer un registre de conteneurs privé avec Azure PowerShell
 
@@ -86,7 +86,10 @@ Remove-AzResourceGroup -Name myResourceGroup
 Dans ce guide de démarrage rapide, vous avez créé un registre de conteneurs Azure avec Azure PowerShell, envoyé (push) une image conteneur, puis tiré (pull) et exécuté l’image à partir du registre. Passez à présent au tutoriel sur Azure Container Registry (ACR) pour approfondir vos connaissances.
 
 > [!div class="nextstepaction"]
-> [Tutoriels sur Azure Container Registry][container-registry-tutorial-quick-task]
+> [Tutoriels sur Azure Container Registry][container-registry-tutorial-prepare-registry]
+
+> [!div class="nextstepaction"]
+> [Tutoriels Azure Container Registry Tasks][container-registry-tutorial-quick-task]
 
 <!-- LINKS - external -->
 [docker-linux]: https://docs.docker.com/engine/installation/#supported-platforms
@@ -105,3 +108,4 @@ Dans ce guide de démarrage rapide, vous avez créé un registre de conteneurs A
 [Remove-AzResourceGroup]: /powershell/module/az.resources/remove-azresourcegroup
 [container-registry-tutorial-quick-task]: container-registry-tutorial-quick-task.md
 [container-registry-skus]: container-registry-skus.md
+[container-registry-tutorial-prepare-registry]: container-registry-tutorial-prepare-registry.md

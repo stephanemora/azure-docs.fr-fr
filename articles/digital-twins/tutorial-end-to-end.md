@@ -7,14 +7,17 @@ ms.author: baanders
 ms.date: 4/15/2020
 ms.topic: tutorial
 ms.service: digital-twins
-ms.openlocfilehash: e824641f261fc920dd234ba8d4787fbd8ddffe48
-ms.sourcegitcommit: 1de57529ab349341447d77a0717f6ced5335074e
+ROBOTS: NOINDEX, NOFOLLOW
+ms.openlocfilehash: 0f9ddf2f4fba9e216ef0b5a5747fc32f4288cf67
+ms.sourcegitcommit: c4ad4ba9c9aaed81dfab9ca2cc744930abd91298
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/09/2020
-ms.locfileid: "84611516"
+ms.lasthandoff: 06/12/2020
+ms.locfileid: "84737272"
 ---
 # <a name="build-out-an-end-to-end-solution"></a>Créer une solution de bout en bout
+
+[!INCLUDE [Azure Digital Twins current preview status](../../includes/digital-twins-preview-status.md)]
 
 Pour configurer une solution de bout en bout complète basée sur les données réelles de votre environnement, vous pouvez connecter votre instance Azure Digital Twins à d’autres services Azure pour la gestion des appareils et des données.
 

@@ -8,12 +8,12 @@ manager: nitinme
 ms.service: cognitive-search
 ms.topic: tutorial
 ms.date: 05/19/2020
-ms.openlocfilehash: b84f98bd383c2b90c3291527b336d798e9b9cae9
-ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
+ms.openlocfilehash: 14760eaef309ec5695b423b98e59a8ae1ab5cacb
+ms.sourcegitcommit: e3c28affcee2423dc94f3f8daceb7d54f8ac36fd
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83662232"
+ms.lasthandoff: 06/17/2020
+ms.locfileid: "84886739"
 ---
 # <a name="tutorial-diagnose-repair-and-commit-changes-to-your-skillset"></a>Tutoriel : Diagnostiquer, réparer et valider les changements apportés à votre ensemble de compétences
 
@@ -173,12 +173,12 @@ Une fois l’exécution de la session de débogage terminée, cliquez sur l’on
 ## <a name="fix-missing-skill-output-values"></a>Remédier aux valeurs de sortie de compétence manquantes
 
 > [!div class="mx-imgBorder"]
-> ![Erreurs et avertissements](media/cognitive-search-debug/warnings-missing-value-locs-orgs.png)
+> ![Erreurs et avertissements](media/cognitive-search-debug/warnings-missing-value-locations-organizations.png)
 
 Il manque des valeurs de sortie d’une compétence. Pour identifier la compétence avec l’erreur, accédez à la structure de données enrichie, recherchez le nom de la valeur, puis examinez sa source d’origine. Dans le cas des valeurs « organizations » et « locations » manquantes, il s’agit de sorties de la compétence #1. Le fait d’ouvrir l’évaluateur d’expression </> pour chaque chemin affiche les expressions listées sous la forme « /document/content/organizations » et « /document/content/locations », respectivement.
 
 > [!div class="mx-imgBorder"]
-> ![Entité organizations de l’évaluateur d’expression](media/cognitive-search-debug/expression-eval-missing-value-locs-orgs.png)
+> ![Entité organizations de l’évaluateur d’expression](media/cognitive-search-debug/expression-eval-missing-value-locations-organizations.png)
 
 La sortie de ces entités est vide alors qu’elle ne doit pas l’être. Quelles sont les entrées produisant ce résultat ?
 
@@ -187,7 +187,7 @@ La sortie de ces entités est vide alors qu’elle ne doit pas l’être. Quelle
 1. Ouvrez l’évaluateur d’expression **</>** pour l’entrée (INPUT) « text ».
 
 > [!div class="mx-imgBorder"]
-> ![Entrée de la compétence de texte](media/cognitive-search-debug/input-skill-missing-value-locs-orgs.png)
+> ![Entrée de la compétence de texte](media/cognitive-search-debug/input-skill-missing-value-locations-organizations.png)
 
 Le résultat affiché pour cette entrée ne ressemble pas à une entrée de texte. Il ressemble à une image qui est entourée de nouvelles lignes. L’absence de texte signifie qu’aucune entité ne peut être identifiée. Si vous observez la hiérarchie de l’ensemble de compétences, vous pouvez voir que le contenu est d’abord traité par la compétence #6 (OCR), puis transmis à la compétence #5 (Fusion). 
 
@@ -195,7 +195,7 @@ Le résultat affiché pour cette entrée ne ressemble pas à une entrée de text
 1. Sélectionnez l’onglet **Exécutions** dans le volet des détails des compétences, à droite, puis ouvrez l’évaluateur d’expression **</>** pour les sorties (OUTPUTS) « mergedText ».
 
 > [!div class="mx-imgBorder"]
-> ![Sortie de la compétence Fusion](media/cognitive-search-debug/merge-output-detail-missing-value-locs-orgs.png)
+> ![Sortie de la compétence Fusion](media/cognitive-search-debug/merge-output-detail-missing-value-locations-organizations.png)
 
 Ici, le texte est associé à l’image. Si vous observez l’expression « /document/merged_content », l’erreur dans les chemins « organizations » et « locations » pour la compétence #1 est visible. Au lieu d’utiliser « /document/content », elle doit utiliser « /document/merged_content » pour les entrées « text ».
 
@@ -216,7 +216,7 @@ Une fois l’exécution de l’indexeur terminée, les erreurs sont toujours pr�
 1. Ouvrez l’évaluateur d’expression **</>** pour l’entité « organizations ».
 
 > [!div class="mx-imgBorder"]
-> ![Sortie de l’entité organizations](media/cognitive-search-debug/skill-output-detail-missing-value-locs-orgs.png)
+> ![Sortie de l’entité organizations](media/cognitive-search-debug/skill-output-detail-missing-value-locations-organizations.png)
 
 L’évaluation du résultat de l’expression donne le résultat correct. La compétence consiste à identifier la valeur correcte pour l’entité, « organizations ». Toutefois, le mappage de sortie dans le chemin de l’entité génère toujours une erreur. En comparant le chemin de sortie de la compétence avec le chemin de sortie de l’erreur, la compétence apparente les sorties, les organisations et les emplacements sous le nœud /document/content, tandis que le mappage de champs de sortie s’attend à ce que les résultats soient apparentés sous le nœud /document/merged_content. À l’étape précédente, l’entrée est passée de « /document/content » à « /document/merged_content ». Le contexte dans les paramètres des compétences doit être changé afin de garantir que la sortie est générée avec le contexte approprié.
 
@@ -228,7 +228,7 @@ L’évaluation du résultat de l’expression donne le résultat correct. La co
 1. Cliquez sur **Exécuter** dans le menu Fenêtre de la session. Cela lance une autre exécution de l’ensemble de compétences avec le document.
 
 > [!div class="mx-imgBorder"]
-> ![Correction du contexte dans les paramètres des compétences](media/cognitive-search-debug/skill-setting-context-correction-missing-value-locs-orgs.png)
+> ![Correction du contexte dans les paramètres des compétences](media/cognitive-search-debug/skill-setting-context-correction-missing-value-locations-organizations.png)
 
 Toutes les erreurs ont été résolues.
 

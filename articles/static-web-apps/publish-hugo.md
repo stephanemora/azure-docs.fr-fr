@@ -7,12 +7,12 @@ ms.service: static-web-apps
 ms.topic: tutorial
 ms.date: 05/08/2020
 ms.author: aapowell
-ms.openlocfilehash: b65213bd87f6b82391733a135e096077127765d7
-ms.sourcegitcommit: 61d850bc7f01c6fafee85bda726d89ab2ee733ce
+ms.openlocfilehash: 44472981e48a7018fcdf55f28d33d0dda9479d44
+ms.sourcegitcommit: eeba08c8eaa1d724635dcf3a5e931993c848c633
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/03/2020
-ms.locfileid: "84344014"
+ms.lasthandoff: 06/10/2020
+ms.locfileid: "84669900"
 ---
 # <a name="tutorial-publish-a-hugo-site-to-azure-static-web-apps-preview"></a>Tutoriel : Publier un site Hugo dans Azure Static Web Apps Preview
 
@@ -133,9 +133,9 @@ Vous ajoutez ensuite les paramètres de configuration utilisés par le processus
 
 1. Cliquez sur le bouton **Next: Build >** (Suivant : générer >) pour modifier la configuration de la génération.
 
-1. Définissez _App location_ (Emplacement de l’application) sur **public**.
+1. Définissez _App location_ (Emplacement de l’application) sur **/** .
 
-1. Laissez l’_emplacement de l’artefact d’application_ vide.
+1. Définissez _App artifact location_ (Emplacement de l’artefact de l’application) sur **public**.
 
    Il n’est pas nécessaire de fournir une valeur pour _API location_ (Emplacement de l’API), puisque vous ne déployez pas d’API pour le moment.
 

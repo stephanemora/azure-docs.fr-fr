@@ -1,21 +1,25 @@
 ---
 title: Liste des définitions de stratégie intégrées
 description: Liste les définitions de stratégie intégrées pour Azure Policy. Les catégories incluent Étiquettes, Conformité réglementaire, Key Vault, Kubernetes, Guest Configuration et plus encore.
-ms.date: 05/29/2020
+ms.date: 06/10/2020
 ms.topic: sample
 ms.custom: generated
-ms.openlocfilehash: b95029a5422a427e071cb2d3e4481b846ff9a295
-ms.sourcegitcommit: f1132db5c8ad5a0f2193d751e341e1cd31989854
+ms.openlocfilehash: 0ab717e4246112152b9a497c51d2a630bc48dfd1
+ms.sourcegitcommit: 537c539344ee44b07862f317d453267f2b7b2ca6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/31/2020
-ms.locfileid: "84233467"
+ms.lasthandoff: 06/11/2020
+ms.locfileid: "84709432"
 ---
 # <a name="azure-policy-built-in-policy-definitions"></a>Définitions de stratégie Azure Policy intégrées
 
 Cette page est un index de définitions de stratégie intégrées Azure Policy.
 
 Le nom de chaque définition intégrée est un lien vers la définition de stratégie dans le portail Azure. Utilisez le lien de la colonne **Source** pour voir la source dans le [dépôt GitHub Azure Policy](https://github.com/Azure/azure-policy). Les définitions intégrées sont regroupées par la propriété **category** dans **metadata**. Pour accéder à une **catégorie** spécifique, utilisez le menu sur le côté droit de la page. Autrement, utilisez <kbd>Ctrl</kbd>-<kbd>F</kbd> pour utiliser la fonctionnalité de recherche de votre navigateur.
+
+## <a name="api-management"></a>Gestion des API
+
+[!INCLUDE [azure-policy-samples-policies-api-management](../../../../includes/policy/samples/bycat/policies-api-management.md)]
 
 ## <a name="app-configuration"></a>Configuration d’application
 
@@ -44,6 +48,10 @@ Le nom de chaque définition intégrée est un lien vers la définition de strat
 ## <a name="cache"></a>Cache
 
 [!INCLUDE [azure-policy-samples-policies-cache](../../../../includes/policy/samples/bycat/policies-cache.md)]
+
+## <a name="cognitive-services"></a>Cognitive Services
+
+[!INCLUDE [azure-policy-samples-policies-cognitive-services](../../../../includes/policy/samples/bycat/policies-cognitive-services.md)]
 
 ## <a name="compute"></a>Calcul
 
@@ -132,6 +140,10 @@ Le nom de chaque définition intégrée est un lien vers la définition de strat
 ## <a name="service-fabric"></a>Service Fabric
 
 [!INCLUDE [azure-policy-samples-policies-service-fabric](../../../../includes/policy/samples/bycat/policies-service-fabric.md)]
+
+## <a name="signalr"></a>SignalR
+
+[!INCLUDE [azure-policy-samples-policies-signalr](../../../../includes/policy/samples/bycat/policies-signalr.md)]
 
 ## <a name="sql"></a>SQL
 
