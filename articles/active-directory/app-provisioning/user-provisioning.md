@@ -2,21 +2,21 @@
 title: Provisionnement automatique des utilisateurs dans les applications SaaS dans Azure AD
 description: Cette introduction explique comment utiliser Azure AD pour approvisionner, annuler l’approvisionnement et mettre à jour de façon continue des comptes d’utilisateurs dans diverses applications SaaS tierces.
 services: active-directory
-author: msmimart
-manager: CelesteDG
+author: kenwith
+manager: celestedg
 ms.service: active-directory
 ms.subservice: app-provisioning
-ms.topic: conceptual
+ms.topic: overview
 ms.workload: identity
 ms.date: 11/25/2019
-ms.author: mimart
+ms.author: kenwith
 ms.reviewer: arvinh, celested
-ms.openlocfilehash: 1e72d885858b543999090a4a0521845d556802fd
-ms.sourcegitcommit: 3abadafcff7f28a83a3462b7630ee3d1e3189a0e
+ms.openlocfilehash: 7f09bb42f529164ef0f5062ef801ddc7ecfef85c
+ms.sourcegitcommit: 52d2f06ecec82977a1463d54a9000a68ff26b572
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/30/2020
-ms.locfileid: "82593112"
+ms.lasthandoff: 06/15/2020
+ms.locfileid: "84781088"
 ---
 # <a name="automate-user-provisioning-and-deprovisioning-to-applications-with-azure-ad"></a>Automatiser le provisionnement et le déprovisionnement des utilisateurs dans les applications avec Azure AD
 

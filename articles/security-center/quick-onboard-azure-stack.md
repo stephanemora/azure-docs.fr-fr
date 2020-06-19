@@ -3,8 +3,8 @@ title: Intégrer des machines virtuelles Azure Stack dans Azure Security Center
 description: Ce guide de démarrage rapide vous montre comment provisionner l’extension de machine virtuelle Azure Monitor, Update and Configuration Management sur une machine virtuelle Azure Stack.
 services: security-center
 documentationcenter: na
-author: pipposera
-manager: dsavage
+author: memildin
+manager: rkarlin
 ms.assetid: 8982348a-0624-40c7-8a1e-642a523c7f6b
 ms.service: security-center
 ms.devlang: na
@@ -13,13 +13,13 @@ ms.custom: mvc
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 04/02/2019
-ms.author: fiseraci
-ms.openlocfilehash: c186dcb2d7d7d423f5c001bdb4d3f3503beebd9c
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.author: memildin
+ms.openlocfilehash: 1f0a11616fe996f02d6464d23724156906176041
+ms.sourcegitcommit: 99d016949595c818fdee920754618d22ffa1cd49
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "73686528"
+ms.lasthandoff: 06/15/2020
+ms.locfileid: "84771153"
 ---
 # <a name="quickstart-onboard-your-azure-stack-virtual-machines-to-security-center"></a>Démarrage rapide : Intégrer vos machines virtuelles Azure Stack à Security Center
 Après avoir intégré votre abonnement Azure, vous pouvez activer Security Center pour protéger vos machines virtuelles en cours d’exécution sur Azure Stack en ajoutant l’extension de machine virtuelle **Azure Monitor, Update and Configuration Management** à partir de la Place de marché Azure Stack.

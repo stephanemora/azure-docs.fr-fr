@@ -4,12 +4,12 @@ description: Décrit comment évaluer des machines virtuelles VMware locales pou
 ms.topic: tutorial
 ms.date: 06/03/2020
 ms.custom: mvc
-ms.openlocfilehash: 87eac5979176fe9a71db15961e4c5f822b56568e
-ms.sourcegitcommit: 79508e58c1f5c58554378497150ffd757d183f30
+ms.openlocfilehash: 231daff5972e9b2f115df9e6184c43a553f55b83
+ms.sourcegitcommit: 99d016949595c818fdee920754618d22ffa1cd49
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/03/2020
-ms.locfileid: "84331880"
+ms.lasthandoff: 06/15/2020
+ms.locfileid: "84771306"
 ---
 # <a name="assess-vmware-vms-with-server-assessment"></a>Évaluer les machines virtuelles VMware avec Server Assessment
 
@@ -34,7 +34,7 @@ Si vous n’avez pas d’abonnement Azure, créez un [compte gratuit](https://az
 - [Suivez le premier tutoriel](tutorial-prepare-vmware.md) de cette série. Si vous ne le faites pas, les instructions de ce tutoriel ne fonctionneront pas.
 - Voici ce que vous avez dû faire dans le premier tutoriel :
     - [Préparer Azure](tutorial-prepare-vmware.md#prepare-azure) pour qu’il fonctionne avec Azure Migrate.
-    - [Préparer VMware](tutorial-prepare-vmware.md#prepare-for-vmware-vm-assessment) à l’évaluation. Comprend la vérification des paramètres VMware et la configuration d’un compte pouvant être utilisé par Azure Migrate pour accéder à vCenter Server.
+    - [Préparer VMware](tutorial-prepare-vmware.md#prepare-for-assessment) à l’évaluation. Comprend la vérification des paramètres VMware et la configuration d’un compte pouvant être utilisé par Azure Migrate pour accéder à vCenter Server.
     - [Vérifier](tutorial-prepare-vmware.md#verify-appliance-settings-for-assessment) ce dont vous avez besoin pour déployer l’appliance Azure Migrate dans le cadre de l’évaluation de VMware.
 
 ## <a name="set-up-an-azure-migrate-project"></a>Configurer un projet Azure Migrate
@@ -170,7 +170,7 @@ L’appliance doit se connecter à vCenter Server pour découvrir les données d
 1. Dans **Spécifier les détails vCenter Server**, spécifiez le nom (FQDN) ou l’adresse IP de l’instance du serveur vCenter Server. Vous pouvez laisser le port par défaut ou spécifier un port personnalisé sur lequel votre serveur vCenter Server est à l’écoute.
 2. Dans **Nom d’utilisateur** et **Mot de passe**, spécifiez les informations d’identification du compte vCenter Server que l’appliance doit utiliser pour découvrir les machines virtuelles sur l’instance vCenter Server. 
 
-    - Vous devez avoir configuré un compte avec les autorisations nécessaires dans le [tutoriel précédent](tutorial-prepare-vmware.md#set-up-an-account-for-assessment).
+    - Vous devez avoir configuré un compte avec les autorisations nécessaires dans le [tutoriel précédent](tutorial-prepare-vmware.md#set-up-permissions-for-assessment).
     - Si vous souhaitez étendre la découverte à des objets VMware spécifiques (centres de données vCenter Server, clusters, dossier de clusters, hôtes, dossier d’hôtes ou machines virtuelles individuelles), passez en revue les instructions contenues dans [cet article](set-discovery-scope.md) pour restreindre le compte utilisé par Azure Migrate.
 
 3. Sélectionnez **Valider la connexion** pour vérifier que l’appliance peut se connecter à vCenter Server.
@@ -178,7 +178,7 @@ L’appliance doit se connecter à vCenter Server pour découvrir les données d
 
     - Vous pouvez ajouter des informations d’identification ici si vous avez créé un compte à utiliser pour la [fonctionnalité de découverte d’applications](how-to-discover-applications.md) ou la [fonctionnalité d’analyse de dépendances sans agent](how-to-create-group-machine-dependencies-agentless.md).
     - Si vous n’utilisez pas ces fonctionnalités, vous pouvez ignorer ce paramètre.
-    - Passez en revue les informations d’identification nécessaires pour la [découverte d’applications](migrate-support-matrix-vmware.md#application-discovery) ou l’[analyse sans agent](migrate-support-matrix-vmware.md#agentless-dependency-analysis-requirements).
+    - Passez en revue les informations d’identification nécessaires pour la [découverte d’applications](migrate-support-matrix-vmware.md#application-discovery-requirements) ou l’[analyse sans agent](migrate-support-matrix-vmware.md#dependency-analysis-requirements-agentless).
 
 5. **Enregistrez et démarrez la découverte** pour lancer la découverte de machines virtuelles.
 
