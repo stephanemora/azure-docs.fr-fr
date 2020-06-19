@@ -10,12 +10,12 @@ ms.subservice: general
 ms.topic: tutorial
 ms.date: 08/12/2019
 ms.author: mbaldwin
-ms.openlocfilehash: e9198892f95635add27bcfe9e479d0dd6fe3f08d
-ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
+ms.openlocfilehash: 9b6589d2045d9bb7bdfb38f9872acd8366481106
+ms.sourcegitcommit: 6571e34e609785e82751f0b34f6237686470c1f3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "81425368"
+ms.lasthandoff: 06/15/2020
+ms.locfileid: "84790481"
 ---
 # <a name="azure-key-vault-logging"></a>Journalisation d’Azure Key Vault
 
@@ -216,13 +216,7 @@ Vous êtes maintenant prêt à commencer les recherches dans le contenu des jour
 
 ## <a name="interpret-your-key-vault-logs"></a><a id="interpret"></a>Interpréter vos journaux d’activité Key Vault
 
-Les objets blob individuels sont stockés sous forme de texte en tant qu’objet blob JSON. Examinons un exemple d’entrée du journal. Exécutez cette commande :
-
-```powershell
-Get-AzKeyVault -VaultName 'contosokeyvault'`
-```
-
-Elle renvoie une entrée du journal semblable à celle-ci :
+Les objets blob individuels sont stockés sous forme de texte en tant qu’objet blob JSON. Examinons un exemple d’entrée du journal. 
 
 ```json
     {

@@ -244,7 +244,7 @@
           href: troubleshoot-errors.md
         - name: Résoudre les problèmes de validation d’abonnement
           href: troubleshoot-subscription-validation.md
-        - name: Surveiller la remise d’événement
+        - name: Consulter les métriques et définir des alertes
           href: monitor-event-delivery.md
 - name: Informations de référence
   items:

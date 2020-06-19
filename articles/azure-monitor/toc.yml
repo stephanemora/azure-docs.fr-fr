@@ -114,6 +114,8 @@
         - name: Durée d’ingestion des données de journal
           displayname: latency
           href: platform/data-ingestion-time.md
+        - name: Envoyer des données en streaming à Event Hubs
+          href: platform/stream-monitoring-data-event-hubs.md
     - name: Insights
       href: insights/insights-overview.md
     - name: Sécurité des données
@@ -299,36 +301,12 @@
           displayName: 'Platform logs, Resource logs, Activity log'
           href: platform/platform-logs-overview.md
         - name: Journal d’activité
-          items:
-            - name: Affichage dans le portail Azure
-              displayName: 'Platform logs, Activity log'
-              href: platform/activity-log-view.md
-            - name: Collecter et analyser
-              displayName: 'Platform logs, Activity log'
-              href: platform/activity-log-collect.md
-            - name: Exporter (hérité)
-              displayname: Activity log
-              href: platform/activity-log-export.md
-        - name: Envoyer à l’espace de travail Log Analytics
-          displayname: 'Resource logs, Activity log, Platform logs'
-          href: platform/resource-logs-collect-workspace.md
-        - name: Envoyer au stockage Azure
-          displayname: 'Resource logs, Activity log, Platform logs'
-          href: platform/resource-logs-collect-storage.md
-        - name: Envoyer à Event Hubs
-          displayname: 'Resource logs, Activity log, Platform logs'
-          href: platform/resource-logs-stream-event-hubs.md
-        - name: Créer un paramètre de diagnostic
+          href: platform/activity-log.md
+        - name: Journaux d’activité de ressources
+          href: platform/resource-logs.md
+        - name: Paramètres de diagnostic
           displayName: 'Platform logs, Resource logs, Activity log'
           href: platform/diagnostic-settings.md
-        - name: Créer un paramètre de diagnostic avec Resource Manager
-          displayName: 'diagnostic setting, Platform logs, Resource logs, Activity log'
-          href: platform/diagnostic-settings-template.md
-        - name: Remplacer par le format de stockage d’objets blob
-          displayname: Diagnostic settings
-          href: platform/resource-logs-blob-format.md
-        - name: Envoyer des données en streaming à Event Hubs
-          href: platform/stream-monitoring-data-event-hubs.md
     - name: Log Analytics
       items:
         - name: Vue d’ensemble des requêtes de journal
@@ -1015,6 +993,8 @@
           href: insights/storage-insights-overview.md
         - name: Groupes de ressources
           href: insights/resource-group-insights.md
+        - name: Résoudre des problèmes d’insights
+          href: insights/troubleshoot-workbooks.md
     - name: Solutions
       items:
         - name: Vue d’ensemble
@@ -1185,12 +1165,12 @@
           href: platform/alerts-metric-near-real-time.md
     - name: Journaux de plateforme
       items:
-        - name: Catégories et types de journaux de ressources pris en charge
-          href: platform/resource-logs-categories.md
-        - name: Schémas des journaux de ressources
-          href: platform/resource-logs-schema.md
         - name: Schéma du journal d'activité
           href: platform/activity-log-schema.md
+        - name: Schémas des journaux de ressources
+          href: platform/resource-logs-schema.md
+        - name: Catégories de journaux de ressources prises en charge
+          href: platform/resource-logs-categories.md
     - name: Schémas d’extension de diagnostic
       items:
         - name: Extension de diagnostic Windows
@@ -1277,6 +1257,9 @@
           href: platform/oms-portal-transition.md
         - name: Dépréciation des métriques de disque
           href: platform/portal-disk-metrics-deprecation.md
+        - name: Remplacer par le format de stockage d’objets blob
+          displayname: Diagnostic settings
+          href: platform/resource-logs-blob-format.md
 - name: Ressources
   items:
     - name: Feuille de route Azure
