@@ -15,14 +15,14 @@ ms.workload: infrastructure-services
 ms.date: 04/30/2018
 ms.author: damendo
 ms.custom: mvc
-ms.openlocfilehash: f3448765eecf4a586e13155903f1c093607781dc
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: da7d56a0fd8571e796567331a7543074f0bf1eda
+ms.sourcegitcommit: ad66392df535c370ba22d36a71e1bbc8b0eedbe3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "76896435"
+ms.lasthandoff: 06/16/2020
+ms.locfileid: "84808702"
 ---
-# <a name="tutorial-log-network-traffic-to-and-from-a-virtual-machine-using-the-azure-portal"></a>Didacticiel : enregistrer le trafic réseau vers et depuis une machine virtuelle à l’aide du portail Azure
+# <a name="tutorial-log-network-traffic-to-and-from-a-virtual-machine-using-the-azure-portal"></a>Tutoriel : journaliser le trafic réseau à destination et en provenance d’une machine virtuelle à l’aide du portail Azure
 
 > [!div class="op_single_selector"]
 > - [Azure portal](network-watcher-nsg-flow-logging-portal.md)
@@ -50,12 +50,12 @@ Si vous n’avez pas d’abonnement Azure, créez un [compte gratuit](https://az
 
     |Paramètre|Valeur|
     |---|---|
-    |Name|myVm|
+    |Nom|myVm|
     |Nom d'utilisateur| Entrez un nom d’utilisateur de votre choix.|
     |Mot de passe| Entrez un mot de passe de votre choix. Le mot de passe doit contenir au moins 12 caractères et satisfaire aux [exigences de complexité définies](../virtual-machines/windows/faq.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json#what-are-the-password-requirements-when-creating-a-vm).|
-    |Subscription| Sélectionnez votre abonnement.|
+    |Abonnement| Sélectionnez votre abonnement.|
     |Resource group| Sélectionnez **Créer** et entrez **myResourceGroup**.|
-    |Location| Sélectionnez **USA Est**.|
+    |Emplacement| Sélectionnez **USA Est**.|
 
 4. Choisissez une taille de machine virtuelle, puis cliquez sur **Sélectionner**.
 5. Sous **Paramètres**, acceptez toutes les valeurs par défaut, puis cliquez sur **OK**.
@@ -93,8 +93,8 @@ L’enregistrement du flux NSG nécessite le fournisseur **Microsoft.Insights**.
 
     | Paramètre        | Valeur                                                        |
     | ---            | ---   |
-    | Name           | Contenant 3 à 24 caractères et uniquement des chiffres et des lettres minuscules, il doit être unique dans tous les comptes Stockage Azure.                                                               |
-    | Location       | Sélectionnez **USA Est**.                                           |
+    | Nom           | Contenant 3 à 24 caractères et uniquement des chiffres et des lettres minuscules, il doit être unique dans tous les comptes Stockage Azure.                                                               |
+    | Emplacement       | Sélectionnez **USA Est**.                                           |
     | Resource group | Sélectionnez **Utiliser l’existant**, puis **myResourceGroup**. |
 
     La création du compte de stockage peut prendre environ une minute. Ne passez pas aux étapes restantes tant que la création du compte de stockage n’est pas terminée. Dans tous les cas, le compte de stockage doit se trouver dans la même région que le groupe de sécurité réseau (NSG).
@@ -123,7 +123,7 @@ L’enregistrement du flux NSG nécessite le fournisseur **Microsoft.Insights**.
    ![Télécharger des journaux de flux](./media/network-watcher-nsg-flow-logging-portal/download-flow-logs.png)
 
 3. Sélectionnez le compte de stockage que vous avez configuré à l’étape 2 [Activer le journal de flux NSG](#enable-nsg-flow-log).
-4. Sous **Service Blob**, sélectionnez **Objets blob**, puis sélectionnez le conteneur **insights-logs-networksecuritygroupflowevent**.
+4. Sous **Service Blob**, sélectionnez **Conteneurs**, puis sélectionnez le conteneur **insights-logs-networksecuritygroupflowevent**.
 5. Dans le conteneur, parcourez l’arborescence des dossiers jusqu’à accéder au fichier PT1H.json, comme illustré dans l’image suivante : Les fichiers journaux sont écrits dans une arborescence des dossiers qui respecte la convention de nommage suivante : https://{NomCompteStockage}.blob.core.windows.net/insights-logs-networksecuritygroupflowevent/resourceId=/SUBSCRIPTIONS/{IDAbonnement}/RESOURCEGROUPS/{NomGroupeRessources}/PROVIDERS/MICROSOFT.NETWORK/NETWORKSECURITYGROUPS/{NomNSG}/y={année}/m={mois}/d={jour}/h={heure}/m=00/macAddress={AdresseMac}/PT1H.json
 
    ![Journal de flux](./media/network-watcher-nsg-flow-logging-portal/log-file.png)
@@ -215,7 +215,7 @@ La valeur de la zone **mac** dans la sortie précédente est l’adresse MAC de 
 | T            | Protocol               | Indique si le protocole du flux était TCP (T) ou UDP (U).                                  |
 | O            | Sens              | Indique si le trafic était entrant (I) ou sortant (O).                                     |
 | Un            | Action                 | Indique si le trafic était autorisé (A) ou refusé (D).  
-| C            | État du flux **Version 2 uniquement** | Capture l’état du flux. Les états possibles sont **B** (début), lors de la création d’un flux. Aucune statistique n’est fournie. **C** : continuation d’un flux en cours. Des statistiques sont fournies toutes les 5 minutes. **E** : fin, lorsqu’un flux est arrêté. Des statistiques sont fournies. |
+| C            | État du flux **Version 2 uniquement** | Capture l’état du flux. Les états possibles sont **B** : début, lors de la création d’un flux. Aucune statistique n’est fournie. **C** : continuation d’un flux en cours. Des statistiques sont fournies toutes les 5 minutes. **E** : fin, quand un flux est arrêté. Des statistiques sont fournies. |
 | 30 | Paquets envoyés - Source vers destination **Version 2 uniquement** | Nombre total de paquets TCP ou UDP envoyés de la source à la destination depuis la dernière mise à jour. |
 | 16978 | Octets envoyés - Source vers destination **Version 2 uniquement** | Nombre total d’octets de paquets TCP ou UDP envoyés de la source vers la destination depuis la dernière mise à jour. Les octets de paquets incluent l’en-tête et la charge utile du paquet. |
 | 24 | Paquets envoyés - Destination vers source **Version 2 uniquement** | Nombre total de paquets TCP ou UDP envoyés de la destination vers la source depuis la dernière mise à jour. |

@@ -7,11 +7,11 @@ ms.topic: tutorial
 ms.date: 11/05/2019
 ms.author: dech
 ms.openlocfilehash: 1d25a2c9a3fda48c2f7de01563e01dd0c7de7762
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.sourcegitcommit: 537c539344ee44b07862f317d453267f2b7b2ca6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "79222386"
+ms.lasthandoff: 06/11/2020
+ms.locfileid: "84687580"
 ---
 # <a name="tutorial-use-data-migration-tool-to-migrate-your-data-to-azure-cosmos-db"></a>Tutoriel : Utilisez l’outil de migration de données pour migrer vos données vers Azure Cosmos DB
 

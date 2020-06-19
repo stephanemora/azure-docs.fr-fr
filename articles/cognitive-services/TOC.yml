@@ -9,8 +9,6 @@
       href: cognitive-services-and-machine-learning.md
     - name: Sous-domaines personnalisés pour Cognitive Services
       href: cognitive-services-custom-subdomains.md
-    - name: Processus de contrôle Cognitive Services
-      href: cognitive-services-gating-process.md
     - name: Support multilingue
       href: language-support.md
 - name: Démarrages rapides
@@ -21,6 +19,13 @@
       href: cognitive-services-apis-create-account-cli.md
     - name: la journalisation des diagnostics.
       href: diagnostic-logging.md
+    - name: Modèle ARM
+      displayName: Resource Manager
+      href: resource-manager-template.md
+- name: Exemples
+  items:
+    - name: Éléments intégrés Azure Policy
+      href: ./policy-samples.md
 - name: Sécurité
   items:
     - name: Sécurité de Cognitive Services
@@ -71,7 +76,7 @@
       href: cognitive-services-support-options.md
     - name: Contrat de Niveau de Service (SLA)
       href: 'https://azure.microsoft.com/support/legal/sla/cognitive-services/v1_1/'
-    - name: Videos
+    - name: Vidéos
       href: 'https://azure.microsoft.com/resources/videos/index/?services=cognitive-services'
     - name: Blog
       href: 'https://azure.microsoft.com/blog/topics/cognitive-services/'
