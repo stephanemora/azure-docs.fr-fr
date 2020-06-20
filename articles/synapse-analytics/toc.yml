@@ -36,6 +36,8 @@
       items:
         - name: Instruction COPY
           href: ./sql-data-warehouse/quickstart-bulk-load-copy-tsql.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
+        - name: Exemples de l’instruction COPY
+          href: ./sql-data-warehouse/quickstart-bulk-load-copy-tsql-examples.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
         - name: Synapse Studio
           href: quickstart-load-studio-sql-pool.md
     - name: Utiliser SQL à la demande
