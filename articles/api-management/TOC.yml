@@ -38,9 +38,11 @@
 - name: Exemples
   items:
     - name: Stratégies
-      href: policy-samples.md
+      href: ./policies/index.md
     - name: Azure PowerShell
       href: powershell-samples.md
+    - name: Éléments intégrés Azure Policy
+      href: ./policy-samples.md
 - name: Concepts
   items:
     - name: Terminologie
@@ -267,7 +269,7 @@
       href: 'https://aka.ms/apimroadmap'
     - name: Demandes de fonctionnalités
       href: 'https://aka.ms/apimwish'
-    - name: Videos
+    - name: Vidéos
       href: 'https://azure.microsoft.com/documentation/videos/index/?services=api-management'
     - name: Page de questions Microsoft Q&A
       href: 'https://docs.microsoft.com/answers/topics/azure-api-management.html'
