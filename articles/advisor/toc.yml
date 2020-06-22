@@ -10,7 +10,7 @@
       href: advisor-get-started.md
 - name: Guides pratiques
   items:
-    - name: Améliorer la disponibilité d’une application Azure
+    - name: Améliorer la fiabilité d’une application Azure
       href: advisor-high-availability-recommendations.md
     - name: Sécuriser davantage les ressources
       href: advisor-security-recommendations.md

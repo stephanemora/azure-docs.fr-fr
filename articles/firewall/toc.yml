@@ -34,6 +34,8 @@
       href: log-analytics-samples.md
 - name: Concepts
   items:
+    - name: Fonctionnalités du Pare-feu Azure
+      href: features.md
     - name: Balises FQDN
       href: fqdn-tags.md
     - name: Noms de domaine complets d’infrastructure

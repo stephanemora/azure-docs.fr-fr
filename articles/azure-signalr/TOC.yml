@@ -25,10 +25,6 @@
   items:
     - name: Générer une application serverless en temps réel avec l’authentification
       href: signalr-tutorial-authenticate-azure-functions.md
-    - name: Superviser
-      items:
-        - name: Utiliser les journaux de diagnostic pour superviser SignalR Service
-          href: signalr-tutorial-diagnostic-logs.md
 - name: Exemples
   items:
     - name: Exemples de code
@@ -51,6 +47,8 @@
           href: signalr-concept-serverless-development-config.md
         - name: Informations de référence sur les liaisons SignalR Service pour Azure Functions
           href: ../azure-functions/functions-bindings-signalr-service.md
+        - name: Paramètres en amont
+          href: concept-upstream.md
     - name: Haute disponibilité
       items:
         - name: Résilience et reprise d’activité après sinistre
@@ -81,12 +79,20 @@
           href: howto-private-endpoints.md
         - name: Gérer le contrôle d’accès réseau
           href: howto-network-access-control.md
+        - name: Utiliser l’identité managée
+          href: howto-use-managed-identity.md
     - name: Integrate
       items:
         - name: Liaisons Azure Functions
           href: signalr-concept-azure-functions.md
         - name: Intégration à Event Grid
           href: signalr-howto-event-grid-integration.md
+    - name: Superviser
+      items:
+        - name: Utiliser les journaux de diagnostic pour superviser SignalR Service
+          href: signalr-howto-diagnostic-logs.md
+        - name: Auditer la conformité avec Azure Policy
+          href: signalr-howto-azure-policy.md
 - name: References
   items:
     - name: Azure CLI

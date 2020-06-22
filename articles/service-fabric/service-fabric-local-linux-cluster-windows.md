@@ -16,7 +16,7 @@ ms.locfileid: "82193324"
 
 Ce document explique comment configurer une infrastructure Linux Service Fabric locale sur des machines de développement Windows. La configuration d'un cluster Linux local est utile pour tester rapidement les applications ciblées pour les clusters Linux mais développées sur une machine Windows.
 
-## <a name="prerequisites"></a>Conditions préalables requises
+## <a name="prerequisites"></a>Prérequis
 Les clusters Service Fabric basés sur Linux ne s'exécutent pas nativement sous Windows. Pour exécuter un cluster Service Fabric local, une image de conteneur Docker préconfigurée est fournie. Avant de commencer, vous avez besoin des éléments suivants :
 
 * Au moins 4 Go de RAM
@@ -89,7 +89,7 @@ Pour configurer un conteneur Docker local et y exécuter un cluster Service Fabr
     >`docker run -itd -p 19080:19080 -p 8080:8080 --name sfonebox mcr.microsoft.com/service-fabric/onebox:latest`
     >
 
-5. Le démarrage du cluster prend un certain temps. Vous pouvez afficher les journaux d’activité à l’aide de la commande suivante ou accéder au tableau de bord pour afficher l’intégrité des clusters `http://localhost:19080` :
+5. Le démarrage du cluster prend un certain temps. Vous pouvez afficher les journaux d’activité à l’aide de la commande suivante ou accéder au tableau de bord pour afficher l’intégrité des clusters `http://localhost:19080` :
 
     ```powershell 
     docker logs sftestcluster
