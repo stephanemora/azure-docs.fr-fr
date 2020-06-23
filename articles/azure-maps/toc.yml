@@ -238,8 +238,10 @@
   items:
     - name: Extensions d’API et de paramètre
       items:
-        - name: Exigences de package de dessin
+        - name: Exigences du package de dessin
           href: drawing-requirements.md
+        - name: Cartes dynamiques StylesObject
+          href: schema-stateset-stylesobject.md
         - name: Modèle de consommation du véhicule
           href: consumption-model.md
         - name: Étendre le format geoJSON
