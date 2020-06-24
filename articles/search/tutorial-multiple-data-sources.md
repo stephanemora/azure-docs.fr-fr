@@ -7,13 +7,13 @@ author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: tutorial
-ms.date: 02/28/2020
-ms.openlocfilehash: eb1824e41fe9fc5185ae4e914b4828cddb2c42db
-ms.sourcegitcommit: 31236e3de7f1933be246d1bfeb9a517644eacd61
+ms.date: 06/20/2020
+ms.openlocfilehash: d63e437090b2875c7e6a8273fdf22d49597d408f
+ms.sourcegitcommit: 635114a0f07a2de310b34720856dd074aaf4f9cd
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/04/2020
-ms.locfileid: "82780519"
+ms.lasthandoff: 06/23/2020
+ms.locfileid: "85262206"
 ---
 # <a name="tutorial-index-from-multiple-data-sources-using-the-net-sdk"></a>Tutoriel : Indexer à partir de plusieurs sources de données à l’aide du SDK .NET
 
@@ -21,7 +21,7 @@ Recherche cognitive Azure peut importer, analyser et indexer des données proven
 
 Ce tutoriel explique comment indexer des données d’hôtels provenant d’une source de données Azure Cosmos DB et les fusionner avec des détails sur les chambres d’hôtel tirés de documents Stockage Blob Azure. Le résultat est un index de recherche d’hôtel combiné contenant des types de données complexes.
 
-Ce tutoriel utilise C# et le [SDK .NET](https://aka.ms/search-sdk). Dans ce tutoriel, vous allez effectuer les tâches suivantes :
+Ce tutoriel utilise C# et le [SDK .NET](https://docs.microsoft.com/dotnet/api/overview/azure/search). Dans ce tutoriel, vous allez effectuer les tâches suivantes :
 
 > [!div class="checklist"]
 > * Charger des exemples de données et créer des sources de données
