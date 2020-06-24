@@ -8,12 +8,12 @@ ms.author: delegenz
 ms.service: cognitive-search
 ms.topic: tutorial
 ms.date: 05/05/2020
-ms.openlocfilehash: 85ac56eb20eabf308d6686a047d8c5ede914fed9
-ms.sourcegitcommit: a6d477eb3cb9faebb15ed1bf7334ed0611c72053
+ms.openlocfilehash: ef1f0c607eb1d0152a5dd5f5acc812bb9364e47a
+ms.sourcegitcommit: 971a3a63cf7da95f19808964ea9a2ccb60990f64
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/08/2020
-ms.locfileid: "82941756"
+ms.lasthandoff: 06/19/2020
+ms.locfileid: "85079215"
 ---
 # <a name="tutorial-optimize-indexing-with-the-push-api"></a>Tutoriel : Optimiser l’indexation avec l’API Push
 
@@ -21,7 +21,7 @@ Recherche cognitive Azure prend en charge [deux approches de base](search-what-i
 
 Ce tutoriel explique comment indexer efficacement des données à l’aide du [modèle Push](search-what-is-data-import.md#pushing-data-to-an-index) en utilisant le traitement par lot des demandes et en utilisant une stratégie de nouvelle tentative d’interruption exponentielle. Vous pouvez [Télécharger et exécuter l’application](https://github.com/Azure-Samples/azure-search-dotnet-samples/tree/master/optimize-data-indexing). Cet article explique les aspects clés de l’application et les facteurs à prendre en compte lors de l’indexation des données.
 
-Ce tutoriel utilise C# et le [SDK .NET](https://aka.ms/search-sdk) pour effectuer les tâches suivantes :
+Ce tutoriel utilise C# et le [SDK .NET](https://docs.microsoft.com/dotnet/api/overview/azure/search) pour effectuer les tâches suivantes :
 
 > [!div class="checklist"]
 > * Création d'un index

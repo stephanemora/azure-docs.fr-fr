@@ -8,18 +8,18 @@ ms.service: web-application-firewall
 ms.date: 11/14/2019
 ms.author: victorh
 ms.topic: overview
-ms.openlocfilehash: 45e7e59f72fcda983053314c0b11ff56de8a72e8
-ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
+ms.openlocfilehash: 0631bc0e3e83564b2d77d4f67b418780d933215e
+ms.sourcegitcommit: 6fd28c1e5cf6872fb28691c7dd307a5e4bc71228
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/21/2020
-ms.locfileid: "83747764"
+ms.lasthandoff: 06/23/2020
+ms.locfileid: "85212902"
 ---
 # <a name="azure-web-application-firewall-on-azure-application-gateway"></a>Pare-feu d’applications web Azure sur Azure Application Gateway
 
 Le pare-feu d’applications web Azure (WAF) sur Azure Application Gateway fournit une protection centralisée de vos applications web contre des vulnérabilités et exploitations courantes. Les applications web sont de plus en plus visées par des attaques malveillantes qui exploitent des vulnérabilités connues. L’injection de code SQL et l’exécution de scripts de site à site font partie des attaques les plus courantes.
 
-Le pare-feu d’applications web sur Application Gateway suit l’[ensemble de règles de base (CRS, Core Rule Set)](https://www.owasp.org/index.php/Category:OWASP_ModSecurity_Core_Rule_Set_Project) 3.1, 3.0 ou 2.2.9 d’OWASP (Open Web Application Security Project). Le pare-feu d’applications web se met automatiquement à jour pour inclure la protection contre les nouvelles vulnérabilités, sans aucune configuration supplémentaire requise. 
+Le pare-feu d’applications web sur Application Gateway suit l’[ensemble de règles de base (CRS, Core Rule Set)](https://owasp.org/www-project-modsecurity-core-rule-set/) 3.1, 3.0 ou 2.2.9 d’OWASP (Open Web Application Security Project). Le pare-feu d’applications web se met automatiquement à jour pour inclure la protection contre les nouvelles vulnérabilités, sans aucune configuration supplémentaire requise. 
 
 Toutes les fonctionnalités WAF répertoriées ci-dessous existent dans une stratégie WAF. Vous pouvez créer plusieurs stratégies, qui peuvent être associées à une passerelle d’application, à des écouteurs individuels ou à des règles de routage basées sur les chemins d’une passerelle d’application. De cette façon, vous pouvez avoir des stratégies distinctes pour chaque site derrière votre Application Gateway, si nécessaire. Pour plus d’informations sur les stratégies WAF, voir [Créer une stratégie de pare-feu d’applications web (WAF)](create-waf-policy-ag.md).
 
