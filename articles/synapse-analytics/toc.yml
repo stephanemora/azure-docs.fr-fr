@@ -106,6 +106,8 @@
               href: ./spark/apache-spark-history-server.md
     - name: Sécurité
       items:
+        - name: Base de référence de la sécurité
+          href: security-baseline.md
         - name: Sécurité réseau
           items:
             - name: Règles de pare-feu IP de l’espace de travail Synapse
