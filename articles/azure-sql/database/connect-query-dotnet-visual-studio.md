@@ -12,12 +12,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: ''
 ms.date: 05/29/2020
-ms.openlocfilehash: 94f005ee4b2542e4cc0908880d589a2ee6a4d798
-ms.sourcegitcommit: 309cf6876d906425a0d6f72deceb9ecd231d387c
+ms.openlocfilehash: 3f951c05100b5e36a2162e2422a066d563b24136
+ms.sourcegitcommit: bf99428d2562a70f42b5a04021dde6ef26c3ec3a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/01/2020
-ms.locfileid: "84267424"
+ms.lasthandoff: 06/23/2020
+ms.locfileid: "85250653"
 ---
 # <a name="quickstart-use-net-and-c-in-visual-studio-to-connect-to-and-query-a-database-in-azure-sql-database-or-azure-sql-managed-instance"></a>Démarrage rapide : Utiliser .NET et C# dans Visual Studio pour se connecter à une base de données dans Azure SQL Database ou Azure SQL Managed Instance et interroger la base de données
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
@@ -29,7 +29,7 @@ Ce guide de démarrage rapide montre comment utiliser [.NET Framework](https://w
 Pour effectuer ce démarrage rapide, les éléments suivants sont requis :
 
 - Compte Azure avec un abonnement actif. [Créez un compte gratuitement](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio).
-- base de données Azure SQL. Utilisez l’un de ces guides de démarrage rapide pour créer et configurer une base de données dans Azure SQL Database :
+- Une base de données dans Azure SQL Database. Utilisez l’un de ces guides de démarrage rapide pour créer et configurer une base de données dans Azure SQL Database :
 
   || SQL Database | Instance managée SQL | SQL Server sur une machine virtuelle Azure |
   |:--- |:--- |:---|:---|
@@ -49,7 +49,7 @@ Pour effectuer ce démarrage rapide, les éléments suivants sont requis :
 
 ## <a name="get-server-connection-information"></a>Obtenir les informations de connexion du serveur
 
-Procurez-vous les informations de connexion dont vous avez besoin pour vous connecter à la base de données Azure SQL. Vous aurez besoin du nom complet du serveur ou de l’hôte, du nom de la base de données et des informations de connexion pour les procédures suivantes.
+Obtenez les informations de connexion dont vous avez besoin pour vous connecter à la base de données. Vous aurez besoin du nom complet du serveur ou de l’hôte, du nom de la base de données et des informations de connexion pour les procédures suivantes.
 
 1. Connectez-vous au [portail Azure](https://portal.azure.com/).
 

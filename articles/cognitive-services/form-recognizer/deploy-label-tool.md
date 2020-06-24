@@ -9,12 +9,12 @@ ms.subservice: forms-recognizer
 ms.topic: how-to
 ms.date: 04/14/2020
 ms.author: pafarley
-ms.openlocfilehash: 27afbafcadb4c482e97e1d003706e7d2712e63c9
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 3bb8f0e809ae1acbec1479c20e24c90fd81905d4
+ms.sourcegitcommit: 6fd28c1e5cf6872fb28691c7dd307a5e4bc71228
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "82117265"
+ms.lasthandoff: 06/23/2020
+ms.locfileid: "85212443"
 ---
 # <a name="deploy-the-sample-labeling-tool"></a>Déployer l’outil d’étiquetage des exemples
 
@@ -89,7 +89,7 @@ Suivez ces étapes pour créer une nouvelle ressource à partir du portail Azure
 
 ### <a name="azure-cli"></a>Azure CLI
 
-En guise d’alternative à l’utilisation du portail Azure, vous pouvez créer une ressource à l’aide d’Azure CLI. Avant de continuer, vous devez installer [Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest). Vous pouvez ignorer cette étape si vous utilisez déjà Azure CLI. 
+En guise d’alternative à l’utilisation du portail Azure, vous pouvez créer une ressource à l’aide d’Azure CLI. Avant de continuer, vous devez installer [Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli). Vous pouvez ignorer cette étape si vous utilisez déjà Azure CLI. 
 
 Voici quelques éléments que vous devez savoir à propos de cette commande :
 

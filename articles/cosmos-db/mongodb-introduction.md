@@ -7,12 +7,12 @@ ms.topic: overview
 ms.date: 10/1/2019
 author: sivethe
 ms.author: sivethe
-ms.openlocfilehash: 670020d276b9d4a868f24eb4a3f522581060adca
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.openlocfilehash: 5f4a90859831e6134530b94dfa80c11eb740301a
+ms.sourcegitcommit: 23604d54077318f34062099ed1128d447989eea8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "72754977"
+ms.lasthandoff: 06/20/2020
+ms.locfileid: "85113311"
 ---
 # <a name="azure-cosmos-dbs-api-for-mongodb"></a>API d’Azure Cosmos DB pour MongoDB
 
@@ -24,7 +24,7 @@ Azure Cosmos DB implémente les protocoles de transmission des bases de données
 
 Par défaut, les nouveaux comptes créés à l’aide de l’API Azure Cosmos DB pour MongoDB sont compatibles avec la version 3.6 du protocole filaire MongoDB. Les pilotes de client MongoDB comprenant cette version de protocole doivent être en mesure de se connecter de façon native à Cosmos DB.
 
-![API d’Azure Cosmos DB pour MongoDB](./media/mongodb-introduction/cosmosdb-mongodb.png)
+:::image type="content" source="./media/mongodb-introduction/cosmosdb-mongodb.png" alt-text="API pour MongoDB d’Azure Cosmos DB" border="false":::
 
 ## <a name="key-benefits"></a>Principaux avantages
 
