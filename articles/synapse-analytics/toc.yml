@@ -900,3 +900,7 @@
           href: ./sql-data-warehouse/sql-data-warehouse-partner-data-integration.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
         - name: Gestion des données
           href: ./sql-data-warehouse/sql-data-warehouse-partner-data-management.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
+        - name: Machine Learning et intelligence artificielle
+          href: ./sql-data-warehouse/sql-data-warehouse-partner-machine-learning-ai.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
+        - name: Partenaires de la préversion publique
+          href: ./sql-data-warehouse/sql-data-warehouse-partner-launch.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json

@@ -58,6 +58,8 @@
           href: tutorial-assess-import.md
 - name: Concepts
   items:
+    - name: Créer un plan de migration avec Azure Migrate
+      href: concepts-migration-planning.md
     - name: Matrices de prise en charge
       items:
         - name: Prise en charge générale
