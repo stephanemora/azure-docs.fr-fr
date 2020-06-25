@@ -128,7 +128,7 @@ Pour créer un projet de topologie C# dans Visual Studio :
 
 1. Dans la fenêtre **Créer un nouveau projet**, faites défiler la liste jusqu’à **Application Storm**, puis sélectionnez **Suivant**.
 
-1. Dans la fenêtre **Configurer votre nouveau projet**, entrez le **nom de projet***WordCount*, accédez au répertoire **Emplacement** ou créez-le pour le projet, puis sélectionnez **Créer**.
+1. Dans la fenêtre **Configurer votre nouveau projet**, entrez le **nom de projet** *WordCount*, accédez au répertoire **Emplacement** ou créez-le pour le projet, puis sélectionnez **Créer**.
 
     ![Application Storm, boîte de dialogue Configurer votre nouveau projet, Visual Studio](./media/apache-storm-develop-csharp-visual-studio-topology/apache-storm-new-project.png)
 
