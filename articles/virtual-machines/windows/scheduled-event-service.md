@@ -150,7 +150,7 @@ Une fois les événements envoyés à Log Analytics, vous pouvez exécuter la [r
     | project-away RenderedDescription,ReqJson
     ```
 
-1. Sélectionnez **Enregistrer**, puis tapez le nom *logQuery*, laissez le type **Requête**, tapez la **catégorie***VMLogs*, puis sélectionnez **Enregistrer**. 
+1. Sélectionnez **Enregistrer**, puis tapez le nom *logQuery*, laissez le type **Requête**, tapez la **catégorie** *VMLogs*, puis sélectionnez **Enregistrer**. 
 
     ![Enregistrer la requête](./media/notifications/save-query.png)
 

@@ -11,12 +11,12 @@ ms.topic: article
 ms.date: 01/10/2020
 ms.author: tdsp
 ms.custom: previous-author=fboylu, previous-ms.author=fboylu
-ms.openlocfilehash: 6452a826cfb6f7ceb65e6e89cdd42d683ee463b1
-ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
+ms.openlocfilehash: 0542106f70e96b6c2f63e8ca03d2532de191d365
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/20/2020
-ms.locfileid: "83682721"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79477168"
 ---
 # <a name="technical-guide-to-the-solution-template-for-predictive-maintenance-in-aerospace"></a>Guide technique du modèle de solution pour la maintenance prédictive dans l'industrie aérospatiale
 
@@ -159,7 +159,7 @@ Power BI se connecte à une base de données Azure SQL en tant que source de don
 
 Remarque : 
 1.    Après le déploiement de votre solution, une prédiction apparaît dans la base de données dans un délai de 3 heures. Le fichier pbix fourni avec le téléchargement de Generator contient certaines données d’amorçage afin que vous puissiez créer immédiatement le tableau de bord Power BI. 
-2.    Dans cette étape, le prérequis consiste à télécharger et installer le logiciel gratuit [Power BI Desktop](https://docs.microsoft.com/power-bi/fundamentals/desktop-get-the-desktop).
+2.    Dans cette étape, le prérequis consiste à télécharger et installer le logiciel gratuit [Power BI Desktop](https://powerbi.microsoft.com/documentation/powerbi-desktop-get-the-desktop/).
 
 Au cours des étapes suivantes, nous allons vous expliquer comment connecter le fichier pbix à la base de données SQL qui a été lancée au moment du déploiement de la solution et qui contient des données (par exemple, des résultats de prédiction) pour la visualisation.
 
@@ -211,7 +211,7 @@ Dans les étapes suivantes, nous allons vous expliquer comment visualiser la sor
    * La requête ASA présente trois sorties, à savoir **aircraftmonitor**, **aircraftalert** et **flightsbyhour**. Vous pouvez afficher la requête en cliquant sur l’onglet Requête. Pour chacune de ces tables, vous devez ajouter une sortie vers ASA. Quand vous ajoutez la première sortie (**aircraftmonitor**) vérifiez que les paramètres **Alias de sortie**, **Nom du jeu de données** et **Nom de la table** sont identiques (**aircraftmonitor**). Répétez les étapes pour ajouter des sorties pour **aircraftalert** et **flightsbyhour**. Une fois que vous avez ajouté les trois tables de sortie et démarré le travail ASA, vous devriez obtenir un message de confirmation (« La tâche Stream Analytics maintenancesa02asapbi a bien démarré »).
 2. Se connecter à [Power BI en ligne](https://www.powerbi.com)
    
-   * Dans la section Jeux de données du volet gauche, dans Mon espace de travail, les noms de ***Jeu de données*****aircraftmonitor**, **aircraftalert** et **flightsbyhour** doivent apparaître. Il s'agit des données de diffusion en continu qui ont fait l’objet d’un Push à partir d'Azure Stream Analytics au cours de l'étape précédente. Le jeu de données **flightsbyhour** peut ne pas apparaître en même temps que les deux autres jeux de données en raison de la nature de la requête SQL sous-jacente à ce jeu. Toutefois, il doit s’afficher après une heure.
+   * Dans la section Jeux de données du volet gauche, dans Mon espace de travail, les noms de ***Jeu de données*** **aircraftmonitor**, **aircraftalert** et **flightsbyhour** doivent apparaître. Il s'agit des données de diffusion en continu qui ont fait l’objet d’un Push à partir d'Azure Stream Analytics au cours de l'étape précédente. Le jeu de données **flightsbyhour** peut ne pas apparaître en même temps que les deux autres jeux de données en raison de la nature de la requête SQL sous-jacente à ce jeu. Toutefois, il doit s’afficher après une heure.
    * Assurez-vous que le volet ***Visualisations*** est ouvert et qu’il s’affiche à droite de l’écran.
 3. Une fois que les données affluent dans Power BI, vous pouvez commencer à visualiser les données de diffusion. Le tableau ci-dessous est un exemple de tableau de bord sur lequel sont épinglées des visualisations de chemin à chaud. Vous pouvez créer d’autres vignettes de tableau de bord en fonction des jeux de données appropriés. Selon la durée pendant laquelle vous exécutez votre générateur de données, les numéros des visualisations peuvent être différents.
 
