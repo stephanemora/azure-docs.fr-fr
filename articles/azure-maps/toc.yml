@@ -244,7 +244,7 @@
           href: schema-stateset-stylesobject.md
         - name: Modèle de consommation du véhicule
           href: consumption-model.md
-        - name: Étendre le format geoJSON
+        - name: Format geoJSON étendu
           href: extend-geojson.md
         - name: Format geoJSON de limite géographique
           href: geofence-geojson.md

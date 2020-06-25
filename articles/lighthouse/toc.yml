@@ -69,6 +69,8 @@
         - name: Déployer une stratégie pouvant être corrigée
           displayName: 'deployIfNotExists, modify, managed identities, managed identity'
           href: ./how-to/deploy-policy-remediation.md
+    - name: Intégration Azure Sentinel
+      href: ./how-to/manage-sentinel-workspaces.md
     - name: Actions des clients
       items:
         - name: Voir et gérer les fournisseurs de services

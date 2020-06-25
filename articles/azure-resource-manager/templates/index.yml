@@ -12,12 +12,12 @@ metadata:
   author: mumian
   ms.author: jgao
   ms.date: 03/09/2020
-  ms.openlocfilehash: f05b14039f5b83b4f214d7fa479a3ab809e859c6
-  ms.sourcegitcommit: 253d4c7ab41e4eb11cd9995190cd5536fcec5a3c
+  ms.openlocfilehash: d6c1708543623423c939d03f0510e1abc72cf637
+  ms.sourcegitcommit: 6fd28c1e5cf6872fb28691c7dd307a5e4bc71228
   ms.translationtype: HT
   ms.contentlocale: fr-FR
-  ms.lasthandoff: 03/25/2020
-  ms.locfileid: "78943227"
+  ms.lasthandoff: 06/23/2020
+  ms.locfileid: "85209196"
 landingContent:
 - title: À propos des modèles ARM
   linkLists:
@@ -41,9 +41,9 @@ landingContent:
   linkLists:
   - linkListType: quickstart
     links:
-    - text: Créer des modèles - portail
+    - text: Créer des modèles – Portail
       url: quickstart-create-templates-use-the-portal.md
-    - text: Créer des modèles - VS Code
+    - text: Créer des modèles – VS Code
       url: quickstart-create-templates-use-visual-studio-code.md
     - text: Créer des modèles - Visual Studio
       url: create-visual-studio-deployment-project.md
@@ -97,7 +97,7 @@ landingContent:
   linkLists:
   - linkListType: how-to-guide
     links:
-    - text: Subscription
+    - text: Abonnement
       url: deploy-to-subscription.md
     - text: Groupe d’administration
       url: deploy-to-management-group.md
@@ -107,7 +107,7 @@ landingContent:
   linkLists:
   - linkListType: reference
     links:
-    - text: Référence de modèle
+    - text: Informations de référence sur les modèles
       url: /azure/templates/
     - text: API REST
       url: /rest/api/resources/
@@ -127,7 +127,7 @@ landingContent:
     links:
     - text: Exporter des modèles
       url: export-template-portal.md
-    - text: Intégration/déploiement continues
+    - text: CI/CD
       url: add-template-to-azure-pipelines.md
     - text: Voir l’historique des déploiements
       url: deployment-history.md

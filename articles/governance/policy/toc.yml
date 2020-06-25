@@ -110,12 +110,17 @@
     - name: Créer des stratégies pour les propriétés de tableau
       displayName: 'array property, alias, aliases, in, notIn, type, defaultValue'
       href: ./how-to/author-policies-for-arrays.md
-    - name: Créer une stratégie Guest Configuration sur Windows
-      displayName: 'powershell, dsc, chef, windows'
-      href: ./how-to/guest-configuration-create.md
-    - name: Créer une stratégie Guest Configuration sur Linux
-      displayName: 'powershell, dsc, chef, linux'
-      href: ./how-to/guest-configuration-create-linux.md
+    - name: Guest Configuration
+      items:
+        - name: Créer une stratégie Guest Configuration sur Windows
+          displayName: 'powershell, dsc, chef, windows'
+          href: ./how-to/guest-configuration-create.md
+        - name: Créer une stratégie Guest Configuration sur Linux
+          displayName: 'powershell, dsc, chef, linux'
+          href: ./how-to/guest-configuration-create-linux.md
+        - name: Créer une stratégie Guest Configuration à partir d’une stratégie de groupe
+          displayName: 'powershell, dsc, grouppolicy, windows'
+          href: ./how-to/guest-configuration-create-group-policy.md
     - name: Obtenir des données de conformité
       displayName: 'evaluation, scan, summarize, query, events, log analytics'
       href: ./how-to/get-compliance-data.md
@@ -155,9 +160,9 @@
     - name: Azure PowerShell
       items:
         - name: Policy
-          href: '/powershell/module/az.resources/#policies'
+          href: /powershell/module/az.resources/#policies
         - name: Policy Insights
-          href: '/powershell/module/az.policyinsights#policy_insights'
+          href: /powershell/module/az.policyinsights#policy_insights
         - name: Guest Configuration
           href: 'https://www.powershellgallery.com/packages/Az.GuestConfiguration'
     - name: Kit SDK Azure pour .NET

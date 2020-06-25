@@ -91,6 +91,8 @@
           href: troubleshoot-reboot-loop.md
         - name: Bloqué dans Windows Update
           href: troubleshoot-stuck-updating-boot-error.md
+        - name: Redémarrage ou erreur inattendu(e)
+          href: troubleshoot-unexpected-restart-error-during-vm-boot.md
         - name: Blocage du démarrage de la machine virtuelle
           href: troubleshoot-vm-boot-configure-update.md
         - name: Impossible de démarrer la machine virtuelle en raison du gestionnaire de démarrage Windows

@@ -77,6 +77,8 @@
           href: ./afds/waf-front-door-geo-filtering.md
         - name: Questions fréquentes (FAQ)
           href: ./afds/waf-faq.md
+    - name: WAF et Azure Policy
+      href: ./shared/waf-azure-policy.md
 - name: Guides pratiques
   items:
     - name: Application Gateway

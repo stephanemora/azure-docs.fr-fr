@@ -37,6 +37,8 @@
       href: ../../api-management/security-baseline.md
     - name: Base de référence de la sécurité Application Gateway
       href: ../../application-gateway/security-baseline.md
+    - name: Base de référence de sécurité relative à l’automatisation
+      href: ../../automation/security-baseline.md
     - name: Base de référence de la sécurité Azure Cache pour Redis
       href: ../../azure-cache-for-redis/security-baseline.md
     - name: Base de référence de la sécurité Sauvegarde
@@ -51,24 +53,32 @@
       href: ../../cosmos-db/security-baseline.md
     - name: Base de référence de la sécurité Customer Lockbox
       href: ../fundamentals/customer-lockbox-security-baseline.md
+    - name: Base de référence de sécurité Databox
+      href: ../../databox/security-baseline.md
     - name: Base de référence de sécurité Data Explorer
       href: /azure/data-explorer/security-baseline
     - name: Base de référence de la sécurité Data Factory
-      href: /azure/data-factory/security-baseline
+      href: ../../data-factory/security-baseline.md
     - name: Base de référence de la sécurité Databricks
       href: ../../azure-databricks/security-baseline.md
     - name: Base de référence de la sécurité Event Hubs
       href: ../../event-hubs/security-baseline.md
+    - name: Base de référence de sécurité ExpressRoute
+      href: ../../expressroute/security-baseline.md
     - name: Base de référence de la sécurité Functions
       href: ../../azure-functions/security-baseline.md
     - name: Base de référence de la sécurité HDInsight
       href: ../../hdinsight/security-baseline.md
     - name: Base de référence de la sécurité Key Vault
       href: ../../key-vault/security-baseline.md
+    - name: Base de référence de sécurité Logic Apps
+      href: ../../logic-apps/security-baseline.md
     - name: Base de référence de la sécurité MariaDB
       href: ../../mariadb/security-baseline.md
     - name: Base de référence de la sécurité MySQL
       href: ../../mysql/security-baseline.md
+    - name: Base de référence de sécurité Network Watcher
+      href: ../../network-watcher/security-baseline.md
     - name: Base de référence de la sécurité PostgreSQL
       href: ../../postgresql/security-baseline.md
     - name: Base de référence de la sécurité SQL Database

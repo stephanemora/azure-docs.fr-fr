@@ -12,7 +12,7 @@
     - name: ServiceNow
       href: /azure/active-directory/saas-apps/servicenow-provisioning-tutorial?context=azure/active-directory/app-provisioning/context/app-provisioning-context
     - name: Amazon Web Services (AWS) - Provisionnement des rôles
-      href: '/azure/active-directory/saas-apps/amazon-web-service-tutorial#configure-azure-ad-single-sign-ont?context=azure/active-directory/app-provisioning/context/app-provisioning-context'
+      href: /azure/active-directory/saas-apps/amazon-web-service-tutorial#configure-azure-ad-single-sign-ont?context=azure/active-directory/app-provisioning/context/app-provisioning-context
     - name: Workday
       href: /azure/active-directory/saas-apps/workday-inbound-tutorial?context=azure/active-directory/app-provisioning/context/app-provisioning-context
     - name: SAP SuccessFactors
@@ -45,6 +45,8 @@
           href: define-conditional-rules-for-provisioning-user-accounts.md
         - name: Ignorer la suppression pour les utilisateurs hors limites
           href: skip-out-of-scope-deletions.md
+    - name: Provisionner à la demande
+      href: provision-on-demand.md
     - name: Superviser et créer des rapports sur le provisionnement
       items:
         - name: Superviser les performances et l’état de provisionnement
@@ -107,5 +109,5 @@
       href: 'https://azure.microsoft.com/updates/?product=active-directory'
     - name: Stack Overflow
       href: 'https://stackoverflow.com/questions/tagged/azure-active-directory'
-    - name: Videos
+    - name: Vidéos
       href: 'https://azure.microsoft.com/documentation/videos/index/?services=active-directory'

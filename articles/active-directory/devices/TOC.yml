@@ -35,6 +35,8 @@
 - name: Guides pratiques
   expanded: false
   items:
+    - Name: Planifier votre déploiement d’appareil Azure AD
+      href: plan-device-deployment.md
     - name: Planifier votre implémentation de la jointure d’Azure AD
       href: azureadjoin-plan.md
     - name: Assigner des administrateurs locaux aux appareils joints Azure AD
@@ -89,5 +91,5 @@
       href: ../fundamentals/whats-new.md
     - name: Stack Overflow
       href: 'https://stackoverflow.com/questions/tagged/azure-active-directory'
-    - name: Videos
+    - name: Vidéos
       href: 'https://azure.microsoft.com/documentation/videos/index/?services=active-directory'

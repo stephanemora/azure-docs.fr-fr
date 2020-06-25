@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 03/05/2020
 ms.author: rogarana
 ms.custom: include file
-ms.openlocfilehash: 4d2c0a02a48c0e04b501f136f66c28b3f532e2a3
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 83c391c0d92f8d4a0ed4b44bc3a90273db51b412
+ms.sourcegitcommit: 31ef5e4d21aa889756fa72b857ca173db727f2c3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79486100"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81539329"
 ---
 Les instantanés incrémentiels sont des sauvegardes des disques managés exécutées à un moment donné et contenant uniquement les modifications apportées depuis la dernière capture instantanée. Lorsque vous essayez de télécharger ou d'utiliser un instantané incrémentiel, tout le disque dur virtuel est utilisé. Cette nouvelle fonctionnalité de capture instantanée des disques managés améliore leur rentabilité, car vous n’êtes pas obligé de stocker l'intégralité du disque avec chaque instantané. Comme pour les instantanés classiques, les instantanés incrémentiels peuvent être utilisés pour créer un disque managé complet ou pour créer un instantané classique.
 
@@ -22,3 +22,5 @@ Il existe un certain nombre de différences entre un instantané incrémentiel e
 Les instantanés incrémentiels offrent également une capacité différentielle, qui est disponible uniquement pour les disques managés. Ils vous permettent d'obtenir les modifications apportées entre deux instantanés incrémentiels des mêmes disques managés, jusqu'au niveau bloc. Vous pouvez utiliser cette fonctionnalité pour réduire l'empreinte de vos données lors de la copie d'instantanés d'une région à une autre.  Par exemple, vous pouvez télécharger le premier instantané incrémentiel en tant qu’objet blob de base dans une autre région. Pour les instantanés incrémentiels suivants, vous pouvez copier uniquement les modifications apportées depuis le dernier instantané sur l’objet blob de base. Après avoir copié les modifications, vous pouvez prendre des instantanés de l’objet blob de base qui représente votre sauvegarde du disque dans une autre région à un moment donné. Vous pouvez restaurer votre disque à partir de l’objet blob de base ou à partir d’un instantané de l’objet blob de base dans une autre région.
 
 :::image type="content" source="media/virtual-machines-disks-incremental-snapshots-description/incremental-snapshot-diagram.png" alt-text="Diagramme illustrant des instantanés incrémentiels copiés dans plusieurs régions. Les instantanés effectuent différents appels d’API jusqu’à ce qu’ils forment éventuellement des objets blob de pages pour chaque instantané.":::
+
+Vous pouvez voir la taille utilisée de vos captures instantanées en examinant le [rapport d’utilisation d’Azure](https://docs.microsoft.com/azure/billing/billing-understand-your-bill). Par exemple, si la taille de données utilisée d’un instantané est 10 Gio, le rapport d’utilisation **quotidien** affiche 10 Gio/(31 jours) = 0,3226 Gio comme quantité consommée.

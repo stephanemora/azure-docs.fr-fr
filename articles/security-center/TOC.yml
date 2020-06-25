@@ -102,7 +102,7 @@
       href: monitor-container-security.md
     - name: Protéger vos serveurs avec Microsoft Defender ATP
       href: security-center-wdatp.md
-    - name: Utiliser Advanced Data Security pour SQL sur des machines virtuelles Azure
+    - name: Utiliser Advanced Data Security pour les machines SQL
       href: security-center-iaas-advanced-data.md
     - name: Utiliser App Service pour protéger vos applications
       href: security-center-app-services.md
@@ -216,7 +216,7 @@
       href: 'https://blogs.msdn.com/b/azuresecurity/'
     - name: Azure Security Center sur Stack Overflow
       href: 'https://stackoverflow.com/search?q=azure-security-center'
-    - name: Videos
+    - name: Vidéos
       href: 'https://azure.microsoft.com/documentation/videos/index/?services=security-center'
     - name: Tarifs
       href: 'https://azure.microsoft.com/pricing/details/security-center/'

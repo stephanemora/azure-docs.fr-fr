@@ -36,6 +36,8 @@
       items:
         - name: Fonctionnement de l’authentification multifacteur (MFA)
           href: concept-mfa-howitworks.md
+        - name: Invites et durée de vie des sessions
+          href: concepts-azure-multi-factor-authentication-prompts-session-lifetime.md
         - name: Résidence des données
           href: concept-mfa-data-residency.md
         - name: Licences

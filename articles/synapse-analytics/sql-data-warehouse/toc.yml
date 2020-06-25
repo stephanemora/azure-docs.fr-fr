@@ -420,5 +420,7 @@
           href: sql-data-warehouse-partner-data-integration.md
         - name: Gestion des données
           href: sql-data-warehouse-partner-data-management.md
+        - name: Machine Learning et intelligence artificielle
+          href: sql-data-warehouse-partner-machine-learning-ai.md
         - name: Partenaires de la préversion publique
           href: sql-data-warehouse-partner-launch.md
