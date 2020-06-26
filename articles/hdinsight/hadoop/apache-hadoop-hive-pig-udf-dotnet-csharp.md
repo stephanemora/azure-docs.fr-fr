@@ -58,7 +58,7 @@ Pour créer un projet C# pour une fonction définie par l’utilisateur Apache H
 
 3. Dans la fenêtre **Créer un projet**, choisissez le modèle **Application console (.NET Framework)** (version C#). Sélectionnez ensuite **Suivant**.
 
-4. Dans la fenêtre **Configurer votre nouveau projet**, entrez le **Nom de projet***HiveCSharp*, puis accédez à ou créez un **Emplacement** auquel enregistrer le nouveau projet. Sélectionnez ensuite **Créer**.
+4. Dans la fenêtre **Configurer votre nouveau projet**, entrez le **Nom de projet** *HiveCSharp*, puis accédez à ou créez un **Emplacement** auquel enregistrer le nouveau projet. Sélectionnez ensuite **Créer**.
 
 5. Dans l’IDE Visual Studio, remplacez le contenu de *Program.cs* par le code suivant :
 
@@ -125,7 +125,7 @@ Pour créer un projet C# pour une fonction définie par l’utilisateur Apache H
 
 3. Dans la fenêtre **Créer un projet**, choisissez le modèle **Application console (.NET Framework)** (version C#). Sélectionnez ensuite **Suivant**.
 
-4. Dans la fenêtre **Configurer votre nouveau projet**, entrez le **Nom de projet***PigUDF*, puis accédez à ou créez un **Emplacement** auquel enregistrer le nouveau projet. Sélectionnez ensuite **Créer**.
+4. Dans la fenêtre **Configurer votre nouveau projet**, entrez le **Nom de projet** *PigUDF*, puis accédez à ou créez un **Emplacement** auquel enregistrer le nouveau projet. Sélectionnez ensuite **Créer**.
 
 5. Dans l’IDE Visual Studio, remplacez le contenu de *Program.cs* par le code suivant :
 
