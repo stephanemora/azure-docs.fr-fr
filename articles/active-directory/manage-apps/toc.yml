@@ -303,8 +303,6 @@
               href: application-proxy-page-load-speed-problem.md
             - name: Les liens sur la page de l’application ne fonctionnent pas
               href: application-proxy-page-links-broken-problem.md
-            - name: Quels ports ouvrir pour mon application
-              href: application-proxy-connectivity-ports-how-to.md
             - name: Aucun connecteur d’un groupe de connecteurs ne fonctionne pour mon application
               href: application-proxy-connectivity-no-working-connector.md
             - name: Configurer dans le portail d’administration
@@ -349,5 +347,5 @@
       href: 'https://azure.microsoft.com/updates/?product=active-directory'
     - name: Stack Overflow
       href: 'https://stackoverflow.com/questions/tagged/azure-active-directory'
-    - name: Videos
+    - name: Vidéos
       href: 'https://azure.microsoft.com/documentation/videos/index/?services=active-directory'
