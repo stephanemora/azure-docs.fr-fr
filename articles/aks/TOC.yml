@@ -132,6 +132,8 @@
           href: upgrade-cluster.md
         - name: Utiliser un SLA avec une durée de bon fonctionnement
           href: uptime-sla.md
+        - name: Utiliser des groupes de placements de proximité (préversion)
+          href: reduce-latency-ppg.md
         - name: Mettre à niveau l’image de nœud (préversion)
           href: node-image-upgrade.md
         - name: Traiter les mises à jour de système d’exploitation des nœuds

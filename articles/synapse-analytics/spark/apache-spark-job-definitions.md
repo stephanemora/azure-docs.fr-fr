@@ -7,13 +7,14 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: tutorial
+ms.subservice: ''
 ms.date: 04/15/2020
-ms.openlocfilehash: a40099c06946830808a235fce2915d28b7647fa5
-ms.sourcegitcommit: c4ad4ba9c9aaed81dfab9ca2cc744930abd91298
+ms.openlocfilehash: 3311a9a92cc5e63a6fa20e4dd0d2af00fdacc95c
+ms.sourcegitcommit: 3988965cc52a30fc5fed0794a89db15212ab23d7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/12/2020
-ms.locfileid: "84735794"
+ms.lasthandoff: 06/22/2020
+ms.locfileid: "85194482"
 ---
 # <a name="tutorial-create-apache-spark-job-definition-in-synapse-studio"></a>Tutoriel : Créer une définition de travail Apache Spark dans Synapse Studio
 
@@ -162,7 +163,7 @@ Après avoir créé une définition de travail Apache Spark, vous pouvez l’env
 
  1. Cliquez sur **Superviser**, puis sélectionnez l’option **Applications Spark**. Vous pouvez trouver l’application Apache Spark envoyée.
 
-     ![Afficher l’application Spark](./media/apache-spark-job-definitions/view-spark-application.png)
+     ![Affichez l’application Spark](./media/apache-spark-job-definitions/view-spark-application.png)
 
  2. Cliquez ensuite sur l’application Apache Spark pour ouvrir la fenêtre **LogQuery**. Vous pouvez voir la progression de l’exécution du travail dans **LogQuery**.
      
