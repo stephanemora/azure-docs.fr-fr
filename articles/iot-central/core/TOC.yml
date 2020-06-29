@@ -151,6 +151,10 @@
               href: howto-manage-preferences.md
             - name: Activer ou désactiver les conversations en direct
               href: howto-show-hide-chat.md
+- name: Informations de référence
+  items:
+    - name: Azure CLI
+      href: /cli/azure/azure-cli-reference-for-IoT
 - name: Ressources
   items:
     - name: Options d’aide et de support
