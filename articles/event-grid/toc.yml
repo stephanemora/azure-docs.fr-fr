@@ -242,10 +242,14 @@
           href: enable-diagnostic-logs-topic.md
         - name: Résoudre les erreurs
           href: troubleshoot-errors.md
+        - name: Résoudre les problèmes de connectivité réseau
+          href: troubleshoot-network-connectivity.md
         - name: Résoudre les problèmes de validation d’abonnement
           href: troubleshoot-subscription-validation.md
-        - name: Consulter les métriques et créer des alertes
+        - name: Afficher les mesures
           href: monitor-event-delivery.md
+        - name: Créez des alertes
+          href: set-alerts.md
 - name: Informations de référence
   items:
     - name: Azure CLI

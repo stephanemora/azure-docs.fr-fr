@@ -225,6 +225,8 @@
       href: 'https://azure.microsoft.com/resources/samples/?service=active-directory'
     - name: Applets de commande Azure PowerShell
       href: /powershell/azure/overview
+    - name: API REST Microsoft Graph bêta
+      href: /graph/api/resources/authenticationmethods-overview?view=graph-rest-beta
     - name: Restrictions et limites du service
       href: ../users-groups-roles/directory-service-limits-restrictions.md
 - name: Ressources

@@ -1,2 +1,178 @@
 - name: "Azure\_Digital\_Twins"
   href: index.yml
+- name: Vue d’ensemble
+  items:
+    - name: "À propos d’Azure\_Digital\_Twins"
+      href: overview.md
+    - name: Différences avec la version précédente
+      href: overview-differences.md
+- name: Tutoriels
+  items:
+    - name: Coder une application cliente
+      href: tutorial-code.md
+    - name: Explorer les bases avec un exemple d’application cliente
+      href: tutorial-command-line-app.md
+    - name: Connecter une solution de bout en bout
+      href: tutorial-end-to-end.md
+- name: Concepts
+  items:
+    - name: Modèles personnalisés
+      href: concepts-models.md
+    - name: Jumeaux numériques et graphe de jumeaux
+      href: concepts-twins-graph.md
+    - name: Langage de requête
+      href: concepts-query-language.md
+    - name: Intégration à d’autres services
+      href: concepts-integration.md
+    - name: Routes d’événements
+      href: concepts-route-events.md
+    - name: Sécurité pour les solutions Azure Digital Twins
+      href: concepts-security.md
+- name: Guides pratiques
+  items:
+    - name: Développer
+      items:
+        - name: Utiliser les API et kits SDK
+          href: how-to-use-apis-sdks.md
+        - name: Créer des kits SDK personnalisés avec AutoRest
+          href: how-to-create-custom-sdks.md
+    - name: Déployer
+      items:
+        - name: Utiliser l’interface CLI Azure Digital Twins
+          href: how-to-use-cli.md
+        - name: Créer une instance Azure Digital Twins
+          href: how-to-set-up-instance.md
+        - name: Authentifier une application cliente
+          href: how-to-authenticate-client.md
+    - name: Concevoir des modèles
+      items:
+        - name: Gérer des modèles personnalisés
+          href: how-to-manage-model.md
+        - name: Analyser et valider les modèles
+          href: how-to-use-parser.md
+    - name: Utiliser un environnement d’exécution en direct
+      items:
+        - name: Gérer des jumeaux numériques
+          href: how-to-manage-twin.md
+        - name: Gérer le graphe de jumeaux avec des relations
+          href: how-to-manage-graph.md
+        - name: Interpréter les données d’événement
+          href: how-to-interpret-event-data.md
+        - name: Configurer une fonction Azure pour le traitement des données
+          href: how-to-create-azure-function.md
+        - name: Interroger le graphe de jumeaux
+          href: how-to-query-graph.md
+    - name: Connecter une entrée
+      items:
+        - name: Ingérer la télémétrie depuis IoT Hub
+          href: how-to-ingest-iot-hub-data.md
+    - name: Connecter une sortie
+      items:
+        - name: Gérer les points de terminaison et les routes
+          href: how-to-manage-routes.md
+        - name: Intégrer à Azure Maps
+          href: how-to-integrate-maps.md
+- name: Informations de référence
+  items:
+    - name: Limites du service Digital Twins
+      href: reference-service-limits.md
+    - name: API et Kits de développement logiciel (SDK)
+      items:
+        - name: Plan de contrôle
+          items:
+            - name: Fichier Swagger
+              href: 'https://github.com/Azure/azure-rest-api-specs/tree/master/specification/digitaltwins/resource-manager/Microsoft.DigitalTwins'
+            - name: Kit SDK .NET (C#) - NuGet
+              href: 'https://www.nuget.org/packages/Microsoft.Azure.Management.DigitalTwins/1.0.0-preview.1'
+            - name: Kit SDK .NET (C#) - source
+              href: 'https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/digitaltwins/Microsoft.Azure.Management.DigitalTwins'
+            - name: Kit de développement logiciel (SDK) Python
+              href: 'https://pypi.org/project/azure-mgmt-digitaltwins/'
+            - name: Kit SDK Python - source
+              href: 'https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/digitaltwins/azure-mgmt-digitaltwins'
+            - name: Kit SDK Go - source
+              href: 'https://github.com/Azure/azure-sdk-for-go/tree/master/services/preview/digitaltwins/mgmt/2020-03-01-preview/digitaltwins'
+        - name: Plan de données
+          items:
+            - name: Référence d’API REST
+              href: 'https://docs.microsoft.com/rest/api/azure-digitaltwins/'
+            - name: Fichier Swagger
+              href: 'https://github.com/Azure/azure-rest-api-specs/tree/master/specification/digitaltwins/data-plane/Microsoft.DigitalTwins'
+            - name: Kit SDK .NET (C#) - référence
+              href: 'https://docs.microsoft.com/dotnet/api/overview/azure/digitaltwins?view=azure-dotnet-preview'
+            - name: Kit SDK .NET (C#) - NuGet
+              href: 'https://www.nuget.org/packages/Azure.DigitalTwins.Core'
+            - name: Kit SDK .NET (C#) - source
+              href: 'https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/digitaltwins/Azure.DigitalTwins.Core'
+    - name: DTDL
+      items:
+        - name: Spécification DTDL v2
+          href: 'https://github.com/Azure/opendigitaltwins-dtdl/blob/master/DTDL/v2/dtdlv2.md'
+        - name: "Extension DTDL pour VS\_Code"
+          href: 'https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.vscode-dtdl'
+        - name: Bibliothèque de l’analyseur DTDL - NuGet
+          href: 'https://www.nuget.org/packages/Microsoft.Azure.DigitalTwins.Parser/'
+        - name: Exemple de validateur DTDL
+          href: 'https://github.com/Azure-Samples/dtdl-validator'
+        - name: Spécification DTMI
+          href: 'https://github.com/Azure/digital-twin-model-identifier'
+    - name: Outils Azure
+      items:
+        - name: Informations de référence sur Azure CLI
+          href: /cli/azure/iot
+        - name: Informations de référence sur l’extension de l’interface CLI Azure IoT
+          href: /cli/azure/ext/azure-iot/iot?view=azure-cli-latest
+        - name: Versions de l’extension de l’interface CLI Azure IoT
+          href: 'https://github.com/Azure/azure-iot-cli-extension/releases'
+        - name: Azure Cloud Shell
+          href: 'https://shell.azure.com'
+        - name: Azure PowerShell
+          href: /powershell/module/az.iothub#iot
+        - name: Portail Azure
+          href: 'https://portal.azure.com'
+    - name: Documentation Azure RBAC
+      href: /azure/role-based-access-control/overview
+- name: Ressources
+  items:
+    - name: Options d’aide et de support
+      href: /azure/iot-fundamentals/iot-support-help
+    - name: Témoignages client
+      href: 'https://customers.microsoft.com/en-us/search?sq=%22Azure%20Digital%20Twins%22&ff=&p=0&so=story_publish_date%20desc'
+    - name: Vidéos Channel 9
+      href: 'https://channel9.msdn.com/Search?term=%22Azure%20Digital%20Twins%22'
+    - name: Demandes de données client
+      href: resources-customer-data-requests.md
+    - name: Tarification et disponibilité
+      items:
+        - name: Tarifs
+          href: 'https://azure.microsoft.com/pricing/details/digital-twins'
+        - name: Régions et disponibilité
+          href: 'https://azure.microsoft.com/global-infrastructure/services/?products=digital-twins'
+- name: Rubriques connexes
+  items:
+    - name: Solutions
+      items:
+        - name: Accélérateurs de solution IoT
+          href: /azure/iot-suite
+        - name: IoT Central
+          href: /azure/iot-central/core/overview-iot-central
+    - name: Services de plateforme
+      items:
+        - name: IoT Hub
+          href: /azure/iot-hub
+        - name: IoT Plug-and-Play
+          href: /azure/iot-pnp
+        - name: Service IoT Hub Device Provisioning
+          href: /azure/iot-dps
+        - name: Cartes
+          href: /azure/azure-maps
+        - name: Kits de développement logiciel (SDK) IoT Service
+          href: /azure/iot-hub/iot-hub-devguide-sdks#azure-iot-service-sdks
+        - name: Time Series Insights
+          href: /azure/time-series-insights
+    - name: Solutions Edge
+      items:
+        - name: IoT Edge
+          href: /azure/iot-edge
+        - name: Kits de développement logiciel (SDK) IoT Device
+          href: /azure/iot-hub/iot-hub-devguide-sdks#azure-iot-device-sdks

@@ -4,12 +4,12 @@ description: Découvrez comment préparer des machines locales pour la migration
 ms.topic: tutorial
 ms.date: 06/08/2020
 ms.custom: MVC
-ms.openlocfilehash: a5314e3f06c54921b12c242f884e02073edc773b
-ms.sourcegitcommit: 99d016949595c818fdee920754618d22ffa1cd49
+ms.openlocfilehash: d5ac4ded59a69e57de02779b0ba8ade9d7b48b26
+ms.sourcegitcommit: e04a66514b21019f117a4ddb23f22c7c016da126
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/15/2020
-ms.locfileid: "84769640"
+ms.lasthandoff: 06/19/2020
+ms.locfileid: "85106365"
 ---
 # <a name="prepare-on-premises-machines-for-migration-to-azure"></a>Préparer des ordinateurs locaux à une migration vers Azure
 
@@ -33,7 +33,7 @@ Le tableau récapitule les limites qui s’appliquent à la détection, à l’�
 
 **Scénario** | **Projet** | **Détection/évaluation** | **Migration**
 --- | --- | --- | ---
-**Machines virtuelles VMware** | Détectez et évaluez jusqu’à 35 000 machines virtuelles dans un même projet Azure Migrate. | Détectez jusqu’à 10 000 machines virtuelles VMware avec une seule [appliance Azure Migrate](common-questions-appliance.md) pour VMware. | **Migration sans agent** : vous pouvez répliquer simultanément un maximum de 300 machines virtuelles. Pour de meilleures performances, nous vous recommandons de créer plusieurs lots de machines virtuelles s’il y a plus de 50 machines au total.<br/><br/> **Migration basée sur un agent** : vous pouvez faire un [scale-out](/agent-based-migration-architecture.md#performance-and-scaling) de l’[appliance de réplication](migrate-replication-appliance.md) pour répliquer un grand nombre de machines virtuelles.<br/><br/> Dans le portail, vous pouvez sélectionner jusqu’à 10 machines à la fois pour la réplication. Pour répliquer davantage de machines, ajoutez-les par lots de 10.
+**Machines virtuelles VMware** | Détectez et évaluez jusqu’à 35 000 machines virtuelles dans un même projet Azure Migrate. | Détectez jusqu’à 10 000 machines virtuelles VMware avec une seule [appliance Azure Migrate](common-questions-appliance.md) pour VMware. | **Migration sans agent** : vous pouvez répliquer simultanément un maximum de 300 machines virtuelles. Pour de meilleures performances, nous vous recommandons de créer plusieurs lots de machines virtuelles s’il y a plus de 50 machines au total.<br/><br/> **Migration basée sur un agent** : vous pouvez faire un [scale-out](./agent-based-migration-architecture.md#performance-and-scaling) de l’[appliance de réplication](migrate-replication-appliance.md) pour répliquer un grand nombre de machines virtuelles.<br/><br/> Dans le portail, vous pouvez sélectionner jusqu’à 10 machines à la fois pour la réplication. Pour répliquer davantage de machines, ajoutez-les par lots de 10.
 **Machines virtuelles Hyper-V** | Détectez et évaluez jusqu’à 35 000 machines virtuelles dans un même projet Azure Migrate. | Détectez jusqu’à 5 000 machines virtuelles Hyper-V avec une seule appliance Azure Migrate. | Aucune appliance n’est utilisée pour la migration Hyper-V. Au lieu de cela, le fournisseur de réplication Hyper-V s’exécute sur chaque hôte Hyper-V.<br/><br/> La capacité de réplication dépend de plusieurs facteurs de performance tels que l’évolution des machines virtuelles et la bande passante de chargement pour les données de réplication.<br/><br/> Dans le portail, vous pouvez sélectionner jusqu’à 10 machines à la fois pour la réplication. Pour répliquer davantage de machines, ajoutez-les par lots de 10.
 **Machines physiques** | Détectez et évaluez jusqu’à 35 000 machines dans un même projet Azure Migrate. | Détectez jusqu’à 250 serveurs physiques avec une seule appliance Azure Migrate pour les serveurs physiques. | Vous pouvez faire un [scale-out](/agent-based-migration-architecture.md#performance-and-scaling) de l’[appliance de réplication](migrate-replication-appliance.md) pour répliquer un grand nombre de serveurs.<br/><br/> Dans le portail, vous pouvez sélectionner jusqu’à 10 machines à la fois pour la réplication. Pour répliquer davantage de machines, ajoutez-les par lots de 10.
 

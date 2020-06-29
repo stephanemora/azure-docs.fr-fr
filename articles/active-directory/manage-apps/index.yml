@@ -1,9 +1,9 @@
 ### YamlMime:Landing
 title: Documentation Gestion des applications
-summary: Azure Active Directory fournit un accès sécurisé et fluide aux applications cloud et locales. De plus, vous n’avez pas besoin de gérer les mots de passe. Vos utilisateurs peuvent se connecter une fois pour accéder à Office 365 et à des milliers d’autres applications. Découvrez comment gérer et déployer des applications avec nos guides de démarrage rapide, tutoriels et conseils.
+summary: Azure Active Directory fournit un accès sécurisé et fluide aux applications cloud et locales. De plus, vous n’avez pas besoin de gérer les mots de passe. Vos utilisateurs peuvent se connecter une fois pour accéder à Microsoft 365 et à des milliers d’autres applications. Découvrez comment gérer et déployer des applications avec nos guides de démarrage rapide, tutoriels et conseils.
 metadata:
   title: Documentation Gestion des applications
-  description: Azure Active Directory fournit un accès sécurisé et fluide aux applications cloud et locales. De plus, vous n’avez pas besoin de gérer les mots de passe. Vos utilisateurs peuvent se connecter une fois pour accéder à Office 365 et à des milliers d’autres applications. Découvrez comment gérer et déployer des applications avec nos guides de démarrage rapide, tutoriels et conseils.
+  description: Azure Active Directory fournit un accès sécurisé et fluide aux applications cloud et locales. De plus, vous n’avez pas besoin de gérer les mots de passe. Vos utilisateurs peuvent se connecter une fois pour accéder à Microsoft 365 et à des milliers d’autres applications. Découvrez comment gérer et déployer des applications avec nos guides de démarrage rapide, tutoriels et conseils.
   ms.service: active-directory
   ms.subservice: app-mgmt
   ms.workload: identity
@@ -12,12 +12,12 @@ metadata:
   author: msmimart
   ms.author: mimart
   manager: celested
-  ms.openlocfilehash: 3bea7dda1cf44548ea924ffa84fb922410242f27
-  ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+  ms.openlocfilehash: ed81c8d5eda3a9db84d85d79b10c0a5ab76705a4
+  ms.sourcegitcommit: 61d92af1d24510c0cc80afb1aebdc46180997c69
   ms.translationtype: HT
   ms.contentlocale: fr-FR
-  ms.lasthandoff: 03/24/2020
-  ms.locfileid: "77063470"
+  ms.lasthandoff: 06/24/2020
+  ms.locfileid: "85339202"
 landingContent:
 - title: À propos de la gestion des applications
   linkLists:

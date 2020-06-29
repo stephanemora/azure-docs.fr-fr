@@ -21,6 +21,8 @@
       href: front-door-tutorial-geo-filtering.md
     - name: Configurer un moteur de règles
       href: front-door-tutorial-rules-engine.md
+    - name: Ajouter des en-têtes de sécurité avec le moteur de règles
+      href: front-door-security-headers.md
     - name: Pare-feu d’applications web et Front Door
       href: front-door-waf.md
 - name: Exemples

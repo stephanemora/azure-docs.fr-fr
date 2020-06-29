@@ -8,6 +8,12 @@
       href: azure-portal-quickstart-center.md
     - name: Navigateurs et appareils pris en charge
       href: azure-portal-supported-browsers-devices.md
+- name: Démarrages rapides
+  items:
+    - name: Créer une machine virtuelle dans le portail
+      href: ../virtual-machines/windows/quick-create-portal.md?toc=/azure/azure-portal/toc.json&bc=/azure/azure-portal/breadcrumb/toc.json
+    - name: Créer un tableau de bord - Modèle ARM
+      href: quick-create-template.md
 - name: Concepts
   items:
     - name: Partager des tableaux de bord à l’aide du contrôle d’accès en fonction du rôle

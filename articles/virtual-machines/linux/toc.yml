@@ -367,9 +367,9 @@
     - name: Sauvegarde et récupération
       href: backup-recovery.md
     - name: Framework d’adoption du cloud
-      href: 'https://docs.microsoft.com/en-us/azure/cloud-adoption-framework/get-started/'
+      href: 'https://docs.microsoft.com/azure/cloud-adoption-framework/get-started/'
     - name: Centre des architectures
-      href: 'https://docs.microsoft.com/en-us/azure/architecture/'
+      href: 'https://docs.microsoft.com/azure/architecture/'
     - name: Instructions pour les infrastructures
       href: infrastructure-example.md
 - name: Guides pratiques
