@@ -5,12 +5,12 @@ author: christophermanthei
 ms.author: chmant
 ms.date: 03/20/2020
 ms.topic: quickstart
-ms.openlocfilehash: 59b235a32ae9363cc5fc804385867e140be502e2
-ms.sourcegitcommit: 0690ef3bee0b97d4e2d6f237833e6373127707a7
+ms.openlocfilehash: 4e9ddeddf616c581b116d48738e110dd8cdac2d3
+ms.sourcegitcommit: 5a8c8ac84c36859611158892422fc66395f808dc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/21/2020
-ms.locfileid: "83758994"
+ms.lasthandoff: 06/10/2020
+ms.locfileid: "84659926"
 ---
 # <a name="quickstart-deploy-unity-sample-to-desktop"></a>Démarrage rapide : Déployer l’exemple Unity sur un Bureau
 
@@ -46,7 +46,7 @@ Seules les applications de bureau plates sont actuellement prises en charge sur 
 ## <a name="build-the-sample-project"></a>Générer l’exemple de projet
 
 1. Sélectionnez *File > Build Settings*.
-1. Remplacez *Plateforme* par **Plateforme Windows universelle** (**PC indépendant** est également pris en charge, mais non utilisé ici).
+1. Remplacez *Plateforme* par **Plateforme Windows universelle** (**PC indépendant** est également pris en charge, mais non utilisé ici. Consultez les [limitations de plateforme](../reference/limits.md#platform-limitations)).
 1. Définissez *Target Device* sur **PC**.
 1. Définissez *Architecture* sur **x86**.
 1. Définissez *Build Type* sur **D3D Project**.
@@ -60,7 +60,7 @@ Seules les applications de bureau plates sont actuellement prises en charge sur 
 1. Générez la solution (F7).
 
 > [!WARNING]
-> Veillez à sélectionner **x86**. L’extension **x64** n’est pas prise en charge pour le moment ; consultez les [limitations de plateforme](../reference/limits.md#platform-limitations).
+> Veillez à sélectionner **x86**. L’extension **UWP/x64** n’est pas prise en charge pour le moment ; consultez les [limitations de plateforme](../reference/limits.md#platform-limitations).
 
 ## <a name="launch-the-sample-project"></a>Lancer l’exemple de projet
 

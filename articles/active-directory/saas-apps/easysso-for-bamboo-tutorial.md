@@ -12,22 +12,22 @@ ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.topic: tutorial
-ms.date: 05/18/2020
+ms.date: 05/28/2020
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c37850d2188f560b8eb8d0b16f5a1b2880a8b32e
-ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
+ms.openlocfilehash: 35c41d1605b96ad0a9d9765f8c405c1cabf9f0b7
+ms.sourcegitcommit: 5a8c8ac84c36859611158892422fc66395f808dc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/21/2020
-ms.locfileid: "83740575"
+ms.lasthandoff: 06/10/2020
+ms.locfileid: "84659037"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-easysso-for-bamboo"></a>Tutoriel : Intégration de l’authentification unique Azure Active Directory à EasySSO pour Bamboo
 
 Dans ce tutoriel, vous allez apprendre à intégrer EasySSO pour Bamboo à Azure Active Directory (Azure AD). Quand vous intégrez EasySSO pour Bamboo à Azure AD, vous pouvez :
 
-* Contrôler dans Azure AD qui a accès à EasySSO pour Bamboo.
-* Permettre aux utilisateurs de se connecter automatiquement à EasySSO pour Bamboo avec leur compte Azure AD.
+* Contrôler dans Azure AD qui a accès à Bamboo.
+* Permettre à vos utilisateurs de se connecter automatiquement à Bamboo avec leur compte Azure AD.
 * Gérer vos comptes à un emplacement central : le Portail Azure.
 
 Pour en savoir plus sur l’intégration des applications SaaS à Azure AD, consultez [Qu’est-ce que l’accès aux applications et l’authentification unique avec Azure Active Directory ?](https://docs.microsoft.com/azure/active-directory/manage-apps/what-is-single-sign-on).
@@ -57,6 +57,7 @@ Pour configurer l’intégration d’EasySSO pour Bamboo dans Azure AD, vous de
 1. Pour ajouter une nouvelle application, sélectionnez **Nouvelle application**.
 1. Dans la section **Ajouter à partir de la galerie**, tapez **EasySSO pour Bamboo** dans la zone de recherche.
 1. Sélectionnez **EasySSO pour Bamboo** dans le volet de résultats, puis ajoutez l’application. Patientez quelques secondes pendant que l’application est ajoutée à votre locataire.
+
 
 ## <a name="configure-and-test-azure-ad-single-sign-on-for-easysso-for-bamboo"></a>Configurer et tester l’authentification unique Azure AD pour EasySSO pour Bamboo
 
@@ -89,28 +90,32 @@ Effectuez les étapes suivantes pour activer l’authentification unique Azure A
 
 1. Si vous souhaitez configurer l’application en **mode démarré par le fournisseur de services**, cliquez sur **Définir des URL supplémentaires**, puis effectuez les étapes suivantes :
 
-    Dans la zone de texte **URL de connexion**, tapez une URL au format suivant : `https://<server-base-url>/`
+    Dans la zone de texte **URL de connexion**, tapez une URL au format suivant : `https://<server-base-url>/login.jsp`
 
     > [!NOTE]
-    > Il ne s’agit pas de valeurs réelles. Mettez à jour ces valeurs avec l’identificateur, l’URL de réponse et l’URL de connexion réels. Pour obtenir ces valeurs, contactez l’[équipe du support technique EasySSO pour Bamboo](mailto:support@techtime.co.nz). Vous pouvez également consulter les modèles figurant à la section **Configuration SAML de base** dans le portail Azure.
+    > Il ne s’agit pas de valeurs réelles. Mettez à jour ces valeurs avec l’identificateur, l’URL de réponse et l’URL de connexion réels. En cas de doute, contactez l’[équipe du support technique EasySSO](mailto:support@techtime.co.nz) pour obtenir ces valeurs. Vous pouvez également consulter les modèles figurant à la section **Configuration SAML de base** dans le portail Azure.
 
 1. L’application EasySSO pour Bamboo attend les assertions SAML dans un format spécifique, ce qui vous oblige à ajouter des mappages d’attributs personnalisés à votre configuration d’attributs de jetons SAML. La capture d’écran suivante montre la liste des attributs par défaut.
 
     ![image](common/default-attributes.png)
 
 1. En plus de ce qui précède, l’application EasySSO pour Bamboo s’attend à ce que quelques attributs supplémentaires (présentés ci-dessous) soient repassés dans la réponse SAML. Ces attributs sont également préremplis, mais vous pouvez les examiner pour voir s’ils répondent à vos besoins.
+    
+    | Nom |  |  Attribut source|
+    | ---------------| --------------- | --------- |
+    | urn:oid:0.9.2342.19200300.100.1.1 | | user.userprincipalname |
+    | urn:oid:0.9.2342.19200300.100.1.3 | | user.mail |
+    | urn:oid:2.16.840.1.113730.3.1.241 | | user.displayname |
+    | urn:oid:2.5.4.4 | | user.surname |
+    | urn:oid:2.5.4.42 | | user.givenname |
+    
+    Si vos utilisateurs Azure AD ont **sAMAccountName** configuré, vous devez mapper **urn:oid:0.9.2342.19200300.100.1.1** sur l’attribut **sAMAccountName**.
+    
+1. Dans la page **Configurer l’authentification unique avec SAML**, à la section **Certificat de signature SAML**, cliquez sur les liens **Télécharger** pour les options **Certificat (Base64)** ou **XML de métadonnées de fédération**, puis enregistrez l’un des deux, ou les deux, sur votre ordinateur. Vous en aurez besoin ultérieurement pour configurer EasySSO pour Bamboo.
 
-    | Nom | Attribut source |
-    | ---------------|  --------- |
-    | urn:oid:2.16.840.1.113730.3.1.241 | user.displayname |
-    | urn:oid:2.5.4.42 | user.givenname |
-    | urn:oid:2.5.4.4 | user.surname |
-    | urn:oid:0.9.2342.19200300.100.1.1 | user.userprincipalname |
-    | urn:oid:0.9.2342.19200300.100.1.3 | user.userprincipalname |
-
-1. Dans la page **Configurer l’authentification unique avec SAML**, dans la section **Certificat de signature SAML**, cliquez sur le bouton Copier pour copier l’**URL des métadonnées de fédération d’application**, puis enregistrez-la sur votre ordinateur.
-
-    ![Lien Téléchargement de certificat](common/copy-metadataurl.png)
+    ![Lien Téléchargement de certificat](./media/easysso-for-bamboo-tutorial/certificate.png)
+    
+    Si vous envisagez d’effectuer une configuration d’EasySSO pour Bamboo manuellement avec un certificat, vous devez également copier l’**URL de connexion** et l’**Identificateur Azure AD** dans la section ci-dessous, puis les enregistrer sur votre ordinateur.
 
 ### <a name="create-an-azure-ad-test-user"></a>Créer un utilisateur de test Azure AD
 
@@ -144,54 +149,74 @@ Dans cette section, vous allez autoriser B.Simon à utiliser l’authentificatio
 
 ## <a name="configure-easysso-for-bamboo-sso"></a>Configurer l’authentification unique côté EasySSO pour Bamboo
 
-1. Connectez-vous à votre instance d’EasySSO pour Bamboo avec des privilèges d’administrateur et accédez à la section **Manage Apps** (Gérer les applications).
+1. Connectez-vous à votre instance d’Atlassian Bamboo avec des privilèges d’administrateur et accédez à la section **Manage Apps** (Gérer les applications). 
 
-    ![Configuration d’EasySSO pour Bamboo](./media/easysso-for-bamboo-tutorial/jira-admin-1.png)
+    ![Gérer les applications](./media/easysso-for-bamboo-tutorial/bamboo-admin-1.png)
 
-1. Cliquez sur **EasySSO**.
+2. Sur le côté gauche, recherchez **EasySSO**, puis cliquez dessus.
 
-    ![Configuration d’EasySSO pour Bamboo](./media/easysso-for-bamboo-tutorial/jira-admin-2.png)
+    ![Easy SSO](./media/easysso-for-bamboo-tutorial/bamboo-admin-2.png)
 
-1. Sélectionnez l’option **SAML**. Vous accédez alors à la section de configuration SAML.
+3. Sélectionnez l’option **SAML**. Vous accédez alors à la section de configuration SAML.
 
-    ![Configuration d’EasySSO pour Bamboo](./media/easysso-for-bamboo-tutorial/jira-admin-3.png)
+    ![SAML](./media/easysso-for-bamboo-tutorial/bamboo-admin-3.png)
 
-1. Sélectionnez l’onglet **Certificates** en haut. L’écran suivant s’affiche. Recherchez le certificat (**Certificate (Base64)** ) ou le fichier de métadonnées (**Metadata File**) que vous avez enregistré lors des étapes précédentes de configuration de l’**authentification unique Azure AD**. Vous avez le choix entre les options suivantes :
+4. Sélectionnez l’onglet **Certificats** en haut. L’écran suivant s’affiche alors :
 
-    ![Configuration d’EasySSO pour Bamboo](./media/easysso-for-bamboo-tutorial/jira-admin-4.png)
+    ![URL de métadonnées](./media/easysso-for-bamboo-tutorial/bamboo-admin-4.png)
+
+5. À présent, recherchez le **Certificat (Base64)** ou le **Fichier de métadonnées** que vous avez enregistré aux étapes précédentes de la configuration de l’**authentification unique Azure AD**. Vous avez le choix entre les options suivantes :
 
     a. Utilisez le **fichier de métadonnées** de fédération d’application que vous avez téléchargé dans un fichier local sur votre ordinateur. Sélectionnez la case d’option **Upload** (Charger) et suivez les instructions de la boîte de dialogue de chargement de fichier propre à votre système d’exploitation.
 
     **OR**
 
     b. Ouvrez le **fichier de métadonnées** de fédération d’application pour afficher le contenu (dans n’importe quel éditeur de texte brut) du fichier, et copiez-le dans le Presse-papiers. Sélectionnez l’option **Input** (Entrée) et collez le contenu du Presse-papiers dans le champ de texte.
-
+ 
     **OR**
 
-    c. Configuration entièrement manuelle Ouvrez le **certificat (Base64)** de fédération d’application pour afficher le contenu (dans n’importe quel éditeur de texte brut) du fichier, et copiez-le dans le Presse-papiers. Collez-le dans le champ de texte **IdP Token Signing Certificates** (Certificats de signature de jetons IdP). Accédez ensuite à l’onglet **General** et renseignez les champs **POST Binding URL** (URL de liaison POST) et **Entity ID** (ID d’entité) avec les valeurs respectives d’**URL de connexion** et d’**Identificateur Azure AD** que vous avez enregistrées plus tôt.
+    c.  Configuration entièrement manuelle Ouvrez le **certificat (Base64)** de fédération d’application pour afficher le contenu (dans n’importe quel éditeur de texte brut) du fichier, et copiez-le dans le Presse-papiers. Collez-le dans le champ de texte **IdP Token Signing Certificates** (Certificats de signature de jetons IdP). Accédez ensuite à l’onglet **General** et renseignez les champs **POST Binding URL** (URL de liaison POST) et **Entity ID** (ID d’entité) avec les valeurs respectives d’**URL de connexion** et d’**Identificateur Azure AD** que vous avez enregistrées plus tôt.
+ 
+6. Cliquez sur le bouton **Save** en bas de la page. Le contenu des fichiers de métadonnées ou de certificat sera alors analysé dans les champs de configuration. La configuration d’EasySSO pour Bamboo est terminée.
 
-1. Cliquez sur le bouton **Save** en bas de la page. Le contenu des fichiers de métadonnées ou de certificat sera alors analysé dans les champs de configuration. La configuration d’EasySSO pour Bamboo est terminée.
+7. Pour une expérience de test optimale, accédez à l’onglet **Look & Feel** (Apparence) et cochez l’option **SAML Login Button** (Bouton de connexion SAML). Un bouton distinct sera alors présent sur l’écran de connexion Bamboo pour tester votre intégration SAML Azure AD de bout en bout. Vous pouvez également laisser ce bouton activé et configurer son emplacement, sa couleur et sa traduction pour le mode de production.
 
-1. Pour une expérience de test optimale, accédez à l’onglet **Look & Feel** (Apparence) et cochez l’option **SAML Login Button** (Bouton de connexion SAML). Un bouton distinct sera alors présent sur l’écran de connexion EasySSO pour Bamboo pour tester votre intégration SAML Azure AD de bout en bout. Vous pouvez également laisser ce bouton activé et configurer son emplacement, sa couleur et sa traduction pour le mode de production.
-
-    ![Configuration d’EasySSO pour Bamboo](./media/easysso-for-bamboo-tutorial/jira-admin-5.png)
+    ![Apparence](./media/easysso-for-bamboo-tutorial/bamboo-admin-5.png)
 
     > [!NOTE]
     > En cas de problème, contactez l’[équipe de support EasySSO](mailto:support@techtime.co.nz).
 
 ### <a name="create-easysso-for-bamboo-test-user"></a>Créer un utilisateur de test EasySSO pour Bamboo
 
-Dans cette section, un utilisateur appelé B.Simon est créé dans EasySSO pour Bamboo. EasySSO pour Bamboo prend en charge le provisionnement d’utilisateurs juste-à-temps, option **désactivée** par défaut. Pour activer le provisionnement d’utilisateurs, vous devez activer explicitement l’option **Create user on successful login** (Créer un utilisateur lors d’une connexion réussie) dans la section General de la configuration du plug-in EasySSO. S’il n’existe pas encore d’utilisateur dans EasySSO pour Bamboo, il en est créé un après l’authentification.
+Dans cette section, un utilisateur appelé Britta Simon est créé dans Bamboo. EasySSO pour Bamboo prend en charge le provisionnement d’utilisateurs juste-à-temps, option **désactivée** par défaut. Pour activer le provisionnement d’utilisateurs, vous devez activer explicitement l’option **Create user on successful login** (Créer un utilisateur lors d’une connexion réussie) dans la section General de la configuration du plug-in EasySSO. S’il n’existe pas encore d’utilisateur dans Bamboo, il en est créé un après l’authentification.
 
-Toutefois, si vous ne souhaitez pas activer le provisionnement automatique d’utilisateurs lors de la première connexion, les utilisateurs doivent exister dans les répertoires utilisateurs back-end utilisés par l’instance d’EasySSO pour Bamboo, comme LDAP ou Atlassian Crowd.
+Toutefois, si vous ne souhaitez pas activer le provisionnement automatique d’utilisateurs lors de la première connexion, les utilisateurs doivent exister dans les répertoires utilisateurs back-end utilisés par l’instance de Bamboo, comme LDAP ou Atlassian Crowd.
 
-![Approvisionnement d'utilisateurs](./media/easysso-for-bamboo-tutorial/jira-admin-6.png)
+![Approvisionnement d'utilisateurs](./media/easysso-for-bamboo-tutorial/bamboo-admin-6.png)
 
-## <a name="test-sso"></a>Tester l’authentification unique (SSO)
+## <a name="test-sso"></a>Tester l’authentification unique (SSO) 
+
+### <a name="idp-initiated-workflow"></a>Workflow lancé par le fournisseur d’identité
 
 Dans cette section, vous allez tester la configuration de l’authentification unique Azure AD à l’aide du volet d’accès.
 
-Quand vous cliquez sur la vignette EasySSO pour Bamboo dans le volet d’accès, vous devez être connecté automatiquement à l’application EasySSO pour Bamboo pour laquelle vous avez configuré l’authentification unique. Pour plus d’informations sur le panneau d’accès, consultez [Présentation du panneau d’accès](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
+Quand vous cliquez sur la vignette EasySSO pour Bamboo dans le volet d’accès, vous devez être connecté automatiquement à l’instance de Bamboo pour laquelle vous avez configuré l’authentification unique. Pour plus d’informations sur le panneau d’accès, consultez [Présentation du panneau d’accès](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
+
+### <a name="sp-initiated-workflow"></a>Workflow lancé par le fournisseur de services
+
+Dans cette section, vous allez tester la configuration de l’authentification unique Azure AD à l’aide du bouton **SAML Login** de Bamboo.
+
+![Connexion SAML des utilisateurs](./media/easysso-for-bamboo-tutorial/bamboo-admin-7.png)
+
+Ce scénario part du principe que vous avez activé le **bouton de connexion SAML** sous l’onglet **Look & Feel** dans votre page de configuration EasySSO pour Bamboo (voir ci-dessus). Ouvrez votre URL de connexion Bamboo en mode incognito du navigateur pour éviter toute interférence avec vos sessions existantes. Cliquez sur le bouton **Connexion SAML**. Vous êtes alors redirigé vers le flux d’authentification des utilisateurs Azure AD. Une fois l’opération terminée, vous serez redirigé vers votre instance de Bamboo en tant qu’utilisateur authentifié par le biais de SAML.
+
+Il est possible que vous rencontriez l’écran suivant après avoir été redirigé à partir d’Azure AD
+
+![Écran d’échec d’EasySSO](./media/easysso-for-bamboo-tutorial/bamboo-admin-8.png)
+
+Dans ce cas, vous devez suivre les [instructions fournies dans cette page]( https://techtime.co.nz/display/TECHTIME/EasySSO+How+to+get+the+logs#EasySSOHowtogetthelogs-RETRIEVINGTHELOGS) pour accéder au fichier **atlassian-bamboo.log**. Les détails de l’erreur sont disponibles en fonction de l’ID de référence figurant dans la page d’erreur EasySSO.
+
+En cas de problème pour synthétiser les messages du journal, contactez l’[équipe de support technique d’EasySSO](mailto:support@techtime.co.nz).
 
 ## <a name="additional-resources"></a>Ressources supplémentaires
 

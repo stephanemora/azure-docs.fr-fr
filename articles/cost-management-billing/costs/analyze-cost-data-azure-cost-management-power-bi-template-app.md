@@ -3,16 +3,16 @@ title: Analyser les coûts d’Azure avec l’application Power BI
 description: Cet article explique comment installer et utiliser l’application Power BI Azure Cost Management.
 author: bandersmsft
 ms.author: banders
-ms.date: 04/15/2020
+ms.date: 06/16/2020
 ms.topic: conceptual
 ms.service: cost-management-billing
 ms.reviewer: benshy
-ms.openlocfilehash: 050df590827b94888c44826ac6391ff79ada1cfc
-ms.sourcegitcommit: b55d7c87dc645d8e5eb1e8f05f5afa38d7574846
+ms.openlocfilehash: 53340c72a6456b24b52cff6d7eda9d4a34db6564
+ms.sourcegitcommit: e3c28affcee2423dc94f3f8daceb7d54f8ac36fd
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "81461597"
+ms.lasthandoff: 06/17/2020
+ms.locfileid: "84888201"
 ---
 # <a name="analyze-cost-with-the-azure-cost-management-power-bi-app-for-enterprise-agreements-ea"></a>Analyser les coûts avec l’application Power BI Azure Cost Management pour les Contrats Entreprise
 
@@ -128,6 +128,27 @@ Pour plus d’informations sur l’utilisation du rapport, consultez la section 
 
 Si vous rencontrez des problèmes avec l’application Power BI, les informations de dépannage suivantes peuvent vous aider.
 
+### <a name="error-processing-the-data-in-the-dataset"></a>Erreur lors du traitement des données dans le jeu de données
+
+Vous risquez d’obtenir une erreur indiquant :
+
+```
+There was an error when processing the data in the dataset.
+Data source error: {"error":{"code":"ModelRefresh_ShortMessage_ProcessingError","pbi.error":{"code":"ModelRefresh_ShortMessage_ProcessingError","parameters":{},"details":[{"code":"Message","detail":{"type":1,"value":"We cannot convert the value \"Required Field: 'Enr...\" to type List."}}],"exceptionCulprit":1}}} Table: <TableName>.
+```
+
+Un nom de table s’affiche à la place de `<TableName>`.
+
+#### <a name="cause"></a>Cause
+
+La valeur de l’**étendue** par défaut `Enrollment Number` a été modifiée dans la connexion à Cost Management.
+
+#### <a name="solution"></a>Solution
+
+Reconnectez-vous à Cost Management et définissez la valeur de l’**étendue** sur `Enrollment Number`. N’entrez pas le numéro d’inscription de votre organisation, mais tapez plutôt `Enrollment Number` exactement comme il apparaît dans l’image suivante.
+
+![Entrer les informations d’inscription du Contrat Entreprise](./media/analyze-cost-data-azure-cost-management-power-bi-template-app/ea-number.png)  
+
 ### <a name="budgetamount-error"></a>Erreur BudgetAmount
 
 Vous risquez d’obtenir une erreur indiquant :
@@ -139,7 +160,7 @@ Please try again later or contact support. If you contact support, please provid
 Data source error: The 'budgetAmount' column does not exist in the rowset. Table: Budgets.
 ```
 
-#### <a name="cause"></a>Cause :
+#### <a name="cause"></a>Cause
 
 Cette erreur se produit en raison d’un bogue avec les métadonnées sous-jacentes. Le problème est lié à l’absence de budget disponible sous **Gestion des coûts > Budget** dans le portail Azure. La résolution du bogue est en cours de déploiement sur Power BI Desktop et le service Power BI. 
 
@@ -156,7 +177,7 @@ Vous risquez d’obtenir une erreur indiquant :
 Failed to update data source credentials: The credentials provided for the AzureBlobs source are invalid.
 ```
 
-#### <a name="cause"></a>Cause :
+#### <a name="cause"></a>Cause
 
 Cette erreur se produit si vous changez la méthode d’authentification pour la connexion blob AutoFitComboMeter.
 

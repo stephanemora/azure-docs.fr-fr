@@ -6,12 +6,12 @@ ms.devlang: nodejs
 ms.topic: tutorial
 ms.date: 03/27/2019
 ms.custom: mvc, cli-validate, seodec18
-ms.openlocfilehash: c08b99b0449608309b42e51c0ffb8d4b71a0621f
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 8ee1d9747c048a7a7669cb31a389ed9093af7a6d
+ms.sourcegitcommit: 34eb5e4d303800d3b31b00b361523ccd9eeff0ab
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "82085299"
+ms.lasthandoff: 06/17/2020
+ms.locfileid: "84906392"
 ---
 # <a name="build-a-nodejs-and-mongodb-app-in-azure-app-service-on-linux"></a>Générer une application Node.js et MongoDB dans Azure App Service sur Linux
 
@@ -179,7 +179,7 @@ Copiez la valeur de `primaryMasterKey`. Vous aurez besoin de ces informations da
 
 Dans votre référentiel MEAN.js local, dans le dossier _config/env/_ , créez un fichier nommé _local-production.js_. _.gitignore_ est configuré pour conserver ce fichier en dehors du référentiel.
 
-Copiez-y le code ci-après. Veillez à remplacer les deux espaces réservés *\<cosmosdb-name>* par le nom de votre base de données Cosmos DB, et remplacez l’espace réservé *\<primary-master-key>* par la clé que vous avez copiée à l’étape précédente.
+Copiez-y le code ci-après. Veillez à remplacer les deux espaces réservés *\<cosmosdb-name>* par le nom de votre base de données Cosmos DB, et l’espace réservé *\<primary-master-key>* par la clé que vous avez copiée à l’étape précédente.
 
 ```javascript
 module.exports = {
@@ -250,7 +250,7 @@ Par défaut, le projet MEAN.js conserve _config/env/local-production.js_ hors du
 
 Pour définir les paramètres de l’application, utilisez la commande [`az webapp config appsettings set`](/cli/azure/webapp/config/appsettings?view=azure-cli-latest#az-webapp-config-appsettings-set) dans Cloud Shell.
 
-L’exemple suivant configure un paramètre d’application `MONGODB_URI` dans votre application Azure. Remplacez les espaces réservés *\<app-name>* , *\<cosmosdb-name>* , et *\<primary-master-key>* .
+L’exemple suivant configure un paramètre d’application `MONGODB_URI` dans votre application Azure. Remplacez les valeurs des espaces réservés *\<app-name>* , *\<cosmosdb-name>* et *\<primary-master-key>* .
 
 ```azurecli-interactive
 az webapp config appsettings set --name <app-name> --resource-group myResourceGroup --settings MONGODB_URI="mongodb://<cosmosdb-name>:<primary-master-key>@<cosmosdb-name>.documents.azure.com:10250/mean?ssl=true"
@@ -444,7 +444,7 @@ Si vous avez ajouté des articles précédemment, vous pouvez toujours les visua
 
 ## <a name="stream-diagnostic-logs"></a>Diffuser les journaux de diagnostic
 
-[!INCLUDE [Access diagnostic logs](../../../includes/app-service-web-logs-access-no-h.md)]
+[!INCLUDE [Access diagnostic logs](../../../includes/app-service-web-logs-access-linux-no-h.md)]
 
 ## <a name="manage-your-azure-app"></a>Gérer votre application Azure
 

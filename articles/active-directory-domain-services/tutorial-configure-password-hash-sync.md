@@ -9,12 +9,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 02/10/2020
 ms.author: iainfou
-ms.openlocfilehash: 4bf85a8e38a3cfc46fe4dbaf86639899e7267178
-ms.sourcegitcommit: 642a297b1c279454df792ca21fdaa9513b5c2f8b
+ms.openlocfilehash: ee0c6e67dcf0cf5f85734be3ac53a0417e398654
+ms.sourcegitcommit: c4ad4ba9c9aaed81dfab9ca2cc744930abd91298
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/06/2020
-ms.locfileid: "80676608"
+ms.lasthandoff: 06/12/2020
+ms.locfileid: "84733702"
 ---
 # <a name="tutorial-enable-password-synchronization-in-azure-active-directory-domain-services-for-hybrid-environments"></a>Tutoriel : Activer la synchronisation du mot de passe dans Azure Active Directory Domain Services pour les environnements hybrides
 
@@ -42,7 +42,7 @@ Pour effectuer ce didacticiel, vous avez besoin des ressources suivantes :
     * Si nécessaire, [créez un locataire Azure Active Directory][create-azure-ad-tenant] ou [associez un abonnement Azure à votre compte][associate-azure-ad-tenant].
     * Si nécessaire, [activez Azure AD Connect pour la synchronisation de hachage du mot de passe][enable-azure-ad-connect].
 * Un domaine managé Azure Active Directory Domain Services activé et configuré dans votre locataire Azure AD.
-    * Si nécessaire, [créez et configurez une instance Azure Active Directory Domain Services][create-azure-ad-ds-instance].
+    * Si nécessaire, [créez et configurez un domaine managé Azure Active Directory Domain Services][create-azure-ad-ds-instance].
 
 ## <a name="password-hash-synchronization-using-azure-ad-connect"></a>Synchronisation de hachage du mot de passe à l’aide d’Azure AD Connect
 
@@ -97,7 +97,7 @@ Une fois Azure AD Connect installé et configuré pour se synchroniser avec Azu
     Set-ADSyncAADPasswordSyncConfiguration -SourceConnector $adConnector -TargetConnector $azureadConnector -Enable $true
     ```
 
-    En fonction de la taille de votre annuaire en termes de nombre de comptes et de groupes, la synchronisation des hachages de mot de passe existants avec Azure AD peut prendre un certain temps. Après avoir été synchronisés avec Azure AD, les mots de passe sont ensuite synchronisés avec le domaine managé Azure AD DS.
+    En fonction de la taille de votre annuaire en termes de nombre de comptes et de groupes, la synchronisation des hachages de mot de passe existants avec Azure AD peut prendre un certain temps. Après avoir été synchronisés avec Azure AD, les mots de passe sont ensuite synchronisés avec le domaine managé.
 
 ## <a name="next-steps"></a>Étapes suivantes
 

@@ -3,12 +3,12 @@ title: Détecter les mouvements et enregistrer des vidéos sur Azure Media Servi
 description: Ce guide de démarrage rapide illustre l’utilisation de Live Video Analytics sur IoT Edge en vue de détecter des mouvements dans un flux vidéo en direct et d’enregistrer des extraits vidéo sur Azure Media Services.
 ms.topic: quickstart
 ms.date: 04/27/2020
-ms.openlocfilehash: f0045f7fddfe6c544f10d280450cdafe8dca9e2d
-ms.sourcegitcommit: 223cea58a527270fe60f5e2235f4146aea27af32
+ms.openlocfilehash: 0a81bebe7333266e1b70f97f8c712fccf392a464
+ms.sourcegitcommit: 1383842d1ea4044e1e90bd3ca8a7dc9f1b439a54
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/01/2020
-ms.locfileid: "84261619"
+ms.lasthandoff: 06/16/2020
+ms.locfileid: "84817314"
 ---
 # <a name="quickstart-detect-motion-record-video-to-media-services"></a>Démarrage rapide : Détecter les mouvements et enregistrer des vidéos sur Media Services
 
@@ -21,13 +21,13 @@ Cet article s’appuie sur le [Guide de démarrage rapide Prise en main](get-sta
 * Compte Azure avec un abonnement actif. [Créez un compte gratuitement](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 * [Visual Studio Code](https://code.visualstudio.com/) sur votre ordinateur avec l’extension [Azure IoT Tools](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-tools).
 * Si vous n’avez pas encore terminé le [Guide de démarrage rapide Prise en main](get-started-detect-motion-emit-events-quickstart.md), exécutez la procédure suivante :
-    * Terminer la [Configuration des ressources Azure](get-started-detect-motion-emit-events-quickstart.md#set-up-azure-resources)
-    * [Déploiement de modules](get-started-detect-motion-emit-events-quickstart.md#deploy-modules-on-your-edge-device)
-    * [Configuration de Visual Studio Code](get-started-detect-motion-emit-events-quickstart.md#configure-azure-iot-tools-extension-in-visual-studio-code)
+    * [Configurer des ressources Azure](get-started-detect-motion-emit-events-quickstart.md#set-up-azure-resources)
+    * [Déployer des modules](get-started-detect-motion-emit-events-quickstart.md#deploy-modules-on-your-edge-device)
+    * [Configurer Visual Studio Code](get-started-detect-motion-emit-events-quickstart.md#configure-the-azure-iot-tools-extension)
 
-## <a name="review-the-sample-video"></a>Réviser l’exemple de code
+## <a name="review-the-sample-video"></a>Réviser l’exemple de vidéo
 
-Dans le cadre de la procédure ci-dessus permettant de configurer les ressources Azure, une (courte) vidéo d’une aire de stationnement va être copiée dans Azure sur la machine virtuelle Linux qui est utilisée comme appareil IoT Edge. Ce fichier vidéo permet de simuler un flux en direct pour ce didacticiel.
+Dans le cadre de la procédure ci-dessus permettant de configurer les ressources Azure, une (courte) vidéo d’une aire de stationnement va être copiée dans Azure sur la machine virtuelle Linux qui est utilisée comme périphérique IoT Edge. Ce fichier vidéo permet de simuler un flux en direct pour ce tutoriel.
 
 Vous pouvez utiliser une application, telle que [VLC Player](https://www.videolan.org/vlc/), la lancer, appuyer sur Ctrl+N et coller [ce](https://lvamedia.blob.core.windows.net/public/lots_015.mkv) lien dans la vidéo de l’aire de stationnement pour commencer la lecture. Au repère d’approximativement 5 secondes, une voiture blanche traverse l’aire de stationnement.
 
@@ -658,7 +658,7 @@ Remarquez les propriétés suivantes dans les messages ci-dessus
 * Chaque message contient une section « body » et une section « applicationProperties ». Pour comprendre ce que ces sections représentent, lisez l’article [Créer et lire des messages IoT Hub](https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-messages-construct).
 * Le premier message est un événement de diagnostic, MediaSessionEstablished, indiquant que le nœud source RTSP (objet) a pu établir une connexion avec le simulateur RTSP et commence à recevoir un flux en direct (simulé).
 * « Subject » dans applicationProperties fait référence au nœud dans la topologie de graphe à partir duquel le message a été généré. Dans ce cas, le message provient du nœud source RTSP.
-* « EventType » dans applicationProperties indique qu’il s’agit d’un événement de diagnostic.
+* « eventType » dans applicationProperties indique qu’il s’agit d’un événement de diagnostic.
 * « EventTime » indique l’heure à laquelle l’événement s’est produit.
 * « Body » contient des données relatives à l’événement de diagnostic : il s’agit du message [SDP](https://en.wikipedia.org/wiki/Session_Description_Protocol).
 * Le deuxième message est un événement Analytics. Vous pouvez vérifier qu’il est envoyé environ 5 secondes après le message MediaSessionEstablished, qui correspond au délai entre le début de la vidéo et le moment où la voiture traverse l’aire de stationnement.

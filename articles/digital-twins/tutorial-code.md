@@ -7,14 +7,17 @@ ms.author: cschorm
 ms.date: 05/05/2020
 ms.topic: tutorial
 ms.service: digital-twins
-ms.openlocfilehash: 7e057d6d973eedd3ac53fd7b2ea228470e9123d7
-ms.sourcegitcommit: 1de57529ab349341447d77a0717f6ced5335074e
+ROBOTS: NOINDEX, NOFOLLOW
+ms.openlocfilehash: f36a41a1151255e792281ae959d40ce183040cb5
+ms.sourcegitcommit: c4ad4ba9c9aaed81dfab9ca2cc744930abd91298
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/09/2020
-ms.locfileid: "84611483"
+ms.lasthandoff: 06/12/2020
+ms.locfileid: "84737136"
 ---
 # <a name="coding-with-the-azure-digital-twins-apis"></a>Codage avec les API Azure Digital Twins
+
+[!INCLUDE [Azure Digital Twins current preview status](../../includes/digital-twins-preview-status.md)]
 
 Il arrive souvent aux développeurs qui travaillent avec Azure Digital Twins de devoir écrire une application cliente pour interagir avec leur instance du service Azure Digital Twins. Ce tutoriel destiné aux développeurs fournit une introduction à la programmation par rapport au service Azure Digital Twins à l’aide de la [bibliothèque de client Azure IoT Digital Twins pour .NET (C#)](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/digitaltwins/Azure.DigitalTwins.Core). Il décrit étape par étape comment écrire une application console cliente C# à partir de rien.
 
@@ -99,8 +102,8 @@ La première chose que votre application doit faire, c’est s’authentifier au
 
 Pour vous authentifier, vous avez besoin de trois informations :
 * L’*ID de l’annuaire (locataire)* pour votre abonnement
-* L’*ID d’application (client)* créé quand vous avez configuré l’instance de service
-* Le *hostName* de votre instance de service
+* L’*ID d’application (client)* créé quand vous avez configuré l’instance Azure Digital Twins
+* Le *hostName* de votre instance Azure Digital Twins
 
 >[!TIP]
 > Si vous ne connaissez pas votre *ID de l’annuaire (locataire)* , vous pouvez l’obtenir en exécutant la commande suivante dans [Azure Cloud Shell](https://shell.azure.com) :
@@ -120,7 +123,7 @@ DigitalTwinsClient client = new DigitalTwinsClient(new Uri(adtInstanceUrl), cred
 Console.WriteLine($"Service client created – ready to go");
 ```
 
-Enregistrez le fichier. 
+Enregistrez le fichier . 
 
 Notez que cet exemple utilise des informations d’identification de navigateur interactives :
 ```csharp

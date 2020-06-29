@@ -10,16 +10,16 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 03/31/2020
 ms.author: iainfou
-ms.openlocfilehash: 9a76f72d3f01ab9253c452e49dde171280fe481d
-ms.sourcegitcommit: 62c5557ff3b2247dafc8bb482256fef58ab41c17
+ms.openlocfilehash: 37f1f129122a64dc27227bee8a267702c7f9d903
+ms.sourcegitcommit: c4ad4ba9c9aaed81dfab9ca2cc744930abd91298
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/03/2020
-ms.locfileid: "80654413"
+ms.lasthandoff: 06/12/2020
+ms.locfileid: "84733668"
 ---
 # <a name="tutorial-create-an-outbound-forest-trust-to-an-on-premises-domain-in-azure-active-directory-domain-services-preview"></a>Tutoriel : Créer une approbation de forêt sortante vers un domaine local dans Azure Active Directory Domain Services (préversion)
 
-Dans les environnements ne permettant la synchronisation des hachages de mot de passe, ou en présence d'utilisateurs se connectant exclusivement à l’aide de cartes à puce et ne connaissant pas leur mot de passe, vous pouvez utiliser une forêt de ressources dans Azure Active Directory Domain Services (AD DS). Une forêt de ressources utilise une approbation unidirectionnelle sortante entre Azure AD DS et un ou plusieurs environnements AD DS locaux. Cette relation d’approbation permet aux utilisateurs, applications et ordinateurs de s’authentifier auprès d’un domaine local à partir du domaine managé Azure AD DS. Les forêts de ressources Azure AD DS sont actuellement en préversion.
+Dans les environnements ne permettant pas la synchronisation des hachages de mot de passe, ou en présence d’utilisateurs se connectant exclusivement à l’aide de cartes à puce et ne connaissant pas leur mot de passe, vous pouvez utiliser une forêt de ressources dans Azure Active Directory Domain Services (Azure AD DS). Une forêt de ressources utilise une approbation unidirectionnelle sortante entre Azure AD DS et un ou plusieurs environnements AD DS locaux. Cette relation d’approbation permet aux utilisateurs, applications et ordinateurs de s’authentifier auprès d’un domaine local à partir du domaine managé Azure AD DS. Les forêts de ressources Azure AD DS sont actuellement en préversion.
 
 ![Diagramme d'approbation de forêt entre Azure AD DS et les instances AD DS locales](./media/concepts-resource-forest/resource-forest-trust-relationship.png)
 
@@ -42,10 +42,10 @@ Pour effectuer ce tutoriel, vous avez besoin des ressources et des privilèges s
 * Un locataire Azure Active Directory associé à votre abonnement, synchronisé avec un annuaire local ou un annuaire cloud uniquement.
     * Si nécessaire, [créez un locataire Azure Active Directory][create-azure-ad-tenant] ou [associez un abonnement Azure à votre compte][associate-azure-ad-tenant].
 * Un domaine managé Azure Active Directory Domain Services créé à l'aide d'une forêt de ressources et configuré dans votre locataire Azure AD.
-    * Si nécessaire, [créez et configurez une instance Azure Active Directory Domain Services][create-azure-ad-ds-instance-advanced].
+    * Si nécessaire, [créez et configurez un domaine managé Azure Active Directory Domain Services][create-azure-ad-ds-instance-advanced].
     
     > [!IMPORTANT]
-    > Assurez-vous de créer un domaine Azure AD DS géré à l’aide d’une forêt de *ressources*. L’option par défaut crée une forêt d’*utilisateur*. Seules les forêts de ressources peuvent créer des approbations dans des environnements locaux AD DS. Vous devez également utiliser une référence (SKU) minimale d’*Enterprise* pour votre domaine managé. Si nécessaire, [modifiez la référence (SKU) pour un domaine managé Azure AD DS][howto-change-sku].
+    > Veillez à créer un domaine managé à l’aide d’une forêt de *ressources*. L’option par défaut crée une forêt d’*utilisateur*. Seules les forêts de ressources peuvent créer des approbations dans des environnements locaux AD DS. Vous devez également utiliser une référence (SKU) minimale d’*Enterprise* pour votre domaine managé. Si nécessaire, [changez de référence SKU pour un domaine managé][howto-change-sku].
 
 ## <a name="sign-in-to-the-azure-portal"></a>Connectez-vous au portail Azure.
 
@@ -69,16 +69,16 @@ Avant de configurer une approbation de forêt dans Azure AD DS, assurez-vous que
 
 ## <a name="configure-dns-in-the-on-premises-domain"></a>Configurer DNS dans le domaine local
 
-Pour résoudre correctement le domaine managé Azure AD à partir de l’environnement local, vous serez peut-être amené à ajouter des redirecteurs aux serveurs DNS existants. Si vous n’avez pas configuré l’environnement local de manière à ce qu'il communique avec le domaine managé Azure AD DS, procédez comme suit à partir d’une station de travail de gestion pour le domaine AD DS local :
+Pour résoudre correctement le domaine managé à partir de l’environnement local, vous serez peut-être amené à ajouter des redirecteurs aux serveurs DNS existants. Si vous n’avez pas configuré l’environnement local de manière à ce qu’il communique avec le domaine managé, effectuez les étapes suivantes à partir d’une station de travail de gestion pour le domaine AD DS local :
 
 1. Sélectionnez **Démarrer | Outils d'administration | DNS**.
 1. Cliquez avec le bouton droit sur le serveur DNS, comme *myAD01*, sélectionnez **Propriétés**.
 1. Sélectionnez **Redirecteurs**, puis **Modifier** pour ajouter des redirecteurs supplémentaires.
-1. Ajoutez les adresses IP du domaine managé Azure AD DS, pas exemple *10.0.2.4* et *10.0.2.5*.
+1. Ajoutez les adresses IP du domaine managé, par exemple *10.0.2.4* et *10.0.2.5*.
 
 ## <a name="create-inbound-forest-trust-in-the-on-premises-domain"></a>Créer une approbation de forêt entrante dans le domaine local
 
-Le domaine AD DS local requiert une approbation de forêt entrante pour le domaine managé Azure AD DS. Cette approbation doit être créée manuellement dans le domaine AD DS local ; sa création n'est pas possible à partir du portail Azure.
+Le domaine AD DS local nécessite une approbation de forêt entrante pour le domaine managé. Cette approbation doit être créée manuellement dans le domaine AD DS local ; sa création n'est pas possible à partir du portail Azure.
 
 Pour configurer l’approbation entrante sur le domaine AD DS local, procédez comme suit à partir d’une station de travail de gestion pour le domaine AD DS local :
 
@@ -87,22 +87,22 @@ Pour configurer l’approbation entrante sur le domaine AD DS local, procédez c
 1. Sélectionnez l'onglet **Approbations**, puis **Nouvelle approbation**.
 1. Entrez un nom dans le nom de domaine Azure AD DS, comme *aaddscontoso.com*, puis sélectionnez **Suivant**.
 1. Sélectionnez l’option permettant de créer une **approbation de forêt**, puis une approbation **unidirectionnelle : entrante**.
-1. Choisissez de créer l’approbation pour **ce domaine uniquement**. À l’étape suivante, vous créez l’approbation dans le portail Azure pour le domaine managé Azure AD DS.
+1. Choisissez de créer l’approbation pour **ce domaine uniquement**. À l’étape suivante, vous allez créer l’approbation dans le portail Azure pour le domaine managé.
 1. Choisissez d’utiliser l'**authentification à l'échelle de la forêt**, puis entrez et confirmez un mot de passe d’approbation. Ce même mot de passe est également entré dans le portail Azure à la section suivante.
 1. Parcourez les fenêtres suivantes avec les options par défaut, puis sélectionnez l’option pour **Non, ne pas confirmer l'approbation sortante**.
 1. Sélectionnez **Terminer**.
 
 ## <a name="create-outbound-forest-trust-in-azure-ad-ds"></a>Créer une approbation de forêt sortante dans Azure AD DS
 
-Une fois le domaine AD DS local configuré pour résoudre le domaine managé Azure AD DS et une approbation de forêt entrante créée, créez l’approbation de forêt sortante. Cette approbation de forêt sortante établit la relation d’approbation entre le domaine AD DS local et le domaine managé Azure AD DS.
+Une fois le domaine AD DS local configuré pour résoudre le domaine managé et une approbation de forêt entrante créée, créez l’approbation de forêt sortante. Cette approbation de forêt sortante établit la relation d’approbation entre le domaine AD DS local et le domaine managé.
 
-Pour créer l’approbation sortante destinée au domaine managé Azure AD DS dans le portail Azure, procédez comme suit :
+Pour créer l’approbation sortante destinée au domaine managé dans le portail Azure, effectuez les étapes suivantes :
 
 1. Dans le portail Azure, recherchez et sélectionnez **Azure AD Domain Services**, puis sélectionnez votre domaine managé, par exemple *aaddscontoso.com*
-1. Dans le menu de gauche du domaine managé Azure AD DS, sélectionnez **Approbations**, puis **+ Ajouter** une approbation.
+1. Dans le menu de gauche du domaine managé, sélectionnez **Approbations**, puis **+ Ajouter** une approbation.
 
    > [!NOTE]
-   > Si vous ne voyez pas l’option de menu **Approbations**, vérifiez le **Type de forêt** sous *Propriétés*. Seules les forêts de *ressources* peuvent créer des approbations. Si le type de forêt est *Utilisateur*, vous ne pouvez pas créer de relations d’approbation. Il n’existe actuellement aucun moyen de modifier le type de forêt d’un domaine géré par Azure AD DS. Vous devez supprimer et recréer le domaine géré comme une forêt de ressources.
+   > Si vous ne voyez pas l’option de menu **Approbations**, vérifiez le **Type de forêt** sous *Propriétés*. Seules les forêts de *ressources* peuvent créer des approbations. Si le type de forêt est *Utilisateur*, vous ne pouvez pas créer de relations d’approbation. Il n’existe actuellement aucun moyen de modifier le type de forêt d’un domaine managé. Vous devez supprimer et recréer le domaine géré comme une forêt de ressources.
 
 1. Entrez un nom d’affichage qui identifie votre approbation, puis le nom DNS de la forêt locale approuvée, par exemple *onprem.contoso.com*
 1. Indiquez le même mot de passe d’approbation que celui utilisé à la section précédente lors de la configuration de l’approbation de forêt entrante pour le domaine AD DS local.

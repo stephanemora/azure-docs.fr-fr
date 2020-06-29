@@ -3,16 +3,16 @@ title: Introduction
 description: Découvrez les fonctionnalités et les avantages d’Azure VMware Solution (AVS) pour déployer et gérer des charges de travail VMware dans Azure.
 ms.topic: overview
 ms.date: 05/04/2020
-ms.openlocfilehash: e227b6c7c2f25fbf62f11c17dc62293e4fbd5267
-ms.sourcegitcommit: d9cd51c3a7ac46f256db575c1dfe1303b6460d04
+ms.openlocfilehash: 9e3ab0abfdaa613a08675356bc5b01949e0381ae
+ms.sourcegitcommit: 4ac596f284a239a9b3d8ed42f89ed546290f4128
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/04/2020
-ms.locfileid: "82740990"
+ms.lasthandoff: 06/12/2020
+ms.locfileid: "84749673"
 ---
 # <a name="what-is-azure-vmware-solution-avs-preview"></a>Qu’est-ce qu’Azure VMware Solution (AVS) Preview ?
 
-Azure VMware Solution (AVS) offre des clouds privés dans Azure. Les clouds privés contiennent des clusters vSphere, générés à partir d’une infrastructure Azure complète dédiée. Vous pouvez mettre à l’échelle des clusters de cloud privé de trois à 16 hôtes, avec la possibilité d’avoir plusieurs clusters dans un même cloud privé. Tous les clouds privés sont provisionnés avec vCenter Server, VSAN, vSphere et NSX-T. Vous pouvez migrer des charges de travail à partir de vos environnements locaux, créer ou déployer de nouvelles machines virtuelles, et consommer des services Azure à partir de vos clouds privés.
+Azure VMware Solution (AVS) offre des clouds privés dans Azure. Les clouds privés contiennent des clusters vSphere, générés à partir d’une infrastructure Azure complète dédiée. Vous pouvez mettre à l’échelle des clusters de cloud privé de trois à 16 hôtes, avec la possibilité d’avoir plusieurs clusters dans un même cloud privé. Tous les clouds privés sont provisionnés avec vCenter Server, vSAN, vSphere et NSX-T. Vous pouvez migrer des charges de travail à partir de vos environnements locaux, créer ou déployer de nouvelles machines virtuelles, et consommer des services Azure à partir de vos clouds privés.
 
 AVS est une solution validée VMware, avec validation et tests continus des améliorations et mises à niveau. L’infrastructure et les logiciels de cloud privé sont managés et tenus à jour par Microsoft, ce qui vous permet de vous concentrer sur le développement et l’exécution de charges de travail dans vos clouds privés.
 

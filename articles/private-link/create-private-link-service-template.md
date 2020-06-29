@@ -1,30 +1,31 @@
 ---
-title: Modèle Resource Manager de service Azure Private Link
-description: Modèle Resource Manager de service de liaison privée
+title: Créer un service de liaison privée dans Azure Private Link
+description: Dans ce guide de démarrage rapide, vous utilisez un modèle Azure Resource Manager pour créer un service de liaison privée.
 services: private-link
 author: mblanco77
 ms.service: private-link
-ms.topic: article
+ms.topic: quickstart
+ms.custom: subject-armqs
 ms.date: 05/29/2020
 ms.author: allensu
-ms.openlocfilehash: 93a66057ddb0034f7ac9ac62578292ca38f2d2fe
-ms.sourcegitcommit: f1132db5c8ad5a0f2193d751e341e1cd31989854
+ms.openlocfilehash: c9ed628501e8fa02b816a1564b91620404dfc379
+ms.sourcegitcommit: 1383842d1ea4044e1e90bd3ca8a7dc9f1b439a54
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/31/2020
-ms.locfileid: "84236408"
+ms.lasthandoff: 06/16/2020
+ms.locfileid: "84817617"
 ---
-# <a name="create-a-private-link-service---resource-manager-template"></a>Créer un service de liaison privée – Modèle Resource Manager
+# <a name="quickstart-create-a-private-link-service-by-using-an-azure-resource-manager-template"></a>Démarrage rapide : Créer un service de liaison privée à l’aide d’un modèle Azure Resource Manager
 
-Dans ce guide de démarrage rapide, vous allez utiliser un modèle Resource Manager pour créer un service de liaison privée.
+Dans ce guide de démarrage rapide, vous utilisez un modèle Azure Resource Manager pour créer un service de liaison privée.
 
 [!INCLUDE [About Azure Resource Manager](../../includes/resource-manager-quickstart-introduction.md)]
 
-Vous pouvez également suivre ce guide de démarrage rapide en utilisant le [portail Azure](create-private-link-service-portal.md), [Azure PowerShell](create-private-link-service-powershell.md) ou [Azure CLI](create-private-link-service-cli.md).
+Vous pouvez également suivre ce guide de démarrage rapide en utilisant le [Portail Azure](create-private-link-service-portal.md), [Azure PowerShell](create-private-link-service-powershell.md) ou l’interface [Azure CLI](create-private-link-service-cli.md).
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisite"></a>Configuration requise
 
-- Compte Azure avec un abonnement actif. [Créez un compte gratuitement](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
+Vous devez avoir un compte Azure avec un abonnement actif. [Créez un compte gratuitement](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 
 ## <a name="create-a-private-link-service"></a>Créer un service Private Link
 
@@ -32,37 +33,37 @@ Ce modèle crée un service de liaison privée.
 
 ### <a name="review-the-template"></a>Vérifier le modèle
 
-Le modèle utilisé dans ce guide de démarrage rapide est tiré des [modèles de démarrage rapide Azure](https://github.com/Azure/azure-quickstart-templates/blob/master/101-privatelink-service/azuredeploy.json).
+Le modèle utilisé dans ce démarrage rapide est tiré des [modèles de démarrage rapide Azure](https://azure.microsoft.com/resources/templates/).
 
 :::code language="json" source="~/quickstart-templates/101-privatelink-service/azuredeploy.json" range="001-432" highlight="263-289":::
 
 Plusieurs ressources Azure sont définies dans le modèle :
 
-- [**Microsoft.Network/privateLinkServices**](/azure/templates/microsoft.network/privateLinkServices) : service de liaison privée pour exposer en privé le service
-- [**Microsoft.Network/privateendpoints**](/azure/templates/microsoft.network/privateendpoints) : point de terminaison privé pour accéder au service en privé
-- [**Microsoft.Network/loadBalancers**](/azure/templates/microsoft.network/loadBalancers) : équilibreur de charge qui expose les machines virtuelles qui hébergent le service
-- [**Microsoft.Compute/virtualMachines**](/azure/templates/microsoft.compute/virtualmachines) : deux machines virtuelles, une qui héberge le service et l’autre pour tester la connexion au point de terminaison privé
-- [**Microsoft.Compute/virtualMachines/extensions**](/azure/templates/Microsoft.Compute/virtualMachines/extensions) : extension qui installe le serveur web
-- [**Microsoft.Network/virtualNetworks**](/azure/templates/microsoft.network/virtualnetworks) : une pour chaque machine virtuelle
-- [**Microsoft.Network/publicIpAddresses**](/azure/templates/microsoft.network/publicIpAddresses) : deux IP publiques, une pour chaque machine virtuelle
-- [**Microsoft.Network/networkInterfaces**](/azure/templates/microsoft.network/networkinterfaces) : deux interfaces réseau, une pour chaque machine virtuelle
+- [**Microsoft.Network/virtualNetworks**](/azure/templates/microsoft.network/virtualnetworks) : Il y a un réseau virtuel pour chaque machine virtuelle.
+- [**Microsoft.Network/loadBalancers**](/azure/templates/microsoft.network/loadBalancers) : l’équilibreur de charge qui expose les machines virtuelles hébergeant le service.
+- [**Microsoft.Network/networkInterfaces**](/azure/templates/microsoft.network/networkinterfaces) : il y a deux interfaces réseau, une pour chaque machine virtuelle.
+- [**Microsoft.Compute/virtualMachines**](/azure/templates/microsoft.compute/virtualmachines) : il y a deux machines virtuelles, une qui héberge le service et une autre qui teste la connexion au point de terminaison privé.
+- [**Microsoft.Compute/virtualMachines/extensions**](/azure/templates/Microsoft.Compute/virtualMachines/extensions) : l’extension qui installe un serveur web.
+- [**Microsoft.Network/privateLinkServices**](/azure/templates/microsoft.network/privateLinkServices) : le service de liaison privée pour exposer le service.
+- [**Microsoft.Network/publicIpAddresses**](/azure/templates/microsoft.network/publicIpAddresses) : il y a deux adresses IP publiques, une pour chaque machine virtuelle.
+- [**Microsoft.Network/privateendpoints**](/azure/templates/microsoft.network/privateendpoints) : le point de terminaison privé pour accéder au service.
 
 ### <a name="deploy-the-template"></a>Déployer le modèle
 
-Déployez le modèle Resource Manager sur Azure :
+Voici comment déployer le modèle Azure Resource Manager sur Azure :
 
-1. Sélectionnez **Déployer sur Azure** pour vous connecter à Azure et ouvrir le modèle. Le modèle crée une machine virtuelle, un équilibreur de charge standard, un service de liaison privée, un point de terminaison privé, une mise en réseau et une machine virtuelle à valider.
+1. Pour vous connecter à Azure et ouvrir le modèle, sélectionnez **Déployer sur Azure**. Le modèle crée une machine virtuelle, un équilibreur de charge standard, un service de liaison privée, un point de terminaison privé, un réseau et une machine virtuelle à valider.
 
-   [![Déployer sur Azure](../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-privatelink-service%2Fazuredeploy.json)
+   [![Déployer sur Azure](../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-private-endpoint-sql%2Fazuredeploy.json)
 
 2. Sélectionnez ou créez votre groupe de ressources.
 3. Saisissez le nom d’utilisateur et le mot de passe administrateur de la machine virtuelle.
-4. Sélectionnez **J’accepte les conditions générales mentionnées ci-dessus**, puis **Acheter**.
+4. Lisez la déclaration des conditions générales. Si vous acceptez, sélectionnez **J’accepte les termes et conditions mentionnés ci-dessus** > **Acheter**.
 
 ## <a name="validate-the-deployment"></a>Valider le déploiement
 
 > [!NOTE]
-> Le modèle Resource Manager génère un nom unique pour la machine virtuelle myConsumerVm<b>{uniqueid}</b> (remplacez <b>{uniqueid}</b> par la valeur générée).
+> Le modèle Azure Resource Manager génère un nom unique pour la machine virtuelle myConsumerVm<b>{uniqueid}</b>. Remplacez la valeur générée pour **{uniqueid}** .
 
 ### <a name="connect-to-a-vm-from-the-internet"></a>Se connecter à une machine virtuelle à partir d’Internet
 
@@ -70,31 +71,31 @@ Connectez-vous à la machine virtuelle _myConsumerVm{uniqueid}_ via Internet com
 
 1.  Dans la barre de recherche du portail, saisissez _myConsumerVm{uniqueid}_ .
 
-2.  Sélectionnez le bouton **Connexion**. Après avoir sélectionné le bouton **Connecter**, **Se connecter à la machine virtuelle** s’ouvre.
+2.  Sélectionnez **Connecter**. **Se connecter à une machine virtuelle** s’ouvre.
 
 3.  Sélectionnez **Télécharger le fichier RDP**. Azure crée un fichier de protocole RDP (Remote Desktop Protocol) ( _.rdp_) et le télécharge sur votre ordinateur.
 
-4.  Ouvrez le fichier downloaded.rdp\*.
+4.  Ouvrez le fichier .rdp téléchargé.
 
     a. Si vous y êtes invité, sélectionnez **Connexion**.
 
-    b. Entrez le nom d’utilisateur et le mot de passe spécifiés lors de la création de la machine virtuelle.
+    b. Entrez le nom d’utilisateur et le mot de passe spécifiés quand vous avez créé la machine virtuelle.
     
     > [!NOTE]
-    > Vous devrez peut-être sélectionner **Plus de choix** > **Utiliser un autre compte**, pour spécifier les informations d’identification que vous avez entrées lorsque vous avez créé la machine virtuelle.
+    > Vous devrez peut-être sélectionner **Plus de choix** > **Utiliser un autre compte** pour spécifier les informations d’identification que vous avez entrées lors de la création de la machine virtuelle.
 
 5.  Sélectionnez **OK**.
 
 6.  Un avertissement de certificat peut s’afficher pendant le processus de connexion. Si vous recevez un avertissement de certificat, sélectionnez **Oui** ou **Continuer**.
 
-7.  Une fois que le bureau de la machine virtuelle s’affiche, réduisez-le pour revenir à votre poste de travail local.
+7.  Quand le bureau de la machine virtuelle s’affiche, réduisez-le pour revenir à votre bureau local.
 
 ### <a name="access-the-http-service-privately-from-the-vm"></a>Accéder au service http en privé à partir de la machine virtuelle
 
-Dans cette section, vous allez vous connecter au service http à partir de la machine virtuelle à l’aide du point de terminaison privé.
+Voici comment vous connecter au service http à partir de la machine virtuelle en utilisant le point de terminaison privé.
 
-1.  Accédez au Bureau à distance de _myConsumerVm{uniqueid}_ .
-2.  Ouvrez un navigateur et entrez l’adresse du point de terminaison privé http://10.0.0.5/.
+1.  Accédez au Bureau à distance de la machine virtuelle _myConsumerVm{uniqueid}_ .
+2.  Ouvrez un navigateur et entrez l’adresse du point de terminaison privé : http://10.0.0.5/.
 3.  La page IIS par défaut s’affiche.
 
 ## <a name="clean-up-resources"></a>Nettoyer les ressources
@@ -109,4 +110,4 @@ Remove-AzResourceGroup -Name <your resource group name>
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-- En savoir plus sur [Azure Private Link](private-link-overview.md)
+En savoir plus sur [Azure Private Link](private-link-overview.md).

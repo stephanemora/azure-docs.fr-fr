@@ -10,12 +10,12 @@ ms.custom: mvc
 ms.topic: tutorial
 ms.date: 06/15/2018
 ms.author: apimpm
-ms.openlocfilehash: bee93cf84f4beda0684127102942447630219881
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 989608b9a087599ab73864ae2605fbffcf3221d9
+ms.sourcegitcommit: 55b2bbbd47809b98c50709256885998af8b7d0c5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "82128840"
+ms.lasthandoff: 06/18/2020
+ms.locfileid: "84982048"
 ---
 # <a name="monitor-published-apis"></a>Surveiller les API publiées
 
@@ -43,14 +43,13 @@ La vidéo suivante montre comment surveiller la gestion des API à l’aide d’
 
 ## <a name="view-metrics-of-your-apis"></a>Afficher les métriques de vos API
 
-Le service Gestion des API émet des métriques chaque minute, pour une visibilité en quasi temps réel de l’intégrité de vos API. Voici un récapitulatif d’une partie des métriques disponibles :
+Le service Gestion des API émet des métriques chaque minute, pour une visibilité en quasi temps réel de l’intégrité de vos API. Vous trouverez ci-dessous les deux métriques les plus fréquemment utilisées. Pour obtenir la liste de toutes les métriques disponibles, consultez [Métriques prises en charge](https://docs.microsoft.com/azure/azure-monitor/platform/metrics-supported#microsoftapimanagementservice).
 
-* Fonctionnalité : vous aide à prendre des décisions concernant la mise à niveau/le passage à une version antérieure de vos services APIM. La métrique est émise chaque minute et reflète la capacité de la passerelle au moment de la création de rapports. Le calcul de cette métrique, dont la valeur est comprise entre 0 et 100, repose sur les ressources de la passerelle, telles que l’utilisation du processeur et de la mémoire.
-* Nombre total de demandes de passerelle : le nombre de requêtes d’API dans la période. 
-* Demandes de la passerelle ayant abouti : le nombre de requêtes d’API ayant reçu des codes de réponse HTTP de succès, dont 304, 307 et toute valeur inférieure à 301 (par exemple, 200).
-* Demandes de la passerelle ayant échoué : le nombre de requêtes d’API ayant reçu des codes de réponse HTTP d’échec, dont 400 et toute valeur supérieure à 500.
-* Demandes de la passerelle non autorisées : le nombre de requêtes d’API ayant reçu des codes de réponse HTTP comprenant 401, 403 et 429.
-* Autres demandes de la passerelle : le nombre de requêtes d’API ayant reçu des codes de réponse qui n’appartiennent à aucune des catégories précédentes (par exemple, 418).
+* Capacité : vous aide à prendre des décisions concernant la mise à niveau/le passage à une version antérieure de vos services APIM. La métrique est émise chaque minute et reflète la capacité de la passerelle au moment de la création de rapports. Le calcul de cette métrique, dont la valeur est comprise entre 0 et 100, repose sur les ressources de la passerelle, telles que l’utilisation du processeur et de la mémoire.
+* Demandes : vous aide à analyser le trafic d’API transitant par vos services APIM. La métrique est émise par minute, et indique le nombre de demandes de passerelle avec des dimensions, y compris les codes de réponse, l’emplacement, le nom d’hôte et les erreurs. 
+
+> [!IMPORTANT]
+> Les métriques suivantes sont dépréciées à compter du mois de mai 2019, et seront supprimées en août 2023 : Nombre total de demandes de la passerelle, Demandes de la passerelle ayant abouti, Demandes de la passerelle non autorisées, Demandes de la passerelle ayant échoué, Autres demandes de la passerelle. Effectuez une migration vers la métrique Demandes, qui fournit des fonctionnalités équivalentes.
 
 ![graphique des métriques](./media/api-management-azure-monitor/apim-monitor-metrics.png)
 
@@ -60,9 +59,9 @@ Pour accéder aux métriques :
 
     ![Mesures](./media/api-management-azure-monitor/api-management-metrics-blade.png)
 
-1. Dans la liste déroulante, sélectionner les métriques qui vous intéressent. Par exemple, **Demandes**. 
-1. Le graphique affiche le nombre total d’appels d’API.
-1. Le graphique peut être filtré à l’aide des dimensions de la métrique **Requêtes**. Par exemple, cliquez sur **Ajouter un filtre**, choisissez **Code de réponse de back-end**, entrez 500 comme valeur. À présent, le graphique montre le nombre de requêtes qui ont échoué dans le back-end d’API.   
+2. Dans la liste déroulante, sélectionner les métriques qui vous intéressent. Par exemple, **Demandes**. 
+3. Le graphique affiche le nombre total d’appels d’API.
+4. Le graphique peut être filtré à l’aide des dimensions de la métrique **Requêtes**. Par exemple, cliquez sur **Ajouter un filtre**, choisissez **Code de réponse de back-end**, entrez 500 comme valeur. À présent, le graphique montre le nombre de requêtes qui ont échoué dans le back-end d’API.   
 
 ## <a name="set-up-an-alert-rule-for-unauthorized-request"></a>Configurer une règle d’alerte pour une demande non autorisée
 

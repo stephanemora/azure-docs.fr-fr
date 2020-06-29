@@ -7,12 +7,12 @@ ms.service: cost-management-billing
 ms.topic: conceptual
 ms.date: 06/01/2020
 ms.author: banders
-ms.openlocfilehash: 15c686e0d33d7341d16097f32e1c69077c319a12
-ms.sourcegitcommit: d118ad4fb2b66c759b70d4d8a18e6368760da3ad
+ms.openlocfilehash: e38271b3a56894380ca5456146a7ab36fb09e08c
+ms.sourcegitcommit: f01c2142af7e90679f4c6b60d03ea16b4abf1b97
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/02/2020
-ms.locfileid: "84295301"
+ms.lasthandoff: 06/10/2020
+ms.locfileid: "84678016"
 ---
 # <a name="managing-azure-enterprise-roles"></a>Gestion des rôles Azure Enterprise
 
@@ -27,6 +27,10 @@ Pour faciliter la gestion de l’utilisation et des dépenses d’une organisati
 <sup>1</sup> Le contact de facturation du contrat EA sera sous ce rôle.
 
 <sup>2</sup> Le contact de facturation ne peut pas être ajouté ou modifié sur le portail Azure Enterprise Portal et sera ajouté à l’inscription EA en fonction de l’utilisateur qui est configuré en tant que contact de facturation au niveau du contrat. Pour modifier le contact de facturation, une demande doit être effectuée par l’intermédiaire d’un conseiller partenaire/logiciel auprès du centre régional des opérations (ROC).
+
+Le premier administrateur d’inscription configuré pendant le provisionnement de l’inscription détermine le type d’authentification du compte de contact de facturation. Quand le contact de facturation est ajouté au portail EA en tant qu’administrateur en lecture seule, il reçoit l’authentification de compte Microsoft. 
+
+Par exemple, si le type d’authentification initiale est défini sur Mixte, le Contrat Entreprise sera ajouté en tant que compte Microsoft et le contact de facturation aura des privilèges d’administrateur Contrat Entreprise en lecture seule. Si l’administrateur Contrat Entreprise n’approuve pas l’autorisation de compte Microsoft pour un contact de facturation existant, il peut supprimer l’utilisateur en question et demander au client de rajouter l’utilisateur en tant qu’administrateur en lecture seule avec un compte professionnel ou scolaire défini uniquement au niveau de l’inscription dans le portail EA.
 
 Ces rôles sont spécifiques à la gestion des Contrats Entreprise Azure et s’ajoutent aux rôles intégrés dont Azure doit contrôler l’accès aux ressources. Pour plus d’informations, consultez [Rôles intégrés pour les ressources Azure](../../role-based-access-control/built-in-roles.md).
 

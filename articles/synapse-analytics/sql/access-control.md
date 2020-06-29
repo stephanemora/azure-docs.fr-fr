@@ -9,12 +9,12 @@ ms.subservice: ''
 ms.date: 04/15/2020
 ms.author: v-stazar
 ms.reviewer: jrasnick
-ms.openlocfilehash: 555e4bf9dfa2318796cde124d07867d09adc229d
-ms.sourcegitcommit: 69156ae3c1e22cc570dda7f7234145c8226cc162
+ms.openlocfilehash: e5db52d1e28a7db5594b3b2a16bc145d0a50e2e3
+ms.sourcegitcommit: bc943dc048d9ab98caf4706b022eb5c6421ec459
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/03/2020
-ms.locfileid: "84310255"
+ms.lasthandoff: 06/14/2020
+ms.locfileid: "84765078"
 ---
 # <a name="manage-access-to-workspaces-data-and-pipelines"></a>Gérer l’accès aux espaces de travail, aux données et aux pipelines
 
@@ -169,14 +169,7 @@ Pour accorder à un utilisateur l’accès à une base de données SQL **unique*
 > *db_datareader* et *db_datawriter* peuvent fonctionner avec les autorisations en lecture/écriture si vous ne souhaitez pas accorder l’autorisation *db_owner*.
 > Pour qu’un utilisateur Spark puisse lire et écrire directement à partir de Spark dans un pool SQL (et vice versa), l’autorisation *db_owner* est nécessaire.
 
-Après avoir créé les utilisateurs, vérifiez que SQL à la demande peut interroger le compte de stockage :
-
-- Exécutez la commande suivante qui cible la base de données **master** de SQL à la demande :
-
-    ```sql
-    CREATE CREDENTIAL [https://<storageaccountname>.dfs.core.windows.net]
-    WITH IDENTITY='User Identity';
-    ```
+Après avoir créé les utilisateurs, vérifiez que SQL à la demande peut interroger le compte de stockage.
 
 ## <a name="access-control-to-workspace-pipeline-runs"></a>Contrôle d’accès aux exécutions de pipelines de l’espace de travail
 

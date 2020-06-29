@@ -1,14 +1,14 @@
 ---
 title: Présentation de la stratégie Azure
 description: Azure Policy est un service dans Azure, que vous utilisez pour créer, affecter et gérer les définitions de stratégie dans votre environnement Azure.
-ms.date: 04/21/2020
+ms.date: 06/17/2020
 ms.topic: overview
-ms.openlocfilehash: 4ec09c8a38e22fc14980422bfe9a80a2bf3edda4
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: e204a4eeff547877a48789eba6f1b8cac017d08e
+ms.sourcegitcommit: 51977b63624dfd3b4f22fb9fe68761d26eed6824
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "82097368"
+ms.lasthandoff: 06/17/2020
+ms.locfileid: "84944659"
 ---
 # <a name="what-is-azure-policy"></a>Présentation d’Azure Policy
 
@@ -145,7 +145,7 @@ Comme les paramètres de stratégie, les paramètres d’initiative permettent d
 
 Par exemple, imaginons un scénario où vous avez une définition d’initiative (**initiativeC**) avec les définitions de stratégie **policyA** et **policyB**, et chacune des définitions de stratégie attend un type de paramètre différent :
 
-| Stratégie | Nom de paramètre |Type de paramètre  |Remarque |
+| Policy | Nom de paramètre |Type de paramètre  |Remarque |
 |---|---|---|---|
 | policyA | allowedLocations | tableau  |Ce paramètre attend une liste de chaînes pour une valeur, le type de paramètre ayant été défini comme tableau |
 | policyB | allowedSingleLocation |string |Ce paramètre attend un mot pour une valeur, le type de paramètre ayant été défini comme chaîne |
@@ -158,6 +158,8 @@ Dans ce scénario, quand vous définissez les paramètres d’initiative pour **
 
 Lorsque vous créez des options de valeur dans une définition d’initiative, vous ne pouvez pas entrer de valeur différente lors de l’affectation d’initiative, car elle ne fait pas partie de la liste.
 
+Pour en savoir plus sur les structures des définitions d’initiative, passez en revue [structure des définitions d’initiative](./concepts/initiative-definition-structure.md).
+
 ### <a name="assignments"></a>Attributions
 
 Une affectation est une initiative ou définition de stratégie qui a été affectée avec une étendue spécifique. Cette étendue peut aller d’un [groupe d’administration](../management-groups/overview.md) à une ressource individuelle. Le terme _étendue_ désigne l’ensemble des ressources, groupes de ressources, abonnements ou groupes d’administration auxquels la définition est affectée. Toutes les ressources enfants héritent des affectations. Grâce à cette structure, si une définition est appliquée à un groupe de ressources, elle est également appliquée à toutes les ressources de ce groupe. Toutefois, vous pouvez exclure une sous-étendue de l’affectation.
@@ -166,7 +168,7 @@ Par exemple, dans l’étendue de l’abonnement, vous pouvez affecter une défi
 
 Dans un autre exemple, vous souhaiterez peut-être affecter une définition de liste d’autorisation de type de ressource au niveau du groupe d’administration. Ensuite, vous affecterez une stratégie plus permissive (autorisant plus de types de ressources) à un groupe d’administration enfant ou même directement aux abonnements. Toutefois, cet exemple ne fonctionnera pas, car Azure Policy est un système de refus explicite. Au lieu de cela, vous devez exclure le groupe d’administration enfant ou l’abonnement de l’affectation au niveau du groupe d’administration. Affectez ensuite la définition plus permissive au niveau du groupe d’administration enfant ou de l’abonnement. Si une affectation se traduit par le refus d’une ressource, alors la seule façon d’autoriser la ressource consiste à modifier l’affectation de refus.
 
-Pour plus d’informations sur les affectations par le biais du portail, consultez [Créer une affectation de stratégie pour identifier les ressources non conformes dans votre environnement Azure](assign-policy-portal.md). Les étapes pour [PowerShell](assign-policy-powershell.md) et [Azure CLI](assign-policy-azurecli.md) sont également disponibles.
+Pour plus d’informations sur les affectations par le biais du portail, consultez [Créer une affectation de stratégie pour identifier les ressources non conformes dans votre environnement Azure](./assign-policy-portal.md). Les étapes pour [PowerShell](./assign-policy-powershell.md) et [Azure CLI](./assign-policy-azurecli.md) sont également disponibles. Pour plus d’informations sur la structure des affectations, consultez [Structure des affectations](./concepts/assignment-structure.md).
 
 ## <a name="maximum-count-of-azure-policy-objects"></a>Nombre maximal d’objets Azure Policy
 

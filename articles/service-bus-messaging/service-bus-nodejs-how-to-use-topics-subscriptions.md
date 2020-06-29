@@ -14,12 +14,12 @@ ms.devlang: nodejs
 ms.topic: quickstart
 ms.date: 01/16/2020
 ms.author: aschhab
-ms.openlocfilehash: c85b63b4a56e74b0fef9a122ec995b4106496cbe
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.openlocfilehash: 91fae982f53af8da359baaff685996c0d1cb57c2
+ms.sourcegitcommit: 9bfd94307c21d5a0c08fe675b566b1f67d0c642d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "78330444"
+ms.lasthandoff: 06/17/2020
+ms.locfileid: "84976555"
 ---
 # <a name="quickstart-how-to-use-service-bus-topics-and-subscriptions-with-nodejs-and-the-azure-sb-package"></a>Démarrage rapide : Utilisation des rubriques et abonnements Service Bus avec Node.js et le package azure-sb
 Dans ce tutoriel, vous allez apprendre à créer des applications Node.js à envoyer des messages à une rubrique Service Bus et recevoir des messages à partir d’un abonnement Service Bus à l’aide du package [azure-sb](https://www.npmjs.com/package/azure-sb). Les exemples sont écrits en JavaScript et utilisent le [module Azure Node.js](https://www.npmjs.com/package/azure), qui utilise en interne le package `azure-sb`.
@@ -80,7 +80,7 @@ var azure = require('azure');
 ```
 
 ### <a name="set-up-a-service-bus-connection"></a>Configuration d’une connexion Service Bus
-Le module Azure lit la variable d’environnement `AZURE_SERVICEBUS_CONNECTION_STRING` pour la chaîne de connexion que vous avez obtenue à l’étape précédente, « Obtenir les informations d’identification ». Si cette variable d’environnement n’est pas définie, vous devez spécifier les informations de compte lors de l’appel de `createServiceBusService`.
+Le module Azure lit la variable d’environnement `AZURE_SERVICEBUS_CONNECTION_STRING` pour la chaîne de connexion que vous avez obtenue dans le cadre des [prérequis](#prerequisites). Si vous avez besoin d’instructions pour obtenir à nouveau la chaîne de connexion, consultez [Obtenir la chaîne de connexion](service-bus-quickstart-topics-subscriptions-portal.md#get-the-connection-string). Si cette variable d’environnement n’est pas définie, vous devez spécifier les informations de compte lors de l’appel de `createServiceBusService`.
 
 Pour obtenir un exemple de paramétrage des variables d’environnement pour un service cloud Azure, consultez [Définir des variables d’environnement](../container-instances/container-instances-environment-variables.md#azure-cli-example).
 

@@ -8,16 +8,16 @@ ms.service: hdinsight
 ms.topic: overview
 ms.custom: seoapr2020
 ms.date: 04/20/2020
-ms.openlocfilehash: 94823445e4f8e3f8d40a219dc23b40f8a5c267c6
-ms.sourcegitcommit: fc718cc1078594819e8ed640b6ee4bef39e91f7f
+ms.openlocfilehash: 65df89aff0232d7bf9809cdffc4262d1a640a5a1
+ms.sourcegitcommit: 99d016949595c818fdee920754618d22ffa1cd49
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "83996310"
+ms.lasthandoff: 06/15/2020
+ms.locfileid: "84771119"
 ---
 # <a name="overview-of-enterprise-security-in-azure-hdinsight"></a>Vue d’ensemble de la sécurité d’entreprise dans Azure HDInsight
 
-Azure HDInsight propose un certain nombre de méthodes pour répondre aux besoins de votre entreprise en matière de sécurité. La plupart de ces solutions ne sont pas activées par défaut. Cette flexibilité vous permet de choisir les fonctionnalités de sécurité les plus importantes à vos yeux, et vous aide à éviter de payer pour des fonctionnalités dont vous n’avez pas besoin. Cette flexibilité signifie également qu’il est de votre responsabilité de vérifier que les solutions appropriées sont activées pour votre installation et votre environnement.
+Azure HDInsight propose un certain nombre de méthodes pour répondre aux besoins de votre entreprise en matière de sécurité. La plupart de ces solutions ne sont pas activées par défaut. Cette flexibilité vous permet de choisir les fonctionnalités de sécurité les plus importantes pour vous, et vous aide à éviter de payer pour des fonctionnalités dont vous n’avez pas besoin. Cette flexibilité signifie également qu’il est de votre responsabilité de vérifier que les solutions appropriées sont activées pour votre installation et votre environnement.
 
 Cet article aborde les solutions de sécurité du point de vue des quatre piliers de sécurité classiques : la sécurité du périmètre, l’authentification, l’autorisation et le chiffrement.
 
@@ -53,7 +53,7 @@ L’audit de l’accès aux ressources de cluster est nécessaire pour effectuer
 
 L’administrateur peut afficher et signaler tout accès aux données et aux ressources du cluster HDInsight. L’administrateur peut afficher et signaler les modifications des stratégies de contrôle d’accès.
 
-Pour accéder aux journaux d’audit Apache Ranger et Ambari, ainsi qu’aux journaux d’accès SSH, [activez Azure Monitor](../hdinsight-hadoop-oms-log-analytics-tutorial.md#cluster-auditing) et affichez les tables qui fournissent des enregistrements d’audit.
+Pour accéder aux journaux d’audit Apache Ranger et Ambari, et aux journaux d’accès SSH, [activez Azure Monitor](../hdinsight-hadoop-oms-log-analytics-tutorial.md#cluster-auditing), puis affichez les tables qui fournissent des enregistrements d’audit.
 
 ### <a name="encryption"></a>Chiffrement
 

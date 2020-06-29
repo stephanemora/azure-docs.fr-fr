@@ -4,12 +4,12 @@ description: Déployez votre premier conteneur Windows personnalisé dans Azure 
 ms.topic: quickstart
 ms.date: 08/30/2019
 ms.custom: mvc, seodec18
-ms.openlocfilehash: cd6b78e5fd824cc013cc946d23677237923f485e
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.openlocfilehash: 44ade8b0b218f028cf6f211e37824ffc43a191ac
+ms.sourcegitcommit: bc943dc048d9ab98caf4706b022eb5c6421ec459
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "80047119"
+ms.lasthandoff: 06/14/2020
+ms.locfileid: "84764075"
 ---
 # <a name="run-a-custom-windows-container-in-azure-preview"></a>Exécuter un conteneur Windows personnalisé dans Azure (préversion)
 
@@ -37,7 +37,7 @@ Créez une application web ASP.NET en effectuant les étapes suivantes :
 
 1. Dans **Créer un projet**, recherchez et choisissez une **application web ASP.NET (.NET Framework)** pour C#, puis sélectionnez **Suivant**.
 
-1. Dans **Configurer votre nouveau projet**, nommez l’application _myFirstAzureWebApp_, puis sélectionnez **Create (Créer)** .
+1. Dans **Configurer votre nouveau projet**, nommez l’application _myfirstazurewebapp_, puis sélectionnez **Créer**.
 
    ![Configurer votre projet d’application web](./media/app-service-web-get-started-windows-container/configure-web-app-project-container.png)
 
@@ -61,7 +61,7 @@ Créez une application web ASP.NET en effectuant les étapes suivantes :
 
 ## <a name="publish-to-docker-hub"></a>Publier sur Docker Hub
 
-1. Dans l’**Explorateur de solutions**, cliquez avec le bouton droit sur le projet **myFirstAzureWebApp**, puis sélectionnez **Publier**.
+1. Dans l’**Explorateur de solutions**, cliquez avec le bouton droit sur le projet **myfirstazurewebapp**, puis sélectionnez **Publier**.
 
 1. Choisissez **App Service**, puis sélectionnez **Publier**.
 
@@ -121,7 +121,7 @@ Attendez quelques minutes et réessayez, jusqu'à accéder à la page d’accuei
 
 ## <a name="see-container-start-up-logs"></a>Consulter les journaux d’activité de démarrage du conteneur
 
-Le chargement du conteneur Windows peut prendre un certain temps. Pour afficher la progression, accédez à l’URL suivante en remplaçant *\<app_name >* par le nom de votre application.
+Le chargement du conteneur Windows peut prendre un certain temps. Pour afficher la progression, accédez à l’URL suivante en remplaçant *\<app_name>* par le nom de votre application.
 ```
 https://<app_name>.scm.azurewebsites.net/api/logstream
 ```
@@ -149,7 +149,7 @@ Les journaux d’activité en continu ressemblent à ceci :
    </div>
    ```
 
-1. Pour effectuer un redéploiement sur Azure, cliquez avec le bouton droit sur le projet **myFirstAzureWebApp** dans l’**Explorateur de solutions**, puis choisissez **Publier**.
+1. Pour effectuer un redéploiement sur Azure, cliquez avec le bouton droit sur le projet **myfirstazurewebapp** dans l’**Explorateur de solutions**, puis choisissez **Publier**.
 
 1. Dans la page de publication, sélectionnez **Publier** et attendez la fin de la publication.
 

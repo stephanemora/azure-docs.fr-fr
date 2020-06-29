@@ -1,16 +1,16 @@
 ---
 title: 'Tutoriel : ASP.NET Core avec SQL Database'
-description: Découvrez comment faire fonctionner une application .NET Core dans Azure App Service en établissant une connexion à SQL Database.
+description: Découvrez comment faire fonctionner une application .NET Core dans Azure App Service en établissant une connexion avec une instance SQL Database.
 ms.devlang: dotnet
 ms.topic: tutorial
-ms.date: 04/23/2020
+ms.date: 05/27/2020
 ms.custom: mvc, cli-validate, seodec18
-ms.openlocfilehash: 4b5c78313eddd50441dbd47f556d2dbef03feefc
-ms.sourcegitcommit: 69156ae3c1e22cc570dda7f7234145c8226cc162
+ms.openlocfilehash: c020e49b12784e628661bff61fe344df0ac6049a
+ms.sourcegitcommit: 34eb5e4d303800d3b31b00b361523ccd9eeff0ab
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/03/2020
-ms.locfileid: "84310374"
+ms.lasthandoff: 06/17/2020
+ms.locfileid: "84905984"
 ---
 # <a name="tutorial-build-an-aspnet-core-and-sql-database-app-in-azure-app-service"></a>Tutoriel : Générer une application ASP.NET Core et SQL Database dans Azure App Service
 
@@ -18,20 +18,19 @@ ms.locfileid: "84310374"
 > Cet article explique comment déployer une application sur App Service sous Windows. Pour déployer sur App Service sur _Linux_, consultez [Créer une application .NET Core et SQL Database dans Azure App Service sur Linux](./containers/tutorial-dotnetcore-sqldb-app.md).
 >
 
-[App Service](overview.md) offre un service d’hébergement web hautement évolutif appliquant des mises à jour correctives automatiques dans Azure. Ce tutoriel montre comment créer une application .NET Core et comment la connecter à SQL Database. Quand vous avez terminé, vous disposez d’une application MVC .NET Core s’exécutant dans App Service.
+[App Service](overview.md) offre un service d’hébergement web hautement évolutif appliquant des mises à jour correctives automatiques dans Azure. Ce tutoriel montre comment créer une application .NET Core et comment la connecter à une instance SQL Database. Quand vous avez terminé, vous disposez d’une application MVC .NET Core s’exécutant dans App Service.
 
 ![Application exécutée dans App Service](./media/app-service-web-tutorial-dotnetcore-sqldb/azure-app-in-browser.png)
 
 Dans ce tutoriel, vous allez apprendre à :
 
 > [!div class="checklist"]
->
-> * Créer une base de données dans Azure SQL Database.
-> * Connecter une application .NET Core à une instance SQL Database.
-> * Déployer l’application sur Azure.
-> * Mettre à jour le modèle de données et redéployer l’application.
-> * Diffuser des journaux de diagnostic à partir d’Azure.
-> * Gérer l’application dans le portail Azure.
+> * Créer une base de données SQL dans Azure
+> * Connecter une application .NET Core à une instance SQL Database
+> * Déploiement de l’application dans Azure
+> * Mise à jour du modèle de données et redéploiement de l’application
+> * Diffusion des journaux de diagnostic à partir d’Azure
+> * Gérer l’application dans le portail Azure
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
@@ -77,25 +76,28 @@ Pour arrêter .NET Core à tout moment, appuyez sur `Ctrl+C` dans le terminal.
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
-## <a name="create-a-database-in-azure-sql-database"></a>Créer une base de données dans Azure SQL Database.
+## <a name="create-production-sql-database"></a>Création d’une instance SQL Database de production
 
-Lors de cette étape, vous allez créer une base de données dans [Azure SQL Database](/azure/sql-database/). Quand votre application est déployée sur Azure, elle utilise cette base de données.
+Dans cette étape, vous allez créer une instance SQL Database dans Azure. Lorsque votre application est déployée sur Azure, elle utilise cette base de données cloud.
+
+Pour l’instance SQL Database, ce tutoriel utilise [Azure SQL Database](/azure/sql-database/).
 
 ### <a name="create-a-resource-group"></a>Créer un groupe de ressources
 
 [!INCLUDE [Create resource group](../../includes/app-service-web-create-resource-group-no-h.md)]
 
-### <a name="create-a-server-in-azure-sql-database"></a>Créer un serveur dans Azure SQL Database
+### <a name="create-a-sql-database-logical-server"></a>Créer un serveur logique SQL Database
 
-Dans Cloud Shell, créez un [serveur](../azure-sql/database/logical-servers.md) dans Azure SQL Database avec la commande [`az sql server create`](/cli/azure/sql/server?view=azure-cli-latest#az-sql-server-create). Un serveur est une construction logique qui contient un groupe de bases de données gérées en tant que groupe.
+Dans Cloud Shell, créez un serveur logique Azure SQL Database avec la commande [`az sql server create`](/cli/azure/sql/server?view=azure-cli-latest#az-sql-server-create).
 
-Remplacez l’espace réservé *\<server-name>* par un nom *unique*. Ce nom est utilisé dans le point de terminaison global unique de la base de données SQL, `<server-name>.database.windows.net`. Les caractères valides sont `a`-`z`, `0`-`9`, `-`. Remplacez également *\<db-username>* et *\<db-password>* par le nom d’utilisateur et le mot de passe de votre choix.
+Remplacez l’espace réservé *\<server-name>* par un nom SQL Database *unique*. Ce nom est utilisé dans le point de terminaison global unique de la base de données SQL, `<server-name>.database.windows.net`. Les caractères valides sont `a`-`z`, `0`-`9`, `-`. Remplacez également *\<db-username>* et *\<db-password>* par le nom d’utilisateur et le mot de passe de votre choix. 
+
 
 ```azurecli-interactive
 az sql server create --name <server-name> --resource-group myResourceGroup --location "West Europe" --admin-user <db-username> --admin-password <db-password>
 ```
 
-Quand le serveur est créé, Azure CLI affiche des informations similaires à l’exemple suivant :
+Lorsque le serveur logique SQL Database est créé, l’interface Azure CLI affiche des informations similaires à l’exemple suivant :
 
 <pre>
 {
@@ -117,24 +119,25 @@ Quand le serveur est créé, Azure CLI affiche des informations similaires à l
 
 ### <a name="configure-a-server-firewall-rule"></a>Configurer une règle de pare-feu du serveur
 
-Créez une [règle de pare-feu au niveau du serveur](../azure-sql/database/firewall-configure.md) à l’aide de la commande [`az sql server firewall create`](/cli/azure/sql/server/firewall-rule?view=azure-cli-latest#az-sql-server-firewall-rule-create). Lorsque les adresses IP de début et de fin sont définies sur 0.0.0.0, le pare-feu est ouvert uniquement pour les autres ressources Azure.
+Créez une [règle de pare-feu au niveau du serveur Azure SQL Database](../sql-database/sql-database-firewall-configure.md) avec la commande [`az sql server firewall create`](/cli/azure/sql/server/firewall-rule?view=azure-cli-latest#az-sql-server-firewall-rule-create). Lorsque les adresses IP de début et de fin sont définies sur 0.0.0.0, le pare-feu est ouvert uniquement pour les autres ressources Azure. 
 
 ```azurecli-interactive
 az sql server firewall-rule create --resource-group myResourceGroup --server <server-name> --name AllowAzureIps --start-ip-address 0.0.0.0 --end-ip-address 0.0.0.0
 ```
 
-> [!TIP]
+> [!TIP] 
 > Vous pouvez être encore plus restrictif dans votre règle de pare-feu en [choisissant uniquement les adresses IP sortantes que votre application utilise](overview-inbound-outbound-ips.md#find-outbound-ips).
+>
 
 Dans Cloud Shell, réexécutez la commande pour autoriser l’accès à partir de votre ordinateur local en remplaçant *\<your-ip-address>* par [votre adresse IP IPv4 locale](https://www.whatsmyip.org/).
 
 ```azurecli-interactive
-az sql server firewall-rule create --name AllowLocalClient --server <server_name> --resource-group myResourceGroup --start-ip-address=<your-ip-address> --end-ip-address=<your-ip-address>
+az sql server firewall-rule create --name AllowLocalClient --server <mysql_server_name> --resource-group myResourceGroup --start-ip-address=<your-ip-address> --end-ip-address=<your-ip-address>
 ```
 
-### <a name="create-a-database-in-azure-sql-database"></a>Créer une base de données dans Azure SQL Database.
+### <a name="create-a-database"></a>Création d'une base de données
 
-Créez une base de données avec un [niveau de performance S0](../azure-sql/database/service-tiers-dtu.md) sur le serveur avec la commande [`az sql db create`](/cli/azure/sql/db?view=azure-cli-latest#az-sql-db-create).
+Créez une base de données avec un [niveau de performance S0](../sql-database/sql-database-service-tiers-dtu.md) sur le serveur avec la commande [`az sql db create`](/cli/azure/sql/db?view=azure-cli-latest#az-sql-db-create).
 
 ```azurecli-interactive
 az sql db create --resource-group myResourceGroup --server <server-name> --name coreDB --service-objective S0
@@ -145,14 +148,14 @@ az sql db create --resource-group myResourceGroup --server <server-name> --name 
 Obtenez la chaîne de connexion au moyen de la commande [`az sql db show-connection-string`](/cli/azure/sql/db?view=azure-cli-latest#az-sql-db-show-connection-string).
 
 ```azurecli-interactive
-az sql db show-connection-string --client ado.net --server <server-name> --name coreDB
+az sql db show-connection-string --client ado.net --server cephalin-core --name coreDB
 ```
 
 Dans la sortie de la commande, remplacez *\<username>* et *\<password>* par les informations d’identification de l’administrateur de base de données que vous avez utilisées précédemment.
 
 Chaîne de connexion pour votre application .NET Core. Copiez-la pour une utilisation ultérieure.
 
-### <a name="configure-app-to-connect-to-the-database-in-azure"></a>Configurer l’application pour se connecter à la base de données dans Azure
+### <a name="configure-app-to-connect-to-production-database"></a>Configurer l’application pour qu’elle se connecte à la base de données de production
 
 Dans votre référentiel local, ouvrez Startup.cs et recherchez le code suivant :
 
@@ -170,10 +173,11 @@ services.AddDbContext<MyDatabaseContext>(options =>
 
 > [!IMPORTANT]
 > Pour les applications de production qui doivent effectuer un scale-out, suivez les bonnes pratiques dans [Application des migrations en production](/aspnet/core/data/ef-rp/migrations#applying-migrations-in-production).
+> 
 
-### <a name="run-database-migrations-to-the-database-in-azure"></a>Exécuter des migrations de base de données vers la base de données dans Azure
+### <a name="run-database-migrations-to-the-production-database"></a>Exécuter des migrations de base de données vers la base de données de production
 
-Votre application se connecte actuellement à une base de données SQLite locale. Maintenant que vous avez configuré une base de données SQL Azure, recréez la migration initiale pour la cibler.
+Votre application se connecte actuellement à une base de données SQLite locale. Maintenant que vous avez configuré une base de données SQL Azure, recréez la migration initiale pour la cibler. 
 
 À partir de la racine du dépôt, exécutez les commandes suivantes. Remplacez *\<connection-string>* par la chaîne de connexion que vous avez créée.
 
@@ -205,7 +209,7 @@ dotnet run
 
 Dans un navigateur, accédez à `http://localhost:5000`. Sélectionnez le lien **Create New** et créez quelques éléments _to-do_. Votre application, désormais, lit et écrit des données dans la base de données de production.
 
-Validez vos modifications locales, puis validez-les dans le dépôt Git.
+Validez vos modifications locales, puis validez-les dans le dépôt Git. 
 
 ```bash
 git add .
@@ -228,7 +232,7 @@ Dans cette étape, vous déployez votre application .NET Core connectée à SQL 
 
 ### <a name="create-a-web-app"></a>Créer une application web
 
-[!INCLUDE [Create web app](../../includes/app-service-web-create-web-app-dotnetcore-win-no-h.md)]
+[!INCLUDE [Create web app](../../includes/app-service-web-create-web-app-dotnetcore-win-no-h.md)] 
 
 ### <a name="configure-connection-string"></a>Configurer la chaîne de connexion
 
@@ -240,7 +244,7 @@ az webapp config connection-string set --resource-group myResourceGroup --name <
 
 Dans ASP.NET Core, vous pouvez utiliser cette chaîne de connexion nommée (`MyDbConnection`) à l’aide du modèle standard, comme n’importe quelle chaîne de connexion spécifiée dans *appsettings. json*. Dans ce cas, `MyDbConnection` est également défini dans votre fichier *appsettings.json*. Lors de l’exécution dans App Service, la chaîne de connexion définie dans App Service est prioritaire sur celle qui est définie dans votre fichier *appsettings.json*. Le code utilise la valeur  *appsettings.json* pendant le développement local, et le même code utilise la valeur App Service lorsqu’elle est déployée.
 
-Pour voir comment la chaîne de connexion est référencée dans votre code, consultez [Configurer l’application pour qu’elle se connecte à la base de données de production](#configure-app-to-connect-to-the-database-in-azure).
+Pour voir comment la chaîne de connexion est référencée dans votre code, consultez [Configurer l’application pour qu’elle se connecte à la base de données de production](#configure-app-to-connect-to-production-database).
 
 ### <a name="push-to-azure-from-git"></a>Effectuer une transmission de type push vers Azure à partir de Git
 
@@ -384,8 +388,8 @@ Pendant l’exécution de l’application ASP.NET Core dans Azure App Service, v
 
 L’exemple de projet suit déjà les instructions fournies dans [Journalisation ASP.NET Core dans Azure](https://docs.microsoft.com/aspnet/core/fundamentals/logging#azure-app-service-provider), et apporte deux changements à la configuration :
 
-* Il inclut une référence à `Microsoft.Extensions.Logging.AzureAppServices` dans *DotNetCoreSqlDb.csproj*.
-* Appelle `loggerFactory.AddAzureWebAppDiagnostics()` dans *Program.cs*.
+- Il inclut une référence à `Microsoft.Extensions.Logging.AzureAppServices` dans *DotNetCoreSqlDb.csproj*.
+- Appelle `loggerFactory.AddAzureWebAppDiagnostics()` dans *Program.cs*.
 
 Pour définir le [niveau de journalisation](https://docs.microsoft.com/aspnet/core/fundamentals/logging#log-level) ASP.NET Core dans App Service sur `Information` à partir du niveau par défaut `Error`, utilisez la commande [`az webapp log config`](/cli/azure/webapp/log?view=azure-cli-latest#az-webapp-log-config) dans Cloud Shell.
 
@@ -395,6 +399,7 @@ az webapp log config --name <app-name> --resource-group myResourceGroup --applic
 
 > [!NOTE]
 > Le niveau de journalisation du projet est déjà défini sur `Information` dans *appsettings.json*.
+> 
 
 Pour démarrer la diffusion de journaux, utilisez la commande [`az webapp log tail`](/cli/azure/webapp/log?view=azure-cli-latest#az-webapp-log-tail) dans Cloud Shell.
 
@@ -425,14 +430,12 @@ Par défaut, le portail affiche la page **Vue d’ensemble** de votre applicatio
 [!INCLUDE [cli-samples-clean-up](../../includes/cli-samples-clean-up.md)]
 
 <a name="next"></a>
-
 ## <a name="next-steps"></a>Étapes suivantes
 
 Vous avez appris à effectuer les opérations suivantes :
 
 > [!div class="checklist"]
->
-> * Créer une base de données dans Azure SQL Database.
+> * Créer une base de données SQL dans Azure
 > * Connecter une application .NET Core à une instance SQL Database
 > * Déploiement de l’application dans Azure
 > * Mise à jour du modèle de données et redéploiement de l’application
@@ -443,3 +446,8 @@ Passez au didacticiel suivant pour découvrir comment mapper un nom DNS personna
 
 > [!div class="nextstepaction"]
 > [Tutoriel : Mappage d’un nom DNS personnalisé à une application](app-service-web-tutorial-custom-domain.md)
+
+Autres ressources :
+
+> [!div class="nextstepaction"]
+> [Configurer une application ASP.NET Core](configure-language-dotnetcore.md)

@@ -5,12 +5,12 @@ author: florianborn71
 ms.author: flborn
 ms.date: 02/12/2020
 ms.topic: sample
-ms.openlocfilehash: c45d2fc34ccbab6d813f12563678d036f9f35753
-ms.sourcegitcommit: df8b2c04ae4fc466b9875c7a2520da14beace222
+ms.openlocfilehash: 831f09ecf7550a847c483fbe1678f1e4c3cecb61
+ms.sourcegitcommit: ff19f4ecaff33a414c0fa2d4c92542d6e91332f8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/08/2020
-ms.locfileid: "80891490"
+ms.lasthandoff: 06/18/2020
+ms.locfileid: "85052291"
 ---
 # <a name="example-powershell-scripts"></a>Exemples de scripts PowerShell
 
@@ -75,6 +75,9 @@ Pour exécuter les exemples de scripts, vous avez besoin d’une configuration f
 
 > [!CAUTION]
 > Veillez à placer correctement les barres obliques inverses dans le chemin LocalAssetDirectoryPath en utilisant des barres obliques inverses doubles (« \\\\ »). Vous pouvez utiliser des barres obliques (« / ») dans tous les autres chemins tels que inputFolderPath et inputAssetPath.
+
+> [!CAUTION]
+> Les valeurs facultatives doivent être renseignées ; sinon, vous devez supprimer entièrement la clé et la valeur. Par exemple, si vous n’utilisez pas le paramètre `"outputAssetFileName"`, supprimez toute la ligne dans `arrconfig.json`.
 
 ### <a name="accountsettings"></a>accountSettings
 
@@ -188,7 +191,7 @@ L’utilisation d’un compte de stockage lié est la meilleure façon d’utili
 
 1. Chargez tous les fichiers de `assetConversionSettings.modelLocation` dans le conteneur d’objets blob d’entrée sous le `inputFolderPath` donné.
 1. Appelez l’[API REST de conversion des modèles](../how-tos/conversion/conversion-rest-api.md) pour lancer la [conversion du modèle](../how-tos/conversion/model-conversion.md)
-1. Interrogez l’état de la conversion jusqu’à la réussite ou l’échec de celle-ci.
+1. Interroger l’état de la conversion jusqu’à la réussite ou l’échec de celle-ci
 1. Affichez les informations concernant l’emplacement du fichier converti (compte de stockage, conteneur de sortie, chemin du fichier dans le conteneur).
 
 ### <a name="access-to-storage-via-shared-access-signatures"></a>Accéder au stockage via des signatures d’accès partagé

@@ -7,12 +7,12 @@ ms.topic: quickstart
 author: bwren
 ms.author: bwren
 ms.date: 03/10/2020
-ms.openlocfilehash: 12616fbc80468d35ebb8b0bc5cd12bfd5871e788
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.openlocfilehash: 99e8afa0a92ba8bb53505e2519efec7baafbcf48
+ms.sourcegitcommit: ad66392df535c370ba22d36a71e1bbc8b0eedbe3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "79503190"
+ms.lasthandoff: 06/16/2020
+ms.locfileid: "84805118"
 ---
 # <a name="quickstart-monitor-an-azure-virtual-machine-with-azure-monitor"></a>Démarrage rapide : Superviser une machine virtuelle Azure avec Azure Monitor
 [Azure Monitor](../overview.md) commence à collecter les données des machines virtuelles Azure dès leur création. Dans ce guide de démarrage rapide, vous allez découvrir brièvement comment les données sont collectées automatiquement pour une machine virtuelle Azure, et comment les voir dans le portail Azure. Vous allez ensuite activer [Azure Monitor pour machines virtuelles](../insights/vminsights-overview.md) sur votre machine virtuelle, ce qui permet aux agents de la machine virtuelle de collecter et d’analyser les données du système d’exploitation invité, notamment les processus et leurs dépendances.
@@ -83,7 +83,7 @@ Quand vous créez un espace de travail Log Analytics, il doit être configuré p
 
 ## <a name="view-data-collected"></a>Afficher les données collectées
 
-7. Cliquez sur votre machine virtuelle, puis sélectionnez l’onglet **Performances**. Cela entraîne l’affichage d’un groupe spécifique de compteurs de performances collectés à partir du système d’exploitation invité de votre machine virtuelle. Faites défiler l’affichage vers le bas pour voir plus de compteurs, et déplacez la souris sur un graphe pour voir la moyenne et les centiles à différents moments.
+7. Cliquez sur votre machine virtuelle, puis sélectionnez l’onglet **Performances** qui se trouve sous le menu **Supervision**, vignette **Insights**. Cela entraîne l’affichage d’un groupe spécifique de compteurs de performances collectés à partir du système d’exploitation invité de votre machine virtuelle. Faites défiler l’affichage vers le bas pour voir plus de compteurs, et déplacez la souris sur un graphe pour voir la moyenne et les centiles à différents moments.
 
     ![Performances](media/quick-monitor-azure-vm/performance.png)
 

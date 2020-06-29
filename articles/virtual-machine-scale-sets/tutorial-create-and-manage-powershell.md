@@ -9,12 +9,12 @@ ms.subservice: management
 ms.date: 05/18/2018
 ms.reviewer: mimckitt
 ms.custom: mimckitt
-ms.openlocfilehash: 2e9c027a927d4aba9c174db8dfc5a72f0cc4f214
-ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
+ms.openlocfilehash: 43816c815c206da7e3fec197e54e9e7889c6de47
+ms.sourcegitcommit: c4ad4ba9c9aaed81dfab9ca2cc744930abd91298
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/12/2020
-ms.locfileid: "83195187"
+ms.lasthandoff: 06/12/2020
+ms.locfileid: "84735351"
 ---
 # <a name="tutorial-create-and-manage-a-virtual-machine-scale-set-with-azure-powershell"></a>Tutoriel : Créer et gérer un groupe de machines virtuelles identiques avec Azure PowerShell
 
@@ -191,6 +191,8 @@ New-AzVmss `
   -Credential $cred
 ```
 
+> [!IMPORTANT]
+> Nous vous recommandons d’utiliser la *toute dernière* version de l’image. Spécifiez « latest » pour utiliser la version la plus récente d’une image disponible au moment du déploiement. Notez que, même si vous utilisez « latest », l’image de machine virtuelle ne sera pas automatiquement mise à jour après le déploiement, quand bien même une nouvelle version serait disponible.
 
 ## <a name="understand-vm-instance-sizes"></a>Comprendre les tailles d’instance de machine virtuelle
 Une taille d’instance de machine virtuelle, ou *référence SKU*, détermine la quantité de ressources de calcul, comme l’UC, le GPU et la mémoire, qui sont mises à la disposition de l’instance de machine virtuelle. Les instances de machine virtuelle doivent être correctement dimensionnées en fonction de la charge de travail attendue.

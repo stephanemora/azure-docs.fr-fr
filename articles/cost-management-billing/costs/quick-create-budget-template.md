@@ -6,14 +6,14 @@ ms.author: banders
 tags: azure-resource-manager
 ms.service: cost-management-billing
 ms.topic: quickstart
-ms.date: 04/22/2020
+ms.date: 06/10/2020
 ms.custom: subject-armqs
-ms.openlocfilehash: 88dd1dc99f32d0539718c0f71206176cbfc16eec
-ms.sourcegitcommit: 0b80a5802343ea769a91f91a8cdbdf1b67a932d3
+ms.openlocfilehash: dc37039d6777a77f9de247808329930f1621ee82
+ms.sourcegitcommit: 537c539344ee44b07862f317d453267f2b7b2ca6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/25/2020
-ms.locfileid: "83830308"
+ms.lasthandoff: 06/11/2020
+ms.locfileid: "84686407"
 ---
 # <a name="quickstart-create-a-budget-with-an-azure-resource-manager-template"></a>Démarrage rapide : Créer un budget avec un modèle Azure Resource Manager
 
@@ -74,7 +74,7 @@ Une seule ressource Azure est définie dans le modèle :
     * **Seuil** : entrez une valeur de seuil pour la notification. Une notification est envoyée quand le coût dépasse le seuil. Il est toujours exprimé en pourcentage et doit être compris entre 0 et 1 000.
     * **E-mails de contact** : entrez une liste d’adresses e-mail auxquelles envoyer la notification de budget quand le seuil est dépassé. Le format attendu est `["user1@domain.com","user2@domain.com"]`.
     * **Rôles de contact** : entrez une liste de rôles de contact auxquels envoyer la notification de budget quand le seuil est dépassé. Les valeurs par défaut sont Propriétaire, Contributeur et Lecteur. Le format attendu est `["Owner","Contributor","Reader"]`.
-    * **Groupes de contacts** : entrez une liste de groupes d’actions auxquels envoyer la notification de budget quand le seuil est dépassé. Elle accepte un tableau de chaînes. Le format attendu est `["Action Group Name1","Action Group Name2"]`. Si vous ne voulez pas utiliser de groupes d’actions, entrez `[]`.
+    * **Groupes de contacts** : entrez une liste d’ID de ressources de groupes d’actions, sous la forme d’URI de ressource complets, auxquels envoyer la notification de budget quand le seuil est dépassé. Elle accepte un tableau de chaînes. Le format attendu est `["action group resource ID1","action group resource ID2"]`. Si vous ne voulez pas utiliser de groupes d’actions, entrez `[]`.
     * **Filtre de ressources** : entrez une liste de filtres pour les ressources. Le format attendu est `["Resource Filter Name1","Resource Filter Name2"]`. Si vous ne voulez pas appliquer de filtre, entrez `[]`. Si vous entrez un filtre de ressources, vous devez également entrer des valeurs de **filtres de compteurs**.
     * **Filtre de compteurs** : entrez une liste de filtres sur les compteurs, obligatoires pour les budgets ayant la catégorie de budget **Utilisation**. Le format attendu est `["Meter Filter Name1","Meter Filter Name2"]`. Si vous n’avez pas entré de **filtre de ressources**, entrez `[]`.
     * **J’accepte les termes et conditions mentionnés ci-dessus** : cochez la case.

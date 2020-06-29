@@ -1,94 +1,100 @@
 ---
 title: Bien démarrer avec Live Video Analytics sur IoT Edge - Azure
-description: Ce guide de démarrage rapide vous montre comment bien démarrer avec Live Video Analytics sur IoT Edge et comment détecter tout mouvement dans un flux vidéo en direct.
+description: Ce guide de démarrage rapide montre comment commencer avec Live Video Analytics sur IoT Edge. Découvrez comment détecter tout mouvement dans un flux vidéo en direct.
 ms.topic: quickstart
 ms.date: 04/27/2020
-ms.openlocfilehash: 307a81938be3e25b8a6a07bb3696ca3b7647c0aa
-ms.sourcegitcommit: 223cea58a527270fe60f5e2235f4146aea27af32
+ms.openlocfilehash: 98ab333a495c31889bee2a9cddab778a12876af5
+ms.sourcegitcommit: 1383842d1ea4044e1e90bd3ca8a7dc9f1b439a54
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/01/2020
-ms.locfileid: "84261564"
+ms.lasthandoff: 06/16/2020
+ms.locfileid: "84816913"
 ---
 # <a name="quickstart-get-started---live-video-analytics-on-iot-edge"></a>Démarrage rapide : Bien démarrer - Live Video Analytics sur IoT Edge
 
-Ce guide de démarrage rapide vous guide tout au long des étapes de prise en main de Live Video Analytics sur IoT Edge. Il utilise une machine virtuelle Azure comme appareil IoT Edge et un flux vidéo en direct simulé. Une fois la procédure de configuration terminée, vous pourrez exécuter un flux vidéo en direct simulé à travers un graphe multimédia qui détecte et signale tout mouvement dans ce flux. Le diagramme ci-dessous montre une représentation graphique de ce graphe multimédia.
+Ce guide de démarrage rapide vous guide tout au long des étapes de prise en main de Live Video Analytics sur IoT Edge. Il utilise une machine virtuelle Azure comme appareil IoT Edge. Il utilise également un flux vidéo en direct simulé. 
+
+Une fois la procédure de configuration terminée, vous pourrez exécuter un flux vidéo en direct simulé par le biais d’un graphe multimédia qui détecte et signale tout mouvement dans ce flux. Le diagramme suivant représente ce graphe multimédia.
 
 ![Live Video Analytics basé sur la détection de mouvement](./media/analyze-live-video/motion-detection.png)
 
 ## <a name="prerequisites"></a>Prérequis
 
-* Compte Azure avec un abonnement actif. [Créez un compte gratuitement](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
-* [Visual Studio Code](https://code.visualstudio.com/) sur votre machine de développement avec [l’extension Azure IoT Tools](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-tools).
-* Le réseau auquel votre machine de développement est connectée doit autoriser le protocole AMQP sur le port 5671 (afin que Azure IoT Tools puisse communiquer avec Azure IoT Hub).
+* Un compte Azure disposant d’un abonnement actif. Si vous n’en avez pas déjà un, [créez un compte gratuitement](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
+* [Visual Studio Code](https://code.visualstudio.com/) sur votre machine de développement. Vérifiez que vous disposez de l’[extension Azure IoT Tools](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-tools).
+* Vérifiez que le réseau auquel votre machine de développement est connectée autorise le protocole AMQP (Advanced Message Queueing Protocol) sur le port 5671. Cette configuration permet à Azure IoT Tools de communiquer avec Azure IoT Hub.
 
 > [!TIP]
-> Vous pouvez être invité à installer Docker au moment de l’installation de l’extension Azure IoT Tools. N’hésitez pas à l’ignorer.
+> Vous serez peut-être invité à installer Docker pendant l’installation de l’extension Azure IoT Tools. N’hésitez pas à ignorer cette invite.
 
 ## <a name="set-up-azure-resources"></a>Configurer les ressources Azure
 
-Les ressources Azure suivantes sont indispensables dans ce tutoriel.
+Ce tutoriel nécessite les ressources Azure suivantes :
 
 * IoT Hub
 * Compte de stockage
 * Compte Azure Media Services
-* Machine virtuelle Linux dans Azure, avec le [runtime IoT Edge](https://docs.microsoft.com/azure/iot-edge/how-to-install-iot-edge-linux) installé
+* Machine virtuelle Linux dans Azure, avec le [runtime IoT Edge](https://docs.microsoft.com/azure/iot-edge/how-to-install-iot-edge-linux) installé
 
-Pour ce guide de démarrage rapide, nous vous recommandons d’utiliser le [script d’installation des ressources Live Video Analytics](https://github.com/Azure/live-video-analytics/tree/master/edge/setup) pour déployer les ressources Azure mentionnées ci-dessus dans votre abonnement Azure. Pour ce faire, procédez comme suit :
+Pour ce guide de démarrage rapide, nous vous recommandons d’utiliser le [script d’installation des ressources Live Video Analytics](https://github.com/Azure/live-video-analytics/tree/master/edge/setup) pour déployer les ressources nécessaires dans votre abonnement Azure. Pour ce faire, procédez comme suit :
 
-1. Accédez à https://shell.azure.com.
-1. Si vous utilisez Cloud Shell pour la première fois, vous êtes invité à sélectionner un abonnement pour créer un compte de stockage et un partage Microsoft Azure Files. Sélectionnez « Créer un stockage » pour créer un compte de stockage pour le stockage de vos informations de session Cloud Shell. Ce compte de stockage est distinct de celui que le script créera pour l’utilisation avec votre compte Azure Media Services.
-1. Sélectionnez « Bash » comme environnement dans la liste déroulante sur le côté gauche de la fenêtre Cloud Shell.
+1. Accédez à [ Azure Cloud Shell](https://shell.azure.com).
+1. Si vous utilisez Cloud Shell pour la première fois, vous serez invité à sélectionner un abonnement pour créer un compte de stockage et un partage Microsoft Azure Files. Sélectionnez **Créer un stockage** pour créer un compte de stockage pour vos informations de session Cloud Shell. Ce compte de stockage est distinct du compte que le script créera pour être utilisé avec votre compte Azure Media Services.
+1. Dans le menu déroulant situé sur le côté gauche de la fenêtre Cloud Shell, sélectionnez **Bash** comme environnement.
 
     ![Sélecteur d’environnement](./media/quickstarts/env-selector.png)
 
-1. Exécutez la commande suivante :
+1. Exécutez la commande suivante :
 
     ```
     bash -c "$(curl -sL https://aka.ms/lva-edge/setup-resources-for-samples)"
     ```
     
-Si le script se termine correctement, vous devez voir toutes les ressources mentionnées ci-dessus dans votre abonnement. Le script génère une table de ressources qui répertorie le nom du hub IoT. Recherchez le type de ressource **« Microsoft.Devices/IotHubs »** , puis notez le nom. Vous en aurez besoin à l’étape suivante. Le script génère également quelques fichiers de configuration dans le répertoire ~/clouddrive/lva-sample/. vous en aurez besoin plus tard dans le guide de démarrage rapide.
+Si le script se termine correctement, vous devez voir toutes les ressources nécessaires dans votre abonnement. Dans la sortie du script, un tableau de ressources indique le nom du hub IoT. Recherchez le type de ressource `Microsoft.Devices/IotHubs`, puis notez le nom. Vous en aurez besoin à la prochaine étape. 
+
+Le script génère également quelques fichiers de configuration dans le répertoire *~/clouddrive/lva-sample/* . Vous en aurez besoin ultérieurement dans le guide de démarrage rapide.
 
 ## <a name="deploy-modules-on-your-edge-device"></a>Déployer des modules sur votre périphérique
 
-Exécutez la commande suivante à partir d’Azure Cloud Shell
+Exécutez la commande suivante à partir de Cloud Shell.
 
 ```
 az iot edge set-modules --hub-name <iot-hub-name> --device-id lva-sample-device --content ~/clouddrive/lva-sample/edge-deployment/deployment.amd64.json
 ```
 
-La commande ci-dessus va déployer les modules suivants sur le périphérique (la machine virtuelle Linux) :
+Cette commande déploie les modules suivants sur l’appareil de périphérie, qui est la machine virtuelle Linux dans le cas présent.
 
-* Live Video Analytics sur IoT Edge (nom du module « lvaEdge »)
-* Simulateur RTSP (nom du module « rtspsim »)
+* Live Video Analytics sur IoT Edge (nom de module`lvaEdge`)
+* Simulateur RTSP (Real-Time Streaming Protocol) (nom de module `rtspsim`)
 
-Le module de simulateur RTSP simule un flux vidéo en direct à l’aide d’un fichier vidéo stocké qui a été copié sur votre périphérique lorsque vous avez exécuté le [script d’installation des ressources Live Video Analytics](https://github.com/Azure/live-video-analytics/tree/master/edge/setup). À ce stade, vous disposez des modules déployés, mais aucun graphe multimédia n’est actif.
+Le module de simulateur RTSP simule un flux vidéo en direct à l’aide d’un fichier vidéo qui a été copié sur votre appareil de périphérie quand vous avez exécuté le [script d’installation des ressources Live Video Analytics](https://github.com/Azure/live-video-analytics/tree/master/edge/setup). 
 
-## <a name="configure-azure-iot-tools-extension-in-visual-studio-code"></a>Configurer l’extension Azure IoT Tools dans Visual Studio Code
+Les modules sont maintenant déployés, mais aucun graphe multimédia n’est actif.
 
-Démarrez Visual Studio Code et suivez les instructions ci-dessous pour vous connecter à votre instance Azure IoT Hub à l’aide de l’extension Azure IoT Tools.
+## <a name="configure-the-azure-iot-tools-extension"></a>Configurer l’extension Azure IoT Tools
 
-1. Accédez à l’onglet Explorateur dans Visual Studio Code via **Affichage** > **Explorateur** ou appuyez simplement sur Ctrl+Maj+E.
-1. Dans l’onglet Explorateur, cliquez sur « Azure IoT Hub » dans le coin inférieur gauche.
-1. Cliquez sur l’icône Plus d’options pour afficher le menu contextuel et sélectionnez l’option « Définir la chaîne de connexion IoT Hub ».
-1. Une zone d’entrée s’affiche où vous pouvez entrer votre chaîne de connexion IoT Hub. Vous pouvez obtenir la chaîne de connexion de votre IoT Hub à partir du fichier ~/clouddrive/lva-sample/appsettings.json dans Cloud Shell.
-1. Si la connexion est établie, la liste des périphériques s’affiche. Elle doit contenir au moins un périphérique nommé « lva-sample-device ».
-1. Vous pouvez désormais gérer vos périphériques IoT Edge et interagir avec Azure IoT Hub par le biais du menu contextuel.
-1. Vous pouvez afficher les modules déployés sur le périphérique Edge en développant le nœud Modules sous « lva-sample-device ».
+Suivez ces instructions pour vous connecter à votre hub IoT à l’aide de l’extension Azure IoT Tools.
 
-    ![nœud lva-sample-device](./media/quickstarts/lva-sample-device-node.png)
+1. Dans Visual Studio Code, sélectionnez **Afficher** > **Explorateur**. Vous pouvez aussi sélectionner Ctrl+Maj+E.
+1. Dans l’angle en bas à gauche de l’onglet **Explorateur**, sélectionnez **Azure IoT Hub**.
+1. Sélectionnez l’icône **Plus d’options** pour voir le menu contextuel. Sélectionnez ensuite **Définir la chaîne de connexion IoT Hub**.
+1. Quand une zone d’entrée s’affiche, entrez votre chaîne de connexion IoT Hub. Dans Cloud Shell, vous pouvez obtenir la chaîne de connexion dans *~/clouddrive/lva-sample/appsettings.json*.
+
+Si la connexion aboutit, la liste des appareils de périphérie s’affiche. Vous devez normalement voir au moins un appareil nommé **lva-sample-device**. Vous pouvez désormais gérer vos appareils IoT Edge et interagir avec Azure IoT Hub par le biais du menu contextuel. Pour afficher les modules déployés sur l’appareil de périphérie, sous **lva-sample-device**, développez le nœud **Modules**.
+
+![nœud lva-sample-device](./media/quickstarts/lva-sample-device-node.png)
 
 ## <a name="use-direct-methods"></a>Utiliser des méthodes directes
 
-Vous pouvez utiliser le module pour analyser des flux vidéo en direct en invoquant des méthodes directes. Lisez [Méthodes directes pour Live Video Analytics sur IoT Edge](direct-methods.md) pour comprendre toutes les méthodes directes fournies par le module. 
+Vous pouvez utiliser le module pour analyser des flux vidéo en direct en invoquant des méthodes directes. Pour plus d’informations, consultez [Méthodes directes pour Live Video Analytics sur IoT Edge](direct-methods.md). 
 
 ### <a name="invoke-graphtopologylist"></a>Invoquer GraphTopologyList
-Cette étape énumère toutes les [topologies de graphes](media-graph-concept.md#media-graph-topologies-and-instances) du module.
 
-1. Cliquez avec le bouton droit sur le module « lvaEdge » et sélectionnez « Invoquer la méthode directe du module » dans le menu contextuel.
-1. Vous verrez une zone de modification apparaître dans la partie centrale supérieure de la fenêtre Visual Studio Code. Entrez « GraphTopologyList » dans la zone de modification et appuyez sur Entrée.
-1. Ensuite, copiez et collez la charge utile JSON ci-dessous dans la zone de modification, puis appuyez sur Entrée.
+Pour énumérer toutes les [topologies de graphes](media-graph-concept.md#media-graph-topologies-and-instances) du module :
+
+1. Dans Visual Studio Code, cliquez avec le bouton droit sur le module **lvaEdge**, puis sélectionnez **Invoquer la méthode directe du module**.
+1. Dans la zone qui s’affiche, entrez *GraphTopologyList*.
+1. Copiez la charge utile JSON suivante, puis collez-la dans la zone. Sélectionnez ensuite la touche Entrée.
 
     ```
     {
@@ -96,7 +102,7 @@ Cette étape énumère toutes les [topologies de graphes](media-graph-concept.md
     }
     ```
 
-    En quelques secondes, vous verrez la fenêtre SORTIE de Visual Studio Code apparaître avec la réponse suivante
+    Au bout de quelques secondes, la fenêtre **SORTIE** affiche la réponse suivante.
 
     ```
     [DirectMethod] Invoking Direct Method [GraphTopologyList] to [lva-sample-device/lvaEdge] ...
@@ -109,12 +115,12 @@ Cette étape énumère toutes les [topologies de graphes](media-graph-concept.md
     }
     ```
     
-    La réponse ci-dessus est attendue, car aucune topologie de graphe n’a été créée.
+    Cette réponse est attendue car aucune topologie de graphe n’a été créée.
     
 
 ### <a name="invoke-graphtopologyset"></a>Invoquer GraphTopologySet
 
-À l’aide des mêmes étapes que celles décrites pour invoquer GraphTopologyList, vous pouvez invoquer GraphTopologySet pour définir une [topologie de graphe](media-graph-concept.md#media-graph-topologies-and-instances) à l’aide du code JSON suivant comme charge utile.
+En suivant les étapes permettant d’invoquer `GraphTopologyList`, vous pouvez invoquer `GraphTopologySet` pour définir une [topologie de graphe](media-graph-concept.md#media-graph-topologies-and-instances). Utilisez le code JSON suivant comme charge utile.
 
 ```
 {
@@ -185,10 +191,9 @@ Cette étape énumère toutes les [topologies de graphes](media-graph-concept.md
 
 ```
 
+Cette charge utile JSON crée une topologie de graphe qui définit trois paramètres. Deux de ces paramètres ont des valeurs par défaut. La topologie possède un nœud source (source RTSP), un nœud processeur (processeur de détection de mouvement) et un nœud récepteur (récepteur IoT Hub).
 
-La charge utile JSON ci-dessus entraîne la création d’une topologie de graphe qui définit trois paramètres (deux ayant des valeurs par défaut). La topologie possède un nœud source (source RTSP), un nœud processeur (processeur de détection de mouvement) et un nœud récepteur (récepteur IoT Hub).
-
-En quelques secondes, vous verrez la réponse suivante dans la fenêtre SORTIE :
+Au bout de quelques secondes, la réponse suivante s’affiche dans la fenêtre **SORTIE**.
 
 ```
 [DirectMethod] Invoking Direct Method [GraphTopologySet] to [lva-sample-device/lvaEdge] ...
@@ -268,25 +273,26 @@ En quelques secondes, vous verrez la réponse suivante dans la fenêtre SORTIE 
 }
 ```
 
-L’état retourné est 201, ce qui indique qu’une nouvelle topologie a été créée. Essayez ensuite la procédure suivante :
+L’état retourné est 201. Cet état indique qu’une topologie a été créée. 
 
-* Appelez de nouveau GraphTopologySet et vérifiez que le code d’état retourné est 200. Le code d’état 200 indique qu’une topologie existante a été mise à jour.
-* Invoquez de nouveau GraphTopologySet, mais modifiez la chaîne de description. Notez que le code d’état dans la réponse est 200 et que la description est mise à jour avec la nouvelle valeur.
-* Invoquez GraphTopologyList comme indiqué dans la section précédente et notez que vous pouvez maintenant voir la topologie « MotionDetection » dans la charge utile retournée.
+Essayez les étapes suivantes :
+
+1. Invoquez à nouveau `GraphTopologySet`. Le code d’état retourné est 200. Ce code indique qu’une topologie existante a été correctement mise à jour.
+1. Invoquez de nouveau `GraphTopologySet`, mais changez la chaîne de description. Le code d’état retourné est 200 et la description est mise à jour avec la nouvelle valeur.
+1. Invoquez `GraphTopologyList` comme indiqué dans la section précédente. Vous pouvez maintenant voir la topologie `MotionDetection` dans la charge utile retournée.
 
 ### <a name="invoke-graphtopologyget"></a>Invoquer GraphTopologyGet
 
-Invoquez maintenant GraphTopologyGet avec la charge utile suivante
+Invoquez `GraphTopologyGet` à l’aide de la charge utile suivante.
 
 ```
-
 {
     "@apiVersion" : "1.0",
     "name" : "MotionDetection"
 }
 ```
 
-En quelques secondes, vous devriez voir la réponse suivante dans la fenêtre SORTIE :
+Au bout de quelques secondes, la réponse suivante s’affiche dans la fenêtre **SORTIE** :
 
 ```
 [DirectMethod] Invoking Direct Method [GraphTopologyGet] to [lva-sample-device/lvaEdge] ...
@@ -366,16 +372,16 @@ En quelques secondes, vous devriez voir la réponse suivante dans la fenêtre SO
 }
 ```
 
-Notez les points suivants dans la charge utile de réponse :
+Dans la charge utile de réponse, notez les informations suivantes :
 
-* Le code d’état est 200, ce qui indique une réussite.
-* La charge utile présente les horodatages « created » et « lastModified ».
+* Le code d’état est 200, ce qui indique la réussite.
+* La charge utile comprend l’horodatage `created` et l’horodatage `lastModified`.
 
 ### <a name="invoke-graphinstanceset"></a>Invoquer GraphInstanceSet
 
-Ensuite, créez une instance de graphe qui fait référence à la topologie de graphe ci-dessus. Comme expliqué [ici](media-graph-concept.md#media-graph-topologies-and-instances), les instances de graphe vous permettent d’analyser des flux vidéo en direct à partir de plusieurs caméras avec la même topologie de graphe.
+Créez une instance de graphe qui fait référence à la topologie de graphe précédente. Les instances de graphe vous permettent d’analyser des flux vidéo en direct à partir de plusieurs caméras à l’aide de la même topologie de graphe. Pour plus d’informations, consultez [Topologies et instances de graphe multimédia](media-graph-concept.md#media-graph-topologies-and-instances).
 
-Invoquez la méthode directe GraphInstanceSet avec la charge utile suivante.
+Invoquez la méthode directe `GraphInstanceSet` à l’aide de la charge utile suivante.
 
 ```
 {
@@ -391,12 +397,12 @@ Invoquez la méthode directe GraphInstanceSet avec la charge utile suivante.
 }
 ```
 
-Notez les points suivants :
+Notez que cette charge utile :
 
-* La charge utile ci-dessus spécifie le nom de la topologie (MotionDetection) pour laquelle l’instance doit être créée.
-* La charge utile contient la valeur de paramètre pour « rtspUrl », qui n’avait pas de valeur par défaut dans la charge utile de la topologie de graphe.
+* Spécifie le nom de la topologie (`MotionDetection`) pour laquelle l’instance doit être créée.
+* Contient une valeur de paramètre pour `rtspUrl`, qui n’avait pas de valeur par défaut dans la charge utile de la topologie de graphe.
 
-En quelques secondes, vous verrez la réponse suivante dans la fenêtre OUTPUT :
+Au bout de quelques secondes, la réponse suivante s’affiche dans la fenêtre **SORTIE** :
 
 ```
 [DirectMethod] Invoking Direct Method [GraphInstanceSet] to [lva-sample-device/lvaEdge] ...
@@ -422,20 +428,20 @@ En quelques secondes, vous verrez la réponse suivante dans la fenêtre OUTPUT 
 }
 ```
 
-Notez les points suivants dans la charge utile de réponse :
+Dans la charge utile de réponse, notez les points suivants :
 
 * Le code d’état est 201, ce qui indique qu’une nouvelle instance a été créée.
-* L’état est « Inactive », ce qui indique que l’instance de graphe a été créée, mais pas activée. Pour plus d’informations, voir les [états de graphe multimédia](media-graph-concept.md).
+* L’état est `Inactive`, ce qui indique que l’instance de graphe a été créée, mais pas activée. Pour plus d’informations, consultez [États du graphe multimédia](media-graph-concept.md).
 
-Essayez ensuite la procédure suivante :
+Essayez les étapes suivantes :
 
-* Invoquez de nouveau GraphInstanceSet avec la même charge utile et notez que le code d’état retourné est maintenant 200.
-* Invoquez de nouveau GraphInstanceSet, mais avec une description différente et notez la description mise à jour dans la charge utile de réponse, indiquant que l’instance de graphe a été mise à jour.
-* Invoquez GraphInstanceSet, mais remplacez le nom par « Sample-Graph-2 » et observez la charge utile de réponse. Notez qu’une nouvelle instance de graphe est créée (c’est-à-dire que le code d’état est 201).
+1. Invoquez à nouveau `GraphInstanceSet` à l’aide de la même charge utile. Notez que le code d’état retourné est 200.
+1. Invoquez à nouveau `GraphInstanceSet`, mais utilisez une description différente. Notez la description mise à jour dans la charge utile de réponse, indiquant que l’instance de graphe a été correctement mise à jour.
+1. Invoquez `GraphInstanceSet`, mais remplacez le nom par `Sample-Graph-2`. Dans la charge utile de réponse, notez l’instance de graphe nouvellement créée (autrement dit, le code d’état 201).
 
 ### <a name="invoke-graphinstanceactivate"></a>Invoquer GraphInstanceActivate
 
-Activez maintenant l’instance de graphe, qui démarre le flux de vidéos en direct dans le module. Invoquez la méthode directe GraphInstanceActivate avec la charge utile suivante.
+Activez maintenant l’instance de graphe pour démarrer le flux vidéo en direct par le biais du module. Invoquez la méthode directe `GraphInstanceActivate` à l’aide de la charge utile suivante.
 
 ```
 {
@@ -444,7 +450,7 @@ Activez maintenant l’instance de graphe, qui démarre le flux de vidéos en di
 }
 ```
 
-En quelques secondes, vous devriez voir la réponse suivante dans la fenêtre SORTIE :
+Au bout de quelques secondes, la réponse suivante s’affiche dans la fenêtre **SORTIE**.
 
 ```
 [DirectMethod] Invoking Direct Method [GraphInstanceActivate] to [lva-sample-device/lvaEdge] ...
@@ -455,11 +461,11 @@ En quelques secondes, vous devriez voir la réponse suivante dans la fenêtre SO
 }
 ```
 
-Le code d’état 200 dans la charge utile de réponse indique que l’instance de graphe a été activée.
+Le code d’état 200 indique que l’instance de graphe a été correctement activée.
 
 ### <a name="invoke-graphinstanceget"></a>Invoquer GraphInstanceGet
 
-Invoquez maintenant la méthode directe GraphInstanceGet avec la charge utile suivante :
+Invoquez maintenant la méthode directe `GraphInstanceGet` à l’aide de la charge utile suivante.
 
 ```
  {
@@ -468,7 +474,7 @@ Invoquez maintenant la méthode directe GraphInstanceGet avec la charge utile su
  }
  ```
 
-En quelques secondes, vous devriez voir la réponse suivante dans la fenêtre SORTIE :
+Au bout de quelques secondes, la réponse suivante s’affiche dans la fenêtre **SORTIE**.
 
 ```
 [DirectMethod] Invoking Direct Method [GraphInstanceGet] to [lva-sample-device/lvaEdge] ...
@@ -494,22 +500,24 @@ En quelques secondes, vous devriez voir la réponse suivante dans la fenêtre SO
 }
 ```
 
-Notez les points suivants dans la charge utile de réponse :
+Dans la charge utile de réponse, notez les informations suivantes :
 
-* Le code d’état est 200, ce qui indique une réussite.
-* L’état est « Active », ce qui indique que l’instance de graphe est maintenant dans l’état « actif ».
+* Le code d’état est 200, ce qui indique la réussite.
+* L’état est `Active`, ce qui indique que l’instance de graphe est maintenant active.
 
 ## <a name="observe-results"></a>Observer les résultats
 
-L’instance de graphe que nous avez créée et activée ci-dessus utilise le nœud processeur de détection de mouvement pour détecter les mouvements dans le flux vidéo en direct entrant et envoie des événements au nœud récepteur IoT Hub. Ces événements sont ensuite relayés vers votre hub IoT Edge, qui peut maintenant être observé. Pour cela, procédez comme suit :
+L’instance de graphe que nous avons créée et activée utilise le nœud processeur de détection de mouvement pour détecter les mouvements dans le flux vidéo en direct entrant. Elle envoie des événements au nœud récepteur IoT Hub. Ces événements sont relayés vers IoT Edge Hub. 
 
-1. Ouvrez le volet Explorateur dans Visual Studio Code et recherchez Azure IoT Hub dans l’angle inférieur gauche.
-2. Développez le nœud Appareils.
-3. Cliquez avec le bouton droit sur lva-sample-device et choisissez l’option « Démarrer la supervision de l’événement intégré ».
+Pour observer les résultats, effectuez les étapes suivantes.
 
-![Démarrer la surveillance des événements IoT Hub](./media/quickstarts/start-monitoring-iothub-events.png)
+1. Dans Visual Studio Code, ouvrez le volet **Explorateur**. Dans l’angle en bas à gauche, recherchez **Azure IoT Hub**.
+2. Développez le nœud **Appareils**.
+3. Cliquez avec le bouton droit sur **lva-sample-device**, puis sélectionnez **Démarrer la supervision de l’événement intégré**.
 
-Les messages suivants s’affichent dans la fenêtre SORTIE :
+    ![Démarrer la surveillance des événements IoT Hub](./media/quickstarts/start-monitoring-iothub-events.png)
+    
+La fenêtre **SORTIE** affiche le message suivant :
 
 ```
 [IoTHubMonitor] [7:44:33 AM] Message received from [lva-sample-device/lvaEdge]:
@@ -551,16 +559,16 @@ Les messages suivants s’affichent dans la fenêtre SORTIE :
 }
 ```
 
-Notez les points suivants dans le message ci-dessus
+Notez les informations suivantes :
 
-* Le message contient une section « body » et une section « applicationProperties ». Pour comprendre ce que ces sections représentent, lisez l’article [Créer et lire des messages IoT Hub](https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-messages-construct).
-* « subject » dans applicationProperties fait référence au nœud dans le graphe multimédia à partir duquel le message a été généré. Dans ce cas, le message provient du processeur de détection de mouvement.
-* « eventType » dans applicationProperties indique qu’il s’agit d’un événement Analytics.
-* « eventTime » indique l’heure à laquelle l’événement s’est produit.
-* « body » contient des données relatives à l’événement Analytics. En l’occurrence, l’événement est un événement d’inférence et, par conséquent, le corps contient des données « timestamp » et « inferences ».
-* La section « inferences » indique que le « type » est « motion » et contient des données supplémentaires sur l’événement « motion ».
+* Le message contient une section `body` et une section `applicationProperties`. Pour plus d’informations, consultez [Créer et lire des messages IoT Hub](https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-messages-construct).
+* Dans `applicationProperties`, `subject` fait référence au nœud présent dans le `MediaGraph` à partir duquel le message a été généré. Dans ce cas, le message provient du processeur de détection de mouvement.
+* Dans `applicationProperties`, `eventType` indique que cet événement est un événement d’analytique.
+* La valeur `eventTime` correspond à l’heure à laquelle l’événement s’est produit.
+* La section `body` contient des données relatives à l’événement d’analytique. Dans ce cas, l’événement est un événement d’inférence. Par conséquent, le corps contient des données `timestamp` et `inferences`.
+* La section `inferences` indique que le `type` est `motion`. Elle fournit des données supplémentaires sur l’événement `motion`.
 
-Si vous laissez le graphe multimédia s’exécuter pendant un moment, le message suivant s’affiche également dans la fenêtre de sortie :
+Si vous laissez le graphe multimédia s’exécuter pendant un moment, le message suivant s’affiche dans la fenêtre **SORTIE**.
 
 ```
 [IoTHubMonitor] [7:47:45 AM] Message received from [lva-sample-device/lvaEdge]:
@@ -578,19 +586,19 @@ Si vous laissez le graphe multimédia s’exécuter pendant un moment, le messag
 }
 ```
 
-Notez les points suivants dans le message ci-dessus
+Dans ce message, notez les informations suivantes :
 
-* « Subject » dans applicationProperties indique que le message a été généré à partir du nœud source RTSP dans le graphe multimédia.
-* « EventType » dans applicationProperties indique qu’il s’agit d’un événement de diagnostic.
-* « Body » contient des données relatives à l’événement de diagnostic. Dans ce cas, l’événement est MediaSessionEstablished et, par conséquent, le corps.
+* Dans `applicationProperties`, `subject` indique que le message a été généré à partir du nœud source RTSP dans le graphe multimédia.
+* Dans `applicationProperties`, `eventType` indique que cet événement est de diagnostic.
+* `body` contient des données relatives à l’événement de diagnostic. Dans ce cas, le message contient le corps car l’événement est `MediaSessionEstablished`.
 
 ## <a name="invoke-additional-direct-methods-to-clean-up"></a>Invoquer des méthodes directes supplémentaires pour nettoyer
 
-Invoquez maintenant des méthodes directes pour désactiver et supprimer l’instance de graphe (dans cet ordre).
+Invoquez des méthodes directes pour tout d’abord désactiver l’instance de graphe, puis la supprimer.
 
 ### <a name="invoke-graphinstancedeactivate"></a>Invoquer GraphInstanceDeactivate
 
-Invoquez la méthode directe GraphInstanceActivate avec la charge utile suivante.
+Invoquez la méthode directe `GraphInstanceDeactivate` à l’aide de la charge utile suivante.
 
 ```
 {
@@ -599,7 +607,7 @@ Invoquez la méthode directe GraphInstanceActivate avec la charge utile suivante
 }
 ```
 
-En quelques secondes, vous devriez voir la réponse suivante dans la fenêtre SORTIE :
+Au bout de quelques secondes, la réponse suivante s’affiche dans la fenêtre **SORTIE** :
 
 ```
 [DirectMethod] Invoking Direct Method [GraphInstanceDeactivate] to [lva-sample-device/lvaEdge] ...
@@ -610,15 +618,13 @@ En quelques secondes, vous devriez voir la réponse suivante dans la fenêtre SO
 }
 ```
 
-Le code d’état 200 indique que l’instance de graphe a été désactivée.
+Le code d’état 200 indique que l’instance de graphe a été correctement désactivée.
 
-Essayez ensuite la procédure suivante.
-
-* Invoquez GraphInstanceGet comme indiqué dans les sections précédentes et observez la valeur « state ».
+Ensuite, essayez d’invoquer `GraphInstanceGet` comme indiqué précédemment dans cet article. Observez la valeur `state`.
 
 ### <a name="invoke-graphinstancedelete"></a>Invoquer GraphInstanceDelete
 
-Invoquez la méthode directe GraphInstanceDelete avec la charge utile suivante
+Invoquez la méthode directe `GraphInstanceDelete` à l’aide de la charge utile suivante.
 
 ```
 {
@@ -627,7 +633,7 @@ Invoquez la méthode directe GraphInstanceDelete avec la charge utile suivante
 }
 ```
 
-En quelques secondes, vous devriez voir la réponse suivante dans la fenêtre SORTIE :
+Au bout de quelques secondes, la réponse suivante s’affiche dans la fenêtre **SORTIE** :
 
 ```
 [DirectMethod] Invoking Direct Method [GraphInstanceDelete] to [lva-sample-device/lvaEdge] ...
@@ -638,11 +644,11 @@ En quelques secondes, vous devriez voir la réponse suivante dans la fenêtre SO
 }
 ```
 
-Le code d’état 200 dans la réponse indique que l’instance de graphe a été supprimée.
+Le code d’état 200 indique que l’instance de graphe a été correctement supprimée.
 
 ### <a name="invoke-graphtopologydelete"></a>Invoquer GraphTopologyDelete
 
-Invoquez la méthode directe GraphTopologyDelete avec la charge utile suivante :
+Invoquez la méthode directe `GraphTopologyDelete` à l’aide de la charge utile suivante.
 
 ```
 {
@@ -651,7 +657,7 @@ Invoquez la méthode directe GraphTopologyDelete avec la charge utile suivante 
 }
 ```
 
-En quelques secondes, vous devriez voir la réponse suivante dans la fenêtre SORTIE :
+Au bout de quelques secondes, la réponse suivante s’affiche dans la fenêtre **SORTIE**.
 
 ```
 [DirectMethod] Invoking Direct Method [GraphTopologyDelete] to [lva-sample-device/lvaEdge] ...
@@ -662,18 +668,18 @@ En quelques secondes, vous devriez voir la réponse suivante dans la fenêtre SO
 }
 ```
 
-Le code d’état 200 indique que la topologie de graphe a été supprimée.
+Le code d’état 200 indique que la topologie de graphe a été correctement supprimée.
 
-Essayez ensuite la procédure suivante :
+Essayez les étapes suivantes :
 
-* Invoquez GraphTopologyList et observez l’absence de topologie de graphe dans le module.
-* Invoquez GraphInstanceList avec la même charge utile que GraphTopologyList et observez qu’aucune instance de graphe n’est énumérée.
+1. Invoquez `GraphTopologyList` et observez que le module ne contient pas de topologies de graphe.
+1. Invoquez `GraphInstanceList` à l’aide de la même charge utile que `GraphTopologyList`. Observez qu’aucune instance de graphe n’est énumérée.
 
 ## <a name="clean-up-resources"></a>Nettoyer les ressources
 
-Si vous cessez d’utiliser cette application, supprimez les ressources que vous avez créées dans ce guide de démarrage rapide.
+Si vous ne comptez pas continuer à utiliser cette application, supprimez les ressources que vous avez créées dans ce guide de démarrage rapide.
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-* Apprendre à enregistrer des vidéos avec Live Video Analytics sur IoT Edge
-* En savoir plus sur les messages de diagnostic.
+* Découvrez comment [enregistrer une vidéo à l’aide de Live Video Analytics sur IoT Edge](continuous-video-recording-tutorial.md).
+* Découvrez-en plus sur les [messages de diagnostic](monitoring-logging.md).

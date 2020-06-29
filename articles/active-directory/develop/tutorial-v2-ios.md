@@ -8,16 +8,16 @@ ms.service: active-directory
 ms.subservice: develop
 ms.topic: tutorial
 ms.workload: identity
-ms.date: 08/30/2019
+ms.date: 06/16/2020
 ms.author: jmprieur
 ms.reviewer: oldalton
 ms.custom: aaddev, identityplatformtop40
-ms.openlocfilehash: 1dd0bc589b8290172d18482b36baf30c24d099b4
-ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
+ms.openlocfilehash: 0f712dbee6218ce8e012639b82a3a2ee7c177bb3
+ms.sourcegitcommit: 34eb5e4d303800d3b31b00b361523ccd9eeff0ab
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83640576"
+ms.lasthandoff: 06/17/2020
+ms.locfileid: "84904760"
 ---
 # <a name="sign-in-users-and-call-the-microsoft-graph-from-an-ios-or-macos-app"></a>Connecter des utilisateurs et appeler Microsoft Graph à partir d’une application iOS ou macOS
 
@@ -48,7 +48,7 @@ Ce tutoriel est applicable aux applications iOS et macOS. Notez que certaines é
 
 ## <a name="prerequisites"></a>Prérequis
 
-- XCode version 11.x ou supérieure est nécessaire pour générer l’application de ce guide. Vous pouvez télécharger XCode sur le [site web iTunes ](https://geo.itunes.apple.com/us/app/xcode/id497799835?mt=12 "URL de téléchargement de XCode").
+- XCode version 11.x ou supérieure est nécessaire pour générer l’application de ce guide. Vous pouvez télécharger XCode à partir du [Mac App Store](https://geo.itunes.apple.com/us/app/xcode/id497799835?mt=12 "URL de téléchargement de XCode").
 - Microsoft Authentication Library ([MSAL.framework](https://github.com/AzureAD/microsoft-authentication-library-for-objc)). Vous pouvez utiliser un gestionnaire de dépendances ou ajouter la bibliothèque manuellement. Les instructions ci-dessous montrent comment procéder.
 
 Ce tutoriel va créer un projet. Si vous voulez plutôt télécharger le tutoriel complet, téléchargez le code :
@@ -626,7 +626,7 @@ Après avoir obtenu un jeton, votre application peut l’utiliser dans l’en-t�
 
 | clé d’en-tête    | value                 |
 | ------------- | --------------------- |
-| Autorisation | Porteur \<jeton-accès> |
+| Autorisation | Porteur \<access-token> |
 
 Ajoutez le code suivant à la classe `ViewController` :
 

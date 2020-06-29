@@ -7,12 +7,12 @@ ms.reviewer: klam, logicappspm
 ms.topic: quickstart
 ms.custom: mvc
 ms.date: 10/20/2019
-ms.openlocfilehash: 3087b964ff5f9754d6552fc95625541ce94a6535
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 555230499ebda106cbca616b779ae632d65349ab
+ms.sourcegitcommit: ad66392df535c370ba22d36a71e1bbc8b0eedbe3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "82147994"
+ms.lasthandoff: 06/16/2020
+ms.locfileid: "84807867"
 ---
 # <a name="quickstart-create-your-first-workflow-by-using-azure-logic-apps---azure-portal"></a>Démarrage rapide : Créer votre premier workflow à l’aide d’Azure Logic Apps - Portail Azure
 
@@ -45,9 +45,9 @@ Connectez-vous au [portail Azure](https://portal.azure.com) avec les information
 
    | Propriété | Valeur | Description |
    |----------|-------|-------------|
-   | **Nom** | <*logic-app-name*> | Nom de votre application logique, qui peut contenir uniquement des lettres, des chiffres, des traits d’union (`-`) des traits de soulignement (`_`), des parenthèses (`(`, `)`) et des points (`.`). Cet exemple utilise « My-First-Logic-App ». |
+   | **Nom** | <*logic-app-name*> | Nom de votre application logique, qui peut contenir uniquement des lettres, des chiffres, des traits d’union (`-`) des traits de soulignement (`_`), des parenthèses (`(`, `)`) et des points (`.`). Cet exemple utilise « My-First-Logic-App ». <p><p>**Remarque** : Les noms des applications logiques doivent être uniques d’une région à l’autre. |
    | **Abonnement** | <*Azure-subscription-name*> | Le nom de votre abonnement Azure |
-   | **Groupe de ressources** | <*nom-groupe-de-ressources-Azure*> | Nom du [groupe de ressources Azure](../azure-resource-manager/management/overview.md) utilisé pour organiser les ressources connexes. Cet exemple utilise « My-First-LA-RG ». |
+   | **Groupe de ressources** | <*nom-groupe-de-ressources-Azure*> | Nom du [groupe de ressources Azure](../azure-resource-manager/management/overview.md) utilisé pour organiser les ressources connexes. Cet exemple utilise « My-First-LA-RG ». <p><p>**Remarque** : Les noms des groupes de ressources doivent être uniques d’une région à l’autre. |
    | **Lieu** | <*Azure-region*> | Région dans laquelle stocker les informations sur votre application logique. Cet exemple utilise la région « USA Ouest ». |
    | **Log Analytics** | Off | Maintenez le paramètre de journalisation des diagnostics **Désactivé**. |
    ||||

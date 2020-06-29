@@ -3,12 +3,12 @@ title: Guide de démarrage rapide - Générer et exécuter une image conteneur
 description: Exécutez rapidement des tâches avec Azure Container Registry pour générer et exécuter une image conteneur Docker à la demande, dans le cloud.
 ms.topic: quickstart
 ms.date: 01/31/2020
-ms.openlocfilehash: e07dd9dd36bc2c5a2dc5ea7efe81f693784b8996
-ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
+ms.openlocfilehash: 610d82a0761f06338d04f0794d4141165d67d36c
+ms.sourcegitcommit: 4ac596f284a239a9b3d8ed42f89ed546290f4128
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/20/2020
-ms.locfileid: "83680605"
+ms.lasthandoff: 06/12/2020
+ms.locfileid: "84753703"
 ---
 # <a name="quickstart-build-and-run-a-container-image-using-azure-container-registry-tasks"></a>Démarrage rapide : générer et exécuter une image conteneur avec Azure Container Registry Tasks
 
@@ -37,20 +37,21 @@ az group create --name myResourceGroup --location eastus
 Créez un registre de conteneurs à l’aide de la commande [az acr create][az-acr-create]. Le nom du registre doit être unique dans Azure et contenir entre 5 et 50 caractères alphanumériques. Dans l’exemple suivant, nous utilisons le nom *myContainerRegistry008*. Mettez à jour le nom de façon à utiliser une valeur unique.
 
 ```azurecli-interactive
-az acr create --resource-group myResourceGroup --name myContainerRegistry008 --sku Basic
+az acr create --resource-group myResourceGroup \
+  --name myContainerRegistry008 --sku Basic
 ```
 
 Cet exemple crée un registre *De base*, option économique pour les développeurs qui apprennent à se servir d’Azure Container Registry. Pour plus d’informations sur les niveaux de service disponibles, consultez [Niveaux de service des registres de conteneurs][container-registry-skus].
 
-## <a name="build-an-image-from-a-dockerfile"></a>Générer une image à partir d’un fichier Dockerfile
+## <a name="build-and-push-image-from-a-dockerfile"></a>Générer et envoyer (push) une image à partir d’un Dockerfile
 
-Maintenant, utilisez Azure Container Registry pour générer une image. Tout d’abord, créez un répertoire de travail, puis un fichier Dockerfile nommé *Dockerfile* avec le contenu suivant. Il s’agit d’un exemple simple pour générer une image conteneur Linux, mais vous pouvez créer votre propre fichier Dockerfile standard et générer des images pour d’autres plateformes. Les exemples de commandes de cet article sont mis en forme pour le shell bash.
+Maintenant, utilisez Azure Container Registry pour générer et envoyer (push) une image. Tout d’abord, créez un répertoire de travail, puis un Dockerfile nommé *Dockerfile* avec la ligne unique : `FROM hello-world`. Il s’agit d’un exemple simple de création d’une image conteneur Linux à partir de l’image `hello-world` dans Docker Hub. Vous pouvez créer votre propre Dockerfile standard et générer des images pour d’autres plateformes. Si vous utilisez un interpréteur de commandes bash, créez le Dockerfile à l’aide de la commande suivante :
 
 ```bash
 echo FROM hello-world > Dockerfile
 ```
 
-Exécutez la commande [az acr build][az-acr-build] pour générer l’image. Une fois correctement générée, l’image est envoyée (push) à votre registre. L’exemple suivant envoie (push) l’image `sample/hello-world:v1`. Le `.` à la fin de la commande définit l’emplacement du fichier Dockerfile, dans ce cas, le répertoire actif.
+Exécutez la commande [az acr build][az-acr-build], qui génère l’image et, une fois l’image correctement générée, l’envoie (push) à votre registre. L’exemple suivant génère et envoie (push) l’image `sample/hello-world:v1`. Le `.` à la fin de la commande définit l’emplacement du fichier Dockerfile, dans ce cas, le répertoire actif.
 
 ```azurecli-interactive
 az acr build --image sample/hello-world:v1 \

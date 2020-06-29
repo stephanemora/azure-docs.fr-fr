@@ -3,12 +3,12 @@ title: Tutoriel - Sauvegarder des bases de données SAP HANA dans des machines 
 description: Dans ce tutoriel, découvrez comment sauvegarder des bases de données SAP HANA s’exécutant sur une machine virtuelle Azure dans un coffre Recovery Services de Sauvegarde Azure.
 ms.topic: tutorial
 ms.date: 02/24/2020
-ms.openlocfilehash: 52ffc6bf83ff2a2dcc22fd7c5ad8ab1480f9ce50
-ms.sourcegitcommit: 8e5b4e2207daee21a60e6581528401a96bfd3184
+ms.openlocfilehash: 123f27a6e2114ed17cbb5e11b34202c17ba69a2d
+ms.sourcegitcommit: 99d016949595c818fdee920754618d22ffa1cd49
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/04/2020
-ms.locfileid: "84417291"
+ms.lasthandoff: 06/15/2020
+ms.locfileid: "84770728"
 ---
 # <a name="tutorial-back-up-sap-hana-databases-in-an-azure-vm"></a>Tutoriel : Sauvegarder des bases de données SAP HANA dans une machine virtuelle Azure
 
@@ -29,7 +29,9 @@ Ce tutoriel vous explique comment sauvegarder des bases de données SAP HANA s�
 
 Avant de configurer les sauvegardes, prenez soin d’effectuer les opérations suivantes :
 
+* Identifiez ou créez un [coffre Recovery Services](backup-sql-server-database-azure-vms.md#create-a-recovery-services-vault) dans la même région et avec le même abonnement que la machine virtuelle qui exécute SAP HANA.
 * Autorisez la connectivité de la machine virtuelle à Internet pour lui permettre d’atteindre Azure comme décrit dans la procédure [Configurer la connectivité réseau](#set-up-network-connectivity) ci-dessous.
+* Vérifiez que la longueur combinée du nom de la machine virtuelle SAP HANA Server et du nom du groupe de ressources ne dépasse pas 84 caractères pour Azure Resource Manager (machines virtuelles ARM_) (et 77 caractères pour les machines virtuelles classiques). Cette limitation est due au fait que certains caractères sont réservés par le service.
 * Le **hdbuserstore** doit inclure une clé qui respecte les critères suivants :
   * Elle doit être présente dans le **hdbuserstore** par défaut. Par défaut, il s’agit du compte `<sid>adm` sous lequel SAP HANA est installé.
   * Pour MDC, la clé doit pointer vers le port SQL de **NAMESERVER**. Pour SDC, elle doit pointer vers le port SQL de **INDEXSERVER**.

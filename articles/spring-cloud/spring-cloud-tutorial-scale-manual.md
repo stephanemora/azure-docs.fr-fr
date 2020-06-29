@@ -6,12 +6,12 @@ ms.topic: tutorial
 ms.author: brendm
 author: bmitchell287
 ms.date: 10/06/2019
-ms.openlocfilehash: f08a3b5d0a03b0e898457bbb783dd5031c4b0f27
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: 93cefd0c71e2d51187e68c6f5f02777d158e95a4
+ms.sourcegitcommit: 6571e34e609785e82751f0b34f6237686470c1f3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "76277477"
+ms.lasthandoff: 06/15/2020
+ms.locfileid: "84792062"
 ---
 # <a name="scale-an-application-in-azure-spring-cloud"></a>Mettre à l’échelle une application dans Azure Spring Cloud
 
@@ -58,6 +58,9 @@ Veillez à sélectionner **Enregistrer** pour appliquer vos paramètres de mise 
 ![Service de mise à l’échelle dans le portail Azure](media/spring-cloud-tutorial-scale-manual/scale-up-out.png)
 
 Au bout de quelques secondes, les modifications que vous avez apportées sont visibles dans la page **Vue d’ensemble**. Des détails supplémentaires sont disponibles sous l’onglet **Instances de l’application**. La mise à l’échelle ne nécessite aucune modification de code ni de redéploiement.
+
+## <a name="upgrade-to-the-standard-tier"></a>Passer au niveau Standard
+Si vous êtes au niveau De base et limité par une ou plusieurs de ces [restrictions](spring-cloud-quotas.md), vous pouvez passer au niveau Standard. Pour ce faire, accédez au menu Niveau tarifaire en sélectionnant d’abord la colonne Niveau Standard et en cliquant sur le bouton **Mettre à niveau**.
 
 ## <a name="next-steps"></a>Étapes suivantes
 

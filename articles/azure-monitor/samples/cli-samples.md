@@ -6,12 +6,12 @@ ms.topic: sample
 author: bwren
 ms.author: bwren
 ms.date: 05/16/2018
-ms.openlocfilehash: 3c55becb098c9d93688b59f1db4f702acbff3f72
-ms.sourcegitcommit: 0b80a5802343ea769a91f91a8cdbdf1b67a932d3
+ms.openlocfilehash: bb61f6146e588673038fae9f41b770c4865cefb7
+ms.sourcegitcommit: 51977b63624dfd3b4f22fb9fe68761d26eed6824
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/25/2020
-ms.locfileid: "83837265"
+ms.lasthandoff: 06/17/2020
+ms.locfileid: "84945288"
 ---
 # <a name="azure-monitor-cli-samples"></a>Exemples d’interface CLI Azure Monitor
 Cet article vous montre des exemples de commandes d’interface de ligne de commande (CLI) qui vous permettent d’accéder aux fonctionnalités de surveillance d’Azure Monitor. Azure Monitor permet une mise à l'échelle automatique des services cloud, des machines virtuelles et des applications web, et d’envoyer des notifications d'alerte ou d’appeler des URL web basées sur des valeurs de données de télémétrie configurées.
@@ -29,51 +29,51 @@ az login
 
 Après avoir exécuté cette commande, vous devez vous connecter via les instructions à l’écran. Toutes les commandes fonctionnent dans le cadre de votre abonnement par défaut.
 
-Pour répertorier les détails de votre abonnement actuel, utilisez la commande suivante.
+Listez les détails de votre abonnement actuel.
 
 ```azurecli
 az account show
 ```
 
-Pour remplacer le contexte de travail par un autre abonnement, utilisez la commande suivante.
+Basculez le contexte de travail vers un autre abonnement.
 
 ```azurecli
 az account set -s <Subscription ID or name>
 ```
 
-Pour afficher une liste de toutes les commandes Azure Monitor prises en charge, exécutez la commande suivante.
+Affichez la liste de toutes les commandes Azure Monitor prises en charge.
 
 ```azurecli
 az monitor -h
 ```
 
-## <a name="view-activity-log-for-a-subscription"></a>Afficher le journal d’activité pour un abonnement
+## <a name="view-activity-log"></a>Afficher le journal d’activité
 
-Pour afficher une liste d’événements du journal d’activité, exécutez la commande suivante.
+Affichez la liste des événements du journal d’activité.
 
 ```azurecli
 az monitor activity-log list
 ```
 
-Pour voir toutes les options disponibles, essayez les opérations suivantes.
+Affichez toutes les options disponibles.
 
 ```azurecli
 az monitor activity-log list -h
 ```
 
-Voici un exemple permettant de répertorier les journaux d’activité par groupe de ressources
+Listez les journaux d’un groupe de ressources.
 
 ```azurecli
 az monitor activity-log list --resource-group <group name>
 ```
 
-Exemple pour répertorier les journaux d’activité par appelant
+Listez les journaux par appelant.
 
 ```azurecli
 az monitor activity-log list --caller myname@company.com
 ```
 
-Exemple pour répertorier les journaux d’activité par appelant, sur un type de ressource, dans une plage de dates
+Listez les journaux par appelant, sur un type de ressource, dans une plage de dates.
 
 ```azurecli
 az monitor activity-log list --resource-provider Microsoft.Web \

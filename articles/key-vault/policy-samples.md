@@ -1,24 +1,24 @@
 ---
 title: Définitions de stratégie intégrées pour Key Vault
 description: Liste les définitions de stratégie intégrées d’Azure Policy pour Key Vault. Ces définitions de stratégie intégrées fournissent des approches courantes pour la gestion de vos ressources Azure.
-ms.date: 05/29/2020
+ms.date: 06/10/2020
 ms.topic: sample
 author: msmbaldwin
 ms.author: mbaldwin
 ms.service: key-vault
 ms.custom: subject-policy-samples
-ms.openlocfilehash: b243ae0a99b8cadd621de1695b70919fcc4d694b
-ms.sourcegitcommit: f1132db5c8ad5a0f2193d751e341e1cd31989854
+ms.openlocfilehash: 1ee441651e230132b2602f948ba49c5d81b8d402
+ms.sourcegitcommit: e3c28affcee2423dc94f3f8daceb7d54f8ac36fd
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/31/2020
-ms.locfileid: "84236005"
+ms.lasthandoff: 06/17/2020
+ms.locfileid: "84885208"
 ---
-# <a name="azure-policy-built-in-policy-definitions-for-key-vault"></a>Définitions de stratégie intégrées d’Azure Policy pour Key Vault
+# <a name="azure-policy-built-in-definitions-for-key-vault"></a>Définitions intégrées d’Azure Policy pour Key Vault
 
 Cette page constitue un index des définitions de stratégie intégrées d’[Azure Policy](../governance/policy/overview.md) pour Key Vault. Pour obtenir des éléments intégrés supplémentaires d’Azure Policy pour d’autres services, consultez [Définitions intégrées d’Azure Policy](../governance/policy/samples/built-in-policies.md).
 
-Le nom de chaque définition de stratégie intégrée est un lien vers la définition de la stratégie dans le portail Azure. Utilisez le lien de la colonne **GitHub** pour voir la source dans le [dépôt GitHub Azure Policy](https://github.com/Azure/azure-policy).
+Le nom de chaque définition de stratégie intégrée est un lien vers la définition de la stratégie dans le portail Azure. Utilisez le lien de la colonne **Version** pour voir la source dans le [dépôt GitHub Azure Policy](https://github.com/Azure/azure-policy).
 
 ## <a name="key-vault-service"></a>Key Vault (service)
 

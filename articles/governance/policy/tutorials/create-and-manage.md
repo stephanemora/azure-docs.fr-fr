@@ -1,14 +1,14 @@
 ---
 title: 'Tutoriel : Générer des stratégies pour appliquer la conformité'
 description: Dans ce tutoriel, vous utilisez des stratégies pour appliquer des normes, maîtriser les coûts, garantir la sécurité et imposer des principes de conception à l’échelle de l’entreprise.
-ms.date: 03/24/2020
+ms.date: 06/15/2020
 ms.topic: tutorial
-ms.openlocfilehash: dcebbbfcc2f86ace7ea4400a2fdb6f1392f4efe6
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 90ac6d1c4121b8672e561ff633263775bbad5357
+ms.sourcegitcommit: 52d2f06ecec82977a1463d54a9000a68ff26b572
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "82190824"
+ms.lasthandoff: 06/15/2020
+ms.locfileid: "84781125"
 ---
 # <a name="tutorial-create-and-manage-policies-to-enforce-compliance"></a>Tutoriel : Créer et gérer des stratégies pour appliquer la conformité
 
@@ -78,7 +78,7 @@ La première étape de l’application de la conformité avec une stratégie Azu
 
 ## <a name="implement-a-new-custom-policy"></a>Implémenter une nouvelle stratégie personnalisée
 
-Maintenant que vous avez affecté une définition de stratégie intégrée, vous pouvez continuer avec Azure Policy. Créez une stratégie personnalisée pour réduire les coûts en veillant à ce que les machines virtuelles créées dans votre environnement ne puissent pas être dans la série G. De cette manière, à chaque fois qu’un utilisateur de votre organisation tente de créer une machine virtuelle dans la série G, la requête est refusée.
+Maintenant que vous avez affecté une définition de stratégie intégrée, vous pouvez continuer avec Azure Policy. Créez une stratégie personnalisée pour réduire les coûts en veillant à ce que les machines virtuelles créées dans votre environnement ne puissent pas être dans la série G. Ainsi, à chaque fois qu’un utilisateur de votre organisation tente de créer une machine virtuelle dans la série G, la requête est refusée.
 
 1. Sélectionnez **Définitions** sous **Création** dans la partie gauche de la page Azure Policy.
 
@@ -93,8 +93,8 @@ Maintenant que vous avez affecté une définition de stratégie intégrée, vous
      > [!NOTE]
      > Si vous envisagez d’appliquer cette définition de stratégie à plusieurs abonnements, l’emplacement doit correspondre à un groupe d’administration qui contient les abonnements auxquels vous affectez la stratégie. Il en va de même pour une définition d’initiative.
 
-   - Le nom de la définition de stratégie : _*_nécessite des références (SKU) de machines virtuelles inférieures à la série G_
-   - La description de l’objectif de la définition de stratégie : _cette définition de stratégie impose que toutes les machines virtuelles créées dans cette étendue possèdent des références SKU inférieures à la série G afin de réduire le coût._
+   - Le nom de la définition de stratégie : _nécessite des références (SKU) de machines virtuelles qui n’appartiennent pas à la série G_
+   - La description de l’objectif de la définition de stratégie : _cette définition de stratégie impose que toutes les machines virtuelles créées dans cette étendue aient des références SKU autres que la série G afin de réduire le coût._
    - Faites votre choix parmi les options existantes (par exemple _Calculer_), ou créez une catégorie pour cette définition de stratégie.
    - Copiez le code JSON suivant, puis mettez-le à jour selon vos besoins avec :
       - Les paramètres de la stratégie.

@@ -8,12 +8,12 @@ ms.topic: overview
 ms.date: 05/07/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: ab1d0318464f6b44e1f46bd30dc76272584fde64
-ms.sourcegitcommit: a6d477eb3cb9faebb15ed1bf7334ed0611c72053
+ms.openlocfilehash: 61162a0e2e95a08547848f286f2db489f4b9d963
+ms.sourcegitcommit: c4ad4ba9c9aaed81dfab9ca2cc744930abd91298
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/08/2020
-ms.locfileid: "82929823"
+ms.lasthandoff: 06/12/2020
+ms.locfileid: "84737017"
 ---
 # <a name="what-is-windows-virtual-desktop"></a>Qu’est-ce que Windows Virtual Desktop ? 
 
@@ -22,7 +22,7 @@ Windows Virtual Desktop est un service de virtualisation de bureau et d’applic
 Voici ce que vous pouvez faire quand vous exécutez Windows Virtual Desktop sur Azure :
 
 * Configurer un déploiement Windows 10 multisession qui délivre une version complète de Windows 10 avec extensibilité
-* Virtualiser Office 365 ProPlus et l’optimiser pour une exécution dans des scénarios virtuels multiutilisateurs
+* Virtualisez les applications Microsoft 365 pour l’entreprise et optimisez-les pour qu’elles s’exécutent dans des scénarios virtuels multi-utilisateurs.
 * Fournir des bureaux virtuels Windows 7 avec Mises à jour de sécurité étendues gratuites
 * Tirer parti de vos applications et bureaux Windows Server et Services Bureau à distance existants sur n’importe quel ordinateur
 * Virtualiser des bureaux et des applications
@@ -109,11 +109,11 @@ Le tableau suivant liste les URL facultatives auxquelles vos machines virtuelles
 
 |Adresse|Port TCP sortant|Objectif|Étiquette du service|
 |---|---|---|---|
-|*.microsoftonline.com|443|Authentification auprès des services en ligne MS|None|
+|*.microsoftonline.com|443|Authentification auprès de Microsoft Online Services|None|
 |*.events.data.microsoft.com|443|Service de télémétrie|None|
 |www.msftconnecttest.com|443|Détecte si l’interface est connectée à internet|None|
 |*.prod.do.dsp.mp.microsoft.com|443|Windows Update|None|
-|login.windows.net|443|Connexion aux services en ligne MS, Office 365|None|
+|login.windows.net|443|Se connecter à Microsoft Online Services, Office 365|None|
 |*.sfx.ms|443|Mises à jour pour le logiciel client OneDrive|None|
 |*.digicert.com|443|Vérification de la révocation de certificat|None|
 

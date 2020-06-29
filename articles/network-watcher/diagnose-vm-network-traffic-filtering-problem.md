@@ -17,12 +17,12 @@ ms.workload: infrastructure
 ms.date: 04/20/2018
 ms.author: damendo
 ms.custom: mvc
-ms.openlocfilehash: 68f575164487f726c2f6c7477ceacd731bb52b0f
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.openlocfilehash: b88a855f1f486a94bb591e3d2a72b49a9a8500db
+ms.sourcegitcommit: 537c539344ee44b07862f317d453267f2b7b2ca6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "79290447"
+ms.lasthandoff: 06/11/2020
+ms.locfileid: "84709213"
 ---
 # <a name="quickstart-diagnose-a-virtual-machine-network-traffic-filter-problem-using-the-azure-portal"></a>Démarrage rapide : diagnostiquer un problème de filtre de trafic réseau d’une machine virtuelle en utilisant le portail Azure
 
@@ -44,7 +44,7 @@ Connectez-vous au portail Azure sur https://portal.azure.com.
     |---|---|
     |Nom|myVm|
     |Nom d'utilisateur| Entrez un nom d’utilisateur de votre choix.|
-    |Mot de passe| Entrez un mot de passe de votre choix. Le mot de passe doit contenir au moins 12 caractères et satisfaire aux [exigences de complexité définies](../virtual-machines/windows/faq.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json#what-are-the-password-requirements-when-creating-a-vm).|
+    |Mot de passe| Entrez un mot de passe de votre choix. Le mot de passe doit contenir au moins 12 caractères et satisfaire aux exigences de complexité définies.|
     |Abonnement| Sélectionnez votre abonnement.|
     |Resource group| Sélectionnez **Créer** et entrez **myResourceGroup**.|
     |Emplacement| Sélectionnez **USA Est**.|
@@ -98,19 +98,19 @@ Lorsque vous créez une machine virtuelle, Azure autorise et refuse le trafic r�
 
 ## <a name="view-details-of-a-security-rule"></a>Voir les détails d’une règle de sécurité
 
-1. Pour déterminer la raison pour laquelle les règles dans les étapes 3 à 5 de [Utiliser la vérification du flux IP](#use-ip-flow-verify) autorisent ou refusent la communication, passez en revue les règles de sécurité effectives pour l’interface réseau de la machine virtuelle. Dans la zone de recherche située en haut du portail, entrez *myvm*. Lorsque l’interface réseau **myvm** (ou le nom de votre interface réseau) s’affiche dans les résultats de recherche, sélectionnez-la.
+1. Pour déterminer la raison pour laquelle les règles dans les étapes 3 à 5 de **Utiliser la vérification du flux IP** autorisent ou refusent la communication, passez en revue les règles de sécurité effectives pour l’interface réseau de la machine virtuelle. Dans la zone de recherche située en haut du portail, entrez *myvm*. Lorsque l’interface réseau **myvm** (ou le nom de votre interface réseau) s’affiche dans les résultats de recherche, sélectionnez-la.
 2. Sélectionnez **Règles de sécurité effectives** sous **SUPPORT + DÉPANNAGE**, comme indiqué dans l’image suivante :
 
     ![Règles de sécurité effectives](./media/diagnose-vm-network-traffic-filtering-problem/effective-security-rules.png)
 
-    Dans l’étape 3 de [Utiliser la vérification du flux IP](#use-ip-flow-verify), vous avez appris que l’autorisation de la communication vient de la règle **AllowInternetOutbound**. Vous pouvez voir dans l’image précédente que la **DESTINATION** pour la règle est **Internet**. Pourtant, 13.107.21.200, l’adresse que vous avez testée à l’étape 3 de [Utiliser la vérification de flux IP](#use-ip-flow-verify), n’est pas clairement liée à **Internet**.
+    Dans l’étape 3 de **Utiliser la vérification du flux IP**, vous avez appris que l’autorisation de la communication vient de la règle **AllowInternetOutbound**. Vous pouvez voir dans l’image précédente que la **DESTINATION** pour la règle est **Internet**. Pourtant, 13.107.21.200, l’adresse que vous avez testée à l’étape 3 de **Utiliser la vérification de flux IP**, n’est pas clairement liée à **Internet**.
 3. Sélectionnez la règle **AllowInternetOutBound**, puis sélectionnez **Destination**, comme illustré dans l’image suivante :
 
     ![Préfixes de règle de sécurité](./media/diagnose-vm-network-traffic-filtering-problem/security-rule-prefixes.png)
 
     L’un des préfixes de la liste est **12.0.0.0/6**, ce qui englobe la plage d’adresses IP 12.0.0.1-15.255.255.254. Étant donné que l’adresse 13.107.21.200 se trouve dans cette plage d’adresses, la règle **AllowInternetOutBound** autorise le trafic sortant. En outre, il n’y a aucune règle de priorité supérieure (numéro inférieur) indiquée dans l’image à l’étape 2, qui remplace cette règle. Fermez la zone **Préfixes d’adresse**. Pour refuser les communications sortantes vers 13.107.21.200, vous pouvez ajouter une règle de sécurité avec une priorité plus élevée, ce qui empêche la sortie du port 80 vers l’adresse IP.
-4. Lorsque vous avez exécuté la vérification de sortie vers l’adresse 172.131.0.100 à l’étape 4 de [Utiliser la vérification de flux IP](#use-ip-flow-verify), vous avez appris que la règle **DefaultOutboundDenyAll** a refusé la communication. Cette règle équivaut à la règle **DenyAllOutBound** indiquée dans l’image à l’étape 2 qui spécifie **0.0.0.0/0** comme **DESTINATION**. Cette règle refuse les communications sortantes vers l’adresse 172.131.0.100, car l’adresse ne se trouve pas dans le même **DESTINATION** que toutes les autres **règles de trafic sortant** indiquées dans l’image. Pour autoriser les communications sortantes, vous pouvez ajouter une règle de sécurité avec une priorité plus élevée, ce qui autorise le trafic sortant vers le port 80 pour l’adresse 172.131.0.100.
-5. Lorsque vous avez exécuté la vérification d’entrée vers l’adresse 172.131.0.100 à l’étape 5 de [Utiliser la vérification de flux IP](#use-ip-flow-verify), vous avez appris que la règle **DefaultIntboundDenyAll** a refusé la communication. Cette règle équivaut à la règle **DenyAllInBound** indiquée dans l’image à l’étape 2. La règle **DenyAllInBound** est appliquée, car aucune autre règle de priorité plus élevée n’existe pour autoriser l’entrée par le port 80 vers la machine virtuelle à partir de l’adresse 172.31.0.100. Pour autoriser les communications entrantes, vous pouvez ajouter une règle de sécurité avec une priorité plus élevée, ce qui autorise le trafic entrant vers le port 80 à partir de l’adresse 172.31.0.100.
+4. Lorsque vous avez exécuté la vérification de sortie vers l’adresse 172.131.0.100 à l’étape 4 de **Utiliser la vérification de flux IP**, vous avez appris que la règle **DefaultOutboundDenyAll** a refusé la communication. Cette règle équivaut à la règle **DenyAllOutBound** indiquée dans l’image à l’étape 2 qui spécifie **0.0.0.0/0** comme **DESTINATION**. Cette règle refuse les communications sortantes vers l’adresse 172.131.0.100, car l’adresse ne se trouve pas dans le même **DESTINATION** que toutes les autres **règles de trafic sortant** indiquées dans l’image. Pour autoriser les communications sortantes, vous pouvez ajouter une règle de sécurité avec une priorité plus élevée, ce qui autorise le trafic sortant vers le port 80 pour l’adresse 172.131.0.100.
+5. Lorsque vous avez exécuté la vérification d’entrée vers l’adresse 172.131.0.100 à l’étape 5 de **Utiliser la vérification de flux IP**, vous avez appris que la règle **DefaultIntboundDenyAll** a refusé la communication. Cette règle équivaut à la règle **DenyAllInBound** indiquée dans l’image à l’étape 2. La règle **DenyAllInBound** est appliquée, car aucune autre règle de priorité plus élevée n’existe pour autoriser l’entrée par le port 80 vers la machine virtuelle à partir de l’adresse 172.31.0.100. Pour autoriser les communications entrantes, vous pouvez ajouter une règle de sécurité avec une priorité plus élevée, ce qui autorise le trafic entrant vers le port 80 à partir de l’adresse 172.31.0.100.
 
 Les vérifications de ce guide de démarrage rapide ont permis de tester la configuration Azure. Si les vérifications effectuées retournent les résultats attendus alors que vous rencontrez toujours des problèmes réseau, vérifiez qu’il n’y a aucun pare-feu entre votre machine virtuelle et le point de terminaison avec lequel vous communiquez, et que le système d’exploitation dans votre machine virtuelle n’a pas de pare-feu qui autorise ou refuse les communications.
 

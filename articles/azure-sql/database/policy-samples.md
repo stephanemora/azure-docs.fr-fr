@@ -1,25 +1,25 @@
 ---
 title: Définitions de stratégie intégrées pour Azure SQL Database
 description: Liste les définitions de stratégie intégrées Azure Policy pour Azure SQL Database et SQL Managed Instance. Ces définitions de stratégie intégrées fournissent des approches courantes pour la gestion de vos ressources Azure.
-ms.date: 05/29/2020
+ms.date: 06/10/2020
 ms.topic: sample
 author: stevestein
 ms.author: sstein
 ms.service: sql-database
 ms.custom: subject-policy-samples
-ms.openlocfilehash: ff131f93df07325aec99e6e3e7aa3a9ddd284e28
-ms.sourcegitcommit: f1132db5c8ad5a0f2193d751e341e1cd31989854
+ms.openlocfilehash: fc768870e02098e208b55aabd854093d9d66ba1d
+ms.sourcegitcommit: e3c28affcee2423dc94f3f8daceb7d54f8ac36fd
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/31/2020
-ms.locfileid: "84231317"
+ms.lasthandoff: 06/17/2020
+ms.locfileid: "84887279"
 ---
-# <a name="azure-policy-built-in-policy-definitions-for-azure-sql-database--sql-managed-instance"></a>Définitions de stratégie intégrées Azure Policy pour Azure SQL Database et SQL Managed Instance
+# <a name="azure-policy-built-in-definitions-for-azure-sql-database--sql-managed-instance"></a>Définitions intégrées d’Azure Policy pour Azure SQL Database et SQL Managed Instance
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
 
 Cette page est un index des définitions de stratégie intégrées [Azure Policy](../../governance/policy/overview.md) pour Azure SQL Database et and SQL Managed Instance. Pour obtenir des éléments intégrés supplémentaires d’Azure Policy pour d’autres services, consultez [Définitions intégrées d’Azure Policy](../../governance/policy/samples/built-in-policies.md).
 
-Le nom de chaque définition de stratégie intégrée est un lien vers la définition de la stratégie dans le portail Azure. Utilisez le lien de la colonne **GitHub** pour voir la source dans le [dépôt GitHub Azure Policy](https://github.com/Azure/azure-policy).
+Le nom de chaque définition de stratégie intégrée est un lien vers la définition de la stratégie dans le portail Azure. Utilisez le lien de la colonne **Version** pour voir la source dans le [dépôt GitHub Azure Policy](https://github.com/Azure/azure-policy).
 
 ## <a name="azure-sql-database--sql-managed-instance"></a>Azure SQL Database et SQL Managed Instance 
 

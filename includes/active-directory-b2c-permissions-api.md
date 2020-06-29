@@ -5,16 +5,16 @@ ms.subservice: B2C
 ms.topic: include
 ms.date: 04/04/2020
 ms.author: mimart
-ms.openlocfilehash: e37419b5d568b0f60e4c6a0c8fed26eb418f501e
-ms.sourcegitcommit: d118ad4fb2b66c759b70d4d8a18e6368760da3ad
+ms.openlocfilehash: c1628894205754c1b8f1fc954796009afbdc8ed4
+ms.sourcegitcommit: f01c2142af7e90679f4c6b60d03ea16b4abf1b97
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/02/2020
-ms.locfileid: "84297482"
+ms.lasthandoff: 06/10/2020
+ms.locfileid: "84680333"
 ---
-#### <a name="app-registrations-preview"></a>[Inscriptions d’applications (préversion)](#tab/app-reg-preview/)
+#### <a name="app-registrations"></a>[Inscriptions des applications](#tab/app-reg-ga/) 
 
-1. Sélectionnez **Inscriptions d’applications (préversion)** , puis sélectionnez l’application web qui doit avoir accès à l’API. Par exemple, *webapp1*.
+1. Sélectionnez **Inscriptions d’applications**, puis sélectionnez l’application web qui doit avoir accès à l’API. Par exemple, *webapp1*.
 1. Sous **Gérer**, sélectionnez **Autorisations de l’API**.
 1. Sous **Autorisations configurées**, sélectionnez **Ajouter une autorisation**.
 1. Sélectionnez l’onglet **Mes API**.
@@ -26,9 +26,9 @@ ms.locfileid: "84297482"
 1. Sélectionnez **Oui**.
 1. Sélectionnez **Actualiser**, puis vérifiez que la mention « Accordé pour ... » apparaît dans **État** pour les deux étendues.
 
-#### <a name="applications"></a>[Applications](#tab/applications/)
+#### <a name="applications-legacy"></a>[Applications (héritées)](#tab/applications-legacy/)
 
-1. Sélectionnez **Applications**, puis sélectionnez l’application web qui doit avoir accès à l’API. Par exemple, *webapp1*.
+1. Sélectionnez **Applications (héritées)** , puis sélectionnez l’application web qui doit avoir accès à l’API. Par exemple, *webapp1*.
 1. Sélectionnez **Accès aux API**, puis **Ajouter**.
 1. Dans la liste déroulante **Sélectionner une API**, sélectionnez l’API à laquelle l’application web doit être autorisée à accéder. Par exemple, *webapi1*.
 1. Dans la liste déroulante **Sélectionner des étendues**, sélectionnez les étendues que vous avez définies précédemment. Par exemple, *demo.read* et *demo.write*.

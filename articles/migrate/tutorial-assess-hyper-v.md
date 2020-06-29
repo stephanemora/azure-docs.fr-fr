@@ -4,12 +4,12 @@ description: Décrit comment évaluer des machines virtuelles Hyper-V locales po
 ms.topic: tutorial
 ms.date: 06/03/2020
 ms.custom: mvc
-ms.openlocfilehash: 2c4233df6566f3187c8366188b0eb960189b43c5
-ms.sourcegitcommit: 79508e58c1f5c58554378497150ffd757d183f30
+ms.openlocfilehash: d87e0d54a62736623483f1929b1979af8efb3a58
+ms.sourcegitcommit: ff19f4ecaff33a414c0fa2d4c92542d6e91332f8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/03/2020
-ms.locfileid: "84331761"
+ms.lasthandoff: 06/18/2020
+ms.locfileid: "85052425"
 ---
 # <a name="assess-hyper-v-vms-with-azure-migrate-server-assessment"></a>Évaluer des machines virtuelles Hyper-V Azure Migrate Server Assessment
 
@@ -36,7 +36,7 @@ Si vous n’avez pas d’abonnement Azure, créez un [compte gratuit](https://az
 - [Effectuez](tutorial-prepare-hyper-v.md) le premier tutoriel de cette série. Si vous ne le faites pas, les instructions de ce tutoriel ne fonctionneront pas.
 - Voici ce que vous avez dû faire dans le premier tutoriel :
     - [Préparer Azure](tutorial-prepare-hyper-v.md#prepare-azure) pour qu’il fonctionne avec Azure Migrate.
-    - [Préparer l’évaluation](tutorial-prepare-hyper-v.md#prepare-hyper-v-for-assessment) des machines virtuelles et des hôtes Hyper-V.
+    - [Préparer l’évaluation](tutorial-prepare-hyper-v.md#prepare-for-assessment) des machines virtuelles et des hôtes Hyper-V.
     - [Vérifier](tutorial-prepare-hyper-v.md#prepare-for-appliance-deployment) ce dont vous avez besoin pour déployer l’appliance Azure Migrate dans le cadre de l’évaluation d’Hyper-V.
 
 ## <a name="set-up-an-azure-migrate-project"></a>Configurer un projet Azure Migrate
@@ -102,7 +102,7 @@ Vérifiez que le fichier compressé est sécurisé avant de le déployer.
 
         **Scénario** | **Télécharger** | **SHA256**
         --- | --- | ---
-        Hyper-V (8,93 Mo) | [Version la plus récente](https://aka.ms/migrate/appliance/hyperv) |  572be425ea0aca69a9aa8658c950bc319b2bdbeb93b440577264500091c846a1
+        Hyper-V (8,93 Go) | [Version la plus récente](https://aka.ms/migrate/appliance/hyperv) |  572be425ea0aca69a9aa8658c950bc319b2bdbeb93b440577264500091c846a1
 
     - Pour Azure Government :
 
@@ -174,10 +174,7 @@ Configurez l’appliance pour la première fois.
 
 ### <a name="delegate-credentials-for-smb-vhds"></a>Déléguer des informations d’identification pour les disques durs virtuels sur SMB
 
-Si vous utilisez des disques durs virtuels sur des SMB, vous devez activer la délégation des informations d’identification de l’appliance aux hôtes Hyper-V. Ce tutoriel requiert les éléments suivants :
-
-- Vous permettez à chaque hôte d’agir en tant que délégué pour l’appliance. Si vous avez effectué les tutoriels dans l’ordre, vous l’avez fait dans le tutoriel précédent, quand vous avez préparé Hyper-V pour l’évaluation et la migration. Vous devez avoir configuré CredSSP pour les hôtes [manuellement](tutorial-prepare-hyper-v.md#enable-credssp-on-hosts) ou en [exécutant un script](tutorial-prepare-hyper-v.md#prepare-with-a-script) qui le fait pour vous.
-- Activez la délégation CredSSP afin que l’appliance Azure Migrate puisse agir en tant que client, en déléguant les informations d’identification à un hôte.
+Si vous utilisez des disques durs virtuels sur des SMB, vous devez activer la délégation des informations d’identification de l’appliance aux hôtes Hyper-V. Pour cela, vous autorisez chaque hôte à agir en tant que délégué de l’appliance. Si vous avez effectué les tutoriels dans l’ordre, vous l’avez fait dans le tutoriel précédent, quand vous avez préparé Hyper-V pour l’évaluation et la migration. Vous devez avoir configuré CredSSP pour les hôtes [manuellement](tutorial-prepare-hyper-v.md#enable-credssp-to-delegate-credentials) ou en [exécutant un script](tutorial-prepare-hyper-v.md#run-the-script) qui le fait pour vous.
 
 Activez sur l’appliance comme suit :
 
@@ -186,7 +183,7 @@ Activez sur l’appliance comme suit :
 Sur la machine virtuelle de l’appliance, exécutez cette commande. HyperVHost1/HyperVHost2 sont des exemples de noms d’hôte.
 
 ```
-Enable-WSManCredSSP -Role Client -DelegateComputer HyperVHost1.contoso.com HyperVHost2.contoso.com -Force
+Enable-WSManCredSSP -Role Client -DelegateComputer HyperVHost1.contoso.com, HyperVHost2.contoso.com, HyperVHost1, HyperVHost2 -Force
 ```
 
 Exemple : ` Enable-WSManCredSSP -Role Client -DelegateComputer HyperVHost1.contoso.com HyperVHost2.contoso.com -Force `

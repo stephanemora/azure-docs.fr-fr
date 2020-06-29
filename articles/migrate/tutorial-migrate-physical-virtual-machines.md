@@ -4,12 +4,12 @@ description: Cet article explique comment migrer des machines physiques vers Azu
 ms.topic: tutorial
 ms.date: 04/15/2020
 ms.custom: MVC
-ms.openlocfilehash: 1824fc6c7cbc0fd0390770027f4a15d9130139de
-ms.sourcegitcommit: 31ef5e4d21aa889756fa72b857ca173db727f2c3
+ms.openlocfilehash: 38f1c67bdd3b280640e9be54fd677e2b403eb78b
+ms.sourcegitcommit: 99d016949595c818fdee920754618d22ffa1cd49
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "81535381"
+ms.lasthandoff: 06/15/2020
+ms.locfileid: "84771391"
 ---
 # <a name="migrate-machines-as-physical-servers-to-azure"></a>Migrer des machines en tant que serveurs physiques vers Azure
 
@@ -45,9 +45,6 @@ Si vous n’avez pas d’abonnement Azure, créez un [compte gratuit](https://az
 Avant de commencer ce didacticiel, vous devez :
 
 [Passer en revue](migrate-architecture.md) l’architecture de migration.
-
-
-
 
 ## <a name="prepare-azure"></a>Préparer Azure
 
@@ -93,7 +90,9 @@ Vérifiez que les machines sont conformes aux exigences de migration vers Azure.
 
 1. [Vérifiez](migrate-support-matrix-physical-migration.md#physical-server-requirements) les conditions requises des serveurs physiques.
 2. Vérifiez que les machines locales que vous répliquez sur Azure respectent les [exigences des machines virtuelles Azure](migrate-support-matrix-physical-migration.md#azure-vm-requirements).
-
+3. Certaines modifications doivent être apportées aux machines virtuelles afin qu’elles puissent être migrées vers Azure.
+    - Pour certains systèmes d’exploitation, Azure Migrate effectue ces modifications automatiquement. 
+    - Il est important d’effectuer ces modifications avant de commencer la migration. Si vous migrez la machine virtuelle avant d’effectuer la modification, elle risque de ne pas démarrer dans Azure. Examinez les modifications à apporter aux machines [Windows](prepare-for-migration.md#windows-machines) et [Linux](prepare-for-migration.md#linux-machines).
 
 ### <a name="prepare-a-machine-for-the-replication-appliance"></a>Préparer une machine pour l’appliance de réplication
 

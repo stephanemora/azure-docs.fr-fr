@@ -1,0 +1,47 @@
+---
+title: Exemples de code de connecteur d’API pour les flux utilisateur - Azure AD
+description: Exemples de code pour les connecteurs d’API dans les flux d’inscription en libre-service pour les identités externes Azure Active Directory.
+services: active-directory
+ms.service: active-directory
+ms.subservice: B2B
+ms.topic: sample
+ms.date: 06/16/2020
+ms.author: mimart
+author: msmimart
+manager: celestedg
+ms.custom: it-pro
+ms.collection: M365-identity-device-management
+ms.openlocfilehash: d0814312bb12582dd9e9ebfafc60fba470f6a9a9
+ms.sourcegitcommit: 34eb5e4d303800d3b31b00b361523ccd9eeff0ab
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 06/17/2020
+ms.locfileid: "84905155"
+---
+# <a name="samples-for-external-identities-self-service-sign-up"></a>Exemples pour l’inscription en libre-service des identités externes
+
+Les tableaux suivants fournissent des liens vers des exemples de code pour tirer parti des API web dans vos flux utilisateur d’inscription en libre-service avec des [connecteurs d’API](api-connectors-overview.md).
+
+## <a name="api-connector-azure-function-quickstarts"></a>Guides de démarrage rapide sur les fonctions Azure et les connecteurs d’API
+
+| Exemple                                                                                                                          | Description                                                                                                                                               |
+| ------------------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| [.NET Core](https://github.com/Azure-Samples/active-directory-dotnet-external-identities-api-connector-azure-function-validate) | Cet exemple de fonction Azure .NET Core montre comment limiter les connexions à des domaines de locataire spécifiques et valider les informations fournies par l’utilisateur. |
+| [Node.JS](https://github.com/Azure-Samples/active-directory-nodejs-external-identities-api-connector-azure-function-validate)   | Cet exemple de fonction Azure Node.js montre comment limiter les connexions à des domaines de locataire spécifiques et valider les informations fournies par l’utilisateur.  |
+| [Python](https://github.com/Azure-Samples/active-directory-python-external-identities-api-connector-azure-function-validate)    | Cet exemple de fonction Azure Python montre comment limiter les connexions à des domaines de locataire spécifiques et valider les informations fournies par l’utilisateur.    |
+
+<!-- \| [Java](../../azure-docs-pr/articles/active-directory/b2b/invite-internal-users.md#use-the-invitation-api-to-send-a-b2b-invitation) |  The sample below illustrates how to call the invitation API to invite an internal user as a B2B user. | -->
+
+## <a name="custom-approval-workflows"></a>Workflows d’approbation personnalisés
+
+| Exemple | Description |
+|--------| ----------- |
+| [Workflow d’approbation manuel](https://github.com/Azure-Samples/active-directory-dotnet-external-identities-api-connectors-approvals) | Cet exemple illustre un workflow d’approbation de bout en bout pour gérer la création de comptes d’utilisateur invités dans le cadre de l’inscription en libre-service. |
+
+## <a name="identity-verification"></a>Vérification d’identité
+
+| Exemple                                                                                                            | Description                                                                                                                          |
+| ----------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------ |
+| [IDology](https://github.com/Azure-Samples/active-directory-dotnet-external-identities-idology-identity-verification) | Cet exemple montre comment vérifier une identité d’utilisateur dans le cadre de votre inscription en libre-service à l’aide d’un connecteur d’API pour l’intégration à IDology. |
+
+<!-- | [Experian](https://github.com/Azure-Samples/) | This sample shows how add identity verification to your self-service sign-up user flow by using an API connector to integrate with Experian. | -->

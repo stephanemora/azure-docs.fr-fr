@@ -9,12 +9,12 @@ ms.subservice: ''
 ms.date: 05/07/2020
 ms.author: fipopovi
 ms.reviewer: jrasnick
-ms.openlocfilehash: 9c2a2d7059e24b37b0f47d0b568a3929f296d8c6
-ms.sourcegitcommit: 964af22b530263bb17fff94fd859321d37745d13
+ms.openlocfilehash: f70c14c424e8aaecbdc1138b52fdd6fb1e9fc265
+ms.sourcegitcommit: ff19f4ecaff33a414c0fa2d4c92542d6e91332f8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/09/2020
-ms.locfileid: "84560867"
+ms.lasthandoff: 06/18/2020
+ms.locfileid: "85051809"
 ---
 # <a name="how-to-use-openrowset-with-sql-on-demand-preview"></a>Guide pratique pour utiliser OPENROWSET avec SQL à la demande (préversion)
 
@@ -49,7 +49,7 @@ Il s’agit d’un moyen simple et rapide de lire le contenu des fichiers sans c
     Cette option vous permet de configurer l’emplacement du compte de stockage dans la source de données et de spécifier la méthode d’authentification à utiliser pour accéder au stockage. 
     
     > [!IMPORTANT]
-    > La fonction `OPENROWSET` sans le paramètre `DATA_SOURCE` fournit un moyen simple et rapide d’accéder aux fichiers de stockage, mais offre des options d’authentification limitées. Par exemple, un principal Azure AD peut accéder à des fichiers uniquement en utilisant leur [identité Azure AD](develop-storage-files-storage-access-control.md?tabs=user-identity#force-azure-ad-pass-through), et ne peut pas accéder à des fichiers publiquement disponibles. Si vous avez besoin d’options d’authentification plus puissantes, utilisez l’option `DATA_SOURCE` et définissez les informations d’identification que vous souhaitez utiliser pour accéder au stockage.
+    > La fonction `OPENROWSET` sans le paramètre `DATA_SOURCE` fournit un moyen simple et rapide d’accéder aux fichiers de stockage, mais offre des options d’authentification limitées. Par exemple, les principaux Azure AD peuvent accéder à des fichiers uniquement en utilisant leur [identité Azure AD](develop-storage-files-storage-access-control.md?tabs=user-identity), ou à des fichiers publiquement disponibles. Si vous avez besoin d’options d’authentification plus puissantes, utilisez l’option `DATA_SOURCE` et définissez les informations d’identification que vous souhaitez utiliser pour accéder au stockage.
 
 
 ## <a name="security"></a>Sécurité
@@ -60,7 +60,8 @@ L’administrateur de stockage doit également permettre à un utilisateur d’a
 
 La fonction `OPENROWSET` utilise les règles suivantes pour déterminer comment s’authentifier auprès du stockage :
 - Dans `OPENROWSET` sans `DATA_SOURCE`, le mécanisme d’authentification dépend du type d’appelant.
-  - Les connexions Azure AD ne peuvent accéder aux fichiers qu’en utilisant leur propre [identité Azure AD](develop-storage-files-storage-access-control.md?tabs=user-identity#supported-storage-authorization-types) si le stockage Azure permet à l’utilisateur Azure AD d’accéder aux fichiers sous-jacents (par exemple, si l’appelant dispose de l’autorisation Lecteur de stockage sur le stockage) et si vous [activez l’authentification directe Azure AD](develop-storage-files-storage-access-control.md#force-azure-ad-pass-through) sur le service Synapse SQL.
+  - Tout utilisateur peut utiliser `OPENROWSET` sans `DATA_SOURCE` pour lire des fichiers accessibles publiquement sur le stockage Azure.
+  - Les connexions Azure AD peuvent accéder à des fichiers protégés en utilisant leur propre [identité Azure AD](develop-storage-files-storage-access-control.md?tabs=user-identity#supported-storage-authorization-types) si le stockage Azure permet à l’utilisateur Azure AD d’accéder aux fichiers sous-jacents (par exemple, si l’appelant dispose de l’autorisation `Storage Reader` sur le stockage Azure).
   - Des connexions SQL peuvent également recourir à `OPENROWSET` sans `DATA_SOURCE` pour accéder à des fichiers en disponibilité publique, à des fichiers protégés par jeton SAP ou à l’identité managée d’un espace de travail Synapse. Vous devez [créer des informations d’identification incluses dans l’étendue du serveur](develop-storage-files-storage-access-control.md#examples) pour autoriser l’accès aux fichiers de stockage. 
 - Dans `OPENROWSET` avec `DATA_SOURCE`, le mécanisme d’authentification est défini dans les informations d’identification étendues à la base de données affectées à la source de données référencée. Cette option vous permet d’accéder au stockage publiquement disponible, ou d’accéder au stockage à l’aide du jeton SAP, de l’identité managée de l’espace de travail ou de l’[identité Azure AD de l’appelant](develop-storage-files-storage-access-control.md?tabs=user-identity#supported-storage-authorization-types) (si celui-ci est un principal Azure AD). Si `DATA_SOURCE` fait référence à un stockage Azure qui n’est pas public, vous devez [créer des informations d’identification étendues à la base de données](develop-storage-files-storage-access-control.md#examples) et y faire référence dans `DATA SOURCE` pour autoriser l’accès aux fichiers de stockage.
 
@@ -238,10 +239,6 @@ FROM
     ) AS [r]
 ```
 
-Si vous obtenez une erreur indiquant qu’il est impossible de lister les fichiers, vous devez activer l’accès au stockage public dans Synapse SQL à la demande :
-- Si vous utilisez une connexion SQL, vous devez [créer des informations d’identification étendues au serveur qui autorisent l’accès au stockage public](develop-storage-files-storage-access-control.md#examples).
-- Si vous utilisez un principal Azure AD pour accéder au stockage public, vous devez [créer des informations d’identification étendues au serveur qui autorisent l’accès au stockage public](develop-storage-files-storage-access-control.md#examples) et désactiver [l’authentification directe Azure AD](develop-storage-files-storage-access-control.md#disable-forcing-azure-ad-pass-through).
-
 ## <a name="next-steps"></a>Étapes suivantes
 
-Pour obtenir d’autres exemples, consultez le [Guide de démarrage rapide du stockage de données de requête](query-data-storage.md) pour savoir comment utiliser « OPENROWSET » pour lire les formats de fichiers [CSV](query-single-csv-file.md), [PARQUET](query-parquet-files.md) et [JSON](query-json-files.md). Vous pouvez également apprendre à enregistrer les résultats de votre requête dans Stockage Azure à l’aide de [CETAS](develop-tables-cetas.md).
+Pour obtenir d’autres exemples, consultez le [Guide de démarrage rapide du stockage de données de requête](query-data-storage.md) pour savoir comment utiliser `OPENROWSET` pour lire les formats de fichiers [CSV](query-single-csv-file.md), [PARQUET](query-parquet-files.md) et [JSON](query-json-files.md). Vous pouvez également apprendre à enregistrer les résultats de votre requête dans Stockage Azure à l’aide de [CETAS](develop-tables-cetas.md).

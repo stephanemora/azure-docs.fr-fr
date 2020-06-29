@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 11/04/2019
 ms.author: cherylmc
 ms.custom: include file
-ms.openlocfilehash: 3bd9489adaf46e604393fc7059d37443bdd5ec3e
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: 105ab0c71d9e7e935842550ecdc4c8d2ff2a2d8c
+ms.sourcegitcommit: 9bfd94307c21d5a0c08fe675b566b1f67d0c642d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "73488939"
+ms.lasthandoff: 06/17/2020
+ms.locfileid: "84977923"
 ---
 1. Localisez l’instance Virtual WAN que vous avez créée. Dans la page Virtual WAN, sous la section **Connectivité**, sélectionnez **Hubs**.
 2. Dans la page Hubs, cliquez sur **+Nouveau hub** pour ouvrir la page **Créer un hub virtuel**.
@@ -25,7 +25,7 @@ ms.locfileid: "73488939"
 
    * Région (précédemment appelée Emplacement)
    * Nom
-   * Espace d’adressage privé du hub. L’espace d’adressage minimal pour créer un hub est /24. Cela implique que toute plage comprise entre /25 et /32 produit une erreur lors de la création.
+   * Espace d’adressage privé du hub. L’espace d’adressage minimal pour créer un hub est /24. Cela implique que toute plage comprise entre /25 et /32 produit une erreur lors de la création. Le service Azure Virtual WAN, qui est géré par Microsoft, crée les sous-réseaux appropriés dans le hub virtuel pour les divers passerelles/services (par exemple, les passerelles VPN, les passerelles ExpressRoute, les passerelles VPN utilisateur/point à site, le pare-feu, le routage, etc.). L’utilisateur n’a pas besoin de planifier explicitement l’espace d’adressage de sous-réseau pour les services dans le hub virtuel, car Microsoft s’en charge dans le cadre du service.
 4. Sélectionnez **Suivant : Site à site**.
 
     ![Site à site](./media/virtual-wan-tutorial-hub-include/site-to-site.png "De site à site")

@@ -9,12 +9,12 @@ ms.subservice: general
 ms.topic: tutorial
 ms.date: 05/06/2020
 ms.author: mbaldwin
-ms.openlocfilehash: dca7392c35c398ae3d9da62114c991ee4c0e57ca
-ms.sourcegitcommit: 309a9d26f94ab775673fd4c9a0ffc6caa571f598
+ms.openlocfilehash: f6e70caaedf906142b19ba45f0eb4d818e2955e7
+ms.sourcegitcommit: ff19f4ecaff33a414c0fa2d4c92542d6e91332f8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/09/2020
-ms.locfileid: "82996999"
+ms.lasthandoff: 06/18/2020
+ms.locfileid: "85051889"
 ---
 # <a name="tutorial-use-a-managed-identity-to-connect-key-vault-to-an-azure-web-app-with-net"></a>Tutoriel : Utiliser une identité managée pour connecter Key Vault à une application web Azure avec .NET
 
@@ -147,7 +147,7 @@ Lorsque le plan App Service est créé, l’interface Azure CLI affiche des in
 Créez une [application web Azure](../../app-service/containers/app-service-linux-intro.md) dans le plan App Service `myAppServicePlan`. 
 
 > [!Important]
-> Comme pour Key Vault, une application web Azure doit avoir un nom unique. Remplacez \<your-webapp-name\> par le nom de votre application web dans les exemples suivants.
+> Comme pour Key Vault, une application web Azure doit avoir un nom unique. Remplacez \<your-webapp-name\> par le nom de votre application web comme dans les exemples suivants.
 
 
 ```azurecli-interactive
@@ -186,7 +186,7 @@ Vous verrez la page web par défaut d’une application web Azure nouvellement c
 
 ### <a name="deploy-your-local-app"></a>Déployer votre application locale
 
-De retour dans la fenêtre du terminal local, ajoutez une instance Azure distante à votre référentiel Git local en remplaçant *\<deploymentLocalGitUrl-from-create-step>* par l’URL de Git distant que vous avez enregistrée lors de l’étape [Créer une application web distante](#create-a-remote-web-app).
+De retour dans la fenêtre du terminal local, ajoutez une instance Azure distante à votre dépôt Git local en remplaçant *\<deploymentLocalGitUrl-from-create-step>* par l’URL du dépôt Git distant que vous avez enregistrée à l’étape [Créer une application web distante](#create-a-remote-web-app).
 
 ```bash
 git remote add azure <deploymentLocalGitUrl-from-create-step>
@@ -279,6 +279,7 @@ Ajoutez ces deux lignes à l’en-tête :
 ```csharp
 using Azure.Identity;
 using Azure.Security.KeyVault.Secrets;
+using Azure.Core;
 ```
 
 Ajoutez ces lignes avant l’appel de `app.UseEndpoints`, en mettant à jour l’URI pour refléter la valeur `vaultUri` de votre coffre de clés. Le code ci-dessous utilise ['DefaultAzureCredential()'](/dotnet/api/azure.identity.defaultazurecredential?view=azure-dotnet) pour l’authentification auprès du coffre de clés, en utilisant le jeton de l’identité managée par l’application pour s’authentifier. Il utilise également l’interruption exponentielle pour les nouvelles tentatives en cas de limitation du coffre de clés.

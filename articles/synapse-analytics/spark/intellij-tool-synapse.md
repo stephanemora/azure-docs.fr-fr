@@ -2,20 +2,20 @@
 title: Tutoriel - Azure Toolkit for IntelliJ (application Spark)
 description: Tutoriel - Utilisez Azure Toolkit for IntelliJ pour développer des applications Spark, écrites en Scala, et envoyez-les à un pool Apache Spark (préversion).
 services: synapse-analytics
-author: v-jiche
-ms.author: v-jiche
+author: hrasheed-msft
+ms.author: jejiang
 ms.reviewer: jrasnick, carlrab
 ms.service: synapse-analytics
 ms.topic: tutorial
 ms.date: 04/15/2020
-ms.openlocfilehash: b344ae50d921c33a5e8ddd344e08ec86179668e9
-ms.sourcegitcommit: 1de57529ab349341447d77a0717f6ced5335074e
+ms.openlocfilehash: 6f71b9ecc5dc0279d2053f6212f685968309284e
+ms.sourcegitcommit: 9bfd94307c21d5a0c08fe675b566b1f67d0c642d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/09/2020
-ms.locfileid: "84608755"
+ms.lasthandoff: 06/17/2020
+ms.locfileid: "84976793"
 ---
-# <a name="tutorial-create-apache-spark-applications-with-intellij-using-synapse-synapse-analytics-workspaces-preview"></a>Tutoriel : Créer des applications Apache Spark avec IntelliJ à l’aide d’Azure Synapse Analytics (préversion pour les espaces de travail)
+# <a name="tutorial-create-an-apache-spark-applications-with-intellij-using-a-synapse-workspace"></a>Tutoriel : Créer des applications Apache Spark avec IntelliJ à l’aide d’un espace de travail Synapse
 
 Ce tutoriel explique comment utiliser le plug-in Azure Toolkit for IntelliJ pour développer des applications Apache Spark, écrites en [Scala](https://www.scala-lang.org/), puis les envoyer directement à un pool Spark (préversion) à partir de l’environnement de développement intégré (IDE) IntelliJ. Vous pouvez utiliser le plug-in de différentes manières :
 
@@ -146,7 +146,7 @@ Après avoir créé une application Scala, vous pouvez l’exécuter à distance
     |Arguments de ligne de commande|Vous pouvez entrer des arguments séparés par un espace pour la classe main, si nécessaire.|
     |JAR référencés et fichiers référencés|vous pouvez entrer les chemins des fichiers jar et des fichiers référencés, si vous en avez. Vous pouvez également parcourir les fichiers dans le système de fichiers virtuel Azure, qui ne prend en charge que le cluster ADLS Gen2. Pour plus d'informations : [Configuration Apache Spark](https://spark.apache.org/docs/latest/configuration.html#runtime-environment) et [Guide pratique pour charger des ressources sur un cluster](../../storage/blobs/storage-quickstart-blobs-storage-explorer.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json).|
     |Stockage des chargements de travaux|Développez pour afficher des options supplémentaires.|
-    |Type de stockage|Sélectionnez **Utiliser l’objet blob Azure pour charger** dans la liste déroulante.|
+    |Type de stockage|Sélectionnez **Utiliser l’objet blob Azure pour charger** ou **Utiliser le compte de stockage par défaut du cluster pour charger** à partir de la liste déroulante.|
     |Compte de stockage|Entrez votre compte de stockage.|
     |Clé de stockage|Entrez votre clé de stockage.|
     |Conteneur de stockage|Sélectionnez votre conteneur de stockage dans la liste déroulante après avoir entré les valeurs **Compte de stockage** et **Clé de stockage**.|
@@ -250,6 +250,7 @@ Elle est uniquement prise en charge sur IntelliJ 2018.2 et 2018.3.
 
     |Propriété |Valeur |
     |----|----|
+    |Main class name| Sélectionnez le nom de la classe Main.| 
     |Spark pools|Sélectionnez les pools Spark sur lesquels vous souhaitez exécuter votre application.|
     ||
 

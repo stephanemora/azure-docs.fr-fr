@@ -12,12 +12,12 @@ manager: celestedg
 ms.reviewer: mal
 ms.custom: it-pro, seo-update-azuread-jan
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 0effb6bb6e3d3f80775a3cee1ad8a63013a78805
-ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
+ms.openlocfilehash: 89e1868d8e9a346d5a791c9fa8ae7682ca2b6807
+ms.sourcegitcommit: 34eb5e4d303800d3b31b00b361523ccd9eeff0ab
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83585818"
+ms.lasthandoff: 06/17/2020
+ms.locfileid: "84905134"
 ---
 # <a name="what-is-guest-user-access-in-azure-active-directory-b2b"></a>Qu’est-ce que l’accès utilisateur invité dans Azure Active Directory B2B ?
 
@@ -44,7 +44,7 @@ Avec Azure AD B2B, vos partenaires utilisent leur propre solution de gestion des
 
 ## <a name="invite-guest-users-with-a-simple-invitation-and-redemption-process"></a>Inviter des utilisateurs invités avec un simple processus d’invitation et d’échange d’invitation
 
-Les utilisateurs invités peuvent se connecter à vos applications et services avec leurs propres identités professionnelles, scolaires ou sociales. Si l’utilisateur invité n’a pas de compte Microsoft ou de compte Azure AD, un compte est créé pour lui au moment où il active l’invitation. 
+Les utilisateurs invités peuvent se connecter à vos applications et services avec leurs propres identités professionnelles, scolaires ou sociales. Si l’utilisateur invité n’a pas de compte Microsoft ni de compte Azure AD, un compte est créé pour lui au moment où il active l’invitation. 
 
 - Invitez les utilisateurs avec l’identité e-mail de leur choix.
 - Envoyez directement un lien vers une application, ou envoyez une invitation au panneau d’accès de l’utilisateur invité.
@@ -98,9 +98,12 @@ Azure AD prend en charge les fournisseurs d’identité externes tels que Facebo
 
 ## <a name="create-a-self-service-sign-up-user-flow-preview"></a>Créer un flux utilisateur d’inscription en libre-service (préversion)
 
-Avec un flux utilisateur d’inscription en libre-service, vous pouvez créer une expérience d’inscription pour des utilisateurs externes qui souhaitent accéder à vos applications. Dans le cadre du processus d’inscription, vous pouvez fournir des options pour différents fournisseurs d’identité de réseaux sociaux ou d’entreprise, et collecter des informations sur l’utilisateur. En savoir plus sur l’inscription en libre-service et sa configuration.
+Avec un flux utilisateur d’inscription en libre-service, vous pouvez créer une expérience d’inscription pour des utilisateurs externes qui souhaitent accéder à vos applications. Dans le cadre du processus d’inscription, vous pouvez fournir des options pour différents fournisseurs d’identité de réseaux sociaux ou d’entreprise, et collecter des informations sur l’utilisateur. En savoir plus sur l’[inscription en libre-service et sa configuration](self-service-sign-up-overview.md).
 
-![Capture d’écran montrant la page des flux utilisateurs](media/what-is-b2b/self-service-sign-up-user-flow-overview.png)
+Vous pouvez également utiliser des [connecteurs d’API](api-connectors-overview.md) pour intégrer vos flux d’utilisateur d’inscription en libre-service à des systèmes cloud externes. Vous pouvez vous connecter avec des workflows d’approbation personnalisés, effectuer une vérification de l’identité, valider des informations fournies par l’utilisateur, et bien plus encore.
+
+![Capture d’écran montrant la page des flux utilisateur](media/what-is-b2b/self-service-sign-up-user-flow-overview.png)
+<!--TODO: Add screenshot with API connectors -->
 
 ## <a name="next-steps"></a>Étapes suivantes
 

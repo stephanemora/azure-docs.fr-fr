@@ -1,23 +1,23 @@
 ---
-title: Azure Front Door | Microsoft Docs
-description: Cet article fournit une vue d’ensemble d’Azure Front Door. Déterminez s’il représente un choix adapté à l’équilibrage de charge du trafic utilisateur pour votre application.
+title: Nouveautés d’Azure Front Door
+description: Découvrez les nouveautés d’Azure Front Door.
 services: frontdoor
 documentationcenter: ''
 author: megan-beatty
 editor: ''
 ms.service: frontdoor
 ms.devlang: na
-ms.topic: overview
+ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 4/30/2020
 ms.author: mebeatty
-ms.openlocfilehash: 009891d16d3acf5db2e344bcc2c917ecee9eed5b
-ms.sourcegitcommit: eaec2e7482fc05f0cac8597665bfceb94f7e390f
+ms.openlocfilehash: f76e54d698e30cb2b8f929050264a3afaec36562
+ms.sourcegitcommit: 24f31287b6a526e23ff5b5469113522d1ccd4467
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "82515844"
+ms.lasthandoff: 06/12/2020
+ms.locfileid: "84743471"
 ---
 # <a name="whats-new-in-azure-front-door"></a>Nouveautés d’Azure Front Door
 

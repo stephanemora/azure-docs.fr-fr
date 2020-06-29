@@ -3,14 +3,14 @@ author: msmimart
 ms.service: active-directory-b2c
 ms.subservice: B2C
 ms.topic: include
-ms.date: 10/16/2019
+ms.date: 06/02/2020
 ms.author: mimart
-ms.openlocfilehash: 2981a46502ad7a7ab673e00bd1e8d2033ef2213d
-ms.sourcegitcommit: d118ad4fb2b66c759b70d4d8a18e6368760da3ad
+ms.openlocfilehash: 65fb406fa4f52f19b4d8e9dc4e3895207ffe6336
+ms.sourcegitcommit: 6571e34e609785e82751f0b34f6237686470c1f3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/02/2020
-ms.locfileid: "84317566"
+ms.lasthandoff: 06/15/2020
+ms.locfileid: "84793659"
 ---
 Pour inscrire une application dans votre locataire Azure AD B2C, vous pouvez utiliser notre nouvelle expérience unifiée **Inscriptions d’applications** ou notre expérience héritée **Applications (héritées)** . [En savoir plus sur la nouvelle expérience](https://aka.ms/b2cappregtraining).
 
@@ -23,11 +23,12 @@ Pour inscrire une application dans votre locataire Azure AD B2C, vous pouvez uti
 1. Entrez un **Nom** pour l’application. Par exemple, *nativeapp1*.
 1. Sous **Types de comptes pris en charge**, sélectionnez **Comptes dans un répertoire organisationnel ou un fournisseur d'identité**.
 1. Sous **URI de redirection**, utilisez la liste déroulante pour sélectionner **client public/natif (Bureau et mobile)** .
-1. Entrez un URI de redirection avec un schéma unique. Par exemple : `com.onmicrosoft.contosob2c.exampleapp://oauth/redirect`. Deux points importants sont à prendre en compte quand vous choisissez un URI de redirection :
+1. Entrez un URI de redirection avec un schéma unique. Par exemple : `com.onmicrosoft.contosob2c.exampleapp://oauth/redirect`. Quelques points importants sont à prendre en compte quand vous choisissez un URI de redirection :
+    * **Développement** À des fins de développement, vous pouvez définir l’URI de redirection sur `http://localhost`, et Azure AD B2C respectera tout port dans la requête. Si l’URI inscrit contient un port, Azure AD B2C utilisera uniquement ce port. Par exemple, si l’URI de redirection inscrit est `http://localhost`, l’URI de redirection dans la requête peut être `http://localhost:<randomport>`. Si l’URI de redirection inscrit est `http://localhost:8080`, l’URI de redirection dans la requête doit être `http://localhost:8080`.
     * **Unique** : le schéma de l'URI de redirection doit être propre à chaque application. Dans l’exemple `com.onmicrosoft.contosob2c.exampleapp://oauth/redirect`, `com.onmicrosoft.contosob2c.exampleapp` est le schéma. Ce modèle doit être suivi. Si deux applications partagent le même schéma, l’utilisateur doit choisir une application. Si l'utilisateur fait le mauvais choix, la connexion échoue.
     * **Complet** : l'URI de redirection doit être doté d'un schéma et d'un chemin. Le chemin d’accès doit contenir au moins une barre oblique après le domaine. Par exemple, `//oauth/` fonctionne tandis que `//oauth` échoue. N'incluez pas de caractères spéciaux, tels que des traits de soulignement, dans l'URI.
 1. Sous **Autorisations**, activez la case à cocher *Accorder le consentement administrateur aux autorisations openid et offline_access*.
-1. Sélectionnez **Inscription**.
+2. Sélectionnez **Inscription**.
 
 #### <a name="applications-legacy"></a>[Applications (héritées)](#tab/applications-legacy/)
 

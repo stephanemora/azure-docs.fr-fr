@@ -11,12 +11,12 @@ ms.author: trbye
 ms.reviewer: trbye
 ms.date: 02/10/2020
 ms.custom: tracking-python
-ms.openlocfilehash: ec0ff6c5e53d33cf5c07171c2b678fe6857836e0
-ms.sourcegitcommit: 964af22b530263bb17fff94fd859321d37745d13
+ms.openlocfilehash: e82ed66240144f94e18c3343dc0559f47722a2c4
+ms.sourcegitcommit: eeba08c8eaa1d724635dcf3a5e931993c848c633
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/09/2020
-ms.locfileid: "84558360"
+ms.lasthandoff: 06/10/2020
+ms.locfileid: "84667088"
 ---
 # <a name="tutorial-train-your-first-ml-model"></a>Tutoriel : Entraîner votre premier modèle ML
 
@@ -134,11 +134,11 @@ Une fois l’entraînement terminé, appelez la variable `experiment` pour extra
 experiment
 ```
 
-<table style="width:100%"><tr><th>Nom</th><th>Espace de travail</th><th>Page du rapport</th><th>Page de la documentation</th></tr><tr><td>diabetes-experiment</td><td>your-workspace-name</td><td>Lien vers le studio Azure Machine Learning</td><td>Lien vers la documentation</td></tr></table>
+<table style="width:100%"><tr><th>Nom</th><th>Espace de travail</th><th>Page du rapport</th><th>Page des documents</th></tr><tr><td>diabetes-experiment</td><td>your-workspace-name</td><td>Lien vers le studio Azure Machine Learning</td><td>Lien vers la documentation</td></tr></table>
 
 ## <a name="view-training-results-in-studio"></a>Afficher les résultats de l’entraînement dans le studio
 
-En suivant le **lien vers le studio Azure Machine Learning**, vous accédez à la page de l’expérience principale. Vous voyez ici toutes les cycles individuels dans l’expérience. Toutes les valeurs journalisées de manière personnalisée (`alpha_value` et `rmse` dans ce cas) deviennent des champs pour chaque cycle, et deviennent également disponibles pour les graphiques et les vignettes en haut de la page de l’expérience. Pour ajouter une métrique journalisée à un graphique ou à une vignette, pointez dessus, cliquez sur le bouton Modifier, puis recherchez votre métrique journalisée de manière personnalisée.
+En suivant le **lien vers le studio Azure Machine Learning**, vous accédez à la page de l’expérience principale. Vous voyez ici toutes les cycles individuels dans l’expérience. Toutes les valeurs journalisées de manière personnalisée (`alpha_value` et `rmse` dans ce cas) deviennent des champs pour chaque cycle, et deviennent également disponibles pour les graphiques. Pour tracer un nouveau graphique avec une métrique journalisée, cliquez sur « Ajouter un graphique », puis sélectionnez la métrique à tracer.
 
 Lorsque vous effectuez l’apprentissage de modèles à grande échelle sur des centaines et des milliers de cycles, cette page facilite la visualisation de tous les modèles que vous avez formés, et singulièrement de la façon dont ils ont été formés ainsi que de l’évolution de vos métriques uniques au fil du temps.
 

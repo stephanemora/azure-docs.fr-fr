@@ -9,12 +9,12 @@ author: j-martens
 ms.author: jmartens
 ms.date: 11/04/2019
 ms.custom: tracking-python
-ms.openlocfilehash: ebc30f995c44685dfd58e627706e4ca60e8ecfd5
-ms.sourcegitcommit: 964af22b530263bb17fff94fd859321d37745d13
+ms.openlocfilehash: c4969628bb80d63cafc9537ec511ac218ff87ca7
+ms.sourcegitcommit: c4ad4ba9c9aaed81dfab9ca2cc744930abd91298
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/09/2020
-ms.locfileid: "84556814"
+ms.lasthandoff: 06/12/2020
+ms.locfileid: "84738292"
 ---
 # <a name="what-is-azure-machine-learning"></a>Qu'est-ce que Azure Machine Learning ?
 
@@ -124,16 +124,11 @@ Votre compte de stockage Azure, vos cibles de calcul et d’autres ressources pe
 ## <a name="basic--enterprise-editions"></a><a name="sku"></a>Éditions De Base et Entreprise
 
 Azure Machine Learning propose deux éditions adaptées à vos besoins de Machine Learning :
-+ De base (mise à la disposition générale)
-+ Entreprise (préversion)
++ **De base** : Idéal pour le développement open source à l’échelle du cloud avec une expérience Code First.
 
-Ces éditions déterminent les outils de Machine Learning disponibles pour les développeurs et les scientifiques de données depuis leur espace de travail.   
++ **D’entreprise** : Ensemble de l’édition De base, plus une interface web (studio), plus une gestion sécurisée et complète du cycle de vie ML pour tous les niveaux de compétence.
 
-Les espaces de travail De base vous permettent de continuer à utiliser Azure Machine Learning et de payer uniquement les ressources Azure consommées pendant le processus de Machine Learning. Les espaces de travail de l’édition Entreprise sont facturés uniquement pour leur consommation Azure lorsque l’édition est en préversion. Vous trouverez plus d’informations sur les éléments disponibles dans la [vue d’ensemble et la page de tarification de l’édition](https://azure.microsoft.com/pricing/details/machine-learning/) d’Azure Machine Learning. 
-
-Vous attribuez l’édition chaque fois que vous créez un espace de travail. De plus, les espaces de travail préexistants ont été convertis pour vous dans l’édition De base. L’édition De base comprend toutes les fonctionnalités qui étaient déjà généralement disponibles à partir d’octobre 2019. Toutes les expériences de ces espaces de travail qui ont été créées à l’aide des fonctionnalités de l’édition Entreprise restent disponibles en lecture seule jusqu’à ce que vous procédiez à une mise à niveau vers Entreprise. Découvrez comment [mettre à niveau un espace de travail De base vers l’édition Entreprise](how-to-manage-workspace.md#upgrade). 
-
-Les clients sont responsables des coûts liés au calcul et aux autres ressources Azure pendant cette période.
+Pour en savoir plus sur ces éditions et les fonctionnalités qu’elles déverrouillent, consultez l’article sur les [éditions d’Azure Machine Learning](concept-editions.md).
 
 ## <a name="next-steps"></a>Étapes suivantes
 

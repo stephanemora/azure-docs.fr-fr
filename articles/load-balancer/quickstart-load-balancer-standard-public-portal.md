@@ -15,12 +15,12 @@ ms.workload: infrastructure-services
 ms.date: 01/08/2020
 ms.author: allensu
 ms.custom: mvc
-ms.openlocfilehash: b424fe315737b84479283eed2d77398c8ce4f148
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.openlocfilehash: 99a2de4cd8a19d3f05b9dc37f3bcd08cd84b2e68
+ms.sourcegitcommit: ff19f4ecaff33a414c0fa2d4c92542d6e91332f8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "78898828"
+ms.lasthandoff: 06/18/2020
+ms.locfileid: "85052742"
 ---
 # <a name="quickstart-create-a-load-balancer-to-load-balance-vms-using-the-azure-portal"></a>Démarrage rapide : Créer un équilibreur de charge pour équilibrer la charge des machines virtuelles à l’aide du portail Azure
 
@@ -116,12 +116,12 @@ Dans les étapes de cette section, vous devrez remplacer les paramètres du tabl
 
 | Paramètre                   | Valeur                |
 |-----------------------------|----------------------|
-| **\<nom_groupe_ressource>**  | myResourceGroupSLB |
-| **\<nom_réseau_virtuel>** | myVNet          |
-| **\<nom_région>**          | Europe Ouest      |
-| **\<espace_d’adressage_IPv4>**   | 10.1.0.0\16          |
-| **\<nom_sous-réseau>**          | myBackendSubnet        |
-| **\<plage_adresses_sous-réseau>** | 10.1.0.0\24          |
+| **\<resource-group-name>**  | myResourceGroupSLB |
+| **\<virtual-network-name>** | myVNet          |
+| **\<region-name>**          | Europe Ouest      |
+| **\<IPv4-address-space>**   | 10.1.0.0\16          |
+| **\<subnet-name>**          | myBackendSubnet        |
+| **\<subnet-address-range>** | 10.1.0.0\24          |
 
 [!INCLUDE [virtual-networks-create-new](../../includes/virtual-networks-create-new.md)]
 
@@ -162,7 +162,7 @@ Les références SKU d’adresse IP publique et d’équilibreur de charge doive
     | Zone de disponibilité | 2 |3|
     |Adresse IP publique| Référence **Standard**|Référence **Standard**|
     | Adresse IP publique - zone de disponibilité| **Redondant dans une zone** |**Redondant dans une zone**|
-    | Groupe de sécurité réseau | Sélectionnez le *groupe myNetworkSecurity* existant| Sélectionnez le *groupe myNetworkSecurity* existant|
+    | Groupe de sécurité réseau | Sélectionnez l’élément *myNetworkSecurityGroup* existant| Sélectionnez l’élément *myNetworkSecurityGroup* existant|
 
  ### <a name="create-nsg-rule"></a>Création de la règle de groupe de sécurité réseau
 

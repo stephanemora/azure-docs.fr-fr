@@ -7,19 +7,23 @@ author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: overview
-ms.date: 05/19/2020
-ms.openlocfilehash: f8ddc3ef56aefc6ea613af19d91cd0122435efd7
-ms.sourcegitcommit: 61d850bc7f01c6fafee85bda726d89ab2ee733ce
+ms.date: 06/08/2020
+ms.openlocfilehash: 97defe2af5b82cccbaf289ccbd805b608b978a43
+ms.sourcegitcommit: c4ad4ba9c9aaed81dfab9ca2cc744930abd91298
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/03/2020
-ms.locfileid: "84344201"
+ms.lasthandoff: 06/12/2020
+ms.locfileid: "84736082"
 ---
 # <a name="whats-new-in-azure-cognitive-search"></a>Nouveauté dans Recherche cognitive Azure
 
 Découvrir les nouveautés du service. Marquez cette page pour rester au fait des nouveautés du service.
 
 ## <a name="feature-announcements"></a>Annonces de fonctionnalités
+
+### <a name="june-2020"></a>Juin 2020
+
+La compétence Azure Machine Learning est un nouveau type de compétence permettant d’intégrer un point de terminaison d’inférence à partir d’Azure Machine Learning. L’expérience du portail prend en charge la découverte et l’intégration de votre point de terminaison Azure Machine Learning dans un ensemble de compétences Recherche cognitive. La découverte exige que vos services Recherche cognitive et Azure ML soient déployés dans le même abonnement. Pour vous inscrire à la préversion de la compétence AML, [remplissez le formulaire](https://forms.office.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbR0jK7x7HQYdDm__YfEsbtcZUMTFGTFVTOE5XMkVUMFlDVFBTTlYzSlpLTi4u). Pour bien démarrer, suivez [ce tutoriel](cognitive-search-tutorial-aml-custom-skill.md).
 
 ### <a name="may-2020-microsoft-build"></a>Mai 2020 (Microsoft Build)
 

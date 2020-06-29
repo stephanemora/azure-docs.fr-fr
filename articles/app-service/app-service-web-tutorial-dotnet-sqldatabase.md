@@ -6,12 +6,12 @@ ms.devlang: csharp
 ms.topic: tutorial
 ms.date: 06/25/2018
 ms.custom: mvc, devcenter, vs-azure, seodec18
-ms.openlocfilehash: f6c8b388a9d1261e08314b8f8c607e5ee16362ae
-ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
+ms.openlocfilehash: 57701218186266e897e8312d01372fd36ddee715
+ms.sourcegitcommit: 34eb5e4d303800d3b31b00b361523ccd9eeff0ab
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "84013786"
+ms.lasthandoff: 06/17/2020
+ms.locfileid: "84906120"
 ---
 # <a name="tutorial-deploy-an-aspnet-app-to-azure-with-azure-sql-database"></a>Tutoriel : Déployer une application ASP.NET sur Azure avec Azure SQL Database
 
@@ -24,11 +24,11 @@ Dans ce tutoriel, vous allez apprendre à :
 > [!div class="checklist"]
 >
 > * Créer une base de données dans Azure SQL Database.
-> * Connecter une application ASP.NET à SQL Database.
-> * Déployer l’application sur Azure.
-> * Mettre à jour le modèle de données et redéployer l’application.
-> * Diffuser des journaux à partir d’Azure vers votre terminal.
-> * Gérer l’application dans le portail Azure.
+> * Connecter une application ASP.NET à SQL Database
+> * Déploiement de l’application dans Azure
+> * Mise à jour du modèle de données et redéploiement de l’application
+> * Diffuser des journaux d’activité à partir d’Azure vers votre terminal
+> * Gérer l’application dans le portail Azure
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
@@ -410,3 +410,8 @@ Passez au tutoriel suivant pour apprendre à améliorer facilement la sécurité
 
 > [!div class="nextstepaction"]
 > [Accéder à Azure SQL Database en toute sécurité à l’aide d’identités managées pour les ressources Azure](app-service-web-tutorial-connect-msi.md)
+
+Autres ressources :
+
+> [!div class="nextstepaction"]
+> [Configurer une application ASP.NET](configure-language-dotnet-framework.md)

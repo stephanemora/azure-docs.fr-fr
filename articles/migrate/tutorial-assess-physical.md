@@ -3,12 +3,12 @@ title: Évaluer des serveurs physiques en vue d’une migration vers Azure avec 
 description: Décrit comment évaluer des serveurs physiques locaux pour la migration vers Azure avec Azure Migrate Server Assessment.
 ms.topic: tutorial
 ms.date: 04/15/2020
-ms.openlocfilehash: 5cbd1b85bdb9017a96dc863b83223c31c716cf77
-ms.sourcegitcommit: 79508e58c1f5c58554378497150ffd757d183f30
+ms.openlocfilehash: ee88f9058abc89a671fa846a67c22a752f0d05e4
+ms.sourcegitcommit: ff19f4ecaff33a414c0fa2d4c92542d6e91332f8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/03/2020
-ms.locfileid: "84331795"
+ms.lasthandoff: 06/18/2020
+ms.locfileid: "85052210"
 ---
 # <a name="assess-physical-servers-with-azure-migrateserver-assessment"></a>Évaluer les serveurs physiques à l’aide d’Azure Migrate : Évaluation du serveur
 
@@ -101,7 +101,7 @@ Vérifiez que le fichier compressé est sécurisé avant de le déployer.
 2. Exécutez la commande suivante pour générer le code de hachage du fichier compressé :
     - ```C:\>CertUtil -HashFile <file_location> [Hashing Algorithm]```
     - Exemple d’utilisation du cloud public : ```C:\>CertUtil -HashFile C:\Users\administrator\Desktop\AzureMigrateInstaller.zip SHA256 ```
-    - Exemple d’utilisation du cloud du secteur public : ```  C:\>CertUtil -HashFile C:\Users\administrator\Desktop\AzureMigrateInstaller-Server-USGov.zip MD5 ```
+    - Exemple d’utilisation du cloud du secteur public : ```  C:\>CertUtil -HashFile C:\Users\administrator\Desktop\AzureMigrateInstaller-Server-USGov.zip SHA256 ```
 3.  Vérifiez les toutes dernières versions de l’appliance et les valeurs de hachage :
     - Pour le cloud public :
 
@@ -180,7 +180,7 @@ Configurez l’appliance pour la première fois.
 
 1. Cliquez sur **Ajouter des informations d’identification** pour spécifier les informations d’identification du compte que l’appliance utilisera pour découvrir les serveurs.  
 2. Spécifiez le **système d’exploitation**, un nom convivial pour les informations d’identification ainsi que le nom d’utilisateur et le mot de passe. Cliquez ensuite sur **Ajouter**.
-Vous pouvez ajouter un ensemble d’informations d’identification pour les serveurs Windows et Linux.
+Vous pouvez ajouter plusieurs informations d’identification pour les serveurs Windows et Linux.
 4. Cliquez sur **Ajouter un serveur**, puis spécifiez les détails du serveur - nom de domaine complet (FQDN)/adresse IP et nom convivial des informations d’identification (une entrée par ligne) - pour vous connecter au serveur.
 3. Cliquez sur **Valider**. Après validation, la liste des serveurs qui peuvent être découverts s’affiche.
     - Si la validation échoue pour un serveur, passez en revue l’erreur en pointant sur l’icône dans la colonne **État**. Corrigez les problèmes et recommencez la validation.

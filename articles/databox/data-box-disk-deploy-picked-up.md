@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.date: 05/08/2020
 ms.author: alkohli
 ms.localizationpriority: high
-ms.openlocfilehash: bfac12c6ef278072c6bb44d55dc12926fe906e6f
-ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
+ms.openlocfilehash: 07c86ca016d3e38359cbe8ba61d67f109c42edb0
+ms.sourcegitcommit: 51977b63624dfd3b4f22fb9fe68761d26eed6824
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/21/2020
-ms.locfileid: "83747675"
+ms.lasthandoff: 06/17/2020
+ms.locfileid: "84944965"
 ---
 ::: zone target="docs"
 
@@ -159,7 +159,7 @@ Si nécessaire, vous pouvez contacter le support de Quantium Solutions (en langu
 
 ### <a name="in-self-managed"></a>[Si auto-gestion](#tab/in-selfmanaged)
 
-Si vous utilisez Data Box Disk au Japon, à Singapour, en Corée et dans la région Europe Ouest et que vous avez sélectionné l’option d’expédition auto-gérée pendant la création de la commande, suivez ces instructions. 
+Si vous utilisez Data Box Disk au Japon, à Singapour, en Corée, dans la région Europe Ouest ou en Inde, et que vous avez sélectionné l’option d’expédition auto-gérée pendant la création de la commande, suivez ces instructions. 
 
 1. Accédez au panneau **Vue d’ensemble** de votre commande dans le portail Azure. Parcourez les instructions qui s’affichent lorsque vous sélectionnez **Planifier l’enlèvement**. Un code d’autorisation doit apparaître. Il est utilisé au moment de la remise de la commande.
 

@@ -6,15 +6,15 @@ author: filippopovic
 ms.service: synapse-analytics
 ms.topic: overview
 ms.subservice: ''
-ms.date: 04/15/2020
+ms.date: 06/11/2020
 ms.author: fipopovi
 ms.reviewer: jrasnick, carlrab
-ms.openlocfilehash: 7d9157993e8cdbb6f7976ee2d4ce67b9039e7b52
-ms.sourcegitcommit: 0b80a5802343ea769a91f91a8cdbdf1b67a932d3
+ms.openlocfilehash: 4e717de82c289aacfba2372e77dc932becaf9a5c
+ms.sourcegitcommit: bc943dc048d9ab98caf4706b022eb5c6421ec459
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/25/2020
-ms.locfileid: "83835833"
+ms.lasthandoff: 06/14/2020
+ms.locfileid: "84764177"
 ---
 # <a name="control-storage-account-access-for-sql-on-demand-preview"></a>Contrôler l’accès au compte de stockage pour SQL à la demande (préversion)
 
@@ -29,7 +29,18 @@ Cet article décrit les types d’informations d’identification que vous pouve
 Un utilisateur qui s’est connecté à une ressource SQL à la demande doit être autorisé à accéder aux fichiers présents dans le stockage Azure, ainsi qu’à les interroger si les fichiers ne sont pas publiquement disponibles. Vous pouvez utiliser trois types d’autorisation pour accéder au stockage non public : [Identité de l’utilisateur](?tabs=user-identity), [Signature d’accès partagé](?tabs=shared-access-signature) et [Identité managée](?tabs=managed-identity).
 
 > [!NOTE]
-> Le [pass-through Azure AD](#force-azure-ad-pass-through) est le comportement qui est utilisé par défaut quand vous créez un espace de travail. Si vous l’utilisez, vous n’avez pas besoin de créer des informations d’identification pour chaque compte de stockage accessible à l’aide d’informations de connexion Azure AD. Vous pouvez [désactiver ce comportement](#disable-forcing-azure-ad-pass-through).
+> Le **pass-through Azure AD** est le comportement qui est utilisé par défaut quand vous créez un espace de travail.
+
+### <a name="user-identity"></a>[Identité de l’utilisateur](#tab/user-identity)
+
+L’**identité de l’utilisateur** (également appelée « pass-through Azure AD ») est un type d’autorisation avec lequel l’identité de l’utilisateur Azure AD qui s’est connecté à SQL à la demande est utilisée pour autoriser l’accès aux données. Avant d’accéder aux données, l’administrateur du stockage Azure doit accorder des autorisations à l’utilisateur Azure AD. Comme indiqué dans le tableau ci-dessous, elle n’est pas prise en charge pour le type d’utilisateur SQL.
+
+> [!IMPORTANT]
+> Pour utiliser votre identité afin d’accéder aux données, vous devez disposer d’un rôle de propriétaire, de contributeur ou de lecteur pour les données blob de stockage.
+> Même si vous êtes propriétaire d’un compte de stockage, vous devez vous ajouter à l’un des rôles de données blob de stockage.
+>
+> Pour plus d’informations sur le contrôle d’accès dans Azure Data Lake Store Gen2, consultez l’article [Contrôle d’accès dans Azure Data Lake Storage Gen2](../../storage/blobs/data-lake-storage-access-control.md).
+>
 
 ### <a name="shared-access-signature"></a>[Signature d’accès partagé](#tab/shared-access-signature)
 
@@ -43,49 +54,6 @@ Vous pouvez obtenir un jeton SAS en accédant au **portail Azure -> Compte de 
 > Jeton SAS : ?sv=2018-03-28&ss=bfqt&srt=sco&sp=rwdlacup&se=2019-04-18T20:42:12Z&st=2019-04-18T12:42:12Z&spr=https&sig=lQHczNvrk1KoYLCpFdSsMANd0ef9BrIPBNJ3VYEIq78%3D
 
 Vous devez créer des informations d’identification incluses dans l’étendue de la base de données ou du serveur pour autoriser l’accès à l’aide du jeton SAP.
-
-### <a name="user-identity"></a>[Identité de l’utilisateur](#tab/user-identity)
-
-L’**identité de l’utilisateur** (également appelée « pass-through ») est un type d’autorisation avec lequel l’identité de l’utilisateur Azure AD qui s’est connecté à SQL à la demande est utilisée pour autoriser l’accès aux données. Avant d’accéder aux données, l’administrateur du stockage Azure doit accorder des autorisations à l’utilisateur Azure AD. Comme indiqué dans le tableau ci-dessus, elle n’est pas prise en charge pour le type d’utilisateur SQL.
-
-> [!IMPORTANT]
-> Pour utiliser votre identité afin d’accéder aux données, vous devez disposer d’un rôle de propriétaire, de contributeur ou de lecteur pour les données blob de stockage.
-> Même si vous êtes propriétaire d’un compte de stockage, vous devez vous ajouter à l’un des rôles de données blob de stockage.
->
-> Pour plus d’informations sur le contrôle d’accès dans Azure Data Lake Store Gen2, consultez l’article [Contrôle d’accès dans Azure Data Lake Storage Gen2](../../storage/blobs/data-lake-storage-access-control.md).
->
-
-Vous devez activer explicitement l’authentification directe Azure AD pour permettre aux utilisateurs Azure AD d’accéder au stockage à l’aide de leurs identités.
-
-#### <a name="force-azure-ad-pass-through"></a>Forcer le pass-through Azure AD
-
-Le fait de forcer un pass-through Azure AD est un comportement par défaut qui s’obtient par l’utilisation d’un CREDENTIAL NAME spécial (`UserIdentity`), qui est créé automatiquement lors du provisionnement de l’espace de travail Azure Synapse. Celui-ci force l’utilisation d’un pass-through Azure AD pour chaque requête de chaque connexion Azure AD, ce qui se produit en dépit de l’existence d’autres informations d’identification.
-
-> [!NOTE]
-> Le pass-through Azure AD est un comportement par défaut. Vous n’avez pas besoin de créer des informations d’identification pour chaque compte de stockage accessible à l’aide des informations de connexion AD.
-
-Si vous avez [désactivé le forçage du pass-through Azure AD pour chaque requête](#disable-forcing-azure-ad-pass-through) et souhaitez le réactiver, exécutez ceci :
-
-```sql
-CREATE CREDENTIAL [UserIdentity]
-WITH IDENTITY = 'User Identity';
-```
-
-Pour activer le forçage du pass-through Azure AD pour un utilisateur, vous pouvez accorder l’autorisation REFERENCE pour les informations d’identification `UserIdentity` à l’utilisateur en question. L’exemple suivant permet de forcer un pass-through Azure AD pour un nom d’utilisateur (user_name) :
-
-```sql
-GRANT REFERENCES ON CREDENTIAL::[UserIdentity] TO USER [user_name];
-```
-
-#### <a name="disable-forcing-azure-ad-pass-through"></a>Désactiver le forçage du pass-through Azure AD
-
-Vous pouvez désactiver le [forçage du pass-through Azure AD pour chaque requête](#force-azure-ad-pass-through). Pour le désactiver, supprimez les informations d’identification `Userdentity` en utilisant ceci :
-
-```sql
-DROP CREDENTIAL [UserIdentity];
-```
-
-Si vous souhaitez le réactiver, reportez-vous à la section [Forcer le pass-through Azure AD](#force-azure-ad-pass-through).
 
 ### <a name="managed-identity"></a>[Identité gérée](#tab/managed-identity)
 
@@ -152,7 +120,7 @@ GRANT REFERENCES ON CREDENTIAL::[UserIdentity] TO [public];
 Les informations d’identification incluses dans l’étendue du serveur sont utilisées lorsque la connexion SQL appelle la fonction `OPENROWSET` sans le paramètre `DATA_SOURCE` pour lire des fichiers sur un compte de stockage. Le nom des informations d’identification incluses dans l’étendue du serveur **doit** correspondre à l’URL du stockage Azure. Les informations d’identification sont ajoutées par l’exécution de [CREATE CREDENTIAL](/sql/t-sql/statements/create-credential-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest). Vous devez fournir un argument CREDENTIAL NAME. Il doit correspondre à une partie du chemin ou au chemin complet des données situées dans le stockage (voir ci-dessous).
 
 > [!NOTE]
-> L’argument FOR CRYPTOGRAPHIC PROVIDER n’est pas pris en charge.
+> L’argument `FOR CRYPTOGRAPHIC PROVIDER` n’est pas pris en charge.
 
 Le nom des INFORMATIONS D’IDENTIFICATION au niveau du serveur doit correspondre au chemin d’accès complet au compte de stockage (et éventuellement au conteneur) dans le format suivant : `<prefix>://<storage_account_path>/<storage_path>`. Les chemins d’accès de compte de stockage sont décrits dans le tableau suivant :
 
@@ -162,10 +130,13 @@ Le nom des INFORMATIONS D’IDENTIFICATION au niveau du serveur doit correspondr
 | Azure Data Lake Storage Gen1 | https  | <storage_account>.azuredatalakestore.net/webhdfs/v1 |
 | Azure Data Lake Storage Gen2 | https  | <storage_account>.dfs.core.windows.net              |
 
-> [!NOTE]
-> Il existe au niveau du serveur des INFORMATIONS D’IDENTIFICATION `UserIdentity` spécifiques qui [forcent l’accès direct Azure AD](?tabs=user-identity#force-azure-ad-pass-through).
-
 Les informations d’identification informations d’identification incluses dans l’étendue du serveur permettent d’accéder au stockage Azure à l’aide des types d’authentification suivants :
+
+### <a name="user-identity"></a>[Identité de l’utilisateur](#tab/user-identity)
+
+Les utilisateurs Azure AD peuvent accéder à n’importe quel fichier sur le stockage Azure s’ils disposent du rôle `Storage Blob Data Owner`, `Storage Blob Data Contributor` ou `Storage Blob Data Reader`. Les utilisateurs Azure AD n’ont pas besoin d’informations d’identification pour accéder au stockage. 
+
+Les utilisateurs SQL ne peuvent pas utiliser l’authentification Azure AD pour accéder au stockage.
 
 ### <a name="shared-access-signature"></a>[Signature d’accès partagé](#tab/shared-access-signature)
 
@@ -180,15 +151,6 @@ WITH IDENTITY='SHARED ACCESS SIGNATURE'
 GO
 ```
 
-### <a name="user-identity"></a>[Identité de l’utilisateur](#tab/user-identity)
-
-Le script suivant crée des informations d’identification au niveau du serveur qui permettent à l’utilisateur d’emprunter une identité en utilisant une identité Azure AD.
-
-```sql
-CREATE CREDENTIAL [UserIdentity]
-WITH IDENTITY = 'User Identity';
-```
-
 ### <a name="managed-identity"></a>[Identité gérée](#tab/managed-identity)
 
 Le script suivant crée des informations d’identification au niveau du serveur que la fonction `OPENROWSET` peut utiliser pour accéder à n’importe quel fichier sur un stockage Azure à l’aide d’une identité managée d’espace de travail.
@@ -200,16 +162,8 @@ WITH IDENTITY='Managed Identity'
 
 ### <a name="public-access"></a>[Accès public](#tab/public-access)
 
-Le script suivant crée des informations d’identification au niveau du serveur que la fonction `OPENROWSET` peut utiliser pour accéder à n’importe quel fichier sur un stockage Azure publiquement disponible. Créez ces informations d’identification pour permettre au principal SQL qui exécute la fonction `OPENROWSET` de lire des fichiers publiquement disponibles sur le stockage Azure qui correspond à l’URL dans le nom des informations d’identification.
+Les informations d’identification incluses dans l’étendue de la base de données ne sont pas requises pour autoriser l’accès aux fichiers publiquement disponibles. Créez une [source de données sans informations d’identification incluses dans l’étendue de la base de données](develop-tables-external-tables.md?tabs=sql-ondemand#example-for-create-external-data-source) pour accéder aux fichiers publiquement disponibles sur le stockage Azure.
 
-Vous devriez remplacer <*mystorageaccountname*> par le nom de votre compte de stockage, et <*mystorageaccountcontainername*> par le nom du conteneur réel :
-
-```sql
-CREATE CREDENTIAL [https://<mystorageaccountname>.blob.core.windows.net/<mystorageaccountcontainername>]
-WITH IDENTITY='SHARED ACCESS SIGNATURE'
-, SECRET = '';
-GO
-```
 ---
 
 ## <a name="database-scoped-credential"></a>Informations d’identification incluses dans l’étendue de la base de données
@@ -218,23 +172,20 @@ Les informations d’identification incluses dans l’étendue de la base de don
 
 Les informations d’identification informations d’identification incluses dans l’étendue de la base de données permettent d’accéder au stockage Azure à l’aide des types d’authentification suivants :
 
+### <a name="azure-ad-identity"></a>[Identité Azure AD](#tab/user-identity)
+
+Les utilisateurs Azure AD peuvent accéder à n’importe quel fichier sur le stockage Azure s’ils disposent au moins du rôle `Storage Blob Data Owner`, `Storage Blob Data Contributor` ou `Storage Blob Data Reader`. Les utilisateurs Azure AD n’ont pas besoin d’informations d’identification pour accéder au stockage.
+
+Les utilisateurs SQL ne peuvent pas utiliser l’authentification Azure AD pour accéder au stockage.
+
 ### <a name="shared-access-signature"></a>[Signature d’accès partagé](#tab/shared-access-signature)
 
 Le script suivant crée des informations d’identification qui sont utilisées pour accéder aux fichiers sur le stockage en utilisant le jeton SAP spécifié dans les informations d’identification.
 
 ```sql
 CREATE DATABASE SCOPED CREDENTIAL [SasToken]
-WITH IDENTITY = 'SHARED ACCESS SIGNATURE', SECRET = 'sv=2018-03-28&ss=bfqt&srt=sco&sp=rwdlacup&se=2019-04-18T20:42:12Z&st=2019-04-18T12:42:12Z&spr=https&sig=lQHczNvrk1KoYLCpFdSsMANd0ef9BrIPBNJ3VYEIq78%3D';
-GO
-```
-
-### <a name="azure-ad-identity"></a>[Identité Azure AD](#tab/user-identity)
-
-Le script suivant crée des informations d’identification incluses dans l’étendue de la base de données qui sont utilisées par la [table externe](develop-tables-external-tables.md), et les fonctions `OPENROWSET` qui utilisent la source de données avec des informations d’identification pour accéder aux fichiers de stockage à l’aide de leur propre identité Azure AD.
-
-```sql
-CREATE DATABASE SCOPED CREDENTIAL [AzureAD]
-WITH IDENTITY = 'User Identity';
+WITH IDENTITY = 'SHARED ACCESS SIGNATURE',
+     SECRET = 'sv=2018-03-28&ss=bfqt&srt=sco&sp=rwdlacup&se=2019-04-18T20:42:12Z&st=2019-04-18T12:42:12Z&spr=https&sig=lQHczNvrk1KoYLCpFdSsMANd0ef9BrIPBNJ3VYEIq78%3D';
 GO
 ```
 
@@ -272,14 +223,17 @@ WITH (    LOCATION   = 'https://*******.blob.core.windows.net/samples',
 Utilisez le script suivant pour créer une table qui accède à la source de données publiquement disponible.
 
 ```sql
-CREATE EXTERNAL FILE FORMAT [SynapseParquetFormat] WITH ( FORMAT_TYPE = PARQUET)
+CREATE EXTERNAL FILE FORMAT [SynapseParquetFormat]
+       WITH ( FORMAT_TYPE = PARQUET)
 GO
 CREATE EXTERNAL DATA SOURCE publicData
 WITH (    LOCATION   = 'https://****.blob.core.windows.net/public-access' )
 GO
 
 CREATE EXTERNAL TABLE dbo.userPublicData ( [id] int, [first_name] varchar(8000), [last_name] varchar(8000) )
-WITH ( LOCATION = 'parquet/user-data/*.parquet', DATA_SOURCE = [publicData], FILE_FORMAT = [SynapseParquetFormat] )
+WITH ( LOCATION = 'parquet/user-data/*.parquet',
+       DATA_SOURCE = [publicData],
+       FILE_FORMAT = [SynapseParquetFormat] )
 ```
 
 L’utilisateur de base de données peut lire le contenu des fichiers à partir de la source de données à l’aide d’une table externe ou de la fonction [OPENROWSET](develop-openrowset.md) qui fait référence à la source de données :
@@ -287,7 +241,9 @@ L’utilisateur de base de données peut lire le contenu des fichiers à partir 
 ```sql
 SELECT TOP 10 * FROM dbo.userPublicData;
 GO
-SELECT TOP 10 * FROM OPENROWSET(BULK 'parquet/user-data/*.parquet', DATA_SOURCE = [mysample], FORMAT=PARQUET) as rows;
+SELECT TOP 10 * FROM OPENROWSET(BULK 'parquet/user-data/*.parquet',
+                                DATA_SOURCE = [mysample],
+                                FORMAT=PARQUET) as rows;
 GO
 ```
 
@@ -300,13 +256,13 @@ Modifiez le script suivant pour créer une table externe qui accède au stockage
 CREATE MASTER KEY ENCRYPTION BY PASSWORD = 'Y*********0'
 GO
 
--- Create databases scoped credential that use User Identity, Managed Identity, or SAS. User needs to create only database-scoped credentials that should be used to access data source:
+-- Create databases scoped credential that use Managed Identity or SAS token. User needs to create only database-scoped credentials that should be used to access data source:
 
-CREATE DATABASE SCOPED CREDENTIAL MyIdentity WITH IDENTITY = 'User Identity'
+CREATE DATABASE SCOPED CREDENTIAL WorkspaceIdentity
+WITH IDENTITY = 'Managed Identity'
 GO
-CREATE DATABASE SCOPED CREDENTIAL WorkspaceIdentity WITH IDENTITY = 'Managed Identity'
-GO
-CREATE DATABASE SCOPED CREDENTIAL SasCredential WITH IDENTITY = 'SHARED ACCESS SIGNATURE', SECRET = 'sv=2019-10-1********ZVsTOL0ltEGhf54N8KhDCRfLRI%3D'
+CREATE DATABASE SCOPED CREDENTIAL SasCredential
+WITH IDENTITY = 'SHARED ACCESS SIGNATURE', SECRET = 'sv=2019-10-1********ZVsTOL0ltEGhf54N8KhDCRfLRI%3D'
 
 -- Create data source that one of the credentials above, external file format, and external tables that reference this data source and file format:
 
@@ -316,13 +272,14 @@ GO
 CREATE EXTERNAL DATA SOURCE mysample
 WITH (    LOCATION   = 'https://*******.blob.core.windows.net/samples'
 -- Uncomment one of these options depending on authentication method that you want to use to access data source:
---,CREDENTIAL = MyIdentity 
 --,CREDENTIAL = WorkspaceIdentity 
 --,CREDENTIAL = SasCredential 
 )
 
 CREATE EXTERNAL TABLE dbo.userData ( [id] int, [first_name] varchar(8000), [last_name] varchar(8000) )
-WITH ( LOCATION = 'parquet/user-data/*.parquet', DATA_SOURCE = [mysample], FILE_FORMAT = [SynapseParquetFormat] )
+WITH ( LOCATION = 'parquet/user-data/*.parquet',
+       DATA_SOURCE = [mysample],
+       FILE_FORMAT = [SynapseParquetFormat] );
 
 ```
 

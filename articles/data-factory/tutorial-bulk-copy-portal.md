@@ -10,13 +10,13 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: tutorial
 ms.custom: seo-lt-2019; seo-dt-2019
-ms.date: 05/28/2020
-ms.openlocfilehash: a59fafccecaf2fc266a6c7864174c477e1831186
-ms.sourcegitcommit: 964af22b530263bb17fff94fd859321d37745d13
+ms.date: 06/08/2020
+ms.openlocfilehash: 4e39d4e106a399f0105ee4ec3f3606354f113165
+ms.sourcegitcommit: 5a8c8ac84c36859611158892422fc66395f808dc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/09/2020
-ms.locfileid: "84561154"
+ms.lasthandoff: 06/10/2020
+ms.locfileid: "84661069"
 ---
 # <a name="copy-multiple-tables-in-bulk-by-using-azure-data-factory-in-the-azure-portal"></a>Copier plusieurs tables en bloc en utilisant Azure Data Factory sur le portail Azure
 
@@ -108,13 +108,16 @@ Dans ce tutoriel, vous liez vos magasins de données Azure SQL Database, Azure S
 ### <a name="create-the-source-azure-sql-database-linked-service"></a>Créer le service lié Azure SQL Database pour la source
 Dans cette étape, vous créez un service lié qui relie votre base de données Azure SQL à la fabrique de données. 
 
-1. Cliquez sur **Connexions** en bas de la fenêtre, puis cliquez sur **+ Nouveau** dans la barre d’outils (le bouton **Connexions** se trouve au bas de la colonne de gauche sous **Ressources Factory**). 
+1. Ouvrez l’[onglet Gérer](https://docs.microsoft.com/azure/data-factory/author-management-hub) dans le volet gauche.
 
+1. Dans la page Services liés, sélectionnez **+ Nouveau** pour créer un service lié.
+
+   ![Nouveau service lié](./media/doc-common-process/new-linked-service.png)
 1. Dans la fenêtre **Nouveau service lié**, sélectionnez **Azure SQL Database**, puis cliquez sur **Continuer**. 
 1. Dans la fenêtre **Nouveau service lié (Azure SQL Database)** , effectuez les étapes suivantes : 
 
     a. Entrez **AzureSqlDatabaseLinkedService** pour **Nom**.
-    
+
     b. Sélectionnez votre serveur pour **Nom du serveur**.
     
     c. Sélectionnez votre base de données Azure SQL pour **Nom de la base de données**. 
@@ -159,7 +162,6 @@ Dans ce tutoriel, vous allez utiliser Stockage Blob Azure comme zone intermédia
     b. Sélectionnez votre **compte de stockage Azure** pour **Nom du compte de stockage**.
     
     c. Cliquez sur **Créer**.
-
 
 ## <a name="create-datasets"></a>Créez les jeux de données
 Dans ce tutoriel, vous créez des jeux de données (source et récepteur) qui spécifient l’emplacement de stockage des données. 

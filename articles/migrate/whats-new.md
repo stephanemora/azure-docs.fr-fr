@@ -4,12 +4,12 @@ description: Découvrez les nouveautés et les mises à jour récentes du servic
 ms.topic: overview
 ms.date: 04/19/2020
 ms.custom: mvc
-ms.openlocfilehash: db52c8ce5e1b7e25d4af0c570189597e05b86588
-ms.sourcegitcommit: 79508e58c1f5c58554378497150ffd757d183f30
+ms.openlocfilehash: be617590ce0c96c3ec8ea705732534c8395ac0ce
+ms.sourcegitcommit: ff19f4ecaff33a414c0fa2d4c92542d6e91332f8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/03/2020
-ms.locfileid: "84331863"
+ms.lasthandoff: 06/18/2020
+ms.locfileid: "85052326"
 ---
 # <a name="whats-new-in-azure-migrate"></a>Nouveautés d’Azure Migrate
 
@@ -17,22 +17,24 @@ ms.locfileid: "84331863"
 
 ## <a name="update-june-2020"></a>Mise à jour (juin 2020)
 
-Nouvelles versions de l’appliance Azure Migrate.
+- Prise en charge de plusieurs informations d’identification sur l’appliance pour la découverte des serveurs physiques.
+- Prise en charge pour autoriser la connexion Azure à partir de l’appliance pour le locataire où la restriction du locataire a été configurée.
+- Nouvelles versions d’appliance Azure Migrate, comme indiqué ci-dessous.
 
 ### <a name="azure-public-cloud"></a>Cloud public Azure
 
-**Scénario*** | **Télécharger** | **SHA256**
+**Scénario** | **Télécharger** | **SHA256**
 --- | --- | ---
-Hyper-V (8,93 Mo) | [Version la plus récente](https://aka.ms/migrate/appliance/hyperv) |  572be425ea0aca69a9aa8658c950bc319b2bdbeb93b440577264500091c846a1
+Hyper-V (8,93 Go) | [Version la plus récente](https://aka.ms/migrate/appliance/hyperv) |  572be425ea0aca69a9aa8658c950bc319b2bdbeb93b440577264500091c846a1
 VMware (10,9 Go) | [Version la plus récente](https://aka.ms/migrate/appliance/vmware) | cacbdaef927fe5477fa4e1f494fcb7203cbd6b6ce7402b79f234bc0fe69663dd
 Physique (63,1 Mo) | [Version la plus récente](https://go.microsoft.com/fwlink/?linkid=2105112) | 0a27adf13cc5755e4b23df0c05732c6ac08d1fe8850567cb57c9906fbc3b85a0
 
 
 ### <a name="azure-government"></a>Azure Government
 
-**Scénario*** | **Télécharger** | **SHA256**
+**Scénario** | **Télécharger** | **SHA256**
 --- | --- | ---
-Hyper-V (63,1 Mo) | [Version la plus récente](https://go.microsoft.com/fwlink/?linkid=2120200&clcid=0x409) |  2c5e73a1e5525d4fae468934408e43ab55ff397b7da200b92121972e683f9aa3
+Hyper-V (63,1 Mo) | [Version la plus récente](https://go.microsoft.com/fwlink/?linkid=2120200&clcid=0x409) |  2c5e73a1e5525d4fae468934408e43ab55ff397b7da200b92121972e683f9aa3
 VMware (63,1 Mo) | [Version la plus récente](https://go.microsoft.com/fwlink/?linkid=2120300&clcid=0x409 ) | 3d5822038646b81f458d89d706832c0a2c0e827bfa9b0a55cc478eaf2757a4de
 Physique (63,1 Mo) | [Version la plus récente](https://go.microsoft.com/fwlink/?linkid=2120100&clcid=0x409) | 93dfef131026e70acdfad2769cd208ff745ab96a96f013cdf3f9e1e61c9b37e1
 

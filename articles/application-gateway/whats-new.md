@@ -5,14 +5,14 @@ services: application-gateway
 author: vhorne
 ms.service: application-gateway
 ms.topic: overview
-ms.date: 03/24/2020
+ms.date: 06/10/2020
 ms.author: victorh
-ms.openlocfilehash: 70014b5ab37a07e01eaa2db3d729b7d8af520842
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: dd6ec2057ede076511b567c013fc1b6fa12d8281
+ms.sourcegitcommit: eeba08c8eaa1d724635dcf3a5e931993c848c633
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "81311779"
+ms.lasthandoff: 06/10/2020
+ms.locfileid: "84669730"
 ---
 # <a name="whats-new-in-azure-application-gateway"></a>Nouveautés d’Azure Application Gateway
 
@@ -27,6 +27,7 @@ Azure Application Gateway est mis à jour en continu. Pour vous informer des dé
 
 |Fonctionnalité  |Description  |Date de l’ajout  |
 |---------|---------|---------|
+| Module complémentaire AKS Application Gateway Ingress Controller (AGIC) (Préversion) |Le contrôleur d’entrée Application Gateway peut désormais être déployé comme module complémentaire AKS natif, en une seule ligne via Azure CLI. En tant que module complémentaire AKS, AGIC peut se transformer en service entièrement géré, tout en continuant de s’exécuter dans le cluster AKS du client. Pour plus d’informations, consultez [Différences avec le module complémentaire AGIC](ingress-controller-overview.md#difference-between-helm-deployment-and-aks-add-on). |Juin 2020 |
 | Routes définies par l’utilisateur (UDR) sur v2 (préversion) |Les routes définies par l’utilisateur sont désormais pris en charge dans certains scénarios sur les références SKU Application Gateway v2. Pour plus d’informations, consultez [Présentation de la configuration d’Application Gateway](configuration-overview.md#user-defined-routes-supported-on-the-application-gateway-subnet). |Mars 2020 |
 |Modifications du cookie d’affinité |Quand l’affinité basée sur les cookies est activée, Application Gateway injecte un autre cookie identique appelé *ApplicationGatewayAffinityCORS* en plus du cookie ApplicationGatewayAffinity existant. *ApplicationGatewayAffinityCORS* a deux attributs supplémentaires qui lui sont ajoutés (*SameSite=None; Secure*) afin que les sessions persistantes soient conservées même pour les requêtes cross-origin. Pour plus d’informations, consultez [Affinité basée sur les cookies dans Application Gateway](configuration-overview.md#cookie-based-affinity). |Février 2020 |
 |Améliorations de la sonde |Grâce aux améliorations de la sonde personnalisées dans la référence SKU Application Gateway v2, nous avons simplifié la [configuration de la sonde](https://docs.microsoft.com/azure/application-gateway/application-gateway-create-probe-portal#create-probe-for-application-gateway-v2-sku), facilité les [tests d’intégrité principale à la demande](https://docs.microsoft.com/azure/application-gateway/application-gateway-create-probe-portal#test-backend-health-with-the-probe) et ajouté [des informations de diagnostic](https://docs.microsoft.com/azure/application-gateway/application-gateway-backend-health-troubleshooting#error-messages) pour vous aider à résoudre des problèmes d’intégrité principale.  |2 octobre 2019 |

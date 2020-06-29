@@ -1,9 +1,9 @@
 ---
-title: 'Démarrage rapide : Créer une instance managée SQL Azure (portail)'
-description: Ce guide de démarrage rapide explique comment créer, à l’aide du portail Azure, une instance managée SQL Azure, un environnement réseau et une machine virtuelle cliente pour l’accès.
+title: 'Démarrage rapide : Créer une instance managée de SQL Managed Instance (portail)'
+description: Ce guide de démarrage rapide explique comment créer, à l’aide du portail Azure, une instance managée, un environnement réseau et une machine virtuelle cliente pour l’accès.
 services: sql-database
-ms.service: sql-database
-ms.subservice: managed-instance
+ms.service: sql-managed-instance
+ms.subservice: operations
 ms.custom: ''
 ms.devlang: ''
 ms.topic: quickstart
@@ -11,43 +11,43 @@ author: danimir
 ms.author: danil
 ms.reviewer: sstein, carlrab
 ms.date: 09/26/2019
-ms.openlocfilehash: cc3a25992297dd8deb02deb2c561cad4b53e318b
-ms.sourcegitcommit: 6a9f01bbef4b442d474747773b2ae6ce7c428c1f
+ms.openlocfilehash: 906bcf97ad070eb8c2dfe3266bccf05db1598935
+ms.sourcegitcommit: 537c539344ee44b07862f317d453267f2b7b2ca6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "84113744"
+ms.lasthandoff: 06/11/2020
+ms.locfileid: "84708890"
 ---
-# <a name="quickstart-create-an-azure-sql-managed-instance"></a>Démarrage rapide : Créer une instance gérée SQL Azure
+# <a name="quickstart-create-a-managed-instance-of-sql-managed-instance"></a>Démarrage rapide : Créer une instance managée de SQL Managed Instance
 [!INCLUDE[appliesto-sqlmi](../includes/appliesto-sqlmi.md)]
 
-Ce guide de démarrage rapide explique comment créer une [instance managée SQL Azure](sql-managed-instance-paas-overview.md) dans le portail Azure.
+Ce guide de démarrage rapide explique comment créer une instance managée de [SQL Managed Instance](sql-managed-instance-paas-overview.md) dans le portail Azure.
 
 > [!IMPORTANT]
 > Pour connaître les limitations, consultez les [régions prises en charge](resource-limits.md#supported-regions) et les [types d’abonnement pris en charge](resource-limits.md#supported-subscription-types).
 
-## <a name="create-sql-managed-instance"></a>Créer une instance SQL Database Managed Instance
+## <a name="create-a-managed-instance"></a>Créer une instance gérée
 
-Pour créer une instance managée SQL Azure, effectuez les étapes suivantes : 
+Pour créer une instance managée, effectuez les étapes suivantes : 
 
-### <a name="sign-in-to-azure-portal"></a>Se connecter au portail Azure
+### <a name="sign-in-to-the-azure-portal"></a>Connectez-vous au portail Azure.
 
 Si vous n’avez pas d’abonnement Azure, [créez un compte gratuit](https://azure.microsoft.com/free/).
 
 1. Connectez-vous au [portail Azure](https://portal.azure.com/).
 1. Sélectionnez **Azure SQL** dans le menu de gauche du portail Azure. Si **Azure SQL** ne figure pas dans la liste, sélectionnez **Tous les services**, puis entrez **Azure SQL** dans la zone de recherche.
-1. Sélectionnez **+Ajouter** pour ouvrir la page **Sélectionner l’option de déploiement SQL**. Vous pouvez voir des informations supplémentaires sur une instance managée SQL Azure en sélectionnant **Afficher les détails** sur la vignette **SQL Managed Instance**.
+1. Sélectionnez **+Ajouter** pour ouvrir la page **Sélectionner l’option de déploiement SQL**. Vous pouvez voir des informations supplémentaires sur SQL Managed Instance en sélectionnant **Afficher les détails** sur la vignette **SQL Managed Instance**.
 1. Sélectionnez **Create** (Créer).
 
-   ![Créer une instance managée SQL](./media/instance-create-quickstart/create-managed-instance.png)
+   ![Créer une instance gérée](./media/instance-create-quickstart/create-managed-instance.png)
 
 4. Utilisez les onglets du formulaire de provisionnement **Créer une instance managée SQL Azure** pour ajouter les informations obligatoires et facultatives. Les sections suivantes décrivent ces onglets.
 
 ### <a name="basics-tab"></a>Onglet Informations de base
 
-- Renseignez les informations obligatoires sous l’onglet **Informations de base**. Il s’agit d’informations de base qui sont obligatoires pour provisionner une instance managée SQL.
+- Renseignez les informations obligatoires sous l’onglet **Informations de base**. Il s’agit d’informations de base qui sont obligatoires pour provisionner une instance managée.
 
-   ![Onglet « De base » pour la création d’une instance managée SQL](./media/instance-create-quickstart/mi-create-tab-basics.png)
+   ![Onglet « De base » pour créer une instance managée](./media/instance-create-quickstart/mi-create-tab-basics.png)
 
    Référez-vous au tableau ci-dessous pour connaître les informations à renseigner sous cet onglet.
 
@@ -56,7 +56,7 @@ Si vous n’avez pas d’abonnement Azure, [créez un compte gratuit](https://az
    | **Abonnement** | Votre abonnement. | Abonnement vous autorisant à créer des ressources. |
    | **Groupe de ressources** | nouveau groupe de ressources ou groupe de ressources existant.|Pour les noms de groupe de ressources valides, consultez [Naming conventions](/azure/architecture/best-practices/resource-naming) (Conventions d’affectation de nom).|
    | **Nom de l’instance managée** | Nom valide.|Pour connaître les noms valides, consultez [Conventions d’affectation de noms](/azure/architecture/best-practices/resource-naming).|
-   | **Région** |Région dans laquelle vous voulez créer l’instance managée SQL|Pour plus d’informations sur les régions, consultez [Régions Azure](https://azure.microsoft.com/regions/).|
+   | **Région** |Région dans laquelle vous voulez créer l’instance managée.|Pour plus d’informations sur les régions, consultez [Régions Azure](https://azure.microsoft.com/regions/).|
    | **Connexion administrateur de l’instance managée** | N’importe quel nom d’utilisateur valide. | Pour connaître les noms valides, consultez [Conventions d’affectation de noms](/azure/architecture/best-practices/resource-naming). N’utilisez pas « serveradmin », car il s’agit d’un rôle réservé au niveau du serveur.|
    | **Mot de passe** | Mot de passe valide.| Le mot de passe doit contenir au moins 16 caractères et satisfaire aux [exigences de complexité définies](../../virtual-machines/windows/faq.md#what-are-the-password-requirements-when-creating-a-vm).|
 
@@ -70,44 +70,44 @@ Si vous n’avez pas d’abonnement Azure, [créez un compte gratuit](https://az
 
 - Renseignez les informations facultatives sous l’onglet **Réseau**. Si vous omettez ces informations, le portail applique les paramètres par défaut.
 
-   ![Onglet « Mise en réseau » pour créer une instance managée SQL](./media/instance-create-quickstart/mi-create-tab-networking.png)
+   ![Onglet « Mise en réseau » pour créer une instance managée](./media/instance-create-quickstart/mi-create-tab-networking.png)
 
    Référez-vous au tableau ci-dessous pour connaître les informations à renseigner sous cet onglet.
 
    | Paramètre| Valeur suggérée | Description |
    | ------ | --------------- | ----------- |
-   | **Réseau virtuel** | Sélectionnez **Créer un réseau virtuel** ou un réseau virtuel et un sous-réseau valides.| Si un réseau ou un sous-réseau n’est pas disponible, il doit être [modifié pour respecter les exigences réseau](vnet-existing-add-subnet.md) afin de pouvoir être sélectionné comme cible de la nouvelle instance managée SQL. Pour obtenir des informations sur les exigences liées à la configuration de l’environnement réseau d’une instance managée SQL, consultez [Configurer un réseau virtuel pour une instance managée SQL](connectivity-architecture-overview.md). |
+   | **Réseau virtuel** | Sélectionnez **Créer un réseau virtuel** ou un réseau virtuel et un sous-réseau valides.| Si un réseau ou un sous-réseau n’est pas disponible, il doit être [modifié pour respecter les exigences réseau](vnet-existing-add-subnet.md) afin de pouvoir être sélectionné comme cible de la nouvelle instance managée. Pour obtenir des informations sur les exigences liées à la configuration de l’environnement réseau pour SQL Managed Instance, consultez [Configurer un réseau virtuel pour SQL Managed Instance](connectivity-architecture-overview.md). |
    | **Type de connexion** | Choisissez entre le type de connexion de proxy et de redirection.|Pour plus d’informations sur les types de connexion, consultez [Type de connexion Azure SQL Managed Instance](../database/connectivity-architecture.md#connection-policy).|
-   | **Point de terminaison public**  | Sélectionnez **Activer**. | Pour qu’une instance managée SQL soit accessible par le biais du point de terminaison de données public, vous devez activer cette option. | 
-   | **Autoriser l’accès depuis** (si **Point de terminaison public** est activé) | Sélectionnez l'une des options.   |L’expérience du portail vous permet de configurer un groupe de sécurité avec un point de terminaison public. </br> </br> Selon votre scénario, sélectionnez l’une des options suivantes : </br> <ul> <li>**Services Azure** : Nous vous recommandons d’utiliser cette option quand vous vous connectez depuis Power BI ou d’un autre service multilocataire. </li> <li> **Internet** : Utilisez cette option à des fins de test quand vous voulez lancer rapidement une instance managée SQL. Son utilisation n’est pas recommandée pour les environnements de production. </li> <li> **Pas d’accès** : Cette option crée une règle de sécurité **Refuser**. Modifiez cette règle pour rendre une instance managée SQL accessible par le biais d’un point de terminaison public. </li> </ul> </br> Pour plus d’informations sur la sécurité du point de terminaison public, consultez [Utilisation d’Azure SQL Managed Instance de manière sécurisée avec un point de terminaison public](public-endpoint-overview.md).|
+   | **Point de terminaison public**  | Sélectionnez **Activer**. | Pour qu’une instance managée soit accessible via le point de terminaison de données public, vous devez activer cette option. | 
+   | **Autoriser l’accès depuis** (si **Point de terminaison public** est activé) | Sélectionnez l'une des options.   |L’expérience du portail vous permet de configurer un groupe de sécurité avec un point de terminaison public. </br> </br> Selon votre scénario, sélectionnez l’une des options suivantes : </br> <ul> <li>**Services Azure** : Nous vous recommandons d’utiliser cette option quand vous vous connectez depuis Power BI ou d’un autre service multilocataire. </li> <li> **Internet** : Utilisez cette option à des fins de test quand vous voulez lancer rapidement une instance managée. Son utilisation n’est pas recommandée pour les environnements de production. </li> <li> **Pas d’accès** : Cette option crée une règle de sécurité **Refuser**. Modifiez cette règle pour rendre une instance managée accessible via un point de terminaison public. </li> </ul> </br> Pour plus d’informations sur la sécurité du point de terminaison public, consultez [Utilisation d’Azure SQL Managed Instance de manière sécurisée avec un point de terminaison public](public-endpoint-overview.md).|
 
-- Sélectionnez **Vérifier + créer** pour passer en revue vos choix avant de créer une instance managée SQL. Vous pouvez aussi configurer d’autres paramètres personnalisés en sélectionnant **Suivant : Paramètres supplémentaires**.
+- Sélectionnez **Vérifier + créer** pour passer en revue vos choix avant de créer une instance managée. Vous pouvez aussi configurer d’autres paramètres personnalisés en sélectionnant **Suivant : Paramètres supplémentaires**.
 
 ### <a name="additional-settings"></a>Paramètres supplémentaires
 
 - Renseignez les informations facultatives sous l’onglet **Paramètres supplémentaires**. Si vous omettez ces informations, le portail applique les paramètres par défaut.
 
-   ![Onglet « Paramètres supplémentaires » pour créer une instance managée SQL](./media/instance-create-quickstart/mi-create-tab-additional-settings.png)
+   ![Onglet « Paramètres supplémentaires » pour créer une instance managée](./media/instance-create-quickstart/mi-create-tab-additional-settings.png)
 
    Référez-vous au tableau ci-dessous pour connaître les informations à renseigner sous cet onglet.
 
    | Paramètre| Valeur suggérée | Description |
    | ------ | --------------- | ----------- |
-   | **Classement** | Choisissez le classement à utiliser pour votre instance managée SQL. Si vous migrez des bases de données à partir de SQL Server, vérifiez le classement de la source avec `SELECT SERVERPROPERTY(N'Collation')` et utilisez cette valeur.| Pour plus d’informations sur les classements, consultez [Définir ou changer le classement du serveur](https://docs.microsoft.com/sql/relational-databases/collations/set-or-change-the-server-collation).|   
-   | **Fuseau horaire** | Sélectionnez le fuseau horaire que votre instance managée SQL doit utiliser.|Pour plus d’informations, consultez [Fuseaux horaires](timezones-overview.md).|
-   | **Utiliser comme basculement secondaire** | Sélectionnez **Oui**. | Activez cette option pour utiliser l’instance managée SQL comme groupe de basculement secondaire.|
-   | **Instance managée SQL principale** (si **Utiliser comme basculement secondaire** est défini sur **Oui**) | Choisissez une instance managée SQL principale existante qui sera jointe à la même zone DNS avec l’instance managée SQL que vous créez. | Cette étape permet de configurer le groupe de basculement après sa création. Pour plus d’informations, consultez [Didacticiel : Ajouter une instance managée SQL Database à un groupe de basculement](failover-group-add-instance-tutorial.md).|
+   | **Classement** | Choisissez le classement à utiliser pour votre instance managée. Si vous migrez des bases de données à partir de SQL Server, vérifiez le classement de la source avec `SELECT SERVERPROPERTY(N'Collation')` et utilisez cette valeur.| Pour plus d’informations sur les classements, consultez [Définir ou changer le classement du serveur](https://docs.microsoft.com/sql/relational-databases/collations/set-or-change-the-server-collation).|   
+   | **Fuseau horaire** | Sélectionnez le fuseau horaire que l’instance managée doit utiliser.|Pour plus d’informations, consultez [Fuseaux horaires](timezones-overview.md).|
+   | **Utiliser comme basculement secondaire** | Sélectionnez **Oui**. | Activez cette option pour utiliser l’instance managée comme groupe de basculement secondaire.|
+   | **Instance managée SQL principale** (si **Utiliser comme basculement secondaire** est défini sur **Oui**) | Choisissez une instance managée principale existante qui sera jointe à la même zone DNS avec l’instance managée que vous créez. | Cette étape permet de configurer le groupe de basculement après sa création. Pour plus d’informations, consultez [Didacticiel : Ajoutez une instance managée à un groupe de basculement](failover-group-add-instance-tutorial.md).|
 
 ## <a name="review--create"></a>Vérifier + créer
 
-1. Sélectionnez l’onglet **Vérifier + créer** pour passer en revue vos choix avant de créer l’instance managée SQL.
+1. Sélectionnez l’onglet **Vérifier + créer** pour passer en revue vos choix avant de créer une instance managée.
 
-   ![Onglet pour vérifier et créer une instance managée SQL](./media/instance-create-quickstart/mi-create-tab-review-create.png)
+   ![Onglet pour vérifier et créer une instance managée](./media/instance-create-quickstart/mi-create-tab-review-create.png)
 
-1. Sélectionnez **Créer** pour commencer le provisionnement de l’instance managée SQL.
+1. Sélectionnez **Créer** pour commencer le provisionnement de l’instance managée.
 
 > [!IMPORTANT]
-> Le déploiement d’une instance managée SQL est une opération longue. Le déploiement de la première instance dans le sous-réseau prend généralement plus de temps que le déploiement dans un sous-réseau avec des instances managées SQL existantes. Pour plus d’informations sur les temps de provisionnement moyens, consultez [Opérations de gestion des instances managées SQL](sql-managed-instance-paas-overview.md#management-operations).
+> Le déploiement d’une instance managée est une opération longue. Le déploiement de la première instance dans le sous-réseau prend généralement plus de temps que le déploiement dans un sous-réseau avec des instances managées existantes. Pour plus d’informations sur les temps de provisionnement moyens, consultez [Opérations de gestion des instances managées SQL](sql-managed-instance-paas-overview.md#management-operations).
 
 ## <a name="monitor-deployment-progress"></a>Superviser la progression du déploiement
 
@@ -119,19 +119,19 @@ Si vous n’avez pas d’abonnement Azure, [créez un compte gratuit](https://az
 
 > [!TIP]
 > Si vous avez fermé votre navigateur web ou quitté l’écran de progression du déploiement, suivez ces étapes pour accéder à cet écran :
-> 1. Dans le portail Azure, ouvrez le groupe de ressources (sous l’onglet **Informations de base**) dans lequel vous allez déployer une instance managée SQL.
+> 1. Dans le portail Azure, ouvrez le groupe de ressources (sous l’onglet **De base**) sur lequel vous déployez SQL Managed Instance.
 > 2. Sélectionnez **Déploiements**.
 > 3. Sélectionnez l’opération de déploiement de l’instance managée SQL en cours.
 
 > [!IMPORTANT]
-> Pour connaître l’état de la création d’une instance managée SQL, vous devez disposer d’**autorisations de lecture** pour le groupe de ressources. Si vous ne disposez pas de cette autorisation ou si vous la révoquez pendant la création de l’instance managée SQL, celle-ci peut ne pas figurer dans la liste des déploiements de groupes de ressources.
+> Pour connaître l’état de la création d’une instance managée, vous devez disposer d’**autorisations de lecture** pour le groupe de ressources. Si vous ne disposez pas de cette autorisation ou si vous la révoquez pendant la création de l’instance managée, SQL Managed Instance peut ne pas figurer dans la liste des déploiements de groupes de ressources.
 >
 
 ## <a name="view-resources-created"></a>Afficher les ressources créées
 
-Quand le déploiement de l’instance managée SQL a réussi, pour voir les ressources créées :
+Lorsque le déploiement d’une instance managée a réussi, pour voir les ressources créées :
 
-1. Ouvrez le groupe de ressources de votre instance managée SQL. 
+1. Ouvrez le groupe de ressources de votre instance managée. 
 
    ![Ressources de l’instance managée SQL](./media/instance-create-quickstart/resources.png)
 
@@ -143,7 +143,7 @@ Pour ajuster les paramètres réseau, examinez les éléments suivants :
 
    ![Table de routage](./media/instance-create-quickstart/route-table.png)
 
-2. Dans la table de routage, passez en revue les entrées pour router le trafic à partir du réseau virtuel de l’instance managée SQL et au sein de celle-ci. Si vous créez ou configurez votre table de routage manuellement, veillez à créer ces entrées dans la table de routage de l’instance managée SQL.
+2. Dans la table de routage, passez en revue les entrées pour router le trafic à partir et au sein du réseau virtuel SQL Managed Instance. Si vous créez ou configurez votre table de routage manuellement, veillez à créer ces entrées dans la table de routage de l’instance managée SQL.
 
    ![Entrée pour un sous-réseau local d’une instance managée SQL](./media/instance-create-quickstart/udr.png)
 
@@ -156,18 +156,18 @@ Pour ajuster les paramètres réseau, examinez les éléments suivants :
    ![Règles de sécurité](./media/instance-create-quickstart/security-rules.png)
 
 > [!IMPORTANT]
-> Si vous avez configuré un point de terminaison public pour votre instance managée SQL, vous devez ouvrir les ports pour autoriser le trafic réseau et donc, les connexions à l’instance managée SQL à partir de l’Internet public. Pour plus d’informations, consultez [Configurer un point de terminaison public pour une instance managée SQL](public-endpoint-configure.md#allow-public-endpoint-traffic-on-the-network-security-group).
+> Si vous avez configuré un point de terminaison public pour SQL Managed Instance, vous devez ouvrir les ports pour autoriser le trafic réseau en autorisant les connexions à SQL Managed Instance à partir de l’Internet public. Pour plus d’informations, consultez [Configurer un point de terminaison public pour SQL Managed Instance](public-endpoint-configure.md#allow-public-endpoint-traffic-on-the-network-security-group).
 >
 
 ## <a name="retrieve-connection-details-to-sql-managed-instance"></a>Récupérer les informations concernant la connexion à l’instance managée SQL
 
-Pour vous connecter à l’instance managée SQL, effectuez les étapes suivantes afin de récupérer le nom d’hôte et le nom de domaine complet (FQDN) :
+Pour vous connecter à SQL Managed Instance, effectuez les étapes suivantes afin de récupérer le nom d’hôte et le nom de domaine complet (FQDN) :
 
-1. Revenez au groupe de ressources et sélectionnez votre instance managée SQL.
+1. Revenez au groupe de ressources et sélectionnez votre instance managée.
 
-   ![Instance managée SQL dans le groupe de ressources](./media/instance-create-quickstart/managed-instance.png)
+   ![Instance managée dans le groupe de ressources](./media/instance-create-quickstart/managed-instance.png)
 
-2. Sous l’onglet **Vue d’ensemble**, recherchez la propriété **Hôte**. Copiez le nom d’hôte de l’instance managée SQL pour l’utiliser dans le guide de démarrage rapide suivant.
+2. Sous l’onglet **Vue d’ensemble**, recherchez la propriété **Hôte**. Copiez le nom d’hôte de l’instance managée pour l’utiliser dans le guide de démarrage rapide suivant.
 
    ![Nom de l’hôte](./media/instance-create-quickstart/host-name.png)
 
@@ -175,12 +175,12 @@ Pour vous connecter à l’instance managée SQL, effectuez les étapes suivante
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Pour savoir comment se connecter à une instance managée SQL :
-- Pour obtenir une vue d’ensemble des options de connexion pour les applications, consultez [Connecter vos applications à une instance managée SQL](connect-application-instance.md).
-- Pour obtenir un guide de démarrage rapide montrant comment se connecter à une instance managée SQL à partir d’une machine virtuelle Azure, consultez [Configurer une connexion de machine virtuelle Azure](connect-vm-instance-configure.md).
-- Pour obtenir un guide de démarrage rapide montrant comment se connecter à une instance managée SQL à partir d’un ordinateur client local avec une connexion point à site, consultez [Configurer une connexion point à site](point-to-site-p2s-configure.md).
+Pour savoir comment se connecter à SQL Managed Instance :
+- Pour obtenir une vue d'ensemble des options de connexion des applications, consultez [Connecter vos applications à SQL Managed Instance](connect-application-instance.md).
+- Pour suivre un guide de démarrage rapide montrant comment se connecter à SQL Managed Instance à partir d’une machine virtuelle Azure, consultez [Configurer une connexion de machine virtuelle Azure](connect-vm-instance-configure.md).
+- Pour suivre un guide de démarrage rapide montrant comment se connecter à SQL Managed Instance à partir d’un ordinateur client local avec une connexion point à site, consultez [Configurer une connexion point à site](point-to-site-p2s-configure.md).
 
-Pour restaurer une base de données SQL Server locale existante dans une instance managée SQL : 
+Pour restaurer une base de données SQL Server locale existante dans SQL Managed Instance : 
 - Utilisez [Azure Database Migration Service pour la migration](../../dms/tutorial-sql-server-to-managed-instance.md) pour effectuer la restauration à partir d’un fichier de sauvegarde de base de données. 
 - Utilisez la [commande T-SQL RESTORE](restore-sample-database-quickstart.md) pour effectuer la restauration à partir d’un fichier de sauvegarde de base de données.
 

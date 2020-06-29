@@ -7,16 +7,16 @@ author: tamram
 ms.service: storage
 ms.subservice: blobs
 ms.topic: tutorial
-ms.date: 03/06/2020
+ms.date: 06/10/2020
 ms.author: tamram
-ms.reviewer: cbrooks
+ms.reviewer: ozgun
 ms.custom: mvc
-ms.openlocfilehash: 13a2a0bcc362a13b0c42650509d356f613527cfc
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: ac9bf7edf6e3973dd2f1f917d26ac280be4648e3
+ms.sourcegitcommit: 51977b63624dfd3b4f22fb9fe68761d26eed6824
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "80061322"
+ms.lasthandoff: 06/17/2020
+ms.locfileid: "84945645"
 ---
 # <a name="secure-access-to-application-data"></a>Sécuriser l’accès aux données d’application
 
@@ -43,7 +43,7 @@ Dans ce volet de la série de didacticiels, les jetons SAS sont utilisés pour a
 blobStorageAccount="<blob_storage_account>"
 
 blobStorageAccountKey=$(az storage account keys list -g myResourceGroup \
-    --name $blobStorageAccount --query [0].value --output tsv) 
+    --account-name $blobStorageAccount --query [0].value --output tsv) 
 
 az storage container set-permission \
     --account-name $blobStorageAccount \
@@ -135,11 +135,13 @@ Les classes, propriétés et méthodes suivantes sont utilisées dans la tâche 
 |[UriBuilder](/dotnet/api/system.uribuilder) | [Requête](/dotnet/api/system.uribuilder.query) |  |
 |[Liste](/dotnet/api/system.collections.generic.list-1) | | [Ajouter](/dotnet/api/system.collections.generic.list-1.add) |
 
-## <a name="server-side-encryption"></a>Chiffrement côté serveur
+## <a name="azure-storage-encryption"></a>Chiffrement du stockage Azure
 
-Le [chiffrement du service de stockage (SSE) Azure](../common/storage-service-encryption.md) vous permet de protéger vos données. SSE chiffre les données au repos et assure le chiffrement, le déchiffrement et la gestion de clés. Toutes les données sont chiffrées à l’aide du [chiffrement AES](https://en.wikipedia.org/wiki/Advanced_Encryption_Standard)256 bits, l’un des algorithmes de chiffrement par blocs les plus puissants disponibles.
+[Le chiffrement du stockage Azure](../common/storage-service-encryption.md) vous permet de protéger et de préserver vos données en chiffrant les données au repos et en gérant le chiffrement et le déchiffrement. Toutes les données sont chiffrées à l’aide du [chiffrement AES](https://en.wikipedia.org/wiki/Advanced_Encryption_Standard)256 bits, l’un des algorithmes de chiffrement par blocs les plus puissants disponibles.
 
-Le chiffrement du service de stockage chiffre automatiquement les données pour tous les niveaux de performance (Standard ou Premium), tous les modèles de déploiement (Azure Resource Manager et Classic) et tous les services de Stockage Azure (blob, file d’attente, table et fichier). 
+Vous pouvez choisir de laisser la gestion des clés de chiffrement à Microsoft, ou vous pouvez apporter vos propres clés à l’aide de clés gérées par le client avec Azure Key Vault. Pour plus d’informations, consultez [Utiliser des clés gérées par le client avec Azure Key Vault pour gérer le chiffrement du stockage Azure](../common/encryption-customer-managed-keys.md).
+
+Le chiffrement du stockage Azure chiffre automatiquement les données pour tous les niveaux de performance (Standard ou Premium), tous les modèles de déploiement (Azure Resource Manager et Classic) et tous les services de stockage Azure (blob, file d’attente, table et fichier).
 
 ## <a name="enable-https-only"></a>Activer HTTPS uniquement
 

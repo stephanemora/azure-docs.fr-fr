@@ -9,12 +9,12 @@ ms.service: azure-sentinel
 ms.subservice: azure-sentinel
 ms.topic: quickstart
 ms.date: 04/27/2020
-ms.openlocfilehash: 149ac61e4737faa81e55fac3e07133c73bbc00d5
-ms.sourcegitcommit: 20e246e86e25d63bcd521a4b4d5864fbc7bad1b0
+ms.openlocfilehash: a581288259a521f8f2f93ff3fbc16f4926486643
+ms.sourcegitcommit: 99d016949595c818fdee920754618d22ffa1cd49
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/08/2020
-ms.locfileid: "84488118"
+ms.lasthandoff: 06/15/2020
+ms.locfileid: "84771170"
 ---
 # <a name="quickstart-on-board-azure-sentinel"></a>Démarrage rapide : Intégrer Azure Sentinel
 
@@ -58,7 +58,7 @@ Après avoir connecté vos sources de données, opérez votre choix dans une gal
    > - Azure Sentinel peut s’exécuter sur des espaces de travail dans toute [région couverte par la mise à disposition générale de Log Analytics](https://azure.microsoft.com/global-infrastructure/services/?products=monitor), à l’exception des régions Chine et Allemagne (souveraines). Les données générées par Azure Sentinel (comme des incidents, des signets et des règles d’alerte, qui peuvent contenir des données client provenant de ces espaces de travail) sont enregistrées dans les régions Europe (pour les espaces de travail situés en Europe), Australie (pour les espaces de travail situés en Australie) ou USA Est (pour les espaces de travail situés dans toute autre région).
 
    >[!IMPORTANT]
-   > - Une fois que Azure Sentinel est activé sur un espace de travail, le déplacement de cet espace de travail vers d’autres groupes de ressources ou abonnements n’est pas pris en charge. Si vous devez déplacer l’espace de travail, contactez le support pour obtenir de l’aide.
+   > - Une fois que Azure Sentinel est activé sur un espace de travail, le déplacement de cet espace de travail vers d’autres groupes de ressources ou abonnements n’est pas pris en charge. Si vous devez déplacer l’espace de travail, contactez [Azure Sentinel](mailto:AzureSentinel@microsoft.com).
 
 1. Sélectionnez **Ajouter Azure Sentinel**.
   

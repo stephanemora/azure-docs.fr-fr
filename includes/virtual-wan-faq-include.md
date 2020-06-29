@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 03/24/2020
 ms.author: cherylmc
 ms.custom: include file
-ms.openlocfilehash: 827a2d6dc8a3622c17cdbcdfb179a3ea0f434f6f
-ms.sourcegitcommit: ac4a365a6c6ffa6b6a5fbca1b8f17fde87b4c05e
+ms.openlocfilehash: 01ed6d836e5d6bfe139e4a21a0ff6a9708c261d3
+ms.sourcegitcommit: 9bfd94307c21d5a0c08fe675b566b1f67d0c642d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/10/2020
-ms.locfileid: "83006416"
+ms.lasthandoff: 06/17/2020
+ms.locfileid: "84977921"
 ---
 ### <a name="does-the-user-need-to-have-hub-and-spoke-with-sd-wanvpn-devices-to-use-azure-virtual-wan"></a>L’utilisateur doit-il disposer d’une architecture hub-and-spoke avec des appareils SD-WAN/VPN pour utiliser Azure Virtual WAN ?
 
@@ -32,7 +32,7 @@ Chaque passerelle ayant deux instances, la division se produit de telle sorte qu
 Il existe deux options pour ajouter des serveurs DNS pour les clients P2S.
 
 1. Ouvrez un ticket de support pour demander à Microsoft d’ajouter vos serveurs DNS au hub.
-2. Ou, si vous utilisez le client VPN Azure pour Windows 10, vous pouvez modifier le fichier XML du profil téléchargé et ajouter les balises **\<dnsservers>\<dnsserver> \</dnsserver>\</dnsservers>** avant de l’importer.
+2. Ou, si vous utilisez Azure VPN Client pour Windows 10, vous pouvez modifier le fichier XML du profil téléchargé et ajouter les balises **\<dnsservers>\<dnsserver> \</dnsserver>\</dnsservers>** avant de l’importer.
 
 ```
 <azvpnprofile>
@@ -212,9 +212,14 @@ Un hub virtuel peut propager un itinéraire par défaut appris à une connexion 
 ### <a name="how-does-the-virtual-hub-in-a-virtual-wan-select-the-best-path-for-a-route-from-multiple-hubs"></a>Comment le hub virtuel d’un réseau étendu virtuel sélectionne le meilleur chemin pour une route à partir de plusieurs hubs ?
 
 Si un hub virtuel apprend la même route à partir de plusieurs hubs distants, l’ordre dans lequel il prend sa décision est le suivant :
-1) Origine de la route a) Routes réseau : préfixes de réseau virtuel directement appris par les passerelles de hub virtuel b) Table de routage de hub (routes configurées statiquement)  c) BGP  d) Routes interhubs
-2)  Métrique de la route : le réseau étendu virtuel privilégie ExpressRoute à VPN. Le pair ExpressRoute pèse plus lourd que le pair VPN
-3)  Longueur des chemins entre les systèmes autonomes
+1. Correspondance de préfixe la plus longue
+2. Routes locales sur interhub
+3. Routes statiques sur BGP
+4. ExpressRoute (ER) sur VPN
+5. Longueur des chemins entre les systèmes autonomes
+
+Le transit entre ER et ER se fait toujours via Global Reach. La raison est que si la requête est envoyée via ER dans un hub et qu’il y a VPN et ER dans un hub distant, VPN sera préféré à ER à partir d’un hub distant pour atteindre un point de terminaison connecté via VPN ou ER dans le hub distant
+
 
 ### <a name="is-there-support-for-ipv6-in-virtual-wan"></a>IPv6 est-il pris en charge dans Virtual WAN ?
 

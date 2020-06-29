@@ -2,23 +2,22 @@
 title: Publier des applications locale avec le proxy d’application Azure AD
 description: Découvrez comment utiliser le proxy d’application pour publier des applications web locales en externe pour les utilisateurs distants. Découvrez l’architecture du proxy d’application, ses connecteurs, ses méthodes d’authentification et ses avantages de sécurité.
 services: active-directory
-author: msmimart
-manager: CelesteDG
+author: kenwith
+manager: celestedg
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.topic: overview
 ms.workload: identity
 ms.date: 05/31/2019
-ms.author: mimart
+ms.author: kenwith
 ms.reviewer: japere
 ms.collection: M365-identity-device-management
-ms.custom: has-adal-ref
-ms.openlocfilehash: d38cf25bb3b7622a0d444e4a71a4d62aafc053b6
-ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
+ms.openlocfilehash: a5c9ba026819a542ccd0a7ae41316c0f1d325004
+ms.sourcegitcommit: 9bfd94307c21d5a0c08fe675b566b1f67d0c642d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/12/2020
-ms.locfileid: "83196464"
+ms.lasthandoff: 06/17/2020
+ms.locfileid: "84976504"
 ---
 # <a name="using-azure-ad-application-proxy-to-publish-on-premises-apps-for-remote-users"></a>Utilisation du proxy d’application Azure AD pour publier des applications locales pour les utilisateurs distants
 
@@ -89,7 +88,7 @@ Il existe plusieurs façons de configurer une application pour l’authentificat
 * Applications web
 * API web que vous voulez exposer aux applications enrichies sur différents appareils
 * Applications hébergées derrière une passerelle Bureau à distance
-* Applications clientes complètes intégrées à Active Directory Authentication Library (ADAL)
+* Applications clientes complètes intégrées à la [bibliothèque d’authentification Microsoft (MSAL)](https://docs.microsoft.com/azure/active-directory/develop/v2-overview)
 
 Le proxy d’application fonctionne avec les applications qui utilisent le protocole d’authentification natif suivant :
 
@@ -99,7 +98,7 @@ Le proxy d’application prend également en charge les protocoles d’authentif
 
 * [**Authentification basée sur l’en-tête**](application-proxy-configure-single-sign-on-with-ping-access.md). Cette méthode d’authentification utilise un service d’authentification tiers appelé PingAccess et est utilisée quand l’application se sert d’en-têtes pour l’authentification. Dans ce scénario, l’authentification est gérée par PingAccess.
 * [**Authentification basée sur des formulaires ou un mot de passe**](application-proxy-configure-single-sign-on-password-vaulting.md). Avec cette méthode d’authentification, les utilisateurs se connectent à l’application avec un nom d’utilisateur et un mot de passe quand ils y accèdent la première fois. Après la première connexion, Azure AD fournit le nom d’utilisateur et le mot de passe à l’application. Dans ce scénario, l’authentification est gérée par Azure AD.
-* [**Authentification SAML**](application-proxy-configure-single-sign-on-on-premises-apps.md). L’authentification unique SAML est prise en charge pour les applications qui utilisent les protocoles SAML 2.0 ou WS-Federation. Avec l’authentification unique SAML, Azure AD s’authentifie dans l’application en utilisant le compte Azure AD de l’utilisateur.
+* [**Authentification SAML**](application-proxy-configure-single-sign-on-on-premises-apps.md). L’authentification unique SAML est prise en charge pour les applications qui utilisent les protocoles SAML 2.0 ou WS-Federation. Grâce à l’authentification unique SAML, Azure AD s’authentifie auprès de l’application en utilisant le compte Azure AD de l’utilisateur.
 
 Pour plus d’informations sur les méthodes prises en charge, consultez [Choix d’une méthode d’authentification unique](what-is-single-sign-on.md#choosing-a-single-sign-on-method).
 
