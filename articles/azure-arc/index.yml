@@ -1,21 +1,20 @@
 ### YamlMime:Landing
 title: Azure Arc
-summary: Azure Arc étend les fonctionnalités d’Azure Resource Manager aux serveurs Linux et Windows ainsi qu’aux clusters Kubernetes clusters sur toutes les infrastructures, qu’elles soient locales, multicloud et de périphérie. Avec Azure Arc, les clients peuvent aussi exécuter des services de données Azure où qu’ils soient, ce qui leur permet de réaliser les avantages de l’innovation du cloud, notamment les fonctionnalités permettant d’avoir des données toujours à jour, le déploiement en quelques secondes (au lieu de quelques heures) et la scalabilité dynamique sur n’importe quelle infrastructure. Azure Arc pour les serveurs est actuellement en préversion publique.
+summary: Azure Arc étend les fonctionnalités d’Azure Resource Manager aux serveurs Linux et Windows ainsi qu’aux clusters Kubernetes clusters sur toutes les infrastructures, qu’elles soient locales, multicloud et de périphérie. Avec Azure Arc, les clients peuvent aussi exécuter des services de données Azure où qu’ils soient, ce qui leur permet de réaliser les avantages de l’innovation du cloud, notamment les fonctionnalités permettant d’avoir des données toujours à jour, le déploiement en quelques secondes (au lieu de quelques heures) et la scalabilité dynamique sur n’importe quelle infrastructure.
 metadata:
   title: Azure Arc pour les serveurs
   description: Découvrir plus d’informations sur la gestion des machines locales dans Azure
-  author: bobbytreed
-  manager: carmonm
+  author: mgoedtel
   ms.service: azure-arc
   ms.topic: landing-page
-  ms.date: 11/04/2019
-  ms.author: robreed
-  ms.openlocfilehash: e80cdec365a14caee5c74900e1c21f7349165e66
-  ms.sourcegitcommit: 8dc84e8b04390f39a3c11e9b0eaf3264861fcafc
+  ms.date: 06/26/2020
+  ms.author: magoedte
+  ms.openlocfilehash: 8493a5d90656206c5498fafbc2b0a2743cd973a7
+  ms.sourcegitcommit: 1d9f7368fa3dadedcc133e175e5a4ede003a8413
   ms.translationtype: HT
   ms.contentlocale: fr-FR
-  ms.lasthandoff: 04/13/2020
-  ms.locfileid: "81261276"
+  ms.lasthandoff: 06/27/2020
+  ms.locfileid: "85482341"
 landingContent:
 - title: Vue d’ensemble d’Azure Arc
   linkLists:
@@ -37,3 +36,25 @@ landingContent:
       url: ./servers/onboard-service-principal.md
     - text: Connecter des ordinateurs à Azure avec PowerShell DSC
       url: ./servers/onboard-dsc.md
+- title: Connecter des clusters Kubernetes à Azure à l’aide d’Azure Arc
+  linkLists:
+  - linkListType: overview
+    links:
+    - text: Qu’est-ce que Kubernetes avec Azure Arc ?
+      url: ./kubernetes/overview.md
+  - linkListType: how-to-guide
+    links:
+    - text: Connecter un cluster
+      url: ./kubernetes/connect-cluster.md
+    - text: Utiliser GitOps dans un cluster connecté
+      url: ./kubernetes/use-gitops-connected-cluster.md
+    - text: Utiliser GitOps avec Helm
+      url: ./kubernetes/use-gitops-with-helm.md
+    - text: Utiliser Azure Monitor pour conteneurs
+      url: ../azure-monitor/insights/container-insights-enable-arc-enabled-clusters.md
+    - text: Utiliser Azure Policy
+      url: ./kubernetes/use-azure-policy.md
+    - text: Déployer des charges de travail Azure IoT Edge
+      url: ./kubernetes/deploy-azure-iot-edge-workloads.md
+    - text: Intégration d’un principal de service
+      url: ./kubernetes/create-onboarding-service-principal.md

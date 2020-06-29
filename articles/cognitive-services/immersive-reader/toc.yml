@@ -29,9 +29,15 @@
       href: how-to-customize-launch-button.md
     - name: Mettre en cache le jeton d’authentification
       href: how-to-cache-token.md
+    - name: Configurer la lecture à haute voix
+      href: how-to-configure-read-aloud.md
+    - name: Configurer la traduction
+      href: how-to-configure-translation.md
+    - name: Stocker les préférences utilisateur
+      href: how-to-store-user-preferences.md
 - name: Informations de référence
   items:
-    - name: Informations de référence sur le SDK
+    - name: Kit de développement logiciel (SDK) JavaScript
       href: reference.md
 - name: Ressources
   items:

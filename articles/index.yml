@@ -13,12 +13,12 @@ metadata:
   ms.date: 02/27/2020
   featureFlags:
   - clicktale
-  ms.openlocfilehash: 7e444b27d701b3b7ff143a404c4210f9123767b4
-  ms.sourcegitcommit: f98ab5af0fa17a9bba575286c588af36ff075615
+  ms.openlocfilehash: 5f9dbc120b301100364da61f7d8c19fa58beb5c9
+  ms.sourcegitcommit: 1d9f7368fa3dadedcc133e175e5a4ede003a8413
   ms.translationtype: HT
   ms.contentlocale: fr-FR
-  ms.lasthandoff: 06/25/2020
-  ms.locfileid: "85362524"
+  ms.lasthandoff: 06/27/2020
+  ms.locfileid: "85482919"
 highlightedContent:
   items:
   - title: Guide de prise en main pour les développeurs Azure
@@ -68,7 +68,7 @@ productDirectory:
     azureCategories:
     - ai-machine-learning
     - analytics
-    url: azure-databricks/index.yml
+    url: /azure/databricks/index.yml
   - title: Azure Machine Learning
     summary: Proposez l’intelligence artificielle à tous avec une plateforme de bout en bout, évolutive et approuvée qui inclut l’expérimentation et la gestion des modèles
     imageSrc: https://static.docs.com/ui/media/product/azure/machine-learning.svg
@@ -1042,12 +1042,12 @@ productDirectory:
     - media
     url: media-services/latest/index.yml
   - title: Data Box
-    summary: Appliances et solutions pour le transfert de données vers Azure et Edge Computing
+    summary: Appliances et solutions pour le transfert de données vers Azure
     imageSrc: https://static.docs.com/ui/media/product/azure/data-box.svg
     azureCategories:
     - migration
     - storage
-    url: databox-family/index.md
+    url: databox/index.yml
   - title: Spatial Anchors (préversion)
     summary: Créer des expériences de réalité mixte multi-utilisateurs sensibles à l’espace
     imageSrc: https://static.docs.com/ui/media/product/azure/spatial-anchor-accounts.svg

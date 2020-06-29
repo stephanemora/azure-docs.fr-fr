@@ -12,8 +12,8 @@
       href: cdn-create-a-storage-account-with-cdn.md
     - name: Création d’un profil et d’un point de terminaison
       href: cdn-create-new-endpoint.md
-    - name: Créer un profil en utilisant un modèle Azure Resource Manager
-      href: create-profile-resource-manager-template.md
+    - name: Créer un profil et un point de terminaison - Modèle ARM
+      href: create-profile-endpoint-template.md
 - name: Tutoriels
   items:
     - name: Ajouter Azure CDN à une application web
@@ -193,5 +193,5 @@
       href: 'https://azure.microsoft.com/updates/?product=cdn'
     - name: Stack Overflow
       href: 'https://stackoverflow.com/questions/tagged/azure-cdn'
-    - name: Videos
+    - name: Vidéos
       href: 'https://azure.microsoft.com/documentation/videos/index/?services=cdn'
