@@ -1,5 +1,5 @@
 ---
-title: 'Tutoriel : Intégration d’Azure Active Directory à Workspot Control | Microsoft Docs'
+title: "Tutoriel : Intégration d'Azure Active Directory à Workspot Control | Microsoft Docs"
 description: Découvrez comment configurer l’authentification unique pour Azure Active Directory et Workspot Control.
 services: active-directory
 documentationCenter: na
@@ -22,7 +22,7 @@ ms.contentlocale: fr-FR
 ms.lasthandoff: 03/24/2020
 ms.locfileid: "67086677"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-workspot-control"></a>Tutoriel : Intégration d’Azure Active Directory à Workspot Control
+# <a name="tutorial-azure-active-directory-integration-with-workspot-control"></a>Tutoriel : Intégration d'Azure Active Directory à Workspot Control
 
 Dans ce tutoriel, vous allez apprendre à intégrer Workspot Control à Azure Active Directory (Azure AD). Quand vous intégrez Workspot Control à Azure AD, vous pouvez :
 
@@ -32,7 +32,7 @@ Dans ce tutoriel, vous allez apprendre à intégrer Workspot Control à Azure Ac
 
 Pour plus d’informations sur l’intégration d’applications SaaS à Azure AD, consultez l’article [S’authentifier avec l’authentification unique auprès des applications dans Azure AD](https://docs.microsoft.com/azure/active-directory/manage-apps/what-is-single-sign-on).
 
-## <a name="prerequisites"></a>Conditions préalables requises
+## <a name="prerequisites"></a>Prérequis
 
 Pour configurer l’intégration d’Azure AD à Workspot Control, vous avez besoin des éléments suivants :
 
@@ -176,7 +176,7 @@ Dans cette section, vous créez un utilisateur de test dans le portail Azure.
 
     1. Dans le champ **Nom**, entrez **BrittaSimon**.
   
-    1. Dans le champ **Nom d’utilisateur**, entrez **brittasimon@* yourcompanydomain.extension***. Par exemple, entrez **BrittaSimon@contoso.<i></i>com**.
+    1. Dans le champ **Nom d’utilisateur**, entrez **brittasimon@* yourcompanydomain.extension**.* Par exemple, entrez **BrittaSimon@contoso.<i></i>com**.
 
     1. Cochez la case **Afficher le mot de passe**. Notez ensuite la valeur affichée dans la zone **Mot de passe**.
 
