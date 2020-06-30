@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 09/06/2019
 ms.author: erhopf
-ms.openlocfilehash: 9d48f09fe5d5c736f65b6a76211dd3fec85479ea
-ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
+ms.openlocfilehash: c7f03027abf7f3c5e330e5cd95075cce1152a7d9
+ms.sourcegitcommit: 666303748238dfdf9da30d49d89b915af73b0468
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "81402195"
+ms.lasthandoff: 06/22/2020
+ms.locfileid: "85130413"
 ---
 # <a name="deploy-a-custom-model"></a>Déployer un modèle personnalisé
 
@@ -39,6 +39,8 @@ Une fois le point de terminaison déployé, son nom s’affiche sous forme de li
 ## <a name="view-logging-data"></a>Afficher les données de journalisation
 
 Les données de journalisation sont disponibles au téléchargement sous **Point de terminaison > Détails**.
+> [!NOTE]
+>Les données de journalisation sont disponibles pendant 30 jours sur le stockage détenu par Microsoft, avant d’être supprimées. Si un compte de stockage appartenant à un client est lié à l’abonnement Cognitive Services, les données de journalisation ne sont pas automatiquement supprimées.
 
 ## <a name="next-steps"></a>Étapes suivantes
 

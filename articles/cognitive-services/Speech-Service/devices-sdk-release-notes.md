@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 02/12/2020
 ms.author: wellsi
-ms.openlocfilehash: 93bedbf4275dacc3ec84e6df9c55e7e9a7b9d632
-ms.sourcegitcommit: 31236e3de7f1933be246d1bfeb9a517644eacd61
+ms.openlocfilehash: a2fe1c7c1ac8799d615c26fdaee40b92bf3e294b
+ms.sourcegitcommit: 6fd28c1e5cf6872fb28691c7dd307a5e4bc71228
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/04/2020
-ms.locfileid: "82780910"
+ms.lasthandoff: 06/23/2020
+ms.locfileid: "85212494"
 ---
 # <a name="release-notes-speech-devices-sdk"></a>Notes de publication : Kit de développement logiciel (SDK) Speech Devices
 
@@ -42,7 +42,7 @@ Les sections suivantes dressent la liste des modifications dans les versions les
 - Les utilisateurs Windows peuvent utiliser `AudioConfig.fromDefaultMicrophoneInput()` ou `AudioConfig.fromMicrophoneInput(deviceName)` pour spécifier le microphone à utiliser.
 - La taille de la bibliothèque a été optimisée.
 - La reconnaissance multitours à l’aide du même objet de module de reconnaissance vocale/d’intention est prise en charge.
-- Correction des blocages occasionnels qui se produisent pendant l’arrêt de la reconnaissance.
+- Corrigez un problème occasionnel où le processus cesse de répondre pendant l’arrêt de la reconnaissance.
 - Les exemples d’applications contiennent maintenant un exemple de fichier participants.properties pour illustrer le format du fichier.
 - Mise à jour du composant [SDK Speech](https://docs.microsoft.com/azure/cognitive-services/speech-service/speech-sdk-reference) vers la version 1.7.0. Pour plus d’informations, consultez ses [notes de publication](https://aka.ms/csspeech/whatsnew).
 

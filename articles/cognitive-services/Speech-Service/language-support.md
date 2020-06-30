@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 03/26/2020
 ms.author: trbye
 ms.custom: seodec18
-ms.openlocfilehash: 43476f3e3f125bc338ba25e8cce0e96baa76262b
-ms.sourcegitcommit: ce44069e729fce0cf67c8f3c0c932342c350d890
+ms.openlocfilehash: 89b2b7b993ef9613740dd777546cc15a12203e62
+ms.sourcegitcommit: 6fd28c1e5cf6872fb28691c7dd307a5e4bc71228
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/09/2020
-ms.locfileid: "84636102"
+ms.lasthandoff: 06/23/2020
+ms.locfileid: "85210726"
 ---
 # <a name="language-and-voice-support-for-the-speech-service"></a>Prise en charge des langues et de la voix pour le service Speech
 
@@ -27,8 +27,6 @@ La prise en charge des langues varie selon les fonctionnalités du service Speec
 Le Kit de développement logiciel (SDK) et l’API REST Speech de Microsoft prennent en charge les langages suivants (paramètres régionaux). 
 
 Afin d'améliorer la précision, la personnalisation est proposée pour une partie des langues en chargeant des **transcriptions audio + étiquetées à la main** ou des **textes associés : Phrases.** Pour en savoir plus sur la personnalisation, consultez [Bien démarrer avec Custom Speech](how-to-custom-speech.md).
-
-Pour plus d’informations sur la façon dont vous pouvez améliorer la prononciation, consultez [Améliorer un modèle pour Custom Speech](how-to-custom-speech-improve-accuracy.md#add-new-words-with-pronunciation).
 
 <!--
 To get the AM and ML bits:
@@ -314,6 +312,26 @@ L’API **Traduction vocale** prend en charge différentes langues pour la tradu
 | Vietnamien              | `vi`          |
 | Gallois                   | `cy`          |
 | Yucatec Maya            | `yua`         |
+
+## <a name="speaker-recognition"></a>Reconnaissance de l’orateur
+
+Consultez le tableau suivant qui répertorie les langues prises en charge pour les différentes API Reconnaissance de l’orateur. Consultez la [vue d’ensemble](speaker-recognition-overview.md) pour plus d’informations sur Reconnaissance de l’orateur.
+
+| Paramètres régionaux | Langage | Vérification dépendante du texte | Vérification indépendante du texte | Identification indépendante du texte |
+|----|----|----|----|----|
+| fr-FR | Anglais (US) | Oui | Oui | Oui |
+|zh-CN  |Chinois (mandarin, simplifié)|    n/a|    Oui|    Oui|
+|de-DE  |Allemand (Allemagne)   |n/a    |Oui    |Oui|
+|en-GB  |Anglais (Royaume-Uni)   |n/a    |Oui    |Oui|
+|fr-FR  |Français (France)    |n/a    |Oui    |Oui|
+|en-AU  |Anglais (Australie)    |n/a    |Oui    |Oui|
+|en-CA  |Anglais (Canada)   |n/a|   Oui|    Oui|
+|fr-CA  |Français (Canada)    |n/a    |Oui|   Oui|
+|it-IT  |Italien|   n/a |Oui|   Oui|
+|es-ES| Espagnol (Espagne) |n/a    |Oui|   Oui|
+|es-MX  |Espagnol (Mexique)   |n/a|   Oui|    Oui|
+|ja-JP| Japonais    |n/a    |Oui    |Oui|
+|pt-br| Portugais (Brésil)|    n/a|    Oui|    Oui|
 
 ## <a name="next-steps"></a>Étapes suivantes
 

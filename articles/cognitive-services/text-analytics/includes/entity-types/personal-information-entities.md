@@ -8,12 +8,12 @@ ms.service: cognitive-services
 ms.topic: include
 ms.date: 04/30/2020
 ms.author: aahi
-ms.openlocfilehash: 637c2bb1bc37d26dcdf1a169b2f5d20766d0a27f
-ms.sourcegitcommit: e3c28affcee2423dc94f3f8daceb7d54f8ac36fd
+ms.openlocfilehash: cd17bf6c97cb89984bf407552330fbe9bec36e3f
+ms.sourcegitcommit: bf99428d2562a70f42b5a04021dde6ef26c3ec3a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/17/2020
-ms.locfileid: "84902572"
+ms.lasthandoff: 06/23/2020
+ms.locfileid: "85292148"
 ---
 > [!NOTE]
 > Pour détecter `PHI`, utilisez le paramètre `domain=phi` et la version du modèle `2020-04-01` ou une version ultérieure.
@@ -51,7 +51,7 @@ Cette catégorie d’entité englobe les informations identifiables d’Azure, n
 |---------------------------------------|-----------------------------------------------------------------------------|
 | Clé d’autorisation Azure DocumentDB             | Clé d’autorisation d’un serveur Azure DocumentDB.                           |
 | Chaîne de connexion à la base de données Azure IAAS et chaîne de connexion Azure SQL | Chaîne de connexion pour une base de données IaaS (infrastructure as a service) Azure et chaîne de connexion SQL. |
-| Chaîne de connexion Azure SQL           | Chaîne de connexion d’une base de données Azure SQL.                                |
+| Chaîne de connexion Azure SQL           | Chaîne de connexion pour une base de données dans Azure SQL Database.                                |
 | Chaîne de connexion Azure IoT           | Chaîne de connexion pour Azure Internet des objets (IoT).                        |
 | Mot de passe de paramètre de publication Azure        | Mot de passe pour les paramètres de publication Azure.                                        |
 | Chaîne de connexion Azure Cache pour Redis   | Chaîne de connexion pour Azure Cache pour Redis.                             |

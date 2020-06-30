@@ -3,12 +3,12 @@ title: Configurer un service QnA Maker - QnA Maker
 description: Avant de pouvoir créer des bases de connaissances QnA Maker, vous devez tout d’abord configurer un service QnA Maker dans Azure. Toute personne disposant d’autorisations pour créer des ressources dans un abonnement peut configurer un service QnA Maker.
 ms.topic: conceptual
 ms.date: 05/28/2020
-ms.openlocfilehash: 106796533f42250a2656735d97878ea04d6fa57f
-ms.sourcegitcommit: f1132db5c8ad5a0f2193d751e341e1cd31989854
+ms.openlocfilehash: 0a1b79c91e4e1bd9a57d6dcbb38432125573b9e6
+ms.sourcegitcommit: 6fd28c1e5cf6872fb28691c7dd307a5e4bc71228
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/31/2020
-ms.locfileid: "84235516"
+ms.lasthandoff: 06/23/2020
+ms.locfileid: "85214126"
 ---
 # <a name="manage-qna-maker-resources"></a>Gérer les ressources QnA Maker
 
@@ -60,9 +60,9 @@ Cette procédure permet de créer les ressources Azure nécessaires pour gérer 
     La ressource avec le type _Cognitive Services_ a vos clés _d’abonnement_.
 
 
-## <a name="find-subscription-keys-in-the-azure-portal"></a>Rechercher les clés d’abonnement dans le portail Azure
+## <a name="find-authoring-keys-in-the-azure-portal"></a>Rechercher des clés de création dans le portail Azure
 
-Vous pouvez afficher et réinitialiser vos clés d’abonnement à partir du portail Azure où la ressource QnA Maker a été créée.
+Vous pouvez afficher et réinitialiser vos clés de création à partir du portail Azure où la ressource QnA Maker a été créée. Ces clés sont parfois appelées clés d’abonnement. 
 
 1. Accédez à la ressource QnA Maker dans le portail Azure et sélectionnez la ressource qui a le type _Cognitive Services_ :
 
@@ -72,7 +72,7 @@ Vous pouvez afficher et réinitialiser vos clés d’abonnement à partir du por
 
     ![Clé d’abonnement](../media/qnamaker-how-to-key-management/subscription-key.PNG)
 
-## <a name="find-endpoint-keys-in-the-qna-maker-portal"></a>Rechercher des clés de point de terminaison dans le portail QnA Maker
+## <a name="find-query-endpoint-keys-in-the-qna-maker-portal"></a>Rechercher des clés de point de terminaison de requête dans le portail QnA Maker
 
 Le point de terminaison se trouve dans la même région que la ressource, car les clés de point de terminaison sont utilisées pour appeler la base de connaissances.
 
