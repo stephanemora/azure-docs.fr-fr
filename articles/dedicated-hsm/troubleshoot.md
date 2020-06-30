@@ -13,19 +13,19 @@ ms.topic: overview
 ms.custom: mvc, seodec18
 ms.date: 12/07/2018
 ms.author: mbaldwin
-ms.openlocfilehash: fc7d4caecb2ca3d35d7b1b8d0cd5f9ff380d7674
-ms.sourcegitcommit: 69156ae3c1e22cc570dda7f7234145c8226cc162
+ms.openlocfilehash: 80a215363a319b9ee082bd6c5e5f8004fc5b715b
+ms.sourcegitcommit: 6fd28c1e5cf6872fb28691c7dd307a5e4bc71228
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/03/2020
-ms.locfileid: "84310102"
+ms.lasthandoff: 06/23/2020
+ms.locfileid: "85209570"
 ---
 # <a name="troubleshooting"></a>Dépannage
 
 Le service Azure Dedicated HSM remplit deux fonctions distinctes : d’une part, l’inscription et le déploiement dans Azure des appareils HSM avec leurs composants réseau sous-jacents et, d’autre part, la configuration des appareils HSM en vue de leur utilisation/intégration avec une charge de travail ou une application donnée. Bien que les appareils HSM Thales Luna Network dans Azure soient les mêmes que ceux que vous pouvez acheter directement auprès de Thales, le fait qu’ils constituent une ressource dans Azure crée des considérations uniques. Ces considérations ainsi que les bonnes pratiques et insights en matière de dépannage sont documentés ici pour garantir la bonne visibilité des informations critiques et l’accès à celles-ci. Une fois le service en place, des informations définitives sont disponibles par le biais de demandes de support adressées directement à Microsoft ou à Thales. 
 
 > [!NOTE]
-> Il convient de noter qu’avant d’effectuer toute configuration sur un appareil HSM nouvellement déployé, vous devez le mettre à jour avec les correctifs appropriés. [KB0019789](https://supportportal.gemalto.com/csm?id=kb_article_view&sys_kb_id=19a81c8bdb9a1fc8d298728dae96197d&sysparm_article=KB0019789) est un correctif obligatoire disponible dans le portail de support Thales qui permet de résoudre un problème de blocage du redémarrage.
+> Il convient de noter qu’avant d’effectuer toute configuration sur un appareil HSM nouvellement déployé, vous devez le mettre à jour avec les correctifs appropriés. [KB0019789](https://supportportal.gemalto.com/csm?id=kb_article_view&sys_kb_id=19a81c8bdb9a1fc8d298728dae96197d&sysparm_article=KB0019789) est un correctif obligatoire disponible sur le portail de support Thales qui permet de résoudre un problème qui empêche le système de répondre pendant le redémarrage.
 
 ## <a name="hsm-registration"></a>Inscription auprès de HSM
 
@@ -120,7 +120,7 @@ Soyez prudent quand vous configurez le réseau dans le HSM.  Le HSM a une connex
 
 ### <a name="hsm-device-reboot"></a>Redémarrage de l’appareil HSM
 
-Certaines modifications de configuration nécessitent le redémarrage ou la mise hors tension puis sous tension du HSM. Les tests réalisés par Microsoft sur le HSM dans Azure ont déterminé que le redémarrage peut parfois se bloquer. Une demande de support doit alors être créée dans le portail Azure pour demander un redémarrage forcé. Comme il s’agit d’un processus manuel dans un centre de données Azure, cette opération peut prendre jusqu’à 48 heures.  Pour éviter cela, veillez à déployer directement le correctif de redémarrage disponible sur le site de Thales. Consultez l’article [KB0019789](https://supportportal.gemalto.com/csm?sys_kb_id=d66911e2db4ffbc0d298728dae9619b0&id=kb_article_view&sysparm_rank=1&sysparm_tsqueryId=d568c35bdb9a4850d6b31f3b4b96199e&sysparm_article=KB0019789) dans la page des téléchargements de Thales Luna Network HSM 7.2 pour obtenir un correctif recommandé en cas de blocage du redémarrage. Remarque : Vous derez être inscrit auprès du portail de support de Thales pour télécharger le correctif.
+Certaines modifications de configuration nécessitent le redémarrage ou la mise hors tension puis sous tension du HSM. Les tests réalisés par Microsoft sur le HSM dans Azure ont déterminé que le redémarrage peut parfois se bloquer. Une demande de support doit alors être créée dans le portail Azure pour demander un redémarrage forcé. Comme il s’agit d’un processus manuel dans un centre de données Azure, cette opération peut prendre jusqu’à 48 heures.  Pour éviter cela, veillez à déployer directement le correctif de redémarrage disponible sur le site de Thales. Consultez l’article [KB0019789](https://supportportal.gemalto.com/csm?sys_kb_id=d66911e2db4ffbc0d298728dae9619b0&id=kb_article_view&sysparm_rank=1&sysparm_tsqueryId=d568c35bdb9a4850d6b31f3b4b96199e&sysparm_article=KB0019789) dans la page des téléchargements de Thales Luna Network HSM 7.2 pour obtenir un correctif recommandé pour un problème qui empêche le système de répondre pendant le redémarrage (Remarque : vous devez vous être inscrit sur le portail de support Thales pour pouvoir télécharger le correctif).
 
 ### <a name="ntls-certificates-out-of-sync"></a>Certificats NTLS non synchronisés
 Un client peut perdre la connectivité à un HSM quand un certificat expire ou quand celui-ci est remplacé à la suite de mises à jour de configuration. La configuration du client d’échange de certificats doit être réappliquée avec chaque HSM.

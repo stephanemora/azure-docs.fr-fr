@@ -12,12 +12,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: ''
 ms.date: 02/03/2019
-ms.openlocfilehash: ecd78cdc534b68d913b6b5114a04ad2720796665
-ms.sourcegitcommit: 5a8c8ac84c36859611158892422fc66395f808dc
+ms.openlocfilehash: 1f63b8adfabb9de427fd19a992f913d032aa9d8b
+ms.sourcegitcommit: bf99428d2562a70f42b5a04021dde6ef26c3ec3a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/10/2020
-ms.locfileid: "84658167"
+ms.lasthandoff: 06/23/2020
+ms.locfileid: "85251511"
 ---
 # <a name="azure-cli-samples-for-azure-sql-database-and-sql-managed-instance"></a>Exemples Azure CLI pour Azure SQL Database et SQL Managed Instance 
  
@@ -39,15 +39,15 @@ Le tableau suivant comprend des liens vers des exemples de scripts Azure CLI pe
 |---|---|
 |**Créer des bases de données dans Azure SQL Database**||
 | [Créer une base de données unique et configurer une règle de pare-feu](scripts/create-and-configure-database-cli.md) | Crée une base de données SQL et configure une règle de pare-feu au niveau du serveur. |
-| [Créer des pools élastiques et déplacer les bases de données mises en pool](scripts/move-database-between-elastic-pools-cli.md) | Crée des pools élastiques, déplace des bases de données SQL mises en pool et change les tailles de calcul. |
+| [Créer des pools élastiques et déplacer les bases de données mises en pool](scripts/move-database-between-elastic-pools-cli.md) | Crée des pools élastiques, déplace des bases de données mises en pool et change les tailles de calcul. |
 |**Met à l’échelle des bases de données dans Azure SQL Database**||
 | [Mettre à l’échelle une base de données unique](scripts/monitor-and-scale-database-cli.md) | Met à l’échelle une base de données dans SQL Database vers une autre taille de calcul après avoir déterminé la taille de la base de données. |
 | [Mettre à l’échelle un pool élastique](scripts/scale-pool-cli.md) | Met à l’échelle un pool élastique SQL à une taille de calcul différente. |
 |**Configurer la géoréplication et le basculement**||
 | [Ajouter une base de données unique à un groupe de basculement](scripts/add-database-to-failover-group-cli.md)| Crée une base de données et un groupe de basculement, ajoute la base de données au groupe de basculement, puis teste le basculement sur le serveur secondaire. |
 | [Configurer un groupe de basculement pour un pool de bases de données élastique](../../sql-database/scripts/sql-database-add-elastic-pool-to-failover-group-cli.md) | Crée une base de données, l’ajoute à un pool élastique, ajoute le pool élastique à un groupe de basculement, puis teste le basculement sur le serveur secondaire. |
-| [Configurer et basculer une base de données unique à l’aide de la géoréplication active](../../sql-database/scripts/sql-database-setup-geodr-and-failover-database-cli.md)| Configure la géoréplication active pour une base de données Azure SQL et la fait basculer vers le réplica secondaire. |
-| [Configurer et basculer une base de données mise en pool à l’aide de la géoréplication active](../../sql-database/scripts/sql-database-setup-geodr-and-failover-pool-cli.md)| Configure la géoréplication active pour une base de données Azure SQL dans un pool élastique SQL, puis la fait basculer vers le réplica secondaire. |
+| [Configurer et basculer une base de données unique à l’aide de la géoréplication active](../../sql-database/scripts/sql-database-setup-geodr-and-failover-database-cli.md)| Configure la géoréplication active pour une base de données dans Azure SQL Database et la fait basculer vers le réplica secondaire. |
+| [Configurer et basculer une base de données mise en pool à l’aide de la géoréplication active](../../sql-database/scripts/sql-database-setup-geodr-and-failover-pool-cli.md)| Configure la géoréplication active pour une base de données dans un pool élastique, puis la fait basculer vers le réplica secondaire. |
 | **Audit et détection des menaces** |
 | [Configurer l’audit et la détection des menaces](../../sql-database/scripts/sql-database-auditing-and-threat-detection-cli.md)| Configure les stratégies d’audit et de détection des menaces pour une base de données dans Azure SQL Database. |
 | **Sauvegarder, restaurer, copier et importer une base de données**||

@@ -14,12 +14,12 @@ ms.reviewer: davidph
 manager: cgronlun
 ms.date: 04/29/2019
 ROBOTS: NOINDEX
-ms.openlocfilehash: 764d0131b0b8074a210bd9eb7f806f5d1a32fa1f
-ms.sourcegitcommit: 58ff2addf1ffa32d529ee9661bbef8fbae3cddec
+ms.openlocfilehash: b42dba59e061eee0472d39f324b7474d7d829310
+ms.sourcegitcommit: bf99428d2562a70f42b5a04021dde6ef26c3ec3a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/03/2020
-ms.locfileid: "84324230"
+ms.lasthandoff: 06/23/2020
+ms.locfileid: "85250714"
 ---
 # <a name="add-an-r-package-to-azure-sql-database-machine-learning-services-preview"></a>Ajouter un package R à Azure SQL Database Machine Learning Services (préversion)
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -39,7 +39,7 @@ Cet article explique comment ajouter un package R à Azure SQL Database Machine 
 
 ## <a name="list-r-packages"></a>Lister les packages R
 
-Microsoft fournit un nombre de packages R préinstallés avec Machine Learning Services dans votre base de données Azure SQL.
+Microsoft fournit un certain nombre de packages R préinstallés avec Machine Learning Services dans Azure SQL Database.
 Vous pouvez voir la liste des packages R installés en exécutant la commande suivante dans Azure Data Studio ou SSMS.
 
 1. Ouvrez Azure Data Studio ou SSMS et connectez-vous à votre base de données SQL Azure.
@@ -166,7 +166,7 @@ sql_remove.packages(connectionString = connection, pkgs = "glue", scope = "PUBLI
 ```
 
 > [!TIP]
-> Une autre façon d’installer un package R dans votre base de données Azure SQL consiste à charger le package R à partir d’un flux d’octets à l’aide de l’instruction T-SQL **CREATE EXTERNAL LIBRARY**. Consultez [Créer une bibliothèque à partir d’un flux d’octets](/sql/t-sql/statements/create-external-library-transact-sql#create-a-library-from-a-byte-stream) dans la documentation de référence de [CREATE EXTERNAL LIBRARY](https://docs.microsoft.com/sql/t-sql/statements/create-external-library-transact-sql).
+> Une autre façon d’installer un package R dans Azure SQL Database consiste à charger le package R à partir d’un flux d’octets à l’aide de l’instruction T-SQL **CREATE EXTERNAL LIBRARY**. Consultez [Créer une bibliothèque à partir d’un flux d’octets](/sql/t-sql/statements/create-external-library-transact-sql#create-a-library-from-a-byte-stream) dans la documentation de référence de [CREATE EXTERNAL LIBRARY](https://docs.microsoft.com/sql/t-sql/statements/create-external-library-transact-sql).
 
 ## <a name="next-steps"></a>Étapes suivantes
 

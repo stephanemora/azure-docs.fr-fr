@@ -107,7 +107,7 @@ Pour supprimer un espace de noms Event Hubs (source ou cible) à l’aide du por
 
     ![Supprimer un espace de noms - bouton](./media/move-across-regions/delete-namespace-button.png)
 
-3. Dans la page **Supprimer des ressources***, vérifiez les ressources sélectionnées, puis confirmez la suppression en tapant **Oui**, puis sélectionnez **Supprimer**. 
+3. Dans la page **Supprimer des ressources** *, vérifiez les ressources sélectionnées, puis confirmez la suppression en tapant **Oui**, puis sélectionnez **Supprimer**. 
 
 ## <a name="next-steps"></a>Étapes suivantes
 

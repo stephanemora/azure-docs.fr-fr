@@ -11,12 +11,12 @@ ms.workload: data-services
 ms.topic: tutorial
 ms.custom: seo-lt-2019; seo-dt-2019
 ms.date: 9/27/2019
-ms.openlocfilehash: 7746726775cd5230f48842ad9a9260efe0e540b5
-ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
+ms.openlocfilehash: fd006e836432ce775be8cbbefea6d9219e8b13b3
+ms.sourcegitcommit: bf99428d2562a70f42b5a04021dde6ef26c3ec3a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "84022110"
+ms.lasthandoff: 06/23/2020
+ms.locfileid: "85253458"
 ---
 # <a name="branching-and-chaining-activities-in-a-data-factory-pipeline"></a>Activités de création de branches et chaînage dans un pipeline Azure Data Factory
 
@@ -48,7 +48,7 @@ Si vous n’avez pas d’abonnement Azure, créez un [compte gratuit](https://az
 
 * Compte Stockage Azure. Vous utilisez le stockage d’objets blob comme magasin de données source. Si vous ne possédez pas de compte de stockage Azure, voir [Création d’un compte de stockage](../storage/common/storage-account-create.md).
 * Azure Storage Explorer. Pour installer cet outil, consultez [Explorateur Stockage Azure](https://storageexplorer.com/).
-* Azure SQL Database. Vous utilisez la base de données comme magasin de données réceptrice. Si vous n’avez pas de base de données SQL, consultez [Créer une base de données Azure SQL](../azure-sql/database/single-database-create-quickstart.md).
+* Azure SQL Database. Vous utilisez la base de données comme magasin de données réceptrice. Si vous n’avez pas de base de données dans Azure SQL Database, consultez [Créer une base de données dans Azure SQL Database](../azure-sql/database/single-database-create-quickstart.md).
 * Visual Studio. Cet article utilise Visual Studio 2019.
 * Kit de développement logiciel Microsoft Azure SDK pour .NET. Téléchargez et installez [Azure SDK pour .NET](https://azure.microsoft.com/downloads/).
 

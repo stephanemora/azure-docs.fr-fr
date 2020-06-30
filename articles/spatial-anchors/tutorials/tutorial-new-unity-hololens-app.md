@@ -5,15 +5,15 @@ author: craigktreasure
 manager: vriveras
 services: azure-spatial-anchors
 ms.author: crtreasu
-ms.date: 07/05/2019
+ms.date: 06/22/2020
 ms.topic: tutorial
 ms.service: azure-spatial-anchors
-ms.openlocfilehash: a3a81cdfa9e3c6659c870b184cda4ebe6f7f805a
-ms.sourcegitcommit: b55d1d1e336c1bcd1c1a71695b2fd0ca62f9d625
+ms.openlocfilehash: ee8b8c2931d006dbb3d472b545030d3aff79c56a
+ms.sourcegitcommit: 4042aa8c67afd72823fc412f19c356f2ba0ab554
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/04/2020
-ms.locfileid: "84429667"
+ms.lasthandoff: 06/24/2020
+ms.locfileid: "85297985"
 ---
 # <a name="tutorial-step-by-step-instructions-to-create-a-new-hololens-unity-app-using-azure-spatial-anchors"></a>Tutoriel : Instructions pas à pas pour créer une application HoloLens Unity avec Azure Spatial Anchors
 
@@ -101,7 +101,7 @@ Pour commencer, ajoutez les importations suivantes à `Assembly-CSharp (Universa
 
 Ajoutez ensuite les variables membres suivantes à votre classe `AzureSpatialAnchorsScript` :
 
-[!code-csharp[AzureSpatialAnchorsScript](../../../includes/spatial-anchors-new-unity-hololens-app-finished.md?range=26-42,48-52,60-79)]
+[!code-csharp[AzureSpatialAnchorsScript](../../../includes/spatial-anchors-new-unity-hololens-app-finished.md?range=26-47,53-57,65-84)]
 
 Avant de continuer, nous devons définir le Prefab de sphère que nous avons créé dans notre variable membre spherePrefab. Revenez à **Unity**.
 1. Dans **Unity**, sélectionnez l’objet **MixedRealityCloud** dans le volet **Hierarchy**.
@@ -111,15 +111,15 @@ L’objet **Sphere** doit maintenant être défini en tant que Prefab dans votre
 
 Dans **Visual Studio**, rouvrez `AzureSpatialAnchorsScript.cs`. Ajoutez le code suivant à votre méthode `Start()`. Ce code se raccorde à `GestureRecognizer`, qui est prévu pour détecter l’existence d’un clic aérien et appeler `HandleTap`.
 
-[!code-csharp[AzureSpatialAnchorsScript](../../../includes/spatial-anchors-new-unity-hololens-app-finished.md?range=81-90,93&highlight=4-10)]
+[!code-csharp[AzureSpatialAnchorsScript](../../../includes/spatial-anchors-new-unity-hololens-app-finished.md?range=86-95,98&highlight=4-10)]
 
 Nous devons à présent ajouter la méthode `HandleTap()` suivante sous `Update()`. Un raycast va être effectué pour obtenir un point d’impact sur lequel placer une sphère.
 
-[!code-csharp[AzureSpatialAnchorsScript](../../../includes/spatial-anchors-new-unity-hololens-app-finished.md?range=267-277,299-300,304-312)]
+[!code-csharp[AzureSpatialAnchorsScript](../../../includes/spatial-anchors-new-unity-hololens-app-finished.md?range=273-283,305-306,310-318)]
 
 Nous devons maintenant créer la sphère. La sphère est blanche au départ, mais cette valeur est ajustée par la suite. Ajoutez la méthode `CreateAndSaveSphere()` suivante :
 
-[!code-csharp[AzureSpatialAnchorsScript](../../../includes/spatial-anchors-new-unity-hololens-app-finished.md?range=314-325,390)]
+[!code-csharp[AzureSpatialAnchorsScript](../../../includes/spatial-anchors-new-unity-hololens-app-finished.md?range=320-331,396)]
 
 Exécutez votre application à partir de **Visual Studio** pour la valider à nouveau. Cette fois-ci, appuyez sur l’écran pour créer et placer votre sphère blanche sur la surface de votre choix.
 
@@ -129,15 +129,15 @@ Lorsque vous travaillez avec Unity, toutes les API Unity, comme les API que vous
 
 Ajoutons une variable membre, dispatchQueue, qui est une File d’attente d’Actions. Nous allons envoyer (push) des Actions sur la file d’attente, puis les retirer de la file d’attente pour les exécuter sur le thread principal.
 
-[!code-csharp[AzureSpatialAnchorsScript](../../../includes/spatial-anchors-new-unity-hololens-app-finished.md?range=38-51&highlight=6-9)]
+[!code-csharp[AzureSpatialAnchorsScript](../../../includes/spatial-anchors-new-unity-hololens-app-finished.md?range=43-56&highlight=6-9)]
 
 Adjoignons ensuite un moyen permettant d’ajouter une Action à la File d’attente. Ajoutons `QueueOnUpdate()` juste après `Update()` :
 
-[!code-csharp[AzureSpatialAnchorsScript](../../../includes/spatial-anchors-new-unity-hololens-app-finished.md?range=107-117)]
+[!code-csharp[AzureSpatialAnchorsScript](../../../includes/spatial-anchors-new-unity-hololens-app-finished.md?range=112-122)]
 
 Utilisons maintenant la boucle Update() pour vérifier l’existence d’une Action en file d’attente. Si tel est le cas, nous la retirerons de la file d’attente et nous l’exécuterons.
 
-[!code-csharp[AzureSpatialAnchorsScript](../../../includes/spatial-anchors-new-unity-hololens-app-finished.md?range=95-105&highlight=4-10)]
+[!code-csharp[AzureSpatialAnchorsScript](../../../includes/spatial-anchors-new-unity-hololens-app-finished.md?range=100-110&highlight=4-10)]
 
 ## <a name="get-the-azure-spatial-anchors-sdk"></a>Obtenir le kit SDK Azure Spatial Anchors
 
@@ -165,37 +165,37 @@ Dans votre solution **Visual Studio**, ajoutez l’importation suivante à votre
 
 Ajoutez ensuite les variables de membre suivantes dans votre classe `AzureSpatialAnchorsScript` :
 
-[!code-csharp[AzureSpatialAnchorsScript](../../../includes/spatial-anchors-new-unity-hololens-app-finished.md?range=48-63&highlight=6-11)]
+[!code-csharp[AzureSpatialAnchorsScript](../../../includes/spatial-anchors-new-unity-hololens-app-finished.md?range=53-68&highlight=6-11)]
 
 ## <a name="attach-a-local-azure-spatial-anchor-to-the-local-anchor"></a>Attacher une ancre spatiale Azure locale à l’ancre locale
 
 Configurons CloudSpatialAnchorSession d’Azure Spatial Anchor. Nous allons commencer par ajouter la méthode `InitializeSession()` suivante à l’intérieur de votre classe `AzureSpatialAnchorsScript`. Une fois appelée, elle assurera la création et l’initialisation d’une session Azure Spatial Anchors pendant le démarrage de votre application.
 
-[!code-csharp[AzureSpatialAnchorsScript](../../../includes/spatial-anchors-new-unity-hololens-app-finished.md?range=174-202,205-209)]
+[!code-csharp[AzureSpatialAnchorsScript](../../../includes/spatial-anchors-new-unity-hololens-app-finished.md?range=179-208,211-215)]
 
 Nous devons maintenant écrire du code pour gérer les appels de délégué. Nous leur en ajouterons d’autres au fur et à mesure.
 
-[!code-csharp[AzureSpatialAnchorsScript](../../../includes/spatial-anchors-new-unity-hololens-app-finished.md?range=211-226)]
+[!code-csharp[AzureSpatialAnchorsScript](../../../includes/spatial-anchors-new-unity-hololens-app-finished.md?range=217-232)]
 
 À présent, raccordez la méthode `initializeSession()` dans la méthode `Start()`.
 
-[!code-csharp[AzureSpatialAnchorsScript](../../../includes/spatial-anchors-new-unity-hololens-app-finished.md?range=81-93&highlight=12)]
+[!code-csharp[AzureSpatialAnchorsScript](../../../includes/spatial-anchors-new-unity-hololens-app-finished.md?range=86-98&highlight=12)]
 
 Enfin, ajoutez le code suivant à votre méthode `CreateAndSaveSphere()`. Ce code a pour effet d’attacher une ancre spatiale Azure locale à la sphère que vous placez dans le monde réel.
 
-[!code-csharp[AzureSpatialAnchorsScript](../../../includes/spatial-anchors-new-unity-hololens-app-finished.md?range=314-338,390&highlight=14-25)]
+[!code-csharp[AzureSpatialAnchorsScript](../../../includes/spatial-anchors-new-unity-hololens-app-finished.md?range=320-344,396&highlight=14-25)]
 
-Avant de poursuivre, vous devez créer un identificateur et une clé de compte Azure Spatial Anchors si vous n’en possédez pas déjà. Pour vous en procurer, suivez les instructions dans la section ci-dessous.
+Avant de poursuivre, vous devez créer un compte Azure Spatial Anchors pour obtenir l’identificateur, la clé et le domaine du compte, si vous ne les avez pas. Pour vous en procurer, suivez les instructions dans la section ci-dessous.
 
 [!INCLUDE [Create Spatial Anchors resource](../../../includes/spatial-anchors-get-started-create-resource.md)]
 
 ## <a name="upload-your-local-anchor-into-the-cloud"></a>Charger votre ancre locale dans le cloud
 
-Lorsque vous détenez l’identificateur et la clé de votre compte Azure Spatial Anchors, affichez puis collez `Account Id` dans `SpatialAnchorsAccountId`, et `Account Key` dans `SpatialAnchorsAccountKey`.
+Une fois que vous avez l’identificateur, la clé et le domaine de votre compte Azure Spatial Anchors, affichez puis collez `Account Id` dans `SpatialAnchorsAccountId`, `Account Key` dans `SpatialAnchorsAccountKey` et `Account Domain` dans `SpatialAnchorsAccountDomain`.
 
 Enfin, raccordez tout ensemble. Dans votre méthode `SpawnNewAnchoredObject()`, ajoutez le code suivant. Il appelle la méthode `CreateAnchorAsync()` aussitôt que la sphère est créée. Une fois la méthode retournée, le code ci-dessous apporte une dernière mise à jour à la sphère en lui donnant la couleur bleue.
 
-[!code-csharp[AzureSpatialAnchorsScript](../../../includes/spatial-anchors-new-unity-hololens-app-finished.md?range=314-391&highlight=26-77)]
+[!code-csharp[AzureSpatialAnchorsScript](../../../includes/spatial-anchors-new-unity-hololens-app-finished.md?range=320-397&highlight=26-77)]
 
 Exécutez une nouvelle fois votre application à partir de **Visual Studio**. Bougez votre tête, puis faites un geste d’appui (air tap) pour placer votre sphère. Une fois que le nombre d’images est suffisant, la sphère devient jaune et le chargement cloud débute. À l’issue du chargement, la sphère passe au bleu. Si vous le souhaitez, vous pouvez aussi utiliser la fenêtre Sortie dans **Visual Studio** pour superviser les messages de journal envoyés par votre application. Vous serez en mesure d’observer la progression de recommended for create, ainsi que l’identificateur d’ancre que le cloud retourne à la fin du chargement.
 
@@ -210,20 +210,20 @@ Une fois que votre ancre est chargée dans le cloud, vous pouvez essayer de la l
 * Initialisez `CloudSpatialAnchorSession` de nouveau. Nous procédons ainsi pour nous assurer que l’ancre à localiser provient du cloud, et qu’il ne s’agit pas de l’ancre locale que vous avez créée.
 * Créez un **Watcher** qui recherche l’ancre chargée sur Azure Spatial Anchors.
 
-[!code-csharp[AzureSpatialAnchorsScript](../../../includes/spatial-anchors-new-unity-hololens-app-finished.md?range=267-305&highlight=13-31,35-36)]
+[!code-csharp[AzureSpatialAnchorsScript](../../../includes/spatial-anchors-new-unity-hololens-app-finished.md?range=273-311&highlight=13-31,35-36)]
 
 Ajoutons maintenant nos méthodes `ResetSession()` et `CleanupObjects()`. Vous pouvez les mettre en dessous de `QueueOnUpdate()`
 
-[!code-csharp[AzureSpatialAnchorsScript](../../../includes/spatial-anchors-new-unity-hololens-app-finished.md?range=119-172)]
+[!code-csharp[AzureSpatialAnchorsScript](../../../includes/spatial-anchors-new-unity-hololens-app-finished.md?range=124-177)]
 
 Nous devons maintenant raccorder le code qui sera appelé dès que l’ancre recherchée sera localisée. À l’intérieur de `InitializeSession()`, ajoutez les rappels suivants :
 
-[!code-csharp[AzureSpatialAnchorsScript](../../../includes/spatial-anchors-new-unity-hololens-app-finished.md?range=200-206&highlight=4-5)]
+[!code-csharp[AzureSpatialAnchorsScript](../../../includes/spatial-anchors-new-unity-hololens-app-finished.md?range=206-212&highlight=4-5)]
 
 
 À présent, ajoutons le code qui crée et place une sphère verte une fois la localisation de CloudSpatialAnchor effectuée. Il réactive également les appuis sur l’écran, ce qui vous permet de répéter une nouvelle fois le scénario dans son intégralité : création, chargement et relocalisation d’une nouvelle ancre.
 
-[!code-csharp[AzureSpatialAnchorsScript](../../../includes/spatial-anchors-new-unity-hololens-app-finished.md?range=228-265)]
+[!code-csharp[AzureSpatialAnchorsScript](../../../includes/spatial-anchors-new-unity-hololens-app-finished.md?range=234-271)]
 
 Et voilà ! Exécutez une dernière fois votre application depuis **Visual Studio** pour essayer l’ensemble du scénario de bout en bout. Déplacez votre appareil et placez votre sphère blanche. Ensuite, bougez votre tête pour capturer les données de l’environnement jusqu’à ce que la sphère devienne jaune. Votre ancre locale est alors chargée et la sphère devient bleue. Enfin, appuyez une nouvelle fois sur l’écran de façon à supprimer l’ancre locale, puis recherchez son équivalent cloud. Continuez de déplacer votre appareil jusqu’à ce que l’ancre spatiale cloud soit localisée. Une sphère verte doit alors apparaître à l’emplacement approprié, et vous pouvez effacer et répéter une nouvelle fois l’ensemble du scénario.
 

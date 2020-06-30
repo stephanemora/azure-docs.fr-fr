@@ -10,12 +10,12 @@ ms.author: iainfou
 author: iainfoulds
 ms.reviewer: rhicock
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 5e56040f5e17ee33da6b21ab42d2deddf5dd7064
-ms.sourcegitcommit: 0a5bb9622ee6a20d96db07cc6dd45d8e23d5554a
+ms.openlocfilehash: 030d5b5ad596b0d9e5eb2d636770c985b1cff5ed
+ms.sourcegitcommit: 51718f41d36192b9722e278237617f01da1b9b4e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/05/2020
-ms.locfileid: "84447796"
+ms.lasthandoff: 06/19/2020
+ms.locfileid: "85099129"
 ---
 # <a name="tutorial-enable-azure-active-directory-self-service-password-reset-writeback-to-an-on-premises-environment"></a>Tutoriel : Activer la réécriture de la réinitialisation du mot de passe en libre-service Azure Active Directory dans un environnement local
 
@@ -34,7 +34,7 @@ Dans ce tutoriel, vous allez apprendre à :
 
 Pour effectuer ce tutoriel, vous avez besoin des ressources et des privilèges suivants :
 
-* Un locataire Azure AD actif avec au moins une licence Azure AD Premium activée ou une licence d’évaluation P2 activée.
+* Un locataire Azure AD actif avec au moins une licence d’évaluation Azure AD Premium P1 ou P2 activée.
     * Si nécessaire, [créez-en un gratuitement](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
     * Pour plus d’informations, consultez [Conditions de licence pour la réinitialisation de mot de passe en libre-service Azure AD](concept-sspr-licensing.md).
 * Un compte avec des privilèges d’*administrateur général*.

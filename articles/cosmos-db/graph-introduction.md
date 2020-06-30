@@ -7,18 +7,18 @@ ms.subservice: cosmosdb-graph
 ms.topic: overview
 ms.date: 07/18/2019
 ms.author: lbosq
-ms.openlocfilehash: 9151b54d7fa0b64a465aa8384cb4bfdb8e72c482
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.openlocfilehash: 0eb778d1fc2dca522bef675709b5241f214e2b86
+ms.sourcegitcommit: 23604d54077318f34062099ed1128d447989eea8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "75500006"
+ms.lasthandoff: 06/20/2020
+ms.locfileid: "85118115"
 ---
 # <a name="introduction-to-azure-cosmos-db-gremlin-api"></a>Présentation d’Azure Cosmos DB : API Gremlin
 
 [Azure Cosmos DB](introduction.md) est le service de base de données multimodèle globalement distribué de Microsoft pour les applications stratégiques. Il s’agit d’une base de données multimodèle qui prend en charge les modèles de données sous forme de documents, de graphes, de valeurs-clés et de familles de colonnes. L’API Gremlin d’Azure Cosmos DB est utilisée pour stocker et exploiter les données de graphe dans un service de base de données complètement managé quelle que soit l’échelle.  
 
-![Architecture graphique Azure Cosmos DB](./media/graph-introduction/cosmosdb-graph-architecture.png)
+:::image type="content" source="./media/graph-introduction/cosmosdb-graph-architecture.png" alt-text="Architecture graphique Azure Cosmos DB" border="false":::
 
 Cet article fournit une vue d’ensemble de l’API Gremlin Azure Cosmos DB, et explique comment l’utiliser pour stocker des graphiques volumineux comportant des milliards de sommets et de bords. Vous pouvez interroger les graphiques avec une latence de quelques millisecondes, et faire évoluer facilement leur structure. L’API Gremlin d’Azure Cosmos DB est basée sur le standard de base de données graphique [Apache TinkerPop](https://tinkerpop.apache.org)  et utilise le langage de requête Gremlin. 
 
@@ -101,7 +101,7 @@ Les bases de données de graphes sont souvent incluses dans la catégorie de bas
 ### <a name="gremlin-by-example"></a>Gremlin par l’exemple
 Nous allons utiliser un exemple de graphe pour comprendre comment les requêtes peuvent être exprimées dans Gremlin. L’illustration suivante montre une application métier qui gère les données sur les utilisateurs, les centres d’intérêt et les appareils sous la forme d’un graphe.  
 
-![Exemple de base de données montrant des personnes, des appareils et des centres d’intérêt](./media/gremlin-support/sample-graph.png) 
+:::image type="content" source="./media/gremlin-support/sample-graph.png" alt-text="Exemple de base de données montrant des personnes, des appareils et des centres d’intérêt" border="false"::: 
 
 Ce graphe présente les types suivants de *sommet* (appelés « label » dans Gremlin) :
 

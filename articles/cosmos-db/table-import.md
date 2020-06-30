@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.date: 12/07/2017
 ms.author: sngun
 ms.custom: seodec18
-ms.openlocfilehash: 5c828644cb03d83df38265719cd8afabc24cf739
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: 3d1efc0a116a38686fa929a2058fa88e4c2cfa82
+ms.sourcegitcommit: 23604d54077318f34062099ed1128d447989eea8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "66242571"
+ms.lasthandoff: 06/20/2020
+ms.locfileid: "85119475"
 ---
 # <a name="migrate-your-data-to-azure-cosmos-db-table-api-account"></a>Migrer vos données vers un compte d’API Table Azure Cosmos DB
 
@@ -26,11 +26,11 @@ Ce tutoriel décrit les tâches suivantes :
 > * Importation de données avec AzCopy
 > * Migration depuis une API Table (préversion) vers une autre 
 
-## <a name="prerequisites"></a>Conditions préalables requises
+## <a name="prerequisites"></a>Prérequis
 
-* **Augmenter le débit :** la durée de la migration de vos données dépend du débit que vous définissez pour un conteneur spécifique ou un ensemble de conteneurs. Veillez à augmenter le débit pour les migrations de données plus importantes. Une fois que vous avez effectué la migration, diminuez le débit pour réduire les coûts. Pour plus d’informations sur l’augmentation du débit dans le portail Azure, consultez les niveaux de performances et niveaux tarifaires dans Azure Cosmos DB.
+* **Augmenter le débit :** la durée de la migration de vos données dépend du débit que vous définissez pour un conteneur spécifique ou un ensemble de conteneurs. Veillez à augmenter le débit pour les migrations de données plus importantes. Une fois que vous avez effectué la migration, diminuez le débit pour réduire les coûts. Pour plus d’informations sur l’augmentation du débit dans le portail Azure, consultez les niveaux de performances et niveaux tarifaires dans Azure Cosmos DB.
 
-* **Créer des ressources Azure Cosmos DB :** avant de commencer à migrer les données, créez au préalable toutes vos tables à partir du portail Azure. Si vous migrez vers un compte Azure Cosmos DB qui a un débit de niveau base de données, assurez-vous de fournir une clé de partition lors de la création de tables Azure Cosmos DB.
+* **Créer des ressources Azure Cosmos DB :** avant de commencer à migrer des données, créez au préalable toutes vos tables à partir du portail Azure. Si vous migrez vers un compte Azure Cosmos DB qui a un débit de niveau base de données, assurez-vous de fournir une clé de partition lors de la création de tables Azure Cosmos DB.
 
 ## <a name="data-migration-tool"></a>Outil de migration de données
 
@@ -68,11 +68,11 @@ Utilisez les options de source suivantes lorsque vous définissez le Stockage Ta
 
 Pour récupérer la chaîne de connexion source lors de l’importation à partir du Stockage Table Azure, ouvrez le portail Azure, puis cliquez sur **Comptes de stockage** > **Compte** > **Clés d’accès**, puis utilisez le bouton Copier pour copier la **chaîne de connexion**.
 
-![Capture d’écran des options sources HBase](./media/table-import/storage-table-access-key.png)
+:::image type="content" source="./media/table-import/storage-table-access-key.png" alt-text="Capture d’écran des options sources HBase":::
 
 Pour récupérer la chaîne de connexion source lors de l’importation à partir du compte d’API Table Azure Cosmos DB (préversion), ouvrez le portail Azure, puis cliquez sur **Azure Cosmos DB** > **Chaîne de connexion** > **Clés d’accès**, puis utilisez le bouton Copier pour copier la **chaîne de connexion**.
 
-![Capture d’écran des options sources HBase](./media/table-import/cosmos-connection-string.png)
+:::image type="content" source="./media/table-import/cosmos-connection-string.png" alt-text="Capture d’écran des options sources HBase":::
 
 [Exemple de commande du Stockage Table Azure](#azure-table-storage)
 
@@ -91,7 +91,7 @@ Utilisez les options de cible suivantes lorsque vous définissez l’API Table A
     /t.MaxBatchSize: Optional, default is 2MB. Specify the batch size in bytes
 
 <a id="azure-table-storage"></a>
-### <a name="sample-command-source-is-azure-table-storage"></a>Exemple de commande (la source correspond au Stockage Table Azure)
+### <a name="sample-command-source-is-azure-table-storage"></a>Exemple de commande : la source correspond au Stockage Table Azure
 
 Voici un exemple de ligne de commande indiquant comment effectuer l’importation entre le Stockage Table Azure et l’API Table :
 
@@ -99,7 +99,7 @@ Voici un exemple de ligne de commande indiquant comment effectuer l’importatio
 dt /s:AzureTable /s.ConnectionString:DefaultEndpointsProtocol=https;AccountName=<Azure Table storage account name>;AccountKey=<Account Key>;EndpointSuffix=core.windows.net /s.Table:<Table name> /t:TableAPIBulk /t.ConnectionString:DefaultEndpointsProtocol=https;AccountName=<Azure Cosmos DB account name>;AccountKey=<Azure Cosmos DB account key>;TableEndpoint=https://<Account name>.table.cosmosdb.azure.com:443 /t.TableName:<Table name> /t.Overwrite
 ```
 <a id="table-api-preview"></a>
-### <a name="sample-command-source-is-azure-cosmos-db-table-api-preview"></a>Exemple de commande (la source correspond à l’API Table Azure Cosmos DB [préversion])
+### <a name="sample-command-source-is-azure-cosmos-db-table-api-preview"></a>Exemple de commande : la source correspond à l'API Table Azure Cosmos DB (préversion)
 
 Voici un exemple de ligne de commande permettant d’effectuer l’importation entre l’API Table (préversion) et la version GA de l’API Table :
 

@@ -7,12 +7,12 @@ ms.service: cosmos-db
 ms.date: 11/05/2019
 ms.author: dech
 ms.reviewer: sngun
-ms.openlocfilehash: 3de73156618b0f5234cc8049c4ea70385b790388
-ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
+ms.openlocfilehash: dfcde775780cdb42f9df1d677ff2f2475de92843
+ms.sourcegitcommit: 23604d54077318f34062099ed1128d447989eea8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/21/2020
-ms.locfileid: "83743590"
+ms.lasthandoff: 06/20/2020
+ms.locfileid: "85115276"
 ---
 # <a name="tutorial-create-a-notebook-in-azure-cosmos-db-to-analyze-and-visualize-the-data"></a>Tutoriel : Créer un notebook dans Azure Cosmos DB pour analyser et visualiser les données
 
@@ -30,7 +30,7 @@ Dans cette section, vous allez créer la base de données Azure Cosmos et le con
 
 1. Accédez à l’onglet **Notebooks**, sélectionnez `…` en regard de **My Notebooks** et créez un notebook (**New Notebook**). Sélectionnez **Python 3** comme noyau par défaut.
 
-   ![Créer une nouvelle instance Notebook](./media/create-notebook-visualize-data/create-new-notebook.png)
+   :::image type="content" source="./media/create-notebook-visualize-data/create-new-notebook.png" alt-text="Créer un notebook":::
 
 1. Une fois que vous avez créé un notebook, vous pouvez le renommer par exemple **VisualizeRetailData.ipynb**.
 
@@ -49,7 +49,7 @@ Dans cette section, vous allez créer la base de données Azure Cosmos et le con
 
    Pour exécuter une cellule, sélectionnez `Shift + Enter` ou sélectionnez la cellule et choisissez l’option **Run Active Cell** (Exécuter la cellule active) dans la barre de navigation de l’Explorateur de données.
 
-   ![Exécuter la cellule active](./media/create-notebook-visualize-data/run-active-cell.png)
+   :::image type="content" source="./media/create-notebook-visualize-data/run-active-cell.png" alt-text="Exécuter la cellule active":::
 
    La base de données et le conteneur sont créés dans votre compte Azure Cosmos actuel. Le conteneur est provisionné avec 400 RU/s. La sortie suivante s’affiche après la création de la base de données et du conteneur. 
 
@@ -60,7 +60,7 @@ Dans cette section, vous allez créer la base de données Azure Cosmos et le con
 
    Vous pouvez également actualiser l’onglet **Data** et voir les ressources nouvellement créées :
 
-   ![Actualiser l’onglet Data pour afficher le nouveau conteneur](media/create-notebook-visualize-data/refresh-data-tab.png)
+   :::image type="content" source="media/create-notebook-visualize-data/refresh-data-tab.png" alt-text="Actualiser l’onglet des données pour voir le nouveau conteneur":::
 
 1. Ensuite, vous allez importer les exemples de données de vente dans le conteneur Azure Cosmos. Voici le format d’un élément des données de vente :
 
@@ -135,7 +135,7 @@ Dans une nouvelle cellule de notebook, exécutez le code suivant pour lire les 1
 df_cosmos.head(10)
 ```
 
-![Exécuter la requête pour obtenir les 10 premiers éléments](./media/create-notebook-visualize-data/run-query-get-top10-items.png)
+:::image type="content" source="./media/create-notebook-visualize-data/run-query-get-top10-items.png" alt-text="Exécuter la requête pour obtenir les 10 premiers articles":::
 
 ## <a name="run-queries-and-analyze-your-data"></a>Exécuter des requêtes et analyser vos données
 
@@ -148,7 +148,7 @@ Dans cette section, vous allez exécuter des requêtes sur les données récupé
    display(df_revenue.head(5))
    ```
 
-   ![Sortie du chiffre d’affaires total](./media/create-notebook-visualize-data/total-sales-revenue-output.png)
+   :::image type="content" source="./media/create-notebook-visualize-data/total-sales-revenue-output.png" alt-text="Sortie du chiffre d’affaires total":::
 
 * **Requête 2** : pour obtenir la liste des cinq éléments les plus achetés, ouvrez une nouvelle cellule de notebook et exécutez le code suivant :
 
@@ -159,7 +159,7 @@ Dans cette section, vous allez exécuter des requêtes sur les données récupé
    pd.DataFrame(df_cosmos[df_cosmos['Action']=='Purchased'].groupby('Item').size().sort_values(ascending=False).head(5), columns=['Count'])
    ```
 
-   ![Cinq éléments les plus achetés](./media/create-notebook-visualize-data/top5-purchased-items.png)
+   :::image type="content" source="./media/create-notebook-visualize-data/top5-purchased-items.png" alt-text="Cinq articles les plus achetés":::
 
 ## <a name="visualize-your-data"></a>Visualiser vos données  
 
@@ -286,7 +286,7 @@ Dans cette section, vous allez exécuter des requêtes sur les données récupé
    show(p)
    ```
 
-   ![Visualiser le taux de conversion des achats](./media/create-notebook-visualize-data/visualize-purchase-conversion-rate.png)
+   :::image type="content" source="./media/create-notebook-visualize-data/visualize-purchase-conversion-rate.png" alt-text="Visualiser le taux de conversion des achats":::
 
 ## <a name="next-steps"></a>Étapes suivantes
 

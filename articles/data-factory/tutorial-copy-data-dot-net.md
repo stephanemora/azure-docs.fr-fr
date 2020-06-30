@@ -11,12 +11,12 @@ ms.workload: data-services
 ms.topic: tutorial
 ms.date: 11/08/2019
 ms.author: jingwang
-ms.openlocfilehash: ad257d0bea38d03803bf2be44313a3e086e7654c
-ms.sourcegitcommit: 6a9f01bbef4b442d474747773b2ae6ce7c428c1f
+ms.openlocfilehash: 182c5b4059874b6e03092481c68b39cf55bc7e62
+ms.sourcegitcommit: bf99428d2562a70f42b5a04021dde6ef26c3ec3a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "84118166"
+ms.lasthandoff: 06/23/2020
+ms.locfileid: "85253934"
 ---
 # <a name="copy-data-from-azure-blob-to-azure-sql-database-using-azure-data-factory"></a>Copier des données à partir d’un objet blob Azure vers Azure SQL Database à l’aide d’Azure Data Factory
 
@@ -41,7 +41,7 @@ Si vous n’avez pas d’abonnement Azure, créez un [compte Azure gratuit](http
 ## <a name="prerequisites"></a>Prérequis
 
 * *Compte Stockage Azure*. Vous utilisez le stockage blob comme magasins de données *source*. Si vous n’avez pas de compte de stockage Azure, consultez [Créer un compte de stockage universel](../storage/common/storage-account-create.md).
-* *Azure SQL Database*. Vous utilisez la base de données en tant que magasin de données *récepteur*. Si vous n’avez pas de base de données SQL, consultez [Créer une base de données Azure SQL](../azure-sql/database/single-database-create-quickstart.md).
+* *Azure SQL Database*. Vous utilisez la base de données en tant que magasin de données *récepteur*. Si vous n’avez pas de base de données dans Azure SQL Database, consultez [Créer une base de données dans Azure SQL Database](../azure-sql/database/single-database-create-quickstart.md).
 * *Visual Studio*. La procédure pas à pas décrite dans cet article utilise Visual Studio 2019.
 * *[SDK Azure pour .NET](/dotnet/azure/dotnet-tools)* .
 * *Application Azure Active Directory*. Si vous n’avez pas d’application Azure Active Directory, consultez la section [Créer une application Azure Active Directory](../active-directory/develop/howto-create-service-principal-portal.md#create-an-azure-active-directory-application) dans [Procédure : Utiliser le portail pour créer une application Azure AD](../active-directory/develop/howto-create-service-principal-portal.md). Copiez les valeurs suivantes pour les utiliser dans les étapes ultérieures : **ID d’application (client)** , **Clé d’authentification** et **ID de l’annuaire (locataire)** . Affectez l’application au rôle **Contributeur** en suivant les instructions données dans le même article.

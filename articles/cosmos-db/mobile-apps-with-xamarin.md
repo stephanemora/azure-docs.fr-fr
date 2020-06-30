@@ -7,12 +7,12 @@ ms.devlang: dotnet
 ms.topic: tutorial
 ms.date: 11/05/2019
 ms.author: sngun
-ms.openlocfilehash: 8fbd2065ceae1aadf1dc57c78adb21b7c2848297
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: fbcbf1be29031596201774ae5ebb40cb1a3b89a2
+ms.sourcegitcommit: 23604d54077318f34062099ed1128d447989eea8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "80985556"
+ms.lasthandoff: 06/20/2020
+ms.locfileid: "85113447"
 ---
 # <a name="tutorial-build-mobile-applications-with-xamarin-and-azure-cosmos-db"></a>Tutoriel : Créer des applications mobiles avec Xamarin et Azure Cosmos DB
 
@@ -31,7 +31,7 @@ Dans cet article, nous proposons un didacticiel pour la création d’applicatio
 ## <a name="azure-cosmos-db-capabilities-for-mobile-apps"></a>Fonctionnalités d’Azure Cosmos DB pour les applications mobiles
 Azure Cosmos DB fournit les fonctionnalités clés suivantes aux développeurs d’applications mobiles :
 
-![Fonctionnalités d’Azure Cosmos DB pour les applications mobiles](media/mobile-apps-with-xamarin/documentdb-for-mobile.png)
+:::image type="content" source="media/mobile-apps-with-xamarin/documentdb-for-mobile.png" alt-text="Fonctionnalités d’Azure Cosmos DB pour les applications mobiles":::
 
 * Requêtes riches sur des données sans schéma. Azure Cosmos DB stocke les données sous la forme de documents JSON sans schéma dans des collections hétérogènes. Il propose des [requêtes riches et rapides](how-to-sql-query.md), qui ne nécessitent aucun schéma ou index.
 * Débit rapide. Seules quelques millisecondes sont nécessaires pour lire et écrire des documents avec Azure Cosmos DB. Les développeurs peuvent spécifier le débit dont ils ont besoin, et Azure Cosmos DB l’honore avec une disponibilité à 99,99 % pour tous les comptes à région unique et à plusieurs régions avec cohérence souple, ainsi qu’une disponibilité de lecture à 99,999 % pour tous les comptes de base de données à plusieurs régions.
@@ -47,7 +47,7 @@ Le didacticiel suivant explique comment créer une application mobile à l’aid
 ### <a name="get-started"></a>Bien démarrer
 La prise en main d’Azure Cosmos DB est simple. Utilisez le portail Azure pour créer un compte Azure Cosmos DB. Cliquez sur l’onglet **Démarrage rapide**. Téléchargez l’exemple de liste de tâches Xamarin Forms, qui est déjà connecté à votre compte Azure Cosmos DB. 
 
-![Démarrage rapide d’Azure Cosmos DB pour les applications mobiles](media/mobile-apps-with-xamarin/cosmos-db-quickstart.png)
+:::image type="content" source="media/mobile-apps-with-xamarin/cosmos-db-quickstart.png" alt-text="Démarrage rapide d’Azure Cosmos DB pour les applications mobiles":::
 
 Si vous disposez déjà d’une application Xamarin, vous pouvez également ajouter le [package NuGet d’Azure Cosmos DB](sql-api-sdk-dotnet-core.md). Azure Cosmos DB prend en charge les bibliothèques partagées Xamarin.IOS, Xamarin.Android et Xamarin Forms.
 
@@ -85,19 +85,19 @@ Pour transformer l’application de liste de tâches en liste multi-utilisateur,
 
 Un exemple de code complet de ce modèle est disponible sur [Resource Token Broker sur GitHub](https://github.com/kirillg/azure-documentdb-dotnet/tree/master/samples/xamarin/UserItems). Ce diagramme illustre la solution :
 
-![Utilisateurs d’Azure Cosmos DB et répartiteur d’autorisations](media/mobile-apps-with-xamarin/documentdb-resource-token-broker.png)
+:::image type="content" source="media/mobile-apps-with-xamarin/documentdb-resource-token-broker.png" alt-text="Utilisateurs Azure Cosmos DB et répartiteur d’autorisations" border="false":::
 
 Si vous souhaitez que deux utilisateurs puissent accéder à la même liste des tâches, vous pouvez ajouter des autorisations supplémentaires au jeton d’accès dans Resource Token Broker.
 
 ### <a name="scale-on-demand"></a>Mise à l’échelle à la demande
 Azure Cosmos DB est une base de données gérée en tant que service. À mesure que votre base d’utilisateurs augmente, vous n’avez pas à vous soucier de la configuration des machines virtuelles ou de l’augmentation de la mémoire à tores magnétiques. Il vous suffit d’indiquer à Azure Cosmos DB, le nombre d’opérations par seconde (débit) dont votre application a besoin. Vous pouvez spécifier le débit via l’onglet **Mise à l’échelle** à l’aide d’une mesure de débit appelée Unité de requête par seconde (RU). Par exemple, une opération de lecture d’un document de 1 Ko nécessite 1 RU. Vous pouvez également ajouter des alertes à la mesure **Débit**, afin de surveiller la croissance du trafic et de modifier le débit par programme lorsque des alertes se déclenchent.
 
-![Débit de mise à l’échelle d’Azure Cosmos DB à la demande](media/mobile-apps-with-xamarin/cosmos-db-xamarin-scale.png)
+:::image type="content" source="media/mobile-apps-with-xamarin/cosmos-db-xamarin-scale.png" alt-text="Débit de mise à l’échelle d’Azure Cosmos DB à la demande":::
 
 ### <a name="go-planet-scale"></a>Développement à l’échelle de la planète
 À mesure que votre application gagne en popularité, vous pouvez acquérir des utilisateurs aux quatre coins du monde. Peut-être souhaitez-vous pouvoir faire face à des événements imprévus. Accédez au portail Azure et ouvrez votre compte Azure Cosmos DB. Cliquez sur la carte permettre la réplication continue de vos données dans différentes régions du monde. Grâce à cette fonctionnalité, vos données sont disponibles où que se trouvent vos utilisateurs. Vous pouvez également ajouter des stratégies de basculement, afin d’être prêt à affronter toute situation d’urgence.
 
-![Mise à l’échelle d’Azure Cosmos DB dans différentes régions géographiques](media/mobile-apps-with-xamarin/cosmos-db-xamarin-replicate.png)
+:::image type="content" source="media/mobile-apps-with-xamarin/cosmos-db-xamarin-replicate.png" alt-text="Mise à l’échelle d’Azure Cosmos DB dans différentes régions géographiques" border="false":::
 
 Félicitations ! Vous avez terminé la solution et vous disposez d’une application mobile avec Xamarin et Azure Cosmos DB. Vous pouvez utiliser une procédure similaire pour créer des applications Cordova, à l’aide du Kit de développement logiciel (SDK) JavaScript DocumentDB, ainsi que des applications iOS/Android natives, à l’aide des API REST DocumentDB.
 

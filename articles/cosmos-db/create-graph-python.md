@@ -9,12 +9,12 @@ ms.topic: quickstart
 ms.date: 01/22/2019
 ms.author: lbosq
 ms.custom: tracking-python
-ms.openlocfilehash: fd266dd4e75915c0710acce1a2a49f24049c4e9d
-ms.sourcegitcommit: 964af22b530263bb17fff94fd859321d37745d13
+ms.openlocfilehash: 0f96cbd86921428a85aa69f3561252aeb7fd67b5
+ms.sourcegitcommit: 23604d54077318f34062099ed1128d447989eea8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/09/2020
-ms.locfileid: "84559863"
+ms.lasthandoff: 06/20/2020
+ms.locfileid: "85118217"
 ---
 # <a name="quickstart-create-a-graph-database-in-azure-cosmos-db-using-python-and-the-azure-portal"></a>Démarrage rapide : Créer une base de données de graphe dans Azure Cosmos DB à l’aide de Python et du portail Azure
 
@@ -98,7 +98,7 @@ Maintenant, retournez dans le portail Azure afin d’obtenir vos informations de
 
     Copiez la première partie de la valeur de l’URI.
 
-    ![Affichage et copie d’une clé d’accès rapide dans le portail Azure, page Clés](./media/create-graph-python/keys.png)
+    :::image type="content" source="./media/create-graph-python/keys.png" alt-text="Afficher et copier une clé d’accès dans la page Clés du portail Azure":::
 
 2. Ouvrez le fichier *connect.py* et, sur la ligne 104, collez la valeur de l’URI sur `<YOUR_ENDPOINT>`, ici :
 
@@ -172,15 +172,15 @@ Après insertion des sommets et arêtes, vous pouvez revenir à l’Explorateur 
 
 1. Dans votre compte Azure Cosmos DB, dans le portail Azure, sélectionnez **Explorateur de données**, développez **sample-graph**, sélectionnez **Graphe**, puis sélectionnez **Appliquer un filtre**. 
 
-   ![Créer des documents dans l’Explorateur de données, dans le Portail Azure](./media/create-graph-python/azure-cosmosdb-data-explorer-expanded.png)
+   :::image type="content" source="./media/create-graph-python/azure-cosmosdb-data-explorer-expanded.png" alt-text="Créer des documents dans l’Explorateur de données du portail Azure":::
 
 2. Dans la liste **Résultats**, vous voyez que trois nouveaux utilisateurs ont été ajoutés au graphe. Vous pouvez glisser-déplacez les vertex, effectuer un zoom avant et arrière à l’aide de la roulette de la souris et augmenter la taille du graphique avec la double flèche. 
 
-   ![Nouveaux vertex dans le graphique de l’Explorateur de données du portail Azure](./media/create-graph-python/azure-cosmosdb-graph-explorer-new.png)
+   :::image type="content" source="./media/create-graph-python/azure-cosmosdb-graph-explorer-new.png" alt-text="Nouveaux sommets dans le graphe dans l’Explorateur de données du portail Azure":::
 
 3. Nous allons à présent ajouter quelques nouveaux utilisateurs. Sélectionnez le bouton **Nouveau sommet** pour ajouter des données à votre graphe.
 
-   ![Créer des documents dans l’Explorateur de données, dans le Portail Azure](./media/create-graph-python/azure-cosmosdb-data-explorer-new-vertex.png)
+   :::image type="content" source="./media/create-graph-python/azure-cosmosdb-data-explorer-new-vertex.png" alt-text="Créer des documents dans l’Explorateur de données du portail Azure":::
 
 4. Entrez l’étiquette *person*.
 
@@ -219,15 +219,15 @@ Après insertion des sommets et arêtes, vous pouvez revenir à l’Explorateur 
 
 12. À présent, nous pouvons connecter rakesh et ashley. Vérifiez que **ashley** est bien sélectionné dans la liste **Résultats**, puis sélectionnez le bouton de modification en regard de **Cibles** dans la partie inférieure droite de l’écran. Vous devrez peut-être élargir la fenêtre pour visualiser la zone **Propriétés**.
 
-    ![Modifier la cible d’un vertex dans un graphique](./media/create-graph-python/azure-cosmosdb-data-explorer-edit-target.png)
+    :::image type="content" source="./media/create-graph-python/azure-cosmosdb-data-explorer-edit-target.png" alt-text="Changer la cible d’un sommet dans un graphe":::
 
 13. Dans la zone **Cible**, tapez *rakesh*. Dans la zone **Étiquette de l’arête**, tapez *knows*, puis cochez la case.
 
-    ![Ajouter une connexion entre ashley et rakesh dans l’Explorateur de données](./media/create-graph-python/azure-cosmosdb-data-explorer-set-target.png)
+    :::image type="content" source="./media/create-graph-python/azure-cosmosdb-data-explorer-set-target.png" alt-text="Ajouter une connexion entre ashley et rakesh dans l’Explorateur de données":::
 
 14. À présent, sélectionnez **rakesh** dans la liste des résultats et vérifiez qu’ashley et rakesh sont connectés. 
 
-    ![Deux vertex connectés dans l’Explorateur de données](./media/create-graph-python/azure-cosmosdb-graph-explorer.png)
+    :::image type="content" source="./media/create-graph-python/azure-cosmosdb-graph-explorer.png" alt-text="Deux sommets connectés dans l’Explorateur de données":::
 
 Ainsi s’achève la portion de ce didacticiel consacrée à la création de ressources. Vous pouvez continuer à ajouter des vertex à votre graphique, modifier les vertex existants ou modifier les requêtes. Nous allons à présent examiner les métriques fournies par Azure Cosmos DB et nettoyer les ressources. 
 

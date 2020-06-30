@@ -156,7 +156,7 @@ Cet article présente les inscriptions individuelles.
     java -jar ./provisioning-x509-sample-{version}-with-deps.jar
     ```
 
-5. Dans le portail Azure, accédez au IoT Hub lié à votre service d’approvisionnement et ouvrez le panneau **Device Explorer**. En cas de réussite de l’approvisionnement de l’appareil simulé X.509 sur le Hub, son ID d’appareil s’affiche sur le panneau **Device Explorer**, avec un *ÉTAT***activé**.  Notez que vous devrez peut-être appuyer sur le bouton **Actualiser** dans la partie supérieure si vous avez déjà ouvert le panneau avant d’exécuter l’exemple d’application de l’appareil. 
+5. Dans le portail Azure, accédez au IoT Hub lié à votre service d’approvisionnement et ouvrez le panneau **Device Explorer**. En cas de réussite de l’approvisionnement de l’appareil simulé X.509 sur le Hub, son ID d’appareil s’affiche sur le panneau **Device Explorer**, avec un *ÉTAT* **activé**.  Notez que vous devrez peut-être appuyer sur le bouton **Actualiser** dans la partie supérieure si vous avez déjà ouvert le panneau avant d’exécuter l’exemple d’application de l’appareil. 
 
     ![L’appareil est inscrit avec le hub IoT](./media/java-quick-create-simulated-device-x509/hubregistration.png) 
 

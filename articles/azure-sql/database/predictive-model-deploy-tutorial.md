@@ -14,21 +14,22 @@ ms.reviewer: davidph
 manager: cgronlun
 ms.date: 07/26/2019
 ROBOTS: NOINDEX
-ms.openlocfilehash: 86c73944753126aa3fb5c14c8d6626a449365c64
-ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
+ms.openlocfilehash: 84c0f6564fc9ab8abc43205b58d9445cda82a2da
+ms.sourcegitcommit: bf99428d2562a70f42b5a04021dde6ef26c3ec3a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "84023975"
+ms.lasthandoff: 06/23/2020
+ms.locfileid: "85253815"
 ---
 # <a name="tutorial-deploy-a-predictive-model-in-r-with-azure-sql-database-machine-learning-services-preview"></a>Tutoriel : Déployer un modèle prédictif en R avec Azure SQL Database Machine Learning Services (préversion)
+
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
 
-Dans le troisième volet de ce tutoriel en trois parties, vous allez déployer un modèle prédictif développé en R dans une base de données SQL avec Azure SQL Database Machine Learning Services (préversion).
+Dans la dernière partie de ce tutoriel qui en compte trois, vous allez déployer un modèle prédictif, développé en R, dans une base de données dans Azure SQL Database avec Azure SQL Database Machine Learning Services (préversion).
 
 [!INCLUDE[ml-preview-note](../../../includes/sql-database-ml-preview-note.md)]
 
-Vous allez créer une procédure stockée avec un script R incorporé qui effectue des prédictions avec le modèle. Du fait que votre modèle s’exécute dans la base de données Azure SQL, il peut facilement être entraîné sur des données stockées dans la base de données.
+Vous allez créer une procédure stockée avec un script R incorporé qui effectue des prédictions avec le modèle. Étant donné que votre modèle s’exécute dans la base de données, son apprentissage peut facilement être effectué en fonction des données stockées dans la base de données.
 
 Dans cet article, avec les scripts en R que vous avez développés dans les parties un et deux, vous allez apprendre à :
 
@@ -200,7 +201,7 @@ RentalCount_Predicted
 332.571428571429
 ```
 
-Vous avez correctement créé, entraîné et déployé un modèle dans une base de données Azure SQL. Vous avez ensuite utilisé ce modèle dans une procédure stockée pour prédire des valeurs en fonction de nouvelles données.
+Vous avez correctement créé, entraîné et déployé un modèle dans une base de données dans Azure SQL Database. Vous avez ensuite utilisé ce modèle dans une procédure stockée pour prédire des valeurs en fonction de nouvelles données.
 
 ## <a name="clean-up-resources"></a>Nettoyer les ressources
 

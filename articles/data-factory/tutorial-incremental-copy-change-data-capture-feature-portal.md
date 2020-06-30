@@ -11,12 +11,12 @@ ms.workload: data-services
 ms.topic: tutorial
 ms.custom: ''
 ms.date: 05/04/2020
-ms.openlocfilehash: 754fb27d03aebf6029d3ae2f22e748db87a89753
-ms.sourcegitcommit: 58ff2addf1ffa32d529ee9661bbef8fbae3cddec
+ms.openlocfilehash: ca6b0ff197c21dd41521d2aa6106aa3b0df2d177
+ms.sourcegitcommit: bf99428d2562a70f42b5a04021dde6ef26c3ec3a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/03/2020
-ms.locfileid: "84325224"
+ms.lasthandoff: 06/23/2020
+ms.locfileid: "85249481"
 ---
 # <a name="incrementally-load-data-from-azure-sql-managed-instance-to-azure-storage-using-change-data-capture-cdc"></a>Charger de façon incrémentielle des données d’Azure SQL Managed Instance sur le Stockage Azure à l’aide de la capture des changements de données
 
@@ -55,7 +55,8 @@ Si vous n’avez pas d’abonnement Azure, créez un compte [gratuit](https://az
 * **Azure SQL Database Managed Instance**. Vous utilisez la base de données comme magasin de données **sources**. Si vous n’avez pas d’instance managée Azure SQL Database, consultez l’article [Créer une instance managée Azure SQL Database](https://docs.microsoft.com/azure/sql-database/sql-database-managed-instance-get-started) pour savoir comme en créer une.
 * **Compte Stockage Azure**. Vous utilisez le stockage Blob comme magasin de données **récepteur**. Si vous n’avez pas de compte de stockage Azure, consultez l’article [Créer un compte de stockage](../storage/common/storage-account-create.md) pour découvrir comment en créer un. Créez un conteneur sous le nom **raw**. 
 
-### <a name="create-a-data-source-table-in-your-azure-sql-database"></a>Créer une table de source de données dans votre base de données Azure SQL Database
+### <a name="create-a-data-source-table-in-azure-sql-database"></a>Créer une table de source de données dans Azure SQL Database
+
 1. Lancez **SQL Server Management Studio** et connectez-vous à votre serveur d’instances managées Azure SQL.
 2. Dans l’**Explorateur de serveurs**, cliquez avec le bouton droit sur votre **base de données** et choisissez **Nouvelle requête**.
 3. Exécutez la commande SQL suivante sur votre base de données d’instances managées Azure SQL pour créer une table sous le nom `customers` en tant que magasin de source de données.  
@@ -176,7 +177,7 @@ Dans cette étape, vous allez lier votre base de données Azure SQL MI à la fab
 
    ![Paramètres du service lié Base de données Azure SQL MI](./media/tutorial-incremental-copy-change-data-capture-feature-portal/azure-sql-managed-instance-database-linked-service-settings.png)
 
-## <a name="create-datasets"></a>Créer des jeux de données
+## <a name="create-datasets"></a>Créez les jeux de données
 Dans cette étape, vous allez créer des jeux de données pour représenter la source de données et la destination des données.
 
 ### <a name="create-a-dataset-to-represent-source-data"></a>Créer un jeu de données pour représenter les données sources

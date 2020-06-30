@@ -9,19 +9,19 @@ ms.subservice: forms-recognizer
 ms.topic: include
 ms.date: 05/06/2020
 ms.author: pafarley
-ms.openlocfilehash: efb07605d692b4980c108d60cc8f57babae68082
-ms.sourcegitcommit: fc718cc1078594819e8ed640b6ee4bef39e91f7f
+ms.openlocfilehash: fc5eb33c511b7312aca4e9a4678acbe65718f3a7
+ms.sourcegitcommit: 6fd28c1e5cf6872fb28691c7dd307a5e4bc71228
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "83997539"
+ms.lasthandoff: 06/23/2020
+ms.locfileid: "85242113"
 ---
-[Documentation de référence](https://docs.microsoft.com/dotnet/api/overview/azure/formrecognizer?view=azure-dotnet-preview) | [Code source de la bibliothèque](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/formrecognizer/Azure.AI.FormRecognizer/src) | [Package (NuGet)](https://www.nuget.org/packages/Azure.AI.FormRecognizer) | [Exemples](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/formrecognizer/Azure.AI.FormRecognizer/samples/README.md)
+[Documentation de référence](https://docs.microsoft.com/dotnet/api/overview/azure/formrecognizer) | [Code source de la bibliothèque](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/formrecognizer/Azure.AI.FormRecognizer/src) | [Package (NuGet)](https://www.nuget.org/packages/Azure.AI.FormRecognizer) | [Exemples](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/formrecognizer/Azure.AI.FormRecognizer/samples/README.md)
 
 ## <a name="prerequisites"></a>Prérequis
 
 * Abonnement Azure : [créez-en un gratuitement](https://azure.microsoft.com/free/).
-* Un blob Stockage Azure qui contient un jeu de données d’entraînement. Consultez [Créer un jeu de données d’entraînement pour un modèle personnalisé](../../build-training-data-set.md) pour obtenir des conseils et des options pour constituer votre jeu de données d’entraînement. Dans le cadre de ce guide de démarrage rapide, vous pouvez utiliser les fichiers disponibles dans le dossier **Train** de l’[exemple de jeu de données](https://go.microsoft.com/fwlink/?linkid=2090451).
+* Un blob Stockage Azure qui contient un jeu de données d’apprentissage. Consultez [Créer un jeu de données d’entraînement pour un modèle personnalisé](../../build-training-data-set.md) pour obtenir des conseils et des options pour constituer votre jeu de données d’entraînement. Dans le cadre de ce guide de démarrage rapide, vous pouvez utiliser les fichiers disponibles dans le dossier **Train** de l’[exemple de jeu de données](https://go.microsoft.com/fwlink/?linkid=2090451).
 * Version actuelle de [.NET Core](https://dotnet.microsoft.com/download/dotnet-core)
 
 ## <a name="setting-up"></a>Configuration
@@ -85,7 +85,7 @@ static void Main(string[] args)
 Dans le répertoire de l’application, installez la bibliothèque de client Form Recognizer pour .NET avec la commande suivante :
 
 ```console
-dotnet add package Azure.AI.FormRecognizer --version 1.0.0-preview.1
+dotnet add package Azure.AI.FormRecognizer --version 1.0.0-preview.3
 ```
 
 Si vous utilisez l’IDE Visual Studio, la bibliothèque de client est disponible sous forme de package NuGet téléchargeable.
@@ -134,7 +134,7 @@ Vous devrez aussi ajouter des références aux URL pour vos données d’entraî
 * Employez également la méthode ci-dessus pour obtenir l’URL d’une image de ticket de caisse ou utilisez l’exemple d’URL d’image fourni.
 
 > [!NOTE]
-> Les extraits de code présentés dans ce guide utilisent des formulaires distants accessibles par URL. Si vous voulez traiter des documents de formulaire locaux, consultez les méthodes correspondantes dans la [documentation de référence](https://docs.microsoft.com/dotnet/api/overview/azure/formrecognizer?view=azure-dotnet-preview).
+> Les extraits de code présentés dans ce guide utilisent des formulaires distants accessibles par URL. Si vous voulez traiter des documents de formulaire locaux, consultez les méthodes correspondantes dans la [documentation de référence](https://docs.microsoft.com/dotnet/api/overview/azure/formrecognizer).
 
 ```csharp
     string trainingDataUrl = "<SAS-URL-of-your-form-folder-in-blob-storage>";
@@ -216,48 +216,89 @@ Pour reconnaître les tickets de caisse à partir d’un URI, utilisez la métho
 private static async Task<Guid> AnalyzeReceipt(
     FormRecognizerClient recognizerClient, string receiptUri)
 {
-    Response<IReadOnlyList<RecognizedReceipt>> receipts = await recognizerClient
-        .StartRecognizeReceiptsFromUri(new Uri(receiptUri)).WaitForCompletionAsync();
-    foreach (var receipt in receipts.Value)
+    RecognizedReceiptCollection receipts = await recognizerClient.StartRecognizeReceiptsFromUri(new Uri(receiptUri))
+    .WaitForCompletionAsync();
+
+    foreach (RecognizedReceipt receipt in receipts)
     {
-        USReceipt usReceipt = receipt.AsUSReceipt();
-    
-        string merchantName = usReceipt.MerchantName?.Value ?? default;
-        DateTime transactionDate = usReceipt.TransactionDate?.Value ?? default;
-        IReadOnlyList<USReceiptItem> items = usReceipt.Items ?? default;
-    
-        Console.WriteLine($"Recognized USReceipt fields:");
-        Console.WriteLine($"    Merchant Name: '{merchantName}', with confidence " +
-            $"{usReceipt.MerchantName.Confidence}");
-        Console.WriteLine($"    Transaction Date: '{transactionDate}', with" +
-            $" confidence {usReceipt.TransactionDate.Confidence}");
+    FormField merchantNameField;
+    if (receipt.RecognizedForm.Fields.TryGetValue("MerchantName", out merchantNameField))
+    {
+        if (merchantNameField.Value.Type == FieldValueType.String)
+        {
+            string merchantName = merchantNameField.Value.AsString();
+
+            Console.WriteLine($"Merchant Name: '{merchantName}', with confidence {merchantNameField.Confidence}");
+        }
+    }
+
+    FormField transactionDateField;
+    if (receipt.RecognizedForm.Fields.TryGetValue("TransactionDate", out transactionDateField))
+    {
+        if (transactionDateField.Value.Type == FieldValueType.Date)
+        {
+            DateTime transactionDate = transactionDateField.Value.AsDate();
+
+            Console.WriteLine($"Transaction Date: '{transactionDate}', with confidence {transactionDateField.Confidence}");
+        }
+    }
 ```
 
 Le bloc de code suivant itère au sein des éléments individuels détectés sur le ticket et en imprime les détails dans la console.
 
 ```csharp
-        for (int i = 0; i < items.Count; i++)
+    FormField itemsField;
+    if (receipt.RecognizedForm.Fields.TryGetValue("Items", out itemsField))
+    {
+        if (itemsField.Value.Type == FieldValueType.List)
         {
-            USReceiptItem item = usReceipt.Items[i];
-            Console.WriteLine($"    Item {i}:  Name: '{item.Name.Value}'," +
-                $" Quantity: '{item.Quantity?.Value}', Price: '{item.Price?.Value}'");
-            Console.WriteLine($"    TotalPrice: '{item.TotalPrice.Value}'");
+            foreach (FormField itemField in itemsField.Value.AsList())
+            {
+                Console.WriteLine("Item:");
+
+                if (itemField.Value.Type == FieldValueType.Dictionary)
+                {
+                    IReadOnlyDictionary<string, FormField> itemFields = itemField.Value.AsDictionary();
+
+                    FormField itemNameField;
+                    if (itemFields.TryGetValue("Name", out itemNameField))
+                    {
+                        if (itemNameField.Value.Type == FieldValueType.String)
+                        {
+                            string itemName = itemNameField.Value.AsString();
+
+                            Console.WriteLine($"    Name: '{itemName}', with confidence {itemNameField.Confidence}");
+                        }
+                    }
+
+                    FormField itemTotalPriceField;
+                    if (itemFields.TryGetValue("TotalPrice", out itemTotalPriceField))
+                    {
+                        if (itemTotalPriceField.Value.Type == FieldValueType.Float)
+                        {
+                            float itemTotalPrice = itemTotalPriceField.Value.AsFloat();
+
+                            Console.WriteLine($"    Total Price: '{itemTotalPrice}', with confidence {itemTotalPriceField.Confidence}");
+                        }
+                    }
+                }
+            }
         }
+    }
 ```
 
-Enfin, le dernier bloc de code imprime le reste des principaux détails du ticket.
+Enfin, le dernier bloc de code imprime la valeur totale sur le ticket.
 
 ```csharp
-        float subtotal = usReceipt.Subtotal?.Value ?? default;
-        float tax = usReceipt.Tax?.Value ?? default;
-        float tip = usReceipt.Tip?.Value ?? default;
-        float total = usReceipt.Total?.Value ?? default;
-    
-        Console.WriteLine($"    Subtotal: '{subtotal}', with confidence" +
-            $" '{usReceipt.Subtotal.Confidence}'");
-        Console.WriteLine($"    Tax: '{tax}', with confidence '{usReceipt.Tax.Confidence}'");
-        Console.WriteLine($"    Tip: '{tip}', with confidence '{usReceipt.Tip?.Confidence ?? 0.0f}'");
-        Console.WriteLine($"    Total: '{total}', with confidence '{usReceipt.Total.Confidence}'");
+    FormField totalField;
+    if (receipt.RecognizedForm.Fields.TryGetValue("Total", out totalField))
+    {
+        if (totalField.Value.Type == FieldValueType.Float)
+        {
+            float total = totalField.Value.AsFloat();
+
+            Console.WriteLine($"Total: '{total}', with confidence '{totalField.Confidence}'");
+        }
     }
 }
 ```
@@ -280,22 +321,22 @@ private static async Task<Guid> TrainModel(
     FormRecognizerClient trainingClient, string trainingDataUrl)
 {
     CustomFormModel model = await trainingClient
-        .StartTrainingAsync(new Uri(trainingDataUrl)).WaitForCompletionAsync();
+        .StartTrainingAsync(new Uri(trainingFileUrl), useTrainingLabels: false).WaitForCompletionAsync();
     
     Console.WriteLine($"Custom Model Info:");
     Console.WriteLine($"    Model Id: {model.ModelId}");
     Console.WriteLine($"    Model Status: {model.Status}");
-    Console.WriteLine($"    Created On: {model.CreatedOn}");
-    Console.WriteLine($"    Last Modified: {model.LastModified}");
+    Console.WriteLine($"    Requested on: {model.RequestedOn}");
+    Console.WriteLine($"    Completed on: {model.CompletedOn}");
 ```
 
 L’objet **CustomFormModel** retourné contient des informations sur les types de formulaires que le modèle peut reconnaître et les champs qu’il peut extraire de chaque type de formulaire. Le bloc de code suivant imprime ces informations dans la console.
 
 ```csharp
-    foreach (CustomFormSubModel subModel in model.Models)
+    foreach (CustomFormSubmodel submodel in model.Submodels)
     {
-        Console.WriteLine($"SubModel Form Type: {subModel.FormType}");
-        foreach (CustomFormModelField field in subModel.Fields.Values)
+        Console.WriteLine($"Submodel Form Type: {submodel.FormType}");
+        foreach (CustomFormModelField field in submodel.Fields.Values)
         {
             Console.Write($"    FieldName: {field.Name}");
             if (field.Label != null)
@@ -322,23 +363,23 @@ Vous pouvez aussi entraîner les modèles personnalisés en étiquetant manuelle
 private static async Task<Guid> TrainModelWithLabelsAsync(
     FormRecognizerClient trainingClient, string trainingDataUrl)
 {
-    CustomFormModel model = await trainingClient.StartTrainingAsync(
-        new Uri(trainingDataUrl), useLabels: true).WaitForCompletionAsync();
+    CustomFormModel model = await trainingClient
+    .StartTrainingAsync(new Uri(trainingFileUrl), useTrainingLabels: true).WaitForCompletionAsync();
     
     Console.WriteLine($"Custom Model Info:");
     Console.WriteLine($"    Model Id: {model.ModelId}");
     Console.WriteLine($"    Model Status: {model.Status}");
-    Console.WriteLine($"    Created On: {model.CreatedOn}");
-    Console.WriteLine($"    Last Modified: {model.LastModified}");
+    Console.WriteLine($"    Requested on: {model.RequestedOn}");
+    Console.WriteLine($"    Completed on: {model.CompletedOn}");
 ```
 
 Le **CustomFormModel** retourné indique les champs que le modèle peut extraire ainsi qu’une estimation de sa justesse dans chaque champ. Le bloc de code suivant imprime ces informations dans la console.
 
 ```csharp
-    foreach (CustomFormSubModel subModel in model.Models)
+    foreach (CustomFormSubmodel submodel in model.Submodels)
     {
-        Console.WriteLine($"SubModel Form Type: {subModel.FormType}");
-        foreach (CustomFormModelField field in subModel.Fields.Values)
+        Console.WriteLine($"Submodel Form Type: {submodel.FormType}");
+        foreach (CustomFormModelField field in submodel.Fields.Values)
         {
             Console.Write($"    FieldName: {field.Name}");
             if (field.Accuracy != null)
@@ -498,9 +539,8 @@ Par exemple, si vous envoyez une image de ticket avec un URI non valide, une err
 ```csharp Snippet:FormRecognizerBadRequest
 try
 {
-    Response<IReadOnlyList<RecognizedReceipt>> receipts = await client
-    .StartRecognizeReceiptsFromUri(new Uri("http://invalid.uri"))
-    .WaitForCompletionAsync();
+    RecognizedReceiptCollection receipts = await client.StartRecognizeReceiptsFromUri(new Uri(receiptUri)).WaitForCompletionAsync();
+
 }
 catch (RequestFailedException e)
 {
@@ -532,10 +572,10 @@ Headers:
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Dans ce guide de démarrage rapide, vous avez utilisé la bibliothèque de client .NET Form Recognizer pour entraîner des modèles et analyser des formulaires de différentes manières. Découvrez ensuite les astuces pour créer un jeu de données d’entraînement plus performant et produire des modèles plus justes.
+Dans ce guide de démarrage rapide, vous avez utilisé la bibliothèque de client .NET Form Recognizer pour entraîner des modèles et analyser des formulaires de différentes manières. Découvrez ensuite les astuces pour créer un jeu de données d’apprentissage plus performant et produire des modèles plus précis.
 
 > [!div class="nextstepaction"]
-> [Créer un jeu de données d’entraînement](../../build-training-data-set.md)
+> [Créer un jeu de données d’apprentissage](../../build-training-data-set.md)
 
 * [Qu’est-ce que Form Recognizer ?](../../overview.md)
 * Vous trouverez l’exemple de code de ce guide (et bien plus encore) sur [GitHub](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/formrecognizer/Azure.AI.FormRecognizer/samples/README.md).

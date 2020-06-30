@@ -11,12 +11,12 @@ ms.workload: data-services
 ms.topic: tutorial
 ms.custom: seo-lt-2019
 ms.date: 01/22/2018
-ms.openlocfilehash: c150972c2804b12ac436a0dd10cdf13f92f43478
-ms.sourcegitcommit: 964af22b530263bb17fff94fd859321d37745d13
+ms.openlocfilehash: b1601bf095b5898de965d42a16e63f278499a9bf
+ms.sourcegitcommit: bf99428d2562a70f42b5a04021dde6ef26c3ec3a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/09/2020
-ms.locfileid: "84561008"
+ms.lasthandoff: 06/23/2020
+ms.locfileid: "85251508"
 ---
 # <a name="copy-multiple-tables-in-bulk-by-using-azure-data-factory-using-powershell"></a>Copier plusieurs tables en bloc en utilisant Azure Data Factory avec PowerShell
 
@@ -59,7 +59,7 @@ Si vous n’avez pas d’abonnement Azure, créez un compte [gratuit](https://az
 
 **Préparer la base de données Azure SQL source** :
 
-Créez une base de données Azure SQL avec l’exemple de données Adventure Works LT. Pour cela, suivez les instructions de l’article [Créer une base de données Azure SQL](../azure-sql/database/single-database-create-quickstart.md). Ce didacticiel copie toutes les tables de cet exemple de base de données dans un entrepôt de données SQL.
+Créez une base de données avec l’exemple de données Adventure Works LT dans SQL Database en suivant les instructions données dans l’article [Créer une base de données dans Azure SQL Database](../azure-sql/database/single-database-create-quickstart.md). Ce didacticiel copie toutes les tables de cet exemple de base de données dans un entrepôt de données SQL.
 
 **Préparer le récepteur Azure SQL Data Warehouse** :
 
@@ -334,7 +334,7 @@ Ce pipeline prend une liste de tables comme paramètre. Pour chaque table dans l
                         "activities": [
                             {
                                 "name": "CopyData",
-                                "description": "Copy data from SQL database to SQL DW",
+                                "description": "Copy data from Azure SQL Database to SQL DW",
                                 "type": "Copy",
                                 "inputs": [
                                     {

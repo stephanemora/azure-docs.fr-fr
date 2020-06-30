@@ -13,12 +13,12 @@ ms.custom: mvc
 ms.topic: tutorial
 ms.date: 02/26/2019
 ms.author: apimpm
-ms.openlocfilehash: 9a9c6897937b73786367accc33e985a268907226
-ms.sourcegitcommit: 8dc84e8b04390f39a3c11e9b0eaf3264861fcafc
+ms.openlocfilehash: 6b446fe83ad37dfe9edbe55fcb1b5b42aa578274
+ms.sourcegitcommit: 51718f41d36192b9722e278237617f01da1b9b4e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/13/2020
-ms.locfileid: "81258743"
+ms.lasthandoff: 06/19/2020
+ms.locfileid: "85100358"
 ---
 # <a name="transform-and-protect-your-api"></a>Transformer et protéger votre API
 
@@ -80,7 +80,7 @@ La réponse originale est de ce type :
 
    ![Stratégies](./media/transform-api/transform-api.png)
 
-7. Modifiez votre code **\<outbound>** afin qu’il ressemble à ceci :
+7. Modifiez votre code **\<outbound>** afin qu’il ressemble à ceci :
 
        <set-header name="X-Powered-By" exists-action="delete" />
        <set-header name="X-AspNet-Version" exists-action="delete" />
@@ -112,11 +112,8 @@ Pour consulter la réponse d’origine :
 2.  Sélectionnez **Toutes les opérations**.
 3.  Sélectionnez l’onglet **Conception** en haut de l’écran.
 4.  Dans le **Traitement sortant**, cliquez sur l’icône **</>** .
-5.  Placez le curseur à l’intérieur de l’élément **&lt;outbound&gt;** , puis cliquez sur le bouton **Insérer une stratégie** en haut à droite.
-6.  Dans la fenêtre de droite, sous **Stratégies de transformation**, cliquez sur **+ Find and replace string in body**.
-7.  Modifiez votre code **find-and-replace** (dans l’élément **\<outbound\>** ) afin de remplacer l’URL par une instance correspondant à celle de la passerelle APIM. Par exemple :
-
-        <find-and-replace from="://conferenceapi.azurewebsites.net" to="://apiphany.azure-api.net/conference"/>
+5.  Placez le curseur à l’intérieur de l’élément **&lt;outbound&gt;** , puis cliquez sur le bouton **Afficher les extraits de code** en haut à droite.
+6.  Dans la fenêtre de droite, sous **Stratégies de transformation**, cliquez sur **Mask URLs in content** (Masques d’URL dans le contenu).
 
 ## <a name="protect-an-api-by-adding-rate-limit-policy-throttling"></a>Protéger une API en ajoutant une stratégie de limite de débit (limitation)
 
@@ -130,7 +127,7 @@ Cette section vous montre comment ajouter une protection pour votre API principa
 4.  Dans la section **Traitement entrant**, cliquez sur l’icône **</>** .
 5.  Placez le curseur à l’intérieur de l’élément **&lt;sortant&gt;** .
 6.  Dans la fenêtre de droite, sous **Accès aux stratégies de restriction**, cliquez sur **+ Limit call rate per key**.
-7.  Remplacez votre code **rate-limit-by-key** (dans l’élément **\<inbound\>** ) par le code suivant :
+7.  Remplacez votre code **rate-limit-by-key** (dans l’élément **\<inbound\>** ) par le code suivant :
 
         <rate-limit-by-key calls="3" renewal-period="15" counter-key="@(context.Subscription.Id)" />
 

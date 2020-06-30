@@ -8,12 +8,12 @@ ms.topic: overview
 author: j-martens
 ms.author: jmartens
 ms.date: 03/25/2020
-ms.openlocfilehash: 5577a9847ff405397c553028a6dfdf2df80d03fd
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 065fd166fb2ce82a3338322d55ef1ee5886ac56b
+ms.sourcegitcommit: 6fd28c1e5cf6872fb28691c7dd307a5e4bc71228
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "80371835"
+ms.lasthandoff: 06/23/2020
+ms.locfileid: "85210369"
 ---
 # <a name="azure-machine-learning-vs-machine-learning-studio-classic"></a>Azure Machine Learning et Machine Learning Studio (classique)
 
@@ -29,7 +29,7 @@ Le tableau suivant récapitule quelques-unes des principales différences entre 
 
 | | Machine Learning Studio (classique) | Azure Machine Learning |
 |---| --- | --- |
-| Interface de glisser-déplacer | Prise en charge | Prise en charge - [Concepteur Azure Machine Learning (préversion)](concept-designer.md) | 
+| Interface de glisser-déplacer | Prise en charge | Prise en charge - [Concepteur Azure Machine Learning (préversion)](concept-designer.md) <br/>(Nécessite un espace de travail d’entreprise) | 
 | Expérience | Évolutive (limite de 10 Go de données de formation) | Mise à l’échelle avec cible de calcul |
 | Cibles de calcul d’entraînement | Cible de calcul propriétaire, prise en charge CPU uniquement | Vaste gamme de [cibles de calcul d’entraînement](concept-compute-target.md#train) personnalisables. Processeurs et processeurs graphiques pris en charge | 
 | Cibles de calcul de déploiement | Format de service web propriétaire, non personnalisable | Vaste gamme de [cibles de calcul de déploiement](concept-compute-target.md#deploy) personnalisables. Processeurs et processeurs graphiques pris en charge |

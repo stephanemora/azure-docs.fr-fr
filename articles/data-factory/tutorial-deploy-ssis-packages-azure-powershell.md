@@ -14,12 +14,12 @@ author: swinarko
 ms.author: sawinark
 ms.reviewer: douglasl
 manager: mflasko
-ms.openlocfilehash: 6ffc1aa6e28bf17d0de3783e5e03b6a2df541e4a
-ms.sourcegitcommit: 1f48ad3c83467a6ffac4e23093ef288fea592eb5
+ms.openlocfilehash: 2c3f2ccd80f2f329a7495beda1a002d84d769802
+ms.sourcegitcommit: bf99428d2562a70f42b5a04021dde6ef26c3ec3a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/29/2020
-ms.locfileid: "84194644"
+ms.lasthandoff: 06/23/2020
+ms.locfileid: "85253917"
 ---
 # <a name="set-up-an-azure-ssis-ir-in-azure-data-factory-by-using-powershell"></a>Configurer un runtime d’intégration Azure-SSIS dans Azure Data Factory à l’aide de PowerShell
 
@@ -55,7 +55,7 @@ Ce didacticiel présente les procédures suivantes :
     - En fonction du serveur de base de données sélectionné, SSISDB peut être créé à votre place en tant que base de données unique ou dans le cadre d’un pool élastique dans SQL Database ou dans SQL Managed Instance, et accessible sur un réseau public ou en rejoignant un réseau virtuel. Pour obtenir des conseils sur le choix du type de serveur de base de données pour héberger SSISDB, consultez [Comparer une base de données SQL et une instance managée SQL](create-azure-ssis-integration-runtime.md#comparison-of-sql-database-and-sql-managed-instance).
     
       Si vous utilisez SQL Database avec un pare-feu IP ou des points de terminaison de service de réseau virtuel, ou une instance managée SQL avec un point de terminaison privé pour héberger le catalogue SSISDB, ou si vous avez besoin d’accéder à des données locales sans configurer d’IR auto-hébergé, joignez votre runtime d’intégration Azure-SSIS à un réseau virtuel. Pour plus d’informations, consultez [Créer un runtime Azure-SSIS IR dans un réseau virtuel](https://docs.microsoft.com/azure/data-factory/create-azure-ssis-integration-runtime).
-    - Vérifiez que le paramètre **Autoriser l’accès aux services Azure** est activé pour SQL Database. Ce paramètre ne s’applique pas quand vous utilisez SQL Database avec des règles de pare-feu IP ou des points de terminaison de service de réseau virtuel, ou une instance managée SQL avec un point de terminaison privé pour héberger le catalogue SSISDB. Pour en savoir plus, consultez [Sécuriser votre base de données Azure SQL](../azure-sql/database/secure-database-tutorial.md#create-firewall-rules). Pour savoir comment activer ce paramètre à l’aide de PowerShell, consultez [New-AzSqlServerFirewallRule](/powershell/module/az.sql/new-azsqlserverfirewallrule).
+    - Vérifiez que le paramètre **Autoriser l’accès aux services Azure** est activé pour SQL Database. Ce paramètre ne s’applique pas quand vous utilisez SQL Database avec des règles de pare-feu IP ou des points de terminaison de service de réseau virtuel, ou une instance managée SQL avec un point de terminaison privé pour héberger le catalogue SSISDB. Pour plus d’informations, consultez [Sécuriser Azure SQL Database](../azure-sql/database/secure-database-tutorial.md#create-firewall-rules). Pour savoir comment activer ce paramètre à l’aide de PowerShell, consultez [New-AzSqlServerFirewallRule](/powershell/module/az.sql/new-azsqlserverfirewallrule).
     - Ajoutez l’adresse IP de l’ordinateur client ou une plage d’adresses IP incluant l’adresse IP de l’ordinateur client à la liste d’adresses IP client dans les paramètres de pare-feu de SQL Database. Pour plus d’informations, consultez [Règles de pare-feu au niveau du serveur et de la base de données](../azure-sql/database/firewall-configure.md).
     - Vous pouvez vous connecter à SQL Database ou SQL Managed Instance à l’aide de l’authentification SQL avec vos informations d’identification d’administrateur du serveur ou de l’authentification Azure Active Directory (Azure AD) avec l’identité managée de votre fabrique de données. Pour l’authentification Azure AD, pour ajouter l’identité managée de votre fabrique de données à un groupe Azure AD disposant d’autorisations d’accès au serveur de base de données, consultez [Créer un runtime d’intégration Azure-SSIS avec l’authentification AAD](https://docs.microsoft.com/azure/data-factory/create-azure-ssis-integration-runtime).
     - Vérifiez que SQL Database ou SQL Managed Instance n’ont pas encore de catalogue SSISDB. La configuration d’un runtime d’intégration Azure-SSIS ne prend pas en charge l’utilisation d’un catalogue SSISDB existant.

@@ -6,12 +6,12 @@ ms.assetid: 53e6a15a-370a-48df-8618-c6737e26acec
 ms.topic: sample
 ms.date: 12/12/2017
 ms.custom: mvc
-ms.openlocfilehash: 499bf25f06030ae9fc5c1f8381ef4cd6ff6873dc
-ms.sourcegitcommit: 31ef5e4d21aa889756fa72b857ca173db727f2c3
+ms.openlocfilehash: 857d6cdc26e41f5ea7b1d66aaff6efb4056c47c4
+ms.sourcegitcommit: bf99428d2562a70f42b5a04021dde6ef26c3ec3a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "81535619"
+ms.lasthandoff: 06/23/2020
+ms.locfileid: "85254495"
 ---
 # <a name="cli-samples-for-azure-app-service"></a>Exemples d’interface CLI pour Azure App Service
 
@@ -35,7 +35,7 @@ Le tableau suivant contient des liens vers des scripts Bash créés à l’aide 
 |**Protéger l’application**||
 | [Intégration à Azure Application Gateway](./scripts/cli-integrate-app-service-with-application-gateway.md?toc=%2fcli%2fazure%2ftoc.json) | Crée une application App Service et l’intègre à Application Gateway à l’aide du point de terminaison de service et des restrictions d’accès. |
 |**Connecter l’application aux ressources**||
-| [Connecter une application à une instance SQL Database](./scripts/cli-connect-to-sql.md?toc=%2fcli%2fazure%2ftoc.json)| Crée une application App Service et une base de données SQL, puis ajoute la chaîne de connexion de base de données aux paramètres d’application. |
+| [Connecter une application à une instance SQL Database](./scripts/cli-connect-to-sql.md?toc=%2fcli%2fazure%2ftoc.json)| Crée une application App Service et une base de données dans Azure SQL Database, puis ajoute la chaîne de connexion de base de données aux paramètres d’application. |
 | [Connecter une application à un compte de stockage](./scripts/cli-connect-to-storage.md?toc=%2fcli%2fazure%2ftoc.json)| Crée une application App Service et un compte de stockage, puis ajoute la chaîne de connexion de stockage aux paramètres d’application. |
 | [Connecter une application à un Cache Azure pour Redis](./scripts/cli-connect-to-redis.md?toc=%2fcli%2fazure%2ftoc.json) | Crée une application App Service et un Cache Azure pour Redis, puis ajoute les détails de connexion redis aux paramètres d’application. |
 | [Connecter une application à Cosmos DB](./scripts/cli-connect-to-documentdb.md?toc=%2fcli%2fazure%2ftoc.json) | Crée une application App Service et une base de données Cosmos DB, puis ajoute les détails de connexion Cosmos DB aux paramètres d’application. |

@@ -8,12 +8,12 @@ ms.subservice: cosmosdb-cassandra
 ms.devlang: nodejs
 ms.topic: quickstart
 ms.date: 05/18/2020
-ms.openlocfilehash: 39bdd2d34260b9adb12b25adff9d661083d51fe4
-ms.sourcegitcommit: 69156ae3c1e22cc570dda7f7234145c8226cc162
+ms.openlocfilehash: fbb24ac1974c23bf5292a987fc64a84dff69bf7d
+ms.sourcegitcommit: 23604d54077318f34062099ed1128d447989eea8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/03/2020
-ms.locfileid: "84310051"
+ms.lasthandoff: 06/20/2020
+ms.locfileid: "85118353"
 ---
 # <a name="quickstart-build-a-cassandra-app-with-nodejs-sdk-and-azure-cosmos-db"></a>Démarrage rapide : Créer une application Cassandra avec le SDK Node.js et Azure Cosmos DB
 
@@ -170,31 +170,31 @@ Maintenant, retournez dans le portail Azure afin d’obtenir les informations de
 
 1. Dans votre compte Azure Cosmos DB, sur le [portail Azure](https://portal.azure.com/), sélectionnez **Chaîne de connexion**. 
 
-    Utilisez le ![bouton Copier](./media/create-cassandra-nodejs/copy.png) à droite de l’écran pour copier la valeur supérieure, c’est-à-dire le POINT DE CONTACT.
+1. Utilisez le ![bouton Copier](./media/create-cassandra-nodejs/copy.png) à droite de l’écran pour copier la valeur supérieure, c’est-à-dire le POINT DE CONTACT.
 
-    ![Affichez et copiez les valeurs POINT DE CONTACT, NOM D’UTILISATEUR et MOT DE PASSE à partir de la page de chaîne de connexion du portail Azure](./media/create-cassandra-nodejs/keys.png)
+    :::image type="content" source="./media/create-cassandra-nodejs/keys.png" alt-text="Afficher et copier les valeurs de POINT DE CONTACT, NOM D’UTILISATEUR et MOT DE PASSE à partir de la page de chaîne de connexion du portail Azure":::
 
-2. Ouvrez le fichier `config.js` . 
+1. Ouvrez le fichier `config.js` . 
 
-3. Collez la valeur POINT DE CONTACT à partir du portail sur `<FillMEIN>` à la ligne 4.
+1. Collez la valeur POINT DE CONTACT à partir du portail sur `<FillMEIN>` à la ligne 4.
 
     La ligne 4 doit maintenant ressembler à 
 
     `config.contactPoint = "cosmos-db-quickstarts.cassandra.cosmosdb.azure.com:10350"`
 
-4. Copiez la valeur NOM D’UTILISATEUR à partir du portail et collez-la sur `<FillMEIN>` à la ligne 2.
+1. Copiez la valeur NOM D’UTILISATEUR à partir du portail et collez-la sur `<FillMEIN>` à la ligne 2.
 
     La ligne 2 doit maintenant ressembler à 
 
     `config.username = 'cosmos-db-quickstart';`
     
-5. Copiez la valeur MOT DE PASSE à partir du portail et collez-la sur `<FillMEIN>` à la ligne 3.
+1. Copiez la valeur MOT DE PASSE à partir du portail et collez-la sur `<FillMEIN>` à la ligne 3.
 
     La ligne 3 doit maintenant ressembler à
 
     `config.password = '2Ggkr662ifxz2Mg==';`
 
-6. Enregistrez le fichier `config.js`.
+1. Enregistrez le fichier `config.js`.
     
 ## <a name="use-the-x509-certificate"></a>Utiliser le certificat X509
 
@@ -211,11 +211,11 @@ Maintenant, retournez dans le portail Azure afin d’obtenir les informations de
 > 
 > Double-cliquez sur le fichier .crt pour l’ouvrir dans la page du certificat. 
 >
-> ![Consulter et vérifier la sortie](./media/create-cassandra-nodejs/crtcer1.gif)
+> :::image type="content" source="./media/create-cassandra-nodejs/crtcer1.gif" alt-text="Afficher et vérifier la sortie":::
 >
 > Dans l’Assistant Certificat, appuyez sur Suivant. Sélectionnez X.509 encodé en base 64 (.cer), puis Suivant.
 >
-> ![Consulter et vérifier la sortie](./media/create-cassandra-nodejs/crtcer2.gif)
+> :::image type="content" source="./media/create-cassandra-nodejs/crtcer2.gif" alt-text="Afficher et vérifier la sortie":::
 >
 > Sélectionnez Parcourir (pour rechercher une destination) et tapez un nom de fichier.
 > Sélectionnez Suivant, puis Terminé.
@@ -236,13 +236,13 @@ Maintenant, retournez dans le portail Azure afin d’obtenir les informations de
 
 4. Vérifiez que les résultats sont corrects à partir de la ligne de commande.
 
-    ![Consulter et vérifier la sortie](./media/create-cassandra-nodejs/output.png)
+    :::image type="content" source="./media/create-cassandra-nodejs/output.png" alt-text="Afficher et vérifier la sortie":::
 
     Appuyez sur CTRL+C pour arrêter l’exécution du programme et fermer la fenêtre de console. 
 
 5. Dans le portail Azure, ouvrez **l’Explorateur de données** pour interroger, modifier et utiliser ces nouvelles données. 
 
-    ![Afficher les données dans l’Explorateur de données](./media/create-cassandra-nodejs/data-explorer.png) 
+    :::image type="content" source="./media/create-cassandra-nodejs/data-explorer.png" alt-text="Afficher les données dans l’Explorateur de données"::: 
 
 ## <a name="review-slas-in-the-azure-portal"></a>Vérification des contrats SLA dans le portail Azure
 

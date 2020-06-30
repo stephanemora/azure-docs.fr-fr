@@ -1,20 +1,20 @@
 ---
-title: Aide autonome relative à la préversion de SQL à la demande
+title: Aide autonome relative à SQL à la demande (préversion)
 description: Cette section contient des informations qui peuvent vous aider à résoudre les problèmes liés à SQL à la demande (préversion).
 services: synapse analytics
 author: azaricstefan
 ms.service: synapse-analytics
 ms.topic: overview
-ms.subservice: ''
+ms.subservice: sql
 ms.date: 05/15/2020
 ms.author: v-stazar
 ms.reviewer: jrasnick
-ms.openlocfilehash: 8b2a9b6c5324240d71a80cde904057757d6ef421
-ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
+ms.openlocfilehash: 7a6b145e9a1efb29bbb6c233f2a09498b4a4ea7f
+ms.sourcegitcommit: 6fd28c1e5cf6872fb28691c7dd307a5e4bc71228
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83658879"
+ms.lasthandoff: 06/23/2020
+ms.locfileid: "85213123"
 ---
 # <a name="self-help-for-sql-on-demand-preview"></a>Aide autonome relative à SQL à la demande (préversion)
 

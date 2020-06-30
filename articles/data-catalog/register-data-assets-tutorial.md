@@ -6,16 +6,16 @@ ms.author: jasonh
 ms.service: data-catalog
 ms.topic: tutorial
 ms.date: 08/01/2019
-ms.openlocfilehash: 1c3987e4f2f31dd0c2395f9b40cc40780c40a518
-ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
+ms.openlocfilehash: 10733dc59d7b143657c67e24d45d4a7c920cbd03
+ms.sourcegitcommit: bf99428d2562a70f42b5a04021dde6ef26c3ec3a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "84021600"
+ms.lasthandoff: 06/23/2020
+ms.locfileid: "85255192"
 ---
 # <a name="tutorial-register-data-assets-in-azure-data-catalog"></a>Tutoriel : Enregistrer des éléments de données dans Azure Data Catalog
 
-Dans ce tutoriel, vous utilisez l’outil de référencement pour inscrire des ressources de données de l’exemple de base de données Azure SQL avec le catalogue. L’inscription est le processus par lequel les métadonnées structurelles clés (telles que les noms, les types et les emplacements) sont extraites de la source de données et des ressources qu’elle contient, puis copiées dans le catalogue. La source de données et les ressources de données restent au même endroit, mais les métadonnées sont utilisées par le catalogue pour faciliter leur découverte et leur compréhension.
+Dans ce tutoriel, vous utilisez l’outil de référencement pour inscrire des ressources de données de l’exemple de base de données avec le catalogue. L’inscription est le processus par lequel les métadonnées structurelles clés (telles que les noms, les types et les emplacements) sont extraites de la source de données et des ressources qu’elle contient, puis copiées dans le catalogue. La source de données et les ressources de données restent au même endroit, mais les métadonnées sont utilisées par le catalogue pour faciliter leur découverte et leur compréhension.
 
 Dans ce tutoriel, vous allez apprendre à :
 > [!div class="checklist"]
@@ -39,11 +39,11 @@ Pour configurer Data Catalog, vous devez être le propriétaire ou le coproprié
 
 ### <a name="register-a-data-source"></a>Référencer une source de données
 
-Vous inscrivez des ressources de données (tables) d’un [exemple de base de données Azure SQL](../azure-sql/database/single-database-create-quickstart.md). Vous pouvez cependant utiliser n’importe quelle source de données prise en charge si vous préférez travailler avec des données plus familières et mieux adaptées à votre rôle. Pour obtenir la liste des sources de données prises en charge, consultez l’article [Sources de données prises en charge](data-catalog-dsr.md).
+Vous inscrivez des ressources de données (tables) d’un [exemple de base de données](../azure-sql/database/single-database-create-quickstart.md) pour Azure SQL Database. Vous pouvez cependant utiliser n’importe quelle source de données prise en charge si vous préférez travailler avec des données plus familières et mieux adaptées à votre rôle. Pour obtenir la liste des sources de données prises en charge, consultez l’article [Sources de données prises en charge](data-catalog-dsr.md).
 
-Le nom de base de données Azure SQL que nous utilisons dans ce tutoriel est *RLSTest*.
+Le nom de la base de données que nous utilisons dans ce tutoriel est *RLSTest*.
 
-Vous pouvez désormais inscrire des ressources de données de l’exemple de base de données Azure SQL à l’aide d’Azure Data Catalog.
+Vous pouvez désormais inscrire des ressources de données de l’exemple de base de données à l’aide d’Azure Data Catalog.
 
 1. Accédez à la [page d’accueil Azure Data Catalog](http://azuredatacatalog.com), puis sélectionnez **Publier des données**.
 
@@ -61,13 +61,13 @@ Vous pouvez désormais inscrire des ressources de données de l’exemple de bas
 
     ![Azure Data Catalog--sources de données](media/register-data-assets-tutorial/data-catalog-data-sources.png)
 
-5. Entrez les propriétés de connexion SQL Server pour votre exemple de base de données Azure SQL, puis sélectionnez **SE CONNECTER**.
+5. Entrez les propriétés de connexion SQL Server pour votre exemple de base de données dans Azure SQL Database, puis sélectionnez **SE CONNECTER**.
 
    ![Azure Data Catalog--paramètres de connexion à SQL Server](media/register-data-assets-tutorial/data-catalog-sql-server-connection.png)
 
-6. Enregistrez les métadonnées de votre ressource de données. Dans cet exemple, vous inscrivez les objets **Product** à partir de l’espace de noms de l’exemple de base de données Azure SQL :
+6. Enregistrez les métadonnées de votre ressource de données. Dans cet exemple, vous inscrivez les objets **Product** à partir de l’exemple d’espace de noms :
 
-    1. Dans l’arborescence **Hiérarchie du serveur**, développez votre exemple de base de données Azure SQL, puis sélectionnez **SalesLT**.
+    1. Dans l’arborescence **Hiérarchie du serveur**, développez votre exemple de base de données, puis sélectionnez **SalesLT**.
 
     2. Appuyez sur la touche CTRL, puis sélectionnez **Product**, **ProductCategory**, **ProductDescription** et **ProductModel**.
 
@@ -85,7 +85,7 @@ Vous pouvez désormais inscrire des ressources de données de l’exemple de bas
 
           ![Didacticiel Azure Data Catalog--objets à inscrire](media/register-data-assets-tutorial/data-catalog-objects-register.png)
 
-    8. Sélectionnez **S’INSCRIRE**. Azure Data Catalog enregistre les objets que vous avez sélectionnés. Dans cet exercice, les objets sélectionnés dans votre exemple de base de données Azure SQL sont inscrits. L’outil de référencement extrait les métadonnées de la ressource de données et les copie dans le service Azure Data Catalog. Les données restent où elles se trouvent actuellement. Les données restent sous le contrôle des administrateurs et des stratégies du système d’origine.
+    8. Sélectionnez **S’INSCRIRE**. Azure Data Catalog enregistre les objets que vous avez sélectionnés. Dans cet exercice, les objets sélectionnés dans votre exemple de base de données sont inscrits. L’outil de référencement extrait les métadonnées de la ressource de données et les copie dans le service Azure Data Catalog. Les données restent où elles se trouvent actuellement. Les données restent sous le contrôle des administrateurs et des stratégies du système d’origine.
 
           ![Azure Data Catalog--objets inscrits](media/register-data-assets-tutorial/data-catalog-registered-objects.png)
 
@@ -93,7 +93,7 @@ Vous pouvez désormais inscrire des ressources de données de l’exemple de bas
 
         ![Objets dans le portail Azure Data Catalog](media/register-data-assets-tutorial/data-catalog-view-portal.png)
 
-Dans cet exercice, vous avez inscrit des objets de l’exemple de base de données Azure SQL afin que les utilisateurs de votre organisation puissent les découvrir facilement.
+Dans cet exercice, vous avez inscrit des objets de l’exemple de base de données pour Azure SQL Database afin que les utilisateurs de votre organisation puissent les découvrir facilement.
 
 Dans l’exercice suivant, vous apprenez à découvrir les ressources de données inscrites.
 
@@ -178,7 +178,7 @@ Les opérateurs de comparaison vous permettent d’utiliser des comparaisons aut
 
 3. Appuyez sur **Entrée**.
 
-4. Vérifiez que les tables **Product**, **ProductCategory** et **ProductDescription** ainsi que la base de données Azure SQL que vous avez inscrites s’affichent dans les résultats de la recherche.
+4. Vérifiez que les tables **Product**, **ProductCategory** et **ProductDescription** ainsi que la base de données SQL que vous avez inscrites s’affichent dans les résultats de la recherche.
 
     ![Azure Data Catalog--résultats de recherche par comparaison](media/register-data-assets-tutorial/data-catalog-comparison-operator-results.png)
 
@@ -251,7 +251,7 @@ Dans cet exercice, vous ouvrez les ressources de données dans un outil client i
 
 ### <a name="sql-server-management-studio"></a>SQL Server Management Studio
 
-Dans cet exercice, vous vous êtes connecté aux ressources de données découvertes à l’aide d’Azure Data Catalog. Le portail Azure Data Catalog vous permet de vous connecter directement à l’aide d’applications clientes intégrées au menu **Ouvrir dans** . Vous pouvez également vous connecter avec l’application de votre choix en utilisant les informations d’emplacement de connexion incluses dans les métadonnées des ressources. Par exemple, vous pouvez utiliser SQL Server Management Studio pour vous connecter à la base de données Azure SQL afin d’accéder aux données des ressources de données inscrites dans ce tutoriel.
+Dans cet exercice, vous vous êtes connecté aux ressources de données découvertes à l’aide d’Azure Data Catalog. Le portail Azure Data Catalog vous permet de vous connecter directement à l’aide d’applications clientes intégrées au menu **Ouvrir dans** . Vous pouvez également vous connecter avec l’application de votre choix en utilisant les informations d’emplacement de connexion incluses dans les métadonnées des ressources. Par exemple, vous pouvez utiliser SQL Server Management Studio pour vous connecter à Azure SQL Database afin d’accéder aux données des ressources de données inscrites dans ce tutoriel.
 
 1. Ouvrez **SQL Server Management Studio**.
 

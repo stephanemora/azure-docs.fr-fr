@@ -3,16 +3,16 @@ title: Créer et gérer Azure Cosmos DB à l’aide de PowerShell
 description: Utilisez Azure PowerShell pour gérer vos comptes, bases de données, conteneurs et débits Azure Cosmos.
 author: markjbrown
 ms.service: cosmos-db
-ms.topic: sample
+ms.topic: how-to
 ms.date: 05/13/2020
 ms.author: mjbrown
 ms.custom: seodec18
-ms.openlocfilehash: 0ae3ff54e1060255913d8155b297c5d412ce345f
-ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
+ms.openlocfilehash: 494c5f0c3d7d0a4c8a388ce06143795fe5f12f20
+ms.sourcegitcommit: 635114a0f07a2de310b34720856dd074aaf4f9cd
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83656289"
+ms.lasthandoff: 06/23/2020
+ms.locfileid: "85262257"
 ---
 # <a name="manage-azure-cosmos-db-sql-api-resources-using-powershell"></a>Gérer les ressources de l’API SQL Azure Cosmos DB à l’aide de PowerShell
 
@@ -27,7 +27,7 @@ Pour une gestion multiplateforme d’Azure Cosmos DB, vous pouvez utiliser les a
 
 ## <a name="getting-started"></a>Mise en route
 
-Suivez les instructions indiquées dans [Guide pratique pour installer et configurer Azure PowerShell][powershell-install-configure] pour installer et vous connecter à votre compte Azure dans PowerShell.
+Suivez les instructions indiquées dans [Guide pratique pour installer et configurer Azure PowerShell][powershell-install-configure] pour installer votre compte Azure dans PowerShell et vous y connecter.
 
 ## <a name="azure-cosmos-accounts"></a>Comptes Azure Cosmos
 
@@ -44,6 +44,7 @@ Les sections suivantes montrent comment gérer le compte Azure Cosmos, et notamm
 * [Répertorier les chaînes de connexion d’un compte Azure Cosmos](#list-connection-strings)
 * [Modifier la priorité de basculement pour un compte Azure Cosmos](#modify-failover-priority)
 * [Déclencher un basculement manuel pour un compte Azure Cosmos](#trigger-manual-failover)
+* [Lister les verrous de ressources sur un compte Azure Cosmos DB](#list-account-locks)
 
 ### <a name="create-an-azure-cosmos-account"></a><a id="create-account"></a> Créer un compte Azure Cosmos
 
@@ -327,6 +328,21 @@ Update-AzCosmosDBAccountFailoverPriority `
     -FailoverPolicy $locations
 ```
 
+### <a name="list-resource-locks-on-an-azure-cosmos-db-account"></a><a id="list-account-locks"></a> Lister les verrous de ressources sur un compte Azure Cosmos DB
+
+Des verrous de ressources peuvent être placés sur les ressources Azure Cosmos DB, y compris les bases de données et les collections. L’exemple ci-dessous montre comment lister tous les verrous de ressources Azure sur un compte Azure Cosmos DB.
+
+```azurepowershell-interactive
+$resourceGroupName = "myResourceGroup"
+$resourceTypeAccount = "Microsoft.DocumentDB/databaseAccounts"
+$accountName = "mycosmosaccount"
+
+Get-AzResourceLock `
+    -ResourceGroupName $resourceGroupName `
+    -ResourceType $resourceTypeAccount `
+    -ResourceName $accountName
+```
+
 ## <a name="azure-cosmos-db-database"></a>Base de données Azure Cosmos DB
 
 Les sections suivantes montrent comment gérer la base de données Azure Cosmos DB, et notamment de :
@@ -337,6 +353,8 @@ Les sections suivantes montrent comment gérer la base de données Azure Cosmos 
 * [Lister toutes les bases de données Azure Cosmos DB d’un compte](#list-db)
 * [Obtenir une base de données Azure Cosmos DB unique](#get-db)
 * [Supprimer une base de données Azure Cosmos DB](#delete-db)
+* [Créer un verrou de ressource sur une base de données Azure Cosmos DB pour empêcher sa suppression](#create-db-lock)
+* [Supprimer un verrou de ressource sur une base de données Azure Cosmos DB](#remove-db-lock)
 
 ### <a name="create-an-azure-cosmos-db-database"></a><a id="create-db"></a>Créer une base de données Azure Cosmos DB
 
@@ -416,6 +434,42 @@ Remove-AzCosmosDBSqlDatabase `
     -Name $databaseName
 ```
 
+### <a name="create-a-resource-lock-on-an-azure-cosmos-db-database-to-prevent-delete"></a><a id="create-db-lock"></a>Créer un verrou de ressource sur une base de données Azure Cosmos DB pour empêcher sa suppression
+
+```azurepowershell-interactive
+$resourceGroupName = "myResourceGroup"
+$resourceType = "Microsoft.DocumentDB/databaseAccounts/sqlDatabases"
+$accountName = "mycosmosaccount"
+$databaseName = "myDatabase"
+$resourceName = "$accountName/$databaseName"
+$lockName = "myResourceLock"
+$lockLevel = "CanNotDelete"
+
+New-AzResourceLock `
+    -ResourceGroupName $resourceGroupName `
+    -ResourceType $resourceType `
+    -ResourceName $resourceName `
+    -LockName $lockName `
+    -LockLevel $lockLevel
+```
+
+### <a name="remove-a-resource-lock-on-an-azure-cosmos-db-database"></a><a id="remove-db-lock"></a>Supprimer un verrou de ressource sur une base de données Azure Cosmos DB
+
+```azurepowershell-interactive
+$resourceGroupName = "myResourceGroup"
+$resourceType = "Microsoft.DocumentDB/databaseAccounts/sqlDatabases"
+$accountName = "mycosmosaccount"
+$databaseName = "myDatabase"
+$resourceName = "$accountName/$databaseName"
+$lockName = "myResourceLock"
+
+Remove-AzResourceLock `
+    -ResourceGroupName $resourceGroupName `
+    -ResourceType $resourceType `
+    -ResourceName $resourceName `
+    -LockName $lockName
+```
+
 ## <a name="azure-cosmos-db-container"></a>Conteneur Azure Cosmos DB
 
 Les sections suivantes montrent comment gérer le conteneur Azure Cosmos DB, et notamment de :
@@ -430,6 +484,8 @@ Les sections suivantes montrent comment gérer le conteneur Azure Cosmos DB, et 
 * [Lister tous les conteneurs Azure Cosmos DB d’une base de données](#list-containers)
 * [Obtenir un conteneur Azure Cosmos DB unique d’une base de données](#get-container)
 * [Supprimer un conteneur Azure Cosmos DB](#delete-container)
+* [Créer un verrou de ressource sur un conteneur Azure Cosmos DB pour empêcher sa suppression](#create-container-lock)
+* [Supprimer un verrou de ressource sur un conteneur Azure Cosmos DB](#remove-container-lock)
 
 ### <a name="create-an-azure-cosmos-db-container"></a><a id="create-container"></a>Créer un conteneur Azure Cosmos DB
 
@@ -667,6 +723,43 @@ Remove-AzCosmosDBSqlContainer `
     -AccountName $accountName `
     -DatabaseName $databaseName `
     -Name $containerName
+```
+### <a name="create-a-resource-lock-on-an-azure-cosmos-db-container-to-prevent-delete"></a><a id="create-container-lock"></a>Créer un verrou de ressource sur un conteneur Azure Cosmos DB pour empêcher sa suppression
+
+```azurepowershell-interactive
+$resourceGroupName = "myResourceGroup"
+$resourceType = "Microsoft.DocumentDB/databaseAccounts/sqlDatabases/containers"
+$accountName = "mycosmosaccount"
+$databaseName = "myDatabase"
+$containerName = "myContainer"
+$resourceName = "$accountName/$databaseName/$containerName"
+$lockName = "myResourceLock"
+$lockLevel = "CanNotDelete"
+
+New-AzResourceLock `
+    -ResourceGroupName $resourceGroupName `
+    -ResourceType $resourceType `
+    -ResourceName $resourceName `
+    -LockName $lockName `
+    -LockLevel $lockLevel
+```
+
+### <a name="remove-a-resource-lock-on-an-azure-cosmos-db-container"></a><a id="remove-container-lock"></a>Supprimer un verrou de ressource sur un conteneur Azure Cosmos DB
+
+```azurepowershell-interactive
+$resourceGroupName = "myResourceGroup"
+$resourceType = "Microsoft.DocumentDB/databaseAccounts/sqlDatabases/containers"
+$accountName = "mycosmosaccount"
+$databaseName = "myDatabase"
+$containerName = "myContainer"
+$resourceName = "$accountName/$databaseName/$containerName"
+$lockName = "myResourceLock"
+
+Remove-AzResourceLock `
+    -ResourceGroupName $resourceGroupName `
+    -ResourceType $resourceType `
+    -ResourceName $resourceName `
+    -LockName $lockName
 ```
 
 ## <a name="next-steps"></a>Étapes suivantes

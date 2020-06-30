@@ -8,12 +8,12 @@ ms.subservice: gateway
 ms.topic: overview
 ms.date: 08/21/2019
 ms.author: alkohli
-ms.openlocfilehash: 8911c1099db36b7e4e6d568ea64ae4afa3cc826e
-ms.sourcegitcommit: 856db17a4209927812bcbf30a66b14ee7c1ac777
+ms.openlocfilehash: aa68b746ef5c22c97fcfdcca889bf71577c19479
+ms.sourcegitcommit: 51718f41d36192b9722e278237617f01da1b9b4e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "82561061"
+ms.lasthandoff: 06/19/2020
+ms.locfileid: "85100750"
 ---
 # <a name="what-is-azure-data-box-gateway"></a>Présentation d’Azure Data Box Gateway
 
@@ -69,7 +69,7 @@ L’appareil virtuel Data Box Gateway présente les spécifications suivantes :
 | Processeurs virtuels (cœurs)   | 4 minimum |
 | Mémoire  |8 Go minimum|
 | Disponibilité|Nœud unique|
-| Disques|Disque du système d'exploitation : 250 Go <br> Disque de données : 2 To minimum, allocation dynamique et sauvegarde sur SSD|
+| Disques|Disque de système d’exploitation : 250 Go <br> Disque de données : 2 To minimum, allocation dynamique et sauvegarde sur SSD|
 | Interfaces réseau |1 ou plusieurs interfaces réseau virtuelles|
 | Protocoles de partage de fichiers natifs|SMB et NFS  |
 | Sécurité|Authentification pour déverrouiller l’accès à l’appareil et aux données <br> Chiffrement des données en transit à l’aide du chiffrement AES 256 bits|
@@ -89,7 +89,7 @@ La solution Data Box Gateway se compose d’une ressource Data Box Gateway, d’
 
 Il n’est pas nécessaire que l’appareil physique Data Box Gateway, la ressource Azure et le compte de stockage cible vers lequel vous transférez les données se trouvent dans la même région.
 
-- **Disponibilité des ressources** : pour obtenir la liste de toutes les régions où la ressource Azure Stack Edge est disponible, consultez [Disponibilité des produits Azure par région](https://azure.microsoft.com/global-infrastructure/services/?regions=all&products=databox). Le déploiement de Data Box Gateway est également possible dans Azure Government Cloud. Pour plus d’informations, consultez [Présentation d’Azure Government](https://docs.microsoft.com/azure/azure-government/documentation-government-welcome).
+- **Disponibilité des ressources** : pour obtenir la liste de toutes les régions où la ressource Azure Data Box Gateway est disponible, consultez [Disponibilité des produits Azure par région](https://azure.microsoft.com/global-infrastructure/services/?regions=all&products=databox). Le déploiement de Data Box Gateway est également possible dans Azure Government Cloud. Pour plus d’informations, consultez [Présentation d’Azure Government](https://docs.microsoft.com/azure/azure-government/documentation-government-welcome).
 
 - **Comptes de stockage de destination** : les comptes de stockage qui stockent les données sont disponibles dans toutes les régions Azure.
 

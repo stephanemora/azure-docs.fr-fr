@@ -8,12 +8,12 @@ ms.service: event-grid
 ms.topic: tutorial
 ms.date: 06/08/2020
 ms.author: spelluru
-ms.openlocfilehash: e6733bdc91ba26d52366de09ed6bc255dcd4ff98
-ms.sourcegitcommit: 1de57529ab349341447d77a0717f6ced5335074e
+ms.openlocfilehash: 76d63b508705bf426b8fc86b3d27d75241d6f246
+ms.sourcegitcommit: 6fd28c1e5cf6872fb28691c7dd307a5e4bc71228
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/09/2020
-ms.locfileid: "84610705"
+ms.lasthandoff: 06/23/2020
+ms.locfileid: "85212188"
 ---
 # <a name="tutorial-stream-big-data-into-a-data-warehouse"></a>Tutoriel : Diffuser en continu des Big Data dans un entrepôt de données
 Azure [Event Grid](overview.md) est un service de routage des événements intelligent qui vous permet de réagir aux notifications (événements) à partir d’applications et de services. Par exemple, ce service peut déclencher le traitement par une fonction Azure des données Event Hubs capturées dans un Stockage Blob Azure ou dans un référentiel Azure Data Lake Storage, ainsi que la migration des données vers d’autres référentiels de données. Cet [exemple d’intégration Event Hubs et Event Grid](https://github.com/Azure/azure-event-hubs/tree/master/samples/e2e/EventHubsCaptureEventGridDemo) vous indique comment utiliser Event Hubs avec Event Grid pour migrer en toute transparence les données Event Hubs capturées du stockage blob vers un service SQL Data Warehouse.
@@ -173,7 +173,7 @@ Créez une table dans votre entrepôt de données en exécutant le script [Creat
 2. Dans la page de l’entrepôt de données SQL, sélectionnez **Éditeur de requête (préversion)** dans le menu de gauche. 
 
     ![Page de l’entrepôt de données SQL](media/event-grid-event-hubs-integration/sql-data-warehouse-page.png)
-2. Entrez le nom d’**utilisateur** et le **mot de passe** du serveur SQL, puis sélectionnez **OK**. Vous avez besoin de l’adresse IP de votre client sur le pare-feu pour vous connecter à SQL Server. 
+2. Entrez le nom d’**utilisateur** et le **mot de passe** du serveur SQL, puis sélectionnez **OK**. Vous aurez peut-être besoin d’ajouter l’adresse IP de votre client au pare-feu pour réussir à vous connecter à SQL Server. 
 
     ![Authentification SQL Server](media/event-grid-event-hubs-integration/sql-server-authentication.png)
 4. Dans la fenêtre de requête, copiez et exécutez le script SQL suivant : 

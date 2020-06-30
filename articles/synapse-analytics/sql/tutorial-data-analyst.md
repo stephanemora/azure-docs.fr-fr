@@ -5,16 +5,16 @@ services: synapse-analytics
 author: azaricstefan
 ms.service: synapse-analytics
 ms.topic: tutorial
-ms.subservice: ''
+ms.subservice: sql
 ms.date: 04/15/2020
 ms.author: v-stazar
 ms.reviewer: jrasnick, carlrab
-ms.openlocfilehash: 84e808caa033491ce3f2da099459d1242df6decd
-ms.sourcegitcommit: d118ad4fb2b66c759b70d4d8a18e6368760da3ad
+ms.openlocfilehash: afe231186adec95b09a75d7fe59552ca8a07049b
+ms.sourcegitcommit: 6fd28c1e5cf6872fb28691c7dd307a5e4bc71228
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/02/2020
-ms.locfileid: "84299534"
+ms.lasthandoff: 06/23/2020
+ms.locfileid: "85213140"
 ---
 # <a name="use-sql-on-demand-preview-to-analyze-azure-open-datasets-and-visualize-the-results-in-azure-synapse-studio-preview"></a>Utiliser SQL à la demande (préversion) pour analyser des jeux de données Azure Open Datasets et visualiser les résultats dans Azure Synapse Studio (préversion)
 
@@ -32,7 +32,7 @@ En particulier, vous analysez le [jeu de données sur les taxis de la ville de N
 
 ## <a name="automatic-schema-inference"></a>Inférence de schéma automatique
 
-Les données étant stockées au format de fichier Parquet, l’inférence de schéma automatique est disponible. Il est donc possible d’interroger facilement les données sans avoir besoin de lister les types de données de toutes les colonnes dans les fichiers. Vous pouvez aussi utiliser le mécanisme de colonne virtuelle et la fonction filepath pour filtrer un certain sous-ensemble de fichiers.
+Les données étant stockées au format de fichier Parquet, l’inférence de schéma automatique est disponible. Il est donc possible d’interroger facilement les données sans lister les types de données de toutes les colonnes dans les fichiers. Vous pouvez aussi utiliser le mécanisme de colonne virtuelle et la fonction filepath pour filtrer un certain sous-ensemble de fichiers.
 
 Commençons par nous familiariser avec les données sur les taxis de la ville de New York en exécutant la requête suivante :
 

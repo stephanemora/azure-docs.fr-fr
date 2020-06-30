@@ -4,12 +4,12 @@ description: Découvrez comment migrer un conteneur Windows personnalisé vers A
 ms.topic: tutorial
 ms.date: 10/22/2019
 ms.custom: mvc, seodec18
-ms.openlocfilehash: 74cb88bc1ace87155a35163ca8f9d3d6c4242ae0
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: 8e755c5b9a57eb66fc47364fb2fcdcbe30c2d09e
+ms.sourcegitcommit: 6fd28c1e5cf6872fb28691c7dd307a5e4bc71228
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "80046614"
+ms.lasthandoff: 06/23/2020
+ms.locfileid: "85205620"
 ---
 # <a name="migrate-an-aspnet-app-to-azure-app-service-using-a-windows-container-preview"></a>Migrer une application ASP.NET vers Azure App Service à l’aide d’un conteneur Windows (préversion)
 
@@ -69,13 +69,13 @@ Dans l’Explorateur de solutions, ouvrez **Dockerfile**.
 
 Vous devez utiliser une [image parente prise en charge](app-service-web-get-started-windows-container.md#use-a-different-parent-image). Changez l’image parente en remplaçant la ligne `FROM` par le code suivant :
 
-```Dockerfile
+```dockerfile
 FROM mcr.microsoft.com/dotnet/framework/aspnet:4.7.2-windowsservercore-ltsc2019
 ```
 
 Ajoutez la ligne suivante à la fin du fichier et enregistrez le fichier :
 
-```Dockerfile
+```dockerfile
 RUN ${source:-obj/Docker/publish/InstallFont.ps1}
 ```
 
@@ -185,7 +185,7 @@ Attendez quelques minutes et réessayez, jusqu’à obtenir la page d’accueil 
 
 ## <a name="see-container-start-up-logs"></a>Consulter les journaux d’activité de démarrage du conteneur
 
-Le chargement du conteneur Windows peut prendre un certain temps. Pour afficher la progression, accédez à l’URL suivante en remplaçant *\<app-name>* par le nom de votre application.
+Le chargement du conteneur Windows peut prendre un certain temps. Pour voir la progression, accédez à l’URL suivante en remplaçant *\<app-name>* par le nom de votre application.
 ```
 https://<app-name>.scm.azurewebsites.net/api/logstream
 ```
@@ -201,4 +201,3 @@ Les journaux d’activité en continu ressemblent à ceci :
 14/09/2018 23:18:03.823 INFO - Site: fonts-win-container - Container ready
 14/09/2018 23:18:03.823 INFO - Site: fonts-win-container - Container start-up and configuration completed successfully
 ```
-

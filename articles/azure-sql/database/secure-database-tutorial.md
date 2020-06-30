@@ -10,12 +10,12 @@ ms.author: vanto
 ms.reviewer: carlrab
 ms.date: 09/03/2019
 ms.custom: seoapril2019 sqldbrb=1
-ms.openlocfilehash: a709d0d4aa9b7c4e3ab06e6d34bbb199cb1b5917
-ms.sourcegitcommit: 58ff2addf1ffa32d529ee9661bbef8fbae3cddec
+ms.openlocfilehash: c658283ed610dcd14fca82b14217cba979388fc2
+ms.sourcegitcommit: bf99428d2562a70f42b5a04021dde6ef26c3ec3a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/03/2020
-ms.locfileid: "84323924"
+ms.lasthandoff: 06/23/2020
+ms.locfileid: "85252914"
 ---
 # <a name="tutorial-secure-a-database-in-azure-sql-database"></a>Tutoriel : Sécuriser une base de données dans Azure SQL Database
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -301,7 +301,7 @@ Pour activer l’audit :
     ![Auditer des enregistrements](./media/secure-database-tutorial/audit-records.png)
 
 > [!IMPORTANT]
-> Consultez [Audit des bases de données SQL](../../azure-sql/database/auditing-overview.md) pour plus d’informations sur la façon de personnaliser davantage les événements d’audit à l’aide de PowerShell ou de l’API REST.
+> Pour plus d’informations sur la façon d’affiner la personnalisation des événements d’audit à l’aide de PowerShell ou de l’API REST, consultez [Audit SQL Database](../../azure-sql/database/auditing-overview.md).
 
 ### <a name="dynamic-data-masking"></a>Masquage dynamique des données
 

@@ -10,12 +10,12 @@ ms.date: 12/26/2018
 ms.author: jopapa
 ms.custom: seodec18
 ms.reviewer: sngun
-ms.openlocfilehash: fb0e08c9d85f4472a2fa13001e71edd12149d430
-ms.sourcegitcommit: c535228f0b77eb7592697556b23c4e436ec29f96
+ms.openlocfilehash: 1bed17084af39fa75fe01d68fbdd33c586d48e67
+ms.sourcegitcommit: 23604d54077318f34062099ed1128d447989eea8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/06/2020
-ms.locfileid: "82858734"
+ms.lasthandoff: 06/20/2020
+ms.locfileid: "85114280"
 ---
 # <a name="create-an-angular-app-with-azure-cosmos-dbs-api-for-mongodb---use-mongoose-to-connect-to-cosmos-db"></a>Créer une application Angular avec l’API Azure Cosmos DB pour MongoDB - Utiliser Mongoose pour établir la connexion à Cosmos DB
 
@@ -118,7 +118,7 @@ Pour connecter votre application à Azure Cosmos DB, vous devez mettre à jour l
     az cosmosdb list-keys --name <cosmosdb-name> -g myResourceGroup
     ```    
     
-    \<cosmosdb-name > est le nom du compte Azure Cosmos DB que vous avez créé dans la [partie 4](tutorial-develop-mongodb-nodejs-part4.md) du didacticiel.
+    \<cosmosdb-name> est le nom du compte Azure Cosmos DB que vous avez créé dans la [partie 4](tutorial-develop-mongodb-nodejs-part4.md) du tutoriel.
 
 1. Copiez la clé primaire dans le fichier **environment.js** en tant que valeur `key`.
 
@@ -234,7 +234,7 @@ Ensuite, exécutez l’application en procédant comme suit :
 
 1. Ensuite, basculez vers le navigateur. Ouvrez les **outils de développement** et **l’onglet Réseau**. Accédez à `http://localhost:3000`, où vous pouvez voir l’application.
 
-    ![Nouveau compte Azure Cosmos DB dans le portail Azure](./media/tutorial-develop-mongodb-nodejs-part5/azure-cosmos-db-heroes-app.png)
+    :::image type="content" source="./media/tutorial-develop-mongodb-nodejs-part5/azure-cosmos-db-heroes-app.png" alt-text="Nouveau compte Azure Cosmos DB dans le portail Azure":::
 
 Pour le moment, aucun héros n’est stocké dans l’application. Dans la partie suivante de ce didacticiel, nous allons ajouter des fonctionnalités d’ajout, d’envoi et de suppression. Nous pouvons ensuite ajouter, mettre à jour et supprimer des héros de l’interface utilisateur en utilisant des connexions Mongoose à notre base de données Azure Cosmos. 
 

@@ -9,12 +9,12 @@ ms.devlang: python
 ms.topic: quickstart
 ms.date: 05/18/2020
 ms.custom: tracking-python
-ms.openlocfilehash: dc8f00e5764cea856e028acb7adb5aebc070c625
-ms.sourcegitcommit: 964af22b530263bb17fff94fd859321d37745d13
+ms.openlocfilehash: dee07db85d8886ab44be096e405143ea0d881ba2
+ms.sourcegitcommit: 23604d54077318f34062099ed1128d447989eea8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/09/2020
-ms.locfileid: "84559844"
+ms.lasthandoff: 06/20/2020
+ms.locfileid: "85118270"
 ---
 # <a name="quickstart-build-a-cassandra-app-with-python-sdk-and-azure-cosmos-db"></a>Démarrage rapide : Générer une application Cassandra avec le SDK Python et Azure Cosmos DB
 
@@ -137,31 +137,31 @@ Maintenant, retournez dans le portail Azure afin d’obtenir les informations de
 
 1. Dans votre compte Azure Cosmos DB, sur le [portail Azure](https://portal.azure.com/), sélectionnez **Chaîne de connexion**. 
 
-    Utilisez le ![bouton Copier](./media/create-cassandra-python/copy.png) à droite de l’écran pour copier la valeur supérieure, c’est-à-dire le POINT DE CONTACT.
+1. Utilisez le ![bouton Copier](./media/create-cassandra-python/copy.png) à droite de l’écran pour copier la valeur supérieure, c’est-à-dire le POINT DE CONTACT.
 
-    ![Affichez et copiez un nom d’utilisateur, un mot de passe et un point de contact dans le panneau de chaîne de connexion du portail Azure](./media/create-cassandra-python/keys.png)
+    :::image type="content" source="./media/create-cassandra-python/keys.png" alt-text="Afficher et copier un nom d’utilisateur, un mot de passe et un point de contact dans le panneau de chaîne de connexion du portail Azure":::
 
-2. Ouvrez le fichier *config.py*. 
+1. Ouvrez le fichier *config.py*. 
 
-3. Collez la valeur POINT DE CONTACT à partir du portail sur `<FILLME>` à la ligne 10.
+1. Collez la valeur POINT DE CONTACT à partir du portail sur `<FILLME>` à la ligne 10.
 
     La ligne 10 doit maintenant ressembler à 
 
     `'contactPoint': 'cosmos-db-quickstarts.cassandra.cosmosdb.azure.com:10350'`
 
-4. Copiez la valeur NOM D’UTILISATEUR à partir du portail et collez-la sur `<FILLME>` à la ligne 6.
+1. Copiez la valeur NOM D’UTILISATEUR à partir du portail et collez-la sur `<FILLME>` à la ligne 6.
 
     La ligne 6 doit maintenant ressembler à 
 
     `'username': 'cosmos-db-quickstart',`
     
-5. Copiez la valeur MOT DE PASSE à partir du portail et collez-la sur `<FILLME>` à la ligne 8.
+1. Copiez la valeur MOT DE PASSE à partir du portail et collez-la sur `<FILLME>` à la ligne 8.
 
     La ligne 8 doit maintenant ressembler à
 
     `'password' = '2Ggkr662ifxz2Mg==`';`
 
-6. Enregistrez le fichier *config.py*.
+1. Enregistrez le fichier *config.py*.
     
 ## <a name="use-the-x509-certificate"></a>Utiliser le certificat X509
 
@@ -196,11 +196,11 @@ Maintenant, retournez dans le portail Azure afin d’obtenir les informations de
 
     Appuyez sur CTRL+C pour arrêter l’exécution du programme et fermer la fenêtre de console. 
 
-    ![Consulter et vérifier la sortie](./media/create-cassandra-python/output.png)
+    :::image type="content" source="./media/create-cassandra-python/output.png" alt-text="Afficher et vérifier la sortie":::
     
 4. Dans le portail Azure, ouvrez **l’Explorateur de données** pour interroger, modifier et utiliser ces nouvelles données. 
 
-    ![Afficher les données dans l’Explorateur de données](./media/create-cassandra-python/data-explorer.png)
+    :::image type="content" source="./media/create-cassandra-python/data-explorer.png" alt-text="Afficher les données dans l’Explorateur de données":::
 
 ## <a name="review-slas-in-the-azure-portal"></a>Vérification des contrats SLA dans le portail Azure
 

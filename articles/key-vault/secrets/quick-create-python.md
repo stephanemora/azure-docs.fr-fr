@@ -8,12 +8,12 @@ ms.service: key-vault
 ms.subservice: secrets
 ms.topic: quickstart
 ms.custom: tracking-python
-ms.openlocfilehash: 783e89d3e1802ae8788a933f493e2a865c03a3ef
-ms.sourcegitcommit: 964af22b530263bb17fff94fd859321d37745d13
+ms.openlocfilehash: c8546d159d920fc728f0bf6413d84d7b19bbe09c
+ms.sourcegitcommit: 398fecceba133d90aa8f6f1f2af58899f613d1e3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/09/2020
-ms.locfileid: "84561543"
+ms.lasthandoff: 06/21/2020
+ms.locfileid: "85125240"
 ---
 # <a name="quickstart-azure-key-vault-client-library-for-python"></a>Démarrage rapide : Bibliothèque de client Azure Key Vault pour Python
 
@@ -27,7 +27,7 @@ Azure Key Vault permet de protéger les clés de chiffrement et les secrets util
 - Simplifier et automatiser les tâches associées aux certificats TLS/SSL
 - Utiliser des HSM (modules de sécurité matériels) validés conformes à la norme FIPS 140-2 de niveau 2
 
-[Documentation de référence de l’API](/python/api/overview/azure/key-vault?view=azure-python) | [Code source bibliothèqueC](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/keyvault) | [Package (Index package Python)](https://pypi.org/project/azure-keyvault/)
+[Documentation de référence de l’API](/python/api/overview/azure/keyvault-secrets-readme?view=azure-python) | [Code source bibliothèqueC](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/keyvault) | [Package (Index package Python)](https://pypi.org/project/azure-keyvault/)
 
 ## <a name="prerequisites"></a>Prérequis
 
@@ -75,7 +75,7 @@ Cependant, pour des raisons de simplicité, ce guide de démarrage rapide crée 
 Créez un principal de service à l’aide de la commande Azure CLI [az ad sp create-for-rbac](/cli/azure/ad/sp?view=azure-cli-latest#az-ad-sp-create-for-rbac) :
 
 ```azurecli
-az ad sp create-for-rbac -n "http://&lt;my-unique-service-principle-name&gt;" --sdk-auth
+az ad sp create-for-rbac -n "http://&lt;my-unique-service-principal-name&gt;" --sdk-auth
 ```
 
 Cette opération retourne une série de paires clé/valeur. 

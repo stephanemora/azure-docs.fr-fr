@@ -13,12 +13,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: ''
 ms.date: 05/29/2020
-ms.openlocfilehash: 5ecf180b71c43d5df25d7c3c948a59482dd06a1c
-ms.sourcegitcommit: 309cf6876d906425a0d6f72deceb9ecd231d387c
+ms.openlocfilehash: 3b601fbbc448ef909b0700ac887375147c42ecdd
+ms.sourcegitcommit: bf99428d2562a70f42b5a04021dde6ef26c3ec3a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/01/2020
-ms.locfileid: "84267305"
+ms.lasthandoff: 06/23/2020
+ms.locfileid: "85253611"
 ---
 # <a name="quickstart-use-ssms-to-connect-to-and-query-azure-sql-database-or-azure-sql-managed-instance"></a>Démarrage rapide : Utiliser SSMS pour se connecter à Azure SQL Database ou Azure SQL Managed Instance et exécuter des requêtes
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
@@ -47,9 +47,9 @@ Ce guide de démarrage rapide nécessite les éléments suivants :
   > [!IMPORTANT]
   > Les scripts fournis dans cet article utilisent la base de données Adventure Works. Avec une instance managée, vous devez importer la base de données Adventure Works dans une base de données d’instance, ou modifier les scripts fournis dans cet article pour utiliser la base de données Wide World Importers.
 
-Si vous souhaitez simplement exécuter des requêtes ad hoc sans installer SSMS, consultez [Démarrage rapide : Utiliser l’éditeur de requête du portail Azure pour interroger une base de données SQL](connect-query-portal.md).
+Si vous souhaitez simplement exécuter des requêtes ad hoc sans installer SSMS, consultez [Démarrage rapide : Utiliser l’éditeur de requête du portail Azure pour interroger une base de données dans Azure SQL Database](connect-query-portal.md).
 
-## <a name="get-server-connection-information"></a>Obtenir les informations de connexion du serveur SQL
+## <a name="get-server-connection-information"></a>Obtenir les informations de connexion du serveur
 
 Procurez-vous les informations de connexion dont vous avez besoin pour vous connecter à la base de données. Pour exécuter ce démarrage rapide, vous avez besoin du nom de [serveur](logical-servers.md) complet ou du nom d’hôte, du nom de la base de données et des informations de connexion.
 

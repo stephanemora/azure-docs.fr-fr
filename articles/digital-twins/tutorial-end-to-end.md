@@ -8,12 +8,12 @@ ms.date: 4/15/2020
 ms.topic: tutorial
 ms.service: digital-twins
 ROBOTS: NOINDEX, NOFOLLOW
-ms.openlocfilehash: 0f9ddf2f4fba9e216ef0b5a5747fc32f4288cf67
-ms.sourcegitcommit: c4ad4ba9c9aaed81dfab9ca2cc744930abd91298
+ms.openlocfilehash: f83eb6a0cab8bdf2f26888f895aeac8a8fa796bb
+ms.sourcegitcommit: 4042aa8c67afd72823fc412f19c356f2ba0ab554
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/12/2020
-ms.locfileid: "84737272"
+ms.lasthandoff: 06/24/2020
+ms.locfileid: "85296982"
 ---
 # <a name="build-out-an-end-to-end-solution"></a>Créer une solution de bout en bout
 
@@ -136,6 +136,8 @@ Dans le volet *Publier* qui s’ouvre de nouveau dans la fenêtre principale de 
 > [!NOTE]
 > Une fenêtre contextuelle semblable à celle-ci peut s’afficher : :::image type="content" source="media/tutorial-end-to-end/publish-azure-function-7.png" alt-text="Publier la fonction Azure dans Visual Studio : informations d’identification de publication" border="false":::
 > Si c’est le cas, sélectionnez **Essayer de récupérer les informations d’identification d’Azure**, puis **Enregistrer**.
+>
+> Si vous voyez un avertissement indiquant que *votre version du runtime Functions ne correspond pas à la version en cours d’exécution dans Azure*, suivez les invites pour effectuer une mise à niveau vers la dernière version du runtime Azure Functions. Ce problème peut se produire si vous utilisez une version de Visual Studio antérieure à celle recommandée dans la section *Prérequis* du début de ce tutoriel.
 
 ### <a name="assign-permissions-to-the-function-app"></a>Attribuer des autorisations à l’application de fonction
 

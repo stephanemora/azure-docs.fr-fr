@@ -10,12 +10,12 @@ ms.date: 12/26/2018
 ms.author: jopapa
 ms.custom: seodec18
 ms.reviewer: sngun
-ms.openlocfilehash: 103545225b15a74d8c2ea0be5e88caa18f3c31cc
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: de9e7fd605a1d53d1078523c77cd33065c03ca85
+ms.sourcegitcommit: 23604d54077318f34062099ed1128d447989eea8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "82184773"
+ms.lasthandoff: 06/20/2020
+ms.locfileid: "85118965"
 ---
 # <a name="create-an-angular-app-with-azure-cosmos-dbs-api-for-mongodb---add-crud-functions-to-the-app"></a>Créer une application Angular avec l’API d’Azure Cosmos DB pour MongoDB - Ajouter des fonctions CRUD à l’application
 
@@ -40,7 +40,7 @@ Avant de commencer cette partie du didacticiel, assurez-vous d’avoir effectué
 
     Vous pouvez voir que la ligne 7 du fichier routes.js appelle la fonction `getHeroes` de la ligne 5 du fichier **hero.service.js**.  Nous devons recréer cette association pour les fonctions Publier, Placer et Supprimer. 
 
-    ![Fichiers routes.js et hero.service.js dans Visual Studio Code](./media/tutorial-develop-mongodb-nodejs-part6/routes-heroservicejs.png)
+    :::image type="content" source="./media/tutorial-develop-mongodb-nodejs-part6/routes-heroservicejs.png" alt-text="Fichiers routes.js et hero.service.js dans Visual Studio Code":::
     
     Commençons par coder le service de héros. 
 
@@ -88,11 +88,11 @@ Avant de commencer cette partie du didacticiel, assurez-vous d’avoir effectué
 
 6. Retournez sur votre navigateur Internet et ouvrez l’onglet Réseau d’outils développeur (en appuyant sur F12 sur la plupart des ordinateurs). Accédez à `http://localhost:3000` pour voir les appels effectués sur le réseau.
 
-    ![Onglet Mise en réseau dans Chrome qui affiche l’activité du réseau](./media/tutorial-develop-mongodb-nodejs-part6/add-new-hero.png)
+    :::image type="content" source="./media/tutorial-develop-mongodb-nodejs-part6/add-new-hero.png" alt-text="Onglet Mise en réseau dans Chrome qui montre l’activité réseau":::
 
 7. Ajoutez un nouveau héros en sélectionnant le bouton **Ajouter un nouveau héros**. Entrez l’ID « 999 », le nom « Fred » et le message « Bonjour », puis sélectionnez **Enregistrer**. Dans l’onglet Mise en réseau, vous devez voir que vous avez envoyé une demande PUBLIER pour un nouveau héros. 
 
-    ![Onglet Mise en réseau dans Chrome qui affiche l’activité du réseau des fonctions Obtenir et Publier](./media/tutorial-develop-mongodb-nodejs-part6/post-new-hero.png)
+    :::image type="content" source="./media/tutorial-develop-mongodb-nodejs-part6/post-new-hero.png" alt-text="Onglet Mise en réseau dans Chrome qui montre l’activité réseau des fonctions Get et Post":::
 
     Revenons en arrière pour ajouter les fonctions Placer et Supprimer à l’application.
 
@@ -177,11 +177,11 @@ Avant de commencer cette partie du didacticiel, assurez-vous d’avoir effectué
 
     Vous pouvez maintenant sélectionner l’ID dans l’onglet réseau pour afficher la charge utile. Vous pouvez voir dans la charge utile que le message indique maintenant « Au revoir ».
 
-    ![Application de héros et onglet Mise en réseau affichant la charge utile](./media/tutorial-develop-mongodb-nodejs-part6/put-hero-function.png) 
+    :::image type="content" source="./media/tutorial-develop-mongodb-nodejs-part6/put-hero-function.png" alt-text="Application de héros et onglet Mise en réseau affichant la charge utile"::: 
 
     Vous pouvez également supprimer un héros dans l’interface utilisateur et voir le temps nécessaire à la suppression. Essayez en sélectionnant le bouton « Supprimer » pour le héros nommé « Fred ».
 
-    ![Application de héros et onglet Mise en réseau affichant le temps pour effectuer les fonctions](./media/tutorial-develop-mongodb-nodejs-part6/times.png) 
+    :::image type="content" source="./media/tutorial-develop-mongodb-nodejs-part6/times.png" alt-text="Application de héros et onglet Mise en réseau affichant le temps nécessaire pour effectuer les fonctions"::: 
 
     Si vous actualisez la page, l’onglet réseau affiche le temps nécessaire pour obtenir les héros. Les durées sont courtes, mais un grand nombre dépend de l’emplacement de vos données dans le monde et de votre capacité à les répliquer dans une zone géographique proche de vos utilisateurs. Vous trouverez plus d’informations sur la géo-réplication prochainement, dans le didacticiel suivant.
 

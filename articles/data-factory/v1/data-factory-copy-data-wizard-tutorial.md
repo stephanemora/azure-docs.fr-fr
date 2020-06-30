@@ -1,5 +1,5 @@
 ---
-title: 'Didacticiel : Créer un pipeline à l’aide de l’Assistant de copie '
+title: 'Tutoriel : Créer un pipeline à l’aide de l’Assistant de copie '
 description: Dans ce didacticiel, vous allez créer un pipeline Azure Data Factory avec une activité de copie, à l’aide de l’Assistant de copie et de Data Factory.
 services: data-factory
 documentationcenter: ''
@@ -12,14 +12,14 @@ ms.topic: tutorial
 ms.date: 01/22/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: 8bbe32a202af3b8684c16cc2e56d5a111511bef5
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: d1b17a3e4556f6a963f3ecacd31472ce3f75b0fe
+ms.sourcegitcommit: bf99428d2562a70f42b5a04021dde6ef26c3ec3a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "75438914"
+ms.lasthandoff: 06/23/2020
+ms.locfileid: "85248545"
 ---
-# <a name="tutorial-create-a-pipeline-with-copy-activity-using-data-factory-copy-wizard"></a>Didacticiel : Créer un pipeline avec l’activité de copie à l’aide de l’Assistant Data Factory Copy
+# <a name="tutorial-create-a-pipeline-with-copy-activity-using-data-factory-copy-wizard"></a>Tutoriel : Créer un pipeline avec l’activité de copie à l’aide de l’Assistant de copie de Data Factory
 > [!div class="op_single_selector"]
 > * [Vue d’ensemble et composants requis](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md)
 > * [Assistant de copie](data-factory-copy-data-wizard-tutorial.md)
@@ -33,13 +33,13 @@ ms.locfileid: "75438914"
 > Cet article s’applique à la version 1 de Data Factory. Si vous utilisez la version actuelle du service Data Factory, consultez le [tutoriel sur l’activité de copie](../quickstart-create-data-factory-dot-net.md). 
 
 
-Ce tutoriel vous montre comment utiliser **l’Assistant de copie** pour copier des données à partir d’un stockage Blob Azure dans une base de données Azure SQL. 
+Ce tutoriel vous montre comment utiliser l’**Assistant de copie** pour copier des données à partir d’un stockage Blob Azure dans Azure SQL Database. 
 
 **L’Assistant de copie** Azure Data Factory vous permet de créer rapidement un pipeline de données qui copie les données d’un magasin de données source pris en charge dans un magasin de données de destination pris en charge. Par conséquent, nous vous recommandons d’utiliser l’Assistant en vue de créer un exemple de pipeline pour votre scénario de déplacement de données. Pour obtenir la liste des magasins de données pris en charge en tant que sources et destinations, consultez [Magasins de données pris en charge](data-factory-data-movement-activities.md#supported-data-stores-and-formats) .  
 
-Ce didacticiel vous montre comment créer une fabrique de données Azure, lancer l’Assistant Copie et suivre une série d’étapes pour fournir des informations sur votre scénario d’ingestion/déplacement de données. Une fois les étapes de l’Assistant terminées, celui-ci crée automatiquement un pipeline avec une activité de copie pour copier des données d’un stockage Blob Azure à une base de données Azure SQL. Pour plus d’informations sur l’activité de copie, consultez [Activités de déplacement des données](data-factory-data-movement-activities.md).
+Ce didacticiel vous montre comment créer une fabrique de données Azure, lancer l’Assistant Copie et suivre une série d’étapes pour fournir des informations sur votre scénario d’ingestion/déplacement de données. Une fois les étapes de l’Assistant terminées, celui-ci crée automatiquement un pipeline avec une activité de copie pour copier des données d’un stockage Blob Azure vers Azure SQL Database. Pour plus d’informations sur l’activité de copie, consultez [Activités de déplacement des données](data-factory-data-movement-activities.md).
 
-## <a name="prerequisites"></a>Conditions préalables requises
+## <a name="prerequisites"></a>Prérequis
 Assurez-vous que vous respectez la configuration requise décrite dans l’article [Vue d’ensemble du didacticiel](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md) avant de suivre ce didacticiel.
 
 ## <a name="create-data-factory"></a>Créer une fabrique de données
@@ -61,7 +61,7 @@ Dans cette étape, vous allez utiliser le portail Azure pour créer une fabrique
       - Sélectionnez **Utiliser l’existant** pour sélectionner un groupe de ressources existant.
       - Sélectionnez **Créer un nouveau** pour entrer un nom pour un groupe de ressources.
           
-        Certaines étapes de ce didacticiel supposent que vous utilisez le groupe de ressources nommé **ADFTutorialResourceGroup** . Pour plus d’informations sur les groupes de ressources, consultez [Utilisation des groupes de ressources pour gérer vos ressources Azure](../../azure-resource-manager/management/overview.md).
+        Certaines étapes de ce tutoriel utilisent le nom : **ADFTutorialResourceGroup** pour le groupe de ressources. Pour plus d’informations sur les groupes de ressources, consultez [Utilisation des groupes de ressources pour gérer vos ressources Azure](../../azure-resource-manager/management/overview.md).
    4. Sélectionnez un **emplacement** pour la fabrique de données.
    5. Sélectionnez la case à cocher **Épingler au tableau de bord** en bas du panneau.  
    6. Cliquez sur **Créer**.
@@ -119,7 +119,7 @@ Dans cette étape, vous allez utiliser le portail Azure pour créer une fabrique
    5. Saisissez le **Nom d’utilisateur** et le **Mot de passe**.
    6. Cliquez sur **Suivant**.  
       
-      ![Outil de copie - Spécifier la base de données Azure SQL](./media/data-factory-copy-data-wizard-tutorial/specify-azure-sql-database.png)
+      ![Outil de copie - Spécifier Azure SQL Database](./media/data-factory-copy-data-wizard-tutorial/specify-azure-sql-database.png)
 10. Dans la page **Mappage de table**, sélectionnez **emp** dans la liste déroulante du champ **Destination**, puis cliquez sur **Flèche vers le bas** (facultatif) pour afficher le schéma et un aperçu des données.
     
      ![Outil de copie - Mappage de Table](./media/data-factory-copy-data-wizard-tutorial/copy-tool-table-mapping-page.png) 
@@ -150,7 +150,7 @@ Dans cette étape, vous allez utiliser le portail Azure pour créer une fabrique
     Pour plus d’informations sur l’utilisation de cette application, consultez l’article [Surveiller et gérer les pipelines Azure Data Factory à l’aide de la nouvelle application de surveillance et de gestion](data-factory-monitor-manage-app.md).
 
 ## <a name="next-steps"></a>Étapes suivantes
-Dans ce tutoriel, vous avez utilisé le stockage Blob Azure comme magasin de données source et une base de données Azure SQL comme banque de données de destination dans une opération de copie. Le tableau ci-dessous contient la liste des magasins de données pris en charge en tant que sources et destinations par l’activité de copie : 
+Dans ce tutoriel, vous avez utilisé le stockage Blob Azure comme magasin de données source et Azure SQL Database comme banque de données de destination dans une opération de copie. Le tableau ci-dessous contient la liste des magasins de données pris en charge en tant que sources et destinations par l’activité de copie : 
 
 [!INCLUDE [data-factory-supported-data-stores](../../../includes/data-factory-supported-data-stores.md)]
 

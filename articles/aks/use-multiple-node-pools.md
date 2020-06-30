@@ -45,7 +45,7 @@ Les limitations suivantes s’appliquent lorsque vous créez et gérez les clust
 Pour commencer, créez un cluster AKS avec un pool de nœuds unique. L’exemple suivant utilise la commande [az group create][az-group-create] pour créer un groupe de ressources nommé *myResourceGroup* dans la région *eastus*. Un cluster AKS nommé *myAKSCluster* est alors créé à l’aide de la commande [az aks create][az-aks-create]. Un paramètre *--kubernetes-version* de valeur *1.15.7* est utilisé pour montrer comment mettre à jour un pool de nœuds dans une étape suivante. Vous pouvez spécifier une [version Kubernetes prise en charge][supported-versions].
 
 > [!NOTE]
-> La référence SKU d’équilibreur de charge *De base***n’est pas prise en charge** en cas d’utilisation de plusieurs pools de nœuds. Par défaut, les clusters AKS sont créés avec la référence SKU d'équilibreur de charge *Standard* à partir d'Azure CLI et du portail Azure.
+> La référence SKU d’équilibreur de charge *De base* **n’est pas prise en charge** en cas d’utilisation de plusieurs pools de nœuds. Par défaut, les clusters AKS sont créés avec la référence SKU d'équilibreur de charge *Standard* à partir d'Azure CLI et du portail Azure.
 
 ```azurecli-interactive
 # Create a resource group in East US

@@ -8,12 +8,12 @@ ms.author: thvankra
 ms.devlang: dotnet
 ms.topic: quickstart
 ms.date: 05/18/2020
-ms.openlocfilehash: 9df32b441d5dd2653fd3708013bb75660ef593c5
-ms.sourcegitcommit: 69156ae3c1e22cc570dda7f7234145c8226cc162
+ms.openlocfilehash: 56adfa2ddab011372783a7a7872b4f4c8d7fc050
+ms.sourcegitcommit: 23604d54077318f34062099ed1128d447989eea8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/03/2020
-ms.locfileid: "84310939"
+ms.lasthandoff: 06/20/2020
+ms.locfileid: "85118438"
 ---
 # <a name="quickstart-build-a-cassandra-app-with-net-core-and-azure-cosmos-db"></a>Démarrage rapide : Générer une application Cassandra avec .NET Core et Azure Cosmos DB
 
@@ -133,13 +133,13 @@ Maintenant, retournez dans le portail Azure afin d’obtenir les informations de
 
 1. Dans le [portail Azure](https://portal.azure.com/), sélectionnez **Chaîne de connexion**.
 
-    Utilisez le ![bouton Copier](./media/create-cassandra-dotnet/copy.png) à droite de l’écran pour copier la valeur NOM D'UTILISATEUR.
+1. Utilisez le ![bouton Copier](./media/create-cassandra-dotnet/copy.png) à droite de l’écran pour copier la valeur NOM D'UTILISATEUR.
 
-    ![Afficher et copier une clé d'accès dans la page Chaîne de connexion du portail Azure](./media/create-cassandra-dotnet/keys.png)
+   :::image type="content" source="./media/create-cassandra-dotnet/keys.png" alt-text="Afficher et copier une clé d’accès dans la page Chaîne de connexion du portail Azure":::
 
-2. Dans Visual Studio, ouvrez le fichier Program.cs. 
+1. Dans Visual Studio, ouvrez le fichier Program.cs. 
 
-3. Collez la valeur NOM D’UTILISATEUR à partir du portail sur `<PROVIDE>` à la ligne 13.
+1. Collez la valeur NOM D’UTILISATEUR à partir du portail sur `<PROVIDE>` à la ligne 13.
 
     La ligne 13 du fichier Program.cs doit maintenant ressembler à la ligne suivante : 
 
@@ -149,14 +149,13 @@ Maintenant, retournez dans le portail Azure afin d’obtenir les informations de
 
     `private const string CassandraContactPoint = "cosmos-db-quickstarts.cassandra.cosmosdb.azure.com"; //  DnsName`
 
-3. Revenez au portail et copiez la valeur MOT DE PASSE. Collez la valeur MOT DE PASSE à partir du portail sur `<PROVIDE>` à la ligne 14.
+1. Revenez au portail et copiez la valeur MOT DE PASSE. Collez la valeur MOT DE PASSE à partir du portail sur `<PROVIDE>` à la ligne 14.
 
     La ligne 14 du fichier Program.cs doit maintenant ressembler à la ligne suivante : 
 
     `private const string Password = "2Ggkr662ifxz2Mg...==";`
 
-
-4. Enregistrez le fichier Program.cs.
+1. Enregistrez le fichier Program.cs.
     
 ## <a name="run-the-net-core-app"></a>Exécuter l’application .NET Core
 
@@ -169,13 +168,13 @@ Maintenant, retournez dans le portail Azure afin d’obtenir les informations de
     ```
 3. Appuyez sur Ctrl + F5 pour exécuter l’application. Votre application s’affiche dans la fenêtre de votre console. 
 
-    ![Consulter et vérifier la sortie](./media/create-cassandra-dotnet/output.png)
+    :::image type="content" source="./media/create-cassandra-dotnet/output.png" alt-text="Afficher et vérifier la sortie":::
 
     Appuyez sur CTRL + C pour arrêter l’exécution du programme et fermer la fenêtre de console. 
     
 4. Dans le portail Azure, ouvrez **l’Explorateur de données** pour interroger, modifier et utiliser ces nouvelles données.
 
-    ![Afficher les données dans l’Explorateur de données](./media/create-cassandra-dotnet/data-explorer.png)
+    :::image type="content" source="./media/create-cassandra-dotnet/data-explorer.png" alt-text="Afficher les données dans l’Explorateur de données":::
 
 ## <a name="review-slas-in-the-azure-portal"></a>Vérification des contrats SLA dans le portail Azure
 

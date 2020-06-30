@@ -14,17 +14,17 @@ ms.reviewer: davidph
 manager: cgronlun
 ms.date: 07/26/2019
 ROBOTS: NOINDEX
-ms.openlocfilehash: 4a5936501f45694febe284d9747bdefdfeae6aeb
-ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
+ms.openlocfilehash: ca0af9a34587f8d3a3c0502c77556975b1d8df4e
+ms.sourcegitcommit: bf99428d2562a70f42b5a04021dde6ef26c3ec3a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "84023986"
+ms.lasthandoff: 06/23/2020
+ms.locfileid: "85253832"
 ---
 # <a name="tutorial-create-a-predictive-model-in-r-with-azure-sql-database-machine-learning-services-preview"></a>Tutoriel : Créer un modèle prédictif en R avec le moteur Machine Learning Services (préversion) d’Azure SQL Database
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
 
-Dans la deuxième partie de cette série de didacticiels qui en compte trois parties, vous allez créer deux modèles prédictifs en R et sélectionner le modèle le plus précis. Dans la partie suivante de cette série, vous allez déployer ce modèle dans une base de données SQL avec Azure SQL Database Machine Learning Services (préversion).
+Dans la deuxième partie de cette série de didacticiels qui en compte trois parties, vous allez créer deux modèles prédictifs en R et sélectionner le modèle le plus précis. Dans la partie suivante de cette série, vous allez déployer ce modèle dans une base de données SQL dans Azure SQL Database Machine Learning Services (préversion).
 
 [!INCLUDE[ml-preview-note](../../../includes/sql-database-ml-preview-note.md)]
 
@@ -38,7 +38,7 @@ Dans cet article, vous allez apprendre à :
 
 Dans la [première partie](predictive-model-prepare-data-tutorial.md), vous avez appris à importer un exemple de base de données, puis à préparer les données destinées à utiliser pour entraîner un modèle prédictif en R.
 
-Dans la [troisième partie](predictive-model-deploy-tutorial.md), vous allez apprendre à stocker le modèle dans une base de données, puis à créer des procédures stockées à partir des scripts R développés dans les première et deuxième parties. Les procédures stockées seront exécutées dans une base de données SQL pour effectuer des prédictions basées sur de nouvelles données.
+Dans la [troisième partie](predictive-model-deploy-tutorial.md), vous allez apprendre à stocker le modèle dans une base de données, puis à créer des procédures stockées à partir des scripts R développés dans les première et deuxième parties. Les procédures stockées seront exécutées dans une base de données pour effectuer des prédictions basées sur de nouvelles données.
 
 ## <a name="prerequisites"></a>Prérequis
 

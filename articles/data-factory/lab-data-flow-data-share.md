@@ -7,12 +7,12 @@ ms.service: data-factory
 ms.topic: tutorial
 ms.custom: seo-lt-2019
 ms.date: 01/08/2020
-ms.openlocfilehash: 7d453b2724c308e48366d653a51d9e6aa8e82c96
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: dac018db1737b0395f78955d16dd753c6ac2f359
+ms.sourcegitcommit: bf99428d2562a70f42b5a04021dde6ef26c3ec3a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81415921"
+ms.lasthandoff: 06/23/2020
+ms.locfileid: "85252659"
 ---
 # <a name="data-integration-using-azure-data-factory-and-azure-data-share"></a>Intégration de données avec Azure Data Factory et Azure Data Share
 
@@ -22,9 +22,9 @@ ms.locfileid: "81415921"
 
 De l’activation des processus ETL/ELT sans code à la création d’une vue complète de vos données, les améliorations apportées à Azure Data Factory vont donner les moyens à vos ingénieurs Données d’apporter en toute confiance davantage de données, et donc plus de valeur, à votre entreprise. Azure Data Share va vous permettre de faire du partage B2B (interentreprise) de manière régie.
 
-Dans cet atelier, vous allez utiliser ADF (Azure Data Factory) pour ingérer les données d’une base de données Azure SQL (SQL DB) dans Azure Data Lake Storage Gen2 (ADLS Gen2). Une fois que vous avez placé les données dans le lac, vous les transformez via les flux de données de mappage, le service de transformation natif de Data Factory, et vous les déposez dans Azure Synapse Analytics (anciennement SQL DW). Vous partagez ensuite la table contenant les données transformées avec des données supplémentaires, à l’aide d’Azure Data Share. 
+Dans cet atelier, vous allez utiliser ADF (Azure Data Factory) pour ingérer les données depuis Azure SQL Database vers Azure Data Lake Storage Gen2 (ADLS Gen2). Une fois que vous avez placé les données dans le lac, vous les transformez via les flux de données de mappage, le service de transformation natif de Data Factory, et vous les déposez dans Azure Synapse Analytics (anciennement SQL DW). Vous partagez ensuite la table contenant les données transformées avec des données supplémentaires, à l’aide d’Azure Data Share. 
 
-Les données utilisées dans ce lab sont des données relatives aux taxis de New York. Pour les importer dans votre base de données Azure SQL, téléchargez le [fichier taxi-data bacpac](https://github.com/djpmsft/ADF_Labs/blob/master/sample-data/taxi-data.bacpac).
+Les données utilisées dans ce lab sont des données relatives aux taxis de New York. Pour les importer dans votre base de données dans SQL Database, téléchargez le [fichier taxi-data bacpac](https://github.com/djpmsft/ADF_Labs/blob/master/sample-data/taxi-data.bacpac).
 
 ## <a name="prerequisites"></a>Prérequis
 

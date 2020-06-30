@@ -5,20 +5,20 @@ author: bandersmsft
 ms.reviewer: dhgandhi
 ms.service: cost-management-billing
 ms.topic: conceptual
-ms.date: 05/04/2020
+ms.date: 06/19/2020
 ms.author: banders
-ms.openlocfilehash: b198a781da6e18c363e90d8bd5314dafc563dcca
-ms.sourcegitcommit: e0330ef620103256d39ca1426f09dd5bb39cd075
+ms.openlocfilehash: 91f11502a136ca08d62072808d270f8e840a8710
+ms.sourcegitcommit: e04a66514b21019f117a4ddb23f22c7c016da126
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/05/2020
-ms.locfileid: "82791151"
+ms.lasthandoff: 06/19/2020
+ms.locfileid: "85106439"
 ---
 # <a name="transfer-azure-subscriptions-between-subscribers-and-csps"></a>Transférer des abonnements Azure entre des abonnés et des CSP
 
-Cet article présente les étapes principales utilisées pour transférer des abonnements Azure entre les partenaires fournisseurs de solutions Cloud (CSP) et leurs clients.
+Cet article présente les étapes principales utilisées pour transférer des abonnements Azure vers et à partir des partenaires fournisseurs de solutions cloud (CSP) et leurs clients.
 
-## <a name="transfer-ea-subscriptions"></a>Transférer des abonnements EA
+## <a name="transfer-ea-subscriptions-to-a-csp-partner"></a>Transférer des abonnements EA à un partenaire CSP
 
 Les partenaires CSP de facturation directe certifiés [Fournisseur de services managés Azure Expert (MSP)](https://partner.microsoft.com/membership/azure-expert-msp) peuvent demander le transfert d’abonnements Azure pour leurs clients ayant contracté un contrat Entreprise direct (EA). Les transferts d’abonnements sont autorisés uniquement pour les clients qui ont accepté un contrat client Microsoft (MCA) et acheté un plan Azure.
 
@@ -44,7 +44,7 @@ Pour transférer tout autre abonnement Azure à un partenaire CSP, l’abonné d
     > [!IMPORTANT]
     >  - Le déplacement des ressources Azure entre des abonnements peut entraîner un temps d’arrêt du service, en fonction des ressources des abonnements.
 
-## <a name="all-subscription-transfers-from-a-csp-partner"></a>Tous les transferts d’abonnements à partir d’un partenaire CSP
+## <a name="transfer-csp-subscription-to-other-offer"></a>Transférer un abonnement CSP à une autre offre
 
 Pour transférer tout autre abonnement d’un partenaire CSP vers une autre offre Azure, l’abonné doit déplacer des ressources entre des abonnements CSP sources et des abonnements CSP cibles.
 

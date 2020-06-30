@@ -3,15 +3,15 @@ title: Exemples Azure PowerShell pour Azure Cosmos DB - API Table
 description: Procurez-vous les exemples Azure PowerShell pour effectuer diverses tâches courantes dans les comptes d’API Table Azure Cosmos DB
 author: markjbrown
 ms.service: cosmos-db
-ms.topic: sample
-ms.date: 05/13/2020
+ms.topic: how-to
+ms.date: 06/12/2020
 ms.author: mjbrown
-ms.openlocfilehash: 1790edd41426a7395705485d764682bd47f75186
-ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
+ms.openlocfilehash: 5d947c9f3f5aedd419662936c7007fc45a57b087
+ms.sourcegitcommit: 635114a0f07a2de310b34720856dd074aaf4f9cd
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83649702"
+ms.lasthandoff: 06/23/2020
+ms.locfileid: "85262988"
 ---
 # <a name="azure-powershell-samples-for-azure-cosmos-db---table-api"></a>Exemples Azure PowerShell pour Azure Cosmos DB - API Table
 
@@ -30,4 +30,5 @@ Le tableau suivant comprend des liens vers des exemples de scripts Azure PowerSh
 |[Modifier la priorité de basculement ou déclencher un basculement](scripts/powershell/common/ps-account-failover-priority-update.md?toc=%2fpowershell%2fmodule%2ftoc.json)| Modifiez la priorité de basculement régional d’un compte Azure Cosmos ou déclenchez un basculement manuel. |
 |[Clés de compte ou chaînes de connexion](scripts/powershell/common/ps-account-keys-connection-strings.md?toc=%2fpowershell%2fmodule%2ftoc.json)| Obtenez des clés primaires et secondaires, des chaînes de connexion, ou regénérez une clé de compte d’un compte Azure Cosmos. |
 |[Créer un compte Cosmos avec un pare-feu IP](scripts/powershell/common/ps-account-firewall-create.md?toc=%2fpowershell%2fmodule%2ftoc.json)| Créez un compte Azure Cosmos avec pare-feu IP activé. |
+|[Verrouiller des ressources contre la suppression](scripts/powershell/table/powershell-table-lock.md?toc=%2fpowershell%2fmodule%2ftoc.json)| Empêchez la suppression de ressources à l’aide de verrous de ressources. |
 |||

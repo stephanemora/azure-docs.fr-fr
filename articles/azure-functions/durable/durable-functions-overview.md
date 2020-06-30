@@ -3,15 +3,15 @@ title: Vue d’ensemble de Fonctions durables - Azure
 description: Introduction à l’extension Fonctions durables pour Azure Functions.
 author: cgillum
 ms.topic: overview
-ms.date: 08/07/2019
+ms.date: 03/12/2020
 ms.author: cgillum
 ms.reviewer: azfuncdf
-ms.openlocfilehash: 5d454aefaba89bef9dc9009ff442fa5543dae2ef
-ms.sourcegitcommit: 537c539344ee44b07862f317d453267f2b7b2ca6
+ms.openlocfilehash: bfbab26e47befbd84ed7b060992d6c0b239ae4db
+ms.sourcegitcommit: 3988965cc52a30fc5fed0794a89db15212ab23d7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/11/2020
-ms.locfileid: "84697876"
+ms.lasthandoff: 06/22/2020
+ms.locfileid: "85193428"
 ---
 # <a name="what-are-durable-functions"></a>Présentation de Durable Functions
 
@@ -23,6 +23,7 @@ Durable Functions prend actuellement en charge les langages suivants :
 
 * **C#**  : les [bibliothèques de classes précompilées](../functions-dotnet-class-library.md) et le [script C#](../functions-reference-csharp.md).
 * **JavaScript** : pris en charge uniquement pour la version 2.x du runtime Azure Functions. Nécessite la version 1.7.0 ou ultérieure de l’extension Durable Functions. 
+* **Python** : nécessite la version 1.8.5 ou une version ultérieure de l’extension Durable Functions. 
 * **F#**  : les bibliothèques de classes précompilées et le script F#. Le script F# est pris en charge uniquement pour la version 1.x du runtime Azure Functions.
 
 À l’avenir, Durable Functions est censé prendre en charge tous les [langages pris en charge dans Azure Functions](../supported-languages.md). Consultez la [liste des problèmes avec Durable Functions](https://github.com/Azure/azure-functions-durable-extension/issues) pour connaître l’état actuel de la prise en charge de langages supplémentaires.
@@ -95,6 +96,29 @@ Vous pouvez utiliser l’objet `context.df` pour appeler d’autres fonctions pa
 > [!NOTE]
 > L’objet `context` dans JavaScript représente l’intégralité du [contexte de la fonction](../functions-reference-node.md#context-object). Accédez au contexte Durable Functions à l’aide de la propriété `df` du contexte principal.
 
+# <a name="python"></a>[Python](#tab/python)
+
+```python
+import azure.functions as func
+import azure.durable_functions as df
+
+
+def orchestrator_function(context: df.DurableOrchestrationContext):
+    x = yield context.call_activity("F1", None)
+    y = yield context.call_activity("F2", x)
+    z = yield context.call_activity("F3", y)
+    result = yield context.call_activity("F4", z)
+    return result
+
+
+main = df.Orchestrator.create(orchestrator_function)
+```
+
+Vous pouvez utiliser l’objet `context` pour appeler d’autres fonctions par nom, passer des paramètres et retourner la sortie d’une fonction. Chaque fois que le code appelle `yield`, l’infrastructure Durable Functions crée des points de contrôle de la progression de l’instance de la fonction actuelle. En cas de recyclage du processus ou de la machine virtuelle au milieu de l’exécution, l’instance de la fonction reprend à partir de l’appel `yield` précédent. Pour en savoir plus, consultez la section suivante, Modèle 2 : Fan out/fan in.
+
+> [!NOTE]
+> L’objet `context` dans Python représente le contexte d’orchestration. Accédez au contexte Azure Functions principal à l’aide de la propriété `function_context` du contexte d’orchestration.
+
 ---
 
 ### <a name="pattern-2-fan-outfan-in"></a><a name="fan-in-out"></a>Modèle 2 : Fan out/fan in
@@ -162,6 +186,36 @@ Dans le cadre du processus fan-out, la distribution s’effectue vers plusieurs 
 
 La création automatique de points de contrôle qui a lieu lors de l’appel `yield` sur `context.df.Task.all` garantit qu’un incident ou qu’un redémarrage potentiel survenu au milieu du processus ne nécessite pas le redémarrage d’une quelconque tâche déjà terminée.
 
+# <a name="python"></a>[Python](#tab/python)
+
+```python
+import azure.functions as func
+import azure.durable_functions as df
+
+
+def orchestrator_function(context: df.DurableOrchestrationContext):
+    parallel_tasks = []
+
+    # Get a list of N work items to process in parallel.
+    work_batch = yield context.call_activity("F1", None)
+
+    for i in range(0, len(work_batch)):
+        parallel_tasks.append(context.call_activity("F2", work_batch[i]))
+    
+    outputs = yield context.task_all(parallel_tasks)
+
+    # Aggregate all N outputs and send the result to F3.
+    total = sum(outputs)
+    yield context.call_activity("F3", total)
+
+
+main = df.Orchestrator.create(orchestrator_function)
+```
+
+Dans le cadre du processus fan-out, la distribution s’effectue vers plusieurs instances de la fonction `F2`. Le travail est suivi à l’aide d’une liste de tâches dynamique. L’API `context.task_all` est appelée pour attendre la fin de toutes les fonctions appelées. Les sorties de la fonction `F2` sont ensuite agrégées à partir de la liste de tâches dynamique puis transmises à la fonction `F3`.
+
+La création automatique de points de contrôle qui a lieu lors de l’appel `yield` sur `context.task_all` garantit qu’un incident ou qu’un redémarrage potentiel survenu au milieu du processus ne nécessite pas le redémarrage d’une quelconque tâche déjà terminée.
+
 ---
 
 > [!NOTE]
@@ -206,7 +260,7 @@ L’extension Durable Functions expose des API HTTP intégrées qui gèrent les 
 
 Pour plus d’informations, consultez l’article [Fonctionnalités HTTP](durable-functions-http-features.md), qui explique comment vous pouvez exposer des processus asynchrones à exécution longue sur HTTP à l’aide de l’extension Durable Functions.
 
-### <a name="pattern-4-monitor"></a><a name="monitoring"></a>Modèle 4 : Moniteur
+### <a name="pattern-4-monitor"></a><a name="monitoring"></a>Modèle 4 : Superviser
 
 Le modèle de surveillance fait référence à un processus souple et récurrent dans un flux de travail. Il peut s’agir, par exemple, d’une interrogation se poursuivant jusqu’à ce que certaines conditions soient remplies. Vous pouvez utiliser un [déclencheur de minuteur](../functions-bindings-timer.md) standard pour un scénario simple, comme une tâche de nettoyage périodique, mais son intervalle est statique et la gestion de la durée de vie des instances devient complexe. Vous pouvez utiliser Durable Functions pour créer des intervalles de récurrence flexibles, gérer la durée de vie des tâches et créer plusieurs processus de surveillance à partir d’une seule orchestration.
 
@@ -274,6 +328,38 @@ module.exports = df.orchestrator(function*(context) {
 
     // Perform more work here, or let the orchestration end.
 });
+```
+
+# <a name="python"></a>[Python](#tab/python)
+
+```python
+import azure.functions as func
+import azure.durable_functions as df
+import json
+from datetime import timedelta 
+
+
+def orchestrator_function(context: df.DurableOrchestrationContext):
+    job = json.loads(context.get_input())
+    job_id = job["jobId"]
+    polling_interval = job["pollingInterval"]
+    expiry_time = job["expiryTime"]
+
+    while context.current_utc_datetime < expiry_time:
+        job_status = yield context.call_activity("GetJobStatus", job_id)
+        if job_status == "Completed":
+            # Perform an action when a condition is met.
+            yield context.call_activity("SendAlert", job_id)
+            break
+
+        # Orchestration sleeps until this time.
+        next_check = context.current_utc_datetime + timedelta(seconds=polling_interval)
+        yield context.create_timer(next_check)
+
+    # Perform more work here, or let the orchestration end.
+
+
+main = df.Orchestrator.create(orchestrator_function)
 ```
 
 ---
@@ -345,6 +431,36 @@ module.exports = df.orchestrator(function*(context) {
 
 Pour créer le minuteur durable, appelez `context.df.createTimer`. La notification est reçue par `context.df.waitForExternalEvent`. Ensuite, `context.df.Task.any` est appelée pour déterminer s’il faut procéder à l’escalade (le délai d’expiration est atteint en premier) ou traiter l’approbation (l’approbation est reçue avant l’expiration du délai).
 
+# <a name="python"></a>[Python](#tab/python)
+
+```python
+import azure.functions as func
+import azure.durable_functions as df
+import json
+from datetime import timedelta 
+
+
+def orchestrator_function(context: df.DurableOrchestrationContext):
+    yield context.call_activity("RequestApproval", None)
+
+    due_time = context.current_utc_datetime + timedelta(hours=72)
+    durable_timeout_task = context.create_timer(due_time)
+    approval_event_task = context.wait_for_external_event("ApprovalEvent")
+
+    winning_task = yield context.task_any([approval_event_task, durable_timeout_task])
+
+    if approval_event_task == winning_task:
+        durable_timeout_task.cancel()
+        yield context.call_activity("ProcessApproval", approval_event_task.result)
+    else:
+        yield context.call_activity("Escalate", None)
+
+
+main = df.Orchestrator.create(orchestrator_function)
+```
+
+Pour créer le minuteur durable, appelez `context.create_timer`. La notification est reçue par `context.wait_for_external_event`. Ensuite, `context.task_any` est appelée pour déterminer s’il faut procéder à l’escalade (le délai d’expiration est atteint en premier) ou traiter l’approbation (l’approbation est reçue avant l’expiration du délai).
+
 ---
 
 Un client externe peut remettre la notification d’événement à une fonction d’orchestrateur en attente au moyen d’[API HTTP intégrées](durable-functions-http-api.md#raise-event) :
@@ -378,6 +494,18 @@ module.exports = async function (context) {
     const isApproved = true;
     await client.raiseEvent(instanceId, "ApprovalEvent", isApproved);
 };
+```
+
+# <a name="python"></a>[Python](#tab/python)
+
+```python
+import azure.durable_functions as df
+
+
+async def main(client: str):
+    durable_client = df.DurableOrchestrationClient(client)
+    is_approved = True
+    await durable_client.raise_event(instance_id, "ApprovalEvent", is_approved)
 ```
 
 ---
@@ -457,6 +585,10 @@ module.exports = df.entity(function(context) {
 });
 ```
 
+# <a name="python"></a>[Python](#tab/python)
+
+Les entités durables ne sont actuellement pas prises en charge dans Python.
+
 ---
 
 Les clients peuvent empiler les *opérations* dans le cadre d’une fonction d’entité (processus également appelé « signalisation ») à l’aide de la [liaison du client d’entité](durable-functions-bindings.md#entity-client).
@@ -493,9 +625,13 @@ module.exports = async function (context) {
 };
 ```
 
+# <a name="python"></a>[Python](#tab/python)
+
+Les entités durables ne sont actuellement pas prises en charge dans Python.
+
 ---
 
-Les fonctions d’entité sont disponibles dans [Durable Functions 2.0](durable-functions-versions.md) et les versions ultérieures.
+Les fonctions d’entité sont disponibles dans [Durable Functions 2.0](durable-functions-versions.md) et les versions ultérieures pour C# et JavaScript.
 
 ## <a name="the-technology"></a>La technologie
 
@@ -515,6 +651,7 @@ Vous pouvez démarrer avec Durable Functions en moins de dix minutes en suivant
 
 * [C# avec Visual Studio 2019](durable-functions-create-first-csharp.md)
 * [JavaScript avec Visual Studio Code](quickstart-js-vscode.md)
+* [Python avec Visual Studio Code](quickstart-python-vscode.md)
 
 Dans les deux guides de démarrage rapide, vous créez et testez localement une fonction durable « hello world ». Vous allez ensuite publier le code de la fonction dans Azure. La fonction que vous créez orchestre et chaîne des appels à d’autres fonctions.
 

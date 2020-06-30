@@ -8,12 +8,12 @@ ms.devlang: java
 ms.topic: tutorial
 ms.date: 05/12/2020
 ms.author: anfeldma
-ms.openlocfilehash: 6f8431bfd3be75651f3a08fe9b07fc3902436331
-ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
+ms.openlocfilehash: d29f97bf421804fb234ce8d86c66c12b01854681
+ms.sourcegitcommit: 23604d54077318f34062099ed1128d447989eea8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83657296"
+ms.lasthandoff: 06/20/2020
+ms.locfileid: "85113793"
 ---
 # <a name="tutorial-build-a-java-web-application-using-azure-cosmos-db-and-the-sql-api"></a>Tutoriel : Créer une application web Java à l’aide d’Azure Cosmos DB et de l’API SQL
 
@@ -32,7 +32,7 @@ Ce didacticiel d’application web Java explique comment utiliser le service [Mi
 
 Ce didacticiel d’application Java vous montre comment créer une application de gestion des tâches basée sur le web qui vous permet de créer, récupérer et marquer des tâches comme terminées, comme illustré dans l’image suivante. Chacune des tâches dans la liste ToDo est stockée sous forme de documents JSON dans Azure Cosmos DB.
 
-![Application Java My ToDo List](./media/sql-api-java-application/image1.png)
+:::image type="content" source="./media/sql-api-java-application/image1.png" alt-text="Application Java My ToDo List":::
 
 > [!TIP]
 > Ce didacticiel de développement d’applications part du principe que vous avez déjà utilisé Java. Si vous débutez avec Java ou avec les [outils requis](#Prerequisites), nous vous recommandons de télécharger l’ensemble du projet [todo](https://github.com/Azure-Samples/documentdb-java-todo-app) sur GitHub et de le générer à l’aide des [instructions fournies à la fin de cet article](#GetProject). Une fois que vous l'avez créé, vous pouvez consulter l'article pour obtenir des informations sur le code dans le contexte du projet.  
@@ -66,7 +66,7 @@ Pour créer l'application JSP :
 
 1. Tout d’abord, nous allons créer un projet Java. Démarrez Eclipse, puis cliquez sur **File** (Fichier), sur **New** (Nouveau), puis sur **Dynamic Web Project** (Projet web dynamique). Si **Dynamic Web Project** (Projet web dynamique) ne s’affiche pas dans les projets disponibles, procédez comme suit : cliquez sur **File** (Fichier), sur **New** (Nouveau) et sur **Project** (Projet), puis développez **Web**, cliquez sur **Dynamic Web Project** (Projet web dynamique) et cliquez sur **Next** (Suivant).
    
-    ![Développement d’applications Java JSP](./media/sql-api-java-application/image10.png)
+    :::image type="content" source="./media/sql-api-java-application/image10.png" alt-text="Développement d’applications Java JSP":::
 
 1. Entrez un nom de projet dans la zone **Project name** (Nom du projet) et sélectionnez **Target Runtime** (Runtime cible) dans le menu déroulant. Vous pouvez aussi sélectionner une valeur (par exemple, Apache Tomcat v7.0), puis cliquer sur **Finish** (Terminer). La sélection d'un runtime cible vous permet d'exécuter votre projet localement via Eclipse.
 
@@ -74,7 +74,7 @@ Pour créer l'application JSP :
 
 1. Dans la boîte de dialogue **New JSP File** (Nouveau fichier JSP), nommez le fichier **index.jsp**. Gardez le nom du dossier parent **WebContent**, comme l’indique l’illustration ci-dessous, puis cliquez sur **Next** (Suivant).
    
-    ![Création d’un fichier JSP - Didacticiel d’application web Java](./media/sql-api-java-application/image11.png)
+    :::image type="content" source="./media/sql-api-java-application/image11.png" alt-text="Créer un fichier JSP - Tutoriel d’application web Java":::
 
 1. Pour les besoins de ce didacticiel, dans la boîte de dialogue **Select JSP Template** (Sélectionner le modèle JSP), sélectionnez **New JSP File (HTML)** (Nouveau fichier JSP (HTML)) et cliquez sur **Finish** (Terminer).
 

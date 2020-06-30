@@ -8,12 +8,12 @@ ms.service: cost-management-billing
 ms.topic: conceptual
 ms.date: 02/13/2020
 ms.author: banders
-ms.openlocfilehash: f3890b2c2c9434c7970bd969f6f4620e5d235d96
-ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
+ms.openlocfilehash: e3553515e2cbae007883ad75960aa1c6991926df
+ms.sourcegitcommit: bf99428d2562a70f42b5a04021dde6ef26c3ec3a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "84017696"
+ms.lasthandoff: 06/23/2020
+ms.locfileid: "85254546"
 ---
 # <a name="understand-azure-reservation-usage-for-your-individual-subscription-with-pay-as-you-go-rates-subscription"></a>Comprendre l’utilisation d’une réservation Azure pour votre abonnement individuel avec tarifs de paiement à l’utilisation
 
@@ -71,7 +71,7 @@ Supposez que vous exécutez une machine virtuelle SQL Database de 4e génératio
 
 ### <a name="statement-section-of-csv-file"></a>Section des relevés du fichier CSV
 
-Filtrez sur le nom de compteur **Utilisation des instances réservées** et choisissez la **catégorie du compteur** requise : Azure SQL Database ou Azure Cosmos DB. Vous devez voir quelque chose de similaire à la capture d’écran suivante :
+Filtrez sur le nom de compteur **Utilisation des instances réservées** et choisissez la **catégorie du compteur** voulue : Azure SQL Database ou Azure Cosmos DB. Vous devez voir quelque chose de similaire à la capture d’écran suivante :
 
 ![Fichier CSV pour la capacité réservée SQL Database](./media/understand-reserved-instance-usage/billing-payg-sql-db-reserved-capacity-csv-statements.png)
 

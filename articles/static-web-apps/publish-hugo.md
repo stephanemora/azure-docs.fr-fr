@@ -7,16 +7,16 @@ ms.service: static-web-apps
 ms.topic: tutorial
 ms.date: 05/08/2020
 ms.author: aapowell
-ms.openlocfilehash: 44472981e48a7018fcdf55f28d33d0dda9479d44
-ms.sourcegitcommit: eeba08c8eaa1d724635dcf3a5e931993c848c633
+ms.openlocfilehash: 250be11f498e825c3e487abfac1c0acc585e5317
+ms.sourcegitcommit: 4042aa8c67afd72823fc412f19c356f2ba0ab554
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/10/2020
-ms.locfileid: "84669900"
+ms.lasthandoff: 06/24/2020
+ms.locfileid: "85297939"
 ---
 # <a name="tutorial-publish-a-hugo-site-to-azure-static-web-apps-preview"></a>Tutoriel : Publier un site Hugo dans Azure Static Web Apps Preview
 
-Cet article montre comment créer et déployer une application web [Hugo](https://gohugo.io/) dans [Azure Static Web Apps](overview.md). Vous obtenez ainsi une nouvelle application Azure Static Web Apps avec la fonctionnalité GitHub Actions associée qui vous permet de contrôler la manière dont l’application est générée et publiée.
+Cet article montre comment créer et déployer une application web [Hugo](https://gohugo.io/) dans [Azure Static Web Apps](overview.md). Vous obtenez ainsi une nouvelle application Azure Static Web Apps avec la fonctionnalité GitHub Actions associée, qui vous permet de contrôler la manière dont l’application est générée et publiée.
 
 Dans ce tutoriel, vous allez apprendre à :
 
@@ -77,7 +77,7 @@ Créer une application Hugo à l’aide de l’interface de ligne de commande (C
 
 Vous devez avoir un référentiel sur GitHub pour vous connecter à Azure Static Web Apps. Les étapes suivantes vous montrent comment créer un référentiel pour votre site.
 
-1. Créez un dépôt GitHub (ne créez pas de fichier README) sur [https://github.com/new](https://github.com/new) appelé **hugo-static-app**.
+1. Créez un référentiel GitHub (ne créez pas de fichier README) sur [https://github.com/new](https://github.com/new) appelé **hugo-static-app**.
 
 1. Ajoutez le référentiel GitHub en tant que référentiel distant pour votre référentiel local. Veillez à remplacer l’espace réservé `<YOUR_USER_NAME>` par votre nom d’utilisateur GitHub dans la commande suivante.
 
@@ -144,42 +144,6 @@ Vous ajoutez ensuite les paramètres de configuration utilisés par le processus
 1. Pour vérifier que les informations sont correctes, cliquez sur le bouton **Review + Create** (Vérifier + créer).
 
 1. Pour démarrer la création de l’application Azure Static Web Apps et la configuration d’une action GitHub pour le déploiement, cliquez sur **Create** (Créer).
-
-1. Une fois le déploiement terminé, accédez à votre terminal et extrayez la validation avec l’action GitHub sur votre ordinateur.
-
-   ```bash
-   git pull
-   ```
-
-1. Ouvrez l’application Hugo dans un éditeur de texte et ouvrez le fichier _.github/workflows/azure-pages-<WORKFLOW_NAME>.yml_.
-
-1. Remplacez la ligne `- uses: actions/checkout@v2` (ligne 18) par le code suivant pour générer l’application Hugo. Si vous avez besoin de la version étendue de Hugo, supprimez les marques de commentaire `extended: true`.
-
-   ```yml
-   - uses: actions/checkout@v2
-     with:
-       submodules: true  # Fetch Hugo themes (true OR recursive)
-       fetch-depth: 0    # Fetch all history for .GitInfo and .Lastmod
-
-   - name: Setup Hugo
-     uses: peaceiris/actions-hugo@v2.4.11
-     with:
-       hugo-version: "latest"  # Hugo version: latest OR x.y.z
-       # extended: true
-
-   - name: Build
-     run: hugo
-   ```
-   
-   Pour plus d’informations concernant l’installation de Hugo sur l’exécuteur GitHub Actions, consultez [peaceiris/actions-hugo](https://github.com/peaceiris/actions-hugo).
-
-1. Validez le workflow mis à jour, puis transmettez-le à GitHub.
-
-   ```bash
-   git add -A
-   git commit -m "Updating GitHub Actions workflow"
-   git push
-   ```
 
 1. Attendez que l’action GitHub se termine.
 

@@ -9,12 +9,12 @@ ms.subservice: ''
 ms.date: 05/06/2020
 ms.author: kevin
 ms.reviewer: jrasnick
-ms.openlocfilehash: 96e79fdfeed5b56a4e0a33229f419f439b20b04c
-ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
+ms.openlocfilehash: 4ae13dc51b4621dc3d8be39049dcade87c105cbc
+ms.sourcegitcommit: 635114a0f07a2de310b34720856dd074aaf4f9cd
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/12/2020
-ms.locfileid: "83124454"
+ms.lasthandoff: 06/23/2020
+ms.locfileid: "85262614"
 ---
 # <a name="bulk-loading-with-synapse-sql"></a>Chargement en masse avec Synapse SQL
 
@@ -28,7 +28,7 @@ Vous pouvez désormais facilement charger des données en masse à l’aide de p
 
 ## <a name="prerequisites"></a>Prérequis
 
-- Vous devez avoir accès à l’espace de travail avec au moins le rôle d’accès RBAC Contributeur aux données Blob du stockage au compte ADLS Gen2.
+- Cet Assistant génère une instruction COPY qui utilise le transfert AAD pour l’authentification. Votre [utilisateur AAD doit avoir accès](https://docs.microsoft.com/azure/synapse-analytics/sql-data-warehouse/quickstart-bulk-load-copy-tsql-examples#d-azure-active-directory-authentication-aad) à l’espace de travail avec au moins le rôle d’accès RBAC Contributeur aux données Blob du stockage au compte ADLS Gen2.
 
 - Vous devez disposer des [autorisations requises pour utiliser l’instruction COPY](https://docs.microsoft.com/sql/t-sql/statements/copy-into-transact-sql?view=azure-sqldw-latest#permissions) et les autorisations Create table si vous créez une table pour le chargement.
 

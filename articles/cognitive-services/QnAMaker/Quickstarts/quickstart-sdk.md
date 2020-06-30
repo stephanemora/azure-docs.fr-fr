@@ -2,19 +2,19 @@
 title: 'Démarrage rapide : Utiliser le SDK pour créer et gérer la base de connaissances - QnA Maker'
 description: Ce guide de démarrage rapide vous montre comment créer et gérer votre base de connaissances à l’aide du SDK client.
 ms.topic: quickstart
-ms.date: 06/11/2020
+ms.date: 06/18/2020
 ms.custom: tracking-python
 zone_pivot_groups: programming-languages-set-six
-ms.openlocfilehash: f80e791435d4bf9093b07842430e678b93843311
-ms.sourcegitcommit: bc943dc048d9ab98caf4706b022eb5c6421ec459
+ms.openlocfilehash: f158fd0f9bfa6b2580e36b6588626afa05d1c19f
+ms.sourcegitcommit: 23604d54077318f34062099ed1128d447989eea8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/14/2020
-ms.locfileid: "84765134"
+ms.lasthandoff: 06/20/2020
+ms.locfileid: "85114521"
 ---
-# <a name="quickstart-qna-maker-client-library-for-net"></a>Démarrage rapide : Bibliothèque de client QnA Maker pour .NET
+# <a name="quickstart-qna-maker-client-library"></a>Démarrage rapide : Bibliothèque de client QnA Maker
 
-Bien démarrer avec la bibliothèque de client QnA Maker pour .NET. Suivez les étapes suivantes pour installer le package et essayer l’exemple de code pour les tâches de base.
+Démarrez avec la bibliothèque de client QnA Maker. Suivez les étapes suivantes pour installer le package et essayer l’exemple de code pour les tâches de base.
 
 ::: zone pivot="programming-language-csharp"
 [!INCLUDE [Get intent with C# and REST](../includes/quickstart-sdk-csharp.md)]
