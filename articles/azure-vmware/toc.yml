@@ -30,10 +30,8 @@
       href: concepts-identity.md
     - name: Mises à niveau de clouds privés
       href: concepts-upgrades.md
-    - name: Intégration Hub-and-spoke
-      href: concepts-avs-hub-and-spoke-integration.md
-    - name: Gestion des API
-      href: concepts-api-management.md
+    - name: Contrôle d’accès en fonction du rôle
+      href: concepts-rbac.md
 - name: Guides pratiques
   items:
     - name: Configurer HCX

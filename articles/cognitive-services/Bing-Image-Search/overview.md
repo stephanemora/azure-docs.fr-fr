@@ -12,12 +12,12 @@ ms.topic: overview
 ms.date: 12/18/2019
 ms.author: aahi
 ms.custom: seodec2018
-ms.openlocfilehash: 6bd8c472aa659bec31440292e20328865b1cb531
-ms.sourcegitcommit: 34a6fa5fc66b1cfdfbf8178ef5cdb151c97c721c
+ms.openlocfilehash: eb657c16f6f3ff67f4379134f3aa478f10d8ef94
+ms.sourcegitcommit: 32592ba24c93aa9249f9bd1193ff157235f66d7e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79134525"
+ms.lasthandoff: 07/01/2020
+ms.locfileid: "85603534"
 ---
 # <a name="what-is-the-bing-image-search-api"></a>Qu'est-ce que l'API Recherche d’images Bing ?
 
@@ -39,7 +39,7 @@ Alors que l’API Recherche d’images Bing fournit seulement des images dans le
 
 L’API Recherche d’images Bing est un service web RESTful et peut donc être facilement appelé à partir de n’importe quel langage de programmation permettant d’exécuter des requêtes HTTP et d’analyser des réponses JSON. Vous pouvez utiliser ce service soit par le biais de [l’API REST](https://docs.microsoft.com/azure/cognitive-services/bing-image-search/quickstarts/csharp?), soit à l’aide du [Kit de développement logiciel (SDK)](https://docs.microsoft.com/azure/cognitive-services/bing-image-search/image-search-sdk-quickstart).
 
-1. Créez un [compte d’API Cognitive Services](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) disposant d’un accès aux API Recherche Bing. Si vous n’avez pas d’abonnement Azure, vous pouvez créer un [compte](https://azure.microsoft.com/try/cognitive-services/?api=bing-web-search-api) gratuitement.
+1. Créez un [compte d’API Cognitive Services](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) disposant d’un accès aux API Recherche Bing. Si vous n’avez pas d’abonnement Azure, vous pouvez créer un [compte](https://azure.microsoft.com/free/cognitive-services/) gratuitement.
 2. Envoyez une requête à l’API avec une [requête de recherche](https://docs.microsoft.com/azure/cognitive-services/bing-image-search/concepts/bing-image-search-sending-queries) valide.
 3. Traitez la réponse de l’API en analysant le message JSON renvoyé.
 
@@ -47,8 +47,6 @@ L’API Recherche d’images Bing est un service web RESTful et peut donc être 
 
 Commencez par essayer la [démonstration interactive](https://azure.microsoft.com/services/cognitive-services/bing-image-search-api/) de l’API Recherche d’images Bing.
 Cette démonstration vous explique comment personnaliser rapidement une requête de recherche et parcourir le web à la recherche d’images.
-
-Quand vous êtes prêt à appeler l’API, créez un [compte d’API Cognitive Services](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account). Si vous n’avez pas d’abonnement Azure, vous pouvez créer un [compte](https://azure.microsoft.com/try/cognitive-services/?api=bing-web-search-api) gratuitement.
 
 Pour exécuter rapidement votre première requête d’API, vous pouvez apprendre à effectuer les opérations suivantes :
 
