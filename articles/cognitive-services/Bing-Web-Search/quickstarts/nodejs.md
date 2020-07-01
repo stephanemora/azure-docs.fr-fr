@@ -11,12 +11,12 @@ ms.topic: quickstart
 ms.date: 05/22/2020
 ms.author: aahi
 ms.custom: seodec2018
-ms.openlocfilehash: 4a96f31588e199d5696e2d9eff351051d46c1f96
-ms.sourcegitcommit: 64fc70f6c145e14d605db0c2a0f407b72401f5eb
+ms.openlocfilehash: 872a90a0b4f5b348e45b04998067f9e97a3ae987
+ms.sourcegitcommit: 32592ba24c93aa9249f9bd1193ff157235f66d7e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "83873958"
+ms.lasthandoff: 07/01/2020
+ms.locfileid: "85611320"
 ---
 # <a name="quickstart-search-the-web-using-the-bing-web-search-rest-api-and-nodejs"></a>Démarrage rapide : Effectuer des recherches sur le web à l’aide de l’API REST Recherche Web Bing et de Node.js
 
@@ -43,7 +43,7 @@ const https = require('https')
 
 ## <a name="set-the-subscription-key"></a>Définir la clé d’abonnement
 
-Cet extrait de code utilise la variable d’environnement `AZURE_SUBSCRIPTION_KEY` pour stocker votre clé d’abonnement ; c’est une bonne pratique pour éviter l’exposition accidentelle de vos clés lors du déploiement de code. Pour rechercher votre clé d’abonnement, consultez [Vos API](https://azure.microsoft.com/try/cognitive-services/my-apis/?apiSlug=search-api-v7).
+Cet extrait de code utilise la variable d’environnement `AZURE_SUBSCRIPTION_KEY` pour stocker votre clé d’abonnement ; c’est une bonne pratique pour éviter l’exposition accidentelle de vos clés lors du déploiement de code.
 
 Si vous êtes familiarisé avec l’utilisation de variables d’environnement ou que vous souhaitez exécuter cette application le plus rapidement possible, remplacez `process.env['AZURE_SUBSCRIPTION_KEY']` par votre clé d’abonnement définie comme chaîne.
 

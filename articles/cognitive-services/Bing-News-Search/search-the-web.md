@@ -11,12 +11,12 @@ ms.topic: overview
 ms.date: 12/18/2019
 ms.author: scottwhi
 ms.custom: seodec2018
-ms.openlocfilehash: e0e99c7f677173c64afad3109b2f4accd7cb3cb9
-ms.sourcegitcommit: 9ee0cbaf3a67f9c7442b79f5ae2e97a4dfc8227b
+ms.openlocfilehash: d44fe58eb17e7f11dc64ee1426df7f356cb91aef
+ms.sourcegitcommit: 32592ba24c93aa9249f9bd1193ff157235f66d7e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "75448447"
+ms.lasthandoff: 07/01/2020
+ms.locfileid: "85602752"
 ---
 # <a name="what-is-the-bing-news-search-api"></a>Qu’est-ce que l’API Recherche d’actualités Bing ?
 
@@ -40,10 +40,8 @@ L’API Recherche d’actualités Bing recherche et retourne naturellement des a
 
 L’API Recherche d’actualités Bing étant un service web RESTful, elle peut être facilement appelée à partir de n’importe quel langage de programmation capable d’exécuter des requêtes HTTP et d’analyser des réponses JSON. Vous pouvez utiliser ce service soit par le biais de l’API REST, soit à l’aide du Kit de développement logiciel (SDK).
 
-1. Créez un compte d’API Cognitive Services disposant d’un accès aux API Recherche Bing. Si vous n’avez pas d’abonnement Azure, vous pouvez [créer un compte gratuitement](https://azure.microsoft.com/try/cognitive-services/?api=bing-web-news-api).
-
+1. Créez un [compte d’API Cognitive Services](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) disposant d’un accès aux API Recherche Bing. Si vous n’avez pas d’abonnement Azure, vous pouvez créer un [compte](https://azure.microsoft.com/free/cognitive-services/) gratuitement.
 2. Envoyez une requête à l’API avec une requête de recherche valide.
-
 3. Traitez la réponse de l’API en analysant le message JSON renvoyé.
 
 ## <a name="next-steps"></a>Étapes suivantes

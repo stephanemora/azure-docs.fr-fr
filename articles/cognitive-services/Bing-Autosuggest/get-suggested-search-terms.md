@@ -10,12 +10,12 @@ ms.subservice: bing-autosuggest
 ms.topic: overview
 ms.date: 12/18/2019
 ms.author: scottwhi
-ms.openlocfilehash: a90fa0a66fb32b2a885599f09458964188353880
-ms.sourcegitcommit: 9ee0cbaf3a67f9c7442b79f5ae2e97a4dfc8227b
+ms.openlocfilehash: b68bc2eca25c35395d9a31f3a80e45d1595815bf
+ms.sourcegitcommit: 32592ba24c93aa9249f9bd1193ff157235f66d7e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "75448829"
+ms.lasthandoff: 07/01/2020
+ms.locfileid: "85601970"
 ---
 # <a name="what-is-bing-autosuggest"></a>Qu’est-ce que la Suggestion automatique Bing ?
 
@@ -29,9 +29,9 @@ Si votre application envoie des requêtes à l’une des API Recherche Bing, vou
 
 ## <a name="workflow"></a>Workflow
 
-L’API Suggestion automatique Bing est un service web RESTful que vous pouvez facilement appeler à partir de n’importe quel langage de programmation capable d’exécuter des requêtes HTTP et d’analyser des réponses JSON. 
+L’API Suggestion automatique Bing est un service web RESTful que vous pouvez facilement appeler à partir de n’importe quel langage de programmation capable d’exécuter des requêtes HTTP et d’analyser des réponses JSON.
 
-1. Créez un [compte d’API Cognitive Services](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) disposant d’un accès aux API Recherche Bing. Si vous n’avez pas d’abonnement Azure, vous pouvez créer un [compte](https://azure.microsoft.com/try/cognitive-services/?api=bing-web-search-api) gratuitement.
+1. Créez un [compte d’API Cognitive Services](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) disposant d’un accès aux API Recherche Bing. Si vous n’avez pas d’abonnement Azure, vous pouvez créer un [compte](https://azure.microsoft.com/free/cognitive-services/) gratuitement.
 2. Envoyez une requête à cette API chaque fois qu’un utilisateur tape un nouveau caractère dans la zone de recherche de votre application.
 3. Traitez la réponse de l’API en analysant le message JSON renvoyé.
 
