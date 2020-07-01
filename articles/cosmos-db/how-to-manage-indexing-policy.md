@@ -371,7 +371,7 @@ Pour créer un conteneur avec une stratégie d’indexation personnalisée, voir
 
 Pour créer un conteneur avec une stratégie d’indexation personnalisée, voir [Créer un conteneur avec une stratégie d’index personnalisée à l’aide de PowerShell](manage-with-powershell.md#create-container-custom-index)
 
-## <a name="use-the-net-sdk"></a><a id="dotnet-sdk">Utiliser le kit de développement logiciel (SDK) .NET</a>
+## <a name="use-the-net-sdk"></a><a id="dotnet-sdk"></a>Utiliser le kit de développement logiciel (SDK) .NET
 
 # <a name="net-sdk-v2"></a>[Kit de développement logiciel (SDK) .NET V2](#tab/dotnetv2)
 
