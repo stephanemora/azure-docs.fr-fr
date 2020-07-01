@@ -8,20 +8,24 @@ services: cognitive-services
 ms.service: cognitive-services
 ms.subservice: personalizer
 ms.topic: overview
-ms.date: 04/23/2020
+ms.date: 06/10/2020
 ms.author: diberry
-ms.openlocfilehash: 55153cc7fc125c97a5b73084f83dd320240ca256
-ms.sourcegitcommit: 61d850bc7f01c6fafee85bda726d89ab2ee733ce
+ms.openlocfilehash: 973a8b7eb8dad66568a5beb45adea9740dd0402a
+ms.sourcegitcommit: 537c539344ee44b07862f317d453267f2b7b2ca6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/03/2020
-ms.locfileid: "84342105"
+ms.lasthandoff: 06/11/2020
+ms.locfileid: "84700632"
 ---
 # <a name="whats-new-in-personalizer"></a>Nouveautés de Personalizer
 
 Découvrir les nouveautés du service. Ces éléments peuvent inclure des notes de publication, des vidéos, des billets de blog et d’autres types d’informations. Marquez cette page pour rester aux faits des nouveautés du service.
 
 ## <a name="release-notes"></a>Notes de publication
+
+### <a name="june-2020"></a>Juin 2020
+
+* Nouveau tutoriel – [Utilisation de Personalizer dans une application web](tutorial-use-personalizer-web-app.md)
 
 ### <a name="may-2020---build-conference"></a>Mai 2020 - //Conférence Build
 
@@ -44,7 +48,7 @@ Les fonctionnalités d’évaluation suivantes ont été publiées lors de la co
 
 * [Boucle d’apprentissage du classement et de la récompense](what-is-personalizer.md)
 
-## <a name="videos"></a>Videos
+## <a name="videos"></a>Vidéos
 
 ### <a name="2019-build-videos"></a>Vidéos Build 2019
 

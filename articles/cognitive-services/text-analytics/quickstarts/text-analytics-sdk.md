@@ -8,16 +8,16 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: text-analytics
 ms.topic: quickstart
-ms.date: 05/25/2020
+ms.date: 06/11/2020
 ms.author: aahi
 ms.custom: tracking-python
 zone_pivot_groups: programming-languages-text-analytics
-ms.openlocfilehash: be9b82b411d8ba76f0b592cb25e7ff70917b934f
-ms.sourcegitcommit: 1de57529ab349341447d77a0717f6ced5335074e
+ms.openlocfilehash: c475c17e5d196c0eedf38df83f782309143ad979
+ms.sourcegitcommit: c4ad4ba9c9aaed81dfab9ca2cc744930abd91298
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/09/2020
-ms.locfileid: "84605474"
+ms.lasthandoff: 06/12/2020
+ms.locfileid: "84735544"
 ---
 # <a name="quickstart-use-the-text-analytics-client-library"></a>Démarrage rapide : Utiliser la bibliothèque de client Analyse de texte
 
@@ -33,7 +33,7 @@ Utilisez la bibliothèque de client Analyse de texte dans le cadre des opératio
 ::: zone pivot="programming-language-csharp"
 
 > [!IMPORTANT]
-> * La dernière version stable de la bibliothèque cliente Analyse de texte est `3.0`.
+> * La dernière version stable de l’API Analyse de texte est la version `3.0`.
 >    * Veillez à suivre uniquement les instructions concernant la version que vous utilisez.
 > * Le code indiqué dans cet article utilise des méthodes synchrones et un stockage d’informations d’identification non sécurisé pour des raisons de simplicité. Pour les scénarios de production, nous vous recommandons d’utiliser les méthodes asynchrones par lots afin d’optimiser les performances et l’extensibilité. Consultez la documentation de référence ci-dessous.
 
@@ -44,7 +44,7 @@ Utilisez la bibliothèque de client Analyse de texte dans le cadre des opératio
 ::: zone pivot="programming-language-java"
 
 > [!IMPORTANT]
-> * La dernière version stable de la bibliothèque cliente Analyse de texte est `3.0`.
+> * La dernière version stable de l’API Analyse de texte est la version `3.0`.
 > * Le code indiqué dans cet article utilise des méthodes synchrones et un stockage d’informations d’identification non sécurisé pour des raisons de simplicité. Pour les scénarios de production, nous vous recommandons d’utiliser les méthodes asynchrones par lots afin d’optimiser les performances et l’extensibilité. Consultez la documentation de référence ci-dessous.
 
 [!INCLUDE [Java quickstart](../includes/quickstarts/java-sdk.md)]
@@ -54,7 +54,7 @@ Utilisez la bibliothèque de client Analyse de texte dans le cadre des opératio
 ::: zone pivot="programming-language-javascript"
 
 > [!IMPORTANT]
-> * La dernière version stable de la bibliothèque cliente Analyse de texte est `3.0`.
+> * La dernière version stable de l’API Analyse de texte est la version `3.0`.
 >    * Veillez à suivre uniquement les instructions concernant la version que vous utilisez.
 > * Le code indiqué dans cet article utilise des méthodes synchrones et un stockage d’informations d’identification non sécurisé pour des raisons de simplicité. Pour les scénarios de production, nous vous recommandons d’utiliser les méthodes asynchrones par lots afin d’optimiser les performances et l’extensibilité. Consultez la documentation de référence ci-dessous.
 > * Vous pouvez également exécuter cette version de la bibliothèque de client Analyse de texte [dans votre navigateur](https://github.com/Azure/azure-sdk-for-js/blob/master/documentation/Bundling.md).
@@ -66,7 +66,7 @@ Utilisez la bibliothèque de client Analyse de texte dans le cadre des opératio
 ::: zone pivot="programming-language-python"
 
 > [!IMPORTANT]
-> * La dernière version stable de la bibliothèque cliente Analyse de texte est `3.0`.
+> * La dernière version stable de l’API Analyse de texte est la version `3.0`.
 >    * Veillez à suivre uniquement les instructions concernant la version que vous utilisez.
 > * Le code indiqué dans cet article utilise des méthodes synchrones et un stockage d’informations d’identification non sécurisé pour des raisons de simplicité. Pour les scénarios de production, nous vous recommandons d’utiliser les méthodes asynchrones par lots afin d’optimiser les performances et l’extensibilité. Consultez la documentation de référence ci-dessous. 
 

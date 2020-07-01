@@ -6,15 +6,15 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: text-analytics
 ms.topic: include
-ms.date: 03/17/2020
+ms.date: 06/11/2020
 ms.author: aahi
 ms.reviewer: assafi
-ms.openlocfilehash: e27719f7a639a97a0cde04848a51ba6135c3199e
-ms.sourcegitcommit: 79508e58c1f5c58554378497150ffd757d183f30
+ms.openlocfilehash: f8f65d5f5fe9ec2345279d9f680cb77354834715
+ms.sourcegitcommit: c4ad4ba9c9aaed81dfab9ca2cc744930abd91298
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/03/2020
-ms.locfileid: "84346249"
+ms.lasthandoff: 06/12/2020
+ms.locfileid: "84735542"
 ---
 <a name="HOLTop"></a>
 
@@ -44,7 +44,8 @@ En utilisant l’IDE Visual Studio, créez une application console .NET Core. Ce
 
 #### <a name="version-30"></a>[Version 3.0](#tab/version-3)
 
-Installez la bibliothèque cliente en cliquant avec le bouton droit sur la solution dans l’**Explorateur de solutions** et en sélectionnant **Gérer les packages NuGet**. Dans le gestionnaire de package qui s’ouvre, sélectionnez **Parcourir**, cochez **Inclure la préversion** et recherchez `Azure.AI.TextAnalytics`. Sélectionnez la version `1.0.0-preview.5`, puis **Installer**. Vous pouvez aussi utiliser la [Console du Gestionnaire de package](https://docs.microsoft.com/nuget/consume-packages/install-use-packages-powershell#find-and-install-a-package).
+Installez la bibliothèque cliente en cliquant avec le bouton droit sur la solution dans l’**Explorateur de solutions** et en sélectionnant **Gérer les packages NuGet**. Dans le gestionnaire de package qui s’ouvre, sélectionnez **Parcourir** et recherchez `Azure.AI.TextAnalytics`. Sélectionnez la version `1.0.0`, puis **Installer**. Vous pouvez aussi utiliser la [Console du Gestionnaire de package](https://docs.microsoft.com/nuget/consume-packages/install-use-packages-powershell#find-and-install-a-package).
+
 
 > [!TIP]
 > Vous voulez voir l’intégralité du fichier de code de démarrage rapide à la fois ? Vous le trouverez [sur GitHub](https://github.com/Azure-Samples/cognitive-services-quickstart-code/blob/master/dotnet/TextAnalytics/program.cs), qui contient les exemples de code de ce guide de démarrage rapide. 
