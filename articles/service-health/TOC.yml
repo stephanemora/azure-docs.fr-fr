@@ -7,7 +7,11 @@
 - name: Démarrages rapides
   items:
     - name: Configurer des alertes pour des évènements Service Health
-      href: ../azure-monitor/platform/alerts-activity-log-service-notifications.md
+      items:
+        - name: Portail Azure
+          href: alerts-activity-log-service-notifications-portal.md
+        - name: Modèle ARM
+          href: alerts-activity-log-service-notifications-arm.md
 - name: Concepts
   items:
     - name: Page de l’état Azure

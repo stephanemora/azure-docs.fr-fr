@@ -161,6 +161,10 @@
               href: concepts-read-replicas.md
             - name: Décodage logique
               href: concepts-logical.md
+        - name: Déplacer d’une région à l’autre
+          items:
+            - name: Portail Azure
+              href: howto-move-regions-portal.md
     - name: Hyperscale (Citus)
       items:
         - name: Nœuds

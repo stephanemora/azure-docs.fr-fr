@@ -8,25 +8,25 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: computer-vision
 ms.topic: quickstart
-ms.date: 03/12/2020
+ms.date: 06/29/2020
 ms.author: pafarley
 ms.custom: tracking-python
 zone_pivot_groups: programming-languages-set-one
-ms.openlocfilehash: b76c986007a5df017bbadab62de239b319230ab5
-ms.sourcegitcommit: 1de57529ab349341447d77a0717f6ced5335074e
+ms.openlocfilehash: c08b733a3ecfaa3ce6204654cf01c1bac6f8bb20
+ms.sourcegitcommit: 73ac360f37053a3321e8be23236b32d4f8fb30cf
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/09/2020
-ms.locfileid: "84609962"
+ms.lasthandoff: 06/30/2020
+ms.locfileid: "85560216"
 ---
 # <a name="quickstart-use-the-computer-vision-client-library"></a>Démarrage rapide : Utiliser la bibliothèque de client Vision par ordinateur
 
-Découvrez comment bien démarrer avec la bibliothèque de client Vision par ordinateur. Suivez les étapes suivantes pour installer le package et essayer l’exemple de code pour les tâches de base. Vision par ordinateur vous donne accès à des algorithmes avancés pour le traitement d’images et le retour d’informations.
+Découvrez comment bien démarrer avec la bibliothèque de client Vision par ordinateur. Suivez les étapes suivantes pour installer le package et essayer l’exemple de code pour les tâches de base. L’API Vision par ordinateur vous donne accès à des algorithmes avancés pour le traitement d’images et le retour d’informations.
 
 Utilisez la bibliothèque de client Vision par ordinateur pour :
 
 * Analyser une image pour identifier les étiquettes, la description textuelle, les visages, le contenu pour adultes, etc.
-* Reconnaître du texte imprimé et manuscrit avec l’API de lecture par lots.
+* Reconnaître du texte imprimé et manuscrit avec l’API de lecture par lots
 
 ::: zone pivot="programming-language-csharp"
 
