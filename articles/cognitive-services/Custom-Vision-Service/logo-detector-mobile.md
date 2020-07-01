@@ -10,12 +10,12 @@ ms.subservice: custom-vision
 ms.topic: tutorial
 ms.date: 04/14/2020
 ms.author: pafarley
-ms.openlocfilehash: 0962afb360df0ec6a414f676a2c280b3837c687d
-ms.sourcegitcommit: 34a6fa5fc66b1cfdfbf8178ef5cdb151c97c721c
+ms.openlocfilehash: 2bd17e10e6123c48087116e947dc21f4cf788ef3
+ms.sourcegitcommit: 55b2bbbd47809b98c50709256885998af8b7d0c5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81403665"
+ms.lasthandoff: 06/18/2020
+ms.locfileid: "84987867"
 ---
 # <a name="tutorial-recognize-azure-service-logos-in-camera-pictures"></a>Tutoriel : Reconnaître les logos des services Azure dans les images de l’appareil photo
 
@@ -28,7 +28,7 @@ Ce didacticiel vous explique comment :
 > - Connecter votre application aux services Azure Vision par ordinateur et Custom Vision.
 > - Créer un compte de principal de service Azure pour déployer des services Azure à partir de l’application.
 
-Si vous n’avez pas d’abonnement Azure, créez un [compte gratuit](https://azure.microsoft.com/free/) avant de commencer. 
+Si vous n’avez pas d’abonnement Azure, créez un [compte gratuit](https://azure.microsoft.com/free/cognitive-services/) avant de commencer. 
 
 ## <a name="prerequisites"></a>Prérequis
 
@@ -175,7 +175,7 @@ Pour exécuter l’application, procédez comme suit :
 
 Si vous avez suivi toutes les étapes de ce scénario et utilisé l’application pour déployer des services Azure sur votre compte, accédez au [portail Azure](https://ms.portal.azure.com/). Là, annulez les services que vous ne voulez pas utiliser.
 
-Si vous envisagez de créer votre propre projet de détection d’objets avec Custom Vision, vous pouvez supprimer le projet de détection de logos que vous avez créé dans ce tutoriel. Un essai gratuit de Custom Vision permet d’utiliser deux projets uniquement. Pour supprimer le projet de détection de logos, sur le [site web Custom Vision](https://customvision.ai), ouvrez **Projets**, puis sélectionnez l’icône de corbeille sous **Mon nouveau projet**.
+Si vous envisagez de créer votre propre projet de détection d’objets avec Custom Vision, vous pouvez supprimer le projet de détection de logos que vous avez créé dans ce tutoriel. Un abonnement gratuit à Custom Vision permet d’utiliser deux projets uniquement. Pour supprimer le projet de détection de logos, sur le [site web Custom Vision](https://customvision.ai), ouvrez **Projets**, puis sélectionnez l’icône de corbeille sous **Mon nouveau projet**.
 
 ## <a name="next-steps"></a>Étapes suivantes
 

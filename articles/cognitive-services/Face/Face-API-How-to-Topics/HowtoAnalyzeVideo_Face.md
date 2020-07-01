@@ -10,12 +10,12 @@ ms.subservice: face-api
 ms.topic: sample
 ms.date: 03/01/2018
 ms.author: sbowles
-ms.openlocfilehash: ab3f596000216e8555bb84d0d47aff9a6e969eeb
-ms.sourcegitcommit: 9ee0cbaf3a67f9c7442b79f5ae2e97a4dfc8227b
+ms.openlocfilehash: d52f4ad7be6ce31fd2d01208536945c1f9ab2d7d
+ms.sourcegitcommit: 55b2bbbd47809b98c50709256885998af8b7d0c5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "76169901"
+ms.lasthandoff: 06/18/2020
+ms.locfileid: "84986729"
 ---
 # <a name="example-how-to-analyze-videos-in-real-time"></a>Exemple : Comment analyser des vidéos en temps réel
 
@@ -201,13 +201,12 @@ Dans la plupart des modes, il y aura un délai visible entre la vidéo en direct
 
 Pour commencer avec cet exemple, effectuez les étapes suivantes :
 
-1. Obtenez des clés API pour les API Vision à partir [d’Abonnements](https://azure.microsoft.com/try/cognitive-services/). Pour l’analyse des trames vidéo, les API applicables sont les suivantes :
-    - [AP Vision par ordinateur](https://docs.microsoft.com/azure/cognitive-services/computer-vision/home)
-    - [API Face](https://docs.microsoft.com/azure/cognitive-services/face/overview)
-
-2. Clonez le référentiel GitHub [Cognitive-Samples-VideoFrameAnalysis](https://github.com/Microsoft/Cognitive-Samples-VideoFrameAnalysis/).
-
-3. Ouvrez l’exemple dans Visual Studio 2015, puis générez et exécutez les exemples d’applications :
+1. Créez un [compte Azure](https://azure.microsoft.com/free/cognitive-services/). Si vous en avez déjà un, vous pouvez passer directement à l’étape suivante.
+2. Créez des ressources Vision par ordinateur et Visage dans le Portail Azure afin d’obtenir votre clé et votre point de terminaison. Veillez à sélectionner le niveau gratuit (F0) durant l’installation.
+   - [Vision par ordinateur](https://portal.azure.com/#create/Microsoft.CognitiveServicesComputerVision)
+   - [Visage](https://portal.azure.com/#create/Microsoft.CognitiveServicesFace) Une fois les ressources déployées, cliquez sur **Accéder à la ressource** afin d’obtenir votre clé et votre point de terminaison pour chaque ressource. 
+3. Clonez le dépôt GitHub [Cognitive-Samples-VideoFrameAnalysis](https://github.com/Microsoft/Cognitive-Samples-VideoFrameAnalysis/).
+4. Ouvrez l’exemple dans Visual Studio, puis générez et exécutez les exemples d’applications :
     - Pour BasicConsoleSample, la clé Visage est codée en dur directement dans  [BasicConsoleSample/Program.cs](https://github.com/Microsoft/Cognitive-Samples-VideoFrameAnalysis/blob/master/Windows/BasicConsoleSample/Program.cs).
     - Pour LiveCameraSample, les clés doivent être entrées dans le volet Paramètres de l’application. Elles seront conservées d’une session à l’autre en tant que données utilisateur.
         
@@ -216,7 +215,7 @@ Quand vous êtes prêt à procéder à l’intégration, **référencez la bibli
 
 ## <a name="summary"></a>Résumé
 
-Dans ce guide, vous avez découvert comment exécuter une analyse en temps quasi réel de flux vidéo en direct à l’aide des API Visage, Vision par ordinateur et Émotion, et comment utiliser notre exemple de code pour bien démarrer. Vous pouvez commencer à générer votre application avec des clés API gratuites en accédant à la [page d’inscription d’Azure Cognitive Services](https://azure.microsoft.com/try/cognitive-services/). 
+Dans ce guide, vous avez découvert comment exécuter une analyse en temps quasi réel de flux vidéo en direct à l’aide des API Visage, Vision par ordinateur et Émotion, et comment utiliser notre exemple de code pour bien démarrer.
 
 N’hésitez pas à soumettre vos commentaires et suggestions dans le [dépôt GitHub](https://github.com/Microsoft/Cognitive-Samples-VideoFrameAnalysis/) ou, pour envoyer des commentaires plus généraux sur les API, sur notre  [site UserVoice](https://cognitive.uservoice.com/).
 

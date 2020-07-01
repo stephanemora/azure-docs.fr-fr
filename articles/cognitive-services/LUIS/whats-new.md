@@ -2,19 +2,33 @@
 title: 'Nouveauté : service Language Understanding (LUIS)'
 description: Cet article est régulièrement mis à jour avec des informations nouvelles sur l’API Language Understanding Azure Cognitive Services.
 ms.topic: overview
-ms.date: 05/19/2020
-ms.openlocfilehash: b4d287c8d1ddbeeee63390fb397718de1234c93e
-ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
+ms.date: 06/15/2020
+ms.openlocfilehash: d178ee2f5db74949f4a8ad68df93bf3c4407c58a
+ms.sourcegitcommit: 6571e34e609785e82751f0b34f6237686470c1f3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/20/2020
-ms.locfileid: "83675960"
+ms.lasthandoff: 06/15/2020
+ms.locfileid: "84789206"
 ---
 # <a name="whats-new-in-language-understanding"></a>Nouveauté du service Language Understanding
 
 Découvrir les nouveautés du service. Ces éléments incluent des notes de publication, des vidéos, des billets de blog et d’autres types d’informations. Marquez cette page pour rester au fait des nouveautés du service.
 
 ## <a name="release-notes"></a>Notes de publication
+
+### <a name="june-2020"></a>Juin 2020
+
+* Kit SDK [Preview 3.0 Authoring](luis-migration-authoring-entities.md)
+    * Version 3.2.0-preview.3 - [.NET - NuGet](https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.Language.LUIS.Authoring/)
+    * Version 4.0.0-preview.3 - [JS - NPM](https://www.npmjs.com/package/@azure/cognitiveservices-luis-authoring)
+* Application des pratiques DevOps avec LUIS
+    * Concepts
+        * [Pratiques DevOps pour LUIS](luis-concept-devops-sourcecontrol.md)
+        * [Workflows d’intégration continue et de livraison continue pour LUIS DevOps](luis-concept-devops-automation.md)
+        * [Test de LUIS DevOps](luis-concept-devops-testing.md)
+    * Procédures
+        * [Appliquer DevOps au développement d’applications LUIS à l’aide de GitHub Actions](luis-how-to-devops-with-github.md)
+    * [Dépôt GitHub code complet](https://github.com/Azure-Samples/LUIS-DevOps-Template)
 
 ### <a name="may-2020---build"></a>Mai 2020 – //Build
 
@@ -99,7 +113,7 @@ Les fonctionnalités suivantes ont été publiées lors de la conférence Build�
 
 [Bot Framework](https://blog.botframework.com/)
 
-## <a name="videos"></a>Videos
+## <a name="videos"></a>Vidéos
 
 ### <a name="2019-ignite-videos"></a>Vidéos Ignite 2019
 

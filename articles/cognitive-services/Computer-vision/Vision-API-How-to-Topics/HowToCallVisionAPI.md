@@ -11,12 +11,12 @@ ms.topic: sample
 ms.date: 09/09/2019
 ms.author: kefre
 ms.custom: seodec18
-ms.openlocfilehash: 298228eedb73298f00654f4f72c201d9ed671090
-ms.sourcegitcommit: 9ee0cbaf3a67f9c7442b79f5ae2e97a4dfc8227b
+ms.openlocfilehash: 44e5823ed3989dc092104d75d415524dac2c9622
+ms.sourcegitcommit: 55b2bbbd47809b98c50709256885998af8b7d0c5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "72177058"
+ms.lasthandoff: 06/18/2020
+ms.locfileid: "84983456"
 ---
 # <a name="call-the-computer-vision-api"></a>Appeler l’API Vision par ordinateur
 
@@ -25,14 +25,6 @@ Cet article explique comment appeler l’API Vision par ordinateur avec l’API 
 - Obtention d’étiquettes, d’une description et de catégories
 - Obtention d’informations spécifique à un domaine, ou « celebrities » (célébrités)
 
-## <a name="prerequisites"></a>Prérequis
-
-- Une URL d’image ou un chemin vers l’image stockée localement
-- Méthodes d’entrée prises en charge : image raw binaire sous forme de flux application/octet ou une URL d’image
-- Formats de fichier d’image pris en charge : JPEG, PNG, GIF et BMP
-- Taille du fichier image : 4 Mo ou moins
-- Dimensions de l’image : 50 &times; 50 pixels ou plus
-  
 Les exemples de cet article illustrent les fonctionnalités suivantes :
 
 * Analyse d’une image pour retourner un tableau d’étiquettes et une description
@@ -42,14 +34,22 @@ Les fonctionnalités offrent les options suivantes :
 
 - **Option 1** : Analyse délimitée - Analyser seulement un modèle spécifié
 - **Option 2** : Analyse élargie - Analyser pour fournir des détails supplémentaires en utilisant une [taxonomie de 86 catégories](../Category-Taxonomy.md)
+
+## <a name="prerequisites"></a>Prérequis
+
+* Un abonnement Azure - [En créer un gratuitement](https://azure.microsoft.com/free/cognitive-services/)
+* Une fois que vous avez votre abonnement Azure, <a href="https://portal.azure.com/#create/Microsoft.CognitiveServicesComputerVision"  title="créez une ressource Vision par ordinateur"  target="_blank">créer une ressource Vision par ordinateur <span class="docon docon-navigate-external x-hidden-focus"></span></a> dans le Portail Azure pour obtenir votre clé et votre point de terminaison. Une fois le déploiement effectué, cliquez sur **Accéder à la ressource**.
+    * Vous aurez besoin de la clé et du point de terminaison de la ressource que vous créez pour connecter votre application au service Vision par ordinateur. Vous collerez votre clé et votre point de terminaison dans le code ci-dessous plus loin dans le guide de démarrage rapide.
+    * Vous pouvez utiliser le niveau tarifaire Gratuit (`F0`) pour tester le service, puis passer par la suite à un niveau payant pour la production.
+* Une URL d’image ou un chemin vers l’image stockée localement
+* Méthodes d’entrée prises en charge : image raw binaire sous forme de flux application/octet ou une URL d’image
+* Formats de fichier d’image pris en charge : JPEG, PNG, GIF et BMP
+* Taille du fichier image : 4 Mo ou moins
+* Dimensions de l’image : 50 &times; 50 pixels ou plus
   
 ## <a name="authorize-the-api-call"></a>Autoriser l’appel d’API
 
 Chaque appel de l’API Vision par ordinateur nécessite une clé d’abonnement. Cette clé peut être passée via un paramètre de chaîne de requête ou spécifiée dans l’en-tête de la demande.
-
-Pour obtenir une clé d’évaluation gratuite, effectuez une des actions suivantes :
-* Accédez à la page [Essayez Cognitive Services](https://azure.microsoft.com/try/cognitive-services/?api=computer-vision). 
-* Accédez à la page [Créer un compte Cognitive Services](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) pour vous abonner à Vision par ordinateur.
 
 Vous pouvez passer la clé d’abonnement de l’une des façons suivantes :
 
@@ -180,12 +180,12 @@ Voici un exemple :
 Champ | Type | Contenu
 ------|------|------|
 Balises  | `object` | Objet de plus haut niveau pour un tableau d’étiquettes.
-tags[].Name | `string`  | Mot clé du classifieur d’étiquettes.
-tags[].Score    | `number`  | Score de confiance, compris entre 0 et 1.
-description  | `object` | Objet de plus haut niveau pour une description.
+tags[].Name | `string`    | Mot clé du classifieur d’étiquettes.
+tags[].Score    | `number`    | Score de confiance, compris entre 0 et 1.
+description     | `object`    | Objet de plus haut niveau pour une description.
 description.tags[] |    `string`    | Liste d’étiquettes.  En cas confiance insuffisante pour pouvoir produire une légende, les étiquettes peuvent être les seules informations disponibles pour l’appelant.
-description.captions[].text | `string`  | Expression décrivant l’image.
-description.captions[].confidence   | `number`  | Score de confiance pour l’expression.
+description.captions[].text    | `string`    | Expression décrivant l’image.
+description.captions[].confidence    | `number`    | Score de confiance pour l’expression.
 
 ## <a name="retrieve-and-understand-the-json-output-of-domain-specific-models"></a>Récupérer et comprendre la sortie JSON des modèles spécifiques au domaine
 
@@ -239,12 +239,12 @@ Pour les modèles spécifiques au domaine qui utilisent l’option 2 (analyse é
 
 Le champ « categories » est une liste d’une ou plusieurs catégories parmi les [86 catégories](../Category-Taxonomy.md) de la taxonomie d’origine. Les catégories qui se terminent par un trait de soulignement correspondent à cette catégorie et à ses enfants (par exemple, « people_ » et « people_group » pour le modèle « celebrities »).
 
-Champ   | Type  | Contenu
+Champ    | Type    | Contenu
 ------|------|------|
-categories | `object`   | Objet de plus haut niveau.
-categories[].name    | `string` | Nom de la liste de la taxonomie de 86 catégories.
-categories[].score  | `number`  | Score de confiance, compris entre 0 et 1.
-categories[].detail  | `object?`      | (Facultatif) Objet de détail.
+categories | `object`    | Objet de plus haut niveau.
+categories[].name     | `string`    | Nom de la liste de la taxonomie de 86 catégories.
+categories[].score    | `number`    | Score de confiance, compris entre 0 et 1.
+categories[].detail     | `object?`      | (Facultatif) Objet de détail.
 
 Si plusieurs catégories correspondent (par exemple, le classifieur de 86 catégories retourne un score à la fois pour « people_ » et pour « people_young » quand model=celebrities), les détails sont attachés à la correspondance du niveau le plus général (dans cet exemple, « people_ »).
 

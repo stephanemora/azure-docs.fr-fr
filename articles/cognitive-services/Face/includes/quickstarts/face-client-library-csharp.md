@@ -9,12 +9,12 @@ ms.subservice: face-api
 ms.topic: include
 ms.date: 04/14/2020
 ms.author: pafarley
-ms.openlocfilehash: 6341754078c77225511523431a56618a4866c418
-ms.sourcegitcommit: 34a6fa5fc66b1cfdfbf8178ef5cdb151c97c721c
+ms.openlocfilehash: 7dbd8783b62d9a6f573b8f0eb25e8dadabaac56b
+ms.sourcegitcommit: 55b2bbbd47809b98c50709256885998af8b7d0c5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82148400"
+ms.lasthandoff: 06/18/2020
+ms.locfileid: "85073322"
 ---
 Découvrez la bibliothèque de client Visage pour .NET. Suivez les étapes suivantes pour installer le package et essayer l’exemple de code pour les tâches de base. Le service Visage vous donne accès à des algorithmes avancés pour la détection et la reconnaissance des visages dans des images.
 
@@ -30,16 +30,14 @@ Utilisez la bibliothèque de client Visage pour .NET afin d’effectuer les op�
 
 ## <a name="prerequisites"></a>Prérequis
 
-* Abonnement Azure - [En créer un gratuitement](https://azure.microsoft.com/free/)
 * Version actuelle de [.NET Core](https://dotnet.microsoft.com/download/dotnet-core)
+* Abonnement Azure - [En créer un gratuitement](https://azure.microsoft.com/free/cognitive-services/)
+* Une fois que vous avez votre abonnement Azure, <a href="https://portal.azure.com/#create/Microsoft.CognitiveServicesFace"  title="créez une ressource Visage"  target="_blank">créer une ressource Visage <span class="docon docon-navigate-external x-hidden-focus"></span></a> dans le Portail Azure pour obtenir votre clé et votre point de terminaison. Une fois le déploiement effectué, cliquez sur **Accéder à la ressource**.
+    * Vous aurez besoin de la clé et du point de terminaison de la ressource que vous créez pour connecter votre application à l’API Visage. Vous collerez votre clé et votre point de terminaison dans le code ci-dessous plus loin dans le guide de démarrage rapide.
+    * Vous pouvez utiliser le niveau tarifaire Gratuit (`F0`) pour tester le service, puis passer par la suite à un niveau payant pour la production.
+* Une fois que vous avez obtenu une clé et un point de terminaison, [créez des variables d’environnement](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account#configure-an-environment-variable-for-authentication) pour la clé et l’URL du point de terminaison, nommées respectivement `FACE_SUBSCRIPTION_KEY` et `FACE_ENDPOINT`.
 
 ## <a name="setting-up"></a>Configuration
-
-### <a name="create-a-face-azure-resource"></a>Créer une ressource Visage Azure
-
-Les services Azure Cognitive Services sont représentés par des ressources Azure auxquelles vous vous abonnez. Créez une ressource pour Visage en utilisant le [portail Azure](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) ou [Azure CLI](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account-cli) sur votre ordinateur local. Vous pouvez aussi obtenir une [clé pour un essai gratuit](https://azure.microsoft.com/try/cognitive-services/#decision) valide pendant sept jours. Une fois l’inscription terminée, elle est disponible sur le [site web Azure](https://azure.microsoft.com/try/cognitive-services/my-apis/).  
-
-Une fois que vous avez obtenu une clé à partir de votre abonnement ou ressource d’essai, [créez des variables d’environnement](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account#configure-an-environment-variable-for-authentication) pour la clé et l’URL de point de terminaison, nommées respectivement `FACE_SUBSCRIPTION_KEY` et `FACE_ENDPOINT`.
 
 ### <a name="create-a-new-c-application"></a>Créer une application C#
 
@@ -220,7 +218,7 @@ L’extrait de code suivant appelle l’opération **IdentifyAsync** et affiche 
 
 ## <a name="take-a-snapshot-for-data-migration"></a>Prendre une capture instantanée pour la migration de données
 
-La fonctionnalité de capture instantanée vous permet de déplacer vos données de visage enregistrées, comme un **PersonGroup** entraîné, vers un autre abonnement Visage Azure Cognitive Services. Vous pouvez utiliser cette fonctionnalité si, par exemple, vous avez créé un objet **PersonGroup** à l’aide d’un abonnement d’essai gratuit et que vous voulez le migrer cet objet vers un abonnement payant. Pour obtenir une vue d’ensemble de la fonctionnalité de capture instantanée, consultez [Migrer vos données de visage](../../Face-API-How-to-Topics/how-to-migrate-face-data.md).
+La fonctionnalité de capture instantanée vous permet de déplacer vos données de visage enregistrées, comme un **PersonGroup** entraîné, vers un autre abonnement Visage Azure Cognitive Services. Vous pouvez utiliser cette fonctionnalité si, par exemple, vous avez créé un objet **PersonGroup** avec un abonnement gratuit et que vous voulez migrer cet objet vers un abonnement payant. Pour obtenir une vue d’ensemble de la fonctionnalité de capture instantanée, consultez [Migrer vos données de visage](../../Face-API-How-to-Topics/how-to-migrate-face-data.md).
 
 Dans cet exemple, vous allez migrer le **PersonGroup** que vous avez créé à l’étape [Créer et entraîner un groupe de personnes](#create-and-train-a-person-group). Vous pouvez d’abord terminer cette section ou créer vos propres constructions de données Visage à migrer.
 

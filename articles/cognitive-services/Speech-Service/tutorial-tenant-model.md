@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: tutorial
-ms.date: 02/10/2020
+ms.date: 06/25/2020
 ms.author: erhopf
-ms.openlocfilehash: a83ed5c9cec994c1bc4cadd5cf6208c159823658
-ms.sourcegitcommit: 9ee0cbaf3a67f9c7442b79f5ae2e97a4dfc8227b
+ms.openlocfilehash: 04a6742d3db8d65e06fe3d7b35ed94ebe5dc13a5
+ms.sourcegitcommit: b56226271541e1393a4b85d23c07fd495a4f644d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "77469015"
+ms.lasthandoff: 06/26/2020
+ms.locfileid: "85391211"
 ---
 # <a name="tutorial-create-a-tenant-model-preview"></a>Tutoriel : Créer un modèle de locataire (préversion)
 
@@ -24,7 +24,7 @@ Tenant Model (Custom Speech avec données Office 365) est un service d’activa
 > [!IMPORTANT]
 > Si votre organisation s’inscrit via le service Tenant Model, il se peut que le service Speech accède au modèle de langage de votre organisation. Un modèle est généré à partir d’e-mails et de documents de groupe public Office 365 qui peuvent être consultés par quiconque au sein de votre organisation. L’administrateur Office 365 de votre organisation peut activer ou désactiver l’utilisation du modèle de langage à l’échelle de l’organisation à partir du portail d’administration Office 365.
 
-Ce didacticiel vous montre comment effectuer les opérations suivantes :
+Dans ce tutoriel, vous allez apprendre à :
 
 > [!div class="checklist"]
 > * S’inscrire à Tenant Model à partir du centre d’administration Microsoft 365

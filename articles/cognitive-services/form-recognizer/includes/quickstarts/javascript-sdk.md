@@ -434,10 +434,10 @@ Pour obtenir des instructions plus détaillées sur l’activation des journaux,
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Dans ce guide de démarrage rapide, vous avez utilisé la bibliothèque de client Python Form Recognizer pour entraîner des modèles et analyser des formulaires de différentes manières. Découvrez ensuite les astuces pour créer un jeu de données d’entraînement plus performant et produire des modèles plus justes.
+Dans ce guide de démarrage rapide, vous avez utilisé la bibliothèque de client Python Form Recognizer pour entraîner des modèles et analyser des formulaires de différentes manières. Découvrez ensuite les astuces pour créer un jeu de données d’apprentissage plus performant et produire des modèles plus précis.
 
 > [!div class="nextstepaction"]
-> [Créer un jeu de données d’entraînement](../../build-training-data-set.md)
+> [Créer un jeu de données d’apprentissage](../../build-training-data-set.md)
 
 * [Qu’est-ce que Form Recognizer ?](../../overview.md)
 * Vous trouverez l’exemple de code de ce guide (et bien plus encore) sur [GitHub](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/formrecognizer/ai-form-recognizer/samples).

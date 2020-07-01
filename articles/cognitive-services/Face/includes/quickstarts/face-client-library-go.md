@@ -9,12 +9,12 @@ ms.subservice: ''
 ms.topic: include
 ms.date: 01/27/2020
 ms.author: pafarley
-ms.openlocfilehash: 4a96f0e887bb04aea6d451e08bd5d26d1cc6edca
-ms.sourcegitcommit: 856db17a4209927812bcbf30a66b14ee7c1ac777
+ms.openlocfilehash: 887b9fa62b89c500ef3b2b0164ba0281f911621e
+ms.sourcegitcommit: 55b2bbbd47809b98c50709256885998af8b7d0c5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "82587814"
+ms.lasthandoff: 06/18/2020
+ms.locfileid: "85073347"
 ---
 Découvrez la bibliothèque de client Visage pour Go. Suivez les étapes suivantes pour installer la bibliothèque et essayer nos exemples de tâches de base. Le service Visage vous donne accès à des algorithmes avancés pour la détection et la reconnaissance des visages dans des images.
 
@@ -30,66 +30,14 @@ Vous pouvez effectuer les tâches suivantes à l’aide de la bibliothèque de c
 
 ## <a name="prerequisites"></a>Prérequis
 
-* Un abonnement Azure : [créez-en un gratuitement](https://azure.microsoft.com/free/)
 * La dernière version de [Go](https://golang.org/dl/)
+* Abonnement Azure - [En créer un gratuitement](https://azure.microsoft.com/free/cognitive-services/)
+* Une fois que vous avez votre abonnement Azure, <a href="https://portal.azure.com/#create/Microsoft.CognitiveServicesFace"  title="créez une ressource Visage"  target="_blank">créer une ressource Visage <span class="docon docon-navigate-external x-hidden-focus"></span></a> dans le Portail Azure pour obtenir votre clé et votre point de terminaison. Une fois le déploiement effectué, cliquez sur **Accéder à la ressource**.
+    * Vous aurez besoin de la clé et du point de terminaison de la ressource que vous créez pour connecter votre application à l’API Visage. Vous collerez votre clé et votre point de terminaison dans le code ci-dessous plus loin dans le guide de démarrage rapide.
+    * Vous pouvez utiliser le niveau tarifaire Gratuit (`F0`) pour tester le service, puis passer par la suite à un niveau payant pour la production.
+* Une fois que vous avez obtenu une clé et un point de terminaison, [créez des variables d’environnement](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account#configure-an-environment-variable-for-authentication) pour ces derniers, nommées respectivement `FACE_SUBSCRIPTION_KEY` et `FACE_ENDPOINT`.
 
-## <a name="set-up"></a>Configurer
-
-### <a name="create-a-face-azure-resource"></a>Créer une ressource Visage Azure 
-
-Commencez à utiliser le service Visage en créant une ressource Azure. Choisissez le type de ressource qui vous convient :
-
-* Une [ressource d’essai](https://azure.microsoft.com/try/cognitive-services/#decision) (aucun abonnement Azure n’est nécessaire) : 
-    * Valable pendant sept jours, gratuitement. Une fois l’inscription terminée, une clé d’essai et un point de terminaison seront disponibles sur le [site web Azure](https://azure.microsoft.com/try/cognitive-services/my-apis/). 
-    * Cette option est intéressante si vous voulez essayer le service Visage, mais que vous n’avez pas d’abonnement Azure.
-* Une [ressource du service Visage](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesFace) :
-    * Disponible via le portail Azure jusqu’à ce que vous supprimiez la ressource.
-    * Utilisez le niveau tarifaire Gratuit pour tester le service, puis effectuez par la suite une mise à niveau vers un niveau payant pour la production.
-* Une [ressource multiservice](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesAllInOne) :
-    * Disponible via le portail Azure jusqu’à ce que vous supprimiez la ressource.  
-    * Utilisez la même clé et le même point de terminaison pour vos applications, dans plusieurs services Cognitive Services.
-
-### <a name="create-an-environment-variable"></a>Créer une variable d’environnement
-
->[!NOTE]
-> Les points de terminaison pour les ressources autres que d’essai créées après le 1er juillet 2019 utilisent le format de sous-domaine personnalisé indiqué ci-dessous. Pour obtenir plus d’informations et une liste complète des points de terminaison régionaux, consultez [Noms de sous-domaines personnalisés pour Cognitive Services](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-custom-subdomains). 
-
-En utilisant votre clé et le point de terminaison de la ressource que vous avez créée, créez deux variables d’environnement pour l’authentification :
-* `FACE_SUBSCRIPTION_KEY` : clé de ressource pour l’authentification de vos requêtes.
-* `FACE_ENDPOINT` : point de terminaison de ressource pour l’envoi de requêtes d’API. Il se présente comme suit : 
-  * `https://<your-custom-subdomain>.api.cognitive.microsoft.com` 
-
-Utilisez les instructions pour votre système d’exploitation.
-<!-- replace the below endpoint and key examples -->
-#### <a name="windows"></a>[Windows](#tab/windows)
-
-```console
-setx FACE_SUBSCRIPTION_KEY <replace-with-your-product-name-key>
-setx FACE_ENDPOINT <replace-with-your-product-name-endpoint>
-```
-
-Après avoir ajouté la variable d’environnement, redémarrez la fenêtre de console.
-
-#### <a name="linux"></a>[Linux](#tab/linux)
-
-```bash
-export FACE_SUBSCRIPTION_KEY=<replace-with-your-product-name-key>
-export FACE_ENDPOINT=<replace-with-your-product-name-endpoint>
-```
-
-Après avoir ajouté la variable d’environnement, exécutez `source ~/.bashrc` depuis la fenêtre de console pour appliquer les changements.
-
-#### <a name="macos"></a>[macOS](#tab/unix)
-
-Modifiez votre profil `.bash_profile` et ajoutez la variable d’environnement :
-
-```bash
-export FACE_SUBSCRIPTION_KEY=<replace-with-your-product-name-key>
-export FACE_ENDPOINT=<replace-with-your-product-name-endpoint>
-```
-
-Après avoir ajouté la variable d’environnement, exécutez `source .bash_profile` depuis la fenêtre de console pour appliquer les changements.
-***
+## <a name="setting-up"></a>Configuration
 
 ### <a name="create-a-go-project-directory"></a>Créer un répertoire de projet Go
 
@@ -301,13 +249,13 @@ Le code suivant compare chacune des images sources à l’image cible et affiche
 
 ## <a name="take-a-snapshot-for-data-migration"></a>Prendre une capture instantanée pour la migration de données
 
-La fonctionnalité de captures instantanées vous permet de déplacer les données de visage enregistrées, telles qu’un **PersonGroup** entraîné, vers un autre abonnement Azure Cognitive Services Visage. Utilisez cette fonctionnalité si, par exemple, vous avez créé un objet **PersonGroup** avec un abonnement d’essai gratuit et que vous voulez maintenant migrer cet objet vers un abonnement payant. Consultez la section [Migrer vos données de visage](../../Face-API-How-to-Topics/how-to-migrate-face-data.md) pour obtenir une vue d’ensemble de la fonctionnalité de captures instantanées.
+La fonctionnalité de captures instantanées vous permet de déplacer les données de visage enregistrées, telles qu’un **PersonGroup** entraîné, vers un autre abonnement Azure Cognitive Services Visage. Utilisez cette fonctionnalité si, par exemple, vous avez créé un objet **PersonGroup** avec un abonnement gratuit et que vous voulez maintenant migrer cet objet vers un abonnement payant. Consultez la section [Migrer vos données de visage](../../Face-API-How-to-Topics/how-to-migrate-face-data.md) pour obtenir une vue d’ensemble de la fonctionnalité de captures instantanées.
 
 Dans cet exemple, vous allez migrer l’objet **PersonGroup** que vous avez créé à l’étape [Créer et entraîner un groupe de personnes](#create-and-train-a-person-group). Vous pouvez d’abord terminer cette section ou utiliser vos propres constructions de données Visage.
 
 ### <a name="set-up-target-subscription"></a>Configurer l’abonnement cible
 
-Tout d’abord, vous avez besoin de configurer un deuxième abonnement Azure avec une ressource Visage. Pour ce faire, répétez les étapes de la section [Configurer](#set-up). 
+Tout d’abord, vous avez besoin de configurer un deuxième abonnement Azure avec une ressource Visage. Pour ce faire, répétez les étapes de la section [Configurer](#setting-up). 
 
 Après quoi, créez les variables suivantes en haut de la méthode **main**. Vous devez également créer des variables d’environnement pour l’ID d’abonnement de votre compte Azure ainsi que la clé, le point de terminaison et l’ID d’abonnement de votre nouveau compte (cible).
 
