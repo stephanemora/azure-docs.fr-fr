@@ -57,7 +57,7 @@ L’API Recherche visuelle Bing est un service web RESTful et peut donc être fa
 Commencez par essayer la [démonstration interactive](https://azure.microsoft.com/services/cognitive-services/bing-visual-search/) de l’API Recherche visuelle Bing.
 La démonstration vous explique comment personnaliser rapidement une requête de recherche et parcourir le web à la recherche d’images.
 
-Pour configurer rapidement votre première requête, consultez les guides de démarrage rapide : [C#](quickstarts/csharp.md) | [Java](quickstarts/java.md) | [node.js](quickstarts/nodejs.md) | [Python](quickstarts/python.md).
+Pour configurer rapidement votre première demande, consultez ces guides de démarrage rapide : [C#](quickstarts/csharp.md) | [Java](quickstarts/java.md) | [node.js](quickstarts/nodejs.md) | [Python](quickstarts/python.md).
 
 ## <a name="see-also"></a>Voir aussi
 

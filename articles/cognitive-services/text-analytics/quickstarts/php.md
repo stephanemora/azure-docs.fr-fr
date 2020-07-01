@@ -1,5 +1,5 @@
 ---
-title: 'Démarrage rapide : Utilisation de PHP pour appeler l’API Analyse de texte'
+title: 'Démarrage rapide : Utilisation de PHP pour appeler l’API Analyse de texte'
 titleSuffix: Azure Cognitive Services
 description: Ce guide de démarrage rapide montre comment obtenir des informations et des exemples de code pour vous aider à commencer rapidement à utiliser l’API Analyse de texte dans Azure Cognitive Services.
 services: cognitive-services
@@ -17,14 +17,14 @@ ms.contentlocale: fr-FR
 ms.lasthandoff: 04/28/2020
 ms.locfileid: "75378583"
 ---
-# <a name="quickstart-using-php-to-call-the-text-analytics-cognitive-service"></a>Démarrage rapide : Utilisation de PHP pour appeler le service cognitif Analyse de texte
+# <a name="quickstart-using-php-to-call-the-text-analytics-cognitive-service"></a>Démarrage rapide : Utilisation de PHP pour appeler le service cognitif Analyse de texte
 <a name="HOLTop"></a>
 
 Cet article montre comment [détecter la langue](#Detect), [analyser les sentiments](#SentimentAnalysis), [extraire les expressions clés](#KeyPhraseExtraction) et [identifier les entités liées](#Entities) à l’aide des [API Analyse de texte](//go.microsoft.com/fwlink/?LinkID=759711) avec PHP.
 
 [!INCLUDE [text-analytics-api-references](../includes/text-analytics-api-references.md)]
 
-## <a name="prerequisites"></a>Conditions préalables requises
+## <a name="prerequisites"></a>Prérequis
 
 [!INCLUDE [cognitive-services-text-analytics-signup-requirements](../../../../includes/cognitive-services-text-analytics-signup-requirements.md)]
 
