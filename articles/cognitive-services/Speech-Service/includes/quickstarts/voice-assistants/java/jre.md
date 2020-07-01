@@ -11,7 +11,7 @@ ms.contentlocale: fr-FR
 ms.lasthandoff: 04/28/2020
 ms.locfileid: "80671331"
 ---
-## <a name="prerequisites"></a>Conditions préalables requises
+## <a name="prerequisites"></a>Prérequis
 
 Avant de commencer, assurez-vous de :
 
