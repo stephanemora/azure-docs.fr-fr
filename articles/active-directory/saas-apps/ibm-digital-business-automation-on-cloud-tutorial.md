@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 06/08/2020
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 94dcd06e1b3c201a10e656b6752cfa60c0c7d39c
-ms.sourcegitcommit: bc943dc048d9ab98caf4706b022eb5c6421ec459
+ms.openlocfilehash: f33992c7aa205e503c7de150adad7180ff823881
+ms.sourcegitcommit: 51718f41d36192b9722e278237617f01da1b9b4e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/14/2020
-ms.locfileid: "84765246"
+ms.lasthandoff: 06/19/2020
+ms.locfileid: "85099666"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-ibm-digital-business-automation-on-cloud"></a>Tutoriel : Intégration de l’authentification unique Azure Active Directory avec IBM Digital Business Automation on Cloud
 
@@ -81,7 +81,21 @@ Effectuez les étapes suivantes pour activer l’authentification unique Azure A
 
    ![Modifier la configuration SAML de base](common/edit-urls.png)
 
-1. Dans la section **Configuration SAML de base**, si vous souhaitez configurer l’application en mode Initié par le **fournisseur d’identité**, entrez les valeurs pour les champs suivants :
+1. Dans la section **Configuration SAML de base**, si vous disposez d’un **fichier de métadonnées du fournisseur de services**, suivez les étapes ci-dessous :
+    
+    a. Cliquez sur **Charger un fichier de métadonnées**.
+
+    b. Cliquez sur le **logo du dossier** pour sélectionner le fichier de métadonnées, puis cliquez sur **Charger**.
+
+    c. Une fois le fichier de métadonnées chargé, les valeurs **Identificateur** et **URL de réponse** sont automatiquement renseignées dans la zone de texte de la section IBM Digital Business Automation on Cloud :
+
+    > [!Note]
+    > Si les valeurs **Identificateur** et **URL de réponse** ne sont pas automatiquement renseignées, renseignez-les manuellement en fonction de vos besoins.
+
+    > [!Note]
+    > Les clients peuvent obtenir le fichier de métadonnées de leur abonnement cloud auprès de l’[équipe DBAoC DevOps](mailto:supportbpmoncloud@us.ibm.com).
+
+1. Si vous ne disposez pas d’un **fichier de métadonnées du fournisseur de services**, dans la section **Configuration SAML de base**, pour configurer si vous le souhaitez l’application en mode Initié par le **fournisseur d’identité**, entrez les valeurs pour les champs suivants :
 
     a. Dans la zone de texte **Identificateur**, tapez une URL au format suivant : `https://www.automationcloud.ibm.com/isam/sps/<TENANT>/saml20`
 
@@ -133,7 +147,7 @@ Dans cette section, vous allez permettre à B.Simon d’utiliser l’authentific
 
 ## <a name="configure-ibm-digital-business-automation-on-cloud-sso"></a>Configurer l’authentification unique IBM Digital Business Automation on Cloud
 
-Pour configurer l’authentification unique côté **IBM Digital Business Automation on Cloud**, vous devez envoyer le **XML des métadonnées de fédération** téléchargé et les URL appropriées copiées à partir du portail Azure à l’[équipe de support d’IBM Digital Business Automation on Cloud](mailto:supportbpmoncloud@us.ibm.com). Celle-ci configure ensuite ce paramètre pour que la connexion SSO SAML soit définie correctement des deux côtés.
+Pour configurer l’authentification unique côté **IBM Digital Business Automation on Cloud**, vous devez envoyer le **XML des métadonnées de fédération** téléchargé et les URL appropriées copiées à partir du portail Azure à l’[équipe de support d’IBM Digital Business Automation on Cloud](mailto:supportbpmoncloud@us.ibm.com). Celles-ci configurent ensuite ce paramètre pour que la connexion SSO SAML soit définie correctement des deux côtés.
 
 ### <a name="create-ibm-digital-business-automation-on-cloud-test-user"></a>Créer un utilisateur de test IBM Digital Business Automation on Cloud
 

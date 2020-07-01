@@ -3,12 +3,12 @@ title: Évaluer des serveurs physiques en vue d’une migration vers Azure avec 
 description: Décrit comment évaluer des serveurs physiques locaux pour la migration vers Azure avec Azure Migrate Server Assessment.
 ms.topic: tutorial
 ms.date: 04/15/2020
-ms.openlocfilehash: ee88f9058abc89a671fa846a67c22a752f0d05e4
-ms.sourcegitcommit: ff19f4ecaff33a414c0fa2d4c92542d6e91332f8
+ms.openlocfilehash: 2c0662c6ccf66f09413891c99da789c50847277e
+ms.sourcegitcommit: 971a3a63cf7da95f19808964ea9a2ccb60990f64
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/18/2020
-ms.locfileid: "85052210"
+ms.lasthandoff: 06/19/2020
+ms.locfileid: "85080765"
 ---
 # <a name="assess-physical-servers-with-azure-migrateserver-assessment"></a>Évaluer les serveurs physiques à l’aide d’Azure Migrate : Évaluation du serveur
 
@@ -80,7 +80,7 @@ Azure Migrate : Server Assessment exécute une appliance légère.
     - Extraire le contenu du fichier compressé. Lancer la console PowerShell avec des privilèges administratifs.
     - Exécuter le script PowerShell pour lancer l’application web de l’appliance.
     - Configurez l’appliance pour la première fois, puis inscrivez-la auprès du projet Azure Migrate.
-- Vous pouvez configurer plusieurs appliances pour un seul projet Azure Migrate. Parmi toutes les appliances, vous pouvez découvrir un nombre quelconque de serveurs physiques. Un appliance peut découvrir au maximum 250 serveurs.
+- Vous pouvez configurer plusieurs appliances pour un seul projet Azure Migrate. Parmi toutes les appliances, vous pouvez découvrir un nombre quelconque de serveurs physiques. Une appliance peut découvrir au maximum 1 000 serveurs.
 
 ### <a name="download-the-installer-script"></a>Télécharger le script du programme d’installation
 

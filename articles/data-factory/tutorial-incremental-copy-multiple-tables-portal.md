@@ -1,6 +1,6 @@
 ---
 title: Copier de façon incrémentielle plusieurs tables à l’aide du portail Azure
-description: Dans ce tutoriel, vous créez un pipeline Azure Data Factory qui copie de façon incrémentielle des données delta de plusieurs tables d’une base de données SQL Server dans une base de données Azure SQL.
+description: Dans ce tutoriel, vous créez un pipeline Azure Data Factory qui copie de façon incrémentielle des données delta de plusieurs tables d’une base de données SQL Server vers une base de données Azure SQL Database.
 services: data-factory
 ms.author: yexu
 author: dearandyxu
@@ -11,18 +11,18 @@ ms.workload: data-services
 ms.topic: tutorial
 ms.custom: seo-lt-2019; seo-dt-2019
 ms.date: 06/10/2020
-ms.openlocfilehash: 2578d1b6fa07545e7205b8a8c86447ef2e54176a
-ms.sourcegitcommit: c4ad4ba9c9aaed81dfab9ca2cc744930abd91298
+ms.openlocfilehash: c215c2cb256ab37bcb096c018aefb3a410ab1e4f
+ms.sourcegitcommit: bf99428d2562a70f42b5a04021dde6ef26c3ec3a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/12/2020
-ms.locfileid: "84730099"
+ms.lasthandoff: 06/23/2020
+ms.locfileid: "85251146"
 ---
-# <a name="incrementally-load-data-from-multiple-tables-in-sql-server-to-an-azure-sql-database-using-the-azure-portal"></a>Charger de façon incrémentielle les données de plusieurs tables de SQL Server sur une base de données Azure SQL Database à partir du portail Azure
+# <a name="incrementally-load-data-from-multiple-tables-in-sql-server-to-a-database-in-azure-sql-database-using-the-azure-portal"></a>Charger de façon incrémentielle les données de plusieurs tables dans SQL Server vers une base de données dans Azure SQL Database par le biais du portail Azure
 
 [!INCLUDE[appliesto-adf-xxx-md](includes/appliesto-adf-xxx-md.md)]
 
-Dans ce tutoriel, vous créez une fabrique de données Azure Data Factory avec un pipeline qui charge les données delta provenant de plusieurs tables d’une base de données SQL Server vers une base de données Azure SQL.    
+Dans ce tutoriel, vous créez une fabrique de données Azure Data Factory avec un pipeline qui charge les données delta provenant de plusieurs tables d’une base de données SQL Server sur une base de données dans Azure SQL Database.    
 
 Dans ce tutoriel, vous allez effectuer les étapes suivantes :
 
@@ -69,7 +69,7 @@ Si vous n’avez pas d’abonnement Azure, créez un compte [gratuit](https://az
 
 ## <a name="prerequisites"></a>Prérequis
 * **SQL Server**. Dans le cadre de ce tutoriel, vous allez utiliser une base de données SQL Server comme magasin de données source. 
-* **Azure SQL Database**. Vous allez utiliser une base de données SQL comme magasin de données récepteur. Si vous ne disposez pas d’une base de données SQL, consultez [Créer une base de données Azure SQL Database](../azure-sql/database/single-database-create-quickstart.md) pour connaître la procédure à suivre pour en créer une. 
+* **Azure SQL Database**. Vous utilisez une base de données dans Azure SQL Database comme magasin de données récepteur. Si vous n’avez pas de base de données dans SQL Database, consultez [Créer une base de données dans Azure SQL Database](../azure-sql/database/single-database-create-quickstart.md) pour savoir comme en créer une. 
 
 ### <a name="create-source-tables-in-your-sql-server-database"></a>Créer des tables sources dans votre base de données SQL Server
 
@@ -111,12 +111,13 @@ Si vous n’avez pas d’abonnement Azure, créez un compte [gratuit](https://az
     
     ```
 
-### <a name="create-destination-tables-in-your-azure-sql-database"></a>Créer des tables de destination dans votre base de données Azure SQL
-1. Ouvrez SQL Server Management Studio, puis connectez-vous à votre base de données Azure SQL.
+### <a name="create-destination-tables-in-your-database"></a>Créer des tables de destination dans votre base de données
+
+1. Ouvrez SQL Server Management Studio, puis connectez-vous à votre base de données dans Azure SQL Database.
 
 1. Dans l’**Explorateur de serveurs**, cliquez avec le bouton droit sur la base de données et choisissez **Nouvelle requête**.
 
-1. Exécutez la commande SQL suivante sur votre base de données Azure SQL pour créer des tables nommées `customer_table` et `project_table` :  
+1. Exécutez la commande SQL suivante sur votre base de données pour créer des tables nommées `customer_table` et `project_table` :  
     
     ```sql
     create table customer_table
@@ -134,8 +135,9 @@ Si vous n’avez pas d’abonnement Azure, créez un compte [gratuit](https://az
 
     ```
 
-### <a name="create-another-table-in-the-azure-sql-database-to-store-the-high-watermark-value"></a>Créer une autre table dans la base de données Azure SQL pour stocker la valeur de limite supérieure
-1. Exécutez la commande SQL suivante sur votre base de données Azure SQL pour créer une table nommée `watermarktable` pour stocker la valeur de limite : 
+### <a name="create-another-table-in-your-database-to-store-the-high-watermark-value"></a>Créer une autre table dans votre base de données pour stocker la valeur de filigrane supérieure
+
+1. Exécutez la commande SQL suivante sur votre base de données pour créer une table sous le nom `watermarktable` et y stocker la valeur de limite supérieure : 
     
     ```sql
     create table watermarktable
@@ -156,9 +158,9 @@ Si vous n’avez pas d’abonnement Azure, créez un compte [gratuit](https://az
     
     ```
 
-### <a name="create-a-stored-procedure-in-the-azure-sql-database"></a>Créer une procédure stockée dans la base de données Azure SQL 
+### <a name="create-a-stored-procedure-in-your-database"></a>Créer une procédure stockée dans votre base de données
 
-Exécutez la commande suivante pour créer une procédure stockée dans votre base de données Azure SQL Database. Cette procédure stockée met à jour la valeur de filigrane après chaque exécution du pipeline. 
+Exécutez la commande suivante pour créer une procédure stockée dans votre base de données. Cette procédure stockée met à jour la valeur de filigrane après chaque exécution du pipeline. 
 
 ```sql
 CREATE PROCEDURE usp_write_watermark @LastModifiedtime datetime, @TableName varchar(50)
@@ -174,8 +176,9 @@ END
 
 ```
 
-### <a name="create-data-types-and-additional-stored-procedures-in-azure-sql-database"></a>Créer des types de données et des procédures stockées supplémentaires dans la base de données Azure SQL
-Exécutez la requête suivante pour créer deux procédures stockées et deux types de données dans votre base de données Azure SQL. Ils sont utilisés pour fusionner les données des tables source dans les tables de destination.
+### <a name="create-data-types-and-additional-stored-procedures-in-your-database"></a>Créer des types de données et des procédures stockées supplémentaires dans votre base de données
+
+Exécutez la requête suivante pour créer deux procédures stockées et deux types de données dans votre base de données. Ils sont utilisés pour fusionner les données des tables source dans les tables de destination.
 
 Afin de faciliter le démarrage du parcours, nous utilisons directement ces procédures stockées en passant les données delta par l’intermédiaire d’une variable de table, puis nous les fusionnons dans le magasin de destination. Faites attention qu’il ne s’attende pas à ce qu’un nombre « élevé » de lignes delta (plus de 100) soient stockées dans la variable de table.  
 
@@ -285,7 +288,7 @@ Lorsque vous déplacez des données d’un magasin de données d’un réseau pr
 1. Vérifiez que **MySelfHostedIR** figure dans la liste des runtimes d’intégration.
 
 ## <a name="create-linked-services"></a>Créez des services liés
-Vous allez créer des services liés dans une fabrique de données pour lier vos magasins de données et vos services de calcul à la fabrique de données. Dans cette section, vous créez des services liés à vos base de données SQL Server et base de données Azure SQL. 
+Vous allez créer des services liés dans une fabrique de données pour lier vos magasins de données et vos services de calcul à la fabrique de données. Dans cette section, vous créez des services liés à votre base de données SQL Server et à votre base de données dans Azure SQL Database. 
 
 ### <a name="create-the-sql-server-linked-service"></a>Créer le service lié SQL Server
 Dans cette étape, vous liez votre base de données SQL Server à la fabrique de données.
@@ -308,7 +311,7 @@ Dans cette étape, vous liez votre base de données SQL Server à la fabrique de
     1. Pour enregistrer le service lié, cliquez sur **Terminer**.
 
 ### <a name="create-the-azure-sql-database-linked-service"></a>Créer le service lié Azure SQL Database
-Dans cette dernière étape, vous créez un service lié qui relie votre base de données SQL Server source à la fabrique de données. Dans cette étape, vous liez votre base de données Azure SQL de destination/récepteur à la fabrique de données. 
+Dans cette dernière étape, vous créez un service lié qui relie votre base de données SQL Server source à la fabrique de données. Dans cette étape, vous liez votre base de données de destination/récepteur à la fabrique de données. 
 
 1. Dans la fenêtre **Connexions**, passez de l’onglet **Runtimes d’intégration** à l’onglet **Services liés**, puis cliquez sur **+ Nouveau**.
 1. Dans la fenêtre **Nouveau service lié**, sélectionnez **Azure SQL Database**, puis cliquez sur **Continuer**. 
@@ -316,8 +319,8 @@ Dans cette dernière étape, vous créez un service lié qui relie votre base de
 
     1. Entrez **AzureSqlDatabaseLinkedService** pour **Nom**. 
     1. Dans le champ **Nom du serveur**, sélectionnez le nom de votre serveur dans la liste déroulante. 
-    1. Dans le champ **Nom de la base de données**, sélectionnez la base de données Azure SQL dans laquelle vous avez créé les tables customer_table et project_table dans le cadre des prérequis 
-    1. Dans le champ **Nom d’utilisateur**, entrez le nom de l’utilisateur qui a accès à la base de données Azure SQL. 
+    1. Dans le champ **Nom de la base de données**, sélectionnez la base de données dans laquelle vous avez créé les tables customer_table et project_table dans le cadre des prérequis. 
+    1. Dans **Nom d’utilisateur**, entrez le nom de l’utilisateur qui a accès à la base de données. 
     1. Dans le champ **Mot de passe**, entrez le **mot de passe** de l’utilisateur. 
     1. Pour vérifier si Data Factory peut se connecter à votre base de données SQL Server, cliquez sur **Tester la connexion**. Corrigez les erreurs jusqu’à ce que la connexion soit établie. 
     1. Pour enregistrer le service lié, cliquez sur **Terminer**.

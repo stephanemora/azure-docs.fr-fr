@@ -12,7 +12,7 @@
       href: quick-secure-virtual-hub.md
 - name: Tutoriels
   items:
-    - name: Sécuriser votre WAN virtuel - Portail
+    - name: Sécuriser votre hub virtuel - Portail
       href: secure-cloud-network.md
     - name: Sécuriser votre réseau virtuel hub - Portail
       href: secure-hybrid-network.md
@@ -26,16 +26,24 @@
       href: deployment-overview.md
     - name: Fournisseurs de partenaire de sécurité
       href: trusted-security-partners.md
+    - name: Groupes IP
+      href: ip-groups.md
     - name: Logique de traitement des règles
       href: rule-processing.md
     - name: Options d’architecture
       href: vhubs-and-vnets.md
+    - name: Paramètres du renseignement sur les menaces
+      href: threat-intelligence-settings.md
+    - name: FQDN dans les règles de réseau
+      href: fqdn-filtering-network-rules.md
 - name: Guides pratiques
   items:
     - name: Déployer des fournisseurs de partenaire de sécurité
       href: deploy-trusted-security-partner.md
     - name: Migrer vers une stratégie de pare-feu - PowerShell
       href: migrate-to-policy.md
+    - name: Paramètres DNS
+      href: dns-settings.md
 - name: Informations de référence
   items:
     - name: Azure CLI

@@ -86,8 +86,10 @@
       href: hyper-v-migration-architecture.md
     - name: Architecture de la migration basée sur agent VMware
       href: agent-based-migration-architecture.md
-    - name: Vue d’ensemble des évaluations
+    - name: Vue d’ensemble des évaluations de machine virtuelle Azure
       href: concepts-assessment-calculation.md
+    - name: Vue d’ensemble des évaluations AVS
+      href: concepts-azure-vmware-solution-assessment-calculation.md
     - name: Bonnes pratiques pour les évaluations
       href: best-practices-assessment.md
     - name: Vue d’ensemble de l’analyse des dépendances
@@ -124,8 +126,10 @@
       href: how-to-create-group-machine-dependencies.md
     - name: Analyser les dépendances des machines (sans agent)
       href: how-to-create-group-machine-dependencies-agentless.md
-    - name: Créer une évaluation
+    - name: Créer une évaluation de machine virtuelle Azure
       href: how-to-create-assessment.md
+    - name: Créer une évaluation AVS
+      href: how-to-create-azure-vmware-solution-assessment.md
     - name: Accéder à une base de données SQL Server
       href: 'https://docs.microsoft.com/sql/dma/dma-assess-sql-data-estate-to-sqldb'
     - name: Personnaliser une évaluation

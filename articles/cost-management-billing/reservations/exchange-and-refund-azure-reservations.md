@@ -6,12 +6,12 @@ ms.service: cost-management-billing
 ms.topic: conceptual
 ms.date: 06/12/2020
 ms.author: banders
-ms.openlocfilehash: e924c46632e37c6d196fae2db729c17a99bbae3b
-ms.sourcegitcommit: bc943dc048d9ab98caf4706b022eb5c6421ec459
+ms.openlocfilehash: 3c2f92db1f65a4e9e57ad443a9f000ab3f6567d5
+ms.sourcegitcommit: 51718f41d36192b9722e278237617f01da1b9b4e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/14/2020
-ms.locfileid: "84765112"
+ms.lasthandoff: 06/19/2020
+ms.locfileid: "85101024"
 ---
 # <a name="self-service-exchanges-and-refunds-for-azure-reservations"></a>Échanges et remboursements en libre-service de réservations Azure
 
@@ -20,9 +20,6 @@ Les réservations Azure offrent la flexibilité nécessaire pour répondre à vo
 L’échange en libre service et la fonctionnalité d’annulation n’est pas disponible pour les clients Contrat Entreprise de l’administration américaine. Les autres types d’abonnements US Government, notamment les abonnements avec paiement à l’utilisation et les abonnements de fournisseur de solutions cloud sont pris en charge.
 
 Vous devez disposer d’un accès propriétaire à l’ordre de réservation pour échanger une réservation existante ou en obtenir le remboursement. Vous pouvez [ajouter ou changer les utilisateurs qui peuvent gérer une réservation](https://docs.microsoft.com/azure/cost-management-billing/reservations/manage-reserved-vm-instance#add-or-change-users-who-can-manage-a-reservation).
-
-> [!NOTE]
-> Microsoft ne facture actuellement aucun frais de résiliation anticipée sur les remboursements de réservations. Il est possible que nous facturions les frais sur les remboursements effectués à l’avenir. Nous n’avons actuellement aucune date concernant l’activation de ces frais.
 
 ## <a name="how-to-exchange-or-refund-an-existing-reservation"></a>Comment échanger ou rembourser une réservation existante
 
@@ -75,7 +72,7 @@ Azure dispose des stratégies suivantes pour les annulations, les échanges et l
 
 **Stratégies de remboursement**
 
-- Nous ne facturons actuellement aucun frais de résiliation anticipée, mais des frais de résiliation anticipée de 12 % pourraient s’appliquer à l’avenir en cas d’annulation.
+- En cas d’annulation, des frais de résiliation anticipée de 12 % peuvent s’appliquer.
 - Le total des engagements annulés ne peut pas dépasser 50 000 USD sur 12 mois consécutifs. Exemple : Pour une réservation d’une durée de trois ans à 100 USD par mois et remboursée le 18ème mois, l’engagement annulé est de 1 800 USD. Après le remboursement, votre nouvelle limite disponible pour le remboursement est de 48 200 USD. 365 jours à compter de ce remboursement, la limite de 48 200 USD sera augmentée de 1 800 USD et votre nouvelle réserve sera de 50 000 USD. Toute autre annulation de réservation épuisera cette même réserve, et la même logique de réapprovisionnement s’appliquera.
 - Les remboursements sont calculés en fonction du prix le plus bas de votre prix d’achat ou du prix actuel de la réservation.
 - Seuls les propriétaires d’ordres de réservation peuvent traiter un remboursement. [Découvrez comment ajouter ou changer les utilisateurs qui peuvent gérer une réservation](manage-reserved-vm-instance.md#add-or-change-users-who-can-manage-a-reservation).

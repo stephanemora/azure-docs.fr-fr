@@ -103,6 +103,8 @@
           href: unresponsive-vm-apply-group-policy.md
         - name: La machine virtuelle ne répond pas lors de l’application d’une stratégie de sécurité
           href: unresponsive-vm-apply-security-policy.md
+        - name: Erreur d’arrêt Windows - État Pas de mémoire
+          href: troubleshoot-windows-stop-error.md
 - name: Impossible de se connecter à ma machine virtuelle
   items:
     - name: RDP

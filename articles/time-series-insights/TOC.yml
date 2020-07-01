@@ -117,6 +117,8 @@
       items:
         - name: Ajout de la prise en charge du type de données Long
           href: time-series-insights-long-data-type.md
+        - name: Changements relatifs à l’aplatissement et au stockage JSON
+          href: ingestion-rules-update.md
 - name: Informations de référence
   items:
     - name: Time Series Insights

@@ -5,20 +5,20 @@ ms.service: digital-twins
 ms.topic: include
 ms.date: 5/25/2020
 ms.author: baanders
-ms.openlocfilehash: 463fb7860eb35a7ff45d3794d200c69685825827
-ms.sourcegitcommit: c4ad4ba9c9aaed81dfab9ca2cc744930abd91298
+ms.openlocfilehash: 3a7c9f61af0124c656f98b64ba9295bc659c572a
+ms.sourcegitcommit: 635114a0f07a2de310b34720856dd074aaf4f9cd
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/12/2020
-ms.locfileid: "84737192"
+ms.lasthandoff: 06/23/2020
+ms.locfileid: "85262337"
 ---
 ## <a name="configure-the-sample-project"></a>Configurer l’exemple de projet
 
-Ensuite, configurez un exemple d’application cliente qui interagit avec votre instance Azure Digital Twins. Si vous n’avez pas encore téléchargé l’exemple de projet, faites-le dès maintenant en [téléchargeant le référentiel d’exemples Azure Digital Twins sous la forme d’un fichier zip](https://github.com/Azure-Samples/digital-twins-samples/archive/master.zip). 
+Ensuite, configurez un exemple d’application cliente qui interagit avec votre instance Azure Digital Twins. Si vous n’avez pas encore téléchargé l’exemple de projet, récupérez-le maintenant dans la page d’arrivée [Exemples Azure Digital Twins](https://docs.microsoft.com/samples/azure-samples/digital-twins-samples/digital-twins-samples), en sélectionnant le bouton *Télécharger le fichier ZIP* sous le titre.
 
 Accédez au fichier téléchargé sur votre ordinateur et décompressez-le.
 
-Dans le dossier décompressé, accédez à _digital-twins-samples-master/AdtSampleApp/_ . Ouvrez _**AdtE2ESample.sln**_ dans Visual Studio 2019. 
+Dans le dossier décompressé, accédez à _AdtSampleApp/_ . Ouvrez _**AdtE2ESample.sln**_ dans Visual Studio 2019. 
 
 Dans Visual Studio, utilisez le volet *Explorateur de solutions* pour créer une copie du fichier _SampleClientApp > **serviceConfig.json.TEMPLATE**_ (vous pouvez utiliser les menus contextuels pour copier et coller). Renommez la copie *serviceConfig.json*. Il s’agit d’un fichier JSON prédéfini avec les variables de configuration nécessaires pour exécuter le projet.
 

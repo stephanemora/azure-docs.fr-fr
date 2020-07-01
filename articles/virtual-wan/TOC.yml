@@ -36,6 +36,30 @@
           href: virtual-wan-locations-partners.md
         - name: Conseils d’automatisation pour les partenaires
           href: virtual-wan-configure-automation-providers.md
+    - name: Concepts de la tarification
+      href: pricing-concepts.md
+    - name: Routage
+      items:
+        - name: À propos du routage de hub virtuel
+          href: about-virtual-hub-routing.md
+        - name: Scénarios
+          items:
+            - name: Any-to-any
+              href: scenario-any-to-any.md
+            - name: Isoler les réseaux virtuels
+              href: scenario-isolate-vnets.md
+            - name: Isoler réseaux virtuels - personnalisé
+              href: scenario-isolate-vnets-custom.md
+            - name: Réseaux virtuels des services partagés
+              href: scenario-shared-services-vnet.md
+            - name: Router via une NVA
+              href: scenario-route-through-nva.md
+            - name: Router via une NVA - personnalisé (préversion)
+              href: scenario-route-through-nvas-custom.md
+            - name: Pare-feu Azure - Interhub (préversion)
+              href: scenario-route-between-hubs-firewall.md
+            - name: Pare-feu Azure - personnalisé
+              href: scenario-route-between-vnets-firewall.md
     - name: De site à site
       items:
         - name: À propos des stratégies IPsec
@@ -44,8 +68,6 @@
           href: path-selection-multiple-links.md
 - name: Guides pratiques
   items:
-    - name: Configurer l’appairage VNET global
-      href: global-peering-vnet.md
     - name: Mettre à niveau une référence SKU Virtual WAN
       href: upgrade-virtual-wan.md
     - name: ExpressRoute
@@ -90,13 +112,9 @@
           href: openvpn-azure-ad-tenant-multi-app.md
     - name: Routage
       items:
-        - name: Acheminer le trafic depuis un hub virtuel vers une NVA
-          items:
-            - name: Portail Azure
-              href: virtual-wan-route-table-portal.md
-            - name: Azure PowerShell
-              href: virtual-wan-route-table.md
-        - name: Afficher les routes effectives d’un hub virtuel
+        - name: Guide pratique pour configurer le routage de hub virtuel
+          href: how-to-virtual-hub-routing.md
+        - name: Guide pratique pour voir les routes effectives de hub virtuel
           href: effective-routes-virtual-hub.md
     - name: Sécurité
       items:

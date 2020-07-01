@@ -4,6 +4,14 @@
   items:
     - name: Présentation d’Azure Advisor
       href: advisor-overview.md
+- name: Démarrages rapides
+  items:
+    - name: Configurer des alertes pour les nouvelles recommandations
+      items:
+        - name: Portail Azure
+          href: advisor-alerts-portal.md
+        - name: Modèle ARM
+          href: advisor-alerts-arm.md
 - name: Tutoriels
   items:
     - name: Bien démarrer avec Advisor
@@ -25,7 +33,7 @@
     - name: Autorisations et actions bloquées
       href: permissions.md
     - name: Configurer des alertes pour les recommandations
-      href: advisor-alerts.md
+      href: advisor-alerts-portal.md
     - name: Correction en bloc pour les recommandations
       href: advisor-quick-fix.md
     - name: Données Advisor dans Azure Resource Graph

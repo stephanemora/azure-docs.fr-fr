@@ -7,12 +7,15 @@
 - name: Démarrages rapides
   expanded: true
   items:
-    - name: Créer des applications logiques avec le portail Azure
+    - name: Créer des applications logiques - Portail
       href: quickstart-create-first-logic-app-workflow.md
     - name: "Créer des applications logiques avec Visual\_Studio"
       href: quickstart-create-logic-apps-with-visual-studio.md
     - name: Créer des applications logiques - Visual Studio Code
       href: quickstart-create-logic-apps-visual-studio-code.md
+    - name: Créer des applications logiques - Modèle ARM
+      displayName: Resource Manager
+      href: quickstart-create-deploy-azure-resource-manager-template.md
 - name: Tutoriels
   items:
     - name: Créer des workflows basés sur une planification

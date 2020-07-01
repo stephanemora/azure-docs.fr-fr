@@ -11,18 +11,18 @@ ms.workload: data-services
 ms.topic: tutorial
 ms.custom: seo-dt-2019
 ms.date: 06/10/2020
-ms.openlocfilehash: 71fca8f7dd808058e88d5a5ffe9a64e1136ceefc
-ms.sourcegitcommit: c4ad4ba9c9aaed81dfab9ca2cc744930abd91298
+ms.openlocfilehash: df185f8b75af6a845306fccc18d7d3cce74d0815
+ms.sourcegitcommit: bf99428d2562a70f42b5a04021dde6ef26c3ec3a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/12/2020
-ms.locfileid: "84736502"
+ms.lasthandoff: 06/23/2020
+ms.locfileid: "85249166"
 ---
-# <a name="incrementally-load-data-from-an-azure-sql-database-to-azure-blob-storage-using-the-azure-portal"></a>Charger de façon incrémentielle les données d’une base de données Azure SQL dans un stockage Blob Azure à l’aide du portail Azure
+# <a name="incrementally-load-data-from-azure-sql-database-to-azure-blob-storage-using-the-azure-portal"></a>Charger de façon incrémentielle les données depuis Azure SQL Database dans le stockage Blob Azure par le biais du portail Azure
 
 [!INCLUDE[appliesto-adf-xxx-md](includes/appliesto-adf-xxx-md.md)]
 
-Dans ce tutoriel, vous allez créer une fabrique de données Azure avec un pipeline qui charge les données delta d’une table d’une base de données Azure SQL vers un stockage Blob Azure.
+Dans ce tutoriel, vous allez créer une fabrique de données Azure avec un pipeline qui charge les données delta d’une table dans Azure SQL Database vers un stockage Blob Azure.
 
 Dans ce tutoriel, vous allez effectuer les étapes suivantes :
 
@@ -65,7 +65,7 @@ Voici les étapes importantes à suivre pour créer cette solution :
 Si vous n’avez pas d’abonnement Azure, créez un compte [gratuit](https://azure.microsoft.com/free/) avant de commencer.
 
 ## <a name="prerequisites"></a>Prérequis
-* **Azure SQL Database**. Vous utilisez la base de données comme magasin de données source. Si vous ne disposez pas d’une base de données SQL, consultez [Créer une base de données Azure SQL Database](../azure-sql/database/single-database-create-quickstart.md) pour connaître la procédure à suivre pour en créer une.
+* **Azure SQL Database**. Vous utilisez la base de données comme magasin de données source. Si vous n’avez pas de base de données dans Azure SQL Database, consultez [Créer une base de données dans Azure SQL Database](../azure-sql/database/single-database-create-quickstart.md) pour savoir comme en créer une.
 * **Stockage Azure**. Vous utilisez le stockage d’objets blob comme magasin de données récepteur. Si vous ne possédez pas de compte de stockage, consultez l’article [Créer un compte de stockage](../storage/common/storage-account-create.md) pour découvrir comment en créer un. Créez un conteneur sous le nom adftutorial. 
 
 ### <a name="create-a-data-source-table-in-your-sql-database"></a>Créer une table de source de données dans votre base de données SQL
@@ -103,6 +103,7 @@ Si vous n’avez pas d’abonnement Azure, créez un compte [gratuit](https://az
     ```
 
 ### <a name="create-another-table-in-your-sql-database-to-store-the-high-watermark-value"></a>Créer une autre table dans la base de données SQL pour stocker la valeur de filigrane supérieure
+
 1. Exécutez la commande SQL suivante sur votre base de données SQL pour créer une table sous le nom `watermarktable` pour stocker la valeur de filigrane :  
 
     ```sql
@@ -169,7 +170,7 @@ END
          
         Pour plus d’informations sur les groupes de ressources, consultez [Utilisation des groupes de ressources pour gérer vos ressources Azure](../azure-resource-manager/management/overview.md).  
 6. Sélectionnez **V2** pour la **version**.
-7. Sélectionnez **l’emplacement** de la fabrique de données. Seuls les emplacements pris en charge sont affichés dans la liste déroulante. Les magasins de données (Stockage Azure, Azure SQL Database, etc.) et les services de calcul (HDInsight, etc.) utilisés par la fabrique de données peuvent être proposés dans d’autres régions.
+7. Sélectionnez **l’emplacement** de la fabrique de données. Seuls les emplacements pris en charge sont affichés dans la liste déroulante. Les magasins de données (Stockage Azure, Azure SQL Database, Azure SQL Managed Instance, etc.) et les services de calcul (HDInsight, etc.) utilisés par une fabrique de données peuvent se trouver dans d’autres régions.
 8. Cliquez sur **Créer**.      
 9. Une fois la création terminée, la page **Data Factory** s’affiche comme sur l’image.
 
@@ -199,7 +200,7 @@ Dans ce didacticiel, vous allez créer un pipeline avec deux activités de reche
     2. Sélectionnez votre serveur pour **Nom du serveur**.
     3. Sélectionnez le **nom de la base de données** dans la liste déroulante.
     4. Entrez vos **nom d’utilisateur** & **mot de passe**.
-    5. Pour tester la connexion à la base de données Azure SQL, cliquez sur **Tester la connexion**.
+    5. Pour tester la connexion à votre base de données SQL, cliquez sur **Tester la connexion**.
     6. Cliquez sur **Terminer**.
     7. Vérifiez que **AzureSqlDatabaseLinkedService** est sélectionné comme **service lié**.
 
@@ -322,7 +323,7 @@ Dans ce didacticiel, vous allez créer un pipeline avec deux activités de reche
 
 ## <a name="add-more-data-to-source"></a>Ajouter plus de données à la source
 
-Insérez de nouvelles données dans la base de données SQL (magasin de source de données).
+Insérez de nouvelles données dans votre base de données (magasin de source de données).
 
 ```sql
 INSERT INTO data_source_table
@@ -332,7 +333,7 @@ INSERT INTO data_source_table
 VALUES (7, 'newdata','9/7/2017 9:01:00 AM')
 ```
 
-Données mises à jour dans la base de données SQL :
+Données mises à jour dans votre base de données :
 
 ```
 PersonID | Name | LastModifytime
@@ -346,8 +347,8 @@ PersonID | Name | LastModifytime
 7 | newdata | 2017-09-07 09:01:00.000
 ```
 
-
 ## <a name="trigger-another-pipeline-run"></a>Déclencher une autre exécution de pipeline
+
 1. Basculez vers l’onglet **Modifier**. Cliquez sur le pipeline dans l’arborescence s’il n’est pas ouvert dans le concepteur.
 
 2. Cliquez sur **Ajouter un déclencheur** dans la barre d’outils, puis sur **Déclencher maintenant**.
@@ -398,7 +399,7 @@ Dans ce tutoriel, vous avez effectué les étapes suivantes :
 > * Surveiller la deuxième exécution du pipeline
 > * Passer en revue les résultats de la deuxième exécution
 
-Dans ce didacticiel, le pipeline a copié les données d’une table unique d’une base de données SQL vers un stockage d’objets blob. Passez au tutoriel suivant pour découvrir comment copier les données de plusieurs tables d’une base de données SQL Server vers SQL Database.
+Dans ce tutoriel, le pipeline a copié les données d’une table unique dans SQL Database vers le stockage Blob. Passez au tutoriel suivant pour découvrir comment copier les données de plusieurs tables d’une base de données SQL Server vers SQL Database.
 
 > [!div class="nextstepaction"]
 >[Charger de façon incrémentielle des données provenant de plusieurs tables dans SQL Server vers Azure SQL Database](tutorial-incremental-copy-multiple-tables-portal.md)

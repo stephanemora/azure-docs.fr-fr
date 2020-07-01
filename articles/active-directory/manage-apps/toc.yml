@@ -3,20 +3,14 @@
 - name: Vue d’ensemble
   expanded: true
   items:
-    - name: "Qu’est-ce que la gestion d’applications cloud et l’authentification unique\_?"
+    - name: "Qu’est-ce que la gestion des applications\_?"
       href: what-is-application-management.md
-    - name: "Qu’est-ce que le Proxy d’application pour les applications locales\_?"
-      href: what-is-application-proxy.md
-    - name: Scénarios courants de gestion d’applications
-      href: common-scenarios.md
-    - name: "Qu’est-ce que le provisionnement d’application\_?"
-      href: /azure/active-directory/app-provisioning/user-provisioning?context=azure/active-directory/manage-apps/context/manage-apps-context
 - name: Démarrages rapides
   items:
-    - name: Ajouter une application cloud à partir de la galerie
-      href: add-application-portal.md
     - name: Voir vos applications d’entreprise
       href: view-applications-portal.md
+    - name: Ajouter une application cloud à partir de la galerie
+      href: add-application-portal.md
 - name: Tutoriels
   items:
     - name: "Applications de galerie intégrées (p.\_ex., ServiceNow, Salesforce, Dropbox)"
@@ -32,6 +26,8 @@
   items:
     - name: Bonnes pratiques sur la gestion des applications
       href: application-management-fundamentals.md
+    - name: Scénarios courants de gestion d’applications
+      href: common-scenarios.md
     - name: Applications cloud et authentification unique
       items:
         - name: Planification d’une intégration d’applications cloud
@@ -78,8 +74,10 @@
       href: cloud-app-security.md
     - name: Proxy d’application pour applications locales
       items:
-        - name: Application Proxy (Proxy d’application)
+        - name: Proxy d’application
           href: application-proxy.md
+        - name: "Qu’est-ce qu’un proxy d’application pour les applications locales\_?"
+          href: what-is-application-proxy.md
         - name: Planification d’un déploiement de proxy d’application
           href: application-proxy-deployment-plan.md
         - name: Connecteurs
