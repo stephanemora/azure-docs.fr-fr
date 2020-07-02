@@ -1,21 +1,21 @@
 ---
 title: 'Démarrage rapide : Créer une clé LUIS'
 titleSuffix: Azure Cognitive Services
-description: Dans ce guide de démarrage rapide, vous allez apprendre à créer une application LUIS et à obtenir une clé.
+description: Dans ce guide de démarrage rapide, vous découvrez comment créer une application LUIS et obtenir une clé.
 services: cognitive-services
 author: trevorbye
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: tutorial
-ms.date: 02/10/2020
+ms.date: 06/25/2020
 ms.author: trbye
-ms.openlocfilehash: df12b51020083489d431d0ebcd7eb506ef97caa2
-ms.sourcegitcommit: 34a6fa5fc66b1cfdfbf8178ef5cdb151c97c721c
+ms.openlocfilehash: c4195ff1b81097a3620f68939f32147a26e16d60
+ms.sourcegitcommit: b56226271541e1393a4b85d23c07fd495a4f644d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81400850"
+ms.lasthandoff: 06/26/2020
+ms.locfileid: "85391602"
 ---
 # <a name="quickstart-getting-a-luis-endpoint-key"></a>Démarrage rapide : Obtention d’une clé de point de terminaison LUIS
 

@@ -4,12 +4,12 @@ ms.service: cognitive-services
 ms.topic: include
 ms.date: 04/03/2020
 ms.author: dapine
-ms.openlocfilehash: 4ebd0b7b02036ca9aed6848ee261d32245ba4973
-ms.sourcegitcommit: 999ccaf74347605e32505cbcfd6121163560a4ae
+ms.openlocfilehash: 904144b044a0a0223d4807372407b5ce0b9f127b
+ms.sourcegitcommit: 73ac360f37053a3321e8be23236b32d4f8fb30cf
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/08/2020
-ms.locfileid: "82979661"
+ms.lasthandoff: 06/30/2020
+ms.locfileid: "85570123"
 ---
 ## <a name="start-with-some-boilerplate-code"></a>Commencer avec du code réutilisable
 
@@ -28,7 +28,7 @@ Nous allons ajouter du code qui servira de squelette à notre projet
 ```
 ## <a name="add-ui-elements"></a>Ajouter des éléments d’interface utilisateur
 
-Nous allons maintenant ajouter une interface utilisateur de base pour les zones d’entrée, faire référence au JavaScript du kit de développement logiciel (SDK) Speech et récupérer un jeton d’autorisation, le cas échéant.
+Nous allons maintenant ajouter une interface utilisateur de base pour les zones d’entrée, faire référence au JavaScript du Kit de développement logiciel (SDK) Speech et récupérer un jeton d’autorisation, le cas échéant.
 
 ```html  
 <body style="font-family:'Helvetica Neue',Helvetica,Arial,sans-serif; font-size:13px;">
@@ -159,7 +159,7 @@ Avant de pouvoir initialiser un objet `SpeechRecognizer`, vous devez créer une 
 
 ## <a name="create-an-audio-configuration"></a>Créer une configuration audio
 
-À présent, vous devez créer un objet `AudioConfig` qui pointe vers votre entrée devic3. Insérez ce code dans la méthode `startIntentRecognizeAsyncButton.addEventListener()`, juste en dessous de votre configuration Speech.
+À présent, vous devez créer un objet `AudioConfig` qui pointe vers votre appareil d’entrée. Insérez ce code dans la méthode `startIntentRecognizeAsyncButton.addEventListener()`, juste en dessous de votre configuration Speech.
 
 ```JavaScript
         var audioConfig = SpeechSDK.AudioConfig.fromDefaultMicrophoneInput();

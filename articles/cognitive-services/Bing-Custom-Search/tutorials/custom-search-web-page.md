@@ -10,16 +10,16 @@ ms.subservice: bing-custom-search
 ms.topic: tutorial
 ms.date: 03/05/2019
 ms.author: aahi
-ms.openlocfilehash: c7b41f77f8eb57c39489f1e5a69b0ac1c3c9c7d4
-ms.sourcegitcommit: 9ee0cbaf3a67f9c7442b79f5ae2e97a4dfc8227b
+ms.openlocfilehash: 588751c178205ceb21617f8d9271bfa9ed76193d
+ms.sourcegitcommit: 32592ba24c93aa9249f9bd1193ff157235f66d7e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "78943912"
+ms.lasthandoff: 07/01/2020
+ms.locfileid: "85603347"
 ---
 # <a name="tutorial-build-a-custom-search-web-page"></a>Tutoriel : Créer une page web Recherche personnalisée
 
-La Recherche personnalisée Bing vous permet de créer des expériences de recherche adaptées pour les sujets qui vous intéressent. Par exemple, si vous avez un site web d’arts martiaux qui fournit une expérience de recherche, vous pouvez spécifier les domaines, sous-sites et pages web dans lesquels Bing effectue les recherches. Vos utilisateurs consultent des résultats de recherche adaptés au contenu qui les intéresse au lieu de compulser des pages de résultats de recherche générale dont le contenu peut être inapproprié. 
+La Recherche personnalisée Bing vous permet de créer des expériences de recherche adaptées pour les sujets qui vous intéressent. Par exemple, si vous avez un site web d’arts martiaux qui fournit une expérience de recherche, vous pouvez spécifier les domaines, les sous-sites et les pages web dans lesquels Bing effectue les recherches. Vos utilisateurs consultent des résultats de recherche adaptés au contenu qui les intéresse au lieu de compulser des pages de résultats de recherche générale dont le contenu peut être inapproprié. 
 
 Ce tutoriel montre comment configurer une instance de recherche personnalisée et l’intégrer à une nouvelle page web.
 
@@ -34,7 +34,7 @@ Les tâches traitées sont les suivantes :
 
 ## <a name="prerequisites"></a>Prérequis
 
-- Pour suivre ce tutoriel, vous avez besoin d’une clé d’abonnement pour l’API Recherche personnalisée Bing.  Pour obtenir une clé, [créez une ressource Recherche personnalisée Bing](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesBingCustomSearch) dans le portail Azure. Vous pouvez également utiliser une [clé d’essai](https://azure.microsoft.com/try/cognitive-services).
+- Pour suivre ce tutoriel, vous avez besoin d’une clé d’abonnement pour l’API Recherche personnalisée Bing.  Pour obtenir une clé, [créez une ressource Recherche personnalisée Bing](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesBingCustomSearch) dans le portail Azure.
 - Si vous n’avez pas encore installé Visual Studio 2017 ou ultérieur, vous pouvez télécharger et utiliser **gratuitement** [Visual Studio 2019 Community Edition](https://www.visualstudio.com/downloads/).
 
 ## <a name="create-a-custom-search-instance"></a>Création d’une instance de recherche personnalisée
@@ -79,7 +79,7 @@ Pour exclure les résultats d’URL ou de sites web particuliers, ajoutez-les à
 
 ## <a name="add-pinned-entries"></a>Ajout d’entrées épinglées
 
-Pour épingler une page web spécifique au début des résultats de recherche, ajoutez la page web et le terme de requête dans l’onglet **Pinned** (Éléments épinglés). L’onglet **Pinned** (Éléments épinglés) contient une liste de paires, constituées de termes de requête associés à des pages web, qui spécifient la page web devant s’afficher en tant que meilleur résultat pour une requête particulière. La page web est épinglée uniquement si la chaîne de requête de l’utilisateur correspond à la chaîne de requête de l’épingle selon la condition de correspondance de l’épingle. Seules les pages web indexées apparaîtront dans les recherches. Consultez [Définir votre affichage personnalisé](../define-your-custom-view.md#pin-slices-to-the-top-of-search-results) pour en savoir plus.
+Pour épingler une page web spécifique au début des résultats de recherche, ajoutez la page web et le terme de requête dans l’onglet **Pinned** (Éléments épinglés). L’onglet **Pinned** (Éléments épinglés) contient une liste de paires, constituées de termes de requête associés à des pages web, qui spécifient la page web devant s’afficher en tant que meilleur résultat pour une requête particulière. La page web est épinglée uniquement si la chaîne de requête de l’utilisateur correspond à la chaîne de requête de l’épingle selon la condition de correspondance de l’épingle. Seules les pages web indexées apparaîtront dans les recherches. Pour plus d’informations, consultez [Définir votre vue personnalisée](../define-your-custom-view.md#pin-slices-to-the-top-of-search-results).
 
 1. Dans la page **Configuration**, cliquez sur l’onglet **Pinned** et entrez la page web et le terme de requête de la page web que vous voulez voir retourner comme premier résultat.  
   
@@ -116,7 +116,7 @@ La Recherche personnalisée fournit une IU hébergée pour restituer la réponse
 
    ![Capture d’écran de l’étape des configurations avancées de l’interface utilisateur hébergée](./media/custom-search-hosted-ui-advanced-configurations.png)  
   
-5. Dans les listes déroulantes, sélectionnez vos clés d’abonnement. Vous pouvez aussi entrer la clé d’abonnement manuellement. Pour plus d’informations sur l’obtention de clés, consultez [Essayez Cognitive Services](https://azure.microsoft.com/try/cognitive-services/?api=bing-custom-search-api).  
+5. Dans les listes déroulantes, sélectionnez vos clés d’abonnement. Vous pouvez aussi entrer la clé d’abonnement manuellement.
   
    ![Capture d’écran de l’étape des configurations supplémentaires de l’interface utilisateur hébergée](./media/custom-search-hosted-ui-subscription-key.png)
 
@@ -130,7 +130,7 @@ Il existe deux façons de consommer l’IU hébergée.
 - Option 1 : intégrer l’extrait de code JavaScript fourni dans votre application.
 - Option n°2 : utiliser le point de terminaison HTML fourni.
 
-Le reste de ce tutoriel illustre l’**Option 1 : Extrait de code Javascript**.  
+Le reste de ce tutoriel illustre l’**Option 1 : Extrait de code JavaScript**.  
 
 ## <a name="set-up-your-visual-studio-solution"></a>Configurer votre solution Visual Studio
 

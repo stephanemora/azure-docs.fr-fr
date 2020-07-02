@@ -11,12 +11,12 @@ ms.topic: overview
 ms.date: 05/27/2020
 ms.author: pafarley
 ms.custom: seodec18
-ms.openlocfilehash: 99af09ded8759e7f6e2235ce0c1354982568e19d
-ms.sourcegitcommit: 6a9f01bbef4b442d474747773b2ae6ce7c428c1f
+ms.openlocfilehash: cfd8dd7474cf7926ef2230e6be53a967a97645db
+ms.sourcegitcommit: 73ac360f37053a3321e8be23236b32d4f8fb30cf
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "84117514"
+ms.lasthandoff: 06/30/2020
+ms.locfileid: "85554395"
 ---
 # <a name="what-is-computer-vision"></a>Qu’est-ce que le service Vision par ordinateur ?
 
@@ -48,11 +48,9 @@ Vous pouvez analyser des images pour fournir des insights sur leurs caractérist
 |**[Générer une miniature](concept-generating-thumbnails.md)**|Analyser le contenu d’une image pour en générer une miniature. Le service Vision par ordinateur commence par générer une miniature de haute qualité, puis analyse les objets contenus dans l’image pour déterminer la *zone d’intérêt*. Il rogne ensuite l’image pour conserver uniquement la zone d’intérêt. La miniature générée peut être présentée à l’aide de proportions différentes de celles de l’image d’origine selon les besoins de chacun.|
 |**[Obtenir la zone d’intérêt](concept-generating-thumbnails.md#area-of-interest)**|Analyser le contenu d’une image pour retourner les coordonnées de la *zone d’intérêt*. Au lieu de rogner l’image et de générer une miniature, le service Vision par ordinateur retourne les coordonnées de cadre englobant de la région pour que l’application appelante puisse modifier l’image d’origine de la manière souhaitée.|
 
-## <a name="extract-text-from-images"></a>Extraire du texte à partir des images
+## <a name="detect-text-from-images"></a>Détecter du texte dans des images
 
-Vous pouvez utiliser l’API [Read](concept-recognizing-text.md#read-api) du service Vision par ordinateur pour extraire le texte imprimé ou manuscrit d’images dans un flux de caractères lisibles par une machine. L’API Read utilise les modèles les plus récents et fonctionne avec du texte de diverses surfaces et origines, tels que les tickets de caisse, les affiches, les cartes de visite, les lettres et les tableaux blancs. Elle fonctionne actuellement pour sept langues différentes (voir [Prise en charge des langues](./language-support.md)).
-
-Vous pouvez également utiliser l’API [OCR (reconnaissance optique des caractères)](concept-recognizing-text.md#ocr-optical-character-recognition-api) pour extraire le texte imprimé en plusieurs langues. Le cas échéant, la fonction OCR corrige la rotation du texte reconnu et fournit les coordonnées du cadre de chaque mot. La fonction OCR prend en charge 25 langues et détecte automatiquement la langue du texte reconnu.
+Vous pouvez utiliser les [API de détection de texte](concept-recognizing-text.md) de Vision par ordinateur pour extraire le texte imprimé ou manuscrit d’images et en faire un flux de caractères lisibles par une machine. L’API Read utilise les modèles les plus récents et fonctionne avec du texte de diverses surfaces et origines, tels que les tickets de caisse, les affiches, les cartes de visite, les lettres et les tableaux blancs. Les deux API de détection de texte prennent en charge l’extraction de texte imprimé en [plusieurs langues](./language-support.md).
 
 ## <a name="moderate-content-in-images"></a>Modérer du contenu dans les images
 

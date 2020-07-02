@@ -1,5 +1,5 @@
 ---
-title: 'Didacticiel : Recherche d’entités Bing dans une application web à page unique'
+title: 'Tutoriel : Recherche d’entités Bing dans une application web monopage'
 titleSuffix: Azure Cognitive Services
 description: Ce tutoriel montre comment utiliser l’API Recherche d’entités Bing dans une application web monopage.
 services: cognitive-services
@@ -10,14 +10,14 @@ ms.subservice: bing-entity-search
 ms.topic: tutorial
 ms.date: 03/05/2020
 ms.author: aahi
-ms.openlocfilehash: d45b9a153b770dd10da9dd61e8a7b3d138345b8a
-ms.sourcegitcommit: 9ee0cbaf3a67f9c7442b79f5ae2e97a4dfc8227b
+ms.openlocfilehash: 33c5cbd47213d021d374f52c1dadaf20d508ae37
+ms.sourcegitcommit: 32592ba24c93aa9249f9bd1193ff157235f66d7e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "78943131"
+ms.lasthandoff: 07/01/2020
+ms.locfileid: "85608566"
 ---
-# <a name="tutorial-single-page-web-app"></a>Didacticiel : Application web à page unique
+# <a name="tutorial-single-page-web-app"></a>Tutoriel : Application web à page unique
 
 L’API Recherche d’entités Bing vous permet de rechercher sur le web des informations sur les *entités* et les *lieux.* Vous pouvez demander l’un ou l’autre type de résultat, ou les deux, dans une requête donnée. Les définitions des lieux et des entités sont fournies ci-dessous.
 
@@ -56,9 +56,14 @@ Dans ce didacticiel, nous abordons seulement certaines parties du code source. L
 > [!NOTE]
 > Ce didacticiel est très similaire au [didacticiel sur l’application de recherche Web Bing à page unique](../Bing-Web-Search/tutorial-bing-web-search-single-page-app.md), mais traite uniquement des résultats de recherche d’entités.
 
-## <a name="prerequisites"></a>Conditions préalables requises
+## <a name="prerequisites"></a>Prérequis
 
-Pour suivre ce tutoriel, vous avez besoin de clés d’abonnement pour les API Recherche Bing et Bing Cartes. Si vous n’en avez pas, vous pouvez utiliser une [clé d’essai](https://azure.microsoft.com/try/cognitive-services/?api=bing-web-search-api) et une [clé Bing Cartes de base](https://www.microsoft.com/maps/create-a-bing-maps-key).
+Pour suivre ce tutoriel, vous avez besoin de clés d’abonnement pour les API Recherche Bing et Bing Cartes. 
+
+* Un abonnement Azure - [En créer un gratuitement](https://azure.microsoft.com/free/cognitive-services/)
+* Une fois que vous avez votre abonnement Azure :
+  * <a href="https://portal.azure.com/#create/Microsoft.CognitiveServicesBingSearch-v7"  title="Créer une ressource Recherche Bing"  target="_blank">Créez une ressource Recherche Bing<span class="docon docon-navigate-external x-hidden-focus"></span></a> dans le portail Azure pour obtenir votre clé et votre point de terminaison. Une fois le déploiement effectué, cliquez sur **Accéder à la ressource**.
+  * <a href="https://www.microsoft.com/maps/create-a-bing-maps-key.aspx"  title="Créer une ressource Vision par ordinateur"  target="_blank">Créez une ressource Bing Cartes<span class="docon docon-navigate-external x-hidden-focus"></span></a> dans le portail Azure pour obtenir votre clé et votre point de terminaison. Une fois le déploiement effectué, cliquez sur **Accéder à la ressource**.
 
 ## <a name="app-components"></a>Composants de l’application
 
@@ -86,7 +91,7 @@ Le code HTML contient également les divisions (balises `<div>` HTML) où les r�
 ## <a name="managing-subscription-keys"></a>Gestion des clés d’abonnement
 
 > [!NOTE]
-> Cette application nécessite des clés d’abonnement pour l’API Recherche Bing et l’API Bing Maps. Vous pouvez utiliser une [clé d’essai Recherche Bing](https://azure.microsoft.com/try/cognitive-services/?api=bing-web-search-api) et une [clé basique Bing Maps](https://www.microsoft.com/maps/create-a-bing-maps-key).
+> Cette application nécessite des clés d’abonnement pour l’API Recherche Bing et l’API Bing Maps.
 
 Pour éviter d’avoir à inclure les clés d’abonnement des API Recherche Bing et Bing Maps dans le code, nous utilisons le stockage persistant du navigateur pour les stocker. Si l’une des clés n’a pas été stockée, nous la demandons et la stockons pour une utilisation ultérieure. Si la clé est par la suite rejetée par l’API, nous invalidons la clé stockée et en demandons une autre à l’utilisateur lors de sa recherche suivante.
 
@@ -394,7 +399,7 @@ Les erreurs sont gérées en appelant `renderErrorMessage()` avec des détails c
 
 ## <a name="displaying-search-results"></a>Affichage des résultats de la recherche
 
-L’API Recherche d’entités Bing [exige d’afficher les résultats dans un ordre spécifié](use-display-requirements.md). Étant donné que l’API peut renvoyer deux types de réponses différents, il n’est pas suffisant de procéder à une itération au sein de la collection `Entities` ou `Places` de niveau supérieur dans la réponse JSON et d’afficher les résultats. (Si vous ne souhaitez qu’un seul type de résultat, utilisez le paramètre de requête `responseFilter`.)
+L’API Recherche d’entités Bing [exige d’afficher les résultats dans un ordre spécifié](use-display-requirements.md). Comme l’API peut retourner deux types de réponses différents, il n’est pas suffisant de procéder à une itération au sein de la collection de plus haut niveau `Entities` ou `Places` dans la réponse JSON et d’afficher les résultats. (Si vous ne souhaitez qu’un seul type de résultat, utilisez le paramètre de requête `responseFilter`.)
 
 Nous utilisons plutôt la collection `rankingResponse` dans les résultats de la recherche pour classer l’affichage. Cet objet fait référence à des éléments dans les collections `Entitiess` et/ou `Places`.
 
@@ -520,7 +525,7 @@ Notre fonction de renderer d’entité :
 
 Les réponses provenant des API Recherche Bing peuvent inclure un en-tête `X-MSEdge-ClientID`, qui doit être renvoyé à l’API avec les requêtes suivantes. Si plusieurs API Recherche Bing sont utilisées, le même ID de client doit être employé avec toutes, si possible.
 
-Le fait de fournir l’en-tête `X-MSEdge-ClientID` permet aux API Bing d’associer toutes les recherches d’un utilisateur, ce qui présente deux avantages essentiels.
+Le fait de fournir l’en-tête `X-MSEdge-ClientID` permet aux API Bing d’associer toutes les recherches d’un utilisateur, ce qui présente deux avantages importants.
 
 Tout d’abord, cela permet au moteur de recherche Bing d’appliquer un contexte passé aux recherches pour trouver les résultats répondant le mieux à l’utilisateur. Si un utilisateur a précédemment recherché des termes liés à la navigation, par exemple, une recherche ultérieure sur « quais » peut éventuellement renvoyer des informations sur les lieux où mettre un navire à quai.
 
@@ -531,7 +536,7 @@ Les stratégies de sécurité de navigateur (CORS) peuvent rendre l’en-tête `
 > [!NOTE]
 > Dans une application web de production, vous devez effectuer la requête côté serveur malgré tout. Dans le cas contraire, votre clé API Recherche Bing doit être incluse dans la page web, où elle est accessible à toute personne qui consulte la source. Vous êtes facturé pour toutes les utilisations associées à votre clé d’abonnement d’API, y compris les requêtes effectuées par des tiers non autorisés. Il est donc important de ne pas exposer votre clé.
 
-À des fins de développement, vous pouvez effectuer la requête d’API Recherche Web Bing via un proxy CORS. La réponse émanant d’un proxy de ce type a un en-tête `Access-Control-Expose-Headers` qui met les en-têtes de réponse sur liste verte et les rend disponibles pour JavaScript.
+À des fins de développement, vous pouvez effectuer la requête d’API Recherche Web Bing via un proxy CORS. La réponse provenant d’un tel proxy a un en-tête `Access-Control-Expose-Headers` qui autorise les en-têtes de réponse de listes et les rend accessibles à JavaScript.
 
 Il est facile d’installer un proxy CORS pour autoriser l’application du didacticiel à accéder à l’en-tête d’ID client. Tout d’abord, [installez Node.js](https://nodejs.org/en/download/) si ce n’est pas déjà fait. Exécutez alors la commande suivante dans une fenêtre de commande :
 

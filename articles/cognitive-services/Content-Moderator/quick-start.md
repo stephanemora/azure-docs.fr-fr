@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: content-moderator
 ms.topic: quickstart
-ms.date: 03/13/2020
+ms.date: 06/29/2020
 ms.author: pafarley
-ms.openlocfilehash: 666b70ba8b632cb2cadf20de384e3e615acb2b3d
-ms.sourcegitcommit: 9ee0cbaf3a67f9c7442b79f5ae2e97a4dfc8227b
+ms.openlocfilehash: 550cec535343d48ad74dd35e6886af78bdd15701
+ms.sourcegitcommit: 73ac360f37053a3321e8be23236b32d4f8fb30cf
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "79203555"
+ms.lasthandoff: 06/30/2020
+ms.locfileid: "85563289"
 ---
 # <a name="quickstart-try-content-moderator-on-the-web"></a>Démarrage rapide : Essayer Content Moderator sur le web
 
@@ -32,7 +32,7 @@ L’outil de révision Content Moderator est un outil web qui permet aux révise
 
 ## <a name="create-a-review-team"></a>Créer une équipe de révision
 
-Ensuite, créez une équipe de révision. Dans un scénario professionnel, il s’agit du groupe de personnes qui vérifiera manuellement les décisions de modération du service. Pour créer une équipe, vous devez sélectionner une **Région** et spécifier un **Nom d’équipe** et un **ID d’équipe**. Si vous souhaitez intégrer des collègues dans l’équipe, entrez leurs adresses e-mail ici.
+Ensuite, créez une équipe de révision. Dans un scénario réel, il s’agit du groupe de personnes qui vérifie manuellement les décisions de modération du service. Pour créer une équipe, vous devez sélectionner une **Région** et spécifier un **Nom d’équipe** et un **ID d’équipe**. Si vous souhaitez intégrer des collègues dans l’équipe, entrez leurs adresses e-mail ici.
 
 > [!NOTE]
 > **Nom de l’équipe** est un nom convivial pour votre équipe de revue. Il s’agit du nom affiché dans le portail Azure. L’**ID de l’équipe** est utilisé pour identifier l’équipe de revue par programmation.

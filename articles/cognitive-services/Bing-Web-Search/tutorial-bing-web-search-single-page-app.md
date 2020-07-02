@@ -1,5 +1,5 @@
 ---
-title: 'Tutoriel : Créer une application web monopage - API Recherche Web Bing'
+title: 'Tutoriel : Créer une application web monopage - API Recherche Web Bing'
 titleSuffix: Azure Cognitive Services
 description: Cette application monopage montre comment l’API Recherche Web Bing peut être utilisée pour récupérer, analyser et afficher des résultats de recherche pertinents dans une application monopage.
 services: cognitive-services
@@ -10,14 +10,14 @@ ms.subservice: bing-web-search
 ms.topic: tutorial
 ms.date: 03/05/2020
 ms.author: aahi
-ms.openlocfilehash: f692367ad431dc8f1623e1b3d5109c313e351934
-ms.sourcegitcommit: 9ee0cbaf3a67f9c7442b79f5ae2e97a4dfc8227b
+ms.openlocfilehash: 085bfd51ae6eabfc26201897a124a6272e0221fa
+ms.sourcegitcommit: 32592ba24c93aa9249f9bd1193ff157235f66d7e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "78943872"
+ms.lasthandoff: 07/01/2020
+ms.locfileid: "85603585"
 ---
-# <a name="tutorial-create-a-single-page-app-using-the-bing-web-search-api"></a>Tutoriel : Créer une application monopage avec l’API Recherche Web Bing
+# <a name="tutorial-create-a-single-page-app-using-the-bing-web-search-api"></a>Tutoriel : Créer une application web monopage à l’aide de l’API Recherche Web Bing
 
 Cette application monopage montre comment récupérer, analyser et afficher des résultats de recherche à partir de l’API Recherche Web Bing. Le tutoriel utilise du code HTML et CSS réutilisable, et se concentre sur le code JavaScript. Les fichiers HTML, CSS et JS sont disponibles sur [GitHub](https://github.com/Azure-Samples/cognitive-services-REST-api-samples/tree/master/Tutorials/Bing-Web-Search) avec des instructions de démarrage rapide.
 
@@ -30,15 +30,16 @@ Cet exemple d’application peut :
 > * Gérer les clés d’abonnement
 > * des erreurs
 
-Pour utiliser cette application, vous devrez disposer d’un [compte Azure Cognitive Services](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) avec des API Recherche Bing. Si vous n’avez pas de compte, vous pouvez utiliser la [version d’évaluation gratuite](https://azure.microsoft.com/try/cognitive-services/?api=bing-web-search-api) pour obtenir une clé d’abonnement.
+Pour utiliser cette application, vous devrez disposer d’un [compte Azure Cognitive Services](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) avec des API Recherche Bing.
 
-## <a name="prerequisites"></a>Conditions préalables requises
+## <a name="prerequisites"></a>Prérequis
 
 Voici quelques éléments dont vous aurez besoin pour exécuter l’application :
 
+* Un abonnement Azure - [En créer un gratuitement](https://azure.microsoft.com/free/cognitive-services/)
+* Une fois que vous avez votre abonnement Azure, <a href="https://portal.azure.com/#create/Microsoft.CognitiveServicesBingSearch-v7"  title="Créer une ressource Recherche Bing"  target="_blank">créez une ressource Recherche Bing<span class="docon docon-navigate-external x-hidden-focus"></span></a> dans le portail Azure pour obtenir votre clé et votre point de terminaison. Une fois le déploiement effectué, cliquez sur **Accéder à la ressource**.
+
 * Node.js 8 ou version ultérieure
-* Une clé d’abonnement pour l’API Recherche Bing. Si vous n’en avez pas, [créez une ressource Recherche Bing v7](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesBingSearch-v7). Vous pouvez également utiliser une [clé d’essai](https://azure.microsoft.com/try/cognitive-services/?api=bing-web-search-api).
-## <a name="get-the-source-code-and-install-dependencies"></a>Obtenir le code source et installer des dépendances
 
 La première étape consiste à cloner le dépôt avec le code source de l’exemple d’application.
 

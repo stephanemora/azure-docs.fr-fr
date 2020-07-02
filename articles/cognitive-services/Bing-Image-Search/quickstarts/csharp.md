@@ -10,12 +10,12 @@ ms.subservice: bing-image-search
 ms.topic: quickstart
 ms.date: 05/08/2020
 ms.author: aahi
-ms.openlocfilehash: 8018fa3935e780f8c4002483c5eebdade82b5f1c
-ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
+ms.openlocfilehash: f35b69a3ca44308a7d314f448bf35b81d7119228
+ms.sourcegitcommit: 32592ba24c93aa9249f9bd1193ff157235f66d7e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/12/2020
-ms.locfileid: "83119022"
+ms.lasthandoff: 07/01/2020
+ms.locfileid: "85603517"
 ---
 # <a name="quickstart-search-for-images-using-the-bing-image-search-rest-api-and-c"></a>Démarrage rapide : Rechercher des images à l’aide de l’API REST Recherche d’images Bing et de C#
 
@@ -209,8 +209,7 @@ Les réponses de l’API Recherche d’images Bing sont retournées au format JS
 ## <a name="see-also"></a>Voir aussi
 
 * [Qu’est-ce que l’API Recherche d’images Bing ?](https://docs.microsoft.com/azure/cognitive-services/bing-image-search/overview)  
-* [Essayez une démonstration interactive en ligne](https://azure.microsoft.com/services/cognitive-services/bing-image-search-api/).
-* [Détail des prix des API Recherche Bing](https://azure.microsoft.com/pricing/details/cognitive-services/search-api/). 
-* [Obtenir une clé d’accès Cognitive Services gratuite](https://azure.microsoft.com/try/cognitive-services/?api=bing-image-search-api).
-* [Documentation Azure Cognitive Services](https://docs.microsoft.com/azure/cognitive-services).
-* [Informations de référence sur l’API Recherche d’images Bing](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-images-api-v7-reference).
+* [Essayez une démonstration interactive en ligne](https://azure.microsoft.com/services/cognitive-services/bing-image-search-api/)
+* [Détail des prix des API Recherche Bing](https://azure.microsoft.com/pricing/details/cognitive-services/search-api/)
+* [Documentation Azure Cognitive Services](https://docs.microsoft.com/azure/cognitive-services)
+* [Informations de référence sur l’API Recherche d’images Bing](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-images-api-v7-reference)

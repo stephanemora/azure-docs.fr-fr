@@ -10,12 +10,12 @@ ms.subservice: bing-local-business
 ms.topic: quickstart
 ms.date: 05/12/2020
 ms.author: aahi
-ms.openlocfilehash: da7d210140bf348e734f16cef2aaa01caf7e4f8b
-ms.sourcegitcommit: 64fc70f6c145e14d605db0c2a0f407b72401f5eb
+ms.openlocfilehash: 812061bf161a33e4151b7b23265196895e039414
+ms.sourcegitcommit: 32592ba24c93aa9249f9bd1193ff157235f66d7e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "83873132"
+ms.lasthandoff: 07/01/2020
+ms.locfileid: "85611235"
 ---
 # <a name="quickstart-send-a-query-to-the-bing-local-business-search-api-in-c"></a>Démarrage rapide : Envoyer une requête à l'API Recherche d'entreprises locales Bing en C#
 
@@ -25,9 +25,10 @@ Cet exemple d’application récupère des données de réponse locales auprès 
 
 ## <a name="prerequisites"></a>Prérequis
 
+* Un abonnement Azure - [En créer un gratuitement](https://azure.microsoft.com/free/cognitive-services/)
 * N’importe quelle édition de [Visual Studio 2019](https://www.visualstudio.com/downloads/).
 * Si vous utilisez Linux/MacOS, cette application peut être exécutée à l’aide de [Mono](https://www.mono-project.com/).
-* Un [compte d’API Cognitive Services](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) avec les API Recherche Bing. Pour suivre ce guide de démarrage rapide, l’[essai gratuit](https://azure.microsoft.com/try/cognitive-services/?api=bing-web-search-api) est suffisant. Enregistrez la clé API fournie lors de l’activation de l’essai gratuit. Pour plus d’informations, consultez [Tarifs de Cognitive Services - API Recherche Bing](https://azure.microsoft.com/pricing/details/cognitive-services/search-api/).
+* Une fois que vous avez votre abonnement Azure, <a href="https://portal.azure.com/#create/Microsoft.CognitiveServicesBingSearch-v7"  title="Créer une ressource Recherche Bing"  target="_blank">créez une ressource Recherche Bing<span class="docon docon-navigate-external x-hidden-focus"></span></a> dans le portail Azure pour obtenir votre clé et votre point de terminaison. Une fois le déploiement effectué, cliquez sur **Accéder à la ressource**.
 
 ## <a name="create-the-request"></a>Créer la requête 
 

@@ -3,12 +3,12 @@ title: 'Tutoriel : Extraire des données structurées avec une entité issue du
 description: Extrayez des données structurées d’un énoncé à l’aide de l’entité issue du machine learning. Pour augmenter la précision de l’extraction, ajoutez des sous-entités avec des composants.
 ms.topic: tutorial
 ms.date: 05/08/2020
-ms.openlocfilehash: f9a732d38d2d4557340080d9d1bbdcf789caea08
-ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
+ms.openlocfilehash: e16badfb2e024c5d82f1aed8a02aa901dca2c2a9
+ms.sourcegitcommit: 32592ba24c93aa9249f9bd1193ff157235f66d7e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/20/2020
-ms.locfileid: "83676171"
+ms.lasthandoff: 07/01/2020
+ms.locfileid: "85611014"
 ---
 # <a name="tutorial-extract-structured-data-from-user-utterance-with-machine-learning-entities-in-language-understanding-luis"></a>Tutoriel : Extraire des données structurées à partir d’un énoncé utilisateur avec des entités issues du machine learning dans LUIS
 
@@ -98,7 +98,7 @@ Les étapes précédentes créent l’entité et la sous-entité. Pour améliore
 
 1. Sélectionnez **Create new phrase list** (Créer une liste d’expressions) dans le menu déroulant.
 
-1. Dans la zone **Créer une liste d’expressions**, entrez le nom `SizePhraselist`, puis entrez les valeurs des options `small`, `medium` et `large`. Quand la zone **Suggestions** se remplit, sélectionnez `extra large` et `xl`. Sélectionnez **Save** (Enregistrer) pour créer la liste d’expressions.
+1. Dans la zone **Créer une liste d’expressions**, entrez le nom `SizePhraselist`, puis entrez les valeurs des options `small`, `medium` et `large`. Quand la zone **Suggestions** se remplit, sélectionnez `extra large` et `xl`. Sélectionnez **Créer** pour créer la liste d’expressions.
 
     Ce composant de liste d’expressions aide la sous-entité `Size` à trouver des mots associés à la taille en lui fournissant des exemples de mots. Cette liste d’expressions n’a pas besoin d’inclure tous les mots associés à la taille, mais doit inclure des mots censés indiquer la taille.
 
@@ -131,7 +131,7 @@ L’ajout d’une liste de tailles courantes reconnues par l’application clien
 
 1. Sous l’onglet **Schema and features** (Schéma et caractéristiques), sélectionnez l’entité **Size** (Taille), puis sélectionnez **+ Add feature** (Ajouter une caractéristique).
 
-1. Sélectionnez **@ SizeList** dans la liste déroulante.
+1. Sélectionnez **@ SizeListentity** dans la liste déroulante.
 
 <a name="add-prebuilt-number-entity-to-app"></a>
 

@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: overview
-ms.date: 03/12/2020
+ms.date: 06/25/2020
 ms.author: trbye
-ms.openlocfilehash: 664b71c56ae63ea73478923171731e343dfa5cbe
-ms.sourcegitcommit: 8e5b4e2207daee21a60e6581528401a96bfd3184
+ms.openlocfilehash: 43efc770f3a3b29a1b0fc214d2927c8c153dff96
+ms.sourcegitcommit: b56226271541e1393a4b85d23c07fd495a4f644d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/04/2020
-ms.locfileid: "84417223"
+ms.lasthandoff: 06/26/2020
+ms.locfileid: "85391636"
 ---
 # <a name="what-is-the-speech-service"></a>Qu’est-ce que le service de reconnaissance vocale ?
 
@@ -55,7 +55,7 @@ Nous proposons des démarrages rapides pour la plupart des langages de programma
 > [!NOTE]
 > La reconnaissance vocale et la synthèse vocale ont également des points de terminaison REST et des démarrages rapides associés.
 
-Une fois que vous aurez eu l’occasion d’utiliser le service Speech, essayez notre tutoriel qui vous apprendra à reconnaître les intentions d’un discours à l’aide du SDK Speech et de LUIS.
+Une fois que vous avez pu utiliser le service Speech, essayez nos tutoriels qui vous font découvrir comment résoudre différents scénarios.
 
 - [Tutoriel : Effectuer une reconnaissance des intentions du discours à l’aide du Kit de développement logiciel (SDK) Speech et de LUIS, C#](how-to-recognize-intents-from-speech-csharp.md)
 - [Tutoriel : Activer les fonctions vocales sur votre bot avec le SDK Speech, C#](tutorial-voice-enable-your-bot-speech-sdk.md)

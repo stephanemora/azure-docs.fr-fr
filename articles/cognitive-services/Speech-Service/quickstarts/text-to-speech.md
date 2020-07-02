@@ -1,22 +1,22 @@
 ---
 title: 'Démarrage rapide : Synthétiser la voix vers un haut-parleur – Service Speech'
 titleSuffix: Azure Cognitive Services
-description: Dans ce guide de démarrage rapide, vous utilisez le kit SDK Speech pour effectuer la synthèse vocale du texte et écouter la sortie sur un haut-parleur.
+description: Dans ce guide de démarrage rapide, vous utilisez le SDK Speech pour convertir du texte en synthèse vocale et produire la sortie sur un haut-parleur.
 services: cognitive-services
 author: trevorbye
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: quickstart
-ms.date: 02/10/2020
+ms.date: 06/25/2020
 ms.author: trbye
 zone_pivot_groups: programming-languages-set-two-with-js-spx
-ms.openlocfilehash: 03d564242748fa52c176aaaa5341ede4449477fb
-ms.sourcegitcommit: 958f086136f10903c44c92463845b9f3a6a5275f
+ms.openlocfilehash: 45822c431725ea5ef900f5f1ff39beae76699fbb
+ms.sourcegitcommit: b56226271541e1393a4b85d23c07fd495a4f644d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/20/2020
-ms.locfileid: "83715232"
+ms.lasthandoff: 06/26/2020
+ms.locfileid: "85391398"
 ---
 # <a name="quickstart-synthesize-speech-to-a-speaker"></a>Démarrage rapide : Synthétiser la voix vers un haut-parleur
 

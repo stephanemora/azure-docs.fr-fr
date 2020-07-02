@@ -8,18 +8,18 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: computer-vision
 ms.topic: overview
-ms.date: 02/28/2020
+ms.date: 06/29/2020
 ms.author: pafarley
-ms.openlocfilehash: bed9424fd7e7dfcb03610fb9d7796cefc5b016be
-ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
+ms.openlocfilehash: 75d191c9d65cc639522c3fbba5b8c438b8b83448
+ms.sourcegitcommit: 73ac360f37053a3321e8be23236b32d4f8fb30cf
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83589089"
+ms.lasthandoff: 06/30/2020
+ms.locfileid: "85560125"
 ---
 # <a name="whats-new-in-computer-vision"></a>Nouveautés de Vision par ordinateur
 
-Découvrir les nouveautés du service. Ces éléments peuvent publier des notes, des vidéos, des billets de blog et tout autre type d’informations. Marquez cette page pour rester au fait des nouveautés du service.
+Découvrir les nouveautés du service. Ces éléments peuvent être des notes de publication, des vidéos, des billets de blog et d’autres types d’informations. Marquez cette page pour rester informé des nouveautés du service.
 
 ## <a name="may-2020"></a>Mai 2020
 L’API Vision par ordinateur v 3.0 est en disponibilité générale, avec des mises à jour de l’[API Lire](concept-recognizing-text.md) :

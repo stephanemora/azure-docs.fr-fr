@@ -12,12 +12,12 @@ ms.date: 04/14/2020
 ms.author: trbye
 ms.custom: tracking-python
 zone_pivot_groups: programming-languages-set-two-with-js
-ms.openlocfilehash: 2bba1536c9d0990eb771f62d27b852ae1eb3b45c
-ms.sourcegitcommit: 1de57529ab349341447d77a0717f6ced5335074e
+ms.openlocfilehash: ddcfeaad70e6552f94f9c87b6e9cf24ed15bfba8
+ms.sourcegitcommit: 32592ba24c93aa9249f9bd1193ff157235f66d7e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/09/2020
-ms.locfileid: "84604613"
+ms.lasthandoff: 07/01/2020
+ms.locfileid: "85611462"
 ---
 # <a name="learn-the-basics-of-speech-synthesis"></a>Découvrir les principes de base de la synthèse vocale
 
@@ -29,8 +29,8 @@ Dans cet article, vous découvrez les modèles de conception courants qui permet
 * Utilisation de voix neurales
 
 > [!TIP]
-> Si vous n’avez pas encore eu l’occasion de suivre l’un de nos guides de démarrage rapide, nous vous encourageons à vous lancer et à essayer la reconnaissance vocale par vous-même.
-> * [Reconnaître la voix provenant d’un micro](quickstarts/text-to-speech.md)
+> Si vous n’avez pas encore eu l’occasion de suivre l’un de nos guides de démarrage rapide, nous vous encourageons à essayer la synthèse vocale par vous-même.
+> * [Synthétiser la parole vers un haut-parleur](quickstarts/text-to-speech.md)
 
 ::: zone pivot="programming-language-csharp"
 [!INCLUDE [C# Basics include](includes/how-to/text-to-speech-basics/text-to-speech-basics-csharp.md)]

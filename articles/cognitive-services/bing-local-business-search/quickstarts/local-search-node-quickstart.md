@@ -10,12 +10,12 @@ ms.subservice: bing-local-business
 ms.topic: quickstart
 ms.date: 05/12/2020
 ms.author: aahi
-ms.openlocfilehash: 3bb31c36e8c614a72b86f95cb7e7d1c588692f97
-ms.sourcegitcommit: 64fc70f6c145e14d605db0c2a0f407b72401f5eb
+ms.openlocfilehash: 2b5de1c5bf99ff2516a0eb836d540fc2833d99cb
+ms.sourcegitcommit: 32592ba24c93aa9249f9bd1193ff157235f66d7e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "83873078"
+ms.lasthandoff: 07/01/2020
+ms.locfileid: "85611252"
 ---
 # <a name="quickstart-send-a-query-to-the-bing-local-business-search-api-using-nodejs"></a>Démarrage rapide : Envoyer une requête à l’API Recherche d’entreprises locales Bing avec Node.js
 
@@ -25,9 +25,10 @@ Cet exemple d’application récupère des données de réponse locales auprès 
 
 ## <a name="prerequisites"></a>Prérequis
 
+* Un abonnement Azure - [En créer un gratuitement](https://azure.microsoft.com/free/cognitive-services/)
 * La dernière version de [Node.js](https://nodejs.org/en/download/).
 * La [bibliothèque de requêtes JavaScript](https://github.com/request/request).
-* Un [compte d’API Cognitive Services](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) avec les API Recherche Bing. Pour suivre ce guide de démarrage rapide, l’[essai gratuit](https://azure.microsoft.com/try/cognitive-services/?api=bing-web-search-api) est suffisant. Enregistrez la clé API fournie lors de l’activation de l’essai gratuit. Pour plus d’informations, consultez [Tarifs de Cognitive Services - API Recherche Bing](https://azure.microsoft.com/pricing/details/cognitive-services/search-api/).
+* Une fois que vous avez votre abonnement Azure, <a href="https://portal.azure.com/#create/Microsoft.CognitiveServicesBingSearch-v7"  title="Créer une ressource Recherche Bing"  target="_blank">créez une ressource Recherche Bing<span class="docon docon-navigate-external x-hidden-focus"></span></a> dans le portail Azure pour obtenir votre clé et votre point de terminaison. Une fois le déploiement effectué, cliquez sur **Accéder à la ressource**.
 
 
 ## <a name="code-scenario"></a>Scénario de code
