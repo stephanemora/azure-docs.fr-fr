@@ -23,12 +23,12 @@ Les API Blockchain Workbench sont accessibles via un point de terminaison pour v
 1. Dans le volet de navigation de gauche, sélectionnez **Groupes de ressources**.
 1. Choisissez le nom du groupe de ressources de votre Blockchain Workbench déployé.
 1. Sélectionnez l’en-tête de colonne **TYPE** pour trier la liste par ordre alphabétique et par type.
-1. Deux ressources présentent le type **App Service**. Sélectionnez la ressource de type **App Service***avec* le suffixe « -api ».
+1. Deux ressources présentent le type **App Service**. Sélectionnez la ressource de type **App Service** *avec* le suffixe « -api ».
 1. Dans la section **Vue d’ensemble** App Service, copiez la valeur **URL** qui représente l’URL du point de terminaison de l’API sur votre Blockchain Workbench déployé.
 
     ![URL du point de terminaison de l'API App Service](media/use-api/app-service-api.png)
 
-## <a name="authentication"></a>Authentication
+## <a name="authentication"></a>Authentification
 
 Les requêtes envoyées à l’API REST Blockchain Workbench sont protégées par Azure Active Directory (Azure AD).
 
@@ -382,7 +382,7 @@ Authorization: Bearer {access token}
 
 La réponse recense toutes les actions qu’un utilisateur peut entreprendre étant donné l’état actuel de l’instance de contrat intelligent spécifiée.
 
-* Modifier : permet à l’utilisateur de modifier la description et le prix d’une ressource.
+* Modifier : permet à l’utilisateur de modifier la description et le prix d’une ressource.
 * Terminer : permet à l’utilisateur de mettre fin au contrat de la ressource.
 
 Les utilisateurs obtiennent toutes les actions applicables si l’utilisateur possède un rôle d’application associé ou est associé à un rôle d’instance de contrat intelligent pour l’état actuel de l’instance de contrat intelligent spécifiée.

@@ -54,7 +54,7 @@ Pour ce guide de démarrage rapide, vous aurez besoin de deux instances d’une 
 
 5. Vérifiez les paramètres, puis cliquez sur **Créer**.  Quand l’application web est déployé correctement, elle crée un site web par défaut.
 
-6. Suivez les étapes pour créer une deuxième application web nommée *myWebAppWestEurope*, avec le nom de **Groupe de ressources***myResourceGroupTM2*, la **Région***Europe Ouest*, le nom de **Plan App Service** **myAppServicePlanWestEurope** et tous les autres paramètres identiques à *myWebAppEastUS*.
+6. Suivez les étapes pour créer une deuxième application web nommée *myWebAppWestEurope*, avec le nom de **Groupe de ressources** *myResourceGroupTM2*, la **Région** *Europe Ouest*, le nom de **Plan App Service** **myAppServicePlanWestEurope** et tous les autres paramètres identiques à *myWebAppEastUS*.
 
 ## <a name="create-a-traffic-manager-profile"></a>Créer un profil Traffic Manager
 

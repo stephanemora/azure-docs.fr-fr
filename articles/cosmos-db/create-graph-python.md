@@ -72,7 +72,7 @@ Pour être en mesure de créer une base de données de graphiques, vous devez av
 
 ## <a name="review-the-code"></a>Vérifier le code
 
-Cette étape est facultative. Pour savoir comment les ressources de base de données sont créées dans le code, vous pouvez examiner les extraits de code suivants. Tous les extraits de code sont tirés du fichier *connect.py* dans le dossier *C:\git-samples\azure-cosmos-db-graph-python-getting-started\\\* . Sinon, vous pouvez passer à l’étape [Mise à jour de votre chaîne de connexion](#update-your-connection-information). 
+Cette étape est facultative. Pour savoir comment les ressources de base de données sont créées dans le code, vous pouvez examiner les extraits de code suivants. Tous les extraits de code sont tirés du fichier *connect.py* dans le dossier *C:\git-samples\azure-cosmos-db-graph-python-getting-started\\* . Sinon, vous pouvez passer à l’étape [Mise à jour de votre chaîne de connexion](#update-your-connection-information). 
 
 * Le `client` Gremlin est initialisé à la ligne 104 du fichier *connect.py* :
 
