@@ -2,29 +2,70 @@
 title: Fonctionnalités – LUIS
 description: Ajoutez des fonctionnalités à un modèle de langage afin de fournir des conseils sur la façon de reconnaître les entrées que vous souhaitez étiqueter ou classer.
 ms.topic: conceptual
-ms.date: 05/14/2020
-ms.openlocfilehash: c4f19ceed2e48f3f6ec2ed0958bccb7a85cff44f
-ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
+ms.date: 06/10/2020
+ms.openlocfilehash: 823c51f0b58481e30ff54814dde03285ad094b9e
+ms.sourcegitcommit: f01c2142af7e90679f4c6b60d03ea16b4abf1b97
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/21/2020
-ms.locfileid: "83742712"
+ms.lasthandoff: 06/10/2020
+ms.locfileid: "84677589"
 ---
 # <a name="machine-learning-ml-features"></a>Caractéristiques de Machine Learning (ML)
 
-En Machine Learning, une  **caractéristique**  (« feature ») est un trait ou un attribut distinctif des données observées par le système.
+En apprentissage automatique, une  **caractéristique** est un trait ou un attribut distinctif des données que votre système observe et dont il apprend.
 
 Les caractéristiques de Machine Learning fournissent à LUIS des indications importantes pour rechercher les éléments qui distinguent un concept. Il ne s’agit pas de règles strictes mais de conseils que LUIS peut utiliser.  Ces conseils sont utilisés conjointement avec les étiquettes pour rechercher les données.
 
- LUIS prend en charge les listes d’expressions et l’utilisation d’autres entités en tant que caractéristiques :
+## <a name="what-is-a-feature"></a>Qu’est-ce qu’une caractéristique ?
+
+Une caractéristique est un trait distinctif, qui peut être décrit comme une fonction : f(x) = y. La caractéristique est utilisée pour savoir où chercher le trait distinctif dans l’exemple d’énoncé. Lorsque vous créez votre schéma, que savez-vous de l’exemple d’énoncé qui indique le trait ? Votre réponse est votre meilleur guide pour créer des caractéristiques.
+
+## <a name="types-of-features"></a>Types de caractéristiques
+
+ LUIS prend en charge les listes d’expressions et d’autres modèles en tant que caractéristiques :
 * Caractéristiques de liste d’expressions
 * Modèle (intention ou entité) en tant que caractéristique
 
 Les caractéristiques doivent être considérées comme une partie nécessaire de la conception de votre schéma.
 
+## <a name="how-you-find-features-in-your-example-utterances"></a>Comment trouver des caractéristiques dans vos exemples d’énoncés
+
+Comme LUIS est une application basée sur un langage, les caractéristiques sont basées sur du texte. Choisissez le texte qui indique le trait que vous souhaitez distinguer. Pour LUIS, la plus petite unité basée sur du texte est le jeton. Pour l’anglais, un jeton est une étendue continue (sans espaces ni ponctuation) de lettres et de chiffres. Une espace n’est pas un jeton.
+
+Étant donné que les espaces et la ponctuation ne sont pas des jetons, privilégiez les indices textuels que vous pouvez utiliser comme caractéristiques. N’oubliez pas d’inclure les variations de mots telles que :
+* formes plurielles
+* temps de verbes
+* abréviation
+* orthographe et fautes d’orthographe
+
+Est-ce que le texte, en tant que trait distinctif, doit :
+* Mettre en correspondance un mot ou une expression exacte : envisagez d’ajouter une entité d’expression régulière ou une entité de liste comme caractéristique de l’entité ou de l’intention
+* Faire correspondre un concept bien connu, tel que des dates, des heures ou des noms de personnes : utilisez une entité prédéfinie comme caractéristique de l’entité ou de l’intention
+* Apprendre de nouveaux exemples au fil du temps : utilisez une liste d’expressions de quelques exemples du concept comme caractéristique de l’entité ou de l’intention
+
+## <a name="combine-features"></a>Combiner les caractéristiques
+
+Étant donné qu’il existe plusieurs façons de décrire un trait, vous pouvez utiliser plusieurs caractéristiques qui permettent de décrire ce trait ou ce concept. Une association courante consiste à utiliser une caractéristique de liste d’expressions et l’un des types d’entité couramment utilisés comme caractéristiques : entité prédéfinie, entité d’expression régulière ou entité de liste.
+
+### <a name="ticket-booking-entity-example"></a>Exemple d’entité de réservation de tickets
+
+À titre d’exemple, considérez une application permettant de réserver un vol avec une intention de réservation de vol et une entité de réservation de tickets.
+
+L’entité de réservation de tickets est une entité issue du Machine Learning pour la destination de vol. Pour faciliter l’extraction de l’emplacement, utilisez deux caractéristiques pour vous aider :
+* Liste d’expressions de mots pertinents tels que `plane`, `flight`, `reservation` ou `ticket`
+* Entité `geographyV2` prédéfinie comme caractéristique de l’entité
+
+### <a name="pizza-entity-example"></a>Exemple d’entité Pizza
+
+Prenons un autre exemple, celui d’une application de commande de pizza avec une intention Créer une commande de pizza et une entité Pizza.
+
+L’entité Pizza est une entité issue du Machine Learning pour les détails relatifs à la pizza. Pour faciliter l’extraction des détails, utilisez deux caractéristiques pour vous aider :
+* Liste d’expressions de mots pertinents tels que `cheese`, `crust`, `pepperoni` ou `pineapple`
+* Entité `number` prédéfinie comme caractéristique de l’entité
+
 ## <a name="a-phrase-list-for-a-particular-concept"></a>Liste d’expressions pour un concept particulier
 
-Une liste d’expressions est une liste de mots ou d’expressions qui encapsule un concept particulier.
+Une liste d’expressions est une liste de mots ou d’expressions qui encapsule un concept particulier et qui est appliquée comme correspondance insensible à la casse au niveau du jeton.
 
 Lorsque vous ajoutez une liste d’expressions, vous pouvez définir la caractéristique comme suit :
 * **[Globale](#global-features)** . Une caractéristique globale s’applique à l’ensemble de l’application.
@@ -55,6 +96,18 @@ Si vous souhaitez extraire les termes médicaux :
 * Commencez par créer des exemples d’énoncés et étiquetez les conditions médicales au sein de ces énoncés.
 * Créez ensuite une liste d’expressions avec des exemples de termes dans le domaine du sujet. Cette liste d’expressions doit inclure le terme que vous avez étiqueté et d’autres termes qui décrivent le même concept.
 * Ajoutez la liste d’expressions à l’entité ou à la sous-entité qui extrait le concept utilisé dans la liste d’expressions. Le scénario le plus courant est un composant (enfant) d’une entité de machine-learning. Si la liste d’expressions doit être appliquée à toutes les intentions ou entités, marquez la liste d’expressions comme une liste d’expressions globale. L’indicateur `enabledForAllModels` contrôle l’étendue de ce modèle dans l’API.
+
+### <a name="token-matches-for-a-phrase-list"></a>Correspondances de jeton pour une liste d’expressions
+
+Une liste d’expressions s’applique au niveau du jeton, quelle que soit la casse. Le tableau suivant montre comment une liste d’expressions contenant le mot `Ann` est appliquée aux variations des mêmes caractères dans cet ordre.
+
+
+| Variation de jeton de `Ann` | Liste d’expressions correspondant à la détection du jeton |
+|--------------------------|---------------------------------------|
+| ANN<br>aNN<br>           | Oui : le jeton est `Ann`                  |
+| Ann’s                    | Oui : le jeton est `Ann`                  |
+| Anne                     | Non : le jeton est `Anne`                  |
+
 
 <a name="how-to-use-phrase-lists"></a>
 <a name="how-to-use-a-phrase-lists"></a>

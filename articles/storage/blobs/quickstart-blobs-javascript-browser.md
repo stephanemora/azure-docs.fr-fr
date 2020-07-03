@@ -7,12 +7,12 @@ ms.date: 04/18/2020
 ms.service: storage
 ms.subservice: blobs
 ms.topic: quickstart
-ms.openlocfilehash: 4d486b8ffc921a5ca2f38bef912ba6dc46ecec40
-ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
+ms.openlocfilehash: af76025317436f7046b857731e4c8af9b504201f
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83634085"
+ms.lasthandoff: 07/01/2020
+ms.locfileid: "85833415"
 ---
 <!-- Customer intent: As a web application developer I want to interface with Azure Blob storage entirely on the client so that I can build a SPA application that is able to upload and delete files on blob storage. -->
 
@@ -285,7 +285,7 @@ Dans le [portail Azure](https://portal.azure.com), vous pouvez vérifier les ré
 #### <a name="step-4---delete-the-container"></a>Étape 4 - Supprimer le conteneur
 
 1. Dans l’application web, sélectionnez **Supprimer le conteneur**. L’état indique que le conteneur a été supprimé.
-2. Dans le portail Azure, sélectionnez le lien **\<nom_compte\> | Conteneurs** en haut à gauche du volet du portail.
+2. Dans le portail Azure, sélectionnez le lien **\<account-name\> | Conteneurs** en haut à gauche du volet du portail.
 3. Sélectionnez **Actualiser**. Le nouveau conteneur disparaît.
 4. Fermez l’application web.
 
@@ -302,7 +302,7 @@ Dans ce guide de démarrage rapide, vous avez appris à charger, à lister et à
 Pour obtenir des tutoriels, des exemples, des guides de démarrage rapide et d’autres documentations, visitez :
 
 > [!div class="nextstepaction"]
-> [Documentation Azure pour JavaScript](/azure/javascript/)
+> [Documentation Azure pour JavaScript](/azure/developer/javascript/)
 
 * Pour plus d’informations, consultez la [bibliothèque cliente Stockage Blob Azure pour JavaScript](https://github.com/Azure/azure-sdk-for-js/blob/master/sdk/storage/storage-blob).
 * Pour voir des exemples d’applications de stockage Blob, passez à [Exemples JavaScript de bibliothèques clientes Stockage Blob Azure V12](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/storage/storage-blob/samples).

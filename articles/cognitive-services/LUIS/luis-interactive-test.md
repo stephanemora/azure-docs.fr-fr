@@ -1,14 +1,14 @@
 ---
 title: Tester une application dans le portail LUIS
 description: Utilisez LUIS (Language Understanding) pour travailler en continu sur votre application afin d’affiner et d’améliorer sa compréhension de la langue.
-ms.topic: how-to
-ms.date: 05/20/2020
-ms.openlocfilehash: 86ee90e2d3bb322a4f55439d105941cf43462d3e
-ms.sourcegitcommit: 61d850bc7f01c6fafee85bda726d89ab2ee733ce
+ms.topic: conceptual
+ms.date: 06/02/2020
+ms.openlocfilehash: 574bacdb5e1f167c9c9174d4a119552391059004
+ms.sourcegitcommit: f01c2142af7e90679f4c6b60d03ea16b4abf1b97
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/03/2020
-ms.locfileid: "84344150"
+ms.lasthandoff: 06/10/2020
+ms.locfileid: "84677732"
 ---
 # <a name="test-your-luis-app-in-the-luis-portal"></a>Tester votre application LUIS dans le portail LUIS
 
@@ -65,9 +65,25 @@ Vous inspectez les détails du résultat du test dans le panneau **Inspecter**.
 
 ## <a name="disable-required-features"></a>Désactiver les fonctionnalités requises
 
-Sélectionnez ce bouton pour afficher la prédiction si la fonctionnalité de l’entité n’était pas requise.
+Ce bouton permet de déterminer si l’application formée prédit correctement les entités en fonction des fonctionnalités requises. Le réglage par défaut consiste à appliquer la caractéristique comme requis lors de la prédiction. Sélectionnez ce bouton pour voir quelle serait la prédiction si la caractéristique de la sous-entité n’était pas requise.
 
-Ce bouton permet de déterminer si l’application formée prédit correctement les entités en fonction des fonctionnalités requises. L’application formée peut mal prédire une entité acquise sur l’ordinateur en se basant sur une étiquette incorrecte d’exemples d’énoncés ou si la fonctionnalité requise ne correspond pas au texte.
+### <a name="when-to-disable-required-features"></a>Quand désactiver les caractéristiques requises
+
+L’application formée peut prédire de manière erronée une entité issue du Machine Learning en fonction de l’un des éléments suivants :
+* Étiquetage incorrect des énoncés d’exemples.
+* Non-correspondance entre le texte et la caractéristique obligatoire.
+
+Par exemple : une entité issue du Machine Learning avec une sous-entité du nom d’une personne.
+
+:::image type="content" source="media/luis-how-to-interactive-test/disable-required-feature.png" alt-text="Capture d’écran du portail LUIS : schéma d’entités issues du Machine Learning avec la caractéristique requise":::
+
+Voici un exemple d’énoncé pour cette entité issue du Machine Learning : `Assign Bob Jones to work on the new security feature`.
+
+L’extraction doit être `security feature` comme description de ticket et `Bob Jones` comme ingénieur, deux sous-entités de l’entité `Assign ticket`.
+
+Pour aider la sous-entité à prédire correctement, ajoutez l’entité prédéfinie [PersonName](luis-reference-prebuilt-person.md) comme caractéristique à la sous-entité `engineer`. Si vous rendez la caractéristique obligatoire, cela signifie que la sous-entité sera extraite uniquement si l’entité prédéfinie PersonName est prédite pour le texte. Cela signifie que tout nom figurant dans le texte qui n’est pas prévisible avec la sous-entité PersonName ne sera pas retourné comme sous-entité étiquetée `engineer`.
+
+Lorsque vous utilisez le volet de test interactif et que vous voyez qu’une sous-entité, avec une caractéristique obligatoire, n’est pas prédite, désactivez ce paramètre pour voir si la sous-entité serait prédite sans que la caractéristique ne soit obligatoire. Il est possible que la sous-entité puisse être correctement prédite sans la caractéristique obligatoire en raison de l’étiquetage correct des énoncés d’exemple.
 
 ## <a name="view-sentiment-results"></a>Afficher les résultats des sentiments
 
