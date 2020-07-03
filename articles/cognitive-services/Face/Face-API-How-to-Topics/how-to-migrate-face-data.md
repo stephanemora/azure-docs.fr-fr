@@ -10,16 +10,16 @@ ms.subservice: face-api
 ms.topic: conceptual
 ms.date: 09/06/2019
 ms.author: nitinme
-ms.openlocfilehash: fd0e7079b3b70a6a6b8166cc7fc7518070e7153d
-ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
+ms.openlocfilehash: ab03e68acf96928922959ed939c0accc1f8290a5
+ms.sourcegitcommit: 55b2bbbd47809b98c50709256885998af8b7d0c5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/12/2020
-ms.locfileid: "83120808"
+ms.lasthandoff: 06/18/2020
+ms.locfileid: "84986663"
 ---
 # <a name="migrate-your-face-data-to-a-different-face-subscription"></a>Migrer vos données de visage vers un autre abonnement API Visage
 
-Ce guide vous montre comment déplacer des données de visage, comme un objet PersonGroup enregistré avec des visages, vers un autre abonnement Visage d’Azure Cognitive Services. Pour déplacer les données, vous utilisez la fonctionnalité de capture instantanée. Cela vous évite d’avoir à créer et entraîner à plusieurs reprises un objet PersonGroup ou FaceList quand vous déplacez ou développez vos opérations. Par exemple, vous avez peut-être créé un objet PersonGroup à l’aide d’un abonnement d’essai gratuit et vous souhaitez à présent migrer cet objet vers votre abonnement payant. Ou vous avez besoin de synchroniser les données de visage entre des abonnements dans différentes régions en vue d’une opération à grande échelle.
+Ce guide vous montre comment déplacer des données de visage, comme un objet PersonGroup enregistré avec des visages, vers un autre abonnement Visage d’Azure Cognitive Services. Pour déplacer les données, vous utilisez la fonctionnalité de capture instantanée. Cela vous évite d’avoir à créer et entraîner à plusieurs reprises un objet PersonGroup ou FaceList quand vous déplacez ou développez vos opérations. Par exemple, vous avez peut-être créé un objet PersonGroup avec un abonnement gratuit et vous souhaitez à présent migrer cet objet vers votre abonnement payant. Ou vous avez besoin de synchroniser les données de visage entre des abonnements dans différentes régions en vue d’une opération à grande échelle.
 
 Cette même stratégie de migration s’applique également aux objets LargePersonGroup et LargeFaceList. Si vous ne connaissez pas bien les concepts utilisés dans ce guide, lisez les définitions correspondantes dans le guide [Concepts de reconnaissance faciale](../concepts/face-recognition.md). Ce guide utilise la bibliothèque cliente .NET de Visage avec C#.
 

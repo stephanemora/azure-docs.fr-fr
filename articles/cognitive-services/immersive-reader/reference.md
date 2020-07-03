@@ -10,12 +10,12 @@ ms.subservice: immersive-reader
 ms.topic: reference
 ms.date: 06/20/2019
 ms.author: metan
-ms.openlocfilehash: 879834567b6905a070aada3dae2a41a672635c6c
-ms.sourcegitcommit: 309cf6876d906425a0d6f72deceb9ecd231d387c
+ms.openlocfilehash: 5b1471cc43fc506ca798e81ac8e35a5051278ee0
+ms.sourcegitcommit: 34eb5e4d303800d3b31b00b361523ccd9eeff0ab
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/01/2020
-ms.locfileid: "84267237"
+ms.lasthandoff: 06/17/2020
+ms.locfileid: "84907378"
 ---
 # <a name="immersive-reader-sdk-reference-guide"></a>Guide de référence du SDK du Lecteur immersif
 
@@ -111,7 +111,7 @@ Bloc de données unique qui est passé dans le contenu du Lecteur immersif.
 
 ### <a name="launchresponse"></a>LaunchResponse
 
-Contient la réponse de l’appel à `ImmersiveReader.launchAsync`.
+Contient la réponse de l’appel à `ImmersiveReader.launchAsync`. Notez qu’une référence à `iframe` qui contient le lecteur immersif est accessible via `container.firstChild`.
 
 ```typescript
 {

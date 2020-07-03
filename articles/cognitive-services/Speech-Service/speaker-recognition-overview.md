@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 05/27/2020
 ms.author: trbye
-ms.openlocfilehash: 2d4ce6f274efbd4d8afe2ac48856b0fc312f0a09
-ms.sourcegitcommit: 223cea58a527270fe60f5e2235f4146aea27af32
+ms.openlocfilehash: a333a61a28fabddc2e8101fdf3290c52f3db59ae
+ms.sourcegitcommit: 52d2f06ecec82977a1463d54a9000a68ff26b572
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/01/2020
-ms.locfileid: "84261769"
+ms.lasthandoff: 06/15/2020
+ms.locfileid: "84780883"
 ---
 # <a name="what-is-the-azure-speaker-recognition-service"></a>Qu’est-ce que le service Azure Reconnaissance de l’orateur ?
 
@@ -27,7 +27,7 @@ La vérification de l’orateur simplifie le processus de vérification de l’i
 
 ### <a name="how-does-speaker-verification-work"></a>Comment fonctionne le service Vérification de l’orateur ?
 
-![Fonctionnement du service Vérification de l’orateur](media/speaker-recognition/speaker-rec.png)
+:::image type="content" source="media/speaker-recognition/speaker-rec.png" alt-text="Organigramme de vérification de l'orateur.":::
 
 La vérification de l’orateur peut dépendre ou non du texte. La vérification **dépendante du texte** signifie que les orateurs doivent choisir une phrase secrète qu’ils utilisent dans les phases d’inscription et de vérification. La vérification **indépendante du texte** signifie que les orateurs peuvent utiliser le langage de tous les jours dans les phases d’inscription et de vérification.
 
@@ -56,7 +56,22 @@ Vous contrôlez la durée pendant laquelle les données doivent être conservée
 
 Comme avec toutes les ressources Cognitive Services, les développeurs utilisant le service Reconnaissance de l’orateur doivent connaître les politiques de Microsoft relatives aux données client. Vous devez vérifier que vous avez reçu les autorisations appropriées de la part des utilisateurs du service Reconnaissance de l’orateur. Pour plus d’informations, consultez la  [page Cognitive Services](https://azure.microsoft.com/support/legal/cognitive-services-compliance-and-privacy/)  dans le Centre de gestion de la confidentialité Microsoft. 
 
+## <a name="common-questions-and-solutions"></a>Questions courantes et solutions
+
+| Question | Solution |
+|---------|----------|
+| Pour quels scénarios la reconnaissance de l’orateur est-elle utile ? | Centre d’appels de vérification du client, vérification des patients basés sur la voix, transcription des réunions, personnalisation des appareils multi-utilisateurs|
+| Quelle est la différence entre l’identification et la vérification ? | L’identification est le processus de détection d’un membre du groupe d’orateurs. La vérification est l’acte qui consiste à confirmer qu’un orateur correspond à une voix **inscrite** (connue).|
+| Quelle est la différence entre la vérification dépendante du texte et la vérification indépendante du texte ? | La vérification dépendante du texte requiert une phrase secrète spécifique pour l’inscription et la reconnaissance. La vérification indépendante du texte nécessite un échantillon de voix plus long (peu importe le contenu) pour l’inscription et la reconnaissance.|
+| Quelles sont les langues prises en charge ? | Anglais, français, espagnol, chinois, allemand, italien, japonais et portugais |
+| Quelles sont les régions Azure prises en charge ? | La reconnaissance de l’orateur est un service en version préliminaire, qui est actuellement disponible uniquement dans la région USA Ouest.|
+| Quels formats audio sont pris en charge ? | WAV mono 16 bits, 16 kHz encodé en PCM |
+| Les fonctionnalités **Accepter** et **Rejeter** les réponses ne sont pas précises, comment ajuster le seuil ? | Étant donné que le seuil optimal varie fortement selon les scénarios, l’API décide s’il faut « Accepter » ou « Rejeter » simplement en fonction du seuil par défaut, soit 0,5. Il est recommandé aux utilisateurs expérimentés de remplacer la décision par défaut et d’affiner le résultat en fonction de votre propre scénario. |
+| Pouvez-vous inscrire plusieurs fois un orateur ? | Oui, pour la vérification dépendante du texte, vous pouvez inscrire un orateur jusqu’à 50 fois. Pour une vérification indépendante du texte ou une identification de l’orateur, vous pouvez vous inscrire avec un maximum de 300 secondes d’audio. |
+| Quelles données sont stockées dans Azure ? | L’audio des inscriptions est stocké dans le service jusqu’à ce que le profil vocal soit [supprimé](speaker-recognition-basics.md#deleting-voice-profile-enrollments). Les échantillons audio de reconnaissance ne sont pas conservés ou stockés. |
+
 ## <a name="next-steps"></a>Étapes suivantes
 
 > [!div class="nextstepaction"]
+> * Consultez l'[article sur les bases](speaker-recognition-basics.md) de la reconnaissance de l’orateur pour obtenir un aperçu des modèles de conception courants que vous pouvez utiliser dans vos applications.
 > * Consultez le [tutoriel vidéo](https://azure.microsoft.com/resources/videos/speaker-recognition-text-independent-verification-developer-tutorial/) sur la vérification de l’orateur indépendante du texte.

@@ -2,13 +2,13 @@
 title: Types d’entités - LUIS
 description: Une entité extrait des données d’un énoncé de l’utilisateur au moment de l’exécution de la prédiction. Un objectif secondaire _facultatif_ est d’améliorer la prédiction de l’intention ou d’autres entités à l’aide de l’entité en tant que caractéristique.
 ms.topic: conceptual
-ms.date: 05/17/2020
-ms.openlocfilehash: a5e4812eab84650401dd19b0f8d7b361a5135dd3
-ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
+ms.date: 06/10/2020
+ms.openlocfilehash: 61dc0688cd304a672321f846a3ae5798c271345d
+ms.sourcegitcommit: f01c2142af7e90679f4c6b60d03ea16b4abf1b97
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/20/2020
-ms.locfileid: "83682174"
+ms.lasthandoff: 06/10/2020
+ms.locfileid: "84676486"
 ---
 # <a name="extract-data-with-entities"></a>Extraire des données avec des entités
 
@@ -41,7 +41,9 @@ Les [intentions](luis-concept-intent.md) sont requises mais les entités sont fa
 
 À mesure que votre application se développe et qu’un nouveau besoin de données est identifié, vous pouvez ajouter des entités appropriées à votre modèle LUIS par la suite.
 
-## <a name="entity-compared-to-intent"></a>Comparaison entre entité et intention
+<a name="entity-compared-to-intent"></a>
+
+## <a name="entity-represents-data-extraction"></a>L’entité représente l’extraction de données
 
 L’entité représente un concept de données _à l’intérieur de l’énoncé_ que vous souhaitez extraire. Une intention classe _tout l’énoncé_.
 
@@ -53,6 +55,10 @@ Prenons les quatre énoncés suivants :
 |Envoyer quelque chose|sendSomething|-|Rien à extraire. Le modèle n’a pas de fonctionnalité requise pour extraire `something` dans ce contexte, et aucun destinataire n’est indiqué.|
 |Envoyer un cadeau à Bob|sendSomething|`Bob`, `present`|Le modèle extrait `Bob` en ajoutant une fonctionnalité requise d’une entité `personName` prédéfinie. Une entité de machine-learning a été utilisée pour extraire `present`.|
 |Envoyer une boîte de chocolats à Bob|sendSomething|`Bob`, `box of chocolates`|Les deux éléments de données importants, `Bob` et `box of chocolates`, ont été extraits par des entités de machine-learning.|
+
+## <a name="label-entities-in-all-intents"></a>Étiqueter les entités dans toutes les intentions
+
+Les entités extraient les données indépendamment de l’intention prédite. Veillez à étiqueter _tous_ les exemples d’énoncés dans toutes les intentions. L’absence d’étiquette d’entité de l’intention `None` provoque une confusion, même s’il existait beaucoup plus d’énoncés de formation pour les autres intentions.
 
 ## <a name="design-entities-for-decomposition"></a>Concevez des entités pour la décomposition
 
