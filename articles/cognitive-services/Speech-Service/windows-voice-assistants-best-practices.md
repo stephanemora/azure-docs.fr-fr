@@ -120,7 +120,7 @@ Les assistants doivent donc suivre les conseils de cette section pour garantir l
 
 - Les assistants doivent **implémenter une liste verte de compétences pour identifier celles qui sont confirmées comme sécurisées**, ce qui signifie qu’elles sont accessibles au-dessus du verrouillage.
 - Les technologies d’ID de l’orateur peuvent jouer un rôle dans la réduction de certains risques, mais l’ID de l’orateur n’est pas un remplacement approprié pour l’authentification Windows.
-- La liste blanche de compétences doit prendre en compte trois classes d’actions ou de compétences :
+- La liste verte de compétences doit prendre en compte trois classes d’actions ou de compétences :
 
 | **Classe d’action** | **Description** | **Exemples (liste non exhaustive)** |
 | --- | --- | --- |

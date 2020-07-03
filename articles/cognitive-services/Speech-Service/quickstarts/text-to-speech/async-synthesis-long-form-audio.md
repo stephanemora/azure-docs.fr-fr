@@ -22,7 +22,7 @@ ms.locfileid: "84609214"
 
 Dans ce guide de démarrage rapide, vous utilisez l’API Audio long pour convertir du texte en parole de manière asynchrone et récupérer la sortie audio à partir de l’URI que le service retourne. Cette API REST est idéale pour les fournisseurs de contenu qui doivent synthétiser l’audio à partir d’un texte contenant plus de 5 000 caractères (ou durant plus de 10 minutes). Pour plus d’informations, consultez [API Audio long](../../long-audio-api.md).
 
-La synthèse asynchrone de l’audio long peut être utilisée avec [les voix neuronales publiques](https://docs.microsoft.com/azure/cognitive-services/speech-service/language-support#neural-voices) et les [voix neuronales personnalisées](../../how-to-custom-voice.md#custom-neural-voices), chacune prenant en charge une langue et un dialecte spécifiques. 
+La synthèse asynchrone de l’audio long peut être utilisée avec [les voix neuronales publiques](https://docs.microsoft.com/azure/cognitive-services/speech-service/language-support#neural-voices) et les [voix neuronales personnalisées](../../how-to-custom-voice.md#custom-neural-voices), chacune prenant en charge une langue et une langue régionale spécifiques. 
 
 ## <a name="prerequisites"></a>Prérequis
 
