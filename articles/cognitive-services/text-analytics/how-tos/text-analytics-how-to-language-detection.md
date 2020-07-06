@@ -263,7 +263,7 @@ Le résultat obtenu se compose de la langue prédominante, avec un score inféri
 
 Dans cet article, vous avez vu les concepts et le flux de travail de détection de langue à l’aide de l’API Analyse de texte dans Azure Cognitive Services. Les points suivants ont été décrits et illustrés :
 
-+ [Détection de langue](https://westus2.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v3-0/operations/Languages) est disponible pour une grande variété de langues, de variantes, de dialectes, et certaines langues régionales ou de culture.
++ [Détection de langue](https://westus2.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v3-0/operations/Languages) est disponible pour une grande variété de langues, de variantes, de langues minoritaires, et pour certaines langues régionales ou de culture.
 + Les documents JSON figurant dans le corps de la demande incluent un ID et un texte.
 + La requête POST s’effectue sur un point de terminaison `/languages`, à l’aide [d’une clé d’accès et d’un point de terminaison](../../cognitive-services-apis-create-account.md#get-the-keys-for-your-resource) personnalisés valides pour votre abonnement.
 + La sortie de réponse se compose d’identificateurs de langue pour chaque ID de document. La sortie peut être diffusée vers n’importe quelle application qui accepte JSON, par exemple Excel et Power BI, pour n’en citer que quelques-unes.

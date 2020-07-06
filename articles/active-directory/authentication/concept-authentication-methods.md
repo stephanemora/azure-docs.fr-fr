@@ -148,7 +148,7 @@ Les utilisateurs peuvent également s’authentifier à l’aide d’un téléph
 Pour que tout fonctionne correctement, les numéros de téléphone doivent être au format *+CodePays NuméroTéléphone*, par exemple : *+1 4251234567*.
 
 > [!NOTE]
-> Il doit y avoir un espace entre l’indicatif du pays, ou de la région, et le numéro de téléphone.
+> Il doit y avoir un espace entre l’indicatif du pays et le numéro de téléphone.
 >
 > La réinitialisation du mot de passe ne prend pas en charge les extensions de téléphone. Même au format *+1 4251234567X12345*, les extensions sont supprimées avant l’appel.
 
