@@ -15,10 +15,10 @@ ms.workload: TBD
 ms.date: 11/03/2017
 ms.author: alkohli
 ms.openlocfilehash: 12d11cddf077d4d07732490255d44e89ddaf3217
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "60531047"
 ---
 # <a name="storsimple-8000-series-update-22-release-notes"></a>Notes de publication de StorSimple série 8000 Update 2.2
@@ -56,7 +56,7 @@ Le tableau suivant récapitule les problèmes qui ont été résolus dans Update
 | 4 |Création d’instantanés |Des problèmes ont été constatés lors de la création d’instantanés incrémentiels dans des scénarios impliquant d’importants volumes et une évolution des données réduite voire nulle. Ces problèmes ont été résolus dans cette version. |Oui |Oui |
 | 5 |Authentification OpenStack |Lorsque vous utilisez Openstack comme fournisseur de services cloud, l’utilisateur rencontrait parfois un bogue d’authentification qui entraînait un plantage de l’analyseur JSON. Ce bogue est résolu dans cette version. |Oui |Non |
 | 6 |Copie côté hôte |Dans les versions précédentes du logiciel, un bogue lié à l’horodatage ODX survenait parfois lors de la copie des données d’un volume vers un autre. Ce problème entraînait un basculement du contrôleur, avec le risque de voir le système passer en mode de récupération. Ce bogue est résolu dans cette version. |Oui |Non |
-| 7 |Windows Management Instrumentation (WMI) |Dans les versions précédentes du logiciel, plusieurs cas d'échec du proxy web ont été observés avec l'exception « \<Exception de gestion> Échec du chargement du fournisseur ». Ce bogue a été attribué à une fuite de mémoire WMI et est maintenant résolu. |Oui |Non |
+| 7 |Windows Management Instrumentation (WMI) |Dans les versions précédentes du logiciel, plusieurs cas d’échec du proxy web ont été observés avec l’exception «\<ManagementException> Échec du chargement du fournisseur ». Ce bogue a été attribué à une fuite de mémoire WMI et est maintenant résolu. |Oui |Non |
 | 8 |Update |Dans de rares cas, l’utilisateur des versions précédentes du logiciel recevait un message « CisPowershellHcsscripterror » lorsqu’il tentait d’effectuer une analyse ou d’installer des mises à jour. Ce problème a été résolu dans cette version. |Oui |Oui |
 | 9 |Package de prise en charge |Cette version améliore le mode de collecte et de chargement du package Support. |Oui |Oui |
 
