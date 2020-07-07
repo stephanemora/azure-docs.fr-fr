@@ -2,13 +2,13 @@
 title: Déployer une stratégie pouvant être corrigée
 description: Découvrez comment intégrer un client à la gestion des ressources déléguées Azure, permettant ainsi que ses ressources soient accessibles et gérables via votre propre locataire.
 ms.date: 10/11/2019
-ms.topic: conceptual
-ms.openlocfilehash: b625e9e3c96866cfbc655a55b770c9ac07a626bd
-ms.sourcegitcommit: 7d8158fcdcc25107dfda98a355bf4ee6343c0f5c
+ms.topic: how-to
+ms.openlocfilehash: a953db44d8b4fc035d947d3534185062d0ec884b
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/09/2020
-ms.locfileid: "80985165"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84634130"
 ---
 # <a name="deploy-a-policy-that-can-be-remediated-within-a-delegated-subscription"></a>Déployer une stratégie pouvant être corrigée dans un abonnement délégué
 

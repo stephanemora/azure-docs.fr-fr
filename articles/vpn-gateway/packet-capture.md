@@ -4,15 +4,15 @@ description: En savoir plus sur les fonctionnalités de capture de paquets que v
 services: vpn-gateway
 author: radwiv
 ms.service: vpn-gateway
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 10/15/2019
 ms.author: radwiv
-ms.openlocfilehash: 2429a8d08baa34aed120cffa069abae1fb9a3df9
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 6edfe0228ce4cbe21ad4ae0eb8b7316a92f1da31
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "75353514"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84987143"
 ---
 # <a name="configure-packet-captures-for-vpn-gateways"></a>Configurer les captures de paquets pour les passerelles VPN
 

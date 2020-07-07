@@ -4,15 +4,15 @@ description: Étapes à suivre pour publier des routes personnalisées pour vos 
 services: vpn-gateway
 author: cherylmc
 ms.service: vpn-gateway
-ms.topic: article
+ms.topic: how-to
 ms.date: 11/11/2019
 ms.author: cherylmc
-ms.openlocfilehash: 3588755e2aab1c84d443e917eca8c7fca280b49a
-ms.sourcegitcommit: 441db70765ff9042db87c60f4aa3c51df2afae2d
+ms.openlocfilehash: ad007514e48ea751257884ba6e9ccb3965442d36
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/06/2020
-ms.locfileid: "80756885"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84987578"
 ---
 # <a name="advertise-custom-routes-for-p2s-vpn-clients"></a>Publier des routes personnalisées pour des clients VPN point à site
 

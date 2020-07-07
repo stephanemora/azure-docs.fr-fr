@@ -7,18 +7,18 @@ ms.subservice: cosmosdb-cassandra
 ms.topic: how-to
 ms.date: 06/03/2020
 ms.author: mjbrown
-ms.openlocfilehash: 04bbfe3ee38c5ce37c36ab2f85467ce68e7335be
-ms.sourcegitcommit: 635114a0f07a2de310b34720856dd074aaf4f9cd
+ms.openlocfilehash: 093d8cdd97f28a419788070e674d80aad595f46a
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/23/2020
-ms.locfileid: "85262971"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85556311"
 ---
 # <a name="azure-cli-samples-for-azure-cosmos-db-cassandra-api"></a>Exemples Azure CLI pour l’API Cassandra Azure Cosmos DB
 
 Le tableau suivant comprend des liens vers des exemples de scripts Azure CLI pour l’API Cassandra Azure Cosmos DB. Des pages d’informations de référence pour toutes les commandes Azure Cosmos DB CLI sont disponibles dans les [Informations de référence sur Azure CLI](/cli/azure/cosmosdb). Vous trouverez tous les exemples de scripts CLI Azure Cosmos DB dans le [dépôt GitHub CLI Azure Cosmos DB](https://github.com/Azure-Samples/azure-cli-samples/tree/master/cosmosdb).
 
-| |  |
+|Tâche | Description |
 |---|---|
 | [Créer un compte, un espace de clés et une table Azure Cosmos](scripts/cli/cassandra/create.md?toc=%2fcli%2fazure%2ftoc.json)| Créez un compte, un espace de clés et une table Azure Cosmos pour l’API Cassandra. |
 | [Changer le débit](scripts/cli/cassandra/throughput.md?toc=%2fcli%2fazure%2ftoc.json) | Mettez à jour les unités de requête/s dans un espace de clés et une table.|

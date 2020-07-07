@@ -16,12 +16,12 @@ ms.topic: tutorial
 ms.date: 02/05/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d2ce7b4dab18954d26b411948a6a436b16317f4f
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: e6c8955eb62ca413460a45b8cddf46c43bcd80af
+ms.sourcegitcommit: 32592ba24c93aa9249f9bd1193ff157235f66d7e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "73158286"
+ms.lasthandoff: 07/01/2020
+ms.locfileid: "85607122"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-empcenter"></a>Didacticiel : Intégration d’Azure Active Directory à EmpCenter
 
@@ -108,10 +108,10 @@ Pour configurer l’authentification unique Azure AD avec EmpCenter, effectuez l
 
     Dans la zone de texte **URL d’authentification**, tapez une URL au format suivant :
     
-    | |
-    |--|
-    | `https://<subdomain>.EmpCenter.com/<instancename>` |
-    | `https://<subdomain>.workforcehosting.com/<instancename>` |
+    ```https
+    https://<subdomain>.EmpCenter.com/<instancename>
+    https://<subdomain>.workforcehosting.com/<instancename>
+    ```
 
     > [!NOTE]
     > Cette valeur n’est pas la valeur réelle. Mettez à jour la valeur avec l’URL de connexion réelle. Pour obtenir cette valeur, contactez [l’équipe de prise en charge des clients EmpCenter](https://www.workforcesoftware.com/services/customer-support/). Vous pouvez également consulter les modèles figurant à la section **Configuration SAML de base** dans le portail Azure.

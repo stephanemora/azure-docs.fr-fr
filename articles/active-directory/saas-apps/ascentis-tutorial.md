@@ -16,12 +16,12 @@ ms.topic: tutorial
 ms.date: 07/11/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 4fd6c18e3a3af763a2f4404e6b9c808e1bd8a4a5
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: f9739fa5e4e59d0808f0bea953c4cfde11e50d37
+ms.sourcegitcommit: 32592ba24c93aa9249f9bd1193ff157235f66d7e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "71129934"
+ms.lasthandoff: 07/01/2020
+ms.locfileid: "85607971"
 ---
 # <a name="tutorial-integrate-ascentis-with-azure-active-directory"></a>Tutoriel : Intégrer Ascentis à Azure Active Directory
 
@@ -88,10 +88,10 @@ Effectuez les étapes suivantes pour activer l’authentification unique Azure A
 
     Dans la zone de texte **URL de connexion**, tapez une URL en respectant l’un des formats suivants :
 
-    | |
-    |--|
-    | `https://selfservice.ascentis.com/<clientname>/STS/signin.aspx?SAMLResponse=true` |
-    | `https://selfservice2.ascentis.com/<clientname>/STS/signin.aspx?SAMLResponse=true` |
+   ```https
+    https://selfservice.ascentis.com/<clientname>/STS/signin.aspx?SAMLResponse=true
+    https://selfservice2.ascentis.com/<clientname>/STS/signin.aspx?SAMLResponse=true
+    ```
 
     > [!NOTE]
     > Il ne s’agit pas de valeurs réelles. Mettez à jour ces valeurs avec l’URL de réponse et l’URL de connexion réelles. Pour obtenir ces valeurs, contactez l’[équipe du support client Ascentis](mailto:support@ascentis.com). Vous pouvez également consulter les modèles figurant à la section **Configuration SAML de base** dans le portail Azure.

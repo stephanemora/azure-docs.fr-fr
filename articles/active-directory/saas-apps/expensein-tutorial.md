@@ -16,12 +16,12 @@ ms.topic: tutorial
 ms.date: 06/11/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 7c09542013dff3a18965d1070216a938c26a144e
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: bf7e3659aa3044a4453574a2cd171303d00abc19
+ms.sourcegitcommit: 32592ba24c93aa9249f9bd1193ff157235f66d7e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "67102843"
+ms.lasthandoff: 07/01/2020
+ms.locfileid: "85606679"
 ---
 # <a name="tutorial-integrate-expensein-with-azure-active-directory"></a>Tutoriel : Intégrer ExpenseIn à Azure Active Directory
 
@@ -82,10 +82,10 @@ Effectuez les étapes suivantes pour activer l’authentification unique Azure A
 
     Dans la zone de texte **URL de réponse**, tapez l’une des URL :
 
-    | |
-    |--|
-    | `https://app.expensein.com/samlcallback` |
-    | `https://mobileapi.expensein.com/identity/samlcallback` |
+    ```https
+    https://app.expensein.com/samlcallback
+    https://mobileapi.expensein.com/identity/samlcallback
+    ```
 
 5. Si vous souhaitez configurer l’application en **mode démarré par le fournisseur de services**, cliquez sur **Définir des URL supplémentaires**, puis effectuez les étapes suivantes :
 

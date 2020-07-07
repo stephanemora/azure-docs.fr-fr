@@ -5,15 +5,15 @@ description: Créer une passerelle VPN basée sur des itinéraires à l’aide d
 services: vpn-gateway
 author: cherylmc
 ms.service: vpn-gateway
-ms.topic: article
+ms.topic: how-to
 ms.date: 03/03/2020
 ms.author: cherylmc
-ms.openlocfilehash: 6156d689a29ee348f9b1974d1520eb7d186a8d8d
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 4409df576c23e0dbc3e663cc348b45bc23ad5460
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "78331347"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84987714"
 ---
 # <a name="create-a-route-based-vpn-gateway-using-the-azure-portal"></a>Créer une passerelle VPN basée sur des itinéraires à l’aide du portail Azure
 

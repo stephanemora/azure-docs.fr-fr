@@ -3,12 +3,12 @@ title: Gestion et détection des erreurs dans Azure Batch
 description: En savoir plus sur la gestion des erreurs dans les workflows du service Batch du point de vue du développement.
 ms.topic: article
 ms.date: 05/15/2020
-ms.openlocfilehash: 07b9d43ea9bdf21fe3188c4481e6dd0c86374607
-ms.sourcegitcommit: a9784a3fd208f19c8814fe22da9e70fcf1da9c93
+ms.openlocfilehash: 3bd460598dae08fa18415e1c9865249f3ca4c9c2
+ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/22/2020
-ms.locfileid: "83790826"
+ms.lasthandoff: 07/05/2020
+ms.locfileid: "85964275"
 ---
 # <a name="error-handling-and-detection-in-azure-batch"></a>Gestion et détection des erreurs dans Azure Batch
 
@@ -23,13 +23,13 @@ Les types d’erreurs généraux sont les suivants :
 - Erreurs liées à la limitation de bande passante, telles que les réponses HTTP du code d’état 429 ou 503 avec l’en-tête Retry-after.
 - Erreurs 4xx telles que AlreadyExists et InvalidOperation. Cela signifie que la ressource n’est pas dans l’état correct pour la transition d’état.
 
-Pour plus d’informations sur les codes d’erreur spécifiques, notamment les codes d’erreur pour l’API REST, le service Batch et la planification de travail ou de tâche, consultez [Codes d’état et d’erreur de Batch](https://docs.microsoft.com/rest/api/batchservice/batch-status-and-error-codes).
+Pour plus d’informations sur les codes d’erreur spécifiques, notamment les codes d’erreur pour l’API REST, le service Batch et la planification de travail ou de tâche, consultez [Codes d’état et d’erreur de Batch](/rest/api/batchservice/batch-status-and-error-codes).
 
 ## <a name="application-failures"></a>Échecs d’application
 
 Pendant l’exécution, une application peut produire des diagnostics qui vous permettent de résoudre les problèmes. Comme décrit dans [Fichiers et répertoires](files-and-directories.md), le service Batch écrit des sorties et des sorties d’erreur standard dans les fichiers `stdout.txt` et `stderr.txt` du répertoire de tâche sur le nœud de calcul.
 
-Vous pouvez utiliser le portail Azure ou l’un des Kits de développement logiciel (SDK) Batch pour télécharger ces fichiers. Par exemple, vous pouvez récupérer ces fichiers et d’autres à des fins de résolution des problèmes en utilisant [ComputeNode.GetNodeFile](https://docs.microsoft.com/dotnet/api/microsoft.azure.batch.computenode) et [CloudTask.GetNodeFile](https://docs.microsoft.com/dotnet/api/microsoft.azure.batch.cloudtask) dans la bibliothèque .NET Batch.
+Vous pouvez utiliser le portail Azure ou l’un des Kits de développement logiciel (SDK) Batch pour télécharger ces fichiers. Par exemple, vous pouvez récupérer ces fichiers et d’autres à des fins de résolution des problèmes en utilisant [ComputeNode.GetNodeFile](/dotnet/api/microsoft.azure.batch.computenode) et [CloudTask.GetNodeFile](/dotnet/api/microsoft.azure.batch.cloudtask) dans la bibliothèque .NET Batch.
 
 ## <a name="task-errors"></a>Erreurs de tâche
 
@@ -73,10 +73,10 @@ Un problème intermittent peut également provoquer la non-réponse soudaine d�
 
 ## <a name="connect-to-compute-nodes"></a>Connexion aux nœuds de calcul
 
-Vous pouvez effectuer des actions supplémentaires de débogage et de résolution des problèmes en vous connectant à un nœud de calcul à distance. Vous pouvez utiliser le portail Azure pour télécharger un fichier RDP pour les nœuds Windows et obtenir des informations de connexion SSH pour les nœuds Linux. Vous pouvez également effectuer cette opération à l’aide des API Batch, par exemple [.NET Batch](https://docs.microsoft.com/dotnet/api/microsoft.azure.batch.computenode) ou [Python Batch](batch-linux-nodes.md#connect-to-linux-nodes-using-ssh).
+Vous pouvez effectuer des actions supplémentaires de débogage et de résolution des problèmes en vous connectant à un nœud de calcul à distance. Vous pouvez utiliser le portail Azure pour télécharger un fichier RDP pour les nœuds Windows et obtenir des informations de connexion SSH pour les nœuds Linux. Vous pouvez également effectuer cette opération à l’aide des API Batch, par exemple [.NET Batch](/dotnet/api/microsoft.azure.batch.computenode) ou [Python Batch](batch-linux-nodes.md#connect-to-linux-nodes-using-ssh).
 
 > [!IMPORTANT]
-> Pour vous connecter à un nœud via RDP ou SSH, vous devez d’abord créer un utilisateur sur le nœud. Pour ce faire, vous pouvez utiliser le Portail Azure, [ajouter un compte d’utilisateur à un nœud](https://docs.microsoft.com/rest/api/batchservice/computenode/adduser) en utilisant l’API REST Batch, appeler la méthode [ComputeNode.CreateComputeNodeUser](https://docs.microsoft.com/dotnet/api/microsoft.azure.batch.computenode) dans .NET Batch ou appeler la méthode [add_user](batch-linux-nodes.md#connect-to-linux-nodes-using-ssh) dans le module Python de Batch.
+> Pour vous connecter à un nœud via RDP ou SSH, vous devez d’abord créer un utilisateur sur le nœud. Pour ce faire, vous pouvez utiliser le Portail Azure, [ajouter un compte d’utilisateur à un nœud](/rest/api/batchservice/computenode/adduser) en utilisant l’API REST Batch, appeler la méthode [ComputeNode.CreateComputeNodeUser](/dotnet/api/microsoft.azure.batch.computenode) dans .NET Batch ou appeler la méthode [add_user](batch-linux-nodes.md#connect-to-linux-nodes-using-ssh) dans le module Python de Batch.
 
 Pour limiter ou désactiver l’accès RDP ou SSH aux nœuds de calcul, consultez [Configure or disable remote access to compute nodes in an Azure Batch pool](pool-endpoint-configuration.md) (Configurer ou désactiver l’accès distant aux nœuds de calcul dans un pool Azure Batch).
 
@@ -84,21 +84,21 @@ Pour limiter ou désactiver l’accès RDP ou SSH aux nœuds de calcul, consulte
 
 Quand certaines de vos tâches échouent, votre application cliente Batch ou un service peut examiner les métadonnées des tâches en échec pour identifier un nœud présentant un dysfonctionnement. Chaque nœud d’un pool se voit attribuer un ID unique et le nœud sur lequel s’exécute une tâche est inclus dans les métadonnées de la tâche. Une fois que vous avez identifié le nœud présentant un problème, vous pouvez effectuer les actions suivantes :
 
-- **Redémarrer le nœud** ([REST](https://docs.microsoft.com/rest/api/batchservice/computenode/reboot) | [.NET](https://docs.microsoft.com/dotnet/api/microsoft.azure.batch.computenode.reboot))
+- **Redémarrer le nœud** ([REST](/rest/api/batchservice/computenode/reboot) | [.NET](/dotnet/api/microsoft.azure.batch.computenode.reboot))
 
     Le fait de redémarrer le nœud peut parfois résoudre des problèmes latents comme des processus bloqués ou défaillants. Si votre pool utilise une tâche de démarrage ou si votre travail utilise une tâche de préparation, ces deux éléments s’exécutent au redémarrage du nœud.
-- **Réinitialiser le nœud** ([REST](https://docs.microsoft.com/rest/api/batchservice/computenode/reimage) | [.NET](https://docs.microsoft.com/dotnet/api/microsoft.azure.batch.computenode.reimage))
+- **Réinitialiser le nœud** ([REST](/rest/api/batchservice/computenode/reimage) | [.NET](/dotnet/api/microsoft.azure.batch.computenode.reimage))
 
     Cette opération réinstalle le système d’exploitation sur le nœud. Comme avec le redémarrage d’un nœud, les tâches de démarrage et celles de préparation d’un travail sont relancées une fois le nœud réinitialisé.
-- **Supprimer le nœud du pool** ([REST](https://docs.microsoft.com/rest/api/batchservice/pool/removenodes) | [.NET](https://docs.microsoft.com/dotnet/api/microsoft.azure.batch.pooloperations))
+- **Supprimer le nœud du pool** ([REST](/rest/api/batchservice/pool/removenodes) | [.NET](/dotnet/api/microsoft.azure.batch.pooloperations))
 
     Il est parfois nécessaire de supprimer entièrement le nœud à partir du pool.
-- **Désactiver la planification des tâches sur le nœud** ([REST](https://docs.microsoft.com/rest/api/batchservice/computenode/disablescheduling) | [.NET](https://docs.microsoft.com/dotnet/api/microsoft.azure.batch.computenode.disablescheduling))
+- **Désactiver la planification des tâches sur le nœud** ([REST](/rest/api/batchservice/computenode/disablescheduling) | [.NET](/dotnet/api/microsoft.azure.batch.computenode.disablescheduling))
 
-    Cette opération met le nœud hors connexion, de sorte qu’aucune tâche supplémentaire ne peut lui être affectée. Toutefois, le nœud est autorisé à poursuivre son exécution et à rester dans le pool. Cela vous permet de faire une recherche approfondie sur la cause des échecs sans perdre les données de la tâche en échec et sans que le nœud n’occasionne d’autres échecs de tâche supplémentaires. Par exemple, vous pouvez désactiver la planification des tâches sur le nœud, puis vous connecter à distance pour examiner les journaux des événements de ce nœud ou encore résoudre d’autres problèmes. Après avoir terminé votre recherche, vous pouvez remettre le nœud en ligne en activant la planification des tâches ([REST](https://docs.microsoft.com/rest/api/batchservice/computenode/enablescheduling) | [.NET](https://docs.microsoft.com/dotnet/api/microsoft.azure.batch.computenode.enablescheduling)) ou exécuter l’une des autres actions indiquées précédemment.
+    Cette opération met le nœud hors connexion, de sorte qu’aucune tâche supplémentaire ne peut lui être affectée. Toutefois, le nœud est autorisé à poursuivre son exécution et à rester dans le pool. Cela vous permet de faire une recherche approfondie sur la cause des échecs sans perdre les données de la tâche en échec et sans que le nœud n’occasionne d’autres échecs de tâche supplémentaires. Par exemple, vous pouvez désactiver la planification des tâches sur le nœud, puis vous connecter à distance pour examiner les journaux des événements de ce nœud ou encore résoudre d’autres problèmes. Après avoir terminé votre recherche, vous pouvez remettre le nœud en ligne en activant la planification des tâches ([REST](/rest/api/batchservice/computenode/enablescheduling) | [.NET](/dotnet/api/microsoft.azure.batch.computenode.enablescheduling)) ou exécuter l’une des autres actions indiquées précédemment.
 
 > [!IMPORTANT]
-> À l’aide des actions décrites ci-dessus, vous pouvez spécifier la manière dont les tâches en cours d’exécution sur le nœud sont traitées lorsque vous effectuez l’action. Par exemple, lorsque vous désactivez la planification des tâches sur un nœud à l’aide de la bibliothèque client .NET Batch, vous pouvez spécifier une valeur d’énumération [DisableComputeNodeSchedulingOption](https://docs.microsoft.com/dotnet/api/microsoft.azure.batch.common.disablecomputenodeschedulingoption) pour préciser s’il faut **terminer** les tâches en cours d’exécution, les **remettre en file d’attente** pour les planifier sur d’autres nœuds ou finaliser les tâches en cours avant d’exécuter l’action (**TaskCompletion**).
+> À l’aide des actions décrites ci-dessus, vous pouvez spécifier la manière dont les tâches en cours d’exécution sur le nœud sont traitées lorsque vous effectuez l’action. Par exemple, lorsque vous désactivez la planification des tâches sur un nœud à l’aide de la bibliothèque client .NET Batch, vous pouvez spécifier une valeur d’énumération [DisableComputeNodeSchedulingOption](/dotnet/api/microsoft.azure.batch.common.disablecomputenodeschedulingoption) pour préciser s’il faut **terminer** les tâches en cours d’exécution, les **remettre en file d’attente** pour les planifier sur d’autres nœuds ou finaliser les tâches en cours avant d’exécuter l’action (**TaskCompletion**).
 
 ## <a name="retry-after-errors"></a>Nouvelle tentative après erreur
 
@@ -110,4 +110,4 @@ Après une erreur, vous devez attendre un peu (quelques secondes entre deux nouv
 
 - Découvrez comment [rechercher les erreurs de pool et de nœud](batch-pool-node-error-checking.md).
 - Découvrez comment [rechercher les erreurs de travail et de tâche](batch-job-task-error-checking.md).
-- Passez en revue la liste des [codes d’erreur et d’état de Batch](https://docs.microsoft.com/rest/api/batchservice/batch-status-and-error-codes).
+- Passez en revue la liste des [codes d’erreur et d’état de Batch](/rest/api/batchservice/batch-status-and-error-codes).

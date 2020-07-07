@@ -3,12 +3,12 @@ title: Événement d’échec de tâche Azure Batch
 description: Référence pour l’événement d’échec de tâche Batch. Cet événement est émis en plus d’un événement de fin de tâche, et peut être utilisé pour détecter si une tâche a échoué.
 ms.topic: reference
 ms.date: 08/15/2019
-ms.openlocfilehash: 54a6965fbefeaf502372c611c2b3152dc43b0efe
-ms.sourcegitcommit: 6fd8dbeee587fd7633571dfea46424f3c7e65169
+ms.openlocfilehash: fbd0e5f2397fffce654d64a0e95a115b861db680
+ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/21/2020
-ms.locfileid: "83726347"
+ms.lasthandoff: 07/05/2020
+ms.locfileid: "85965159"
 ---
 # <a name="task-fail-event"></a>Événement d’échec de tâche
 
@@ -50,7 +50,7 @@ ms.locfileid: "83726347"
 |`taskType`|String|Type de la tâche. Ce peut être « JobManager », indiquant qu’il s’agit une tâche du gestionnaire, ou « User », indiquant qu’il ne s’agit pas d’une tâche du gestionnaire. Cet événement n’est pas émis pour des tâches de préparation du travail, des tâches de fin de travail ou des tâches de démarrage.|
 |`systemTaskVersion`|Int32|Compteur de tentatives internes d’exécution d’une tâche. En interne, le service Batch peut recommencer une tâche pour prendre en compte des problèmes temporaires. Ces problèmes peuvent être des erreurs de planification internes ou des tentatives de récupération à partir de nœuds de calcul en mauvais état.|
 |[`nodeInfo`](#nodeInfo)|Type complexe|Contient des informations sur le nœud de calcul sur lequel la tâche a été exécutée.|
-|[`multiInstanceSettings`](#multiInstanceSettings)|Type complexe|Spécifie que la tâche est une tâche multi-instance nécessitant plusieurs nœuds de calcul.  Consultez [`multiInstanceSettings`](https://docs.microsoft.com/rest/api/batchservice/get-information-about-a-task) pour plus de détails.|
+|[`multiInstanceSettings`](#multiInstanceSettings)|Type complexe|Spécifie que la tâche est une tâche multi-instance nécessitant plusieurs nœuds de calcul.  Consultez [`multiInstanceSettings`](/rest/api/batchservice/get-information-about-a-task) pour plus de détails.|
 |[`constraints`](#constraints)|Type complexe|Contraintes d’exécution qui s’appliquent à cette tâche.|
 |[`executionInfo`](#executionInfo)|Type complexe|Contient des informations sur l’exécution de la tâche.|
 

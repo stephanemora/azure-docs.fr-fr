@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 04/23/2020
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 92d3f2381f2fdce123511caa2339d41b0641b077
-ms.sourcegitcommit: 366e95d58d5311ca4b62e6d0b2b47549e06a0d6d
+ms.openlocfilehash: 4889fe0b482bd1485f6f05b8e0369823561f094d
+ms.sourcegitcommit: 32592ba24c93aa9249f9bd1193ff157235f66d7e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/01/2020
-ms.locfileid: "82690636"
+ms.lasthandoff: 07/01/2020
+ms.locfileid: "85606458"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-float"></a>Tutoriel : Intégration de l’authentification unique Azure Active Directory à Float
 
@@ -100,9 +100,9 @@ Effectuez les étapes suivantes pour activer l’authentification unique Azure A
 
 1. En plus de ce qui précède, l’application Float s’attend à ce que quelques attributs supplémentaires, indiqués ci-après, soient passés dans la réponse SAML. Ces attributs sont également préremplis, mais vous pouvez les examiner pour voir s’ils répondent à vos besoins.
     
-    | Nom |  |  Attribut source|
-    | ---------------| --------------- | --------- |
-    | email | | user.userprincipalname |
+    | Nom | Attribut source|
+    | ---------------| --------- |
+    | email | user.userprincipalname |
 
 1. Dans la page **Configurer l’authentification unique avec SAML**, dans la section **Certificat de signature SAML**, recherchez **Certificat (en base64)** , puis sélectionnez **Télécharger** pour télécharger le certificat et l’enregistrer sur votre ordinateur.
 

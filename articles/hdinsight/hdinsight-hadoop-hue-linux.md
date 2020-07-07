@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.topic: conceptual
 ms.custom: hdinsightactive,hdiseo17may2017
 ms.date: 03/31/2020
-ms.openlocfilehash: fabc8b7b2a97b75959eb7d82723d6af6bc55bbe5
-ms.sourcegitcommit: 0b80a5802343ea769a91f91a8cdbdf1b67a932d3
+ms.openlocfilehash: 0af790c9424cdb049bcd1f22090337bde1815c4a
+ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/25/2020
-ms.locfileid: "83835476"
+ms.lasthandoff: 07/05/2020
+ms.locfileid: "85961929"
 ---
 # <a name="install-and-use-hue-on-hdinsight-hadoop-clusters"></a>Installation et utilisation de Hue sur des clusters HDInsight Hadoop
 
@@ -72,7 +72,9 @@ Vous ne pouvez avoir qu’un seul compte d’utilisateur Hue sur des clusters st
 
     Cette commande renvoie un nom similaire à ce qui suit :
 
-        myhdi-nfebtpfdv1nubcidphpap2eq2b.ex.internal.cloudapp.net
+    ```output
+    myhdi-nfebtpfdv1nubcidphpap2eq2b.ex.internal.cloudapp.net
+    ```
 
     Il s’agit du nom d’hôte du nœud principal primaire sur lequel se trouve le site web Hue.
 
@@ -115,7 +117,7 @@ Vous ne pouvez avoir qu’un seul compte d’utilisateur Hue sur des clusters st
 
 1. Hue ne comprend pas les travaux Apache Tez, qui est le paramétrage par défaut actuel pour Hive. Si vous souhaitez utiliser MapReduce comme moteur d’exécution de Hive, mettez à jour le script pour utiliser la commande suivante dans votre script :
 
-         set hive.execution.engine=mr;
+   `set hive.execution.engine=mr;`
 
 1. Avec les clusters Linux, vous pouvez avoir un scénario dans lequel vos services fonctionnent sur le nœud principal primaire alors que le Gestionnaire de ressources s’exécute sur le nœud principal secondaire. Un tel scénario peut entraîner des erreurs (illustrées ci-dessous) lors de l’utilisation de Hue pour afficher les détails des travaux EN COURS sur le cluster. Toutefois, vous pouvez afficher les détails du travail lorsque la tâche est terminée.
 

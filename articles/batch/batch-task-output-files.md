@@ -4,12 +4,12 @@ description: Découvrez comment utiliser l’API de service Batch pour conserver
 ms.topic: how-to
 ms.date: 03/05/2019
 ms.custom: seodec18
-ms.openlocfilehash: 8020fbd184e200504d0fb0a9ab7ef5de64bd76c9
-ms.sourcegitcommit: 6fd8dbeee587fd7633571dfea46424f3c7e65169
+ms.openlocfilehash: c9d8eab5b4f4b89a613f5ffc3a7f9c9d9d53dcfc
+ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/21/2020
-ms.locfileid: "83726313"
+ms.lasthandoff: 07/05/2020
+ms.locfileid: "85965125"
 ---
 # <a name="persist-task-data-to-azure-storage-with-the-batch-service-api"></a>Conserver les données de tâche dans le stockage Azure avec l’API de service Batch
 
@@ -32,7 +32,7 @@ Si votre scénario diffère de ceux répertoriés ci-dessus, vous devrez peut-ê
 
 ## <a name="create-a-container-in-azure-storage"></a>Créer un conteneur dans le stockage Azure
 
-Pour conserver le résultat de la tâche dans le stockage Azure, vous devez créer un conteneur qui sert de destination pour vos fichiers de sortie. Créez le conteneur avant d’exécuter la tâche, de préférence avant d’envoyer votre travail. Pour créer le conteneur, utilisez la bibliothèque cliente de stockage Azure ou le SDK approprié. Pour plus d’informations sur les API de stockage Azure, consultez la [documentation sur le stockage Azure](https://docs.microsoft.com/azure/storage/).
+Pour conserver le résultat de la tâche dans le stockage Azure, vous devez créer un conteneur qui sert de destination pour vos fichiers de sortie. Créez le conteneur avant d’exécuter la tâche, de préférence avant d’envoyer votre travail. Pour créer le conteneur, utilisez la bibliothèque cliente de stockage Azure ou le SDK approprié. Pour plus d’informations sur les API de stockage Azure, consultez la [documentation sur le stockage Azure](../storage/index.yml).
 
 Par exemple, si vous écrivez votre application en C#, utilisez la [bibliothèque cliente de stockage Azure pour .NET](https://www.nuget.org/packages/WindowsAzure.Storage/). L’exemple suivant montre comment créer un conteneur :
 
@@ -61,7 +61,7 @@ string containerSasUrl = container.Uri.AbsoluteUri + containerSasToken;
 
 ## <a name="specify-output-files-for-task-output"></a>Spécifier les fichiers de sortie pour le résultat de la tâche
 
-Pour spécifier les fichiers de sortie pour une tâche, créez une collection d’objets [OutputFile](https://docs.microsoft.com/dotnet/api/microsoft.azure.batch.outputfile) et affectez-la à la propriété [CloudTask.OutputFiles](https://docs.microsoft.com/dotnet/api/microsoft.azure.batch.cloudtask.outputfiles#Microsoft_Azure_Batch_CloudTask_OutputFiles) quand vous créez la tâche.
+Pour spécifier les fichiers de sortie pour une tâche, créez une collection d’objets [OutputFile](/dotnet/api/microsoft.azure.batch.outputfile) et affectez-la à la propriété [CloudTask.OutputFiles](/dotnet/api/microsoft.azure.batch.cloudtask.outputfiles#Microsoft_Azure_Batch_CloudTask_OutputFiles) quand vous créez la tâche.
 
 L’exemple de code C# suivant crée une tâche qui écrit des nombres aléatoires dans un fichier nommé `output.txt`. L’exemple crée un fichier de sortie pour `output.txt` à écrire dans le conteneur. Il crée également des fichiers de sortie pour tout fichier journal qui correspond au modèle de fichier `std*.txt` (_par exemple_`stdout.txt` et `stderr.txt`). L’URL du conteneur a besoin de la signature d’accès partagé créée précédemment pour le conteneur. Le service Batch utilise la signature d’accès partagé pour authentifier l’accès au conteneur :
 
@@ -91,7 +91,7 @@ new CloudTask(taskId, "cmd /v:ON /c \"echo off && set && (FOR /L %i IN (1,1,1000
 
 ### <a name="specify-a-file-pattern-for-matching"></a>Spécifier un modèle de fichier pour la correspondance
 
-Quand vous spécifiez un fichier de sortie, vous pouvez utiliser la propriété [OutputFile.FilePattern](https://docs.microsoft.com/dotnet/api/microsoft.azure.batch.outputfile.filepattern#Microsoft_Azure_Batch_OutputFile_FilePattern) pour spécifier un modèle de fichier pour la correspondance. Le modèle de fichier peut faire correspondre zéro fichier, un seul fichier ou un ensemble de fichiers créés par la tâche.
+Quand vous spécifiez un fichier de sortie, vous pouvez utiliser la propriété [OutputFile.FilePattern](/dotnet/api/microsoft.azure.batch.outputfile.filepattern#Microsoft_Azure_Batch_OutputFile_FilePattern) pour spécifier un modèle de fichier pour la correspondance. Le modèle de fichier peut faire correspondre zéro fichier, un seul fichier ou un ensemble de fichiers créés par la tâche.
 
 La propriété **FilePattern** prend en charge les caractères génériques de système de fichiers standard tels que `*` (pour les correspondances non récursives) et `**` (pour les correspondances récursives). Par exemple, l’exemple de code ci-dessus spécifie le modèle de fichier pour établir une mise en correspondance avec `std*.txt` de manière non récursive :
 
@@ -103,19 +103,19 @@ Pour charger un seul fichier, spécifiez un modèle de fichier sans caractère g
 
 ### <a name="specify-an-upload-condition"></a>Spécifier une condition de chargement
 
-La propriété [OutputFileUploadOptions.UploadCondition](https://docs.microsoft.com/dotnet/api/microsoft.azure.batch.outputfileuploadoptions.uploadcondition#Microsoft_Azure_Batch_OutputFileUploadOptions_UploadCondition) autorise le chargement conditionnel des fichiers de sortie. Un scénario courant consiste à charger un ensemble de fichiers si la tâche réussit, et un autre ensemble de fichiers en cas d’échec. Par exemple, vous pourriez souhaiter charger des fichiers journaux détaillés uniquement quand la tâche échoue et se termine avec un code de sortie différent de zéro. De même, vous pourriez souhaiter charger des fichiers de résultats uniquement si la tâche réussit, car ces fichiers pourraient être manquants ou incomplets si la tâche échoue.
+La propriété [OutputFileUploadOptions.UploadCondition](/dotnet/api/microsoft.azure.batch.outputfileuploadoptions.uploadcondition#Microsoft_Azure_Batch_OutputFileUploadOptions_UploadCondition) autorise le chargement conditionnel des fichiers de sortie. Un scénario courant consiste à charger un ensemble de fichiers si la tâche réussit, et un autre ensemble de fichiers en cas d’échec. Par exemple, vous pourriez souhaiter charger des fichiers journaux détaillés uniquement quand la tâche échoue et se termine avec un code de sortie différent de zéro. De même, vous pourriez souhaiter charger des fichiers de résultats uniquement si la tâche réussit, car ces fichiers pourraient être manquants ou incomplets si la tâche échoue.
 
 L’exemple de code ci-dessus affecte la valeur **TaskCompletion** à la propriété **UploadCondition**. Ce paramètre spécifie que le fichier doit être chargé une fois la tâche terminée, quelle que soit la valeur du code de sortie.
 
 `uploadCondition: OutputFileUploadCondition.TaskCompletion`
 
-Pour plus d’informations sur les autres paramètres, consultez l’énumération [OutputFileUploadCondition](https://docs.microsoft.com/dotnet/api/microsoft.azure.batch.common.outputfileuploadcondition).
+Pour plus d’informations sur les autres paramètres, consultez l’énumération [OutputFileUploadCondition](/dotnet/api/microsoft.azure.batch.common.outputfileuploadcondition).
 
 ### <a name="disambiguate-files-with-the-same-name"></a>Lever l’ambiguïté des fichiers portant le même nom
 
 Les tâches d’un travail peuvent générer des fichiers ayant le même nom. Par exemple, `stdout.txt` et `stderr.txt` sont créés pour chaque tâche qui s’exécute dans un travail. Étant donné que chaque tâche s’exécute dans son propre contexte, ces fichiers ne sont pas en conflit sur le système de fichiers du nœud. Toutefois, quand vous chargez des fichiers à partir de plusieurs tâches vers un conteneur partagé, vous devez lever l’ambiguïté des fichiers portant le même nom.
 
-La propriété [OutputFileBlobContainerDestination.Path](https://docs.microsoft.com/dotnet/api/microsoft.azure.batch.outputfileblobcontainerdestination.path#Microsoft_Azure_Batch_OutputFileBlobContainerDestination_Path) spécifie l’objet blob ou le répertoire virtuel de destination pour les fichiers de sortie. Vous pouvez utiliser la propriété **Path** pour nommer l’objet blob ou le répertoire virtuel de telle sorte que les fichiers de sortie portant le même nom soient nommés de manière unique dans le stockage Azure. L’utilisation de l’ID de tâche dans le chemin est un bon moyen de garantir le caractère unique des noms et de faciliter l’identification des fichiers.
+La propriété [OutputFileBlobContainerDestination.Path](/dotnet/api/microsoft.azure.batch.outputfileblobcontainerdestination.path#Microsoft_Azure_Batch_OutputFileBlobContainerDestination_Path) spécifie l’objet blob ou le répertoire virtuel de destination pour les fichiers de sortie. Vous pouvez utiliser la propriété **Path** pour nommer l’objet blob ou le répertoire virtuel de telle sorte que les fichiers de sortie portant le même nom soient nommés de manière unique dans le stockage Azure. L’utilisation de l’ID de tâche dans le chemin est un bon moyen de garantir le caractère unique des noms et de faciliter l’identification des fichiers.
 
 Si la propriété **FilePattern** a comme valeur une expression générique, tous les fichiers qui correspondent au modèle sont chargés vers le répertoire virtuel spécifié par la propriété **Path**. Par exemple, si le conteneur est `mycontainer`, l’ID de tâche est `mytask` et le modèle de fichier est `..\std*.txt`, les URI absolus des fichiers de sortie dans le stockage Azure ressembleront à ceci :
 
@@ -139,7 +139,7 @@ Pour plus d’informations sur les répertoires virtuels dans le stockage Azure,
 
 ## <a name="diagnose-file-upload-errors"></a>Diagnostiquer les erreurs de chargement de fichier
 
-Si le chargement des fichiers de sortie dans le stockage Azure échoue, la tâche bascule à l’état **Terminée** et la propriété [TaskExecutionInformation.FailureInformation](https://docs.microsoft.com/dotnet/api/microsoft.azure.batch.taskexecutioninformation.failureinformation#Microsoft_Azure_Batch_TaskExecutionInformation_FailureInformation) est définie. Examinez la propriété **FailureInformation** pour identifier l’erreur qui s’est produite. Voici par exemple une erreur qui se produit lors du chargement de fichier si le conteneur est introuvable :
+Si le chargement des fichiers de sortie dans le stockage Azure échoue, la tâche bascule à l’état **Terminée** et la propriété [TaskExecutionInformation.FailureInformation](/dotnet/api/microsoft.azure.batch.taskexecutioninformation.failureinformation#Microsoft_Azure_Batch_TaskExecutionInformation_FailureInformation) est définie. Examinez la propriété **FailureInformation** pour identifier l’erreur qui s’est produite. Voici par exemple une erreur qui se produit lors du chargement de fichier si le conteneur est introuvable :
 
 ```
 Category: UserError
@@ -163,7 +163,7 @@ Si vous développez en C#, vous pouvez utiliser les méthodes intégrées à la 
 string containerName = job.OutputStorageContainerName();
 ```
 
-Vous pouvez utiliser la méthode [CloudJobExtensions.GetOutputStorageContainerUrl](https://docs.microsoft.com/dotnet/api/microsoft.azure.batch.conventions.files.cloudjobextensions.getoutputstoragecontainerurl) pour retourner une URL de signature d’accès partagé utilisée pour écrire dans le conteneur. Vous pouvez ensuite passer cette signature d’accès partagé au constructeur [OutputFileBlobContainerDestination](https://docs.microsoft.com/dotnet/api/microsoft.azure.batch.outputfileblobcontainerdestination).
+Vous pouvez utiliser la méthode [CloudJobExtensions.GetOutputStorageContainerUrl](/dotnet/api/microsoft.azure.batch.conventions.files.cloudjobextensions.getoutputstoragecontainerurl) pour retourner une URL de signature d’accès partagé utilisée pour écrire dans le conteneur. Vous pouvez ensuite passer cette signature d’accès partagé au constructeur [OutputFileBlobContainerDestination](/dotnet/api/microsoft.azure.batch.outputfileblobcontainerdestination).
 
 Si vous développez dans un langage autre que C#, vous devez implémenter la norme relative aux Conventions de fichiers vous-même.
 
