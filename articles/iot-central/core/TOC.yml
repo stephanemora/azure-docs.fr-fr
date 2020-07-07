@@ -133,6 +133,8 @@
               href: howto-use-app-templates.md
             - name: Superviser l’intégrité de l’application
               href: howto-monitor-application-health.md
+            - name: À propos de votre application
+              href: howto-get-app-info.md
         - name: Gérer à partir d’autres emplacements
           items:
             - name: Gérer à partir du portail Azure

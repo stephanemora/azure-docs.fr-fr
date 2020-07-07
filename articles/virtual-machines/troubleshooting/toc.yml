@@ -200,6 +200,8 @@
       href: storage-resource-deletion-errors.md
     - name: Erreurs lors de la suppression des ressources de stockage classiques
       href: storage-classic-cannot-delete-storage-account-container-vhd.md
+    - name: Le disque dur virtuel n’est pas pris en charge lorsque vous créez une machine virtuelle dans Azure
+      href: vhd-not-supported-vm-azure.md
     - name: Utiliser la virtualisation imbriquée
       href: troubleshoot-vm-by-use-nested-virtualization.md
 - name: Problèmes de performances des machines virtuelles

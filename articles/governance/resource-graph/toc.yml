@@ -17,6 +17,9 @@
     - name: Exécuter votre première requête - Azure PowerShell
       displayName: 'module, docker, Az.ResourceGraph'
       href: ./first-query-powershell.md
+    - name: Exécuter votre première requête - .NET
+      displayName: 'core, auth, dotnet'
+      href: ./first-query-dotnet.md
     - name: Exécuter votre première requête - Go
       displayName: 'package, sdk, golang'
       href: ./first-query-go.md
@@ -26,6 +29,9 @@
     - name: Exécuter votre première requête – Python
       displayName: 'library, azure-mgmt, cli'
       href: ./first-query-python.md
+    - name: Exécuter votre première requête - REST
+      displayName: 'armclient, postman'
+      href: ./first-query-rest-api.md
     - name: Créer une requête partagée - Azure CLI
       displayName: 'extension, docker, queries'
       href: ./shared-query-azure-cli.md

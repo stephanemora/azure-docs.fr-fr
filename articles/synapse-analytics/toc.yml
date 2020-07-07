@@ -230,6 +230,8 @@
               href: sql/data-loading-best-practices.md
             - name: Compression columnstore
               href: sql/data-load-columnstore-compression.md
+            - name: Vue d’ensemble du chargement des données
+              href: sql/load-data-overview.md
         - name: Développement
           items:
             - name: Vue d’ensemble
@@ -362,8 +364,10 @@
       items:
         - name: Exécutions de pipeline
           href: monitoring/how-to-monitor-pipeline-runs.md
-        - name: Applications Spark
+        - name: Applications Apache Spark
           href: monitoring/how-to-monitor-spark-applications.md
+        - name: Détails sur les applications Apache Spark
+          href: monitoring/apache-spark-applications.md
         - name: SQL Synapse
           items:
             - name: Surveillance du cache de deuxième génération

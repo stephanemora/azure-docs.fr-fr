@@ -101,6 +101,8 @@
       href: elevate-access-global-admin.md
     - name: Administrateurs classiques
       href: classic-administrators.md
+    - name: Transférer un abonnement vers un autre répertoire (préversion)
+      href: transfer-subscription.md
     - name: Dépanner
       href: troubleshooting.md
 - name: Informations de référence

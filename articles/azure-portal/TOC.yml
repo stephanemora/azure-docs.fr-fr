@@ -43,8 +43,8 @@
       items:
         - name: Créer une demande de support Azure
           href: supportability/how-to-create-azure-support-request.md
-        - name: Charger des fichiers pour une demande de support
-          href: supportability/how-to-use-file-uploader.md
+        - name: Gérer une demande de support Azure
+          href: supportability/how-to-manage-azure-support-request.md
         - name: Demander des augmentations de quota
           items:
             - name: Augmenter les limites des processeurs virtuels de calcul

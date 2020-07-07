@@ -58,6 +58,8 @@
           href: /azure/active-directory/fundamentals/active-directory-users-restore?context=azure/active-directory/users-groups-roles/context/ugr-context
         - name: Restaurer des utilisateurs en bloc
           href: users-bulk-restore.md
+        - name: Révoquer l’accès d’un utilisateur
+          href: users-revoke-access.md
         - name: Fermer un compte dans un répertoire non managé
           href: users-close-account.md
         - name: Ajouter des utilisateurs B2B

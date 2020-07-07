@@ -86,6 +86,8 @@
           href: container-instances-start-command.md
         - name: Exécuter une commande (exec)
           href: container-instances-exec.md
+        - name: Exécuter un conteneur d’installation (init)
+          href: container-instances-init-container.md
         - name: Utiliser une identité managée (préversion)
           href: container-instances-managed-identity.md
         - name: Utiliser des ressources GPU (préversion)
@@ -162,7 +164,7 @@
       href: 'https://feedback.azure.com/forums/602224-azure-container-instances'
     - name: Stack Overflow
       href: 'https://stackoverflow.com/questions/tagged/azure-container-instances'
-    - name: Videos
+    - name: Vidéos
       href: 'https://azure.microsoft.com/resources/videos/index/?services=container-instances&sort=newest'
     - name: Questions fréquentes (FAQ)
       href: container-instances-faq.md

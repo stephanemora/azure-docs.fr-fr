@@ -16,8 +16,6 @@
       href: tutorial-access-private-cloud.md
     - name: 5 - Mettre à l’échelle un cloud privé
       href: tutorial-scale-private-cloud.md
-    - name: 6 - Créer une bibliothèque de contenu pour déployer une machine virtuelle
-      href: tutorial-deploy-vm-content-library.md
 - name: Concepts
   items:
     - name: Clusters et clouds privés
@@ -30,8 +28,6 @@
       href: concepts-identity.md
     - name: Mises à niveau de clouds privés
       href: concepts-upgrades.md
-    - name: Contrôle d’accès en fonction du rôle
-      href: concepts-rbac.md
 - name: Guides pratiques
   items:
     - name: Configurer HCX
@@ -40,12 +36,20 @@
       href: manage-dhcp.md
     - name: Récupération d'urgence
       href: disaster-recovery.md
+    - name: Déployer une machine virtuelle via la bibliothèque de contenu
+      href: deploy-vm-content-library.md
     - name: Serveur de sauvegarde Azure pour AVS
       items:
         - name: Configurer un serveur de sauvegarde Azure pour AVS
           href: set-up-mabs-for-avs.md
         - name: Sauvegarder des machines virtuelles AVS avec un serveur de sauvegarde Azure
           href: backup-avs-vms-with-mabs.md
+    - name: Intégration native Azure
+      items:
+        - name: Gestion des API
+          href: concepts-api-management.md
+        - name: Hub-and-spoke
+          href: concepts-avs-hub-and-spoke-integration.md
 - name: Informations de référence
   items: null
 - name: Ressources

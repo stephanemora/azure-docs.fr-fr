@@ -16,6 +16,8 @@
       href: quickstart-migrate-local-jupyter-notebook.md
     - name: Utiliser un environnement personnalisé
       href: quickstart-create-jupyter-notebook-project-environment.md
+    - name: Exporter votre projet
+      href: quickstart-export-jupyter-notebook-project.md
 - name: Tutoriels
   items:
     - name: Créer et exécuter un notebook

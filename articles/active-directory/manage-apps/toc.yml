@@ -7,10 +7,16 @@
       href: what-is-application-management.md
 - name: Démarrages rapides
   items:
-    - name: Voir vos applications d’entreprise
+    - name: Voir vos applications
       href: view-applications-portal.md
-    - name: Ajouter une application cloud à partir de la galerie
+    - name: Ajouter une application
       href: add-application-portal.md
+    - name: Configurer une application
+      href: add-application-portal-configure.md
+    - name: Configurer l’authentification unique
+      href: add-application-portal-setup-sso.md
+    - name: Supprimer une application
+      href: delete-application-portal.md
 - name: Tutoriels
   items:
     - name: "Applications de galerie intégrées (p.\_ex., ServiceNow, Salesforce, Dropbox)"
@@ -74,7 +80,7 @@
       href: cloud-app-security.md
     - name: Proxy d’application pour applications locales
       items:
-        - name: Proxy d’application
+        - name: Application Proxy (Proxy d’application)
           href: application-proxy.md
         - name: "Qu’est-ce qu’un proxy d’application pour les applications locales\_?"
           href: what-is-application-proxy.md

@@ -112,6 +112,12 @@
               href: 'https://www.nuget.org/packages/Azure.DigitalTwins.Core'
             - name: Kit SDK .NET (C#) - source
               href: 'https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/digitaltwins/Azure.DigitalTwins.Core'
+    - name: Interface CLI Digital Twins
+      items:
+        - name: Informations de référence sur l’interface CLI Digital Twins
+          href: /cli/azure/ext/azure-iot/dt?view=azure-cli-latest
+        - name: Package CLI
+          href: 'https://github.com/Azure/azure-iot-cli-extension/releases'
     - name: DTDL
       items:
         - name: Spécification DTDL v2
@@ -126,12 +132,6 @@
           href: 'https://github.com/Azure/digital-twin-model-identifier'
     - name: Outils Azure
       items:
-        - name: Informations de référence sur Azure CLI
-          href: /cli/azure/iot
-        - name: Informations de référence sur l’extension de l’interface CLI Azure IoT
-          href: /cli/azure/ext/azure-iot/iot?view=azure-cli-latest
-        - name: Versions de l’extension de l’interface CLI Azure IoT
-          href: 'https://github.com/Azure/azure-iot-cli-extension/releases'
         - name: Azure Cloud Shell
           href: 'https://shell.azure.com'
         - name: Azure PowerShell
