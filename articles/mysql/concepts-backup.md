@@ -7,10 +7,10 @@ ms.service: mysql
 ms.topic: conceptual
 ms.date: 3/27/2020
 ms.openlocfilehash: 3a6162bb381f4e54114e3cabbf138f5b1c6aaae0
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "80373034"
 ---
 # <a name="backup-and-restore-in-azure-database-for-mysql"></a>Sauvegarde et restauration dans Azure Database pour MySQL
@@ -46,8 +46,8 @@ Dans Azure Database pour MySQL, l’exécution d’une restauration crée un ser
 
 Deux types de restauration sont disponibles :
 
-- La **restauration à un point dans le temps** est disponible avec l’option de redondance de sauvegarde et crée un serveur dans la même région que votre serveur d’origine utilisant la combinaison de sauvegarde complète et de sauvegarde du journal des transactions.
-- La **géorestauration** est disponible uniquement si vous avez configuré votre serveur pour le stockage géoredondant ; elle vous permet de restaurer votre serveur dans une autre région utilisant la plus récente sauvegarde.
+- La **restauration à un point dans le temps** est disponible avec l’option de redondance de sauvegarde, et crée un serveur dans la même région que votre serveur d’origine en utilisant la combinaison de sauvegarde complète et de sauvegarde du journal des transactions.
+- La **géorestauration** est disponible uniquement si vous avez configuré votre serveur pour le stockage géoredondant. Elle vous permet de restaurer votre serveur dans une autre région en utilisant la sauvegarde la plus récente.
 
 Le délai estimé de récupération dépend de plusieurs facteurs, notamment du nombre total de bases de données à récupérer dans la même région au même moment, de la taille des bases de données, de la taille du journal des transactions et de la bande passante réseau. Le délai de récupération est généralement inférieur à 12 heures.
 
@@ -75,12 +75,12 @@ Pendant la géorestauration, les configurations de serveur qui peuvent être cha
 Après une restauration à l’aide d’un de ces mécanismes de récupération, vous devez effectuer les tâches suivantes afin que les utilisateurs et les applications soient de nouveau opérationnels :
 
 - Si le nouveau serveur est destiné à remplacer le serveur d’origine, redirigez les clients et les applications clientes vers le nouveau serveur
-- Vérifiez que les règles de serveur virtuel appropriées sont en place pour permettre aux utilisateurs de se connecter. Ces règles ne sont pas copiées à partir du serveur d’origine.
+- Vérifiez que les règles de réseau virtuel appropriées sont en place pour permettre aux utilisateurs de se connecter. Ces règles ne sont pas copiées à partir du serveur d’origine.
 - Assurez-vous que les connexions et les autorisations appropriées au niveau de la base de données sont en place
 - Configurer les alertes, selon les besoins
 
 ## <a name="next-steps"></a>Étapes suivantes
 
 - Pour en savoir plus sur la continuité d’activité, consultez la  [vue d’ensemble de la continuité d’activité](concepts-business-continuity.md).
-- Pour effectuer une restauration à un point dans le temps à l’aide du portail Azure, consultez  [Restauration d’un serveur à un point dans le temps à l’aide du portail Azure](howto-restore-server-portal.md).
-- Pour effectuer une restauration à un point dans le temps à l’aide d’Azure CLI, consultez  [Restaurer un serveur à un point dans le temps à l’aide de l’interface CLI](howto-restore-server-cli.md).
+- Pour effectuer une restauration à un point dans le temps à l’aide du portail Azure, consultez  [Restaurer un serveur à un point dans le temps à l’aide du portail Azure](howto-restore-server-portal.md).
+- Pour effectuer une restauration à un point dans le temps à l’aide d’Azure CLI, consultez  [Restaurer un serveur à un point dans le temps à l’aide d’Azure CLI](howto-restore-server-cli.md).
