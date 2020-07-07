@@ -11,10 +11,10 @@ ms.topic: conceptual
 ms.workload: big-data
 ms.date: 07/17/2018
 ms.openlocfilehash: 0650fcc5023ac57b193fa23b0dedf65113fd64e6
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "71672888"
 ---
 # <a name="schedule-u-sql-jobs-using-sql-server-integration-services-ssis"></a>Planifier des tâches U-SQL à l’aide de SQL Server Integration Services (SSIS)
@@ -93,7 +93,7 @@ En mode création du package SSIS, ajoutez une **tâche de système de fichiers 
     
     Pour créer cette connexion de fichier :
 
-   1. Choisissez **\<Nouvelle connexion...>** dans le paramètre FileConnection.
+   1. Choisissez **\<New Connection...>** dans le paramètre FileConnection.
    2. Définissez **Type d’utilisation** sur **Fichier existant** et définissez le **Fichier** sur un chemin de fichier du fichier existant.
 
        ![Configurer un conteneur de boucle Foreach](./media/data-lake-analytics-schedule-jobs-ssis/configure-file-connection-for-foreach-loop-container.png)
