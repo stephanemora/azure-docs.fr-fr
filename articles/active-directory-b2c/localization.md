@@ -10,12 +10,12 @@ ms.topic: reference
 ms.date: 04/20/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 94ff7ddda41f2df2634d927a7dbf8a5a0d4fc1d8
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 69368ecd7234912bcaf5eb606545f62ddb7b30a0
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81681415"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85204181"
 ---
 # <a name="localization"></a>Localisation
 
@@ -26,7 +26,7 @@ L’élément **Localization** vous permet de prendre en charge plusieurs param�
 - Configurer la liste explicite des langues prises en charge dans une stratégie et choisir une langue par défaut.
 - Fournir des collections et des chaînes spécifiques d’une langue.
 
-```XML
+```xml
 <Localization Enabled="true">
   <SupportedLanguages DefaultLanguage="en" MergeBehavior="ReplaceAll">
     <SupportedLanguage>en</SupportedLanguage>
@@ -41,7 +41,7 @@ L’élément **Localization** contient les attributs suivants :
 
 | Attribut | Obligatoire | Description |
 | --------- | -------- | ----------- |
-| activé | Non  | Valeurs possibles : `true` ou `false`. |
+| activé | Non | Valeurs possibles : `true` ou `false`. |
 
 L’élément **Localization** contient les éléments XML suivants
 
@@ -57,7 +57,7 @@ L’élément **SupportedLanguages** contient les attributs suivants :
 | Attribut | Obligatoire | Description |
 | --------- | -------- | ----------- |
 | DefaultLanguage | Oui | Langue à utiliser par défaut pour les ressources localisées. |
-| MergeBehavior | Non  | Énumération de valeurs fusionnées avec un élément ClaimType quelconque présent dans une stratégie parente avec le même identificateur. Utilisez cet attribut quand vous remplacez une revendication spécifiée dans la stratégie de base. Valeurs possibles : `Append`, `Prepend` ou `ReplaceAll`. La valeur `Append` spécifie que la collection de données présente doit être ajoutée à la fin de la collection spécifiée dans la stratégie parente. La valeur `Prepend` spécifie que la collection de données présente doit être ajoutée devant la collection spécifiée dans la stratégie parente. La valeur `ReplaceAll` spécifie que la collecte de données définie dans la stratégie parente doit être ignorée, et que les données définies dans la stratégie actuelle doivent être utilisées à la place. |
+| MergeBehavior | Non | Énumération de valeurs fusionnées avec un élément ClaimType quelconque présent dans une stratégie parente avec le même identificateur. Utilisez cet attribut quand vous remplacez une revendication spécifiée dans la stratégie de base. Valeurs possibles : `Append`, `Prepend` ou `ReplaceAll`. La valeur `Append` spécifie que la collection de données présente doit être ajoutée à la fin de la collection spécifiée dans la stratégie parente. La valeur `Prepend` spécifie que la collection de données présente doit être ajoutée devant la collection spécifiée dans la stratégie parente. La valeur `ReplaceAll` spécifie que la collecte de données définie dans la stratégie parente doit être ignorée, et que les données définies dans la stratégie actuelle doivent être utilisées à la place. |
 
 ### <a name="supportedlanguages"></a>SupportedLanguages
 
@@ -112,11 +112,11 @@ L’élément **Item** contient les attributs suivants :
 | --------- | -------- | ----------- |
 | Texte | Oui | Chaîne d’affichage convivial à présenter à l’utilisateur dans l’interface utilisateur pour cette option. |
 | Valeur | Oui | Valeur de revendication chaîne associée à la sélection de cette option. |
-| SelectByDefault | Non  | Indique si cette option doit être sélectionnée par défaut dans l’interface utilisateur. Valeurs possibles : True ou False. |
+| SelectByDefault | Non | Indique si cette option doit être sélectionnée par défaut dans l’interface utilisateur. Valeurs possibles : True ou False. |
 
 L’exemple suivant illustre l’utilisation de l’élément **LocalizedCollections**. Il contient deux éléments **LocalizedCollection**, l’un pour l’anglais et un autre pour l’espagnol. Tous deux définissent la collection **Restriction** de la revendication `Gender` avec une liste d’éléments pour l’anglais et l’espagnol.
 
-```XML
+```xml
 <LocalizedResources Id="api.selfasserted.en">
  <LocalizedCollections>
    <LocalizedCollection ElementType="ClaimType" ElementId="Gender" TargetCollection="Restriction">
@@ -205,7 +205,7 @@ La valeur ClaimType est utilisée pour localiser l’un des attributs de revendi
 
 L’exemple suivant montre comment localiser les attributs DisplayName, UserHelpText et PatternHelpText du type de revendication e-mail.
 
-```XML
+```xml
 <LocalizedString ElementType="ClaimType" ElementId="email" StringId="DisplayName">Email</LocalizedString>
 <LocalizedString ElementType="ClaimType" ElementId="email" StringId="UserHelpText">Please enter your email</LocalizedString>
 <LocalizedString ElementType="ClaimType" ElementId="email" StringId="PatternHelpText">Please enter a valid email address</LocalizedString>
@@ -228,7 +228,7 @@ La valeur ErrorMessage est utilisée pour localiser l’un des messages d’erre
 L’exemple suivant montre comment localiser le message d’erreur UserMessageIfClaimsPrincipalAlreadyExists.
 
 
-```XML
+```xml
 <LocalizedString ElementType="ErrorMessage" StringId="UserMessageIfClaimsPrincipalAlreadyExists">The account you are trying to create already exists, please sign-in.</LocalizedString>
 ```
 
@@ -319,7 +319,7 @@ La valeur InputValidation est utilisée pour localiser l’un des messages d’e
 
 L’exemple suivant montre comment localiser un texte d’aide du groupe de validation des prédicats.
 
-```XML
+```xml
 <LocalizedString ElementType="InputValidation" ElementId="CustomPassword" StringId="CharacterClasses">The password must have at least 3 of the following:</LocalizedString>
 ```
 
@@ -327,7 +327,7 @@ L’exemple suivant montre comment localiser un texte d’aide du groupe de vali
 
 La valeur UxElement est utilisée pour localiser l’un des éléments d’interface utilisateur. L’exemple suivant montre comment localiser les boutons Continuer et Annuler.
 
-```XML
+```xml
 <LocalizedString ElementType="UxElement" StringId="button_continue">Create new account</LocalizedString>
 <LocalizedString ElementType="UxElement" StringId="button_cancel">Cancel</LocalizedString>
 ```

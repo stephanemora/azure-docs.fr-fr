@@ -7,13 +7,13 @@ author: careyjmac
 ms.author: chalton
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 1/27/2020
-ms.openlocfilehash: f21200bc6f5b25f3330f5bb87c0843caa5a84e56
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.date: 06/17/2020
+ms.openlocfilehash: bec993c2b59aa03195b78a02668baf3f5fac6695
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80298878"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85080746"
 ---
 #    <a name="pii-detection-cognitive-skill"></a>Compétence cognitive Détection PII
 
@@ -25,7 +25,7 @@ La compétence **Détection PII** extrait les informations d’identification pe
 > [!NOTE]
 > Si vous élargissez le champ en augmentant la fréquence des traitements, en ajoutant des documents supplémentaires ou en ajoutant plusieurs algorithmes d’IA, vous devez [attacher une ressource Cognitive Services facturable](cognitive-search-attach-cognitive-services.md). Des frais s’appliquent durant l’appel des API dans Cognitive Services ainsi que pour l’extraction d’images dans le cadre de la phase de craquage de document de la Recherche cognitive Azure. L’extraction de texte à partir des documents est gratuite.
 >
-> L'exécution des compétences intégrées est facturée au prix actuel du [paiement à l'utilisation de Cognitive Services](https://azure.microsoft.com/pricing/details/cognitive-services/). Les prix appliqués pour l’extraction d’images sont présentés sur la [page de tarification du service Recherche cognitive Azure](https://go.microsoft.com/fwlink/?linkid=2042400).
+> L'exécution des compétences intégrées est facturée au prix actuel du [paiement à l'utilisation de Cognitive Services](https://azure.microsoft.com/pricing/details/cognitive-services/). Les prix appliqués pour l’extraction d’images sont présentés sur la [page de tarification du service Recherche cognitive Azure](https://azure.microsoft.com/pricing/details/search/).
 
 
 ## <a name="odatatype"></a>@odata.type  
@@ -40,25 +40,25 @@ Les paramètres respectent la casse et sont tous facultatifs.
 
 | Nom du paramètre     | Description |
 |--------------------|-------------|
-| defaultLanguageCode |    Code de langue du texte d’entrée. Pour le moment, seul `en` est pris en charge. |
-| minimumPrecision | Valeur comprise entre 0.0 et 1.0. Si le score de confiance (dans la sortie `piiEntities`) est inférieur à la valeur `minimumPrecision` définie, l’entité n’est pas retournée ou masquée. L’option par défaut est 0.0. |
-| maskingMode | Paramètre qui fournit différentes façons de masquer les informations d’identification personnelle détectées dans le texte d’entrée. Les options suivantes sont prises en charge : <ul><li>`none` (par défaut) : Cela signifie qu’aucun masquage n’est effectué et que la sortie `maskedText` n’est pas retournée. </li><li> `redact`: Cette option supprime les entités détectées du texte d’entrée sans les remplacer par quoi que ce soit. Notez que dans ce cas, le décalage dans la sortie `piiEntities` est lié au texte d’origine, et non au texte masqué. </li><li> `replace`: Cette option remplace les entités détectées par le caractère spécifié dans le paramètre `maskingCharacter`.  Le caractère est répété sur la longueur de l’entité détectée afin que les décalages correspondent correctement à la fois au texte d’entrée et au `maskedText` de sortie.</li></ul> |
-| maskingCharacter | Caractère utilisé pour masquer le texte si le paramètre `maskingMode` a la valeur `replace`. Les options suivantes sont prises en charge : `*` (par défaut), `#`, `X`. Ce paramètre peut uniquement être `null` si `maskingMode` n’est pas défini sur `replace`. |
+| `defaultLanguageCode` |    Code de langue du texte d’entrée. Pour le moment, seul `en` est pris en charge. |
+| `minimumPrecision` | Valeur comprise entre 0.0 et 1.0. Si le score de confiance (dans la sortie `piiEntities`) est inférieur à la valeur `minimumPrecision` définie, l’entité n’est pas retournée ou masquée. L’option par défaut est 0.0. |
+| `maskingMode` | Paramètre qui fournit différentes façons de masquer les informations d’identification personnelle détectées dans le texte d’entrée. Les options suivantes sont prises en charge : <ul><li>`none` (par défaut) : Cela signifie qu’aucun masquage n’est effectué et que la sortie `maskedText` n’est pas retournée. </li><li> `redact`: Cette option supprime les entités détectées du texte d’entrée sans les remplacer par quoi que ce soit. Notez que dans ce cas, le décalage dans la sortie `piiEntities` est lié au texte d’origine, et non au texte masqué. </li><li> `replace`: Cette option remplace les entités détectées par le caractère spécifié dans le paramètre `maskingCharacter`.  Le caractère est répété sur la longueur de l’entité détectée afin que les décalages correspondent correctement à la fois au texte d’entrée et au `maskedText` de sortie.</li></ul> |
+| `maskingCharacter` | Caractère utilisé pour masquer le texte si le paramètre `maskingMode` a la valeur `replace`. Les options suivantes sont prises en charge : `*` (par défaut), `#`, `X`. Ce paramètre peut uniquement être `null` si `maskingMode` n’est pas défini sur `replace`. |
 
 
 ## <a name="skill-inputs"></a>Entrées de la compétence
 
 | Nom d’entrée      | Description                   |
 |---------------|-------------------------------|
-| languageCode    | facultatif. La valeur par défaut est `en`.  |
-| text          | Texte à analyser.          |
+| `languageCode`    | facultatif. La valeur par défaut est `en`.  |
+| `text`          | Texte à analyser.          |
 
 ## <a name="skill-outputs"></a>Sorties de la compétence
 
 | Nom de sortie      | Description                   |
 |---------------|-------------------------------|
-| piiEntities | Tableau de types complexes contenant les champs suivants : <ul><li>text (informations d’identification personnelle réelles telles qu’elles ont été extraites)</li> <li>type</li><li>subtype</li><li>score (une valeur plus élevée signifie qu’il s’agit probablement d’une entité réelle)</li><li>offset (décalage dans le texte d’entrée)</li><li>length</li></ul> </br> [Vous trouverez des types et sous-types possibles ici.](https://docs.microsoft.com/azure/cognitive-services/text-analytics/named-entity-types?tabs=personal) |
-| maskedText | Si `maskingMode` est défini sur une valeur autre que `none`, cette sortie correspond à la chaîne résultante du masquage effectué sur le texte d’entrée tel que décrit par le `maskingMode` sélectionné.  Si `maskingMode` est défini sur `none`, cette sortie n’est pas présente. |
+| `piiEntities` | Tableau de types complexes contenant les champs suivants : <ul><li>text (informations d’identification personnelle réelles telles qu’elles ont été extraites)</li> <li>type</li><li>subtype</li><li>score (une valeur plus élevée signifie qu’il s’agit probablement d’une entité réelle)</li><li>offset (décalage dans le texte d’entrée)</li><li>length</li></ul> </br> [Vous trouverez des types et sous-types possibles ici.](https://docs.microsoft.com/azure/cognitive-services/text-analytics/named-entity-types?tabs=personal) |
+| `maskedText` | Si `maskingMode` est défini sur une valeur autre que `none`, cette sortie correspond à la chaîne résultante du masquage effectué sur le texte d’entrée tel que décrit par le `maskingMode` sélectionné.  Si `maskingMode` est défini sur `none`, cette sortie n’est pas présente. |
 
 ##    <a name="sample-definition"></a>Exemple de définition
 
@@ -127,7 +127,7 @@ Les paramètres respectent la casse et sont tous facultatifs.
 }
 ```
 
-Notez que les décalages retournés pour les entités dans la sortie de cette qualification sont retournés directement à partir de [l’API Analyse de texte](https://docs.microsoft.com/azure/cognitive-services/text-analytics/overview), ce qui signifie que si vous les utilisez pour indexer dans la chaîne d’origine, vous devez utiliser la classe [StringInfo](https://docs.microsoft.com/dotnet/api/system.globalization.stringinfo?view=netframework-4.8) dans .NET afin d’extraire le bon contenu.  [Pour plus d’informations, cliquez ici.](https://docs.microsoft.com/azure/cognitive-services/text-analytics/concepts/text-offsets)
+Notez que les décalages renvoyés pour les entités dans la sortie de cette qualification le sont directement à partir de l'[API Analyse de texte](https://docs.microsoft.com/azure/cognitive-services/text-analytics/overview), ce qui signifie que si vous les utilisez pour indexer dans la chaîne d'origine, vous devez utiliser la classe [StringInfo](https://docs.microsoft.com/dotnet/api/system.globalization.stringinfo?view=netframework-4.8) dans .NET afin d'extraire le bon contenu.  [Pour plus d’informations, cliquez ici.](https://docs.microsoft.com/azure/cognitive-services/text-analytics/concepts/text-offsets)
 
 ## <a name="error-and-warning-cases"></a>Cas d’erreurs et d’avertissements
 Si le code de langue du document n’est pas pris en charge, un avertissement est retourné et aucune entité n’est extraite.

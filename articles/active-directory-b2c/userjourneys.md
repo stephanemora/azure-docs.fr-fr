@@ -10,12 +10,12 @@ ms.topic: reference
 ms.date: 02/04/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 189343888d2856a6945723c030485e58394c912f
-ms.sourcegitcommit: 856db17a4209927812bcbf30a66b14ee7c1ac777
+ms.openlocfilehash: d705c7fbdb744082b402f4dd598551107563ed2e
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "82559599"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85203161"
 ---
 # <a name="userjourneys"></a>UserJourneys
 
@@ -106,7 +106,7 @@ L’élément **Precondition** contient les éléments suivants :
 
 Les conditions préalables suivantes vérifient l’existence de l’objectId de l’utilisateur. Dans le parcours utilisateur, l’utilisateur a choisi de se connecter à l’aide d’un compte local. Si l’objectId existe, ignorez cette étape d’orchestration.
 
-```XML
+```xml
 <OrchestrationStep Order="2" Type="ClaimsExchange">
   <Preconditions>
     <Precondition Type="ClaimsExist" ExecuteActionsIf="true">
@@ -123,7 +123,7 @@ Les conditions préalables suivantes vérifient l’existence de l’objectId de
 
 Les conditions préalables suivantes vérifient si l’utilisateur s’est connecté avec un compte social. Une tentative est effectuée pour trouver le compte d’utilisateur dans l’annuaire. Si l’utilisateur se connecte ou s’inscrit avec un compte local, ignorez cette étape d’orchestration.
 
-```XML
+```xml
 <OrchestrationStep Order="3" Type="ClaimsExchange">
   <Preconditions>
     <Precondition Type="ClaimEquals" ExecuteActionsIf="true">
@@ -140,7 +140,7 @@ Les conditions préalables suivantes vérifient si l’utilisateur s’est conne
 
 Plusieurs conditions préalables peuvent être vérifiées. L’exemple suivant vérifie l’existence d’« objectId » et d’« email ». Si la première condition est true, le parcours passe à l’étape d’orchestration suivante.
 
-```XML
+```xml
 <OrchestrationStep Order="4" Type="ClaimsExchange">
   <Preconditions>
   <Precondition Type="ClaimsExist" ExecuteActionsIf="true">
@@ -185,7 +185,7 @@ L’élément **ClaimsProviderSelection** contient les attributs suivants :
 
 Dans l’étape d’orchestration suivante, l’utilisateur peut choisir de se connecter avec Facebook, LinkedIn, Twitter, Google ou un compte local. Si l’utilisateur sélectionne l’un des fournisseurs d’identité sociale, la deuxième étape d’orchestration s’exécute avec l’échange de revendication sélectionné spécifié dans l’attribut `TargetClaimsExchangeId`. La deuxième étape d’orchestration redirige l’utilisateur vers le fournisseur d’identité sociale pour terminer le processus de connexion. Si l’utilisateur choisit de se connecter avec le compte local, Azure AD B2C reste à la même étape d’orchestration (la même page d’inscription ou de connexion) et ignore la deuxième étape d’orchestration.
 
-```XML
+```xml
 <OrchestrationStep Order="1" Type="CombinedSignInAndSignUp" ContentDefinitionReferenceId="api.signuporsignin">
     <ClaimsProviderSelections>
     <ClaimsProviderSelection TargetClaimsExchangeId="FacebookExchange" />

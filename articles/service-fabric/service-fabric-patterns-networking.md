@@ -3,12 +3,12 @@ title: Modèles de mise en réseau pour Azure Service Fabric
 description: Décrit les modèles de mise en réseau courants de Service Fabric et explique comment créer un cluster avec les fonctionnalités de mise en réseau d’Azure.
 ms.topic: conceptual
 ms.date: 01/19/2018
-ms.openlocfilehash: 065c311fffe409b20e02a3fddf1e9e7e6a82a2a1
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: b9114be5498bcb7fdec4e105ad6e3ff9fcc03a7c
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "75466288"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85106628"
 ---
 # <a name="service-fabric-networking-patterns"></a>Modèles de mise en réseau de Service Fabric
 Vous pouvez intégrer votre cluster Azure Service Fabric avec d’autres fonctionnalités de mise en réseau Azure. Dans cet article, nous vous expliquons comment créer des clusters qui utilisent les fonctionnalités suivantes :
@@ -171,7 +171,7 @@ Dans les exemples de cet article, nous utilisons le modèle Service Fabric templ
     C:>\Users\users>ping NOde1000000 -n 1
     ```
 
-Vous pouvez également consulter un [exemple qui n’est pas propre à Service Fabric](https://github.com/gbowerman/azure-myriad/tree/master/existing-vnet).
+Vous pouvez également consulter un [exemple qui n’est pas propre à Service Fabric](https://github.com/gbowerman/azure-myriad/tree/main/existing-vnet).
 
 
 <a id="staticpublicip"></a>

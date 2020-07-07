@@ -10,13 +10,13 @@ ms.topic: conceptual
 ms.workload: identity
 ms.date: 10/30/2019
 ms.author: jmprieur
-ms.custom: aaddev
-ms.openlocfilehash: b1eef510e6389b551e128877ffde723955a1084d
-ms.sourcegitcommit: 4499035f03e7a8fb40f5cff616eb01753b986278
+ms.custom: aaddev, tracking-python
+ms.openlocfilehash: 72168c54bd7968ce9c0315d3f3e47bae09e45004
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/03/2020
-ms.locfileid: "82734635"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85052226"
 ---
 # <a name="web-app-that-signs-in-users-code-configuration"></a>Application web qui connecte les utilisateurs : Configuration de code
 
@@ -29,7 +29,7 @@ Les bibliothèques utilisées pour protéger une application web (et une API web
 
 | Plateforme | Bibliothèque | Description |
 |----------|---------|-------------|
-| ![.NET](media/sample-v2-code/logo_net.png) | [Extensions des modèles d’identité pour .NET](https://github.com/AzureAD/azure-activedirectory-identitymodel-extensions-for-dotnet/wiki) | Directement utilisé par ASP.NET et ASP.NET Core, Microsoft Identity Model Extensions pour .NET propose un ensemble de DLL s’exécutant sur .NET Framework et .NET Core. À partir d’une application web ASP.NET ou ASP.NET Core, vous pouvez contrôler la validation de jeton à l’aide de la classe **TokenValidationParameters** (en particulier dans certains scénarios de partenaires). |
+| ![.NET](media/sample-v2-code/logo_NET.png) | [Extensions des modèles d’identité pour .NET](https://github.com/AzureAD/azure-activedirectory-identitymodel-extensions-for-dotnet/wiki) | Directement utilisé par ASP.NET et ASP.NET Core, Microsoft Identity Model Extensions pour .NET propose un ensemble de DLL s’exécutant sur .NET Framework et .NET Core. À partir d’une application web ASP.NET ou ASP.NET Core, vous pouvez contrôler la validation de jeton à l’aide de la classe **TokenValidationParameters** (en particulier dans certains scénarios de partenaires). |
 | ![Java](media/sample-v2-code/small_logo_java.png) | [MSAL Java](https://github.com/AzureAD/microsoft-authentication-library-for-java/wiki) | Prise en charge des applications web Java |
 | ![Python](media/sample-v2-code/small_logo_python.png) | [MSAL Python](https://github.com/AzureAD/microsoft-authentication-library-for-python/wiki) | Prise en charge des applications web Python |
 
@@ -95,7 +95,7 @@ Dans ASP.NET Core, ces paramètres se trouvent dans le fichier [appsettings.json
     // Client ID (application ID) obtained from the Azure portal
     "ClientId": "[Enter the Client Id]",
     "CallbackPath": "/signin-oidc",
-    "SignedOutCallbackPath ": "/signout-callback-oidc"
+    "SignedOutCallbackPath ": "/signout-oidc"
   }
 }
 ```
@@ -134,7 +134,7 @@ Dans ASP.NET Core, il existe un autre fichier ([properties\launchSettings.json](
 
 Dans le portail Azure, les URI de réponse à inscrire dans la page **Authentification** de votre application doivent correspondre à ces URL. Pour les deux fichiers de configuration précédents, il s’agirait de `https://localhost:44321/signin-oidc`. Cela est dû au fait que `applicationUrl` est `http://localhost:3110`, mais `sslPort` est spécifié (44321). `CallbackPath` est `/signin-oidc`, comme défini dans `appsettings.json`.
 
-De la même façon, l’URI de déconnexion devrait être défini sur `https://localhost:44321/signout-callback-oidc`.
+De la même façon, l’URI de déconnexion devrait être défini sur `https://localhost:44321/signout-oidc`.
 
 # <a name="aspnet"></a>[ASP.NET](#tab/aspnet)
 

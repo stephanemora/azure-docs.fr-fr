@@ -11,12 +11,12 @@ ms.topic: reference
 ms.date: 04/21/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 83e1e11fe38a21bbd7c44139fac562342bcab866
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 8e575cf9bba02a59179cc70870fb680a27648963
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82229644"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85201173"
 ---
 # <a name="about-claim-resolvers-in-azure-active-directory-b2c-custom-policies"></a>À propos des résolveurs de revendication dans les stratégies personnalisées d’Azure Active Directory B2C
 
@@ -26,7 +26,7 @@ Pour utiliser un résolveur de revendication dans une revendication d’entrée 
 
 Dans l’exemple suivant, un type de revendication nommé `correlationId` est défini avec un **DataType** de `string`.
 
-```XML
+```xml
 <ClaimType Id="correlationId">
   <DisplayName>correlationId</DisplayName>
   <DataType>string</DataType>
@@ -36,7 +36,7 @@ Dans l’exemple suivant, un type de revendication nommé `correlationId` est d�
 
 Dans le profil technique, mappez le résolveur de revendication au type de revendication. Azure AD B2C renseigne la valeur du résolveur de revendication `{Context:CorrelationId}` dans la revendication `correlationId` et envoie la demande au profil technique.
 
-```XML
+```xml
 <InputClaim ClaimTypeReferenceId="correlationId" DefaultValue="{Context:CorrelationId}" />
 ```
 
@@ -157,7 +157,7 @@ Dans un profil technique [RESTful](restful-technical-profile.md), vous pouvez en
 
 L'exemple suivant illustre un profil technique RESTful en lien avec ce scénario :
 
-```XML
+```xml
 <TechnicalProfile Id="REST">
   <DisplayName>Validate user input data and return loyaltyNumber claim</DisplayName>
   <Protocol Name="Proprietary" Handler="Web.TPEngine.Providers.RestfulProvider, Web.TPEngine, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" />
@@ -187,7 +187,7 @@ Azure AD B2C vous permet de transmettre des paramètres de chaîne de requête �
 
 L'exemple suivant transmet dans la chaîne de requête les paramètres **campaignId** (valeur `Hawaii`), **language** (valeur `en-US`), et **app** (représentant l'ID client) :
 
-```XML
+```xml
 <UserJourneyBehaviors>
   <ContentDefinitionParameters>
     <Parameter Name="campaignId">{OAUTH-KV:campaignId}</Parameter>
@@ -207,7 +207,7 @@ Ainsi, Azure AD B2C envoie les paramètres ci-dessus à la page de contenu HTML�
 
 Une définition de contenu ([ContentDefinition](contentdefinitions.md)`LoadUri`) vous permet d'envoyer des programmes de résolution de revendications pour extraire du contenu à partir de différents emplacements, conformément aux paramètres utilisés.
 
-```XML
+```xml
 <ContentDefinition Id="api.signuporsignin">
   <LoadUri>https://contoso.blob.core.windows.net/{Culture:LanguageName}/myHTML/unified.html</LoadUri>
   ...
@@ -218,7 +218,7 @@ Une définition de contenu ([ContentDefinition](contentdefinitions.md)`LoadUri`)
 
 Avec Azure Application Insights et les résolveurs de revendication, vous pouvez obtenir des insights sur le comportement de l’utilisateur. Dans le profil technique Application Insights, vous envoyez des revendications d’entrée qui sont conservées dans Azure Application Insights. Pour plus d’informations, consultez [Suivre le comportement des utilisateurs dans les parcours Azure AD B2C à l’aide d’Application Insights](analytics-with-application-insights.md). L’exemple suivant envoie l’ID de stratégie, l’ID de corrélation, la langue et l’ID client à Azure Application Insights.
 
-```XML
+```xml
 <TechnicalProfile Id="AzureInsights-Common">
   <DisplayName>Alternate Email</DisplayName>
   <Protocol Name="Proprietary" Handler="Web.TPEngine.Providers.Insights.AzureApplicationInsightsProvider, Web.TPEngine, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" />
@@ -236,7 +236,7 @@ Avec Azure Application Insights et les résolveurs de revendication, vous pouvez
 
 Le profil technique d'une stratégie [Partie de confiance](relyingparty.md) vous permet d'envoyer l'ID du locataire ou l'ID de corrélation à l'application par partie de confiance dans le jeton JWT.
 
-```XML
+```xml
 <RelyingParty>
     <DefaultUserJourney ReferenceId="SignUpOrSignIn" />
     <TechnicalProfile Id="PolicyProfile">

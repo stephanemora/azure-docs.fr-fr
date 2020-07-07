@@ -4,12 +4,12 @@ description: Dans cet article, découvrez comment récupérer des fichiers et de
 ms.topic: conceptual
 ms.date: 03/01/2019
 ms.custom: references_regions
-ms.openlocfilehash: 91918bb053c1f26e33d08dde3b68debfcffe350e
-ms.sourcegitcommit: 1f48ad3c83467a6ffac4e23093ef288fea592eb5
+ms.openlocfilehash: 68fa3bb2b17da01004220f5876911fa3289a2e7c
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/29/2020
-ms.locfileid: "84195749"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85124985"
 ---
 # <a name="recover-files-from-azure-virtual-machine-backup"></a>Récupérer des fichiers à partir d’une sauvegarde de machine virtuelle Azure
 
@@ -237,7 +237,7 @@ Si vous exécutez le script sur un ordinateur avec un accès restreint, vérifie
 
 > [!NOTE]
 >
-> - Le nom de fichier de script téléchargé a le **nom de zone géographique** devant être rempli dans l’URL. Pour exemple : Le nom du script téléchargé commence par \'VMname\'\_\'geoname\'_\'GUID\', comme *ContosoVM_wcus_12345678*
+> - Le nom de fichier de script téléchargé a le **nom de zone géographique** devant être rempli dans l’URL. Par exemple : Le nom du script téléchargé commence par \'VMname\'\_\'geoname\'_\'GUID\', comme *ContosoVM_wcus_12345678*
 > - L’URL serait <https://pod01-rec2.wcus.backup.windowsazure.com>"
 >
 

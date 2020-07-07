@@ -1,21 +1,25 @@
 ---
 title: Liste des définitions de stratégie intégrées
 description: Liste les définitions de stratégie intégrées pour Azure Policy. Les catégories incluent Étiquettes, Conformité réglementaire, Key Vault, Kubernetes, Guest Configuration et plus encore.
-ms.date: 06/10/2020
+ms.date: 06/23/2020
 ms.topic: sample
 ms.custom: generated
-ms.openlocfilehash: 0ab717e4246112152b9a497c51d2a630bc48dfd1
-ms.sourcegitcommit: 537c539344ee44b07862f317d453267f2b7b2ca6
+ms.openlocfilehash: 94f69754ab51728a18da10b45e05770f1271760b
+ms.sourcegitcommit: 01cd19edb099d654198a6930cebd61cae9cb685b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/11/2020
-ms.locfileid: "84709432"
+ms.lasthandoff: 06/24/2020
+ms.locfileid: "85313773"
 ---
 # <a name="azure-policy-built-in-policy-definitions"></a>Définitions de stratégie Azure Policy intégrées
 
 Cette page est un index de définitions de stratégie intégrées Azure Policy.
 
 Le nom de chaque définition intégrée est un lien vers la définition de stratégie dans le portail Azure. Utilisez le lien de la colonne **Source** pour voir la source dans le [dépôt GitHub Azure Policy](https://github.com/Azure/azure-policy). Les définitions intégrées sont regroupées par la propriété **category** dans **metadata**. Pour accéder à une **catégorie** spécifique, utilisez le menu sur le côté droit de la page. Autrement, utilisez <kbd>Ctrl</kbd>-<kbd>F</kbd> pour utiliser la fonctionnalité de recherche de votre navigateur.
+
+## <a name="api-for-fhir"></a>API pour FHIR
+
+[!INCLUDE [azure-policy-samples-policies-api-for-fhir](../../../../includes/policy/samples/bycat/policies-api-for-fhir.md)]
 
 ## <a name="api-management"></a>Gestion des API
 

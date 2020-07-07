@@ -11,12 +11,12 @@ ms.topic: reference
 ms.date: 12/10/2019
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 4998fb19e42e123edd57bfcf10931d594ac4cb44
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 131ecd010cba55f08199f713654792c0844a47e1
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "78188730"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85202294"
 ---
 # <a name="display-controls"></a>Contrôles d’affichage
 
@@ -34,7 +34,7 @@ L’image suivante illustre une page d’inscription auto-déclarée avec deux c
 
  Dans la section [Métadonnées](self-asserted-technical-profile.md#metadata) d’un [profil technique auto-déclaré](self-asserted-technical-profile.md), dans la propriété [ContentDefinition](contentdefinitions.md) référencée, `DataUri` doit être défini sur le contrat de pages version 2.0.0 ou ultérieure. Par exemple :
 
-```XML
+```xml
 <ContentDefinition Id="api.selfasserted">
   <LoadUri>~/tenant/default/selfAsserted.cshtml</LoadUri>
   <RecoveryUri>~/common/default_page_error.html</RecoveryUri>
@@ -66,7 +66,7 @@ Dans un contrôle d’affichage, vous pouvez utiliser des éléments **InputClai
 
 L’exemple suivant préremplit l’adresse e-mail à vérifier avec l’adresse déjà présente.
 
-```XML
+```xml
 <DisplayControl Id="emailControl" UserInterfaceControlType="VerificationControl">
   <InputClaims>
     <InputClaim ClaimTypeReferenceId="emailAddress" />
@@ -82,7 +82,7 @@ Comme les **revendications d’affichage** définies dans un [profil technique a
 
 Certaines revendications d’affichage sont requises pour certains types de contrôle d’affichage. Par exemple, **VerificationCode** est requis pour le contrôle d’affichage de type **VerificationControl**. Utilisez l’attribut **ControlClaimType** pour spécifier le DisplayClaim désigné pour la revendication requise. Par exemple :
 
-```XML
+```xml
 <DisplayClaim ClaimTypeReferenceId="otpCode" ControlClaimType="VerificationCode" Required="true" />
 ```
 
@@ -100,7 +100,7 @@ Une action définit une liste de **profils techniques de validation**. Ceux-ci s
 
 L’exemple suivant envoie un code dans un courrier électronique ou un SMS en fonction de la sélection de l’utilisateur de la revendication **mfaType**.
 
-```XML
+```xml
 <Action Id="SendCode">
   <ValidationClaimsExchange>
     <ValidationClaimsExchangeTechnicalProfile TechnicalProfileReferenceId="AzureMfa-SendSms">
@@ -131,7 +131,7 @@ Les contrôles d’affichage sont référencés dans les [revendications d’aff
 
 Par exemple :
 
-```XML
+```xml
 <TechnicalProfile Id="SelfAsserted-ProfileUpdate">
   ...
   <DisplayClaims>

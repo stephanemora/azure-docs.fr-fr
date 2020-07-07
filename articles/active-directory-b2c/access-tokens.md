@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 05/12/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: a659d8929f845b1c58bd64f628b2d3f47a96674e
-ms.sourcegitcommit: d118ad4fb2b66c759b70d4d8a18e6368760da3ad
+ms.openlocfilehash: de5c478ac6641fe5b1e342c063d134f70084b2ef
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/02/2020
-ms.locfileid: "84297528"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85201444"
 ---
 # <a name="request-an-access-token-in-azure-active-directory-b2c"></a>Demander un jeton d’accès dans Azure Active Directory B2C
 
@@ -67,7 +67,7 @@ Dans l'exemple suivant, vous remplacez ces valeurs :
 - `<application-ID>` - Identificateur de l’application web que vous avez inscrite pour prendre en charge le flux d’utilisateur.
 - `<redirect-uri>` - **URI de redirection** que vous avez entré lorsque vous avez inscrit l'application cliente.
 
-```HTTP
+```http
 GET https://<tenant-name>.b2clogin.com/tfp/<tenant-name>.onmicrosoft.com/<policy-name>/oauth2/v2.0/authorize?
 client_id=<application-ID>
 &nonce=anyRandomValue
@@ -84,7 +84,7 @@ https://jwt.ms/?code=eyJraWQiOiJjcGltY29yZV8wOTI1MjAxNSIsInZlciI6IjEuMC...
 
 Après avoir reçu le code d’autorisation, vous pouvez l’utiliser pour demander un jeton d’accès :
 
-```HTTP
+```http
 POST <tenant-name>.onmicrosoft.com/<policy-name>/oauth2/v2.0/token HTTP/1.1
 Host: <tenant-name>.b2clogin.com
 Content-Type: application/x-www-form-urlencoded
@@ -99,7 +99,7 @@ grant_type=authorization_code
 
 Vous devriez voir quelque chose de similaire à la réponse suivante :
 
-```JSON
+```json
 {
     "access_token": "eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsImtpZCI6Ilg1ZVhrN...",
     "token_type": "Bearer",
@@ -113,7 +113,7 @@ Vous devriez voir quelque chose de similaire à la réponse suivante :
 
 Lorsque vous utilisez https://jwt.ms pour examiner le jeton d’accès retourné, vous devriez voir quelque chose de similaire à l’exemple suivant :
 
-```JSON
+```json
 {
   "typ": "JWT",
   "alg": "RS256",

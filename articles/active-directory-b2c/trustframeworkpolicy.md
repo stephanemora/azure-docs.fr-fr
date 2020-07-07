@@ -10,12 +10,12 @@ ms.topic: reference
 ms.date: 01/31/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: c964a7bde0b7db9357c73fc79d2df3170075fcc1
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 29eddbcfb7c0da98e5438f968dd3976b77a44680
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "78186384"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85203093"
 ---
 # <a name="trustframeworkpolicy"></a>TrustFrameworkPolicy
 
@@ -23,7 +23,7 @@ ms.locfileid: "78186384"
 
 Une stratégie personnalisée est représentée par un ou plusieurs fichiers au format XML qui se font mutuellement référence dans une chaîne hiérarchique. Les éléments XML définissent des éléments de la stratégie tels que les schéma de revendications, transformations de revendications, définitions de contenu, fournisseurs de revendications, profils techniques, parcours utilisateur et étapes d’orchestration. Chaque fichier de stratégie est défini dans l’élément **TrustFrameworkPolicy** de niveau supérieur d’un fichier de stratégie.
 
-```XML
+```xml
 <TrustFrameworkPolicy
   xmlns:xsi="https://www.w3.org/2001/XMLSchema-instance"
   xmlns:xsd="https://www.w3.org/2001/XMLSchema"
@@ -122,7 +122,7 @@ Dans le fichier de stratégie de partie de confiance, vous spécifiez l’élém
 
 Stratégie B2C_1A_signup_signin :
 
-```XML
+```xml
 <RelyingParty>
   <DefaultUserJourney ReferenceId="SignUpOrSignIn">
   ...
@@ -130,7 +130,7 @@ Stratégie B2C_1A_signup_signin :
 
 B2C_1A_TrustFrameWorkBase ou B2C_1A_TrustFrameworkExtensionPolicy :
 
-```XML
+```xml
 <UserJourneys>
   <UserJourney Id="SignUpOrSignIn">
   ...

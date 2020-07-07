@@ -11,12 +11,12 @@ ms.topic: reference
 ms.date: 04/21/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: c2291d4d2eca2abd11ef9c0f18f3fda52424ab93
-ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
+ms.openlocfilehash: d22d0da692516c89f6dd5ca7377ec83d7c430280
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/21/2020
-ms.locfileid: "83739088"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85203433"
 ---
 # <a name="string-claims-transformations"></a>Transformations de revendications de chaînes
 
@@ -41,7 +41,7 @@ La transformation de revendication **AssertStringClaimsAreEqual** est toujours e
 
 Vous pouvez utiliser cette transformation de revendication pour vérifier que deux ClaimTypes ont la même valeur. Si ce n’est pas le cas, un message d’erreur est levé. L’exemple suivant vérifie que le ClaimType **strongAuthenticationEmailAddress** est égal au ClaimType **email**. Si ce n’est pas le cas, un message d’erreur est levé.
 
-```XML
+```xml
 <ClaimsTransformation Id="AssertEmailAndStrongAuthenticationEmailAddressAreEqual" TransformationMethod="AssertStringClaimsAreEqual">
   <InputClaims>
     <InputClaim ClaimTypeReferenceId="strongAuthenticationEmailAddress" TransformationClaimType="inputClaim1" />
@@ -55,7 +55,7 @@ Vous pouvez utiliser cette transformation de revendication pour vérifier que de
 
 
 Le profil technique de validation **login-NonInteractive** appelle la transformation de revendication **AssertEmailAndStrongAuthenticationEmailAddressAreEqual**.
-```XML
+```xml
 <TechnicalProfile Id="login-NonInteractive">
   ...
   <OutputClaimsTransformations>
@@ -66,7 +66,7 @@ Le profil technique de validation **login-NonInteractive** appelle la transforma
 
 Le profil technique autodéclaré appelle le profil technique de validation **login-NonInteractive**.
 
-```XML
+```xml
 <TechnicalProfile Id="SelfAsserted-LocalAccountSignin-Email">
   <Metadata>
     <Item Key="UserMessageIfClaimsTransformationStringsAreNotEqual">Custom error message the email addresses you provided are not the same.</Item>
@@ -98,7 +98,7 @@ Modifie la casse de la revendication fournie (minuscules ou majuscules) en fonct
 
 Utilisez cette transformation de revendication pour mettre un ClaimType en majuscules ou en minuscules.
 
-```XML
+```xml
 <ClaimsTransformation Id="ChangeToLower" TransformationMethod="ChangeCase">
   <InputClaims>
     <InputClaim ClaimTypeReferenceId="email" TransformationClaimType="inputClaim1" />
@@ -132,7 +132,7 @@ Crée une revendication de chaîne à partir du paramètre d’entrée fourni da
 
 Utilisez cette transformation de revendication pour définir une chaîne de valeur ClaimType.
 
-```XML
+```xml
 <ClaimsTransformation Id="CreateTermsOfService" TransformationMethod="CreateStringClaim">
   <InputParameters>
     <InputParameter Id="value" DataType="string" Value="Contoso terms of service..." />
@@ -164,7 +164,7 @@ Détermine si une revendication de chaîne est égale à une autre. Le résultat
 
 Utilisez cette transformation de revendication pour vérifier si une revendication est égale à une autre. Par exemple, la transformation de revendication suivante vérifie si la valeur de la revendication **email** est égale à la revendication **Verified.Email**.
 
-```XML
+```xml
 <ClaimsTransformation Id="CheckEmail" TransformationMethod="CompareClaims">
   <InputClaims>
     <InputClaim ClaimTypeReferenceId="Email" TransformationClaimType="inputClaim1" />
@@ -205,7 +205,7 @@ Détermine si une valeur de revendication est égale à la valeur du paramètre 
 
 Vous pouvez utiliser cette transformation de revendication pour vérifier si une revendication est égale à une valeur que vous avez spécifiée. Par exemple, la transformation de revendication suivante vérifie si la valeur de la revendication **termsOfUseConsentVersion** est égale à `v1`.
 
-```XML
+```xml
 <ClaimsTransformation Id="IsTermsOfUseConsentRequiredForVersion" TransformationMethod="CompareClaimToValue">
   <InputClaims>
     <InputClaim ClaimTypeReferenceId="termsOfUseConsentVersion" TransformationClaimType="inputClaim1" />
@@ -246,7 +246,7 @@ Crée une chaîne aléatoire à l’aide du générateur de nombres aléatoires.
 
 L’exemple suivant génère un ID unique global. Cette transformation de revendication permet de créer l’UPN (nom d’utilisateur principal) aléatoire.
 
-```XML
+```xml
 <ClaimsTransformation Id="CreateRandomUPNUserName" TransformationMethod="CreateRandomString">
   <InputParameters>
     <InputParameter Id="randomGeneratorType" DataType="string" Value="GUID" />
@@ -265,7 +265,7 @@ L’exemple suivant génère un ID unique global. Cette transformation de revend
 
 L’exemple suivant génère une valeur entière aléatoire comprise entre 0 et 1000. La valeur est mise en forme au format OTP_ {valeur aléatoire}.
 
-```XML
+```xml
 <ClaimsTransformation Id="SetRandomNumber" TransformationMethod="CreateRandomString">
   <InputParameters>
     <InputParameter Id="randomGeneratorType" DataType="string" Value="INTEGER" />
@@ -302,7 +302,7 @@ Met en forme une revendication en fonction de la chaîne de format fournie. Cett
 
 Utilisez cette transformation de revendication pour mettre en forme une chaîne avec un paramètre {0}. L’exemple suivant crée un **userPrincipalName**. Tous les profils techniques de fournisseurs d’identité sociale, tels que `Facebook-OAUTH` appellent **CreateUserPrincipalName** pour générer un **userPrincipalName**.
 
-```XML
+```xml
 <ClaimsTransformation Id="CreateUserPrincipalName" TransformationMethod="FormatStringClaim">
   <InputClaims>
     <InputClaim ClaimTypeReferenceId="upnUserName" TransformationClaimType="inputClaim" />
@@ -338,7 +338,7 @@ Met en forme deux revendications en fonction de la chaîne de format fournie. Ce
 
 Utilisez cette transformation de revendication pour mettre en forme une chaîne avec deux paramètres, {0} et {1}. L’exemple suivant crée un **displayName** au format spécifié :
 
-```XML
+```xml
 <ClaimsTransformation Id="CreateDisplayNameFromFirstNameAndLastName" TransformationMethod="FormatStringMultipleClaims">
   <InputClaims>
     <InputClaim ClaimTypeReferenceId="givenName" TransformationClaimType="inputClaim1" />
@@ -385,7 +385,7 @@ L’exemple suivant recherche l’objet, le corps, le message, le code et la sig
 
 Définissez les chaînes localisées pour l’anglais (par défaut) et l’espagnol.
 
-```XML
+```xml
 <Localization Enabled="true">
   <SupportedLanguages DefaultLanguage="en" MergeBehavior="Append">
     <SupportedLanguage>en</SupportedLanguage>
@@ -413,7 +413,7 @@ Définissez les chaînes localisées pour l’anglais (par défaut) et l’espag
 
 La transformation de revendications définit la valeur du type de revendication *subject* à la valeur `StringId` pour *email_subject*.
 
-```XML
+```xml
 <ClaimsTransformation Id="GetLocalizedStringsForEmail" TransformationMethod="GetLocalizedStringsTransformation">
   <OutputClaims>
     <OutputClaim ClaimTypeReferenceId="subject" TransformationClaimType="email_subject" />
@@ -444,7 +444,7 @@ Recherche un élément dans une collection de revendications **Restriction**.
 
 L’exemple suivant recherche la description de message d’erreur en fonction de la clé de l’erreur. La revendication **responseMsg** contient une collection de messages d’erreur à présenter à l’utilisateur final ou à envoyer à la partie de confiance.
 
-```XML
+```xml
 <ClaimType Id="responseMsg">
   <DisplayName>Error message: </DisplayName>
   <DataType>string</DataType>
@@ -458,7 +458,7 @@ L’exemple suivant recherche la description de message d’erreur en fonction d
 ```
 La transformation de revendication recherche le texte de l’élément et retourne sa valeur. Si la restriction est localisée à l’aide de `<LocalizedCollection>`, la transformation de revendication retourne la valeur localisée.
 
-```XML
+```xml
 <ClaimsTransformation Id="GetResponseMsgMappedToResponseCode" TransformationMethod="GetMappedValueFromLocalizedCollection">
   <InputClaims>
     <InputClaim ClaimTypeReferenceId="responseCode" TransformationClaimType="mapFromClaim" />
@@ -489,7 +489,7 @@ Recherche une valeur de revendication dans une liste de valeurs en fonction de l
 
 L’exemple suivant recherche le nom de domaine dans l’une des collections inputParameters. La transformation de revendication recherche le nom de domaine dans l’identificateur et retourne sa valeur (un ID d’application).
 
-```XML
+```xml
  <ClaimsTransformation Id="DomainToClientId" TransformationMethod="LookupValue">
   <InputClaims>
     <InputClaim ClaimTypeReferenceId="domainName" TransformationClaimType="inputParameterId" />
@@ -524,7 +524,7 @@ Lorsque le paramètre d’entrée `errorOnFailedLookup` est défini sur `true`, 
 
 L’exemple suivant recherche le nom de domaine dans l’une des collections inputParameters. La transformation de revendication recherche le nom de domaine dans l’identificateur et retourne sa valeur (un ID d’application) ou génère un message d’erreur.
 
-```XML
+```xml
  <ClaimsTransformation Id="DomainToClientId" TransformationMethod="LookupValue">
   <InputClaims>
     <InputClaim ClaimTypeReferenceId="domainName" TransformationClaimType="inputParameterId" />
@@ -564,7 +564,7 @@ Nettoie la valeur d’une revendication donnée.
 
 Utilisez cette transformation de revendication pour supprimer les données inutiles du jeu de propriétés de revendications afin que le cookie de session soit plus petit. L’exemple suivant supprime la valeur du type de revendication `TermsOfService`.
 
-```XML
+```xml
 <ClaimsTransformation Id="SetTOSToNull" TransformationMethod="NullClaim">
   <OutputClaims>
   <OutputClaim ClaimTypeReferenceId="TermsOfService" TransformationClaimType="claim_to_null" />
@@ -588,7 +588,7 @@ Obtient la partie domaine d’une adresse e-mail.
 
 Utilisez cette transformation de revendication pour analyser le nom de domaine de l’utilisateur après le symbole @. La transformation de revendication suivante montre comment analyser le nom de domaine d’une revendication **e-mail**.
 
-```XML
+```xml
 <ClaimsTransformation Id="SetDomainName" TransformationMethod="ParseDomain">
   <InputClaims>
     <InputClaim ClaimTypeReferenceId="email" TransformationClaimType="emailAddress" />
@@ -624,7 +624,7 @@ Vérifie qu’une revendication de chaîne `claimToMatch` et un paramètre d’e
 
 Vérifie si le numéro de téléphone fourni est valide, selon le modèle d’expression régulière de numéro de téléphone.
 
-```XML
+```xml
 <ClaimsTransformation Id="SetIsPhoneRegex" TransformationMethod="SetClaimsIfRegexMatch">
   <InputClaims>
     <InputClaim ClaimTypeReferenceId="phone" TransformationClaimType="claimToMatch" />
@@ -653,7 +653,7 @@ Vérifie si le numéro de téléphone fourni est valide, selon le modèle d’ex
 
 Vérifie si l’adresse e-mail fournie est valide, puis retourne l’alias de messagerie.
 
-```XML
+```xml
 <ClaimsTransformation Id="GetAliasFromEmail" TransformationMethod="SetClaimsIfRegexMatch">
   <InputClaims>
     <InputClaim ClaimTypeReferenceId="email" TransformationClaimType="claimToMatch" />
@@ -699,7 +699,7 @@ Vérifie qu’une revendication de chaîne et un paramètre d’entrée `matchTo
 
 Vous pouvez utiliser cette transformation de revendication pour vérifier si une revendication est égale à la valeur que vous avez spécifiée. Par exemple, la transformation de revendication suivante vérifie si la valeur de la revendication **termsOfUseConsentVersion** est égale à `v1`. Si c’est le cas, elle remplace la valeur par `v2`.
 
-```XML
+```xml
 <ClaimsTransformation Id="CheckTheTOS" TransformationMethod="SetClaimsIfStringsAreEqual">
   <InputClaims>
     <InputClaim ClaimTypeReferenceId="termsOfUseConsentVersion" TransformationClaimType="inputClaim" />
@@ -746,7 +746,7 @@ Vérifie qu’une revendication de chaîne et un paramètre d’entrée `matchTo
 
 Par exemple, la transformation de revendication suivante vérifie si la valeur de la revendication **ageGroup** est égale à `Minor`. Si c’est le cas, elle retourne la valeur `B2C_V1_90001`.
 
-```XML
+```xml
 <ClaimsTransformation Id="SetIsMinor" TransformationMethod="SetClaimsIfStringsMatch">
   <InputClaims>
     <InputClaim ClaimTypeReferenceId="ageGroup" TransformationClaimType="claimToMatch" />
@@ -789,7 +789,7 @@ Détermine si une sous-chaîne spécifiée apparaît dans la revendication d’e
 
 Utilisez cette transformation de revendication pour vérifier si un type de revendication de chaîne contient une sous-chaîne. L’exemple suivant vérifie si le type de revendication de chaîne `roles` contient la valeur **admin**.
 
-```XML
+```xml
 <ClaimsTransformation Id="CheckIsAdmin" TransformationMethod="StringContains">
   <InputClaims>
     <InputClaim ClaimTypeReferenceId="roles" TransformationClaimType="inputClaim"/>
@@ -828,7 +828,7 @@ Extrait des parties d’un type de revendication de chaîne, en commençant au c
 Par exemple, obtenir le préfixe international du numéro de téléphone.
 
 
-```XML
+```xml
 <ClaimsTransformation Id="GetPhonePrefix" TransformationMethod="StringSubstring">
   <InputClaims>
     <InputClaim ClaimTypeReferenceId="phoneNumber" TransformationClaimType="inputClaim" />
@@ -866,7 +866,7 @@ Recherche une valeur spécifiée dans une chaîne de type de revendication et re
 Par exemple, normalisez un numéro de téléphone en supprimant les caractères `-`
 
 
-```XML
+```xml
 <ClaimsTransformation Id="NormalizePhoneNumber" TransformationMethod="StringReplace">
   <InputClaims>
     <InputClaim ClaimTypeReferenceId="phoneNumber" TransformationClaimType="inputClaim" />
@@ -902,7 +902,7 @@ Concatène les éléments d’un type de revendication de collection de chaînes
 
 L’exemple suivant prend une collection de chaînes de rôles d’utilisateur et la convertit en chaîne délimitée par des virgules. Vous pouvez utiliser cette méthode pour stocker une collection de chaînes dans un compte d’utilisateur Azure AD. Plus tard, lorsque vous lirez le compte à partir du répertoire, utilisez le paramètre `StringSplit` pour reconvertir la chaîne délimitée par des virgules en collection de chaînes.
 
-```XML
+```xml
 <ClaimsTransformation Id="ConvertRolesStringCollectionToCommaDelimiterString" TransformationMethod="StringJoin">
   <InputClaims>
    <InputClaim ClaimTypeReferenceId="roles" TransformationClaimType="inputClaim" />
@@ -938,7 +938,7 @@ Retourne un tableau de chaînes qui contient les sous-chaînes de cette instance
 
 L’exemple suivant prend une chaîne de rôles d’utilisateur délimitée par des virgules et la convertit en collection de chaînes.
 
-```XML
+```xml
 <ClaimsTransformation Id="ConvertRolesToStringCollection" TransformationMethod="StringSplit">
   <InputClaims>
     <InputClaim ClaimTypeReferenceId="rolesCommaDelimiter" TransformationClaimType="inputClaim" />

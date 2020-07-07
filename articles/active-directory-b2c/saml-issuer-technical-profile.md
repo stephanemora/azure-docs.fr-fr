@@ -11,12 +11,12 @@ ms.topic: reference
 ms.date: 04/27/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 8f7beccde92030d1e01633f4e4044849d7e91d05
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: d709bf02f1cb504121e52f88385d0f6c074b24a0
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82229950"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85203586"
 ---
 # <a name="define-a-technical-profile-for-a-saml-token-issuer-in-an-azure-active-directory-b2c-custom-policy"></a>Définir un profil technique pour un émetteur de jeton SAML dans une stratégie personnalisée Azure Active Directory B2C
 
@@ -30,7 +30,7 @@ L’attribut **Name** de l’élément **Protocol** doit être défini sur `None
 
 L’exemple suivant montre un profil technique pour `Saml2AssertionIssuer` :
 
-```XML
+```xml
 <TechnicalProfile Id="Saml2AssertionIssuer">
   <DisplayName>Token Issuer</DisplayName>
   <Protocol Name="SAML2"/>

@@ -11,12 +11,12 @@ ms.topic: reference
 ms.date: 05/07/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 4aa9f4839c8bfc04cee4bb03ea0eac98cb8b25c0
-ms.sourcegitcommit: a6d477eb3cb9faebb15ed1bf7334ed0611c72053
+ms.openlocfilehash: 4824b64236270c422f22809e9eeb191ee3be27fa
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/08/2020
-ms.locfileid: "82926117"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85202566"
 ---
 # <a name="single-sign-on-session-management-in-azure-active-directory-b2c"></a>Gestion de session d’authentification unique dans Azure Active Directory B2C
 
@@ -57,7 +57,7 @@ Les revendications qui doivent être retournées à l’application ou utilisée
 
 Comme son nom l’indique, ce fournisseur ne fait rien. Ce fournisseur peut être utilisé pour supprimer un comportement d’authentification unique pour un profil technique spécifique. Le profil technique `SM-Noop` suivant est inclus dans le [pack de démarrage de stratégie personnalisée](custom-policy-get-started.md#custom-policy-starter-pack).
 
-```XML
+```xml
 <TechnicalProfile Id="SM-Noop">
   <DisplayName>Noop Session Management Provider</DisplayName>
   <Protocol Name="Proprietary" Handler="Web.TPEngine.SSO.NoopSSOSessionProvider, Web.TPEngine, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" />
@@ -68,7 +68,7 @@ Comme son nom l’indique, ce fournisseur ne fait rien. Ce fournisseur peut êtr
 
 Ce fournisseur peut être utilisé pour le stockage de revendications dans une session. Ce fournisseur est en général référencé dans un profil technique utilisé pour la gestion de comptes locaux et fédérés. Le profil technique `SM-AAD` suivant est inclus dans le [pack de démarrage de stratégie personnalisée](custom-policy-get-started.md#custom-policy-starter-pack).
 
-```XML
+```xml
 <TechnicalProfile Id="SM-AAD">
   <DisplayName>Session Management Provider</DisplayName>
   <Protocol Name="Proprietary" Handler="Web.TPEngine.SSO.DefaultSSOSessionProvider, Web.TPEngine, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" />
@@ -89,7 +89,7 @@ Ce fournisseur peut être utilisé pour le stockage de revendications dans une s
 
 Le profil technique `SM-MFA` suivant est inclus dans le [pack de démarrage de stratégie personnalisée](custom-policy-get-started.md#custom-policy-starter-pack) `SocialAndLocalAccountsWithMfa`. Ce profil technique gère la session d’authentification multifacteur.
 
-```XML
+```xml
 <TechnicalProfile Id="SM-MFA">
   <DisplayName>Session Mananagement Provider</DisplayName>
   <Protocol Name="Proprietary" Handler="Web.TPEngine.SSO.DefaultSSOSessionProvider, Web.TPEngine, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" />
@@ -106,7 +106,7 @@ Le profil technique `SM-MFA` suivant est inclus dans le [pack de démarrage de s
 
 Ce fournisseur est utilisé pour supprimer l’écran « Choisir un fournisseur d’identité » et se déconnecter d’un fournisseur d’identité fédéré. Il est généralement référencé dans un profil technique configuré pour un fournisseur d’identité fédéré tel que Facebook ou Azure Active Directory. Le profil technique `SM-SocialLogin` suivant est inclus dans le [pack de démarrage de stratégie personnalisée](custom-policy-get-started.md#custom-policy-starter-pack).
 
-```XML
+```xml
 <TechnicalProfile Id="SM-SocialLogin">
   <DisplayName>Session Management Provider</DisplayName>
   <Protocol Name="Proprietary" Handler="Web.TPEngine.SSO.ExternalLoginSSOSessionProvider, Web.TPEngine, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" />
@@ -140,7 +140,7 @@ Ce fournisseur est utilisé pour gérer les sessions Azure AD B2C entre une part
 
 Ce fournisseur est utilisé pour gérer les sessions SAML d’Azure AD B2C entre une application basée sur les revendications et un fournisseur d’identité SAML fédéré. Lorsque vous utilisez le fournisseur d’authentification unique pour stocker une session de fournisseur d’identité SAML, `RegisterServiceProviders` doit avoir la valeur `false`. Le profil technique `SM-Saml-idp` suivant est utilisé par le [profil technique du fournisseur d’identité SAML](saml-identity-provider-technical-profile.md).
 
-```XML
+```xml
 <TechnicalProfile Id="SM-Saml-idp">
   <DisplayName>Session Management Provider</DisplayName>
   <Protocol Name="Proprietary" Handler="Web.TPEngine.SSO.SamlSSOSessionProvider, Web.TPEngine, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" />
@@ -154,7 +154,7 @@ Lorsque vous utilisez le fournisseur pour stocker la session SAML B2C, `Register
 
 Le profil technique `SM-Saml-issuer` suivant est utilisé par le [profil technique de l’émetteur SAML](saml-issuer-technical-profile.md)
 
-```XML
+```xml
 <TechnicalProfile Id="SM-Saml-issuer">
   <DisplayName>Session Management Provider</DisplayName>
   <Protocol Name="Proprietary" Handler="Web.TPEngine.SSO.SamlSSOSessionProvider, Web.TPEngine, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null"/>

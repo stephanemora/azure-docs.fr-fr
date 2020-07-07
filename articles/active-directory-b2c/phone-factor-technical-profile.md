@@ -11,12 +11,12 @@ ms.topic: reference
 ms.date: 03/31/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: e2b30e8f6bcbe7c0e739455f4942712f68ff8404
-ms.sourcegitcommit: ced98c83ed25ad2062cc95bab3a666b99b92db58
+ms.openlocfilehash: 10d5fda526c41704381bb544bdfd0589063c1d15
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/31/2020
-ms.locfileid: "80437448"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85203858"
 ---
 # <a name="define-a-phone-factor-technical-profile-in-an-azure-active-directory-b2c-custom-policy"></a>Définir un profil technique de facteur téléphone dans une stratégie personnalisée Azure Active Directory B2C
 
@@ -36,7 +36,7 @@ L’attribut **Name** de l’élément **Protocol** doit être défini sur `Prop
 
 L’exemple suivant montre un profil technique de facteur téléphone pour l’inscription et la validation :
 
-```XML
+```xml
 <TechnicalProfile Id="PhoneFactor-InputOrVerify">
   <DisplayName>PhoneFactor</DisplayName>
   <Protocol Name="Proprietary" Handler="Web.TPEngine.Providers.PhoneFactorProtocolProvider, Web.TPEngine, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" />
@@ -64,7 +64,7 @@ L’élément InputClaims doit contenir les revendications suivantes. Vous pouve
 
 L’exemple suivant illustre l’utilisation de plusieurs numéros de téléphone. Pour plus d’informations, consultez [Exemple de stratégie](https://github.com/azure-ad-b2c/samples/tree/master/policies/mfa-add-secondarymfa).
 
-```XML
+```xml
 <InputClaims>
   <InputClaim ClaimTypeReferenceId="userIdForMFA" PartnerClaimType="UserId" />
   <InputClaim ClaimTypeReferenceId="strongAuthenticationPhoneNumber" />

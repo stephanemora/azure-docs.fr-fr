@@ -11,12 +11,12 @@ ms.topic: reference
 ms.date: 03/20/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 125d89301e9d2cc3fc863bffb9b9e6c41e0c129e
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 16fdc38d6235ddd0f72c7a35a3d71973ce01a4be
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82229933"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85203212"
 ---
 # <a name="about-technical-profiles-in-azure-active-directory-b2c-custom-policies"></a>À propos des profils techniques dans les stratégies personnalisées d’Azure Active Directory B2C
 
@@ -49,7 +49,7 @@ Un profil technique permet les types de scénarios suivants :
 Tous les types de profils techniques partagent le même concept. Vous pouvez envoyer des revendications d’entrée, exécuter la transformation des revendications et communiquer avec le tiers configuré, comme un fournisseur d’identité, une API REST ou les services d’annuaire Azure AD. Au terme du processus, le profil technique retourne les revendications de sortie et peut exécuter la transformation des revendications de sortie. Le schéma suivant explique comment sont traités les transformations et les mappages référencés dans le profil technique. Quel que soit le tiers avec qui le profil technique interagit, une fois la transformation des revendications exécutée, les revendications de sortie du profil technique sont immédiatement stockées dans le conteneur de revendications.
 
 ![Schéma illustrant le workflow du profil technique](./media/technical-profiles-overview/technical-profile-idp-saml-flow.png)
- 
+
 1. **Gestion de session d’authentification unique (SSO)**  : restaure l’état de session du profil technique à l’aide de la [gestion de session d’authentification unique](custom-policy-reference-sso.md).
 1. **Transformation des revendications d’entrée** : les revendications d’entrée de chaque [transformation de revendications](claimstransformations.md) d’entrée sont récupérées auprès du conteneur de revendications.  Les revendications de sortie d’une transformation des revendications d’entrée peuvent être des revendications d’entrée d’une transformation de revendications d’entrée ultérieure.
 1. **Revendications d’entrée** : les revendications sont récupérées auprès du conteneur de revendications et sont utilisées pour le profil technique. Par exemple, un [profil technique autodéclaré](self-asserted-technical-profile.md) utilise les revendications d’entrée pour préremplir les revendications de sortie fournies par l’utilisateur. Un profil technique d’API REST utilise les revendications d’entrée pour envoyer les paramètres d’entrée au point de terminaison de l’API REST. Azure Active Directory utilise la revendication d’entrée comme identificateur unique pour lire, mettre à jour ou supprimer un compte.
@@ -70,7 +70,7 @@ Un profil technique peut inclure un autre profil technique pour modifier des par
 
 Par exemple, le profil technique **AAD-UserReadUsingAlternativeSecurityId-NoError** inclut le profil **AAD-UserReadUsingAlternativeSecurityId**. Ce profil technique définit l’élément de métadonnées `RaiseErrorIfClaimsPrincipalDoesNotExist` sur `true`, et génère une erreur si aucun compte de réseau social ne figure dans l’annuaire. **AAD-UserReadUsingAlternativeSecurityId-NoError** remplace ce comportement et désactive ce message d’erreur.
 
-```XML
+```xml
 <TechnicalProfile Id="AAD-UserReadUsingAlternativeSecurityId-NoError">
   <Metadata>
     <Item Key="RaiseErrorIfClaimsPrincipalDoesNotExist">false</Item>
@@ -81,7 +81,7 @@ Par exemple, le profil technique **AAD-UserReadUsingAlternativeSecurityId-NoErro
 
 **AAD-UserReadUsingAlternativeSecurityId** inclut le profil technique `AAD-Common`.
 
-```XML
+```xml
 <TechnicalProfile Id="AAD-UserReadUsingAlternativeSecurityId">
   <Metadata>
     <Item Key="Operation">Read</Item>
@@ -105,7 +105,7 @@ Par exemple, le profil technique **AAD-UserReadUsingAlternativeSecurityId-NoErro
 
 Ni **AAD-UserReadUsingAlternativeSecurityId-NoError** ni **AAD-UserReadUsingAlternativeSecurityId** ne spécifie l’élément **Protocole** requis, car celui-ci est spécifié dans le profil technique **AAD-Common**.
 
-```XML
+```xml
 <TechnicalProfile Id="AAD-Common">
   <DisplayName>Azure Active Directory</DisplayName>
   <Protocol Name="Proprietary" Handler="Web.TPEngine.Providers.AzureActiveDirectoryProvider, Web.TPEngine, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" />

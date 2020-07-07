@@ -11,12 +11,12 @@ ms.topic: reference
 ms.date: 12/10/2019
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: ff2a8ad05e26ea31fc8100d4000171313881f4e1
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: e42c889277f937a33e72eaf57819385166d6a409
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "78188781"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85202312"
 ---
 # <a name="verification-display-control"></a>Contrôle d’affichage de vérification
 
@@ -53,7 +53,7 @@ Dans l’exemple ci-dessous, une zone de texte **e-mail** est affichée sur la p
 
 L’utilisateur entre ensuite la valeur **verificationCode** puis sélectionne **VerifyCode** pour déclencher l'action **VerifyCode** dans le back end. Si toutes les validations sont confirmées, le processus **VerificationControl** est considéré comme terminé et l’utilisateur peut passer à l’étape suivante.
 
-```XML
+```xml
 <DisplayControl Id="emailVerificationControl" UserInterfaceControlType="VerificationControl">
   <DisplayClaims>
     <DisplayClaim ClaimTypeReferenceId="email"  Required="true" />

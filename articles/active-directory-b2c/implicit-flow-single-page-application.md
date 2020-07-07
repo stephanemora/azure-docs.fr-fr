@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 07/19/2019
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 37b59c2a23a8f00e8376be2ac4a7b35a6d58aa28
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: fb1750996f40db6d76db30cd1c3bc07186660159
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "78399008"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85201852"
 ---
 # <a name="single-page-sign-in-using-the-oauth-20-implicit-flow-in-azure-active-directory-b2c"></a>Connexion sur page unique en utilisant un flux implicite OAuth 2.0 dans Azure Active Directory B2C
 
@@ -40,7 +40,7 @@ Lorsque votre application web a besoin d’authentifier l’utilisateur et d’e
 
 Dans cette requête, le client désigne les autorisations qu'il doit obtenir de l'utilisateur dans le paramètre `scope` ainsi que le flux utilisateur à exécuter. Pour avoir une idée du fonctionnement de la requête, collez-la dans un navigateur et exécutez-la. Remplacez `{tenant}` par le nom de votre locataire Azure AD B2C. Remplacez `90c0fe63-bcf2-44d5-8fb7-b8bbc0b29dc6` par l'ID de l'application que vous avez précédemment inscrite dans votre locataire. Remplacez `{policy}` par le nom d'une stratégie que vous avez créée dans votre locataire, par exemple `b2c_1_sign_in`.
 
-```HTTP
+```http
 GET https://{tenant}.b2clogin.com/{tenant}.onmicrosoft.com/{policy}/oauth2/v2.0/authorize?
 client_id=90c0fe63-bcf2-44d5-8fb7-b8bbc0b29dc6
 &response_type=id_token+token
@@ -71,7 +71,7 @@ Une fois que l’utilisateur a terminé le flux d’utilisateur, Azure AD retour
 ### <a name="successful-response"></a>Réponse correcte
 Une réponse correcte qui utilise `response_mode=fragment` et `response_type=id_token+token` est semblable à ceci (des sauts de ligne ont été insérés pour une meilleure lisibilité) :
 
-```HTTP
+```http
 GET https://aadb2cplayground.azurewebsites.net/#
 access_token=eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsIng1dCI6Ik5HVEZ2ZEstZnl0aEV1Q...
 &token_type=Bearer
@@ -93,7 +93,7 @@ access_token=eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsIng1dCI6Ik5HVEZ2ZEstZnl0aEV1Q..
 ### <a name="error-response"></a>Réponse d’erreur
 Les réponses d’erreur peuvent également être envoyées à l’URI de redirection, pour que l’application puisse les traiter de façon appropriée :
 
-```HTTP
+```http
 GET https://aadb2cplayground.azurewebsites.net/#
 error=access_denied
 &error_description=the+user+canceled+the+authentication
@@ -114,13 +114,13 @@ Il existe de nombreuses bibliothèques open source pour valider les jetons JWT e
 
 Azure AD B2C a un point de terminaison des métadonnées OpenID Connect. Une application peut utiliser le point de terminaison pour extraire des informations sur Azure AD B2C lors de l’exécution. Ces informations incluent les points de terminaison, le contenu des jetons et les clés de signature de jetons. Il existe un document de métadonnées JSON pour chaque flux d’utilisateur dans votre locataire Azure AD B2C. Par exemple, le document de métadonnées pour le flux d’utilisateur b2c_1_sign_in dans le locataire fabrikamb2c.onmicrosoft.com se trouve ici :
 
-```HTTP
+```http
 https://fabrikamb2c.b2clogin.com/fabrikamb2c.onmicrosoft.com/b2c_1_sign_in/v2.0/.well-known/openid-configuration
 ```
 
 Une des propriétés de ce document de configuration est `jwks_uri`. La valeur du même flux d’utilisateur serait :
 
-```HTTP
+```http
 https://fabrikamb2c.b2clogin.com/fabrikamb2c.onmicrosoft.com/b2c_1_sign_in/discovery/v2.0/keys
 ```
 
@@ -152,7 +152,7 @@ Maintenant que vous avez connecté l’utilisateur à votre application à page 
 
 Dans le flux d’une application web standard, vous effectuez une demande au point de terminaison `/token`. Cependant, le point de terminaison ne prend pas en charge les requêtes CORS : il n’est donc pas possible d’effectuer des appels AJAX pour obtenir un jeton d’actualisation. Au lieu de cela, vous pouvez utiliser le flux implicite d’un élément IFrame HTML masqué pour obtenir de nouveaux jetons pour d’autres API web. Voici un exemple, avec des sauts de ligne pour une meilleure lisibilité :
 
-```HTTP
+```http
 https://{tenant}.b2clogin.com/{tenant}.onmicrosoft.com/{policy}/oauth2/v2.0/authorize?
 client_id=90c0fe63-bcf2-44d5-8fb7-b8bbc0b29dc6
 &response_type=token
@@ -184,7 +184,7 @@ Avec le paramètre `prompt=none`, cette demande réussit ou échoue immédiateme
 ### <a name="successful-response"></a>Réponse correcte
 Une réponse de réussite utilisant `response_mode=fragment` se présente ainsi :
 
-```HTTP
+```http
 GET https://aadb2cplayground.azurewebsites.net/#
 access_token=eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsIng1dCI6Ik5HVEZ2ZEstZnl0aEV1Q...
 &state=arbitrary_data_you_sent_earlier
@@ -204,7 +204,7 @@ access_token=eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsIng1dCI6Ik5HVEZ2ZEstZnl0aEV1Q..
 ### <a name="error-response"></a>Réponse d’erreur
 Les réponses d’erreur peuvent également être envoyées à l’URI de redirection, pour que l’application puisse les traiter de façon appropriée.  Pour `prompt=none`, une erreur attendue se présente ainsi :
 
-```HTTP
+```http
 GET https://aadb2cplayground.azurewebsites.net/#
 error=user_authentication_required
 &error_description=the+request+could+not+be+completed+silently
@@ -225,7 +225,7 @@ Lorsque vous souhaitez déconnecter l’utilisateur de l’application, redirige
 
 Vous pouvez simplement rediriger l’utilisateur vers le `end_session_endpoint` qui est répertorié dans le même document de métadonnées OpenID Connect décrit dans [Validation du jeton d’ID](#validate-the-id-token). Par exemple :
 
-```HTTP
+```http
 GET https://{tenant}.b2clogin.com/{tenant}.onmicrosoft.com/{policy}/oauth2/v2.0/logout?post_logout_redirect_uri=https%3A%2F%2Faadb2cplayground.azurewebsites.net%2F
 ```
 

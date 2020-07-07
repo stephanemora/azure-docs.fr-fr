@@ -11,12 +11,12 @@ ms.topic: reference
 ms.date: 03/26/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 2b29b8b0975639e5c5315a55e1382794d7662665
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 84e92cbac064106ca95277288eb773e311798930
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80332508"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85203450"
 ---
 # <a name="define-a-self-asserted-technical-profile-in-an-azure-active-directory-b2c-custom-policy"></a>Définir un profil technique autodéclaré dans une stratégie personnalisée Azure Active Directory B2C
 
@@ -30,7 +30,7 @@ L’attribut **Name** de l’élément **Protocol** doit être défini sur `Prop
 
 L’exemple suivant montre un profil technique autodéclaré pour l’inscription par e-mail :
 
-```XML
+```xml
 <TechnicalProfile Id="LocalAccountSignUpWithLogonEmail">
   <DisplayName>Email signup</DisplayName>
   <Protocol Name="Proprietary" Handler="Web.TPEngine.Providers.SelfAssertedAttributeProvider, Web.TPEngine, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" />
@@ -40,7 +40,7 @@ L’exemple suivant montre un profil technique autodéclaré pour l’inscriptio
 
 Dans un profil technique autodéclaré, vous pouvez utiliser les éléments **InputClaims** et **InputClaimsTransformations** pour prérenseigner la valeur des revendications qui apparaissent dans la page autodéclarée (revendications d’affichage). Par exemple, dans la stratégie de profil de modification, le parcours utilisateur lit d’abord le profil utilisateur à partir du service d’annuaire Azure AD B2C, puis le profil technique autodéclaré définit les revendications d’entrée avec les données utilisateur stockées dans le profil utilisateur. Ces revendications sont collectées à partir du profil utilisateur, puis présentées à l’utilisateur qui peut ensuite modifier les données existantes.
 
-```XML
+```xml
 <TechnicalProfile Id="SelfAsserted-ProfileUpdate">
 ...
   <InputClaims>
@@ -71,7 +71,7 @@ L’exemple suivant `TechnicalProfile` illustre l’utilisation de revendication
 * La cinquième revendication d’affichage fait référence au contrôle d’affichage `phoneVerificationControl` qui collecte et vérifie un numéro de téléphone.
 * Les autres revendications d’affichage sont des ClaimTypes à recueillir auprès de l’utilisateur.
 
-```XML
+```xml
 <TechnicalProfile Id="Id">
   <DisplayClaims>
     <DisplayClaim DisplayControlReferenceId="emailVerificationControl" />
@@ -93,7 +93,7 @@ Si vous spécifiez un ou plusieurs éléments **DisplayClaim** dans un profil te
 
 Observez l’exemple suivant, dans lequel une revendication `age` est définie comme revendication de **sortie** dans une stratégie de base. Avant d’ajouter des revendications d’affichage au profil technique auto-déclaré, la revendication `age` est affichée à l’écran pour recueillir des données auprès de l’utilisateur :
 
-```XML
+```xml
 <TechnicalProfile Id="id">
   <OutputClaims>
     <OutputClaim ClaimTypeReferenceId="age" />
@@ -103,7 +103,7 @@ Observez l’exemple suivant, dans lequel une revendication `age` est définie c
 
 Si une stratégie de nœud terminal qui hérite de cette base spécifie par la suite `officeNumber` comme une revendication d’**affichage** :
 
-```XML
+```xml
 <TechnicalProfile Id="id">
   <DisplayClaims>
     <DisplayClaim ClaimTypeReferenceId="officeNumber" />
@@ -140,7 +140,7 @@ Utilisez les revendications de sortie dans les cas suivants :
 
 Dans l’exemple suivant, le profil technique autodéclaré utilise à la fois des revendications d’affichage et des revendications de sortie.
 
-```XML
+```xml
 <TechnicalProfile Id="LocalAccountSignUpWithLogonEmail">
   <DisplayName>Email signup</DisplayName>
   <Protocol Name="Proprietary" Handler="Web.TPEngine.Providers.SelfAssertedAttributeProvider, Web.TPEngine, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" />

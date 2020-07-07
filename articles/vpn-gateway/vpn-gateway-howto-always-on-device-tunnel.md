@@ -5,15 +5,15 @@ description: Étapes de configuration d’un tunnel VPN Always On pour la passer
 services: vpn-gateway
 author: cherylmc
 ms.service: vpn-gateway
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 03/12/2020
 ms.author: cherylmc
-ms.openlocfilehash: 9036992a354b41cd75735e5ccd895d7287a00e91
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 6db48928ebac115c42c643d669f6541a3654a53a
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79371729"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84983119"
 ---
 # <a name="configure-an-always-on-vpn-device-tunnel"></a>Configurer un tunnel de périphérique VPN Always On
 

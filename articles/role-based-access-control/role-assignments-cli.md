@@ -8,18 +8,18 @@ manager: mtillman
 ms.assetid: 3483ee01-8177-49e7-b337-4d5cb14f5e32
 ms.service: role-based-access-control
 ms.devlang: na
-ms.topic: conceptual
+ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 11/25/2019
 ms.author: rolyon
 ms.reviewer: bagovind
-ms.openlocfilehash: 3a66482aeee7832baa91fe98357b870e2a280912
-ms.sourcegitcommit: 4499035f03e7a8fb40f5cff616eb01753b986278
+ms.openlocfilehash: 95ec9a25f97154d8e2d0e2e5b5f9cd29cf7a9c31
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/03/2020
-ms.locfileid: "82735774"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84983323"
 ---
 # <a name="add-or-remove-azure-role-assignments-using-azure-cli"></a>Ajouter ou supprimer des attributions de rôle Azure à l’aide d’Azure CLI
 
@@ -69,7 +69,7 @@ Dans RBAC Azure, vous ajoutez une attribution de rôle pour accorder l’accès.
 Pour ajouter une attribution de rôle pour un utilisateur dans l’étendue d’un groupe de ressources, utilisez [az role assignment create](/cli/azure/role/assignment#az-role-assignment-create).
 
 ```azurecli
-az role assignment create --role <role_name_or_id> --assignee <assignee> --resource-group <resource_group>
+az role assignment create --role {roleNameOrId} --assignee {assignee} --resource-group {resourceGroup}
 ```
 
 L’exemple suivant attribue le rôle *Contributeur de machine virtuelle* à l’utilisateur *patlong\@contoso.com* dans l’étendue du groupe de ressources *pharma-sales* :
@@ -94,7 +94,7 @@ Même si un rôle est renommé, l’ID de rôle ne change pas. Si vous utilisez 
 Pour ajouter une attribution de rôle en utilisant l’ID de rôle unique au lieu du nom de rôle, utilisez [az role assignment create](/cli/azure/role/assignment#az-role-assignment-create).
 
 ```azurecli
-az role assignment create --role <role_id> --assignee <assignee> --resource-group <resource_group>
+az role assignment create --role {roleId} --assignee {assignee} --resource-group {resourceGroup}
 ```
 
 L’exemple suivant attribue le rôle [Contributeur de machine virtuelle](built-in-roles.md#virtual-machine-contributor) à l’utilisateur *patlong\@contoso.com* dans l’étendue du groupe de ressources *pharma-sales*. Pour obtenir l’ID de rôle unique, vous pouvez utiliser la commande [az role definition list](/cli/azure/role/definition#az-role-definition-list) ou consulter la rubrique [Rôles intégrés Azure](built-in-roles.md).
@@ -108,7 +108,7 @@ az role assignment create --role 9980e02c-c2be-4d73-94e8-173b1dc7cf3c --assignee
 Pour ajouter une attribution de rôle pour un groupe, utilisez [az role assignment create](/cli/azure/role/assignment#az-role-assignment-create). Pour plus d’informations sur la récupération de l’ID d’objet du groupe, consultez [Récupérer des ID d’objet](#get-object-ids).
 
 ```azurecli
-az role assignment create --role <role_name_or_id> --assignee-object-id <assignee_object_id> --resource-group <resource_group> --scope </subscriptions/subscription_id>
+az role assignment create --role {roleNameOrId} --assignee-object-id {assigneeObjectId} --resource-group {resourceGroup} --scope /subscriptions/{subscriptionId}
 ```
 
 L’exemple suivant attribue le rôle *Lecteur* au groupe *Ann Mack Team* associé à l’ID 22222222-2222-2222-2222-222222222222 dans l’étendue d’un abonnement.
@@ -132,7 +132,7 @@ az role assignment create --role "Virtual Machine Contributor" --assignee-object
 Pour ajouter une attribution de rôle pour une application, utilisez [az role assignment create](/cli/azure/role/assignment#az-role-assignment-create). Pour plus d’informations sur la récupération de l’ID d’objet de l’application, consultez [Récupérer des ID d’objet](#get-object-ids).
 
 ```azurecli
-az role assignment create --role <role_name_or_id> --assignee-object-id <assignee_object_id> --resource-group <resource_group>
+az role assignment create --role {roleNameOrId} --assignee-object-id {assigneeObjectId} --resource-group {resourceGroup}
 ```
 
 L’exemple suivant attribue le rôle *Contributeur de machine virtuelle* à une application associée à l’ID d’objet 44444444-4444-4444-4444-444444444444 dans l’étendue du groupe de ressources *pharma-sales*.
@@ -146,7 +146,7 @@ az role assignment create --role "Virtual Machine Contributor" --assignee-object
 Pour ajouter une attribution de rôle pour un utilisateur dans l’étendue d’un abonnement, utilisez [az role assignment create](/cli/azure/role/assignment#az-role-assignment-create). Pour obtenir l’ID d’abonnement, accédez au panneau **Abonnements** du portail Azure ou utilisez [az account list](/cli/azure/account#az-account-list).
 
 ```azurecli
-az role assignment create --role <role_name_or_id> --assignee <assignee> --subscription <subscription_name_or_id>
+az role assignment create --role {roleNameOrId} --assignee {assignee} --subscription {subscriptionNameOrId}
 ```
 
 L’exemple suivant attribue le rôle *Lecteur* à l’utilisateur *annm\@example.com* dans l’étendue d’un abonnement.
@@ -160,7 +160,7 @@ az role assignment create --role "Reader" --assignee annm@example.com --subscrip
 Pour ajouter une attribution de rôle pour un utilisateur dans l’étendue d’un groupe d’administration, utilisez [az role assignment create](/cli/azure/role/assignment#az-role-assignment-create). Pour obtenir l’ID du groupe d’administration, accédez au panneau **Groupes d’administration** dans le portail Azure ou utilisez [az account management-group list](/cli/azure/account/management-group#az-account-management-group-list).
 
 ```azurecli
-az role assignment create --role <role_name_or_id> --assignee <assignee> --scope /providers/Microsoft.Management/managementGroups/<group_id>
+az role assignment create --role {roleNameOrId} --assignee {assignee} --scope /providers/Microsoft.Management/managementGroups/{groupId}
 ```
 
 L’exemple suivant attribue le rôle *Lecteur de facturation* à l’utilisateur *alain\@example.com* dans l’étendue d’un groupe d’administration.
@@ -176,7 +176,7 @@ Dans certains cas, si vous créez un principal de service et que vous tentez imm
 Pour ajouter une attribution de rôle, utilisez [az role assignment create](/cli/azure/role/assignment#az-role-assignment-create), spécifiez une valeur pour `--assignee-object-id`, puis définissez `--assignee-principal-type` sur `ServicePrincipal`.
 
 ```azurecli
-az role assignment create --role <role_name_or_id> --assignee-object-id <assignee_object_id> --assignee-principal-type <assignee_principal_type> --resource-group <resource_group> --scope </subscriptions/subscription_id>
+az role assignment create --role {roleNameOrId} --assignee-object-id {assigneeObjectId} --assignee-principal-type {assigneePrincipalType} --resource-group {resourceGroup} --scope /subscriptions/{subscriptionId}
 ```
 
 Dans l’exemple suivant, le rôle *Contributeur de machines virtuelles* est attribué à l’identité managée *msi-test* dans l’étendue du groupe de ressources *pharma-sales* :
@@ -190,7 +190,7 @@ az role assignment create --role "Virtual Machine Contributor" --assignee-object
 Dans Azure RBAC, pour supprimer un accès, vous supprimez une attribution de rôle à l’aide de la commande [az role assignment delete](/cli/azure/role/assignment#az-role-assignment-delete) :
 
 ```azurecli
-az role assignment delete --assignee <assignee> --role <role_name_or_id> --resource-group <resource_group>
+az role assignment delete --assignee {assignee} --role {roleNameOrId} --resource-group {resourceGroup}
 ```
 
 L’exemple suivant retire l’attribution de rôle *Collaborateur de machine virtuelle* à l’utilisateur *patlong\@contoso.com* dans le groupe de ressources *pharma-sales* :

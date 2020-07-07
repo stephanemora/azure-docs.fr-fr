@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 04/23/2020
 ms.author: cathys
 keywords: visualstudio
-ms.openlocfilehash: 134f0202b4b18e96b9f089460f4235c6b5c0fe4d
-ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
+ms.openlocfilehash: ecec05da3904782199e68cfdca917a8c451edec6
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83652679"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85105990"
 ---
 # <a name="visual-studio-images-on-azure"></a>Images de Visual Studio sur Azure
 L’exécution de Visual Studio sur une machine virtuelle Azure préconfigurée est un moyen simple et rapide de créer un environnement de développement opérationnel à partir de rien. Des images système avec différentes configurations de Visual Studio sont disponibles sur la [Place de Marché Azure](https://azuremarketplace.microsoft.com/marketplace/apps/category/compute?filters=virtual-machine-images%3Bmicrosoft%3Bwindows&page=1&subcategories=application-infrastructure).
@@ -104,7 +104,7 @@ Pour plus d’informations, consultez [Créer une image managée d’une machine
 > [!NOTE]
 > Des frais vous sont quand même facturés pour le stockage des images, mais ces frais incrémentiels seront probablement négligeables par rapport aux frais de personnel nécessaires pour régénérer la machine virtuelle à partir de rien, pour chaque membre de votre équipe ayant besoin d’une machine virtuelle. Par exemple, cela coûte quelques dollars de créer et de stocker pendant un mois une image de 127 Go réutilisable par tous les membres de votre équipe. Toutefois, ces coûts sont négligeables par rapport à toutes les heures investies par chaque employé pour créer et valider une zone de développement configurée correctement pour son usage individuel.
 
-En outre, vos tâches de développement ou technologies peuvent nécessiter une mise à l’échelle (par exemple, différentes variétés de configurations de développement et plusieurs configurations d’ordinateurs). Vous pouvez utiliser Azure DevTest Labs pour créer des _recettes_ qui automatisent la construction de votre « image en or ». Vous pouvez également utiliser DevTest Labs pour gérer les stratégies des machines virtuelles en cours d’exécution pour votre équipe. [Utiliser Azure DevTest Labs pour développeurs](/azure/devtest-lab/devtest-lab-developer-lab) est la meilleure source pour obtenir plus d’informations sur DevTest Labs.
+En outre, vos tâches de développement ou technologies peuvent nécessiter une mise à l’échelle (par exemple, différentes variétés de configurations de développement et plusieurs configurations d’ordinateurs). Vous pouvez utiliser Azure DevTest Labs pour créer des _recettes_ qui automatisent la construction de votre « image en or ». Vous pouvez également utiliser DevTest Labs pour gérer les stratégies des machines virtuelles en cours d’exécution pour votre équipe. [Utiliser Azure DevTest Labs pour développeurs](../../devtest-labs/devtest-lab-developer-lab.md) est la meilleure source pour obtenir plus d’informations sur DevTest Labs.
 
 ## <a name="next-steps"></a>Étapes suivantes
 Maintenant que vous en savez plus sur les images Visual Studio préconfigurées, l’étape suivante consiste à créer une machine virtuelle :

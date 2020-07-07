@@ -10,12 +10,12 @@ ms.topic: reference
 ms.date: 03/05/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 4c3b3318e941723ec333597c7e4b3e48710152d1
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: d02bc8d97b65f4ea2c2585201654899a63d3229b
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "78397815"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85201359"
 ---
 # <a name="claimsschema"></a>ClaimsSchema
 
@@ -23,7 +23,7 @@ ms.locfileid: "78397815"
 
 L’élément **ClaimsSchema** définit les types de revendications qui peuvent être référencés dans le cadre de la stratégie. Le schéma de revendications est l’endroit où vous déclarez vos revendications. Une revendication peut être le prénom, le nom de famille, le nom d’affichage, le numéro de téléphone, et bien plus encore. L’élément ClaimsSchema contient une liste d’éléments **ClaimType**. L’élément **ClaimType** contient l’attribut **Id**, qui est le nom de la revendication.
 
-```XML
+```xml
 <BuildingBlocks>
   <ClaimsSchema>
     <ClaimType Id="Id">
@@ -97,7 +97,7 @@ L’élément **Protocol** contient les attributs suivants :
 
 Dans l’exemple suivant, quand l’Infrastructure d’expérience d’identité interagit avec un fournisseur d’identité SAML2 ou une application de confiance, la revendication **surname** est mappée à `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/surname`. Avec OpenIdConnect et OAuth2, la revendication est mappée à `family_name`.
 
-```XML
+```xml
 <ClaimType Id="surname">
   <DisplayName>Surname</DisplayName>
   <DataType>string</DataType>
@@ -111,7 +111,7 @@ Dans l’exemple suivant, quand l’Infrastructure d’expérience d’identité
 
 Ainsi, le jeton JWT émis par Azure AD B2C émet le `family_name` au lieu du nom de ClaimType **surname**.
 
-```JSON
+```json
 {
   "sub": "6fbbd70d-262b-4b50-804c-257ae1706ef2",
   "auth_time": 1535013501,
@@ -132,7 +132,7 @@ L’élément **Mask** contient les attributs suivants :
 
 L’exemple suivant configure une revendication **PhoneNumber** avec le masque `Simple` :
 
-```XML
+```xml
 <ClaimType Id="PhoneNumber">
   <DisplayName>Phone Number</DisplayName>
   <DataType>string</DataType>
@@ -147,7 +147,7 @@ L’Infrastructure d’expérience d’identité affiche le numéro de télépho
 
 L’exemple suivant configure une revendication **AlternateEmail** avec le masque `Regex` :
 
-```XML
+```xml
 <ClaimType Id="AlternateEmail">
   <DisplayName>Please verify the secondary email linked to your account</DisplayName>
   <DataType>string</DataType>
@@ -190,7 +190,7 @@ L’élément **Enumeration** contient les attributs suivants :
 
 L’exemple suivant configure une revendication de liste déroulante **city** avec une valeur par défaut définie sur `New York` :
 
-```XML
+```xml
 <ClaimType Id="city">
   <DisplayName>city where you work</DisplayName>
   <DataType>string</DataType>
@@ -218,7 +218,7 @@ L’élément **Pattern** peut contenir les attributs suivants :
 
 L’exemple suivant configure une revendication **email** avec validation de l’entrée d’expression régulière et texte d’aide :
 
-```XML
+```xml
 <ClaimType Id="email">
   <DisplayName>Email Address</DisplayName>
   <DataType>string</DataType>
@@ -262,7 +262,7 @@ Le type d’entrée d’utilisateur **TextBox** sert à fournir une zone de text
 
 ![TextBox présentant les propriétés spécifiées dans le type de revendication](./media/claimsschema/textbox.png)
 
-```XML
+```xml
 <ClaimType Id="displayName">
   <DisplayName>Display Name</DisplayName>
   <DataType>string</DataType>
@@ -277,7 +277,7 @@ Le type d’entrée d’utilisateur **EmailBox** sert à fournir un champ d’en
 
 ![EmailBox présentant les propriétés spécifiées dans le type de revendication](./media/claimsschema/emailbox.png)
 
-```XML
+```xml
 <ClaimType Id="email">
   <DisplayName>Email Address</DisplayName>
   <DataType>string</DataType>
@@ -295,7 +295,7 @@ Le type d’entrée d’utilisateur **Password** sert à enregistrer un mot de p
 
 ![Utilisation du type de revendication avec un mot de passe](./media/claimsschema/password.png)
 
-```XML
+```xml
 <ClaimType Id="password">
   <DisplayName>Password</DisplayName>
   <DataType>string</DataType>
@@ -310,7 +310,7 @@ Le type d’entrée d’utilisateur **DateTimeDropdown** sert à fournir un ense
 
 ![Utilisation du type de revendication avec datetimedropdown](./media/claimsschema/datetimedropdown.png)
 
-```XML
+```xml
 <ClaimType Id="dateOfBirth">
   <DisplayName>Date Of Birth</DisplayName>
   <DataType>date</DataType>
@@ -325,7 +325,7 @@ Le type d’entrée d’utilisateur **RadioSingleSelect** sert à fournir une co
 
 ![Utilisation du type de revendication avec radiodsingleselect](./media/claimsschema/radiosingleselect.png)
 
-```XML
+```xml
 <ClaimType Id="color">
   <DisplayName>Preferred color</DisplayName>
   <DataType>string</DataType>
@@ -344,7 +344,7 @@ Le type d’entrée d’utilisateur **DropdownSingleSelect** sert à fournir une
 
 ![Utilisation du type de revendication avec dropdownsingleselect](./media/claimsschema/dropdownsingleselect.png)
 
-```XML
+```xml
 <ClaimType Id="city">
   <DisplayName>City where you work</DisplayName>
   <DataType>string</DataType>
@@ -363,7 +363,7 @@ Le type d’entrée d’utilisateur **CheckboxMultiSelect** sert à fournir une 
 
 ![Utilisation du type de revendication avec checkboxmultiselect](./media/claimsschema/checkboxmultiselect.png)
 
-```XML
+```xml
 <ClaimType Id="languages">
   <DisplayName>Languages you speak</DisplayName>
   <DataType>string</DataType>
@@ -382,7 +382,7 @@ Le type d’entrée d’utilisateur **Readonly** sert à fournir un champ en lec
 
 ![Utilisation du type de revendication avec readonly](./media/claimsschema/readonly.png)
 
-```XML
+```xml
 <ClaimType Id="membershipNumber">
   <DisplayName>Membership number</DisplayName>
   <DataType>string</DataType>
@@ -398,7 +398,7 @@ Le type d’entrée d’utilisateur **Paragraph** sert à fournir un champ qui a
 
 ![Utilisation du type de revendication avec paragraph](./media/claimsschema/paragraph.png)
 
-```XML
+```xml
 <ClaimType Id="responseMsg">
   <DisplayName>Error message: </DisplayName>
   <DataType>string</DataType>

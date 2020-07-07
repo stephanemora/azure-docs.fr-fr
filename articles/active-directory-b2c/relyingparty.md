@@ -10,12 +10,12 @@ ms.topic: reference
 ms.date: 04/20/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 733a33881fe3acc962aeda4b05a1b01be4e148ca
-ms.sourcegitcommit: acb82fc770128234f2e9222939826e3ade3a2a28
+ms.openlocfilehash: c8c4e65c7ee97b33acbd68bfd8267a334508e25c
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/21/2020
-ms.locfileid: "81680358"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85203739"
 ---
 # <a name="relyingparty"></a>RelyingParty
 
@@ -25,7 +25,7 @@ L’élément **RelyingParty** spécifie le parcours utilisateur à appliquer po
 
 L’exemple suivant montre un élément **RelyingParty** dans le fichier de stratégie *B2C_1A_signup_signin* :
 
-```XML
+```xml
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <TrustFrameworkPolicy
   xmlns:xsi="https://www.w3.org/2001/XMLSchema-instance"
@@ -86,7 +86,7 @@ L’élément `DefaultUserJourney` spécifie une référence à l’identificate
 
 Stratégie *B2C_1A_signup_signin* :
 
-```XML
+```xml
 <RelyingParty>
   <DefaultUserJourney ReferenceId="SignUpOrSignIn">
   ...
@@ -94,7 +94,7 @@ Stratégie *B2C_1A_signup_signin* :
 
 *B2C_1A_TrustFrameWorkBase* ou *B2C_1A_TrustFrameworkExtensionPolicy* :
 
-```XML
+```xml
 <UserJourneys>
   <UserJourney Id="SignUpOrSignIn">
   ...
@@ -222,7 +222,7 @@ L’élément **SubjectNamingInfo** contient l’attribut suivant :
 
 L’exemple suivant montre comment définir une partie de confiance OpenID Connect. Les informations de nom de sujet sont configurées en tant qu’`objectId` :
 
-```XML
+```xml
 <RelyingParty>
   <DefaultUserJourney ReferenceId="SignUpOrSignIn" />
   <TechnicalProfile Id="PolicyProfile">
@@ -242,7 +242,7 @@ L’exemple suivant montre comment définir une partie de confiance OpenID Conne
 ```
 Le jeton JWT inclut la revendication `sub` avec l’objectId d’utilisateur :
 
-```JSON
+```json
 {
   ...
   "sub": "6fbbd70d-262b-4b50-804c-257ae1706ef2",

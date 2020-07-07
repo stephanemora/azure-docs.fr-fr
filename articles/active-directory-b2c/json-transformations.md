@@ -11,12 +11,12 @@ ms.topic: reference
 ms.date: 04/21/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: b42c2a414333e7ed262441321a808fc45425fc3b
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 37df1a052a58271c239b8b3bcaa4808ab7c355f0
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81756757"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85204364"
 ---
 # <a name="json-claims-transformations"></a>Transformations de revendications JSON
 
@@ -36,7 +36,7 @@ Utilisez des valeurs de revendication ou de constantes pour générer une chaîn
 
 L’exemple suivant génère une chaîne JSON en fonction de la valeur de revendication « email » et « otp », ainsi que de chaînes de constante.
 
-```XML
+```xml
 <ClaimsTransformation Id="GenerateRequestBody" TransformationMethod="GenerateJson">
   <InputClaims>
     <InputClaim ClaimTypeReferenceId="email" TransformationClaimType="personalizations.0.to.0.email" />
@@ -67,7 +67,7 @@ La transformation des revendications suivante génère une revendication de cha�
 - Revendication de sortie :
   - **requestBody** : Valeur JSON
 
-```JSON
+```json
 {
   "personalizations": [
     {
@@ -102,7 +102,7 @@ Obtient un élément spécifié à partir de données JSON.
 
 Dans l’exemple suivant, la transformation de revendication a extrait l’élément `emailAddress` à partir des données JSON : `{"emailAddress": "someone@example.com", "displayName": "Someone"}`
 
-```XML
+```xml
 <ClaimsTransformation Id="GetEmailClaimFromJson" TransformationMethod="GetClaimFromJson">
   <InputClaims>
     <InputClaim ClaimTypeReferenceId="customUserData" TransformationClaimType="inputJson" />
@@ -141,11 +141,11 @@ Obtenir une liste d’éléments spécifiés à partir de données Json.
 
 Dans l’exemple suivant, la transformation de revendication extrait les revendications suivantes : email (string), displayName (string), membershipNum (int), active (boolean) et birthdate (datetime) à partir des données JSON.
 
-```JSON
+```json
 [{"key":"email","value":"someone@example.com"}, {"key":"displayName","value":"Someone"}, {"key":"membershipNum","value":6353399}, {"key":"active","value":true}, {"key":"birthdate","value":"1980-09-23T00:00:00Z"}]
 ```
 
-```XML
+```xml
 <ClaimsTransformation Id="GetClaimsFromJson" TransformationMethod="GetClaimsFromJsonArray">
   <InputClaims>
     <InputClaim ClaimTypeReferenceId="jsonSourceClaim" TransformationClaimType="jsonSource" />
@@ -192,7 +192,7 @@ Obtient un élément numérique (long) spécifié à partir de données JSON.
 
 Dans l’exemple suivant, la transformation de revendication extrait l’élément `id` à partir des données JSON.
 
-```JSON
+```json
 {
     "emailAddress": "someone@example.com",
     "displayName": "Someone",
@@ -200,7 +200,7 @@ Dans l’exemple suivant, la transformation de revendication extrait l’éléme
 }
 ```
 
-```XML
+```xml
 <ClaimsTransformation Id="GetIdFromResponse" TransformationMethod="GetNumericClaimFromJson">
   <InputClaims>
     <InputClaim ClaimTypeReferenceId="exampleInputClaim" TransformationClaimType="inputJson" />
@@ -235,7 +235,7 @@ Obtient le premier élément des données JSON.
 
 Dans l’exemple suivant, la transformation de revendication extrait le premier élément (prénom) à partir des données JSON.
 
-```XML
+```xml
 <ClaimsTransformation Id="GetGivenNameFromResponse" TransformationMethod="GetSingleItemFromJson">
   <InputClaims>
     <InputClaim ClaimTypeReferenceId="json" TransformationClaimType="inputJson" />
@@ -267,7 +267,7 @@ Obtient le premier élément à partir d’un tableau de données JSON.
 
 Dans l’exemple suivant, la transformation de revendication extrait le premier élément (adresse e-mail) à partir du tableau JSON `["someone@example.com", "Someone", 6353399]`.
 
-```XML
+```xml
 <ClaimsTransformation Id="GetEmailFromJson" TransformationMethod="GetSingleValueFromJsonArray">
   <InputClaims>
     <InputClaim ClaimTypeReferenceId="userData" TransformationClaimType="inputJsonClaim" />
@@ -294,7 +294,7 @@ Convertit des données XML au format JSON.
 | InputClaim | Xml | string | ClaimTypes qui sont utilisés par la transformation de revendication pour convertir les données XML au format JSON. |
 | OutputClaim | json | string | ClaimType généré après l’appel de cette ClaimsTransformation, les données au format JSON. |
 
-```XML
+```xml
 <ClaimsTransformation Id="ConvertXmlToJson" TransformationMethod="XmlStringToJsonString">
   <InputClaims>
     <InputClaim ClaimTypeReferenceId="intpuXML" TransformationClaimType="xml" />
@@ -310,7 +310,7 @@ Dans l’exemple suivant, la transformation de revendication convertit les donn�
 #### <a name="example"></a> Exemple
 Revendication d’entrée :
 
-```XML
+```xml
 <user>
   <name>Someone</name>
   <email>someone@example.com</email>
@@ -319,7 +319,7 @@ Revendication d’entrée :
 
 Revendication de sortie :
 
-```JSON
+```json
 {
   "user": {
     "name":"Someone",
