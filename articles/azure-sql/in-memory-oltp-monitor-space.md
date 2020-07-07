@@ -11,12 +11,12 @@ author: juliemsft
 ms.author: jrasnick
 ms.reviewer: genemi
 ms.date: 01/25/2019
-ms.openlocfilehash: 6ab303c06f1ca6c7ab6a7a192532b79505676811
-ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
+ms.openlocfilehash: a4747fcd3a68c91e10d13a03adcbc4930bd9d759
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "84033730"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84345255"
 ---
 # <a name="monitor-in-memory-oltp-storage-in-azure-sql-database-and-azure-sql-managed-instance"></a>Surveiller le stockage OLTP en mémoire dans Azure SQL Database et Azure SQL Managed Instance
 [!INCLUDE[appliesto-sqldb-sqlmi](includes/appliesto-sqldb-sqlmi.md)]
@@ -25,7 +25,7 @@ Lorsque vous utilisez [OLTP en mémoire](in-memory-oltp-overview.md), les donné
 
 ## <a name="determine-whether-data-fits-within-the-in-memory-oltp-storage-cap"></a>Déterminer si la taille des données est adaptée à la capacité de stockage en mémoire OLTP
 
-Déterminez les limites maximales de stockage des différents niveaux de service. Chaque niveau de service Premium et critique pour l’entreprise dispose d’une taille de stockage OLTP en mémoire maximale.
+Déterminez les limites maximales de stockage des différents niveaux de service. Chaque niveau de service Premium et critique pour l'entreprise dispose d’une taille de stockage OLTP en mémoire maximale.
 
 - [Limites de ressources basées sur des unités DTU - Base de données unique](database/resource-limits-dtu-single-databases.md)
 - [Limites de ressources basées sur des unités DTU - Pools élastiques](database/resource-limits-dtu-elastic-pools.md)

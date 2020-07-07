@@ -4,16 +4,16 @@ description: Apprenez à réparer un travail d’exportation qui a été créé 
 author: twooley
 services: storage
 ms.service: storage
-ms.topic: article
+ms.topic: how-to
 ms.date: 01/23/2017
 ms.author: twooley
 ms.subservice: common
-ms.openlocfilehash: b2ba30bddfc6364c79e1bb01d30cde63b261a07f
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 10e209228ad12b377b729bc251eb761b51ff5378
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "74978013"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85514362"
 ---
 # <a name="repairing-an-export-job"></a>Réparation d’un travail d’exportation
 Une fois qu’un travail d’exportation est terminé, vous pouvez exécuter l’outil Microsoft Azure Import/Export local pour :  

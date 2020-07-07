@@ -9,12 +9,12 @@ ms.service: cost-management-billing
 ms.reviewer: vitavor
 ms.custom: secdec18
 ROBOTS: NOINDEX
-ms.openlocfilehash: 62138163b3c3f94d60c55cf93d84db5dff446823
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: 24ff2d2b5855c2624f12c2a1523611933a426ebe
+ms.sourcegitcommit: 374e47efb65f0ae510ad6c24a82e8abb5b57029e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "79474660"
+ms.lasthandoff: 06/28/2020
+ms.locfileid: "85513859"
 ---
 # <a name="activate-azure-subscriptions-and-accounts-with-cloudyn"></a>Activer des abonnements et des comptes Azure avec Cloudyn
 
@@ -65,7 +65,7 @@ Quand vous ajoutez un compte ou mettez à jour un abonnement, vous accordez à C
     2. Dans le portail Azure, sélectionnez **Azure Active Directory**.
     3. Pour obtenir l’ID de locataire, sélectionnez **Propriétés** pour votre client Azure AD.
     4. Copiez le GUID ID de répertoire. Cette valeur est votre ID de locataire.
-    Pour plus d’informations, consultez [Obtenir l’ID de locataire](../../active-directory/develop/howto-create-service-principal-portal.md#get-values-for-signing-in).
+    Pour plus d’informations, consultez [Obtenir l’ID de locataire](../../active-directory/develop/howto-create-service-principal-portal.md#get-tenant-and-app-id-values-for-signing-in).
 3. Si nécessaire, sélectionnez votre Code produit. Si vous ne le connaissez pas, effectuez les étapes suivantes pour le rechercher.
     1. Dans l’angle supérieur droit du portail Azure, cliquez sur vos informations utilisateur, puis sur **Afficher ma facture**.
     2. Sous **Compte de facturation**, cliquez sur **Abonnements**.

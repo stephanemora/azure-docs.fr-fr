@@ -8,10 +8,10 @@ ms.date: 05/27/2020
 ms.author: mbaldwin
 ms.custom: security-benchmark
 ms.openlocfilehash: 3897ef75be34d4413e06dc5459739baec3afdcec
-ms.sourcegitcommit: 309cf6876d906425a0d6f72deceb9ecd231d387c
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/01/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84268013"
 ---
 # <a name="azure-security-baseline-for-container-instances"></a>Base de référence de sécurité Azure pour Container Instances
@@ -39,7 +39,7 @@ Pour plus d’informations, consultez la [Vue d’ensemble des bases de référe
 * [Guide pratique pour déployer et configurer le Pare-feu Azure](https://docs.microsoft.com/azure/firewall/tutorial-firewall-deploy-portal)
 
 
-**Supervision d’Azure Security Center** : Oui
+**Supervision Azure Security Center** : Oui
 
 **Responsabilité** : Customer
 
@@ -79,7 +79,7 @@ Pour plus d’informations, consultez la [Vue d’ensemble des bases de référe
 
 * [Fonctionnalité de contrôle d’accès réseau juste-à-temps d’Azure Security Center](https://docs.microsoft.com/azure/security-center/security-center-just-in-time)
 
-**Supervision d’Azure Security Center** : Oui
+**Supervision Azure Security Center** : Oui
 
 **Responsabilité** : Customer
 
@@ -91,7 +91,7 @@ Pour plus d’informations, consultez la [Vue d’ensemble des bases de référe
 
 * [Guide pratique pour activer Network Watcher](https://docs.microsoft.com/azure/network-watcher/network-watcher-create)
 
-**Supervision d’Azure Security Center** : Oui
+**Supervision Azure Security Center** : Oui
 
 **Responsabilité** : Customer
 
@@ -117,7 +117,7 @@ Déployez la solution de pare-feu de votre choix dans les limites réseau de vot
 
 ### <a name="17-manage-traffic-to-web-applications"></a>1.7 : Gérer le trafic à destination des applications web
 
-**Aide** : Déployez Azure Application Gateway pour les applications web en activant le protocole HTTPS/SSL pour les certificats approuvés.
+**Conseils** : Déployez Azure Application Gateway pour les applications web en activant le protocole HTTPS/SSL pour les certificats approuvés.
 
 * [Guide pratique pour déployer Application Gateway](https://docs.microsoft.com/azure/application-gateway/quick-create-portal)
 
@@ -149,7 +149,7 @@ Vous pouvez également utiliser des groupes de sécurité d’application pour s
 
 
 
-**Supervision d’Azure Security Center** : Non applicable
+**Supervision Azure Security Center** : Non applicable
 
 **Responsabilité** : Customer
 
@@ -165,7 +165,7 @@ Vous pouvez également utiliser des groupes de sécurité d’application pour s
 
 
 
-**Supervision d’Azure Security Center** : Non applicable
+**Supervision Azure Security Center** : Non applicable
 
 **Responsabilité** : Customer
 
@@ -196,7 +196,7 @@ Vous pouvez utiliser Azure PowerShell ou Azure CLI pour rechercher des ressource
 
 * [Guide pratique pour créer des alertes dans Azure Monitor](https://docs.microsoft.com/azure/azure-monitor/platform/alerts-activity-log)
 
-**Supervision d’Azure Security Center** : Non applicable
+**Supervision Azure Security Center** : Non applicable
 
 **Responsabilité** : Customer
 
@@ -243,7 +243,7 @@ Vous pouvez utiliser Azure PowerShell ou Azure CLI pour rechercher des ressource
 **Aide** : Non applicable. Ces instructions sont destinées aux ressources de calcul IaaS.
 
 
-**Supervision d’Azure Security Center** : Non applicable
+**Supervision Azure Security Center** : Non applicable
 
 **Responsabilité** : Non applicable
 
@@ -267,7 +267,7 @@ Vous pouvez utiliser Azure PowerShell ou Azure CLI pour rechercher des ressource
 
 * [Guide pratique pour effectuer des requêtes personnalisées dans Azure Monitor](https://docs.microsoft.com/azure/azure-monitor/log-query/get-started-queries)
 
-**Supervision d’Azure Security Center** : Non applicable
+**Supervision Azure Security Center** : Non applicable
 
 **Responsabilité** : Customer
 
@@ -288,7 +288,7 @@ Vous pouvez utiliser Azure PowerShell ou Azure CLI pour rechercher des ressource
 **Aide** : Si nécessaire, mettez en œuvre votre propre procédure de collection d’événements et votre propre solution anti-programme malveillant à exécuter dans un conteneur. 
 
 
-**Supervision d’Azure Security Center** : Non applicable
+**Supervision Azure Security Center** : Non applicable
 
 **Responsabilité** : Customer
 
@@ -296,7 +296,7 @@ Vous pouvez utiliser Azure PowerShell ou Azure CLI pour rechercher des ressource
 
 **Aide** : Si nécessaire, mettez en œuvre votre propre solution pour interroger les journaux DNS dans un conteneur.
 
-**Supervision d’Azure Security Center** : Non applicable
+**Supervision Azure Security Center** : Non applicable
 
 **Responsabilité** : Customer
 
@@ -318,7 +318,7 @@ Vous pouvez utiliser Azure PowerShell ou Azure CLI pour rechercher des ressource
 
 ### <a name="31-maintain-an-inventory-of-administrative-accounts"></a>3.1 : Tenir un inventaire des comptes d’administration
 
-**Aide** : Azure Active Directory (Azure AD) comporte des rôles intégrés qui doivent être explicitement attribués et qui peuvent être interrogés. Utilisez le module Azure AD PowerShell pour effectuer des requêtes ad hoc afin de découvrir les comptes membres de groupes d’administration.
+**Conseils** : Azure Active Directory (Azure AD) comporte des rôles intégrés qui doivent être explicitement attribués et qui peuvent être interrogés. Utilisez le module Azure AD PowerShell pour effectuer des requêtes ad hoc afin de découvrir les comptes membres de groupes d’administration.
 
 Si vous utilisez un registre de conteneurs Azure avec Azure Container Instances, déterminez si le compte administrateur intégré est activé ou désactivé pour chaque registre de conteneurs Azure. Désactivez le compte lorsqu’il n’est pas utilisé.
 
@@ -354,7 +354,7 @@ Si vous utilisez un registre de conteneurs Azure avec Azure Container Instances,
 
 * [Compte administrateur Azure Container Registry](https://docs.microsoft.com/azure/container-registry/container-registry-authentication#admin-account)
 
-**Supervision d’Azure Security Center** : Oui
+**Supervision Azure Security Center** : Oui
 
 **Responsabilité** : Customer
 
@@ -365,7 +365,7 @@ Si vous utilisez un registre de conteneurs Azure avec Azure Container Instances,
 * [Présentation de l’authentification SSO avec Azure AD](https://docs.microsoft.com/azure/active-directory/manage-apps/what-is-single-sign-on)
 
 
-**Supervision d’Azure Security Center** : Non applicable
+**Supervision Azure Security Center** : Non applicable
 
 **Responsabilité** : Customer
 
@@ -377,7 +377,7 @@ Si vous utilisez un registre de conteneurs Azure avec Azure Container Instances,
 
 * [Guide pratique pour superviser les identités et les accès dans Azure Security Center](https://docs.microsoft.com/azure/security-center/security-center-identity-access)
 
-**Supervision d’Azure Security Center** : Oui
+**Supervision Azure Security Center** : Oui
 
 **Responsabilité** : Customer
 
@@ -417,7 +417,7 @@ Si vous utilisez un registre de conteneurs Azure avec Azure Container Instances,
 
 ### <a name="39-use-azure-active-directory"></a>3.9 : Utiliser Azure Active Directory
 
-**Aide** : Utiliser Azure Active Directory (Azure AD) comme système d’authentification et d’autorisation central. Azure AD protège les données en utilisant un chiffrement fort pour les données au repos et en transit. De plus, AAD sale, hache et stocke de manière sécurisée les informations d’identification utilisateur.
+**Conseils** : Utiliser Azure Active Directory (Azure AD) comme système d’authentification et d’autorisation central. Azure AD protège les données en utilisant un chiffrement fort pour les données au repos et en transit. De plus, AAD sale, hache et stocke de manière sécurisée les informations d’identification utilisateur.
 
 * [Création et configuration d’une instance Azure AD](https://docs.microsoft.com/azure/active-directory/fundamentals/active-directory-access-create-new-tenant)
 
@@ -510,7 +510,7 @@ Associez des étiquettes et des versions aux images conteneur pour simplifier le
 * [Configuration des options « Alerter » et « Alerter et refuser » du pare-feu Azure](https://docs.microsoft.com/azure/firewall/threat-intel)
 
 
-**Supervision d’Azure Security Center** : actuellement non disponible
+**Supervision Azure Security Center** : actuellement non disponible
 
 **Responsabilité** : Customer
 
@@ -533,13 +533,13 @@ Pour la plateforme sous-jacente qui est gérée par Microsoft, Microsoft traite 
 
 ### <a name="44-encrypt-all-sensitive-information-in-transit"></a>4.4 : Chiffrer toutes les informations sensibles en transit
 
-**Aide** : Assurez-vous que les clients qui se connectent à vos groupes de conteneurs Azure peuvent négocier TLS 1.2 ou une version ultérieure. Par défaut, les ressources Microsoft Azure négocient TLS 1.2.
+**Conseils** : Assurez-vous que les clients qui se connectent à vos groupes de conteneurs Azure peuvent négocier TLS 1.2 ou une version ultérieure. Par défaut, les ressources Microsoft Azure négocient TLS 1.2.
 
 Suivez les recommandations d’Azure Security Center relatives au chiffrement au repos et au chiffrement en transit, le cas échéant.
 
 * [Présentation du chiffrement en transit avec Azure](https://docs.microsoft.com/azure/security/fundamentals/encryption-overview#encryption-of-data-in-transit)
 
-**Supervision d’Azure Security Center** : Oui
+**Supervision Azure Security Center** : Oui
 
 **Responsabilité** : Partagé
 
@@ -557,7 +557,7 @@ Pour la plateforme sous-jacente qui est gérée par Microsoft, Microsoft traite 
 
 ### <a name="46-use-azure-rbac-to-control-access-to-resources"></a>4.6 : Utiliser Azure RBAC pour contrôler l’accès aux ressources
 
-**Aide** : Utilisez le contrôle d’accès en fonction du rôle Azure AD pour contrôler l’accès aux données et ressources d’Azure Container Instances. 
+**Conseils** : Utilisez le contrôle d’accès en fonction du rôle Azure AD pour contrôler l’accès aux données et ressources d’Azure Container Instances. 
 
 * [Guide pratique pour configurer le contrôle RBAC dans Azure](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-portal)
 
@@ -580,7 +580,7 @@ Pour la plateforme sous-jacente qui est gérée par Microsoft, Microsoft traite 
 
 ### <a name="48-encrypt-sensitive-information-at-rest"></a>4.8 : Chiffrer des informations sensibles au repos
 
-**Aide** : Par défaut, toutes les données de déploiement dans Azure Container Instances sont chiffrées au repos à l’aide de clés managées par Microsoft. Si vous le souhaitez, vous pouvez gérer le chiffrement avec votre propre clé (clé gérée par le client).
+**Conseils** : Par défaut, toutes les données de déploiement dans Azure Container Instances sont chiffrées au repos à l’aide de clés managées par Microsoft. Si vous le souhaitez, vous pouvez gérer le chiffrement avec votre propre clé (clé gérée par le client).
 
 * [Présentation du chiffrement au repos dans Azure](https://docs.microsoft.com/azure/security/fundamentals/encryption-atrest)
 
@@ -588,7 +588,7 @@ Pour la plateforme sous-jacente qui est gérée par Microsoft, Microsoft traite 
 
 
 
-**Supervision d’Azure Security Center** : Non applicable
+**Supervision Azure Security Center** : Non applicable
 
 **Responsabilité** : Customer
 
@@ -621,7 +621,7 @@ Pour la plateforme sous-jacente qui est gérée par Microsoft, Microsoft traite 
 
 ### <a name="52-deploy-automated-operating-system-patch-management-solution"></a>5.2 : Déployer une solution de gestion des correctifs de système d’exploitation automatisée
 
-**Aide** : Microsoft assure la gestion des correctifs sur les systèmes sous-jacents prenant en charge l’exécution de conteneurs.
+**Conseils** : Microsoft assure la gestion des correctifs sur les systèmes sous-jacents prenant en charge l’exécution de conteneurs.
 
 Utilisez une solution tierce ou personnalisée pour corriger les images conteneur. Si vous stockez des images conteneur dans Azure Container Registry, exécutez des tâches Azure Container Registry pour automatiser les mises à jour des images d’application dans un registre de conteneurs en fonction des correctifs de sécurité ou d’autres mises à jour dans les images de système d’exploitation de base.
 
@@ -630,7 +630,7 @@ Utilisez une solution tierce ou personnalisée pour corriger les images conteneu
 * [À propos des mises à jour des images de base pour les tâches Azure Container Registry](https://docs.microsoft.com/azure/container-registry/container-registry-tasks-base-images)
 
 
-**Supervision d’Azure Security Center** : Non applicable
+**Supervision Azure Security Center** : Non applicable
 
 **Responsabilité** : Partagé
 
@@ -676,7 +676,7 @@ Utilisez une solution tierce ou personnalisée pour corriger les images conteneu
 
 ### <a name="61-use-azure-asset-discovery"></a>6.1 : Utiliser la découverte de ressources Azure
 
-**Aide** : Utilisez Azure Resource Graph pour interroger/découvrir toutes les ressources (telles que calcul, stockage, réseau, ports et protocoles) dans vos abonnements. Vérifiez les autorisations (lecture) appropriées dans votre locataire et répertoriez tous les abonnements Azure, ainsi que les ressources dans vos abonnements.
+**Conseils** : Utilisez Azure Resource Graph pour interroger/découvrir toutes les ressources (telles que calcul, stockage, réseau, ports et protocoles) dans vos abonnements. Vérifiez les autorisations (lecture) appropriées dans votre locataire et répertoriez tous les abonnements Azure, ainsi que les ressources dans vos abonnements.
 
 Bien que les ressources Azure classiques puissent être découvertes via Resource Graph, il est vivement recommandé de créer et d’utiliser des ressources Azure Resource Manager à l’avenir.
 
@@ -726,7 +726,7 @@ Bien que les ressources Azure classiques puissent être découvertes via Resourc
 
 ### <a name="65-monitor-for-unapproved-azure-resources"></a>6.5 : Analyser les ressources Azure non approuvées
 
-**Aide** : Utilisez Azure Policy pour appliquer des restrictions quant au type de ressources pouvant être créées dans vos abonnements.
+**Conseils** : Utilisez Azure Policy pour appliquer des restrictions quant au type de ressources pouvant être créées dans vos abonnements.
 
 Utilisez Azure Resource Graph pour interroger/découvrir des ressources dans leurs abonnements. Vérifiez que toutes les ressources Azure présentes dans l’environnement sont approuvées.
 
@@ -759,7 +759,7 @@ Supervisez les journaux Azure Container Instances pour détecter les comportemen
 
 
 
-**Supervision d’Azure Security Center** : Non applicable
+**Supervision Azure Security Center** : Non applicable
 
 **Responsabilité** : Customer
 
@@ -785,7 +785,7 @@ Supervisez les journaux Azure Container Instances pour détecter les comportemen
 
 ### <a name="69-use-only-approved-azure-services"></a>6.9 : Utiliser des services Azure approuvés uniquement
 
-**Aide** : Utilisez Azure Policy pour limiter les services que vous pouvez approvisionner dans votre environnement.
+**Conseils** : Utilisez Azure Policy pour limiter les services que vous pouvez approvisionner dans votre environnement.
 
 * [Guide pratique pour configurer et gérer Azure Policy](https://docs.microsoft.com/azure/governance/policy/tutorials/create-and-manage)
 
@@ -864,19 +864,19 @@ Gérez et vérifiez l’accès aux ressources Azure Container Instances à l’a
 * [Guide pratique pour configurer et gérer Azure Policy](https://docs.microsoft.com/azure/governance/policy/tutorials/create-and-manage)
 
 
-**Supervision d’Azure Security Center** : Non applicable
+**Supervision Azure Security Center** : Non applicable
 
 **Responsabilité** : Customer
 
 ### <a name="72-establish-secure-operating-system-configurations"></a>7.2 : Établir des configurations sécurisées du système d’exploitation
 
-**Aide** : Utilisez une solution tierce ou personnalisée pour corriger les images conteneur. Si vous stockez des images conteneur dans Azure Container Registry, exécutez des tâches Azure Container Registry pour automatiser les mises à jour des images d’application dans un registre de conteneurs en fonction des correctifs de sécurité ou d’autres mises à jour dans les images de système d’exploitation de base. 
+**Conseils** : Utilisez une solution tierce ou personnalisée pour corriger les images conteneur. Si vous stockez des images conteneur dans Azure Container Registry, exécutez des tâches Azure Container Registry pour automatiser les mises à jour des images d’application dans un registre de conteneurs en fonction des correctifs de sécurité ou d’autres mises à jour dans les images de système d’exploitation de base. 
 
 * [À propos des mises à jour des images de base pour les tâches Azure Container Registry](https://docs.microsoft.com/azure/container-registry/container-registry-tasks-base-images)
 
 
 
-**Supervision d’Azure Security Center** : Oui
+**Supervision Azure Security Center** : Oui
 
 **Responsabilité** : Customer
 
@@ -948,7 +948,7 @@ Utilisez une solution tierce ou personnalisée pour corriger les images conteneu
 
 ### <a name="78-deploy-system-configuration-management-tools-for-operating-systems"></a>7.8 : Déployer les outils de gestion de la configuration système pour les systèmes d’exploitation
 
-**Aide** : Non applicable. Cette recommandation concerne les ressources de calcul IaaS.
+**Conseils** : Non applicable. Cette recommandation concerne les ressources de calcul IaaS.
 
 
 **Supervision d’Azure Security Center** : Non applicable
@@ -1006,7 +1006,7 @@ Utilisez Azure Policy pour appliquer des restrictions quant au type de ressource
 
 
 
-**Supervision d’Azure Security Center** : actuellement non disponible
+**Supervision Azure Security Center** : actuellement non disponible
 
 **Responsabilité** : Customer
 
@@ -1016,7 +1016,7 @@ Utilisez Azure Policy pour appliquer des restrictions quant au type de ressource
 
 * [Configurer Credential Scanner](https://secdevtools.azurewebsites.net/helpcredscan.html)
 
-**Supervision d’Azure Security Center** : Non applicable
+**Supervision Azure Security Center** : Non applicable
 
 **Responsabilité** : Customer
 
@@ -1026,7 +1026,7 @@ Utilisez Azure Policy pour appliquer des restrictions quant au type de ressource
 
 ### <a name="81-use-centrally-managed-anti-malware-software"></a>8.1 : Utiliser un logiciel anti-programme malveillant géré de manière centralisée
 
-**Aide** : Non applicable. Cette recommandation concerne les ressources de calcul IaaS.
+**Conseils** : Non applicable. Cette recommandation concerne les ressources de calcul IaaS.
 
 **Supervision d’Azure Security Center** : Non applicable
 
@@ -1059,7 +1059,7 @@ Microsoft Antimalware est activé sur l’hôte sous-jacent qui prend en charge 
 
 ### <a name="91-ensure-regular-automated-back-ups"></a>9.1 : garantir des sauvegardes automatisées régulières
 
-**Aide** : Activez la Sauvegarde Azure et configurez la source de sauvegarde (par exemple, un partage de fichiers monté sur des groupes de conteneurs), la fréquence souhaitée et la période de conservation. 
+**Conseils** : Activez la Sauvegarde Azure et configurez la source de sauvegarde (par exemple, un partage de fichiers monté sur des groupes de conteneurs), la fréquence souhaitée et la période de conservation. 
 
 * [Guide pratique pour activer la Sauvegarde Azure](https://docs.microsoft.com/azure/backup/)
 
@@ -1072,7 +1072,7 @@ Microsoft Antimalware est activé sur l’hôte sous-jacent qui prend en charge 
 
 ### <a name="92-perform-complete-system-backups-and-backup-any-customer-managed-keys"></a>9.2 : effectuer des sauvegardes complètes du système et sauvegarder les clés gérées par le client
 
-**Aide** : Sauvegardez les clés gérées par le client dans Azure Key Vault à l’aide d’outils en ligne de commande ou de kits de développement logiciel (SDK) Azure.
+**Conseils** : Sauvegardez les clés gérées par le client dans Azure Key Vault à l’aide d’outils en ligne de commande ou de kits de développement logiciel (SDK) Azure.
 
 Sauvegardez éventuellement les images conteneur en les important d’un registre vers un autre.
 * [Guide pratique pour sauvegarder des clés de coffre de clés dans Azure](https://docs.microsoft.com/powershell/module/azurerm.keyvault/backup-azurekeyvaultkey?view=azurermps-6.13.0)
@@ -1138,7 +1138,7 @@ Le client peut également tirer parti du guide de gestion des incidents de sécu
 En outre, marquez clairement les abonnements (par exemple, production, non-production) et créez un système de nommage pour identifier et classer les ressources Azure de façon claire.
 
 
-**Supervision d’Azure Security Center** : Oui
+**Supervision Azure Security Center** : Oui
 
 **Responsabilité** : Customer
 

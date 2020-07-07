@@ -6,10 +6,10 @@ ms.topic: troubleshooting
 description: Découvrez comment résoudre les problèmes courants liés à l’activation et à l’utilisation d’Azure Dev Spaces
 keywords: 'Docker, Kubernetes, Azure, AKS, Azure Kubernetes Service, conteneurs, Helm, service Mesh, routage du service Mesh, kubectl, k8s '
 ms.openlocfilehash: 51846c8630e4e8c60205f8d92fb7f74f92de3f41
-ms.sourcegitcommit: 69156ae3c1e22cc570dda7f7234145c8226cc162
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/03/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84309643"
 ---
 # <a name="azure-dev-spaces-troubleshooting"></a>Résolution des problèmes Azure Dev Spaces

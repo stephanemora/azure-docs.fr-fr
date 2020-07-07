@@ -3,12 +3,12 @@ title: Vue d’ensemble de l’exemple de blueprint Australian Government ISM PR
 description: Vue d’ensemble de l’exemple de blueprint Australian Government ISM PROTECTED. Cet exemple de blueprint aide les clients à évaluer des contrôles ISM PROTECTED spécifiques.
 ms.date: 03/10/2020
 ms.topic: sample
-ms.openlocfilehash: e2f64943e9db207feb3f59a905cad994553a6cd6
-ms.sourcegitcommit: 3abadafcff7f28a83a3462b7630ee3d1e3189a0e
+ms.openlocfilehash: d82598498fa7eb24ec2ea3f591d08ce8f9503b54
+ms.sourcegitcommit: 581aaca8956b1717b7bc1c1d7710c782c22e6320
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/30/2020
-ms.locfileid: "82595354"
+ms.lasthandoff: 06/29/2020
+ms.locfileid: "85517097"
 ---
 # <a name="control-mapping-of-the-australian-government-ism-protected-blueprint-sample"></a>Correspondance des contrôles de l’exemple de blueprint Australian Government ISM PROTECTED
 

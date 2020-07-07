@@ -3,15 +3,15 @@ title: Créer un package de prise en charge de la gamme StorSimple 8000
 description: Apprenez à créer, déchiffrer et modifier un package de prise en charge pour votre appareil de la gamme StorSimple 8000.
 author: alkohli
 ms.service: storsimple
-ms.topic: conceptual
+ms.topic: troubleshooting
 ms.date: 01/09/2018
 ms.author: alkohli
-ms.openlocfilehash: 9ca033f6f786c0142261dafa31b93b71a8b3336a
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: f8f84542cd52d8ad4affd64627637d4e95b1fb10
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "76277070"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85514044"
 ---
 # <a name="create-and-manage-a-support-package-for-storsimple-8000-series"></a>Création et gestion d’un package de prise en charge pour la gamme StorSimple 8000
 

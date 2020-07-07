@@ -15,12 +15,12 @@ ms.workload: iaas-sql-server
 ms.date: 07/12/2018
 ms.author: mathoma
 ms.reviewer: jroth
-ms.openlocfilehash: 384b66020b3d18064ea1cd9f162911878caa598d
-ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
+ms.openlocfilehash: fe899eebb0139dffabef96da32ab1641c983f726
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "84017532"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84338405"
 ---
 # <a name="automate-management-tasks-on-azure-virtual-machines-with-the-sql-server-agent-extension-classic"></a>Automatiser les tâches de gestion sur des machines virtuelles Azure avec l’extension SQL Server Agent (Classic)
 > [!div class="op_single_selector"]
@@ -82,7 +82,7 @@ Si vous mettez à jour l’extension de l’agent IaaS SQL vers la dernière ver
 > Les machines virtuelles classiques ne permettent pas d’installer et de configurer l’extension de l’agent IaaS SQL via le portail.
 
 > [!NOTE]
-> L’extension Agent IaaS SQL Server est prise en charge uniquement sur des [images de galerie de machine virtuelle SQL Server](../../../azure-sql/virtual-machines/windows/sql-server-on-azure-vm-iaas-what-is-overview.md#get-started-with-sql-vms) (paiement à l’utilisation ou BYOL). Elle n’est pas prise en charge si vous installez manuellement SQL Server sur une machine virtuelle Windows Server réservée au système d’exploitation, ou déployez un disque dur virtuel de machine virtuelle SQL Server personnalisé. Dans ces cas, il est peut-être possible d’installer et de gérer l’extension manuellement à l’aide de PowerShell, mais il est fortement recommandé d’installer plutôt une image de galerie de machine virtuelle SQL Server et de la personnaliser.
+> L’extension Agent IaaS SQL Server est prise en charge uniquement sur des [images de galerie de machine virtuelle SQL Server](../../../azure-sql/virtual-machines/windows/sql-server-on-azure-vm-iaas-what-is-overview.md#get-started-with-sql-server-vms) (paiement à l’utilisation ou BYOL). Elle n’est pas prise en charge si vous installez manuellement SQL Server sur une machine virtuelle Windows Server réservée au système d’exploitation, ou déployez un disque dur virtuel de machine virtuelle SQL Server personnalisé. Dans ces cas, il est peut-être possible d’installer et de gérer l’extension manuellement à l’aide de PowerShell, mais il est fortement recommandé d’installer plutôt une image de galerie de machine virtuelle SQL Server et de la personnaliser.
 
 ## <a name="status"></a>Statut
 Pour vérifier que l’extension est installée, un moyen consiste à afficher l’état de l’agent dans le portail Azure. Sélectionnez une machine virtuelle répertoriée dans le panneau des machines virtuelles, puis cliquez sur **Extensions**. L’extension **SQLIaaSAgent** doit s’afficher.

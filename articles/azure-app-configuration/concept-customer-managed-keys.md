@@ -6,12 +6,12 @@ ms.author: lcozzens
 ms.date: 02/18/2020
 ms.topic: conceptual
 ms.service: azure-app-configuration
-ms.openlocfilehash: ace34cf4a72b871ba6646b279007b8ce21c03e9b
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: d312346accc4fb6781744343911158bb538c0ccf
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81457431"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84324077"
 ---
 # <a name="use-customer-managed-keys-to-encrypt-your-app-configuration-data"></a>Utiliser des clés gérées par le client pour chiffrer vos données App Configuration
 Azure App Configuration [chiffre les informations sensibles au repos](../security/fundamentals/encryption-atrest.md). L’utilisation de clés gérées par le client offre une protection améliorée des données en vous permettant de gérer vos clés de chiffrement.  Quand un chiffrement avec des clés gérées est utilisé, toutes les informations sensibles dans App Configuration sont chiffrées avec une clé Azure Key Vault fournie par l’utilisateur.  Ceci donne la possibilité d’effectuer une rotation de la clé de chiffrement à la demande.  Ceci permet aussi de révoquer l’accès d’Azure App Configuration à des informations sensibles en révoquant l’accès à la clé par l’instance App Configuration.
@@ -75,7 +75,7 @@ Pour commencer, vous avec besoin d’une instance Azure App Configuration correc
 1. Créez une identité managée affectée par le système avec Azure CLI, en utilisant le nom de votre instance App Configuration et le nom groupe de ressources des étapes précédentes. L’identité managée sera utilisée pour accéder à la clé gérée. Nous utilisons `contoso-app-config` pour illustrer le nom d’une instance App Configuration :
     
     ```azurecli
-    az appconfig identity assign --na1. me contoso-app-config --group contoso-resource-group --identities [system]
+    az appconfig identity assign --name contoso-app-config --resource-group contoso-resource-group --identities [system]
     ```
     
     La sortie de cette commande comprend l’ID du principal (« principalId ») et l’ID de locataire (« tenandId ») de l’identité affectée par le système.  Ceci sera utilisé pour accorder à l’identité l’accès à la clé gérée.

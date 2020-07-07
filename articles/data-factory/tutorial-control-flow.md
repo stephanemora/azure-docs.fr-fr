@@ -11,12 +11,12 @@ ms.workload: data-services
 ms.topic: tutorial
 ms.custom: seo-lt-2019; seo-dt-2019
 ms.date: 9/27/2019
-ms.openlocfilehash: fd006e836432ce775be8cbbefea6d9219e8b13b3
-ms.sourcegitcommit: bf99428d2562a70f42b5a04021dde6ef26c3ec3a
+ms.openlocfilehash: 0330e72ad74726f97bfdfd78ef8d5f9b24a5d172
+ms.sourcegitcommit: 374e47efb65f0ae510ad6c24a82e8abb5b57029e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/23/2020
-ms.locfileid: "85253458"
+ms.lasthandoff: 06/28/2020
+ms.locfileid: "85513322"
 ---
 # <a name="branching-and-chaining-activities-in-a-data-factory-pipeline"></a>Activités de création de branches et chaînage dans un pipeline Azure Data Factory
 
@@ -54,7 +54,7 @@ Si vous n’avez pas d’abonnement Azure, créez un [compte gratuit](https://az
 
 Pour obtenir la liste des régions Azure dans lesquelles Data Factory est actuellement disponible, consultez [Disponibilité des produits par région](https://azure.microsoft.com/global-infrastructure/services/). Les magasins de données et les calculs peuvent se trouver dans d’autres régions. Les magasins incluent Stockage Azure et Azure SQL Database. Les calculs incluent HDInsight, utilisé par Data Factory.
 
-Créez une application comme décrit dans [Créer une application Azure Active Directory](../active-directory/develop/howto-create-service-principal-portal.md#create-an-azure-active-directory-application). Affectez l’application au rôle **Contributeur** en suivant les instructions dans le même article. Vous aurez besoin de plusieurs valeurs pour les parties ultérieures de ce tutoriel, telles qu’**ID d’application (client)** et **ID de l’annuaire (locataire)** .
+Créez une application comme décrit dans [Créer une application Azure Active Directory](../active-directory/develop/howto-create-service-principal-portal.md#register-an-application-with-azure-ad-and-create-a-service-principal). Affectez l’application au rôle **Contributeur** en suivant les instructions dans le même article. Vous aurez besoin de plusieurs valeurs pour les parties ultérieures de ce tutoriel, telles qu’**ID d’application (client)** et **ID de l’annuaire (locataire)** .
 
 ### <a name="create-a-blob-table"></a>Créer une table d’objets blob
 

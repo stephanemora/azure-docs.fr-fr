@@ -11,12 +11,12 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 05/28/2020
-ms.openlocfilehash: 4c79779d9ce87a2596e5ccd3888e323fd27e0115
-ms.sourcegitcommit: d118ad4fb2b66c759b70d4d8a18e6368760da3ad
+ms.openlocfilehash: 6a71cc080c28cfa6e54de5b942ad1d8ce5b496d3
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/02/2020
-ms.locfileid: "84298072"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85513956"
 ---
 # <a name="copy-and-transform-data-in-azure-sql-database-by-using-azure-data-factory"></a>Copier et transformer des données dans Azure SQL Database à l’aide d’Azure Data Factory
 
@@ -129,7 +129,7 @@ Pour en savoir plus sur les autres types d’authentification, consultez les sec
 
 Pour utiliser l’authentification du jeton d’application Azure AD basée sur le principal de service, effectuez les étapes suivantes :
 
-1. [Créez une application Azure Active Directory](../active-directory/develop/howto-create-service-principal-portal.md#create-an-azure-active-directory-application) dans le Portail Azure. Prenez note du nom de l’application et des valeurs suivantes qui définissent le service lié :
+1. [Créez une application Azure Active Directory](../active-directory/develop/howto-create-service-principal-portal.md#register-an-application-with-azure-ad-and-create-a-service-principal) dans le Portail Azure. Prenez note du nom de l’application et des valeurs suivantes qui définissent le service lié :
 
     - ID de l'application
     - Clé de l'application

@@ -4,16 +4,16 @@ description: Découvrez comment créer des tâches d’importation dans le porta
 author: alkohli
 services: storage
 ms.service: storage
-ms.topic: article
+ms.topic: how-to
 ms.date: 04/08/2019
 ms.author: alkohli
 ms.subservice: common
-ms.openlocfilehash: 201d0c0a545c5ba7ae1bb0b5e119f7acb1ae362f
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: cbff2cbed37a4cff91116596f1c20dc3d170cae2
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79232337"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85513487"
 ---
 # <a name="use-azure-importexport-service-to-import-data-to-azure-files"></a>Utiliser le service Azure Import/Export pour importer des données dans Azure Files
 

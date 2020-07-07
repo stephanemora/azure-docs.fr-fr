@@ -4,12 +4,12 @@ description: Découvrez comment configurer un réseau (avancé) Azure CNI dans A
 services: container-service
 ms.topic: article
 ms.date: 06/03/2019
-ms.openlocfilehash: 592376c1ff1686429d71496099f55c5009e07f20
-ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
+ms.openlocfilehash: d025bcddfdee25cddac311ac9a201b7f3afebd22
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/12/2020
-ms.locfileid: "83120927"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84416849"
 ---
 # <a name="configure-azure-cni-networking-in-azure-kubernetes-service-aks"></a>Configurer un réseau Azure CNI dans AKS (Azure Kubernetes Service)
 
@@ -151,7 +151,7 @@ La série suivante de questions-réponses s’applique à la configuration de r�
 
 * *Puis-je déployer des machines virtuelles dans le sous-réseau de mon cluster ?*
 
-  Non. Le déploiement des machines virtuelles dans le sous-réseau utilisé par votre cluster Kubernetes n’est pas pris en charge. Les machines virtuelles peuvent être déployées dans le même réseau virtuel, mais dans un sous-réseau différent.
+  Oui.
 
 * *Puis-je configurer des stratégies de réseau spécifiques aux pods ?*
 

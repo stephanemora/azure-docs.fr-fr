@@ -3,15 +3,15 @@ title: Monter un cache Azure HPC Cache
 description: Comment connecter des clients à un service Azure HPC Cache
 author: ekpgh
 ms.service: hpc-cache
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 04/15/2020
 ms.author: v-erkel
-ms.openlocfilehash: a44232f06b455e20530271723e816c2117b339a0
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: fb3e4fd4935afc4869e50ccbc35c53333d43b1df
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81458357"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85515528"
 ---
 # <a name="mount-the-azure-hpc-cache"></a>Monter le cache Azure HPC Cache
 

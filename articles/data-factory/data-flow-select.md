@@ -6,13 +6,13 @@ ms.author: makromer
 ms.service: data-factory
 ms.topic: conceptual
 ms.custom: seo-lt-2019
-ms.date: 03/18/2020
-ms.openlocfilehash: a90a2def874c7f081f83a34aea956083eb72879a
-ms.sourcegitcommit: acb82fc770128234f2e9222939826e3ade3a2a28
+ms.date: 06/02/2020
+ms.openlocfilehash: 70e0a95a85920562af8bf9d3fffa6633709dccc5
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/21/2020
-ms.locfileid: "81686498"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84322088"
 ---
 # <a name="select-transformation-in-mapping-data-flow"></a>Transformation de sélection dans le flux de données de mappage
 
@@ -38,6 +38,9 @@ Les mappages fixes peuvent être utilisés pour mapper une sous-colonne d’une 
 ![Mappage hiérarchique](media/data-flow/select-hierarchy.png "Mappage hiérarchique")
 
 ## <a name="rule-based-mapping"></a>Mappage basé sur des règles
+
+
+> [!VIDEO https://www.microsoft.com/en-us/videoplayer/embed/RE4xiXz]
 
 Si vous voulez mapper plusieurs colonnes à la fois ou passer des colonnes dérivées en aval, utilisez un mappage basé sur des règles pour définir vos mappages à l’aide de modèles de colonne. Correspondance basée sur les valeurs `name`, `type`, `stream` et `position` de colonnes. Vous pouvez réaliser n’importe quelle combinaison de mappage fixe et basé sur des règles. Par défaut, toutes les projections contenant plus de 50 colonnes ont comme valeur par défaut un mappage basé sur des règles qui correspond à chaque colonne et génère le nom entré. 
 

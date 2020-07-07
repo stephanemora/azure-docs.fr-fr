@@ -4,16 +4,16 @@ description: Découvrez certains des problèmes courants que observés avec l’
 author: twooley
 services: storage
 ms.service: storage
-ms.topic: article
+ms.topic: troubleshooting
 ms.date: 01/15/2017
 ms.author: twooley
 ms.subservice: common
-ms.openlocfilehash: 4eeeb538bcd39eed40a92dd45e7ba7bed25558e2
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: bc9d338579385001d33669ed06ff71e590571502
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "75978400"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85514149"
 ---
 # <a name="troubleshooting-the-azure-importexport-tool"></a>Résolution des problèmes associés à l’outil d’importation/d’exportation Azure
 L’outil Microsoft Azure Import/Export renvoie des messages d’erreur s’il rencontre des problèmes. Cette rubrique répertorie certains des problèmes courants que les utilisateurs peuvent rencontrer.  

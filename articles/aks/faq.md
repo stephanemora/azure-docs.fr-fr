@@ -4,10 +4,10 @@ description: Recherchez des réponses à certaines des questions les plus fréqu
 ms.topic: conceptual
 ms.date: 05/14/2020
 ms.openlocfilehash: 136f79df43bcc1730f187980df8726d693390faa
-ms.sourcegitcommit: d118ad4fb2b66c759b70d4d8a18e6368760da3ad
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/02/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84300924"
 ---
 # <a name="frequently-asked-questions-about-azure-kubernetes-service-aks"></a>Forum aux questions sur Azure Kubernetes Service (AKS)

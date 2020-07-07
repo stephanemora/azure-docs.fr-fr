@@ -5,29 +5,29 @@ services: databox
 author: alkohli
 ms.service: databox
 ms.subservice: gateway
-ms.topic: article
+ms.topic: how-to
 ms.date: 03/25/2019
 ms.author: alkohli
-ms.openlocfilehash: feae75b1fbb832f833a01fa20ce07962ab5c484f
-ms.sourcegitcommit: 856db17a4209927812bcbf30a66b14ee7c1ac777
+ms.openlocfilehash: 25f74fb78979313acc068320d842d09a982d8d16
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "82561418"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84339142"
 ---
 # <a name="use-the-azure-portal-to-manage-bandwidth-schedules-on-your-azure-data-box-gateway"></a>Utiliser le Portail Azure pour gérer les planifications de bande passante sur votre ressource Azure Data Box Gateway  
 
-Cet article explique comment gérer les planifications de bande passante sur votre ressource Azure Data Box Gateway. Les planifications de bande passante vous permettent de configurer l’utilisation de la bande passante réseau sur plusieurs planifications selon le moment de la journée. Ces planifications sont applicables aux opérations de chargement et de téléchargement entre votre appareil et le cloud. 
+Cet article explique comment gérer les planifications de bande passante sur votre ressource Azure Data Box Gateway. Les planifications de bande passante vous permettent de configurer l’utilisation de la bande passante réseau sur plusieurs planifications selon le moment de la journée. Ces planifications sont applicables aux opérations de chargement et de téléchargement entre votre appareil et le cloud.
 
 Vous pouvez ajouter, modifier ou supprimer des planifications de bande passante pour votre ressource Data Box Gateway par le biais du Portail Azure.
 
 Dans cet article, vous apprendrez comment :
 
 > [!div class="checklist"]
+>
 > * Ajouter une planification
 > * Modifier une planification
-> * Supprimer une planification 
-
+> * Supprimer une planification
 
 ## <a name="add-a-schedule"></a>Ajouter une planification
 

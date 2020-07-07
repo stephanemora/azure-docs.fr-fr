@@ -9,18 +9,18 @@ editor: ''
 ms.assetid: c7d91892-2881-41a2-a7a2-908dc3646493
 ms.service: storsimple
 ms.devlang: NA
-ms.topic: article
+ms.topic: how-to
 ms.tgt_pltfrm: NA
 ms.workload: TBD
 ms.date: 06/05/2017
 ms.author: twooley
 ms.custom: ''
-ms.openlocfilehash: 56771d2e62289485017f34c6a9ab26e1d53610ec
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 1706ae4005c337fdffb45683133e5682a56a0de5
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "75933971"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85513741"
 ---
 # <a name="use-storsimple-snapshot-manager-user-interface-to-manage-backup-jobs-and-backup-catalog"></a>Utiliser l’interface utilisateur StorSimple Snapshot Manager pour gérer les tâches de sauvegarde et le catalogue de sauvegarde
 
@@ -428,7 +428,7 @@ Les tableaux suivants montrent les combinaisons de touches de raccourci de chaqu
 | V |Ouvre le menu **Affichage** . |
 | W |Ouvre une nouvelle console de Gestionnaire d’instantanés StorSimple axée sur le nœud **Groupes de volumes** . |
 | F |Met à jour la console du Gestionnaire d’instantanés StorSimple. |
-| L |Ouvre la page **Exporter la liste**. |
+| L |Ouvre la page **Exporter la liste** . |
 | H |Ouvre l’aide en ligne. |
 
 #### <a name="backup-catalog-node-shortcut-keys"></a>Touches de raccourci du nœud Catalogue de sauvegarde

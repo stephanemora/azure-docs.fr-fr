@@ -3,15 +3,15 @@ title: Créer un ticket ou cas de support pour la gamme StorSimple 8000
 description: Découvrez comment créer une demande de support et démarrer une session de support sur votre appareil de la gamme StorSimple 8000.
 author: alkohli
 ms.service: storsimple
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 01/09/2018
 ms.author: alkohli
-ms.openlocfilehash: 99de3a6fbbbb1c4324df1712a5e24fd334ca4977
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: d5e867849d17a489fad37d09215905d23fb0ed6a
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79228241"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85514250"
 ---
 # <a name="contact-microsoft-support"></a>Contacter le support Microsoft
 

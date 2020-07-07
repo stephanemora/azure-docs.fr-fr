@@ -8,12 +8,12 @@ ms.author: luisca
 ms.service: cognitive-search
 ms.topic: tutorial
 ms.date: 02/26/2020
-ms.openlocfilehash: 8acafa14afab507b704806056efac0f877a47684
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: ef19c8eb747432a2eea3880b094f77747890c0d9
+ms.sourcegitcommit: 93462ccb4dd178ec81115f50455fbad2fa1d79ce
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "78190720"
+ms.lasthandoff: 07/06/2020
+ms.locfileid: "85984009"
 ---
 # <a name="tutorial-use-rest-and-ai-to-generate-searchable-content-from-azure-blobs"></a>Tutoriel : Utiliser REST et l’IA pour générer du contenu pouvant faire l’objet de recherches à partir d’objets blob Azure
 
@@ -140,7 +140,7 @@ Un [objet Source de données](https://docs.microsoft.com/rest/api/searchservice/
 1. Utilisez **POST** et l’URL suivante, en remplaçant YOUR-SERVICE-NAME par le véritable nom de votre service.
 
    ```http
-   https://[YOUR-SERVICE-NAME].search.windows.net/datasources?api-version=2019-05-06
+   https://[YOUR-SERVICE-NAME].search.windows.net/datasources?api-version=2020-06-30
    ```
 
 1. Dans le **corps** de la demande, copiez la définition JSON suivante, en remplaçant `connectionString` par la connexion réelle de votre compte de stockage. 
@@ -161,7 +161,7 @@ Un [objet Source de données](https://docs.microsoft.com/rest/api/searchservice/
     ```
 1. Envoyez la demande. Vous devriez voir un code d’état 201 confirmant la réussite. 
 
-Si vous avez obtenu une erreur 403 ou 404, vérifiez la construction de la demande : `api-version=2019-05-06` doit être sur le point de terminaison, `api-key` doit être dans l’en-tête après `Content-Type` et sa valeur doit être valide pour un service de recherche. Vous souhaiterez peut-être exécuter le document JSON via un validateur JSON en ligne pour vous assurer que la syntaxe est correcte. 
+Si vous avez obtenu une erreur 403 ou 404, vérifiez la construction de la demande : `api-version=2020-06-30` doit être sur le point de terminaison, `api-key` doit être dans l’en-tête après `Content-Type` et sa valeur doit être valide pour un service de recherche. Vous souhaiterez peut-être exécuter le document JSON via un validateur JSON en ligne pour vous assurer que la syntaxe est correcte. 
 
 ### <a name="step-2-create-a-skillset"></a>Étape 2 : Créer un ensemble de compétences
 
@@ -170,7 +170,7 @@ Un [objet Ensemble de compétences](https://docs.microsoft.com/rest/api/searchse
 1. Utilisez **PUT** et l’URL suivante, en remplaçant YOUR-SERVICE-NAME par le véritable nom de votre service.
 
     ```http
-    https://[YOUR-SERVICE-NAME].search.windows.net/skillsets/cog-search-demo-ss?api-version=2019-05-06
+    https://[YOUR-SERVICE-NAME].search.windows.net/skillsets/cog-search-demo-sd?api-version=2020-06-30
     ```
 
 1. Dans le **corps** de la demande, copiez la définition JSON ci-dessous. Cet ensemble de compétences comprend les compétences intégrées suivantes.
@@ -255,7 +255,7 @@ Un [index](https://docs.microsoft.com/rest/api/searchservice/create-index) fourn
 1. Utilisez **PUT** et l’URL suivante, en remplaçant YOUR-SERVICE-NAME par le véritable nom de votre service, pour nommer votre index.
 
    ```http
-   https://[YOUR-SERVICE-NAME].search.windows.net/indexes/cog-search-demo-idx?api-version=2019-05-06
+   https://[YOUR-SERVICE-NAME].search.windows.net/indexes/cog-search-demo-idx?api-version=2020-06-30
    ```
 
 1. Dans le **corps** de la demande, copiez la définition JSON suivante. Le champ `content` stocke le document lui-même. Les champs supplémentaires `languageCode`, `keyPhrases` et `organizations` représentent de nouvelles informations (champs et valeurs) créées par l’ensemble de compétences.
@@ -339,7 +339,7 @@ Un [indexeur](https://docs.microsoft.com/rest/api/searchservice/create-indexer) 
 1. Utilisez **PUT** et l’URL suivante, en remplaçant YOUR-SERVICE-NAME par le véritable nom de votre service, pour nommer votre indexeur.
 
    ```http
-   https://[servicename].search.windows.net/indexers/cog-search-demo-idxr?api-version=2019-05-06
+   https://[servicename].search.windows.net/indexers/cog-search-demo-idxr?api-version=2020-06-30
    ```
 
 1. Dans le **corps** de la demande, copiez la définition JSON ci-dessous. Notez les éléments de mappage de champs : ces mappages sont importants car ils définissent le flux de données. 
@@ -432,7 +432,7 @@ L’indexation et l’enrichissement commencent dès que vous envoyez la demande
 1. Utilisez **GET** et l’URL suivante, en remplaçant YOUR-SERVICE-NAME par le véritable nom de votre service, pour nommer votre indexeur.
 
    ```http
-   https://[YOUR-SERVICE-NAME].search.windows.net/indexers/cog-search-demo-idxr/status?api-version=2019-05-06
+   https://[YOUR-SERVICE-NAME].search.windows.net/indexers/cog-search-demo-idxr/status?api-version=2020-06-30
    ```
 
 1. Passez en revue la réponse pour savoir si l’indexeur est en cours d’exécution ou pour voir les informations d’erreur et d’avertissement.  
@@ -451,7 +451,7 @@ Rappelez-vous que nous avons commencé avec le contenu d’objets blob là où l
 1. Utilisez **GET** et l’URL suivante, en remplaçant YOUR-SERVICE-NAME par le nom réel de votre service, pour rechercher des instances d’un terme ou d'une expression et retourner le champ `content` et le nombre des documents correspondants.
 
    ```http
-   https://[YOUR-SERVICE-NAME].search.windows.net/indexes/cog-search-demo-idx?search=*&$count=true&$select=content?api-version=2019-05-06
+   https://[YOUR-SERVICE-NAME].search.windows.net/indexes/cog-search-demo-idx?search=*&$count=true&$select=content?api-version=2020-06-30
    ```
    
    Les résultats de cette requête retournent le contenu du document, ce qui donne le même résultat que si vous utilisiez l’indexeur d’objets blob sans le pipeline de recherche cognitive. Ce champ peut faire l’objet d’une recherche, mais il ne peut pas être utilisé si vous souhaitez utiliser des facettes, des filtres ou la saisie semi-automatique.
@@ -461,7 +461,7 @@ Rappelez-vous que nous avons commencé avec le contenu d’objets blob là où l
 1. Pour la deuxième requête, retournez certains des nouveaux champs créés par le pipeline (personnes, organisations, emplacements, languageCode). Nous omettons keyPhrases par souci de concision, mais vous devez l’inclure si vous souhaitez voir ces valeurs.
 
    ```http
-   https://mydemo.search.windows.net/indexes/cog-search-demo-idx/docs?search=*&$count=true&$select=metadata_storage_name,persons,organizations,locations,languageCode&api-version=2019-05-06
+   https://mydemo.search.windows.net/indexes/cog-search-demo-idx/docs?search=*&$count=true&$select=metadata_storage_name,persons,organizations,locations,languageCode&api-version=2020-06-30
    ```
    Les champs de l’instruction $select contiennent de nouvelles informations créées à partir des fonctionnalités de traitement du langage naturel de Cognitive Services. Comme vous pouvez vous y attendre, il existe un certain bruit dans les résultats et une certaine variation entre les documents, mais dans de nombreuses instances, les modèles analytiques produisent des résultats précis.
 
@@ -472,7 +472,7 @@ Rappelez-vous que nous avons commencé avec le contenu d’objets blob là où l
 1. Pour voir comment tirer parti de ces champs, ajoutez un paramètre de facette pour retourner une agrégation de documents correspondants par emplacement.
 
    ```http
-   https://[YOUR-SERVICE-NAME].search.windows.net/indexes/cog-search-demo-idx/docs?search=*&facet=locations&api-version=2019-05-06
+   https://[YOUR-SERVICE-NAME].search.windows.net/indexes/cog-search-demo-idx/docs?search=*&facet=locations&api-version=2020-06-30
    ``` 
 
    Dans cet exemple, il existe 2 ou 3 correspondances pour chaque emplacement.
@@ -483,7 +483,7 @@ Rappelez-vous que nous avons commencé avec le contenu d’objets blob là où l
 1. Dans ce dernier exemple, appliquez un filtre à la collection des organisations pour retourner deux correspondances pour les critères de filtre basés sur le NASDAQ.
 
    ```http
-   cog-search-demo-idx/docs?search=*&$filter=organizations/any(organizations: organizations eq 'NASDAQ')&$select=metadata_storage_name,organizations&$count=true&api-version=2019-05-06
+   cog-search-demo-idx/docs?search=*&$filter=organizations/any(organizations: organizations eq 'NASDAQ')&$select=metadata_storage_name,organizations&$count=true&api-version=2020-06-30
    ```
 
 Ces requêtes illustrent quelques-unes des façons dont vous pouvez travailler avec la syntaxe de requête et les filtres sur les nouveaux champs créés par Recherche cognitive. Pour obtenir plus d’exemples de requêtes, consultez [Exemples dans l’API REST de recherche de documents](https://docs.microsoft.com/rest/api/searchservice/search-documents#bkmk_examples), [Exemples de requêtes de syntaxe simple](search-query-simple-examples.md) et [Exemples complets de requêtes Lucene](search-query-lucene-examples.md).
@@ -501,7 +501,7 @@ Vous pouvez utiliser le portail pour supprimer les index, les indexeurs et les e
 Vous pouvez aussi utiliser **DELETE** et fournir des URL vers chaque objet. La commande suivante supprime un indexeur.
 
 ```http
-DELETE https://[YOUR-SERVICE-NAME].search.windows.net/indexers/cog-search-demo-idxr?api-version=2019-05-06
+DELETE https://[YOUR-SERVICE-NAME].search.windows.net/indexers/cog-search-demo-idxr?api-version=2020-06-30
 ```
 
 Le code d’état 204 est retourné lorsque la suppression réussit.

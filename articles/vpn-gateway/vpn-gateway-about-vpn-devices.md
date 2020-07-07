@@ -7,12 +7,12 @@ ms.service: vpn-gateway
 ms.topic: article
 ms.date: 01/10/2020
 ms.author: yushwang
-ms.openlocfilehash: f4caa9160280b0f65f84bed36b5209d08d7f7c11
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: dd73c6a388cde55db5437442492d53768eb03866
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79235761"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84343147"
 ---
 # <a name="about-vpn-devices-and-ipsecike-parameters-for-site-to-site-vpn-gateway-connections"></a>À propos des périphériques VPN et des paramètres IPsec/IKE pour les connexions de passerelle VPN site à site
 
@@ -141,7 +141,7 @@ Dans les tableaux suivants :
 | Version IKE                   |IKEv1          |IKEv1 et IKEv2                              |
 | Chiffrement et algorithmes de hachage |1. AES256, SHA256<br>2. AES256, SHA1<br>3. AES128, SHA1<br>4. 3DES, SHA1 |[Offres d’AS RouteBased en mode rapide](#RouteBasedOffers) |
 | Durée de vie de l’AS (durée)            |3 600 secondes  |27 000 secondes                               |
-| Durée de vie de l’AS (octets)           |102 400 000 Ko | -                                           |
+| Durée de vie de l’AS (octets)           |102 400 000 Ko |102 400 000 Ko                               |
 | PFS (Perfect Forward Secrecy) |Non             |[Offres d’AS RouteBased en mode rapide](#RouteBasedOffers) |
 | Détection d’homologue mort     |Non pris en charge  |Prise en charge                                    |
 

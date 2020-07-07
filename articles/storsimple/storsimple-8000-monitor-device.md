@@ -3,15 +3,15 @@ title: Superviser votre appareil StorSimple 8000 Series
 description: Décrit comment utiliser le service StorSimple Device Manager pour surveiller l’utilisation, les performances E/S et l’utilisation de la capacité de l’appareil.
 author: alkohli
 ms.service: storsimple
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 10/17/2017
 ms.author: alkohli
-ms.openlocfilehash: b3b77024606c5cdb02ff7bdd357c2d14a2415efa
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 1c2df017a9af47bfa330c8e0fa7561bf5b2d5bae
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "76277054"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85514689"
 ---
 # <a name="use-the-storsimple-device-manager-service-to-monitor-your-storsimple-device"></a>Utilisation du service StorSimple Device Manager pour surveiller votre appareil StorSimple
 

@@ -11,12 +11,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: ''
 ms.date: 03/20/2019
-ms.openlocfilehash: 5adb09389e1d5be13f766240d9fac5a644190d6d
-ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
+ms.openlocfilehash: fd8c3c7eaaee6a31acbc4cf513adb3e0e0fa566b
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "84039630"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84341998"
 ---
 # <a name="resource-limits-for-single-databases-using-the-dtu-purchasing-model---azure-sql-database"></a>Limites de ressources pour des bases de données uniques suivant le modèle d’achat DTU - Azure SQL Database
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -27,7 +27,7 @@ Pour connaître les limites de ressources des pools élastiques du modèle d’a
 
 ## <a name="single-database-storage-sizes-and-compute-sizes"></a>Base de données unique : tailles de stockage et tailles de calcul
 
-Les tableaux suivants indiquent les ressources disponibles pour une base de données unique à chaque niveau de service et taille de calcul. Vous pouvez définir le niveau de service, la taille de calcul et la quantité de stockage pour une base de données unique à l’aide du [Portail Azure](single-database-manage.md#azure-portal), de [Transact-SQL](single-database-manage.md#transact-sql-t-sql), de [PowerShell](single-database-manage.md#powershell), [d’Azure CLI](single-database-manage.md#azure-cli) ou de [l’API REST](single-database-manage.md#rest-api).
+Les tableaux suivants indiquent les ressources disponibles pour une base de données unique à chaque niveau de service et taille de calcul. Vous pouvez définir le niveau de service, la taille de calcul et la quantité de stockage pour une base de données unique à l’aide du [Portail Azure](single-database-manage.md#the-azure-portal), de [Transact-SQL](single-database-manage.md#transact-sql-t-sql), de [PowerShell](single-database-manage.md#powershell), [d’Azure CLI](single-database-manage.md#the-azure-cli) ou de [l’API REST](single-database-manage.md#rest-api).
 
 > [!IMPORTANT]
 > Pour obtenir des instructions et informations sur la mise à l’échelle, consultez [Mettre à l’échelle des ressources de base de données unique dans Azure SQL Database](single-database-scale.md)

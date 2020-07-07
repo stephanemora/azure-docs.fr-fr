@@ -11,12 +11,12 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 05/26/2020
-ms.openlocfilehash: 872cab4575b143dea057fe7fd070b433f8d54eb9
-ms.sourcegitcommit: 12f23307f8fedc02cd6f736121a2a9cea72e9454
+ms.openlocfilehash: 4bf0acdc774bc41d0bc80c944560f41789584c03
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/30/2020
-ms.locfileid: "84220336"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85513908"
 ---
 # <a name="copy-and-transform-data-in-azure-synapse-analytics-formerly-azure-sql-data-warehouse-by-using-azure-data-factory"></a>Copier et transformer des données dans Azure Synapse Analytics (anciennement Azure SQL Data Warehouse) à l’aide d’Azure Data Factory
 
@@ -129,7 +129,7 @@ Pour en savoir plus sur les autres types d’authentification, consultez les sec
 
 Pour utiliser l’authentification du jeton d’application Azure AD basée sur le principal de service, effectuez les étapes suivantes :
 
-1. **[Créez une application Azure Active Directory](../active-directory/develop/howto-create-service-principal-portal.md#create-an-azure-active-directory-application)** dans le portail Azure. Prenez note du nom de l’application et des valeurs suivantes qui définissent le service lié :
+1. **[Créez une application Azure Active Directory](../active-directory/develop/howto-create-service-principal-portal.md#register-an-application-with-azure-ad-and-create-a-service-principal)** dans le portail Azure. Prenez note du nom de l’application et des valeurs suivantes qui définissent le service lié :
 
    - ID de l'application
    - Clé de l'application

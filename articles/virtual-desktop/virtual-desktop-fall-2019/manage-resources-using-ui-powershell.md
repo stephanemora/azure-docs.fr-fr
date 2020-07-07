@@ -4,16 +4,16 @@ description: Guide pratique pour l’outil de gestion pour Windows Virtual Deskt
 services: virtual-desktop
 author: Heidilohr
 ms.service: virtual-desktop
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 03/30/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: d9aea1f56b742d87df769a3206f15024afdf87b3
-ms.sourcegitcommit: 999ccaf74347605e32505cbcfd6121163560a4ae
+ms.openlocfilehash: 0ae3bb87bfee681aa518a4dfef064677ffa97119
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/08/2020
-ms.locfileid: "82983089"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85513402"
 ---
 # <a name="deploy-a-management-tool-with-powershell"></a>Déployer un outil de gestion avec PowerShell
 
@@ -24,7 +24,7 @@ Cet article vous indique comment déployer l’outil de gestion avec PowerShell.
 
 ## <a name="important-considerations"></a>Points importants à prendre en compte
 
-Chaque abonnement du locataire Azure Active Directory (Azure AD) nécessite son propre déploiement de l’outil de gestion. Cet outil ne prend pas en charge les scénarios Azure AD B2B (Business-to-Business). 
+Chaque abonnement du locataire Azure Active Directory (Azure AD) nécessite son propre déploiement de l’outil de gestion. Cet outil ne prend pas en charge les scénarios Azure AD B2B (Business-to-Business).
 
 Cet outil de gestion est un exemple. Microsoft fournira des mises à jour importantes pour la qualité et la sécurité. [Le code source est disponible sur GitHub](https://github.com/Azure/RDS-Templates/tree/master/wvd-templates/wvd-management-ux/deploy). Que vous soyez client ou partenaire, nous vous encourageons à personnaliser l’outil pour répondre aux besoins de votre entreprise.
 
@@ -40,7 +40,7 @@ Les navigateurs suivants sont compatibles avec l’outil de gestion :
 Avant de déployer l’outil de gestion, vous avez besoin d’un utilisateur Azure Active Directory (Azure AD) pour créer une inscription d’application et déployer l’interface utilisateur de gestion. Cet utilisateur doit remplir les conditions suivantes :
 
 - Il doit avoir l’autorisation de créer des ressources dans votre abonnement Azure.
-- Il doit avoir l’autorisation de créer une application Azure AD. Suivez ces étapes pour vérifier si votre utilisateur dispose des autorisations nécessaires en suivant les instructions fournies dans [Autorisations nécessaires](../../active-directory/develop/howto-create-service-principal-portal.md#required-permissions).
+- Il doit avoir l’autorisation de créer une application Azure AD. Suivez ces étapes pour vérifier si votre utilisateur dispose des autorisations nécessaires en suivant les instructions fournies dans [Autorisations nécessaires](../../active-directory/develop/howto-create-service-principal-portal.md#permissions-required-for-registering-an-app).
 
 Une fois que vous avez déployé et configuré l’outil de gestion, nous vous recommandons de demander à un utilisateur de lancer l’interface utilisateur de gestion pour vérifier que tout fonctionne correctement. L’utilisateur qui lance l’interface utilisateur de gestion doit avoir une attribution de rôle qui lui permet de voir ou de modifier le locataire Windows Virtual Desktop.
 
@@ -93,7 +93,7 @@ Maintenant que vous avez terminé l’inscription de l’application Azure AD, v
 ## <a name="deploy-the-management-tool"></a>Déployer l’outil de gestion
 
 Exécutez les commandes PowerShell suivantes pour déployer l’outil de gestion et l’associer au principal de service que vous venez de créer :
-     
+
 ```powershell
 $resourceGroupName = Read-Host -Prompt "Enter the Resource Group name"
 $location = Read-Host -Prompt "Enter the location (i.e. centralus)"
@@ -120,7 +120,7 @@ Exécutez les commandes PowerShell suivantes pour récupérer l’URL de l’app
 ```powershell
 $webApp = Get-AzWebApp -ResourceGroupName $resourceGroupName -Name $appName
 $redirectUri = "https://" + $webApp.DefaultHostName + "/"
-Get-AzureADApplication -All $true | where { $_.AppId -match $servicePrincipalCredentials.UserName } | Set-AzureADApplication -ReplyUrls $redirectUri  
+Get-AzureADApplication -All $true | where { $_.AppId -match $servicePrincipalCredentials.UserName } | Set-AzureADApplication -ReplyUrls $redirectUri
 ```
 
 Maintenant que vous avez ajouté un URI de redirection, vous devez ensuite mettre à jour l’URL de l’API pour que l’outil de gestion puisse interagir avec le service back-end d’API.
@@ -143,11 +143,11 @@ Pour vérifier l’application Azure AD et fournir un consentement :
 2. Dans la barre de recherche en haut du portail Azure, recherchez **Inscriptions d’applications** et sélectionnez l’élément sous **Services**.
 3. Sélectionnez **Toutes les applications** et recherchez le nom unique de l’application que vous avez fourni pour le script PowerShell dans [Créer une inscription d’application Azure Active Directory](#create-an-azure-active-directory-app-registration).
 4. Dans le volet gauche du navigateur, sélectionnez **Authentification** et vérifiez que l’URI de redirection est identique à l’URL de l’application Web pour l’outil de gestion, comme illustré dans l’image suivante.
-   
+
    [ ![Page d’authentification avec l’URI de redirection entré](../media/management-ui-redirect-uri-inline.png) ](../media/management-ui-redirect-uri-expanded.png#lightbox)
 
 5. Dans le volet gauche, sélectionnez **Autorisations de l’API** pour vérifier que les autorisations ont été ajoutées. Si vous êtes un administrateur général, sélectionnez le bouton **Accorder un consentement d’administrateur pour `tenantname`** et suivez les invites de la boîte de dialogue pour fournir le consentement administrateur pour votre organisation.
-    
+
     [ ![La page des autorisations de l’API](../media/management-ui-permissions-inline.png) ](../media/management-ui-permissions-expanded.png#lightbox)
 
 Vous pouvez maintenant commencer à utiliser l’outil de gestion.
@@ -158,13 +158,13 @@ Maintenant que vous avez configuré l’outil de gestion, vous pouvez le lancer 
 
 1. Ouvrez l’URL de l’application web dans un navigateur web. Si vous ne vous souvenez pas de l’URL, vous pouvez vous connecter à Azure, rechercher le service d’application que vous avez déployé pour l’outil de gestion, puis sélectionner l’URL.
 2. Connectez-vous avec vos informations d’identification Windows Virtual Desktop.
-   
+
    > [!NOTE]
    > Si vous n’avez pas accordé le consentement de l’administrateur lors de la configuration de l’outil de gestion, chaque utilisateur qui se connecte doit fournir son propre consentement d’utilisateur pour pouvoir utiliser l’outil.
 
 3. Quand vous êtes invité à choisir un groupe de locataires, sélectionnez **Groupe de locataires par défaut** dans la liste déroulante.
 4. Quand vous sélectionnez **Groupe de locataires par défaut**, un menu doit s’afficher du côté gauche de votre fenêtre. Dans ce menu, recherchez le nom de votre groupe de locataires et sélectionnez-le.
-   
+
    > [!NOTE]
    > Si vous avez un groupe de locataires personnalisé, entrez le nom manuellement au lieu de choisir dans la liste déroulante.
 

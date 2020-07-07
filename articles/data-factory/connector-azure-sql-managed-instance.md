@@ -11,12 +11,12 @@ manager: shwang
 ms.reviewer: douglasl
 ms.custom: seo-lt-2019
 ms.date: 05/29/2020
-ms.openlocfilehash: 8566b5d1d1beb87ccf7cd2b25f536732bb8d1f8e
-ms.sourcegitcommit: d118ad4fb2b66c759b70d4d8a18e6368760da3ad
+ms.openlocfilehash: 907579d44575de56f95e0828c3313d0d1682b29c
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/02/2020
-ms.locfileid: "84298055"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85513895"
 ---
 # <a name="copy-data-to-and-from-azure-sql-managed-instance-by-using-azure-data-factory"></a>Copier des données vers et à partir d’une instance managée SQL Azure à l’aide d’Azure Data Factory
 
@@ -126,7 +126,7 @@ Pour utiliser l’authentification du jeton d’application Azure AD basée sur 
 
 1. Suivez les étapes décrites dans [Approvisionner un administrateur d’Azure Active Directory pour votre instance managée](../azure-sql/database/authentication-aad-configure.md#provision-azure-ad-admin-sql-managed-instance).
 
-2. [Créez une application Azure Active Directory](../active-directory/develop/howto-create-service-principal-portal.md#create-an-azure-active-directory-application) dans le Portail Azure. Prenez note du nom de l’application et des valeurs suivantes qui définissent le service lié :
+2. [Créez une application Azure Active Directory](../active-directory/develop/howto-create-service-principal-portal.md#register-an-application-with-azure-ad-and-create-a-service-principal) dans le Portail Azure. Prenez note du nom de l’application et des valeurs suivantes qui définissent le service lié :
 
     - ID de l'application
     - Clé de l'application

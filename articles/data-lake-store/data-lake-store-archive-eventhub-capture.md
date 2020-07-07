@@ -3,15 +3,15 @@ title: Capturer des données Event Hubs dans Azure Data Lake Storage Gen1
 description: Utilisez Azure Data Lake Storage Gen1 pour capturer les données reçues par Azure Event Hubs.
 author: twooley
 ms.service: data-lake-store
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 05/29/2018
 ms.author: twooley
-ms.openlocfilehash: 5cbcdc5cb9713432be5b52898d956506d80d6ea0
-ms.sourcegitcommit: 366e95d58d5311ca4b62e6d0b2b47549e06a0d6d
+ms.openlocfilehash: 9d663c2e95ee94811d70a0602b35842a789dd9b3
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/01/2020
-ms.locfileid: "82690670"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85515758"
 ---
 # <a name="use-azure-data-lake-storage-gen1-to-capture-data-from-event-hubs"></a>Utiliser Azure Data Lake Storage Gen1 pour capturer des données Event Hubs
 

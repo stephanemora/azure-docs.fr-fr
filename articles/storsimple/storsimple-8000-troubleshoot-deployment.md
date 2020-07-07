@@ -9,17 +9,17 @@ editor: ''
 ms.assetid: ''
 ms.service: storsimple
 ms.devlang: NA
-ms.topic: article
+ms.topic: troubleshooting
 ms.tgt_pltfrm: NA
 ms.workload: TBD
 ms.date: 07/03/2017
 ms.author: alkohli
-ms.openlocfilehash: f2b454e812db1eea686f82e92841163f1129b6c8
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 04c541dc10b2e25aa1e24ef704b4d939243f23ca
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79232129"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85513717"
 ---
 # <a name="troubleshoot-storsimple-device-deployment-issues"></a>Résolution des problèmes de déploiement d’un appareil StorSimple
 ## <a name="overview"></a>Vue d’ensemble
@@ -82,7 +82,7 @@ Les tableaux suivants répertorient les erreurs courantes que vous pouvez rencon
 ## <a name="errors-during-the-optional-web-proxy-settings"></a>Erreurs pendant la configuration des paramètres de proxy web facultatifs
 | Non. | Message d’erreur | Causes possibles | Action recommandée |
 | --- | --- | --- | --- |
-| 1 |Invoke-HcsSetupWizard : Paramètre non valide (Exception de HRESULT : 0x80070057) |L’un des paramètres fournis pour les paramètres de proxy n’est pas valide. |L’URI n’est pas fourni dans le format correct. Utilisez le format suivant : http:// *\<Adresse IP ou nom de domaine complet du serveur proxy web >* : *\<numéro de port TCP>* |
+| 1 |Invoke-HcsSetupWizard : Paramètre non valide (Exception de HRESULT : 0x80070057) |L’un des paramètres fournis pour les paramètres de proxy n’est pas valide. |L’URI n’est pas fourni dans le format correct. Utilisez le format suivant: http:// *\<IP address or FQDN of the web proxy server>* : *\<TCP port number>* |
 | 2 |Invoke-HcsSetupWizard : Serveur RPC non disponible (Exception de HRESULT : 0x800706ba) |La cause première est l’une des suivantes :<ol><li>Le cluster n’est pas disponible.</li><li>Le contrôleur passif ne peut pas communiquer avec le contrôleur actif et la commande est exécutée à partir du contrôleur passif.</li></ol> |Suivant la cause première :<ol><li>[Contactez le support technique Microsoft](storsimple-8000-contact-microsoft-support.md) pour vous assurer que le cluster est disponible.</li><li>Exécutez la commande à partir du contrôleur actif. Si vous souhaitez exécuter la commande à partir du contrôleur passif, vous devez vous assurer que le contrôleur passif peut communiquer avec le contrôleur actif. Vous devez [contacter le support technique Microsoft](storsimple-8000-contact-microsoft-support.md) si cette connectivité est interrompue.</li></ol> |
 | 3 |Invoke-HcsSetupWizard : Échec de l’appel RPC (Exception de HRESULT : 0x800706be) |Le cluster est arrêté. |[Contactez le support technique Microsoft](storsimple-8000-contact-microsoft-support.md) pour vous assurer que le cluster est disponible. |
 | 4 |Invoke-HcsSetupWizard : Ressource de cluster introuvable (Exception de HRESULT : 0x8007138f) |Impossible de trouver la ressource de cluster. Cela peut se produire lorsque l’installation ne s’est pas déroulée correctement. |Vous devrez peut-être rétablir les paramètres par défaut d’origine de l’appareil. [Contactez le support technique Microsoft](storsimple-8000-contact-microsoft-support.md) pour créer une ressource de cluster. |
