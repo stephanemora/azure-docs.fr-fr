@@ -12,17 +12,17 @@ ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 07/17/2017
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 9122e3a7af2230dc0f68e72b28891d488b01a80a
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: c8d0e8301fe5443e548dd35a6b6058e8c7a409d0
+ms.sourcegitcommit: cec9676ec235ff798d2a5cad6ee45f98a421837b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "65137835"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85849892"
 ---
 # <a name="federate-multiple-instances-of-azure-ad-with-single-instance-of-ad-fs"></a>Fédérer plusieurs instances d’Azure AD avec une seule instance d’AD FS
 
@@ -58,10 +58,14 @@ L’émetteur du paramètre de fédération de domaines sera remplacé par « h
  
 Dans la session PowerShell Azure AD, procédez comme suit : Connectez-vous au Azure Active Directory qui contient le domaine fabrikam.com
 
-    Connect-MsolService
+```powershell
+Connect-MsolService
+```
 Convertissez le domaine managé fabrikam.com en un domaine fédéré :
 
-    Convert-MsolDomainToFederated -DomainName fabrikam.com -Verbose -SupportMultipleDomain
+```powershell
+Convert-MsolDomainToFederated -DomainName fabrikam.com -Verbose -SupportMultipleDomain
+```
  
 L’opération ci-dessus fédère le domaine fabrikam.com avec la même instance d’AD FS. Vous pouvez vérifier les paramètres de domaine en utilisant Get-MsolDomainFederationSettings pour les deux domaines.
 

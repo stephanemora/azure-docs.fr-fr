@@ -3,18 +3,19 @@ title: Configurer et gérer Azure Notebooks (préversion)
 description: Découvrez comment gérer les métadonnées de projet, les fichiers projet, l’environnement et les étapes de configuration du projet via l’interface utilisateur Azure Notebooks et un accès direct au terminal.
 ms.topic: how-to
 ms.date: 02/28/2020
-ms.openlocfilehash: 1674effda2cb9bda45f49c91ca618225b0a75f0c
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.custom: tracking-python
+ms.openlocfilehash: 53acf7c916b402e291b9779948579761e79179ef
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79236121"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85834078"
 ---
 # <a name="manage-and-configure-projects-in-azure-notebooks-preview"></a><a id="manage-and-configure-projects" />Gérer et configurer des projets dans Azure Notebooks (préversion)
 
-Un projet dans Azure Notebooks (préversion) est essentiellement une configuration de la machine virtuelle Linux sous-jacente dans laquelle des notebooks Jupyter sont exécutés, avec un dossier de fichiers et des métadonnées descriptives. 
-
 [!INCLUDE [notebooks-status](../../includes/notebooks-status.md)]
+
+Un projet dans Azure Notebooks (préversion) est essentiellement une configuration de la machine virtuelle Linux sous-jacente dans laquelle des notebooks Jupyter sont exécutés, avec un dossier de fichiers et des métadonnées descriptives. 
 
 Le tableau de bord du projet dans Azure Notebooks vous permet de gérer les fichiers et de configurer autrement les caractéristiques du projet :
 

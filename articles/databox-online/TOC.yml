@@ -31,6 +31,8 @@
           href: data-box-gateway-use-cases.md
     - name: Procédures
       items:
+        - name: Update
+          href: data-box-gateway-apply-updates.md
         - name: Gérer
           items:
             - name: Partages

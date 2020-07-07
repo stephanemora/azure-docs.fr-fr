@@ -10,12 +10,12 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.topic: reference
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 8159ef45dee8a2f9ace69c2a5b66a29e4948d82c
-ms.sourcegitcommit: 999ccaf74347605e32505cbcfd6121163560a4ae
+ms.openlocfilehash: 2a2126aceba8724b46de094d14db754d704500c6
+ms.sourcegitcommit: cec9676ec235ff798d2a5cad6ee45f98a421837b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/08/2020
-ms.locfileid: "82982001"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85850970"
 ---
 # <a name="azure-ad-connect--adsyncconfig-powershell-reference"></a>Azure AD Connect :  Référence PowerShell ADSyncConfig
 La documentation suivante fournit des informations de référence sur le module ADSyncConfig.psm1 PowerShell inclus avec Azure AD Connect.
@@ -1080,28 +1080,19 @@ Set-ADSyncRestrictedPermissions [-ADConnectorAccountDN] <String> [-Credential] <
 ### <a name="description"></a>Description
 La fonction Set-ADSyncRestrictedPermissions renforce les autorisations sur le compte fourni.
 La réduction des autorisations implique les étapes suivantes :
-1.
-Désactivez l’héritage sur l’objet spécifié
-2.
-Supprimez toutes les entrées de contrôle d'accès sur l’objet spécifique, à l’exception de celles propres à SELF.
+1. Désactivez l’héritage sur l’objet spécifié
+2. Supprimez toutes les entrées de contrôle d'accès sur l’objet spécifique, à l’exception de celles propres à SELF.
 Il faut conserver les autorisations par défaut intactes quand il s’agit de SELF.
-3.
-Attribuez ces autorisations spécifiques :
+3. Attribuez ces autorisations spécifiques :
 
-        Type    Name                                        Access              Applies To
-        =============================================================================================
-        Allow   SYSTEM                                      Full Control        This object
-        Allow   Enterprise Admins                           Full Control        This object
-        Allow   Domain Admins                               Full Control        This object
-        Allow   Administrators                              Full Control        This object
-
-        Allow   Enterprise Domain Controllers               List Contents
-                                                            Read All Properties
-                                                            Read Permissions    This object
-
-        Allow   Authenticated Users                         List Contents
-                                                            Read All Properties
-                                                            Read Permissions    This object
+   | Type | Nom | Accès | S'applique à |
+   |------|------|--------|------------|
+   | Allow | SYSTEM | Contrôle total | Cet objet |
+   | Allow | Administrateurs de l’entreprise | Contrôle total | Cet objet |
+   | Allow | Admins du domaine | Contrôle total | Cet objet | 
+   | Allow | Administrateurs | Contrôle total | Cet objet |
+   | Allow | Contrôleurs de domaine d’entreprise | Lister le contenu <br> Lire toutes les propriétés <br> Autorisations de lecture | Cet objet |
+   | Allow | Utilisateurs authentifiés | Lister le contenu <br> Lire toutes les propriétés <br> Autorisations de lecture | Cet objet |
 
 ### <a name="examples"></a>EXEMPLES
 

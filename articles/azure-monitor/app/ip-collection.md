@@ -3,12 +3,12 @@ title: Collection d’adresses IP dans Azure Application Insights | Microsoft Do
 description: Compréhension de la gestion des adresses IP et de la géolocalisation avec Azure Application Insights
 ms.topic: conceptual
 ms.date: 09/11/2019
-ms.openlocfilehash: 969061ec89ddd0f13caa675bc324207c6c5d8843
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: c7a4506c6a4246edc007a5ea2158998b472ec316
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "77656515"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85807126"
 ---
 # <a name="geolocation-and-ip-address-handling"></a>Gestion de la géolocalisation et des adresses IP
 
@@ -235,4 +235,4 @@ Les adresses IP nouvellement collectées doivent apparaître dans la colonne `cu
 
 * En savoir plus sur la [collecte de données personnelles](https://docs.microsoft.com/azure/azure-monitor/platform/personal-data-mgmt) dans Application Insights.
 
-* En savoir plus sur le fonctionnement de la [collecte d’adresses IP](https://apmtips.com/blog/2016/07/05/client-ip-address/) dans Application Insights. (Il s’agit d’un billet de blog externe plus ancien écrit par l’un de nos ingénieurs. Il a été écrit avant le comportement par défaut actuel où l’adresse IP est enregistrée en tant que `0.0.0.0`, mais il examine plus en détail les mécanismes de `ClientIpHeaderTelemetryInitializer` intégré.)
+* En savoir plus sur le fonctionnement de la [collecte d’adresses IP](https://apmtips.com/posts/2016-07-05-client-ip-address/) dans Application Insights. (Il s’agit d’un billet de blog externe plus ancien écrit par l’un de nos ingénieurs. Il a été écrit avant le comportement par défaut actuel où l’adresse IP est enregistrée en tant que `0.0.0.0`, mais il examine plus en détail les mécanismes de `ClientIpHeaderTelemetryInitializer` intégré.)

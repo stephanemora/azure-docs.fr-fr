@@ -3,12 +3,12 @@ title: Développer et exécuter des fonctions Azure en local
 description: Apprenez à coder et à tester des fonctions Azure sur votre ordinateur local avant de les exécuter dans Azure Functions.
 ms.topic: conceptual
 ms.date: 09/04/2018
-ms.openlocfilehash: 835edcb94b294d93cab41ea51b88ac38db71d95e
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: ef59c57bf4e2ba1684c3e3b43357efad0da9806f
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "74230645"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85829378"
 ---
 # <a name="code-and-test-azure-functions-locally"></a>Coder et tester Azure Functions localement
 
@@ -27,16 +27,16 @@ La façon dont vous développez des fonctions sur votre ordinateur local dépend
 
 [!INCLUDE [Don't mix development environments](../../includes/functions-mixed-dev-environments.md)]
 
-Chacun de ces environnements de développement local vous permet de créer des projets d’application de fonction et d’utiliser des modèles Functions prédéfinis pour créer de nouvelles fonctions. Ils intègrent les outils principaux afin que vous puissiez tester et déboguer vos fonctions selon le runtime Functions réel sur votre propre ordinateur comme vous le feriez pour toute autre application. Vous pouvez également publier votre projet d’application de fonction à partir d’un de ces environnements sur Azure.  
+Chacun de ces environnements de développement local vous permet de créer des projets d’application de fonction et d’utiliser des modèles Functions prédéfinis pour créer de nouvelles fonctions. Ils intègrent les outils principaux afin que vous puissiez tester et déboguer vos fonctions selon le runtime Functions réel sur votre propre ordinateur comme vous le feriez pour toute autre application. Vous pouvez également publier votre projet d’application de fonction à partir d’un de ces environnements sur Azure.
 
 ## <a name="next-steps"></a>Étapes suivantes
 
 + Pour en savoir plus sur le développement local de fonctions C# précompilées à l’aide de Visual Studio 2019, consultez [Développer Azure Functions à l’aide de Visual Studio](functions-develop-vs.md).
-+ Pour en savoir plus sur le développement local de fonctions à l’aide de VS Code sur un ordinateur Mac, Linux ou Windows, voir [Déployer Azure Functions à partir de Visual Studio Code](/azure/javascript/tutorial-vscode-serverless-node-01).
++ Pour en savoir plus sur le développement local de fonctions à l’aide de VS Code sur un ordinateur Mac, Linux ou Windows, voir [Déployer Azure Functions à partir de Visual Studio Code](/azure/developer/javascript/tutorial-vscode-serverless-node-01).
 + Pour en savoir plus sur le développement de fonctions à partir de l’invite de commandes ou d’un terminal, consultez [Coder et tester Azure Functions localement](functions-run-local.md).
 
 <!-- LINKS -->
 
 [Azure Functions Core Tools]: https://www.npmjs.com/package/azure-functions-core-tools
-[Azure portal]: https://portal.azure.com 
+[Azure portal]: https://portal.azure.com
 [Node.js]: https://docs.npmjs.com/getting-started/installing-node#osx-or-windows

@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/01/2019
 ms.author: Zhchia
-ms.openlocfilehash: f3c1e7337c0ce07b7fbebb9f954deeb75f0b9584
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 84d14d63cd7bb96a7a4f37d2a6c29f09a50b2420
+ms.sourcegitcommit: cec9676ec235ff798d2a5cad6ee45f98a421837b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80246651"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85848679"
 ---
 # <a name="tutorial-configure-brivo-onair-identity-connector-for-automatic-user-provisioning"></a>Tutoriel : Configurer Brivo Onair Identity Connector pour l’approvisionnement automatique d’utilisateurs
 
@@ -54,17 +54,17 @@ Avant de configurer et d’activer l’attribution automatique d’utilisateurs,
 
 ## <a name="setup-brivo-onair-identity-connector-for-provisioning"></a>Configurer Brivo Onair Identity Connector pour l’approvisionnement
 
-1.    Connectez-vous à votre console d’administration [Brivo Onair Identity Connector](https://acs.brivo.com/login/). Accédez à **Compte > Paramètres du compte**.
+1. Connectez-vous à votre console d’administration [Brivo Onair Identity Connector](https://acs.brivo.com/login/). Accédez à **Compte > Paramètres du compte**.
 
-    ![Console d’administration Brivo Onair Identity Connector](media/brivo-onair-identity-connector-provisioning-tutorial/admin.png)
+   ![Console d’administration Brivo Onair Identity Connector](media/brivo-onair-identity-connector-provisioning-tutorial/admin.png)
 
-2.  Cliquez sur l’onglet **Azure AD**. Dans la page de détails **Azure AD**, entrez à nouveau le mot de passe de votre compte d’administrateur senior. Cliquez sur **Envoyer**.
+2. Cliquez sur l’onglet **Azure AD**. Dans la page de détails **Azure AD**, entrez à nouveau le mot de passe de votre compte d’administrateur senior. Cliquez sur **Envoyer**.
 
-    ![Brivo Onair Identity Connector Azure](media/brivo-onair-identity-connector-provisioning-tutorial/azuread.png)
+   ![Brivo Onair Identity Connector Azure](media/brivo-onair-identity-connector-provisioning-tutorial/azuread.png)
 
-3.    Cliquez sur le bouton **Copier le jeton** et enregistrez le **Jeton secret**. Cette valeur sera entrée dans le champ Jeton secret de l’onglet Approvisionnement de votre application Brivo Onair Identity Connector dans le Portail Azure.
+3. Cliquez sur le bouton **Copier le jeton** et enregistrez le **Jeton secret**. Cette valeur sera entrée dans le champ Jeton secret de l’onglet Approvisionnement de votre application Brivo Onair Identity Connector dans le Portail Azure.
 
-    ![Jeton Brivo Onair Identity Connector](media/brivo-onair-identity-connector-provisioning-tutorial/token.png)
+   ![Jeton Brivo Onair Identity Connector](media/brivo-onair-identity-connector-provisioning-tutorial/token.png)
 
 ## <a name="add-brivo-onair-identity-connector-from-the-gallery"></a>Ajouter Brivo Onair Identity Connector à partir de la Galerie
 

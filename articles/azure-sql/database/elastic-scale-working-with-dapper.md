@@ -11,12 +11,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: ''
 ms.date: 12/04/2018
-ms.openlocfilehash: 95723bbcfc5573567bee4a433b9d33908b91f5f0
-ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
+ms.openlocfilehash: b1bba5c4ff71806ac054b4d16585881570cf589a
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "84031400"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85829361"
 ---
 # <a name="using-the-elastic-database-client-library-with-dapper"></a>Utilisation de la bibliothèque cliente de la base de données élastique avec Dapper
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -64,6 +64,7 @@ Ces observations simplifient l’utilisation des connexions réparties par la bi
 
 Cet exemple de code (de l’exemple qui accompagne cet article) illustre l’approche où la clé de partitionnement est fournie par l’application à la bibliothèque pour attribuer la connexion à la partition appropriée.   
 
+```csharp
     using (SqlConnection sqlconn = shardingLayer.ShardMap.OpenConnectionForKey(
                      key: tenantId1,
                      connectionString: connStrBldr.ConnectionString,
@@ -76,6 +77,7 @@ Cet exemple de code (de l’exemple qui accompagne cet article) illustre l’app
                             VALUES (@name)", new { name = blog.Name }
                         );
     }
+```
 
 L’appel à l’API [OpenConnectionForKey](https://msdn.microsoft.com/library/azure/dn807226.aspx) remplace la création et l’ouverture par défaut d’une connexion SQL Client. L’appel [OpenConnectionForKey](https://msdn.microsoft.com/library/azure/dn807226.aspx) accepte les arguments qui sont requis pour le routage dépendant des données : 
 
@@ -87,6 +89,7 @@ L’objet de carte de partitions crée une connexion ouverte vers la partition h
 
 Les requêtes fonctionnent de la même façon : une première ouverture de la connexion a lieu à l’aide de [OpenConnectionForKey](https://msdn.microsoft.com/library/azure/dn807226.aspx) de l’API du client. Vous utilisez ensuite les méthodes d’extension Dapper ordinaires pour mapper les résultats de votre requête SQL dans des objets .NET :
 
+```csharp
     using (SqlConnection sqlconn = shardingLayer.ShardMap.OpenConnectionForKey(
                     key: tenantId1,
                     connectionString: connStrBldr.ConnectionString,
@@ -104,6 +107,7 @@ Les requêtes fonctionnent de la même façon : une première ouverture de la co
                 Console.WriteLine(item.Name);
             }
     }
+```
 
 Notez que le bloc **using** avec la connexion DDR définit l’étendue de toutes les opérations de base de données dans le bloc à la seule partition où tenantId1 est conservé. La requête retourne uniquement les blogs stockés sur la partition actuelle et non ceux stockés sur les autres partitions. 
 
@@ -112,6 +116,7 @@ Dapper est fourni avec un écosystème d’extensions supplémentaires qui peuve
 
 L’utilisation de DapperExtensions dans votre application ne change pas la gestion ni la création des connexions de base de données. Il incombe toujours à l’application d’ouvrir des connexions et les méthodes d’extension attendent des objets de connexion SQL Client ordinaires. Nous pouvons utiliser [OpenConnectionForKey](https://msdn.microsoft.com/library/azure/dn807226.aspx) comme indiqué ci-dessus. Les exemples de code suivants montrent que la seule différence est que vous n’avez plus à écrire les instructions T-SQL :
 
+```csharp
     using (SqlConnection sqlconn = shardingLayer.ShardMap.OpenConnectionForKey(
                     key: tenantId2,
                     connectionString: connStrBldr.ConnectionString,
@@ -120,9 +125,11 @@ L’utilisation de DapperExtensions dans votre application ne change pas la gest
            var blog = new Blog { Name = name2 };
            sqlconn.Insert(blog);
     }
+```
 
 Voici l’exemple de code pour la requête : 
 
+```csharp
     using (SqlConnection sqlconn = shardingLayer.ShardMap.OpenConnectionForKey(
                     key: tenantId2,
                     connectionString: connStrBldr.ConnectionString,
@@ -136,12 +143,14 @@ Voici l’exemple de code pour la requête :
                Console.WriteLine(item.Name);
            }
     }
+```
 
 ### <a name="handling-transient-faults"></a>Gestion des erreurs temporaires
 L’équipe Microsoft Patterns & Practices a publié le [bloc d’applications de gestion des erreurs temporaires](https://msdn.microsoft.com/library/hh680934.aspx) afin d’aider les développeurs d’applications à atténuer les erreurs transitoires courantes rencontrées lors de l’exécution dans le cloud. Pour plus d’informations, consultez [Perseverance, Secret of All Triumphs: Using the Transient Fault Handling Application Block](https://msdn.microsoft.com/library/dn440719.aspx).
 
 L’exemple de code s’appuie sur la bibliothèque d’erreurs transitoires pour vous protéger contre les défaillances temporaires. 
 
+```csharp
     SqlDatabaseUtils.SqlRetryPolicy.ExecuteAction(() =>
     {
        using (SqlConnection sqlconn =
@@ -151,6 +160,7 @@ L’exemple de code s’appuie sur la bibliothèque d’erreurs transitoires pou
               sqlconn.Insert(blog);
           }
     });
+```
 
 **SqlDatabaseUtils.SqlRetryPolicy** du code ci-dessus est définie comme une **SqlDatabaseTransientErrorDetectionStrategy** avec un nombre de tentatives de 10 et un délai d’attente de 5 secondes entre chaque tentative. Si vous utilisez des transactions, assurez-vous que la portée de votre nouvelle tentative revient au début de la transaction en cas d’erreur transitoire.
 

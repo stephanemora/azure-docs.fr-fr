@@ -5,15 +5,15 @@ description: En savoir plus sur l’architecture du réseau de transit global po
 services: virtual-wan
 author: cherylmc
 ms.service: virtual-wan
-ms.topic: article
+ms.topic: conceptual
 ms.date: 05/07/2020
 ms.author: cherylmc
-ms.openlocfilehash: 72a96e04d308dbb2774d5b8f8aa909ab81bebee3
-ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
+ms.openlocfilehash: 78656b4789ea03601bc12579c391292e2f9ead9a
+ms.sourcegitcommit: 9b5c20fb5e904684dc6dd9059d62429b52cb39bc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/12/2020
-ms.locfileid: "83195675"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85856378"
 ---
 # <a name="global-transit-network-architecture-and-virtual-wan"></a>Architecture du réseau de transit global Virtual WAN
 
@@ -47,7 +47,7 @@ Dans l’architecture Azure Virtual WAN, les hubs WAN virtuels sont provisionné
 
 Vous pouvez établir un WAN virtuel en créant un seul hub WAN virtuel dans la région qui possède le plus grand nombre de rayons (branches, réseaux virtuels, utilisateurs), puis en connectant à ce hub les rayons qui se trouvent dans d’autres régions. Cette approche est conseillée quand l’empreinte informatique de l’entreprise se limite principalement à une région avec quelques rayons à distance.  
   
-## <a name="hub-to-hub-connectivity-preview"></a><a name="hubtohub"></a>Connectivité de hub à hub (préversion)
+## <a name="hub-to-hub-connectivity"></a><a name="hubtohub"></a>Connectivité de hub à hub
 
 L’empreinte cloud d’une entreprise peut s’étendre sur plusieurs régions du cloud et, dans ce cas, il est primordial (du point de vue de la latence) d’accéder au cloud à partir d’une région la plus proche possible de son site physique et de ses utilisateurs. Un des principes clés de l’architecture du réseau de transit global consiste à permettre une connectivité inter-régions entre tous les points de terminaison des réseaux cloud et locaux. Cela signifie que le trafic à partir d’une branche connectée au cloud dans une région peut atteindre une autre branche ou un réseau virtuel dans une région différente grâce à la connectivité de hub à hub fournie par [Azure Global Network](https://azure.microsoft.com/global-infrastructure/global-network/).
 

@@ -7,12 +7,12 @@ ms.date: 12/13/2019
 ms.service: storage
 ms.subservice: queues
 ms.topic: quickstart
-ms.openlocfilehash: 59a5308d2c0a1fa2e1f38f2fe3da3a2cc29448be
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.openlocfilehash: 4e3953c56a9acf911c7dc2bbbd453b52b72f9bb4
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "78199782"
+ms.lasthandoff: 07/01/2020
+ms.locfileid: "85833236"
 ---
 # <a name="quickstart-azure-queue-storage-client-library-v12-for-javascript"></a>Démarrage rapide : Bibliothèque cliente Stockage File d’attente Azure v12 pour JavaScript
 
@@ -158,7 +158,7 @@ Ajoutez ce code dans la fonction `main` :
 // connection string is stored in an environment variable on the machine
 // running the application called AZURE_STORAGE_CONNECTION_STRING. If the
 // environment variable is created after the application is launched in a
-// console or with Visual Studio, the shell or application needs to be 
+// console or with Visual Studio, the shell or application needs to be
 // closed and reloaded to take the environment variable into account.
 const AZURE_STORAGE_CONNECTION_STRING = process.env.AZURE_STORAGE_CONNECTION_STRING;
 ```
@@ -348,7 +348,7 @@ Dans ce guide de démarrage rapide, vous avez appris à créer une file d’atte
 Pour obtenir des tutoriels, des exemples, des guides de démarrage rapide et d’autres documents, visitez :
 
 > [!div class="nextstepaction"]
-> [Documentation Azure pour JavaScript](https://docs.microsoft.com/azure/javascript/)
+> [Documentation Azure pour JavaScript](https://docs.microsoft.com/azure/developer/javascript/)
 
 * Pour plus d’informations, consultez la [bibliothèque cliente de File d’attente de stockage Azure pour JavaScript](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/storage/storage-queue).
 * Pour voir d’autres exemples d’applications Stockage File d’attente Azure, passez à [Exemples JavaScript de bibliothèques clientes Stockage File d’attente Azure V12](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/storage/storage-queue/samples).

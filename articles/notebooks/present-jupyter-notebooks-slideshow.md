@@ -3,18 +3,18 @@ title: Présenter un notebook Jupyter sous forme de diaporama sur Azure Notebook
 description: Apprenez à configurer des cellules pour le mode Diaporama dans un notebook Jupyter, puis présenter le diaporama à l’aide de l’extension RISE.
 ms.topic: how-to
 ms.date: 12/04/2018
-ms.openlocfilehash: 05dd3d9c5580e208ecf6f9e6d762476b0b493a6c
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 2fe337361436ecfc8eabf2855ad633b891db69d8
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "75647116"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85834044"
 ---
 # <a name="run-a-notebook-slideshow-in-azure-notebooks-preview"></a>Exécuter un diaporama de notebook dans Azure Notebooks en préversion
 
-Azure Notebooks est préconfiguré avec l’extension de diaporama Jupyter/IPython (RISE) qui vous permet de présenter un notebook directement sous forme de diaporama. Dans un diaporama, les cellules sont généralement affichées une par une avec une taille de police adaptée à une présentation sur grand écran, tout en vous permettant quand même d’exécuter le code sans avoir à basculer vers un autre ordinateur de démonstration.
-
 [!INCLUDE [notebooks-status](../../includes/notebooks-status.md)]
+
+Azure Notebooks est préconfiguré avec l’extension de diaporama Jupyter/IPython (RISE) qui vous permet de présenter un notebook directement sous forme de diaporama. Dans un diaporama, les cellules sont généralement affichées une par une avec une taille de police adaptée à une présentation sur grand écran, tout en vous permettant quand même d’exécuter le code sans avoir à basculer vers un autre ordinateur de démonstration.
 
 L’image suivante montre la vue de notebook standard, dans lequel vous pouvez voir l’ensemble des cellules Markdown et de code :
 

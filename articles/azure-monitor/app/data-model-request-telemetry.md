@@ -4,12 +4,12 @@ description: Modèle de données Application Insights pour la télémétrie des
 ms.topic: conceptual
 ms.date: 01/07/2019
 ms.reviewer: sergkanz
-ms.openlocfilehash: d8a28063bf6780c3cace4ead81e289779b95eb9a
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 57cc9c95137facaaf2ddf5bb212121f88e150f5b
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "77671900"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85807653"
 ---
 # <a name="request-telemetry-application-insights-data-model"></a>Télémétrie des requêtes : modèle de données Application Insights
 
@@ -21,7 +21,7 @@ La télémétrie des requêtes prend en charge le modèle d’extensibilité sta
 
 Le nom de la requête représente le chemin de code utilisé pour traiter la requête. La valeur de faible cardinalité permet de mieux regrouper les requêtes. Pour les requêtes HTTP, elle représente la méthode HTTP et le modèle de chemin d’URL comme `GET /values/{id}` sans la valeur `id` réelle.
 
-Le Kit de développement logiciel (SDK) Web d’Application Insights envoie le nom de la requête « en l’état », c’est-à-dire en respectant la casse. Le regroupement sur l’interface utilisateur est sensible à la casse, si bien que `GET /Home/Index` est comptabilisé séparément de `GET /home/INDEX`, même s’ils entraînent souvent la même exécution de contrôleur et d’action. Cela est dû au fait que les URL sont généralement [sensibles à la casse](https://www.w3.org/TR/WD-html40-970708/htmlweb.html). Vous souhaiterez peut-être savoir si toutes les erreurs `404` ont été générées pour des URL tapées en majuscules. Vous pouvez en apprendre plus sur la collecte de noms de requêtes par le SDK Web ASP.NET dans ce [billet de blog](https://apmtips.com/blog/2015/02/23/request-name-and-url/).
+Le Kit de développement logiciel (SDK) Web d’Application Insights envoie le nom de la requête « en l’état », c’est-à-dire en respectant la casse. Le regroupement sur l’interface utilisateur est sensible à la casse, si bien que `GET /Home/Index` est comptabilisé séparément de `GET /home/INDEX`, même s’ils entraînent souvent la même exécution de contrôleur et d’action. Cela est dû au fait que les URL sont généralement [sensibles à la casse](https://www.w3.org/TR/WD-html40-970708/htmlweb.html). Vous souhaiterez peut-être savoir si toutes les erreurs `404` ont été générées pour des URL tapées en majuscules. Vous pouvez en apprendre plus sur la collecte de noms de requêtes par le SDK Web ASP.NET dans ce [billet de blog](https://apmtips.com/posts/2015-02-23-request-name-and-url/).
 
 Longueur maximale : 1024 caractères
 
@@ -61,7 +61,7 @@ Pour les applications Web, Application Insights définit les requêtes comme aya
 
 Un contenu partiellement accepté `206` peut indiquer l’échec d’une requête globale. Par exemple, le point de terminaison d’Application Insights reçoit un lot d’éléments de télémétrie sous la forme d’une seule requête. Il retourne `206` lorsque certains éléments du lot n'ont pas été traités avec succès. La fréquence croissante de `206` indique un problème qui doit être examiné. Une logique similaire s’applique au code multi-état `207` où la réussite peut être le pire des codes de réponse distincts.
 
-Vous pouvez en apprendre plus sur le code de résultat des requête et le code d’état dans ce [billet de blog](https://apmtips.com/blog/2016/12/03/request-success-and-response-code/).
+Vous pouvez en apprendre plus sur le code de résultat des requête et le code d’état dans ce [billet de blog](https://apmtips.com/posts/2016-12-03-request-success-and-response-code/).
 
 ## <a name="custom-properties"></a>Propriétés personnalisées
 

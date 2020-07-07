@@ -3,18 +3,18 @@ title: Créer et cloner des notebooks Jupyter - Azure Notebooks en préversion
 description: Les projets Azure Notebooks (préversion) gèrent une collection de notebooks et de fichiers associés, que vous pouvez créer ou cloner à partir d’une autre source.
 ms.topic: how-to
 ms.date: 02/25/2019
-ms.openlocfilehash: b29ff336c09a3bbf05a57c8a3a503b1875b76e54
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: e1321afc2ce294c8a39ba8d55574e2ca949f632e
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79236113"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85831282"
 ---
 # <a name="create-and-clone-projects-in-azure-notebooks-preview"></a>Créer et cloner des projets dans Azure Notebooks en préversion
 
-Azure Notebooks organise vos notebooks Jupyter et fichiers associés en groupes logiques appelés *projets*. Vous créez un projet d’abord en tant que conteneur, puis créez ou clonez un ou plusieurs notebooks au sein d’un dossier en même temps que d’autres fichiers projet. (Ce processus est illustré dans le [tutoriel](tutorial-create-run-jupyter-notebook.md).)
-
 [!INCLUDE [notebooks-status](../../includes/notebooks-status.md)]
+
+Azure Notebooks organise vos notebooks Jupyter et fichiers associés en groupes logiques appelés *projets*. Vous créez un projet d’abord en tant que conteneur, puis créez ou clonez un ou plusieurs notebooks au sein d’un dossier en même temps que d’autres fichiers projet. (Ce processus est illustré dans le [tutoriel](tutorial-create-run-jupyter-notebook.md).)
 
 Un projet gère également des métadonnées et d’autres paramètres de configuration qui affectent le serveur sur lequel les notebooks sont exécutés, notamment les étapes de configuration personnalisées et l’installation des packages. Pour plus d’informations, consultez [Gérer et configurer des projets](configure-manage-azure-notebooks-projects.md).
 

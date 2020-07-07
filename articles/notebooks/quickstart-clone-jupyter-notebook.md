@@ -3,14 +3,16 @@ title: Cloner un notebook Jupyter à partir de GitHub avec Azure Notebooks (pré
 description: Clonez rapidement un notebook Jupyter à partir d’un référentiel GitHub et comment l’exécuter dans votre compte Azure Notebooks.
 ms.topic: quickstart
 ms.date: 12/04/2018
-ms.openlocfilehash: d0f3a12ff04e115074c3821c5e29652484710bca
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.openlocfilehash: 35352e74a8db071a2f85bd71857d47f3af1953e2
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "77064595"
+ms.lasthandoff: 07/01/2020
+ms.locfileid: "85833084"
 ---
 # <a name="quickstart-clone-a-notebook-in-azure-notebooks-preview"></a>Démarrage rapide : Cloner un notebook dans Azure Notebooks (préversion)
+
+[!INCLUDE [notebooks-status](../../includes/notebooks-status.md)]
 
 Dans ce guide de démarrage rapide, vous copiez un notebook Jupyter stocké dans GitHub sur un compte Azure Notebooks. 
 
@@ -22,8 +24,6 @@ Comme votre clone Azure Notebooks est dans le cloud, vous pouvez le partager ave
 Aucun.
 
 ## <a name="clone-azure-cognitive-services-notebooks"></a>Cloner des notebooks Azure Cognitive Services
-
-[!INCLUDE [notebooks-status](../../includes/notebooks-status.md)]
 
 1. Accédez à [Azure Notebooks](https://notebooks.azure.com) et connectez-vous. Pour plus d’informations, consultez [Démarrage rapide sur la connexion à Azure Notebooks](quickstart-sign-in-azure-notebooks.md).
 

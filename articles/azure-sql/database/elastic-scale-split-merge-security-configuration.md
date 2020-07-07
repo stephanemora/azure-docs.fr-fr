@@ -11,12 +11,12 @@ author: VanMSFT
 ms.author: vanto
 ms.reviewer: sstein
 ms.date: 12/18/2018
-ms.openlocfilehash: e1fdf219d09148d47759652e97797b569e265fa4
-ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
+ms.openlocfilehash: b90f86576928e44e00c548f4f3ad3c22c27b8bb3
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "84026630"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85829431"
 ---
 # <a name="split-merge-security-configuration"></a>Configuration de la sécurité du fractionnement et de la fusion
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -47,7 +47,10 @@ Si ces options ne sont pas disponibles, vous pouvez générer des **certificats 
   
     Si installée, accédez à :
   
-        %ProgramFiles(x86)%\Windows Kits\x.y\bin\x86 
+    ```console
+    %ProgramFiles(x86)%\Windows Kits\x.y\bin\x86 
+    ```
+
 * Procurez-vous le kit WDK à partir de [Windows 8.1 : Télécharger les kits et les outils](https://msdn.microsoft.com/windows/hardware/gg454513#drivers)
 
 ## <a name="to-configure-the-tlsssl-certificate"></a>Pour configurer le certificat TLS/SSL
@@ -193,12 +196,14 @@ Cette rubrique sert de référence uniquement. Suivez les étapes de configurati
 ## <a name="create-a-self-signed-certificate"></a>Créer un certificat auto-signé
 Exécutez :
 
-    makecert ^
-      -n "CN=myservice.cloudapp.net" ^
-      -e MM/DD/YYYY ^
-      -r -cy end -sky exchange -eku "1.3.6.1.5.5.7.3.1" ^
-      -a sha256 -len 2048 ^
-      -sv MySSL.pvk MySSL.cer
+```console
+makecert ^
+  -n "CN=myservice.cloudapp.net" ^
+  -e MM/DD/YYYY ^
+  -r -cy end -sky exchange -eku "1.3.6.1.5.5.7.3.1" ^
+  -a sha256 -len 2048 ^
+  -sv MySSL.pvk MySSL.cer
+```
 
 Pour personnaliser :
 
@@ -208,7 +213,9 @@ Pour personnaliser :
 ## <a name="create-pfx-file-for-self-signed-tlsssl-certificate"></a>Créer fichier PFX pour un certificat TLS/SSL auto-signé
 Exécutez :
 
-        pvk2pfx -pvk MySSL.pvk -spc MySSL.cer
+```console
+pvk2pfx -pvk MySSL.pvk -spc MySSL.cer
+```
 
 Entrez le mot de passe et exportez le certificat avec les options suivantes :
 
@@ -230,7 +237,9 @@ Téléchargez le certificat avec le fichier .PFX existant ou généré avec la 
 ## <a name="update-tlsssl-certificate-in-service-configuration-file"></a>Mettre à jour certificat TLS/SSL dans le fichier de configuration de service
 Mettez à jour la valeur de l’empreinte numérique du paramètre suivant du fichier de configuration de service avec l’empreinte numérique du certificat téléchargé vers le service cloud :
 
-    <Certificate name="SSL" thumbprint="" thumbprintAlgorithm="sha1" />
+```console
+<Certificate name="SSL" thumbprint="" thumbprintAlgorithm="sha1" />
+```
 
 ## <a name="import-tlsssl-certification-authority"></a>Importer l’autorité de certification TLS/SSL
 Suivez les étapes suivantes pour tous les comptes/ordinateurs qui communiquent avec le service :
@@ -258,13 +267,15 @@ Ensuite, copiez la même empreinte numérique que celle du certificat TLS/SSL d
 ## <a name="create-a-self-signed-certification-authority"></a>Création d’une autorité de certification auto-signée
 Exécutez les étapes suivantes pour créer un certificat auto-signé qui agit comme une autorité de certification :
 
-    makecert ^
-    -n "CN=MyCA" ^
-    -e MM/DD/YYYY ^
-     -r -cy authority -h 1 ^
-     -a sha256 -len 2048 ^
-      -sr localmachine -ss my ^
-      MyCA.cer
+```console
+makecert ^
+-n "CN=MyCA" ^
+-e MM/DD/YYYY ^
+ -r -cy authority -h 1 ^
+ -a sha256 -len 2048 ^
+  -sr localmachine -ss my ^
+  MyCA.cer
+```
 
 Pour le personnaliser
 
@@ -311,13 +322,15 @@ Chaque personne autorisée à accéder au service doit disposer d’un certifica
 
 Les étapes suivantes doivent être exécutées sur l’ordinateur sur lequel le certificat auto-signé de l’autorité de certification a été généré et stocké :
 
-    makecert ^
-      -n "CN=My ID" ^
-      -e MM/DD/YYYY ^
-      -cy end -sky exchange -eku "1.3.6.1.5.5.7.3.2" ^
-      -a sha256 -len 2048 ^
-      -in "MyCA" -ir localmachine -is my ^
-      -sv MyID.pvk MyID.cer
+```console
+makecert ^
+  -n "CN=My ID" ^
+  -e MM/DD/YYYY ^
+  -cy end -sky exchange -eku "1.3.6.1.5.5.7.3.2" ^
+  -a sha256 -len 2048 ^
+  -in "MyCA" -ir localmachine -is my ^
+  -sv MyID.pvk MyID.cer
+```
 
 Personnalisation :
 
@@ -330,11 +343,15 @@ Cette commande vous demande de créer un mot de passe et de l’utiliser une seu
 ## <a name="create-pfx-files-for-client-certificates"></a>Création de fichiers PFX pour les certificats clients
 Pour chaque certificat client généré, exécutez :
 
-    pvk2pfx -pvk MyID.pvk -spc MyID.cer
+```console
+pvk2pfx -pvk MyID.pvk -spc MyID.cer
+```
 
 Personnalisation :
 
-    MyID.pvk and MyID.cer with the filename for the client certificate
+```console
+MyID.pvk and MyID.cer with the filename for the client certificate
+```
 
 Entrez le mot de passe et exportez le certificat avec les options suivantes :
 
@@ -379,11 +396,15 @@ Le paramètre par défaut ne vérifie pas l’état de révocation du certificat
 ## <a name="create-pfx-file-for-self-signed-encryption-certificates"></a>Création d’un fichier PFX pour un certificat de chiffrement auto-signé
 Pour un certificat de chiffrement, exécutez :
 
-    pvk2pfx -pvk MyID.pvk -spc MyID.cer
+```console
+pvk2pfx -pvk MyID.pvk -spc MyID.cer
+```
 
 Personnalisation :
 
-    MyID.pvk and MyID.cer with the filename for the encryption certificate
+```console
+MyID.pvk and MyID.cer with the filename for the encryption certificate
+```
 
 Entrez le mot de passe et exportez le certificat avec les options suivantes :
 

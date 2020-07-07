@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 04/10/2020
 ms.author: mbaldwin
 ms.custom: security-benchmark
-ms.openlocfilehash: 7cb99ee9f52a26bd432a506ddc3ea4c9b13275b5
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: e9c4d70bcd0b991d90c68d310f94b21757fe2437
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82185113"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85830211"
 ---
 # <a name="azure-security-baseline-for-key-vault"></a>Ligne de base de sécurité Azure pour Key Vault
 
@@ -39,7 +39,7 @@ Comment intégrer Key Vault avec Azure Private Link :
 https://docs.microsoft.com/azure/key-vault/private-link-service
 
 
-**Supervision d’Azure Security Center** : Oui
+**Supervision Azure Security Center** : Oui
 
 **Responsabilité** : Customer
 
@@ -126,7 +126,7 @@ https://docs.microsoft.com/azure/security-center/advanced-threat-protection-key-
 Vue d’ensemble des étiquettes de service Azure : https://docs.microsoft.com/azure/virtual-network/service-tags-overview
 
 
-**Supervision d’Azure Security Center** : Non applicable
+**Supervision Azure Security Center** : Non applicable
 
 **Responsabilité** : Customer
 
@@ -427,7 +427,7 @@ Créez et gérez des groupes d’actions dans le portail Azure : https://docs.m
 
 
 
-**Supervision d’Azure Security Center** : Oui
+**Supervision Azure Security Center** : Oui
 
 **Responsabilité** : Customer
 
@@ -471,7 +471,7 @@ Présentation des révisions d’accès Azure AD :
 https://docs.microsoft.com/azure/active-directory/governance/access-reviews-overview
 
 
-**Supervision d’Azure Security Center** : Oui
+**Supervision Azure Security Center** : Oui
 
 **Responsabilité** : Customer
 
@@ -709,11 +709,11 @@ Obtenir les abonnements auxquels le compte actuel peut accéder :
 
 https://docs.microsoft.com/powershell/module/az.accounts/get-azsubscription?view=azps-3.0.0
 
-Qu’est-ce que le contrôle d’accès en fonction du rôle (RBAC) pour les ressources Azure ?
+Qu’est-ce que le contrôle d’accès en fonction du rôle Azure (RBAC Azure) ?
 
 https://docs.microsoft.com/azure/role-based-access-control/overview
 
-**Supervision d’Azure Security Center** : Non applicable
+**Supervision Azure Security Center** : Non applicable
 
 **Responsabilité** : Customer
 
@@ -839,7 +839,7 @@ Gérer l’accès à la gestion Azure avec l’accès conditionnel :
 https://docs.microsoft.com/azure/role-based-access-control/conditional-access-azure-management
 
 
-**Supervision d’Azure Security Center** : Non applicable
+**Supervision Azure Security Center** : Non applicable
 
 **Responsabilité** : Customer
 

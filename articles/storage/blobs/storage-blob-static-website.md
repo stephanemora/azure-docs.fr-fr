@@ -3,26 +3,27 @@ title: Hébergement de sites web statiques dans le service Stockage Azure
 description: L’hébergement de sites web statiques dans Stockage Azure constitue une solution évolutive économique pour l’hébergement d’applications web modernes.
 author: normesta
 ms.service: storage
-ms.topic: conceptual
+ms.topic: how-to
 ms.author: normesta
 ms.reviewer: dineshm
 ms.date: 05/14/2020
 ms.subservice: blobs
-ms.openlocfilehash: 6a007525f8402bb163195b623173d665f9721bff
-ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
+ms.openlocfilehash: e2dcc070baa94ecf1ea27100fd49d4cde1dac637
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83648510"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85833344"
 ---
 # <a name="static-website-hosting-in-azure-storage"></a>Hébergement de sites web statiques dans le service Stockage Azure
 
 Vous pouvez servir du contenu statique (fichiers HTML, CSS, JavaScript et images) directement à partir d’un conteneur de stockage nommé *$web*. L’hébergement de votre contenu dans le stockage Azure vous permet d’utiliser des architectures serverless qui incluent [Azure Functions](/azure/azure-functions/functions-overview) et d’autres services Paas (Platform as a service).
 
-[!INCLUDE [updated-for-az](../../../includes/storage-data-lake-gen2-support.md)]
+[!INCLUDE [storage-multi-protocol-access-preview](../../../includes/storage-multi-protocol-access-preview.md)]
 
 > [!NOTE]
 > Si votre site dépend du code côté serveur, utilisez [Azure App Service](/azure/app-service/overview) à la place.
+Veillez à créer un compte de stockage Standard universel v2. Les sites web statiques ne sont pas disponibles dans les autres types de comptes de stockage.
 
 ## <a name="setting-up-a-static-website"></a>Configuration d’un site web statique
 
@@ -46,7 +47,7 @@ Vous pouvez utiliser un de ces outils pour charger du contenu sur le conteneur *
 > * [AZCopy](../common/storage-use-azcopy-v10.md)
 > * [Azure Storage Explorer](https://azure.microsoft.com/features/storage-explorer/)
 > * [Azure Pipelines](https://azure.microsoft.com/services/devops/pipelines/)
-> * [Extension Visual Studio Code](/azure/javascript/tutorial-vscode-static-website-node-01)
+> * [Extension Visual Studio Code](/azure/developer/javascript/tutorial-vscode-static-website-node-01)
 
 ## <a name="viewing-content"></a>Affichage du contenu
 
@@ -63,11 +64,11 @@ L’URL de votre site contient un code régional. Par exemple, l’URL `https://
 
 Même si ce code doit demeurer dans l’URL, il n’est destiné qu’à un usage interne, et vous n’aurez pas à l’utiliser de quelque autre manière que ce soit.
 
-Le document d’index, que vous spécifiez lorsque vous activez l’hébergement de site web statique, s’affiche lorsque les utilisateurs ouvrent le site et ne spécifient aucun fichier en particulier (par exemple : `https://contosoblobaccount.z22.web.core.windows.net`).  
+Le document d’index, que vous spécifiez lorsque vous activez l’hébergement de site web statique, s’affiche lorsque les utilisateurs ouvrent le site et ne spécifient aucun fichier en particulier (par exemple : `https://contosoblobaccount.z22.web.core.windows.net`).
 
 ### <a name="secondary-endpoints"></a>Points de terminaison secondaires
 
-Si vous configurez [la redondance dans une région secondaire](../common/storage-redundancy.md#redundancy-in-a-secondary-region), vous pouvez également accéder au contenu du site web à l’aide d’un point de terminaison secondaire. Dans la mesure où les données sont répliquées de façon asynchrone dans des régions secondaires, les fichiers disponibles au niveau du point de terminaison secondaire ne sont pas toujours synchronisés avec ceux qui sont disponibles sur le point de terminaison principal. 
+Si vous configurez [la redondance dans une région secondaire](../common/storage-redundancy.md#redundancy-in-a-secondary-region), vous pouvez également accéder au contenu du site web à l’aide d’un point de terminaison secondaire. Dans la mesure où les données sont répliquées de façon asynchrone dans des régions secondaires, les fichiers disponibles au niveau du point de terminaison secondaire ne sont pas toujours synchronisés avec ceux qui sont disponibles sur le point de terminaison principal.
 
 ## <a name="impact-of-the-setting-the-public-access-level-of-the-web-container"></a>Impact de la définition du niveau d’accès public du conteneur web
 
@@ -85,11 +86,11 @@ Toutefois, l’accès public au point de terminaison principal du service Blob `
 
 ## <a name="mapping-a-custom-domain-to-a-static-website-url"></a>Mappage d’un domaine personnalisé à une URL de site web statique
 
-Vous pouvez rendre votre site web statique disponible via un domaine personnalisé. 
+Vous pouvez rendre votre site web statique disponible via un domaine personnalisé.
 
 Stockage Azure prenant en charge votre domaine personnalisé en mode natif, l'accès HTTP est plus facile à activer. Pour activer HTTPS, vous devez utiliser Azure CDN car Stockage Azure ne prend pas encore en charge HTTPS avec les domaines personnalisés en mode natif. Pour obtenir des instructions pas à pas, consultez [Mapper un domaine personnalisé à un point de terminaison du Stockage Blob Azure](storage-custom-domain-name.md).
 
-Si le compte de stockage est configuré pour [exiger un transfert sécurisé](../common/storage-require-secure-transfer.md) via HTTPS, les utilisateurs doivent utiliser le point de terminaison HTTPS. 
+Si le compte de stockage est configuré pour [exiger un transfert sécurisé](../common/storage-require-secure-transfer.md) via HTTPS, les utilisateurs doivent utiliser le point de terminaison HTTPS.
 
 > [!TIP]
 > Envisagez l'hébergement de votre domaine sur Azure. Pour plus d’informations, consultez [Héberger votre domaine dans Azure DNS](../../dns/dns-delegate-domain-azure-dns.md).

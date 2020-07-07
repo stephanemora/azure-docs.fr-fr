@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.topic: conceptual
 ms.custom: hdinsightactive
 ms.date: 04/14/2020
-ms.openlocfilehash: 9bdf7360ce00637b0eed3de7a3349da8656a3ed0
-ms.sourcegitcommit: 7e04a51363de29322de08d2c5024d97506937a60
+ms.openlocfilehash: e05389e0510b5029fa2672bbd6b781e06ba10fd2
+ms.sourcegitcommit: cec9676ec235ff798d2a5cad6ee45f98a421837b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/14/2020
-ms.locfileid: "81314172"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85849674"
 ---
 # <a name="use-ssh-tunneling-to-access-apache-ambari-web-ui-jobhistory-namenode-apache-oozie-and-other-uis"></a>Utiliser le tunneling SSH pour accéder à l’interface utilisateur web d’Apache Ambari, JobHistory, NameNode, Apache Oozie et d’autres interfaces utilisateur
 
@@ -64,16 +64,16 @@ ssh -C2qTnNf -D 9876 sshuser@CLUSTERNAME-ssh.azurehdinsight.net
 
 Cette commande va permettre de créer une connexion qui achemine le trafic vers le port local 9876 du cluster via SSH. Les options sont :
 
-    |Option |Description |
-    |---|---|
-    |D 9876|Port local qui route le trafic via le tunnel.|
-    |C|Compresser toutes les données car le trafic web est principalement du texte.|
-    |2|Forcer SSH à essayer le protocole version 2 uniquement.|
-    |q|Mode silencieux.|
-    |T|Désactiver l’allocation pseudo-tty, puisque vous transférez simplement un port.|
-    |n|Empêcher la lecture STDIN, puisque vous transférez simplement un port.|
-    |N|Ne pas exécuter de commande à distance, puisque vous transférez simplement un port.|
-    |f|Exécuter en arrière-plan.|
+|Option |Description |
+|---|---|
+|D 9876|Port local qui route le trafic via le tunnel.|
+|C|Compresser toutes les données car le trafic web est principalement du texte.|
+|2|Forcer SSH à essayer le protocole version 2 uniquement.|
+|q|Mode silencieux.|
+|T|Désactiver l’allocation pseudo-tty, puisque vous transférez simplement un port.|
+|n|Empêcher la lecture STDIN, puisque vous transférez simplement un port.|
+|N|Ne pas exécuter de commande à distance, puisque vous transférez simplement un port.|
+|f|Exécuter en arrière-plan.|
 
 Une fois la commande terminée, le trafic envoyé au port 9876 sur l’ordinateur local est acheminé au nœud principal du cluster.
 

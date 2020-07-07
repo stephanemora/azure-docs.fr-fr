@@ -7,12 +7,12 @@ ms.date: 02/12/2020
 ms.topic: conceptual
 ms.service: cost-management-billing
 ms.reviewer: adwise
-ms.openlocfilehash: 38efc86d1bdc185f39d3ea502a64d0f3cf7edcc0
-ms.sourcegitcommit: 27bbda320225c2c2a43ac370b604432679a6a7c0
+ms.openlocfilehash: 1befd0cc85044097a64b5988e6f763ce89ca3ec9
+ms.sourcegitcommit: cec9676ec235ff798d2a5cad6ee45f98a421837b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/31/2020
-ms.locfileid: "80408244"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85849703"
 ---
 # <a name="create-a-support-request-for-cloudyn"></a>Créer une demande de support pour Cloudyn
 
@@ -38,7 +38,7 @@ Une fois créé, le ticket de support est ajouté à la file d’attente de supp
 
 Si vous souhaitez créer un ticket de support de facturation pour Cost Management, sous **Type de problème**, sélectionnez **Azure Cost Management**.
 
-Pour vérifier l’état d’un incident que vous avez archivé, consultez [Toutes les demandes de support](../../azure-portal/supportability/how-to-create-azure-support-request.md#all-support-requests).
+Pour vérifier l’état d’un incident que vous avez archivé, consultez [Toutes les demandes de support](../../azure-portal/supportability/how-to-manage-azure-support-request.md#view-support-requests).
 
 Si vous êtes un utilisateur Cloudyn existant, mais que vous ne disposez pas d’un compte Azure, vous pouvez ouvrir une demande de support à l’adresse https://support.microsoft.com/oas/default.aspx?prid=16451.
 

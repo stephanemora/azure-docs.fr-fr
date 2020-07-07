@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: quickstart
 ms.date: 04/04/2020
 ms.author: trbye
-ms.openlocfilehash: 2e75e177c1a5af13c1907b3a1abc9218096e8d45
-ms.sourcegitcommit: cf7caaf1e42f1420e1491e3616cc989d504f0902
+ms.openlocfilehash: 3af3134f715dc124b4aee3ac0a7bfbf11df6a462
+ms.sourcegitcommit: a989fb89cc5172ddd825556e45359bac15893ab7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/22/2020
-ms.locfileid: "83800690"
+ms.lasthandoff: 07/01/2020
+ms.locfileid: "85801867"
 ---
 # <a name="learn-the-basics-of-the-speech-cli"></a>Présentation des bases de l’interface CLI Speech
 
@@ -70,18 +70,22 @@ spx recognize --files C:\your_wav_file_dir\*.wav --output file C:\output_dir\spe
 
 La sortie vocale reconnue est écrite dans `speech_output.tsv` à l’aide de l’argument `--output file`. Voici un exemple de structure de fichier de sortie.
 
-    audio.input.id    recognizer.session.started.sessionid    recognizer.recognized.result.text
-    sample_1    07baa2f8d9fd4fbcb9faea451ce05475    A sample wave file.
-    sample_2    8f9b378f6d0b42f99522f1173492f013    Sample text synthesized.
+```output
+audio.input.id    recognizer.session.started.sessionid    recognizer.recognized.result.text
+sample_1    07baa2f8d9fd4fbcb9faea451ce05475    A sample wave file.
+sample_2    8f9b378f6d0b42f99522f1173492f013    Sample text synthesized.
+```
 
 ## <a name="batch-text-to-speech-synthesis"></a>Synthèse vocale par lots
 
 Le moyen le plus simple d’exécuter une synthèse vocale consiste à créer un fichier `.tsv` (valeurs séparées par des tabulations) et à tirer parti de la commande `--foreach` de l’interface CLI Speech. Prenons le fichier `text_synthesis.tsv` suivant :
 
-    audio.output    text
-    C:\batch_wav_output\wav_1.wav    Sample text to synthesize.
-    C:\batch_wav_output\wav_2.wav    Using the Speech CLI to run batch-synthesis.
-    C:\batch_wav_output\wav_3.wav    Some more text to test capabilities.
+```output
+audio.output    text
+C:\batch_wav_output\wav_1.wav    Sample text to synthesize.
+C:\batch_wav_output\wav_2.wav    Using the Speech CLI to run batch-synthesis.
+C:\batch_wav_output\wav_3.wav    Some more text to test capabilities.
+```
 
  Ensuite, exécutez une commande pour pointer vers `text_synthesis.tsv`, effectuer une synthèse sur chaque champ `text` et écrire le résultat sur le chemin `audio.output` correspondant dans un fichier `.wav`. 
 
@@ -97,10 +101,12 @@ Cette commande équivaut à exécuter `spx synthesize --text Sample text to synt
 
 Toutefois, si votre fichier `.tsv` comporte des en-têtes de colonnes qui **ne correspondent pas** aux arguments de ligne de commande, comme dans l’exemple suivant :
 
-    wav_path    str_text
-    C:\batch_wav_output\wav_1.wav    Sample text to synthesize.
-    C:\batch_wav_output\wav_2.wav    Using the Speech CLI to run batch-synthesis.
-    C:\batch_wav_output\wav_3.wav    Some more text to test capabilities.
+```output
+wav_path    str_text
+C:\batch_wav_output\wav_1.wav    Sample text to synthesize.
+C:\batch_wav_output\wav_2.wav    Using the Speech CLI to run batch-synthesis.
+C:\batch_wav_output\wav_3.wav    Some more text to test capabilities.
+```
 
 Vous pouvez remplacer ces noms de champs par les bons arguments selon la syntaxe suivante dans l’appel `--foreach`. Il s’agit du même appel que ci-dessus.
 

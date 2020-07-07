@@ -11,17 +11,17 @@ ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 05/31/2017
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 0775e717c0610e122bb31f752beecd2c97599053
-ms.sourcegitcommit: 67bddb15f90fb7e845ca739d16ad568cbc368c06
+ms.openlocfilehash: 7a49abdea9d5b80687c53fbaa3d41480825ed504
+ms.sourcegitcommit: cec9676ec235ff798d2a5cad6ee45f98a421837b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82201038"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85849952"
 ---
 # <a name="multiple-domain-support-for-federating-with-azure-ad"></a>Prise en charge de plusieurs domaines pour la fédération avec Azure AD
 La documentation suivante fournit des conseils sur l’utilisation de plusieurs domaines de niveau supérieur et sous-domaines lors de la fédération avec des domaines Office 365 ou Azure AD.
@@ -73,7 +73,9 @@ Par exemple, si l’UPN d’un utilisateur est bsimon@bmcontoso.com, l’éléme
 
 Vous trouverez ci-dessous la règle de revendication personnalisée qui implémente cette logique :
 
-    c:[Type == "http://schemas.xmlsoap.org/claims/UPN"] => issue(Type = "http://schemas.microsoft.com/ws/2008/06/identity/claims/issuerid", Value = regexreplace(c.Value, ".+@(?<domain>.+)", "http://${domain}/adfs/services/trust/"));
+```
+c:[Type == "http://schemas.xmlsoap.org/claims/UPN"] => issue(Type = "http://schemas.microsoft.com/ws/2008/06/identity/claims/issuerid", Value = regexreplace(c.Value, ".+@(?<domain>.+)", "http://${domain}/adfs/services/trust/"));
+```
 
 
 > [!IMPORTANT]
@@ -137,14 +139,16 @@ Et IssuerUri sur le nouveau domaine a été défini sur `https://bmfabrikam.com/
 ## <a name="support-for-subdomains"></a>Prise en charge des sous-domaines
 Lorsque vous ajoutez un sous-domaine, en raison de la façon dont Azure AD a géré les domaines, il héritera des paramètres du parent.  Donc, IssuerUri doit correspondre aux parents.
 
-Donc, supposons que j’ai bmcontoso.com et que j’ajoute ensuite corp.bmcontoso.com.  Pour un nouvel utilisateur de corp.bmcontoso.com, l’IssuerUri doit être défini sur **`http://bmcontoso.com/adfs/services/trust`** .  Toutefois, la règle standard implémentée ci-dessus pour Azure AD génère un jeton avec un émetteur **`http://corp.bmcontoso.com/adfs/services/trust`** .  ce qui ne correspondra pas à la valeur requise du domaine et l’authentification échouera.
+Donc, supposons que j’ai bmcontoso.com et que j’ajoute ensuite corp.bmcontoso.com.  Pour un nouvel utilisateur de corp.bmcontoso.com, l’IssuerUri doit être défini sur **`http://bmcontoso.com/adfs/services/trust`** .  Toutefois, la règle standard implémentée ci-dessus pour Azure AD génère un jeton avec un émetteur **`http://corp.bmcontoso.com/adfs/services/trust`** . ce qui ne correspondra pas à la valeur requise du domaine et l’authentification échouera.
 
 ### <a name="how-to-enable-support-for-subdomains"></a>Activation de la prise en charge des sous-domaines
 Pour contourner ce problème, l’approbation de la partie de confiance AD FS de Microsoft Online doit être mise à jour.  Pour cela, vous devez configurer une règle de revendication personnalisée afin qu’elle retire tous les sous-domaines du suffixe UPN de l’utilisateur pendant la construction de la valeur Issuer.
 
 La revendication suivante fait cela :
 
-    c:[Type == "http://schemas.xmlsoap.org/claims/UPN"] => issue(Type = "http://schemas.microsoft.com/ws/2008/06/identity/claims/issuerid", Value = regexreplace(c.Value, "^.*@([^.]+\.)*?(?<domain>([^.]+\.?){2})$", "http://${domain}/adfs/services/trust/"));
+```    
+c:[Type == "http://schemas.xmlsoap.org/claims/UPN"] => issue(Type = "http://schemas.microsoft.com/ws/2008/06/identity/claims/issuerid", Value = regexreplace(c.Value, "^.*@([^.]+\.)*?(?<domain>([^.]+\.?){2})$", "http://${domain}/adfs/services/trust/"));
+```
 
 [!NOTE]
 Le dernier numéro de l’expression régulière définit le nombre de domaines parents dans votre domaine racine. Dans le cas présent, bmcontoso.com est utilisé. Donc, deux domaines parents sont nécessaires. Si trois domaines parents doivent être conservés (par exemple corp.bmcontoso.com), le nombre indiqué est « trois ». Vous pouvez si vous le souhaitez indiquer une plage. Dans ce cas, la correspondance est toujours effectuée avec un maximum de domaines. « {2,3} » correspond à deux ou trois domaines (par exemple bmfabrikam.com et corp.bmcontoso.com).
@@ -156,11 +160,14 @@ Utilisez les étapes suivantes pour ajouter une revendication personnalisée pou
 3. Sélectionnez la troisième règle de revendication et remplacez ![Modifier la revendication](./media/how-to-connect-install-multiple-domains/sub1.png)
 4. Remplacez la revendication en cours :
 
-        c:[Type == "http://schemas.xmlsoap.org/claims/UPN"] => issue(Type = "http://schemas.microsoft.com/ws/2008/06/identity/claims/issuerid", Value = regexreplace(c.Value, ".+@(?<domain>.+)","http://${domain}/adfs/services/trust/"));
+   ```
+   c:[Type == "http://schemas.xmlsoap.org/claims/UPN"] => issue(Type = "http://schemas.microsoft.com/ws/2008/06/identity/claims/issuerid", Value = regexreplace(c.Value, ".+@(?<domain>.+)","http://${domain}/adfs/services/trust/"));
+   ```
+    par
 
-       with
-
-        c:[Type == "http://schemas.xmlsoap.org/claims/UPN"] => issue(Type = "http://schemas.microsoft.com/ws/2008/06/identity/claims/issuerid", Value = regexreplace(c.Value, "^.*@([^.]+\.)*?(?<domain>([^.]+\.?){2})$", "http://${domain}/adfs/services/trust/"));
+   ```
+   c:[Type == "http://schemas.xmlsoap.org/claims/UPN"] => issue(Type = "http://schemas.microsoft.com/ws/2008/06/identity/claims/issuerid", Value = regexreplace(c.Value, "^.*@([^.]+\.)*?(?<domain>([^.]+\.?){2})$", "http://${domain}/adfs/services/trust/"));
+   ```
 
     ![Remplacer la revendication](./media/how-to-connect-install-multiple-domains/sub2.png)
 

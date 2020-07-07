@@ -3,12 +3,12 @@ title: Déploiement Push de fichier Zip pour Azure Functions
 description: Utilisez les fonctionnalités de déploiement de fichier Zip du service de déploiement Kudu pour publier vos Azure Functions.
 ms.topic: conceptual
 ms.date: 08/12/2018
-ms.openlocfilehash: 6bda0859ca4741fe74f572b204e40130c56c46fc
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: e104661dcdf1f6c6fd6dd5eb1024748980e7931f
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "75769663"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85833050"
 ---
 # <a name="zip-deployment-for-azure-functions"></a>Déploiement zip pour Azure Functions
 
@@ -56,7 +56,9 @@ Toutefois, vous aurez peut-être créé vos fonctions à l’aide de l’éditeu
 
     Utilisez l’API GET de déploiement suivante pour télécharger les fichiers à partir de votre projet `<function_app>` : 
 
-        https://<function_app>.scm.azurewebsites.net/api/zip/site/wwwroot/
+    ```http
+    https://<function_app>.scm.azurewebsites.net/api/zip/site/wwwroot/
+    ```
 
     L’inclusion de `/site/wwwroot/` permet de s’assurer que votre fichier zip comprend uniquement les fichiers de projet de l’application de fonction, et non l’intégralité du site. Si vous ne vous êtes pas encore connecté à Azure, vous serez invité à le faire.  
 

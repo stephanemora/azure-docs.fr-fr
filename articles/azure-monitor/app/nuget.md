@@ -3,12 +3,12 @@ title: Packages NuGet Application Insights Azure Monitor
 description: Liste de packages NuGet Azure Monitor Application Insights pour ASP.NET, ASP.NET Core, Python
 ms.topic: reference
 ms.date: 10/16/2018
-ms.openlocfilehash: 5675c0fad61f1b75aa7e93db02246eed43967ec2
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 91b48aee64a6b6942719f7f4abfb444b894c728e
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "77669996"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85807160"
 ---
 # <a name="application-insights-nuget-packages"></a>Packages NuGet Application Insights
 
@@ -79,7 +79,7 @@ Voici la liste actuelle des versions stables des Packages NuGet pour Application
 | Microsoft.ApplicationInsights.Agent_x64 | 2.2.1 |  Active la collecte des données de runtime pour les applications x64 | [Télécharger le package](https://www.nuget.org/packages/Microsoft.ApplicationInsights.Agent_x64/) |
 | Microsoft.ApplicationInsights.Agent_x86 | 2.2.1 |  Active la collecte des données de runtime pour les applications x86. | [Télécharger le package](https://www.nuget.org/packages/Microsoft.ApplicationInsights.Agent_x86/) |
 
-Ces packages font partie des fonctionnalités essentielles de la supervision du runtime dans [Status Monitor](../../azure-monitor/app/monitor-performance-live-website-now.md). Vous n’avez pas besoin de télécharger ces packages directement ; utilisez simplement le programme d’installation de Status Monitor. Si vous souhaitez en savoir plus sur le fonctionnement de ces packages, vous pouvez commencer par consulter ce [billet de blog](https://apmtips.com/blog/2016/11/18/how-application-insights-status-monitor-not-monitors-dependencies/) rédigé par un de nos développeurs.
+Ces packages font partie des fonctionnalités essentielles de la supervision du runtime dans [Status Monitor](../../azure-monitor/app/monitor-performance-live-website-now.md). Vous n’avez pas besoin de télécharger ces packages directement ; utilisez simplement le programme d’installation de Status Monitor. Si vous souhaitez en savoir plus sur le fonctionnement de ces packages, vous pouvez commencer par consulter ce [billet de blog](https://apmtips.com/posts/2016-11-18-how-application-insights-status-monitor-not-monitors-dependencies/) rédigé par un de nos développeurs.
 
 ## <a name="additional-packages"></a>Packages supplémentaires
 

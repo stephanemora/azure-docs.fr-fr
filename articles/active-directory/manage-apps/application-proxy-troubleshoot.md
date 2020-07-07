@@ -3,25 +3,25 @@ title: Résoudre les problèmes du proxy d’application | Microsoft Docs
 description: Explique comment résoudre les erreurs dans le proxy d’application Azure AD.
 services: active-directory
 documentationcenter: ''
-author: msmimart
-manager: CelesteDG
+author: kenwith
+manager: celestedg
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: conceptual
+ms.topic: troubleshooting
 ms.date: 06/24/2019
-ms.author: mimart
+ms.author: kenwith
 ms.reviewer: japere
-ms.custom: H1Hack27Feb2017; it-pro
+ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 7be9a17bed2a39d16f813332c2d6effc03393264
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 57a77b486239f1fd49a4979d7acbbfc8f0254311
+ms.sourcegitcommit: cec9676ec235ff798d2a5cad6ee45f98a421837b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79224929"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85848451"
 ---
 # <a name="troubleshoot-application-proxy-problems-and-error-messages"></a>Résoudre les problèmes de proxy d’application et les messages d’erreur
 
@@ -39,13 +39,13 @@ Vous pouvez rencontrer des problèmes d’affichage ou de fonctionnement de votr
 
 Par exemple, si vous publiez le chemin d’accès `https://yourapp/app` mais que l’application appelle les images dans `https://yourapp/media`, celles-ci ne seront pas restituées. Assurez-vous que vous publiez l’application en utilisant le niveau du chemin d’accès le plus élevé pour inclure tous les contenus pertinents. Dans cet exemple, il s’agirait de `http://yourapp/`.
 
-Si vous modifiez votre chemin d’accès pour inclure le contenu référencé, mais que les utilisateurs doivent quand même accéder à un lien plus détaillé du chemin d’accès, consultez le billet du blog intitulé [Setting the right link for Application Proxy applications in the Azure AD access panel and Office 365 app launcher](https://blogs.technet.microsoft.com/applicationproxyblog/2016/04/06/setting-the-right-link-for-application-proxy-applications-in-the-azure-ad-access-panel-and-office-365-app-launcher/)(Définir le bon lien pour les applications Application Proxy dans le panneau d’accès Azure AD et le lanceur d’applications Office 365).
-
 ## <a name="connector-errors"></a>Erreurs de connecteur
 
 Si l’inscription échoue au cours de l’installation de l’assistant Connecteur, il existe deux façons d’afficher la raison de l’échec. Vous pouvez effectuer une recherche dans le journal des événements sous **Journaux des applications et des services\Microsoft\AadApplicationProxy\Connecteur\Admin**, ou exécuter la commande Windows PowerShell suivante :
 
-    Get-EventLog application –source "Microsoft AAD Application Proxy Connector" –EntryType "Error" –Newest 1
+```powershell
+Get-EventLog application –source "Microsoft AAD Application Proxy Connector" –EntryType "Error" –Newest 1
+```
 
 Une fois l’erreur de connecteur identifiée dans le journal des événements, reportez-vous à cette table d’erreurs courantes pour résoudre le problème :
 

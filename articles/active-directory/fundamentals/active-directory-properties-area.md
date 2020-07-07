@@ -7,18 +7,18 @@ manager: daveba
 ms.service: active-directory
 ms.subservice: fundamentals
 ms.workload: identity
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 04/17/2018
 ms.author: ajburnle
 ms.reviewer: bpham
 ms.custom: it-pro, seodec18
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 343671c1d9ee82950a9822648f9831588da7e9f8
-ms.sourcegitcommit: 2d7910337e66bbf4bd8ad47390c625f13551510b
+ms.openlocfilehash: 03a8d1f3e541d61d515b28bf56964c0add3b390e
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/08/2020
-ms.locfileid: "80876182"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85830636"
 ---
 # <a name="add-your-organizations-privacy-info-using-azure-active-directory"></a>Ajouter les informations de confidentialité de votre organisation à l’aide d’Azure Active Directory
 Cet article explique comment un administrateur de locataires peut ajouter des informations de confidentialité au locataire Azure Active Directory (Azure AD) d’une organisation, par le biais du portail Azure.
@@ -32,15 +32,15 @@ Vous ajoutez les informations de confidentialité de votre organisation dans la 
 
 ### <a name="to-access-the-properties-area-and-add-your-privacy-information"></a>Accéder à la zone Propriétés et ajouter vos informations de confidentialité
 
-1.    Connectez-vous au portail Azure en tant qu’administrateur de locataires.
+1. Connectez-vous au portail Azure en tant qu’administrateur de locataires.
 
-2.    Dans la barre de navigation gauche, sélectionnez **Azure Active Directory**, puis sélectionnez **Propriétés**.
+2. Dans la barre de navigation gauche, sélectionnez **Azure Active Directory**, puis sélectionnez **Propriétés**.
 
     La zone **Propriétés** s’affiche.
 
     ![Zone Propriétés Azure AD avec la zone d’informations de confidentialité mise en exergue](media/active-directory-properties-area/properties-area.png)
 
-3.    Ajoutez vos informations de confidentialité pour vos employés :
+3. Ajoutez vos informations de confidentialité pour vos employés :
 
     - **Contact technique.** Tapez l’adresse e-mail de la personne à contacter pour obtenir un support technique au sein de votre organisation.
     
@@ -53,7 +53,7 @@ Vous ajoutez les informations de confidentialité de votre organisation dans la 
 
         ![Zone Révision des autorisations B2B Collaboration avec message](media/active-directory-properties-area/active-directory-no-privacy-statement-or-contact.png)
 
-4.    Sélectionnez **Enregistrer**.
+4. Sélectionnez **Enregistrer**.
 
 ## <a name="next-steps"></a>Étapes suivantes
 - [Utilisation d’invitations Azure Active Directory B2B Collaboration](../b2b/redemption-experience.md)

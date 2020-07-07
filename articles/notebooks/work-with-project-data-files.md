@@ -3,18 +3,18 @@ title: Importer et exporter des données de projet avec Azure Notebooks (préver
 description: Découvrez comment importer des données dans un projet Azure Notebooks (préversion) à partir de sources externes et comment exporter les données à partir d’un projet.
 ms.topic: how-to
 ms.date: 12/04/2018
-ms.openlocfilehash: e1d4a52ab7f4ad2ca3438af4bc87bec0b79f34d1
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: b3669128582d3bdd6a3c4506a040856ab7b07e9a
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "75646974"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85834112"
 ---
 # <a name="work-with-data-files-in-azure-notebooks-preview-projects"></a>Utiliser des fichiers de données dans des projets Azure Notebooks (préversion)
 
-Les données sont l'élément moteur des notebooks Jupyter, notamment des notebooks utilisés pour la science des données. Avec Azure Notebooks, vous pouvez facilement importer des données issues de différentes sources dans un projet, puis utiliser ces données à partir des notebooks. Vous pouvez aussi veiller à ce que les notebooks génèrent les données stockés dans le projet, puis les télécharger pour les utiliser ailleurs.
-
 [!INCLUDE [notebooks-status](../../includes/notebooks-status.md)]
+
+Les données sont l'élément moteur des notebooks Jupyter, notamment des notebooks utilisés pour la science des données. Avec Azure Notebooks, vous pouvez facilement importer des données issues de différentes sources dans un projet, puis utiliser ces données à partir des notebooks. Vous pouvez aussi veiller à ce que les notebooks génèrent les données stockés dans le projet, puis les télécharger pour les utiliser ailleurs.
 
 Le menu **Données** d'un notebook en cours d'exécution propose également les commandes **Charger** et **Télécharger**, qui fonctionnent avec les fichiers du projet ainsi que les fichiers temporaires pour la session de notebook en cours.
 
