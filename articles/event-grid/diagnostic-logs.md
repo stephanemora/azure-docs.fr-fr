@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 04/29/2020
 ms.author: spelluru
 ms.openlocfilehash: 93e7e47cbcc1ab9542ba333b89f7dd655a412489
-ms.sourcegitcommit: 1895459d1c8a592f03326fcb037007b86e2fd22f
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/01/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "82629794"
 ---
 #  <a name="diagnostic-logs-for-azure-event-grid-topicsdomains"></a>Journaux de diagnostic pour des rubriques/domaines Azure Event Grid
@@ -29,7 +29,7 @@ Les paramètres de diagnostic permettent aux utilisateurs d’Event Grid de capt
 | Message | String | Message du journal destiné à l’utilisateur expliquant la raison de l’échec et fournissant d’autres détails. |
 | ResourceId | String | ID de ressource pour la ressource de rubrique/domaine<p>**Exemples de valeurs :** `/SUBSCRIPTIONS/SAMPLE-SUBSCRIPTION-ID/RESOURCEGROUPS/SAMPLE-RESOURCEGROUP/PROVIDERS/MICROSOFT.EVENTGRID/TOPICS/TOPIC1` |
 
-## <a name="example"></a> Exemple
+## <a name="example"></a>Exemple
 
 ```json
 {

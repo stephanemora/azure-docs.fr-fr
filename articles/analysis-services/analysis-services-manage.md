@@ -8,10 +8,10 @@ ms.date: 10/28/2019
 ms.author: owend
 ms.reviewer: minewiskan
 ms.openlocfilehash: a5dce5b53df817bd365d4ce9670ffd556ce365f7
-ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/27/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84015500"
 ---
 # <a name="manage-analysis-services"></a>Gérer Analysis Services

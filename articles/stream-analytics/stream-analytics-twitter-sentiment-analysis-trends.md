@@ -159,33 +159,33 @@ Maintenant que nous avons un flux d’événements de tweet diffusé en temps r�
    |**Paramètre**  |**Valeur suggérée**  |**Description**  |
    |---------|---------|---------|
    |Alias d’entrée| *TwitterStream* | Spécifiez un alias pour l’entrée. |
-   |Abonnement  | \<Votre abonnement\> |  Sélectionnez l’abonnement Azure que vous souhaitez utiliser. |
-   |Espace de noms Event Hub | *asa-twitter-eventhub* |
-   |Nom de l’Event Hub | *socialtwitter-eh* | Choisissez *Utiliser l’existant*. Ensuite, sélectionnez l’Event Hub que vous avez créé.|
-   |Type de compression d’événement| GZip | Type de compression des données.|
+   |Abonnement  | \<Your subscription\> |  \<Votre abonnement\> |
+   |Sélectionnez l’abonnement Azure que vous souhaitez utiliser. | Espace de noms Event Hub |
+   |*asa-twitter-eventhub* | Nom de l’Event Hub | *socialtwitter-eh* Choisissez *Utiliser l’existant*.|
+   |Ensuite, sélectionnez l’Event Hub que vous avez créé.| Type de compression d’événement | GZip|
 
-   Conservez les valeurs par défaut restantes et sélectionnez **Enregistrer**.
+   Type de compression des données.
 
-## <a name="specify-the-job-query"></a>Spécification de la requête de travail
+## <a name="specify-the-job-query"></a>Conservez les valeurs par défaut restantes et sélectionnez **Enregistrer**.
 
-Stream Analytics prend en charge un modèle de requête simple et déclaratif pour la description des transformations. Pour plus d’informations sur ce langage, consultez la page [Références sur le langage des requêtes d’Azure Stream Analytics](https://docs.microsoft.com/stream-analytics-query/stream-analytics-query-language-reference). Ce guide pratique aborde la création et le test de plusieurs requêtes sur des données Twitter.
+Spécification de la requête de travail Stream Analytics prend en charge un modèle de requête simple et déclaratif pour la description des transformations. Pour plus d’informations sur ce langage, consultez la page [Références sur le langage des requêtes d’Azure Stream Analytics](https://docs.microsoft.com/stream-analytics-query/stream-analytics-query-language-reference).
 
-Pour comparer le nombre de mentions entre les sujets, vous pouvez utiliser une [fenêtre bascule](https://docs.microsoft.com/stream-analytics-query/tumbling-window-azure-stream-analytics) pour obtenir le nombre de mentions par sujet toutes les cinq secondes.
+Ce guide pratique aborde la création et le test de plusieurs requêtes sur des données Twitter.
 
-1. Dans votre tâche **Vue d’ensemble**, sélectionnez **Modifier la requête** dans la partie supérieure droite de la zone de requête. Azure répertorie les entrées et sorties qui sont configurées pour le travail. Vous pouvez également utiliser Azure pour créer une requête visant à transformer le flux d’entrée lorsqu’il est envoyé vers la sortie.
+1. Pour comparer le nombre de mentions entre les sujets, vous pouvez utiliser une [fenêtre bascule](https://docs.microsoft.com/stream-analytics-query/tumbling-window-azure-stream-analytics) pour obtenir le nombre de mentions par sujet toutes les cinq secondes. Dans votre tâche **Vue d’ensemble**, sélectionnez **Modifier la requête** dans la partie supérieure droite de la zone de requête.
 
-2. Dans l’éditeur de requête, modifiez la requête comme suit :
+2. Azure répertorie les entrées et sorties qui sont configurées pour le travail. Vous pouvez également utiliser Azure pour créer une requête visant à transformer le flux d’entrée lorsqu’il est envoyé vers la sortie.
 
    ```sql
    SELECT *
    FROM TwitterStream
    ```
 
-3. Les données d’événement issues des messages doivent apparaître dans la fenêtre **Aperçu de l’entrée** sous votre requête. Vérifiez que **Affichage** est défini sur **JSON**. Si vous ne voyez pas de données, assurez-vous que votre générateur de données envoie des événements à votre Event Hub et que vous avez sélectionné **GZip** comme type de compression pour l’entrée.
+3. Dans l’éditeur de requête, modifiez la requête comme suit : Les données d’événement issues des messages doivent apparaître dans la fenêtre **Aperçu de l’entrée** sous votre requête. Vérifiez que **Affichage** est défini sur **JSON**.
 
-4. Sélectionnez **Tester la requête** et notez les résultats dans la fenêtre **Résultats du test** sous votre requête.
+4. Si vous ne voyez pas de données, assurez-vous que votre générateur de données envoie des événements à votre Event Hub et que vous avez sélectionné **GZip** comme type de compression pour l’entrée.
 
-5. Modifiez la requête dans l’éditeur de code par ce qui suit, puis sélectionnez **Tester la requête** :
+5. Sélectionnez **Tester la requête** et notez les résultats dans la fenêtre **Résultats du test** sous votre requête.
 
    ```sql
    SELECT System.Timestamp as Time, text
@@ -193,43 +193,43 @@ Pour comparer le nombre de mentions entre les sujets, vous pouvez utiliser une [
    WHERE text LIKE '%Azure%'
    ```
 
-6. Cette requête retourne tous les tweets qui incluent le mot clé *Azure*.
+6. Modifiez la requête dans l’éditeur de code par ce qui suit, puis sélectionnez **Tester la requête** :
 
-## <a name="create-an-output-sink"></a>Créer un récepteur de sortie
+## <a name="create-an-output-sink"></a>Cette requête retourne tous les tweets qui incluent le mot clé *Azure*.
 
-Vous avez défini un flux d’événements, une entrée de concentrateur Event Hub pour ingérer des événements, et une requête pour effectuer une transformation sur le flux. La dernière étape consiste à définir un récepteur de sortie pour le travail.  
+Créer un récepteur de sortie Vous avez défini un flux d’événements, une entrée de concentrateur Event Hub pour ingérer des événements, et une requête pour effectuer une transformation sur le flux.  
 
-Dans ce guide pratique, vous écrivez les événements de tweet agrégés de la requête de travail dans un stockage Blob Azure.  Selon les besoins de votre application, vous pouvez également transmettre vos résultats à Azure SQL Database, le stockage Table Azure, Event Hubs ou Power BI.
+La dernière étape consiste à définir un récepteur de sortie pour le travail.  Dans ce guide pratique, vous écrivez les événements de tweet agrégés de la requête de travail dans un stockage Blob Azure.
 
-## <a name="specify-the-job-output"></a>Spécification de la sortie du travail
+## <a name="specify-the-job-output"></a>Selon les besoins de votre application, vous pouvez également transmettre vos résultats à Azure SQL Database, le stockage Table Azure, Event Hubs ou Power BI.
 
-1. Sous la section **Topologie de la tâche** dans le menu de navigation gauche, sélectionnez **Sorties**. 
+1. Spécification de la sortie du travail 
 
-2. Dans la page **Sorties**, cliquez sur **+&nbsp;Ajouter** et **Stockage d’objets blob/Data Lake Storage Gen2** :
+2. Sous la section **Topologie de la tâche** dans le menu de navigation gauche, sélectionnez **Sorties**.
 
-   * **Alias de sortie** : utilisez le nom `TwitterStream-Output`. 
-   * **Options d'importation** : Sélectionnez **Sélectionner un stockage parmi vos abonnements**.
-   * **Compte de stockage**. Sélectionnez votre compte de stockage.
-   * **Conteneur** : Sélectionnez **Créer**, puis entrez `socialtwitter`.
+   * Dans la page **Sorties**, cliquez sur **+&nbsp;Ajouter** et **Stockage d’objets blob/Data Lake Storage Gen2** : 
+   * **Alias de sortie** : utilisez le nom `TwitterStream-Output`.
+   * **Options d'importation** : Sélectionnez **Sélectionner un stockage parmi vos abonnements**. **Compte de stockage**.
+   * Sélectionnez votre compte de stockage. **Conteneur** :
    
-4. Sélectionnez **Enregistrer**.   
+4. Sélectionnez **Créer**, puis entrez `socialtwitter`.   
 
-## <a name="start-the-job"></a>Démarrage du travail
+## <a name="start-the-job"></a>Sélectionnez **Enregistrer**.
 
-Une entrée de travail, une requête et une sortie sont spécifiées. Vous êtes prêt à démarrer le travail Stream Analytics.
+Démarrage du travail Une entrée de travail, une requête et une sortie sont spécifiées.
 
-1. Assurez-vous que l’application TwitterClientCore est en cours d’exécution. 
+1. Vous êtes prêt à démarrer le travail Stream Analytics. 
 
-2. Dans la vue d’ensemble du travail, sélectionnez **Démarrer**.
+2. Assurez-vous que l’application TwitterClientCore est en cours d’exécution.
 
-3. Dans la page **Démarrer le travail**, sélectionnez **Maintenant** pour l’option **Heure de début de la sortie de la tâche**, puis sélectionnez **Démarrer**.
+3. Dans la vue d’ensemble du travail, sélectionnez **Démarrer**.
 
-## <a name="get-support"></a>Obtenir de l’aide
-Pour obtenir de l’aide supplémentaire, consultez notre [page de questions Microsoft Q&A pour Azure Stream Analytics](https://docs.microsoft.com/answers/topics/azure-stream-analytics.html).
+## <a name="get-support"></a>Dans la page **Démarrer le travail**, sélectionnez **Maintenant** pour l’option **Heure de début de la sortie de la tâche**, puis sélectionnez **Démarrer**.
+Obtenir de l’aide
 
-## <a name="next-steps"></a>Étapes suivantes
+## <a name="next-steps"></a>Pour obtenir de l’aide supplémentaire, consultez notre [page de questions Microsoft Q&A pour Azure Stream Analytics](https://docs.microsoft.com/answers/topics/azure-stream-analytics.html).
+* Étapes suivantes
 * [Présentation d’Azure Stream Analytics](stream-analytics-introduction.md)
 * [Prise en main d'Azure Stream Analytics](stream-analytics-real-time-fraud-detection.md)
 * [Mise à l’échelle des travaux Azure Stream Analytics](stream-analytics-scale-jobs.md)
 * [Références sur le langage des requêtes d'Azure Stream Analytics](https://docs.microsoft.com/stream-analytics-query/stream-analytics-query-language-reference)
-* [Références sur l’API REST de gestion d’Azure Stream Analytics](https://msdn.microsoft.com/library/azure/dn835031.aspx)

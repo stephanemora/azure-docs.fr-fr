@@ -15,10 +15,10 @@ ms.workload: infrastructure
 ms.date: 08/02/2018
 ms.author: borisb
 ms.openlocfilehash: 070477c638e5a625e0c03751a1778fa0a246cd77
-ms.sourcegitcommit: fc718cc1078594819e8ed640b6ee4bef39e91f7f
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/27/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "83995817"
 ---
 # <a name="create-an-oracle-database-in-an-azure-vm"></a>Créer une base de données Oracle dans une machine virtuelle Azure

@@ -6,10 +6,10 @@ ms.topic: conceptual
 description: Découvrez comment activer Azure Dev Spaces sur un cluster AKS et installer les outils côté client.
 keywords: Docker, Kubernetes, Azure, AKS, Azure Kubernetes Service, conteneurs, Helm, service Mesh, routage du service Mesh, kubectl, k8s
 ms.openlocfilehash: b62c4a4861529c19363f159b8cc64a32a0ba11e8
-ms.sourcegitcommit: fc718cc1078594819e8ed640b6ee4bef39e91f7f
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/27/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "83996259"
 ---
 # <a name="enable-azure-dev-spaces-on-an-aks-cluster-and-install-the-client-side-tools"></a>Activer Azure Dev Spaces sur un cluster AKS et installer les outils côté client

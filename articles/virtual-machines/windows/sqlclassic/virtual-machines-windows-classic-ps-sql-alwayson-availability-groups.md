@@ -15,10 +15,10 @@ ms.workload: iaas-sql-server
 ms.date: 03/17/2017
 ms.author: mikeray
 ms.openlocfilehash: 7f20d79ea353830b41290c7b91d8d1de2b1b3abe
-ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/27/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84014857"
 ---
 # <a name="configure-the-always-on-availability-group-on-an-azure-vm-with-powershell"></a>Configurer le groupe de disponibilité Always On sur une machine virtuelle Azure avec PowerShell

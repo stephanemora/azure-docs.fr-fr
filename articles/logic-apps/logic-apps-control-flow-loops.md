@@ -7,10 +7,10 @@ ms.reviewer: klam, logicappspm
 ms.topic: article
 ms.date: 01/05/2019
 ms.openlocfilehash: 986440db7f8d4e1d4d46832543f58fa2985a4df4
-ms.sourcegitcommit: 0b80a5802343ea769a91f91a8cdbdf1b67a932d3
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/25/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "83831617"
 ---
 # <a name="create-loops-that-repeat-workflow-actions-or-process-arrays-in-azure-logic-apps"></a>Créer des boucles qui répètent des actions de workflow ou des tableaux de processus dans Azure Logic Apps
@@ -232,7 +232,7 @@ Voici quelques scénarios courants dans lesquels vous pouvez utiliser une boucle
 
       | Propriété | Valeur | Description |
       | -------- | ----- | ----------- | 
-      | **To** | *\<adresse e-mail\@domaine>* | Adresse e-mail du destinataire. Pour effectuer le test, utilisez votre propre adresse e-mail. | 
+      | **To** | *\<email-address\@domain>* | Adresse e-mail du destinataire. Pour effectuer le test, utilisez votre propre adresse e-mail. | 
       | **Subject** | La valeur actuelle de la variable « Limite » est **Limite** | Spécifiez l’objet du message électronique. Pour cet exemple, assurez-vous d’inclure la variable **Limite**. | 
       | **Corps** | <*email-content*> | Spécifiez le contenu du message électronique à envoyer. Pour cet exemple, écrivez ce que vous voulez. | 
       |||| 

@@ -14,10 +14,10 @@ ms.author: jmprieur
 ms.reviewer: brandwe
 ms.custom: aaddev
 ms.openlocfilehash: f24b3c9256f759b87c705aae9b93c2d6bc74d30c
-ms.sourcegitcommit: d662eda7c8eec2a5e131935d16c80f1cf298cb6b
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/01/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "82652637"
 ---
 # <a name="register-mobile-apps-that-call-web-apis"></a>Inscrire des applications mobiles appelant des API web
