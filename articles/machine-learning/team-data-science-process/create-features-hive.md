@@ -12,10 +12,10 @@ ms.date: 01/10/2020
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
 ms.openlocfilehash: c926aac3ea4360793ff52b616a55dc6198357c8a
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "76721776"
 ---
 # <a name="create-features-for-data-in-a-hadoop-cluster-using-hive-queries"></a>Création de fonctionnalités pour les données dans un cluster Hadoop à l’aide de requêtes Hive
@@ -89,14 +89,14 @@ Hive est livré avec un ensemble de FDU pour traiter des champs d’horodatage. 
         select day(<datetime field>), month(<datetime field>)
         from <databasename>.<tablename>;
 
-Cette requête Hive suppose que le *\<datetime field>* est au format d’horodatage par défaut.
+Cette requête Hive suppose que *\<datetime field>* est au format d’horodatage par défaut.
 
 Si un champ d’horodatage n’est pas au format par défaut, il faut d’abord le convertir en horodatage Unix puis en chaîne d’horodatage au format par défaut. Une fois l’horodatage au format par défaut, les utilisateurs peuvent appliquer les FDU d’horodatage intégrées pour extraire des fonctionnalités.
 
         select from_unixtime(unix_timestamp(<datetime field>,'<pattern of the datetime field>'))
         from <databasename>.<tablename>;
 
-Dans cette requête, si le *\<datetime field>* suit le modèle *03/26/2015 12:04:39*, le *\<modèle du champ DateHeure>’* doit être `'MM/dd/yyyy HH:mm:ss'`. Pour le tester, les utilisateurs peuvent exécuter :
+Dans cette requête, si *\<datetime field>* suit le modèle *03/26/2015 12:04:39*, *\<pattern of the datetime field>'* doit être `'MM/dd/yyyy HH:mm:ss'`. Pour le tester, les utilisateurs peuvent exécuter :
 
         select from_unixtime(unix_timestamp('05/15/2015 09:32:10','MM/dd/yyyy HH:mm:ss'))
         from hivesampletable limit 1;

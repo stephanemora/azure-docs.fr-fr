@@ -12,10 +12,10 @@ ms.date: 01/10/2020
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
 ms.openlocfilehash: 3f02690d7c54581ed80b521e8222d1bd5964c878
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "76718546"
 ---
 # <a name="operationalize-spark-built-machine-learning-models"></a>Faire fonctionner les modèles Machine Learning créés avec Spark
@@ -112,7 +112,7 @@ Les noyaux PySpark fournis avec les blocs-notes Jupyter comprennent un contexte 
 Le noyau PySpark fournit certaines « commandes magiques » prédéfinies, qui sont des commandes spéciales que vous pouvez appeler avec %%. Deux de ces commandes sont utilisées dans ces exemples de code.
 
 * **%%local** Indique que le code des lignes suivantes est exécuté localement. Le code doit être du code Python valide.
-* **%%sql -o \<nom de variable>** 
+* **%%sql -o \<variable name>** 
 * Exécute une requête Hive sur sqlContext. Si le paramètre -o est passé, le résultat de la requête est conservé dans le contexte Python %%local en tant que tableau de données Pandas.
 
 Pour plus d’informations sur les noyaux pour blocs-notes Jupyter et sur les « commandes magiques » qu’ils fournissent, voir [Noyaux disponibles pour les blocs-notes Jupyter avec les clusters HDInsight Spark Linux sur HDInsight](../../hdinsight/spark/apache-spark-jupyter-notebook-kernels.md).

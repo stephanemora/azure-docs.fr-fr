@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
 ms.openlocfilehash: 96078be20e8048e481a994fefc169e48ab1d8459
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "76511091"
 ---
 # <a name="prepare-your-development-and-test-environment-for-iot-edge"></a>Préparer votre environnement de développement et de test pour IoT Edge
@@ -49,7 +49,7 @@ Pour plus d’informations et pour accéder au téléchargement, consultez [Outi
 
 En plus des extensions IoT Edge, il peut s’avérer utile d’installer des extensions supplémentaires pour le développement. Par exemple, vous pouvez utiliser la [Prise en charge de Docker pour Visual Studio Code](https://marketplace.visualstudio.com/items?itemName=PeterJausovec.vscode-docker) afin de gérer vos images, conteneurs et registres. De plus, tous les principaux langages pris en charge comprennent des extensions pour Visual Studio Code qui peuvent vous aider à développer des modules.
 
-#### <a name="prerequisites"></a>Conditions préalables requises
+#### <a name="prerequisites"></a>Prérequis
 
 Les modèles de modules pour certains langages et services imposent des conditions préalables qui sont nécessaires pour générer les dossiers de projet sur votre ordinateur de développement avec Visual Studio Code.
 
