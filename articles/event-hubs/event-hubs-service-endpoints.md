@@ -13,7 +13,6 @@ ms.date: 11/26/2019
 ms.author: shvija
 ms.openlocfilehash: 91b08d6130da640adc28a3b7d85bd33f0e876caf
 ms.sourcegitcommit: d6e4eebf663df8adf8efe07deabdc3586616d1e4
-ms.translationtype: HT
 ms.contentlocale: fr-FR
 ms.lasthandoff: 04/15/2020
 ms.locfileid: "81390282"
@@ -70,7 +69,7 @@ Cette section montre comment utiliser le portail Azure pour ajouter un point de 
 
     ![Option Pare-feu – Tous les réseaux sélectionnée](./media/event-hubs-firewall/firewall-all-networks-selected.png)
 1. Pour restreindre l’accès à des réseaux spécifiques, sélectionnez l’option **Réseaux sélectionnés** au haut de la page.
-2. Dans la section **Réseau virtuel** de la page, sélectionnez **+Ajouter un réseau virtuel existant***. Sélectionnez **+ Créer un réseau virtuel** si vous souhaitez créer un réseau virtuel. 
+2. Dans la section **Réseau virtuel** de la page, sélectionnez **+Ajouter un réseau virtuel existant** *. Sélectionnez **+ Créer un réseau virtuel** si vous souhaitez créer un réseau virtuel. 
 
     ![ajouter un réseau virtuel existant](./media/event-hubs-tutorial-vnet-and-firewalls/add-vnet-menu.png)
 3. Sélectionnez le réseau virtuel dans la liste des réseaux virtuels, puis choisissez le **sous-réseau**. Vous devez activer le point de terminaison de service avant d’ajouter le réseau virtuel à la liste. Si le point de terminaison de service n’est pas activé, le portail vous invite à l’activer.
