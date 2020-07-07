@@ -8,10 +8,10 @@ ms.date: 03/16/2020
 ms.author: mbaldwin
 ms.custom: security-benchmark
 ms.openlocfilehash: b9568d352b22d9c48789f2648489be0444823fff
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "82195984"
 ---
 # <a name="azure-security-baseline-for-azure-cache-for-redis"></a>Base de référence de sécurité Azure pour Azure Cache Redis
@@ -82,7 +82,7 @@ Gérer le Service Protection DDoS Standard Azure à l’aide du portail Azure :
 
 https://docs.microsoft.com/azure/virtual-network/manage-ddos-protection
 
-**Supervision d’Azure Security Center** : Oui
+**Supervision Azure Security Center** : Oui
 
 **Responsabilité** : Customer
 
@@ -98,7 +98,7 @@ Activer et utiliser Traffic Analytics :
 
 https://docs.microsoft.com/azure/network-watcher/traffic-analytics
 
-**Supervision d’Azure Security Center** : Oui
+**Supervision Azure Security Center** : Oui
 
 **Responsabilité** : Customer
 
@@ -146,7 +146,7 @@ Groupes de sécurité d’application :
 
 https://docs.microsoft.com/azure/virtual-network/security-overview#application-security-groups
 
-**Supervision d’Azure Security Center** : Non applicable
+**Supervision Azure Security Center** : Non applicable
 
 **Responsabilité** : Customer
 
@@ -284,7 +284,7 @@ Comment configurer des alertes pour Azure Cache Redis : https://docs.microsoft.
 
 ### <a name="28-centralize-anti-malware-logging"></a>2.8 : Centraliser la journalisation anti-programme malveillant
 
-**Aide** : Non applicable. Azure Cache pour Redis ne traite pas et ne produit pas de journaux liés aux logiciels anti-programmes malveillants.
+**Conseils** : Non applicable. Azure Cache pour Redis ne traite pas et ne produit pas de journaux liés aux logiciels anti-programmes malveillants.
 
 **Supervision d’Azure Security Center** : Non applicable
 
@@ -324,7 +324,7 @@ Comment obtenir les membres d’un rôle d’annuaire dans Azure AD avec PowerSh
 
 ### <a name="32-change-default-passwords-where-applicable"></a>3.2 : Modifier les mots de passe par défaut lorsque cela est possible
 
-**Aide** : L’accès au plan de contrôle pour Azure Cache Redis est contrôlé par le biais d’Azure Active Directory (AD). Azure AD n’intègre pas le concept des mots de passe par défaut. 
+**Conseils** : L’accès au plan de contrôle pour Azure Cache Redis est contrôlé par le biais d’Azure Active Directory (AD). Azure AD n’intègre pas le concept des mots de passe par défaut. 
 
 L’accès du plan de données à Azure Cache pour Redis est contrôlé par le biais de clés d’accès. Ces clés sont utilisées par les clients qui se connectent à votre cache et peuvent être regénérées à tout moment.
 
@@ -332,7 +332,7 @@ Il n’est pas recommandé de créer des mots de passe par défaut dans votre ap
 
 Comment regénérer les clés d’accès pour Azure Cache Redis : https://docs.microsoft.com/azure/azure-cache-for-redis/cache-configure#settings
 
-**Supervision d’Azure Security Center** : Non applicable
+**Supervision Azure Security Center** : Non applicable
 
 **Responsabilité** : Partagé
 
@@ -366,7 +366,7 @@ Comprendre l’API REST Azure Cache pour Redis : https://docs.microsoft.com/res
 Comprendre l’authentification unique (SSO) avec Azure AD : https://docs.microsoft.com/azure/active-directory/manage-apps/what-is-single-sign-on
 
 
-**Supervision d’Azure Security Center** : Non applicable
+**Supervision Azure Security Center** : Non applicable
 
 **Responsabilité** : Customer
 
@@ -384,7 +384,7 @@ Comment surveiller l’identité et l’accès dans Azure Security Center : htt
 
 ### <a name="36-use-dedicated-machines-privileged-access-workstations-for-all-administrative-tasks"></a>3.6 : Utiliser des ordinateurs dédiés (stations de travail avec accès privilégié) pour toutes les tâches administratives
 
-**Aide** : Utilisez des stations de travail disposant d’un accès privilégié avec Multi-Factor Authentication (MFA) configuré pour vous connecter aux ressources Azure et les configurer.
+**Conseils** : Utilisez des stations de travail disposant d’un accès privilégié avec Multi-Factor Authentication (MFA) configuré pour vous connecter aux ressources Azure et les configurer.
 
 En savoir plus sur les stations de travail avec accès privilégié :
 
@@ -461,7 +461,7 @@ Comment intégrer Azure Sentinel : https://docs.microsoft.com/azure/sentinel/qu
 
 ### <a name="312-alert-on-account-login-behavior-deviation"></a>3.12 : Alerte en cas d’écart de comportement de connexion à un compte
 
-**Aide** : Pour un écart de comportement de connexion de compte, utilisez Azure Active Directory (AAD) Identity Protection et les fonctionnalités de détections de risques pour configurer des réponses automatiques aux actions suspectes détectées liées aux identités d’utilisateur. Vous pouvez également ingérer des données dans Azure Sentinel pour approfondir votre examen.
+**Conseils** : Pour un écart de comportement de connexion de compte, utilisez Azure Active Directory (AAD) Identity Protection et les fonctionnalités de détections de risques pour configurer des réponses automatiques aux actions suspectes détectées liées aux identités d’utilisateur. Vous pouvez également ingérer des données dans Azure Sentinel pour approfondir votre examen.
 
 Comment afficher les connexions risquées à Azure AD : https://docs.microsoft.com/azure/active-directory/reports-monitoring/concept-risky-sign-ins
 
@@ -475,7 +475,7 @@ Comment intégrer Azure Sentinel : https://docs.microsoft.com/azure/sentinel/qu
 
 ### <a name="313-provide-microsoft-with-access-to-relevant-customer-data-during-support-scenarios"></a>3.13 : Fournir à Microsoft un accès aux données client pertinentes pendant les scénarios de support
 
-**Aide** : Pas encore disponible. Customer Lockbox n’est actuellement pas pris en charge pour Azure Cache Redis.
+**Conseils** : Pas encore disponible. Customer Lockbox n’est actuellement pas pris en charge pour Azure Cache Redis.
 
 Liste des services pris en charge pour Customer Lockbox :
 
@@ -559,7 +559,7 @@ https://docs.microsoft.com/azure/azure-cache-for-redis/cache-how-to-premium-vnet
 
 ### <a name="45-use-an-active-discovery-tool-to-identify-sensitive-data"></a>4.5 : Utiliser un outil de découverte actif pour identifier les données sensibles
 
-**Aide** : Les fonctionnalités d’identification des données, de classification des données et de protection contre la perte de données ne sont pas encore disponibles pour Azure Cache Redis. Baliser des instances contenant des informations sensibles en tant que telles, et implémenter une solution tierce à des fins de conformité si nécessaire.
+**Conseils** : Les fonctionnalités d’identification des données, de classification des données et de protection contre la perte de données ne sont pas encore disponibles pour Azure Cache Redis. Baliser des instances contenant des informations sensibles en tant que telles, et implémenter une solution tierce à des fins de conformité si nécessaire.
 
 Pour la plateforme sous-jacente qui est gérée par Microsoft, Microsoft traite tout le contenu client comme sensible et déploie d'importants efforts pour vous protéger contre la perte et l’exposition des données client. Pour garantir la sécurité des données client dans Azure, Microsoft a implémenté et tient à jour une suite de contrôles et de fonctionnalités de protection des données robustes.
 
@@ -583,7 +583,7 @@ https://docs.microsoft.com/azure/role-based-access-control/role-assignments-port
 
 ### <a name="47-use-host-based-data-loss-prevention-to-enforce-access-control"></a>4.7 : Utiliser la protection contre la perte de données basée sur l’hôte pour appliquer le contrôle d’accès
 
-**Aide** : Non applicable. Cette recommandation a trait aux ressources de calcul.
+**Conseils** : Non applicable. Cette recommandation a trait aux ressources de calcul.
 
 Microsoft gère l’infrastructure sous-jacente d’Azure Cache pour Redis et a implémenté des contrôles stricts pour empêcher la perte ou l’exposition de données client.
 
@@ -637,7 +637,7 @@ Microsoft assure la gestion des vulnérabilités sur les systèmes sous-jacents 
 
 Comprendre les recommandations d’Azure Security Center : https://docs.microsoft.com/azure/security-center/recommendations-reference
 
-**Supervision d’Azure Security Center** : Oui
+**Supervision Azure Security Center** : Oui
 
 **Responsabilité** : Partagé
 
@@ -729,7 +729,7 @@ Créer et utiliser des balises : https://docs.microsoft.com/azure/azure-resourc
 
 **Aide** : Non applicable. Cette recommandation concerne les ressources de calcul et Azure dans son ensemble.
 
-**Supervision d’Azure Security Center** : Non applicable
+**Supervision Azure Security Center** : Non applicable
 
 **Responsabilité** : Non applicable
 
@@ -863,7 +863,7 @@ Configurer et gérer Azure Policy : https://docs.microsoft.com/azure/governance
 
 ### <a name="73-maintain-secure-azure-resource-configurations"></a>7.3 : Gérer les configurations de ressources Azure sécurisées
 
-**Aide** : Utilisez les stratégies Azure Policy [refuser] et [déployer s’il n’existe pas] pour appliquer des paramètres sécurisés à vos ressources Azure.
+**Conseils** : Utilisez les commandes Azure Policy [refuser] et [déployer s’il n’existe pas] pour appliquer des paramètres sécurisés à vos ressources Azure.
 
 Configurer et gérer Azure Policy : https://docs.microsoft.com/azure/governance/policy/tutorials/create-and-manage
 
@@ -875,7 +875,7 @@ Comprendre les effets d’Azure Policy : https://docs.microsoft.com/azure/gover
 
 ### <a name="74-maintain-secure-operating-system-configurations"></a>7.4 : Préserver la sécurité des configurations du système d'exploitation
 
-**Aide** : Non applicable. Ces conseils concernent les ressources de calcul.
+**Conseils** : Non applicable. Ces conseils concernent les ressources de calcul.
 
 **Supervision d’Azure Security Center** : Non applicable
 
@@ -903,7 +903,7 @@ Documentation Azure Repos : https://docs.microsoft.com/azure/devops/repos/index
 
 ### <a name="77-deploy-system-configuration-management-tools"></a>7.7 : Déployer les outils de gestion de configuration système
 
-**Aide** : Utilisez des alias Azure Policy dans l’espace de noms « Microsoft.Cache » pour créer des stratégies personnalisées d’alerte, d’audit ou d’application de configurations système. En outre, développez un processus et un pipeline pour la gestion des exceptions de stratégie.
+**Conseils** : Utilisez des alias Azure Policy dans l’espace de noms « Microsoft.Cache » pour créer des stratégies personnalisées d’alerte, d’audit ou d’application de configurations système. En outre, développez un processus et un pipeline pour la gestion des exceptions de stratégie.
 
 Configurer et gérer Azure Policy : https://docs.microsoft.com/azure/governance/policy/tutorials/create-and-manage
 
@@ -921,7 +921,7 @@ Configurer et gérer Azure Policy : https://docs.microsoft.com/azure/governance
 
 ### <a name="79-implement-automated-configuration-monitoring-for-azure-services"></a>7.9 : Mettre en place la surveillance de la configuration automatique pour les services Azure
 
-**Aide** : Utilisez des alias Azure Policy dans l’espace de noms « Microsoft.Cache » pour créer des stratégies personnalisées d’alerte, d’audit ou d’application de configurations système. Utilisez les stratégies Azure Policy [auditer], [refuser] et [déployer s’il n’existe pas] pour appliquer automatiquement des configurations pour vos instances Azure Cache pour Redis et les ressources associées.
+**Conseils** : Utilisez des alias Azure Policy dans l’espace de noms « Microsoft.Cache » pour créer des stratégies personnalisées d’alerte, d’audit ou d’application de configurations système. Utilisez les stratégies Azure Policy [auditer], [refuser] et [déployer s’il n’existe pas] pour appliquer automatiquement des configurations pour vos instances Azure Cache pour Redis et les ressources associées.
 
 Configurer et gérer Azure Policy : https://docs.microsoft.com/azure/governance/policy/tutorials/create-and-manage
 
@@ -971,7 +971,7 @@ Intégration aux identités managées Azure :
 
 https://docs.microsoft.com/azure/azure-app-configuration/howto-integrate-azure-managed-service-identity
 
-**Supervision d’Azure Security Center** : Oui
+**Supervision Azure Security Center** : Oui
 
 **Responsabilité** : Customer
 
@@ -1025,7 +1025,7 @@ Microsoft Antimalware est activé sur l’hôte sous-jacent qui prend en charge 
 
 ### <a name="91-ensure-regular-automated-back-ups"></a>9.1 : garantir des sauvegardes automatisées régulières
 
-**Aide** : Activation de la persistance Redis. La persistance Redis vous permet de conserver les données stockées dans Redis. Vous pouvez également prendre des instantanés et sauvegarder les données que vous pouvez charger en cas de défaillance matérielle. Il s’agit d’un avantage substantiel par rapport au niveau De base ou Standard, où toutes les données sont stockées en mémoire et il existe un risque de perte de données en cas de défaillance des nœuds de cache.
+**Conseils** : Activation de la persistance Redis. La persistance Redis vous permet de conserver les données stockées dans Redis. Vous pouvez également prendre des instantanés et sauvegarder les données que vous pouvez charger en cas de défaillance matérielle. Il s’agit d’un avantage substantiel par rapport au niveau De base ou Standard, où toutes les données sont stockées en mémoire et il existe un risque de perte de données en cas de défaillance des nœuds de cache.
 
 Vous pouvez également utiliser l’exportation Azure Cache pour Redis. L’exportation vous permet d’exporter les données stockées dans le Cache Azure pour Redis vers un ou plusieurs fichiers RDB compatibles. Vous pouvez utiliser cette fonctionnalité pour déplacer des données d’une instance de Cache Azure pour Redis à une autre, ou vers un autre serveur Redis. Pendant le processus d’exportation, un fichier temporaire est créé sur la machine virtuelle qui héberge l’instance de serveur Azure Cache pour Redis, puis téléchargé vers le compte de stockage désigné. Lorsque l’opération d’exportation se termine avec un état de réussite ou d’échec, le fichier temporaire est supprimé.
 
@@ -1127,7 +1127,7 @@ https://nvlpubs.nist.gov/nistpubs/SpecialPublications/NIST.SP.800-61r2.pdf
 
 En outre, marquez clairement les abonnements (par ex. production, non production) et créez un système d’attribution de noms pour identifier et classer les ressources Azure de façon claire.
 
-**Supervision d’Azure Security Center** : Oui
+**Supervision Azure Security Center** : Oui
 
 **Responsabilité** : Customer
 
@@ -1189,7 +1189,7 @@ https://docs.microsoft.com/azure/security-center/workflow-automation
 
 ### <a name="111-conduct-regular-penetration-testing-of-your-azure-resources-and-ensure-remediation-of-all-critical-security-findings-within-60-days"></a>11.1 : Procédez régulièrement à des tests d’intrusion de vos ressources Azure et veillez à résoudre tous les problèmes de sécurité critiques détectés dans un délai de 60 jours
 
-**Aide** : Suivez les règles d’engagement de Microsoft pour vous assurer que vos tests d’intrusion sont conformes aux stratégies de Microsoft :
+**Conseils** : Suivez les règles d’engagement de Microsoft pour vous assurer que vos tests d’intrusion sont conformes aux stratégies de Microsoft :
 
 https://www.microsoft.com/msrc/pentest-rules-of-engagement?rtc=1
 

@@ -8,10 +8,10 @@ ms.date: 03/16/2020
 ms.author: mbaldwin
 ms.custom: security-benchmark
 ms.openlocfilehash: 95864f932fe255d561eaeb2d803b5fcc79cb2802
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "82184093"
 ---
 # <a name="azure-security-baseline-for-azure-container-registry"></a>Ligne de base de sécurité Azure pour Azure Container Registry
@@ -35,7 +35,7 @@ Restreindre l’accès à un registre de conteneurs Azure à l’aide d’un ré
 Configurer des règles pour accéder à un registre de conteneurs Azure derrière un pare-feu : https://docs.microsoft.com/azure/container-registry/container-registry-firewall-access-rules
 
 
-**Supervision d’Azure Security Center** : Oui
+**Supervision Azure Security Center** : Oui
 
 **Responsabilité** : Customer
 
@@ -63,7 +63,7 @@ Protéger vos ressources réseau : https://docs.microsoft.com/azure/security-ce
 
 ### <a name="14-deny-communications-with-known-malicious-ip-addresses"></a>1.4 : Refuser les communications présentant des adresses IP connues comme étant malveillantes
 
-**Aide** : Activez la protection DDoS Standard sur vos réseaux virtuels Azure pour vous protéger des attaques DDoS. Utilisez la fonctionnalité de renseignement sur les menaces intégrée à Azure Security Center pour refuser les communications avec des adresses IP Internet connues comme étant malveillantes ou inutilisées.  Déployez le Pare-feu Azure à chaque extrémité du réseau de l'organisation en activant la fonctionnalité de renseignement sur les menaces et en la configurant sur « Alerter et refuser » pour vous protéger de tout trafic réseau malveillant.
+**Conseils** : Activez la protection DDoS Standard sur vos réseaux virtuels Azure pour vous protéger des attaques DDoS. Utilisez la fonctionnalité de renseignement sur les menaces intégrée à Azure Security Center pour refuser les communications avec des adresses IP Internet connues comme étant malveillantes ou inutilisées.  Déployez le Pare-feu Azure à chaque extrémité du réseau de l'organisation en activant la fonctionnalité de renseignement sur les menaces et en la configurant sur « Alerter et refuser » pour vous protéger de tout trafic réseau malveillant.
 
 Vous pouvez utiliser la fonctionnalité d'accès réseau juste-à-temps d'Azure Security Center pour configurer les groupes de sécurité réseau (NSG) et limiter l'exposition des points de terminaison aux adresses IP approuvées pendant une période limitée. De plus, utilisez la fonctionnalité de renforcement du réseau adaptatif d'Azure Security Center pour recommander des configurations NSG qui limitent les ports et les adresses IP sources en fonction du trafic réel et du renseignement sur les menaces.
 
@@ -122,7 +122,7 @@ Configurer des alertes avec le Pare-feu Azure : https://docs.microsoft.com/azur
 
 ### <a name="18-minimize-complexity-and-administrative-overhead-of-network-security-rules"></a>1.8 : Réduire la complexité et les frais administratifs liés aux règles de sécurité réseau
 
-**Aide** : Pour les ressources qui doivent accéder à votre registre de conteneurs, utilisez des étiquettes de service de réseau virtuel pour le service Azure Container Registry afin de définir des contrôles d’accès réseau sur des groupes de sécurité réseau ou le pare-feu Azure. Vous pouvez utiliser des balises de service à la place des adresses IP spécifiques lors de la création de règles de sécurité. En spécifiant le nom de l’étiquette de service « AzureContainerRegistry » dans le champ Source ou Destination approprié d’une règle, vous pouvez autoriser ou refuser le trafic pour le service correspondant. Microsoft gère les préfixes d’adresse englobés par la balise de service et met à jour automatiquement la balise de service quand les adresses changent.
+**Conseils** : Pour les ressources qui doivent accéder à votre registre de conteneurs, utilisez des étiquettes de service de réseau virtuel pour le service Azure Container Registry afin de définir des contrôles d’accès réseau sur des groupes de sécurité réseau ou le pare-feu Azure. Vous pouvez utiliser des balises de service à la place des adresses IP spécifiques lors de la création de règles de sécurité. En spécifiant le nom de l’étiquette de service « AzureContainerRegistry » dans le champ Source ou Destination approprié d’une règle, vous pouvez autoriser ou refuser le trafic pour le service correspondant. Microsoft gère les préfixes d’adresse englobés par la balise de service et met à jour automatiquement la balise de service quand les adresses changent.
 
 Autoriser l’accès par étiquette de service : https://docs.microsoft.com/azure/container-registry/container-registry-firewall-access-rules#allow-access-by-service-tag
 
@@ -142,7 +142,7 @@ Auditer la conformité des registres de conteneurs Azure à l’aide d’Azure P
 Créer une instance Azure Blueprint : https://docs.microsoft.com/azure/governance/blueprints/create-blueprint-portal
 
 
-**Supervision d’Azure Security Center** : Non applicable
+**Supervision Azure Security Center** : Non applicable
 
 **Responsabilité** : Customer
 
@@ -160,7 +160,7 @@ Créer une instance Azure Blueprint : https://docs.microsoft.com/azure/governan
 
 ### <a name="111-use-automated-tools-to-monitor-network-resource-configurations-and-detect-changes"></a>1.11 : Utiliser des outils automatisés pour superviser les configurations des ressources réseau et détecter les modifications
 
-**Aide** : Utilisez le journal des activités Azure pour superviser les configurations des ressources réseau et détecter les changements des ressources réseau associées à vos registres de conteneurs. Créez des alertes dans Azure Monitor, qui se déclenchent lors de la modification de ressources réseau critiques.
+**Conseils** : Utilisez le journal des activités Azure pour superviser les configurations des ressources réseau et détecter les changements des ressources réseau associées à vos registres de conteneurs. Créez des alertes dans Azure Monitor, qui se déclenchent lors de la modification de ressources réseau critiques.
 
 Comment consulter et récupérer les événements du journal d’activité Azure :  https://docs.microsoft.com/azure/azure-monitor/platform/activity-log-view
 
@@ -168,7 +168,7 @@ Comment créer des alertes dans Azure Monitor :  https://docs.microsoft.com/azu
 
 
 
-**Supervision d’Azure Security Center** : Oui
+**Supervision Azure Security Center** : Oui
 
 **Responsabilité** : Customer
 
@@ -195,7 +195,7 @@ Journaux d’Azure Container Registry pour l’évaluation et l’audit de diagn
 
 
 
-**Supervision d’Azure Security Center** : actuellement non disponible
+**Supervision Azure Security Center** : actuellement non disponible
 
 **Responsabilité** : Customer
 
@@ -220,7 +220,7 @@ Journaux d’Azure Container Registry pour l’évaluation et l’audit de diagn
 
 ### <a name="25-configure-security-log-storage-retention"></a>2.5 : Configurer la conservation du stockage des journaux de sécurité
 
-**Aide** : Dans Azure Monitor, définissez la période de conservation de votre espace de travail Log Analytics en fonction des obligations réglementaires de votre organisation. Utilisez les comptes de stockage Azure pour le stockage à long terme/d’archivage.
+**Conseils** : Dans Azure Monitor, définissez la période de conservation de votre espace de travail Log Analytics en fonction des obligations réglementaires de votre organisation. Utilisez les comptes de stockage Azure pour le stockage à long terme/d’archivage.
 
 Comment définir les paramètres de conservation des journaux pour les espaces de travail Log Analytics : https://docs.microsoft.com/azure/azure-monitor/platform/manage-cost-storage#change-the-data-retention-period
 
@@ -262,7 +262,7 @@ Comment générer une alerte sur des données de journal Log Analytics :  https
 **Aide** : Non applicable. Azure Container Registry ne traite pas et ne produit pas de journaux liés aux logiciels anti-programmes malveillants.
 
 
-**Supervision d’Azure Security Center** : Non applicable
+**Supervision Azure Security Center** : Non applicable
 
 **Responsabilité** : Customer
 
@@ -377,7 +377,7 @@ Comment activer l’authentification multifacteur dans Azure : https://docs.mic
 
 ### <a name="37-log-and-alert-on-suspicious-activity-from-administrative-accounts"></a>3.7 : Journaliser et générer des alertes en cas d’activités suspectes depuis les comptes d’administration
 
-**Aide** : Utilisez les rapports de sécurité Azure Active Directory (Azure AD) pour générer des journaux et des alertes quand une activité suspecte ou potentiellement dangereuse se produit dans l’environnement. Utiliser Azure Security Center pour superviser les activités liées aux identités et aux accès.
+**Conseils** : Utilisez les rapports de sécurité Azure Active Directory (Azure AD) pour générer des journaux et des alertes quand une activité suspecte ou potentiellement dangereuse se produit dans l’environnement. Utiliser Azure Security Center pour superviser les activités liées aux identités et aux accès.
 
 Comment identifier les utilisateurs Azure AD signalés pour une activité à risque : https://docs.microsoft.com/azure/active-directory/reports-monitoring/concept-user-at-risk
 
@@ -486,7 +486,7 @@ Verrouiller une image dans un registre de conteneurs Azure :  https://docs.micr
 
 ### <a name="42-isolate-systems-storing-or-processing-sensitive-information"></a>4.2 : Isoler les systèmes qui stockent ou traitent les informations sensibles
 
-**Aide** : Implémentez des registres de conteneurs, des abonnements et/ou des groupes d’administration distincts pour le développement, les tests et la production. Les ressources de stockage ou de traitement des données sensibles doivent être suffisamment isolées.
+**Conseils** : Implémentez des registres de conteneurs, des abonnements et/ou des groupes d’administration distincts pour le développement, les tests et la production. Les ressources de stockage ou de traitement des données sensibles doivent être suffisamment isolées.
 
 Les ressources doivent être séparées par un réseau virtuel ou un sous-réseau, étiquetés de manière appropriée et sécurisés par un groupe de sécurité réseau (NSG) ou un Pare-feu Azure.
 
@@ -570,7 +570,7 @@ Autorisations et rôles Azure Container Registry :  https://docs.microsoft.com/
 
 ### <a name="47-use-host-based-data-loss-prevention-to-enforce-access-control"></a>4.7 : Utiliser la protection contre la perte de données basée sur l’hôte pour appliquer le contrôle d’accès
 
-**Aide** : Si nécessaire à des fins de conformité sur les ressources de calcul, implémentez un outil tiers, tel qu’une solution automatisée de prévention contre la perte de données basée sur l’hôte, pour appliquer des contrôles d’accès aux données même lorsque des données sont copiées à partir d’un système.
+**Conseils** : Si nécessaire à des fins de conformité sur les ressources de calcul, implémentez un outil tiers, tel qu’une solution automatisée de prévention contre la perte de données basée sur l’hôte, pour appliquer des contrôles d’accès aux données même lorsque des données sont copiées à partir d’un système.
 
 Pour la plateforme sous-jacente qui est gérée par Microsoft, Microsoft traite tout le contenu client comme sensible et déploie d'importants efforts pour vous protéger contre la perte et l’exposition des données client. Pour garantir la sécurité des données client dans Azure, Microsoft a implémenté et tient à jour une suite de contrôles et de fonctionnalités de protection des données robustes.
 
@@ -602,7 +602,7 @@ Clés gérées par le client dans Azure Container Registry :  https://aka.ms/ac
 Journaux d’Azure Container Registry pour l’évaluation et l’audit de diagnostics : https://docs.microsoft.com/azure/container-registry/container-registry-diagnostics-audit-logs
 
 
-**Supervision d’Azure Security Center** : Non applicable
+**Supervision Azure Security Center** : Non applicable
 
 **Responsabilité** : Customer
 
@@ -651,7 +651,7 @@ Automatisez les mises à jour des images de conteneur lorsque des mises à jour 
 
 ### <a name="54-compare-back-to-back-vulnerability-scans"></a>5.4 : Comparer les analyses de vulnérabilités dos à dos
 
-**Aide** : Intégrez Azure Container Registry (ACR) à Azure Security Center pour activer l’analyse périodique des images de conteneur à la recherche de vulnérabilités. Déployez éventuellement des solutions tierces à partir de la Place de marché Azure pour effectuer des analyses périodiques de vulnérabilités des images.
+**Conseils** : Intégrez Azure Container Registry (ACR) à Azure Security Center pour activer l’analyse périodique des images de conteneur à la recherche de vulnérabilités. Déployez éventuellement des solutions tierces à partir de la Place de marché Azure pour effectuer des analyses périodiques de vulnérabilités des images.
 
 Intégration d’Azure Container Registry à Security Center (préversion) :  https://docs.microsoft.com/azure/security-center/azure-container-registry-integration
 
@@ -662,7 +662,7 @@ Intégration d’Azure Container Registry à Security Center (préversion) :  h
 
 ### <a name="55-use-a-risk-rating-process-to-prioritize-the-remediation-of-discovered-vulnerabilities"></a>5.5 : Utilisez un processus de classement des risques pour classer par ordre de priorité la correction des vulnérabilités découvertes.
 
-**Aide** : Intégrez Azure Container Registry (ACR) à Azure Security Center pour activer l’analyse périodique des images de conteneur à la recherche de vulnérabilités et pour classifier les risques. Déployez éventuellement des solutions tierces à partir de la Place de marché Azure pour effectuer des analyses périodiques de vulnérabilités des images et la classification des risques.
+**Conseils** : Intégrez Azure Container Registry (ACR) à Azure Security Center pour activer l’analyse périodique des images de conteneur à la recherche de vulnérabilités et pour classifier les risques. Déployez éventuellement des solutions tierces à partir de la Place de marché Azure pour effectuer des analyses périodiques de vulnérabilités des images et la classification des risques.
 
 Intégration d’Azure Container Registry à Security Center (préversion) :  https://docs.microsoft.com/azure/security-center/azure-container-registry-integration
 
@@ -678,7 +678,7 @@ Intégration d’Azure Container Registry à Security Center (préversion) :  h
 
 ### <a name="61-use-azure-asset-discovery"></a>6.1 : Utiliser la découverte de ressources Azure
 
-**Aide** : Utilisez Azure Resource Graph pour interroger/découvrir toutes les ressources (telles que calcul, stockage, réseau, ports et protocoles) dans vos abonnements.  Vérifiez les autorisations (lecture) appropriées dans votre locataire et répertoriez tous les abonnements Azure, ainsi que les ressources dans vos abonnements.
+**Conseils** : Utilisez Azure Resource Graph pour interroger/découvrir toutes les ressources (telles que calcul, stockage, réseau, ports et protocoles) dans vos abonnements.  Vérifiez les autorisations (lecture) appropriées dans votre locataire et répertoriez tous les abonnements Azure, ainsi que les ressources dans vos abonnements.
 
 Bien que les ressources Azure classiques puissent être découvertes via Resource Graph, il est vivement recommandé de créer et d’utiliser des ressources Azure Resource Manager à l’avenir.
 
@@ -703,13 +703,13 @@ Comprendre Azure RBAC : https://docs.microsoft.com/azure/role-based-access-cont
 Suggestions pour la création d’étiquettes et de versions pour les images de conteneurs : https://docs.microsoft.com/azure/container-registry/container-registry-image-tag-version
 
 
-**Supervision d’Azure Security Center** : Non applicable
+**Supervision Azure Security Center** : Non applicable
 
 **Responsabilité** : Customer
 
 ### <a name="63-delete-unauthorized-azure-resources"></a>6.3 : Supprimer des ressources Azure non autorisées
 
-**Aide** : Azure Container Registry gère les métadonnées, notamment les étiquettes et les manifestes pour les images dans un registre. Suivez les pratiques recommandées pour étiqueter les artefacts.
+**Conseils** : Azure Container Registry gère les métadonnées, notamment les étiquettes et les manifestes pour les images dans un registre. Suivez les pratiques recommandées pour étiqueter les artefacts.
 
 À propos des registres, des dépôts et des images : https://docs.microsoft.com/azure/container-registry/container-registry-concepts
 
@@ -717,13 +717,13 @@ Suggestions pour la création d’étiquettes et de versions pour les images de 
 
 
 
-**Supervision d’Azure Security Center** : Non applicable
+**Supervision Azure Security Center** : Non applicable
 
 **Responsabilité** : Customer
 
 ### <a name="64-maintain-an-inventory-of-approved-azure-resources-and-software-titles"></a>6.4 : Tenir un inventaire des ressources Azure approuvées et titres des logiciels
 
-**Aide** : Vous devez créer un inventaire des ressources Azure approuvées et des logiciels approuvés en fonction des besoins de votre organisation.  
+**Conseils** : Vous devez créer un inventaire des ressources Azure approuvées et des logiciels approuvés en fonction des besoins de votre organisation.  
 
 **Supervision d’Azure Security Center** : Non applicable
 
@@ -731,7 +731,7 @@ Suggestions pour la création d’étiquettes et de versions pour les images de 
 
 ### <a name="65-monitor-for-unapproved-azure-resources"></a>6.5 : Analyser les ressources Azure non approuvées
 
-**Aide** : Utilisez Azure Policy pour appliquer des restrictions quant au type de ressources pouvant être créées dans vos abonnements.
+**Conseils** : Utilisez Azure Policy pour appliquer des restrictions quant au type de ressources pouvant être créées dans vos abonnements.
 
 Utilisez Azure Resource Graph pour interroger/découvrir des ressources dans leurs abonnements.  Vérifiez que toutes les ressources Azure présentes dans l’environnement sont approuvées.
 
@@ -742,13 +742,13 @@ Comment configurer et gérer Azure Policy : https://docs.microsoft.com/azure/go
 Créer des requêtes avec Azure Graph :  https://docs.microsoft.com/azure/governance/resource-graph/first-query-portal
 
 
-**Supervision d’Azure Security Center** : Non applicable
+**Supervision Azure Security Center** : Non applicable
 
 **Responsabilité** : Customer
 
 ### <a name="66-monitor-for-unapproved-software-applications-within-compute-resources"></a>6.6 : Analyser les applications logicielles non approuvées dans des ressources de calcul
 
-**Aide** : Analysez et supervisez les journaux Azure Container Registry pour détecter les comportements anormaux et examinez régulièrement les résultats. Utilisez l’espace de travail Log Analytics d’Azure Monitor pour examiner les journaux et effectuer des requêtes sur leurs données.
+**Conseils** : Analysez et supervisez les journaux Azure Container Registry pour détecter les comportements anormaux et examinez régulièrement les résultats. Utilisez l’espace de travail Log Analytics d’Azure Monitor pour examiner les journaux et effectuer des requêtes sur leurs données.
 
 Journaux d’Azure Container Registry pour l’évaluation et l’audit de diagnostics :  https://docs.microsoft.com/azure/container-registry/container-registry-diagnostics-audit-logs
 
@@ -797,7 +797,7 @@ Comment refuser un type de ressource spécifique avec Azure Policy :  https://d
 
 ### <a name="610-implement-approved-application-list"></a>6.10 : Implémenter une liste d’applications approuvées
 
-**Aide** : Non applicable. Ce benchmark est destiné aux ressources de calcul.
+**Conseils** : Non applicable. Ce benchmark est destiné aux ressources de calcul.
 
 
 
@@ -854,7 +854,7 @@ Comment configurer et gérer Azure Policy : https://docs.microsoft.com/azure/go
 Auditer la conformité des registres de conteneurs Azure à l’aide d’Azure Policy :  https://docs.microsoft.com/azure/container-registry/container-registry-azure-policy
 
 
-**Supervision d’Azure Security Center** : Non applicable
+**Supervision Azure Security Center** : Non applicable
 
 **Responsabilité** : Customer
 
@@ -897,7 +897,7 @@ Comprendre les effets d’Azure Policy :  https://docs.microsoft.com/azure/gove
 
 ### <a name="75-securely-store-configuration-of-azure-resources"></a>7.5 : Stocker en toute sécurité la configuration des ressources Azure
 
-**Aide** : Si vous utilisez des définitions Azure Policy personnalisées, utilisez Azure Repos pour stocker et gérer votre code en toute sécurité.
+**Conseils** : Si vous utilisez des définitions Azure Policy personnalisées, utilisez Azure Repos pour stocker et gérer votre code en toute sécurité.
 
 Comment stocker du code dans Azure DevOps :  https://docs.microsoft.com/azure/devops/repos/git/gitworkflow?view=azure-devops
 
@@ -1011,7 +1011,7 @@ Configuration de Credential Scanner :  https://secdevtools.azurewebsites.net/he
 
 ### <a name="81-use-centrally-managed-anti-malware-software"></a>8.1 : Utiliser un logiciel anti-programme malveillant géré de manière centralisée
 
-**Aide** : Utilisez Microsoft Antimalware pour Azure Cloud Services et les machines virtuelles afin de superviser et défendre en continu vos ressources. Pour Linux, utilisez une solution logicielle anti-programme malveillant tierce.
+**Conseils** : Utilisez Microsoft Antimalware pour Azure Cloud Services et les machines virtuelles afin de superviser et défendre en continu vos ressources. Pour Linux, utilisez une solution logicielle anti-programme malveillant tierce.
 
 Comment configurer Microsoft Antimalware pour Azure Cloud Services et les machines virtuelles :  https://docs.microsoft.com/azure/security/fundamentals/antimalware
 
@@ -1033,7 +1033,7 @@ Pré-analysez les fichiers chargés sur des ressources Azure non liées au calcu
 
 ### <a name="83-ensure-anti-malware-software-and-signatures-are-updated"></a>8.3 : Vérifier que les logiciels et signatures anti-programme malveillant sont mis à jour
 
-**Aide** : Non applicable. Ce benchmark a trait aux ressources de calcul. Microsoft gère les logiciels anti-programme malveillant pour la plateforme sous-jacente.
+**Conseils** : Non applicable. Ce benchmark a trait aux ressources de calcul. Microsoft gère les logiciels anti-programme malveillant pour la plateforme sous-jacente.
 
 
 **Supervision Azure Security Center** : Non applicable
@@ -1119,7 +1119,7 @@ Le client peut également tirer parti du guide de gestion des incidents de sécu
 
 ### <a name="102-create-an-incident-scoring-and-prioritization-procedure"></a>10.2 : Créer une procédure de notation et de classement des incidents
 
-**Aide** : Azure Security Center attribue un niveau de gravité à chaque alerte pour vous aider à hiérarchiser celles devant être examinées en premier. La gravité dépend du niveau de confiance que Security Center accorde à la recherche ou aux données analytiques utilisées pour émettre l’alerte, mais aussi de l’intention malveillante estimée de l’activité à l’origine de l’alerte.
+**Conseils** : Azure Security Center attribue un niveau de gravité à chaque alerte pour vous aider à hiérarchiser celles devant être examinées en premier. La gravité dépend du niveau de confiance que Security Center accorde à la recherche ou aux données analytiques utilisées pour émettre l’alerte, mais aussi de l’intention malveillante estimée de l’activité à l’origine de l’alerte.
 
 En outre, marquez clairement les abonnements (par ex. production, non production) et créez un système d’attribution de noms pour identifier et classer les ressources Azure de façon claire.
 

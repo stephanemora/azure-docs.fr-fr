@@ -8,10 +8,10 @@ ms.date: 03/25/2020
 ms.author: mbaldwin
 ms.custom: security-benchmark
 ms.openlocfilehash: c60c1d33954b5e12038fd66787225f4d0aeba62d
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "82184705"
 ---
 # <a name="azure-security-baseline-for-event-hubs"></a>Base de référence de sécurité Azure pour Event Hubs
@@ -56,7 +56,7 @@ Activer les journaux de flux NSG : https://docs.microsoft.com/azure/network-wat
 
 Comprendre la sécurité réseau fournie par Azure Security Center : https://docs.microsoft.com/azure/security-center/security-center-network-recommendations
 
-**Supervision d’Azure Security Center** : Oui
+**Supervision Azure Security Center** : Oui
 
 **Responsabilité** : Customer
 
@@ -70,13 +70,13 @@ Comprendre la sécurité réseau fournie par Azure Security Center : https://do
 
 ### <a name="14-deny-communications-with-known-malicious-ip-addresses"></a>1.4 : Refuser les communications présentant des adresses IP connues comme étant malveillantes
 
-**Aide** : Activez le service Protection DDoS Standard sur les réseaux virtuels associés à vos hubs d’événements à des fins de protection contre les attaques par déni de service distribué (DDoS). Utilisez la fonctionnalité de renseignement sur les menaces intégrée à Azure Security Center pour refuser les communications avec des adresses IP Internet connues comme étant malveillantes ou inutilisées.
+**Conseils** : Activez le service Protection DDoS Standard sur les réseaux virtuels associés à vos hubs d’événements à des fins de protection contre les attaques par déni de service distribué (DDoS). Utilisez la fonctionnalité de renseignement sur les menaces intégrée à Azure Security Center pour refuser les communications avec des adresses IP Internet connues comme étant malveillantes ou inutilisées.
 
 Comment configurer la protection DDoS : [https://docs.microsoft.com/azure/virtual-network/manage-ddos-protection](/azure/virtual-network/manage-ddos-protection)
 
 Pour plus d’informations sur la fonctionnalité de renseignement sur les menaces intégrée à Azure Security Center : https://docs.microsoft.com/azure/security-center/security-center-alerts-service-layer
 
-**Supervision d’Azure Security Center** : Oui
+**Supervision Azure Security Center** : Oui
 
 **Responsabilité** : Customer
 
@@ -124,7 +124,7 @@ Comment ajouter une règle de pare-feu dans Event Hubs pour une adresse IP spéc
 
 **Aide** : Non applicable, cette recommandation a trait aux applications web s’exécutant sur Azure App Service ou des ressources de calcul.
 
-**Supervision d’Azure Security Center** : Non applicable
+**Supervision Azure Security Center** : Non applicable
 
 **Responsabilité** : Non applicable
 
@@ -178,7 +178,7 @@ Créer des alertes dans Azure Monitor : https://docs.microsoft.com/azure/azure-
 
 ### <a name="21-use-approved-time-synchronization-sources"></a>2.1 : Utiliser des sources de synchronisation date/heure approuvées
 
-**Aide** : Non applicable. Microsoft conserve la source de temps utilisée pour les ressources Azure, par exemple, Azure Event Hubs, pour les timestamps dans les journaux.
+**Conseils** : Non applicable. Microsoft conserve la source de temps utilisée pour les ressources Azure, par exemple, Azure Event Hubs, pour les timestamps dans les journaux.
 
 **Supervision d’Azure Security Center** : Non applicable
 
@@ -198,7 +198,7 @@ Présentation du journal d’activité Azure : https://docs.microsoft.com/azure
 
 ### <a name="23-enable-audit-logging-for-azure-resources"></a>2.3 : Activer la journalisation d’audit pour les ressources Azure
 
-**Aide** : Activez les paramètres de diagnostic pour votre espace de noms Azure Event Hubs. Il existe trois catégories de paramètres de diagnostic pour Azure Event Hubs : journaux d’archivage, Journaux des opérations et journaux de mise à l’échelle automatique. Activez les journaux des opérations pour capturer les informations relatives à ce qui se passe pendant les opérations Event Hubs, en particulier le type d’opération tel que la création d’un hub d’événements, les ressources utilisées et l’état de l’opération.
+**Conseils** : Activez les paramètres de diagnostic pour votre espace de noms Azure Event Hubs. Il existe trois catégories de paramètres de diagnostic pour Azure Event Hubs : journaux d’archivage, Journaux des opérations et journaux de mise à l’échelle automatique. Activez les journaux des opérations pour capturer les informations relatives à ce qui se passe pendant les opérations Event Hubs, en particulier le type d’opération tel que la création d’un hub d’événements, les ressources utilisées et l’état de l’opération.
 
 En outre, vous pouvez activer les paramètres de diagnostic des journaux d’activité Azure et les envoyer vers un compte de stockage Azure, un hub d’événements ou un espace de travail Log Analytics. Les journaux d’activité fournissent des insights sur les opérations qui ont été effectuées sur vos ressources Azure Event Hubs et autres. À l’aide des journaux d’activité, vous pouvez déterminer « qui, quand et quoi » pour toutes les opérations d’écriture (PUT, POST, DELETE) sur vos espaces de noms Azure Event Hubs.
 
@@ -303,7 +303,7 @@ Comment obtenir les membres d’un rôle d’annuaire dans Azure AD avec PowerSh
 
 ### <a name="32-change-default-passwords-where-applicable"></a>3.2 : Modifier les mots de passe par défaut lorsque cela est possible
 
-**Aide** : L’accès au plan de contrôle pour Event Hubs est contrôlé par le biais d’Azure Active Directory (AD). Azure AD n’intègre pas le concept des mots de passe par défaut.
+**Conseils** : L’accès au plan de contrôle pour Event Hubs est contrôlé par le biais d’Azure Active Directory (AD). Azure AD n’intègre pas le concept des mots de passe par défaut.
 
 L’accès au plan de données pour Event Hubs est contrôlé par le biais d’Azure AD avec des identités managées ou des inscriptions d’applications ainsi que des signatures d’accès partagé. Les signatures d’accès partagé sont utilisées par les clients qui se connectent à vos hubs d’événements et peuvent être regénérées à tout moment.
 
@@ -315,7 +315,7 @@ Comprendre les signatures d’accès partagé pour Event Hubs : https://docs.mi
 
 ### <a name="33-use-dedicated-administrative-accounts"></a>3.3 : Utiliser des comptes d’administration dédiés
 
-**Aide** : Créez des procédures standard autour de l’utilisation de comptes d’administration dédiés. Utilisez la gestion des identités et des accès dans Azure Security Center pour superviser le nombre de comptes d’administration.
+**Conseils** : Créez des procédures standard autour de l’utilisation de comptes d’administration dédiés. Utilisez la gestion des identités et des accès dans Azure Security Center pour superviser le nombre de comptes d’administration.
 
 En outre, pour vous aider à suivre les comptes d’administration dédiés, vous pouvez utiliser des recommandations d’Azure Security Center ou des stratégies Azure intégrées, telles que les suivantes :
 
@@ -335,7 +335,7 @@ Comment utiliser Azure Policy : https://docs.microsoft.com/azure/governance/pol
 
 ### <a name="34-use-single-sign-on-sso-with-azure-active-directory"></a>3.4 : Utiliser l’authentification unique (SSO) avec Azure Active Directory
 
-**Aide** : Microsoft Azure offre la gestion du contrôle d’accès intégré pour les ressources et les applications basées sur Azure Active Directory (AD). L’un des principaux avantages de l’utilisation d’Azure AD avec Azure Event Hubs est que vous n’avez plus besoin de stocker vos informations d’identification dans le code. Au lieu de cela, vous pouvez demander un jeton d’accès OAuth 2.0 à partir de la Plateforme d’identité Microsoft. Le nom de ressource à utiliser pour demander un jeton est https:\//eventhubs.azure.net/. Azure AD authentifie le principal de sécurité (un utilisateur, un groupe ou un principal de service) qui exécute l’application. Si l’authentification réussit, Azure AD retourne un jeton d’accès à l’application et l’application peut ensuite l’utiliser pour autoriser les demandes vers les ressources Azure Event Hubs.
+**Conseils** : Microsoft Azure offre la gestion du contrôle d’accès intégré pour les ressources et les applications basées sur Azure Active Directory (AD). L’un des principaux avantages de l’utilisation d’Azure AD avec Azure Event Hubs est que vous n’avez plus besoin de stocker vos informations d’identification dans le code. Au lieu de cela, vous pouvez demander un jeton d’accès OAuth 2.0 à partir de la Plateforme d’identité Microsoft. Le nom de ressource à utiliser pour demander un jeton est https:\//eventhubs.azure.net/. Azure AD authentifie le principal de sécurité (un utilisateur, un groupe ou un principal de service) qui exécute l’application. Si l’authentification réussit, Azure AD retourne un jeton d’accès à l’application et l’application peut ensuite l’utiliser pour autoriser les demandes vers les ressources Azure Event Hubs.
 
 Comment authentifier une application avec Azure AD pour accéder aux ressources Event Hubs : https://docs.microsoft.com/azure/event-hubs/authenticate-application
 
@@ -347,13 +347,13 @@ Comprendre l’authentification unique (SSO) avec Azure AD : https://docs.micro
 
 ### <a name="35-use-multi-factor-authentication-for-all-azure-active-directory-based-access"></a>3.5 : Utiliser l’authentification multifacteur pour tous les accès basés sur Azure Active Directory
 
-**Aide** : Activez Azure Active Directory Multi-Factor Authentication (MFA) et suivez les recommandations Azure Security Center sur la gestion des identités et des accès pour protéger vos ressources Event Hub.
+**Conseils** : Activez Azure Active Directory Multi-Factor Authentication (MFA) et suivez les recommandations Azure Security Center sur la gestion des identités et des accès pour protéger vos ressources Event Hub.
 
 Comment activer l’authentification multifacteur dans Azure : https://docs.microsoft.com/azure/active-directory/authentication/howto-mfa-getstarted
 
 Comment surveiller l’identité et l’accès dans Azure Security Center : https://docs.microsoft.com/azure/security-center/security-center-identity-access
 
-**Supervision d’Azure Security Center** : Oui
+**Supervision Azure Security Center** : Oui
 
 **Responsabilité** : Customer
 
@@ -371,7 +371,7 @@ Comment activer l’authentification multifacteur dans Azure : https://docs.mic
 
 ### <a name="37-log-and-alert-on-suspicious-activity-from-administrative-accounts"></a>3.7 : Journaliser et générer des alertes en cas d’activités suspectes depuis les comptes d’administration
 
-**Aide** : Utilisez Azure Active Directory (AD) Privileged Identity Management pour générer des journaux et des alertes quand des activités suspectes ou potentiellement dangereuses se produisent dans l’environnement. Utilisez les détections de risque Azure AD pour visualiser les alertes et des rapports sur les comportements à risque des utilisateurs. Pour une journalisation complémentaire, envoyez les alertes de détection des risques d’Azure Security Center à Azure Monitor et configurez des alertes/notifications personnalisées à l’aide de groupes d’actions.
+**Conseils** : Utilisez Azure Active Directory (AD) Privileged Identity Management pour générer des journaux et des alertes quand des activités suspectes ou potentiellement dangereuses se produisent dans l’environnement. Utilisez les détections de risque Azure AD pour visualiser les alertes et des rapports sur les comportements à risque des utilisateurs. Pour une journalisation complémentaire, envoyez les alertes de détection des risques d’Azure Security Center à Azure Monitor et configurez des alertes/notifications personnalisées à l’aide de groupes d’actions.
 
 Comment déployer Privileged Identity Management (PIM) : https://docs.microsoft.com/azure/active-directory/privileged-identity-management/pim-deployment-plan
 
@@ -379,13 +379,13 @@ Comprendre les détections des risques Azure AD : https://docs.microsoft.com/az
 
 Comment configurer des groupes d’actions pour générer des alertes et des notifications personnalisées : https://docs.microsoft.com/azure/azure-monitor/platform/action-groups
 
-**Supervision d’Azure Security Center** : Oui
+**Supervision Azure Security Center** : Oui
 
 **Responsabilité** : Customer
 
 ### <a name="38-manage-azure-resources-from-only-approved-locations"></a>3.8 : Gérer les ressources Azure à partir des emplacements approuvés uniquement
 
-**Aide** : Utilisez des emplacements nommés à accès conditionnel pour autoriser l’accès uniquement à partir de regroupements logiques spécifiques de plages d’adresses IP ou de pays/régions.
+**Conseils** : Utilisez des emplacements nommés à accès conditionnel pour autoriser l’accès uniquement à partir de regroupements logiques spécifiques de plages d’adresses IP ou de pays/régions.
 
 
 
@@ -447,13 +447,13 @@ Comment configurer et activer des stratégies de protection des identités : ht
 
 Comment intégrer Azure Sentinel : https://docs.microsoft.com/azure/sentinel/quickstart-onboard
 
-**Supervision d’Azure Security Center** : Non applicable
+**Supervision Azure Security Center** : Non applicable
 
 **Responsabilité** : Customer
 
 ### <a name="313-provide-microsoft-with-access-to-relevant-customer-data-during-support-scenarios"></a>3.13 : Fournir à Microsoft un accès aux données client pertinentes pendant les scénarios de support
 
-**Aide** : Non disponible ; Customer Lockbox n’est pas encore pris en charge pour Event Hubs.
+**Conseils** : Non disponible ; Customer Lockbox n’est pas encore pris en charge pour Event Hubs.
 
 Liste des services pris en charge par Customer Lockbox : https://docs.microsoft.com/azure/security/fundamentals/customer-lockbox-overview#supported-services-and-scenarios-in-general-availability
 
@@ -527,7 +527,7 @@ Pour comprendre les fonctionnalités de sécurité d’Event Hubs, consultez Sé
 
 ### <a name="45-use-an-active-discovery-tool-to-identify-sensitive-data"></a>4.5 : Utiliser un outil de découverte actif pour identifier les données sensibles
 
-**Aide** : Les fonctionnalités d’identification des données, de classification des données et de protection contre la perte de données ne sont pas encore disponibles pour Azure Event Hubs. Implémentez une solution tierce si nécessaire à des fins de conformité.
+**Conseils** : Les fonctionnalités d’identification des données, de classification des données et de protection contre la perte de données ne sont pas encore disponibles pour Azure Event Hubs. Implémentez une solution tierce si nécessaire à des fins de conformité.
 
 Pour la plateforme sous-jacente managée par Microsoft, Microsoft considère tout le contenu client comme sensible et met tout en œuvre pour empêcher la perte et l’exposition des données client. Pour garantir la sécurité des données client dans Azure, Microsoft a implémenté et tient à jour une suite de contrôles et de fonctionnalités de protection des données robustes.
 
@@ -585,7 +585,7 @@ Comment créer des alertes pour les événements du journal d’activité Azure�
 
 ### <a name="51-run-automated-vulnerability-scanning-tools"></a>5.1 : Exécuter les outils d’analyse des vulnérabilités automatisés
 
-**Aide** : Non applicable. Microsoft assure la gestion des vulnérabilités sur les systèmes sous-jacents prenant en charge Event Hubs.
+**Conseils** : Non applicable. Microsoft assure la gestion des vulnérabilités sur les systèmes sous-jacents prenant en charge Event Hubs.
 
 **Supervision d’Azure Security Center** : Non applicable
 
@@ -601,7 +601,7 @@ Comment créer des alertes pour les événements du journal d’activité Azure�
 
 ### <a name="53-deploy-automated-third-party-software-patch-management-solution"></a>5.3 : Déployer une solution de gestion de correctif logiciel tiers automatisée
 
-**Aide** : Non applicable. Le benchmark a trait aux ressources de calcul.
+**Conseils** : Non applicable. Le benchmark a trait aux ressources de calcul.
 
 **Supervision d’Azure Security Center** : Non applicable
 
@@ -629,7 +629,7 @@ Comment créer des alertes pour les événements du journal d’activité Azure�
 
 ### <a name="61-use-azure-asset-discovery"></a>6.1 : Utiliser la découverte de ressources Azure
 
-**Aide** : Utilisez Azure Resource Graph pour interroger et découvrir toutes les ressources (y compris les espaces de noms Azure Event Hubs) au sein de vos abonnements. Vérifiez que vous disposez des autorisations (en lecture) appropriées dans votre locataire et pouvez répertorier tous les abonnements Azure ainsi que les ressources qu’ils contiennent.
+**Conseils** : Utilisez Azure Resource Graph pour interroger et découvrir toutes les ressources (y compris les espaces de noms Azure Event Hubs) au sein de vos abonnements. Vérifiez que vous disposez des autorisations (en lecture) appropriées dans votre locataire et pouvez répertorier tous les abonnements Azure ainsi que les ressources qu’ils contiennent.
 
 Créer des requêtes avec Azure Resource Graph : https://docs.microsoft.com/azure/governance/resource-graph/first-query-portal
 
@@ -653,7 +653,7 @@ Comment créer et utiliser des étiquettes : https://docs.microsoft.com/azure/a
 
 ### <a name="63-delete-unauthorized-azure-resources"></a>6.3 : Supprimer des ressources Azure non autorisées
 
-**Aide** : Utilisez des étiquettes, des groupes d’administration, voire des abonnements séparés, pour organiser et suivre les espaces de noms Azure Event Hubs et les ressources associées. Rapprochez régulièrement l’inventaire et assurez-vous que les ressources non autorisées sont supprimées de l’abonnement en temps utile.
+**Conseils** : Utilisez des étiquettes, des groupes d’administration, voire des abonnements séparés, pour organiser et suivre les espaces de noms Azure Event Hubs et les ressources associées. Rapprochez régulièrement l’inventaire et assurez-vous que les ressources non autorisées sont supprimées de l’abonnement en temps utile.
 
 Créer des abonnements Azure supplémentaires : https://docs.microsoft.com/azure/billing/billing-create-subscription
 
@@ -745,7 +745,7 @@ Comment refuser un type de ressource spécifique avec Azure Policy : https://do
 
 Configurer l’accès conditionnel pour bloquer l’accès à Azure Resource Manager : https://docs.microsoft.com/azure/role-based-access-control/conditional-access-azure-management
 
-**Supervision d’Azure Security Center** : Non applicable
+**Supervision Azure Security Center** : Non applicable
 
 **Responsabilité** : Customer
 
@@ -804,7 +804,7 @@ Comment configurer et gérer Azure Policy : https://docs.microsoft.com/azure/go
  
 Pour plus d’informations sur les effets d’Azure Policy : https://docs.microsoft.com/azure/governance/policy/concepts/effects
 
-**Supervision d’Azure Security Center** : Non applicable
+**Supervision Azure Security Center** : Non applicable
 
 **Responsabilité** : Customer
 
@@ -818,7 +818,7 @@ Pour plus d’informations sur les effets d’Azure Policy : https://docs.micro
 
 ### <a name="75-securely-store-configuration-of-azure-resources"></a>7.5 : Stocker en toute sécurité la configuration des ressources Azure
 
-**Aide** : Si vous utilisez des définitions Azure Policy personnalisées pour vos ressources Event Hubs ou associées, utilisez Azure Repos pour stocker et gérer votre code de manière sécurisée.
+**Conseils** : Si vous utilisez des définitions Azure Policy personnalisées pour vos ressources Event Hubs ou associées, utilisez Azure Repos pour stocker et gérer votre code de manière sécurisée.
 
 Stocker du code dans Azure DevOps : https://docs.microsoft.com/azure/devops/repos/git/gitworkflow?view=azure-devops
 
@@ -838,7 +838,7 @@ Documentation Azure Repos : https://docs.microsoft.com/azure/devops/repos/index
 
 ### <a name="77-deploy-system-configuration-management-tools"></a>7.7 : Déployer les outils de gestion de configuration système
 
-**Aide** : Utilisez des alias Azure Policy dans l’espace de noms « Microsoft.EventHub » pour créer des stratégies personnalisées d’alerte, d’audit ou d’application de configurations système. En outre, développez un processus et un pipeline pour la gestion des exceptions de stratégie.
+**Conseils** : Utilisez des alias Azure Policy dans l’espace de noms « Microsoft.EventHub » pour créer des stratégies personnalisées d’alerte, d’audit ou d’application de configurations système. En outre, développez un processus et un pipeline pour la gestion des exceptions de stratégie.
 
 Configurer et gérer Azure Policy : https://docs.microsoft.com/azure/governance/policy/tutorials/create-and-manage
 
@@ -892,7 +892,7 @@ Fournir une authentification Key Vault avec une identité managée : https://do
 
 ### <a name="712-manage-identities-securely-and-automatically"></a>7.12 : Gérer les identités de façon sécurisée et automatique
 
-**Aide** : Pour les machines virtuelles Azure ou les applications web s’exécutant sur Azure App Service utilisées pour accéder à vos hubs d’événements, utilisez Managed Service Identity conjointement avec Azure Key Vault pour simplifier et sécuriser Azure Event Hubs. Vérifiez que la suppression réversible est activée dans Key Vault.
+**Conseils** : Pour les machines virtuelles Azure ou les applications web s’exécutant sur Azure App Service utilisées pour accéder à vos hubs d’événements, utilisez Managed Service Identity conjointement avec Azure Key Vault pour simplifier et sécuriser Azure Event Hubs. Vérifiez que la suppression réversible est activée dans Key Vault.
 
 Utilisez des identités managées pour fournir aux services Azure une identité gérée automatiquement dans Azure Active Directory (AD). Les identités managées vous permettent de vous authentifier auprès d’un service qui prend en charge l’authentification Azure AD, y compris Azure Key Vault, sans informations d’identification dans votre code.
 
@@ -1042,7 +1042,7 @@ Reportez-vous à la publication du NIST : « Guide to Test, Training, and Exerc
 
 ### <a name="104-provide-security-incident-contact-details-and-configure-alert-notifications-for-security-incidents"></a>10.4 : Fournir des informations de contact pour les incidents de sécurité et configurer des notifications d’alerte pour les incidents de sécurité
 
-**Aide** : Les informations de contact d’incident de sécurité seront utilisées par Microsoft pour vous contacter si Microsoft Security Response Center (MSRC) découvre que les données du client ont été utilisées par un tiers illégal ou non autorisé.  Examinez les incidents après les faits pour vous assurer que les problèmes sont résolus. 
+**Conseils** : Les informations de contact d’incident de sécurité seront utilisées par Microsoft pour vous contacter si Microsoft Security Response Center (MSRC) découvre que les données du client ont été utilisées par un tiers illégal ou non autorisé.  Examinez les incidents après les faits pour vous assurer que les problèmes sont résolus. 
 
 Comment définir le contact de sécurité d’Azure Security Center : https://docs.microsoft.com/azure/security-center/security-center-provide-security-contact-details
 

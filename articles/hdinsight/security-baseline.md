@@ -8,10 +8,10 @@ ms.date: 04/09/2020
 ms.author: mbaldwin
 ms.custom: security-benchmark
 ms.openlocfilehash: 62188aefffd05af49bb00c242b266e808b991c84
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "82188172"
 ---
 # <a name="azure-security-baseline-for-hdinsight"></a>Base de référence de sécurité Azure pour HDInsight
@@ -36,7 +36,7 @@ Comment déployer Azure HDInsight dans un réseau virtuel et utiliser un groupe 
 
 Comment limiter le trafic sortant pour les clusters Azure HDInsight avec le pare-feu Azure : https://docs.microsoft.com/azure/hdinsight/hdinsight-restrict-outbound-traffic
 
-**Supervision d’Azure Security Center** : Oui
+**Supervision Azure Security Center** : Oui
 
 **Responsabilité** : Customer
 
@@ -122,7 +122,7 @@ Adresses IP de gestion HDInsight : https://docs.microsoft.com/azure/hdinsight/
 
 **Aide** : Non applicable. Le test d’évaluation est destiné à Azure Apps Service ou aux ressources de calcul hébergeant des applications web.
 
-**Supervision d’Azure Security Center** : Non applicable
+**Supervision Azure Security Center** : Non applicable
 
 **Responsabilité** : Non applicable
 
@@ -926,9 +926,9 @@ Configurer l’accès conditionnel pour bloquer l’accès à Azure Resource Man
 
 ### <a name="613-physically-or-logically-segregate-high-risk-applications"></a>6.13 : Séparer physiquement ou logiquement des applications à risque élevé
 
-**Aide** : Non applicable. Le test d’évaluation est destiné à Azure Apps Service ou aux ressources de calcul hébergeant des applications web.
+**Conseils** : Non applicable. Le test d’évaluation est destiné à Azure Apps Service ou aux ressources de calcul hébergeant des applications web.
 
-**Supervision d’Azure Security Center** : actuellement non disponible
+**Supervision Azure Security Center** : actuellement non disponible
 
 **Responsabilité** : Non applicable
 
@@ -988,7 +988,7 @@ https://docs.microsoft.com/azure/governance/policy/concepts/effects
 
 ### <a name="75-securely-store-configuration-of-azure-resources"></a>7.5 : Stocker en toute sécurité la configuration des ressources Azure
 
-**Aide** : Si vous utilisez des définitions Azure Policy personnalisées, utilisez Azure DevOps ou Azure Repos pour stocker et gérer votre code en toute sécurité.
+**Conseils** : Si vous utilisez des définitions Azure Policy personnalisées, utilisez Azure DevOps ou Azure Repos pour stocker et gérer votre code en toute sécurité.
 
 Comment stocker du code dans Azure DevOps :
 

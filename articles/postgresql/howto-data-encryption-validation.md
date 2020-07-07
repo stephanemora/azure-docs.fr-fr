@@ -7,10 +7,10 @@ ms.service: postgresql
 ms.topic: conceptual
 ms.date: 04/28/2020
 ms.openlocfilehash: 4672a92ceba5dc52c717f76a705d0fa508ab41fd
-ms.sourcegitcommit: eaec2e7482fc05f0cac8597665bfceb94f7e390f
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/29/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "82515967"
 ---
 # <a name="validating-data-encryption-for-azure-database-for-postgresql"></a>Validation du chiffrement des données pour Azure Database pour PostgreSQL
@@ -51,7 +51,7 @@ Cet article vous aide à vérifier que le chiffrement des données à l’aide d
 
 ### <a name="azure-audit-reports"></a>Rapports d’audit Azure
 
-Vous pouvez également consulter les [rapports d’audit](https://servicetrust.microsoft.com) qui fournissent des informations sur la conformité aux normes de protection des données et aux exigences réglementaires.
+Vous pouvez également consulter les [rapports d’audit](https://servicetrust.microsoft.com) qui fournissent des informations sur la conformité aux normes de protection des données et à la réglementation.
 
 ## <a name="next-steps"></a>Étapes suivantes
 
