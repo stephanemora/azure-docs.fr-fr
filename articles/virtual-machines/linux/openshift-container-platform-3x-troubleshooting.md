@@ -11,17 +11,17 @@ ms.workload: infrastructure
 ms.date: 10/14/2019
 ms.author: haroldw
 ms.openlocfilehash: 90fd3680cfdc4ecd1dcb0ce33b63f8d76dd8bfae
-ms.sourcegitcommit: 31e9f369e5ff4dd4dda6cf05edf71046b33164d3
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/22/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "81759471"
 ---
 # <a name="troubleshoot-openshift-container-platform-311-deployment-in-azure"></a>Résoudre les problèmes de déploiement d’OpenShift Container Platform 3.11 dans Azure
 
 Si le cluster OpenShift ne se déploie pas correctement, le portail Azure retourne une sortie d’erreur. La sortie peut être compliquée à lire, ce qui rend difficile l’identification du problème. Examinez rapidement cette sortie pour rechercher le code de sortie 3, 4 ou 5. Ces trois codes de sortie ont les significations suivantes :
 
-- Code de sortie 3 : vos nom d’utilisateur/mot de passe ou ID d’organisation/clé d’activation d’abonnement Red Hat sont incorrects
+- Code de sortie 3 : le nom d’utilisateur/mot de passe ou l’ID d’organisation/clé d’activation de votre abonnement Red Hat sont incorrects
 - Code de sortie 4 : votre ID de pool Red Hat est incorrect ou aucun droit n’est disponible
 - Code de sortie 5 : impossible de provisionner le volume de pool dynamique Docker
 
