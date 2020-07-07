@@ -6,12 +6,12 @@ ms.topic: tutorial
 author: bwren
 ms.author: bwren
 ms.date: 03/17/2020
-ms.openlocfilehash: 29e24166218a6757cded9d1b002321800ab0c073
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: bfed93a4ed13878448d21b95d265e49bf0260742
+ms.sourcegitcommit: a989fb89cc5172ddd825556e45359bac15893ab7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "80055618"
+ms.lasthandoff: 07/01/2020
+ms.locfileid: "85798253"
 ---
 # <a name="tutorial-get-started-with-log-analytics-queries"></a>Tutoriel : Bien démarrer avec les requêtes Log Analytics
 
@@ -37,6 +37,7 @@ Vous pouvez effectuer la plupart des étapes de ce tutoriel en utilisant [cet en
 Vous avez aussi la possibilité d’utiliser votre propre environnement si Azure Monitor vous sert à collecter des données de journal sur au moins une ressource Azure. Pour ouvrir un espace de travail Log Analytics, dans le volet de navigation gauche d’Azure Monitor, sélectionnez **Journaux**. 
 
 ## <a name="understand-the-schema"></a>Comprendre le schéma
+ 
 Un *schéma* est une collection de tables regroupées en catégories logiques. Le schéma de démonstration comporte plusieurs catégories issues des solutions de supervision. Par exemple, la catégorie **LogManagement** contient les événements Windows et Syslog, les données de performances et les pulsations d’agent.
 
 Les tables du schéma sont présentées sous l’onglet **Tables** de l’espace de travail Log Analytics. Les tables contiennent des colonnes ; le type de données de chaque colonne est représenté par une icône affichée à côté du nom de la colonne. Par exemple, la table**Event** contient des colonnes de texte comme **Computer** et des colonnes numériques comme **EventCategory**.
@@ -50,6 +51,7 @@ Log Analytics s’ouvre en affichant une nouvelle requête vide dans l’**Édit
 ![Log Analytics](media/get-started-portal/homepage.png)
 
 ### <a name="write-a-query"></a>Écrivez votre requête.
+
 Les requêtes de journal Azure Monitor utilisent une version du langage de requête Kusto. Les requêtes peuvent commencer par un nom de table ou une commande [search](/azure/kusto/query/searchoperator). 
 
 La requête suivante récupère tous les enregistrements de la table **Event** :
@@ -156,6 +158,7 @@ Vous pouvez changer manuellement les propriétés de la vue, telles que les axes
 Vous pouvez également définir les vues par défaut dans la requête elle-même, à l’aide de l’opérateur [render](/azure/kusto/query/renderoperator).
 
 ## <a name="pin-results-to-a-dashboard"></a>Épingler des résultats à un tableau de bord
+
 Pour épingler une table ou un graphique de résultats Log Analytics à un tableau de bord Azure partagé, sélectionnez **Épingler au tableau de bord** dans la barre supérieure. 
 
 ![Épingler au tableau de bord](media/get-started-portal/pin-dashboard.png)
@@ -171,9 +174,11 @@ Une table ou un graphique que vous épinglez à un tableau de bord partagé pré
 - Les graphiques qui contiennent beaucoup de catégories différentes regroupent automatiquement les catégories les moins remplies dans une seule et même catégorie **Autres**.
 
 ## <a name="save-load-or-export-queries"></a>Enregistrer, charger ou exporter des requêtes
+
 Une fois que vous avez créé une requête, vous pouvez enregistrer ou partager la requête ou des résultats avec d’autres utilisateurs. 
 
 ### <a name="save-queries"></a>Enregistrer des requêtes
+
 Pour enregistrer une requête :
 
 1. Sélectionnez **Enregistrer** dans la barre supérieure.

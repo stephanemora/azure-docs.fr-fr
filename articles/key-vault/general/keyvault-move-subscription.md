@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 05/05/2020
 ms.author: sudbalas
 Customer intent: As a key vault administrator, I want to move my vault to another subscription.
-ms.openlocfilehash: 450aa58d4ad9cbb721e621ec3db8b4ca7e914aa1
-ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
+ms.openlocfilehash: 6fe25efe8f38772162c916c8d0b965267d457c0c
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/12/2020
-ms.locfileid: "83121182"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84488815"
 ---
 # <a name="moving-an-azure-key-vault-to-another-subscription"></a>Déplacement d’un coffre Azure Key Vault vers un nouvel abonnement
 
@@ -66,9 +66,8 @@ Accédez à la page Azure Policy dans le Portail Azure et vérifiez que les attr
 4. Sélectionnez le bouton « Déplacer ».
 5. Dans la liste déroulante, sélectionnez l’option « Déplacer vers un autre abonnement ».
 6. Sélectionnez le groupe de ressources vers lequel vous souhaitez déplacer votre coffre de clés.
-7. Sélectionnez le groupe de ressources vers lequel vous souhaitez déplacer votre coffre de clés.
-8. Confirmez la lecture de l’avertissement concernant le déplacement des ressources.
-9. Sélectionnez « OK ».
+7. Confirmer la lecture de l’avertissement sur le déplacement des ressources
+8. Sélectionnez « OK ».
 
 ### <a name="additional-steps-post-move"></a>Étapes supplémentaires (après déplacement)
 

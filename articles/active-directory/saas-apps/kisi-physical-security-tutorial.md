@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 06/08/2020
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d3ca4d30786953504218ef09c7c591ff2f46f524
-ms.sourcegitcommit: bc943dc048d9ab98caf4706b022eb5c6421ec459
+ms.openlocfilehash: 556fd1f9fe4ba5753d882fa81c6d5a89051bcd91
+ms.sourcegitcommit: 32592ba24c93aa9249f9bd1193ff157235f66d7e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/14/2020
-ms.locfileid: "84765235"
+ms.lasthandoff: 07/01/2020
+ms.locfileid: "85604993"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-kisi-physical-security"></a>Tutoriel : Intégration de l’authentification unique Azure Active Directory avec Kisi Physical Security
 
@@ -91,7 +91,7 @@ Effectuez les étapes suivantes pour activer l’authentification unique Azure A
 
 1. Si vous souhaitez configurer l’application en **mode démarré par le fournisseur de services**, cliquez sur **Définir des URL supplémentaires**, puis effectuez les étapes suivantes :
 
-    Dans la zone de texte **URL de connexion**, tapez une URL au format suivant : `https://identity.kms.kisi.io/organizations/sign_in?domain=<DOMAIN>`
+    Dans la zone de texte **URL de connexion**, tapez une URL au format suivant : `https://web.kisi.io/organizations/sign_in?domain=<DOMAIN>`
 
     > [!NOTE]
     > Il ne s’agit pas de valeurs réelles. Mettez à jour ces valeurs avec l’identificateur, l’URL de réponse et l’URL de connexion réels. Pour obtenir ces valeurs, contactez l’[équipe de support technique de Kisi Physical Security](mailto:support@getkisi.com). Vous pouvez également consulter les modèles figurant à la section **Configuration SAML de base** dans le portail Azure.
@@ -102,11 +102,11 @@ Effectuez les étapes suivantes pour activer l’authentification unique Azure A
 
 1. En plus de ce qui précède, l’application Kisi Physical Security s’attend à ce que quelques attributs supplémentaires, indiqués ci-après, soient passés dans la réponse SAML. Ces attributs sont également préremplis, mais vous pouvez les examiner pour voir s’ils répondent à vos besoins.
     
-    | Nom |  |  Attribut source|
-    | ---------------| --------------- | --------- |
-    | FirstName | | user.givenname |
-    | LastName | | user.surname |
-    | E-mail | | user.mail |
+    | Nom | Attribut source|
+    | ---------------| --------- |
+    | FirstName | user.givenname |
+    | LastName | user.surname |
+    | E-mail | user.userprincipalname |
 
 1. Dans la page **Configurer l’authentification unique avec SAML**, dans la section **Certificat de signature SAML**, cliquez sur le bouton Copier pour copier l’**URL des métadonnées de fédération d’application**, puis enregistrez-la sur votre ordinateur.
 

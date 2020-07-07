@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 05/18/2020
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f1599cf88405594ed61582f359cdd9f8e64fe281
-ms.sourcegitcommit: bc943dc048d9ab98caf4706b022eb5c6421ec459
+ms.openlocfilehash: 3a5d905f349caf4aa6e633009de15c9253d6e0fd
+ms.sourcegitcommit: 32592ba24c93aa9249f9bd1193ff157235f66d7e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/14/2020
-ms.locfileid: "84764240"
+ms.lasthandoff: 07/01/2020
+ms.locfileid: "85606953"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-easysso-for-bitbucket"></a>Tutoriel : Intégration de l’authentification unique Azure Active Directory à EasySSO pour BitBucket
 
@@ -101,13 +101,13 @@ Effectuez les étapes suivantes pour activer l’authentification unique Azure A
 
 1. En plus de ce qui précède, l’application EasySSO pour BitBucket s’attend à ce que quelques attributs supplémentaires (présentés ci-dessous) soient repassés dans la réponse SAML. Ces attributs sont également préremplis, mais vous pouvez les examiner pour voir s’ils répondent à vos besoins.
     
-    | Nom |  |  Attribut source|
-    | ---------------| --------------- | --------- |
-    | urn:oid:0.9.2342.19200300.100.1.1 | | user.userprincipalname |
-    | urn:oid:0.9.2342.19200300.100.1.3 | | user.mail |
-    | urn:oid:2.16.840.1.113730.3.1.241 | | user.displayname |
-    | urn:oid:2.5.4.4 | | user.surname |
-    | urn:oid:2.5.4.42 | | user.givenname |
+    | Nom | Attribut source|
+    | ---------------| --------- |
+    | urn:oid:0.9.2342.19200300.100.1.1 | user.userprincipalname |
+    | urn:oid:0.9.2342.19200300.100.1.3 | user.mail |
+    | urn:oid:2.16.840.1.113730.3.1.241 | user.displayname |
+    | urn:oid:2.5.4.4 | user.surname |
+    | urn:oid:2.5.4.42 | user.givenname |
     
     Si vos utilisateurs Azure AD ont **sAMAccountName** configuré, vous devez mapper **urn:oid:0.9.2342.19200300.100.1.1** sur l’attribut **sAMAccountName**.
     

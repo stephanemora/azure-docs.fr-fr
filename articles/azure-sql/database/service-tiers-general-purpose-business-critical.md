@@ -3,8 +3,8 @@ title: Niveaux de service Usage général et Critique pour l’entreprise
 titleSuffix: Azure SQL Database & SQL Managed Instance
 description: L’article aborde les niveaux de service Usage général et Critique pour l’entreprise dans le modèle d’achat vCore utilisé par Azure SQL Database et Azure SQL Managed Instance.
 services: sql-database
-ms.service: sql-database
-ms.subservice: service
+ms.service: sql-db-mi
+ms.subservice: features
 ms.custom: sqldbrb=2
 ms.devlang: ''
 ms.topic: conceptual
@@ -12,12 +12,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: sashan, moslake, carlrab
 ms.date: 01/30/2020
-ms.openlocfilehash: 1783285704870dbcaeac731dc085bddf8851c7be
-ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
+ms.openlocfilehash: 37dd6881876df010b548a8bb48ca88bb72dab764
+ms.sourcegitcommit: 93462ccb4dd178ec81115f50455fbad2fa1d79ce
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "84037940"
+ms.lasthandoff: 07/06/2020
+ms.locfileid: "85986601"
 ---
 # <a name="azure-sql-database-and-azure-sql-managed-instance-service-tiers"></a>Niveaux de service Azure SQL Database et Azure SQL Managed Instance
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
@@ -37,7 +37,7 @@ Cet article présente les différences entre les niveaux de service, les consid�
 
 Le tableau suivant décrit les principales différences entre les niveaux de service pour la dernière génération (Gen5). Notez que les caractéristiques des niveaux de service peuvent être différentes dans SQL Database et SQL Managed Instance.
 
-| | Type de ressource | Usage général |  Hyperscale | Critique pour l’entreprise |
+|-| Type de ressource | Usage général |  Hyperscale | Critique pour l’entreprise |
 |:---:|:---:|:---:|:---:|:---:|
 | **Idéal pour** | |  Offre des options de calcul et de stockage équilibrées et économiques. | La plupart des charges de travail d’entreprise. Mise à l’échelle automatique de la taille de stockage jusqu’à 100 To, mise à l’échelle verticale et horizontale du calcul, restauration rapide de la base de données. | Applications OLTP avec des débits de transactions élevés et une faible latence des E/S. Offre une meilleure résilience aux défaillances et des basculements rapides à l’aide de plusieurs réplicas mis à jour de façon synchrone.|
 |  **Disponible dans le type de ressource :** ||SQL Database / SQL Managed Instance | Base de données Azure SQL unique | SQL Database / SQL Managed Instance |
@@ -94,7 +94,7 @@ Pour surveiller la taille totale actuelle de vos fichiers MDF et LDF, utilisez [
 Du stockage pour les sauvegardes de base de données est alloué afin de prendre en charge les fonctionnalités de récupération jusqu’à une date et heure (PITR) et de [conservation à long terme (LTR)](long-term-retention-overview.md) de SQL Database et SQL Managed Instance. Ce stockage est alloué séparément pour chaque base de données. De plus, les fonctionnalités Limite de restauration dans le temps et Conservation à long terme sont, elles aussi, facturées séparément.
 
 - **Limite de restauration dans le temps** : les sauvegardes de bases de données individuelles sont automatiquement copiées vers le [stockage géographiquement redondant avec accès en lecture (RA-GRS)](../../storage/common/geo-redundant-design.md). La taille de stockage augmente dynamiquement avec chaque nouvelle création de sauvegarde. Le stockage est utilisé pour des sauvegardes complètes hebdomadaires, des sauvegardes différentielles quotidiennes et des sauvegardes de fichiers journaux qui sont copiés toutes les 5 minutes. La consommation du stockage dépend du taux de change de la base de données et de la période de conservation pour les sauvegardes. Vous pouvez configurer une période de conservation distincte pour chaque base de données, allant de 7 à 35 jours. Un volume de stockage minimal égal à 100 pour cent (1x) de la taille de la base de données est fourni sans frais supplémentaires. Pour la plupart des bases de données, cette quantité est suffisante pour stocker l’équivalent de 7 jours de sauvegardes.
-- **Conservation à long terme** : Vous pouvez également configurer la conservation à long terme des sauvegardes complètes pendant 10 ans maximum (cette fonctionnalité est en [préversion publique limitée pour SQL Managed Instance](long-term-retention-overview.md#managed-instance-support)). Si vous configurez une stratégie de conservation à long terme, ces sauvegardes sont stockées automatiquement dans le stockage RA-GRS. Toutefois, vous pouvez contrôler la fréquence à laquelle les sauvegardes sont copiées. Pour répondre aux différentes exigences de conformité, vous pouvez sélectionner plusieurs périodes de conservation pour les sauvegardes hebdomadaires, mensuelles ou annuelles. La configuration que vous choisissez détermine la quantité de stockage utilisée pour les sauvegardes de conservation à long terme. Pour estimer le coût du stockage de conservation à long terme, vous pouvez utiliser la calculatrice de prix LTR. Pour plus d’informations, consultez [Conservation à long terme de SQL Database](long-term-retention-overview.md).
+- **Conservation à long terme** : Vous pouvez également configurer la conservation à long terme des sauvegardes complètes pendant 10 ans maximum (cette fonctionnalité est en [préversion publique limitée pour SQL Managed Instance](long-term-retention-overview.md#sql-managed-instance-support)). Si vous configurez une stratégie de conservation à long terme, ces sauvegardes sont stockées automatiquement dans le stockage RA-GRS. Toutefois, vous pouvez contrôler la fréquence à laquelle les sauvegardes sont copiées. Pour répondre aux différentes exigences de conformité, vous pouvez sélectionner plusieurs périodes de conservation pour les sauvegardes hebdomadaires, mensuelles ou annuelles. La configuration que vous choisissez détermine la quantité de stockage utilisée pour les sauvegardes de conservation à long terme. Pour estimer le coût du stockage de conservation à long terme, vous pouvez utiliser la calculatrice de prix LTR. Pour plus d’informations, consultez [Conservation à long terme de SQL Database](long-term-retention-overview.md).
 
 ## <a name="next-steps"></a>Étapes suivantes
 

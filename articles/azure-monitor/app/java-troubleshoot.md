@@ -3,12 +3,12 @@ title: Résolution des problèmes d'Application Insights dans un projet web Jav
 description: 'Guide de dépannage : surveillance des applications Java en direct avec Application Insights.'
 ms.topic: conceptual
 ms.date: 03/14/2019
-ms.openlocfilehash: 04e98938bc5dd17816ae873f122073212275a414
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: ecc9a298d122919138683b48527574a1ff3e5edc
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "77657178"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84484794"
 ---
 # <a name="troubleshooting-and-q-and-a-for-application-insights-for-java"></a>Guide de dépannage et questions-réponses concernant Application Insights pour Java
 Vous avez des questions concernant [Azure Application Insights dans Java][java] ou vous rencontrez des problèmes ? Voici quelques conseils.
@@ -33,7 +33,6 @@ Vous avez des questions concernant [Azure Application Insights dans Java][java]
 * Assurez-vous d’utiliser la même version des appenders principaux, web, d’agent et de journalisation Application Insights afin d’éviter tout problème lié à des conflits entre les versions.
 
 #### <a name="i-used-to-see-data-but-it-has-stopped"></a>Je pouvais voir les données, mais plus maintenant
-* Vérifiez le [blog d'état](https://blogs.msdn.com/b/applicationinsights-status/).
 * Vous souhaitez savoir si vous avez atteint votre quota mensuel de points de données ? Ouvrez Paramètres/Quota et tarification pour le savoir. Le cas échéant, vous pouvez mettre à niveau votre forfait ou payer pour disposer d’une capacité supplémentaire. Consultez le [mécanisme de tarification](https://azure.microsoft.com/pricing/details/application-insights/).
 * Avez-vous récemment mis à niveau votre kit de développement logiciel ? Assurez-vous que seuls les fichiers JAR uniques du SDK sont présents à l’intérieur du répertoire du projet. Une seule version du SDK doit être identifiée.
 * Examinez-vous la ressource AI appropriée ? Mettez en correspondance l’iKey de votre application à la ressource où est attendue la télémétrie. Il doit s’agir du même élément.

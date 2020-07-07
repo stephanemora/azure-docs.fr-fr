@@ -8,10 +8,10 @@ ms.date: 03/23/2020
 ms.author: mbaldwin
 ms.custom: security-benchmark
 ms.openlocfilehash: 02050745e7c8a9aa05d3f2de63a4bc5f1ebf8318
-ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/19/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "83654775"
 ---
 # <a name="azure-security-baseline-for-azure-database-for-mysql"></a>Base de référence de sécurité Azure pour Azure Database pour MySQL
@@ -68,7 +68,7 @@ Comment activer et utiliser Traffic Analytics : https://docs.microsoft.com/azur
 
 ### <a name="14-deny-communications-with-known-malicious-ip-addresses"></a>1.4 : Refuser les communications présentant des adresses IP connues comme étant malveillantes
 
-**Aide** : Utilisez Advanced Threat Protection pour Azure Database pour MySQL. Advanced Threat Protection détecte les activités anormales indiquant des tentatives d’accès à vos bases de données ou d’exploitation de vos bases de données inhabituelles et potentiellement dangereuses.
+**Conseils** : Utilisez Advanced Threat Protection pour Azure Database pour MySQL. Advanced Threat Protection détecte les activités anormales indiquant des tentatives d’accès à vos bases de données ou d’exploitation de vos bases de données inhabituelles et potentiellement dangereuses.
 
 Activez la protection DDoS standard sur les réseaux virtuels associés à vos instances Azure Database pour MySQL pour vous protéger contre les attaques DDoS. Utilisez la fonctionnalité de renseignement sur les menaces intégrée à Azure Security Center pour refuser les communications avec des adresses IP Internet connues comme étant malveillantes ou inutilisées.
 
@@ -224,7 +224,7 @@ Comment définir les paramètres de conservation des journaux pour les espaces d
 
 Stockage des journaux des ressources dans un compte de stockage Azure : https://docs.microsoft.com/azure/azure-monitor/platform/resource-logs-collect-storage
 
-**Supervision d’Azure Security Center** : Non applicable
+**Supervision Azure Security Center** : Non applicable
 
 **Responsabilité** : Customer
 
@@ -336,7 +336,7 @@ Comprendre comment créer des utilisateurs administrateurs dans Azure Database p
 
 ### <a name="34-use-single-sign-on-sso-with-azure-active-directory"></a>3.4 : Utiliser l’authentification unique (SSO) avec Azure Active Directory
 
-**Aide** : La connexion à Azure Database pour MySQL est prise en charge à la fois avec le nom d’utilisateur/mot de passe configuré directement dans la base de données et avec une identité Azure Active Directory (AD) et l’utilisation d’un jeton Azure AD pour se connecter. Quand vous utilisez un jeton Azure AD, différentes méthodes sont prises en charge comme un utilisateur Azure AD, un groupe Azure AD ou une application Azure AD qui se connecte à la base de données.
+**Conseils** : La connexion à Azure Database pour MySQL est prise en charge à la fois avec le nom d’utilisateur/mot de passe configuré directement dans la base de données et avec une identité Azure Active Directory (AD) et l’utilisation d’un jeton Azure AD pour se connecter. Quand vous utilisez un jeton Azure AD, différentes méthodes sont prises en charge comme un utilisateur Azure AD, un groupe Azure AD ou une application Azure AD qui se connecte à la base de données.
 
 Séparément, l’accès au plan de contrôle pour MySQL est disponible par le biais de l’API REST et prend en charge l’authentification unique. Pour vous authentifier, définissez l’en-tête d’autorisation pour vos demandes sur un jeton JSON Web Token que vous avez obtenu auprès d’Azure Active Directory.
 
@@ -360,13 +360,13 @@ Utiliser Azure Active Directory pour l’authentification avec Azure Database po
 
 Comment superviser l’identité et l’accès dans Azure Security Center : https://docs.microsoft.com/azure/security-center/security-center-identity-access
 
-**Supervision d’Azure Security Center** : Oui
+**Supervision Azure Security Center** : Oui
 
 **Responsabilité** : Customer
 
 ### <a name="36-use-dedicated-machines-privileged-access-workstations-for-all-administrative-tasks"></a>3.6 : Utiliser des ordinateurs dédiés (stations de travail avec accès privilégié) pour toutes les tâches administratives
 
-**Aide** : Utilisez des stations de travail disposant d’un accès privilégié avec Multi-Factor Authentication (MFA) configuré pour se connecter aux ressources Azure et les configurer.
+**Conseils** : Utilisez des stations de travail disposant d’un accès privilégié avec Multi-Factor Authentication (MFA) configuré pour se connecter aux ressources Azure et les configurer.
 
 En savoir plus sur les stations de travail avec accès privilégié : https://docs.microsoft.com/windows-server/identity/securing-privileged-access/privileged-access-workstations
 
@@ -396,11 +396,11 @@ Comprendre les détections de risques Azure AD : https://docs.microsoft.com/azu
 
 ### <a name="38-manage-azure-resources-from-only-approved-locations"></a>3.8 : Gérer les ressources Azure à partir des emplacements approuvés uniquement
 
-**Aide** : Utilisez des emplacements nommés à accès conditionnel pour autoriser l’accès au portail et à Azure Resource Manager seulement à partir de regroupements logiques spécifiques de plages d’adresses IP ou de pays/régions.
+**Conseils** : Utilisez des emplacements nommés à accès conditionnel pour autoriser l’accès au portail et à Azure Resource Manager seulement à partir de regroupements logiques spécifiques de plages d’adresses IP ou de pays/régions.
 
 Comment configurer des emplacements nommés dans Azure : https://docs.microsoft.com/azure/active-directory/reports-monitoring/quickstart-configure-named-locations
 
-**Supervision d’Azure Security Center** : Non applicable
+**Supervision Azure Security Center** : Non applicable
 
 **Responsabilité** : Customer
 
@@ -432,7 +432,7 @@ Comment utiliser les révisions d’accès des identités Azure : https://docs.
 
 ### <a name="311-monitor-attempts-to-access-deactivated-accounts"></a>3.11 : Superviser les tentatives d’accès aux comptes désactivés
 
-**Aide** : Activez les paramètres de diagnostic pour Azure Database pour MySQL et Azure Active Directory de façon à envoyer tous les journaux à un espace de travail Log Analytics. Configurez les alertes souhaitées (comme les tentatives d’authentification en échec) dans Log Analytics.
+**Conseils** : Activez les paramètres de diagnostic pour Azure Database pour MySQL et Azure Active Directory de façon à envoyer tous les journaux à un espace de travail Log Analytics. Configurez les alertes souhaitées (comme les tentatives d’authentification en échec) dans Log Analytics.
 
 Comment configurer et consulter les journaux des requêtes lentes pour Azure Database pour MySQL : https://docs.microsoft.com/Azure/mysql/howto-configure-server-logs-in-portal
 
@@ -446,7 +446,7 @@ Comment intégrer des journaux d’activité Azure dans Azure Monitor : https:/
 
 ### <a name="312-alert-on-account-login-behavior-deviation"></a>3.12 : Alerte en cas d’écart de comportement de connexion à un compte
 
-**Aide** : Activez Advanced Threat Protection pour Azure Database pour MySQL de façon à générer des alertes en cas d’activité suspecte.
+**Conseils** : Activez Advanced Threat Protection pour Azure Database pour MySQL de façon à générer des alertes en cas d’activité suspecte.
 
 Utilisez les fonctionnalités de protection des identités et de détection des risques d’Azure Active Directory pour configurer des réponses automatisées aux actions suspectes détectées. Vous pouvez activer des réponses automatisées par le biais d’Azure Sentinel pour implémenter les réponses de sécurité de votre organisation.
 
@@ -480,11 +480,11 @@ Liste des services pris en charge pour Customer Lockbox : https://docs.microsof
 
 ### <a name="41-maintain-an-inventory-of-sensitive-information"></a>4.1 : Conserver un inventaire des informations sensibles
 
-**Aide** : Utilisez des étiquettes pour faciliter le suivi des instances Azure Database pour MySQL ou des ressources associées qui stockent ou traitent des informations sensibles.
+**Conseils** : Utilisez des étiquettes pour faciliter le suivi des instances Azure Database pour MySQL ou des ressources associées qui stockent ou traitent des informations sensibles.
 
 Comment créer et utiliser des étiquettes : https://docs.microsoft.com/azure/azure-resource-manager/resource-group-using-tags
 
-**Supervision d’Azure Security Center** : Non applicable
+**Supervision Azure Security Center** : Non applicable
 
 **Responsabilité** : Customer
 
@@ -529,7 +529,7 @@ Les versions TLS actuellement prises en charge pour Azure Database pour MySQL so
 
 Comment configurer le chiffrement en transit pour Azure Database pour MySQL : https://docs.microsoft.com/azure/mysql/concepts-ssl-connection-security
 
-**Supervision d’Azure Security Center** : Non disponible
+**Supervision Azure Security Center** : Non disponible
 
 **Responsabilité** : Partagé
 
@@ -553,7 +553,7 @@ Configurer le contrôle d’accès en fonction du rôle dans Azure : https://do
 
 Comment configurer l’accès des utilisateurs avec SQL pour Azure Database pour MySQL : https://docs.microsoft.com/azure/mysql/howto-create-users
 
-**Supervision d’Azure Security Center** : Non applicable
+**Supervision Azure Security Center** : Non applicable
 
 **Responsabilité** : Customer
 
@@ -587,11 +587,11 @@ Comment configurer les clés gérées par le client pour Azure Database pour MyS
 
 ### <a name="49-log-and-alert-on-changes-to-critical-azure-resources"></a>4.9 : Consigner et alerter les modifications apportées aux ressources Azure critiques
 
-**Aide** : Utilisez Azure Monitor avec le journal d’activité Azure pour créer des alertes en cas de modifications sur des instances de production d’Azure Database pour MySQL et d’autres ressources critiques ou associées.
+**Conseils** : Utilisez Azure Monitor avec le journal d’activité Azure pour créer des alertes en cas de modifications sur des instances de production d’Azure Database pour MySQL et d’autres ressources critiques ou associées.
 
 Comment créer des alertes pour les événements du journal d’activité Azure : https://docs.microsoft.com/azure/azure-monitor/platform/alerts-activity-log
 
-**Supervision d’Azure Security Center** : Non applicable
+**Supervision Azure Security Center** : Non applicable
 
 **Responsabilité** : Customer
 
@@ -605,7 +605,7 @@ Comment créer des alertes pour les événements du journal d’activité Azure�
 
 Couverture des fonctionnalités pour les services Azure PaaS dans Azure Security Center : https://docs.microsoft.com/azure/security-center/features-paas
 
-**Supervision d’Azure Security Center** : Oui
+**Supervision Azure Security Center** : Oui
 
 **Responsabilité** : Customer
 
@@ -629,13 +629,13 @@ Couverture des fonctionnalités pour les services Azure PaaS dans Azure Security
 
 **Aide** : Non applicable. Ces conseils concernent les ressources de calcul.
 
-**Supervision d’Azure Security Center** : Non applicable
+**Supervision Azure Security Center** : Non applicable
 
 **Responsabilité** : N/A
 
 ### <a name="55-use-a-risk-rating-process-to-prioritize-the-remediation-of-discovered-vulnerabilities"></a>5.5 : Utilisez un processus de classement des risques pour classer par ordre de priorité la correction des vulnérabilités découvertes.
 
-**Aide** : Microsoft assure la gestion des vulnérabilités sur les systèmes sous-jacents prenant en charge Azure Database pour MySQL.
+**Conseils** : Microsoft assure la gestion des vulnérabilités sur les systèmes sous-jacents prenant en charge Azure Database pour MySQL.
 
 
 **Supervision d’Azure Security Center** : Non applicable
@@ -648,7 +648,7 @@ Couverture des fonctionnalités pour les services Azure PaaS dans Azure Security
 
 ### <a name="61-use-azure-asset-discovery"></a>6.1 : Utiliser la découverte de ressources Azure
 
-**Aide** : Utilisez Azure Resource Graph pour interroger et découvrir toutes les ressources (y compris les instances Azure Database pour MySQL) dans vos abonnements. Vérifiez que vous disposez des autorisations (en lecture) appropriées dans votre locataire et pouvez répertorier tous les abonnements Azure ainsi que les ressources qu’ils contiennent.
+**Conseils** : Utilisez Azure Resource Graph pour interroger et découvrir toutes les ressources (y compris les instances Azure Database pour MySQL) dans vos abonnements. Vérifiez que vous disposez des autorisations (en lecture) appropriées dans votre locataire et pouvez répertorier tous les abonnements Azure ainsi que les ressources qu’ils contiennent.
 
 Créer des requêtes avec Azure Resource Graph : https://docs.microsoft.com/azure/governance/resource-graph/first-query-portal
 
@@ -686,7 +686,7 @@ Comment créer et utiliser des étiquettes : https://docs.microsoft.com/azure/a
 
 ### <a name="64-maintain-an-inventory-of-approved-azure-resources-and-software-titles"></a>6.4 : Tenir un inventaire des ressources Azure approuvées et titres des logiciels
 
-**Aide** : Non applicable. Cette recommandation concerne les ressources de calcul et Azure dans son ensemble.
+**Conseils** : Non applicable. Cette recommandation concerne les ressources de calcul et Azure dans son ensemble.
 
 **Supervision d’Azure Security Center** : Non applicable
 
@@ -720,7 +720,7 @@ Créer des requêtes avec Azure Graph : https://docs.microsoft.com/azure/govern
 
 ### <a name="67-remove-unapproved-azure-resources-and-software-applications"></a>6.7 : Supprimer des ressources et applications logicielles Azure non approuvées
 
-**Aide** : Non applicable. Cette recommandation concerne les ressources de calcul et Azure dans son ensemble.
+**Conseils** : Non applicable. Cette recommandation concerne les ressources de calcul et Azure dans son ensemble.
 
 **Supervision d’Azure Security Center** : Non applicable
 
@@ -764,7 +764,7 @@ Comment refuser un type de ressource spécifique avec Azure Policy : https://do
 
 Configurer l’accès conditionnel pour bloquer l’accès à Azure Resource Manager : https://docs.microsoft.com/azure/role-based-access-control/conditional-access-azure-management
 
-**Supervision d’Azure Security Center** : Non applicable
+**Supervision Azure Security Center** : Non applicable
 
 **Responsabilité** : Customer
 
@@ -956,7 +956,7 @@ Préanalysez tout contenu chargé sur des ressources Azure non liées au calcul 
 
 Le logiciel anti-programme malveillant de Microsoft est activé sur l’hôte sous-jacent qui prend en charge les services Azure (par exemple, Azure Database pour MySQL), mais il ne s’exécute pas sur le contenu client.
 
-**Supervision d’Azure Security Center** : Non applicable
+**Supervision Azure Security Center** : Non applicable
 
 **Responsabilité** : N/A
 
@@ -978,7 +978,7 @@ Comprendre la configuration initiale d’Azure Database pour MySQL : https://do
 
 ### <a name="92-perform-complete-system-backups-and-backup-any-customer-managed-keys"></a>9.2 : effectuer des sauvegardes complètes du système et sauvegarder les clés gérées par le client
 
-**Aide** : Azure Database pour MySQL crée automatiquement des sauvegardes du serveur et les conserve dans un stockage géoredondant ou redondant localement, au choix de l’utilisateur. Les sauvegardes peuvent être utilisées pour restaurer votre serveur à un point dans le temps. La sauvegarde et la restauration sont une partie essentielle de toute stratégie de continuité d’activité, dans la mesure où elles protègent vos données des corruptions et des suppressions accidentelles. 
+**Conseils** : Azure Database pour MySQL crée automatiquement des sauvegardes du serveur et les conserve dans un stockage géoredondant ou redondant localement, au choix de l’utilisateur. Les sauvegardes peuvent être utilisées pour restaurer votre serveur à un point dans le temps. La sauvegarde et la restauration sont une partie essentielle de toute stratégie de continuité d’activité, dans la mesure où elles protègent vos données des corruptions et des suppressions accidentelles. 
 
 Si vous utilisez Azure Key Vault pour stocker les informations d’identification de vos instances Azure Database pour MySQL, veillez à faire des sauvegardes automatisées régulières de vos clés. 
 
@@ -987,13 +987,13 @@ Comprendre les sauvegardes pour Azure Database pour MySQL : https://docs.micros
 Comment sauvegarder des clés Key Vault : https://docs.microsoft.com/powershell/module/azurerm.keyvault/backup-azurekeyvaultkey
 
 
-**Supervision d’Azure Security Center** : Oui
+**Supervision Azure Security Center** : Oui
 
 **Responsabilité** : Partagé
 
 ### <a name="93-validate-all-backups-including-customer-managed-keys"></a>9.3 : valider toutes les sauvegardes, y compris les clés gérées par le client
 
-**Aide** : Dans Azure Database pour MySQL, l’exécution d’une restauration crée un serveur à partir de sauvegardes du serveur d’origine. Deux types de restauration sont disponibles : Restauration à un point dans le temps et géorestauration. La restauration à un point dans le temps est disponible avec l’option de redondance de la sauvegarde et elle crée un serveur dans la même région que votre serveur d’origine. La géorestauration est disponible seulement si vous avez configuré votre serveur pour le stockage géoredondant. Elle vous permet de restaurer votre serveur dans une autre région.
+**Conseils** : Dans Azure Database pour MySQL, l’exécution d’une restauration crée un serveur à partir de sauvegardes du serveur d’origine. Deux types de restauration sont disponibles : Restauration à un point dans le temps et géorestauration. La restauration à un point dans le temps est disponible avec l’option de redondance de la sauvegarde et elle crée un serveur dans la même région que votre serveur d’origine. La géorestauration est disponible seulement si vous avez configuré votre serveur pour le stockage géoredondant. Elle vous permet de restaurer votre serveur dans une autre région.
 
 Le délai estimé de récupération dépend de plusieurs facteurs, notamment du nombre total de bases de données à récupérer dans la même région au même moment, de la taille des bases de données, de la taille du journal des transactions et de la bande passante réseau. Le délai de récupération est généralement inférieur à 12 heures.
 
@@ -1007,7 +1007,7 @@ Comprendre la sauvegarde et la restauration dans Azure Database pour MySQL : ht
 
 ### <a name="94-ensure-protection-of-backups-and-customer-managed-keys"></a>9.4 : garantir la protection des sauvegardes et des clés gérées par le client
 
-**Aide** : Azure Database pour MySQL accepte les sauvegardes complètes, différentielles et de fichier journal. Celles-ci vous permettent de restaurer un serveur à n’importe quel point dans le temps au sein de votre période de rétention de sauvegarde configurée. La période de rétention de sauvegarde par défaut est de sept jours. Vous pouvez éventuellement la configurer sur 35 jours maximum. Toutes les sauvegardes sont chiffrées à l’aide du chiffrement AES de 256 bits. Vérifiez que la suppression réversible est activée dans Key Vault.
+**Conseils** : Azure Database pour MySQL accepte les sauvegardes complètes, différentielles et de fichier journal. Celles-ci vous permettent de restaurer un serveur à n’importe quel point dans le temps au sein de votre période de rétention de sauvegarde configurée. La période de rétention de sauvegarde par défaut est de sept jours. Vous pouvez éventuellement la configurer sur 35 jours maximum. Toutes les sauvegardes sont chiffrées à l’aide du chiffrement AES de 256 bits. Vérifiez que la suppression réversible est activée dans Key Vault.
 
 Comprendre la sauvegarde et la restauration dans Azure Database pour MySQL : https://docs.microsoft.com/azure/mysql/concepts-backup
 

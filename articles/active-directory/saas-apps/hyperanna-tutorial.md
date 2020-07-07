@@ -16,12 +16,12 @@ ms.topic: tutorial
 ms.date: 07/13/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: ed5370fda9be2573f773bd2fe653feb74defeb7d
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: 208a494c98a5f3eb22742b0ba6748efa0dd59e1a
+ms.sourcegitcommit: a989fb89cc5172ddd825556e45359bac15893ab7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "68248861"
+ms.lasthandoff: 07/01/2020
+ms.locfileid: "85798724"
 ---
 # <a name="tutorial-integrate-hyperanna-with-azure-active-directory"></a>Tutoriel : Intégrer HyperAnna à Azure Active Directory
 
@@ -85,19 +85,19 @@ Effectuez les étapes suivantes pour activer l’authentification unique Azure A
 
     Dans la zone de texte **URL de réponse**, tapez une URL en respectant l’un des formats suivants :
 
-    | |
-    |--|
-    | `https://microsoft.hyperanna.com/userservice/auth/saml` |
-    | `https://anna.hyperanna.com/userservice/auth/saml` |
+    ```http
+    https://microsoft.hyperanna.com/userservice/auth/saml
+    https://anna.hyperanna.com/userservice/auth/saml
+    ```
 
 1. Si vous souhaitez configurer l’application en **mode démarré par le fournisseur de services**, cliquez sur **Définir des URL supplémentaires**, puis effectuez les étapes suivantes :
 
     Dans la zone de texte **URL de connexion**, tapez une URL en respectant l’un des formats suivants :
 
-    | |
-    |--|
-    | `https://microsoft.hyperanna.com/` |
-    | `https://anna.hyperanna.com/` |
+    ```http
+    https://microsoft.hyperanna.com/
+    https://anna.hyperanna.com/
+    ```
 
 4. Dans la page **Configurer l’authentification unique avec SAML**, dans la section **Certificat de signature SAML**, recherchez **Certificat (Base64)** , puis sélectionnez **Télécharger** pour télécharger le certificat et l’enregistrer sur votre ordinateur.
 

@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 05/15/2020
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f8b2af6ff99db384586dad359285a08ad187bd5d
-ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
+ms.openlocfilehash: b15dcb403b1caac1f317f840f15cd89a3b496705
+ms.sourcegitcommit: a989fb89cc5172ddd825556e45359bac15893ab7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83662122"
+ms.lasthandoff: 07/01/2020
+ms.locfileid: "85798474"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-insuite"></a>Tutoriel : Intégration de l’authentification unique Azure Active Directory à insuite
 
@@ -84,19 +84,19 @@ Effectuez les étapes suivantes pour activer l’authentification unique Azure A
 
     a. Dans la zone de texte **URL de connexion**, tapez une URL en respectant l’un des formats suivants :
 
-    | | |
-    |-|-|
-    | `https://<CUSTOMER_NAME>.m.diol.jp/cgi-bin/saml_sso.cgi`|
-    | `https://<CUSTOMER_NAME>.dacl.jp/cgi-bin/saml_sso.cgi`|
+    ```http
+    https://<CUSTOMER_NAME>.m.diol.jp/cgi-bin/saml_sso.cgi
+    https://<CUSTOMER_NAME>.dacl.jp/cgi-bin/saml_sso.cgi
+    ```
 
     b. Dans la zone de texte **Identificateur (ID d’entité)** , saisissez une URL au format suivant : `DreamArts_insuite_TENANTNAME`
 
     c. Dans la zone de texte **URL de réponse** , tapez une URL en utilisant un des modèles suivants :
 
-    | | |
-    |-|-|
-    | `https://<CUSTOMER_NAME>.m.diol.jp/cgi-bin/saml_sso.cgi`|
-    | `https://<CUSTOMER_NAME>.dacl.jp/cgi-bin/saml_sso.cgi`|
+    ```http
+    https://<CUSTOMER_NAME>.m.diol.jp/cgi-bin/saml_sso.cgi
+    https://<CUSTOMER_NAME>.dacl.jp/cgi-bin/saml_sso.cgi
+    ```
 
     > [!NOTE]
     > Il ne s’agit pas de valeurs réelles. Mettez à jour ces valeurs avec l’URL de connexion, l’identificateur et l’URL de réponse réels. Pour obtenir ces valeurs, contactez l’[équipe de support technique insuite](mailto:e-support@dreamarts.co.jp). Vous pouvez également consulter les modèles figurant à la section **Configuration SAML de base** dans le portail Azure.

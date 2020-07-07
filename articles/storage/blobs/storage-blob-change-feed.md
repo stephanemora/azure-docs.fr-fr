@@ -4,16 +4,16 @@ description: En savoir plus sur les journaux de flux de modification dans Stocka
 author: normesta
 ms.author: normesta
 ms.date: 11/04/2019
-ms.topic: conceptual
+ms.topic: how-to
 ms.service: storage
 ms.subservice: blobs
 ms.reviewer: sadodd
-ms.openlocfilehash: bf22e10bc0a4b969c41d4a377ddba7fcadd9c147
-ms.sourcegitcommit: 1f48ad3c83467a6ffac4e23093ef288fea592eb5
+ms.openlocfilehash: 0c9ee65a50b9fff13fca7a1989e7bb8801e5f621
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/29/2020
-ms.locfileid: "84193394"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84465182"
 ---
 # <a name="change-feed-support-in-azure-blob-storage-preview"></a>Prise en charge du flux de modification dans Stockage Blob Azure (préversion)
 

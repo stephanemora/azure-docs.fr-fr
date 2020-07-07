@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 04/27/2020
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d7c2f74b8f8ed19fd73b67fdd0465cce81f89321
-ms.sourcegitcommit: 4499035f03e7a8fb40f5cff616eb01753b986278
+ms.openlocfilehash: c9ed9dd75f7119268c2d5971e05704e5a4eca4a0
+ms.sourcegitcommit: a989fb89cc5172ddd825556e45359bac15893ab7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/03/2020
-ms.locfileid: "82735914"
+ms.lasthandoff: 07/01/2020
+ms.locfileid: "85798236"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-my-ibisworld"></a>Tutoriel : Intégration de l’authentification unique Azure Active Directory à My IBISWorld
 
@@ -96,14 +96,14 @@ Effectuez les étapes suivantes pour activer l’authentification unique Azure A
 
 1. En plus de ce qui précède, l’application My IBISWorld s’attend à ce que quelques attributs supplémentaires soient repassés dans la réponse SAML. Ces attributs sont également préremplis, mais vous pouvez les examiner pour voir s’ils répondent à vos besoins.
     
-    | Nom |   |  Attribut source|
-    | ---------------| --------------- | --------- |
-    | department |  | user.department |
-    | langage |  | user.preferredlanguage |
-    | phone |  | user.telephonenumber |
-    | title |  | user.jobtitle |
-    | userid |  | user.employeeid |
-    | country |  | user.country |
+    | Nom | Attribut source|
+    | --------------- | --------- |
+    | department | user.department |
+    | langage | user.preferredlanguage |
+    | phone | user.telephonenumber |
+    | title | user.jobtitle |
+    | userid | user.employeeid |
+    | country | user.country |
 
 1. Dans la page **Configurer l’authentification unique avec SAML**, dans la section **Certificat de signature SAML**, cliquez sur le bouton Copier pour copier l’**URL des métadonnées de fédération d’application**, puis enregistrez-la sur votre ordinateur.
 

@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/23/2019
 ms.author: mlottner
-ms.openlocfilehash: c3b514c79be87cd136375b4853226426965f4185
-ms.sourcegitcommit: 7e04a51363de29322de08d2c5024d97506937a60
+ms.openlocfilehash: 4253e496aca4cbf71fab7ef0ee388b1356df5c16
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/14/2020
-ms.locfileid: "81311213"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84456791"
 ---
 # <a name="select-and-deploy-a-security-agent-on-your-iot-device"></a>Sélectionner et de déployer un agent de sécurité sur votre appareil IoT
 
@@ -44,7 +44,7 @@ L’agent de sécurité basé sur C représente un encombrement mémoire moindre
 
 |     | Agent de sécurité C | Agent de sécurité C# |
 | --- | ----------- | --------- |
-| Open source | Disponible sous [licence MIT](https://en.wikipedia.org/wiki/MIT_License) dans [GitHub](https://aka.ms/iot-security-github-cs) | Disponible sous [licence MIT](https://en.wikipedia.org/wiki/MIT_License) dans [GitHub](https://aka.ms/iot-security-github-c) |
+| Open source | Disponible sous [licence MIT](https://en.wikipedia.org/wiki/MIT_License) dans [GitHub](https://aka.ms/iot-security-github-c) | Disponible sous [licence MIT](https://en.wikipedia.org/wiki/MIT_License) dans [GitHub](https://aka.ms/iot-security-github-cs) |
 | Langage de développement    | C | C# |
 | Plateformes Windows prises en charge ? | Non | Oui |
 | Conditions préalables pour Windows | --- | [WMI](https://docs.microsoft.com/windows/desktop/wmisdk/) |

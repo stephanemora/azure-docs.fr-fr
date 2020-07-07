@@ -15,12 +15,12 @@ ms.workload: infrastructure
 ms.date: 02/13/2020
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 7b8c1b0bcc74d73f1f869972488ba7c5dfe610d8
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: ba229025608d183b886a17346a725bc64dc6b60e
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80060060"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84556656"
 ---
 # <a name="sap-workloads-on-azure-planning-and-deployment-checklist"></a>Check-list relative à la planification et au déploiement de la charge de travail SAP sur Azure
 
@@ -86,7 +86,7 @@ Au cours de cette phase, vous planifiez la migration de votre charge de travail 
     - [Installation de SAP HANA](https://github.com/AzureCAT-GSI/SAP-HANA-ARM)
 9.  Définissez une cadence régulière de révision de la conception et du déploiement entre vous, en tant que client, l’intégrateur système, Microsoft et les autres parties concernées.
 
- 
+
 ## <a name="pilot-phase-strongly-recommended"></a>Phase pilote (fortement recommandée)
  
 Vous pouvez exécuter un pilote avant ou pendant la planification et la préparation du projet. Vous pouvez également utiliser la phase pilote pour tester les approches et la conception proposées durant la phase de planification et de préparation. Vous pouvez développer la phase pilote pour en faire une véritable preuve de concept.
@@ -213,7 +213,7 @@ Au cours de cette phase, vous déployez généralement des systèmes de dévelop
 14. Vous pouvez optimiser et affiner les accès, les autorisations et les processus basés sur les rôles Azure de votre équipe afin d’être sûr de bénéficier de la séparation des tâches. En même temps, assurez-vous que toutes les équipes peuvent effectuer leurs tâches dans l’infrastructure Azure.
 15. Testez les procédures de haute disponibilité et de récupération d’urgence pour permettre à votre personnel d’exécuter ces tâches. Identifiez les défauts et adaptez les nouvelles fonctionnalités Azure que vous intégrez à vos déploiements.
 
- 
+
 ## <a name="production-preparation-phase"></a>Phase de préparation de la production 
 Au cours de cette phase, recueillez ce que vous avez appris dans vos déploiements hors production et appliquez-le aux futurs déploiements de production. Vous devez également préparer le travail de transfert de données entre votre emplacement d’hébergement actuel et Azure.
 

@@ -10,13 +10,13 @@ ms.subservice: team-data-science-process
 ms.topic: article
 ms.date: 01/10/2020
 ms.author: tdsp
-ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
-ms.openlocfilehash: 9c4c1cfdb927cfd2ee607bfe2a951e06c80f9bfb
-ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
+ms.custom: seodec18, tracking-python, previous-author=deguhath, previous-ms.author=deguhath
+ms.openlocfilehash: a65143394d8e6ee8a385cc5d1737cc976aae47b2
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "81418539"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84558493"
 ---
 # <a name="the-team-data-science-process-in-action-using-azure-synapse-analytics"></a>Processus TDSP (Team Data Science Process) en action : utilisation d'Azure Synapse Analytics
 Dans ce tutoriel, nous vous guidons dans la création et le déploiement d’un modèle d’apprentissage automatique utilisant Azure Synapse Analytics pour un jeu de données disponible publiquement, le jeu de données [NYC Taxi Trips](https://www.andresmh.com/nyctaxitrips/). Le modèle de classification binaire créé consiste à prédire si un trajet va faire l’objet d’un pourboire.  Les modèles incluent une classification multiclasse (qu'il y ait pourboire ou non) et une régression (distribution des montants des pourboires versés).
@@ -77,7 +77,7 @@ Pour configurer votre environnement de science des données Azure, procédez com
 **Approvisionnez votre instance Azure Synapse Analytics.**
 Pour approvisionner une instance Azure Synapse Analytics, suivez la documentation [Créer et interroger un entrepôt de données SQL Azure dans le portail Azure](../../synapse-analytics/sql-data-warehouse/create-data-warehouse-portal.md). Assurez-vous de prendre note des informations d’identification suivantes d'Azure Synapse Analytics dont vous aurez besoin dans les étapes ultérieures.
 
-* **Nom du serveur** : \<nom_serveur>.database.windows.net
+* **Nom du serveur** : \<server Name>.database.windows.net
 * **Nom SQL DW (base de données)**
 * **Nom d’utilisateur**
 * **Mot de passe**

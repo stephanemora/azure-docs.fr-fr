@@ -2,16 +2,14 @@
 title: Concepts - Mettre à l’échelle des applications dans Azure Kubernetes Service (AKS)
 description: Découvrez la mise à l’échelle dans Azure Kubernetes Service (AKS), notamment l’autoscaler de pods élastique, l’autoscaler de cluster et le connecteur Azure Container Instances.
 services: container-service
-author: zr-msft
 ms.topic: conceptual
 ms.date: 02/28/2019
-ms.author: zarhoads
-ms.openlocfilehash: c5c1180acec726d0863e11a3fe0825ffc7c48e3f
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 83cbaf49f26a53518b1aa1e211b61af1959642a6
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82232528"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84465335"
 ---
 # <a name="scaling-options-for-applications-in-azure-kubernetes-service-aks"></a>Options de mise à l’échelle des applications dans AKS (Azure Kubernetes Service)
 

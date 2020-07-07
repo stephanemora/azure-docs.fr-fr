@@ -6,12 +6,12 @@ ms.service: cosmos-db
 ms.topic: how-to
 ms.date: 06/12/2020
 ms.author: mjbrown
-ms.openlocfilehash: 30a3e4be070d0bdc628fbf891755049e1979e503
-ms.sourcegitcommit: 635114a0f07a2de310b34720856dd074aaf4f9cd
+ms.openlocfilehash: 62036a507061a956febb1eb63e6607abcce7467c
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/23/2020
-ms.locfileid: "85263379"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85563872"
 ---
 # <a name="azure-powershell-samples-for-azure-cosmos-db-gremlin-api"></a>Exemples Azure PowerShell pour Azure Cosmos DB - API Gremlin
 
@@ -20,7 +20,7 @@ Le tableau suivant comprend des liens vers des exemples de scripts Azure PowerSh
 > [!NOTE]
 > Les exemples utilisent les applets de commande de gestion [Az.CosmosDB](https://docs.microsoft.com/powershell/module/az.cosmosdb). Vérifiez régulièrement les mises à jour de `Az.CosmosDB`.
 
-| | |
+|Tâche | Description |
 |---|---|
 |[Créer un compte, une base de données et un graphe](scripts/powershell/gremlin/ps-gremlin-create.md?toc=%2fpowershell%2fmodule%2ftoc.json)| Créez un compte, une base de données et un graphe Azure Cosmos. |
 |[Lister ou obtenir des bases de données et des graphes](scripts/powershell/gremlin/ps-gremlin-list-get.md?toc=%2fpowershell%2fmodule%2ftoc.json)| Listez ou obtenez des bases de données et des graphes. |

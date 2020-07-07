@@ -3,12 +3,13 @@ title: Créer une application de conteneur Azure Service Fabric
 description: Créez votre première application de conteneur Windows sur Microsoft Azure Service Fabric. Concevez une image Docker avec une application Python, envoyez l’image vers un registre de conteneurs, puis créez et déployez le conteneur dans Azure Service Fabric.
 ms.topic: conceptual
 ms.date: 01/25/2019
-ms.openlocfilehash: 8e1de48874655721f708bfd1dfdda8d975f94c4b
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.custom: tracking-python
+ms.openlocfilehash: d7076226b63fa3b45eaae82c2964997d3065ed88
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79229313"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84560663"
 ---
 # <a name="create-your-first-service-fabric-container-application-on-windows"></a>Créer votre première application de conteneur Service Fabric sur Windows
 

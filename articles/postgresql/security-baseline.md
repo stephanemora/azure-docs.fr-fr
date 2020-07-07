@@ -8,10 +8,10 @@ ms.date: 03/23/2020
 ms.author: mbaldwin
 ms.custom: security-benchmark
 ms.openlocfilehash: 89d760e28025f64b8cd8940fc08f06d23c969e12
-ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/19/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "83655742"
 ---
 # <a name="azure-security-baseline-for-azure-database-for-postgresql-single-server"></a>Base de référence de sécurité Azure pour Azure Database pour PostgreSQL Single Server
@@ -98,7 +98,7 @@ Comment activer et utiliser Traffic Analytics : https://docs.microsoft.com/azur
 
 Comment configurer Advanced Threat Protection pour Azure Database pour PostgreSQL : https://docs.microsoft.com/azure/postgresql/howto-database-threat-protection-portal
 
-**Supervision d’Azure Security Center** : Oui
+**Supervision Azure Security Center** : Oui
 
 **Responsabilité** : Customer
 
@@ -126,7 +126,7 @@ Comprendre l’utilisation des étiquettes de service pour Azure Database pour P
 
 ### <a name="19-maintain-standard-security-configurations-for-network-devices"></a>1.9 : Gérer les configurations de sécurité standard pour les périphériques réseau
 
-**Aide** : Définissez et implémentez des configurations de sécurité standard pour les paramètres réseau et les ressources réseau associées à vos instances Azure Database pour PostgreSQL avec Azure Policy. Utilisez des alias Azure Policy dans les espaces de noms « Microsoft.DBforPostgreSQL » et « Microsoft.Network » afin de créer des stratégies personnalisées pour auditer ou appliquer la configuration réseau de vos instances Azure Database pour PostgreSQL. Vous pouvez aussi utiliser des définitions de stratégie intégrées relatives à la mise en réseau ou à vos instances Azure Database pour PostgreSQL comme :
+**Conseils** : Définissez et implémentez des configurations de sécurité standard pour les paramètres réseau et les ressources réseau associées à vos instances Azure Database pour PostgreSQL avec Azure Policy. Utilisez des alias Azure Policy dans les espaces de noms « Microsoft.DBforPostgreSQL » et « Microsoft.Network » afin de créer des stratégies personnalisées pour auditer ou appliquer la configuration réseau de vos instances Azure Database pour PostgreSQL. Vous pouvez aussi utiliser des définitions de stratégie intégrées relatives à la mise en réseau ou à vos instances Azure Database pour PostgreSQL comme :
 
 - DDoS Protection Standard doit être activé
 
@@ -138,7 +138,7 @@ Exemples Azure Policy pour le réseau : https://docs.microsoft.com/azure/govern
 
 Créer une instance Azure Blueprint : https://docs.microsoft.com/azure/governance/blueprints/create-blueprint-portal
 
-**Supervision d’Azure Security Center** : Non applicable
+**Supervision Azure Security Center** : Non applicable
 
 **Responsabilité** : Customer
 
@@ -197,7 +197,7 @@ Comment intégrer Azure Sentinel : https://docs.microsoft.com/azure/sentinel/qu
 
 ### <a name="23-enable-audit-logging-for-azure-resources"></a>2.3 : Activer la journalisation d’audit pour les ressources Azure
 
-**Aide** : Activez les paramètres de diagnostic sur vos instances Azure Database pour PostgreSQL afin d’accéder aux journaux d’audit, de sécurité et de ressources. Veillez à activer spécifiquement le journal d’audit de PostgreSQL. Les journaux d’activité, automatiquement disponibles, incluent la source de l’événement, la date, l’utilisateur, l’horodatage, les adresses sources, les adresses de destination et d’autres éléments utiles. Vous pouvez aussi activer les paramètres de diagnostic des journaux d’activité Azure et envoyer les journaux vers le même espace de travail Log Analytics ou le même compte de stockage.
+**Conseils** : Activez les paramètres de diagnostic sur vos instances Azure Database pour PostgreSQL afin d’accéder aux journaux d’audit, de sécurité et de ressources. Veillez à activer spécifiquement le journal d’audit de PostgreSQL. Les journaux d’activité, automatiquement disponibles, incluent la source de l’événement, la date, l’utilisateur, l’horodatage, les adresses sources, les adresses de destination et d’autres éléments utiles. Vous pouvez aussi activer les paramètres de diagnostic des journaux d’activité Azure et envoyer les journaux vers le même espace de travail Log Analytics ou le même compte de stockage.
 
 Comment configurer et accéder aux journaux du serveur pour Azure Database pour PostgreSQL : https://docs.microsoft.com/azure/postgresql/howto-configure-server-logs-in-portal
 
@@ -246,7 +246,7 @@ Comment exécuter des requêtes personnalisées dans Azure Monitor : https://do
 
 ### <a name="27-enable-alerts-for-anomalous-activity"></a>2.7 : Activer des alertes en cas d’activité anormale
 
-**Aide** : Activer Advanced Threat Protection pour Azure Database pour PostgreSQL. Advanced Threat Protection détecte les activités anormales indiquant des tentatives d’accès ou d’exploitation inhabituelles et potentiellement dangereuses de vos bases de données.
+**Conseils** : Activer Advanced Threat Protection pour Azure Database pour PostgreSQL. Advanced Threat Protection détecte les activités anormales indiquant des tentatives d’accès ou d’exploitation inhabituelles et potentiellement dangereuses de vos bases de données.
 
 En outre, vous pouvez activer les journaux et les paramètres de diagnostic du serveur pour PostgreSQL, et envoyer les journaux à un espace de travail Log Analytics. Intégrez votre espace de travail Log Analytics à Azure Sentinel, car cela fournit une solution SOAR (Security Orchestration Automated Response). Cela permet de créer des playbooks (solutions automatisées) utilisables pour corriger des problèmes de sécurité.
 
@@ -260,7 +260,7 @@ Comment configurer les paramètres de diagnostic pour le journal d’activité A
 
 Comment intégrer Azure Sentinel : https://docs.microsoft.com/azure/sentinel/quickstart-onboard
 
-**Supervision d’Azure Security Center** : Oui
+**Supervision Azure Security Center** : Oui
 
 **Responsabilité** : Customer
 
@@ -268,7 +268,7 @@ Comment intégrer Azure Sentinel : https://docs.microsoft.com/azure/sentinel/qu
 
 **Aide** : Non applicable. Azure Database pour PostgreSQL ne traite pas et ne produit pas de journaux liés aux logiciels anti-programmes malveillants.
 
-**Supervision d’Azure Security Center** : Non applicable
+**Supervision Azure Security Center** : Non applicable
 
 **Responsabilité** : Non applicable
 
@@ -337,7 +337,7 @@ Comprendre comment créer des utilisateurs administrateurs dans Azure Database p
 
 ### <a name="34-use-single-sign-on-sso-with-azure-active-directory"></a>3.4 : Utiliser l’authentification unique (SSO) avec Azure Active Directory
 
-**Aide** : La connexion à Azure Database pour PostgreSQL est prise en charge à la fois avec le nom d’utilisateur/mot de passe configuré directement dans la base de données, et avec une identité Azure Active Directory (AD) et l’utilisation d’un jeton Azure AD pour se connecter. Quand vous utilisez un jeton de Azure AD, différentes méthodes sont prises en charge, comme un utilisateur Azure AD, un groupe Azure AD ou une application Azure AD qui se connecte à la base de données.
+**Conseils** : La connexion à Azure Database pour PostgreSQL est prise en charge à la fois avec le nom d’utilisateur/mot de passe configuré directement dans la base de données, et avec une identité Azure Active Directory (AD) et l’utilisation d’un jeton Azure AD pour se connecter. Quand vous utilisez un jeton de Azure AD, différentes méthodes sont prises en charge, comme un utilisateur Azure AD, un groupe Azure AD ou une application Azure AD qui se connecte à la base de données.
 
 Séparément, l’accès au plan de contrôle pour PostgreSQL est disponible via l’API REST et prend en charge l’authentification unique. Pour vous authentifier, définissez l’en-tête d’autorisation pour vos demandes sur un jeton web JSON que vous avez obtenu auprès d’Azure Active Directory.
 
@@ -397,7 +397,7 @@ Comprendre les détections de risques Azure AD : https://docs.microsoft.com/azu
 
 ### <a name="38-manage-azure-resources-from-only-approved-locations"></a>3.8 : Gérer les ressources Azure à partir des emplacements approuvés uniquement
 
-**Aide** : Utilisez des emplacements nommés à accès conditionnel pour autoriser l’accès au portail et à Azure Resource Manager seulement à partir de regroupements logiques spécifiques de plages d’adresses IP ou de pays/régions.
+**Conseils** : Utilisez des emplacements nommés à accès conditionnel pour autoriser l’accès au portail et à Azure Resource Manager seulement à partir de regroupements logiques spécifiques de plages d’adresses IP ou de pays/régions.
 
 Comment configurer des emplacements nommés dans Azure : https://docs.microsoft.com/azure/active-directory/reports-monitoring/quickstart-configure-named-locations
 
@@ -469,7 +469,7 @@ Comment intégrer Azure Sentinel : https://docs.microsoft.com/azure/sentinel/qu
 
 ### <a name="313-provide-microsoft-with-access-to-relevant-customer-data-during-support-scenarios"></a>3.13 : Fournir à Microsoft un accès aux données client pertinentes pendant les scénarios de support
 
-**Aide** : Actuellement non disponible ; Customer Lockbox n’est pas encore pris en charge pour Azure Database pour PostgreSQL.
+**Conseils** : Actuellement non disponible ; Customer Lockbox n’est pas encore pris en charge pour Azure Database pour PostgreSQL.
 
 Liste des services pris en charge pour Customer Lockbox : https://docs.microsoft.com/azure/security/fundamentals/customer-lockbox-overview#supported-services-and-scenarios-in-general-availability
 
@@ -525,7 +525,7 @@ Comprendre la protection des données client dans Azure : https://docs.microsof
 
 ### <a name="44-encrypt-all-sensitive-information-in-transit"></a>4.4 : Chiffrer toutes les informations sensibles en transit
 
-**Aide** : Azure Database pour PostgreSQL prend en charge la connexion de votre serveur PostgreSQL aux applications clientes via TLS (Transport Layer Security), anciennement SSL (Secure Sockets Layer). L’application de connexions TLS entre votre serveur de base de données et vos applications clientes vous protège contre les « attaques de l’intercepteur » en chiffrant le flux de données entre le serveur et votre application. Dans le portail Azure, vérifiez que l’option « Appliquer une connexion SSL » est activée par défaut pour toutes vos instances Azure Database pour PostgreSQL.
+**Conseils** : Azure Database pour PostgreSQL prend en charge la connexion de votre serveur PostgreSQL aux applications clientes via TLS (Transport Layer Security), anciennement SSL (Secure Sockets Layer). L’application de connexions TLS entre votre serveur de base de données et vos applications clientes vous protège contre les « attaques de l’intercepteur » en chiffrant le flux de données entre le serveur et votre application. Dans le portail Azure, vérifiez que l’option « Appliquer une connexion SSL » est activée par défaut pour toutes vos instances Azure Database pour PostgreSQL.
 
 Les versions TLS actuellement prises en charge pour Azure Database pour PostgreSQL sont TLS 1.0, TLS 1.1, TLS 1.2.
 
@@ -573,7 +573,7 @@ Comprendre la protection des données client dans Azure : https://docs.microsof
 
 ### <a name="48-encrypt-sensitive-information-at-rest"></a>4.8 : Chiffrer des informations sensibles au repos
 
-**Aide** : Le service Azure Database pour PostgreSQL utilise le module de chiffrement conforme à la norme FIPS 140-2 pour chiffrer le stockage des données au repos. À l’exception des fichiers temporaires créés durant l’exécution des requêtes, toutes les données, notamment les sauvegardes, sont chiffrées sur le disque. Le service utilise le chiffrement AES 256 bits inclus dans le chiffrement de stockage Azure, et les clés sont gérées par le système. Le chiffrement de stockage est toujours activé et ne peut pas être désactivé.
+**Conseils** : Le service Azure Database pour PostgreSQL utilise le module de chiffrement conforme à la norme FIPS 140-2 pour chiffrer le stockage des données au repos. À l’exception des fichiers temporaires créés durant l’exécution des requêtes, toutes les données, notamment les sauvegardes, sont chiffrées sur le disque. Le service utilise le chiffrement AES 256 bits inclus dans le chiffrement de stockage Azure, et les clés sont gérées par le système. Le chiffrement de stockage est toujours activé et ne peut pas être désactivé.
 
 Le chiffrement des données avec des clés gérées par le client pour Azure Database pour PostgreSQL Single Server permet le scénario BYOK (Bring Your Own Key) pour la protection des données au repos. À ce stade, vous devez demander l’accès pour utiliser cette fonctionnalité. Pour cela, contactez :
 
@@ -584,13 +584,13 @@ Comprendre le chiffrement au repos pour Azure Database pour PostgreSQL : https:
 Comprendre le chiffrement au repos pour Azure Database pour PostgreSQL avec des clés gérées par le client : https://docs.microsoft.com/azure/postgresql/concepts-data-encryption-postgresql
 
 
-**Supervision d’Azure Security Center** : Non applicable
+**Supervision Azure Security Center** : Non applicable
 
 **Responsabilité** : Microsoft
 
 ### <a name="49-log-and-alert-on-changes-to-critical-azure-resources"></a>4.9 : Consigner et alerter les modifications apportées aux ressources Azure critiques
 
-**Aide** : Utiliser Azure Monitor avec le journal d’activité Azure pour créer des alertes en cas de modifications sur des instances de production Azure Database pour PostgreSQL et d’autres ressources critiques ou associées.
+**Conseils** : Utiliser Azure Monitor avec le journal d’activité Azure pour créer des alertes en cas de modifications sur des instances de production Azure Database pour PostgreSQL et d’autres ressources critiques ou associées.
 
 Comment créer des alertes pour les événements du journal d’activité Azure : https://docs.microsoft.com/azure/azure-monitor/platform/alerts-activity-log
 
@@ -738,7 +738,7 @@ Créer des requêtes avec Azure Graph : https://docs.microsoft.com/azure/govern
 
 ### <a name="69-use-only-approved-azure-services"></a>6.9 : Utiliser des services Azure approuvés uniquement
 
-**Aide** : Appliquez des restrictions quant au type de ressources pouvant être créées dans les abonnements clients, en utilisant Azure Policy avec les définitions intégrées suivantes :
+**Conseils** : Appliquez des restrictions quant au type de ressources pouvant être créées dans les abonnements clients, en utilisant Azure Policy avec les définitions intégrées suivantes :
 
 - Types de ressources non autorisés
 
@@ -766,7 +766,7 @@ Comment refuser un type de ressource spécifique avec Azure Policy : https://do
 
 Configurer l’accès conditionnel pour bloquer l’accès à Azure Resource Manager : https://docs.microsoft.com/azure/role-based-access-control/conditional-access-azure-management
 
-**Supervision d’Azure Security Center** : Non applicable
+**Supervision Azure Security Center** : Non applicable
 
 **Responsabilité** : Customer
 
@@ -816,7 +816,7 @@ Configurer et gérer Azure Policy : https://docs.microsoft.com/azure/governance
 
 ### <a name="73-maintain-secure-azure-resource-configurations"></a>7.3 : Gérer les configurations de ressources Azure sécurisées
 
-**Aide** : Utilisez les commandes Azure Policy [refuser] et [déployer s’il n’existe pas] pour appliquer des paramètres sécurisés à vos ressources Azure.
+**Conseils** : Utilisez les commandes Azure Policy [refuser] et [déployer s’il n’existe pas] pour appliquer des paramètres sécurisés à vos ressources Azure.
 
 Configurer et gérer Azure Policy : https://docs.microsoft.com/azure/governance/policy/tutorials/create-and-manage
 
@@ -856,7 +856,7 @@ Documentation Azure Repos : https://docs.microsoft.com/azure/devops/repos/index
 
 ### <a name="77-deploy-system-configuration-management-tools"></a>7.7 : Déployer les outils de gestion de configuration système
 
-**Aide** : Utiliser des alias Azure Policy dans l’espace de noms « Microsoft.DBforPostgreSQL » pour créer des stratégies personnalisées afin d’alerter, d’auditer et d’appliquer des configurations système. En outre, développez un processus et un pipeline pour la gestion des exceptions de stratégie.
+**Conseils** : Utiliser des alias Azure Policy dans l’espace de noms « Microsoft.DBforPostgreSQL » pour créer des stratégies personnalisées afin d’alerter, d’auditer et d’appliquer des configurations système. En outre, développez un processus et un pipeline pour la gestion des exceptions de stratégie.
 
 Configurer et gérer Azure Policy : https://docs.microsoft.com/azure/governance/policy/tutorials/create-and-manage
 
@@ -874,7 +874,7 @@ Configurer et gérer Azure Policy : https://docs.microsoft.com/azure/governance
 
 ### <a name="79-implement-automated-configuration-monitoring-for-azure-services"></a>7.9 : Mettre en place la surveillance de la configuration automatique pour les services Azure
 
-**Aide** : Utiliser des alias Azure Policy dans l’espace de noms « Microsoft.DBforPostgreSQL » pour créer des stratégies personnalisées afin d’alerter, d’auditer et d’appliquer des configurations système. Utilisez les stratégies Azure Policy [auditer], [refuser] et [déployer si elle n’existe pas] pour appliquer automatiquement des configurations pour vos instances Azure Database pour PostgreSQL et les ressources associées.
+**Conseils** : Utiliser des alias Azure Policy dans l’espace de noms « Microsoft.DBforPostgreSQL » pour créer des stratégies personnalisées afin d’alerter, d’auditer et d’appliquer des configurations système. Utilisez les stratégies Azure Policy [auditer], [refuser] et [déployer si elle n’existe pas] pour appliquer automatiquement des configurations pour vos instances Azure Database pour PostgreSQL et les ressources associées.
 
 Configurer et gérer Azure Policy : https://docs.microsoft.com/azure/governance/policy/tutorials/create-and-manage
 
@@ -951,7 +951,7 @@ Microsoft Antimalware est activé sur l’hôte sous-jacent qui prend en charge 
 
 Pré-analysez tout contenu chargé sur des ressources Azure non liées au calcul, comme App Service, Data Lake Storage, Stockage Blob, Azure Database pour PostgreSQL, etc. Microsoft ne peut pas accéder à vos données dans ces instances.
 
-**Supervision d’Azure Security Center** : Non applicable
+**Supervision Azure Security Center** : Non applicable
 
 **Responsabilité** : Partagé
 
@@ -961,7 +961,7 @@ Pré-analysez tout contenu chargé sur des ressources Azure non liées au calcul
 
 Microsoft Antimalware est activé sur l’hôte sous-jacent qui prend en charge les services Azure (par exemple Azure Database pour PostgreSQL), mais il ne s’exécute pas sur du contenu client.
 
-**Supervision d’Azure Security Center** : Non applicable
+**Supervision Azure Security Center** : Non applicable
 
 **Responsabilité** : Microsoft
 
@@ -1015,7 +1015,7 @@ Comment sauvegarder un serveur dans Azure Database pour PostgreSQL : https://do
 
 Comprendre la sauvegarde et la restauration dans Azure Database pour PostgreSQL : https://docs.microsoft.com/azure/postgresql/concepts-backup
 
-**Supervision d’Azure Security Center** : Oui
+**Supervision Azure Security Center** : Oui
 
 **Responsabilité** : Customer
 
@@ -1087,7 +1087,7 @@ Comment diffuser en continu des alertes dans Azure Sentinel : https://docs.micr
 
 Comment configurer l’automatisation des workflows et Logic Apps : https://docs.microsoft.com/azure/security-center/workflow-automation
 
-**Supervision d’Azure Security Center** : Non applicable
+**Supervision Azure Security Center** : Non applicable
 
 **Responsabilité** : Customer
 

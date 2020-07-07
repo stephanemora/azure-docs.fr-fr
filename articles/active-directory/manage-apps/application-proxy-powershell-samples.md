@@ -12,12 +12,12 @@ ms.date: 12/05/2019
 ms.author: kenwith
 ms.reviewer: japere
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 6e624be8103097a8356ae4167cb8f21cce819649
-ms.sourcegitcommit: bc943dc048d9ab98caf4706b022eb5c6421ec459
+ms.openlocfilehash: 57efd88b9d194442920496107d4c37ba2baf94d3
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/14/2020
-ms.locfileid: "84760170"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85554989"
 ---
 # <a name="azure-ad-powershell-examples-for-azure-ad-application-proxy"></a>Exemples Azure AD PowerShell pour le proxy d’application Azure AD
 
@@ -26,7 +26,7 @@ Le tableau suivant contient des liens vers des exemples de scripts PowerShell po
 
 Pour plus d’informations sur les applets de commande utilisées dans ces exemples, consultez [Gestion des applications de proxy d’application](https://docs.microsoft.com/powershell/module/azuread/?view=azureadps-2.0#application_proxy_application_management) et [Gestion des connecteurs de proxy d’application](https://docs.microsoft.com/powershell/module/azuread/?view=azureadps-2.0#application_proxy_connector_management).
 
-| | |
+| Lien | Description |
 |---|---|
 |**Applications de proxy d’application**||
 | [Répertorier les informations de base pour toutes les applications de proxy d’application](scripts/powershell-get-all-app-proxy-apps-basic.md) | Répertorie les informations de base (AppId, DisplayName, ObjId) sur toutes les applications de proxy d’application de votre répertoire. |

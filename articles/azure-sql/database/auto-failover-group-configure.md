@@ -3,7 +3,7 @@ title: Configurer un groupe de basculement
 titleSuffix: Azure SQL Database & SQL Managed Instance
 description: Découvrez comment configurer un groupe de basculement automatique pour une base de données SQL Azure (unique et mise en pool) et une instance gérée SQL à l’aide du portail Azure, de l’interface de ligne de commande Azure et de PowerShell.
 services: sql-database
-ms.service: sql-database
+ms.service: sql-db-mi
 ms.subservice: high-availability
 ms.custom: sqldbrb=2
 ms.devlang: ''
@@ -12,12 +12,12 @@ author: MashaMSFT
 ms.author: mathoma
 ms.reviewer: sstein, carlrab
 ms.date: 08/14/2019
-ms.openlocfilehash: 13ca1ed4abef1eb367239a60ee7fe3d40ffee8d5
-ms.sourcegitcommit: 1f48ad3c83467a6ffac4e23093ef288fea592eb5
+ms.openlocfilehash: 6c85fce45bcfa63d921297b068066b8f6e814223
+ms.sourcegitcommit: 93462ccb4dd178ec81115f50455fbad2fa1d79ce
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/29/2020
-ms.locfileid: "84195542"
+ms.lasthandoff: 07/06/2020
+ms.locfileid: "85987128"
 ---
 # <a name="configure-a-failover-group-for-azure-sql-database"></a>Configurer un groupe de basculement pour Azure SQL Database
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
@@ -295,7 +295,7 @@ Faites basculer votre groupe de basculement sur le serveur secondaire, puis effe
 1. Sélectionnez **Basculement** dans le volet des tâches pour faire basculer votre groupe de basculement contenant votre pool élastique.
 1. Sélectionnez **Oui** en réponse à l’avertissement qui signale que les sessions TDS seront déconnectées.
 
-   ![Basculer votre groupe de basculement contenant votre base de données SQL](./media/auto-failover-group-configure/failover-sql-db.png)
+   ![Basculer le groupe de basculement contenant votre base de données](./media/auto-failover-group-configure/failover-sql-db.png)
 
 1. Vérifiez quel est le serveur principal et quel est le serveur secondaire. Si le basculement a réussi, les deux serveurs doivent avoir échangé leur rôle.
 1. Sélectionnez **Basculement** à nouveau pour rétablir les paramètres d’origine du groupe de basculement.

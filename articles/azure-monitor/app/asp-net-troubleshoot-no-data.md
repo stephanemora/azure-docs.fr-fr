@@ -3,12 +3,12 @@ title: 'Guide de dépannage : Application Insights pour .NET'
 description: Vous ne voyez pas de données dans Azure Application Insights ? Essayez ici.
 ms.topic: conceptual
 ms.date: 05/21/2020
-ms.openlocfilehash: 882081f28a53e347612a4b30374e294bb7352796
-ms.sourcegitcommit: 0b80a5802343ea769a91f91a8cdbdf1b67a932d3
+ms.openlocfilehash: 59543adaf01a8e19f0e3eefd167234f6c5d18deb
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/25/2020
-ms.locfileid: "83835136"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84485165"
 ---
 # <a name="troubleshooting-no-data---application-insights-for-netnet-core"></a>Résolution des problèmes liés à l’absence de données - Application Insights pour .NET et .NET Core
 
@@ -158,7 +158,6 @@ Les données de performances (UC, taux d’E/S, etc.) sont disponibles pour les 
 * Windows Server 2008 : vérifiez que vous avez installé les mises à jour suivantes : [KB2468871](https://support.microsoft.com/kb/2468871), [KB2533523](https://support.microsoft.com/kb/2533523), [KB2600217](https://support.microsoft.com/kb/2600217).
 
 ## <a name="i-used-to-see-data-but-it-has-stopped"></a>Je pouvais voir les données, mais plus maintenant
-* Vérifiez le [blog d'état](https://blogs.msdn.com/b/applicationinsights-status/).
 * Vous souhaitez savoir si vous avez atteint votre quota mensuel de points de données ? Ouvrez les champs Paramètres/Quota et Tarification pour le savoir. Le cas échéant, vous pouvez mettre à niveau votre forfait ou payer pour disposer d’une capacité supplémentaire. Consultez le [mécanisme de tarification](https://azure.microsoft.com/pricing/details/application-insights/).
 
 ## <a name="i-dont-see-all-the-data-im-expecting"></a>Je ne vois pas toutes les données que j’attends

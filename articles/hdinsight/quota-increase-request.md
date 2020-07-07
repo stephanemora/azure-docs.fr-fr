@@ -5,15 +5,15 @@ author: hrasheed-msft
 ms.author: hrasheed
 ms.reviewer: jasonh
 ms.service: hdinsight
-ms.topic: conceptual
+ms.topic: how-to
 ms.custom: hdinsightactive
 ms.date: 05/07/2020
-ms.openlocfilehash: a708ad9626f4d6750de64097a7e1e9177c350e5e
-ms.sourcegitcommit: 958f086136f10903c44c92463845b9f3a6a5275f
+ms.openlocfilehash: 775234116812c8a6e156c6fb54d325ffcde4df94
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/20/2020
-ms.locfileid: "83717738"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84449428"
 ---
 # <a name="requesting-quota-increases-for-azure-hdinsight"></a>Requête d’augmentation du quota pour Azure HDInsight
 
@@ -73,5 +73,5 @@ Il existe des limites de quota fixes. Par exemple, un seul abonnement Azure peut
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-* [Configurer des clusters dans HDInsight avec Apache Hadoop, Spark, Kafka, etc.](hdinsight-hadoop-provision-linux-clusters.md) : Découvrez comment installer et configurer des clusters dans HDInsight.
-* [Superviser les performances du cluster](hdinsight-key-scenarios-to-monitor.md) : découvrez les principaux scénarios susceptibles d’affecter les capacités de votre cluster HDInsight.
+* [Configurer des clusters dans HDInsight avec Apache Hadoop, Spark, Kafka et plus encore](hdinsight-hadoop-provision-linux-clusters.md): En savoir plus sur l’installation et la configuration de clusters dans HDInsight.
+* [Analyser les performances d’un cluster](hdinsight-key-scenarios-to-monitor.md): En savoir plus sur les principaux scénarios à analyser pour votre cluster HDInsight pouvant affecter sa capacité.

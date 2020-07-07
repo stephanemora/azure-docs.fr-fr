@@ -1,14 +1,14 @@
 ---
 title: 'Modèle : Effets d’une définition de stratégie'
 description: Ce modèle Azure Policy fournit un exemple d’utilisation des différents effets d’une définition de stratégie.
-ms.date: 01/31/2020
+ms.date: 06/29/2020
 ms.topic: sample
-ms.openlocfilehash: 1a9aec50bd328b76271d54f7830c75e0848d3cde
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 9c7e7689aa837a2dba0992112df3cd36ac9affe6
+ms.sourcegitcommit: 73ac360f37053a3321e8be23236b32d4f8fb30cf
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "80372638"
+ms.lasthandoff: 06/30/2020
+ms.locfileid: "85565737"
 ---
 # <a name="azure-policy-pattern-effects"></a>Modèle Azure Policy : Effets
 

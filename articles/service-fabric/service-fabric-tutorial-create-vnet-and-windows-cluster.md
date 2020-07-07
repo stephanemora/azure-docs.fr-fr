@@ -4,12 +4,12 @@ description: Dans ce tutoriel, vous allez découvrir comment déployer un cluste
 ms.topic: tutorial
 ms.date: 07/22/2019
 ms.custom: mvc
-ms.openlocfilehash: 2d170057a85a8e223fa9d1bc2bfc17e0c284afcd
-ms.sourcegitcommit: 441db70765ff9042db87c60f4aa3c51df2afae2d
+ms.openlocfilehash: dfcee93ffa5eea0b2aa0b9a93ff53ad7b61ea245
+ms.sourcegitcommit: 32592ba24c93aa9249f9bd1193ff157235f66d7e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/06/2020
-ms.locfileid: "80756035"
+ms.lasthandoff: 07/01/2020
+ms.locfileid: "85611660"
 ---
 # <a name="tutorial-deploy-a-service-fabric-cluster-running-windows-into-an-azure-virtual-network"></a>Tutoriel : Déployer un cluster Service Fabric exécutant Windows sur un réseau virtuel Azure
 
@@ -73,8 +73,8 @@ Dans la ressource **Microsoft.servicefabric/clusters**, un cluster Windows est c
 * Sécurisation par certificat (configurable dans les paramètres du modèle)
 * [Proxy inverse](service-fabric-reverseproxy.md) activé
 * [Service DNS](service-fabric-dnsservice.md) activé
-* [Niveau de durabilité](service-fabric-cluster-capacity.md#the-durability-characteristics-of-the-cluster) Bronze (configurable dans les paramètres du modèle)
-* [Niveau de fiabilité](service-fabric-cluster-capacity.md#the-reliability-characteristics-of-the-cluster) Silver (configurable dans les paramètres du modèle)
+* [Niveau de durabilité](service-fabric-cluster-capacity.md#durability-characteristics-of-the-cluster) Bronze (configurable dans les paramètres du modèle)
+* [Niveau de fiabilité](service-fabric-cluster-capacity.md#reliability-characteristics-of-the-cluster) Silver (configurable dans les paramètres du modèle)
 * Point de terminaison de connexion client : 19000 (configurable dans les paramètres du modèle)
 * point de terminaison de passerelle HTTP : 19080 (configurable dans les paramètres du modèle)
 

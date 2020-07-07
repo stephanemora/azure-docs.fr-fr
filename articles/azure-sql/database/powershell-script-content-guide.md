@@ -2,7 +2,7 @@
 title: Exemples de script Azure PowerShell
 description: Utilisez des exemples de scripts Azure PowerShell pour vous aider à créer et à gérer des ressources Azure SQL Database et Azure SQL Managed Instance.
 services: sql-database
-ms.service: sql-database
+ms.service: sql-db-mi
 ms.subservice: development
 ms.custom: sqldbrb=2
 ms.devlang: PowerShell
@@ -11,12 +11,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: ''
 ms.date: 03/25/2019
-ms.openlocfilehash: cb8abf563834e23472589cd65bfe4196131d0138
-ms.sourcegitcommit: a8928136b49362448e992a297db1072ee322b7fd
+ms.openlocfilehash: 77220fabc78dd10b4299219ef84c1f6eb32ba82e
+ms.sourcegitcommit: 93462ccb4dd178ec81115f50455fbad2fa1d79ce
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/11/2020
-ms.locfileid: "84718544"
+ms.lasthandoff: 07/06/2020
+ms.locfileid: "85987307"
 ---
 # <a name="azure-powershell-samples-for-azure-sql-database-and-azure-sql-managed-instance"></a>Exemples Azure PowerShell pour Azure SQL Database et Azure SQL Managed Instance
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
@@ -32,7 +32,7 @@ Si vous choisissez d’installer et d’utiliser PowerShell en local, vous avez 
 
 Le tableau suivant comprend des liens vers des exemples de scripts Azure PowerShell pour Azure SQL Database.
 
-| |  |
+|Lien|Description|
 |---|---|
 |**Créer et configurer des bases de données uniques et des pools élastiques**||
 | [Créer une base de données unique et configurer une règle de pare-feu au niveau du serveur](scripts/create-and-configure-database-powershell.md?toc=%2fpowershell%2fmodule%2ftoc.json) | Ce script PowerShell crée une base de données unique et configure une règle de pare-feu IP au niveau du serveur. |
@@ -64,7 +64,7 @@ Apprenez-en davantage sur l’[API de base de données unique Azure PowerShell](
 
 Le tableau suivant comprend des liens vers des exemples de scripts Azure PowerShell pour Azure SQL Managed Instance.
 
-| |  |
+|Lien|Description|
 |---|---|
 |**Créer et configurer des instances managées**||
 | [Créer et gérer une instance managée](../managed-instance/scripts/create-configure-managed-instance-powershell.md) | Ce script PowerShell montre comment créer et gérer une instance managée à l’aide d’Azure PowerShell. |

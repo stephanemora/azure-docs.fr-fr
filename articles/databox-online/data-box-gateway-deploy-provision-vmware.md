@@ -8,12 +8,12 @@ ms.subservice: gateway
 ms.topic: tutorial
 ms.date: 03/25/2019
 ms.author: alkohli
-ms.openlocfilehash: 9cf012df65560a921f2c9f12f6c0362a033300be
-ms.sourcegitcommit: 856db17a4209927812bcbf30a66b14ee7c1ac777
+ms.openlocfilehash: b62441a4b1307a232ad2f592f13253c0759b5431
+ms.sourcegitcommit: 73ac360f37053a3321e8be23236b32d4f8fb30cf
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "82561634"
+ms.lasthandoff: 06/30/2020
+ms.locfileid: "85564199"
 ---
 # <a name="tutorial-provision-azure-data-box-gateway-in-vmware"></a>Tutoriel : Provisionner Azure Data Box Gateway dans VMware
 
@@ -145,7 +145,7 @@ Procédez comme suit pour configurer un appareil virtuel dans votre hyperviseur.
 
     Dans la même page, cliquez sur **Ajouter le disque dur**, puis sélectionnez **Disque dur existant**. Sélectionnez le fichier VMDK dans le magasin de données. Cette opération ajoute un disque de système d’exploitation. 
 
-     !Page Personnaliser les paramètres[](./media/data-box-gateway-deploy-provision-vmware/image14.png)
+     ![Page Personnaliser les paramètres](./media/data-box-gateway-deploy-provision-vmware/image14.png)
 
     Défilez vers le bas jusqu'à voir le **Nouveau disque dur** et développez-le pour afficher les paramètres. Définissez le **Nœud d’appareil virtuel** sur **contrôleur IDE 0**.
 

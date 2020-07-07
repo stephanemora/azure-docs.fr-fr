@@ -2,18 +2,18 @@
 title: Remise d’événement WebHook
 description: Cet article décrit la remise des événements webhook et la validation des points de terminaison lors de l’utilisation de webhooks.
 services: event-grid
-author: banisadr
+author: femila
 manager: timlt
 ms.service: event-grid
 ms.topic: conceptual
 ms.date: 03/06/2020
-ms.author: babanisa
-ms.openlocfilehash: 80efee18ff7cc927ea9029c11aadcf13ad75781a
-ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
+ms.author: femila
+ms.openlocfilehash: cf298156fe7a347799afced8bb065cb3a02bc49a
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/21/2020
-ms.locfileid: "83747595"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84558433"
 ---
 # <a name="webhook-event-delivery"></a>Remise d’événements webhook
 Un Webhook constitue l’un des nombreux moyens de recevoir des événements provenant d’Azure Event Grid. Lorsqu'un nouvel événement est prêt, le service Event Grid envoie une requête HTTP (POST) au point de terminaison configuré avec l'événement dans le corps de la requête.
