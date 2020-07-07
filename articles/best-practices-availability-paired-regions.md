@@ -10,7 +10,6 @@ ms.author: barbkess
 ms.custom: references_regions
 ms.openlocfilehash: b720d9dd824018d885ccc9860ee9fd8a90a46051
 ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
-ms.translationtype: HT
 ms.contentlocale: fr-FR
 ms.lasthandoff: 07/02/2020
 ms.locfileid: "84194320"
@@ -49,7 +48,7 @@ Non. Les clients peuvent tirer parti des services Azure pour concevoir un servic
 
 | Geography | Paire régionale A | Paire régionale B  |
 |:--- |:--- |:--- |
-| Asie-Pacifique |Asie Est (Hong Kong) | Asie Sud-Est (Singapour) |
+| Asie-Pacifique |Hong Kong (R.A.S.) | Asie Sud-Est (Singapour) |
 | Australie |Australie Est |Sud-Australie Est |
 | Australie |Centre de l’Australie |Centre de l’Australie 2 |
 | Brésil |Brésil Sud |États-Unis - partie centrale méridionale |
