@@ -3,15 +3,15 @@ title: Accéder au Panneau de configuration Avere vFXT - Azure
 description: Comment se connecter au cluster vFXT et au Panneau de configuration Avere basé sur le navigateur pour configurer Avere vFXT
 author: ekpgh
 ms.service: avere-vfxt
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 12/14/2019
 ms.author: rohogue
-ms.openlocfilehash: fe2fc062f690498f3d1f588887279aa33d2434b8
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 69395a27500b8e7bd066536b367b8e6cb385602c
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "75416144"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85505611"
 ---
 # <a name="access-the-vfxt-cluster"></a>Accéder au cluster vFXT
 

@@ -3,15 +3,15 @@ title: Paramétrage du cluster Avere vFXT - Azure
 description: Vue d’ensemble des paramètres personnalisés pour optimiser les performances dans Avere vFXT pour Azure
 author: ekpgh
 ms.service: avere-vfxt
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 12/19/2019
 ms.author: rohogue
-ms.openlocfilehash: df20f050ff87fdb59a3e5cca373098240f8bfbb9
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 2d06e3cc80f05cc86980dd2570d1d4d203295ff2
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "76152933"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85505288"
 ---
 # <a name="cluster-tuning"></a>Paramétrage du cluster
 

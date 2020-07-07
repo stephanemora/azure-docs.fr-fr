@@ -5,12 +5,12 @@ author: mscurrell
 ms.topic: how-to
 ms.date: 03/19/2020
 ms.custom: seodec18
-ms.openlocfilehash: 90cd6476992eed30abbe9faca5cc66405aa40079
-ms.sourcegitcommit: a9784a3fd208f19c8814fe22da9e70fcf1da9c93
+ms.openlocfilehash: 48350a684844ca0e1624826afeca8e0b9ab36f3b
+ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/22/2020
-ms.locfileid: "83780195"
+ms.lasthandoff: 07/05/2020
+ms.locfileid: "85959991"
 ---
 # <a name="use-low-priority-vms-with-batch"></a>Utiliser des machines virtuelles de faible priorité avec Batch
 
@@ -23,11 +23,11 @@ La contrepartie à l’utilisation de machines virtuelles de faible priorité es
 Les machines virtuelles de faible priorité sont proposées à un prix considérablement inférieur à celui des machines virtuelles dédiées. Pour plus d’informations sur la tarification, consultez [Tarification Batch](https://azure.microsoft.com/pricing/details/batch/).
 
 > [!NOTE]
-> Les [machines virtuelles Spot](https://azure.microsoft.com/pricing/spot/) sont désormais disponibles pour les [machines virtuelles mono-instance](https://docs.microsoft.com/azure/virtual-machines/linux/spot-vms) et les [groupes de machines virtuelles identiques](https://docs.microsoft.com/azure/virtual-machine-scale-sets/use-spot). Les machines virtuelles Spot sont une évolution des machines virtuelles de faible priorité, mais diffèrent par leurs tarifs variables et la possibilité de définir un prix maximal lors de leur allocation.
+> Les [machines virtuelles Spot](https://azure.microsoft.com/pricing/spot/) sont désormais disponibles pour les [machines virtuelles mono-instance](../virtual-machines/linux/spot-vms.md) et les [groupes de machines virtuelles identiques](../virtual-machine-scale-sets/use-spot.md). Les machines virtuelles Spot sont une évolution des machines virtuelles de faible priorité, mais diffèrent par leurs tarifs variables et la possibilité de définir un prix maximal lors de leur allocation.
 >
-> Les pools Azure Batch commenceront à prendre en charge les machines virtuelles Spot dans les mois qui suivront leur mise à disposition générale, avec de nouvelles versions des [API et outils Batch](https://docs.microsoft.com/azure/batch/batch-apis-tools). Une fois que la prise en charge des machines virtuelles Spot sera disponible, les machines virtuelles de faible priorité seront déconseillées : elles continueront d’être prises en charge, à l’aide des versions actuelles des API et des outils, pendant au moins 12 mois, afin de laisser suffisamment de temps à une migration vers des machines virtuelles Spot. 
+> Les pools Azure Batch commenceront à prendre en charge les machines virtuelles Spot dans les mois qui suivront leur mise à disposition générale, avec de nouvelles versions des [API et outils Batch](./batch-apis-tools.md). Une fois que la prise en charge des machines virtuelles Spot sera disponible, les machines virtuelles de faible priorité seront déconseillées : elles continueront d’être prises en charge, à l’aide des versions actuelles des API et des outils, pendant au moins 12 mois, afin de laisser suffisamment de temps à une migration vers des machines virtuelles Spot. 
 >
-> Les machines virtuelles Spot ne sont pas prises en charge pour les pools de [configuration du service cloud](https://docs.microsoft.com/rest/api/batchservice/pool/add#cloudserviceconfiguration). Pour utiliser des machines virtuelles Spot, les pools de service cloud doivent être migrés vers des pools de [configuration de machine virtuelle](https://docs.microsoft.com/rest/api/batchservice/pool/add#virtualmachineconfiguration).
+> Les machines virtuelles Spot ne sont pas prises en charge pour les pools de [configuration du service cloud](/rest/api/batchservice/pool/add#cloudserviceconfiguration). Pour utiliser des machines virtuelles Spot, les pools de service cloud doivent être migrés vers des pools de [configuration de machine virtuelle](/rest/api/batchservice/pool/add#virtualmachineconfiguration).
 
 ## <a name="use-cases-for-low-priority-vms"></a>Cas d’utilisation des machines virtuelles de faible priorité
 

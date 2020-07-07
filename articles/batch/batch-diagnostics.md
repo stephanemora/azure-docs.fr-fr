@@ -4,12 +4,12 @@ description: Enregistrez et analysez les événements du journal de diagnostic p
 ms.topic: how-to
 ms.date: 05/29/2020
 ms.custom: seodec18
-ms.openlocfilehash: bd8265d18f618980af466e193b41cfcc03999c47
-ms.sourcegitcommit: 12f23307f8fedc02cd6f736121a2a9cea72e9454
+ms.openlocfilehash: 6e10a4fc6cd13854682f094274c975931b056365
+ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/30/2020
-ms.locfileid: "84220342"
+ms.lasthandoff: 07/05/2020
+ms.locfileid: "85960722"
 ---
 # <a name="batch-metrics-alerts-and-logs-for-diagnostic-evaluation-and-monitoring"></a>Métriques, alertes et journaux d’activité Batch pour l’évaluation de diagnostic et la supervision
  
@@ -70,7 +70,7 @@ Pour configurer une alerte de métrique dans le Portail Azure :
 
 Pour plus d’informations sur la création d’alertes de métriques, consultez [Comprendre le fonctionnement des alertes de métrique dans Azure Monitor](../azure-monitor/platform/alerts-metric-overview.md) et [Créer, afficher et gérer des alertes de métrique à l’aide d’Azure Monitor](../azure-monitor/platform/alerts-metric.md).
 
-Vous pouvez également configurer une alerte en temps quasi-réel à l’aide de [l’API REST](https://docs.microsoft.com/rest/api/monitor/) d’Azure Monitor. Pour davantage d’informations, consultez [Vue d’ensemble des alertes dans Microsoft Azure](../azure-monitor/platform/alerts-overview.md). Pour inclure des informations relatives aux travaux, aux tâches ou aux pools dans vos alertes, consultez les informations sur les requêtes de recherche dans [Répondre aux événements avec les alertes Azure Monitor](../azure-monitor/learn/tutorial-response.md).
+Vous pouvez également configurer une alerte en temps quasi-réel à l’aide de [l’API REST](/rest/api/monitor/) d’Azure Monitor. Pour davantage d’informations, consultez [Vue d’ensemble des alertes dans Microsoft Azure](../azure-monitor/platform/alerts-overview.md). Pour inclure des informations relatives aux travaux, aux tâches ou aux pools dans vos alertes, consultez les informations sur les requêtes de recherche dans [Répondre aux événements avec les alertes Azure Monitor](../azure-monitor/learn/tutorial-response.md).
 
 ## <a name="batch-diagnostics"></a>Diagnostics Batch
 

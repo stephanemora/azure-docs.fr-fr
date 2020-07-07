@@ -6,12 +6,12 @@ ms.author: inhenkel
 ms.service: media-services
 ms.topic: how-to
 ms.date: 04/20/2020
-ms.openlocfilehash: d4c2dc58ca341db7ba17dbaf6a5ce7c009983379
-ms.sourcegitcommit: acb82fc770128234f2e9222939826e3ade3a2a28
+ms.openlocfilehash: 62d4e26d5a0d3d86cc58421dab4167d5d9d2562d
+ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/21/2020
-ms.locfileid: "81725898"
+ms.lasthandoff: 07/05/2020
+ms.locfileid: "85961777"
 ---
 # <a name="azure-media-player-full-setup"></a>Installation complète du Lecteur multimédia Azure #
 
@@ -23,11 +23,14 @@ Le lecteur multimédia Azure est facile à configurer. Seuls quelques instants s
 Le Lecteur multimédia Azure vous permet d'accéder aux scripts à partir de la version hébergée du CDN. Il est généralement recommandé de placer JavaScript avant la balise body de fin `<body>` plutôt que `<head>`, mais le Lecteur multimédia Azure inclut un « HTML5 Shiv », qui doit se trouver dans l'en-tête des anciennes versions IE pour respecter la balise vidéo en tant qu’élément valide.
 
 > [!NOTE]
-> Si vous utilisez déjà un HTML5 Shiv tel que [Modernizr](http://modernizr.com/), vous pouvez inclure le Lecteur multimédia Azure JavaScript partout. Cela étant, assurez-vous que votre version de Modernizr inclut le Shiv pour la vidéo.
+> Si vous utilisez déjà un HTML5 Shiv tel que [Modernizr](https://modernizr.com/), vous pouvez inclure le Lecteur multimédia Azure JavaScript partout. Cela étant, assurez-vous que votre version de Modernizr inclut le Shiv pour la vidéo.
 
 ### <a name="cdn-version"></a>Version CDN ###
+
+```html
     <link href="//amp.azure.net/libs/amp/latest/skins/amp-default/azuremediaplayer.min.css" rel="stylesheet">
     <script src= "//amp.azure.net/libs/amp/latest/azuremediaplayer.min.js"></script>
+```
 
 > [!IMPORTANT]
 > Vous ne devez **PAS** utiliser la version `latest` en production, car elle est susceptible de changer à la demande. Remplacez `latest` par une version du Lecteur multimédia Azure. Par exemple, remplacez `latest` par `2.1.1`. Les versions du Lecteur multimédia Azure peuvent être interrogées à partir de [cet emplacement](azure-media-player-changelog.md).

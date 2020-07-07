@@ -85,7 +85,7 @@ Cette section décrit les fonctionnalités de sécurité Data Box Gateway visant
 
 Nous vous recommandons d’activer BitLocker pour sécuriser les disques virtuels sur votre machine virtuelle Data Box Gateway. Par défaut, BitLocker n’est pas activé. Pour plus d'informations, consultez les pages suivantes :
 
-- [Paramètres de prise en charge du chiffrement dans le Gestionnaire Hyper-V](hhttps://docs.microsoft.com/windows-server/virtualization/hyper-v/learn-more/generation-2-virtual-machine-security-settings-for-hyper-v#encryption-support-settings-in-hyper-v-manager)
+- [Paramètres de prise en charge du chiffrement dans le Gestionnaire Hyper-V](h https://docs.microsoft.com/windows-server/virtualization/hyper-v/learn-more/generation-2-virtual-machine-security-settings-for-hyper-v#encryption-support-settings-in-hyper-v-manager)
 - [Prise en charge de BitLocker sur une machine virtuelle](https://kb.vmware.com/s/article/2036142)
 
 ## <a name="manage-personal-information"></a>Gestion des informations personnelles

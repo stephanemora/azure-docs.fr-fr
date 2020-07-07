@@ -3,15 +3,15 @@ title: Monter le cluster Avere vFXT - Azure
 description: Guide pratique pour monter des clients avec Avere vFXT pour Azure
 author: ekpgh
 ms.service: avere-vfxt
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 12/16/2019
 ms.author: rohogue
-ms.openlocfilehash: b8486b5a33226b1faa5e3874144129dbe7a1a2f2
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: c6a4b2c1d95bc803d10697ce2164ea190f824d96
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "76153409"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85505441"
 ---
 # <a name="mount-the-avere-vfxt-cluster"></a>Monter le cluster Avere vFXT
 

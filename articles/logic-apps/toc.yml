@@ -47,10 +47,8 @@
       href: connect-virtual-network-vnet-isolated-environment-overview.md
     - name: Continuité d’activité et reprise d’activité
       href: business-continuity-disaster-recovery-guidance.md
-    - name: Sécurité
-      items:
-        - name: Base de référence de la sécurité
-          href: security-baseline.md
+    - name: Base de référence de la sécurité
+      href: security-baseline.md
 - name: Guides pratiques
   items:
     - name: Développer
@@ -319,7 +317,7 @@
           href: ../connectors/connectors-create-api-yammer.md
     - name: Sécuriser
       items:
-        - name: Renforcer la sécurité pour les applications logiques
+        - name: Sécuriser vos applications logiques
           href: logic-apps-securing-a-logic-app.md
         - name: Authentifier avec des identités gérées
           href: create-managed-service-identity.md

@@ -3,15 +3,15 @@ title: Déplacement des données vers Avere vFXT pour Azure
 description: Comment ajouter des données à un nouveau volume de stockage pour une utilisation avec Avere vFXT pour Azure
 author: ekpgh
 ms.service: avere-vfxt
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 12/16/2019
 ms.author: rohogue
-ms.openlocfilehash: c2a38b20fff789faf370e3161a92a31ed5f04c57
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 76bbe60397ebb01aed5694d933b3067f778a4c21
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "76153716"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85505594"
 ---
 # <a name="moving-data-to-the-vfxt-cluster---parallel-data-ingest"></a>Déplacement des données vers le cluster vFXT - ingestion parallèle des données
 

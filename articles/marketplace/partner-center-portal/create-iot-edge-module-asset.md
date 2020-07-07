@@ -7,12 +7,12 @@ ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 04/03/2020
-ms.openlocfilehash: fc35602b55e79f3351da0def800d2a2b2698e250
-ms.sourcegitcommit: c535228f0b77eb7592697556b23c4e436ec29f96
+ms.openlocfilehash: 36b56cdf5a2aaa57cc452db9054380528fa8c68b
+ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/06/2020
-ms.locfileid: "82856732"
+ms.lasthandoff: 07/05/2020
+ms.locfileid: "85958580"
 ---
 # <a name="prepare-your-iot-edge-module-technical-assets"></a>Préparer vos ressources techniques de module IoT Edge
 
@@ -22,8 +22,8 @@ Cet article décrit les exigences que vos ressources techniques de module IoT Ed
 
 Un module IoT Edge est un conteneur compatible avec Docker qui s’exécute sur un appareil IoT Edge.
 
-- Pour en savoir plus sur les modules IoT Edge, consultez [Présentation des modules Azure IoT Edge](https://docs.microsoft.com/azure/iot-edge/iot-edge-modules).
-- Pour commencer le développement de votre module IoT Edge, consultez [Développer vos propres modules IoT Edge](https://docs.microsoft.com/azure/iot-edge/module-development).
+- Pour en savoir plus sur les modules IoT Edge, consultez [Présentation des modules Azure IoT Edge](../../iot-edge/iot-edge-modules.md).
+- Pour commencer le développement de votre module IoT Edge, consultez [Développer vos propres modules IoT Edge](../../iot-edge/module-development.md).
 
 ## <a name="technical-requirements"></a>Exigences techniques
 
@@ -35,7 +35,7 @@ Votre module IoT Edge doit prendre en charge une des options de plateforme suiva
 
 #### <a name="tier-1-platforms-supported-by-iot-edge"></a>Plateformes de niveau 1 prises en charge par IoT Edge
 
-Votre module doit prendre en charge toutes les plateformes de niveau 1 prises en charge par IoT Edge (tel qu’enregistré dans [Prise en charge par Azure IoT Edge](https://docs.microsoft.com/azure/iot-edge/support)). Nous recommandons cette option, car elle fournit une meilleure expérience client. Les modules répondant à ce critère sont présentés. Un module utilisant cette option de plateforme doit :
+Votre module doit prendre en charge toutes les plateformes de niveau 1 prises en charge par IoT Edge (tel qu’enregistré dans [Prise en charge par Azure IoT Edge](../../iot-edge/support.md)). Nous recommandons cette option, car elle fournit une meilleure expérience client. Les modules répondant à ce critère sont présentés. Un module utilisant cette option de plateforme doit :
 
 - Fournir une étiquette « latest » et une étiquette de version (par exemple, 1.0.1), qui sont des étiquettes manifeste générées avec [Manifest-tool de GitHub](https://github.com/estesp/manifest-tool).
 
@@ -43,7 +43,7 @@ Votre module doit prendre en charge toutes les plateformes de niveau 1 prises e
 
 #### <a name="a-subset-of-tier-1-platforms-supported-by-iot-edge"></a>Un sous-ensemble de plateformes de niveau 1 prises en charge par IoT Edge
 
-Votre module doit prendre en charge un sous-ensemble (au moins un) de plateformes de niveau 1 prises en charge par IoT Edge (tel qu’enregistré dans [Prise en charge par Azure IoT Edge](https://docs.microsoft.com/azure/iot-edge/support)). Un module utilisant cette option de plateforme doit :
+Votre module doit prendre en charge un sous-ensemble (au moins un) de plateformes de niveau 1 prises en charge par IoT Edge (tel qu’enregistré dans [Prise en charge par Azure IoT Edge](../../iot-edge/support.md)). Un module utilisant cette option de plateforme doit :
 
 - Fournir une étiquette « latest » et une étiquette de version (par exemple, 1.0.1), qui sont des étiquettes manifeste générées avec [manifest-tool](https://github.com/estesp/manifest-tool) de GitHub si plusieurs plateformes sont prises en charge. Les balises manifeste ne sont facultatives que si une seule plateforme est prise en charge.
 - Utilisez l’onglet Description de l’offre dans l’[Espace partenaires](https://partner.microsoft.com/dashboard/commercial-marketplace) pour ajouter un lien sous la section **Liens utiles** vers au moins un appareil IoT Edge à partir du [catalogue d’appareils Azure IoT Edge Certified](https://catalog.azureiotsolutions.com/).
@@ -139,8 +139,8 @@ Votre offre est également recertifiée si vous la mettez à jour, par exemple, 
 
 ## <a name="host-module-in-azure-container-registry"></a>Héberger un module dans un registre de containeurs Azure
 
-Pour charger votre module IoT Edge sur la Place de marché Azure, vous devez tout d’abord l’héberger dans un [registre de containeurs Azure](https://azure.microsoft.com/services/container-registry/). Le module doit inclure toutes les étiquettes que vous souhaitez publier, y compris les étiquettes d’image qui sont référencées par une étiquette de manifeste. Pour plus d’informations, consultez le tutoriel [Créer un registre de conteneurs Azure et envoyer une image conteneur](https://docs.microsoft.com/azure/container-instances/container-instances-tutorial-prepare-acr).
+Pour charger votre module IoT Edge sur la Place de marché Azure, vous devez tout d’abord l’héberger dans un [registre de containeurs Azure](https://azure.microsoft.com/services/container-registry/). Le module doit inclure toutes les étiquettes que vous souhaitez publier, y compris les étiquettes d’image qui sont référencées par une étiquette de manifeste. Pour plus d’informations, consultez le tutoriel [Créer un registre de conteneurs Azure et envoyer une image conteneur](../../container-instances/container-instances-tutorial-prepare-acr.md).
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-- [Créer une offre de module IoT Edge](https://docs.microsoft.com/azure/marketplace/partner-center-portal/azure-iot-edge-module-creation)
+- [Créer une offre de module IoT Edge](azure-iot-edge-module-creation.md)

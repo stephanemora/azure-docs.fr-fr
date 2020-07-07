@@ -3,12 +3,12 @@ title: Événement de fin de suppression de pool Azure Batch
 description: Référence pour l’événement de fin de suppression de pool Batch. Cet événement est émis quand une opération de suppression de pool est terminée.
 ms.topic: reference
 ms.date: 04/20/2017
-ms.openlocfilehash: 6e009b55869b7ba8c81190837086557743d53219
-ms.sourcegitcommit: 6fd8dbeee587fd7633571dfea46424f3c7e65169
+ms.openlocfilehash: f00d32fd5e4eb49fddf4975a9b64ce792d0226dd
+ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/21/2020
-ms.locfileid: "83724052"
+ms.lasthandoff: 07/05/2020
+ms.locfileid: "85962456"
 ---
 # <a name="pool-delete-complete-event"></a>Événement de fin de suppression de pool
 
@@ -31,4 +31,4 @@ ms.locfileid: "83724052"
 |`endTime`|DateTime|Heure de fin de la suppression du pool.|
 
 ## <a name="remarks"></a>Notes
-Pour plus d’informations sur les états et les codes d’erreur pour l’opération de redimensionnement de pool, voir [Supprimer un pool d’un compte](https://docs.microsoft.com/rest/api/batchservice/delete-a-pool-from-an-account).
+Pour plus d’informations sur les états et les codes d’erreur pour l’opération de redimensionnement de pool, voir [Supprimer un pool d’un compte](/rest/api/batchservice/delete-a-pool-from-an-account).

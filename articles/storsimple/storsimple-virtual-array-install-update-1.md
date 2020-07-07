@@ -9,17 +9,17 @@ editor: ''
 ms.assetid: ''
 ms.service: storsimple
 ms.devlang: NA
-ms.topic: article
+ms.topic: how-to
 ms.tgt_pltfrm: NA
 ms.workload: TBD
 ms.date: 11/02/2017
 ms.author: alkohli
-ms.openlocfilehash: fa53213e577028628d48db91704578e23888f2a8
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 41546a449165951cd7b462d1db2b1b58ae74e407
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79228093"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85508093"
 ---
 # <a name="install-update-10-on-your-storsimple-virtual-array"></a>Installer Update 1.0 sur StorSimple Virtual Array
 
@@ -30,6 +30,7 @@ Cet article décrit les étapes nécessaires pour installer Update 1.0 sur votr
 Pour maintenir votre instance StorSimple Virtual Array à jour, vous appliquez les mises à jour ou les correctifs logiciels. Avant d’appliquer une mise à jour, nous vous recommandons de mettre les volumes ou les partages hors connexion sur l’ordinateur hôte puis sur l’appareil. Vous réduisez ainsi toute possibilité d’altération des données. Une fois que les volumes ou partages sont hors connexion, vous devez également effectuer une sauvegarde manuelle de l’appareil.
 
 > [!IMPORTANT]
+>
 > - Update 1.0 correspond à la version logicielle **10.0.10296.0** sur votre appareil. Pour plus d’informations sur les nouveautés de cette mise à jour, consultez [Notes de version pour Update 1.0](storsimple-virtual-array-update-1-release-notes.md).
 >
 > - N’oubliez pas que l’installation d’une mise à jour ou d’un correctif logiciel nécessite le redémarrage de votre appareil. Étant donné que StorSimple Virtual Array est un appareil à nœud unique, les E/S en cours seront interrompues et votre appareil subira des temps d’arrêt.

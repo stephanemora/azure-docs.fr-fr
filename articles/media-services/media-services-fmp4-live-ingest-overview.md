@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/18/2019
 ms.author: juliako
-ms.openlocfilehash: 507afad294e8233ea4de4130795f29925870fcdf
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 3ff356ef67630429b72208107541b1696e4eceac
+ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "74888051"
+ms.lasthandoff: 07/05/2020
+ms.locfileid: "85958563"
 ---
 # <a name="azure-media-services-fragmented-mp4-live-ingest-specification"></a>Spécification d’ingestion en direct au format MP4 fragmenté Azure Media Services 
 
@@ -56,7 +56,7 @@ La liste suivante décrit des définitions de formats spéciaux qui s’applique
 ## <a name="4-protocol-format--http"></a>4. Format de protocole – HTTP
 L’ingestion en direct basée sur le format MP4 fragmenté ISO pour Media Services utilise une longue requête HTTP POST standard pour transmettre au service des données multimédias encodées qui sont empaquetées au format MP4 fragmenté. Chaque requête HTTP POST envoie un flux binaire (« stream ») MP4 fragmenté en commençant par les zones d’en-tête (zones **ftyp**, **Live Server Manifest Box** et **moov**) et en continuant avec une séquence de fragments (zones **moof** et **mdat**). Pour connaître la syntaxe URL de la requête HTTP POST, consultez la section 9.2 dans [1]. Voici un exemple d'URL POST : 
 
-    http://customer.channel.mediaservices.windows.net/ingest.isml/streams(720p)
+`http://customer.channel.mediaservices.windows.net/ingest.isml/streams(720p)`
 
 ### <a name="requirements"></a>Spécifications
 Voici les spécifications détaillées :

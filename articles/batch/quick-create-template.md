@@ -4,12 +4,12 @@ description: Apprenez rapidement à exécuter un travail Batch avec l’interfac
 ms.topic: quickstart
 ms.date: 05/19/2020
 ms.custom: subject-armqs
-ms.openlocfilehash: 1e3becaa8a71fbb0f3c7baea97b57a03722a99cc
-ms.sourcegitcommit: 635114a0f07a2de310b34720856dd074aaf4f9cd
+ms.openlocfilehash: 5f26aeead41fa1ffcebefdeaabae84490dfdae2b
+ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/23/2020
-ms.locfileid: "85262682"
+ms.lasthandoff: 07/05/2020
+ms.locfileid: "85959821"
 ---
 # <a name="quickstart-create-a-batch-account-by-using-azure-resource-manager-template"></a>Démarrage rapide : Création d’un compte Batch à l’aide d’un modèle Azure Resource Manager
 
@@ -33,8 +33,8 @@ Le modèle utilisé dans ce démarrage rapide est tiré des [modèles de démarr
 
 Deux ressources Azure sont définies dans le modèle :
 
-- [Microsoft.Storage/storageAccounts](https://docs.microsoft.com/azure/templates/microsoft.storage/storageaccounts) : Crée un compte de stockage.
-- [Microsoft.Batch/batchAccounts](https://docs.microsoft.com/azure/templates/microsoft.batch/batchaccounts) : Crée un compte Batch.
+- [Microsoft.Storage/storageAccounts](/azure/templates/microsoft.storage/storageaccounts) : Crée un compte de stockage.
+- [Microsoft.Batch/batchAccounts](/azure/templates/microsoft.batch/batchaccounts) : Crée un compte Batch.
 
 ### <a name="deploy-the-template"></a>Déployer le modèle
 

@@ -4,22 +4,22 @@ description: Obtenez une brève introduction aux commandes Batch dans l’interf
 ms.topic: how-to
 ms.date: 07/24/2018
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 2bb3dd2e67c3c3bf9139a25935ab0dd074799c6f
-ms.sourcegitcommit: a9784a3fd208f19c8814fe22da9e70fcf1da9c93
+ms.openlocfilehash: b07045bc0a756c5565356bb0a674188cf84c8785
+ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/22/2020
-ms.locfileid: "83780227"
+ms.lasthandoff: 07/05/2020
+ms.locfileid: "85960858"
 ---
 # <a name="manage-batch-resources-with-azure-cli"></a>Gérer les ressources Batch avec Azure CLI
 
 L’interface de ligne de commande Azure (Azure CLI) est l’expérience de ligne de commande d’Azure pour gérer les ressources Azure. Elle peut être utilisée sur macOS, Linux et Windows. Azure CLI est optimisé pour gérer et administrer les ressources Azure à partir de la ligne de commande. Vous pouvez utiliser cette interface pour gérer vos comptes Azure Batch et des ressources telles que les pools, les travaux et les tâches. Avec l’interface de ligne de commande Azure, vous pouvez écrire le script de nombre des tâches que vous réalisez avec les API Batch, le portail Azure et les applets de commande PowerShell pour Batch.
 
-Cet article fournit une vue d’ensemble de l’utilisation de [Azure CLI version 2.0](https://docs.microsoft.com/cli/azure) avec Batch. Consultez [Bien démarrer avec Azure CLI](https://docs.microsoft.com/cli/azure/get-started-with-azure-cli) pour une vue d’ensemble de l’utilisation de l’interface de ligne de commande avec Azure.
+Cet article fournit une vue d’ensemble de l’utilisation de [Azure CLI version 2.0](/cli/azure) avec Batch. Consultez [Bien démarrer avec Azure CLI](/cli/azure/get-started-with-azure-cli) pour une vue d’ensemble de l’utilisation de l’interface de ligne de commande avec Azure.
 
 ## <a name="set-up-the-azure-cli"></a>Configuration de l’interface de ligne de commande Azure
 
-Vous pouvez également exécuter l’interface Azure CLI la plus récente dans [Azure Cloud Shell](../cloud-shell/overview.md). Pour installer Azure CLI localement, suivez les instructions fournies dans la section [Installer Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli).
+Vous pouvez également exécuter l’interface Azure CLI la plus récente dans [Azure Cloud Shell](../cloud-shell/overview.md). Pour installer Azure CLI localement, suivez les instructions fournies dans la section [Installer Azure CLI](/cli/azure/install-azure-cli).
 
 > [!TIP]
 > Nous vous recommandons de mettre à jour fréquemment votre installation d’interface de ligne de commande Azure pour tirer parti des améliorations et des mises à jour de service.
@@ -51,10 +51,10 @@ Pour utiliser Azure CLI avec Batch, vous devez vous connecter et vous authentifi
 
 Il existe différentes façons de se connecter à Azure, décrites en détail dans [Se connecter avec Azure CLI](/cli/azure/authenticate-azure-cli) :
 
-1. [Connexion interactive](https://docs.microsoft.com/cli/azure/authenticate-azure-cli). Connectez-vous de manière interactive lorsque vous exécutez des commandes Azure CLI vous-même à partir de la ligne de commande.
-2. [Connexion avec un principal de service](https://docs.microsoft.com/cli/azure/authenticate-azure-cli). Connectez-vous avec un principal de service lorsque vous exécutez des commandes Azure CLI à partir d’un script ou d’une application.
+1. [Connexion interactive](/cli/azure/authenticate-azure-cli). Connectez-vous de manière interactive lorsque vous exécutez des commandes Azure CLI vous-même à partir de la ligne de commande.
+2. [Connexion avec un principal de service](/cli/azure/authenticate-azure-cli). Connectez-vous avec un principal de service lorsque vous exécutez des commandes Azure CLI à partir d’un script ou d’une application.
 
-Dans le cadre de cet article, nous montrons comment se connecter à Azure de manière interactive. Entrez [az login](https://docs.microsoft.com/cli/azure/reference-index#az-login) dans la ligne de commande :
+Dans le cadre de cet article, nous montrons comment se connecter à Azure de manière interactive. Entrez [az login](/cli/azure/reference-index#az-login) dans la ligne de commande :
 
 ```azurecli
 # Log in to Azure and authenticate interactively.
@@ -69,7 +69,7 @@ Les exemples listés dans la section Exemples de scripts de l’interpréteur de
 
 ### <a name="log-in-to-your-batch-account"></a>Connexion à votre compte Batch
 
-Pour utiliser Azure CLI pour gérer les ressources Batch, telles que les pools, les travaux et les tâches, vous devez vous connecter à votre compte Batch et vous authentifier. Pour vous connecter au service Batch, utilisez la commande [az batch account login](https://docs.microsoft.com/cli/azure/batch/account#az-batch-account-login). 
+Pour utiliser Azure CLI pour gérer les ressources Batch, telles que les pools, les travaux et les tâches, vous devez vous connecter à votre compte Batch et vous authentifier. Pour vous connecter au service Batch, utilisez la commande [az batch account login](/cli/azure/batch/account#az-batch-account-login). 
 
 Deux options s’offrent à vous pour l’authentification sur votre compte Batch :
 
@@ -81,7 +81,7 @@ Deux options s’offrent à vous pour l’authentification sur votre compte Batc
 
     L’avantage d’Azure AD est que le contrôle d’accès se fait en fonction du rôle (RBAC). Avec RBAC, l’accès dont bénéficie un utilisateur dépend de son rôle, et non du fait qu’il possède ou non les clés du compte. Au lieu de gérer les clés de compte, vous pouvez gérer les rôles RBAC et permettre à Azure AD de gérer l’accès et l’authentification.  
 
-     Pour vous connecter à votre compte Batch à l’aide d’Azure AD, appelez la commande [az batch account login](https://docs.microsoft.com/cli/azure/batch/account#az-batch-account-login) : 
+     Pour vous connecter à votre compte Batch à l’aide d’Azure AD, appelez la commande [az batch account login](/cli/azure/batch/account#az-batch-account-login) : 
 
     ```azurecli
     az batch account login -g myresource group -n mybatchaccount
@@ -162,10 +162,10 @@ Les conseils suivants peuvent vous aider lors de la résolution de problèmes su
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-* Consultez la [Documentation sur Azure CLI](https://docs.microsoft.com/cli/azure).
+* Consultez la [Documentation sur Azure CLI](/cli/azure).
 * Apprenez-en davantage sur le [flux de travail et les ressources principales du service Batch](batch-service-workflow-features.md), telles que les pools, les nœuds, les travaux et les tâches.
 * Découvrez l’utilisation des modèles Batch afin de créer des pools, des travaux et des tâches sans écrire de code dans la section [Utiliser des modèles d’interface CLI Azure Batch et le transfert de fichiers (préversion)](batch-cli-templates.md).
 
 [github_readme]: https://github.com/Azure/azure-xplat-cli/blob/dev/README.md
-[rest_api]: https://msdn.microsoft.com/library/azure/dn820158.aspx
-[rest_add_pool]: https://msdn.microsoft.com/library/azure/dn820174.aspx
+[rest_api]: /rest/api/batchservice/
+[rest_add_pool]: /rest/api/batchservice/pool/add

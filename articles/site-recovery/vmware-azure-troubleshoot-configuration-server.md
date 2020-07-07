@@ -7,12 +7,12 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 02/13/2019
 ms.author: ramamill
-ms.openlocfilehash: 85021af94c3cc88f45b391690d7481d5498c40a9
-ms.sourcegitcommit: 8017209cc9d8a825cc404df852c8dc02f74d584b
+ms.openlocfilehash: 26376c6b20816d2e7302403c8391195e16092fa3
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/01/2020
-ms.locfileid: "84246881"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85504318"
 ---
 # <a name="troubleshoot-configuration-server-issues"></a>Résoudre les problèmes de serveur de configuration
 
@@ -193,7 +193,7 @@ Vos autorisations sont insuffisantes pour créer une application dans Azure Acti
 Pour résoudre ce problème, connectez-vous au portail Azure, puis effectuez l’une des opérations suivantes :
 
 - Demandez le rôle Développeur d’applications dans AAD. Pour plus d’informations sur le rôle Développeur d’applications, consultez [Autorisations des rôles d’administrateur dans Azure Active Directory](../active-directory/users-groups-roles/directory-assign-admin-roles.md).
-- Vérifiez que l’indicateur **L’utilisateur peut créer une application** a la valeur *true* dans AAD. Pour plus d’informations, consultez [Procédure : Utilisez le portail pour créer une application Azure AD et un principal du service pouvant accéder aux ressources](../active-directory/develop/howto-create-service-principal-portal.md#required-permissions).
+- Vérifiez que l’indicateur **L’utilisateur peut créer une application** a la valeur *true* dans AAD. Pour plus d’informations, consultez [Procédure : Utilisez le portail pour créer une application Azure AD et un principal du service pouvant accéder aux ressources](../active-directory/develop/howto-create-service-principal-portal.md#permissions-required-for-registering-an-app).
 
 ## <a name="process-servermaster-target-are-unable-to-communicate-with-the-configuration-server"></a>Le serveur de processus/le serveur cible maître ne sont pas en mesure de communiquer avec le serveur de configuration 
 
