@@ -9,10 +9,10 @@ ms.date: 04/08/2019
 ms.author: tamram
 ms.subservice: tables
 ms.openlocfilehash: 5478163a6103bcc84b4f3608d7513c6e7cb11c01
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "79529337"
 ---
 # <a name="table-design-patterns"></a>Modèles de conception de table
@@ -197,11 +197,11 @@ Pour permettre la recherche par nom de famille en utilisant la structure d’ent
 * La création d'entités d'index dans la même partition que les entités des employés.  
 * La création d'entités d'index dans une table ou une partition séparée.  
 
-<u>Méthode nº 1 : stockage d’objets blob</u>  
+<u>Option 1 : Utiliser le Stockage Blob</u>  
 
 Pour la première option, vous créez un objet blob pour chaque nom unique et dans chaque magasin d’objets blob vous stockez une liste des valeurs de **PartitionKey** (service) et **RowKey** (ID d’employé) pour les employés de ce nom. Lorsque vous ajoutez ou supprimez un employé, vous devez vous assurer que le contenu de l’objet blob adéquat est cohérent avec les entités de l’employé.  
 
-<u>Méthode nº 2 :</u> création d’entités d’index dans la même partition  
+<u>Option 2 :</u> Créer des entités d’index dans la même partition  
 
 Pour la seconde méthode, utilisez les entités d'index stockant les données suivantes :  
 
@@ -223,7 +223,7 @@ Les étapes suivantes décrivent le processus à suivre lorsque vous devez reche
 2. Analysez la liste des identificateurs dans le champ EmployeeIDs des employés.  
 3. Si vous avez besoin de plus d’informations sur chacun de ces employés (par exemple leurs adresses de messagerie), récupérez chacune des entités d’employé à l’aide de la valeur de **PartitionKey** « Sales » et des valeurs de **RowKey** de la liste des employés obtenue à l’étape 2.  
 
-<u>Méthode nº 3 :</u> création d’entités d’index dans une table ou une partition séparée  
+<u>Option 3 :</u> Créer des entités d’index dans une table ou une partition séparée  
 
 Pour cette troisième méthode, utilisez les entités d'index qui stockent les données suivantes :  
 
@@ -742,7 +742,7 @@ Le service de Table est un magasin de tables *sans schéma* , ce qui signifie qu
 <th>FirstName</th>
 <th>LastName</th>
 <th>Age</th>
-<th>Email</th>
+<th>E-mail</th>
 </tr>
 <tr>
 <td></td>
@@ -762,7 +762,7 @@ Le service de Table est un magasin de tables *sans schéma* , ce qui signifie qu
 <th>FirstName</th>
 <th>LastName</th>
 <th>Age</th>
-<th>Email</th>
+<th>E-mail</th>
 </tr>
 <tr>
 <td></td>
@@ -799,7 +799,7 @@ Le service de Table est un magasin de tables *sans schéma* , ce qui signifie qu
 <th>FirstName</th>
 <th>LastName</th>
 <th>Age</th>
-<th>Email</th>
+<th>E-mail</th>
 </tr>
 <tr>
 <td></td>
@@ -835,7 +835,7 @@ Chaque entité doit toujours avoir les valeurs **PartitionKey**, **RowKey** et *
 <th>FirstName</th>
 <th>LastName</th>
 <th>Age</th>
-<th>Email</th>
+<th>E-mail</th>
 </tr>
 <tr>
 <td>Employee</td>
@@ -857,7 +857,7 @@ Chaque entité doit toujours avoir les valeurs **PartitionKey**, **RowKey** et *
 <th>FirstName</th>
 <th>LastName</th>
 <th>Age</th>
-<th>Email</th>
+<th>E-mail</th>
 </tr>
 <tr>
 <td>Employee</td>
@@ -898,7 +898,7 @@ Chaque entité doit toujours avoir les valeurs **PartitionKey**, **RowKey** et *
 <th>FirstName</th>
 <th>LastName</th>
 <th>Age</th>
-<th>Email</th>
+<th>E-mail</th>
 </tr>
 <tr>
 <td>Employee</td>
@@ -926,7 +926,7 @@ Le reste de cette section décrit certaines des fonctionnalités de la biblioth�
 ### <a name="retrieving-heterogeneous-entity-types"></a>Récupération de types d'entités hétérogènes
 Si vous utilisez la bibliothèque cliente de stockage, vous avez trois options pour travailler avec plusieurs types d'entité.  
 
-Si vous connaissez le type de l’entité stockée avec des valeurs de **RowKey** et de **PartitionKey** spécifiques, vous pouvez spécifier le type d’entité quand vous récupérez l’entité, comme indiqué dans les deux exemples précédents qui récupèrent des entités de type **EmployeeEntity** : [Exécution d’une requête de pointage à l’aide de la bibliothèque cliente de stockage](#executing-a-point-query-using-the-storage-client-library) et [Récupération de plusieurs entités à l’aide de LINQ](#retrieving-multiple-entities-using-linq).  
+Si vous connaissez le type de l’entité stockée avec des valeurs **RowKey** et **PartitionKey** spécifiques, vous pouvez spécifier le type d’entité quand vous récupérez l’entité, comme le montrent les deux exemples précédents qui récupèrent des entités de type **EmployeeEntity** : [Exécuter une requête de pointage avec la bibliothèque cliente de stockage](#executing-a-point-query-using-the-storage-client-library) et [Récupérer plusieurs entités avec LINQ](#retrieving-multiple-entities-using-linq).  
 
 La deuxième option consiste à utiliser le type **DynamicTableEntity** (un conteneur de propriétés) plutôt qu’un type d’entité POCO concret (cette option peut également améliorer les performances, car il n’est pas nécessaire de sérialiser et désérialiser l’entité en types .NET). Le code C# suivant récupère plusieurs entités de types différents à partir de la table, mais renvoie toutes les entités en tant qu’instances de **DynamicTableEntity** . Il utilise ensuite la propriété **EventType** pour déterminer le type de chaque entité :  
 

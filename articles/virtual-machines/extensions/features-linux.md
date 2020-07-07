@@ -15,10 +15,10 @@ ms.workload: infrastructure-services
 ms.date: 03/30/2018
 ms.author: akjosh
 ms.openlocfilehash: 67df46742be52b03bd91af19654fbfac5df29646
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "79226865"
 ---
 # <a name="virtual-machine-extensions-and-features-for-linux"></a>Extensions et fonctionnalités de machine virtuelle pour Linux
@@ -37,7 +37,7 @@ Plusieurs extensions de machine virtuelle Azure sont disponibles, chacune impliq
 
 En plus des extensions propres à des processus, une extension de script personnalisé est disponible pour les machines virtuelles Windows et Linux. L’extension de script personnalisé pour Linux permet d’exécuter n’importe quel script Bash sur une machine virtuelle. Les scripts personnalisés s’avèrent utile pour concevoir des déploiements Azure qui nécessitent une configuration plus avancée que celle fournie par les outils Azure natifs. Pour plus d’informations sur l’extension de script personnalisé pour les machines virtuelles Linux, consultez [cet article](custom-script-linux.md).
 
-## <a name="prerequisites"></a>Conditions préalables requises
+## <a name="prerequisites"></a>Prérequis
 
 La gestion de l’extension sur la machine virtuelle nécessite l’installation préalable de l’agent Linux Azure. Certaines extensions spécifiques présentent des prérequis, tels que l’accès à des ressources ou dépendances.
 
@@ -336,7 +336,7 @@ La procédure de résolution des problèmes ci-après s’applique à toutes les
 
 1. Pour consulter le journal de l’agent Linux, examinez l’activité au moment où votre extension a été provisionnée dans */var/log/waagent.log*
 
-2. Pour plus de détails, vérifiez les journaux d’activité d’extension proprement dits, à l’emplacement */var/log/azure/\<nom_extension>*
+2. Pour plus de détails, vérifiez les journaux d’activité d’extension proprement dits, à l’emplacement */var/log/azure/\<extensionName>*
 
 3. Consultez les sections de résolution des problèmes dans la documentation de l’extension concernée pour vous renseigner sur les codes d’erreur, les problèmes connus, etc.
 
