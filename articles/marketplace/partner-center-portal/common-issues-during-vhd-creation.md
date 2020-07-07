@@ -7,12 +7,12 @@ ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: guide
 ms.date: 04/09/2020
-ms.openlocfilehash: addf85f3ed966f45472fec6ee15272574a0f840e
-ms.sourcegitcommit: 6fd8dbeee587fd7633571dfea46424f3c7e65169
+ms.openlocfilehash: e96118e3c570faaaffb4cc7ef64e6d2d0e075e47
+ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/21/2020
-ms.locfileid: "83724715"
+ms.lasthandoff: 07/05/2020
+ms.locfileid: "85954174"
 ---
 # <a name="common-issues-during-vhd-creation"></a>Problèmes couramment rencontrés lors de la création d’un disque dur virtuel
 
@@ -20,7 +20,7 @@ Ces questions fréquentes couvrent les problèmes courants que vous pouvez renco
 
 ## <a name="how-do-i-create-a-vm-from-the-azure-portal-using-a-vhd-in-premium-storage"></a>Comment créer une machine virtuelle à partir du portail Azure à l’aide d’un disque dur virtuel dans le stockage Premium ?
 
-Pour le moment, la Place de marché Microsoft Azure ne prend pas en charge la création d’offres de machine virtuelle à partir d’images situées dans le stockage managé ou à partir du stockage Premium Azure. Pour plus d’informations, consultez [Vue d’ensemble des disques managés Azure](https://docs.microsoft.com/azure/virtual-machines/windows/managed-disks-overview).
+Pour le moment, la Place de marché Microsoft Azure ne prend pas en charge la création d’offres de machine virtuelle à partir d’images situées dans le stockage managé ou à partir du stockage Premium Azure. Pour plus d’informations, consultez [Vue d’ensemble des disques managés Azure](../../virtual-machines/windows/managed-disks-overview.md).
 
 ## <a name="can-i-use-generation-2-vms-for-offers"></a>Est-ce que je peux utiliser des machines virtuelles de 2e génération pour les offres ?
 
@@ -45,9 +45,9 @@ La génération de certificats est expliquée dans [Certification des images de 
 
 Si vous utilisez le modèle de déploiement Azure Resource Manager, vous disposez de trois options :
 
-* [Créer une passerelle VPN basée sur des itinéraires à l’aide du Portail Azure](https://docs.microsoft.com/azure/vpn-gateway/create-routebased-vpn-gateway-portal)
-* [Créer une passerelle VPN basée sur un itinéraire à l’aide d’Azure PowerShell](https://docs.microsoft.com/azure/vpn-gateway/create-routebased-vpn-gateway-powershell)
-* [Créer une passerelle VPN basée sur des itinéraires à l’aide de l’interface CLI](https://docs.microsoft.com/azure/vpn-gateway/create-routebased-vpn-gateway-cli)
+* [Créer une passerelle VPN basée sur des itinéraires à l’aide du Portail Azure](../../vpn-gateway/create-routebased-vpn-gateway-portal.md)
+* [Créer une passerelle VPN basée sur un itinéraire à l’aide d’Azure PowerShell](../../vpn-gateway/create-routebased-vpn-gateway-powershell.md)
+* [Créer une passerelle VPN basée sur des itinéraires à l’aide de l’interface CLI](../../vpn-gateway/create-routebased-vpn-gateway-cli.md)
 
 ## <a name="what-are-microsoft-support-policies-for-running-microsoft-server-software-on-azure-based-vms"></a>Quelles sont les stratégies de prise en charge de Microsoft pour exécuter des logiciels serveur Microsoft sur des machines virtuelles Azure ?
 
@@ -75,4 +75,4 @@ Pour plus d’informations, voir les articles suivants :
 
 Chaque fois que j’essaie de créer une image à partir de mes disques durs virtuels, j’obtiens l’erreur « VHD is already registered with image repository as the resource » (Le disque dur virtuel est déjà inscrit auprès du référentiel d’images en tant que ressource) dans Azure PowerShell. Or, je n’ai pas créé d’image, et je n’ai pas non plus trouvé d’image portant ce nom dans Azure. Comment résoudre ce problème ?
 
-Ce problème se produit généralement si vous avez créé une machine virtuelle à partir d’un disque dur virtuel verrouillé. Vérifiez qu’aucune machine virtuelle n’est allouée à partir de ce disque dur virtuel, puis tentez à nouveau l’opération. Si le problème persiste, ouvrez un ticket de support. Consultez [Prise en charge de l’Espace partenaires](https://docs.microsoft.com/azure/marketplace/partner-center-portal/support).
+Ce problème se produit généralement si vous avez créé une machine virtuelle à partir d’un disque dur virtuel verrouillé. Vérifiez qu’aucune machine virtuelle n’est allouée à partir de ce disque dur virtuel, puis tentez à nouveau l’opération. Si le problème persiste, ouvrez un ticket de support. Consultez [Prise en charge de l’Espace partenaires](support.md).

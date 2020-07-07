@@ -103,6 +103,8 @@
           displayName: ARM
     - name: Configuration de l’équilibreur de charge interne
       items:
+        - name: Portail Azure
+          href: tutorial-load-balancer-standard-internal-portal.md
         - name: Azure CLI
           href: load-balancer-get-started-ilb-arm-cli.md
         - name: Azure PowerShell
@@ -121,8 +123,6 @@
           href: load-balancer-multiple-ip-cli.md
         - name: Azure PowerShell
           href: load-balancer-multiple-ip-powershell.md
-    - name: Configurer des ports à haute disponibilité pour l’équilibrage de charge interne
-      href: load-balancer-configure-ha-ports.md
     - name: Passer d’une région à l’autre
       items:
         - name: Équilibreur de charge externe - Portail

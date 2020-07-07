@@ -7,12 +7,12 @@ ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 04/14/2020
 ms.author: dsindona
-ms.openlocfilehash: bd973a859ce1fa6a9ce5566b1403331988630960
-ms.sourcegitcommit: 0b80a5802343ea769a91f91a8cdbdf1b67a932d3
+ms.openlocfilehash: 8615a853ea218c0598f33d87d39c9ead15709cc0
+ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/25/2020
-ms.locfileid: "83828098"
+ms.lasthandoff: 07/05/2020
+ms.locfileid: "85955452"
 ---
 # <a name="support-for-microsoft-commercial-marketplace"></a>Support pour la Place de marché commerciale Microsoft
 
@@ -43,10 +43,9 @@ Ouvrez un ticket auprès du [support des éditeurs de la Place de marché Micros
 | E-mail : [gtm@microsoft.com](mailto:gtm@microsoft.com) | Support pour les avantages de commercialisation et toutes les questions relatives au programme. | Heures de bureau dans le fuseau horaire Pacifique. |  
 | E-mail : [cebrand@microsoft.com](mailto:cebrand@microsoft.com) | Réponses aux questions concernant l’utilisation de la marque et des logos Azure. |  |  
 
-
 ## <a name="next-steps"></a>Étapes suivantes
 
-* Consultez la [page du guide de l’éditeur relatif à la place de marché commerciale](https://docs.microsoft.com/azure/marketplace/).
-* Apprenez-en davantage sur le [Support technique pour le programme Place de marché commerciale dans l’Espace partenaires](https://docs.microsoft.com/azure/marketplace/partner-center-portal/support).
+* Consultez la [page du guide de l’éditeur relatif à la place de marché commerciale](index.yml).
+* Apprenez-en davantage sur le [Support technique pour le programme Place de marché commerciale dans l’Espace partenaires](partner-center-portal/support.md).
 
 ---

@@ -1,5 +1,5 @@
-- name: Documentation du stockage de table Azure
-  href: /azure/storage/
+- name: Documentation Stockage Table Azure
+  href: /azure/storage/tables/
 - name: Vue d’ensemble
   expanded: true
   items:
@@ -17,7 +17,7 @@
     - name: .NET
       href: /azure/cosmos-db/table-storage-how-to-use-dotnet
       maintainContext: true
-    - name: 'F#'
+    - name: F#
       href: 'https://docs.microsoft.com/dotnet/articles/fsharp/using-fsharp-on-azure/table-storage'
       maintainContext: true
     - name: Java

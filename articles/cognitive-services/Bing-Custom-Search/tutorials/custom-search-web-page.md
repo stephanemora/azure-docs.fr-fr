@@ -10,12 +10,12 @@ ms.subservice: bing-custom-search
 ms.topic: tutorial
 ms.date: 03/05/2019
 ms.author: aahi
-ms.openlocfilehash: 588751c178205ceb21617f8d9271bfa9ed76193d
-ms.sourcegitcommit: 32592ba24c93aa9249f9bd1193ff157235f66d7e
+ms.openlocfilehash: da1ada27b9420643f6f0b15f0986c245ba585acd
+ms.sourcegitcommit: dee7b84104741ddf74b660c3c0a291adf11ed349
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/01/2020
-ms.locfileid: "85603347"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85921936"
 ---
 # <a name="tutorial-build-a-custom-search-web-page"></a>Tutoriel : Créer une page web Recherche personnalisée
 
@@ -60,11 +60,11 @@ Pour créer une instance Recherche personnalisée Bing :
 
 Pour inclure les résultats d’URL ou de sites web particuliers, ajoutez-les à l’onglet **Active** (Éléments actifs).
 
-1.       Dans la page **Configuration**, cliquez sur l’onglet **Active** et entrez l’URL d’un ou plusieurs sites web à inclure dans votre recherche.
+1. Dans la page **Configuration**, cliquez sur l’onglet **Active** et entrez l’URL d’un ou plusieurs sites web à inclure dans votre recherche.
 
     ![Capture d’écran de l’onglet des éléments actifs dans l’éditeur de définitions](../media/customSrchEditor.png)
 
-2.       Pour vérifier que votre instance retourne des résultats, entrez une requête dans le volet de visualisation situé à droite. Bing retourne uniquement les résultats pour les sites web publics qu’il a indexés.
+2. Pour vérifier que votre instance retourne des résultats, entrez une requête dans le volet de visualisation situé à droite. Bing retourne uniquement les résultats pour les sites web publics qu’il a indexés.
 
 ## <a name="add-blocked-entries"></a>Ajout d’entrées bloquées
 

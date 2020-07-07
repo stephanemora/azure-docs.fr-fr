@@ -2,13 +2,13 @@
 title: Superviser les changements de délégation dans votre locataire gérant
 description: Découvrez comment superviser l’activité de délégation à votre locataire gérant à partir des locataires clients.
 ms.date: 03/30/2020
-ms.topic: conceptual
-ms.openlocfilehash: a4593b34311eca34e4fb68926a3820899ab3f324
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.topic: how-to
+ms.openlocfilehash: 9a772cc577392558f050211b7f767928ecbb707b
+ms.sourcegitcommit: dee7b84104741ddf74b660c3c0a291adf11ed349
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81458809"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85919140"
 ---
 # <a name="monitor-delegation-changes-in-your-managing-tenant"></a>Superviser les changements de délégation dans votre locataire gérant
 
@@ -44,7 +44,7 @@ Une fois que vous avez élevé votre accès, vous pouvez attribuer les autorisat
 
 - [Créez un compte de principal de service](../../active-directory/develop/howto-create-service-principal-portal.md) dédié uniquement à cette fonction, au lieu d’attribuer ce rôle à un principal de service existant utilisé pour d’autres tâches d’automatisation.
 - Assurez-vous que ce principal de service n’a pas accès aux ressources client déléguées.
-- [Utilisez un certificat pour l’authentification](../../active-directory/develop/howto-create-service-principal-portal.md#certificates-and-secrets) et [stockez-le de manière sécurisée dans Azure Key Vault](../../key-vault/general/best-practices.md).
+- [Utilisez un certificat pour l’authentification](../../active-directory/develop/howto-create-service-principal-portal.md#upload-a-certificate-or-create-a-secret-for-signing-in) et [stockez-le de manière sécurisée dans Azure Key Vault](../../key-vault/general/best-practices.md).
 - Limitez les utilisateurs habilités à agir pour le compte du principal de service.
 
 Utilisez l’une des méthodes suivantes pour effectuer les attributions au niveau de l’étendue racine.
@@ -73,7 +73,7 @@ Une fois que vous avez créé votre compte de principal de service et attribué 
 
 Une fois que vous avez créé un compte de principal de service avec un accès Lecteur d’analyse au niveau de l’étendue racine de votre locataire gérant, vous pouvez l’utiliser pour interroger l’activité de délégation et créer des rapports sur celle-ci dans votre locataire. 
 
-[Ce script Azure PowerShell](https://github.com/Azure/Azure-Lighthouse-samples/tree/master/tools/monitor-delegation-changes) peut être utilisé pour interroger le dernier jour d'activité et détecter tout ajout ou suppression de délégation (ou tentative ayant échoué). Il interroge les données du [journal d’activité du locataire](https://docs.microsoft.com/rest/api/monitor/TenantActivityLogs/List), puis construit les valeurs suivantes pour créer des rapports sur les délégations ajoutées ou supprimées :
+[Ce script Azure PowerShell](https://github.com/Azure/Azure-Lighthouse-samples/tree/master/tools/monitor-delegation-changes) peut être utilisé pour interroger le dernier jour d'activité et détecter tout ajout ou suppression de délégation (ou tentative ayant échoué). Il interroge les données du [journal d’activité du locataire](/rest/api/monitor/TenantActivityLogs/List), puis construit les valeurs suivantes pour créer des rapports sur les délégations ajoutées ou supprimées :
 
 - **DelegatedResourceId** : ID de l’abonnement ou du groupe de ressources délégué
 - **CustomerTenantId** : ID du locataire client

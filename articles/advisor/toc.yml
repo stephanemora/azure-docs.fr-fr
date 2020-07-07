@@ -11,6 +11,7 @@
         - name: Portail Azure
           href: advisor-alerts-portal.md
         - name: Modèle ARM
+          displayName: Resource Manager
           href: advisor-alerts-arm.md
 - name: Tutoriels
   items:

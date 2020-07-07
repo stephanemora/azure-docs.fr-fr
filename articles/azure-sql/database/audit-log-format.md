@@ -9,17 +9,17 @@ author: DavidTrigano
 ms.author: datrigan
 ms.reviewer: vanto
 ms.custom: sqldbrb=1
-ms.date: 04/28/2020
-ms.openlocfilehash: 82e0cec514849eb41272e6b25dcce74eabfa2b8d
-ms.sourcegitcommit: 1f48ad3c83467a6ffac4e23093ef288fea592eb5
+ms.date: 06/03/2020
+ms.openlocfilehash: 17d985681ab7a547bf715b1f8bb8d37cbf7ab662
+ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/29/2020
-ms.locfileid: "84190305"
+ms.lasthandoff: 07/05/2020
+ms.locfileid: "85954109"
 ---
 # <a name="sql-database-audit-log-format"></a>Format des journaux d’audit SQL Database
 
-[!INCLUDE[appliesto-sqldb-asa](../includes/appliesto-sqldb-asa.md)]
+[!INCLUDE[appliesto-sqldb-asa](../includes/appliesto-sqldb-sqlmi-asa.md)]
 
 L’[audit Azure SQL Database](auditing-overview.md) permet de suivre les événements de base de données et de les écrire dans un journal d’audit dans votre compte de stockage Azure, ou de les envoyer à Event Hub ou Log Analytics à des fins de traitement et d’analyse en aval.
 
@@ -31,7 +31,7 @@ Les journaux d’audit stockés dans Stockage Blob Azure le sont dans un contene
 
 Par exemple, pour la base de données `Database1` sur `Server1`, un chemin valide possible est le suivant :
 
-    Server1/Database1/SqlDbAuditing_ServerAudit_NoRetention/2019-02-03/12_23_30_794_0.xel
+`Server1/Database1/SqlDbAuditing_ServerAudit_NoRetention/2019-02-03/12_23_30_794_0.xel`
 
 Les journaux d’audit de [réplicas en lecture seule](read-scale-out.md) sont stockés dans le même conteneur. La hiérarchie des répertoires au sein du conteneur prend la forme `<ServerName>/<DatabaseName>/<AuditName>/<Date>/RO/`. Le nom de fichier des objets blob partage le même format. Les journaux d’audit de réplicas en lecture seule sont stockés dans le même conteneur.
 

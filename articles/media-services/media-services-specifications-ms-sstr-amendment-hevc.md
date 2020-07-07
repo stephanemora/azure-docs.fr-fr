@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/19/2019
 ms.author: johndeu
-ms.openlocfilehash: be4009d418f2f8f3dff755e2e990efee593f070b
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 30ca3bb86426b144fa6cbf5c63888d9546919ebf
+ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "76514219"
+ms.lasthandoff: 07/05/2020
+ms.locfileid: "85954687"
 ---
 # <a name="smooth-streaming-protocol-ms-sstr-amendment-for-hevc"></a>Avenant relatif au protocole Smooth Streaming (MS-SSTR) pour HEVC 
 
@@ -242,10 +242,12 @@ ProtectionElement DOIT être présent lorsque le chiffrement commun (CENC) est a
 > 
 >   La syntaxe des champs définis dans cette section, spécifiée dans ABNF [[RFC5234]](https://go.microsoft.com/fwlink/?LinkId=123096) est la suivante :
 
-    FileType = MajorBrand MinorVersion CompatibleBrands
-    MajorBrand = STRING_UINT32
-    MinorVersion = STRING_UINT32
-    CompatibleBrands = "ccff" "iso8" 0\*(STRING_UINT32)
+```properties
+FileType = MajorBrand MinorVersion CompatibleBrands
+MajorBrand = STRING_UINT32
+MinorVersion = STRING_UINT32
+CompatibleBrands = "ccff" "iso8" 0\*(STRING_UINT32)
+```
 
 **Remarque** : les marques de compatibilité « ccff » et « iso8 » indiquent que les fragments sont conformes au « Format de fichier conteneur commun » et au chiffrement commun [ISO/CEI 23001-7] et au format de fichier multimédia de base ISO 4 [ISO/CEI 14496-12].
 
@@ -288,14 +290,18 @@ ProtectionElement DOIT être présent lorsque le chiffrement commun (CENC) est a
 > 
 >   Les présentations contenant le jeu de flux HEVC DOIVENT définir :
 
-    MajorVersion = 2
-    MinorVersion = 2
+```properties
+MajorVersion = 2
+MinorVersion = 2
+```
 
 >   LookaheadCount = 0 (Note: outils déconseillés)
 > 
 >   Les présentations DOIVENT également définir :
 
-    TimeScale = 90000
+```properties
+TimeScale = 90000
+```
 
 >   Collection de flux : collection d’éléments de données de description de flux, comme spécifié dans la section *3.1.1.1.2*.
 > 
