@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 02/14/2020
 ms.author: robinsh
 ms.custom: include file
-ms.openlocfilehash: cc53f7ae6eb6254eaa05bf643ecfa0188650df95
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: d7ac494edfb9b1deeceafcac523ac58bccde96b3
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "77461857"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85365342"
 ---
 Cette section décrit comment créer un hub IoT à l’aide du [portail Azure](https://portal.azure.com).
 
@@ -56,7 +56,7 @@ Cette section décrit comment créer un hub IoT à l’aide du [portail Azure](h
 
 1.  Sélectionnez **Suivant : Étiquettes** pour continuer à l’écran suivant.
 
-    Les étiquettes sont des paires nom/valeur. Vous pouvez affecter la même étiquette à plusieurs ressources et groupes de ressources pour catégoriser les ressources et regrouper la facturation. Pour plus d’informations, consultez [Utiliser des étiquettes pour organiser vos ressources Azure](../articles/azure-resource-manager/management/tag-resources.md).
+    Les étiquettes sont des paires nom/valeur. Vous pouvez affecter la même étiquette à plusieurs ressources et groupes de ressources pour catégoriser les ressources et regrouper la facturation. Pour plus d’informations, consultez [Organisation des ressources Azure à l’aide de balises](../articles/azure-resource-manager/management/tag-resources.md).
 
     ![Affecter des étiquettes pour le hub à l’aide du portail Azure](./media/iot-hub-include-create-hub/iot-hub-create-tabs.png)
 

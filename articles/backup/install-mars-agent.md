@@ -3,12 +3,12 @@ title: Installer l’agent Microsoft Azure Recovery Services (MARS)
 description: Découvrez comment installer l’agent Microsoft Azure Recovery Services (MARS) pour sauvegarder des machines Windows.
 ms.topic: conceptual
 ms.date: 03/03/2020
-ms.openlocfilehash: d3932b66dbc41ff2631e2cccbe716c0877a509d3
-ms.sourcegitcommit: 7581df526837b1484de136cf6ae1560c21bf7e73
+ms.openlocfilehash: 7a43f585e978b7d6974ac89fbb5d93f15aebb1d7
+ms.sourcegitcommit: 9b5c20fb5e904684dc6dd9059d62429b52cb39bc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/31/2020
-ms.locfileid: "80422935"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85855228"
 ---
 # <a name="install-the-azure-backup-mars-agent"></a>Installer l’agent MARS de sauvegarde Azure
 
@@ -66,11 +66,12 @@ Modifiez le type de réplication de stockage :
 Si votre machine a un accès limité à Internet, vérifiez que les paramètres de pare-feu sur la machine ou le proxy autorisent les URL et adresses IP suivantes :
 
 * URLs
-  * `www\.msftncsi.com`
+  * `www.msftncsi.com`
   * `*.Microsoft.com`
   * `*.WindowsAzure.com`
   * `*.microsoftonline.com`
   * `*.windows.net`
+  * `www.msftconnecttest.com`
 * Adresses IP
   * 20.190.128.0/18
   * 40.126.0.0/18
@@ -82,6 +83,7 @@ Vous pouvez sauvegarder vos données sur Azure ExpressRoute avec le peering publ
 Pour utiliser le peering public, commencez par vérifier l’accès aux domaines et adresses suivants :
 
 * `http://www.msftncsi.com/ncsi.txt`
+* `http://www.msftconnecttest.com/connecttest.txt`
 * `microsoft.com`
 * `.WindowsAzure.com`
 * `.microsoftonline.com`

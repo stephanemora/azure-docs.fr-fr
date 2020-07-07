@@ -6,12 +6,12 @@ ms.author: lcozzens
 ms.service: azure-app-configuration
 ms.topic: conceptual
 ms.date: 02/19/2020
-ms.openlocfilehash: 0b83a35d912c97ae25bc2d69d076e8eae8ca490f
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: b8f8bda52be63a4176411855dd9ff9919e9e31f5
+ms.sourcegitcommit: 9b5c20fb5e904684dc6dd9059d62429b52cb39bc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "77523602"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85856681"
 ---
 # <a name="keys-and-values"></a>Clés et valeurs
 
@@ -25,13 +25,17 @@ Voici deux exemples de noms de clés structurés au sein d’une hiérarchie :
 
 * Selon les services de composants
 
+```aspx
         AppName:Service1:ApiEndpoint
         AppName:Service2:ApiEndpoint
+```
 
 * Selon les régions de déploiement
 
+```aspx
         AppName:Region1:DbEndpoint
         AppName:Region2:DbEndpoint
+```
 
 L’utilisation des données de configuration dans des frameworks d’application peut exiger des schémas de nommage spécifiques pour les valeurs des clés. Par exemple, le framework Spring Cloud de Java définit les ressources `Environment` qui fournissent des paramètres à une application Spring.  Celles-ci sont paramétrables par des variables qui incluent le *nom d’application* et le *profil*. Les clés des données de configuration associées à Spring Cloud commencent généralement par ces deux éléments, séparés par un délimiteur.
 
@@ -57,9 +61,11 @@ Les valeurs de clé peuvent accessoirement porter un attribut d’étiquette dan
 
 Label offre un moyen pratique de créer des variantes d’une clé. Les étiquettes sont souvent utilisées pour spécifier plusieurs environnements pour la même clé :
 
+```aspx
     Key = AppName:DbEndpoint & Label = Test
     Key = AppName:DbEndpoint & Label = Staging
     Key = AppName:DbEndpoint & Label = Production
+```
 
 ### <a name="version-key-values"></a>Gestion des versions des valeurs de clé
 

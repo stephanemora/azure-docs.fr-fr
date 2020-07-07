@@ -3,15 +3,15 @@ title: Créer des clusters Azure HDInsight avec Data Lake Storage Gen1 - portail
 description: Utiliser le portail Azure pour créer et utiliser les clusters HDInsight avec Azure Data Lake Storage Gen1
 author: twooley
 ms.service: data-lake-store
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 05/29/2018
 ms.author: twooley
-ms.openlocfilehash: 1d1368ef8ffb474c6bec1240f567f043961597fb
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: e3e54b037485a85d836e7e7e67c9af2d9d140986
+ms.sourcegitcommit: 9b5c20fb5e904684dc6dd9059d62429b52cb39bc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79231497"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85856818"
 ---
 # <a name="create-hdinsight-clusters-with-azure-data-lake-storage-gen1-by-using-the-azure-portal"></a>Créer des clusters HDInsight avec Azure Data Lake Storage Gen1 à l’aide du portail Azure
 
@@ -170,7 +170,9 @@ Lorsque vous utilisez les données dans Data Lake Storage Gen1, quelques modific
 
 Si vous utilisez, par exemple, le cluster que vous avez créé avec Data Lake Storage Gen1 comme stockage principal, le chemin d’accès aux données est le suivant : *adl://<nom_compte_Data_Lake_Storage_Gen1>/azuredatalakestore.net/path/to/file*. Une requête Hive permettant de créer une table à partir des exemples de données stockés dans le compte Data Lake Storage Gen1 ressemble à l’instruction suivante :
 
-    CREATE EXTERNAL TABLE websitelog (str string) LOCATION 'adl://hdiadlsg1storage.azuredatalakestore.net/clusters/myhdiadlcluster/HdiSamples/HdiSamples/WebsiteLogSampleData/SampleLog/'
+```console
+CREATE EXTERNAL TABLE websitelog (str string) LOCATION 'adl://hdiadlsg1storage.azuredatalakestore.net/clusters/myhdiadlcluster/HdiSamples/HdiSamples/WebsiteLogSampleData/SampleLog/'
+```
 
 Descriptions :
 
