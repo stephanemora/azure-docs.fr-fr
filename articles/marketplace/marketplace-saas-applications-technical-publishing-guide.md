@@ -8,12 +8,12 @@ ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 04/23/2020
 ms.author: dsindona
-ms.openlocfilehash: 4d1ee4fc0760e76af7475dd3b2dc83f306e7a7bd
-ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
+ms.openlocfilehash: 46f8da8b2b688900e50548bbece01117a7a47e24
+ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83657830"
+ms.lasthandoff: 07/05/2020
+ms.locfileid: "85963833"
 ---
 # <a name="saas-applications-offer-publishing-guide"></a>Guide de publication des offres d’applications SaaS
 
@@ -62,11 +62,9 @@ Pour démarrer, nous vous recommandons d’avoir un abonnement dédié pour la p
 
 La meilleure documentation, les meilleurs exemples et les meilleurs conseils concernant Azure Active Directory figurent sur les sites suivants : 
 
-* [Guide du développeur Azure Active Directory](https://docs.microsoft.com/azure/active-directory/develop/active-directory-developers-guide)
+* [Guide du développeur Azure Active Directory](../active-directory/develop/index.yml)
 
-* [Intégration à Azure Active Directory](https://docs.microsoft.com/azure/active-directory/develop/active-directory-how-to-integrate)
-
-* [Intégration d’applications dans Azure Active Directory](https://docs.microsoft.com/azure/active-directory/develop/active-directory-integrating-applications)
+* [Intégration à Azure Active Directory](../active-directory/develop/active-directory-how-to-integrate.md)
 
 * [Feuille de route Azure - Sécurité et identité](https://azure.microsoft.com/roadmap/?category=security-identity)
 
@@ -90,7 +88,7 @@ En outre, Azure Active Directory fournit un site pour vérifier la disponibilit�
 
 ## <a name="using-azure-active-directory-to-enable-trials"></a>Utilisation d’Azure Active Directory pour activer les versions d’évaluation  
 
-Microsoft authentifie tous les utilisateurs de la Place de marché auprès d’Azure AD. Ainsi, quand un utilisateur authentifié clique sur votre annonce de version d’essai sur la Place de marché et est redirigé vers votre environnement d’essai, vous pouvez provisionner l’utilisateur directement dans un Essai, sans qu’aucune autre étape de connexion soit nécessaire. Le jeton que votre application reçoit d’Azure AD pendant l’authentification inclut des informations utilisateur utiles que vous pouvez utiliser pour créer un compte utilisateur dans votre application, ce qui vous permet d’automatiser l’expérience d’approvisionnement et d’augmenter la probabilité de conversion. Pour plus d’informations sur le jeton, voir [Exemples de jetons](https://docs.microsoft.com/azure/active-directory/develop/active-directory-token-and-claims).
+Microsoft authentifie tous les utilisateurs de la Place de marché auprès d’Azure AD. Ainsi, quand un utilisateur authentifié clique sur votre annonce de version d’essai sur la Place de marché et est redirigé vers votre environnement d’essai, vous pouvez provisionner l’utilisateur directement dans un Essai, sans qu’aucune autre étape de connexion soit nécessaire. Le jeton que votre application reçoit d’Azure AD pendant l’authentification inclut des informations utilisateur utiles que vous pouvez utiliser pour créer un compte utilisateur dans votre application, ce qui vous permet d’automatiser l’expérience d’approvisionnement et d’augmenter la probabilité de conversion. Pour plus d’informations sur le jeton, voir [Exemples de jetons](../active-directory/develop/active-directory-token-and-claims.md).
 
 L’utilisation d’Azure AD pour activer l’authentification en un clic auprès de votre application effectue les opérations suivantes :  
 * Simplifie l’expérience utilisateur, de la Place de marché à l’Essai.  
@@ -106,15 +104,15 @@ Certifiez votre intégration avec Azure AD de différentes manières, selon que 
 
 Si vous prenez déjà en charge Azure AD, procédez comme suit :
 1.    Inscrivez votre application dans le portail Azure
-2.    Activez la fonctionnalité de prise en charge mutualisée dans Azure AD pour bénéficier de l’expérience d’essai en un clic. Des informations plus spécifiques sont accessibles [ici](https://docs.microsoft.com/azure/active-directory/develop/active-directory-integrating-applications).  
+2.    Activez la fonctionnalité de prise en charge mutualisée dans Azure AD pour bénéficier de l’expérience d’essai en un clic. Des informations plus spécifiques sont accessibles [ici](../active-directory/develop/active-directory-integrating-applications.md).  
 
 Si vous découvrez l’authentification unique fédérée Azure AD, procédez comme suit : 
 1.  Inscrivez votre application dans le portail Azure
-2.  Développez l’authentification unique auprès d’Azure AD en utilisant [OpenID Connect](https://docs.microsoft.com/azure/active-directory/develop/active-directory-protocols-openid-connect-code) ou [OAuth 2.0](https://docs.microsoft.com/azure/active-directory/develop/active-directory-protocols-oauth-code).
-3.  Activez la fonctionnalité de prise en charge mutualisée dans AAD pour bénéficier de l’expérience d’essai en 1 clic. Pour des informations plus spécifiques, voir [ici](https://docs.microsoft.com/azure/active-directory/develop/active-directory-devhowto-appsource-certified).  
+2.  Développez l’authentification unique auprès d’Azure AD en utilisant [OpenID Connect](../active-directory/develop/active-directory-protocols-openid-connect-code.md) ou [OAuth 2.0](../active-directory/develop/active-directory-protocols-oauth-code.md).
+3.  Activez la fonctionnalité de prise en charge mutualisée dans AAD pour bénéficier de l’expérience d’essai en 1 clic. Pour des informations plus spécifiques, voir [ici](../active-directory/develop/active-directory-devhowto-appsource-certified.md).  
 
 **Pour une application à client unique, vous disposez des options suivantes :**  
-* ajouter des utilisateurs à votre annuaire en tant qu’utilisateurs invités en utilisant [Azure AD B2B](https://docs.microsoft.com/azure/active-directory/active-directory-b2b-what-is-azure-ad-b2b) ;
+* ajouter des utilisateurs à votre annuaire en tant qu’utilisateurs invités en utilisant [Azure AD B2B](../active-directory/active-directory-b2b-what-is-azure-ad-b2b.md) ;
 * approvisionner manuellement les essais des clients via l’option « Me contacter » ;
 * développer une « version d’évaluation » par client.
 * Créer une application de démonstration multilocataire avec authentification unique

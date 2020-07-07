@@ -8,10 +8,10 @@ ms.date: 05/04/2020
 ms.author: mbaldwin
 ms.custom: security-benchmark
 ms.openlocfilehash: 040eeda3edc8aa1165915a157cb7e1bdd1594740
-ms.sourcegitcommit: e0330ef620103256d39ca1426f09dd5bb39cd075
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/05/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "82793809"
 ---
 # <a name="azure-security-baseline-for-azure-functions"></a>Base de référence de sécurité Azure pour Azure Functions
@@ -185,7 +185,7 @@ Vous pouvez également utiliser Azure Blueprints pour simplifier les déploiemen
 
 - [Guide pratique pour créer un blueprint Azure](https://docs.microsoft.com/azure/governance/blueprints/create-blueprint-portal)
 
-**Supervision d’Azure Security Center** : Non applicable
+**Supervision Azure Security Center** : Non applicable
 
 **Responsabilité** : Customer
 
@@ -211,7 +211,7 @@ Vous pouvez utiliser Azure PowerShell ou Azure CLI pour rechercher des ressource
 
 - [Guide pratique pour créer des alertes dans Azure Monitor](https://docs.microsoft.com/azure/azure-monitor/platform/alerts-activity-log)
 
-**Supervision d’Azure Security Center** : Non applicable
+**Supervision Azure Security Center** : Non applicable
 
 **Responsabilité** : Customer
 
@@ -267,7 +267,7 @@ Si vous disposez d’une journalisation de sécurité/d’audit personnalisée i
 
 **Aide** : Non applicable. Cette recommandation concerne les ressources de calcul IaaS.
 
-**Supervision d’Azure Security Center** : Non applicable
+**Supervision Azure Security Center** : Non applicable
 
 **Responsabilité** : Customer
 
@@ -367,7 +367,7 @@ Vous pouvez éventuellement activer et intégrer les données dans Azure Sentine
 
 ### <a name="32-change-default-passwords-where-applicable"></a>3.2 : Modifier les mots de passe par défaut lorsque cela est possible
 
-**Aide** : L’accès au plan de contrôle par Azure Functions est contrôlé via Azure Active Directory (AD). Azure AD n’intègre pas le concept des mots de passe par défaut.
+**Conseils** : L’accès au plan de contrôle par Azure Functions est contrôlé via Azure Active Directory (AD). Azure AD n’intègre pas le concept des mots de passe par défaut.
 
 L’accès au plan de données peut être contrôlé par plusieurs moyens, notamment les clés d’autorisation, les restrictions de réseau et la validation d’une identité AAD. Les clés d’autorisation sont utilisées par les clients qui se connectent à vos points de terminaison HTTP Azure Functions, et peuvent être regénérées à tout moment. Ces clés sont générées pour les nouveaux points de terminaison HTTP par défaut.
 
@@ -393,7 +393,7 @@ En outre, pour vous aider à suivre les comptes d’administration dédiés, vou
 
 - [Utilisation d’Azure Policy](https://docs.microsoft.com/azure/governance/policy/tutorials/create-and-manage)
 
-**Supervision d’Azure Security Center** : Oui
+**Supervision Azure Security Center** : Oui
 
 **Responsabilité** : Customer
 
@@ -429,7 +429,7 @@ En outre, pour vous aider à suivre les comptes d’administration dédiés, vou
 
 - [Guide pratique pour activer l’authentification MFA dans Azure](https://docs.microsoft.com/azure/active-directory/authentication/howto-mfa-getstarted)
 
-**Supervision d’Azure Security Center** : Non applicable
+**Supervision Azure Security Center** : Non applicable
 
 **Responsabilité** : Customer
 
@@ -443,7 +443,7 @@ Utilisez également les détections de risque Azure AD pour visualiser les alert
 
 - [Présentation des détections de risques Azure AD](https://docs.microsoft.com/azure/active-directory/reports-monitoring/concept-risk-events)
 
-**Supervision d’Azure Security Center** : Oui
+**Supervision Azure Security Center** : Oui
 
 **Responsabilité** : Customer
 
@@ -477,7 +477,7 @@ Utilisez également les détections de risque Azure AD pour visualiser les alert
 
 - [Comment utiliser les révisions d’accès des identités Azure](https://docs.microsoft.com/azure/active-directory/governance/access-reviews-overview)
 
-**Supervision d’Azure Security Center** : Oui
+**Supervision Azure Security Center** : Oui
 
 **Responsabilité** : Customer
 
@@ -509,7 +509,7 @@ Vous pouvez simplifier ce processus en créant des paramètres de diagnostic pou
 
 - [Guide pratique pour intégrer Azure Sentinel](https://docs.microsoft.com/azure/sentinel/quickstart-onboard)
 
-**Supervision d’Azure Security Center** : Non applicable
+**Supervision Azure Security Center** : Non applicable
 
 **Responsabilité** : Customer
 
@@ -533,7 +533,7 @@ Vous pouvez simplifier ce processus en créant des paramètres de diagnostic pou
 
 - [Guide pratique pour créer et utiliser des étiquettes](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-using-tags)
 
-**Supervision d’Azure Security Center** : Non applicable
+**Supervision Azure Security Center** : Non applicable
 
 **Responsabilité** : Customer
 
@@ -575,7 +575,7 @@ Microsoft gère l’infrastructure sous-jacente d’Azure Functions, et a implé
 
 ### <a name="44-encrypt-all-sensitive-information-in-transit"></a>4.4 : Chiffrer toutes les informations sensibles en transit
 
-**Aide** : Dans vos applications Azure Functions, dans le portail Azure, sous « Fonctionnalités de la plateforme :  Réseaux : SSL », activez le paramètre « HTTPS uniquement », puis affectez à la version minimale de TLS la valeur 1.2.
+**Conseils** : Dans vos applications Azure Functions, dans le portail Azure, sous « Fonctionnalités de la plateforme :  Réseaux : SSL », activez le paramètre « HTTPS uniquement », puis affectez à la version minimale de TLS la valeur 1.2.
 
 **Supervision d’Azure Security Center** : Oui
 
@@ -611,7 +611,7 @@ Microsoft gère l’infrastructure sous-jacente d’Azure Functions, et a implé
 
 - [Présentation de la protection des données client dans Azure](https://docs.microsoft.com/azure/security/fundamentals/protection-customer-data)
 
-**Supervision d’Azure Security Center** : actuellement non disponible
+**Supervision Azure Security Center** : actuellement non disponible
 
 **Responsabilité** : Customer
 
@@ -643,7 +643,7 @@ Microsoft gère l’infrastructure sous-jacente d’Azure Functions, et a implé
 
 ### <a name="51-run-automated-vulnerability-scanning-tools"></a>5.1 : Exécuter les outils d’analyse des vulnérabilités automatisés
 
-**Aide** : Adoptez une pratique DevSecOps pour avoir la certitude que vos applications Azure Functions sont sécurisées et qu’elles le restent autant que possible tout au long de leur cycle de vie. DevSecOps intègre l’équipe de sécurité de votre organisation et ses capacités dans vos pratiques DevOps, faisant ainsi de la sécurité une responsabilité partagée par tous les membres de l’équipe.
+**Conseils** : Adoptez une pratique DevSecOps pour avoir la certitude que vos applications Azure Functions sont sécurisées et qu’elles le restent autant que possible tout au long de leur cycle de vie. DevSecOps intègre l’équipe de sécurité de votre organisation et ses capacités dans vos pratiques DevOps, faisant ainsi de la sécurité une responsabilité partagée par tous les membres de l’équipe.
 
 De plus, suivez les recommandations d’Azure Security Center sur la sécurisation de vos applications Azure Functions.
 
@@ -685,7 +685,7 @@ De plus, suivez les recommandations d’Azure Security Center sur la sécurisati
 
 - [Guide de référence des recommandations de sécurité](https://docs.microsoft.com/azure/security-center/recommendations-reference)
 
-**Supervision d’Azure Security Center** : Oui
+**Supervision Azure Security Center** : Oui
 
 **Responsabilité** : Partagé
 
@@ -695,7 +695,7 @@ De plus, suivez les recommandations d’Azure Security Center sur la sécurisati
 
 ### <a name="61-use-azure-asset-discovery"></a>6.1 : Utiliser la découverte de ressources Azure
 
-**Aide** : Utilisez Azure Resource Graph pour interroger/découvrir toutes les ressources (telles que calcul, stockage, réseau, ports et protocoles) dans vos abonnements.  Vérifiez les autorisations (lecture) appropriées dans votre locataire et répertoriez tous les abonnements Azure, ainsi que les ressources dans vos abonnements.
+**Conseils** : Utilisez Azure Resource Graph pour interroger/découvrir toutes les ressources (telles que calcul, stockage, réseau, ports et protocoles) dans vos abonnements.  Vérifiez les autorisations (lecture) appropriées dans votre locataire et répertoriez tous les abonnements Azure, ainsi que les ressources dans vos abonnements.
 
 Bien que les ressources Azure classiques puissent être découvertes via Resource Graph, il est vivement recommandé de créer et d’utiliser des ressources Azure Resource Manager à l’avenir.
 
@@ -745,7 +745,7 @@ Appliquez également des restrictions quant au type de ressources pouvant être 
 
 ### <a name="65-monitor-for-unapproved-azure-resources"></a>6.5 : Analyser les ressources Azure non approuvées
 
-**Aide** : Utilisez Azure Policy pour appliquer des restrictions quant au type de ressources pouvant être créées dans vos abonnements. 
+**Conseils** : Utilisez Azure Policy pour appliquer des restrictions quant au type de ressources pouvant être créées dans vos abonnements. 
 
 Utilisez Azure Resource Graph pour interroger/découvrir des ressources dans leurs abonnements.  Vérifiez que toutes les ressources Azure présentes dans l’environnement sont approuvées. 
 
@@ -753,13 +753,13 @@ Utilisez Azure Resource Graph pour interroger/découvrir des ressources dans leu
 
 - [Guide pratique pour créer des requêtes avec Azure Graph](https://docs.microsoft.com/azure/governance/resource-graph/first-query-portal)
 
-**Supervision d’Azure Security Center** : Non applicable
+**Supervision Azure Security Center** : Non applicable
 
 **Responsabilité** : Customer
 
 ### <a name="66-monitor-for-unapproved-software-applications-within-compute-resources"></a>6.6 : Analyser les applications logicielles non approuvées dans des ressources de calcul
 
-**Aide** : Non applicable. Cette recommandation concerne les ressources de calcul IaaS.
+**Conseils** : Non applicable. Cette recommandation concerne les ressources de calcul IaaS.
 
 **Supervision d’Azure Security Center** : Non applicable
 
@@ -789,13 +789,13 @@ Utilisez Azure Resource Graph pour interroger/découvrir des ressources dans leu
 
 - [Guide pratique pour refuser un type de ressource spécifique avec Azure Policy](https://docs.microsoft.com/azure/governance/policy/samples/not-allowed-resource-types)
 
-**Supervision d’Azure Security Center** : Non applicable
+**Supervision Azure Security Center** : Non applicable
 
 **Responsabilité** : Customer
 
 ### <a name="610-implement-approved-application-list"></a>6.10 : Implémenter une liste d’applications approuvées
 
-**Aide** : Non applicable. Cette recommandation concerne les ressources de calcul IaaS.
+**Conseils** : Non applicable. Cette recommandation concerne les ressources de calcul IaaS.
 
 **Supervision d’Azure Security Center** : Non applicable
 
@@ -803,7 +803,7 @@ Utilisez Azure Resource Graph pour interroger/découvrir des ressources dans leu
 
 ### <a name="611-limit-users-ability-to-interact-with-azure-resources-manager-via-scripts"></a>6.11 : Limiter la capacité des utilisateurs à interagir avec Azure Resource Manager par le biais de scripts
 
-**Aide** : Configurez l’accès conditionnel Azure pour limiter la capacité des utilisateurs à interagir avec Azure Resource Manager en configurant « Bloquer l’accès » pour l’application « Gestion Microsoft Azure ».
+**Conseils** : Configurez l’accès conditionnel Azure pour limiter la capacité des utilisateurs à interagir avec Azure Resource Manager en configurant « Bloquer l’accès » pour l’application « Gestion Microsoft Azure ».
 
 - [Configuration de l’accès conditionnel pour bloquer l’accès à Azure Resource Manager](https://docs.microsoft.com/azure/role-based-access-control/conditional-access-azure-management)
 
@@ -815,7 +815,7 @@ Utilisez Azure Resource Graph pour interroger/découvrir des ressources dans leu
 
 **Aide** : Non applicable. Cette recommandation concerne les ressources de calcul IaaS.
 
-**Supervision d’Azure Security Center** : Non applicable
+**Supervision Azure Security Center** : Non applicable
 
 **Responsabilité** : Non applicable
 
@@ -864,7 +864,7 @@ Guide pratique pour créer un ASE interne :
 
 ### <a name="72-establish-secure-operating-system-configurations"></a>7.2 : Établir des configurations sécurisées du système d’exploitation
 
-**Aide** : Non applicable. Cette recommandation concerne les ressources de calcul IaaS.
+**Conseils** : Non applicable. Cette recommandation concerne les ressources de calcul IaaS.
 
 **Supervision d’Azure Security Center** : Non applicable
 
@@ -884,11 +884,11 @@ Guide pratique pour créer un ASE interne :
 
 ### <a name="74-maintain-secure-operating-system-configurations"></a>7.4 : Préserver la sécurité des configurations du système d'exploitation
 
-**Aide** : Non applicable. Bien qu’il soit possible de déployer des fonctions locales, cette recommandation concerne les ressources de calcul IaaS. Quand vous déployez des fonctions locales, vous êtes responsable de la configuration sécurisée de votre environnement.
+**Conseils** : Non applicable. Bien qu’il soit possible de déployer des fonctions locales, cette recommandation concerne les ressources de calcul IaaS. Quand vous déployez des fonctions locales, vous êtes responsable de la configuration sécurisée de votre environnement.
 
 - [Présentation des fonctions locales](https://docs.microsoft.com/azure/azure-functions/functions-runtime-install)
 
-**Supervision d’Azure Security Center** : Non applicable
+**Supervision Azure Security Center** : Non applicable
 
 **Responsabilité** : Non applicable
 
@@ -936,7 +936,7 @@ Guide pratique pour créer un ASE interne :
 
 ### <a name="79-implement-automated-configuration-monitoring-for-azure-services"></a>7.9 : Mettre en place la surveillance de la configuration automatique pour les services Azure
 
-**Aide** : Utilisez les définitions Azure Policy intégrées ainsi que les alias Azure Policy dans l’espace de noms « Microsoft.Web » pour créer des stratégies personnalisées d’alerte, d’audit ou d’application de configurations système. Utilisez une stratégie Azure [auditer], [refuser] et [déployer si elle n’existe pas] pour appliquer automatiquement des configurations pour vos ressources Azure.
+**Conseils** : Utilisez les définitions Azure Policy intégrées ainsi que les alias Azure Policy dans l’espace de noms « Microsoft.Web » pour créer des stratégies personnalisées d’alerte, d’audit ou d’application de configurations système. Utilisez une stratégie Azure [auditer], [refuser] et [déployer si elle n’existe pas] pour appliquer automatiquement des configurations pour vos ressources Azure.
 
 - [Guide pratique pour configurer et gérer Azure Policy](https://docs.microsoft.com/azure/governance/policy/tutorials/create-and-manage)
 
@@ -994,7 +994,7 @@ Guide pratique pour créer un ASE interne :
 
 ### <a name="81-use-centrally-managed-anti-malware-software"></a>8.1 : Utiliser un logiciel anti-programme malveillant géré de manière centralisée
 
-**Aide** : Non applicable. Cette recommandation concerne les ressources de calcul IaaS.
+**Conseils** : Non applicable. Cette recommandation concerne les ressources de calcul IaaS.
 
 Microsoft Antimalware est activé sur l’hôte sous-jacent qui prend en charge les services Azure (par exemple Azure Functions), mais il ne s’exécute pas sur du contenu client.
 
@@ -1045,7 +1045,7 @@ Utilisez également une solution de contrôle de code source telle qu’Azure Re
 
 ### <a name="92-perform-complete-system-backups-and-backup-any-customer-managed-keys"></a>9.2 : effectuer des sauvegardes complètes du système et sauvegarder les clés gérées par le client
 
-**Aide** : Utilisez la fonctionnalité de sauvegarde et de restauration pour planifier des sauvegardes régulières de votre application. Les applications de fonction qui s’exécutent dans le plan Premium ont les mêmes capacités d’hébergement que les applications web dans Azure App Service, ce qui inclut la fonctionnalité Sauvegarde et restauration. Clés de sauvegarde gérées par le client dans Azure Key Vault.
+**Conseils** : Utilisez la fonctionnalité de sauvegarde et de restauration pour planifier des sauvegardes régulières de votre application. Les applications de fonction qui s’exécutent dans le plan Premium ont les mêmes capacités d’hébergement que les applications web dans Azure App Service, ce qui inclut la fonctionnalité Sauvegarde et restauration. Clés de sauvegarde gérées par le client dans Azure Key Vault.
 
 Utilisez également une solution de contrôle de code source telle qu’Azure Repos et Azure DevOps pour stocker et gérer votre code de manière sécurisée. Azure DevOps Services tire profit de nombreuses fonctionnalités du stockage Azure pour garantir la disponibilité des données en cas de défaillance matérielle, d’interruption de service ou de sinistre régional. De plus, l’équipe Azure DevOps suit des procédures pour protéger les données contre toute suppression accidentelle ou malveillante.
 
@@ -1073,7 +1073,7 @@ Utilisez également une solution de contrôle de code source telle qu’Azure Re
 
 - [Guide pratique pour restaurer des clés de coffre de clés dans Azure](https://docs.microsoft.com/powershell/module/azurerm.keyvault/restore-azurekeyvaultkey?view=azurermps-6.13.0)
 
-**Supervision d’Azure Security Center** : Non applicable
+**Supervision Azure Security Center** : Non applicable
 
 **Responsabilité** : Customer
 
@@ -1099,7 +1099,7 @@ Si vous utilisez des clés gérées par le client, vérifiez que la suppression 
 
 **Conseils** : Créez un guide de réponse aux incidents pour votre organisation. Assurez-vous qu’il existe des plans de réponse aux incidents écrits qui définissent tous les rôles du personnel, ainsi que les phases de gestion des incidents, depuis la détection jusqu’à la revue une fois l’incident terminé.
 
-- [Configuration d’automatisations de workflow dans Azure Security Center](https://docs.microsoft.com/azure/security-center/security-center-planning-and-operations-guide)
+- [Comment configurer des automatisations de workflow dans Azure Security Center](https://docs.microsoft.com/azure/security-center/security-center-planning-and-operations-guide)
 
 - [Aide sur la création de votre propre processus de réponse aux incidents de sécurité](https://msrc-blog.microsoft.com/2019/07/01/inside-the-msrc-building-your-own-security-incident-response-process/)
 
@@ -1125,7 +1125,7 @@ En outre, marquez clairement les abonnements (par ex. production, non production
 
 **Conseils** : Exécutez des exercices pour tester les fonctionnalités de réponse aux incidents de vos systèmes de façon régulière. Identifiez les points faibles et les lacunes, et révisez le plan en fonction des besoins.
 
-- [Reportez-vous à la publication du NIST : Guide to Test, Training, and Exercise Programs for IT Plans and Capabilities](https://nvlpubs.nist.gov/nistpubs/Legacy/SP/nistspecialpublication800-84.pdf)
+- [Reportez-vous à la publication du NIST : Guide to Test, Training, and Exercise Programs for IT Plans and Capabilities (Guide de test, d’entraînement et d’utilisation des programmes destinés aux plans et fonctionnalités informatiques)](https://nvlpubs.nist.gov/nistpubs/Legacy/SP/nistspecialpublication800-84.pdf)
 
 **Supervision d’Azure Security Center** : Non applicable
 
@@ -1159,7 +1159,7 @@ En outre, marquez clairement les abonnements (par ex. production, non production
 
 - [Comment configurer l’automatisation des workflows et Logic Apps](https://docs.microsoft.com/azure/security-center/workflow-automation)
 
-**Supervision d’Azure Security Center** : Non applicable
+**Supervision Azure Security Center** : Non applicable
 
 **Responsabilité** : Customer
 

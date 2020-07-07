@@ -6,12 +6,12 @@ ms.topic: tutorial
 ms.date: 05/30/2019
 ms.author: peshultz
 ms.custom: mvc
-ms.openlocfilehash: 01c3ab167239affa4d7ae94f5649d60072c3c270
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 88937e5bc9870075bfe273c21b11f886d32bf99d
+ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "82117163"
+ms.lasthandoff: 07/05/2020
+ms.locfileid: "85963850"
 ---
 # <a name="tutorial-trigger-a-batch-job-using-azure-functions"></a>Tutoriel : Déclencher une tâche Batch à l’aide d’Azure Functions
 
@@ -55,7 +55,7 @@ Dans cette section, vous allez utiliser Batch Explorer pour créer le pool Batch
 Ici, vous allez créer des conteneurs d’objets blob pour stocker vos fichiers d’entrée et de sortie pour la tâche Batch de reconnaissance optique de caractères (OCR).
 
 1. Connectez-vous à l’Explorateur Stockage à l’aide de vos informations d’identification Azure.
-1. À l’aide du compte de stockage lié à votre compte Batch, créez deux conteneurs d’objets blob (un pour les fichiers d’entrée, un pour les fichiers de sortie) en suivant les étapes indiquées dans [Créer un conteneur d’objets blob](https://docs.microsoft.com/azure/vs-azure-tools-storage-explorer-blobs#create-a-blob-container).
+1. À l’aide du compte de stockage lié à votre compte Batch, créez deux conteneurs d’objets blob (un pour les fichiers d’entrée, un pour les fichiers de sortie) en suivant les étapes indiquées dans [Créer un conteneur d’objets blob](../vs-azure-tools-storage-explorer-blobs.md#create-a-blob-container).
 
 Dans cet exemple, le conteneur d’entrée est nommé `input` et correspond à l’emplacement auquel tous les documents sans reconnaissance optique de caractères (OCR) sont initialement chargés à des fins de traitement. Le conteneur de sortie est nommé `output` et correspond à l’emplacement auquel la tâche Batch écrit des documents traités avec la reconnaissance optique de caractères (OCR).  
     * Dans cet exemple, nous allons appeler notre conteneur d’entrée `input`et notre conteneur de sortie `output`.  
@@ -68,7 +68,7 @@ Créez une signature d’accès partagé pour votre conteneur de sortie dans l�
 
 Dans cette section, vous allez créer la fonction Azure qui déclenche la tâche Batch de reconnaissance optique de caractères (OCR) chaque fois qu’un fichier est chargé dans votre conteneur d’entrée.
 
-1. Suivez les étapes indiquées dans [Créer une fonction déclenchée par un stockage Blob Azure](https://docs.microsoft.com/azure/azure-functions/functions-create-storage-blob-triggered-function) pour créer une fonction.
+1. Suivez les étapes indiquées dans [Créer une fonction déclenchée par un stockage Blob Azure](../azure-functions/functions-create-storage-blob-triggered-function.md) pour créer une fonction.
     1. Lorsque vous êtes invité à indiquer un compte de stockage, utilisez celui que vous avez lié à votre compte Batch.
     1. Pour la **pile d’exécution**, choisissez .NET. Nous allons écrire notre fonction en C# pour exploiter le SDK .NET Batch.
 1. Une fois que la fonction déclenchée par un objet blob est créée, utilisez les fichiers [`run.csx`](https://github.com/Azure-Samples/batch-functions-tutorial/blob/master/run.csx) et [`function.proj`](https://github.com/Azure-Samples/batch-functions-tutorial/blob/master/function.proj) de GitHub dans la fonction.
@@ -111,4 +111,4 @@ Dans ce tutoriel, vous avez appris à effectuer les opérations suivantes :
 
 * Pour plus d’exemples d’utilisation de l’API .NET pour planifier et traiter les charges de travail Batch, consultez les [exemples sur GitHub](https://github.com/Azure-Samples/azure-batch-samples/tree/master/CSharp). 
 
-* Pour découvrir d’autres déclencheurs Azure Functions que vous pouvez utiliser pour exécuter des charges de travail Batch, consultez la [documentation Azure Functions](https://docs.microsoft.com/azure/azure-functions/functions-triggers-bindings).
+* Pour découvrir d’autres déclencheurs Azure Functions que vous pouvez utiliser pour exécuter des charges de travail Batch, consultez la [documentation Azure Functions](../azure-functions/functions-triggers-bindings.md).

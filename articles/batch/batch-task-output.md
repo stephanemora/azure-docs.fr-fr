@@ -4,12 +4,12 @@ description: Découvrez les différentes possibilités pour conserver les donné
 ms.topic: how-to
 ms.date: 11/14/2018
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 492de237acdf2d6d42f27638bac3adc0f6549828
-ms.sourcegitcommit: 6fd8dbeee587fd7633571dfea46424f3c7e65169
+ms.openlocfilehash: 4ebe0b6d57225eff9f3f1251d5e491c95e9b7ffc
+ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/21/2020
-ms.locfileid: "83726296"
+ms.lasthandoff: 07/05/2020
+ms.locfileid: "85965108"
 ---
 # <a name="persist-job-and-task-output"></a>Conserver les résultats des tâches et des travaux
 
@@ -35,7 +35,7 @@ Les sections suivantes décrivent brièvement chaque approche ainsi que les cons
 
 ### <a name="use-the-batch-service-api"></a>Utiliser l’API du service Batch
 
-Le service Batch permet de spécifier des fichiers de sortie dans le Stockage Azure pour les données de tâches quand vous [ajoutez une tâche à un travail](https://docs.microsoft.com/rest/api/batchservice/add-a-task-to-a-job) ou [ajoutez une collection de tâches à un travail](https://docs.microsoft.com/rest/api/batchservice/add-a-collection-of-tasks-to-a-job).
+Le service Batch permet de spécifier des fichiers de sortie dans le Stockage Azure pour les données de tâches quand vous [ajoutez une tâche à un travail](/rest/api/batchservice/add-a-task-to-a-job) ou [ajoutez une collection de tâches à un travail](/rest/api/batchservice/add-a-collection-of-tasks-to-a-job).
 
 Pour plus d’informations sur la conservation de la sortie des tâches avec l’API du service Batch, consultez [Conserver les données des tâches dans le Stockage Azure à l’aide de l’API du service Batch](batch-task-output-files.md).
 

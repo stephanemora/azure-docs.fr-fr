@@ -3,16 +3,16 @@ title: Migration à partir de StorSimple 1200 vers Azure File Sync
 description: Découvrez comment effectuer une migration d’une appliance virtuelle StorSimple série 1200 vers Azure File Sync.
 author: fauhse
 ms.service: storage
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 03/09/2020
 ms.author: fauhse
 ms.subservice: files
-ms.openlocfilehash: 69225da1506ced879363b10b098d939df93cbfba
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: d9cf7b3cf996e41f90e3a40a6ee08d0fd51c8457
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79502383"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85510339"
 ---
 # <a name="storsimple-1200-migration-to-azure-file-sync"></a>Migration à partir de StorSimple 1200 vers Azure File Sync
 
