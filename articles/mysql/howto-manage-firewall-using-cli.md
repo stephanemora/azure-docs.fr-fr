@@ -8,10 +8,10 @@ ms.devlang: azurecli
 ms.topic: conceptual
 ms.date: 3/18/2020
 ms.openlocfilehash: 11aa4a80deba4df14c239e69910ea38bac1b9c55
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "80063509"
 ---
 # <a name="create-and-manage-azure-database-for-mysql-firewall-rules-by-using-the-azure-cli"></a>Créer et gérer des règles de pare-feu Azure Database pour MySQL à l’aide de l’interface de ligne de commande Azure
@@ -19,7 +19,7 @@ Les règles de pare-feu au niveau du serveur peuvent être utilisées pour gére
 
 Des règles de réseau virtuel (VNet) peuvent également être utilisées pour sécuriser l'accès à votre serveur. Découvrez-en plus sur [la création et la gestion des règles et des points de terminaison de service de réseau virtuel à l'aide d'Azure CLI](howto-manage-vnet-using-cli.md).
 
-## <a name="prerequisites"></a>Conditions préalables requises
+## <a name="prerequisites"></a>Prérequis
 * [Installez l’interface de ligne de commande Azure](https://docs.microsoft.com/cli/azure/install-azure-cli).
 * Un [serveur et une base de données Azure Database pour MySQL](quickstart-create-mysql-server-database-using-azure-cli.md).
 
@@ -27,11 +27,11 @@ Des règles de réseau virtuel (VNet) peuvent également être utilisées pour s
 La commande **az mysql server firewall-rule** est utilisée à partir de l’interface de ligne de commande Azure pour créer, supprimer, répertorier, afficher et mettre à jour des règles de pare-feu.
 
 Commandes :
-- **create** : créez une règle de pare-feu du serveur Azure MySQL.
-- **delete** : supprimez une règle de pare-feu du serveur Azure MySQL.
-- **list** : répertoriez les règles de pare-feu du serveur Azure MySQL.
-- **show** : affichez les détails d’une règle de pare-feu du serveur Azure MySQL.
-- **update**: mettez à jour une règle de pare-feu du serveur Azure MySQL.
+- **create** : créez une règle de pare-feu du serveur Azure MySQL.
+- **delete** : supprimez une règle de pare-feu du serveur Azure MySQL.
+- **list** : répertoriez les règles de pare-feu du serveur Azure MySQL.
+- **show** : affichez les détails d’une règle de pare-feu du serveur Azure MySQL.
+- **update** : mettez à jour une règle de pare-feu du serveur Azure MySQL.
 
 ## <a name="sign-in-to-azure-and-list-your-azure-database-for-mysql-servers"></a>Se connecter à Azure et répertorier les serveurs Azure Database pour MySQL
 Connectez-vous en toute sécurité à Azure CLI à l’aide de votre compte Azure en exécutant la commande **az login**.
