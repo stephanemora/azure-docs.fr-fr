@@ -11,10 +11,10 @@ ms.topic: conceptual
 ms.date: 05/02/2017
 ms.author: mbaldwin
 ms.openlocfilehash: 436b9c1569d7c33f79a126cd4d0513bac9385d8a
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "81427657"
 ---
 # <a name="azure-key-vault-net-20---release-notes-and-migration-guide"></a>Azure Key Vault .NET 2.0 - Notes de publication et guide de migration
@@ -49,12 +49,12 @@ Les certificats Key Vault gèrent les certificats x509 et prennent en charge les
 
 * *Secret* est remplacé par *SecretBundle*
 * *Dictionary* est remplacé par *IDictionary*
-* *List\<>T, chaîne []* est remplacé par *IList\<T>*
+* *List\<T>, chaîne []* est remplacé par *IList\<T>*
 * *NextList* est remplacé par *NextPageLink*
 
 ## <a name="return-types"></a>Types de retour
 
-* **KeyList** et **SecretList** retournent désormais *IPage\<>T* au lieu de *ListKeysResponseMessage*
+* **KeyList** et **SecretList** retournent désormais *IPage\<T>* au lieu de *ListKeysResponseMessage*
 * Le résultat généré **BackupKeyAsync** retourne désormais *BackupKeyResult*, qui contient *Value* (objet blob de sauvegarde). Auparavant, la méthode était encapsulée et ne retournait que la valeur.
 
 ## <a name="exceptions"></a>Exceptions

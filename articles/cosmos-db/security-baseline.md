@@ -8,10 +8,10 @@ ms.date: 03/16/2020
 ms.author: mbaldwin
 ms.custom: security-benchmark
 ms.openlocfilehash: e5c57ba56ce236bcf07478e1784eec6d4c632d1c
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "82195245"
 ---
 # <a name="azure-security-baseline-for-cosmos-db"></a>Ligne de base de sécurité Azure pour Cosmos DB
@@ -28,7 +28,7 @@ Pour plus d’informations, consultez [Vue d’ensemble des lignes de base de s�
 
 ### <a name="11-protect-resources-using-network-security-groups-or-azure-firewall-on-your-virtual-network"></a>1.1 : Protéger les ressources à l'aide de groupes de sécurité réseau ou du Pare-feu Azure sur votre réseau virtuel
 
-**Aide** : À l’aide d’Azure Private Link, vous pouvez vous connecter à un compte Azure Cosmos via un point de terminaison privé. Le trafic entre votre réseau virtuel et le service transite par le réseau principal de Microsoft, éliminant ainsi toute exposition à l’Internet public. Vous pouvez également réduire le risque d’exfiltration de données en configurant un ensemble strict de règles de trafic sortant sur un groupe de sécurité réseau (NSG) et en associant ce groupe de sécurité réseau à votre sous-réseau.
+**Conseils** : À l’aide d’Azure Private Link, vous pouvez vous connecter à un compte Azure Cosmos via un point de terminaison privé. Le trafic entre votre réseau virtuel et le service transite par le réseau principal de Microsoft, éliminant ainsi toute exposition à l’Internet public. Vous pouvez également réduire le risque d’exfiltration de données en configurant un ensemble strict de règles de trafic sortant sur un groupe de sécurité réseau (NSG) et en associant ce groupe de sécurité réseau à votre sous-réseau.
 
 Vous pouvez également utiliser des points de terminaison de service pour sécuriser votre compte Azure Cosmos. En activant un point de terminaison de service, vous pouvez configurer des comptes Azure Cosmos pour autoriser l’accès uniquement à partir d’un sous-réseau spécifique de réseau virtuel Azure. Une fois le point de terminaison de service Azure Cosmos DB activé, vous pouvez limiter l’accès à un compte Azure Cosmos avec des connexions à partir d’un sous-réseau dans un réseau virtuel.
 
@@ -58,7 +58,7 @@ Activer les journaux de flux NSG : https://docs.microsoft.com/azure/network-wat
 
 Comment activer et utiliser Traffic Analytics : https://docs.microsoft.com/azure/network-watcher/traffic-analytics
 
-**Supervision d’Azure Security Center** : Oui
+**Supervision Azure Security Center** : Oui
 
 **Responsabilité** : Customer
 
@@ -106,13 +106,13 @@ Comment activer et utiliser Traffic Analytics : https://docs.microsoft.com/azur
 
 Comment configurer Advanced Threat Protection pour Cosmos DB : https://docs.microsoft.com/azure/cosmos-db/cosmos-db-advanced-threat-protection
 
-**Supervision d’Azure Security Center** : Oui
+**Supervision Azure Security Center** : Oui
 
 **Responsabilité** : Customer
 
 ### <a name="17-manage-traffic-to-web-applications"></a>1.7 : Gérer le trafic à destination des applications web
 
-**Aide** : Non applicable. La recommandation concerne les applications web s’exécutant sur Azure App Service ou les ressources de calcul.
+**Conseils** : Non applicable. La recommandation concerne les applications web s’exécutant sur Azure App Service ou les ressources de calcul.
 
 
 **Supervision d’Azure Security Center** : Non applicable
@@ -165,7 +165,7 @@ Consulter et récupérer les événements du journal des activités Azure : htt
 
 Créer des alertes dans Azure Monitor : https://docs.microsoft.com/azure/azure-monitor/platform/alerts-activity-log
 
-**Supervision d’Azure Security Center** : Non applicable
+**Supervision Azure Security Center** : Non applicable
 
 **Responsabilité** : Customer
 
@@ -216,11 +216,11 @@ Comment activer les paramètres de diagnostic pour le journal d'activité Azure�
 
 ### <a name="25-configure-security-log-storage-retention"></a>2.5 : Configurer la conservation du stockage des journaux de sécurité
 
-**Aide** : Dans Azure Monitor, définissez la période de rétention des journaux pour les espaces de travail Log Analytics associés à vos instances Azure Cosmos DB conformément aux réglementations de conformité de votre organisation.
+**Conseils** : Dans Azure Monitor, définissez la période de rétention des journaux pour les espaces de travail Log Analytics associés à vos instances Azure Cosmos DB conformément aux réglementations de conformité de votre organisation.
 
 Définir des paramètres de rétention des journaux : https://docs.microsoft.com/azure/azure-monitor/platform/manage-cost-storage#change-the-data-retention-period
 
-**Supervision d’Azure Security Center** : Non applicable
+**Supervision Azure Security Center** : Non applicable
 
 **Responsabilité** : Customer
 
@@ -230,7 +230,7 @@ Définir des paramètres de rétention des journaux : https://docs.microsoft.co
 
 Comment exécuter des requêtes pour Azure Cosmos DB dans les espaces de travail Log Analytics : https://docs.microsoft.com/azure/cosmos-db/monitor-cosmos-db
 
-**Supervision d’Azure Security Center** : Non applicable
+**Supervision Azure Security Center** : Non applicable
 
 **Responsabilité** : Customer
 
@@ -248,7 +248,7 @@ Comment intégrer Azure Sentinel : https://docs.microsoft.com/azure/sentinel/qu
 
 Créer, afficher et gérer des alertes de journal à l’aide d’Azure Monitor : https://docs.microsoft.com/azure/azure-monitor/platform/alerts-log
 
-**Supervision d’Azure Security Center** : Oui
+**Supervision Azure Security Center** : Oui
 
 **Responsabilité** : Customer
 
@@ -318,13 +318,13 @@ Régénération des clés d’Azure Cosmos DB : https://docs.microsoft.com/azur
 
 Comment accéder par programme aux clés à l’aide d’Azure Active Directory : https://docs.microsoft.com/azure/cosmos-db/certificate-based-authentication
 
-**Supervision d’Azure Security Center** : Non applicable
+**Supervision Azure Security Center** : Non applicable
 
 **Responsabilité** : Partagé
 
 ### <a name="33-use-dedicated-administrative-accounts"></a>3.3 : Utiliser des comptes d’administration dédiés
 
-**Aide** : Non applicable ; Azure Cosmos DB ne prend pas en charge les comptes d’administrateur.  Tous les accès sont intégrés à Azure Active Directory et au contrôle d’accès en fonction du rôle (RBAC) Azure.
+**Conseils** : Non applicable ; Azure Cosmos DB ne prend pas en charge les comptes d’administrateur.  Tous les accès sont intégrés à Azure Active Directory et au contrôle d’accès en fonction du rôle (RBAC) Azure.
 
 
 
@@ -340,7 +340,7 @@ Comprendre l’API REST d’Azure Database for Cosmos DB : https://docs.microso
 
 Comprendre l’authentification unique avec Azure Active Directory : https://docs.microsoft.com/azure/active-directory/manage-apps/what-is-single-sign-on
 
-**Supervision d’Azure Security Center** : Non applicable
+**Supervision Azure Security Center** : Non applicable
 
 **Responsabilité** : Customer
 
@@ -380,7 +380,7 @@ Comment déployer Privileged Identity Management (PIM) : https://docs.microsoft
 
 Comprendre les détections de risques Azure AD : https://docs.microsoft.com/azure/active-directory/reports-monitoring/concept-risk-events
 
-**Supervision d’Azure Security Center** : Oui
+**Supervision Azure Security Center** : Oui
 
 **Responsabilité** : Customer
 
@@ -408,11 +408,11 @@ Comment configurer et gérer l’authentification Azure Active Directory avec Az
 
 ### <a name="310-regularly-review-and-reconcile-user-access"></a>3.10 : Examiner et rapprocher régulièrement l’accès utilisateur
 
-**Aide** : Azure Active Directory fournit des journaux pour vous aider à découvrir les comptes obsolètes. De plus, vous pouvez utiliser les révisions d’accès des identités Azure pour gérer efficacement les appartenances aux groupes, les accès aux applications d’entreprise et les attributions de rôles. L’accès de l’utilisateur peut être passé en revue régulièrement pour vérifier que seuls les utilisateurs appropriés bénéficient d’un accès permanent.
+**Conseils** : Azure Active Directory fournit des journaux pour vous aider à découvrir les comptes obsolètes. De plus, vous pouvez utiliser les révisions d’accès des identités Azure pour gérer efficacement les appartenances aux groupes, les accès aux applications d’entreprise et les attributions de rôles. L’accès de l’utilisateur peut être passé en revue régulièrement pour vérifier que seuls les utilisateurs appropriés bénéficient d’un accès permanent.
 
 Comment utiliser les révisions d’accès des identités Azure : https://docs.microsoft.com/azure/active-directory/governance/access-reviews-overview
 
-**Supervision d’Azure Security Center** : Oui
+**Supervision Azure Security Center** : Oui
 
 **Responsabilité** : Customer
 
@@ -428,7 +428,7 @@ Comment intégrer des journaux d’activité Azure dans Azure Monitor : https:/
 
 ### <a name="312-alert-on-account-login-behavior-deviation"></a>3.12 : Alerte en cas d’écart de comportement de connexion à un compte
 
-**Aide** : Utilisez ATP (Advanced Threat Protection) pour Azure Cosmos DB. ATP pour Azure Cosmos DB offre une couche supplémentaire de sécurité intelligente qui détecte les tentatives d’accès ou d’exploitation inhabituelles et potentiellement dangereuses des comptes Azure Cosmos. Cette couche de protection vous permet de traiter efficacement les menaces et de les intégrer aux systèmes centraux de supervision de la sécurité. 
+**Conseils** : Utilisez ATP (Advanced Threat Protection) pour Azure Cosmos DB. ATP pour Azure Cosmos DB offre une couche supplémentaire de sécurité intelligente qui détecte les tentatives d’accès ou d’exploitation inhabituelles et potentiellement dangereuses des comptes Azure Cosmos. Cette couche de protection vous permet de traiter efficacement les menaces et de les intégrer aux systèmes centraux de supervision de la sécurité. 
 
 Vous pouvez utiliser Azure Active Directory Identity Protection et la fonctionnalité de détections de risques pour configurer des réponses automatiques aux actions suspectes détectées liées aux identités d’utilisateur. De plus, vous pouvez ingérer des journaux dans Azure Sentinel pour approfondir votre examen.
 
@@ -458,7 +458,7 @@ Liste des services pris en charge pour Customer Lockbox : https://docs.microsof
 
 ### <a name="41-maintain-an-inventory-of-sensitive-information"></a>4.1 : Conserver un inventaire des informations sensibles
 
-**Aide** : Utilisez des étiquettes pour faciliter le suivi des instances Azure Cosmos DB qui stockent ou traitent des informations sensibles.
+**Conseils** : Utilisez des étiquettes pour faciliter le suivi des instances Azure Cosmos DB qui stockent ou traitent des informations sensibles.
 
 Comment créer et utiliser des étiquettes : https://docs.microsoft.com/azure/azure-resource-manager/resource-group-using-tags
 
@@ -486,7 +486,7 @@ Comment créer un groupe de sécurité réseau avec une configuration de sécuri
 
 ### <a name="43-monitor-and-block-unauthorized-transfer-of-sensitive-information"></a>4.3. : Surveiller et bloquer le transfert non autorisé d’informations sensibles
 
-**Aide** : Vous pouvez déployer Advanced Threat Protection pour Azure Cosmos DB, qui va détecter les activités anormales indiquant des tentatives d’accès ou d’exploitation inhabituelles ou potentiellement dangereuses de bases de données. Il peut actuellement déclencher les alertes suivantes :
+**Conseils** : Vous pouvez déployer Advanced Threat Protection pour Azure Cosmos DB, qui va détecter les activités anormales indiquant des tentatives d’accès ou d’exploitation inhabituelles ou potentiellement dangereuses de bases de données. Il peut actuellement déclencher les alertes suivantes :
 
 - Accès à partir d’emplacements inhabituels
 
@@ -498,13 +498,13 @@ Comment configurer Advanced Threat Protection pour Cosmos DB : https://docs.mic
 
 Comprendre la protection des données client dans Azure : https://docs.microsoft.com/azure/security/fundamentals/protection-customer-data
 
-**Supervision d’Azure Security Center** : Oui
+**Supervision Azure Security Center** : Oui
 
 **Responsabilité** : Partagé
 
 ### <a name="44-encrypt-all-sensitive-information-in-transit"></a>4.4 : Chiffrer toutes les informations sensibles en transit
 
-**Aide** : Toutes les connexions à Azure Cosmos DB prennent en charge le protocole HTTPS. Azure Cosmos DB prend également en charge le protocole TLS1.2. Il est possible d’appliquer une version TLS minimale côté serveur. Pour ce faire, veuillez contacter [azurecosmosdbtls@service.microsoft.com](mailto:azurecosmosdbtls@service.microsoft.com).
+**Conseils** : Toutes les connexions à Azure Cosmos DB prennent en charge le protocole HTTPS. Azure Cosmos DB prend également en charge le protocole TLS1.2. Il est possible d’appliquer une version TLS minimale côté serveur. Pour ce faire, veuillez contacter [azurecosmosdbtls@service.microsoft.com](mailto:azurecosmosdbtls@service.microsoft.com).
 
 Vue d’ensemble de la sécurité Cosmos DB : https://docs.microsoft.com/azure/cosmos-db/database-security
 
@@ -532,7 +532,7 @@ Comprendre la protection des données client dans Azure : https://docs.microsof
 
 Comment implémenter RBAC dans Azure Cosmos DB : https://docs.microsoft.com/azure/cosmos-db/role-based-access-control
 
-**Supervision d’Azure Security Center** : Non applicable
+**Supervision Azure Security Center** : Non applicable
 
 **Responsabilité** : Customer
 
@@ -550,7 +550,7 @@ Comprendre la protection des données client dans Azure : https://docs.microsof
 
 ### <a name="48-encrypt-sensitive-information-at-rest"></a>4.8 : Chiffrer des informations sensibles au repos
 
-**Aide** : Toutes les données utilisateur stockées dans Cosmos DB sont chiffrées au repos par défaut. Il n’y a aucun contrôle pour le désactiver. Azure Cosmos DB utilise le chiffrement AES-256 dans toutes les régions où le compte est exécuté.
+**Conseils** : Toutes les données utilisateur stockées dans Cosmos DB sont chiffrées au repos par défaut. Il n’y a aucun contrôle pour le désactiver. Azure Cosmos DB utilise le chiffrement AES-256 dans toutes les régions où le compte est exécuté.
 
 Par défaut, Microsoft gère les clés utilisées pour chiffrer les données dans votre compte Azure Cosmos. Vous pouvez éventuellement choisir d’ajouter une deuxième couche de chiffrement avec vos propres clés.
 
@@ -566,7 +566,7 @@ Comment configurer des clés gérées par le client pour votre compte Azure Cosm
 
 ### <a name="49-log-and-alert-on-changes-to-critical-azure-resources"></a>4.9 : Consigner et alerter les modifications apportées aux ressources Azure critiques
 
-**Aide** : Utilisez Azure Monitor avec le journal des activités Azure pour créer des alertes lorsque des modifications sont apportées à des instances de production d’Azure Cosmos DB.
+**Conseils** : Utilisez Azure Monitor avec le journal des activités Azure pour créer des alertes lorsque des modifications sont apportées à des instances de production d’Azure Cosmos DB.
 
 Comment créer des alertes pour les événements du journal d’activité Azure : https://docs.microsoft.com/azure/azure-monitor/platform/alerts-activity-log
 
@@ -603,10 +603,10 @@ Fonctionnalités prises en charge disponibles dans Azure Security Center : http
 
 ### <a name="53-deploy-automated-third-party-software-patch-management-solution"></a>5.3 : Déployer une solution de gestion de correctif logiciel tiers automatisée
 
-**Aide** : Non applicable. Ces conseils concernent les ressources de calcul.
+**Conseils** : Non applicable. Ces conseils concernent les ressources de calcul.
 
 
-**Supervision d’Azure Security Center** : Non applicable
+**Supervision Azure Security Center** : Non applicable
 
 **Responsabilité** : Non applicable
 
@@ -621,7 +621,7 @@ Fonctionnalités prises en charge disponibles dans Azure Security Center : http
 
 ### <a name="55-use-a-risk-rating-process-to-prioritize-the-remediation-of-discovered-vulnerabilities"></a>5.5 : Utilisez un processus de classement des risques pour classer par ordre de priorité la correction des vulnérabilités découvertes.
 
-**Aide** : Non applicable. Ces conseils concernent les ressources de calcul.
+**Conseils** : Non applicable. Ces conseils concernent les ressources de calcul.
 
 
 **Supervision d’Azure Security Center** : Non applicable
@@ -662,7 +662,7 @@ Quelles ressources Azure Cosmos DB prennent en charge les étiquettes : https:/
 
 ### <a name="63-delete-unauthorized-azure-resources"></a>6.3 : Supprimer des ressources Azure non autorisées
 
-**Aide** : Utilisez des étiquettes, des groupes d’administration, voire des abonnements séparés, pour organiser et suivre les ressources associées, y compris mais sans s’y limiter les ressources Azure Cosmos DB. Rapprochez régulièrement l’inventaire et assurez-vous que les ressources non autorisées sont supprimées de l’abonnement en temps utile.
+**Conseils** : Utilisez des étiquettes, des groupes d’administration, voire des abonnements séparés, pour organiser et suivre les ressources associées, y compris mais sans s’y limiter les ressources Azure Cosmos DB. Rapprochez régulièrement l’inventaire et assurez-vous que les ressources non autorisées sont supprimées de l’abonnement en temps utile.
 
 Créer des abonnements Azure supplémentaires : https://docs.microsoft.com/azure/billing/billing-create-subscription
 
@@ -702,7 +702,7 @@ Créer des requêtes avec Azure Graph : https://docs.microsoft.com/azure/govern
 
 ### <a name="66-monitor-for-unapproved-software-applications-within-compute-resources"></a>6.6 : Analyser les applications logicielles non approuvées dans des ressources de calcul
 
-**Aide** : Non applicable. Cette ligne de base concerne les ressources de calcul.
+**Conseils** : Non applicable. Cette ligne de base concerne les ressources de calcul.
 
 
 **Supervision d’Azure Security Center** : Non applicable
@@ -711,7 +711,7 @@ Créer des requêtes avec Azure Graph : https://docs.microsoft.com/azure/govern
 
 ### <a name="67-remove-unapproved-azure-resources-and-software-applications"></a>6.7 : Supprimer des ressources et applications logicielles Azure non approuvées
 
-**Aide** : Non applicable. Ces conseils concernent les ressources de calcul et Azure dans son ensemble.
+**Conseils** : Non applicable. Ces conseils concernent les ressources de calcul et Azure dans son ensemble.
 
 
 **Supervision d’Azure Security Center** : Non applicable
@@ -776,7 +776,7 @@ Configurer l’accès conditionnel pour bloquer l’accès à Azure Resource Man
 **Aide** : Non applicable. Ces conseils ont trait aux applications web s’exécutant sur Azure App Service ou des ressources de calcul.
 
 
-**Supervision d’Azure Security Center** : Non applicable
+**Supervision Azure Security Center** : Non applicable
 
 **Responsabilité** : Non applicable
 
@@ -850,7 +850,7 @@ Documentation Azure Repos : https://docs.microsoft.com/azure/devops/repos/index
 
 ### <a name="77-deploy-system-configuration-management-tools"></a>7.7 : Déployer les outils de gestion de configuration système
 
-**Aide** : Utilisez des alias Azure Policy dans l’espace de noms « Microsoft.DocumentDB » pour créer des stratégies personnalisées d’alerte, d’audit ou d’application de configurations système. En outre, développez un processus et un pipeline pour la gestion des exceptions de stratégie.
+**Conseils** : Utilisez des alias Azure Policy dans l’espace de noms « Microsoft.DocumentDB » pour créer des stratégies personnalisées d’alerte, d’audit ou d’application de configurations système. En outre, développez un processus et un pipeline pour la gestion des exceptions de stratégie.
 
 Configurer et gérer Azure Policy : https://docs.microsoft.com/azure/governance/policy/tutorials/create-and-manage
 
@@ -886,7 +886,7 @@ Configurer et gérer Azure Policy : https://docs.microsoft.com/azure/governance
 
 ### <a name="711-manage-azure-secrets-securely"></a>7.11 : Gérer les secrets Azure en toute sécurité
 
-**Aide** : Pour les machines virtuelles Azure ou les applications web s’exécutant sur Azure App Service utilisées pour accéder à vos instances Azure Cosmos DB, utilisez Managed Service Identity conjointement avec Azure Key Vault pour simplifier et sécuriser la gestion des secrets Azure Cosmos DB. Vérifiez que la suppression réversible est activée dans Key Vault.
+**Conseils** : Pour les machines virtuelles Azure ou les applications web s’exécutant sur Azure App Service utilisées pour accéder à vos instances Azure Cosmos DB, utilisez Managed Service Identity conjointement avec Azure Key Vault pour simplifier et sécuriser la gestion des secrets Azure Cosmos DB. Vérifiez que la suppression réversible est activée dans Key Vault.
 
 Intégration aux identités managées Azure : https://docs.microsoft.com/azure/azure-app-configuration/howto-integrate-azure-managed-service-identity
 
@@ -965,13 +965,13 @@ Il vous incombe de pré-analyser tous les fichiers téléchargés vers des resso
 
 Comprendre les sauvegardes automatisées Azure Cosmos DB : https://docs.microsoft.com/azure/cosmos-db/online-backup-and-restore
 
-**Supervision d’Azure Security Center** : Non applicable
+**Supervision Azure Security Center** : Non applicable
 
 **Responsabilité** : Microsoft
 
 ### <a name="92-perform-complete-system-backups-and-backup-any-customer-managed-keys"></a>9.2 : effectuer des sauvegardes complètes du système et sauvegarder les clés gérées par le client
 
-**Aide** : Azure Cosmos DB sauvegarde automatiquement vos données à intervalles réguliers. Si une base de données ou un conteneur est supprimé, vous pouvez émettre un ticket de support ou appeler le support Azure pour restaurer les données à partir de sauvegardes en ligne automatiques. Le support Azure est disponible seulement pour certains plans, comme Standard, Développeur et les plans plus élevés. Pour restaurer une capture instantanée spécifique de la sauvegarde, Azure Cosmos DB exige que les données soient accessibles pendant la durée du cycle de sauvegarde de cette capture instantanée. 
+**Conseils** : Azure Cosmos DB sauvegarde automatiquement vos données à intervalles réguliers. Si une base de données ou un conteneur est supprimé, vous pouvez émettre un ticket de support ou appeler le support Azure pour restaurer les données à partir de sauvegardes en ligne automatiques. Le support Azure est disponible seulement pour certains plans, comme Standard, Développeur et les plans plus élevés. Pour restaurer une capture instantanée spécifique de la sauvegarde, Azure Cosmos DB exige que les données soient accessibles pendant la durée du cycle de sauvegarde de cette capture instantanée. 
 
 Si vous utilisez Key Vault pour stocker les informations d’identification de vos instances Cosmos DB, veillez à faire des sauvegardes automatisées régulières de vos clés.
 
@@ -1017,7 +1017,7 @@ Comprendre le chiffrement des données dans Azure Cosmos DB : https://docs.micr
 
 Comment activer la suppression réversible dans Key Vault : https://docs.microsoft.com/azure/storage/blobs/storage-blob-soft-delete?tabs=azure-portal
 
-**Supervision d’Azure Security Center** : Oui
+**Supervision Azure Security Center** : Oui
 
 **Responsabilité** : Partagé
 
@@ -1054,7 +1054,7 @@ En outre, marquez clairement les abonnements (par ex. production, non production
 
 ### <a name="103-test-security-response-procedures"></a>10.3 : Tester les procédures de réponse de sécurité
 
-**Aide** : Exécutez des exercices pour tester les fonctionnalités de réponse aux incidents de vos systèmes de façon régulière. Identifiez les points faibles et les lacunes, et révisez le plan en fonction des besoins.
+**Conseils** : Exécutez des exercices pour tester les fonctionnalités de réponse aux incidents de vos systèmes de façon régulière. Identifiez les points faibles et les lacunes, et révisez le plan en fonction des besoins.
 
 Reportez-vous à la publication du NIST : « Guide to Test, Training, and Exercise Programs for IT Plans and Capabilities » : https://nvlpubs.nist.gov/nistpubs/Legacy/SP/nistspecialpublication800-84.pdf
 

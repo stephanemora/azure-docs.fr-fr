@@ -7,10 +7,10 @@ author: bwren
 ms.author: bwren
 ms.date: 11/28/2018
 ms.openlocfilehash: 1b3ae6295a639c3d59643b106b920cb606572e0a
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "77670574"
 ---
 # <a name="collect-iis-logs-in-azure-monitor"></a>Collecter des journaux d’activité IIS dans Azure Monitor
@@ -43,7 +43,7 @@ Les enregistrements de journal IIS sont de type **W3CIISLog** et leurs propriét
 | csUserName |Nom de l'utilisateur authentifié qui a accédé au serveur. Les utilisateurs anonymes sont indiqués par un trait d'union. |
 | csUriStem |Cible de la requête, par exemple une page web. |
 | csUriQuery |Requête, le cas échéant, que le client tentait d'effectuer. |
-| ManagementGroupName |Nom du groupe d’administration pour les agents Operations Manager.  Pour les autres agents, il s’agit d’AOI-\<workspace ID\> |
+| ManagementGroupName |Nom du groupe d’administration pour les agents Operations Manager.  Pour les autres agents, il s'agit d’AOI-\<workspace ID\> |
 | RemoteIPCountry |Pays/région associés à l’adresse IP du client. |
 | RemoteIPLatitude |Latitude de l'adresse IP du client. |
 | RemoteIPLongitude |Longitude de l'adresse IP du client. |

@@ -8,12 +8,12 @@ ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 04/15/2020
 ms.author: dsindona
-ms.openlocfilehash: a01c8658ff4929d07cd185dcea45393cfe3b2a17
-ms.sourcegitcommit: c535228f0b77eb7592697556b23c4e436ec29f96
+ms.openlocfilehash: e0f0f0fdb75961f3ea9ed90e1684ff5ecd2a792d
+ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/06/2020
-ms.locfileid: "82858313"
+ms.lasthandoff: 07/05/2020
+ms.locfileid: "85961538"
 ---
 # <a name="publishing-guide-for-virtual-machine-offers"></a>Guide de publication d’offres de machines virtuelles
 
@@ -54,7 +54,7 @@ Utilisez le type d’offre *Machine virtuelle* si vous déployez une appliance v
 | Condition requise | Détails |  
 |:--- |:--- | 
 | Facturation et mesure | Votre machine virtuelle doit prendre en charge la facturation mensuelle BYOL ou avec paiement à l’utilisation. |  
-| Disque dur virtuel compatible avec Azure | Les machines virtuelles doivent être basées sur Windows ou Linux. Pour plus d'informations sur la création d'un VHD, voir : <ul> <li>[Distributions Linux approuvées sur Azure](https://docs.microsoft.com/azure/virtual-machines/linux/endorsed-distros) (pour les disques durs virtuel Linux).</li> <li>[Créez un disque dur virtuel compatible avec Azure](./partner-center-portal/azure-vm-create-offer.md) (pour les disques durs virtuels Windows).</li> </ul> |  
+| Disque dur virtuel compatible avec Azure | Les machines virtuelles doivent être basées sur Windows ou Linux. Pour plus d'informations sur la création d'un VHD, voir : <ul> <li>[Distributions Linux approuvées sur Azure](../virtual-machines/linux/endorsed-distros.md) (pour les disques durs virtuel Linux).</li> <li>[Créez un disque dur virtuel compatible avec Azure](./partner-center-portal/azure-vm-create-offer.md) (pour les disques durs virtuels Windows).</li> </ul> |  
 
 >[!Note]
 >L’abonnement à un réseau de partenaires fournisseurs de solution cloud est maintenant disponible. Pour plus d’informations sur le marketing de votre offre via les réseaux de partenaires fournisseurs de solutions cloud Microsoft, consultez [Fournisseurs de solutions cloud](./cloud-solution-providers.md).

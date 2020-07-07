@@ -3,15 +3,15 @@ title: Copier des données vers et depuis WASB dans Azure Data Lake Storage Gen1
 description: Utilisez l’outil DistCp pour copier des données entre des objets blob de stockage Azure et Azure Data Lake Storage Gen1.
 author: twooley
 ms.service: data-lake-store
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 01/03/2020
 ms.author: twooley
-ms.openlocfilehash: 455e73ece2d46a508b3077c13c8106fe53beb4de
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: c608f357eb1eff9fd36e583b98d26250a71cb923
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "75638831"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85515686"
 ---
 # <a name="use-distcp-to-copy-data-between-azure-storage-blobs-and-azure-data-lake-storage-gen1"></a>Utiliser l’outil DistCp pour copier des données entre des objets blob de stockage Azure et Azure Data Lake Storage Gen1
 

@@ -6,12 +6,12 @@ ms.service: cosmos-db
 ms.topic: how-to
 ms.date: 06/12/2020
 ms.author: mjbrown
-ms.openlocfilehash: 2efc652c936e7949147bf77ccc1548308734a467
-ms.sourcegitcommit: 635114a0f07a2de310b34720856dd074aaf4f9cd
+ms.openlocfilehash: fec25bb3043942605895491952d963ee20ac4078
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/23/2020
-ms.locfileid: "85260676"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85563900"
 ---
 # <a name="azure-powershell-samples-for-azure-cosmos-db---cassandra-api"></a>Exemples Azure PowerShell pour Azure Cosmos DB - API Cassandra
 
@@ -20,7 +20,7 @@ Le tableau suivant comprend des liens vers des exemples de scripts Azure PowerSh
 > [!NOTE]
 > Les exemples utilisent les applets de commande de gestion [Az.CosmosDB](https://docs.microsoft.com/powershell/module/az.cosmosdb). Vérifiez régulièrement les mises à jour de `Az.CosmosDB`.
 
-| | |
+|Tâche | Description |
 |---|---|
 |[Créer un compte, un espace de clés et une table](scripts/powershell/cassandra/ps-cassandra-create.md?toc=%2fpowershell%2fmodule%2ftoc.json)| Crée un compte, un espace de clés et une table Azure Cosmos. |
 |[Lister ou obtenir des espaces de clés et des tables](scripts/powershell/cassandra/ps-cassandra-list-get.md?toc=%2fpowershell%2fmodule%2ftoc.json)| Listez ou obtenez des espaces de clés et des tables. |
