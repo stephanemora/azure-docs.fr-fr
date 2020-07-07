@@ -7,12 +7,12 @@ ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 05/19/2020
-ms.openlocfilehash: 95d57e34694190b4ab997229f005ebeef7924e57
-ms.sourcegitcommit: 6fd8dbeee587fd7633571dfea46424f3c7e65169
+ms.openlocfilehash: 2d506656343df6eaa58975bfeb921423c2e3314b
+ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/21/2020
-ms.locfileid: "83724817"
+ms.lasthandoff: 07/05/2020
+ms.locfileid: "85954129"
 ---
 # <a name="overview-of-the-commercial-marketplace-portal-in-partner-center"></a>Vue d’ensemble du portail de la Place de marché commerciale dans l’Espace partenaires
 
@@ -34,7 +34,7 @@ Les éditeurs existants qui utilisaient précédemment le Portail Cloud Partner 
 
 ### <a name="improvements-on-publishing-and-offer-management-user-experience"></a>Améliorations de l’expérience utilisateur de la publication et de la gestion des offres
 
-Avec cette transition vers l’Espace partenaires, de nouvelles fonctionnalités sont disponibles pour les éditeurs, en plus des améliorations sur l’expérience utilisateur.  Pour plus d’informations, consultez [Questions fréquentes (FAQ) sur la migration du portail Cloud Partner vers l’Espace partenaires](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal-migration-faq).
+Avec cette transition vers l’Espace partenaires, de nouvelles fonctionnalités sont disponibles pour les éditeurs, en plus des améliorations sur l’expérience utilisateur.  Pour plus d’informations, consultez [Questions fréquentes (FAQ) sur la migration du portail Cloud Partner vers l’Espace partenaires](../cloud-partner-portal-migration-faq.md).
 
 ### <a name="account-and-user-management-updates"></a>Mises à jour de gestion des comptes et des utilisateurs
 
@@ -50,10 +50,10 @@ L’analyse de l’Espace partenaires présente les performances de vos offres e
 
 ## <a name="view-the-roadmap-and-join-the-conversation"></a>Afficher la feuille de route et rejoindre la conversation
 
-Découvrez les versions récentes et futures en consultant la [feuille de route de la Place de marché commerciale Microsoft](https://docs.microsoft.com/azure/marketplace/marketplace-roadmap) ou rejoignez la conversation dans la [Communauté des partenaires Microsoft](https://www.microsoftpartnercommunity.com/).
+Découvrez les versions récentes et futures en consultant la [feuille de route de la Place de marché commerciale Microsoft](../marketplace-roadmap.md) ou rejoignez la conversation dans la [Communauté des partenaires Microsoft](https://www.microsoftpartnercommunity.com/).
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-- Les nouveaux partenaires Microsoft qui souhaitent publier une offre sur les places de marché peuvent lire [Comment créer un compte Place de marché commerciale dans l’Espace partenaires](https://docs.microsoft.com/azure/marketplace/partner-center-portal/create-account).
-- Les partenaires existants qui ont déjà publié des offres dans le portail Cloud Partner peuvent lire [Gérer votre compte Place de marché commerciale dans l’Espace partenaires](https://docs.microsoft.com/azure/marketplace/partner-center-portal/manage-account).
+- Les nouveaux partenaires Microsoft qui souhaitent publier une offre sur les places de marché peuvent lire [Comment créer un compte Place de marché commerciale dans l’Espace partenaires](create-account.md).
+- Les partenaires existants qui ont déjà publié des offres dans le portail Cloud Partner peuvent lire [Gérer votre compte Place de marché commerciale dans l’Espace partenaires](manage-account.md).
 - Pour en savoir plus sur la migration de la gestion de la Place de marché cloud vers l’Espace partenaires, lisez ce [billet de blog de la Communauté de partenaires](https://www.microsoftpartnercommunity.com/t5/Azure-Marketplace-and-AppSource/Cloud-Marketplace-In-Partner-Center/m-p/9738#M293), qui inclut une vidéo de démonstration.

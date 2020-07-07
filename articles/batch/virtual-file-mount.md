@@ -3,23 +3,23 @@ title: Monter un système de fichiers virtuel sur un pool
 description: Découvrez comment monter un système de fichiers virtuel sur un pool Batch.
 ms.topic: how-to
 ms.date: 08/13/2019
-ms.openlocfilehash: 4e51e8a1f11d670515893a83398a0c6d7c6e9a46
-ms.sourcegitcommit: fc0431755effdc4da9a716f908298e34530b1238
+ms.openlocfilehash: 80acf5df0cf5262249b2eac584152744a4224a35
+ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/24/2020
-ms.locfileid: "83816027"
+ms.lasthandoff: 07/05/2020
+ms.locfileid: "85954670"
 ---
 # <a name="mount-a-virtual-file-system-on-a-batch-pool"></a>Monter un système de fichiers virtuel sur un pool Batch
 
 Azure Batch prend désormais en charge le montage de stockage cloud ou d’un système de fichiers externe sur les nœuds de calcul Windows ou Linux dans vos pools Batch. Lorsqu’un nœud de calcul rejoint un pool, le système de fichiers virtuel est monté et traité comme un lecteur local sur ce nœud. Vous pouvez monter des systèmes de fichiers tels qu’Azure Files, le stockage blob Azure, NFS (Network File System), avec un [cache Avere vFXT](../avere-vfxt/avere-vfxt-overview.md), ou CIFS (Common Internet File System).
 
-Dans cet article, vous allez apprendre à monter un système de fichiers virtuel sur un pool de nœuds de calcul à l’aide de la [Bibliothèque de gestion Batch pour .NET](https://docs.microsoft.com/dotnet/api/overview/azure/batch?view=azure-dotnet).
+Dans cet article, vous allez apprendre à monter un système de fichiers virtuel sur un pool de nœuds de calcul à l’aide de la [Bibliothèque de gestion Batch pour .NET](/dotnet/api/overview/azure/batch?view=azure-dotnet).
 
 > [!NOTE]
 > Le montage d’un système de fichiers virtuel est pris en charge sur les pools Batch créés le ou après le 19/8/2019. Les pools Batch créés avant le 19/8/2019 ne prennent pas en charge cette fonctionnalité.
 > 
-> Les API servant à monter des systèmes de fichiers sur un nœud de calcul font partie de la bibliothèque [Batch .NET](https://docs.microsoft.com/dotnet/api/microsoft.azure.batch?view=azure-dotnet).
+> Les API servant à monter des systèmes de fichiers sur un nœud de calcul font partie de la bibliothèque [Batch .NET](/dotnet/api/microsoft.azure.batch?view=azure-dotnet).
 
 ## <a name="benefits-of-mounting-on-a-pool"></a>Avantages du montage sur un pool
 
@@ -128,7 +128,7 @@ new PoolAddParameter
 
 ### <a name="common-internet-file-system"></a>Common Internet File System
 
-Les systèmes de fichiers Common Internet File Systems (CIFS) peuvent également être montés sur des nœuds de pool, ce qui permet aux nœuds Azure Batch d’accéder facilement aux systèmes de fichiers traditionnels. CIFS est un protocole de partage de fichiers qui fournit un mécanisme ouvert et multiplateforme pour la demande de fichiers et de services de serveur réseau. CIFS est basé sur la version améliorée du protocole SMB (Server Message Block) de Microsoft pour le partage de fichiers intranet et Internet, et est utilisé pour monter des systèmes de fichiers externes sur des nœuds Windows. Pour en savoir plus sur SMB, consultez [Serveur de fichiers et SMB](https://docs.microsoft.com/windows-server/storage/file-server/file-server-smb-overview).
+Les systèmes de fichiers Common Internet File Systems (CIFS) peuvent également être montés sur des nœuds de pool, ce qui permet aux nœuds Azure Batch d’accéder facilement aux systèmes de fichiers traditionnels. CIFS est un protocole de partage de fichiers qui fournit un mécanisme ouvert et multiplateforme pour la demande de fichiers et de services de serveur réseau. CIFS est basé sur la version améliorée du protocole SMB (Server Message Block) de Microsoft pour le partage de fichiers intranet et Internet, et est utilisé pour monter des systèmes de fichiers externes sur des nœuds Windows. Pour en savoir plus sur SMB, consultez [Serveur de fichiers et SMB](/windows-server/storage/file-server/file-server-smb-overview).
 
 ```csharp
 new PoolAddParameter
@@ -153,7 +153,7 @@ new PoolAddParameter
 
 ## <a name="diagnose-mount-errors"></a>Diagnostiquer les erreurs de montage
 
-Si une configuration de montage échoue, le nœud de calcul dans le pool échoue et l’état du nœud devient inutilisable. Pour diagnostiquer un échec de configuration de montage, examinez la propriété [`ComputeNodeError`](https://docs.microsoft.com/rest/api/batchservice/computenode/get#computenodeerror) pour plus d’informations sur l’erreur.
+Si une configuration de montage échoue, le nœud de calcul dans le pool échoue et l’état du nœud devient inutilisable. Pour diagnostiquer un échec de configuration de montage, examinez la propriété [`ComputeNodeError`](/rest/api/batchservice/computenode/get#computenodeerror) pour plus d’informations sur l’erreur.
 
 Pour obtenir les fichiers journaux de débogage, utilisez [OutputFiles](batch-task-output-files.md) pour télécharger les fichiers `*.log`. Les fichiers `*.log` contiennent des informations sur le montage du système de fichiers à l’emplacement `AZ_BATCH_NODE_MOUNTS_DIR`. Les fichiers journaux de montage ont le format : `<type>-<mountDirOrDrive>.log` pour chaque montage. Par exemple, un montage `cifs` dans un répertoire de montage nommé `test` aura un fichier journal de montage nommé `cifs-test.log`.
 
@@ -179,5 +179,5 @@ Pour obtenir les fichiers journaux de débogage, utilisez [OutputFiles](batch-ta
 
 - Découvrez-en davantage sur le montage d’un partage Azure Files avec [Windows](../storage/files/storage-how-to-use-files-windows.md) ou [Linux](../storage/files/storage-how-to-use-files-linux.md).
 - Découvrez-en davantage sur l’utilisation et le montage de systèmes de fichiers virtuels [blobfuse](https://github.com/Azure/azure-storage-fuse).
-- Consultez [Vue d’ensemble du système de fichiers réseau](https://docs.microsoft.com/windows-server/storage/nfs/nfs-overview) pour en savoir plus sur NFS et ses applications.
-- Pour plus d’informations sur CIFS, consultez [Vue d’ensemble du protocole SMB et du protocole CIFS de Microsoft](https://docs.microsoft.com/windows/desktop/fileio/microsoft-smb-protocol-and-cifs-protocol-overview).
+- Consultez [Vue d’ensemble du système de fichiers réseau](/windows-server/storage/nfs/nfs-overview) pour en savoir plus sur NFS et ses applications.
+- Pour plus d’informations sur CIFS, consultez [Vue d’ensemble du protocole SMB et du protocole CIFS de Microsoft](/windows/desktop/fileio/microsoft-smb-protocol-and-cifs-protocol-overview).

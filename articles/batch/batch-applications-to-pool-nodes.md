@@ -3,12 +3,12 @@ title: Copier des applications et des données dans des nœuds de pool
 description: Découvrez comment copier des applications et des données dans des nœuds de pool.
 ms.topic: how-to
 ms.date: 02/17/2020
-ms.openlocfilehash: dad52a69ee468872c10b3a9e66b967a1c7bd101d
-ms.sourcegitcommit: 6fd8dbeee587fd7633571dfea46424f3c7e65169
+ms.openlocfilehash: e21b8551fb62c4335910fd05bb9590eaf6f7e35a
+ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/21/2020
-ms.locfileid: "83726823"
+ms.lasthandoff: 07/05/2020
+ms.locfileid: "85954891"
 ---
 # <a name="copy-applications-and-data-to-pool-nodes"></a>Copier des applications et des données dans des nœuds de pool
 
@@ -19,13 +19,13 @@ Azure Batch prend en charge plusieurs façons d’obtenir des données et des ap
 Exemples : 
 - Utiliser la ligne de commande de la tâche de démarrage pour déplacer ou installer des applications
 
-- Spécifiez une liste de fichiers ou de conteneurs spécifiques dans un compte de stockage Azure. Pour plus d’informations, consultez [Ajouter#ResourceFile dans la documentation REST](https://docs.microsoft.com/rest/api/batchservice/pool/add#resourcefile).
+- Spécifiez une liste de fichiers ou de conteneurs spécifiques dans un compte de stockage Azure. Pour plus d’informations, consultez [Ajouter#ResourceFile dans la documentation REST](/rest/api/batchservice/pool/add#resourcefile).
 
-- Chaque travail qui s’exécute sur le pool exécute MyApplication.exe qui doit d’abord être installé avec MyApplication.msi. Si vous utilisez ce mécanisme, vous devez définir la propriété **Attente de la réussite** de la tâche de démarrage sur **true**. Pour plus d’informations, consultez [Ajouter#StartTask dans la documentation REST](https://docs.microsoft.com/rest/api/batchservice/pool/add#starttask).
+- Chaque travail qui s’exécute sur le pool exécute MyApplication.exe qui doit d’abord être installé avec MyApplication.msi. Si vous utilisez ce mécanisme, vous devez définir la propriété **Attente de la réussite** de la tâche de démarrage sur **true**. Pour plus d’informations, consultez [Ajouter#StartTask dans la documentation REST](/rest/api/batchservice/pool/add#starttask).
 
-- **Références du package d’application** sur le pool : pour les applications ou les données qui doivent être installées sur chaque nœud du pool. Il n’existe aucune commande d’installation associée à un package d’application, mais vous pouvez utiliser une tâche de démarrage pour exécuter une commande d’installation. Si votre application ne nécessite pas d’installation ou si elle comprend un grand nombre de fichiers, vous pouvez utiliser cette méthode. Les packages d’application sont particulièrement adaptés aux grandes quantités de fichiers, car ils combinent un grand nombre de références de fichiers en une petite charge utile. Si vous essayez d’inclure plus de 100 fichiers de ressources distincts dans une seule tâche, le service Batch peut rencontrer des limitations système internes pour une tâche unique. Utilisez également des packages d’application si vous avez des exigences rigoureuses en matière de gestion des versions, par exemple si vous avez plusieurs versions différentes de la même application et que vous devez choisir entre elles. Pour plus d’informations, consultez [Déployer des applications sur les nœuds avec des packages d’applications Batch](https://docs.microsoft.com/azure/batch/batch-application-packages).
+- **Références du package d’application** sur le pool : pour les applications ou les données qui doivent être installées sur chaque nœud du pool. Il n’existe aucune commande d’installation associée à un package d’application, mais vous pouvez utiliser une tâche de démarrage pour exécuter une commande d’installation. Si votre application ne nécessite pas d’installation ou si elle comprend un grand nombre de fichiers, vous pouvez utiliser cette méthode. Les packages d’application sont particulièrement adaptés aux grandes quantités de fichiers, car ils combinent un grand nombre de références de fichiers en une petite charge utile. Si vous essayez d’inclure plus de 100 fichiers de ressources distincts dans une seule tâche, le service Batch peut rencontrer des limitations système internes pour une tâche unique. Utilisez également des packages d’application si vous avez des exigences rigoureuses en matière de gestion des versions, par exemple si vous avez plusieurs versions différentes de la même application et que vous devez choisir entre elles. Pour plus d’informations, consultez [Déployer des applications sur les nœuds avec des packages d’applications Batch](./batch-application-packages.md).
 
-- **Fichiers de ressources de la tâche de préparation du travail** : pour les applications ou les données qui doivent être installées pour le travail à exécuter, mais qui n’ont pas besoin d’être installées sur l’ensemble du pool. Par exemple : si votre pool a de nombreux types différents de travaux et qu’un seul type de travail nécessite l’exécution de MyApplication.msi, il est logique de placer l’étape d’installation dans une tâche de préparation du travail. Pour plus d’informations sur les tâches de préparation de travail, consultez [Exécuter des tâches de préparation et de validation du travail sur les nœuds de calcul Batch](https://azure.microsoft.com/documentation/articles/batch-job-prep-release/).
+- **Fichiers de ressources de la tâche de préparation du travail** : pour les applications ou les données qui doivent être installées pour le travail à exécuter, mais qui n’ont pas besoin d’être installées sur l’ensemble du pool. Par exemple : si votre pool a de nombreux types différents de travaux et qu’un seul type de travail nécessite l’exécution de MyApplication.msi, il est logique de placer l’étape d’installation dans une tâche de préparation du travail. Pour plus d’informations sur les tâches de préparation de travail, consultez [Exécuter des tâches de préparation et de validation du travail sur les nœuds de calcul Batch](./batch-job-prep-release.md).
 
 - **Fichiers de ressources de tâche** : quand une application ou des données sont pertinentes uniquement pour une tâche individuelle. Par exemple : vous avez cinq tâches, chacune traitant un fichier différent, puis écrivant la sortie dans le stockage blob.  Dans ce cas, le fichier d’entrée doit être spécifié dans le regroupement de **fichiers de ressources de la tâche**, car chaque tâche a son propre fichier d’entrée.
 

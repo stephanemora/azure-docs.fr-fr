@@ -7,18 +7,18 @@ ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 04/14/2020
 ms.author: dsindona
-ms.openlocfilehash: 9b39cbab71808aaf09f7dc38b3be77f6f35ab598
-ms.sourcegitcommit: 999ccaf74347605e32505cbcfd6121163560a4ae
+ms.openlocfilehash: 6e889fef16d8ad80d52810207f0328a765ca9cfe
+ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/08/2020
-ms.locfileid: "82982681"
+ms.lasthandoff: 07/05/2020
+ms.locfileid: "85958495"
 ---
 # <a name="publishing-guide-by-offer-type"></a>Guide de publication par Type d’offre
 
 Cet article décrit les types d’offres disponibles dans la Place de marché commerciale. Le *type d’offre* définit la structure de l’offre, qui inclut les métadonnées, les artefacts et autre contenu utilisés pour présenter l’offre dans la place de marché.
 
-Avant de pouvoir créer une offre et, une fois que vous avez [choisi une option de publication](https://docs.microsoft.com/azure/marketplace/determine-your-listing-type), vous devez choisir le type d’offre qui sera utilisé pour présenter votre offre. Le type d’offre correspond au type de l’offre de solution, d’application ou de service que vous souhaitez publier, ainsi qu’à son alignement sur les produits et services Microsoft.
+Avant de pouvoir créer une offre et, une fois que vous avez [choisi une option de publication](determine-your-listing-type.md), vous devez choisir le type d’offre qui sera utilisé pour présenter votre offre. Le type d’offre correspond au type de l’offre de solution, d’application ou de service que vous souhaitez publier, ainsi qu’à son alignement sur les produits et services Microsoft.
 
 Un type d’offre unique peut être configuré de différentes manières pour proposer différents appels à l’action, options de publication, configurations et tarifs. L’option de publication et la configuration du type d’offre s’alignent également sur les exigences techniques et les conditions d’éligibilité de l’offre.
 

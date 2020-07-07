@@ -7,12 +7,12 @@ ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 04/23/2020
 ms.author: dsindona
-ms.openlocfilehash: 25753ce4c313a60b06147ab06dbf0b5e3e05865f
-ms.sourcegitcommit: cf7caaf1e42f1420e1491e3616cc989d504f0902
+ms.openlocfilehash: ce8534fae44549c20eceda16e0e12fb0adc52c6f
+ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/22/2020
-ms.locfileid: "83800514"
+ms.lasthandoff: 07/05/2020
+ms.locfileid: "85957764"
 ---
 # <a name="your-commercial-marketplace-benefits"></a>Vos avantages sur la place de marché commerciale
 
@@ -26,7 +26,7 @@ Les récompenses de la place de marché sont conçues pour vous aider à votre p
 
 Le programme crée une boucle de rétroaction positive : les avantages à chaque étape de la croissance sont conçus pour vous aider à passer à l’étape suivante, ce qui vous permet de développer votre activité auprès des clients Microsoft, sur le terrain de Microsoft et grâce au réseau de Microsoft en utilisant comme plateforme la place de marché commerciale. 
 
-Vos avantages sont différents selon que votre offre est de type [Liste, Version d'évaluation ou Transact](https://docs.microsoft.com/azure/marketplace/determine-your-listing-type#choose-a-publishing-option).
+Vos avantages sont différents selon que votre offre est de type [Liste, Version d'évaluation ou Transact](determine-your-listing-type.md#choose-a-publishing-option).
 
 Vous serez contacté par un membre de l’équipe de récompenses lorsque votre offre sera active, en fonction de votre éligibilité. 
 
@@ -101,7 +101,7 @@ Toutes les activités décrites dans cette page sont couvertes par le [contrat d
 
 ### <a name="cancellation-policy"></a>Politique d’annulation
 
-Les éditeurs de type [Liste et Version d'évaluation](https://docs.microsoft.com/azure/marketplace/determine-your-listing-type) peuvent accepter ou refuser les activités par publication d’offre. Les partenaires peuvent refuser un engagement à tout moment. 
+Les éditeurs de type [Liste et Version d'évaluation](determine-your-listing-type.md) peuvent accepter ou refuser les activités par publication d’offre. Les partenaires peuvent refuser un engagement à tout moment. 
 
 Microsoft se réserve le droit de révoquer et de mettre fin aux avantages de la place de marché pour les éditeurs qui : 
 

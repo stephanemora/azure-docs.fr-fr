@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 08/07/2019
 ms.author: allensu
-ms.openlocfilehash: f911b36d4f38d9b769cf34e4e2326ed1cb52da80
-ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
+ms.openlocfilehash: 2192531aec7800314c6748740262f8746da0c4fc
+ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "84022809"
+ms.lasthandoff: 07/05/2020
+ms.locfileid: "85956370"
 ---
 # <a name="multiple-frontends-for-azure-load-balancer"></a>Serveurs frontaux multiples pour Azure Load Balancer
 
@@ -102,20 +102,31 @@ Pour chaque machine virtuelle du pool de back-ends, exécutez les commandes suiv
 
 Pour obtenir la liste des noms d’interfaces que vous avez sur votre machine virtuelle, tapez la commande suivante :
 
-    netsh interface show interface 
+```console
+netsh interface show interface 
+```
 
 Pour la carte réseau de machine virtuelle (managée par Azure), tapez la commande suivante :
 
-    netsh interface ipv4 set interface “interfacename” weakhostreceive=enabled
-   (remplacez interfacename par le nom de cette interface)
+```console
+netsh interface ipv4 set interface “interfacename” weakhostreceive=enabled
+```
+
+(remplacez interfacename par le nom de cette interface)
 
 Pour chaque interface de bouclage que vous avez ajoutée, répétez les commandes suivantes :
 
-    netsh interface ipv4 set interface “interfacename” weakhostreceive=enabled 
-   (remplacez interfacename par le nom de cette interface de bouclage)
-     
-    netsh interface ipv4 set interface “interfacename” weakhostsend=enabled 
-   (remplacez interfacename par le nom de cette interface de bouclage)
+```console
+netsh interface ipv4 set interface “interfacename” weakhostreceive=enabled 
+```
+
+(remplacez interfacename par le nom de cette interface de bouclage)
+
+```console
+netsh interface ipv4 set interface “interfacename” weakhostsend=enabled 
+```
+
+(remplacez interfacename par le nom de cette interface de bouclage)
 
 > [!IMPORTANT]
 > La configuration des interfaces de bouclage est effectuée dans le SE invité. Cette configuration n’est pas exécutée ou gérée par Azure. Sans cette configuration, les règles ne fonctionneront pas. Les définitions de sonde d’intégrité utilisent l’adresse IP dédiée de la machine virtuelle, plutôt que l’interface de bouclage représentant le serveur frontal DSR. Par conséquent, votre service doit fournir les réponses de sonde sur un port d’adresse IP dédiée qui reflète l’état du service offert sur l’interface de bouclage représentant le serveur frontal DSR.
