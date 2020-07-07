@@ -7,12 +7,12 @@ ms.subservice: cosmosdb-mongo
 ms.topic: how-to
 ms.date: 06/03/2020
 ms.author: mjbrown
-ms.openlocfilehash: 88b795b52955a6bd323e7a900c0cd62dab1dd2d4
-ms.sourcegitcommit: 635114a0f07a2de310b34720856dd074aaf4f9cd
+ms.openlocfilehash: 7536a2e3fc32aeb330aad52625a5946e856d6646
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/23/2020
-ms.locfileid: "85262937"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85556041"
 ---
 # <a name="azure-cli-samples-for-azure-cosmos-db-mongodb-api"></a>Exemples Azure CLI pour l’API MongoDB Azure Cosmos DB
 
@@ -21,7 +21,7 @@ Le tableau suivant comprend des liens vers des exemples de scripts Azure CLI po
 > [!NOTE]
 > Actuellement, vous pouvez uniquement créer la version 3.2 (c’est-à-dire, les comptes utilisant le point de terminaison au format `*.documents.azure.com`) de l’API d’Azure Cosmos DB pour les comptes MongoDB à l’aide de PowerShell, de l’interface CLI et des modèles Resource Manager. Pour créer la version 3.6 des comptes, utilisez le portail Azure à la place.
 
-| |  |
+|Tâche | Description |
 |---|---|
 | [Créer un compte, une base de données et une collection Azure Cosmos](scripts/cli/mongodb/create.md?toc=%2fcli%2fazure%2ftoc.json)| Créez un compte, une base de données et une collection Azure Cosmos DB pour l’API MongoDB. |
 | [Changer le débit](scripts/cli/mongodb/throughput.md?toc=%2fcli%2fazure%2ftoc.json) | Mettez à jour les unités de requête/s pour une base de données et une collection.|

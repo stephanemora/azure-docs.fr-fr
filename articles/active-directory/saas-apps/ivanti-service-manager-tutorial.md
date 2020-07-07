@@ -16,12 +16,12 @@ ms.topic: tutorial
 ms.date: 02/25/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e45903bfc54f2c685abea0a8e2924274a21e07b3
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: 32bccdf538b637b7706824b4cf5499bed63af9dc
+ms.sourcegitcommit: a989fb89cc5172ddd825556e45359bac15893ab7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "73157970"
+ms.lasthandoff: 07/01/2020
+ms.locfileid: "85799154"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-ivanti-service-manager-ism"></a>Tutoriel : Intégration d’Azure Active Directory à Ivanti Service Manager (ISM)
 
@@ -109,11 +109,11 @@ Pour configurer l’authentification unique Azure AD avec Ivanti Service Manage
 
     a. Dans la zone de texte **Identificateur**, tapez une URL au format suivant :
     
-    | |
-    |--|
-    | `https://<customer>.saasit.com/` |
-    | `https://<customer>.saasiteu.com/` |
-    | `https://<customer>.saasitau.com/` |
+    ```http
+    https://<customer>.saasit.com/
+    https://<customer>.saasiteu.com/
+    https://<customer>.saasitau.com/
+    ```
 
     b. Dans la zone de texte **URL de réponse**, tapez une URL au format suivant : `https://<customer>/handlers/sso/SamlAssertionConsumerHandler.ashx`
 

@@ -4,12 +4,12 @@ description: Utilisez la planification des travaux pour gérer vos tâches.
 ms.topic: how-to
 ms.date: 02/20/2020
 ms.custom: seodec18
-ms.openlocfilehash: c75f635a937dcddd2c1c02cc717f96f1441efe81
-ms.sourcegitcommit: 6fd8dbeee587fd7633571dfea46424f3c7e65169
+ms.openlocfilehash: 89881808e48b3fbe44fbcd5352a15afc4eb427ef
+ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/21/2020
-ms.locfileid: "83726636"
+ms.lasthandoff: 07/05/2020
+ms.locfileid: "85964343"
 ---
 # <a name="schedule-jobs-for-efficiency"></a>Planifier des travaux pour gagner en efficacité
 
@@ -67,7 +67,7 @@ Après avoir sélectionné **Enregistrer**, si vous accédez à **Planifications
 
 ## <a name="for-more-information"></a>Informations supplémentaires
 
-Pour gérer un travail à l’aide d’Azure CLI, consultez [az batch job-schedule](https://docs.microsoft.com/cli/azure/batch/job-schedule?view=azure-cli-latest).
+Pour gérer un travail à l’aide d’Azure CLI, consultez [az batch job-schedule](/cli/azure/batch/job-schedule?view=azure-cli-latest).
 
 ## <a name="next-steps"></a>Étapes suivantes
 

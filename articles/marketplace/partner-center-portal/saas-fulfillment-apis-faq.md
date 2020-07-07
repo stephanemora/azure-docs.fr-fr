@@ -7,12 +7,12 @@ ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 07/11/2019
-ms.openlocfilehash: 1a1ba6f393eba257fcbe2757b8b4bced00bef8fe
-ms.sourcegitcommit: e0330ef620103256d39ca1426f09dd5bb39cd075
+ms.openlocfilehash: ba746710227cba95dc4c73a910c22bb6cdaae0ed
+ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/05/2020
-ms.locfileid: "82792902"
+ms.lasthandoff: 07/05/2020
+ms.locfileid: "85963748"
 ---
 # <a name="common-questions-about-saas-fulfillment-apis"></a>Questions courantes sur les API de traitement SaaS
 
@@ -46,7 +46,7 @@ Lorsque l'utilisateur Azure est redirigé vers la page d'accueil, un jeton est a
 
 ![Flux d’abonnement du client](media/saas-metering-service-integration-flow-a.png)
 
-Pour plus d’informations sur le contrat API pour la gestion des scénarios Transaction dans le cycle de vie d’une offre SaaS, consultez [API de traitement SaaS ](https://docs.microsoft.com/azure/marketplace/partner-center-portal/pc-saas-fulfillment-api-v2).
+Pour plus d’informations sur le contrat API pour la gestion des scénarios Transaction dans le cycle de vie d’une offre SaaS, consultez [API de traitement SaaS ](pc-saas-fulfillment-api-v2.md).
 
 ### <a name="how-do-you-know-the-saas-offer-to-which-the-user-subscribes-in-azure"></a>Comment identifier l'offre SaaS que l'utilisateur souscrit dans Azure ?
 

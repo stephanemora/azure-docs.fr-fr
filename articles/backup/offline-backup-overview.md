@@ -3,12 +3,12 @@ title: Vue d’ensemble de la sauvegarde hors connexion
 description: En savoir plus sur les composants de la sauvegarde hors connexion. Ils incluent la sauvegarde hors connexion basée sur Azure Data Box et la sauvegarde hors connexion basée sur le service Azure Import/Export.
 ms.topic: conceptual
 ms.date: 1/28/2020
-ms.openlocfilehash: c3ef79136ca32c24ae6d16057d3195b57e8ced2d
-ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
+ms.openlocfilehash: 84f79efe10f867b37d1e3bb21363be4b12156615
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/21/2020
-ms.locfileid: "83744640"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84628346"
 ---
 # <a name="overview-of-offline-backup"></a>Vue d’ensemble de la sauvegarde hors connexion
 
@@ -60,7 +60,7 @@ Voici un résumé de l’architecture :
 
 Pour utiliser la sauvegarde hors connexion basée sur le service Azure Import/Export avec l’agent MARS, consultez [Workflow de la sauvegarde hors connexion dans Sauvegarde Azure](https://docs.microsoft.com/azure/backup/backup-azure-backup-import-export).
 
-Pour utiliser la même option avec MABS ou DPM-A, consultez [Workflow de la sauvegarde hors connexion pour DPM et le serveur de sauvegarde Azure](https://docs.microsoft.com/azure/backup/backup-azure-backup-server-import-export-).
+Pour utiliser la même option avec MABS ou DPM-A, consultez [Workflow de la sauvegarde hors connexion pour DPM et le serveur de sauvegarde Azure](https://docs.microsoft.com/azure/backup/backup-azure-backup-server-import-export).
 
 ## <a name="offline-backup-support-summary"></a>Résumé de la prise en charge de la sauvegarde hors connexion
 
@@ -83,4 +83,4 @@ Le tableau suivant compare les deux options disponibles pour vous aider à faire
 
 - [Sauvegarde hors connexion Sauvegarde Microsoft Azure avec Azure Data Box](offline-backup-azure-data-box.md#backup-data-size-and-supported-data-box-skus)
 - [Workflow de la sauvegarde hors connexion dans Sauvegarde Azure](backup-azure-backup-import-export.md)
-- [Workflow de la sauvegarde hors connexion pour DPM et le serveur de sauvegarde Azure](backup-azure-backup-server-import-export-.md)
+- [Workflow de la sauvegarde hors connexion pour DPM et le serveur de sauvegarde Azure](backup-azure-backup-server-import-export.md)
