@@ -8,12 +8,12 @@ author: mlearned
 ms.author: mlearned
 description: Utiliser GitOps avec Helm pour une configuration de cluster compatible avec Azure Arc (préversion)
 keywords: GitOps, Kubernetes, K8s, Azure, Helm, Arc, AKS, Azure Kubernetes Service, containers
-ms.openlocfilehash: 9cd1169c7a622da0e4be3900f94dc31fc99e762d
-ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
+ms.openlocfilehash: 677c5f2b27794ebea9d38e470b5e1a5ba12bff7e
+ms.sourcegitcommit: 9b5c20fb5e904684dc6dd9059d62429b52cb39bc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83662537"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85857229"
 ---
 # <a name="use-gitops-with-helm-for-an-azure-arc-enabled-cluster-configuration-preview"></a>Utiliser GitOps avec Helm pour une configuration de cluster compatible avec Azure Arc (préversion)
 
@@ -128,7 +128,7 @@ Notez que la ressource `sourceControlConfiguration` est mise à jour avec un ét
 Command group 'k8sconfiguration' is in preview. It may be changed/removed in a future release.
 {
   "complianceStatus": {
-    "complianceState": "Compliant",
+    "complianceState": "Installed",
     "lastConfigApplied": "2019-12-05T05:34:41.481000",
     "message": "...",
     "messageLevel": "3"

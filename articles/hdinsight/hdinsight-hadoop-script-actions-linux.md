@@ -7,12 +7,12 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 11/28/2019
-ms.openlocfilehash: db37a56ffbf0cb64530f8f7af38841bac72c77d4
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 995f45160985ed2693c32155232892b4077ae173
+ms.sourcegitcommit: cec9676ec235ff798d2a5cad6ee45f98a421837b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81767537"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85851788"
 ---
 # <a name="script-action-development-with-hdinsight"></a>Développement d’actions de script avec HDInsight
 
@@ -264,11 +264,15 @@ Les valeurs transmises au script comme paramètres doivent être entourées de g
 
 La définition d’une variable d’environnement est effectuée de la façon suivante :
 
-    VARIABLENAME=value
+```bash
+VARIABLENAME=value
+```
 
 Où VARIABLENAME est le nom de la variable. Pour accéder à la variable, utilisez `$VARIABLENAME`. Par exemple, pour affecter une valeur fournie par un paramètre de positionnement tel qu’une variable d’environnement nommée PASSWORD, utilisez l’instruction suivante :
 
-    PASSWORD=$1
+```bash
+PASSWORD=$1
+```
 
 Lors des accès ultérieurs aux informations, il est possible d’utiliser `$PASSWORD`.
 
@@ -352,7 +356,9 @@ Ce problème se produit souvent lorsque le script est créé dans un environneme
 
 *Résolution* : Enregistrez le fichier au format ASCII ou UTF-8 sans marque d’ordre d’octet. Vous pouvez également utiliser la commande suivante sur un système Linux ou Unix pour créer un fichier sans marque d’ordre d’octet :
 
-    awk 'NR==1{sub(/^\xef\xbb\xbf/,"")}{print}' INFILE > OUTFILE
+```bash
+awk 'NR==1{sub(/^\xef\xbb\xbf/,"")}{print}' INFILE > OUTFILE
+```
 
 Remplacez `INFILE` par le fichier contenant la marque d’ordre d’octet. `OUTFILE` doit être un nouveau nom de fichier contenant le script sans la marque d’ordre d’octet.
 

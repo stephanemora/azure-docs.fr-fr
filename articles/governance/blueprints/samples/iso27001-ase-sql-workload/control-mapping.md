@@ -3,12 +3,12 @@ title: Exemples de contrôles de blueprint Charge de travail ASE/SQL ISO 27001
 description: Correspondance des contrôles de l’exemple de blueprint Charge de travail App Service Environment/SQL Database ISO 27001 à Azure Policy et RBAC.
 ms.date: 01/13/2020
 ms.topic: sample
-ms.openlocfilehash: bc370170374654bf8bc9ae9ed3f1b545f4db8cba
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 6311d5090c884c70bded7fcf754bc968a5b47b32
+ms.sourcegitcommit: dee7b84104741ddf74b660c3c0a291adf11ed349
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "75920701"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85918616"
 ---
 # <a name="control-mapping-of-the-iso-27001-asesql-workload-blueprint-sample"></a>Correspondance des contrôles de l’exemple de blueprint Charge de travail ASE/SQL ISO 27001
 
@@ -28,7 +28,7 @@ Le fait d’avoir un seul propriétaire d’abonnement Azure ne permet pas d’a
 
 ## <a name="a821-classification-of-information"></a>A.8.2.1 Classification des informations
 
-Le [service d’évaluation des vulnérabilités SQL](https://docs.microsoft.com/azure/sql-database/sql-vulnerability-assessment) Azure peut vous aider à découvrir des données sensibles stockées dans vos bases de données et inclut des recommandations permettant de classer ces données. Ce blueprint attribue une définition [Azure Policy](../../../policy/overview.md) pour vérifier que les vulnérabilités identifiées au cours de l’analyse Évaluation des vulnérabilités SQL ont été corrigées.
+Le [service d’évaluation des vulnérabilités SQL](/azure/sql-database/sql-vulnerability-assessment) Azure peut vous aider à découvrir des données sensibles stockées dans vos bases de données et inclut des recommandations permettant de classer ces données. Ce blueprint attribue une définition [Azure Policy](../../../policy/overview.md) pour vérifier que les vulnérabilités identifiées au cours de l’analyse Évaluation des vulnérabilités SQL ont été corrigées.
 
 - \[Préversion\] : Superviser les résultats de l’évaluation des vulnérabilités SQL dans Azure Security Center
 
