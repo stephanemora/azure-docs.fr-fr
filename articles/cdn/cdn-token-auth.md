@@ -9,17 +9,17 @@ editor: ''
 ms.assetid: 837018e3-03e6-4f9c-a23e-4b63d5707a64
 ms.service: azure-cdn
 ms.devlang: multiple
-ms.topic: article
+ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.workload: integration
 ms.date: 11/17/2017
 ms.author: mazha
-ms.openlocfilehash: 3539c101b8bf146e9feee6dfc4e90f859f0ef142
-ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
+ms.openlocfilehash: bded48b59d10e47a9bbf476583fed78b5b97431d
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/21/2020
-ms.locfileid: "83745460"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84887433"
 ---
 # <a name="securing-azure-cdn-assets-with-token-authentication"></a>Sécurisation des ressources CDN Azure avec l’authentification du jeton
 
@@ -173,17 +173,17 @@ L’organigramme suivant décrit comment Azure CDN valide une demande du client 
 3. Sélectionnez **Rules Engine (Moteur de règles)** sous **HTTP Large**. Le moteur de règles permet de définir les chemins d’accès pour appliquer la fonctionnalité, d’activer la fonctionnalité d’authentification du jeton et d’activer d’autres fonctionnalités associées à l’authentification du jeton. Pour plus d’informations, consultez [Moteur des règles Azure CDN](cdn-rules-engine-reference.md).
 
    1. Sélectionnez une règle existante ou créez-en une pour définir la ressource ou le chemin d’accès pour lesquels vous souhaitez appliquer l’authentification du jeton. 
-   2. Pour activer l’authentification du jeton sur une règle, sélectionnez **[Token Auth (Authentification du jeton)](cdn-verizon-premium-rules-engine-reference-features.md#token-auth)** dans la liste **Fonctionnalités**, puis sélectionnez **Enabled (Activé)** . Sélectionnez **Update (Mettre à jour)** si vous mettez à jour une règle ou **Add (Ajouter)** si vous en créez une.
+   2. Pour activer l’authentification du jeton sur une règle, sélectionnez **[Token Auth (Authentification du jeton)](https://docs.vdms.com/cdn/Content/HRE/F/Token-Auth.htm)** dans la liste **Fonctionnalités**, puis sélectionnez **Enabled (Activé)** . Sélectionnez **Update (Mettre à jour)** si vous mettez à jour une règle ou **Add (Ajouter)** si vous en créez une.
         
       ![Exemple d’activation de l’authentification du jeton via le moteur de règles dans CDN](./media/cdn-token-auth/cdn-rules-engine-enable2.png)
 
 4. Dans le moteur de règles, vous pouvez également activer d’autres fonctionnalités associées à l’authentification. Pour activer l’une des fonctionnalités suivantes, sélectionnez-la dans la liste **Features (Fonctionnalités)** , puis sélectionnez **Enabled (Activé)** .
     
-   - **[Token Auth Denial Code (Code de refus d’authentification du jeton)](cdn-verizon-premium-rules-engine-reference-features.md#token-auth-denial-code)**  : détermine le type de réponse à retourner à un utilisateur quand une requête est refusée. Les règles définies ici remplacent les codes de réponse de la section **Custom Denial Handling (Gestion personnalisée des refus)** de la page d’authentification basée sur le jeton.
+   - **[Token Auth Denial Code (Code de refus d’authentification du jeton)](https://docs.vdms.com/cdn/Content/HRE/F/Token-Auth-Denial-Code.htm)**  : détermine le type de réponse à retourner à un utilisateur quand une requête est refusée. Les règles définies ici remplacent les codes de réponse de la section **Custom Denial Handling (Gestion personnalisée des refus)** de la page d’authentification basée sur le jeton.
 
-   - **[Token Auth Ignore URL Case (Ignorer la casse de l’URL pour l’authentification du jeton)](cdn-verizon-premium-rules-engine-reference-features.md#token-auth-ignore-url-case)**  : détermine si la casse de l’URL utilisée pour valider le jeton est prise en compte.
+   - **[Token Auth Ignore URL Case (Ignorer la casse de l’URL pour l’authentification du jeton)](https://docs.vdms.com/cdn/Content/HRE/F/Token-Auth-Ignore-URL-Case.htm)**  : détermine si la casse de l’URL utilisée pour valider le jeton est prise en compte.
 
-   - **[Token Auth Parameter (Paramètre d’authentification du jeton)](cdn-verizon-premium-rules-engine-reference-features.md#token-auth-parameter)**  : renomme le paramètre de chaîne de requête d’authentification du jeton affiché dans l’URL demandée. 
+   - **[Token Auth Parameter (Paramètre d’authentification du jeton)](https://docs.vdms.com/cdn/Content/HRE/F/Token-Auth-Parameter.htm)**  : renomme le paramètre de chaîne de requête d’authentification du jeton affiché dans l’URL demandée. 
         
      ![Exemple de paramètres d’authentification du jeton via le moteur de règles dans CDN](./media/cdn-token-auth/cdn-rules-engine2.png)
 

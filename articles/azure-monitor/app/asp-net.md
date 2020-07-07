@@ -3,12 +3,12 @@ title: Configurer des analyses d’application web pour ASP.NET avec Azure Appli
 description: Configurez les outils d’analytique des performances, de la disponibilité et du comportement des utilisateurs de votre site web ASP.NET, hébergé en local ou dans Azure.
 ms.topic: conceptual
 ms.date: 05/08/2019
-ms.openlocfilehash: aa4449a0229ba156dbeed37c10ed21f8b1b5f201
-ms.sourcegitcommit: 595cde417684e3672e36f09fd4691fb6aa739733
+ms.openlocfilehash: 7dd60be0a3f2ee7e1a0d306fa007bed166746115
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/20/2020
-ms.locfileid: "83698502"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84886833"
 ---
 # <a name="set-up-application-insights-for-your-aspnet-website"></a>Configurer Application Insights pour votre site web ASP.NET
 
@@ -54,7 +54,7 @@ Si vous souhaitez définir le groupe de ressources ou l’emplacement où vos do
 
  Les données de télémétrie seront envoyées au [portail Azure](https://portal.azure.com), pendant le débogage et une fois que vous aurez publié votre application.
 > [!NOTE]
-> Si vous ne souhaitez pas envoyer de données de télémétrie au portail pendant le débogage, ajoutez simplement le kit de développement logiciel (SDK) Application Insights à votre application, mais ne configurez pas de ressource dans le portail. Vous êtes en mesure de voir les données de télémétrie dans Visual Studio pendant le débogage. Plus tard, vous pouvez revenir à cette page de configuration, ou vous pouvez attendre d’avoir déployé votre application et [activer les données de télémétrie au moment de l’exécution](../../azure-monitor/app/monitor-performance-live-website-now.md).
+> Si vous ne souhaitez pas envoyer de données de télémétrie au portail pendant le débogage, ajoutez simplement le kit de développement logiciel (SDK) Application Insights à votre application, mais ne configurez pas de ressource dans le portail. Vous êtes en mesure de voir les données de télémétrie dans Visual Studio pendant le débogage. Plus tard, vous pouvez revenir à cette page de configuration, ou vous pouvez attendre d’avoir déployé votre application et [activer les données de télémétrie au moment de l’exécution](../../azure-monitor/app/status-monitor-v2-overview.md).
 
 ## <a name="step-2-run-your-app"></a><a name="run"></a> Étape 2 : Exécutez l'application.
 Exécutez votre application en appuyant sur F5. Ouvrez différentes pages pour générer des données de télémétrie.

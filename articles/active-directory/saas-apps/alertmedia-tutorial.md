@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 04/17/2020
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b6aaaa24535c95e0a0d3f2b67709374c083ab738
-ms.sourcegitcommit: acb82fc770128234f2e9222939826e3ade3a2a28
+ms.openlocfilehash: bc8a416ac930de24e694107bec4f7ac287e15437
+ms.sourcegitcommit: 32592ba24c93aa9249f9bd1193ff157235f66d7e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/21/2020
-ms.locfileid: "81725213"
+ms.lasthandoff: 07/01/2020
+ms.locfileid: "85608889"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-alertmedia"></a>Tutoriel : Intégration de l’authentification unique Azure Active Directory à AlertMedia
 
@@ -96,12 +96,12 @@ Effectuez les étapes suivantes pour activer l’authentification unique Azure A
     ![image](common/default-attributes.png)
 
 1. En plus de ce qui précède, l’application AlertMedia s’attend à ce que quelques attributs supplémentaires, indiqués ci-après, soient repassés dans la réponse SAML. Ces attributs sont également préremplis, mais vous pouvez les examiner pour voir s’ils répondent à vos besoins.
-    
-    | Nom |   |  Attribut source|
-    | ---------------| --------------- | --------- |
-    | email |  | user.userprincipalname |
-    | firstname |  | user.givenname |
-    | lastname |  | user.surname |
+
+| Nom | Attribut source|
+| ---- | --------------- |
+| email | user.userprincipalname |
+| firstname | user.givenname |
+| lastname | user.surname |
 
 1. Dans la page **Configurer l’authentification unique avec SAML**, dans la section **Certificat de signature SAML**, cliquez sur le bouton Copier pour copier l’**URL des métadonnées de fédération d’application**, puis enregistrez-la sur votre ordinateur.
 

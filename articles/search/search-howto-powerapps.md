@@ -9,12 +9,12 @@ ms.service: cognitive-search
 ms.devlang: rest-api
 ms.topic: tutorial
 ms.date: 04/25/2020
-ms.openlocfilehash: 2a2e292390b2f060bf31d739605d7506203a5619
-ms.sourcegitcommit: 0fda81f271f1a668ed28c55dcc2d0ba2bb417edd
+ms.openlocfilehash: 66289c512a746a30ed8dbd3e5c2df92bea27d907
+ms.sourcegitcommit: 73ac360f37053a3321e8be23236b32d4f8fb30cf
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/07/2020
-ms.locfileid: "82901398"
+ms.lasthandoff: 06/30/2020
+ms.locfileid: "85565835"
 ---
 # <a name="tutorial-query-a-cognitive-search-index-from-power-apps"></a>Tutoriel : Interroger un index Recherche cognitive à partir de Power Apps
 
@@ -74,7 +74,7 @@ Dans Power Apps, un connecteur est une connexion de source de données. Dans cet
 
    * Sélectionnez le verbe `GET`
 
-   * Pour l’URL, entrez un exemple de requête pour votre index de recherche (`search=*` retourne tous les documents, `$select=` vous permet de choisir les champs). La version de l’API est obligatoire. Voici à quoi ressemble une URL entièrement spécifiée : `https://mydemo.search.windows.net/indexes/hotels-sample-index/docs?search=*&$select=HotelName,Description,Address/City&api-version=2019-05-06`
+   * Pour l’URL, entrez un exemple de requête pour votre index de recherche (`search=*` retourne tous les documents, `$select=` vous permet de choisir les champs). La version de l’API est obligatoire. Voici à quoi ressemble une URL entièrement spécifiée : `https://mydemo.search.windows.net/indexes/hotels-sample-index/docs?search=*&$select=HotelName,Description,Address/City&api-version=2020-06-30`
 
    * Pour En-têtes, tapez `Content-Type`. 
 
@@ -94,7 +94,7 @@ Dans Power Apps, un connecteur est une connexion de source de données. Dans cet
 
     :::image type="content" source="./media/search-howto-powerapps/1-10-4-parameter-metadata-select.png" alt-text="Métadonnées du paramètre Version" border="true":::
 
-1. Pour *api-version* : définissez `2019-05-06` comme **valeur par défaut**, définissez **obligatoire** sur *Vrai* et définissez la **visibilité** sur *interne*.  
+1. Pour *api-version* : définissez `2020-06-30` comme **valeur par défaut**, définissez **obligatoire** sur *Vrai* et définissez la **visibilité** sur *interne*.  
 
     :::image type="content" source="./media/search-howto-powerapps/1-10-2-parameter-metadata-version.png" alt-text="Métadonnées du paramètre Version" border="true":::
 
@@ -106,7 +106,7 @@ Dans Power Apps, un connecteur est une connexion de source de données. Dans cet
     parameters:
       - {name: search, in: query, required: false, type: string, default: '*'}
       - {name: $select, in: query, required: false, type: string, default: 'HotelName,Description,Address/City'}
-      - {name: api-version, in: query, required: true, type: string, default: '2019-05-06',
+      - {name: api-version, in: query, required: true, type: string, default: '2020-06-30',
         x-ms-visibility: internal}
       - {name: Content-Type, in: header, required: false, type: string}
     ```
