@@ -5,12 +5,12 @@ author: mscurrell
 ms.author: markscu
 ms.date: 08/02/2018
 ms.topic: tutorial
-ms.openlocfilehash: ca23bbc2b53eaaaf1848a7a98228be23c9ffed0c
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 65baff827417cebe2289cc821df94acd38a1ae61
+ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "82117078"
+ms.lasthandoff: 07/05/2020
+ms.locfileid: "85964802"
 ---
 # <a name="tutorial-render-a-blender-scene-using-batch-explorer"></a>Didacticiel : Effectuer le rendu d’une scène de Blender avec Batch Explorer
 
@@ -27,9 +27,9 @@ Dans ce tutoriel, vous allez apprendre à :
 
 Vous avez besoin d’un abonnement de paiement à l’utilisation ou autre option d’achat Azure pour utiliser les applications de rendu dans Batch sur une base de paiement à l’utilisation. Les licences de paiement à l’utilisation ne sont pas prises en charge si vous utilisez une offre Azure gratuite qui propose un crédit monétaire.
 
-Un compte Azure Batch avec un compte de stockage associé est requis.  Consultez un des articles de démarrage rapide de Batch, comme [l’article CLI](https://docs.microsoft.com/azure/batch/quick-create-cli) pour créer un compte Batch.
+Un compte Azure Batch avec un compte de stockage associé est requis.  Consultez un des articles de démarrage rapide de Batch, comme [l’article CLI](./quick-create-cli.md) pour créer un compte Batch.
 
-Un quota de cœurs de faible priorité d’au moins 50 cœurs est requis pour la taille de machine virtuelle et le nombre de machines virtuelles spécifiées dans ce didacticiel. Le quota par défaut peut être utilisé, mais une machine virtuelle de plus petite taille devra être utilisée, ce qui signifie que le rendu des images prendra plus de temps. Le processus permettant de demander une augmentation du quota de cœurs accrue est détaillé dans [cet article](https://docs.microsoft.com/azure/batch/batch-quota-limit).
+Un quota de cœurs de faible priorité d’au moins 50 cœurs est requis pour la taille de machine virtuelle et le nombre de machines virtuelles spécifiées dans ce didacticiel. Le quota par défaut peut être utilisé, mais une machine virtuelle de plus petite taille devra être utilisée, ce qui signifie que le rendu des images prendra plus de temps. Le processus permettant de demander une augmentation du quota de cœurs accrue est détaillé dans [cet article](./batch-quota-limit.md).
 
 Enfin, [Batch Explorer](https://azure.github.io/BatchExplorer/) doit être installé. Il est disponible sur Windows, OSX et Linux. Il est facultatif, mais si [Blender](https://www.blender.org/download/) est installé, l’exemple de fichier modèle peut être affiché.
 
@@ -139,4 +139,4 @@ Une fois toutes les tâches terminées, le travail est marqué comme étant term
 ## <a name="next-steps"></a>Étapes suivantes
 * Dans la section « Galerie », explorez les applications de rendu disponibles via Batch Explorer.
 * Pour chaque application, plusieurs modèles sont disponibles, et d’autres seront disponibles au fil du temps.  Par exemple, des modèles Blender permettent de diviser une image en une mosaïque, de sorte que des parties de l’image puissent être rendues en parallèle.
-* Pour une description complète des fonctionnalités de rendu, consultez l’ensemble des articles [ici](https://docs.microsoft.com/azure/batch/batch-rendering-service).
+* Pour une description complète des fonctionnalités de rendu, consultez l’ensemble des articles [ici](./batch-rendering-service.md).

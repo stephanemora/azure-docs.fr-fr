@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/18/2019
 ms.author: juliako
-ms.openlocfilehash: 6bc29c098bcf7ef1d1a2e2532a00c95f0ec7e927
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 3c5e22c14d0df46ddac9a503f43df8d54c3c93d5
+ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "61244227"
+ms.lasthandoff: 07/05/2020
+ms.locfileid: "85964751"
 ---
 # <a name="how-to-generate-thumbnails-using-media-encoder-standard-with-net"></a>Génération de miniatures à l’aide de Media Encoder Standard avec .NET 
 
@@ -408,9 +408,12 @@ Le code suivant utilise le Kit de développement logiciel (SDK) .NET de Media Se
 * Création d’une tâche d’encodage.
 * Obtention d’une référence à l’encodeur Media Encoder Standard.
 * Chargez le contenu [XML](media-services-dotnet-generate-thumbnail-with-mes.md#xml) ou [JSON](media-services-dotnet-generate-thumbnail-with-mes.md#json) comprenant l’encodage prédéfini, ainsi que les informations nécessaires pour générer des miniatures. Vous pouvez enregistrer le contenu [XML](media-services-dotnet-generate-thumbnail-with-mes.md#xml) ou [JSON](media-services-dotnet-generate-thumbnail-with-mes.md#json) dans un fichier, et utiliser le code suivant pour charger le fichier.
-  
-        // Load the XML (or JSON) from the local file.
-        string configuration = File.ReadAllText(fileName);  
+
+    ```csharp
+    // Load the XML (or JSON) from the local file.
+    string configuration = File.ReadAllText(fileName);  
+    ```
+
 * Ajout d’une tâche d’encodage unique. 
 * Spécification de l’élément multimédia d’entrée à encoder.
 * Création d’un élément multimédia de sortie qui contient l’élément multimédia encodé.

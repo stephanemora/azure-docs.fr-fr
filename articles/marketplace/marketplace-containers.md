@@ -8,12 +8,12 @@ ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 04/15/2020
 ms.author: dsindona
-ms.openlocfilehash: 99aecee930e5d77302ad54babd927588519e33fd
-ms.sourcegitcommit: be32c9a3f6ff48d909aabdae9a53bd8e0582f955
+ms.openlocfilehash: fae11343332fe741301016d4871d098b0214c7f5
+ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/26/2020
-ms.locfileid: "82160458"
+ms.lasthandoff: 07/05/2020
+ms.locfileid: "85964445"
 ---
 # <a name="publishing-guide-for-container-offers"></a>Guide de publication des offres de conteneur
 
@@ -34,7 +34,7 @@ Microsoft prend actuellement en charge les modèles de licence BYOL (apportez vo
 |:--- |:--- |  
 | Facturation et mesure | Prise en charge du modèle de facturation gratuit ou BYOL.<br><br> |  
 | Image créée à partir d’un Dockerfile | Les images conteneur doivent être basées sur la spécification d’image Docker et générées à partir d’un Dockerfile.<br> <br>Pour plus d’informations sur la création d’images Docker, consultez la section « Utilisation » de la [documentation de référence de Dockerfile](https://docs.docker.com/engine/reference/builder/#usage).<br><br> |  
-| Hébergement dans un référentiel Azure Container Registry | Les images conteneur doivent être hébergées dans un référentiel Azure Container Registry.<br> <br>Pour plus d’informations sur l’utilisation d’Azure Container Registry, consultez [Guide de démarrage rapide : Créer un registre de conteneurs privé à l’aide du Portail Azure](https://docs.microsoft.com/azure/container-registry/container-registry-get-started-portal).<br><br> |  
+| Hébergement dans un référentiel Azure Container Registry | Les images conteneur doivent être hébergées dans un référentiel Azure Container Registry.<br> <br>Pour plus d’informations sur l’utilisation d’Azure Container Registry, consultez [Guide de démarrage rapide : Créer un registre de conteneurs privé à l’aide du Portail Azure](../container-registry/container-registry-get-started-portal.md).<br><br> |  
 | Balisage d’images | Les images conteneur doivent contenir au moins une balise (nombre maximal de balises : 16).<br><br>Pour plus d’informations sur le balisage d’une image, consultez la page `docker tag` sur le site [Documentation Docker](https://docs.docker.com/engine/reference/commandline/tag).<br><br> |  
 
 ## <a name="next-steps"></a>Étapes suivantes

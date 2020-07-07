@@ -3,12 +3,12 @@ title: Azure Batch exécute des travaux parallèles à grande échelle dans le c
 description: Découvrez l’utilisation d’Azure Batch pour les charges de travail HPC et parallèles à grande échelle
 ms.topic: conceptual
 ms.date: 01/19/2018
-ms.openlocfilehash: c78aec238664520c8c8c02a793298cdc1d3ac7e1
-ms.sourcegitcommit: a9784a3fd208f19c8814fe22da9e70fcf1da9c93
+ms.openlocfilehash: 134706622655029c6673aea5dd04a9284155be6f
+ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/22/2020
-ms.locfileid: "83779562"
+ms.lasthandoff: 07/05/2020
+ms.locfileid: "85965074"
 ---
 # <a name="what-is-azure-batch"></a>Présentation d’Azure Batch
 
@@ -18,7 +18,7 @@ Les développeurs peuvent utiliser Azure Batch en tant que service de plateforme
 
 L’utilisation d’Azure Batch n’engendre pas de frais supplémentaires. Vous payez uniquement pour les ressources sous-jacentes consommées, telles que les machines virtuelles, le stockage et la mise en réseau.
 
-Pour obtenir une comparaison entre Batch et d’autres solutions HPC utilisées dans Azure, voir [calcul haute performance (HPC) sur Azure](https://docs.microsoft.com/azure/architecture/topics/high-performance-computing/).
+Pour obtenir une comparaison entre Batch et d’autres solutions HPC utilisées dans Azure, voir [calcul haute performance (HPC) sur Azure](/azure/architecture/topics/high-performance-computing/).
 
 ## <a name="run-parallel-workloads"></a>Exécuter des charges de travail parallèles
 Le service Batch fonctionne parfaitement avec les charges de travail intrinsèquement parallèles (ou « massivement parallèles »). Les charges de travail intrinsèquement parallèles sont celles où les applications peuvent s’exécuter indépendamment et chaque instance termine une partie du travail. Lorsque les applications sont en cours d’exécution, elles peuvent accéder à certaines données communes, mais elles ne communiquent pas avec d’autres instances de l’application. Les charges de travail intrinsèquement parallèles peuvent donc être exécutées à grande échelle, déterminée par la quantité de ressources de calcul disponibles pour exécuter simultanément des applications.
@@ -34,7 +34,7 @@ Voici quelques exemples de charges de travail intrinsèquement parallèles que v
 * Ingestion de données, traitement et opérations ETL
 * Exécution de tests logiciels
 
-Vous pouvez également utiliser Azure Batch pour [exécuter des charges de travail fortement couplées](batch-mpi.md) ; dans ces charges de travail, les applications que vous exécutez doivent communiquer entre elles, et non s’exécuter indépendamment. Les applications fortement couplées utilisent normalement l’API d’interface MPI (Message Passing Interface). Vous pouvez exécuter vos charges de travail fortement couplées avec Azure Batch à l’aide de [Microsoft MPI](https://msdn.microsoft.com/library/bb524831(v=vs.85).aspx) ou Intel MPI. Améliorez les performances de l’application avec les tailles de machine virtuelle spécialisées [HPC](../virtual-machines/linux/sizes-hpc.md) et [Optimisé pour le GPU](../virtual-machines/linux/sizes-gpu.md).
+Vous pouvez également utiliser Azure Batch pour [exécuter des charges de travail fortement couplées](batch-mpi.md) ; dans ces charges de travail, les applications que vous exécutez doivent communiquer entre elles, et non s’exécuter indépendamment. Les applications fortement couplées utilisent normalement l’API d’interface MPI (Message Passing Interface). Vous pouvez exécuter vos charges de travail fortement couplées avec Azure Batch à l’aide de [Microsoft MPI](/message-passing-interface/microsoft-mpi) ou Intel MPI. Améliorez les performances de l’application avec les tailles de machine virtuelle spécialisées [HPC](../virtual-machines/linux/sizes-hpc.md) et [Optimisé pour le GPU](../virtual-machines/linux/sizes-gpu.md).
 
 Voici quelques exemples de charges de travail fortement couplées :
 * Analyse des éléments finis

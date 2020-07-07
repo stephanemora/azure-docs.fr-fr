@@ -7,12 +7,12 @@ ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 7/12/2019
 ms.author: dsindona
-ms.openlocfilehash: f7fd3f43c7faddb5481411dc9c4c94864b6dc0b1
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 1f312fad8e4cbdbfae6bd17f293f65fc3bb637a3
+ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80288969"
+ms.lasthandoff: 07/05/2020
+ms.locfileid: "85964887"
 ---
 # <a name="microsoft-business-applications-independent-software-vendor-isv-connect-program-onboarding-guide"></a>Guide d'intégration au programme Microsoft Business Applications Independent Software Vendor (ISV) Connect
 
@@ -43,7 +43,7 @@ Si vous avez déjà publié des offres Dynamics CE ou Dynamics Ops, il est fort 
 1. Connectez-vous à votre page **Profil d'éditeur** dans le [portail Cloud Partner](https://cloudpartner.azure.com/).
 2. Si une bannière vous indique que les paramètres de votre compte ont été migrés vers l’Espace partenaires, passez à la section suivante. Sinon, sélectionnez la bannière qui vous invite à activer votre compte Espace partenaires.
 
-Pour plus d’informations, consultez [Migration de compte du Portail Cloud Partner vers l’Espace partenaires](https://docs.microsoft.com/azure/marketplace/partner-center-portal/account-migration-from-cpp-to-pc).
+Pour plus d’informations, consultez [Migration de compte du Portail Cloud Partner vers l’Espace partenaires](../partner-center-portal/account-migration-from-cpp-to-pc.md).
 
 ## <a name="accept-the-business-applications-isv-program-addendum"></a>Accepter l’addendum du Programme Business Applications ISV
 
@@ -88,7 +88,7 @@ Une fois que vous avez effectué les étapes ci-dessus, vos offres Dynamics CE e
 La dernière étape de l’inscription au programme Business Applications ISV Connect consiste à recertifier vos applications existantes.
 
 1. [Suivez ces étapes](https://partner.microsoft.com/solutions/business-applications/isv-publish) pour recertifier votre application auprès d’AppSource.
-2. [Créez et publiez une nouvelle offre](https://docs.microsoft.com/azure/marketplace/partner-center-portal/create-new-customer-engagement-offer). Cette offre est entièrement nouvelle, et ne remplace pas une offre existante.
+2. [Créez et publiez une nouvelle offre](../partner-center-portal/create-new-customer-engagement-offer.md). Cette offre est entièrement nouvelle, et ne remplace pas une offre existante.
 
 ## <a name="further-info"></a>Plus d’informations
 

@@ -3,12 +3,12 @@ title: Utiliser des machines virtuelles Azure nécessitant beaucoup de ressource
 description: Découvrez comment tirer parti des tailles de machines virtuelles HPC et GPU dans des pools Azure Batch Apprenez-en davantage sur les dépendances du système d’exploitation et découvrez plusieurs exemples de scénarios.
 ms.topic: how-to
 ms.date: 12/17/2018
-ms.openlocfilehash: 7abe3c9bd689b20f608ad40105c1bb4d7108dbc6
-ms.sourcegitcommit: a9784a3fd208f19c8814fe22da9e70fcf1da9c93
+ms.openlocfilehash: acc56679d8be157541b0d7c056e57659584645be
+ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/22/2020
-ms.locfileid: "83779746"
+ms.lasthandoff: 07/05/2020
+ms.locfileid: "85962507"
 ---
 # <a name="use-rdma-or-gpu-instances-in-batch-pools"></a>Utiliser des instances RDMA ou GPU dans des pools Batch
 
@@ -127,7 +127,7 @@ Pour exécuter des applications CUDA sur un pool de nœuds de contrôleur de ré
 
 ## <a name="example-microsoft-mpi-on-a-windows-h16r-vm-pool"></a>Exemple : Microsoft MPI sur un pool de machines virtuelles H16r Windows
 
-Pour exécuter des applications Windows MPI sur un pool de nœuds de machine virtuelle H16r Azure, vous devez configurer l’extension HpcVmDrivers et installer [Microsoft MPI](https://docs.microsoft.com/message-passing-interface/microsoft-mpi). Voici des exemples d’étapes permettant de déployer une image Windows Server 2016 personnalisée avec les pilotes et logiciels nécessaires :
+Pour exécuter des applications Windows MPI sur un pool de nœuds de machine virtuelle H16r Azure, vous devez configurer l’extension HpcVmDrivers et installer [Microsoft MPI](/message-passing-interface/microsoft-mpi). Voici des exemples d’étapes permettant de déployer une image Windows Server 2016 personnalisée avec les pilotes et logiciels nécessaires :
 
 1. Déployez une machine virtuelle H16r Azure exécutant Windows Server 2016. Par exemple, créez la machine virtuelle dans la région USA Ouest. 
 2. Ajoutez l’extension HpcVmDrivers à la machine virtuelle en [exécutant une commande Azure PowerShell](../virtual-machines/sizes-hpc.md) à partir d’un ordinateur client qui se connecte à votre abonnement Azure, ou bien à l’aide d’Azure Cloud Shell. 
@@ -163,6 +163,6 @@ En utilisant les API Batch ou le portail Azure, créez un pool à l’aide de ce
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-* Pour exécuter des travaux MPI sur un pool Azure Batch, consultez les exemples [Windows](batch-mpi.md) ou [Linux](https://blogs.technet.microsoft.com/windowshpc/2016/07/20/introducing-mpi-support-for-linux-on-azure-batch/).
+* Pour exécuter des travaux MPI sur un pool Azure Batch, consultez les exemples [Windows](batch-mpi.md) ou [Linux](/archive/blogs/windowshpc/introducing-mpi-support-for-linux-on-azure-batch).
 
 * Pour obtenir des exemples de charges de travail GPU sur Batch, consultez les recettes [Batch Shipyard](https://github.com/Azure/batch-shipyard/).

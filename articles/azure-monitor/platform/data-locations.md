@@ -7,10 +7,10 @@ author: bwren
 ms.author: bwren
 ms.date: 05/21/2019
 ms.openlocfilehash: 7d4459867081d920fefb9471b1a682d21040da9d
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "77666613"
 ---
 # <a name="monitoring-data-locations-in-azure-monitor"></a>Emplacements des données de supervision dans Azure Monitor
@@ -21,7 +21,7 @@ Azure Monitor s’appuie sur une [plateforme de données](data-platform.md) de [
 
 Le tableau suivant identifie les différents emplacements où les données de supervsion dans Azure sont envoyées et les différentes méthodes pour y accéder.
 
-| Location | Description | Méthodes d’accès |
+| Emplacement | Description | Méthodes d’accès |
 |:---|:---|:---|:--|
 | Métriques Azure Monitor | Base de données de série chronologique qui est optimisée pour l’analyse des données horodatées. | [Metrics Explorer](metrics-getting-started.md)<br>[API de métriques Azure Monitor](/rest/api/monitor/metrics) |
 | Journaux Azure Monitor    | Espace de travail Log Analytics basé sur Azure Data Explorer, qui fournit un puissant moteur d’analyse et un riche langage de requête. | [Log Analytics](../log-query/portals.md)<br>[API Log Analytics](https://dev.loganalytics.io/)<br>[API Application Insights](https://dev.applicationinsights.io/reference/get-query) |

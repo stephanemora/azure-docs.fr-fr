@@ -6,16 +6,16 @@ author: NumberByColors
 ms.author: daviste
 ms.date: 01/24/2018
 ms.reviewer: mbullwin
-ms.openlocfilehash: 8622ede9e6f7fba2fde2e0b2e90eb31520a23d04
-ms.sourcegitcommit: df8b2c04ae4fc466b9875c7a2520da14beace222
+ms.openlocfilehash: 6583a2fe5abd0193f37502e07c7b3fa0ee58ba9d
+ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/08/2020
-ms.locfileid: "80892442"
+ms.lasthandoff: 07/05/2020
+ms.locfileid: "85963423"
 ---
 # <a name="analyze-user-navigation-patterns-with-user-flows-in-application-insights"></a>Analyser les modèles de navigation utilisateur avec User Flows dans Azure Application Insights
 
-![Outil User Flows d’Application Insights](./media/usage-flows/00001-flows.png)
+![Outil User Flows d’Application Insights](./media/usage-flows/flows.png)
 
 L’outil User Flows permet de visualiser la façon dont vos utilisateurs naviguent entre les pages et les fonctionnalités de votre site. Il est idéal pour répondre à certaines questions que vous vous posez, par exemple :
 
@@ -33,7 +33,7 @@ L’outil User Flows démarre à partir de la page consultée, de l’événemen
 
 ## <a name="start-by-choosing-an-initial-event"></a>Commencer par choisir un événement initial
 
-![Choisissez un événement initial pour User Flows](./media/usage-flows/00002-flows-initial-event.png)
+![Choisissez un événement initial pour User Flows](./media/usage-flows/initial-event.png)
 
 Pour commencer à utiliser l’outil User Flows pour répondre à ces questions, choisissez une page consultée, un événement personnalisé ou une exception initial(e) qui servira de point de départ pour la visualisation :
 
@@ -58,7 +58,7 @@ Si vous souhaitez voir davantage d’étapes dans la visualisation, utilisez les
 
 ## <a name="after-visiting-a-page-or-feature-where-do-users-go-and-what-do-they-click"></a>Après avoir consulté une page ou une fonctionnalité, où vont les utilisateurs et sur quoi cliquent-ils ?
 
-![Utiliser User Flows pour savoir où cliquent les utilisateurs](./media/usage-flows/00003-flows-one-step.png)
+![Utiliser User Flows pour savoir où cliquent les utilisateurs](./media/usage-flows/one-step.png)
 
 Si votre événement initial est une page consultée, la première colonne, « Step 1 » (Étape 1) de la visualisation permet de comprendre rapidement ce que les utilisateurs ont fait immédiatement après avoir consulté la page. Essayez d’ouvrir votre site dans une fenêtre en regard de la visualisation User Flows. Comparez ce que vous attendez des interactions de vos utilisateurs avec la page à la liste des événements contenue dans la colonne « Step 1 » (Étape 1). Bien souvent, un élément d’interface utilisateur sur la page qui semble sans importance pour votre équipe peut compter parmi les fonctionnalités les plus utilisées de la page. Cela peut constituer un excellent point de départ pour améliorer la conception de votre site.
 
