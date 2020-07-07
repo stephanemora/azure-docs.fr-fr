@@ -9,12 +9,12 @@ author: VasiyaKrishnan
 ms.author: vakrishn
 ms.reviewer: sstein
 ms.date: 05/19/2020
-ms.openlocfilehash: 02850b8780e70d402cff2b8fd301c2f79cd6c55e
-ms.sourcegitcommit: f1132db5c8ad5a0f2193d751e341e1cd31989854
+ms.openlocfilehash: f38a973611cb1ab18eead4ec51e6be91ada2cc40
+ms.sourcegitcommit: 01cd19edb099d654198a6930cebd61cae9cb685b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/31/2020
-ms.locfileid: "84235062"
+ms.lasthandoff: 06/24/2020
+ms.locfileid: "85318639"
 ---
 # <a name="deploy-ml-model-on-azure-sql-edge-using-onnx"></a>Déployer un modèle Machine Learning sur Azure SQL Edge à l'aide d'ONNX 
 
@@ -32,7 +32,7 @@ Dans la troisième partie de ce tutoriel en trois parties consacré à la prédi
    |_Champ_|_Valeur_|
    |-------|-------|
    |Type de connexion| Microsoft SQL Server|
-   |Service|Adresse IP publique mentionnée dans la machine virtuelle créée pour cette démo|
+   |Serveur|Adresse IP publique mentionnée dans la machine virtuelle créée pour cette démo|
    |Nom d’utilisateur|SA|
    |Mot de passe|Mot de passe fort utilisé lors de la création de l'instance d'Azure SQL Edge|
    |Base de données|Default|

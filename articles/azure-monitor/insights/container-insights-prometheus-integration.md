@@ -3,12 +3,12 @@ title: Configurer l’intégration Azure Monitor pour conteneurs à Prometheus |
 description: Cet article explique comment configurer l’agent Azure Monitor pour conteneurs, afin qu’il récupère des métriques à partir de Prometheus avec votre cluster Kubernetes.
 ms.topic: conceptual
 ms.date: 04/22/2020
-ms.openlocfilehash: fcf1a2e5d2cf11cd9d612506e1ec56a392309121
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: f7a43f00ce160829cc8e6ed3b6272ab14aaace66
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82186490"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85800458"
 ---
 # <a name="configure-scraping-of-prometheus-metrics-with-azure-monitor-for-containers"></a>Configurer la capture des métriques Prometheus avec Azure Monitor pour conteneurs
 
@@ -69,7 +69,7 @@ Effectuez les étapes suivantes pour configurer votre fichier de configuration C
 * Azure Stack ou localement
 * Azure Red Hat OpenShift version 4.x et Red Hat OpenShift version 4.x
 
-1. [Téléchargez](https://github.com/microsoft/OMS-docker/blob/ci_feature_prod/Kubernetes/container-azm-ms-agentconfig.yaml) le fichier yaml ConfigMap de modèle et enregistrez-le sous le nom container-azm-ms-agentconfig.yaml.
+1. [Téléchargez](https://aka.ms/container-azm-ms-agentconfig) le fichier yaml ConfigMap de modèle et enregistrez-le sous le nom container-azm-ms-agentconfig.yaml.
 
    >[!NOTE]
    >Cette étape n’est pas nécessaire lors de l’utilisation d’Azure Red Hat OpenShift, car le modèle ConfigMap existe déjà sur le cluster.
@@ -337,13 +337,14 @@ Azure Monitor pour conteneurs prend en charge la consultation des métriques sto
 Pour identifier le volume d’ingestion de chaque taille de mesure en Go par jour pour déterminer si elle est élevée, la requête suivante est fournie.
 
 ```
-InsightsMetrics 
-| where Namespace == "prometheus"
+InsightsMetrics
+| where Namespace contains "prometheus"
 | where TimeGenerated > ago(24h)
 | summarize VolumeInGB = (sum(_BilledSize) / (1024 * 1024 * 1024)) by Name
 | order by VolumeInGB desc
 | render barchart
 ```
+
 La sortie indiquera des résultats similaires à ce qui suit :
 
 ![Consignez les résultats de requête du volume d’ingestion de données](./media/container-insights-prometheus-integration/log-query-example-usage-03.png)
@@ -351,7 +352,7 @@ La sortie indiquera des résultats similaires à ce qui suit :
 Pour estimer la taille de chaque mesure en Go pendant un mois pour déterminer si le volume de données reçues dans l’espace de travail est élevé, la requête suivante est fournie.
 
 ```
-InsightsMetrics 
+InsightsMetrics
 | where Namespace contains "prometheus"
 | where TimeGenerated > ago(24h)
 | summarize EstimatedGBPer30dayMonth = (sum(_BilledSize) / (1024 * 1024 * 1024)) * 30 by Name

@@ -8,16 +8,16 @@ ms.subservice: cosmosdb-table
 ms.topic: tutorial
 ms.date: 06/05/2020
 ms.reviewer: sngun
-ms.openlocfilehash: 14a6d2b448bb943356ae1738c3d53d9c6fee1a98
-ms.sourcegitcommit: f57fa5f3ce40647eda93f8be4b0ab0726d479bca
+ms.openlocfilehash: bab0487b09d7088e75ce762c9e4f0338cea507eb
+ms.sourcegitcommit: b56226271541e1393a4b85d23c07fd495a4f644d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/07/2020
-ms.locfileid: "84484666"
+ms.lasthandoff: 06/26/2020
+ms.locfileid: "85391891"
 ---
 # <a name="tutorial-query-azure-cosmos-db-by-using-the-table-api"></a>Tutoriel : Interroger Azure Cosmos DB à l’aide de l’API Table
 
-[L’API Table](table-introduction.md) d’Azure Cosmos DB prend en charge les requêtes OData et [LINQ](https://docs.microsoft.com/rest/api/storageservices/fileservices/writing-linq-queries-against-the-table-service) effectuées sur des données de clé/valeur (table).  
+[L’API Table](table-introduction.md) d’Azure Cosmos DB prend en charge les requêtes OData et [LINQ](/rest/api/storageservices/fileservices/writing-linq-queries-against-the-table-service) effectuées sur des données de clé/valeur (table).  
 
 Cet article décrit les tâches suivantes :
 
@@ -32,7 +32,7 @@ L’exemple de table `People` suivant est utilisé pour les interrogations de ce
 | Smith | Ben | Ben@contoso.com| 425-555-0102 |
 | Smith | Jeff | Jeff@contoso.com| 425-555-0104 |
 
-Consultez [Interrogation des tables et des entités](https://docs.microsoft.com/rest/api/storageservices/fileservices/querying-tables-and-entities) pour plus d’informations sur la manière d’effectuer des requêtes à l’aide de l’API Table.
+Consultez [Interrogation des tables et des entités](/rest/api/storageservices/fileservices/querying-tables-and-entities) pour plus d’informations sur la manière d’effectuer des requêtes à l’aide de l’API Table.
 
 Pour plus d’informations sur les fonctionnalités étendues offertes par Azure Cosmos DB, consultez [Azure Cosmos DB : API Table](table-introduction.md) et [Développer avec l’API Table en utilisant .NET](tutorial-develop-table-dotnet.md).
 
@@ -65,7 +65,7 @@ Quand vous construisez une chaîne de filtrage, prenez en compte les règles sui
 * Utilisez les opérateurs logiques définis par la spécification du protocole OData Protocol pour comparer une propriété par rapport à une valeur. Notez que vous ne pouvez pas comparer une propriété à une valeur dynamique. Un côté de l’expression doit être une constante.
 * Le nom de la propriété, l’opérateur et la valeur de constante doivent être séparés par des espaces codés URL. Un espace est codé URL sous la forme `%20`.
 * Toutes les parties de la chaîne de filtrage respectent la casse.
-* Pour que le filtre retourne des résultats valides, la valeur constante doit être du même type de données que la propriété. Pour plus d’informations sur les types de propriétés pris en charge, consultez [Présentation du modèle de données du service de Table](https://docs.microsoft.com/rest/api/storageservices/understanding-the-table-service-data-model).
+* Pour que le filtre retourne des résultats valides, la valeur constante doit être du même type de données que la propriété. Pour plus d’informations sur les types de propriétés pris en charge, consultez [Présentation du modèle de données du service de Table](/rest/api/storageservices/understanding-the-table-service-data-model).
 
 Voici un exemple de requête qui montre comment filtrer sur les propriétés PartitionKey et Email en utilisant un `$filter` OData.
 
@@ -75,7 +75,7 @@ Voici un exemple de requête qui montre comment filtrer sur les propriétés Par
 https://<mytableapi-endpoint>/People()?$filter=PartitionKey%20eq%20'Smith'%20and%20Email%20eq%20'Ben@contoso.com'
 ```
 
-Pour plus d’informations sur la construction d’expressions de filtre pour différents types de données, consultez [Querying Tables and Entities](https://docs.microsoft.com/rest/api/storageservices/querying-tables-and-entities).
+Pour plus d’informations sur la construction d’expressions de filtre pour différents types de données, consultez [Querying Tables and Entities](/rest/api/storageservices/querying-tables-and-entities).
 
 **Résultats**
 

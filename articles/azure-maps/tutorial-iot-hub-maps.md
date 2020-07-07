@@ -9,12 +9,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: philmea
 ms.custom: mvc
-ms.openlocfilehash: cfea9aa7bfcc9a9698bb93bdf54797481b8539ce
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: cf1d732391f86bec9c0ec2de1e6bace2e808bb19
+ms.sourcegitcommit: 01cd19edb099d654198a6930cebd61cae9cb685b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "80333976"
+ms.lasthandoff: 06/24/2020
+ms.locfileid: "85318924"
 ---
 # <a name="tutorial-implement-iot-spatial-analytics-using-azure-maps"></a>Tutoriel : Implémenter l’analytique spatiale IoT avec Azure Maps
 
@@ -36,7 +36,7 @@ Ce didacticiel vous apprendra à effectuer les opérations suivantes :
 
 Cette solution illustre un scénario dans lequel une société de location de voitures prévoit de superviser et de journaliser les événements relatifs à ses voitures de location. Les sociétés de location de voitures louent généralement des voitures dans une région géographique spécifique. Elles doivent suivre les déplacements des voitures pendant qu’elles sont en location. Les instances d’une voiture quittant la région géographique choisie doivent être journalisées. La journalisation des données garantit que les politiques, frais et autres aspects commerciaux seront correctement gérés.
 
-Dans notre cas d’usage, les voitures de location sont équipées d’appareils IoT qui envoient régulièrement des données de télémétrie à Azure IoT Hub. La télémétrie comprend la localisation actuelle et indique si le moteur de la voiture tourne. Le schéma d’emplacement des appareils est conforme au [schéma Plug-and-Play des données géospatiales](https://github.com/Azure/IoTPlugandPlay/blob/master/Schemas/geospatial.md) IoT. Le schéma de télémétrie des appareils de la voiture de location est semblable à ce qui suit :
+Dans notre cas d’usage, les voitures de location sont équipées d’appareils IoT qui envoient régulièrement des données de télémétrie à Azure IoT Hub. La télémétrie comprend la localisation actuelle et indique si le moteur de la voiture tourne. Le schéma d’emplacement des appareils est conforme au [schéma Plug-and-Play des données géospatiales](https://github.com/Azure/opendigitaltwins-dtdl/blob/master/DTDL/v1-preview/schemas/geospatial.md) IoT. Le schéma de télémétrie des appareils de la voiture de location est semblable à ce qui suit :
 
 ```JSON
 {
