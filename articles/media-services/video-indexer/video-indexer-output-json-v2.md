@@ -10,12 +10,12 @@ ms.subservice: video-indexer
 ms.topic: article
 ms.date: 12/09/2019
 ms.author: juliako
-ms.openlocfilehash: 2fac5e07f9646c4fc0fac7b1be53b5a5ac1ea803
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 5e3501ea8bc327f0dd906a42702194abce18c5fd
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79225453"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84656584"
 ---
 # <a name="examine-the-video-indexer-output-produced-by-api"></a>Examiner la sortie de Video Indexer générée par l’API
 
@@ -89,7 +89,7 @@ Cette section présente le résumé des insights.
 |visages|Peut contenir zéro ou plusieurs visages. Pour plus d’informations, consultez la section [faces](#faces).|
 |mots clés|Peut contenir zéro ou plusieurs mots clés. Pour plus d’informations, consultez la section [keywords](#keywords).|
 |sentiments|Peut contenir zéro ou plusieurs sentiments. Pour plus d’informations, consultez la section [sentiments](#sentiments).|
-|audioEffects| Peut contenir zéro ou plusieurs éléments audioEffect. Pour plus d’informations, consultez la section [audioEffects](#audioEffects).|
+|audioEffects| Peut contenir zéro ou plusieurs éléments audioEffect. Pour plus d’informations, consultez la section [audioEffects](#audioeffects).|
 |étiquettes| Peut contenir zéro ou plusieurs étiquettes. Pour plus d’informations, consultez la section [labels](#labels).|
 |brands| Peut contenir zéro ou plusieurs marques. Pour plus d’informations, consultez la section [brands](#brands).|
 |statistiques | Pour plus d’informations, consultez la section [statistics](#statistics).|
@@ -166,7 +166,7 @@ Un visage peut être doté d’un ID, d’un nom, d’une miniature, d’autres 
 |étiquettes|L’insight [étiquettes](#labels).|
 |captures|L’insight [captures](#shots).|
 |brands|L’insight [brands](#brands).|
-|audioEffects|L’insight [audioEffects](#audioEffects).|
+|audioEffects|L’insight [audioEffects](#audioeffects).|
 |sentiments|L’insight [sentiments](#sentiments).|
 |visualContentModeration|L’insight [visualContentModeration](#visualcontentmoderation).|
 |textualContentModeration|L’insight [textualContentModeration](#textualcontentmoderation).|
@@ -561,7 +561,7 @@ Noms des entreprises et des marques de produits détectés dans la reconnaissanc
 |SpeakerLongestMonolog|Monologue le plus long de l’intervenant. Si le monologue de l’intervenant comporte des silences, ils sont inclus. Les silences du début et de la fin du monologue sont supprimés.| 
 |SpeakerTalkToListenRatio|Le calcul est basé sur le temps passé sur le monologue de l’intervenant (sans les silences intermédiaires) divisé par la durée totale de la vidéo. L’heure est arrondie à la troisième décimale.|
 
-#### <a name="audioeffects"></a><a id="audioEffects"/>audioEffects
+#### <a name="audioeffects"></a>audioEffects
 
 |Nom|Description|
 |---|---|
