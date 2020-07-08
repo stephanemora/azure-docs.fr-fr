@@ -114,7 +114,7 @@ Un objet déjà mis en cache dans Azure CDN y reste jusqu’à ce que sa durée 
 
 Au cours des étapes précédentes, vous avez créé un profil et un point de terminaison CDN au sein d’un groupe de ressources. Enregistrez ces ressources si vous souhaitez passer à la section [Étapes suivantes](#next-steps) et apprendre à ajouter un domaine personnalisé à votre point de terminaison. Toutefois, si vous ne pensez pas utiliser ces ressources à l’avenir, vous pouvez les supprimer en supprimant le groupe de ressources. Vous éviterez ainsi de payer des frais supplémentaires :
 
-1. Dans le menu gauche du portail Azure, sélectionnez **Groupes de ressources**, puis *CDNQuickstart-rg**.
+1. Dans le menu gauche du portail Azure, sélectionnez **Groupes de ressources**, puis *CDNQuickstart-rg*\*.
 
 2. Sur la page **Groupe de ressources**, sélectionnez **Supprimer le groupe de ressources**, saisissez *CDNQuickstart-rg* dans la zone de texte, puis sélectionnez **Supprimer**.
 
