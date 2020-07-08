@@ -2,17 +2,18 @@
 title: Série NVv3 – Machines virtuelles Microsoft Azure
 description: Spécifications pour les machines virtuelles de la série NVv3.
 services: virtual-machines
-author: vikancha
+ms.subservice: sizes
+author: vikancha-MSFT
 ms.service: virtual-machines
 ms.topic: article
 ms.date: 02/03/2020
-ms.author: lahugh
-ms.openlocfilehash: d74b00a4bade956d3a511a47b0a6b0011b9fb212
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.author: jushiman
+ms.openlocfilehash: 9f5d5bd9775507a663a4171faa8b8892357f65b0
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "78267430"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84736541"
 ---
 # <a name="nvv3-series"></a>Série NVv3
 

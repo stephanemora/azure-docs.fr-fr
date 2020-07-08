@@ -6,12 +6,12 @@ ms.suite: integration
 ms.reviewer: klam, rarayudu, logicappspm
 ms.topic: conceptual
 ms.date: 03/11/2020
-ms.openlocfilehash: 7314559849f0b2019820ec3cb4fb10c684d330d6
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: fd288cfb78bb97bd5c05c1cc59af3c082ab549a2
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81458435"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84687002"
 ---
 # <a name="set-up-customer-managed-keys-to-encrypt-data-at-rest-for-integration-service-environments-ises-in-azure-logic-apps"></a>Configurer des clés gérées par le client afin de chiffrer les données au repos pour les environnements de service d’intégration (ISE) dans Azure Logic Apps
 
@@ -27,7 +27,7 @@ Cette rubrique montre comment configurer et spécifier votre propre clé de chif
 
 * Vous pouvez spécifier une clé gérée par le client *uniquement quand vous créez votre ISE*, pas après. Vous ne pouvez pas désactiver cette clé après la création de votre environnement ISE. Actuellement, il n’existe pas de prise en charge pour faire pivoter une clé gérée par le client pour un ISE.
 
-* Pour prendre en charge les clés gérées par le client, il faut que l’[identité managée affectée par le système](../active-directory/managed-identities-azure-resources/overview.md#how-does-the-managed-identities-for-azure-resources-work) de votre ISE soit activée. Cette identité permet à l’ISE d’authentifier l’accès aux ressources dans d’autres locataires Azure Active Directory (Azure AD) afin que vous n’ayez pas à vous connecter avec vos informations d’identification.
+* Pour prendre en charge les clés gérées par le client, il faut que l’[identité managée affectée par le système](../active-directory/managed-identities-azure-resources/overview.md#managed-identity-types) de votre ISE soit activée. Cette identité permet à l’ISE d’authentifier l’accès aux ressources dans d’autres locataires Azure Active Directory (Azure AD) afin que vous n’ayez pas à vous connecter avec vos informations d’identification.
 
 * Actuellement, pour créer un ISE qui prend en charge les clés gérées par le client et dont l’identité affectée par le système est activée, vous devez appeler l’API REST Logic Apps à l’aide d’une requête PUT HTTPS.
 

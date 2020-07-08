@@ -5,17 +5,17 @@ description: Une fois qu’un service de machine learning a été déployé à p
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: studio
-ms.topic: conceptual
+ms.topic: how-to
 author: likebupt
 ms.author: keli19
-ms.custom: seodec18
+ms.custom: seodec18, tracking-python
 ms.date: 05/29/2020
-ms.openlocfilehash: 7db89c8bce9849a736f9e407f8e12d08693777be
-ms.sourcegitcommit: 12f23307f8fedc02cd6f736121a2a9cea72e9454
+ms.openlocfilehash: 8d78d26298790e033f006fd3f37567caf97f97ec
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/30/2020
-ms.locfileid: "84220990"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84696624"
 ---
 # <a name="how-to-consume-an-azure-machine-learning-studio-classic-web-service"></a>Guide pratique pour utiliser un service web Azure Machine Learning Studio (classique)
 

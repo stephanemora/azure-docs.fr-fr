@@ -3,16 +3,16 @@ title: Activer la fonctionnalité Disques partagés pour les disques managés Az
 description: Configurer un disque managé Azure avec la fonctionnalité Disques partagés (préversion) afin de pouvoir le partager avec plusieurs machines virtuelles
 author: roygara
 ms.service: virtual-machines
-ms.topic: conceptual
-ms.date: 04/24/2020
+ms.topic: how-to
+ms.date: 06/03/2020
 ms.author: rogarana
 ms.subservice: disks
-ms.openlocfilehash: 0dc7cf6e3f72ff9fa7ef5d7cbd85c1fb93f76f9a
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 3b949905f311b1a8878aa691e32abc3f568e1e6b
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82146766"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84657292"
 ---
 # <a name="enable-shared-disk"></a>Activer la fonctionnalité Disques partagés
 

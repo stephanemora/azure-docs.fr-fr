@@ -4,15 +4,15 @@ description: Dans cet article, vous apprenez à passer l’affichage en plein é
 services: bastion
 author: charwen
 ms.service: bastion
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 02/03/2020
 ms.author: charwen
-ms.openlocfilehash: 2e72eb9ffc3affa0bf09692ac0780f9310308521
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: f4aa2c5aa3f40802db7be64eeb778866819bfe67
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80619294"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84744219"
 ---
 # <a name="change-to-full-screen-view-for-a-vm-session-azure-bastion"></a>Passez en plein écran pour une session d’une machine virtuelle : Azure Bastion
 

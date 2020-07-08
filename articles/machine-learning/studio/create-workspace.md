@@ -5,17 +5,17 @@ description: Pour utiliser Azure Machine Learning Studio (classique), vous devez
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: studio
-ms.topic: conceptual
+ms.topic: how-to
 author: likebupt
 ms.author: keli19
 ms.custom: seodec18
 ms.date: 12/07/2017
-ms.openlocfilehash: d8e8e9ec7a0a5c502e3046b0c6ddb3a7da064739
-ms.sourcegitcommit: 6a9f01bbef4b442d474747773b2ae6ce7c428c1f
+ms.openlocfilehash: ede84fefed7db9d2afcc0ad65833ab2c0fefbc03
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "84117275"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84696522"
 ---
 # <a name="create-and-share-an-azure-machine-learning-studio-classic-workspace"></a>Créer et partager un espace de travail Azure Machine Learning Studio (classique)
 

@@ -4,18 +4,17 @@ description: Apprenez à effectuer une migration en mode hors connexion de SQLit
 services: sql-database
 author: joplum
 ms.author: joplum
-manager: prda
 ms.service: sql-database
 ms.workload: data-services
 ms.topic: article
 ms.date: 01/08/2020
 ms.custom: sqldbrb=1
-ms.openlocfilehash: e72b75b39205d245351480d914ed26eeec8939f7
-ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
+ms.openlocfilehash: 551276895de0ba659349c20205fa21d3d2c6b43e
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "84040090"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84669565"
 ---
 # <a name="how-to-migrate-your-sqlite-database-to-azure-sql-database-serverless"></a>Guide pratique pour migrer votre base de données SQLite vers Azure SQL Database serverless
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]

@@ -2,7 +2,7 @@
 title: 'Azure SQL Managed Instance : Conservation de sauvegardes à long terme (PowerShell)'
 description: Découvrez comment stocker et restaurer des sauvegardes automatisées sur des conteneurs de Stockage Blob Azure distincts pour une instance SQL Managed Instance avec PowerShell.
 services: sql-database
-ms.service: sql-database
+ms.service: sql-managed-instance
 ms.subservice: operations
 ms.custom: ''
 ms.devlang: ''
@@ -10,19 +10,18 @@ ms.topic: conceptual
 author: anosov1960
 ms.author: sashan
 ms.reviewer: mathoma, carlrab
-manager: craigg
 ms.date: 04/29/2020
-ms.openlocfilehash: 385a7594de48f1bcf04d79d0dcd9dfb521d4ff08
-ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
+ms.openlocfilehash: b628ca7f676c3eab80e11da124f4d6aa7ebd52a1
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "84031210"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84708788"
 ---
 # <a name="manage-azure-sql-managed-instance-long-term-backup-retention-powershell"></a>Gérer la conservation des sauvegardes à long terme Azure SQL Managed Instance (PowerShell)
 [!INCLUDE[appliesto-sqlmi](../includes/appliesto-sqlmi.md)]
 
-Dans Azure SQL Managed Instance, vous pouvez configurer une stratégie de [conservation des sauvegardes à long terme](../database/long-term-retention-overview.md#managed-instance-support) (LTR) grâce à une fonctionnalité en préversion publique limitée. Cela vous permet de conserver automatiquement les sauvegardes de base de données dans des conteneurs de Stockage Blob Azure distincts pendant 10 ans. Vous pouvez ensuite récupérer une base de données à l’aide de ces sauvegardes avec PowerShell.
+Dans Azure SQL Managed Instance, vous pouvez configurer une stratégie de [conservation des sauvegardes à long terme](../database/long-term-retention-overview.md#sql-managed-instance-support) (LTR) grâce à une fonctionnalité en préversion publique limitée. Cela vous permet de conserver automatiquement les sauvegardes de base de données dans des conteneurs de Stockage Blob Azure distincts pendant 10 ans. Vous pouvez ensuite récupérer une base de données à l’aide de ces sauvegardes avec PowerShell.
 
    > [!IMPORTANT]
    > La conservation LTR des instances gérées, actuellement en préversion limitée, est disponible pour les abonnements EA et CSP selon les cas. Pour demander une inscription, créez un [ticket de support Azure](https://azure.microsoft.com/support/create-ticket/). Pour le type de problème, sélectionnez « Problème technique », pour le service, choisissez « SQL Database Managed Instance » et pour le type de problème, sélectionnez **Sauvegarde, restauration et continuité d’activité/conservation de sauvegarde à long terme**. Dans votre demande, indiquez que vous souhaitez être inscrit à la préversion publique limitée de LTR pour Managed Instance.

@@ -7,16 +7,16 @@ ms.subservice: development
 ms.custom: sqldbrb=1
 ms.devlang: ''
 ms.topic: conceptual
-author: MightyPen
-ms.author: genemi
-ms.reviewer: sstein
-ms.date: 04/03/2019
-ms.openlocfilehash: 867db23521ea08641f538efe5279408343373336
-ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
+author: stevestein
+ms.author: sstein
+ms.reviewer: genemi
+ms.date: 06/11/2020
+ms.openlocfilehash: 85d8d288a8b2d0f256294b0c8975afc367e6e381
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "84035180"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84736048"
 ---
 # <a name="ports-beyond-1433-for-adonet-45"></a>Ports au-delà de 1433 pour ADO.NET 4.5
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -52,7 +52,7 @@ Vérifiez que les plages de ports 11000-11999 sur votre ordinateur client Azure 
 * En particulier, les ports dans la plage doivent être libres de tout autre bloqueur sortant.
 * Sur votre machine virtuelle Azure, le **Pare-feu Windows avec fonctions avancées de sécurité** contrôle les paramètres des ports.
   
-  * Vous pouvez utiliser [l’interface utilisateur du pare-feu](https://msdn.microsoft.com/library/cc646023.aspx) pour ajouter une règle dans laquelle vous spécifiez le protocole **TCP** et une plage de ports avec une syntaxe semblable à **11000-11999**.
+  * Vous pouvez utiliser [l’interface utilisateur du pare-feu](/sql/sql-server/install/configure-the-windows-firewall-to-allow-sql-server-access) pour ajouter une règle dans laquelle vous spécifiez le protocole **TCP** et une plage de ports avec une syntaxe semblable à **11000-11999**.
 
 ## <a name="version-clarifications"></a>Précisions concernant les versions
 
@@ -81,6 +81,6 @@ Cette section clarifie les monikers qui font référence aux versions du produit
 
 * Se connecter à Azure SQL Database V12 via la redirection https://techcommunity.microsoft.com/t5/DataCAT/Connect-to-Azure-SQL-Database-V12-via-Redirection/ba-p/305362
 
-* [Liste des versions du protocole TDS](https://www.freetds.org/userguide/tdshistory.htm)
+* [Liste des versions du protocole TDS](https://www.freetds.org/)
 * [Vue d’ensemble du développement de base de données SQL](develop-overview.md)
 * [Pare-feu Azure SQL Database](firewall-configure.md)

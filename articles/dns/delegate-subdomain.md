@@ -4,15 +4,15 @@ description: Avec ce parcours d’apprentissage, commencez à déléguer un sous
 services: dns
 author: rohinkoul
 ms.service: dns
-ms.topic: article
+ms.topic: how-to
 ms.date: 2/7/2019
 ms.author: rohink
-ms.openlocfilehash: cd1443a9ca8ccf7172072078734f21d789d36194
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: add7674771fd19f6029a94c46624006f0cf30f1a
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "76937431"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84710879"
 ---
 # <a name="delegate-an-azure-dns-subdomain"></a>Déléguer un sous-domaine Azure DNS
 

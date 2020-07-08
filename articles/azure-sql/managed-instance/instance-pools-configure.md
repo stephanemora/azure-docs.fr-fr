@@ -3,7 +3,7 @@ title: Déployer SQL Managed Instance dans un pool d’instances
 titleSuffix: Azure SQL Managed Instance
 description: Cet article explique comment créer et gérer des pools Azure SQL Managed Instance (préversion).
 services: sql-database
-ms.service: sql-database
+ms.service: sql-managed-instance
 ms.subservice: operations
 ms.custom: ''
 ms.devlang: ''
@@ -12,12 +12,12 @@ author: bonova
 ms.author: bonova
 ms.reviewer: sstein, carlrab
 ms.date: 09/05/2019
-ms.openlocfilehash: 9b59f6e091143e5c10be393620e4cc042faac36a
-ms.sourcegitcommit: 12f23307f8fedc02cd6f736121a2a9cea72e9454
+ms.openlocfilehash: 1461ba4ae0bea61b3a220c22144a31eade6cdf04
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/30/2020
-ms.locfileid: "84216374"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84708802"
 ---
 # <a name="deploy-azure-sql-managed-instance-to-an-instance-pool"></a>Déployer Azure SQL Managed Instance dans un pool d’instances
 [!INCLUDE[appliesto-sqlmi](../includes/appliesto-sqlmi.md)]
@@ -54,7 +54,7 @@ Le tableau suivant présente les opérations disponibles liées aux pools d’in
 
 Pour utiliser PowerShell, [installez la dernière version de PowerShell Core](https://docs.microsoft.com/powershell/scripting/install/installing-powershell#powershell) et suivez les instructions pour [installer le module Azure PowerShell](https://docs.microsoft.com/powershell/azure/install-az-ps).
 
-Pour les opérations liées aux instances à la fois dans les pools et les instances uniques, utilisez les [commandes de l’instance managée](api-references-create-manage-instance.md#powershell-create-and-manage-managed-instances) standard, mais la propriété de *nom du pool d’instances* doit être remplie lors de l’utilisation de ces commandes pour une instance d’un pool.
+Pour les opérations liées aux instances à la fois dans les pools et les instances uniques, utilisez les [commandes de l’instance managée](api-references-create-manage-instance.md#powershell-create-and-configure-managed-instances) standard, mais la propriété de *nom du pool d’instances* doit être remplie lors de l’utilisation de ces commandes pour une instance d’un pool.
 
 ## <a name="deployment-process"></a>Processus de déploiement
 

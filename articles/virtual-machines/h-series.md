@@ -1,18 +1,18 @@
 ---
 title: Série H - Machines virtuelles Azure
 description: Spécifications pour les machines virtuelles de la série H.
-services: virtual-machines
-author: jonbeck7
+author: ju-shim
 ms.service: virtual-machines
+ms.subservice: sizes
 ms.topic: article
 ms.date: 03/10/2020
-ms.author: lahugh
-ms.openlocfilehash: 6e0257f8a32d05f49dd67195f22d387319358ef2
-ms.sourcegitcommit: 7e04a51363de29322de08d2c5024d97506937a60
+ms.author: jushiman
+ms.openlocfilehash: f79dcb8886985d60a1ed82e1a77d231cf7d3ad24
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/14/2020
-ms.locfileid: "81314129"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84678679"
 ---
 # <a name="h-series"></a>Série H
 

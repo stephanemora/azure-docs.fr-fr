@@ -2,7 +2,7 @@
 title: Activer la configuration de sous-réseau assistée par le service pour Azure SQL Managed Instance
 description: Activer la configuration de sous-réseau assistée par le service pour Azure SQL Managed Instance
 services: sql-database
-ms.service: sql-database
+ms.service: sql-managed-instance
 ms.subservice: operations
 ms.custom: ''
 ms.devlang: ''
@@ -10,12 +10,12 @@ ms.topic: conceptual
 author: srdan-bozovic-msft
 ms.author: srbozovi
 ms.date: 03/12/2020
-ms.openlocfilehash: c8531af9e8d43dfe1279306cea57a93cf89ded90
-ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
+ms.openlocfilehash: b88740c71db6ae56621410ef41975a4616ff8ecd
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "84032180"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84711372"
 ---
 # <a name="enabling-service-aided-subnet-configuration-for-azure-sql-managed-instance"></a>Activer la configuration de sous-réseau assistée par le service pour Azure SQL Managed Instance
 [!INCLUDE[appliesto-sqlmi](../includes/appliesto-sqlmi.md)]
@@ -27,7 +27,7 @@ Les groupes de sécurité réseau et les règles de table de routage configurés
 La configuration assistée par le service est automatiquement activée après activation de la [délégation de sous-réseau](../../virtual-network/subnet-delegation-overview.md) pour le fournisseur de ressources `Microsoft.Sql/managedInstances`.
 
 > [!IMPORTANT] 
-> Une fois la délégation de sous-réseau activée, vous ne pouvez pas la désactiver avant d'avoir supprimé le dernier cluster virtuel du sous-réseau. Pour plus d’informations sur la suppression d’un cluster virtuel, consultez l’[article](virtual-cluster-delete.md#delete-virtual-cluster-from-the-azure-portal) suivant.
+> Une fois la délégation de sous-réseau activée, vous ne pouvez pas la désactiver avant d'avoir supprimé le dernier cluster virtuel du sous-réseau. Pour plus d’informations sur la suppression d’un cluster virtuel, consultez l’[article](virtual-cluster-delete.md#delete-a-virtual-cluster-from-the-azure-portal) suivant.
 
 > [!NOTE] 
 > La configuration de sous-réseau assistée par le service étant indispensable à la gestion des contrats SLA, à compter du 1er mai 2020, il ne sera plus possible de déployer d'instances gérées dans des sous-réseaux non délégués au fournisseur de ressources d'instance gérée. Le 1er juillet 2020, tous les sous-réseaux contenant des instances gérées seront automatiquement délégués au fournisseur de ressources d’instance gérée. 

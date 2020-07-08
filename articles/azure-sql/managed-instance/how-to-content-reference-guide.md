@@ -3,8 +3,8 @@ title: Référence de contenu concernant la configuration et la gestion
 titleSuffix: Azure SQL Managed Instance
 description: Guide de référence de contenu qui explique comment configurer et gérer Azure SQL Managed Instance.
 services: sql-database
-ms.service: sql-database
-ms.subservice: managed-instance
+ms.service: sql-managed-instance
+ms.subservice: operations
 ms.custom: sqldbrb=1
 ms.devlang: ''
 ms.topic: conceptual
@@ -12,12 +12,12 @@ author: jovanpop-msft
 ms.author: jovanpop
 ms.reviewer: sstein, carlr
 ms.date: 04/16/2019
-ms.openlocfilehash: 39e43368e41305e9cdd0a685ea98adde71244b33
-ms.sourcegitcommit: 12f23307f8fedc02cd6f736121a2a9cea72e9454
+ms.openlocfilehash: 23ce3272d99401340d784f88dd537baa55774a63
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/30/2020
-ms.locfileid: "84216358"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84708822"
 ---
 # <a name="azure-sql-managed-instance-content-reference"></a>Référence du contenu Azure SQL Managed Instance
 [!INCLUDE[appliesto-sqlmi](../includes/appliesto-sqlmi.md)]

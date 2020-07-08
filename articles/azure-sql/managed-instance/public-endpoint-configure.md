@@ -2,7 +2,7 @@
 title: Configurer un point de terminaison public - Azure SQL Managed Instance
 description: Découvrir comment configurer un point de terminaison public pour Azure SQL Managed Instance
 services: sql-database
-ms.service: sql-database
+ms.service: sql-managed-instance
 ms.subservice: security
 ms.custom: sqldbrb=1
 ms.topic: conceptual
@@ -10,12 +10,12 @@ author: srdan-bozovic-msft
 ms.author: srbozovi
 ms.reviewer: vanto, carlrab
 ms.date: 05/07/2019
-ms.openlocfilehash: a6d4ea22d3b05b14ce0d3e63912ea8bb7a432e57
-ms.sourcegitcommit: 69156ae3c1e22cc570dda7f7234145c8226cc162
+ms.openlocfilehash: 1c2dd3f93abf6418b99bf28d11f2df254b024971
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/03/2020
-ms.locfileid: "84310153"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84708627"
 ---
 # <a name="configure-public-endpoint-in-azure-sql-managed-instance"></a>Configurer un point de terminaison public dans Azure SQL Managed Instance
 [!INCLUDE[appliesto-sqlmi](../includes/appliesto-sqlmi.md)]

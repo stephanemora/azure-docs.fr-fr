@@ -4,12 +4,12 @@ description: Configurez une action GitHub qui automatise les étapes de créatio
 ms.topic: article
 ms.date: 03/18/2020
 ms.custom: ''
-ms.openlocfilehash: 13397cee8197afc65b93c587ae1505e59cfdebc1
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: fab0eff04d86428a7e3eba730373da72c903b0ff
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80258037"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84743998"
 ---
 # <a name="configure-a-github-action-to-create-a-container-instance"></a>Configurer une action GitHub pour créer une instance de conteneur
 
@@ -53,7 +53,7 @@ Cet article présente deux méthodes de configuration du workflow :
 
 Dans le workflow GitHub, vous devez fournir des informations d’identification Azure pour l’authentification auprès d’Azure CLI. L’exemple suivant crée un principal de service avec le rôle Contributeur étendu au groupe de ressources de votre registre de conteneurs.
 
-Tout d’abord, récupérez l’ID de ressource de votre groupe de ressources. Substituez le nom de votre groupe dans la commande [az group show][az-acr-show] suivante :
+Tout d’abord, récupérez l’ID de ressource de votre groupe de ressources. Substituez le nom de votre groupe dans la commande [az group show][az-group-show] suivante :
 
 ```azurecli
 groupId=$(az group show \

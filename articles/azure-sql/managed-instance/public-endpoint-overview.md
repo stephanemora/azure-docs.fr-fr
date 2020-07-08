@@ -2,7 +2,7 @@
 title: Sécuriser les points de terminaison publics Azure SQL Managed Instance
 description: Utiliser en toute sécurité des points de terminaison publics dans Azure SQL Managed Instance
 services: sql-database
-ms.service: sql-database
+ms.service: sql-managed-instance
 ms.subservice: security
 ms.custom: sqldbrb=1
 ms.topic: conceptual
@@ -10,12 +10,12 @@ author: srdan-bozovic-msft
 ms.author: srbozovi
 ms.reviewer: vanto, carlrab
 ms.date: 05/08/2019
-ms.openlocfilehash: 3fa59620c07cc17435ca29bffbc98e88e35b0ca7
-ms.sourcegitcommit: 69156ae3c1e22cc570dda7f7234145c8226cc162
+ms.openlocfilehash: a3339d03607c2286dabbac73fd0b683c61552dc0
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/03/2020
-ms.locfileid: "84310136"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84708601"
 ---
 # <a name="use-azure-sql-managed-instance-securely-with-public-endpoints"></a>Utiliser Azure SQL Managed Instance en toute sécurité avec des points de terminaison publics
 [!INCLUDE[appliesto-sqlmi](../includes/appliesto-sqlmi.md)]
