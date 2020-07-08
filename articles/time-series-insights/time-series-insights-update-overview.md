@@ -10,12 +10,12 @@ ms.workload: big-data
 ms.topic: overview
 ms.date: 04/13/2020
 ms.custom: seodec18
-ms.openlocfilehash: 73244a635bbf14efcf33f1b978db14e9e2589581
-ms.sourcegitcommit: 530e2d56fc3b91c520d3714a7fe4e8e0b75480c8
+ms.openlocfilehash: 20ab78aa67fa5d59dac774559b3c43561cf75fbc
+ms.sourcegitcommit: e132633b9c3a53b3ead101ea2711570e60d67b83
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/14/2020
-ms.locfileid: "81271061"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86040705"
 ---
 # <a name="what-is-azure-time-series-insights-preview"></a>Qu’est-ce qu’Azure Time Series Insights (préversion) ?
 
@@ -78,12 +78,12 @@ Avec l’introduction de ces fonctionnalités IoT sectorielles clés, Time Serie
 
 | | |
 | ---| ---|
-| Stockage multicouche pour les données de séries chronologiques IoT | Grâce à un pipeline de traitement de données partagé pour l’ingestion de données, vous pouvez ingérer des données dans des magasins chauds et froids. Utilisez un magasin chaud pour les requêtes interactives et un magasin froid pour le stockage de gros volumes de données. Pour savoir comment tirer parti des requêtes basées sur des ressources hautement performantes, consultez [requêtes](./time-series-insights-update-tsq.md). |
-| Modèle de séries chronologiques pour la contextualisation des données de télémétrie brutes et la dérivation d’insights basés sur les ressources | Vous pouvez utiliser le modèle de série chronologique pour créer des instances, des hiérarchies, des types et des variables pour vos données de série chronologique. Pour en savoir plus sur le modèle de série chronologique, consultez [Modèle de série chronologique](./time-series-insights-update-tsm.md).  |
-| Intégration fluide et continue à d’autres solutions de données | Les données dans le magasin froid Time Series Insights sont [stockées](./time-series-insights-update-storage-ingress.md) dans des fichiers Apache Parquet open source. Cela permet l’intégration de données avec d’autres solutions de données (internes ou tierces) pour des scénarios qui incluent le décisionnel, le machine learning avancé et l’analyse prédictive. |
+| Stockage multicouche pour les données de séries chronologiques IoT | Grâce à un pipeline de traitement de données partagé pour l’ingestion de données, vous pouvez ingérer des données dans des magasins chauds et froids. Utilisez un magasin chaud pour les requêtes interactives et un magasin froid pour le stockage de gros volumes de données. Pour savoir comment tirer parti des requêtes basées sur des ressources hautement performantes, consultez [requêtes](./concepts-query-overview.md). |
+| Modèle de séries chronologiques pour la contextualisation des données de télémétrie brutes et la dérivation d’insights basés sur les ressources | Vous pouvez utiliser le modèle de série chronologique pour créer des instances, des hiérarchies, des types et des variables pour vos données de série chronologique. Pour en savoir plus sur le modèle de série chronologique, consultez [Modèle de série chronologique](./concepts-model-overview.md).  |
+| Intégration fluide et continue à d’autres solutions de données | Les données dans le magasin froid Time Series Insights sont [stockées](concepts-storage.md) dans des fichiers Apache Parquet open source. Cela permet l’intégration de données avec d’autres solutions de données (internes ou tierces) pour des scénarios qui incluent le décisionnel, le machine learning avancé et l’analyse prédictive. |
 | Exploration de données en quasi temps réel | L’expérience utilisateur de [l’explorateur de la préversion d’Azure Time Series Insights](./time-series-insights-update-explorer.md) permet de visualiser toutes les données diffusées en continu via le pipeline d’ingestion. Après la connexion à une source d’événement, vous pouvez afficher, explorer et interroger des données d’événement. De cette façon, vous pouvez vérifier si un appareil émet des données comme prévu. Vous pouvez également surveiller l’intégrité, la productivité et l’efficacité globale d’une ressource IoT. | 
 | Extensibilité et intégration | L’intégration du connecteur Power BI Azure Time Series Insights est disponible directement dans l’expérience utilisateur de l’Explorateur Time Series via l’option **Exporter**, qui permet aux clients d’exporter les requêtes de série chronologique créées dans notre expérience utilisateur directement vers Power BI Desktop, et d’afficher leurs graphiques avec d’autres analyses de décisionnel. Cela ouvre la voie à une nouvelle classe de scénarios pour les entreprises IoT industrielles qui ont investi dans Power BI, en offrant une grande transparence sur l’analytique à partir de différentes sources de données y compris les séries chronologiques IoT. | 
-| Applications personnalisées créées sur la plateforme Time Series Insights | Time Series Insights prend en charge le [kit SDK JavaScript](https://github.com/microsoft/tsiclient/blob/master/docs/API.md). Le kit SDK fournit des contrôles complets et un accès simplifié aux requêtes. Utilisez le kit SDK afin de créer des applications IoT personnalisées sur Time Series Insights pour répondre à vos besoins professionnels. Vous pouvez également utiliser les [API de requête](./time-series-insights-update-tsq.md) Time Series Insights directement pour intégrer directement des données dans des applications IoT personnalisées. |
+| Applications personnalisées créées sur la plateforme Time Series Insights | Time Series Insights prend en charge le [kit SDK JavaScript](https://github.com/microsoft/tsiclient/blob/master/docs/API.md). Le kit SDK fournit des contrôles complets et un accès simplifié aux requêtes. Utilisez le kit SDK afin de créer des applications IoT personnalisées sur Time Series Insights pour répondre à vos besoins professionnels. Vous pouvez également utiliser les [API de requête](./concepts-query-overview.md) Time Series Insights directement pour intégrer directement des données dans des applications IoT personnalisées. |
 
 ## <a name="next-steps"></a>Étapes suivantes
 

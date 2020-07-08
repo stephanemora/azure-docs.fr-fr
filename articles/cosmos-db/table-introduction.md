@@ -7,12 +7,12 @@ ms.subservice: cosmosdb-table
 ms.topic: overview
 ms.date: 07/26/2019
 ms.author: sngun
-ms.openlocfilehash: 5b2e2c51eaa878ba0ce8bc31c001575acebe6919
-ms.sourcegitcommit: 537c539344ee44b07862f317d453267f2b7b2ca6
+ms.openlocfilehash: 91a6ae308faf31b3d3eb0c9f287dd5bd791f628e
+ms.sourcegitcommit: 73ac360f37053a3321e8be23236b32d4f8fb30cf
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/11/2020
-ms.locfileid: "84695247"
+ms.lasthandoff: 06/30/2020
+ms.locfileid: "85557528"
 ---
 # <a name="introduction-to-azure-cosmos-db-table-api"></a>Présentation d’Azure Cosmos DB : API de table
 
@@ -32,7 +32,7 @@ Les applications écrites pour le stockage de table Azure peuvent migrer vers Az
 ## <a name="table-offerings"></a>Offres de table
 Si vous utilisez actuellement le stockage de table Azure, vous bénéficiez des avantages suivants en passant à l’API Table d’Azure Cosmos DB :
 
-| | Stockage de tables Azure | API Table d’Azure Cosmos DB |
+| Fonctionnalité | Stockage de tables Azure | API Table d’Azure Cosmos DB |
 | --- | --- | --- |
 | Latence | Rapide, mais aucune limite supérieure sur la latence. | Une latence inférieure à 10 millisecondes pour les lectures et écritures au 99e centile, à toute échelle, partout dans le monde. |
 | Débit | Modèle de débit variable. Les tables ont une limite d’évolutivité de 20 000 opérations/s. | Hautement évolutif avec un [débit dédié réservé par table](request-units.md), qui est appuyé par des contrats de niveau de service. Les comptes n’ont aucune limite supérieure sur le débit, et prennent en charge > 10 millions d’opérations/s par table. |

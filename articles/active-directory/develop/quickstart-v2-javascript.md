@@ -12,12 +12,12 @@ ms.workload: identity
 ms.date: 04/11/2019
 ms.author: nacanuma
 ms.custom: aaddev, identityplatformtop40, scenarios:getting-started, languages:JavaScript
-ms.openlocfilehash: d0c705ffba84b9d34f8bc3d6e4c06d4bdb90fa21
-ms.sourcegitcommit: 58ff2addf1ffa32d529ee9661bbef8fbae3cddec
+ms.openlocfilehash: 047e03c4fa5916119036c5e539674dc48a6c77aa
+ms.sourcegitcommit: 73ac360f37053a3321e8be23236b32d4f8fb30cf
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/03/2020
-ms.locfileid: "84322819"
+ms.lasthandoff: 06/30/2020
+ms.locfileid: "85554019"
 ---
 # <a name="quickstart-sign-in-users-and-get-an-access-token-in-a-javascript-spa"></a>Démarrage rapide : Connecter des utilisateurs et obtenir un jeton d’accès dans une application SPA JavaScript
 
@@ -204,7 +204,7 @@ Le code du guide de démarrage rapide montre également comment initialiser la b
 const myMSALObj = new Msal.UserAgentApplication(msalConfig);
 ```
 
-> |Where  |  |
+> |Where  | Description |
 > |---------|---------|
 > |`clientId`     | ID de l’application inscrite dans le Portail Azure.|
 > |`authority`    | (Facultatif) URL de l’autorité qui prend en charge les types de comptes, comme décrit plus haut dans la section de configuration. L’autorité par défaut est `https://login.microsoftonline.com/common`. |
@@ -232,7 +232,7 @@ myMSALObj.loginPopup(loginRequest)
 });
 ```
 
-> |Where  |  |
+> |Where  | Description |
 > |---------|---------|
 > | `scopes`   | (Facultatif) Contient les étendues demandées pour le consentement de l’utilisateur au moment de la connexion. Par exemple, `[ "user.read" ]` pour Microsoft Graph ou `[ "<Application ID URL>/scope" ]` pour les API web personnalisées (c’est-à-dire `api://<Application ID>/access_as_user`). |
 
@@ -262,7 +262,7 @@ myMSALObj.acquireTokenSilent(tokenRequest)
     });
 ```
 
-> |Where  |  |
+> |Where  | Description |
 > |---------|---------|
 > | `scopes`   | Contient les étendues que vous avez demandé à retourner dans le jeton d’accès pour l’API. Par exemple, `[ "mail.read" ]` pour Microsoft Graph ou `[ "<Application ID URL>/scope" ]` pour les API web personnalisées (c’est-à-dire `api://<Application ID>/access_as_user`).|
 

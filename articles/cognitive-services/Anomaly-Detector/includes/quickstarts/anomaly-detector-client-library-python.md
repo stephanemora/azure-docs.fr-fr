@@ -6,14 +6,14 @@ author: aahill
 manager: nitinme
 ms.service: cognitive-services
 ms.topic: include
-ms.date: 04/16/2020
+ms.date: 06/30/2020
 ms.author: aahi
-ms.openlocfilehash: a51025245e5b02b89126afd886bc89fb1cefdef4
-ms.sourcegitcommit: 31e9f369e5ff4dd4dda6cf05edf71046b33164d3
+ms.openlocfilehash: 2fd4faf9fa553f8fb7b6553c0d1435bf003b5578
+ms.sourcegitcommit: 93462ccb4dd178ec81115f50455fbad2fa1d79ce
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/22/2020
-ms.locfileid: "81759818"
+ms.lasthandoff: 07/06/2020
+ms.locfileid: "85986106"
 ---
 Commencez à utiliser la bibliothèque de client Détecteur d’anomalies pour Python. Suivez les étapes suivantes pour installer le package et essayer l’exemple de code pour les tâches de base. Le service Détecteur d’anomalies vous permet de rechercher des anomalies dans vos données de séries chronologiques en utilisant automatiquement les modèles les mieux adaptés sur celles-ci, quel que soit le secteur d’activité, le scénario ou le volume de données.
 
@@ -26,16 +26,17 @@ Utilisez la bibliothèque de client Détecteur d’anomalies pour Python pour :
 
 ## <a name="prerequisites"></a>Prérequis
 
-* Abonnement Azure - [En créer un gratuitement](https://azure.microsoft.com/free/)
-* Une clé et un point de terminaison de détecteur d’anomalie
 * [Python 3.x](https://www.python.org/)
 * [Bibliothèque d’analyse de données Pandas](https://pandas.pydata.org/)
+* Abonnement Azure - [En créer un gratuitement](https://azure.microsoft.com/free/)
+* Une fois que vous avez votre abonnement Azure, <a href="https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesAnomalyDetector"  title="Créer une ressource Détecteur d’anomalies"  target="_blank">créez une ressource Détecteur d’anomalies <span class="docon docon-navigate-external x-hidden-focus"></span></a> dans le portail Azure pour obtenir votre clé et votre point de terminaison. Attendez qu’elle se déploie, puis cliquez sur le bouton **Accéder à la ressource**.
+    * Vous aurez besoin de la clé et du point de terminaison de la ressource que vous créez pour connecter votre application à l’API Détecteur d’anomalies. Vous collerez votre clé et votre point de terminaison dans le code ci-dessous plus loin dans le guide de démarrage rapide.
+    Vous pouvez utiliser le niveau tarifaire Gratuit (`F0`) pour tester le service, puis passer par la suite à un niveau payant pour la production.
+
  
 ## <a name="setting-up"></a>Configuration
 
-### <a name="create-an-anomaly-detector-resource"></a>Créer une ressource Détecteur d’anomalies
-
-[!INCLUDE [anomaly-detector-resource-creation](../../../../../includes/cognitive-services-anomaly-detector-resource-cli.md)]
+[!INCLUDE [anomaly-detector-environment-variables](../environment-variables.md)]
 
 ### <a name="create-a-new-python-application"></a>Créer une application Python
 

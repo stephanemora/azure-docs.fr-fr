@@ -11,14 +11,14 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: calebb
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 3dd1b4cf554e773f49a15ac5cedcbcc5b3e710b9
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.openlocfilehash: 34cc8154660db8afcd5859d45ccfd622bc7ca88f
+ms.sourcegitcommit: e132633b9c3a53b3ead101ea2711570e60d67b83
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "74380099"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86039821"
 ---
-# <a name="quickstart-require-terms-of-use-to-be-accepted-before-accessing-cloud-apps"></a>Démarrage rapide : exiger l’acceptation des conditions d’utilisation avant d’accorder l’accès à des applications cloud
+# <a name="quickstart-require-terms-of-use-to-be-accepted-before-accessing-cloud-apps"></a>Démarrage rapide : Exiger l’acceptation des conditions d’utilisation avant d’accorder l’accès à des applications cloud
 
 Si vous souhaitez obtenir le consentement des utilisateurs avant qu’ils ne puissent accéder à certaines applications cloud de votre environnement, vous pouvez demander à ce qu’ils acceptent vos conditions d’utilisation. L’accès conditionnel Azure Active Directory (Azure AD) vous offre les avantages suivants :
 
@@ -31,7 +31,7 @@ Ce démarrage rapide vous montre comment configurer une [stratégie d’accès c
 
 Si vous n’avez pas d’abonnement Azure, créez un [compte gratuit](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) avant de commencer.
 
-## <a name="prerequisites"></a>Conditions préalables requises
+## <a name="prerequisites"></a>Prérequis
 
 Pour suivre le scénario décrit dans ce démarrage rapide, vous avez besoin de ce qui suit :
 
@@ -105,7 +105,7 @@ Dans votre stratégie, définissez :
 
 1. Sur la page **Nouveau**, dans la zone de texte **Nom**, saisissez **Require TOU for Isabella**.
 
-   ![Name](./media/require-tou/71.png)
+   ![Nom](./media/require-tou/71.png)
 
 1. Dans la section **Affectation**, cliquez sur **Utilisateurs et groupes**.
 
@@ -209,5 +209,4 @@ Lorsque vous n’en avez plus besoin, supprimez l’utilisateur de test et la st
 ## <a name="next-steps"></a>Étapes suivantes
 
 > [!div class="nextstepaction"]
-> [Exiger une authentification multifacteur pour des applications spécifiques](app-based-mfa.md)
-> [Bloquer l’accès lorsqu’un risque de session est détecté](app-sign-in-risk.md)
+> [Exiger une authentification multifacteur pour certaines applications spécifiques](app-based-mfa.md)
