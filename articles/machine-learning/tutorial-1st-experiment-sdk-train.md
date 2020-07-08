@@ -11,12 +11,12 @@ ms.author: trbye
 ms.reviewer: trbye
 ms.date: 02/10/2020
 ms.custom: tracking-python
-ms.openlocfilehash: e82ed66240144f94e18c3343dc0559f47722a2c4
-ms.sourcegitcommit: eeba08c8eaa1d724635dcf3a5e931993c848c633
+ms.openlocfilehash: 2a65579ea7ea1a8e1611b604fa64f6b108c88784
+ms.sourcegitcommit: 0100d26b1cac3e55016724c30d59408ee052a9ab
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/10/2020
-ms.locfileid: "84667088"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86025146"
 ---
 # <a name="tutorial-train-your-first-ml-model"></a>Tutoriel : Entraîner votre premier modèle ML
 
@@ -176,8 +176,10 @@ print("Best run_id: " + minimum_rmse_runid)
 print("Best run_id rmse: " + str(minimum_rmse))
 ```
 
-    Best run_id: 864f5ce7-6729-405d-b457-83250da99c80
-    Best run_id rmse: 57.234760283951765
+```output
+Best run_id: 864f5ce7-6729-405d-b457-83250da99c80
+Best run_id rmse: 57.234760283951765
+```
 
 Utilisez l’ID de meilleure exécution pour extraire l’exécution individuelle à l’aide du constructeur `Run` et de l’objet d’expérience. Appelez ensuite `get_file_names()` pour voir tous les fichiers disponibles en téléchargement à partir de ce cycle. Dans ce cas, vous avez chargé un seul fichier pour chaque cycle durant l’apprentissage.
 
@@ -187,7 +189,9 @@ best_run = Run(experiment=experiment, run_id=minimum_rmse_runid)
 print(best_run.get_file_names())
 ```
 
-    ['model_alpha_0.1.pkl']
+```output
+['model_alpha_0.1.pkl']
+```
 
 Appelez `download()` sur l’objet cycle, en spécifiant le nom du fichier de modèle à télécharger. Par défaut, cette fonction télécharge vers le répertoire actif.
 

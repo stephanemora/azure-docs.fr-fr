@@ -7,16 +7,16 @@ ms.service: cognitive-services
 ms.topic: include
 ms.date: 06/22/2020
 ms.author: diberry
-ms.openlocfilehash: 2cf588ed120b353958cc708189c86481cd247d8e
-ms.sourcegitcommit: 74ba70139781ed854d3ad898a9c65ef70c0ba99b
+ms.openlocfilehash: 37f1b85b4ce8510d5e288df985a55dba659f0c9b
+ms.sourcegitcommit: 0100d26b1cac3e55016724c30d59408ee052a9ab
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/26/2020
-ms.locfileid: "85445919"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86035626"
 ---
 1. Sur le [portail LUIS](https://www.luis.ai), dans la page **Mes applications**, sélectionnez **+Nouvelle application de conversation**, puis **Importer en tant que JSON**. Recherchez le fichier JSON enregistré à l’étape précédente. Vous n’avez pas besoin de modifier le nom de l’application. Sélectionnez **Terminé**
 
-1. Dans la section **Gérer**, sous l’onglet **Versions**, sélectionnez la version `sentiment`, puis choisissez **Cloner** pour cloner la version. Attribuez-lui ensuite un nouveau nom de `ml-entity`, puis sélectionnez **Terminer** pour terminer le processus de clonage. Étant donné que le nom de la version est utilisé dans le cadre de la route d’URL, il ne peut pas contenir de caractères qui ne sont pas valides dans une URL.
+1. Dans la section **Gérer**, sous l’onglet **Versions**, sélectionnez la version `0.1`, puis choisissez **Cloner** pour cloner la version. Attribuez-lui ensuite un nouveau nom de `ml-entity`, puis sélectionnez **Terminer** pour terminer le processus de clonage. Étant donné que le nom de la version est utilisé dans le cadre de la route d’URL, il ne peut pas contenir de caractères qui ne sont pas valides dans une URL.
 
     > [!TIP]
     > Le clonage dans une nouvelle version est considéré comme une bonne pratique avant la modification de votre application. Quand vous en avez terminé avec la modification d’une version, exportez-la (sous forme de fichier .json ou .lu), puis archivez le fichier dans votre système de contrôle de code source.

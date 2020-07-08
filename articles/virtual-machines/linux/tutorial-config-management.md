@@ -15,12 +15,12 @@ ms.workload: infrastructure
 ms.date: 09/27/2019
 ms.author: magoedte
 ms.custom: mvc
-ms.openlocfilehash: 5dd35ed2f4533d19cc3a59788d6422416dce13f5
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: cac17d15d792622d9a26ff7c228ce1f0ba76bbc4
+ms.sourcegitcommit: 0100d26b1cac3e55016724c30d59408ee052a9ab
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "79223246"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86027577"
 ---
 # <a name="tutorial-monitor-changes-and-update-a-linux-virtual-machine-in-azure"></a>Tutoriel : Superviser les changements et mettre à jour une machine virtuelle Linux dans Azure
 
@@ -29,7 +29,7 @@ Azure [Change Tracking](../../automation/change-tracking.md) vous permet d’ide
 Dans ce tutoriel, vous allez apprendre à :
 
 > [!div class="checklist"]
-> * Gérer les mises à jour Windows
+> * Gérer les mises à jour Linux
 > * Surveiller les modifications et l’inventaire
 
 ## <a name="launch-azure-cloud-shell"></a>Lancement d’Azure Cloud Shell
