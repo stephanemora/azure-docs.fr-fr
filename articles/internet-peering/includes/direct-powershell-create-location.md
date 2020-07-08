@@ -28,7 +28,7 @@ Les emplacements de Peering direct contiennent les champs suivants :
 * PeeringDBFacilityLink
 * BandwidthOffers
 
-Vérifiez que vous vous trouvez à l’installation de Peering souhaitée en vous reportant à [PeeringDB](https://wwww.peeringdb.com).
+Vérifiez que vous vous trouvez à l’installation de Peering souhaitée en vous reportant à [PeeringDB](https://w www.peeringdb.com).
 
 Cet exemple montre comment utiliser Seattle comme emplacement de Peering pour créer un Peering direct.
 

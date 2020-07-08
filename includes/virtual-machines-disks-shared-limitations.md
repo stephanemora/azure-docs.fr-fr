@@ -5,15 +5,15 @@ services: virtual-machines
 author: roygara
 ms.service: virtual-machines
 ms.topic: include
-ms.date: 04/09/2020
+ms.date: 06/03/2020
 ms.author: rogarana
 ms.custom: include file
-ms.openlocfilehash: 1e53dda2c6cb293a9204f344d152daa1937aa38b
-ms.sourcegitcommit: ae3d707f1fe68ba5d7d206be1ca82958f12751e8
+ms.openlocfilehash: ce964ac197fbff64bbb7cc36e8c2bf762f93663f
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/10/2020
-ms.locfileid: "81008334"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84337346"
 ---
 En préversion, l’activation de disques partagés est disponible uniquement pour une partie des types de disques. Seuls les disques Ultra et les disques SSD Premium peuvent activer des disques partagés. Chaque disque managé pour lequel la fonctionnalité Disques partagés est activée est soumis aux limitations suivantes, selon le type disque :
 
@@ -23,7 +23,6 @@ Les disques Ultra ont leur propre liste de limitations sans lien avec les disque
 
 Quand vous partagez des disques Ultra, ils présentent les limitations supplémentaires suivantes :
 
-- Pris en charge uniquement dans la région USA Ouest.
 - Limités à la prise en charge d’Azure Resource Manager ou des kits SDK.
 - Seuls les disques de base peuvent être utilisés avec certaines versions de la fonctionnalité Cluster de basculement de Windows Server. Pour plus d’informations, consultez [Configuration matérielle requise pour le clustering de basculement et options de stockage](https://docs.microsoft.com/windows-server/failover-clustering/clustering-requirements).
 
