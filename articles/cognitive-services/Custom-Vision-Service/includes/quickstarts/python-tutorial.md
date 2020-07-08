@@ -3,12 +3,12 @@ author: areddish
 ms.author: areddish
 ms.service: cognitive-services
 ms.date: 04/14/2020
-ms.openlocfilehash: d20258e90c819c5d1f6b90be3303878c405e1f2d
-ms.sourcegitcommit: cf7caaf1e42f1420e1491e3616cc989d504f0902
+ms.openlocfilehash: 14ea15734a1db71c03d4ebd0cc3b10dabfb9b2dc
+ms.sourcegitcommit: 32592ba24c93aa9249f9bd1193ff157235f66d7e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/22/2020
-ms.locfileid: "83806244"
+ms.lasthandoff: 07/01/2020
+ms.locfileid: "85805680"
 ---
 Cet article vous montre comment bien démarrer avec le SDK Vision par ordinateur et Python pour générer un modèle de classification d’images. Après la création du projet, vous pouvez ajouter des étiquettes, charger des images, entraîner le projet, obtenir l’URL du point de terminaison de prédiction publié du projet et utiliser ce point de terminaison pour tester programmatiquement une image. Utilisez cet exemple comme modèle pour générer votre propre application Python. Si vous voulez générer et utiliser un modèle de classification _sans_ code, consultez le [guide basé sur navigateur](../../getting-started-build-a-classifier.md).
 
@@ -42,7 +42,7 @@ Consultez la méthode [create_project](https://docs.microsoft.com/python/api/azu
 
 ```Python
 from azure.cognitiveservices.vision.customvision.training import CustomVisionTrainingClient
-from azure.cognitiveservices.vision.customvision.training.models import ImageFileCreateEntry
+from azure.cognitiveservices.vision.customvision.training.models import ImageFileCreateBatch, ImageFileCreateEntry
 from msrest.authentication import ApiKeyCredentials
 
 ENDPOINT = "<your API endpoint>"
@@ -96,7 +96,7 @@ for image_num in range(1, 11):
     with open(base_image_url + "images/Japanese Cherry/" + file_name, "rb") as image_contents:
         image_list.append(ImageFileCreateEntry(name=file_name, contents=image_contents.read(), tag_ids=[cherry_tag.id]))
 
-upload_result = trainer.create_images_from_files(project.id, images=image_list)
+upload_result = trainer.create_images_from_files(project.id, ImageFileCreateBatch(images=image_list))
 if not upload_result.is_batch_successful:
     print("Image batch upload failed.")
     for image in upload_result.images:
