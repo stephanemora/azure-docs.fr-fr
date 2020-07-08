@@ -3,12 +3,12 @@ title: Obtenir les changements des ressources
 description: Découvrez comment savoir quand une ressource a été modifiée, obtenir une liste des propriétés modifiées et évaluer les différences.
 ms.date: 05/20/2020
 ms.topic: how-to
-ms.openlocfilehash: 9e233ebbdd1d70d483af44eacf12cc924deaafac
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: ace911361ccb96cab3d5c7557ba0e524dbf801d2
+ms.sourcegitcommit: e132633b9c3a53b3ead101ea2711570e60d67b83
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84167160"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86044989"
 ---
 # <a name="get-resource-changes"></a>Obtenir les changements des ressources
 
@@ -28,7 +28,7 @@ La détection des modifications et les détails sont utiles dans les scénarios 
 Cet article montre comment rassembler ces informations au moyen du kit SDK Resource Graph. Pour obtenir ces informations dans le Portail Azure, voir [Historique des changements](../../policy/how-to/determine-non-compliance.md#change-history) d’Azure Policy ou [Historique des changements](../../../azure-monitor/platform/activity-log-view.md#azure-portal) d’Azure Activity Log. Pour plus de détails sur les changements apportés à vos applications de la couche d’infrastructure jusqu’au déploiement des applications, consultez [Utiliser l’analyse des changements d’application (préversion)](../../../azure-monitor/app/change-analysis.md) dans Azure Monitor.
 
 > [!NOTE]
-> Les détails des modifications dans Resource Graph concernent les propriétés Resource Manager. Pour le suivi des modifications à l’intérieur d’une machine virtuelle, voir [Suivi des modifications](../../../automation/automation-change-tracking.md) d’Azure Automation ou [Guest Configuration for VMs (Configuration invitée pour les machines virtuelles)](../../policy/concepts/guest-configuration.md) d’Azure Policy.
+> Les détails des modifications dans Resource Graph concernent les propriétés Resource Manager. Pour le suivi des modifications à l’intérieur d’une machine virtuelle, voir [Suivi des modifications](../../../automation/change-tracking.md) d’Azure Automation ou [Guest Configuration for VMs (Configuration invitée pour les machines virtuelles)](../../policy/concepts/guest-configuration.md) d’Azure Policy.
 
 > [!IMPORTANT]
 > L’historique des changements dans Azure Resource Graph est en préversion publique.

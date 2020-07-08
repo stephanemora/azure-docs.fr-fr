@@ -3,12 +3,12 @@ title: Déployer l’exemple de blueprint ISO 27001
 description: Étapes de déploiement pour l’exemple de blueprint ISO 27001 autonome et informations détaillées sur les paramètres d’artefact de blueprint.
 ms.date: 01/13/2020
 ms.topic: sample
-ms.openlocfilehash: f5920541d49c454bd6648318c04ed607eada1dfb
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 9eaf559f0c1e6c99d3a2469d63eddea1c1ae9867
+ms.sourcegitcommit: e132633b9c3a53b3ead101ea2711570e60d67b83
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "75922505"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86044649"
 ---
 # <a name="deploy-the-iso-27001-blueprint-sample"></a>Déployer l’exemple de blueprint ISO 27001
 
@@ -109,7 +109,7 @@ Le tableau suivant fournit la liste des paramètres d’artefact de blueprint :
 |\[Préversion\] : Déployer Log Analytics Agent pour les machines virtuelles Windows|Affectation de rôle|Facultatif : Liste des images de machine virtuelle ayant un système d’exploitation Windows pris en charge à ajouter à l’étendue|Un tableau vide peut être utilisé pour indiquer l’absence de paramètres facultatifs : \[\]|
 |Références SKU de compte de stockage autorisées|Affectation de rôle|Liste de références SKU de stockage autorisées|Liste des références qui peuvent être spécifiées pour les comptes de stockage.|
 |Références SKU de machine virtuelle autorisées|Affectation de rôle|Liste de références SKU de machine virtuelle autorisées|Liste des références qui peuvent être spécifiées pour les machines virtuelles.|
-|Initiative de blueprint pour ISO 27001|Affectation de rôle|Liste des types de ressources devant avoir les journaux de diagnostic activés|Liste des types de ressources utilisés pour déterminer si le paramètre de journal de diagnostic n’est pas activé. Les valeurs acceptables sont listées dans les [schémas de journaux de diagnostic Azure Monitor](../../../../azure-monitor/platform/diagnostic-logs-schema.md#supported-log-categories-per-resource-type).|
+|Initiative de blueprint pour ISO 27001|Affectation de rôle|Liste des types de ressources devant avoir les journaux de diagnostic activés|Liste des types de ressources utilisés pour déterminer si le paramètre de journal de diagnostic n’est pas activé. Les valeurs acceptables sont listées dans les [schémas de journaux de diagnostic Azure Monitor](../../../../azure-monitor/platform/resource-logs-schema.md#service-specific-schemas).|
 
 ## <a name="next-steps"></a>Étapes suivantes
 

@@ -66,6 +66,8 @@
       href: load-balancer-standard-availability-zones.md
     - name: Contrôles de sécurité intégrés
       href: load-balancer-security-controls.md
+    - name: Gestion des pools de back-ends
+      href: backend-pool-management.md
 - name: Procédures
   items:
     - name: Groupes identiques de machines virtuelles

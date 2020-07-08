@@ -182,6 +182,10 @@
           href: service-bus-nodejs-how-to-use-queues.md
         - name: Publier et s’abonner à des messages (azure-sb hérité)
           href: service-bus-nodejs-how-to-use-topics-subscriptions.md
+    - name: Intégrer
+      items:
+        - name: Intégrer à RabbitMQ
+          href: service-bus-integrate-with-rabbitmq.md
     - name: Gérer
       items:
         - name: Mettre à jour automatiquement les unités de messagerie
@@ -281,5 +285,5 @@
       href: 'https://azure.microsoft.com/updates/?product=service-bus'
     - name: Stack Overflow
       href: 'https://stackoverflow.com/questions/tagged/azureservicebus'
-    - name: Videos
+    - name: Vidéos
       href: 'https://azure.microsoft.com/documentation/videos/index/?services=service-bus'

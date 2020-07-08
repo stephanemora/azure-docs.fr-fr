@@ -3,12 +3,12 @@ title: Vue d’ensemble de l’exemple de blueprint de zone d’accueil de migra
 description: Vue d’ensemble et architecture de l’exemple de blueprint de zone d’accueil de migration du framework d’adoption du cloud pour Azure.
 ms.date: 04/15/2020
 ms.topic: sample
-ms.openlocfilehash: c4720ec3e94ee928553cd62017831e5158ac9b97
-ms.sourcegitcommit: b55d7c87dc645d8e5eb1e8f05f5afa38d7574846
+ms.openlocfilehash: 45479fd6fa3a49d2639e587d3dba2aaaf567d0b1
+ms.sourcegitcommit: e132633b9c3a53b3ead101ea2711570e60d67b83
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "81459863"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86044819"
 ---
 # <a name="overview-of-the-microsoft-cloud-adoption-framework-for-azure-migration-landing-zone-blueprint-sample"></a>Vue d’ensemble de l’exemple de blueprint de zone d’accueil de migration du framework d’adoption de Microsoft Cloud pour Azure.
 
@@ -28,7 +28,7 @@ Cet environnement se compose de plusieurs services Azure utilisés pour fournir 
 - [Log Analytics](../../../../azure-monitor/overview.md) est déployé pour s’assurer que l’ensemble des actions et services journalisent dans un emplacement central dès l’instant où vous démarrez votre migration.
 - [Azure Security Center](../../../../security-center/security-center-intro.md) (version standard) assure la protection contre les menaces de vos charges de travail migrées.
 - [Réseau virtuel Azure](../../../../virtual-network/virtual-networks-overview.md) fournissant un réseau isolé et des sous-réseaux pour votre machine virtuelle.
-- [Projet Azure Migrate](../../../..//migrate/migrate-overview.md) pour la découverte et l’évaluation. Nous ajoutons les outils pour l’évaluation de serveur, la migration de serveur, l’évaluation de base de données et la migration de base de données.  
+- [Projet Azure Migrate](../../../../migrate/migrate-services-overview.md) pour la découverte et l’évaluation. Nous ajoutons les outils pour l’évaluation de serveur, la migration de serveur, l’évaluation de base de données et la migration de base de données.  
 
 
 Tous ces éléments se conforment aux pratiques éprouvées publiés dans [Centre des architectures Azure - Architectures de référence](/azure/architecture/reference-architectures/).

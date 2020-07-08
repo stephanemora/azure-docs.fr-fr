@@ -3,12 +3,12 @@ title: Déployer l’exemple de blueprint Services partagés ISO 27001
 description: Étapes de déploiement pour l’exemple de blueprint Services partagés ISO 27001 et informations détaillées sur les paramètres d’artefact de blueprint.
 ms.date: 01/13/2020
 ms.topic: sample
-ms.openlocfilehash: a9dabc99469321445006e449757a10fbc51aba87
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 19e394f115c87c499f7839c6ef63921e68f4d357
+ms.sourcegitcommit: e132633b9c3a53b3ead101ea2711570e60d67b83
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "75920693"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86044700"
 ---
 # <a name="deploy-the-iso-27001-shared-services-blueprint-sample"></a>Déployer l’exemple de blueprint Services partagés ISO 27001
 
@@ -110,7 +110,7 @@ Le tableau suivant fournit la liste des paramètres d’artefact de blueprint :
 |Types de ressources autorisés|Affectation de rôle|Types de ressources autorisés|Liste des types de ressources pouvant être déployés. Cette liste est composée de tous les types de ressources déployés dans les Services partagés.|
 |Références SKU de compte de stockage autorisées|Affectation de rôle|Références SKU de stockage autorisées|Liste des références SKU de compte de stockage de journaux de diagnostic autorisées. La valeur par défaut est _["Standard_LRS"]_ .|
 |Références SKU de machine virtuelle autorisées|Affectation de rôle|Liste des références SKU de machine virtuelle autorisées à être déployées. La valeur par défaut est _["Standard_DS1_v2", "Standard_DS2_v2"]_ .|
-|Initiative de blueprint pour ISO 27001|Affectation de rôle|Types de ressources utilisés pour auditer les journaux de diagnostic|Liste des types de ressources utilisés pour déterminer si le paramètre de journal de diagnostic n’est pas activé. Les valeurs acceptables sont listées dans les [schémas de journaux de diagnostic Azure Monitor](../../../../azure-monitor/platform/diagnostic-logs-schema.md#supported-log-categories-per-resource-type).|
+|Initiative de blueprint pour ISO 27001|Affectation de rôle|Types de ressources utilisés pour auditer les journaux de diagnostic|Liste des types de ressources utilisés pour déterminer si le paramètre de journal de diagnostic n’est pas activé. Les valeurs acceptables sont listées dans les [schémas de journaux de diagnostic Azure Monitor](../../../../azure-monitor/platform/resource-logs-schema.md#service-specific-schemas).|
 |Groupe de ressources Log Analytics|Resource group|Nom|**Verrouillé** : concatène le **nom de l’organisation** et `-sharedsvsc-log-rg` pour rendre le groupe de ressources unique.|
 |Groupe de ressources Log Analytics|Resource group|Emplacement|**Verrouillé** : utilise le paramètre du blueprint.|
 |Modèle Log Analytics|Modèle Resource Manager|Niveau de service|Définit le niveau de l’espace de travail Log Analytics. La valeur par défaut est _PerNode_.|

@@ -3,12 +3,12 @@ title: Déployer un exemple de blueprint Canada Federal PBMM
 description: Étapes de déploiement pour l’exemple de blueprint Canada Federal PBMM et informations détaillées sur les paramètres d’artefact de blueprint.
 ms.date: 05/08/2020
 ms.topic: sample
-ms.openlocfilehash: f9234b3ff44d3536380e19cb685ca4e3bbd9b0a5
-ms.sourcegitcommit: ac4a365a6c6ffa6b6a5fbca1b8f17fde87b4c05e
+ms.openlocfilehash: 5cbca772212f361fb7020dbfbdca20ca236c1ff0
+ms.sourcegitcommit: e132633b9c3a53b3ead101ea2711570e60d67b83
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/10/2020
-ms.locfileid: "83005695"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86045006"
 ---
 # <a name="deploy-the-canada-federal-pbmm-blueprint-samples"></a>Déployer les exemples de blueprint Canada Federal PBMM
 
@@ -98,7 +98,7 @@ Nom de l’artefact|Type d’artefact|Nom du paramètre|Description|
 |\[Préversion\] : Déployer Log Analytics Agent pour les machines virtuelles Windows |Affectation de rôle |Facultatif : Liste des images de machine virtuelle ayant un système d’exploitation Windows pris en charge à ajouter à l’étendue |Un tableau vide peut être utilisé pour indiquer l’absence de paramètres facultatifs : `[]` |
 |\[Préversion\] : Déployer Log Analytics Agent pour les machines virtuelles Windows |Affectation de rôle |Espace de travail Log Analytics pour les machines virtuelles Windows |Pour plus d’informations, consultez [Créer un espace de travail Log Analytics dans le portail Azure](../../../../azure-monitor/learn/quick-create-workspace.md). |
 |\[Préversion\] : Auditer les contrôles Canada Federal PBMM et déployer des extensions de machine virtuelle spécifiques pour prendre en charge les exigences d’audit |Affectation de rôle |ID de l’espace de travail Log Analytics pour lequel les machines virtuelles doivent être configurées |Il s’agit de l’ID (GUID) de l’espace de travail Log Analytics pour lequel les machines virtuelles doivent être configurées. |
-|\[Préversion\] : Auditer les contrôles Canada Federal PBMM et déployer des extensions de machine virtuelle spécifiques pour prendre en charge les exigences d’audit |Affectation de rôle |Liste des types de ressources devant avoir les journaux de diagnostic activés |Liste des types de ressources utilisés pour déterminer si le paramètre de journal de diagnostic n’est pas activé. Les valeurs acceptables sont listées dans les [schémas de journaux de diagnostic Azure Monitor](../../../../azure-monitor/platform/diagnostic-logs-schema.md#supported-log-categories-per-resource-type). |
+|\[Préversion\] : Auditer les contrôles Canada Federal PBMM et déployer des extensions de machine virtuelle spécifiques pour prendre en charge les exigences d’audit |Affectation de rôle |Liste des types de ressources devant avoir les journaux de diagnostic activés |Liste des types de ressources utilisés pour déterminer si le paramètre de journal de diagnostic n’est pas activé. Les valeurs acceptables sont listées dans les [schémas de journaux de diagnostic Azure Monitor](../../../../azure-monitor/platform/resource-logs-schema.md#service-specific-schemas). |
 |\[Préversion\] : Auditer les contrôles Canada Federal PBMM et déployer des extensions de machine virtuelle spécifiques pour prendre en charge les exigences d’audit |Affectation de rôle |Groupe d’administrateurs |Groupe. Exemple : `Administrator; myUser1; myUser2` |
 |\[Préversion\] : Auditer les contrôles Canada Federal PBMM et déployer des extensions de machine virtuelle spécifiques pour prendre en charge les exigences d’audit |Affectation de rôle |Liste des utilisateurs qui doivent être inclus dans le groupe Administrateurs de machines virtuelles Windows |Liste séparée par des points-virgules des membres qui doivent être inclus dans le groupe Administrateurs local. Exemple : `Administrator; myUser1; myUser2` |
 |Déployer Advanced Threat Protection sur les comptes de stockage |Affectation de rôle |Résultat |Vous trouverez des informations sur les effets de la stratégie dans [Comprendre les effets d’Azure Policy](../../../policy/concepts/effects.md). |
