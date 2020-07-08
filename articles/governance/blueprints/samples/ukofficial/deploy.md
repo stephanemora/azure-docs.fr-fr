@@ -3,12 +3,12 @@ title: Déployer les exemples de blueprint UK OFFICIAL et UK NHS
 description: Étapes de déploiement des exemples de blueprint UK OFFICIAL et UK NHS, y compris les détails du paramètre d’artefact blueprint.
 ms.date: 05/08/2020
 ms.topic: sample
-ms.openlocfilehash: 7fa78eab463c9a3202b2ec08e1952e275e51b20d
-ms.sourcegitcommit: ac4a365a6c6ffa6b6a5fbca1b8f17fde87b4c05e
+ms.openlocfilehash: 2ac2d17c08b3f585f86d1b2d339c3c7cf52844ce
+ms.sourcegitcommit: e132633b9c3a53b3ead101ea2711570e60d67b83
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/10/2020
-ms.locfileid: "83005598"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86037169"
 ---
 # <a name="deploy-the-uk-official-and-uk-nhs-blueprint-samples"></a>Déployer les exemples de blueprint UK OFFICIAL et UK NHS
 
@@ -93,7 +93,7 @@ Le tableau suivant fournit la liste des paramètres d’artefact de blueprint :
 
 Nom de l’artefact|Type d’artefact|Nom du paramètre|Description|
 |-|-|-|-|
-|Initiative de blueprint pour UK OFFICIAL ou UK NHS|Affectation de rôle |Types de ressources utilisés pour auditer les journaux de diagnostic (Stratégie : Initiative de blueprint pour UK OFFICIAL ou UK NHS) |Liste des types de ressources à auditer si le paramètre de journal de diagnostic n’est pas activé.  Pour connaître les valeurs acceptables, consultez [Services, schémas et catégories pris en charge pour les journaux de diagnostic Azure](../../../../azure-monitor/platform/diagnostic-logs-schema.md). |
+|Initiative de blueprint pour UK OFFICIAL ou UK NHS|Affectation de rôle |Types de ressources utilisés pour auditer les journaux de diagnostic (Stratégie : Initiative de blueprint pour UK OFFICIAL ou UK NHS) |Liste des types de ressources à auditer si le paramètre de journal de diagnostic n’est pas activé.  Pour connaître les valeurs acceptables, consultez [Services, schémas et catégories pris en charge pour les journaux de diagnostic Azure](../../../../azure-monitor/platform/resource-logs-schema.md). |
 |\[Préversion\] : Déployer Log Analytics Agent pour les machines virtuelles Linux |Affectation de rôle |Facultatif : Liste des images de machine virtuelle ayant un système d’exploitation Linux pris en charge à ajouter à l’étendue (Policy: \[Préversion\] : Déployer Log Analytics Agent pour les machines virtuelles Linux) |(Facultatif) La valeur par défaut est _none_. Pour plus d’informations, consultez [Créer un espace de travail Log Analytics dans le portail Azure](../../../../azure-monitor/learn/quick-create-workspace.md). |
 |\[Préversion\] : Déployer Log Analytics Agent pour les machines virtuelles Windows |Affectation de rôle |Facultatif : Liste des images de machine virtuelle ayant un système d’exploitation Windows pris en charge à ajouter à l’étendue (Policy: \[Préversion\] : Déployer Log Analytics Agent pour les machines virtuelles Windows) |(Facultatif) La valeur par défaut est _none_. Pour plus d’informations, consultez [Créer un espace de travail Log Analytics dans le portail Azure](../../../../azure-monitor/learn/quick-create-workspace.md). |
 
