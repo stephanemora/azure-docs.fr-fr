@@ -11,12 +11,12 @@ ms.topic: article
 ms.date: 01/10/2020
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
-ms.openlocfilehash: be1abe415955b52cbd639faef703e5c2fbd257b6
-ms.sourcegitcommit: 1f48ad3c83467a6ffac4e23093ef288fea592eb5
+ms.openlocfilehash: 82ef70677dd0ede4ddfdd0899747c18f335da5a7
+ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/29/2020
-ms.locfileid: "84194366"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86077029"
 ---
 # <a name="move-data-to-sql-server-on-an-azure-virtual-machine"></a>Déplacer des données vers SQL Server sur une machine virtuelle Azure
 
@@ -187,11 +187,11 @@ Plusieurs méthodes peuvent être utilisées pour exporter en bloc des données 
 
     Génération du fichier de format en cas d’exécution de BCP à partir de l’ordinateur SQL Server
 
-        bcp dbname..tablename format nul -c -x -f exportformatfilename.xml -S servername\sqlinstance -T -t \t -r \n
+    `bcp dbname..tablename format nul -c -x -f exportformatfilename.xml -S servername\sqlinstance -T -t \t -r \n`
 
     Génération du fichier de formation en cas d’exécution de BCP à distance sur une instance SQL Server
 
-        bcp dbname..tablename format nul -c -x -f  exportformatfilename.xml  -U username@servername.database.windows.net -S tcp:servername -P password  --t \t -r \n
+    `bcp dbname..tablename format nul -c -x -f  exportformatfilename.xml  -U username@servername.database.windows.net -S tcp:servername -P password  --t \t -r \n`
 4. Utilisez l’une des méthodes décrites dans la section [Fichiers plats](#filesource_to_sqlonazurevm) pour déplacer les données de fichiers plats vers une instance SQL Server.
 
 ### <a name="sql-database-migration-wizard"></a><a name="sql-migration"></a>Assistant Migration de la base de données SQL

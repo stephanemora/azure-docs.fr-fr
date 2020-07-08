@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/19/2019
 ms.author: juliako
-ms.openlocfilehash: 873bc4ab5e435b91ff4400a39c92db0d0bb9baa8
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 3ad06d0e37b7cf464c311e28e546e1b7f1ebd183
+ms.sourcegitcommit: bcb962e74ee5302d0b9242b1ee006f769a94cfb8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "74968763"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86058246"
 ---
 # <a name="protect-your-hls-content-with-apple-fairplay-or-microsoft-playready"></a>Protéger votre contenu HLS avec Apple FairPlay ou Microsoft PlayReady
 
@@ -127,7 +127,7 @@ Voici les étapes générales que vous devez suivre pour protéger vos élément
 ## <a name="use-fairplay-key-delivery-by-player-apps"></a>Utiliser la remise de clé FairPlay des applications de lecteur
 Vous pouvez développer des applications de lecteur à l’aide du Kit de développement logiciel (SDK) iOS. Pour pouvoir lire le contenu FairPlay, vous devez implémenter le protocole d’échange de licence. Ce protocole n’est pas spécifié par Apple. Chaque application doit décider comment envoyer des requêtes de distribution de clés. Le service de remise de clé Media Services FairPlay s’attend à ce que le certificat SPC soit fourni en tant que message encodé www-form-url au format suivant :
 
-    spc=<Base64 encoded SPC>
+`spc=<Base64 encoded SPC>`
 
 > [!NOTE]
 > Azure Media Player prend en charge la lecture de FairPlay. Consultez la [documentation Azure Media Player](https://amp.azure.net/libs/amp/latest/docs/index.html) pour obtenir plus d’informations.

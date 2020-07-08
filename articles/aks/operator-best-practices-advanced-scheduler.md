@@ -5,12 +5,12 @@ description: Découvrir les bonnes pratiques de l’opérateur relatives à l’
 services: container-service
 ms.topic: conceptual
 ms.date: 11/26/2018
-ms.openlocfilehash: d0d13a699d2559c6b4360c807721e0b748959382
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 5b003c9f0c3b47779bd7da92fb64c57830911fae
+ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81617522"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86077845"
 ---
 # <a name="best-practices-for-advanced-scheduler-features-in-azure-kubernetes-service-aks"></a>Bonnes pratiques relatives aux fonctionnalités avancées du planificateur dans Azure Kubernetes Service (AKS)
 
@@ -101,7 +101,7 @@ Les teintes et tolérances servent à isoler logiquement les ressources avec une
 Examinons un exemple de nœuds avec une grande quantité de mémoire. Ces nœuds peuvent privilégier les pods qui demandent une grande quantité de mémoire. Pour que les ressources ne restent pas inactives, d’autres pods sont également autorisés à s’exécuter.
 
 ```console
-kubectl label node aks-nodepool1 hardware:highmem
+kubectl label node aks-nodepool1 hardware=highmem
 ```
 
 Une spécification de pod ajoute ensuite la propriété `nodeSelector` pour définir un sélecteur de nœud qui correspond à l’étiquette définie sur un nœud :
@@ -122,7 +122,7 @@ spec:
       limits:
         cpu: 4.0
         memory: 16Gi
-    nodeSelector:
+  nodeSelector:
       hardware: highmem
 ```
 
