@@ -9,12 +9,12 @@ ms.devlang: nodejs
 ms.service: cognitive-search
 ms.topic: quickstart
 ms.date: 06/23/2020
-ms.openlocfilehash: 17c64fd1d0e04130867b484ff7eb3fcdb3f0977d
-ms.sourcegitcommit: 635114a0f07a2de310b34720856dd074aaf4f9cd
+ms.openlocfilehash: bd64faf46f91c3b73d58f7c226748cd0ac083701
+ms.sourcegitcommit: 73ac360f37053a3321e8be23236b32d4f8fb30cf
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/23/2020
-ms.locfileid: "85263277"
+ms.lasthandoff: 06/30/2020
+ms.locfileid: "85562149"
 ---
 # <a name="quickstart-create-an-azure-cognitive-search-index-in-nodejs-using-rest-apis"></a>Démarrage rapide : Créer un index Recherche cognitive Azure dans Node.js à l’aide des API REST
 > [!div class="op_single_selector"]
@@ -280,7 +280,7 @@ class AzureSearchClient {
         // The query key is used for read-only requests and so can be distributed with less risk of abuse.
         this.queryKey = queryKey;
         this.indexName = indexName;
-        this.apiVersion = '2019-05-06';
+        this.apiVersion = '2020-06-30';
     }
 
     // All methods go inside class body here!
@@ -289,7 +289,7 @@ class AzureSearchClient {
 module.exports = AzureSearchClient;
 ```
 
-La première responsabilité de la classe est de savoir comment construire des URL auxquelles envoyer les diverses requêtes. Générez ces URL avec des méthodes d’instance qui utilisent les données de configuration transmises au constructeur de classe. Notez que l’URL qu’elles construisent est spécifique à une version de l’API et doit disposer d’un argument spécifiant cette version (`2019-05-06` dans cette application). 
+La première responsabilité de la classe est de savoir comment construire des URL auxquelles envoyer les diverses requêtes. Générez ces URL avec des méthodes d’instance qui utilisent les données de configuration transmises au constructeur de classe. Notez que l’URL qu’elles construisent est spécifique à une version de l’API et doit disposer d’un argument spécifiant cette version (`2020-06-30` dans cette application). 
 
 La première de ces méthodes retourne l’URL de l’index lui-même. Ajoutez la méthode suivante à l’intérieur du corps de votre classe :
 

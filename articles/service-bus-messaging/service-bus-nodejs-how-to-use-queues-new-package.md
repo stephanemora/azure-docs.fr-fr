@@ -1,24 +1,17 @@
 ---
 title: Guide pratique pour utiliser des files d’attente azure/service-bus dans Node.js
 description: Découvrez comment écrire un programme Nodejs pour envoyer et recevoir des messages à partir d’une file d’attente Service Bus en utilisant le nouveau package @azure/service-bus.
-services: service-bus-messaging
-documentationcenter: nodejs
-author: axisc
-editor: spelluru
-ms.assetid: a87a00f9-9aba-4c49-a0df-f900a8b67b3f
-ms.service: service-bus-messaging
-ms.workload: tbd
-ms.tgt_pltfrm: na
+author: spelluru
 ms.devlang: nodejs
 ms.topic: quickstart
-ms.date: 01/27/2020
-ms.author: aschhab
-ms.openlocfilehash: c2e24e9dea2c8463294c85f04c9e4d7d2da17261
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.date: 06/23/2020
+ms.author: spelluru
+ms.openlocfilehash: 59137cd50c2bb6fcd71b43028f68d63225b4094c
+ms.sourcegitcommit: 61d92af1d24510c0cc80afb1aebdc46180997c69
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "78330649"
+ms.lasthandoff: 06/24/2020
+ms.locfileid: "85340677"
 ---
 # <a name="quickstart-how-to-use-service-bus-queues-with-nodejs-and-the-azureservice-bus-package"></a>Démarrage rapide : Comment utiliser les files d’attente Service Bus avec Node.js et le package azure/service-bus
 Dans ce tutoriel, vous allez apprendre à écrire un programme Nodejs pour envoyer et recevoir des messages à partir d’une file d’attente Service Bus en utilisant le nouveau package [@azure/service-bus](https://www.npmjs.com/package/@azure/service-bus). Ce package utilise le protocole [AMQP 1.0](service-bus-amqp-overview.md) plus rapide, alors que l’ancien package [azure-sb](https://www.npmjs.com/package/azure-sb) utilisait des [API d’exécution REST Service Bus](/rest/api/servicebus/service-bus-runtime-rest). Les exemples sont écrits en JavaScript.

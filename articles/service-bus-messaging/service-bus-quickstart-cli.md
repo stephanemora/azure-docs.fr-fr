@@ -1,20 +1,17 @@
 ---
 title: Démarrage rapide - Utiliser Azure CLI pour créer une file d’attente Service Bus | Microsoft Docs
 description: Dans ce guide de démarrage rapide, vous allez apprendre à utiliser Azure CLI pour créer une file d’attente Service Bus. Vous allez ensuite utiliser un exemple d’application Java pour envoyer et recevoir des messages à partir de la file d’attente.
-services: service-bus-messaging
 author: spelluru
-manager: timlt
-ms.service: service-bus-messaging
 ms.devlang: java
 ms.topic: quickstart
-ms.date: 04/10/2019
+ms.date: 06/23/2020
 ms.author: spelluru
-ms.openlocfilehash: e34599b12b8b0c487c6813038951b051d1eaf425
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.openlocfilehash: ed09a72fd5eed72e7a07fefed53bf010a543b658
+ms.sourcegitcommit: 61d92af1d24510c0cc80afb1aebdc46180997c69
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "66400258"
+ms.lasthandoff: 06/24/2020
+ms.locfileid: "85337398"
 ---
 # <a name="quickstart-use-the-azure-cli-to-create-a-service-bus-queue"></a>Démarrage rapide : Utiliser Azure CLI pour créer une file d’attente Service Bus
 Ce guide de démarrage rapide explique comment envoyer et recevoir des messages avec Service Bus à l’aide d’Azure CLI et de la bibliothèque Java Service Bus. Enfin, si vous êtes intéressé par plus de détails techniques, vous pouvez [lire une explication](#understand-the-sample-code) des éléments clé de l’exemple de code.

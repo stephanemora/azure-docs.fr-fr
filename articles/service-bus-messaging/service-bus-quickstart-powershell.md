@@ -1,21 +1,17 @@
 ---
 title: Utiliser Azure PowerShell pour créer une file d’attente Service Bus
 description: Dans ce guide de démarrage rapide, vous allez apprendre à utiliser Azure PowerShell pour créer une file d’attente Service Bus. Vous allez ensuite utiliser un exemple d’application pour envoyer et recevoir des messages à partir de la file d’attente.
-services: service-bus-messaging
 author: spelluru
-manager: timlt
-ms.service: service-bus-messaging
 ms.devlang: dotnet
 ms.topic: quickstart
-ms.custom: mvc
-ms.date: 12/20/2019
+ms.date: 06/23/2020
 ms.author: spelluru
-ms.openlocfilehash: 890e8d3a7592a6794fd19ac28b6ca613ac7201c6
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.openlocfilehash: f1fecfd7ba9f35d06b680d43248bf82aeb54a27b
+ms.sourcegitcommit: 61d92af1d24510c0cc80afb1aebdc46180997c69
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "75426948"
+ms.lasthandoff: 06/24/2020
+ms.locfileid: "85337238"
 ---
 # <a name="quickstart-use-azure-powershell-to-create-a-service-bus-queue"></a>Démarrage rapide : Utiliser Azure PowerShell pour créer une file d’attente Service Bus
 Ce démarrage rapide montre comment envoyer et recevoir des messages vers et depuis une file d’attente Service Bus, en utilisant PowerShell pour créer un espace de noms de messagerie et une file d’attente au sein de cet espace de noms, et pour obtenir les informations d’identification sur cet espace de noms. La procédure montre ensuite comment envoyer et recevoir des messages depuis cette file d’attente à l’aide de la [bibliothèque .NET Standard](https://www.nuget.org/packages/Microsoft.Azure.ServiceBus).

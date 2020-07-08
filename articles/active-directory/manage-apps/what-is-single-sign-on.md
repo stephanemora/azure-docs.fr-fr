@@ -2,22 +2,22 @@
 title: S’authentifier avec l’authentification unique auprès des applications - Azure Active Directory | Microsoft Docs
 description: Découvrez comment choisir une méthode d’authentification unique lors de la configuration d’applications dans Azure Active Directory (Azure AD). Utilisez l’authentification unique pour éviter aux utilisateurs de devoir mémoriser des mots de passe pour chaque application et pour simplifier l’administration de la gestion des comptes.
 services: active-directory
-author: msmimart
-manager: CelesteDG
+author: kenwith
+manager: celestedg
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.workload: identity
-ms.topic: conceptual
+ms.topic: overview
 ms.date: 12/03/2019
-ms.author: mimart
+ms.author: kenwith
 ms.reviewer: arvindh, japere
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f46bcf412403d8f911e484e12a9d1f421b1666f0
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: fd8b20d7d285f30eb0aa9ba5ac22739b57856d6c
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79366068"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85479706"
 ---
 # <a name="single-sign-on-to-applications-in-azure-active-directory"></a>S’authentifier avec l’authentification unique auprès des applications dans Azure Active Directory
 

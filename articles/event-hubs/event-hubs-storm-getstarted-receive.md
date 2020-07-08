@@ -1,26 +1,14 @@
 ---
 title: "Démarrage rapide : Recevoir des événements à l'aide d'Apache Storm - Azure Event Hubs"
 description: 'Démarrage rapide : Cet article fournit des informations à propos de l’utilisation d’Apache Storm pour recevoir des événements depuis Azure Event Hubs.'
-services: event-hubs
-documentationcenter: ''
-author: ShubhaVijayasarathy
-manager: timlt
-editor: ''
-ms.assetid: ''
-ms.service: event-hubs
-ms.workload: na
-ms.tgt_pltfrm: java
-ms.devlang: multiple
 ms.topic: quickstart
-ms.custom: seodec18
-ms.date: 11/05/2019
-ms.author: shvija
-ms.openlocfilehash: 90293da07d3a7ef1c32e5f82d35198d4ffa536b1
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.date: 06/23/2020
+ms.openlocfilehash: 05973a9a930cd7b42a5a00554c48832065c794ec
+ms.sourcegitcommit: 01cd19edb099d654198a6930cebd61cae9cb685b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "73717610"
+ms.lasthandoff: 06/24/2020
+ms.locfileid: "85315357"
 ---
 # <a name="quickstart-receive-events-from-event-hubs-using-apache-storm"></a>Démarrage rapide : Recevoir des événements d’Event Hubs avec Apache Storm
 
