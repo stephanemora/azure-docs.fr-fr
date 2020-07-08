@@ -1,23 +1,14 @@
 ---
 title: 'Démarrage rapide : Envoyer des événements personnalisés avec Event Grid et Azure CLI'
 description: 'Démarrage rapide : Utiliser Azure Event Grid et Azure CLI pour publier une rubrique personnalisée et pour vous abonner aux événements de cette rubrique Les événements sont gérés par une application web.'
-services: event-grid
-keywords: ''
-author: spelluru
-ms.author: spelluru
-ms.date: 11/05/2019
+ms.date: 07/07/2020
 ms.topic: quickstart
-ms.service: event-grid
-ms.custom:
-- seodec18
-- seo-javascript-september2019
-- seo-python-october2019
-ms.openlocfilehash: 4dbf3d2be04403d7cafac4ef9d4305c368da68b1
-ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
+ms.openlocfilehash: ecf7e753df4f6fb3de6095ba295a07fd57b458cf
+ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/21/2020
-ms.locfileid: "83743070"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86101679"
 ---
 # <a name="quickstart-route-custom-events-to-web-endpoint-with-azure-cli-and-event-grid"></a>Démarrage rapide : Router des événements personnalisés vers un point de terminaison web avec Azure CLI et Event Grid
 

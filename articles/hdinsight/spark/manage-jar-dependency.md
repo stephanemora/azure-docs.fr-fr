@@ -6,14 +6,14 @@ ms.author: hrasheed
 ms.reviewer: jasonh
 ms.custom: hdinsightactive
 ms.service: hdinsight
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 02/05/2020
-ms.openlocfilehash: da3387dd9846847f7643ded43c8cbff8ed8b166e
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: e3807f54de672642bfc6454cf38babbf189c210a
+ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "77135699"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86086073"
 ---
 # <a name="jar-dependency-management-best-practices"></a>Bonnes pratiques de gestion des dépendances JAR
 

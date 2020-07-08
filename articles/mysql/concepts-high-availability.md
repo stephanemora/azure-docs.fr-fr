@@ -6,12 +6,12 @@ ms.author: andrela
 ms.service: mysql
 ms.topic: conceptual
 ms.date: 3/18/2020
-ms.openlocfilehash: a793de35ffff84009d362f005e599b4419f0763f
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 50bf1502589ea0932fd45367c039e6e37135d761
+ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "79532771"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86086056"
 ---
 # <a name="high-availability-concepts-in-azure-database-for-mysql"></a>Concepts de haute disponibilité dans Azure Database pour MySQL
 Le service Azure Database pour MySQL fournit un haut niveau de disponibilité garanti. Le contrat de niveau de service (SLA) est de 99,99 % en disponibilité générale. Il n’existe pratiquement aucun temps d’arrêt d’application lors de l’utilisation de ce service.
@@ -29,7 +29,7 @@ En interne dans Azure, une passerelle est utilisée pour rediriger les connexion
 ## <a name="scaling-up-or-down"></a>Augmentation ou diminution d’échelle
 Comme pour le modèle de haute disponibilité, quand une base de données Azure Database pour MySQL est mise à l’échelle, une nouvelle instance de serveur de la taille spécifiée est créée. Le stockage de données existant est détaché de l’instance d’origine et attaché à la nouvelle instance.
 
-Pendant l’opération de mise à l’échelle, une interruption se produit pour les connexions de base de données. Les applications clientes sont déconnectées, et les transactions non validées en cours sont annulées. Une fois que l’application cliente réessaie d’établir la connexion ou établit une nouvelle connexion, la passerelle dirige la connexion vers l’instance qui vient d’être dimensionnée. 
+Pendant l’opération de mise à l’échelle, une interruption se produit pour les connexions de base de données. Les applications clientes sont déconnectées, et les transactions non validées en cours sont annulées. Une fois que l’application cliente réessaie d’établir la connexion ou établit une nouvelle connexion, la passerelle dirige la connexion vers l’instance qui vient d’être dimensionnée.
 
 ## <a name="next-steps"></a>Étapes suivantes
 - En savoir plus sur le [traitement des erreurs de connectivité transitoires](concepts-connectivity.md)

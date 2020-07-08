@@ -4,14 +4,14 @@ description: En savoir plus sur la connexion et l’authentification à l’aide
 author: lfittl-msft
 ms.author: lufittl
 ms.service: postgresql
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 05/19/2020
-ms.openlocfilehash: 01a27a9c98c1c429cdc381ba0c1e9ef4186c9e7a
-ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
+ms.openlocfilehash: ec9e53ecaa95f6407a00c149abb6ed7e4a671d74
+ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83663347"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86102291"
 ---
 # <a name="connect-with-managed-identity-to-azure-database-for-postgresql"></a>Se connecter avec Managed Identity auprès d’Azure Database pour PostgreSQL
 
@@ -26,7 +26,7 @@ Cet article explique comment utiliser une identité affectée par l’utilisateu
 ## <a name="prerequisites"></a>Prérequis
 
 - Si vous n’êtes pas familiarisé de la fonctionnalité identités managées pour ressources Azure, consultez cette [Vue d’ensemble](../../articles/active-directory/managed-identities-azure-resources/overview.md). Si vous n’avez pas encore de compte Azure, [Inscrivez-vous sur un compte gratuit](https://azure.microsoft.com/free/) avant de continuer.
-- Pour effectuer les opérations nécessaires de création de ressources et de gestion de rôles, votre compte doit disposer des autorisations « Propriétaire » au niveau de l’étendue appropriée (votre abonnement ou groupe de ressources). Si vous avez besoin d’aide concernant l’attribution de rôle, consultez [Utiliser le contrôle d’accès en fonction du rôle pour gérer l’accès aux ressources d’un abonnement Azure](../../articles/role-based-access-control/role-assignments-portal.md).
+- Pour effectuer les opérations nécessaires de création de ressources et de gestion de rôles, votre compte doit disposer des autorisations « Propriétaire » au niveau de l’étendue appropriée (votre abonnement ou groupe de ressources). Si vous avez besoin d’aide concernant l’attribution de rôle, consultez [Utiliser le contrôle d’accès en fonction du rôle pour gérer l’accès aux ressources d’un abonnement Azure](../../articles/role-based-access-control/role-assignments-portal.md).
 - Vous avez besoin d’une machine virtuelle Azure (exécutant par exemple Ubuntu Linux) que vous souhaitez utiliser pour accéder à votre base de données à l’aide de Managed Identity
 - Vous avez besoin d’un serveur de base de données Azure Database pour PostgreSQL sur lequel [Azure AD Authentication](howto-configure-sign-in-aad-authentication.md) est configurée
 - Pour suivre cet exemple C#, vous devez d’abord suivre le guide pratique [Se connecter avec C#](connect-csharp.md)
@@ -49,7 +49,7 @@ resourceID=$(az identity show --resource-group myResourceGroup --name myManagedI
 clientID=$(az identity show --resource-group myResourceGroup --name myManagedIdentity --query clientId --output tsv)
 ```
 
-Nous pouvons maintenant attribuer l’identité affectée par l’utilisateur à la machine virtuelle à l’aide de la commande [az vm identity assign](/cli/azure/vm/identity?view=azure-cli-latest#az-vm-identity-assign) :
+Nous pouvons maintenant attribuer l’identité affectée par l’utilisateur à la machine virtuelle à l’aide de la commande [az vm identity assign](/cli/azure/vm/identity?view=azure-cli-latest#az-vm-identity-assign) :
 
 ```azurecli
 az vm identity assign --resource-group myResourceGroup --name myVM --identities $resourceID
@@ -76,13 +76,13 @@ L’identité managée dispose désormais d’un accès lors de l’authentifica
 
 Votre application peut désormais récupérer un jeton d’accès à partir d’Azure Instance Metadata Service et l’utiliser pour l’authentification auprès de la base de données.
 
-Cette récupération de jeton est effectuée en envoyant une requête HTTP à `http://169.254.169.254/metadata/identity/oauth2/token` et en transmettant les paramètres suivants :
+Vous effectuez cette récupération de jeton en envoyant une requête HTTP à `http://169.254.169.254/metadata/identity/oauth2/token` et en transmettant les paramètres suivants :
 
 * `api-version` = `2018-02-01`
 * `resource` = `https://ossrdbms-aad.database.windows.net`
-* `client_id` = `CLIENT_ID` (que vous avez récupéré précédemment)
+* `client_id` = `CLIENT_ID` (que vous avez récupérés précédemment)
 
-Vous obtenez un résultat JSON qui contient le champ `access_token`. Cette valeur de texte long est le jeton d’accès Managed Identity que vous devez utiliser comme mot de passe lors de la connexion à la base de données.
+Vous obtenez un résultat JSON qui contient un champ `access_token`. Cette valeur de texte longue est le jeton d’accès Managed Identity que vous devez utiliser comme mot de passe lors de la connexion à la base de données.
 
 À des fins de test, vous pouvez exécuter les commandes suivantes dans votre interpréteur de commandes. Notez que `curl`, `jq` et le client `psql` doivent être installés.
 
@@ -100,7 +100,7 @@ Vous êtes maintenant connecté à la base de données que vous avez configurée
 
 Cette section montre comment obtenir un jeton d’accès à l’aide de l’identité managée affectée par l’utilisateur de la machine virtuelle et comment l’utiliser pour appeler Azure Database pour PostgreSQL. Azure Database pour PostgreSQL prenant en charge Azure AD Authentication en mode natif, il peut accepter directement des jetons d’accès obtenus à l’aide d’identités managées pour les ressources Azure. Lors de la création d’une connexion à PostgreSQL, vous transmettez le jeton d’accès dans le champ du mot de passe.
 
-Voici un exemple de code .NET pour l’ouverture d’une connexion à PostgreSQL à l’aide d’un jeton d’accès. Pour permettre l’accès au point de terminaison de l’identité managée affectée par l’utilisateur de la machine virtuelle, ce code doit s’exécuter sur la machine virtuelle. Pour pouvoir utiliser la méthode de jeton d’accès, .NET Framework 4.6 ou version ultérieure ou .NET Core 2.2 ou version ultérieure est requis. Remplacez les valeurs de HOST, USER, DATABASE et CLIENT_ID.
+Voici un exemple de code .NET pour l’ouverture d’une connexion à PostgreSQL à l’aide d’un jeton d’accès. Pour permettre l’accès au point de terminaison de l’identité managée affectée par l’utilisateur de la machine virtuelle, ce code doit s’exécuter sur la machine virtuelle. Pour pouvoir utiliser la méthode de jeton d’accès,le logiciel .NET Framework 4.6 ou version ultérieure ou .NET Core 2.2 ou version ultérieure est requis. Remplacez les valeurs de HOST, USER, DATABASE et CLIENT_ID.
 
 ```csharp
 using System;
@@ -185,7 +185,7 @@ namespace Driver
 }
 ```
 
-Quand elle est exécutée, cette commande donne une sortie semblable à celle-ci :
+Quand elle est exécutée, cette commande donne une sortie semblable à celle-ci :
 
 ```
 Getting access token from Azure Instance Metadata service...

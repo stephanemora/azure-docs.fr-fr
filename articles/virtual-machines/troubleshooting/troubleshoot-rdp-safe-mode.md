@@ -12,12 +12,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 ms.date: 11/13/2018
 ms.author: genli
-ms.openlocfilehash: 7bc2c0f472a03c3f069a889c360bea9017a780f2
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: f1ffd26a243d15f7ee6e06d6c52406a16327b4a0
+ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "77918204"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86086770"
 ---
 #  <a name="cannot-rdp-to-a-vm-because-the-vm-boots-into-safe-mode"></a>Impossible d’établir une connexion RDP à une machine virtuelle car celle-ci démarre en mode sans échec
 
@@ -47,7 +47,9 @@ Pour résoudre ce problème, utilisez le contrôle série pour configurer la mac
    ). Si la console série n’est pas activée sur votre machine virtuelle, consultez [Réparer la machine virtuelle en mode hors connexion](#repair-the-vm-offline).
 2. Consultez les données de configuration de démarrage :
 
-        bcdedit /enum
+    ```console
+    bcdedit /enum
+    ```
 
     Si la machine virtuelle est configurée pour démarrer en mode sans échec, vous voyez un indicateur supplémentaire sous la section **Chargeur de démarrage Windows** appelé **safeboot**. Si vous ne voyez pas l’indicateur **safeboot**, la machine virtuelle n’est pas en mode sans échec. Cet article ne s’applique pas à votre scénario.
 
@@ -61,11 +63,15 @@ Pour résoudre ce problème, utilisez le contrôle série pour configurer la mac
 
 3. Supprimez l’indicateur **safemode** pour que la machine virtuelle démarre en mode normal :
 
-        bcdedit /deletevalue {current} safeboot
+    ```console
+    bcdedit /deletevalue {current} safeboot
+    ```
 
 4. Vérifiez les données de configuration de démarrage pour vous assurer que l’indicateur **safeboot** est supprimé :
 
-        bcdedit /enum
+    ```console
+    bcdedit /enum
+    ```
 
 5. Redémarrez la machine virtuelle et vérifiez que le problème est résolu.
 
@@ -115,7 +121,10 @@ Pour activer le journal de vidage et la console série, exécutez le script suiv
 1. Ouvrez une session Invite de commande avec élévation de privilèges (**Exécuter en tant qu’administrateur**).
 2. Consultez les données de configuration de démarrage. Dans les commandes suivantes, nous partons du principe que la lettre de lecteur affectée au disque de système d’exploitation attaché est F. Remplacez-la par la valeur correspondant à votre machine virtuelle.
 
-        bcdedit /store F:\boot\bcd /enum
+    ```console
+    bcdedit /store F:\boot\bcd /enum
+    ```
+
     Prenez note du nom d’identificateur de la partition comportant le dossier **\windows**. Par défaut, le nom de l’identificateur est « Default ».
 
     Si la machine virtuelle est configurée pour démarrer en mode sans échec, vous voyez un indicateur supplémentaire sous la section **Chargeur de démarrage Windows** appelé **safeboot**. Si vous ne voyez pas l’indicateur **safeboot**, cet article ne s’applique pas à votre scénario.
@@ -124,8 +133,14 @@ Pour activer le journal de vidage et la console série, exécutez le script suiv
 
 3. Supprimez l’indicateur **safeboot** pour que la machine virtuelle démarre en mode normal :
 
-        bcdedit /store F:\boot\bcd /deletevalue {Default} safeboot
+    ```console
+    bcdedit /store F:\boot\bcd /deletevalue {Default} safeboot
+    ```
+
 4. Vérifiez les données de configuration de démarrage pour vous assurer que l’indicateur **safeboot** est supprimé :
 
-        bcdedit /store F:\boot\bcd /enum
+    ```console
+    bcdedit /store F:\boot\bcd /enum
+    ```
+
 5. [Détachez le disque de système d’exploitation et recréez la machine virtuelle](../windows/troubleshoot-recovery-disks-portal.md). Ensuite, vérifiez que le problème est résolu.

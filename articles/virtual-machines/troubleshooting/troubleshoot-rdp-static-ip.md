@@ -12,12 +12,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 ms.date: 11/08/2018
 ms.author: genli
-ms.openlocfilehash: 92ad33fbc759605ae901c3bcf09283c8e0b1c4b5
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 49f3f44c7de8c700d0093c5eb6f166a1dffb34a4
+ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "77918187"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86087246"
 ---
 #  <a name="cannot-remote-desktop-to-azure-virtual-machines-because-of-static-ip"></a>Impossible de connecter un bureau à distance à des machines virtuelles Azure en raison de l’adresse IP statique
 
@@ -56,18 +56,27 @@ Pour résoudre ce problème, utilisez la console série pour activer le protocol
 ). Si la console série n’est pas activée sur votre machine virtuelle, consultez [Réinitialiser l’interface réseau](reset-network-interface.md).
 2. Vérifiez si le protocole DHCP est désactivé sur l’interface réseau :
 
-        netsh interface ip show config
+    ```console
+    netsh interface ip show config
+    ```
+
 3. Si le protocole DHCP est désactivé, rétablissez la configuration de votre interface réseau pour utiliser DHCP :
 
-        netsh interface ip set address name="<NIC Name>" source=dhc
+    ```console
+    netsh interface ip set address name="<NIC Name>" source=dhc
+    ```
 
     Par exemple, si l’interface réseau s’appelle « Ethernet 2 », exécutez la commande suivante :
 
-        netsh interface ip set address name="Ethernet 2" source=dhc
+    ```console
+    netsh interface ip set address name="Ethernet 2" source=dhc
+    ```
 
 4. Interrogez à nouveau la configuration IP pour vous assurer que l’interface réseau est correctement configurée. La nouvelle adresse IP doit correspondre à celle fournie par Azure.
 
-        netsh interface ip show config
+    ```console
+    netsh interface ip show config
+    ```
 
     À ce stade, vous n’êtes pas obligé de redémarrer la machine virtuelle. La machine virtuelle sera de nouveau accessible.
 

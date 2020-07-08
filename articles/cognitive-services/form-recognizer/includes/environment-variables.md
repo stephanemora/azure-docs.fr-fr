@@ -9,18 +9,18 @@ ms.subservice: forms-recognizer
 ms.topic: include
 ms.date: 05/06/2020
 ms.author: pafarley
-ms.openlocfilehash: 8bcce81808530c124b73b3527609a08f869b99c4
-ms.sourcegitcommit: fc718cc1078594819e8ed640b6ee4bef39e91f7f
+ms.openlocfilehash: 28362a81461b63440ad752071f11b3603a979995
+ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "83997523"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86100349"
 ---
 En utilisant votre clé et le point de terminaison de la ressource que vous avez créée, créez deux variables d’environnement pour l’authentification :
 
 * `FORM_RECOGNIZER_KEY` : clé de ressource pour l’authentification de vos requêtes.
 * `FORM_RECOGNIZER_ENDPOINT` : point de terminaison de ressource pour l’envoi de requêtes d’API. Il se présente comme suit : 
-  * `https://<your-custom-subdomain>.api.cognitive.microsoft.com` 
+  * `https://<your-custom-subdomain>.cognitiveservices.azure.com`
 
 >[!NOTE]
 > Les points de terminaison pour les ressources autres que d’essai créées après le 1er juillet 2019 utilisent le format de sous-domaine personnalisé indiqué ci-dessous. Pour obtenir plus d’informations et une liste complète des points de terminaison régionaux, consultez [Noms de sous-domaines personnalisés pour Cognitive Services](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-custom-subdomains). 

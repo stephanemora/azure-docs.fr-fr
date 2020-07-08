@@ -12,12 +12,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 ms.date: 11/13/2018
 ms.author: genli
-ms.openlocfilehash: 2c5b0556554d280e57b2df51875e1b057b5fb4a8
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 278d976f044deb8a7387763306cf07f8b6b55d90
+ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "75749895"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86087790"
 ---
 #  <a name="cannot-rdp-to-azure-virtual-machines-because-the-dhcp-client-service-is-disabled"></a>Impossible d’établir une connexion RDP à des machines virtuelles Azure car le service client DHCP est désactivé
 
@@ -40,7 +40,9 @@ Vous ne pouvez pas établir une connexion RDP à une machine virtuelle dans Azur
 
 Pour les machines virtuelles Resource Manager, vous pouvez utiliser la fonctionnalité Console d’accès série pour rechercher les journaux des événements 7022 à l’aide de la commande suivante :
 
-    wevtutil qe system /c:1 /f:text /q:"Event[System[Provider[@Name='Service Control Manager'] and EventID=7022 and TimeCreated[timediff(@SystemTime) <= 86400000]]]" | more
+```console
+wevtutil qe system /c:1 /f:text /q:"Event[System[Provider[@Name='Service Control Manager'] and EventID=7022 and TimeCreated[timediff(@SystemTime) <= 86400000]]]" | more
+```
 
 Pour les machines virtuelles classiques, vous devez travailler en mode HORS CONNEXION et collecter les journaux d’activité manuellement.
 
@@ -63,14 +65,21 @@ Pour résoudre ce problème, utilisez le contrôle série pour activer DHCP ou [
 ). Si la console série n’est pas activée sur votre machine virtuelle, consultez [Réinitialiser l’interface réseau](reset-network-interface.md).
 2. Vérifiez si le protocole DHCP est désactivé sur l’interface réseau :
 
-        sc query DHCP
+    ```console
+    sc query DHCP
+    ```
+
 3. Si DHCP est arrêté, essayez de démarrer le service.
 
-        sc start DHCP
+    ```console
+    sc start DHCP
+    ```
 
 4. Interrogez à nouveau le service pour vous assurer qu’il a réussi à démarrer.
 
-        sc query DHCP
+    ```console
+    sc query DHCP
+    ```
 
     Essayez de vous connecter à la machine virtuelle et regardez si le problème est résolu.
 5. Si le service ne démarre pas, utilisez la solution appropriée suivante en fonction du message d’erreur que vous avez reçu :
@@ -157,23 +166,38 @@ Pour résoudre ce problème, utilisez le contrôle série pour activer DHCP ou [
 
 1. Étant donné que ce problème se produit si le compte de démarrage de ce service a été modifié, rétablissez le compte à son état par défaut :
 
-        sc config DHCP obj= 'NT Authority\Localservice'
+    ```console
+    sc config DHCP obj= 'NT Authority\Localservice'
+    ```
+
 2. Démarrez le service :
 
-        sc start DHCP
+    ```console
+    sc start DHCP
+    ```
+
 3. Essayez de vous connecter à la machine virtuelle à l’aide de Bureau à distance.
 
 #### <a name="dhcp-client-service-crashes-or-hangs"></a>Le service client DHCP plante ou se bloque
 
 1. Si l’état du service est bloqué sur **Démarrage** ou sur **Arrêt**, essayez d’arrêter le service :
 
-        sc stop DHCP
+    ```console
+    sc stop DHCP
+    ```
+
 2. Isolez le service sur son propre conteneur « svchost » :
 
-        sc config DHCP type= own
+    ```console
+    sc config DHCP type= own
+    ```
+
 3. Démarrez le service :
 
-        sc start DHCP
+    ```console
+    sc start DHCP
+    ```
+
 4. Si le service ne démarre toujours pas, [contactez le support](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade).
 
 ### <a name="repair-the-vm-offline"></a>Réparer la machine virtuelle en mode hors connexion

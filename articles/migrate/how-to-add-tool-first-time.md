@@ -3,16 +3,16 @@ title: Ajouter un outil d’évaluation et de migration dans Azure Migrate
 description: Décrit comment créer un projet Azure Migrate et ajouter un outil d’évaluation et de migration.
 ms.topic: how-to
 ms.date: 04/16/2020
-ms.openlocfilehash: 1294831162df973e1f87052c1520d5d95990cf8f
-ms.sourcegitcommit: 0fda81f271f1a668ed28c55dcc2d0ba2bb417edd
+ms.openlocfilehash: a94e3cc18f46c457d6ed54ef88c62adefb07c5b9
+ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/07/2020
-ms.locfileid: "82901188"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86102529"
 ---
 # <a name="add-an-assessmentmigration-tool-for-the-first-time"></a>Ajouter un outil d’évaluation/de migration pour la première fois
 
-Cet article explique comment ajouter un outil d’évaluation ou de migration à un projet de [Azure Migrate](migrate-overview.md) pour la première fois.  
+Cet article explique comment ajouter un outil d’évaluation ou de migration à un projet de [Azure Migrate](./migrate-services-overview.md) pour la première fois.  
 Azure Migrate offre un hub central pour suivre la découverte, l’évaluation et la migration vers Azure d’applications et de charges de travail locales, ainsi que des machines virtuelles cloud privées/publiques. Le hub fournit des outils d’évaluation et de migration Azure Migrate, ainsi que d’autres outils et des [offres](migrate-services-overview.md#isv-integration) d’éditeurs de logiciels indépendants (ISV). 
 
 ## <a name="check-permissions-to-create-project"></a>Attribuer des autorisations pour créer un projet
