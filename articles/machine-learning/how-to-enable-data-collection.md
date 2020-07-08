@@ -5,25 +5,21 @@ description: Découvrez comment collecter des données de modèle d’entrée Az
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
-ms.topic: conceptual
+ms.topic: how-to
 ms.reviewer: laobri
 ms.author: copeters
 author: lostmygithubaccount
 ms.date: 11/12/2019
 ms.custom: seodec18
-ms.openlocfilehash: 44acc81df9eb6dc6a6af28b5b0f4730aa93adffc
-ms.sourcegitcommit: efefce53f1b75e5d90e27d3fd3719e146983a780
-ms.translationtype: HT
+ms.openlocfilehash: 75402c71316f7cc7d068c12a240f3123569a00ea
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/01/2020
-ms.locfileid: "80475427"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84432995"
 ---
 # <a name="collect-data-for-models-in-production"></a>Collecter des données pour des modèles en production
 
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
-
->[!IMPORTANT]
-> Le SDK de supervision Azure Machine Learning va bientôt être mis hors service. Le SDK convient toujours aux développeurs qui l’utilisent pour superviser la dérive de données dans les modèles. Toutefois, nous recommandons aux nouveaux clients d’utiliser la version simplifiée de la [supervision des données avec Application Insights](https://docs.microsoft.com/azure/machine-learning/how-to-enable-app-insights).
 
 Cet article montre comment collecter des données de modèle d’entrée à partir d’Azure Machine Learning. Il montre également comment déployer les données d’entrée dans un cluster Azure Kubernetes Service (AKS) et comment stocker les données de sortie dans le stockage d’objets blob Azure.
 
@@ -199,7 +195,7 @@ Vous pouvez choisir l’outil de votre choix pour analyser les données collect�
 
 1. Entrez le chemin du modèle dans le filtre. Si vous ne voulez examiner que les fichiers d’une année ou d’un mois spécifique, développez simplement le chemin du filtre. Par exemple, pour rechercher uniquement les données du mois de mars, utilisez ce chemin de filtre :
 
-   /modeldata/\<ID-abonnement>/\<nom-groupe-ressources>/\<nom-espace-de-travail>/\<nom-service-web>/\<nom-modèle>/\<version-modèle>/\<désignation>/\<année>/3
+   /modeldata/\<subscriptionid>/\<resourcegroupname>/\<workspacename>/\<webservicename>/\<modelname>/\<modelversion>/\<designation>/\<year>/3
 
 1. Filtrez les données qui vous concernent en fonction des valeurs de **Nom**. Si vous avez stocké des prédictions et des entrées, vous devrez créer une requête pour chacune d’elles.
 

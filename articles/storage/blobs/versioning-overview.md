@@ -9,12 +9,11 @@ ms.topic: conceptual
 ms.date: 05/05/2020
 ms.author: tamram
 ms.subservice: blobs
-ms.openlocfilehash: 7e4bc74a51e3d6b19957bdd12512e18fa594c811
-ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
-ms.translationtype: HT
+ms.openlocfilehash: 89d69547d793599fc669927b1a500716a858cc89
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/12/2020
-ms.locfileid: "83123834"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84433595"
 ---
 # <a name="blob-versioning-preview"></a>Contrôle de version des objets blob (préversion)
 
@@ -178,8 +177,8 @@ Le tableau suivant indique les actions avec contrôle d’accès en fonction du 
 
 | Description | Opération de service d’objet blob | Action sur les données RBAC nécessaire | Prise en charge intégrée des rôles RBAC |
 |----------------------------------------------|------------------------|---------------------------------------------------------------------------------------|-------------------------------|
-| Suppression de la version actuelle de l’objet blob | Delete Blob | **Microsoft.Storage/storageAccounts/blobServices/containers/blobs/delete/actionDeleting** | Contributeur aux données Blob du stockage |
-| Suppression d’une version | Delete Blob | **Microsoft.Storage/storageAccounts/blobServices/containers/blobs/deleteBlobVersion/** | Propriétaire des données Blob du stockage |
+| Suppression de la version actuelle de l’objet blob | Delete Blob | **Microsoft.Storage/storageAccounts/blobServices/containers/blobs/delete** | Contributeur aux données Blob du stockage |
+| Suppression d’une version | Delete Blob | **Microsoft.Storage/storageAccounts/blobServices/containers/blobs/deleteBlobVersion/action** | Propriétaire des données Blob du stockage |
 
 ### <a name="shared-access-signature-sas-parameters"></a>Paramètres de la signature d’accès partagé (SAP)
 
