@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 04/27/2020
 ms.author: allensu
-ms.openlocfilehash: db50a8938459fe063553f08c495149867ee36f43
-ms.sourcegitcommit: 537c539344ee44b07862f317d453267f2b7b2ca6
+ms.openlocfilehash: 0b025b3e017c8a7702b411e9d91cbdf22f915aba
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/11/2020
-ms.locfileid: "84710063"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85549641"
 ---
 # <a name="designing-virtual-networks-with-nat-gateway-resources"></a>Conception de réseaux virtuels avec des ressources de passerelle NAT
 
@@ -199,10 +199,10 @@ Une défaillance dans une zone autre que celle où se trouve votre scénario est
 
 Si votre scénario nécessite des points de terminaison entrants, deux options s’offrent à vous :
 
-| Option | Modèle |  Exemple | Avantage | Inconvénient |
+| Option | Modèle | Exemple | Avantage | Inconvénient |
 |---|---|---|---|---|
 | (1) | **Aligner** les points de terminaison entrants sur les **piles zonales** respectives que vous créez pour le trafic sortant. | Créez un équilibreur de charge standard avec un front-end zonal. | Même modèle d’intégrité et même mode d’échec pour le trafic entrant et sortant. Plus simple à utiliser. | Il peut être nécessaire de masquer les adresses IP individuelles par zone à l’aide d’un nom DNS commun. |
-|  (2) | **Superposer** les piles zonales avec un point de terminaison entrant **entre les zones**. | Créez un équilibreur de charge standard avec un front-end redondant interzone. | Adresse IP unique pour un point de terminaison entrant. | Modèle d’intégrité et modes d’échec variables pour le trafic entrant et sortant.  Plus complexe à utiliser. |
+| (2) | **Superposer** les piles zonales avec un point de terminaison entrant **entre les zones**. | Créez un équilibreur de charge standard avec un front-end redondant interzone. | Adresse IP unique pour un point de terminaison entrant. | Modèle d’intégrité et modes d’échec variables pour le trafic entrant et sortant.  Plus complexe à utiliser. |
 
 >[!NOTE]
 > Une passerelle NAT isolée dans une zone exige que les adresses IP correspondent à la zone de la passerelle NAT. Les ressources de passerelle NAT avec des adresses IP d’une autre zone ou sans zone ne sont pas autorisées.
@@ -325,8 +325,7 @@ Un port SNAT peut être réutilisé pour la même adresse IP de destination et l
 - La journalisation des flux de groupe de sécurité réseau n’est pas prise en charge lors de l’utilisation de NAT.
 - NAT ne peut pas s’étendre sur plusieurs réseaux virtuels.
 
-
-## <a name="feedback"></a>Commentaires
+## <a name="suggestions"></a>Suggestions
 
 Nous aimerions savoir comment nous pouvons améliorer le service. Il vous manque une fonctionnalité ? Envoyez-nous vos suggestions sur [UserVoice for NAT](https://aka.ms/natuservoice).
 
