@@ -8,21 +8,22 @@ manager: mtillman
 editor: ''
 ms.service: active-directory
 ms.subservice: users-groups-roles
-ms.topic: article
+ms.topic: reference
 ms.workload: identity
 ms.date: 02/21/2019
 ms.author: curtand
 ms.custom: aaddev;it-pro
 ms.reviewer: jeffsta
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 3b83f10cd021f54dc16e196cb7a9ccd7c46fd2ee
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 8ee40748b8b23295ccca276012cd0a35c965da03
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "75659642"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84728790"
 ---
 # <a name="azure-ad-service-limits-and-restrictions"></a>Restrictions et limites du service Azure Active Directory
+
 Cet article présente les contraintes d'utilisation et autres limites de service pour le service Azure Active Directory (Azure AD). Pour connaître l'ensemble complet des limites du service Microsoft Azure, consultez [Abonnement Azure et limites, quotas et contraintes du service](../../azure-resource-manager/management/azure-subscription-service-limits.md).
 
 [!INCLUDE [AAD-service-limits](../../../includes/active-directory-service-limits-include.md)]
