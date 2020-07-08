@@ -8,12 +8,12 @@ ms.subservice: gateway
 ms.topic: how-to
 ms.date: 03/25/2019
 ms.author: alkohli
-ms.openlocfilehash: 5ca8f5d629a110d2a4d3b35cb357af2c723ec312
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: d2b26016ec67f0eecd785e3bfb951fe5fd607545
+ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84339193"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86079143"
 ---
 # <a name="use-the-azure-portal-to-manage-shares-on-your-azure-data-box-gateway"></a>Utiliser le Portail Azure pour gérer les partages de votre service Azure Data Box Gateway 
 
@@ -92,23 +92,23 @@ La fonctionnalité d’actualisation vous permet d’actualiser le contenu d’u
 
 Pour actualiser un partage, procédez comme suit dans le Portail Azure.
 
-1.   Accédez à **Partages** dans le Portail Azure. Sélectionnez et cliquez sur le partage que vous souhaitez actualiser.
+1. Accédez à **Partages** dans le Portail Azure. Sélectionnez et cliquez sur le partage que vous souhaitez actualiser.
 
-    ![Sélectionner un partage](media/data-box-gateway-manage-shares/refresh-1.png)
+   ![Sélectionner un partage](media/data-box-gateway-manage-shares/refresh-1.png)
 
-2.   Cliquez sur **Actualiser**. 
+2. Cliquez sur **Actualiser**. 
 
-    ![Cliquer sur Actualiser](media/data-box-gateway-manage-shares/refresh-2.png)
+   ![Cliquer sur Actualiser](media/data-box-gateway-manage-shares/refresh-2.png)
  
-3.   Cliquez sur **Oui**lorsque vous êtes invité à confirmer l’opération. Un travail démarre pour actualiser le contenu du partage local. 
+3. Cliquez sur **Oui**lorsque vous êtes invité à confirmer l’opération. Un travail démarre pour actualiser le contenu du partage local. 
 
-    ![Confirmer l’actualisation](media/data-box-gateway-manage-shares/refresh-3.png)
+   ![Confirmer l’actualisation](media/data-box-gateway-manage-shares/refresh-3.png)
  
 4.   Pendant l’actualisation, l’option d’actualisation du menu contextuel est grisée. Cliquez sur la notification de travail pour afficher l’état du travail d’actualisation.
 
-5.   La durée nécessaire pour l’actualisation varie en fonction du nombre de fichiers dans le conteneur Azure, ainsi que des fichiers sur l’appareil. Une fois l’actualisation terminée, le timestamp du partage est mis à jour. Même si l’actualisation présente des échecs partiels, l’opération est considérée comme réussie et le timestamp est mis à jour. 
+5. La durée nécessaire pour l’actualisation varie en fonction du nombre de fichiers dans le conteneur Azure, ainsi que des fichiers sur l’appareil. Une fois l’actualisation terminée, le timestamp du partage est mis à jour. Même si l’actualisation présente des échecs partiels, l’opération est considérée comme réussie et le timestamp est mis à jour. 
 
-    ![Timestamp mis à jour](media/data-box-gateway-manage-shares/refresh-4.png)
+   ![Timestamp mis à jour](media/data-box-gateway-manage-shares/refresh-4.png)
  
 En cas d’échec, une alerte est déclenchée. L’alerte décrit en détail la cause du problème et la recommandation à suivre pour le résoudre. L’alerte contient également un lien vers un fichier présentant le résumé des échecs, notamment les fichiers qui n’ont pas pu être mis à jour ou supprimés.
 

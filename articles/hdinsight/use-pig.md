@@ -7,14 +7,14 @@ ms.author: hrasheed
 ms.reviewer: jasonh
 ms.service: hdinsight
 ms.custom: hdinsightactive
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 01/28/2020
-ms.openlocfilehash: ea960a92aee1c9447bb12d27cffdc42de9fd907a
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: bb6c540573ecd3163e9200be66edb58ed2ca4751
+ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "77672121"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86079205"
 ---
 # <a name="use-apache-pig-with-apache-hadoop-on-hdinsight"></a>Utiliser Apache Pig avec Apache Hadoop sur HDInsight
 
@@ -48,7 +48,9 @@ HDInsight propose différents exemples de jeux de données, qui sont stockés da
 
 Chaque journal à l'intérieur du fichier est constitué d'une ligne de champs qui contient un champ `[LOG LEVEL]` pour indiquer le type et la gravité, par exemple :
 
-    2012-02-03 20:26:41 SampleClass3 [ERROR] verbose detail for id 1527353937
+```output
+2012-02-03 20:26:41 SampleClass3 [ERROR] verbose detail for id 1527353937
+```
 
 Dans l'exemple précédent, le niveau de journal est ERROR.
 
@@ -59,15 +61,15 @@ Dans l'exemple précédent, le niveau de journal est ERROR.
 
 Le travail Pig Latin suivant charge le fichier `sample.log` depuis le stockage par défaut de votre cluster HDInsight. Elle effectue ensuite une série de transformations qui créent un décompte du nombre de fois où chaque niveau du journal s'est produit dans les données d'entrée. Les résultats sont écrits en STDOUT.
 
-    ```
-    LOGS = LOAD 'wasb:///example/data/sample.log';
-    LEVELS = foreach LOGS generate REGEX_EXTRACT($0, '(TRACE|DEBUG|INFO|WARN|ERROR|FATAL)', 1)  as LOGLEVEL;
-    FILTEREDLEVELS = FILTER LEVELS by LOGLEVEL is not null;
-    GROUPEDLEVELS = GROUP FILTEREDLEVELS by LOGLEVEL;
-    FREQUENCIES = foreach GROUPEDLEVELS generate group as LOGLEVEL, COUNT(FILTEREDLEVELS.LOGLEVEL) as COUNT;
-    RESULT = order FREQUENCIES by COUNT desc;
-    DUMP RESULT;
-    ```
+```output
+LOGS = LOAD 'wasb:///example/data/sample.log';
+LEVELS = foreach LOGS generate REGEX_EXTRACT($0, '(TRACE|DEBUG|INFO|WARN|ERROR|FATAL)', 1)  as LOGLEVEL;
+FILTEREDLEVELS = FILTER LEVELS by LOGLEVEL is not null;
+GROUPEDLEVELS = GROUP FILTEREDLEVELS by LOGLEVEL;
+FREQUENCIES = foreach GROUPEDLEVELS generate group as LOGLEVEL, COUNT(FILTEREDLEVELS.LOGLEVEL) as COUNT;
+RESULT = order FREQUENCIES by COUNT desc;
+DUMP RESULT;
+```
 
 L’image suivante montre un résumé de ce qu’effectue chaque transformation sur les données.
 

@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.topic: troubleshooting
 ms.custom: seoapr2020
 ms.date: 04/21/2020
-ms.openlocfilehash: e2a2f6abfd6b7c644e95649f3c9832e4cc986037
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: e8585779a263f4ff5dbdd998bbf065c6a4e1acdf
+ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82188444"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86079257"
 ---
 # <a name="troubleshoot-script-actions-in-azure-hdinsight"></a>Résoudre les problèmes liés aux actions de script dans Azure HDInsight
 
@@ -55,7 +55,9 @@ Si la création du cluster échoue en raison d’une erreur de script, les journ
 
 * Toutes les valeurs **stdout** et **stderr** de l’hôte correspondant sont chargées vers le compte de stockage. Il existe un fichier **output-\*.txt** et un fichier **errors-\*.txt** pour chaque action de script. Le fichier **output-*.txt** contient des informations sur l’URI du script exécuté sur l’ordinateur hôte. Le texte suivant constitue un exemple de ces informations :
 
-        'Start downloading script locally: ', u'https://hdiconfigactions.blob.core.windows.net/linuxrconfigactionv01/r-installer-v01.sh'
+    ```output
+    'Start downloading script locally: ', u'https://hdiconfigactions.blob.core.windows.net/linuxrconfigactionv01/r-installer-v01.sh'
+    ```
 
 * Vous pouvez créer plusieurs fois un cluster d’action de script portant le même nom. Dans ce cas, vous pouvez différencier les journaux d’activité correspondants par le nom de dossier **DATE**. Par exemple, la structure de dossiers d’un cluster, **mycluster**, créé à différentes dates ressemble aux entrées de journaux suivantes :
 

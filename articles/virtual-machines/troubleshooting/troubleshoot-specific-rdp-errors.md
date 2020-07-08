@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-windows
 ms.topic: troubleshooting
 ms.date: 10/31/2018
 ms.author: genli
-ms.openlocfilehash: 851c5eb4ebfee4e4a4836a07b51578dd2b0c68cd
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: b3e06ff28c7980910636edeb06c5863859120484
+ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79231897"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86081568"
 ---
 # <a name="troubleshooting-specific-rdp-error-messages-to-a-windows-vm-in-azure"></a>Résolution des messages d’erreur RDP spécifiques des machines virtuelles Windows dans Azure
 Il peut arriver que vous receviez un message d’erreur spécifique lorsque vous utilisez la connexion Bureau à distance à une machine virtuelle Windows dans Azure. Cet article décrit en détail certains des messages d’erreur les plus couramment rencontrés, ainsi que les étapes de dépannage à suivre pour les résoudre. Si vous rencontrez des problèmes de connexion à votre machine virtuelle avec le protocole RDP mais que vous ne recevez pas de message d’erreur spécifique, consultez le [guide de résolution des problèmes de Bureau à distance](troubleshoot-rdp-connection.md).
@@ -40,7 +40,9 @@ Cause : La période de grâce du Gestionnaire de licences de 120 jours pour le
 
 Pour contourner ce problème, enregistrez une copie locale du fichier RDP à partir du portail, puis exécutez cette commande au niveau d’une invite de commande PowerShell pour vous connecter. Cette étape ne désactive la licence que pour cette connexion :
 
-        mstsc <File name>.RDP /admin
+```powershell
+mstsc <File name>.RDP /admin
+```
 
 Si vous n’avez pas besoin de plus de deux connexions Bureau à distance simultanées à la machine virtuelle, vous pouvez utiliser le Gestionnaire de serveur pour supprimer le rôle de serveur Bureau à distance.
 
@@ -55,9 +57,11 @@ Solutions possibles :
 
 * Si vous êtes sur un intranet d’entreprise, vérifiez que votre ordinateur a bien accès au serveur proxy et qu’il peut lui transmettre le trafic HTTPS.
 * Si vous utilisez un fichier RDP stocké localement, essayez d’utiliser celui généré par le portail. Grâce à cette étape, vous êtes certain de disposer du nom DNS correct de la machine virtuelle ou du service cloud et du port du point de terminaison de la machine virtuelle. Voici un exemple de fichier RDP généré par le portail :
-  
-        full address:s:tailspin-azdatatier.cloudapp.net:55919
-        prompt for credentials:i:1
+
+    ```output
+    full address:s:tailspin-azdatatier.cloudapp.net:55919
+    prompt for credentials:i:1
+    ```
 
 La partie adresse de ce fichier RDP comporte :
 

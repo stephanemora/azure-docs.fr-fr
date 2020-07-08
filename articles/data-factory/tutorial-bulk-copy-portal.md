@@ -11,12 +11,12 @@ ms.workload: data-services
 ms.topic: tutorial
 ms.custom: seo-lt-2019; seo-dt-2019
 ms.date: 06/22/2020
-ms.openlocfilehash: d7f6da930f797912ef0e91666082aa5654b7f1ab
-ms.sourcegitcommit: bf99428d2562a70f42b5a04021dde6ef26c3ec3a
+ms.openlocfilehash: 29bdedd5ae40db57809c11500af404d308366ca7
+ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/23/2020
-ms.locfileid: "85251731"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86081636"
 ---
 # <a name="copy-multiple-tables-in-bulk-by-using-azure-data-factory-in-the-azure-portal"></a>Copier plusieurs tables en bloc en utilisant Azure Data Factory sur le portail Azure
 
@@ -82,7 +82,9 @@ Pour vérifier et activer ce paramètre, accédez à votre serveur > Sécurité
  
    Le nom de la fabrique de données Azure doit être un nom **global unique**. Si l’erreur suivante s’affiche pour le champ du nom, changez le nom de la fabrique de données (par exemple, votrenomADFTutorialBulkCopyDF). Consultez l’article [Data Factory - Règles d’affectation des noms](naming-rules.md) pour savoir comment nommer les artefacts Data Factory.
   
-       `Data factory name "ADFTutorialBulkCopyDF" is not available`
+    ```text
+    Data factory name "ADFTutorialBulkCopyDF" is not available
+    ```
 1. Sélectionnez l’**abonnement** Azure dans lequel vous voulez créer la fabrique de données. 
 1. Pour le **groupe de ressources**, effectuez l’une des opérations suivantes :
      

@@ -5,17 +5,17 @@ description: Apprenez à réentraîner un modèle et à mettre à jour un servic
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: studio
-ms.topic: conceptual
+ms.topic: how-to
 author: peterclu
 ms.author: peterlu
 ms.custom: seodec18, previous-ms.author=yahajiza, previous-author=YasinMSFT
 ms.date: 02/14/2019
-ms.openlocfilehash: 877697893b377007c812def00858b7300356f5e4
-ms.sourcegitcommit: 6a9f01bbef4b442d474747773b2ae6ce7c428c1f
+ms.openlocfilehash: c1dd91a800c8e807d527f24a381262bde97d792c
+ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "84117767"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86080310"
 ---
 # <a name="retrain-and-deploy-a-classic-studio-classic-web-service"></a>Réentraîner et déployer un service web Studio (classique) classique
 
@@ -76,43 +76,45 @@ Vous pouvez maintenant utiliser le modèle entraîné pour mettre à jour le poi
 
 L’exemple de code suivant montre comment utiliser les éléments *BaseLocation*, *RelativeLocation*, *SasBlobToken* et l’URL d’application de correctifs pour mettre à jour le point de terminaison.
 
-    private async Task OverwriteModel()
+```csharp
+private async Task OverwriteModel()
+{
+    var resourceLocations = new
     {
-        var resourceLocations = new
+        Resources = new[]
         {
-            Resources = new[]
+            new
             {
-                new
+                Name = "Census Model [trained model]",
+                Location = new AzureBlobDataReference()
                 {
-                    Name = "Census Model [trained model]",
-                    Location = new AzureBlobDataReference()
-                    {
-                        BaseLocation = "https://esintussouthsus.blob.core.windows.net/",
-                        RelativeLocation = "your endpoint relative location", //from the output, for example: "experimentoutput/8946abfd-79d6-4438-89a9-3e5d109183/8946abfd-79d6-4438-89a9-3e5d109183.ilearner"
-                        SasBlobToken = "your endpoint SAS blob token" //from the output, for example: "?sv=2013-08-15&sr=c&sig=37lTTfngRwxCcf94%3D&st=2015-01-30T22%3A53%3A06Z&se=2015-01-31T22%3A58%3A06Z&sp=rl"
-                    }
+                    BaseLocation = "https://esintussouthsus.blob.core.windows.net/",
+                    RelativeLocation = "your endpoint relative location", //from the output, for example: "experimentoutput/8946abfd-79d6-4438-89a9-3e5d109183/8946abfd-79d6-4438-89a9-3e5d109183.ilearner"
+                    SasBlobToken = "your endpoint SAS blob token" //from the output, for example: "?sv=2013-08-15&sr=c&sig=37lTTfngRwxCcf94%3D&st=2015-01-30T22%3A53%3A06Z&se=2015-01-31T22%3A58%3A06Z&sp=rl"
                 }
-            }
-        };
-
-        using (var client = new HttpClient())
-        {
-            client.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", apiKey);
-
-            using (var request = new HttpRequestMessage(new HttpMethod("PATCH"), endpointUrl))
-            {
-                request.Content = new StringContent(JsonConvert.SerializeObject(resourceLocations), System.Text.Encoding.UTF8, "application/json");
-                HttpResponseMessage response = await client.SendAsync(request);
-
-                if (!response.IsSuccessStatusCode)
-                {
-                    await WriteFailedResponse(response);
-                }
-
-                // Do what you want with a successful response here.
             }
         }
+    };
+
+    using (var client = new HttpClient())
+    {
+        client.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", apiKey);
+
+        using (var request = new HttpRequestMessage(new HttpMethod("PATCH"), endpointUrl))
+        {
+            request.Content = new StringContent(JsonConvert.SerializeObject(resourceLocations), System.Text.Encoding.UTF8, "application/json");
+            HttpResponseMessage response = await client.SendAsync(request);
+
+            if (!response.IsSuccessStatusCode)
+            {
+                await WriteFailedResponse(response);
+            }
+
+            // Do what you want with a successful response here.
+        }
     }
+}
+```
 
 L’*apiKey* et l’*endpointUrl* pour l’appel sont figurent sur le tableau de bord du point de terminaison.
 

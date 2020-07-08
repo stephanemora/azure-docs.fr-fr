@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.date: 05/20/2019
 ms.author: alkohli
 Customer intent: As an IT admin, I need to understand how to configure compute on Azure Stack Edge for advanced deployment flow so I can use it to transform the data before sending it to Azure.
-ms.openlocfilehash: eb7bb7933303aaf16f320e219ad3673bf1efde72
-ms.sourcegitcommit: 856db17a4209927812bcbf30a66b14ee7c1ac777
+ms.openlocfilehash: 59983530d93885f28dfb1625ca6d58fe572609b8
+ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "82564657"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86080491"
 ---
 # <a name="tutorial-transform-data-with-azure-stack-edge-for-advanced-deployment-flow"></a>Tutoriel : Transformer des données avec Azure Stack Edge pour un flux de déploiement avancé
 
@@ -22,7 +22,7 @@ Ce tutoriel explique comment configurer un rôle de calcul pour un flux de dépl
 
 Le calcul peut être configuré pour le flux d’un déploiement simple ou avancé sur votre appareil.
 
-|                  | Déploiement simple                                | Déploiement avancé                   |
+| Critères | Déploiement simple                                | Déploiement avancé                   |
 |------------------|--------------------------------------------------|---------------------------------------|
 | Usage prévu     | Administrateurs informatiques                                | Développeurs                            |
 | Type             | Utiliser le service Azure Stack Edge pour déployer des modules      | Utiliser le service IoT Hub pour déployer des modules |
@@ -215,9 +215,9 @@ Dans cette section, vous ajoutez un module personnalisé à l’appareil IoT Edg
 
         ![Ajouter un module personnalisé](./media/azure-stack-edge-deploy-configure-compute-advanced/add-module-6.png)
  
-5.    Sous **Spécifier des routes**, définissez des routes entre les modules.  
-    
-    ![Spécifier des routes](./media/azure-stack-edge-deploy-configure-compute-advanced/add-module-7.png)
+5. Sous **Spécifier des routes**, définissez des routes entre les modules.  
+   
+   ![Spécifier des routes](./media/azure-stack-edge-deploy-configure-compute-advanced/add-module-7.png)
 
     Vous pouvez remplacer *route* par la chaîne de route suivante copiée précédemment. Dans cet exemple, entrez le nom du partage local qui enverra des données vers le partage cloud. Remplacez `modulename` par le nom du module. Sélectionnez **Suivant**.
         
@@ -227,9 +227,9 @@ Dans cette section, vous ajoutez un module personnalisé à l’appareil IoT Edg
 
     ![Section Spécifier des routes](./media/azure-stack-edge-deploy-configure-compute-advanced/add-module-8.png)
 
-6.    Sous **Passer en revue le déploiement**, passez en revue tous les paramètres et, si vous êtes satisfait, sélectionnez **Soumettre** pour soumettre le module pour déploiement.
+6. Sous **Passer en revue le déploiement**, passez en revue tous les paramètres et, si vous êtes satisfait, sélectionnez **Soumettre** pour soumettre le module pour déploiement.
 
-    ![Page Définir des modules](./media/azure-stack-edge-deploy-configure-compute-advanced/add-module-9.png)
+   ![Page Définir des modules](./media/azure-stack-edge-deploy-configure-compute-advanced/add-module-9.png)
  
     Cette action démarre le déploiement de module. Une fois le déploiement terminé, l’**État du runtime** du module est **En cours d’exécution**.
 
@@ -241,13 +241,13 @@ L’étape finale consiste à vérifier que le module est connecté et qu’il s
 
 Effectuez les étapes suivantes pour vérifier la transformation des données et le transfert vers Azure.
  
-1.    Dans l’Explorateur de fichiers, connectez-vous aux partages local Edge et Edge que vous avez créés.
+1. Dans l’Explorateur de fichiers, connectez-vous aux partages local Edge et Edge que vous avez créés.
 
-    ![Vérifier la transformation des données](./media/azure-stack-edge-deploy-configure-compute-advanced/verify-data-2.png)
+   ![Vérifier la transformation des données](./media/azure-stack-edge-deploy-configure-compute-advanced/verify-data-2.png)
  
-1.    Ajoutez des données au partage local.
+1. Ajoutez des données au partage local.
 
-    ![Vérifier la transformation des données](./media/azure-stack-edge-deploy-configure-compute-advanced/verify-data-3.png)
+   ![Vérifier la transformation des données](./media/azure-stack-edge-deploy-configure-compute-advanced/verify-data-3.png)
  
     Les données sont déplacées vers le partage cloud.
 
