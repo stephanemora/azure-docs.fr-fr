@@ -9,12 +9,12 @@ ms.subservice: forms-recognizer
 ms.topic: include
 ms.date: 06/15/2020
 ms.author: pafarley
-ms.openlocfilehash: 811daf9b1bf5bf26419385517a67cd22cb8346e6
-ms.sourcegitcommit: 73ac360f37053a3321e8be23236b32d4f8fb30cf
+ms.openlocfilehash: e5debf66b91ebd73bb4a4972a907ef7a283f0044
+ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/30/2020
-ms.locfileid: "85570219"
+ms.lasthandoff: 07/05/2020
+ms.locfileid: "85965913"
 ---
 [Documentation de référence](https://docs.microsoft.com/python/api/overview/azure/formrecognizer) | [Code source de la bibliothèque](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/formrecognizer/azure-ai-formrecognizer/azure/ai/formrecognizer) | [Package (PyPi)](https://pypi.org/project/azure-ai-formrecognizer/) | [Exemples](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/formrecognizer/azure-ai-formrecognizer/samples)
 
@@ -82,9 +82,9 @@ Ces extraits de code montrent comment effectuer les tâches suivantes avec la bi
 Ici, vous allez authentifier deux objets clients à l’aide des variables d’abonnement que vous avez définies ci-dessus. Vous allez utiliser un objet **AzureKeyCredential** pour que, le cas échéant, vous puissiez mettre à jour la clé d’API sans créer de nouveaux objets clients.
 
 ```python
-form_recognizer_client = FormRecognizerClient(endpoint=self.endpoint, credential=AzureKeyCredential(self.key))
+form_recognizer_client = FormRecognizerClient(endpoint=endpoint, credential=AzureKeyCredential(key))
 
-form_training_client = FormTrainingClient(self.endpoint, AzureKeyCredential(self.key))
+form_training_client = FormTrainingClient(endpoint, AzureKeyCredential(key))
 ```
 
 ## <a name="define-variables"></a>Définir des variables
@@ -231,7 +231,7 @@ Entraînez les modèles personnalisés à reconnaître tous les champs et valeur
 Le code suivant utilise le client d’entraînement avec la fonction **begin_training** pour entraîner un modèle sur un ensemble de documents donné.
 
 ```python
-poller = form_training_client.begin_training(self.trainingDataUrl, use_training_labels=False)
+poller = form_training_client.begin_training(trainingDataUrl, use_training_labels=False)
 model = poller.result()
 ```
 
@@ -262,7 +262,7 @@ Vous pouvez aussi entraîner les modèles personnalisés en étiquetant manuelle
 > Pour entraîner avec des étiquettes, vous devez disposer de fichiers d’informations spéciaux sur les étiquettes ( *\<filename\>.pdf.labels.json*) dans votre conteneur de stockage d’objets blob, en même temps que les documents d’entraînement. L’[outil d’étiquetage des exemples Form Recognizer](../../quickstarts/label-tool.md) propose une interface utilisateur qui facilite la création de ces fichiers d’étiquettes. Une fois ceux-ci à disposition, vous pouvez appeler la méthode **begin_training** avec le paramètre *use_training_labels* défini sur `true`.
 
 ```python
-poller = form_training_client.begin_training(self.trainingDataUrl, use_training_labels=True)
+poller = form_training_client.begin_training(trainingDataUrl, use_training_labels=True)
 model = poller.result()
 ```
 
