@@ -4,12 +4,12 @@ description: Pour comprendre ce que sont les règles d’action dans Azure Monit
 ms.topic: conceptual
 ms.date: 04/25/2019
 ms.subservice: alerts
-ms.openlocfilehash: 6585890395d7656f239ac3098cd374ecd4757842
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 573567386ba9cbaf8b36440fda5073f899fcdfc7
+ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "80618986"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86112338"
 ---
 # <a name="action-rules-preview"></a>Règles d’action (préversion)
 
@@ -196,23 +196,26 @@ La suppression est toujours prioritaire sur la même étendue.
 
 ### <a name="what-happens-if-i-have-a-resource-thats-monitored-in-two-separate-action-rules-do-i-get-one-or-two-notifications-for-example-vm2-in-the-following-scenario"></a>Que se passe-t-il si je dispose d’une ressource supervisée dans deux règles d’action différentes ? Est-ce que je reçois une ou deux notifications ? Par exemple, **VM2** dans le scénario suivant :
 
-      action rule AR1 defined for VM1 and VM2 with action group AG1
-      action rule AR2 defined for VM2 and VM3 with action group AG1
+   `action rule AR1 defined for VM1 and VM2 with action group AG1`
+
+   `action rule AR2 defined for VM2 and VM3 with action group AG1`
 
 Pour chaque alerte sur VM1 et VM3, le groupe d’actions AG1 se déclenche une seule fois. Pour chaque alerte sur **VM2**, le groupe d’actions AG1 est déclenché deux fois, car les règles d’action ne dédupliquent pas les actions. 
 
 ### <a name="what-happens-if-i-have-a-resource-monitored-in-two-separate-action-rules-and-one-calls-for-action-while-another-for-suppression-for-example-vm2-in-the-following-scenario"></a>Que se passe-t-il si je dispose d’une ressource surveillée dans deux règles d’action différentes et qu’une d’entre elles incite une action tandis que l’autre incite une suppression ? Par exemple, **VM2** dans le scénario suivant :
 
-      action rule AR1 defined for VM1 and VM2 with action group AG1 
-      action rule AR2 defined for VM2 and VM3 with suppression
+   `action rule AR1 defined for VM1 and VM2 with action group AG1`
+
+   `action rule AR2 defined for VM2 and VM3 with suppression`
 
 Pour chaque alerte sur VM1, le groupe d’actions AG1 se déclenche une seule fois. Les actions et les notifications pour chaque alerte sur VM2 et VM3 seront supprimées. 
 
 ### <a name="what-happens-if-i-have-an-alert-rule-and-an-action-rule-defined-for-the-same-resource-calling-different-action-groups-for-example-vm1-in-the-following-scenario"></a>Que se passe-t-il si je dispose d’une règle d’alerte et d’une règle d’action définie pour la même ressource qui appelle différents groupes d’actions ? Par exemple, **VM1** dans le scénario suivant :
 
-      alert rule rule1 on VM1 with action group AG2
-      action rule AR1 defined for VM1 with action group AG1 
- 
+   `alert rule rule1 on VM1 with action group AG2`
+
+   `action rule AR1 defined for VM1 with action group AG1`
+
 Pour chaque alerte sur VM1, le groupe d’actions AG1 se déclenche une seule fois. Chaque fois que la règle d’alerte « rule1 » est déclenchée, elle déclenche également « AG2 ». Les groupes d’actions définis dans les règles d’action et les règles d’alerte fonctionnent indépendamment, sans déduplication. 
 
 ## <a name="next-steps"></a>Étapes suivantes

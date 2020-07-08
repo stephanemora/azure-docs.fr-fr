@@ -8,16 +8,16 @@ author: mgoedtel
 ms.author: magoedte
 ms.date: 03/12/2020
 ms.topic: conceptual
-ms.openlocfilehash: 1fb64463b0372202adb04c2deb304c389c7773b8
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: f3dee468764f27d930081b5a3cd415c48bb79c0d
+ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79140834"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86104008"
 ---
 # <a name="how-to-install-the-connected-machine-agent-using-windows-powershell-dsc"></a>Guide pratique pour installer l’agent Connected Machine à l’aide de DSC Windows PowerShell
 
-Avec [Desired State Configuration (DSC) Windows PowerShell](https://docs.microsoft.com/powershell/scripting/dsc/getting-started/winGettingStarted?view=powershell-7), vous pouvez automatiser l’installation et la configuration de logiciels pour un ordinateur Windows. Cet article explique comment utiliser DSC afin d’installer l’agent Connected Machine Azure Arc pour serveurs sur des machines Windows hybrides.
+Avec [Desired State Configuration (DSC) Windows PowerShell](/powershell/scripting/dsc/getting-started/winGettingStarted?view=powershell-7), vous pouvez automatiser l’installation et la configuration de logiciels pour un ordinateur Windows. Cet article explique comment utiliser DSC afin d’installer l’agent Connected Machine Azure Arc pour serveurs sur des machines Windows hybrides.
 
 ## <a name="requirements"></a>Spécifications
 
@@ -73,7 +73,7 @@ Voici les paramètres que vous transmettez au script PowerShell à utiliser.
 
 1. Dans une console PowerShell, accédez au dossier où vous avez enregistré le fichier `.ps1`.
 
-2. Exécutez les commandes PowerShell suivantes pour compiler le document MOF. Pour plus d’informations sur la compilation des configurations DSC, consultez [Configurations DSC](https://docs.microsoft.com/powershell/scripting/dsc/configurations/configurations?view=powershell-7) :
+2. Exécutez les commandes PowerShell suivantes pour compiler le document MOF. Pour plus d’informations sur la compilation des configurations DSC, consultez [Configurations DSC](/powershell/scripting/dsc/configurations/configurations?view=powershell-7) :
 
     ```powershell
     .\`AzureConnectedMachineAgent.ps1 -TenantId <TenantId GUID> -SubscriptionId <SubscriptionId GUID> -ResourceGroup '<ResourceGroupName>' -Location '<LocationName>' -Tags '<Tag>' -Credential <psCredential>
@@ -87,7 +87,7 @@ Une fois que vous avez installé l’agent et que vous l’avez configuré pour 
 
 Cette ressource peut être ajoutée à des configurations DSC existantes, afin de représenter une configuration de bout en bout pour une machine. Par exemple, vous pouvez souhaiter ajouter cette ressource à une configuration qui définit des paramètres de système d’exploitation sécurisés.
 
-Le module [CompsiteResource](https://www.powershellgallery.com/packages/compositeresource/0.4.0) depuis PowerShell Gallery peut être utilisé pour créer une [ressource composite](https://docs.microsoft.com/powershell/scripting/dsc/resources/authoringResourceComposite?view=powershell-7) de l’exemple de configuration, afin de simplifier encore davantage la combinaison de configurations.
+Le module [CompsiteResource](https://www.powershellgallery.com/packages/compositeresource/0.4.0) depuis PowerShell Gallery peut être utilisé pour créer une [ressource composite](/powershell/scripting/dsc/resources/authoringResourceComposite?view=powershell-7) de l’exemple de configuration, afin de simplifier encore davantage la combinaison de configurations.
 
 ## <a name="next-steps"></a>Étapes suivantes
 

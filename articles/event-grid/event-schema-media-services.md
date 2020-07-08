@@ -1,21 +1,14 @@
 ---
 title: Azure Media Services comme source Event Grid
 description: Décrit les propriétés qui sont fournies pour les événements Media Services avec Azure Event Grid
-services: media-services
-documentationcenter: ''
-author: spelluru
-editor: ''
-ms.service: event-grid
-ms.workload: ''
 ms.topic: conceptual
-ms.date: 02/25/2020
-ms.author: spelluru
-ms.openlocfilehash: d5d50bbde927efd4aee0cedd69486a52ab8c328b
-ms.sourcegitcommit: d6e4eebf663df8adf8efe07deabdc3586616d1e4
+ms.date: 07/07/2020
+ms.openlocfilehash: c1c5953cae7364131eefcec97d3375404c85e963
+ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/15/2020
-ms.locfileid: "81393939"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86105929"
 ---
 # <a name="azure-media-services-as-an-event-grid-source"></a>Azure Media Services comme source Event Grid
 

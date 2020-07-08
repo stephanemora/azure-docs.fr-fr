@@ -1,18 +1,14 @@
 ---
 title: Géorécupération d’urgence dans Azure Event Grid | Microsoft Docs
 description: Décrit comment Azure Event Grid prend en charge la géorécupération d’urgence (GeoDR) automatiquement.
-services: event-grid
-author: spelluru
-ms.service: event-grid
 ms.topic: conceptual
-ms.date: 05/24/2019
-ms.author: spelluru
-ms.openlocfilehash: 5b5c973a8daa8776efb0909092c569ea46902265
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.date: 07/07/2020
+ms.openlocfilehash: ccb16971020a65932daa8f9adf4b7cd9008a9253
+ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "66307316"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86105844"
 ---
 # <a name="server-side-geo-disaster-recovery-in-azure-event-grid"></a>Géorécupération d’urgence côté serveur dans Azure Event Grid
 Event Grid comprend à présent la géorécupération d’urgence (GeoDR) des métadonnées, non seulement pour les nouveaux, mais également pour tous les domaines, rubriques et abonnements aux événements existants. Si une région Azure entière tombe en panne, Event Grid disposera déjà de toutes vos métadonnées d’infrastructure liées aux événements synchronisées avec une région jumelée. Les nouveaux événements recommenceront à circuler sans intervention de votre part. 

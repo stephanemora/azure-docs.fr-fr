@@ -4,12 +4,12 @@ description: Découvrez comment préparer l’évaluation/la migration des machi
 ms.topic: tutorial
 ms.date: 06/08/2020
 ms.custom: mvc
-ms.openlocfilehash: f3bfaf7c2396e0f1091299375aae4bfaa1d7e8ff
-ms.sourcegitcommit: 99d016949595c818fdee920754618d22ffa1cd49
+ms.openlocfilehash: 8b812924c0922d460c631baec8b0e13a9f45cd76
+ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/15/2020
-ms.locfileid: "84771187"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86109573"
 ---
 # <a name="prepare-vmware-vms-for-assessment-and-migration-to-azure"></a>Préparer l’évaluation de machines virtuelles VMware et leur migration vers Azure
 
@@ -64,7 +64,7 @@ Pour inscrire l’appliance, votre compte Azure doit avoir les autorisations pou
 Accordez les autorisations au compte de la manière suivante :
 
 1. Vérifiez que vous êtes administrateur général ou locataire. Ensuite, dans Azure AD, accédez à **Azure Active Directory** > **Utilisateurs** > **Paramètres utilisateur**.
-2. Définissez **Inscriptions d’applications** sur **Oui**. Il s’agit d’un paramètre par défaut qui n’est pas sensible. [Plus d’informations](https://docs.microsoft.com/azure/active-directory/develop/active-directory-how-applications-are-added#who-has-permission-to-add-applications-to-my-azure-ad-instance)
+2. Définissez **Inscriptions d’applications** sur **Oui**. Il s’agit d’un paramètre par défaut qui n’est pas sensible. [Plus d’informations](../active-directory/develop/active-directory-how-applications-are-added.md#who-has-permission-to-add-applications-to-my-azure-ad-instance)
 
     ![Autorisations Azure AD](./media/tutorial-prepare-vmware/aad.png)
 
@@ -72,7 +72,7 @@ Accordez les autorisations au compte de la manière suivante :
 
 #### <a name="method-2-assign-application-developer-role"></a>Méthode 2 : Attribuer le rôle Développeur d’applications
 
-L’administrateur général ou le locataire peuvent également attribuer à un compte le rôle Développeur d’applications. [Découvrez-en plus](https://docs.microsoft.com/azure/active-directory/fundamentals/active-directory-users-assign-role-azure-portal) sur l’affectation d’un rôle.
+L’administrateur général ou le locataire peuvent également attribuer à un compte le rôle Développeur d’applications. [Découvrez-en plus](../active-directory/fundamentals/active-directory-users-assign-role-azure-portal.md) sur l’affectation d’un rôle.
 
 ### <a name="assign-permissions-to-create-a-key-vault"></a>Attribuer des autorisations pour créer un coffre Key Vault
 

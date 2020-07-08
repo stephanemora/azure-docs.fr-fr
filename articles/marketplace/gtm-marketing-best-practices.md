@@ -1,18 +1,18 @@
 ---
 title: Bonnes pratiques marketing – Place de marché commerciale Microsoft
 description: Ressources sur les bonnes pratiques marketing pour les partenaires qui publient des offres sur Microsoft AppSource et la Place de marché Azure.
-author: qianw211
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
+author: keferna
+ms.author: keferna
 ms.date: 04/16/2020
-ms.author: dsindona
-ms.openlocfilehash: 1955dd9dda75906e52007958fe7b4385e657444c
-ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
+ms.openlocfilehash: dbe43bac3155290ea809b47f7c280cabc51fc73d
+ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83658029"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86106883"
 ---
 # <a name="marketing-best-practices"></a>Bonnes pratiques marketing
 

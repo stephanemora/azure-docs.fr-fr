@@ -1,18 +1,14 @@
 ---
 title: Publier des événements avec des domaines d’événements avec Azure Event Grid
 description: Explique comment gérer de grands ensembles de rubriques dans Azure Event Grid et y publier des événements à l’aide de domaines d’événements.
-services: event-grid
-author: femila
-ms.service: event-grid
-ms.author: femila
 ms.topic: conceptual
-ms.date: 10/22/2019
-ms.openlocfilehash: 10a0b138c702d4e4d09608c42959c68e97790f81
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.date: 07/07/2020
+ms.openlocfilehash: 30a77d98fdb0d5bfd5169174999a0a08742adfd8
+ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84560984"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86105559"
 ---
 # <a name="manage-topics-and-publish-events-using-event-domains"></a>Gérer des rubriques et publier des événements à l’aide de domaines de l’événement
 

@@ -5,15 +5,15 @@ author: guyhay
 ms.author: guyhay
 ms.reviewer: jasonh
 ms.service: data-lake-analytics
-ms.topic: conceptual
+ms.topic: how-to
 ms.custom: understand-apache-spark-data-formats
 ms.date: 01/31/2019
-ms.openlocfilehash: 36f39503ca32f1ee4b422ae7b1cf9abf48716f07
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: ed929b9dd6d262d63554ef3df59d3e3806dd28dc
+ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "73648166"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86106422"
 ---
 # <a name="understand-differences-between-u-sql-and-spark-data-formats"></a>Comprendre les différences entre les formats de données U-SQL et Spark
 

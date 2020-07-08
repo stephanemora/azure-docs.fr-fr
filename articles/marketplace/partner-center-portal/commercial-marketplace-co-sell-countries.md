@@ -1,18 +1,18 @@
 ---
 title: Codes pays/région de co-vente | Place de marché Azure
 description: Utilisez ces codes pays/région à deux lettres lorsque vous fournissez des coordonnées dans la page de co-vente de votre offre.
-author: dsindona
-ms.author: dsindona
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
+author: palanis-MSFT
+ms.author: palanis
 ms.date: 08/27/2019
-ms.openlocfilehash: 097fe2c394cb48a13fbc9cb253ef4df9c9959713
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: e8d952c76fa71cb57d2edd7c9aa361c7249e0622
+ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80277054"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86105130"
 ---
 # <a name="co-sell-country-and-region-codes"></a>Codes pays/région de co-vente
 

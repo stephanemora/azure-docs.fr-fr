@@ -1,18 +1,18 @@
 ---
 title: Services Go-To-Market – Guide pratique pour apparaître sur la place de marché | Place de marché Azure
 description: 'Services Go-To-Market : cette section explique comment faire apparaître une annonce sur la Place de marché Microsoft Azure'
-author: qianw211
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
+author: keferna
+ms.author: keferna
 ms.date: 04/16/2020
-ms.author: dsindona
-ms.openlocfilehash: aac3f87c642559b0dfa13c38da448e425df3ffa2
-ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
+ms.openlocfilehash: 09f5d61984d5802184d70867f94815fac8fe2b7d
+ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/05/2020
-ms.locfileid: "85957798"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86103566"
 ---
 # <a name="how-to-get-featured-in-appsource-and-azure-marketplace"></a>Guide pratique pour apparaître dans AppSource et dans la Place de marché Microsoft Azure
 

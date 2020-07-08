@@ -7,12 +7,12 @@ ms.topic: overview
 ms.date: 11/19/2019
 ms.author: raynew
 ms.custom: mvc
-ms.openlocfilehash: 7b02560d1e7b7c34a4d87dbdc468a85362aca4f7
-ms.sourcegitcommit: 309a9d26f94ab775673fd4c9a0ffc6caa571f598
+ms.openlocfilehash: 7c4a148d68de8c57ed9237c05ba11eaf6c5e81e3
+ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/09/2020
-ms.locfileid: "82993807"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86103957"
 ---
 # <a name="work-with-the-previous-version-of-azure-migrate"></a>Utiliser la version précédente d’Azure Migrate
 
@@ -92,7 +92,7 @@ La préparation prend en compte un certain nombre de propriétés de machine vir
 --- | --- | ---
 **Type de démarrage** | BIOS pris en charge. UEFI non prise en charge. | Préparé sous condition si le type de démarrage est UEFI.
 **Cœurs** | Cœurs de la machine <= nombre maximal de cœurs (128) pris en charge pour une machine virtuelle Azure.<br/><br/> Si l’historique des performances est disponible, Azure Migrate prend en considération les cœurs utilisés.<br/>Si un facteur de confort est spécifié dans les paramètres de l’évaluation, le nombre de cœurs utilisés est multiplié par le facteur de confort.<br/><br/> En l’absence d’historique des performances, Azure Migrate utilise les cœurs alloués, sans appliquer le facteur de confort. | Prêt si inférieur ou égal aux limites.
-**Mémoire** | Taille de la mémoire de la machine <= mémoire maximale (3 892 Go sur la série Azure M Standard_M128m&nbsp;<sup>2</sup>) d’une machine virtuelle Azure. [Plus d’informations](https://docs.microsoft.com/azure/virtual-machines/windows/sizes)<br/><br/> Si l’historique des performances est disponible, Azure Migrate prend en considération la mémoire utilisée.<br/><br/>Si un facteur de confort est spécifié, la mémoire utilisée est multipliée par le facteur de confort.<br/><br/> En l’absence d’historique, la mémoire allouée est utilisée sans appliquer le facteur de confort.<br/><br/> | Prêt si dans les limites.
+**Mémoire** | Taille de la mémoire de la machine <= mémoire maximale (3 892 Go sur la série Azure M Standard_M128m&nbsp;<sup>2</sup>) d’une machine virtuelle Azure. [Plus d’informations](../virtual-machines/windows/sizes.md)<br/><br/> Si l’historique des performances est disponible, Azure Migrate prend en considération la mémoire utilisée.<br/><br/>Si un facteur de confort est spécifié, la mémoire utilisée est multipliée par le facteur de confort.<br/><br/> En l’absence d’historique, la mémoire allouée est utilisée sans appliquer le facteur de confort.<br/><br/> | Prêt si dans les limites.
 **Disque de stockage** | La taille allouée d’un disque doit être inférieure ou égale à 4 To (4 096 Go).<br/><br/> Le nombre de disques attachés à la machine doit être inférieur ou égal à 65, disque du système d’exploitation compris. | Prêt si dans les limites.
 **Mise en réseau** | Au maximum 32 cartes réseau doivent être attachées à une machine. | Prêt si dans les limites.
 
@@ -114,8 +114,8 @@ Windows Server 2008 R2 et tous les Service Packs | Azure assure un support com
 Windows Server 2008 (32 bits et 64 bits) | Azure assure un support complet. | Disponible pour Azure
 Windows Server 2003, 2003 R2 | Non pris en charge. La prise en charge dans Azure nécessite un contrat de support personnalisé ([Custom Support Agreement (CSA)](https://aka.ms/WSosstatement)). | Préparé pour Azure sous condition. Envisagez une mise à niveau du système d’exploitation avant de migrer vers Azure.
 Windows 2000, 98, 95, NT, 3.1, MS-DOS | Non pris en charge. La machine pourrait démarrer dans Azure, mais aucune prise en charge du système d’exploitation n’est fournie par Azure. | Préparé pour Azure sous condition. Nous vous recommandons d’effectuer une mise à niveau du système d’exploitation avant de migrer vers Azure.
-Clients Windows 7, 8 et 10 | Azure assure un support avec [abonnement Visual Studio uniquement](https://docs.microsoft.com/azure/virtual-machines/windows/client-images). | Préparé pour Azure sous condition
-Windows 10 Pro Desktop | Azure fournit la prise en charge avec les [droits d’hébergement multilocataire](https://docs.microsoft.com/azure/virtual-machines/windows/windows-desktop-multitenant-hosting-deployment). | Préparé pour Azure sous condition
+Clients Windows 7, 8 et 10 | Azure assure un support avec [abonnement Visual Studio uniquement](../virtual-machines/windows/client-images.md). | Préparé pour Azure sous condition
+Windows 10 Pro Desktop | Azure fournit la prise en charge avec les [droits d’hébergement multilocataire](../virtual-machines/windows/windows-desktop-multitenant-hosting-deployment.md). | Préparé pour Azure sous condition
 Windows Vista, XP Professionnel | Non pris en charge. La machine pourrait démarrer dans Azure, mais aucune prise en charge du système d’exploitation n’est fournie par Azure. | Préparé pour Azure sous condition. Nous vous recommandons d’effectuer une mise à niveau du système d’exploitation avant de migrer vers Azure.
 Linux | Azure approuve ces [systèmes d’exploitation Linux](../virtual-machines/linux/endorsed-distros.md). D’autres systèmes d’exploitation Linux pourraient démarrer dans Azure, mais nous recommandons d’effectuer une mise à niveau du système d’exploitation vers une version approuvée avant de migrer vers Azure. | Disponible pour Azure si la version est approuvée.<br/><br/>Préparé pour Azure sous condition si la version n’est pas approuvée.
 Autres systèmes d’exploitation<br/><br/> Par exemple, Oracle Solaris, Apple Mac OS, FreeBSD, etc. | Azure n’approuve pas ces systèmes d’exploitation. La machine peut démarrer dans Azure, mais aucune prise en charge du système d’exploitation n’est fournie par Azure. | Préparé pour Azure sous condition. Nous vous recommandons d’installer un système d’exploitation pris en charge avant de migrer vers Azure.  
@@ -240,11 +240,11 @@ Pour installer l’agent sur une machine Linux :
 
     ```sudo sh ./omsagent-<version>.universal.x64.sh --install -w <workspace id> -s <workspace key>```
 
-[Découvrez plus en détail](https://docs.microsoft.com/azure/log-analytics/log-analytics-concept-hybrid#supported-linux-operating-systems) la liste des systèmes d’exploitation Linux pris en charge par MMA.
+[Découvrez plus en détail](../azure-monitor/platform/log-analytics-agent.md#supported-linux-operating-systems) la liste des systèmes d’exploitation Linux pris en charge par MMA.
 
 ### <a name="install-the-mma-agent-on-a-machine-monitored-by-operations-manager"></a>Installer l’agent sur une machine surveillée par Operations Manager
 
-Pour les machines surveillées par System Center Operations Manager 2012 R2 ou version ultérieure, il n'est pas nécessaire d'installer l'agent MMA. Service Map s’intègre avec l’agent MMA Operations Manager pour recueillir les données de dépendance nécessaires. [Plus d’informations](https://docs.microsoft.com/azure/azure-monitor/insights/service-map-scom#prerequisites) L’agent de dépendances doit être installé.
+Pour les machines surveillées par System Center Operations Manager 2012 R2 ou version ultérieure, il n'est pas nécessaire d'installer l'agent MMA. Service Map s’intègre avec l’agent MMA Operations Manager pour recueillir les données de dépendance nécessaires. [Plus d’informations](../azure-monitor/insights/service-map-scom.md#prerequisites) L’agent de dépendances doit être installé.
 
 ### <a name="install-the-dependency-agent"></a>Installer l’agent de dépendances
 
@@ -274,7 +274,7 @@ Pour les machines surveillées par System Center Operations Manager 2012 R2 ou
 4. Vous pouvez examiner les dépendances pour différentes durées en cliquant sur la durée dans l’étiquette de l’intervalle de temps. Par défaut, il est fixé à une heure. Vous pouvez le modifier ou spécifier une date de début, une date de fin et une durée.
 
    > [!NOTE]
-   >    L’intervalle de temps maximal pris en charge est de une heure. Utilisez les journaux Azure Monitor pour [interroger les données de dépendance](https://docs.microsoft.com/azure/migrate/how-to-create-group-machine-dependencies) sur une plus longue durée.
+   >    L’intervalle de temps maximal pris en charge est de une heure. Utilisez les journaux Azure Monitor pour [interroger les données de dépendance](./how-to-create-group-machine-dependencies.md) sur une plus longue durée.
 
 5. Quand vous avez identifié des machines dépendantes à grouper, utilisez la commande Ctrl+clic pour les sélectionner sur le mappage, puis cliquez sur **Grouper les machines**.
 6. Spécifiez un nom de groupe. Vérifiez que les machines dépendantes sont découvertes par Azure Migrate.
@@ -289,7 +289,7 @@ Une fois le groupe créé, nous vous recommandons d’installer les agents sur t
 
 ## <a name="query-dependency-data-from-azure-monitor-logs"></a>Interroger les données de dépendance à partir des journaux d'activité Azure Monitor
 
-Les données de dépendance capturées par Service Map peuvent être interrogées dans l'espace de travail Log Analytics associé à votre projet Azure Migrate. [Découvrez-en plus](https://docs.microsoft.com/azure/azure-monitor/insights/service-map#log-analytics-records) sur les tables de données Service Map à interroger dans les journaux d'activité Azure Monitor. 
+Les données de dépendance capturées par Service Map peuvent être interrogées dans l'espace de travail Log Analytics associé à votre projet Azure Migrate. [Découvrez-en plus](../azure-monitor/insights/service-map.md#log-analytics-records) sur les tables de données Service Map à interroger dans les journaux d'activité Azure Monitor. 
 
 Pour exécuter des requêtes Kusto :
 
@@ -299,15 +299,15 @@ Pour exécuter des requêtes Kusto :
 4. Rédigez votre requête pour recueillir des données de dépendance à l'aide des journaux d'activité Azure Monitor. Accédez à des exemples de requêtes dans la section suivante.
 5. Exécutez votre requête en cliquant sur Exécuter. 
 
-[Découvrez-en plus](https://docs.microsoft.com/azure/azure-monitor/log-query/get-started-portal) sur la rédaction de requêtes Kusto. 
+[Découvrez-en plus](../azure-monitor/log-query/get-started-portal.md) sur la rédaction de requêtes Kusto. 
 
 ### <a name="sample-azure-monitor-logs-queries"></a>Exemples d'interrogation des journaux d'activité Azure Monitor
 
-Voici des exemples de requêtes que vous pouvez utiliser pour extraire des données de dépendance. Vous pouvez modifier les requêtes pour extraire les points de données de votre choix. Une liste exhaustive des champs des enregistrements de données de dépendance est disponible [ici](https://docs.microsoft.com/azure/azure-monitor/insights/service-map#log-analytics-records). Accédez à d'autres exemples de requêtes [ici](https://docs.microsoft.com/azure/azure-monitor/insights/service-map#sample-log-searches).
+Voici des exemples de requêtes que vous pouvez utiliser pour extraire des données de dépendance. Vous pouvez modifier les requêtes pour extraire les points de données de votre choix. Une liste exhaustive des champs des enregistrements de données de dépendance est disponible [ici](../azure-monitor/insights/service-map.md#log-analytics-records). Accédez à d'autres exemples de requêtes [ici](../azure-monitor/insights/service-map.md#sample-log-searches).
 
 #### <a name="summarize-inbound-connections-on-a-set-of-machines"></a>Résumer les connexions entrantes sur un ensemble de machines
 
-Les enregistrements de la table des métriques de connexion, VMConnection, ne représentent pas des connexions réseau physiques individuelles. Différentes connexions réseau physiques sont regroupées au sein d'une connexion logique. [Découvrez-en plus](https://docs.microsoft.com/azure/azure-monitor/insights/service-map#connections) sur la manière dont les données de connexion réseau physique sont agrégées au sein d'un même enregistrement logique dans VMConnection. 
+Les enregistrements de la table des métriques de connexion, VMConnection, ne représentent pas des connexions réseau physiques individuelles. Différentes connexions réseau physiques sont regroupées au sein d'une connexion logique. [Découvrez-en plus](../azure-monitor/insights/service-map.md#connections) sur la manière dont les données de connexion réseau physique sont agrégées au sein d'un même enregistrement logique dans VMConnection. 
 
 ```
 // the machines of interest

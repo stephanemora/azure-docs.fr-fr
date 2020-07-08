@@ -9,12 +9,12 @@ ms.date: 12/06/2018
 ms.author: normesta
 ms.subservice: data-lake-storage-gen2
 ms.reviewer: artek
-ms.openlocfilehash: 9c5b1d38e32ff0a0d0954064c8a2511d898d16e2
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 36e6b39aaf481abaabe4fb5a4a71a527d1e74749
+ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84462921"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86109448"
 ---
 # <a name="using-the-hdfs-cli-with-data-lake-storage-gen2"></a>Utilisation de l’interface CLI HDFS avec Data Lake Storage Gen2
 
@@ -46,7 +46,7 @@ La chaîne de connexion se trouve dans la section « Connexion SSH + Cluster » 
 
 ## <a name="create-a-container"></a>Créez un conteneur.
 
-    hdfs dfs -D "fs.azure.createRemoteFileSystemDuringInitialization=true" -ls abfs://<container-name>@<storage-account-name>.dfs.core.windows.net/
+`hdfs dfs -D "fs.azure.createRemoteFileSystemDuringInitialization=true" -ls abfs://<container-name>@<storage-account-name>.dfs.core.windows.net/`
 
 * Remplacez l’espace réservé `<container-name>` par le nom que vous souhaitez donner à votre conteneur.
 
@@ -54,7 +54,7 @@ La chaîne de connexion se trouve dans la section « Connexion SSH + Cluster » 
 
 ## <a name="get-a-list-of-files-or-directories"></a>Obtenir la liste des fichiers ou répertoires
 
-    hdfs dfs -ls <path>
+`hdfs dfs -ls <path>`
 
 Remplacez l’espace réservé `<path>` par l’URI du conteneur ou du dossier du conteneur.
 
@@ -62,7 +62,7 @@ Par exemple : `hdfs dfs -ls abfs://my-file-system@mystorageaccount.dfs.core.wind
 
 ## <a name="create-a-directory"></a>Créer un répertoire
 
-    hdfs dfs -mkdir [-p] <path>
+`hdfs dfs -mkdir [-p] <path>`
 
 Remplacez l’espace réservé `<path>` par le nom du conteneur racine ou par un dossier de votre conteneur.
 
@@ -70,7 +70,7 @@ Par exemple : `hdfs dfs -mkdir abfs://my-file-system@mystorageaccount.dfs.core.w
 
 ## <a name="delete-a-file-or-directory"></a>Supprimer un fichier ou répertoire
 
-    hdfs dfs -rm <path>
+`hdfs dfs -rm <path>`
 
 Remplacez l'espace réservé `<path>` par l'URI du fichier ou du dossier à supprimer.
 
@@ -78,7 +78,7 @@ Par exemple : `hdfs dfs -rmdir abfs://my-file-system@mystorageaccount.dfs.core.w
 
 ## <a name="display-the-access-control-lists-acls-of-files-and-directories"></a>Afficher les listes de contrôle d’accès (ACL) des fichiers et répertoires
 
-    hdfs dfs -getfacl [-R] <path>
+`hdfs dfs -getfacl [-R] <path>`
 
 Exemple :
 
@@ -88,7 +88,7 @@ Voir [getfacl](https://hadoop.apache.org/docs/r2.4.1/hadoop-project-dist/hadoop-
 
 ## <a name="set-acls-of-files-and-directories"></a>Définir les listes ACL des fichiers et répertoires
 
-    hdfs dfs -setfacl [-R] [-b|-k -m|-x <acl_spec> <path>]|[--set <acl_spec> <path>]
+`hdfs dfs -setfacl [-R] [-b|-k -m|-x <acl_spec> <path>]|[--set <acl_spec> <path>]`
 
 Exemple :
 
@@ -98,19 +98,19 @@ Voir [setfacl](https://hadoop.apache.org/docs/r2.4.1/hadoop-project-dist/hadoop-
 
 ## <a name="change-the-owner-of-files"></a>Changer le propriétaire des fichiers
 
-    hdfs dfs -chown [-R] <new_owner>:<users_group> <URI>
+`hdfs dfs -chown [-R] <new_owner>:<users_group> <URI>`
 
 Voir [chown](https://hadoop.apache.org/docs/r2.4.1/hadoop-project-dist/hadoop-common/FileSystemShell.html#chown)
 
 ## <a name="change-group-association-of-files"></a>Changer l’association de groupe des fichiers
 
-    hdfs dfs -chgrp [-R] <group> <URI>
+`hdfs dfs -chgrp [-R] <group> <URI>`
 
 Voir [chgrp](https://hadoop.apache.org/docs/r2.4.1/hadoop-project-dist/hadoop-common/FileSystemShell.html#chgrp)
 
 ## <a name="change-the-permissions-of-files"></a>Changer les autorisations des fichiers
 
-    hdfs dfs -chmod [-R] <mode> <URI>
+`hdfs dfs -chmod [-R] <mode> <URI>`
 
 Voir [chmod](https://hadoop.apache.org/docs/r2.4.1/hadoop-project-dist/hadoop-common/FileSystemShell.html#chmod)
 
