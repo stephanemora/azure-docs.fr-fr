@@ -13,12 +13,12 @@ ms.tgt_pltfrm: vm-windows
 ms.topic: article
 ms.date: 09/18/2018
 ms.author: delhan
-ms.openlocfilehash: da45e24898bc3b5aead250077af69a61bdb33bab
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 415895b894261ade9b2332eb3fb926eba74fe937
+ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "73749638"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86078406"
 ---
 # <a name="vm-startup-is-stuck-on-getting-windows-ready-dont-turn-off-your-computer-in-azure"></a>Le démarrage de la machine virtuelle est bloqué sur « Préparation de Windows. N’éteignez pas l’ordinateur. » dans Azure
 
@@ -89,13 +89,15 @@ Pour activer le journal de vidage et la console série, exécutez le script suiv
 
     1. Vérifiez que l’espace est suffisant sur le disque pour allouer autant de mémoire que de RAM, ce qui dépend de la taille que vous sélectionnez pour cette machine virtuelle.
     2. Si l’espace n’est pas suffisant ou qu’il s’agit d’une machine virtuelle de grande taille (série G, GS ou E), vous pouvez ensuite modifier l’emplacement où ce fichier sera créé et le référencer sur n’importe quel autre disque de données qui est attaché à la machine virtuelle. Pour ce faire, vous devez modifier la clé suivante :
+    
+        ```console
+        reg load HKLM\BROKENSYSTEM F:\windows\system32\config\SYSTEM.hiv
 
-            reg load HKLM\BROKENSYSTEM F:\windows\system32\config\SYSTEM.hiv
+        REG ADD "HKLM\BROKENSYSTEM\ControlSet001\Control\CrashControl" /v DumpFile /t REG_EXPAND_SZ /d "<DRIVE LETTER OF YOUR DATA DISK>:\MEMORY.DMP" /f
+        REG ADD "HKLM\BROKENSYSTEM\ControlSet002\Control\CrashControl" /v DumpFile /t REG_EXPAND_SZ /d "<DRIVE LETTER OF YOUR DATA DISK>:\MEMORY.DMP" /f
 
-            REG ADD "HKLM\BROKENSYSTEM\ControlSet001\Control\CrashControl" /v DumpFile /t REG_EXPAND_SZ /d "<DRIVE LETTER OF YOUR DATA DISK>:\MEMORY.DMP" /f
-            REG ADD "HKLM\BROKENSYSTEM\ControlSet002\Control\CrashControl" /v DumpFile /t REG_EXPAND_SZ /d "<DRIVE LETTER OF YOUR DATA DISK>:\MEMORY.DMP" /f
-
-            reg unload HKLM\BROKENSYSTEM
+        reg unload HKLM\BROKENSYSTEM
+        ```
 
 3. [Détachez le disque du système d’exploitation et rattachez-le à la machine virtuelle affectée](../windows/troubleshoot-recovery-disks-portal.md).
 4. Démarrez la machine virtuelle et accédez à la console série.
