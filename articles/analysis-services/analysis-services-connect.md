@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 04/17/2020
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: cc671629934d80b3e727ca69f9026f534d05e160
-ms.sourcegitcommit: acb82fc770128234f2e9222939826e3ade3a2a28
+ms.openlocfilehash: f1b4e56dfeae2d4b7826f3ad30bc5eb4b8672b85
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/21/2020
-ms.locfileid: "81676645"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85361470"
 ---
 # <a name="connecting-to-servers"></a>Connexion aux serveurs
 
@@ -20,7 +20,7 @@ Cet article décrit la connexion à un serveur à l’aide d’applications de m
 
 ## <a name="client-libraries"></a>Bibliothèques clientes
 
-[Obtention des bibliothèques clientes les plus récentes](analysis-services-data-providers.md)
+[Obtention des bibliothèques clientes les plus récentes](https://docs.microsoft.com/analysis-services/client-libraries?view=azure-analysis-services-current)
 
 Toutes les connexions à un serveur, quel que soit le type, nécessitent des bibliothèques clientes AMO, ADOMD.NET et OLEDB mises à jour pour interagir avec un serveur Analysis Services. Pour SSMS, Visual Studio, Excel 2016 ou version ultérieure et Power BI, les bibliothèques clientes les plus récentes sont installées ou mises à jour avec les versions mensuelles. Toutefois, dans certains cas, il est possible qu’une application ne dispose pas de la version la plus récente. Par exemple, lorsque les stratégies retardent les mises à jour, ou lorsque les mises à jour Office 365 se trouvent sur le canal différé.
 

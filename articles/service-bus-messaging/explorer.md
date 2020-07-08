@@ -1,19 +1,14 @@
 ---
 title: Utiliser Azure Service Bus Explorer pour effectuer des opérations de données sur Service Bus (préversion)
 description: Cet article fournit des informations sur l’utilisation de l’Azure Service Bus Explorer basé sur le portail pour accéder à des données Azure Service Bus.
-services: service-bus-messaging
-ms.service: service-bus
-documentationcenter: ''
-author: axisc
 ms.topic: conceptual
-ms.date: 03/04/2020
-ms.author: aschhab
-ms.openlocfilehash: 8f53b5e41c67ca1990edd011677b25f3a9a601d1
-ms.sourcegitcommit: 318d1bafa70510ea6cdcfa1c3d698b843385c0f6
+ms.date: 06/23/2020
+ms.openlocfilehash: 3fa619334f1918e16c487269fe3715f5338adf85
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/21/2020
-ms.locfileid: "83776335"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85340546"
 ---
 # <a name="use-service-bus-explorer-to-perform-data-operations-on-service-bus-preview"></a>Utiliser l’Explorateur Service Bus pour effectuer des opérations de données sur Service Bus (préversion)
 

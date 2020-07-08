@@ -1,24 +1,14 @@
 ---
 title: Azure Service Bus – Exploration des messages
 description: Le parcours et aperçu des messages Service Bus permet à un client Azure Service Bus d’énumérer tous les messages qui résident dans une file d’attente ou un abonnement.
-services: service-bus-messaging
-documentationcenter: ''
-author: axisc
-manager: timlt
-editor: spelluru
-ms.service: service-bus-messaging
-ms.workload: na
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
-ms.date: 01/24/2020
-ms.author: aschhab
-ms.openlocfilehash: 6156557d10210535b287aa516070c0b5da416512
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.date: 06/23/2020
+ms.openlocfilehash: 0f2d4ed1225aef4c28a5f3d841669c2e3122ba10
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "77539363"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85341233"
 ---
 # <a name="message-browsing"></a>Parcours des messages
 

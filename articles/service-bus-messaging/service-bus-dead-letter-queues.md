@@ -1,25 +1,14 @@
 ---
 title: Files d’attente de lettres mortes Service Bus | Microsoft Docs
 description: Décrit les files d’attente de lettres mortes dans Azure Service Bus. Les files d’attente et abonnements aux rubriques Service Bus fournissent une sous-file d’attente secondaire, appelée file d’attente de lettres mortes.
-services: service-bus-messaging
-documentationcenter: .net
-author: axisc
-manager: timlt
-editor: spelluru
-ms.assetid: 68b2aa38-dba7-491a-9c26-0289bc15d397
-ms.service: service-bus-messaging
-ms.devlang: na
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: na
-ms.date: 03/23/2020
-ms.author: aschhab
-ms.openlocfilehash: 6630d96c90a221a6b0374f2e4758748a77ad0610
-ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
+ms.date: 06/23/2020
+ms.openlocfilehash: 62db4e71d99d1242cfbb69bdb7979bf9e5dc67ea
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83647831"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85337591"
 ---
 # <a name="overview-of-service-bus-dead-letter-queues"></a>Vue d’ensemble des files d’attente de lettres mortes Service Bus
 

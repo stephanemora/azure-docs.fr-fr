@@ -11,17 +11,17 @@ ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 04/16/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: ef603141129be6a73e018fb3e3dcabf9c5d7961f
-ms.sourcegitcommit: fc718cc1078594819e8ed640b6ee4bef39e91f7f
+ms.openlocfilehash: 58e779e6feeba27711a1746fbf7d6878725790fa
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "83993488"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85358002"
 ---
 # <a name="azure-active-directory-seamless-single-sign-on-quickstart"></a>Authentification unique transparente Azure Active Directory : Démarrage rapide
 
@@ -100,9 +100,8 @@ Suivez ces instructions pour vérifier que vous avez activé l’authentificatio
 
 ## <a name="step-3-roll-out-the-feature"></a>Étape 3 : Déployer la fonctionnalité
 
-Vous pouvez déployer progressivement l’authentification unique fluide pour vos utilisateurs en suivant les instructions fournies ci-dessous. Vous commencez par ajouter les URL Azure AD ci-après aux paramètres de la zone Intranet de tous les utilisateurs ou des utilisateurs sélectionnés en utilisant la stratégie de groupe dans Active Directory :
+Vous pouvez déployer progressivement l’authentification unique fluide pour vos utilisateurs en suivant les instructions fournies ci-dessous. Vous commencez par ajouter l’URL Azure AD ci-après aux paramètres de la zone Intranet de tous les utilisateurs ou des utilisateurs sélectionnés en utilisant la stratégie de groupe dans Active Directory :
 
-- `https://aadg.windows.net.nsatc.net`
 - `https://autologon.microsoftazuread-sso.com`
 
 En outre, vous devez activer un paramètre de stratégie Zone intranet appelé **Autoriser les mises à jour de la barre d’état via le script** via la stratégie de groupe. 

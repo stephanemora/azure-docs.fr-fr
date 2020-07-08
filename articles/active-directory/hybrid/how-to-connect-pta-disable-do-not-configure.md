@@ -5,18 +5,18 @@ services: active-directory
 author: billmath
 manager: daveba
 ms.service: active-directory
-ms.topic: reference
+ms.topic: how-to
 ms.workload: identity
 ms.date: 04/20/2020
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: fa1046dc64fed3edb6c9d04f76a96f488769ff42
-ms.sourcegitcommit: acb82fc770128234f2e9222939826e3ade3a2a28
+ms.openlocfilehash: f5db99f5e8ed2ea5844acba5500bc94d8fb0db2b
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/21/2020
-ms.locfileid: "81725762"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85358342"
 ---
 # <a name="disable-pta-when-using-azure-ad-connect-do-not-configure"></a>Désactiver PTA avec « Ne pas configurer » d’Azure AD Connect
 
