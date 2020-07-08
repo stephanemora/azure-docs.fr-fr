@@ -3,12 +3,12 @@ title: Présentation de la stratégie Azure
 description: Azure Policy est un service dans Azure, que vous utilisez pour créer, affecter et gérer les définitions de stratégie dans votre environnement Azure.
 ms.date: 06/17/2020
 ms.topic: overview
-ms.openlocfilehash: e204a4eeff547877a48789eba6f1b8cac017d08e
-ms.sourcegitcommit: 51977b63624dfd3b4f22fb9fe68761d26eed6824
+ms.openlocfilehash: 2ac8c175f586d9649e35328a483be918276c115d
+ms.sourcegitcommit: e132633b9c3a53b3ead101ea2711570e60d67b83
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/17/2020
-ms.locfileid: "84944659"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86044190"
 ---
 # <a name="what-is-azure-policy"></a>Présentation d’Azure Policy
 
@@ -82,7 +82,7 @@ Si aucun des rôles intégrés ne dispose d’autorisations, créez un [rôle pe
 
 ### <a name="resources-covered-by-azure-policy"></a>Ressources couvertes par Azure Policy
 
-Azure Policy évalue toutes les ressources dans Azure. Pour certains fournisseurs de ressources tels que [Guest Configuration](./concepts/guest-configuration.md), [Azure Kubernetes Service](../../aks/intro-kubernetes.md) et [Azure Key Vault](../../key-vault/key-vault-overview.md), il existe une intégration plus poussée pour la gestion des paramètres et des objets. Pour en savoir plus, consultez [Modes Fournisseur de ressources](./concepts/definition-structure.md).
+Azure Policy évalue toutes les ressources dans Azure. Pour certains fournisseurs de ressources tels que [Guest Configuration](./concepts/guest-configuration.md), [Azure Kubernetes Service](../../aks/intro-kubernetes.md) et [Azure Key Vault](../../key-vault/general/overview.md), il existe une intégration plus poussée pour la gestion des paramètres et des objets. Pour en savoir plus, consultez [Modes Fournisseur de ressources](./concepts/definition-structure.md).
 
 ### <a name="recommendations-for-managing-policies"></a>Recommandations pour la gestion des stratégies
 

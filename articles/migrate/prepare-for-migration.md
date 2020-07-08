@@ -4,12 +4,12 @@ description: Découvrez comment préparer des machines locales pour la migration
 ms.topic: tutorial
 ms.date: 06/08/2020
 ms.custom: MVC
-ms.openlocfilehash: 01e4a0652d575efd1c40612153be1742cd8e8927
-ms.sourcegitcommit: 61d92af1d24510c0cc80afb1aebdc46180997c69
+ms.openlocfilehash: e6840b75d58bf19f742f94caad74e10aebe24666
+ms.sourcegitcommit: e132633b9c3a53b3ead101ea2711570e60d67b83
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/24/2020
-ms.locfileid: "85341318"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86044156"
 ---
 # <a name="prepare-on-premises-machines-for-migration-to-azure"></a>Préparer des ordinateurs locaux à une migration vers Azure
 
@@ -94,7 +94,7 @@ Par défaut, les machines virtuelles Azure se voient affecter le lecteur D pour 
 
 - À la suite de cette affectation de lecteur, tous les autres lecteurs de stockage attachés sont incrémentés d’une lettre.
 - Par exemple, si le lecteur de disque de données de votre installation utilise la lettre D pour les installations d’applications, celle-ci est incrémentée pour devenir le lecteur E après la migration de la machine virtuelle vers Azure. 
-- Pour empêcher cette affectation automatique et faire en sorte qu’Azure affecte la prochaine lettre de lecteur disponible à son volume temporaire, définissez la stratégie de réseau de zone de stockage (SAN) sur **OnlineAll :
+- Pour empêcher cette affectation automatique et faire en sorte qu’Azure affecte la prochaine lettre de lecteur disponible à son volume temporaire, définissez la stratégie de réseau de zone de stockage (SAN) sur **OnlineAll** :
 
 Configurez ce paramètre manuellement de la façon suivante :
 
