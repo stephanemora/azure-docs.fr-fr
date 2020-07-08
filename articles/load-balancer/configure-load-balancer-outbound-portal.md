@@ -5,15 +5,15 @@ description: Cet article explique comment configurer des règles d’équilibrag
 services: load-balancer
 author: asudbring
 ms.service: load-balancer
-ms.topic: article
+ms.topic: how-to
 ms.date: 09/24/2019
 ms.author: allensu
-ms.openlocfilehash: b75f49155991bfc71f788ad88f166c0bec281841
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 2dff916bf005b307f27264ad7a17864fbba50872
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "77589692"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85367391"
 ---
 # <a name="configure-load-balancing-and-outbound-rules-in-standard-load-balancer-by-using-the-azure-portal"></a>Configurer des règles d’équilibrage de charge et des règles de trafic sortant dans Standard Load Balancer à l’aide du Portail Azure
 
@@ -40,12 +40,12 @@ Dans cette section, vous créez un équilibreur de charge qui équilibrera la ch
 
     | Paramètre                 | Valeur                                              |
     | ---                     | ---                                                |
-    | Subscription               | Sélectionnez votre abonnement.    |    
+    | Abonnement               | Sélectionnez votre abonnement.    |    
     | Resource group         | Sélectionnez **Créer**, puis entrez **myResourceGroupSLB** dans la zone de texte.|
-    | Name                   | **myLoadBalancer**                                   |
+    | Nom                   | **myLoadBalancer**                                   |
     | Région         | Sélectionnez **Europe Ouest**.                                        |
     | Type          | Sélectionnez **Public**.                                        |
-    | SKU           | Sélectionnez **Standard** ou **De base**. Microsoft recommande de sélectionner Standard pour les charges de travail de production. |
+    | SKU           | Sélectionnez **Standard**. |
     | Adresse IP publique | Sélectionnez **Créer nouveau**. Si vous avez une adresse IP publique existante que vous souhaitez utiliser, sélectionnez **Utiliser l’existant**.  L’IP publique existante doit être une SKU **Standard**.  Les IP publiques De base ne sont pas compatibles avec l’équilibreur de charge **Standard**.  |
     | Nom de l’adresse IP publique              | Tapez **myPublicIP** dans la zone de texte.|
     | Zone de disponibilité | Sélectionnez **Redondant interzone** pour créer un équilibreur de charge résilient. Pour créer un équilibreur de charge zonal, sélectionnez une zone spécifique parmi 1, 2 ou 3. |
@@ -81,7 +81,7 @@ Une sonde d’intégrité est utilisée pour surveiller l’état de votre appli
     
     | Paramètre | Valeur |
     | ------- | ----- |
-    | Name | Entrez **MyHealthProbe**. |
+    | Nom | Entrez **MyHealthProbe**. |
     | Protocol | Sélectionnez **HTTP**. |
     | Port | Entrez **80**.|
     | Intervalle | Entrez **15** pour **l’intervalle** en secondes entre les tentatives de la sonde. |
@@ -108,7 +108,7 @@ Dans la section suivante, vous allez créer :
     
     | Paramètre | Valeur |
     | ------- | ----- |
-    | Name | Entrez **MyHTTPRule**. |
+    | Nom | Entrez **MyHTTPRule**. |
     | Protocol | Sélectionnez **TCP**. |
     | Port | Entrez **80**.|
     | Port principal | Entrez **80**. |
@@ -130,7 +130,7 @@ Les règles de trafic sortant de l’équilibreur de charge configurent la SNAT 
 
     | Paramètre | Valeur |
     | ------- | ----- |
-    | Name | Entrez **LoadBalancerFrontEndOutbound**. |
+    | Nom | Entrez **LoadBalancerFrontEndOutbound**. |
     | Version de l’adresse IP | Sélectionnez **IPv4**. |
     | Type IP | Sélectionnez **Adresse IP**.|
     | Adresse IP publique | Sélectionnez **Créer nouveau**. Dans la page **Ajouter une adresse IP publique**, entrez **myPublicIPOutbound**.  Sélectionnez **OK**. |
@@ -155,7 +155,7 @@ Les règles de trafic sortant de l’équilibreur de charge configurent la SNAT 
 
     | Paramètre | Valeur |
     | ------- | ----- |
-    | Name | Entrez **myOutboundRule**. |
+    | Nom | Entrez **myOutboundRule**. |
     | Adresse IP du serveur frontal | Sélectionnez **LoadBalancerFrontEndOutbound**. |
     | Délai d’inactivité (minutes) | Déplacez le curseur sur **15 minutes.|
     | Réinitialisation du protocole TCP | Sélectionnez **Enabled**.|

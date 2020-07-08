@@ -2,23 +2,23 @@
 title: Planifier le déploiement de l’authentification unique Azure Active Directory
 description: Guide concernant la planification, le déploiement et la gestion de l’authentification unique au sein d’une organisation.
 services: active-directory
-author: jeevansd
-manager: CelesteDG
+author: kenwith
+manager: celestedg
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.topic: conceptual
 ms.workload: identity
-ms.date: 05/22/2019
+ms.date: 06/10/2020
 ms.author: baselden
 ms.reviewer: jeedes
 ms.collection: M365-identity-device-management
 ms.custom: has-adal-ref
-ms.openlocfilehash: 4b5836ffe721aa3e329651c3709ce64344363728
-ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
+ms.openlocfilehash: 75e3f7fc98072957f571937a1627247cdc4a9e7e
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/12/2020
-ms.locfileid: "83197866"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85374438"
 ---
 # <a name="plan-a-single-sign-on-deployment"></a>Planifier un déploiement de l’authentification unique
 
@@ -194,8 +194,6 @@ Suivez les étapes ci-dessous pour planifier et déployer votre solution dans vo
    Si vous ne trouvez pas votre application, consultez la [documentation sur les applications personnalisées](https://docs.microsoft.com/azure/active-directory/application-config-sso-how-to-configure-federated-sso-non-gallery). Vous verrez comment ajouter une application qui ne se trouve pas dans la galerie Azure AD.
 
    Si vous le souhaitez, vous pouvez utiliser les revendications émises dans le jeton SAML pour l’application d’entreprise en vous aidant de la [documentation Microsoft](https://docs.microsoft.com/azure/active-directory/active-directory-claims-mapping). Vérifiez que cela correspond à ce que vous vous attendez à recevoir dans la réponse SAML pour votre application. Si vous rencontrez des problèmes lors de la configuration, suivez nos instructions sur le [débogage de l’intégration SSO](https://docs.microsoft.com/azure/active-directory/develop/active-directory-saml-debugging).
-
-L’intégration des applications personnalisées est une fonctionnalité qui est disponible avec les licences Azure AD Premium P1 ou P2.
 
 ### <a name="provide-sso-change-communications-to-end-users"></a>Informer les utilisateurs finaux du changement d’authentification
 

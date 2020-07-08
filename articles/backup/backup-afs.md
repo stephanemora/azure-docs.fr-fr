@@ -3,14 +3,14 @@ title: Sauvegarder des partages de fichiers Azure dans le portail Azure
 description: Découvrir comment utiliser le portail Azure pour sauvegarder des partages de fichiers Azure sauvegardés dans le coffre Recovery Services
 ms.topic: conceptual
 ms.date: 01/20/2020
-ms.openlocfilehash: a77f7fd0ec21eae60a7313a9ffa889fbef4372c6
-ms.sourcegitcommit: 999ccaf74347605e32505cbcfd6121163560a4ae
+ms.openlocfilehash: 76bf8e00dede5f227cb862f9c9474844e349e298
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/08/2020
-ms.locfileid: "82977998"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85391149"
 ---
-# <a name="back-up-azure-file-shares-in-a-recovery-services-vault"></a>Sauvegarder des partages de fichiers Azure dans un coffre Recovery Services
+# <a name="back-up-azure-file-shares"></a>Sauvegarder des partages de fichiers Azure
 
 Cet article explique comment utiliser le portail Azure pour sauvegarder des [partages de fichiers Azure](https://docs.microsoft.com/azure/storage/files/storage-files-introduction).
 
@@ -26,27 +26,6 @@ Dans cet article, vous allez apprendre à :
 * Assurez-vous que le partage de fichiers est présent dans l’un des [types de comptes de stockage pris en charge](azure-file-share-support-matrix.md).
 
 [!INCLUDE [How to create a Recovery Services vault](../../includes/backup-create-rs-vault.md)]
-
-## <a name="modify-storage-replication"></a>Modifier la réplication du stockage
-
-Par défaut, les coffres utilisent le [stockage géoredondant (GRS)](https://docs.microsoft.com/azure/storage/common/storage-redundancy-grs).
-
-* Si le coffre est votre principal mécanisme de sauvegarde, nous vous suggérons d’utiliser l’option GRS.
-* Vous pouvez utiliser le [stockage localement redondant (LRS)](https://docs.microsoft.com/azure/storage/common/storage-redundancy-lrs?toc=%2fazure%2fstorage%2fblobs%2ftoc.json) en guise d’option plus économique.
-
-Modifiez le type de réplication de stockage :
-
-1. Dans le nouveau coffre, dans la section **Paramètres**, sélectionnez **Propriétés**.
-
-1. Dans la page **Propriétés**, sous **Configuration de la sauvegarde**, sélectionnez **Mettre à jour**.
-
-1. Choisissez le type de réplication de stockage, puis sélectionnez **Enregistrer**.
-
-    ![Mettre à jour la configuration de sauvegarde](./media/backup-afs/backup-configuration.png)
-
-> [!NOTE]
-> Vous ne pouvez pas modifier le type de réplication de stockage une fois que le coffre est configuré et qu’il contient des éléments de sauvegarde. Pour ce faire, vous devez recréer le coffre.
->
 
 ## <a name="discover-file-shares-and-configure-backup"></a>Détecter les partages de fichiers et configurer la sauvegarde
 

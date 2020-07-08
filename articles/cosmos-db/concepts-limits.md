@@ -6,12 +6,12 @@ ms.author: abpai
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 04/03/2020
-ms.openlocfilehash: 7ef7a55c81441077d2217ccfc41a2a9c9578eefe
-ms.sourcegitcommit: 595cde417684e3672e36f09fd4691fb6aa739733
+ms.openlocfilehash: 296f212e26d066613c54f7d69802654e5f7b5090
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/20/2020
-ms.locfileid: "83697570"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85391840"
 ---
 # <a name="azure-cosmos-db-service-quotas"></a>Quotas du service Azure Cosmos DB
 
@@ -117,7 +117,7 @@ Aucune restriction ne pèse sur les charges utiles d’élément comme le nombre
 
 ## <a name="per-request-limits"></a>Limites par demande
 
-Azure Cosmos DB prend en charge les [opérations CRUD et de requête](https://docs.microsoft.com/rest/api/cosmos-db/) sur des ressources telles que des conteneurs, des éléments et des bases de données. Il prend également en charge les [requêtes de lots transactionnels](https://docs.microsoft.com/dotnet/api/microsoft.azure.cosmos.transactionalbatch) sur plusieurs éléments ayant la même clé de partition dans un conteneur.
+Azure Cosmos DB prend en charge les [opérations CRUD et de requête](/rest/api/cosmos-db/) sur des ressources telles que des conteneurs, des éléments et des bases de données. Il prend également en charge les [requêtes de lots transactionnels](https://docs.microsoft.com/dotnet/api/microsoft.azure.cosmos.transactionalbatch) sur plusieurs éléments ayant la même clé de partition dans un conteneur.
 
 | Ressource | Limite par défaut |
 | --- | --- |

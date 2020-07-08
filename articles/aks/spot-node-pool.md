@@ -2,17 +2,15 @@
 title: Vue d’ensemble - Ajouter un pool de nœuds spot à un cluster Azure Kubernetes Service (AKS)
 description: Découvrez comment ajouter un pool de nœuds spot à un cluster Azure Kubernetes Service (AKS).
 services: container-service
-author: zr-msft
 ms.service: container-service
 ms.topic: article
 ms.date: 02/25/2020
-ms.author: zarhoads
-ms.openlocfilehash: 466ad7c88547b6676ba0ae263b74d14059322f1c
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: ce2871883300e9eb135b51fdb2f5566e451084f6
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "77622040"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85374608"
 ---
 # <a name="preview---add-a-spot-node-pool-to-an-azure-kubernetes-service-aks-cluster"></a>Vue d’ensemble - Ajouter un pool de nœuds spot à un cluster Azure Kubernetes Service (AKS)
 
@@ -43,9 +41,6 @@ Lorsque vous créez un cluster pour utiliser un pool de nœuds spot, le cluster 
 ### <a name="register-spotpoolpreview-preview-feature"></a>Inscrire la fonctionnalité d’évaluation spotpoolpreview
 
 Pour créer un cluster AKS qui utilise un pool de nœuds spot, vous devez activer l’indicateur de fonctionnalité *spotpoolpreview* sur votre abonnement. Cette fonctionnalité fournit la dernière série d’améliorations de service lors de la configuration d’un cluster.
-
-> [!CAUTION]
-> Lorsque vous inscrivez une fonctionnalité sur un abonnement, vous ne pouvez actuellement pas désinscrire cette fonctionnalité. Après avoir activé des fonctionnalités en préversion, des valeurs par défaut peuvent être utilisées pour tous les clusters AKS créés ultérieurement dans l’abonnement. N’activez pas les fonctionnalités d’évaluation sur les abonnements de production. Utilisez un abonnement distinct pour tester les fonctionnalités d’évaluation et recueillir des commentaires.
 
 Enregistrez l’indicateur de fonctionnalité *spotpoolpreview* à l’aide de la commande [az feature register][az-feature-register], comme indiqué dans l’exemple suivant :
 

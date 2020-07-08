@@ -1,16 +1,16 @@
 ---
 title: Affichage de l’intégrité agrégée des entités Azure Service Fabric
 description: Explique comment interroger, afficher et évaluer l’état d’intégrité agrégé des entités Azure Service Fabric, via des requêtes d’intégrité et des requêtes générales.
-author: oanapl
+author: georgewallace
 ms.topic: conceptual
 ms.date: 2/28/2018
-ms.author: oanapl
-ms.openlocfilehash: d02d8f717801bf51e43c9dafa5eb9379d0737674
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.author: gwallace
+ms.openlocfilehash: 4688664fea29cc07f5895e33ebfff541d61070d1
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "75464132"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85392741"
 ---
 # <a name="view-service-fabric-health-reports"></a>Affichage rapports d’intégrité de Service Fabric
 Azure Service Fabric propose un [modèle d’intégrité](service-fabric-health-introduction.md) avec des entités d’intégrité sur lesquelles les composants système et les agents de surveillance peuvent signaler les conditions locales qu’ils surveillent. Le [magasin d’intégrité](service-fabric-health-introduction.md#health-store) agrège toutes les données d’intégrité pour déterminer si les entités sont saines.
@@ -1044,7 +1044,7 @@ Les requêtes contenant le paramètre **HealthState** pour les entités sont les
   * PowerShell : Get-ServiceFabricDeployedApplication
 
 > [!NOTE]
-> Certaines des requêtes renvoient des résultats paginés. Ces requêtes retournent une liste dérivée de [PagedList\<T>](https://docs.microsoft.com/dotnet/api/system.fabric.query.pagedlist-1). Si les résultats ne tiennent pas dans un message, une seule page est renvoyée. Un élément ContinuationToken effectue un suivi de l’emplacement de l’arrêt de l’énumération. Continuez à appeler la même requête et transmettez le jeton de continuation de la requête précédente pour obtenir les résultats suivants.
+> Certaines des requêtes renvoient des résultats paginés. Ces requêtes renvoient une liste dérivée de [PagedList\<T>](https://docs.microsoft.com/dotnet/api/system.fabric.query.pagedlist-1). Si les résultats ne tiennent pas dans un message, une seule page est renvoyée. Un élément ContinuationToken effectue un suivi de l’emplacement de l’arrêt de l’énumération. Continuez à appeler la même requête et transmettez le jeton de continuation de la requête précédente pour obtenir les résultats suivants.
 
 ### <a name="examples"></a>Exemples
 Le code suivant permet d’obtenir la liste des applications défectueuses du cluster :

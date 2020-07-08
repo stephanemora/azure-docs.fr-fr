@@ -13,12 +13,12 @@ ms.assetid: 521180dc-2cc9-43f1-ae87-2701de7ca6b8
 ms.devlang: na
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.openlocfilehash: 8d074c12f28abdc61f4d70356c2a7aa264deb44c
-ms.sourcegitcommit: f57297af0ea729ab76081c98da2243d6b1f6fa63
+ms.openlocfilehash: 744b186b32927f81be21ff067c9195bddb33c416
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/06/2020
-ms.locfileid: "82871893"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85362089"
 ---
 # <a name="configure-and-customize-the-build-tasks"></a>Configurer et personnaliser les tâches de build
 
@@ -107,36 +107,6 @@ Les options disponibles sont les suivantes :
   - **Version** : Version de la tâche de build dans Azure DevOps. Cette option n’est pas fréquemment utilisée.
 
 Pour plus d’informations sur la configuration YAML de cette tâche, consultez nos [Options YAML pour Credential Scanner](yaml-configuration.md#credential-scanner-task)
-
-## <a name="microsoft-security-risk-detection-task"></a>Tâche Microsoft Security Risk Detection
-
-> [!NOTE]
-> Vous devez créer et configurer un compte avec le service Microsoft Security Risk Detection (MSRD) avant d’utiliser la tâche MSRD. Ce service nécessite un processus d’intégration distinct. Contrairement à la plupart des autres tâches de cette extension, cette tâche nécessite un abonnement distinct avec MSRD.
->
-> Reportez-vous à [Microsoft Security Risk Detection](https://aka.ms/msrddocs) et à [Microsoft Security Risk Detection: How To](https://docs.microsoft.com/security-risk-detection/how-to/) pour des instructions.
-
-Pour plus d’informations sur la configuration de cette tâche, consultez la liste suivante. Pointez sur cet élément d'interface utilisateur pour obtenir de l’aide.
-
-   - **Azure DevOps Service Endpoint Name for MSRD** (Nom du point de terminaison du service Azure DevOps pour MRSD) : Un type générique de point de terminaison de service Azure DevOps stocke l'URL de l'instance MSRD intégrée et le jeton d’accès de l'API REST. Si vous avez créé un tel point de terminaison, vous pouvez le spécifier ici. Sinon, sélectionnez le lien **Gérer** pour créer et configurer un nouveau point de terminaison de service pour cette tâche MSRD.
-   - **Account ID** (ID de compte) : GUID qui peut être récupéré auprès de l’URL du compte MSRD.
-   - **URLs to Binaries** (URL des fichiers binaires) : Liste délimitée par des points-virgules des URL disponibles publiquement. La machine de test à données aléatoires (fuzzing) utilise ces URL pour télécharger les fichiers binaires.
-   - **URLs of the Seed Files** (URL des fichiers de données initiales) : Liste délimitée par des points-virgules des URL disponibles publiquement. La machine de test à données aléatoires (fuzzing) utilise ces URL pour télécharger les fichiers de données initiales. Cette valeur est facultative si les fichiers de données initiales sont téléchargés avec les fichiers binaires.
-   - **OS Platform Type** (Type de plateforme du système d’exploitation) : Plateforme du système d’exploitation des machines exécutant le travail de test à données aléatoires (fuzzing). Les valeurs disponibles sont **Windows** et **Linux**.
-   - **Windows Edition / Linux Edition** (Édition de Windows / Édition de Linux) : Édition du système d’exploitation des machines exécutant le travail de test à données aléatoires (fuzzing). Vous pouvez remplacer la valeur par défaut si vos machines ont une autre édition du système d’exploitation.
-   - **Package Installation Script** (Script d’installation du package) : Votre script à exécuter sur une machine de test. Ce script installe le programme cible des tests et ses dépendances avant de soumettre le travail de test à données aléatoires (fuzzing).
-   - **Job Submission Parameters** (Paramètres de soumission du travail) :
-       - **Seed Directory** (Répertoire des données initiales) : Chemin du répertoire sur la machine de test à données aléatoires (fuzzing) contenant les données initiales.
-       - **Seed Extension** (Extension des données initiales) : Extension de nom de fichier des données initiales.
-       - **Test Driver Executable** (Exécutable du pilote de test) : Chemin du fichier exécutable cible sur la machine de test à données aléatoires (fuzzing).
-       - **Test Driver Executable Architecture** (Architecture de l’exécutable du pilote de test) : Architecture du fichier exécutable cible. Les valeurs disponibles sont **x86** et **amd64**.
-       - **Test Driver Arguments** (Arguments du pilote de test) : Arguments de ligne de commande passés au fichier exécutable des tests. L’argument "% TestFile%", guillemets compris, est automatiquement remplacé par le chemin d’accès complet au fichier cible. Ce fichier est analysé par le pilote de test, et requis.
-       - **Test Driver Process Exits Upon Test Completion** (Le processus du pilote de test s’arrête à la fin du test) : Cochez cette case si le pilote de test doit être arrêté au terme de l’opération. Décochez-la si le pilote de test doit être fermé de force.
-       - **Maximum Duration (in seconds)** (Durée des maximale en secondes) : Estimation de la durée d’attente raisonnable la plus longue requise par le programme cible pour analyser un fichier d’entrée. Plus cette estimation est précise, plus l’exécution de l'application des données aléatoires (fuzzing) est efficace.
-       - **Test Driver Can Be Run Repeatedly** (Le pilote de test peut être exécuté à plusieurs reprises) : Cochez la case si le pilote de test peut s'exécuter de façon répétée sans dépendre d’un état global persistant/partagé.
-       - **Test Driver Can Be Renamed** (Le pilote de test peut être renommé) : Cochez la case si le fichier exécutable du pilote de test peut être renommé et continuer à fonctionner correctement.
-       - **The Fuzzing Application Runs as a Single OS Process** (L’application de test à données aléatoires (fuzzing) s’exécute sous la forme d’un seul processus du système d’exploitation) : Cochez cette case si le pilote de test s’exécute sous la forme d'un seul processus du système d’exploitation. Décochez-la si le pilote de test génère des processus supplémentaires.
-
-Pour plus d’informations sur la configuration YAML de cette tâche, consultez nos [Options YAML pour Microsoft Security Risk Detection](yaml-configuration.md#microsoft-security-risk-detection-task)
 
 ## <a name="roslyn-analyzers-task"></a>Tâche Analyseurs Roslyn
 
