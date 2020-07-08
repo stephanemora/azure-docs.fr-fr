@@ -6,16 +6,16 @@ manager: jureid
 ms.topic: conceptual
 ms.date: 05/23/2019
 ms.author: jureid
-ms.openlocfilehash: b77efd7e5cf7ff016605e0ba2e74cff9ea8dab89
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 6a03d5e67e859a29cb18e29223fe74134aef75fb
+ms.sourcegitcommit: bcb962e74ee5302d0b9242b1ee006f769a94cfb8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "75474643"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86057617"
 ---
 # <a name="grant-access-to-create-azure-enterprise-subscriptions-preview"></a>Accorder l’accès pour créer des abonnements Azure Enterprise (préversion)
 
-En tant que client Azure en [Contrat Entreprise (EA)](https://azure.microsoft.com/pricing/enterprise-agreement/), vous pouvez autoriser un autre utilisateur ou principal de service à créer des abonnements facturés sur votre compte. Dans cet article, vous allez apprendre à utiliser le [contrôle d’accès en fonction du rôle (RBAC)](../../active-directory/role-based-access-control-configure.md) pour partager la capacité de créer des abonnements et à effectuer un audit des créations d’abonnements. Vous devez disposer du rôle Propriétaire pour le compte que vous souhaitez partager.
+En tant que client Azure en [Contrat Entreprise (EA)](https://azure.microsoft.com/pricing/enterprise-agreement/), vous pouvez autoriser un autre utilisateur ou principal de service à créer des abonnements facturés sur votre compte. Dans cet article, vous allez apprendre à utiliser le [contrôle d’accès en fonction du rôle (RBAC)](../../role-based-access-control/role-assignments-portal.md) pour partager la capacité de créer des abonnements et à effectuer un audit des créations d’abonnements. Vous devez disposer du rôle Propriétaire pour le compte que vous souhaitez partager.
 
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
@@ -158,7 +158,7 @@ Pour [créer des abonnements sous un compte d’inscription](programmatically-cr
 
     # <a name="powershell"></a>[PowerShell](#tab/azure-powershell-2)
 
-    Exécutez la commande [New-AzRoleAssignment](../../active-directory/role-based-access-control-manage-access-powershell.md) suivante, en remplaçant ```<enrollmentAccountObjectId>``` par la valeur `ObjectId` récupérée lors de la première étape (```747ddfe5-xxxx-xxxx-xxxx-xxxxxxxxxxxx```). Remplacez ```<userObjectId>``` par l’ID d’objet que vous avez récupéré lors de la deuxième étape.
+    Exécutez la commande [New-AzRoleAssignment](../../role-based-access-control/role-assignments-powershell.md) suivante, en remplaçant ```<enrollmentAccountObjectId>``` par la valeur `ObjectId` récupérée lors de la première étape (```747ddfe5-xxxx-xxxx-xxxx-xxxxxxxxxxxx```). Remplacez ```<userObjectId>``` par l’ID d’objet que vous avez récupéré lors de la deuxième étape.
 
     ```azurepowershell-interactive
     New-AzRoleAssignment -RoleDefinitionName Owner -ObjectId <userObjectId> -Scope /providers/Microsoft.Billing/enrollmentAccounts/<enrollmentAccountObjectId>
@@ -166,7 +166,7 @@ Pour [créer des abonnements sous un compte d’inscription](programmatically-cr
 
     # <a name="azure-cli"></a>[Azure CLI](#tab/azure-cli-2)
 
-    Exécutez la commande [az role assignment create](../../active-directory/role-based-access-control-manage-access-azure-cli.md) suivante, en remplaçant ```<enrollmentAccountObjectId>``` par la valeur `name` copiée lors de la première étape (```747ddfe5-xxxx-xxxx-xxxx-xxxxxxxxxxxx```). Remplacez ```<userObjectId>``` par l’ID d’objet que vous avez récupéré lors de la deuxième étape.
+    Exécutez la commande [az role assignment create](../../role-based-access-control/role-assignments-cli.md) suivante, en remplaçant ```<enrollmentAccountObjectId>``` par la valeur `name` copiée lors de la première étape (```747ddfe5-xxxx-xxxx-xxxx-xxxxxxxxxxxx```). Remplacez ```<userObjectId>``` par l’ID d’objet que vous avez récupéré lors de la deuxième étape.
 
     ```azurecli-interactive
     az role assignment create --role Owner --assignee-object-id <userObjectId> --scope /providers/Microsoft.Billing/enrollmentAccounts/<enrollmentAccountObjectId>
@@ -180,7 +180,7 @@ Pour [créer des abonnements sous un compte d’inscription](programmatically-cr
 
 Pour effectuer le suivi des abonnements créés par le biais de cette API, utilisez [l’API des journaux d’activité de locataire](/rest/api/monitor/tenantactivitylogs). Il est impossible d’utiliser le portail Azure, l’interface CLI ou PowerShell pour effectuer le suivi de la création d’abonnement.
 
-1. En tant qu’administrateur locataire du locataire Azure AD, [élevez l’accès](../../active-directory/role-based-access-control-tenant-admin-access.md), puis affectez un rôle de lecteur à l’utilisateur d’audit sur l’étendue `/providers/microsoft.insights/eventtypes/management`.
+1. En tant qu’administrateur locataire du locataire Azure AD, [élevez l’accès](../../role-based-access-control/elevate-access-global-admin.md), puis affectez un rôle de lecteur à l’utilisateur d’audit sur l’étendue `/providers/microsoft.insights/eventtypes/management`.
 1. En tant qu’utilisateur d’audit, appelez [l’API des journaux d’activité de locataire](/rest/api/monitor/tenantactivitylogs) pour voir les activités de création d’abonnement. Exemple :
 
     ```

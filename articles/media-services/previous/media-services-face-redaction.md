@@ -13,12 +13,12 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 03/18/2019
 ms.author: juliako
-ms.openlocfilehash: 6a1b7a76ef1efda51f09ac733b3d434235ff40ef
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 8e150ec037bab0010c5505c880c4cac456118b35
+ms.sourcegitcommit: bcb962e74ee5302d0b9242b1ee006f769a94cfb8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "74900298"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86058008"
 ---
 # <a name="redact-faces-with-azure-media-analytics"></a>Éditer les visages avec Azure Media Analytique 
 ## <a name="overview"></a>Vue d’ensemble
@@ -129,9 +129,11 @@ Il s’agit de la sortie à partir d’une liste d’ID avec un ID sélectionné
 
 Exemple : foo_IDList.txt
  
-     1
-     2
-     3
+```output
+1
+2
+3
+```
 
 ## <a name="blur-types"></a>Types de flou
 

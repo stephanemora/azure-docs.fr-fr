@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/18/2019
 ms.author: juliako
-ms.openlocfilehash: af6badda426f1bb81d8528cfda9b8c02d55712b3
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 84b94240431026020d3de793d56853a7d92a6f14
+ms.sourcegitcommit: bcb962e74ee5302d0b9242b1ee006f769a94cfb8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "61463833"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86057974"
 ---
 # <a name="how-to-get-a-media-processor-instance"></a>Procédure : Obtention d'une instance de processeur multimédia
 > [!div class="op_single_selector"]
@@ -42,16 +42,18 @@ La rubrique suivante fournit une liste de processeurs multimédias :
 
 La méthode suivante montre comment obtenir une instance de processeur multimédia. L'exemple de code implique l'utilisation au niveau du module d'une variable nommée **_context** pour référencer le contexte du serveur, comme décrit à la section [Procédure : Se connecter à Media Services par programmation](media-services-use-aad-auth-to-access-ams-api.md).
 
-    private static IMediaProcessor GetLatestMediaProcessorByName(string mediaProcessorName)
-    {
-        var processor = _context.MediaProcessors.Where(p => p.Name == mediaProcessorName).
-        ToList().OrderBy(p => new Version(p.Version)).LastOrDefault();
+```csharp
+private static IMediaProcessor GetLatestMediaProcessorByName(string mediaProcessorName)
+{
+    var processor = _context.MediaProcessors.Where(p => p.Name == mediaProcessorName).
+    ToList().OrderBy(p => new Version(p.Version)).LastOrDefault();
 
-        if (processor == null)
-        throw new ArgumentException(string.Format("Unknown media processor", mediaProcessorName));
+    if (processor == null)
+    throw new ArgumentException(string.Format("Unknown media processor", mediaProcessorName));
 
-        return processor;
-    }
+    return processor;
+}
+```
 
 
 ## <a name="media-services-learning-paths"></a>Parcours d’apprentissage de Media Services

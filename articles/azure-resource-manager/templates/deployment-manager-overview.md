@@ -4,12 +4,12 @@ description: Explique comment déployer un service sur plusieurs régions avec A
 ms.topic: conceptual
 ms.date: 11/21/2019
 ms.custom: seodec18
-ms.openlocfilehash: 424cd79a6c63200e1f101cf178b1fd2c9083161e
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 006c123dfbb682ff5c498872d7f717a4a09e0bb5
+ms.sourcegitcommit: bcb962e74ee5302d0b9242b1ee006f769a94cfb8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "76152525"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86057923"
 ---
 # <a name="enable-safe-deployment-practices-with-azure-deployment-manager-public-preview"></a>Permettre des pratiques sûres de déploiement avec Azure Deployment Manager (préversion publique)
 
@@ -30,7 +30,7 @@ Vous déployez le modèle de topologie avant de déployer le modèle de lancemen
 
 Ressources supplémentaires :
 
-- Les [informations de référence de l’API REST Azure Deployment Manager](https://docs.microsoft.com/rest/api/deploymentmanager/).
+- Les [informations de référence de l’API REST Azure Deployment Manager](/rest/api/deploymentmanager/).
 - [Tutoriel : Utiliser Azure Deployment Manager avec des modèles Resource Manager](./deployment-manager-tutorial.md).
 - [Tutoriel : Utiliser le contrôle d’intégrité dans Azure Deployment Manager](./deployment-manager-tutorial-health-check.md).
 - [Un exemple d’Azure Deployment Manager](https://github.com/Azure-Samples/adm-quickstart).
@@ -300,7 +300,7 @@ Votre modèle et votre fichier de paramètre doivent connaître le chemin correc
 
 ```json
 {
-  "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
+  "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentParameters.json#",
   "contentVersion": "1.0.0.0",
   "parameters": {
     "deployPackageUri": {
