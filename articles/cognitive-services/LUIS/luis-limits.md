@@ -3,12 +3,12 @@ title: Limites - LUIS
 description: Cet article liste les limites connues d’Azure Cognitive Services Language Understanding (LUIS). LUIS a plusieurs zones de limites. La limite de modèle contrôle les intentions, les entités et les caractéristiques dans LUIS. La limite de quota dépend du type de clé. La combinaison de touches contrôle le site web de LUIS.
 ms.topic: reference
 ms.date: 06/04/2020
-ms.openlocfilehash: fce4aab0221cf050ce175c582f21de58b6e27eac
-ms.sourcegitcommit: 9bfd94307c21d5a0c08fe675b566b1f67d0c642d
+ms.openlocfilehash: 79a59408ec7d0cdfa4ded07e196a75a28143c20c
+ms.sourcegitcommit: bcb962e74ee5302d0b9242b1ee006f769a94cfb8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/17/2020
-ms.locfileid: "84976980"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86055339"
 ---
 # <a name="limits-for-your-luis-model-and-keys"></a>Limites de vos clés et de votre modèle LUIS
 LUIS a plusieurs zones de limites. La première est la [limite de modèle](#model-limits), qui contrôle les intentions, les entités et les caractéristiques dans LUIS. Le deuxième domaine est la [limite de quota](#key-limits), qui est fonction du type de clé. La troisième zone de limites est la [séquence de touches](#keyboard-controls) pour contrôler le site web LUIS. Un quatrième domaine est le [mappage de régions du monde](luis-reference-regions.md) entre le site web de création de LUIS et les API du [point de terminaison](luis-glossary.md#endpoint) de LUIS.
@@ -68,7 +68,7 @@ N’utilisez pas les caractères suivants dans les noms suivants.
 
 ## <a name="resource-usage-and-limits"></a>Utilisation et limites des ressources
 
-Language Understanding possède des ressources distinctes, un type pour la création et un type pour l'interrogation du point de terminaison de prédiction. Pour en savoir plus sur les différences entre les types de clés, voir [Clés de point de terminaison de création et de prédiction de requête dans LUIS](luis-concept-keys.md).
+Language Understanding possède des ressources distinctes, un type pour la création et un type pour l'interrogation du point de terminaison de prédiction. Pour en savoir plus sur les différences entre les types de clés, voir [Clés de point de terminaison de création et de prédiction de requête dans LUIS](luis-how-to-azure-subscription.md).
 
 <a name="key-limits"></a>
 

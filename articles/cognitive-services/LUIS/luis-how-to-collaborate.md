@@ -11,12 +11,12 @@ ms.subservice: language-understanding
 ms.topic: how-to
 ms.date: 11/19/2019
 ms.author: diberry
-ms.openlocfilehash: f1aed6b1c03a2b83e3b4fd91f1106614adb5a701
-ms.sourcegitcommit: 61d850bc7f01c6fafee85bda726d89ab2ee733ce
+ms.openlocfilehash: d1f534b801ec3a71e891bf654628f9e49fc04b0d
+ms.sourcegitcommit: bcb962e74ee5302d0b9242b1ee006f769a94cfb8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/03/2020
-ms.locfileid: "84344388"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86055628"
 ---
 # <a name="add-contributors-to-your-app"></a>Ajouter des contributeurs à votre application
 
@@ -97,6 +97,6 @@ Découvrez-en plus sur les utilisateurs Azure Active Directory et le consentemen
 ## <a name="next-steps"></a>Étapes suivantes
 
 * Découvrez [comment utiliser des versions](luis-how-to-manage-versions.md) pour contrôler le cycle de vie de votre application.
-* Découvrez les concepts de [ressource de création](luis-concept-keys.md#authoring-key) et de [contributeurs](luis-concept-keys.md#contributions-from-other-authors).
+* Découvrez les concepts de [ressource de création](luis-how-to-azure-subscription.md#authoring-key) et de [contributeurs](luis-how-to-azure-subscription.md#contributions-from-other-authors).
 * Découvrez [comment créer](luis-how-to-azure-subscription.md) des ressources de création et de runtime.
 * Migrez vers la nouvelle [ressource de création](luis-migration-authoring.md).

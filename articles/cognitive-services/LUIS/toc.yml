@@ -105,9 +105,6 @@
           href: luis-concept-test.md
         - name: Test par lot
           href: luis-concept-batch-test.md
-    - name: Clés de création et d'exécution
-      displayName: 'shared, transfer, ownership, author, access, import'
-      href: luis-concept-keys.md
     - name: Gestion des données
       items:
         - name: Modification des données

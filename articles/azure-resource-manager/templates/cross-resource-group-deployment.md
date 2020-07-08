@@ -3,12 +3,12 @@ title: Déployer des ressources inter-abonnements et groupes de ressources
 description: Montre comment cibler plusieurs groupes de ressources et des abonnements Azure pendant le déploiement.
 ms.topic: conceptual
 ms.date: 05/18/2020
-ms.openlocfilehash: 2ef68dcb933075833c323d973b023cdaee61bd2f
-ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
+ms.openlocfilehash: 34de1d9df53d61d849ffbb81a57b468020bc3b65
+ms.sourcegitcommit: bcb962e74ee5302d0b9242b1ee006f769a94cfb8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83650627"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86057379"
 ---
 # <a name="deploy-azure-resources-across-subscriptions-or-resource-groups"></a>Déployer des ressources Azure entre des abonnements ou groupes de ressources
 
@@ -25,7 +25,7 @@ Pour cibler un groupe de ressources différent de celui du modèle parent, utili
 
 Si vous ne spécifiez pas l’ID d’abonnement ni le groupe de ressources, ce sont l’abonnement et le groupe de ressources du modèle parent qui sont utilisés. Tous les groupes de ressources doivent exister avant l’exécution du déploiement.
 
-Le compte qui déploie le modèle doit avoir l’autorisation de déployer vers l’ID d’abonnement spécifié. Si l’abonnement spécifié existe dans un autre abonné Azure Active Directory, vous devez [ajouter les utilisateurs invités à partir d’un autre répertoire](../../active-directory/active-directory-b2b-what-is-azure-ad-b2b.md).
+Le compte qui déploie le modèle doit avoir l’autorisation de déployer vers l’ID d’abonnement spécifié. Si l’abonnement spécifié existe dans un autre abonné Azure Active Directory, vous devez [ajouter les utilisateurs invités à partir d’un autre répertoire](../../active-directory/b2b/what-is-b2b.md).
 
 L’exemple suivant déploie deux comptes de stockage. Le premier compte de stockage est déployé sur le groupe de ressources spécifié lors de l’opération de déploiement. Le second compte de stockage est déployé sur le groupe de ressources spécifié dans les paramètres `secondResourceGroup` et `secondSubscriptionID` :
 

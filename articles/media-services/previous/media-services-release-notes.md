@@ -13,12 +13,12 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 10/01/2019
 ms.author: juliako
-ms.openlocfilehash: edea04e15fe5b844654f250a22a05a753f0df123
-ms.sourcegitcommit: 0b80a5802343ea769a91f91a8cdbdf1b67a932d3
+ms.openlocfilehash: 63b3def9c37f53ebf68642faf3f45cee6602bbe5
+ms.sourcegitcommit: bcb962e74ee5302d0b9242b1ee006f769a94cfb8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/25/2020
-ms.locfileid: "83836394"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86057294"
 ---
 # <a name="azure-media-services-release-notes"></a>Notes de publication d'Azure Media Services
 
@@ -191,12 +191,14 @@ Vous pouvez maintenant utiliser Media Services pour chiffrer de manière dynamiq
 ## <a name="february-2016-release"></a><a id="feb_changes16"></a>Version de février 2016
 La dernière version du SDK Media Services pour .NET (3.5.3) contient un correctif de bogue relatif à Google Widevine. Il était impossible de réutiliser AssetDeliveryPolicy pour plusieurs actifs multimédias chiffrés avec Widevine. Dans le cadre de ce correctif de bogue, la propriété suivante a été ajoutée au SDK : WidevineBaseLicenseAcquisitionUrl.
 
-    Dictionary<AssetDeliveryPolicyConfigurationKey, string> assetDeliveryPolicyConfiguration =
-        new Dictionary<AssetDeliveryPolicyConfigurationKey, string>
-    {
-        {AssetDeliveryPolicyConfigurationKey.WidevineBaseLicenseAcquisitionUrl,"http://testurl"},
+```csharp
+Dictionary<AssetDeliveryPolicyConfigurationKey, string> assetDeliveryPolicyConfiguration =
+    new Dictionary<AssetDeliveryPolicyConfigurationKey, string>
+{
+    {AssetDeliveryPolicyConfigurationKey.WidevineBaseLicenseAcquisitionUrl,"http://testurl"},
 
-    };
+};
+```
 
 ## <a name="january-2016-release"></a><a id="jan_changes_16"></a>Version de janvier 2016
 Les unités réservées d’encodage ont été renommées pour éviter la confusion avec les noms d’encodeurs.
@@ -323,7 +325,9 @@ Le SDK Media Services en est maintenant à la version 3.1.0.1.
 
 Cette version a marqué le constructeur Microsoft.WindowsAzure.MediaServices.Client.ContentKeyAuthorization.TokenRestrictionTemplate par défaut comme obsolète. Le nouveau constructeur prend TokenType comme argument.
 
-    TokenRestrictionTemplate template = new TokenRestrictionTemplate(TokenType.SWT);
+```csharp
+TokenRestrictionTemplate template = new TokenRestrictionTemplate(TokenType.SWT);
+```
 
 
 ## <a name="december-2014-release"></a><a id="december_changes_14"></a>Version de décembre 2014

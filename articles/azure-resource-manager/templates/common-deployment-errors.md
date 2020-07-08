@@ -3,13 +3,13 @@ title: Résoudre les erreurs de déploiement courantes
 description: Décrit comment résoudre les erreurs courantes lors du déploiement de ressources sur Azure à l’aide d’Azure Resource Manager.
 tags: top-support-issue
 ms.topic: troubleshooting
-ms.date: 10/04/2019
-ms.openlocfilehash: e1b7a318f73a513d699de97f0973ece9b6481b93
-ms.sourcegitcommit: f1132db5c8ad5a0f2193d751e341e1cd31989854
+ms.date: 06/25/2020
+ms.openlocfilehash: 9914cf8267624cd05db860e7dd8eb8d8c5831f7e
+ms.sourcegitcommit: bcb962e74ee5302d0b9242b1ee006f769a94cfb8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/31/2020
-ms.locfileid: "84230625"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86055662"
 ---
 # <a name="troubleshoot-common-azure-deployment-errors-with-azure-resource-manager"></a>Résolution des erreurs courantes dans des déploiements Azure avec Azure Resource Manager
 
@@ -25,7 +25,7 @@ Si vous recherchez des informations sur un code d’erreur et que ces informatio
 | ---------- | ---------- | ---------------- |
 | AccountNameInvalid | Suivez les restrictions concernant l’attribution de noms pour les comptes de stockage. | [Résoudre les erreurs de nom du compte de stockage](error-storage-account-name.md) |
 | AccountPropertyCannotBeSet | Vérifiez les propriétés disponibles du compte de stockage. | [storageAccounts](/azure/templates/microsoft.storage/storageaccounts) |
-| AllocationFailed | Le cluster ou la région n’a pas de ressources disponibles ou ne prend pas en charge la taille de machine virtuelle demandée. Renouvelez la demande plus tard ou demandez une taille de machine virtuelle différente. | [Problèmes d’approvisionnement et d’allocation pour Linux](../../virtual-machines/linux/troubleshoot-deployment-new-vm.md), [Problèmes d’approvisionnement et d’allocation pour Windows](../../virtual-machines/windows/troubleshoot-deployment-new-vm.md) et [Résoudre des échecs d’allocation](../../virtual-machines/troubleshooting/allocation-failure.md)|
+| AllocationFailed | Le cluster ou la région n’a pas de ressources disponibles ou ne prend pas en charge la taille de machine virtuelle demandée. Renouvelez la demande plus tard ou demandez une taille de machine virtuelle différente. | [Problèmes d’approvisionnement et d’allocation pour Linux](../../virtual-machines/troubleshooting/troubleshoot-deployment-new-vm-linux.md), [Problèmes d’approvisionnement et d’allocation pour Windows](../../virtual-machines/troubleshooting/troubleshoot-deployment-new-vm-windows.md) et [Résoudre des échecs d’allocation](../../virtual-machines/troubleshooting/allocation-failure.md)|
 | AnotherOperationInProgress | Attendez que l’opération simultanée soit terminée. | |
 | AuthorizationFailed | Votre compte ou principal du service ne dispose pas de droits d’accès suffisants pour terminer le déploiement. Vérifiez le rôle auquel votre compte appartient et son accès dans le cadre du déploiement.<br><br>Cette erreur peut s’afficher quand un fournisseur de ressources requis n’est pas inscrit. | [Contrôle d’accès en fonction du rôle Azure](../../role-based-access-control/role-assignments-portal.md)<br><br>[Résoudre les erreurs d’inscription](error-register-resource-provider.md) |
 | BadRequest | Vous avez envoyé des valeurs de déploiement qui ne correspondent pas aux valeurs attendues par Resource Manager. Vérifiez le message d’état interne pour résoudre plus facilement le problème. | [Référence de modèle](/azure/templates/) et [Emplacements pris en charge](resource-location.md) |
@@ -114,7 +114,7 @@ Pour voir les codes et les messages d’erreur de déploiement avec PowerShell, 
 Pour voir les codes et les messages d’erreur de déploiement avec Azure CLI, utilisez :
 
 ```azurecli-interactive
-az deployment group operation list --name exampledeployment -g examplegroup --query "[*].properties.statusMessage"
+az deployment operation group list --name exampledeployment -g examplegroup --query "[*].properties.statusMessage"
 ```
 
 Dans le portail, sélectionnez la notification.
@@ -172,7 +172,7 @@ Actuellement, Azure CLI ne prend pas en charge l’activation de la journalisati
 Examinez les opérations de déploiement avec la commande suivante :
 
 ```azurecli
-az deployment group operation list \
+az deployment operation group list \
   --resource-group examplegroup \
   --name exampledeployment
 ```
@@ -180,7 +180,7 @@ az deployment group operation list \
 Examinez le contenu de la demande avec la commande suivante :
 
 ```azurecli
-az deployment group operation list \
+az deployment operation group list \
   --name exampledeployment \
   -g examplegroup \
   --query [].properties.request
@@ -189,7 +189,7 @@ az deployment group operation list \
 Examinez le contenu de la réponse avec la commande suivante :
 
 ```azurecli
-az deployment group operation list \
+az deployment operation group list \
   --name exampledeployment \
   -g examplegroup \
   --query [].properties.response
@@ -223,7 +223,7 @@ Dans certains cas, le moyen le plus simple pour résoudre les problèmes de votr
 
 ```json
 {
-  "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+  "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
   "contentVersion": "1.0.0.0",
   "parameters": {
   "storageName": {

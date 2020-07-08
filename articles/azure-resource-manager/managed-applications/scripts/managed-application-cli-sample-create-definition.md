@@ -6,12 +6,12 @@ ms.devlang: azurecli
 ms.topic: sample
 ms.date: 10/25/2017
 ms.author: tomfitz
-ms.openlocfilehash: f4d5a0036ba44f7e0054db7ce820b91b0de629b8
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: 63182eb382e96f47c1c90dc5d212e064d0945ba7
+ms.sourcegitcommit: bcb962e74ee5302d0b9242b1ee006f769a94cfb8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "75648966"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86056047"
 ---
 # <a name="create-a-managed-application-definition-with-azure-cli"></a>Créer une définition d’application managée avec Azure CLI
 
@@ -33,10 +33,10 @@ Ce script utilise la commande suivante pour créer la définition d’applicatio
 
 | Commande | Notes |
 |---|---|
-| [az managedapp definition create](https://docs.microsoft.com/cli/azure/managedapp/definition#az-managedapp-definition-create) | Créer une définition d’application managée. Fournir le package qui contient les fichiers nécessaires. |
+| [az managedapp definition create](/cli/azure/managedapp/definition#az-managedapp-definition-create) | Créer une définition d’application managée. Fournir le package qui contient les fichiers nécessaires. |
 
 
 ## <a name="next-steps"></a>Étapes suivantes
 
 * Pour voir une présentation des applications gérées, consultez [Vue d’ensemble des applications gérées Azure](../overview.md).
-* Pour plus d’informations sur l’interface Azure CLI, consultez la [documentation relative à l’interface Azure CLI](https://docs.microsoft.com/cli/azure).
+* Pour plus d’informations sur l’interface Azure CLI, consultez la [documentation relative à l’interface Azure CLI](/cli/azure).

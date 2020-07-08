@@ -6,12 +6,12 @@ ms.topic: conceptual
 ms.date: 12/09/2018
 ms.author: mavane
 ms.custom: seodec18
-ms.openlocfilehash: c5095efef5d4bef44993bdd9cd52dbdef17378a8
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: f7295515b75ba7e26454f8b6ce6e0d660657ec4e
+ms.sourcegitcommit: bcb962e74ee5302d0b9242b1ee006f769a94cfb8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80156104"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86055237"
 ---
 # <a name="develop-arm-templates-for-cloud-consistency"></a>Développer des modèles ARM pour la cohérence du cloud
 
@@ -133,7 +133,7 @@ Dans le modèle, les liens sont générés en combinant l’URI de base (à part
 "resources": [
   {
     "type": "Microsoft.Resources/deployments",
-    "apiVersion": "2015-01-01",
+    "apiVersion": "2019-10-01",
     "name": "shared",
     "properties": {
       "mode": "Incremental",
@@ -301,7 +301,7 @@ C’est pour cette raison que Resource Manager a introduit le concept de profils
 
 ```json
 {
-  "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+  "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
   "contentVersion": "1.0.0.0",
   "parameters": {
     "location": {
@@ -342,7 +342,7 @@ Une version de profil d’API agit en tant qu’alias pour une seule version d�
 
 ```json
 {
-    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+    "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
     "contentVersion": "1.0.0.0",
     "apiProfile": "2018–03-01-hybrid",
     "parameters": {
@@ -384,7 +384,7 @@ Le profil d’API n’est pas un élément nécessaire dans un modèle. Même si
 
 ```json
 {
-    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+    "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
     "contentVersion": "1.0.0.0",
     "apiProfile": "2018–03-01-hybrid",
     "parameters": {
@@ -574,7 +574,7 @@ Ces modifications s’appliquent également aux [disques de données](../../virt
 
 ### <a name="verify-that-vm-extensions-are-available-in-azure-stack"></a>Vérifier que les extensions de machine virtuelle sont disponibles dans Azure Stack
 
-Par souci de cohérence du cloud, vous devez tenir compte de l’utilisation des [extensions de machine virtuelle](../../virtual-machines/windows/extensions-features.md) pour configurer les ressources d’une machine virtuelle. Les extensions de machine virtuelle ne sont pas toutes disponibles dans Azure Stack. Un modèle peut spécifier les ressources dédiées à l’extension de machine virtuelle, en créant des dépendances et des conditions dans le modèle.
+Par souci de cohérence du cloud, vous devez tenir compte de l’utilisation des [extensions de machine virtuelle](../../virtual-machines/extensions/features-windows.md) pour configurer les ressources d’une machine virtuelle. Les extensions de machine virtuelle ne sont pas toutes disponibles dans Azure Stack. Un modèle peut spécifier les ressources dédiées à l’extension de machine virtuelle, en créant des dépendances et des conditions dans le modèle.
 
 Par exemple, si vous souhaitez configurer une machine virtuelle exécutant Microsoft SQL Server, l’extension de machine virtuelle peut configurer SQL Server lors du déploiement du modèle. Il est important de savoir ce qui se passe si le modèle de déploiement contient également un serveur d’applications configuré pour créer une base de données sur la machine virtuelle exécutant SQL Server. Outre l’utilisation d’une extension de machine virtuelle pour les serveurs d’applications, vous pouvez configurer la dépendance du serveur d’applications sur le retour réussi de la ressource d’extension de machine virtuelle SQL Server. Cette approche garantit que la machine virtuelle exécutant SQL Server est configurée et disponible lorsque le serveur d’applications est invité à créer la base de données.
 

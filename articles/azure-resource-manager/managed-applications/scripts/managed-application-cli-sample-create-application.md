@@ -6,12 +6,12 @@ ms.devlang: azurecli
 ms.topic: sample
 ms.date: 10/25/2017
 ms.author: tomfitz
-ms.openlocfilehash: 346ea59209bc2f74970e708c947f5caa158a0338
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: 0c2fc3dc4e76f295dff94ebda71d54bad425b621
+ms.sourcegitcommit: bcb962e74ee5302d0b9242b1ee006f769a94cfb8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "75648786"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86056121"
 ---
 # <a name="deploy-a-managed-application-for-service-catalog-with-azure-cli"></a>Déployer une application managée pour le catalogue de services avec Azure CLI
 
@@ -33,10 +33,10 @@ Ce script utilise la commande suivante pour déployer l’application managée. 
 
 | Commande | Notes |
 |---|---|
-| [az managedapp create](https://docs.microsoft.com/cli/azure/managedapp#az-managedapp-create) | Créer une application managée. Fournir les paramètres et l’ID de définition pour le modèle. |
+| [az managedapp create](/cli/azure/managedapp#az-managedapp-create) | Créer une application managée. Fournir les paramètres et l’ID de définition pour le modèle. |
 
 
 ## <a name="next-steps"></a>Étapes suivantes
 
 * Pour voir une présentation des applications gérées, consultez [Vue d’ensemble des applications gérées Azure](../overview.md).
-* Pour plus d’informations sur l’interface Azure CLI, consultez la [documentation relative à l’interface Azure CLI](https://docs.microsoft.com/cli/azure).
+* Pour plus d’informations sur l’interface Azure CLI, consultez la [documentation relative à l’interface Azure CLI](/cli/azure).
