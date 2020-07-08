@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 04/23/2020
 ms.author: mbaldwin
 ms.custom: security-benchmark
-ms.openlocfilehash: 92f2102d8d6353da2002a4ee9d5bfbe57a774e10
-ms.sourcegitcommit: e0330ef620103256d39ca1426f09dd5bb39cd075
+ms.openlocfilehash: cd7e7df5c789743cf6bd84c6150fd901490bdedd
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/05/2020
-ms.locfileid: "82792069"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84751633"
 ---
 # <a name="azure-security-baseline-for-azure-storage"></a>Base de référence de sécurité Azure pour Stockage Azure
 
@@ -62,7 +62,7 @@ Notez que si vous avez des points de terminaison privés attachés à votre comp
 
 **Aide** : Non applicable. La recommandation concerne les applications web s’exécutant sur Azure App Service ou les ressources de calcul.
 
-**Supervision d’Azure Security Center** : Non applicable
+**Supervision Azure Security Center** : Non applicable
 
 **Responsabilité** : Customer
 
@@ -90,7 +90,7 @@ Notez que si vous avez des points de terminaison privés attachés à votre comp
 
 ### <a name="16-deploy-network-based-intrusion-detectionintrusion-prevention-systems"></a>1.6 : Déployer des systèmes de détection et de prévention des intrusions sur le réseau
 
-**Aide** : La protection avancée contre les menaces pour Stockage Azure offre une couche supplémentaire de veille de sécurité qui détecte les tentatives d’accès ou d’exploitation inhabituelles et potentiellement dangereuses des comptes de stockage. Les alertes de sécurité sont déclenchées lorsque des anomalies se produisent dans l’activité. Ces alertes de sécurité sont intégrées à Azure Security Center et envoyées par e-mail aux administrateurs d’abonnement avec les détails des activités suspectes et des recommandations sur la façon d’examiner et de corriger les menaces. 
+**Conseils** : La protection avancée contre les menaces pour Stockage Azure offre une couche supplémentaire de veille de sécurité qui détecte les tentatives d’accès ou d’exploitation inhabituelles et potentiellement dangereuses des comptes de stockage. Les alertes de sécurité sont déclenchées lorsque des anomalies se produisent dans l’activité. Ces alertes de sécurité sont intégrées à Azure Security Center et envoyées par e-mail aux administrateurs d’abonnement avec les détails des activités suspectes et des recommandations sur la façon d’examiner et de corriger les menaces. 
 
 - [Configuration de la protection avancée contre les menaces pour Stockage Azure](https://docs.microsoft.com/azure/storage/common/storage-advanced-threat-protection)
 
@@ -100,7 +100,7 @@ Notez que si vous avez des points de terminaison privés attachés à votre comp
 
 ### <a name="17-manage-traffic-to-your-web-applications"></a>1.7 : Gérer le trafic à destination de vos applications web
 
-**Aide** : Non applicable. La recommandation concerne les applications web s’exécutant sur Azure App Service ou les ressources de calcul.
+**Conseils** : Non applicable. La recommandation concerne les applications web s’exécutant sur Azure App Service ou les ressources de calcul.
 
 **Supervision d’Azure Security Center** : Non applicable
 
@@ -270,7 +270,7 @@ En outre, activez Advanced Threat Protection pour votre compte Stockage Azure. L
 
 **Aide** : Non applicable. Le benchmark a trait aux ressources de calcul.
 
-**Supervision d’Azure Security Center** : Non applicable
+**Supervision Azure Security Center** : Non applicable
 
 **Responsabilité** : Non applicable
 
@@ -292,7 +292,7 @@ En outre, activez Advanced Threat Protection pour votre compte Stockage Azure. L
 
 ### <a name="32-change-default-passwords-where-applicable"></a>3.2 : Changer les mots de passe par défaut quand cela est possible
 
-**Aide** : Ni les comptes de stockage Azure ni Azure Active Directory ne suivent le concept de mots de passe vierges ou par défaut. Stockage Azure implémente un modèle de contrôle d’accès qui prend en charge le contrôle d’accès en fonction du rôle (RBAC) Azure, ainsi que les clés partagées et les signatures d’accès partagé (SAP). Une caractéristique de cette authentification SAP et par clé partagée est qu’aucune identité n’est associée à l’appelant. Par conséquent, aucune permission basée sur une autorisation de principal de sécurité ne peut être accordée. 
+**Conseils** : Ni les comptes de stockage Azure ni Azure Active Directory ne suivent le concept de mots de passe vierges ou par défaut. Stockage Azure implémente un modèle de contrôle d’accès qui prend en charge le contrôle d’accès en fonction du rôle (RBAC) Azure, ainsi que les clés partagées et les signatures d’accès partagé (SAP). Une caractéristique de cette authentification SAP et par clé partagée est qu’aucune identité n’est associée à l’appelant. Par conséquent, aucune permission basée sur une autorisation de principal de sécurité ne peut être accordée. 
 
 - [Autorisation de l’accès aux données dans Stockage Azure](https://docs.microsoft.com/azure/storage/common/storage-auth)
 
@@ -332,7 +332,7 @@ Vous pouvez également activer JIT (Juste-à-temps)/JEA (Just-Enough-Access) à 
 
 ### <a name="35-use-multifactor-authentication-for-all-azure-active-directory-based-access"></a>3.5 : Utiliser l’authentification multifacteur pour tous les accès basés sur Azure Active Directory
 
-**Aide** : Activez l’authentification multifacteur Azure Active Directory et suivez les recommandations de gestion des identités et des accès dans Azure Security Center pour protéger vos ressources de compte de stockage. 
+**Conseils** : Activez l’authentification multifacteur Azure Active Directory et suivez les recommandations de gestion des identités et des accès dans Azure Security Center pour protéger vos ressources de compte de stockage. 
 
 - [Guide pratique pour activer l’authentification MFA dans Azure](https://docs.microsoft.com/azure/active-directory/authentication/howto-mfa-getstarted)
 
@@ -356,7 +356,7 @@ Vous pouvez également activer JIT (Juste-à-temps)/JEA (Just-Enough-Access) à 
 
 ### <a name="37-log-and-alert-on-suspicious-activity-from-administrative-accounts"></a>3.7 : Journaliser et générer des alertes en cas d’activités suspectes depuis les comptes d’administration
 
-**Aide** : Envoyez les alertes de détection des risques d’Azure Security Center à Azure Monitor et configurez des alertes/notifications personnalisées à l’aide de groupes d’actions. Activez Advanced Threat Protection pour le compte de stockage Azure de façon à générer des alertes en cas d’activité suspecte. Utilisez également les détections de risque Azure AD pour visualiser les alertes et les rapports sur les comportements des utilisateurs à risque. 
+**Conseils** : Envoyez les alertes de détection des risques d’Azure Security Center à Azure Monitor et configurez des alertes/notifications personnalisées à l’aide de groupes d’actions. Activez Advanced Threat Protection pour le compte de stockage Azure de façon à générer des alertes en cas d’activité suspecte. Utilisez également les détections de risque Azure AD pour visualiser les alertes et les rapports sur les comportements des utilisateurs à risque. 
 
 - [Configuration d’Advanced Threat Protection pour le compte de stockage Azure](https://docs.microsoft.com/azure/storage/common/storage-advanced-threat-protection)
 
@@ -374,13 +374,13 @@ Vous pouvez également activer JIT (Juste-à-temps)/JEA (Just-Enough-Access) à 
 
 - [Guide pratique pour configurer des emplacements nommés dans Azure](https://docs.microsoft.com/azure/active-directory/reports-monitoring/quickstart-configure-named-locations)
 
-**Supervision d’Azure Security Center** : actuellement non disponible
+**Supervision Azure Security Center** : actuellement non disponible
 
 **Responsabilité** : Customer
 
 ### <a name="39-use-azure-active-directory"></a>3.9 : Utiliser Azure Active Directory
 
-**Aide** : Utiliser Azure Active Directory (Azure AD) comme système d’authentification et d’autorisation central. Azure AD fournit un contrôle d’accès basé sur un rôle (RBAC) pour contrôler l’accès d’un client aux ressources dans un compte de stockage.  Comme meilleure pratique, utilisez si possible les informations d’identification Azure AD plutôt que la clé de compte, qui peut être plus facilement compromise. Lorsque la conception de votre application nécessite des signatures d’accès partagé pour être en mesure d’accéder au Stockage Blob, utilisez les informations d’identification Azure AD pour créer, si possible, des signatures d’accès partagé (SAP) de délégation d’utilisateur pour profiter d’une sécurité supérieure.
+**Conseils** : Utiliser Azure Active Directory (Azure AD) comme système d’authentification et d’autorisation central. Azure AD fournit un contrôle d’accès basé sur un rôle (RBAC) pour contrôler l’accès d’un client aux ressources dans un compte de stockage.  Comme meilleure pratique, utilisez si possible les informations d’identification Azure AD plutôt que la clé de compte, qui peut être plus facilement compromise. Lorsque la conception de votre application nécessite des signatures d’accès partagé pour être en mesure d’accéder au Stockage Blob, utilisez les informations d’identification Azure AD pour créer, si possible, des signatures d’accès partagé (SAP) de délégation d’utilisateur pour profiter d’une sécurité supérieure.
 
 - [Création et configuration d’une instance Azure AD](https://docs.microsoft.com/azure/active-directory/fundamentals/active-directory-access-create-new-tenant)
 
@@ -418,13 +418,13 @@ Une façon efficace de réduire le risque d’un accès insoupçonné à un comp
 
 - [Gestion des clés d’accès au compte de stockage](https://docs.microsoft.com/azure/storage/common/storage-account-keys-manage)
 
-**Supervision d’Azure Security Center** : actuellement non disponible
+**Supervision Azure Security Center** : actuellement non disponible
 
 **Responsabilité** : Customer
 
 ### <a name="311-monitor-attempts-to-access-deactivated-accounts"></a>3.11 : Superviser les tentatives d’accès aux comptes désactivés
 
-**Aide** : Utilisez Storage Analytics pour consigner des informations détaillées sur les requêtes ayant réussi ou échoué pour un service de stockage. Tous les journaux d’activité sont stockés dans des objets blob de blocs dans un conteneur nommé $logs, qui est automatiquement créé lorsque Storage Analytics est activé pour un compte de stockage.
+**Conseils** : Utilisez Storage Analytics pour consigner des informations détaillées sur les requêtes ayant réussi ou échoué pour un service de stockage. Tous les journaux d’activité sont stockés dans des objets blob de blocs dans un conteneur nommé $logs, qui est automatiquement créé lorsque Storage Analytics est activé pour un compte de stockage.
 
 Créez des paramètres de diagnostic pour les comptes d’utilisateur Azure Active Directory, en envoyant les journaux d’audit et les journaux de connexion à un espace de travail Log Analytics. Vous pouvez configurer les alertes souhaitées dans un espace de travail Log Analytics. Pour surveiller les échecs d’authentification sur les comptes de stockage Azure, vous pouvez créer des alertes pour vous avertir lorsque certains seuils ont été atteints pour les mesures de ressources de stockage. Utilisez également Azure Monitor pour vous alerter des accès anonymes aux comptes de stockage à l’aide de la condition d’authentification anonyme.
 
@@ -468,7 +468,7 @@ Créez des paramètres de diagnostic pour les comptes d’utilisateur Azure Acti
 
 ### <a name="41-maintain-an-inventory-of-sensitive-information"></a>4.1 : Conserver un inventaire des informations sensibles
 
-**Aide** : Utilisez des étiquettes pour faciliter le suivi des ressources de compte de stockage qui stockent ou traitent des informations sensibles. 
+**Conseils** : Utilisez des étiquettes pour faciliter le suivi des ressources de compte de stockage qui stockent ou traitent des informations sensibles. 
 
 - [Guide pratique pour créer et utiliser des étiquettes](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-using-tags)
 
@@ -496,7 +496,7 @@ Créez des paramètres de diagnostic pour les comptes d’utilisateur Azure Acti
 
 ### <a name="43-monitor-and-block-unauthorized-transfer-of-sensitive-information"></a>4.3. : Superviser et bloquer le transfert non autorisé d’informations sensibles
 
-**Aide** : Pour les ressources de compte de stockage qui stockent ou traitent des informations sensibles, marquez les ressources comme sensibles à l’aide de balises. Pour réduire le risque de perte de données par exfiltration, limitez le trafic sortant pour les comptes de stockage Azure à l’aide du Pare-feu Azure. 
+**Conseils** : Pour les ressources de compte de stockage qui stockent ou traitent des informations sensibles, marquez les ressources comme sensibles à l’aide de balises. Pour réduire le risque de perte de données par exfiltration, limitez le trafic sortant pour les comptes de stockage Azure à l’aide du Pare-feu Azure. 
 
 Utilisez également les stratégies de point de terminaison de service de réseau virtuel pour filtrer le trafic du réseau virtuel sortant vers les comptes de stockage Azure sur le point de terminaison de service et exfiltrer des données vers des comptes de stockage Azure spécifiques uniquement.
 
@@ -512,7 +512,7 @@ Utilisez également les stratégies de point de terminaison de service de résea
 
 ### <a name="44-encrypt-all-sensitive-information-in-transit"></a>4.4 : Chiffrer toutes les informations sensibles en transit
 
-**Aide** : Vous pouvez appliquer l’utilisation du protocole HTTPS en activant l’option Transfert sécurisé requis pour le compte de stockage. Les connexions utilisant le protocole HTTP seront refusées une fois cette option activée. En outre, utilisez Azure Security Center et Azure Policy pour appliquer le transfert sécurisé pour votre compte de stockage.
+**Conseils** : Vous pouvez appliquer l’utilisation du protocole HTTPS en activant l’option Transfert sécurisé requis pour le compte de stockage. Les connexions utilisant le protocole HTTP seront refusées une fois cette option activée. En outre, utilisez Azure Security Center et Azure Policy pour appliquer le transfert sécurisé pour votre compte de stockage.
 
 - [Transfert sécurisé requis dans Stockage Azure](https://docs.microsoft.com/azure/storage/common/storage-require-secure-transfer)
 
@@ -534,7 +534,7 @@ Utilisez également les stratégies de point de terminaison de service de résea
 
 ### <a name="46-use-azure-rbac-to-control-access-to-resources"></a>4.6 : Utiliser Azure RBAC pour contrôler l’accès aux ressources
 
-**Aide** : Azure Active Directory (Azure AD) autorise les droits d’accès aux ressources sécurisées par le biais du contrôle d’accès en fonction du rôle (RBAC). Stockage Azure définit un ensemble de rôles RBAC intégrés qui englobent les ensembles communs d’autorisations permettant d’accéder aux données blob ou de file d’attente. 
+**Conseils** : Azure Active Directory (Azure AD) autorise les droits d’accès aux ressources sécurisées par le biais du contrôle d’accès en fonction du rôle (RBAC). Stockage Azure définit un ensemble de rôles RBAC intégrés qui englobent les ensembles communs d’autorisations permettant d’accéder aux données blob ou de file d’attente. 
 
 - [Attribution des rôles RBAC pour un compte de stockage Azure](https://docs.microsoft.com/azure/storage/common/storage-auth-aad-rbac-portal#assign-rbac-roles-using-the-azure-portal)
 
@@ -546,7 +546,7 @@ Utilisez également les stratégies de point de terminaison de service de résea
 
 - [Autorisation de l’accès aux données dans Stockage Azure](https://docs.microsoft.com/azure/storage/common/storage-auth)
 
-**Supervision d’Azure Security Center** : actuellement non disponible
+**Supervision Azure Security Center** : actuellement non disponible
 
 **Responsabilité** : Customer
 
@@ -578,7 +578,7 @@ Utilisez également les stratégies de point de terminaison de service de résea
 
 - [Configuration des alertes de mesures pour les comptes de stockage Azure](https://docs.microsoft.com/azure/storage/common/storage-monitor-storage-account)
 
-**Supervision d’Azure Security Center** : actuellement non disponible
+**Supervision Azure Security Center** : actuellement non disponible
 
 **Responsabilité** : Customer
 
@@ -588,7 +588,7 @@ Utilisez également les stratégies de point de terminaison de service de résea
 
 ### <a name="51-run-automated-vulnerability-scanning-tools"></a>5.1 : Exécuter les outils d’analyse des vulnérabilités automatisés
 
-**Aide** : Suivez les recommandations d’Azure Security Center pour auditer et surveiller en permanence la configuration de vos comptes de stockage. 
+**Conseils** : Suivez les recommandations d’Azure Security Center pour auditer et surveiller en permanence la configuration de vos comptes de stockage. 
 
 - [Recommandations de sécurité - Guide de référence](https://docs.microsoft.com/azure/security-center/recommendations-reference)
 
@@ -650,7 +650,7 @@ Utilisez également les stratégies de point de terminaison de service de résea
 
 ### <a name="62-maintain-asset-metadata"></a>6.2 : Gérer les métadonnées de ressources
 
-**Aide** : Appliquez des étiquettes aux ressources de compte de stockage en fournissant des métadonnées pour les organiser de façon logique par catégories. 
+**Conseils** : Appliquez des étiquettes aux ressources de compte de stockage en fournissant des métadonnées pour les organiser de façon logique par catégories. 
 
 - [Guide pratique pour créer et utiliser des étiquettes](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-using-tags)
 
@@ -660,7 +660,7 @@ Utilisez également les stratégies de point de terminaison de service de résea
 
 ### <a name="63-delete-unauthorized-azure-resources"></a>6.3 : Supprimer des ressources Azure non autorisées
 
-**Aide** : Utilisez des étiquettes, des groupes d’administration, voire des abonnements séparés, pour organiser et suivre les comptes de stockage et les ressources associées. Rapprochez régulièrement l’inventaire et assurez-vous que les ressources non autorisées sont supprimées de l’abonnement en temps utile. 
+**Conseils** : Utilisez des étiquettes, des groupes d’administration, voire des abonnements séparés, pour organiser et suivre les comptes de stockage et les ressources associées. Rapprochez régulièrement l’inventaire et assurez-vous que les ressources non autorisées sont supprimées de l’abonnement en temps utile. 
 
 En outre, utilisez Advanced Threat Protection pour Stockage Azure afin de détecter les ressources Azure non autorisées. 
 
@@ -698,13 +698,13 @@ Utilisez également Azure Resource Graph pour interroger/découvrir des ressourc
 
 - [Guide pratique pour créer des requêtes avec Azure Graph](https://docs.microsoft.com/azure/governance/resource-graph/first-query-portal)
 
-**Supervision d’Azure Security Center** : Non applicable
+**Supervision Azure Security Center** : Non applicable
 
 **Responsabilité** : Customer
 
 ### <a name="66-monitor-for-unapproved-software-applications-within-compute-resources"></a>6.6 : Détecter les applications logicielles non approuvées dans les ressources de calcul
 
-**Aide** : Non applicable. Cette recommandation a trait aux ressources de calcul.
+**Conseils** : Non applicable. Cette recommandation a trait aux ressources de calcul.
 
 **Supervision Azure Security Center** : Non applicable
 
@@ -757,7 +757,7 @@ Utilisez également Azure Resource Graph pour interroger/découvrir des ressourc
 
 - [Configuration de l’accès conditionnel pour bloquer l’accès à ARM](https://docs.microsoft.com/azure/role-based-access-control/conditional-access-azure-management)
 
-**Supervision d’Azure Security Center** : Non applicable
+**Supervision Azure Security Center** : Non applicable
 
 **Responsabilité** : Customer
 
@@ -771,7 +771,7 @@ Utilisez également Azure Resource Graph pour interroger/découvrir des ressourc
 
 ### <a name="613-physically-or-logically-segregate-high-risk-applications"></a>6.13 : Séparer physiquement ou logiquement des applications à risque élevé
 
-**Aide** : Non applicable. Cette recommandation a trait aux applications web s’exécutant sur Azure App Service ou des ressources de calcul.
+**Conseils** : Non applicable. Cette recommandation a trait aux applications web s’exécutant sur Azure App Service ou des ressources de calcul.
 
 **Supervision d’Azure Security Center** : Non applicable
 
@@ -785,7 +785,10 @@ Utilisez également Azure Resource Graph pour interroger/découvrir des ressourc
 
 **Aide** : Utilisez des alias Azure Policy dans l’espace de noms « Microsoft.Storage » pour créer des stratégies personnalisées d’audit ou d’application de la configuration de vos comptes de stockage. Vous pouvez également utiliser des définitions Azure Policy intégrées pour le compte de stockage Azure telles que : 
 
-Auditer l’accès réseau sans restriction aux comptes de stockage ; Déployer Advanced Threat Protection sur les comptes de stockage : Les comptes de stockage doivent être migrés vers de nouvelles ressources Azure Resource Manager ; Le transfert sécurisé vers les comptes de stockage doit être activé 
+Auditer l'accès réseau non restreint aux comptes de stockage  
+Déployer Advanced Threat Protection sur les comptes de stockage  
+Les comptes de stockage doivent être migrés vers de nouvelles ressources Azure Resource Manager  
+La sécurisation du transfert vers des comptes de stockage doit être activée  
 
 Utilisez les recommandations d’Azure Security Center comme base de référence d’une configuration sécurisée pour vos comptes de stockage. 
 
@@ -793,13 +796,13 @@ Utilisez les recommandations d’Azure Security Center comme base de référence
 
 - [Guide pratique pour configurer et gérer Azure Policy](https://docs.microsoft.com/azure/governance/policy/tutorials/create-and-manage)
 
-**Supervision d’Azure Security Center** : Oui
+**Supervision Azure Security Center** : Oui
 
 **Responsabilité** : Customer
 
 ### <a name="72-establish-secure-configurations-for-your-operating-system"></a>7.2 : Établir des configurations sécurisées pour votre système d’exploitation
 
-**Aide** : Non applicable. Cette recommandation a trait aux ressources de calcul.
+**Conseils** : Non applicable. Cette recommandation a trait aux ressources de calcul.
 
 **Supervision Azure Security Center** : Non applicable
 
@@ -807,19 +810,19 @@ Utilisez les recommandations d’Azure Security Center comme base de référence
 
 ### <a name="73-maintain-secure-configurations-for-all-azure-resources"></a>7.3 : Maintenir des configurations sécurisées pour toutes les ressources Azure
 
-**Aide** : Utilisez les commandes Azure Policy [refuser] et [déployer s’il n’existe pas] pour appliquer des paramètres sécurisés à vos ressources de compte de stockage. 
+**Conseils** : Utilisez les commandes Azure Policy [refuser] et [déployer s’il n’existe pas] pour appliquer des paramètres sécurisés à vos ressources de compte de stockage. 
 
 - [Guide pratique pour configurer et gérer Azure Policy](https://docs.microsoft.com/azure/governance/policy/tutorials/create-and-manage)
 
 - [Présentation des effets d’Azure Policy](https://docs.microsoft.com/azure/governance/policy/concepts/effects)
 
-**Supervision d’Azure Security Center** : Non applicable
+**Supervision Azure Security Center** : Non applicable
 
 **Responsabilité** : Customer
 
 ### <a name="74-maintain-secure-configurations-for-operating-systems"></a>7.4 : Maintenir des configurations sécurisées pour les systèmes d’exploitation
 
-**Aide** : Non applicable. Cette recommandation a trait aux ressources de calcul.
+**Conseils** : Non applicable. Cette recommandation a trait aux ressources de calcul.
 
 **Supervision Azure Security Center** : Non applicable
 
@@ -865,7 +868,7 @@ Utilisez les recommandations d’Azure Security Center comme base de référence
 
 ### <a name="79-implement-automated-configuration-monitoring-for-azure-services"></a>7.9 : Mettre en place la supervision de la configuration automatique pour les services Azure
 
-**Aide** : Tirez parti d’Azure Security Center pour effectuer des analyses de ligne de base pour vos ressources de compte de stockage Azure. 
+**Conseils** : Tirez parti d’Azure Security Center pour effectuer des analyses de ligne de base pour vos ressources de compte de stockage Azure. 
 
 - [Corriger les recommandations dans Azure Security Center](https://docs.microsoft.com/azure/security-center/security-center-remediate-recommendations)
 
@@ -891,7 +894,7 @@ En outre, faites pivoter les clés de compte de stockage régulièrement pour li
 
 - [Gestion des clés d’accès au compte de stockage](https://docs.microsoft.com/azure/storage/common/storage-account-keys-manage)
 
-**Supervision d’Azure Security Center** : Oui
+**Supervision Azure Security Center** : Oui
 
 **Responsabilité** : Customer
 
@@ -963,7 +966,7 @@ Vous pouvez également activer Azure Automation pour prendre régulièrement des
 
 - [Vue d’ensemble d’Azure Automation](https://docs.microsoft.com/azure/automation/automation-intro)
 
-**Supervision d’Azure Security Center** : Oui
+**Supervision Azure Security Center** : Oui
 
 **Responsabilité** : Customer
 
@@ -985,7 +988,7 @@ Les clés gérées ou fournies par le client peuvent être sauvegardées dans Az
 
 ### <a name="93-validate-all-backups-including-customer-managed-keys"></a>9.3 : Valider toutes les sauvegardes, y compris les clés gérées par le client
 
-**Aide** : Effectuez régulièrement une restauration de données de vos certificats, clés, comptes de stockage managés et secrets Key Vault avec les commandes PowerShell suivantes : 
+**Conseils** : Effectuez régulièrement une restauration de données de vos certificats, clés, comptes de stockage managés et secrets Key Vault avec les commandes PowerShell suivantes : 
 
 Restore-AzKeyVaultCertificate ; Restore-AzKeyVaultKey ; Restore-AzKeyVaultManagedStorageAccount ; Restore-AzKeyVaultSecret 
 
@@ -1016,7 +1019,7 @@ Remarque : Si vous voulez copier des données depuis et vers le service de stoc
 
 - [Stocker des données blob critiques pour l’entreprise avec un stockage immuable](https://docs.microsoft.com/azure/storage/blobs/storage-blob-immutable-storage)
 
-**Supervision d’Azure Security Center** : Oui
+**Supervision Azure Security Center** : Oui
 
 **Responsabilité** : Customer
 
@@ -1026,7 +1029,7 @@ Remarque : Si vous voulez copier des données depuis et vers le service de stoc
 
 ### <a name="101-create-incident-response-guide"></a>10.1 : Créer un guide de réponse aux incidents
 
-**Aide** : Créez un guide de réponse aux incidents pour votre organisation. Assurez-vous qu’il existe des plans de réponse aux incidents écrits qui définissent tous les rôles du personnel, ainsi que les phases de gestion des incidents, depuis la détection jusqu’à la revue une fois l’incident terminé.
+**Conseils** : Créez un guide de réponse aux incidents pour votre organisation. Assurez-vous qu’il existe des plans de réponse aux incidents écrits qui définissent tous les rôles du personnel, ainsi que les phases de gestion des incidents, depuis la détection jusqu’à la revue une fois l’incident terminé.
 
 - [Aide sur la création de votre propre processus de réponse aux incidents de sécurité](https://msrc-blog.microsoft.com/2019/07/01/inside-the-msrc-building-your-own-security-incident-response-process/)
 
@@ -1054,17 +1057,17 @@ En outre, marquez clairement les abonnements (par ex. production, non-production
 
 ### <a name="103-test-security-response-procedures"></a>10.3 : Tester les procédures de réponse de sécurité
 
-**Aide** : Effectuez des exercices pour tester les capacités de réponse aux incidents de vos systèmes à intervalles réguliers, afin de protéger vos ressources Azure. Identifiez les points faibles et les lacunes, et révisez le plan en fonction des besoins.
+**Conseils** : Effectuez des exercices pour tester les capacités de réponse aux incidents de vos systèmes à intervalles réguliers, afin de protéger vos ressources Azure. Identifiez les points faibles et les lacunes, et révisez le plan en fonction des besoins.
 
 - [Publication du NIST : Guide to Test, Training, and Exercise Programs for IT Plans and Capabilities](https://csrc.nist.gov/publications/detail/sp/800-84/final)
 
-**Supervision d’Azure Security Center** : Non applicable
+**Supervision Azure Security Center** : Non applicable
 
 **Responsabilité** : Customer
 
 ### <a name="104-provide-security-incident-contact-details-and-configure-alert-notifications-for-security-incidents"></a>10.4 : Fournir les informations de contact pour les incidents de sécurité et configurer des notifications d’alerte pour les incidents de sécurité
 
-**Aide** : Microsoft utilisera les informations de contact pour le signalement d’incidents de sécurité pour vous contacter si le Microsoft Security Response Center (MSRC) découvre que vos données ont été consultées de manière illégale ou par un tiers non autorisé. Examinez les incidents après les faits pour vous assurer que les problèmes sont résolus.
+**Conseils** : Microsoft utilisera les informations de contact pour le signalement d’incidents de sécurité pour vous contacter si le Microsoft Security Response Center (MSRC) découvre que vos données ont été consultées de manière illégale ou par un tiers non autorisé. Examinez les incidents après les faits pour vous assurer que les problèmes sont résolus.
 
 - [Comment définir le contact de sécurité d’Azure Security Center](https://docs.microsoft.com/azure/security-center/security-center-provide-security-contact-details)
 
@@ -1080,7 +1083,7 @@ En outre, marquez clairement les abonnements (par ex. production, non-production
 
 - [Comment envoyer des alertes à Azure Sentinel](https://docs.microsoft.com/azure/sentinel/connect-azure-security-center)
 
-**Supervision d’Azure Security Center** : actuellement non disponible
+**Supervision Azure Security Center** : actuellement non disponible
 
 **Responsabilité** : Customer
 

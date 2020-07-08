@@ -15,34 +15,16 @@ ms.topic: article
 ms.date: 04/28/2020
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 99103c9994b240e2f45b66acf269b320c90e5135
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 799206ee08dc3b1cdac46a0e4e79d2c929138c31
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82231728"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84718597"
 ---
 # <a name="tutorial-configure-workplace-by-facebook-for-automatic-user-provisioning"></a>Tutoriel : Configuration de Workplace by Facebook pour l’approvisionnement automatique d’utilisateurs
 
 Ce didacticiel décrit les étapes que vous devez effectuer dans Workplace by Facebook et Azure Active Directory (Azure AD) pour configurer l’approvisionnement automatique d’utilisateurs. Une fois configuré, Azure AD approvisionne et désapprovisionne automatiquement les utilisateurs et les groupes pour [Workplace by Facebook](https://work.workplace.com/) à l’aide du service d’approvisionnement d’Azure AD. Pour découvrir les informations importantes sur ce que fait ce service, comment il fonctionne et consulter le forum aux questions, reportez-vous à l’article [Automatiser l’attribution et l’annulation de l’attribution des utilisateurs dans les applications SaaS avec Azure Active Directory](../manage-apps/user-provisioning.md).
-
-## <a name="migrating-to-the-new-workplace-by-facebook-application"></a>Migration vers la nouvelle application Workplace by Facebook
-Si vous avez une intégration existante avec Workplace by Facebook, consultez la section ci-dessous pour connaître les changements à venir. Si vous configurez Workplace by Facebook pour la première fois, vous pouvez ignorer cette section et passer à la section sur les fonctionnalités prises en charge. 
-
-#### <a name="whats-changing"></a>Ce qui a changé
-* Changements du côté Azure AD : historiquement, la méthode d’autorisation pour provisionner les utilisateurs dans Workplace était un jeton secret de longue durée. Cette méthode d’autorisation sera prochainement remplacée par l’octroi d’autorisation OAuth. 
-* Changements du côté Workplace : jusqu’ici, l’application Azure AD était une intégration personnalisée dans Workplace by Facebook. Dorénavant, Azure AD sera présentée comme application tierce dans le répertoire des intégrations avec Workplace. 
-
-#### <a name="what-do-i-need-to-do-to-migrate-my-existing-custom-integration-to-the-new-application"></a>Que dois-je faire pour migrer mon intégration personnalisée existante vers la nouvelle application ?
-Si vous avez une intégration existante avec Workplace qui utilise un jeton valide, aucune action n’est requise de votre part. **En date du 28/04/2020, nous avons automatiquement migré toutes les applications qui ne sont pas en quarantaine en raison d’informations d’identification non valides.**
- 
-#### <a name="how-can-i-tell-if-my-application-has-been-migrated"></a>Comment savoir si mon application a été migrée ? 
-* Sur le portail Azure : Après la migration réussie de votre application, la bannière dans la section d’autorisation relative aux changements à venir est supprimée et le champ du jeton secret est remplacé par un bouton Autoriser de couleur bleu. 
-* Dans le portail Workplace by Facebook : Passez en revue l’application Azure AD pour vous assurer qu’elle est approuvée.  
-
-#### <a name="the-admin-credentials-section-is-greyed-out-on-my-application-and-i-cant-save-why"></a>Dans mon application, la section des informations d’identification de l’administrateur est grisée, et je ne peux pas enregistrer ces informations. Pourquoi ?
-Nous avons verrouillé la section des informations d’identification de l’administrateur pour les clients de Workplace qui n’ont pas migré. Utilisez l’URL suivante si la section Informations d’identification de l’administrateur est grisée et que vous devez à nouveau autoriser l’accès. **?Microsoft_AAD_IAM_userProvisioningEnableCredentialsOverride=true** (https://portal.azure.com/?Microsoft_AAD_IAM_userProvisioningEnableCredentialsOverride=true)
-
 
 ## <a name="capabilities-supported"></a>Fonctionnalités prises en charge
 > [!div class="checklist"]
