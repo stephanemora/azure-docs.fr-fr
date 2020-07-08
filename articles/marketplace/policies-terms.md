@@ -1,18 +1,18 @@
 ---
 title: Stratégies et conditions de la Place de marché commerciale | Azure
 description: Les stratégies et conditions de la Place de marché commerciale Microsoft s’appliquent à l’ensemble des éditeurs et offres disponibles dans la Place de marché Microsoft Azure.
-author: dsindona
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
-ms.date: 5/01/2020
-ms.author: dsindona
-ms.openlocfilehash: 130b519e69c422a5e80a7a580e90cd80137f6a9a
-ms.sourcegitcommit: 50ef5c2798da04cf746181fbfa3253fca366feaa
+author: vikrambmsft
+ms.author: vikramb
+ms.date: 06/26/2020
+ms.openlocfilehash: ffa6762d03b0ef189edf9887cfdf0fdd8788ef2d
+ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/30/2020
-ms.locfileid: "82609077"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86121042"
 ---
 # <a name="commercial-marketplace-policies-and-terms"></a>Stratégies et conditions de la Place de marché commerciale
 

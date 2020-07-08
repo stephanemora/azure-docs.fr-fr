@@ -4,14 +4,14 @@ description: Découvrez comment configurer et gérer des réplicas en lecture da
 author: ajlam
 ms.author: andrela
 ms.service: mariadb
-ms.topic: conceptual
-ms.date: 5/26/2020
-ms.openlocfilehash: 4854518d77ca3eb0c978a0ca3462535e17ad3fcd
-ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
+ms.topic: how-to
+ms.date: 6/10/2020
+ms.openlocfilehash: 2e8d250d20126198b3f267b44af98bed811ad8dd
+ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "84041090"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86121178"
 ---
 # <a name="how-to-create-and-manage-read-replicas-in-azure-database-for-mariadb-using-powershell"></a>Créer et gérer des réplicas en lecture dans Azure Database for MariaDB à l’aide de PowerShell
 
@@ -40,6 +40,9 @@ Si vous choisissez d’utiliser PowerShell en local, connectez-vous à votre com
 > La fonctionnalité de réplica en lecture est disponible uniquement pour les serveurs Azure Database for MariaDB dans les niveaux tarifaires Usage général ou Mémoire optimisée. Vérifiez que le serveur maître se trouve dans l’un de ces niveaux tarifaires.
 
 ### <a name="create-a-read-replica"></a>Créer un réplica en lecture
+
+> [!IMPORTANT]
+> Lorsque vous créez un réplica pour un serveur maître qui ne dispose d’aucun réplica existant, le serveur maître commence par redémarrer pour se préparer pour la réplication. Tenez-en compte et effectuez ces opérations en période creuse.
 
 Un serveur réplica en lecture peut être créé en utilisant la commande suivante :
 

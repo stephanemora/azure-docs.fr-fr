@@ -1,18 +1,18 @@
 ---
 title: URI de la signature d’accès partagé pour les images de machine virtuelle – Place de marché Azure
 description: Générez un URI de signature d’accès partagé (SAP) pour vos disques durs virtuels (VHD) dans Place de marché Azure.
-author: anbene
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
-ms.date: 04/09/2020
+author: anbene
 ms.author: mingshen
-ms.openlocfilehash: 24ba593a56d4d12211d10f143261caaf6d901bfc
-ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
+ms.date: 04/09/2020
+ms.openlocfilehash: 0fbd7aa42bf65ee0e553282b9961f1a9302b7903
+ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/05/2020
-ms.locfileid: "85964666"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86121722"
 ---
 # <a name="get-shared-access-signature-uri-for-your-vm-image"></a>Obtenir l’URI de la signature d’accès partagé pour vos images de machine virtuelle
 

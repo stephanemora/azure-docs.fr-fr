@@ -1,18 +1,18 @@
 ---
 title: Comparaison entre Microsoft AppSource et la Place de marché Azure
 description: 'Cet article explique les différences entre les vitrines de la place de marché commerciale Microsoft : Microsoft AppSource et la Place de marché Azure.'
-author: dsindona
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
+author: keferna
+ms.author: keferna
 ms.date: 04/14/2020
-ms.author: dsindona
-ms.openlocfilehash: 78d77ce176c07aed22433f29365b2d338ea32c03
-ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
+ms.openlocfilehash: fc0a03871ee3191f24a886cc1b9d7f90e8d54b62
+ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "81414568"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86121807"
 ---
 # <a name="comparing-microsoft-appsource-and-azure-marketplace"></a>Comparaison entre Microsoft AppSource et la Place de marché Azure
 

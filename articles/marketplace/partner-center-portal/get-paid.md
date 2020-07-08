@@ -1,17 +1,15 @@
 ---
 title: Recevoir un paiement dans la place de marché commerciale de Microsoft
 description: Découvrez comment recevoir les paiements de vos revenus sur la place de marché commerciale de Microsoft.
-author: dsindona
-ms.author: dsindona
 ms.service: marketplace
 ms.topic: conceptual
-ms.date: 12/10/2019
-ms.openlocfilehash: d34687703506db89b524ad7510d4946df8ac5360
-ms.sourcegitcommit: 1f25aa993c38b37472cf8a0359bc6f0bf97b6784
+ms.date: 06/09/2020
+ms.openlocfilehash: 604d5c93ca87831b1feb76095da694b4be402ad9
+ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/26/2020
-ms.locfileid: "83849023"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86121688"
 ---
 # <a name="getting-paid-in-the-commercial-marketplace"></a>Recevoir un paiement dans la place de marché commerciale
 
@@ -27,21 +25,6 @@ Quand vous vous [inscrivez pour obtenir un compte de développeur](https://go.mi
 Les frais sont officiellement définis dans le [Contrat d’éditeur de la Place de marché Microsoft Azure](https://go.microsoft.com/fwlink/p/?LinkID=699560). Consultez toujours ce document si vous avez des questions.
 
 Les frais de Store sont appliqués à toutes les ventes d’offres collectées par la place de marché commerciale, dont les modules complémentaires.
-
-## <a name="price-tiers"></a>Niveaux de prix
-
-Les niveaux de prix que vous sélectionnez déterminent le prix de vente dans tous les pays/toutes les régions où vous choisissez de distribuer votre offre. Vous pouvez également utiliser d’autre caractéristiques tarifaires, comme le choix de différents prix pour différents marchés.
-
-Vous pouvez proposer votre application gratuitement, ou choisir le prix que les clients doivent payer pour acquérir votre offre. Les niveaux de prix commencent à 0,99 USD, avec des incréments supplémentaires (1,09 USD, 1,19 USD, etc.). Les incréments entre les niveaux de prix augmentent à mesure que le prix est plus élevé.
-
-> [!NOTE] 
-> Ces niveaux de prix s’appliquent également aux modules complémentaires que vous proposez dans votre offre.
-
-Chaque niveau de prix a une valeur correspondante dans chacune des devises proposées par le Store. Nous utilisons ces valeurs pour vous aider à vendre votre offre à un niveau de prix comparable dans le monde entier. Toutefois, en raison des variations des cours des monnaies étrangères, le montant exact des ventes peut varier légèrement d’une devise à une autre.
-
-Vous avez également la possibilité de saisir un prix libre de votre choix dans la devise locale d’un marché spécifique. Dans ce cas, le prix n’est pas ajusté (même si le taux de conversion change), sauf si vous soumettez une mise à jour avec un nouveau prix. 
-
-Gardez à l’esprit que le prix que vous sélectionnez peut inclure la taxe sur les ventes ou la valeur ajoutée que vos clients doivent payer. Pour plus d’informations, consultez [Détails des taxes pour une offre payante](tax-details-paid-transactions.md).
 
 ## <a name="payout-reporting"></a>Rapports de paiement
 

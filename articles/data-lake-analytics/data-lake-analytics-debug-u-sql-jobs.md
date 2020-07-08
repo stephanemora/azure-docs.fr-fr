@@ -7,14 +7,14 @@ author: yanancai
 ms.author: yanacai
 ms.reviewer: jasonwhowell
 ms.assetid: bcd0b01e-1755-4112-8e8a-a5cabdca4df2
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 11/30/2017
-ms.openlocfilehash: 72239fc1679d2ebbfd9c9b5be6b79b58efb760cb
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 9c1c36d146b4370962fc6328f6b75ef7160e28b5
+ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "71315811"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86121450"
 ---
 # <a name="debug-user-defined-c-code-for-failed-u-sql-jobs"></a>Débogage de code C# défini par l’utilisateur pour des travaux U-SQL ayant échoué
 
@@ -93,7 +93,7 @@ Après la définition de ces paramètres, démarrez le débogage avec **F5** et 
 
 Après le débogage, si le projet se termine correctement, la fenêtre de sortie affiche le message suivant :
 
-    The Program 'LocalVertexHost.exe' has exited with code 0 (0x0).
+`The Program 'LocalVertexHost.exe' has exited with code 0 (0x0).`
 
 ![Débogage U-SQL Azure Data Lake Analytics réussi](./media/data-lake-analytics-debug-u-sql-jobs/data-lake-analytics-debug-succeed.png)
 
