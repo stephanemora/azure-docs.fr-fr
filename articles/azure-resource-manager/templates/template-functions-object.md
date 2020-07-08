@@ -3,12 +3,12 @@ title: Fonctions de modèle - objets
 description: Décrit les fonctions à utiliser dans un modèle Azure Resource Manager pour travailler avec des objets.
 ms.topic: conceptual
 ms.date: 04/27/2020
-ms.openlocfilehash: 2f77cd85802a2ecb3670cfc6d6b36e5e852fb2a6
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: fede4d6c71e45b119e500d4c9c6f91765d052036
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82231320"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84676792"
 ---
 # <a name="object-functions-for-arm-templates"></a>Fonctions d’objet pour les modèles ARM
 
@@ -44,7 +44,7 @@ Vérifie si un tableau contient une valeur, un objet contient une clé ou une ch
 
 ```json
 {
-    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+    "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
     "contentVersion": "1.0.0.0",
     "parameters": {
         "stringToTest": {
@@ -124,7 +124,7 @@ Retourne **True** si la valeur est vide ; sinon, **False**.
 
 ```json
 {
-    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+    "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
     "contentVersion": "1.0.0.0",
     "parameters": {
         "testArray": {
@@ -191,7 +191,7 @@ Tableau ou objet avec les éléments communs.
 
 ```json
 {
-    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+    "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
     "contentVersion": "1.0.0.0",
     "parameters": {
         "firstObject": {
@@ -259,7 +259,7 @@ L’[exemple de modèle](https://github.com/Azure/azure-docs-json-samples/blob/m
 
 ```json
 {
-    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+    "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
     "contentVersion": "1.0.0.0",
     "parameters": {
         "jsonObject1": {
@@ -324,7 +324,7 @@ Un entier.
 
 ```json
 {
-    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+    "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
     "contentVersion": "1.0.0.0",
     "parameters": {
         "arrayToTest": {
@@ -402,7 +402,7 @@ Objet ou tableau.
 
 ```json
 {
-    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+    "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
     "contentVersion": "1.0.0.0",
     "parameters": {
         "firstObject": {

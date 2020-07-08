@@ -11,12 +11,12 @@ ms.date: 08/29/2018
 ms.custom:
 - amqp
 - mqtt
-ms.openlocfilehash: 2ef259bf76815fdf8672b696d2260fe6a143b798
-ms.sourcegitcommit: ffc6e4f37233a82fcb14deca0c47f67a7d79ce5c
+ms.openlocfilehash: e9d5eae4ef926a5c05265b91526d03a17ca57781
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/21/2020
-ms.locfileid: "81730169"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84674952"
 ---
 # <a name="understand-the-identity-registry-in-your-iot-hub"></a>Comprendre le registre des identités dans votre IoT Hub
 
@@ -188,7 +188,7 @@ Les identités des appareils sont représentées sous forme de documents JSON av
 
 | Propriété | Options | Description |
 | --- | --- | --- |
-| deviceId |obligatoire, en lecture seule sur les mises à jour |Une chaîne qui respecte la casse (jusqu’à 128 caractères) de caractères alphanumériques 7 bits ASCII plus certains caractères spéciaux :`- . + % _ # * ? ! ( ) , = @ $ '`. |
+| deviceId |obligatoire, en lecture seule sur les mises à jour |Une chaîne qui respecte la casse (jusqu’à 128 caractères) de caractères alphanumériques 7 bits ASCII plus certains caractères spéciaux :`- . + % _ # * ? ! ( ) , : = @ $ '`. |
 | generationId |obligatoire, en lecture seule |Une chaîne qui respecte la casse, générée par IoT Hub, d’une longueur maximale de 128 caractères. Cette valeur permet de distinguer les appareils dotés du même **deviceId**lorsqu’ils ont été supprimés et recréés. |
 | etag |obligatoire, en lecture seule |Une chaîne représentant un ETag faible pour l’identité de l’appareil, conformément à la [RFC7232](https://tools.ietf.org/html/rfc7232). |
 | auth |facultatif |Un objet composite contenant des informations d’authentification et des éléments de sécurité. |
@@ -212,8 +212,8 @@ Les identités des modules sont représentées sous forme de documents JSON avec
 
 | Propriété | Options | Description |
 | --- | --- | --- |
-| deviceId |obligatoire, en lecture seule sur les mises à jour |Une chaîne qui respecte la casse (jusqu’à 128 caractères) de caractères alphanumériques 7 bits ASCII plus certains caractères spéciaux :`- . + % _ # * ? ! ( ) , = @ $ '`. |
-| moduleId |obligatoire, en lecture seule sur les mises à jour |Une chaîne qui respecte la casse (jusqu’à 128 caractères) de caractères alphanumériques 7 bits ASCII plus certains caractères spéciaux :`- . + % _ # * ? ! ( ) , = @ $ '`. |
+| deviceId |obligatoire, en lecture seule sur les mises à jour |Une chaîne qui respecte la casse (jusqu’à 128 caractères) de caractères alphanumériques 7 bits ASCII plus certains caractères spéciaux :`- . + % _ # * ? ! ( ) , : = @ $ '`. |
+| moduleId |obligatoire, en lecture seule sur les mises à jour |Une chaîne qui respecte la casse (jusqu’à 128 caractères) de caractères alphanumériques 7 bits ASCII plus certains caractères spéciaux :`- . + % _ # * ? ! ( ) , : = @ $ '`. |
 | generationId |obligatoire, en lecture seule |Une chaîne qui respecte la casse, générée par IoT Hub, d’une longueur maximale de 128 caractères. Cette valeur permet de distinguer les appareils dotés du même **deviceId**lorsqu’ils ont été supprimés et recréés. |
 | etag |obligatoire, en lecture seule |Une chaîne représentant un ETag faible pour l’identité de l’appareil, conformément à la [RFC7232](https://tools.ietf.org/html/rfc7232). |
 | auth |facultatif |Un objet composite contenant des informations d’authentification et des éléments de sécurité. |

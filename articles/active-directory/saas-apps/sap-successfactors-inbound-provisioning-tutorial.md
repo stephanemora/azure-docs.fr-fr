@@ -15,11 +15,11 @@ ms.workload: identity
 ms.date: 12/05/2019
 ms.author: chmutali
 ms.openlocfilehash: d9317a68c8967fbe0728e8c47e59dd33367c6163
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79226609"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84702173"
 ---
 # <a name="tutorial-configure-sap-successfactors-to-active-directory-user-provisioning-preview"></a>Tutoriel : Configurer le provisionnement d’utilisateurs SAP SuccessFactors vers Active Directory (préversion)
 L’objectif de ce tutoriel est de présenter les étapes à effectuer pour provisionner les utilisateurs de SuccessFactors Employee Central dans Active Directory (AD) et Azure AD, avec réécriture facultative de l’adresse e-mail dans SuccessFactors. Cette intégration est en préversion publique et prend en charge la récupération de plus de [70 attributs utilisateur](../app-provisioning/sap-successfactors-attribute-reference.md) à partir de SuccessFactors Employee Central.

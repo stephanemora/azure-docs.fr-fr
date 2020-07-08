@@ -5,17 +5,17 @@ description: Les données intégrées au produit stockées par Azure Machine Lea
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: studio
-ms.topic: conceptual
+ms.topic: how-to
 author: likebupt
 ms.author: keli19
 ms.custom: previous-author=heatherbshapiro, previous-ms.author=hshapiro
 ms.date: 05/25/2018
-ms.openlocfilehash: c380d10d0c68794ec3810cea25341d68bb41400d
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 9f623357dfbc8fab8a2967df65cc53abc4bc9d57
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79227225"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84696131"
 ---
 # <a name="export-and-delete-in-product-user-data-from-azure-machine-learning-studio-classic"></a>Exporter et supprimer d’Azure Machine Learning Studio (classique) des données utilisateur intégrées dans le produit
 

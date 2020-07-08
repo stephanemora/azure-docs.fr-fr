@@ -8,12 +8,12 @@ ms.topic: how-to
 ms.service: iot-central
 services: iot-central
 manager: philmea
-ms.openlocfilehash: e05256d26da2c061559bcc8e50e9ecce6d8425a0
-ms.sourcegitcommit: 8017209cc9d8a825cc404df852c8dc02f74d584b
+ms.openlocfilehash: 39bb129d6edba168ed1ed45b1de205a206c83ed2
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/01/2020
-ms.locfileid: "84248207"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84678169"
 ---
 # <a name="export-your-application"></a>Exporter votre application
 
@@ -59,7 +59,6 @@ Lorsque vous créez un modèle d’application, il n’inclut pas les éléments
 
 - Appareils
 - Utilisateurs
-- Définitions des travaux
 - Définitions des exportations de données continues
 
 Ajoutez ces éléments manuellement à toutes les applications créées depuis un modèle d’application.

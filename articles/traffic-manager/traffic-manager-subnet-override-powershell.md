@@ -4,17 +4,16 @@ description: Cet article va vous aider à comprendre comment le remplacement de 
 services: traffic-manager
 documentationcenter: ''
 author: rohinkoul
-manager: twooley
-ms.topic: article
+ms.topic: how-to
 ms.service: traffic-manager
 ms.date: 09/18/2019
 ms.author: rohink
-ms.openlocfilehash: 323093ec78a9486d19496b0ee90e37cb42eea341
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 3b58a0aef4df71649e657c04b44c31b6bbfe019c
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "76938419"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84689569"
 ---
 # <a name="traffic-manager-subnet-override-using-azure-powershell"></a>Remplacement de sous-réseau Traffic Manager avec Azure PowerShell
 

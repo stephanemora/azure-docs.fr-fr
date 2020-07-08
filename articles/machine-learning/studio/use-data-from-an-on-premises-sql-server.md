@@ -5,17 +5,17 @@ description: Utilisez les données d'une base de données SQL Server pour effect
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: studio
-ms.topic: conceptual
+ms.topic: how-to
 author: likebupt
 ms.author: keli19
 ms.custom: seodec18
 ms.date: 03/13/2017
-ms.openlocfilehash: ff0169d0606728898bc6157d05f2013607e48f0c
-ms.sourcegitcommit: 1f48ad3c83467a6ffac4e23093ef288fea592eb5
+ms.openlocfilehash: 49ec8916e03323bdf4263fe9ea6cfca323339dce
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/29/2020
-ms.locfileid: "84193808"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84706050"
 ---
 # <a name="perform-analytics-with-azure-machine-learning-studio-classic-using-a-sql-server-database"></a>Effectuer des analyses avec Azure Machine Learning Studio (classique) à l'aide d'une base de données SQL Server
 

@@ -3,16 +3,16 @@ title: Contrôle de maintenance des machines virtuelles Azure avec PowerShell
 description: Découvrez comment contrôler le moment où la maintenance est appliquée à vos machines virtuelles Azure à l’aide du contrôle de maintenance et de PowerShell.
 author: cynthn
 ms.service: virtual-machines
-ms.topic: article
+ms.topic: how-to
 ms.workload: infrastructure-services
 ms.date: 01/31/2020
 ms.author: cynthn
-ms.openlocfilehash: 834ff39b0ffd8ee38156e468008c332971b742d0
-ms.sourcegitcommit: 309a9d26f94ab775673fd4c9a0ffc6caa571f598
+ms.openlocfilehash: e0bb3586d637c9399db057b7cd3225bf8cd36e2f
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/09/2020
-ms.locfileid: "82996477"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84675840"
 ---
 # <a name="control-updates-with-maintenance-control-and-azure-powershell"></a>Contrôler les mises à jour avec le contrôle de maintenance et Azure PowerShell
 

@@ -1,19 +1,18 @@
 ---
 title: Déplacer une configuration de maintenance vers une autre région Azure
 description: Découvrez comment déplacer une configuration de maintenance de machine virtuelle vers une autre région Azure.
-services: virtual-machines
 author: shants123
 ms.service: virtual-machines
-ms.topic: article
+ms.topic: how-to
 ms.tgt_pltfrm: vm
 ms.date: 03/04/2020
 ms.author: shants
-ms.openlocfilehash: fe03bead238d3fb7bda3ee685bd5587c3e0dbc58
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 86343e10f10b51f65764e16bbc1e485136bca162
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "78304340"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84676810"
 ---
 # <a name="move-a-maintenance-control-configuration-to-another-region"></a>Déplacer une configuration de contrôle de maintenance vers une autre région
 

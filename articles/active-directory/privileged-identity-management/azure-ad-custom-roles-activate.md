@@ -9,19 +9,19 @@ ms.assetid: ''
 ms.service: active-directory
 ms.subservice: pim
 ms.devlang: na
-ms.topic: article
+ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 08/06/2019
 ms.author: curtand
 ms.custom: pim
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: cbd60d1311bd84adb303a0d329ab4e42f4d61525
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: f389bfe19eb6dde5416d8cba0b67d964e69bc860
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "77498736"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84743165"
 ---
 # <a name="activate-an-azure-ad-custom-role-in-privileged-identity-management"></a>Activer un rôle personnalisé Azure AD dans Privileged Identity Management
 

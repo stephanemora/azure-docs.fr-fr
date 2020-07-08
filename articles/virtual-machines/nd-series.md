@@ -1,18 +1,18 @@
 ---
 title: Série ND – Machines virtuelles Microsoft Azure
 description: Spécifications pour les machines virtuelles de la série ND.
-services: virtual-machines
-author: vikancha
+author: vikancha-MSFT
 ms.service: virtual-machines
+ms.subservice: sizes
 ms.topic: article
 ms.date: 02/03/2020
-ms.author: lahugh
-ms.openlocfilehash: 163dc0d6ecd4f91273a82b04ce186f7a8df868af
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.author: jushiman
+ms.openlocfilehash: 6b29125087bd60041f85b1b5023646b039bd6a4a
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79465054"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84736949"
 ---
 # <a name="nd-series"></a>Série ND
 

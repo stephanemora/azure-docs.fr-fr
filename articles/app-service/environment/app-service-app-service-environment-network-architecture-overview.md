@@ -8,11 +8,11 @@ ms.date: 10/04/2016
 ms.author: stefsch
 ms.custom: seodec18
 ms.openlocfilehash: b1b866f3be789c59eea38c5c22b5557d557440be
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79224813"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84701811"
 ---
 # <a name="network-architecture-overview-of-app-service-environments"></a>Présentation de l'architecture réseau des environnements App Service
 Les environnements App Service sont toujours créés dans un sous-réseau d’un [réseau virtuel][virtualnetwork]. Les applications exécutées dans un environnement App Service peuvent communiquer avec des points de terminaison privés au sein de la même topologie de réseau virtuel.  Dans la mesure où les clients peuvent verrouiller des parties de leur infrastructure de réseau virtuel, il est important de comprendre les types de flux de communication réseau qui se produisent avec un environnement App Service.

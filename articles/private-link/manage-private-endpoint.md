@@ -4,15 +4,15 @@ description: Découvrez comment gérer une connexion de point de terminaison pri
 services: private-link
 author: malopMSFT
 ms.service: private-link
-ms.topic: article
+ms.topic: how-to
 ms.date: 09/16/2019
 ms.author: allensu
-ms.openlocfilehash: 62b24b3e2f5c1b89fa7db581ac34cf58381db2a0
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 20695d183ea8184f7ee2948b3897fa1f3a741411
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "75452960"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84737493"
 ---
 # <a name="manage-a-private-endpoint-connection"></a>Gérer une connexion de point de terminaison privé
 Azure Private Link fonctionne sur un modèle de flux d’appel d’approbation, dans lequel l’utilisateur du service Private Link peut demander une connexion au fournisseur de services pour utiliser le service. Le fournisseur de services peut alors décider s’il faut autoriser l’utilisateur à se connecter. Azure Private Link permet aux fournisseurs de services de gérer la connexion des points de terminaison privés dans leurs ressources. Cet article fournit des instructions sur la gestion des connexions de points de terminaison privés.

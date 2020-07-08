@@ -3,12 +3,12 @@ title: Erreurs de ressources parentes
 description: Décrit comment résoudre les erreurs liées à des ressources parentes dans un modèle Azure Resource Manager.
 ms.topic: troubleshooting
 ms.date: 08/01/2018
-ms.openlocfilehash: f1847389d60ddf3c6abc70bc3309940c2246084e
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 474cb85d16382136e24e5502b87ba8a1a65488ef
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "76154038"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84673658"
 ---
 # <a name="resolve-errors-for-parent-resources"></a>Résoudre les erreurs avec des ressources parentes
 
@@ -52,7 +52,7 @@ Pour résoudre cette erreur quand la ressource parente a déjà été déployée
 
 ```json
 {
-  "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+  "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
   "contentVersion": "1.0.0.0",
   "parameters": {
     "sqlServerName": {

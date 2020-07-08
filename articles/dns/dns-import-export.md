@@ -7,13 +7,13 @@ author: rohinkoul
 ms.service: dns
 ms.date: 4/3/2019
 ms.author: rohink
-ms.topic: conceptual
-ms.openlocfilehash: a5c2fdde564eba2d95e7f14f4d47e4d381739d5d
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.topic: how-to
+ms.openlocfilehash: bd40b3400b2a1c09be8fabd1201bedc7043bf19b
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79365166"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84709094"
 ---
 # <a name="import-and-export-a-dns-zone-file-using-the-azure-cli"></a>Importer et exporter un fichier de zone DNS en utilisant l’interface CLI Azure
 

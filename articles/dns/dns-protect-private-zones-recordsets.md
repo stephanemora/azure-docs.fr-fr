@@ -4,15 +4,15 @@ description: Dans ce parcours d’apprentissage, vous allez voir comment protég
 services: dns
 author: asudbring
 ms.service: dns
-ms.topic: article
+ms.topic: how-to
 ms.date: 02/18/2020
 ms.author: allensu
-ms.openlocfilehash: da94c9aa97483ab5792e917d6a8f60f846b0722e
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: a817cb0722bff721891cd290ea4a6552c778dddf
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "77473333"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84701845"
 ---
 # <a name="how-to-protect-private-dns-zones-and-records"></a>Protéger les zones DNS privées et les enregistrements
 
