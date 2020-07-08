@@ -49,16 +49,26 @@
               href: time-series-insights-parameterized-urls.md
     - name: Préversion d’Azure Time Series Insights
       items:
-        - name: Planifier votre environnement
-          href: time-series-insights-update-plan.md
-        - name: Entrée et stockage de données
-          href: time-series-insights-update-storage-ingress.md
         - name: Cas d'utilisation
           href: time-series-insights-update-use-cases.md
+        - name: Planifier votre environnement
+          href: time-series-insights-update-plan.md
+        - name: Vue d’ensemble de l’ingestion
+          href: concepts-ingestion-overview.md
+        - name: Types de données pris en charge
+          href: concepts-supported-data-types.md
+        - name: Sources d’événements d’ingestion de streaming
+          href: concepts-streaming-ingestion-event-sources.md
+        - name: Règles d’aplatissement et d’échappement JSON
+          href: concepts-json-flattening-escaping-rules.md
+        - name: Limites du débit d’entrée en streaming
+          href: concepts-streaming-throughput-limitations.md
+        - name: Stockage
+          href: concepts-storage.md
         - name: Modèle de série chronologique
-          href: time-series-insights-update-tsm.md
+          href: concepts-model-overview.md
         - name: Requête de série chronologique
-          href: time-series-insights-update-tsq.md
+          href: concepts-query-overview.md
         - name: Visualiser des données dans l’explorateur (préversion)
           href: time-series-insights-update-explorer.md
         - name: Développer
