@@ -7,12 +7,12 @@ ms.topic: article
 ms.date: 03/31/2020
 ms.author: ccompy
 ms.custom: seodec18, references_regions
-ms.openlocfilehash: e56e5878c2f3528bee50137b4d40d947feda3ece
-ms.sourcegitcommit: 1f48ad3c83467a6ffac4e23093ef288fea592eb5
+ms.openlocfilehash: 8e63c0678967a21a6b2763574e594a1a6c2ba25b
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/29/2020
-ms.locfileid: "84197161"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85832982"
 ---
 # <a name="locking-down-an-app-service-environment"></a>Verrouiller un environnement App Service
 
@@ -96,8 +96,10 @@ Cette utilisation de la passerelle Application Gateway est un exemple de configu
 
 Le Pare-feu Azure peut envoyer des journaux d’activité aux services Stockage Azure, Event Hub ou Azure Monitor. Pour intégrer votre application avec n’importe quelle destination prise en charge, accédez au portail Pare-feu Azure &gt; Journaux de diagnostic, puis activez les journaux d’activité pour la destination choisie. Si vous intégrez des journaux d’activité Azure Monitor, vous pouvez suivre dans les journaux d’activité tout le trafic envoyé au Pare-feu Azure. Pour voir le trafic refusé, ouvrez votre portail d’espace de travail Log Analytics &gt; Journaux d’activité et entrez une requête comme celle-ci 
 
-    AzureDiagnostics | where msg_s contains "Deny" | where TimeGenerated >= ago(1h)
- 
+```kusto
+AzureDiagnostics | where msg_s contains "Deny" | where TimeGenerated >= ago(1h)
+```
+
 L’intégration de votre pare-feu Azure à des journaux d’activité Azure Monitor est utile quand vous préparez une application sans connaître toutes ses dépendances. Pour en savoir plus sur les journaux d’activité Azure Monitor, consultez [Analyser les données de journal d’activité dans Azure Monitor](https://docs.microsoft.com/azure/azure-monitor/log-query/log-query-overview).
  
 ## <a name="dependencies"></a>Les dépendances
@@ -248,6 +250,7 @@ Avec un pare-feu Azure, tout ce qui suit est automatiquement configuré avec les
 |security.ubuntu.com:80 |
 | \*.cdn.mscr.io:443 |
 |mcr.microsoft.com:443 |
+|\*.data.mcr.microsoft.com:443 |
 |packages.fluentbit.io:80 |
 |packages.fluentbit.io:443 |
 |apt-mo.trafficmanager.net:80 |
