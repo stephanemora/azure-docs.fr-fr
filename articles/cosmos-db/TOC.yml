@@ -123,7 +123,7 @@
           href: partitioning-overview.md
         - name: Partitionnement et mise à l’échelle horizontale
           href: partition-data.md
-        - name: Créer une clé de partition synthétique
+        - name: Clé de partition synthétique
           href: synthetic-partition-keys.md
     - name: Débit approvisionné
       items:

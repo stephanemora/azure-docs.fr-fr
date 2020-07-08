@@ -11,6 +11,10 @@
       href: ./quickstarts/client-libraries.md
 - name: Tutoriels
   items:
+    - name: Lancer le Lecteur immersif (Android)
+      href: tutorial-android.md
+    - name: Lancer le Lecteur immersif (iOS)
+      href: tutorial-ios.md
     - name: Lancer le lecteur immersif (Python)
       href: tutorial-python.md
     - name: Utiliser plusieurs ressources du Lecteur immersif
