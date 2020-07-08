@@ -12,12 +12,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 ms.date: 10/09/2018
 ms.author: genli
-ms.openlocfilehash: 8a47131cb4f19cce1664eafa50c67ab1a1171e67
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: a41c1f634c030106dd6936676010fea32da8d436
+ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "77919428"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86084016"
 ---
 # <a name="azure-vm-startup-is-stuck-at-windows-update"></a>Le démarrage de la machine virtuelle Azure est bloqué au niveau de la mise à jour de Windows
 
@@ -48,14 +48,19 @@ En fonction du nombre de mises à jour qui sont installées ou annulées, le pro
 
 4. Ouvrez une instance d’invite de commandes avec élévation de privilèges (Exécuter en tant qu’administrateur). Exécutez la commande suivante pour obtenir la liste des packages de mise à jour présents sur le disque de système d’exploitation attaché :
 
-        dism /image:<Attached OS disk>:\ /get-packages > c:\temp\Patch_level.txt
+    ```console
+    dism /image:<Attached OS disk>:\ /get-packages > c:\temp\Patch_level.txt
+    ```
 
     Par exemple, si le disque du système d’exploitation attaché est le lecteur F, exécutez la commande suivante :
 
-        dism /image:F:\ /get-packages > c:\temp\Patch_level.txt
+    ```console
+    dism /image:F:\ /get-packages > c:\temp\Patch_level.txt
+    ```
+
 5. Ouvrez le fichier C:\temp\Patch_level.txt, puis lisez-le de bas en haut. Recherchez la mise à jour dont l’état est **Installation en attente** ou **Désinstallation en attente**.  Voici un exemple d’état de la mise à jour :
 
-     ```
+    ```
     Package Identity : Package_for_RollupFix~31bf3856ad364e35~amd64~~17134.345.1.5
     State : Install Pending
     Release Type : Security Update
