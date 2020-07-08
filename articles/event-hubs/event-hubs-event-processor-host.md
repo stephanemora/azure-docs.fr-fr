@@ -1,25 +1,14 @@
 ---
 title: Recevoir des événements à l’aide de l’hôte de processeur d’événements - Azure Event Hubs | Microsoft Docs
 description: Cet article décrit l’hôte de processeur d’événements d’Azure Event Hubs, qui simplifie la gestion des points de contrôle, de la location et des lecteurs d’événements parallèles.
-services: event-hubs
-documentationcenter: .net
-author: ShubhaVijayasarathy
-manager: timlt
-editor: ''
-ms.service: event-hubs
-ms.devlang: na
 ms.topic: conceptual
-ms.tgt_pltfrm: na
-ms.workload: na
-ms.custom: seodec18
-ms.date: 01/10/2020
-ms.author: shvija
-ms.openlocfilehash: 485f51e45e342ca28d54d609fd975bef5b204f7e
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.date: 06/23/2020
+ms.openlocfilehash: 338b4e890d61aca0d48287db6f042f9dc088754b
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "80372227"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85320636"
 ---
 # <a name="event-processor-host"></a>Hôte du processeur d’événements
 > [!NOTE]
@@ -206,7 +195,7 @@ Maintenant que vous vous êtes familiarisé avec l’hôte du processeur d’év
     - [.NET Core](get-started-dotnet-standard-send-v2.md)
     - [Java](get-started-java-send-v2.md)
     - [Python](get-started-python-send-v2.md)
-    - [JavaScript](get-started-java-send-v2.md)
+    - [JavaScript](get-started-node-send-v2.md)
 * [Guide de programmation Event Hubs](event-hubs-programming-guide.md)
 * [Disponibilité et cohérence dans Event Hubs](event-hubs-availability-and-consistency.md)
 * [FAQ sur les hubs d’événements](event-hubs-faq.md)

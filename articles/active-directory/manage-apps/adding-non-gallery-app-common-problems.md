@@ -3,24 +3,24 @@ title: Problème d’ajout d’une application hors galerie | Microsoft Docs
 description: Comprendre les problèmes courants auxquels les utilisateurs sont confrontés lors de l'ajout d'applications hors galerie personnalisées
 services: active-directory
 documentationcenter: ''
-author: msmimart
-manager: CelesteDG
+author: kenwith
+manager: celestedg
 ms.assetid: ''
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: conceptual
+ms.topic: troubleshooting
 ms.date: 09/11/2018
-ms.author: mimart
+ms.author: kenwith
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 38a9ef04389318d3588649117c930ff6efa3fe4e
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: ce103ca6c958b0524d753da25c2a79aadfb7c8b3
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "65784476"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84760284"
 ---
 # <a name="problem-adding-a-non-gallery-application"></a>Problème d’ajout d’une application hors galerie
 

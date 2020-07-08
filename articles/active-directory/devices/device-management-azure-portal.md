@@ -4,19 +4,19 @@ description: Découvrez comment utiliser le portail Azure pour gérer les appare
 services: active-directory
 ms.service: active-directory
 ms.subservice: devices
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 05/28/2020
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: jairoc
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 79474d85d9b2349c79aeff0c33ffed9afad690fb
-ms.sourcegitcommit: 1692e86772217fcd36d34914e4fb4868d145687b
+ms.openlocfilehash: bf3f6455be992502182fb942f0e6db089051ab1a
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/29/2020
-ms.locfileid: "84169691"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85253152"
 ---
 # <a name="manage-device-identities-using-the-azure-portal"></a>Gérer les identités de l’appareil à l’aide du portail Microsoft Azure
 
@@ -143,7 +143,7 @@ Pour supprimer un appareil, vous avez deux options :
    - Supprime toutes les informations associées à l’appareil, par exemple, les clés BitLocker des appareils Windows.  
    - Est une action irréversible et donc non recommandée, sauf si elle est absolument nécessaire.
 
-Si un appareil est géré par une autre autorité de gestion (par exemple, Microsoft Intune), vérifiez que l’appareil a été réinitialisé ou mis hors service avant de le supprimer d’Azure AD. Lisez comment [gérer des appareils obsolètes](device-management-azure-portal.md) avant de supprimer des appareils.
+Si un appareil est géré par une autre autorité de gestion (par exemple, Microsoft Intune), vérifiez que l’appareil a été réinitialisé ou mis hors service avant de le supprimer d’Azure AD. Lisez comment [gérer des appareils obsolètes](manage-stale-devices.md) avant de supprimer des appareils.
 
 ### <a name="view-or-copy-device-id"></a>Afficher ou copier l’ID de l’appareil
 

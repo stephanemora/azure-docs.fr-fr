@@ -3,27 +3,28 @@ title: 'Gestion des applications : Bonnes pratiques et recommandations | Micros
 description: Apprenez les bonnes pratiques et les recommandations associées à la gestion des applications dans Azure Active Directory. Découvrez l’utilisation du provisionnement automatique et la publication d’applications locales avec Proxy d’application.
 services: active-directory
 documentationcenter: ''
-author: msmimart
-manager: CelesteDG
+author: kenwith
+manager: celestedg
 editor: ''
 ms.assetid: ''
 ms.service: active-directory
 ms.devlang: na
-ms.topic: reference
+ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 11/13/2019
 ms.subservice: app-mgmt
-ms.author: mimart
+ms.author: kenwith
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 6534efb6fcd07ee3b9f3979cabf2feb77496a8b8
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: c633f6d311d052b9f9388a38b17c6459aec4b6cc
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "74085189"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84760267"
 ---
 # <a name="application-management-best-practices"></a>Bonnes pratiques relatives à la gestion des applications
+
 Cet article contient des recommandations et des bonnes pratiques pour la gestion des applications dans Azure Active Directory (Azure AD), lors de l’utilisation du provisionnement automatique et de la publication d’applications locales avec Proxy d’application.
 
 ## <a name="cloud-app-and-single-sign-on-recommendations"></a>Recommandations relatives à l’authentification unique et aux applications cloud

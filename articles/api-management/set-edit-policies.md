@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 11/01/2018
 ms.author: apimpm
-ms.openlocfilehash: 2df57477ae5270405a1774b7a4f04ed185fea396
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 5670be6d4c45644ac8318702822c37ed82a81caa
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "70071699"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85205745"
 ---
 # <a name="how-to-set-or-edit-azure-api-management-policies"></a>Comment définir ou modifier des stratégies dans Gestion des API Azure
 
@@ -41,7 +41,7 @@ Pour définir ou modifier une stratégie, procédez comme suit :
 7. Sélectionnez l’icône **</>** (éditeur de code) dans la section **Traitement entrant** ou **Traitement sortant**.
 8. Collez le code de la stratégie de votre choix dans l’une des zones appropriées.
 
-    ```XML
+    ```xml
     <policies>
         <inbound>
             <base />

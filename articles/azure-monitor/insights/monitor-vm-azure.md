@@ -7,12 +7,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 05/05/2020
-ms.openlocfilehash: ebb25d49250b71ab8d948833ac982ef244225539
-ms.sourcegitcommit: 12f23307f8fedc02cd6f736121a2a9cea72e9454
+ms.openlocfilehash: e38ae07aa032e4a828c9188fd78b112f4ff0d397
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/30/2020
-ms.locfileid: "84216440"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84945390"
 ---
 # <a name="monitoring-azure-virtual-machines-with-azure-monitor"></a>Supervision de machines virtuelles Azure avec Azure Monitor
 Cet article explique comment utiliser Azure Monitor pour collecter et analyser des données de supervision sur des machines virtuelles Azure pour maintenir leur intégrité. Les machines virtuelles peuvent être supervisées pour vérifier leur disponibilité et leurs performances avec Azure Monitor comme n’importe quelle [autre ressource Azure](monitor-azure-resource.md), mais elles se distinguent des autres ressources, car vous devez également superviser le système d’exploitation invité et les charges de travail qui y sont exécutées. 
@@ -105,9 +105,9 @@ Installez l’extension de diagnostic pour une seule machine virtuelle Windows d
 Pour plus d’informations sur la configuration des agents Telegraf sur les machines virtuelles Linux, consultez [Installer et configurer Telegraf](../platform/collect-custom-metrics-linux-telegraf.md#install-and-configure-telegraf). L’option de menu **Paramètre de diagnostic** est disponible pour Linux, mais elle vous permet uniquement d’envoyer des données au stockage Azure.
 
 ### <a name="collect-platform-metrics-and-activity-log"></a>Collecter les métriques de plateforme et le journal d’activité
-Vous pouvez voir les métriques de plateforme et le journal d’activité collectés pour chaque hôte de machine virtuelle dans le portail Azure. Collectez ces données dans le même espace de travail Log Analytics que celui d’Azure Monitor pour machines virtuelles afin de les analyser avec les autres données de supervision collectées pour la machine virtuelle. Cette collection est configurée avec un [paramètre de diagnostic](../platform/diagnostic-settings.md). Collectez le journal d’activité avec un [paramètre de diagnostic pour l’abonnement](../platform/diagnostic-settings.md#create-diagnostic-settings-in-azure-portal).
+Vous pouvez voir les métriques de plateforme et le journal d’activité collectés pour chaque hôte de machine virtuelle dans le portail Azure. Collectez ces données dans le même espace de travail Log Analytics que celui d’Azure Monitor pour machines virtuelles afin de les analyser avec les autres données de supervision collectées pour la machine virtuelle. Cette collection est configurée avec un [paramètre de diagnostic](../platform/diagnostic-settings.md). Collectez le journal d’activité avec un [paramètre de diagnostic pour l’abonnement](../platform/diagnostic-settings.md#create-in-azure-portal).
 
-Collectez les métriques de plateforme avec un paramètre de diagnostic pour la machine virtuelle. Contrairement aux autres ressources Azure, vous ne pouvez pas créer de paramètre de diagnostic pour une machine virtuelle dans le portail Azure et devez utiliser une [autre méthode](../platform/diagnostic-settings.md#create-diagnostic-settings-using-powershell). Les exemples suivants montrent comment collecter des métriques pour une machine virtuelle à l’aide de PowerShell et de l’interface CLI.
+Collectez les métriques de plateforme avec un paramètre de diagnostic pour la machine virtuelle. Contrairement aux autres ressources Azure, vous ne pouvez pas créer de paramètre de diagnostic pour une machine virtuelle dans le portail Azure et devez utiliser une [autre méthode](../platform/diagnostic-settings.md#create-using-powershell). Les exemples suivants montrent comment collecter des métriques pour une machine virtuelle à l’aide de PowerShell et de l’interface CLI.
 
 ```powershell
 Set-AzDiagnosticSetting -Name vm-diagnostics -ResourceId "/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/my-resource-group/providers/Microsoft.Compute/virtualMachines/my-vm" -Enabled $true -MetricCategory AllMetrics -workspaceId "/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourcegroups/my-resource-group/providers/microsoft.operationalinsights/workspaces/my-workspace"

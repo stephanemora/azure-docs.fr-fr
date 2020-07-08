@@ -4,16 +4,16 @@ description: Guide pratique pour se connecter à Windows Virtual Desktop à l’
 services: virtual-desktop
 author: heidilohr
 ms.service: virtual-desktop
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 03/30/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: 80bbb90c46376d29c1f4f8b0701cf4059db32246
-ms.sourcegitcommit: 50ef5c2798da04cf746181fbfa3253fca366feaa
+ms.openlocfilehash: 10ad1e3fdcccce4eb0ce97806f67486ce5cc391b
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/30/2020
-ms.locfileid: "82614138"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85213208"
 ---
 # <a name="connect-with-the-ios-client"></a>Se connecter avec le client iOS
 

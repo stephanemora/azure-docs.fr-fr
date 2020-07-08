@@ -2,13 +2,13 @@
 title: Architecture de l’appliance Azure Migrate
 description: Présente une vue d’ensemble de l’utilisation de l’appliance Azure Migrate pour l’évaluation et la migration de serveurs.
 ms.topic: conceptual
-ms.date: 03/23/2020
-ms.openlocfilehash: d55d123bb056b46b5e78dd8ac836eeaf9b42fe70
-ms.sourcegitcommit: 0553a8b2f255184d544ab231b231f45caf7bbbb0
+ms.date: 06/09/2020
+ms.openlocfilehash: 0752f7afa7ff8d25f938084fd9e6e863d885f9aa
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/30/2020
-ms.locfileid: "80389016"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84770898"
 ---
 # <a name="azure-migrate-appliance-architecture"></a>Architecture de l’appliance Azure Migrate
 
@@ -51,8 +51,8 @@ Lors de la configuration de l’appliance, vous inscrivez l’appliance avec Azu
 **Action** | **Détails** | **autorisations**
 --- | --- | ---
 **Inscrire les fournisseurs de source** | Ces fournisseurs de ressources sont enregistrés dans l’abonnement que vous choisissez lors de la configuration de l’appliance : Microsoft.OffAzure, Microsoft.Migrate et Microsoft.KeyVault.<br/><br/> L’inscription d’un fournisseur de ressources configure votre abonnement pour travailler avec le fournisseur de ressources. | Pour inscrire les fournisseurs de ressources, vous avez besoin d’un rôle Contributeur ou Propriétaire sur l’abonnement.
-**Créer une application de communication Azure AD** | Azure Migrate crée une application Azure AD (Azure Active Directory). Celle-ci est utilisée pour la communication (authentification et autorisation) entre les agents s’exécutant sur l’appliance et leurs services respectifs s’exécutant sur Azure.<br/><br/> Cette application n’a pas les privilèges nécessaires pour effectuer des appels Azure Resource Manager ou des accès RBAC sur une ressource. | Vous avez besoin de [ces autorisations](tutorial-prepare-vmware.md#assign-permissions-to-register-the-appliance) pour qu’Azure Migrate crée l’application.
-**Créer une application de coffre de clés Azure AD** | Cette application est créée uniquement pour la migration sans agent des machines virtuelles VMware vers Azure.<br/><br/> Elle est exclusivement utilisée pour accéder au coffre de clés créé dans l’abonnement de l’utilisateur pour la migration sans agent.<br/><br/> Elle dispose d’un accès RBAC sur le coffre de clés Azure (créé dans le locataire du client) lorsque la découverte est lancée à partir de l’appliance. | Vous avez besoin de [ces autorisations](tutorial-prepare-vmware.md#assign-permissions-to-register-the-appliance) pour qu’Azure Migrate crée l’application.
+**Créer une application de communication Azure AD** | Azure Migrate crée une application Azure AD (Azure Active Directory). Celle-ci est utilisée pour la communication (authentification et autorisation) entre les agents s’exécutant sur l’appliance et leurs services respectifs s’exécutant sur Azure.<br/><br/> Cette application n’a pas les privilèges nécessaires pour effectuer des appels Azure Resource Manager ou des accès RBAC sur une ressource. | Vous avez besoin de [ces autorisations](tutorial-prepare-vmware.md#assign-permissions-to-create-azure-ad-apps) pour qu’Azure Migrate crée l’application.
+**Créer une application de coffre de clés Azure AD** | Cette application est créée uniquement pour la migration sans agent des machines virtuelles VMware vers Azure.<br/><br/> Elle est exclusivement utilisée pour accéder au coffre de clés créé dans l’abonnement de l’utilisateur pour la migration sans agent.<br/><br/> Elle dispose d’un accès RBAC sur le coffre de clés Azure (créé dans le locataire du client) lorsque la découverte est lancée à partir de l’appliance. | Vous avez besoin de [ces autorisations](tutorial-prepare-vmware.md#assign-permissions-to-create-a-key-vault) pour qu’Azure Migrate crée l’application.
 
 
 

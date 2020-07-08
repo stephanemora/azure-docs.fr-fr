@@ -3,22 +3,20 @@ title: Extension du pilote GPU AMD- Machines virtuelles Windows Azure
 description: Extension Microsoft Azure pour l’installation des pilotes GPU AMD sur des machines virtuelles série NVv4 sous Windows.
 services: virtual-machines-windows
 documentationcenter: ''
-author: vikancha
+author: vikancha-MSFT
 manager: jkabat
-editor: ''
-ms.assetid: ''
 ms.service: virtual-machines-windows
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 05/10/2020
 ms.author: vikancha
-ms.openlocfilehash: 0819eec5275fa9783fff363cabbd8c3ed22b7cd6
-ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
+ms.openlocfilehash: cbba0401815f6754939cdaeb6e7343cf085dff68
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/12/2020
-ms.locfileid: "83119550"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84736966"
 ---
 # <a name="amd-gpu-driver-extension-for-windows"></a>Extension du pilote GPU AMD pour Windows
 

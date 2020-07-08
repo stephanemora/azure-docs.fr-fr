@@ -4,16 +4,16 @@ description: Comment développer d’un pool d’hôtes existant avec de nouveau
 services: virtual-desktop
 author: Heidilohr
 ms.service: virtual-desktop
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 03/30/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: f4313f36a0b250be9646c6658b98f15037374729
-ms.sourcegitcommit: 50ef5c2798da04cf746181fbfa3253fca366feaa
+ms.openlocfilehash: 70ae4a014768976c7dcf81ffadf1066027fa06ad
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/30/2020
-ms.locfileid: "82614298"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85214279"
 ---
 # <a name="expand-an-existing-host-pool-with-new-session-hosts"></a>Développer un pool d’hôtes existant avec de nouveaux hôtes de session
 
@@ -57,12 +57,12 @@ Voici comment redéployer le modèle Azure Resource Manager pour développer un 
      - Si vous avez créé le pool d’hôtes d’origine avec l’offre de la Place de marché Microsoft Azure, sélectionnez le déploiement commençant par **rds.wvd-provision-host-pool**.
      - Si vous avez créé le pool d’hôtes d’origine avec le modèle Azure Resource Manager du GitHub, sélectionnez le déploiement nommé **Microsoft.Template**.
 6. Sélectionnez **Redéployer**.
-     
+
      >[!NOTE]
      >Si le modèle ne se redéploie pas automatiquement lorsque vous sélectionnez **Redéployer**, sélectionnez **Modèle** dans le volet de gauche de votre navigateur, puis choisissez **Déployer**.
 
 7. Sélectionnez le groupe de ressources contenant les machines virtuelles hôtes de session actuelles dans le pool d’hôtes existant.
-     
+
      >[!NOTE]
      >Si vous voyez une erreur qui vous indique de sélectionner un autre groupe de ressources, même si celui que vous avez entré est correct, sélectionnez un autre groupe de ressources, puis le groupe de ressources d’origine.
 
@@ -96,7 +96,7 @@ Toutes les valeurs dans cette section doivent correspondre à celles que vous av
 Toutes les valeurs de paramètre dans cette section doivent correspondre à celles que vous avez fournies lors de la création initiale du pool d’hôtes et des machines virtuelles hôtes de session, à l’exception du nombre total de machines virtuelles. Le nombre de machines virtuelles que vous entrez est le nombre de machines virtuelles dans votre pool d’hôtes développé :
 
 1. Sélectionnez la taille de machine virtuelle correspondant aux machines virtuelles hôtes de session existantes.
-    
+
     >[!NOTE]
     >Si la taille de machine virtuelle que vous recherchez n’apparaît pas dans le sélecteur de taille de machine virtuelle, c’est parce que nous ne l’avons pas encore intégrée à l’outil Place de marché Azure. Pour demander une taille de machine virtuelle, créez une demande ou votez pour une demande existante dans le [forum UserVoice sur Windows Virtual Desktop](https://windowsvirtualdesktop.uservoice.com/forums/921118-general).
 

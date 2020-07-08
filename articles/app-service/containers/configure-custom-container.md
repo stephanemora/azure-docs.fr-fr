@@ -3,12 +3,12 @@ title: Configurer un conteneur Linux personnalisé
 description: Découvrez comment configurer un conteneur Linux personnalisé dans Azure App Service. Cet article présente les tâches de configuration les plus courantes.
 ms.topic: article
 ms.date: 03/28/2019
-ms.openlocfilehash: 6baa1fbd4932aa83a54081ff166dcae7f258fff9
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 57281bedb34078dff6878d69be1bfe7f7300f545
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79235981"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84905797"
 ---
 # <a name="configure-a-custom-linux-container-for-azure-app-service"></a>Configurer un conteneur Linux personnalisé pour Azure App Service
 
@@ -92,7 +92,7 @@ SSH permet d’établir une communication sécurisée entre un conteneur et un c
 
 ## <a name="access-diagnostic-logs"></a>Accéder aux journaux de diagnostic
 
-[!INCLUDE [Access diagnostic logs](../../../includes/app-service-web-logs-access-no-h.md)]
+[!INCLUDE [Access diagnostic logs](../../../includes/app-service-web-logs-access-linux-no-h.md)]
 
 ## <a name="configure-multi-container-apps"></a>Configurer des applications à plusieurs conteneurs
 

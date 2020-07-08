@@ -3,24 +3,24 @@ title: Application inattendue dans ma liste d’applications | Microsoft Docs
 description: Guide pratique pour afficher toutes les applications dans votre client et comprendre comment les applications apparaissent dans votre liste Toutes les applications sous Applications d’entreprise
 services: active-directory
 documentationcenter: ''
-author: msmimart
-manager: CelesteDG
+author: kenwith
+manager: celestedg
 ms.assetid: ''
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: troubleshooting
 ms.date: 07/11/2017
-ms.author: mimart
+ms.author: kenwith
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b1cb4eeb52d0680695bda266ad1a563b2ef5ee02
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 97eef1f331d8e6965e378d6a76cfa7a0c50feb9a
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "65781091"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85317463"
 ---
 # <a name="unexpected-application-in-my-applications-list"></a>Application inattendue dans ma liste d’applications
 
@@ -66,7 +66,7 @@ Lors du filtrage avec **Toutes les applications**, la **liste** **Toutes les app
 
 5. Lorsque vous ajoutez une inscription pour une nouvelle application en créant une application personnalisée à l’aide du [Portail d’inscription des applications V2.0](https://docs.microsoft.com/azure/active-directory/develop/active-directory-v2-app-registration).
 
-6. Lorsque vous ajoutez une application que vous développez à l’aide des [méthodes d’authentification ASP.net](https://www.asp.net/visual-studio/overview/2013/creating-web-projects-in-visual-studio#orgauthoptions) ou des [Services connectés](https://blogs.msdn.com/b/visualstudio/archive/2014/11/19/connecting-to-cloud-services.aspx) de Visual Studio.
+6. Lorsque vous ajoutez une application que vous développez à l’aide des [méthodes d’authentification ASP.net](https://www.asp.net/visual-studio/overview/2013/creating-web-projects-in-visual-studio#orgauthoptions) ou des [Services connectés](https://devblogs.microsoft.com/visualstudio/connecting-to-cloud-services/) de Visual Studio.
 
 7. Lorsque vous créez un objet Principal de service à l’aide du [module Azure AD PowerShell](/powershell/azure/install-adv2?view=azureadps-2.0).
 

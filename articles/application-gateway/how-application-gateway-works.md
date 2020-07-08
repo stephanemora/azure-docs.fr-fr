@@ -4,15 +4,15 @@ description: Cet article fournit des informations sur la façon dont une passere
 services: application-gateway
 author: abshamsft
 ms.service: application-gateway
-ms.topic: article
+ms.topic: conceptual
 ms.date: 11/16/2019
 ms.author: absha
-ms.openlocfilehash: 84a7bdfb9f8f7c741140cbe2086149dff90db211
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 7622ac319929548dd50a3af763b1b65ea8a36d2b
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80132981"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85250228"
 ---
 # <a name="how-an-application-gateway-works"></a>Fonctionnement d’une passerelle d’application
 

@@ -56,7 +56,7 @@ Les écritures dans un fichier d’échange (pagefile.sys) et les écritures dan
 
 ## <a name="example-1-exclude-the-sql-server-tempdb-disk"></a>Exemple 1 : Exclure le disque de base de données tempdb SQL Server
 
-Nous allons voir comment gérer l’exclusion de disque, le basculement et le basculement d’une machine virtuelle Windows SQL Server source - **SalesDB***, pour laquelle nous souhaitons exclure tempdb. 
+Nous allons voir comment gérer l’exclusion de disque, le basculement et le basculement d’une machine virtuelle Windows SQL Server source - **SalesDB** *, pour laquelle nous souhaitons exclure tempdb. 
 
 ### <a name="exclude-disks-from-replication"></a>Exclure les disques de la réplication
 

@@ -1,19 +1,14 @@
 ---
 title: Intégrer à Apache Kafka Connect - Azure Event Hubs | Microsoft Docs
 description: Cet article fournit des informations sur l’utilisation d’Apache Spark avec Azure Event Hubs pour Kafka.
-services: event-hubs
-documentationcenter: .net
-author: ShubhaVijayasarathy
-ms.service: event-hubs
 ms.topic: how-to
-ms.date: 04/02/2020
-ms.author: shvija
-ms.openlocfilehash: 60c6207b1c90ca40f02097a1c82d2811a50f664d
-ms.sourcegitcommit: d597800237783fc384875123ba47aab5671ceb88
+ms.date: 06/23/2020
+ms.openlocfilehash: 2e7a6b406b6d33c94c6fddea2f73b70c24f45f86
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/03/2020
-ms.locfileid: "80632831"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85320170"
 ---
 # <a name="integrate-apache-kafka-connect-support-on-azure-event-hubs-preview"></a>Intégrer la prise en charge Apache Kafka Connect à Azure Event Hubs (préversion)
 Si l’ingestion des besoins métier augmente, les exigences augmentent également pour ingérer différents récepteurs et sources externes. [Apache Kafka Connect](https://kafka.apache.org/documentation/#connect) fournit cette infrastructure pour se connecter et importer/exporter des données depuis/vers n’importe quel système externe, tel que MySQL, HDFS, et système de fichiers via un cluster Kafka. Ce tutoriel vous montre comment utiliser l’infrastructure Kafka Connect avec des Event Hubs.

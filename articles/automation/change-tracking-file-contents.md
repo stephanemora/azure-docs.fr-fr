@@ -3,14 +3,14 @@ title: Gérer Suivi des modifications et inventaire dans Azure Automation
 description: Cet article explique comment utiliser le Change Tracking and Inventory pour suivre les modifications apportées aux logiciels et aux services Microsoft dans votre environnement.
 services: automation
 ms.subservice: change-inventory-management
-ms.date: 07/03/2018
+ms.date: 06/15/2020
 ms.topic: conceptual
-ms.openlocfilehash: 2738605680a7035e4e2da95b0f53b4d5e227304b
-ms.sourcegitcommit: 1692e86772217fcd36d34914e4fb4868d145687b
+ms.openlocfilehash: 0eebd626013614bb6240fc0e6530a358a2b86d1c
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/29/2020
-ms.locfileid: "84170288"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84781189"
 ---
 # <a name="manage-change-tracking-and-inventory"></a>Gérer Change Tracking et Inventory
 
@@ -143,7 +143,7 @@ En matière d’enregistrements de modifications, vous pouvez effectuer différe
 
 |Requête  |Description  |
 |---------|---------|
-|`ConfigurationData`<br>&#124; `where ConfigDataType == "Microsoft services" and SvcStartupType == "Auto"`<br>&#124; `where SvcState == "Stopped"`<br>&#124; `summarize arg_max(TimeGenerated, *) by SoftwareName, Computer`         | Affiche les enregistrements d’inventaire les plus récents des services Microsoft qui ont été définis sur Auto, mais qui ont été signalés comme étant arrêtés. Les résultats se limitent à l’enregistrement le plus récent pour le nom de logiciel et l’ordinateur spécifiés.    |
+|`ConfigurationData`<br>&#124; `where ConfigDataType == "WindowsServices" and SvcStartupType == "Auto"`<br>&#124; `where SvcState == "Stopped"`<br>&#124; `summarize arg_max(TimeGenerated, *) by SoftwareName, Computer`         | Affiche les enregistrements d’inventaire les plus récents des services Microsoft qui ont été définis sur Auto, mais qui ont été signalés comme étant arrêtés. Les résultats se limitent à l’enregistrement le plus récent pour le nom de logiciel et l’ordinateur spécifiés.    |
 |`ConfigurationChange`<br>&#124; `where ConfigChangeType == "Software" and ChangeCategory == "Removed"`<br>&#124; `order by TimeGenerated desc`|Affiche les enregistrements de modifications des logiciels supprimés.|
 
 ## <a name="create-alerts-on-changes"></a>Créer des alertes en cas de modification

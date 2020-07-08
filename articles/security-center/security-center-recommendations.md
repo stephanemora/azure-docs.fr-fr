@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/29/2019
 ms.author: memildin
-ms.openlocfilehash: 408b0f020be72b8e6b10dd6c97298afda1b91360
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 4d65b43dad80cb130d582132d21e2d10bd8051dc
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79225261"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84791382"
 ---
 # <a name="security-recommendations-in-azure-security-center"></a>Recommandations de sécurité dans le Centre de sécurité Azure 
 Cette rubrique explique comment visualiser et comprendre les recommandations d’Azure Security Center pour vous aider à protéger vos ressources Azure.
@@ -53,7 +53,7 @@ Azure Security Center analyse l’état de sécurité de vos ressources pour id
     Vous pouvez filtrer les recommandations. Pour filtrer les recommandations, sélectionnez **Filtrer** sur le panneau **Recommandations**. Le panneau **Filtrer** s’ouvre et vous permet d’afficher uniquement certains états ou niveaux de gravité.
 
    * **RECOMMANDATIONS** : La recommandation.
-   * **IMPACT DU DEGRÉ DE SÉCURISATION** : Score généré par Security Center en utilisant vos recommandations en matière de sécurité et en appliquant des algorithmes avancés pour déterminer le degré d’importance de chaque recommandation. Pour plus d’informations, consultez [Calcul du niveau de sécurité](security-center-secure-score.md#secure-score-calculation).
+   * **IMPACT DU DEGRÉ DE SÉCURISATION** : Score généré par Security Center en utilisant vos recommandations en matière de sécurité et en appliquant des algorithmes avancés pour déterminer le degré d’importance de chaque recommandation. Pour plus d’informations, consultez [Calcul du niveau de sécurité](secure-score-security-controls.md#how-your-secure-score-is-calculated).
    * **RESSOURCE** : Ressources auxquelles s’appliquent les recommandations.
    * **BARRES D’ÉTAT** :  Donne le niveau de gravité de chaque recommandation :
        * **Élevé (rouge)**  : Existence d’une vulnérabilité sur une ressource importante (application, machine virtuelle ou groupe de sécurité réseau). Le problème doit être analysé.

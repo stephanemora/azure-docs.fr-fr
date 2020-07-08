@@ -1,23 +1,14 @@
 ---
 title: Azure Event Hubs – Exceptions Resource Manager | Microsoft Docs
 description: Liste des exceptions Azure Event Hubs signalées par Azure Resource Manager et actions suggérées.
-services: service-bus-messaging
-documentationcenter: na
-author: spelluru
-editor: spelluru
-ms.service: service-bus-messaging
-ms.devlang: na
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: na
-ms.date: 12/08/2019
-ms.author: spelluru
-ms.openlocfilehash: e6ee1137fce97cbe5a64aa5287223f6ba09dcf47
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.date: 06/23/2020
+ms.openlocfilehash: d8d52f0a0c58ee756afa4d5d8599e2981edb9cdc
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "74936107"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85312518"
 ---
 # <a name="azure-event-hubs---resource-manager-exceptions"></a>Azure Event Hubs – Exceptions Resource Manager
 Cet article répertorie les exceptions générées lors de l’interaction avec Azure Event Hubs à l’aide d’Azure Resource Manager par le biais de modèles ou d’appels directs.

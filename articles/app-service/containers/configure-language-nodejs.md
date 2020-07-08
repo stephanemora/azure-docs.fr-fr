@@ -4,12 +4,12 @@ description: Découvrez comment configurer un conteneur Node.js prédéfini pour
 ms.devlang: nodejs
 ms.topic: article
 ms.date: 03/28/2019
-ms.openlocfilehash: fdc5129fc395f99cb4c244414ea952b2776dc4dc
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 699c77e937fc13cadf742d193ab1b0b8f00a2726
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79227545"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84905712"
 ---
 # <a name="configure-a-linux-nodejs-app-for-azure-app-service"></a>Configurer une application Node.js Linux pour Azure App Service
 
@@ -255,7 +255,7 @@ if (req.secure) {
 
 ## <a name="access-diagnostic-logs"></a>Accéder aux journaux de diagnostic
 
-[!INCLUDE [Access diagnostic logs](../../../includes/app-service-web-logs-access-no-h.md)]
+[!INCLUDE [Access diagnostic logs](../../../includes/app-service-web-logs-access-linux-no-h.md)]
 
 ## <a name="open-ssh-session-in-browser"></a>Ouvrir une session SSH dans un navigateur
 

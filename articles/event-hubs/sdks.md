@@ -1,20 +1,14 @@
 ---
 title: Azure Event Hubs - Kits de développement logiciel (SDK) client | Microsoft Docs
 description: Cet article fournit des informations sur les kits de développement logiciel (SDK) clients pour Azure Event Hubs.
-services: event-hubs
-documentationcenter: na
-author: spelluru
-ms.service: event-hubs
-ms.devlang: na
 ms.topic: article
-ms.date: 05/26/2020
-ms.author: spelluru
-ms.openlocfilehash: ffa0663f392c4dbf290a244e2c95422a8855debf
-ms.sourcegitcommit: 309cf6876d906425a0d6f72deceb9ecd231d387c
+ms.date: 06/23/2020
+ms.openlocfilehash: 4c3557556500f2a536e20331bd3d05d84f608f0b
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/01/2020
-ms.locfileid: "84267957"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85312556"
 ---
 # <a name="azure-event-hubs---client-sdks"></a>Azure Event Hubs - Kits de développement logiciel (SDK)
 Cet article fournit les informations suivantes pour les kits de développement logiciel (SDK) pris en charge par Azure Event Hubs : 

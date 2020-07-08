@@ -4,23 +4,23 @@ description: Comment utiliser l’analytique des journaux d’activité avec la 
 services: virtual-desktop
 author: Heidilohr
 ms.service: virtual-desktop
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 03/30/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: 05bb7274fe598df45ce14bfc89b606aec3f869c9
-ms.sourcegitcommit: 50ef5c2798da04cf746181fbfa3253fca366feaa
+ms.openlocfilehash: beb48b90afd54b044eb6d0ceaff32b53ebfcdc34
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/30/2020
-ms.locfileid: "82614302"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85205966"
 ---
 # <a name="use-log-analytics-for-the-diagnostics-feature"></a>Utiliser Log Analytics pour la fonctionnalité de diagnostic
 
 >[!IMPORTANT]
 >Ce contenu s’applique à la version Automne 2019 qui ne prend pas en charge les objets Azure Resource Manager Windows Virtual Desktop. Si vous essayez de gérer les objets Azure Resource Manager Windows Virtual Desktop introduits dans la mise à jour Printemps 2020, consultez [cet article](../diagnostics-log-analytics.md).
 
-Windows Virtual Desktop offre une fonctionnalité de diagnostic qui permet à l’administrateur d’identifier les problèmes via une seule interface. Cette fonctionnalité consigne les informations de diagnostic chaque fois qu'une personne à qui un rôle Windows Virtual Desktop a été attribué utilise le service. Chaque journal contient des informations sur le rôle Windows Virtual Desktop impliqué dans l'activité, les éventuels messages d'erreur qui apparaissent pendant la session, les informations sur le locataire et les informations sur l'utilisateur. La fonctionnalité de diagnostic crée des journaux d'activité pour les actions des utilisateurs et des administrateurs. Chaque journal d'activités se divise en trois grandes catégories : 
+Windows Virtual Desktop offre une fonctionnalité de diagnostic qui permet à l’administrateur d’identifier les problèmes via une seule interface. Cette fonctionnalité consigne les informations de diagnostic chaque fois qu'une personne à qui un rôle Windows Virtual Desktop a été attribué utilise le service. Chaque journal contient des informations sur le rôle Windows Virtual Desktop impliqué dans l'activité, les éventuels messages d'erreur qui apparaissent pendant la session, les informations sur le locataire et les informations sur l'utilisateur. La fonctionnalité de diagnostic crée des journaux d'activité pour les actions des utilisateurs et des administrateurs. Chaque journal d'activités se divise en trois grandes catégories :
 
 - Activités d’ajout de flux : lorsqu’un utilisateur essaie de se connecter à son flux via des applications Bureau à distance Microsoft.
 - Activités de connexion : lorsqu’un utilisateur essaie de se connecter à un ordinateur de bureau ou à RemoteApp via des applications Bureau à distance Microsoft.
@@ -36,37 +36,37 @@ Nous vous recommandons d'utiliser Log Analytics pour analyser les données de di
 
 Avant de pouvoir utiliser Log Analytics avec la fonctionnalité de diagnostic, vous devrez [créer un espace de travail](../../azure-monitor/learn/quick-collect-windows-computer.md#create-a-workspace).
 
-Après avoir créé votre espace de travail, suivez les instructions de la section [Connecter des ordinateurs Windows à Azure Monitor](../../azure-monitor/platform/agent-windows.md#obtain-workspace-id-and-key) pour obtenir les informations suivantes : 
+Après avoir créé votre espace de travail, suivez les instructions de la section [Connecter des ordinateurs Windows à Azure Monitor](../../azure-monitor/platform/agent-windows.md#obtain-workspace-id-and-key) pour obtenir les informations suivantes :
 
 - L’ID de l’espace de travail
 - La clé primaire de votre espace de travail
 
 Ces informations vous seront nécessaires plus loin dans le processus de configuration.
 
-## <a name="push-diagnostics-data-to-your-workspace"></a>Envoyer (push) les données de diagnostic à votre espace de travail 
+## <a name="push-diagnostics-data-to-your-workspace"></a>Envoyer (push) les données de diagnostic à votre espace de travail
 
 Vous pouvez envoyer (push) les données de diagnostic de votre locataire Windows Virtual Desktop à Log Analytics pour votre espace de travail. Vous pouvez configurer cette fonctionnalité dès la création de votre locataire en liant votre espace de travail à votre locataire, ou vous pouvez la configurer plus tard avec un locataire existant.
 
-Pour lier votre locataire à votre espace de travail Log Analytics pendant que vous configurez votre nouveau locataire, exécutez l’applet de commande suivante pour vous connecter à Windows Virtual Desktop avec votre compte utilisateur TenantCreator : 
+Pour lier votre locataire à votre espace de travail Log Analytics pendant que vous configurez votre nouveau locataire, exécutez l’applet de commande suivante pour vous connecter à Windows Virtual Desktop avec votre compte utilisateur TenantCreator :
 
 ```powershell
-Add-RdsAccount -DeploymentUrl https://rdbroker.wvd.microsoft.com 
+Add-RdsAccount -DeploymentUrl https://rdbroker.wvd.microsoft.com
 ```
 
-Si vous voulez lier un locataire existant plutôt qu'un nouveau locataire, exécutez cette applet de commande : 
+Si vous voulez lier un locataire existant plutôt qu'un nouveau locataire, exécutez cette applet de commande :
 
 ```powershell
-Set-RdsTenant -Name <TenantName> -AzureSubscriptionId <SubscriptionID> -LogAnalyticsWorkspaceId <String> -LogAnalyticsPrimaryKey <String> 
+Set-RdsTenant -Name <TenantName> -AzureSubscriptionId <SubscriptionID> -LogAnalyticsWorkspaceId <String> -LogAnalyticsPrimaryKey <String>
 ```
 
-Vous aurez besoin d'exécuter ces applets de commande pour chaque locataire que vous voulez lier à Log Analytics. 
+Vous aurez besoin d'exécuter ces applets de commande pour chaque locataire que vous voulez lier à Log Analytics.
 
 >[!NOTE]
->Si vous ne voulez pas lier l'espace de travail Log Analytics lorsque vous créez un locataire, exécutez plutôt l’applet de commande `New-RdsTenant`. 
+>Si vous ne voulez pas lier l'espace de travail Log Analytics lorsque vous créez un locataire, exécutez plutôt l’applet de commande `New-RdsTenant`.
 
 ## <a name="cadence-for-sending-diagnostic-events"></a>Cadence d’envoi des événements de diagnostic
 
-Les événements de diagnostic sont envoyés à Log Analytics lorsqu’ils sont terminés.  
+Les événements de diagnostic sont envoyés à Log Analytics lorsqu’ils sont terminés.
 
 ## <a name="example-queries"></a>Exemples de requêtes
 
@@ -75,65 +75,65 @@ Les exemples de requêtes suivants montrent comment la fonctionnalité de diagno
 Ce premier exemple montre les activités de connexion initiées par des utilisateurs disposant de clients Bureau à distance pris en charge :
 
 ```powershell
-WVDActivityV1_CL 
+WVDActivityV1_CL
 
-| where Type_s == "Connection" 
+| where Type_s == "Connection"
 
-| join kind=leftouter ( 
+| join kind=leftouter (
 
-    WVDErrorV1_CL 
+    WVDErrorV1_CL
 
-    | summarize Errors = makelist(pack('Time', Time_t, 'Code', ErrorCode_s , 'CodeSymbolic', ErrorCodeSymbolic_s, 'Message', ErrorMessage_s, 'ReportedBy', ReportedBy_s , 'Internal', ErrorInternal_s )) by ActivityId_g 
+    | summarize Errors = makelist(pack('Time', Time_t, 'Code', ErrorCode_s , 'CodeSymbolic', ErrorCodeSymbolic_s, 'Message', ErrorMessage_s, 'ReportedBy', ReportedBy_s , 'Internal', ErrorInternal_s )) by ActivityId_g
 
-    ) on $left.Id_g  == $right.ActivityId_g   
+    ) on $left.Id_g  == $right.ActivityId_g 
 
-| join  kind=leftouter (  
+| join  kind=leftouter (
 
-    WVDCheckpointV1_CL 
+    WVDCheckpointV1_CL
 
-    | summarize Checkpoints = makelist(pack('Time', Time_t, 'ReportedBy', ReportedBy_s, 'Name', Name_s, 'Parameters', Parameters_s) ) by ActivityId_g 
+    | summarize Checkpoints = makelist(pack('Time', Time_t, 'ReportedBy', ReportedBy_s, 'Name', Name_s, 'Parameters', Parameters_s) ) by ActivityId_g
 
-    ) on $left.Id_g  == $right.ActivityId_g  
+    ) on $left.Id_g  == $right.ActivityId_g
 
-|project-away ActivityId_g, ActivityId_g1 
+|project-away ActivityId_g, ActivityId_g1
 ```
 
 L'exemple de requête suivant montre les activités de gestion par les administrateurs sur les locataires :
 
 ```powershell
-WVDActivityV1_CL 
+WVDActivityV1_CL
 
-| where Type_s == "Management" 
+| where Type_s == "Management"
 
-| join kind=leftouter ( 
+| join kind=leftouter (
 
-    WVDErrorV1_CL 
+    WVDErrorV1_CL
 
-    | summarize Errors = makelist(pack('Time', Time_t, 'Code', ErrorCode_s , 'CodeSymbolic', ErrorCodeSymbolic_s, 'Message', ErrorMessage_s, 'ReportedBy', ReportedBy_s , 'Internal', ErrorInternal_s )) by ActivityId_g 
+    | summarize Errors = makelist(pack('Time', Time_t, 'Code', ErrorCode_s , 'CodeSymbolic', ErrorCodeSymbolic_s, 'Message', ErrorMessage_s, 'ReportedBy', ReportedBy_s , 'Internal', ErrorInternal_s )) by ActivityId_g
 
-    ) on $left.Id_g  == $right.ActivityId_g   
+    ) on $left.Id_g  == $right.ActivityId_g 
 
-| join  kind=leftouter (  
+| join  kind=leftouter (
 
-    WVDCheckpointV1_CL 
+    WVDCheckpointV1_CL
 
-    | summarize Checkpoints = makelist(pack('Time', Time_t, 'ReportedBy', ReportedBy_s, 'Name', Name_s, 'Parameters', Parameters_s) ) by ActivityId_g 
+    | summarize Checkpoints = makelist(pack('Time', Time_t, 'ReportedBy', ReportedBy_s, 'Name', Name_s, 'Parameters', Parameters_s) ) by ActivityId_g
 
-    ) on $left.Id_g  == $right.ActivityId_g  
+    ) on $left.Id_g  == $right.ActivityId_g
 
-|project-away ActivityId_g, ActivityId_g1 
+|project-away ActivityId_g, ActivityId_g1
 ```
- 
-## <a name="stop-sending-data-to-log-analytics"></a>Arrêter d'envoyer des données à Log Analytics 
+
+## <a name="stop-sending-data-to-log-analytics"></a>Arrêter d'envoyer des données à Log Analytics
 
 Pour arrêter l'envoi des données d'un locataire existant à Log Analytics, exécutez l’applet de commande suivante et définissez des chaînes vides :
 
 ```powershell
-Set-RdsTenant -Name <TenantName> -AzureSubscriptionId <SubscriptionID> -LogAnalyticsWorkspaceId <String> -LogAnalyticsPrimaryKey <String> 
+Set-RdsTenant -Name <TenantName> -AzureSubscriptionId <SubscriptionID> -LogAnalyticsWorkspaceId <String> -LogAnalyticsPrimaryKey <String>
 ```
 
-Vous devrez exécuter cette applet de commande pour chaque locataire pour lequel vous voulez arrêter l’envoi des données. 
+Vous devrez exécuter cette applet de commande pour chaque locataire pour lequel vous voulez arrêter l’envoi des données.
 
-## <a name="next-steps"></a>Étapes suivantes 
+## <a name="next-steps"></a>Étapes suivantes
 
 Pour examiner les scénarios d’erreur courants que la fonctionnalité de diagnostic peut identifier pour vous, consulter [Identifier et diagnostiquer les problèmes](diagnostics-role-service-2019.md#common-error-scenarios).

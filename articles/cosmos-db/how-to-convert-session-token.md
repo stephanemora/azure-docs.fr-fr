@@ -3,15 +3,15 @@ title: Comment convertir des formats de jeton de session dans le Kit de dévelop
 description: Découvrez comment convertir les formats de jeton de session pour garantir la compatibilité entre les différentes versions du Kit de développement logiciel (SDK) .NET
 author: vinhms
 ms.service: cosmos-db
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 04/30/2020
 ms.author: vitrinh
-ms.openlocfilehash: 377d8e3e923d6a8fa3b1722cee6451a696ce2490
-ms.sourcegitcommit: e0330ef620103256d39ca1426f09dd5bb39cd075
+ms.openlocfilehash: 1f5609eae106e04928bc2c49bd84aa651b224611
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/05/2020
-ms.locfileid: "82793933"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85261577"
 ---
 # <a name="convert-session-token-formats-in-net-sdk"></a>Convertir les format de jeton de session dans le Kit de développement logiciel (SDK) .NET
 

@@ -1,18 +1,14 @@
 ---
 title: Contrôles de sécurité pour Azure Relay
 description: Cet article fournit une liste de contrôle des contrôles de sécurité intégrés pour l’évaluation de Azure Relay.
-services: service-bus-relay
-ms.service: service-bus-relay
-author: spelluru
 ms.topic: conceptual
-ms.date: 01/21/2020
-ms.author: spelluru
-ms.openlocfilehash: f8165d994e998af4f15cd6aa2fd08b75191b8b64
-ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
+ms.date: 06/23/2020
+ms.openlocfilehash: 64abee031bb20e2bdb10bf1cc3cd77e135713550
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/12/2020
-ms.locfileid: "83204472"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85316623"
 ---
 # <a name="security-controls-for-azure-relay"></a>Contrôles de sécurité pour Azure Relay
 

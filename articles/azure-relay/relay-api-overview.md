@@ -1,25 +1,14 @@
 ---
 title: Vue d’ensemble de l’API Azure Relay | Microsoft Docs
 description: Cet article fournit une vue d’ensemble des API Azure Relay disponibles (.NET Standard, .NET Framework, node.js, etc.)
-services: service-bus-relay
-documentationcenter: na
-author: spelluru
-manager: timlt
-editor: ''
-ms.assetid: fdaa1d2b-bd80-4e75-abb9-0c3d0773af2d
-ms.service: service-bus-relay
-ms.devlang: na
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: na
-ms.date: 01/21/2020
-ms.author: spelluru
-ms.openlocfilehash: ad7226b5c5badfddf9f436a1229a48f729485821
-ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
+ms.date: 06/23/2020
+ms.openlocfilehash: 15e13ccac9b05e6e1b0730b38b372dec20c69dda
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/12/2020
-ms.locfileid: "83204208"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85316952"
 ---
 # <a name="available-relay-apis"></a>API Relay disponibles
 
@@ -33,7 +22,7 @@ La section [Informations supplémentaires](#additional-information) contient plu
 | --- | --- | --- | --- |
 | .NET Standard | les connexions hybrides | [Microsoft.Azure.Relay](https://www.nuget.org/packages/Microsoft.Azure.Relay/) | [GitHub](https://github.com/azure/azure-relay-dotnet) |
 | .NET Framework | Relais WCF | [WindowsAzure.ServiceBus](https://www.nuget.org/packages/WindowsAzure.ServiceBus/) | N/A |
-| Nœud | les connexions hybrides | [WebSockets : `hyco-ws`](https://www.npmjs.com/package/hyco-ws)<br/>[Websockets : `hyco-websocket`](https://www.npmjs.com/package/hyco-websocket)<br/>[Requêtes HTTP : `hyco-https`](https://www.npmjs.com/package/hyco-https) | [GitHub](https://github.com/Azure/azure-relay-node) |
+| Nœud | les connexions hybrides | [WebSockets: `hyco-ws`](https://www.npmjs.com/package/hyco-ws)<br/>[Websockets : `hyco-websocket`](https://www.npmjs.com/package/hyco-websocket)<br/>[Requêtes HTTP : `hyco-https`](https://www.npmjs.com/package/hyco-https) | [GitHub](https://github.com/Azure/azure-relay-node) |
 
 ### <a name="additional-information"></a>Informations supplémentaires
 

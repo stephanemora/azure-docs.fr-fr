@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 03/15/2020
 ms.author: apimpm
-ms.openlocfilehash: fefa5ff5d112b479110d484ee0ea4c358b5c88a7
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: ecbd4d97bb092ccbdb286e4865bf04e770ca9473
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80335910"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85207887"
 ---
 # <a name="azure-api-management-developer-portal-overview"></a>Vue d’ensemble du portail des développeurs Gestion des API Azure
 
@@ -68,7 +68,7 @@ Le portail est basé sur une fourche adaptée du [framework Paperbits](https://p
 
 Dans cette section, nous répondons aux questions courantes d’ordre général sur le portail des développeurs. Pour toute question spécifique à la version auto-hébergée, reportez-vous à la [section wiki du référentiel GitHub](https://github.com/Azure/api-management-developer-portal/wiki).
 
-### <a name="how-can-i-migrate-from-the-preview-version-of-the-portal"></a><a id="preview-to-ga"/> Comment migrer à partir de la préversion du portail ?
+### <a name="how-can-i-migrate-from-the-preview-version-of-the-portal"></a><a id="preview-to-ga"></a> Comment migrer à partir de la préversion du portail ?
 
 En utilisant la préversion du portail des développeurs, vous avez configuré le contenu en préversion dans votre service Gestion des API. Le contenu par défaut a été sensiblement modifié dans la version en disponibilité générale afin d’offrir une meilleure expérience utilisateur. Il comprend également de nouveaux widgets.
 
@@ -169,7 +169,7 @@ Les portails hérités exigeaient l’autorisation `Microsoft.ApiManagement/serv
 
 Vous pouvez utiliser le script PowerShell suivant pour créer un rôle avec l’autorisation requise. Veillez à changer le paramètre `<subscription-id>`. 
 
-```PowerShell
+```powershell
 #New Portals Admin Role 
 Import-Module Az 
 Connect-AzAccount 
@@ -187,7 +187,7 @@ New-AzRoleDefinition -Role $customRole
  
 Une fois le rôle créé, il peut être attribué à n’importe quel utilisateur de la section **Contrôle d’accès (IAM)** du portail Azure. Le fait d’attribuer ce rôle à un utilisateur a pour effet d’attribuer l’autorisation sur l’étendue du service. L’utilisateur pourra générer des jetons SAS au nom de *n’importe quel* utilisateur du service. Au minimum, ce rôle doit être attribué à l’administrateur du service. La commande PowerShell suivante montre comment attribuer le rôle à un utilisateur `user1` sur l’étendue la plus basse pour éviter d’octroyer des autorisations inutiles à l’utilisateur : 
 
-```PowerShell
+```powershell
 New-AzRoleAssignment -SignInName "user1@contoso.com" -RoleDefinitionName "APIM New Portal Admin" -Scope "/subscriptions/<subscription-id>/resourceGroups/<resource-group>/providers/Microsoft.ApiManagement/service/<apim-service-name>/users/1" 
 ```
 

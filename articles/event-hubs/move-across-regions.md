@@ -1,20 +1,14 @@
 ---
 title: Déplacer un espace de noms Azure Event Hubs vers une autre région | Microsoft Docs
 description: Cet article explique comment déplacer un espace de noms Azure Event Hubs de la région actuelle vers une autre région.
-services: event-hubs
-author: spelluru
-ms.service: event-hubs
 ms.topic: how-to
-ms.custom: subject-moving-resources
-ms.date: 04/14/2020
-ms.author: spelluru
-ms.reviewer: shvija
-ms.openlocfilehash: 5b96bf1c538b3c5589a1993a0353292fadd0936d
-ms.sourcegitcommit: 366e95d58d5311ca4b62e6d0b2b47549e06a0d6d
+ms.date: 06/23/2020
+ms.openlocfilehash: a70397772d22a65046f87877deab6263d4b2104f
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/01/2020
-ms.locfileid: "82690485"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85312957"
 ---
 # <a name="move-an-azure-event-hubs-namespace-to-another-region"></a>Déplacer un espace de noms Azure Event Hubs vers une autre région
 Il existe différents scénarios dans lesquels vous pouvez être amené à déplacer votre espace de noms Event Hubs existant d’une région à une autre. Par exemple, vous pouvez créer un espace de noms avec la même configuration à des fins de test. Vous pouvez également créer un espace de noms secondaire dans une autre région dans le cadre de la [planification de la reprise d’activité après sinistre](event-hubs-geo-dr.md#setup-and-failover-flow).
