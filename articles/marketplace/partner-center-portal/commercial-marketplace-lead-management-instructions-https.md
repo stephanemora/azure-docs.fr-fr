@@ -1,18 +1,18 @@
 ---
 title: Gestion des prospects avec un point de terminaison HTTPS – Marketplace commercial de Microsoft
 description: Découvrez comment utiliser Power Automate et un point de terminaison HTTPS pour gérer les prospects de Microsoft AppSource et de la Place de marché Azure.
-author: qianw211
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
+author: keferna
+ms.author: keferna
 ms.date: 03/30/2020
-ms.author: dsindona
-ms.openlocfilehash: a2be74f6c9178577f86e5522e37e7c210643dd07
-ms.sourcegitcommit: 1f25aa993c38b37472cf8a0359bc6f0bf97b6784
+ms.openlocfilehash: 3cdbe1f3428418f082d53febca950a6a443fe5ff
+ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/26/2020
-ms.locfileid: "83847809"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86120364"
 ---
 # <a name="use-an-https-endpoint-to-manage-commercial-marketplace-leads"></a>Utiliser un point de terminaison HTTPS pour gérer les prospects de marketplaces commerciaux
 

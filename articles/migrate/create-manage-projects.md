@@ -3,12 +3,12 @@ title: Créer et gérer des projets Azure Migrate
 description: Rechercher, créer, gérer et supprimer des projets dans Azure Migrate.
 ms.topic: how-to
 ms.date: 04/19/2020
-ms.openlocfilehash: f5079ed979d98f2c6f0c654c860c6f176f366497
-ms.sourcegitcommit: acb82fc770128234f2e9222939826e3ade3a2a28
+ms.openlocfilehash: 644ac5ecab9f5384b446c3b1ebe762a5d06aaf12
+ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/21/2020
-ms.locfileid: "81676391"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86113426"
 ---
 # <a name="create-and-manage-azure-migrate-projects"></a>Créer et gérer des projets Azure Migrate
 
@@ -83,7 +83,7 @@ Notez les points suivants :
        
     - Si vous avez déjà supprimé le projet Azure Migrate, sélectionnez **Groupes de ressources** dans le volet gauche du Portail Azure et recherchez l’espace de travail.
        
-2. [Suivez les instructions](https://docs.microsoft.com/azure/azure-monitor/platform/delete-workspace) pour supprimer l’espace de travail.
+2. [Suivez les instructions](../azure-monitor/platform/delete-workspace.md) pour supprimer l’espace de travail.
 
 ## <a name="next-steps"></a>Étapes suivantes
 

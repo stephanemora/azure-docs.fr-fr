@@ -4,12 +4,12 @@ description: Décrit comment évaluer des machines virtuelles Hyper-V locales po
 ms.topic: tutorial
 ms.date: 06/03/2020
 ms.custom: mvc
-ms.openlocfilehash: 53cf4eea4bfe61951be9975bacf9adb2b3fcf435
-ms.sourcegitcommit: e04a66514b21019f117a4ddb23f22c7c016da126
+ms.openlocfilehash: 4c95916bf5f92f8a82b9dfae50aa311891857e7a
+ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/19/2020
-ms.locfileid: "85106490"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86114242"
 ---
 # <a name="assess-hyper-v-vms-with-azure-migrate-server-assessment"></a>Évaluer des machines virtuelles Hyper-V Azure Migrate Server Assessment
 
@@ -130,7 +130,7 @@ Importez le fichier téléchargé, puis créez la machine virtuelle.
 2. Dans **Choisir le type d’importation**, cliquez sur **Copier la machine virtuelle (créer un identifiant unique)** . Cliquez ensuite sur **Suivant**.
 3. Dans **Choisir la destination**, laissez la valeur par défaut. Cliquez sur **Suivant**.
 4. Dans **Dossiers de stockage**, laissez la valeur par défaut. Cliquez sur **Suivant**.
-5. Dans **Choisir un réseau**, spécifiez le commutateur virtuel qui sera utilisé par la machine virtuelle. Le commutateur nécessite une connexion à Internet pour envoyer des données à Azure. [En savoir plus](https://docs.microsoft.com/windows-server/virtualization/hyper-v/get-started/create-a-virtual-switch-for-hyper-v-virtual-machines) sur la création d’un commutateur virtuel.
+5. Dans **Choisir un réseau**, spécifiez le commutateur virtuel qui sera utilisé par la machine virtuelle. Le commutateur nécessite une connexion à Internet pour envoyer des données à Azure. [En savoir plus](/windows-server/virtualization/hyper-v/get-started/create-a-virtual-switch-for-hyper-v-virtual-machines) sur la création d’un commutateur virtuel.
 6. Dans **Récapitulatif**, passez en revue les paramètres. Puis, cliquez sur **Terminer**.
 7. Dans Gestionnaire Hyper-V > **Machines virtuelles**, démarrez la machine virtuelle.
 

@@ -1,18 +1,18 @@
 ---
 title: Gestion des prospects dans Salesforce – Marketplace commercial de Microsoft
 description: Découvrez comment utiliser Salesforce pour configurer des prospects pour Microsoft AppSource et la Place de marché Azure.
-author: qianw211
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
+author: keferna
+ms.author: keferna
 ms.date: 03/30/2020
-ms.author: dsindona
-ms.openlocfilehash: 7fbe27845164eb7711d3531173fb440c5a3570f4
-ms.sourcegitcommit: 1f25aa993c38b37472cf8a0359bc6f0bf97b6784
+ms.openlocfilehash: c3667de6a9bf85109a94201aa8e144869e4b033f
+ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/26/2020
-ms.locfileid: "83849131"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86117113"
 ---
 # <a name="configure-lead-management-for-salesforce"></a>Configurer la gestion des prospects pour Salesforce
 

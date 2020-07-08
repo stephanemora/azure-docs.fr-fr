@@ -1,18 +1,18 @@
 ---
 title: Rapports de revenus - Place de marché commerciale Microsoft
 description: Les rapports de revenus vous présentent en détail l’argent que vous a rapporté votre offre, notamment le montant et la date de paiement prévue.
-author: mingshen
-ms.author: mingshen
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
+author: mingshen
+ms.author: mingshen
 ms.date: 04/24/2020
-ms.openlocfilehash: 6639026d071b496027996036a81f6bc66e0185e3
-ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
+ms.openlocfilehash: f524ef13af17054e52a94ac043546431b656203c
+ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/21/2020
-ms.locfileid: "83744807"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86120719"
 ---
 # <a name="payout-summaries"></a>Synthèse des revenus
 

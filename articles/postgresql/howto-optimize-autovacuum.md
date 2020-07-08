@@ -4,14 +4,14 @@ description: Cet article décrit comment optimiser le nettoyage automatique sur 
 author: dianaputnam
 ms.author: dianas
 ms.service: postgresql
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 5/6/2019
-ms.openlocfilehash: 7dcc6f9ece407bee20ed344d91ee95e34f8f4c0a
-ms.sourcegitcommit: cec9676ec235ff798d2a5cad6ee45f98a421837b
+ms.openlocfilehash: 9b0e263d3b8bce9e04548f5e8433ff90d2bda274
+ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85848202"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86116350"
 ---
 # <a name="optimize-autovacuum-on-an-azure-database-for-postgresql---single-server"></a>Optimiser le nettoyage automatique sur un serveur Azure Database pour PostgreSQL – Serveur unique
 Cet article explique comment optimiser le nettoyage automatique sur un serveur Azure Database pour PostgreSQL.
@@ -22,20 +22,25 @@ PostgreSQL utilise le contrôle d’accès concurrentiel multiversion (MVCC) pou
 Vous pouvez déclencher un travail de nettoyage manuellement ou automatiquement. Il y a davantage de tuples morts quand la base de données subit une quantité importante d’opérations de mise à jour ou de suppression. Il y a moins de tuples morts lorsque la base de données est inactive. Lorsque la charge de la base de données est importante, vous devez effectuer des nettoyages plus fréquemment. L’exécution *manuelle* de ces tâches de nettoyage n’est donc pas pratique.
 
 Vous pouvez configurer le nettoyage automatique et l’optimiser grâce à un réglage. Les valeurs par défaut de PostgreSQL permettent au produit de fonctionner sur tous les types d’appareils. Ces appareils comprennent notamment les appareils Raspberry Pi. Les valeurs de configuration idéales dépendent des éléments suivants :
+
 - Quantité totale des ressources disponibles, par exemple, taille de stockage et référence SKU
 - Utilisation des ressources
 - Caractéristiques des différents objets
 
 ## <a name="autovacuum-benefits"></a>Avantages du nettoyage automatique
+
 Si vous n’effectuez pas de nettoyage régulièrement, les tuples morts qui s’accumulent peuvent avoir les conséquences suivantes :
+
 - Ballonnement des données, par exemple, des tables et des bases de données plus volumineuses
 - Accroissement de la taille des index non optimaux
 - Augmentation des E/S
 
 ## <a name="monitor-bloat-with-autovacuum-queries"></a>Superviser le ballonnement avec des requêtes de nettoyage automatique
 L’exemple de requête suivant est conçu pour identifier le nombre de tuples vivants et morts dans une table nommée XYZ :
- 
-    'SELECT relname, n_dead_tup, n_live_tup, (n_dead_tup/ n_live_tup) AS DeadTuplesRatio, last_vacuum, last_autovacuum FROM pg_catalog.pg_stat_all_tables WHERE relname = 'XYZ' order by n_dead_tup DESC;'
+
+```sql
+SELECT relname, n_dead_tup, n_live_tup, (n_dead_tup/ n_live_tup) AS DeadTuplesRatio, last_vacuum, last_autovacuum FROM pg_catalog.pg_stat_all_tables WHERE relname = 'XYZ' order by n_dead_tup DESC;
+```
 
 ## <a name="autovacuum-configurations"></a>Configurations de nettoyage automatique
 Les paramètres de configuration qui contrôlent le nettoyage automatique sont axés sur deux questions clés :
@@ -56,6 +61,7 @@ autovacuum_max_workers|Spécifie le nombre maximal de processus de nettoyage aut
 Pour substituer ces paramètres au niveau de chaque table, changez les paramètres de stockage de la table. 
 
 ## <a name="autovacuum-cost"></a>Coût du nettoyage automatique
+
 Voici les « coûts » qu’entraîne l’exécution d’une opération de nettoyage automatique :
 
 - Les pages de données sur lesquelles le nettoyage est exécuté sont verrouillées.
@@ -64,6 +70,7 @@ Voici les « coûts » qu’entraîne l’exécution d’une opération de net
 Par conséquent, veillez à ne pas exécuter les tâches de nettoyage trop fréquemment ou trop rarement. Une tâche de nettoyage doit être adaptée à la charge de travail. Testez tous les changements des paramètres de nettoyage automatique, en raison des inconvénients liés à chacun d’eux.
 
 ## <a name="autovacuum-start-trigger"></a>Déclencheur de démarrage du nettoyage automatique
+
 Le nettoyage automatique est déclenché quand le nombre de tuples morts dépasse autovacuum_vacuum_threshold + autovacuum_vacuum_scale_factor * reltuples. Ici, reltuples est une constante.
 
 Le nettoyage automatique doit s’adapter à la charge de la base de données. Sinon, vous pouvez manquer de stockage et constater un ralentissement général des requêtes. Amortie au fil du temps, la vitesse d’une opération de nettoyage des tuples morts doit être égale à la vitesse de création des tuples morts.
@@ -91,7 +98,9 @@ Le paramètre autovacuum_max_workers détermine le nombre maximal de processus d
 Avec PostgreSQL, vous pouvez définir ces paramètres au niveau de l’instance ou de la table. Aujourd’hui, vous pouvez définir ces paramètres au niveau de la table uniquement dans Azure Database pour PostgreSQL.
 
 ## <a name="optimize-autovacuum-per-table"></a>Optimiser le nettoyage automatique pour chaque table
+
 Vous pouvez configurer tous les paramètres de configuration précédente pour chaque table. Voici un exemple :
+
 ```sql
 ALTER TABLE t SET (autovacuum_vacuum_threshold = 1000);
 ALTER TABLE t SET (autovacuum_vacuum_scale_factor = 0.1);
@@ -102,7 +111,8 @@ ALTER TABLE t SET (autovacuum_vacuum_cost_delay = 10);
 Le nettoyage automatique est un processus synchrone exécuté par table. Plus une table contient un pourcentage élevé de tuples morts, plus le « coût » du nettoyage automatique est élevé. Vous pouvez fractionner en plusieurs tables les tables qui ont un taux élevé de mises à jour et de suppressions. Le fractionnement des tables permet d’exécuter parallèlement plusieurs nettoyages automatiques et de réduire le « coût » lié au nettoyage automatique d’une table. Vous pouvez également augmenter le nombre de workers parallèles de nettoyage automatique afin de garantir une planification libérale des workers.
 
 ## <a name="next-steps"></a>Étapes suivantes
+
 Pour plus d’informations sur l’utilisation et le paramétrage du nettoyage automatique, consultez la documentation PostgreSQL suivante :
 
- - [Chapter 18, Server configuration](https://www.postgresql.org/docs/9.5/static/runtime-config-autovacuum.html)
- - [Chapter 24, Routine database maintenance tasks](https://www.postgresql.org/docs/9.6/static/routine-vacuuming.html)
+- [Chapter 18, Server configuration](https://www.postgresql.org/docs/9.5/static/runtime-config-autovacuum.html)
+- [Chapter 24, Routine database maintenance tasks](https://www.postgresql.org/docs/9.6/static/routine-vacuuming.html)

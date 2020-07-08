@@ -1,18 +1,18 @@
 ---
 title: Gestion des prospects pour Dynamics 365 Customer Engagement | Marketplace commercial de Microsoft
 description: Découvrez comment configurer Dynamics 365 Customer Engagement pour gérer les prospects de Microsoft AppSource et de la Place de marché Azure.
-author: qianw211
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
+author: keferna
+ms.author: keferna
 ms.date: 03/30/2020
-ms.author: dsindona
-ms.openlocfilehash: 555002284b2665a357a28319a400710d66be4604
-ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
+ms.openlocfilehash: 92f4bde31af2a7bb4c658141964f238a8c077eef
+ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/05/2020
-ms.locfileid: "85957237"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86120371"
 ---
 # <a name="configure-lead-management-for-dynamics-365-customer-engagement"></a>Configurer la gestion des prospects pour Dynamics 365 Customer Engagement
 

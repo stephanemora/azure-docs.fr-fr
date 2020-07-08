@@ -1,18 +1,18 @@
 ---
 title: Offres de module IoT Edge de la Place de marché Azure
 description: En savoir plus sur la publication d’offres de modules IoT Edge dans la Place de marché Azure.
-author: qianw211
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
+author: keferna
+ms.author: keferna
 ms.date: 04/15/2020
-ms.author: dsindona
-ms.openlocfilehash: 9783eb1dbcbfc3ee01008dfa33ff2429a87cf62a
-ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
+ms.openlocfilehash: 0b707b2aed68359f8c04f6cd6bee6c95b495178b
+ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/05/2020
-ms.locfileid: "85963374"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86119478"
 ---
 # <a name="iot-edge-modules"></a>Modules IoT Edge
 

@@ -1,18 +1,14 @@
 ---
 title: Rubriques de partenaire Azure Event Grid
 description: Envoyez des événements de partenaires SaaS et PaaS Event Grid tiers directement à des services Azure avec Azure Event Grid.
-services: event-grid
-author: femila
-ms.service: event-grid
 ms.topic: conceptual
-ms.date: 05/18/2020
-ms.author: femila
-ms.openlocfilehash: 5327efea8af734c723ba76d1a00b72c08f5c88b9
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.date: 07/07/2020
+ms.openlocfilehash: 97829f262a00e2353624b2a3fa9df210518ad3a0
+ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84560267"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86115993"
 ---
 # <a name="partner-topics-in-azure-event-grid-preview"></a>Rubriques de partenaire dans Azure Event Grid (préversion)
 Les rubriques partenaires vous permettent de connecter des sources d’événements tiers directement à Azure Event Grid. Cette intégration vous permet de vous abonner à des événements de partenaires de la même façon que vous vous abonnez à des événements de services Azure. 

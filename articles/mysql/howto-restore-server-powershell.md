@@ -5,14 +5,14 @@ author: ajlam
 ms.author: andrela
 ms.service: mysql
 ms.devlang: azurepowershel
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 4/28/2020
-ms.openlocfilehash: 871b1ba81f672459378b23705ad5b96213667a73
-ms.sourcegitcommit: 50ef5c2798da04cf746181fbfa3253fca366feaa
+ms.openlocfilehash: 85c04c875e543a5c41e9ad5e736a7de77ac1dad0
+ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/30/2020
-ms.locfileid: "82609063"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86119869"
 ---
 # <a name="how-to-back-up-and-restore-an-azure-database-for-mysql-server-using-powershell"></a>Comment sauvegarder et restaurer un serveur Azure Database pour MySQL à l’aide de PowerShell
 
@@ -58,9 +58,9 @@ La période de rétention de sauvegarde détermine jusqu’à quelle date une re
 
 ## <a name="server-point-in-time-restore"></a>Limite de restauration dans le temps
 
-Vous pouvez restaurer le serveur à un point antérieur dans le temps. Les données restaurées sont copiées dans un nouveau serveur et le serveur existant est conservé tel quel. Par exemple, si une table est accidentellement supprimée, vous pouvez restaurer le serveur à l’état qu’il présentait au moment de la suppression. Vous pouvez ensuite récupérer la table et les données manquantes à partir de la copie restaurée du serveur.
+Vous pouvez restaurer le serveur à un point antérieur dans le temps. Les données restaurées sont copiées sur un nouveau serveur, et le serveur existant est conservé tel quel. Par exemple, si une table est accidentellement supprimée, vous pouvez restaurer le serveur à l’état qu’il présentait au moment de la suppression. Vous pouvez ensuite récupérer la table et les données manquantes à partir de la copie restaurée du serveur.
 
-Pour restaurer le serveur, utilisez la cmdlet PowerShell `Restore-AzMySqlServer`.
+Pour restaurer le serveur, utilisez l’applet de commande PowerShell `Restore-AzMySqlServer`.
 
 ### <a name="run-the-restore-command"></a>Exécuter la commande de restauration
 
@@ -85,7 +85,7 @@ Lorsque vous restaurez un serveur à un point dans le temps antérieur, un nouve
 
 Les valeurs d’emplacement et de niveau tarifaire du serveur restauré restent les mêmes que celles du serveur d’origine.
 
-Une fois la restauration terminée, recherchez le nouveau serveur et vérifiez que les données ont été restaurées correctement. Le nouveau serveur a le même ID de connexion d’administrateur et mot de passe que le serveur existant au moment du démarrage de la restauration. Le mot de passe peut être modifié sur la page **Vue d’ensemble** du nouveau serveur.
+Une fois la restauration terminée, recherchez le nouveau serveur et vérifiez que les données ont été restaurées correctement. Le nouveau serveur a les mêmes nom de connexion et mot de passe d’administrateur de serveur que ceux valides pour le serveur existant au moment du démarrage de la restauration. Le mot de passe peut être modifié sur la page **Vue d’ensemble** du nouveau serveur.
 
 Le nouveau serveur créé lors d’une restauration ne dispose pas des points de terminaison de service de réseau virtuel qui se trouvaient sur le serveur d’origine. Ces règles doivent être configurées séparément pour le nouveau serveur. Les règles de pare-feu du serveur d’origine sont restaurées.
 
@@ -125,7 +125,7 @@ Le jeu de paramètres **GeoRestore** de la cmdlet `Restore-AzMySqlServer` requie
 
 Lorsque vous créez un nouveau serveur à l’aide de la restauration géographique, il hérite de la même taille de stockage et du même niveau tarifaire que le serveur source, sauf si le paramètre **Sku** est spécifié.
 
-Une fois la restauration terminée, recherchez le nouveau serveur et vérifiez que les données ont été restaurées correctement. Le nouveau serveur a le même ID de connexion d’administrateur et mot de passe que le serveur existant au moment du démarrage de la restauration. Le mot de passe peut être modifié sur la page **Vue d’ensemble** du nouveau serveur.
+Une fois la restauration terminée, recherchez le nouveau serveur et vérifiez que les données ont été restaurées correctement. Le nouveau serveur a les mêmes nom de connexion et mot de passe d’administrateur de serveur que ceux valides pour le serveur existant au moment du démarrage de la restauration. Le mot de passe peut être modifié sur la page **Vue d’ensemble** du nouveau serveur.
 
 Le nouveau serveur créé lors d’une restauration ne dispose pas des points de terminaison de service de réseau virtuel qui se trouvaient sur le serveur d’origine. Ces règles doivent être configurées séparément pour ce nouveau serveur. Les règles de pare-feu du serveur d’origine sont restaurées.
 

@@ -1,18 +1,18 @@
 ---
 title: Vue d’ensemble de la synthèse des revenus – Place de marché Azure
 description: La page Récapitulatif des paiements vous montre les détails de l’argent que vous avez gagné avec votre offre. Elle vous permet également de savoir à quels moments vous recevrez les paiements et quels montants vous percevrez.
-author: mingshen
-ms.author: mingshen
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
+author: mingshen
+ms.author: mingshen
 ms.date: 04/24/2020
-ms.openlocfilehash: a872331238946de0d57e6d42164f1ce7fb1c7357
-ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
+ms.openlocfilehash: 29a8eb72814d865cb02bd632e084cec0cc06a1ff
+ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/21/2020
-ms.locfileid: "83746205"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86118475"
 ---
 # <a name="payout-summary-overview"></a>Vue d’ensemble de la synthèse des revenus
 

@@ -1,18 +1,18 @@
 ---
 title: Guide de publication par type d’offre - Place de marché commerciale Microsoft
 description: Cet article décrit les types d’offres disponibles dans la Place de marché commerciale Microsoft.
-author: dsindona
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
+author: keferna
+ms.author: keferna
 ms.date: 04/14/2020
-ms.author: dsindona
-ms.openlocfilehash: 6e889fef16d8ad80d52810207f0328a765ca9cfe
-ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
+ms.openlocfilehash: 72acd5c3c5fbab08b2e97421689b4f562b2ae2e8
+ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/05/2020
-ms.locfileid: "85958495"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86119716"
 ---
 # <a name="publishing-guide-by-offer-type"></a>Guide de publication par Type d’offre
 

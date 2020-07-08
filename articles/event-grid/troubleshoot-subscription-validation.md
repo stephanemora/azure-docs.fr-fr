@@ -1,18 +1,14 @@
 ---
 title: Azure Event Grid - Résoudre les problèmes de validation des abonnements
 description: Cet article explique comment résoudre les problèmes de validation des abonnements.
-services: event-grid
-author: spelluru
-ms.service: event-grid
 ms.topic: conceptual
-ms.date: 05/21/2020
-ms.author: spelluru
-ms.openlocfilehash: f292d70eaaca29e714ea35b4f61a141b2d5cd2b6
-ms.sourcegitcommit: a9784a3fd208f19c8814fe22da9e70fcf1da9c93
+ms.date: 07/07/2020
+ms.openlocfilehash: 48844859013507ab684ef8879b7b85dd6b6fe8cd
+ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/22/2020
-ms.locfileid: "83778711"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86118985"
 ---
 # <a name="troubleshoot-azure-event-grid-subscription-validations"></a>Résoudre des problèmes de validation d’abonnements Azure Event Grid
 Cet article fournit des informations sur la résolution des problèmes de validation d’abonnements à des événements. 

@@ -1,18 +1,16 @@
 ---
 title: Insights sur la Place de marché – Place de marché commerciale Microsoft
 description: Accédez à un résumé du Web Analytics de la Place de marché, qui vous permet de mesurer l’engagement client dans Microsoft AppSource et la Place de marché Azure.
-author: dsindona
-ms.author: dsindona
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 12/16/2019
-ms.openlocfilehash: 2d9691279b987f9d45f755ab340ff70671d350c0
-ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
+ms.openlocfilehash: 8b5f90449f27007febe93f1193c6d2245b076e7e
+ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/21/2020
-ms.locfileid: "83745654"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86120396"
 ---
 # <a name="marketplace-insights-dashboard-in-partner-center"></a>Tableau de bord des Insights sur la Place de marché dans l’Espace partenaires
 

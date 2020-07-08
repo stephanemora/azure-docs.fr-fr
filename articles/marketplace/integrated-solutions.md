@@ -1,18 +1,18 @@
 ---
 title: Solutions intégrées – Place de marché commerciale Microsoft
 description: Découvrez les avantages, les ressources et les étapes suivantes pour offrir des solutions intégrées dans la Place de marché Microsoft.
-author: dsindona
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
+author: vikrambmsft
+ms.author: vikramb
 ms.date: 04/15/2020
-ms.author: dsindona
-ms.openlocfilehash: bf20473b407db1804a4275fdc6dd3d528de1f189
-ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
+ms.openlocfilehash: 8e029d888b963fd10e7198486a973766755c9812
+ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83657990"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86119512"
 ---
 # <a name="integrated-solutions-in-the-commercial-marketplace"></a>Solutions intégrées dans la Place de marché commerciale Microsoft
 Une solution intégrée rassemble les meilleures technologies de partenaires Microsoft, ainsi que des services de consultation, de déploiement et de support fournis par des partenaires de services experts.

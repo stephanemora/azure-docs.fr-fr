@@ -4,14 +4,14 @@ description: Découvrez les bonnes pratiques pour gérer les assemblys C# U-SQL 
 author: yanancai
 ms.author: yanacai
 ms.service: data-lake-analytics
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 10/30/2018
-ms.openlocfilehash: e6de10ed712688e4ee9dccc22176e81ad5e574ca
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 9daf2cc6ed176e46399f2cdb2f424a622fdeb812
+ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "71315846"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86115389"
 ---
 # <a name="best-practices-for-managing-u-sql-assemblies-in-a-cicd-pipeline"></a>Bonnes pratiques pour gérer les assemblys U-SQL dans un pipeline CI/CD
 

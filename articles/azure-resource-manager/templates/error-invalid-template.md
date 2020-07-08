@@ -3,12 +3,12 @@ title: Erreurs de modèle non valide
 description: Décrit comment résoudre les erreurs de modèle non valide quand vous déployez des modèles Azure Resource Manager.
 ms.topic: troubleshooting
 ms.date: 05/22/2020
-ms.openlocfilehash: 2902a6d82c32192bb241697825a31d759d5c7b75
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: a3589f42f707240272a411a985adefd5e6c5539c
+ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84324060"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86118883"
 ---
 # <a name="resolve-errors-for-invalid-template"></a>Résoudre les erreurs de modèle non valide
 
@@ -48,7 +48,7 @@ Cette erreur est facile à commettre car les expressions de modèle peuvent êtr
 
 Si vous ne fournissez pas la syntaxe correspondante, le modèle produit une valeur très différente de celle souhaitée.
 
-Lorsque vous recevez ce type d’erreur, examinez attentivement la syntaxe d’expression. Vous pouvez utiliser un éditeur JSON comme [Visual Studio](create-visual-studio-deployment-project.md) ou [Visual Studio Code](use-vs-code-to-create-template.md), qui vous signale des erreurs de syntaxe.
+Lorsque vous recevez ce type d’erreur, examinez attentivement la syntaxe d’expression. Vous pouvez utiliser un éditeur JSON comme [Visual Studio](create-visual-studio-deployment-project.md) ou [Visual Studio Code](quickstart-create-templates-use-visual-studio-code.md), qui vous signale des erreurs de syntaxe.
 
 <a id="incorrect-segment-lengths"></a>
 

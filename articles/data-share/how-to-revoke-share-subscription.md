@@ -4,14 +4,14 @@ description: Découvrez comment révoquer un abonnement de partage d’un destin
 author: joannapea
 ms.author: joanpo
 ms.service: data-share
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 07/10/2019
-ms.openlocfilehash: 97f672b266c2df6956282aea6dec8d5207944943
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: c1c049d467cdf07962719f0dc257acbf47631aaf
+ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "73476373"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86119682"
 ---
 # <a name="how-to-revoke-a-consumers-share-subscription-in-azure-data-share"></a>Comment révoquer l’abonnement de partage d’un consommateur dans Azure Data Share
 
