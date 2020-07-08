@@ -6,17 +6,17 @@ author: billmath
 manager: daveba
 ms.service: active-directory
 ms.workload: identity
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 04/29/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 742bc307c90ad58b83b7d4c92f9546b87c163c3b
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: bdc8b68206161abdd1782561c904d4e670ecca22
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "77019279"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85358954"
 ---
 # <a name="move-azure-ad-connect-database-from-sql-server-express-to-sql-server"></a>Déplacer la base de données Azure AD Connect de SQL Server Express vers SQL Server 
 
@@ -55,19 +55,19 @@ Suivez les étapes suivantes pour déplacer la base de données Azure AD Connect
 14. Dans l’écran **Connexion de vos annuaires**, une icône de croix rouge est affichée en regard de la forêt AD existante configurée pour la synchronisation d’annuaire. Pour synchroniser les modifications à partir d’une forêt AD locale, un compte de domaine AD DS est nécessaire. L’Assistant Azure AD Connect ne peut pas récupérer les informations d’identification du compte AD DS stockées dans la base de données ADSync, car elles sont chiffrées et peuvent uniquement être déchiffrées par le serveur Azure AD Connect précédent. Cliquez sur **Modifier les informations d’identification** pour spécifier le compte AD DS pour la forêt AD.
     ![Directories](./media/how-to-connect-install-move-db/db6.png)
  
- 
+
 15. Dans la boîte de dialogue contextuelle, vous pouvez (i) entrer les informations d’identification d’un administrateur d’entreprise et laisser Azure AD Connect créer le compte AD DS pour vous, ou (ii) créer vous-même le compte AD DS et fournir ses informations d’identification à Azure AD Connect. Une fois que vous avez sélectionné une option et fourni les informations d’identification nécessaires, cliquez sur **OK** pour fermer la boîte de dialogue contextuelle.
     ![Bienvenue](./media/how-to-connect-install-move-db/db7.png)
  
- 
+
 16. Une fois les informations d’identification fournies, la croix rouge est remplacée par une coche verte. Cliquez sur **Suivant**.
     ![Bienvenue](./media/how-to-connect-install-move-db/db8.png)
  
- 
+
 17. Dans l’écran **Prêt à configurer**, cliquez sur **Installer**.
     ![Bienvenue](./media/how-to-connect-install-move-db/db9.png)
  
- 
+
 18. Une fois l’installation terminée, le serveur Azure AD Connect est automatiquement activé pour le Mode de préproduction. Nous vous recommandons de vérifier la présence de modifications inattendues dans la configuration du serveur et les exportations en attente avant de désactiver le Mode de préproduction. 
 
 ## <a name="next-steps"></a>Étapes suivantes

@@ -1,20 +1,14 @@
 ---
 title: Forum Aux Questions (FAQ) sur Azure Service Bus | Microsoft Docs
 description: Cet article fournit des réponses aux questions fréquemment posées (FAQ) sur Azure Service Bus.
-services: service-bus-messaging
-author: axisc
-manager: timlt
-editor: spelluru
-ms.service: service-bus-messaging
 ms.topic: article
-ms.date: 01/24/2020
-ms.author: aschhab
-ms.openlocfilehash: 3cd4e69481fb452391e6dc027cb41fd6dae71b7e
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.date: 06/23/2020
+ms.openlocfilehash: 35721d174ec4b840185727efe5fb384015040b80
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "76760247"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85341459"
 ---
 # <a name="azure-service-bus---frequently-asked-questions-faq"></a>Azure Service Bus - Forum Aux Questions (FAQ)
 
@@ -63,7 +57,7 @@ Pour trouver les adresses IP à ajouter à la liste verte de vos connexions, pro
 1. Exécutez la commande suivante depuis une invite de commandes : 
 
     ```
-    nslookup <YourNamespaceName>.servicebus.windows.net
+    nslookup <YourNamespaceName>.cloudapp.net
     ```
 2. Notez l’adresse IP renvoyée dans `Non-authoritative answer`. Cette adresse IP est statique. La seule modification susceptible d’entraîner une conséquence serait une restauration de l’espace de noms sur un autre cluster.
 
@@ -72,14 +66,14 @@ Si vous utilisez la redondance de zone pour votre espace de noms, vous devez sui
 1. Tout d’abord, exécutez nslookup sur l’espace de noms.
 
     ```
-    nslookup <yournamespace>.servicebus.windows.net
+    nslookup <yournamespace>.cloudapp.net
     ```
 2. Notez le nom dans la section **Réponse ne faisant pas autorité**, qui se présente dans l’un des formats suivants : 
 
     ```
-    <name>-s1.servicebus.windows.net
-    <name>-s2.servicebus.windows.net
-    <name>-s3.servicebus.windows.net
+    <name>-s1.cloudapp.net
+    <name>-s2.cloudapp.net
+    <name>-s3.cloudapp.net
     ```
 3. Exécutez nslookup pour chacun d’eux avec des suffixes s1, s2 et s3 pour obtenir les adresses IP des 3 instances en cours d’exécution dans 3 zones de disponibilité. 
 
@@ -122,13 +116,6 @@ Il est important de noter qu’il ne s’agit pas de nouveaux frais, c’est-à-
 ## <a name="quotas"></a>Quotas
 
 Pour obtenir la liste des limites et des quotas Service Bus, consultez [Vue d’ensemble des quotas Service Bus][Quotas overview].
-
-### <a name="does-service-bus-have-any-usage-quotas"></a>Service Bus fixe-t-il des quotas d’utilisation ?
-Par défaut, pour n’importe quel service cloud, Microsoft définit un quota d’utilisation agrégée mensuel calculé avec tous les abonnements d’un client. Si vos besoins dépassent ces limites, vous pouvez contacter le service client à tout moment, afin de nous permettre d’ajuster ces limites en fonction de vos exigences. Pour Service Bus, le quota d’utilisation agrégée est de 5 milliards de messages par mois.
-
-Microsoft se réserve le droit de désactiver un compte client ayant dépassé son quota d’utilisation pour un mois donné. Des notifications par e-mail sont envoyées plusieurs fois pour contacter le client avant de procéder à quoi que ce soit. Les clients qui dépassent ces quotas restent responsables de frais de dépassement occasionnés.
-
-À l’instar d’autres services sur Azure, Service Bus applique un ensemble de quotas spécifiques pour assurer une utilisation juste des ressources. Pour plus d’informations sur ces quotas, consultez [Quotas Service Bus][Quotas overview].
 
 ### <a name="how-to-handle-messages-of-size--1-mb"></a>Comment gérer les messages de taille > à 1 Mo ?
 Les services de messagerie Service Bus (files d’attente et rubriques/abonnements) permettent à l'application d'envoyer des messages dont la taille peut aller jusqu'à 256 Ko (niveau standard) ou 1 Mo (niveau Premium). En présence de messages de taille supérieure à 1 Mo, utilisez le modèle de vérification des requêtes décrit dans [ce billet de blog](https://www.serverless360.com/blog/deal-with-large-service-bus-messages-using-claim-check-pattern).

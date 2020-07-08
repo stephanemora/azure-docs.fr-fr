@@ -4,17 +4,17 @@ description: Informations de référence sur le journal et les métriques pour l
 author: bwren
 services: azure-monitor
 ms.service: azure-monitor
-ms.topic: reference
+ms.topic: how-to
 ms.date: 11/11/2019
 ms.author: bwren
 ms.custom: subject-monitoring
 ms.subservice: logs
-ms.openlocfilehash: d243224192b5761af45d387690f5fb41b84481e6
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 446d876033b09728ebcbec43c6300884a5c29cd3
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "77588720"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85262733"
 ---
 # <a name="azure-cosmos-db-monitoring-data-reference"></a>Informations de référence sur les données de monitoring Azure Cosmos DB
 Cet article fournit des informations de référence sur les données de journal et de métriques collectées pour analyser les performances et la disponibilité d’Azure Cosmos DB. Pour plus d’informations sur la collecte et l’analyse des données de supervision de Cosmos DB, consultez [Surveiller Azure Cosmos DB](monitor-cosmos-db.md).
@@ -32,7 +32,7 @@ Le tableau suivant liste les propriétés des journaux de ressources Azure Cosmo
 | **properties** | n/a | Le contenu de ce champ est décrit dans les lignes suivantes. |
 | **activityId** | **activityId_g** | GUID unique de l’opération journalisée. |
 | **userAgent** | **userAgent_s** | Chaîne qui spécifie l’agent utilisateur client effectuant la demande. Le format est {nom de l’agent utilisateur}/{version}.|
-| **requestResourceType** | **requestResourceType_s** | Type de la ressource faisant l’objet de l’accès. Cette valeur peut être l’un des types de ressources suivants : Database, Container, Document, Attachment, User, Permission, StoredProcedure, Trigger, UserDefinedFunction ou Offer. |
+| **requestResourceType** | **requestResourceType_s** | Type de la ressource faisant l’objet de l’accès. Cette valeur peut être l’un des types de ressources suivants : Database, Container, Document, Attachment, User, Permission, StoredProcedure, Trigger, UserDefinedFunction ou Offer. |
 | **statusCode** | **statusCode_s** | État de réponse de l’opération. |
 | **requestResourceId** | **ResourceId** | L’ID de ressource qui se rapporte à la demande. Cette valeur peut pointer vers databaseRid, collectionRid ou documentRid en fonction de l’opération exécutée.|
 | **clientIpAddress** | **clientIpAddress_s** | Adresse IP du client. |
@@ -42,6 +42,7 @@ Le tableau suivant liste les propriétés des journaux de ressources Azure Cosmo
 | **requestLength** | **requestLength_s** | Longueur de la demande, en octets. |
 | **responseLength** | **responseLength_s** | Longueur de la réponse, en octets.|
 | **resourceTokenUserRid** | **resourceTokenUserRid_s** | Cette valeur n’est pas vide lorsque des [jetons de ressource](https://docs.microsoft.com/azure/cosmos-db/secure-access-to-data#resource-tokens) sont utilisés pour l’authentification. La valeur pointe vers l’ID de ressource de l’utilisateur. |
+| **responseLength** | **responseLength_s** | Longueur de la réponse, en octets.|
 
 Pour obtenir la liste de toutes les catégories Azure Monitor et des liens vers les schémas associés, consultez la section consacrée aux [catégories et schémas Azure Monitor](../azure-monitor/platform/diagnostic-logs-schema.md). 
 
