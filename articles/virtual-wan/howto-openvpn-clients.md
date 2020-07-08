@@ -4,15 +4,15 @@ description: Étapes de configuration des clients OpenVPN pour Azure Virtual WAN
 services: virtual-wan
 author: cherylmc
 ms.service: virtual-wan
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 03/18/2020
 ms.author: cherylmc
-ms.openlocfilehash: 133ce2f735344bb636015ec5bc261e661045afc8
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: f955b5347bc5a2c0fe1fd8a93e14badab1f354c8
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80088965"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84753274"
 ---
 # <a name="configure-an-openvpn-client-for-azure-virtual-wan"></a>Configurer un client OpenVPN pour Azure Virtual WAN
 

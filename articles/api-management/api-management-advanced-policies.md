@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 01/10/2020
 ms.author: apimpm
-ms.openlocfilehash: 388f05c2af1516a0477392f37763a0480c7ad413
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 5b17b7784691cdf38c45e4f306b2ed14b981a2d7
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82128834"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84751257"
 ---
 # <a name="api-management-advanced-policies"></a>Stratégies avancées de la Gestion des API
 
@@ -288,7 +288,7 @@ L’exemple suivant montre comment limiter le nombre de requêtes transmises à 
   <backend>
     <limit-concurrency key="@((string)context.Variables["connectionId"])" max-count="3">
       <forward-request timeout="120"/>
-    <limit-concurrency/>
+    </limit-concurrency>
   </backend>
   <outbound>…</outbound>
 </policies>

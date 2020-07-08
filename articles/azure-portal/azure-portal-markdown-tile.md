@@ -6,15 +6,15 @@ keywords: ''
 author: mgblythe
 ms.author: mblythe
 ms.date: 01/08/2020
-ms.topic: conceptual
+ms.topic: how-to
 ms.service: azure-portal
 manager: mtillman
-ms.openlocfilehash: 74102423461a56bb6fc19c2eb9874f96a76e34e0
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 338135561a462fec3b0bfc619a3518cb420908f0
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "76310711"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84763990"
 ---
 # <a name="use-a-markdown-tile-on-azure-dashboards-to-show-custom-content"></a>Utiliser une vignette Markdown sur les tableaux de bord Azure pour afficher un contenu personnalisé
 
