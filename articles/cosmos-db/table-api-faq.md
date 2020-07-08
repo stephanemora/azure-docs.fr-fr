@@ -6,12 +6,12 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 04/28/2020
 ms.author: sngun
-ms.openlocfilehash: 4be2f61cb0a45f30f0201d1ecca0efc2d8cbd9ae
-ms.sourcegitcommit: 0b80a5802343ea769a91f91a8cdbdf1b67a932d3
+ms.openlocfilehash: 05a7af9bcedd84f53e020bec57fc58854861af3e
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/25/2020
-ms.locfileid: "83836224"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85392350"
 ---
 # <a name="frequently-asked-questions-about-the-table-api-in-azure-cosmos-db"></a>Questions fréquentes (FAQ) sur l’API Table dans Azure Cosmos DB
 
@@ -45,10 +45,10 @@ Si vous avez déjà créé des tables dans le stockage Table Azure et que vous s
 
   | Méthode(s) REST | Option de point de terminaison/requête REST | URL vers la documentation | Explication |
   | ------------| ------------- | ---------- | ----------- |
-  | GET, PUT | `/?restype=service@comp=properties`| [Définir les propriétés du service Table](https://docs.microsoft.com/rest/api/storageservices/set-table-service-properties) et [Obtenir les propriétés du service Table](https://docs.microsoft.com/rest/api/storageservices/get-table-service-properties) | Ce point de terminaison est utilisé pour définir les règles CORS, la configuration de Storage Analytics et les paramètres de journalisation. CORS n’est pas actuellement pris en charge, et l’analytique et la journalisation sont gérées différemment dans Azure Cosmos DB et dans les tables Stockage Azure. |
-  | OPTIONS | `/<table-resource-name>` | [Requête de table CORS préliminaire](https://docs.microsoft.com/rest/api/storageservices/preflight-table-request) | Cette option fait partie de CORS, qui n’est pas pris en charge par Azure Cosmos DB pour l’instant. |
-  | GET | `/?restype=service@comp=stats` | [Obtenir les statistiques du service Table](https://docs.microsoft.com/rest/api/storageservices/get-table-service-stats) | Fournit des informations sur la rapidité de la réplication des données entre un emplacement principal et un emplacement secondaire. Cette option est inutile dans Cosmos DB puisque la réplication fait partie des écritures. |
-  | GET, PUT | `/mytable?comp=acl` | [Obtenir la liste de contrôle d’accès de la table](https://docs.microsoft.com/rest/api/storageservices/get-table-acl) et [Définir la liste de contrôle d’accès de la table](https://docs.microsoft.com/rest/api/storageservices/set-table-acl) | Obtient et définit les stratégies d’accès stocké utilisées pour gérer les signatures d’accès partagé. Bien que ces signatures soient prises en charge, elles sont définies et gérées différemment. |
+  | GET, PUT | `/?restype=service@comp=properties`| [Définir les propriétés du service Table](/rest/api/storageservices/set-table-service-properties) et [Obtenir les propriétés du service Table](/rest/api/storageservices/get-table-service-properties) | Ce point de terminaison est utilisé pour définir les règles CORS, la configuration de Storage Analytics et les paramètres de journalisation. CORS n’est pas actuellement pris en charge, et l’analytique et la journalisation sont gérées différemment dans Azure Cosmos DB et dans les tables Stockage Azure. |
+  | OPTIONS | `/<table-resource-name>` | [Requête de table CORS préliminaire](/rest/api/storageservices/preflight-table-request) | Cette option fait partie de CORS, qui n’est pas pris en charge par Azure Cosmos DB pour l’instant. |
+  | GET | `/?restype=service@comp=stats` | [Obtenir les statistiques du service Table](/rest/api/storageservices/get-table-service-stats) | Fournit des informations sur la rapidité de la réplication des données entre un emplacement principal et un emplacement secondaire. Cette option est inutile dans Cosmos DB puisque la réplication fait partie des écritures. |
+  | GET, PUT | `/mytable?comp=acl` | [Obtenir la liste de contrôle d’accès de la table](/rest/api/storageservices/get-table-acl) et [Définir la liste de contrôle d’accès de la table](/rest/api/storageservices/set-table-acl) | Obtient et définit les stratégies d’accès stocké utilisées pour gérer les signatures d’accès partagé. Bien que ces signatures soient prises en charge, elles sont définies et gérées différemment. |
 
 * L’API Table d’Azure Cosmos DB prend uniquement en charge le format JSON, pas le format ATOM.
 

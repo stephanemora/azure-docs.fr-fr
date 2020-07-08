@@ -7,16 +7,16 @@ author: msmimart
 manager: celestedg
 ms.service: active-directory
 ms.workload: identity
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 03/10/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: b16790e288f6569f08ce14e5a7c751bbd8083faf
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 4ab196e894fc53b1243ac363f9863d5c7d4e328f
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79138432"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85389001"
 ---
 # <a name="configure-password-complexity-using-custom-policies-in-azure-active-directory-b2c"></a>Configurer la complexité du mot de passe avec des stratégies personnalisées dans Azure Active Directory B2C
 
@@ -37,7 +37,7 @@ Pour configurer la complexité du mot de passe, remplacez les [types de revendic
 1. Localisez l’élément [ClaimsSchema](claimsschema.md). Si l’élément n’existe pas, ajoutez-le.
 1. Ajoutez les revendications `newPassword` et `reenterPassword` à l’élément **ClaimsSchema**.
 
-    ```XML
+    ```xml
     <ClaimType Id="newPassword">
       <PredicateValidationReference Id="CustomPassword" />
     </ClaimType>
@@ -48,7 +48,7 @@ Pour configurer la complexité du mot de passe, remplacez les [types de revendic
 
 1. [Predicates](predicates.md) définit une validation de base pour vérifier la valeur d’un type de revendication et retourne true ou false. La validation est effectuée en utilisant un élément de méthode spécifié, et un ensemble de paramètres appropriés à la méthode. Ajoutez les prédicats suivants à l’élément **BuildingBlocks**, juste après la fermeture de l’élément `</ClaimsSchema>` :
 
-    ```XML
+    ```xml
     <Predicates>
       <Predicate Id="LengthRange" Method="IsLengthRange">
         <UserHelpText>The password must be between 6 and 64 characters.</UserHelpText>
@@ -86,7 +86,7 @@ Pour configurer la complexité du mot de passe, remplacez les [types de revendic
 
 1. Ajoutez les validations de prédicat suivantes à l’élément **BuildingBlocks**, juste après la fermeture de l’élément `</Predicates>` :
 
-    ```XML
+    ```xml
     <PredicateValidations>
       <PredicateValidation Id="CustomPassword">
         <PredicateGroups>
@@ -111,7 +111,7 @@ Pour configurer la complexité du mot de passe, remplacez les [types de revendic
 
 1. Les profils techniques suivants sont des [profils techniques Active Directory](active-directory-technical-profile.md) qui lisent et écrivent des données dans Azure Active Directory. Remplacez ces profils techniques dans le fichier d’extension. Utilisez `PersistedClaims` pour désactiver la stratégie de mot de passe fort. Recherchez l’élément **ClaimsProviders**.  Ajoutez les fournisseurs de revendication suivants de cette façon :
 
-    ```XML
+    ```xml
     <ClaimsProvider>
       <DisplayName>Azure Active Directory</DisplayName>
       <TechnicalProfiles>

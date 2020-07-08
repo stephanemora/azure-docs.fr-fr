@@ -6,16 +6,16 @@ author: msmimart
 manager: celestedg
 ms.service: active-directory
 ms.workload: identity
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 03/26/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 041fb8d881307b52fb170a11618f930debc522a4
-ms.sourcegitcommit: 6397c1774a1358c79138976071989287f4a81a83
+ms.openlocfilehash: de5dd051804f3a0a7d1b0d32b998262af13e8926
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/07/2020
-ms.locfileid: "80803158"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85389188"
 ---
 # <a name="enable-keep-me-signed-in-kmsi-in-azure-active-directory-b2c"></a>Activer la fonctionnalité « Maintenir la connexion » dans Azure Active Directory B2C
 
@@ -59,7 +59,7 @@ Pour ajouter la case à cocher Maintenir la connexion dans les pages d’inscrip
 1. Recherchez l’élément ClaimsProviders. Si l’élément n’existe pas, ajoutez-le.
 1. Ajoutez le fournisseur de revendications suivant à l’élément ClaimsProviders :
 
-```XML
+```xml
 <ClaimsProvider>
   <DisplayName>Local Account</DisplayName>
   <TechnicalProfiles>
@@ -82,7 +82,7 @@ Mettez à jour le fichier de partie de confiance qui lance le parcours utilisate
 1. S’il n’existe pas déjà, ajoutez un nœud enfant `<UserJourneyBehaviors>` au nœud `<RelyingParty>`. Il doit être placé immédiatement après `<DefaultUserJourney ReferenceId="User journey Id" />`, par exemple : `<DefaultUserJourney ReferenceId="SignUpOrSignIn" />`.
 1. Ajoutez le nœud suivant en tant qu’enfant de l’élément `<UserJourneyBehaviors>`.
 
-    ```XML
+    ```xml
     <UserJourneyBehaviors>
       <SingleSignOn Scope="Tenant" KeepAliveInDays="30" />
       <SessionExpiryType>Absolute</SessionExpiryType>
@@ -100,7 +100,7 @@ Mettez à jour le fichier de partie de confiance qui lance le parcours utilisate
 
 Nous vous recommandons de définir la valeur de SessionExpiryInSeconds sur une courte période (1 200 secondes), tandis que vous pouvez définir la valeur de KeepAliveInDays sur une période relativement longue (30 jours), comme l’illustre l’exemple suivant :
 
-```XML
+```xml
 <RelyingParty>
   <DefaultUserJourney ReferenceId="SignUpOrSignIn" />
   <UserJourneyBehaviors>

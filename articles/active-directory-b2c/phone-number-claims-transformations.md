@@ -7,16 +7,16 @@ author: msmimart
 manager: celestedg
 ms.service: active-directory
 ms.workload: identity
-ms.topic: conceptual
+ms.topic: reference
 ms.date: 02/26/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 8052f94755019d8ad3fe818d979d2eb7f8ba0a5e
-ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
+ms.openlocfilehash: e175a81efc1ab0950c1fda314efb206ff97a2b7f
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/21/2020
-ms.locfileid: "83738759"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85385380"
 ---
 # <a name="define-phone-number-claims-transformations-in-azure-ad-b2c"></a>Définir des transformations de revendications de numéro de téléphone dans Azure AD B2C
 
@@ -37,7 +37,7 @@ Convertit un type de données `phoneNumber` en un type de données `string`.
 
 Dans cet exemple, la revendication cellPhoneNumber avec un type de valeur `phoneNumber` est convertie en revendication cellPhone avec un type de valeur `string`.
 
-```XML
+```xml
 <ClaimsTransformation Id="PhoneNumberToString" TransformationMethod="ConvertPhoneNumberClaimToString">
   <InputClaims>
     <InputClaim ClaimTypeReferenceId="cellPhoneNumber" TransformationClaimType="phoneNumber" />
@@ -72,7 +72,7 @@ La transformation de revendications **ConvertStringToPhoneNumberClaim** est touj
 
 Vous pouvez utiliser cette transformation de revendications pour vous assurer que la revendication de chaîne fournie est un numéro de téléphone valide. Si ce n’est pas le cas, un message d’erreur est levé. L’exemple suivant vérifie que le type de revendication **phoneString** est effectivement un numéro de téléphone valide, puis renvoie le numéro de téléphone au format Azure AD B2C standard. Si ce n’est pas le cas, un message d’erreur est levé.
 
-```XML
+```xml
 <ClaimsTransformation Id="ConvertStringToPhoneNumber" TransformationMethod="ConvertStringToPhoneNumberClaim">
   <InputClaims>
     <InputClaim ClaimTypeReferenceId="phoneString" TransformationClaimType="phoneNumberString" />
@@ -86,7 +86,7 @@ Vous pouvez utiliser cette transformation de revendications pour vous assurer qu
 
 Le profil technique auto-déclaré qui appelle le profil technique de validation contenant cette transformation de revendications peut définir le message d’erreur.
 
-```XML
+```xml
 <TechnicalProfile Id="SelfAsserted-LocalAccountSignup-Phone">
   <Metadata>
     <Item Key="UserMessageIfClaimsTransformationInvalidPhoneNumber">Custom error message if the phone number is not valid.</Item>
@@ -132,7 +132,7 @@ Vous pouvez utiliser cette transformation de revendications pour fractionner un 
 
 L’exemple suivant tente de fractionner le numéro de téléphone en numéro national et préfixe international. Si le numéro de téléphone est valide, il est remplacé par le numéro national. Si le numéro de téléphone n’est pas valide, aucune exception n’est levée et le numéro de téléphone conserve sa valeur d’origine.
 
-```XML
+```xml
 <ClaimsTransformation Id="GetNationalNumberAndCountryCodeFromPhoneNumberString" TransformationMethod="GetNationalNumberAndCountryCodeFromPhoneNumberString">
   <InputClaims>
     <InputClaim ClaimTypeReferenceId="phoneNumber" TransformationClaimType="phoneNumber" />
@@ -150,7 +150,7 @@ L’exemple suivant tente de fractionner le numéro de téléphone en numéro na
 
 Le profil technique auto-déclaré qui appelle le profil technique de validation contenant cette transformation de revendications peut définir le message d’erreur.
 
-```XML
+```xml
 <TechnicalProfile Id="SelfAsserted-LocalAccountSignup-Phone">
   <Metadata>
     <Item Key="UserMessageIfPhoneNumberParseFailure">Custom error message if the phone number is not valid.</Item>

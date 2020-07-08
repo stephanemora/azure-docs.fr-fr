@@ -6,16 +6,16 @@ author: msmimart
 manager: celestedg
 ms.service: active-directory
 ms.workload: identity
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 05/18/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 78f7c8eb363d791b7109aebced668c1e0a952274
-ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
+ms.openlocfilehash: 997a6941e2ccc26dabe1a593fe938094099bc98d
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83636092"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85388984"
 ---
 # <a name="walkthrough-add-rest-api-claims-exchanges-to-custom-policies-in-azure-active-directory-b2c"></a>Procédure pas à pas : Ajouter des échanges de revendications d’API REST aux stratégies personnalisées dans Azure Active Directory B2C
 
@@ -123,7 +123,7 @@ Les [parcours utilisateur](userjourneys.md) spécifient des chemins explicites p
 1. Collez le `<UserJourneys>` dans le fichier des extensions après avoir fermé l’élément `<ClaimsProviders>`.
 1. Localisez le `<UserJourney Id="SignUpOrSignIn">` et ajoutez l’étape d’orchestration suivante en avant-dernier.
 
-    ```XML
+    ```xml
     <OrchestrationStep Order="7" Type="ClaimsExchange">
       <ClaimsExchanges>
         <ClaimsExchange Id="RESTGetProfile" TechnicalProfileReferenceId="REST-GetProfile" />
@@ -133,7 +133,7 @@ Les [parcours utilisateur](userjourneys.md) spécifient des chemins explicites p
 
 1. Refactorisez la dernière étape d’orchestration en changeant la valeur de `Order` en `8`. Les deux dernières étapes de l’orchestration doivent ressembler à ce qui suit :
 
-    ```XML
+    ```xml
     <OrchestrationStep Order="7" Type="ClaimsExchange">
       <ClaimsExchanges>
         <ClaimsExchange Id="RESTGetProfile" TechnicalProfileReferenceId="REST-GetProfile" />

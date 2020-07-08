@@ -5,19 +5,19 @@ documentationcenter: ''
 services: active-directory
 ms.service: active-directory
 ms.subservice: B2B
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 06/12/2019
 ms.author: mimart
 author: msmimart
 manager: celestedg
 ms.reviewer: elisol
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 42c9caaf581fab37e2e55cbe408db6d6d846622a
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: cab29fbe9e33cc12336fa1b81ed4aa37f91a7f5f
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80050905"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85387301"
 ---
 # <a name="add-b2b-collaboration-guest-users-without-an-invitation-link-or-email"></a>Ajouter des utilisateurs invités B2B Collaboration sans e-mail ou lien d’invitation
 

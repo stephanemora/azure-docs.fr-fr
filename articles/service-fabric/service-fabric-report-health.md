@@ -1,16 +1,16 @@
 ---
 title: Ajout de rapports d’intégrité Service Fabric personnalisés
 description: Explique comment envoyer des rapports d’intégrité personnalisés à des entités d’intégrité Azure Service Fabric. Fournit des recommandations pour la conception et la mise en œuvre de rapports d’intégrité de qualité.
-author: oanapl
+author: georgewallace
 ms.topic: conceptual
 ms.date: 2/28/2018
-ms.author: oanapl
-ms.openlocfilehash: d00f740085b15bdb5fe698a069d97f168507f31f
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.author: gwallace
+ms.openlocfilehash: 167ca76d0b6977a87352f8219d807949a0e4a301
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "75451583"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85392639"
 ---
 # <a name="add-custom-service-fabric-health-reports"></a>Ajout de rapports d’intégrité Service Fabric personnalisés
 Azure Service Fabric introduit un [modèle d’intégrité](service-fabric-health-introduction.md) conçu pour signaler des conditions de cluster et d’application défectueuses sur des entités spécifiques. Le modèle d’intégrité utilise des **rapporteurs d’intégrité** (composants système et agents de surveillance). L’objectif consiste en un diagnostic et une réparation simples et rapides. Les enregistreurs du service doivent penser en amont à l’intégrité. Toute condition pouvant avoir une incidence sur l’intégrité doit être signalée, surtout si cela peut aider à signaler des problèmes proches de la racine. Pour ce qui est du débogage et des investigations, les informations sur l’intégrité peuvent faire gagner du temps et économiser des efforts. L’utilité est particulièrement flagrante une fois que le service est en cours d’exécution, à l’échelle dans le cloud (privé ou Azure).

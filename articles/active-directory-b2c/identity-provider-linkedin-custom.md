@@ -7,16 +7,16 @@ author: msmimart
 manager: celestedg
 ms.service: active-directory
 ms.workload: identity
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 07/25/2019
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 80bd1b65d04ea49fc742033e1850d95a85021c9f
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 5cbedad360e5270238225503e7802d571820c871
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "78188169"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85388151"
 ---
 # <a name="set-up-sign-in-with-a-linkedin-account-using-custom-policies-in-azure-active-directory-b2c"></a>Configurer la connexion avec un compte LinkedIn à l’aide de stratégies personnalisées dans Azure Active Directory B2C
 
@@ -136,7 +136,7 @@ Le profil technique LinkedIn nécessite l’ajout des transformations de revendi
 
 Ajoutez l’élément **BuildingBlocks** près du haut du fichier *TrustFrameworkExtensions.xml*. Consultez le fichier *TrustframeworkBase.xml* pour obtenir un exemple.
 
-```XML
+```xml
 <BuildingBlocks>
   <ClaimsSchema>
     <!-- Claim type needed for LinkedIn claims transformations -->
@@ -197,7 +197,7 @@ L’élément **ClaimsProviderSelection** est analogue à un bouton de fournisse
 1. Recherchez l’élément **OrchestrationStep** comprenant `Order="1"` dans le parcours utilisateur que vous avez créé.
 2. Sous **ClaimsProviderSelections**, ajoutez l’élément suivant. Définissez la valeur de l’élément **TargetClaimsExchangeId** sur une valeur appropriée, par exemple `LinkedInExchange` :
 
-    ```XML
+    ```xml
     <ClaimsProviderSelection TargetClaimsExchangeId="LinkedInExchange" />
     ```
 
@@ -208,7 +208,7 @@ Maintenant que vous avez un bouton en place, vous devez le lier à une action. D
 1. Recherchez l’élément **OrchestrationStep** comprenant `Order="2"` dans le parcours utilisateur.
 2. Ajoutez l’élément **ClaimsExchange** suivant en veillant à utiliser pour l’ID la même valeur que celle que vous avez utilisée pour **TargetClaimsExchangeId** :
 
-    ```XML
+    ```xml
     <ClaimsExchange Id="LinkedInExchange" TechnicalProfileReferenceId="LinkedIn-OAUTH" />
     ```
 
@@ -241,14 +241,14 @@ Dernièrement, LinkedIn a [mis à jour ses API v1.0 vers v2.0](https://engineeri
 
 Dans l’élément **Metadata** existant de **TechnicalProfile**, remplacez les éléments **Item** suivants :
 
-```XML
+```xml
 <Item Key="ClaimsEndpoint">https://api.linkedin.com/v1/people/~:(id,first-name,last-name,email-address,headline)</Item>
 <Item Key="scope">r_emailaddress r_basicprofile</Item>
 ```
 
 Par :
 
-```XML
+```xml
 <Item Key="ClaimsEndpoint">https://api.linkedin.com/v2/me</Item>
 <Item Key="scope">r_emailaddress r_liteprofile</Item>
 ```
@@ -257,7 +257,7 @@ Par :
 
 Dans l’élément **Metadata** de **TechnicalProfile**, ajoutez les éléments **Item** suivants :
 
-```XML
+```xml
 <Item Key="external_user_identity_claim_id">id</Item>
 <Item Key="BearerTokenTransmissionMethod">AuthorizationHeader</Item>
 <Item Key="ResolveJsonPathsInJsonTokens">true</Item>
@@ -267,14 +267,14 @@ Dans l’élément **Metadata** de **TechnicalProfile**, ajoutez les éléments 
 
 Dans l’élément **OutputClaims** de **TechnicalProfile**, remplacez les éléments **OutputClaim** suivants :
 
-```XML
+```xml
 <OutputClaim ClaimTypeReferenceId="givenName" PartnerClaimType="firstName" />
 <OutputClaim ClaimTypeReferenceId="surname" PartnerClaimType="lastName" />
 ```
 
 Par :
 
-```XML
+```xml
 <OutputClaim ClaimTypeReferenceId="givenName" PartnerClaimType="firstName.localized" />
 <OutputClaim ClaimTypeReferenceId="surname" PartnerClaimType="lastName.localized" />
 ```
@@ -283,7 +283,7 @@ Par :
 
 Dans l’élément **OutputClaimsTransformations** de **TechnicalProfile**, ajoutez les éléments **OutputClaimsTransformation** suivants :
 
-```XML
+```xml
 <OutputClaimsTransformation ReferenceId="ExtractGivenNameFromLinkedInResponse" />
 <OutputClaimsTransformation ReferenceId="ExtractSurNameFromLinkedInResponse" />
 ```
@@ -294,7 +294,7 @@ Dans l’élément **OutputClaimsTransformations** de **TechnicalProfile**, ajou
 
 L’élément **BuildingBlocks** doit être ajouté vers le haut du fichier. Examinez le fichier *TrustframeworkBase.xml* en guise d’exemple.
 
-```XML
+```xml
 <BuildingBlocks>
   <ClaimsSchema>
     <!-- Claim type needed for LinkedIn claims transformations -->
@@ -338,7 +338,7 @@ Dans le cadre de la migration de LinkedIn v1.0 vers v2.0, un appel supplémentai
 2. Enregistrez le jeton d’accès LinkedIn dans une revendication. [Les instructions se trouvent ici](idp-pass-through-custom.md).
 3. Ajoutez le fournisseur de revendications ci-dessous qui effectue la demande à l’API `/emailAddress` de LinkedIn. Pour autoriser cette demande, vous avez besoin du jeton d’accès LinkedIn.
 
-    ```XML
+    ```xml
     <ClaimsProvider>
       <DisplayName>REST APIs</DisplayName>
       <TechnicalProfiles>
@@ -366,7 +366,7 @@ Dans le cadre de la migration de LinkedIn v1.0 vers v2.0, un appel supplémentai
 
 4. Ajoutez l’étape d’orchestration ci-dessous à votre parcours utilisateur, de sorte que le fournisseur de revendications d’API se déclenche quand un utilisateur se connecte avec LinkedIn. Veillez à mettre à jour le numéro `Order` de façon appropriée. Ajoutez cette étape de suite après celle d’orchestration qui déclenche le profil technique LinkedIn.
 
-    ```XML
+    ```xml
     <!-- Extra step for LinkedIn to get the email -->
     <OrchestrationStep Order="3" Type="ClaimsExchange">
       <Preconditions>

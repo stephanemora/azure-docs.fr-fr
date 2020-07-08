@@ -4,15 +4,15 @@ description: Découvrez comment instrumenter et déboguer les performances de re
 author: SnehaGunda
 ms.service: cosmos-db
 ms.subservice: cosmosdb-sql
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 05/23/2019
 ms.author: sngun
-ms.openlocfilehash: ae1773ec1d470b9cff2efb00c200427b7b4c2fb4
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 8776ecae982a4b1c67f6b66f16fceec930a561f0
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "69614821"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85392129"
 ---
 # <a name="tuning-query-performance-with-azure-cosmos-db"></a>Réglage des performances de requête avec Azure Cosmos DB
 
@@ -131,7 +131,7 @@ Les en-têtes de réponse de la clé retournés par la requête comprennent les 
 | `x-ms-documentdb-query-metrics` | Les statistiques de la requête pour l’exécution. Il s’agit d’une chaîne délimitée qui contient des statistiques de temps passé dans les différentes phases d’exécution de la requête. Retournées si `x-ms-documentdb-populatequerymetrics` a la valeur `True`. | 
 | `x-ms-request-charge` | Le nombre d’[unités de requête](request-units.md) consommées par la requête. | 
 
-Pour plus d’informations sur les options et les en-têtes de demande d’API REST, consultez [Interrogation des ressources à l’aide de l’API REST](https://docs.microsoft.com/rest/api/cosmos-db/querying-cosmosdb-resources-using-the-rest-api).
+Pour plus d’informations sur les options et les en-têtes de demande d’API REST, consultez [Interrogation des ressources à l’aide de l’API REST](/rest/api/cosmos-db/querying-cosmosdb-resources-using-the-rest-api).
 
 ## <a name="best-practices-for-query-performance"></a>Meilleures pratiques pour les performances de requêtes
 Les éléments suivants sont les facteurs les plus courants qui affectent les performances de requêtes Azure Cosmos DB. Nous approfondissons chacune de ces rubriques dans cet article.

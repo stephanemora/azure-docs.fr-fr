@@ -6,16 +6,16 @@ author: msmimart
 manager: celestedg
 ms.service: active-directory
 ms.workload: identity
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 08/13/2019
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 5b3af812b2b78c276b5345b9b19226e6e1dba80b
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: dd6e22052d2fab6d39382b21eec7a7bd379adb82
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "78185758"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85384071"
 ---
 # <a name="language-customization-in-azure-active-directory-b2c"></a>Personnalisation de la langue dans Azure Active Directory B2C
 
@@ -84,7 +84,7 @@ La personnalisation de la langue vous permet de personnaliser les chaînes de vo
 
 Si vous souhaitez modifier la chaîne d’un attribut utilisateur personnalisé, ou en ajouter un au fichier JSON, le format suivant est utilisé :
 
-```JSON
+```json
 {
   "LocalizedStrings": [
     {
@@ -106,7 +106,7 @@ Remplacez `<ExtensionAttributeValue>` par la nouvelle chaîne à afficher.
 
 Si vous souhaitez fournir une liste définie de valeurs pour les réponses, vous devez créer un attribut `LocalizedCollections`. Un élément `LocalizedCollections` est un tableau de paires `Name` et `Value`. L’ordre des éléments sera l’ordre dans lequel ils apparaissent. Pour ajouter `LocalizedCollections`, utilisez le format suivant :
 
-```JSON
+```json
 {
   "LocalizedStrings": [...],
   "LocalizedCollections": [{

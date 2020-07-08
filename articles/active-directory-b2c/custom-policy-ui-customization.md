@@ -7,16 +7,16 @@ author: msmimart
 manager: celestedg
 ms.service: active-directory
 ms.workload: identity
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 03/16/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: e50d6d0623e87dfa68a7cc9744c3f595ff0179c6
-ms.sourcegitcommit: 632e7ed5449f85ca502ad216be8ec5dd7cd093cb
+ms.openlocfilehash: cb833ff35dae4fe1c0c27204ec66fa6b4cdb82c7
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/30/2020
-ms.locfileid: "80396381"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85388882"
 ---
 # <a name="customize-the-user-interface-of-your-application-using-a-custom-policy-in-azure-active-directory-b2c"></a>Personnaliser l’interface utilisateur de votre application à l’aide d’une stratégie personnalisée dans Azure Active Directory B2C
 
@@ -85,7 +85,7 @@ En utilisant des stratégies personnalisées Azure AD B2C, vous pouvez envoyer u
 
 Pour envoyer des paramètres de chaîne de requête, dans la [stratégie de partie de confiance](relyingparty.md), ajoutez un élément `ContentDefinitionParameters` comme indiqué ci-dessous.
 
-```XML
+```xml
 <RelyingParty>
     <DefaultUserJourney ReferenceId="SignUpOrSignIn" />
     <UserJourneyBehaviors>
@@ -101,7 +101,7 @@ Pour envoyer des paramètres de chaîne de requête, dans la [stratégie de part
 
 Dans votre définition de contenu, remplacez la valeur de `LoadUri` par `https://<app_name>.azurewebsites.net/home/unified`. La `ContentDefinition` de votre stratégie personnalisée doit se présenter comme l’extrait de code suivant :
 
-```XML
+```xml
 <ContentDefinition Id="api.signuporsignin">
   <LoadUri>https://<app_name>.azurewebsites.net/home/unified</LoadUri>
   ...
@@ -118,7 +118,7 @@ https://<app_name>.azurewebsites.net/home/unified?campaignId=123&lang=fr&appId=f
 
 Le contenu peut être extrait de différents emplacements en fonction des paramètres utilisés. Dans votre point de terminaison activé pour CORS, configurez une structure de dossiers pour héberger le contenu. Par exemple, vous pouvez organiser le contenu selon la structure suivante. *Dossier racine/dossier par langue/vos fichiers html*. Par exemple, votre URI de page personnalisée peut ressembler à ceci :
 
-```XML
+```xml
 <ContentDefinition Id="api.signuporsignin">
   <LoadUri>https://contoso.blob.core.windows.net/{Culture:LanguageName}/myHTML/unified.html</LoadUri>
   ...

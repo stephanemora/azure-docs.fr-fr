@@ -7,12 +7,12 @@ ms.topic: reference
 ms.date: 09/03/2019
 author: luisbosquez
 ms.author: lbosq
-ms.openlocfilehash: 95677f4c45c0213de5ffac5521bac1c6bf7294e4
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: d244a5bfb6d0a1e2a0965cc72a8f223e0646fa77
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "72755075"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85390854"
 ---
 # <a name="azure-cosmos-db-gremlin-server-response-headers"></a>En-têtes de réponse du serveur Gremlin d’Azure Cosmos DB
 Cet article traite des en-têtes que le serveur Gremlin de Cosmos DB retourne à l’appelant lors de l’exécution d’une requête. Ces en-têtes sont utiles pour la résolution des problèmes de performance des requêtes et la création d’applications s’intégrant de manière native au service Cosmos DB. Ils contribuent également à simplifier les opérations du service clientèle.
@@ -107,6 +107,6 @@ try {
 ```
 
 ## <a name="next-steps"></a>Étapes suivantes
-* [Codes d’état HTTP pour Azure Cosmos DB](https://docs.microsoft.com/rest/api/cosmos-db/http-status-codes-for-cosmosdb) 
-* [En-têtes de réponse REST courants d’Azure Cosmos DB](https://docs.microsoft.com/rest/api/cosmos-db/common-cosmosdb-rest-response-headers)
+* [Codes d’état HTTP pour Azure Cosmos DB](/rest/api/cosmos-db/http-status-codes-for-cosmosdb) 
+* [En-têtes de réponse REST courants d’Azure Cosmos DB](/rest/api/cosmos-db/common-cosmosdb-rest-response-headers)
 * [TinkerPop Graph Driver Provider Requirements]( http://tinkerpop.apache.org/docs/current/dev/provider/#_graph_driver_provider_requirements) (Exigences liées aux fournisseurs de pilote de graphe TinkerPop)

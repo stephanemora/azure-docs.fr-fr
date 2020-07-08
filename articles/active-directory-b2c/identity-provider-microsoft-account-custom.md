@@ -7,16 +7,16 @@ author: msmimart
 manager: celestedg
 ms.service: active-directory
 ms.workload: identity
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 05/12/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 56c25ce417a17024843de1b9b16f57740de1e9fc
-ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
+ms.openlocfilehash: db81f8b60cf4883223f6fc084c19c8da1d07bc9a
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83636980"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85388100"
 ---
 # <a name="set-up-sign-in-with-a-microsoft-account-using-custom-policies-in-azure-active-directory-b2c"></a>Configurer la connexion avec un compte Microsoft à l’aide de stratégies personnalisées dans Azure Active Directory B2C
 
@@ -160,7 +160,7 @@ L’élément **ClaimsProviderSelection** est analogue à un bouton de fournisse
 1. Dans le fichier *TrustFrameworkExtensions.xml*, recherchez l’élément **OrchestrationStep** comprenant `Order="1"` dans le parcours utilisateur que vous avez créé.
 1. Sous **ClaimsProviderSelects**, ajoutez l’élément suivant. Définissez la valeur de l’élément **TargetClaimsExchangeId** sur une valeur appropriée, par exemple `MicrosoftAccountExchange` :
 
-    ```XML
+    ```xml
     <ClaimsProviderSelection TargetClaimsExchangeId="MicrosoftAccountExchange" />
     ```
 

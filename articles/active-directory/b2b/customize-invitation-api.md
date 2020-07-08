@@ -4,19 +4,19 @@ description: Azure Active Directory B2B Collaboration prend en charge les relati
 services: active-directory
 ms.service: active-directory
 ms.subservice: B2B
-ms.topic: reference
+ms.topic: how-to
 ms.date: 04/11/2017
 ms.author: mimart
 author: msmimart
 manager: celestedg
 ms.reviewer: elisolMS
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 3a090ee3f9588ff6bff01e12db469bf04407a7fc
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: e9f62ece12732c45037bcad328eec162bebb4e6a
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79230849"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85387199"
 ---
 # <a name="azure-active-directory-b2b-collaboration-api-and-customization"></a>API et personnalisation d’Azure Active Directory B2B Collaboration
 

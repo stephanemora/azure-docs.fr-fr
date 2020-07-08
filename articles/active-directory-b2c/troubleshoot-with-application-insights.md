@@ -7,16 +7,16 @@ author: msmimart
 manager: celestedg
 ms.service: active-directory
 ms.workload: identity
-ms.topic: conceptual
+ms.topic: troubleshooting
 ms.date: 11/04/2019
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 403dbe6106cb7a1d277ba672112d2bc45dbc2987
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: fad29c32731ee2470354a51acf32e350eb0c4cfc
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "78186265"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85384870"
 ---
 # <a name="collect-azure-active-directory-b2c-logs-with-application-insights"></a>Collecter les journaux Azure Active Directory B2C avec Application Insights
 
@@ -45,7 +45,7 @@ Si vous n’en avez pas encore, créez une instance Application Insights dans vo
 1. Ouvrez le fichier de partie de confiance (RP), par exemple, *SignUpOrSignin.xml*.
 1. Ajoutez les attributs suivants à l’élément `<TrustFrameworkPolicy>` :
 
-   ```XML
+   ```xml
    DeploymentMode="Development"
    UserJourneyRecorderEndpoint="urn:journeyrecorder:applicationinsights"
    ```
@@ -53,7 +53,7 @@ Si vous n’en avez pas encore, créez une instance Application Insights dans vo
 1. S’il n’existe pas déjà, ajoutez un nœud enfant `<UserJourneyBehaviors>` au nœud `<RelyingParty>`. Il doit être placé immédiatement après `<DefaultUserJourney ReferenceId="UserJourney Id" from your extensions policy, or equivalent (for example:SignUpOrSigninWithAAD" />`.
 1. Ajoutez le nœud suivant en tant qu’enfant de l’élément `<UserJourneyBehaviors>`. Veillez à remplacer `{Your Application Insights Key}` par la **clé d’instrumentation** Application Insights que vous avez enregistrée précédemment.
 
-    ```XML
+    ```xml
     <JourneyInsights TelemetryEngine="ApplicationInsights" InstrumentationKey="{Your Application Insights Key}" DeveloperMode="true" ClientEnabled="false" ServerEnabled="true" TelemetryVersion="1.0.0" />
     ```
 
@@ -63,7 +63,7 @@ Si vous n’en avez pas encore, créez une instance Application Insights dans vo
 
     Par exemple :
 
-    ```XML
+    ```xml
     <TrustFrameworkPolicy
       ...
       TenantId="fabrikamb2c.onmicrosoft.com"

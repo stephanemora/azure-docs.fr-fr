@@ -7,16 +7,16 @@ author: msmimart
 manager: celestedg
 ms.service: active-directory
 ms.workload: identity
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 04/20/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 1f1897a4f58276bbac2a7de673544e592a562562
-ms.sourcegitcommit: 0b80a5802343ea769a91f91a8cdbdf1b67a932d3
+ms.openlocfilehash: 206768604c6d08a32c0caaf9b53a1417cfa1344b
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/25/2020
-ms.locfileid: "83826670"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85385329"
 ---
 # <a name="secure-your-restful-services"></a>Sécuriser vos services API RESTful 
 
@@ -114,7 +114,7 @@ L’authentification par certificat client est une authentification mutuelle bas
 Pour les environnements hors production, si vous n’avez pas encore de certificat, vous pouvez utiliser un certificat auto-signé. Sur Windows, vous pouvez utiliser l’applet de commande [New-SelfSignedCertificate](https://docs.microsoft.com/powershell/module/pkiclient/new-selfsignedcertificate) de PowerShell pour générer un certificat.
 
 1. Exécutez cette commande PowerShell pour générer un certificat auto-signé. Modifiez l’argument `-Subject` comme il convient pour votre application et le nom de locataire Azure AD B2C. Vous pouvez également ajuster la date de `-NotAfter` pour spécifier un délai d’expiration différent pour le certificat.
-    ```PowerShell
+    ```powershell
     New-SelfSignedCertificate `
         -KeyExportPolicy Exportable `
         -Subject "CN=yourappname.yourtenant.onmicrosoft.com" `
@@ -285,7 +285,7 @@ Pour prendre en charge l’authentification par jeton du porteur dans votre stra
 
 Une fois les extraits de code ci-dessus ajoutés, votre profil technique doit se présenter comme le code XML suivant :
 
-```XML
+```xml
 <ClaimsProvider>
   <DisplayName>REST APIs</DisplayName>
   <TechnicalProfiles>

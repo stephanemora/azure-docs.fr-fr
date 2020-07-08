@@ -7,16 +7,16 @@ author: msmimart
 manager: celestedg
 ms.service: active-directory
 ms.workload: identity
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 05/07/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 0b460d5a3c5535b74e349fa46c6a2ad55fc3a8d8
-ms.sourcegitcommit: a6d477eb3cb9faebb15ed1bf7334ed0611c72053
+ms.openlocfilehash: 3a35662a3f21aec1306b7b6994e7a08f9cbd467e
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/08/2020
-ms.locfileid: "82943641"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85389528"
 ---
 # <a name="manage-sso-and-token-customization-using-custom-policies-in-azure-active-directory-b2c"></a>Gérer la personnalisation des configurations SSO et de jetons avec des stratégies personnalisées dans Azure Active Directory B2C
 
@@ -30,7 +30,7 @@ Insérez l’élément ClaimsProviders entre les éléments BasePolicy et Relyin
 
 À l’intérieur, vous devez indiquer les informations qui modifient la durée de vie de votre jeton. Le code XML ressemble à cet exemple :
 
-```XML
+```xml
 <ClaimsProviders>
   <ClaimsProvider>
     <DisplayName>Token Issuer</DisplayName>
@@ -61,7 +61,7 @@ Les valeurs suivantes sont définies dans l’exemple précédent :
 
     Dans l'élément **ClaimsSchema**, ajoutez l'élément suivant :
 
-    ```XML
+    ```xml
     <ClaimType Id="trustFrameworkPolicy">
       <DisplayName>Trust framework policy name</DisplayName>
       <DataType>string</DataType>
@@ -70,7 +70,7 @@ Les valeurs suivantes sont définies dans l’exemple précédent :
 
     Dans votre élément **OutputClaims**, ajoutez l'élément suivant :
 
-    ```XML
+    ```xml
     <OutputClaim ClaimTypeReferenceId="trustFrameworkPolicy" Required="true" DefaultValue="{policy}" />
     ```
 
@@ -78,13 +78,13 @@ Les valeurs suivantes sont définies dans l’exemple précédent :
 
 - **Revendication de sujet (sub)** : cette option est définie par défaut sur ObjectID. Si vous souhaitez que cette option soit définie sur `Not Supported`, remplacez cette ligne :
 
-    ```XML
+    ```xml
     <OutputClaim ClaimTypeReferenceId="objectId" PartnerClaimType="sub" />
     ```
 
     par cette ligne :
 
-    ```XML
+    ```xml
     <OutputClaim ClaimTypeReferenceId="sub" />
     ```
 

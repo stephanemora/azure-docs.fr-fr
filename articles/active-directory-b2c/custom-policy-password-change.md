@@ -7,16 +7,16 @@ author: msmimart
 manager: celestedg
 ms.service: active-directory
 ms.workload: identity
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 12/13/2018
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 2c351f8a95110a32c53c68c5eb6095918578bc5b
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: c159e78d0aa065b53b1164e01309e770302fb1ad
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "78189172"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85389018"
 ---
 # <a name="configure-password-change-using-custom-policies-in-azure-active-directory-b2c"></a>Configurer la modification du mot de passe avec des stratégies personnalisées dans Azure Active Directory B2C
 
@@ -32,7 +32,7 @@ Suivez les étapes dans [Prise en main des stratégies personnalisées dans Azur
 
 1. Ouvrez votre fichier *TrustframeworkExtensions.xml* et ajoutez l’élément **ClaimType** avec l’identificateur `oldPassword` à l’élément [ClaimsSchema](claimsschema.md) :
 
-    ```XML
+    ```xml
     <BuildingBlocks>
       <ClaimsSchema>
         <ClaimType Id="oldPassword">
@@ -47,7 +47,7 @@ Suivez les étapes dans [Prise en main des stratégies personnalisées dans Azur
 
 2. Un élément [ClaimsProvider](claimsproviders.md) contient le profil technique qui authentifie l’utilisateur. Ajoutez les fournisseurs de revendications suivants à l’élément **ClaimsProviders** :
 
-    ```XML
+    ```xml
     <ClaimsProviders>
       <ClaimsProvider>
         <DisplayName>Local Account SignIn</DisplayName>
@@ -125,7 +125,7 @@ Suivez les étapes dans [Prise en main des stratégies personnalisées dans Azur
 
 3. L’élément [UserJourney](userjourneys.md) définit le chemin emprunté par l’utilisateur lors de l’interaction avec votre application. Ajoutez l’élément **UserJourneys** s’il n’existe pas avec l’élément **UserJourney** identifié comme `PasswordChange` :
 
-    ```XML
+    ```xml
     <UserJourneys>
       <UserJourney Id="PasswordChange">
         <OrchestrationSteps>

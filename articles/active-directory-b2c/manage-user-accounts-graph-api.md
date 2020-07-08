@@ -7,16 +7,16 @@ author: msmimart
 manager: celestedg
 ms.service: active-directory
 ms.workload: identity
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 03/16/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 42596ba5470c6062efba4fd1050c1c9745b76e80
-ms.sourcegitcommit: 0450ed87a7e01bbe38b3a3aea2a21881f34f34dd
+ms.openlocfilehash: 5b7eea37cbd926046c6b923b003cd47e0a0c2b0c
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/03/2020
-ms.locfileid: "80637328"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85387624"
 ---
 # <a name="manage-azure-ad-b2c-user-accounts-with-microsoft-graph"></a>Gérer les comptes d’utilisateur Azure AD B2C avec Microsoft Graph
 
@@ -67,7 +67,7 @@ Dans l’API Microsoft Graph, les identités locales et fédérées sont stocké
 
 Propriété **Identities** avec une identité de compte local comprenant un nom de connexion, une adresse e-mail comme identifiant de connexion et une identité sociale. 
 
- ```JSON
+ ```json
  "identities": [
      {
        "signInType": "userName",
@@ -95,7 +95,7 @@ Pour une identité locale, la propriété **passwordProfile** est obligatoire et
 
 Pour une identité (de réseaux sociaux) fédérée, la propriété **passwordProfile** n’est pas nécessaire.
 
-```JSON
+```json
 "passwordProfile" : {
     "password": "password-value",
     "forceChangePasswordNextSignIn": false
@@ -108,7 +108,7 @@ La stratégie de mot de passe Azure AD B2C (pour les comptes locaux) est basée 
 
 Dans les scénarios de migration d’utilisateurs, si les comptes que vous voulez migrer ont un mot de passe moins fort que les [règles de mot de passe fort](../active-directory/authentication/concept-sspr-policy.md) d’Azure AD B2C, vous pouvez désactiver l’exigence d’un mot de passe fort. Pour modifier la stratégie de mot de passe par défaut, définissez la propriété `passwordPolicies` sur `DisableStrongPassword`. Par exemple, vous pouvez modifier la demande de création d’utilisateur comme suit :
 
-```JSON
+```json
 "passwordPolicies": "DisablePasswordExpiration, DisableStrongPassword"
 ```
 
@@ -118,7 +118,7 @@ Toutes les applications orientées client ont des exigences uniques concernant l
 
 L’API Microsoft Graph prend en charge la création et la mise à jour d’un utilisateur avec des attributs d’extension. Dans l’API Graph, les attributs d’extension sont nommés à l’aide de la convention `extension_ApplicationObjectID_attributename`. Par exemple :
 
-```JSON
+```json
 "extension_831374b3bd5041bfaa54263ec9e050fc_loyaltyNumber": "212342"
 ```
 

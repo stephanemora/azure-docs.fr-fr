@@ -7,17 +7,17 @@ author: msmimart
 manager: celestedg
 ms.service: active-directory
 ms.workload: identity
-ms.topic: reference
+ms.topic: how-to
 ms.date: 05/18/2020
 ms.author: mimart
 ms.subservice: B2C
 ms.custom: fasttrack-edit
-ms.openlocfilehash: 68143c4ac3851604996e1f7ba2adce48934e59c5
-ms.sourcegitcommit: d118ad4fb2b66c759b70d4d8a18e6368760da3ad
+ms.openlocfilehash: b9ea9e756587af124ca94518d9f15271310ddee3
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/02/2020
-ms.locfileid: "84295386"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85389376"
 ---
 # <a name="register-a-saml-application-in-azure-ad-b2c"></a>Inscrire une application SAML dans Azure AD B2C
 
@@ -119,7 +119,7 @@ Recherchez la section `<ClaimsProviders>` et ajoutez l’extrait de code XML sui
 
 Vous pouvez modifier la valeur des métadonnées de `IssuerUri`. Il s’agit de l’URI de l’émetteur qui est retourné dans la réponse SAML d’Azure AD B2C. Votre application par partie de confiance doit être configurée pour accepter un URI d’émetteur lors de la validation de l’assertion SAML.
 
-```XML
+```xml
 <ClaimsProvider>
   <DisplayName>Token Issuer</DisplayName>
   <TechnicalProfiles>
@@ -165,7 +165,7 @@ Maintenant que votre locataire peut émettre des assertions SAML, vous devez cr�
 
 1. Modifiez les `PolicyId` et `PublicPolicyUri` de la stratégie pour _B2C_1A_signup_signin_saml_ et `http://tenant-name.onmicrosoft.com/B2C_1A_signup_signin_saml` comme indiqué ci-dessous.
 
-    ```XML
+    ```xml
     <TrustFrameworkPolicy
     xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
     xmlns:xsd="http://www.w3.org/2001/XMLSchema"
@@ -178,7 +178,7 @@ Maintenant que votre locataire peut émettre des assertions SAML, vous devez cr�
 
 1. Ajoutez l’extrait de code XML suivant juste avant l’élément `<RelyingParty>`. Ce code XML remplace l’étape d’orchestration numéro 7 du parcours utilisateur _SignUpOrSignIn_. Si vous avez démarré à partir d’un autre dossier du pack de démarrage, ou si vous avez personnalisé votre parcours utilisateur en ajoutant ou en supprimant des étapes d’orchestration, vérifiez que le nombre (dans l’élément `order`) est aligné avec celui spécifié dans le parcours utilisateur pour l’étape émetteur du jeton (par exemple, dans les autres dossiers du pack de démarrage, il s’agit du numéro d’étape 4 pour `LocalAccounts`, 6 pour `SocialAccounts` et 9 pour `SocialAndLocalAccountsWithMfa`).
 
-    ```XML
+    ```xml
     <UserJourneys>
       <UserJourney Id="SignUpOrSignIn">
         <OrchestrationSteps>
@@ -190,7 +190,7 @@ Maintenant que votre locataire peut émettre des assertions SAML, vous devez cr�
 
 1. Remplacez la totalité de l’élément `<TechnicalProfile>` dans l’élément `<RelyingParty>` par le fichier XML de profil technique suivant.
 
-    ```XML
+    ```xml
     <TechnicalProfile Id="PolicyProfile">
       <DisplayName>PolicyProfile</DisplayName>
       <Protocol Name="SAML2"/>
@@ -210,7 +210,7 @@ Maintenant que votre locataire peut émettre des assertions SAML, vous devez cr�
 
 Votre fichier de stratégie de partie de confiance final doit ressembler à ce qui suit :
 
-```XML
+```xml
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <TrustFrameworkPolicy
   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
@@ -297,7 +297,7 @@ Si des propriétés sont spécifiées *à la fois* dans l’URL des métadonnée
 
 Pour ce didacticiel qui utilise l’application de test SAML, utilisez la valeur suivante pour `samlMetadataUrl` :
 
-```JSON
+```json
 "samlMetadataUrl":"https://samltestapp2.azurewebsites.net/Metadata",
 ```
 
@@ -309,7 +309,7 @@ Si vous choisissez de configurer l’URL de réponse et l’URL de déconnexion 
 
 Pour ce didacticiel, dans lequel vous utilisez l’application SAML test, définissez la propriété `url` de `replyUrlsWithType` sur la valeur indiquée dans l’extrait de code JSON suivant.
 
-```JSON
+```json
 "replyUrlsWithType":[
   {
     "url":"https://samltestapp2.azurewebsites.net/SP/AssertionConsumer",
@@ -324,7 +324,7 @@ Cette propriété facultative représente l’URL `Logout` (URL`SingleLogoutServ
 
 Pour ce didacticiel qui utilise l’application de test SAML, laissez `logoutUrl` défini sur `https://samltestapp2.azurewebsites.net/logout` :
 
-```JSON
+```json
 "logoutUrl": "https://samltestapp2.azurewebsites.net/logout",
 ```
 

@@ -7,16 +7,16 @@ author: msmimart
 manager: celestedg
 ms.service: active-directory
 ms.workload: identity
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 03/11/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 51cb46d3ce1b74681c2ee3e53104cc57e73f1c5d
-ms.sourcegitcommit: 1f48ad3c83467a6ffac4e23093ef288fea592eb5
+ms.openlocfilehash: 29426f8e3797c89deb712e89e0d972dd1ac8028e
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/29/2020
-ms.locfileid: "84192226"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85389307"
 ---
 # <a name="disable-email-verification-during-customer-sign-up-using-a-custom-policy-in-azure-active-directory-b2c"></a>Désactiver la vérification par e-mail lors de l’inscription cliente au moyen d’une stratégie personnalisée dans Azure Active Directory B2C
 
@@ -34,7 +34,7 @@ Le profil technique **LocalAccountSignUpWithLogonEmail** est [autodéclaré](sel
 1. Recherchez l’élément `ClaimsProviders`. Si l’élément n’existe pas, ajoutez-le.
 1. Ajoutez le fournisseur de revendications suivant à l’élément `ClaimsProviders` :
 
-```XML
+```xml
 <ClaimsProvider>
   <DisplayName>Local Account</DisplayName>
   <TechnicalProfiles>

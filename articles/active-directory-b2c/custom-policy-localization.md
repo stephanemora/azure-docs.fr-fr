@@ -6,16 +6,16 @@ author: msmimart
 manager: celestedg
 ms.service: active-directory
 ms.workload: identity
-ms.topic: reference
+ms.topic: how-to
 ms.date: 05/12/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 090fecea44c7881920fcd087304f33f935a5e907
-ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
+ms.openlocfilehash: 8939d4546657b049b61eb31c08844dac07c67ae2
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83636257"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85389086"
 ---
 # <a name="localize-the-user-interface-of-your-application-using-a-custom-policy-in-azure-active-directory-b2c"></a>Traduire l’interface utilisateur de votre application à l’aide d’une stratégie personnalisée dans Azure Active Directory B2C
 
@@ -33,7 +33,7 @@ Ouvrez le fichier d’extensions de votre stratégie. Par exemple <em>`SocialAn
 1. Ajoutez l’élément `Localization` avec les langues prises en charge : anglais (par défaut) et espagnol.  
 
 
-```XML
+```xml
 <Localization Enabled="true">
   <SupportedLanguages DefaultLanguage="en" MergeBehavior="ReplaceAll">
     <SupportedLanguage>en</SupportedLanguage>
@@ -51,7 +51,7 @@ Vous configurez des éléments de ressources traduites pour la définition de co
 > [!NOTE]
 > Dans l’exemple qui suit, nous avons ajouté le symbole dièse `#` au début de chaque ligne, ce qui vous permet de repérer facilement les étiquettes traduites à l’écran.
 
-```XML
+```xml
 <!--Local account sign-up or sign-in page English-->
 <LocalizedResources Id="api.signuporsignin.en">
   <LocalizedStrings>
@@ -218,7 +218,7 @@ Collez le contenu entier de l’élément ContentDefinitions que vous avez copi�
 
 Dans l’exemple suivant, les chaînes personnalisées en anglais (en) et en espagnol (es) sont ajoutées à la page d’inscription ou de connexion, ainsi qu’à la page d’inscription du compte local. L’identificateur **LocalizedResourcesReferenceId** pour chaque référence **LocalizedResourcesReference** est le même que celui des paramètres régionaux, mais vous pouvez utiliser n’importe quelle chaîne comme identificateur. Pour chaque combinaison de langue et de page, vous pointez sur l’élément **LocalizedResources** correspondant que vous avez créé précédemment.
 
-```XML
+```xml
 <ContentDefinitions>
   <ContentDefinition Id="api.signuporsignin">
     <LocalizedResourcesReferences MergeBehavior="Prepend">

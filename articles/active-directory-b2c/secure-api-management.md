@@ -6,16 +6,16 @@ author: msmimart
 manager: celestedg
 ms.service: active-directory
 ms.workload: identity
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 04/10/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 8b0362f9bb80af9f98dad032790a9e88651284a1
-ms.sourcegitcommit: d118ad4fb2b66c759b70d4d8a18e6368760da3ad
+ms.openlocfilehash: 1ea11008155899e09bf461e56a8bb4981d37238d
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/02/2020
-ms.locfileid: "84298871"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85385414"
 ---
 # <a name="secure-an-azure-api-management-api-with-azure-ad-b2c"></a>Sécuriser une API Gestion des API Azure avec Azure AD B2C
 
@@ -171,7 +171,7 @@ Une fois le jeton d’accès et la clé d’abonnement APIM enregistrés, vous �
 
 1. Sélectionnez le bouton **Envoyer** dans Postman pour exécuter la requête. Si vous avez tout configuré correctement, vous devez obtenir une réponse JSON avec un ensemble d’intervenants à la conférence (illustré ici tronqué) :
 
-    ```JSON
+    ```json
     {
       "collection": {
         "version": "1.0",
@@ -206,7 +206,7 @@ Maintenant que vous avez effectué une requête réussie, testez le cas d’éch
 
 1. Sélectionnez le bouton **Envoyer** pour exécuter la requête. Avec un jeton non valide, le résultat attendu est un code d’état Non autorisé `401` :
 
-    ```JSON
+    ```json
     {
         "statusCode": 401,
         "message": "Unauthorized. Access token is missing or invalid."
@@ -219,7 +219,7 @@ Si vous voyez le code d’état `401`, vous avez vérifié que seuls les appelan
 
 Plusieurs applications interagissent généralement avec une seule API REST. Pour permettre à votre API d’accepter des jetons destinés à plusieurs applications, ajoutez leurs ID d’application à l’élément `<audiences>` dans la stratégie de trafic entrant APIM.
 
-```XML
+```xml
 <!-- Accept tokens intended for these recipient applications -->
 <audiences>
     <audience>44444444-0000-0000-0000-444444444444</audience>
@@ -229,7 +229,7 @@ Plusieurs applications interagissent généralement avec une seule API REST. Pou
 
 De même, pour prendre en charge plusieurs émetteurs de jetons, ajoutez leurs URI de point de terminaison à l’élément `<issuers>` dans la stratégie de trafic entrant APIM.
 
-```XML
+```xml
 <!-- Accept tokens from multiple issuers -->
 <issuers>
     <issuer>https://<tenant-name>.b2clogin.com/99999999-0000-0000-0000-999999999999/v2.0/</issuer>
@@ -249,7 +249,7 @@ Vous pouvez suivre ce processus général pour effectuer une migration interméd
 
 L’exemple de stratégie de trafic entrant APIM suivant illustre comment accepter des jetons émis par b2clogin.com et login.microsoftonline.com. En outre, il prend en charge les demandes d’API de deux applications.
 
-```XML
+```xml
 <policies>
     <inbound>
         <validate-jwt header-name="Authorization" failed-validation-httpcode="401" failed-validation-error-message="Unauthorized. Access token is missing or invalid.">

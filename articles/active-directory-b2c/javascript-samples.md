@@ -7,16 +7,16 @@ author: msmimart
 manager: celestedg
 ms.service: active-directory
 ms.workload: identity
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 02/10/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: a26f6c5e69ca083335580a0368459e062de3941e
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: a92810841ee5d656b23105d6f40c763847971c4f
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "78187659"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85387794"
 ---
 # <a name="javascript-samples-for-use-in-azure-active-directory-b2c"></a>Exemples JavaScript pour une utilisation dans Active Directory B2C
 
@@ -50,7 +50,7 @@ Pour activer l’exécution des scripts, ajoutez l’élément **ScriptExecution
 1. Ouvrez votre fichier de stratégie personnalisée. Par exemple *SignUpOrSignin.xml*.
 2. Ajoutez l’élément **ScriptExecution** à l’élément **UserJourneyBehaviors** de **RelyingParty** :
 
-    ```XML
+    ```xml
     <RelyingParty>
       <DefaultUserJourney ReferenceId="B2CSignUpOrSignInWithPassword" />
       <UserJourneyBehaviors>

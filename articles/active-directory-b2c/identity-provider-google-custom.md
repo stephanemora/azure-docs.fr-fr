@@ -7,16 +7,16 @@ author: msmimart
 manager: celestedg
 ms.service: active-directory
 ms.workload: identity
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 09/20/2018
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 8d02c86a1ff330aa4003299e1494a164089d8470
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 91a55782492c1b2612652b147e0aca37941bf4db
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "78188220"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85388202"
 ---
 # <a name="set-up-sign-in-with-a-google-account-using-custom-policies-in-azure-active-directory-b2c"></a>Configurer la connexion avec un compte Google à l’aide de stratégies personnalisées dans Azure Active Directory B2C
 
@@ -139,7 +139,7 @@ L’élément **ClaimsProviderSelection** est analogue à un bouton de fournisse
 1. Recherchez l’élément **OrchestrationStep** comprenant `Order="1"` dans le parcours utilisateur que vous avez créé.
 2. Sous **ClaimsProviderSelects**, ajoutez l’élément suivant. Définissez la valeur de l’élément **TargetClaimsExchangeId** sur une valeur appropriée, par exemple `GoogleExchange` :
 
-    ```XML
+    ```xml
     <ClaimsProviderSelection TargetClaimsExchangeId="GoogleExchange" />
     ```
 
@@ -150,7 +150,7 @@ Maintenant que vous avez un bouton en place, vous devez le lier à une action. D
 1. Recherchez l’élément **OrchestrationStep** comprenant `Order="2"` dans le parcours utilisateur.
 2. Ajoutez l’élément **ClaimsExchange** suivant en veillant à utiliser la même valeur d’ID que celle utilisée pour **TargetClaimsExchangeId** :
 
-    ```XML
+    ```xml
     <ClaimsExchange Id="GoogleExchange" TechnicalProfileReferenceId="Google-OAuth" />
     ```
 

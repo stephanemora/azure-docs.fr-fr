@@ -7,16 +7,16 @@ author: msmimart
 manager: celestedg
 ms.service: active-directory
 ms.workload: identity
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 02/27/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 45878ea947803b04cd5cd6e471f701c21f2c26fa
-ms.sourcegitcommit: 0b80a5802343ea769a91f91a8cdbdf1b67a932d3
+ms.openlocfilehash: 668bc645edd1be611fe71b8fc1fa81288572e843
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/25/2020
-ms.locfileid: "83826347"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85388066"
 ---
 # <a name="set-up-sign-in-with-a-salesforce-saml-provider-by-using-custom-policies-in-azure-active-directory-b2c"></a>Configurer la connexion avec un fournisseur SAML Salesforce en utilisant des stratégies personnalisées dans Azure Active Directory B2C
 
@@ -109,7 +109,7 @@ Vous pouvez définir un compte Salesforce en tant que fournisseur de revendicati
 1. Recherchez l’élément **ClaimsProviders**. S’il n’existe pas, ajoutez-le sous l’élément racine.
 1. Ajoutez un nouveau **ClaimsProvider** comme suit :
 
-    ```XML
+    ```xml
     <ClaimsProvider>
       <Domain>salesforce</Domain>
       <DisplayName>Salesforce</DisplayName>
@@ -152,7 +152,7 @@ Vous pouvez définir un compte Salesforce en tant que fournisseur de revendicati
 1. Mettez à jour la valeur des deux instances de **StorageReferenceId** avec le nom de la clé de votre certificat de signature. Par exemple, B2C_1A_SAMLSigningCert.
 1. Recherchez la section `<ClaimsProviders>` et ajoutez l’extrait de code XML suivant. Si votre stratégie contient déjà le profil technique `SM-Saml-idp`, passez à l’étape suivante. Pour plus d’informations, voir [Gestion de sessions d’authentification unique](custom-policy-reference-sso.md).
 
-    ```XML
+    ```xml
     <ClaimsProvider>
       <DisplayName>Session Management</DisplayName>
       <TechnicalProfiles>
@@ -194,7 +194,7 @@ L’élément **ClaimsProviderSelection** est analogue à un bouton de fournisse
 1. Recherchez l’élément **OrchestrationStep** comprenant `Order="1"` dans le parcours utilisateur que vous venez de créer.
 2. Sous **ClaimsProviderSelects**, ajoutez l’élément suivant. Définissez la valeur de l’élément **TargetClaimsExchangeId** sur une valeur appropriée, par exemple `SalesforceExchange` :
 
-    ```XML
+    ```xml
     <ClaimsProviderSelection TargetClaimsExchangeId="SalesforceExchange" />
     ```
 
@@ -205,7 +205,7 @@ Maintenant que vous avez un bouton en place, vous devez le lier à une action. L
 1. Recherchez l’élément **OrchestrationStep** comprenant `Order="2"` dans le parcours utilisateur.
 2. Ajoutez l’élément **ClaimsExchange** suivant en veillant à utiliser la même valeur d’**ID** que celle utilisée pour **TargetClaimsExchangeId** :
 
-    ```XML
+    ```xml
     <ClaimsExchange Id="SalesforceExchange" TechnicalProfileReferenceId="salesforce" />
     ```
 

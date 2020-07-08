@@ -6,16 +6,16 @@ author: msmimart
 manager: celestedg
 ms.service: active-directory
 ms.workload: identity
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 05/07/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 3f6af5e8e1cfadd302eadfedf189a6710ac4aeca
-ms.sourcegitcommit: a6d477eb3cb9faebb15ed1bf7334ed0611c72053
+ms.openlocfilehash: a2f20a4521efe2806c4bc66e4612b99caf84382a
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/08/2020
-ms.locfileid: "82943649"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85385261"
 ---
 # <a name="configure-session-behavior-using-custom-policies-in-azure-active-directory-b2c"></a>Configurer la modification du mot de passe avec des stratégies personnalisées dans Azure Active Directory B2C
 
@@ -36,7 +36,7 @@ Vous pouvez utiliser les propriétés suivantes pour gérer les sessions d’app
 
 Pour changer le comportement des sessions et les configurations de SSO, vous devez ajouter un élément **UserJourneyBehaviors** à l’intérieur de l’élément [RelyingParty](relyingparty.md).  L’élément **UserJourneyBehaviors** doit suivre immédiatement l’élément **DefaultUserJourney**. Votre élément **UserJourneyBehaviors** devrait ressembler à l’exemple suivant :
 
-```XML
+```xml
 <UserJourneyBehaviors>
    <SingleSignOn Scope="Application" />
    <SessionExpiryType>Absolute</SessionExpiryType>
@@ -60,7 +60,7 @@ Lorsque vous redirigez l’utilisateur vers le point de terminaison de déconnex
 Pour prendre en charge la déconnexion unique, les profils techniques de l’émetteur de jetons pour JWT et SAML doivent spécifier les éléments suivants :
 
 - Le nom du protocole, tel que `<Protocol Name="OpenIdConnect" />`
-- La référence au profil technique de session, tel que `UseTechnicalProfileForSessionManagement ReferenceId="SM-jwt-issuer" />`.
+- La référence au profil technique de session, tel que `UseTechnicalProfileForSessionManagement ReferenceId="SM-OAuth-issuer" />`.
 
 L’exemple suivant illustre les émetteurs de jetons JWT et SAML avec la fonctionnalité de déconnexion unique :
 
@@ -74,7 +74,7 @@ L’exemple suivant illustre les émetteurs de jetons JWT et SAML avec la foncti
       <Protocol Name="OpenIdConnect" />
       <OutputTokenFormat>JWT</OutputTokenFormat>
       ...    
-      <UseTechnicalProfileForSessionManagement ReferenceId="SM-jwt-issuer" />
+      <UseTechnicalProfileForSessionManagement ReferenceId="SM-OAuth-issuer" />
     </TechnicalProfile>
 
     <!-- Session management technical profile for OIDC based tokens -->

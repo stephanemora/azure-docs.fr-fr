@@ -13,14 +13,14 @@ ms.service: virtual-machines-windows
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
-ms.date: 04/24/2020
+ms.date: 06/15/2020
 ms.author: radeltch
-ms.openlocfilehash: 4c86d7c84ba5d7692e010ad95f258b67aa7dcfac
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: a15741beae29bb11c2b50de18e0c6fb180456524
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82147641"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85414502"
 ---
 # <a name="deploy-a-sap-hana-scale-out-system-with-standby-node-on-azure-vms-by-using-azure-netapp-files-on-red-hat-enterprise-linux"></a>Déployer un système Scale-out SAP HANA avec le nœud de secours sur des machines virtuelles Azure à l’aide d’Azure NetApp Files sur Red Hat Enterprise Linux 
 
@@ -46,7 +46,7 @@ ms.locfileid: "82147641"
 [1900823]:https://launchpad.support.sap.com/#/notes/1900823
 [2292690]:https://launchpad.support.sap.com/#/notes/2292690
 [2455582]:https://launchpad.support.sap.com/#/notes/2455582
-[2593824]:https://launchpad.support.sap.com/#/notes/2455582
+[2593824]:https://launchpad.support.sap.com/#/notes/2593824
 [2009879]:https://launchpad.support.sap.com/#/notes/2009879
 
 [sap-swcenter]:https://support.sap.com/en/my-support/software-downloads.html
@@ -85,7 +85,7 @@ Avant de commencer, reportez-vous aux notes et documents SAP suivants :
   * [Référence des modules complémentaires de haute disponibilité](https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/7/html/high_availability_add-on_reference/index)
   * [Guide de mise en réseau Red Hat Enterprise Linux](https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/7/html/networking_guide)
 * Documentation RHEL spécifique à Azure :
-  * [Installation de SAP HANA sur Red Hat Enterprise Linux pour une utilisation dans Microsoft Azure](https://access.redhat.com/solutions/3193782)
+  * [Installation de SAP HANA sur Red Hat Enterprise Linux pour une utilisation dans Microsoft Azure](https://access.redhat.com/public-cloud/microsoft-azure)
 * [Applications SAP NetApp su Microsoft Azure avec Azure NetApp Files][anf-sap-applications-azure]
 
 
