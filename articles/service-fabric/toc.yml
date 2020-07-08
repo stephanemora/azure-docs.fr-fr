@@ -278,7 +278,9 @@
               href: service-fabric-backup-restore-service-trigger-restore.md
             - name: Sauvegarde à la demande de partition
               href: service-fabric-backup-restore-service-ondemand-backup.md
-        - name: Initialiseur CodePackages
+            - name: Afficher et modifier une sauvegarde de collections fiables hors connexion
+              href: backup-explorer.md
+        - name: CodePackages initialiseurs
           href: initializer-codepackages.md
         - name: RunToCompletion
           href: run-to-completion.md
