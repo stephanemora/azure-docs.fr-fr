@@ -1,18 +1,18 @@
 ---
 title: Créer votre page d’accueil dans la Place de marché Azure | Azure
 description: Découvrez comment créer une page d’accueil dans la Place de marché Azure et Microsoft AppSource, pour les éditeurs d’application et de service.
-author: dsindona
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
+author: vikrambmsft
+ms.author: vikramb
 ms.date: 06/04/2018
-ms.author: dsindona
-ms.openlocfilehash: 0952c1d4b6955ff20f06afc6eaded18fbd105708
-ms.sourcegitcommit: d0fd35f4f0f3ec71159e9fb43fcd8e89d653f3f2
+ms.openlocfilehash: b7f80910e19348dfa3540f141424205a7531f5e7
+ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/30/2020
-ms.locfileid: "80387799"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86102818"
 ---
 # <a name="build-your-landing-page"></a>Créer votre page d’accueil
 

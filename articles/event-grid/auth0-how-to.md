@@ -1,18 +1,14 @@
 ---
 title: Guide pratique pour envoyer des événements d’Auth0 vers Azure à l’aide d’Azure Event Grid
 description: Comme envoyer des événements d’Auth0 vers des services Azure avec Azure Event Grid.
-services: event-grid
-author: femila
-ms.service: event-grid
 ms.topic: conceptual
-ms.date: 05/18/2020
-ms.author: femila
-ms.openlocfilehash: bd8cebaad27857dbd2fe3c5ed61be63d3700a688
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.date: 07/07/2020
+ms.openlocfilehash: 6cd440075c6400b58c23f879b53da26abe4f9e75
+ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84560746"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86103278"
 ---
 # <a name="integrate-azure-event-grid-with-auth0"></a>Intégrer Azure Event Grid à Auth0
 
