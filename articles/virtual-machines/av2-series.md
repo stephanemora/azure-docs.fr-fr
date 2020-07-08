@@ -1,18 +1,18 @@
 ---
-title: Série Av2 – Machines virtuelles Microsoft Azure
+title: Série Av2
 description: Spécifications pour les machines virtuelles de la série Av2.
-services: virtual-machines
 author: migerdes
 ms.service: virtual-machines
+ms.subservice: sizes
 ms.topic: article
 ms.date: 02/03/2020
-ms.author: lahugh
-ms.openlocfilehash: fe27a1cc78d1f37d535f364c03803a5196090a3a
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.author: jushiman
+ms.openlocfilehash: 7d2064ec89e107aa219f34520f71ed8704bb7aeb
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "78163945"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84676928"
 ---
 # <a name="av2-series"></a>Série Av2
 

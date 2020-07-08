@@ -1,18 +1,18 @@
 ---
-title: Série NDv2 – Machines virtuelles Azure
+title: Série NDv2
 description: Spécifications pour les machines virtuelles de la série NDv2.
-services: virtual-machines
-author: vikancha
+author: vikancha-MSFT
 ms.service: virtual-machines
+ms.subservice: sizes
 ms.topic: article
 ms.date: 02/03/2020
-ms.author: lahugh
-ms.openlocfilehash: 8a2d275501816dd504130b255b73a752c5615f0d
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.author: jushiman
+ms.openlocfilehash: a5b7dea30cff70d5c45460eb8ded2fa370afa2c2
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80247280"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84726588"
 ---
 # <a name="updated-ndv2-series"></a>Série NDv2 mise à jour
 

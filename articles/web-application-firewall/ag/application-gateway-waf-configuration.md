@@ -7,12 +7,12 @@ ms.service: web-application-firewall
 ms.date: 02/20/2020
 ms.author: victorh
 ms.topic: conceptual
-ms.openlocfilehash: 7244788bbc7431c7f26363b2852babb72d5697e9
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: ddf631601510e725d77cc391ad41192a47ab0cf1
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "77526788"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84752474"
 ---
 # <a name="web-application-firewall-request-size-limits-and-exclusion-lists"></a>Limites de la taille des demandes adressées au pare-feu d’application web et listes d’exclusions
 
@@ -31,7 +31,6 @@ Les attributs qui suivent peuvent être ajoutés aux listes d’exclusion par no
 * Vous pouvez ajouter le nom d’un attribut de requête (argument) comme un élément d’exclusion, par exemple :
 
    * Nom du champ de formulaire
-   * Entité XML
    * Entité JSON
    * Arguments de chaîne de requête de l’URL
 
