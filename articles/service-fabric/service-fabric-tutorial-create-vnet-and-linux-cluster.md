@@ -4,12 +4,12 @@ description: Découvrez comment déployer un cluster Service Fabric Linux dans u
 ms.topic: conceptual
 ms.date: 02/14/2019
 ms.custom: mvc
-ms.openlocfilehash: a9026e46f2fd386892af5a3d8f4ec8d7e0c9f649
-ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
+ms.openlocfilehash: 1d6edc086233d757269c12e323241bc4bf55249f
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "81411007"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85611694"
 ---
 # <a name="deploy-a-linux-service-fabric-cluster-into-an-azure-virtual-network"></a>Déployer un cluster Service Fabric Linux dans un réseau virtuel Azure
 
@@ -54,8 +54,8 @@ Dans la ressource **Microsoft.ServiceFabric/clusters**, un cluster Linux est dé
 * Système d’exploitation : Ubuntu 16.04 LTS/Ubuntu 18.04 LTS (configurable dans les paramètres du modèle)
 * certificat sécurisé (configurable dans les paramètres du modèle)
 * [service DNS](service-fabric-dnsservice.md) activé
-* [niveau de durabilité](service-fabric-cluster-capacity.md#the-durability-characteristics-of-the-cluster) Bronze (configurable dans les paramètres du modèle)
-* [niveau de fiabilité](service-fabric-cluster-capacity.md#the-reliability-characteristics-of-the-cluster) Silver (configurable dans les paramètres du modèle)
+* [niveau de durabilité](service-fabric-cluster-capacity.md#durability-characteristics-of-the-cluster) Bronze (configurable dans les paramètres du modèle)
+* [niveau de fiabilité](service-fabric-cluster-capacity.md#reliability-characteristics-of-the-cluster) Silver (configurable dans les paramètres du modèle)
 * point de terminaison de connexion client : 19000 (configurable dans les paramètres du modèle)
 * point de terminaison de passerelle HTTP : 19080 (configurable dans les paramètres du modèle)
 

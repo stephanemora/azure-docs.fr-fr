@@ -7,19 +7,19 @@ author: MarkusVi
 manager: daveba
 editor: ''
 ms.service: active-directory
-ms.topic: conceptual
+ms.topic: how-to
 ms.workload: identity
 ms.subservice: report-monitor
 ms.date: 11/13/2018
 ms.author: markvi
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d356f8c10ae3770d9f4ade100ab0496ee58d772f
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 33c4eeda7f7df1a8238f54fa1afd1bc069f64e96
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "74008215"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85608209"
 ---
 # <a name="find-activity-reports-in-the-azure-portal"></a>Trouver les rapports d’activité sur le Portail Azure
 
@@ -171,10 +171,10 @@ J’ai réalisé certaines actions dans le portail Azure et je pensais pouvoir c
 
 Les actions n’apparaissent pas immédiatement dans les journaux d’activité. Le tableau ci-dessous énumère nos valeurs de latence pour les journaux d’activité. 
 
-| Rapport | &nbsp; | Latence (P95) | Latence (P99) |
-|--------|--------|---------------|---------------|
-| Audit de répertoire | &nbsp; | 2 minutes | 5 minutes |
-| Activité de connexion | &nbsp; | 2 minutes | 5 minutes | 
+| Rapport | Latence (P95) | Latence (P99) |
+|--------|---------------|---------------|
+| Audit de répertoire | 2 minutes | 5 minutes |
+| Activité de connexion | 2 minutes | 5 minutes |
 
 #### <a name="resolution"></a>Résolution
 
@@ -192,10 +192,10 @@ Je me suis connecté récemment au portail Azure et je pensais pouvoir consulter
 
 Les actions n’apparaissent pas immédiatement dans les journaux d’activité. Le tableau ci-dessous énumère nos valeurs de latence pour les journaux d’activité. 
 
-| Rapport | &nbsp; | Latence (P95) | Latence (P99) |
-|--------|--------|---------------|---------------|
-| Audit de répertoire | &nbsp; | 2 minutes | 5 minutes |
-| Activité de connexion | &nbsp; | 2 minutes | 5 minutes | 
+| Rapport | Latence (P95) | Latence (P99) |
+|--------|---------------|---------------|
+| Audit de répertoire | 2 minutes | 5 minutes |
+| Activité de connexion | 2 minutes | 5 minutes |
 
 #### <a name="resolution"></a>Résolution
 
@@ -213,10 +213,10 @@ Je n’arrive pas à afficher plus de 30 jours de données de connexion et d’a
 
 Selon votre licence, les actions Azure Active Directory stockent les rapports d’activité pour les durées suivantes :
 
-| Rapport           | &nbsp; |  Azure AD Gratuit | Azure AD Premium P1 | Azure AD Premium P2 |
-| ---              | ----   |  ---           | ---                 | ---                 |
-| Audit de répertoire  | &nbsp; |   7 jours     | 30 jours             | 30 jours             |
-| Activité de connexion | &nbsp; | Non disponible. Vous ne pouvez pas accéder à vos propres connexions pendant 7 jours depuis le panneau de profil utilisateur individuel | 30 jours | 30 jours             |
+| Rapport           | Azure AD Gratuit | Azure AD Premium P1 | Azure AD Premium P2 |
+| ---              | ---           | ---                 | ---
+| Audit de répertoire  | 7 jours        | 30 jours             | 30 jours             |
+| Activité de connexion | Non disponible. Vous ne pouvez pas accéder à vos propres connexions pendant 7 jours depuis le panneau de profil utilisateur individuel | 30 jours | 30 jours             |
 
 Pour plus d’informations, consultez [Stratégies de rétention des rapports Azure Active Directory](reference-reports-data-retention.md).  
 

@@ -5,15 +5,15 @@ author: normesta
 ms.subservice: data-lake-storage-gen2
 ms.service: storage
 ms.topic: conceptual
-ms.date: 05/10/2020
+ms.date: 06/29/2020
 ms.author: normesta
 ms.reviewer: jamesbak
-ms.openlocfilehash: 315bab473ccb42c3ca7b481c16bf8d8fbcfaac67
-ms.sourcegitcommit: 1f48ad3c83467a6ffac4e23093ef288fea592eb5
+ms.openlocfilehash: f3861ab8839ba0483c5096e29cd09b6268bd765e
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/29/2020
-ms.locfileid: "84193461"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85563914"
 ---
 # <a name="known-issues-with-azure-data-lake-storage-gen2"></a>Problèmes connus avec Azure Data Lake Storage Gen2
 
@@ -65,19 +65,6 @@ Les disques de machine virtuelle non gérés ne sont pas pris en charge dans les
 ## <a name="file-system-support-in-sdks-powershell-and-azure-cli"></a>Prise en charge des systèmes de fichiers dans les SDK, PowerShell et Azure CLI
 
 - Actuellement, les opérations d’obtention et de définition de listes de contrôle d’accès ne sont pas récursives.
-
-
-## <a name="lifecycle-management-policies"></a>Stratégies de gestion du cycle de vie
-
-La suppression des instantanés d’objets BLOB n’est pas encore prise en charge. 
-
-## <a name="archive-tier"></a>Niveau Archive
-
-Il existe actuellement un bogue qui affecte le niveau d’accès Archive.
-
-## <a name="blobfuse"></a>Blobfuse
-
-Blobfuse n’est pas pris en charge.
 
 <a id="known-issues-tools"></a>
 

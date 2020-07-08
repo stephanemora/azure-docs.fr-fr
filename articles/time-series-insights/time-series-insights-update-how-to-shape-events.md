@@ -10,12 +10,12 @@ services: time-series-insights
 ms.topic: conceptual
 ms.date: 02/24/2020
 ms.custom: seodec18
-ms.openlocfilehash: 99a2f32c3f76d7fec475c9b299f7208b4db29cfe
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: fd2c58b07f3be5d5fa6d99d0c8c64906b81e7de4
+ms.sourcegitcommit: e132633b9c3a53b3ead101ea2711570e60d67b83
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "77650921"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86036982"
 ---
 # <a name="shape-events-with-azure-time-series-insights-preview"></a>Mettre en forme avec Azure Time Series Insights (préversion)
 
@@ -33,7 +33,7 @@ Les bonnes pratiques générales incluent :
 Pour optimiser les performances des requêtes, respectez les règles empiriques suivantes :
 
 * N’envoyez pas de propriétés inutiles. Time Series Insights Preview est facturé en fonction de l’utilisation. Il est préférable de stocker et traiter uniquement les données sur lesquelles vous allez effectuer une requête.
-* Utilisez des champs d’instance pour les données statiques. Cette pratique vous évite d’envoyer des données statiques sur le réseau. Les champs d’instance, qui font partie du modèle de série chronologique, fonctionnent comme des données de référence dans le service Time Series Insights qui est généralement disponible. Pour plus d’informations sur les champs d’instance, consultez [Modèle Time Series](./time-series-insights-update-tsm.md).
+* Utilisez des champs d’instance pour les données statiques. Cette pratique vous évite d’envoyer des données statiques sur le réseau. Les champs d’instance, qui font partie du modèle de série chronologique, fonctionnent comme des données de référence dans le service Time Series Insights qui est généralement disponible. Pour plus d’informations sur les champs d’instance, consultez [Modèle Time Series](./concepts-model-overview.md).
 * Partagez des propriétés de dimension entre deux ou plusieurs événements. Cette pratique vous permet d’envoyer plus efficacement des données sur le réseau.
 * N’utilisez pas d’imbrication de tableau approfondie. Time Series Insights (préversion) prend en charge jusqu’à deux niveaux de tableaux imbriqués contenant des objets. Time Series Insights (préversion) aplatit les tableaux dans les messages, en plusieurs événements avec des paires de valeurs de propriétés.
 * Si seules quelques mesures existent pour tous ou la plupart des événements, il est préférable d’envoyer ces mesures en tant que propriétés distinctes dans le même objet. Le fait de les envoyer séparément réduit le nombre d’événements et peut accroître les performances des requêtes car moins d’événements doivent être traités.
@@ -95,7 +95,7 @@ Un seul message IoT Hub est envoyé, dans lequel le tableau externe contient une
 
 **Éléments importants à retenir :**
 
-* L’exemple d’objet JSON contient un tableau externe qui utilise des données d’[instance Time Series](./time-series-insights-update-tsm.md#time-series-model-instances) pour accroître les performances du message. Même si les métadonnées d’appareil des instances Time Series ne sont pas susceptibles de changer, elles offrent souvent des propriétés utiles pour l'analyse des données.
+* L’exemple d’objet JSON contient un tableau externe qui utilise des données d’[instance Time Series](./concepts-model-overview.md#time-series-model-instances) pour accroître les performances du message. Même si les métadonnées d’appareil des instances Time Series ne sont pas susceptibles de changer, elles offrent souvent des propriétés utiles pour l'analyse des données.
 
 * L’objet JSON combine deux ou plusieurs messages (un provenant de chaque appareil) en une même charge utile, ce qui permet d'économiser de la bande passante dans le temps.
 
@@ -106,7 +106,7 @@ Un seul message IoT Hub est envoyé, dans lequel le tableau externe contient une
 
 #### <a name="time-series-instance"></a>Instance Time Series 
 
-Examinons de plus près l’utilisation de l'[instance Time Series](./time-series-insights-update-tsm.md#time-series-model-instances) pour optimiser la mise en forme de votre objet JSON. 
+Examinons de plus près l’utilisation de l'[instance Time Series](./concepts-model-overview.md#time-series-model-instances) pour optimiser la mise en forme de votre objet JSON. 
 
 > [!NOTE]
 > Les [ID Time Series](./time-series-insights-update-how-to-id.md) ci-dessous représentent des *ID d’appareil (deviceId)* .

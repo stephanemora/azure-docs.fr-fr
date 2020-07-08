@@ -7,12 +7,12 @@ author: peterpogorski
 ms.topic: conceptual
 ms.date: 02/13/2020
 ms.author: pepogors
-ms.openlocfilehash: 04c6444723180c34f6605810260f5f865dff2d12
-ms.sourcegitcommit: e0330ef620103256d39ca1426f09dd5bb39cd075
+ms.openlocfilehash: f8d8d5ae677ea438de4baed7d6636c2087277427
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/05/2020
-ms.locfileid: "82790913"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85602701"
 ---
 # <a name="service-fabric-guardrails"></a>Barrières de sécurité relatives à Service Fabric 
 Lors du déploiement d’un cluster Service Fabric, des barrières de sécurité sont appliquées et entraînent l’échec du déploiement d’Azure Resource Manager si la configuration du cluster n’est pas valide. Les sections suivantes fournissent une vue d’ensemble des problèmes de configuration courants du cluster et des étapes requises pour les atténuer. 
@@ -68,7 +68,7 @@ Pour corriger un problème d’incompatibilité entre des durabilités, comme in
 
 ## <a name="seed-node-deletion"></a>Suppression des nœuds initiaux 
 ### <a name="overview"></a>Vue d’ensemble
-Un cluster Service Fabric a une propriété de [niveau de fiabilité](https://docs.microsoft.com/azure/service-fabric/service-fabric-cluster-capacity#the-reliability-characteristics-of-the-cluster) qui est utilisée pour déterminer le nombre de réplicas des services système qui s’exécutent sur le type de nœud principal du cluster. Le nombre de réplicas nécessaire détermine le nombre minimal de nœuds qui doivent être maintenus dans le type de nœud principal du cluster. Si le nombre de nœuds dans le type de nœud principal est inférieur au minimum requis pour le niveau de fiabilité, le cluster devient instable.  
+Un cluster Service Fabric a une propriété de [niveau de fiabilité](https://docs.microsoft.com/azure/service-fabric/service-fabric-cluster-capacity#reliability-characteristics-of-the-cluster) qui est utilisée pour déterminer le nombre de réplicas des services système qui s’exécutent sur le type de nœud principal du cluster. Le nombre de réplicas nécessaire détermine le nombre minimal de nœuds qui doivent être maintenus dans le type de nœud principal du cluster. Si le nombre de nœuds dans le type de nœud principal est inférieur au minimum requis pour le niveau de fiabilité, le cluster devient instable.  
 
 ### <a name="error-messages"></a>Messages d’erreur 
 L’opération de suppression du nœud initial a été détectée et sera rejetée. 

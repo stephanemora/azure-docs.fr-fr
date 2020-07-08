@@ -4,15 +4,15 @@ description: Cet article fournit des informations sur l’activation de la prise
 services: application-gateway
 author: caya
 ms.service: application-gateway
-ms.topic: article
+ms.topic: how-to
 ms.date: 11/4/2019
 ms.author: caya
-ms.openlocfilehash: 83650e7cf46ec1dede5f25e32114d6469bab24be
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 953430421bd30aaa1df352451b549994aeaa1a70
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79235913"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85556168"
 ---
 # <a name="enable-multiple-namespace-support-in-an-aks-cluster-with-application-gateway-ingress-controller"></a>Activer la prise en charge de plusieurs espaces de noms dans un cluster AKS avec un contrôleur d’entrée Application Gateway
 
@@ -45,6 +45,7 @@ En haut de la hiérarchie : des **écouteurs**  (adresse IP, port et hôte) et
 En bas de la hiérarchie : des chemins d’accès, des pools principaux, des paramètres HTTP et des certificats TLS peuvent être créés par un seul espace de noms et les doublons sont supprimés.
 
 Par exemple, considérez que les ressources d’entrée en double suivantes définissent les espaces de noms `staging` et `production` pour `www.contoso.com` :
+
 ```yaml
 apiVersion: extensions/v1beta1
 kind: Ingress
@@ -101,6 +102,7 @@ Par défaut, AGIC configure Application Gateway en fonction de l’entrée annot
   - utilisez [Role/RoleBinding](https://docs.microsoft.com/azure/aks/azure-ad-rbac) pour limiter AGIC à des espaces de noms spécifiques
 
 ## <a name="sample-helm-config-file"></a>Exemple de fichier config Helm
+
 ```yaml
     # This file contains the essential configs for the ingress controller helm chart
 
@@ -152,5 +154,5 @@ Par défaut, AGIC configure Application Gateway en fonction de l’entrée annot
     # Specify aks cluster related information. THIS IS BEING DEPRECATED.
     aksClusterConfiguration:
         apiServerAddress: <aks-api-server-address>
-    ```
+```
 

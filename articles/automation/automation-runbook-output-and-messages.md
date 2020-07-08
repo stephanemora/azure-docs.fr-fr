@@ -5,12 +5,12 @@ services: automation
 ms.subservice: process-automation
 ms.date: 12/04/2018
 ms.topic: conceptual
-ms.openlocfilehash: fb7ddce34a32d7108587bf1a3d47be4b31214535
-ms.sourcegitcommit: 0b80a5802343ea769a91f91a8cdbdf1b67a932d3
+ms.openlocfilehash: 387e100a05cb51eb034f737b259bad4e5812465c
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/25/2020
-ms.locfileid: "83832280"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85557879"
 ---
 # <a name="monitor-runbook-output"></a>Superviser une sortie de runbook
 
@@ -88,7 +88,7 @@ Voici des exemples de types de données de sortie :
 
 #### <a name="declare-output-data-type-in-a-workflow"></a>Déclarer le type de données de sortie dans un workflow
 
-Un flux de travail spécifie le type de données de sa sortie à l’aide de l’ [attribut OutputType](https://technet.microsoft.com/library/hh847785.aspx). Cet attribut n’a aucun effet lors de l’exécution, mais il vous fournit une indication sur la sortie attendue du Runbook au moment de la conception. Alors que l’ensemble d’outils dédiés aux Runbooks continue d’évoluer, la déclaration des types de données de sortie au moment de la conception augmente. Par conséquent, il est recommandé d’inclure cette déclaration dans tous les Runbooks que vous créez.
+Un flux de travail spécifie le type de données de sa sortie à l’aide de l’ [attribut OutputType](/powershell/module/microsoft.powershell.core/about/about_functions_outputtypeattribute). Cet attribut n’a aucun effet lors de l’exécution, mais il vous fournit une indication sur la sortie attendue du Runbook au moment de la conception. Alors que l’ensemble d’outils dédiés aux Runbooks continue d’évoluer, la déclaration des types de données de sortie au moment de la conception augmente. Par conséquent, il est recommandé d’inclure cette déclaration dans tous les Runbooks que vous créez.
 
 L’exemple de Runbook suivant génère un objet String et inclut une déclaration de son type de sortie. Si votre Runbook génère un tableau d’un certain type, vous devez toujours spécifier le type, par opposition à un tableau du type.
 

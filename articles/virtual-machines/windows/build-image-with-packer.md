@@ -8,17 +8,17 @@ ms.topic: article
 ms.workload: infrastructure
 ms.date: 02/22/2019
 ms.author: cynthn
-ms.openlocfilehash: 4180f62e589ef79227d8e60ca19661e1c65f0097
-ms.sourcegitcommit: 318d1bafa70510ea6cdcfa1c3d698b843385c0f6
+ms.openlocfilehash: ec6fcfbc171b7227c79741c00adbc16be4c7ce87
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/21/2020
-ms.locfileid: "83773319"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85445523"
 ---
 # <a name="how-to-use-packer-to-create-windows-virtual-machine-images-in-azure"></a>Comment utiliser Packer pour créer des images de machines virtuelles Windows dans Azure
 Chaque machine virtuelle dans Azure est créée à partir d’une image qui définit la distribution Windows et la version du système d’exploitation. Les images peuvent inclure des configurations et des applications pré-installées. La Place de marché Microsoft Azure fournit de nombreuses images internes et de tiers pour les systèmes d’exploitation et environnements d’application les plus courants. Vous pouvez également créer vos propres images personnalisées selon vos besoins. Cet article explique comment utiliser l’outil open source [Packer](https://www.packer.io/) pour définir et générer des images personnalisées dans Azure.
 
-Cet article a été testé pour la dernière fois le 21/02/2019 à l’aide du [module Az PowerShell](https://docs.microsoft.com/powershell/azure/install-az-ps) version 1.3.0 et de [Packer](https://www.packer.io/docs/install/index.html) version 1.3.4.
+Cet article a été testé pour la dernière fois le 21/02/2019 à l’aide du [module Az PowerShell](https://docs.microsoft.com/powershell/azure/install-az-ps) version 1.3.0 et de [Packer](https://www.packer.io/docs/install) version 1.3.4.
 
 > [!NOTE]
 > Azure propose désormais un service, le générateur d’images Azure (préversion), pour définir et créer vos propres images personnalisées. Le générateur d’images Azure repose sur Packer. Vous pouvez donc même utiliser vos scripts d’approvisionnement de shell Packer existants. Pour vous familiariser avec le générateur d’images Azure, voir [Créer une machine virtuelle Windows avec le générateur d’images Azure](image-builder.md).
@@ -122,7 +122,7 @@ Ce modèle génère une machine virtuelle Windows Server 2016, installe IIS, p
 
 
 ## <a name="build-packer-image"></a>Génération de l’image Packer
-Si Packer n’est pas encore installé sur votre ordinateur local, [suivez les instructions d’installation de Packer](https://www.packer.io/docs/install/index.html).
+Si Packer n’est pas encore installé sur votre ordinateur local, [suivez les instructions d’installation de Packer](https://learn.hashicorp.com/packer/getting-started/install).
 
 Générez l’image en ouvrant une invite de commandes et en spécifiant votre fichier de modèle Packer de la manière suivante :
 

@@ -5,18 +5,16 @@ author: vhorne
 ms.service: firewall-manager
 services: firewall-manager
 ms.topic: conceptual
-ms.date: 10/09/2019
+ms.date: 06/30/2020
 ms.author: victorh
-ms.openlocfilehash: d93c3b47c518962bf45762b846eaf53e490ae8f8
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 56e0d40bcbfb97f57b63dc82da1a6604f83dffad
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "73512006"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85563628"
 ---
 # <a name="what-is-a-secured-virtual-hub"></a>Qu’est-ce qu’un hub virtuel sécurisé ?
-
-[!INCLUDE [Preview](../../includes/firewall-manager-preview-notice.md)]
 
 Un hub virtuel est un réseau virtuel géré par Microsoft qui permet la connectivité à partir d’autres ressources. Lorsqu’un hub virtuel est créé à partir d’un Virtual WAN dans le Portail Azure, un réseau virtuel et des passerelles (facultatif) de hub virtuel sont créés en tant que composants.
 

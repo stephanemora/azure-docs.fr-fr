@@ -5,14 +5,14 @@ services: virtual-wan
 author: cherylmc
 ms.service: virtual-wan
 ms.topic: conceptual
-ms.date: 02/12/2020
+ms.date: 06/29/2020
 ms.author: cherylmc
-ms.openlocfilehash: 7848dda09b39f446dd218b7ce1eb2a07664bcaa6
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 816e8843467588cbfaeb5eb6e531d2221d28656b
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "77190411"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85565957"
 ---
 # <a name="automation-guidelines-for-virtual-wan-partners"></a>Conseils d’automatisation pour les partenaires Virtual WAN
 
@@ -54,7 +54,7 @@ Réfléchissez à l’expérience que votre client attend concernant Azure Virtu
 
 ###  <a name="access-control"></a><a name="access"></a>Contrôle d’accès
 
-Les clients doivent pouvoir configurer un contrôle d'accès approprié pour le réseau WAN virtuel dans l’interface utilisateur de l’appareil. L’utilisation d’un principal de service Azure est recommandée. Un accès basé sur le principal de service fournit au contrôleur de l’appareil une authentification adéquate pour charger des informations de branche. Pour plus d’informations, consultez la page [Créer un principal de service](../active-directory/develop/howto-create-service-principal-portal.md#create-an-azure-active-directory-application). Bien que cette fonctionnalité ne fasse pas partie de l’offre Azure Virtual WAN, nous répertorions ci-dessous les étapes classiques à suivre pour configurer l’accès dans Azure. Suite à cela, les détails pertinents sont saisis dans le tableau de bord de gestion de périphérique.
+Les clients doivent pouvoir configurer un contrôle d'accès approprié pour le réseau WAN virtuel dans l’interface utilisateur de l’appareil. L’utilisation d’un principal de service Azure est recommandée. Un accès basé sur le principal de service fournit au contrôleur de l’appareil une authentification adéquate pour charger des informations de branche. Pour plus d’informations, consultez la page [Créer un principal de service](../active-directory/develop/howto-create-service-principal-portal.md#register-an-application-with-azure-ad-and-create-a-service-principal). Bien que cette fonctionnalité ne fasse pas partie de l’offre Azure Virtual WAN, nous répertorions ci-dessous les étapes classiques à suivre pour configurer l’accès dans Azure. Suite à cela, les détails pertinents sont saisis dans le tableau de bord de gestion de périphérique.
 
 * Créez une application Azure Active Directory pour votre contrôleur de périphérique local.
 * Obtenir un ID d’application et une clé d’authentification

@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 09/13/2019
 ms.author: girobins
 ms.custom: query-reference
-ms.openlocfilehash: cac8be4c39737ca209653532d00375c8c9bee48e
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 3ffe8fa9286c8594dc72d78582f8c7b0a3d05c78
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "71349080"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85563343"
 ---
 # <a name="type-checking-functions-azure-cosmos-db"></a>Fonctions de contrôle de type (Azure Cosmos DB)
 
@@ -23,13 +23,15 @@ Les fonctions de vérification du type vous permettent de vérifier le type d’
 Le tableau liste les fonctions de vérification du type intégrées qui sont prises en charge :
 
 Les fonctions suivantes prennent en charge la vérification de type par rapport aux valeurs d’entrée, et chacune renvoie une valeur booléenne.  
-  
-||||  
-|-|-|-|  
-|[IS_ARRAY](sql-query-is-array.md)|[IS_BOOL](sql-query-is-bool.md)|[IS_DEFINED](sql-query-is-defined.md)|  
-|[IS_NULL](sql-query-is-null.md)|[IS_NUMBER](sql-query-is-number.md)|[IS_OBJECT](sql-query-is-object.md)|  
-|[IS_PRIMITIVE](sql-query-is-primitive.md)|[IS_STRING](sql-query-is-string.md)||  
-  
+
+* [IS_ARRAY](sql-query-is-array.md)
+* [IS_BOOL](sql-query-is-bool.md)
+* [IS_DEFINED](sql-query-is-defined.md)
+* [IS_NULL](sql-query-is-null.md)
+* [IS_NUMBER](sql-query-is-number.md)
+* [IS_OBJECT](sql-query-is-object.md)
+* [IS_PRIMITIVE](sql-query-is-primitive.md)
+* [IS_STRING](sql-query-is-string.md)
 
 ## <a name="next-steps"></a>Étapes suivantes
 

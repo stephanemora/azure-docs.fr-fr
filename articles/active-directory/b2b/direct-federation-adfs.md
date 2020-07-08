@@ -4,7 +4,7 @@ description: Découvrez comment configurer AD FS en tant que fournisseur d’ide
 services: active-directory
 ms.service: active-directory
 ms.subservice: B2B
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 07/01/2019
 ms.author: mimart
 author: msmimart
@@ -12,18 +12,17 @@ manager: celestedg
 ms.reviewer: mal
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e350d6338b6ca589ab18d068ef6a314363fe205c
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 1b3d7c47ff0a2c533bf12a67958a913b22915f75
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "74272828"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85551525"
 ---
 # <a name="example-direct-federation-with-active-directory-federation-services-ad-fs-preview"></a>Exemple : Fédération directe avec les services de fédération Active Directory (AD FS) (préversion)
-|     |
-| --- |
-| La fédération directe est une fonctionnalité d’évaluation publique d’Azure Active Directory. Pour plus d’informations sur les préversions, consultez [Conditions d’utilisation supplémentaires pour les préversions de Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).|
-|     |
+
+> [!NOTE]
+> La fédération directe est une fonctionnalité d’évaluation publique d’Azure Active Directory. Pour plus d’informations sur les préversions, consultez [Conditions d’utilisation supplémentaires pour les préversions de Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 Cet article décrit comment configurer la [fédération directe](direct-federation.md) à l’aide des services de fédération Active Directory (AD FS) en tant que fournisseur d’identité SAML 2.0 ou WS-Fed. Pour prendre en charge la fédération directe, des attributs et revendications doivent être configurés au niveau du fournisseur d’identité. Pour illustrer comment configurer un fournisseur d’identité pour la fédération directe, nous allons utiliser les services de fédération Active Directory (AD FS) comme exemple. Nous allons montrer comment configurer AD FS en tant que fournisseur d’identité SAML et en tant que fournisseur d’identité WS-Fed.
 

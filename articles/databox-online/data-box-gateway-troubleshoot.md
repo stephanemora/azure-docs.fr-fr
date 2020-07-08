@@ -5,25 +5,26 @@ services: databox
 author: alkohli
 ms.service: databox
 ms.subservice: gateway
-ms.topic: article
+ms.topic: troubleshooting
 ms.date: 03/20/2019
 ms.author: alkohli
-ms.openlocfilehash: b452362744d7fbf655ea043127a15f5173d04e4c
-ms.sourcegitcommit: 856db17a4209927812bcbf30a66b14ee7c1ac777
+ms.openlocfilehash: 9688df6c27717cc74c874c75a9df0b47ffd24853
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "82562455"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85564016"
 ---
-# <a name="troubleshoot-your-azure-data-box-gateway-issues"></a>Résoudre les problèmes d’Azure Data Box Gateway 
+# <a name="troubleshoot-your-azure-data-box-gateway-issues"></a>Résoudre les problèmes d’Azure Data Box Gateway
 
-Cet article explique comment résoudre les problèmes de votre solution Azure Data Box Gateway. Dans cet article, vous apprendrez comment :
+Cet article explique comment résoudre les problèmes de votre solution Azure Data Box Gateway.
+Dans cet article, vous apprendrez comment :
 
 > [!div class="checklist"]
+>
 > * Exécuter les diagnostics
 > * Collecter un package de support
 > * Utiliser les journaux d’activité pour résoudre les problèmes
-
 
 ## <a name="run-diagnostics"></a>Exécuter les diagnostics
 

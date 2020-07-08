@@ -9,12 +9,12 @@ ms.service: cognitive-services
 ms.topic: conceptual
 ms.date: 10/23/2019
 ms.author: aahi
-ms.openlocfilehash: 33200f8807ad28ac160bb377b1107548f4e42d51
-ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
+ms.openlocfilehash: 4a73ff517347baa2cf589432be025bd922597ed3
+ms.sourcegitcommit: 32592ba24c93aa9249f9bd1193ff157235f66d7e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83590806"
+ms.lasthandoff: 07/01/2020
+ms.locfileid: "85611388"
 ---
 # <a name="create-a-cognitive-services-resource-using-the-azure-portal"></a>Créer un compte Cognitive Services dans le portail Azure
 
@@ -25,24 +25,24 @@ Ce guide de démarrage rapide vous montre comment commencer à utiliser Azure Co
 
 ## <a name="prerequisites"></a>Prérequis
 
-* Un abonnement Azure valide - [Créer un abonnement gratuitement](https://azure.microsoft.com/free/)
+* Un abonnement Azure valide - [Créer un abonnement gratuitement](https://azure.microsoft.com/free/cognitive-services/)
 
 ## <a name="create-a-new-azure-cognitive-services-resource"></a>Créer une ressource Azure Cognitive Services
 
 1. Crée une ressource.
 
     #### <a name="multi-service-resource"></a>[Ressource multiservice](#tab/multiservice)
-    
+
     La ressource multiservice est nommée **Cognitive Services** dans le portail. [Créez une ressource Cognitive Services](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesAllInOne).
-    
+
     À ce stade, la ressource multiservice permet d’accéder aux services Cognitive Services suivants :
-    
+
     |                  |                                                      |                    |                               |                  |
     |------------------|------------------------------------------------------|--------------------|-------------------------------|------------------|
     | Vision par ordinateur  | Content Moderator                                    | Face               | Language Understanding (LUIS) | Analyse de texte   |
     | Convertisseur  | Recherche Bing v7 <br>(Web, Image, Actualités, Vidéo, Visuel) | Recherche personnalisée Bing | Recherche d’entité Bing            | Suggestion automatique Bing |
     | Vérification orthographique Bing |                                                      |                    |                               |                  |
-    
+
     #### <a name="single-service-resource"></a>[Ressource monoservice](#tab/singleservice)
 
     Utilisez les liens ci-dessous afin de créer une ressource pour les services Cognitive Services disponibles :

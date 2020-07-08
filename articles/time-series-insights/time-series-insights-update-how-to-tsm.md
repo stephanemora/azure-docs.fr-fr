@@ -10,19 +10,19 @@ services: time-series-insights
 ms.topic: conceptual
 ms.date: 02/18/2020
 ms.custom: seodec18
-ms.openlocfilehash: 39ebbf99ad31cce20eabc20fbdc056c889235713
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 2fa56217c54ac662a62a5ce835d75e3d85f05bfa
+ms.sourcegitcommit: e132633b9c3a53b3ead101ea2711570e60d67b83
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "77470749"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86041470"
 ---
 # <a name="data-modeling-in-azure-time-series-insights-preview"></a>Modélisation des données dans Azure Time Series Insights (préversion)
 
 Cet article décrit comment utiliser le modèle Time Series d’Azure Time Series Insights (préversion). Il décrit en détail plusieurs scénarios de données courants.
 
 > [!TIP]
-> * Découvrez le [Modèle Time Series](time-series-insights-update-tsm.md) en préversion.
+> * Découvrez le [Modèle Time Series](concepts-model-overview.md) en préversion.
 > * Apprenez-en davantage sur la navigation dans l’interface utilisateur de l’[explorateur Azure Time Series Insights en préversion](./time-series-insights-update-explorer.md).
 
 ## <a name="instances"></a>Instances
@@ -168,7 +168,7 @@ Pour commencer, sélectionnez l’affichage **Modèle** dans l’affichage **Ana
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-- Pour plus d’informations sur le modèle Time Series, consultez [Modélisation des données](./time-series-insights-update-tsm.md).
+- Pour plus d’informations sur le modèle Time Series, consultez [Modélisation des données](./concepts-model-overview.md).
 
 - Pour en savoir plus sur la préversion, consultez [Visualiser les données dans l’Explorateur de la préversion d’Azure Time Series Insights](./time-series-insights-update-explorer.md).
 

@@ -8,12 +8,12 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 04/01/2020
-ms.openlocfilehash: 93f1da7db3962994611f70fc145d0e9b62cd4f26
-ms.sourcegitcommit: 1692e86772217fcd36d34914e4fb4868d145687b
+ms.openlocfilehash: 15d2a7a2ad00f7f9b5db59d3d4803f60508b7b2c
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/29/2020
-ms.locfileid: "84167857"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85561592"
 ---
 # <a name="how-to-work-with-search-results-in-azure-cognitive-search"></a>Guide pratique pour utiliser les résultats de recherche dans Recherche cognitive Azure
 
@@ -28,7 +28,7 @@ Bien qu’un document de recherche puisse comporter un grand nombre de champs, e
 Les champs qui fonctionnent le mieux incluent ceux qui distinguent et différencient les documents, en fournissant suffisamment d’informations pour inviter l’utilisateur à cliquer sur le document. Sur un site d’e-commerce, il peut s’agir d’un nom de produit, d’une description, d’une couleur, d’une taille, d’un prix et d’une évaluation. Pour l’exemple intégré hotels-sample-index, il peut s’agir de champs dans l’exemple suivant :
 
 ```http
-POST /indexes/hotels-sample-index/docs/search?api-version=2019-05-06 
+POST /indexes/hotels-sample-index/docs/search?api-version=2020-06-30 
     {  
       "search": "sandy beaches",
       "select": "HotelId, HotelName, Description, Rating, Address/City"
@@ -103,11 +103,11 @@ La mise en forme est appliquée aux requêtes de termes entières. Le type de mi
 Dans l’exemple suivant, les termes « sablonneux », « sable », « plages » et « plage » trouvés dans le champ Description sont balisés pour la mise en surbrillance. Les requêtes qui déclenchent une extension de requête dans le moteur, telles que les recherches floues ou par caractères génériques, offrent une prise en charge limitée de la mise en surbrillance des correspondances.
 
 ```http
-GET /indexes/hotels-sample-index/docs/search=sandy beaches&highlight=Description?api-version=2019-05-06 
+GET /indexes/hotels-sample-index/docs/search=sandy beaches&highlight=Description?api-version=2020-06-30 
 ```
 
 ```http
-POST /indexes/hotels-sample-index/docs/search?api-version=2019-05-06 
+POST /indexes/hotels-sample-index/docs/search?api-version=2020-06-30 
     {  
       "search": "sandy beaches",  
       "highlight": "Description"

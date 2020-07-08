@@ -9,12 +9,12 @@ ms.devlang: rest-api
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 05/18/2020
-ms.openlocfilehash: 3524f55f70ff42bd5ff800fb2bd7ab7b0e732596
-ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
+ms.openlocfilehash: c67a5537a74e37473280fbd44fa47c65f2a37806
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83663287"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85563150"
 ---
 # <a name="set-up-an-indexer-connection-to-a-cosmos-db-database-using-a-managed-identity-preview"></a>Configurer une connexion d’indexeur à une base de données Cosmos DB à l’aide d’une identité managée (préversion)
 
@@ -65,7 +65,7 @@ Lorsque vous utilisez des identités managées pour l’authentification auprès
 Exemple de création d’un objet source de données Cosmos DB à l’aide de l’[API REST](https://docs.microsoft.com/rest/api/searchservice/create-data-source) :
 
 ```
-POST https://[service name].search.windows.net/datasources?api-version=2019-05-06
+POST https://[service name].search.windows.net/datasources?api-version=2020-06-30
 Content-Type: application/json
 api-key: [Search service admin key]
 
@@ -103,7 +103,7 @@ L’index spécifie les champs d’un document, les attributs et d’autres cons
 Voici comment créer un index avec un champ `booktitle` pouvant faire l’objet d’une recherche :
 
 ```
-POST https://[service name].search.windows.net/indexes?api-version=2019-05-06
+POST https://[service name].search.windows.net/indexes?api-version=2020-06-30
 Content-Type: application/json
 api-key: [admin key]
 
@@ -126,7 +126,7 @@ Une fois l’index et la source de données créés, vous êtes prêt à créer 
 
 Exemple de définition d’indexeur :
 
-    POST https://[service name].search.windows.net/indexers?api-version=2019-05-06
+    POST https://[service name].search.windows.net/indexers?api-version=2020-06-30
     Content-Type: application/json
     api-key: [admin key]
 

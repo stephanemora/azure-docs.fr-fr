@@ -6,16 +6,16 @@ author: filippopovic
 manager: craigg
 ms.service: synapse-analytics
 ms.topic: conceptual
-ms.subservice: ''
+ms.subservice: sql
 ms.date: 05/01/2020
 ms.author: fipopovi
 ms.reviewer: jrasnick
-ms.openlocfilehash: 79318ab67ec58ed10520365a366785ea0de41666
-ms.sourcegitcommit: 0b80a5802343ea769a91f91a8cdbdf1b67a932d3
+ms.openlocfilehash: 7bebfeba6da1493557d51777ba8438747e160750
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/25/2020
-ms.locfileid: "83836326"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85476272"
 ---
 # <a name="best-practices-for-sql-on-demand-preview-in-azure-synapse-analytics"></a>Meilleures pratiques pour SQL à la demande (préversion) dans Azure Synapse Analytics
 
@@ -52,7 +52,7 @@ Si possible, vous pouvez préparer les fichiers pour améliorer les performances
 
 ## <a name="push-wildcards-to-lower-levels-in-the-path"></a>Envoyer (push) des caractères génériques à des niveaux inférieurs dans le chemin d’accès
 
-Vous pouvez utiliser des caractères génériques dans votre chemin pour [interroger plusieurs fichiers et dossiers](develop-storage-files-overview.md#query-multiple-files-or-folders). SQL à la demande répertorie les fichiers figurant dans votre compte de stockage, à partir du premier caractère générique (*), utilisant l’API de stockage. Il élimine les fichiers qui ne correspondent pas au chemin d’accès spécifié. La réduction de la liste de fichiers initiale peut améliorer les performances si de nombreux fichiers correspondent au chemin spécifié jusqu’au premier caractère générique.
+Vous pouvez utiliser des caractères génériques dans votre chemin pour [interroger plusieurs fichiers et dossiers](query-data-storage.md#query-multiple-files-or-folders). SQL à la demande répertorie les fichiers figurant dans votre compte de stockage, à partir du premier caractère générique (*), utilisant l’API de stockage. Il élimine les fichiers qui ne correspondent pas au chemin d’accès spécifié. La réduction de la liste de fichiers initiale peut améliorer les performances si de nombreux fichiers correspondent au chemin spécifié jusqu’au premier caractère générique.
 
 ## <a name="use-appropriate-data-types"></a>Utiliser les types de données appropriés
 
@@ -113,7 +113,7 @@ FROM
 
 Les données sont souvent organisées en partitions. Vous pouvez donner pour instruction à SQL à la demande d’interroger des dossiers et fichiers particuliers. Cela contribue à réduire le nombre de fichiers et la quantité de données que la requête doit lire et traiter. En prime, vous obtiendrez de meilleures performances.
 
-Pour plus d’informations, consultez les fonctions [filename](develop-storage-files-overview.md#filename-function) et [filepath](develop-storage-files-overview.md#filepath-function), ainsi que les exemples d’[interrogation de fichiers spécifiques](query-specific-files.md).
+Pour plus d’informations, consultez les fonctions [filename](query-data-storage.md#filename-function) et [filepath](query-data-storage.md#filepath-function), ainsi que les exemples d’[interrogation de fichiers spécifiques](query-specific-files.md).
 
 > [!TIP]
 > Castez toujours les résultats des fonctions filepath et filename vers les types de données appropriés. Si vous utilisez des types de données caractères, veillez à utiliser la longueur appropriée.

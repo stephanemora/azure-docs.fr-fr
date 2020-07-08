@@ -11,18 +11,17 @@ author: msmimart
 manager: celestedg
 ms.reviewer: elisolMS
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 98456f26fbc7ca3955883eb283b54084bd86d503
-ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
+ms.openlocfilehash: 34b08e2e530843dd98c87e424812706247388228
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/21/2020
-ms.locfileid: "83737756"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85551318"
 ---
 # <a name="self-service-sign-up-preview"></a>Inscription en libre-service (préversion)
-|     |
-| --- |
-| L’inscription en libre-service est une fonctionnalité en préversion publique d’Azure Active Directory. Pour plus d’informations sur les préversions, consultez [Conditions d’utilisation supplémentaires pour les préversions de Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).|
-|     |
+
+> [!NOTE]
+> L’inscription en libre-service est une fonctionnalité en préversion publique d’Azure Active Directory. Pour plus d’informations sur les préversions, consultez [Conditions d’utilisation supplémentaires pour les préversions de Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 Lorsque vous partagez une application avec des utilisateurs externes, vous ne savez pas toujours à l’avance qui aura besoin d’y accéder. Au lieu d’envoyer des invitations directement à des personnes, vous pouvez autoriser les utilisateurs externes à s’inscrire pour accéder à des applications spécifiques en activant l’inscription en libre-service. Vous pouvez créez une expérience d’inscription sur mesure en personnalisant le flux utilisateur d’inscription en libre-service. Par exemple, vous pouvez fournir des options d’inscription auprès d’Azure AD ou de fournisseurs d’identité sociale, et collecter des informations sur l’utilisateur durant l’inscription.
 

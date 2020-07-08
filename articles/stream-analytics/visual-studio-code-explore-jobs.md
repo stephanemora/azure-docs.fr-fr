@@ -5,13 +5,13 @@ ms.service: stream-analytics
 author: mamccrea
 ms.author: mamccrea
 ms.date: 05/15/2019
-ms.topic: conceptual
-ms.openlocfilehash: 1d3a02d3778f9b4113767c5f755d675aeadd901b
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.topic: how-to
+ms.openlocfilehash: 00705e40ca17959701af325ed52a4c3754d35122
+ms.sourcegitcommit: e132633b9c3a53b3ead101ea2711570e60d67b83
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "75474755"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86039056"
 ---
 # <a name="explore-azure-stream-analytics-with-visual-studio-code-preview"></a>Explorer Azure Stream Analytics avec Visual Studio Code (préversion)
 

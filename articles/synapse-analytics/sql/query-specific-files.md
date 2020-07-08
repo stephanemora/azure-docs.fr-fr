@@ -5,16 +5,16 @@ services: synapse-analytics
 author: azaricstefan
 ms.service: synapse-analytics
 ms.topic: how-to
-ms.subservice: ''
+ms.subservice: sql
 ms.date: 05/20/2020
 ms.author: v-stazar
 ms.reviewer: jrasnick, carlrab
-ms.openlocfilehash: e8d7301799bfb4af9a0f5a6f242be929e8253d7c
-ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
+ms.openlocfilehash: bf62d57aab07f5b1f2839b9e6e45c42e6b1b2c51
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/21/2020
-ms.locfileid: "83744217"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85478414"
 ---
 # <a name="using-file-metadata-in-queries"></a>Utiliser des métadonnées de fichier dans les requêtes
 
@@ -22,7 +22,7 @@ Le service de requête à la demande SQL peut traiter plusieurs fichiers et doss
 
 Vous devrez peut-être parfois savoir quelle source de fichier ou de dossier est corrélée à une ligne spécifique dans le jeu de résultats.
 
-Vous pouvez utiliser les fonctions `filepath` et `filename` pour retourner les noms ou le chemin d’accès des fichiers dans le jeu de résultats. Vous pouvez les utiliser pour filtrer des données sur le nom de ou le chemin d’accès du dossier. Ces fonctions sont décrites dans la section syntaxe des fonctions [filename](develop-storage-files-overview.md#filename-function) et [filepath](develop-storage-files-overview.md#filepath-function). Vous trouverez ci-dessous de brèves descriptions des exemples.
+Vous pouvez utiliser les fonctions `filepath` et `filename` pour retourner les noms ou le chemin d’accès des fichiers dans le jeu de résultats. Vous pouvez les utiliser pour filtrer des données sur le nom de ou le chemin d’accès du dossier. Ces fonctions sont décrites dans la section syntaxe des fonctions [filename](query-data-storage.md#filename-function) et [filepath](query-data-storage.md#filepath-function). Vous trouverez ci-dessous de brèves descriptions des exemples.
 
 ## <a name="prerequisites"></a>Prérequis
 
