@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 03/12/2020
-ms.openlocfilehash: 61a71539dc034a216689eafd8991df60db96d2a4
-ms.sourcegitcommit: 632e7ed5449f85ca502ad216be8ec5dd7cd093cb
+ms.openlocfilehash: 771cfa11375e97f2f6a94fc65cbd72306b12cd7e
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/30/2020
-ms.locfileid: "80396922"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84803969"
 ---
 # <a name="how-to-query-logs-from-azure-monitor-for-vms"></a>Comment interroger des journaux d’activité à partir d’Azure Monitor pour les machines virtuelles
 
@@ -454,7 +454,7 @@ Les compteurs de performance actuellement collectés dans la table *InsightsMetr
 | Espace de noms | Nom | Description | Unité | Balises |
 |:---|:---|:---|:---|:---|
 | Computer    | Heartbeat             | Pulsation de l’ordinateur                        | | |
-| Mémoire      | AvailableMB           | Mémoire en octets disponible                    | Octets          | memorySizeMB - Taille totale de la mémoire|
+| Mémoire      | AvailableMB           | Mémoire en octets disponible                    | Mo      | memorySizeMB - Taille totale de la mémoire|
 | Réseau     | WriteBytesPerSecond   | Octets écrits sur le réseau par seconde            | BytesPerSecond | NetworkDeviceId - ID de l’appareil<br>bytes - Nombre total d’octets envoyés |
 | Réseau     | ReadBytesPerSecond    | Octets lus sur le réseau par seconde             | BytesPerSecond | networkDeviceId - ID de l’appareil<br>bytes - Nombre total d’octets reçus |
 | Processeur   | UtilizationPercentage | Pourcentage d’utilisation du processeur          | Pourcentage        | totalCpus - Nombre total de processeurs |
@@ -467,7 +467,7 @@ Les compteurs de performance actuellement collectés dans la table *InsightsMetr
 | LogicalDisk | ReadLatencyMs         | Latence de lecture sur le disque logique en millisecondes     | Millisecondes   | mountId - ID de montage de l’appareil |
 | LogicalDisk | ReadBytesPerSecond    | Octets de lecture sur le disque logique par seconde        | BytesPerSecond | mountId - ID de montage de l’appareil |
 | LogicalDisk | FreeSpacePercentage   | Pourcentage d’espace libre sur le disque logique        | Pourcentage        | mountId - ID de montage de l’appareil |
-| LogicalDisk | FreeSpaceMB           | Espace libre du disque logique en octets             | Octets          | mountId - ID de montage de l’appareil<br>diskSizeMB - Taille totale du disque |
+| LogicalDisk | FreeSpaceMB           | Espace libre du disque logique en octets             | Mo      | mountId - ID de montage de l’appareil<br>diskSizeMB - Taille totale du disque |
 | LogicalDisk | BytesPerSecond        | Octets par seconde sur le disque logique             | BytesPerSecond | mountId - ID de montage de l’appareil |
 
 

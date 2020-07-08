@@ -5,12 +5,12 @@ author: jakrams
 ms.author: jakras
 ms.date: 02/11/2020
 ms.topic: reference
-ms.openlocfilehash: ce287ed94066aac4b900d2ddb02579a54b8550f6
-ms.sourcegitcommit: 642a297b1c279454df792ca21fdaa9513b5c2f8b
+ms.openlocfilehash: f1ae8ca1ef940e45c2d32adc9a002b349f9e1b44
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/06/2020
-ms.locfileid: "80678951"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84783008"
 ---
 # <a name="material-mapping-for-model-formats"></a>Mappage de matériaux pour les formats de modèle
 
@@ -22,7 +22,7 @@ Cet article répertorie les mappages précis utilisés pour convertir les matér
 
 Presque tous les éléments de la spécification glTF 2.0 sont pris en charge dans Azure Remote Rendering, à l’exception de *EmissiveFactor* et *EmissiveTexture*.
 
-Le tableau suivant montre le mappage :
+La table qui suit affiche le mappage :
 
 | glTF | Azure Remote Rendering |
 |:-------------------|:--------------------------|
@@ -54,7 +54,6 @@ Les textures incorporées dans les fichiers *\*.bin* ou *\*.glb* sont prises en 
 En plus de l’ensemble de fonctionnalités de base, Azure Remote Rendering prend en charge les extensions glTF suivantes :
 
 * [MSFT_packing_occlusionRoughnessMetallic](https://github.com/KhronosGroup/glTF/blob/master/extensions/2.0/Vendor/MSFT_packing_occlusionRoughnessMetallic/README.md)
-* [MSFT_texture_dds](https://github.com/KhronosGroup/glTF/blob/master/extensions/2.0/Vendor/MSFT_texture_dds/README.md)
 * [KHR_materials_unlit](https://github.com/KhronosGroup/glTF/blob/master/extensions/2.0/Khronos/KHR_materials_unlit/README.md) : Correspond aux [matériaux couleur](../overview/features/color-materials.md). Pour les matériaux *émissifs*, il est recommandé d’utiliser cette extension.
 * [KHR_materials_pbrSpecularGlossiness](https://github.com/KhronosGroup/glTF/blob/master/extensions/2.0/Khronos/KHR_materials_pbrSpecularGlossiness/README.md) : Au lieu de textures d’ébauche métallique, vous pouvez fournir des textures diffuse-specular-glossiness. L’implémentation d’Azure Remote Rendering suit directement les formules de conversion de l’extension.
 

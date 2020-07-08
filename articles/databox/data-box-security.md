@@ -6,14 +6,14 @@ author: alkohli
 ms.service: databox
 ms.subservice: pod
 ms.topic: conceptual
-ms.date: 09/23/2019
+ms.date: 06/16/2020
 ms.author: alkohli
-ms.openlocfilehash: 21b05631f1c225c9c4b1f7c65d18588900850b8e
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 19f06893c862e1e34cd79a42c428d202918f92e2
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "77911734"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84817711"
 ---
 # <a name="azure-data-box-security-and-data-protection"></a>Protection des données et sécurité Azure Data Box
 
@@ -45,7 +45,6 @@ Data Box fournit une solution sécurisée pour la protection des données en vei
 Le service Data Box est protégé par les fonctionnalités suivantes :
 
 - Un boîtier robuste qui résiste aux chocs, aux aléas du transport et aux conditions environnementales. 
-- Des scellés inviolables pour éviter toute altération de l’appareil pendant le transit.
 - Un système de détection des altérations matérielles et logicielles empêchant d’autres opérations sur l’appareil.
 - Exécute uniquement des logiciels spécifiques à Data Box.
 - Démarre dans un état verrouillé.
@@ -57,7 +56,7 @@ Le service Data Box est protégé par les fonctionnalités suivantes :
 Les données qui circulent vers et depuis Data Box sont protégées par les fonctionnalités suivantes :
 
 - Chiffrement AES 256 bits pour les données au repos.
-- Des protocoles chiffrés peuvent être utilisés pour les données en transit.
+- Des protocoles chiffrés peuvent être utilisés pour les données en transit. Nous vous recommandons d’utiliser SMB 3.0 avec chiffrement pour protéger les données lorsque vous les copiez depuis vos serveurs de données.
 - Effacement sécurisé des données de l’appareil une fois le chargement des données vers Azure terminé. L’effacement des données est conforme aux instructions de l’[annexe A relative aux lecteurs de disque dur ATA dans les normes NIST 800-88r1](https://nvlpubs.nist.gov/nistpubs/SpecialPublications/NIST.SP.800-88r1.pdf). L’événement d’effacement de données est enregistré dans le [l’historique des commandes](data-box-logs.md#download-order-history).
 
 ### <a name="data-box-service-protection"></a>Protection du service Data Box
@@ -80,7 +79,7 @@ Azure Data Box collecte et affiche des informations personnelles dans les instan
 
   - Nom du contact
   - Numéro de téléphone
-  - Email
+  - E-mail
   - Adresse postale
   - City
   - Code postal

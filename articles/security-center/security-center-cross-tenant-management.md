@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/11/2019
 ms.author: memildin
-ms.openlocfilehash: 2aeb2ab4cfb4ed5e8652638aaced320cc7119d3e
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 7700e151a49dbfbad452927ba4a308651a0b584a
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "77919479"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84782810"
 ---
 # <a name="cross-tenant-management-in-security-center"></a>Gestion multilocataire dans Security Center
 
@@ -46,7 +46,7 @@ Dans la barre de menus supérieure, cliquez sur l’icône de filtre, puis séle
 Les vues et les actions sont plus ou moins identiques. Voici quelques exemples :
 
 - **Gérer les stratégies de sécurité** : Dans une vue, vous pouvez gérer la posture de sécurité de nombreuses ressources à l’aide de [stratégies](tutorial-security-policy.md), appliquer les recommandations de sécurité, ainsi que collecter et gérer les données liées à la sécurité.
-- **Améliorer le niveau de sécurité et l’état de conformité** : La visibilité entre les locataires vous permet de voir l’état de sécurité global de tous vos locataires. Ainsi, vous savez où et comment améliorer le [niveau de sécurité](security-center-secure-score.md) et l’[état de conformité](security-center-compliance-dashboard.md) de chacun d’entre eux.
+- **Améliorer le niveau de sécurité et l’état de conformité** : La visibilité multilocataire vous permet de voir la posture de sécurité globale de tous vos locataires, et ainsi, de déterminer où et comment améliorer le [degré de sécurisation](secure-score-security-controls.md) et la [posture de conformité](security-center-compliance-dashboard.md) pour chacun d’entre eux.
 - **Appliquer les recommandations** : Vous pouvez surveiller et appliquer une [recommandation](security-center-recommendations.md) à toutes les ressources des différents locataires en même temps. Ensuite, vous pouvez immédiatement vous attaquer aux vulnérabilités qui présentent le risque le plus élevé parmi tous les locataires.
 - **Gérer les alertes** : Détectez les [alertes](security-center-alerts-overview.md) sur les différents locataires. Appliquez les recommandations concernant les ressources non conformes à l’aide des [étapes de correction](security-center-managing-and-responding-alerts.md).
 

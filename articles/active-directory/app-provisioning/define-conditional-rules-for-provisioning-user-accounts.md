@@ -2,20 +2,20 @@
 title: Approvisionner des applications avec filtres d’étendue | Microsoft Docs
 description: Découvrez comment utiliser des filtres d’étendue pour empêcher les objets dans les applications qui prennent en charge l’approvisionnement automatisé des utilisateurs d’être approvisionnés si un objet n’est pas conforme à vos besoins.
 services: active-directory
-author: msmimart
-manager: CelesteDG
+author: kenwith
+manager: celestedg
 ms.service: active-directory
 ms.subservice: app-provisioning
 ms.workload: identity
-ms.topic: conceptual
-ms.date: 09/11/2018
-ms.author: mimart
-ms.openlocfilehash: 71c2e3a83c3d63d375935294a25a369ca7e54d80
-ms.sourcegitcommit: 3abadafcff7f28a83a3462b7630ee3d1e3189a0e
+ms.topic: how-to
+ms.date: 06/08/2020
+ms.author: kenwith
+ms.openlocfilehash: 1e858f1141ade52a1872d8a9822f515796d9182c
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/30/2020
-ms.locfileid: "82593742"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84781954"
 ---
 # <a name="attribute-based-application-provisioning-with-scoping-filters"></a>Approvisionnement d’applications basé sur les attributs avec filtres d’étendue
 L’objectif de cet article est d’expliquer comment utiliser des filtres d’étendue pour définir des règles basées sur des attributs qui déterminent quels utilisateurs sont approvisionnés pour une application.
@@ -29,7 +29,7 @@ Les filtres d’étendue peuvent être utilisés différemment en fonction du ty
 * **Approvisionnement sortant d’Azure AD vers des applications SaaS**. Quand Azure AD est le système source, [les affectations d’utilisateur et de groupe](../manage-apps/assign-user-or-group-access-portal.md) sont les méthodes les plus courantes pour déterminer les utilisateurs sujets à un approvisionnement. Ces affectations sont également utilisées pour activer l’authentification unique et fournissent une méthode unique pour gérer l’accès et l’approvisionnement. Les filtres d’étendue peuvent être utilisés si vous le souhaitez, en plus des affectations ou à leur place, afin de filtrer les utilisateurs selon des valeurs d’attribut.
 
     >[!TIP]
-    > Vous pouvez désactiver l’approvisionnement basé sur des affectations pour une application d’entreprise en changeant le menu [Étendue](../app-provisioning/user-provisioning.md#how-do-i-set-up-automatic-provisioning-to-an-application) sous les paramètres d’approvisionnement sur **Synchroniser tous les utilisateurs et groupes**. L’utilisation de cette option alliée aux filtres d’étendue basés sur les attributs offre de meilleures performances qu’en utilisant des affectations de groupe.  
+    > Vous pouvez désactiver l’approvisionnement basé sur des affectations pour une application d’entreprise en changeant le menu [Étendue](../app-provisioning/user-provisioning.md#how-do-i-set-up-automatic-provisioning-to-an-application) sous les paramètres d’approvisionnement sur **Synchroniser tous les utilisateurs et groupes**. 
 
 * **Approvisionnement entrant des applications HCM vers Azure AD et Active Directory**. Quand une [application HCM telle que Workday](../saas-apps/workday-tutorial.md) est le système source, l’utilisation de filtres d’étendue est la principale méthode pour déterminer les utilisateurs sujets à un approvisionnement de l’application HCM vers Active Directory ou Azure AD.
 

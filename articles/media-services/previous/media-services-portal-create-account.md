@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 04/01/2019
 ms.author: juliako
-ms.openlocfilehash: 1904ed9707859f0d00bca3b6e3aef90d1346cea5
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 3839efecc1f5c645e8365ca6441731868412371e
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "78331483"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84976844"
 ---
 # <a name="create-a-media-services-account-using-the-azure-portal"></a>Créer un compte Media Services avec le portail Azure
 
@@ -28,8 +28,6 @@ ms.locfileid: "78331483"
 
 Le portail Azure permet de créer rapidement un compte Azure Media Services (AMS). Vous pouvez utiliser ce dernier pour accéder à Media Services afin de stocker, de chiffrer, d’encoder, de gérer et de diffuser du contenu multimédia dans Azure. En créant un compte Media Services, vous créez aussi un compte de stockage associé (ou vous utilisez un compte existant). Si vous supprimez un compte Media Services, les objets blob de votre compte de stockage associé ne seront pas supprimés.
 
-Vous pouvez avoir Usage général v1 ou Usage général v2 comme compte de stockage principal. Actuellement, le portail Azure permet seulement de sélectionner la v1, mais vous pouvez ajouter la v2 lors de la création de votre compte avec l’API ou Powershell. Pour plus d’informations sur les types de stockage, consultez [À propos des comptes de stockage Azure](https://docs.microsoft.com/azure/storage/common/storage-create-storage-account).
-
 Le compte Media Services et tous les comptes de stockage associés doivent être faire partie du même abonnement Azure. Il est fortement recommandé d’utiliser des comptes de stockage situés au même emplacement que le compte Media Services afin d’éviter des frais supplémentaires de sortie des données et une importante latence.
 
 Cet article montre comment créer un compte Media Services à l’aide du portail Azure.
@@ -37,7 +35,7 @@ Cet article montre comment créer un compte Media Services à l’aide du portai
 > [!NOTE]
 > Pour plus d’informations sur la disponibilité des fonctionnalités Azure Media Services dans des régions différentes, consultez la [disponibilité des fonctionnalités AMS entre les centres de données](scenarios-and-availability.md#availability).
 
-## <a name="prerequisites"></a>Conditions préalables requises
+## <a name="prerequisites"></a>Prérequis
 
 Pour suivre ce tutoriel, vous avez besoin d’un compte Azure. Pour plus d’informations, consultez [Essai gratuit Azure](https://azure.microsoft.com/pricing/free-trial/). 
 
@@ -46,7 +44,7 @@ Pour suivre ce tutoriel, vous avez besoin d’un compte Azure. Pour plus d’inf
 Cette section montre comment créer un compte AMS.
 
 1. Connectez-vous au [portail Azure](https://portal.azure.com/).
-2. Cliquez sur **+Créer une ressource** > **Média** > **Media Services**.
+2. Cliquez sur **+ Créer une ressource** > **Média** > **Media Services**.
 3. Dans **CREATE MEDIA SERVICES ACCOUNT** (CRÉER UN COMPTE MEDIA SERVICES), entrez les valeurs requises.
 
    1. Dans **Nom du compte**, entrez le nom du nouveau compte AMS. Un nom de compte Media Services se compose de lettres en minuscules ou de chiffres, sans espaces. Sa longueur est comprise entre 3 et 24 caractères.
