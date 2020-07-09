@@ -7,12 +7,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 11/12/2019
 ms.author: raynew
-ms.openlocfilehash: 3e81e353d2912f56a932ce118a0424e45e758df7
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: fbd11c279708cd828693baab3f9f6df91515bc48
+ms.sourcegitcommit: e995f770a0182a93c4e664e60c025e5ba66d6a45
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "74133017"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86133903"
 ---
 # <a name="architecture---hyper-v-replication-to-a-secondary-site"></a>Architecture – Réplication Hyper-V vers un site secondaire
 
@@ -36,7 +36,7 @@ Le tableau et le graphique suivants fournissent une vue d’ensemble des composa
 
 ## <a name="replication-process"></a>Processus de réplication
 
-1. Au moment où la réplication initiale est déclenchée, un [instantané des machines virtuelles Hyper-V](https://technet.microsoft.com/library/dd560637.aspx) a lieu.
+1. Au moment où la réplication initiale est déclenchée, un [instantané des machines virtuelles Hyper-V](/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/dd560637(v=ws.10)) a lieu.
 2. Les disques durs virtuels sur la machine virtuelle sont répliqués un par un vers l’emplacement secondaire.
 3. Si des modifications interviennent sur les disques pendant la réplication initiale, le dispositif de suivi de réplication des réplicas Hyper-V assure le suivi des modifications dans des journaux d’activité de réplication Hyper-V (.hrl). Ces fichiers journaux se trouvent dans le même dossier que les disques. À chaque disque correspond un fichier .hrl, qui est envoyé à l’emplacement secondaire. L’instantané et les fichiers journaux consomment des ressources disque pendant la réplication initiale.
 4. Quand la réplication initiale s’achève, l’instantané de machine virtuelle est supprimé et la réplication delta commence.

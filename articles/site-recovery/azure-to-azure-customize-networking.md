@@ -8,12 +8,12 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 10/21/2019
 ms.author: rajanaki
-ms.openlocfilehash: ce3bfd85656972cb93b74a85a1bd6d469837ce22
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 848234417099c0a31bd0c9e84722b6221aec3aa9
+ms.sourcegitcommit: e995f770a0182a93c4e664e60c025e5ba66d6a45
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84236301"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86135829"
 ---
 # <a name="customize-networking-configurations-of-the-target-azure-vm"></a>Personnaliser les configurations réseau de la machine virtuelle Azure cible
 
@@ -27,9 +27,9 @@ Découvrez comment Site Recovery permet la récupération d’urgence pour [ce s
 
 Vous pouvez fournir la configuration des ressources clés suivantes pour la machine virtuelle de basculement lors de la réplication des machines virtuelles Azure :
 
-- [Équilibreur de charge interne](https://docs.microsoft.com/azure/load-balancer/load-balancer-overview)
+- [Équilibreur de charge interne](../load-balancer/load-balancer-overview.md)
 - [Adresse IP publique](../virtual-network/public-ip-addresses.md)
-- [Groupe de sécurité réseau](https://docs.microsoft.com/azure/virtual-network/manage-network-security-group) pour le sous-réseau et pour la carte réseau
+- [Groupe de sécurité réseau](../virtual-network/manage-network-security-group.md) pour le sous-réseau et pour la carte réseau
 
 ## <a name="prerequisites"></a>Prérequis
 

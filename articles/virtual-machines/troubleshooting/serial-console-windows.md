@@ -13,12 +13,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 5/1/2019
 ms.author: alsin
-ms.openlocfilehash: c555b058e6d0b8c110a3273525b5a8c58baaff61
-ms.sourcegitcommit: 69156ae3c1e22cc570dda7f7234145c8226cc162
+ms.openlocfilehash: 0fd2bcfb32524c6911a70157f58cea1e48b7bea9
+ms.sourcegitcommit: e995f770a0182a93c4e664e60c025e5ba66d6a45
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/03/2020
-ms.locfileid: "84309779"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86135250"
 ---
 # <a name="azure-serial-console-for-windows"></a>Console série Azure pour Windows
 
@@ -102,15 +102,15 @@ Si vous souhaitez que les invites de commandes du chargeur de démarrage Windows
 
     ![Se connecter à la console SAC](./media/virtual-machines-serial-console/virtual-machine-windows-serial-console-connect-sac.png)
 
-1.    Entrez `cmd` pour créer un canal qui a une instance CMD.
+1. Entrez `cmd` pour créer un canal qui a une instance CMD.
 
-1.    Entrez `ch -si 1` ou appuyez sur les touches de raccourci `<esc>+<tab>` pour basculer vers le canal qui exécute l’instance CMD.
+1. Entrez `ch -si 1` ou appuyez sur les touches de raccourci `<esc>+<tab>` pour basculer vers le canal qui exécute l’instance CMD.
 
-1.    Appuyez sur **Entrée**, puis entrez des informations de connexion disposant d’autorisations administratives.
+1. Appuyez sur **Entrée**, puis entrez des informations de connexion disposant d’autorisations administratives.
 
-1.    Une fois que vous avez entré des informations d’identification valides, l’instance CMD s’ouvre.
+1. Une fois que vous avez entré des informations d’identification valides, l’instance CMD s’ouvre.
 
-1.    Pour démarrer une instance de PowerShell, entrez `PowerShell` dans l’instance CMD, puis appuyez sur **Entrée**.
+1. Pour démarrer une instance de PowerShell, entrez `PowerShell` dans l’instance CMD, puis appuyez sur **Entrée**.
 
     ![Ouvrir l’instance PowerShell](./media/virtual-machines-serial-console/virtual-machine-windows-serial-console-powershell.png)
 

@@ -3,12 +3,12 @@ title: Obtenir les changements des ressources
 description: Découvrez comment savoir quand une ressource a été modifiée, obtenir une liste des propriétés modifiées et évaluer les différences.
 ms.date: 05/20/2020
 ms.topic: how-to
-ms.openlocfilehash: ace911361ccb96cab3d5c7557ba0e524dbf801d2
-ms.sourcegitcommit: e132633b9c3a53b3ead101ea2711570e60d67b83
+ms.openlocfilehash: 3d65b5d7e968fda17f80d790ae3171398e2cb73b
+ms.sourcegitcommit: e995f770a0182a93c4e664e60c025e5ba66d6a45
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/07/2020
-ms.locfileid: "86044989"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86135543"
 ---
 # <a name="get-resource-changes"></a>Obtenir les changements des ressources
 
@@ -25,7 +25,7 @@ La détection des modifications et les détails sont utiles dans les scénarios 
 - Dans le maintien d’une base de données de gestion de la configuration (CMBD) à jour. Au lieu de l’actualisation de toutes les ressources et de leurs jeux de propriétés complets selon une fréquence planifiée, obtenez uniquement les informations relatives à ce qui a changé.
 - Pour la compréhension des autres propriétés modifiées lorsqu’une ressource a changé d’état de conformité. L’évaluation de ces propriétés supplémentaires peut fournir des insights sur les autres propriétés susceptibles de nécessiter une gestion par le biais d’une définition Azure Policy.
 
-Cet article montre comment rassembler ces informations au moyen du kit SDK Resource Graph. Pour obtenir ces informations dans le Portail Azure, voir [Historique des changements](../../policy/how-to/determine-non-compliance.md#change-history) d’Azure Policy ou [Historique des changements](../../../azure-monitor/platform/activity-log-view.md#azure-portal) d’Azure Activity Log. Pour plus de détails sur les changements apportés à vos applications de la couche d’infrastructure jusqu’au déploiement des applications, consultez [Utiliser l’analyse des changements d’application (préversion)](../../../azure-monitor/app/change-analysis.md) dans Azure Monitor.
+Cet article montre comment rassembler ces informations au moyen du kit SDK Resource Graph. Pour obtenir ces informations dans le Portail Azure, voir [Historique des changements](../../policy/how-to/determine-non-compliance.md#change-history) d’Azure Policy ou [Historique des changements](../../../azure-monitor/platform/activity-log.md#view-the-activity-log) d’Azure Activity Log. Pour plus de détails sur les changements apportés à vos applications de la couche d’infrastructure jusqu’au déploiement des applications, consultez [Utiliser l’analyse des changements d’application (préversion)](../../../azure-monitor/app/change-analysis.md) dans Azure Monitor.
 
 > [!NOTE]
 > Les détails des modifications dans Resource Graph concernent les propriétés Resource Manager. Pour le suivi des modifications à l’intérieur d’une machine virtuelle, voir [Suivi des modifications](../../../automation/change-tracking.md) d’Azure Automation ou [Guest Configuration for VMs (Configuration invitée pour les machines virtuelles)](../../policy/concepts/guest-configuration.md) d’Azure Policy.

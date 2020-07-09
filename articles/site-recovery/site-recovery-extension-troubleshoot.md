@@ -5,12 +5,12 @@ author: sideeksh
 manager: rochakm
 ms.topic: troubleshooting
 ms.date: 11/27/2018
-ms.openlocfilehash: a780a42179a0bacf0e4a12ba1e75ae84943539b4
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 913f1f2a7a03c1abb83d8daa6d4b0c3f6e77e309
+ms.sourcegitcommit: e995f770a0182a93c4e664e60c025e5ba66d6a45
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "77190724"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86133747"
 ---
 # <a name="troubleshoot-azure-vm-extension-issues"></a>Résoudre les problèmes d’extension de machine virtuelle Azure
 
@@ -69,14 +69,14 @@ Il se peut que l’agent de machine virtuelle soit endommagé ou que le service 
 1. Vérifiez que le service d’agent invité Microsoft Azure apparaît dans les services.
 1. Redémarrez le travail de protection.
 
-Vérifiez également que [Microsoft .NET 4.5 est installé](https://docs.microsoft.com/dotnet/framework/migration-guide/how-to-determine-which-versions-are-installed) dans la machine virtuelle. Vous avez besoin de .NET 4.5 pour permettre à l’agent de machine virtuelle de communiquer avec le service.
+Vérifiez également que [Microsoft .NET 4.5 est installé](/dotnet/framework/migration-guide/how-to-determine-which-versions-are-installed) dans la machine virtuelle. Vous avez besoin de .NET 4.5 pour permettre à l’agent de machine virtuelle de communiquer avec le service.
 
 ### <a name="the-agent-installed-in-the-vm-is-out-of-date-for-linux-vms"></a>L’agent installé dans la machine virtuelle est obsolète (pour les machines virtuelles Linux)
 
 #### <a name="solution"></a>Solution
 La plupart des échecs des machines virtuelles Linux liés aux agents ou aux extensions sont causés par des problèmes qui affectent un agent obsolète de machine virtuelle. Pour résoudre ce problème, suivez ces recommandations générales :
 
-1. Suivez les instructions fournies pour la [mise à jour d’un agent de machine virtuelle Linux](../virtual-machines/linux/update-agent.md).
+1. Suivez les instructions fournies pour la [mise à jour d’un agent de machine virtuelle Linux](../virtual-machines/extensions/update-linux-agent.md).
 
    > [!NOTE]
    > Nous *recommandons vivement* la mise à jour de l’agent uniquement par le biais de référentiel de distribution. Nous ne recommandons pas de télécharger le code de l’agent à partir de GitHub directement et d’effectuer la mise à jour. Si la dernière version de l’agent n’est pas disponible pour la distribution, contactez le support de distribution pour savoir comment l’installer. Pour rechercher l’agent le plus récent, accédez à la page relative à l’[agent Windows Azure Linux](https://github.com/Azure/WALinuxAgent/releases) du référentiel GitHub.
@@ -107,6 +107,6 @@ Pour désinstaller l’extension :
 1. Sélectionnez **Extension Site Recovery**.
 1. Sélectionner **Désinstaller**.
 
-Pour les machines virtuelles Linux, si l’extension VMSnapshot ne figure pas dans le portail Azure, [mettez à jour l’agent Linux Azure](../virtual-machines/linux/update-agent.md), puis exécutez la protection.
+Pour les machines virtuelles Linux, si l’extension VMSnapshot ne figure pas dans le portail Azure, [mettez à jour l’agent Linux Azure](../virtual-machines/extensions/update-linux-agent.md), puis exécutez la protection.
 
 Cette procédure réinstalle l’extension au cours de la protection.

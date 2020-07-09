@@ -12,12 +12,12 @@ ms.topic: conceptual
 ms.date: 02/22/2019
 tags: ''
 keywords: ''
-ms.openlocfilehash: 66f80c79219090c27da37dfc1d9149df5604961f
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 83f7f16d8406744a10451e8d488b7719845c525d
+ms.sourcegitcommit: e995f770a0182a93c4e664e60c025e5ba66d6a45
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "68841393"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86135943"
 ---
 # <a name="set-up-an-application-developers-controlled-distribution-adcd-in-ibm-zdt-v1"></a>Configurer une instance ADCD (Application Developers Controlled Distribution) dans IBM zD&T v1
 
@@ -76,7 +76,7 @@ Maintenant que vous disposez du ou des packages, vous devez les charger sur votr
 
 4. Une fois connecté, créez un répertoire pour charger les packages d’IBM. N’oubliez pas Linux respecte la casse. Par exemple, cette démonstration suppose que les packages sont chargés sur :
 
-        /home/MyUserID/ZDT/adcd/nov2017/volumes
+    `/home/MyUserID/ZDT/adcd/nov2017/volumes`
 
 5. Chargez les fichiers à l’aide d’un client SSH tel que [WinSCP](https://winscp.net/eng/index.php). SCP faisant partie du protocole SSH, il utilise le port 22, qui est utilisé par SSH. Si votre ordinateur local n’est pas sous Windows, vous pouvez saisir la [command scp](http://man7.org/linux/man-pages/man1/scp.1.html) dans votre session SSH.
 
@@ -89,8 +89,8 @@ Maintenant que vous disposez du ou des packages, vous devez les charger sur votr
 
 8. Lorsque les chargements sont terminés, accédez au répertoire de volumes et décompressez tous les volumes **gz** :
 
-    ```
-        gunzip \*.gz
+    ```console
+    gunzip \*.gz
     ```
     
 ![Explorateur de fichiers montrant des volumes gz décompressés](media/01-gunzip.png)
@@ -100,9 +100,9 @@ Maintenant que vous disposez du ou des packages, vous devez les charger sur votr
 L’étape suivante consiste à configurer zD&T pour utiliser le ou les packages chargés. Le processus de stockage des images dans zD&T vous permet de monter et d’utiliser les images. Il peut utiliser le protocole SSH ou FTP.
 
 1. Démarrez **zDTServer**. Pour cela, vous devez être au niveau racine. Entrez les deux commandes suivantes dans cet ordre :
-    ```
-        sudo su -
-        /opt/ibm/zDT/bin/startServer
+    ```console
+    sudo su -
+    /opt/ibm/zDT/bin/startServer
     ```
 2. Notez la sortie de l’URL par la commande et utilisez cette URL pour accéder au serveur web. Il ressemble à :
      > https://(nom ou adresse IP de votre machine virtuelle):9443/ZDTMC/index.html

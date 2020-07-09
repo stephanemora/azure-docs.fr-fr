@@ -7,12 +7,12 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 01/10/2020
 ms.author: mayg
-ms.openlocfilehash: 367f29237a3f2a634f209026df47b0cbd6ffc97c
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 1e4dcd8847d7d79d816d80b453a37f58c45417fd
+ms.sourcegitcommit: e995f770a0182a93c4e664e60c025e5ba66d6a45
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "75899065"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86135740"
 ---
 # <a name="replicate-machines-with-customer-managed-keys-cmk-enabled-disks"></a>Répliquer des machines avec des disques activées par les clés gérées par le client
 
@@ -40,7 +40,7 @@ Pour cet exemple, la région principale Azure est Asie Est et la région seconda
     - **Emplacement cible** : Emplacement où vos données de machines virtuelles sources sont répliquées. Site Recovery fournit la liste des régions cibles appropriées selon l’emplacement de la machine sélectionnée. Nous vous recommandons d’utiliser le même emplacement que celui du coffre Recovery Services.
     - **Abonnement cible** : abonnement cible utilisé pour la reprise d’activité. Par défaut, l’abonnement cible est identique à l’abonnement source.
     - **Groupe de ressources cible** : groupe de ressources auquel appartiennent toutes vos machines virtuelles répliquées. Par défaut, Site Recovery crée un groupe de ressources dans la région cible. Son nom porte le suffixe `asr`. S’il existe déjà un groupe de ressources créé par Azure Site Recovery, il est réutilisé. Vous pouvez également choisir de le personnaliser, comme indiqué dans la section suivante. L’emplacement du groupe de ressources cible peut être n’importe quelle région Azure à l’exception de la région dans laquelle les machines virtuelles sources sont hébergées.
-    - **Réseau virtuel cible** : Par défaut, Site Recovery crée un réseau virtuel dans la région cible. Son nom porte le suffixe `asr`. Il est mappé à votre réseau source et utilisé pour toute protection ultérieure. [En savoir plus](site-recovery-network-mapping-azure-to-azure.md) sur le mappage réseau.
+    - **Réseau virtuel cible** : Par défaut, Site Recovery crée un réseau virtuel dans la région cible. Son nom porte le suffixe `asr`. Il est mappé à votre réseau source et utilisé pour toute protection ultérieure. [En savoir plus](./azure-to-azure-network-mapping.md) sur le mappage réseau.
     - **Comptes de stockage cibles (si votre machine virtuelle source n’utilise pas de disques managés)**  : par défaut, Site Recovery crée un compte de stockage cible avec la même configuration que celle du compte de stockage de machines virtuelles source. S’il existe déjà un compte de stockage, il est réutilisé.
     - **Disques managés de réplica (si votre machine virtuelle source utilise des disques managés)**  : Site Recovery crée des disques managés de réplica dans la région cible pour refléter les disques managés de la machine virtuelle source du même type de stockage (Standard ou Premium).
     - **Comptes de stockage de cache** : Site Recovery a besoin d’un compte de stockage supplémentaire appelé *stockage de cache* dans la région source. Toutes les modifications apportées sur les machines virtuelles sources sont suivies et envoyées au compte de stockage de cache. Elles sont ensuite répliquées sur l’emplacement cible.
@@ -81,4 +81,3 @@ Suivez ces étapes pour modifier les paramètres cibles par défaut de Site Reco
 * J’ai ajouté un nouveau disque activé par une clé gérée par le client à l’élément répliqué. Comment puis-je répliquer ce disque à l’aide d’Azure Site Recovery ?
 
     L’ajout d’un nouveau disque activé par une clé gérée par le client à un élément répliqué existant n’est pas pris en charge. Désactivez et réactivez la réplication pour la machine virtuelle.
-

@@ -7,12 +7,12 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 11/05/2019
 ms.author: rajanaki
-ms.openlocfilehash: 0e409ffdedbac822aedf48833f2dd85f8e04afa2
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: e1254a2998a0acbf86b3689c66b83502c0334282
+ms.sourcegitcommit: e995f770a0182a93c4e664e60c025e5ba66d6a45
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "75894978"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86134484"
 ---
 # <a name="delete-a-site-recovery-services-vault"></a>Supprimer un coffre de services Site Recovery
 
@@ -72,4 +72,4 @@ Pour supprimer l’archivage Site Recovery, même s’il contient des éléments
 
     Remove-AzRecoveryServicesVault -Vault $vault
 
-Découvrez-en plus sur [Get-AzRecoveryServicesVault](https://docs.microsoft.com/powershell/module/az.recoveryservices/get-azrecoveryservicesvault) et [Remove-AzRecoveryServicesVault](https://docs.microsoft.com/powershell/module/az.recoveryservices/remove-azrecoveryservicesvault).
+Découvrez-en plus sur [Get-AzRecoveryServicesVault](/powershell/module/az.recoveryservices/get-azrecoveryservicesvault) et [Remove-AzRecoveryServicesVault](/powershell/module/az.recoveryservices/remove-azrecoveryservicesvault).

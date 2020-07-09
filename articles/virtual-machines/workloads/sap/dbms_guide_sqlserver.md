@@ -15,12 +15,12 @@ ms.workload: infrastructure
 ms.date: 09/26/2018
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 011904d7ce14f346b678c753c10a8f3258730ee1
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 9f41e1d8843783addf601becfda87607253e0a18
+ms.sourcegitcommit: e995f770a0182a93c4e664e60c025e5ba66d6a45
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84014517"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86135915"
 ---
 # <a name="sql-server-azure-virtual-machines-dbms-deployment-for-sap-netweaver"></a>Déploiement SGBD de machines virtuelles SQL Server Azure pour SAP NetWeaver
 
@@ -459,7 +459,9 @@ Le processus doit prendre quelques minutes seulement. Pour vérifier que le rés
 
 Le résultat doit être similaire à ce qui suit :
 
-    Latin1-General, binary code point comparison sort for Unicode Data, SQL Server Sort Order 40 on Code Page 850 for non-Unicode Data
+```output
+Latin1-General, binary code point comparison sort for Unicode Data, SQL Server Sort Order 40 on Code Page 850 for non-Unicode Data
+```
 
 Si le résultat est différent, INTERROMPEZ immédiatement le déploiement de SAP et cherchez à savoir pourquoi la commande n’a pas fonctionné comme prévu. Le système ne prend **PAS** en charge le déploiement d’applications SAP NetWeaver sur une instance SQL Server avec des pages de codes SQL autres que celle indiquée ci-dessus.
 

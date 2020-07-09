@@ -7,12 +7,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 11/14/2019
 ms.author: raynew
-ms.openlocfilehash: 296254db83a065623b692d7947c130dfd71cd413
-ms.sourcegitcommit: 0b80a5802343ea769a91f91a8cdbdf1b67a932d3
+ms.openlocfilehash: eebaa70cee99380ac67b8f6516a5b08ff2832c86
+ms.sourcegitcommit: e995f770a0182a93c4e664e60c025e5ba66d6a45
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/25/2020
-ms.locfileid: "83835051"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86134736"
 ---
 # <a name="monitor-the-process-server"></a>Surveiller le serveur de traitement.
 
@@ -96,7 +96,7 @@ Vous pouvez également surveiller des serveurs de processus dans le coffre sous 
 ## <a name="next-steps"></a>Étapes suivantes
 
 - Si vous rencontrez des problèmes avec des serveurs de processus, suivez nos [instructions de dépannage](vmware-physical-azure-troubleshoot-process-server.md).
-- Si vous avez besoin d’aide supplémentaire, publiez votre question sur la [page de questions Microsoft Q&R sur Azure Site Recovery](https://docs.microsoft.com/answers/topics/azure-site-recovery.html). 
+- Si vous avez besoin d’aide supplémentaire, publiez votre question sur la [page de questions Microsoft Q&R sur Azure Site Recovery](/answers/topics/azure-site-recovery.html). 
 
 [green]: ./media/vmware-physical-azure-monitor-process-server/green.png
 [yellow]: ./media/vmware-physical-azure-monitor-process-server/yellow.png

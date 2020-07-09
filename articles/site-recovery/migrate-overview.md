@@ -8,12 +8,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 11/05/2019
 ms.author: raynew
-ms.openlocfilehash: a7107eae5c798deb78d4d35eccdf4adcf5273335
-ms.sourcegitcommit: 0553a8b2f255184d544ab231b231f45caf7bbbb0
+ms.openlocfilehash: f42942d0e112aad147f78d62b5f5b43587eca9b3
+ms.sourcegitcommit: e995f770a0182a93c4e664e60c025e5ba66d6a45
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/30/2020
-ms.locfileid: "80388897"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86135597"
 ---
 # <a name="about-migration"></a>À propos de la migration
 
@@ -30,7 +30,7 @@ Voici ce que vous pouvez migrer avec Site Recovery :
 - **Migrer AWS** : migrer des instances Windows AWS vers des machines virtuelles IaaS Azure. 
 
 > [!NOTE]
-> Vous pouvez désormais migrer d’un environnement local vers Azure à l’aide du service Azure Migrate. [Plus d’informations](../migrate/migrate-overview.md)
+> Vous pouvez désormais migrer d’un environnement local vers Azure à l’aide du service Azure Migrate. [Plus d’informations](../migrate/migrate-services-overview.md)
 
 ## <a name="what-do-we-mean-by-migration"></a>Quelle est notre définition de la migration ?
 

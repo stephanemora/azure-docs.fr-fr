@@ -16,12 +16,12 @@ ms.workload: infrastructure-services
 ms.date: 02/04/2016
 ms.author: genli
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 22b60fc900886e76d66f66776adeed96334cdd3d
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: c5ae587438e2cc3c583307c3d6b41ec986193216
+ms.sourcegitcommit: e995f770a0182a93c4e664e60c025e5ba66d6a45
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84696044"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86134752"
 ---
 # <a name="configure-private-ip-addresses-for-a-virtual-machine-classic-using-the-azure-portal"></a>Configurer des adresses IP privées pour une machine virtuelle (Classic) à l’aide du portail Azure
 
@@ -69,7 +69,7 @@ Pour afficher les informations d’adresse IP privée statique de la machine vir
 
 Sous **Adresses IP**, sélectionnez **Dynamique** à droite de **Affectation d’adresses IP**, sélectionnez **Enregistrer**, puis sélectionnez **Oui**, comme illustré dans l’image suivante :
    
-    ![Create VM in Azure portal](./media/virtual-networks-static-ip-classic-pportal/figure07.png)
+![Création d'une machine virtuelle dans le portail Azure](./media/virtual-networks-static-ip-classic-pportal/figure07.png)
 
 ## <a name="how-to-add-a-static-private-ip-address-to-an-existing-vm"></a>Ajout d’une adresse IP privée statique à une machine virtuelle existante
 

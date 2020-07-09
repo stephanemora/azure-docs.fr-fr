@@ -16,16 +16,16 @@ ms.workload: infrastructure-services
 ms.date: 05/05/2017
 ms.author: radeltch
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 86094fd7ff9550946e1b1c13e0773f025a0e977c
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: f43ba78bc9c48b003d4718945dc47b0a076a048f
+ms.sourcegitcommit: e995f770a0182a93c4e664e60c025e5ba66d6a45
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "77623815"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86134532"
 ---
 # <a name="utilize-azure-infrastructure-vm-restart-to-achieve-higher-availability-of-an-sap-system"></a>Utiliser le redémarrage de la machine virtuelle d’infrastructure Azure pour permettre une plus haute disponibilité d’un système SAP
 
-[1909114]: https://launchpad.support.sap.com/#/notes/1909114
+[1909114]:https://launchpad.support.sap.com/#/notes/1909114
 [1928533]:https://launchpad.support.sap.com/#/notes/1928533
 [1999351]:https://launchpad.support.sap.com/#/notes/1999351
 [2015553]:https://launchpad.support.sap.com/#/notes/2015553
@@ -267,7 +267,7 @@ SAP propose un paramètre qui vous permet de démarrer automatiquement des insta
 
 Dans l’hypothèse d’un scénario Azure classique d’une seule instance de serveur d’applications SAP sur une machine virtuelle et dans le cas du redémarrage éventuel d’une seule machine virtuelle, le démarrage automatique n’est pas critique. Mais vous pouvez l’activer en ajoutant le paramètre suivant dans le profil de démarrage de l’instance SAP Advanced Business Application Programming (ABAP) ou Java :
 
-      Autostart = 1
+`Autostart = 1`
 
 
   > [!NOTE]

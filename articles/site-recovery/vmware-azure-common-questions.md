@@ -3,12 +3,12 @@ title: Questions courantes sur la récupération d’urgence pour VMware avec Az
 description: Obtenez des réponses à des questions courantes sur la récupération d’urgence de machines virtuelles VMware locales sur Azure à l’aide d’Azure Site Recovery.
 ms.date: 11/14/2019
 ms.topic: conceptual
-ms.openlocfilehash: d551cef7037c0b6d7286cbb4b70d8f7a8f7f5cae
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: a523df21caca2a6def4274542979e9963345384b
+ms.sourcegitcommit: e995f770a0182a93c4e664e60c025e5ba66d6a45
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "81259508"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86135154"
 ---
 # <a name="common-questions-about-vmware-to-azure-replication"></a>Questions courantes sur la réplication de VMware vers Azure
 
@@ -122,7 +122,7 @@ La réplication de nouvelles machines virtuelles vers un compte de stockage n’
 
 ### <a name="can-i-change-the-managed-disk-type-after-a-machine-is-protected"></a>Puis-je modifier le type de disque managé une fois qu’une machine est protégée ?
 
-Oui, vous pouvez facilement [modifier le type de disque managé](https://docs.microsoft.com/azure/virtual-machines/windows/convert-disk-storage) pour les réplications en cours. Avant de modifier le type, vérifiez qu’aucune URL de signature d’accès partagé n’est générée sur le disque managé :
+Oui, vous pouvez facilement [modifier le type de disque managé](../virtual-machines/windows/convert-disk-storage.md) pour les réplications en cours. Avant de modifier le type, vérifiez qu’aucune URL de signature d’accès partagé n’est générée sur le disque managé :
 
 1. Accédez à la ressource **Disque managé** sur le portail Azure et vérifiez qu’une bannière d’URL de signature d’accès partagé apparaît dans le panneau **Vue d’ensemble**.
 1. Si la bannière est présente, sélectionnez-la pour annuler l’exportation en cours.

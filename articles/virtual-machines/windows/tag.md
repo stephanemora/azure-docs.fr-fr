@@ -7,12 +7,12 @@ ms.topic: article
 ms.workload: infrastructure-services
 ms.date: 07/05/2016
 ms.author: memccror
-ms.openlocfilehash: 6ecf0f047fe353d94ca901118d1f434e33e9c8d2
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: e50601ac2c10861f63995af37fe8a98f9caa211b
+ms.sourcegitcommit: e995f770a0182a93c4e664e60c025e5ba66d6a45
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82100564"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86135136"
 ---
 # <a name="how-to-tag-a-windows-virtual-machine-in-azure"></a>Balisage d’une machine virtuelle Windows dans Azure
 Cet article décrit différentes façons d’ajouter des balises à une machine virtuelle Windows dans Azure à l’aide du modèle de déploiement Resource Manager. Les balises sont des paires clé/valeur définies par l’utilisateur, qui peuvent être placées directement sur une ressource ou sur un groupe de ressources. Azure prend actuellement en charge jusqu’à 50 étiquettes par ressource et par groupe de ressources. Les balises peuvent être placées sur une ressource au moment de la création ou bien ajoutées à une ressource existante. Notez que les balises ne sont prises en charge que pour les ressources créées via le modèle de déploiement Resource Manager. Si vous souhaitez baliser une machine virtuelle Linux, consultez l’article [How to tag a Linux virtual machine in Azure](../linux/tag.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)(Balisage d’une machine virtuelle Linux dans Azure).
@@ -26,56 +26,66 @@ Pour créer, ajouter et supprimer des balises via PowerShell, vous devez d’abo
 
 Accédez d’abord à une machine virtuelle via l’applet de commande `Get-AzVM` .
 
-        PS C:\> Get-AzVM -ResourceGroupName "MyResourceGroup" -Name "MyTestVM"
+```azurepowershell
+PS C:\> Get-AzVM -ResourceGroupName "MyResourceGroup" -Name "MyTestVM"
+```
 
 Si votre machine virtuelle contient déjà des balises, vous verrez toutes les balises sur votre ressource :
 
-        Tags : {
-                "Application": "MyApp1",
-                "Created By": "MyName",
-                "Department": "MyDepartment",
-                "Environment": "Production"
-               }
+```json
+Tags : {
+        "Application": "MyApp1",
+        "Created By": "MyName",
+        "Department": "MyDepartment",
+        "Environment": "Production"
+        }
+```
 
 Si vous voulez ajouter des balises via PowerShell, vous pouvez utiliser la commande `Set-AzResource` . Notez que lors de la mise à jour des balises via PowerShell, les balises sont mises à jour comme un tout. Ainsi, si vous ajoutez une balise à une ressource qui a déjà des balises, vous devez inclure toutes les balises que vous voulez placer sur la ressource. Voici un exemple montrant comment ajouter des balises supplémentaires à une ressource via des applets de commande PowerShell.
 
 Cette première applet de commande fait pointer toutes les balises placées sur *MyTestVM* vers la variable *$tags*, à l’aide des propriétés `Get-AzResource` et `Tags`.
 
-        PS C:\> $tags = (Get-AzResource -ResourceGroupName MyResourceGroup -Name MyTestVM).Tags
+```azurepowershell
+PS C:\> $tags = (Get-AzResource -ResourceGroupName MyResourceGroup -Name MyTestVM).Tags
+```
 
 La deuxième commande affiche les balises pour la variable donnée.
 
-```
-    PS C:\> $tags
-    
-    Key           Value
-    ----          -----
-    Department    MyDepartment
-    Application   MyApp1
-    Created By    MyName
-    Environment   Production
+```azurepowershell
+PS C:\> $tags
+
+Key           Value
+----          -----
+Department    MyDepartment
+Application   MyApp1
+Created By    MyName
+Environment   Production
 ```
 
 La troisième commande ajoute une balise supplémentaire à la variable *$tags* . Notez l'utilisation de **+=** pour ajouter la nouvelle paire clé/valeur à la liste *$tags* .
 
-        PS C:\> $tags += @{Location="MyLocation"}
+```azurepowershell
+PS C:\> $tags += @{Location="MyLocation"}
+```
 
 La quatrième commande définit toutes les balises définies dans la variable *$tags* sur la ressource donnée. Dans ce cas, il s’agit de MyTestVM.
 
-        PS C:\> Set-AzResource -ResourceGroupName MyResourceGroup -Name MyTestVM -ResourceType "Microsoft.Compute/VirtualMachines" -Tag $tags
+```azurepowershell
+PS C:\> Set-AzResource -ResourceGroupName MyResourceGroup -Name MyTestVM -ResourceType "Microsoft.Compute/VirtualMachines" -Tag $tags
+```
 
 La cinquième commande affiche toutes les balises sur la ressource. Comme vous pouvez le voir, *Emplacement* est maintenant défini en tant que balise avec la valeur *MyLocation*.
 
-```
-    PS C:\> (Get-AzResource -ResourceGroupName MyResourceGroup -Name MyTestVM).Tags
+```azurepowershell
+PS C:\> (Get-AzResource -ResourceGroupName MyResourceGroup -Name MyTestVM).Tags
 
-    Key           Value
-    ----          -----
-    Department    MyDepartment
-    Application   MyApp1
-    Created By    MyName
-    Environment   Production
-    Location      MyLocation
+Key           Value
+----          -----
+Department    MyDepartment
+Application   MyApp1
+Created By    MyName
+Environment   Production
+Location      MyLocation
 ```
 
 Pour en savoir plus sur le balisage dans PowerShell, consultez les [applets de commande des ressources Azure][Azure Resource Cmdlets].

@@ -5,12 +5,12 @@ author: sideeksh
 manager: rochakm
 ms.topic: how-to
 ms.date: 11/27/2018
-ms.openlocfilehash: 29acd1b00d23e4f1c2f241027dadbbb406e5e049
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 7b4a622de142fd44b64015c8238f44dafc34ce72
+ms.sourcegitcommit: e995f770a0182a93c4e664e60c025e5ba66d6a45
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "77190794"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86133695"
 ---
 # <a name="set-up-disaster-recovery-for-a-multi-tier-sap-netweaver-app-deployment"></a>Configurer la reprise d’activité pour un déploiement d’application SAP NetWeaver multiniveau
 
@@ -28,9 +28,9 @@ Vous pouvez protéger les déploiements d’applications SAP NetWeaver à l’ai
 
 Avant de commencer, assurez-vous que vous savez accomplir les tâches suivantes :
 
-* [Répliquer une machine virtuelle vers Azure](azure-to-azure-walkthrough-enable-replication.md)
-* [Constituer un réseau de récupération](site-recovery-azure-to-azure-networking-guidance.md)
-* [Effectuer un test de basculement vers Azure](azure-to-azure-walkthrough-test-failover.md)
+* [Répliquer une machine virtuelle vers Azure](./azure-to-azure-tutorial-enable-replication.md)
+* [Constituer un réseau de récupération](./azure-to-azure-about-networking.md)
+* [Effectuer un test de basculement vers Azure](./azure-to-azure-tutorial-dr-drill.md)
 * [Procéder à un basculement vers Azure](site-recovery-failover.md)
 * [Répliquer un contrôleur de domaine](site-recovery-active-directory.md)
 * [Répliquer une instance SQL Server](site-recovery-sql.md)
@@ -111,7 +111,7 @@ Voici la recommandation pour la récupération d’urgence de chaque niveau util
 
 ## <a name="replicate-virtual-machines"></a>Répliquer des machines virtuelles
 
-Pour commencer la réplication de toutes les machines virtuelles d’application SAP vers le centre de données de reprise d’activité Azure, suivez les instructions dans [Répliquer une machine virtuelle vers Azure](azure-to-azure-walkthrough-enable-replication.md).
+Pour commencer la réplication de toutes les machines virtuelles d’application SAP vers le centre de données de reprise d’activité Azure, suivez les instructions dans [Répliquer une machine virtuelle vers Azure](./azure-to-azure-tutorial-enable-replication.md).
 
 * Pour obtenir des conseils sur la protection d’Active Directory et de DNS, découvrez [comment protéger Active Directory et DNS](site-recovery-active-directory.md).
 

@@ -8,12 +8,12 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 02/25/2020
 ms.author: rajanaki
-ms.openlocfilehash: 208177d10e9002fafe2495710da229541a11a43e
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 501cf161a22aaa1ec37abda2b750106b6eaf3dc4
+ms.sourcegitcommit: e995f770a0182a93c4e664e60c025e5ba66d6a45
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "77661668"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86135220"
 ---
 # <a name="deprecation-of-disaster-recovery-between-customer-managed-sites-with-vmm-using-azure-site-recovery"></a>Dépréciation de la récupération d'urgence entre des sites gérés par un client (avec VMM) à l'aide d'Azure Site Recovery
 
@@ -39,7 +39,7 @@ Vous trouverez ci-dessous les alternatives parmi lesquelles le client peut chois
 - Option 1 (recommandée) : Choisissez de [commencer à utiliser Azure comme cible de récupération d’urgence](hyper-v-vmm-azure-tutorial.md).
 
 
-- Option n°2 : Choisissez de continuer la réplication de site à site en utilisant la [solution de réplication Hyper-V](https://docs.microsoft.com/windows-server/virtualization/hyper-v/manage/set-up-hyper-v-replica) sous-jacente ; mais vous ne serez alors pas en mesure de gérer les configurations de récupération d’urgence à l’aide d’Azure Site Recovery dans le Portail Azure. 
+- Option n°2 : Choisissez de continuer la réplication de site à site en utilisant la [solution de réplication Hyper-V](/windows-server/virtualization/hyper-v/manage/set-up-hyper-v-replica) sous-jacente ; mais vous ne serez alors pas en mesure de gérer les configurations de récupération d’urgence à l’aide d’Azure Site Recovery dans le Portail Azure. 
 
 
 ## <a name="remediation-steps"></a>Étapes de correction

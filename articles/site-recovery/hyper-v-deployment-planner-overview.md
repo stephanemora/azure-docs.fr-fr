@@ -7,12 +7,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 3/13/2020
 ms.author: mayg
-ms.openlocfilehash: 07c1f7f258dbea7bcf7a6e7ea51fdcfdfaa006aa
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 3db3d619118be74ec1429ace70f580558c0a6c9d
+ms.sourcegitcommit: e995f770a0182a93c4e664e60c025e5ba66d6a45
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79368721"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86134370"
 ---
 # <a name="about-the-azure-site-recovery-deployment-planner-for-hyper-v-disaster-recovery-to-azure"></a>À propos du planificateur de déploiement Azure Site Recovery pour la récupération d’urgence de Hyper-V sur Azure
 
@@ -140,4 +140,4 @@ Reportez-vous à la page [Historique des versions du Planificateur de déploieme
 
 
 ## <a name="next-steps"></a>Étapes suivantes
-* [Exécutez le planificateur de déploiement](site-recovery-hyper-v-deployment-planner-run.md).
+* [Exécutez le planificateur de déploiement](./hyper-v-deployment-planner-run.md).

@@ -16,12 +16,12 @@ ms.author: mathoma
 ms.reviewer: jroth
 experimental: true
 experimental_id: d51f3cc6-753b-4e
-ms.openlocfilehash: 0717f6f75b6bd8bb7ba4d53f8240414b5169540d
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 52f25d89691a2a721025848e28d119a0fbe5e322
+ms.sourcegitcommit: e995f770a0182a93c4e664e60c025e5ba66d6a45
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84014762"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86135984"
 ---
 # <a name="connect-to-a-sql-server-virtual-machine-on-azure-classic-deployment"></a>Connexion à une machine virtuelle SQL Server dans Azure (déploiement classique)
 > [!div class="op_single_selector"]
@@ -53,7 +53,7 @@ Plusieurs machines virtuelles peuvent être créées dans le même service cloud
 
 Dans ce scénario, vous pouvez vous connecter à l’aide de la machine virtuelle **nom** (représentée par **nom de l’ordinateur** ou **nom d’hôte** dans le portail). Il s’agit du nom que vous avez fourni pour la machine virtuelle lors de sa création. Par exemple, si vous avez nommé votre machine virtuelle SQL **mysqlvm**, une machine virtuelle cliente dans le même service cloud peut utiliser la chaîne de connexion suivante pour se connecter :
 
-    "Server=mysqlvm;Integrated Security=false;User ID=<login_name>;Password=<your_password>"
+`Server=mysqlvm;Integrated Security=false;User ID=<login_name>;Password=<your_password>`
 
 ### <a name="connect-to-sql-server-over-the-internet"></a>Se connecter à SQL Server via Internet
 Si vous souhaitez vous connecter à votre moteur de base de données SQL Server à partir d’Internet, vous devez créer un point de terminaison de machine virtuelle pour les communications TCP entrantes. Dans cette étape de configuration Azure, le trafic du port TCP entrant est dirigé vers un port TCP accessible à la machine virtuelle.
@@ -62,7 +62,7 @@ Pour vous connecter via Internet, vous devez utiliser le nom DNS de la machine v
 
 Prenons par exemple une machine virtuelle classique nommée **mysqlvm** avec comme nom DNS **mysqlvm7777.cloudapp.net** et un point de terminaison de machine virtuelle **57500**. En supposant que la connectivité est correctement configurée, vous pouvez utiliser la chaîne de connexion suivante pour accéder à la machine virtuelle à partir de n’importe où sur Internet :
 
-    "Server=mycloudservice.cloudapp.net,57500;Integrated Security=false;User ID=<login_name>;Password=<your_password>"
+`Server=mycloudservice.cloudapp.net,57500;Integrated Security=false;User ID=<login_name>;Password=<your_password>`
 
 Même si cette méthode permet aux clients de se connecter via Internet, cela ne signifie pas que tout le monde peut se connecter à votre serveur SQL Server. Les clients externes doivent entrer les nom d’utilisateur et mot de passe corrects. Pour renforcer la sécurité, n’utilisez pas le port commun 1433 pour le point de terminaison de la machine virtuelle publique. Dans la mesure du possible, vous pouvez également envisager d’ajouter une liste de contrôle d’accès réseau (ACL) sur votre point de terminaison pour limiter le trafic uniquement aux clients que vous autorisez. Pour obtenir des instructions sur l’utilisation de listes ACL avec des points de terminaison, voir [Gestion de l’ACL sur un point de terminaison](/previous-versions/azure/virtual-machines/windows/classic/setup-endpoints#manage-the-acl-on-an-endpoint)
 
@@ -78,7 +78,7 @@ Les réseaux virtuels vous permettent également d’associer vos machines virtu
 
 Si vous souhaitez configurer un environnement de domaine et l’authentification Windows, il est inutile d’effectuer la procédure de configuration du point de terminaison public ou de l’authentification SQL et des connexions décrite dans cet article. Dans ce scénario, vous pouvez vous connecter à votre instance SQL Server en spécifiant le nom de la machine virtuelle SQL Server dans la chaîne de connexion. L’exemple suivant part du principe que l’authentification Windows a également été configurée et que l’utilisateur a accès à l’instance SQL Server.
 
-    "Server=mysqlvm;Integrated Security=true"
+`Server=mysqlvm;Integrated Security=true`
 
 ## <a name="steps-for-configuring-sql-server-connectivity-in-an-azure-vm"></a>Procédure de configuration de la connectivité SQL Server dans une machine virtuelle Azure
 Les étapes suivantes montrent comment se connecter à l’instance SQL Server sur Internet à l’aide de SQL Server Management Studio (SSMS). Toutefois, les mêmes étapes s’appliquent pour rendre votre machine virtuelle SQL Server accessible pour vos applications exécutées en local et dans Azure.

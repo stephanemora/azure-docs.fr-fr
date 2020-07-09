@@ -8,12 +8,12 @@ services: site-recovery
 ms.topic: article
 ms.date: 11/14/2019
 ms.author: raynew
-ms.openlocfilehash: cabd3f7693c6b6b86bf0324bdafdfe1377d1ece8
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: c6f0f48df32db0beb9c0a57982d9bc87b26538d8
+ms.sourcegitcommit: e995f770a0182a93c4e664e60c025e5ba66d6a45
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84711882"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86135149"
 ---
 # <a name="support-matrix-for-disaster-recovery-of-vmware-vms-and-physical-servers-to-a-secondary-site"></a>Matrice de prise en charge de la récupération d’urgence des machines virtuelles VMware et serveurs physiques sur un site secondaire
 
@@ -131,5 +131,5 @@ Le Service mobilité coordonne la réplication entre les serveurs VMware locaux 
 
 Télécharger le [guide de l’utilisateur InMage Scout](https://aka.ms/asr-scout-user-guide)
 
-- [Répliquer des machines virtuelles Hyper-V résidant dans des clouds VMM vers un site secondaire](tutorial-vmm-to-vmm.md)
-- [Répliquer des machines virtuelles VMware et des serveurs physiques vers un site secondaire](tutorial-vmware-to-vmware.md)
+- [Répliquer des machines virtuelles Hyper-V résidant dans des clouds VMM vers un site secondaire](./hyper-v-vmm-disaster-recovery.md)
+- [Répliquer des machines virtuelles VMware et des serveurs physiques vers un site secondaire](./vmware-physical-secondary-disaster-recovery.md)

@@ -3,12 +3,12 @@ title: Exclure des disques de la réplication avec Azure Site Recovery
 description: Comme exclure des disques de la réplication vers Azure avec Azure Site Recovery.
 ms.topic: conceptual
 ms.date: 12/17/2019
-ms.openlocfilehash: aa2e3ef3906a03be649a1978c1d662056c4d0f25
-ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
+ms.openlocfilehash: 5a8d52bd0cc40b45f92039c537a1b3b63f0bec61
+ms.sourcegitcommit: e995f770a0182a93c4e664e60c025e5ba66d6a45
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/21/2020
-ms.locfileid: "83740516"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86135691"
 ---
 # <a name="exclude-disks-from-disaster-recovery"></a>Exclure des disques de la reprise d’activité
 
@@ -56,7 +56,7 @@ Les écritures dans un fichier d’échange (pagefile.sys) et les écritures dan
 
 ## <a name="example-1-exclude-the-sql-server-tempdb-disk"></a>Exemple 1 : Exclure le disque de base de données tempdb SQL Server
 
-Nous allons voir comment gérer l’exclusion de disque, le basculement et le basculement d’une machine virtuelle Windows SQL Server source - **SalesDB** *, pour laquelle nous souhaitons exclure tempdb. 
+Nous allons voir comment gérer l’exclusion de disque, le basculement et le basculement d’une machine virtuelle Windows SQL Server source - **SalesDB***, pour laquelle nous souhaitons exclure tempdb. 
 
 ### <a name="exclude-disks-from-replication"></a>Exclure les disques de la réplication
 
@@ -260,7 +260,6 @@ Les paramètres du fichier d’échange sur la machine virtuelle Azure sont les 
 ## <a name="next-steps"></a>Étapes suivantes
 
 - Découvrez plus en détail les instructions pour le disque de stockage temporaire :
-    - [Découvrez](https://blogs.technet.microsoft.com/dataplatforminsider/2014/09/25/using-ssds-in-azure-vms-to-store-sql-server-tempdb-and-buffer-pool-extensions/) l’utilisation des disques SSD dans les machines virtuelles Azure pour stocker les extensions du pool de mémoires tampons et TempDB SQL Server
-    - [Passez en revue](https://docs.microsoft.com/azure/virtual-machines/windows/sql/virtual-machines-windows-sql-performance) les bonnes pratiques sur les performances de SQL Server dans les machines virtuelles Azure.
+    - [Découvrez](https://cloudblogs.microsoft.com/sqlserver/2014/09/25/using-ssds-in-azure-vms-to-store-sql-server-tempdb-and-buffer-pool-extensions/) l’utilisation des disques SSD dans les machines virtuelles Azure pour stocker les extensions du pool de mémoires tampons et TempDB SQL Server
+    - [Passez en revue](../azure-sql/virtual-machines/windows/performance-guidelines-best-practices.md) les bonnes pratiques sur les performances de SQL Server dans les machines virtuelles Azure.
 - Une fois votre déploiement configuré et effectué, pour en savoir plus sur les différents types de basculement, [cliquez ici](failover-failback-overview.md) .
-

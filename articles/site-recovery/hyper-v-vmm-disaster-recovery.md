@@ -7,12 +7,12 @@ ms.service: site-recovery
 ms.topic: how-to
 ms.date: 11/14/2019
 ms.author: raynew
-ms.openlocfilehash: f7de3c28463a86852cba03713ca4c500e7ca0339
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 482a3808065bb2ec565bad7e760b9337b3db7007
+ms.sourcegitcommit: e995f770a0182a93c4e664e60c025e5ba66d6a45
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80437503"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86134004"
 ---
 # <a name="set-up-disaster-recovery-for-hyper-v-vms-to-a-secondary-on-premises-site"></a>Configurer la récupération d’urgence des machines virtuelles Hyper-V vers un site local secondaire
 
@@ -48,10 +48,10 @@ Le [mappage réseau](hyper-v-vmm-network-mapping.md) effectue un mappage entre l
 
 Préparez les serveurs VMM comme suit :
 
-1. Assurez-vous que vous avez des [réseaux logiques VMM](https://docs.microsoft.com/system-center/vmm/network-logical) sur les serveurs VMM source et cible.
+1. Assurez-vous que vous avez des [réseaux logiques VMM](/system-center/vmm/network-logical) sur les serveurs VMM source et cible.
     - Le réseau logique sur le serveur source doit être associé au cloud source dans lequel se trouvent les hôtes Hyper-V.
     - Le réseau logique sur le serveur cible doit être associé au cloud cible.
-1. Assurez-vous que vous avez des [réseaux de machines virtuelles](https://docs.microsoft.com/system-center/vmm/network-virtual) sur les serveurs VMM source et cible. Les réseaux de machines virtuelles doivent être associés au réseau logique dans chaque emplacement.
+1. Assurez-vous que vous avez des [réseaux de machines virtuelles](/system-center/vmm/network-virtual) sur les serveurs VMM source et cible. Les réseaux de machines virtuelles doivent être associés au réseau logique dans chaque emplacement.
 2. Connectez les machines virtuelles sur les hôtes Hyper-V sources au réseau de machines virtuelles source. 
 
 
