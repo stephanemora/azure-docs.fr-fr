@@ -1,7 +1,5 @@
 - name: Documentation Live Video Analytics sur IoT Edge (préversion)
   href: index.yml
-- name: "Basculer vers la documentation Azure Media Services\_v3"
-  href: ../latest/index.yml
 - name: Vue d’ensemble
   items:
     - name: À propos de Live Video Analytics sur IoT Edge
@@ -34,7 +32,7 @@
       href: playback-multi-day-recordings-tutorial.md
 - name: Exemples
   items:
-    - name: 'Live Video Analytics sur IoT Edge - Exemples C#'
+    - name: Live Video Analytics sur IoT Edge - Exemples C#
       href: 'https://github.com/Azure-Samples/live-video-analytics-iot-edge-csharp'
 - name: Concepts
   items:

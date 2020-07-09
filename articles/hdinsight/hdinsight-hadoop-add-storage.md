@@ -5,15 +5,15 @@ author: hrasheed-msft
 ms.author: hrasheed
 ms.reviewer: jasonh
 ms.service: hdinsight
-ms.topic: conceptual
+ms.topic: how-to
 ms.custom: seoapr2020
 ms.date: 04/27/2020
-ms.openlocfilehash: d5dde8c45331cf8c443aba86c96ba12c8277472c
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 44262c30dc49182314fb70dbb814be25c49e9d50
+ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82192482"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86080004"
 ---
 # <a name="add-additional-storage-accounts-to-hdinsight"></a>Ajouter des comptes de stockage supplémentaires à HDInsight
 
@@ -133,14 +133,6 @@ Pour contourner ce problème :
 
 > [!IMPORTANT]  
 > La rotation de la clé de stockage pour le compte de stockage principal attaché à un cluster n’est pas prise en charge.
-
-### <a name="poor-performance"></a>Problèmes de performances
-
-Si le compte de stockage se trouve dans une région différente de celle du cluster HDInsight, il se peut que vous rencontriez des problèmes de performances. Quand vous accédez à des données stockées dans une autre région, le trafic réseau sort du centre de données Azure régional. Il emprunte ensuite l’Internet public, ce qui peut entraîner de la latence.
-
-### <a name="additional-charges"></a>Frais supplémentaires
-
-Si le compte de stockage se trouve dans une région différente de celle du cluster HDInsight, vous remarquerez peut-être des frais de sortie supplémentaires sur votre facture Azure. Des frais de sortie sont appliqués lorsque des données quittent un centre de données régional. Ces frais sont appliqués même si le trafic est destiné à un autre centre de données Azure situé dans une autre région.
 
 ## <a name="next-steps"></a>Étapes suivantes
 

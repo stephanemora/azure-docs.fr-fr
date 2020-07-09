@@ -5,14 +5,14 @@ services: vnf-manager
 author: ganesr
 ms.service: vnf-manager
 ms.topic: article
-ms.date: 04/02/2020
+ms.date: 07/07/2020
 ms.author: ganesr
-ms.openlocfilehash: 90e796c244950d6d374a02757b608099c229c1ea
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 65a5f7e261913fa38c41930cc44341ca872d1b44
+ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82146946"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86086889"
 ---
 # <a name="about-azure-edge-zone-preview"></a>À propos d’Azure Edge Zone (préversion)
 
@@ -30,13 +30,13 @@ Les scénarios d’utilisation classiques pour les zones périphériques sont le
 
 Il existe trois types de zones périphériques Azure :
 
-- Zones périphériques Azure
-- Zones périphériques Azure avec opérateur
-- Zones périphériques privées Azure
+- Azure Edge Zones
+- Azure Edge Zones avec opérateur
+- Azure Private Edge Zones
 
-## <a name="azure-edge-zones"></a><a name="edge-zones"></a>
+## <a name="azure-edge-zones"></a><a name="edge-zones"></a>Azure Edge Zones
 
-![Zones périphériques Azure](./media/edge-zones-overview/edge-zones.png "Zones périphériques Azure")
+![Zones périphériques Azure](./media/edge-zones-overview/edge-zones.png "Azure Edge Zones")
 
 Les zones périphériques Azure sont des extensions Azure à faible empreinte mémoire qui sont placées dans des centres de population éloignés des régions Azure. Elles prennent en charge les machines virtuelles, les conteneurs et une sélection de services Azure qui permettent d’exécuter des applications sensibles à la latence et gourmandes en débit au plus près des utilisateurs finaux. Elles font partie du réseau Microsoft mondial. Elles fournissent une connectivité sécurisée, fiable et à large bande passante entre les applications qui s’exécutent à la zone périphérique à proximité de l’utilisateur. De plus, elles offrent l’ensemble complet des services Azure s’exécutant dans les régions Azure. Elles sont détenues et gérées par Microsoft. Vous pouvez utiliser le même ensemble d’outils Azure et le même portail pour gérer et déployer des services dans des zones périphériques.
 
@@ -55,9 +55,9 @@ Les zones périphériques Azure seront disponibles dans les zones métropolitain
 
 Pour plus d’informations, [contactez l’équipe Edge Zone](https://aka.ms/EdgeZones).
 
-## <a name="azure-edge-zones-with-carrier"></a><a name="carrier"></a>Zones périphériques Azure avec opérateur
+## <a name="azure-edge-zones-with-carrier"></a><a name="carrier"></a>Azure Edge Zones avec opérateur
 
-![Zones périphériques avec opérateur](./media/edge-zones-overview/edge-carrier.png "Zones périphériques avec opérateur")
+![Edge Zones with Carrier](./media/edge-zones-overview/edge-carrier.png "Edge Zones avec opérateur")
 
 Les zones périphériques Azure avec opérateur sont des extensions Azure à faible empreinte mémoire qui sont placées dans les centres de donnés des opérateurs de téléphonie mobile situés dans des centres de population. L’infrastructure des zones périphériques Azure avec opérateur est placée à une distance d’un tronçon par rapport au réseau 5G de l’opérateur mobile. Ce placement offre une latence inférieure à 10 millisecondes aux applications des appareils mobiles.
 
@@ -74,11 +74,13 @@ Les cas d’utilisation classiques sont les suivants :
 
 Les zones périphériques seront proposées en partenariat avec les opérateurs suivants :
 
-- AT&T (Atlanta, Dallas et Los Angeles)
+- AT&T (Atlanta, Dallas et Los Angeles) 
 
-## <a name="azure-private-edge-zones"></a><a name="private-edge-zones"></a>Zones périphériques privées Azure
+Pour plus d’informations, [contactez l’équipe Edge Zone](https://aka.ms/EdgeZones).
 
-![Zones périphériques privées](./media/edge-zones-overview/private-edge.png "Zones périphériques privées")
+## <a name="azure-private-edge-zones"></a><a name="private-edge-zones"></a>Azure Private Edge Zones
+
+![Private Edge Zones](./media/edge-zones-overview/private-edge.png "Private Edge Zones")
 
 Les zones périphériques privées Azure sont des extensions Azure à faible empreinte mémoire qui sont placées localement. Une zone périphérique privée Azure est basée sur la plateforme [Azure Stack Edge](https://azure.microsoft.com/products/azure-stack/edge/). Elle permet un accès à faible latence aux services de calcul et de stockage déployés localement. Une zone périphérique privée vous permet également de déployer des applications d’éditeurs de logiciels indépendants (ISV) et des fonctions réseau virtualisées (VNF), comme les [applications managées Azure](https://azure.microsoft.com/services/managed-applications/) avec des machines virtuelles et des conteneurs locaux. Ces fonctions VNF peuvent inclure des cœurs de paquets mobiles, des routeurs, des pare-feu et des appliances SD-WAN. Une zone périphérique privée Azure est proposée avec une solution d’orchestration native cloud qui vous permet de gérer les cycles de vie des fonctions VNF et des applications à partir du portail Azure.
 
