@@ -13,12 +13,12 @@ ms.author: ryanwi
 ms.reviewer: nacanuma
 ms.custom: aaddev
 ROBOTS: NOINDEX
-ms.openlocfilehash: c698b9381755f81303dc3adfa9422b82500bb208
-ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
+ms.openlocfilehash: 977dfea28c5c0dc3f34ada0c138556d70c979e04
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83642204"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85551708"
 ---
 # <a name="service-to-service-calls-using-client-credentials-shared-secret-or-certificate"></a>Appels de service à service à l’aide des informations d’identification du client (secret partagé ou certificat)
 
@@ -52,7 +52,7 @@ Deux cas de figure se présentent, selon que l’application cliente choisit d�
 ### <a name="first-case-access-token-request-with-a-shared-secret"></a>Premier cas : Requête de jeton d’accès avec un secret partagé
 Lorsque l’application utilise un secret partagé, la demande de jeton d’accès de service à service contient les paramètres suivants :
 
-| Paramètre |  | Description |
+| Paramètre | Type | Description |
 | --- | --- | --- |
 | grant_type |Obligatoire |Spécifie le type d’autorisation demandée. Dans un flux d’octroi des informations d’identification du client, la valeur doit être **client_credentials**. |
 | client_id |Obligatoire |Spécifie l’ID de client Azure AD du service web appelant. Pour rechercher l’ID de client de l’application appelante, dans le [portail Azure](https://portal.azure.com), cliquez successivement sur **Azure Active Directory**, **Inscriptions des applications** et sur l’application. Le paramètre client_id est l’*ID de l’application* |
@@ -73,7 +73,7 @@ grant_type=client_credentials&client_id=625bc9f6-3bf6-4b6d-94ba-e97cf07a22de&cli
 ### <a name="second-case-access-token-request-with-a-certificate"></a>Deuxième cas : Requête de jeton d’accès avec un certificat
 Une demande de jeton d’accès de service à service avec un certificat contient les paramètres suivants :
 
-| Paramètre |  | Description |
+| Paramètre | Type | Description |
 | --- | --- | --- |
 | grant_type |Obligatoire |Spécifie le type de réponse demandé. Dans un flux d’octroi des informations d’identification du client, la valeur doit être **client_credentials**. |
 | client_id |Obligatoire |Spécifie l’ID de client Azure AD du service web appelant. Pour rechercher l’ID de client de l’application appelante, dans le [portail Azure](https://portal.azure.com), cliquez successivement sur **Azure Active Directory**, **Inscriptions des applications** et sur l’application. Le paramètre client_id est l’*ID de l’application* |

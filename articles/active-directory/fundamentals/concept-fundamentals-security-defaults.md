@@ -12,12 +12,12 @@ manager: daveba
 ms.reviewer: rogoya
 ms.collection: M365-identity-device-management
 ms.custom: contperfq4
-ms.openlocfilehash: 62933a0e83a7494bc208068cb418f9ccc29ba637
-ms.sourcegitcommit: 309cf6876d906425a0d6f72deceb9ecd231d387c
+ms.openlocfilehash: 385107f3bb5dd30a118d3a5f7a5f14213f0ad1c8
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/01/2020
-ms.locfileid: "84266353"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85554527"
 ---
 # <a name="what-are-security-defaults"></a>Présentation des paramètres de sécurité par défaut
 
@@ -92,7 +92,7 @@ Lorsque les paramètres de sécurité par défaut sont activés dans votre locat
 > [!WARNING]
 > Avant d’activer les paramètres de sécurité par défaut, assurez-vous que vos administrateurs n’utilisent aucun protocole d’authentification plus anciens. Pour plus d’informations, voir [Comment se passer de l’authentification héritée](concept-fundamentals-block-legacy-authentication.md).
 
-- [Comment configurer une application ou un appareil multifonction pour envoyer un e-mail à l’aide d’Office 365 et de Microsoft 365](/exchange/mail-flow-best-practices/how-to-set-up-a-multifunction-device-or-application-to-send-email-using-office-3)
+- [Comment configurer une application ou un appareil multifonction pour envoyer un e-mail à l’aide d’Office 365 et de Microsoft 365](https://docs.microsoft.com/exchange/mail-flow-best-practices/how-to-set-up-a-multifunction-device-or-application-to-send-email-using-microsoft-365-or-office-365)
 
 ### <a name="protecting-privileged-actions"></a>Protection des actions privilégiées
 
@@ -122,7 +122,7 @@ Les considérations supplémentaires suivantes concernent le déploiement des pa
 
 Ces paramètres de sécurité par défaut gratuits permettent l’inscription et l’utilisation d’Azure Multi-Factor Authentication **à l'aide de l’application de Microsoft Authenticator uniquement avec notifications**. L’accès conditionnel permet l'utilisation de n’importe quelle méthode d’authentification que l’administrateur choisit d’activer.
 
-|   | Paramètres de sécurité par défaut | Accès conditionnel |
+| Méthode | Paramètres de sécurité par défaut | Accès conditionnel |
 | --- | --- | --- |
 | Notification via une application mobile | X | X |
 | Code de vérification provenant d’une application mobile ou d’un jeton matériel | X** | X |

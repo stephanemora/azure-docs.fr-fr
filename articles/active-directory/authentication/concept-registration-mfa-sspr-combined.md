@@ -11,12 +11,12 @@ author: iainfoulds
 manager: daveba
 ms.reviewer: rhicock
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 4d4caaf8704f2ee49f8f094ad22065ae462154be
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 87cec45ac3d7bf491278a4ba8520e8257fd0f6c1
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82143918"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85550677"
 ---
 # <a name="combined-security-information-registration-overview"></a>Présentation de l’inscription combinée des informations de sécurité
 
@@ -46,17 +46,17 @@ Les pages Mon profil sont localisées sur la base des paramètres de langue de l
 
 L’inscription combinée prend en charge les méthodes et les actions d’authentification suivantes :
 
-|   | Inscrire | Modifier | DELETE |
+| Méthode | Inscrire | Modifier | DELETE |
 | --- | --- | --- | --- |
-| Microsoft Authenticator | Oui (jusqu'à 5) | Non  | Oui |
-| Autre application d’authentification | Oui (jusqu'à 5) | Non  | Oui |
-| Jeton matériel | Non  | Non  | Oui |
+| Microsoft Authenticator | Oui (jusqu'à 5) | Non | Oui |
+| Autre application d’authentification | Oui (jusqu'à 5) | Non | Oui |
+| Jeton matériel | Non | Non | Oui |
 | Téléphone | Oui | Oui | Oui |
 | Autre téléphone | Oui | Oui | Oui |
-| Téléphone de bureau | Non  | Non  | Non  |
+| Téléphone de bureau | Non | Non | Non |
 | E-mail | Oui | Oui | Oui |
-| Questions de sécurité | Oui | Non  | Oui |
-| Mots de passe d'application | Oui | Non  | Oui |
+| Questions de sécurité | Oui | Non | Oui |
+| Mots de passe d'application | Oui | Non | Oui |
 | Clés de sécurité FIDO2<br />*Mode géré uniquement à partir de la page [Informations de sécurité](https://mysignins.microsoft.com/security-info)*| Oui | Oui | Oui |
 
 > [!NOTE]

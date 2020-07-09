@@ -11,12 +11,12 @@ author: iainfoulds
 manager: daveba
 ms.reviewer: rogoya
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: ef127d120b32f5344bce0f68d79f48401087f0ce
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 0f905b3eb6d1675f0bc252c3500169b3144287d9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79231013"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85550699"
 ---
 # <a name="eliminate-bad-passwords-in-your-organization"></a>Éliminer les mots de passe incorrects de votre organisation
 
@@ -158,7 +158,7 @@ Après la normalisation, ce mot de passe devient « contosoblankf9 ! ». Le p
 
 ## <a name="license-requirements"></a>Conditions de licence :
 
-|   | Protection de mot de passe Azure AD avec liste globale de mots de passe interdits | Protection de mot de passe Azure AD avec liste personnalisée de mots de passe interdits|
+| Utilisateurs | Protection de mot de passe Azure AD avec liste globale de mots de passe interdits | Protection de mot de passe Azure AD avec liste personnalisée de mots de passe interdits|
 | --- | --- | --- |
 | Utilisateurs du cloud uniquement | Azure AD Gratuit | Azure AD Premium P1 ou P2 |
 | Utilisateurs synchronisés à partir de Windows Server Active Directory en local | Azure AD Premium P1 ou P2 | Azure AD Premium P1 ou P2 |

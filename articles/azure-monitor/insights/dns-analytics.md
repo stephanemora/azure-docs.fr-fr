@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 03/20/2018
-ms.openlocfilehash: 2471c29f559df5c347c62ceb4c7fd9b4ae1e5eec
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 385f4a9ff1c299f49a514ad63bb3c8d633d8c191
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "77657331"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85552817"
 ---
 # <a name="gather-insights-about-your-dns-infrastructure-with-the-dns-analytics-preview-solution"></a>Rassembler des informations sur votre infrastructure DNS avec la solution DNS Analytics (préversion)
 
@@ -179,7 +179,7 @@ Sur la page Recherche dans les journaux, vous pouvez créer une requête. Vous p
 
 1. Données de recherches DNS manquantes : Pour résoudre ce problème, essayez de réinitialiser la configuration ou simplement de charger la page de configuration une fois dans le portail. Pour la réinitialisation, il vous suffit de modifier un paramètre en lui affectant une autre valeur, puis de rétablir la valeur d’origine et d’enregistrer la configuration.
 
-## <a name="feedback"></a>Commentaires
+## <a name="suggestions"></a>Suggestions
 
 Pour nous faire part de vos commentaires, rendez-vous sur la [page UserVoice de User Analytics](https://aka.ms/dnsanalyticsuservoice) afin de publier des idées sur les fonctionnalités DNS Analytics. 
 

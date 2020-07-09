@@ -12,12 +12,12 @@ ms.date: 05/20/2020
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: fe9c9f44c42ef1e8dd6ff3401ad7201b174aa952
-ms.sourcegitcommit: 6fd8dbeee587fd7633571dfea46424f3c7e65169
+ms.openlocfilehash: 3bf5e161b46b9ec6e39702ddd8435a7c7672111f
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/21/2020
-ms.locfileid: "83725293"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85550134"
 ---
 # <a name="azure-ad-connect-version-release-history"></a>Azure AD Connect : Historique de publication des versions
 L’équipe Azure Active Directory (Azure AD) met régulièrement à jour Azure AD Connect avec de nouvelles fonctions et fonctionnalités. Tous les ajouts ne sont pas applicables à toutes les configurations.
@@ -582,8 +582,6 @@ Allow    | Utilisateurs authentifiés           | Lister le contenu        | Cet
 Allow    | Utilisateurs authentifiés           | Lire toutes les propriétés  | Cet objet  |
 Allow    | Utilisateurs authentifiés           | Autorisations de lecture     | Cet objet  |
 
-Pour renforcer les paramètres pour le compte AD DS, vous pouvez exécuter [ce script PowerShell](https://gallery.technet.microsoft.com/Prepare-Active-Directory-ef20d978). Le script PowerShell affecte les autorisations mentionnées ci-dessus au compte AD DS.
-
 #### <a name="powershell-script-to-tighten-a-pre-existing-service-account"></a>Script PowerShell pour renforcer un compte de service existant
 
 Pour utiliser le script PowerShell afin d’appliquer ces paramètres à un compte AD DS existant (fourni par votre organisation ou créé par une précédente installation d’Azure AD Connect), téléchargez le script à partir du lien fourni ci-dessus.
@@ -903,18 +901,31 @@ CBool(
 ```
 
 * Ajout de l’ensemble de fonctions X509Certificate2-compatible pour la création d’expressions de règle de synchronisation pour gérer les valeurs de certificat dans l’attribut userCertificate :
-
-    ||||
-    | --- | --- | --- |
-    |CertSubject|CertIssuer|CertKeyAlgorithm|
-    |CertSubjectNameDN|CertIssuerOid|CertNameInfo|
-    |CertSubjectNameOid|CertIssuerDN|IsCert|
-    |CertFriendlyName|CertThumbprint|CertExtensionOids|
-    |CertFormat|CertNotAfter|CertPublicKeyOid|
-    |CertSerialNumber|CertNotBefore|CertPublicKeyParametersOid|
-    |CertVersion|CertSignatureAlgorithmOid|Sélectionnez|
-    |CertKeyAlgorithmParams|CertHashString|Where|
-    |||With|
+  * CertSubject 
+  * CertIssuer
+  * CertKeyAlgorithm
+  * CertSubjectNameDN
+  * CertIssuerOid
+  * CertNameInfo
+  * CertSubjectNameOid
+  * CertIssuerDN
+  * IsCert
+  * CertFriendlyName
+  * CertThumbprint
+  * CertExtensionOids
+  * CertFormat
+  * CertNotAfter
+  * CertPublicKeyOid 
+  * CertSerialNumber
+  * CertNotBefore
+  * CertPublicKeyParametersOid
+  * CertVersion
+  * CertSignatureAlgorithmOid
+  * Sélectionnez
+  * CertKeyAlgorithmParams
+  * CertHashString
+  * Where
+  * With
 
 * Les modifications de schéma suivantes ont été introduites pour permettre aux clients de créer des règles de synchronisation personnalisées afin de suivre les paramètres sAMAccountName, domainNetBios et domainFQDN pour les objets de groupe, ainsi que le paramètre distinguishedName pour les objets utilisateur :
 
@@ -990,7 +1001,7 @@ Synchronisation d’Azure AD Connect
 
 * Azure AD Connect permet désormais l’utilisation de l’attribut ConsistencyGuid en tant qu’attribut sourceAnchor pour les objets Active Directory locaux. En outre, Azure AD Connect remplit l’attribut ConsistencyGuid avec la valeur de l’attribut objectGuid s’il est vide. Cette fonctionnalité s’applique uniquement au nouveau déploiement. Pour en savoir plus sur cette fonctionnalité, reportez-vous à la section [Azure AD Connect : Principes de conception - Utilisation de ms-DS-ConsistencyGuid en tant qu’attribut sourceAnchor](plan-connect-design-concepts.md#using-ms-ds-consistencyguid-as-sourceanchor).
 * Une nouvelle applet de commande de dépannage Invoke-ADSyncDiagnostics a été ajoutée pour faciliter le diagnostic des problèmes de synchronisation de hachage de mot de passe. Pour en savoir sur l’utilisation de la cmdlet, reportez-vous à l’article [Résolution des problèmes de synchronisation du hachage de mot de passe avec la synchronisation Azure AD Connect](tshoot-connect-password-hash-synchronization.md).
-* Azure AD Connect prend désormais en charge la synchronisation d’objets Dossier public à extension messagerie à partir d’un AD local sur Azure AD. Vous pouvez activer la fonctionnalité à l’aide de l’Assistant Azure AD Connect accessible sous Fonctionnalités facultatives. Pour en savoir plus sur cette fonctionnalité, consultez l’article relatif à la [prise en charge du blocage du périmètre basé sur l’annuaire par Office 365 pour les dossiers publics activés par courrier en local](https://blogs.technet.microsoft.com/exchange/2017/05/19/office-365-directory-based-edge-blocking-support-for-on-premises-mail-enabled-public-folders).
+* Azure AD Connect prend désormais en charge la synchronisation d’objets Dossier public à extension messagerie à partir d’un AD local sur Azure AD. Vous pouvez activer la fonctionnalité à l’aide de l’Assistant Azure AD Connect accessible sous Fonctionnalités facultatives. Pour en savoir plus sur cette fonctionnalité, consultez l’article relatif à la [prise en charge du blocage du périmètre basé sur l’annuaire par Office 365 pour les dossiers publics activés par courrier en local](https://techcommunity.microsoft.com/t5/exchange/office-365-directory-based-edge-blocking-support-for-on-premises/m-p/74218).
 * Azure AD Connect nécessite la synchronisation d’un compte AD DS à partir de l’instance AD locale. Auparavant, lorsque vous installiez Azure AD Connect à l’aide du mode Express, vous pouviez fournir les informations d’identification d’un compte d’administrateur d’entreprise, et Azure AD Connect créait le compte AD DS requis. Toutefois, vous deviez fournir le compte AD DS pour une installation personnalisée et pour l’ajout de forêts à un déploiement existant. Désormais, vous pouvez également fournir les informations d’identification d’un compte d’administrateur d’entreprise au cours d’une installation personnalisée et laisser Azure AD Connect créer le compte AD DS requis.
 * Azure AD Connect prend désormais en charge SQL AOA. Vous devez activer SQL AOA avant d’installer Azure AD Connect. Pendant l’installation, Azure AD Connect détecte si l’instance SQL spécifiée est activée ou non pour SQL AOA. Si SQL AOA est activé, Azure AD Connect détermine si SQL AOA est configuré pour utiliser une réplication synchrone ou asynchrone. Lorsque vous configurez l’écouteur de groupe de disponibilité, il est recommandé de définir la propriété RegisterAllProvidersIP sur 0. En effet, Azure AD Connect utilise actuellement SQL Native Client pour se connecter à SQL ; or, SQL Native Client ne prend pas en charge l’utilisation de la propriété MultiSubNetFailover.
 * Si vous utilisez une base de données locale pour votre serveur Azure AD Connect et si avez atteint la limite de taille de 10 Go, le service de synchronisation ne démarre plus. Auparavant, vous deviez effectuer l’opération ShrinkDatabase sur la base de données locale pour récupérer un espace de base de données suffisant pour permettre le démarrage du service de synchronisation. Ensuite, vous pouviez utiliser Synchronization Service Manager pour supprimer l’historique d’exécution afin de récupérer davantage d’espace de base de données. Désormais, vous pouvez utiliser l’applet de commande Start-ADSyncPurgeRunHistory pour purger des données de l’historique d’exécution de la base de données locale afin de récupérer de l’espace de base de données. En outre, cette applet de commande prend en charge un mode hors connexion (en spécifiant le paramètre - offline) qui peut être utilisé lorsque le service de synchronisation ne s’exécute pas. Remarque : le mode hors connexion est utilisable uniquement si le service de synchronisation n’est pas en cours d’exécution et si la base de données utilisée est la base de données locale.
@@ -1055,7 +1066,7 @@ Synchronisation d’Azure AD Connect
 
 Desktop SSO
 
-* L’Assistant Azure AD Connect ne requiert plus l’ouverture du port 9090 sur le réseau lors de la configuration de l’authentification directe et de Desktop SSO. Seul le port 443 est requis. 
+* L’Assistant Azure AD Connect ne requiert plus l’ouverture du port 9090 sur le réseau lors de la configuration de l’authentification directe et de Desktop SSO. Seul le port 443 est requis.
 
 ## <a name="114430"></a>1.1.443.0
 Publication : Mars 2017

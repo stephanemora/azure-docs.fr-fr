@@ -1,19 +1,14 @@
 ---
 title: Configurer votre propre clé pour chiffrer les données Azure Event Hubs au repos
 description: Cet article vous explique comment configurer votre propre clé pour chiffrer les données Azure Event Hubs au repos.
-services: event-hubs
-ms.service: event-hubs
-documentationcenter: ''
-author: spelluru
 ms.topic: conceptual
-ms.date: 12/02/2019
-ms.author: spelluru
-ms.openlocfilehash: f515d3ad832db7f78f98111ab67628a2874033ff
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.date: 06/23/2020
+ms.openlocfilehash: 2d82fc8c962496246196331c7d191c0fc057694f
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81459132"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85479825"
 ---
 # <a name="configure-customer-managed-keys-for-encrypting-azure-event-hubs-data-at-rest-by-using-the-azure-portal"></a>Configurer des clés gérées par le client pour chiffrer les données Azure Event Hubs au repos via le portail Azure
 Azure Event Hubs fournit une fonctionnalité de chiffrement des données au repos avec Azure Storage Service Encryption (Azure SSE). Event Hubs utilise le service Stockage Azure pour stocker les données. Par défaut, toutes les données stockées avec ce service sont chiffrées à l'aide de clés gérées par Microsoft. 
@@ -71,7 +66,7 @@ Après avoir activé une clé gérée par le client, vous devez l'associer à vo
 
 
 ## <a name="rotate-your-encryption-keys"></a>Faire pivoter vos clés de chiffrement
-Vous pouvez faire pivoter votre clé dans le coffre de clés à l'aide du mécanisme de rotation d'Azure Key Vault. Pour plus d'informations, consultez [Configurer l'audit et la rotation des clés](../key-vault/secrets/key-rotation-log-monitoring.md). Des dates d'activation et d'expiration peuvent également être définies pour automatiser la rotation des clés. Le service Event Hubs détectera les nouvelles versions des clés et commencera à les utiliser automatiquement.
+Vous pouvez faire pivoter votre clé dans le coffre de clés à l'aide du mécanisme de rotation d'Azure Key Vault. Des dates d'activation et d'expiration peuvent également être définies pour automatiser la rotation des clés. Le service Event Hubs détectera les nouvelles versions des clés et commencera à les utiliser automatiquement.
 
 ## <a name="revoke-access-to-keys"></a>Révoquer l'accès aux clés
 La révocation de l'accès aux clés de chiffrement ne videra pas les données d'Event Hubs. Mais il sera impossible d'accéder aux données à partir de l'espace de noms Event Hubs. Vous pouvez révoquer la clé de chiffrement en appliquant une stratégie d'accès ou en supprimant la clé. Pour en savoir plus sur les stratégies d'accès et sur la sécurisation de votre coffre de clés, consultez [Sécuriser l'accès à un coffre de clés](../key-vault/general/secure-your-key-vault.md).
