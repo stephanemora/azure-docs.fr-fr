@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 02/05/2019
-ms.openlocfilehash: a005b6cec811b8a584123dc4c8abab77766961e0
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 217be627f81406f671118d5290cd5f67f52c01d2
+ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79234329"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86112110"
 ---
 # <a name="computer-groups-in-azure-monitor-log-queries"></a>Groupes d’ordinateurs dans les requêtes de journal Azure Monitor
 Les groupes d’ordinateurs d’Azure Monitor permettent de formuler des [requêtes de journal](../log-query/log-query-overview.md) portant sur un ensemble spécifique d’ordinateurs.  Vous peuplez chaque groupe d’ordinateurs soit à l’aide d’une requête que vous définissez, soit en important des groupes à partir de différentes sources.  Quand le groupe est inclus dans une requête de journal, les résultats sont limités aux enregistrements correspondant aux ordinateurs du groupe.
@@ -34,7 +34,9 @@ Les groupes d’ordinateurs créés à partir d’une requête de journal contie
 
 Vous pouvez utiliser une requête pour un groupe d’ordinateurs, mais elle doit retourner un ensemble distinct d’ordinateurs à l’aide de `distinct Computer`.  Voici un exemple type de requête utilisable pour un groupe d’ordinateurs.
 
-    Heartbeat | where Computer contains "srv" | distinct Computer
+```kusto
+Heartbeat | where Computer contains "srv" | distinct Computer
+```
 
 Utilisez la procédure suivante pour créer un groupe d’ordinateurs à partir d’une recherche dans les journaux dans le portail Azure.
 
@@ -48,7 +50,7 @@ Le tableau suivant décrit les propriétés qui définissent un groupe d’ordin
 
 | Propriété | Description |
 |:---|:---|
-| Name   | Nom de la requête à afficher sur le portail. |
+| Nom   | Nom de la requête à afficher sur le portail. |
 | Alias de fonction | Alias unique utilisé pour identifier le groupe d’ordinateurs dans une requête. |
 | Category       | Catégorie servant à organiser les requêtes sur le portail. |
 
@@ -94,26 +96,28 @@ Cliquez sur le signe **x** dans la colonne **Supprimer** pour supprimer le group
 ## <a name="using-a-computer-group-in-a-log-query"></a>Utiliser un groupe d’ordinateurs dans une requête de journal
 Pour utiliser un groupe d’ordinateurs créé à partir d’une requête de journal, traitez son alias comme une fonction, en général avec la syntaxe suivante :
 
-  `Table | where Computer in (ComputerGroup)`
+```kusto
+Table | where Computer in (ComputerGroup)`
+```
 
 Par exemple, vous pouvez utiliser les éléments suivants pour retourner les enregistrements UpdateSummary pour les ordinateurs contenus dans un groupe d’ordinateurs appelé mycomputergroup.
- 
-  `UpdateSummary | where Computer in (mycomputergroup)`
 
+```kusto
+UpdateSummary | where Computer in (mycomputergroup)`
+```
 
 Les groupes d’ordinateurs importés et leurs ordinateurs inclus sont stockés dans la table **ComputerGroup**.  Par exemple, la requête suivante retourne une liste d’ordinateurs du groupe d’ordinateurs du domaine d’Active Directory. 
 
-  `ComputerGroup | where GroupSource == "ActiveDirectory" and Group == "Domain Computers" | distinct Computer`
+```kusto
+ComputerGroup | where GroupSource == "ActiveDirectory" and Group == "Domain Computers" | distinct Computer
+```
 
 La requête suivante retourne les enregistrements UpdateSummary pour les seuls ordinateurs du domaine.
 
-  ```
-  let ADComputers = ComputerGroup | where GroupSource == "ActiveDirectory" and Group == "Domain Computers" | distinct Computer;
+```kusto
+let ADComputers = ComputerGroup | where GroupSource == "ActiveDirectory" and Group == "Domain Computers" | distinct Computer;
   UpdateSummary | where Computer in (ADComputers)
-  ```
-
-
-
+```
 
 ## <a name="computer-group-records"></a>Enregistrements de groupe d’ordinateurs
 Un enregistrement est créé dans l’espace de travail Log Analytics pour chaque appartenance à un groupe d’ordinateur créée à partir d’Active Directory ou de WSUS.  Ces enregistrements sont de type **ComputerGroup** et ont les propriétés décrites dans le tableau suivant.  Aucun enregistrement n’est créé pour des groupes d’ordinateurs basés sur des requêtes de journal.
@@ -127,7 +131,7 @@ Un enregistrement est créé dans l’espace de travail Log Analytics pour chaqu
 | `GroupFullName` |Chemin d’accès complet au groupe, incluant la source et le nom de la source. |
 | `GroupSource` |Source à partir de laquelle ce groupe a été collecté. <br><br>Active Directory<br>WSUS<br>WSUSClientTargeting |
 | `GroupSourceName` |Nom de la source à partir de laquelle le groupe a été collecté.  Pour Active Directory, il s’agit du nom de domaine. |
-| `ManagementGroupName` |Nom du groupe d'administration pour les agents SCOM.  Pour les autres agents, il s’agit d’AOI-\<workspace ID\> |
+| `ManagementGroupName` |Nom du groupe d'administration pour les agents SCOM.  Pour les autres agents, il s'agit d’AOI-\<workspace ID\> |
 | `TimeGenerated` |Date et heure de création ou de mise à jour du groupe d’ordinateurs. |
 
 ## <a name="next-steps"></a>Étapes suivantes
