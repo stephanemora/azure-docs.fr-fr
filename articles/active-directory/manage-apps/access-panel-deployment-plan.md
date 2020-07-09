@@ -2,25 +2,25 @@
 title: Planifier le déploiement d’un panneau d’accès Azure Active Directory
 description: Instructions pour le déploiement du panneau d’accès Azure Active Directory
 services: active-directory
-author: barbaraselden
-manager: CelesteDG
+author: kenwith
+manager: celestedg
 ms.assetid: ''
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 09/27/2019
-ms.author: baselden
+ms.author: kenwith
 ms.reviewer: mimart
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 04d8b6c6d40aa81bf56baed59f90417f2147fa56
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 8b8a74c85b63e3a532e49136ba3b33437d907694
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "76897078"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85555315"
 ---
 # <a name="plan-an-azure-active-directory-access-panel-deployment"></a>Planifier le déploiement d’un panneau d’accès Azure Active Directory
 
@@ -261,7 +261,7 @@ Pour planifier l’appartenance de groupe en libre-service, déterminez si vous 
 
 Azure AD fournit des [rapports proposant des insights techniques et commerciaux](https://azure.microsoft.com/documentation/articles/active-directory-view-access-usage-reports/). Collaborez avec vos propriétaires d’applications métier et techniques pour assumer la propriété de ces rapports et les utiliser régulièrement. Le tableau ci-dessous fournit quelques exemples de scénarios de création de rapports typiques.
 
-|   | Gérer le risque.| Augmenter la productivité| Gouvernance et conformité |
+| Exemple | Gérer le risque.| Augmenter la productivité| Gouvernance et conformité |
 |  - |- | - | - |
 | Types de rapports|  Autorisations et utilisation des applications| Activité d’approvisionnement de compte| Vérifier qui accède aux applications |
 | Actions potentielles| Auditer l’accès, révoquer les autorisations| Corriger les erreurs d’approvisionnement| Révoquer l’accès |

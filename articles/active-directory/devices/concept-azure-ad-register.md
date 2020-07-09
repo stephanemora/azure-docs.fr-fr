@@ -11,18 +11,18 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sandeo
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 7e2a8cad7cd4410a95a6ebd60ada22de456737bf
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: b1ce0723c0064cee711e851d16f4080a722e7539
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "67462529"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85554864"
 ---
 # <a name="azure-ad-registered-devices"></a>Appareils inscrits sur Azure AD
 
 L’objectif des appareils inscrits sur Azure AD est de fournir à vos utilisateurs la prise en charge des scénarios d’appareil mobile et Bring Your Own Device (BYOD). Dans ces scénarios, un utilisateur peut accéder aux ressources contrôlées Azure Active Directory de votre organisation à l’aide d’un appareil personnel.
 
-|   | Appareils inscrits sur Azure AD |
+| Appareils inscrits sur Azure AD | Description |
 | --- | --- |
 | **Définition** | Inscrit à Azure AD sans devoir utiliser un compte professionnel pour se connecter à l’appareil |
 | **Public principal** | S’applique à tous les utilisateurs présentant les critères suivants : |

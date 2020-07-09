@@ -17,12 +17,12 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.custom: seohack1
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e662d2c6d7939756dee6eb25ca62fef171b7d6d0
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 7263d6a73a78b4b804cddd77f979898008ebadd6
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "67109333"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85555372"
 ---
 # <a name="define-a-hybrid-identity-adoption-strategy"></a>Définir une stratégie d’adoption des identités hybrides
 Dans le cadre de cette tâche, vous définissez la stratégie d’adoption des identités hybrides pour que votre solution d’identités hybrides réponde aux exigences de l’entreprise évoquées dans les articles suivants :
@@ -63,7 +63,7 @@ La stratégie que vous utilisez détermine l’expérience de connexion utilisat
 
 **Applications réseau jointes à un domaine et privées**:
 
-|  | Identité synchronisée | Identité fédérée |
+| Application | Identité synchronisée | Identité fédérée |
 | --- | --- | --- |
 | Navigateurs web |Authentification basée sur les formulaires |Authentification unique, parfois requise pour fournir l’ID d’organisation |
 | Outlook |Demander les informations d’identification |Demander les informations d’identification |
@@ -73,7 +73,7 @@ La stratégie que vous utilisez détermine l’expérience de connexion utilisat
 
 **Sources externes ou non fiables** :
 
-|  | Identité synchronisée | Identité fédérée |
+| Application | Identité synchronisée | Identité fédérée |
 | --- | --- | --- |
 | Navigateurs web |Authentification basée sur les formulaires |Authentification basée sur les formulaires |
 | Outlook, Skype Entreprise (Lync), OneDrive Entreprise, abonnement Office |Demander les informations d’identification |Demander les informations d’identification |

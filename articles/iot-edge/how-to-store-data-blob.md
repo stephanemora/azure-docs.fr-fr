@@ -8,12 +8,12 @@ ms.date: 12/13/2019
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: bea00f429f31f2be62ee6a9c00f88873c595d94c
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 0b647515e9bd802673114de82089ede5f52f9016
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "76509816"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85562701"
 ---
 # <a name="store-data-at-the-edge-with-azure-blob-storage-on-iot-edge"></a>Stocker des données en périphérie avec le Stockage Blob Azure sur IoT Edge
 
@@ -291,7 +291,7 @@ Ce module Stockage Blob Azure sur IoT Edge permet désormais d’intégrer Event
 
 Voici les [notes de publication dans docker hub](https://hub.docker.com/_/microsoft-azure-blob-storage) pour ce module
 
-## <a name="feedback"></a>Commentaires
+## <a name="suggestions"></a>Suggestions
 
 Vos commentaires sont importants et nous permettent de faire de ce module et de ses fonctionnalités utiles et faciles des outils faciles à utiliser et pratiques. Partagez vos commentaires et dites-nous comment nous pouvons les améliorer.
 

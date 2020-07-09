@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: translator-text
 ms.topic: conceptual
-ms.date: 05/26/2020
+ms.date: 06/29/2020
 ms.author: swmachan
-ms.openlocfilehash: 100084a244944bcaf0d566e347d56dd4a03ecfae
-ms.sourcegitcommit: fc718cc1078594819e8ed640b6ee4bef39e91f7f
+ms.openlocfilehash: d9fda476a184731cd00317facbeceaf7bdf55edf
+ms.sourcegitcommit: 73ac360f37053a3321e8be23236b32d4f8fb30cf
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "83995783"
+ms.lasthandoff: 06/30/2020
+ms.locfileid: "85561460"
 ---
 # <a name="request-limits-for-translator"></a>Limites de requête pour Translator
 
@@ -66,14 +66,13 @@ Quand vous utilisez la fonction [BreakSentence](https://docs.microsoft.com/azure
 
 | Langage | Code | Limite de caractères |
 |----------|------|-----------------|
-| Chinois | zh | 132 |
-| Allemand | de | 290 |
-| Italien | it | 280 |
-| Japonais | ja | 150 |
-| Portugais | pt | 290 |
-| Espagnol | es | 280 |
-| Italien | it | 280 |
-| Thaï | th | 258 |
+| Chinois | zh | 166 |
+| Allemand | de | 800 |
+| Italien | it | 800 |
+| Japonais | ja | 166 |
+| Portugais | pt | 800 |
+| Espagnol | es | 800 |
+| Thaï | th | 180 |
 
 > [!NOTE]
 > Cette limite ne s’applique pas aux traductions.

@@ -11,18 +11,18 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sandeo
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 8e4521cb67ae95a1cd4a3e728a13e43bfd5773ab
-ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
+ms.openlocfilehash: ca08b81a71cd61e727b11bbeb88c0c235d25c5e6
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/21/2020
-ms.locfileid: "83737025"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85554903"
 ---
 # <a name="azure-ad-joined-devices"></a>Appareils joints Azure AD
 
 La jonction Azure AD est destinée aux organisations axées en priorité ou uniquement sur le cloud. Toute organisation peut déployer des appareils joints Azure AD, quels que soient leur taille et leur secteur d’activité. La jonction Azure AD fonctionne même dans un environnement hybride et permet l’accès aux applications et ressources locales et cloud.
 
-|   | Azure AD Join |
+| Azure AD Join | Description |
 | --- | --- |
 | **Définition** | Joint uniquement à Azure AD et nécessitant un compte professionnel pour se connecter à l’appareil |
 | **Public principal** | Approprié pour les organisations utilisant uniquement le cloud et pour les organisations hybrides. |

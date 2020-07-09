@@ -4,7 +4,7 @@ description: Connexion Azure AD sur une machine virtuelle Azure exécutant Windo
 services: active-directory
 ms.service: active-directory
 ms.subservice: devices
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 10/29/2019
 ms.author: joflore
 author: MicrosoftGuyJFlo
@@ -12,21 +12,19 @@ manager: daveba
 ms.reviewer: sandeo
 ms.custom: references_regions
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 4abc2dee6b83820169173d965d53381ead9f4d0b
-ms.sourcegitcommit: 1f48ad3c83467a6ffac4e23093ef288fea592eb5
+ms.openlocfilehash: 152f7ab6ccb9f01c7fe70553501c8cf8afa1c650
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/29/2020
-ms.locfileid: "84194017"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85554880"
 ---
 # <a name="sign-in-to-windows-virtual-machine-in-azure-using-azure-active-directory-authentication-preview"></a>Se connecter à une machine virtuelle Windows dans Azure via l’authentification Azure Active Directory (préversion)
 
 Les organisations peuvent désormais utiliser l’authentification Azure Active Directory (AD) pour leurs machines virtuelles Azure exécutées sous **Windows Server 2019 Datacenter Edition** ou **Windows 10 1809** et versions ultérieures. L’utilisation d’Azure AD pour l’authentification sur des machines virtuelles vous offre un moyen de contrôler et d’appliquer des stratégies de manière centralisée. Les outils tels que le contrôle d’accès en fonction du rôle Azure (RBAC) et l’accès conditionnel Azure AD vous permettent de contrôler qui peut accéder à une machine virtuelle. Cet article indique comment créer et configurer une machine virtuelle Windows Server 2019 pour utiliser l’authentification Azure AD.
 
-|     |
-| --- |
-| La connexion Azure AD pour machines virtuelles Windows Azure est une fonctionnalité d’évaluation publique d’Azure Active Directory. Pour plus d’informations sur les préversions, consultez [Conditions d’utilisation supplémentaires pour les préversions de Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)|
-|     |
+> [!NOTE]
+> La connexion Azure AD pour machines virtuelles Windows Azure est une fonctionnalité d’évaluation publique d’Azure Active Directory. Pour plus d’informations sur les préversions, consultez [Conditions d’Utilisation Supplémentaires relatives aux Évaluations Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 Les avantages liés à l’utilisation de l’authentification Azure AD pour se connecter aux machines virtuelles Windows dans Azure sont nombreux, parmi lesquels :
 

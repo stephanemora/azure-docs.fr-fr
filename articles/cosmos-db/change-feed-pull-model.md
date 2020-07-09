@@ -1,5 +1,5 @@
 ---
-title: Changer le modèle de tirage de flux
+title: Changer le modèle d’extraction de flux
 description: Découvrir comment utiliser le modèle de tirage (pull) du flux de modification Azure Cosmos DB pour lire le flux de modification et les différences entre le modèle de tirage et le processeur de flux de modification
 author: timsander1
 ms.author: tisande
@@ -8,12 +8,12 @@ ms.devlang: dotnet
 ms.topic: conceptual
 ms.date: 05/19/2020
 ms.reviewer: sngun
-ms.openlocfilehash: c47016d0b82a4e4ed084f5d82394d91fd2b46be1
-ms.sourcegitcommit: 595cde417684e3672e36f09fd4691fb6aa739733
+ms.openlocfilehash: 8916f4b9824f88361fdeb9d866f84adb71e8138e
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/20/2020
-ms.locfileid: "83697714"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85563791"
 ---
 # <a name="change-feed-pull-model-in-azure-cosmos-db"></a>Modèle de tirage (pull) du flux de modification dans Azure Cosmos DB
 
@@ -164,7 +164,7 @@ Envisagez plutôt d’utiliser le modèle de tirage dans les scénarios suivants
 
 Voici quelques différences capitales entre le processeur de flux de modification et le modèle de tirage :
 
-|  | Processeur de flux de modification| Modèle de tirage (pull) |
+|Fonctionnalité  | Processeur de flux de modification| Modèle de tirage (pull) |
 | --- | --- | --- |
 | Suivi du point actuel dans le traitement du flux de modification | Bail (stocké dans un conteneur Azure Cosmos DB) | Jeton de continuation (stocké en mémoire ou rendu persistant manuellement) |
 | Possibilité de relire les modifications passées | Oui, avec le modèle d’envoi (push) | Oui, avec le modèle de tirage (pull)|

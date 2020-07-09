@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sandeo
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 22ab3e7403069ed1b579631b88c2ac2c41191ecd
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: bf21f2ea5aacb36f3a76034e99b748bf4c6c363b
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82181322"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85554775"
 ---
 # <a name="how-to-plan-your-hybrid-azure-active-directory-join-implementation"></a>Procédure : Planifier l’implémentation de la jonction Azure AD Hybride
 
@@ -41,13 +41,12 @@ Cet article suppose que vous avez lu la [Présentation de la gestion des identit
 
 Pour planifier votre implémentation Azure AD hybride, prenez connaissance de ces étapes :
 
-|   |   |
-| --- | --- |
-| ![Vérification][1] | Vérifier les appareils pris en charge |
-| ![Vérification][1] | Connaître les points à savoir |
-| ![Vérification][1] | Vérifier la validation contrôlée de la jonction Azure AD Hybride |
-| ![Vérification][1] | Sélectionner votre scénario en fonction de votre infrastructure d’identité |
-| ![Vérification][1] | Vérifier la prise en charge d’un UPN AD local pour la jonction Azure AD Hybride |
+> [!div class="checklist"]
+> - Vérifier les appareils pris en charge
+> - Connaître les points à savoir
+> - Vérifier la validation contrôlée de la jonction Azure AD Hybride
+> - Sélectionner votre scénario en fonction de votre infrastructure d’identité
+> - Vérifier la prise en charge d’un UPN AD local pour la jonction Azure AD Hybride
 
 ## <a name="review-supported-devices"></a>Vérifier les appareils pris en charge
 
