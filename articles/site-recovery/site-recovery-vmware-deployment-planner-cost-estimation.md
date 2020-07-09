@@ -7,12 +7,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 7/29/2019
 ms.author: mayg
-ms.openlocfilehash: 27678fff1c0322f9755e7726026c73934810d5d6
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: b03ac554ed578633b55ffa2fde4838c691d04d59
+ms.sourcegitcommit: e995f770a0182a93c4e664e60c025e5ba66d6a45
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "73953336"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86132207"
 ---
 # <a name="review-cost-estimations-in-the-vmware-deployment-planner"></a>Examiner les estimations de coût dans le planificateur de déploiement VMware 
 
@@ -162,4 +162,4 @@ Le Planificateur de déploiement Azure Site Recovery peut générer le rapport d
 |TRY|Lire turque (TL)||USD| Dollar américain ($)||ZAR|Rand sud-africain (R)|
 
 ## <a name="next-steps"></a>Étapes suivantes
-En savoir plus sur la protection des [machines virtuelles de VMware vers Azure à l’aide d’Azure Site Recovery](https://docs.microsoft.com/azure/site-recovery/tutorial-vmware-to-azure).
+En savoir plus sur la protection des [machines virtuelles de VMware vers Azure à l’aide d’Azure Site Recovery](./vmware-azure-tutorial.md).

@@ -5,12 +5,12 @@ author: sideeksh
 manager: rochakm
 ms.topic: how-to
 ms.date: 04/06/2020
-ms.openlocfilehash: d2cc4133e52e7cab812413d23948da6ac2660e77
-ms.sourcegitcommit: d187fe0143d7dbaf8d775150453bd3c188087411
+ms.openlocfilehash: 71176c87ee805eb4a634dd6c2f344922fc13c4f3
+ms.sourcegitcommit: e995f770a0182a93c4e664e60c025e5ba66d6a45
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/08/2020
-ms.locfileid: "80884866"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86132720"
 ---
 # <a name="troubleshoot-azure-to-azure-vm-network-connectivity-issues"></a>Résoudre les problèmes de connectivité du réseau de machines virtuelles Azure vers Azure
 
@@ -51,7 +51,7 @@ Essayez d’accéder au serveur DNS à partir de la machine virtuelle. Si le ser
 ### <a name="issue-2-site-recovery-configuration-failed-151196"></a>Problème2 : Échec de la configuration de Site Recovery (151196)
 
 > [!NOTE]
-> Si les machines virtuelles se trouvent derrière un équilibreur de charge interne **standard**, par défaut, elles n’ont pas accès aux adresses IP Office 365, comme `login.microsoftonline.com`. Remplacez le type d’équilibreur de charge interne par le type **De base** ou créez un accès sortant comme décrit dans l’article [Configurer des règles d’équilibrage de charge et des règles de trafic sortant dans Standard Load Balancer à l’aide d’Azure CLI](/azure/load-balancer/configure-load-balancer-outbound-cli).
+> Si les machines virtuelles se trouvent derrière un équilibreur de charge interne **standard**, par défaut, elles n’ont pas accès aux adresses IP Office 365, comme `login.microsoftonline.com`. Remplacez le type d’équilibreur de charge interne par le type **De base** ou créez un accès sortant comme décrit dans l’article [Configurer des règles d’équilibrage de charge et des règles de trafic sortant dans Standard Load Balancer à l’aide d’Azure CLI](../load-balancer/configure-load-balancer-outbound-cli.md).
 
 #### <a name="possible-cause"></a>Cause probable
 
@@ -60,7 +60,7 @@ Impossible d’établir une connexion aux points de terminaison IP4 d’identit�
 #### <a name="resolution"></a>Résolution
 
 - Azure Site Recovery exige l’accès aux plages d’adresses IP d’Office 365 pour l’authentification.
-- Si vous utilisez un proxy de règles/pare-feu de groupe de sécurité réseau Azure pour contrôler la connectivité réseau sortante sur la machine virtuelle, assurez-vous d’autoriser la communication avec les plages IP Office 365. Créer une règle de groupe de sécurité réseau [basée sur une balise de service Azure Active Directory (Azure AD)](/azure/virtual-network/security-overview#service-tags) pour autoriser l’accès à toutes les adresses IP correspondant à Azure AD.
+- Si vous utilisez un proxy de règles/pare-feu de groupe de sécurité réseau Azure pour contrôler la connectivité réseau sortante sur la machine virtuelle, assurez-vous d’autoriser la communication avec les plages IP Office 365. Créer une règle de groupe de sécurité réseau [basée sur une balise de service Azure Active Directory (Azure AD)](../virtual-network/security-overview.md#service-tags) pour autoriser l’accès à toutes les adresses IP correspondant à Azure AD.
 - Si de nouvelles adresses sont ajoutées à Azure AD à l’avenir, vous devez créer des règles de groupe de sécurité réseau.
 
 ### <a name="example-nsg-configuration"></a>Exemple de configuration de groupe de sécurité réseau
@@ -143,7 +143,7 @@ Les paramètres de proxy personnalisés sont incorrects, et l’agent Mobility S
 
 ### <a name="fix-the-problem"></a>Résoudre le problème
 
-Pour autoriser les [URL requises](azure-to-azure-about-networking.md#outbound-connectivity-for-urls) ou les [plages d’adresses IP requises](azure-to-azure-about-networking.md#outbound-connectivity-using-service-tags), suivez les étapes fournies dans ce [document d’aide à la mise en réseau](site-recovery-azure-to-azure-networking-guidance.md).
+Pour autoriser les [URL requises](azure-to-azure-about-networking.md#outbound-connectivity-for-urls) ou les [plages d’adresses IP requises](azure-to-azure-about-networking.md#outbound-connectivity-using-service-tags), suivez les étapes fournies dans ce [document d’aide à la mise en réseau](./azure-to-azure-about-networking.md).
 
 ## <a name="next-steps"></a>Étapes suivantes
 

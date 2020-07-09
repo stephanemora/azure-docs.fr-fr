@@ -6,12 +6,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 11/12/2019
 ms.author: raynew
-ms.openlocfilehash: 589dda80d68fba73a729da4b6e59270cc09c18cb
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 6759b2c0f679a865d0bdcf8ea8cd39f258a9cf25
+ms.sourcegitcommit: e995f770a0182a93c4e664e60c025e5ba66d6a45
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "73954394"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86132120"
 ---
 # <a name="about-disaster-recovery-of-vmware-vms-to-azure"></a>À propos de la reprise d’activité de machines virtuelles VMware sur Azure
 
@@ -21,7 +21,7 @@ Cet article fournit une vue d’ensemble de la reprise d’activité de machines
 
 Une stratégie de continuité d’activité et reprise d’activité (BCDR) vous aide à maintenir votre entreprise opérationnelle. Pendant des temps d’arrêt planifiés et des interruptions inattendues, une stratégie BCDR préserve la sécurité et la disponibilité des données, et veille à ce que les applications continuent de fonctionner. En plus des fonctionnalités de continuité d’activité et reprise d’activité (BCDR) de plateforme telles que les homologations régionales et le stockage haute disponibilité, Azure fournit Recovery Services en tant que partie intégrante de votre solution BCDR. Microsoft Azure Recovery Services inclut les services suivants : 
 
-- [Sauvegarde Azure](https://docs.microsoft.com/azure/backup/backup-introduction-to-azure-backup) : sauvegarde vos données locales et de machines virtuelles Azure. Vous pouvez sauvegarder un fichier, des dossiers, des charges de travail spécifiques ou une machine virtuelle entière. 
+- [Sauvegarde Azure](../backup/backup-overview.md) : sauvegarde vos données locales et de machines virtuelles Azure. Vous pouvez sauvegarder un fichier, des dossiers, des charges de travail spécifiques ou une machine virtuelle entière. 
 - [Azure Site Recovery](site-recovery-overview.md) : assure la résilience et la reprise d’activité d’applications et charges de travail exécutées sur des machines locales ou des machines virtuelles Azure IaaS. Le service Site Recovery orchestre la réplication et gère le basculement vers Azure en cas d’interruption. Il gère également la récupération à partir d’Azure sur votre site principal. 
 
 ## <a name="how-does-site-recovery-do-disaster-recovery"></a>Comment le service Site Recovery effectue-t-il la reprise d’activité ?

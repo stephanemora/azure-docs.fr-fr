@@ -7,12 +7,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 04/01/2020
 ms.author: mayg
-ms.openlocfilehash: 2cf4f22be2a4407d73fcc7bb340fad647c8aa145
-ms.sourcegitcommit: 980c3d827cc0f25b94b1eb93fd3d9041f3593036
+ms.openlocfilehash: 528a24bb64aa8d323b5d63a27af0a52ccdf1abb6
+ms.sourcegitcommit: e995f770a0182a93c4e664e60c025e5ba66d6a45
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/02/2020
-ms.locfileid: "80546514"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86132315"
 ---
 # <a name="set-up-disaster-recovery-for-active-directory-and-dns"></a>Configurer la reprise d’activité pour Active Directory et DNS
 
@@ -25,7 +25,7 @@ Cet article explique comment créer une solution de récupération d’urgence p
 ## <a name="prerequisites"></a>Prérequis
 
 - Si vous procédez à une récupération vers Azure, [préparez les ressources Azure](tutorial-prepare-azure.md), y compris un abonnement, un réseau virtuel Azure, un compte de stockage et un coffre Recovery Services.
-- Vérifiez les [exigences de prise en charge](site-recovery-support-matrix-to-azure.md) pour tous les composants.
+- Vérifiez les [exigences de prise en charge](./vmware-physical-azure-support-matrix.md) pour tous les composants.
 
 ## <a name="replicate-the-domain-controller"></a>Répliquer le contrôleur de domaine
 

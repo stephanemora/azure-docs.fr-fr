@@ -8,12 +8,12 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 10/15/2019
 ms.author: ramamill
-ms.openlocfilehash: 5209dab5e0934cc98bb1334a1565cc13998a7d2e
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 9d6b912229b1365dd7bd8d466af18d1e81b5aa8e
+ms.sourcegitcommit: e995f770a0182a93c4e664e60c025e5ba66d6a45
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84704435"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86132154"
 ---
 # <a name="deploy-a-configuration-server"></a>Déployer un serveur de configuration
 
@@ -39,7 +39,7 @@ Vous devez avoir un utilisateur avec une de ces autorisations définie dans AAD 
 1. L’utilisateur doit avoir le rôle « Développeur d’applications » pour créer une application.
     - Pour vérifier, connectez-vous au Portail Azure.</br>
     - Accédez à **Azure Active Directory** > **Rôles et administrateurs**.</br>
-    - Vérifiez si le rôle « Développeur d’applications » est attribué à l’utilisateur. Si ce n’est pas le cas, utilisez un utilisateur disposant de cette autorisation ou contacter l’[administrateur pour activer l’autorisation](https://docs.microsoft.com/azure/active-directory/fundamentals/active-directory-users-assign-role-azure-portal#assign-roles).
+    - Vérifiez si le rôle « Développeur d’applications » est attribué à l’utilisateur. Si ce n’est pas le cas, utilisez un utilisateur disposant de cette autorisation ou contacter l’[administrateur pour activer l’autorisation](../active-directory/fundamentals/active-directory-users-assign-role-azure-portal.md#assign-roles).
     
 2. Si le rôle « Développeur d’applications » ne peut pas être attribué, vérifiez que l’indicateur **Les utilisateurs peuvent inscrire des applications** est défini sur **true** pour que l’utilisateur puisse créer une identité. Pour activer ces autorisations :
     - Connectez-vous au portail Azure.
@@ -49,7 +49,7 @@ Vous devez avoir un utilisateur avec une de ces autorisations définie dans AAD 
       ![Azure AD_application_permission](media/vmware-azure-deploy-configuration-server/AAD_application_permission.png)
 
 > [!NOTE]
-> Les services de fédération Active Directory (AD FS) ne *sont pas pris en charge*. Utilisez un compte managé via [Azure Active Directory](https://docs.microsoft.com/azure/active-directory/fundamentals/active-directory-whatis).
+> Les services de fédération Active Directory (AD FS) ne *sont pas pris en charge*. Utilisez un compte managé via [Azure Active Directory](../active-directory/fundamentals/active-directory-whatis.md).
 
 ## <a name="download-the-template"></a>Téléchargez le modèle
 
