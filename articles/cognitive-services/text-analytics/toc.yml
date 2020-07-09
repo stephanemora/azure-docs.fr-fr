@@ -68,6 +68,8 @@
       href: How-tos/text-analytics-how-to-keyword-extraction.md
     - name: Reconnaissance d’entité nommée
       href: How-tos/text-analytics-how-to-entity-linking.md
+    - name: Analyse de texte pour l’intégrité
+      href: How-tos/text-analytics-for-health.md
     - name: Utiliser des conteneurs
       items:
         - name: Installer et exécuter des conteneurs

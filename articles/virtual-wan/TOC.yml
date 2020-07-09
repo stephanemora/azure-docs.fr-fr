@@ -116,6 +116,12 @@
           href: how-to-virtual-hub-routing.md
         - name: Guide pratique pour voir les routes effectives de hub virtuel
           href: effective-routes-virtual-hub.md
+        - name: Acheminer le trafic depuis un hub virtuel vers une NVA (héritée)
+          items:
+            - name: Portail Azure
+              href: virtual-wan-route-table-nva-portal.md
+            - name: Azure PowerShell
+              href: virtual-wan-route-table-nva.md
     - name: Sécurité
       items:
         - name: Installer un pare-feu Azure dans un hub

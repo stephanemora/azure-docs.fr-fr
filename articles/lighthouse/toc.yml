@@ -41,7 +41,7 @@
       href: ./concepts/managed-applications.md
 - name: Guides pratiques
   items:
-    - name: Intégrer un client dans la gestion des ressources déléguées Azure
+    - name: Intégrer un client à Azure Lighthouse
       displayName: resource management
       href: ./how-to/onboard-customer.md
     - name: Publier des offres de services managés sur la Place de marché Azure

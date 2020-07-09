@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 01/08/2020
 ms.author: jingwang
 ms.custom: include file
-ms.openlocfilehash: 217e48ab21439f03e0b52c894c9aace5b51b1502
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 995339f91be37b71d73b409f3eaeafb3dd1777ab
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79086165"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84754661"
 ---
 Azure Data Factory est un service mutualisé qui possède, par défaut, les limites suivantes pour garantir la protection des abonnements clients contre les autres charges de travail. Pour augmenter les limites jusqu'à la limite maximale pour votre abonnement, contactez le support.
 
@@ -43,10 +43,10 @@ Azure Data Factory est un service mutualisé qui possède, par défaut, les lim
 | Unités d’intégration de données par exécution d’activité de copie <sup>1</sup> | 256 | [Contacter le support](https://azure.microsoft.com/blog/2014/06/04/azure-limits-quotas-increase-requests/). |
 | Écrire des appels d’API | 1 200/h<br/><br/> Cette limite est imposée par Azure Resource Manager, et non par Azure Data Factory. | [Contacter le support](https://azure.microsoft.com/blog/2014/06/04/azure-limits-quotas-increase-requests/). |
 | Lire des appels d’API | 12 500/h<br/><br/> Cette limite est imposée par Azure Resource Manager, et non par Azure Data Factory. | [Contacter le support](https://azure.microsoft.com/blog/2014/06/04/azure-limits-quotas-increase-requests/). |
-| Surveillance des requêtes par minute | 1 000 | [Contacter le support](https://azure.microsoft.com/blog/2014/06/04/azure-limits-quotas-increase-requests/). |
+| Surveillance des requêtes par minute | 1 000 | [Contacter le support](https://azure.microsoft.com/blog/2014/06/04/azure-limits-quotas-increase-requests/). |
 | Opérations CRUD d’entité par minute | 50 | [Contacter le support](https://azure.microsoft.com/blog/2014/06/04/azure-limits-quotas-increase-requests/). |
 | Durée maximale d’une session de débogage de flux de données | 8 heures | 8 heures |
-| Nombre de flux de données simultanés par fabrique | 50 | [Contacter le support](https://azure.microsoft.com/blog/2014/06/04/azure-limits-quotas-increase-requests/). |
+| Nombre de flux de données simultanés par runtime d’intégration | 50 | [Contacter le support](https://azure.microsoft.com/blog/2014/06/04/azure-limits-quotas-increase-requests/). |
 | Nombre de sessions de débogage de flux de données simultanées par utilisateur et par fabrique | 3 | 3 |
 | Limite de durée de vie de flux de données avec Azure IR | 4 heures | [Contacter le support](https://azure.microsoft.com/blog/2014/06/04/azure-limits-quotas-increase-requests/). |
 
@@ -73,7 +73,7 @@ Azure Data Factory est un service mutualisé qui possède, par défaut, les lim
 | Octets par objet pour les objets jeu de données et service lié<sup>1</sup> |100 Ko |2 000 Ko |
 | Cœurs de cluster Azure HDInsight à la demande d’un abonnement<sup>2</sup> |60 |[Contacter le support](https://azure.microsoft.com/blog/2014/06/04/azure-limits-quotas-increase-requests/). |
 | Unités de déplacement de données cloud par exécution d’activité de copie<sup>3</sup> |32 |[Contacter le support](https://azure.microsoft.com/blog/2014/06/04/azure-limits-quotas-increase-requests/). |
-| Nombre de nouvelles tentatives pour les exécutions d’activités de pipeline |1 000 |MaxInt (32 bits) |
+| Nombre de nouvelles tentatives pour les exécutions d’activités de pipeline |1 000 |MaxInt (32 bits) |
 
 <sup>1</sup> Les objets pipeline, jeu de données et service lié représentent un regroupement logique de votre charge de travail. Les limites de ces objets ne sont pas liées à la quantité de données que vous pouvez déplacer ou traiter à l’aide d’Azure Data Factory. Data Factory est conçu pour permettre une mise à l’échelle de plusieurs pétaoctets de données.
 

@@ -5,20 +5,21 @@ services: container-registry
 author: dlepow
 ms.service: container-registry
 ms.topic: include
-ms.date: 05/18/2020
+ms.date: 06/18/2020
 ms.author: danlep
 ms.custom: include file
-ms.openlocfilehash: 19d0be6a032868c6683cd5b6bbfa7f07306171fb
-ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
+ms.openlocfilehash: 643cf8fd400adf06bf61f070947bd78ba7be50eb
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/20/2020
-ms.locfileid: "83683411"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85242119"
 ---
 | Ressource | De base | Standard | Premium |
 |---|---|---|---|
-| Stockage<sup>1</sup> | 10 Gio | 100 Gio| 500 Gio |
-| Taille maximale du calque d’image | 200 Gio | 200 Gio | 200 Gio |
+| Stockage inclus<sup>1</sup> (Gio) | 10 | 100 | 500 |
+| Limite de stockage (Tio) | 20| 20 | 20 |
+| Taille maximale du calque d’image (Gio) | 200 | 200 | 200 |
 | ReadOps par minute<sup>2, 3</sup> | 1 000 | 3 000 | 10 000 |
 | WriteOps par minute<sup>2, 4</sup> | 100 | 500 | 2 000 |
 | Bande passante de téléchargement en Mbits/s<sup>2</sup> | 30 | 60 | 100 |
@@ -35,7 +36,7 @@ ms.locfileid: "83683411"
 | &bull; Référentiels par mappage d’étendue | N/A | N/A | 500 |
 
 
-<sup>1</sup>Les limites de stockage spécifiées correspondent à la quantité de stockage *inclus* pour chaque niveau. Un tarif journalier supplémentaire vous est facturé pour chaque Gio de stockage d’images utilisé au-dessus de ces limites. Pour obtenir des informations sur les tarifs, consultez [Tarification d’Azure Container Registry][pricing].
+<sup>1</sup> Stockage compris dans le tarif journalier pour chaque niveau. Pour un stockage supplémentaire, un tarif journalier supplémentaire par Gio vous sera facturé, jusqu’à la limite de stockage. Pour obtenir des informations sur les tarifs, consultez [Tarification d’Azure Container Registry][pricing].
 
 <sup>2</sup>Les valeurs *ReadOps*, *WriteOps* et *Bandwidth* sont des estimations minimales. Azure Container Registry s’efforce d’améliorer les performances en fonction de l’utilisation requise.
 

@@ -12,18 +12,21 @@
       href: quickstart-load-balancer-standard-public-portal.md
     - name: Créer un équilibreur de charge - Azure CLI
       href: quickstart-load-balancer-standard-public-cli.md
-    - name: Créer un équilibreur de charge - PowerShell
+    - name: Créer un équilibreur de charge - Azure PowerShell
       href: quickstart-create-standard-load-balancer-powershell.md
     - name: Créer un équilibreur de charge - Modèle ARM
-      displayName: Resource Manager
       href: quickstart-load-balancer-standard-public-template.md
+    - name: Créer un équilibreur de charge interne - Portail
+      href: tutorial-load-balancer-standard-internal-portal.md
+    - name: Créer un équilibreur de charge interne - Azure CLI
+      href: load-balancer-get-started-ilb-arm-cli.md
+    - name: Créer un équilibreur de charge interne - Azure PowerShell
+      href: load-balancer-get-started-ilb-arm-ps.md
+    - name: Créer un équilibreur de charge interne - Modèle ARM
+      href: load-balancer-get-started-ilb-arm-template.md
   expanded: true
 - name: Tutoriels
   items:
-    - name: Équilibrer la charge de trafic internet vers des machines virtuelles
-      href: tutorial-load-balancer-standard-manage-portal.md
-    - name: Équilibrer la charge de trafic interne vers des machines virtuelles
-      href: tutorial-load-balancer-standard-internal-portal.md
     - name: Équilibrer la charge de machines virtuelles entre des zones de disponibilité
       href: tutorial-load-balancer-standard-public-zone-redundant-portal.md
     - name: Équilibrer la charge de machines virtuelles dans une zone de disponibilité spécifique
@@ -78,17 +81,17 @@
           href: configure-vm-scale-set-powershell.md
         - name: Utiliser avec un équilibreur de charge Azure existant - CLI
           href: configure-vm-scale-set-cli.md
-    - name: Passer d’un équilibreur de charge De base à un équilibreur de charge Standard
+    - name: Passer d’un équilibreur de charge De base à Standard
       items:
         - name: Mettre à niveau un équilibreur de charge public De base
           href: upgrade-basic-standard.md
-        - name: Mettre à niveau un équilibreur de charge interne De base - Aucune connexion sortante nécessaire
+        - name: Mettre à niveau un équilibreur de charge interne Azure - Aucune connexion sortante nécessaire
           href: upgrade-basicInternal-standard.md
-        - name: Mettre à niveau un équilibreur de charge interne De base - Connexion sortante nécessaire
+        - name: Mettre à niveau un équilibreur de charge interne Azure - Connexion sortante nécessaire
           href: upgrade-InternalBasic-To-PublicStandard.md
     - name: Configurer des règles de trafic sortant
       items:
-        - name: Portail Azure
+        - name: Portail
           href: configure-load-balancer-outbound-portal.md
         - name: Azure CLI
           href: configure-load-balancer-outbound-cli.md
@@ -103,35 +106,25 @@
         - name: "Modèle Azure\_Resource\_Manager"
           href: 'https://docs.microsoft.com/azure/virtual-network/ipv6-configure-standard-load-balancer-template-json'
           displayName: ARM
-    - name: Configuration de l’équilibreur de charge interne
-      items:
-        - name: Portail Azure
-          href: tutorial-load-balancer-standard-internal-portal.md
-        - name: Azure CLI
-          href: load-balancer-get-started-ilb-arm-cli.md
-        - name: Azure PowerShell
-          href: load-balancer-get-started-ilb-arm-ps.md
-        - name: "Modèle Azure\_Resource\_Manager"
-          href: load-balancer-get-started-ilb-arm-template.md
-          displayName: ARM
     - name: Configurer un délai d’inactivité TCP pour l’équilibrage de charge
       href: load-balancer-tcp-idle-timeout.md
     - name: Configurer le mode de distribution de l’équilibrage de charge
       href: load-balancer-distribution-mode.md
     - name: Utilisation de plusieurs configurations IP
-      href: load-balancer-multiple-ip.md
       items:
+        - name: Portail
+          href: load-balancer-multiple-ip.md
         - name: Azure CLI
           href: load-balancer-multiple-ip-cli.md
         - name: Azure PowerShell
           href: load-balancer-multiple-ip-powershell.md
     - name: Passer d’une région à l’autre
       items:
-        - name: Équilibreur de charge externe - Portail
+        - name: Équilibreur de charge public - Portail
           href: move-across-regions-external-load-balancer-portal.md
-        - name: Équilibreur de charge externe - PowerShell
+        - name: Équilibreur de charge public - PowerShell
           href: move-across-regions-external-load-balancer-powershell.md
-        - name: Équilibreur de charge interne - Portail
+        - name: Équilibreur de charge public - Portail
           href: move-across-regions-internal-load-balancer-portal.md
         - name: Équilibreur de charge interne - PowerShell
           href: move-across-regions-internal-load-balancer-powershell.md

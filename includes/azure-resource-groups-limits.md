@@ -4,12 +4,12 @@ ms.service: azure-resource-manager
 ms.topic: include
 ms.date: 02/24/2020
 ms.author: tomfitz
-ms.openlocfilehash: c883383d3c870689bb95f808f6f60c5185c165c3
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 33a63280f6973d2c5e29db29f7a6f3fc68c57c77
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80334578"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84424725"
 ---
 | Ressource | Limite |
 | --- | --- |
@@ -22,7 +22,7 @@ ms.locfileid: "80334578"
 | Longueur de clé de la balise |512 |
 | Longueur de valeur de la balise |256 |
 
-<sup>1</sup>Si vous atteignez la limite des 800 déploiements par groupe de ressources, supprimez les déploiements inutiles dans l’historique. La suppression d’une entrée à partir de l’historique des déploiements n’affecte pas les ressources déployées. Pour plus d’informations, consultez [Résoudre l’erreur de nombre de déploiements supérieur à 800](../articles/azure-resource-manager/templates/deployment-quota-exceeded.md).
+<sup>1</sup>À compter de juin 2020, les déploiements sont automatiquement supprimés de l’historique quand vous vous approchez de la limite. La suppression d’une entrée à partir de l’historique des déploiements n’affecte pas les ressources déployées. Pour plus d’informations, consultez [Suppressions automatiques de l’historique de déploiement](../articles/azure-resource-manager/templates/deployment-history-deletions.md).
 
 #### <a name="template-limits"></a>Limites de modèle
 
@@ -31,7 +31,7 @@ ms.locfileid: "80334578"
 | Paramètres |256 |
 | Variables |256 |
 | Ressources (incluant le nombre de copies) |800 |
-| Outputs |64 |
+| Sorties |64 |
 | Expression de modèle |24 576 caractères |
 | Ressources dans les modèles exportés |200 |
 | Taille du modèle |4 Mo |

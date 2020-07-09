@@ -1,6 +1,6 @@
 ---
-title: Fichier Include
-description: Fichier Include
+title: Fichier include
+description: Fichier include
 services: app-service
 author: cephalin
 ms.service: app-service
@@ -8,23 +8,25 @@ ms.topic: include
 ms.date: 03/27/2019
 ms.author: cephalin
 ms.custom: include file
-ms.openlocfilehash: 0dd6618bdee8e6810d414d4b04b16a1e0a9c90ed
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.openlocfilehash: e6c4b07d01a4992e22107cb7d524646f439c37c6
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "67177539"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84905865"
 ---
-Vous pouvez accéder aux journaux de la console générés à partir du conteneur. Activez d’abord la journalisation du conteneur en exécutant la commande suivante dans Cloud Shell :
+Pour accéder aux journaux de la console générés à l’intérieur du code de votre application dans App Service, activez la journalisation des diagnostics en exécutant la commande suivante dans [Cloud Shell](https://shell.azure.com) :
 
 ```azurecli-interactive
-az webapp log config --name <app-name> --resource-group myResourceGroup --docker-container-logging filesystem
+az webapp log config --resource-group <resource-group-name> --name <app-name> --application-logging true --level Verbose
 ```
 
-Une fois la journalisation du conteneur activée, exécutez la commande suivante pour voir le flux de journal :
+Les valeurs possibles pour `--level` sont : `Error`, `Warning`, `Info` et `Verbose`. Chaque niveau suivant comprend le niveau précédent. Par exemple : `Error` comprend uniquement les messages d’erreur et `Verbose` comprend tous les messages.
+
+Une fois la journalisation des diagnostics activée, exécutez la commande suivante pour voir le flux de journal :
 
 ```azurecli-interactive
-az webapp log tail --name <app-name> --resource-group myResourceGroup
+az webapp log tail --resource-group <resource-group-name> --name <app-name>
 ```
 
 Si vous ne voyez pas les journaux d’activité de la console, attendez 30 secondes et vérifiez à nouveau.
