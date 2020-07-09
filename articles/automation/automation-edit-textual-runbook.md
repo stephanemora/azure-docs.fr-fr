@@ -9,12 +9,12 @@ ms.author: magoedte
 ms.date: 08/01/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: d388162738930030ba311a04a0dce1db15590c79
-ms.sourcegitcommit: 0b80a5802343ea769a91f91a8cdbdf1b67a932d3
+ms.openlocfilehash: c51ef23e27cd63d3706c104d1e39a14bf61c258e
+ms.sourcegitcommit: ec682dcc0a67eabe4bfe242fce4a7019f0a8c405
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/25/2020
-ms.locfileid: "83836836"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86186348"
 ---
 # <a name="edit-textual-runbooks-in-azure-automation"></a>Modifier des runbooks textuels dans Azure Automation
 
@@ -57,7 +57,7 @@ Cet article fournit des instructions détaillées pour effectuer différentes fo
 1. Dans le contrôle Canevas de l’éditeur de texte, positionnez le curseur à l’emplacement où vous souhaitez placer le code pour le runbook enfant.
 2. Développez le nœud **Ressources** dans le contrôle Bibliothèque.
 3. Développez le nœud du type de ressource souhaité.
-4. Cliquez avec le bouton droit sur le nom de la ressource à insérer, puis sélectionnez **Ajouter au canevas**. Pour les [ressources variables](automation-variables.md), sélectionnez **Ajouter « Obtenir la variable » au canevas** ou **Ajouter « Définir la variable » au canevas** selon que vous souhaitez obtenir ou définir la variable.
+4. Cliquez avec le bouton droit sur le nom de la ressource à insérer, puis sélectionnez **Ajouter au canevas**. Pour les [ressources variables](./shared-resources/variables.md), sélectionnez **Ajouter « Obtenir la variable » au canevas** ou **Ajouter « Définir la variable » au canevas** selon que vous souhaitez obtenir ou définir la variable.
 5. Notez que le code de la ressource est inséré dans le runbook.
 
 ## <a name="edit-an-azure-automation-runbook-using-windows-powershell"></a>Modifier un runbook Azure Automation à l’aide de Windows PowerShell
@@ -96,9 +96,9 @@ Publish-AzAutomationRunbook -Name $runbookName -AutomationAccountName $automatio
 * [Gérer les runbooks dans Azure Automation](manage-runbooks.md).
 * [Apprentissage du flux de travail PowerShell](automation-powershell-workflow.md).
 * [Création graphique dans Azure Automation](automation-graphical-authoring-intro.md).
-* [Certificats](automation-certificates.md) :
+* [Certificats](./shared-resources/certificates.md) :
 * [Connexions](automation-connections.md).
-* [Informations d’identification](automation-credentials.md).
-* [Planifications](automation-schedules.md).
-* [Variables](automation-variables.md).
-* [Référence sur les cmdlets PowerShell](https://docs.microsoft.com/powershell/module/az.automation/?view=azps-3.7.0#automation).
+* [Informations d’identification](./shared-resources/credentials.md).
+* [Planifications](./shared-resources/schedules.md).
+* [Variables](./shared-resources/variables.md).
+* [Référence sur les cmdlets PowerShell](/powershell/module/az.automation/?view=azps-3.7.0#automation).

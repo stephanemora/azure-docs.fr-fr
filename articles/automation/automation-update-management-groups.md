@@ -5,12 +5,12 @@ services: automation
 ms.subservice: update-management
 ms.date: 11/20/2019
 ms.topic: conceptual
-ms.openlocfilehash: c440862f1379983d4644fe99f33207456f747d23
-ms.sourcegitcommit: 0b80a5802343ea769a91f91a8cdbdf1b67a932d3
+ms.openlocfilehash: 25a306b3281079e8476a67ee70c2ca2cfffdd30c
+ms.sourcegitcommit: ec682dcc0a67eabe4bfe242fce4a7019f0a8c405
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/25/2020
-ms.locfileid: "83830937"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86185736"
 ---
 # <a name="use-dynamic-groups-with-update-management"></a>Utiliser des groupes dynamiques avec Update Management
 
@@ -21,7 +21,7 @@ Update Management permet de cibler un groupe dynamique de machines virtuelles Az
 
 Vous pouvez définir des groupes dynamiques pour des machines Azure ou non-Azure à partir de **Gestion des mises à jour** dans le portail Azure. Consultez [Gérer les mises à jour pour plusieurs machines virtuelles Azure](manage-update-multi.md).
 
-Un groupe dynamique est défini par une requête qu’Azure Automation évalue au moment du déploiement. Même si une requête de groupe dynamique récupère un grand nombre de machines, Azure Automation ne peut traiter qu’un maximum de 1 000 machines à la fois. Consultez [Abonnement Azure et limites, quotas et contraintes de service](https://docs.microsoft.com/azure/azure-resource-manager/management/azure-subscription-service-limits#update-management). 
+Un groupe dynamique est défini par une requête qu’Azure Automation évalue au moment du déploiement. Même si une requête de groupe dynamique récupère un grand nombre de machines, Azure Automation ne peut traiter qu’un maximum de 1 000 machines à la fois. Consultez [Abonnement Azure et limites, quotas et contraintes de service](../azure-resource-manager/management/azure-subscription-service-limits.md#update-management). 
 
 > [!NOTE]
 > Si vous envisagez de mettre à jour plus de 1 000 machines, nous vous recommandons de répartir les mises à jour entre plusieurs planifications de mise à jour. 

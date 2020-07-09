@@ -2,13 +2,13 @@
 title: Didacticiel - déployer un groupe de plusieurs conteneurs - YAML
 description: Dans ce didacticiel, vous découvrez comment déployer un groupe multiconteneur dans Azure Container Instances à l’aide d’Azure CLI et d’un fichier YAML.
 ms.topic: article
-ms.date: 04/03/2019
-ms.openlocfilehash: c029a9c605548b828c96fa741e12a43930ec4b01
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.date: 07/01/2020
+ms.openlocfilehash: f101d19814687082ab02955a3a860486d3988211
+ms.sourcegitcommit: 1e6c13dc1917f85983772812a3c62c265150d1e7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "83653505"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86169678"
 ---
 # <a name="tutorial-deploy-a-multi-container-group-using-a-yaml-file"></a>Tutoriel : Déployer un groupe multiconteneur à l’aide d’un fichier YAML
 
@@ -46,7 +46,7 @@ code deploy-aci.yaml
 Ce fichier YAML définit un groupe de conteneurs nommé « myContainerGroup », qui comprend deux conteneurs, une adresse IP publique et deux ports exposés. Les conteneurs sont déployés à partir d’images publiques de Microsoft. Le premier conteneur du groupe exécute une application web accessible sur Internet. Le second conteneur, le side-car, envoie régulièrement des requêtes HTTP à l’application web en cours d’exécution dans le premier conteneur par le biais du réseau local du groupe de conteneurs.
 
 ```YAML
-apiVersion: 2018-10-01
+apiVersion: 2019-12-01
 location: eastus
 name: myContainerGroup
 properties:
@@ -133,9 +133,9 @@ Sortie :
 
 ```console
 listening on port 80
-::1 - - [21/Mar/2019:23:17:48 +0000] "HEAD / HTTP/1.1" 200 1663 "-" "curl/7.54.0"
-::1 - - [21/Mar/2019:23:17:51 +0000] "HEAD / HTTP/1.1" 200 1663 "-" "curl/7.54.0"
-::1 - - [21/Mar/2019:23:17:54 +0000] "HEAD / HTTP/1.1" 200 1663 "-" "curl/7.54.0"
+::1 - - [02/Jul/2020:23:17:48 +0000] "HEAD / HTTP/1.1" 200 1663 "-" "curl/7.54.0"
+::1 - - [02/Jul/2020:23:17:51 +0000] "HEAD / HTTP/1.1" 200 1663 "-" "curl/7.54.0"
+::1 - - [02/Jul/2020:23:17:54 +0000] "HEAD / HTTP/1.1" 200 1663 "-" "curl/7.54.0"
 ```
 
 Pour afficher les journaux du conteneur annexe, exécutez une commande similaire en spécifiant le conteneur `aci-tutorial-sidecar`.
@@ -147,7 +147,7 @@ az container logs --resource-group myResourceGroup --name myContainerGroup --con
 Sortie :
 
 ```console
-Every 3s: curl -I http://localhost                          2019-03-21 20:36:41
+Every 3s: curl -I http://localhost                          2020-07-02 20:36:41
 
   % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
                                  Dload  Upload   Total   Spent    Left  Speed
@@ -160,7 +160,7 @@ Last-Modified: Wed, 29 Nov 2017 06:40:40 GMT
 ETag: W/"67f-16006818640"
 Content-Type: text/html; charset=UTF-8
 Content-Length: 1663
-Date: Thu, 21 Mar 2019 20:36:41 GMT
+Date: Thu, 02 Jul 2020 20:36:41 GMT
 Connection: keep-alive
 ```
 

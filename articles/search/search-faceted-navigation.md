@@ -8,12 +8,12 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 11/04/2019
-ms.openlocfilehash: 4d2ee2bccf94dca933981c3070323b659eab6cfa
-ms.sourcegitcommit: 0b80a5802343ea769a91f91a8cdbdf1b67a932d3
+ms.openlocfilehash: f7bf1c8f3f1ecbb21207776a99bba99d123ea891
+ms.sourcegitcommit: 1e6c13dc1917f85983772812a3c62c265150d1e7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/25/2020
-ms.locfileid: "83836088"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86171939"
 ---
 # <a name="how-to-implement-faceted-navigation-in-azure-cognitive-search"></a>Implémentation de la navigation par facettes dans la Recherche cognitive Azure
 
@@ -284,10 +284,12 @@ Dans l’exploration à facettes, vous voulez en général inclure uniquement le
 
 Les résultats de la facette sont des documents trouvés dans les résultats de la recherche qui correspondent à un terme de la facette. Dans l’exemple suivant, dans les résultats de la recherche pour *cloud computing*, 254 éléments ont également la *spécification interne* comme type de contenu. Les éléments ne sont pas nécessairement mutuellement exclusifs. Si un élément répond aux critères des deux filtres, il est compté dans chacun d'eux. La duplication est possible lors de l’utilisation des facettes sur les champs `Collection(Edm.String)`, souvent utilisés pour implémenter le balisage de document.
 
-        Search term: "cloud computing"
-        Content type
-           Internal specification (254)
-           Video (10) 
+```output
+Search term: "cloud computing"
+Content type
+   Internal specification (254)
+   Video (10)
+```
 
 En général, si vous trouvez que les résultats de la facette sont toujours trop volumineux, nous vous recommandons d’ajouter des filtres afin d’apporter aux utilisateurs de votre application plus d’options pour affiner la recherche.
 
@@ -321,7 +323,7 @@ Dans certaines circonstances, il est possible que les décomptes de facettes ne 
 
 Les décomptes de facettes peuvent être erronés en raison de l'architecture de partitionnement. Chaque index de recherche a plusieurs partitions et chacune d’elles indique les N premières facettes par décompte de document, qui est ensuite combiné en un résultat unique. Si certaines partitions ont beaucoup de valeurs correspondantes, tandis que d’autres en ont moins, il est possible que certaines valeurs de facettes soient manquantes ou sous-comptabilisées dans les résultats.
 
-Ce comportement peut changer à tout moment, mais si vous rencontrez ce problème aujourd’hui, vous pouvez le contourner en gonflant artificiellement le décompte :\<nombre> sur un nombre élevé pour appliquer la déclaration complète à partir de chaque partition. Si la valeur de décompte : est supérieure ou égale au nombre de valeurs uniques dans le champ, vous êtes sûr d'obtenir des résultats précis. Toutefois, lorsque les décomptes de documents sont élevés, les performances baissent, alors utilisez cette option judicieusement.
+Ce comportement peut changer à tout moment mais si vous rencontrez ce problème aujourd’hui, vous pouvez le contourner en gonflant artificiellement le décompte :\<number> sur un nombre élevé pour appliquer la déclaration complète à partir de chaque partition. Si la valeur de décompte : est supérieure ou égale au nombre de valeurs uniques dans le champ, vous êtes sûr d'obtenir des résultats précis. Toutefois, lorsque les décomptes de documents sont élevés, les performances baissent, alors utilisez cette option judicieusement.
 
 ### <a name="user-interface-tips"></a>Conseils sur l’interface utilisateur
 **Ajouter des étiquettes pour chaque champ dans la navigation à facettes**
@@ -345,7 +347,7 @@ Pour les données numériques, vous pouvez utiliser une liste de valeurs.  Prene
 
 Pour spécifier une plage de facette comme celle de la capture d’écran précédente, utilisez une liste de valeurs :
 
-    facet=listPrice,values:10|25|100|500|1000|2500
+> `facet=listPrice,values:10|25|100|500|1000|2500`
 
 Chaque plage est créée avec 0 comme point de départ, une valeur de la liste comme point de terminaison, puis la plage précédente en moins pour créer des intervalles discrets. La Recherche cognitive Azure effectue cette opération dans le cadre de la navigation par facettes. Vous n'avez pas à écrire du code pour structurer chaque intervalle.
 

@@ -5,12 +5,12 @@ services: automation
 ms.subservice: process-automation
 ms.date: 03/16/2018
 ms.topic: conceptual
-ms.openlocfilehash: 5fc374cdb60d20896ef01c34f57897c902bbe532
-ms.sourcegitcommit: 0b80a5802343ea769a91f91a8cdbdf1b67a932d3
+ms.openlocfilehash: 52cb701312f598b1b8492226709a7d2767db9600
+ms.sourcegitcommit: ec682dcc0a67eabe4bfe242fce4a7019f0a8c405
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/25/2020
-ms.locfileid: "83828863"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86187266"
 ---
 # <a name="start-a-runbook-in-azure-automation"></a>Démarrer un Runbook dans Azure Automation
 
@@ -22,8 +22,8 @@ Le tableau suivant vous aide à déterminer la méthode de démarrage d'un Runbo
 | [Windows PowerShell](/powershell/module/azurerm.automation/start-azurermautomationrunbook) |<li>Appel à partir de la ligne de commande avec les applets de commande Windows PowerShell.<br> <li>Possibilité d’inclusion dans une fonctionnalité automatisée à plusieurs étapes.<br> <li>Demande authentifiée avec un certificat ou un principal du service / principal d'utilisateur OAuth.<br> <li>Fourniture de valeurs de paramètres simples et complexes.<br> <li>Suivi de l’état des tâches.<br> <li>Client requis pour prendre en charge les applets de commande PowerShell. |
 | [API Azure Automation](/rest/api/automation/) |<li>Méthode la plus souple, mais également la plus complexe.<br> <li>Appel à partir de n'importe quel code personnalisé qui peut envoyer des requêtes HTTP.<br> <li>Requête authentifiée avec un certificat ou un principal du service / principal d'utilisateur Oauth.<br> <li>Fourniture de valeurs de paramètres simples et complexes. *Si vous appelez un Runbook Python à l'aide de l'API, la charge utile JSON doit être sérialisée.*<br> <li>Suivi de l’état des tâches. |
 | [Webhooks](automation-webhooks.md) |<li>Démarrage d'un Runbook à partir d'une simple requête HTTP.<br> <li>Authentification avec un jeton de sécurité dans l'URL.<br> <li>Le client ne peut pas remplacer les valeurs de paramètre spécifiées lors de la création du webhook. Le Runbook peut définir un paramètre unique qui est rempli avec les détails de la requête HTTP.<br> <li>Aucune possibilité de suivre l’état des tâches via l’URL du Webhook. |
-| [Répondre à une alerte Azure](../log-analytics/log-analytics-alerts.md) |<li>Démarrer un Runbook en réponse à une alerte Azure.<br> <li>Configurer webhook pour Runbook et lien vers l'alerte.<br> <li>Authentification avec un jeton de sécurité dans l'URL. |
-| [Planification](automation-schedules.md) |<li>Démarrage automatique du runbook selon une planification horaire, quotidienne, hebdomadaire ou mensuelle.<br> <li>Manipulation de la planification via le portail Azure, les applets de commande PowerShell ou les API Azure.<br> <li>Fourniture des valeurs de paramètres à utiliser avec la planification. |
+| [Répondre à une alerte Azure](../azure-monitor/platform/alerts-overview.md) |<li>Démarrer un Runbook en réponse à une alerte Azure.<br> <li>Configurer webhook pour Runbook et lien vers l'alerte.<br> <li>Authentification avec un jeton de sécurité dans l'URL. |
+| [Planification](./shared-resources/schedules.md) |<li>Démarrage automatique du runbook selon une planification horaire, quotidienne, hebdomadaire ou mensuelle.<br> <li>Manipulation de la planification via le portail Azure, les applets de commande PowerShell ou les API Azure.<br> <li>Fourniture des valeurs de paramètres à utiliser avec la planification. |
 | [À partir d'un autre Runbook](automation-child-runbooks.md) |<li>Utilisation d’un Runbook en tant qu’activité d’un autre Runbook.<br> <li>Utile pour les fonctionnalités utilisées par plusieurs Runbooks.<br> <li>Fourniture des valeurs de paramètres au Runbook enfant et utilisation de la sortie dans le Runbook parent. |
 
 L’image suivante illustre le processus détaillé du cycle de vie d’un Runbook. Elle illustre différentes formes de démarrage d'un Runbook dans Azure Automation, les composants requis pour que Runbook Worker hybride exécute des Runbooks Azure Automation, ainsi que les interactions entre les différents composants. Pour en savoir plus sur l’exécution des Runbooks Automation dans votre centre de données, consultez l’article [Runbooks Workers hybrides](automation-hybrid-runbook-worker.md)
@@ -111,7 +111,7 @@ Smith
 
 ### <a name="credentials"></a>Informations d'identification
 
-Si le paramètre est un type de données `PSCredential`, vous pouvez fournir le nom d'une [ressource d'informations d'identification](automation-credentials.md) Azure Automation. Le Runbook récupère la ressource d'informations d'identification portant le nom que vous spécifiez. Le Runbook de test suivant accepte un paramètre nommé `credential`.
+Si le paramètre est un type de données `PSCredential`, vous pouvez fournir le nom d'une [ressource d'informations d'identification](./shared-resources/credentials.md) Azure Automation. Le Runbook récupère la ressource d'informations d'identification portant le nom que vous spécifiez. Le Runbook de test suivant accepte un paramètre nommé `credential`.
 
 ```powershell
 Workflow Test-Parameters
@@ -145,13 +145,13 @@ jsmith
 
 ## <a name="start-a-runbook-with-powershell"></a>Démarrer un Runbook avec PowerShell
 
-Vous pouvez utiliser l’applet de commande [Start-AzAutomationRunbook](https://docs.microsoft.com/powershell/module/az.automation/start-azautomationrunbook?view=azps-3.7.0) pour démarrer un runbook avec Windows PowerShell. L'exemple de code suivant démarre un Runbook appelé **Test-Runbook**.
+Vous pouvez utiliser l’applet de commande [Start-AzAutomationRunbook](/powershell/module/az.automation/start-azautomationrunbook?view=azps-3.7.0) pour démarrer un runbook avec Windows PowerShell. L'exemple de code suivant démarre un Runbook appelé **Test-Runbook**.
 
 ```azurepowershell-interactive
 Start-AzAutomationRunbook -AutomationAccountName "MyAutomationAccount" -Name "Test-Runbook" -ResourceGroupName "ResourceGroup01"
 ```
 
-`Start-AzAutomationRunbook` retourne un objet de traitement que vous pouvez utiliser pour suivre l’état une fois que le runbook a démarré. Vous pouvez ensuite utiliser cet objet de travail avec [Get-AzureAutomationJob](https://docs.microsoft.com/powershell/module/Az.Automation/Get-AzAutomationJob?view=azps-3.7.0) pour déterminer l'état du travail et [Get-AzureAutomationJobOutput](https://docs.microsoft.com/powershell/module/az.automation/get-azautomationjoboutput?view=azps-3.7.0) pour récupérer son résultat. L'exemple suivant démarre un runbook appelé **Test-Runbook**, attend qu'il ait terminé, puis affiche son résultat.
+`Start-AzAutomationRunbook` retourne un objet de traitement que vous pouvez utiliser pour suivre l’état une fois que le runbook a démarré. Vous pouvez ensuite utiliser cet objet de travail avec [Get-AzureAutomationJob](/powershell/module/Az.Automation/Get-AzAutomationJob?view=azps-3.7.0) pour déterminer l'état du travail et [Get-AzureAutomationJobOutput](/powershell/module/az.automation/get-azautomationjoboutput?view=azps-3.7.0) pour récupérer son résultat. L'exemple suivant démarre un runbook appelé **Test-Runbook**, attend qu'il ait terminé, puis affiche son résultat.
 
 ```azurepowershell-interactive
 $runbookName = "Test-Runbook"
@@ -170,7 +170,7 @@ While ($doLoop) {
 Get-AzAutomationJobOutput –AutomationAccountName $AutomationAcct -Id $job.JobId -ResourceGroupName $ResourceGroup –Stream Output
 ```
 
-Si le Runbook requiert des paramètres, vous devez fournir ceux-ci sous forme de [table de hachage](https://technet.microsoft.com/library/hh847780.aspx). La clé de la table de hachage doit correspondre au nom du paramètre, et la valeur est la valeur du paramètre. L'exemple suivant montre comment démarrer un Runbook avec deux paramètres de chaîne nommés FirstName et LastName, un entier nommé RepeatCount et un paramètre booléen nommé Show. Pour plus d'informations sur les paramètres, consultez [Paramètres du Runbook](#work-with-runbook-parameters) .
+Si le Runbook requiert des paramètres, vous devez fournir ceux-ci sous forme de [table de hachage](/powershell/module/microsoft.powershell.core/about/about_hash_tables). La clé de la table de hachage doit correspondre au nom du paramètre, et la valeur est la valeur du paramètre. L'exemple suivant montre comment démarrer un Runbook avec deux paramètres de chaîne nommés FirstName et LastName, un entier nommé RepeatCount et un paramètre booléen nommé Show. Pour plus d'informations sur les paramètres, consultez [Paramètres du Runbook](#work-with-runbook-parameters) .
 
 ```azurepowershell-interactive
 $params = @{"FirstName"="Joe";"LastName"="Smith";"RepeatCount"=2;"Show"=$true}
@@ -180,5 +180,5 @@ Start-AzAutomationRunbook –AutomationAccountName "MyAutomationAccount" –Name
 ## <a name="next-steps"></a>Étapes suivantes
 
 * Pour en savoir plus sur la gestion des runbooks, voir [Gérer les runbooks dans Azure Automation](manage-runbooks.md).
-* Pour plus d’informations sur PowerShell, consultez la [documentation PowerShell](https://docs.microsoft.com/powershell/scripting/overview).
+* Pour plus d’informations sur PowerShell, consultez la [documentation PowerShell](/powershell/scripting/overview).
 * Pour résoudre les problèmes liés à l’exécution de runbooks, voir [Résoudre les erreurs avec les runbooks](troubleshoot/runbooks.md).

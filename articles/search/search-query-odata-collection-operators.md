@@ -19,12 +19,12 @@ translation.priority.mt:
 - ru-ru
 - zh-cn
 - zh-tw
-ms.openlocfilehash: 54ddc8222816831b5b436297bbb1b40d03230f0c
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 47e7e09bae082141efd872d3a90ecc30a3be04e5
+ms.sourcegitcommit: 5cace04239f5efef4c1eed78144191a8b7d7fee8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "74113239"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86146066"
 ---
 # <a name="odata-collection-operators-in-azure-cognitive-search---any-and-all"></a>Opérateurs de collection OData dans la Recherche cognitive Azure - `any` et `all`
 
@@ -66,23 +66,33 @@ Un **expression lambda** d’un filtre de collection est comme le corps d’une 
 
 Correspondance des documents dont le champ `tags` contient exactement la chaîne « wifi » :
 
-    tags/any(t: t eq 'wifi')
+```text
+tags/any(t: t eq 'wifi')
+```
 
 Correspondance des documents où chaque élément du champ `ratings` se situe entre 3 et 5, y compris :
 
-    ratings/all(r: r ge 3 and r le 5)
+```text
+ratings/all(r: r ge 3 and r le 5)
+```
 
 Correspondance des documents où chaque coordonnée géographique du champ `locations` se trouve dans le polygone donné :
 
-    locations/any(loc: geo.intersects(loc, geography'POLYGON((-122.031577 47.578581, -122.031577 47.678581, -122.131577 47.678581, -122.031577 47.578581))'))
+```text
+locations/any(loc: geo.intersects(loc, geography'POLYGON((-122.031577 47.578581, -122.031577 47.678581, -122.131577 47.678581, -122.031577 47.578581))'))
+```
 
 Correspondance des documents dans lesquels le champ `rooms` est vide :
 
-    not rooms/any()
+```text
+not rooms/any()
+```
 
 Correspondance des documents où pour toutes les salles, le champ `rooms/amenities` contient « tv » et `rooms/baseRate` est inférieur à 100 :
 
-    rooms/all(room: room/amenities/any(a: a eq 'tv') and room/baseRate lt 100.0)
+```text
+rooms/all(room: room/amenities/any(a: a eq 'tv') and room/baseRate lt 100.0)
+```
 
 ## <a name="limitations"></a>Limites
 

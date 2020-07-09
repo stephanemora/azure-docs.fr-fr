@@ -6,12 +6,12 @@ services: automation
 ms.subservice: shared-capabilities
 ms.date: 05/17/2018
 ms.topic: conceptual
-ms.openlocfilehash: ac05d5b4eb8dd9d7a39f56ec6efae4831f00c623
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 9e997f80ceee54a1454128c1308032fefa603f5d
+ms.sourcegitcommit: ec682dcc0a67eabe4bfe242fce4a7019f0a8c405
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85100011"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86186144"
 ---
 # <a name="manage-role-permissions-and-security"></a>Gérer la sécurité et les autorisations des rôles
 
@@ -311,7 +311,7 @@ Vous pouvez supprimer l’autorisation d’accès d’un utilisateur qui ne gèr
 
 Vous pouvez également configurer l’accès en fonction du rôle pour un compte Automation à l’aide des [cmdlets Azure PowerShell](../role-based-access-control/role-assignments-powershell.md) suivantes :
 
-[Get-AzRoleDefinition](https://docs.microsoft.com/powershell/module/Az.Resources/Get-AzRoleDefinition?view=azps-3.7.0) répertorie tous les rôles RBAC qui sont disponibles dans Azure Active Directory. Vous pouvez utiliser cette cmdlet avec le paramètre `Name` pour répertorier toutes les actions qu’un rôle spécifique peut effectuer.
+[Get-AzRoleDefinition](/powershell/module/Az.Resources/Get-AzRoleDefinition?view=azps-3.7.0) répertorie tous les rôles RBAC qui sont disponibles dans Azure Active Directory. Vous pouvez utiliser cette cmdlet avec le paramètre `Name` pour répertorier toutes les actions qu’un rôle spécifique peut effectuer.
 
 ```azurepowershell-interactive
 Get-AzRoleDefinition -Name 'Automation Operator'
@@ -330,7 +330,7 @@ NotActions       : {}
 AssignableScopes : {/}
 ```
 
-[Get-AzRoleAssignment](https://docs.microsoft.com/powershell/module/az.resources/get-azroleassignment?view=azps-3.7.0) répertorie les affectations de rôle RBAC d’Azure AD dans l’étendue spécifiée. Sans paramètres, cette cmdlet renvoie toutes les attributions de rôle effectuées dans l’abonnement. Utilisez le paramètre `ExpandPrincipalGroups` pour répertorier les affectations d’accès de l’utilisateur spécifié, ainsi que les groupes auxquels l’utilisateur appartient.
+[Get-AzRoleAssignment](/powershell/module/az.resources/get-azroleassignment?view=azps-3.7.0) répertorie les affectations de rôle RBAC d’Azure AD dans l’étendue spécifiée. Sans paramètres, cette cmdlet renvoie toutes les attributions de rôle effectuées dans l’abonnement. Utilisez le paramètre `ExpandPrincipalGroups` pour répertorier les affectations d’accès de l’utilisateur spécifié, ainsi que les groupes auxquels l’utilisateur appartient.
 
 **Exemple :** Utilisez la cmdlet suivante pour lister tous les utilisateurs et leurs rôles dans un compte Automation.
 
@@ -352,7 +352,7 @@ ObjectId           : 15f26a47-812d-489a-8197-3d4853558347
 ObjectType         : User
 ```
 
-Utilisez [New-AzRoleAssignment](https://docs.microsoft.com/powershell/module/Az.Resources/New-AzRoleAssignment?view=azps-3.7.0) pour attribuer un accès à des utilisateurs, des groupes et des applications à une étendue particulière.
+Utilisez [New-AzRoleAssignment](/powershell/module/Az.Resources/New-AzRoleAssignment?view=azps-3.7.0) pour attribuer un accès à des utilisateurs, des groupes et des applications à une étendue particulière.
     
 **Exemple :** Utilisez la commande suivante pour attribuer le rôle « Opérateur d’Automation » à un utilisateur dans l’étendue du compte Automation.
 
@@ -374,7 +374,7 @@ ObjectId           : f5ecbe87-1181-43d2-88d5-a8f5e9d8014e
 ObjectType         : User
 ```
 
-Utilisez [Remove-AzRoleAssignment](https://docs.microsoft.com/powershell/module/Az.Resources/Remove-AzRoleAssignment?view=azps-3.7.0) pour supprimer l’accès d’un utilisateur, groupe ou application spécifié dans une étendue particulière.
+Utilisez [Remove-AzRoleAssignment](/powershell/module/Az.Resources/Remove-AzRoleAssignment?view=azps-3.7.0) pour supprimer l’accès d’un utilisateur, groupe ou application spécifié dans une étendue particulière.
 
 **Exemple :** Utilisez la commande suivante pour supprimer l’utilisateur du rôle Opérateur d’Automation dans l’étendue du compte Automation.
 

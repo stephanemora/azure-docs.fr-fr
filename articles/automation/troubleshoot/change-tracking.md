@@ -9,12 +9,12 @@ ms.author: magoedte
 ms.date: 01/31/2019
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 3fe28ba0871009785b1bb8b263b42f453c2918be
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: ddd41756f0e373e3bf627a88f441512fe0db91b7
+ms.sourcegitcommit: ec682dcc0a67eabe4bfe242fce4a7019f0a8c405
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "83684871"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86187232"
 ---
 # <a name="troubleshoot-change-tracking-and-inventory-issues"></a>Résoudre les problèmes rencontrés avec Change Tracking et d’inventaire
 
@@ -100,11 +100,11 @@ Heartbeat
 | summarize by Computer, Solutions
 ```
 
-Si votre ordinateur ne figure pas dans les résultats de la requête, il n’a pas été enregistré récemment. Il y a probablement un problème de configuration locale et vous devez réinstaller l’agent. Pour plus d’informations sur l’installation et la configuration, consultez [Collecter des données de journal avec l’agent Log Analytics](https://docs.microsoft.com/azure/azure-monitor/platform/log-analytics-agent).
+Si votre ordinateur ne figure pas dans les résultats de la requête, il n’a pas été enregistré récemment. Il y a probablement un problème de configuration locale et vous devez réinstaller l’agent. Pour plus d’informations sur l’installation et la configuration, consultez [Collecter des données de journal avec l’agent Log Analytics](../../azure-monitor/platform/log-analytics-agent.md).
 
-Si votre ordinateur s’affiche dans les résultats de la requête, vérifiez la configuration de l’étendue. Consultez [Ciblage des solutions de supervision dans Azure Monitor](https://docs.microsoft.com/azure/azure-monitor/insights/solution-targeting).
+Si votre ordinateur s’affiche dans les résultats de la requête, vérifiez la configuration de l’étendue. Consultez [Ciblage des solutions de supervision dans Azure Monitor](../../azure-monitor/insights/solution-targeting.md).
 
-Pour mieux résoudre ce problème, consultez [Problème : vous ne pouvez pas voir de données Linux](https://docs.microsoft.com/azure/azure-monitor/platform/agent-linux-troubleshoot#issue-you-are-not-seeing-any-linux-data).
+Pour mieux résoudre ce problème, consultez [Problème : vous ne pouvez pas voir de données Linux](../../azure-monitor/platform/agent-linux-troubleshoot.md#issue-you-are-not-seeing-any-linux-data).
 
 ##### <a name="log-analytics-agent-for-linux-not-configured-correctly"></a>L’agent Log Analytics pour Linux n’est pas configuré correctement
 

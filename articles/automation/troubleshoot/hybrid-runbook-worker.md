@@ -9,12 +9,12 @@ ms.author: magoedte
 ms.date: 11/25/2019
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 28b6b09c679e37ca4ecd901371e65bffb27ecba4
-ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
+ms.openlocfilehash: 2149fd68cdf5f2991d6035f245f70515e920045c
+ms.sourcegitcommit: ec682dcc0a67eabe4bfe242fce4a7019f0a8c405
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/20/2020
-ms.locfileid: "83681006"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86187198"
 ---
 # <a name="troubleshoot-hybrid-runbook-worker-issues"></a>Résoudre les problèmes liés à la fonctionnalité Runbook Worker hybride
 
@@ -58,7 +58,7 @@ Vérifiez dans le journal des événements **Microsoft-SMA** la présence d’un
 
 #### <a name="issue"></a>Problème
 
-Le Runbook Worker hybride reçoit l’événement 15011, indiquant qu’un résultat de requête n’est pas valide. L’erreur suivante s’affiche lorsque le Worker tente d’ouvrir une connexion avec le [serveur Signalr](https://docs.microsoft.com/aspnet/core/signalr/introduction?view=aspnetcore-3.1).
+Le Runbook Worker hybride reçoit l’événement 15011, indiquant qu’un résultat de requête n’est pas valide. L’erreur suivante s’affiche lorsque le Worker tente d’ouvrir une connexion avec le [serveur Signalr](/aspnet/core/signalr/introduction?view=aspnetcore-3.1).
 
 ```error
 [AccountId={c7d22bd3-47b2-4144-bf88-97940102f6ca}]
@@ -238,7 +238,7 @@ Les Workers hybrides envoient une [sortie et des messages de runbook](../automat
 
 #### <a name="issue"></a>Problème
 
-Un script exécuté sur un Runbook Worker hybride Windows ne peut pas se connecter comme prévu à Office 365 sur un bac à sable Orchestrator. Le script utilise [Connect-MsolService](https://docs.microsoft.com/powershell/module/msonline/connect-msolservice?view=azureadps-1.0) pour la connexion. 
+Un script exécuté sur un Runbook Worker hybride Windows ne peut pas se connecter comme prévu à Office 365 sur un bac à sable Orchestrator. Le script utilise [Connect-MsolService](/powershell/module/msonline/connect-msolservice?view=azureadps-1.0) pour la connexion. 
 
 Le bac à sable ne se connecte toujours pas correctement si vous modifiez le fichier **Orchestrator.Sandbox.exe.config** de manière à définir le proxy et la liste de contournement. Un fichier **Powershell_ise.exe.config** comportant les mêmes paramètres de proxy et de liste de contournement semble fonctionner comme prévu. Les journaux SMA (Service Management Automation) et PowerShell ne fournissent aucune information concernant le proxy.
 
@@ -248,9 +248,9 @@ La connexion aux services de fédération Active Directory (AD FS) sur le serveu
 
 #### <a name="resolution"></a>Résolution
 
-Vous pouvez résoudre le problème du bac à sable Orchestrator en migrant votre script afin d'utiliser les modules Azure Active Directory au lieu du module MSOnline pour les cmdlets PowerShell. Pour plus d’informations, consultez [Migration d'Orchestrator vers Azure Automation (bêta)](https://docs.microsoft.com/azure/automation/automation-orchestrator-migration).
+Vous pouvez résoudre le problème du bac à sable Orchestrator en migrant votre script afin d'utiliser les modules Azure Active Directory au lieu du module MSOnline pour les cmdlets PowerShell. Pour plus d’informations, consultez [Migration d'Orchestrator vers Azure Automation (bêta)](../automation-orchestrator-migration.md).
 
-Si vous souhaitez continuer à utiliser les cmdlets du module MSOnline, modifiez votre script pour utiliser [Invoke-Command](https://docs.microsoft.com/powershell/module/microsoft.powershell.core/invoke-command?view=powershell-7). Spécifiez les valeurs des paramètres `ComputerName` et `Credential`. 
+Si vous souhaitez continuer à utiliser les cmdlets du module MSOnline, modifiez votre script pour utiliser [Invoke-Command](/powershell/module/microsoft.powershell.core/invoke-command?view=powershell-7). Spécifiez les valeurs des paramètres `ComputerName` et `Credential`. 
 
 ```powershell
 $Credential = Get-AutomationPSCredential -Name MyProxyAccessibleCredential

@@ -8,12 +8,12 @@ ms.date: 03/12/2019
 ms.topic: conceptual
 ms.service: automation
 manager: carmonm
-ms.openlocfilehash: 5b87a98ed38e3af315789adffc11824f2522b802
-ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
+ms.openlocfilehash: c6bdc09d37cf29458346eaea360b4cd9e0d1226f
+ms.sourcegitcommit: ec682dcc0a67eabe4bfe242fce4a7019f0a8c405
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/20/2020
-ms.locfileid: "83680891"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86187164"
 ---
 # <a name="troubleshoot-shared-resource-issues"></a>Résoudre les problèmes liés aux ressources partagées
 
@@ -33,7 +33,7 @@ Comme l’importation de modules PowerShell est un processus complexe en plusieu
 
 #### <a name="resolution"></a>Résolution
 
-Pour résoudre ce problème, vous devez supprimer le module bloqué en utilisant l’applet de commande [Remove-AzAutomationModule](https://docs.microsoft.com/powershell/module/Az.Automation/Remove-AzAutomationModule?view=azps-3.7.0). Vous pouvez ensuite réessayer d’importer le module.
+Pour résoudre ce problème, vous devez supprimer le module bloqué en utilisant l’applet de commande [Remove-AzAutomationModule](/powershell/module/Az.Automation/Remove-AzAutomationModule?view=azps-3.7.0). Vous pouvez ensuite réessayer d’importer le module.
 
 ```azurepowershell-interactive
 Remove-AzAutomationModule -Name ModuleName -ResourceGroupName ExampleResourceGroup -AutomationAccountName ExampleAutomationAccount -Force
@@ -70,7 +70,7 @@ Voici quelques raisons courantes pour lesquelles l’importation d’un module d
 * La structure ne correspond pas à celle dont Automation a besoin.
 * Le module dépend d’un autre module qui n’a pas été déployé sur votre compte Automation.
 * Le module n’a pas de dépendances dans le dossier.
-* L’applet de commande [New-AzAutomationModule](https://docs.microsoft.com/powershell/module/Az.Automation/New-AzAutomationModule?view=azps-3.7.0) est utilisée pour charger le module, et vous n’avez pas spécifié le chemin de stockage complet ou vous n’avez pas chargé le module en utilisant une URL accessible publiquement.
+* L’applet de commande [New-AzAutomationModule](/powershell/module/Az.Automation/New-AzAutomationModule?view=azps-3.7.0) est utilisée pour charger le module, et vous n’avez pas spécifié le chemin de stockage complet ou vous n’avez pas chargé le module en utilisant une URL accessible publiquement.
 
 #### <a name="resolution"></a>Résolution
 

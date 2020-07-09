@@ -9,12 +9,12 @@ ms.devlang: rest-api
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 11/04/2019
-ms.openlocfilehash: e0a711b9239e1a76774d8e75f035e6c862218c82
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: d6670966b4cf74510df5dd26c994e0c53b219ba9
+ms.sourcegitcommit: 5cace04239f5efef4c1eed78144191a8b7d7fee8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85563136"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86145250"
 ---
 # <a name="how-to-index-tables-from-azure-table-storage-with-azure-cognitive-search"></a>Comment indexer des tables à partir du stockage de tables Azure avec la Recherche cognitive Azure
 
@@ -49,6 +49,7 @@ Pour l’indexation des tables, la source de données doit avoir les propriété
 
 Pour créer une source de données :
 
+```http
     POST https://[service name].search.windows.net/datasources?api-version=2020-06-30
     Content-Type: application/json
     api-key: [admin key]
@@ -59,6 +60,7 @@ Pour créer une source de données :
         "credentials" : { "connectionString" : "DefaultEndpointsProtocol=https;AccountName=<account name>;AccountKey=<account key>;" },
         "container" : { "name" : "my-table", "query" : "PartitionKey eq '123'" }
     }   
+```
 
 Pour plus d’informations sur l’API Créer une source de données, consultez [Créer une source de données](https://docs.microsoft.com/rest/api/searchservice/create-data-source).
 
@@ -81,6 +83,7 @@ L’index spécifie les champs d’un document, les attributs et d’autres cons
 
 Pour créer un index :
 
+```http
     POST https://[service name].search.windows.net/indexes?api-version=2020-06-30
     Content-Type: application/json
     api-key: [admin key]
@@ -92,6 +95,7 @@ Pour créer un index :
             { "name": "SomeColumnInMyTable", "type": "Edm.String", "searchable": true }
           ]
     }
+```
 
 Pour plus d’informations sur la création d’index, consultez [Création d’un index](https://docs.microsoft.com/rest/api/searchservice/create-index).
 
@@ -100,6 +104,7 @@ Un indexeur connecte une source de données à un index de recherche cible et fo
 
 Une fois l’index et la source de données créés, vous êtes prêt à créer l’indexeur :
 
+```http
     POST https://[service name].search.windows.net/indexers?api-version=2020-06-30
     Content-Type: application/json
     api-key: [admin key]
@@ -110,6 +115,7 @@ Une fois l’index et la source de données créés, vous êtes prêt à créer 
       "targetIndexName" : "my-target-index",
       "schedule" : { "interval" : "PT2H" }
     }
+```
 
 Cet indexeur s’exécute toutes les deux heures. (L’intervalle de planification est définie sur « PT2H ».) Pour exécuter un indexeur toutes les 30 minutes, définissez l’intervalle sur « PT30M ». Le plus court intervalle pris en charge est de 5 minutes. La planification est facultative : en cas d’omission, un indexeur ne s’exécute qu’une seule fois lorsqu’il est créé. Toutefois, vous pouvez à tout moment exécuter un indexeur à la demande.   
 
@@ -135,6 +141,7 @@ Lorsque vous configurez un indexeur de table pour l’exécuter de manière plan
 
 Pour indiquer que certains documents doivent être supprimés de l’index, vous pouvez utiliser une stratégie de suppression réversible. Plutôt que de supprimer une ligne, ajoutez une propriété pour signaler sa suppression, puis configurez une stratégie de détection des suppressions réversibles sur la source de données. Par exemple, la stratégie suivante considère qu’une ligne est supprimée si elle a une propriété `IsDeleted` avec la valeur `"true"` :
 
+```http
     PUT https://[service name].search.windows.net/datasources?api-version=2020-06-30
     Content-Type: application/json
     api-key: [admin key]
@@ -146,6 +153,7 @@ Pour indiquer que certains documents doivent être supprimés de l’index, vous
         "container" : { "name" : "table name", "query" : "<query>" },
         "dataDeletionDetectionPolicy" : { "@odata.type" : "#Microsoft.Azure.Search.SoftDeleteColumnDeletionDetectionPolicy", "softDeleteColumnName" : "IsDeleted", "softDeleteMarkerValue" : "true" }
     }   
+```
 
 <a name="Performance"></a>
 ## <a name="performance-considerations"></a>Considérations relatives aux performances

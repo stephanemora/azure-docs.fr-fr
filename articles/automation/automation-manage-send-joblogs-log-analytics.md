@@ -5,12 +5,12 @@ services: automation
 ms.subservice: process-automation
 ms.date: 05/22/2020
 ms.topic: conceptual
-ms.openlocfilehash: ba498fe9f70664a801172a6ff3705ac41a6371ef
-ms.sourcegitcommit: 0b80a5802343ea769a91f91a8cdbdf1b67a932d3
+ms.openlocfilehash: 0c8863615446f8b14043cd7bd13e529b7efa1e46
+ms.sourcegitcommit: ec682dcc0a67eabe4bfe242fce4a7019f0a8c405
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/25/2020
-ms.locfileid: "83835243"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86186195"
 ---
 # <a name="forward-azure-automation-job-data-to-azure-monitor-logs"></a>Transférer des données de travaux Azure Automation aux journaux d’activité Azure Monitor
 
@@ -28,8 +28,8 @@ Azure Automation peut envoyer un état de tâche du Runbook et des flux de tâch
 
 Pour commencer à envoyer vos journaux d’activité Automation à des journaux Azure Monitor, vous devez disposer des éléments suivants :
 
-* La version la plus récente d’[Azure PowerShell](https://docs.microsoft.com/powershell/azureps-cmdlets-docs/).
-* Un espace de travail Log Analytics. Pour plus d’informations, consultez [Prise en main des journaux Azure Monitor](../log-analytics/log-analytics-get-started.md).
+* La version la plus récente d’[Azure PowerShell](/powershell/azureps-cmdlets-docs/).
+* Un espace de travail Log Analytics. Pour plus d’informations, consultez [Prise en main des journaux Azure Monitor](../azure-monitor/overview.md).
 * L’ID de ressource de votre compte Azure Automation.
 
 Utilisez la commande suivante pour rechercher l’ID de ressource de votre compte Azure Automation :
@@ -186,8 +186,8 @@ Remove-AzDiagnosticSetting -ResourceId $automationAccountId
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-* Pour savoir comment construire des requêtes de recherche et consulter les journaux d’activité de travaux Automation avec les journaux Azure Monitor, consultez [Recherches dans les journaux d’activité dans les journaux Azure Monitor](../log-analytics/log-analytics-log-searches.md).
+* Pour savoir comment construire des requêtes de recherche et consulter les journaux d’activité de travaux Automation avec les journaux Azure Monitor, consultez [Recherches dans les journaux d’activité dans les journaux Azure Monitor](../azure-monitor/log-query/log-query-overview.md).
 * Pour savoir comment créer et récupérer la sortie et les messages d’erreur de runbooks, consultez [Superviser la sortie des runbooks](automation-runbook-output-and-messages.md).
 * Pour plus d’informations sur l’exécution des runbooks, sur la supervision des travaux de runbook et sur d’autres détails techniques, consultez [Exécution d’un Runbook dans Azure Automation](automation-runbook-execution.md).
-* Pour plus d’informations sur les journaux Azure Monitor et sur les sources de collecte de données, consultez la page [Collecter des données de stockage Azure dans les journaux Azure Monitor – Vue d’ensemble](../azure-monitor/platform/collect-azure-metrics-logs.md).
+* Pour plus d’informations sur les journaux Azure Monitor et sur les sources de collecte de données, consultez la page [Collecter des données de stockage Azure dans les journaux Azure Monitor – Vue d’ensemble](../azure-monitor/platform/resource-logs.md#send-to-log-analytics-workspace).
 * Pour obtenir de l’aide sur la résolution des problèmes Log Analytics, consultez [Dépannage si Log Analytics ne collecte plus de données](../azure-monitor/platform/manage-cost-storage.md#troubleshooting-why-log-analytics-is-no-longer-collecting-data).

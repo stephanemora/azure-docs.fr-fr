@@ -3,15 +3,15 @@ title: Déployer une image conteneur depuis Azure Container Registry
 description: Découvrez comment déployer des conteneurs dans Azure Container Instances en extrayant (pull) des images conteneur d’un registre de conteneurs Azure.
 services: container-instances
 ms.topic: article
-ms.date: 02/18/2020
+ms.date: 07/02/2020
 ms.author: danlep
 ms.custom: mvc
-ms.openlocfilehash: 212624b857d65297830995018603c2627f83369b
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 8a82b0b70b7be8897d8f85cabea2ee21ce84d913
+ms.sourcegitcommit: 1e6c13dc1917f85983772812a3c62c265150d1e7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "81453521"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86169610"
 ---
 # <a name="deploy-to-azure-container-instances-from-azure-container-registry"></a>Déployer sur Azure Container Instances à partir d’Azure Container Registry
 
@@ -136,7 +136,7 @@ Vous pouvez spécifier les propriétés de votre registre de conteneurs Azure da
 [...]
 ```
 
-Pour obtenir la configuration complète des paramètres du groupe de conteneurs, consultez [Informations de référence sur les modèles Resource Manager](/azure/templates/Microsoft.ContainerInstance/2018-10-01/containerGroups).    
+Pour obtenir la configuration complète des paramètres du groupe de conteneurs, consultez [Informations de référence sur les modèles Resource Manager](/azure/templates/Microsoft.ContainerInstance/2019-12-01/containerGroups).    
 
 Pour plus d’informations sur le référencement des secrets de Azure Key Vault dans un modèle Resource Manager, consultez [Utiliser Azure Key Vault pour transmettre une valeur de paramètre sécurisée pendant le déploiement](../azure-resource-manager/templates/key-vault-parameter.md).
 

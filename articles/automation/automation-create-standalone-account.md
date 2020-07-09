@@ -5,12 +5,12 @@ services: automation
 ms.subservice: process-automation
 ms.date: 01/15/2019
 ms.topic: conceptual
-ms.openlocfilehash: 3739f8691a144f183e72af19233f776a24066cbc
-ms.sourcegitcommit: 6a9f01bbef4b442d474747773b2ae6ce7c428c1f
+ms.openlocfilehash: ea0970a672ac8fb15c2e7c6bbb65edf33bd25f04
+ms.sourcegitcommit: ec682dcc0a67eabe4bfe242fce4a7019f0a8c405
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "84118795"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86186586"
 ---
 # <a name="create-a-standalone-azure-automation-account"></a>Création d’un compte Azure Automation autonome
 
@@ -105,5 +105,4 @@ Les comptes d'identification Classic ne sont plus créés par défaut lorsque vo
 * Pour commencer à utiliser des runbooks PowerShell, consultez [Tutoriel : Créer un runbook PowerShell](learn/automation-tutorial-runbook-textual-powershell.md).
 * Pour commencer à utiliser les runbooks de Flux de travail PowerShell, consultez [Tutoriel : Créer un runbook de Flux de travail PowerShell](learn/automation-tutorial-runbook-textual.md).
 * Pour commencer à utiliser des runbooks Python 2, consultez le [Tutoriel : Créer un runbook Python 2](learn/automation-tutorial-runbook-textual-python2.md).
-* Pour obtenir des informations de référence sur les applets de commande PowerShell, consultez [Az.Automation](https://docs.microsoft.com/powershell/module/az.automation/?view=azps-3.7.0#automation
-).
+* Pour obtenir des informations de référence sur les applets de commande PowerShell, consultez [Az.Automation](/powershell/module/az.automation/?view=azps-3.7.0#automation).

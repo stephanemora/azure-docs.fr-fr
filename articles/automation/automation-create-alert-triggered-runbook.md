@@ -5,12 +5,12 @@ services: automation
 ms.subservice: process-automation
 ms.date: 04/29/2019
 ms.topic: conceptual
-ms.openlocfilehash: 1feadeaf2a905abee396c09829dab5e06c46d99c
-ms.sourcegitcommit: 0b80a5802343ea769a91f91a8cdbdf1b67a932d3
+ms.openlocfilehash: acf31af6d3ba3d78a6435210fa17562aaddac0a3
+ms.sourcegitcommit: ec682dcc0a67eabe4bfe242fce4a7019f0a8c405
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/25/2020
-ms.locfileid: "83837108"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86186603"
 ---
 # <a name="use-an-alert-to-trigger-an-azure-automation-runbook"></a>Utiliser une alerte pour déclencher un runbook Azure Automation
 
@@ -45,7 +45,7 @@ Comme décrit dans la section précédente, chaque type d’alerte a un schéma 
 
 Dans cet exemple, il s’agit d’une alerte depuis une machine virtuelle. Il récupère les données de la machine virtuelle à partir de la charge utile, puis utilise ces informations pour arrêter la machine virtuelle. La connexion doit être configurée dans le compte Automation sur lequel le runbook est exécuté. Lorsque vous utilisez des alertes pour déclencher des runbooks, il est important de vérifier l’état de l’alerte dans le runbook déclenché. Le runbook se déclenche chaque fois que l’alerte change d’état. Les alertes présentent plusieurs états dont les deux plus courants sont Activé et Résolu. Recherchez l'état dans la logique de runbook pour vous assurer que le runbook ne s’exécute pas plusieurs fois. L’exemple de cet article montre uniquement comment rechercher des alertes avec état Activé uniquement.
 
-Le runbook utilise le `AzureRunAsConnection` [compte d'identification](automation-create-runas-account.md) pour s’authentifier auprès d’Azure afin d’effectuer l’action de gestion sur la machine virtuelle.
+Le runbook utilise le `AzureRunAsConnection` [compte d'identification](./manage-runas-account.md) pour s’authentifier auprès d’Azure afin d’effectuer l’action de gestion sur la machine virtuelle.
 
 Utilisez cet exemple pour créer un runbook appelé **Stop-AzureVmInResponsetoVMAlert**. Vous pouvez modifier le script PowerShell et l’utiliser avec de nombreuses ressources différentes.
 
@@ -192,7 +192,7 @@ Les alertes utilisent des groupes d’actions, qui sont des collections d’acti
 ## <a name="next-steps"></a>Étapes suivantes
 
 * Pour démarrer un runbook à l’aide d’un webhook, consultez [Démarrer un runbook depuis un Webhook](automation-webhooks.md).
-* Pour découvrir les différentes façons de démarrer un runbook, consultez [Démarrer un runbook](automation-starting-a-runbook.md).
+* Pour découvrir les différentes façons de démarrer un runbook, consultez [Démarrer un runbook](./start-runbooks.md).
 * Pour créer une alerte de journal d’activité, consultez [Créer des alertes de journal d’activité](../azure-monitor/platform/activity-log-alerts.md?toc=%2fazure%2fautomation%2ftoc.json).
 * Pour apprendre à créer une alerte quasiment en temps réel, consultez [Créer une règle d’alerte avec le portail Azure](../azure-monitor/platform/alerts-metric.md?toc=/azure/azure-monitor/toc.json).
-* Pour obtenir des informations de référence sur les cmdlets PowerShell, consultez [Az.Automation](https://docs.microsoft.com/powershell/module/az.automation/?view=azps-3.7.0#automation).
+* Pour obtenir des informations de référence sur les cmdlets PowerShell, consultez [Az.Automation](/powershell/module/az.automation/?view=azps-3.7.0#automation).

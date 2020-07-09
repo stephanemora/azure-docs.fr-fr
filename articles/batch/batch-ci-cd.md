@@ -5,12 +5,12 @@ author: chrisreddington
 ms.author: chredd
 ms.date: 03/28/2019
 ms.topic: how-to
-ms.openlocfilehash: d6b68a8448d8b644500b62e54ab763838d707c66
-ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
+ms.openlocfilehash: 3569e5cc25491fd408f7aec57a51d11f56dbd1fe
+ms.sourcegitcommit: 5cace04239f5efef4c1eed78144191a8b7d7fee8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/05/2020
-ms.locfileid: "85956659"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86145259"
 ---
 # <a name="use-azure-pipelines-to-build-and-deploy-hpc-solutions"></a>Utiliser Azure Pipelines pour créer et déployer des solutions HPC
 
@@ -189,7 +189,7 @@ Le modèle suivant présente un exemple de création d’un pool Azure Batch (le
 
 Enfin, nous avons un modèle qui se comporte comme un orchestrateur. Ce modèle est responsable du déploiement des modèles de fonctionnalités.
 
-Vous trouverez également plus d’informations sur la [création de modèles Azure Resource Manager liés](../azure-resource-manager/templates/template-tutorial-create-linked-templates.md) dans un article distinct.
+Vous trouverez également plus d’informations sur la [création de modèles Azure Resource Manager liés](../azure-resource-manager/templates/deployment-tutorial-linked-template.md) dans un article distinct.
 
 ```json
 {

@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 10/17/2016
 ms.author: akjosh
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 5f22fbd77069488e7aaf490f93f42cde747444a8
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 4143e049f0a89d1218d9442eaebc1c5ebaf4cc77
+ms.sourcegitcommit: ec682dcc0a67eabe4bfe242fce4a7019f0a8c405
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "74073865"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86186824"
 ---
 # <a name="understanding-and-using-the-azure-linux-agent"></a>Présentation et utilisation de l’agent Linux Azure
 
@@ -134,36 +134,36 @@ Consultez la documentation dans le [référentiel de l’agent Linux Azure sur G
 ## <a name="configuration"></a>Configuration
 Un fichier de configuration (/etc/waagent.conf) contrôle les actions de waagent. Voici un exemple de fichier de configuration :
 
-    ```
-    Provisioning.Enabled=y
-    Provisioning.DeleteRootPassword=n
-    Provisioning.RegenerateSshHostKeyPair=y
-    Provisioning.SshHostKeyPairType=rsa
-    Provisioning.MonitorHostName=y
-    Provisioning.DecodeCustomData=n
-    Provisioning.ExecuteCustomData=n
-    Provisioning.AllowResetSysUser=n
-    Provisioning.PasswordCryptId=6
-    Provisioning.PasswordCryptSaltLength=10
-    ResourceDisk.Format=y
-    ResourceDisk.Filesystem=ext4
-    ResourceDisk.MountPoint=/mnt/resource
-    ResourceDisk.MountOptions=None
-    ResourceDisk.EnableSwap=n
-    ResourceDisk.SwapSizeMB=0
-    LBProbeResponder=y
-    Logs.Verbose=n
-    OS.RootDeviceScsiTimeout=300
-    OS.OpensslPath=None
-    HttpProxy.Host=None
-    HttpProxy.Port=None
-    AutoUpdate.Enabled=y
-    ```
+```config
+Provisioning.Enabled=y
+Provisioning.DeleteRootPassword=n
+Provisioning.RegenerateSshHostKeyPair=y
+Provisioning.SshHostKeyPairType=rsa
+Provisioning.MonitorHostName=y
+Provisioning.DecodeCustomData=n
+Provisioning.ExecuteCustomData=n
+Provisioning.AllowResetSysUser=n
+Provisioning.PasswordCryptId=6
+Provisioning.PasswordCryptSaltLength=10
+ResourceDisk.Format=y
+ResourceDisk.Filesystem=ext4
+ResourceDisk.MountPoint=/mnt/resource
+ResourceDisk.MountOptions=None
+ResourceDisk.EnableSwap=n
+ResourceDisk.SwapSizeMB=0
+LBProbeResponder=y
+Logs.Verbose=n
+OS.RootDeviceScsiTimeout=300
+OS.OpensslPath=None
+HttpProxy.Host=None
+HttpProxy.Port=None
+AutoUpdate.Enabled=y
+```
 
 Les différentes options de configuration suivantes sont décrites. Elles sont de trois types : Boolean (Booléen), String (Chaîne) ou Integer (Entier). Les options de configuration Boolean peuvent être spécifiées à l'aide de « y » (oui) ou « n » (non). Le mot clé « None » (Aucun) peut être utilisé dans le cas de certaines entrées de type chaîne, comme décrit ici :
 
 **Provisioning.Enabled :**  
-```
+```txt
 Type: Boolean  
 Default: y
 ```
@@ -175,14 +175,14 @@ L'utilisateur peut activer ou désactiver la fonctionnalité d'approvisionnement
 > 
 
 **Provisioning.DeleteRootPassword :**  
-```
+```txt
 Type: Boolean  
 Default: n
 ```
 Si elle est définie, le mot de passe racine dans le fichier /etc/shadow est effacé au cours du processus d'approvisionnement.
 
 **Provisioning.RegenerateSshHostKeyPair :**  
-```
+```txt
 Type: Boolean  
 Default: y
 ```
@@ -191,42 +191,42 @@ Si ce paramètre est défini, toutes les paires de clés d’hôte SSH (ecdsa, d
 L'entrée Provisioning.SshHostKeyPairType peut configurer le type de chiffrement pour la nouvelle paire de clés. Certaines distributions recréent les paires de clés SSH pour tout type de chiffrement manquant au redémarrage du démon SSH (par exemple, à un redémarrage système).
 
 **Provisioning.SshHostKeyPairType :**  
-```
+```txt
 Type: String  
 Default: rsa
 ```
 Un type d'algorithme de chiffrement qui est pris en charge par le démon SSH sur la machine virtuelle peut être défini. Les valeurs généralement prises en charge sont « rsa », « dsa » et « ecdsa ». « putty.exe » sur Windows ne prend pas en charge « ecdsa ». Par conséquent, si vous envisagez d’utiliser putty.exe sur Windows pour établir une connexion à un déploiement Linux, utilisez « rsa » ou « dsa ».
 
 **Provisioning.MonitorHostName :**  
-```
+```txt
 Type: Boolean  
 Default: y
 ```
 Si ce paramètre est défini, waagent surveille la machine virtuelle Linux afin de détecter des modifications de nom d’hôte (comme retourné par la commande « hostname »), et met automatiquement à jour la configuration de mise en réseau dans l’image pour refléter la modification. Afin de transmettre la modification de nom aux serveurs DNS, la mise en réseau est redémarrée sur la machine virtuelle. La connexion Internet est alors brièvement interrompue.
 
 **Provisioning.DecodeCustomData**  
-```
+```txt
 Type: Boolean  
 Default: n
 ```
 Si ce paramètre est défini, waagent décode CustomData en Base64.
 
 **Provisioning.ExecuteCustomData**  
-```
+```txt
 Type: Boolean  
 Default: n
 ```
 Si ce paramètre est défini, waagent exécute CustomData après le provisionnement.
 
 **Provisioning.AllowResetSysUser**
-```
+```txt
 Type: Boolean
 Default: n
 ```
 Cette option permet de réinitialiser le mot de passe de l’utilisateur sys. Par défaut, elle est désactivée.
 
 **Provisioning.PasswordCryptId**  
-```
+```txt
 Type: String  
 Default: 6
 ```
@@ -237,91 +237,91 @@ Algorithme utilisé par crypt lors de la génération du hachage de mot de passe
  6 - SHA-512  
 
 **Provisioning.PasswordCryptSaltLength**  
-```
+```txt
 Type: String  
 Default: 10
 ```
 Longueur de la chaîne salt aléatoire utilisée lors de la génération du hachage de mot de passe.
 
 **ResourceDisk.Format :**  
-```
+```txt
 Type: Boolean  
 Default: y
 ```
 Lorsque ce paramètre est défini, le disque de ressources fourni par la plateforme est formaté et monté par waagent si le type de système de fichiers demandé par l’utilisateur dans « ResourceDisk.Filesystem » est différent de « ntfs ». Une partition unique de type Linux (83) est mise à disposition sur le disque. Cette partition n’est pas formatée si elle peut être correctement montée.
 
 **ResourceDisk.Filesystem :**  
-```
+```txt
 Type: String  
 Default: ext4
 ```
 Cette commande spécifie le type de système de fichiers pour le disque de ressources. Les valeurs prises en charge diffèrent selon la distribution Linux. Si la chaîne est X, mkfs.X doit être présent sur l'image Linux. Les images SLES 11 doivent généralement utiliser « ext3 ». Les images FreeBSD doivent utiliser « ufs2 » ici.
 
 **ResourceDisk.MountPoint :**  
-```
+```txt
 Type: String  
 Default: /mnt/resource 
 ```
 Cette commande spécifie le chemin où le disque de ressources est monté. Le disque de ressources est un disque *temporaire* et il peut être vidé lors du déprovisionnement de la machine virtuelle.
 
 **ResourceDisk.MountOptions**  
-```
+```txt
 Type: String  
 Default: None
 ```
 Spécifie les options de montage de disque à transmettre à la commande mount -o. Les valeurs de cette liste sont séparées par des virgules, par exemple. 'nodev,nosuid'. Pour plus d’informations, consultez mount(8).
 
 **ResourceDisk.EnableSwap :**  
-```
+```txt
 Type: Boolean  
 Default: n
 ```
 Si elle est définie, un fichier d'échange (/swapfile) est créé sur le disque de ressources et est ajouté à l'espace d'échange système.
 
 **ResourceDisk.SwapSizeMB :**  
-```
+```txt
 Type: Integer  
 Default: 0
 ```
 Taille du fichier d'échange en mégaoctets.
 
 **Logs.Verbose :**  
-```
+```txt
 Type: Boolean  
 Default: n
 ```
 Si elle est définie, le niveau de détail du journal est optimisé. Waagent enregistre dans /var/log/waagent.log et utilise la fonctionnalité logrotate du système pour faire tourner les journaux d’activité.
 
 **OS.EnableRDMA**  
-```
+```txt
 Type: Boolean  
 Default: n
 ```
 Si ce paramètre est défini, l’agent tente de s’installer, puis charge un pilote de noyau RDMA qui correspond à la version du microprogramme sur le matériel sous-jacent.
 
 **OS.RootDeviceScsiTimeout :**  
-```
+```txt
 Type: Integer  
 Default: 300
 ```
 Ce paramètre configure le délai d’expiration SCSI en secondes sur le disque du système d’exploitation et les lecteurs de données. Si elle n'est pas définie, les valeurs par défaut du système sont utilisées.
 
 **OS.OpensslPath :**  
-```
+```txt
 Type: String  
 Default: None
 ```
 Ce paramètre sert à spécifier un autre chemin pour les données binaires openssl à utiliser pour les opérations de chiffrement.
 
 **HttpProxy.Host, HttpProxy.Port**  
-```
+```txt
 Type: String  
 Default: None
 ```
 Si ce paramètre est défini, l’agent utilise ce serveur proxy pour accéder à internet. 
 
 **AutoUpdate.Enabled**
-```
+```txt
 Type: Boolean
 Default: y
 ```

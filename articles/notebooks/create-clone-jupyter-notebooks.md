@@ -3,12 +3,12 @@ title: Créer et cloner des notebooks Jupyter - Azure Notebooks en préversion
 description: Les projets Azure Notebooks (préversion) gèrent une collection de notebooks et de fichiers associés, que vous pouvez créer ou cloner à partir d’une autre source.
 ms.topic: how-to
 ms.date: 02/25/2019
-ms.openlocfilehash: e1321afc2ce294c8a39ba8d55574e2ca949f632e
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 4a51f9b12ca24d16858b41357627ff26d233357f
+ms.sourcegitcommit: ec682dcc0a67eabe4bfe242fce4a7019f0a8c405
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85831282"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86181492"
 ---
 # <a name="create-and-clone-projects-in-azure-notebooks-preview"></a>Créer et cloner des projets dans Azure Notebooks en préversion
 
@@ -68,13 +68,33 @@ Quand vous utilisez la commande **+ Nouveau projet**, Azure Notebooks affiche un
 
 Les mots réservés suivants ne peut pas être utilisés en tant qu’ID de projet. Ces mots réservés peuvent, toutefois, être utilisés dans le cadre d’ID de projet plus longs.
 
-| | | | | | |
-| --- | --- | --- | --- | --- | --- |
-| à propos de | account | administration | api | blog | classe |
-| content | dashboard | explorer | faq | help | html |
-| home | importer | bibliothèque | gestion | new | notebook |
-| blocs-notes | pdf | preview | Prix | profile | recherche |
-| status | support | test | | | |
+- à propos de
+- account
+- administration
+- api
+- blog
+- classe
+- content
+- dashboard
+- explorer
+- faq
+- help
+- html
+- home
+- importer
+- bibliothèque
+- gestion
+- new
+- notebook
+- blocs-notes
+- pdf
+- preview
+- Prix
+- profile
+- recherche
+- status
+- support
+- test
 
 Si vous essayez d’utiliser un de ces mots dans un ID de projet, les fenêtres contextuelles **Créer un projet** et **Paramètres du projet** indiquent : « L’ID de cette bibliothèque est un identificateur réservé ».
 

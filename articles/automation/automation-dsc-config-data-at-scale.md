@@ -10,12 +10,12 @@ ms.author: migreene
 ms.date: 08/08/2019
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: fbd721bc54ce2de6b7923b0f582c53ffc7da1a73
-ms.sourcegitcommit: 0b80a5802343ea769a91f91a8cdbdf1b67a932d3
+ms.openlocfilehash: bc55a4c5ab20cac041a00a0f924b207eb256ae8b
+ms.sourcegitcommit: ec682dcc0a67eabe4bfe242fce4a7019f0a8c405
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/25/2020
-ms.locfileid: "83837023"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86186518"
 ---
 # <a name="configure-data-at-scale-for-azure-automation-state-configuration"></a>Configurer des données à grande échelle pour Azure Automation State Configuration
 
@@ -44,8 +44,8 @@ Voici quelques exemples :
 Ces informations sont organisées dans le format de fichier de votre choix (JSON, YAML ou PSD1).
 Des applets de commande sont ensuite fournies pour générer des fichiers de données de configuration en [regroupant les informations](https://github.com/gaelcolas/Datum#datum-tree) de chaque fichier dans une même vue d’un serveur ou rôle de serveur.
 
-Une fois que les fichiers de données ont été générés, vous pouvez les utiliser avec des [scripts de configuration DSC](/powershell/scripting/dsc/configurations/write-compile-apply-configuration) pour générer des fichiers MOF et [charger ces mêmes fichiers MOF dans Azure Automation](/azure/automation/tutorial-configure-servers-desired-state#create-and-upload-a-configuration-to-azure-automation).
-Inscrivez ensuite vos serveurs [localement](/azure/automation/automation-dsc-onboarding#onboarding-physicalvirtual-windows-machines-on-premises-or-in-a-cloud-other-than-azure-including-aws-ec2-instances) ou [dans Azure](/azure/automation/automation-dsc-onboarding#onboarding-azure-vms) pour extraire les configurations.
+Une fois que les fichiers de données ont été générés, vous pouvez les utiliser avec des [scripts de configuration DSC](/powershell/scripting/dsc/configurations/write-compile-apply-configuration) pour générer des fichiers MOF et [charger ces mêmes fichiers MOF dans Azure Automation](./tutorial-configure-servers-desired-state.md#create-and-upload-a-configuration-to-azure-automation).
+Inscrivez ensuite vos serveurs [localement](./automation-dsc-onboarding.md#enable-physicalvirtual-linux-machines) ou [dans Azure](./automation-dsc-onboarding.md#enable-azure-vms) pour extraire les configurations.
 
 Pour tester Datum, accédez à [PowerShell Gallery](https://www.powershellgallery.com/packages/datum/) et téléchargez la solution ou cliquez sur « Project Site » pour afficher la [documentation](https://github.com/gaelcolas/Datum#2-getting-started--concepts).
 

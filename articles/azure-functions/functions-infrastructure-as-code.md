@@ -5,12 +5,12 @@ ms.assetid: d20743e3-aab6-442c-a836-9bcea09bfd32
 ms.topic: conceptual
 ms.date: 04/03/2019
 ms.custom: fasttrack-edit
-ms.openlocfilehash: 7155a3fa9481ef5f2da62d85d4a932ad5e8e8ab1
-ms.sourcegitcommit: ea006cd8e62888271b2601d5ed4ec78fb40e8427
+ms.openlocfilehash: b73b8418b202563ca7c4a73181b1b1b404db6ee2
+ms.sourcegitcommit: 1e6c13dc1917f85983772812a3c62c265150d1e7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/14/2020
-ms.locfileid: "81382522"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86170392"
 ---
 # <a name="automate-resource-deployment-for-your-function-app-in-azure-functions"></a>Automatiser le déploiement de ressources pour votre application de fonction dans Azure Functions
 
@@ -26,12 +26,12 @@ Pour des exemples de modèles, consultez :
 
 Un déploiement d’Azure Functions comprend généralement les ressources suivantes :
 
-| Ressource                                                                           | Condition requise | Référence sur la syntaxe et les propriétés                                                         |   |
-|------------------------------------------------------------------------------------|-------------|-----------------------------------------------------------------------------------------|---|
-| Une application de fonction                                                                     | Obligatoire    | [Microsoft.Web/sites](/azure/templates/microsoft.web/sites)                             |   |
-| Un compte de [stockage Azure](../storage/index.yml)                                   | Obligatoire    | [Microsoft.Storage/storageAccounts](/azure/templates/microsoft.storage/storageaccounts) |   |
-| Un composant [Application Insights](../azure-monitor/app/app-insights-overview.md) | Facultatif    | [Microsoft.Insights/components](/azure/templates/microsoft.insights/components)         |   |
-| Un [plan d’hébergement](./functions-scale.md)                                             | Facultatif<sup>1</sup>    | [Microsoft.Web/serverfarms](/azure/templates/microsoft.web/serverfarms)                 |   |
+| Ressource                                                                           | Condition requise | Référence sur la syntaxe et les propriétés                                                         |
+|------------------------------------------------------------------------------------|-------------|-----------------------------------------------------------------------------------------|
+| Une application de fonction                                                                     | Obligatoire    | [Microsoft.Web/sites](/azure/templates/microsoft.web/sites)                             |
+| Un compte de [stockage Azure](../storage/index.yml)                                   | Obligatoire    | [Microsoft.Storage/storageAccounts](/azure/templates/microsoft.storage/storageaccounts) |
+| Un composant [Application Insights](../azure-monitor/app/app-insights-overview.md) | Facultatif    | [Microsoft.Insights/components](/azure/templates/microsoft.insights/components)         |
+| Un [plan d’hébergement](./functions-scale.md)                                             | Facultatif<sup>1</sup>    | [Microsoft.Web/serverfarms](/azure/templates/microsoft.web/serverfarms)                 |
 
 <sup>1</sup>Un plan d’hébergement n’est requis que si vous choisissez d’exécuter votre application de fonction sur un [plan Premium](./functions-premium-plan.md) ou sur un [plan App Service](../app-service/overview-hosting-plans.md).
 

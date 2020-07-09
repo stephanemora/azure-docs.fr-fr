@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/20/2019
 ms.author: juliako
-ms.openlocfilehash: d5b84a9d216457720e9bd4e17b002d6ab9490f9d
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: fa7dca62ed51c52b704c199ca04eadb6306be4df
+ms.sourcegitcommit: 1e6c13dc1917f85983772812a3c62c265150d1e7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "73888599"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86170783"
 ---
 # <a name="upload-files-into-a-media-services-account-using-rest"></a>Charger des fichiers dans un compte Media Services à l’aide de REST  
 > [!div class="op_single_selector"]
@@ -150,7 +150,7 @@ Pour recevoir l’URL de chargement réelle, créez un localisateur SAS (voir ci
 
 Une URL SAS a le format suivant :
 
-    {https://myaccount.blob.core.windows.net}/{asset name}/{video file name}?{SAS signature}
+`{https://myaccount.blob.core.windows.net}/{asset name}/{video file name}?{SAS signature}`
 
 ### <a name="considerations"></a>Considérations
 
@@ -213,15 +213,17 @@ Pour valider que le fichier a été chargé avec succès, vous pouvez interroger
 
 Par exemple, l’opération **GET** suivante apporte des données de fichier pour votre fichier multimédia (dans le cas présent, le fichier BigBuckBunny.mp4). La requête utilise les [variables d’environnement](postman-environment.md) définies précédemment.
 
-    {{RESTAPIEndpoint}}/Assets('{{LastAssetId}}')/Files
+`{{RESTAPIEndpoint}}/Assets('{{LastAssetId}}')/Files`
 
 La réponse contient la taille, le nom et d’autres informations.
 
-    "Id": "nb:cid:UUID:69e72ede-2886-4f2a-8d36-80a59da09913",
-    "Name": "BigBuckBunny.mp4",
-    "ContentFileSize": "3186542",
-    "ParentAssetId": "nb:cid:UUID:0b8f3b04-72fb-4f38-8e7b-d7dd78888938",
-            
+```console
+"Id": "nb:cid:UUID:69e72ede-2886-4f2a-8d36-80a59da09913",
+"Name": "BigBuckBunny.mp4",
+"ContentFileSize": "3186542",
+"ParentAssetId": "nb:cid:UUID:0b8f3b04-72fb-4f38-8e7b-d7dd78888938",
+```
+  
 ## <a name="next-steps"></a>Étapes suivantes
 
 Vous pouvez désormais encoder vos éléments multimédias téléchargés. Pour plus d'informations, consultez [Encode an asset using Media Encoder Standard with the Azure portal (Encoder un élément multimédia à l’aide de Media Encoder Standard avec le portail Azure)](media-services-portal-encode.md).

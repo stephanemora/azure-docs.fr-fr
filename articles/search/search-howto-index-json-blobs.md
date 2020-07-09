@@ -9,12 +9,12 @@ ms.devlang: rest-api
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 11/04/2019
-ms.openlocfilehash: 9448b7df8855f7cf2883f6cf8bd7f2ce465038cd
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 3e1efb1f93910f311ad5df898152d71158003244
+ms.sourcegitcommit: 5cace04239f5efef4c1eed78144191a8b7d7fee8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85563553"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86146840"
 ---
 # <a name="how-to-index-json-blobs-using-a-blob-indexer-in-azure-cognitive-search"></a>Guide pratique pour indexer des objets blob JSON avec un indexeur d’objets blob dans Recherche cognitive Azure
 
@@ -149,6 +149,7 @@ Cette étape consiste à fournir les informations de connexion à la source de d
 
 Remplacez les valeurs valides des espaces réservés de nom du service, clé d’administration, compte de stockage et clé de compte.
 
+```http
     POST https://[service name].search.windows.net/datasources?api-version=2020-06-30
     Content-Type: application/json
     api-key: [admin key for Azure Cognitive Search]
@@ -159,6 +160,7 @@ Remplacez les valeurs valides des espaces réservés de nom du service, clé d�
         "credentials" : { "connectionString" : "DefaultEndpointsProtocol=https;AccountName=<account name>;AccountKey=<account key>;" },
         "container" : { "name" : "my-container", "query" : "optional, my-folder" }
     }   
+```
 
 ### <a name="3---create-a-target-search-index"></a>3 - Créer un index de recherche cible 
 
@@ -168,6 +170,7 @@ L’index stocke le contenu avec possibilité de recherche dans Recherche cognit
 
 L’exemple suivant montre une demande [Créer un index](https://docs.microsoft.com/rest/api/searchservice/create-index). L’index aura un champ `content` avec possibilité de recherche pour stocker le texte extrait d’objets blob :   
 
+```http
     POST https://[service name].search.windows.net/indexes?api-version=2020-06-30
     Content-Type: application/json
     api-key: [admin key for Azure Cognitive Search]
@@ -179,12 +182,14 @@ L’exemple suivant montre une demande [Créer un index](https://docs.microsoft.
             { "name": "content", "type": "Edm.String", "searchable": true, "filterable": false, "sortable": false, "facetable": false }
           ]
     }
+```
 
 
 ### <a name="4---configure-and-run-the-indexer"></a>4 - Configurer et exécuter l’indexeur
 
 Comme c’est le cas pour l’index et la source de données, un indexeur est également objet nommé que vous créez et réutilisez sur un service Recherche cognitive Azure. Une requête complète pour créer un indexeur peut se présenter comme suit :
 
+```http
     POST https://[service name].search.windows.net/indexers?api-version=2020-06-30
     Content-Type: application/json
     api-key: [admin key for Azure Cognitive Search]
@@ -196,6 +201,7 @@ Comme c’est le cas pour l’index et la source de données, un indexeur est é
       "schedule" : { "interval" : "PT2H" },
       "parameters" : { "configuration" : { "parsingMode" : "json" } }
     }
+```
 
 La configuration de l’indexeur se trouve dans le corps de la requête. Elle nécessite une source de données et un index cible vide qui existe déjà dans Recherche cognitive Azure. 
 
@@ -212,6 +218,7 @@ Cette section est un récapitulatif de toutes les requêtes utilisées pour la c
 
 Tous les indexeurs nécessitent un objet de source de données qui fournit des informations de connexion aux données existantes. 
 
+```http
     POST https://[service name].search.windows.net/datasources?api-version=2020-06-30
     Content-Type: application/json
     api-key: [admin key for Azure Cognitive Search]
@@ -222,12 +229,13 @@ Tous les indexeurs nécessitent un objet de source de données qui fournit des i
         "credentials" : { "connectionString" : "DefaultEndpointsProtocol=https;AccountName=<account name>;AccountKey=<account key>;" },
         "container" : { "name" : "my-container", "query" : "optional, my-folder" }
     }  
-
+```
 
 ### <a name="index-request"></a>Requête d’index
 
 Tous les indexeurs nécessitent un index cible qui reçoit les données. Le corps de la requête définit le schéma d’index, composé de champs, attribué pour prendre en charge les comportements souhaités dans un index pouvant faire l’objet d’une recherche. Cet index doit être vide lorsque vous exécutez l’indexeur. 
 
+```http
     POST https://[service name].search.windows.net/indexes?api-version=2020-06-30
     Content-Type: application/json
     api-key: [admin key for Azure Cognitive Search]
@@ -239,7 +247,7 @@ Tous les indexeurs nécessitent un index cible qui reçoit les données. Le corp
             { "name": "content", "type": "Edm.String", "searchable": true, "filterable": false, "sortable": false, "facetable": false }
           ]
     }
-
+```
 
 ### <a name="indexer-request"></a>Requête d’indexeur
 
@@ -247,6 +255,7 @@ Cette requête montre un indexeur complètement spécifié. Il inclut des mappag
 
 La création de l’indexeur sur Recherche cognitive Azure déclenche l’importation des données. Elle s’exécute immédiatement, puis selon une planification si vous en avez fourni une.
 
+```http
     POST https://[service name].search.windows.net/indexers?api-version=2020-06-30
     Content-Type: application/json
     api-key: [admin key for Azure Cognitive Search]
@@ -263,7 +272,7 @@ La création de l’indexeur sur Recherche cognitive Azure déclenche l’import
         { "sourceFieldName" : "/article/tags", "targetFieldName" : "tags" }
         ]
     }
-
+```
 
 <a name="json-indexer-dotnet"></a>
 
@@ -302,6 +311,7 @@ Dans la définition de l’indexeur, vous pouvez utiliser des [mappages de champ
 
 Par défaut, [l’indexeur d’objets blob Azure Search](search-howto-indexing-azure-blob-storage.md) analyse les objets blob JSON comme un bloc de texte unique. Vous souhaitez généralement conserver la structure de vos documents JSON. En guise d’exemple, prenons le document JSON suivant dans Stockage Blob Azure :
 
+```http
     {
         "article" : {
             "text" : "A hopefully useful article explaining how to parse JSON blobs",
@@ -309,6 +319,7 @@ Par défaut, [l’indexeur d’objets blob Azure Search](search-howto-indexing-a
             "tags" : [ "search", "storage", "howto" ]    
         }
     }
+```
 
 L’indexeur d’objets blob analyse le document JSON en un seul document Recherche cognitive Azure. L’indexeur charge un index en mettant en correspondance les champs « text », « datePublished » et « tags » de la source avec les champs cibles de même nom et de même type.
 
@@ -320,14 +331,17 @@ Comme indiqué, les mappages de champs ne sont pas nécessaires. Étant donné u
 
 Vous pouvez également utiliser l’option de tableau JSON. Cette option est utile lorsque les objets Blob contiennent un *tableau d’objets JSON bien formés* et que vous souhaitez que chaque élément devienne un document Recherche cognitive Azure distinct. Prenons par exemple l’objet blob JSON suivant. Vous pouvez remplir l’index Recherche cognitive Azure avec trois documents distincts contenant chacun les champs « id » et « text ».  
 
+```text
     [
         { "id" : "1", "text" : "example 1" },
         { "id" : "2", "text" : "example 2" },
         { "id" : "3", "text" : "example 3" }
     ]
+```
 
 Pour un tableau JSON, la définition de l’indexeur doit être similaire à l’exemple suivant. Notez que le paramètre parsingMode spécifie l’analyseur `jsonArray`. Spécifier l’analyseur correct et avoir les bonnes entrées de données sont les deux seules conditions spécifiques aux tableaux pour l’indexation d’objets Blob JSON.
 
+```http
     POST https://[service name].search.windows.net/indexers?api-version=2020-06-30
     Content-Type: application/json
     api-key: [admin key]
@@ -339,6 +353,7 @@ Pour un tableau JSON, la définition de l’indexeur doit être similaire à l�
       "schedule" : { "interval" : "PT2H" },
       "parameters" : { "configuration" : { "parsingMode" : "jsonArray" } }
     }
+```
 
 Là encore, notez que les mappages des champs peuvent être omis. En supposant un index avec des champs nommés de façon identique « id » et « text », l’indexeur d’objets blob peut inférer le mappage correct sans une liste de mappages des champs explicites.
 
@@ -347,6 +362,7 @@ Là encore, notez que les mappages des champs peuvent être omis. En supposant u
 ## <a name="parse-nested-arrays"></a>Analyser des tableaux imbriqués
 Pour les tableaux JSON comprenant des éléments imbriqués, vous pouvez spécifier un `documentRoot` pour indiquer une structure à plusieurs niveaux. Par exemple, si vos objets blob ressemblent à ceci :
 
+```http
     {
         "level1" : {
             "level2" : [
@@ -356,25 +372,31 @@ Pour les tableaux JSON comprenant des éléments imbriqués, vous pouvez spécif
             ]
         }
     }
+```
 
 Utilisez cette configuration pour indexer le tableau contenu dans la propriété `level2` :
 
+```http
     {
         "name" : "my-json-array-indexer",
         ... other indexer properties
         "parameters" : { "configuration" : { "parsingMode" : "jsonArray", "documentRoot" : "/level1/level2" } }
     }
+```
 
 ## <a name="parse-blobs-separated-by-newlines"></a>Analyser des objets Blob séparés par des sauts de ligne
 
 Si votre objet Blob contient plusieurs entités JSON séparées par un saut de ligne et que vous souhaitez que chaque élément devienne un document de Recherche cognitive Azure distinct, vous pouvez choisir l’option de lignes JSON. Prenons, par exemple, l’objet Blob JSON suivant. Vous pouvez remplir l’index Recherche cognitive Azure avec trois documents distincts contenant chacun les champs « id » et « text ».
 
-    { "id" : "1", "text" : "example 1" }
-    { "id" : "2", "text" : "example 2" }
-    { "id" : "3", "text" : "example 3" }
+```text
+{ "id" : "1", "text" : "example 1" }
+{ "id" : "2", "text" : "example 2" }
+{ "id" : "3", "text" : "example 3" }
+```
 
 Pour les lignes JSON, la définition de l’indexeur doit être similaire à l’exemple suivant. Notez que le paramètre parsingMode spécifie l’analyseur `jsonLines`. 
 
+```http
     POST https://[service name].search.windows.net/indexers?api-version=2020-06-30
     Content-Type: application/json
     api-key: [admin key]
@@ -386,6 +408,7 @@ Pour les lignes JSON, la définition de l’indexeur doit être similaire à l�
       "schedule" : { "interval" : "PT2H" },
       "parameters" : { "configuration" : { "parsingMode" : "jsonLines" } }
     }
+```
 
 Là encore, notez que les mappages des champs peuvent être omis, comme dans le mode d’analyse `jsonArray`.
 
@@ -397,6 +420,7 @@ Recherche cognitive Azure ne peut actuellement pas indexer des documents JSON ar
 
 Revenons à notre exemple de document JSON :
 
+```http
     {
         "article" : {
             "text" : "A hopefully useful article explaining how to parse JSON blobs",
@@ -404,20 +428,25 @@ Revenons à notre exemple de document JSON :
             "tags" : [ "search", "storage", "howto" ]    
         }
     }
+```
 
 Prenons un index de recherche avec les champs suivants : `text` de type `Edm.String`, `date` de type `Edm.DateTimeOffset` et `tags` de type `Collection(Edm.String)`. Notez la différence entre « datePublished » dans la source et le champ `date` dans l’index. Pour mapper votre document JSON à la forme souhaitée, utilisez les mappages de champ suivants :
 
+```http
     "fieldMappings" : [
         { "sourceFieldName" : "/article/text", "targetFieldName" : "text" },
         { "sourceFieldName" : "/article/datePublished", "targetFieldName" : "date" },
         { "sourceFieldName" : "/article/tags", "targetFieldName" : "tags" }
       ]
+```
 
 Les noms de champ source dans les mappages sont spécifiés selon la notation de [pointeur JSON](https://tools.ietf.org/html/rfc6901) . Vous débutez par une barre oblique pour faire référence à la racine de votre document JSON, puis sélectionnez la propriété souhaitée (au niveau arbitraire de l’imbrication) en utilisant un chemin d’accès séparé par des barres obliques avant.
 
 Vous pouvez également faire référence à des éléments de tableau en utilisant un index de base zéro. Par exemple, pour sélectionner le premier élément du tableau « tags » dans l’exemple ci-dessus, utilisez un mappage de champ similaire au suivant :
 
+```http
     { "sourceFieldName" : "/article/tags/0", "targetFieldName" : "firstTag" }
+```
 
 > [!NOTE]
 > Si un nom de champ source dans un chemin de mappage de champ fait référence à une propriété qui n’existe pas dans JSON, ce mappage est ignoré sans erreur. Cela nous permet de prendre en charge les documents avec un schéma différent (cas fréquent). Comme il n’y a aucune validation, vous devez veiller à éviter les fautes de frappe dans la spécification du mappage de champ.

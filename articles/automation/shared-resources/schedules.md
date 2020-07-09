@@ -9,12 +9,12 @@ ms.author: magoedte
 ms.date: 04/04/2019
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 557dc3ad48f8f21d8898e2beb5d940d66058e90c
-ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
+ms.openlocfilehash: 8bd988029b8d78a29de38e995c36ee1860d8cda9
+ms.sourcegitcommit: ec682dcc0a67eabe4bfe242fce4a7019f0a8c405
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/21/2020
-ms.locfileid: "83744974"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86187351"
 ---
 # <a name="manage-schedules-in-azure-automation"></a>Gérer les planifications dans Azure Automation
 
@@ -32,13 +32,13 @@ Les cmdlets du tableau suivant créent et gèrent les planifications Automation 
 
 | Applets de commande | Description |
 |:--- |:--- |
-| [Get-AzAutomationSchedule](https://docs.microsoft.com/powershell/module/Az.Automation/Get-AzAutomationSchedule?view=azps-3.7.0) |Récupère une planification. |
-| [Get-AzAutomationScheduledRunbook](https://docs.microsoft.com/powershell/module/az.automation/get-azautomationscheduledrunbook?view=azps-3.7.0) |Récupère les Runbooks planifiés. |
-| [New-AzAutomationSchedule](https://docs.microsoft.com/powershell/module/Az.Automation/New-AzAutomationSchedule?view=azps-3.7.0) |Crée une planification. |
-| [Register-AzAutomationScheduledRunbook](https://docs.microsoft.com/powershell/module/Az.Automation/Register-AzAutomationScheduledRunbook?view=azps-3.7.0) |Associe un Runbook à une planification. |
-| [Remove-AzAutomationSchedule](https://docs.microsoft.com/powershell/module/Az.Automation/Remove-AzAutomationSchedule?view=azps-3.7.0) |Supprime une planification. |
-| [Set-AzAutomationSchedule](https://docs.microsoft.com/powershell/module/Az.Automation/Set-AzAutomationSchedule?view=azps-3.7.0) |Définit les propriétés d'une planification existante. |
-| [Unregister-AzAutomationScheduledRunbook](https://docs.microsoft.com/powershell/module/Az.Automation/Unregister-AzAutomationScheduledRunbook?view=azps-3.7.0) |Dissocie un Runbook d'une planification. |
+| [Get-AzAutomationSchedule](/powershell/module/Az.Automation/Get-AzAutomationSchedule?view=azps-3.7.0) |Récupère une planification. |
+| [Get-AzAutomationScheduledRunbook](/powershell/module/az.automation/get-azautomationscheduledrunbook?view=azps-3.7.0) |Récupère les Runbooks planifiés. |
+| [New-AzAutomationSchedule](/powershell/module/Az.Automation/New-AzAutomationSchedule?view=azps-3.7.0) |Crée une planification. |
+| [Register-AzAutomationScheduledRunbook](/powershell/module/Az.Automation/Register-AzAutomationScheduledRunbook?view=azps-3.7.0) |Associe un Runbook à une planification. |
+| [Remove-AzAutomationSchedule](/powershell/module/Az.Automation/Remove-AzAutomationSchedule?view=azps-3.7.0) |Supprime une planification. |
+| [Set-AzAutomationSchedule](/powershell/module/Az.Automation/Set-AzAutomationSchedule?view=azps-3.7.0) |Définit les propriétés d'une planification existante. |
+| [Unregister-AzAutomationScheduledRunbook](/powershell/module/Az.Automation/Unregister-AzAutomationScheduledRunbook?view=azps-3.7.0) |Dissocie un Runbook d'une planification. |
 
 ## <a name="create-a-schedule"></a>Créer une planification
 
@@ -65,7 +65,7 @@ Vous pouvez utiliser le Portail Azure ou PowerShell afin de créer une planifica
 
 ### <a name="create-a-new-schedule-with-powershell"></a>Créer une planification avec PowerShell
 
-Vous utilisez la cmdlet [New-AzAutomationSchedule](https://docs.microsoft.com/powershell/module/Az.Automation/New-AzAutomationSchedule?view=azps-3.7.0) pour créer des planifications. Spécifiez l’heure de début de la planification et indiquez sa fréquence d’exécution. Les exemples suivants montrent comment créer de nombreux scénarios de planification différents.
+Vous utilisez la cmdlet [New-AzAutomationSchedule](/powershell/module/Az.Automation/New-AzAutomationSchedule?view=azps-3.7.0) pour créer des planifications. Spécifiez l’heure de début de la planification et indiquez sa fréquence d’exécution. Les exemples suivants montrent comment créer de nombreux scénarios de planification différents.
 
 #### <a name="create-a-one-time-schedule"></a>Créer une planification unique
 
@@ -128,7 +128,7 @@ Un Runbook peut être lié à plusieurs planifications et une planification peut
 
 ### <a name="link-a-schedule-to-a-runbook-with-powershell"></a>Lier une planification à un runbook avec PowerShell
 
-Utilisez la cmdlet [Register-AzAutomationScheduledRunbook](https://docs.microsoft.com/powershell/module/Az.Automation/Register-AzAutomationScheduledRunbook?view=azps-3.7.0) pour lier une planification. Vous pouvez spécifier les valeurs des paramètres du Runbook avec le paramètre Parameters. Pour plus d’informations sur la spécification des valeurs des paramètres, consultez [Démarrage d’un Runbook dans Azure Automation](../automation-starting-a-runbook.md).
+Utilisez la cmdlet [Register-AzAutomationScheduledRunbook](/powershell/module/Az.Automation/Register-AzAutomationScheduledRunbook?view=azps-3.7.0) pour lier une planification. Vous pouvez spécifier les valeurs des paramètres du Runbook avec le paramètre Parameters. Pour plus d’informations sur la spécification des valeurs des paramètres, consultez [Démarrage d’un Runbook dans Azure Automation](../start-runbooks.md).
 L’exemple suivant montre comment lier une planification à un runbook à l’aide d’une cmdlet Azure Resource Manager avec des paramètres.
 
 ```azurepowershell-interactive
@@ -164,7 +164,7 @@ Lorsque vous désactivez une planification, les Runbooks qui y sont liés ne s'e
 
 ### <a name="disable-a-schedule-with-powershell"></a>Désactiver une planification avec PowerShell
 
-Utilisez la cmdlet [Set-AzAutomationSchedule](https://docs.microsoft.com/powershell/module/Az.Automation/Set-AzAutomationSchedule?view=azps-3.7.0) pour modifier les propriétés d’une planification existante. Pour désactiver la planification, spécifiez False pour le paramètre `IsEnabled`.
+Utilisez la cmdlet [Set-AzAutomationSchedule](/powershell/module/Az.Automation/Set-AzAutomationSchedule?view=azps-3.7.0) pour modifier les propriétés d’une planification existante. Pour désactiver la planification, spécifiez False pour le paramètre `IsEnabled`.
 
 L’exemple suivant montre comment désactiver la planification d’un runbook à l’aide d’une cmdlet Azure Resource Manager.
 

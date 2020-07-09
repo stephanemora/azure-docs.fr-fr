@@ -19,12 +19,12 @@ translation.priority.mt:
 - ru-ru
 - zh-cn
 - zh-tw
-ms.openlocfilehash: 62c8c93e07326e776cbe089042abc481544794bc
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 572b653a49833ae06ee57b1718000e8555239de7
+ms.sourcegitcommit: 5cace04239f5efef4c1eed78144191a8b7d7fee8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "74113228"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86146025"
 ---
 # <a name="odata-comparison-operators-in-azure-cognitive-search---eq-ne-gt-lt-ge-and-le"></a>Opérateurs de comparaison OData dans Recherche cognitive Azure : `eq`, `ne`, `gt`, `lt`, `ge`, `le`
 
@@ -136,23 +136,33 @@ Les chaînes peuvent être comparées dans des filtres, en cas de correspondance
 
 Correspondance des documents dans lesquels le champ `Rating` est compris entre 3 et 5 (inclusif) :
 
-    Rating ge 3 and Rating le 5
+```text
+Rating ge 3 and Rating le 5
+```
 
 Correspondance des documents dans lesquels le champ `Location` est à moins de 2 kilomètres de la latitude et la longitude données :
 
-    geo.distance(Location, geography'POINT(-122.031577 47.578581)') lt 2.0
+```text
+geo.distance(Location, geography'POINT(-122.031577 47.578581)') lt 2.0
+```
 
 Correspondance des documents dans lesquels le champ `LastRenovationDate` est supérieur ou égal au 1er janvier 2015, 00:00 UTC :
 
-    LastRenovationDate ge 2015-01-01T00:00:00.000Z
+```text
+LastRenovationDate ge 2015-01-01T00:00:00.000Z
+```
 
 Correspondance des documents dans lesquels le champ `Details/Sku` n’est pas `null` :
 
-    Details/Sku ne null
+```text
+Details/Sku ne null
+```
 
 Correspondance des documents pour les hôtels comprenant au moins une chambre de type « Chambre de luxe » et où la chaîne du champ `Rooms/Type` correspond exactement au filtre :
 
-    Rooms/any(room: room/Type eq 'Deluxe Room')
+```text
+Rooms/any(room: room/Type eq 'Deluxe Room')
+```
 
 ## <a name="next-steps"></a>Étapes suivantes  
 

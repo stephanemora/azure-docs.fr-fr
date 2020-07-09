@@ -8,12 +8,12 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 04/01/2020
-ms.openlocfilehash: 15d2a7a2ad00f7f9b5db59d3d4803f60508b7b2c
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: fd102706d1fa6c33d8962a5d1caf5aa3e41b231d
+ms.sourcegitcommit: 5cace04239f5efef4c1eed78144191a8b7d7fee8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85561592"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86146190"
 ---
 # <a name="how-to-work-with-search-results-in-azure-cognitive-search"></a>Guide pratique pour utiliser les résultats de recherche dans Recherche cognitive Azure
 
@@ -55,20 +55,26 @@ Il n’est pas garanti que les résultats des requêtes paginées soient stables
  
 Voici un exemple de la façon dont vous pouvez obtenir des doublons. Imaginons un index avec quatre documents :
 
-    { "id": "1", "rating": 5 }
-    { "id": "2", "rating": 3 }
-    { "id": "3", "rating": 2 }
-    { "id": "4", "rating": 1 }
+```text
+{ "id": "1", "rating": 5 }
+{ "id": "2", "rating": 3 }
+{ "id": "3", "rating": 2 }
+{ "id": "4", "rating": 1 }
+```
  
 Supposons à présent que vous souhaitiez que les résultats soient retournés par deux, classés par évaluation. Vous exécuterez cette requête pour obtenir la première page des résultats, `$top=2&$skip=0&$orderby=rating desc`, et vous obtenez les résultats suivants :
 
-    { "id": "1", "rating": 5 }
-    { "id": "2", "rating": 3 }
+```text
+{ "id": "1", "rating": 5 }
+{ "id": "2", "rating": 3 }
+```
  
 Sur le service, supposez qu’un cinquième document est ajouté à l’index entre les appels de requête : `{ "id": "5", "rating": 4 }`.  Peu de temps après, vous exécutez une requête pour extraire la deuxième page, `$top=2&$skip=2&$orderby=rating desc`, et vous obtenez ces résultats :
 
-    { "id": "2", "rating": 3 }
-    { "id": "3", "rating": 2 }
+```text
+{ "id": "2", "rating": 3 }
+{ "id": "3", "rating": 2 }
+```
  
 Notez que le document 2 est extrait 2 fois. Cela est dû au fait que le nouveau document 5 a une plus grande valeur d’évaluation. Il est donc trié avant le document 2 et atterrit sur la première page. Bien que ce comportement puisse être inattendu, c’est généralement ainsi qu’un moteur de recherche se comporte.
 

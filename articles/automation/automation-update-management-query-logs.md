@@ -5,12 +5,12 @@ services: automation
 ms.subservice: update-management
 ms.date: 04/06/2020
 ms.topic: conceptual
-ms.openlocfilehash: b40357e71275d835a200f3bc08c618b6713001d8
-ms.sourcegitcommit: 0b80a5802343ea769a91f91a8cdbdf1b67a932d3
+ms.openlocfilehash: 146cf01d99ccc00a972c98128d8e93e1ed5fb690
+ms.sourcegitcommit: ec682dcc0a67eabe4bfe242fce4a7019f0a8c405
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/25/2020
-ms.locfileid: "83830767"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86185702"
 ---
 # <a name="query-update-management-logs"></a>Interroger les journaux Update Management
 
@@ -194,7 +194,7 @@ Sur un ordinateur Windows, vous pouvez vérifier les informations suivantes pour
 1. Dans le Panneau de configuration, ouvrez **Microsoft Monitoring Agent**. Sous l’onglet **Azure Log Analytics**, l’agent affiche le message suivant : **Microsoft Monitoring Agent s’est correctement connecté à Log Analytics.**
 2. Ouvrez le journal des événements Windows. Accédez à **Application and Services Logs\Operations Manager**, puis recherchez l’ID d’événement 3000 et 5002 à partir du **connecteur de service** source. Ces événements indiquent que l’ordinateur est enregistré sur l’espace de travail Log Analytics et qu’il reçoit la configuration.
 
-Si l’agent ne parvient pas à communiquer avec les journaux Azure Monitor et s’il est configuré pour communiquer avec Internet par le biais d’un pare-feu ou d’un serveur proxy, vérifiez que le pare-feu ou le serveur proxy est correctement configuré. Pour savoir comment vérifier la configuration du pare-feu ou du serveur proxy, consultez [Configuration réseau de l’agent Windows](../azure-monitor/platform/agent-windows.md) ou [Configuration réseau de l’agent Linux](../log-analytics/log-analytics-agent-linux.md).
+Si l’agent ne parvient pas à communiquer avec les journaux Azure Monitor et s’il est configuré pour communiquer avec Internet par le biais d’un pare-feu ou d’un serveur proxy, vérifiez que le pare-feu ou le serveur proxy est correctement configuré. Pour savoir comment vérifier la configuration du pare-feu ou du serveur proxy, consultez [Configuration réseau de l’agent Windows](../azure-monitor/platform/agent-windows.md) ou [Configuration réseau de l’agent Linux](../azure-monitor/learn/quick-collect-linux-computer.md).
 
 > [!NOTE]
 > Si vos systèmes Linux sont configurés pour communiquer avec un proxy ou Log Analytics Gateway et que vous activez Update Management, vous devez mettre à jour les autorisations `proxy.conf` pour accorder au groupe omiuser une autorisation d’accès en lecture sur le fichier. Pour cela, exécutez les commandes suivantes :
@@ -409,5 +409,5 @@ Update
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-* Pour plus d’informations sur les journaux Azure Monitor, consultez [Journaux Azure Monitor](../log-analytics/log-analytics-log-searches.md).
+* Pour plus d’informations sur les journaux Azure Monitor, consultez [Journaux Azure Monitor](../azure-monitor/log-query/log-query-overview.md).
 * Pour obtenir de l’aide sur les alertes, consultez [Configurer des alertes](automation-tutorial-update-management.md#configure-alerts).

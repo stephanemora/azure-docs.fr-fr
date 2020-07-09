@@ -3,12 +3,12 @@ title: Monter un système de fichiers virtuel sur un pool
 description: Découvrez comment monter un système de fichiers virtuel sur un pool Batch.
 ms.topic: how-to
 ms.date: 08/13/2019
-ms.openlocfilehash: 80acf5df0cf5262249b2eac584152744a4224a35
-ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
+ms.openlocfilehash: 3f948f8441208f4a8741949e65afc8032f0a5080
+ms.sourcegitcommit: 5cace04239f5efef4c1eed78144191a8b7d7fee8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/05/2020
-ms.locfileid: "85954670"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86144412"
 ---
 # <a name="mount-a-virtual-file-system-on-a-batch-pool"></a>Monter un système de fichiers virtuel sur un pool Batch
 
@@ -77,7 +77,7 @@ new PoolAddParameter
 
 ### <a name="azure-blob-file-system"></a>Système de fichiers blob Azure
 
-Une autre option consiste à utiliser le stockage d'objets blob Azure via [blobfuse](../storage/blobs/storage-how-to-mount-container-linux.md). Le montage d’un système de fichiers blob nécessite une `AccountKey` ou `SasKey` pour votre compte de stockage. Pour plus d’informations sur l’obtention de ces clés, consultez [Gérer les clés d’accès des comptes de stockage](../storage/common/storage-account-keys-manage.md) ou [Utiliser des signatures d’accès partagé (SAS)](../storage/common/storage-dotnet-shared-access-signature-part-1.md). Pour plus d’informations sur l’utilisation de blobfuse, consultez le [Forum aux questions sur la résolution des problèmes](https://github.com/Azure/azure-storage-fuse/wiki/3.-Troubleshoot-FAQ) de blobfuse. Pour accéder par défaut au répertoire monté avec blobfuse, exécutez la tâche en tant **qu'administrateur**. Blobfuse monte le répertoire au niveau de l’espace utilisateur et, lors de la création du pool, il est monté en tant que racine. Dans Linux, toutes les tâches **de l’Administrateur** sont racine. Toutes les options du module FUSE sont décrites dans la [Page de référence sur FUSE](https://manpages.ubuntu.com/manpages/xenial/man8/mount.fuse.8.html).
+Une autre option consiste à utiliser le stockage d'objets blob Azure via [blobfuse](../storage/blobs/storage-how-to-mount-container-linux.md). Le montage d’un système de fichiers blob nécessite une `AccountKey` ou `SasKey` pour votre compte de stockage. Pour plus d’informations sur l’obtention de ces clés, consultez [Gérer les clés d’accès des comptes de stockage](../storage/common/storage-account-keys-manage.md) ou [Utiliser des signatures d’accès partagé (SAS)](../storage/common/storage-sas-overview.md). Pour plus d’informations sur l’utilisation de blobfuse, consultez le [Forum aux questions sur la résolution des problèmes](https://github.com/Azure/azure-storage-fuse/wiki/3.-Troubleshoot-FAQ) de blobfuse. Pour accéder par défaut au répertoire monté avec blobfuse, exécutez la tâche en tant **qu'administrateur**. Blobfuse monte le répertoire au niveau de l’espace utilisateur et, lors de la création du pool, il est monté en tant que racine. Dans Linux, toutes les tâches **de l’Administrateur** sont racine. Toutes les options du module FUSE sont décrites dans la [Page de référence sur FUSE](https://manpages.ubuntu.com/manpages/xenial/man8/mount.fuse.8.html).
 
 Outre le guide de résolution des problèmes, les problèmes GitHub dans le référentiel blobfuse sont un moyen utile de vérifier les problèmes et solutions pour blobfuse. Pour plus d’informations, consultez [Problèmes blobfuse](https://github.com/Azure/azure-storage-fuse/issues).
 

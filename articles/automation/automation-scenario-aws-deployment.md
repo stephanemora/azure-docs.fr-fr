@@ -5,12 +5,12 @@ services: automation
 ms.subservice: process-automation
 ms.date: 03/16/2018
 ms.topic: conceptual
-ms.openlocfilehash: d67e2639c2d4b168babeb7c29ef977d39d9e11cb
-ms.sourcegitcommit: 9b5c20fb5e904684dc6dd9059d62429b52cb39bc
+ms.openlocfilehash: 456a7e4f07b2416e1d2037205574f2e7149e70e2
+ms.sourcegitcommit: ec682dcc0a67eabe4bfe242fce4a7019f0a8c405
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85855296"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86185940"
 ---
 # <a name="deploy-an-amazon-web-services-vm-with-a-runbook"></a>Déployer une machine virtuelle Amazon Web Services avec un runbook
 
@@ -101,7 +101,6 @@ Assurez-vous que le module PowerShell AWS a été importé dans Azure Automation
  
 * Pour découvrir les runbooks pris en charge, consultez[Types de runbook Azure Automation](automation-runbook-types.md).
 * Pour savoir comment utiliser des runbooks, voir [Gérer les runbooks dans Azure Automation](manage-runbooks.md).
-* Pour plus d’informations sur PowerShell, consultez la [documentation PowerShell](https://docs.microsoft.com/powershell/scripting/overview).
+* Pour plus d’informations sur PowerShell, consultez la [documentation PowerShell](/powershell/scripting/overview).
 * Pour la prise en charge des scripts, consultez [PowerShell natifs dans Azure Automation](https://azure.microsoft.com/blog/announcing-powershell-script-support-azure-automation-2/).
-* Pour obtenir des informations de référence sur les applets de commande PowerShell, consultez [Az.Automation](https://docs.microsoft.com/powershell/module/az.automation/?view=azps-3.7.0#automation
-).
+* Pour obtenir des informations de référence sur les applets de commande PowerShell, consultez [Az.Automation](/powershell/module/az.automation/?view=azps-3.7.0#automation).

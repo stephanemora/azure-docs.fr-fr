@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/20/2019
 ms.author: juliako
-ms.openlocfilehash: bec5e68b334cada7f83c5dbeb9ba50203835d770
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 63b534f67aa5cf39f7549a467be28ec1212897d2
+ms.sourcegitcommit: 1e6c13dc1917f85983772812a3c62c265150d1e7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84265316"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86172007"
 ---
 # <a name="how-to-use-the-microsoft-smooth-streaming-plugin-for-the-adobe-open-source-media-framework"></a>Utilisation du plug-in Microsoft Smooth Streaming pour Adobe Open Source Media Framework  
 ## <a name="overview"></a>Vue d’ensemble
@@ -60,7 +60,7 @@ Pour plus d'informations sur le chargement statique et dynamique, consultez la p
 ### <a name="ss-for-osmf-static-loading"></a>Chargement de SS pour OSMF statique
 L'extrait de code qui suit montre comment charger le plug-in SS de façon statique pour OSMF et lire une vidéo simple à l'aide de la classe OSMF MediaFactory. Avant d'inclure le code SS pour OSMF, assurez-vous que la référence de projet comprend le plug-in statique « MSAdaptiveStreamingPlugin-v1.0.3-osmf2.0.swc ».
 
-```
+```csharp
 package 
 {
 
@@ -196,7 +196,9 @@ package
 ### <a name="ss-for-osmf-dynamic-loading"></a>Chargement de SS pour OSMF dynamique
 L'extrait de code qui suit montre comment charger le plug-in SS de façon dynamique pour OSMF et lire une vidéo simple à l'aide de la classe OSMF MediaFactory. Avant d'ajouter le code SS pour OSMF, copiez le plug-in dynamique MSAdaptiveStreamingPlugin-v1.0.3-osmf2.0.swf dans le dossier du projet si vous voulez effectuer le chargement avec le protocole FILE ou bien copiez-le sur un serveur Web pour le chargement HTTP. Il n'est pas nécessaire d'inclure MSAdaptiveStreamingPlugin-v1.0.3-osmf2.0.swc dans les références du projet.
 
-package {
+```csharp
+package 
+{
 
     import flash.display.*;
     import org.osmf.media.*;
@@ -326,6 +328,7 @@ package {
 
     }
 }
+```
 
 ## <a name="strobe-media--playback-with-the-ss-odmf-dynamic-plugin"></a>Lecture Strobe Media Playback avec le plug-in dynamique SS OSMF
 Le plug-in dynamique Smooth Streaming pour OSMF est compatible avec [Strobe Media Playback (SMP)](https://sourceforge.net/adobe/smp/home/Strobe%20Media%20Playback/). Vous pouvez utiliser le plug-in SS pour OSMF pour ajouter la lecture Smooth Streaming à SMP. Pour cela, copiez MSAdaptiveStreamingPlugin-v1.0.3-osmf2.0.swf sur un serveur Web pour le chargement HTTP, en appliquant la procédure suivante :
@@ -337,49 +340,53 @@ Le plug-in dynamique Smooth Streaming pour OSMF est compatible avec [Strobe Medi
    **Remarque** Votre serveur Web de contenu doit disposer d'un fichier crossdomain.xml valide. 
 4. Copiez et collez le code dans une page HTML à l'aide de votre éditeur de texte, comme dans cet exemple :
 
-        <html>
-        <body>
-        <object width="920" height="640"> 
-        <param name="movie" value="http://osmf.org/dev/2.0gm/StrobeMediaPlayback.swf"></param>
-        <param name="flashvars" value="src=http://devplatem.vo.msecnd.net/Sintel/Sintel_H264.ism/manifest &autoPlay=true"></param>
-        <param name="allowFullScreen" value="true"></param>
-        <param name="allowscriptaccess" value="always"></param>
-        <param name="wmode" value="direct"></param>
-        <embed src="http://osmf.org/dev/2.0gm/StrobeMediaPlayback.swf" 
-            type="application/x-shockwave-flash" 
-            allowscriptaccess="always" 
-            allowfullscreen="true" 
-            wmode="direct" 
-            width="920" 
-            height="640" 
-            flashvars=" src=http://devplatem.vo.msecnd.net/Sintel/Sintel_H264.ism/manifest&autoPlay=true">
-        </embed>
-        </object>
-        </body>
-        </html>
-
+    ```html
+    <html>
+    <body>
+    <object width="920" height="640"> 
+    <param name="movie" value="http://osmf.org/dev/2.0gm/StrobeMediaPlayback.swf"></param>
+    <param name="flashvars" value="src=http://devplatem.vo.msecnd.net/Sintel/Sintel_H264.ism/manifest &autoPlay=true"></param>
+    <param name="allowFullScreen" value="true"></param>
+    <param name="allowscriptaccess" value="always"></param>
+    <param name="wmode" value="direct"></param>
+    <embed src="http://osmf.org/dev/2.0gm/StrobeMediaPlayback.swf" 
+        type="application/x-shockwave-flash" 
+        allowscriptaccess="always" 
+        allowfullscreen="true" 
+        wmode="direct" 
+        width="920" 
+        height="640" 
+        flashvars=" src=http://devplatem.vo.msecnd.net/Sintel/Sintel_H264.ism/manifest&autoPlay=true">
+    </embed>
+    </object>
+    </body>
+    </html>
+    ```
 
 
 1. Ajoutez le plug-in Smooth Streaming OSMF au code intégré, puis enregistrez.
    
-        <html>
-        <object width="920" height="640"> 
-        <param name="movie" value="http://osmf.org/dev/2.0gm/StrobeMediaPlayback.swf"></param>
-        <param name="flashvars" value="src=http://devplatem.vo.msecnd.net/Sintel/Sintel_H264.ism/manifest&autoPlay=true&plugin_AdaptiveStreamingPlugin=http://yourdomain/MSAdaptiveStreamingPlugin-v1.0.3-osmf2.0.swf&AdaptiveStreamingPlugin_retryLive=true&AdaptiveStreamingPlugin_retryInterval=10"></param>
-        <param name="allowFullScreen" value="true"></param>
-        <param name="allowscriptaccess" value="always"></param>
-        <param name="wmode" value="direct"></param>
-        <embed src="http://osmf.org/dev/2.0gm/StrobeMediaPlayback.swf" 
-            type="application/x-shockwave-flash" 
-            allowscriptaccess="always" 
-            allowfullscreen="true" 
-            wmode="direct" 
-            width="920" 
-            height="640" 
-            flashvars="src=http://devplatem.vo.msecnd.net/Sintel/Sintel_H264.ism/manifest&autoPlay=true&plugin_AdaptiveStreamingPlugin=http://yourdomain/MSAdaptiveStreamingPlugin-v1.0.3-osmf2.0.swf&AdaptiveStreamingPlugin_retryLive=true&AdaptiveStreamingPlugin_retryInterval=10">
-        </embed>
-        </object>
-        </html>
+    ```html
+    <html>
+    <object width="920" height="640"> 
+    <param name="movie" value="http://osmf.org/dev/2.0gm/StrobeMediaPlayback.swf"></param>
+    <param name="flashvars" value="src=http://devplatem.vo.msecnd.net/Sintel/Sintel_H264.ism/manifest&autoPlay=true&plugin_AdaptiveStreamingPlugin=http://yourdomain/MSAdaptiveStreamingPlugin-v1.0.3-osmf2.0.swf&AdaptiveStreamingPlugin_retryLive=true&AdaptiveStreamingPlugin_retryInterval=10"></param>
+    <param name="allowFullScreen" value="true"></param>
+    <param name="allowscriptaccess" value="always"></param>
+    <param name="wmode" value="direct"></param>
+    <embed src="http://osmf.org/dev/2.0gm/StrobeMediaPlayback.swf" 
+        type="application/x-shockwave-flash" 
+        allowscriptaccess="always" 
+        allowfullscreen="true" 
+        wmode="direct" 
+        width="920" 
+        height="640" 
+        flashvars="src=http://devplatem.vo.msecnd.net/Sintel/Sintel_H264.ism/manifest&autoPlay=true&plugin_AdaptiveStreamingPlugin=http://yourdomain/MSAdaptiveStreamingPlugin-v1.0.3-osmf2.0.swf&AdaptiveStreamingPlugin_retryLive=true&AdaptiveStreamingPlugin_retryInterval=10">
+    </embed>
+    </object>
+    </html>
+    ```
+
 2. Enregistrez votre page HTML et publiez-la sur un serveur Web. Accédez à la page web publiée à l'aide de votre navigateur Internet compatible avec Flash&reg; Player (Internet Explorer, Chrome, Firefox, etc.).
 3. Accédez au contenu Smooth Streaming dans Adobe&reg; Flash&reg; Player.
 

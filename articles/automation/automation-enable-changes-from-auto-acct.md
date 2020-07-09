@@ -5,12 +5,12 @@ services: automation
 ms.date: 4/11/2019
 ms.topic: conceptual
 ms.custom: mvc
-ms.openlocfilehash: 13f17ed9d165e368d2e9d9cde694408b600006cc
-ms.sourcegitcommit: 1692e86772217fcd36d34914e4fb4868d145687b
+ms.openlocfilehash: 302e0cc9b77605afd4012e95fc7c0ab8a22fef3e
+ms.sourcegitcommit: ec682dcc0a67eabe4bfe242fce4a7019f0a8c405
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/29/2020
-ms.locfileid: "84171121"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86186314"
 ---
 # <a name="enable-change-tracking-and-inventory-from-an-automation-account"></a>Activer Change Tracking et Inventory à partir d’un compte Automation
 
@@ -22,7 +22,7 @@ Cet article explique comment utiliser votre compte Automation pour activer la fo
 ## <a name="prerequisites"></a>Prérequis
 
 * Abonnement Azure. Si vous n’avez pas encore d’abonnement, vous pouvez [activer vos avantages abonnés MSDN](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/) ou créer [un compte gratuit](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
-* [Compte Automation](automation-offering-get-started.md) pour gérer les machines.
+* [Compte Automation](./index.yml) pour gérer les machines.
 * Une [machine virtuelle](../virtual-machines/windows/quick-create-portal.md).
 
 ## <a name="sign-in-to-azure"></a>Connexion à Azure

@@ -5,12 +5,12 @@ services: automation
 ms.date: 03/04/2020
 ms.topic: conceptual
 ms.custom: mvc
-ms.openlocfilehash: 481d59bd2a06103629dee88868d9e33de810fdab
-ms.sourcegitcommit: 0fa52a34a6274dc872832560cd690be58ae3d0ca
+ms.openlocfilehash: a1fe48b8bc776faf98f71eb882720e8180a2c573
+ms.sourcegitcommit: ec682dcc0a67eabe4bfe242fce4a7019f0a8c405
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/29/2020
-ms.locfileid: "84204903"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86186025"
 ---
 # <a name="enable-update-management-from-an-azure-vm"></a>Activer Update Management à partir d’une machine virtuelle Azure
 
@@ -22,7 +22,7 @@ Cet article explique comment utiliser une machine virtuelle Azure pour activer l
 ## <a name="prerequisites"></a>Prérequis
 
 * Abonnement Azure. Si vous n’avez pas encore d’abonnement, vous pouvez [activer vos avantages abonnés MSDN](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/) ou créer [un compte gratuit](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
-* [Compte Automation](automation-offering-get-started.md) pour gérer les machines.
+* [Compte Automation](./index.yml) pour gérer les machines.
 * Une [machine virtuelle](../virtual-machines/windows/quick-create-portal.md).
 
 ## <a name="sign-in-to-azure"></a>Connexion à Azure

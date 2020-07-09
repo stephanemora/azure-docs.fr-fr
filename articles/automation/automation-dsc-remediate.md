@@ -9,12 +9,12 @@ ms.author: migreene
 ms.topic: conceptual
 ms.date: 07/17/2019
 manager: nirb
-ms.openlocfilehash: ff785bf3ace7c65f83fe8e505f0544edd24776d8
-ms.sourcegitcommit: 0b80a5802343ea769a91f91a8cdbdf1b67a932d3
+ms.openlocfilehash: 4430b8cdfe9414ddbfd7aad3c3fe7827adbc8705
+ms.sourcegitcommit: ec682dcc0a67eabe4bfe242fce4a7019f0a8c405
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/25/2020
-ms.locfileid: "83836853"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86186365"
 ---
 # <a name="remediate-noncompliant-azure-automation-state-configuration-servers"></a>Remédier aux serveurs Azure Automation State Configuration non conformes
 
@@ -25,7 +25,7 @@ Ce document fournit des exemples de scripts pour cette fonctionnalité lors de l
 
 ## <a name="correct-drift-of-windows-virtual-machines-using-powershell"></a>Correction de la dérive des machines virtuelles Windows à l’aide de PowerShell
 
-Vous pouvez corriger la dérive des machines virtuelles Windows à l’aide de la commande `Run`. Voir [Exécuter des scripts PowerShell dans votre machine virtuelle Windows avec la commande Run](/azure/virtual-machines/windows/run-command).
+Vous pouvez corriger la dérive des machines virtuelles Windows à l’aide de la commande `Run`. Voir [Exécuter des scripts PowerShell dans votre machine virtuelle Windows avec la commande Run](../virtual-machines/windows/run-command.md).
 
 Pour forcer un nœud Azure Automation State Configuration à télécharger la configuration la plus récente et à l’appliquer, utilisez l’applet de commande [Update-DscConfiguration](/powershell/module/psdesiredstateconfiguration/update-dscconfiguration).
 
@@ -43,5 +43,5 @@ Pour les nœuds hybrides, vous pouvez corriger la dérive en utilisant les scrip
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-- Pour obtenir des informations de référence sur les applets de commande PowerShell, consultez [Az.Automation](https://docs.microsoft.com/powershell/module/az.automation/?view=azps-3.7.0#automation).
+- Pour obtenir des informations de référence sur les applets de commande PowerShell, consultez [Az.Automation](/powershell/module/az.automation/?view=azps-3.7.0#automation).
 - Pour obtenir un exemple d’utilisation d’Azure Automation State Configuration dans un pipeline de déploiement continu, consultez [Configurer un déploiement continu avec Chocolatey](automation-dsc-cd-chocolatey.md).

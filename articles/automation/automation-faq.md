@@ -7,12 +7,12 @@ ms.topic: conceptual
 author: mgoedtel
 ms.author: magoedte
 ms.date: 02/25/2020
-ms.openlocfilehash: 1cd20e28d1b36167154059adf728a9cfdf8102bc
-ms.sourcegitcommit: 0b80a5802343ea769a91f91a8cdbdf1b67a932d3
+ms.openlocfilehash: 76c8d09ef2ef0130ddac856a1f37f8b68d977494
+ms.sourcegitcommit: ec682dcc0a67eabe4bfe242fce4a7019f0a8c405
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/25/2020
-ms.locfileid: "83836615"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86186229"
 ---
 # <a name="azure-automation-frequently-asked-questions"></a>Questions fréquemment posées sur Azure Automation
 
@@ -38,7 +38,7 @@ Le déploiement de mises à jour par classification ne fonctionne pas sur les ve
 
 ### <a name="can-i-deploy-updates-across-azure-tenants"></a>Puis-je déployer des mises à jour dans tous les locataires Azure ?
 
-Si des machines devant être mises à jour se trouvent dans un autre rapport de tenant Azure pour Update Management, vous devez utiliser une solution de contournement pour planifier l’opération. Vous pouvez utiliser la cmdlet [New-AzAutomationSchedule](https://docs.microsoft.com/powershell/module/Az.Automation/New-AzAutomationSchedule?view=azps-3.7.0) avec le paramètre `ForUpdateConfiguration` pour créer une planification. Vous pouvez utiliser la cmdlet [New-AzAutomationSoftwareUpdateConfiguration](https://docs.microsoft.com/powershell/module/Az.Automation/New-AzAutomationSoftwareUpdateConfiguration?view=azps-3.7.0) et transférer les ordinateurs de l’autre locataire vers le paramètre `NonAzureComputer`. L’exemple suivant vous montre comment procéder.
+Si des machines devant être mises à jour se trouvent dans un autre rapport de tenant Azure pour Update Management, vous devez utiliser une solution de contournement pour planifier l’opération. Vous pouvez utiliser la cmdlet [New-AzAutomationSchedule](/powershell/module/Az.Automation/New-AzAutomationSchedule?view=azps-3.7.0) avec le paramètre `ForUpdateConfiguration` pour créer une planification. Vous pouvez utiliser la cmdlet [New-AzAutomationSoftwareUpdateConfiguration](/powershell/module/Az.Automation/New-AzAutomationSoftwareUpdateConfiguration?view=azps-3.7.0) et transférer les ordinateurs de l’autre locataire vers le paramètre `NonAzureComputer`. L’exemple suivant vous montre comment procéder.
 
 ```azurepowershell-interactive
 $nonAzurecomputers = @("server-01", "server-02")
@@ -54,5 +54,5 @@ New-AzAutomationSoftwareUpdateConfiguration  -ResourceGroupName $rg -AutomationA
 
 Si vous ne trouvez pas de réponse à votre question ici, vous pouvez consulter les sources suivantes pour plus de questions et réponses.
 
-- [Azure Automation](https://docs.microsoft.com/answers/topics/azure-automation.html)
+- [Azure Automation](/answers/topics/azure-automation.html)
 - [Forum de commentaires](https://feedback.azure.com/forums/905242-update-management)

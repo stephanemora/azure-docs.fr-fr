@@ -9,12 +9,12 @@ ms.author: magoedte
 ms.date: 04/15/2019
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: b39fbdf19703d8b4b2f8683577701dcb23900616
-ms.sourcegitcommit: 0b80a5802343ea769a91f91a8cdbdf1b67a932d3
+ms.openlocfilehash: 0e98078fe2799d1c524190c8ced36588f35498b4
+ms.sourcegitcommit: ec682dcc0a67eabe4bfe242fce4a7019f0a8c405
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/25/2020
-ms.locfileid: "83836955"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86186433"
 ---
 # <a name="get-started-with-azure-automation-state-configuration"></a>Prise en main d'Azure Automation State Configuration
 
@@ -26,8 +26,8 @@ Si vous souhaitez obtenir un exemple d’environnement préconfiguré sans avoir
 
 Pour exécuter les exemples de cet article, vous devez disposer des éléments suivants :
 
-- Un compte Azure Automation. Pour obtenir des instructions sur la création d’un compte d’identification Azure Automation, consultez [Authentifier des Runbooks avec un compte d’identification Azure](automation-sec-configure-azure-runas-account.md).
-- Une machine virtuelle Azure Resource Manager (non classique) exécutant un [système d’exploitation pris en charge](automation-dsc-overview.md#operating-system-requirements). Pour obtenir des instructions sur la création d’une machine virtuelle, consultez [Créer votre première machine virtuelle Windows dans le portail Azure](../virtual-machines/virtual-machines-windows-hero-tutorial.md)
+- Un compte Azure Automation. Pour obtenir des instructions sur la création d’un compte d’identification Azure Automation, consultez [Authentifier des Runbooks avec un compte d’identification Azure](./manage-runas-account.md).
+- Une machine virtuelle Azure Resource Manager (non classique) exécutant un [système d’exploitation pris en charge](automation-dsc-overview.md#operating-system-requirements). Pour obtenir des instructions sur la création d’une machine virtuelle, consultez [Créer votre première machine virtuelle Windows dans le portail Azure](../virtual-machines/windows/quick-create-portal.md)
 
 ## <a name="create-a-dsc-configuration"></a>Création d’une configuration DSC
 
@@ -237,4 +237,4 @@ Si vous ne souhaitez plus qu’un nœud soit géré par Azure Automation DSC, vo
 - Pour activer la fonctionnalité pour les machines virtuelles de votre environnement, consultez [Activer Azure Automation State Configuration](automation-dsc-onboarding.md).
 - Pour comprendre DSC PowerShell, consultez [Vue d’ensemble de la fonctionnalité Desired State Configuration de Windows PowerShell](/powershell/scripting/dsc/overview/overview).
 - Pour obtenir des informations sur les prix, consultez [Tarification d’Azure Automation State Configuration](https://azure.microsoft.com/pricing/details/automation/).
-- Pour obtenir des informations de référence sur les applets de commande PowerShell, consultez [Az.Automation](https://docs.microsoft.com/powershell/module/az.automation/?view=azps-3.7.0#automation).
+- Pour obtenir des informations de référence sur les applets de commande PowerShell, consultez [Az.Automation](/powershell/module/az.automation/?view=azps-3.7.0#automation).
