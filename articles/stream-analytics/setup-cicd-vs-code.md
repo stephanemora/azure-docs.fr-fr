@@ -8,12 +8,12 @@ ms.reviewer: jasonh
 ms.service: stream-analytics
 ms.topic: how-to
 ms.date: 01/28/2020
-ms.openlocfilehash: 7a7fe3f7e1c39837106471d118a8b1bb770a524e
-ms.sourcegitcommit: e132633b9c3a53b3ead101ea2711570e60d67b83
+ms.openlocfilehash: 75db20bdb746e7d15bef56ce7ac0a064993d3f3a
+ms.sourcegitcommit: ec682dcc0a67eabe4bfe242fce4a7019f0a8c405
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/07/2020
-ms.locfileid: "86045822"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86187759"
 ---
 # <a name="deploy-an-azure-stream-analytics-job-using-cicd-npm-package"></a>Déployer un travail Azure Stream Analytics à l'aide du package npm CI/CD 
 
@@ -41,15 +41,11 @@ Quand un projet Stream Analytics pour Visual Studio Code est correctement géné
 
 * Fichier de modèle Resource Manager
 
-   ```
-   [ProjectName].JobTemplate.json 
-   ```
+   `[ProjectName].JobTemplate.json`
 
 * Fichier de paramètres Resource Manager
 
-   ```
-   [ProjectName].JobTemplate.parameters.json
-   ```   
+   `[ProjectName].JobTemplate.parameters.json`   
 
 Les paramètres par défaut dans le fichier parameters.json proviennent des paramètres de votre projet Visual Studio Code. Si vous voulez effectuer un déploiement dans un autre environnement, remplacez les paramètres en conséquence.
 

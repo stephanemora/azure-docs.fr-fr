@@ -4,12 +4,12 @@ description: Utilisez la fonctionnalité de packages d’applications d’Azure 
 ms.topic: how-to
 ms.date: 04/26/2019
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: cebb7bf001d16e1024ed466268758f0b1bc92c6c
-ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
+ms.openlocfilehash: 328b08acbc6d13dd03956bb501b4d4a51310c9c0
+ms.sourcegitcommit: 5cace04239f5efef4c1eed78144191a8b7d7fee8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/05/2020
-ms.locfileid: "85955028"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86147213"
 ---
 # <a name="deploy-applications-to-compute-nodes-with-batch-application-packages"></a>Déployer des applications sur les nœuds avec des packages d’applications Batch
 
@@ -57,7 +57,7 @@ Vous pouvez spécifier des packages d’application aux niveaux d’un pool et d
 ### <a name="benefits-of-application-packages"></a>Avantages des packages d’applications
 Les packages d’application peuvent simplifier le code de votre solution Batch et alléger les coûts requis par la gestion des applications exécutées par vos tâches.
 
-Avec des packages d’application, la tâche de démarrage de votre pool ne doit pas nécessairement spécifier une longue liste de fichiers de ressources à installer sur les nœuds. Vous n’êtes pas obligé de gérer manuellement plusieurs versions de vos fichiers dans le stockage Azure ni sur vos nœuds. En outre, inutile de vous soucier de la génération [d’URL SAP](../storage/common/storage-dotnet-shared-access-signature-part-1.md) pour fournir l’accès aux fichiers dans votre compte de stockage. Batch fonctionne en arrière-plan avec le stockage Azure pour stocker des packages d’application et les déployer sur les nœuds de calcul.
+Avec des packages d’application, la tâche de démarrage de votre pool ne doit pas nécessairement spécifier une longue liste de fichiers de ressources à installer sur les nœuds. Vous n’êtes pas obligé de gérer manuellement plusieurs versions de vos fichiers dans le stockage Azure ni sur vos nœuds. En outre, inutile de vous soucier de la génération [d’URL SAP](../storage/common/storage-sas-overview.md) pour fournir l’accès aux fichiers dans votre compte de stockage. Batch fonctionne en arrière-plan avec le stockage Azure pour stocker des packages d’application et les déployer sur les nœuds de calcul.
 
 > [!NOTE] 
 > La taille totale d’une tâche de démarrage doit être inférieure ou égale à 32 768 caractères, y compris les fichiers de ressources et les variables d’environnement. Si votre tâche de démarrage dépasse cette limite, l’utilisation de packages d’application est une autre option. Vous pouvez également créer une archive zippée contenant vos fichiers de ressources, la charger en tant qu’objet blob sur Stockage Azure, puis la décompresser à partir de la ligne de commande de votre tâche de démarrage. 

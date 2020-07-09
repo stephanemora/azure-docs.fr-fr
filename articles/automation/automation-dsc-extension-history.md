@@ -9,12 +9,12 @@ services: automation
 ms.service: automation
 ms.subservice: dsc
 ms.topic: conceptual
-ms.openlocfilehash: b55280dd8ed5ea82cf861e300306db5a787c31e8
-ms.sourcegitcommit: 0b80a5802343ea769a91f91a8cdbdf1b67a932d3
+ms.openlocfilehash: 0bb82ce92a151bd8e955c136751d8e7f307bbf1b
+ms.sourcegitcommit: ec682dcc0a67eabe4bfe242fce4a7019f0a8c405
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/25/2020
-ms.locfileid: "83836921"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86186416"
 ---
 # <a name="work-with-azure-desired-state-configuration-extension-version-history"></a>Utiliser l’historique des versions de l’extension Azure Desired State Configuration
 
@@ -99,7 +99,7 @@ Cet article fournit des informations sur chaque version de l’extension de mach
 - **Environment :** Azure
 - **Remarques :** Cette version utilise DSC telle qu’elle est incluse dans Windows Server 2016. Pour les autres systèmes d’exploitation Windows, elle installe [Windows Management Framework 5.1](https://devblogs.microsoft.com/powershell/wmf-5-1-releasing-january-2017/) (l’installation de WMF nécessite un redémarrage). Pour Nano Server, le rôle DSC est installé sur la machine virtuelle.
 - **Nouvelles fonctionnalités :**
-  - Correctifs de bogues et améliorations qui simplifient l’utilisation de DSC Azure Automation via l’interface utilisateur du portail et du modèle Resource Manager. Pour plus d’informations, consultez [Script de configuration par défaut](/azure/virtual-machines/extensions/dsc-overview) dans la documentation de l’extension DSC.
+  - Correctifs de bogues et améliorations qui simplifient l’utilisation de DSC Azure Automation via l’interface utilisateur du portail et du modèle Resource Manager. Pour plus d’informations, consultez [Script de configuration par défaut](../virtual-machines/extensions/dsc-overview.md) dans la documentation de l’extension DSC.
 
 ### <a name="version-226"></a>Version 2.26
 
@@ -250,6 +250,6 @@ Cet article fournit des informations sur chaque version de l’extension de mach
 ## <a name="next-steps"></a>Étapes suivantes
 
 - Pour plus informations sur DSC PowerShell, consultez le [Centre de documentation PowerShell](/powershell/scripting/dsc/overview/overview).
-- Examinez le [modèle Resource Manager pour l’extension DSC](/azure/virtual-machines/extensions/dsc-template).
+- Examinez le [modèle Resource Manager pour l’extension DSC](../virtual-machines/extensions/dsc-template.md).
 - Pour plus de fonctionnalités et de ressources que vous pouvez gérer avec DSC PowerShell, parcourez le référentiel [PowerShell Gallery](https://www.powershellgallery.com/packages?q=DscResource&x=0&y=0).
-- Pour plus d’informations sur le passage de paramètres sensibles dans des configurations, consultez [Gérer les informations d’identification de façon sécurisée avec le gestionnaire d’extensions DSC](/azure/virtual-machines/extensions/dsc-credentials).
+- Pour plus d’informations sur le passage de paramètres sensibles dans des configurations, consultez [Gérer les informations d’identification de façon sécurisée avec le gestionnaire d’extensions DSC](../virtual-machines/extensions/dsc-credentials.md).

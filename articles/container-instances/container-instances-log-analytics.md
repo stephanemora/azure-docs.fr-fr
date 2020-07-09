@@ -2,14 +2,14 @@
 title: Collecter et analyser les journaux de ressources
 description: Découvrez comment envoyer des journaux de ressources et des données d’événement à partir de groupes de conteneurs dans Azure Container Instances vers les journaux d'activité Azure Monitor
 ms.topic: article
-ms.date: 04/07/2020
+ms.date: 07/02/2020
 ms.author: danlep
-ms.openlocfilehash: bd21a511641d5ea027c18bedb4dce47749110bcb
-ms.sourcegitcommit: df8b2c04ae4fc466b9875c7a2520da14beace222
+ms.openlocfilehash: c76d8a2e7e468c511f0df47ebb240a787f40e026
+ms.sourcegitcommit: 1e6c13dc1917f85983772812a3c62c265150d1e7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/08/2020
-ms.locfileid: "80892391"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86169729"
 ---
 # <a name="container-group-and-instance-logging-with-azure-monitor-logs"></a>Groupe de conteneurs et journalisation des instances de conteneur avec les journaux d’activité Azure Monitor
 
@@ -68,7 +68,7 @@ az container create \
 Utilisez cette méthode si vous préférez déployer des groupes de conteneurs avec YAML. Le code YAML suivant définit un groupe de conteneurs à un seul conteneur. Copiez le code YAML dans un nouveau fichier, puis remplacez `LOG_ANALYTICS_WORKSPACE_ID` et `LOG_ANALYTICS_WORKSPACE_KEY` par les valeurs obtenues à l’étape précédente. Enregistrez le fichier sous le nom **deploy-aci.yaml**.
 
 ```yaml
-apiVersion: 2018-10-01
+apiVersion: 2019-12-01
 location: eastus
 name: mycontainergroup001
 properties:

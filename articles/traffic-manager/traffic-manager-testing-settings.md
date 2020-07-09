@@ -10,12 +10,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/16/2017
 ms.author: rohink
-ms.openlocfilehash: b2ac056ef9140b4187eeb1850e56ba09b9755abb
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 894f01244fef94e9f5a60823ba06ff38c01288a1
+ms.sourcegitcommit: ec682dcc0a67eabe4bfe242fce4a7019f0a8c405
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84704027"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86186994"
 ---
 # <a name="verify-traffic-manager-settings"></a>Vérifier les paramètres Traffic Manager
 
@@ -35,7 +35,9 @@ Les exemples suivants vous aideront à tester votre profil Traffic Manager.
 2. Entrez `ipconfig /flushdns` pour vider le cache de résolution DNS.
 3. Tapez `nslookup <your Traffic Manager domain name>`. Par exemple, la commande suivante vérifie le nom de domaine doté du préfixe *myapp.contoso*
 
-        nslookup myapp.contoso.trafficmanager.net
+    ```powershell
+    nslookup myapp.contoso.trafficmanager.net
+    ```
 
     Les résultats contiennent généralement les informations suivantes :
 

@@ -2,14 +2,14 @@
 title: Didacticiel – Déployer un groupe de plusieurs conteneurs – Modèle
 description: Dans ce tutoriel, vous allez apprendre à déployer un groupe comportant plusieurs conteneurs dans Azure Container Instances à l’aide d’un modèle Resource Manager avec Azure CLI.
 ms.topic: article
-ms.date: 04/03/2019
+ms.date: 07/02/2020
 ms.custom: mvc
-ms.openlocfilehash: b08a974cbbdc9e4bdf1594672f82748bfabe88b4
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 48068659d99fc060aa0c0580eb781e10c434c597
+ms.sourcegitcommit: 1e6c13dc1917f85983772812a3c62c265150d1e7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "83653515"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86169712"
 ---
 # <a name="tutorial-deploy-a-multi-container-group-using-a-resource-manager-template"></a>Tutoriel : Déployer un groupe de plusieurs conteneurs avec un modèle Resource Manager
 
@@ -68,7 +68,7 @@ Ce modèle Resource Manager définit un groupe de conteneurs qui comprend deux c
     {
       "name": "[parameters('containerGroupName')]",
       "type": "Microsoft.ContainerInstance/containerGroups",
-      "apiVersion": "2018-10-01",
+      "apiVersion": "2019-12-01",
       "location": "[resourceGroup().location]",
       "properties": {
         "containers": [
@@ -151,7 +151,7 @@ Créez un groupe de ressources avec la commande [az group create][az-group-creat
 az group create --name myResourceGroup --location eastus
 ```
 
-Déployez ensuite le modèle avec la commande [az group deployment create][az-group-deployment-create].
+Déployez ensuite le modèle avec la commande [az deployment group create][az-deployment-group-create].
 
 ```azurecli-interactive
 az group deployment create --resource-group myResourceGroup --template-file azuredeploy.json
@@ -187,9 +187,9 @@ Sortie :
 
 ```bash
 listening on port 80
-::1 - - [21/Mar/2019:23:17:48 +0000] "HEAD / HTTP/1.1" 200 1663 "-" "curl/7.54.0"
-::1 - - [21/Mar/2019:23:17:51 +0000] "HEAD / HTTP/1.1" 200 1663 "-" "curl/7.54.0"
-::1 - - [21/Mar/2019:23:17:54 +0000] "HEAD / HTTP/1.1" 200 1663 "-" "curl/7.54.0"
+::1 - - [02/Jul/2020:23:17:48 +0000] "HEAD / HTTP/1.1" 200 1663 "-" "curl/7.54.0"
+::1 - - [02/Jul/2020:23:17:51 +0000] "HEAD / HTTP/1.1" 200 1663 "-" "curl/7.54.0"
+::1 - - [02/Jul/2020:23:17:54 +0000] "HEAD / HTTP/1.1" 200 1663 "-" "curl/7.54.0"
 ```
 
 Pour afficher les journaux du conteneur annexe, exécutez une commande similaire en spécifiant le conteneur `aci-tutorial-sidecar`.
@@ -201,7 +201,7 @@ az container logs --resource-group myResourceGroup --name myContainerGroup --con
 Sortie :
 
 ```bash
-Every 3s: curl -I http://localhost                          2019-03-21 20:36:41
+Every 3s: curl -I http://localhost                          2020-07-02 20:36:41
 
   % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
                                  Dload  Upload   Total   Spent    Left  Speed
@@ -214,7 +214,7 @@ Last-Modified: Wed, 29 Nov 2017 06:40:40 GMT
 ETag: W/"67f-16006818640"
 Content-Type: text/html; charset=UTF-8
 Content-Length: 1663
-Date: Thu, 21 Mar 2019 20:36:41 GMT
+Date: Thu, 02 Jul 2020 20:36:41 GMT
 Connection: keep-alive
 ```
 
@@ -239,5 +239,5 @@ Vous pouvez également spécifier un groupe de plusieurs conteneurs à l’aide 
 [az-container-logs]: /cli/azure/container#az-container-logs
 [az-container-show]: /cli/azure/container#az-container-show
 [az-group-create]: /cli/azure/group#az-group-create
-[az-group-deployment-create]: /cli/azure/group/deployment#az-group-deployment-create
+[az-deployment-group-create]: /cli/azure/deployment/group#az-deployment-group-create
 [template-reference]: https://docs.microsoft.com/azure/templates/microsoft.containerinstance/containergroups

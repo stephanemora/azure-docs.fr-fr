@@ -4,12 +4,12 @@ description: Enregistrez et analysez les événements du journal de diagnostic p
 ms.topic: how-to
 ms.date: 05/29/2020
 ms.custom: seodec18
-ms.openlocfilehash: 6e10a4fc6cd13854682f094274c975931b056365
-ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
+ms.openlocfilehash: abf9ef53d3f2e3ffeffabfe9b7c77dc5c5debec3
+ms.sourcegitcommit: 5cace04239f5efef4c1eed78144191a8b7d7fee8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/05/2020
-ms.locfileid: "85960722"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86145096"
 ---
 # <a name="batch-metrics-alerts-and-logs-for-diagnostic-evaluation-and-monitoring"></a>Métriques, alertes et journaux d’activité Batch pour l’évaluation de diagnostic et la supervision
  
@@ -87,8 +87,8 @@ Un scénario courant consiste à sélectionner un compte de stockage Azure en ta
 
 Vous pouvez également :
 
-- Diffusez les événements du journal de diagnostic Batch vers un service [Azure Event Hub](../event-hubs/event-hubs-what-is-event-hubs.md). Le service Event Hubs peut traiter à chaque seconde des millions d’événements que vous pouvez transformer et stocker à l’aide de tout fournisseur d’analyses en temps réel. 
-- Envoyez les journaux de diagnostic aux [journaux Azure Monitor](../log-analytics/log-analytics-overview.md), où vous pouvez les analyser ou les importer pour analyse dans Power BI ou Excel.
+- Diffusez les événements du journal de diagnostic Batch vers un service [Azure Event Hub](../event-hubs/event-hubs-about.md). Le service Event Hubs peut traiter à chaque seconde des millions d’événements que vous pouvez transformer et stocker à l’aide de tout fournisseur d’analyses en temps réel. 
+- Envoyez les journaux de diagnostic aux [journaux Azure Monitor](../azure-monitor/log-query/log-query-overview.md), où vous pouvez les analyser ou les importer pour analyse dans Power BI ou Excel.
 
 > [!NOTE]
 > Vous risquez de payer des frais supplémentaires pour stocker ou traiter les données de journal de diagnostics avec les services Azure. 
@@ -135,7 +135,7 @@ Voici un exemple d’entrée `PoolResizeCompleteEvent` dans un fichier journal `
 { "Tenant": "65298bc2729a4c93b11c00ad7e660501", "time": "2019-08-22T20:59:13.5698778Z", "resourceId": "/SUBSCRIPTIONS/XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX/RESOURCEGROUPS/MYRESOURCEGROUP/PROVIDERS/MICROSOFT.BATCH/BATCHACCOUNTS/MYBATCHACCOUNT/", "category": "ServiceLog", "operationName": "PoolResizeCompleteEvent", "operationVersion": "2017-06-01", "properties": {"id":"MYPOOLID","nodeDeallocationOption":"Requeue","currentDedicatedNodes":10,"targetDedicatedNodes":100,"currentLowPriorityNodes":0,"targetLowPriorityNodes":0,"enableAutoScale":false,"isAutoPool":false,"startTime":"2019-08-22 20:50:59.522","endTime":"2019-08-22 20:59:12.489","resultCode":"Success","resultMessage":"The operation succeeded"}}
 ```
 
-Pour plus d’informations sur le schéma des journaux de diagnostic dans le compte de stockage, consultez [Archiver des journaux de ressource Azure dans un compte de stockage](../azure-monitor/platform/resource-logs-collect-storage.md#schema-of-platform-logs-in-storage-account). Pour accéder par programme aux journaux d’activité de votre compte de stockage, utilisez les API de stockage.
+Pour plus d’informations sur le schéma des journaux de diagnostic dans le compte de stockage, consultez [Archiver des journaux de ressource Azure dans un compte de stockage](../azure-monitor/platform/resource-logs.md#send-to-azure-storage). Pour accéder par programme aux journaux d’activité de votre compte de stockage, utilisez les API de stockage.
 
 ### <a name="service-log-events"></a>Événements du journal de service
 
@@ -178,4 +178,3 @@ Les événements de journal de service émis par le service Batch incluent les �
 
 - Découvrez les [outils et API Batch](batch-apis-tools.md) disponibles pour créer des solutions Batch.
 - Consultez d’autres informations sur les [solutions de surveillance Batch](monitoring-overview.md).
-

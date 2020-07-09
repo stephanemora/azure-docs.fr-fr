@@ -5,12 +5,12 @@ services: automation
 ms.subservice: process-automation
 ms.date: 12/14/2018
 ms.topic: conceptual
-ms.openlocfilehash: 741569740713fef72f714f7cbce38a3c6f075684
-ms.sourcegitcommit: 0b80a5802343ea769a91f91a8cdbdf1b67a932d3
+ms.openlocfilehash: f175e495af8e925c0d5a6c61669a5e2f44f73ae7
+ms.sourcegitcommit: ec682dcc0a67eabe4bfe242fce4a7019f0a8c405
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/25/2020
-ms.locfileid: "83836683"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86185996"
 ---
 # <a name="learn-powershell-workflow-for-azure-automation"></a>Découvrir PowerShell Workflow pour Azure Automation
 
@@ -21,7 +21,7 @@ Le workflow est écrit avec la syntaxe Windows PowerShell et il est lancé par W
 > [!NOTE]
 > Un script PowerShell Workflow est très similaire à un script Windows PowerShell. Cependant, il présente des différences significatives qui peuvent être déconcertantes pour un nouvel utilisateur. Par conséquent, nous vous recommandons d’écrire vos runbooks à l’aide de PowerShell Workflow uniquement si vous devez utiliser des [points de contrôle](#use-checkpoints-in-a-workflow). 
 
-Pour plus d’informations sur les rubriques de cet article, consultez [Présentation du workflow Windows PowerShell](https://technet.microsoft.com/library/jj134242.aspx).
+Pour plus d’informations sur les rubriques de cet article, consultez [Présentation du workflow Windows PowerShell](/previous-versions/windows/it-pro/windows-server-2012-R2-and-2012/jj134242(v=ws.11)).
 
 ## <a name="use-workflow-keyword"></a>Utiliser le mot clé Workflow
 
@@ -46,9 +46,9 @@ Le code PowerShell Workflow est quasiment identique à celui d’un script Power
 
 Une activité est une tâche incluse dans un workflow qui est exécutée dans un ordre précis. Le workflow Windows PowerShell convertit automatiquement la plupart des applets de commande Windows PowerShell en activités lors de son exécution. Lorsque vous spécifiez une de ces applets de commande dans votre Runbook, l’activité correspondante est exécutée par Windows Workflow Foundation. 
 
-Si une applet de commande ne correspond à aucune activité, Windows PowerShell Workflow l’exécute automatiquement au sein d’une activité [InlineScript](#use-inlinescript). Certaines applets de commande sont exclues et ne peuvent pas être utilisées dans un workflow, à moins que vous ne les incluiez explicitement dans un bloc InlineScript. Pour plus d’informations, consultez [Utilisation d’activités dans les workflows de script](https://technet.microsoft.com/library/jj574194.aspx).
+Si une applet de commande ne correspond à aucune activité, Windows PowerShell Workflow l’exécute automatiquement au sein d’une activité [InlineScript](#use-inlinescript). Certaines applets de commande sont exclues et ne peuvent pas être utilisées dans un workflow, à moins que vous ne les incluiez explicitement dans un bloc InlineScript. Pour plus d’informations, consultez [Utilisation d’activités dans les workflows de script](/previous-versions/windows/it-pro/windows-server-2012-R2-and-2012/jj574194(v=ws.11)).
 
-Les activités de workflow partagent un ensemble de paramètres communs pour configurer leur opération. Voir [about_WorkflowCommonParameters](https://technet.microsoft.com/library/jj129719.aspx).
+Les activités de workflow partagent un ensemble de paramètres communs pour configurer leur opération. Voir [about_WorkflowCommonParameters](/powershell/module/psworkflow/about/about_workflowcommonparameters).
 
 ### <a name="positional-parameters"></a>Paramètres positionnels
 
@@ -151,7 +151,7 @@ Même si les activités InlineScript peuvent être critiques dans certains workf
 * Vous ne pouvez pas effectuer d’[exécution parallèle](#use-parallel-processing) à l’intérieur d’un bloc InlineScript.
 * InlineScript affecte l'extensibilité du workflow puisque l'activité maintient la session Windows PowerShell pendant toute la durée du bloc InlineScript.
 
-Pour plus d’informations sur l’utilisation d’InlineScript, consultez [Exécution des commandes Windows PowerShell dans un workflow](https://technet.microsoft.com/library/jj574197.aspx) et [about_InlineScript](https://technet.microsoft.com/library/jj649082.aspx).
+Pour plus d’informations sur l’utilisation d’InlineScript, consultez [Exécution des commandes Windows PowerShell dans un workflow](/previous-versions/windows/it-pro/windows-server-2012-R2-and-2012/jj574197(v=ws.11)) et [about_InlineScript](/powershell/module/psworkflow/about/about_inlinescript).
 
 ## <a name="use-parallel-processing"></a>Utiliser le traitement parallèle
 
@@ -261,7 +261,7 @@ Workflow Copy-Files
 }
 ```
 
-Comme les informations d’identification du nom d’utilisateur ne sont pas conservées après l’appel de l’activité [Suspend-Workflow](https://technet.microsoft.com/library/jj733586.aspx) ou après le dernier point de contrôle, vous devez définir les informations d’identification comme « null », puis les récupérer à nouveau à partir du magasin de ressources après l’activité `Suspend-Workflow` ou après l’appel du point de contrôle.  Sinon, le message d’erreur suivant peut s’afficher : `The workflow job cannot be resumed, either because persistence data could not be saved completely, or saved persistence data has been corrupted. You must restart the workflow.`
+Comme les informations d’identification du nom d’utilisateur ne sont pas conservées après l’appel de l’activité [Suspend-Workflow](/powershell/module/psworkflow/about/about_suspend-workflow) ou après le dernier point de contrôle, vous devez définir les informations d’identification comme « null », puis les récupérer à nouveau à partir du magasin de ressources après l’activité `Suspend-Workflow` ou après l’appel du point de contrôle.  Sinon, le message d’erreur suivant peut s’afficher : `The workflow job cannot be resumed, either because persistence data could not be saved completely, or saved persistence data has been corrupted. You must restart the workflow.`
 
 Le même code ci-dessous montre comment traiter ce problème dans vos runbooks PowerShell Workflow.
 
@@ -290,9 +290,9 @@ workflow CreateTestVms
 ```
 
 > [!NOTE]
-> Pour les runbooks PowerShell non graphiques, `Add-AzAccount` et `Add-AzureRMAccount` sont des alias de [Connect-AzAccount](https://docs.microsoft.com/powershell/module/az.accounts/connect-azaccount?view=azps-3.5.0). Vous pouvez utiliser ces cmdlets ou [mettre à jour vos modules](automation-update-azure-modules.md) dans votre compte Automation vers les dernières versions. Il est possible que vous deviez mettre à jour vos modules, même si vous venez de créer un compte Automation. L’utilisation de ces applets de commande n’est pas nécessaire si vous vous authentifiez à l’aide d’un compte d’identification configuré avec un principal de service.
+> Pour les runbooks PowerShell non graphiques, `Add-AzAccount` et `Add-AzureRMAccount` sont des alias de [Connect-AzAccount](/powershell/module/az.accounts/connect-azaccount?view=azps-3.5.0). Vous pouvez utiliser ces cmdlets ou [mettre à jour vos modules](automation-update-azure-modules.md) dans votre compte Automation vers les dernières versions. Il est possible que vous deviez mettre à jour vos modules, même si vous venez de créer un compte Automation. L’utilisation de ces applets de commande n’est pas nécessaire si vous vous authentifiez à l’aide d’un compte d’identification configuré avec un principal de service.
 
-Pour plus d'informations sur les points de contrôle, consultez [Ajout de points de contrôle à un workflow de script](https://technet.microsoft.com/library/jj574114.aspx).
+Pour plus d'informations sur les points de contrôle, consultez [Ajout de points de contrôle à un workflow de script](/previous-versions/windows/it-pro/windows-server-2012-R2-and-2012/jj574114(v=ws.11)).
 
 ## <a name="next-steps"></a>Étapes suivantes
 

@@ -5,12 +5,12 @@ services: automation
 ms.subservice: process-automation
 ms.topic: conceptual
 ms.date: 10/30/2018
-ms.openlocfilehash: 3369a807410e9e959e8091d5b16c8480803d26bb
-ms.sourcegitcommit: 0b80a5802343ea769a91f91a8cdbdf1b67a932d3
+ms.openlocfilehash: 38963a8e1bfdbde50439ed871aa33e9aaa830d35
+ms.sourcegitcommit: ec682dcc0a67eabe4bfe242fce4a7019f0a8c405
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/25/2020
-ms.locfileid: "83830580"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86185651"
 ---
 # <a name="track-updated-files-with-a-watcher-task"></a>Suivre les fichiers mis à jour avec une tâche d’observateur
 
@@ -20,7 +20,7 @@ Azure Automation utilise une tâche d’observateur pour rechercher les événem
 > Les tâches d’observateur ne sont pas prises en charge dans Azure Chine Vianet 21.
 
 > [!IMPORTANT]
-> Depuis de mai 2020, l’utilisation de Azure Logic Apps est la méthode prise en charge pour surveiller des événements, planifier des tâches récurrentes et déclencher des actions. Consultez [Créer et exécuter des tâches, processus et flux de travail automatisés récurrents avec Azure Logic Apps](https://docs.microsoft.com/azure/logic-apps/concepts-schedule-automated-recurring-tasks-workflows).
+> Depuis de mai 2020, l’utilisation de Azure Logic Apps est la méthode prise en charge pour surveiller des événements, planifier des tâches récurrentes et déclencher des actions. Consultez [Créer et exécuter des tâches, processus et flux de travail automatisés récurrents avec Azure Logic Apps](../logic-apps/concepts-schedule-automated-recurring-tasks-workflows.md).
 
 Ce didacticiel vous guide lors de la création d’une tâche d’observateur pour surveiller l’ajout d’un nouveau fichier à un répertoire. Vous allez apprendre à effectuer les actions suivantes :
 
@@ -37,7 +37,7 @@ Ce didacticiel vous guide lors de la création d’une tâche d’observateur po
 Pour effectuer ce didacticiel, vous avez besoin des éléments suivants :
 
 * Abonnement Azure. Si vous n’avez pas encore d’abonnement, vous pouvez [activer vos avantages abonnés MSDN](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/) ou créer [un compte gratuit](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
-* Un [compte Automation](automation-offering-get-started.md) qui contiendra les runbooks Watcher et d'actions ainsi que la tâche d'observateur.
+* Un [compte Automation](./index.yml) qui contiendra les runbooks Watcher et d'actions ainsi que la tâche d'observateur.
 * Un [Runbook Worker hybride](automation-hybrid-runbook-worker.md) où la tâche d'observateur est exécutée.
 * Runbooks PowerShell. Les runbooks PowerShell Workflow ne sont pas pris en charge par les tâches d’observateur.
 
@@ -61,7 +61,7 @@ Vous pouvez également importer ce runbook dans votre compte Automation à parti
 
 ## <a name="create-an-automation-variable"></a>Créer une variable Automation
 
-Une [variable automation](automation-variables.md) sert à stocker les timestamps que le runbook précédent lit et stocke à partir de chaque fichier.
+Une [variable automation](./shared-resources/variables.md) sert à stocker les timestamps que le runbook précédent lit et stocke à partir de chaque fichier.
 
 1. Sélectionnez **Variables** sous **Ressources partagées**, puis cliquez sur **+ Ajouter une variable**.
 1. Saisissez le nom Watch-NewFileTimestamp.

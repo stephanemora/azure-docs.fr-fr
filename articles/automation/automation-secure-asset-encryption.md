@@ -9,12 +9,12 @@ ms.author: snmuvva
 ms.date: 01/11/2020
 ms.topic: conceptual
 manager: kmadnani
-ms.openlocfilehash: 1cb70109657343f41a1b3a19f3426377d97e261e
-ms.sourcegitcommit: 0b80a5802343ea769a91f91a8cdbdf1b67a932d3
+ms.openlocfilehash: 7d59ca60c7f90c227885927086511bd1f8ac7ca1
+ms.sourcegitcommit: ec682dcc0a67eabe4bfe242fce4a7019f0a8c405
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/25/2020
-ms.locfileid: "83830121"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86185838"
 ---
 # <a name="encryption-of-secure-assets-in-azure-automation"></a>Chiffrement des ressources sécurisées dans Azure Automation
 
@@ -52,12 +52,12 @@ Avant d’activer les clés gérées par le client pour un compte Automation, vo
 
  - La clé gérée par le client est stockée dans Azure Key Vault. 
  - Activez les propriétés **Suppression réversible** et **Ne pas vider** sur le coffre de clés. Ces fonctionnalités sont requises pour permettre la récupération des clés en cas de suppression accidentelle.
- - Seules les clés RSA sont prises en charge avec le chiffrement Azure Automation. Pour plus d’informations sur les clés, consultez [À propos des clés, des secrets et des certificats Azure Key Vault](../key-vault/about-keys-secrets-and-certificates.md#key-vault-keys).
+ - Seules les clés RSA sont prises en charge avec le chiffrement Azure Automation. Pour plus d’informations sur les clés, consultez [À propos des clés, des secrets et des certificats Azure Key Vault](../key-vault/general/about-keys-secrets-certificates.md).
 - Le compte Automation et le coffre de clés peuvent figurer dans des abonnements différents, mais doivent se trouver dans le même locataire Azure Active Directory.
 
 ### <a name="assignment-of-an-identity-to-the-automation-account"></a>Attribution d’une identité au compte Automation
 
-Pour utiliser des clés gérées par le client avec un compte Automation, votre compte Automation doit s’authentifier auprès du coffre de clés qui stocke les clés gérées par le client. Azure Automation utilise des identités managées attribuées par le système pour authentifier le compte auprès d’Azure Key Vault. Pour en savoir plus sur les identités managées, consultez la section [Que sont les identités managées pour les ressources Azure ?](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/overview)
+Pour utiliser des clés gérées par le client avec un compte Automation, votre compte Automation doit s’authentifier auprès du coffre de clés qui stocke les clés gérées par le client. Azure Automation utilise des identités managées attribuées par le système pour authentifier le compte auprès d’Azure Key Vault. Pour en savoir plus sur les identités managées, consultez la section [Que sont les identités managées pour les ressources Azure ?](../active-directory/managed-identities-azure-resources/overview.md)
 
 Configurez une identité managée attribuée par le système pour le compte Automation à l’aide de l’appel d’API REST suivant :
 
@@ -185,7 +185,7 @@ La permutation de la clé ne déclenche pas le rechiffrement des ressources séc
 
 ## <a name="revocation-of-access-to-a-customer-managed-key"></a>Révocation de l’accès à une clé gérée par le client
 
-Pour révoquer l’accès aux clés gérées par le client, utilisez PowerShell ou Azure CLI. Pour plus d’informations, consultez [Azure Key Vault PowerShell](https://docs.microsoft.com/powershell/module/az.keyvault/) ou [Interface de ligne de commande Azure Key Vault](https://docs.microsoft.com/cli/azure/keyvault). La révocation de l’accès bloque efficacement l’accès à toutes les ressources sécurisées dans le compte Automation, car la clé de chiffrement est inaccessible pour Azure Automation.
+Pour révoquer l’accès aux clés gérées par le client, utilisez PowerShell ou Azure CLI. Pour plus d’informations, consultez [Azure Key Vault PowerShell](/powershell/module/az.keyvault/) ou [Interface de ligne de commande Azure Key Vault](/cli/azure/keyvault). La révocation de l’accès bloque efficacement l’accès à toutes les ressources sécurisées dans le compte Automation, car la clé de chiffrement est inaccessible pour Azure Automation.
 
 ## <a name="next-steps"></a>Étapes suivantes
 

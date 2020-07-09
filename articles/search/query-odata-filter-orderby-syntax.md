@@ -19,12 +19,12 @@ translation.priority.mt:
 - ru-ru
 - zh-cn
 - zh-tw
-ms.openlocfilehash: f3a1be435e297ab4a9ba7f8bfbd5f3ce3451d8a8
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 07f3e270e799753a582227abe53223bd05755eb5
+ms.sourcegitcommit: 1e6c13dc1917f85983772812a3c62c265150d1e7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "77153874"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86165207"
 ---
 # <a name="odata-language-overview-for-filter-orderby-and-select-in-azure-cognitive-search"></a>Vue d’ensemble du langage OData pour `$filter`, `$orderby` et `$select` dans la Recherche cognitive Azure
 
@@ -83,7 +83,9 @@ La signification d’un chemin de champ diffère selon le contexte. Dans les fil
 
 Examinez le chemin de champ `Address/City`. Dans un filtre, il fait référence à une seule ville pour le document actif, comme « San Francisco ». En revanche, `Rooms/Type` fait référence au sous-champ `Type` pour de nombreuses chambres (par exemple, « standard » pour la première chambre, « deluxe » pour la deuxième chambre, etc.). `Rooms/Type` ne faisant pas référence à une *instance unique* du sous-champ `Type`, il ne peut pas être utilisé directement dans un filtre. Au lieu de cela, pour filtrer sur un type de chambre, vous devez utiliser une [expression lambda](search-query-odata-collection-operators.md) avec une variable de portée, telle que :
 
-    Rooms/any(room: room/Type eq 'deluxe')
+```odata
+Rooms/any(room: room/Type eq 'deluxe')
+```
 
 Dans cet exemple, la variable de portée `room` s’affiche dans le chemin de champ `room/Type`. Ainsi, `room/Type` fait référence au type de chambre actuel dans le document actif. Il s’agit d’une instance unique du sous-champ `Type`, et il peut donc être utilisé directement dans le filtre.
 

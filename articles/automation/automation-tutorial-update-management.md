@@ -6,12 +6,12 @@ ms.subservice: update-management
 ms.topic: conceptual
 ms.date: 04/06/2020
 ms.custom: mvc
-ms.openlocfilehash: 79cffa7aedd0fc04dd4a747ef28bc67cacf37905
-ms.sourcegitcommit: 0fa52a34a6274dc872832560cd690be58ae3d0ca
+ms.openlocfilehash: a701a5a9fd77bd801bb535fe1f26bfa17c97757b
+ms.sourcegitcommit: ec682dcc0a67eabe4bfe242fce4a7019f0a8c405
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/29/2020
-ms.locfileid: "84204886"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86185787"
 ---
 # <a name="manage-updates-and-patches-for-your-azure-vms"></a>Gérer les mises à jour et les correctifs pour vos machines virtuelles Azure
 
@@ -206,7 +206,7 @@ Une fois le déploiement de mises à jour terminé, vous recevez l’alerte que 
 ## <a name="next-steps"></a>Étapes suivantes
 
 * Pour plus d’informations sur les configurations d’étendue, consultez [Utiliser des configurations d’étendue pour Update Management](automation-scope-configurations-update-management.md).
-* Si vous avez besoin de rechercher dans les journaux d’activité stockés dans votre espace de travail Log Analytics, consultez [Recherches dans les journaux d’Azure Monitor](../log-analytics/log-analytics-log-searches.md).
+* Si vous avez besoin de rechercher dans les journaux d’activité stockés dans votre espace de travail Log Analytics, consultez [Recherches dans les journaux d’Azure Monitor](../azure-monitor/log-query/log-query-overview.md).
 * Si vous en avez terminé avec les déploiements, consultez [Dissocier un espace de travail d’un compte Automation pour Update Management](automation-unlink-workspace-update-management.md).
 * Pour supprimer vos machines virtuelles d’Update Management, consultez [Supprimer des machines virtuelles d’Update Management](automation-remove-vms-from-update-management.md).
 * Pour résoudre les erreurs générales d’Update Management, consultez [Résoudre les problèmes liés à Update Management](troubleshoot/update-management.md).

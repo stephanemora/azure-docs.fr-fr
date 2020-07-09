@@ -5,12 +5,12 @@ services: automation
 ms.subservice: change-inventory-management
 ms.date: 06/15/2020
 ms.topic: conceptual
-ms.openlocfilehash: 0eebd626013614bb6240fc0e6530a358a2b86d1c
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: eab509e389c074232526aa93fcebb72f3bc986c0
+ms.sourcegitcommit: ec682dcc0a67eabe4bfe242fce4a7019f0a8c405
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84781189"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86185600"
 ---
 # <a name="manage-change-tracking-and-inventory"></a>Gérer Change Tracking et Inventory
 
@@ -79,10 +79,10 @@ Utilisez les étapes ci-dessous pour configurer le suivi des fichiers sur des or
 
 ## <a name="track-file-contents"></a>Effectuer le suivi du contenu du fichier
 
-Le suivi de contenu de fichier vous permet de voir le contenu d’un fichier avant et après un changement suivi. La fonctionnalité enregistre le contenu du fichier dans un [compte de stockage](https://docs.microsoft.com/azure/storage/common/storage-account-overview) chaque fois qu’un changement a lieu. Voici quelques règles à suivre pour le suivi du contenu de fichier :
+Le suivi de contenu de fichier vous permet de voir le contenu d’un fichier avant et après un changement suivi. La fonctionnalité enregistre le contenu du fichier dans un [compte de stockage](../storage/common/storage-account-overview.md) chaque fois qu’un changement a lieu. Voici quelques règles à suivre pour le suivi du contenu de fichier :
 
 * Un compte de stockage standard utilisant le modèle de déploiement Resource Manager est nécessaire pour stocker le contenu du fichier. 
-* N’utilisez pas de comptes de stockage de modèles de déploiement Premium et Classic. Voir [À propos des comptes Stockage Azure](../storage/common/storage-create-storage-account.md).
+* N’utilisez pas de comptes de stockage de modèles de déploiement Premium et Classic. Voir [À propos des comptes Stockage Azure](../storage/common/storage-account-create.md).
 * Vous pouvez connecter le compte de stockage à un seul compte Automation.
 * [Change Tracking et Inventory](change-tracking.md) doit être activé dans votre compte Automation.
 
@@ -170,7 +170,7 @@ Utilisons cet exemple pour aborder les étapes de création d’alertes en cas d
 ## <a name="next-steps"></a>Étapes suivantes
 
 * Pour plus d’informations sur les configurations d’étendue, consultez [Limiter l’étendue du déploiement de Change Tracking et Inventory](automation-scope-configurations-change-tracking.md).
-* Si vous avez besoin de rechercher dans les journaux d’activité stockés dans votre espace de travail Log Analytics, consultez [Recherches dans les journaux d’Azure Monitor](../log-analytics/log-analytics-log-searches.md).
+* Si vous avez besoin de rechercher dans les journaux d’activité stockés dans votre espace de travail Log Analytics, consultez [Recherches dans les journaux d’Azure Monitor](../azure-monitor/log-query/log-query-overview.md).
 * Si vous en avez terminé avec les déploiements, consultez [Dissocier un espace de travail d’un compte Automation pour Change Tracking et Inventory](automation-unlink-workspace-change-tracking.md).
 * Pour supprimer vos machines virtuelles de Change Tracking et Inventory, consultez [Supprimer des machines virtuelles de Change Tracking et Inventory](automation-remove-vms-from-change-tracking.md).
 * Pour détecter un problème lié aux modifications apportées à une machine virtuelle Azure, consultez [Résoudre les problèmes liés à Change Tracking and Inventory](troubleshoot/change-tracking.md).

@@ -3,12 +3,12 @@ title: Azure Batch exécute des travaux parallèles à grande échelle dans le c
 description: Découvrez l’utilisation d’Azure Batch pour les charges de travail HPC et parallèles à grande échelle
 ms.topic: conceptual
 ms.date: 01/19/2018
-ms.openlocfilehash: 134706622655029c6673aea5dd04a9284155be6f
-ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
+ms.openlocfilehash: 03c958f44f707e7c5b6ac5c4414bdb5fd4963635
+ms.sourcegitcommit: 5cace04239f5efef4c1eed78144191a8b7d7fee8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/05/2020
-ms.locfileid: "85965074"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86142799"
 ---
 # <a name="what-is-azure-batch"></a>Présentation d’Azure Batch
 
@@ -34,7 +34,7 @@ Voici quelques exemples de charges de travail intrinsèquement parallèles que v
 * Ingestion de données, traitement et opérations ETL
 * Exécution de tests logiciels
 
-Vous pouvez également utiliser Azure Batch pour [exécuter des charges de travail fortement couplées](batch-mpi.md) ; dans ces charges de travail, les applications que vous exécutez doivent communiquer entre elles, et non s’exécuter indépendamment. Les applications fortement couplées utilisent normalement l’API d’interface MPI (Message Passing Interface). Vous pouvez exécuter vos charges de travail fortement couplées avec Azure Batch à l’aide de [Microsoft MPI](/message-passing-interface/microsoft-mpi) ou Intel MPI. Améliorez les performances de l’application avec les tailles de machine virtuelle spécialisées [HPC](../virtual-machines/linux/sizes-hpc.md) et [Optimisé pour le GPU](../virtual-machines/linux/sizes-gpu.md).
+Vous pouvez également utiliser Azure Batch pour [exécuter des charges de travail fortement couplées](batch-mpi.md) ; dans ces charges de travail, les applications que vous exécutez doivent communiquer entre elles, et non s’exécuter indépendamment. Les applications fortement couplées utilisent normalement l’API d’interface MPI (Message Passing Interface). Vous pouvez exécuter vos charges de travail fortement couplées avec Azure Batch à l’aide de [Microsoft MPI](/message-passing-interface/microsoft-mpi) ou Intel MPI. Améliorez les performances de l’application avec les tailles de machine virtuelle spécialisées [HPC](../virtual-machines/sizes-hpc.md) et [Optimisé pour le GPU](../virtual-machines/sizes-gpu.md).
 
 Voici quelques exemples de charges de travail fortement couplées :
 * Analyse des éléments finis
@@ -83,4 +83,3 @@ Bien démarrer avec Azure Batch grâce à l’un de ces guides de démarrage rap
 * [Exécutez votre premier travail Batch avec le portail Azure](quick-create-portal.md)
 * [Exécutez votre premier travail Batch avec l’API .NET](quick-run-dotnet.md)
 * [Exécutez votre premier travail Batch avec l’API Python](quick-run-python.md)
-

@@ -8,12 +8,12 @@ ms.date: 03/24/2020
 ms.topic: conceptual
 ms.service: automation
 manager: carmonm
-ms.openlocfilehash: bebc89514da7f28015da5cb145ae50bf3fccdb6a
-ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
+ms.openlocfilehash: edd57d3d77432f3bb37872ee26f414b56398cae0
+ms.sourcegitcommit: ec682dcc0a67eabe4bfe242fce4a7019f0a8c405
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/20/2020
-ms.locfileid: "83680083"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86187283"
 ---
 # <a name="troubleshoot-azure-automation-account-issues"></a>Résoudre des problèmes liés aux comptes Azure Automation
 
@@ -45,7 +45,7 @@ Pour inscrire le fournisseur de ressources Automation, effectuez les opérations
 
 4. Dans la liste des fournisseurs de ressources, vérifiez que le fournisseur de ressources **Microsoft.Automation** est inscrit.
 
-5. S’il ne l’est pas, inscrivez-le conformément à la description que vous trouverez dans [Résoudre les erreurs d’inscription du fournisseur de ressources](/azure/azure-resource-manager/resource-manager-register-provider-errors).
+5. S’il ne l’est pas, inscrivez-le conformément à la description que vous trouverez dans [Résoudre les erreurs d’inscription du fournisseur de ressources](../../azure-resource-manager/templates/error-register-resource-provider.md).
 
 ## <a name="next-steps"></a>Étapes suivantes
 

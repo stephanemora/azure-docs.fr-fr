@@ -5,12 +5,12 @@ services: automation
 ms.date: 04/11/2019
 ms.topic: article
 ms.custom: mvc
-ms.openlocfilehash: 6eab9b543bfec90c0c338bdc758d690499f083e3
-ms.sourcegitcommit: 0fa52a34a6274dc872832560cd690be58ae3d0ca
+ms.openlocfilehash: 0af0848f057b5c225471e9ac13f14db2468d838c
+ms.sourcegitcommit: ec682dcc0a67eabe4bfe242fce4a7019f0a8c405
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/29/2020
-ms.locfileid: "84204920"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86186093"
 ---
 # <a name="enable-update-management-from-the-azure-portal"></a>Activer Update Management à partir du portail Azure
 
@@ -24,7 +24,7 @@ Le nombre de groupes de ressources que vous pouvez utiliser pour la gestion de v
 ## <a name="prerequisites"></a>Prérequis
 
 * Abonnement Azure. Si vous n’avez pas encore d’abonnement, vous pouvez [activer vos avantages abonnés MSDN](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/) ou créer [un compte gratuit](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
-* [Compte Automation](automation-offering-get-started.md) pour gérer les machines.
+* [Compte Automation](./index.yml) pour gérer les machines.
 * Une [machine virtuelle](../virtual-machines/windows/quick-create-portal.md).
 
 ## <a name="sign-in-to-azure"></a>Connexion à Azure

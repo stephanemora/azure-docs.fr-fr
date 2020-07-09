@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/16/2017
 ms.author: rohink
-ms.openlocfilehash: de637bc30420ce494e553100a9f1126e88027bd2
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: af19586807bf676f1f449f7402b364a054721eec
+ms.sourcegitcommit: ec682dcc0a67eabe4bfe242fce4a7019f0a8c405
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84704130"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86187589"
 ---
 # <a name="using-powershell-to-manage-traffic-manager"></a>Utilisation de PowerShell pour gérer Traffic Manager
 
@@ -30,7 +30,7 @@ Azure Traffic Manager est configuré à l'aide d'un ensemble de paramètres appe
 
 Chaque profil Traffic Manager est représenté par une ressource de type « TrafficManagerProfiles ». Au niveau de l'API REST, l'URI de chaque profil est la suivante :
 
-    https://management.azure.com/subscriptions/{subscription-id}/resourceGroups/{resource-group-name}/providers/Microsoft.Network/trafficManagerProfiles/{profile-name}?api-version={api-version}
+`https://management.azure.com/subscriptions/{subscription-id}/resourceGroups/{resource-group-name}/providers/Microsoft.Network/trafficManagerProfiles/{profile-name}?api-version={api-version}`
 
 ## <a name="setting-up-azure-powershell"></a>Configuration d’Azure PowerShell
 

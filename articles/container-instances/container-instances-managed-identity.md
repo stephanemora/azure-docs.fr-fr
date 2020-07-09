@@ -2,13 +2,13 @@
 title: Activer l’identité managée dans le groupe de conteneurs
 description: Découvrez comment utiliser une identité managée pour s’authentifier auprès d’autres services Azure dans Azure Container Instances
 ms.topic: article
-ms.date: 04/15/2020
-ms.openlocfilehash: 31dc198bfb2023684f3a9022bec5a5f50f0d9a72
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.date: 07/02/2020
+ms.openlocfilehash: 9bc96ed29039650082bdfa8b7b2b1b48ecb6bd3f
+ms.sourcegitcommit: 1e6c13dc1917f85983772812a3c62c265150d1e7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82115718"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86169780"
 ---
 # <a name="how-to-use-managed-identities-with-azure-container-instances"></a>Comment utiliser une identité managée avec Azure Container Instances
 

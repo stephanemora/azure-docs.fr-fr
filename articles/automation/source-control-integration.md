@@ -5,12 +5,12 @@ services: automation
 ms.subservice: process-automation
 ms.date: 12/10/2019
 ms.topic: conceptual
-ms.openlocfilehash: 3cc75fb34f0a828eccfed3951e84a1c463d4cfb7
-ms.sourcegitcommit: 0b80a5802343ea769a91f91a8cdbdf1b67a932d3
+ms.openlocfilehash: 37df5ae8e88bf7832fbbeae37555d60943fca446
+ms.sourcegitcommit: ec682dcc0a67eabe4bfe242fce4a7019f0a8c405
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/25/2020
-ms.locfileid: "83828880"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86187300"
 ---
 # <a name="use-source-control-integration"></a>Utiliser l’intégration du contrôle de code source
 
@@ -73,8 +73,7 @@ Utilisez cette procédure pour configurer le contrôle de code source à l’aid
 
 ### <a name="configure-source-control-in-powershell"></a>Configurer le contrôle de code source dans PowerShell
 
-Vous pouvez également utiliser PowerShell pour configurer le contrôle de code source dans Azure Automation. Pour utiliser des applets de commande PowerShell pour cette opération, vous avez besoin d’un jeton d’accès personnel (PAT). Pour créer la connexion de contrôle de code source, utilisez l’applet de commande [New-AzAutomationSourceControl](https://docs.microsoft.com/powershell/module/az.automation/new-azautomationsourcecontrol?view=azps-3.5.0
-). Cette applet de commande exige une chaîne sécurisée pour le PAT. Pour savoir comment créer une chaîne sécurisée, consultez [ConvertTo-SecureString](/powershell/module/microsoft.powershell.security/convertto-securestring?view=powershell-6).
+Vous pouvez également utiliser PowerShell pour configurer le contrôle de code source dans Azure Automation. Pour utiliser des applets de commande PowerShell pour cette opération, vous avez besoin d’un jeton d’accès personnel (PAT). Pour créer la connexion de contrôle de code source, utilisez l’applet de commande [New-AzAutomationSourceControl](/powershell/module/az.automation/new-azautomationsourcecontrol?view=azps-3.5.0). Cette applet de commande exige une chaîne sécurisée pour le PAT. Pour savoir comment créer une chaîne sécurisée, consultez [ConvertTo-SecureString](/powershell/module/microsoft.powershell.security/convertto-securestring?view=powershell-6).
 
 Les sous-sections suivantes illustrent la création par PowerShell de la connexion de contrôle de code source pour GitHub, Azure Repos (Git) et Azure Repos (TFVC). 
 
@@ -123,7 +122,7 @@ Le tableau suivant définit les autorisations PAT minimales nécessaires pour Gi
 
 ##### <a name="minimum-pat-permissions-for-azure-repos"></a>Autorisations PAT minimales pour Azure Repos
 
-La liste suivante définit les autorisations PAT minimales nécessaires pour Azure Repos. Pour plus d’informations sur la création d’un PAT dans Azure Repos, consultez [Authentifier l’accès à l’aide de jetons d’accès personnels](https://docs.microsoft.com/azure/devops/organizations/accounts/use-personal-access-tokens-to-authenticate?view=azure-devops&tabs=preview-page).
+La liste suivante définit les autorisations PAT minimales nécessaires pour Azure Repos. Pour plus d’informations sur la création d’un PAT dans Azure Repos, consultez [Authentifier l’accès à l’aide de jetons d’accès personnels](/azure/devops/organizations/accounts/use-personal-access-tokens-to-authenticate?view=azure-devops&tabs=preview-page).
 
 | Étendue  |  Type d’accès  |
 |---------| ----------|
@@ -196,14 +195,14 @@ Pour vous déconnecter d’un dépôt de contrôle de code source :
 
 ## <a name="handle-encoding-issues"></a>Gérer les problèmes d’encodage
 
-Si plusieurs personnes modifient des runbooks dans votre dépôt de contrôle de code source à l’aide de différents éditeurs, des problèmes d’encodage peuvent se produire. Pour plus d’informations sur cette situation, consultez [Causes courantes des problèmes d’encodage](https://docs.microsoft.com/powershell/scripting/components/vscode/understanding-file-encoding?view=powershell-7#common-causes-of-encoding-issues).
+Si plusieurs personnes modifient des runbooks dans votre dépôt de contrôle de code source à l’aide de différents éditeurs, des problèmes d’encodage peuvent se produire. Pour plus d’informations sur cette situation, consultez [Causes courantes des problèmes d’encodage](/powershell/scripting/components/vscode/understanding-file-encoding?view=powershell-7#common-causes-of-encoding-issues).
 
 ## <a name="update-the-pat"></a>Mettre à jour le jeton d’accès personnel (PAT, Personal Access Token)
 
 Actuellement, vous ne pouvez pas utiliser le portail Azure pour mettre à jour le PAT dans le contrôle de code source. Lorsque votre PAT a expiré ou a été révoqué, vous pouvez mettre à jour le contrôle de code source avec un nouveau jeton d’accès de l’une des manières suivantes :
 
-* Utilisez l’[API REST](https://docs.microsoft.com/rest/api/automation/sourcecontrol/update).
-* Utilisez l’applet de commande [Update-AzAutomationSourceControl](https://docs.microsoft.com//powershell/module/az.automation/update-azautomationsourcecontrol).
+* Utilisez l’[API REST](/rest/api/automation/sourcecontrol/update).
+* Utilisez l’applet de commande [Update-AzAutomationSourceControl](//powershell/module/az.automation/update-azautomationsourcecontrol).
 
 ## <a name="next-steps"></a>Étapes suivantes
 

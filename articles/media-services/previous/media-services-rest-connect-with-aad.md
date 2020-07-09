@@ -14,12 +14,12 @@ ms.topic: article
 ms.date: 03/20/2019
 ms.author: juliako
 ms.reviewer: willzhan; johndeu
-ms.openlocfilehash: a693eb374365670da3fe8c4b2bb8ce664a024217
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 8b4980ee8ea252b4ce13601501e4bf1f7af97d1b
+ms.sourcegitcommit: 1e6c13dc1917f85983772812a3c62c265150d1e7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80295444"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86166363"
 ---
 # <a name="use-azure-ad-authentication-to-access-the-media-services-api-with-rest"></a>Utiliser l’authentification Azure AD pour accéder à l’API Media Services avec REST
 
@@ -137,8 +137,10 @@ Cette section explique comment utiliser **Postman** pour exécuter une API REST 
 
     Vous pouvez également cliquer sur le lien **Modification en bloc** situé à droite de la fenêtre Postman et coller le code suivant.
 
-        Content-Type:application/x-www-form-urlencoded
-        Keep-Alive:true
+    ```javascript
+    Content-Type:application/x-www-form-urlencoded
+    Keep-Alive:true
+    ```
 
 6. Cliquez sur l’onglet **Corps**.
 7. Entrez les informations sur le corps à l’aide de la grille de données « Clé/valeur » (remplacez l’ID client et les valeurs des secrets). 
@@ -147,10 +149,12 @@ Cette section explique comment utiliser **Postman** pour exécuter une API REST 
 
     Vous pouvez également cliquer sur le lien **Modification en bloc** situé à droite de la fenêtre Postman et coller le corps suivant (remplacez l’ID client et les valeurs des secrets) :
 
-        grant_type:client_credentials
-        client_id:{Your Client ID that you got from your Azure AD Application}
-        client_secret:{Your client secret that you got from your Azure AD Application's Keys}
-        resource:https://rest.media.azure.net
+    ```javascript
+    grant_type:client_credentials
+    client_id:{Your Client ID that you got from your Azure AD Application}
+    client_secret:{Your client secret that you got from your Azure AD Application's Keys}
+    resource:https://rest.media.azure.net
+    ```
 
 8. Appuyez sur **Envoyer**.
 
@@ -180,11 +184,13 @@ Cette section explique comment accéder à l’API **Assets** à l’aide de **P
 5. Cliquez sur le lien **Modification en bloc** situé à droite de la fenêtre Postman.
 6. Collez les en-têtes suivants :
 
-        x-ms-version:2.19
-        Accept:application/json
-        Content-Type:application/json
-        DataServiceVersion:3.0
-        MaxDataServiceVersion:3.0
+    ```javascript
+    x-ms-version:2.19
+    Accept:application/json
+    Content-Type:application/json
+    DataServiceVersion:3.0
+    MaxDataServiceVersion:3.0
+    ```
 
 7. Appuyez sur **Envoyer**.
 

@@ -9,12 +9,12 @@ ms.devlang: rest-api
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 05/18/2020
-ms.openlocfilehash: e6c766008faa6bbe53a4af69f7da9325cb9ff6a8
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: ffbc850c580daee5890f9c75021cc518918d098e
+ms.sourcegitcommit: 5cace04239f5efef4c1eed78144191a8b7d7fee8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85559862"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86145390"
 ---
 # <a name="set-up-a-connection-to-an-azure-storage-account-using-a-managed-identity-preview"></a>Configurer une connexion à un compte Stockage Azure à l’aide d’une identité managée (préversion)
 
@@ -103,6 +103,7 @@ L’index spécifie les champs d’un document, les attributs et d’autres cons
 
 Voici comment créer un index avec un champ `content` pouvant faire l'objet d'une recherche afin de stocker le texte extrait d'objets blob :   
 
+```http
     POST https://[service name].search.windows.net/indexes?api-version=2020-06-30
     Content-Type: application/json
     api-key: [admin key]
@@ -114,6 +115,7 @@ Voici comment créer un index avec un champ `content` pouvant faire l'objet d'un
             { "name": "content", "type": "Edm.String", "searchable": true, "filterable": false, "sortable": false, "facetable": false }
           ]
     }
+```
 
 Pour plus d’informations sur la création d’index, consultez [Création d'un index](https://docs.microsoft.com/rest/api/searchservice/create-index)
 
@@ -125,6 +127,7 @@ Une fois l’index et la source de données créés, vous êtes prêt à créer 
 
 Exemple de définition d’indexeur pour un indexeur de blobs :
 
+```http
     POST https://[service name].search.windows.net/indexers?api-version=2020-06-30
     Content-Type: application/json
     api-key: [admin key]
@@ -135,6 +138,7 @@ Exemple de définition d’indexeur pour un indexeur de blobs :
       "targetIndexName" : "my-target-index",
       "schedule" : { "interval" : "PT2H" }
     }
+```
 
 Cet indexeur s’exécutera toutes les deux heures (intervalle de planification défini sur « PT2H »). Pour exécuter un indexeur toutes les 30 minutes, définissez l’intervalle sur « PT30M ». Le plus court intervalle pris en charge est de 5 minutes. La planification est facultative : en cas d’omission, un indexeur ne s’exécute qu’une seule fois lorsqu’il est créé. Toutefois, vous pouvez à tout moment exécuter un indexeur à la demande.   
 

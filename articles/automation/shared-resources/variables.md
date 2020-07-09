@@ -9,12 +9,12 @@ ms.author: magoedte
 ms.date: 05/14/2019
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 28f69d3ef8301e00b470ce09353be6ae3259bbe3
-ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
+ms.openlocfilehash: 9658175b0d42db9acfc94d39e4ab226bfe2cfc4b
+ms.sourcegitcommit: ec682dcc0a67eabe4bfe242fce4a7019f0a8c405
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/21/2020
-ms.locfileid: "83744954"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86187317"
 ---
 # <a name="manage-variables-in-azure-automation"></a>Gérer les variables dans Azure Automation
 
@@ -45,14 +45,14 @@ Lorsque vous créez une variable avec le portail Azure, vous devez spécifier un
 * Boolean
 * Null
 
-La variable n’est pas limitée au type de données spécifié. Vous devez définir la variable à l'aide de Windows PowerShell si vous souhaitez spécifier une valeur d'un type différent. Si vous indiquez `Not defined`, la valeur de la variable est définie sur Null. Vous devez définir la valeur avec l’applet de commande [Set-AzAutomationVariable](https://docs.microsoft.com/powershell/module/az.automation/set-azautomationvariable?view=azps-3.5.0) ou l’applet de commande interne `Set-AutomationVariable`.
+La variable n’est pas limitée au type de données spécifié. Vous devez définir la variable à l'aide de Windows PowerShell si vous souhaitez spécifier une valeur d'un type différent. Si vous indiquez `Not defined`, la valeur de la variable est définie sur Null. Vous devez définir la valeur avec l’applet de commande [Set-AzAutomationVariable](/powershell/module/az.automation/set-azautomationvariable?view=azps-3.5.0) ou l’applet de commande interne `Set-AutomationVariable`.
 
 Vous ne pouvez pas utiliser le portail Azure pour créer ou modifier la valeur d’un type de variable complexe. Toutefois, vous pouvez fournir une valeur de n’importe quel type à l’aide de Windows PowerShell. Les types complexes sont récupérés en tant que [PSCustomObject](/dotnet/api/system.management.automation.pscustomobject).
 
 Vous pouvez stocker plusieurs valeurs dans une seule variable en créant un tableau ou une table de hachage, et en l'enregistrant sur la variable.
 
 >[!NOTE]
->Les variables de nom de machine virtuelle ne peuvent pas dépasser 80 caractères. Les variables de groupe de ressources ne peuvent pas dépasser 90 caractères. Voir [Règles de nommage et restrictions pour les ressources Azure](https://docs.microsoft.com/azure/azure-resource-manager/management/resource-name-rules).
+>Les variables de nom de machine virtuelle ne peuvent pas dépasser 80 caractères. Les variables de groupe de ressources ne peuvent pas dépasser 90 caractères. Voir [Règles de nommage et restrictions pour les ressources Azure](../../azure-resource-manager/management/resource-name-rules.md).
 
 ## <a name="powershell-cmdlets-to-access-variables"></a>Applets de commande PowerShell pour accéder aux variables
 
@@ -60,10 +60,10 @@ Les applets de commande du tableau suivant créent et gèrent les variables Auto
 
 | Applet de commande | Description |
 |:---|:---|
-|[Get-AzAutomationVariable](https://docs.microsoft.com/powershell/module/az.automation/get-azautomationvariable?view=azps-3.5.0) | Récupère la valeur d'une variable existante. Si la valeur est un type simple, ce même type est récupéré. S’il s’agit d’un type complexe, le type `PSCustomObject` est récupéré. <br>**Remarque :**  Vous ne pouvez pas utiliser cette applet de commande pour récupérer la valeur d’une variable chiffrée. La seule façon de procéder consiste à utiliser l’applet de commande interne `Get-AutomationVariable` dans un runbook ou une configuration DSC. Consultez [Applets de commande internes pour accéder aux variables](#internal-cmdlets-to-access-variables). |
-|[New-AzAutomationVariable](https://docs.microsoft.com/powershell/module/az.automation/new-azautomationvariable?view=azps-3.5.0) | Crée une variable et définit sa valeur.|
-|[Remove-AzAutomationVariable](https://docs.microsoft.com/powershell/module/az.automation/remove-azautomationvariable?view=azps-3.5.0)| Supprime une variable existante.|
-|[Set-AzAutomationVariable](https://docs.microsoft.com/powershell/module/az.automation/set-azautomationvariable?view=azps-3.5.0)| Définit la valeur d'une variable existante. |
+|[Get-AzAutomationVariable](/powershell/module/az.automation/get-azautomationvariable?view=azps-3.5.0) | Récupère la valeur d'une variable existante. Si la valeur est un type simple, ce même type est récupéré. S’il s’agit d’un type complexe, le type `PSCustomObject` est récupéré. <br>**Remarque :**  Vous ne pouvez pas utiliser cette applet de commande pour récupérer la valeur d’une variable chiffrée. La seule façon de procéder consiste à utiliser l’applet de commande interne `Get-AutomationVariable` dans un runbook ou une configuration DSC. Consultez [Applets de commande internes pour accéder aux variables](#internal-cmdlets-to-access-variables). |
+|[New-AzAutomationVariable](/powershell/module/az.automation/new-azautomationvariable?view=azps-3.5.0) | Crée une variable et définit sa valeur.|
+|[Remove-AzAutomationVariable](/powershell/module/az.automation/remove-azautomationvariable?view=azps-3.5.0)| Supprime une variable existante.|
+|[Set-AzAutomationVariable](/powershell/module/az.automation/set-azautomationvariable?view=azps-3.5.0)| Définit la valeur d'une variable existante. |
 
 ## <a name="internal-cmdlets-to-access-variables"></a>Applets de commande internes pour accéder aux variables
 
@@ -127,7 +127,7 @@ $string = (Get-AzAutomationVariable -ResourceGroupName "ResourceGroup01" `
 –AutomationAccountName "MyAutomationAccount" –Name 'MyStringVariable').Value
 ```
 
-L’exemple suivant montre comment créer une variable de type complexe, puis récupérer ses propriétés. Dans ce cas, un objet de machine virtuelle issu de [Get-AzVM](https://docs.microsoft.com/powershell/module/Az.Compute/Get-AzVM?view=azps-3.5.0) est utilisé.
+L’exemple suivant montre comment créer une variable de type complexe, puis récupérer ses propriétés. Dans ce cas, un objet de machine virtuelle issu de [Get-AzVM](/powershell/module/Az.Compute/Get-AzVM?view=azps-3.5.0) est utilisé.
 
 ```powershell
 $vm = Get-AzVM -ResourceGroupName "ResourceGroup01" –Name "VM01"

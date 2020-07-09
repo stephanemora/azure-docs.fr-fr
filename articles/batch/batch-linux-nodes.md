@@ -4,12 +4,12 @@ description: Découvrez comment traiter vos charges de travail de calcul parall�
 ms.topic: how-to
 ms.date: 06/01/2018
 ms.custom: H1Hack27Feb2017, tracking-python
-ms.openlocfilehash: 1a87b72b16c1d41e5569c4ce9e5e1a6e2c51a2e0
-ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
+ms.openlocfilehash: 05e23093a00eab70db683c10eae59ef27152d2f7
+ms.sourcegitcommit: 5cace04239f5efef4c1eed78144191a8b7d7fee8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/05/2020
-ms.locfileid: "85960076"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86145040"
 ---
 # <a name="provision-linux-compute-nodes-in-batch-pools"></a>Configurer des nœuds de calcul Linux dans des pools Batch
 
@@ -29,7 +29,7 @@ Lorsque vous créez un pool de nœuds de calcul dans Batch, vous avez deux optio
 
 ### <a name="virtual-machine-image-reference"></a>Référence de l’image de la machine virtuelle
 
-Le service Batch utilise des [groupes de machines virtuelles identiques](../virtual-machine-scale-sets/virtual-machine-scale-sets-overview.md) pour fournir des nœuds de calcul dans la configuration de la machine virtuelle. Vous pouvez spécifier une image à partir de la [Place de marché Azure][vm_marketplace] ou fournir une image personnalisée que vous avez préparée. Pour plus d'informations sur les images personnalisées, consultez [Créer un pool avec la galerie Shared Image Gallery](batch-sig-images.md).
+Le service Batch utilise des [groupes de machines virtuelles identiques](../virtual-machine-scale-sets/overview.md) pour fournir des nœuds de calcul dans la configuration de la machine virtuelle. Vous pouvez spécifier une image à partir de la [Place de marché Azure][vm_marketplace] ou fournir une image personnalisée que vous avez préparée. Pour plus d'informations sur les images personnalisées, consultez [Créer un pool avec la galerie Shared Image Gallery](batch-sig-images.md).
 
 Lorsque vous configurez une référence d’image de machine virtuelle, vous spécifiez les propriétés d’une image de machine virtuelle. Vous avez besoin des propriétés suivantes lorsque vous créez une référence d’image de machine virtuelle :
 

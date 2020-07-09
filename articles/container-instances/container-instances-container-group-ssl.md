@@ -2,13 +2,13 @@
 title: Activer TLS avec un conteneur side-car
 description: Créer un point de terminaison SSL ou TLS pour un groupe de conteneurs exécuté sur Azure Container Instances en exécutant Nginx dans un conteneur side-car
 ms.topic: article
-ms.date: 02/14/2020
-ms.openlocfilehash: b9ea9367219db694b89d6bf4a1e52efb373c71c4
-ms.sourcegitcommit: 7d8158fcdcc25107dfda98a355bf4ee6343c0f5c
+ms.date: 07/02/2020
+ms.openlocfilehash: f7f5d8e8136f4357067888f5a39fa0c3635122d1
+ms.sourcegitcommit: 1e6c13dc1917f85983772812a3c62c265150d1e7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/09/2020
-ms.locfileid: "80984604"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86169848"
 ---
 # <a name="enable-a-tls-endpoint-in-a-sidecar-container"></a>Activer un point de terminaison TLS dans un conteneur side-car
 
@@ -147,7 +147,7 @@ code deploy-aci.yaml
 Entrez le contenu des fichiers encodés au format Base64 à l’endroit indiqué sous `secret`. Par exemple, `cat` chacun des fichiers encodés au format Base64 pour voir son contenu. Au cours du déploiement, ces fichiers sont ajoutés à un [volume secret](container-instances-volume-secret.md) dans le groupe de conteneurs. Dans cet exemple, le volume secret est monté sur le conteneur Nginx.
 
 ```YAML
-api-version: 2018-10-01
+api-version: 2019-12-01
 location: westus
 name: app-with-ssl
 properties:

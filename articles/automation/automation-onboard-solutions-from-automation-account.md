@@ -5,12 +5,12 @@ services: automation
 ms.date: 4/11/2019
 ms.topic: conceptual
 ms.custom: mvc
-ms.openlocfilehash: f739134cd066f4dcc7fdf3da16c6db99a54d6265
-ms.sourcegitcommit: 0fa52a34a6274dc872832560cd690be58ae3d0ca
+ms.openlocfilehash: d756cf9705cc1ce0041c26dc3ef022c150c514c0
+ms.sourcegitcommit: ec682dcc0a67eabe4bfe242fce4a7019f0a8c405
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/29/2020
-ms.locfileid: "84204937"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86186059"
 ---
 # <a name="enable-update-management-from-an-automation-account"></a>Activer Update Management à partir d’un compte Automation
 
@@ -22,7 +22,7 @@ Cet article explique comment utiliser votre compte Automation pour activer la fo
 ## <a name="prerequisites"></a>Prérequis
 
 * Abonnement Azure. Si vous n’avez pas encore d’abonnement, vous pouvez [activer vos avantages abonnés MSDN](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/) ou créer [un compte gratuit](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
-* [Compte Automation](automation-offering-get-started.md) pour gérer les machines.
+* [Compte Automation](./index.yml) pour gérer les machines.
 * Une [machine virtuelle](../virtual-machines/windows/quick-create-portal.md).
 
 ## <a name="sign-in-to-azure"></a>Connexion à Azure

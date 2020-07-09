@@ -2,13 +2,13 @@
 title: Déployer une instance de conteneur compatible GPU
 description: Découvrez comment déployer des instances de conteneur Azure pour exécuter des applications de conteneur nécessitant beaucoup de ressources système à l’aide de ressources GPU.
 ms.topic: article
-ms.date: 02/19/2020
-ms.openlocfilehash: 0f1d21c62be5d7ae099faa2c6fcc440829bb451f
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.date: 07/02/2020
+ms.openlocfilehash: 78b67843978583dd6b0f0aee2c1d8ad0e5a7ca77
+ms.sourcegitcommit: 1e6c13dc1917f85983772812a3c62c265150d1e7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "77525284"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86169746"
 ---
 # <a name="deploy-container-instances-that-use-gpu-resources"></a>Déployer des instances de conteneur qui utilisent des ressources GPU
 
@@ -73,7 +73,7 @@ Une façon d’ajouter des ressources GPU est de déployer un groupe de conteneu
 
 ```YAML
 additional_properties: {}
-apiVersion: '2018-10-01'
+apiVersion: '2019-12-01'
 name: gpucontainergroup
 properties:
   containers:
@@ -139,7 +139,7 @@ Une autre façon de déployer un groupe de conteneurs avec des ressources GPU es
       {
         "name": "[parameters('containerGroupName')]",
         "type": "Microsoft.ContainerInstance/containerGroups",
-        "apiVersion": "2018-10-01",
+        "apiVersion": "2019-12-01",
         "location": "[resourceGroup().location]",
         "properties": {
             "containers": [
@@ -168,10 +168,10 @@ Une autre façon de déployer un groupe de conteneurs avec des ressources GPU es
 }
 ```
 
-Déployez ensuite le modèle avec la commande [az group deployment create][az-group-deployment-create]. Vous devez fournir le nom d’un groupe de ressources qui a été créé dans une région telle que *eastus* et qui prend en charge les ressources GPU.
+Déployez ensuite le modèle avec la commande [az deployment group create][az-deployment-group-create]. Vous devez fournir le nom d’un groupe de ressources qui a été créé dans une région telle que *eastus* et qui prend en charge les ressources GPU.
 
 ```azurecli-interactive
-az group deployment create --resource-group myResourceGroup --template-file gpudeploy.json
+az deployment group create --resource-group myResourceGroup --template-file gpudeploy.json
 ```
 
 Le déploiement prend plusieurs minutes. Ensuite, le conteneur démarre et exécute le travail TensorFlow. Exécutez la commande [az container logs][az-container-logs] pour afficher la sortie du journal d’activité :
@@ -240,4 +240,4 @@ az container delete --resource-group myResourceGroup --name gpucontainergrouprm 
 [az-container-show]: /cli/azure/container#az-container-show
 [az-container-logs]: /cli/azure/container#az-container-logs
 [az-container-show]: /cli/azure/container#az-container-show
-[az-group-deployment-create]: /cli/azure/group/deployment#az-group-deployment-create
+[az-deployment-group-create]: /cli/azure/deployment/group#az-deployment-group-create

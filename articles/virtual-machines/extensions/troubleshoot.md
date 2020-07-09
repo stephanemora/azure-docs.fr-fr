@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 03/29/2016
 ms.author: kundanap
-ms.openlocfilehash: bc99a9c9e9ff985730ec97dbacd1d7c1de06a45e
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 2fa87e860d0f5f5117840b9e230e383cdd6aae7c
+ms.sourcegitcommit: ec682dcc0a67eabe4bfe242fce4a7019f0a8c405
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "74073652"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86187555"
 ---
 # <a name="troubleshooting-azure-windows-vm-extension-failures"></a>Dépannage des échecs d’extension de machine virtuelle Windows dans Azure
 [!INCLUDE [virtual-machines-common-extensions-troubleshoot](../../../includes/virtual-machines-common-extensions-troubleshoot.md)]
@@ -31,32 +31,36 @@ Voici un exemple :
 
 Azure PowerShell :
 
-      Get-AzVM -ResourceGroupName $RGName -Name $vmName -Status
+```azurepowershell
+Get-AzVM -ResourceGroupName $RGName -Name $vmName -Status
+```
 
 Voici l'exemple de sortie :
 
-      Extensions:  {
-      "ExtensionType": "Microsoft.Compute.CustomScriptExtension",
-      "Name": "myCustomScriptExtension",
-      "SubStatuses": [
-        {
-          "Code": "ComponentStatus/StdOut/succeeded",
-          "DisplayStatus": "Provisioning succeeded",
-          "Level": "Info",
-          "Message": "    Directory: C:\\temp\\n\\n\\nMode                LastWriteTime     Length Name
-              \\n----                -------------     ------ ----                              \\n-a---          9/1/2015   2:03 AM         11
-              test.txt                          \\n\\n",
-                      "Time": null
-          },
-        {
-          "Code": "ComponentStatus/StdErr/succeeded",
-          "DisplayStatus": "Provisioning succeeded",
-          "Level": "Info",
-          "Message": "",
-          "Time": null
-        }
+```output
+Extensions:  {
+  "ExtensionType": "Microsoft.Compute.CustomScriptExtension",
+  "Name": "myCustomScriptExtension",
+  "SubStatuses": [
+    {
+      "Code": "ComponentStatus/StdOut/succeeded",
+      "DisplayStatus": "Provisioning succeeded",
+      "Level": "Info",
+      "Message": "    Directory: C:\\temp\\n\\n\\nMode                LastWriteTime     Length Name
+          \\n----                -------------     ------ ----                              \\n-a---          9/1/2015   2:03 AM         11
+          test.txt                          \\n\\n",
+                  "Time": null
+      },
+    {
+      "Code": "ComponentStatus/StdErr/succeeded",
+      "DisplayStatus": "Provisioning succeeded",
+      "Level": "Info",
+      "Message": "",
+      "Time": null
     }
   ]
+}
+```
 
 ## <a name="troubleshooting-extension-failures"></a>Dépannage des échecs d’extension
 ### <a name="rerun-the-extension-on-the-vm"></a>Réexécuter l’extension sur la machine virtuelle
@@ -64,7 +68,9 @@ Si vous exécutez des scripts sur la machine virtuelle à l’aide de l’extens
 Remarque : cette fonctionnalité sera ultérieurement améliorée de manière à ne plus devoir désinstaller l'extension.
 
 #### <a name="remove-the-extension-from-azure-powershell"></a>Suppression de l’extension d’Azure PowerShell
-    Remove-AzVMExtension -ResourceGroupName $RGName -VMName $vmName -Name "myCustomScriptExtension"
+```azurepowershell
+Remove-AzVMExtension -ResourceGroupName $RGName -VMName $vmName -Name "myCustomScriptExtension"
+```
 
 Une fois que l'extension a été supprimée, le modèle peut être réexécuté pour exécuter les scripts sur la machine virtuelle.
 

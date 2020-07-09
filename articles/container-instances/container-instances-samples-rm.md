@@ -3,12 +3,12 @@ title: Exemples de modèles Azure Resource Manager
 description: Rechercher des exemples de modèles Azure Resource Manager pour déployer Azure Container Instances dans différentes configurations
 ms.topic: article
 ms.date: 03/07/2019
-ms.openlocfilehash: 7208e1b4b67879979507cc451d40a188a84373de
-ms.sourcegitcommit: d118ad4fb2b66c759b70d4d8a18e6368760da3ad
+ms.openlocfilehash: 6c487087b39244178643fd81364150ceb3ac4a63
+ms.sourcegitcommit: 1e6c13dc1917f85983772812a3c62c265150d1e7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/02/2020
-ms.locfileid: "84299755"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86169644"
 ---
 # <a name="azure-resource-manager-templates-for-azure-container-instances"></a>Modèles Azure Resource Manager pour Azure Container Instances
 
@@ -18,7 +18,7 @@ Pour plus d’options de déploiement, consultez la section [Déploiement](#depl
 
 ## <a name="sample-templates"></a>Exemples de modèles
 
-| | |
+| Modèle | Description |
 |-|-|
 | **Applications** ||
 | [WordPress][app-wp] | Crée un site web WordPress et sa base de données MySQL dans un groupe de conteneurs. Le contenu du site WordPress et de la base de données MySQL est conservé sur un partage Azure Files. Crée également une passerelle d’application pour exposer l’accès réseau public pour WordPress. |

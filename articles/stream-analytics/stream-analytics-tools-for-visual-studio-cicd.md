@@ -7,12 +7,12 @@ ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: how-to
 ms.date: 05/15/2019
-ms.openlocfilehash: 56fb677ca80c047fb90c58a3e0aedb41e6d4a3f2
-ms.sourcegitcommit: e132633b9c3a53b3ead101ea2711570e60d67b83
+ms.openlocfilehash: 175abe54ce5476bece309bbfaf7858cd2e214f52
+ms.sourcegitcommit: ec682dcc0a67eabe4bfe242fce4a7019f0a8c405
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/07/2020
-ms.locfileid: "86045091"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86187657"
 ---
 # <a name="use-the-azure-stream-analytics-cicd-nuget-package-for-integration-and-development"></a>Utiliser le package NuGet CI/CD Azure Stream Analytics pour l’intégration et le développement 
 Cet article explique comment utiliser le package NuGet CI/CD Azure Stream Analytics pour configurer un processus de déploiement et d’intégration continus.
@@ -36,15 +36,11 @@ Quand un projet Visual Studio Stream Analytics est correctement généré, il cr
 
 * Fichier de modèle Resource Manager
 
-   ```
-   [ProjectName].JobTemplate.json 
-   ```
+   `[ProjectName].JobTemplate.json`
 
 * Fichier de paramètres Resource Manager
    
-   ```
-   [ProjectName].JobTemplate.parameters.json
-   ```
+   `[ProjectName].JobTemplate.parameters.json`
 
 Les paramètres par défaut dans le fichier parameters.json proviennent des paramètres de votre projet Visual Studio. Si vous voulez effectuer un déploiement dans un autre environnement, remplacez les paramètres en conséquence.
 

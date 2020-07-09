@@ -6,12 +6,12 @@ ms.subservice: shared-capabilities
 ms.date: 01/13/2020
 ms.topic: conceptual
 ms.custom: has-adal-ref
-ms.openlocfilehash: 3c5901dbd45cc0ce82c7fcd8117705eaeed7b4ba
-ms.sourcegitcommit: 0b80a5802343ea769a91f91a8cdbdf1b67a932d3
+ms.openlocfilehash: 39085aa7967ffeac3416b61f32146ac023b46dfe
+ms.sourcegitcommit: ec682dcc0a67eabe4bfe242fce4a7019f0a8c405
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/25/2020
-ms.locfileid: "83837125"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86186654"
 ---
 # <a name="manage-connections-in-azure-automation"></a>Gérer les connexions dans Azure Automation
 
@@ -43,10 +43,10 @@ Les cmdlets du tableau suivant créent et gèrent les connexions Automation avec
 
 |Applet de commande|Description|
 |---|---|
-|[Get-AzAutomationConnection](https://docs.microsoft.com/powershell/module/az.automation/get-azautomationconnection?view=azps-3.7.0)|Récupère des informations sur une connexion.|
-|[New-AzAutomationConnection](https://docs.microsoft.com/powershell/module/az.automation/new-azautomationconnection?view=azps-3.7.0)|Crée une connexion.|
-|[Remove-AzAutomationConnection](https://docs.microsoft.com/powershell/module/Az.Automation/Remove-AzAutomationConnection?view=azps-3.7.0)|Supprime une connexion existante.|
-|[Set-AzAutomationConnectionFieldValue](https://docs.microsoft.com/powershell/module/Az.Automation/Set-AzAutomationConnectionFieldValue?view=azps-3.7.0)|Définit la valeur d’un champ particulier d’une connexion existante.|
+|[Get-AzAutomationConnection](/powershell/module/az.automation/get-azautomationconnection?view=azps-3.7.0)|Récupère des informations sur une connexion.|
+|[New-AzAutomationConnection](/powershell/module/az.automation/new-azautomationconnection?view=azps-3.7.0)|Crée une connexion.|
+|[Remove-AzAutomationConnection](/powershell/module/Az.Automation/Remove-AzAutomationConnection?view=azps-3.7.0)|Supprime une connexion existante.|
+|[Set-AzAutomationConnectionFieldValue](/powershell/module/Az.Automation/Set-AzAutomationConnectionFieldValue?view=azps-3.7.0)|Définit la valeur d’un champ particulier d’une connexion existante.|
 
 ## <a name="internal-cmdlets-to-access-connections"></a>Cmdlets internes pour accéder aux connexions
 

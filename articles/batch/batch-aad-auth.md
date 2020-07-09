@@ -4,12 +4,12 @@ description: Batch prend en charge Azure AD pour l’authentification auprès du
 ms.topic: how-to
 ms.date: 01/28/2020
 ms.custom: has-adal-ref
-ms.openlocfilehash: ed2bfb8e0fbaff0b7ad0ded734e33512c82a4040
-ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
+ms.openlocfilehash: a8601c69c37e973118a7ec9521070864caffb101
+ms.sourcegitcommit: 1e6c13dc1917f85983772812a3c62c265150d1e7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/05/2020
-ms.locfileid: "85958206"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86170307"
 ---
 # <a name="authenticate-batch-service-solutions-with-active-directory"></a>Authentification de solutions de service Batch avec Active Directory
 
@@ -63,7 +63,7 @@ Une fois que vous avez inscrit votre application, vous verrez l’ID d’applica
 
 ![Inscrire votre application Batch auprès d’Azure AD](./media/batch-aad-auth/app-registration-data-plane.png)
 
-Pour plus d’informations sur l’inscription d’une application avec Azure AD, consultez [Scénarios d’authentification pour Azure AD](../active-directory/develop/authentication-scenarios.md).
+Pour plus d’informations sur l’inscription d’une application avec Azure AD, consultez [Scénarios d’authentification pour Azure AD](../active-directory/develop/authentication-vs-authorization.md).
 
 ## <a name="get-the-tenant-id-for-your-active-directory"></a>Obtenir l’ID client pour votre Active Directory
 
@@ -427,8 +427,8 @@ Utilisez les informations d’identification du principal de service pour ouvrir
 
 - Pour obtenir un exemple Python sur le mode de création d’un client Batch authentifié à l’aide d’un jeton Azure AD, consultez l’exemple [Déploiement d’une image Azure Batch personnalisée avec un script Python](https://github.com/azurebigcompute/recipes/blob/master/Azure%20Batch/CustomImages/CustomImagePython.md).
 
-[aad_about]:../active-directory/fundamentals/active-directory-whatis.md "Qu’est-ce qu’Azure Active Directory ?"
-[aad_adal]: ../active-directory/active-directory-authentication-libraries.md
-[aad_auth_scenarios]: ../active-directory/active-directory-authentication-scenarios.md "Scénarios d’authentification pour Azure AD"
-[aad_integrate]: ../active-directory/active-directory-integrating-applications.md "Intégration d’applications dans Azure Active Directory"
+[aad_about]: ../active-directory/fundamentals/active-directory-whatis.md "Qu’est-ce qu’Azure Active Directory ?"
+[aad_adal]: ../active-directory/azuread-dev/active-directory-authentication-libraries.md
+[aad_auth_scenarios]: ../active-directory/develop/authentication-vs-authorization.md "Scénarios d’authentification pour Azure AD"
+[aad_integrate]: ../active-directory/develop/quickstart-register-app.md "Intégration d’applications dans Azure Active Directory"
 [azure_portal]: https://portal.azure.com

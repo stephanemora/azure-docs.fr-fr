@@ -5,12 +5,12 @@ services: automation
 ms.topic: conceptual
 ms.date: 05/10/2018
 ms.custom: mvc
-ms.openlocfilehash: 2728964d5bbf83b42251068ffbdea223ff6bd85e
-ms.sourcegitcommit: 1692e86772217fcd36d34914e4fb4868d145687b
+ms.openlocfilehash: 92149289c6c422179ddb3562274020acf779f10b
+ms.sourcegitcommit: ec682dcc0a67eabe4bfe242fce4a7019f0a8c405
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/29/2020
-ms.locfileid: "84171087"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86186280"
 ---
 # <a name="enable-change-tracking-and-inventory-from-a-runbook"></a>Activer Change Tracking et Inventory à partir d’un runbook
 
@@ -22,7 +22,7 @@ Cet article explique comment utiliser un runbook pour activer la fonctionnalité
 ## <a name="prerequisites"></a>Prérequis
 
 * Abonnement Azure. Si vous n’avez pas encore d’abonnement, vous pouvez [activer vos avantages abonnés MSDN](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/) ou créer [un compte gratuit](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
-* [Compte Automation](automation-offering-get-started.md) pour gérer les machines.
+* [Compte Automation](./index.yml) pour gérer les machines.
 * Une [machine virtuelle](../virtual-machines/windows/quick-create-portal.md).
 
 ## <a name="enable-change-tracking-and-inventory"></a>Activer Change Tracking et Inventory 
@@ -51,7 +51,7 @@ Avec la fonctionnalité Suivi des modifications et inventaire, vous pouvez ajout
 
 ## <a name="install-and-update-modules"></a>Installer et mettre à jour les modules
 
-Vous devez effectuer la mise à jour vers les derniers modules Azure et importer le module [Az.OperationalInsights](https://docs.microsoft.com/powershell/module/az.operationalinsights/?view=azps-3.7.0) afin d’activer la fonction Suivi des modifications et inventaire pour votre machine virtuelle.
+Vous devez effectuer la mise à jour vers les derniers modules Azure et importer le module [Az.OperationalInsights](/powershell/module/az.operationalinsights/?view=azps-3.7.0) afin d’activer la fonction Suivi des modifications et inventaire pour votre machine virtuelle.
 
 1. Dans votre compte Automation, sélectionnez **Modules** sous **Ressources partagées**. 
 2. Sélectionnez **Mettre à jour les modules Azure** pour mettre à jour les modules Azure vers la dernière version. 

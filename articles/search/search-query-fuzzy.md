@@ -8,12 +8,12 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 04/08/2020
-ms.openlocfilehash: 32ad34bcfb42bf8fc45ba7fdb7fba5e797ee6106
-ms.sourcegitcommit: 8dc84e8b04390f39a3c11e9b0eaf3264861fcafc
+ms.openlocfilehash: 03d4c2e0685ea165cbad524360a3db6e6c809733
+ms.sourcegitcommit: 5cace04239f5efef4c1eed78144191a8b7d7fee8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/13/2020
-ms.locfileid: "81262432"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86146125"
 ---
 # <a name="fuzzy-search-to-correct-misspellings-and-typos"></a>Recherche approximative pour corriger les fautes d’orthographe et de frappe
 
@@ -86,37 +86,49 @@ Supposons qu’un champ `"Description"` d’un document de recherche contient la
 
 Commencez par une recherche approximative sur « special » et ajoutez la mise en surbrillance des correspondances au champ Description :
 
-    search=special~&highlight=Description
+```console
+search=special~&highlight=Description
+```
 
 Dans la réponse, étant donné que vous avez ajouté la mise en surbrillance des correspondances, la mise en forme est appliquée à « special » en tant que terme correspondant.
 
-    "@search.highlights": {
-        "Description": [
-            "Test queries with <em>special</em> characters, plus strings for MSFT, SQL and Java."
-        ]
+```output
+"@search.highlights": {
+    "Description": [
+        "Test queries with <em>special</em> characters, plus strings for MSFT, SQL and Java."
+    ]
+```
 
 Renouvelez la demande en retirant quelques lettres (« pe ») de « special » afin qu’il soit mal orthographié :
 
-    search=scial~&highlight=Description
+```console
+search=scial~&highlight=Description
+```
 
 Jusqu’à présent, aucune modification n’est apportée à la réponse. À l’aide de la distance par défaut de 2 degrés, la suppression de deux caractères (« pe ») de « special » permet toujours une correspondance correcte sur ce terme.
 
-    "@search.highlights": {
-        "Description": [
-            "Test queries with <em>special</em> characters, plus strings for MSFT, SQL and Java."
-        ]
+```output
+"@search.highlights": {
+    "Description": [
+        "Test queries with <em>special</em> characters, plus strings for MSFT, SQL and Java."
+    ]
+```
 
 Pour effectuer une demande supplémentaire, modifiez davantage le terme de recherche en retirant un dernier caractère, soit un total de trois suppressions (permettant de passer de « special » à « scal ») :
 
-    search=scal~&highlight=Description
+```console
+search=scal~&highlight=Description
+```
 
 Notez que la même réponse est retournée, mais à présent la correspondance approximative ne porte pas sur « special », mais sur « SQL ».
 
-            "@search.score": 0.4232868,
-            "@search.highlights": {
-                "Description": [
-                    "Mix of special characters, plus strings for MSFT, <em>SQL</em>, 2019, Linux, Java."
-                ]
+```output
+        "@search.score": 0.4232868,
+        "@search.highlights": {
+            "Description": [
+                "Mix of special characters, plus strings for MSFT, <em>SQL</em>, 2019, Linux, Java."
+            ]
+```
 
 L’intérêt de cet exemple développé est d’illustrer la clarté que la mise en surbrillance des correspondances peut apporter à des résultats ambigus. Dans tous les cas, le même document est retourné. Si vous aviez utilisé des ID de document pour vérifier une correspondance, vous auriez peut-être manqué le passage de « special » à « SQL ».
 

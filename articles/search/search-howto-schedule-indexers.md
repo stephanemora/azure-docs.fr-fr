@@ -8,12 +8,12 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 11/04/2019
-ms.openlocfilehash: 72a0812f8064174b539a1ea39fc0017a4e00a341
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: f85645d8c77d2317807bb02a19a308070acb6007
+ms.sourcegitcommit: 5cace04239f5efef4c1eed78144191a8b7d7fee8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85565766"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86143542"
 ---
 # <a name="how-to-schedule-indexers-in-azure-cognitive-search"></a>Comment planifier des indexeurs dans la Recherche cognitive Azure
 
@@ -68,6 +68,7 @@ Une fois un indexeur créé, vous pouvez modifier les paramètres de planificati
 
 Vous pouvez configurer la planification d’un indexeur à l’aide de l’API REST. Pour ce faire, ajoutez la propriété **schedule** lors de la création ou de la mise à jour de l’indexeur. L’exemple ci-dessous montre une requête PUT mettant à jour l’indexeur existant :
 
+```http
     PUT https://myservice.search.windows.net/indexers/myindexer?api-version=2020-06-30
     Content-Type: application/json
     api-key: admin-key
@@ -77,6 +78,7 @@ Vous pouvez configurer la planification d’un indexeur à l’aide de l’API R
         "targetIndexName" : "target index name",
         "schedule" : { "interval" : "PT10M", "startTime" : "2015-01-01T00:00:00Z" }
     }
+```
 
 Le paramètre **interval** est obligatoire. Il correspond à la durée entre le début de deux exécutions consécutives de l’indexeur. L'intervalle minimal autorisé est de 5 minutes, l'intervalle maximal autorisé est d'une journée. Il doit être formaté en tant que valeur « dayTimeDuration » XSD (un sous-ensemble limité d'une valeur de [durée ISO 8601](https://www.w3.org/TR/xmlschema11-2/#dayTimeDuration) ). Le modèle est le suivant : `P(nD)(T(nH)(nM))`. Exemples : `PT15M` toutes les 15 minutes, `PT2H` toutes les deux heures.
 

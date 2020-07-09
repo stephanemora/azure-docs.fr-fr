@@ -4,25 +4,25 @@ description: Cet article indique comment utiliser Azure Automation pour gérer l
 services: automation
 ms.date: 04/01/2020
 ms.topic: conceptual
-ms.openlocfilehash: 322e2a3679ed29ab9ecc4cdc3c6e1fe4d0f20276
-ms.sourcegitcommit: 0b80a5802343ea769a91f91a8cdbdf1b67a932d3
+ms.openlocfilehash: 91f5ac0c3adabf9880078d7a4d3703e2757cb97f
+ms.sourcegitcommit: ec682dcc0a67eabe4bfe242fce4a7019f0a8c405
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/25/2020
-ms.locfileid: "83831163"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86185311"
 ---
 # <a name="manage-office-365-services"></a>Gérer les services Office 365
 
-Vous pouvez utiliser Azure Automation pour la gestion des services d’abonnement Office 365, pour des produits comme Microsoft Word et Microsoft Outlook. Les interactions avec Office 365 sont activées par [Azure Active Directory (Azure AD)](https://docs.microsoft.com/azure/active-directory/fundamentals/active-directory-whatis). Consultez [Utiliser Azure AD dans Azure Automation pour s’authentifier dans Azure](automation-use-azure-ad.md).
+Vous pouvez utiliser Azure Automation pour la gestion des services d’abonnement Office 365, pour des produits comme Microsoft Word et Microsoft Outlook. Les interactions avec Office 365 sont activées par [Azure Active Directory (Azure AD)](../active-directory/fundamentals/active-directory-whatis.md). Consultez [Utiliser Azure AD dans Azure Automation pour s’authentifier dans Azure](automation-use-azure-ad.md).
 
 ## <a name="prerequisites"></a>Prérequis
 
 Pour gérer les services d’abonnement Office 365 dans Azure Automation, vous avez besoin des éléments suivants.
 
-* Un abonnement Azure. Consultez [Guide de décision concernant les abonnements](https://docs.microsoft.com/azure/cloud-adoption-framework/decision-guides/subscriptions/).
-* Un objet Automation dans Azure pour conserver les informations d’identification de compte d’utilisateur et les runbooks. Consultez [Présentation d’Azure Automation](https://docs.microsoft.com/azure/automation/automation-intro).
+* Un abonnement Azure. Consultez [Guide de décision concernant les abonnements](/azure/cloud-adoption-framework/decision-guides/subscriptions/).
+* Un objet Automation dans Azure pour conserver les informations d’identification de compte d’utilisateur et les runbooks. Consultez [Présentation d’Azure Automation](./automation-intro.md).
 * Azure AD. Consultez [Utiliser Azure AD dans Azure Automation pour s’authentifier dans Azure](automation-use-azure-ad.md).
-* Un client Office 365 avec un compte. Consultez [Configuration de votre client Office 365](https://docs.microsoft.com/sharepoint/dev/spfx/set-up-your-developer-tenant).
+* Un client Office 365 avec un compte. Consultez [Configuration de votre client Office 365](/sharepoint/dev/spfx/set-up-your-developer-tenant).
 
 ## <a name="install-the-msonline-and-msonlineext-modules"></a>Installer des modules MSOnline et MSOnlineExt
 
@@ -52,7 +52,7 @@ Vous pouvez éventuellement créer une ressource d’informations d’identifica
 
 ## <a name="create-an-office-365-service-account"></a>Créer un compte de service Office 365
 
-Pour exécuter les services d’abonnement Office 365, vous avez besoin d’un compte de service Office 365 assorti d’autorisations vous permettant de faire ce que vous voulez. Vous pouvez utiliser un compte d’administrateur général, un compte par service ou faire en sorte qu’une seule fonction ou un seul script s’exécute. Dans tous les cas, le compte de service exige un mot de passe complexe et sécurisé. Consultez [Configurer Office 365 pour les entreprises](https://docs.microsoft.com/microsoft-365/admin/setup/setup?view=o365-worldwide). 
+Pour exécuter les services d’abonnement Office 365, vous avez besoin d’un compte de service Office 365 assorti d’autorisations vous permettant de faire ce que vous voulez. Vous pouvez utiliser un compte d’administrateur général, un compte par service ou faire en sorte qu’une seule fonction ou un seul script s’exécute. Dans tous les cas, le compte de service exige un mot de passe complexe et sécurisé. Consultez [Configurer Office 365 pour les entreprises](/microsoft-365/admin/setup/setup?view=o365-worldwide). 
 
 ## <a name="connect-to-the-azure-ad-online-service"></a>Connexion au service en ligne Azure AD
 
@@ -61,7 +61,7 @@ Pour exécuter les services d’abonnement Office 365, vous avez besoin d’un 
 
 Vous pouvez utiliser le module MSOnline pour vous connecter à Azure AD à partir de l’abonnement Office 365. La connexion utilise le nom et le mot de passe d’un utilisateur Office 365 ou l’authentification multifacteur (MFA). Vous pouvez vous connecter à partir du portail Azure ou d’une invite de commandes Windows PowerShell (sans élévation de privilèges).
 
-Un exemple PowerShell est présenté ci-dessous. L’applet de commande [Get-Credential](https://docs.microsoft.com/powershell/module/microsoft.powershell.security/get-credential?view=powershell-7) demande les informations d’identification et les stocke dans la variable `Msolcred`. L’applet de commande [Connect-MsolService](https://docs.microsoft.com/powershell/module/msonline/connect-msolservice?view=azureadps-1.0) utilise alors les informations d’identification pour vous connecter au service en ligne Azure Directory. Si vous voulez vous connecter à un environnement Azure spécifique, utilisez le paramètre `AzureEnvironment`.
+Un exemple PowerShell est présenté ci-dessous. L’applet de commande [Get-Credential](/powershell/module/microsoft.powershell.security/get-credential?view=powershell-7) demande les informations d’identification et les stocke dans la variable `Msolcred`. L’applet de commande [Connect-MsolService](/powershell/module/msonline/connect-msolservice?view=azureadps-1.0) utilise alors les informations d’identification pour vous connecter au service en ligne Azure Directory. Si vous voulez vous connecter à un environnement Azure spécifique, utilisez le paramètre `AzureEnvironment`.
 
 ```powershell
 $Msolcred = Get-Credential
@@ -71,7 +71,7 @@ Connect-MsolService -Credential $MsolCred -AzureEnvironment "AzureCloud"
 Si vous n’obtenez pas d’erreur, c’est que la connexion a abouti. Un moyen rapide de le vérifier consiste à exécuter une applet de commande Office 365, par exemple `Get-MsolUser`, puis de voir les résultats. Si vous obtenez une erreur, sachez que le problème est souvent lié à l’utilisation d’un mot de passe incorrect.
 
 >[!NOTE]
->Vous pouvez aussi utiliser le module AzureRM ou le module Az pour vous connecter à Azure AD à partir de l’abonnement Office 365. La principale applet de commande de connexion est [Connect-AzureAD](https://docs.microsoft.com/powershell/module/azuread/connect-azuread?view=azureadps-2.0). Cette applet de commande prend en charge le paramètre `AzureEnvironmentName` pour les environnements Office 365 spécifiques.
+>Vous pouvez aussi utiliser le module AzureRM ou le module Az pour vous connecter à Azure AD à partir de l’abonnement Office 365. La principale applet de commande de connexion est [Connect-AzureAD](/powershell/module/azuread/connect-azuread?view=azureadps-2.0). Cette applet de commande prend en charge le paramètre `AzureEnvironmentName` pour les environnements Office 365 spécifiques.
 
 ## <a name="create-a-powershell-runbook-from-an-existing-script"></a>Créer un runbook PowerShell à partir d’un script existant
 
@@ -96,22 +96,22 @@ $O365Licenses -SmtpServer $emailSMTPServer -UseSSL
 
 Vous pouvez utiliser votre script dans un runbook Azure Automation. Pour cet exemple, nous allons utiliser le type de runbook PowerShell.
 
-1. Créez un nouveau runbook PowerShell. Consultez [Créer un runbook Azure Automation](https://docs.microsoft.com/azure/automation/automation-quickstart-create-runbook).
+1. Créez un nouveau runbook PowerShell. Consultez [Créer un runbook Azure Automation](./automation-quickstart-create-runbook.md).
 2. À partir de votre compte Automation, sélectionnez **Runbooks** sous **Automatisation des processus**.
 3. Sélectionnez le nouveau runbook et cliquez sur **Modifier**.
 4. Copiez votre script et collez-le dans l’éditeur de texte pour le runbook.
 5. Sélectionnez **Ressources**, développez **Informations d’identification**, puis vérifiez que les informations d’identification Office 365 sont présentes.
 6. Cliquez sur **Enregistrer**.
-7. Sélectionnez **Volet de test**, puis cliquez sur **Démarrer** pour commencer à tester votre runbook. Consultez [Gérer les runbooks dans Azure Automation](https://docs.microsoft.com/azure/automation/manage-runbooks).
+7. Sélectionnez **Volet de test**, puis cliquez sur **Démarrer** pour commencer à tester votre runbook. Consultez [Gérer les runbooks dans Azure Automation](./manage-runbooks.md).
 8. Une fois le test terminé, quittez le volet de test.
 
 ## <a name="publish-and-schedule-the-runbook"></a>Publier et planifier le runbook
 
-Pour publier et planifier votre runbook, consultez [Gérer les runbooks dans Azure Automation](https://docs.microsoft.com/azure/automation/manage-runbooks).
+Pour publier et planifier votre runbook, consultez [Gérer les runbooks dans Azure Automation](./manage-runbooks.md).
 
 ## <a name="next-steps"></a>Étapes suivantes
 
 * Pour plus d’informations sur l’utilisation des informations d’identification, consultez [Gérer les informations d’identification dans Azure Automation](shared-resources/credentials.md).
 * Pour en savoir plus sur les modules, consultez [Gérer les modules dans Azure Automation](shared-resources/modules.md).
 * Si vous devez démarrer un runbook, consultez [Démarrer un runbook dans Azure Automation](start-runbooks.md).
-* Pour plus d’informations sur PowerShell, consultez la [documentation PowerShell](https://docs.microsoft.com/powershell/scripting/overview).
+* Pour plus d’informations sur PowerShell, consultez la [documentation PowerShell](/powershell/scripting/overview).

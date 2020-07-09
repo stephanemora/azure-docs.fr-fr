@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 03/20/2019
 ms.author: juliako
 ms.reviewer: milanga;cenkdin
-ms.openlocfilehash: 2a0d1c5af572c88dc11bed950b46706f0a2f081f
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 0ddf15ffad086bab5ed6c4e2508cd0874f6ee567
+ms.sourcegitcommit: 1e6c13dc1917f85983772812a3c62c265150d1e7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "75981959"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86166176"
 ---
 # <a name="update-media-services-after-rolling-storage-access-keys"></a>Mettre à jour Media Services après la substitution de clés d’accès de stockage 
 
@@ -49,7 +49,7 @@ Media Services dépend d'une clé de stockage qui lui est fournie. Plus précis�
  
     L’exemple suivant montre comment synchroniser des clés avec des comptes de stockage.
   
-         Sync-AzMediaServiceStorageKeys -ResourceGroupName $resourceGroupName -AccountName $mediaAccountName -StorageAccountId $storageAccountId
+    `Sync-AzMediaServiceStorageKeys -ResourceGroupName $resourceGroupName -AccountName $mediaAccountName -StorageAccountId $storageAccountId`
   
  3. Attendez environ une heure. Vérifiez que les scénarios de streaming fonctionnent.
  4. Modifiez la clé secondaire du compte de stockage par le biais de l’applet de commande Powershell ou du portail Azure.
@@ -60,14 +60,15 @@ Media Services dépend d'une clé de stockage qui lui est fournie. Plus précis�
 
 L’exemple suivant montre comment obtenir le compte de stockage et le synchroniser avec le compte AMS.
 
-    $regionName = "West US"
-    $resourceGroupName = "SkyMedia-USWest-App"
-    $mediaAccountName = "sky"
-    $storageAccountName = "skystorage"
-    $storageAccountId = "/subscriptions/$subscriptionId/resourceGroups/$resourceGroupName/providers/Microsoft.Storage/storageAccounts/$storageAccountName"
+```console
+$regionName = "West US"
+$resourceGroupName = "SkyMedia-USWest-App"
+$mediaAccountName = "sky"
+$storageAccountName = "skystorage"
+$storageAccountId = "/subscriptions/$subscriptionId/resourceGroups/$resourceGroupName/providers/Microsoft.Storage/storageAccounts/$storageAccountName"
 
-    Sync-AzMediaServiceStorageKeys -ResourceGroupName $resourceGroupName -AccountName $mediaAccountName -StorageAccountId $storageAccountId
-
+Sync-AzMediaServiceStorageKeys -ResourceGroupName $resourceGroupName -AccountName $mediaAccountName -StorageAccountId $storageAccountId
+```
  
 ## <a name="steps-to-add-storage-accounts-to-your-ams-account"></a>Étapes à suivre pour ajouter des comptes de stockage à votre compte AMS
 

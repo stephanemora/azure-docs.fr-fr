@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.service: automation
 ms.subservice: update-management
 manager: carmonm
-ms.openlocfilehash: ff996227e23836bf85cc3885d9184ae6d7d6c61d
-ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
+ms.openlocfilehash: 92020313fccf1b8be0add58a7bafab62b5daa4d5
+ms.sourcegitcommit: ec682dcc0a67eabe4bfe242fce4a7019f0a8c405
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/20/2020
-ms.locfileid: "83680830"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86187130"
 ---
 # <a name="troubleshoot-windows-update-agent-issues"></a>Résoudre les problèmes de l’agent de mise à jour Windows
 
@@ -110,7 +110,7 @@ La vérification d’accès au dossier Crypto détermine si le compte système L
 
 ## <a name="troubleshoot-offline"></a><a name="troubleshoot-offline"></a>Résolution des problèmes hors connexion
 
-Vous pouvez utiliser l’utilitaire de résolution des problèmes sur un Runbook Worker hybride hors connexion en exécutant le script localement. Obtenez le script suivant à partir de PowerShell Gallery : [Troubleshoot-WindowsUpdateAgentRegistration](https://www.powershellgallery.com/packages/Troubleshoot-WindowsUpdateAgentRegistration). Pour exécuter le script, vous devez avoir installé WMF 4.0 ou ultérieur. Pour télécharger la dernière version de PowerShell, consultez [Installer plusieurs versions de PowerShell](https://docs.microsoft.com/powershell/scripting/install/installing-powershell).
+Vous pouvez utiliser l’utilitaire de résolution des problèmes sur un Runbook Worker hybride hors connexion en exécutant le script localement. Obtenez le script suivant à partir de PowerShell Gallery : [Troubleshoot-WindowsUpdateAgentRegistration](https://www.powershellgallery.com/packages/Troubleshoot-WindowsUpdateAgentRegistration). Pour exécuter le script, vous devez avoir installé WMF 4.0 ou ultérieur. Pour télécharger la dernière version de PowerShell, consultez [Installer plusieurs versions de PowerShell](/powershell/scripting/install/installing-powershell).
 
 La sortie de ce script ressemble à l’exemple suivant :
 

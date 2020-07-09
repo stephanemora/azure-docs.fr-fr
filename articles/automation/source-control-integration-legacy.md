@@ -5,11 +5,12 @@ services: automation
 ms.subservice: process-automation
 ms.date: 12/04/2019
 ms.topic: conceptual
-ms.openlocfilehash: e550489f34d84946d0a9e3df641a1484b85a60f0
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: f1e4e288b5b95f355221188a45f1e6c764fde77c
+ms.sourcegitcommit: ec682dcc0a67eabe4bfe242fce4a7019f0a8c405
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "83828931"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86187334"
 ---
 # <a name="use-source-control-integration-in-azure-automation---legacy"></a>Utiliser l’intégration du contrôle de code source dans Azure Automation – Hérité
 
@@ -55,7 +56,7 @@ Si vous possédez déjà un compte GitHub et un référentiel que vous souhaitez
 5. Une fois que vous avez cliqué sur **OK**, l’intégration du contrôle de code source est configurée pour votre compte Automation. Elle doit être mise à jour avec vos informations GitHub. Vous pouvez maintenant cliquer sur cette partie pour afficher tout l’historique de la tâche de synchronisation de contrôle de code source.  
 
     ![Valeurs de configuration actuelles du contrôle de code source configuré](media/source-control-integration-legacy/automation-RepoValues.png)
-6. Après avoir configuré le contrôle de code source, deux [ressources de variables](automation-variables.md) sont créées dans votre compte Automation. En outre, une application autorisée est ajoutée à votre compte GitHub.
+6. Après avoir configuré le contrôle de code source, deux [ressources de variables](./shared-resources/variables.md) sont créées dans votre compte Automation. En outre, une application autorisée est ajoutée à votre compte GitHub.
 
    * La variable **Microsoft.Azure.Automation.SourceControl.Connection** contient les valeurs de la chaîne de connexion, comme illustré ci-dessous.  
 
@@ -83,7 +84,7 @@ Si vous possédez déjà un compte GitHub et un référentiel que vous souhaitez
 
 L’archivage de runbooks vous permet de transmettre les modifications apportées à un runbook dans Azure Automation dans votre référentiel de contrôle de code source. Voici les étapes permettant d’archiver un runbook :
 
-1. À partir de votre compte Automation, [créez un runbook textuel](automation-first-runbook-textual.md) ou [modifiez un runbook textuel existant](automation-edit-textual-runbook.md). Ce runbook peut être un flux de travail PowerShell ou un runbook de script PowerShell.  
+1. À partir de votre compte Automation, [créez un runbook textuel](./learn/automation-tutorial-runbook-textual.md) ou [modifiez un runbook textuel existant](automation-edit-textual-runbook.md). Ce runbook peut être un flux de travail PowerShell ou un runbook de script PowerShell.  
 2. Après avoir modifié votre runbook, enregistrez-le et cliquez sur **Archiver** dans la page de modification.  
 
     ![Fenêtre montrant le bouton Check in dans GitHub](media/source-control-integration-legacy/automation-CheckinButton.png)

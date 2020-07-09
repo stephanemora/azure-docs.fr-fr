@@ -4,12 +4,12 @@ description: Apprenez à utiliser la bibliothèque File Conventions d’Azure Ba
 ms.topic: how-to
 ms.date: 11/14/2018
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: ba1b35bd8f2a4cc58558607581d10b598d23058c
-ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
+ms.openlocfilehash: 2e06bc90c95f9951895e0434ec8a8a7defaa6156
+ms.sourcegitcommit: 5cace04239f5efef4c1eed78144191a8b7d7fee8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/05/2020
-ms.locfileid: "85965193"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86147170"
 ---
 # <a name="persist-job-and-task-data-to-azure-storage-with-the-batch-file-conventions-library-for-net"></a>Conserver le résultat d’un travail et d’une tâche dans Azure Storage avec la bibliothèque File Conventions Batch pour .NET
 
@@ -55,7 +55,7 @@ Pour conserver les données de sortie dans Azure Storage à l’aide de la bibli
 
 Pour conserver les données de sortie de travail et de tâche avec la bibliothèque File Conventions, créez un conteneur dans Azure Storage, puis enregistrez la sortie dans le conteneur. Utilisez la [bibliothèque du client Azure Storage pour .NET](https://www.nuget.org/packages/WindowsAzure.Storage) dans le code de tâche pour charger la sortie de tâche dans le conteneur.
 
-Pour en savoir plus sur les conteneurs et les objets blob dans Azure Storage, consultez l’article [Prise en main du stockage d’objets blob Azure à l’aide de .NET](../storage/blobs/storage-dotnet-how-to-use-blobs.md).
+Pour en savoir plus sur les conteneurs et les objets blob dans Azure Storage, consultez l’article [Prise en main du stockage d’objets blob Azure à l’aide de .NET](../storage/blobs/storage-quickstart-blobs-dotnet.md).
 
 > [!WARNING]
 > Toutes les sorties de travail et de tâche conservées avec la bibliothèque File Conventions sont stockées dans le même conteneur. Si de nombreuses tâches tentent de conserver des fichiers en même temps, des limitations de stockage Azure peuvent être appliquées. Pour plus d’informations sur les limitations, consultez [Liste de contrôle des performances et de la scalabilité pour le stockage Blob](../storage/blobs/storage-performance-checklist.md).
