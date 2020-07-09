@@ -5,15 +5,15 @@ author: mamccrea
 ms.author: mamccrea
 ms.reviewer: mamccrea
 ms.service: stream-analytics
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 03/24/2020
 ms.custom: seodec18
-ms.openlocfilehash: 5e2ba749b64a6d44c9aa6b03352910ab24771084
-ms.sourcegitcommit: 0b80a5802343ea769a91f91a8cdbdf1b67a932d3
+ms.openlocfilehash: 3bfc03dd7a04bea7e69aa1b62cef267a81b650f1
+ms.sourcegitcommit: e132633b9c3a53b3ead101ea2711570e60d67b83
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/25/2020
-ms.locfileid: "83835646"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86037611"
 ---
 # <a name="get-started-using-azure-stream-analytics-real-time-fraud-detection"></a>Bien démarrer avec Azure Stream Analytics : Détection des fraudes en temps réel
 
@@ -47,7 +47,7 @@ Si vous souhaitez examiner les résultats du travail Stream Analytics, vous avez
 
 ## <a name="create-an-azure-event-hubs-to-ingest-events"></a>Créer un concentrateur Azure Event Hubs pour ingérer les événements
 
-Pour analyser un flux de données, *ingérez-le* dans Azure. Pour ingérer des données, il est courant d’utiliser [Azure Event Hubs](../event-hubs/event-hubs-what-is-event-hubs.md), qui vous permet d’ingérer des millions d’événements par seconde, puis de traiter et de stocker les informations d’événement. Pour ce tutoriel, vous allez créer un concentrateur Event Hub, puis indiquer à l’application de génération d’événements d’appel d’envoyer des données d’appel à ce concentrateur. Pour plus d’informations sur les concentrateurs Event Hub, voir la [documentation Azure Service Bus](https://docs.microsoft.com/azure/service-bus/).
+Pour analyser un flux de données, *ingérez-le* dans Azure. Pour ingérer des données, il est courant d’utiliser [Azure Event Hubs](../event-hubs/event-hubs-what-is-event-hubs.md), qui vous permet d’ingérer des millions d’événements par seconde, puis de traiter et de stocker les informations d’événement. Pour ce tutoriel, vous allez créer un concentrateur Event Hub, puis indiquer à l’application de génération d’événements d’appel d’envoyer des données d’appel à ce concentrateur.
 
 >[!NOTE]
 >Pour consulter une version plus détaillée de cette procédure, voir [Créer un espace de noms Event Hubs et un concentrateur d’événements avec le portail Azure](../event-hubs/event-hubs-create.md). 
@@ -202,7 +202,7 @@ Maintenant que vous disposez d’un flux des événements d’appel, vous pouvez
    |**Paramètre**  |**Valeur suggérée**  |**Description**  |
    |---------|---------|---------|
    |Alias d’entrée  |  CallStream   |  Saisissez un nom pour identifier l’entrée de la tâche.   |
-   |Abonnement   |  \<Votre abonnement\> |  Sélectionnez l’abonnement Azure dans lequel vous avez créé un Event Hub.   |
+   |Abonnement   |  \<Your subscription\> |  Sélectionnez l’abonnement Azure dans lequel vous avez créé un Event Hub.   |
    |Espace de noms Event Hub  |  asa-eh-ns-demo |  Entrez le nom de l’espace de noms Event Hub.   |
    |Nom de l’Event Hub  | asa-eh-frauddetection-demo | Sélectionnez le nom de votre Event Hub.   |
    |Nom de la stratégie du hub d’événements  | asa-policy-manage-demo | Sélectionnez la stratégie d’accès que vous avez créée précédemment.   |
@@ -372,7 +372,7 @@ Si vous possédez déjà un compte de stockage d’objets blob, vous pouvez l’
    |**Paramètre**  |**Valeur suggérée**  |**Description**  |
    |---------|---------|---------|
    |Alias de sortie  |  CallStream-FraudulentCalls   |  Saisissez un nom pour identifier la sortie de la tâche.   |
-   |Abonnement   |  \<Votre abonnement\> |  Sélectionnez l’abonnement Azure contenant le compte de stockage que vous avez créé. Le compte de stockage peut être dans le même abonnement ou dans un abonnement distinct. Cet exemple suppose que vous avez créé le compte de stockage dans le même abonnement. |
+   |Abonnement   |  \<Your subscription\> |  Sélectionnez l’abonnement Azure contenant le compte de stockage que vous avez créé. Le compte de stockage peut être dans le même abonnement ou dans un abonnement distinct. Cet exemple suppose que vous avez créé le compte de stockage dans le même abonnement. |
    |Compte de stockage  |  asaehstorage |  Entrez le nom du compte de stockage que vous avez créé. |
    |Conteneur  | asa-fraudulentcalls-demo | Choisissez Créer et entrez un nom de conteneur. |
 

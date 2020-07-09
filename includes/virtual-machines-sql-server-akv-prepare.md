@@ -13,12 +13,12 @@ ms.workload: iaas-sql-server
 ms.date: 04/30/2018
 ms.author: jroth
 ms.custom: include file
-ms.openlocfilehash: 2c7d312910c6d38c54b291da34bfb827246c7dad
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 66a3ecd82ab61f25c99fd1268d9ce7567b057d66
+ms.sourcegitcommit: e132633b9c3a53b3ead101ea2711570e60d67b83
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "79504287"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86050487"
 ---
 ## <a name="prepare-for-akv-integration"></a>Préparation pour AKV Integration
 Il existe plusieurs conditions préalables pour utiliser Azure Key Vault Integration pour configurer votre machine virtuelle SQL Server : 
@@ -56,7 +56,9 @@ Inscrivez ensuite une application auprès d'ADD. Vous obtiendrez un compte Princ
 ### <a name="create-a-key-vault"></a><a id="createkeyvault"></a> Créer un coffre de clés
 Pour utiliser Azure Key Vault pour stocker les clés que vous utiliserez pour le chiffrement dans votre machine virtuelle, vous devez accéder à un coffre de clés. Si vous n’avez pas déjà configuré votre coffre de clés, créez-en un en suivant les étapes décrites dans la rubrique [Prise en main d’Azure Key Vault](../articles/key-vault/key-vault-overview.md). Avant d'effectuer ces étapes, vous devez collecter certaines informations au cours de la configuration. Elles seront nécessaires ultérieurement lorsque vous activerez Azure Key Vault Integration sur votre machine virtuelle SQL.
 
-    New-AzKeyVault -VaultName 'ContosoKeyVault' -ResourceGroupName 'ContosoResourceGroup' -Location 'East Asia'
+```azurepowershell
+New-AzKeyVault -VaultName 'ContosoKeyVault' -ResourceGroupName 'ContosoResourceGroup' -Location 'East Asia'
+```
 
 Lorsque vous arrivez à l’étape de création d’un coffre de clés, notez la propriété **vaultUri** renvoyée. Il s’agit de l’URL du coffre de clés. Dans l’exemple utilisé à cette étape et illustré ci-dessous, le nom du coffre de clés est ContosoKeyVault. Par conséquent, l’URL du coffre de clés sera https://contosokeyvault.vault.azure.net/.
 

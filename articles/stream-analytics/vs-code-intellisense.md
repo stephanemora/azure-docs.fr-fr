@@ -5,13 +5,13 @@ ms.service: stream-analytics
 author: su-jie
 ms.author: sujie
 ms.date: 4/11/2020
-ms.topic: conceptual
-ms.openlocfilehash: 25ece3174cd65df9c665888d913cf6b9029904b1
-ms.sourcegitcommit: d6e4eebf663df8adf8efe07deabdc3586616d1e4
+ms.topic: how-to
+ms.openlocfilehash: df6e7435d072cc88e82f3dc9a323a5b21145c432
+ms.sourcegitcommit: e132633b9c3a53b3ead101ea2711570e60d67b83
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/15/2020
-ms.locfileid: "81393959"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86037254"
 ---
 # <a name="intellisense-in-azure-stream-analytics-tools-for-visual-studio-code"></a>IntelliSense dans Azure Stream Analytics Tools pour Visual Studio Code
 
@@ -34,13 +34,12 @@ Vous pouvez déclencher IntelliSense dans n'importe quelle fenêtre de l'éditeu
 
 IntelliSense dans Stream Analytics Tools pour VS Code offre différents types de saisie semi-automatique, y compris des suggestions de serveur de langage, des extraits de code et des saisies textuelles simples à base de mots.
 
-|       |         |       |
-| ----- | ------- | ----- |
+|Completion     |  Type       |
+| ----- | ------- |
 | Mots clés | `keyword`
 | Fonctions | `build-in function`, `user defined function`  |
 | Nom de jeu de données| `input`, `output`, `intermediate result set`|
 | Nom de colonne de jeu de données|`input`, `intermediate result set`|
-|
 
 #### <a name="name-completion"></a>Saisie semi-automatique des noms
 

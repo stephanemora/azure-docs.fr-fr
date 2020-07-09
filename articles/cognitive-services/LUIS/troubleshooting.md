@@ -4,12 +4,12 @@ description: Cet article contient des réponses aux questions fréquemment posé
 ms.topic: troubleshooting
 ms.date: 05/06/2020
 ms.author: diberry
-ms.openlocfilehash: 15f2cf3c06e56656efd68d472cabd1da52c375cc
-ms.sourcegitcommit: 61d850bc7f01c6fafee85bda726d89ab2ee733ce
+ms.openlocfilehash: b45f3c43e70502b2734696a66d2a497c2213d1b9
+ms.sourcegitcommit: bcb962e74ee5302d0b9242b1ee006f769a94cfb8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/03/2020
-ms.locfileid: "84343538"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86054829"
 ---
 # <a name="language-understanding-frequently-asked-questions-faq"></a>Forum aux questions (FAQ) sur Language Understanding
 
@@ -43,7 +43,7 @@ Oui, il est conseillé de former votre intention **None** avec davantage d’én
 Consultez le didacticiel sur l’[API Vérification orthographique Bing v7](luis-tutorial-bing-spellcheck.md). LUIS applique les limites imposées par l’API Vérification orthographique v7.
 
 ### <a name="how-do-i-edit-my-luis-app-programmatically"></a>Comment faire pour modifier mon application LUIS par programmation ?
-Pour modifier votre application LUIS par programmation, utilisez l’[API Création](https://go.microsoft.com/fwlink/?linkid=2092087). Pour obtenir des exemples d’appel de l’API Création, voir [Appel de l’API Création de LUIS](./get-started-get-model-rest-apis.md) et [Créer une application LUIS par programmation à l’aide de Node.js](./luis-tutorial-node-import-utterances-csv.md). L’API Création exige que vous utilisiez une [clé de création](luis-concept-keys.md#azure-resources-for-luis) plutôt qu’une clé de point de terminaison. La création par programmation permet jusqu’à 1 000 000 d’appels par mois et cinq transactions par seconde. Pour plus d’informations sur les clés à utiliser avec LUIS, voir [Gérer les clés](./luis-concept-keys.md).
+Pour modifier votre application LUIS par programmation, utilisez l’[API Création](https://go.microsoft.com/fwlink/?linkid=2092087). Pour obtenir des exemples d’appel de l’API Création, voir [Appel de l’API Création de LUIS](./get-started-get-model-rest-apis.md) et [Créer une application LUIS par programmation à l’aide de Node.js](./luis-tutorial-node-import-utterances-csv.md). L’API Création exige que vous utilisiez une [clé de création](luis-how-to-azure-subscription.md#azure-resources-for-luis) plutôt qu’une clé de point de terminaison. La création par programmation permet jusqu’à 1 000 000 d’appels par mois et cinq transactions par seconde. Pour plus d’informations sur les clés à utiliser avec LUIS, voir [Gérer les clés](./luis-how-to-azure-subscription.md).
 
 ### <a name="where-is-the-pattern-feature-that-provided-regular-expression-matching"></a>Où est la fonctionnalité Modèle qui assurait la mise en correspondance d’expression régulière ?
 La **fonctionnalité Modèle** précédente est actuellement désapprouvée. Elle est remplacée par **[Modèles](luis-concept-patterns.md)** .
@@ -123,7 +123,7 @@ Pour obtenir d’autres conseils, passez en revue les [bonnes pratiques](luis-co
 LUIS [tokénise](luis-glossary.md#token) l’énoncé en fonction de la [culture](luis-language-support.md#tokenization). Tant la valeur d’origine que la valeur tokénisée sont disponibles pour l’[extraction de données](luis-concept-data-extraction.md#tokenized-entity-returned).
 
 ### <a name="how-do-i-create-and-assign-a-luis-endpoint-key"></a>Comment faire pour créer et affecter une clé de point de terminaison LUIS ?
-[Créez la clé de point de terminaison](luis-how-to-azure-subscription.md) dans Azure pour votre niveau de [service](https://azure.microsoft.com/pricing/details/cognitive-services/language-understanding-intelligent-services/). [Attribuez la clé](luis-how-to-azure-subscription.md) dans la page **[Ressources Azure](luis-how-to-azure-subscription.md)** . Il n’existe d’API pour cette action. Ensuite, vous devez modifier la requête HTTP adressée au point de terminaison de façon à [utiliser la nouvelle clé de point de terminaison](luis-concept-keys.md).
+[Créez la clé de point de terminaison](luis-how-to-azure-subscription.md) dans Azure pour votre niveau de [service](https://azure.microsoft.com/pricing/details/cognitive-services/language-understanding-intelligent-services/). [Attribuez la clé](luis-how-to-azure-subscription.md) dans la page **[Ressources Azure](luis-how-to-azure-subscription.md)** . Il n’existe d’API pour cette action. Ensuite, vous devez modifier la requête HTTP adressée au point de terminaison de façon à [utiliser la nouvelle clé de point de terminaison](luis-how-to-azure-subscription.md).
 
 ### <a name="how-do-i-interpret-luis-scores"></a>Comment interpréter les scores de LUIS ?
 Votre système doit utiliser l’intention de score le plus élevée, quelle qu’en soit la valeur. Par exemple, un score inférieur à 0,5 (moins de 50 %) ne signifie pas nécessairement que la confiance de LUIS est faible. La fourniture de données d’entraînement supplémentaires peut aider à augmenter le [score](luis-concept-prediction-score.md) de l’intention la plus probable.
@@ -144,10 +144,10 @@ Get-AzCognitiveServicesAccountUsage -ResourceGroupName <your-resource-group> -Na
 ```
 
 ### <a name="my-luis-app-was-working-yesterday-but-today-im-getting-403-errors-i-didnt-change-the-app-how-do-i-fix-it"></a>Mon application LUIS fonctionnait hier, et aujourd’hui j’obtiens des erreurs 403. Je n’ai pas modifié l’application. Comment la corriger ?
-Suivez ces [instructions](#how-do-i-create-and-assign-a-luis-endpoint-key) pour créer une clé de point de terminaison LUIS et l’affecter à l’application. Ensuite, vous devez modifier la requête HTTP de l’application cliente adressée au point de terminaison de façon à [utiliser la nouvelle clé de point de terminaison](luis-concept-keys.md). Si vous avez créé une nouvelle ressource dans une autre région, modifiez également la région de la requête du client HTTP.
+Suivez ces [instructions](#how-do-i-create-and-assign-a-luis-endpoint-key) pour créer une clé de point de terminaison LUIS et l’affecter à l’application. Ensuite, vous devez modifier la requête HTTP de l’application cliente adressée au point de terminaison de façon à [utiliser la nouvelle clé de point de terminaison](luis-how-to-azure-subscription.md). Si vous avez créé une nouvelle ressource dans une autre région, modifiez également la région de la requête du client HTTP.
 
 ### <a name="how-do-i-secure-my-luis-endpoint"></a>Comment faire pour sécuriser mon point de terminaison LUIS ?
-Voir [Sécurisation du point de terminaison](luis-concept-keys.md#securing-the-endpoint).
+Voir [Sécurisation du point de terminaison](luis-how-to-azure-subscription.md#securing-the-endpoint).
 
 ## <a name="working-within-luis-limits"></a>Respect des limites de LUIS
 
@@ -206,7 +206,7 @@ Si votre application existait avant la disponibilité générale de LUIS, les cl
 
 ### <a name="how-do-i-know-what-key-i-need-where-i-get-it-and-what-i-do-with-it"></a>Comment savoir de quelle clé j'ai besoin, où l'obtenir et ce que je dois en faire ?
 
-Pour en savoir plus sur les différences entre la clé de création et la clé de runtime de prédiction, voir [Clés de point de terminaison de création et de prédiction de requête dans LUIS](luis-concept-keys.md).
+Pour en savoir plus sur les différences entre la clé de création et la clé de runtime de prédiction, voir [Clés de point de terminaison de création et de prédiction de requête dans LUIS](luis-how-to-azure-subscription.md).
 
 ### <a name="i-got-an-error-about-being-out-of-quota-how-do-i-fix-it"></a>J'ai rencontré une erreur de dépassement de quota. Comment la corriger ?
 
