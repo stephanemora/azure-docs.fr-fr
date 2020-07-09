@@ -7,12 +7,12 @@ ms.service: site-recovery
 ms.topic: how-to
 ms.date: 04/10/2020
 ms.author: ramamill
-ms.openlocfilehash: ec4d1cfbe0c76c8245c4beeaa7c044d76d917a7a
-ms.sourcegitcommit: 8dc84e8b04390f39a3c11e9b0eaf3264861fcafc
+ms.openlocfilehash: d73e2776d0d9c86fe0331f9804bfeade3f1de676
+ms.sourcegitcommit: e995f770a0182a93c4e664e60c025e5ba66d6a45
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/13/2020
-ms.locfileid: "81259790"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86131799"
 ---
 # <a name="about-the-mobility-service-for-vmware-vms-and-physical-servers"></a>À propos du service Mobilité pour serveurs physiques et machines virtuelles VMware
 
@@ -186,8 +186,8 @@ Syntaxe | `cd /usr/local/ASR/Vx/bin<br/><br/> UnifiedAgentConfigurator.sh -i \<C
 
 ## <a name="azure-virtual-machine-agent"></a>Agent de machine virtuelle Azure
 
-- **Machines virtuelles Windows** : à partir de la version 9.7.0.0 du service Mobilité, l’[agent de machine virtuelle Azure](/azure/virtual-machines/extensions/features-windows#azure-vm-agent) est installé par le programme d’installation du service Mobilité. Ainsi, lorsque la machine bascule vers Azure, la machine virtuelle Azure remplit les conditions préalables à l’installation de l'agent pour utiliser une extension de machine virtuelle.
-- **Machines virtuelles Linux** : l’agent [WALinuxAgent](/azure/virtual-machines/extensions/update-linux-agent) doit être installé manuellement sur la machine virtuelle Azure après le basculement.
+- **Machines virtuelles Windows** : à partir de la version 9.7.0.0 du service Mobilité, l’[agent de machine virtuelle Azure](../virtual-machines/extensions/features-windows.md#azure-vm-agent) est installé par le programme d’installation du service Mobilité. Ainsi, lorsque la machine bascule vers Azure, la machine virtuelle Azure remplit les conditions préalables à l’installation de l'agent pour utiliser une extension de machine virtuelle.
+- **Machines virtuelles Linux** : l’agent [WALinuxAgent](../virtual-machines/extensions/update-linux-agent.md) doit être installé manuellement sur la machine virtuelle Azure après le basculement.
 
 ## <a name="locate-installer-files"></a>Localiser les fichiers d’installation
 

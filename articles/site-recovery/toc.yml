@@ -403,9 +403,9 @@
         - name: "Dynamics\_AX"
           href: site-recovery-dynamicsax.md
         - name: RDS
-          href: 'site-recovery-workload.md#protect-remote-desktop-services'
+          href: site-recovery-workload.md#protect-remote-desktop-services
         - name: Exchange
-          href: 'site-recovery-workload.md#protect-exchange'
+          href: site-recovery-workload.md#protect-exchange
         - name: SAP
           href: site-recovery-sap.md
         - name: Serveur de fichiers
@@ -415,7 +415,7 @@
         - name: "Citrix\_XenApp et XenDesktop"
           href: site-recovery-citrix-xenapp-and-xendesktop.md
         - name: Autres charges de travail
-          href: 'site-recovery-workload.md#workload-summary'
+          href: site-recovery-workload.md#workload-summary
     - name: Récupération d'urgence vers un site secondaire
       items:
         - name: Machines virtuelles VMware/serveurs physiques
@@ -509,7 +509,7 @@
 - name: Rubriques connexes
   items:
     - name: Azure Automation
-      href: /azure/automation/
+      href: ../automation/index.yml
 - name: Ressources
   items:
     - name: Feuille de route Azure
@@ -517,7 +517,7 @@
     - name: Blog
       href: 'https://azure.microsoft.com/blog/tag/azure-site-recovery/'
     - name: Page de questions Microsoft Q&A
-      href: 'https://docs.microsoft.com/answers/topics/azure-site-recovery.html'
+      href: /answers/topics/azure-site-recovery.html
     - name: Parcours d’apprentissage
       href: /learn/azure/
     - name: Tarifs

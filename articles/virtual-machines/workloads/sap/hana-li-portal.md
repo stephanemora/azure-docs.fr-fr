@@ -15,12 +15,12 @@ ms.workload: infrastructure
 ms.date: 07/15/2019
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 3c14ff9c4f6d2bc2b1a62d1874d01950d09491c0
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 8512675381f6163e66b6b838e8262dd7d2b12374
+ms.sourcegitcommit: e995f770a0182a93c4e664e60c025e5ba66d6a45
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "70099811"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86130881"
 ---
 # <a name="azure-hana-large-instances-control-through-azure-portal"></a>Contrôle des grandes instances Azure HANA à l’aide du portail Azure
 Ce document décrit la façon dont [HANA - Grandes instances](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-overview-architecture) est présenté dans le [portail Azure](https://portal.azure.com) et les activités qui peuvent être effectuées par le biais du portail Azure avec des unités de Grande instance HANA qui sont automatiquement déployées. La visibilité de la fonctionnalité HANA - Grandes instances dans le portail Azure est fournie par le biais d’un fournisseur de ressources Azure pour HANA - Grandes instances, qui est actuellement en préversion publique
@@ -31,7 +31,9 @@ Généralement, l’abonnement Azure que vous utilisez pour les déploiements HA
 ### <a name="register-through-cli-interface"></a>Effectuer l’inscription par le biais de l’interface CLI
 Vous devez être connecté à votre abonnement Azure utilisé pour le déploiement de Grande instance HANA par le biais de l’interface Azure CLI. Vous pouvez (ré)inscrire le fournisseur de Grande instance HANA avec cette commande :
     
-    az provider register --namespace Microsoft.HanaOnAzure
+```azurecli
+az provider register --namespace Microsoft.HanaOnAzure
+```
 
 Pour plus d’informations, consultez l’article [Fournisseurs et types de ressources Azure](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-supported-services#azure-cli).
 

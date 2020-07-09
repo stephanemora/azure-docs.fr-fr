@@ -7,12 +7,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 4/9/2019
 ms.author: mayg
-ms.openlocfilehash: 2a4752b501e40f9e8a4f3bc82cb2533c11f9e526
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: de55e2d316b6ed7ee51460ce96896ed2ccfe0992
+ms.sourcegitcommit: e995f770a0182a93c4e664e60c025e5ba66d6a45
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "73954601"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86129886"
 ---
 # <a name="manage-vm-network-interfaces-for-on-premises-disaster-recovery-to-azure"></a>Gérer des interfaces réseau de machines virtuelles pour la récupération d'urgence en local sur Azure
 
@@ -26,7 +26,7 @@ Par défaut, Azure Site Recovery crée autant d’interfaces réseau sur une mac
 
 ## <a name="select-the-target-network"></a>Sélectionner le réseau cible
 
-Pour les machines VMware et physiques, ainsi que pour les machines virtuelles Hyper-V (sans System Center Virtual Machine Manager), vous pouvez spécifier le réseau virtuel cible des machines virtuelles individuelles. Pour les machines virtuelles Hyper-V managées par Virtual Machine Manager, utilisez le [mappage réseau](site-recovery-network-mapping.md) pour mapper les réseaux de machines virtuelles sur un serveur Virtual Machine Manager source et des réseaux Azure cible.
+Pour les machines VMware et physiques, ainsi que pour les machines virtuelles Hyper-V (sans System Center Virtual Machine Manager), vous pouvez spécifier le réseau virtuel cible des machines virtuelles individuelles. Pour les machines virtuelles Hyper-V managées par Virtual Machine Manager, utilisez le [mappage réseau](./hyper-v-vmm-network-mapping.md) pour mapper les réseaux de machines virtuelles sur un serveur Virtual Machine Manager source et des réseaux Azure cible.
 
 1. Sous **Éléments répliqués** dans un coffre Recovery Services, sélectionnez n’importe quel élément répliqué pour accéder à ses paramètres.
 

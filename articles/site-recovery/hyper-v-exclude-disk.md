@@ -6,12 +6,12 @@ manager: rochakm
 ms.topic: conceptual
 ms.author: mayg
 ms.date: 11/12/2019
-ms.openlocfilehash: 50fb6da2905b2ae27547f25cce3d7a76ca7976b7
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 373cffe96119af4a2fc0d74e2090e6cc24dcaf8f
+ms.sourcegitcommit: e995f770a0182a93c4e664e60c025e5ba66d6a45
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "75498140"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86131254"
 ---
 # <a name="exclude-disks-from-replication"></a>Exclure les disques de la réplication
 
@@ -41,7 +41,7 @@ Avant de commencer, prenez note que :
 
 ## <a name="exclude-disks"></a>Exclure des disques
 
-1. Pour exclure des disques lorsque vous [activez la réplication](site-recovery-hyper-v-site-to-azure.md) pour une machine virtuelle Hyper-V, après avoir sélectionné les machines virtuelles que vous souhaitez répliquer, dans la page **Activer la réplication** >  **Propriétés** > **Configurer les propriétés**, consultez la colonne **Disques à répliquer**. Par défaut, tous les disques sont sélectionnés pour la réplication.
+1. Pour exclure des disques lorsque vous [activez la réplication](./hyper-v-azure-tutorial.md) pour une machine virtuelle Hyper-V, après avoir sélectionné les machines virtuelles que vous souhaitez répliquer, dans la page **Activer la réplication** >  **Propriétés** > **Configurer les propriétés**, consultez la colonne **Disques à répliquer**. Par défaut, tous les disques sont sélectionnés pour la réplication.
 2. Si vous ne souhaitez pas répliquer un disque spécifique, dans **Disques à répliquer** désactivez la sélection pour tous les disques que vous souhaitez exclure. 
 
     ![Exclure les disques de la réplication](./media/hyper-v-exclude-disk/enable-replication6-with-exclude-disk.png)

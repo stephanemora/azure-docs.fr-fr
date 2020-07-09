@@ -7,12 +7,12 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 11/12/2019
 ms.author: raynew
-ms.openlocfilehash: 2f92c2b800c6d30cc5f365e6d24925a70d3db55a
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: c3d4a2120f86a03508b91d4b2dea52e629dc0f79
+ms.sourcegitcommit: e995f770a0182a93c4e664e60c025e5ba66d6a45
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84699904"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86130175"
 ---
 # <a name="set-up-disaster-recovery-to-azure-for-on-premises-physical-servers"></a>Configurer la récupération d’urgence vers Azure pour des serveurs physiques locaux
 
@@ -119,7 +119,7 @@ Configurez le serveur de configuration, inscrivez-le dans le coffre et découvre
 Avant de commencer, procédez comme suit : 
 
 #### <a name="verify-time-accuracy"></a>Vérifier la précision de l’heure
-Sur la machine du serveur de configuration, assurez-vous que l’horloge système est synchronisée avec un [Serveur de temps](https://technet.microsoft.com/windows-server-docs/identity/ad-ds/get-started/windows-time-service/windows-time-service). Elles doivent correspondre. S’il y a 15 minutes d’avance ou de retard, le programme d’installation peut échouer.
+Sur la machine du serveur de configuration, assurez-vous que l’horloge système est synchronisée avec un [Serveur de temps](/windows-server/networking/windows-time-service/windows-time-service-top). Elles doivent correspondre. S’il y a 15 minutes d’avance ou de retard, le programme d’installation peut échouer.
 
 #### <a name="verify-connectivity"></a>Vérifier la connectivité
 Vérifiez que la machine peut accéder à ces URL en fonction de votre environnement : 

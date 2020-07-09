@@ -5,16 +5,16 @@ author: sideeksh
 manager: rochakm
 ms.topic: troubleshooting
 ms.date: 04/03/2020
-ms.openlocfilehash: c27bf9a29bdb6e75e10fcafc597f40a88f995461
-ms.sourcegitcommit: 1f48ad3c83467a6ffac4e23093ef288fea592eb5
+ms.openlocfilehash: dc14334668b76ee8cbb81e48abfe1eecf17fa138
+ms.sourcegitcommit: e995f770a0182a93c4e664e60c025e5ba66d6a45
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/29/2020
-ms.locfileid: "84196090"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86130399"
 ---
 # <a name="troubleshoot-replication-in-azure-vm-disaster-recovery"></a>Résoudre les problèmes de réplication dans le cadre de la reprise d’activité d’une machine virtuelle Azure
 
-Cet article décrit les problèmes courants rencontrés dans Azure Site Recovery quand vous répliquez et récupérez des machines virtuelles Azure d’une région vers une autre. Il explique également comment détecter les problèmes courants. Pour plus d’informations sur les configurations prises en charge, consultez la [matrice de prise en charge pour la réplication des machines virtuelles Azure](site-recovery-support-matrix-azure-to-azure.md).
+Cet article décrit les problèmes courants rencontrés dans Azure Site Recovery quand vous répliquez et récupérez des machines virtuelles Azure d’une région vers une autre. Il explique également comment détecter les problèmes courants. Pour plus d’informations sur les configurations prises en charge, consultez la [matrice de prise en charge pour la réplication des machines virtuelles Azure](./azure-to-azure-support-matrix.md).
 
 Azure Site Recovery réplique des données de manière cohérente de la région source vers la région de récupération d’urgence. Il crée également un point de récupération cohérent en cas d’incident toutes les 5 minutes. Si Site Recovery ne peut pas créer de points de récupération pendant 60 minutes, il vous en informe et vous communique les informations suivantes :
 
@@ -78,7 +78,7 @@ Un pic dans le taux de modification des données peut provenir d’une rafale oc
 
 Site Recovery envoie les données répliquées vers le compte de stockage de cache. Vous pouvez rencontrer une latence du réseau si le chargement des données entre une machine virtuelle et le compte de stockage de cache est inférieur à 4 Mo en 3 secondes.
 
-Pour vérifier s’il existe un problème lié à la latence, utilisez [AzCopy](/azure/storage/common/storage-use-azcopy). Vous pouvez utiliser cet utilitaire de ligne de commande pour charger des données de la machine virtuelle vers le compte de stockage de cache. Si la latence est élevée, vérifiez si vous utilisez une appliance virtuelle réseau (NVA) pour contrôler le trafic réseau sortant des machines virtuelles. L’appliance peut être limitée si tout le trafic de réplication passe par elle.
+Pour vérifier s’il existe un problème lié à la latence, utilisez [AzCopy](../storage/common/storage-use-azcopy-v10.md). Vous pouvez utiliser cet utilitaire de ligne de commande pour charger des données de la machine virtuelle vers le compte de stockage de cache. Si la latence est élevée, vérifiez si vous utilisez une appliance virtuelle réseau (NVA) pour contrôler le trafic réseau sortant des machines virtuelles. L’appliance peut être limitée si tout le trafic de réplication passe par elle.
 
 Nous vous recommandons de créer un point de terminaison de service réseau dans votre réseau virtuel pour « Stockage » afin que le trafic de réplication n’atteigne pas l’appliance virtuelle réseau. Pour plus d'informations, consultez [Configuration des appliances virtuelles réseau](azure-to-azure-about-networking.md#network-virtual-appliance-configuration).
 
@@ -108,7 +108,7 @@ Voici quelques-uns des problèmes les plus courants.
 
 ### <a name="app-consistency-not-enabled-on-linux-servers"></a>Cohérence des applications non activée sur les serveurs Linux
 
-**Procédure de résolution** : Azure Site Recovery pour le système d’exploitation Linux prend en charge les scripts personnalisés des applications à des fins de cohérence. Le script personnalisé avec options pré et post-script sera utilisé par l’agent Mobilité Azure Site Recovery pour la cohérence des applications. [Voici](https://docs.microsoft.com/azure/site-recovery/site-recovery-faq#replication) les étapes pour activer cela.
+**Procédure de résolution** : Azure Site Recovery pour le système d’exploitation Linux prend en charge les scripts personnalisés des applications à des fins de cohérence. Le script personnalisé avec options pré et post-script sera utilisé par l’agent Mobilité Azure Site Recovery pour la cohérence des applications. [Voici](./site-recovery-faq.md#replication) les étapes pour activer cela.
 
 ### <a name="more-causes-because-of-vss-related-issues"></a>Autres causes dues à des problèmes liés à VSS :
 

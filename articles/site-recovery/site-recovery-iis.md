@@ -7,12 +7,12 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 11/27/2018
 ms.author: mayg
-ms.openlocfilehash: dfed398124ca20771e169f6f9e7d08d4d799ee1e
-ms.sourcegitcommit: efefce53f1b75e5d90e27d3fd3719e146983a780
+ms.openlocfilehash: aece41329d6481b8ad15090a834c8758f86abdc2
+ms.sourcegitcommit: e995f770a0182a93c4e664e60c025e5ba66d6a45
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/01/2020
-ms.locfileid: "80478286"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86131342"
 ---
 # <a name="set-up-disaster-recovery-for-a-multi-tier-iis-based-web-application"></a>Configurer la reprise d’activité pour une application web multiniveau basée sur IIS
 
@@ -31,7 +31,7 @@ Cet article explique comment protéger une application web qui s’appuie sur In
 Avant de commencer, assurez-vous que vous savez accomplir les tâches suivantes :
 
 * [Répliquer une machine virtuelle vers Azure](vmware-azure-tutorial.md)
-* [Constituer un réseau de récupération](site-recovery-network-design.md)
+* [Constituer un réseau de récupération](./concepts-on-premises-to-azure-networking.md)
 * [Effectuer un test de basculement vers Azure](site-recovery-test-failover-to-azure.md)
 * [Procéder à un basculement vers Azure](site-recovery-failover.md)
 * [Répliquer un contrôleur de domaine](site-recovery-active-directory.md)
@@ -92,7 +92,7 @@ Pour plus d’informations, consultez [Personnaliser le plan de récupération](
 
 
 ### <a name="add-a-script-to-the-recovery-plan"></a>Ajouter un script au plan de récupération
-Pour que la batterie de serveurs web IIS fonctionne correctement, vous devrez peut-être effectuer certaines opérations sur les machines virtuelles Azure, après le basculement ou lors d’un test de basculement. Vous pouvez automatiser certaines opérations après le basculement. Par exemple, vous pouvez mettre à jour l’entrée DNS, modifier une liaison de site ou une chaîne de connexion en ajoutant au plan de récupération les scripts correspondants. L’article [Ajouter un script VMM à un plan de récupération](site-recovery-how-to-add-vmmscript.md) explique comment configurer les tâches automatisées à l’aide d’un script.
+Pour que la batterie de serveurs web IIS fonctionne correctement, vous devrez peut-être effectuer certaines opérations sur les machines virtuelles Azure, après le basculement ou lors d’un test de basculement. Vous pouvez automatiser certaines opérations après le basculement. Par exemple, vous pouvez mettre à jour l’entrée DNS, modifier une liaison de site ou une chaîne de connexion en ajoutant au plan de récupération les scripts correspondants. L’article [Ajouter un script VMM à un plan de récupération](./hyper-v-vmm-recovery-script.md) explique comment configurer les tâches automatisées à l’aide d’un script.
 
 #### <a name="dns-update"></a>Mise à jour DNS
 Si le système DNS est configuré pour la mise à jour DNS dynamique, les machines virtuelles le mettent généralement à jour avec la nouvelle adresse IP dès leur démarrage. Si vous voulez ajouter une étape explicite afin de mettre à jour le DNS avec les nouvelles adresses IP des machines virtuelles, ajoutez un [script pour mettre à jour les adresses IP dans DNS](https://aka.ms/asr-dns-update) en tant qu’action post-basculement dans les groupes de plan de récupération.  

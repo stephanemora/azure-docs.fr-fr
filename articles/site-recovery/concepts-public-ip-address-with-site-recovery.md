@@ -8,12 +8,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 04/08/2019
 ms.author: mayg
-ms.openlocfilehash: b1f3ffa6fc90fc0cab0217d1b71907342f2dbd0d
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 01c2f61dcf024e8c9dbbd5b2ee11a479b3c16305
+ms.sourcegitcommit: e995f770a0182a93c4e664e60c025e5ba66d6a45
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84712171"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86130277"
 ---
 # <a name="set-up-public-ip-addresses-after-failover"></a>Configurer des adresses IP publiques après un basculement
 
@@ -48,7 +48,7 @@ En savoir plus sur les scénarios de basculement avec Traffic Manager :
 2. [Basculement d’Azure vers Azure](../site-recovery/concepts-traffic-manager-with-site-recovery.md#azure-to-azure-failover) avec Traffic Manager 
 
 La configuration est la suivante :
-- Créez un [profil Traffic Manager](../traffic-manager/traffic-manager-create-profile.md).
+- Créez un [profil Traffic Manager](../traffic-manager/quickstart-create-traffic-manager-profile.md).
 - Avec la méthode de routage **Priorité**, créez deux points de terminaison : **Principal** pour l’environnement source et **Basculement** pour Azure. **Principal** reçoit la Priorité 1 et **Basculement** reçoit la Priorité 2.
 - Le point de terminaison **Principal** peut être [Azure](../traffic-manager/traffic-manager-endpoint-types.md#azure-endpoints) ou [Externe](../traffic-manager/traffic-manager-endpoint-types.md#external-endpoints) selon que votre environnement source est dans ou en dehors d’Azure.
 - Le point de terminaison **Basculement** est créé comme point de terminaison **Azure**. Utilisez une **adresse IP publique statique**, car il s’agira d’un point de terminaison externe pour Traffic Manager dans l’événement d’incident.

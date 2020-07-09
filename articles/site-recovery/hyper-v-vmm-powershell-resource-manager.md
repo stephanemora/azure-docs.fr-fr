@@ -7,12 +7,12 @@ manager: rochakm
 ms.topic: article
 ms.date: 1/10/2020
 ms.author: sutalasi
-ms.openlocfilehash: deef7bfdbc28d744cb81da59d3ffc13a1abee54d
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: d7a2d21dcd8c9474bdf068d7940e497333f35115
+ms.sourcegitcommit: e995f770a0182a93c4e664e60c025e5ba66d6a45
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "77048615"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86130210"
 ---
 # <a name="set-up-disaster-recovery-of-hyper-v-vms-to-a-secondary-site-by-using-powershell-resource-manager"></a>Configurer la reprise d’activité de machines virtuelles Hyper-V sur un site secondaire à l’aide de PowerShell (Resource Manager)
 
@@ -23,9 +23,9 @@ Cet article montre comment automatiser les étapes de la réplication des machin
 ## <a name="prerequisites"></a>Prérequis
 
 - Examinez [l’architecture et les composants du scénario](hyper-v-vmm-architecture.md).
-- Vérifiez les [exigences de prise en charge](site-recovery-support-matrix-to-sec-site.md) pour tous les composants.
-- Assurez-vous que les serveurs Virtual Machine Manager et les hôtes Hyper-V sont conformes aux [exigences de prise en charge](site-recovery-support-matrix-to-sec-site.md).
-- Vérifiez que les machines virtuelles à répliquer sont conformes à la [prise en charge de la machine répliquée](site-recovery-support-matrix-to-sec-site.md).
+- Vérifiez les [exigences de prise en charge](./vmware-physical-secondary-support-matrix.md) pour tous les composants.
+- Assurez-vous que les serveurs Virtual Machine Manager et les hôtes Hyper-V sont conformes aux [exigences de prise en charge](./vmware-physical-secondary-support-matrix.md).
+- Vérifiez que les machines virtuelles à répliquer sont conformes à la [prise en charge de la machine répliquée](./vmware-physical-secondary-support-matrix.md).
 
 ## <a name="prepare-for-network-mapping"></a>Préparer le mappage réseau
 
@@ -37,10 +37,10 @@ Le [mappage réseau](hyper-v-vmm-network-mapping.md) effectue un mappage entre l
 
 Préparez Virtual Machine Manager comme suit :
 
-- Assurez-vous que vous avez des [réseaux logiques Virtual Machine Manager](https://docs.microsoft.com/system-center/vmm/network-logical) sur les serveurs source et cible Virtual Machine Manager :
+- Assurez-vous que vous avez des [réseaux logiques Virtual Machine Manager](/system-center/vmm/network-logical) sur les serveurs source et cible Virtual Machine Manager :
   - Le réseau logique sur le serveur source doit être associé au cloud source dans lequel se trouvent les hôtes Hyper-V.
   - Le réseau logique sur le serveur cible doit être associé au cloud cible.
-- Assurez-vous que vous avez des [réseaux de machines virtuelles](https://docs.microsoft.com/system-center/vmm/network-virtual) sur les serveurs Virtual Machine Manager source et cible. Les réseaux de machines virtuelles doivent être associés au réseau logique dans chaque emplacement.
+- Assurez-vous que vous avez des [réseaux de machines virtuelles](/system-center/vmm/network-virtual) sur les serveurs Virtual Machine Manager source et cible. Les réseaux de machines virtuelles doivent être associés au réseau logique dans chaque emplacement.
 - Connectez les machines virtuelles sur les hôtes Hyper-V sources au réseau de machines virtuelles source.
 
 ## <a name="prepare-for-powershell"></a>Préparer PowerShell

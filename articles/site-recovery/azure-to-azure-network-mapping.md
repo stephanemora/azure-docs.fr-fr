@@ -7,12 +7,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 10/15/2019
 ms.author: mayg
-ms.openlocfilehash: b8f0512f978f25ca196ad6e9a7a03243c47f0662
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 11cc71a05fb95453553223dcb34839e8a5fc6a3a
+ms.sourcegitcommit: e995f770a0182a93c4e664e60c025e5ba66d6a45
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84691201"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86130436"
 ---
 # <a name="set-up-network-mapping-and-ip-addressing-for-vnets"></a>Configurer le mappage réseau et l’adressage IP pour les réseaux virtuels
 
@@ -94,5 +94,5 @@ Le réseau cible n’est pas le réseau virtuel pour le basculement | - L’adre
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-- Consultez les [conseils sur la mise en réseau](site-recovery-azure-to-azure-networking-guidance.md) pour la récupération d’urgence de machines virtuelles Azure.
+- Consultez les [conseils sur la mise en réseau](./azure-to-azure-about-networking.md) pour la récupération d’urgence de machines virtuelles Azure.
 - [En savoir plus](site-recovery-retain-ip-azure-vm-failover.md) sur la conservation des adresses IP après le basculement.

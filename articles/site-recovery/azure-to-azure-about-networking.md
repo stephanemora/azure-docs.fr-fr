@@ -8,12 +8,12 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 3/13/2020
 ms.author: sutalasi
-ms.openlocfilehash: 58348c9aed14a5cc9126be780fe01817274a0b47
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: f9e2d82130ae188d269847d0e0236ea0e33d00dc
+ms.sourcegitcommit: e995f770a0182a93c4e664e60c025e5ba66d6a45
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80283257"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86131387"
 ---
 # <a name="about-networking-in-azure-vm-disaster-recovery"></a>Informations sur les réseaux dans la récupération d'urgence de machines virtuelles Azure
 
@@ -124,6 +124,6 @@ Vous pouvez créer un point de terminaison de service réseau dans votre réseau
 Vous pouvez remplacer l’itinéraire système par défaut d’Azure pour le préfixe d’adresse 0.0.0.0/0 par un [itinéraire personnalisé](../virtual-network/virtual-networks-udr-overview.md#custom-routes) et rediriger le trafic des machines virtuelles vers une appliance virtuelle réseau locale, mais cette configuration n’est pas recommandée pour la réplication Site Recovery. Si vous utilisez des itinéraires personnalisés, vous devez [créer un point de terminaison de service de réseau virtuel](azure-to-azure-about-networking.md#create-network-service-endpoint-for-storage) dans votre réseau virtuel pour « Stockage » afin que le trafic de réplication ne quitte pas la limite Azure.
 
 ## <a name="next-steps"></a>Étapes suivantes
-- Commencer à protéger vos charges de travail en [répliquant des machines virtuelles Azure](site-recovery-azure-to-azure.md).
+- Commencer à protéger vos charges de travail en [répliquant des machines virtuelles Azure](./azure-to-azure-quickstart.md).
 - En savoir plus sur la [conservation des adresses IP](site-recovery-retain-ip-azure-vm-failover.md) pour le basculement de machines virtuelles Azure.
 - En savoir plus sur la récupération d’urgence des [machines virtuelles Azure via ExpressRoute](azure-vm-disaster-recovery-with-expressroute.md).

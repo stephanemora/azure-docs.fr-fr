@@ -2,19 +2,17 @@
 title: Fichier include
 description: fichier include de texte pour le contrat Standard du marketplace commercial de Microsoft
 documentationcenter: partner-center-commercial-marketplace
-author: dsindona
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: include
 ms.date: 01/22/2020
-ms.author: dsindona
 ms.custom: include file
-ms.openlocfilehash: e7692d8c90d71e76628ecb44ade529eabedfa909
-ms.sourcegitcommit: 366e95d58d5311ca4b62e6d0b2b47549e06a0d6d
+ms.openlocfilehash: 5cbddaed1078ade005c3d60df3face9580bf6609
+ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/01/2020
-ms.locfileid: "82691500"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86121965"
 ---
 Microsoft fournit un modèle de contrat Standard pour le marketplace commercial.
 
