@@ -4,18 +4,18 @@ description: Découvrez comment utiliser Azure CLI pour créer un cluster Azure 
 services: container-service
 ms.topic: article
 ms.date: 04/16/2019
-ms.openlocfilehash: dba6590daf5c64dd1e53663e71a0cc27941b1470
-ms.sourcegitcommit: 31236e3de7f1933be246d1bfeb9a517644eacd61
+ms.openlocfilehash: 85441b53b22b4d33ee2ff967d777cc3267e171da
+ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/04/2020
-ms.locfileid: "82779941"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86106099"
 ---
 # <a name="integrate-azure-active-directory-with-azure-kubernetes-service-using-the-azure-cli"></a>Intégrer Azure Active Directory avec Azure Kubernetes Service à l’aide d’Azure AD
 
 Azure Kubernetes Service (AKS) peut être configuré pour utiliser Azure Active Directory (AD) pour l’authentification utilisateur. Dans cette configuration, vous vous connectez à un cluster AKS en utilisant un jeton d’authentification Azure AD. Les opérateurs de cluster peuvent également configurer le contrôle d’accès en fonction du rôle (RBAC) Kubernetes basé sur une identité utilisateur ou l’appartenance à un groupe de répertoires.
 
-Cet article explique comment créer les composants d’Azure AD requis, puis déployer un cluster compatible Azure AD et créer un rôle RBAC de base dans le cluster AKS. Vous pouvez également [effectuer ces étapes à l’aide du portail Azure][azure-ad-portal].
+Cet article explique comment créer les composants d’Azure AD requis, puis déployer un cluster compatible Azure AD et créer un rôle RBAC de base dans le cluster AKS.
 
 Pour l’exemple de script complet utilisé dans cet article, voir [Exemples Azure CLI – Intégration d’AKS avec Azure AD][complete-script].
 
@@ -276,6 +276,6 @@ Pour découvrir les meilleures pratiques de contrôle des identités et des ress
 [azure-ad-portal]: azure-ad-integration.md
 [install-azure-cli]: /cli/azure/install-azure-cli
 [az-ad-sp-credential-reset]: /cli/azure/ad/sp/credential#az-ad-sp-credential-reset
-[rbac-authorization]: concepts-identity.md#role-based-access-controls-rbac
+[rbac-authorization]: concepts-identity.md#kubernetes-role-based-access-controls-rbac
 [operator-best-practices-identity]: operator-best-practices-identity.md
 [azure-ad-rbac]: azure-ad-rbac.md

@@ -4,14 +4,14 @@ description: La protection contre les menaces détecte les activités de base de
 author: ajlam
 ms.author: andrela
 ms.service: mariadb
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 3/18/2020
-ms.openlocfilehash: de056f61337311642589ba937c6d9842d8354d36
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 5f419836b9e73e49ec510fc359487633523e0ef0
+ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79530136"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86104603"
 ---
 # <a name="advanced-threat-protection-for-azure-database-for-mariadb"></a>Advanced Threat Protection pour Azure Database for MariaDB
 
@@ -23,7 +23,7 @@ La protection avancée contre les menaces fait partie de l’offre Advanced Data
 > Advanced Threat Protection est disponible en préversion publique. Cette fonctionnalité est disponible dans toutes les régions Azure où Azure Database for MariaDB est déployé, pour les serveurs à usage général et à mémoire optimisée.
 
 > [!NOTE]
-> La fonctionnalité de protection avancée contre les menaces **n’est pas** disponible dans les régions Azure Government et de cloud souverain suivantes : US Gov Texas, US Gov Arizona, US Gov Iowa, US Gov Virginie, US DoD Est, US DoD Centre, Allemagne Centre, Allemagne Nord, Chine Est, Chine Est 2. Consultez les [produits disponibles par région](https://azure.microsoft.com/global-infrastructure/services/) pour connaître la disponibilité générale des produits.
+> La fonctionnalité Advanced Threat Protection **n’est pas** disponible dans les régions administratives et souveraines suivantes du cloud Azure : US Gov Texas, US Gov Arizona, US Gov Iowa, US, Gov Virginie, US DoD Est, US DoD Central, Allemagne Centre, Allemagne Nord, Chine Est, Chine Est 2. Consultez les [produits disponibles par région](https://azure.microsoft.com/global-infrastructure/services/) pour connaître la disponibilité générale des produits.
 
 ## <a name="set-up-threat-detection"></a>Configurer la détection des menaces
 1. Lancez le portail Azure sur [https://portal.azure.com](https://portal.azure.com).
