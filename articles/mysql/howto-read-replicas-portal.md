@@ -4,14 +4,14 @@ description: Découvrez comment configurer et gérer des réplicas en lecture da
 author: ajlam
 ms.author: andrela
 ms.service: mysql
-ms.topic: conceptual
-ms.date: 3/18/2020
-ms.openlocfilehash: 0aab6957f6078a59aafd0c9967b0d88e97e50cda
-ms.sourcegitcommit: 1f25aa993c38b37472cf8a0359bc6f0bf97b6784
+ms.topic: how-to
+ms.date: 6/10/2020
+ms.openlocfilehash: a3342a626a104dc5eb77ef4b01146a8943dae2d2
+ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/26/2020
-ms.locfileid: "83849431"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86108071"
 ---
 # <a name="how-to-create-and-manage-read-replicas-in-azure-database-for-mysql-using-the-azure-portal"></a>Guide pratique pour créer et gérer des réplicas en lecture dans Azure Database pour MySQL avec le portail Azure
 
@@ -25,6 +25,9 @@ Dans cet article, vous allez apprendre à créer et à gérer des réplicas en l
 > La fonctionnalité de réplica en lecture est disponible uniquement pour les serveurs Azure Database pour MySQL dans les niveaux tarifaires Usage général ou Mémoire optimisée. Vérifiez que le serveur maître se trouve dans l’un de ces niveaux tarifaires.
 
 ## <a name="create-a-read-replica"></a>Créer un réplica en lecture
+
+> [!IMPORTANT]
+> Lorsque vous créez un réplica pour un serveur maître qui ne dispose d’aucun réplica existant, le serveur maître commence par redémarrer pour se préparer pour la réplication. Tenez-en compte et effectuez ces opérations en période creuse.
 
 Un serveur réplica en lecture peut être créé en effectuant les étapes suivantes :
 

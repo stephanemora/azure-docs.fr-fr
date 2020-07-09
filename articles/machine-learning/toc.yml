@@ -324,7 +324,7 @@
           href: how-to-use-secrets-in-runs.md
         - name: Apprentissage par renforcement
           href: how-to-use-reinforcement-learning.md
-    - name: Automatiser l’apprentissage automatique
+    - name: Machine learning automatisé
       displayName: 'automl, auto ml'
       items:
         - name: Utiliser le machine learning automatisé (Python)

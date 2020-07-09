@@ -5,15 +5,15 @@ services: virtual-machines
 author: cynthn
 ms.service: virtual-machines
 ms.topic: include
-ms.date: 11/04/2019
+ms.date: 06/30/2020
 ms.author: cynthn
 ms.custom: include file
-ms.openlocfilehash: 4860dcac666f790fed199536338e50a967113c20
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: f707ccaaf150f4dbd799ca56bf823968a6889a4b
+ms.sourcegitcommit: 9b5c20fb5e904684dc6dd9059d62429b52cb39bc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "76748819"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85856562"
 ---
 Cet article fournit une vue d’ensemble des fonctionnalités de disponibilité des machines virtuelles Azure.
 
@@ -48,17 +48,6 @@ Cette approche garantit qu’au moins une instance de votre application reste to
 ## <a name="virtual-machines-scale-sets"></a>Groupes de machines virtuelles identiques 
 
 Les groupes identiques de machines virtuelles Azure vous permettent de créer et de gérer un groupe de machines virtuelles et disposant d’une charge équilibrée. Le nombre d’instances de machine virtuelle peut augmenter ou diminuer automatiquement en fonction d’une demande ou d’un calendrier défini. Les groupes identiques offrent une haute disponibilité à vos applications, et vous permettent de gérer, configurer et mettre à jour de manière centralisée de nombreuses machines virtuelles. Il est recommandé de créer au moins deux machines virtuelles dans un groupe identique, de manière à fournir une application hautement disponible et à répondre aux exigences du [niveau de 99,95 % inscrit dans les contrats de niveau de service Azure](https://azure.microsoft.com/support/legal/sla/virtual-machines/). Le groupe identique proprement dit ne vous coûte rien ; vous payez uniquement pour chaque instance de machine virtuelle que vous créez. Lorsqu’une seule machine virtuelle utilise des [disques SSD Azure Premium](https://docs.microsoft.com/azure/virtual-machines/windows/disks-types#premium-ssd), le contrat SLA Azure s’applique pour les événements de maintenance non planifiés. Les machines virtuelles d’un groupe identique peuvent être déployées sur plusieurs domaines de mise à jour et domaines d’erreur pour optimiser la disponibilité et la résilience aux pannes dues à des pannes de centre de données ou à des événements de maintenance planifiés ou non. Les machines virtuelles d’un groupe identique peuvent également être déployées dans une seule zone de disponibilité, ou dans une région. Les options de déploiement de la zone de disponibilité peuvent varier en fonction du mode d’orchestration.
-
-### <a name="preview-orchestration-mode-preview"></a>Aperçu : Mode d’orchestration en préversion
-Les groupes de machines virtuelles identiques vous permettent de spécifier le mode d’orchestration.  Avec le mode d’orchestration du groupe de machines virtuelles identiques (préversion), vous pouvez maintenant choisir si le groupe identique doit orchestrer des machines virtuelles créées explicitement en dehors d’un modèle de configuration de groupe identique, ou des instances de machine virtuelle créées implicitement sur la base du modèle de configuration. Choisissez le mode d’orchestration pour que le modèle d’orchestration de machine virtuelle vous permette de regrouper des machines virtuelles définies explicitement dans une région ou dans une zone de disponibilité. Les machines virtuelles déployées dans une zone de disponibilité fournissent l’isolation zonale aux machines virtuelles qui sont liées à la limite de la zone de disponibilité et qui ne sont pas exposées à des défaillances qui peuvent se produire dans d’autres zones de disponibilité dans la région. 
-
-|   | “orchestrationMode” : « VM » (VirtualMachine)| “orchestrationMode” : “ScaleSetVM” (VirtualMachineScaleSetVM) |
-|----|----|----|
-| Modèle de configuration des machines virtuelles| Aucun. VirtualMachineProfile n’est pas défini dans le modèle de groupe identique. | Obligatoire. VirtualMachineProfile est renseigné dans le modèle de groupe identique. |
-| Ajout d’une nouvelle machine virtuelle à un groupe identique| Les machines virtuelles sont ajoutées explicitement au groupe identique lors de la création de la machine virtuelle. | Les machines virtuelles sont implicitement créées et ajoutées au groupe identique en fonction du modèle de configuration de machine virtuelle, du nombre d’instances et des règles de mise à l’échelle automatique. |
-| Zones de disponibilité| Prend en charge le déploiement régional ou les machines virtuelles dans une zone de disponibilité| Prend en charge le déploiement régional ou plusieurs zones de disponibilité ; peut définir la stratégie d’équilibrage de zone |
-| Domaines d’erreur| Peut définir le nombre de domaines d’erreur. 2 ou 3 en fonction du support régional, et 5 pour la zone de disponibilité. Le domaine d’erreur affecté à la machine virtuelle sera conservé tout au long du cycle de vie de la machine virtuelle, notamment lors de la désallocation et du redémarrage. | Vous pouvez définir 1, 2 ou 3 domaines d’erreur pour les déploiements non zonaux, et 5 pour les déploiements de zone de disponibilité. Le domaine d’erreur affecté à la machine virtuelle n’est pas persistant tout au long du cycle de vie ; le domaine d’erreur est affecté aux machines virtuelles au moment de l’allocation. |
-| Domaines de mise à jour| N/A. Les domaines de mise à jour sont automatiquement mappés aux domaines d’erreur| N/A. Les domaines de mise à jour sont automatiquement mappés aux domaines d’erreur |
 
 **Domaines d’erreur et domaines de mise à jour**
 

@@ -105,12 +105,8 @@
       items:
         - name: Ajouter une application cloud
           items:
-            - name: Ajouter une application galerie
-              href: add-gallery-app.md
             - name: Ajouter une application non-galerie
               href: add-non-gallery-app.md
-            - name: Changer le nom ou le logo d’une application
-              href: change-name-or-logo-portal.md
         - name: Configurer l’authentification unique
           items:
             - name: Configurer l’authentification unique SAML

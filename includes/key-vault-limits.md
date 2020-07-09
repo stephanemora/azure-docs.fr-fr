@@ -1,27 +1,27 @@
 ---
 author: rothja
-ms.service: cost-management-billing
+ms.service: key-vault
 ms.topic: include
 ms.date: 04/21/2020
 ms.author: jroth
-ms.openlocfilehash: 8247b1cedc2c5ebc8577af6be485aed0fcd5d6af
-ms.sourcegitcommit: d57d2be09e67d7afed4b7565f9e3effdcc4a55bf
+ms.openlocfilehash: 01b3c9584f3ecddbcdcc6938f5eb469510a47a4e
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/22/2020
-ms.locfileid: "81768754"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85838765"
 ---
 ### <a name="key-transactions-maximum-transactions-allowed-in-10-seconds-per-vault-per-regionsup1sup"></a>Transactions de clé (nombre maximal de transactions autorisées dans les 10 secondes, par coffre et par région<sup>1</sup>) :
 
 |Type de clé|Clé HSM<br>Clé CREATE|Clé HSM<br>Toutes les autres transactions|Clé logicielle<br>Clé CREATE|Clé logicielle<br>Toutes les autres transactions|
 |:---|---:|---:|---:|---:|
-|RSA 2 048 bits|5|1 000|10|2 000|
+|RSA 2 048 bits|5|1 000|10|2 000|
 |RSA 3 072 bits|5|250|10|500|
 |RSA 4 096 bits|5|125|10|250|
-|ECC P-256|5|1 000|10|2 000|
-|ECC P-384|5|1 000|10|2 000|
-|ECC P-521|5|1 000|10|2 000|
-|ECC SECP256K1|5|1 000|10|2 000|
+|ECC P-256|5|1 000|10|2 000|
+|ECC P-384|5|1 000|10|2 000|
+|ECC P-521|5|1 000|10|2 000|
+|ECC SECP256K1|5|1 000|10|2 000|
 
 > [!NOTE]
 > Dans la table ci-dessus, nous voyons que 2 000 transactions GET par tranche de 10 secondes sont autorisées pour des clés logicielles RSA 2 048 bits. Pour les clés HSM 2 048 bits RSA, 1 000 transactions GET par tranche de 10 secondes sont autorisées.
@@ -46,7 +46,10 @@ Pour en savoir plus sur la façon de gérer la limitation en cas de dépassement
 
 ### <a name="azure-private-link-integration"></a>Intégration d’Azure Private Link
 
+> [!NOTE]
+> Le nombre de coffres de clés avec des points de terminaison privés activés par abonnement est une limite modifiable. La limite indiquée ci-dessous est la limite par défaut. Si vous souhaitez demander une augmentation de la limite pour votre service, veuillez envoyer un e-mail à akv-privatelink@microsoft.com. Nous approuverons ces demandes au cas par cas.
+
 | Ressource | Limite |
 | -------- | ----- |
 | Points de terminaison privés par coffre de clés | 64 |
-| Coffres de clés avec points de terminaison privés par abonnement | 64 |
+| Coffres de clés avec points de terminaison privés par abonnement | 400 |
