@@ -222,12 +222,6 @@
         - name: Utiliser le contrôle d’intégrité dans le Gestionnaire de déploiement
           displayName: adm
           href: deployment-manager-tutorial-health-check.md
-- name: Exemples
-  items:
-    - name: "Modèles de démarrage rapide Microsoft\_Azure"
-      href: 'https://azure.microsoft.com/resources/templates/'
-    - name: Exemples de modèles
-      href: template-samples.md
 - name: Concepts
   items:
     - name: Bonnes pratiques pour les modèles
@@ -299,16 +293,6 @@
             - name: Sorties
               displayName: 'iteration,copy'
               href: copy-outputs.md
-    - name: Utiliser des outils de création
-      items:
-        - name: VS Code
-          href: use-vs-code-to-create-template.md
-        - name: Visual Studio
-          href: create-visual-studio-deployment-project.md
-        - name: Mettre à jour le script de déploiement VS avec le module Az
-          href: update-visual-studio-deployment-script.md
-        - name: IntelliJ IDEA
-          href: create-templates-use-intellij.md
     - name: Découvrir les propriétés de modèle
       items:
         - name: Exporter un modèle
@@ -344,6 +328,8 @@
           href: rollback-on-error.md
         - name: Sécuriser un modèle avec un jeton SAS
           href: secure-template-with-sas-token.md
+        - name: Voir l’historique des déploiements
+          href: deployment-history.md
     - name: Déploiements délimités
       items:
         - name: Abonnement
@@ -367,8 +353,14 @@
           href: add-template-to-azure-pipelines.md
         - name: Déployer – GitHub Actions
           href: deploy-github-actions.md
-    - name: Voir l’historique des déploiements
-      href: deployment-history.md
+    - name: Utiliser des outils de création
+      items:
+        - name: Visual Studio
+          href: create-visual-studio-deployment-project.md
+        - name: Mettre à jour le script de déploiement VS avec le module Az
+          href: update-visual-studio-deployment-script.md
+        - name: IntelliJ IDEA
+          href: create-templates-use-intellij.md
     - name: Résoudre les problèmes de déploiement
       items:
         - name: Résoudre les erreurs de déploiement
@@ -441,6 +433,8 @@
       href: /python/api/overview/azure/resources?view=azure-python
 - name: Ressources
   items:
+    - name: "Modèles de démarrage rapide Microsoft\_Azure"
+      href: 'https://azure.microsoft.com/resources/templates/'
     - name: Feuille de route Azure
       href: 'https://azure.microsoft.com/roadmap/?category=monitoring-management'
     - name: Calculatrice de prix
