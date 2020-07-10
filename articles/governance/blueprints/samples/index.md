@@ -3,11 +3,12 @@ title: Index des exemples de blueprint
 description: Index d’exemples de conformité et standard pour le déploiement d’environnements, de stratégies et de bases du Framework d’adoption du cloud avec Azure Blueprints.
 ms.date: 07/01/2020
 ms.topic: sample
-ms.openlocfilehash: 7e45cbbbf7cf6c2e267156dbb0087a19d8288aa2
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: ef85ef0615fa0817a574240e65b7670daeaff33b
+ms.sourcegitcommit: ec682dcc0a67eabe4bfe242fce4a7019f0a8c405
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/01/2020
-ms.locfileid: "85832319"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86181554"
 ---
 # <a name="azure-blueprints-samples"></a>Exemples Azure Blueprints
 
@@ -15,7 +16,7 @@ Le tableau suivant inclut des liens vers des exemples pour Azure Blueprints. Cha
 
 ## <a name="standards-based-blueprint-samples"></a>Exemples de blueprints basés sur des normes
 
-|  |  |
+| Exemple | Description |
 |---------|---------|
 | [Australian Government ISM PROTECTED](./ism-protected/control-mapping.md) | Fournit des garde-fous pour la conformité à la norme Australian Government ISM PROTECTED. |
 | [Benchmark de sécurité Azure](./azure-security-benchmark.md) | Propose des garde-fous pour la conformité au [benchmark de sécurité Azure](../../../security/benchmarks/overview.md). |
