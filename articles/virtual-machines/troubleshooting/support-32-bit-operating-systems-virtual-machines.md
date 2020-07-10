@@ -13,16 +13,16 @@ ms.tgt_pltfrm: vm-windows
 ms.topic: troubleshooting
 ms.date: 09/18/2019
 ms.author: v-miegge
-ms.openlocfilehash: e5c8bc2fe64d489c9e8490a63f4d7c4680f21ce0
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: b4e08cba2b49f43baea16b01ec709d8d9ab6a18d
+ms.sourcegitcommit: 9b5c20fb5e904684dc6dd9059d62429b52cb39bc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "71846393"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85856956"
 ---
 # <a name="support-for-32-bit-operating-systems-in-azure-virtual-machines"></a>Prise en charge pour les systèmes d’exploitation 32 bits sur des machines virtuelles Azure
 
-Désormais, Microsoft Azure permet aux utilisateurs de déployer leurs propres systèmes d’exploitation Windows 32 bits sur Azure. Le contrat de support est arrivé à expiration pour certains de ces systèmes d’exploitation. Aussi, il se peut que Microsoft n’offre plus de support pour ces systèmes. De même, aucun support n’est proposé pour les systèmes d’exploitation Linux ou BSD (Berkeley Software Distribution) exécutés sur une machine virtuelle Microsoft Azure.
+Désormais, Microsoft Azure permet aux utilisateurs de déployer leurs propres systèmes d’exploitation Windows 32 bits sur Azure. Seuls les disques durs virtuels spécialisés sont pris en charge ; les images généralisées ne fonctionnent pas dans Azure. Le contrat de support est arrivé à expiration pour certains de ces systèmes d’exploitation. Aussi, il se peut que Microsoft n’offre plus de support pour ces systèmes. De même, aucun support n’est proposé pour les systèmes d’exploitation Linux ou BSD (Berkeley Software Distribution) exécutés sur une machine virtuelle Microsoft Azure.
 
 ## <a name="more-information"></a>Informations complémentaires
 

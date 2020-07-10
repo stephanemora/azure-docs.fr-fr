@@ -5,13 +5,13 @@ ms.subservice: logs
 ms.topic: conceptual
 author: mgoedtel
 ms.author: magoedte
-ms.date: 07/22/2019
-ms.openlocfilehash: 171f897f6e110e8f759281c139addab477ecede3
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.date: 07/06/2020
+ms.openlocfilehash: fe8d2a2c083072ebc717b7476bb0738bb83301f1
+ms.sourcegitcommit: 93462ccb4dd178ec81115f50455fbad2fa1d79ce
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "77664692"
+ms.lasthandoff: 07/06/2020
+ms.locfileid: "85984622"
 ---
 # <a name="container-monitoring-solution-in-azure-monitor"></a>Solution Container Monitoring dans Azure Monitor
 
@@ -618,7 +618,6 @@ Lorsque vous résolvez une erreur spécifique, il peut être utile de voir l’e
 - **KubeEvents_CL** Ce type permet d’afficher les événements Kubernetes.
 - **KubePodInventory_CL** Utilisez ce type lorsque vous voulez comprendre les informations de hiérarchie du cluster.
 
-
 ### <a name="to-query-logs-for-container-data"></a>Pour interroger des journaux afin de rechercher des données de conteneur
 
 * Choisissez une image qui a échoué récemment et recherchez-la dans les journaux d’activité des erreurs. Commencez par rechercher un nom de conteneur exécutant cette image avec une recherche **ContainerInventory**. Par exemple, recherchez `ContainerInventory | where Image == "ubuntu" and ContainerState == "Failed"`  
@@ -628,7 +627,7 @@ Lorsque vous résolvez une erreur spécifique, il peut être utile de voir l’e
 
 ## <a name="example-log-queries"></a>Exemples de requêtes de journal
 
-Il est souvent utile de créer des requêtes en commençant par un exemple ou deux, puis en les modifiant afin de les adapter à votre environnement. Comme point de départ, vous pouvez utiliser la zone **Exemples de requêtes** pour vous aider à créer des requêtes plus avancées.
+Il est souvent utile de créer des requêtes en commençant par un exemple ou deux, puis en les modifiant afin de les adapter à votre environnement. Pour commencer, vous pouvez utiliser la zone **EXEMPLES DE REQUÊTES** tout à droite de la page de la solution pour créer des requêtes plus avancées.
 
 ![Requêtes de conteneurs](./media/containers/containers-queries.png)
 

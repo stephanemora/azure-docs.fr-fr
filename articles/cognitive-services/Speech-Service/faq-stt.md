@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 12/4/2019
 ms.author: panosper
-ms.openlocfilehash: a279aebdd19ebd3a41ddad0c1c279937e00838c2
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 2c84b291aad5ec2da2946e40075b23cc4496ef65
+ms.sourcegitcommit: dee7b84104741ddf74b660c3c0a291adf11ed349
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "77168459"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85921027"
 ---
 # <a name="speech-to-text-frequently-asked-questions"></a>Forum aux questions sur la reconnaissance vocale
 
@@ -71,7 +71,7 @@ Si vous avez adapté et déployé un modèle de référence V1.0, ce déploiemen
 
 **Q : Mes requêtes sont-elles journalisées ?**
 
-**R** : Lorsque vous créez un déploiement, vous avez le choix de désactiver le traçage. Dans ce cas, les contenus audio et transcriptions ne sont pas journalisés. Autrement, les demandes sont généralement journalisées dans un stockage sécurisé dans Azure.
+**R** : Par défaut, les demandes ne sont pas journalisées (ni audio, ni transcription). Si nécessaire, vous pouvez sélectionner *Journaliser le contenu à partir de ce point de terminaison* lorsque vous [créez un point de terminaison personnalisé](how-to-custom-speech-deploy-model.md) pour activer le suivi. Les demandes seront alors consignées dans Azure, dans un stockage sécurisé.
 
 **Q : Mes requêtes sont-elles limitées ?**
 
@@ -118,6 +118,13 @@ or
   - parmi les services affichés, sélectionnez le service vocal pour lequel vous souhaitez augmenter la concurrence,
   - Affichez les `Properties` de ce service.
   - copiez le `Resource ID` complet.
+  
+**Q : Le coût sera-t-il supérieur si j’augmente ma limite de concurrence ?**
+
+**R** : Non, le coût dépend de l’utilisation. L’augmentation de la concurrence n’entraîne pas de coûts plus élevés. Pour plus d’informations sur les coûts, consultez notre [page des tarifs](https://azure.microsoft.com/pricing/details/cognitive-services/speech-services/). 
+  
+>[!NOTE]
+>Les [conteneurs](https://docs.microsoft.com/azure/cognitive-services/speech-service/speech-container-howto) n’impliquent pas d’augmentation des limites de concurrence, car ils ne sont limités que par les processeurs du matériel sur lequel ils sont hébergés.
 
 ## <a name="importing-data"></a>Importation de données
 

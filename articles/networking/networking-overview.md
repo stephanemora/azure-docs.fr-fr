@@ -10,20 +10,20 @@ ms.topic: article
 ms.workload: infrastructure-services
 ms.date: 03/12/2020
 ms.author: kumud
-ms.openlocfilehash: 42d3360b7defaab2ff0a62dc125a213860b13a6a
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 097d2b4dffd1dda02d8e342a11b3a907bad4e90a
+ms.sourcegitcommit: cec9676ec235ff798d2a5cad6ee45f98a421837b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82133614"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85851645"
 ---
 # <a name="azure-networking-services-overview"></a>Vue d’ensemble des services de mise en réseau Azure
 
 Les services de mise en réseau dans Azure fournissent un éventail de fonctionnalités de mise en réseau qui peuvent être utilisées ensemble ou séparément. Cliquez sur une des fonctionnalités principales suivantes pour en savoir plus à leur sujet :
 - [**Services de connectivité**](#connect) : Connectez les ressources Azure et les ressources locales à l’aide d’un de ces services de mise en réseau dans Azure – réseau virtuel (VNet), Virtual WAN, ExpressRoute, passerelle VPN, passerelle NAT de réseau virtuel, Azure DNS, Peering Service et Azure Bastion – ou d’une combinaison de ces derniers.
-- [**Les services de protection des applications**](#protect) protègent vos applications à l’aide d’un de ces services de mise en réseau dans Azure – Private Link, protection DDoS, pare-feu, groupes de sécurité réseau, pare-feu d’applications Web et points de terminaison de réseaux virtuels – ou d’une combinaison de ces derniers.
-- [**Les services de distribution d’applications**](#deliver) fournissent des applications dans le réseau Azure à l’aide d’un de ces services de mise en réseau dans Azure – Content Delivery Network (CDN), Azure Front Door Service, Traffic Manager, Application Gateway, Internet Analyzer et Load Balancer – ou d’une combinaison de ces derniers.
-- [**Surveillance du réseau**](#monitor) : surveillez vos ressources réseau à l’aide d’un de ces services de mise en réseau – Azure-Network Watcher, ExpressRoute Monitor, Azure Monitor ou VNet Terminal Access Point (TAP) – ou d’une combinaison de ces derniers.
+- [**Services de protection des applications**](#protect) : Protégez vos applications à l’aide d’un ou plusieurs de ces services de mise en réseau dans Azure – Private Link, protection DDoS, pare-feu, groupes de sécurité réseau, pare-feu d’applications Web et points de terminaison de réseau virtuel.
+- [**Services de distribution d’applications**](#deliver) : Fournissez des applications dans le réseau Azure à l’aide d’un ou plusieurs de ces services de mise en réseau dans Azure – Content Delivery Network (CDN), Azure Front Door Service, Traffic Manager, Application Gateway, Internet Analyzer et Load Balancer.
+- [**Surveillance du réseau**](#monitor) : Surveillez vos ressources réseau à l’aide d’un ou plusieurs de ces services de mise en réseau dans Azure – Network Watcher, ExpressRoute Monitor, Azure Monitor ou point d’accès terminal de réseau virtuel (TAP).
 
 ## <a name="connectivity-services"></a><a name="connect"></a>Services de connectivité
  
@@ -137,14 +137,14 @@ Le trafic entre votre réseau virtuel et le service transite par le réseau prin
 
 ## <a name="application-delivery-services"></a><a name="deliver"></a>Services de livraison d’applications
 
-Cette section décrit les services de mise en réseau dans Azure qui permettent de distribuer des applications : Network Watcher, ExpressRoute Monitor, Azure Monitor ou un TAP de réseau virtuel.
+Cette section décrit les services de mise en réseau dans Azure qui permettent de fournir des applications : Content Delivery Network, Azure Front Door Service, Traffic Manager, Load Balancer et Application Gateway.
 
 |Service|Pourquoi l'utiliser ?|Scénario|
 |---|---|---|
 |[Content Delivery Network](#cdn)|Fournit du contenu à bande passante élevée aux utilisateurs. Les CDN stockent le contenu en cache sur des serveurs Edge dans un point de présente (POP) proches des utilisateurs finaux afin de réduire la latence.|<p>[Ajouter CDN à une application web](../cdn/cdn-add-to-web-app.md)</p> <p>[- Accéder aux objets blob de stockage à l’aide d’un domaine personnalisé Azure CDN via HTTPS](..//cdn/cdn-storage-custom-domain-https.md)</p> <p>[Ajouter un domaine personnalisé à votre point de terminaison Azure CDN](../cdn/cdn-map-content-to-custom-domain.md)</p> <p>[Configurer HTTPS sur un domaine personnalisé Azure CDN](../cdn/cdn-custom-ssl.md?tabs=option-1-default-enable-https-with-a-cdn-managed-certificate)</p>|
 |[Azure Front Door Service](#frontdoor)|Vous permet de définir, de gérer et de superviser le routage global de votre trafic web en privilégiant l’optimisation des performances et le basculement instantané global à des fins de haute disponibilité.|<p>[Ajouter un domaine personnalisé à votre Azure Front Door Service](../frontdoor/front-door-custom-domain.md)</p> <p>[Configurer HTTPS sur un domaine personnalisé Front Door](../frontdoor/front-door-custom-domain-https.md)</p><p>[Configurer la stratégie de géofiltrage du pare-feu d'applications web](../frontdoor/front-door-tutorial-geo-filtering.md)|
 |[Traffic Manager](#trafficmanager)|Distribue le trafic basé sur DNS aux services dans les régions Azure du monde entier, tout en offrant une disponibilité et une adaptabilité élevées|<p> [Acheminer le trafic pour une latence faible](../traffic-manager/tutorial-traffic-manager-improve-website-response.md)</p><p>[Acheminer le trafic vers un point de terminaison prioritaire](../traffic-manager/traffic-manager-configure-priority-routing-method.md)</p><p> [Contrôler le trafic avec des points de terminaison pondérés](../traffic-manager/tutorial-traffic-manager-weighted-endpoint-routing.md)</p><p>[Acheminer le trafic en fonction de l’emplacement géographique du point de terminaison](../traffic-manager/traffic-manager-configure-geographic-routing-method.md)</p> <p> [Acheminer le trafic en fonction du sous-réseau de l’utilisateur](../traffic-manager/tutorial-traffic-manager-subnet-routing.md)</p>|
-|[Équilibreur de charge](#loadbalancer)|Fournit un équilibrage de la charge régional en acheminant le trafic entre les zones de disponibilité et dans vos réseaux virtuels. Fournit un équilibrage de la charge interne en acheminant le trafic entre vos ressources pour créer votre application régionale.|<p> [Équilibrer la charge de trafic internet vers des machines virtuelles](../load-balancer/tutorial-load-balancer-standard-manage-portal.md)</p> <p>[Équilibrer la charge du trafic entre les machines virtuelles à l’intérieur d’un réseau virtuel](../load-balancer/tutorial-load-balancer-basic-internal-portal.md)<p>[Déplacer le trafic vers un port spécifique sur des machines virtuelles spécifiques](../load-balancer/tutorial-load-balancer-port-forwarding-portal.md)</p><p> [Configurer des règles d’équilibrage de charge et des règles de trafic sortant](../load-balancer/configure-load-balancer-outbound-cli.md)</p>|
+|[Équilibreur de charge](#loadbalancer)|Fournit un équilibrage de la charge régional en acheminant le trafic entre les zones de disponibilité et dans vos réseaux virtuels. Fournit un équilibrage de la charge interne en acheminant le trafic entre vos ressources pour créer votre application régionale.|<p> [Équilibrer la charge de trafic internet vers des machines virtuelles](../load-balancer/tutorial-load-balancer-standard-manage-portal.md)</p> <p>[Équilibrer la charge du trafic entre les machines virtuelles à l’intérieur d’un réseau virtuel](../load-balancer/tutorial-load-balancer-standard-internal-portal.md)<p>[Déplacer le trafic vers un port spécifique sur des machines virtuelles spécifiques](../load-balancer/tutorial-load-balancer-port-forwarding-portal.md)</p><p> [Configurer des règles d’équilibrage de charge et des règles de trafic sortant](../load-balancer/configure-load-balancer-outbound-cli.md)</p>|
 |[Application Gateway](#applicationgateway)|Azure Application Gateway est un équilibreur de charge du trafic web qui vous permet de gérer le trafic vers vos applications web.|<p>[Diriger le trafic web avec Azure Application Gateway](../application-gateway/quick-create-portal.md)</p><p>[Tutoriel : Configurer une passerelle d’application avec un arrêt TLS à l’aide du portail Azure](../application-gateway/create-ssl-portal.md)</p><p>[Créer une passerelle d’application avec réacheminement par chemin d’URL](../application-gateway/create-url-route-portal.md) </p>|
 |
 

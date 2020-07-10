@@ -4,19 +4,19 @@ description: Découvrez comment configurer des stratégies d’accès conditionn
 services: active-directory
 ms.service: active-directory
 ms.subservice: conditional-access
-ms.topic: article
-ms.date: 11/22/2019
+ms.topic: how-to
+ms.date: 06/08/2020
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: jairoc
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 8a3c71534febc3cdb6429d3092225ebc73f6cbe7
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: cf3fd50b907e69311c475af844c7969f081a3094
+ms.sourcegitcommit: cec9676ec235ff798d2a5cad6ee45f98a421837b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79481481"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85849932"
 ---
 # <a name="how-to-require-managed-devices-for-cloud-app-access-with-conditional-access"></a>Procédure : Exiger des appareils gérés pour accéder aux applications cloud avec l’accès conditionnel
 
@@ -30,7 +30,7 @@ Le fait d’exiger des appareils gérés pour accéder aux applications cloud as
 
 - **[Accès conditionnel dans Azure Active Directory](../active-directory-conditional-access-azure-portal.md)** : cet article fournit une vue d’ensemble conceptuelle de l’accès conditionnel et explique la terminologie associée.
 - **[Présentation de la gestion des appareils dans Azure Active Directory](../devices/overview.md)** : cet article vous donne une vue d’ensemble des différentes options dont vous disposez pour faire passer les appareils sous le contrôle de l’organisation. 
-- Dans **Windows 10 Creators Update (version 1703)** ou version ultérieure, la prise en charge de Chrome nécessite l’installation de l’[extension Comptes Windows 10](https://chrome.google.com/webstore/detail/windows-10-accounts/ppnbnpeolgkicgegkbkbjmhlideopiji). Cette extension est requise lorsqu’une stratégie d’accès conditionnel requiert des détails spécifiques sur l’appareil.
+- Dans **Windows 10 Creators Update (version 1703)** ou version ultérieure, la prise en charge de Chrome nécessite l’installation de l’[extension Comptes Windows 10](https://chrome.google.com/webstore/detail/windows-10-accounts/ppnbnpeolgkicgegkbkbjmhlideopiji). Cette extension est nécessaire lorsqu’une stratégie d’accès conditionnel exige des informations concernant l’appareil.
 
 >[!NOTE] 
 > Nous vous recommandons d’utiliser une stratégie d’accès conditionnel en fonction de l’appareil d’Azure AD pour obtenir la meilleure mise en œuvre après l’authentification initiale de l’appareil. Cela comprend la fermeture de sessions si l’appareil devient non conforme et sort du flux de code d’appareil.
@@ -96,7 +96,31 @@ Pour un appareil marqué comme conforme, vous pouvez partir du principe que :
 - Les informations de votre entreprise sont protégées grâce au contrôle de la manière dont votre personnel y accède et les partage.
 - L’appareil et ses applications sont conformes aux exigences de sécurité de l’entreprise.
 
+### <a name="scenario-require-device-enrollment-for-ios-and-android-devices"></a>Scénario : Exiger l’inscription des appareils iOS et Android
+
+Dans ce scénario, Contoso a décidé que tout accès mobile aux ressources Office 365 doit passer par un appareil inscrit. Tous les utilisateurs de Contoso se connectent déjà à l’aide d’informations d’identification Azure AD et disposent des licences qui leur sont attribuées, notamment Azure AD Premium P1 ou P2 et Microsoft Intune.
+
+Les organisations doivent suivre les étapes ci-dessous pour exiger l’utilisation d’un appareil mobile inscrit.
+
+1. Connectez-vous au **portail Microsoft Azure** en tant qu’administrateur général, administrateur de sécurité ou administrateur de l’accès conditionnel.
+1. Accédez à **Azure Active Directory** > **Sécurité** > **Accès conditionnel.**
+1. Sélectionnez **Nouvelle stratégie**.
+1. Donnez un nom à votre stratégie. Nous recommandons aux organisations de créer une norme explicite pour les noms de leurs stratégies.
+1. Sous **Affectations**, sélectionnez **Utilisateurs et groupes**
+   1. Sous **Inclure**, sélectionnez **Tous les utilisateurs** ou les **Utilisateurs et groupes** particuliers auxquels vous souhaitez appliquer cette stratégie. 
+   1. Sélectionnez **Terminé**.
+1. Sous **Applications cloud ou actions** > **Inclure**, sélectionnez **Office 365 (préversion)** .
+1. Sous **Conditions**, sélectionnez **Plateformes d’appareils**.
+   1. Définissez **Configurer** sur **Oui**.
+   1. Incluez **Android** et **iOS**.
+1. Sous **Contrôles d’accès** > **Octroyer**, sélectionnez les options suivantes :
+   - **Exiger que l’appareil soit marqué comme conforme**
+1. Confirmez vos paramètres et réglez **Activer la stratégie** sur **Activé**.
+1. Sélectionnez **Créer** pour créer et activer votre stratégie.
+
 ### <a name="known-behavior"></a>Comportement connu
+
+Lorsque le [flux OAuth de code d’appareil](../develop/v2-oauth2-device-code.md) est utilisé, ni le contrôle Exiger une autorisation d’appareil géré ni la condition d’état d’appareil ne sont pris en charge. En effet, l’appareil qui effectue l’authentification ne peut pas fournir son état à celui qui fournit un code, et l’état de l’appareil dans le jeton est verrouillé sur celui qui effectue l’authentification. Utilisez plutôt le contrôle Exiger l’autorisation d’authentification multifacteur.
 
 Sur des systèmes Windows 7, iOS, Android, macOS, et dans certains navigateurs web tiers, Azure AD identifie l’appareil à l’aide d’un certificat client, qui est provisionné lorsque l’appareil est inscrit auprès d’Azure AD. Lorsqu’un utilisateur se connecte pour la première fois via le navigateur, l’utilisateur est invité à sélectionner le certificat. L’utilisateur final doit sélectionner ce certificat pour pouvoir continuer à utiliser le navigateur.
 

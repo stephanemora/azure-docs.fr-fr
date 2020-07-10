@@ -5,23 +5,23 @@ author: ajlam
 ms.author: andrela
 ms.service: mariadb
 ms.topic: conceptual
-ms.date: 3/18/2020
-ms.openlocfilehash: f00d93a639bacd1d0862fed7b6b003302bb2920e
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.date: 6/9/2020
+ms.openlocfilehash: 7ded54e0116e6c6e58c0ca8019942dfaaaa88480
+ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82097657"
+ms.lasthandoff: 07/05/2020
+ms.locfileid: "85954192"
 ---
 # <a name="azure-database-for-mariadb-pricing-tiers"></a>Niveaux tarifaires pour Azure Database for MariaDB
 
 Vous pouvez créer un serveur Azure Database for MariaDB dans un des trois différents niveaux tarifaires : De base, Usage général et À mémoire optimisée. Les niveaux tarifaires diffèrent par la quantité de calcul dans vCores qui peut être configurée, la mémoire par vCore et la technologie de stockage utilisée pour stocker les données. Toutes les ressources sont provisionnées au niveau du serveur MariaDB. Un serveur peut avoir une ou plusieurs bases de données.
 
-|    | **De base** | **Usage général** | **Mémoire optimisée** |
+| Ressource | **De base** | **Usage général** | **Mémoire optimisée** |
 |:---|:----------|:--------------------|:---------------------|
 | Génération de calcul | Gen 5 |Gen 5 | Gen 5 |
 | vCores | 1, 2 | 2, 4, 8, 16, 32, 64 |2, 4, 8, 16, 32 |
-| Mémoire par vCore | 2 Go | 5 Go | 10 Go |
+| Mémoire par vCore | 2 Go | 5 Go | 10 Go |
 | Taille de stockage | 5 Go à 1 To | 5 Go à 4 To | 5 Go à 4 To |
 | Période de rétention de sauvegarde de bases de données | 7 à 35 jours | 7 à 35 jours | 7 à 35 jours |
 
@@ -43,7 +43,7 @@ Les ressources de calcul sont fournies en tant que vCores, représentant le proc
 
 Le stockage que vous provisionnez est la quantité de stockage disponible pour votre serveur Azure Database for MariaDB. Le stockage est utilisé pour les fichiers de base de données, les fichiers temporaires, les journaux d’activité des transactions et les journaux d’activité des serveurs MariaDB. La quantité totale de stockage que vous approvisionnez définit également la capacité d’E/S disponible sur votre serveur.
 
-|    | **De base** | **Usage général** | **Mémoire optimisée** |
+| Attributs de stockage   | De base | Usage général | Mémoire optimisée |
 |:---|:----------|:--------------------|:---------------------|
 | Type de stockage | Stockage de base | Stockage à usage général | Stockage à usage général |
 | Taille de stockage | 5 Go à 1 To | 5 Go à 4 To | 5 Go à 4 To |
@@ -58,6 +58,20 @@ Vous pouvez ajouter de la capacité de stockage supplémentaire pendant et aprè
 Le niveau De base n’offre pas de garantie d’E/S par seconde. Dans les niveaux tarifaires Usage général et À mémoire optimisée, les IOPS augmentent avec la taille de stockage approvisionnée selon un ratio de 3:1.
 
 Vous pouvez surveiller votre consommation d’E/S dans le Portail Azure ou à l’aide des commandes Azure CLI. Les métriques pertinentes à surveiller sont [la limite de stockage, le pourcentage de stockage, le stockage utilisé et le pourcentage d’E/S](concepts-monitoring.md).
+
+### <a name="large-storage-preview"></a>Stockage volumineux (préversion)
+
+Nous avons augmenté les limites de stockage dans nos niveaux de service Usage général et Mémoire optimisée. Les serveurs nouvellement créés qui ont opté pour la préversion peuvent configurer jusqu’à 16 To de stockage. Les IOPS évoluent à un taux de 3:1 jusqu’à 20 000. Comme pour le stockage à disponibilité générale actuel, vous pouvez ajouter de la capacité de stockage supplémentaire après la création du serveur et autoriser le système à faire évoluer le stockage automatiquement en fonction de la consommation de votre charge de travail.
+
+| Attributs de stockage | Usage général | Mémoire optimisée |
+|:-------------|:--------------------|:---------------------|
+| Type de stockage | Stockage Premium Azure | Stockage Premium Azure |
+| Taille de stockage | 32 Go à 16 To| 32 à 16 To |
+| Taille d’incrément de stockage | 1 Go | 1 Go |
+| E/S par seconde | 3 E/S par seconde/Go<br/>Min 100 E/S par seconde<br/>Max 20 000 IOPS| 3 E/S par seconde/Go<br/>Min 100 E/S par seconde<br/>Max 20 000 IOPS |
+
+> [!IMPORTANT]
+> Le stockage volumineux est actuellement en préversion publique dans les régions suivantes : USA Est, USA Est 2, USA Centre, USA Ouest, USA Centre Nord, USA Centre Sud, Europe Nord, Europe Ouest, Royaume-Uni Sud, Royaume-Uni Ouest, Asie Sud-Est, Asie Est, Japon Est, Japon Ouest, Corée Centre, Corée Sud, Australie Est, Australie Sud-Est, USA Ouest 2 et USA Centre-Ouest.
 
 ### <a name="reaching-the-storage-limit"></a>Atteindre la limite de stockage
 
@@ -77,7 +91,7 @@ Par exemple, si vous avez approvisionné 1000 Go de stockage et que l’utilisa
 
 N’oubliez pas que le stockage peut seulement monter en puissance.
 
-## <a name="backup"></a>Backup
+## <a name="backup"></a>Sauvegarde
 
 Le service effectue automatiquement des sauvegardes de votre serveur. Vous pouvez sélectionner une période de conservation comprise entre 7 et 35 jours. Les serveurs à usage général et à mémoire optimisée peuvent disposer d’un stockage géoredondant pour les sauvegardes. En savoir plus sur les sauvegardes dans l’[article sur les concepts](concepts-backup.md).
 

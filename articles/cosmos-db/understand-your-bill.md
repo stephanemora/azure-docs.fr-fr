@@ -7,23 +7,23 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 08/01/2019
 ms.reviewer: sngun
-ms.openlocfilehash: 9384b974463c963cc130e7ca0d4a9ee815a92e53
-ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
+ms.openlocfilehash: 596296069686e843d0be1899cce8929417b70bcc
+ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83647721"
+ms.lasthandoff: 07/05/2020
+ms.locfileid: "85964581"
 ---
 # <a name="understand-your-azure-cosmos-db-bill"></a>Compréhension de vos factures Azure Cosmos DB
 
 Azure Cosmos DB est un service de base de données cloud natif entièrement géré qui simplifie la facturation en facturant uniquement le débit approvisionné et le stockage consommé. Il ne comporte aucuns frais de licence supplémentaires, ni coûts matériels, frais de fonctionnement ou frais d’équipement, contrairement aux autres solutions IaaS ou hébergées en local. Grâce aux fonctionnalités multi-région d’Azure Cosmos DB, le service de base de données réduit considérablement les coûts par rapport aux solutions IaaS ou locales existantes.
 
-Avec Azure Cosmos DB, vous êtes facturé à l’heure en fonction du débit fourni et du stockage consommé. Le débit fourni est facturé sur une base de 100 RU/s par heure, à un tarif de 0,008 $ de l’heure, en supposant une tarification publique standard. Voir la [page de tarification](https://azure.microsoft.com/pricing/details/cosmos-db/). Pour le stockage utilisé, vous êtes facturé à raison de 0,25 $ pour 1 Go de stockage par mois. Voir la [page de tarification](https://azure.microsoft.com/pricing/details/cosmos-db/). 
+Avec Azure Cosmos DB, vous êtes facturé à l’heure en fonction du débit fourni et du stockage consommé. Le débit provisionné est facturé sur une base de 100 RU/s par heure. Pour connaître les dernières informations tarifaires, consultez la [page Tarifs](https://azure.microsoft.com/pricing/details/cosmos-db/). Le stockage consommé est facturé sur une base de 1 Go par mois. Pour connaître les dernières informations tarifaires, consultez la [page Tarifs](https://azure.microsoft.com/pricing/details/cosmos-db/).
 
-Cet article s’appuie sur des exemples pour vous aider à comprendre les détails figurant sur la facture mensuelle. Les chiffres indiqués dans les exemples peuvent être différents si vos conteneurs Azure Cosmos fournissent une autre quantité de débit, s’ils s’étendent sur plusieurs régions ou s’ils sont exécutés sur une période supérieure à un mois.
+Cet article s’appuie sur des exemples pour vous aider à comprendre les détails figurant sur la facture mensuelle. Les chiffres indiqués dans les exemples peuvent être différents si vos conteneurs Azure Cosmos fournissent une autre quantité de débit, s’ils s’étendent sur plusieurs régions ou s’ils sont exécutés sur une période supérieure à un mois. Tous les exemples de cet article calculent la facturation en fonction des informations tarifaires indiquées sur la [page Tarifs](https://azure.microsoft.com/pricing/details/cosmos-db/).
 
 > [!NOTE]
-> La facturation concerne une partie d’une heure d’horloge, et non pas une durée de 60 minutes.
+> La facturation concerne une partie d’une heure d’horloge, et non pas une durée de 60 minutes. Tous les exemples présentés dans ce document se basent sur le prix d’un compte Azure Cosmos déployé dans une région non gouvernementale aux États-Unis. Le tarif et le calcul varient en fonction de la région. Pour connaître les dernières informations tarifaires, consultez la [page des tarifs Azure Cosmos DB](https://azure.microsoft.com/pricing/details/cosmos-db/).
 
 ## <a name="billing-examples"></a>Exemples de facturation
 
@@ -73,7 +73,7 @@ Si vous augmentez le débit provisionné pour un conteneur ou un ensemble de con
 
 * Au cours d’un mois comptant 720 heures (24 heures x 30 jours), si le débit provisionné pendant 500 heures est de 1 200 unités de requête/seconde et que pour les 220 heures restantes, le débit provisionné est de 22 200 unités de requête/seconde, votre facture mensuelle est la suivante : 500 x 0,096 $/heure + 220 x 1,776 $/heure = 438,72 /mois.
 
-![Exemple de facturation d’un débit dédié](./media/understand-your-bill/bill-example1.png)
+:::image type="content" source="./media/understand-your-bill/bill-example1.png" alt-text="Exemple de facturation d’un débit dédié":::
 
 ### <a name="billing-example-containers-with-shared-throughput-mode"></a>Exemple de facturation : conteneurs en mode de débit partagé
 
@@ -87,7 +87,7 @@ Si vous augmentez le débit provisionné pour un conteneur ou un ensemble de con
 
 * Au cours d’un mois comptant 720 heures, si le débit provisionné pendant 300 heures est de 120 000 unités de requête/seconde et que pour les 420 heures restantes, le débit provisionné est de 155 000 unités de requête/seconde, votre facture mensuelle est la suivante : 300 x 9,60 $/heure + 420 x 12,40 $/heure = 2 880 $ + 5 208 $ = 8 088 $ /mois. 
 
-![Exemple de facturation d’un débit partagé](./media/understand-your-bill/bill-example2.png)
+:::image type="content" source="./media/understand-your-bill/bill-example2.png" alt-text="Exemple de facturation d’un débit partagé":::
 
 ## <a name="billing-examples-with-geo-replication-and-multi-master"></a>Exemples de facturation avec géo-réplication et multimaître  
 
@@ -177,7 +177,7 @@ Prenons l’exemple suivant, où nous avons un compte Azure Cosmos sur plusieurs
 
 Les modifications apportées au débit total approvisionné pendant 720 heures pour le mois sont représentées visuellement dans la figure ci-dessous : 
 
-![Exemple concret](./media/understand-your-bill/bill-example3.png)
+:::image type="content" source="./media/understand-your-bill/bill-example3.png" alt-text="Exemple concret":::
 
 La facture totale mensuelle sera (en supposant une durée de 30 jours/720 heures par mois) sera calculée comme suit :
 
@@ -234,19 +234,18 @@ Cet exemple reflète le [tarif multimaître](https://azure.microsoft.com/pricing
 
 Prenons un autre exemple, dans lequel vous souhaitez anticiper le montant de votre facture avant la fin du mois. Vous pouvez estimer votre facture de la manière suivante :
 
-|**Coût de stockage** | |
-|----|----|
-|Taille moyenne d’enregistrement (Ko) |1 |
-|Nombre d'enregistrements  |100 000 000  |
-|Stockage total (Go)  |100 |
-|Coût mensuel par Go  |0,25 $  |
-|Coût mensuel de stockage attendu   |25,00 $  |
+**Coût de stockage**
 
-<br>
+* Taille moyenne d’enregistrement (en Ko) = 1 
+* Nombre d’enregistrements = 100 000 000 
+* Stockage total (en Go) = 100 
+* Coût mensuel par Go = 0,25 $ 
+* Coût mensuel de stockage attendu = 25,00 $ 
 
-|**Coût du débit** | | | |
+**Coût du débit**
+
+|Type d'opération| Requêtes/s| Avg. RU/requête| RU nécessaires|
 |----|----|----|----|
-|Type d’opération| Requêtes/s| Avg. RU/requête| RU nécessaires|
 |Write| 100 | 5 | 500|
 |Lire| 400| 1| 400|
 

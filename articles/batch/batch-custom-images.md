@@ -1,21 +1,23 @@
 ---
-title: Provisionner un pool personnalisé à partir d’une image managée
-description: Créez un pool Batch à partir d’une ressource d’image managée pour approvisionner les nœuds de calcul avec les logiciels et les données pour votre application.
+title: Création d’un pool d’images personnalisées à l’aide d’une image managée
+description: Créez un pool d’images personnalisées à partir d’une image managée pour provisionner les nœuds de calcul avec les logiciels et les données de votre application.
 ms.topic: conceptual
-ms.date: 05/22/2020
-ms.openlocfilehash: fbb336ff9d3d53cc53004c577e291afdba7702f6
-ms.sourcegitcommit: 1f25aa993c38b37472cf8a0359bc6f0bf97b6784
+ms.date: 07/01/2020
+ms.openlocfilehash: 45bf0f8b3cb335b7025ff06189bf6bc4e0a896ad
+ms.sourcegitcommit: cec9676ec235ff798d2a5cad6ee45f98a421837b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/26/2020
-ms.locfileid: "83847988"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85851290"
 ---
-# <a name="use-a-managed-image-to-create-a-pool-of-virtual-machines"></a>Utiliser une image managée pour créer un pool de machines virtuelles
+# <a name="use-a-managed-image-to-create-a-custom-image-pool"></a>Création d’un pool d’images personnalisées à l’aide d’une image managée
 
-Pour créer une image personnalisée destinée aux machines virtuelles de votre pool Batch, vous pouvez utiliser une image managée afin de créer une [Shared Image Gallery](batch-sig-images.md). L’utilisation d’une seule image gérée est également prise en charge, mais uniquement pour les versions d’API allant jusqu’à 2019-08-01.
+Pour créer un pool d’images personnalisées destiné aux machines virtuelles de votre pool Batch, vous pouvez utiliser une image managée de façon à élaborer une [image Shared Image Gallery](batch-sig-images.md). L’utilisation d’une seule image gérée est également prise en charge, mais uniquement pour les versions d’API allant jusqu’à 2019-08-01. 
 
 > [!IMPORTANT]
 > Dans la plupart des cas, vous devez créer des images personnalisées à l’aide de Shared Image Gallery. À l’aide de Shared Image Gallery, vous pouvez approvisionner des pools plus rapidement, mettre à l’échelle de grandes quantités de machines virtuelles et améliorer la fiabilité lors de la configuration des machines virtuelles. Pour en savoir plus, consultez [Utiliser Shared Image Gallery pour créer un pool personnalisé](batch-sig-images.md).
+
+Cette rubrique explique comment créer un pool d’images personnalisées en utilisant seulement une image managée.
 
 ## <a name="prerequisites"></a>Prérequis
 
@@ -26,7 +28,7 @@ Pour créer une image personnalisée destinée aux machines virtuelles de votre 
 
 - **Authentification Azure Active Directory (Azure AD)** . L’API du client Batch doit utiliser l’authentification Azure AD. La prise en charge d’Azure Batch pour Azure AD est documentée dans [Authentifier les solutions de service Batch avec Active Directory](batch-aad-auth.md).
 
-## <a name="prepare-a-custom-image"></a>Préparer une image personnalisée
+## <a name="prepare-a-managed-image"></a>Préparer une image managée
 
 Dans Azure, vous pouvez préparer une image managée à partir de ce qui suit :
 
@@ -57,7 +59,7 @@ Une capture instantanée est une copie complète en lecture seule d’un disque 
 
 Pour créer une image managée à partir d’un instantané, utilisez les outils en ligne de commande Azure comme la commande [az image création](/cli/azure/image). Vous pouvez créer une image en spécifiant l’instantané d’un disque du système d’exploitation et éventuellement un ou plusieurs instantanés de disque de données.
 
-## <a name="create-a-pool-from-a-custom-image"></a>Créer un pool à partir d’une image personnalisée
+## <a name="create-a-pool-from-a-managed-image"></a>Création d’un pool à partir d’une image managée
 
 Une fois que vous avez trouvé l’ID de ressource de votre image managée, créez un pool d’images personnalisé à partir de cette image. Les étapes suivantes vous montrent comment créer un pool d’images personnalisé à l’aide de Batch Service ou de Batch Management.
 

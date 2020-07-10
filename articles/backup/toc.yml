@@ -369,8 +369,10 @@
           href: backup-azure-security-feature.md
         - name: Points de terminaison privés
           href: private-endpoints.md
-        - name: Chiffrement
+        - name: Chiffrement dans la Sauvegarde Azure
           href: backup-encryption.md
+        - name: Chiffrement à l’aide de clés gérées par le client
+          href: encryption-at-rest-with-cmk.md
         - name: Contrôles de sécurité intégrés
           href: backup-security-controls.md
         - name: Base de référence de la sécurité

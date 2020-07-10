@@ -1,18 +1,19 @@
 ---
-title: Utiliser Shared Image Gallery pour créer un pool personnalisé
-description: Les images personnalisées sont un moyen efficace de configurer les nœuds de calcul pour exécuter vos charges de travail Batch.
+title: Création d’un pool d’images personnalisées avec Shared Image Gallery
+description: Les pools d’images personnalisées représentent un moyen efficace de configurer les nœuds de calcul pour exécuter des charges de travail Batch.
 ms.topic: conceptual
-ms.date: 05/22/2020
-ms.openlocfilehash: 6731086bfcbe6a671c579593791fb7467b280bca
-ms.sourcegitcommit: 1f25aa993c38b37472cf8a0359bc6f0bf97b6784
+ms.date: 07/01/2020
+ms.custom: tracking-python
+ms.openlocfilehash: 962b3c84e7f3cecc5f4d64febbfca635733a0bae
+ms.sourcegitcommit: cec9676ec235ff798d2a5cad6ee45f98a421837b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/26/2020
-ms.locfileid: "83844486"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85851718"
 ---
-# <a name="use-the-shared-image-gallery-to-create-a-custom-pool"></a>Utiliser Shared Image Gallery pour créer un pool personnalisé
+# <a name="use-the-shared-image-gallery-to-create-a-custom-image-pool"></a>Création d’un pool d’images personnalisées avec Shared Image Gallery
 
-Quand vous créez un pool Azure Batch à l’aide de Configuration de la machine virtuelle, vous spécifiez une image de machine virtuelle qui fournit le système d’exploitation pour chaque nœud de calcul dans le pool. Vous pouvez créer un pool de machines virtuelles avec une image Place de Marché Azure prise en charge ou créer une image personnalisée avec [Shared Image Gallery](../virtual-machines/windows/shared-image-galleries.md).
+Quand vous créez un pool Azure Batch à l’aide de Configuration de la machine virtuelle, vous spécifiez une image de machine virtuelle qui fournit le système d’exploitation pour chaque nœud de calcul dans le pool. Vous pouvez créer un pool de machines virtuelles en utilisant une image prise en charge de la Place de Marché Azure ou en élaborant une image personnalisée avec une [image Shared Image Gallery](../virtual-machines/windows/shared-image-galleries.md).
 
 ## <a name="benefits-of-the-shared-image-gallery"></a>Avantages de Shared Image Gallery
 
@@ -29,7 +30,7 @@ Le recours à une image partagée pour votre scénario peut offrir plusieurs ava
 - **Préinstaller des applications.** La préinstallation des applications sur le disque du système d’exploitation est plus efficace et moins sujet aux erreurs que l’installation d’applications après l’approvisionnement des nœuds de calcul à l’aide d’un début de tâche.
 - **Copier de grandes quantités de données en une seule fois.** Intégrez les données statiques à l’image partagée managée en les copiant sur les disques de données d’une image managée. Cette opération ne doit être effectuée qu’une seule fois et rend les données accessibles à chaque nœud du pool.
 - **Augmentez la taille des pools.** Avec Shared Image Gallery, vous pouvez créer des pools plus grands avec vos images personnalisées ainsi qu’avec d’autres réplicas d’image partagée.
-- **Performances supérieures à celles de l'image personnalisée.** À l’aide d’images partagées, le pool atteint jusqu’à 25 % plus rapidement l’état stable et la latence d’inactivité de la machine virtuelle est inférieure à 30 %.
+- **Amélioration des performances par rapport au recours à une seule image managée comme image personnalisée.** Pour un pool d’images personnalisées Shared Image, le temps nécessaire pour atteindre l’état stable est 25 % plus court et la latence d’inactivité de la machine virtuelle 30 % inférieure.
 - **Gestion des versions et regroupement d’images pour une gestion simplifiée.** La définition du regroupement d’images contient des informations sur la raison pour laquelle l’image a été créée, le système d’exploitation concerné et l’utilisation de l’image. Le regroupement d’images simplifie la gestion des images. Pour plus d’informations, consultez les [Définitions d’images](../virtual-machines/windows/shared-image-galleries.md#image-definitions).
 
 ## <a name="prerequisites"></a>Prérequis
@@ -44,9 +45,11 @@ Le recours à une image partagée pour votre scénario peut offrir plusieurs ava
 > [!NOTE]
 > Votre image partagée doit se trouver dans le même abonnement que le compte Batch. L’image peut se trouver dans différentes régions, à condition qu’elle ait des réplicas dans la même région que votre compte Batch.
 
-## <a name="prepare-a-custom-image"></a>Préparer une image personnalisée
+Si vous utilisez une application Azure AD pour créer un pool d’images personnalisées avec une image Shared Image Gallery, l’application doit disposer d’un [rôle intégré Azure](../role-based-access-control/rbac-and-directory-admin-roles.md#azure-roles) qui lui donne accès à l’image Shared Image. Vous pouvez accorder cet accès dans le Portail Azure en accédant à l’image Shared Image, en sélectionnant **Contrôle d’accès (IAM)** et en ajoutant une attribution de rôle pour l’application.
 
-Dans Azure, vous pouvez préparer une image personnalisée à partir des éléments suivants :
+## <a name="prepare-a-shared-image"></a>Préparation d’une image Shared Image
+
+Dans Azure, il est possible de préparer une image partagée à partir d’une image managée, qui peut être créée à partir de différentes sources :
 
 - Captures instantanées du système d'exploitation et des disques de données d'une machine virtuelle Azure
 - Machine virtuelle Azure généralisée dotée de disques managés

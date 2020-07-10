@@ -9,18 +9,19 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: reference
-ms.date: 10/22/2019
+ms.date: 07/01/2020
 ms.author: diberry
-ms.openlocfilehash: dee07859da97f76d9a2db3ccbb71ae74d8ff4846
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 2d15170e3785d8978b9cb21eae3b94b002f9172e
+ms.sourcegitcommit: 9b5c20fb5e904684dc6dd9059d62429b52cb39bc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "78270419"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85857168"
 ---
 # <a name="sentiment-analysis"></a>analyse de sentiments
 Si l’analyse des sentiments est configurée, la réponse JSON de LUIS l’intègre. Pour plus d’informations sur l’analyse des sentiments, consultez la documentation [Analyse de texte](https://docs.microsoft.com/azure/cognitive-services/text-analytics/).
 
+LUIS utilise Analyse de texte v2. 
 
 ## <a name="resolution-for-sentiment"></a>Résolution des sentiments
 

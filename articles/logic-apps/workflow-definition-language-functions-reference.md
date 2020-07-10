@@ -3,15 +3,15 @@ title: Guide de référence pour les fonctions dans les expressions
 description: Guide de référence sur les fonctions dans les expressions pour Azure Logic Apps et Power Automate
 services: logic-apps
 ms.suite: integration
-ms.reviewer: jonfan, logicappspm
+ms.reviewer: estfan, logicappspm
 ms.topic: conceptual
-ms.date: 05/29/2020
-ms.openlocfilehash: d879429eef68d1bc2448150e2d8eece9cfa35da2
-ms.sourcegitcommit: 0fa52a34a6274dc872832560cd690be58ae3d0ca
+ms.date: 07/01/2020
+ms.openlocfilehash: 30806880b3ce9ab89479cedbce60435f44024efd
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/29/2020
-ms.locfileid: "84204852"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85833016"
 ---
 # <a name="reference-guide-to-using-functions-in-expressions-for-azure-logic-apps-and-power-automate"></a>Guide de référence sur l’utilisation des fonctions dans les expressions pour Azure Logic Apps et Power Automate
 
@@ -477,6 +477,9 @@ Et retourne ce résultat :
 Retourne la sortie d’une action lors de l’exécution ou les valeurs d’autres paires nom-valeur JSON que vous pouvez attribuer à une expression. Par défaut, la fonction fait référence à l’objet d’action dans son intégralité, mais vous pouvez éventuellement spécifier une propriété dont vous souhaitez la valeur.
 Pour les versions raccourcies, consultez [actionBody()](#actionBody), [actionOutputs()](#actionOutputs) et [body()](#body).
 Pour l’action actuelle, consultez [action()](#action).
+
+> [!TIP]
+> La fonction `actions()` retourne la sortie sous forme de chaîne. S’il vous faut une valeur retournée sous forme d’objet JSON, vous devez d’abord convertir la valeur de chaîne. Pour la transformer en objet JSON, utilisez [l’action Analyser le code JSON](logic-apps-perform-data-operations.md#parse-json-action).
 
 > [!NOTE]
 > Auparavant, vous pouviez utiliser la fonction `actions()` ou l’élément `conditions` pour spécifier qu’une action était exécutée en fonction de la sortie d’une autre action. Toutefois, pour déclarer explicitement des dépendances entre des actions, vous devez maintenant utiliser la propriété `runAfter` de l’action dépendante.
@@ -2046,7 +2049,7 @@ formatNumber(<number>, <format>, <locale>?)
 Supposons que vous souhaitez formater le nombre `1234567890`. Dans cet exemple, le nombre est formaté en tant que chaîne « 1,234,567,890.00 ».
 
 ```
-formatNumber(1234567890, '{0:0,0.00}', 'en-us')
+formatNumber(1234567890, '0,0.00', 'en-us')
 ```
 
 *Exemple 2"
@@ -2054,7 +2057,7 @@ formatNumber(1234567890, '{0:0,0.00}', 'en-us')
 Supposons que vous souhaitez formater le nombre `1234567890`. Dans cet exemple, le nombre est formaté en tant que chaîne « 1.234.567.890,00 ».
 
 ```
-formatNumber(1234567890, '{0:0,0.00}', 'is-is')
+formatNumber(1234567890, '0,0.00', 'is-is')
 ```
 
 *Exemple 3*

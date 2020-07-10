@@ -4,29 +4,25 @@ description: Intégrez une application à Azure App Service avec des réseaux vi
 author: ccompy
 ms.assetid: 90bc6ec6-133d-4d87-a867-fcf77da75f5a
 ms.topic: article
-ms.date: 04/16/2020
+ms.date: 06/08/2020
 ms.author: ccompy
 ms.custom: seodec18
-ms.openlocfilehash: 9b7df06ea7ff07907a292bdcc32e66aafa44ae68
-ms.sourcegitcommit: 1692e86772217fcd36d34914e4fb4868d145687b
+ms.openlocfilehash: 7b6b310cdc03cb45fba6ba06dbcf2add9818f6cf
+ms.sourcegitcommit: 9b5c20fb5e904684dc6dd9059d62429b52cb39bc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/29/2020
-ms.locfileid: "84170781"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85857038"
 ---
 # <a name="integrate-your-app-with-an-azure-virtual-network"></a>Intégrer votre application à un réseau virtuel Azure
 
-Cet article décrit la fonctionnalité d’intégration au réseau virtuel d’Azure App Service et explique comment la configurer avec des applications dans [Azure App Service](https://go.microsoft.com/fwlink/?LinkId=529714). Les [réseaux virtuels Azure][VNETOverview] vous permettent de placer un grand nombre de vos ressources Azure dans un réseau routable non-Internet.
+Cet article décrit la fonctionnalité d’intégration au réseau virtuel d’Azure App Service et explique comment la configurer avec des applications dans [Azure App Service](https://go.microsoft.com/fwlink/?LinkId=529714). Les [réseaux virtuels Azure][VNETOverview] vous permettent de placer un grand nombre de vos ressources Azure dans un réseau routable non-Internet. La fonctionnalité d’intégration au réseau virtuel permet à vos applications d’accéder à des ressources dans ou via un réseau virtuel. Elle n’autorise pas l’accès privé à vos applications.
 
-Azure App Service propose deux variantes :
+Azure App Service propose deux variantes de la fonctionnalité d’intégration au réseau virtuel :
 
 [!INCLUDE [app-service-web-vnet-types](../../includes/app-service-web-vnet-types.md)]
 
 ## <a name="enable-vnet-integration"></a>Activer une intégration au réseau virtuel
-
-> [!NOTE]
-> Si le panneau « Mise en réseau » est désactivé (grisé) dans le menu de vos applications Linux, cela signifie que la fonctionnalité n’est pas disponible actuellement.
->
 
 1. Accédez à l’interface utilisateur **Réseau** dans le portail App Service. Sous **Intégration de réseau virtuel**, sélectionnez **Cliquez ici pour configurer**.
 
@@ -75,8 +71,8 @@ L’intégration au réseau virtuel avec passerelle obligatoire prend en charge 
 
 Vous ne pouvez pas utiliser l’intégration au réseau virtuel avec passerelle obligatoire :
 
-* Avec des applications Linux.
 * Avec un réseau virtuel connecté au moyen d’Azure ExpressRoute.
+* À partir d’une application Linux
 * Pour accéder à des ressources sécurisées de points de terminaison de service.
 * Avec une passerelle de coexistence qui prend en charge à la fois les connexions ExpressRoute et les VPN de point à site ou site à site.
 
@@ -155,25 +151,27 @@ Trois types de frais sont appliqués en cas d’utilisation de la fonctionnalit�
 
 Une prise en charge de l’interface CLI est disponible pour l’intégration au réseau virtuel régional. Pour accéder aux commandes suivantes, [installez l’interface de ligne de commande Azure][installCLI].
 
-        az webapp vnet-integration --help
+```azurecli
+az webapp vnet-integration --help
 
-        Group
-            az webapp vnet-integration : Methods that list, add, and remove virtual network integrations
-            from a webapp.
-                This command group is in preview. It may be changed/removed in a future release.
-        Commands:
-            add    : Add a regional virtual network integration to a webapp.
-            list   : List the virtual network integrations on a webapp.
-            remove : Remove a regional virtual network integration from webapp.
+Group
+    az webapp vnet-integration : Methods that list, add, and remove virtual network
+    integrations from a webapp.
+        This command group is in preview. It may be changed/removed in a future release.
+Commands:
+    add    : Add a regional virtual network integration to a webapp.
+    list   : List the virtual network integrations on a webapp.
+    remove : Remove a regional virtual network integration from webapp.
 
-        az appservice vnet-integration --help
+az appservice vnet-integration --help
 
-        Group
-            az appservice vnet-integration : A method that lists the virtual network integrations used in an
-            appservice plan.
-                This command group is in preview. It may be changed/removed in a future release.
-        Commands:
-            list : List the virtual network integrations used in an appservice plan.
+Group
+    az appservice vnet-integration : A method that lists the virtual network
+    integrations used in an appservice plan.
+        This command group is in preview. It may be changed/removed in a future release.
+Commands:
+    list : List the virtual network integrations used in an appservice plan.
+```
 
 Pour l’intégration au réseau virtuel avec passerelle obligatoire, vous pouvez intégrer App Service à un réseau virtuel Azure à l’aide de PowerShell. Pour obtenir un script prêt à l’exécution, consultez [Connect an app in Azure App Service to an Azure Virtual Network](https://gallery.technet.microsoft.com/scriptcenter/Connect-an-app-in-Azure-ab7527e3).
 

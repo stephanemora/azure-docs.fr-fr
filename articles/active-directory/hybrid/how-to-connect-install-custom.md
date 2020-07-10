@@ -9,17 +9,17 @@ manager: daveba
 ms.assetid: 6d42fb79-d9cf-48da-8445-f482c4c536af
 ms.service: active-directory
 ms.workload: identity
-ms.topic: conceptual
-ms.date: 11/14/2019
+ms.topic: how-to
+ms.date: 06/10/2020
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f96e70c6699fb7ce85bd1c01f72028f537f994f2
-ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
+ms.openlocfilehash: 84b5635d934b15c7ddd289e3a9deb014361d3c94
+ms.sourcegitcommit: cec9676ec235ff798d2a5cad6ee45f98a421837b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/20/2020
-ms.locfileid: "83680299"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85850164"
 ---
 # <a name="custom-installation-of-azure-ad-connect"></a>Installation personnalisée d’Azure AD Connect
 Les **paramètres personnalisés** Azure AD Connect sont utilisés lorsque vous souhaitez davantage d’options d’installation. Ils sont utiles si vous disposez de plusieurs forêts ou si vous voulez configurer des fonctionnalités facultatives que l’installation rapide ne propose pas. Ils sont utilisés dans tous les cas où l’option d’[**installation rapide**](how-to-connect-install-express.md) ne convient pas à votre déploiement ou à votre topologie.
@@ -133,7 +133,7 @@ La fonctionnalité Correspondance entre les forêts vous permet de définir la m
 | [Attribut de messagerie](plan-connect-topologies.md#multiple-forests-single-azure-ad-tenant) |Cette option associe des utilisateurs et des contacts si l’attribut de messagerie a la même valeur dans des forêts différentes. Utilisez cette option si vos contacts ont été créés avec GALSync. Si cette option est sélectionnée, les objets utilisateur dont l’attribut de messagerie n’est pas rempli ne sont pas synchronisés avec Azure AD. |
 | [ObjectSID et msExchangeMasterAccountSID/ msRTCSIP-OriginatorSid](plan-connect-topologies.md#multiple-forests-single-azure-ad-tenant) |Cette option associe un utilisateur activé dans une forêt de comptes à un utilisateur désactivé dans une forêt de ressources. Dans Exchange, cette configuration est connue en tant que « boîte aux lettres liée ». Cette option peut également être utilisée si vous utilisez uniquement Lync et si Exchange n’est pas présent dans la forêt de ressources. |
 | sAMAccountName et MailNickName |Cette option associe des attributs où l’ID de connexion est requis pour rechercher l’utilisateur. |
-| Un attribut spécifique |Cette option vous permet de sélectionner votre propre attribut. Si cette option est sélectionnée, les objets utilisateur dont l’attribut de messagerie (sélectionné) n’est pas rempli ne sont pas synchronisés avec Azure AD. **Limitation** : assurez-vous de sélectionner un attribut qui existe déjà dans le métaverse. Si vous sélectionnez un attribut personnalisé (non présent dans le métaverse), l’assistant échoue. |
+| Un attribut spécifique |Cette option vous permet de sélectionner votre propre attribut. Si cette option est sélectionnée, les objets utilisateur dont l’attribut de messagerie (sélectionné) n’est pas rempli ne sont pas synchronisés avec Azure AD. **Limitation** : Seuls les attributs qui se trouvent déjà dans le métaverse sont disponibles pour cette option. |
 
 #### <a name="select-how-users-should-be-identified-with-azure-ad---source-anchor"></a>Sélectionnez la façon dont les utilisateurs doivent être identifiés avec Azure AD - ancre Source
 L’attribut sourceAnchor ne varie pas pendant la durée de vie d’un objet utilisateur. Il s’agit de la clé primaire liant l’utilisateur local avec l’utilisateur dans Azure AD.
@@ -181,7 +181,7 @@ Cet écran vous permet de sélectionner des fonctionnalités facultatives pour v
 | Application Azure AD et filtrage des attributs |En activant le filtrage des attributs et l’application Azure AD, vous pouvez adapter l’ensemble des attributs synchronisés. Cette option ajoute deux autres pages de configuration dans l’Assistant. Pour en savoir plus, voir [Application Azure AD et filtrage des attributs](#azure-ad-app-and-attribute-filtering). |
 | Synchronisation de hachage de mot de passe |Si vous avez sélectionné la fédération comme solution de connexion, vous pouvez activer cette option. La synchronisation de hachage du mot de passe peut ensuite servir d’option de sauvegarde. Pour plus d’informations, consultez [Synchronisation de hachage du mot de passe](how-to-connect-password-hash-synchronization.md). </br></br>Si vous avez sélectionné l’authentification directe, cette option peut également être activée pour assurer la prise en charge pour les clients hérités et servir d’option de sauvegarde. Pour plus d’informations, consultez [Synchronisation de hachage du mot de passe](how-to-connect-password-hash-synchronization.md).|
 | Réécriture du mot de passe |Lorsque vous activez la réécriture du mot de passe, les modifications de mot de passe provenant d’Azure AD sont réécrites dans votre répertoire local. Pour en savoir plus, voir [Prise en main de la gestion de mot de passe](../authentication/quickstart-sspr.md). |
-| Écriture différée de groupe |Si vous utilisez la fonctionnalité **Groupes dans Office 365** , ces groupes peuvent être représentés dans votre annuaire Active Directory local. Cette option n’est disponible que si Exchange est présent dans votre annuaire Active Directory local. |
+| Écriture différée de groupe |Si vous utilisez la fonctionnalité **Groupes dans Office 365** , ces groupes peuvent être représentés dans votre annuaire Active Directory local. Cette option n’est disponible que si Exchange est présent dans votre annuaire Active Directory local. Pour plus d’informations, consultez [Réécriture de groupe Azure AD Connect](how-to-connect-group-writeback.md).|
 | Écriture différée des appareils |Permet d’écrire de façon différée des objets d’appareil dans Azure AD, au sein de l’annuaire Active Directory local, dans le cadre de scénarios à accès conditionnel. Pour en savoir plus, voir [Azure AD Connect : Activation de l’écriture différée des appareils](how-to-connect-device-writeback.md). |
 | Synchronisation des attributs des extensions d’annuaire |Si vous activez la synchronisation des attributs des extensions de répertoire, les attributs spécifiés seront synchronisés avec Azure AD. Pour en savoir plus, voir [Extensions d’annuaire](how-to-connect-sync-feature-directory-extensions.md). |
 
@@ -230,12 +230,7 @@ Sur un ordinateur qui possède les outils de gestion de stratégie de groupe.
 1.  Ouvrir les outils de gestion de stratégie de groupe
 2.  Modifiez la stratégie de groupe qui sera appliquée à tous les utilisateurs. Par exemple, la stratégie de domaine par défaut.
 3.  Accédez à **Configuration utilisateur\Modèles d’administration\Composants Windows\Internet Explorer\Panneau de configuration Internet\Page de sécurité** et sélectionnez **Liste des attributions de sites aux zones**, comme sur l’image ci-dessous.
-4.  Activez la stratégie, puis entrez l’élément suivant dans la boîte de dialogue.
-
-        Value: `https://autologon.microsoftazuread-sso.com`  
-        Data: 1  
-
-
+4.  Activez la stratégie, puis entrez le nom de valeur `https://autologon.microsoftazuread-sso.com` et la valeur `1` dans la boîte de dialogue.
 5.  Celui-ci doit se présenter comme suit :  
 ![Zones intranet](./media/how-to-connect-install-custom/sitezone.png)
 

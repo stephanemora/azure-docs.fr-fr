@@ -7,12 +7,12 @@ ms.topic: article
 ms.date: 07/11/2017
 ms.author: ccompy
 ms.custom: seodec18
-ms.openlocfilehash: 0c03905017629e28e41cce2adaa65eac347b8185
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 009b1ff08f9a3a0b840a20a01be5b16cd28d4533
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80294730"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85833101"
 ---
 # <a name="using-an-internal-load-balancer-with-an-app-service-environment"></a>Utilisation d’un équilibreur de charge interne avec un environnement App Service
 
@@ -118,9 +118,10 @@ Les éléments d’administration supplémentaires sont la gestion des certifica
 #### <a name="dns-configuration"></a>Configuration DNS
 Lorsque vous utilisez une adresse IP virtuelle externe, le service DNS est géré par Azure. Toute application créée dans votre environnement ASE est automatiquement ajoutée au service Azure DNS, qui est un service DNS public. Dans un environnement ASE ILB, vous devez gérer votre propre service DNS. Pour un sous-domaine spécifique comme contoso.corp.net, vous devez créer des enregistrements DNS A qui pointent vers votre adresse ILB :
 
-    * 
-    *.scm ftp publish 
-
+- \*
+- *.scm
+- ftp
+- Publier
 
 ## <a name="getting-started"></a>Prise en main
 Pour prendre en main les environnements App Service, consultez [la présentation des environnements App Service][WhatisASE].

@@ -9,12 +9,12 @@ ms.topic: article
 ms.date: 09/27/2018
 ms.author: cynthn
 ms.custom: legacy
-ms.openlocfilehash: 1b72be91ee11ef7003e225fe830a59ea42310ac6
-ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
+ms.openlocfilehash: cf8d4cd3c70e28a6c70ab9321a8f55271ead754f
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83656684"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85807500"
 ---
 # <a name="create-a-managed-image-of-a-generalized-vm-in-azure"></a>Créer une image managée d’une machine virtuelle généralisée dans Azure
 
@@ -26,7 +26,7 @@ Une image managée prend en charge jusqu’à 20 déploiements simultanés. Une 
 
 Sysprep supprime toutes vos informations de compte personnel et de sécurité, puis prépare la machine en vue de son utilisation en tant qu’image. Pour plus d’informations sur Sysprep, voir [Vue d’ensemble de Sysprep](https://docs.microsoft.com/windows-hardware/manufacture/desktop/sysprep--system-preparation--overview).
 
-Vérifiez que les rôles serveur exécutés sur la machine sont pris en charge par Sysprep. Pour plus d’informations, voir [Prise en charge de Sysprep pour les rôles serveur](https://docs.microsoft.com/windows-hardware/manufacture/desktop/sysprep-support-for-server-roles) et [Scénarios non pris en charge](https://docs.microsoft.com/windows-hardware/manufacture/desktop/sysprep--system-preparation--overview#unsupported-scenarios).
+Vérifiez que les rôles serveur exécutés sur la machine sont pris en charge par Sysprep. Pour plus d’informations, voir [Prise en charge de Sysprep pour les rôles serveur](https://docs.microsoft.com/windows-hardware/manufacture/desktop/sysprep-support-for-server-roles) et [Scénarios non pris en charge](https://docs.microsoft.com/windows-hardware/manufacture/desktop/sysprep--system-preparation--overview#unsupported-scenarios). Un déchiffrement complet des lecteurs est nécessaire avant l’exécution de Sysprep. Si vous avez activé le chiffrement sur votre machine virtuelle, désactivez-le avant d’exécuter Sysprep.
 
 > [!IMPORTANT]
 > Après que vous avez exécuté Sysprep sur une machine virtuelle, celle-ci est considérée comme *généralisée* et ne peut plus être redémarrée. Le processus de généralisation d’une machine virtuelle n’est pas réversible. Si vous devez conserver le fonctionnement de machine virtuelle d’origine, vous devez créer une [copie de la machine virtuelle](create-vm-specialized.md#option-3-copy-an-existing-azure-vm) et généraliser la copie. 
@@ -87,7 +87,7 @@ Une fois l’image créée, elle apparaît en tant que ressource **Image** dans 
 
 
 
-## <a name="create-an-image-of-a-vm-using-powershell"></a>Créer une image de machine virtuelle à l’aide de Powershell
+## <a name="create-an-image-of-a-vm-using-powershell"></a>Création d’une image de machine virtuelle avec PowerShell
 
  
 
@@ -178,7 +178,7 @@ Si vous souhaitez créer une image uniquement du disque du système d’exploita
     ``` 
 
 
-## <a name="create-an-image-from-a-snapshot-using-powershell"></a>Créer une image à partir d’une capture instantanée à l’aide de Powershell
+## <a name="create-an-image-from-a-snapshot-using-powershell"></a>Création d’une image à partir d’une capture instantanée avec PowerShell
 
 Vous pouvez créer une image gérée à partir d’une capture instantanée d’une machine virtuelle généralisée en procédant comme suit :
 

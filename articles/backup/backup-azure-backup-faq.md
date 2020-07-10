@@ -3,12 +3,12 @@ title: Réponses à des questions fréquentes
 description: 'Réponses aux questions courantes sur : les fonctionnalités de la sauvegarde Azure, y compris les coffres Recovery Services ce qu’il peut sauvegarder, son fonctionnement, son chiffrement, et ses limites. '
 ms.topic: conceptual
 ms.date: 07/07/2019
-ms.openlocfilehash: 04921cd617a688ebcf31bcec29cf26681914f44b
-ms.sourcegitcommit: 8017209cc9d8a825cc404df852c8dc02f74d584b
+ms.openlocfilehash: 96733ffaae101bb2cf716fda7500a8269ce8e357
+ms.sourcegitcommit: f684589322633f1a0fafb627a03498b148b0d521
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/01/2020
-ms.locfileid: "84247663"
+ms.lasthandoff: 07/06/2020
+ms.locfileid: "85970482"
 ---
 # <a name="azure-backup---frequently-asked-questions"></a>Sauvegarde Azure - Forum Aux Questions
 
@@ -27,7 +27,7 @@ Vous pouvez inscrire jusqu’à 1 000 machines virtuelles Azure par coffre. Si
 ### <a name="how-many-datasourcesitems-can-be-protected-in-a-vault"></a>Combien de sources de données/éléments peuvent être protégés dans un coffre ?
 
 Vous pouvez protéger jusqu’à 2000 sources de données/éléments sur toutes les charges de travail (machine virtuelle IaaS, SQL, AFS, etc.) dans un coffre.
-Par exemple, si vous avez déjà protégé 500 machines virtuelles et 400 partages de fichiers Azure dans le coffre, vous ne pouvez protéger que jusqu’à 1 100 bases de données SQL.
+Par exemple, si vous avez déjà protégé 500 machines virtuelles et 400 partages Azure Files dans le coffre, vous ne pouvez y protéger que 1 100 bases de données SQL.
 
 ### <a name="how-many-policies-can-i-create-per-vault"></a>Combien de stratégies puis-je créer par coffre ?
 
@@ -47,7 +47,11 @@ Non. Les données de sauvegarde stockées dans un coffre ne peuvent pas être d�
 
 ### <a name="can-i-change-from-grs-to-lrs-after-a-backup"></a>Puis-je passer du stockage GRS au stockage LRS après une sauvegarde ?
 
-Non. Dans un coffre Recovery Services, vous pouvez uniquement changer les options de stockage avant de commencer le stockage des sauvegardes.
+Le type de réplication de stockage par défaut est défini sur Stockage géoredondant (GRS). Une fois que vous avez configuré la sauvegarde, l’option de modification est désactivée et non modifiable.
+
+![Type de réplication de stockage](./media/backup-azure-backup-faq/storage-replication-type.png)
+
+Si vous avez déjà configuré la sauvegarde et que vous devez passer de GRS à LRS, consultez [Guide pratique pour passer de GRS à LRS après avoir configuré la sauvegarde](backup-create-rs-vault.md#how-to-change-from-grs-to-lrs-after-configuring-backup).
 
 ### <a name="can-i-do-an-item-level-restore-ilr-for-vms-backed-up-to-a-recovery-services-vault"></a>Puis-je effectuer une restauration de niveau élément (ILR) pour les machines virtuelles sauvegardées dans un coffre Recovery Services ?
 
@@ -116,7 +120,7 @@ Le tableau suivant explique comment la taille de chaque source de données est d
 **Source de données** | **Détails**
 --- | ---
 Volume |Quantité de données sauvegardées à partir d’une machine virtuelle à volume unique.
-Base de données SQL Server |Taille d’une base de données SQL unique sauvegardée.
+Base de données SQL Server |Taille d’une base de données unique sauvegardée.
 SharePoint | Somme des bases de données de contenu et de configuration dans une batterie de serveurs SharePoint sauvegardée.
 Exchange |Somme de toutes les bases de données Exchange sur un serveur Exchange en cours de sauvegarde.
 État système/récupération complète |Chaque copie individuelle de l’état système/récupération complète de l’ordinateur sauvegardée.

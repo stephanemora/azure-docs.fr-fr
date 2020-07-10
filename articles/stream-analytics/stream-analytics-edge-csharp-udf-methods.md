@@ -7,12 +7,12 @@ ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 10/28/2019
 ms.custom: seodec18
-ms.openlocfilehash: 53ebf8adb99362b5aaf27676bbd50fb8b525f526
-ms.sourcegitcommit: 309a9d26f94ab775673fd4c9a0ffc6caa571f598
+ms.openlocfilehash: 4f9d117ccc763744411bfe24163ed955532e8e56
+ms.sourcegitcommit: dee7b84104741ddf74b660c3c0a291adf11ed349
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/09/2020
-ms.locfileid: "82994485"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85921853"
 ---
 # <a name="develop-net-standard-user-defined-functions-for-azure-stream-analytics-jobs-preview"></a>Développer des fonctions .NET Standard définies par l’utilisateur pour des travaux Azure Stream Analytics (préversion)
 
@@ -50,7 +50,7 @@ Pour que les valeurs Azure Stream Analytics puissent être utilisées en C#, ell
 |float | double |
 |nvarchar(max) | string |
 |DATETIME | DateTime |
-|Enregistrement | Dictionary\<string, object> |
+|Enregistrement | Dictionnaire\<string, object> |
 |Array | Object[] |
 
 Il en va de même lorsque les données doivent être marshalées de C# vers Azure Stream Analytics, ce qui se produit sur la valeur de sortie d’une fonction définie par l’utilisateur. Le tableau ci-dessous montre les types pris en charge :
@@ -64,7 +64,7 @@ Il en va de même lorsque les données doivent être marshalées de C# vers Azur
 |struct  |  Enregistrement   |
 |object  |  Enregistrement   |
 |Object[]  |  Array   |
-|Dictionary\<string, object>  |  Enregistrement   |
+|Dictionnaire\<string, object>  |  Enregistrement   |
 
 ## <a name="codebehind"></a>CodeBehind
 Vous pouvez écrire des fonctions définies par l’utilisateur dans le fichier code-behind **Script.asql**. Les outils Visual Studio compilent automatiquement le fichier code-behind dans un fichier d’assembly. Les assemblys sont packagés dans un fichier zip et chargés dans votre compte de stockage quand vous envoyez votre travail à Azure. Vous pouvez apprendre à écrire une fonction C# définie par l’utilisateur à l’aide de d’un fichier code-behind en suivant le tutoriel [Fonction C# définie par l’utilisateur pour les travaux de périphérie Stream Analytics](stream-analytics-edge-csharp-udf.md). 
@@ -186,6 +186,10 @@ La préversion des fonctions définies par l’utilisateur a les limitations sui
 * L’éditeur de requêtes du portail Azure affiche une erreur quand vous utilisez des fonctions définies par l’utilisateur .NET Standard dans le portail. 
 
 * Comme le code personnalisé partage le contexte du moteur Azure Stream Analytics, il ne peut pas référencer un élément qui a un espace de noms/nom_dll en conflit avec le code Azure Stream Analytics. Par exemple, vous ne pouvez pas référencer *Newtonsoft Json*.
+
+* Les fichiers de support inclus dans le projet sont copiés dans le fichier zip UserCustomCode utilisé lors de la publication du travail dans le cloud. Tous les fichiers des sous-dossiers sont copiés directement à la racine du dossier UserCustomCode dans le cloud lorsqu’ils sont décompressés. Le fichier zip est « aplati » lors de la décompression.
+
+* UserCustomCode ne gère pas les dossiers vides. N’ajoutez pas de dossiers vides aux fichiers de support dans le projet.
 
 ## <a name="next-steps"></a>Étapes suivantes
 

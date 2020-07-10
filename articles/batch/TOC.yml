@@ -276,7 +276,7 @@
     - name: Lot chantier
       href: 'https://github.com/Azure/batch-shipyard'
     - name: Blog
-      href: 'https://blogs.technet.microsoft.com/windowshpc/'
+      href: /archive/blogs/windowshpc/
     - name: HPC sur Azure
       href: /azure/architecture/topics/high-performance-computing/
     - name: Tarifs

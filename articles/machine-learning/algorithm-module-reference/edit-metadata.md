@@ -8,13 +8,13 @@ ms.subservice: core
 ms.topic: reference
 author: likebupt
 ms.author: keli19
-ms.date: 02/11/2020
-ms.openlocfilehash: 9853a3decc8d145fee58d1da526926e224ee2030
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.date: 06/10/2020
+ms.openlocfilehash: 5078e625f86affb8d16ffab538d11b839d2d7bda
+ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80064244"
+ms.lasthandoff: 07/05/2020
+ms.locfileid: "85965006"
 ---
 # <a name="edit-metadata-module"></a>Module Modifier les métadonnées
 
@@ -55,7 +55,8 @@ Les modifications de métadonnées standard peuvent être les suivantes :
     + Le type de colonne et les valeurs sont modifiés une fois que vous avez effectué l’opération Modifier les métadonnées. Vous pouvez récupérer le type de données d’origine à tout moment à l’aide de Modifier les métadonnées pour rétablir le type de données de colonne.  
 
     > [!NOTE]
-    > Si vous remplacez un type de nombre par le type **DateHeure**, laissez le champ **Format date et heure** vide. Actuellement, il n’est pas possible de spécifier le format cible des données.  
+    > Le **format DateHeure** suit le [format DateHeure intégré de Python](https://docs.python.org/3/library/datetime.html#strftime-and-strptime-behavior).  
+    > Si vous remplacez un type de nombre par le type **DateHeure**, laissez le champ **Format date et heure** vide. Actuellement, il n’est pas possible de spécifier le format cible des données.
 
 1. Sélectionnez l’option **Catégorie** pour spécifier que les valeurs indiquées dans les colonnes sélectionnées doivent être considérées comme des catégories.
 

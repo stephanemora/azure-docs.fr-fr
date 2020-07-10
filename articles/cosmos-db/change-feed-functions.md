@@ -7,18 +7,18 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 12/03/2019
 ms.reviewer: sngun
-ms.openlocfilehash: 7a74635551d8416bf60689b1f1403f29883e81bd
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: e452f03721551adada69a36b1ce69e57f1111f55
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "78851370"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85834061"
 ---
 # <a name="serverless-event-based-architectures-with-azure-cosmos-db-and-azure-functions"></a>Architectures basées sur des événements serverless avec Azure Cosmos DB et Azure Functions
 
 Azure Functions fournit le moyen le plus simple pour vous connecter au [flux de modification](change-feed.md). Vous pouvez créer de petites fonctions Azure Functions réactives qui se déclencheront automatiquement sur chaque nouvel événement dans le flux de modification de votre conteneur Azure Cosmos.
 
-![Fonctions basées sur les événements sans serveur fonctionnant avec le déclencheur Azure Functions pour Cosmos DB](./media/change-feed-functions/functions.png)
+:::image type="content" source="./media/change-feed-functions/functions.png" alt-text="Fonctions basées sur les événements serverless fonctionnant avec le déclencheur Azure Functions pour Cosmos DB" border="false":::
 
 Avec le [déclencheur Azure Functions pour Cosmos DB](../azure-functions/functions-bindings-cosmosdb-v2-trigger.md), vous pouvez tirer parti de la mise à l’échelle du [processeur de flux de modification](./change-feed-processor.md) et de la fonctionnalité fiable de détection d’événement sans conserver d’[infrastructure Worker](./change-feed-processor.md). Concentrez-vous sur la logique de votre fonction Azure sans vous soucier du reste du pipeline source d’événements. Vous pouvez même combiner le déclencheur avec d’autres [liaisons Azure Functions](../azure-functions/functions-triggers-bindings.md#supported-bindings).
 
@@ -37,7 +37,7 @@ Pour implémenter un flux serverless basé sur des événements, vous avez besoi
 La création de votre fonction Azure avec un déclencheur Azure Functions pour Cosmos DB est désormais prise en charge sur toutes les intégrations de l’interface de commande Azure Functions IDE et CLI :
 
 * [Extension Visual Studio](../azure-functions/functions-develop-vs.md) pour les utilisateurs Visual Studio.
-* [Extension Visual Studio Code](/azure/javascript/tutorial-vscode-serverless-node-01) pour les utilisateurs Visual Studio Code.
+* [Extension Visual Studio Code](/azure/developer/javascript/tutorial-vscode-serverless-node-01) pour les utilisateurs Visual Studio Code.
 * Et enfin [outils Core CLI](../azure-functions/functions-run-local.md#create-func) pour une expérience sans dépendance d’IDE multiplateforme.
 
 ## <a name="run-your-trigger-locally"></a>Exécuter votre déclencheur localement

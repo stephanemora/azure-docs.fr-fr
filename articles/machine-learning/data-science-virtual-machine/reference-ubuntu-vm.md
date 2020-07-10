@@ -5,15 +5,16 @@ description: Détails sur les outils inclus dans Ubuntu Data Science Virtual Mac
 author: gvashishtha
 ms.service: machine-learning
 ms.subservice: data-science-vm
+ms.custom: tracking-python
 ms.author: gopalv
 ms.date: 09/11/2019
 ms.topic: reference
-ms.openlocfilehash: 7cfb2001067b70c64274ee1dd3475c142b788c98
-ms.sourcegitcommit: fad3aaac5af8c1b3f2ec26f75a8f06e8692c94ed
+ms.openlocfilehash: 34b4bbd9c2ed088aca10801c22c5f189264fdb1f
+ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/27/2020
-ms.locfileid: "82161279"
+ms.lasthandoff: 07/05/2020
+ms.locfileid: "85955537"
 ---
 # <a name="reference-ubuntu-linux-data-science-virtual-machine"></a>Référence : Ubuntu (Linux) Data Science Virtual Machine
 
@@ -142,7 +143,7 @@ Le serveur Jupyter Notebook a été préconfiguré avec Python 2, Python 3 et 
 > [!NOTE]
 > Si vous recevez des avertissements relatifs au certificat, vous pouvez les ignorer.
 
-Vous pouvez accéder au serveur Jupyter Notebook à partir de n’importe quel hôte. Entrez **https://\<nom DNS ou adresse IP de la machine virtuelle\>:8000/** .
+Vous pouvez accéder au serveur Jupyter Notebook à partir de n’importe quel hôte. Entrez **https://\<VM DNS name or IP address\>: 8000/** .
 
 > [!NOTE]
 > Le port 8000 est ouvert par défaut dans le pare-feu lorsque la machine virtuelle est configurée. 
@@ -262,8 +263,10 @@ La machine virtuelle est fournie avec des outils et des algorithmes de Machine L
 * **Python** : Anaconda Python est fourni avec des algorithmes de machine learning et des bibliothèques comme Scikit-learn. Vous pouvez installer d’autres bibliothèques à l’aide de la commande `pip install` .
 * **LightGBM** : infrastructure de boosting de gradient rapide, distribuée et à hautes performances, basée sur des algorithmes d’arbre de décision.
 * **R** : bibliothèque étendue de fonctions de Machine Learning disponibles pour le langage R. Parmi les bibliothèques préinstallées figurent lm, glm, randomForest et rpart. Vous pouvez installer d’autres bibliothèques à l’aide de cette commande :
-  
-        install.packages(<lib name>)
+
+    ```r
+    install.packages(<lib name>)
+    ```
 
 Voici quelques informations supplémentaires sur les trois premiers outils de Machine Learning de la liste.
 

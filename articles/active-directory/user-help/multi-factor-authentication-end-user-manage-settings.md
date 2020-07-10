@@ -10,14 +10,14 @@ ms.workload: identity
 ms.service: active-directory
 ms.subservice: user-help
 ms.topic: end-user-help
-ms.date: 02/20/2020
+ms.date: 07/06/2020
 ms.author: curtand
-ms.openlocfilehash: c9304f4a958360d01d404d9b510feb5659e5436d
-ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
+ms.openlocfilehash: 259468d0d3b04b354e782529cefa2149974c9ca0
+ms.sourcegitcommit: 93462ccb4dd178ec81115f50455fbad2fa1d79ce
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/21/2020
-ms.locfileid: "83746747"
+ms.lasthandoff: 07/06/2020
+ms.locfileid: "85983303"
 ---
 # <a name="change-your-two-factor-verification-method-and-settings"></a>Modifier la méthode et les paramètres de vérification à deux facteurs
 
@@ -88,7 +88,7 @@ Vous pouvez ajouter de nouveaux numéros de téléphone ou mettre à jour des nu
 
 1. Dans la section **Comment aimeriez-vous répondre ?** de la page **Vérification de sécurité supplémentaire**, mettez à jour les informations de numéro de téléphone de votre **Téléphone d’authentification** (votre appareil mobile principal) et de votre **Téléphone de bureau**.
 
-1. Cochez la case en regard de l’option **Téléphone d’authentification secondaire**, puis tapez un numéro de téléphone secondaire où vous pouvez recevoir des SMS ou des appels téléphoniques si vous ne pouvez pas accéder à votre appareil principal.
+1. Cochez la case à côté de l’option **Téléphone d’authentification secondaire**, puis tapez un numéro de téléphone secondaire auquel vous pouvez recevoir des appels téléphoniques si vous ne pouvez pas accéder à votre appareil principal.
 
 1. Sélectionnez **Enregistrer**.
 

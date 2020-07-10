@@ -4,16 +4,16 @@ description: Découvrez quels systèmes d’exploitation peuvent exécuter le ru
 author: kgremban
 manager: philmea
 ms.author: kgremban
-ms.date: 05/12/2020
+ms.date: 06/19/2020
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: ec143fbca94c5423ca67e09fa2932e55c06f418e
-ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
+ms.openlocfilehash: 097826a24cb2de17b603ff5fe3113d715e079697
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83652775"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85807398"
 ---
 # <a name="azure-iot-edge-supported-systems"></a>Systèmes pris en charge Azure IoT Edge
 
@@ -90,6 +90,7 @@ Les systèmes listés dans le tableau ci-dessous sont considérés comme compati
 | [Wind River 8](https://docs.windriver.com/category/os-wind_river_linux) | ![Wind River 8 + AMD64](./media/tutorial-c-module/green-check.png) |  |  |
 | [Yocto](https://www.yoctoproject.org/) | ![Yocto + AMD64](./media/tutorial-c-module/green-check.png) | ![Yocto + ARM32v7](./media/tutorial-c-module/green-check.png) | ![Yocto + ARM64](./media/tutorial-c-module/green-check.png) |
 | Raspbian Buster <sup>1</sup> |  | ![Raspbian Buster + ARM32v7](./media/tutorial-c-module/green-check.png) | ![Raspbian Buster + ARM64](./media/tutorial-c-module/green-check.png) |
+| [Ubuntu 20.04<sup>2</sup>](https://wiki.ubuntu.com/FocalFossa/ReleaseNotes) | ![Ubuntu 20.04 + AMD64](./media/tutorial-c-module/green-check.png) | ![Ubuntu 20.04 + ARM32v7](./media/tutorial-c-module/green-check.png) | ![Ubuntu 20.04 + ARM64](./media/tutorial-c-module/green-check.png) |
 
 <sup>1</sup> Les systèmes Debian 10, Raspian Buster compris, utilisent une version d’OpenSSL qu’IoT Edge ne prend pas en charge. Utilisez la commande suivante pour installer une version antérieure avant d’installer IoT Edge :
 
@@ -97,19 +98,21 @@ Les systèmes listés dans le tableau ci-dessous sont considérés comme compati
 sudo apt-get install libssl1.0.2
 ```
 
+<sup>2</sup> Les packages Debian 9 du [référentiel de versions d’Azure IoT Edge](https://github.com/Azure/azure-iotedge/releases) fonctionnent directement avec Ubuntu 20.04.
+
 ## <a name="releases"></a>Publications
 
 Les ressources de mise en production et les notes de publication d’IoT Edge sont disponibles sur la page [Azure-iotedge](https://github.com/Azure/azure-iotedge/releases). Cette section reflète les informations de ces notes de publication pour vous aider à voir plus facilement quels sont les composants de chaque version.
 
 Les composants IoT Edge peuvent être installés ou mis à jour individuellement et sont rétrocompatibles avec les composants des versions antérieures. Le tableau suivant répertorie les composants inclus dans chaque version :
 
-| Libérer   | Démon de sécurité  | Hub Edge<br>Agent Edge | Libiothsm | Moby  |
-| --------- | ---------------- | ---------------------- | --------- | ----- |
-| **1.0.9** | 1.0.9.1<br>1.0.9            | 1.0.9.1<br>1.0.9                  | 1.0.9.1<br>1.0.9     |       |
-| **1.0.8** | 1.0.8            | 1.0.8.5<br>1.0.8.4<br>1.0.8.3<br>1.0.8.2<br>1.0.8.1<br>1.0.8 | 1.0.8 | 3.0.6 |
-| **1.0.7** | 1.0.7.1<br>1.0.7 | 1.0.7.1<br>1.0.7       | 1.0.7.1<br>1.0.7 | 3.0.5<br>3.0.4 (ARMv7hl, CentOS) |
-| **1.0.6** | 1.0.6.1<br>1.0.6 | 1.0.6.1<br>1.0.6       | 1.0.6.1<br>1.0.6 |  |
-| **1.0.5** | 1.0.5            | 1.0.5                  | 1.0.5     | 3.0.2 |
+| Libérer | Démon de sécurité | Hub Edge<br>Agent Edge | Libiothsm | Moby |
+|--|--|--|--|--|
+| **1.0.9** | 1.0.9.3<br>1.0.9.2<br>1.0.9.1<br>1.0.9 | 1.0.9.3<br>1.0.9.2<br>1.0.9.1<br>1.0.9 | 1.0.9.3<br>1.0.9.2<br>1.0.9.1<br>1.0.9 |  |
+| **1.0.8** | 1.0.8 | 1.0.8.5<br>1.0.8.4<br>1.0.8.3<br>1.0.8.2<br>1.0.8.1<br>1.0.8 | 1.0.8 | 3.0.6 |
+| **1.0.7** | 1.0.7.1<br>1.0.7 | 1.0.7.1<br>1.0.7 | 1.0.7.1<br>1.0.7 | 3.0.5<br>3.0.4 (ARMv7hl, CentOS) |
+| **1.0.6** | 1.0.6.1<br>1.0.6 | 1.0.6.1<br>1.0.6 | 1.0.6.1<br>1.0.6 |  |
+| **1.0.5** | 1.0.5 | 1.0.5 | 1.0.5 | 3.0.2 |
 
 IoT Edge utilise le SDK Microsoft.Azure.Device.Client. Pour plus d’informations, consultez le [référentiel C# Azure IOT SDK GitHub](https://github.com/Azure/azure-iot-sdk-csharp) ou le [contenu de référence du kit de développement logiciel (SDK) Azure pour .NET](https://docs.microsoft.com/dotnet/api/overview/azure/iot/client?view=azure-dotnet). La liste suivante indique la version du kit de développement logiciel (SDK) client pour laquelle chaque version est testée :
 

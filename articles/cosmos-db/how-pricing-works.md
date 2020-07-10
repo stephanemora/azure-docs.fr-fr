@@ -5,13 +5,13 @@ author: markjbrown
 ms.author: mjbrown
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 08/01/2019
-ms.openlocfilehash: 7efae8fb3c00868e2740eac2d4d5bcb3c82f663a
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.date: 06/29/2020
+ms.openlocfilehash: 05a76a1434b5a63229b335fb3973897896ec733d
+ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "75977535"
+ms.lasthandoff: 07/05/2020
+ms.locfileid: "85955810"
 ---
 # <a name="pricing-model-in-azure-cosmos-db"></a>Modèle de tarification dans Azure Cosmos DB 
 
@@ -28,18 +28,18 @@ Le débit provisionné, facturé par [RU/s](request-units.md) (unités de requê
 
 Pour plus d'informations, consultez les pages [Tarification d'Azure Cosmos DB](https://azure.microsoft.com/pricing/details/cosmos-db/) et [Comprendre votre facture Azure Cosmos DB](understand-your-bill.md).
 
-Le modèle de tarification dans Azure Cosmos DB est cohérent sur toutes les API. Pour plus d'informations, consultez [En quoi le modèle de tarification Azure Cosmos DB est rentable pour les clients](total-cost-ownership.md). Un débit minimal est nécessaire pour les bases de données ou les conteneurs pour garantir les contrats SLA, et vous pouvez augmenter ou diminuer le débit approvisionné pour 6 $ par tranche de 100 RU/s.
+Le modèle de tarification dans Azure Cosmos DB est cohérent sur toutes les API. Pour plus d'informations, consultez [En quoi le modèle de tarification Azure Cosmos DB est rentable pour les clients](total-cost-ownership.md). Un débit minimal est nécessaire pour les bases de données et les conteneurs afin de respecter les contrats SLA ; il est possible d’augmenter ou de diminuer le débit provisionné par tranches de 100 RU/s.
 
-Actuellement, le tarif minimal du débit pour base de données et conteneur est de 24 $/mois (consultez la [page de tarification Azure Cosmos DB](https://azure.microsoft.com/pricing/details/cosmos-db/) pour obtenir les informations les plus récentes. Si votre charge de travail utilise plusieurs conteneurs, elle peut être optimisée pour limiter les coûts en appliquant un débit de niveau base de données. En effet, le débit de niveau base de données vous permet d’avoir autant de conteneurs que vous le souhaitez dans une base de données qui partage le débit entre les conteneurs. Le tableau suivant résume le débit approvisionné et les frais pour différentes entités :
+Si vous déployez votre compte Azure Cosmos DB dans une région non gouvernementale aux États-Unis, le prix minimal du débit sur base de données et sur conteneur est d’environ 24 $/mois. Le tarif varie en fonction de la région. Pour connaître les dernières informations tarifaires, consultez la [page des tarifs Azure Cosmos DB](https://azure.microsoft.com/pricing/details/cosmos-db/). Si votre charge de travail utilise plusieurs conteneurs, elle peut être optimisée pour limiter les coûts en appliquant un débit de niveau base de données. En effet, le débit de niveau base de données vous permet d’avoir autant de conteneurs que vous le souhaitez dans une base de données qui partage le débit entre les conteneurs. Le tableau suivant résume le débit approvisionné et les frais pour différentes entités :
 
-|**Entité**  | **Débit minimal et frais** |**Incréments de la mise à l’échelle et frais** |**Étendue de l’approvisionnement** |
+|**Entité**  | **Débit minimal** |**Incréments** |**Étendue de l’approvisionnement** |
 |---------|---------|---------|-------|
-|Base de données    | 400 RU/s (24 $/mois)    | 100 RU/s (6 $/mois)   |Le débit est réservé pour la base de données et est partagé par les conteneurs au sein de la base de données |
-|Conteneur     | 400 RU/s (24 $/mois)    | 100 RU/s (6 $/mois)  |Le débit est réservé pour un conteneur donné |
+|Base de données    | 400 RU/s    | 100 RU/s   |Le débit est réservé pour la base de données et est partagé par les conteneurs au sein de la base de données |
+|Conteneur     | 400 RU/s   | 100 RU/s  |Le débit est réservé pour un conteneur donné |
 
-Comme indiqué dans le tableau précédent, le débit minimal dans Azure Cosmos DB commence à 24 $/mois. Si vous commencez avec le débit minimal et que vous augmentez peu à peu vos charges de travail en production, les coûts augmenteront progressivement, par paliers de 6 $/mois. Le modèle de tarification dans Azure Cosmos DB est flexible et l’augmentation ou la diminution du tarif est lissée lorsque vous augmentez ou que vous réduisez le débit.
+Comme l’indique le tableau précédent, le débit minimal dans Azure Cosmos DB commence à environ 24 $/mois. Si vous partez du débit minimal et l’augmentez peu à peu de façon à gérer vos charges de travail en production, les coûts augmenteront progressivement, par incréments d’environ 6 $/mois. Le tarif varie en fonction de la région. Pour connaître les dernières informations tarifaires, consultez la [page des tarifs Azure Cosmos DB](https://azure.microsoft.com/pricing/details/cosmos-db/). Le modèle de tarification dans Azure Cosmos DB est flexible et l’augmentation ou la diminution du tarif est lissée lorsque vous augmentez ou que vous réduisez le débit.
 
-## <a name="try-azure-cosmos-db-for-free"></a>Essayez gratuitement Azure Cosmos DB 
+## <a name="try-azure-cosmos-db-for-free"></a>Essayez gratuitement Azure Cosmos DB
 
 Azure Cosmos DB offre plusieurs possibilités d’essai gratuit pour les développeurs. Ces options sont les suivantes :
 

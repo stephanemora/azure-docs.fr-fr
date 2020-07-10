@@ -1,14 +1,14 @@
 ---
 title: Comprendre le langage de requête
 description: Décrit les tables Resource Graph et les fonctions, opérateurs et types de données Kusto disponibles, utilisables avec Azure Resource Graph.
-ms.date: 03/07/2020
+ms.date: 06/29/2020
 ms.topic: conceptual
-ms.openlocfilehash: 944d0f2676f1a82c80be33a6c1a91d34bc8a32f7
-ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
+ms.openlocfilehash: 4c545a8a5113f800545660a3ea812b61711630c2
+ms.sourcegitcommit: f684589322633f1a0fafb627a03498b148b0d521
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83654456"
+ms.lasthandoff: 07/06/2020
+ms.locfileid: "85970448"
 ---
 # <a name="understanding-the-azure-resource-graph-query-language"></a>Présentation du langage de requête Azure Resource Graph
 
@@ -17,12 +17,13 @@ Le langage de requête pour Azure Resource Graph prend en charge un certain nomb
 Cet article traite des composants de langage pris en charge par Resource Graph :
 
 - [Tables Resource Graph](#resource-graph-tables)
+- [Éléments de langage personnalisés Resource Graph](#resource-graph-custom-language-elements)
 - [Éléments du langage KQL pris en charge](#supported-kql-language-elements)
 - [Caractères d’échappement](#escape-characters)
 
 ## <a name="resource-graph-tables"></a>Tables Resource Graph
 
-Resource Graph fournit plusieurs tables contenant les données qu’il stocke, relatives aux types de ressources Resource Manager et à leurs propriétés. Vous pouvez utiliser ces tables avec l’opérateur `join` ou `union` pour récupérer des propriétés à partir des types de ressources associés. Voici la liste des tables disponibles dans Resource Graph :
+Resource Graph fournit plusieurs tables contenant les données qu’il stocke sur les types de ressources Azure Resource Manager et leurs propriétés. Vous pouvez utiliser ces tables avec l’opérateur `join` ou `union` pour récupérer des propriétés à partir des types de ressources associés. Voici la liste des tables disponibles dans Resource Graph :
 
 |Tables Resource Graph |Description |
 |---|---|
@@ -61,6 +62,33 @@ Resources
 
 > [!NOTE]
 > Quand vous limitez les résultats de `join` avec `project`, la propriété utilisée par `join` pour associer les deux tables (_subscriptionId_  dans l’exemple ci-dessus) doit être incluse dans `project`.
+
+## <a name="resource-graph-custom-language-elements"></a>Éléments de langage personnalisés Resource Graph
+
+### <a name="shared-query-syntax-preview"></a><a name="shared-query-syntax"></a>Syntaxe des requêtes partagées (préversion)
+
+La fonctionnalité d’évaluation [requête partagée](../tutorials/create-share-query.md) est accessible directement dans une requête Resource Graph. Ce scénario permet de créer des requêtes standard comme requêtes partagées et de les réutiliser. Pour appeler une requête partagée à l’intérieur d’une requête Resource Graph, utilisez la syntaxe `{{shared-query-uri}}`. L’URI de la requête partagée correspond à son _ID de ressource_ sur la page **Paramètres** correspondante. Dans cet exemple, l’URI de la requête partagée est `/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/SharedQueries/providers/Microsoft.ResourceGraph/queries/Count VMs by OS`.
+Il pointe vers l’abonnement, le groupe de ressources et le nom complet de la requête partagée à laquelle nous souhaitons faire référence dans une autre requête. Cette requête est identique à celle créée dans [Tutoriel : Création et partage d’une requête](../tutorials/create-share-query.md).
+
+> [!NOTE]
+> Il n’est pas possible d’enregistrer comme requête partagée une requête qui fait référence à une requête partagée.
+
+Exemple 1 : Utiliser uniquement la requête partagée
+
+Les résultats de cette requête Resource Graph sont les mêmes que ceux de la requête stockée dans la requête partagée.
+
+```kusto
+{{/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/SharedQueries/providers/Microsoft.ResourceGraph/queries/Count VMs by OS}}
+```
+
+Exemple 2 : Inclure la requête partagée dans une requête plus large
+
+Cette requête utilise d’abord la requête partagée, puis se sert de `limit` pour limiter encore les résultats.
+
+```kusto
+{{/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/SharedQueries/providers/Microsoft.ResourceGraph/queries/Count VMs by OS}}
+| where properties_storageProfile_osDisk_osType =~ 'Windows'
+```
 
 ## <a name="supported-kql-language-elements"></a>Éléments du langage KQL pris en charge
 

@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 11/28/2018
-ms.openlocfilehash: 446beca9b8491fb252a1e3284a9ec9a0e6dabef5
-ms.sourcegitcommit: d9cd51c3a7ac46f256db575c1dfe1303b6460d04
+ms.openlocfilehash: 49f944aa98bf0bf8090b10d2feeb50af4a2d42b2
+ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/04/2020
-ms.locfileid: "82739362"
+ms.lasthandoff: 07/05/2020
+ms.locfileid: "85955486"
 ---
 # <a name="windows-and-linux-performance-data-sources-in-azure-monitor"></a>Sources de données de performance Windows et Linux dans Azure Monitor
 Les compteurs de performances dans Windows et Linux fournissent des informations sur les performances des composants matériels, systèmes d’exploitation et applications.  Azure Monitor peut non seulement collecter les compteurs de performances à intervalles réguliers pour effectuer une analyse en temps quasi réel, mais aussi agréger les données de performances pour réaliser des analyses à plus long terme et créer des rapports.
@@ -58,17 +58,19 @@ Suivez cette procédure pour ajouter un nouveau compteur de performances Linux �
 5. Après avoir ajouté les compteurs souhaités, cliquez sur le bouton **Enregistrer** en haut de l’écran pour enregistrer la configuration.
 
 #### <a name="configure-linux-performance-counters-in-configuration-file"></a>Configuration des compteurs de performances Linux dans le fichier de configuration
-Au lieu de configurer les compteurs de performances Linux à l’aide du portail Azure, vous pouvez modifier les fichiers de configuration sur l’agent Linux.  Les mesures de performances à collecter sont contrôlées par la configuration dans **/etc/opt/microsoft/omsagent/\<workspace id\>/conf/omsagent.conf**.
+Au lieu de configurer les compteurs de performances Linux à l’aide du portail Azure, vous pouvez modifier les fichiers de configuration sur l’agent Linux.  Les mesures de performances à collecter sont contrôlées par la configuration du fichier **/etc/opt/microsoft/omsagent/\<workspace id\>/conf/omsagent.conf**.
 
 Chaque objet, ou catégorie, de mesures de performances à collecter doit être défini dans le fichier de configuration comme un seul élément `<source>` . La syntaxe suit le modèle suivant.
 
-    <source>
-      type oms_omi  
-      object_name "Processor"
-      instance_regex ".*"
-      counter_name_regex ".*"
-      interval 30s
-    </source>
+```xml
+<source>
+    type oms_omi  
+    object_name "Processor"
+    instance_regex ".*"
+    counter_name_regex ".*"
+    interval 30s
+</source>
+```
 
 
 Les paramètres de cet élément sont décrits dans le tableau suivant.
@@ -142,37 +144,39 @@ Le tableau suivant répertorie les objets et compteurs que vous pouvez indiquer 
 
 La configuration par défaut des mesures de performances est la suivante.
 
-    <source>
-      type oms_omi
-      object_name "Physical Disk"
-      instance_regex ".*"
-      counter_name_regex ".*"
-      interval 5m
-    </source>
+```xml
+<source>
+    type oms_omi
+    object_name "Physical Disk"
+    instance_regex ".*"
+    counter_name_regex ".*"
+    interval 5m
+</source>
 
-    <source>
-      type oms_omi
-      object_name "Logical Disk"
-      instance_regex ".*
-      counter_name_regex ".*"
-      interval 5m
-    </source>
+<source>
+    type oms_omi
+    object_name "Logical Disk"
+    instance_regex ".*
+    counter_name_regex ".*"
+    interval 5m
+</source>
 
-    <source>
-      type oms_omi
-      object_name "Processor"
-      instance_regex ".*
-      counter_name_regex ".*"
-      interval 30s
-    </source>
+<source>
+    type oms_omi
+    object_name "Processor"
+    instance_regex ".*
+    counter_name_regex ".*"
+    interval 30s
+</source>
 
-    <source>
-      type oms_omi
-      object_name "Memory"
-      instance_regex ".*"
-      counter_name_regex ".*"
-      interval 30s
-    </source>
+<source>
+    type oms_omi
+    object_name "Memory"
+    instance_regex ".*"
+    counter_name_regex ".*"
+    interval 30s
+</source>
+```
 
 ## <a name="data-collection"></a>Collecte de données
 Azure Monitor collecte tous les compteurs de performances spécifiés selon l’intervalle d’échantillonnage spécifié sur tous les agents où le compteur est installé.  Les données ne sont pas agrégées, et les données brutes sont disponibles dans toutes les vues de requête de journal pendant la durée spécifiée par votre espace de travail d’analytique des journaux d’activité.
@@ -184,7 +188,7 @@ Les enregistrements de performances sont de type **Perf** et leurs propriétés 
 |:--- |:--- |
 | Computer |Ordinateur sur lequel l’événement a été collecté. |
 | CounterName |Nom du compteur de performances. |
-| CounterPath |Chemin d’accès complet du compteur au format \\\\\<ordinateur>\\objet(instance)\\. |
+| CounterPath |Chemin complet du compteur au format \\\\\<Computer>\\objet(instance)\\compteur. |
 | CounterValue |Valeur numérique du compteur. |
 | InstanceName |Nom de l’instance de l’événement.  Vide si aucune instance. |
 | ObjectName |Nom de l’objet de performance. |
@@ -194,7 +198,7 @@ Les enregistrements de performances sont de type **Perf** et leurs propriétés 
 ## <a name="sizing-estimates"></a>Tailles estimées
  La collecte d’un compteur toutes les 10 secondes correspond environ à 1 Mo par jour et par instance.  La formule suivante vous permet d’estimer l’espace de stockage requis pour un compteur particulier.
 
-    1 MB x (number of counters) x (number of agents) x (number of instances)
+> 1 Mo × (nombre de compteurs) × (nombre d’agents) × (nombre d’instances)
 
 ## <a name="log-queries-with-performance-records"></a>Requêtes de journal avec des enregistrements de performances
 Le tableau suivant fournit plusieurs exemples de requêtes qui extraient des enregistrements de performances.

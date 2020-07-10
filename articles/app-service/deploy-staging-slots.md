@@ -5,12 +5,12 @@ ms.assetid: e224fc4f-800d-469a-8d6a-72bcde612450
 ms.topic: article
 ms.date: 04/30/2020
 ms.custom: fasttrack-edit
-ms.openlocfilehash: 11e133a24ff728cc864e50e898e9db982b186337
-ms.sourcegitcommit: acc558d79d665c8d6a5f9e1689211da623ded90a
+ms.openlocfilehash: 17ba8f5bbbf0ac17e0ccb6881379a511afc7c1c3
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/30/2020
-ms.locfileid: "82597912"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85833270"
 ---
 # <a name="set-up-staging-environments-in-azure-app-service"></a>Configurer des environnements intermédiaires dans Azure App Service
 <a name="Overview"></a>
@@ -58,7 +58,7 @@ Pour que vous puissiez activer plusieurs emplacements de déploiement, l’appli
    
     ![Titre de l’emplacement de déploiement](./media/web-sites-staged-publishing/StagingTitle.png)
 
-    L’emplacement intermédiaire dispose d’une page de gestion, comme n’importe quelle application App Service. Vous pouvez modifier la configuration de l’emplacement. Pour vous rappeler que vous affichez l’emplacement de déploiement, le nom de l’application est affiché sous la forme **\<nom-application>/\<nom-emplacement>** , et le type d’application est **App service (Emplacement)** . Vous pouvez également afficher l’emplacement sous la forme d’une application distincte dans votre groupe de ressources, avec les mêmes désignations.
+    L’emplacement intermédiaire dispose d’une page de gestion, comme n’importe quelle application App Service. Vous pouvez modifier la configuration de l’emplacement. Pour vous rappeler que vous voyez l’emplacement de déploiement, le nom de l’application apparaît sous la forme **\<app-name>/\<slot-name>** , et le type d’application est **App Service (Emplacement)** . Vous pouvez également afficher l’emplacement sous la forme d’une application distincte dans votre groupe de ressources, avec les mêmes désignations.
 
 6. Sélectionnez l’URL de l’application dans la page des ressources de l’emplacement. L’emplacement de déploiement est une application en production et il a son propre nom d’hôte. Pour limiter l’accès public à l’emplacement de déploiement, consultez [Restrictions d’adresse IP avec Azure App Service](app-service-ip-restrictions.md).
 
@@ -183,7 +183,7 @@ L’échange automatique simplifie les scénarios Azure DevOps impliquant un dé
 
 Pour configurer l’échange automatique :
 
-1. Accédez à la page des ressources de votre application. Sélectionnez **Emplacements de déploiement** >  *\<emplacement source souhaité >*  > **Configuration** > **Paramètres généraux**.
+1. Accédez à la page des ressources de votre application. Sélectionnez **Emplacements de déploiement** >  *\<desired source slot>*  > **Configuration** > **Paramètres généraux**.
    
 2. Pour **Échange automatique activé**, sélectionnez **Activé**. Ensuite, sélectionnez l’emplacement cible souhaité pour **Échanger automatiquement l’emplacement de déploiement**, puis sélectionnez **Enregistrer** dans la barre de commandes. 
    
@@ -199,12 +199,14 @@ Si vous rencontrez des problèmes, consultez [Résoudre les problèmes liés aux
 
 Certaines applications peuvent nécessiter quelques actions préparatoires personnalisées avant l’échange. L’élément de configuration `applicationInitialization` du fichier web.config vous permet de spécifier les actions d’initialisation personnalisées à exécuter. L’[opération d’échange](#AboutConfiguration) attend la fin de l’initialisation personnalisée pour procéder à l’échange avec l’emplacement cible. Voici un exemple de fragment web.config.
 
-    <system.webServer>
-        <applicationInitialization>
-            <add initializationPage="/" hostName="[app hostname]" />
-            <add initializationPage="/Home/About" hostName="[app hostname]" />
-        </applicationInitialization>
-    </system.webServer>
+```xml
+<system.webServer>
+    <applicationInitialization>
+        <add initializationPage="/" hostName="[app hostname]" />
+        <add initializationPage="/Home/About" hostName="[app hostname]" />
+    </applicationInitialization>
+</system.webServer>
+```
 
 Pour plus d’informations sur la personnalisation de l’élément `applicationInitialization`, consultez [Most common deployment slot swap failures and how to fix them](https://ruslany.net/2017/11/most-common-deployment-slot-swap-failures-and-how-to-fix-them/).
 
@@ -254,7 +256,7 @@ Parallèlement au routage automatique du trafic, App Service peut acheminer les 
 
 Par exemple, pour permettre aux utilisateurs de refuser votre application bêta, vous pouvez placer ce lien dans votre page web :
 
-```HTML
+```html
 <a href="<webappname>.azurewebsites.net/?x-ms-routing-name=self">Go back to production app</a>
 ```
 
@@ -272,7 +274,7 @@ Par défaut, les nouveaux emplacements se voient attribuer une règle de routage
 
 ## <a name="delete-a-slot"></a>Supprimer un emplacement
 
-Recherchez et sélectionnez votre application. Sélectionnez **Emplacements de déploiement** >  *\<emplacement à supprimer>*  > **Vue d’ensemble**. Le type d’application est indiqué comme **App Service (Emplacement)** pour vous rappeler que vous consultez un emplacement de déploiement. Sélectionnez **Supprimer** dans la barre de commandes.  
+Recherchez et sélectionnez votre application. Sélectionnez **Emplacements de déploiement** >  *\<slot to delete>*  > **Vue d’ensemble**. Le type d’application est indiqué comme **App Service (Emplacement)** pour vous rappeler que vous consultez un emplacement de déploiement. Sélectionnez **Supprimer** dans la barre de commandes.  
 
 ![Supprimer un emplacement de déploiement](./media/web-sites-staged-publishing/DeleteStagingSiteButton.png)
 

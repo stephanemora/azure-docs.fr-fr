@@ -10,12 +10,12 @@ ms.subservice: translator-text
 ms.topic: reference
 ms.date: 05/26/2020
 ms.author: swmachan
-ms.openlocfilehash: ea2761712e4bbb7a3abd1483766f4eae47b7c350
-ms.sourcegitcommit: fc718cc1078594819e8ed640b6ee4bef39e91f7f
+ms.openlocfilehash: 4b6214ebfaf4b9ed6dd97f6a6ac2f5c4ae164a59
+ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "83996361"
+ms.lasthandoff: 07/05/2020
+ms.locfileid: "85964683"
 ---
 # <a name="unsupported-language-deployments"></a>Déploiements de langages non pris en charge
 
@@ -47,7 +47,7 @@ Une fois envoyé, le modèle n’est plus disponible sous l’onglet **Unrequest
 
 ## <a name="whats-next"></a>Quelle est l’étape suivante ?
 
-Les modèles que vous avez sélectionnés pour déploiement sont enregistrés une fois le hub désaffecté, et le déploiement de tous les modèles est annulé.  Vous avez jusqu’au 24 mai pour soumettre des demandes de déploiement de modèles non pris en charge.  Nous allons déployer ces modèles le 15 juin, date à laquelle ils seront accessibles via l’API Translator V3.  Ils seront également disponibles via l’API V2 jusqu’au 1er juillet.  
+Les modèles que vous avez sélectionnés pour déploiement sont enregistrés une fois le hub désaffecté, et le déploiement de tous les modèles est annulé.  Vous avez jusqu’au 24 mai pour soumettre des demandes de déploiement de modèles non pris en charge.  Nous allons déployer ces modèles le 15 juin, date à laquelle ils seront accessibles par le biais de Translator v3.  Ils seront par ailleurs disponibles par le biais de Translator v2 jusqu’au 1er juillet.  
 
 Pour plus d’informations sur les dates importantes en lien avec l’abandon du hub, voir [ici](https://www.microsoft.com/translator/business/hub/).
 Après déploiement, les frais d’hébergement normaux s’appliquent.  Pour en savoir plus, voir les [tarifs](https://azure.microsoft.com/pricing/details/cognitive-services/translator-text-api/).  

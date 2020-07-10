@@ -2,14 +2,14 @@
 title: Configurer Blockchain Data Manager avec Azure CLI - Azure Blockchain Service
 description: Créez et gérez une instance Blockchain Data Manager pour Azure Blockchain Service avec Azure CLI
 ms.date: 03/30/2020
-ms.topic: article
+ms.topic: how-to
 ms.reviewer: ravastra
-ms.openlocfilehash: e490803fabeed7d6234bd6984acbfb9f5270e0c0
-ms.sourcegitcommit: 8dc84e8b04390f39a3c11e9b0eaf3264861fcafc
+ms.openlocfilehash: b7b897f35cb864e2a1fa904bbb3ec13b56986598
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/13/2020
-ms.locfileid: "81254408"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85200458"
 ---
 # <a name="configure-blockchain-data-manager-using-azure-cli"></a>Configurer Blockchain Data Manager avec Azure CLI
 
@@ -133,7 +133,7 @@ az resource create \
 
 ### <a name="input-examples"></a>Exemples d’entrée
 
-Exemple de configuration JSON pour créer une ressource d’entrée dans la région *USA Est* connectée au \<membre Blockchain\>.
+Exemple de JSON de configuration permettant de créer une ressource d’entrée dans la région *USA Est* connectée au \<Blockchain member\>.
 
 ``` json
 {
@@ -151,7 +151,7 @@ Exemple de configuration JSON pour créer une ressource d’entrée dans la rég
 |---------|-------------|
 | location | Région dans laquelle créer la ressource d’entrée. |
 | inputType | Type de registre du membre du service Azure Blockchain. **Ethereum** est actuellement pris en charge. |
-| resourceId | Nœud de transaction auquel l’entrée est connectée. Remplacez \<ID d’abonnement\>, \<Groupe de ressources\> et \<Membre Blockchain\> par les valeurs de la ressource de nœud de transaction. L’entrée se connecte au nœud de transaction par défaut pour le membre Azure Blockchain Service. |
+| resourceId | Nœud de transaction auquel l’entrée est connectée. Remplacez \<Subscription ID\>, \<Resource group\> et \<Blockchain member\> par les valeurs de la ressource de nœud de transaction. L’entrée se connecte au nœud de transaction par défaut pour le membre Azure Blockchain Service. |
 
 Créez une entrée nommée *myInput* pour *mywatcher* à l’aide d’une chaîne JSON de configuration.
 
@@ -205,7 +205,7 @@ az resource create \
 
 ### <a name="output-examples"></a>Exemples de sortie
 
-Exemple de configuration JSON pour créer une ressource de sortie dans la région *USA Est* connectée à une rubrique Event Grid dénommée \<event grid topic\>.
+Exemple de JSON de configuration permettant de créer une ressource de sortie dans la région *USA Est* connectée à une rubrique Event Grid nommée \<event grid topic\>.
 
 ``` json
 {
@@ -223,7 +223,7 @@ Exemple de configuration JSON pour créer une ressource de sortie dans la régio
 |---------|-------------|
 | location | Région dans laquelle créer la ressource de sortie. |
 | outputType | Type de sortie. Actuellement, **EventGrid** est pris en charge. |
-| resourceId | Ressource à laquelle la sortie est connectée. Remplacez \<ID d’abonnement\>, \<Groupe de ressources\> et \<Membre Blockchain\> par les valeurs de la ressource Event Grid. |
+| resourceId | Ressource à laquelle la sortie est connectée. Remplacez \<Subscription ID\>, \<Resource group\> et \<Blockchain member\> par les valeurs de la ressource Event Grid. |
 
 Créez une sortie nommée *myoutput* pour *mywatcher* qui se connecte à une rubrique Event Grid à l’aide d’une chaîne de configuration JSON.
 
@@ -348,7 +348,7 @@ az resource invoke-action \
 | Paramètre | Description |
 |-----------|-------------|
 | action | Démarrez l’observateur à l’aide de **start**. |
-| ids | ID de ressource d’observateur. Remplacez \<ID d’abonnement\>, \<Groupe de ressources\> et \<Nom de l’observateur\> par les valeurs de la ressource d’observateur.|
+| ids | ID de ressource d’observateur. Remplacez \<Subscription ID\>, \<Resource group\> et \<Watcher name\> par les valeurs de la ressource d’observateur.|
 
 ### <a name="start-instance-example"></a>Démarrer un exemple d’instance
 
@@ -373,7 +373,7 @@ az resource invoke-action \
 | Paramètre | Description |
 |-----------|-------------|
 | action | Utilisez **stop** pour arrêter l’observateur. |
-| ids | Nom de l’observateur. Remplacez \<ID d’abonnement\>, \<Groupe de ressources\> et \<Nom de l’observateur\> par les valeurs de la ressource d’observateur. |
+| ids | Nom de l’observateur. Remplacez \<Subscription ID\>, \<Resource group\> et \<Watcher name\> par les valeurs de la ressource d’observateur. |
 
 ### <a name="stop-watcher-example"></a>Exemple d’arrêt de l’observateur
 

@@ -14,12 +14,12 @@ ms.author: curtand
 ms.reviewer: vincesm
 ms.custom: it-pro, fasttrack-edit
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 63a4285725db4dcb41affa93261fbbc03d11598e
-ms.sourcegitcommit: 69156ae3c1e22cc570dda7f7234145c8226cc162
+ms.openlocfilehash: 70d53bf3d97f27caae7d3dee7cd03a4606d6761c
+ms.sourcegitcommit: dee7b84104741ddf74b660c3c0a291adf11ed349
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/03/2020
-ms.locfileid: "84310748"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85921760"
 ---
 # <a name="administrator-role-permissions-in-azure-active-directory"></a>Autorisations des rôles d’administrateur dans Azure Active Directory
 
@@ -173,7 +173,7 @@ Gère les [requêtes Customer Lockbox](https://docs.microsoft.com/office365/admi
 
 Les utilisateurs avec ce rôle peuvent gérer Desktop Analytics et les services de stratégie et de personnalisation Office. Pour Desktop Analytics, cela inclut la possibilité d’afficher l’inventaire des biens, de créer des plans de déploiement, d’afficher l’état du déploiement et de l’intégrité. Pour le service de stratégie et personnalisation Office, ce rôle permet aux utilisateurs de gérer les stratégies Office.
 
-### <a name="device-administrator"></a>[Administrateur de l’appareil](#device-administrators-permissions)
+### <a name="device-administrators"></a>[Administrateurs d’appareils](#device-administrators-permissions)
 
 Ce rôle peut uniquement être attribué comme administrateur local supplémentaire dans [Paramètres de l’appareil](https://aad.portal.azure.com/#blade/Microsoft_AAD_IAM/DevicesMenuBlade/DeviceSettings/menuId/). Les utilisateurs dotés de ce rôle deviennent des administrateurs de l'ordinateur local pour tous les appareils Windows 10 qui sont joints à Azure Active Directory. Ils ne peuvent pas gérer des objets appareil dans Azure Active Directory.
 
@@ -209,7 +209,7 @@ Les utilisateurs avec ce rôle ont des autorisations générales dans Microsoft 
 
 ### <a name="external-id-user-flow-administrator"></a>[Administrateur de flux d’utilisateurs ID externe](#external-id-user-flow-administrator-permissions)
 
-Les utilisateurs dotés de ce rôle peuvent créer et gérer des flux d’utilisateurs B2C (également appelés stratégies « intégrées ») dans le portail Azure. En créant ou modifiant des flux d’utilisateurs, ces utilisateurs peuvent modifier le contenu html/CSS/javascript de l’expérience utilisateur, modifier les exigences d’authentification multifacteur par flux d’utilisateurs, modifier des revendications dans le jeton et ajuster des paramètres de session pour toutes les stratégies dans l’organisation Azure AD. En revanche, ce rôle n’inclut pas la possibilité de consulter les données utilisateur, ou d’apporter des modifications aux attributs inclus dans le schéma de l’organisation. Les modifications apportées aux stratégies Identity Experience Framework (aussi dites personnalisées) sortent également de la portée de ce rôle.
+Les utilisateurs dotés de ce rôle peuvent créer et gérer des flux d’utilisateurs (également appelés stratégies « intégrées ») sur le Portail Azure. Ces utilisateurs peuvent personnaliser le contenu HTML/CSS/JavaScript, modifier les conditions d’authentification multifacteur, sélectionner des revendications dans le jeton, gérer les connecteurs d’API et configurer les paramètres de session pour tous les flux d’utilisateurs de l’organisation Azure AD. En revanche, ce rôle ne prévoit pas la possibilité de consulter les données utilisateur ni d’apporter des modifications aux attributs inclus dans le schéma de l’organisation. La modification des stratégies Identity Experience Framework (également appelées stratégies personnalisées) sort également de la portée de ce rôle.
 
 ### <a name="external-id-user-flow-attribute-administrator"></a>[Administrateur d’attribut de flux d’utilisateurs ID externe](#external-id-user-flow-attribute-administrator-permissions)
 
@@ -224,7 +224,7 @@ Cet administrateur gère la fédération entre les organisations Azure AD et les
 
 ### <a name="global-administrator--company-administrator"></a>[Administrateur général ou Administrateur d’entreprise](#company-administrator-permissions)
 
-Les utilisateurs avec ce rôle ont accès à toutes les fonctionnalités d’administration dans Azure Active Directory, ainsi qu’aux services qui utilisent des identités Azure Active Directory comme le centre de sécurité Microsoft 365, le centre de conformité Microsoft 365, Exchange Online, SharePoint Online et Skype Entreprise Online. La personne qui s’inscrit pour l’organisation Azure AD devient un administrateur général. Une entreprise peut comprendre plusieurs administrateurs généraux. Les administrateurs généraux peuvent réinitialiser le mot de passe des utilisateurs et de tous les autres administrateurs.
+Les utilisateurs avec ce rôle ont accès à toutes les fonctionnalités d’administration dans Azure Active Directory, ainsi qu’aux services qui utilisent des identités Azure Active Directory comme le centre de sécurité Microsoft 365, le centre de conformité Microsoft 365, Exchange Online, SharePoint Online et Skype Entreprise Online. Par ailleurs, les administrateurs généraux peuvent [élever leur accès](https://docs.microsoft.com/azure/role-based-access-control/elevate-access-global-admin) pour gérer tous les abonnements et groupes d’administration Azure. Ils obtiennent ainsi un accès complet à toutes les ressources Azure à l’aide du locataire Azure AD correspondant. La personne qui s’inscrit pour l’organisation Azure AD devient un administrateur général. Une entreprise peut comprendre plusieurs administrateurs généraux. Les administrateurs généraux peuvent réinitialiser le mot de passe des utilisateurs et de tous les autres administrateurs.
 
 > [!NOTE]
 > Dans l’API Microsoft Graph et Azure AD PowerShell, ce rôle est identifié comme « Administrateur d’entreprise ». Il est « Administrateur général » dans le [portail Azure](https://portal.azure.com).
@@ -389,7 +389,7 @@ Les utilisateurs avec ce rôle peuvent voir les données de rapports sur l’uti
 
 ### <a name="search-administrator"></a>[Administrateur de recherche](#search-administrator-permissions)
 
-Les utilisateurs dotés de ce rôle disposent d’un accès total à toutes les fonctionnalités de gestion de Recherche Microsoft disponibles dans le centre d’administration Microsoft 365. Les administrateurs de recherche peuvent déléguer les rôles Administrateur de recherche et Éditeur de recherche aux utilisateurs, créer et gérer du contenu, comme les signets, les questions et réponses, ainsi que les emplacements. De plus, ces utilisateurs peuvent voir le Centre de messages, superviser l’intégrité du service et créer des demandes de service.
+Les utilisateurs dotés de ce rôle disposent d’un accès total à toutes les fonctionnalités de gestion de Recherche Microsoft disponibles dans le centre d’administration Microsoft 365. De plus, ces utilisateurs peuvent voir le Centre de messages, superviser l’intégrité du service et créer des demandes de service.
 
 ### <a name="search-editor"></a>[Éditeur de recherche](#search-editor-permissions)
 
@@ -1349,8 +1349,7 @@ Peut gérer les achats commerciaux d’une société, d’un service ou d’une 
 | --- | --- |
 | microsoft.commerce.billing/partners/read | Consultez la propriété du parfaire de Facturation O365. |
 | microsoft.commerce.volumeLicenseServiceCenter/allEntities/allTasks | Gérez tous les aspects du Centre de services de licences en volume. |
-| microsoft.directory/organization/basic/update | Mettez à jour des propriétés de base sur une organisation dans Azure Active Directory. |
-| microsoft.office365.supportTickets/allEntities/allTasks | Créez et gérez des tickets de support Office 365. |
+| microsoft.office365.supportTickets/allEntities/allTasks | Créez et consultez vos propres tickets de support Office 365. |
 | microsoft.office365.webPortal/allEntities/basic/read | Lisez les propriétés de base sur toutes les ressources dans microsoft.office365.webPortal. |
 
 

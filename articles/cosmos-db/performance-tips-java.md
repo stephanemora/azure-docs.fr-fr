@@ -4,27 +4,28 @@ description: Découvrez les options de configuration clientes disponibles afin d
 author: anfeldma-ms
 ms.service: cosmos-db
 ms.devlang: java
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 05/11/2020
 ms.author: anfeldma
-ms.openlocfilehash: 998155c2505277170518a62af4ae2481e217a1df
-ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
+ms.openlocfilehash: cb42ac4e59d8e9d8c3e0c24eb24a810a5797c277
+ms.sourcegitcommit: cec9676ec235ff798d2a5cad6ee45f98a421837b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83650097"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85850103"
 ---
 # <a name="performance-tips-for-azure-cosmos-db-sync-java-sdk-v2"></a>Conseils sur les performances pour le Kit de développement logiciel (SDK) Java synchrone v2 pour Azure Cosmos DB
 
 > [!div class="op_single_selector"]
 > * [Kit de développement logiciel (SDK) Java v4](performance-tips-java-sdk-v4-sql.md)
-> * [Kit de développement logiciel (SDK) Java asynchrone v2](performance-tips-async-java.md)
-> * [Kit de développement logiciel (SDK) Java synchrone v2](performance-tips-java.md)
-> * [.NET](performance-tips.md)
+> * [SDK Java Async v2](performance-tips-async-java.md)
+> * [SDK Java Sync v2](performance-tips-java.md)
+> * [Kit de développement logiciel (SDK) .NET v3](performance-tips-dotnet-sdk-v3-sql.md)
+> * [Kit SDK .NET v2](performance-tips.md)
 > 
 
 > [!IMPORTANT]  
-> Il ne s’agit *pas* du Kit de développement logiciel (SDK) Java pour Azure Cosmos DB le plus récent. Vous devez mettre à niveau votre projet vers le [Kit de développement logiciel (SDK) Java v4 pour Azure Cosmos DB](sql-api-sdk-java-v4.md), puis lire le [guide sur les performances](performance-tips-java-sdk-v4-sql.md) du Kit de développement logiciel (SDK) Java v4 pour Azure Cosmos DB. Suivez les instructions fournies dans les guides [Migrer vers le Kit de développement logiciel (SDK) Java v4 pour Azure Cosmos DB](migrate-java-v4-sdk.md) et [Reactor vs RxJava](https://github.com/Azure-Samples/azure-cosmos-java-sql-api-samples/blob/master/reactor-rxjava-guide.md) pour mettre à niveau. 
+> Il ne s’agit *pas* du Kit de développement logiciel (SDK) Java pour Azure Cosmos DB le plus récent. Vous devez mettre à niveau votre projet vers le [Kit de développement logiciel (SDK) Java v4 Azure Cosmos DB](sql-api-sdk-java-v4.md), puis lire le [guide sur les performances](performance-tips-java-sdk-v4-sql.md) du Kit de développement logiciel (SDK) Java v4 Azure Cosmos DB. Suivez les instructions fournies dans les guides [Migrer vers le Kit de développement logiciel (SDK) Java v4 pour Azure Cosmos DB](migrate-java-v4-sdk.md) et [Reactor vs RxJava](https://github.com/Azure-Samples/azure-cosmos-java-sql-api-samples/blob/master/reactor-rxjava-guide.md) pour mettre à niveau. 
 > 
 > Ces conseils en matière de performances concernent uniquement le Kit de développement logiciel (SDK) Java synchrone v2 pour Azure Cosmos DB. Pour plus d’informations, consultez les [notes de publication](sql-api-sdk-java.md) et le [référentiel Maven](https://mvnrepository.com/artifact/com.microsoft.azure/azure-documentdb) du Kit de développement logiciel (SDK) Java synchrone v2 pour Azure Cosmos DB.
 >
@@ -63,14 +64,14 @@ Si vous vous demandez comment améliorer les performances de votre base de donn�
       DocumentClient client = new DocumentClient(HOST, MASTER_KEY, connectionPolicy, null);
       ```
 
-      ![Illustration de la stratégie de connexion Azure Cosmos DB](./media/performance-tips-java/connection-policy.png)
+      :::image type="content" source="./media/performance-tips-java/connection-policy.png" alt-text="Illustration de la stratégie de connexion Azure Cosmos DB" border="false":::
 
    <a id="same-region"></a>
 2. **Colocalisation des clients dans la même région Azure pour les performances**
 
     Dans la mesure du possible, placez toutes les applications appelant Azure Cosmos DB dans la même région que la base de données Azure Cosmos. Pour une comparaison approximative, les appels à Azure Cosmos DB dans la même région s’effectuent en 1 à 2 ms, mais la latence entre les côtes Ouest et Est des États-Unis est supérieure à 50 ms. Cette latence peut probablement varier d’une requête à l’autre, en fonction de l’itinéraire utilisé par la requête lorsqu’elle passe du client à la limite du centre de données Azure. Pour obtenir la latence la plus faible possible, l’application appelante doit être située dans la même région Azure que le point de terminaison Azure Cosmos DB configuré. Pour obtenir la liste des régions disponibles, voir [Régions Azure](https://azure.microsoft.com/regions/#services).
 
-    ![Illustration de la stratégie de connexion Azure Cosmos DB](./media/performance-tips/same-region.png)
+    :::image type="content" source="./media/performance-tips/same-region.png" alt-text="Illustration de la stratégie de connexion Azure Cosmos DB" border="false":::
    
 ## <a name="sdk-usage"></a>Utilisation du kit de développement logiciel (SDK)
 1. **Installation du kit de développement logiciel (SDK) le plus récent**
@@ -114,7 +115,7 @@ Si vous vous demandez comment améliorer les performances de votre base de donn�
 
     Pendant une lecture groupée de documents à l'aide de la fonctionnalité de flux de lecture (par exemple, [readDocuments](https://docs.microsoft.com/java/api/com.microsoft.azure.documentdb.documentclient.readdocuments)) ou l'émission d'une requête SQL, les résultats sont retournés de façon segmentée si le jeu de résultats est trop volumineux. Par défaut, les résultats sont retournés dans des segments de 100 éléments ou de 1 Mo, selon la limite atteinte en premier.
 
-    Afin de réduire le nombre de boucles réseau nécessaires pour récupérer tous les résultats applicables, vous pouvez augmenter la taille de la page à 1000 résultats à l’aide de l’en-tête de requête [x-ms-max-item-count](https://docs.microsoft.com/rest/api/cosmos-db/common-cosmosdb-rest-request-headers). Si vous avez besoin d’afficher uniquement quelques résultats, (par exemple, si votre interface utilisateur ou API d’application retourne seulement 10 résultats à la fois), vous pouvez également réduire la taille de la page à 10 résultats, afin de baisser le débit consommé pour les lectures et requêtes.
+    Afin de réduire le nombre de boucles réseau nécessaires pour récupérer tous les résultats applicables, vous pouvez augmenter la taille de la page à 1000 résultats à l’aide de l’en-tête de requête [x-ms-max-item-count](/rest/api/cosmos-db/common-cosmosdb-rest-request-headers). Si vous avez besoin d’afficher uniquement quelques résultats, (par exemple, si votre interface utilisateur ou API d’application retourne seulement 10 résultats à la fois), vous pouvez également réduire la taille de la page à 10 résultats, afin de baisser le débit consommé pour les lectures et requêtes.
 
     Vous pouvez également définir la taille de la page à l’aide de la [méthode setPageSize](https://docs.microsoft.com/java/api/com.microsoft.azure.documentdb.feedoptionsbase.setpagesize).
 
@@ -150,7 +151,7 @@ Si vous vous demandez comment améliorer les performances de votre base de donn�
 
     La complexité d’une requête a un impact sur le nombre d’unités de requête consommées pour une opération. Le nombre de prédicats, la nature des prédicats, le nombre de fonctions définies par l’utilisateur et la taille du jeu de données sources ont tous une influence sur le coût des opérations de requête.
 
-    Pour mesurer les frais d’une opération (création, mise à jour ou suppression), inspectez l’en-tête [x-ms-request-charge](https://docs.microsoft.com/rest/api/cosmos-db/common-cosmosdb-rest-response-headers) (ou la propriété RequestCharge équivalente dans [ResourceResponse\<T>](https://docs.microsoft.com/java/api/com.microsoft.azure.documentdb.resourceresponse) ou [FeedResponse\<T>](https://docs.microsoft.com/java/api/com.microsoft.azure.documentdb.feedresponse)) afin de déterminer le nombre d’unités de requête consommées par ces opérations.
+    Pour mesurer les frais de l’opération (création, mise à jour ou suppression), inspectez l’en-tête [x-ms-request-charge](/rest/api/cosmos-db/common-cosmosdb-rest-response-headers) (ou la propriété RequestCharge équivalente dans [ResourceResponse\<T>](https://docs.microsoft.com/java/api/com.microsoft.azure.documentdb.resourceresponse) ou [FeedResponse\<T>](https://docs.microsoft.com/java/api/com.microsoft.azure.documentdb.feedresponse)) afin de déterminer le nombre d’unités de requête consommées par ces opérations.
 
 
     ### <a name="sync-java-sdk-v2-maven-commicrosoftazureazure-documentdb"></a><a id="syncjava2-requestcharge"></a>Kit de développement logiciel (SDK) Java synchrone v2 (Maven com.microsoft.azure::azure-documentdb)
@@ -165,12 +166,13 @@ Si vous vous demandez comment améliorer les performances de votre base de donn�
    <a id="429"></a>
 1. **Gestion de la limite de taux/du taux de requête trop importants**
 
-    Lorsqu’un client tente de dépasser le débit réservé pour un compte, les performances au niveau du serveur ne sont pas affectées et la capacité de débit n’est pas utilisée au-delà du niveau réservé. Le serveur met fin à la requête de manière préventive avec RequestRateTooLarge (code d’état HTTP 429) et il retourne l’en-tête [x-ms-retry-after-ms](https://docs.microsoft.com/rest/api/cosmos-db/common-cosmosdb-rest-response-headers) indiquant la durée, en millisecondes, pendant laquelle l’utilisateur doit attendre avant de réessayer.
-
+    Lorsqu’un client tente de dépasser le débit réservé pour un compte, les performances au niveau du serveur ne sont pas affectées et la capacité de débit n’est pas utilisée au-delà du niveau réservé. Le serveur met fin à la requête de manière préventive avec RequestRateTooLarge (code d’état HTTP 429) et il retourne l’en-tête [x-ms-retry-after-ms](/rest/api/cosmos-db/common-cosmosdb-rest-response-headers) indiquant la durée, en millisecondes, pendant laquelle l’utilisateur doit attendre avant de réessayer.
+    
+    ```xml
         HTTP Status 429,
         Status Line: RequestRateTooLarge
         x-ms-retry-after-ms :100
-
+    ```
     Les kits de développement logiciel (SDK) interceptent tous implicitement cette réponse, respectent l’en-tête retry-after spécifiée par le serveur, puis relancent la requête. La tentative suivante réussira toujours, sauf si plusieurs clients accèdent simultanément à votre compte.
 
     Si plusieurs clients opèrent simultanément au-delà du taux de requête, le nombre de nouvelles tentatives par défaut actuellement défini sur 9 en interne par le client peut ne pas suffire. Dans ce cas, le client envoie une exception [DocumentClientException](https://docs.microsoft.com/java/api/com.microsoft.azure.documentdb.documentclientexception) avec le code d’état 429 à l’application. Vous pouvez changer le nombre de nouvelles tentatives par défaut en utilisant [setRetryOptions](https://docs.microsoft.com/java/api/com.microsoft.azure.documentdb.connectionpolicy.setretryoptions) sur l’instance [ConnectionPolicy](https://docs.microsoft.com/java/api/com.microsoft.azure.documentdb.connectionpolicy). Par défaut, la DocumentClientException avec le code d’état 429 est retournée après un temps d’attente cumulé de 30 secondes si la requête continue à fonctionner au-dessus du taux de requête. Cela se produit même lorsque le nombre de nouvelles tentatives actuel est inférieur au nombre maximal de nouvelles tentatives, qu’il s’agisse de la valeur par défaut de 9 ou d’une valeur définie par l’utilisateur.
