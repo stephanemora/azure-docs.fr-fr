@@ -72,6 +72,8 @@
           href: cognitive-search-tutorial-blob-python.md
     - name: Déboguer un ensemble de compétences
       href: cognitive-search-tutorial-debug-sessions.md
+    - name: Créer un analyseur personnalisé
+      href: tutorial-create-custom-analyzer.md
     - name: Interroger des données à partir de Power Apps
       href: search-howto-powerapps.md
 - name: Exemples
