@@ -5,15 +5,15 @@ services: storage
 author: tamram
 ms.service: storage
 ms.topic: include
-ms.date: 05/20/2020
+ms.date: 07/08/2020
 ms.author: tamram
 ms.custom: include file
-ms.openlocfilehash: e2540bceab17e6f37fd94b28df3814ccffa1c81e
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 509568b143c9fbbf236139ca83cb55b0ef39beb0
+ms.sourcegitcommit: 5cace04239f5efef4c1eed78144191a8b7d7fee8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84466866"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86145936"
 ---
 Le tableau suivant présente les limites par défaut pour les comptes de stockage d’objets blob, d’objets blob de blocs et V1 et V2 universels. La limite d’*entrée* désigne toutes les données envoyées à un compte de stockage. La limite de *sortie* désigne toutes les données reçues d’un compte de stockage.
 
@@ -33,11 +33,7 @@ Le tableau suivant présente les limites par défaut pour les comptes de stockag
 
 <sup>1</sup> Les comptes de stockage standard Azure prennent en charge la demande de limites supérieures pour la capacité et les entrées. Pour demander une augmentation des limites de compte, contactez le [support Azure](https://azure.microsoft.com/support/faq/).
 
-<sup>2</sup> Si votre compte de stockage dispose d’un accès en lecture activé avec un stockage géoredondant (RA-GRS) ou un stockage géoredondant dans une zone géographique (RA-GZRS), les cibles de sortie de l’emplacement secondaire sont identiques à celles de l’emplacement principal. Voici certaines options de [réplication du Stockage Azure](https://docs.microsoft.com/azure/storage/common/storage-redundancy) :
-
-[!INCLUDE [azure-storage-redundancy](azure-storage-redundancy.md)]
-
-<sup>3</sup> [Azure Data Lake Storage Gen2](../articles/storage/blobs/data-lake-storage-introduction.md) est un ensemble de fonctionnalités dédiées à l’analytique du Big Data et basées sur le stockage Blob Azure.
+<sup>2</sup> Si votre compte de stockage dispose d’un accès en lecture activé avec un stockage géoredondant (RA-GRS) ou un stockage géoredondant dans une zone géographique (RA-GZRS), les cibles de sortie de l’emplacement secondaire sont identiques à celles de l’emplacement principal. Pour plus d’informations, consultez l’article [Réplication de Stockage Azure](../articles/storage/common/storage-redundancy.md).
 
 > [!NOTE]
 > Microsoft recommande d’utiliser des comptes de stockage universels v2 pour la plupart des scénarios. Vous pouvez facilement mettre à niveau un compte de stockage universel v1 ou un compte de stockage d’objets blob Azure vers un compte universel v2, sans que cela nécessite un temps d’arrêt ou la copie de données. Pour obtenir plus d’informations, consultez [Mettre à niveau vers un compte de stockage v2 à usage général](../articles/storage/common/storage-account-upgrade.md).

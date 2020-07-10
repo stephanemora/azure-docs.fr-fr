@@ -5,12 +5,13 @@ author: tsushi
 ms.topic: conceptual
 ms.date: 10/10/2019
 ms.author: azfuncdf
-ms.openlocfilehash: 8e12d58c0077084c181d111b0b017665b74b9157
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.custom: fasttrack-edit
+ms.openlocfilehash: 45f87898f7da432e5bdd09061e74c33a1a8fe41b
+ms.sourcegitcommit: 1e6c13dc1917f85983772812a3c62c265150d1e7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "74231257"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86165700"
 ---
 # <a name="zero-downtime-deployment-for-durable-functions"></a>Déploiement sans temps d’arrêt pour Durable Functions
 
@@ -19,9 +20,6 @@ Pour permettre un bon fonctionnement du [modèle d’exécution fiable](durable-
 Pour éviter ces échecs, vous avez deux options : 
 - Retardez votre déploiement jusqu’à ce que toutes les instances d’orchestration en cours d’exécution soient terminées.
 - Assurez-vous que toutes les instances d’orchestration en cours d’exécution utilisent les versions existantes de vos fonctions. 
-
-> [!NOTE]
-> Cet article fournit des conseils concernant les applications de fonction qui ciblent Durable Functions 1.x. Il n’a pas été mis à jour pour tenir compte des modifications introduites dans Durable Functions 2.x. Pour en savoir plus sur les différences entre les versions d’extension, consultez [Versions de Durable Functions](durable-functions-versions.md).
 
 Le tableau suivant compare les trois stratégies principales qui permettent d’effectuer un déploiement sans temps d’arrêt pour Durable Functions : 
 
@@ -97,7 +95,7 @@ Configurez votre pipeline CI/CD pour le déploiement uniquement quand votre appl
 [FunctionName("StatusCheck")]
 public static async Task<IActionResult> StatusCheck(
     [HttpTrigger(AuthorizationLevel.Function, "get", "post")] HttpRequestMessage req,
-    [OrchestrationClient] DurableOrchestrationClient client,
+    [DurableClient] IDurableOrchestrationClient client,
     ILogger log)
 {
     var runtimeStatus = new List<OrchestrationRuntimeStatus>();
@@ -105,8 +103,8 @@ public static async Task<IActionResult> StatusCheck(
     runtimeStatus.Add(OrchestrationRuntimeStatus.Pending);
     runtimeStatus.Add(OrchestrationRuntimeStatus.Running);
 
-    var status = await client.GetStatusAsync(new DateTime(2015,10,10), null, runtimeStatus);
-    return (ActionResult) new OkObjectResult(new Status() {HasRunning = (status.Count != 0)});
+    var result = await client.ListInstancesAsync(new OrchestrationStatusQueryCondition() { RuntimeStatus = runtimeStatus }, CancellationToken.None);
+    return (ActionResult)new OkObjectResult(new { HasRunning = result.DurableOrchestrationState.Any() });
 }
 ```
 

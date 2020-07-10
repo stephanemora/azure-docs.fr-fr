@@ -3,12 +3,12 @@ title: Analyser les performances d’Azure App Service | Microsoft Docs
 description: Analyse des performances des applications pour les services d’application Azure. Analysez la charge, le temps de réponse et les dépendances dans des graphiques, et définissez des alertes sur les performances.
 ms.topic: conceptual
 ms.date: 12/11/2019
-ms.openlocfilehash: 0f4d4dedab30839db56cb47ac7ac103413f2d4be
-ms.sourcegitcommit: 4499035f03e7a8fb40f5cff616eb01753b986278
+ms.openlocfilehash: 574aefa4d554be7b0027c921289d8d15cffb8e49
+ms.sourcegitcommit: 1e6c13dc1917f85983772812a3c62c265150d1e7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/03/2020
-ms.locfileid: "82733445"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86169933"
 ---
 # <a name="monitor-azure-app-service-performance"></a>Analyser les performances d’Azure App Service
 
@@ -58,7 +58,7 @@ Il existe deux façons d’activer la supervision des applications hébergées p
  
  Voici un résumé des données collectées pour chaque itinéraire :
         
-|  | Collection .NET Basic | Collecte Recommandé .NET |
+| Données | Collection .NET Basic | Collecte Recommandé .NET |
 | --- | --- | --- |
 | Ajoute les tendances d’utilisation de l’UC, de la mémoire et des E/S |Oui |Oui |
 | Collecte les tendances d’utilisation et permet la mise en corrélation des résultats de la disponibilité avec les transactions | Oui |Oui |

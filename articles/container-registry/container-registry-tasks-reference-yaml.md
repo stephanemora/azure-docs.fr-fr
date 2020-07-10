@@ -3,12 +3,12 @@ title: Informations de référence sur YAML - ACR Tasks
 description: Référence pour la définition de tâches dans YAML pour ACR Tasks, y compris les propriétés de tâche, les types d’étapes, les propriétés d’étape et les variables intégrées.
 ms.topic: article
 ms.date: 10/23/2019
-ms.openlocfilehash: 9558f698b4a9dbca46431fc02ced6ae30de29121
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 11771c32db3b3d7c975c0262bda228903a58978f
+ms.sourcegitcommit: 1e6c13dc1917f85983772812a3c62c265150d1e7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79225777"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86171055"
 ---
 # <a name="acr-tasks-reference-yaml"></a>Référence ACR Tasks : YAML
 
@@ -141,7 +141,7 @@ Le type d’étape `build` prend en charge les paramètres du tableau suivant. L
 
 Le type d’étape `build` prend en charge les propriétés suivantes : La section [Propriétés d’étape de tâche](#task-step-properties) de cet article comporte les détails de ces propriétés.
 
-| | | |
+| Propriétés | Type | Obligatoire |
 | -------- | ---- | -------- |
 | `detach` | bool | Facultatif |
 | `disableWorkingDirectoryOverride` | bool | Facultatif |
@@ -213,7 +213,7 @@ steps:
 
 Le type d’étape `push` prend en charge les propriétés suivantes : La section [Propriétés d’étape de tâche](#task-step-properties) de cet article comporte les détails de ces propriétés.
 
-| | | |
+| Propriété | Type | Obligatoire |
 | -------- | ---- | -------- |
 | `env` | [chaîne, chaîne,...] | Facultatif |
 | `id` | string | Facultatif |
@@ -258,7 +258,7 @@ steps:
 
 Le type d’étape `cmd` prend en charge les propriétés suivantes :
 
-| | | |
+| Propriété | Type | Obligatoire |
 | -------- | ---- | -------- |
 | `detach` | bool | Facultatif |
 | `disableWorkingDirectoryOverride` | bool | Facultatif |
@@ -381,7 +381,7 @@ Chaque type d’étape prend en charge plusieurs propriétés appropriées pour 
 | `user` | string | Oui | Nom d’utilisateur ou UID d’un conteneur | None |
 | `workingDirectory` | string | Oui | Définit le répertoire de travail pour une étape. Par défaut, ACR Tasks crée un répertoire racine comme répertoire de travail. Toutefois, si votre build dispose de plusieurs étapes, les étapes précédentes peuvent partager des artefacts avec étapes suivantes en spécifiant le même répertoire de travail. | `/workspace` |
 
-### <a name="examples-task-step-properties"></a>Exemples : propriétés d’étape de tâche
+### <a name="examples-task-step-properties"></a>Exemples : Propriétés d’étape de tâche
 
 #### <a name="example-id"></a>Exemple : id
 
