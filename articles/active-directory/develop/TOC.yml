@@ -4,8 +4,6 @@
   items:
     - name: "Qu’est-ce que la plateforme d’identités Microsoft\_?"
       href: v2-overview.md
-    - name: Évolution de la plateforme d’identités Microsoft
-      href: about-microsoft-identity-platform.md
 - name: Démarrages rapides
   expanded: true
   items:

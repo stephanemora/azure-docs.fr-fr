@@ -6,6 +6,8 @@
   href: sample-v1-code.md
 - name: Concepts
   items:
+    - name: Évolution de la plateforme d’identités Microsoft
+      href: about-microsoft-identity-platform.md
     - name: Pourquoi mettre à jour vers v2.0
       href: azure-ad-endpoint-comparison.md
     - name: Types d’applications
@@ -176,7 +178,7 @@
   items:
     - name: Glossaire
       href: ../develop/developer-glossary.md?toc=/azure/active-directory/azuread-dev/toc.json&bc=/azure/active-directory/azuread-dev/breadcrumb/toc.json
-    - name: Videos
+    - name: Vidéos
       href: videos.md
     - name: Feuille de route Azure
       href: 'https://azure.microsoft.com/roadmap/?category=security-identity'
