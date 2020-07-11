@@ -17,10 +17,10 @@ ms.date: 05/05/2017
 ms.author: radeltch
 ms.custom: H1Hack27Feb2017
 ms.openlocfilehash: a393c1ac09283f1570908cea72750ed5ae28f81e
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "77617331"
 ---
 # <a name="install-sap-netweaver-high-availability-on-a-windows-failover-cluster-and-file-share-for-sap-ascsscs-instances-on-azure"></a>Installer la haute disponibilité SAP NetWeaver sur un cluster de basculement Windows et un partage de fichiers pour des instances SAP ASCS/SCS sur Azure
@@ -236,8 +236,8 @@ Créez le partage de volume et de fichiers suivant sur le cluster SOFS :
 * Partage de fichiers SAPMNT
 
 * Définiz la sécurité sur le partage de fichiers et le dossier SAPMNT avec un contrôle total pour :
-    * Le groupe d’utilisateurs \<DOMAINE>\SAP_\<SID>_GlobalAdmin
-    * Les objets ordinateur de nœud de cluster SAP ASCS/SCS \<DOMAINE>\ClusterNode1$ et \<DOMAINE>\ClusterNode2$
+    * le groupe d’utilisateurs \<DOMAIN>\SAP_\<SID>_GlobalAdmin ;
+    * les objets ordinateur de nœud de cluster SAP ASCS/SCS \<DOMAIN>\ClusterNode1$ et \<DOMAIN>\ClusterNode2$.
 
 Pour créer un volume CSV avec une résilience en miroir, exécutez la cmdlet PowerShell suivante sur l’un des nœuds de cluster SOFS :
 
@@ -299,7 +299,7 @@ Créez un nom réseau du cluster SAP ASCS/SCS (par exemple, **pr1-ascs [10.0.6.7
 
 Installez une instance ASCS/SCS SAP sur le premier nœud de cluster. Pour installer l’instance, dans l’outil d’installation SAP SWPM, accédez à :
 
-**\<Produit>**  >  **\<SGBD>**  > **Installation** > **Application Server ABAP** (ou **Java**) > **High-Availability System (Système haute disponibilité)**  > **Instance ASCS/SCS** > **First cluster node (Premier nœud de cluster)** .
+**\<Product>**  >  **\<DBMS>**  > **Installation** > **Application Server ABAP** (ou **Java**) > **Système haute disponibilité** > **Instance ASCS/SCS** > **Premier nœud de cluster**.
 
 ### <a name="add-a-probe-port"></a>Ajouter un port de sonde
 
@@ -309,12 +309,12 @@ Configurez le port de sonde SAP-SID-IP (ressource de cluster SAP) à l’aide de
 
 Installez une instance ASCS/SCS SAP sur le deuxième nœud de cluster. Pour installer l’instance, dans l’outil d’installation SAP SWPM, accédez à :
 
-**\<Produit>**  >  **\<SGBD>**  > **Installation** > **Application Server ABAP** (ou **Java**) > **High-Availability System (Système haute disponibilité)**  > **Instance ASCS/SCS** > **Additional cluster node (Nœud de cluster supplémentaire)** .
+**\<Product>**  >  **\<DBMS>**  > **Installation** > **Application Server ABAP** (ou **Java**) > **Système haute disponibilité** > **Instance ASCS/SCS** > **Nœud de cluster supplémentaire**.
 
 
 ## <a name="update-the-sap-ascsscs-instance-profile"></a>Mettre à jour le profil d’instance SAP ASCS/SCS
 
-Mettez à jour les paramètres dans le profil d’instance ASCS/SCS SAP \<SID>_ASCS/SCS\<Nr>_ \<Hôte>.
+Mettez à jour les paramètres dans le profil d’instance ASCS/SCS SAP \<SID>_ASCS/SCS\<Nr>_ \<Host>.
 
 
 | Nom du paramètre | Valeur du paramètre |

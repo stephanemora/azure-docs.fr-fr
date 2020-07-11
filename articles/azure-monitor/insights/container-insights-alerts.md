@@ -4,10 +4,10 @@ description: Cet article explique comment créer des alertes personnalisées bas
 ms.topic: conceptual
 ms.date: 01/07/2020
 ms.openlocfilehash: 5d73f4399d10683597fb2a2e8a3a2ab4ba0d1165
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "75730923"
 ---
 # <a name="how-to-set-up-alerts-for-performance-problems-in-azure-monitor-for-containers"></a>Comment configurer des alertes pour des problèmes de performances dans Azure Monitor pour conteneurs
@@ -100,7 +100,7 @@ KubeNodeInventory
 | summarize AggregatedValue = avg(UsagePercent) by bin(TimeGenerated, trendBinSize), ClusterName
 ```
 >[!IMPORTANT]
->Les requêtes suivantes utilisent les valeurs d’espace réservé \<your-cluster-name > et \<your-controller-name > pour représenter votre cluster et votre contrôleur. Remplacez-les par des valeurs propres à votre environnement lorsque vous définissez des alertes.
+>Les requêtes suivantes utilisent les valeurs d’espace réservé \<your-cluster-name> et \<your-controller-name> pour représenter votre cluster et votre contrôleur. Remplacez-les par des valeurs propres à votre environnement lorsque vous définissez des alertes.
 
 La requête suivante calcule l’utilisation moyenne de l’UC de tous les conteneurs d’un contrôleur en tant que moyenne de l’utilisation de l’UC de chaque instance de conteneur dans un contrôleur à chaque minute. La mesure est un pourcentage de la limite configurée pour un conteneur.
 
@@ -289,7 +289,7 @@ Suivez ces étapes pour créer une alerte de journal dans Azure Monitor en utili
 4. Dans le volet à gauche, sélectionnez **Journaux** pour ouvrir la page des journaux Azure Monitor. Cette page vous permet d’écrire et exécuter des requêtes Azure Log Analytics.
 5. Dans la page **Journaux**, collez l’une des [requêtes](#resource-utilization-log-search-queries) fournies précédemment dans le champ **Requête de recherche**, puis sélectionnez **Exécuter** pour valider les résultats. Si vous n’effectuez pas cette étape, l’option **+Nouvelle alerte** n’est pas sélectionnable.
 6. Sélectionnez **+Nouvelle alerte** pour créer une alerte de journal.
-7. Dans la section **Condition**, sélectionnez la condition de journal personnalisée prédéfinie **Chaque fois que la recherche dans les journaux est \<logique non définie>** . Le type de signal **Recherche dans les journaux d’activité personnalisée** est automatiquement sélectionné pour nous parce que nous créons une règle d’alerte directement à partir de la page de journaux d’Azure Monitor.  
+7. Dans la section **Condition**, sélectionnez la condition de journal personnalisée prédéfinie **Chaque fois que la recherche dans les journaux est \<logic undefined>** . Le type de signal **Recherche dans les journaux d’activité personnalisée** est automatiquement sélectionné pour nous parce que nous créons une règle d’alerte directement à partir de la page de journaux d’Azure Monitor.  
 8. Collez l’une des [requêtes](#resource-utilization-log-search-queries) fournies précédemment dans le champ **Requête de recherche**.
 9. Configurez l’alerte comme suit :
 

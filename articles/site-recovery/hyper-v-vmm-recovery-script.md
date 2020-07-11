@@ -7,18 +7,18 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 11/27/2018
 ms.author: rajanaki
-ms.openlocfilehash: 14c2a9a2ad818cc358535a91f9a6813ec7b91a6f
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: fb690dfb90c0f7b8216368cb6b26a9af7d895d18
+ms.sourcegitcommit: e995f770a0182a93c4e664e60c025e5ba66d6a45
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "83826279"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86130125"
 ---
 # <a name="add-a-vmm-script-to-a-recovery-plan"></a>Ajouter un script VMM à un plan de récupération
 
 Cet article explique comment créer un script VMM (System Center Virtual Machine Manager) et l’ajouter à un plan de récupération dans [Azure Site Recovery](site-recovery-overview.md).
 
-Publiez des commentaires ou des questions au bas de cet article ou sur la [page de questions Microsoft Q&R sur Azure Recovery Services](https://docs.microsoft.com/answers/topics/azure-site-recovery.html).
+Publiez des commentaires ou des questions au bas de cet article ou sur la [page de questions Microsoft Q&R sur Azure Recovery Services](/answers/topics/azure-site-recovery.html).
 
 ## <a name="prerequisites"></a>Prérequis
 
@@ -38,7 +38,7 @@ Vous pouvez utiliser des scripts PowerShell dans vos plans de récupération. Po
 
     `Import-Module -Name virtualmachinemanager`
 
-    Pour plus d’informations, consultez [Bien démarrer avec Windows PowerShell et VMM](https://technet.microsoft.com/library/hh875013.aspx).
+    Pour plus d’informations, consultez [Bien démarrer avec Windows PowerShell et VMM](/previous-versions/system-center/system-center-2012-R2/hh875013(v=sc.12)).
 * Vérifiez que vous disposez d’au moins un serveur de bibliothèque au sein de votre déploiement VMM. Par défaut, le chemin de partage de bibliothèque d’un serveur VMM est disponible localement sur le serveur VMM. Le nom du dossier est MSCVMMLibrary.
 
   Si votre chemin de partage de bibliothèque est distant (ou local mais non partagé avec MSCVMMLibrary), configurez le partage comme suit, en utilisant \\libserver2.contoso.com\share\ comme exemple :
@@ -51,7 +51,7 @@ Vous pouvez utiliser des scripts PowerShell dans vos plans de récupération. Po
 
      a. Ouvrez la console **Windows PowerShell 64 bits** en tant qu’administrateur.
      
-     b. Entrez **Set-executionpolicy bypass**. Pour plus d’informations, consultez [Utilisation de l’applet de commande Set-ExecutionPolicy](https://technet.microsoft.com/library/ee176961.aspx).
+     b. Entrez **Set-executionpolicy bypass**. Pour plus d’informations, consultez [Utilisation de l’applet de commande Set-ExecutionPolicy](/previous-versions/windows/it-pro/windows-powershell-1.0/ee176961(v=technet.10)).
 
      > [!IMPORTANT]
      > Définissez **Set-executionpolicy bypass** uniquement dans la console PowerShell 64 bits. Si vous la définissez pour la console PowerShell de 32 bits, les scripts ne s’exécutent pas.

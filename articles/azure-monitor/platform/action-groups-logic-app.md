@@ -7,10 +7,10 @@ ms.topic: conceptual
 ms.date: 07/18/2018
 ms.subservice: alerts
 ms.openlocfilehash: 655a3acc44a1418778b37fbef85e5df75d042317
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "78206234"
 ---
 # <a name="how-to-trigger-complex-actions-with-azure-monitor-alerts"></a>Guide pratique pour déclencher des actions complexes avec des alertes Azure Monitor
@@ -110,7 +110,7 @@ Le processus est similaire si vous souhaitez que l’application logique effectu
 
 12. Configurez l’action Microsoft Teams. Le **Concepteur d’applications logiques** vous invite à vous authentifier pour vous connecter à votre compte Office 365. Choisissez l’**ID de l’équipe** et l’**ID du canal** auxquels envoyer le message.
 
-13. Configurez le message en utilisant une combinaison de texte statique et de références aux \<champs\> du contenu dynamique. Coupez et collez le texte suivant dans le champ **Message** :
+13. Configurez le message en utilisant une combinaison de texte statique et de références aux \<fields\> du contenu dynamique. Coupez et collez le texte suivant dans le champ **Message** :
 
     ```text
       Activity Log Alert: <eventSource>
@@ -119,7 +119,7 @@ Le processus est similaire si vous souhaitez que l’application logique effectu
       resourceId: <resourceId>
     ```
 
-    Recherchez et remplacez les \<champs\> par des balises de contenu dynamique du même nom.
+    Recherchez et remplacez ensuite les \<fields\> par des balises de contenu dynamique du même nom.
 
     > [!NOTE]
     > Il existe deux champs dynamiques nommés **status**. Ajoutez les deux au message. Utilisez celui du jeu de propriétés **activityLog** et supprimez l’autre. Placez le curseur sur le champ **status** pour voir la référence complète au champ, comme sur la capture d’écran suivante :

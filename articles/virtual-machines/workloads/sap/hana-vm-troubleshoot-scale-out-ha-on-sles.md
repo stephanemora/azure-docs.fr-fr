@@ -13,10 +13,10 @@ ms.workload: infrastructure
 ms.date: 09/24/2018
 ms.author: hermannd
 ms.openlocfilehash: e93b3412785817050ac53030be9ff2172a678c06
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "77617118"
 ---
 # <a name="verify-and-troubleshoot-sap-hana-scale-out-high-availability-setup-on-sles-12-sp3"></a>Vérifier et corriger la configuration SAP HANA scale-out à haute disponibilité sur SLES 12 SP3 
@@ -656,7 +656,7 @@ Waiting for 7 replies from the CRMd....... OK
 
 ## <a name="failover-or-takeover"></a>Basculement ou prise de contrôle
 
-Comme mentionné précédemment dans les [Remarques importantes](#important-notes), vous ne devez pas utiliser d’arrêt approprié standard pour tester le basculement de cluster ou la prise de contrôle de SAP HANA HSR. Nous vous recommandons plutôt de déclencher une alerte de noyau, de forcer la migration d’une ressource ou d’arrêter tous les réseaux au niveau du système d’exploitation sur une machine virtuelle. Vous pouvez aussi utiliser la commande **crm \<nœud\> standby**. Consultez la [documentation SUSE][sles-12-ha-paper]. 
+Comme mentionné précédemment dans les [Remarques importantes](#important-notes), vous ne devez pas utiliser d’arrêt approprié standard pour tester le basculement de cluster ou la prise de contrôle de SAP HANA HSR. Nous vous recommandons plutôt de déclencher une alerte de noyau, de forcer la migration d’une ressource ou d’arrêter tous les réseaux au niveau du système d’exploitation sur une machine virtuelle. Vous pouvez aussi utiliser la commande **crm \<node\> standby**. Consultez la [documentation SUSE][sles-12-ha-paper]. 
 
 Ci-dessous, vous voyez trois exemples de commandes qui permettent de forcer le basculement de cluster :
 
@@ -682,7 +682,7 @@ Par ailleurs, vous pouvez voir l’état du paysage SAP HANA à partir d’un sc
 
 Un certain nombre de nouvelles tentatives sont effectuées pour éviter les basculements inutiles. C’est seulement si l’état passe de **Ok** (valeur de retour **4**) à **Erreur** (valeur de retour **1**) que le cluster réagit. Par conséquent, c’est correct si la sortie **SAPHanaSR-showAttr** montre une machine virtuelle avec l’état **offline** (hors connexion). Mais il n’existe encore aucune activité pour basculer entre principal et secondaire. Aucune activité de cluster n’est déclenchée tant que SAP HANA ne retourne pas d’erreur.
 
-Vous pouvez superviser l’état d’intégrité du paysage SAP HANA sous l’utilisateur **\<HANA SID\>adm** en appelant le script Python SAP de la façon suivante. Vous devrez peut-être adapter le chemin d’accès :
+Vous pouvez superviser l’état d’intégrité du paysage SAP HANA en tant qu’utilisateur **\<HANA SID\>adm** en appelant le script Python SAP comme suit. Vous devrez peut-être adapter le chemin d’accès :
 
 <pre><code>
 watch python /hana/shared/HSO/exe/linuxx86_64/HDB_2.00.032.00.1533114046_eeaf4723ec52ed3935ae0dc9769c9411ed73fec5/python_support/landscapeHostConfiguration.py
@@ -945,7 +945,7 @@ listeninterface = .internal
 ## <a name="hawk"></a>Hawk
 
 La solution de cluster fournit une interface de navigateur avec une interface graphique utilisateur pour les personnes qui préfèrent des menus et des graphiques à la place de toutes les commandes de l’interpréteur de commandes.
-Pour utiliser l’interface de navigateur, remplacez **\<node\>** par un vrai nœud SAP HANA dans l’URL suivante. Puis entrez les informations d’identification du cluster (utilisateur **cluster**) :
+Pour utiliser l’interface de navigateur, remplacez **\<node\>** par un nœud SAP HANA réel dans l’URL suivante. Puis entrez les informations d’identification du cluster (utilisateur **cluster**) :
 
 <pre><code>
 https://&ltnode&gt:7630

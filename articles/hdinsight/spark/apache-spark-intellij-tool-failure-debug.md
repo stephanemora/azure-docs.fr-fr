@@ -10,10 +10,10 @@ ms.custom: hdinsightactive,hdiseo17may2017
 ms.topic: conceptual
 ms.date: 07/12/2019
 ms.openlocfilehash: 052b12817b788ff38f0fab72a5420896b062c732
-ms.sourcegitcommit: c535228f0b77eb7592697556b23c4e436ec29f96
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/06/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "82857415"
 ---
 # <a name="failure-spark-job-debugging-with-azure-toolkit-for-intellij-preview"></a>Échec du débogage du travail Spark avec le kit de ressources Azure pour IntelliJ (préversion)
@@ -90,7 +90,7 @@ Créez une application Spark Scala/Java, puis exécutez l’application sur un c
 
 En cas d’échec de l’envoi du travail, vous pouvez télécharger le profil de travail ayant échoué sur la machine locale pour poursuivre le débogage.
 
-1. Ouvrez **Explorateur Stockage Microsoft Azure**, recherchez le compte HDInsight du cluster pour le travail ayant échoué, téléchargez les ressources de travail ayant échoué à partir de l’emplacement correspondant : **\hdp\spark2-events\\.spark-failures\\\<ID d’application>** dans un dossier local. La fenêtre **Activités** indique la progression du téléchargement.
+1. Ouvrez l’**Explorateur Stockage Microsoft Azure**, recherchez le compte HDInsight du cluster pour le travail ayant échoué, puis téléchargez les ressources de travail ayant échoué à partir de l’emplacement correspondant **\hdp\spark2-events\\.spark-failures\\\<application ID>** dans un dossier local. La fenêtre **Activités** indique la progression du téléchargement.
 
    ![Échec du téléchargement dans l’Explorateur Stockage Azure](./media/apache-spark-intellij-tool-failure-debug/hdinsight-find-spark-file-001.png)
 

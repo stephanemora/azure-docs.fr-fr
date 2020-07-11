@@ -2,21 +2,21 @@
 title: Développer un point de terminaison SCIM pour le provisionnement d’utilisateurs dans des applications à partir d’Azure AD
 description: Le système SCIM (Cross-domain Identity Management) normalise le provisionnement automatique des utilisateurs. Apprenez à développer un point de terminaison SCIM, à intégrer votre API SCIM à Azure Active Directory et à automatiser le provisionnement des utilisateurs et des groupes dans vos applications cloud.
 services: active-directory
-author: msmimart
-manager: CelesteDG
+author: kenwith
+manager: celestedg
 ms.service: active-directory
 ms.subservice: app-provisioning
 ms.workload: identity
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 03/07/2020
-ms.author: mimart
+ms.author: kenwith
 ms.reviewer: arvinh
-ms.openlocfilehash: 926c3315035534f393eba72cd1d3910bf6135347
-ms.sourcegitcommit: fc718cc1078594819e8ed640b6ee4bef39e91f7f
+ms.openlocfilehash: b08509bed6b26cb56caebd4dc47fc3b7ac84ce27
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "83994457"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85117316"
 ---
 # <a name="build-a-scim-endpoint-and-configure-user-provisioning-with-azure-ad"></a>Créer un point de terminaison SCIM et configurer l’attribution des utilisateurs à l’aide d’Azure AD
 
@@ -745,11 +745,7 @@ Barre minimale des suites de chiffrement TLS 1.2 :
 - TLS_ECDHE_RSA_WITH_AES_256_CBC_SHA384
 
 ### <a name="ip-ranges"></a>Plages d’adresses IP
-Le service d’approvisionnement Azure AD fonctionne actuellement dans les plages d’adresses IP suivantes. 
-
-13.86.239.205 ; 52.188.178.195 ; 13.86.61.156 ; 40.67.254.206 ; 51.105.237.71 ; 20.44.38.166 ; 40.81.88.68 ; 52.184.94.250 ; 20.43.180.59 ; 20.193.16.105 ; 20.40.167.232 ; 13.86.3.57 ; 52.188.72.113 ; 13.88.140.233 ; 52.142.121.156 ; 51.124.0.213 ; 40.81.92.36 ; 20.44.39.175 ; 20.189.114.130 ; 20.44.193.163 ; 20.193.23.17 ; 20.40.173.237 ; 13.86.138.128 ; 52.142.29.23 ; 13.86.2.238 ; 40.127.246.167 ; 51.136.72.4 ; 20.44.39.244 ; 40.81.92.186 ; 20.189.114.131 ; 20.44.193.210 ; 20.193.2.21 ; 20.40.174.46 ; 13.86.219.18 ; 40.71.13.10 ; 20.44.16.38 ; 13.89.174.16 ; 13.69.66.182 ; 13.69.229.118 ; 104.211.147.176 ; 40.78.195.176 ; 13.67.9.240 ; 13.75.38.48 ; 13.70.73.48 ; 13.77.52.176 ;
-
-
+Le service d’approvisionnement Azure AD peut actuellement opérer sous n’importe quelle plage d’adresses IP Azure. Un travail est en cours pour consolider l’ensemble des plages d’adresses IP sur lesquelles le service opère. Ce document sera mis à jour une fois la liste de plages d’adresses IP consolidée. 
 
 ## <a name="step-3-build-a-scim-endpoint"></a>Étape 3 : Créer un point de terminaison SCIM
 
@@ -1198,7 +1194,8 @@ La spécification SCIM ne définit pas de schéma spécifique à SCIM à des fin
 |Octroi du code d’autorisation OAuth|Les jetons d’accès ont une durée de vie beaucoup plus courte que les mots de passe. Ils comportent un mécanisme d’actualisation automatisée, ce qui n’est pas le cas des jetons de porteur de longue durée.  Un utilisateur doit être physiquement présent lors de l’autorisation initiale, ce qui ajoute un niveau de responsabilité. |Nécessite la présence d’un utilisateur. Si l’utilisateur quitte l’organisation, le jeton n’est plus valide et l’autorisation doit être recommencée.|Prise en charge pour les applications de la galerie. La prise en charge pour les applications qui ne figurent pas dans la galerie est prévue prochainement.|
 |Octroi d’informations d’identification de client OAuth|Les jetons d’accès ont une durée de vie beaucoup plus courte que les mots de passe. Ils comportent un mécanisme d’actualisation automatisée, ce qui n’est pas le cas des jetons de porteur de longue durée. L’octroi du code d’autorisation et l’octroi d’informations d’identification du client permettent de créer le même type de jeton d’accès. L’utilisation de l’une ou l’autre de ces méthodes est donc transparente pour l’API.  Le provisionnement peut être entièrement automatisé, et de nouveaux jetons peuvent être demandés sans l’assistance d’un utilisateur. ||Pas de prise en charge pour les applications de la galerie ni pour les autres. La prise en charge est dans notre backlog.|
 
-[!NOTE] Il est déconseillé de laisser le champ du jeton vide dans l’interface utilisateur de l’application personnalisée de configuration du provisionnement Azure AD. Le jeton généré est principalement destiné à des fins de test.
+> [!NOTE]
+> Il est déconseillé de laisser le champ du jeton vide dans l’interface utilisateur de l’application personnalisée de configuration du provisionnement Azure AD. Le jeton généré est principalement destiné à des fins de test.
 
 **Flux d’octroi du code d’autorisation OAuth :** Le service d’approvisionnement prend en charge l'[octroi du code d’autorisation](https://tools.ietf.org/html/rfc6749#page-24). Une fois la demande de publication de votre application dans la galerie envoyée, notre équipe vous aidera à collecter les informations suivantes :
 *  URL d’autorisation : URL client pour obtenir l’autorisation du propriétaire de la ressource via la redirection de l’agent utilisateur. L’utilisateur est redirigé vers cette URL pour autoriser l’accès. Notez que cette URL n’est pas configurable actuellement par le locataire.

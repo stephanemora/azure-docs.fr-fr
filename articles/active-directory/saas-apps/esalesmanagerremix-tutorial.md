@@ -17,10 +17,10 @@ ms.date: 06/12/2018
 ms.author: jeedes
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 167d682bb5ce1266ba6b677f6223c38dd34af9bb
-ms.sourcegitcommit: 67bddb15f90fb7e845ca739d16ad568cbc368c06
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "82202394"
 ---
 # <a name="integrate-azure-active-directory-with-e-sales-manager-remix"></a>Intégrer Azure Active Directory à E Sales Manager Remix
@@ -101,9 +101,9 @@ Activez l’authentification unique Azure AD dans le portail Azure, et configure
 
     ![Informations d’authentification unique dans la section relative aux domaine et adresses URL E Sales Manager Remix](./media/esalesmanagerremix-tutorial/tutorial_esalesmanagerremix_url.png)
 
-    a. Dans le champ **URL d’authentification**, entrez une URL dans le format suivant : *https://\<Server-Based-URL>/\<sub-domain>/esales-pc*.
+    a. Dans la zone **URL de connexion**, tapez une URL au format *https://\<Server-Based-URL>/\<sub-domain>/esales-pc*.
 
-    b. Dans le champ **Identificateur**, entrez une URL dans le format suivant : *https://\<Server-Based-URL>/\<sub-domain>/* .
+    b. Dans la zone **Identificateur**, tapez une URL au format *https://\<Server-Based-URL>/\<sub-domain>/* .
 
     c. Notez la valeur **Identificateur** en vue d’une utilisation plus tard dans ce didacticiel.
     
@@ -120,7 +120,7 @@ Activez l’authentification unique Azure AD dans le portail Azure, et configure
 
     La fenêtre **Modifier l’attribut** s’affiche.
 
-1. Copiez les valeurs **Espace de noms** et **Nom**. Générez la valeur dans le modèle *\<Namespace>/\<Name>* , et enregistrez-la en vue d’une utilisation plus tard dans ce didacticiel.
+1. Copiez les valeurs **Espace de noms** et **Nom**. Générez la valeur dans le modèle *\<Namespace>/\<Name>* , et enregistrez-la en vue de son utilisation ultérieure dans ce didacticiel.
 
     ![Fenêtre Modifier l’attribut](./media/esalesmanagerremix-tutorial/configure2.png)
 

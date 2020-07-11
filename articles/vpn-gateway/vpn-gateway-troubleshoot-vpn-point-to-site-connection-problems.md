@@ -9,10 +9,10 @@ ms.topic: troubleshooting
 ms.date: 03/26/2020
 ms.author: genli
 ms.openlocfilehash: 5a273ccad0d30ede3f0ed4ee532d61161074d304
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "82188291"
 ---
 # <a name="troubleshooting-azure-point-to-site-connection-problems"></a>Résolution des problèmes : problèmes de connexion point à site Azure
@@ -44,7 +44,7 @@ Pour résoudre ce problème, effectuez les opérations suivantes :
     | AzureClient.pfx  | Utilisateur actuel\Personnel\Certificats |
     | AzureRoot.cer    | Ordinateur local\Autorités de certification racines de confiance|
 
-3. Accédez à C:\Users\<UserName>\AppData\Roaming\Microsoft\Network\Connections\Cm\<GUID>, puis installez manuellement le certificat (fichier *.cer) dans le magasin de l’utilisateur et de l’ordinateur.
+3. Accédez à C:\Utilisateurs\<UserName>\AppData\Roaming\Microsoft\Network\Connections\Cm\<GUID>, puis installez manuellement le certificat (fichier *.cer) dans le magasin de l’utilisateur et de l’ordinateur.
 
 Pour en savoir plus sur la façon d’installer le certificat client, consultez la page [Générer et exporter des certificats pour les connexions de point à site](vpn-gateway-certificates-point-to-site.md).
 
@@ -272,7 +272,7 @@ Supprimez la connexion VPN de point à site, puis réinstallez le client VPN. Da
 
 ### <a name="solution"></a>Solution
 
-Pour résoudre le problème, supprimez les anciens fichiers de configuration du client VPN à partir de **C:\Users\UserName\AppData\Roaming\Microsoft\Network\Connections\<VirtualNetworkId>** , puis réexécutez le programme d’installation du client VPN.
+Pour résoudre le problème, supprimez les anciens fichiers de configuration du client VPN à partir de **C:\Utilisateurs\NomUtilisateur\AppData\Roaming\Microsoft\Network\Connections\<VirtualNetworkId>** , puis exécutez à nouveau le programme d’installation du client VPN.
 
 ## <a name="point-to-site-vpn-client-cannot-resolve-the-fqdn-of-the-resources-in-the-local-domain"></a>Le client VPN de point à site ne peut pas résoudre le nom de domaine complet des ressources dans le domaine local
 
@@ -370,7 +370,7 @@ Ce problème peut être provoqué par des installations précédentes du client 
 
 ### <a name="solution"></a>Solution
 
-Supprimez les anciens fichiers de configuration du client VPN à partir de **C:\Users\UserName\AppData\Roaming\Microsoft\Network\Connections\<VirtualNetworkId>** , puis réexécutez le programme d’installation du client VPN. 
+Supprimez les anciens fichiers de configuration du client VPN à de **C:\Utilisateurs\NomUtilisateur\AppData\Roaming\Microsoft\Network\Connections\<VirtualNetworkId>** , puis réexécutez le programme d’installation du client VPN. 
 
 ## <a name="the-vpn-client-hibernates-or-sleep-after-some-time"></a>Le client VPN se met en veille prolongée ou en veille après un certain temps
 

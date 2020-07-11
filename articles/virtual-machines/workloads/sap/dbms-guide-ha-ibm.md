@@ -15,10 +15,10 @@ ms.workload: infrastructure
 ms.date: 03/06/2020
 ms.author: juergent
 ms.openlocfilehash: a9041b373c215ac226764b737ee3bf35b008e5db
-ms.sourcegitcommit: 999ccaf74347605e32505cbcfd6121163560a4ae
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/08/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "82978380"
 ---
 # <a name="high-availability-of-ibm-db2-luw-on-azure-vms-on-suse-linux-enterprise-server-with-pacemaker"></a>Haute disponibilité d’IBM Db2 LUW sur les machines virtuelles Azure sur SUSE Linux Enterprise Server avec Pacemaker
@@ -315,7 +315,7 @@ Les éléments suivants sont précédés de :
 
 **[A]** Prérequis pour la configuration Pacemaker :
 1. Arrêtez les deux serveurs de base de données avec l’utilisateur db2\<sid> avec db2stop.
-1. Remplacez l’environnement shell pour l’utilisateur db2\<sid> par */bin/ksh*. Nous vous recommandons d’utiliser l’outil Yast. 
+1. Remplacez l’environnement d’interpréteur de commandes pour l’utilisateur db2\<sid> par */bin/ksh*. Nous vous recommandons d’utiliser l’outil Yast. 
 
 
 ### <a name="pacemaker-configuration"></a>Configuration Pacemaker
@@ -541,7 +541,7 @@ L’état d’origine dans un système SAP est documenté dans Transaction DBACO
 > Avant de commencer le test, vérifiez les points suivants :
 > * Pacemaker ne comporte pas d’action ayant échoué (crm status).
 > * Il n’existe aucune contrainte d’emplacement (reliquats d’un test de migration)
-> * La synchronisation HADR IBM Db2 fonctionne. Vérifiez auprès de l’utilisateur db2\<sid> <pre><code>db2pd -hadr -db \<DBSID></code></pre>
+> * La synchronisation HADR IBM Db2 fonctionne. Vérifiez avec l’utilisateur db2\<sid> <pre><code>db2pd -hadr -db \<DBSID></code></pre>
 
 
 Migrez le nœud qui exécute la base de données Db2 primaire en exécutant la commande suivante :
@@ -575,9 +575,9 @@ Ramenez la ressource vers *azibmdb01* et effacez les contraintes d’emplacement
 crm resource clear msl_<b>Db2_db2ptr_PTR</b>
 </code></pre>
 
-- **crm resource migrate \<nom_ressource> \<hôte> :** crée des contraintes d’emplacement et peut entraîner des problèmes de prise de contrôle
-- **crm resource clear \<nom_ressource>**  : efface les contraintes d’emplacement
-- **crm resource cleanup \<nom_ressource>**  : efface toutes les erreurs de la ressource
+- **crm resource migrate \<res_name> \<host> :** crée des contraintes d’emplacement et peut entraîner des problèmes de prise de contrôle
+- **crm resource clear \<res_name>**  : efface les contraintes d’emplacement
+- **crm resource cleanup \<res_name>**  : efface toutes les erreurs de la ressource
 
 ### <a name="test-the-fencing-agent"></a>Tester l’agent de délimitation
 

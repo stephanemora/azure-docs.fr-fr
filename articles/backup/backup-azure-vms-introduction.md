@@ -3,12 +3,12 @@ title: À propos de la sauvegarde de machine virtuelle Azure
 description: Dans cet article, découvrez la manière dont le service Sauvegarde Azure sauvegarde les machines virtuelles Azure, et comment suivre les meilleures pratiques.
 ms.topic: conceptual
 ms.date: 09/13/2019
-ms.openlocfilehash: f4b36f57362607a13c09896cd7109596aba0a852
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 9838f4993e71f2991500af0e152abee36f996050
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79415979"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84322907"
 ---
 # <a name="an-overview-of-azure-vm-backup"></a>Vue d’ensemble de la sauvegarde de machines virtuelles Azure
 
@@ -89,7 +89,7 @@ Le tableau suivant explique les différents types de cohérence de capture insta
 **Disque** | Les disques d’une machine virtuelle sont sauvegardés en parallèle. Par exemple, si une machine virtuelle comprend quatre disques, le service Sauvegarde tente de les sauvegarder simultanément. La sauvegarde est incrémentielle (seules les données ayant changé sont sauvegardées).
 **Planification** |  Pour réduire le trafic de sauvegarde, sauvegardez les machines virtuelles à des moments différents de la journée en veillant à éviter les chevauchements. La sauvegarde simultanée de machines virtuelles provoque des embouteillages.
 **Préparation des sauvegardes** | Gardez à l’esprit le temps nécessaire pour préparer la sauvegarde. Le temps de préparation inclut l’installation ou la mise à jour de l’extension de sauvegarde, et le déclenchement d’une capture instantanée en fonction de la planification de sauvegarde.
-**Transfert de données** | Tenez compte du temps dont le service Sauvegarde Azure a besoin pour identifier les modifications incrémentielles par rapport à la sauvegarde précédente.<br/><br/> Dans le cadre d’une sauvegarde incrémentielle, le service Sauvegarde Azure détermine les modifications en calculant la somme de contrôle du bloc. Si un bloc est modifié, il est marqué pour transfert vers le coffre. Le service analyse les blocs identifiés pour tenter de réduire encore davantage la quantité de données à transférer. Après avoir évalué tous les blocs modifiés, Sauvegarde Azure transfère les modifications vers le coffre.<br/><br/> Il peut y avoir un décalage entre la prise de l’instantané et sa copie dans le coffre.<br/><br/> Aux heures de pointe, le traitement des sauvegardes peut prendre jusqu’à huit heures. La durée de la sauvegarde quotidienne d’une machine virtuelle est inférieure à 24 heures.
+**Transfert de données** | Tenez compte du temps dont le service Sauvegarde Azure a besoin pour identifier les modifications incrémentielles par rapport à la sauvegarde précédente.<br/><br/> Dans le cadre d’une sauvegarde incrémentielle, le service Sauvegarde Azure détermine les modifications en calculant la somme de contrôle du bloc. Si un bloc est modifié, il est marqué pour transfert vers le coffre. Le service analyse les blocs identifiés pour tenter de réduire encore davantage la quantité de données à transférer. Après avoir évalué tous les blocs modifiés, Sauvegarde Azure transfère les modifications vers le coffre.<br/><br/> Il peut y avoir un décalage entre la prise de l’instantané et sa copie dans le coffre. Aux heures de pointe, le transfert des captures instantanées vers le coffre peut prendre jusqu’à huit heures. La durée de la sauvegarde quotidienne d’une machine virtuelle est inférieure à 24 heures.
 **Sauvegarde initiale** | Si le temps de sauvegarde total des sauvegardes incrémentielles est inférieur à 24 heures, cela peut ne pas être le cas pour la première sauvegarde. Le temps nécessaire pour la sauvegarde initiale dépend du volume des données et de l’heure à laquelle la sauvegarde a lieu.
 **File d’attente de restauration** | Sauvegarde Azure traite les travaux de restauration de plusieurs comptes de stockage en même temps, et met les demandes de restauration en file d’attente.
 **Copie pendant la restauration** | Durant le processus de restauration, les données sont copiées du coffre vers le compte de stockage.<br/><br/> Le temps de restauration total varie selon les opérations d’E/S par seconde (IOPS) et le débit du compte de stockage.<br/><br/> Pour réduire le temps de copie, sélectionnez un compte de stockage non chargé avec d’autres lectures et écritures d’application.

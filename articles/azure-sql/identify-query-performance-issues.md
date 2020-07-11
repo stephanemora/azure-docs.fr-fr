@@ -11,12 +11,12 @@ author: jovanpop-msft
 ms.author: jovanpop
 ms.reviewer: jrasnick, carlrab
 ms.date: 03/10/2020
-ms.openlocfilehash: edf22c7f1086c1d13717adaff514c42aab3a4cfd
-ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
+ms.openlocfilehash: b33d8db9d43b151cb0405ea24e0bea87e21cbdc9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "84033790"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84345340"
 ---
 # <a name="detectable-types-of-query-performance-bottlenecks-in-azure-sql-database"></a>Types détectables de goulots d’étranglement des performances des requêtes dans Azure SQL Database
 [!INCLUDE[appliesto-sqldb-sqlmi](includes/appliesto-sqldb-sqlmi.md)]
@@ -153,11 +153,11 @@ Les performances de requêtes lentes non liées aux plans de requête non optim
 - Détection des limites de ressources à l’aide d’[Intelligent Insights](database/intelligent-insights-troubleshoot-performance.md#reaching-resource-limits)
 - Détection des problèmes de ressources à l’aide de [vues de gestion dynamique (DMV)](database/monitoring-with-dmvs.md) :
 
-  - La DMV [sys.dm_db_resource_stats](database/monitoring-with-dmvs.md#monitor-resource-use) retourne la consommation du processeur, des E/S et de la mémoire pour une base de données SQL. Il y a une ligne pour chaque intervalle de 15 secondes, même s’il n’existe aucune activité dans la base de données. Les données historiques sont conservées pendant une heure.
+  - La DMV [sys.dm_db_resource_stats](database/monitoring-with-dmvs.md#monitor-resource-use) retourne la consommation du processeur, des E/S et de la mémoire pour la base de données. Il y a une ligne pour chaque intervalle de 15 secondes, même s’il n’existe aucune activité dans la base de données. Les données historiques sont conservées pendant une heure.
   - La DMV [sys.resource_stats](database/monitoring-with-dmvs.md#monitor-resource-use) retourne les données d’utilisation du processeur et les données sur le stockage pour Azure SQL Database. Les données sont collectées et agrégées par intervalles de cinq minutes.
   - [De nombreuses requêtes individuelles qui consomment une quantité cumulée élevée de processeur](database/monitoring-with-dmvs.md#many-individual-queries-that-cumulatively-consume-high-cpu)
 
-Si vous identifiez que le problème est une ressource insuffisante, vous pouvez mettre à niveau des ressources pour augmenter la capacité de votre base de données SQL afin d’absorber les besoins en processeur. Pour plus d’informations, consultez [Mettre à l’échelle des ressources de base de données unique dans Azure SQL Database](database/single-database-scale.md) et [Mettre à l’échelle un pool élastique dans Azure SQL Database](database/elastic-pool-scale.md). Pour plus d’informations sur la mise à l’échelle d’une instance managée, consultez [Limites de ressources des niveaux de service](managed-instance/resource-limits.md#service-tier-characteristics)
+Si vous identifiez que le problème est une ressource insuffisante, vous pouvez mettre à niveau des ressources pour augmenter la capacité de votre base de données afin d’absorber les besoins en processeur. Pour plus d’informations, consultez [Mettre à l’échelle des ressources de base de données unique dans Azure SQL Database](database/single-database-scale.md) et [Mettre à l’échelle un pool élastique dans Azure SQL Database](database/elastic-pool-scale.md). Pour plus d’informations sur la mise à l’échelle d’une instance managée, consultez [Limites de ressources des niveaux de service](managed-instance/resource-limits.md#service-tier-characteristics)
 
 ## <a name="performance-problems-caused-by-increased-workload-volume"></a>Problèmes de performances dus à une hausse du volume de la charge de travail
 

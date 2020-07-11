@@ -10,10 +10,10 @@ author: likebupt
 ms.author: keli19
 ms.date: 02/11/2020
 ms.openlocfilehash: f1b194f2c65f95ad4daff0353d05ca589db9ce51
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "79477661"
 ---
 # <a name="convert-to-indicator-values"></a>Convertir en valeurs d’indicateur
@@ -63,7 +63,7 @@ Voici comment la conversion fonctionne :
 
 -   Dans la colonne **Probabilité de défaillance** qui décrit le risque, il n’y a que trois valeurs possibles (Élevée, Moyenne et Faible), et aucune valeur manquante. Par conséquent, exactement trois colonnes sont créées.  
 
--   Les nouvelles colonnes d’indicateurs sont nommées en fonction des en-têtes de colonne et des valeurs de la colonne source, à l’aide de ce modèle : *\<colonne_source>-\<valeur_de_données>* .  
+-   Les nouvelles colonnes d’indicateurs sont nommées en fonction des en-têtes de colonne et des valeurs de la colonne source, selon le modèle *\<source column>- \<data value>* .  
 
 -   Il doit y avoir un 1 dans exactement une colonne d’indicateur, et 0 dans toutes les autres colonnes d’indicateur, puisque chaque serveur ne peut avoir qu’une seule évaluation du risque.  
 
@@ -98,13 +98,13 @@ Cette section contient des détails, des conseils et des réponses aux questions
 
 -   Seules les colonnes qui sont marquées comme catégorielles peuvent être converties en colonnes d’indicateurs. Si l’erreur suivante s’affiche, l’une des colonnes que vous avez sélectionnées n’est probablement pas catégorielle :  
 
-     Erreur 0056 : La colonne portant le nom \<nom_colonne> n’appartient pas à une catégorie autorisée.  
+     Erreur 0056 : La colonne portant le nom \<column name> n’appartient pas à une catégorie autorisée.  
 
      Par défaut, la plupart des colonnes de chaîne sont gérées comme des caractéristiques de chaîne. Vous devez donc les marquer explicitement comme catégorielles à l’aide de l’option [Modifier des métadonnées](edit-metadata.md).  
 
 -   Le nombre de colonnes que vous pouvez convertir en colonnes d’indicateur n’est pas limité. Toutefois, étant donné que chaque colonne de valeurs peut générer plusieurs colonnes d’indicateur, il est possible de convertir et de consulter uniquement quelques colonnes à la fois.  
 
--   Si la colonne contient des valeurs manquantes, une colonne d’indicateur distincte est créée pour la catégorie manquante, avec le nom suivant : *\<colonne_source> - Manquante*  
+-   Si des valeurs sont manquantes dans la colonne, une colonne d’indicateurs distincte est créée pour la catégorie manquante sous le nom *\<source column>- Missing*  
 
 -   Si la colonne que vous convertissez en valeurs d’indicateur contient des nombres, ceux-ci doivent être marqués comme étant catégoriels comme toute autre colonne de caractéristique. Cela étant fait, les nombres sont traités comme des valeurs discrètes. Par exemple, si vous avez une colonne numérique contenant des valeurs de consommation de carburant (en MPG, miles par gallon) comprises entre 25 et 30, une nouvelle colonne d’indicateur est créée pour chaque valeur discrète :  
 

@@ -7,17 +7,17 @@ ms.topic: conceptual
 ms.date: 02/03/2020
 ms.author: brendm
 ms.openlocfilehash: 2e29f6a75b303518ac34ecf9b570bd7638cf0c3a
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "79471028"
 ---
 # <a name="set-up-a-staging-environment-in-azure-spring-cloud"></a>Configurer un environnement intermédiaire dans Azure Spring Cloud
 
 Cet article explique comment configurer un déploiement intermédiaire à l’aide du modèle de déploiement bleu-vert dans Azure Spring Cloud. Le déploiement bleu/vert est un modèle de livraison continue Azure DevOps qui consiste à garder en service une version existante (bleue) pendant le déploiement d’une nouvelle version (verte). Cet article vous montre également comment faire passer ce déploiement intermédiaire en production sans modifier directement le déploiement de production.
 
-## <a name="prerequisites"></a>Conditions préalables requises
+## <a name="prerequisites"></a>Prérequis
 
 Cet article part du principe que vous avez déjà déployé l’application PiggyMetrics à partir de notre [tutoriel sur le lancement d’une application Azure Spring Cloud](spring-cloud-quickstart-launch-app-portal.md). PiggyMetrics comprend trois applications : « Gateway », « account-service » et « auth-service ».  
 
@@ -67,10 +67,10 @@ Accédez à votre instance de service dans le portail Azure et sélectionnez **G
 
 >[!TIP]
 > * Vérifiez que votre point de terminaison de test se termine par une barre oblique (/) pour garantir le bon chargement du fichier CSS.  
-> * Si votre navigateur vous demande d’entrer des informations d’identification de connexion pour afficher la page, utilisez [URL Decode](https://www.urldecoder.org/) pour décoder votre point de terminaison de test. URL Decode retourne une URL au format « https://\<nom_utilisateur>:\<mot_de_passe>@\<nom_cluster>.test.azureapps.io/gateway/green ».  Utilisez-le pour accéder à votre point de terminaison.
+> * Si votre navigateur vous demande d’entrer des informations d’identification de connexion pour afficher la page, utilisez [URL Decode](https://www.urldecoder.org/) pour décoder votre point de terminaison de test. URL Decode retourne une URL au format « https://\<username>:\<password>@\<cluster-name>.test.azureapps.io/gateway/green ».  Utilisez-le pour accéder à votre point de terminaison.
 
 >[!NOTE]    
-> Les paramètres du serveur de configuration s’appliquent à votre environnement intermédiaire et à la production. Par exemple, si vous définissez *somepath* comme chemin du contexte (`server.servlet.context-path`) de votre passerelle d’application dans le serveur de configuration, le chemin à votre déploiement vert devient alors : « https://\<nom_utilisateur>:\<mot_de_passe>@\<nom_cluster>.test.azureapps.io/gateway/green/somepath/... ».
+> Les paramètres du serveur de configuration s’appliquent à votre environnement intermédiaire et à la production. Par exemple, si vous définissez *somepath* comme chemin du contexte (`server.servlet.context-path`) de votre passerelle d’application dans le serveur de configuration, le chemin de votre déploiement vert devient : « https://\<username>:\<password>@\<cluster-name>.test.azureapps.io/gateway/green/somepath/... ».
  
  Si vous visitez votre passerelle d’application publique à ce stade, vous devriez voir l’ancienne page sans votre nouveau changement.
     

@@ -8,13 +8,13 @@ ms.subservice: core
 ms.topic: reference
 author: likebupt
 ms.author: keli19
-ms.date: 03/05/2020
-ms.openlocfilehash: ccf9d0c3eef50c7dfd838f1929e52506e8984879
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.date: 06/05/2020
+ms.openlocfilehash: e2b4233f8f59a26e7da532fca48aecbb41857b66
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "78395257"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84488628"
 ---
 # <a name="apply-transformation-module"></a>Appliquer le module de transformation
 
@@ -32,13 +32,13 @@ Le concepteur vous permet d’enregistrer des transformations de données, comme
 
 1. Sélectionnez l'onglet **Sorties + journaux d'activité**.
 
-1. Sélectionnez l’**icône Enregistrer** pour enregistrer la **Transformation de résultat**.
+1. Recherchez la sortie de la transformation, puis sélectionnez **Inscrire le jeu de données** pour l’enregistrer en tant que module dans la catégorie **Jeux de données** de la palette des modules.
 
 ## <a name="how-to-use-apply-transformation"></a>Comment utiliser le module Appliquer une transformation  
   
 1. Ajoutez le module **Appliquer une transformation** à votre pipeline. Ce module figure dans la section **Scoring et évaluation d’un modèle** de la palette des modules. 
   
-1. Recherchez la transformation enregistrée souhaitée sous **Jeux de données** > **Mes jeux de données** dans la palette de modules.
+1. Recherchez la transformation enregistrée souhaitée sous **Jeux de données** dans la palette des modules.
 
 1. Connectez la sortie de la transformation enregistrée au port d’entrée gauche du module **Appliquer une transformation**.
 

@@ -8,10 +8,10 @@ ms.service: azure-app-configuration
 ms.topic: conceptual
 ms.date: 2/25/2020
 ms.openlocfilehash: bf97a1eae758778efc8d800666af4a5fcb574429
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "80056834"
 ---
 # <a name="integrate-with-azure-managed-identities"></a>Intégrer avec des identités managées Azure
@@ -218,7 +218,7 @@ La sortie de la commande ressemble à ceci :
 
 ### <a name="deploy-your-project"></a>Déployez votre projet
 
-Dans la _fenêtre du terminal local_, ajoutez un référentiel distant Azure dans votre référentiel Git local. Remplacez _\<url>_ par l’URL du Git distant de la section [Activer le Git local avec Kudu](#enable-local-git-with-kudu).
+Dans la _fenêtre du terminal local_, ajoutez un référentiel distant Azure dans votre référentiel Git local. Remplacez _\<url>_ par l’URL du Git distant mentionné dans la section [Activer Git local avec Kudu](#enable-local-git-with-kudu).
 
 ```bash
 git remote add azure <url>

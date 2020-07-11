@@ -8,10 +8,10 @@ ms.service: storage
 ms.subservice: blobs
 ms.topic: conceptual
 ms.openlocfilehash: e7986add466bc42b092763acfeceebc8a6523bbe
-ms.sourcegitcommit: efefce53f1b75e5d90e27d3fd3719e146983a780
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/01/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "80473992"
 ---
 # <a name="quickstart-manage-blobs-with-java-v8-sdk"></a>Démarrage rapide : Gérer les objets blob avec le Kit de développement logiciel (SDK) Java V8
@@ -53,7 +53,7 @@ public static final String storageConnectionString =
 
 ## <a name="run-the-sample"></a>Exécution de l'exemple
 
-Cet exemple d’application crée un fichier de test dans votre répertoire par défaut (*C:\Users\<user>\AppData\Local\Temp*, pour les utilisateurs Windows), le charge dans le stockage d’objets blob, liste les objets blob dans le conteneur, puis télécharge le fichier avec un nouveau nom pour vous permettre de comparer les fichiers anciens et nouveaux.
+Cet exemple d’application crée un fichier de test dans votre répertoire par défaut (*C:\Users\<user>\AppData\Local\Temp*, for Windows users), le charge dans le stockage d’objets blob, répertorie les objets blob dans le conteneur, puis télécharge le fichier sous un nouveau nom pour vous permettre de comparer les fichiers ancien et nouveau.
 
 Exécutez l’exemple à l’aide de Maven au niveau de la ligne de commande. Ouvrez un interpréteur de commandes et accédez à **blobAzureApp** à l’intérieur de votre répertoire cloné. Puis saisissez `mvn compile exec:java`.
 

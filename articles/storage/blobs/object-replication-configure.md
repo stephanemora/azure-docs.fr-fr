@@ -6,15 +6,15 @@ services: storage
 author: tamram
 ms.service: storage
 ms.topic: how-to
-ms.date: 05/28/2020
+ms.date: 06/16/2020
 ms.author: tamram
 ms.subservice: blobs
-ms.openlocfilehash: 89a4c934a0245c39f6015a43d9de16db800691d8
-ms.sourcegitcommit: 1692e86772217fcd36d34914e4fb4868d145687b
+ms.openlocfilehash: 9cb9f1a33c37487f4bfb1419d45d4e42a862d815
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/29/2020
-ms.locfileid: "84170628"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84888112"
 ---
 # <a name="configure-object-replication-for-block-blobs-preview"></a>Configurer la réplication d’objets pour des objets blob de blocs (préversion)
 
@@ -28,7 +28,9 @@ Cet article explique comment configurer la réplication d’objets pour votre co
 
 Avant de configurer la réplication d’objets, créez les comptes de stockage source et de destination, s’ils n’existent pas déjà. Les deux comptes doivent être des comptes de stockage v2 universels. Pour plus d’informations, consultez la rubrique [Créer un compte Stockage Azure](../common/storage-account-create.md).
 
-En outre, assurez-vous d’être inscrit aux préversions des fonctionnalités suivantes :
+Un compte de stockage peut servir de compte source pour un maximum de deux comptes de destination. Et un compte de destination ne peut pas avoir plus de deux comptes sources. Les comptes source et de destination peuvent tous se trouver dans des régions différentes. Vous pouvez configurer des stratégies de réplication distinctes pour répliquer des données sur chacun des comptes de destination.
+
+Avant de commencer, veillez à vous inscrire aux préversions des fonctionnalités suivantes :
 
 - [Réplication d’objets (préversion)](object-replication-overview.md)
 - [Contrôle de version des blobs (préversion)](versioning-overview.md)
@@ -41,7 +43,7 @@ Avant de configurer la réplication d’objets dans le portail Azure, créez les
 Pour créer une stratégie de réplication dans le portail Azure, procédez comme suit :
 
 1. Accédez au compte de stockage source dans le portail Azure.
-1. Sous **Paramètres**, sélectionnez **Réplication d’objet**.
+1. Sous **Service BLOB**, sélectionnez **Réplication d’objet**.
 1. Sélectionnez **Configurer la réplication**.
 1. Sélectionnez le compte de stockage et l’abonnement de destination.
 1. Dans la section **Paires de conteneurs**, sélectionnez un conteneur source dans le compte source et un conteneur de destination dans le compte de destination. Vous pouvez créer jusqu’à 10 paires de conteneurs par stratégie de réplication.

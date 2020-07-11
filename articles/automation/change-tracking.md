@@ -5,12 +5,12 @@ services: automation
 ms.subservice: change-inventory-management
 ms.date: 06/08/2020
 ms.topic: conceptual
-ms.openlocfilehash: 2aab90b12cd3844b94b0b7e6e94582d403db2efe
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 192fd0fe73a34ca4d6ffc49badeac7ca8a080793
+ms.sourcegitcommit: ec682dcc0a67eabe4bfe242fce4a7019f0a8c405
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84555034"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86185583"
 ---
 # <a name="change-tracking-and-inventory-overview"></a>Présentation de la fonctionnalité Suivi des modifications et inventaire
 
@@ -49,11 +49,11 @@ Suivi des modifications et inventaire présente actuellement les problèmes suiv
 
 - Les mises à jour de correctif logiciel ne sont pas collectées sur les machines Windows 2016 Core RS3.
 
-- Les démons Linux peuvent indiquer un état modifié même si aucune modification n’est intervenue. Ce problème est dû à la façon dont les données `SvcRunLevels` dans le journal [ConfigurationChange](https://docs.microsoft.com/azure/azure-monitor/reference/tables/configurationchange) d’Azure Monitor sont capturées.
+- Les démons Linux peuvent indiquer un état modifié même si aucune modification n’est intervenue. Ce problème est dû à la façon dont les données `SvcRunLevels` dans le journal [ConfigurationChange](/azure/azure-monitor/reference/tables/configurationchange) d’Azure Monitor sont capturées.
 
 ## <a name="supported-operating-systems"></a>Systèmes d’exploitation pris en charge
 
-Suivi des modifications et inventaire est pris en charge sur tous les systèmes d’exploitation qui répondent aux exigences de l’agent Log Analytics. Les versions officielles du système d’exploitation sont Windows Server 2008 SP1 ou version ultérieure et Windows 7 SP1 ou version ultérieure. La fonctionnalité est aussi prise en charge sur un certain nombre de systèmes d’exploitation Linux. Pour les systèmes d’exploitation prenant en charge Log Analytics, consultez [Vue d’ensemble de l’agent Log Analytics](https://docs.microsoft.com/azure/azure-monitor/platform/log-analytics-agent).
+Suivi des modifications et inventaire est pris en charge sur tous les systèmes d’exploitation qui répondent aux exigences de l’agent Log Analytics. Les versions officielles du système d’exploitation sont Windows Server 2008 SP1 ou version ultérieure et Windows 7 SP1 ou version ultérieure. La fonctionnalité est aussi prise en charge sur un certain nombre de systèmes d’exploitation Linux. Pour les systèmes d’exploitation prenant en charge Log Analytics, consultez [Vue d’ensemble de l’agent Log Analytics](../azure-monitor/platform/log-analytics-agent.md).
 
 Pour comprendre la configuration requise du client pour le protocole TLS 1.2, consultez [Application de TLS 1.2 pour Azure Automation](automation-managing-data.md#tls-12-enforcement-for-azure-automation).
 
@@ -91,7 +91,7 @@ Vous pouvez ajouter, modifier ou supprimer chaque modification. L’exemple ci-d
 
 ## <a name="fim-support-in-azure-security-center"></a>Prise en charge FIM dans Azure Security Center
 
-Suivi des modifications et inventaire utilise le [Monitoring d’intégrité de fichier dans Azure Security Centers](https://docs.microsoft.com/azure/security-center/security-center-file-integrity-monitoring). Le Monitoring d’intégrité de fichier supervise uniquement les fichiers et les registres, alors que la fonctionnalité Suivi des modifications et inventaire complète offre aussi le suivi des éléments suivants :
+Suivi des modifications et inventaire utilise le [Monitoring d’intégrité de fichier dans Azure Security Centers](../security-center/security-center-file-integrity-monitoring.md). Le Monitoring d’intégrité de fichier supervise uniquement les fichiers et les registres, alors que la fonctionnalité Suivi des modifications et inventaire complète offre aussi le suivi des éléments suivants :
 
 - Modifications de logiciel
 - Services Microsoft
@@ -106,7 +106,7 @@ Pour suivre les modifications apportées à des fichiers sur Windows et Linux, S
 
 ## <a name="tracking-of-file-content-changes"></a>Suivi des modifications de contenu de fichier
 
-Change Tracking and Inventory vous permet d’afficher le contenu d’un fichier Windows ou Linux. Pour chaque modification apportée à un fichier, Suivi des modifications et inventaire stocke le contenu du fichier dans un [compte Stockage Azure](../storage/common/storage-create-storage-account.md). Quand vous effectuez le suivi d’un fichier, vous pouvez afficher son contenu avant ou après une modification. Le contenu du fichier peut être affiché en ligne ou côte à côte. 
+Change Tracking and Inventory vous permet d’afficher le contenu d’un fichier Windows ou Linux. Pour chaque modification apportée à un fichier, Suivi des modifications et inventaire stocke le contenu du fichier dans un [compte Stockage Azure](../storage/common/storage-account-create.md). Quand vous effectuez le suivi d’un fichier, vous pouvez afficher son contenu avant ou après une modification. Le contenu du fichier peut être affiché en ligne ou côte à côte. 
 
 ![Afficher les modifications d’un fichier](./media/change-tracking/view-file-changes.png)
 
@@ -171,7 +171,7 @@ Le tableau suivant montre les limites des éléments suivis par machine pour Sui
 |Services|250|
 |Démons|250|
 
-La consommation moyenne de données Log Analytics d’une machine utilisant Suivi des modifications et inventaire est d’environ 40 Mo par mois, selon votre environnement. Avec la fonctionnalité Utilisation et estimation des coûts de l’espace de travail Log Analytics, vous pouvez afficher les données ingérées par Change Tracking and Inventory dans un graphique d’utilisation. Utilisez cette vue pour évaluer votre utilisation des données et déterminer la manière dont elle se répercute sur votre facture. Voir [Comprendre votre utilisation et estimer les coûts](https://docs.microsoft.com/azure/azure-monitor/platform/manage-cost-storage#understand-your-usage-and-estimate-costs).
+La consommation moyenne de données Log Analytics d’une machine utilisant Suivi des modifications et inventaire est d’environ 40 Mo par mois, selon votre environnement. Avec la fonctionnalité Utilisation et estimation des coûts de l’espace de travail Log Analytics, vous pouvez afficher les données ingérées par Change Tracking and Inventory dans un graphique d’utilisation. Utilisez cette vue pour évaluer votre utilisation des données et déterminer la manière dont elle se répercute sur votre facture. Voir [Comprendre votre utilisation et estimer les coûts](../azure-monitor/platform/manage-cost-storage.md#understand-your-usage-and-estimate-costs).
 
 ### <a name="microsoft-service-data"></a>Données de services Microsoft
 

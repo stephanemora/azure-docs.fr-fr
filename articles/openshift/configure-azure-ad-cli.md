@@ -9,10 +9,10 @@ ms.author: asabbour
 keywords: aro, openshift, az aro, red hat, cli
 ms.custom: mvc
 ms.openlocfilehash: 45da3034891e5a82fb8423adb6bcd5e867f9d4e2
-ms.sourcegitcommit: 67bddb15f90fb7e845ca739d16ad568cbc368c06
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "82204798"
 ---
 # <a name="configure-azure-active-directory-authentication-for-an-azure-red-hat-openshift-4-cluster-cli"></a>Configurer l’authentification Azure Active Directory pour un cluster Azure Red Hat OpenShift 4 (CLI)
@@ -36,7 +36,7 @@ oauthCallbackURL=https://oauth-openshift.apps.$domain.$location.aroapp.io/oauth2
 
 ## <a name="create-an-azure-active-directory-application-for-authentication"></a>Créez une application Azure Active Directory pour l’authentification
 
-Créez une application Azure Active Directory et récupérez l’identificateur d’application créé. Remplacez **\<ClientSecret >** par un mot de passe sécurisé.
+Créez une application Azure Active Directory et récupérez l’identificateur d’application créé. Remplacez **\<ClientSecret>** par un mot de passe sécurisé.
 
 ```azurecli-interactive
 az ad app create \
@@ -97,7 +97,7 @@ EOF
 
 ## <a name="update-the-azure-active-directory-applications-optionalclaims-with-a-manifest"></a>Mettre à jour les revendications facultatives de l’application Azure Active Directory avec un manifeste
 
-Remplacez **\<AppID >** par l’ID que vous avez obtenu plus tôt.
+Remplacez **\<AppID>** par l’ID que vous avez obtenu plus tôt.
 
 ```azurecli-interactive
 az ad app update \
@@ -109,7 +109,7 @@ az ad app update \
 
 Pour pouvoir lire les informations utilisateur d’Azure Active Directory, nous devons définir les étendues appropriées.
 
-Remplacez **\<AppID >** par l’ID que vous avez obtenu plus tôt.
+Remplacez **\<AppID>** par l’ID que vous avez obtenu plus tôt.
 
 Pour activer la connexion et lire le profil utilisateur, ajoutez l’autorisation pour l’étendue **Azure Active Directory Graph.User.Read**.
 
@@ -127,7 +127,7 @@ az ad app permission add \
 
 Les applications inscrites dans un locataire Azure Active Directory (Azure AD) sont, par défaut, disponibles pour tous les utilisateurs du locataire qui parviennent à s’authentifier. Azure AD permet aux développeurs et administrateurs de locataires de limiter une application à un ensemble spécifique d’utilisateurs ou de groupes de sécurité dans le locataire.
 
-Suivez les instructions de la documentation d’Azure Active Directory pour [Affecter des utilisateurs et des groupes à l’application](https://docs.microsoft.com/azure/active-directory/develop/howto-restrict-your-app-to-a-set-of-users#app-registration).
+Suivez les instructions de la documentation d’Azure Active Directory pour [affecter des utilisateurs et des groupes à l’application](https://docs.microsoft.com/azure/active-directory/develop/howto-restrict-your-app-to-a-set-of-users#app-registration).
 
 ## <a name="configure-openshift-openid-authentication"></a>Configurer l’authentification OpenShift OpenID
 

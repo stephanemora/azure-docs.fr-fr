@@ -5,45 +5,56 @@ services: logic-apps
 ms.suite: integration
 ms.reviewers: jonfan, logicappspm
 ms.topic: conceptual
-ms.date: 05/28/2020
+ms.date: 05/29/2020
 tags: connectors
-ms.openlocfilehash: a44e0e9f2427fc5fcb44a78fb0a1798b219f9200
-ms.sourcegitcommit: 8017209cc9d8a825cc404df852c8dc02f74d584b
+ms.openlocfilehash: 9f3f361b3e9fafdb350f943c0a8adcd87fa06c78
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/01/2020
-ms.locfileid: "84249159"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84325131"
 ---
 # <a name="receive-and-respond-to-inbound-https-requests-in-azure-logic-apps"></a>Recevoir des requêtes HTTPS entrantes et y répondre dans Azure Logic Apps
 
 Avec [Azure Logic Apps](../logic-apps/logic-apps-overview.md) et le déclencheur de requête et l’action Réponse intégrés, vous pouvez créer des tâches et des workflows automatisés qui reçoivent les requêtes HTTP entrantes et y répondent. Par exemple, vous pouvez appliquer les actions suivantes à votre application logique :
 
 * Recevoir et répondre à une requête HTTP pour des données situées dans une base de données locale.
+
 * Déclencher un flux de travail lorsqu’un événement de webhook externe se produit.
+
 * Recevoir et répondre à un appel HTTPS en provenance d’une autre application logique.
 
 Le déclencheur de requête prend en charge [Azure Active Directory Open Authentication](../active-directory/develop/about-microsoft-identity-platform.md) (Azure AD OAuth) pour autoriser les appels entrants adressés à votre application logique. Pour plus d’informations sur l’activation de cette authentification, consultez [Accès et données sécurisés dans Azure Logic Apps : Activer l’authentification Azure AD OAuth](../logic-apps/logic-apps-securing-a-logic-app.md#enable-oauth).
-
-> [!NOTE]
-> Le déclencheur de demande prend en charge *uniquement* le protocole TLS (Transport Layer Security) 1.2 pour les appels entrants. Les appels sortants prennent en charge les protocoles TLS 1.0, 1.1 et 1.2. Pour plus d'informations, consultez [Résolution du problème lié au protocole TLS 1.0](https://docs.microsoft.com/security/solving-tls1-problem).
->
-> Si vous constatez des erreurs de liaison TLS, assurez-vous d’utiliser le protocole TLS 1.2. 
-> Pour les appels entrants, voici les suites de chiffrement prises en charge :
->
-> * TLS_ECDHE_ECDSA_WITH_AES_256_GCM_SHA384
-> * TLS_ECDHE_ECDSA_WITH_AES_128_GCM_SHA256
-> * TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
-> * TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256
-> * TLS_ECDHE_ECDSA_WITH_AES_256_CBC_SHA384
-> * TLS_ECDHE_ECDSA_WITH_AES_128_CBC_SHA256
-> * TLS_ECDHE_RSA_WITH_AES_256_CBC_SHA384
-> * TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256
 
 ## <a name="prerequisites"></a>Prérequis
 
 * Un abonnement Azure. Si vous n’avez pas encore d’abonnement, vous pouvez [vous inscrire pour obtenir un compte Azure gratuitement](https://azure.microsoft.com/free/).
 
 * Connaissances de base sur les [applications logiques](../logic-apps/logic-apps-overview.md). Si vous débutez avec les applications logiques, découvrez [comment créer votre première application logique](../logic-apps/quickstart-create-first-logic-app-workflow.md).
+
+<a name="tls-support"></a>
+
+## <a name="transport-layer-security-tls"></a>TLS (Transport Layer Security)
+
+* Les appels entrants prennent en charge *uniquement* le protocole TLS (Transport Layer Security) 1.2. Si vous constatez des erreurs de liaison TLS, assurez-vous d’utiliser le protocole TLS 1.2. Pour plus d'informations, consultez [Résolution du problème lié au protocole TLS 1.0](https://docs.microsoft.com/security/solving-tls1-problem). Les appels sortants prennent en charge les protocoles TLS 1.0, 1.1 et 1.2 en fonction de la capacité du point de terminaison cible.
+
+* Les appels entrants prennent en charge les suites de chiffrement suivantes :
+
+  * TLS_ECDHE_ECDSA_WITH_AES_256_GCM_SHA384
+
+  * TLS_ECDHE_ECDSA_WITH_AES_128_GCM_SHA256
+
+  * TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+
+  * TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256
+
+  * TLS_ECDHE_ECDSA_WITH_AES_256_CBC_SHA384
+
+  * TLS_ECDHE_ECDSA_WITH_AES_128_CBC_SHA256
+
+  * TLS_ECDHE_RSA_WITH_AES_256_CBC_SHA384
+
+  * TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256
 
 <a name="add-request"></a>
 

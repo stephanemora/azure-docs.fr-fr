@@ -11,12 +11,12 @@ services: iot-edge
 ms.custom:
 - amqp
 - mqtt
-ms.openlocfilehash: e818de4885d3859199108d7d88e4cbcb215dc4cc
-ms.sourcegitcommit: 31236e3de7f1933be246d1bfeb9a517644eacd61
+ms.openlocfilehash: 128504c59690476afef03aa82a03d69769968e99
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/04/2020
-ms.locfileid: "82780740"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84431929"
 ---
 # <a name="prepare-to-deploy-your-iot-edge-solution-in-production"></a>Préparer le déploiement en production d’une solution IoT Edge
 
@@ -226,6 +226,10 @@ Cette liste de vérification est un point de départ pour les règles de pare-fe
    | \*.docker.io  | 443 | Accès Docker Hub (facultatif) |
 
 Certaines de ces règles de pare-feu sont héritées d’Azure Container Registry. Pour plus d’informations, consultez [Configurer des règles pour accéder à un registre de conteneurs Azure derrière un pare-feu](../container-registry/container-registry-firewall-access-rules.md).
+
+> [!NOTE]
+> Pour fournir un nom de domaine complet (FQDN) cohérent entre les points de terminaison REST et de données, à partir du **15 juin 2020**, le point de terminaison de données Registre de conteneurs Microsoft passe de `*.cdn.mscr.io` à `*.data.mcr.microsoft.com`.  
+> Pour plus d’informations, consultez [Configuration des règles de pare-feu de client du Registre de conteneurs Microsoft](https://github.com/microsoft/containerregistry/blob/master/client-firewall-rules.md).
 
 Si vous ne souhaitez pas configurer votre pare-feu pour autoriser l’accès aux registres de conteneurs publics, vous pouvez stocker les images dans votre registre de conteneurs privé, comme décrit dans [Stocker les conteneurs Runtime dans votre registre privé](#store-runtime-containers-in-your-private-registry).
 
