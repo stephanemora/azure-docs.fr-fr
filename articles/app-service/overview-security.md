@@ -6,10 +6,10 @@ ms.topic: article
 ms.date: 08/24/2018
 ms.custom: seodec18
 ms.openlocfilehash: 0a4d3518c3325eff2b3c3db111babb9e784d5e31
-ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/19/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "83649027"
 ---
 # <a name="security-in-azure-app-service"></a>Sécurité dans Azure App Service
@@ -22,7 +22,7 @@ Les sections suivantes vous montrent comment renforcer la protection de votre ap
 
 ## <a name="https-and-certificates"></a>HTTPS et certificats
 
-App Service vous permet de sécuriser vos applications avec [HTTPS](https://wikipedia.org/wiki/HTTPS). Quand votre application est créée, son nom de domaine par défaut (\<nom_application>. azurewebsites.net) est déjà accessible à l’aide de HTTPS. Si vous [configurez un domaine personnalisé pour votre application](app-service-web-tutorial-custom-domain.md), vous devez également le [sécuriser avec un certificat TLS/SSL](configure-ssl-bindings.md) afin que les navigateurs clients puissent établir des connexions HTTPS sécurisées vers votre domaine personnalisé. Plusieurs types de certificats sont pris en charge par App Service :
+App Service vous permet de sécuriser vos applications avec [HTTPS](https://wikipedia.org/wiki/HTTPS). Quand votre application est créée, son nom de domaine par défaut (\<app_name>.azurewebsites.net) est déjà accessible à l’aide du protocole HTTPS. Si vous [configurez un domaine personnalisé pour votre application](app-service-web-tutorial-custom-domain.md), vous devez également le [sécuriser avec un certificat TLS/SSL](configure-ssl-bindings.md) afin que les navigateurs clients puissent établir des connexions HTTPS sécurisées vers votre domaine personnalisé. Plusieurs types de certificats sont pris en charge par App Service :
 
 - Certificat managé Free App Service
 - Certificat App Service

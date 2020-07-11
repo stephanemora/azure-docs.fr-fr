@@ -10,10 +10,10 @@ ms.tgt_pltfrm: arduino
 ms.date: 04/04/2018
 ms.author: liydu
 ms.openlocfilehash: deb1ea8c7b41ad48bddebfbed1b15c667ee0071a
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "73483942"
 ---
 # <a name="mxchip-iot-devkit"></a>DevKit IoT MXChip
@@ -106,7 +106,7 @@ Avec l’appareil DevKit IoT MXChip connecté à votre ordinateur :
 ![Exemple de procédure de test](media/iot-hub-arduino-iot-devkit-az3166-devkit-state/devkit-state.gif)
 
 > [!NOTE]
-> Vous pouvez voir les données brutes du jumeau d’appareil dans le portail Azure : IoT Hub -\> Appareils IoT -\> *\<votre appareil\>*  -\> Jumeau d’appareil.
+> Vous pouvez voir les données brutes du jumeau d’appareil dans le portail Azure : IoT Hub -\> Appareils IoT -\> *\<your device\>*  -\> Jumeau d’appareil.
 
 ## <a name="next-steps"></a>Étapes suivantes
 

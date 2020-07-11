@@ -5,10 +5,10 @@ ms.subservice: ''
 ms.topic: conceptual
 ms.date: 11/06/2017
 ms.openlocfilehash: 142e3e19c13710963d239a75bc237b63713c29cc
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "77672206"
 ---
 # <a name="monitor-your-azure-services-in-grafana"></a>Surveiller vos services Azure dans Grafana
@@ -42,7 +42,7 @@ Pour configurer un serveur Grafana local, [téléchargez et installez Grafana da
 
 ## <a name="sign-in-to-grafana"></a>Se connecter à Grafana
 
-1. À l’aide de l’adresse IP de votre serveur, ouvrez la page de connexion sur *http://\<adresse IP\>: 3000* ou le *\<NomDNS>\:3000* dans votre navigateur. 3000 étant le port par défaut, notez que vous avez peut-être sélectionné un port différent pendant la configuration. Une page de connexion doit s’afficher pour le serveur Grafana que vous avez créé.
+1. À l’aide de l’adresse IP de votre serveur, ouvrez la page de connexion *http://\<IP address\>:3000* ou le *\<DNSName>\:3000* dans votre navigateur. 3000 étant le port par défaut, notez que vous avez peut-être sélectionné un port différent pendant la configuration. Une page de connexion doit s’afficher pour le serveur Grafana que vous avez créé.
 
     ![Écran de connexion Grafana](./media/grafana-plugin/grafana-login-screen.png)
 
@@ -104,7 +104,7 @@ Lorsque vous êtes correctement connecté, vous devez voir que le plug-in Azure 
     ![Exemple de deux graphes Grafana](media/grafana-plugin/grafana6.png)
 
 
-## <a name="optional-monitor-your-custom-metrics-in-the-same-grafana-server"></a>Facultatif : Surveiller vos métriques personnalisés dans le même serveur Grafana
+## <a name="optional-monitor-your-custom-metrics-in-the-same-grafana-server"></a>Facultatif : Surveiller vos métriques personnalisés dans le même serveur Grafana
 
 Vous pouvez également installer Telegraf et InfluxDB pour collecter et tracer des métriques à la fois personnalisés et basés sur agent dans la même instance Grafana. Il existe de nombreux plug-ins de source de données à utiliser pour rassembler ces métriques dans un tableau de bord.
 

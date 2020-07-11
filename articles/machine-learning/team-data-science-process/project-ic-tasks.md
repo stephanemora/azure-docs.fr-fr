@@ -11,10 +11,10 @@ ms.date: 01/10/2020
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
 ms.openlocfilehash: d9942c31b63de77196b8b51b88376cb8ef74b990
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "76721249"
 ---
 # <a name="tasks-for-an-individual-contributor-in-the-team-data-science-process"></a>Tâches pour un contributeur individuel dans TDSP (Team Data Science Process)
@@ -55,7 +55,7 @@ Pour cloner des référentiels et modifier leur contenu sur votre ordinateur loc
 
 Pour utiliser localement des dépôts et envoyer (push) vos changements aux dépôts d’équipe et de projet partagés, vous devez d’abord copier ou *cloner* les dépôts sur votre ordinateur local. 
 
-1. Dans Azure DevOps, accédez à la page Résumé du projet de votre équipe à l’adresse *https:\//\<nom de serveur>/\<nom d’organisation>/\<nom d’équipe>* . Par exemple : **https:\//dev.azure.com/DataScienceUnit/MyTeam**.
+1. Dans Azure DevOps, accédez à la page Résumé du projet de votre équipe via *https:\//\<server name>/\<organization name>/\<team name>* , par exemple, **https:\//dev.azure.com/DataScienceUnit/MyTeam**.
    
 1. Sélectionnez **Dépôts** dans le volet de navigation gauche puis, en haut de la page, sélectionnez le dépôt à cloner.
    

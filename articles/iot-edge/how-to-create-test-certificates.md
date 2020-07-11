@@ -8,12 +8,12 @@ ms.date: 06/02/2020
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: 921a9c5f7136713f278d9c50bf67f02d9742a470
-ms.sourcegitcommit: 69156ae3c1e22cc570dda7f7234145c8226cc162
+ms.openlocfilehash: e2ded81c3525de6f9c49d774594c73f9da2b5696
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/03/2020
-ms.locfileid: "84309133"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84430667"
 ---
 # <a name="create-demo-certificates-to-test-iot-edge-device-features"></a>Créer des certificats de démonstration pour tester les fonctionnalités de l’appareil IoT Edge
 
@@ -272,7 +272,7 @@ Toutefois, il est déconseillé d’utiliser le même nom.
 ## <a name="create-downstream-device-certificates"></a>Créer des certificats d’appareils en aval
 
 Si vous configurez un appareil IoT en aval pour un scénario de passerelle et souhaitez utiliser l'authentification X.509, vous pouvez générer des certificats de démonstration pour l'appareil en aval.
-Si vous souhaitez utiliser l'authentification par clé symétrique, aucun certificat n'est nécessaire pour l'appareil en aval.
+Si vous souhaitez utiliser l’authentification par clé symétrique, vous ne devez créer aucun certificat pour l’appareil en aval.
 Il existe deux façons d’authentifier un appareil IoT à l’aide de certificats X.509 : à l’aide de certificats auto-signés ou à l’aide de certificats signés par une autorité de certification.
 Pour l’authentification par certificat X.509 autosigné, parfois appelée authentification par empreinte numérique, vous devez créer de nouveaux certificats et les placer sur votre appareil IoT.
 Ces certificats contiennent une empreinte numérique que vous partagez avec IoT Hub pour l’authentification.

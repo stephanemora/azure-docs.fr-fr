@@ -11,12 +11,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: genemi
 ms.date: 01/25/2019
-ms.openlocfilehash: 0b0ece8adf58d894d9ccafbbc97dea9fba2b3c5d
-ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
+ms.openlocfilehash: 01e1c63a4cfea367a0f721ac33986abade8b5b35
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "84033610"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84343827"
 ---
 # <a name="how-to-use-batching-to-improve-azure-sql-database-and-azure-sql-managed-instance-application-performance"></a>Utiliser le traitement par lot pour améliorer les performances des applications Azure SQL Database et Azure SQL Managed Instance
 [!INCLUDE[appliesto-sqldb-sqlmi](includes/appliesto-sqldb-sqlmi.md)]
@@ -331,7 +331,7 @@ Dans nos tests, il n’y avait généralement aucun avantage à fractionner les 
 > [!NOTE]
 > Les résultats ne représentent pas des valeurs de référence. Voir la [remarque relative au minutage fournie dans cet article](#note-about-timing-results-in-this-article)
 
-Vous pouvez voir que, pour 1 000 lignes, on obtient les meilleures performances en les soumettant toutes en même temps. D’autres tests (qui ne sont pas présentés ici) ont révélé un faible gain de performances en divisant un lot de 10000 lignes en deux lots de 5000. Mais le schéma de table pour ces tests étant relativement simple, vous devriez effectuer les tests sur vos données et tailles de lot spécifiques afin de vérifier ces résultats.
+Vous pouvez voir que, pour 1 000 lignes, on obtient les meilleures performances en les soumettant toutes en même temps. D’autres tests (qui ne sont pas présentés ici) ont révélé un faible gain de performances en divisant un lot de 10 000 lignes en deux lots de 5 000. Mais le schéma de table pour ces tests étant relativement simple, vous devriez effectuer les tests sur vos données et tailles de lot spécifiques afin de vérifier ces résultats.
 
 Autre facteur à prendre en compte : si le lot total devient trop volumineux, Azure SQL Database ou Azure SQL Managed Instance risque de subir des limitations et de refuser de valider le lot. Pour de meilleurs résultats, testez votre scénario spécifique afin de déterminer s’il comporte une taille de lot idéale. Faites en sorte que la taille de lot puisse être configurée pendant l’exécution afin de permettre des modifications rapides compte tenu des performances ou des erreurs obtenues.
 

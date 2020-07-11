@@ -3,14 +3,14 @@ title: Présentation de la fonctionnalité Suivi des modifications et inventaire
 description: Cet article présente la fonctionnalité Change Tracking and Inventory, qui permet d’identifier les modifications apportées aux logiciels et aux services Microsoft de votre environnement.
 services: automation
 ms.subservice: change-inventory-management
-ms.date: 01/28/2019
+ms.date: 06/08/2020
 ms.topic: conceptual
-ms.openlocfilehash: 7a1c5d5371663f3520e76060c9c2a8df0a18449c
-ms.sourcegitcommit: 6a9f01bbef4b442d474747773b2ae6ce7c428c1f
+ms.openlocfilehash: 2aab90b12cd3844b94b0b7e6e94582d403db2efe
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "84117542"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84555034"
 ---
 # <a name="change-tracking-and-inventory-overview"></a>Présentation de la fonctionnalité Suivi des modifications et inventaire
 
@@ -33,26 +33,29 @@ Suivi des modifications et inventaire obtient ses données à partir d’Azure M
 
 Suivi des modifications et inventaire ne prend actuellement pas en charge les éléments suivants :
 
-* Récursivité pour le suivi du Registre Windows
-* Systèmes de fichiers réseau
-* Méthodes d'installation différentes
-* Fichiers * **. exe** pour Windows
+- Récursivité pour le suivi du Registre Windows
+- Systèmes de fichiers réseau
+- Méthodes d'installation différentes
+- Fichiers * **. exe** pour Windows
 
 Autres limitations :
 
-* La colonne **Taille maximale des fichiers** et ses valeurs ne sont pas utilisées dans l’implémentation actuelle.
-* Si vous collectez plus de 2 500 fichiers dans le cycle de collecte de 30 minutes, les performances de Change Tracking and Inventory peuvent être dégradées.
-* Lorsque le trafic réseau est élevé, l’affichage des enregistrements de modifications peut prendre jusqu’à six heures.
-* Si vous modifiez une configuration quand un ordinateur est arrêté, l’ordinateur risque de publier des modifications appartenant à la configuration précédente.
+- La colonne **Taille maximale des fichiers** et ses valeurs ne sont pas utilisées dans l’implémentation actuelle.
+- Si vous collectez plus de 2 500 fichiers dans le cycle de collecte de 30 minutes, les performances de Change Tracking and Inventory peuvent être dégradées.
+- Lorsque le trafic réseau est élevé, l’affichage des enregistrements de modifications peut prendre jusqu’à six heures.
+- Si vous modifiez une configuration quand un ordinateur est arrêté, l’ordinateur risque de publier des modifications appartenant à la configuration précédente.
 
 Suivi des modifications et inventaire présente actuellement les problèmes suivants :
 
-* Les mises à jour de correctif logiciel ne sont pas collectées sur les machines Windows 2016 Core RS3.
-* Les démons Linux peuvent indiquer un état modifié même si aucune modification n’est intervenue. Ce problème est dû à la façon dont les données `SvcRunLevels` dans le journal [ConfigurationChange](https://docs.microsoft.com/azure/azure-monitor/reference/tables/configurationchange) d’Azure Monitor sont capturées.
+- Les mises à jour de correctif logiciel ne sont pas collectées sur les machines Windows 2016 Core RS3.
+
+- Les démons Linux peuvent indiquer un état modifié même si aucune modification n’est intervenue. Ce problème est dû à la façon dont les données `SvcRunLevels` dans le journal [ConfigurationChange](https://docs.microsoft.com/azure/azure-monitor/reference/tables/configurationchange) d’Azure Monitor sont capturées.
 
 ## <a name="supported-operating-systems"></a>Systèmes d’exploitation pris en charge
 
-Suivi des modifications et inventaire est pris en charge sur tous les systèmes d’exploitation qui répondent aux exigences de l’agent Log Analytics. Les versions officielles du système d’exploitation sont Windows Server 2008 SP1 ou version ultérieure et Windows 7 SP1 ou version ultérieure. La fonctionnalité est aussi prise en charge sur un certain nombre de systèmes d’exploitation Linux. Pour les systèmes d’exploitation prenant en charge Log Analytics, consultez [Vue d’ensemble de l’agent Log Analytics](https://docs.microsoft.com/azure/azure-monitor/platform/log-analytics-agent). 
+Suivi des modifications et inventaire est pris en charge sur tous les systèmes d’exploitation qui répondent aux exigences de l’agent Log Analytics. Les versions officielles du système d’exploitation sont Windows Server 2008 SP1 ou version ultérieure et Windows 7 SP1 ou version ultérieure. La fonctionnalité est aussi prise en charge sur un certain nombre de systèmes d’exploitation Linux. Pour les systèmes d’exploitation prenant en charge Log Analytics, consultez [Vue d’ensemble de l’agent Log Analytics](https://docs.microsoft.com/azure/azure-monitor/platform/log-analytics-agent).
+
+Pour comprendre la configuration requise du client pour le protocole TLS 1.2, consultez [Application de TLS 1.2 pour Azure Automation](automation-managing-data.md#tls-12-enforcement-for-azure-automation).
 
 ## <a name="network-requirements"></a>Configuration requise pour le réseau
 
@@ -75,12 +78,12 @@ Des listes déroulantes sont disponibles en haut du tableau de bord pour limiter
 
 Vous pouvez cliquer sur une modification ou un événement pour afficher ses détails. Les types de modification disponibles sont les suivants :
 
-* Événements
-* Démons
-* Fichiers
-* Registre
-* Logiciel
-* Services Microsoft
+- Événements
+- Démons
+- Fichiers
+- Registre
+- Logiciel
+- Services Microsoft
 
 Vous pouvez ajouter, modifier ou supprimer chaque modification. L’exemple ci-dessous montre que le type de démarrage d’un service est passé de Manuel à Auto.
 
@@ -135,10 +138,13 @@ Change Tracking and Inventory autorise la supervision des modifications apporté
 
 Suivi des modifications et inventaire prend en charge la récursivité, qui vous permet de spécifier des caractères génériques pour simplifier le suivi parmi les répertoires. La récursivité fournit également des variables d’environnement pour vous permettre d’effectuer le suivi des fichiers dans des environnements avec des noms de lecteurs multiples ou dynamiques. La liste suivante indique les informations courantes que vous devez connaître lors de la configuration de la récursivité :
 
-* Les caractères génériques sont requis pour effectuer le suivi de plusieurs fichiers.
-* Les caractères génériques ne peuvent être utilisés que dans le dernier segment d’un chemin de fichier, par exemple **c:\dossier\\fichier*** ou **/etc/*.conf**.
-* Si le chemin d’une variable d’environnement n’est pas valide, la validation réussit, mais ce chemin échoue lors de l’exécution.
-* Nous vous conseillons d’éviter les chemins généraux lors de la définition du chemin, car dans ce cas un trop grand nombre de dossiers peuvent être parcourus.
+- Les caractères génériques sont requis pour effectuer le suivi de plusieurs fichiers.
+
+- Les caractères génériques ne peuvent être utilisés que dans le dernier segment d’un chemin de fichier, par exemple **c:\dossier\\fichier*** ou **/etc/*.conf**.
+
+- Si le chemin d’une variable d’environnement n’est pas valide, la validation réussit, mais ce chemin échoue lors de l’exécution.
+
+- Nous vous conseillons d’éviter les chemins généraux lors de la définition du chemin, car dans ce cas un trop grand nombre de dossiers peuvent être parcourus.
 
 ## <a name="change-tracking-and-inventory-data-collection"></a>Collecte de données dans Suivi des modifications et inventaire
 
@@ -165,7 +171,7 @@ Le tableau suivant montre les limites des éléments suivis par machine pour Sui
 |Services|250|
 |Démons|250|
 
-La consommation moyenne de données Log Analytics d’une machine utilisant Suivi des modifications et inventaire est d’environ 40 Mo par mois, selon votre environnement. Avec la fonctionnalité Utilisation et estimation des coûts de l’espace de travail Log Analytics, vous pouvez afficher les données ingérées par Change Tracking and Inventory dans un graphique d’utilisation. Utilisez cette vue pour évaluer votre utilisation des données et déterminer la manière dont elle se répercute sur votre facture. Voir [Comprendre votre utilisation et estimer les coûts](https://docs.microsoft.com/azure/azure-monitor/platform/manage-cost-storage#understand-your-usage-and-estimate-costs). 
+La consommation moyenne de données Log Analytics d’une machine utilisant Suivi des modifications et inventaire est d’environ 40 Mo par mois, selon votre environnement. Avec la fonctionnalité Utilisation et estimation des coûts de l’espace de travail Log Analytics, vous pouvez afficher les données ingérées par Change Tracking and Inventory dans un graphique d’utilisation. Utilisez cette vue pour évaluer votre utilisation des données et déterminer la manière dont elle se répercute sur votre facture. Voir [Comprendre votre utilisation et estimer les coûts](https://docs.microsoft.com/azure/azure-monitor/platform/manage-cost-storage#understand-your-usage-and-estimate-costs).
 
 ### <a name="microsoft-service-data"></a>Données de services Microsoft
 
@@ -180,13 +186,13 @@ Pour optimiser les performances, l’agent Log Analytics effectue uniquement le 
 
 ## <a name="support-for-alerts-on-configuration-state"></a>Prise en charge des alertes relatives à l’état de configuration
 
-L’une des principales caractéristiques de Suivi des modifications et inventaire est sa capacité à alerter en cas de modifications apportées à l’état de la configuration de votre environnement hybride. De nombreuses actions utiles peuvent être déclenchées en réponse à des alertes, par exemple des actions sur des fonctions Azure, des runbooks Automation, des webhooks et autres. L’alerte en cas de modification apportée au fichier **c:\windows\system32\drivers\etc\hosts** pour une machine est une bonne application des alertes pour Change Tracking and Inventory. Il existe de nombreux autres scénarios d’alerte, notamment les scénarios de requête définis dans le tableau suivant. 
+L’une des principales caractéristiques de Suivi des modifications et inventaire est sa capacité à alerter en cas de modifications apportées à l’état de la configuration de votre environnement hybride. De nombreuses actions utiles peuvent être déclenchées en réponse à des alertes, par exemple des actions sur des fonctions Azure, des runbooks Automation, des webhooks et autres. L’alerte en cas de modification apportée au fichier **c:\windows\system32\drivers\etc\hosts** pour une machine est une bonne application des alertes pour Change Tracking and Inventory. Il existe de nombreux autres scénarios d’alerte, notamment les scénarios de requête définis dans le tableau suivant.
 
 |Requête  |Description  |
 |---------|---------|
 |ConfigurationChange <br>&#124; where ConfigChangeType == "Files" and FileSystemPath contains " c:\\windows\\system32\\drivers\\"|Utile pour le suivi des modifications apportées aux fichiers critiques du système.|
 |ConfigurationChange <br>&#124; where FieldsChanged contains "FileContentChecksum" and FileSystemPath == "c:\\windows\\system32\\drivers\\etc\\hosts"|Utile pour le suivi des modifications apportées aux fichiers de configuration de clés.|
-|ConfigurationChange <br>&#124; where ConfigChangeType == "Microsoft services" and SvcName contains "w3svc" and SvcState == "Stopped"|Utile pour le suivi des modifications apportées aux services critiques du système|
+|ConfigurationChange <br>&#124; where ConfigChangeType == "WindowsServices" and SvcName contains "w3svc" and SvcState == "Stopped"|Utile pour le suivi des modifications apportées aux services critiques du système|
 |ConfigurationChange <br>&#124; where ConfigChangeType == "Daemons" and SvcName contains "ssh" and SvcState!= "Running"|Utile pour le suivi des modifications apportées aux services critiques du système|
 |ConfigurationChange <br>&#124; where ConfigChangeType == "Software" and ChangeCategory == "Added"|Utile pour les environnements nécessitant des configurations logicielles verrouillées.|
 |ConfigurationData <br>&#124; where SoftwareName contains "Monitoring Agent" and CurrentVersion!= "8.0.11081.0"|Utile pour voir sur quelles machines une version obsolète ou non conforme d’un logiciel est installée. Cette requête indique le dernier état de configuration signalé, mais n’indique pas les modifications.|
@@ -195,7 +201,10 @@ L’une des principales caractéristiques de Suivi des modifications et inventai
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-* Pour savoir comment activer la fonctionnalité dans un compte Automation, consultez [Activer la fonctionnalité Suivi des modifications et inventaire dans un compte Automation](automation-enable-changes-from-auto-acct.md).
-* Pour activer la fonctionnalité en parcourant la portail Azure, consultez [Activer la fonctionnalité Change Tracking and Inventory sur le portail Azure](automation-onboard-solutions-from-browse.md).
-* Pour activer la fonctionnalité sur un runbook, consultez [Activer la fonctionnalité Suivi des modifications et inventaire sur un runbook](automation-enable-changes-from-runbook.md).
-* Pour activer la fonctionnalité sur une machine virtuelle, consultez [Activer la fonctionnalité Suivi des modifications et inventaire sur une machine virtuelle](automation-enable-changes-from-vm.md).
+- Pour savoir comment activer la fonctionnalité dans un compte Automation, consultez [Activer la fonctionnalité Suivi des modifications et inventaire dans un compte Automation](automation-enable-changes-from-auto-acct.md).
+
+- Pour activer la fonctionnalité en parcourant la portail Azure, consultez [Activer la fonctionnalité Change Tracking and Inventory sur le portail Azure](automation-onboard-solutions-from-browse.md).
+
+- Pour activer la fonctionnalité sur un runbook, consultez [Activer la fonctionnalité Suivi des modifications et inventaire sur un runbook](automation-enable-changes-from-runbook.md).
+
+- Pour activer la fonctionnalité sur une machine virtuelle, consultez [Activer la fonctionnalité Suivi des modifications et inventaire sur une machine virtuelle](automation-enable-changes-from-vm.md).

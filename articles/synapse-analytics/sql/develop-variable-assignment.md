@@ -9,12 +9,12 @@ ms.subservice: ''
 ms.date: 04/15/2020
 ms.author: v-stazar
 ms.reviewer: jrasnick
-ms.openlocfilehash: b2a596b71ee7e5f58e01d5bc10b330f6f54a69d2
-ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
+ms.openlocfilehash: 91e251c8274ad85fcb0b3a65a3bdbcc660ceba00
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "81426657"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85101008"
 ---
 # <a name="assigning-variables-with-synapse-sql"></a>Attribution de variables avec SQL Synapse
 
@@ -37,7 +37,7 @@ DECLARE @v  INT = (SELECT TOP 1 c_customer_sk FROM Customer where c_last_name = 
 ;
 ```
 
-Il n’est pas possible d’initialiser et d’utiliser une variable au sein de la même instruction DECLARE. Illustrons notre propos : l’exemple suivant n’est pas autorisé car l’élément *@p1* est à la fois initialisé et utilisé dans la même instruction DECLARE. L’exemple suivant génère une erreur.
+Il n’est pas possible d’initialiser et d’utiliser une variable au sein de la même instruction DECLARE. Illustrons notre propos : l’exemple suivant n’est pas autorisé car l’élément *\@p1* est à la fois initialisé et utilisé dans la même instruction DECLARE. L’exemple suivant génère une erreur.
 
 ```sql
 DECLARE @p1 int = 0

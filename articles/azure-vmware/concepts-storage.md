@@ -3,12 +3,12 @@ title: Concepts – Stockage
 description: Découvrez les principales fonctionnalités de stockage dans les clouds privés de la solution VMware Azure (AVS) en préversion.
 ms.topic: conceptual
 ms.date: 05/04/2020
-ms.openlocfilehash: 7e58a829a40d590b7936a58ccdc866211a4f5cb4
-ms.sourcegitcommit: d9cd51c3a7ac46f256db575c1dfe1303b6460d04
+ms.openlocfilehash: 7f92e8f961422f8354e55192ebdddd077d61acd1
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/04/2020
-ms.locfileid: "82739781"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84604114"
 ---
 # <a name="azure-vmware-solution-avs-preview-storage-concepts"></a>Concepts de stockage pour la solution Azure VMware (AVS) en préversion
 
@@ -45,5 +45,5 @@ L’étape suivante consiste à découvrir les [concepts de l’identité de clo
 <!-- LINKS - external-->
 
 <!-- LINKS - internal -->
-[tutorials-scale-private-cloud]: ./tutorials-scale-private-cloud.md
+[tutorial-scale-private-cloud]: ./tutorial-scale-private-cloud.md
 [concepts-identity]: ./concepts-identity.md

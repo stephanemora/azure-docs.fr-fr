@@ -2,13 +2,13 @@
 title: Créer un fichier de paramètres
 description: Créer un fichier de paramètres pour transmettre des valeurs pendant le déploiement d’un modèle d’Azure Resource Manager
 ms.topic: conceptual
-ms.date: 04/20/2020
-ms.openlocfilehash: a9845bbb9e14288a01fb7836db260a2baf484395
-ms.sourcegitcommit: 64fc70f6c145e14d605db0c2a0f407b72401f5eb
+ms.date: 06/19/2020
+ms.openlocfilehash: 7c03e161c7b3a18020de6a06d356720f5e4c31fd
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "83873086"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85117503"
 ---
 # <a name="create-resource-manager-parameter-file"></a>Créer un fichier de paramètres Resource Manager
 
@@ -182,12 +182,18 @@ L'exemple suivant indique les formats des différents types de paramètres.
 }
 ```
 
+## <a name="deploy-template-with-parameter-file"></a>Déployer un modèle avec un fichier de paramètres
+
+Consultez l'article :
+
+- [Déployer des ressources à l’aide de modèles ARM et l’interface CLI Azure](./deploy-powershell.md#pass-parameter-values)
+- [Déployer des ressources à l’aide de modèles Resource Manager et d’Azure PowerShell](./deploy-cli.md#parameters)
+
 ## <a name="file-name"></a>Nom de fichier
 
 Généralement, vous devez ajouter **.parameters** au nom du modèle pour nommer le fichier de paramètres. Par exemple, si votre modèle est nommé **azuredeploy.json**, votre fichier de paramètres est **azuredeploy.parameters.json**. Cette convention d’affectation de noms vous permet de comprendre le lien entre le modèle et les paramètres.
 
 Pour effectuer un déploiement dans différents environnements, créez plusieurs fichiers de paramètres. Lorsque vous nommez le fichier de paramètres, ajoutez un moyen permettant de définir son utilisation. Par exemple, utilisez **azuredeploy.parameters-dev.json** et **azuredeploy.parameters-prod.json**
-
 
 ## <a name="parameter-precedence"></a>Priorité des paramètres
 
@@ -198,6 +204,7 @@ Il est possible d’utiliser un fichier de paramètres externe, en indiquant l�
 ## <a name="parameter-name-conflicts"></a>Conflits de noms de paramètre
 
 Si votre modèle inclut un paramètre utilisant le même nom que l’un des paramètres dans la commande PowerShell, PowerShell présente le paramètre de votre modèle avec le suffixe **FromTemplate**. Par exemple, un paramètre nommé **ResourceGroupName** dans votre modèle est en conflit avec le paramètre **ResourceGroupName** dans la cmdlet [New-AzResourceGroupDeployment](/powershell/module/az.resources/new-azresourcegroupdeployment). Vous êtes invité à fournir une valeur pour **ResourceGroupNameFromTemplate**. Vous pouvez éviter cette confusion en utilisant des noms de paramètres qui ne sont pas utilisés pour les commandes de déploiement.
+
 
 ## <a name="next-steps"></a>Étapes suivantes
 

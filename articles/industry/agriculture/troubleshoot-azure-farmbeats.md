@@ -6,10 +6,10 @@ ms.topic: article
 ms.date: 11/04/2019
 ms.author: v-umha
 ms.openlocfilehash: b82d415d5e0cf18250123f3483e196aa040285dd
-ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/19/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "83656816"
 ---
 # <a name="troubleshoot"></a>Dépanner
@@ -110,7 +110,7 @@ Pour comprendre comment télécharger les journaux, consultez la section [« Co
 > [!NOTE]
 > Notez l’ID partenaire du partenaire de capteur qui vous intéresse.
 
-3. Revenez dans l’API Partner et sélectionnez **Get/\<ID>** .
+3. Revenez dans l’API partenaire et sélectionnez **Get/\<ID>** .
 4. Spécifiez l’ID partenaire obtenue à l’étape 3, puis sélectionnez **Exécuter**.
 
    La réponse de l’API contient normalement la chaîne de connexion Event Hubs.
@@ -250,7 +250,7 @@ Ce problème peut se produire si des activités de maintenance sont effectuées 
 
 ### <a name="sentinel-maximum-number-of-connections-reached"></a>Sentinel : Nombre maximal de connexions Sentinel atteint
 
-**Message d’échec du travail** : « Nombre maximal de deux flux simultanés atteints par l’utilisateur ’\<nomutilisateur>’. »
+**Message d’échec du travail** : « Nombre maximal de deux flux simultanés atteints par l’utilisateur ’\<username>’. »
 
 **Signification** : Si un travail échoue parce que le nombre maximal de connexions a été atteint, le même compte Sentinel est utilisé pour plusieurs travaux.
 

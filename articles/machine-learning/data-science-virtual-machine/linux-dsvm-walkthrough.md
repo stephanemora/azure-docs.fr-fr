@@ -10,10 +10,10 @@ ms.author: vijetaj
 ms.topic: conceptual
 ms.date: 04/02/2020
 ms.openlocfilehash: dec9d7d6f4676c3550bb6c0be79e25d907e5b3da
-ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/20/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "83682480"
 ---
 # <a name="data-science-with-a-linux-data-science-virtual-machine-in-azure"></a>Science des données avec une image Data Science Virtual Machine Linux sur Azure
@@ -313,7 +313,7 @@ predictSpam.service(1, 1, 1)
 
 ### <a name="jupyterhub"></a>JupyterHub
 
-La distribution Anaconda dans la machine virtuelle de science des données est fournie avec un Jupyter Notebook, un environnement multiplateforme pour partager Python, R, ou le code et l’analyse Julia. Le serveur Jupyter Notebook est accessible via JupyterHub. Vous vous connectez en utilisant votre nom d’utilisateur Linux local et votre mot de passe à https://\<nom DNS de DSVM ou adresse IP\>:8000/. Tous les fichiers de configuration pour JupyterHub se trouvent dans /etc/jupyterhub.
+La distribution Anaconda dans la machine virtuelle de science des données est fournie avec un Jupyter Notebook, un environnement multiplateforme pour partager Python, R, ou le code et l’analyse Julia. Le serveur Jupyter Notebook est accessible via JupyterHub. Vous vous connectez à https://\<DSVM DNS name or IP address\>:8000/ en utilisant votre nom d’utilisateur et votre mot de passe Linux locaux. Tous les fichiers de configuration pour JupyterHub se trouvent dans /etc/jupyterhub.
 
 > [!NOTE]
 > Pour utiliser le gestionnaire de package Python (via la commande `pip`) à partir d’un Jupyter Notebook dans le noyau actif, utilisez cette commande dans la cellule de code :

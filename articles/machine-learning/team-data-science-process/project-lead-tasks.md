@@ -11,10 +11,10 @@ ms.date: 01/10/2020
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
 ms.openlocfilehash: 4a4d3a1480a852218e698862a509c4af45e49eb8
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "76714417"
 ---
 # <a name="project-lead-tasks-in-the-team-data-science-process"></a>Tâches du coordinateur de projet dans Team Data Science Process
@@ -57,7 +57,7 @@ Pour cloner des dépôts et modifier leur contenu sur votre ordinateur local ou 
 
 Pour créer un dépôt de projet dans le projet **MyTeam** de votre équipe :
 
-1. Accédez à la page **Résumé** du projet de votre équipe à l’adresse *https:\//\<nom de serveur>/\<nom d’organisation>/\<nom d’équipe>* (par exemple, **https:\//dev.azure.com/DataScienceUnit/MyTeam**), puis sélectionnez **Dépôts** dans le volet de navigation gauche. 
+1. Accédez à la page **Résumé** de votre équipe via *https:\//\<server name>/\<organization name>/\<team name>* , par exemple, **https:\//dev.azure.com/DataScienceUnit/MyTeam**, puis sélectionnez **Repos** dans le volet de navigation gauche. 
    
 1. Sélectionnez le nom du dépôt en haut de la page, puis **Nouveau dépôt** dans la liste déroulante.
    
@@ -83,7 +83,7 @@ Pour renseigner votre dépôt de projet avec le contenu de votre dépôt de mod�
    
    ![Sélectionner Importer](./media/project-lead-tasks/project-leads-5-create-project-repo-4.png)
    
-1. Dans la boîte de dialogue **Importer un dépôt Git**, sélectionnez **Git** comme **Type de source**, puis entrez l’URL du dépôt **TeamTemplate** en dessous de **URL clone**. L’URL est *https:\//\<nom de serveur>/\<nom d’organisation>/\<nom d’équipe>/_git/\<nom de dépôt de modèle d’équipe>* . Par exemple : **https:\//dev.azure.com/DataScienceUnit/MyTeam/_git/TeamTemplate**. 
+1. Dans la boîte de dialogue **Importer un dépôt Git**, sélectionnez **Git** comme **Type de source**, puis entrez l’URL du dépôt **TeamTemplate** en dessous de **URL clone**. L’URL est *https:\//\<server name>/\<organization name>/\<team name>/_git/\<team template repository name>* . Par exemple : **https:\//dev.azure.com/DataScienceUnit/MyTeam/_git/TeamTemplate**. 
    
 1. Sélectionnez **Importer**. Le contenu de votre dépôt de modèle d’équipe est importé dans votre dépôt de projet. 
    

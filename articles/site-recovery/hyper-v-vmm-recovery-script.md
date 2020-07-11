@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 11/27/2018
 ms.author: rajanaki
 ms.openlocfilehash: 14c2a9a2ad818cc358535a91f9a6813ec7b91a6f
-ms.sourcegitcommit: 0b80a5802343ea769a91f91a8cdbdf1b67a932d3
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/25/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "83826279"
 ---
 # <a name="add-a-vmm-script-to-a-recovery-plan"></a>Ajouter un script VMM à un plan de récupération
@@ -60,9 +60,9 @@ Vous pouvez utiliser des scripts PowerShell dans vos plans de récupération. Po
 
 Si vous avez un site source VMM, libre à vous de créer un script sur le serveur VMM. Il vous suffit ensuite d’inclure ce script dans votre plan de récupération.
 
-1. Dans le partage de bibliothèque, créez un dossier. Par exemple, \<Nom du serveur VMM> \MSSCVMMLibrary\RPScripts. Placez le dossier sur les serveurs VMM source et cible.
+1. Dans le partage de bibliothèque, créez un dossier. Par exemple, \<VMM server name>\MSSCVMMLibrary\RPScripts. Placez le dossier sur les serveurs VMM source et cible.
 1. Créez le script. Par exemple, nommez le script RPScript. Vérifiez le bon fonctionnement du script.
-1. Placez le script dans le dossier \<Nom du serveur VMM>\MSSCVMMLibrary sur les serveurs VMM source et cible.
+1. Placez le script dans le dossier \<VMM server name>\MSSCVMMLibrary sur les serveurs VMM source et cible.
 
 ## <a name="add-the-script-to-a-recovery-plan"></a>Ajouter le script à un plan de récupération
 

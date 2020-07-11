@@ -4,10 +4,10 @@ description: Guide pratique pour monter un partage Azure Files à partir de nœu
 ms.topic: how-to
 ms.date: 05/24/2018
 ms.openlocfilehash: cb7e6f158e246319e851ee2edd5b21bae33c3723
-ms.sourcegitcommit: a9784a3fd208f19c8814fe22da9e70fcf1da9c93
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/22/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "83780283"
 ---
 # <a name="use-an-azure-file-share-with-a-batch-pool"></a>Utiliser un partage de fichiers Azure avec un pool Batch
@@ -39,7 +39,7 @@ Dans Batch, vous devez monter le partage chaque fois qu’une tâche est exécut
 
 Par exemple, incluez une commande `net use` pour monter le partage de fichiers dans le cadre de chaque ligne de commande de tâche. Pour monter le partage de fichiers, les informations d’identification suivantes sont nécessaires :
 
-* **Nom d’utilisateur** : AZURE\\\<nom_compte_stockage\>, par exemple, AZURE\\*mystorageaccountname*
+* **Nom d’utilisateur** : AZURE\\\<storageaccountname\>, par exemple, AZURE\\*nomdemoncomptedestockage*
 * **Mot de passe** : \<StorageAccountKeyWhichEnds in==>, par exemple, *XXXXXXXXXXXXXXXXXXXXX==*
 
 La commande suivante monte un partage de fichiers *myfileshare* dans le compte de stockage *mystorageaccountname* en tant que le lecteur *S:*  :
@@ -116,7 +116,7 @@ apt-get update && apt-get install cifs-utils && sudo mkdir -p /mnt/MyAzureFileSh
 
 Ensuite, exécutez la commande `mount` pour monter le partage de fichiers, en fournissant ces informations d’identification :
 
-* **Nom d’utilisateur** : \<nom_compte_stockage\>, par exemple, *mystorageaccountname*
+* **Nom d’utilisateur** : \<storageaccountname\>, par exemple, *nomdemoncomptedestockage*
 * **Mot de passe** : \<StorageAccountKeyWhichEnds in==>, par exemple, *XXXXXXXXXXXXXXXXXXXXX==*
 
 La commande suivante monte un partage de fichiers *myfileshare* dans le compte de stockage *mystorageaccountname* dans */mnt/MyAzureFileShare* : 

@@ -13,10 +13,10 @@ ms.date: 05/07/2019
 ms.author: jmprieur
 ms.custom: aaddev
 ms.openlocfilehash: 214d379525f2ee534415d713aa298ec858a84c92
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "81868843"
 ---
 # <a name="protected-web-api-app-registration"></a>API web protégée : Inscription d'application
@@ -141,7 +141,7 @@ Pour ajouter cette sécurité renforcée :
 
    > [!IMPORTANT]
    >
-   > Si vous définissez **Attribution de l’utilisateur requise ?** sur **Oui**, Azure AD vérifie les attributions de rôles d’application d’un client lorsqu’il demande un jeton d’accès pour l’API web. Si le client n’est attribué à aucun rôle d’application, Azure AD renvoie le message d’erreur « invalid_client: AADSTS501051: L’application \<nom d’application\> n’est pas attribuée à un rôle pour \<API web\> ».
+   > Si vous définissez **Attribution de l’utilisateur requise ?** sur **Oui**, Azure AD vérifie les attributions de rôles d’application d’un client lorsqu’il demande un jeton d’accès pour l’API web. Si le client n’est attribué à aucun rôle d’application, Azure AD renvoie le message d’erreur « invalid_client: AADSTS501051: L’application \<application name\> n’est pas affectée à un rôle pour \<web API\> ».
    >
    > Si vous maintenez l’option **Attribution de l’utilisateur requise ?** définie sur **Non**, Azure AD ne vérifiera pas les attributions de rôles d’application lorsqu’un client demandera un jeton d’accès pour votre API web. N’importe quel client démon, c’est-à-dire tous les clients utilisant le flux d’informations d’identification du client, peut obtenir un jeton d’accès pour l’API en spécifiant simplement son public. N’importe quelle application peut accéder à l’API sans avoir à demander de permissions pour cela.
    >

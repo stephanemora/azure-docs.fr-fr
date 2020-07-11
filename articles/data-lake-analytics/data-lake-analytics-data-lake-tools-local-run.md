@@ -11,10 +11,10 @@ ms.topic: conceptual
 ms.workload: big-data
 ms.date: 07/03/2018
 ms.openlocfilehash: 42e58125fcbc3ab411c0d7503c42c14c28178428
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "62113933"
 ---
 # <a name="run-u-sql-scripts-on-your-local-machine"></a>Exécuter des scripts U-SQL sur votre ordinateur local
@@ -57,7 +57,7 @@ Azure Data Lake Tools pour Visual Studio comprend un moteur d’exécution local
  
 ## <a name="local-runs-with-a-local-machine-account"></a>Exécutions locales avec un compte Local-machine
 
-Le compte **Local-machine** est un compte de calcul local partagé. Il comprend un seul dossier racine de données local qui joue le rôle de compte de magasin local. Par défaut, le dossier racine de données se trouve à l’emplacement **C:\Users\<nom_utilisateur>\AppData\Local\USQLDataRoot**. Il est également configurable via **Outils** > **Data Lake** > **Options et paramètres**.
+Le compte **Local-machine** est un compte de calcul local partagé. Il comprend un seul dossier racine de données local qui joue le rôle de compte de magasin local. Par défaut, le dossier racine de données se trouve à l’emplacement **C:\Users\<username>\AppData\Local\USQLDataRoot**. Il est également configurable via **Outils** > **Data Lake** > **Options et paramètres**.
 
 ![Configurer un dossier racine de données local](./media/data-lake-analytics-data-lake-tools-local-run/data-lake-tools-configure-local-data-root.png)
   

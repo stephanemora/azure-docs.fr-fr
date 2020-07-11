@@ -11,10 +11,10 @@ ms.author: billmath
 ms.topic: reference
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: d6b90ff82601acca1249c7d8c353944e39e89f95
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "66473791"
 ---
 # <a name="azure-ad-connect--adconnectivitytools-powershell-reference"></a>Azure AD Connect :  Informations de référence sur le module PowerShell ADConnectivityTools
@@ -310,7 +310,8 @@ Accept wildcard characters: False
 #### <a name="-skipdnsport"></a>-SkipDnsPort
 
 Si l’utilisateur n’utilise pas les services DNS fournis par le contrôleur de domaine d’ouverture de session ou le site AD, il souhaitera peut-être ignorer la vérification du port 53.
-Pour que la configuration du connecteur Active Directory réussisse, l’utilisateur doit toujours être en mesure de résoudre _.ldap._tcp.\<forestfqdn\>.
+L’utilisateur doit toujours être en mesure de résoudre _.ldap._tcp.\<forestfqdn\>
+pour que la configuration du connecteur Active Directory aboutisse.
 
 ```yml
 Type: SwitchParameter

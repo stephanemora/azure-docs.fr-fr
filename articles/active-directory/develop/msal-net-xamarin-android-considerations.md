@@ -14,10 +14,10 @@ ms.author: marsma
 ms.reviewer: saeeda
 ms.custom: aaddev
 ms.openlocfilehash: bb5950360734bc46923ef18424e3ad1ce275ad7a
-ms.sourcegitcommit: d662eda7c8eec2a5e131935d16c80f1cf298cb6b
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/01/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "82652669"
 ---
 # <a name="considerations-for-using-xamarin-android-with-msalnet"></a>Considérations relatives à l’utilisation de Xamarin Android avec MSAL.NET
@@ -145,7 +145,7 @@ Pour détecter des problèmes de build :
 
 ### <a name="error-the-name-authenticationcontinuationhelper-doesnt-exist-in-the-current-context"></a>Erreur : Le nom AuthenticationContinuationHelper n’existe pas dans le contexte actuel
 
-Si une erreur indique que `AuthenticationContinuationHelper` n’existe pas dans le contexte actuel, Visual Studio a peut-être pas mis à jour le fichier Android.csproj* de manière incorrecte. Parfois le chemin d’accès au fichier *\<HintPath>* contient la valeur *netstandard13* au lieu de *monoandroid90*, ce qui est incorrect.
+Si une erreur indique que `AuthenticationContinuationHelper` n’existe pas dans le contexte actuel, Visual Studio a peut-être pas mis à jour le fichier Android.csproj* de manière incorrecte. Parfois le chemin d’accès au fichier *\<HintPath>* contient *netstandard13* au lieu de *monoandroid90*, ce qui est incorrect.
 
 Cet exemple contient un chemin d’accès au fichier correct :
 

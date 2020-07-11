@@ -11,10 +11,10 @@ ms.date: 01/10/2020
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
 ms.openlocfilehash: c097c14406349d973e905fadb806cc159d9b16d8
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "76722099"
 ---
 # <a name="agile-development-of-data-science-projects"></a>Développement Agile de projets de science des données
@@ -39,7 +39,7 @@ Dans le framework de planification sprint TDSP, il existe quatre types d’*él�
 
 Voici les définitions des types d’éléments de travail :
 
-- **Caractéristique** : une fonctionnalité correspond à un engagement de projet. Les différents engagements avec un client constituent des fonctionnalités différentes, et il est préférable d’envisager les différentes phases d’un projet en tant que fonctionnalités différentes. Si vous choisissez un format tel que *\<NomClient>-\<NomEngagement>* pour nommer vos fonctionnalités, vous pourrez facilement connaître le contexte du projet et de l’engagement grâce au nom qu’il porte.
+- **Caractéristique** : une fonctionnalité correspond à un engagement de projet. Les différents engagements avec un client constituent des fonctionnalités différentes, et il est préférable d’envisager les différentes phases d’un projet en tant que fonctionnalités différentes. Si vous choisissez un format tel que *\<ClientName>-\<EngagementName>* pour nommer vos fonctionnalités, vous pourrez facilement connaître le contexte du projet et de l’engagement grâce au nom qu’il porte.
   
 - **Récit utilisateur** : les récits utilisateur sont des éléments de travail nécessaires pour effectuer une fonctionnalité de bout en bout. Voici quelques exemples de récits utilisateur :
   - Obtenir des données 

@@ -4,10 +4,10 @@ description: Surveillance efficace de vos rôles Web et de travail avec Applicat
 ms.topic: conceptual
 ms.date: 09/05/2018
 ms.openlocfilehash: 17813d17a1c40caac5587e37e279be6376992b90
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "81537591"
 ---
 # <a name="application-insights-for-azure-cloud-services"></a>Application Insights pour les services cloud Azure
@@ -82,7 +82,7 @@ Chaque ressource est identifiée par une clé d’instrumentation. Vous pouvez a
 ## <a name="set-up-azure-diagnostics-for-each-role"></a>Configurer Diagnostics Azure pour chaque rôle
 Définissez cette option pour surveiller votre application avec Application Insights. Pour les rôles web, cette option permet de superviser les performances, de recevoir des alertes, des diagnostics et d’analyser l’utilisation. Pour d’autres rôles, vous pouvez rechercher et superviser des diagnostics Azure comme le redémarrage, les compteurs de performances et les appels à System.Diagnostics.Trace. 
 
-1. Dans l’Explorateur de solutions Visual Studio, sous **\<votre_service_cloud>**  > **Rôles**, ouvrez les propriétés de chaque rôle.
+1. Dans l’Explorateur de solutions Visual Studio, sous **\<YourCloudService>**  > **Rôles**, ouvrez les propriétés de chaque rôle.
 
 1. Dans **Configuration**, cochez la case **Envoyer des données de diagnostic à Application Insights** et sélectionnez la ressource Application Insights que vous avez créée plus tôt.
 

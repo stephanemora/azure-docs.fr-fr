@@ -5,12 +5,12 @@ author: sunasing
 ms.topic: article
 ms.date: 11/04/2019
 ms.author: sunasing
-ms.openlocfilehash: 717a09d8377a7b95fe24300cc65222f307e7419f
-ms.sourcegitcommit: ced98c83ed25ad2062cc95bab3a666b99b92db58
+ms.openlocfilehash: c3a70ed905edfcf1dc60e0a12f50aca19060230f
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/31/2020
-ms.locfileid: "80437523"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84488033"
 ---
 # <a name="references"></a>References
 
@@ -165,6 +165,15 @@ Les API Azure FarmBeats sont accessibles à un utilisateur ou à une inscription
 4. Accédez à votre Datahub Swagger (https://<yourdatahub>.azurewebsites.net/swagger/index.html) et procédez comme suit :
     - Accédez à l’**API RoleAssignment**.
     - Effectuez un appel POST afin de créer un objet **RoleAssignment** pour l’**ID d’objet** que vous venez de créer.
+ 
+```json
+{
+  "roleDefinitionId": "a400a00b-f67c-42b7-ba9a-f73d8c67e433",
+  "objectId": "objectId from step 3 above",
+  "objectIdType": "ServicePrincipalId",
+  "tenantId": "tenant id of your Azure subscription"
+}
+```
 
   > [!NOTE]
   > Pour plus d’informations sur l’ajout d’utilisateurs et l’inscription Active Directory, consultez [Azure Active Directory](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal).

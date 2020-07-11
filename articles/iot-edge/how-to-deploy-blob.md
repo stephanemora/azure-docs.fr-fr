@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.service: iot-edge
 ms.reviewer: arduppal
 ms.openlocfilehash: da163e902d06bd98ac47a24256cb809cb222173b
-ms.sourcegitcommit: 6397c1774a1358c79138976071989287f4a81a83
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/07/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "80804620"
 ---
 # <a name="deploy-the-azure-blob-storage-on-iot-edge-module-to-your-device"></a>Déployer le module de stockage Blob Azure sur IoT Edge vers votre appareil
@@ -88,10 +88,10 @@ Un manifeste de déploiement est un document JSON qui décrit les modules à dé
 
    - Remplacez `<storage mount>` en fonction du système d’exploitation de votre conteneur. Indiquez le nom d’un [volume](https://docs.docker.com/storage/volumes/) ou le chemin absolu d’un répertoire existant sur votre appareil IoT Edge où le module d’objets blob stockera ses données. Le montage associe un emplacement sur votre appareil que vous fournissez à un emplacement défini dans le module.
 
-     - Pour les conteneurs Linux, le format est **\<chemin de votre stockage ou volume>:/blobroot**. Par exemple :
+     - Pour les conteneurs Linux, le format est **\<your storage path or volume>:/blobroot**. Par exemple :
          - utiliser [le montage de volumes](https://docs.docker.com/storage/volumes/) : `my-volume:/blobroot`.
          - utiliser [le montage de liaison](https://docs.docker.com/storage/bind-mounts/) : `/srv/containerdata:/blobroot`. Veillez à suivre les étapes pour [octroyer l’accès à l’annuaire à l’utilisateur du conteneur](how-to-store-data-blob.md#granting-directory-access-to-container-user-on-linux)
-     - Pour les conteneurs Windows, le format est le suivant : **\<chemin de votre stockage ou volume>:C:/BlobRoot**. Par exemple :
+     - Pour les conteneurs Windows, le format est **\<your storage path or volume>:C:/BlobRoot**. Par exemple :
          - utiliser [le montage de volumes](https://docs.docker.com/storage/volumes/) : `my-volume:C:/BlobRoot`.
          - utiliser [le montage de liaison](https://docs.docker.com/storage/bind-mounts/) : `C:/ContainerData:C:/BlobRoot`.
          - Au lieu d’utiliser votre lecteur local, vous pouvez mapper votre emplacement réseau SMB. Pour plus d’informations, consultez [Utilisation du partage SMB en tant que stockage local](how-to-store-data-blob.md#using-smb-share-as-your-local-storage).
@@ -200,10 +200,10 @@ Azure IoT Edge fournit des modèles dans Visual Studio Code pour vous aider à d
 
 1. Remplacez `<storage mount>` en fonction du système d’exploitation de votre conteneur. Indiquez le nom d’un [volume](https://docs.docker.com/storage/volumes/) ou le chemin absolu à un répertoire sur votre appareil IoT Edge où vous souhaitez que le module d’objets blob stocke ses données. Le montage associe un emplacement sur votre appareil que vous fournissez à un emplacement défini dans le module.  
 
-     - Pour les conteneurs Linux, le format est **\<chemin de votre stockage ou volume>:/blobroot**. Par exemple :
+     - Pour les conteneurs Linux, le format est **\<your storage path or volume>:/blobroot**. Par exemple :
          - utiliser [le montage de volumes](https://docs.docker.com/storage/volumes/) : `my-volume:/blobroot`.
          - utiliser [le montage de liaison](https://docs.docker.com/storage/bind-mounts/) : `/srv/containerdata:/blobroot`. Veillez à suivre les étapes pour [octroyer l’accès à l’annuaire à l’utilisateur du conteneur](how-to-store-data-blob.md#granting-directory-access-to-container-user-on-linux)
-     - Pour les conteneurs Windows, le format est le suivant : **\<chemin de votre stockage ou volume>:C:/BlobRoot**. Par exemple
+     - Pour les conteneurs Windows, le format est **\<your storage path or volume>:C:/BlobRoot**. Par exemple
          - utiliser [le montage de volumes](https://docs.docker.com/storage/volumes/) : `my-volume:C:/BlobRoot`.
          - utiliser [le montage de liaison](https://docs.docker.com/storage/bind-mounts/) : `C:/ContainerData:C:/BlobRoot`.
          - Au lieu d’utiliser votre lecteur local, vous pouvez mapper votre emplacement réseau SMB. Pour en savoir plus, consultez la section relative à [l’utilisation du partage SMB en tant que stockage local.](how-to-store-data-blob.md#using-smb-share-as-your-local-storage)

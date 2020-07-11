@@ -16,10 +16,10 @@ ms.workload: infrastructure-services
 ms.date: 03/26/2020
 ms.author: radeltch
 ms.openlocfilehash: 05effb7d2e64c5f27acabad4b086ba27d6849cc8
-ms.sourcegitcommit: 8a9c54c82ab8f922be54fb2fcfd880815f25de77
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "80348819"
 ---
 # <a name="high-availability-for-sap-netweaver-on-azure-vms-on-suse-linux-enterprise-server-for-sap-applications"></a>Haute disponibilité pour SAP NetWeaver sur les machines virtuelles Azure sur SUSE Linux Enterprise Server pour les applications SAP
@@ -204,7 +204,7 @@ Vous devez tout d’abord créer les machines virtuelles pour ce cluster NFS. Pa
       1. Règles d’équilibreur de charge pour ASCS
          1. Ouvrir l’équilibreur de charge, sélectionner les règles d’équilibrage de charge et cliquer sur Ajouter
          1. Entrer le nom de la nouvelle règle d’équilibrage de charge (par exemple **nw1-lb-ascs**)
-         1. Sélectionner l’adresse IP du serveur frontal, le pool principal et la sonde d’intégrité créés précédemment (par exemple **nw1-ascs-frontend**, **nw1-backend** et **nw1-ascs-hp**)
+         1. Sélectionnez l’adresse IP du front-end, le pool de back-ends et la sonde d’intégrité créée précédemment (par exemple, **nw1-ascs-frontend**, **nw1-backend** et **nw1-ascs-hp**)
          1. Sélectionnez **Ports haute disponibilité**
          1. Augmenter le délai d’inactivité à 30 minutes
          1. **Veiller à activer IP flottante**
@@ -218,7 +218,7 @@ Vous devez tout d’abord créer les machines virtuelles pour ce cluster NFS. Pa
          1. Définir l’affectation sur Statique et entrer l’adresse IP (par exemple **10.0.0.7**)
          1. Cliquez sur OK
       1. Adresse IP 10.0.0.8 pour les instances ASCS ERS
-         * Répéter les étapes ci-dessus pour créer une adresse IP pour l’instance ERS (par exemple **10.0.0.8** et **nw1-aers-frontend**)
+         * Répétez les étapes ci-dessus pour créer une adresse IP pour l’instance ERS (par exemple, **10.0.0.8** et **nw1-aers-frontend**)
    1. Créer le pool principal
       1. Ouvrir l’équilibrage de charge, sélectionner les pools principaux et cliquer sur Ajouter
       1. Entrer le nom du nouveau pool principal (par exemple **nw1-backend**)

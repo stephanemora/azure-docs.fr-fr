@@ -11,10 +11,10 @@ ms.date: 01/10/2020
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
 ms.openlocfilehash: 0708e395eff90ff5b889c05f0fd5e7a98205c5bc
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "76721895"
 ---
 # <a name="collaborative-coding-with-git"></a>Développement collaboratif avec Git
@@ -39,7 +39,7 @@ Vous pouvez également créer une branche en utilisant la commande bash Git suiv
 git checkout -b <new branch name> <base branch name>
 
 ```
-Si vous ne spécifiez pas un \<nom de branche de base>, la nouvelle branche est basée sur `master`. 
+Si vous ne spécifiez pas de \<base branch name>, la nouvelle branche est basée sur `master`. 
 
 Pour passer à votre branche de travail, exécutez la commande suivante : 
 

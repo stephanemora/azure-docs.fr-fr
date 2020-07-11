@@ -14,10 +14,10 @@ ms.topic: troubleshooting
 ms.date: 10/31/2018
 ms.author: genli
 ms.openlocfilehash: 6f104fc6513874bfef5f4bf9fe7f536c3e3d69cf
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "71057544"
 ---
 # <a name="azure-performance-diagnostics-vm-extension-for-windows"></a>Extension de diagnostic de performance des machines virtuelles Azure pour Windows
@@ -233,7 +233,7 @@ L’outil PerfInsights collecte différents types de journaux d’activité, de 
 
 ## <a name="view-and-share-the-results"></a>Afficher et partager les résultats
 
-La sortie de l’extension peut être obtenue dans le fichier zip qui a été chargé dans le compte de stockage indiqué pendant l’installation et est partagée pendant 30 jours à l’aide de [signatures d’accès partagé (SAP)](../../storage/common/storage-dotnet-shared-access-signature-part-1.md). Ce fichier zip contient des journaux de diagnostic et un rapport avec les résultats et les recommandations. Un lien SAS vers le fichier zip de sortie est fourni dans le fichier texte nommé *zipfilename*_saslink.txt, qui se trouve sous le dossier **C:\Packages\Plugins\Microsoft.Azure.Performance.Diagnostics.AzurePerformanceDiagnostics\\\<version>** . Toute personne qui dispose de ce lien est en mesure de télécharger le fichier zip.
+La sortie de l’extension peut être obtenue dans le fichier zip qui a été chargé dans le compte de stockage indiqué pendant l’installation et est partagée pendant 30 jours à l’aide de [signatures d’accès partagé (SAP)](../../storage/common/storage-dotnet-shared-access-signature-part-1.md). Ce fichier zip contient des journaux de diagnostic et un rapport avec les résultats et les recommandations. Un lien SAS vers le fichier zip de sortie est fourni dans le fichier texte nommé *zipfilename*_saslink.txt, qui se trouve dans le dossier **C:\Packages\Plugins\Microsoft.Azure.Performance.Diagnostics.AzurePerformanceDiagnostics\\\<version>** . Toute personne qui dispose de ce lien est en mesure de télécharger le fichier zip.
 
 Pour aider l’ingénieur qui travaille sur le ticket de support, Microsoft a la possibilité d’utiliser ce lien SAP pour télécharger les données de diagnostic.
 

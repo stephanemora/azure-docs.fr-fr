@@ -7,10 +7,10 @@ ms.date: 11/04/2019
 ms.author: v-umha
 ms.custom: has-adal-ref
 ms.openlocfilehash: 3833b27e9f90cbffa2320c84877d4eb5bb6520f7
-ms.sourcegitcommit: 50ef5c2798da04cf746181fbfa3253fca366feaa
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/30/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "82613266"
 ---
 # <a name="ingest-historical-telemetry-data"></a>Ingérer des données de télémétrie historiques
@@ -27,7 +27,7 @@ Avant de poursuivre cet article, vérifiez que vous avez installé FarmBeats et 
 
 Vous devez activer l’intégration des partenaires à votre instance Azure FarmBeats. Cette étape consiste à créer un client qui a accès à votre instance Azure FarmBeats en tant que partenaire d’appareil. Elle vous permet également d’obtenir les valeurs ci-après qui sont exigées pour les étapes suivantes :
 
-- Point de terminaison d’API : URL du hub de données, par exemple https://\<hubdedonnées>.azurewebsites.net
+- Point de terminaison d’API : URL du hub de données, par exemple https://\<datahub>.azurewebsites.net
 - ID client
 - ID client
 - Clé secrète client
@@ -140,7 +140,7 @@ Pour plus d’informations sur les objets, consultez [Swagger](https://aka.ms/Fa
 
 ### <a name="api-request-to-create-metadata"></a>Requête d’API pour la création de métadonnées
 
-Pour effectuer une requête d’API, vous devez associer la méthode HTTP (POST), l’URL du service d’API et l’URI d’une ressource (pour l’interrogation, l’envoi des données, la création ou la suppression d’une requête). Vous ajoutez ensuite un ou plusieurs en-têtes de requête HTTP. L’URL du service d’API est le point de terminaison d’API, c’est-à-dire l’URL du hub de données (https://\<vorehubdedonnées>.azurewebsites.net).
+Pour effectuer une requête d’API, vous devez associer la méthode HTTP (POST), l’URL du service d’API et l’URI d’une ressource (pour l’interrogation, l’envoi des données, la création ou la suppression d’une requête). Vous ajoutez ensuite un ou plusieurs en-têtes de requête HTTP. L’URL du service d’API est le point de terminaison d’API, c’est-à-dire l’URL du hub de données (https://\<yourdatahub>.azurewebsites.net).
 
 ### <a name="authentication"></a>Authentification
 

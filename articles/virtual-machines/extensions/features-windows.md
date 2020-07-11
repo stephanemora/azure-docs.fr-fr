@@ -16,10 +16,10 @@ ms.date: 03/30/2018
 ms.author: akjosh
 ms.custom: H1Hack27Feb2017
 ms.openlocfilehash: cd6439bf1b1f52b8e63819e8e519fc4971d1bc2a
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "80066853"
 ---
 # <a name="virtual-machine-extensions-and-features-for-windows"></a>Extensions et fonctionnalités de machine virtuelle pour Windows
@@ -252,7 +252,7 @@ Pour sécuriser la chaîne d’exécution, déplacez la propriété **commandToE
 }
 ```
 
-Sur une machine virtuelle Azure IaaS qui utilise des extensions, dans la console des certificats, vous pouvez voir des certificats dont le nom de sujet est **_Windows Azure CRP Certificate Generator_** Sur une machine virtuelle RDFE classique, ces certificats ont comme nom de sujet **_Windows Azure Service Management for Extensions_** .
+Sur une machine virtuelle Azure IaaS qui utilise des extensions, dans la console des certificats, vous pouvez voir des certificats dont le nom de sujet est **_Windows Azure CRP Certificate Generator_** Sur une machine virtuelle RDFE classique, ces certificats ont comme nom de sujet **_Windows Azure Service Management for Extensions_**.
 
 Ces certificats sécurisent la communication entre la machine virtuelle et son hôte pendant le transfert des paramètres protégés (mot de passe, autres informations d’identification) qui sont utilisés par les extensions. Les certificats sont générés par le contrôleur de structure Azure et sont passés à l’agent de machine virtuelle. Si vous arrêtez et démarrez la machine virtuelle tous les jours, un nouveau certificat peut être créé par le contrôleur de structure. Le certificat est stocké dans le magasin de certificats Personnel de l’ordinateur. Ces certificats peuvent être supprimés. L’agent de machine virtuelle recrée les certificats si nécessaire.
 
@@ -355,7 +355,7 @@ La procédure de résolution des problèmes ci-après s’applique à toutes les
 
 1. Pour consulter le journal de l’agent invité Windows, examinez l’activité au moment où votre extension a été approvisionnée dans le fichier *C:\WindowsAzure\Logs\WaAppAgent.log*
 
-2. Pour plus de détails, vérifiez les journaux d’activité d’extension proprement dits à l’emplacement *C:\WindowsAzure\Logs\Plugins\<nomExtension&gt;*
+2. Pour plus de détails, vérifiez les journaux d’activité d’extension proprement dits à l’emplacement *C:\WindowsAzure\Logs\Plugins\<extensionName>*
 
 3. Consultez les sections de résolution des problèmes dans la documentation de l’extension concernée pour vous renseigner sur les codes d’erreur, les problèmes connus, etc.
 

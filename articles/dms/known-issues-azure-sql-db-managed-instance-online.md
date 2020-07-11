@@ -11,12 +11,12 @@ ms.workload: data-services
 ms.custom: mvc
 ms.topic: article
 ms.date: 02/20/2020
-ms.openlocfilehash: 65bbc9f66ceb732a8f773f0b49cd46f99750a7d5
-ms.sourcegitcommit: 1f48ad3c83467a6ffac4e23093ef288fea592eb5
+ms.openlocfilehash: 871ea665d23a5fba644448ddb6c596179d47bb3f
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/29/2020
-ms.locfileid: "84196307"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85106383"
 ---
 # <a name="known-issuesmigration-limitations-with-online-migrations-to-azure-sql-managed-instance"></a>Problèmes connus/limitations de migration dans le cadre des migrations en ligne vers Azure SQL Managed Instance
 
@@ -62,6 +62,6 @@ Les problèmes connus et limitations associées aux migrations en ligne de SQL S
 
 - **Déploiements**
 
-    SQL Managed Instance est un service PaaS avec mises à jour correctives et mises à jour de version automatiques. Lors de la migration de votre instance SQL Managed Instance, les mises à jour non critiques sont mises en attente jusqu'à 36 heures. Ensuite (et pour les mises à jour critiques), si la migration est interrompue, le processus se réinitialise en état de restauration complète.
+    SQL Managed Instance est un service PaaS avec mises à jour correctives et mises à jour de version automatiques. Lors de la migration de votre instance SQL Managed Instance, les mises à jour non critiques sont suspendues jusqu’à 36 heures. Ensuite (et pour les mises à jour critiques), si la migration est interrompue, le processus se réinitialise en état de restauration complète.
 
     Le basculement de la migration ne peut être appelé qu'au terme de la restauration de la sauvegarde complète, et récupère toutes les sauvegardes de journaux. Si vos basculements de migration de production sont affectés, contactez l'[alias de commentaires Azure DMS](mailto:dmsfeedback@microsoft.com).

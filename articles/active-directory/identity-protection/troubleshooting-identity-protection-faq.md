@@ -12,10 +12,10 @@ manager: daveba
 ms.reviewer: sahandle
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 140ad45d9c4f6b6f49a4ea4aefb9298e58a2cf10
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "75443572"
 ---
 # <a name="frequently-asked-questions-identity-protection-in-azure-active-directory"></a>Forum aux questions sur Identity Protection dans Azure Active Directory
@@ -24,7 +24,7 @@ ms.locfileid: "75443572"
 
 **Ignorer les risques utilisateur** dans la version classique d’Identity Protection définit l’acteur dans l’historique des risques utilisateur d’Identity Protection sur **Azure AD**.
 
-**Ignorer les risques utilisateur** dans Identity Protection définit l’acteur dans l’historique des risques utilisateur d’Identity Protection sur le **\<nom de l’administrateur avec un lien hypertexte pointant vers le panneau de l’utilisateur\>** .
+L’option **Ignorer le risque lié à l’utilisateur** dans Identity Protection définit l’acteur dans l’historique des risques de l’utilisateur dans Identity Protection sur **\<Admin’s name with a hyperlink pointing to user’s blade\>** .
 
 Un problème connu occasionne actuellement des latences dans le flux de rejet des risques utilisateur. Si vous disposez d'une « Stratégie de risque utilisateur », celle-ci cessera de s'appliquer aux utilisateurs ignorés quelques minutes après un clic sur « Ignorer le risque lié à l'utilisateur ». Cela dit, des retards d'actualisation de l'« état de risque » des utilisateurs ignorés ont été identifiés. Pour contourner ce problème, actualisez la page au niveau du navigateur afin d'afficher le dernier « État de risque » de l'utilisateur.
 
