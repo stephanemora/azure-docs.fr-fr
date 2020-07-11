@@ -4,10 +4,10 @@ description: Démarrage de la surveillance d'une nouvelle application avec une n
 ms.topic: conceptual
 ms.date: 07/11/2018
 ms.openlocfilehash: 395e8d667985318f4a084428c6fd4c395ee8b956
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "77671441"
 ---
 # <a name="monitor-a-sharepoint-site-with-application-insights"></a>Surveillance d’un site SharePoint avec Application Insights
@@ -51,7 +51,7 @@ Vérifiez la page maître et modifiez-la à l'aide de SharePoint Designer ou de
 
 ![](./media/sharepoint/03-master.png)
 
-Ajoutez le code juste avant la balise </head> . 
+Ajoutez le code juste avant la </head> balise. 
 
 ![](./media/sharepoint/04-code.png)
 

@@ -11,10 +11,10 @@ ms.date: 01/10/2020
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
 ms.openlocfilehash: 4ec7f4242e5046e90fdf0eb8c6c0579f402e4f55
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "76721351"
 ---
 # <a name="team-data-science-process-group-manager-tasks"></a>Tâches du responsable de groupe Team Data Science Process
@@ -57,7 +57,7 @@ Le tutoriel suivant présente en détail les différentes étapes.
    
    ![Créer un projet](./media/group-manager-tasks/create-project.png)
 
-La page **Résumé** du projet **GroupCommon** s’ouvre. L’URL de la page est *https: \//\<nomserveur>/\<nom-organisation>/GroupCommon*.
+La page **Résumé** du projet **GroupCommon** s’ouvre. L’URL de la page est *https:\//\<servername>/\<organization-name>/GroupCommon*.
 
 ![Page Résumé du projet](./media/group-manager-tasks/project-summary.png)
 

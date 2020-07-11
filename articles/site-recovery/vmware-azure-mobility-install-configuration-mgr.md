@@ -6,10 +6,10 @@ ms.topic: how-to
 ms.date: 2/5/2020
 ms.author: ramamill
 ms.openlocfilehash: f24d321e882024d324435498adf11694037547f7
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "77252225"
 ---
 # <a name="automate-mobility-service-installation"></a>Automatiser l’installation du service mobilité
@@ -392,7 +392,7 @@ cd /tmp
    - Pour éviter les redémarrages inutiles, planifiez l’installation du package pendant votre fenêtre de maintenance mensuelle ou votre fenêtre de mises à jour logicielles.
 
 1. Dans la page **Points de distribution**, configurez les paramètres et terminez l’Assistant.
-1. Surveillez la progression du déploiement dans la console Configuration Manager. Accédez à **Supervision** > **Déploiements** >  _\<nom de votre package\>_ .
+1. Surveillez la progression du déploiement dans la console Configuration Manager. Accédez à **Supervision** > **Déploiements** >  _\<your package name\>_ .
 
 ### <a name="uninstall-the-mobility-service"></a>Désinstaller le service Mobility
 

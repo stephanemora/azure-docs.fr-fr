@@ -9,10 +9,10 @@ ms.author: jasondel
 keywords: aro, openshift, az aro, red hat, cli
 ms.custom: mvc
 ms.openlocfilehash: 581587382c3bfd03ed329672e5c6ca065554d1c7
-ms.sourcegitcommit: 6fd8dbeee587fd7633571dfea46424f3c7e65169
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/21/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "83727437"
 ---
 # <a name="create-an-azure-red-hat-openshift-4-private-cluster"></a>Créer un cluster privé Azure Red Hat OpenShift 4
@@ -79,7 +79,7 @@ Conservez le fichier `pull-secret.txt` enregistré à un emplacement sûr, car v
 
 Lors de l’exécution de la commande `az aro create`, vous pouvez référencer votre secret d’extraction à l’aide du paramètre `--pull-secret @pull-secret.txt`. Exécutez `az aro create` à partir du répertoire où vous avez stocké votre fichier `pull-secret.txt`. Sinon, remplacez `@pull-secret.txt` par `@<path-to-my-pull-secret-file`.
 
-Si vous copiez votre secret d’extraction ou que vous le référencez dans d’autres scripts, il doit se présenter sous la forme d’une chaîne JSON valide.
+Si vous copiez votre secret d’extraction, ou que vous le référencez dans d’autres scripts, il doit se présenter sous la forme d’une chaîne JSON valide.
 
 ### <a name="create-a-virtual-network-containing-two-empty-subnets"></a>Créer un réseau virtuel contenant deux sous-réseaux vides
 
@@ -183,10 +183,10 @@ Vous allez maintenant créer un réseau virtuel contenant deux sous-réseaux vid
 
 ## <a name="create-the-cluster"></a>Créer le cluster
 
-Exécutez la commande suivante pour créer un cluster. Si vous le souhaitez, vous pouvez [transmettre votre secret d’extraction Red Hat](#get-a-red-hat-pull-secret-optional) pour permettre à votre cluster d’accéder à des registres de conteneurs Red Hat et à du contenu supplémentaire.
+Exécutez la commande suivante pour créer un cluster. Si vous le souhaitez, vous pouvez [transmettre votre secret d’extraction Red Hat](#get-a-red-hat-pull-secret-optional) pour permettre au cluster d’accéder à des registres de conteneurs Red Hat et à du contenu supplémentaire.
 
 >[!NOTE]
-> Si vous copiez-collez des commandes et utilisez l’un des paramètres facultatifs, veillez à supprimer les mots-dièse initiaux et le texte de commentaire de fin. De même, fermez l’argument sur la ligne précédente de la commande avec une barre oblique inverse finale.
+> Si vous copiez/collez des commandes et utilisez l’un des paramètres facultatifs, veillez à supprimer les mots-dièse initiaux ainsi que le texte de commentaire de fin. De même, fermez l’argument sur la ligne précédente de la commande avec une barre oblique inverse de fin.
 
 ```azurecli-interactive
 az aro create \
@@ -201,7 +201,7 @@ az aro create \
   # --pull-secret @pull-secret.txt # [OPTIONAL]
 ```
 
-Après l’exécution de la commande `az aro create`, la création d’un cluster prend normalement environ 35 minutes.
+Après l’exécution de la commande `az aro create`, la création d’un cluster prend normalement une trentaine de minutes.
 
 >[!IMPORTANT]
 > Si vous choisissez de spécifier un domaine personnalisé, par exemple **foo.example.com**, la console OpenShift sera disponible sur une URL telle que `https://console-openshift-console.apps.foo.example.com`, au lieu de l’URL de domaine intégrée `https://console-openshift-console.apps.<random>.<location>.aroapp.io`.

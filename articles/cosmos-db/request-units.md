@@ -6,12 +6,12 @@ ms.author: mjbrown
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 07/23/2019
-ms.openlocfilehash: a0058bf309e0ff4fbe687731d676e907d1c3fd82
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 3378b442c80758c4a5dca02b33f92ba3823f33ed
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79225657"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85113649"
 ---
 # <a name="request-units-in-azure-cosmos-db"></a>Unités de requête dans Azure Cosmos DB
 
@@ -25,7 +25,7 @@ Le coût de lecture d’un élément de 1 Ko est d’une unité de requête (1 R
 
 L’image suivante illustre l’idée générale des unités de requête :
 
-![Les opérations de base de données consomment des unités de requête](./media/request-units/request-units.png)
+:::image type="content" source="./media/request-units/request-units.png" alt-text="Les opérations de base de données consomment des unités de requête" border="false":::
 
 Pour gérer et planifier la capacité, Azure Cosmos DB veille à ce que le nombre d’unités de requête d’une opération de base de données spécifique sur un jeu de données spécifique soit déterministe. Vous pouvez examiner l’en-tête de réponse pour suivre le nombre d’unités de requête consommées par une opération de base de données. Une fois que vous avez compris [quels facteurs ont un impact sur les frais d’unités de requête](request-units.md#request-unit-considerations) et cerné les besoins de débit de l’application, vous pouvez exécuter l’application de la manière la plus rentable possible.
 

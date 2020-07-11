@@ -9,10 +9,10 @@ ms.date: 08/07/2019
 ms.topic: conceptual
 ms.service: iot-edge
 ms.openlocfilehash: 10c8008d73390174c44ec503f708c1e2c0011e09
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "78944313"
 ---
 # <a name="use-visual-studio-code-to-develop-and-debug-modules-for-azure-iot-edge"></a>Utiliser Visual Studio Code afin de développer et déboguer des modules pour Azure IoT Edge
@@ -92,7 +92,7 @@ Les étapes suivantes expliquent comment créer un module IoT Edge dans votre la
 
 1. Entrez un nom pour votre module. Choisissez un nom qui est unique dans le registre de conteneurs.
 
-1. Indiquez le nom du référentiel d’images du module. Par défaut, Visual Studio Code nomme le module **localhost:5000/<nom de votre module\>** . Remplacez-le par vos propres informations de registre. Si vous utilisez un registre Docker local à des fins de test, **localhost** convient. Si vous utilisez Azure Container Registry, utilisez le serveur de connexion à partir des paramètres de votre registre. Le serveur de connexion se présente comme suit : **_\<nom du registre\>_ .azurecr.io**. Remplacez uniquement la partie **localhost:5000** de la chaîne afin d’obtenir le résultat final suivant : **\<*nom du registre*\>.azurecr.io/ _\<nom de votre module\>_** .
+1. Indiquez le nom du référentiel d’images du module. Par défaut, Visual Studio Code nomme le module **localhost:5000/<nom de votre module\>** . Remplacez-le par vos propres informations de registre. Si vous utilisez un registre Docker local à des fins de test, **localhost** convient. Si vous utilisez Azure Container Registry, utilisez le serveur de connexion à partir des paramètres de votre registre. Le serveur de connexion se présente sous la forme **_\<registry name\>_ .azurecr.io**. Remplacez uniquement la partie **localhost : 5000** de la chaîne de sorte que le résultat se présente sous la forme **\<*registry name*\>. azurecr.io/ _\<your module name\>_**.
 
    ![Fourniture du référentiel d’images Docker](./media/how-to-develop-csharp-module/repository.png)
 

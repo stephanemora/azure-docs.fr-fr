@@ -3,12 +3,12 @@ title: Mieux sécuriser les ressources avec Azure Advisor
 description: Utilisez le conseiller Azure pour améliorer la sécurité de vos déploiements Azure.
 ms.topic: article
 ms.date: 01/29/2019
-ms.openlocfilehash: 5a4b7e9a9d9a7919155db361fd2c96ed98e6e5a4
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: bf7a316c893600bed18b9392404af5792e2e31f7
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "75443034"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85113855"
 ---
 # <a name="make-resources-more-secure-with-azure-advisor"></a>Mieux sécuriser les ressources avec Azure Advisor
 
@@ -29,9 +29,9 @@ Pour plus d’informations sur les recommandations de sécurité, consultez [Ges
 Pour en savoir plus sur les recommandations d’Advisor, consultez les ressources suivantes :
 * [Présentation du conseiller](advisor-overview.md)
 * [Prise en main d’Advisor](advisor-get-started.md)
-* [Recommandations du conseiller en matière de coûts](advisor-cost-recommendations.md)
-* [Recommandations du conseiller en matière de performances](advisor-performance-recommendations.md)
-* [Recommandations du conseiller en matière de haute disponibilité](advisor-high-availability-recommendations.md)
-* [Recommandations d’excellence opérationnelle Advisor](advisor-operational-excellence-recommendations.md)
-
+* [Recommandations d’Advisor en matière de coûts](advisor-cost-recommendations.md)
+* [Recommandations d’Advisor en matière de performances](advisor-performance-recommendations.md)
+* [Recommandations d’Advisor en matière de fiabilité](advisor-high-availability-recommendations.md)
+* [Recommandations d’Advisor en matière d’excellence opérationnelle](advisor-operational-excellence-recommendations.md)
+* [API REST Advisor](https://docs.microsoft.com/rest/api/advisor/)
  

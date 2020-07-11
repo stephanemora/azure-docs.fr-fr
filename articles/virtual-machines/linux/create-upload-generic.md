@@ -7,10 +7,10 @@ ms.topic: article
 ms.date: 10/08/2018
 ms.author: guybo
 ms.openlocfilehash: f700dec6486bad9e7024d7c908a70dd0ff2b342c
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "80066760"
 ---
 # <a name="information-for-non-endorsed-distributions"></a>Informations concernant les distributions non approuvées
@@ -64,7 +64,7 @@ Le mécanisme de reconstruction d'image initrd ou initramfs varie en fonction de
 ### <a name="resizing-vhds"></a>Redimensionnement des disques durs virtuels
 Les images de disque dur virtuel sur Azure doivent avoir une taille virtuelle alignée à 1 Mo.  En règle générale, les disques durs virtuels créés à l’aide d’Hyper-V sont alignés correctement.  Si le disque dur virtuel n’est pas correctement aligné, un message d’erreur semblable au suivant peut s’afficher quand vous essayez de créer une image à partir de votre disque dur virtuel.
 
-* Le disque dur virtuel http://\//\<mystorageaccount>.blob.core.windows.net/vhds/MyLinuxVM.vhd dispose d’une taille virtuelle non prise en charge de 21475270656 octets. La taille doit être un nombre entier (en Mo).
+* Le disque dur virtuel http:\//\<mystorageaccount>.blob.core.windows.net/vhds/MyLinuxVM.vhd a une taille virtuelle non prise en charge de 21475270656 octets. La taille doit être un nombre entier (en Mo).
 
 Le cas échéant, redimensionnez la machine virtuelle à l’aide de la console Gestionnaire Hyper-V ou de la cmdlet PowerShell [Resize-VHD](https://technet.microsoft.com/library/hh848535.aspx).  Si vous n’utilisez pas un environnement Windows, nous vous recommandons d’utiliser `qemu-img` pour convertir (si nécessaire) le disque dur virtuel et le redimensionner.
 

@@ -4,10 +4,10 @@ description: Utilisez le serveur de sauvegarde Azure pour sauvegarder l’état 
 ms.topic: conceptual
 ms.date: 05/15/2017
 ms.openlocfilehash: bab55ca607e0641ea0cc597de686f3abbb387598
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "82192363"
 ---
 # <a name="back-up-system-state-and-restore-to-bare-metal-by-using-azure-backup-server"></a>Sauvegarder l’état du système et effectuer une récupération complète à l’aide du serveur de sauvegarde Azure
@@ -23,7 +23,7 @@ Le Serveur de sauvegarde Azure sauvegarde l’état de votre système et effectu
 
 Le tableau suivant résume ce que vous pouvez sauvegarder et récupérer. Pour plus d’informations sur les versions d’application que l’état du système et une récupération complète peuvent protéger, consultez [Qu’est-ce que le serveur de sauvegarde Azure ?](backup-mabs-protection-matrix.md).
 
-|Backup|Problème|Récupère à partir de la sauvegarde effectuée par le Serveur de sauvegarde Azure|Récupère à partir de la sauvegarde de l’état du système|Récupération complète|
+|Sauvegarde|Problème|Récupère à partir de la sauvegarde effectuée par le Serveur de sauvegarde Azure|Récupère à partir de la sauvegarde de l’état du système|Récupération complète|
 |----------|---------|---------------------------|------------------------------------|-------|
 |**Données de fichier**<br /><br />Sauvegarde des données régulières<br /><br />Récupération complète/sauvegarde de l’état du système|Données de fichiers perdues|O|N|N|
 |**Données de fichier**<br /><br />Sauvegarde effectuée par le Serveur de sauvegarde Azure des données de fichier<br /><br />Récupération complète/sauvegarde de l’état du système|Système d’exploitation perdu ou endommagé|N|O|O|
@@ -49,7 +49,7 @@ Vous pouvez personnaliser le lecteur que le Serveur de sauvegarde utilise pour s
 
 1. Sur le serveur protégé, accédez à *C:\Program Files\Microsoft Data Protection Manager\MABS\Datasources*.
 1. Ouvrez le fichier *PSDataSourceConfig.xml* pour le modifier.
-1. Modifiez la valeur \<FilesToProtect\> pour la lettre de lecteur.
+1. Définissez la valeur \<FilesToProtect\> sur la lettre du lecteur.
 1. Enregistrez et fermez le fichier.
 
 Si un groupe de protection est défini pour protéger l’état du système de l’ordinateur, exécutez une vérification de cohérence. Si une alerte est générée, sélectionnez **Modifier le groupe de protection** dans l’alerte, puis suivez les instructions des pages de l’Assistant. Ensuite, exécutez une autre vérification de cohérence.
