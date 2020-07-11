@@ -2,14 +2,14 @@
 title: Résolution des problèmes courants
 description: Découvrez comment résoudre les problèmes courants quand vous déployez, exécutez ou gérez Azure Container Instances
 ms.topic: article
-ms.date: 09/25/2019
+ms.date: 06/25/2020
 ms.custom: mvc
-ms.openlocfilehash: 07cdbfb27aaf9076e726ebda861ed24996e10135
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: aeb4517f5be7fff9c29487d6521f80ee697c0e96
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "74533397"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85807840"
 ---
 # <a name="troubleshoot-common-issues-in-azure-container-instances"></a>Résoudre les problèmes courants dans Azure Container Instances
 
@@ -17,19 +17,20 @@ Cet article explique comment résoudre les problèmes courants de gestion ou de 
 
 Si vous avez besoin d’une assistance supplémentaire, consultez les options d’**Aide + support** sur le [portail Azure](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade).
 
-## <a name="issues-during-container-group-deployment"></a>Problèmes lors du déploiement du groupe de conteneurs
+## <a name="issues-during-container-group-deployment"></a>Problèmes lors du déploiement d’un groupe de conteneurs
 ### <a name="naming-conventions"></a>Conventions d’affectation de noms
 
-Lorsque vous définissez la spécification du conteneur, certains paramètres requièrent le respect des restrictions en matière d’affectation de noms. Le tableau suivant indique les exigences spécifiques des propriétés du groupe de conteneurs. Pour plus d’informations sur les conventions d’affectation de noms Azure, consultez [Conventions d’affectation de noms][azure-name-restrictions] dans le centre Azure Architecture Center.
+Lorsque vous définissez la spécification du conteneur, certains paramètres requièrent le respect des restrictions en matière d’affectation de noms. Le tableau suivant indique les exigences spécifiques des propriétés du groupe de conteneurs. Pour plus d’informations, consultez [Conventions d’affectation de noms][azure-name-restrictions] dans le Centre des architectures Azure, et [Règles de nommage et restrictions pour les ressources Azure][naming-rules].
 
 | Étendue | Longueur | Casse | Caractères valides | Modèle suggéré | Exemple |
 | --- | --- | --- | --- | --- | --- |
-| Nom du groupe de conteneurs | 1-64 |Insensible à la casse |Caractères alphanumériques et traits d’union n’importe où sauf en première ou dernière position |`<name>-<role>-CG<number>` |`web-batch-CG1` |
-| Nom du conteneur | 1-64 |Insensible à la casse |Caractères alphanumériques et traits d’union n’importe où sauf en première ou dernière position |`<name>-<role>-CG<number>` |`web-batch-CG1` |
+| Nom du conteneur<sup>1</sup> | 1-63 |Minuscules | Caractères alphanumériques et traits d’union n’importe où sauf en première ou dernière position |`<name>-<role>-container<number>` |`web-batch-container1` |
 | Ports du conteneur | Entre 1 et 65 535 |Integer |Entier compris entre 1 et 65 535 |`<port-number>` |`443` |
 | Étiquette du nom DNS | 5 à 63 |Insensible à la casse |Caractères alphanumériques et traits d’union n’importe où sauf en première ou dernière position |`<name>` |`frontend-site1` |
 | Variable d’environnement | 1-63 |Insensible à la casse |Caractères alphanumériques et trait de soulignement (_) n’importe où sauf en première ou dernière position |`<name>` |`MY_VARIABLE` |
-| Nom du volume | 5 à 63 |Insensible à la casse |Lettres minuscules, chiffres et traits d’union n’importe où sauf en première ou dernière position. Ne peut pas contenir deux traits d’union consécutifs. |`<name>` |`batch-output-volume` |
+| Nom du volume | 5 à 63 |Minuscules |Caractères alphanumériques et traits d’union n’importe où sauf en première ou dernière position. Ne peut pas contenir deux traits d’union consécutifs. |`<name>` |`batch-output-volume` |
+
+<sup>1</sup>Restriction également pour les noms de groupes de conteneurs quand ils ne sont pas spécifiés indépendamment des instances de conteneur, par exemple, avec des déploiements de commande `az container create`.
 
 ### <a name="os-version-of-image-not-supported"></a>La version du système d’exploitation de l’image n’est pas prise en charge
 
@@ -95,7 +96,7 @@ Cette erreur indique qu’en raison d’une charge importante dans la région da
 * Déployer sur une autre région Azure
 * Déployer plus tard
 
-## <a name="issues-during-container-group-runtime"></a>Problèmes lors de l’exécution du groupe de conteneurs
+## <a name="issues-during-container-group-runtime"></a>Problèmes lors de l’exécution du runtime de groupe de conteneurs
 ### <a name="container-continually-exits-and-restarts-no-long-running-process"></a>Le conteneur s’arrête et redémarre en permanence (pas de processus au long cours)
 
 Les groupes de conteneurs sont définis par défaut sur la [stratégie de redémarrage](container-instances-restart-policy.md)**Toujours**, de sorte que les conteneurs du groupe de conteneurs redémarrent toujours après avoir été exécutés. Vous devrez peut-être définir ce paramètre sur **OnFailure** ou **Jamais** si vous envisagez d’exécuter des conteneurs basés sur des tâches. Si vous spécifiez **OnFailure** et constatez encore des redémarrages continus, il peut y avoir un problème avec l’application ou le script exécutés dans votre conteneur.
@@ -228,6 +229,7 @@ Apprenez à [récupérer les journaux d'activité et les événements de contene
 
 <!-- LINKS - External -->
 [azure-name-restrictions]: https://docs.microsoft.com/azure/cloud-adoption-framework/ready/azure-best-practices/naming-and-tagging#naming-and-tagging-resources
+[naming-rules]: ../azure-resource-manager/management/resource-name-rules.md
 [windows-sac-overview]: https://docs.microsoft.com/windows-server/get-started/semi-annual-channel-overview
 [docker-multi-stage-builds]: https://docs.docker.com/engine/userguide/eng-image/multistage-build/
 [docker-hub-windows-core]: https://hub.docker.com/_/microsoft-windows-servercore
@@ -235,4 +237,4 @@ Apprenez à [récupérer les journaux d'activité et les événements de contene
 
 <!-- LINKS - Internal -->
 [az-container-show]: /cli/azure/container#az-container-show
-[list-cached-images]: /rest/api/container-instances/listcachedimages
+[list-cached-images]: /rest/api/container-instances/location/listcachedimages

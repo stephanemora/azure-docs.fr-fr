@@ -5,12 +5,12 @@ author: alexkarcher-msft
 ms.topic: conceptual
 ms.date: 4/11/2019
 ms.author: alkarche
-ms.openlocfilehash: a2c57ca6a1f7eb50c277543e9fbe27a13f839bac
-ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
+ms.openlocfilehash: 03402828720272851f9b74000d5bcb79405885a5
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83648834"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85117223"
 ---
 # <a name="azure-functions-networking-options"></a>Options de mise en réseau d’Azure Functions
 
@@ -28,13 +28,7 @@ Vous pouvez héberger des applications de fonction de deux façons :
 
 ## <a name="matrix-of-networking-features"></a>Matrice de fonctionnalités de mise en réseau
 
-|                |[Plan Consommation](functions-scale.md#consumption-plan)|[Plan Premium](functions-scale.md#premium-plan)|[Plan App Service](functions-scale.md#app-service-plan)|[Environnement App Service](../app-service/environment/intro.md)|
-|----------------|-----------|----------------|---------|-----------------------|  
-|[Restrictions d’adresses IP entrantes et accès aux sites privés](#inbound-ip-restrictions)|✅Oui|✅Oui|✅Oui|✅Oui|
-|[Intégration du réseau virtuel](#virtual-network-integration)|❌Non|✅Oui (Zones géographiques)|✅Oui (Zones géographiques et Passerelle)|✅Oui|
-|[Déclencheurs de réseau virtuel (non HTTP)](#virtual-network-triggers-non-http)|❌Non| ✅Oui |✅Oui|✅Oui|
-|[Connexions hybrides](#hybrid-connections) (Windows uniquement)|❌Non|✅Oui|✅Oui|✅Oui|
-|[Restrictions d’adresse IP sortantes](#outbound-ip-restrictions)|❌Non| ✅Oui|✅Oui|✅Oui|
+[!INCLUDE [functions-networking-features](../../includes/functions-networking-features.md)]
 
 ## <a name="inbound-ip-restrictions"></a>Restrictions d’adresse IP entrantes
 
@@ -139,6 +133,12 @@ Pour plus d’informations, consultez la [documentation App Service pour les con
 Les restrictions d’adresse IP sortante sont disponibles dans un plan Premium, un plan App Service ou un App Service Environment. Vous pouvez configurer des restrictions sortantes pour le réseau virtuel sur lequel votre Azure App Service Environment est déployé.
 
 Lorsque vous intégrez une application de fonction à un réseau virtuel dans le cadre d'un plan Premium ou App Service, l’application est toujours en mesure de passer des appels sortants vers Internet par défaut. En ajoutant le paramètre d’application `WEBSITE_VNET_ROUTE_ALL=1`, vous forcez l’envoi de tout le trafic sortant vers votre réseau virtuel, où des règles de groupe de sécurité réseau peuvent être utilisées pour restreindre le trafic.
+
+## <a name="automation"></a>Automatisation
+Les API suivantes vous permettent de gérer par programmation les intégrations de réseaux virtuels régionaux :
+
++ **Azure CLI** : utilisez les commandes [`az functionapp vnet-integration`](/cli/azure/functionapp/vnet-integration) pour ajouter, répertorier ou supprimer des intégrations de réseaux virtuels régionaux.  
++ **Modèles ARM** : l’intégration d’un réseau virtuel régional peut être activée à l’aide d’un modèle Azure Resource Manager. Pour un exemple complet, consultez [ce modèle de démarrage rapide de Functions](https://azure.microsoft.com/resources/templates/101-function-premium-vnet-integration/).
 
 ## <a name="troubleshooting"></a>Dépannage
 

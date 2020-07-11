@@ -11,17 +11,17 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: ''
 ms.date: 04/08/2019
-ms.openlocfilehash: f6b705da74fc939cab5f72e6335278207b98dc1a
-ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
+ms.openlocfilehash: 8f92fe8e4a4ebbc2d970bf28e415859249b9f67c
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "84026430"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84343317"
 ---
 # <a name="what-is-a-single-database-in-azure-sql-database"></a>Qu'est-ce qu'une base de données unique dans Azure SQL Database ?
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
 
-Le type de ressource Base de données unique crée dans Azure SQL Database une base de données dotée de ses propres ressources, et celle-ci est gérée par le biais d'un [serveur](logical-servers.md). Avec une base de données unique, chaque base de données est portable et isolée de l’autre. Chacune a son propre niveau de service dans le [modèle d’achat DTU](service-tiers-dtu.md) ou le [modèle d’achat vCore](service-tiers-vcore.md), ainsi qu’une taille de calcul garantie.
+Le type de ressource Base de données unique crée dans Azure SQL Database une base de données dotée de ses propres ressources, et celle-ci est gérée par le biais d'un [serveur](logical-servers.md). Avec une seule base de données, chaque base de données est isolée et portable. Chacune a son propre niveau de service au sein du [modèle d’achat DTU](service-tiers-dtu.md) ou du [modèle d’achat vCore](service-tiers-vcore.md), ainsi qu’une taille de calcul garantie.
 
 > [!IMPORTANT]
 > Une base de données unique est des deux types de ressources d'Azure SQL Database. Le deuxième est [pools élastiques](elastic-pool-overview.md).
@@ -46,7 +46,7 @@ Les bases de données uniques et les pools élastiques fournissent un grand nomb
 
 La plupart des fonctionnalités Transact-SQL utilisées par les applications sont entièrement prises en charge dans Microsoft SQL Server et Azure SQL Database. Par exemple, les principaux composants SQL tels que les types de données, les opérateurs ainsi que les fonctions de chaîne, arithmétiques, logiques et de curseur, fonctionnent de la même façon dans SQL Server et SQL Database. Il existe toutefois quelques différences au niveau des éléments du langage de définition de données (DDL) et des éléments du langage de manipulation de données (DML). Ceux-ci génèrent en effet des instructions et des requêtes T-SQL qui ne sont que partiellement prises en charge (nous y reviendrons plus loin dans cet article).
 
-Par ailleurs, Azure SQL Database étant conçu pour isoler les fonctionnalités des dépendances sur la base de données MASTER et le système d'exploitation, certaines fonctionnalités et syntaxes ne sont pas prises en charge. Ainsi, de nombreuses activités de niveau serveur sont inappropriées pour SQL Database. Les instructions et les options T-SQL ne sont pas disponibles si elles configurent des options de niveau serveur et des composants du système d’exploitation, ou spécifient la configuration du système de fichiers. Si de telles fonctionnalités sont nécessaires, vous trouverez la plupart du temps une alternative appropriée en procédant différemment à partir de SQL Database ou d’un autre service/d’une autre fonctionnalité Azure.
+Par ailleurs, Azure SQL Database étant conçu pour isoler les fonctionnalités des dépendances sur la base de données MASTER et le système d'exploitation, certaines fonctionnalités et syntaxes ne sont pas prises en charge. Ainsi, de nombreuses activités de niveau serveur sont inappropriées pour SQL Database. Les instructions et les options T-SQL ne sont pas disponibles si elles configurent des options au niveau serveur ou des composants du système d’exploitation, ou spécifient la configuration du système de fichiers. Si de telles fonctionnalités sont nécessaires, vous trouverez la plupart du temps une alternative appropriée en procédant différemment à partir de SQL Database ou d’un autre service/d’une autre fonctionnalité Azure.
 
 Pour plus d’informations, voir [Résolution des différences de Transact-SQL durant la migration vers SQL Database](transact-sql-tsql-differences-sql-server.md).
 
@@ -55,7 +55,7 @@ Pour plus d’informations, voir [Résolution des différences de Transact-SQL d
 SQL Database fournit toute une gamme de [fonctionnalités intégrées de sécurité et conformité](security-overview.md) pour que votre application réponde aux différentes exigences de conformité et de sécurité.
 
 > [!IMPORTANT]
-> Azure SQL Database a été certifié par rapport à plusieurs normes de conformité. Pour en savoir plus, accédez au [Centre de confidentialité Microsoft Azure](https://gallery.technet.microsoft.com/Overview-of-Azure-c1be3942), qui inclut la liste la plus à jour des certifications de conformité de SQL Database.
+> Azure SQL Database a été certifié par rapport à plusieurs normes de conformité. Pour plus d’informations, consultez le [Centre de confidentialité Microsoft Azure](https://gallery.technet.microsoft.com/Overview-of-Azure-c1be3942), qui inclut la liste la plus à jour des certifications de conformité de SQL Database.
 
 ## <a name="next-steps"></a>Étapes suivantes
 

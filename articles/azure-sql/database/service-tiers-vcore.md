@@ -1,23 +1,23 @@
 ---
 title: Vue d’ensemble du modèle d’achat vCore
-titleSuffix: Azure SQL Database & SQL Managed Instance
+titleSuffix: Azure SQL Database & Azure SQL Managed Instance
 description: Le modèle d’achat vCore permet de mettre à l’échelle les ressources de calcul et de stockage indépendamment les unes des autres, d’égaler les performances en local et d’optimiser les coûts pour Azure SQL Database et Azure SQL Managed Instance.
 services: sql-database
-ms.service: sql-database
-ms.subservice: service
+ms.service: sql-db-mi
+ms.subservice: features
 ms.topic: conceptual
 author: stevestein
 ms.author: sstein
 ms.reviewer: sashan, moslake, carlrab
 ms.date: 11/27/2019
-ms.openlocfilehash: 1a6546ad587fa308ab5559d04814191c503ecdc3
-ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
+ms.openlocfilehash: 7b5e4174da3ffa0dff5c840e5da1d98435e8d07b
+ms.sourcegitcommit: 93462ccb4dd178ec81115f50455fbad2fa1d79ce
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "84029750"
+ms.lasthandoff: 07/06/2020
+ms.locfileid: "85985548"
 ---
-# <a name="vcore-model-overview---azure-sql-database--sql-managed-instance"></a>Vue d’ensemble du modèle vCore - Azure SQL Database et SQL Managed Instance 
+# <a name="vcore-model-overview---azure-sql-database-and-azure-sql-managed-instance"></a>Vue d’ensemble du modèle vCore – Azure SQL Database et SQL Managed Instance 
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
 
 Le modèle d’achat vCore (« cœur virtuel ») utilisé par Azure SQL Database et Azure SQL Managed Instance offre plusieurs avantages :
@@ -31,7 +31,7 @@ Le modèle d’achat vCore (« cœur virtuel ») utilisé par Azure SQL Databa
 
 Les options de niveau de service du modèle vCore sont les suivantes : usage général, critique pour l’entreprise et hyperscale. Le niveau de service définit généralement l’architecture de stockage, les limites d’espace et d’E/S et les options de continuité d’activité liées à la disponibilité et à la reprise d’activité.
 
-||**Usage général**|**Critique pour l’entreprise**|**Hyperscale**|
+|-|**Usage général**|**Critique pour l’entreprise**|**Hyperscale**|
 |---|---|---|---|
 |Idéal pour|La plupart des charges de travail d’entreprise. Propose des options de calcul et de stockage équilibrées, évolutives et économiques. |Offre aux applications métier la résilience la plus élevée aux défaillances en utilisant plusieurs réplicas isolés et assure les meilleures performances d’E/S par réplica de base de données.|La plupart des charges de travail métier avec des exigences de stockage et d’échelle lecture à haute scalabilité.  Offre une meilleure résilience aux défaillances en autorisant la configuration de plusieurs réplicas de base de données isolés. |
 |Stockage|Utilise le stockage à distance.<br/>**Calcul provisionné par SQL Database** :<br/>5 Go - 4 To<br/>**Calcul serverless** :<br/>5 Go - 3 To<br/>**SQL Managed Instance** : 32 Go - 8 To |Utilise le stockage SSD local.<br/>**Calcul provisionné par SQL Database** :<br/>5 Go - 4 To<br/>**SQL Managed Instance** :<br/>32 Go - 4 To |Croissance automatique et flexible du stockage en fonction des besoins. Prend en charge jusqu’à 100 To de stockage. Utilise le stockage SSD local pour le cache du pool de mémoires tampons local et le stockage de données local. Utilise le stockage distant Azure comme banque de données finale à long terme. |
@@ -91,10 +91,11 @@ La série Fsv2 n’est pas prise en charge dans le niveau Usage général.  Pour
 - La série M est une option matérielle à mémoire optimisée destinée aux charges de travail réclamant plus de mémoire et des limites de calcul supérieures à celles fournies par Gen5.
 - La série M fournit 29 Go par vCore et 128 vCore, ce qui multiplie par 8 la limite de mémoire par rapport à Gen5 (presque 4 To).
 
-La série M est prise en charge uniquement dans le niveau Critique pour l’entreprise et ne prend pas en charge la redondance de zone.
+La série M est prise en charge uniquement dans le niveau Critique pour l’entreprise et ne prend pas en charge la redondance de zone.  L’abonnement doit être un type d’offre payante, y compris Paiement à l’utilisation ou Accord Entreprise (EA).  Pour connaître les régions dans lesquelles la série M est disponible, voir [Disponibilité de la série M](#m-series).
 
-Pour activer le matériel de série M sur un abonnement et une région, il est nécessaire d’ouvrir une demande de support. L’abonnement doit être un type d’offre payante, y compris Paiement à l’utilisation ou Accord Entreprise (EA).  Si elle est approuvée, l’expérience de sélection et de provisionnement de la série M suit le même modèle que pour les autres générations de matériel. Pour connaître les régions dans lesquelles la série M est disponible, voir [Disponibilité de la série M](#m-series).
-
+<!--
+To enable M-series hardware for a subscription and region, a support request must be opened. The subscription must be a paid offer type including Pay-As-You-Go or Enterprise Agreement (EA).  If the support request is approved, then the selection and provisioning experience of M-series follows the same pattern as for other hardware generations. For regions where M-series is available, see [M-series availability](#m-series).
+-->
 
 ### <a name="compute-and-memory-specifications"></a>Spécifications de calcul et de mémoire
 
@@ -112,7 +113,7 @@ Pour plus d’informations sur les limites de ressources, voir [Limites de resso
 
 ### <a name="selecting-a-hardware-generation"></a>Choisir une génération de matériel
 
-Dans le portail Azure, vous pouvez sélectionner la génération du matériel pour une base de données SQL ou un pool au moment de la création, ou bien la modifier pour une base de données SQL ou un pool existant.
+Dans le portail Azure, vous pouvez sélectionner la génération de matériel pour une base de données ou un pool dans SQL Database au moment de la création, ou bien modifier la génération de matériel d’une base de données ou un pool existants.
 
 **Pour sélectionner une génération de matériel lors de la création d’une base de données SQL ou d’un pool**
 
@@ -147,7 +148,7 @@ Sous l'onglet **Informations de base**, sélectionnez le lien **Configurer la ba
   
 **Pour changer la génération du matériel d’une instance SQL Managed Instance existante**
 
-# <a name="portal"></a>[Portail](#tab/azure-portal)
+# <a name="the-azure-portal"></a>[Le portail Azure](#tab/azure-portal)
 
 Dans la page SQL Managed Instance, sélectionnez le lien **Niveau tarifaire** situé sous la section Paramètres
 
@@ -165,7 +166,7 @@ Set-AzSqlInstance -Name "managedinstance1" -ResourceGroupName "ResourceGroup01" 
 
 Pour plus d’informations, consultez la rubrique relative à la commande [Set-AzSqlInstance](https://docs.microsoft.com/powershell/module/az.sql/set-azsqlinstance).
 
-# <a name="azure-cli"></a>[Azure CLI](#tab/azure-cli)
+# <a name="the-azure-cli"></a>[L’interface de ligne de commande Microsoft Azure](#tab/azure-cli)
 
 Utilisez la commande CLI suivante :
 
@@ -193,32 +194,33 @@ La série Fsv2 est disponible dans les régions suivantes : Afrique du Sud Nord
 #### <a name="m-series"></a>Série M
 
 La série M est disponible dans les régions suivantes : Europe Nord, Europe Ouest, USA Est et USA Ouest 2.
-Elle peut également être en disponibilité limitée dans d’autres régions. Vous pouvez demander une autre région que celles de la liste, mais l’approvisionnement ne sera pas forcément possible.
+<!--
+M-series may also have limited availability in additional regions. You can request a different region than listed here, but fulfillment in a different region may not be possible.
 
-Pour activer la disponibilité de la série M dans un abonnement, il est nécessaire de demander l’accès en [déposant une nouvelle demande de support](#create-a-support-request-to-enable-m-series).
+To enable M-series availability in a subscription, access must be requested by [filing a new support request](#create-a-support-request-to-enable-m-series).
 
 
-##### <a name="create-a-support-request-to-enable-m-series"></a>Créer une demande de support pour activer la série M 
+##### Create a support request to enable M-series: 
 
-1. Sélectionnez **Aide + support** sur le portail.
-2. Sélectionnez **Nouvelle demande de support**.
+1. Select **Help + support** in the portal.
+2. Select **New support request**.
 
-Sur la page **Informations de base**, indiquez les informations suivantes :
+On the **Basics** page, provide the following:
 
-1. Pour **Type de problème**, sélectionnez **Limites du service et des abonnements (quotas)** .
-2. Dans **Abonnement**, sélectionnez l’abonnement pour lequel vous voulez activer la série M.
-3. Dans **Type de quota**, sélectionnez **Base de données SQL**.
-4. Sélectionnez **Suivant** pour accéder à la page **Détails**.
+1. For **Issue type**, select **Service and subscription limits (quotas)**.
+2. For **Subscription** = select the subscription to enable M-series.
+3. For **Quota type**, select **SQL database**.
+4. Select **Next** to go to the **Details** page.
 
-Sur la page **Détails**, indiquez les informations suivantes :
+On the **Details** page, provide the following:
 
-1. Dans la section **DÉTAILS DU PROBLÈME**, sélectionnez le lien **Indiquer des détails**. 
-2. Dans **Type de quota SQL Database**, sélectionnez **Série M**.
-3. Dans **Région**, sélectionnez la région pour laquelle vous voulez activer la série M.
-    Pour connaître les régions dans lesquelles la série M est disponible, voir [Disponibilité de la série M](#m-series).
+1. In the **PROBLEM DETAILS** section select the **Provide details** link. 
+2. For **SQL Database quota type** select **M-series**.
+3. For **Region**, select the region to enable M-series.
+    For regions where M-series is available, see [M-series availability](#m-series).
 
-Les demandes de support approuvées sont généralement approvisionnées sous cinq jours ouvrables.
-
+Approved support requests are typically fulfilled within 5 business days.
+-->
 
 ## <a name="next-steps"></a>Étapes suivantes
 
@@ -228,7 +230,7 @@ Pour commencer, consultez :
 
 Pour plus d’informations sur les tarifs, voir la [page des tarifs Azure SQL Database](https://azure.microsoft.com/pricing/details/sql-database/single/).
 
-Pour plus d’informations sur les tailles de calcul et de stockage spécifiques disponibles dans les niveaux de service Usage général et Critique pour l’entreprise, consultez : 
+Pour plus d’informations sur les tailles de calcul et de stockage spécifiques disponibles dans les niveaux de service Usage général et Critique pour l’entreprise, consultez :
 
 - [Limites de ressources vCore pour Azure SQL Database](resource-limits-vcore-single-databases.md).
 - [Limites de ressources vCore pour une instance Azure SQL Database mise en pool](resource-limits-vcore-elastic-pools.md).

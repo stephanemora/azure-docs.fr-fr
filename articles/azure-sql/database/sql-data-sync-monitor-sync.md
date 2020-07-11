@@ -1,6 +1,6 @@
 ---
 title: Superviser SQL Data Sync avec des journaux Azure Monitor
-description: Apprenez à superviser SQL Data Sync avec des journaux Azure Monitor
+description: Apprenez à superviser SQL Data Sync avec des journaux Azure Monitor.
 services: sql-database
 ms.service: sql-database
 ms.subservice: data-movement
@@ -11,15 +11,14 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: carlrab
 ms.date: 12/20/2018
-ms.openlocfilehash: b7c801d75d778deccae645e0945fba557dbc6782
-ms.sourcegitcommit: 1f48ad3c83467a6ffac4e23093ef288fea592eb5
+ms.openlocfilehash: 307e501743d01b94cfca3692cc09c05cc90ed3ce
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/29/2020
-ms.locfileid: "84188793"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84343232"
 ---
 # <a name="monitor-sql-data-sync-with-azure-monitor-logs"></a>Superviser SQL Data Sync avec des journaux Azure Monitor 
-[!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
 
 Pour contrôler le journal d’activité de SQL Data Sync et détecter les erreurs et avertissements, vous deviez vérifier manuellement SQL Data Sync dans le portail Azure ou utiliser PowerShell ou l’API REST. Suivez les étapes décrites dans cet article pour configurer une solution personnalisée qui améliore l’expérience de surveillance de Data Sync. Vous pouvez personnaliser cette solution pour l’adapter à votre scénario.
 
@@ -28,7 +27,7 @@ Pour contrôler le journal d’activité de SQL Data Sync et détecter les erreu
 Pour obtenir une vue d'ensemble de SQL Data Sync, consultez [Synchroniser des données entre plusieurs bases de données locales et cloud avec SQL Data Sync dans Azure](sql-data-sync-data-sql-server-sql-database.md).
 
 > [!IMPORTANT]
-> Pour le moment, SQL Data Sync ne prend **pas** en charge Azure SQL Managed Instance.
+> Pour le moment, SQL Data Sync **ne prend pas en charge** Azure SQL Managed Instance.
 
 ## <a name="monitoring-dashboard-for-all-your-sync-groups"></a>Tableau de bord de surveillance pour tous vos groupes de synchronisation 
 
@@ -100,7 +99,7 @@ Pour plus d’informations sur la création d’un runbook, consultez [Mon premi
 
     1.  Informations Azure.
 
-    2.  Informations sur les groupes de synchronisation.
+    2.  Informations sur le groupe de synchronisation.
 
     3.  Informations sur les journaux Azure Monitor. Recherchez ces informations sous Portail Azure | Paramètres | Sources connectées. Pour plus d’informations sur l’envoi de données aux journaux Azure Monitor, consultez [Envoyer des données aux journaux Azure Monitor avec l’API de collecte de données HTTP (préversion)](../../azure-monitor/platform/data-collector-api.md).
 
@@ -160,7 +159,7 @@ Cette étape crée une vue Azure Monitor pour superviser visuellement tous les g
 
 -   Une vignette pour tous les groupes de synchronisation, qui montre le nombre d’erreurs et d’avertissements par groupe de synchronisation. Les groupes sans problème n’apparaissent pas dans cette vignette.
 
--   Une vignette pour chaque groupe de synchronisation, qui montre le nombre d’erreurs, de succès et d’avertissements et les messages d’erreur récents.
+-   Une vignette pour chaque groupe de synchronisation, affichant le nombre d’erreurs, de succès et d’avertissements, ainsi que les messages d’erreur récents.
 
 Pour configurer la vue Azure Monitor, effectuez les étapes suivantes :
 
@@ -176,7 +175,7 @@ Pour configurer la vue Azure Monitor, effectuez les étapes suivantes :
 
         1.  Dans chaque vignette, changez l’intervalle TimeStamp_t comme vous le souhaitez.
 
-        2.  Dans les vignettes de chaque groupe de synchronisation, mettez à jour les noms des groupes de synchronisation.
+        2.  Dans les vignettes de chaque groupe de synchronisation, mettez à jour les noms de groupe de synchronisation.
 
     3.  Dans chaque vignette, mettez à jour le titre en fonction des besoins.
 
@@ -188,7 +187,7 @@ Dans la plupart des cas, cette solution est gratuite.
 
 **Azure Automation :** selon votre utilisation, le compte Azure Automation peut induire des frais. Les 500 premières minutes d’exécution de travail par mois sont gratuites. Dans la plupart des cas, cette solution doit utiliser moins de 500 minutes par mois. Pour éviter des frais, planifiez le runbook pour qu’il s’exécute à un intervalle de deux heures ou plus. Pour plus d’informations, consultez [Tarification Automation](https://azure.microsoft.com/pricing/details/automation/).
 
-**Journaux Azure Monitor :** selon votre utilisation, les journaux Azure Monitor peuvent engendrer des coûts. Le niveau gratuit inclut 500 Mo de données ingérées par jour. Dans la plupart des cas, cette solution doit ingérer moins de 500 Mo par jour. Pour réduire l’utilisation, utilisez le filtrage « échec uniquement » inclus dans le runbook. Si vous utilisez plus de 500 Mo par jour, effectuez une mise à niveau vers le niveau payant pour éviter que l’analytique ne s’arrête quand la limite est atteinte. Pour plus d’informations, consultez [Tarifs des journaux Azure Monitor](https://azure.microsoft.com/pricing/details/log-analytics/).
+**Journaux Azure Monitor :** selon votre utilisation, les journaux Azure Monitor peuvent engendrer des coûts. Le niveau gratuit inclut 500 Mo de données ingérées par jour. Dans la plupart des cas, cette solution doit ingérer moins de 500 Mo par jour. Pour réduire l’utilisation, utilisez le filtrage « échec uniquement » inclus dans le runbook. Si vous utilisez plus de 500 Mo par jour, effectuez une mise à niveau vers le niveau payant pour éviter que l’analytique s’arrête quand la limite est atteinte. Pour plus d’informations, consultez [Tarifs des journaux Azure Monitor](https://azure.microsoft.com/pricing/details/log-analytics/).
 
 ## <a name="code-samples"></a>Exemples de code
 

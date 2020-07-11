@@ -15,10 +15,10 @@ ms.workload: infrastructure-services
 ms.date: 07/29/2019
 ms.author: sedusch
 ms.openlocfilehash: fda62ff0af29c7cf681d9438b02420d299535701
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "80293946"
 ---
 # <a name="sap-lama-connector-for-azure"></a>Connecteur SAP LaMa pour Azure
@@ -153,7 +153,7 @@ Nous vous recommandons de recourir à un sous-réseau distinct pour toutes les m
 > [!NOTE]
 > Dans la mesure du possible, supprimez toutes les extensions de machine virtuelle, car elles sont susceptibles d’entraîner de longues durées d’exécution pour le détachement des disques d’une machine virtuelle.
 
-Assurez-vous que l’utilisateur \<hanasid>adm, \<sapsid>adm et le groupe sapsys existent sur la machine cible avec le même ID et identificateur de groupe (GID) ou utilisent LDAP. Activez et démarrez le serveur NFS sur les machines virtuelles qui doivent être utilisées pour l’exécution de SAP NetWeaver (A)SCS.
+Assurez-vous que l’utilisateur \<hanasid>adm, \<sapsid>adm et le groupe sapsys existent sur la machine cible avec les mêmes ID et GID, ou utilisent le protocole LDAP. Activez et démarrez le serveur NFS sur les machines virtuelles qui doivent être utilisées pour l’exécution de SAP NetWeaver (A)SCS.
 
 ### <a name="manual-deployment"></a>Déploiement manuel
 
@@ -212,7 +212,7 @@ Ces composants sont requis pour le déploiement du modèle. Le moyen le plus sim
 
 Les modèles présentent les paramètres suivants :
 
-* sapSystemId : ID du système SAP. Cet ID est utilisé pour la création de la disposition du disque (par exemple, /usr/sap/\<sapsid>).
+* sapSystemId : ID du système SAP. Utilisé pour la création de la disposition du disque (par exemple, /usr/sap/\<sapsid>).
 
 * computerName : nom d’ordinateur de la nouvelle machine virtuelle. Ce paramètre est également utilisé par SAP LaMa. Lorsque vous utilisez ce modèle pour approvisionner une nouvelle machine virtuelle dans le cadre de la copie d’un système, SAP LaMa attend que l’hôte portant ce nom d’ordinateur soit accessible.
 
@@ -545,12 +545,12 @@ Dans la boîte de dialogue *Primary Application Server Instance* (Instance du se
     Pour contourner ce problème, définissez le paramètre de profil OS_UNICODE=uc dans le profil par défaut de votre système SAP.
 
 * Erreur lors de l’exécution de l’étape SAPinst : dCheckGivenServer
-  * Error executing SAPinst step: dCheckGivenServer" version="1.0" ERROR: (Last error reported by the step: \<p> Installation was canceled by user. \</p> »
+  * Error executing SAPinst step: dCheckGivenServer" version="1.0" ERROR: (Last error reported by the step: \<p> L’utilisateur a annulé l’installation. \</p>
   * Solution  
     Assurez-vous que SWPM s’exécute avec un utilisateur ayant accès au profil. Cet utilisateur peut être configuré dans l’Assistant d’installation du serveur d’applications.
 
 * Erreur lors de l’exécution de l’étape SAPinst : checkClient
-  * Error executing SAPinst step: checkClient" version="1.0" ERROR: (Last error reported by the step: \<p> Installation was canceled by user. \</p>) »
+  * Error executing SAPinst step: checkClient" version="1.0" ERROR: (Last error reported by the step: \<p> L’utilisateur a annulé l’installation. \</p>)
   * Solution  
     Assurez que Microsoft ODBC Driver for SQL Server est installé sur la machine virtuelle sur laquelle vous souhaitez installer le serveur d’applications.
 

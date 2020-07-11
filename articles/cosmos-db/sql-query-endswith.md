@@ -4,19 +4,19 @@ description: Découvrir la fonction système SQL ENDSWITH dans Azure Cosmos DB, 
 author: ginamr
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 05/20/2020
+ms.date: 06/02/2020
 ms.author: girobins
 ms.custom: query-reference
-ms.openlocfilehash: 0cd927af50eca04aa8162d9d8f292077d9e4165c
-ms.sourcegitcommit: 1f25aa993c38b37472cf8a0359bc6f0bf97b6784
+ms.openlocfilehash: 3d37786c7364b07228d1d8d6540e7b6d8a174eb5
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/26/2020
-ms.locfileid: "83844962"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84322684"
 ---
 # <a name="endswith-azure-cosmos-db"></a>ENDSWITH (Azure Cosmos DB)
 
- Retourne une valeur booléenne indiquant si la première expression de chaîne se termine par la seconde.  
+Retourne une valeur booléenne indiquant si la première expression de chaîne se termine par la seconde.  
   
 ## <a name="syntax"></a>Syntaxe
   
@@ -75,6 +75,8 @@ Par exemple, considérez deux propriétés : ville et pays. La cardinalité de 
 ```
 
 La première requête utilisera probablement plus de RU que la deuxième, car la cardinalité de la propriété ville est supérieure à celle de la propriété pays.
+
+Si la taille de la propriété dans EndsWith est supérieure à 1 Ko pour certains documents, le moteur de requête doit charger ces documents. Dans ce cas, le moteur de requête ne peut pas évaluer correctement EndsWith avec un index. Le coût des unités de requête pour EndsWith est élevé si vous avez un grand nombre de documents dont les tailles de propriété sont supérieures à 1 Ko.
 
 ## <a name="next-steps"></a>Étapes suivantes
 

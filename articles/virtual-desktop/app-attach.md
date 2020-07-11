@@ -4,22 +4,23 @@ description: Comment configurer l’attachement d’application MSIX pour Window
 services: virtual-desktop
 author: Heidilohr
 ms.service: virtual-desktop
-ms.topic: conceptual
-ms.date: 05/11/2020
+ms.topic: how-to
+ms.date: 06/16/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: c23528fbb60b471a7613f372fe5316a4883ae733
-ms.sourcegitcommit: 69156ae3c1e22cc570dda7f7234145c8226cc162
+ms.openlocfilehash: 76edc88f127d7e52514ab72539f7212ac982b5e4
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/03/2020
-ms.locfileid: "84310612"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85204470"
 ---
 # <a name="set-up-msix-app-attach"></a>Configurer l’attachement d’application MSIX
 
 > [!IMPORTANT]
 > L’application MSIX est actuellement disponible en préversion publique.
-> Cette préversion est fournie sans contrat de niveau de service, c’est pourquoi nous déconseillons son utilisation pour les charges de travail de production. Certaines fonctionnalités peuvent être limitées ou non prises en charge. Pour plus d’informations, consultez [Conditions d’Utilisation Supplémentaires relatives aux Évaluations Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+> Cette préversion est fournie sans contrat de niveau de service, c’est pourquoi nous déconseillons son utilisation pour les charges de travail de production. Certaines fonctionnalités peuvent être limitées ou non prises en charge.
+> Pour plus d’informations, consultez [Conditions d’Utilisation Supplémentaires relatives aux Évaluations Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 Cette rubrique vous guide tout au long de la configuration de l’attachement d’application MSIX dans un environnement Windows Virtual Desktop.
 
@@ -29,11 +30,29 @@ Avant de commencer, voici ce dont vous avez besoin pour configurer l’attacheme
 
 - Accès au portail Windows Insider pour obtenir la version de Windows 10 avec prise en charge des API d’attachement d’application MSIX.
 - Un déploiement Windows Virtual Desktop opérationnel. Pour apprendre à déployer Windows Virtual Desktop - Version Automne 2019, consultez [Créer un locataire dans Windows Virtual Desktop](./virtual-desktop-fall-2019/tenant-setup-azure-active-directory.md). Pour apprendre à déployer Windows Virtual Desktop - Version Printemps 2020, consultez [Créer un pool d’hôtes avec le portail Azure](./create-host-pools-azure-marketplace.md).
+- Outil de d’empaquetage MSIX.
+- Partage réseau dans votre déploiement Windows Virtual Desktop où le package MSIX sera stocké.
 
-- MSIX Packaging Tool
-- Un partage réseau dans votre déploiement Windows Virtual Desktop où le package MSIX sera stocké
+## <a name="get-the-os-image"></a>Obtenir l’image du système d’exploitation
 
-## <a name="get-the-os-image-from-the-technology-adoption-program-tap-portal"></a>Récupérer l’image du système d’exploitation à partir du portail TAP (Technology Adoption Program)
+Tout d’abord, vous devez obtenir l’image du système d’exploitation. Vous pouvez obtenir l’image du système d’exploitation via le Portail Azure. Toutefois, si vous êtes membre du programme Windows Insider, vous avez la possibilité d’utiliser le portail Windows Insider à la place.
+
+### <a name="get-the-os-image-from-the-azure-portal"></a>Obtenir l’image du système d’exploitation à partir du portail Azure
+
+Pour obtenir l’image du système d’exploitation à partir du portail Azure :
+
+1. Ouvrez le [portail Azure](https://portal.azure.com) et connectez-vous.
+
+2. Accédez à **Créer une machine virtuelle**.
+
+3. Dans l’onglet **De base**, sélectionnez **Windows 10 Entreprise multisession, version 2004**.
+
+4. Suivez les autres instructions pour terminer la création de la machine virtuelle.
+
+     >[!NOTE]
+     >Vous pouvez utiliser cette machine virtuelle pour tester directement l’attachement de l’application MSIX. Pour en savoir plus, consultez directement [Générer un package VHD ou VHDX pour MSIX](#generate-a-vhd-or-vhdx-package-for-msix). Sinon, poursuivez la lecture de cette section.
+
+### <a name="get-the-os-image-from-the-windows-insider-portal"></a>Obtenir l’image du système d’exploitation à partir du portail Windows Insider
 
 Pour récupérer l’image du système d’exploitation à partir du portail Windows Insider :
 
@@ -45,30 +64,15 @@ Pour récupérer l’image du système d’exploitation à partir du portail Win
 2. Faites défiler jusqu’à la section **Sélectionner l’édition** et sélectionnez **Windows 10 Insider Preview Enterprise (FAST) – Build 19041** ou version ultérieure.
 
 3. Sélectionnez **Confirmer**, sélectionnez la langue que vous souhaitez utiliser, puis sélectionnez **Confirmer**.
-    
+
      >[!NOTE]
      >À l’heure actuelle, l’anglais est la seule langue qui a été testée avec la fonctionnalité. Vous pouvez sélectionner d’autres langues, mais elles risquent de ne pas s’afficher comme prévu.
-    
+
 4. Une fois le lien de téléchargement généré, sélectionnez le **Téléchargement 64 bits** et enregistrez le fichier sur votre disque dur local.
 
-## <a name="get-the-os-image-from-the-azure-portal"></a>Obtenir l’image du système d’exploitation à partir du portail Azure
+## <a name="prepare-the-vhd-image-for-azure"></a>Préparer l’image de disque dur virtuel pour Azure
 
-Pour obtenir l’image du système d’exploitation à partir du portail Azure :
-
-1. Ouvrez le [portail Azure](https://portal.azure.com) et connectez-vous.
-
-2. Accédez à **Créer une machine virtuelle**.
-
-3. Dans l’onglet **De base**, sélectionnez **Windows 10 Entreprise multisession, version 2004**.
-      
-4. Suivez les autres instructions pour terminer la création de la machine virtuelle.
-
-     >[!NOTE]
-     >Vous pouvez utiliser cette machine virtuelle pour tester directement l’attachement de l’application MSIX. Pour en savoir plus, consultez directement [Générer un package VHD ou VHDX pour MSIX](#generate-a-vhd-or-vhdx-package-for-msix). Sinon, poursuivez la lecture de cette section.
-
-## <a name="prepare-the-vhd-image-for-azure"></a>Préparer l’image de disque dur virtuel pour Azure 
-
-Avant de commencer, vous devez créer une image de disque dur virtuel principale. Si vous n’avez pas encore créé votre image de disque dur virtuel principale, accédez à [Préparer et personnaliser une image de disque dur virtuel principale](set-up-customize-master-image.md) et suivez les instructions qui s’y trouvent. 
+Ensuite, vous devez créer une image de disque dur virtuel maître. Si vous n’avez pas encore créé votre image de disque dur virtuel principale, accédez à [Préparer et personnaliser une image de disque dur virtuel principale](set-up-customize-master-image.md) et suivez les instructions qui s’y trouvent.
 
 Une fois que vous avez créé votre image de disque dur virtuel principale, vous devez désactiver les mises à jour automatiques pour les applications d’attachement d’application MSIX. Pour désactiver les mises à jour automatiques, vous devez exécuter les commandes suivantes dans une invite de commandes avec élévation de privilèges :
 
@@ -90,7 +94,7 @@ rem Disable Windows Update:
 sc config wuauserv start=disabled
 ```
 
-Une fois que vous avez désactivé les mises à jour automatiques, vous devez activer Hyper-V, car vous allez utiliser la commande Mound-VHD pour l’indexation et la commande Dismount-VHD pour le retrait. 
+Une fois que vous avez désactivé les mises à jour automatiques, vous devez activer Hyper-V parce que vous allez utiliser la commande Mount-VHD pour l’indexation et la commande Dismount-VHD pour le retrait.
 
 ```powershell
 Enable-WindowsOptionalFeature -Online -FeatureName Microsoft-Hyper-V -All
@@ -102,7 +106,7 @@ Ensuite, préparez le disque dur virtuel de la machine virtuelle pour Azure et c
 
 Une fois que vous avez téléchargé le disque dur virtuel dans Azure, créez un pool d’ordinateurs hôtes basé sur cette nouvelle image en suivant les instructions du didacticiel [Créer un pool d’hôtes en utilisant la Place de marché Azure](create-host-pools-azure-marketplace.md).
 
-## <a name="prepare-the-application-for-msix-app-attach"></a>Préparer l’application pour l’attachement d’application MSIX 
+## <a name="prepare-the-application-for-msix-app-attach"></a>Préparer l’application pour l’attachement d’application MSIX
 
 Si vous disposez déjà d’un package MSIX, passez directement à la [Configurer l’infrastructure Windows Virtual Desktop](#configure-windows-virtual-desktop-infrastructure). Si vous souhaitez tester des applications héritées, suivez les instructions de [Créer un package MSIX à partir d’un programme d’installation de bureau](/windows/msix/packaging-tool/create-app-package-msi-vm/) pour convertir l’application héritée en package MSIX.
 
@@ -185,7 +189,7 @@ Avant de commencer, assurez-vous que votre partage réseau répond à la configu
 - Le partage est compatible avec SMB.
 - Les machines virtuelles qui font partie du pool hôte de session disposent d’autorisations NTFS sur le partage.
 
-### <a name="set-up-an-msix-app-attach-share"></a>Configurer un partage d’attachement d’application MSIX 
+### <a name="set-up-an-msix-app-attach-share"></a>Configurer un partage d’attachement d’application MSIX
 
 Dans votre environnement Windows Virtual Desktop, créez un partage réseau et déplacez-y le package.
 
@@ -426,16 +430,16 @@ Chacun de ces scripts automatiques exécute une phase des scripts d’attachemen
 
 ## <a name="use-packages-offline"></a>Utiliser des packages hors connexion
 
-Si vous utilisez des packages du [Microsoft Store pour Entreprises](https://businessstore.microsoft.com/) ou du [Microsoft Store pour l’Éducation](https://educationstore.microsoft.com/) au sein de votre réseau ou sur des appareils qui ne sont pas connectés à Internet, vous devez obtenir les licences de package à partir du Microsoft Store et les installer sur votre appareil pour exécuter l’application avec succès. Si votre appareil est en ligne et peut se connecter au Microsoft Store pour Entreprises, les licences requises devraient être téléchargées automatiquement, mais si vous êtes hors connexion, vous devez configurer les licences manuellement. 
+Si vous utilisez des packages du [Microsoft Store pour Entreprises](https://businessstore.microsoft.com/) ou du [Microsoft Store pour l’Éducation](https://educationstore.microsoft.com/) au sein de votre réseau ou sur des appareils qui ne sont pas connectés à Internet, vous devez obtenir les licences de package à partir du Microsoft Store et les installer sur votre appareil pour exécuter l’application avec succès. Si votre appareil est en ligne et peut se connecter au Microsoft Store pour Entreprises, les licences requises devraient être téléchargées automatiquement, mais si vous êtes hors connexion, vous devez configurer les licences manuellement.
 
-Pour installer les fichiers de licence, vous devez utiliser un script PowerShell qui appelle la classe MDM_EnterpriseModernAppManagement_StoreLicenses02_01 dans le fournisseur de pont WMI.  
+Pour installer les fichiers de licence, vous devez utiliser un script PowerShell qui appelle la classe MDM_EnterpriseModernAppManagement_StoreLicenses02_01 dans le fournisseur de pont WMI.
 
-Voici comment configurer les licences pour une utilisation hors connexion : 
+Voici comment configurer les licences pour une utilisation hors connexion :
 
 1. Téléchargez le package d’application, les licences et les frameworks requis à partir du Microsoft Store pour Entreprises. Vous avez besoin à la fois des fichiers de licence encodés et non codés. Vous trouverez des instructions de téléchargement détaillées [ici](/microsoft-store/distribute-offline-apps#download-an-offline-licensed-app).
 2. Mettez à jour les variables suivantes dans le script de l’étape 3 :
       1. `$contentID` est la valeur ContentID du fichier de licence non codé (.xml). Vous pouvez ouvrir le fichier de licence dans l’éditeur de texte de votre choix.
-      2. `$licenseBlob` est la chaîne entière pour l’objet Blob de licence dans le fichier de licence encodé (.bin). Vous pouvez ouvrir le fichier de licence encodé dans l’éditeur de texte de votre choix. 
+      2. `$licenseBlob` est la chaîne entière pour l’objet Blob de licence dans le fichier de licence encodé (.bin). Vous pouvez ouvrir le fichier de licence encodé dans l’éditeur de texte de votre choix.
 3. Exécutez le script suivant depuis une invite admin PowerShell ISE. Un bon emplacement pour effectuer l’installation de la licence est à la fin du [script de stockage](#stage-the-powershell-script) qui doit également être exécuté à partir d’une invite admin.
 
 ```powershell
@@ -450,14 +454,14 @@ $contentID = "{'ContentID'_in_unencoded_license_file}"
 #TODO - Update $licenseBlob with the entire String in the encoded license file (.bin)
 $licenseBlob = "{Entire_String_in_encoded_license_file}"
 
-$session = New-CimSession 
+$session = New-CimSession
 
 #The final string passed into the AddLicenseMethod should be of the form <License Content="encoded license blob" />
-$licenseString = '<License Content='+ '"' + $licenseBlob +'"' + ' />' 
+$licenseString = '<License Content='+ '"' + $licenseBlob +'"' + ' />'
 
 $params = New-Object Microsoft.Management.Infrastructure.CimMethodParametersCollection
 $param = [Microsoft.Management.Infrastructure.CimMethodParameter]::Create("param",$licenseString ,"String", "In")
-$params.Add($param) 
+$params.Add($param)
 
 
 try
@@ -469,7 +473,7 @@ try
 catch [Exception]
 {
      write-host $_ | out-string
-}  
+}
 ```
 
 ## <a name="next-steps"></a>Étapes suivantes

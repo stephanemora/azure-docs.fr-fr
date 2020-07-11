@@ -17,10 +17,10 @@ ms.date: 05/05/2017
 ms.author: radeltch
 ms.custom: H1Hack27Feb2017
 ms.openlocfilehash: f5e0eda72f39a70f02b596a8fd69728336eac333
-ms.sourcegitcommit: 3abadafcff7f28a83a3462b7630ee3d1e3189a0e
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/30/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "82594812"
 ---
 # <a name="prepare-the-azure-infrastructure-for-sap-ha-by-using-a-windows-failover-cluster-and-shared-disk-for-sap-ascsscs"></a>Préparer l’infrastructure Azure pour la haute disponibilité SAP à l’aide d’un cluster de basculement Windows et d’un disque partagé pour SAP ASCS/SCS
@@ -194,28 +194,28 @@ _**Figure 1 :** Définir les paramètres Azure Resource Manager de haute dispon
   Les modèles créent :
 
   * **Des machines virtuelles** :
-    * Machines virtuelles de serveur d'applications SAP : \<SAPSystemSID\>-di-\<Number\>
+    * Machines virtuelles de serveur d’applications SAP : \<SAPSystemSID\>-di-\<Number\>
     * Machines virtuelles de cluster ASCS/SCS : \<SAPSystemSID\>-ascs-\<Number\>
-    * Cluster SGBD : \<SAPSystemSID\>-db-\<Number\>
+    * Cluster SGBD :\<SAPSystemSID\>-db-\<Number\>
 
   * **Des cartes réseau pour toutes les machines virtuelles, avec une adresse IP associée** :
-    * \<SIDSystèmeSAP\>-nic-di-\<Numéro\>
-    * \<SIDSystèmeSAP\>-nic-ascs-\<Numéro\>
-    * \<SIDSystèmeSAP\>-nic-db-\<Numéro\>
+    * \<SAPSystemSID\>-nic-di-\<Number\>
+    * \<SAPSystemSID\>-nic-ascs-\<Number\>
+    * \<SAPSystemSID\>-nic-db-\<Number\>
 
   * **Des comptes de stockage Azure (disques non managés uniquement)**  :
 
   * **Des groupes de disponibilité** pour :
-    * Machines virtuelles de serveur d'applications SAP : \<SAPSystemSID\>-avset-di
+    * Machines virtuelles de serveur d’applications SAP : \<SAPSystemSID\>-avset-di
     * Machines virtuelles de cluster SAP ASCS/SCS : \<SAPSystemSID\>-avset-ascs
     * Machines virtuelles de cluster SGBD : \<SAPSystemSID\>-avset-db
 
   * **Un équilibrage de charge interne Azure** :
-    * Avec tous les ports pour l’instance ASCS/SCS et l’adresse IP \<SIDSystèmeSAP\>-lb-ascs
-    * Avec tous les ports pour l’instance SGBD et l’adresse IP \<SIDSystèmeSAP\>-lb-db
+    * Avec tous les ports pour l’instance ASCS/SCS et l’adresse IP \<SAPSystemSID\>-lb-ascs
+    * Avec tous les ports pour le SGBD et l’adresse IP SQL Server \<SAPSystemSID\>-lb-db
 
   * **Groupe de sécurité réseau** : \<SAPSystemSID\>-nsg-ascs-0  
-    * Avec un port RDP (Remote Desktop Protocol) ouvert vers la machine virtuelle \<SIDSystèmeSAP\>-ascs-0
+    * Avec un port RDP (Remote Desktop Protocol) ouvert à la machine virtuelle \<SAPSystemSID\>-ascs-0
 
 > [!NOTE]
 > Toutes les adresses IP des cartes réseau et des équilibrages de charge internes Azure sont dynamiques par défaut. Définissez-les en tant qu’adresses IP statiques. La marche à suivre est décrite plus loin dans cet article.
@@ -305,7 +305,7 @@ Pour définir le modèle multi-SID ASCS/SCS, dans le [modèle multi-SID ASCS/SCS
 - **Sous-réseau nouveau ou existant** : Déterminez si un réseau virtuel et un sous-réseau doivent être créés ou si un sous-réseau existant doit être utilisé. Si vous disposez déjà d’un réseau virtuel connecté à votre réseau local, sélectionnez **existant**.
 - **ID du sous-réseau** : Si vous voulez déployer la machine virtuelle dans un réseau virtuel existant où vous avez défini un sous-réseau auquel la machine virtuelle doit être attribuée, nommez l’ID de ce sous-réseau spécifique. L'ID ressemble généralement à ceci :
 
-  /subscriptions/\<ID_abonnement\>/resourceGroups/\<Nom_groupe_ressources\>/providers/Microsoft.Network/virtualNetworks/\<nom_réseau_virtuel\>/subnets/\<nom_sous_réseau\>
+  /subscriptions/\<subscription id\>/resourceGroups/\<resource group name\>/providers/Microsoft.Network/virtualNetworks/\<virtual network name\>/subnets/\<subnet name\>
 
 Le modèle déploie une instance d’équilibrage de charge Azure qui prend en charge plusieurs systèmes SAP :
 
@@ -479,15 +479,15 @@ Pour créer les points de terminaison d’équilibrage de charge interne requis,
 
 | Service/nom de la règle d’équilibrage de charge | Numéros de ports par défaut | Ports concrets pour (instance ASCS avec numéro d’instance 00) (ERS avec 10) |
 | --- | --- | --- |
-| Serveur de file d’attente / *lbrule3200* |32\<Numéro d’instance\> |3200 |
-| Serveur de messages ABAP / *lbrule3600* |36\<Numéro d’instance\> |3600 |
-| Message ABAP interne / *lbrule3900* |39\<Numéro d’instance\> |3900 |
-| Serveur de messages HTTP / *Lbrule8100* |81\<Numéro d’instance\> |8100 |
-| Service de démarrage SAP ASCS HTTP / *Lbrule50013* |5\<Numéro d’instance\>13 |50013 |
-| Service de démarrage SAP ASCS HTTPS / *Lbrule50014* |5\<Numéro d’instance\>14 |50014 |
-| Réplication de la file d’attente / *Lbrule50016* |5\<Numéro d’instance\>16 |50016 |
-| Service de démarrage SAP ERS HTTP / *Lbrule51013* |5\<Numéro d’instance\>13 |51013 |
-| Service de démarrage SAP ERS HTTP / *Lbrule51014* |5\<Numéro d’instance\>14 |51014 |
+| Serveur de file d’attente / *lbrule3200* |32\<InstanceNumber\> |3200 |
+| Serveur de messages ABAP / *lbrule3600* |36\<InstanceNumber\> |3600 |
+| Message ABAP interne / *lbrule3900* |39\<InstanceNumber\> |3900 |
+| Serveur de messages HTTP / *Lbrule8100* |81\<InstanceNumber\> |8100 |
+| Service de démarrage SAP ASCS HTTP / *Lbrule50013* |5\<InstanceNumber\>13 |50013 |
+| Service de démarrage SAP ASCS HTTPS / *Lbrule50014* |5\<InstanceNumber\>14 |50014 |
+| Réplication de la file d’attente / *Lbrule50016* |5\<InstanceNumber\>16 |50016 |
+| Service de démarrage SAP ERS HTTP / *Lbrule51013* |5\<InstanceNumber\>13 |51013 |
+| Service de démarrage SAP ERS HTTP / *Lbrule51014* |5\<InstanceNumber\>14 |51014 |
 | Windows Remote Management (WinRM) *Lbrule5985* | |5985 |
 | Partage de fichiers *Lbrule445* | |445 |
 
@@ -497,15 +497,15 @@ Ensuite, créez ces points de terminaison d’équilibrage de charge pour les po
 
 | Service/nom de la règle d’équilibrage de charge | Numéros de ports par défaut | Ports concrets pour (instance SCS avec numéro d’instance 01) (ERS avec 11) |
 | --- | --- | --- |
-| Serveur de file d’attente / *lbrule3201* |32\<Numéro d’instance\> |3201 |
-| Serveur de passerelle / *lbrule3301* |33\<Numéro d’instance\> |3301 |
-| Serveur de messages Java / *lbrule3900* |39\<Numéro d’instance\> |3901 |
-| Serveur de messages HTTP / *Lbrule8101* |81\<Numéro d’instance\> |8101 |
-| Service de démarrage SAP SCS HTTP / *Lbrule50113* |5\<Numéro d’instance\>13 |50113 |
-| Service de démarrage SAP SCS HTTPS / *Lbrule50114* |5\<Numéro d’instance\>14 |50114 |
-| Réplication de la file d’attente / *Lbrule50116* |5\<Numéro d’instance\>16 |50116 |
-| Service de démarrage SAP ERS HTTP / *Lbrule51113* |5\<Numéro d’instance\>13 |51113 |
-| Service de démarrage SAP ERS HTTP / *Lbrule51114* |5\<Numéro d’instance\>14 |51114 |
+| Serveur de file d’attente / *lbrule3201* |32\<InstanceNumber\> |3201 |
+| Serveur de passerelle / *lbrule3301* |33\<InstanceNumber\> |3301 |
+| Serveur de messages Java / *lbrule3900* |39\<InstanceNumber\> |3901 |
+| Serveur de messages HTTP / *Lbrule8101* |81\<InstanceNumber\> |8101 |
+| Service de démarrage SAP SCS HTTP / *Lbrule50113* |5\<InstanceNumber\>13 |50113 |
+| Service de démarrage SAP SCS HTTPS / *Lbrule50114* |5\<InstanceNumber\>14 |50114 |
+| Réplication de la file d’attente / *Lbrule50116* |5\<InstanceNumber\>16 |50116 |
+| Service de démarrage SAP ERS HTTP / *Lbrule51113* |5\<InstanceNumber\>13 |51113 |
+| Service de démarrage SAP ERS HTTP / *Lbrule51114* |5\<InstanceNumber\>14 |51114 |
 | WinRM *Lbrule5985* | |5985 |
 | Partage de fichiers *Lbrule445* | |445 |
 
@@ -521,7 +521,7 @@ Définissez l’adresse IP de l’équilibrage de charge pr1-lb-dbms sur l’adr
 
 Si vous souhaitez utiliser d’autres numéros pour les instances SAP ASCS ou SCS, vous devez modifier les noms et valeurs par défaut de ces ports.
 
-1. Dans le portail Azure, sélectionnez **\<SID\>-lb-ascs load balancer** > **Règles d’équilibrage de charge**.
+1. Dans le portail Azure, sélectionnez l’ **\<SID\>équilibreur de charge -lb-ascs** > **Règles d’équilibrage de charge**.
 2. Pour toutes les règles d’équilibrage de charge qui appartiennent à l’instance SAP ASCS ou SCS, modifiez les valeurs suivantes :
 
    * Nom

@@ -12,10 +12,10 @@ ms.date: 01/10/2020
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
 ms.openlocfilehash: d5e44d6b34a16f03d4ca1f82453f1f6e9f074917
-ms.sourcegitcommit: 95269d1eae0f95d42d9de410f86e8e7b4fbbb049
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/26/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "83860611"
 ---
 # <a name="create-hive-tables-and-load-data-from-azure-blob-storage"></a>Créer des tables Hive et charger des données à partir de Stockage Blob Azure
@@ -30,7 +30,7 @@ Cet article suppose que vous avez :
 * Activé l’accès à distance au cluster, saisi les identifiants appropriés et ouvert la console de ligne de commande Hadoop. Si vous avez besoin d’aide, consultez [Gérer des clusters Apache Hadoop](../../hdinsight/hdinsight-administer-use-portal-linux.md).
 
 ## <a name="upload-data-to-azure-blob-storage"></a>Téléchargement de données vers le stockage d’objets blob Azure
-Si vous avez créé une machine virtuelle Azure en suivant les instructions de l’article [Configurer une machine virtuelle Azure pour l’analyse avancée](../../machine-learning/data-science-virtual-machine/overview.md), ce fichier de script doit avoir été téléchargé dans le répertoire *C:\\Utilisateurs\\\<nom_utilisateur\>\\Documents\\Data Science Scripts* de la machine virtuelle. Pour pouvoir être envoyées, ces requêtes Hive nécessitent simplement que vous fournissiez un schéma de données et une configuration de stockage de blobs Azure dans les champs appropriés.
+Si vous avez créé une machine virtuelle Azure en suivant les instructions de l’article [Configurer une machine virtuelle Azure pour l’analyse avancée](../../machine-learning/data-science-virtual-machine/overview.md), ce fichier de script doit avoir été téléchargé dans le répertoire *C:\\Utilisateurs\\\<user name\>\\Documents\\Data Science Scripts* sur la machine virtuelle. Pour pouvoir être envoyées, ces requêtes Hive nécessitent simplement que vous fournissiez un schéma de données et une configuration de stockage de blobs Azure dans les champs appropriés.
 
 Nous partons du principe que les données des tables Hive ont un format tabulaire **non compressé** et qu’elles ont été chargées dans le conteneur par défaut (ou un conteneur supplémentaire) du compte de stockage utilisé par le cluster Hadoop.
 
@@ -112,7 +112,7 @@ Si vous ouvrez le conteneur par défaut du cluster Hadoop à l’aide d’Azure 
 ![Explorateur Stockage Azure montrant la sortie de la requête Hive](./media/move-hive-tables/output-hive-results-3.png)
 
 ### <a name="submit-hive-queries-with-the-hive-editor"></a><a name="hive-editor"></a>Envoyer des requêtes Hive avec l’éditeur Hive
-Vous pouvez également utiliser la console de requête (éditeur Hive) en entrant une URL sous la forme *https:\//\<Hadoop cluster name>.azurehdinsight.net/Home/HiveEditor* dans un navigateur web. Vous devez être connecté pour afficher cette console, et vous devez donc saisir ici vos informations d’identification de cluster Hadoop.
+Vous pouvez aussi utiliser la console de requête (éditeur Hive) en entrant une URL sous la forme *https:\//\<Hadoop cluster name>.azurehdinsight.net/Home/HiveEditor* dans un navigateur web. Vous devez être connecté pour afficher cette console, et vous devez donc saisir ici vos informations d’identification de cluster Hadoop.
 
 ### <a name="submit-hive-queries-with-azure-powershell-commands"></a><a name="ps"></a>Envoyer des requêtes Hive avec les commandes Azure PowerShell
 Vous pouvez également utiliser PowerShell pour envoyer des requêtes Hive. Pour obtenir de l'aide, consultez [Envoi de tâches Hive avec PowerShell](../../hdinsight/hadoop/apache-hadoop-use-hive-powershell.md).
@@ -138,10 +138,10 @@ Voici la requête Hive qui crée une table Hive.
 Voici les descriptions des champs que vous devez renseigner et d’autres opérations de configuration :
 
 * **\<database name\>**  : nom de la base de données que vous souhaitez créer. Si vous voulez utiliser la base de données par défaut, la requête « *create database...*  » peut être omise.
-* **\<table name\>**  : nom de la table que vous voulez créer dans la base de données spécifiée. Si vous voulez utiliser la base de données par défaut, la table peut être désignée directement par *\<table name\>* sans \<database name\>.
+* **\<table name\>**  : nom de la table que vous souhaitez créer dans la base de données spécifiée. Si vous voulez utiliser la base de données par défaut, la table peut être désignée directement par *\<table name\>* sans \<database name\>.
 * **\<field separator\>**  : séparateur qui délimite les champs dans le fichier de données à charger dans la table Hive.
 * **\<line separator\>**  : séparateur qui délimite les lignes dans le fichier de données.
-* **\<storage location\>**  : emplacement Stockage Azure où enregistrer les données des tables Hive. Si vous ne spécifiez pas *LOCATION \<storage location\>* , la base de données et les tables sont stockées dans le répertoire *hive/warehouse/* du conteneur par défaut du cluster Hive par défaut. Si vous souhaitez spécifier l’emplacement de stockage, ce dernier doit se trouver dans le conteneur par défaut de la base de données et des tables. Cet emplacement doit être désigné comme emplacement par rapport au conteneur par défaut du cluster sous la forme *'wasb:///\<répertoire 1>/'* ou *'wasb:///\<répertoire 1>/\<répertoire 2>/'* , etc. Une fois la requête exécutée, les répertoires relatifs sont créés dans le conteneur par défaut.
+* **\<storage location\>**  : emplacement de Stockage Azure où enregistrer les données des tables Hive. Si vous ne spécifiez pas *LOCATION\<storage location\>* , la base de données et les tables sont stockées par défaut dans le répertoire *hive/warehouse/* du conteneur par défaut du cluster Hive. Si vous souhaitez spécifier l’emplacement de stockage, ce dernier doit se trouver dans le conteneur par défaut de la base de données et des tables. Cet emplacement doit être désigné comme emplacement par rapport au conteneur par défaut du cluster sous la forme *’wasb:///\<directory 1>/’* ou *’wasb:///\<directory 1>/\<directory 2>/’* , etc. Une fois la requête exécutée, les répertoires relatifs sont créés dans le conteneur par défaut.
 * **TBLPROPERTIES("skip.header.line.count"="1")** : si le fichier de données contient une ligne d’en-tête, vous devez ajouter cette propriété **à la fin** de la requête *create table*. Sinon, cette ligne d’en-tête est chargée comme un enregistrement dans la table. Si le fichier de données ne contient aucune ligne d’en-tête, cette configuration peut être omise dans la requête.
 
 ## <a name="load-data-to-hive-tables"></a><a name="load-data"></a>Chargement des données dans des tables Hive
@@ -149,7 +149,7 @@ Voici la requête Hive qui charge les données dans une table Hive.
 
     LOAD DATA INPATH '<path to blob data>' INTO TABLE <database name>.<table name>;
 
-* **\<path to blob data\>**  : si le fichier blob à charger dans la table Hive se trouve dans le conteneur par défaut du cluster Hadoop HDInsight, le chemin *\<path to blob data\>* doit être au format *'wasb://\<directory in this container>/\<blob file name>'* . Le fichier blob peut également se trouver dans un autre conteneur du cluster Hadoop HDInsight. Dans ce cas, *\<path to blob data\>* doit présenter le format *’wasb://\<nom du conteneur>@\<nom du compte de stockage>.blob.core.windows.net/\<nom du fichier blob>’* .
+* **\<path to blob data\>**  : si le fichier blob à charger dans la table Hive se trouve dans le conteneur par défaut du cluster Hadoop HDInsight, le *\<path to blob data\>* doit se présenter sous la forme *’wasb:///\<directory in this container>/\<blob file name>’* . Le fichier blob peut également se trouver dans un autre conteneur du cluster Hadoop HDInsight. Dans ce cas, *\<path to blob data\>* doit se présenter sous la forme *’wasb://\<container name>@\<storage account name>.blob.core.windows.net/\<blob file name>’* .
 
   > [!NOTE]
   > Les données blob à charger dans la table Hive doivent se trouver dans le conteneur par défaut ou un autre conteneur du compte de stockage du cluster Hadoop. Sinon, la requête *LOAD DATA* ne peut pas s'exécuter car elle n'aura pas accès aux données.
@@ -216,7 +216,7 @@ Sélectionnez les données de la table externe à l’étape 1 et insérez-les 
             SELECT * FROM <database name>.<external textfile table name>;
 
 > [!NOTE]
-> Si la table TEXTFILE *\<database name\>.\<external textfile table name\>* a des partitions, à l’Étape 3, la commande `SELECT * FROM <database name>.<external textfile table name>` sélectionne la variable de partition comme champ dans le jeu de données retourné. Le fait de l’insérer dans *\<database name\>.\<ORC table name\>* échoue car *\<database name\>.\<ORC table name\>* ne dispose pas de la variable de partition comme champ dans le schéma de la table. Dans ce cas, vous devez sélectionner explicitement les champs à insérer dans *\<database name\>.\<ORC table name\>* comme suit :
+> Si la table TEXTFILE *\<database name\>.\<external textfile table name\>* a des partitions, à l’étape 3, la commande `SELECT * FROM <database name>.<external textfile table name>` sélectionne la variable de partition en tant que champ dans le jeu de données retourné. Son insertion dans *\<database name\>.\<ORC table name\>* échoue, car *\<database name\>.\<ORC table name\>* n’a pas de variable de partition en tant que champ dans le schéma de table. Dans ce cas, vous devez sélectionner explicitement les champs à insérer dans *\<database name\>.\<ORC table name\>* comme suit :
 >
 >
 
@@ -225,7 +225,7 @@ Sélectionnez les données de la table externe à l’étape 1 et insérez-les 
            FROM <database name>.<external textfile table name>
            WHERE <partition variable>=<partition value>;
 
-Lors de l’utilisation de la requête suivante, il est possible de supprimer en toute sécurité la table *\<external text file table name\>* une fois toutes les données insérées dans la base de données *\<database name\>.\<ORC table name\>*  :
+Il n’y a aucun risque à supprimer *\<external text file table name\>* quand la requête suivante est utilisée dès lors que toutes les données ont été insérées dans *\<database name\>.\<ORC table name\>*  :
 
         DROP TABLE IF EXISTS <database name>.<external textfile table name>;
 

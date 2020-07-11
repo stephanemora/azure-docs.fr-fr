@@ -6,10 +6,10 @@ ms.topic: conceptual
 ms.date: 01/22/2018
 ms.author: alkarche
 ms.openlocfilehash: 5e756258bb92d7def195959d909068e87e765c0f
-ms.sourcegitcommit: 856db17a4209927812bcbf30a66b14ee7c1ac777
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/29/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "82562064"
 ---
 # <a name="work-with-azure-functions-proxies"></a>Utilisation d’Azure Functions Proxies
@@ -76,8 +76,8 @@ Par exemple, si un proxy dispose d’un modèle de routage du type `/pets/{petId
 Outre les paramètres de modèle de routage, les valeurs suivantes peuvent être utilisées dans les valeurs de configuration :
 
 * **{request.method}** : méthode HTTP utilisée lors de la demande d’origine.
-* **{request.headers.\<HeaderName\>}** : un en-tête qui peut être lu à partir de la demande d’origine. Remplacez *\<HeaderName\>* par le nom de l’en-tête que vous souhaitez lire. Si l’en-tête n’est pas inclus dans la demande, la valeur sera une chaîne vide.
-* **{request.querystring.\<ParameterName\>}** : un paramètre de chaîne de requête qui peut être lu à partir de la demande d’origine. Remplacez *\<ParameterName\>* par le nom de l’en-tête que vous souhaitez lire. Si le paramètre n’est pas inclus dans la demande, la valeur sera une chaîne vide.
+* **{request.headers.\<HeaderName\>}**  : un en-tête qui peut être lu à partir de la demande d’origine. Remplacez *\<HeaderName\>* par le nom de l’en-tête que vous souhaitez lire. Si l’en-tête n’est pas inclus dans la demande, la valeur sera une chaîne vide.
+* **{request.querystring.\<ParameterName\>}**  : un paramètre de chaîne de requête qui peut être lu à partir de la demande d’origine. Remplacez *\<ParameterName\>* par le nom du paramètre que vous souhaitez lire. Si le paramètre n’est pas inclus dans la demande, la valeur sera une chaîne vide.
 
 ### <a name="reference-back-end-response-parameters"></a><a name="response-parameters"></a>Référencement des paramètres de réponse du serveur principal
 
@@ -85,7 +85,7 @@ Les paramètres de réponse peuvent être utilisés lors de la modification de l
 
 * **{backend.response.statusCode}** : code d’état HTTP renvoyé dans la réponse du serveur principal.
 * **{backend.response.statusReason}** : motif HTTP renvoyé dans la réponse du serveur principal.
-* **{backend.response.headers.\<HeaderName\>}** : un en-tête qui peut être lu à partir de la réponse du serveur principal. Remplacez *\<HeaderName\>* par le nom de l’en-tête que vous souhaitez lire. Si l’en-tête n’est pas inclus dans la réponse, la valeur sera une chaîne vide.
+* **{backend.response.headers.\<HeaderName\>}**  : un en-tête qui peut être lu à partir de la réponse du serveur principal. Remplacez *\<HeaderName\>* par le nom de l’en-tête que vous souhaitez lire. Si l’en-tête n’est pas inclus dans la réponse, la valeur sera une chaîne vide.
 
 ### <a name="reference-application-settings"></a><a name="use-appsettings"></a>Référencement des paramètres de l’application
 
@@ -173,7 +173,7 @@ Le comportement du proxy peut être contrôlé via plusieurs paramètres d’app
 
 Les proxies lisent toutes les chaînes d’un fichier JSON en utilisant \ en tant que symbole d’échappement. Les proxies interprètent également les accolades. Consultez un ensemble complet d’exemples ci-dessous.
 
-|Caractère|Caractère d’échappement| Exemple|
+|Caractère|Caractère d’échappement|Exemple|
 |-|-|-|
 |{ ou }|{{ ou }}|`{{ example }}` --> `{ example }`
 | \ | \\\\ | `example.com\\text.html` --> `example.com\text.html`
@@ -184,8 +184,8 @@ Les proxies lisent toutes les chaînes d’un fichier JSON en utilisant \ en tan
 L’objet requestOverrides définit les modifications apportées à la demande lors de l’appel de la ressource du serveur principal. L’objet est défini par les propriétés suivantes :
 
 * **backend.request.method** : méthode HTTP utilisée pour appeler le backend.
-* **backend.request.querystring.\<ParameterName\>** : paramètre de chaîne de requête pouvant être défini pour l’appel au backend. Remplacez *\<ParameterName\>* par le nom de l’en-tête que vous souhaitez définir. Notez que si une chaîne vide est fournie, le paramètre reste inclus dans la demande du serveur principal.
-* **backend.request.headers.\<HeaderName\>** : en-tête pouvant être défini pour l’appel au backend. Remplacez *\<HeaderName\>* par le nom de l’en-tête que vous souhaitez définir. Notez que si une chaîne vide est fournie, le paramètre reste inclus dans la demande du serveur principal.
+* **backend.request.querystring.\<ParameterName\>**  : paramètre de chaîne de requête pouvant être défini pour l’appel au backend. Remplacez *\<ParameterName\>* par le nom du paramètre que vous souhaitez définir. Notez que si une chaîne vide est fournie, le paramètre reste inclus dans la demande du serveur principal.
+* **backend.request.headers.\<HeaderName\>**  : en-tête pouvant être défini pour l’appel au backend. Remplacez *\<HeaderName\>* par le nom de l’en-tête que vous souhaitez définir. Notez que si une chaîne vide est fournie, le paramètre reste inclus dans la demande du serveur principal.
 
 Les valeurs peuvent faire référence aux paramètres de l’application et aux paramètres de la demande client d’origine.
 
@@ -217,7 +217,7 @@ L’objet requestOverrides définit les modifications apportées à la réponse 
 * **response.statusCode** : code d’état HTTP à renvoyer au client.
 * **response.statusReason** : motif HTTP à renvoyer au client.
 * **response.body** : représentation sous forme de chaîne du corps à renvoyer au client.
-* **response.headers.\<HeaderName\>** : en-tête pouvant être défini pour la réponse au client. Remplacez *\<HeaderName\>* par le nom de l’en-tête que vous souhaitez définir. Si vous fournissez une chaîne vide, l’en-tête n’est pas inclus dans la réponse.
+* **response.headers.\<HeaderName\>**  : en-tête pouvant être défini pour la réponse au client. Remplacez *\<HeaderName\>* par le nom de l’en-tête que vous souhaitez définir. Si vous fournissez une chaîne vide, l’en-tête n’est pas inclus dans la réponse.
 
 Les valeurs peuvent faire référence aux paramètres de l’application, aux paramètres de la demande client d’origine et aux paramètres de la réponse du serveur principal.
 

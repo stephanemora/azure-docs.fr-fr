@@ -2,13 +2,13 @@
 title: Déployer des ressources avec PowerShell et un modèle
 description: Utilisez Azure Resource Manager et Azure PowerShell pour déployer des ressources sur Azure. Les ressources sont définies dans un modèle Resource Manager.
 ms.topic: conceptual
-ms.date: 03/16/2020
-ms.openlocfilehash: e595aa8f86a24e59c8e00d24ea8e9dcb0875a8f4
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.date: 06/04/2020
+ms.openlocfilehash: af255e0248c029f42c9c2999ae7c0389d60c58fc
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80153265"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84431841"
 ---
 # <a name="deploy-resources-with-arm-templates-and-azure-powershell"></a>Déployer des ressources à l’aide de modèles Resource Manager et d’Azure PowerShell
 
@@ -20,35 +20,35 @@ Vous pouvez cibler votre déploiement au niveau d’un groupe de ressources, d�
 
 Les commandes à utiliser diffèrent en fonction de l’étendue du déploiement.
 
-Pour un déploiement dans un **groupe de ressources**, utilisez la commande [New-AzResourceGroupDeployment](/powershell/module/az.resources/new-azresourcegroupdeployment) :
+* Pour un déploiement dans un **groupe de ressources**, utilisez la commande [New-AzResourceGroupDeployment](/powershell/module/az.resources/new-azresourcegroupdeployment) :
 
-```azurepowershell
-New-AzResourceGroupDeployment -ResourceGroupName <resource-group-name> -TemplateFile <path-to-template>
-```
+  ```azurepowershell
+  New-AzResourceGroupDeployment -ResourceGroupName <resource-group-name> -TemplateFile <path-to-template>
+  ```
 
-Pour opérer un déploiement vers un **abonnement**, utilisez New-AzSubscriptionDeployment :
+* Pour opérer un déploiement vers un **abonnement**, utilisez New-AzSubscriptionDeployment :
 
-```azurepowershell
-New-AzSubscriptionDeployment -Location <location> -TemplateFile <path-to-template>
-```
+  ```azurepowershell
+  New-AzSubscriptionDeployment -Location <location> -TemplateFile <path-to-template>
+  ```
 
-Pour plus d’informations sur les déploiements au niveau de l’abonnement, consultez [Créer des groupes de ressources et des ressources au niveau de l’abonnement](deploy-to-subscription.md).
+  Pour plus d’informations sur les déploiements au niveau de l’abonnement, consultez [Créer des groupes de ressources et des ressources au niveau de l’abonnement](deploy-to-subscription.md).
 
-Pour opérer un déploiement vers un **groupe d’administration**, utilisez [New-AzManagementGroupDeployment](/powershell/module/az.resources/New-AzManagementGroupDeployment).
+* Pour opérer un déploiement vers un **groupe d’administration**, utilisez [New-AzManagementGroupDeployment](/powershell/module/az.resources/New-AzManagementGroupDeployment).
 
-```azurepowershell
-New-AzManagementGroupDeployment -Location <location> -TemplateFile <path-to-template>
-```
+  ```azurepowershell
+  New-AzManagementGroupDeployment -Location <location> -TemplateFile <path-to-template>
+  ```
 
-Pour plus d’informations sur les déploiements au niveau du groupe d’administration, consultez [Créer des ressources au niveau du groupe d’administration](deploy-to-management-group.md).
+  Pour plus d’informations sur les déploiements au niveau du groupe d’administration, consultez [Créer des ressources au niveau du groupe d’administration](deploy-to-management-group.md).
 
-Pour opérer un déploiement vers un **locataire**, utilisez [New-AzTenantDeployment](/powershell/module/az.resources/new-aztenantdeployment).
+* Pour opérer un déploiement vers un **locataire**, utilisez [New-AzTenantDeployment](/powershell/module/az.resources/new-aztenantdeployment).
 
-```azurepowershell
-New-AzTenantDeployment -Location <location> -TemplateFile <path-to-template>
-```
+  ```azurepowershell
+  New-AzTenantDeployment -Location <location> -TemplateFile <path-to-template>
+  ```
 
-Pour plus d’informations sur les déploiements au niveau d’un locataire, consultez [Créer des ressources au niveau du locataire](deploy-to-tenant.md).
+  Pour plus d’informations sur les déploiements au niveau d’un locataire, consultez [Créer des ressources au niveau du locataire](deploy-to-tenant.md).
 
 Les exemples de cet article illustrent des déploiements dans des groupes de ressources.
 
@@ -93,11 +93,15 @@ New-AzResourceGroupDeployment -ResourceGroupName $resourceGroupName `
 
 L’exemple précédent nécessite un URI accessible publiquement pour le modèle, ce qui convient pour la plupart des scénarios, sachant que votre modèle ne doit pas inclure de données sensibles. Si vous avez besoin de spécifier des données sensibles (par exemple, un mot de passe d’administrateur), passez cette valeur en tant que paramètre sécurisé. Toutefois, si vous ne souhaitez pas que votre modèle soit accessible au public, vous pouvez le protéger en le stockant dans un conteneur de stockage privé. Pour plus d’informations sur le déploiement d’un modèle qui nécessite un jeton de signature d’accès partagé (SAS), consultez [Déployer un modèle privé avec un jeton SAS](secure-template-with-sas-token.md). Pour suivre un tutoriel, consultez [Tutoriel : Intégrer Azure Key Vault dans un déploiement de modèle Resource Manager](template-tutorial-use-key-vault.md).
 
+## <a name="preview-changes"></a>Prévisualiser les modifications
+
+Avant de déployer votre modèle, vous pouvez afficher un aperçu des modifications que le modèle apportera à votre environnement. Utilisez l’[opération what-if](template-deploy-what-if.md) pour vérifier que le modèle apporte les modifications prévues. Cette opération vérifie aussi que le modèle est exempt d’erreurs.
+
 ## <a name="deploy-from-azure-cloud-shell"></a>Déployer à partir d’Azure Cloud Shell
 
 Vous pouvez utiliser [Azure Cloud Shell](https://shell.azure.com) pour déployer votre modèle. Pour déployer un modèle externe, fournissez son URI. Pour déployer un modèle local, vous devez d’abord charger votre modèle dans le compte de stockage de votre Cloud Shell. Pour charger des fichiers dans Azure Cloud Shell, sélectionnez l'icône de menu **Charger/télécharger des fichiers** de la fenêtre d'Azure Cloud Shell.
 
-Pour ouvrir Azure Cloud Shell, accédez à [https://shell.azure.com](https://shell.azure.com), ou sélectionnez **Essayer** dans la section de code suivante :
+Pour ouvrir le service Cloud Shell, accédez à [https://shell.azure.com](https://shell.azure.com), ou sélectionnez **Essayer** dans la section de code suivante :
 
 ```azurepowershell-interactive
 $resourceGroupName = Read-Host -Prompt "Enter the Resource Group name"
@@ -169,35 +173,6 @@ Pour transmettre un fichier de paramètres externe, utilisez le paramètre **Tem
 New-AzResourceGroupDeployment -Name ExampleDeployment -ResourceGroupName ExampleResourceGroup `
   -TemplateUri https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-storage-account-create/azuredeploy.json `
   -TemplateParameterUri https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-storage-account-create/azuredeploy.parameters.json
-```
-
-## <a name="test-template-deployments"></a>Tester les déploiements de modèles
-
-Pour tester les valeurs de votre modèle et de vos paramètres sans déployer de ressources, utilisez [Test-AzResourceGroupDeployment](/powershell/module/az.resources/test-azresourcegroupdeployment). 
-
-```powershell
-Test-AzResourceGroupDeployment -ResourceGroupName ExampleResourceGroup `
-  -TemplateFile c:\MyTemplates\azuredeploy.json -storageAccountType Standard_GRS
-```
-
-Si aucune erreur n’est détectée, la commande se termine sans réponse. Si une erreur est détectée, la commande retourne un message d’erreur. Par exemple, la transmission d’une valeur incorrecte pour la référence (SKU) du compte de stockage retourne l’erreur suivante :
-
-```powershell
-Test-AzResourceGroupDeployment -ResourceGroupName testgroup `
-  -TemplateFile c:\MyTemplates\azuredeploy.json -storageAccountType badSku
-
-Code    : InvalidTemplate
-Message : Deployment template validation failed: 'The provided value 'badSku' for the template parameter 'storageAccountType'
-          at line '15' and column '24' is not valid. The parameter value is not part of the allowed value(s):
-          'Standard_LRS,Standard_ZRS,Standard_GRS,Standard_RAGRS,Premium_LRS'.'.
-Details :
-```
-
-Si votre modèle comporte une erreur de syntaxe, la commande retourne une erreur indiquant que le modèle n’a pas pu être analysé. Le message indique le numéro de ligne et la position de l’erreur d’analyse.
-
-```powershell
-Test-AzResourceGroupDeployment : After parsing a value an unexpected character was encountered: 
-  ". Path 'variables', line 31, position 3.
 ```
 
 ## <a name="next-steps"></a>Étapes suivantes

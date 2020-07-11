@@ -4,19 +4,19 @@ description: Découvrez la fonction système SQL CONTAINS dans Azure Cosmos DB, 
 author: ginamr
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 05/20/2020
+ms.date: 06/02/2020
 ms.author: girobins
 ms.custom: query-reference
-ms.openlocfilehash: a08fe47122d7e9ddd1c9038bb5f15ebbb0be30fa
-ms.sourcegitcommit: 1f25aa993c38b37472cf8a0359bc6f0bf97b6784
+ms.openlocfilehash: 4877272fc2db521977a4111317118380399d27c5
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/26/2020
-ms.locfileid: "83848972"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84322701"
 ---
 # <a name="contains-azure-cosmos-db"></a>CONTAINS (Azure Cosmos DB)
 
- Retourne une valeur booléenne indiquant si la première expression de chaîne contient la seconde.  
+Retourne une valeur booléenne indiquant si la première expression de chaîne contient la seconde.  
   
 ## <a name="syntax"></a>Syntaxe
   
@@ -75,6 +75,8 @@ Par exemple, considérez deux propriétés : ville et pays. La cardinalité de 
 ```
 
 La première requête utilisera probablement plus de RU que la deuxième, car la cardinalité de la propriété ville est supérieure à celle de la propriété pays.
+
+Si la taille de propriété dans Contains est supérieure à 1 Ko pour certains documents, le moteur de requête doit charger ces documents. Dans ce cas, le moteur de requête ne peut pas évaluer entièrement Contains avec un index. Le coût des unités de requête pour Contains est élevé si vous avez un grand nombre de documents dont les tailles de propriété sont supérieures à 1 Ko.
 
 ## <a name="next-steps"></a>Étapes suivantes
 

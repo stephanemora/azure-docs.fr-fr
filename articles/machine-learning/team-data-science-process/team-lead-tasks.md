@@ -11,10 +11,10 @@ ms.date: 01/10/2020
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
 ms.openlocfilehash: d099d7c233c3f4b5e65bfdb7d4b875a0e4098499
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "75864279"
 ---
 # <a name="tasks-for-the-team-lead-on-a-team-data-science-process-team"></a>Tâches du responsable d’équipe TDSP (Team Data Science Process)
@@ -77,7 +77,7 @@ Dans ce didacticiel, les noms des dépôts et des répertoires ont été spécif
 - Un petit groupe chargé de la science des données qui ne regroupe pas plusieurs équipes de science des données. 
 - Un groupe chargé de la science des données plus étoffé qui compte en son sein plusieurs équipes de science des données et qui souhaite néanmoins optimiser la collaboration entre les équipes au moyen d’activités comme la planification sprint au niveau du groupe. 
 
-Si les équipes préfèrent créer leurs propres dépôts pour un même projet de groupe, les responsables d’équipe doivent créer les dépôts en les nommant comme ceci : *\<Modèle>NomÉquipe* et *\<Utilitaires>NomÉquipe*. Exemple : *ModèleÉquipeA* et *UtilitairesÉquipeA*. 
+Si les équipes préfèrent créer leurs propres référentiels pour un même projet de groupe, les responsables d’équipe doivent créer les référentiels nommés *\<TeamName>Template* et *\<TeamName>Utilities*. Exemple : *ModèleÉquipeA* et *UtilitairesÉquipeA*. 
 
 Dans tous les cas, les responsables d’équipe doivent indiquer aux membres de leur équipe quels dépôts de modèles et d’utilitaires ils doivent créer et cloner. Les coordinateurs de projet doivent suivre les instructions de la rubrique [Tâches du coordinateur de projet pour une équipe de science des données](project-lead-tasks.md) pour créer des dépôts de projet, que ce soit pour plusieurs projets distincts ou pour un seul et même projet. 
 
@@ -85,7 +85,7 @@ Dans tous les cas, les responsables d’équipe doivent indiquer aux membres de 
 
 Pour créer un projet distinct pour votre équipe :
 
-1. Dans votre navigateur web, accédez à la page d’accueil de l’organisation Azure DevOps de votre groupe à l’URL *https:\//\<nom de serveur>/\<nom d’organisation>* , puis sélectionnez **Nouveau projet**. 
+1. Dans votre navigateur web, accédez à la page d’accueil de l’organisation Azure DevOps de votre groupe à l’URL *https:\//\<server name>/\<organization name>* , puis sélectionnez **Nouveau projet**. 
    
    ![Sélectionner Nouveau projet](./media/team-lead-tasks/team-leads-2-create-new-team.png)
    
@@ -95,7 +95,7 @@ Pour créer un projet distinct pour votre équipe :
    
    ![Créer un projet](./media/team-lead-tasks/team-leads-3-create-new-team-2.png)
    
-La page **Résumé** du projet d’équipe s’ouvre, l’URL de la page étant *https:\//\<nom de serveur>/\<nom d’organisation>/\<nom d’équipe>* .
+La page **Résumé** du projet d’équipe s’ouvre à l’URL *https:\//\<server name>/\<organization name>/\<team name>* .
 
 ### <a name="rename-the-myteam-default-repository-to-teamutilities"></a>Renommer le dépôt par défaut MyTeam TeamUtilities
 
@@ -140,7 +140,7 @@ Pour remplir les dépôts de votre équipe avec le contenu des dépôts communs 
    
    ![Sélectionner Importer](./media/team-lead-tasks/import-repo.png)
    
-1. Dans la boîte de dialogue **Importer un dépôt Git**, sélectionnez **Git** comme **Type de source**, puis entrez l’URL du dépôt de modèles commun de votre groupe en dessous de **URL clone**. L’URL est *https:\//\<nom de serveur>/\<nom d’organisation>/_git/\<nom de dépôt>* . Par exemple : *https:\//dev.azure.com/DataScienceUnit/GroupCommon/_git/GroupProjectTemplate*. 
+1. Dans la boîte de dialogue **Importer un dépôt Git**, sélectionnez **Git** comme **Type de source**, puis entrez l’URL du dépôt de modèles commun de votre groupe en dessous de **URL clone**. L’URL est *https:\//\<server name>/\<organization name>/_git/\<repository name>* . Par exemple : *https:\//dev.azure.com/DataScienceUnit/GroupCommon/_git/GroupProjectTemplate*. 
    
 1. Sélectionnez **Importer**. Le contenu du dépôt de modèles de votre groupe est importé dans le dépôt de modèles de votre équipe. 
    

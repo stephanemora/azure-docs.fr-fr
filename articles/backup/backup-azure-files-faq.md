@@ -3,12 +3,12 @@ title: FAQ sur la sauvegarde des fichiers Azure
 description: Cet article fournit des réponses à des questions courantes sur la protection de vos partages de fichiers Azure avec le service Sauvegarde Microsoft Azure.
 ms.date: 04/22/2020
 ms.topic: conceptual
-ms.openlocfilehash: 70ed8594be09ab74478f4703aa632b9ce966b5ee
-ms.sourcegitcommit: 6a9f01bbef4b442d474747773b2ae6ce7c428c1f
+ms.openlocfilehash: ded1551dad1be34c116e61b9bf59f372169bca5c
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "84118004"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84488696"
 ---
 # <a name="questions-about-backing-up-azure-files"></a>Questions sur la sauvegarde des fichiers Azure
 
@@ -56,7 +56,7 @@ Non. Tous les partages de fichiers dans un compte de stockage peuvent uniquement
 
 ### <a name="can-i-recover-from-a-deleted-azure-file-share"></a>Puis-je effectuer une restauration d’un partage de fichiers Azure supprimé ?
 
-Lorsqu’un partage de fichiers Azure est supprimé, la liste des sauvegardes qui seront supprimées est affichée et une confirmation est demandée. Actuellement, un partage de fichiers Azure supprimé ne peut pas être restauré.
+Si le partage de fichiers est dans l’état de suppression réversible, vous devez d’abord annuler la suppression du partage de fichiers pour effectuer l’opération de restauration. L’opération d’annulation de la suppression mettra le partage de fichiers dans l’état sauvegardé. Vous pourrez alors effectuer une restauration à n’importe quel point dans le temps. Pour découvrir comment annuler la suppression de votre partage de fichiers, cliquez sur [ce lien](https://docs.microsoft.com/azure/storage/files/storage-files-enable-soft-delete?tabs=azure-portal#restore-soft-deleted-file-share) ou consultez le [script d’annulation de la suppression de partage de fichiers](./scripts/backup-powershell-script-undelete-file-share.md). En cas de suppression définitive du partage de fichiers, vous ne pourrez pas restaurer le contenu et les captures instantanées.
 
 ### <a name="can-i-restore-from-backups-if-i-stopped-protection-on-an-azure-file-share"></a>Puis-je effectuer une restauration à partir de sauvegardes après avoir arrêté la protection sur un partage de fichiers Azure ?
 
