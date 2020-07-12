@@ -9,10 +9,10 @@ ms.topic: troubleshooting
 ms.custom: hdinsightactive,hdiseo17may2017
 ms.date: 11/19/2019
 ms.openlocfilehash: 39179c9b6d02d810561485f6a4af0102711ad0ef
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "82186632"
 ---
 # <a name="azure-hdinsight-cluster-creation-errors"></a>Azure HDInsight : Erreurs lors de la création du cluster
@@ -26,7 +26,7 @@ Cet article décrit les solutions aux erreurs que vous pouvez rencontrer lors de
 
 ### <a name="error"></a>Error
 
-« Impossible d’accéder à l’URI de l’emplacement de l’action de script URI : \<URL D’ACTION DE SCRIPT\> »
+« Impossible d’accéder à l’emplacement de l’action de script URI : \<SCRIPT ACTION URL\> »
 
 #### <a name="error-message"></a>Message d’erreur
 
@@ -48,7 +48,7 @@ Le service HDInsight ne peut pas accéder à l’URL d’action de script que v
 
 ### <a name="error"></a>Error
 
-« Impossible d’accéder à l’emplacement de l’action de script URI : \<SCRIPT_ACTION_URL\>"
+« Impossible d’accéder à l’emplacement de l’action de script URI : \<SCRIPT_ACTION_URL\> »
 
 #### <a name="error-message"></a>Message d’erreur
 
@@ -68,7 +68,7 @@ Ajoutez le compte Azure Data Lake Storage GEN 1 correspondant au cluster. Ajo
 
 ### <a name="error"></a>Error
 
-« La taille de machine virtuelle "\<CUSTOMER_SPECIFIED_VM_SIZE\>" fournie dans la requête n’est pas valide ou n’est pas prise en charge pour le rôle "\<ROLE\> ». Les valeurs autorisées sont : \<VALID_VM_SIZE_FOR_ROLE\>».
+« La taille de la machine virtuelle ’\<CUSTOMER_SPECIFIED_VM_SIZE\>’ fournie dans la requête n’est pas valide ou n’est pas prise en charge pour le ’\<ROLE\>’ du rôle. Les valeurs valides sont les suivantes : \<VALID_VM_SIZE_FOR_ROLE\>. »
 
 ### <a name="cause"></a>Cause
 
@@ -84,7 +84,7 @@ Le message d’erreur répertorie les valeurs valides pour la taille de la machi
 
 ### <a name="error"></a>Error
 
-« L’identifiant de réseau virtuel n’est pas valide. VirtualNetworkId ’\<USER_VIRTUALNETWORKID\>’ * »
+« L’identifiant de réseau virtuel n’est pas valide. VirtualNetworkId ’\<USER_VIRTUALNETWORKID\>’*"
 
 ### <a name="cause"></a>Cause
 
@@ -124,7 +124,7 @@ Le script personnalisé que vous avez fourni lors de la requête de création de
 
 ### <a name="error"></a>Error
 
-« La version de schéma \<META_STORE_TYPE\> \<METASTORE_MAJOR_VERSION\> dans la base de données \<database_name\> n’est pas compatible avec la version de cluster \<CLUSTER_VERSION\> »
+« La version \<METASTORE_MAJOR_VERSION\> de schéma metastore \<META_STORE_TYPE\> dans la base de données \<DATABASE_NAME\> n’est pas compatible avec la version de cluster \<CLUSTER_VERSION\> »
 
 ### <a name="cause"></a>Cause
 
@@ -161,7 +161,7 @@ Si vous envisagez d’utiliser des groupes de sécurité réseau pour contrôler
 
 ### <a name="error"></a>Error
 
-« L’identité gérée ne dispose pas d’autorisations sur le compte de stockage. Vérifiez que le rôle Propriétaire des données Blob du stockage est attribué à l’identité managée sur le compte de stockage. Storage: /subscriptions/ \<Subscription ID\> /resourceGroups/\< Resource Group Name\> /providers/Microsoft.Storage/storageAccounts/ \<Storage Account Name\>, Managed Identity: /subscriptions/ \<Subscription ID\> /resourceGroups/ /\< Resource Group Name\> /providers/Microsoft.ManagedIdentity/userAssignedIdentities/ \<User Managed Identity Name\> »
+« L’identité gérée ne dispose pas d’autorisations sur le compte de stockage. Vérifiez que le rôle Propriétaire des données Blob du stockage est attribué à l’identité managée sur le compte de stockage. Stockage: /subscriptions/ \<Subscription ID\> /resourceGroups/\< Resource Group Name\> /providers/Microsoft.Storage/storageAccounts/ \<Storage Account Name\>, Identité managée : /subscriptions/ \<Subscription ID\> /resourceGroups/ /\< Resource Group Name\> /providers/Microsoft.ManagedIdentity/userAssignedIdentities/ \<User Managed Identity Name\> »
 
 ### <a name="cause"></a>Cause
 
@@ -182,7 +182,7 @@ Pour plus d’informations, consultez [Définir les autorisations de l’identit
 
 ### <a name="error"></a>Error
 
-« Les règles de sécurité dans le groupe de sécurité réseau /subscriptions/\<SubscriptionID\>/resourceGroups/<Resource Group name\> default/providers/Microsoft.Network/networkSecurityGroups/\<Network Security Group Name\> configured with subnet /subscriptions/\<SubscriptionID\>/resourceGroups/\<Resource Group name\> RG-westeurope-vnet-tomtom-default/providers/Microsoft.Network/virtualNetworks/\<Virtual Network Name\>/subnets/\<Subnet Name\> n’autorise pas les connectivités entrantes ou sortantes. Pour plus d’informations, consultez [Planifier un réseau virtuel pour Azure HDInsight](https://docs.microsoft.com/azure/hdinsight/hdinsight-plan-virtual-network-deployment) ou contactez le support. »
+« Les règles de sécurité dans le groupe de sécurité réseau /subscriptions/\<SubscriptionID\>/resourceGroups/<Nom de groupe de ressources\> default/providers/Microsoft.Network/networkSecurityGroups/\<Network Security Group Name\> configuré avec le sous-réseau /subscriptions/\<SubscriptionID\>/resourceGroups/\<Resource Group name\> RG-westeurope-vnet-tomtom-default/providers/Microsoft.Network/virtualNetworks/\<Virtual Network Name\>/subnets/\<Subnet Name\> n’autorisent pas les connectivités entrantes ou sortantes. Pour plus d’informations, consultez [Planifier un réseau virtuel pour Azure HDInsight](https://docs.microsoft.com/azure/hdinsight/hdinsight-plan-virtual-network-deployment) ou contactez le support. »
 
 ### <a name="cause"></a>Cause
 

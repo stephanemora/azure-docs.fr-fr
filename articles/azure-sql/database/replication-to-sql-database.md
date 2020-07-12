@@ -1,6 +1,6 @@
 ---
-title: Réplication de SQL Server sur Azure SQL Database
-description: Vous pouvez configurer une base de données SQL Azure en tant qu’abonné par émission de données dans une topologie de réplication de capture instantanée ou transactionnelle unidirectionnelle.
+title: Réplication d’Azure SQL Server sur Azure SQL Database
+description: Vous pouvez configurer une base de données dans Azure SQL Database en tant qu’abonné par émission de données dans une topologie de réplication transactionnelle unidirectionnelle ou de capture instantanée.
 services: sql-database
 ms.service: sql-database
 ms.subservice: data-movement
@@ -11,12 +11,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: mathoma
 ms.date: 04/28/2020
-ms.openlocfilehash: ec0aebc10d47b3e9945e63e818240da7bf2451e4
-ms.sourcegitcommit: 1f48ad3c83467a6ffac4e23093ef288fea592eb5
+ms.openlocfilehash: 6f1eb48655c4e38e2cf0520409e5e2b38750baf5
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/29/2020
-ms.locfileid: "84192970"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84324145"
 ---
 # <a name="replication-to-azure-sql-database"></a>Réplication sur Azure SQL Database
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -29,13 +29,13 @@ Vous pouvez configurer une base de données SQL Azure en tant qu’abonné par 
 ## <a name="supported-configurations"></a>Configurations prises en charge
   
 - Azure SQL Database peut uniquement être l’abonné par émission de données d’un serveur de publication et d’une base de données du serveur de distribution SQL Server.  
-- Le serveur SQL agissant en tant que serveur de publication ou de base de données du serveur de distribution peut être une instance de [SQL Server exécutée localement](https://www.microsoft.com/sql-server/sql-server-downloads), une [instance gérée SQL Azure](../managed-instance/instance-create-quickstart.md) ou une instance de [SQL Server exécutée sur une machine virtuelle Azure dans le cloud](../virtual-machines/windows/sql-vm-create-portal-quickstart.md). 
-- La base de données de distribution et les agents de réplication ne peuvent pas être placés sur une base de données SQL Azure.  
+- L’instance SQL Server agissant en tant qu’éditeur ou distributeur peut être une instance de [SQL Server s’exécutant localement](https://www.microsoft.com/sql-server/sql-server-downloads), une [Azure SQL Managed Instance](../managed-instance/instance-create-quickstart.md) ou une instance de [SQL Server s’exécutant sur une machine virtuelle Azure dans le cloud](../virtual-machines/windows/sql-vm-create-portal-quickstart.md). 
+- La base de données de distribution et les agents de réplication ne peuvent pas être placés sur une base de données dans Azure SQL Database.  
 - Les réplications par [capture instantanée](/sql/relational-databases/replication/snapshot-replication) et les réplications [transactionnelles unidirectionnelles](/sql/relational-databases/replication/transactional/transactional-replication) sont prises en charge. Les réplications transactionnelles pair à pair et les réplications de fusion ne sont pas prises en charge.
 
 ### <a name="versions"></a>Versions  
 
-Pour répliquer correctement sur un base de données SQL Azure, les serveurs de publication et les base de données du serveur de distribution SQL Server doivent utiliser (au moins) l’une des versions suivantes : 
+Pour répliquer correctement vers une base de données dans Azure SQL Database, les éditeurs et distributeurs SQL Server doivent utiliser (au moins) l’une des versions suivantes :
 
 La publication dans une base de données SQL Azure à partir d’une base de données SQL Server est prise en charge par les versions suivantes de SQL Server :
 
@@ -88,7 +88,7 @@ Il existe différents [types de réplications](https://docs.microsoft.com/sql/re
 2. Sur SQL Server, servez-vous de **l’Assistant Nouvel abonnement** ou utilisez des instructions Transact-SQL pour envoyer l’abonnement vers Azure SQL Database.  
 3. Avec des bases de données uniques et mises en pool dans Azure SQL Database, le jeu de données initial est un instantané créé par l’Agent d’instantané, puis distribué et appliqué par l’Agent de distribution. Avec un serveur de publication SQL Database Managed Instance, vous pouvez également utiliser une sauvegarde de la base de données pour alimenter la base de données des abonnés Azure SQL Database.
 
-### <a name="data-migration-scenario"></a>Scénario de migration des données  
+### <a name="data-migration-scenario"></a>Scénario de migration de données  
 
 1. Utilisez la réplication transactionnelle pour répliquer les données d’une base de données SQL Server vers Azure SQL Database.  
 2. Redirigez les applications clientes ou de couche intermédiaire pour mettre à jour la copie de la base de données.  
@@ -116,7 +116,6 @@ Les options suivantes ne sont pas prises en charge pour les abonnements Azure SQ
 - Convertir hierarchyId en types de données MAX  
 - Convertir le type spatial en types de données MAX  
 - Copier les propriétés étendues  
-- Copier les autorisations  
 
 ### <a name="limitations-to-be-determined"></a>Limitations à déterminer
 

@@ -7,10 +7,10 @@ ms.date: 06/18/2019
 ms.reviewer: dariac
 ms.custom: seodec18
 ms.openlocfilehash: efe4c07a6231e0b2c95b049db056a4e5d055db98
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "77152990"
 ---
 # <a name="local-git-deployment-to-azure-app-service"></a>Déploiement Git local vers Azure App Service
@@ -45,7 +45,7 @@ Pour permettre un déploiement Git local pour votre application avec le serveur 
 
 ### <a name="get-the-deployment-url"></a>Obtenir l'URL de déploiement
 
-Pour obtenir l'URL permettant d'activer le déploiement Git local pour une application existante, exécutez [`az webapp deployment source config-local-git`](/cli/azure/webapp/deployment/source?view=azure-cli-latest#az-webapp-deployment-source-config-local-git) dans Cloud Shell. Remplacez \<app-name> et \<group-name> par les noms de votre application et son groupe de ressources Azure.
+Pour obtenir l'URL permettant d'activer le déploiement Git local pour une application existante, exécutez [`az webapp deployment source config-local-git`](/cli/azure/webapp/deployment/source?view=azure-cli-latest#az-webapp-deployment-source-config-local-git) dans Cloud Shell. Remplacez \<app-name> et \<group-name> par les noms de votre application et de son groupe de ressources Azure.
 
 ```azurecli-interactive
 az webapp deployment source config-local-git --name <app-name> --resource-group <group-name>
@@ -74,7 +74,7 @@ Utilisez l’URL renvoyée pour déployer votre application à l’étape suivan
 
 ### <a name="deploy-the-web-app"></a>Déployer l’application web
 
-1. Ouvrez une fenêtre de terminal local vers votre référentiel Git local et ajoutez un référentiel distant Azure. Dans la commande suivante, remplacez \<url> par l’URL spécifique à l’utilisateur de déploiement ou l’URL spécifique à l’application que vous avez obtenue à l’étape précédente.
+1. Ouvrez une fenêtre de terminal local vers votre référentiel Git local et ajoutez un référentiel distant Azure. Dans la commande suivante, remplacez \<url> par l’URL de déploiement spécifique de l’utilisateur ou l’URL spécifique de l’application que vous avez obtenue à l’étape précédente.
    
    ```bash
    git remote add azure <url>
@@ -125,7 +125,7 @@ Pour activer le déploiement Git local pour votre application avec Azure Pipelin
    
    ![Copier l’URL du référentiel Git](media/app-service-deploy-local-git/vsts-repo-ready.png)
 
-1. Dans votre fenêtre de terminal local, ajoutez un référentiel distant Azure à votre référentiel Git local. Dans la commande, remplacez \<url> par l’URL du référentiel Git que vous avez obtenu à l’étape précédente.
+1. Dans votre fenêtre de terminal local, ajoutez un référentiel distant Azure à votre référentiel Git local. Dans la commande, remplacez \<url> par l’URL du référentiel Git que vous avez obtenue à l’étape précédente.
    
    ```bash
    git remote add azure <url>

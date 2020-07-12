@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 04/10/2019
-ms.openlocfilehash: 1e86317999a34e4ab4cb94f93fb788e3e7314cea
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 2fcf3b4c91e87453e2cf605eb717b75ed7d64d95
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82193052"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85105921"
 ---
 # <a name="manage-access-to-log-data-and-workspaces-in-azure-monitor"></a>Gérer l’accès aux données du journal et les espaces de travail dans Azure Monitor
 
@@ -20,8 +20,10 @@ Azure Monitor stocke les données de [journal](data-platform-logs.md) dans un es
 Cet article explique comment gérer l’accès aux journaux et administrer les espaces de travail qui les contiennent, notamment comment accorder l’accès : 
 
 * À l’espace de travail, à l’aide d’autorisations d’espace de travail.
-* Aux utilisateurs ayant besoin d’accéder à des données de journal à partir de ressources spécifiques, à l’aide du contrôle d’accès en fonction du rôle (RBAC) Azure.
+* Aux utilisateurs ayant besoin d’accéder à des données de journal de ressources spécifiques à l’aide du Contrôle d’accès en fonction du rôle (RBAC) Azure, également appelé [resource-context](design-logs-deployment.md#access-mode).
 * Aux utilisateurs qui doivent pouvoir accéder aux données de journal dans un tableau spécifique de l’espace de travail, à l’aide de rôles RBAC Azure.
+
+Pour comprendre les concepts des journaux en lien avec le RBAC et les stratégies d’accès, consultez [Conception de votre déploiement de journaux Azure Monitor](design-logs-deployment.md)
 
 ## <a name="configure-access-control-mode"></a>Configurer le mode de contrôle d’accès
 
@@ -268,6 +270,18 @@ Pour créer un rôle ayant accès uniquement à la table _SecurityBaseline_, cr�
     "Microsoft.OperationalInsights/workspaces/query/SecurityBaseline/read"
 ],
 ```
+Les exemples ci-dessus définissent une liste verte de tables autorisées. Cet exemple montre une définition de liste rouge quand un utilisateur peut accéder à toutes les tables, à l’exception de la table _SecurityAlert_ :
+
+```
+"Actions":  [
+    "Microsoft.OperationalInsights/workspaces/read",
+    "Microsoft.OperationalInsights/workspaces/query/read",
+    "Microsoft.OperationalInsights/workspaces/query/*/read"
+],
+"notActions":  [
+    "Microsoft.OperationalInsights/workspaces/query/SecurityAlert/read"
+],
+```
 
 ### <a name="custom-logs"></a>Journaux d’activité personnalisés
 
@@ -290,7 +304,7 @@ Parfois, les journaux personnalisés proviennent de sources qui ne sont pas dire
 
 * Si un utilisateur se voit accorder une autorisation de lecture globale avec les rôles Lecteur ou Contributeur standard qui incluent l’action _\*/read_, cette autorisation se substitue au contrôle d’accès par table et donne à l’utilisateur l’accès à toutes les données de journal.
 * Si un utilisateur se voit accorder un accès par table mais aucune autre autorisation, il peut accéder aux données de journal à partir de l’API, mais pas du portail Azure. Pour fournir l’accès à partir du portail Azure, utilisez le Lecteur Log Analytics comme rôle de base.
-* Les administrateurs de l’abonnement ont accès à tous les types de données indépendamment des autres paramètres d’autorisation.
+* Les administrateurs et propriétaires de l’abonnement ont accès à tous les types de données indépendamment des autres paramètres d’autorisation.
 * Les propriétaires d’espace de travail sont traités comme tout autre utilisateur pour le contrôle d’accès par table.
 * Nous vous conseillons d’attribuer des rôles à des groupes de sécurité plutôt qu’à des utilisateurs individuels afin de réduire le nombre d’attributions. En outre, cette approche facilite l’utilisation des outils de gestion de groupe existants pour configurer et vérifier l’accès.
 

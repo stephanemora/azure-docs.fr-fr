@@ -6,12 +6,12 @@ author: sauryadas
 ms.topic: article
 ms.date: 12/09/2019
 ms.author: saudas
-ms.openlocfilehash: 77d64391888957a1697a5823a1485413686682d1
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 5f396ba6ec1ecc6bd111e048ce34e3546c7364dc
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "77593442"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84345034"
 ---
 # <a name="supported-kubernetes-versions-in-azure-kubernetes-service-aks"></a>Versions de Kubernetes prises en charge dans Azure Kubernetes Service (AKS)
 
@@ -95,10 +95,10 @@ New Supported Version List
 * Pour les nouvelles versions **mineures** de Kubernetes
   * Tous les utilisateurs sont informés publiquement de la nouvelle version et de la version qui sera supprimée.
   * Lorsqu’une nouvelle version de patch est publiée, la version la plus ancienne est supprimée en même temps.
-  * Les clients ont **30 jours** à partir de la date de notification publique pour effectuer une mise à niveau vers une version mineure prise en charge.
+  * Le support Azure laisse aux clients **30 jours** à partir de la date de notification publique pour effectuer une mise à niveau vers une version mineure prise en charge. Une fois les 30 jours écoulés, vous devez mettre à jour votre version mineure pour continuer à bénéficier du support technique.
 * Pour les nouvelles versions de **correctif** de Kubernetes
   * Tous les utilisateurs sont informés de la sortie de la nouvelle version du correctif et de la mise à niveau vers la dernière version du correctif.
-  * Les utilisateurs ont **30 jours** pour procéder à une mise à niveau vers une version plus récente et prise en charge du correctif avant que le plus ancien ne soit supprimé.
+  * Le support Azure laisse aux clients **30 jours** pour effectuer une mise à niveau vers une version de correctif prise en charge, après la suppression d’une version de correctif plus ancienne. Une fois les 30 jours écoulés, vous devez mettre à jour votre version de correctif pour continuer à bénéficier du support technique.
 
 AKS définit une « version publiée » comme étant les versions en disponibilité générale, activées dans toutes les mesures SLO/Qualité de service et disponible dans toutes les régions. AKS peut également prendre en charge les préversions qui sont explicitement étiquetées et soumises aux conditions générales des préversions.
 
@@ -155,7 +155,7 @@ Pour les versions mineures non prises en charge par AKS, le scale-in ou le scale
 
 **Un client peut-il rester toujours sur une même version de Kubernetes ?**
 
-Oui. Cependant, si le cluster n’est pas sur une des versions prises en charge par AKS, le cluster est en dehors des politiques de support d’AKS. Azure ne met pas à niveau ni ne supprime automatiquement votre cluster.
+Si un cluster ne bénéficie plus de support technique pour plus de 3 versions mineures et s’est révélé présenter des risques de sécurité, Azure vous contacte pour mettre à niveau votre cluster de manière proactive. À défaut d’action supplémentaire de votre part, Azure se réserve le droit de forcer la mise à niveau de votre cluster à votre place.
 
 **Quelle version le plan de contrôle prend-il en charge si le pool de nœuds n’est pas dans une des versions d’AKS prises en charge ?**
 

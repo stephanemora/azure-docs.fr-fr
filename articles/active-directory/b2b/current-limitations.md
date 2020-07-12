@@ -11,12 +11,12 @@ author: msmimart
 manager: celestedg
 ms.reviewer: elisolMS
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: ffee01488ecf658ce02a20a41252aca19288667c
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 127f05298483dcf155000c2eda8f590fc069a1e9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79230817"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84337663"
 ---
 # <a name="limitations-of-azure-ad-b2b-collaboration"></a>Limitations d’Azure AD B2B Collaboration
 Azure Active Directory (Azure AD) B2B Collaboration subit actuellement les limitations décrites dans le présent article.
@@ -34,7 +34,7 @@ Azure AD B2B est soumis aux limites de répertoire du service Azure AD. Pour plu
 [Les clouds nationaux](https://docs.microsoft.com/azure/active-directory/develop/authentication-national-cloud) sont des instances d’Azure physiquement isolées. B2B Collaboration n’est pas pris en charge au-delà des limites du cloud national. Par exemple, si votre client Azure se trouve dans le cloud public général, vous ne pouvez pas inviter un utilisateur dont le compte se trouve dans un cloud national. Pour collaborer avec cet utilisateur, demandez-lui une autre adresse e-mail ou créez-lui un compte d’utilisateur membre dans votre répertoire.
 
 ## <a name="azure-us-government-clouds"></a>Clouds Azure US Government
-Dans le Cloud Azure US Government, B2B Collaboration est actuellement prise en charge seulement entre les locataires qui se trouvent tous deux dans le Cloud Azure US Government et qui prennent tous deux en charge B2B Collaboration. Si vous invitez un utilisateur dans un locataire qui ne fait pas partie du cloud Azure US Government ou qui ne prend pas encore en charge B2B Collaboration, l’invitation échoue ou l’utilisateur ne peut pas utiliser l’invitation. Pour plus d’informations sur les autres limitations, consultez [Différences entre Azure Active Directory Premium P1 et P2](https://docs.microsoft.com/azure/azure-government/documentation-government-services-securityandidentity#azure-active-directory-premium-p1-and-p2).
+Dans le cloud Azure - Gouvernement des États-Unis, la collaboration B2B est prise en charge entre locataires se trouvant à l’intérieur du cloud et prenant en charge la collaboration B2B. Les locataires Azure - Gouvernement des États-Unis qui prennent en charge la collaboration B2B peuvent également collaborer avec des utilisateurs sociaux à l’aide de comptes Microsoft ou Google. Si vous invitez un utilisateur extérieur à ces groupes (par exemple, si l’utilisateur se trouve dans un locataire qui ne fait pas partie du cloud Azure - Gouvernement des États-Unis ou qui ne prend pas encore en charge la collaboration B2B), l’invitation échoue ou l’utilisateur ne peut pas utiliser l’invitation. Pour plus d’informations sur les autres limitations, consultez [Différences entre Azure Active Directory Premium P1 et P2](https://docs.microsoft.com/azure/azure-government/documentation-government-services-securityandidentity#azure-active-directory-premium-p1-and-p2).
 
 ### <a name="how-can-i-tell-if-b2b-collaboration-is-available-in-my-azure-us-government-tenant"></a>Comment puis-je savoir si B2B Collaboration est disponible dans mon locataire Azure US Government ?
 Pour savoir si votre locataire du cloud Azure US Government prend en charge B2B Collaboration, procédez comme suit :
@@ -54,4 +54,3 @@ Consultez les articles suivants sur Azure AD B2B Collaboration :
 
 - [Qu'est-ce que la collaboration B2B d'Azure AD ?](what-is-b2b.md)
 - [Déléguer des invitations B2B Collaboration](delegate-invitations.md)
-

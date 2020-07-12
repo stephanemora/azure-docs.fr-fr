@@ -3,19 +3,19 @@ title: Types de connexion
 titleSuffix: Azure SQL Managed Instance
 description: Découvrez les types de connexion Azure SQL Managed Instance.
 services: sql-database
-ms.service: sql-database
+ms.service: sql-managed-instance
 ms.subservice: operations
 ms.topic: conceptual
 author: srdan-bozovic-msft
 ms.author: srbozovi
 ms.reviewer: vanto
 ms.date: 10/07/2019
-ms.openlocfilehash: cee913e846ebfef174a3cd6383401eace89187f0
-ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
+ms.openlocfilehash: 6c6774fb462a21e721b19ae53d1d018d780b28ae
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "84030100"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85517318"
 ---
 # <a name="azure-sql-managed-instance-connection-types"></a>Types de connexions Azure SQL Managed Instance
 [!INCLUDE[appliesto-sqlmi](../includes/appliesto-sqlmi.md)]
@@ -26,29 +26,33 @@ Cet article explique comment les clients se connectent à Azure SQL Managed Inst
 
 Azure SQL Managed Instance prend en charge les deux types de connexion suivants :
 
-- **Redirection (recommandée) :** les clients établissent les connexions directement sur le nœud qui héberge la base de données. Pour activer la connectivité à l’aide de la redirection, vous devez ouvrir les pare-feu et les groupes de sécurité réseau (NSG) pour autoriser l’accès sur les ports 1433 et 11000-11999. Les paquets étant directement dirigés vers la base de données, l’utilisation de la redirection offre des améliorations en matière de débit et de latence, par rapport à l’utilisation d’un proxy.
-- **Proxy (valeur par défaut) :** dans ce mode, toutes les connexions utilisent un composant passerelle proxy. Pour activer la connectivité, seuls le port 1433 pour les réseaux privés et le port 3342 pour la connexion publique doivent être ouverts. Ce mode peut entraîner une latence plus élevée et un débit inférieur, en fonction de la nature de la charge de travail. Nous vous recommandons la stratégie de connexion Redirection sur la stratégie de connexion Proxy pour bénéficier d’une plus faible latence et d’un débit plus élevé.
+- **Redirection (recommandée) :** les clients établissent les connexions directement sur le nœud qui héberge la base de données. Pour activer la connectivité à l’aide de la redirection, vous devez ouvrir les pare-feu et les groupes de sécurité réseau (NSG) pour autoriser l’accès sur les ports 1433 et 11000-11999. Les paquets étant directement dirigés vers la base de données, l’utilisation d’une redirection apporte des améliorations en matière de débit et de latence, par rapport à l’utilisation d’un proxy.
+- **Proxy (valeur par défaut) :** dans ce mode, toutes les connexions utilisent un composant passerelle proxy. Pour activer la connectivité, seuls le port 1433 pour les réseaux privés et le port 3342 pour la connexion publique doivent être ouverts. Ce mode peut entraîner une latence plus élevée et un débit inférieur, en fonction de la nature de la charge de travail. Nous vous recommandons la stratégie de connexion redirigée plutôt que la stratégie de connexion proxy pour bénéficier d’une plus faible latence et d’un débit plus élevé.
 
-## <a name="redirect-connection-type"></a>Type de connexion Redirection
+## <a name="redirect-connection-type"></a>Type de connexion redirigée
 
-Le type de connexion Redirection signifie qu’une fois que la session TCP au moteur SQL est établie, la session cliente obtient l’adresse IP virtuelle de destination du nœud de cluster virtuel à partir de l’équilibreur de charge. Les paquets suivants sont directement acheminés vers le nœud de cluster virtuel, en ignorant la passerelle. Le schéma suivant illustre ce flux de trafic :
+Avec le type de connexion redirigée, une fois la session TCP au moteur SQL établie, la session cliente obtient de l’équilibreur de charge l’adresse IP virtuelle de destination du nœud de cluster virtuel à partir. Les paquets suivants sont directement acheminés vers le nœud de cluster virtuel, en ignorant la passerelle. Le schéma suivant illustre ce flux de trafic :
 
 ![redirect.png](./media/connection-types-overview/redirect.png)
 
 > [!IMPORTANT]
-> Actuellement, le type de connexion Redirection ne fonctionne que pour le point de terminaison privé. Quel que soit le paramètre de type de connexion, les connexions entrantes par le biais du point de terminaison public s’effectuent via un proxy.
+> Actuellement, le type de connexion redirigée ne fonctionne que pour un point de terminaison privé. Quel que soit le paramètre de type de connexion, les connexions entrantes par le biais du point de terminaison public s’effectuent via un proxy.
 
 ## <a name="proxy-connection-type"></a>Type de connexion Proxy
 
-Le type de connexion Proxy signifie que la session TCP est établie à l’aide de la passerelle et que tous les paquets suivants transitent par elle. Le schéma suivant illustre ce flux de trafic :
+Avec le type de connexion proxy, la session TCP est établie à l’aide de la passerelle et que tous les paquets suivants transitent par elle. Le schéma suivant illustre ce flux de trafic :
 
 ![proxy.png](./media/connection-types-overview/proxy.png)
 
-## <a name="script-to-change-connection-type-settings-using-powershell"></a>Script pour changer les paramètres de type de connexion à l’aide de PowerShell
+## <a name="changing-connection-type"></a>Modification du type de connexion
+
+- **Utilisation du portail :** pour modifier le type de connexion via le portail Azure, ouvrez la page Réseau virtuel et utilisez le paramètre **Type de connexion** pour modifier le type de connexion et enregistrer les modifications.
+
+- **Script pour modifier les paramètres de type de connexion à l’aide de PowerShell :**
 
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
-Le script PowerShell suivant montre comment choisir le type de connexion `Redirect` pour une instance managée SQL.
+Le script PowerShell suivant montre comment modifier le type de connexion SQL à `Redirect` pour une instance managée.
 
 ```powershell
 Install-Module -Name Az
@@ -60,13 +64,13 @@ Connect-AzAccount
 Get-AzSubscription
 # Use your SubscriptionId in place of {subscription-id} below
 Select-AzSubscription -SubscriptionId {subscription-id}
-# Replace {rg-name} with the resource group for your SQL Managed Instance, and replace {mi-name} with the name of your SQL Managed Instance
+# Replace {rg-name} with the resource group for your managed instance, and replace {mi-name} with the name of your managed instance
 $mi = Get-AzSqlInstance -ResourceGroupName {rg-name} -Name {mi-name}
 $mi = $mi | Set-AzSqlInstance -ProxyOverride "Redirect" -force
 ```
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-- [Restaurer une base de données sur une instance managée SQL](restore-sample-database-quickstart.md)
+- [Restaurer une base de données sur SQL Managed Instance](restore-sample-database-quickstart.md)
 - Découvrez comment [configurer un point de terminaison public sur une instance managée SQL](public-endpoint-configure.md)
 - Apprenez-en davantage sur l’[architecture de connectivité SQL Managed Instance](connectivity-architecture-overview.md)
