@@ -22,15 +22,15 @@ sections:
         className: cardsFTitle
         items:
           - title: Prise en main des clusters Kubernetes
-            href: /azure/container-service/kubernetes
+            href: ./kubernetes/index.yml
             image:
               src: media/index/get-started.svg
-              href: /azure/container-service/kubernetes
+              href: ./kubernetes/index.yml
           - title: Prise en main de DC/OS et des clusters Docker Swarm
-            href: /azure/container-service/dcos-swarm
+            href: ./dcos-swarm/index.yml
             image:
               src: media/index/get-started.svg
-              href: /azure/container-service/dcos-swarm
+              href: ./dcos-swarm/index.yml
   - title: Développer vos compétences avec Microsoft Learn
     items:
       - type: list

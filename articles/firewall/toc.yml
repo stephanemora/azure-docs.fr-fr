@@ -12,8 +12,6 @@
       href: tutorial-hybrid-portal.md
     - name: Filtrer le trafic entrant avec DNAT
       href: tutorial-firewall-dnat.md
-    - name: Surveiller les journaux de diagnostics
-      href: tutorial-diagnostics.md
 - name: Démarrages rapides
   expanded: true
   items:
@@ -86,6 +84,8 @@
       href: protect-azure-kubernetes-service.md
     - name: Paramètres DNS
       href: dns-settings.md
+    - name: Surveiller les journaux de diagnostics
+      href: firewall-diagnostics.md
 - name: Informations de référence
   items:
     - name: Azure CLI
