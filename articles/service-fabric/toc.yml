@@ -111,7 +111,7 @@
 - name: Exemples
   items:
     - name: Exemples de code
-      href: 'https://docs.microsoft.com/samples/browse/'
+      href: /samples/browse/
     - name: Azure PowerShell
       href: service-fabric-powershell-samples.md
     - name: CLI Service Fabric
@@ -491,7 +491,7 @@
             - name: Configurer ReliableDictionaryActorStateProvider
               href: service-fabric-reliable-actors-reliabledictionarystateprovider-configuration.md
         - name: Générer un service ASP.NET Core
-          href: service-fabric-add-a-web-frontend.md
+          href: ./service-fabric-reliable-services-communication-aspnetcore.md
         - name: Créer un conteneur de serveur Apache Tomcat sur Linux
           href: service-fabric-get-started-tomcat.md
         - name: Configurer la sécurité
@@ -628,7 +628,7 @@
         - name: Configurer l’intégration continue
           items:
             - name: Configurer l’intégration continue avec Azure Pipelines
-              href: service-fabric-set-up-continuous-integration.md
+              href: ./service-fabric-tutorial-deploy-app-with-cicd-vsts.md
             - name: Déployer vos applications Linux à l’aide de Jenkins
               href: service-fabric-cicd-your-linux-applications-with-jenkins.md
     - name: Installer et configurer un proxy inversé
@@ -897,7 +897,7 @@
     - name: Questions courantes
       href: service-fabric-common-questions.md
     - name: Page de questions Microsoft Q&A
-      href: 'https://docs.microsoft.com/answers/topics/azure-service-fabric.html'
+      href: /answers/topics/azure-service-fabric.html
     - name: Garde-fous de déploiement Azure Resource Manager
       href: service-fabric-azure-resource-manager-guardrails.md
     - name: Tarifs
