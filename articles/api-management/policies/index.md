@@ -13,12 +13,12 @@ ms.topic: sample
 ms.date: 10/31/2017
 ms.author: apimpm
 ms.custom: mvc
-ms.openlocfilehash: b8f97bb27b3eb45c731b20ad51e35fde9b6a394a
-ms.sourcegitcommit: 398fecceba133d90aa8f6f1f2af58899f613d1e3
+ms.openlocfilehash: 252e7b8d13cf53a98ea1f25b207740c0e623f92c
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/21/2020
-ms.locfileid: "85126894"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86242965"
 ---
 # <a name="api-management-policy-samples"></a>Exemples de stratégie dans la Gestion des API
 
@@ -34,7 +34,7 @@ Les [stratégies](../api-management-howto-policies.md) sont une fonctionnalité 
 | [Autoriser les demandes à l’aide d’agent d’autorisation externe](./authorize-request-using-external-authorizer.md)                                                   | Montre comment utiliser l’agent d’autorisation externe pour la sécurisation de l’accès à l’API.                                                                                                                                                               |
 | [Autoriser l’accès à l’aide du jeton Google OAuth](./use-google-as-oauth-token-provider.md)                                            | Montre comment autoriser l’accès à vos points de terminaison en utilisant Google comme fournisseur de jeton OAuth.                                                                                                                                    |
 | [Filtrer les adresses IP durant l’utilisation d’une passerelle Application Gateway](./filter-ip-addresses-when-using-appgw.md) | Montre comment filtrer les adresses IP dans les stratégies quand l’instance de Gestion des API est accessible via une passerelle Application Gateway
-| [Générer une signature d’accès partagé et transférer la demande vers le stockage Azure](./generate-shared-access-signature.md)                  | Montre comment générer une [signature d’accès partagé](../../storage/storage-dotnet-shared-access-signature-part-1.md) à l’aide d’expressions et transférer la demande vers le stockage Azure avec une stratégie rewrite-uri. |
+| [Générer une signature d’accès partagé et transférer la demande vers le stockage Azure](./generate-shared-access-signature.md)                  | Montre comment générer une [signature d’accès partagé](../../storage/common/storage-sas-overview.md) à l’aide d’expressions et transférer la demande vers le stockage Azure avec une stratégie rewrite-uri. |
 | [Obtenir un jeton d’accès OAuth2 d’AAD et le transférer au backend](./use-oauth2-for-authorization.md)                             | Fournit un exemple d’utilisation d’OAuth2 pour l’autorisation entre la passerelle et un backend. Il montre comment obtenir un jeton d’accès d’AAD et le transférer au serveur principal.                                                    |
 | [Obtenir un jeton X-CSRF de la passerelle SAP à l’aide d’une stratégie send-request](./get-x-csrf-token-from-sap-gateway.md)                           | Montre comment implémenter un modèle X-CSRF utilisé par de nombreuses API. Cet exemple est spécifique de la passerelle SAP.                                                                                                                           |
 | [Router la demande en fonction de la taille de son corps](./route-requests-based-on-size.md)                                            | Montre comment router les demandes en fonction de la taille de leurs corps.                                                                                                                                                       |
