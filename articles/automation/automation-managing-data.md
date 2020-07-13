@@ -5,12 +5,12 @@ services: automation
 ms.subservice: shared-capabilities
 ms.date: 06/03/2020
 ms.topic: conceptual
-ms.openlocfilehash: 2dbaebac2228c11aef5fb33af4588f75ea15677a
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: cc96f2dd81b618b4170acd4b415a09248adbb7d5
+ms.sourcegitcommit: ec682dcc0a67eabe4bfe242fce4a7019f0a8c405
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84343052"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86186161"
 ---
 # <a name="management-of-azure-automation-data"></a>Gestion des données Azure Automation
 
@@ -37,9 +37,9 @@ Pour plus d’informations sur la prise en charge du protocole TLS 1.2 avec l’
 |Plateforme/Langage | Support | Informations complémentaires |
 | --- | --- | --- |
 |Linux | Les distributions de Linux s’appuient généralement sur [OpenSSL](https://www.openssl.org) pour la prise en charge de TLS 1.2.  | Vérifiez [OpenSSL Changelog](https://www.openssl.org/news/changelog.html) pour vous assurer que votre version d’OpenSSL est prise en charge.|
-| Windows 8.0 - 10 | Pris en charge, activé par défaut. | Pour confirmer que vous utilisez toujours les [paramètres par défaut](https://docs.microsoft.com/windows-server/security/tls/tls-registry-settings).  |
-| Windows Server 2012 - 2016 | Pris en charge, activé par défaut. | Pour confirmer que vous utilisez toujours les [paramètres par défaut](https://docs.microsoft.com/windows-server/security/tls/tls-registry-settings) |
-| Windows 7 SP1 et Windows Server 2008 R2 SP1 | Pris en charge, mais non activé par défaut. | Consultez la page [Paramètres de Registre de TLS](https://docs.microsoft.com/windows-server/security/tls/tls-registry-settings) pour plus d’informations sur l’activation.  |
+| Windows 8.0 - 10 | Pris en charge, activé par défaut. | Pour confirmer que vous utilisez toujours les [paramètres par défaut](/windows-server/security/tls/tls-registry-settings).  |
+| Windows Server 2012 - 2016 | Pris en charge, activé par défaut. | Pour confirmer que vous utilisez toujours les [paramètres par défaut](/windows-server/security/tls/tls-registry-settings) |
+| Windows 7 SP1 et Windows Server 2008 R2 SP1 | Pris en charge, mais non activé par défaut. | Consultez la page [Paramètres de Registre de TLS](/windows-server/security/tls/tls-registry-settings) pour plus d’informations sur l’activation.  |
 
 ## <a name="data-retention"></a>Conservation des données
 
@@ -51,7 +51,7 @@ Le tableau suivant récapitule la stratégie de rétention pour les différentes
 |:--- |:--- |
 | Comptes |Un compte est définitivement supprimé 30 jours après avoir été supprimé par un utilisateur. |
 | Éléments multimédias |Une ressource est définitivement supprimée 30 jours après avoir été supprimée par un utilisateur ou 30 jours après qu’un utilisateur a supprimé un compte qui contenait la ressource. |
-| Nœuds DSC |Un nœud DSC est définitivement supprimé 30 jours après avoir été désinscrit d’un compte Automation via le portail Azure ou l’applet de commande [Unregister-AzAutomationDscNode](https://docs.microsoft.com/powershell/module/az.automation/unregister-azautomationdscnode?view=azps-3.7.0) dans Windows PowerShell. De même, un nœud peut être supprimé définitivement 30 jours après qu’un utilisateur a supprimé le compte qui contenait le nœud. |
+| Nœuds DSC |Un nœud DSC est définitivement supprimé 30 jours après avoir été désinscrit d’un compte Automation via le portail Azure ou l’applet de commande [Unregister-AzAutomationDscNode](/powershell/module/az.automation/unregister-azautomationdscnode?view=azps-3.7.0) dans Windows PowerShell. De même, un nœud peut être supprimé définitivement 30 jours après qu’un utilisateur a supprimé le compte qui contenait le nœud. |
 | travaux |Une tâche est supprimée et définitivement retirée 30 jours après avoir été modifiée (par exemple, suite à la fin, à l’arrêt ou à l’interruption de la tâche). |
 | Modules |Un module est définitivement supprimé 30 jours après avoir été supprimé par un utilisateur ou 30 jours après qu’un utilisateur a supprimé le compte qui contenait le module. |
 | Configurations de nœud/fichiers MOF |Une ancienne configuration de nœud est définitivement supprimée 30 jours après la génération d’une nouvelle configuration de nœud. |
@@ -66,7 +66,7 @@ Quand vous supprimez un compte Automation dans Azure, tous les objets du compte 
 
 ### <a name="runbooks"></a>Runbooks
 
-Vous pouvez exporter vos Runbooks vers vos fichiers de script en utilisant soit le portail Azure, soit l’applet de commande [Get-AzureAutomationRunbookDefinition](https://docs.microsoft.com/powershell/module/servicemanagement/azure/get-azureautomationrunbookdefinition) dans Windows PowerShell. Vous pouvez importer ces fichiers de script dans un autre compte Automation, comme expliqué dans [Gérer les runbooks dans Azure Automation](manage-runbooks.md).
+Vous pouvez exporter vos Runbooks vers vos fichiers de script en utilisant soit le portail Azure, soit l’applet de commande [Get-AzureAutomationRunbookDefinition](/powershell/module/servicemanagement/azure/get-azureautomationrunbookdefinition) dans Windows PowerShell. Vous pouvez importer ces fichiers de script dans un autre compte Automation, comme expliqué dans [Gérer les runbooks dans Azure Automation](manage-runbooks.md).
 
 ### <a name="integration-modules"></a>Modules d'intégration
 
@@ -80,8 +80,7 @@ Vous ne pouvez pas récupérer la valeur des variables chiffrées ou des champs 
 
 ### <a name="dsc-configurations"></a>Configurations DSC
 
-Vous pouvez exporter vos configurations DSC dans des fichiers de script en utilisant soit le portail Azure, soit l'applet de commande [Export-AzAutomationDscConfiguration](https://docs.microsoft.com/powershell/module/az.automation/export-azautomationdscconfiguration?view=azps-3.7.0
-) dans Windows PowerShell. Vous pouvez importer et utiliser ces configurations dans un autre compte Automation.
+Vous pouvez exporter vos configurations DSC dans des fichiers de script en utilisant soit le portail Azure, soit l'applet de commande [Export-AzAutomationDscConfiguration](/powershell/module/az.automation/export-azautomationdscconfiguration?view=azps-3.7.0) dans Windows PowerShell. Vous pouvez importer et utiliser ces configurations dans un autre compte Automation.
 
 ## <a name="geo-replication-in-azure-automation"></a>Géo-réplication dans Azure Automation
 
@@ -103,4 +102,4 @@ Le service de géoréplication Automation n’est pas directement accessible aux
 
 * Pour en savoir plus sur les ressources sécurisées dans Azure Automation, consultez [Chiffrement des ressources sécurisées dans Azure Automation](automation-secure-asset-encryption.md).
 
-* Pour découvrir plus en détail la géoréplication, consultez [Création et utilisation de la géoréplication active](../sql-database/sql-database-active-geo-replication.md).
+* Pour découvrir plus en détail la géoréplication, consultez [Création et utilisation de la géoréplication active](../azure-sql/database/active-geo-replication-overview.md).
