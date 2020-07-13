@@ -3,12 +3,12 @@ title: Informations de référence sur le fichier host.json pour Azure Functions
 description: Documentation de référence pour le fichier host.json d’Azure Functions avec le runtime v2.
 ms.topic: conceptual
 ms.date: 04/28/2020
-ms.openlocfilehash: 39e6ce5d6807a554cc1714a3970bed8303c31ce8
-ms.sourcegitcommit: 366e95d58d5311ca4b62e6d0b2b47549e06a0d6d
+ms.openlocfilehash: 8d9ea01ffd5bcf2adb25d4f1b3900ff291438ac8
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/01/2020
-ms.locfileid: "82690900"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85298495"
 ---
 # <a name="hostjson-reference-for-azure-functions-2x-and-later"></a>Informations de référence sur le fichier host.json pour Azure Functions 2.x et ultérieur 
 
@@ -242,11 +242,16 @@ Liste des fonctions que l’hôte de travail exécute. Un tableau vide désigne 
 
 ## <a name="functiontimeout"></a>functionTimeout
 
-Indique la durée avant expiration du délai de toutes les fonctions. Il suit le format de chaîne TimeSpan. Dans les plans de consommation serverless, la plage valide est comprise entre 1 seconde et 10 minutes, et la valeur par défaut est de 5 minutes.  
+Indique la durée avant expiration du délai de toutes les fonctions. Il suit le format de chaîne TimeSpan. 
 
-Dans le plan Premium, la plage valide est comprise entre 1 seconde et 60 minutes, et la valeur par défaut est de 30 minutes.
+| Type de plan | Par défaut (min) | Maximum (min) |
+| -- | -- | -- |
+| Consommation | 5 | 10 |
+| Premium<sup>1</sup> | 30 | -1 (non lié)<sup>2</sup> |
+| Dédié (App Service) | 30 | -1 (non lié)<sup>2</sup> |
 
-Dans un plan App Service dédié, il n’existe aucune limite globale, et la valeur par défaut est de 30 minutes. La valeur `-1` indique une exécution illimitée, mais il est recommandé de conserver une limite supérieure fixe.
+<sup>1</sup> L’exécution du plan Premium n’est garantie que pendant 60 minutes, mais techniquement illimitée.   
+<sup>2</sup> La valeur `-1` indique une exécution illimitée, mais il est recommandé de conserver une limite supérieure fixe.
 
 ```json
 {

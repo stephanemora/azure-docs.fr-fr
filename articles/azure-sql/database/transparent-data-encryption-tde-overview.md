@@ -1,6 +1,6 @@
 ---
 title: Chiffrement transparent des données
-titleSuffix: Azure SQL Database & SQL Managed Instance & Azure Synapse
+titleSuffix: Azure SQL Database & SQL Managed Instance & Azure Synapse Analytics
 description: Vue d’ensemble du chiffrement transparent des données pour Azure SQL Database, Azure SQL Managed Instance et Azure Synapse. Ce document en décrit les avantages et les options de configuration, notamment le chiffrement transparent des données géré par le service et la prise en charge du service Bring Your Own Key.
 services: sql-database
 ms.service: sql-database
@@ -11,25 +11,25 @@ ms.topic: conceptual
 author: jaszymas
 ms.author: jaszymas
 ms.reviewer: vanto
-ms.date: 04/10/2020
-ms.openlocfilehash: 05bd4b83a6387eefb243ed8058c3fe833615cfb4
-ms.sourcegitcommit: 1f48ad3c83467a6ffac4e23093ef288fea592eb5
+ms.date: 06/15/2020
+ms.openlocfilehash: 8bf1a19c8756e8c51b79ec63f10822efa7816d32
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/29/2020
-ms.locfileid: "84188289"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84986942"
 ---
-# <a name="transparent-data-encryption-for-sql-database-sql-managed-instance--azure-synapse"></a>Chiffrement transparent des données pour SQL Database, SQL Managed Instance et Azure Synapse
+# <a name="transparent-data-encryption-for-sql-database-sql-managed-instance-and-azure-synapse-analytics"></a>Chiffrement transparent des données pour SQL Database, SQL Managed Instance et Azure Synapse Analytics
 [!INCLUDE[appliesto-sqldb-sqlmi-asa](../includes/appliesto-sqldb-sqlmi-asa.md)]
 
-[Transparent Data Encryption (TDE)](/sql/relational-databases/security/encryption/transparent-data-encryption) est une technologie de chiffrement transparent des données qui contribue à protéger Azure SQL Database, Azure SQL Managed Instance et SQL Synapse dans Azure Synapse Analytics contre les menaces d’activités hors connexion malveillantes en chiffrant les données au repos. Il assure le chiffrement et le déchiffrement en temps réel de la base de données, des sauvegardes associées et des fichiers journaux des transactions au repos, sans que cela nécessite de modifier l’application. Par défaut, TDE est activé pour toutes les bases de données déployées récemment et doit être activé manuellement pour les anciennes bases de données Azure SQL Database, Azure SQL Managed Instance ou Azure Synapse.
+[Transparent Data Encryption (TDE)](/sql/relational-databases/security/encryption/transparent-data-encryption) est une technologie de chiffrement transparent des données qui contribue à protéger Azure SQL Database, Azure SQL Managed Instance et Azure Synapse Analytics contre les menaces d’activités hors connexion malveillantes en chiffrant les données au repos. Il assure le chiffrement et le déchiffrement en temps réel de la base de données, des sauvegardes associées et des fichiers journaux des transactions au repos, sans que cela nécessite de modifier l’application. Par défaut, TDE est activé pour toutes les bases de données SQL déployées récemment et doit être activé manuellement pour les anciennes bases de données d’Azure SQL Database et d’Azure SQL Managed Instance. TDE doit être activé manuellement pour Azure Synapse Analytics.
 
 TDE effectue le chiffrement et le déchiffrement des données d’E/S en temps réel au niveau de la page. Chaque page est déchiffrée lorsqu’elle est lue en mémoire, puis chiffrée avant d’être écrite sur le disque. TDE chiffre le stockage d’une base de données entière à l’aide d’une clé symétrique appelée clé de chiffrement de la base de données (« clé DEK »). Au démarrage de la base de données, la clé DEK chiffrée est déchiffrée, puis elle est utilisée pour déchiffrer et rechiffrer les fichiers de la base de données dans le processus du moteur de base de données SQL Server. La clé de chiffrement DEK est protégée par le protecteur TDE. Le protecteur TDE est soit un certificat géré par le service (chiffrement transparent des données géré par le service), soit une clé asymétrique stockée dans [Azure Key Vault](https://docs.microsoft.com/azure/key-vault/key-vault-secure-your-key-vault) (chiffrement transparent des données géré par le client).
 
 Pour Azure SQL Database et Azure Synapse, le protecteur TDE est défini au niveau du [serveur](logical-servers.md) logique SQL et est hérité par toutes les bases de données associées à ce serveur. Pour Azure SQL Managed Instance (fonctionnalité BYOK dans la préversion), le protecteur TDE est défini au niveau de l’instance et il est hérité par toutes les bases de données chiffrées sur cette instance. Le terme *serveur* fait référence à la fois au serveur et à l’instance tout au long de ce document, sauf indication contraire.
 
 > [!IMPORTANT]
-> Toutes les bases de données SQL Database et Azure Synapse nouvellement créées sont chiffrées par défaut à l’aide du chiffrement transparent des données géré par le service. Les bases de données SQL existantes créées avant mai 2017 et les bases de données SQL créées via restauration, géoréplication et copie de base de données, ne sont pas chiffrées par défaut. Les bases de données Managed Instance existantes créées avant février 2019 ne sont pas chiffrées par défaut. Les bases de données Managed Instance créées par le biais de la restauration héritent de l’état de chiffrement de la source.
+> Toutes les bases de données SQL Database nouvellement créées sont chiffrées par défaut à l’aide du chiffrement transparent des données géré par le service. Les bases de données SQL existantes créées avant mai 2017 et les bases de données SQL créées via restauration, géoréplication et copie de base de données, ne sont pas chiffrées par défaut. Les bases de données SQL Managed Instance existantes créées avant février 2019 ne sont pas chiffrées par défaut. Les bases de données SQL Managed Instance créées par le biais de la restauration héritent de l’état de chiffrement de la source.
 
 > [!NOTE]
 > TDE ne permet pas de chiffrer la base de données **MASTER** dans SQL Database.  La base de données **MASTER** contient les objets nécessaires à l’exécution des opérations TDE sur les bases de données utilisateur.
@@ -61,17 +61,17 @@ Vous n’avez pas besoin de déchiffrer les bases de données pour leur applique
 - Restauration du fichier de sauvegarde vers Azure SQL Managed Instance
 
 > [!IMPORTANT]
-> La sauvegarde manuelle COPY-ONLY d’une base de données chiffrée par un TDE géré par le service n’est pas prise en charge dans Azure SQL Managed Instance, car le certificat utilisé pour le chiffrement n’est pas accessible. Utilisez la fonctionnalité de restauration dans le temps pour déplacer ce type de base de données vers une autre instance SQL Managed Instance.
+> La sauvegarde manuelle COPY-ONLY d’une base de données chiffrée par un TDE géré par le service n’est pas prise en charge dans Azure SQL Managed Instance, car le certificat utilisé pour le chiffrement n’est pas accessible. Utilisez la fonctionnalité de restauration dans le temps pour déplacer ce type de base de données vers un autre service SQL Managed Instance ou basculer vers une clé gérée par le client.
 
 Quand vous exportez une base de données protégée par TDE, le contenu exporté de la base de données n’est pas chiffré. Ce contenu exporté est stocké dans des fichiers BACPAC non chiffrés. Vous devez donc protéger les fichiers BACPAC de façon appropriée et activer TDE après avoir terminé l’importation de la nouvelle base de données.
 
 Par exemple, si le fichier BACPAC est exporté à partir d’une instance SQL Server, le contenu importé de la nouvelle base de données n’est pas chiffré automatiquement. De même, si le fichier BACPAC est exporté vers une instance SQL Server, la nouvelle base de données n’est pas chiffrée automatiquement.
 
-La seule exception survient lorsque vous procédez à une exportation à destination ou en provenance d’une base de données SQL. TDE est activé dans la nouvelle base de données, mais le fichier BACPAC proprement dit n’est toujours pas chiffré.
+La seule exception survient lorsque vous procédez à une exportation de base de données à destination ou en provenance de SQL Database. TDE est activé dans la nouvelle base de données, mais le fichier BACPAC proprement dit n’est toujours pas chiffré.
 
 ## <a name="manage-transparent-data-encryption"></a>Gérer Transparent Data Encryption
 
-# <a name="portal"></a>[Portail](#tab/azure-portal)
+# <a name="the-azure-portal"></a>[Le portail Azure](#tab/azure-portal)
 
 Gérer TDE dans le portail Azure.
 

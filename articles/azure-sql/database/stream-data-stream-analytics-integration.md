@@ -1,5 +1,5 @@
 ---
-title: Diffuser des données en continu à l’aide de l’intégration de Stream Analytics (préversion)
+title: Diffuser des données en continu à l’aide d’une intégration Azure Stream Analytics (préversion)
 description: Utilisez l'intégration Azure Stream Analytics pour diffuser des données en continu dans Azure SQL Database.
 services: sql-database
 ms.service: sql-database
@@ -11,17 +11,16 @@ author: ajetasin
 ms.author: ajetasi
 ms.reviewer: sstein
 ms.date: 11/04/2019
-ms.openlocfilehash: ea129902e5ab30a5d7f7a70c3606d4aa73cd84a5
-ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
+ms.openlocfilehash: 90d3507a8867ad3556891f6001f0e15ebda8c4f4
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "84030550"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84345357"
 ---
-# <a name="stream-data-into-azure-sql-database-using-stream-analytics-integration-preview"></a>Diffuser des données en continu dans Azure SQL Database à l'aide de l'intégration Stream Analytics (préversion)
-[!INCLUDE[appliesto-sqldb-sqlmi-asa](../includes/appliesto-sqldb-sqlmi-asa.md)]
+# <a name="stream-data-into-azure-sql-database-using-azure-stream-analytics-integration-preview"></a>Diffuser des données en continu dans Azure SQL Database à l’aide d’une intégration Azure Stream Analytics (préversion)
 
-Les utilisateurs peuvent désormais ingérer, traiter, afficher et analyser les données de diffusion en continu en temps réel dans une table directement à partir d’une base de données SQL dans le Portail Azure à l’aide de [Azure Stream Analytics](../../stream-analytics/stream-analytics-introduction.md). Cette expérience permet un large éventail de scénarios, tels que la voiture connectée, la supervision à distance, la détection des fraudes et bien plus encore. Dans le Portail Azure, vous pouvez sélectionner une source de l’événement (Event Hub/IoT Hub), afficher les événements entrants en temps réel et sélectionner une table pour stocker des événements. Vous pouvez également écrire des requêtes de langage de requête Stream Analytics dans le portail pour transformer les événements entrants et les stocker dans la table sélectionnée. Ce nouveau point d’entrée s’ajoute aux expériences de création et de configuration qui existent déjà dans Stream Analytics. Cette expérience commence dans le contexte de votre base de données, ce qui vous permet de configurer rapidement un travail de Stream Analytics et de naviguer de manière transparente entre les expériences Azure SQL Database et Stream Analytics.
+Les utilisateurs peuvent désormais ingérer, traiter, afficher et analyser des données de diffusion en temps réel dans une table directement à partir d’une base de données dans Azure SQL Database. Ils le font dans le portail Azure à l’aide d’[Azure Stream Analytics](../../stream-analytics/stream-analytics-introduction.md). Cette expérience permet un large éventail de scénarios, tels que la voiture connectée, la supervision à distance, la détection des fraudes et bien plus encore. Dans le Portail Azure, vous pouvez sélectionner une source de l’événement (Event Hub/IoT Hub), afficher les événements entrants en temps réel et sélectionner une table pour stocker des événements. Vous pouvez également écrire des requêtes en langage de requêtes Azure Stream Analytics dans le portail pour transformer des événements entrants et les stocker dans la table sélectionnée. Ce nouveau point d’entrée s’ajoute aux expériences de création et de configuration qui existent déjà dans Stream Analytics. Cette expérience commence dans le contexte de votre base de données, ce qui vous permet de configurer rapidement un travail Stream Analytics et de naviguer sans difficulté entre la base de données dans Azure SQL Database et les expériences Stream Analytics.
 
 ![Flux de Stream Analytics](./media/stream-data-stream-analytics-integration/stream-analytics-flow.png)
 
@@ -32,7 +31,7 @@ Les utilisateurs peuvent désormais ingérer, traiter, afficher et analyser les 
 - Facilité d’utilisation accrue avec les données de préversion : Données de préversion entrantes à partir de la source des événements (Event Hub/IoT Hub) dans le contexte de la table sélectionnée
 
 > [!IMPORTANT]
-> Un travail Azure Stream Analytics peut sortir vers Azure SQL Database, Azure SQL Managed Instance ou Azure Synapse (anciennement Azure SQL Data Warehouse). Pour plus d’informations, consultez la section [Sorties](../../stream-analytics/stream-analytics-define-outputs.md#sql-database).
+> Un travail Azure Stream Analytics peut sortir vers Azure SQL Database, Azure SQL Managed Instance ou Azure Synapse Analytics (anciennement Azure SQL Data Warehouse). Pour plus d’informations, consultez la section [Sorties](../../stream-analytics/stream-analytics-define-outputs.md#sql-database).
 
 ## <a name="prerequisites"></a>Prérequis
 
@@ -49,7 +48,7 @@ Pour effectuer les étapes de cet article, vous avez besoin des ressources suiva
 
     ![Stream Analytics](./media/stream-data-stream-analytics-integration/stream-analytics.png)
 
-3. Pour commencer à recevoir vos données de diffusion en continu dans cette base de données SQL, sélectionnez **Créer** et donnez un nom à votre travail de diffusion en continu, puis sélectionnez **Suivant : Entrée**.
+3. Pour commencer à recevoir vos données de diffusion en continu dans cette base de données, sélectionnez **Créer** et donnez un nom à votre travail de diffusion en continu, puis sélectionnez **Suivant : Entrée**.
 
     ![créer un travail Stream Analytics](./media/stream-data-stream-analytics-integration/create-job.png)
 
@@ -119,7 +118,7 @@ Pour effectuer les étapes de cet article, vous avez besoin des ressources suiva
    - **Démarrer/arrêter le travail** : Si le travail est en cours d’exécution, vous pouvez l’arrêter. Si le travail est arrêté, vous pouvez le démarrer.
    - **Modifier le travail** : Vous pouvez modifier la requête. Si vous souhaitez effectuer d’autres modifications dans le travail, par exemple, ajoutez d’autres entrées/sorties, puis ouvrez le travail dans Stream Analytics. L’option Modifier est désactivée lorsque le travail est en cours d’exécution.
    - **Aperçu de la table de sortie** : Vous pouvez afficher un aperçu de la table dans l’éditeur de requête SQL.
-   - **Ouvrir dans Stream Analytics** : Ouvrez le travail dans le service Stream Analytics pour afficher les détails de supervision et de débogage du travail.
+   - **Ouvrir dans Stream Analytics** : Ouvrez le travail dans Stream Analytics pour afficher les détails de supervision et de débogage du travail.
 
      ![Travaux Stream Analytics](./media/stream-data-stream-analytics-integration/jobs.png)
 
@@ -127,3 +126,4 @@ Pour effectuer les étapes de cet article, vous avez besoin des ressources suiva
 
 - [Documentation d’Azure Stream Analytics](https://docs.microsoft.com/azure/stream-analytics/)
 - [Modèles de solution Azure Stream Analytics](../../stream-analytics/stream-analytics-solution-patterns.md)
+ 

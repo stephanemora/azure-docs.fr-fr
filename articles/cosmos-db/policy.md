@@ -6,12 +6,12 @@ ms.author: paelaz
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 05/20/2020
-ms.openlocfilehash: 2249dbdebecc52a8f5d6decccb83d3b1fc0777f7
-ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
+ms.openlocfilehash: a1b1c01f7cf720690decd9c7aac5fb14b92121ec
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/21/2020
-ms.locfileid: "83747373"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84431986"
 ---
 # <a name="use-azure-policy-to-implement-governance-and-controls-for-azure-cosmos-db-resources"></a>Utiliser Azure Policy pour implémenter la gouvernance et les contrôles sur les ressources Azure Cosmos DB
 
@@ -79,21 +79,24 @@ Ces commandes génèrent la liste des noms d’alias de propriété pour la prop
 
 Vous pouvez utiliser n’importe lequel de ces noms d’alias de propriété dans les [règles de définition de stratégie personnalisée](../governance/policy/tutorials/create-custom-policy-definition.md#policy-rule).
 
-Voici un exemple de définition de stratégie qui vérifie si le débit approvisionné d’une base de données SQL Azure Cosmos DB est supérieur à la limite maximale autorisée, égale à 400 RU/s. Une définition de stratégie personnalisée comprend deux règles : l’une pour vérifier le type spécifique d’alias de propriété et la deuxième pour déterminer la propriété spécifique du type. Ces deux règles utilisent des noms d’alias.
+Voici un exemple de définition de stratégie qui vérifie si un compte de Azure Cosmos DB est configuré pour plusieurs emplacements d’écriture. La définition de stratégie personnalisée comprend deux règles : l’une pour vérifier le type spécifique d’alias de propriété, et l’autre pour la propriété spécifique du type, en l’occurrence, le champ qui stocke le paramètre d’emplacement d’écritures multiples. Ces deux règles utilisent des noms d’alias.
 
 ```json
 "policyRule": {
   "if": {
     "allOf": [
       {
-      "field": "type",
-      "equals": "Microsoft.DocumentDB/databaseAccounts/sqlDatabases/throughputSettings"
+        "field": "type",
+        "equals": "Microsoft.DocumentDB/databaseAccounts"
       },
       {
-      "field": "Microsoft.DocumentDB/databaseAccounts/sqlDatabases/throughputSettings/default.resource.throughput",
-      "greater": 400
+        "field": "Microsoft.DocumentDB/databaseAccounts/enableMultipleWriteLocations",
+        "notEquals": true
       }
     ]
+  },
+  "then": {
+    "effect": "Audit"
   }
 }
 ```
@@ -106,21 +109,26 @@ Une fois les attributions de stratégie créées, Azure Policy évalue les resso
 
 Vous pouvez consulter les résultats de conformité et les détails de la correction dans le [Portail Azure](../governance/policy/how-to/get-compliance-data.md#portal) ou via [Azure CLI](../governance/policy/how-to/get-compliance-data.md#command-line) ou encore les [journaux Azure Monitor](../governance/policy/how-to/get-compliance-data.md#azure-monitor-logs).
 
-La capture d’écran suivante montre deux exemples d’affectations de stratégie. Une affectation est basée sur une définition de stratégie intégrée, qui vérifie que les ressources Azure Cosmos DB sont déployées uniquement dans les régions Azure autorisées. L’autre est basée sur une définition de stratégie personnalisée. Cette affectation vérifie que le débit approvisionné sur les ressources Azure Cosmos DB ne dépasse pas une limite maximale spécifiée.
+La capture d’écran suivante montre deux exemples d’affectations de stratégie.
 
-Une fois les affectations de stratégie déployées, le tableau de bord de conformité affiche les résultats de l’évaluation. Notez que cette opération peut prendre jusqu’à 30 minutes après le déploiement d’une affectation de stratégie.
+Une affectation est basée sur une définition de stratégie intégrée, qui vérifie que les ressources Azure Cosmos DB sont déployées uniquement dans les régions Azure autorisées. La conformité des ressources affiche le résultat de l’évaluation de la stratégie (conforme ou non conforme) pour les ressources concernées.
 
-La capture d’écran montre les résultats d’une évaluation de la conformité :
+L’autre est basée sur une définition de stratégie personnalisée. Cette attribution vérifie que les comptes Cosmos DB sont configurés pour les emplacements d’écriture multiples.
 
-- Zéro sur un compte Azure Cosmos DB dans l’étendue spécifiée est conforme à l’affectation de stratégie visant à vérifier que les ressources ont été déployées dans les régions autorisées.
-- Une sur deux ressources de collection ou de base de données Azure Cosmos DB dans l’étendue spécifiée est conforme à l’affectation de stratégie visant à vérifier si le débit approvisionné dépasse la limite maximale spécifiée.
+Une fois les affectations de stratégie déployées, le tableau de bord de conformité affiche les résultats de l’évaluation. Notez que cette opération peut prendre jusqu’à 30 minutes après le déploiement d’une affectation de stratégie. En outre, les [analyses d’évaluation de stratégie peuvent être lancées à la demande](../governance/policy/how-to/get-compliance-data.md#on-demand-evaluation-scan) immédiatement après la création d’affectations de stratégie.
 
-:::image type="content" source="./media/policy/compliance.png" alt-text="Recherche de définitions de stratégie intégrée Azure Cosmos DB":::
+La capture d’écran montre les résultats d’évaluation de la conformité suivants pour les comptes Azure Cosmos DB concernés :
 
-Pour savoir comment corriger les ressources non conformes, reportez-vous à l’article relatif à la [correction avec Azure Policy](../governance/policy/how-to/remediate-resources.md).
+- Aucun des deux comptes n’est conforme à une stratégie selon laquelle le filtrage de réseau virtuel doit être configuré.
+- Aucun des deux comptes n’est conforme à une stratégie requérant que le compte soit configuré pour plusieurs emplacements d’écriture
+- Aucun des deux comptes n’est conforme à une stratégie selon laquelle les ressources ont été déployées vers des régions Azure autorisées.
+
+:::image type="content" source="./media/policy/compliance.png" alt-text="Résultats de conformité pour les affectations d’Azure Policy répertoriées":::
+
+Pour comment corriger les ressources non conformes, consultez [Corriger les ressources non conformes avec Azure Policy](../governance/policy/how-to/remediate-resources.md).
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-- [Vérification des définitions de stratégie personnalisées pour Azure Cosmos DB](https://github.com/Azure/azure-policy/tree/master/samples/CosmosDB)
+- [Examinez les exemples de définitions de stratégie personnalisée pour Azure Cosmos DB](https://github.com/Azure/azure-policy/tree/master/samples/CosmosDB), notamment pour les stratégies d’emplacements d’écriture multiples et de filtrage de réseau virtuel présentées ci-dessus.
 - [Création d’une affectation de stratégie dans le Portail Azure](../governance/policy/assign-policy-portal.md)
 - [Vérification des définitions de stratégie intégrées d’Azure Policy pour Azure Cosmos DB](./policy-samples.md)

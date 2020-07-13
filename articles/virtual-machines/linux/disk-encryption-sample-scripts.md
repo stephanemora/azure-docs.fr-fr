@@ -8,12 +8,12 @@ ms.topic: article
 ms.author: mbaldwin
 ms.date: 08/06/2019
 ms.custom: seodec18
-ms.openlocfilehash: b54f9f3466fe5f7e2da622077f53575d6f43f72d
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 32d4e709036135a9a88ec36eaafaa176df33fabf
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80585961"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85610351"
 ---
 # <a name="azure-disk-encryption-sample-scripts"></a>Exemples de scripts Azure Disk Encryption 
 
@@ -320,7 +320,7 @@ Pour configurer le chiffrement afin de l’utiliser dans Azure, effectuez les é
 
 6. Vous pouvez maintenant déprovisionner la machine virtuelle et charger votre disque dur virtuel dans Azure.
 
-### <a name="centos-7-and-rhel-81"></a>CentOS 7 et RHEL 8.1
+### <a name="centos-7-and-rhel-7"></a>CentOS 7 et RHEL 7
 
 Pour configurer le chiffrement lors de l’installation de la distribution, effectuez les étapes suivantes :
 1. Sélectionnez **Chiffrer mes données** lors du partitionnement des disques.

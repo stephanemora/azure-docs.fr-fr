@@ -1,6 +1,6 @@
 ---
 title: Examiner les incidents avec Azure Sentinel | Microsoft Docs
-description: Utilisez ce tutoriel pour apprendre à examiner les alertes avec Azure Sentinel.
+description: Ce didacticiel explique comment utiliser Azure Sentinel pour créer des règles d’alerte avancées qui génèrent des incidents que vous pouvez attribuer et examiner.
 services: sentinel
 documentationcenter: na
 author: yelevin
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/23/2019
 ms.author: yelevin
-ms.openlocfilehash: ecd8c508d05bfeb541a6cb5efbcdf2fffd3c78d3
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 564041da0be6874acae1bec69e4ab2d744d89323
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "77587190"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85565234"
 ---
 # <a name="tutorial-investigate-incidents-with-azure-sentinel"></a>Tutoriel : Examiner les incidents avec Azure Sentinel
 
@@ -107,7 +107,21 @@ Pour utiliser le graphique d’examen :
 
     ![Utiliser la chronologie dans la carte pour examiner les alertes](media/tutorial-investigate-cases/use-timeline.png)
 
+## <a name="closing-an-incident"></a>Clôture d’un incident
 
+Une fois que vous avez résolu un incident particulier (par exemple, lorsque votre investigation a atteint sa conclusion), vous devez définir son état sur **Clôturé**. Dans ce cas, vous êtes invité à classer l’incident en spécifiant la raison pour laquelle vous le clôturez. Cette étape est obligatoire. Cliquez sur **Sélectionner la classification**, puis choisissez l’une des options suivantes dans la liste déroulante :
+
+- Vrai positif – activité suspecte
+- Positif bénin – suspect, mais attendu
+- Faux positif – logique d’alerte incorrecte
+- Faux positif – données incorrectes
+- Indéterminé
+
+:::image type="content" source="media/tutorial-investigate-cases/closing-reasons-dropdown.png" alt-text="{alt-text}":::
+
+Après avoir choisi la classification appropriée, ajoutez un texte descriptif dans le champ **Commentaire**. Cela vous sera utile dans l’éventualité où vous devriez revenir à cet incident. Lorsque vous avez terminé, cliquez sur **Appliquer** pour clôturer l’incident.
+
+:::image type="content" source="media/tutorial-investigate-cases/closing-reasons-comment-apply.png" alt-text="{alt-text}":::
 
 ## <a name="next-steps"></a>Étapes suivantes
 Dans ce didacticiel, vous avez appris à commencer à examiner les incidents à l’aide d’Azure Sentinel. Passez au didacticiel vous apprenant [comment répondre aux menaces à l’aide de playbooks automatisés](tutorial-respond-threats-playbook.md).

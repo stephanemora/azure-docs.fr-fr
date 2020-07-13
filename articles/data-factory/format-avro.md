@@ -7,14 +7,14 @@ ms.reviewer: craigg
 ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
-ms.date: 03/03/2020
+ms.date: 06/05/2020
 ms.author: jingwang
-ms.openlocfilehash: 931287fa2a4104069b101236bec9f76bb7193e8d
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 32af8c1b19d57fdba58ce27700e5d1e7a34f9c64
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81416349"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84604981"
 ---
 # <a name="avro-format-in-azure-data-factory"></a>Format Avro dans Azure Data Factory
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
@@ -81,6 +81,34 @@ Les propriétés prises en charge dans la section ***\*récepteur\**** de l’ac
 | ------------- | ------------------------------------------------------------ | -------- |
 | type          | La propriété type de la source d’activité de copie doit être définie sur **AvroSink**. | Oui      |
 | storeSettings | Groupe de propriétés sur la méthode d’écriture de données dans un magasin de données. Chaque connecteur basé sur un fichier possède ses propres paramètres d’écriture pris en charge sous `storeSettings`. **Consultez les détails dans l’article du connecteur -> section des propriétés de l’activité de copie**. | Non       |
+
+
+## <a name="mapping-data-flow-properties"></a>Propriétés du mappage de flux de données
+
+Dans les flux de données de mappage, vous pouvez lire et écrire des données au format avro dans les magasins de données suivants : [Stockage Blob Azure](connector-azure-blob-storage.md#mapping-data-flow-properties), [Azure Data Lake Storage Gen1](connector-azure-data-lake-store.md#mapping-data-flow-properties) et [Azure Data Lake Storage Gen2](connector-azure-data-lake-storage.md#mapping-data-flow-properties).
+
+### <a name="source-properties"></a>Propriétés de source
+
+Le tableau ci-dessous répertorie les propriétés prises en charge par une source avro. Vous pouvez modifier ces propriétés sous l’onglet **Options de source**.
+
+| Nom | Description | Obligatoire | Valeurs autorisées | Propriété du script de flux de données |
+| ---- | ----------- | -------- | -------------- | ---------------- |
+| Chemins génériques | Tous les fichiers correspondant au chemin générique seront traités. Remplace le chemin du dossier et du fichier défini dans le jeu de données. | non | String[] | wildcardPaths |
+| Chemin racine de la partition | Pour les données de fichier qui sont partitionnées, vous pouvez entrer le chemin racine d’une partition pour pouvoir lire les dossiers partitionnés comme des colonnes. | non | String | partitionRootPath |
+| Liste de fichiers | Si votre source pointe ou non vers un fichier texte qui liste les fichiers à traiter | non | `true` ou `false` | fileList |
+| Colonne où stocker le nom du fichier | Crée une colonne avec le nom et le chemin du fichier source | non | String | rowUrlColumn |
+| Après l’exécution | Supprime ou déplace les fichiers après le traitement. Le chemin du fichier commence à la racine du conteneur | non | Supprimer : `true` ou `false` <br> Déplacer : `['<from>', '<to>']` | purgeFiles <br> moveFiles |
+| Filtrer par date de dernière modification | Pour filtrer les fichiers en fonction de leur date de dernière modification | non | Timestamp | modifiedAfter <br> modifiedBefore |
+
+### <a name="sink-properties"></a>Propriétés du récepteur
+
+Le tableau ci-dessous répertorie les propriétés prises en charge par un récepteur avro. Vous pouvez modifier ces propriétés sous l’onglet **Paramètres**.
+
+| Nom | Description | Obligatoire | Valeurs autorisées | Propriété du script de flux de données |
+| ---- | ----------- | -------- | -------------- | ---------------- |
+| Effacer le contenu du dossier | Pour effacer le contenu du dossier de destination avant l’écriture de données | non | `true` ou `false` | truncate |
+| Option de nom de fichier | Format de nommage des données écrites. Par défaut, un fichier par partition au format `part-#####-tid-<guid>` | non | Modèle : String <br> Par partition : String[] <br> Comme les données de la colonne : String <br> Sortie dans un fichier unique : `['<fileName>']`  | filePattern <br> partitionFileNames <br> rowUrlColumn <br> partitionFileNames |
+| Tout mettre entre guillemets | Placer toutes les valeurs entre guillemets | non | `true` ou `false` | quoteAll |
 
 ## <a name="data-type-support"></a>Prise en charge des types de données
 

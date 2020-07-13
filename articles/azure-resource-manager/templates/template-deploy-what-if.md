@@ -3,14 +3,14 @@ title: Simulation de déploiement de modèle (préversion)
 description: Déterminez les modifications qui seront apportées à vos ressources avant de déployer un modèle Azure Resource Manager.
 author: tfitzmac
 ms.topic: conceptual
-ms.date: 05/29/2020
+ms.date: 06/16/2020
 ms.author: tomfitz
-ms.openlocfilehash: 31ef0f26043c416ff902fe792bae064c63f15b20
-ms.sourcegitcommit: 12f23307f8fedc02cd6f736121a2a9cea72e9454
+ms.openlocfilehash: 1e2c83167e7ccc1e3e98b23711fba567ef11ac23
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/30/2020
-ms.locfileid: "84218293"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84888750"
 ---
 # <a name="arm-template-deployment-what-if-operation-preview"></a>Opération de simulation de déploiement de modèle ARM (préversion)
 
@@ -19,19 +19,23 @@ Avant de déployer un modèle Azure Resource Manager (ARM), vous pouvez prévisu
 > [!NOTE]
 > L’opération de simulation est disponible en préversion. Dans la préversion, les résultats peuvent parfois indiquer qu’une ressource changera alors qu’aucune modification ne se produira. Nous nous efforçons de réduire ces problèmes, mais nous avons besoin de votre aide. Signalez ces problèmes à l’adresse [https://aka.ms/whatifissues](https://aka.ms/whatifissues).
 
-Vous pouvez utiliser l’opération de simulation avec des opérations d’Azure PowerShell, d’Azure CLI ou d’API REST.
+Vous pouvez utiliser l’opération de simulation avec des opérations d’Azure PowerShell, d’Azure CLI ou d’API REST. La simulation est prise en charge pour les déploiements de groupe de ressources et d’abonnement.
 
-## <a name="install-powershell-module"></a>Installer le module PowerShell
+## <a name="install-azure-powershell-module"></a>Installer le module Azure PowerShell
 
-Pour utiliser une simulation dans PowerShell, vous devez installer une préversion du module Az.Resources à partir de PowerShell Gallery. Toutefois, avant d’installer le module, vérifiez que vous disposez de PowerShell Core (6.x ou 7.x). Si vous disposez de PowerShell 5.x ou version antérieure, [mettez à jour votre version de PowerShell](/powershell/scripting/install/installing-powershell). Vous ne pouvez pas installer le module en préversion sur PowerShell 5.x ou version antérieure.
+Pour utiliser une simulation dans PowerShell, vous devez disposer de la version **4.2 ou d’une version ultérieure du module Az**.
 
-### <a name="install-preview-version"></a>Installer la préversion
+Toutefois, avant d’installer le module requis, vérifiez que vous disposez de PowerShell Core (6.x ou 7.x). Si vous disposez de PowerShell 5.x ou version antérieure, [mettez à jour votre version de PowerShell](/powershell/scripting/install/installing-powershell). Vous ne pouvez pas installer le module requis sur PowerShell version 5.x ou antérieure.
 
-Pour installer le module en préversion, utilisez :
+### <a name="install-latest-version"></a>Installer la dernière version
+
+Pour installer le module, utilisez :
 
 ```powershell
-Install-Module Az.Resources -RequiredVersion 1.12.1-preview -AllowPrerelease
+Install-Module -Name Az -Force
 ```
+
+Pour plus d’informations sur l’installation des modules, consultez [Installer Azure PowerShell](/powershell/azure/install-az-ps).
 
 ### <a name="uninstall-alpha-version"></a>Désinstaller la version alpha
 
@@ -97,11 +101,14 @@ Scope: /subscriptions/./resourceGroups/ExampleGroup
 Resource changes: 1 to modify.
 ```
 
+> [!NOTE]
+> L’opération de simulation ne peut pas résoudre la [fonction de référence](template-functions-resource.md#reference). Chaque fois que vous définissez une propriété sur une expression de modèle qui inclut la fonction de référence, les rapports de simulation de la propriété changent. Ce comportement se produit parce que la simulation compare la valeur actuelle de la propriété (telle que `true` ou `false` pour une valeur booléenne) à l’expression de modèle non résolue. Évidemment, ces valeurs ne correspondent pas. Lorsque vous déployez le modèle, la propriété change uniquement lorsque la résolution de l’expression de modèle produit une valeur différente.
+
 ## <a name="what-if-commands"></a>Commandes de simulation
 
 ### <a name="azure-powershell"></a>Azure PowerShell
 
-Pour afficher un aperçu des modifications avant de déployer un modèle, ajoutez le paramètre de commutateur `-Whatif` à la commande de déploiement.
+Pour afficher un aperçu des modifications avant de déployer un modèle, utilisez la commande [New-AzResourceGroupDeployment](/powershell/module/az.resources/new-azresourcegroupdeployment) ou [New-AzSubscriptionDeployment](/powershell/module/az.resources/new-azdeployment). Ajoutez le paramètre de commutateur `-Whatif` à la commande de déploiement.
 
 * `New-AzResourceGroupDeployment -Whatif` pour des déploiements de groupes de ressources
 * `New-AzSubscriptionDeployment -Whatif` et `New-AzDeployment -Whatif` pour des déploiements au niveau de l’abonnement
@@ -111,19 +118,19 @@ Vous pouvez utiliser le paramètre de commutateur `-Confirm` pour afficher un ap
 * `New-AzResourceGroupDeployment -Confirm` pour des déploiements de groupes de ressources
 * `New-AzSubscriptionDeployment -Confirm` et `New-AzDeployment -Confirm` pour des déploiements au niveau de l’abonnement
 
-Les commandes précédentes retournent un résumé sous forme de texte que vous pouvez inspecter manuellement. Pour obtenir un objet que vous pouvez inspecter par programme pour y détecter des modifications, utilisez :
+Les commandes précédentes retournent un résumé sous forme de texte que vous pouvez inspecter manuellement. Pour obtenir un objet dont vous pouvez inspecter les modifications par programmation, utilisez la commande [AzResourceGroupDeploymentWhatIfResult](/powershell/module/az.resources/get-azresourcegroupdeploymentwhatifresult) ou [AzSubscriptionDeploymentWhatIfResult](/powershell/module/az.resources/get-azdeploymentwhatifresult).
 
 * `$results = Get-AzResourceGroupDeploymentWhatIfResult` pour des déploiements de groupes de ressources
 * `$results = Get-AzSubscriptionDeploymentWhatIfResult` ou `$results = Get-AzDeploymentWhatIfResult` pour des déploiements au niveau de l’abonnement
 
 ### <a name="azure-cli"></a>Azure CLI
 
-Pour afficher un aperçu des modifications avant de déployer un modèle, utilisez `what-if` avec la commande de déploiement.
+Pour afficher un aperçu des modifications avant de déployer un modèle, utilisez la commande [az deployment group what-if](/cli/azure/deployment/group#az-deployment-group-what-if) ou [az deployment sub what-if](/cli/azure/deployment/sub#az-deployment-sub-what-if).
 
 * `az deployment group what-if` pour des déploiements de groupes de ressources
 * `az deployment sub what-if` pour des déploiements au niveau de l’abonnement
 
-Vous pouvez utiliser le commutateur `--confirm-with-what-if` (ou sa forme courte `-c`) pour afficher un aperçu des modifications et être invité à poursuivre le déploiement.
+Vous pouvez utiliser le commutateur `--confirm-with-what-if` (ou sa forme courte `-c`) pour afficher un aperçu des modifications et être invité à poursuivre le déploiement. Ajoutez ce commutateur à la commande [az deployment group create](/cli/azure/deployment/group#az-deployment-group-create) ou [az deployment sub create](/cli/azure/deployment/sub#az-deployment-sub-create).
 
 * `az deployment group create --confirm-with-what-if` ou `-c` pour des déploiements de groupe de ressources
 * `az deployment sub create --confirm-with-what-if` ou `-c` pour des déploiements au niveau de l’abonnement
@@ -132,6 +139,8 @@ Les commandes précédentes retournent un résumé sous forme de texte que vous 
 
 * `az deployment group what-if --no-pretty-print` pour des déploiements de groupes de ressources
 * `az deployment sub what-if --no-pretty-print` pour des déploiements au niveau de l’abonnement
+
+Si vous souhaitez retourner les résultats sans couleurs, ouvrez votre fichier de [configuration d’Azure CLI](/cli/azure/azure-cli-configuration). Définissez **no_color** sur **Oui**.
 
 ### <a name="azure-rest-api"></a>API REST Azure
 

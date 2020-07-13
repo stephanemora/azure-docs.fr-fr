@@ -2,21 +2,21 @@
 title: Différences T-SQL entre SQL Server et Azure SQL Managed Instance
 description: Cet article présente les différences Transact-SQL (T-SQL) entre Azure SQL Managed Instance et SQL Server.
 services: sql-database
-ms.service: sql-database
+ms.service: sql-managed-instance
 ms.subservice: operations
 ms.devlang: ''
 ms.topic: conceptual
 author: jovanpop-msft
 ms.author: jovanpop
 ms.reviewer: sstein, carlrab, bonova, danil
-ms.date: 03/11/2020
+ms.date: 06/02/2020
 ms.custom: seoapril2019, sqldbrb=1
-ms.openlocfilehash: 190d0bd242a685487480d4da613f354277663d9c
-ms.sourcegitcommit: 69156ae3c1e22cc570dda7f7234145c8226cc162
+ms.openlocfilehash: 229a74fe760386b59bc83373cc7b1429bd826929
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/03/2020
-ms.locfileid: "84308012"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85298445"
 ---
 # <a name="t-sql-differences-between-sql-server--azure-sql-managed-instance"></a>Différences T-SQL entre SQL Server et Azure SQL Managed Instance
 [!INCLUDE[appliesto-sqlmi](../includes/appliesto-sqlmi.md)]
@@ -432,7 +432,7 @@ Pour plus d’informations sur la configuration de la réplication transactionne
   - `FROM URL` (Stockage Blob Azure) est l’unique option prise en charge.
   - L’unité de sauvegarde/`FROM DISK`/`TAPE` n’est pas prise en charge.
   - Les jeux de sauvegarde ne sont pas pris en charge.
-- Les options `WITH` ne sont pas prises en charge, par exemple non `DIFFERENTIAL` ou `STATS`.
+- Les options `WITH` ne sont pas prises en charge. Les tentatives de restauration incluant `WITH` telles que `DIFFERENTIAL`, `STATS`, `REPLACE`, etc. échouent.
 - `ASYNC RESTORE`: la restauration continue même si la connexion cliente s’arrête. Si votre connexion est interrompue, vous pouvez vérifier l’affichage `sys.dm_operation_status` pour l’état d’une opération de restauration, et pour la création et la suppression d’une base de données. Consultez [sys.dm_operation_status](/sql/relational-databases/system-dynamic-management-views/sys-dm-operation-status-azure-sql-database). 
 
 Les options de base de données suivantes sont fixées ou remplacées et ne peuvent pas être modifiées ultérieurement : 
@@ -506,6 +506,9 @@ Les variables, fonctions et vues suivantes retournent des résultats différents
 - Le réseau virtuel peut être déployé à l’aide du modèle de ressource ; le modèle classique pour réseau virtuel n’est pas pris en charge.
 - Après la création d’une instance gérée SQL, le déplacement de l’instance gérée SQL ou du réseau virtuel vers un autre groupe de ressources ou vers un autre abonnement n’est pas pris en charge.
 - Certains services, tels que App Service Environment, Logic Apps et SQL Managed Instance (utilisés pour la géoréplication, la réplication transactionnelle ou via des serveurs liés), ne peuvent pas accéder aux instances SQL Managed Instance dans des régions différentes si leurs réseaux virtuels sont connectés au moyen du [Peering mondial](../../virtual-network/virtual-networks-faq.md#what-are-the-constraints-related-to-global-vnet-peering-and-load-balancers). Vous pouvez vous connecter à ces ressources via ExpressRoute ou une connexion entre deux réseaux virtuels, par l’intermédiaire de passerelles de réseau virtuel.
+
+### <a name="failover-groups"></a>Groupes de basculement
+Les bases de données système ne sont pas répliquées vers l’instance secondaire dans un groupe de basculement. Par conséquent, les scénarios qui dépendent des objets des bases de données système ne peuvent pas être appliqués sur l’instance secondaire, à moins que ces objets ne soient créés manuellement sur cette dernière.
 
 ### <a name="failover-groups"></a>Groupes de basculement
 Les bases de données système ne sont pas répliquées vers l’instance secondaire dans un groupe de basculement. Par conséquent, les scénarios qui dépendent des objets des bases de données système sont impossibles sur l’instance secondaire, à moins que les objets ne soient créés manuellement.

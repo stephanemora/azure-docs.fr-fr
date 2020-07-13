@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: rogoya
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 55de5a5c604273225a85e49ca682980f83a951d2
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 3e5cc6bbe363e111f5c39147010d6a3d00cb45c8
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "75767566"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85604605"
 ---
 # <a name="what-are-baseline-policies"></a>Que sont les stratégies de référence ?
 
@@ -25,7 +25,7 @@ Les stratégies de référence forment un ensemble de stratégies prédéfinies 
 La gestion de stratégies d’accès conditionnel personnalisé requiert une licence Azure AD Premium.
 
 > [!IMPORTANT]
-> Les stratégies de base sont déconseillées. Pour plus d’informations, voir [Nouveautés d’Azure Active Directory](../fundamentals/whats-new.md#replacement-of-baseline-policies-with-security-defaults).
+> Les stratégies de base sont déconseillées. Pour plus d’informations, consultez [Archive sur les nouveautés d’Azure Active Directory](../fundamentals/whats-new-archive.md#replacement-of-baseline-policies-with-security-defaults).
 
 ## <a name="baseline-policies"></a>Stratégies de base de référence
 

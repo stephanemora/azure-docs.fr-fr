@@ -1,7 +1,7 @@
 ---
 title: Récupération de base de données accélérée
 titleSuffix: Azure SQL
-description: La récupération de base de données accélérée permet une récupération rapide et cohérente de la base de données, la restauration instantanée des transactions et la troncation agressive des journaux pour les bases de données dans le portefeuille du service Azure SQL.
+description: La récupération de base de données accélérée permet une récupération rapide et cohérente de la base de données, la restauration instantanée des transactions et la troncation agressive des journaux pour les bases de données dans le portefeuille Azure SQL.
 ms.service: sql-database
 ms.subservice: high-availability
 ms.custom: sqldbrb=4
@@ -11,17 +11,17 @@ author: mashamsft
 ms.author: mathoma
 ms.reviewer: carlrab
 ms.date: 05/19/2020
-ms.openlocfilehash: c0243ecea778a02238b205f1659d796165f7b316
-ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
+ms.openlocfilehash: a6d95bbcb0873086a799dcf216beab4a6b0d33de
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "84030130"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84344694"
 ---
 # <a name="accelerated-database-recovery-in-azure-sql"></a>Récupération de base de données accélérée dans Azure SQL 
 [!INCLUDE[appliesto-sqldb-sqlmi](includes/appliesto-sqldb-sqlmi.md)]
 
-La **récupération de base de données accélérée** est une fonctionnalité du moteur de base de données SQL qui améliore considérablement la disponibilité des bases de données, en particulier en présence de transactions d’une durée d’exécution longue, grâce à une nouvelle conception du processus de récupération du moteur de base de données SQL. La récupération de base de données accélérée est actuellement disponible pour Azure SQL Database, Azure SQL Managed Instance, SQL Server sur des machines virtuelles Azure et les bases de données figurant dans Azure Synapse (actuellement en préversion). Les principaux avantages de la récupération de base de données accélérée sont les suivants :
+La **récupération de base de données accélérée** est une fonctionnalité du moteur de base de données SQL Server qui améliore considérablement la disponibilité des bases de données, en particulier en présence de transactions d’une durée d’exécution longue, grâce à une nouvelle conception du processus de récupération du moteur de base de données SQL Server. La récupération de base de données accélérée est actuellement disponible pour Azure SQL Database, Azure SQL Managed Instance, SQL Server sur des machines virtuelles Azure et les bases de données d’Azure Synapse Analytics (actuellement en préversion). Les principaux avantages de la récupération de base de données accélérée sont les suivants :
 
 - **Récupération de base de données rapide et cohérente**
 
@@ -53,15 +53,15 @@ La récupération de base de données suit le modèle de récupération [ARIES](
 
   Pour chaque transaction qui était active au moment du plantage, parcourt le journal vers l’arrière, en annulant les opérations effectuées par cette transaction.
 
-Avec cette conception, le temps nécessaire au moteur de base de données SQL pour récupérer à partir d’un redémarrage inattendu est (à peu près) proportionnel à la taille de la transaction active la plus longue dans le système au moment du plantage. La récupération nécessite l’annulation de toutes les transactions incomplètes. Le temps nécessaire est proportionnel au travail effectué par la transaction et à la durée pendant laquelle elle a été active. Ainsi, le processus de récupération peut prendre beaucoup de temps en présence de transactions longues (comme des grosses opérations d’insertion en bloc ou des opérations de création d’index sur une grande table).
+Avec cette conception, le temps nécessaire au moteur de base de données SQL Server pour récupérer d’un redémarrage inattendu est (à peu près) proportionnel à la taille de la transaction active la plus longue dans le système au moment de l’incident. La récupération nécessite l’annulation de toutes les transactions incomplètes. Le temps nécessaire est proportionnel au travail effectué par la transaction et à la durée pendant laquelle elle a été active. Ainsi, le processus de récupération peut prendre beaucoup de temps en présence de transactions longues (comme des grosses opérations d’insertion en bloc ou des opérations de création d’index sur une grande table).
 
 De plus, annuler/défaire une grande transaction selon cette conception peut également prendre beaucoup de temps, car cela utilise la même phase d’annulation que celle décrite plus haut.
 
-En outre, le moteur de base de données SQL ne peut pas tronquer le journal des transactions quand il y a des transactions longues, car les enregistrements correspondants du journal sont nécessaires pour les processus de récupération et d’annulation. Le résultat de cette conception du moteur de base de données SQL est que certains clients étaient confrontés à ce problème de taille du journal des transactions devenant très grande et consommant de très grandes quantités d’espace pour le disque.
+En outre, le moteur de base de données SQL Server ne peut pas tronquer le journal des transactions quand il y a des transactions longues, car les enregistrements de journal correspondants sont nécessaires pour les processus de récupération et d’annulation. Le résultat de cette conception du moteur de base de données SQL Server est que certains clients étaient confrontés à un problème de taille du journal des transactions devenant très volumineux et consommant de très grandes quantités d’espace sur le disque.
 
 ## <a name="the-accelerated-database-recovery-process"></a>Le processus de récupération de base de données accélérée
 
-La récupération de base de données accélérée résout les problèmes évoqués plus haut en redéfinissant complètement le processus de récupération du moteur de base de données SQL pour :
+La récupération de base de données accélérée résout les problèmes évoqués plus haut en redéfinissant complètement le processus de récupération du moteur de base de données SQL Server pour :
 
 - Rendre la durée de la récupération constante/instantanée en évitant d’avoir à parcourir le journal à partir de/vers le début de la transaction active la plus ancienne. Avec la récupération de base de données accélérée, le journal des transactions est traité seulement à partir du dernier point de contrôle réussi (ou du numéro séquentiel dans le journal (LSN) de la page de modifications la plus ancienne). Ainsi, le temps de récupération n’est pas affecté par les transactions longues.
 - Minimiser l’espace nécessaire au journal des transactions, car il n’est plus nécessaire de traiter le journal pour l’ensemble de la transaction. Ainsi, le journal des transactions peut être tronqué de façon agressive à mesure que des points de contrôle et des sauvegardes se produisent.
@@ -97,7 +97,7 @@ Les quatre composants principaux de la récupération de base de données accél
 
 - **Magasin de versions persistantes**
 
-  Le magasin de versions persistantes est un nouveau mécanisme du moteur de base de données SQL pour conserver les versions des lignes générées dans la base de données elle-même, au lieu du magasin de versions `tempdb` traditionnel. Le magasin de versions persistantes permet l’isolement des ressources et améliore la disponibilité des bases de données secondaires accessibles en lecture.
+  Le magasin de versions persistantes est un nouveau mécanisme du moteur de base de données SQL Server pour conserver les versions des lignes générées dans la base de données elle-même, au lieu du magasin de versions `tempdb` traditionnel. Le magasin de versions persistantes permet l’isolement des ressources et améliore la disponibilité des bases de données secondaires accessibles en lecture.
 
 - **Rétablissement logique**
 

@@ -6,12 +6,12 @@ ms.author: thweiss
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 01/21/2020
-ms.openlocfilehash: f62ad6952170f22fe0f94a792a137f991a0e5026
-ms.sourcegitcommit: 34a6fa5fc66b1cfdfbf8178ef5cdb151c97c721c
+ms.openlocfilehash: 9c851a172fcfe89e6e7aa31c298a5b3d7931a528
+ms.sourcegitcommit: 0100d26b1cac3e55016724c30d59408ee052a9ab
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82208718"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86023582"
 ---
 # <a name="secure-access-to-data-in-azure-cosmos-db"></a>Sécuriser l’accès aux données dans Azure Cosmos DB
 
@@ -41,7 +41,7 @@ Outre les deux clés principales du compte Azure Cosmos DB, il existe deux clés
 
 Les clés principales primaire, secondaire, en lecture seule et en lecture-écriture peuvent être récupérées et régénérées à l’aide du portail Azure. Pour connaître la procédure, consultez [Affichage, copie et régénération des clés d’accès](manage-with-cli.md#regenerate-account-key).
 
-![Contrôle d’accès (IAM) dans le portail Azure - Démonstration de la sécurité de la base de données NoSQL](./media/secure-access-to-data/nosql-database-security-master-key-portal.png)
+:::image type="content" source="./media/secure-access-to-data/nosql-database-security-master-key-portal.png" alt-text="Contrôle d’accès (IAM) dans le portail Azure - Démonstration de la sécurité de la base de données NoSQL":::
 
 ### <a name="key-rotation"></a>Rotation des clés<a id="key-rotation"></a>
 
@@ -53,7 +53,7 @@ Le processus de rotation de votre clé principale est simple.
 4. Vérifiez que la nouvelle clé primaire fonctionne sur toutes les ressources. Le processus de rotation des clés peut prendre de moins d’une minute à plusieurs heures selon la taille du compte Cosmos DB.
 5. Remplacez la clé secondaire par la nouvelle clé primaire.
 
-![Rotation de clé principale dans le portail Azure - Démonstration de la sécurité de la base de données NoSQL](./media/secure-access-to-data/nosql-database-security-master-key-rotate-workflow.png)
+:::image type="content" source="./media/secure-access-to-data/nosql-database-security-master-key-rotate-workflow.png" alt-text="Rotation de clé principale dans le portail Azure - Démonstration de la sécurité de la base de données NoSQL" border="false":::
 
 ### <a name="code-sample-to-use-a-master-key"></a>Exemple de code pour utiliser une clé principale
 
@@ -97,9 +97,9 @@ Voici un modèle de conception standard dans le cadre duquel des jetons de resso
 7. Cette dernière peut continuer à utiliser le jeton de ressource pour accéder directement aux ressources Azure Cosmos DB avec les autorisations définies et pendant l’intervalle autorisé.
 8. À expiration du jeton de ressource, les demandes suivantes reçoivent une exception non autorisée 401.  L'application du téléphone établit alors de nouveau l'identité de l'utilisateur et demande un nouveau jeton de ressource.
 
-    ![Workflow de jetons de ressource Azure Cosmos DB](./media/secure-access-to-data/resourcekeyworkflow.png)
+    :::image type="content" source="./media/secure-access-to-data/resourcekeyworkflow.png" alt-text="Workflow de jetons de ressource Azure Cosmos DB" border="false":::
 
-La gestion et la génération des jetons de ressource sont prises en charge par les bibliothèques clientes natives Azure Cosmos DB. Toutefois, si vous utilisez REST, vous devez créer les en-têtes de demande/d’authentification. Pour plus d’informations sur la création d’en-têtes d’authentification pour REST, consultez [Contrôle d’accès aux ressources Azure Cosmos DB](https://docs.microsoft.com/rest/api/cosmos-db/access-control-on-cosmosdb-resources) ou le code source de notre [Kit de développement logiciel (SDK) .NET](https://github.com/Azure/azure-cosmos-dotnet-v3/blob/master/Microsoft.Azure.Cosmos/src/AuthorizationHelper.cs) ou [Kit de développement logiciel (SDK) Node.js](https://github.com/Azure/azure-cosmos-js/blob/master/src/auth.ts).
+La gestion et la génération des jetons de ressource sont prises en charge par les bibliothèques clientes natives Azure Cosmos DB. Toutefois, si vous utilisez REST, vous devez créer les en-têtes de demande/d’authentification. Pour plus d’informations sur la création d’en-têtes d’authentification pour REST, consultez [Contrôle d’accès aux ressources Azure Cosmos DB](/rest/api/cosmos-db/access-control-on-cosmosdb-resources) ou le code source de notre [Kit de développement logiciel (SDK) .NET](https://github.com/Azure/azure-cosmos-dotnet-v3/blob/master/Microsoft.Azure.Cosmos/src/AuthorizationHelper.cs) ou [Kit de développement logiciel (SDK) Node.js](https://github.com/Azure/azure-cosmos-js/blob/master/src/auth.ts).
 
 Pour obtenir un exemple de service de niveau intermédiaire utilisé pour générer ou répartir les jetons de ressource, consultez [l’application ResourceTokenBroker](https://github.com/Azure/azure-documentdb-dotnet/tree/master/samples/xamarin/UserItems/ResourceTokenBroker/ResourceTokenBroker/Controllers).
 
@@ -176,5 +176,5 @@ Azure Cosmos DB vous permet de rechercher, de sélectionner, de modifier et de s
 ## <a name="next-steps"></a>Étapes suivantes
 
 - Pour en savoir plus sur la sécurité des bases de données Cosmos, consultez [Sécurité des bases de données Azure Cosmos DB](database-security.md).
-- Pour savoir comment créer des jetons d’autorisation Azure Cosmos DB, consultez [Access Control on Azure Cosmos DB Resources](https://docs.microsoft.com/rest/api/cosmos-db/access-control-on-cosmosdb-resources) (Contrôle d’accès aux ressources Azure Cosmos DB).
+- Pour savoir comment créer des jetons d’autorisation Azure Cosmos DB, consultez [Access Control on Azure Cosmos DB Resources](/rest/api/cosmos-db/access-control-on-cosmosdb-resources) (Contrôle d’accès aux ressources Azure Cosmos DB).
 - Exemples de gestion des utilisateurs avec des utilisateurs et des autorisations, [Exemples de gestion des utilisateurs à l’aide du Kit de développement logiciel (SDK) .NET v3](https://github.com/Azure/azure-cosmos-dotnet-v3/blob/master/Microsoft.Azure.Cosmos.Samples/Usage/UserManagement/UserManagementProgram.cs)

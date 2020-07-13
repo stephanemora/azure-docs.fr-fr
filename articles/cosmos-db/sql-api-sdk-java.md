@@ -6,29 +6,30 @@ ms.service: cosmos-db
 ms.subservice: cosmosdb-sql
 ms.devlang: java
 ms.topic: reference
-ms.date: 05/11/2020
+ms.date: 06/03/2020
 ms.author: anfeldma
-ms.openlocfilehash: 53ae3217e77a9301cbe0d3d63ce0712a0b9b7f1e
-ms.sourcegitcommit: 1692e86772217fcd36d34914e4fb4868d145687b
+ms.openlocfilehash: 520f64cbe768f2fcbd4603d1fb038bc349cd01db
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/29/2020
-ms.locfileid: "84171614"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85391976"
 ---
 # <a name="azure-cosmos-db-java-sdk-for-sql-api-release-notes-and-resources"></a>Kit de développement logiciel (SDK) Java Azure Cosmos DB pour API SQL : Notes de publication et ressources
 > [!div class="op_single_selector"]
-> * [.NET](sql-api-sdk-dotnet.md)
-> * [Flux de modification .NET](sql-api-sdk-dotnet-changefeed.md)
-> * [.NET Core](sql-api-sdk-dotnet-core.md)
+> * [Kit de développement logiciel (SDK) .NET v3](sql-api-sdk-dotnet-standard.md)
+> * [SDK .NET v2](sql-api-sdk-dotnet.md)
+> * [SDK .NET Core v2](sql-api-sdk-dotnet-core.md)
+> * [SDK .NET Change Feed v2](sql-api-sdk-dotnet-changefeed.md)
 > * [Node.JS](sql-api-sdk-node.md)
-> * [Kit SDK Java v4](sql-api-sdk-java-v4.md)
-> * [Kit de développement logiciel (SDK) Java asynchrone v2](sql-api-sdk-async-java.md)
-> * [Kit SDK Java synchrone v2](sql-api-sdk-java.md)
+> * [SDK Java v4](sql-api-sdk-java-v4.md)
+> * [SDK Java Async v2](sql-api-sdk-async-java.md)
+> * [SDK Java Sync v2](sql-api-sdk-java.md)
 > * [Python](sql-api-sdk-python.md)
-> * [REST](https://docs.microsoft.com/rest/api/cosmos-db/)
-> * [API REST Resource Provider](https://docs.microsoft.com/rest/api/cosmos-db-resource-provider/)
+> * [REST](/rest/api/cosmos-db/)
+> * [API REST Resource Provider](/rest/api/cosmos-db-resource-provider/)
 > * [SQL](sql-api-query-reference.md)
-> * [Exécuteur en bloc – .NET](sql-api-sdk-bulk-executor-dot-net.md)
+> * [Exécuteur en bloc – .NET v2](sql-api-sdk-bulk-executor-dot-net.md)
 > * [Exécuteur en bloc – Java](sql-api-sdk-bulk-executor-java.md)
 
 Il s’agit du kit de développement logiciel (SDK) Java synchrone v2 d’origine Azure Cosmos DB pour l’API SQL qui prend en charge des opérations synchrones.
@@ -47,6 +48,12 @@ Il s’agit du kit de développement logiciel (SDK) Java synchrone v2 d’origin
 |**Runtime minimal pris en charge**|[Kit de développement Java (JDK) 7+](/java/azure/jdk/?view=azure-java-stable)|
 
 ## <a name="release-notes"></a>Notes de publication
+
+### <a name="251"></a><a name="2.5.1"></a>2.5.1
+* Corrige le problème de cache de partition maître sur la requête documentCollection.
+
+### <a name="250"></a><a name="2.5.0"></a>2.5.0
+* Ajout de la prise en charge de la configuration personnalisée de nouvelle tentative 449.
 
 ### <a name="247"></a><a name="2.4.7"></a>2.4.7
 * Corrige le problème de délai d’attente du pool de connexions.
@@ -268,6 +275,8 @@ Le service rejette toute requête envoyée à Cosmos DB à l’aide d’un Kit d
 
 | Version | Date de sortie | Date de suppression |
 | --- | --- | --- |
+| [2.5.1](#2.5.1) |03 juin 2020 |--- |
+| [2.5.0](#2.5.0) |12 mai 2020 |--- |
 | [2.4.7](#2.4.7) |20 février 2020 |--- |
 | [2.4.6](#2.4.6) |24 janvier 2020 |--- |
 | [2.4.5](#2.4.5) |10 novembre 2019 |--- |

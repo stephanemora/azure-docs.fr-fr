@@ -4,12 +4,12 @@ description: Vue d’ensemble des modèles d’intégration de contrat intellige
 ms.date: 11/20/2019
 ms.topic: conceptual
 ms.reviewer: mmercuri
-ms.openlocfilehash: f9626edd5bd655e3de5d0f9648041faf832e3b84
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 716255f5e71ec19b5b9c5a0a32740abc39f1a40b
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "74325966"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85254631"
 ---
 # <a name="smart-contract-integration-patterns"></a>Modèles d’intégration de contrat intelligent
 
@@ -31,7 +31,7 @@ Les fonctionnalités de l’application web générée par Azure Blockchain Work
 
 L’API REST est principalement utilisée pour les clients interactifs tels que les applications web, mobiles et bot.
 
-Cette section présente les modèles axés sur les API REST qui envoient des transactions à un registre distribué, et les modèles qui interrogent des données sur les transactions dans la base de données SQL *off chain* d’Azure Blockchain Workbench.
+Cette section présente les modèles axés sur les API REST qui envoient des transactions à un registre distribué, et les modèles qui interrogent des données sur les transactions dans la base de données *off chain* d’Azure Blockchain Workbench.
 
 ### <a name="sending-transactions-to-a-distributed-ledger-from-an-external-system"></a>Envoi de transactions à un registre distribué à partir d’un système externe
 
@@ -204,7 +204,7 @@ L’intégration de données est bien connue :
 
 -   Selon son comportement normal, Azure Blockchain Workbench stocke des métadonnées sur des applications, flux de travail, contrats et transactions.
 -   Les systèmes ou outils externes présentent une ou plusieurs boîtes de dialogue pour faciliter la collecte d’informations sur la base de données, comme le nom du serveur de base de données, le nom de la base de données, le type d’authentification, les informations d’identification de connexion et les vues de base de données à utiliser.
--   Les requêtes sont écrites sur des vues de base de données SQL afin de faciliter la consommation en aval par les systèmes externes, services, rapports, outils de développement et outils de productivité d’entreprise.
+-   Les requêtes sont écrites sur des vues de base de données afin de faciliter la consommation en aval par les systèmes externes, services, rapports, outils de développement et outils de productivité d’entreprise.
 
 ## <a name="storage-integration"></a>Intégration d’un stockage
 

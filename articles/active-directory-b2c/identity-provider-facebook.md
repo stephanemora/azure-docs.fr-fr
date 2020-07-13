@@ -7,16 +7,16 @@ author: msmimart
 manager: celestedg
 ms.service: active-directory
 ms.workload: identity
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 09/26/2019
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: cd0e19de88a6a65d72a2e7e19f7fca2a94d8da55
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 394af855b7968d38bf99afada246ae661dc0459a
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "78188271"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85549478"
 ---
 # <a name="set-up-sign-up-and-sign-in-with-a-facebook-account-using-azure-active-directory-b2c"></a>Configurer l’inscription et la connexion avec un compte Facebook à l’aide d’Azure Active Directory B2C
 
@@ -32,7 +32,7 @@ Pour utiliser un compte Facebook en tant que [fournisseur d’identité](authori
 1. Sélectionnez **Paramètres** > **Base**.
 1. Choisissez une **Catégorie**, par exemple `Business and Pages`. Cette valeur est requise par Facebook, mais elle n’est pas utilisée pour Azure AD B2C.
 1. Au bas de la page, sélectionnez **Ajouter une plateforme**, puis sélectionnez **Site web**.
-1. Dans **URL du site**, entrez `https://your-tenant-name.b2clogin.com/`, en remplaçant `your-tenant-name` par le nom de votre locataire. Entrez une URL pour l’**URL de stratégie de confidentialité**, par exemple `http://www.contoso.com`. L’URL de stratégie est une page que vous tenez à jour pour fournir des informations de confidentialité pour votre application.
+1. Dans **URL du site**, entrez l’adresse de votre site web, par exemple `https://contoso.com`. Entrez une URL pour l’**URL de stratégie de confidentialité**, par exemple `http://www.contoso.com/privacy`. L’URL de stratégie est une page que vous tenez à jour pour fournir des informations de confidentialité pour votre application.
 1. Sélectionnez **Enregistrer les modifications**.
 1. En haut de la page, copiez la valeur de l’**ID de l’application**.
 1. Sélectionnez **Afficher**, puis copiez la valeur **Clé secrète de l’application**. Vous avez besoin de ces deux valeurs pour configurer Facebook en tant que fournisseur d’identité dans votre client. **App Secret** est une information d’identification de sécurité importante.

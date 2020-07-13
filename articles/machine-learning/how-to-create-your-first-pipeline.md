@@ -5,18 +5,18 @@ description: Créez et exécutez un pipeline Machine Learning avec le SDK Azure 
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
-ms.topic: conceptual
+ms.topic: how-to
 ms.reviewer: sgilley
 ms.author: sanpil
 author: sanpil
 ms.date: 12/05/2019
-ms.custom: seodec18
-ms.openlocfilehash: 006a2f5775fc053feda1efd568660f29c81fe599
-ms.sourcegitcommit: f57297af0ea729ab76081c98da2243d6b1f6fa63
+ms.custom: seodec18, tracking-python
+ms.openlocfilehash: 50bd9d620fac4031ff398bb13d40b288488dda95
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/06/2020
-ms.locfileid: "82872216"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85559387"
 ---
 # <a name="create-and-run-machine-learning-pipelines-with-azure-machine-learning-sdk"></a>Créer et exécuter des pipelines de Machine Learning avec le kit SDK Azure Machine Learning
 
@@ -448,7 +448,7 @@ Vous pouvez publier un pipeline afin de l’exécuter ultérieurement avec des e
 
 ### <a name="run-a-published-pipeline"></a>Exécuter un pipeline publié
 
-Tous les pipelines publiés disposent d’un point de terminaison REST. Celui-ci appelle l’exécution du pipeline à partir de systèmes externes tels que les clients non-Python. Ce point de terminaison active la « répétabilité managée » dans les scénarios de scoring et de nouvel apprentissage.
+Tous les pipelines publiés disposent d’un point de terminaison REST. Avec le point de terminaison de pipeline, vous pouvez déclencher une exécution du pipeline à partir de n’importe quel système externe, notamment des clients autres que Python. Ce point de terminaison active la « répétabilité managée » dans les scénarios de scoring et de nouvel apprentissage.
 
 Pour appeler l’exécution du pipeline précédent, vous devez disposer d’un jeton d’en-tête d’authentification Azure Active Directory, comme décrit dans la référence de la [classe AzureCliAuthentication](https://docs.microsoft.com/python/api/azureml-core/azureml.core.authentication.azurecliauthentication?view=azure-ml-py). Pour plus de détails, consultez [Authentification dans Azure Machine Learning](https://aka.ms/pl-restep-auth).
 

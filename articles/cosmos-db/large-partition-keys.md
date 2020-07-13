@@ -3,15 +3,15 @@ title: Créer des conteneurs Azure Cosmos avec une grande clé de partition
 description: Découvrez comment créer un conteneur dans Azure Cosmos DB avec une grande clé de partition à l’aide du portail Azure et de différents kits de développement logiciel (SDK).
 author: markjbrown
 ms.service: cosmos-db
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 09/28/2019
 ms.author: mjbrown
-ms.openlocfilehash: 3b0a3387fe34a0e1c15109aec877c0654fc1a5b0
-ms.sourcegitcommit: f57297af0ea729ab76081c98da2243d6b1f6fa63
+ms.openlocfilehash: 853d3fa79436d9af0119aada86d283f9970d4ef2
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/06/2020
-ms.locfileid: "82870012"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85262801"
 ---
 # <a name="create-containers-with-large-partition-key"></a>Créer des conteneurs avec une grande clé de partition
 
@@ -23,7 +23,7 @@ Les grandes clés de partition sont prises en charge moyennant une version amél
 
 Pour créer une grande clé de partition, quand vous créez un conteneur à l’aide du portail Azure, activez l’option **Ma clé de partition est supérieure à 100 octets**. Désactivez la case à cocher si vous n’avez pas besoin de grandes clés de partition ou si vos applications s’exécutent sur des kits de développement logiciel (SDK) antérieurs à la version 1.18.
 
-![Créer de grandes clés de partition à l’aide du portail Azure](./media/large-partition-keys/large-partition-key-with-portal.png)
+:::image type="content" source="./media/large-partition-keys/large-partition-key-with-portal.png" alt-text="Créer de grandes clés de partition à l’aide du portail Azure":::
 
 ## <a name="create-a-large-partition-key-powershell"></a>Créer une grande clé de partition (PowerShell)
 

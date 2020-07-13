@@ -1,15 +1,15 @@
 ---
 title: Déployer le modèle de solution Ethereum de consortium de preuve d’autorité sur Azure
 description: Utiliser la solution Ethereum de consortium de preuve d’autorité pour déployer et configurer un réseau Ethereum de consortium sur Azure
-ms.date: 12/18/2019
-ms.topic: article
-ms.reviewer: coborn
-ms.openlocfilehash: 7e9af5c501b58f6828360ee280440ea85698bf16
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.date: 07/07/2020
+ms.topic: how-to
+ms.reviewer: ravastra
+ms.openlocfilehash: 859be5d779663e429ef333c8fd8163c0aa60eab5
+ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "75387503"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86085920"
 ---
 # <a name="deploy-ethereum-proof-of-authority-consortium-solution-template-on-azure"></a>Déployer le modèle de solution Ethereum de consortium de preuve d’autorité sur Azure
 
@@ -17,15 +17,17 @@ Vous pouvez utiliser [le modèle de solution Azure en préversion Ethereum de co
 
 Le modèle de solution peut être utilisé par chaque membre du consortium pour approvisionner une empreinte réseau blockchain à l’aide de services de calcul, de mise en réseau et de stockage Azure. L’empreinte réseau de chaque membre de consortium se compose d’un ensemble de nœuds de validateur avec équilibrage de charge grâce auquel une application ou un utilisateur peut interagir pour soumettre des transactions Ethereum.
 
+[!INCLUDE [Preview note](./includes/preview.md)]
+
 ## <a name="choose-an-azure-blockchain-solution"></a>Choisir une solution Azure Blockchain
 
 Avant d'opter pour le modèle de solution Ethereum de consortium de preuve d'autorité, comparez votre scénario avec les cas d’utilisation courants des options Azure Blockchain disponibles.
 
 Option | Modèle de service | Cas d’utilisation courant
 -------|---------------|-----------------
-Modèles de solution | IaaS | Les modèles de solution correspondent à des modèles Azure Resource Manager que vous pouvez utiliser pour approvisionner une topologie de réseau blockchain entièrement configurée. Les modèles déploient et configurent les services de calcul, de mise en réseau et de stockage Microsoft Azure pour un type de réseau blockchain donné.
+Modèles de solution | IaaS | Les modèles de solution correspondent à des modèles Azure Resource Manager que vous pouvez utiliser pour approvisionner une topologie de réseau blockchain entièrement configurée. Les modèles déploient et configurent les services de calcul, de mise en réseau et de stockage Microsoft Azure pour un type de réseau blockchain donné. Les modèles de solution sont fournis sans contrat SLA. Utilisez la [page de questions Microsoft Q&A](https://docs.microsoft.com/answers/topics/azure-blockchain-workbench.html) pour obtenir de l’aide.
 [Azure Blockchain Service](../service/overview.md) | PaaS | Azure Blockchain Service (préversion) simplifie la formation, la gestion et la gouvernance des réseaux blockchain de consortium. Utilisez Azure Blockchain Service pour les solutions nécessitant PaaS, la gestion de consortium ou la confidentialité des contrats et transactions.
-[Azure Blockchain Workbench](../workbench/overview.md) | IaaS et PaaS | La préversion d’Azure Blockchain Workbench est une collection de services et de fonctionnalités Azure conçus pour vous aider à créer et à déployer des applications blockchain afin de partager des processus métier et des données avec d’autres organisations. Utilisez Azure Blockchain Workbench pour le prototypage d’une solution blockchain ou d’une preuve de concept d’application blockchain.
+[Azure Blockchain Workbench](../workbench/overview.md) | IaaS et PaaS | La préversion d’Azure Blockchain Workbench est une collection de services et de fonctionnalités Azure conçus pour vous aider à créer et à déployer des applications blockchain afin de partager des processus métier et des données avec d’autres organisations. Utilisez Azure Blockchain Workbench pour le prototypage d’une solution blockchain ou d’une preuve de concept d’application blockchain. Azure Blockchain Workbench est fourni sans contrat de niveau de service. Utilisez la [page de questions Microsoft Q&A](https://docs.microsoft.com/answers/topics/azure-blockchain-workbench.html) pour obtenir de l’aide.
 
 ## <a name="solution-architecture"></a>Architecture de solution
 
@@ -718,6 +720,20 @@ Le débit des transactions dépend fortement des types de transactions et de la 
 ### <a name="how-do-i-subscribe-to-smart-contract-events"></a>Comment s’abonner aux événements de contrats intelligents ?
 
 Ethereum Proof-of-Authority prend désormais en charge les WebSockets.  Vérifiez votre sortie de déploiement pour localiser l’URL et le port du WebSocket.
+
+## <a name="support-and-feedback"></a>Support et commentaires
+
+Pour vous tenir informé sur Azure Blockchain, visitez le [blog Azure Blockchain](https://azure.microsoft.com/blog/topics/blockchain/). Vous y trouverez les toutes dernières offres du service Blockchain ainsi que diverses informations de l’équipe technique d’Azure Blockchain.
+
+Pour faire des commentaires sur le produit ou suggérer de nouvelles fonctionnalités, postez votre idée ou votez pour une autre idée sur le [forum de commentaires Azure pour Blockchain](https://aka.ms/blockchainuservoice).
+
+### <a name="community-support"></a>Support de la communauté pour les objets blob
+
+Communiquez avec les ingénieurs Microsoft et les experts de la communauté Azure Blockchain.
+
+* [Page de questions Microsoft Q&A](https://docs.microsoft.com/answers/topics/azure-blockchain-workbench.html). Le support d’ingénierie pour les modèles blockchain est limité aux problèmes de déploiement.
+* [Microsoft Tech Community](https://techcommunity.microsoft.com/t5/Blockchain/bd-p/AzureBlockchain)
+* [Stack Overflow](https://stackoverflow.com/questions/tagged/azure-blockchain-workbench)
 
 ## <a name="next-steps"></a>Étapes suivantes
 
