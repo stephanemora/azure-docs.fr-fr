@@ -7,18 +7,18 @@ manager: daveba
 ms.service: active-directory
 ms.workload: identity
 ms.subservice: fundamentals
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 11/12/2019
 ms.author: ajburnle
 ms.reviewer: jeffsta
 ms.custom: it-pro, seodec18
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 3d72616422934501e042375edfb10a25aa27c527
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: c30730f685945d129ababb27040f34bf8ab2f790
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79230433"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85603857"
 ---
 # <a name="add-or-delete-users-using-azure-active-directory"></a>Ajouter ou supprimer des utilisateurs à l’aide d’Azure Active Directory
 
@@ -44,7 +44,7 @@ Pour ajouter un nouvel utilisateur, procédez comme suit :
 
    - **Nom d’utilisateur**. Obligatoire. Nom d’utilisateur du nouvel utilisateur. Par exemple : `mary@contoso.com`.
 
-     Le domaine dans le nom d’utilisateur doit correspondre au nom de domaine par défaut initial, *\<votrenomdedomaine>.onmicrosoft.com*, ou à un nom de domaine personnalisé, comme *contoso.com*. Pour plus d’informations sur la création d’un nom de domaine personnalisé, consultez [Ajouter votre nom de domaine personnalisé à l’aide du Portail Azure Active Directory](add-custom-domain.md).
+     Le domaine dans le nom d’utilisateur doit correspondre au nom de domaine par défaut initial, *\<yourdomainname>.onmicrosoft.com*, ou à un nom de domaine personnalisé, comme *contoso.com*. Pour plus d’informations sur la création d’un nom de domaine personnalisé, consultez [Ajouter votre nom de domaine personnalisé à l’aide du Portail Azure Active Directory](add-custom-domain.md).
 
    - **Groupes**. Si vous le souhaitez, vous pouvez ajouter l’utilisateur à un ou plusieurs groupes existants. Vous pouvez également ajouter l’utilisateur à des groupes ultérieurement. Pour plus d’informations sur l’ajout d’utilisateurs à des groupes, consultez [Créer un groupe de base et ajouter des membres avec Azure Active Directory](active-directory-groups-create-azure-portal.md).
 

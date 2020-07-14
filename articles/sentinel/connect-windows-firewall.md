@@ -1,6 +1,6 @@
 ---
 title: Connecter des données de pare-feu Windows à Azure Sentinel | Microsoft Docs
-description: Découvrez comment connecter des données de pare-feu Windows à Azure Sentinel.
+description: Activez le connecteur du pare-feu Windows dans Azure Sentinel pour diffuser facilement les événements de pare-feu d’ordinateurs Windows sur lesquels des agents de Log Analytics sont installés.
 services: sentinel
 documentationcenter: na
 author: yelevin
@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/23/2019
 ms.author: yelevin
-ms.openlocfilehash: 5d2f68261143c3fc5bbcda0b739af17251eeee63
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: d33ba0dbb62cd7206829ed9ae580ea2aa3334bcf
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "77588057"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85559471"
 ---
 # <a name="connect-windows-firewall"></a>Connecter le Pare-feu Windows
 

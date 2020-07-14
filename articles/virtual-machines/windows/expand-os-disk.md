@@ -9,12 +9,12 @@ ms.workload: infrastructure-services
 ms.date: 07/05/2018
 ms.author: mimckitt
 ms.subservice: disks
-ms.openlocfilehash: e69b041a2e4c8a0715adb6ab126a3aede42f7dde
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 5044993e04dabc363a7a4ee49abb66285bcd7521
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81869686"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85338249"
 ---
 # <a name="how-to-expand-the-os-drive-of-a-virtual-machine"></a>Extension du lecteur de système d’exploitation d’une machine virtuelle
 
@@ -160,7 +160,7 @@ Start-AzVM -ResourceGroupName $rgName -Name $vmName
 
 ## <a name="resizing-data-disks"></a>Redimensionnement des disques de données
 
-Cet article se concentre principalement sur l’extension du disque du système d’exploitation de la machine virtuelle, mais le script peut également servir à étendre les disques de données associés à la machine virtuelle. Par exemple, pour développer le premier disque de données associé à la machine virtuelle, remplacez l’objet `OSDisk` de `StorageProfile` par le tableau `DataDisks` et utilisez un index numérique pour obtenir une référence au premier disque de données associé, comme indiqué ci-dessous :
+Cet article se concentre principalement sur l’extension du disque du système d’exploitation de la machine virtuelle, mais le script peut également servir à étendre les disques de données associés à la machine virtuelle. Si vous développez uniquement un disque de données, il n’est **pas** nécessaire de désallouer la machine virtuelle. Par exemple, pour développer le premier disque de données associé à la machine virtuelle, remplacez l’objet `OSDisk` de `StorageProfile` par le tableau `DataDisks` et utilisez un index numérique pour obtenir une référence au premier disque de données associé, comme indiqué ci-dessous :
 
 **Disque managé**
 

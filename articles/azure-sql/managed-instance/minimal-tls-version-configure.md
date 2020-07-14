@@ -2,7 +2,7 @@
 title: Configurer un version TLS minimale - instance gérée
 description: Découvrez comment configurer un version TLS minimale pour les instances gérées
 services: sql-database
-ms.service: sql-database
+ms.service: sql-managed-instance
 ms.subservice: security
 ms.custom: ''
 ms.topic: conceptual
@@ -10,12 +10,12 @@ author: srdan-bozovic-msft
 ms.author: srbozovi
 ms.reviewer: ''
 ms.date: 05/25/2020
-ms.openlocfilehash: 309649fe099d5226ba6a4972e22a4e3d7ff0e526
-ms.sourcegitcommit: 309cf6876d906425a0d6f72deceb9ecd231d387c
+ms.openlocfilehash: 7982cb80c253ec3966319528e39390920c653e38
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/01/2020
-ms.locfileid: "84267118"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84974260"
 ---
 # <a name="configure-minimal-tls-version-in-azure-sql-managed-instance"></a>Configurer un version TLS minimale dans Azure SQL Managed Instance
 Le paramètre de version minimale [TLS (Transport Layer Security)](https://support.microsoft.com/help/3135244/tls-1-2-support-for-microsoft-sql-server) permet aux clients de contrôler la version de TLS utilisée par leur instance Azure SQL Managed Instance.

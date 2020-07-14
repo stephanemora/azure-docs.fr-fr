@@ -3,15 +3,15 @@ title: Configurer et gérer la durée de vie dans Azure Cosmos DB
 description: Découvrir comment configurer et gérer la durée de vie sur un conteneur et un élément dans Azure Cosmos DB
 author: anfeldma-ms
 ms.service: cosmos-db
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 03/27/2020
 ms.author: anfeldma
-ms.openlocfilehash: 11f5615d44cef4b6717dc9fe2004a64cf2f800ba
-ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
+ms.openlocfilehash: bbddcb8627c78544d603e1ea3ca33bc410419da1
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/12/2020
-ms.locfileid: "83124123"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85263620"
 ---
 # <a name="configure-time-to-live-in-azure-cosmos-db"></a>Configurer la durée de vie dans Azure Cosmos DB
 
@@ -34,7 +34,7 @@ Utilisez les étapes suivantes pour activer la durée de vie sur un conteneur sa
    * Sélectionnez **Activée (pas par défaut)** ou sélectionnez **Activée** et définissez une valeur de TTL.
    * Cliquez sur **Enregistrer** pour enregistrer les modifications.
 
-   ![Configuration de la durée de vie dans le portail Azure](./media/how-to-time-to-live/how-to-time-to-live-portal.png)
+   :::image type="content" source="./media/how-to-time-to-live/how-to-time-to-live-portal.png" alt-text="Configurer de la durée de vie dans le portail Azure":::
 
 * Quand DefaultTimeToLive est null, votre Durée de vie est Désactivée
 * Lorsque DefaultTimeToLive est -1, votre Durée de vie est Activée (pas par défaut)

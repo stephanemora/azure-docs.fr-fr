@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: tanning
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: ae8ce24aeb665a7f99326e83dbe18d020e1b6196
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: a5043873b18f2d2115fd23e8b52959290393bfb8
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "78672352"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85604537"
 ---
 # <a name="troubleshooting-enterprise-state-roaming-settings-in-azure-active-directory"></a>Résolution des problèmes de paramètres Enterprise State Roaming dans Azure Active Directory
 
@@ -84,7 +84,7 @@ Il peut arriver qu’Enterprise State Roaming ne parvienne pas à synchroniser l
 
 ### <a name="event-viewer"></a>Observateur d'événements
 
-Pour une résolution des problèmes avancée, l’Observateur d’événements peut être utilisé pour rechercher des erreurs spécifiques. Celles-ci sont décrites dans le tableau ci-dessous. Vous trouverez les événements sous Observateur d’événements > Journaux des applications et des services > **Microsoft** > **Windows** > **SettingSync-Azure** et pour les problèmes liés à l’identité avec la synchronisation **Microsoft** > **Windows** > **AAD**.
+Pour une résolution des problèmes avancée, l’Observateur d’événements peut être utilisé pour rechercher des erreurs spécifiques. Celles-ci sont décrites dans le tableau ci-dessous. Les événements se trouvent sous Observateur d’événements > **Journaux des applications et des services** > **Microsoft** > **Windows** > **SettingSync-Azure** et, pour les problèmes liés à l’identité, avec la synchronisation **Journaux des applications et des services** > **Microsoft** > **Windows** > **AAD**.
 
 ## <a name="known-issues"></a>Problèmes connus
 

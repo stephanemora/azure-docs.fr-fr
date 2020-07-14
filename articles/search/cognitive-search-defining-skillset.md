@@ -8,12 +8,12 @@ ms.author: luisca
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 11/04/2019
-ms.openlocfilehash: 43251783cbcd6501562913b7b9cafb4f9f7cb3f1
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: bdbe157198ad62578613d86f3b3a55b72ca0acf8
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "75754568"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85557451"
 ---
 # <a name="how-to-create-a-skillset-in-an-ai-enrichment-pipeline-in-azure-cognitive-search"></a>Comment créer un ensemble de compétences dans un pipeline d’enrichissement de l’IA dans la Recherche cognitive Azure 
 
@@ -55,7 +55,7 @@ Dans le diagramme, l’étape de *décodage de document* a lieu automatiquement.
 Un jeu de compétences est défini comme un tableau de compétences. Chaque compétence définit la source de ses entrées et le nom des sorties générées. À l’aide de [l’API REST Create Skillset](https://docs.microsoft.com/rest/api/searchservice/create-skillset), vous pouvez définir un jeu de compétences qui correspond au diagramme précédent : 
 
 ```http
-PUT https://[servicename].search.windows.net/skillsets/[skillset name]?api-version=2019-05-06
+PUT https://[servicename].search.windows.net/skillsets/[skillset name]?api-version=2020-06-30
 api-key: [admin key]
 Content-Type: application/json
 ```
@@ -247,7 +247,7 @@ Jusqu’à présent, cette structure est interne uniquement, en mémoire seuleme
 
 ## <a name="add-a-knowledge-store"></a>Ajouter une base de connaissances
 
-La [base de connaissances](knowledge-store-concept-intro.md) est une fonctionnalité d’évaluation de Recherche cognitive Azure destinée à l’enregistrement de vos documents enrichis. La base de connaissances que vous créez à l’aide d’un compte de stockage Azure est le référentiel dans lequel vos données enrichies résident. 
+La [Base de connaissances](knowledge-store-concept-intro.md) est une fonctionnalité de Recherche cognitive Azure destinée à l’enregistrement de vos documents enrichis. La base de connaissances que vous créez à l’aide d’un compte de stockage Azure est le référentiel dans lequel vos données enrichies résident. 
 
 Une définition de la base de connaissances est ajoutée à un ensemble de compétences. Pour obtenir une procédure pas à pas de l’ensemble du processus, consultez la section [Créer une base de connaissances dans REST](knowledge-store-create-rest.md).
 

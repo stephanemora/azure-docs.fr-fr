@@ -6,18 +6,17 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 06/04/2018
 ms.author: sngun
-ms.openlocfilehash: 40735f91e2ca58cc42f723c7993686d92f0e5ff0
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: dace7fb291cef24ad8b48a0791b2fadca22fa71b
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "77623342"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85556067"
 ---
 # <a name="retiring-the-s1-s2-and-s3-performance-levels"></a>Mise hors service des niveaux de performances S1, S2 et S3
 
 > [!IMPORTANT] 
 > Les niveaux de performances S1, S2 et S3 abordés dans cet article vont être mis hors service et ne sont plus disponibles pour les nouveaux comptes Azure Cosmos DB.
->
 
 Cet article fournit une vue d’ensemble des niveaux de performances S1, S2 et S3, et explique comment les collections qui les utilisent peuvent être migrées vers des collections à partition unique. Après avoir lu cet article, vous serez en mesure de répondre aux questions suivantes :
 
@@ -43,7 +42,7 @@ Les niveaux de performances S1, S2 et S3 n’offrent pas la même flexibilité q
 
 Le tableau suivant compare les options de débit et de stockage disponibles dans les collections à partition unique, les collections partitionnées et les niveaux de performances S1, S2 et S3. Voici un exemple pour la région USA Est 2 :
 
-|   |Collection partitionnée|Collection à partition unique|S1|S2|S3|
+| Nom du quota  |Collection partitionnée|Collection à partition unique|S1|S2|S3|
 |---|---|---|---|---|---|
 |Débit maximal|Illimité|10 000 RU/s|250 RU/s|1 000 RU/s|2 500 RU/s|
 |Débit minimal|2 500 RU/s|400 RU/s|250 RU/s|1 000 RU/s|2 500 RU/s|
@@ -76,7 +75,7 @@ Dans chacun de ces cas, après avoir migré la collection, vous serez en mesure 
 
 Supposons que vous avez 10 collections S1, d’une capacité de stockage de 1 Go chacune, dans la région USA Est et que vous migrez ces 10 collections S1 vers 10 collections à partition unique dotées d’un débit de 400 RU/s (niveau minimal). Votre facture se présentera comme suit si vous conservez les 10 collections à partition unique pendant un mois complet :
 
-![Comparaison entre la tarification de 10 collections S1 et de 10 collections utilisant la tarification d’une collection à partition unique](./media/performance-levels/s1-vs-standard-pricing.png)
+:::image type="content" source="./media/performance-levels/s1-vs-standard-pricing.png" alt-text="Comparaison entre la tarification de 10 collections S1 et de 10 collections utilisant la tarification d’une collection à partition unique" border="false":::
 
 <a name="more-storage-needed"></a>
 

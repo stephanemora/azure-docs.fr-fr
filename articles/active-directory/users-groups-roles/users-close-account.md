@@ -6,23 +6,23 @@ author: rolyon
 manager: mtillman
 ms.service: active-directory
 ms.subservice: users-groups-roles
-ms.topic: article
+ms.topic: how-to
 ms.workload: identity
 ms.date: 05/20/2019
 ms.author: rolyon
 ms.reviewer: ''
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 11c337f4838279771523a1f375b7349387d68f45
-ms.sourcegitcommit: b9d4b8ace55818fcb8e3aa58d193c03c7f6aa4f1
+ms.openlocfilehash: 1bbc1644294a471bbb704d10c5f684d7404eae95
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "82582532"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85374574"
 ---
 # <a name="close-your-work-or-school-account-in-an-unmanaged-azure-ad-organization"></a>Fermer votre compte professionnel ou scolaire dans une organisation Azure AD non gérée
 
-Si vous êtes un utilisateur d’une organisation Azure Active Directory (Azure AD) non gérée et que vous n’avez plus besoin d’utiliser des applications à partir de cette organisation ou de conserver une association avec celle-ci, vous pouvez fermer votre compte à tout moment. Une organisation non gérée n’a pas d’Administrateur général. Les utilisateurs d’une organisation non gérée peuvent fermer leurs comptes eux-mêmes, sans contacter d’administrateur.
+Si vous êtes un utilisateur d’une organisation Azure Active Directory (Azure AD) non managée et que vous n’avez plus besoin d’utiliser des applications à partir de cette organisation ou de conserver toute association, vous pouvez fermer votre compte à tout moment. Une organisation non gérée n’a pas d’Administrateur général. Les utilisateurs d’une organisation non gérée peuvent fermer leurs comptes eux-mêmes, sans contacter d’administrateur.
 
 Les utilisateurs d’une organisation non gérée sont souvent créés au cours d’une inscription en libre-service. Un exemple peut être un travailleur d’informations dans une organisation qui s’inscrit pour un service gratuit. Pour plus d’informations sur l’inscription en libre-service, consultez [Présentation de l’inscription en libre-service pour Azure Active Directory](directory-self-service-signup.md).
 

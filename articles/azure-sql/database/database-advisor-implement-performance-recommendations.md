@@ -11,12 +11,12 @@ author: danimir
 ms.author: danil
 ms.reviewer: jrasnik, carlrab
 ms.date: 03/10/2020
-ms.openlocfilehash: 14f304e3846cab25691da347732de50924356540
-ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
+ms.openlocfilehash: 5a81ceea151b937b63544cbe51cc22de11d25230
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "84036580"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85254937"
 ---
 # <a name="database-advisor-performance-recommendations-for-azure-sql-database"></a>Recommandations relatives aux performances de Database Advisor pour Azure SQL Database
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -43,7 +43,7 @@ Les options des recommandations en matière de performances disponibles dans Azu
 | **Recommandations de création d’index** : recommande de créer des index susceptibles d’améliorer les performances de votre charge de travail. | Oui | Non |
 | **Recommandations de suppression d’index** : recommande la suppression quotidienne des index redondants et en double, excepté pour les index uniques ainsi que ceux qui n’ont pas été utilisés depuis longtemps (>90 jours). Notez que l’option n’est pas compatible avec les applications utilisant la commutation de partition et les indicateurs d’index. La suppression des index inutilisés n’est pas prise en charge pour les niveaux de service Premium et Critique pour l’entreprise. | Oui | Non |
 | **Recommandations de paramétrage de requêtes (préversion)**  : recommande le paramétrage forcé dans les cas où une ou plusieurs requêtes sont constamment recompilées mais ont en fin de compte le même plan d’exécution de requête. | Oui | Non |
-| **Recommandations de résolution des problèmes de schéma (préversion)**  : des recommandations pour la correction de schéma s’affichent lorsqu’Azure SQL Database détecte une anomalie dans le nombre d’erreurs SQL liées au schéma qui se produisent sur votre base de données SQL. Microsoft déconseille actuellement la recommandation « Résoudre les problèmes de schéma ». | Oui | Non |
+| **Recommandations de résolution des problèmes de schéma (préversion)**  : des recommandations pour la correction de schéma s’affichent quand Azure SQL Database détecte une anomalie dans le nombre d’erreurs SQL liées au schéma qui se produisent sur votre base de données. Microsoft déconseille actuellement la recommandation « Résoudre les problèmes de schéma ». | Oui | Non |
 
 ![Recommandations relatives aux performances pour Azure SQL Database](./media/database-advisor-implement-performance-recommendations/performance-recommendations-annotated.png)
 
@@ -97,11 +97,11 @@ Une fois cette recommandation appliquée, le paramétrage forcé est activé en 
 > [!IMPORTANT]
 > Microsoft déconseille actuellement la recommandation « Résoudre les problèmes de schéma ». Nous vous recommandons d’utiliser [Intelligent Insights](intelligent-insights-overview.md) pour analyser vos problèmes de performances de base de données, y compris les problèmes de schéma précédemment couverts par la recommandation de résolution de ce type de problèmes.
 
-Les recommandations **Résoudre les problèmes de schéma** s’affichent lorsqu’Azure SQL Database détecte une anomalie dans le nombre d’erreurs SQL liées au schéma qui se produisent sur votre base de données SQL. Cette recommandation apparaît généralement lorsque votre base de données rencontre plusieurs erreurs liées au schéma (nom de colonne non valide, nom d’objet incorrect, etc.) en l’espace d’une heure.
+Les recommandations **Résoudre les problèmes de schéma** s’affichent lorsqu’Azure SQL Database détecte une anomalie dans le nombre d’erreurs SQL liées au schéma qui se produisent sur votre base de données. Cette recommandation apparaît généralement lorsque votre base de données rencontre plusieurs erreurs liées au schéma (nom de colonne non valide, nom d’objet incorrect, etc.) en l’espace d’une heure.
 
 Les « problèmes de schéma » désignent une classe d’erreurs de syntaxe. Ils surviennent lorsque la définition de la requête SQL et la définition du schéma de base de données ne sont pas alignées. Par exemple, il est possible que l’une des colonnes attendues par la requête soit absente de la table cible, ou inversement.
 
-La recommandation « Résoudre les problèmes de schéma » s’affiche lorsqu’Azure SQL Database détecte une anomalie dans le nombre d’erreurs SQL liées au schéma qui se produisent dans votre base de données SQL. Le tableau suivant répertorie les erreurs liées à des problèmes de schéma :
+La recommandation « Résoudre les problèmes de schéma » s’affiche lorsqu’Azure SQL Database détecte une anomalie dans le nombre d’erreurs SQL liées au schéma qui se produisent dans votre base de données. Le tableau suivant répertorie les erreurs liées à des problèmes de schéma :
 
 | Code d’erreur SQL | Message |
 | --- | --- |

@@ -3,12 +3,12 @@ title: Gérer les ressources avec le portail Azure
 description: Utilisez le portail Azure et Azure Resource Manager pour déployer vos ressources dans un groupe de ressources de votre abonnement.
 ms.topic: conceptual
 ms.date: 06/27/2019
-ms.openlocfilehash: ea2faf810b3a5d1b8fa46575201022a501cc7d58
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 31f80eb617820def871633dac1541c7dc3bed691
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80153435"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85255260"
 ---
 # <a name="deploy-resources-with-arm-templates-and-azure-portal"></a>Déployer des ressources à l’aide de modèles ARM et le portail Azure
 
@@ -86,7 +86,7 @@ Si vous souhaitez effectuer un déploiement sans utiliser l’un des modèles de
 1. Vous voyez plusieurs options pour créer un modèle :
 
     - **Créer votre modèle dans l’éditeur** : créez un modèle à l’aide de l’éditeur de modèle du portail.  L’éditeur est capable d’ajouter un schéma de modèle de ressources.
-    - **Modèles communs** : Il existe quatre modèles communs pour la création d’une machine virtuelle Linux, Windows, une application web et une base de données Azure SQL.
+    - **Modèles communs** : Il existe quatre modèles communs pour la création d’une machine virtuelle Linux ou Windows, d’une application web et d’une base de données dans Azure SQL Database.
     - **Charger un modèle de démarrage rapide GitHub** : utilisez un [modèle de démarrage rapide](https://azure.microsoft.com/resources/templates/) existant.
 
    ![Options d’affichage](./media/deploy-portal/see-options.png)

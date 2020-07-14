@@ -10,12 +10,12 @@ ms.workload: identity
 ms.topic: conceptual
 ms.date: 03/31/2020
 ms.author: iainfou
-ms.openlocfilehash: e7276dcfca6ba033942d62f347ac3a799524cac4
-ms.sourcegitcommit: b0ff9c9d760a0426fd1226b909ab943e13ade330
+ms.openlocfilehash: c8cdb75c821f45fe7fcf0f455145beb2b9be2a55
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/01/2020
-ms.locfileid: "80519087"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84734858"
 ---
 # <a name="azure-active-directory-domain-services-deployment-and-management-for-azure-cloud-solution-providers"></a>Déploiement et gestion d'Azure Active Directory Domain Services pour les fournisseurs de solutions Azure Cloud
 
@@ -78,11 +78,11 @@ Ce modèle de déploiement peut être adapté aux scénarios où un éditeur de 
 
 Tenez compte des considérations importantes suivantes quand vous administrez un domaine managé dans un abonnement Azure CSP :
 
-* **Les agents d’administration CSP peuvent approvisionner un domaine managé à l’aide de leurs informations d’identification :** Azure AD DS prend en charge les abonnements Azure CSP. Les utilisateurs appartenant au groupe d’agents d’administration d’un partenaire CSP peuvent approvisionner un nouveau domaine managé Azure AD DS.
+* **Les agents d’administration CSP peuvent approvisionner un domaine managé à l’aide de leurs informations d’identification :** Azure AD DS prend en charge les abonnements Azure CSP. Les utilisateurs appartenant au groupe d’agents d’administration d’un partenaire CSP peuvent approvisionner un nouveau domaine managé.
 
 * **Les fournisseurs de solutions cloud peuvent programmer au moyen d’un script la création de domaines managés pour leurs clients à l’aide de PowerShell :** Pour plus d'informations, consultez [Activer Azure AD DS à l’aide de PowerShell](powershell-create-instance.md).
 
-* **Les agents d’administration CSP ne peuvent pas effectuer de tâches de gestion en continu sur le domaine managé à l’aide de leurs informations d’identification :** les utilisateurs administrateurs CSP ne peuvent pas effectuer de tâches de gestion courantes dans le domaine managé à l’aide de leurs informations d’identification. Ces utilisateurs étant externes au locataire Azure AD du client, leurs informations d’identification ne sont pas disponibles dans le locataire Azure AD du client. Azure AD DS n’a pas accès aux hachages de mot de passe Kerberos et NTLM pour ces utilisateurs. Dès lors, les utilisateurs ne peuvent pas être authentifiés sur les domaines managés Azure AD.
+* **Les agents d’administration CSP ne peuvent pas effectuer de tâches de gestion en continu sur le domaine managé à l’aide de leurs informations d’identification :** les utilisateurs administrateurs CSP ne peuvent pas effectuer de tâches de gestion courantes dans le domaine managé à l’aide de leurs informations d’identification. Ces utilisateurs étant externes au locataire Azure AD du client, leurs informations d’identification ne sont pas disponibles dans le locataire Azure AD du client. Azure AD DS n’a pas accès aux hachages de mot de passe Kerberos et NTLM pour ces utilisateurs. Dès lors, les utilisateurs ne peuvent pas être authentifiés sur les domaines managés.
 
   > [!WARNING]
   > Vous devez créer un compte d’utilisateur dans l’annuaire du client pour effectuer des tâches d’administration courantes sur le domaine managé.

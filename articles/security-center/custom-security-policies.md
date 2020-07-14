@@ -8,12 +8,12 @@ ms.service: security-center
 ms.topic: conceptual
 ms.date: 04/22/2020
 ms.author: memildin
-ms.openlocfilehash: db310cb7ea5c3a89eb727262a7a7ed63ce55b5db
-ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
+ms.openlocfilehash: 6f11de7f38ff97b1141afa48c26788a171727cb6
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83650891"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85559558"
 ---
 # <a name="using-custom-security-policies"></a>Utilisation de stratégies de sécurité personnalisées
 
@@ -38,7 +38,7 @@ Comme nous l’avons vu dans la [documentation Azure Policy](https://docs.micros
 
 1. Dans la page Stratégie de sécurité, sous vos initiatives personnalisées, cliquez sur **Ajouter une initiative personnalisée**.
 
-    [![Cliquez sur *Ajouter une initiative personnalisée*](media/custom-security-policies/custom-policy-add-initiative.png)](media/custom-security-policies/custom-policy-add-initiative.png#lightbox)
+    [![Cliquez sur Ajouter une initiative personnalisée](media/custom-security-policies/custom-policy-add-initiative.png)](media/custom-security-policies/custom-policy-add-initiative.png#lightbox)
 
     La page suivante apparaît :
 

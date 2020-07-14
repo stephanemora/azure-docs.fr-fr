@@ -7,12 +7,12 @@ author: zr-msft
 ms.topic: conceptual
 ms.date: 11/13/2019
 ms.author: zarhoads
-ms.openlocfilehash: 0052657c947f8a9ff9c9d6aef86ff16d9a22adae
-ms.sourcegitcommit: 6397c1774a1358c79138976071989287f4a81a83
+ms.openlocfilehash: 538db1f2a757dd5216839ac9ac37ad0c06c5e9ea
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/07/2020
-ms.locfileid: "80803481"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84976063"
 ---
 # <a name="best-practices-for-application-developers-to-manage-resources-in-azure-kubernetes-service-aks"></a>Bonnes pratiques relatives à la gestion des ressources dans Azure Kubernetes Services (AKS) pour le développeur d’applications
 
@@ -76,9 +76,7 @@ Pour plus d’informations sur les mesures et affectations de ressources, consul
 
 **Guide de bonne pratique** : les équipes de développement doivent déployer et déboguer leurs applications sur un cluster AKS à l’aide de Dev Spaces. Ce modèle de développement garantit que les besoins en termes de réseau, de stockage ou de contrôles d’accès en fonction du rôle sont implémentés avant le déploiement de l’application en production.
 
-Avec Azure Dev Spaces, vous développez, déboguez et testez les applications directement sur un cluster AKS. Les développeurs d’une équipe travaillent ensemble pour générer et tester l’application tout au long de son cycle de vie. Vous pouvez continuer à utiliser des outils existants tels que Visual Studio ou Visual Studio Code. Une extension installée pour Dev Spaces permet d’exécuter et de déboguer l’application dans un cluster AKS :
-
-![Déboguer des applications dans un cluster AKS avec Dev Spaces](media/developer-best-practices-resource-management/dev-spaces-debug.png)
+Avec Azure Dev Spaces, vous développez, déboguez et testez les applications directement sur un cluster AKS. Les développeurs d’une équipe travaillent ensemble pour générer et tester l’application tout au long de son cycle de vie. Vous pouvez continuer à utiliser des outils existants tels que Visual Studio ou Visual Studio Code. Une extension installée pour Dev Spaces permet d’exécuter et de déboguer l’application dans un cluster AKS.
 
 Ce processus de développement et de test intégré à Dev Spaces évite de recourir à des environnements de test locaux tels que [minikube][minikube]. Au lieu de cela, vous développez et testez votre application sur un cluster AKS. Ce cluster peut être sécurisé et isolé, comme indiqué dans la section précédente sur l’utilisation d’espaces de noms pour isoler logiquement un cluster. Votre développement ayant été entièrement réalisé sur un cluster AKS réel, vous pouvez déployer en toute confiance vos applications quand celles-ci sont prêtes à passer en production.
 
@@ -119,7 +117,7 @@ Pour implémenter quelques-unes de ces bonnes pratiques, consultez les articles 
 
 <!-- INTERNAL LINKS -->
 [aks-kubeadvisor]: kube-advisor-tool.md
-[dev-spaces]: ../dev-spaces/get-started-netcore.md
+[dev-spaces]: ../dev-spaces/how-dev-spaces-works-local-process-kubernetes.md
 [operator-best-practices-isolation]: operator-best-practices-cluster-isolation.md
 [resource-quotas]: operator-best-practices-scheduler.md#enforce-resource-quotas
 [k8s-node-selector]: concepts-clusters-workloads.md#node-selectors

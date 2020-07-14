@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/07/2017
 ms.author: jegeib
-ms.openlocfilehash: 75bbce0f1e9787e55880ccac80dacb5457e1f2c0
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 56afed264facb6a02040cef01cd5d5d41526ec49
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "68728384"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85322664"
 ---
 # <a name="security-frame-authorization--mitigations"></a>Infrastructure de sécurité : Autorisation | Mesures de correction 
 | Produit/Service | Article |
@@ -146,7 +146,7 @@ Un éventuel intrus ne peut désormais plus altérer ni modifier l’opération 
 | **Phase SDL**               | Build |  
 | **Technologies applicables** | Générique |
 | **Attributs**              | N/A  |
-| **Informations de référence**              | [Hiérarchie des autorisations de base de données SQL](https://msdn.microsoft.com/library/ms191465), [éléments sécurisables de base de données SQL](https://msdn.microsoft.com/library/ms190401) |
+| **Informations de référence**              | [Hiérarchie d’autorisations SQL](https://docs.microsoft.com/sql/relational-databases/security/permissions-hierarchy-database-engine), [Éléments sécurisables SQL](https://docs.microsoft.com/sql/relational-databases/security/securables) |
 | **Étapes** | Des comptes avec des privilèges minimum doivent être utilisés pour se connecter à la base de données. La connexion d’application doit être limitée dans la base de données et ne doit exécuter que des procédures stockées sélectionnées. La connexion de l’application ne doit pas disposer d’un accès direct à la table. |
 
 ## <a name="implement-row-level-security-rls-to-prevent-tenants-from-accessing-each-others-data"></a><a id="rls-tenants"></a>Implémenter la sécurité au niveau des lignes (RLS) pour empêcher les locataires d’accéder aux données des autres
@@ -160,7 +160,7 @@ Un éventuel intrus ne peut désormais plus altérer ni modifier l’opération 
 | **Informations de référence**              | [SQL Server - Sécurité au niveau des lignes (RLS)](https://msdn.microsoft.com/library/azure/dn765131.aspx) |
 | **Étapes** | <p>La sécurité au niveau des lignes permet aux clients de contrôler l’accès aux lignes d’une table de base de données en fonction des caractéristiques de l’utilisateur qui exécute une requête (par exemple, appartenance à un groupe ou contexte d’exécution).</p><p>La sécurité au niveau des lignes simplifie la conception et codage de la sécurité dans votre application. Elle vous permet d’implémenter des restrictions sur l’accès aux lignes de données. Par exemple, en s’assurant que les employés ne peuvent accéder qu’aux lignes de données utiles à leur service, ou en limitant l’accès aux données d’un client aux données relatives à son entreprise uniquement.</p><p>La logique de la restriction d'accès est située dans la couche de base de données plutôt que loin des données d'une autre couche Application. Le système de base de données applique les restrictions d'accès chaque fois que cet accès aux données est tenté à partir d'une couche quelconque. Le système de sécurité est ainsi plus fiable et plus robuste en réduisant la surface d’exposition du système de sécurité.</p><p>|
 
-Veuillez noter que la RLS comme fonctionnalité de base de données prête à l’emploi s’applique uniquement à partir de SQL Server 2016 et à la base de données Azure SQL. Si la fonctionnalité RLS prête à l’emploi n’est pas implémentée, assurez-vous que l’accès aux données est limité à l’aide de vues et de procédures
+Veuillez noter que la sécurité au niveau des lignes, en tant que fonctionnalité de base de données prête à l’emploi, s’applique uniquement à SQL Server à partir de la version 2016, à Azure SQL Database et à Azure SQL Managed Instance. Si la fonctionnalité RLS prête à l’emploi n’est pas implémentée, assurez-vous que l’accès aux données est limité à l’aide de vues et de procédures
 
 ## <a name="sysadmin-role-should-only-have-valid-necessary-users"></a><a id="sysadmin-users"></a>Le rôle Administrateur système doit comporter uniquement des utilisateurs valides nécessaires
 
@@ -170,7 +170,7 @@ Veuillez noter que la RLS comme fonctionnalité de base de données prête à l�
 | **Phase SDL**               | Build |  
 | **Technologies applicables** | Générique |
 | **Attributs**              | N/A  |
-| **Informations de référence**              | [Hiérarchie des autorisations de base de données SQL](https://msdn.microsoft.com/library/ms191465), [éléments sécurisables de base de données SQL](https://msdn.microsoft.com/library/ms190401) |
+| **Informations de référence**              | [Hiérarchie d’autorisations SQL](https://docs.microsoft.com/sql/relational-databases/security/permissions-hierarchy-database-engine), [Éléments sécurisables SQL](https://docs.microsoft.com/sql/relational-databases/security/securables) |
 | **Étapes** | Les membres du rôle serveur fixe SysAdmin doivent être très limités et ne doivent jamais contenir des comptes utilisés par des applications.  Veuillez consulter la liste des utilisateurs du rôle et supprimer les comptes inutiles|
 
 ## <a name="connect-to-cloud-gateway-using-least-privileged-tokens"></a><a id="cloud-least-privileged"></a>Se connecter à la passerelle de cloud à l’aide de jetons avec des privilèges minimum

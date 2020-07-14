@@ -9,12 +9,12 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 06/01/2020
 ms.custom: amqp
-ms.openlocfilehash: 791d41aae7dde3e1ef2ae511de4ffd84141f0232
-ms.sourcegitcommit: 69156ae3c1e22cc570dda7f7234145c8226cc162
+ms.openlocfilehash: a7ab796ddd35ebe9b9c43509d8e3c2f4c41625c8
+ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/03/2020
-ms.locfileid: "84310782"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86083987"
 ---
 # <a name="read-device-to-cloud-messages-from-the-built-in-endpoint"></a>Lire des messages appareil-à-cloud à partir du point de terminaison intégré
 
@@ -57,7 +57,7 @@ Dans le portail, le champ Point de terminaison compatible Event Hub contient une
 | HostName | abcd1234namespace.servicebus.windows.net |
 | Espace de noms | abcd1234namespace |
 
-Vous pouvez ensuite utiliser n’importe quelle stratégie d’accès partagé bénéficiant d’autorisations **ServiceConnect** pour vous connecter au Event Hub ci-dessus.
+Vous pouvez ensuite choisir une stratégie d’accès partagé dans la liste déroulante, comme illustré dans la capture d’écran ci-dessus. Elle montre uniquement les stratégies qui disposent des autorisations **ServiceConnect** pour se connecter à l’Event Hub spécifié.
 
 Les kits de développement logiciel que vous pouvez utiliser pour vous connecter au point de terminaison compatible Event Hub intégré exposé par IoT Hub sont les suivants :
 
@@ -66,7 +66,7 @@ Les kits de développement logiciel que vous pouvez utiliser pour vous connecter
 | .NET | https://www.nuget.org/packages/Azure.Messaging.EventHubs | [Démarrage rapide](quickstart-send-telemetry-dotnet.md) |
 | Java | https://mvnrepository.com/artifact/com.azure/azure-messaging-eventhubs | [Démarrage rapide](quickstart-send-telemetry-java.md) |
 | Node.js | https://www.npmjs.com/package/@azure/event-hubs | [Démarrage rapide](quickstart-send-telemetry-node.md) |
-| Python | https://pypi.org/project/azure-eventhub/ | https://github.com/Azure-Samples/azure-iot-samples-python/tree/master/iot-hub/Quickstarts/read-d2c-messages |
+| Python | https://pypi.org/project/azure-eventhub/ | [Démarrage rapide](quickstart-send-telemetry-python.md) |
 
 Les intégrations de produits que vous pouvez utiliser avec le point de terminaison compatible Event Hub exposé par IoT Hub sont les suivantes :
 

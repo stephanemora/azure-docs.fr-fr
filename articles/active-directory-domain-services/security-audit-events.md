@@ -9,14 +9,14 @@ ms.service: active-directory
 ms.subservice: domain-services
 ms.workload: identity
 ms.topic: how-to
-ms.date: 02/10/2020
+ms.date: 07/06/2020
 ms.author: iainfou
-ms.openlocfilehash: ce910b553e14d09eefa35efc5f2973337dfa1309
-ms.sourcegitcommit: 62c5557ff3b2247dafc8bb482256fef58ab41c17
+ms.openlocfilehash: c86f98fb20af2cd5ac969867cabfdc5dcb62db54
+ms.sourcegitcommit: e132633b9c3a53b3ead101ea2711570e60d67b83
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/03/2020
-ms.locfileid: "80654677"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86039889"
 ---
 # <a name="enable-security-audits-for-azure-active-directory-domain-services"></a>Activer les audits de sécurité pour Azure Active Directory Domain Services
 
@@ -25,7 +25,7 @@ Les audits de sécurité Azure Active Directory Domain Services (Azure AD DS) pe
 Vous pouvez archiver les événements dans les événements de diffusion en continu et de Stockage Microsoft Azure à un logiciel SIEM (Security Information and Event Management) (ou équivalent) à l’aide d’Azure Event Hubs ou effectuer votre propre analyse et utiliser des espaces de travail Log Analytics, à partir du Portail Microsoft Azure.
 
 > [!IMPORTANT]
-> Les audits de sécurité Azure AD DS sont disponibles uniquement pour les instances basées sur Azure Resource Manager. Pour en savoir plus sur la migration, voir [Migrer Azure Active Directory Domain Services depuis le modèle de réseau virtuel classique vers Resource Manager][migrate-azure-adds].
+> Les audits de sécurité Azure AD DS sont disponibles uniquement pour les domaine gérés basés sur Azure Resource Manager. Pour en savoir plus sur la migration, voir [Migrer Azure Active Directory Domain Services depuis le modèle de réseau virtuel classique vers Resource Manager][migrate-azure-adds].
 
 ## <a name="security-audit-destinations"></a>Destinations des audits de sécurité
 
@@ -159,11 +159,11 @@ AADDomainServicesAccountManagement
 
 ### <a name="sample-query-2"></a>Exemple de requête 2
 
-Affichez tous les événements de verrouillage de compte (*4740*) survenus entre le 3 février 2020 à 9 h 00 et le 10 février 2020 à minuit, triés par ordre croissant de date et d’heure :
+Affichez tous les événements de verrouillage de compte (*4740*) survenus entre le 3 juin 2020 à 9 heures et le 10 juin 2020 à minuit, triés par ordre croissant de date et d’heure :
 
 ```Kusto
 AADDomainServicesAccountManagement
-| where TimeGenerated >= datetime(2020-02-03 09:00) and TimeGenerated <= datetime(2020-02-10)
+| where TimeGenerated >= datetime(2020-06-03 09:00) and TimeGenerated <= datetime(2020-06-10)
 | where OperationName has "4740"
 | sort by TimeGenerated asc
 ```

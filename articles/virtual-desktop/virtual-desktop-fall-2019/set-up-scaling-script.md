@@ -4,16 +4,16 @@ description: Mise à l'échelle automatique des hôtes de session Windows Virtua
 services: virtual-desktop
 author: Heidilohr
 ms.service: virtual-desktop
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 03/30/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: f659a40cbb9e3ef2d0e7fe4e527518a76507d5ee
-ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
+ms.openlocfilehash: f94852a99f0bc430ac193b9951de607cdd7fa933
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/21/2020
-ms.locfileid: "83745709"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85362541"
 ---
 # <a name="scale-session-hosts-using-azure-automation"></a>Procéder à la mise à l'échelle des hôtes de session à l'aide d'Azure Automation
 
@@ -33,7 +33,7 @@ Les rapports de problèmes pour l’outil de mise à l’échelle sont actuellem
 L'outil de mise à l'échelle fournit une option d'automatisation à faible coût pour les clients qui souhaitent optimiser les coûts de leurs machines virtuelles hôtes de session.
 
 Vous pouvez utiliser l'outil de mise à l'échelle pour :
- 
+
 - Planifier le démarrage et l'arrêt des machines virtuelles en fonction des heures de pointe et des heures creuses
 - Effectuez un scale-out des machines virtuelles en fonction du nombre de sessions par cœur de processeur.
 - Effectuez un scale-in des machines virtuelles pendant les heures creuses, en continuant à exécuter le nombre minimum de machines virtuelles hôtes de session
@@ -67,7 +67,7 @@ Avant de commencer à configurer l'outil de mise à l'échelle, assurez-vous que
 - Machines virtuelles du pool d'hôtes de session configurées et inscrites auprès du service Windows Virtual Desktop
 - Un utilisateur doté d'un [accès Contributeur](../../role-based-access-control/role-assignments-portal.md) sur un abonnement Azure
 
-L'ordinateur que vous utilisez pour déployer l'outil doit disposer de ce qui suit : 
+L'ordinateur que vous utilisez pour déployer l'outil doit disposer de ce qui suit :
 
 - Windows PowerShell 5.1 ou version ultérieure
 - Module Microsoft AZ PowerShell
@@ -106,7 +106,8 @@ Tout d'abord, vous devez disposer d'un compte Azure Automation pour exécuter le
 
 6. Après avoir configuré votre compte Azure Automation, connectez-vous à votre abonnement Azure et vérifiez que votre compte Azure Automation et le runbook correspondant apparaissent dans le groupe de ressources spécifié, comme illustré ci-dessous :
 
-![Illustration de la page de présentation Azure affichant le compte d'automatisation et le runbook nouvellement créés.](../media/automation-account.png)
+> [!div class="mx-imgBorder"]
+> ![Illustration de la page de présentation Azure affichant le compte d’automatisation et le runbook nouvellement créés.](../media/automation-account.png)
 
   Pour vérifier si votre webhook se trouve au bon emplacement, sélectionnez le nom de votre runbook. Accédez ensuite à la section des ressources de votre runbook, puis sélectionnez **Webhooks**.
 
@@ -180,21 +181,21 @@ Enfin, vous devrez créer l'application logique Azure et configurer un calendrie
 
      ```powershell
      $aadTenantId = (Get-AzContext).Tenant.Id
-     
+
      $azureSubscription = Get-AzSubscription | Out-GridView -PassThru -Title "Select your Azure Subscription"
      Select-AzSubscription -Subscription $azureSubscription.Id
      $subscriptionId = $azureSubscription.Id
-     
+
      $resourceGroup = Get-AzResourceGroup | Out-GridView -PassThru -Title "Select the resource group for the new Azure Logic App"
      $resourceGroupName = $resourceGroup.ResourceGroupName
      $location = $resourceGroup.Location
-     
+
      $wvdTenant = Get-RdsTenant | Out-GridView -PassThru -Title "Select your WVD tenant"
      $tenantName = $wvdTenant.TenantName
-     
+
      $wvdHostpool = Get-RdsHostPool -TenantName $wvdTenant.TenantName | Out-GridView -PassThru -Title "Select the host pool you'd like to scale"
      $hostPoolName = $wvdHostpool.HostPoolName
-     
+
      $recurrenceInterval = Read-Host -Prompt "Enter how often you'd like the job to run in minutes, e.g. '15'"
      $beginPeakTime = Read-Host -Prompt "Enter the start time for peak hours in local time, e.g. 9:00"
      $endPeakTime = Read-Host -Prompt "Enter the end time for peak hours in local time, e.g. 18:00"
@@ -204,12 +205,12 @@ Enfin, vous devrez créer l'application logique Azure et configurer un calendrie
      $limitSecondsToForceLogOffUser = Read-Host -Prompt "Enter the number of seconds to wait before automatically signing out users. If set to 0, users will be signed out immediately"
      $logOffMessageTitle = Read-Host -Prompt "Enter the title of the message sent to the user before they are forced to sign out"
      $logOffMessageBody = Read-Host -Prompt "Enter the body of the message sent to the user before they are forced to sign out"
-     
+
      $automationAccount = Get-AzAutomationAccount -ResourceGroupName $resourceGroup.ResourceGroupName | Out-GridView -PassThru
      $automationAccountName = $automationAccount.AutomationAccountName
      $automationAccountConnection = Get-AzAutomationConnection -ResourceGroupName $resourceGroup.ResourceGroupName -AutomationAccountName $automationAccount.AutomationAccountName | Out-GridView -PassThru -Title "Select the Azure RunAs connection asset"
      $connectionAssetName = $automationAccountConnection.Name
-     
+
      $webHookURI = Read-Host -Prompt "Enter the URI of the WebHook returned by when you created the Azure Automation Account"
      $maintenanceTagName = Read-Host -Prompt "Enter the name of the Tag associated with VMs you don't want to be managed by this scaling tool"
 
@@ -236,11 +237,13 @@ Enfin, vous devrez créer l'application logique Azure et configurer un calendrie
 
      Une fois le script exécuté, l'application logique doit apparaître dans un groupe de ressources, comme illustré ci-dessous.
 
-     ![Illustration de la page de présentation d'un exemple d'application logique Azure.](../media/logic-app.png)
+     > [!div class="mx-imgBorder"]
+     > ![Illustration de la page de présentation d’un exemple d’application logique Azure.](../media/logic-app.png)
 
 Pour apporter des modifications au calendrier d'exécution, telles que la modification de l'intervalle de périodicité ou du fuseau horaire, accédez au planificateur de mise à l'échelle automatique et sélectionnez **Modifier** pour accéder au concepteur d'applications logiques.
 
-![Illustration du concepteur d'applications logiques. Les menus Périodicité et Webhook qui permettent à l'utilisateur de modifier la périodicité et le fichier webhook sont ouverts.](../media/logic-apps-designer.png)
+> [!div class="mx-imgBorder"]
+> ![Illustration du concepteur d’applications logiques. Les menus Périodicité et Webhook qui permettent à l’utilisateur de modifier la périodicité et le fichier Webhook sont ouverts.](../media/logic-apps-designer.png)
 
 ## <a name="manage-your-scaling-tool"></a>Gérer votre outil de mise à l'échelle
 
@@ -252,7 +255,8 @@ Vous pouvez afficher un résumé de l'état de tous les travaux du runbook ou af
 
 À droite du compte Automation sélectionné, sous « Statistiques des travaux », vous pouvez afficher la liste des résumés de tous les travaux du runbook. Ouvrez la page **Travaux** sur le côté gauche de la fenêtre pour afficher l'état actuel des travaux, ainsi que les heures de début et de fin de ceux-ci.
 
-![Capture d'écran de la page d'état des travaux.](../media/jobs-status.png)
+> [!div class="mx-imgBorder"]
+> ![Capture d’écran de la page d’état des travaux.](../media/jobs-status.png)
 
 ### <a name="view-logs-and-scaling-tool-output"></a>Afficher les journaux et la sortie de l'outil de mise à l'échelle
 
@@ -260,5 +264,6 @@ Vous pouvez consulter les journaux des opérations de « scale-out » et de «
 
 Accédez au runbook (le nom par défaut est WVDAutoScaleRunbook) du groupe de ressources qui héberge le compte Azure Automation et sélectionnez **Présentation**. Sur la page de présentation, sélectionnez un travail sous Travaux récents pour afficher la sortie de son outil de mise à l'échelle, comme illustré ci-dessous.
 
-![Illustration de la fenêtre de sortie de l'outil de mise à l'échelle.](../media/tool-output.png)
+> [!div class="mx-imgBorder"]
+> ![Illustration de la fenêtre de sortie de l’outil de mise à l’échelle.](../media/tool-output.png)
 

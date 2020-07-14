@@ -11,12 +11,12 @@ author: danimir
 ms.author: danil
 ms.reviewer: jrasnik, carlrab
 ms.date: 04/06/2020
-ms.openlocfilehash: 1a7a45433c2db71cbfaf16ab7107f233f1dd0eb9
-ms.sourcegitcommit: 93462ccb4dd178ec81115f50455fbad2fa1d79ce
+ms.openlocfilehash: efb99e23466e4615dfa1f4a429addcd8c4ac68f5
+ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/06/2020
-ms.locfileid: "85985514"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86085597"
 ---
 # <a name="configure-streaming-export-of-azure-sql-database-and-sql-managed-instance-diagnostic-telemetry"></a>Configurer l’exportation en continu de la télémétrie de diagnostic d’Azure SQL Database et de SQL Managed Instance
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
@@ -133,9 +133,9 @@ Pour activer le streaming de la télémétrie de diagnostic pour une ressource d
 > [!IMPORTANT]
 > Outre la configuration de la télémétrie de diagnostic pour un pool élastique, vous devez également configurer la télémétrie de diagnostic pour chaque base de données au sein du pool élastique.
 
-### <a name="single-and-pooled-databases-in-azure-sql-database"></a>Bases de données uniques et mises en pool dans Azure SQL Database
+### <a name="databases-in-azure-sql-database"></a>Bases de données dans Azure SQL Database
 
-Vous pouvez configurer une ressource de base de données unique ou mise en pool de sorte qu’elle collecte la télémétrie de diagnostic suivante :
+Vous pouvez configurer une ressource de base de données gérée de sorte qu’elle collecte la télémétrie de diagnostic suivante :
 
 | Ressource | Supervision des données de télémétrie |
 | :------------------- | ------------------- |
