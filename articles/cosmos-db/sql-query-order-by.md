@@ -4,14 +4,14 @@ description: Découvrez la clause SQL ORDER BY pour Azure Cosmos DB. Utilisez SQ
 author: timsander1
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 04/17/2020
+ms.date: 06/06/2020
 ms.author: tisande
-ms.openlocfilehash: 70702ee4a77e8b3c46de4354f3394bca4080d837
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: c4ae66884602989284a427bdc33de7612bd9a8df
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81641392"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84484335"
 ---
 # <a name="order-by-clause-in-azure-cosmos-db"></a>Clause ORDER BY dans Azure Cosmos DB
 
@@ -47,7 +47,7 @@ ORDER BY <sort_specification>
   
    Spécifie que les valeurs dans la colonne spécifiée doivent être triées par ordre croissant ou décroissant. `ASC` effectue le tri de la valeur la plus faible à la valeur la plus élevée. `DESC` effectue le tri de la valeur la plus élevée à la valeur la plus faible. `ASC` correspond à l’ordre de tri par défaut. Les valeurs NULL sont traitées comme les plus petites valeurs possibles.  
   
-## <a name="remarks"></a>Notes   
+## <a name="remarks"></a>Notes  
   
    La clause `ORDER BY` nécessite que la stratégie d’indexation comprenne un index pour les champs de tri. Le runtime de requête Azure Cosmos DB prend en charge le tri par rapport à un nom de propriété et non par rapport à des propriétés calculées. Azure Cosmos DB prend en charge plusieurs propriétés `ORDER BY`. Pour exécuter une requête avec plusieurs propriétés ORDER BY, vous devez définir un [index composite](index-policy.md#composite-indexes) sur les champs de tri.
 
@@ -215,6 +215,11 @@ Les résultats sont :
     }
 ]
 ```
+
+> [!Note]
+> Seul le kit SDK .NET version 3.4.0 ou ultérieure prend en charge ORDER BY avec des types mixtes. Par conséquent, si vous souhaitez faire un tri par combinaison de valeurs non définies et définies, vous devez utiliser cette version (ou une version ultérieure).
+
+Vous ne pouvez pas contrôler l’ordre dans lequel les différents types apparaissent dans les résultats. Dans l’exemple ci-dessus, nous avons montré comment les valeurs non définies ont été triées avant les valeurs de chaîne. Si, par exemple, vous souhaitez plus de contrôle sur l’ordre de tri des valeurs non définies, vous pouvez assigner à toutes les propriétés non définies une valeur de chaîne « aaaaaaaaa » ou « zzzzzzzz » pour vous assurer qu’elles étaient soit la première, soit la dernière.
 
 ## <a name="next-steps"></a>Étapes suivantes
 

@@ -7,15 +7,15 @@ manager: danielgi
 ms.service: azure-cdn
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: how-to
 ms.date: 03/23/2020
 ms.author: sohamnc
-ms.openlocfilehash: f4693cdac2d5d3a57987cc692797756314ded11e
-ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
+ms.openlocfilehash: a2522eba17574246ab99a0d47a42f128d5f61ace
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/21/2020
-ms.locfileid: "83747316"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84888639"
 ---
 # <a name="azure-cdn-http-raw-logs"></a>Journaux bruts HTTP Azure CDN
 Les journaux bruts offrent des informations détaillées sur les opérations et erreurs qui sont importantes pour l’audit et la résolution des problèmes. Les journaux bruts diffèrent des journaux d’activité. Les journaux d’activité apportent une visibilité dans les opérations effectuées sur des ressources Azure. Les journaux bruts fournissent un enregistrement des opérations de votre ressource.
@@ -33,7 +33,7 @@ Connectez-vous au portail Azure sur [https://portal.azure.com](https://portal.az
 
 Pour configurer les journaux bruts de votre instance Azure CDN à partir du profil Microsoft : 
 
-1. Dans le menu du portail Azure, sélectionnez **Toutes les ressources** >>  **\<votre-profil-CDN>** .
+1. Dans le menu du portail Azure, sélectionnez **Toutes les ressources** >>  **\<your-CDN-profile>** .
 
 2. Sous **Supervision**, sélectionnez **Paramètres de diagnostic**.
 

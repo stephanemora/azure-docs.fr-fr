@@ -6,17 +6,17 @@ author: XiaoyuMSFT
 manager: craigg
 ms.service: synapse-analytics
 ms.topic: conceptual
-ms.subservice: ''
+ms.subservice: sql-dw
 ms.date: 03/19/2019
 ms.author: xiaoyul
 ms.reviewer: igorstan
 ms.custom: seo-lt-2019, azure-synapse
-ms.openlocfilehash: 6f3418d73496ae25782b57a43e3357dc0bc7131a
-ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
+ms.openlocfilehash: 8328750849f5466c8754499694a41615776ff3da
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83660035"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85201699"
 ---
 # <a name="design-guidance-for-using-replicated-tables-in-synapse-sql-pool"></a>Conseils de conception pour l'utilisation de tables répliquées dans un pool Synapse SQL
 
@@ -126,7 +126,7 @@ Nous avons recréé les tables `DimDate` et `DimSalesTerritory` en tant que tabl
 
 Le pool SQL implémente une table répliquée en conservant une version principale de la table. Il copie la version principale dans la première base de données de distribution sur chaque nœud de calcul. En cas de modification, la version de référence est d’abord mise à jour, puis les tables sur chaque nœud de calcul sont reconstruites. Une reconstruction d’une table répliquée implique la copie de la table sur chaque nœud de calcul et la construction des index.  Par exemple, une table répliquée sur un DW2000c a 5 copies des données.  Une copie principale et une copie complète sur chaque nœud de calcul.  Toutes les données sont stockées dans des bases de données de distribution. Le pool SQL utilise ce modèle pour prendre en charge des instructions de modification de données plus rapides et des opérations de mise à l'échelle flexibles.
 
-Les reconstructions sont requises après les événements suivants :
+Les reconstructions asynchrones sont déclenchées par la première requête du tableau répliqué après :
 
 - Des données sont chargées ou modifiées
 - L'instance SQL Synapse est mise à l'échelle à un autre niveau

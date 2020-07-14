@@ -5,21 +5,20 @@ services: storsimple
 documentationcenter: ''
 author: alkohli
 manager: timlt
-editor: ''
 ms.assetid: ''
 ms.service: storsimple
 ms.devlang: na
-ms.topic: article
+ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/23/2018
 ms.author: alkohli
-ms.openlocfilehash: 116ac5c4efda87b5d16336dd326d516299f6955d
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 825a10bec7a9d415bdcf76e5b6f28f04060bb411
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "61481941"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85514027"
 ---
 # <a name="deactivate-and-delete-a-storsimple-device"></a>Désactiver et supprimer un appareil StorSimple
 
@@ -36,28 +35,29 @@ Si vous désactivez un appareil, les données stockées localement sur ce dernie
 >
 > La réinitialisation aux paramètres d’usine supprime toutes les données stockées localement sur votre appareil. Par conséquent, vous devez impérativement prendre un instantané cloud de toutes vos données avant de désactiver un appareil. Cet instantané cloud vous permet de récupérer ultérieurement l’ensemble des données.
 
+> [!NOTE]
+>
+> - Avant de désactiver un appareil physique StorSimple ou une appliance cloud, veillez à ce que les données du conteneur de volume supprimé soient bien supprimées de l’appareil. Surveillez les graphiques de consommation du cloud, et lorsque vous constatez une baisse d’utilisation du cloud due aux sauvegardes supprimées, désactivez l’appareil. Si vous désactivez l’appareil avant de constater la baisse, les données sont bloquées dans le compte de stockage et occasionnent des frais.
+>
+> - Avant de désactiver un appareil physique ou une appliance cloud StorSimple, arrêtez ou supprimez les clients et les hôtes qui en dépendent.
+>
+> - Si le ou les comptes de stockage ou les conteneurs du compte de stockage associé aux conteneurs de volumes sont déjà supprimés avant de supprimer les données de l’appareil, vous rencontrerez une erreur et ne pourrez peut-être pas supprimer les données. Nous vous recommandons de supprimer les données sur l’appareil avant de supprimer le compte de stockage ou les conteneurs de ces données. Toutefois, dans ce cas, vous devrez procéder à la désactivation et à la suppression des appareils en supposant que les données sont déjà supprimées du compte de stockage.
+
 Après avoir lu ce didacticiel, vous pourrez :
 
-* Désactiver un appareil et supprimer ses données.
-* Désactiver un appareil et conserver ses données.
-
-> [!NOTE]
-> Avant de désactiver un appareil physique ou une appliance cloud StorSimple, arrêtez ou supprimez les clients et les hôtes qui en dépendent.
-
+- Désactiver un appareil et supprimer ses données.
+- Désactiver un appareil et conserver ses données.
 
 ## <a name="deactivate-and-delete-data"></a>Désactiver et supprimer des données
 
 Si vous êtes intéressé par la suppression complète de l’appareil et que vous ne voulez pas conserver ses données, procédez comme suit :
 
-#### <a name="to-deactivate-the-device-and-delete-the-data"></a>Pour désactiver l’appareil et supprimer ses données
+### <a name="to-deactivate-the-device-and-delete-the-data"></a>Pour désactiver l’appareil et supprimer ses données
 
-1. Avant de désactiver un appareil, vous devez supprimer tous les conteneurs de volumes (et les volumes) qui lui sont associés. Vous ne pouvez supprimer les conteneurs de volumes qu’après avoir supprimé les sauvegardes associées.
-
-    > [!NOTE]
-    > Avant de désactiver un appareil physique StorSimple ou une appliance cloud, veillez à ce que les données du conteneur de volume supprimé soient bien supprimées de l’appareil. Surveillez les graphiques de consommation du cloud, et lorsque vous constatez une baisse d’utilisation du cloud due aux sauvegardes supprimées, désactivez l’appareil. Si vous désactivez l’appareil avant de constater la baisse, les données sont bloquées dans le compte de stockage et occasionnent des frais.
+1. Avant de désactiver un appareil, vous devez supprimer tous les conteneurs de volumes (et les volumes) qui lui sont associés. Vous ne pouvez supprimer les conteneurs de volumes qu’après avoir supprimé les sauvegardes associées. Reportez-vous à la vue d’ensemble ci-dessus avant de désactiver un appareil physique StorSimple ou une appliance Cloud.
 
 2. Désactivez l’appareil de la manière suivante :
-   
+
    1. Accédez à votre service StorSimple Device Manager et cliquez sur **Appareils**. Dans le panneau **Appareils**, sélectionnez l’appareil à désactiver, cliquez avec le bouton droit, puis cliquez sur **Désactiver**.
 
         ![Désactiver l’appareil StorSimple](./media/storsimple-8000-deactivate-and-delete-device/deactivate1.png)
@@ -79,7 +79,8 @@ Si vous êtes intéressé par la suppression complète de l’appareil et que vo
 
 Si vous voulez supprimer un appareil tout en conservant ses données, procédez comme suit :
 
-#### <a name="to-deactivate-a-device-and-retain-the-data"></a>Pour désactiver un appareil et conserver ses données
+### <a name="to-deactivate-a-device-and-retain-the-data"></a>Pour désactiver un appareil et conserver ses données
+
 1. Désactivez l’appareil. Tous les conteneurs de volumes et les instantanés de l’appareil sont conservés.
    
    1. Accédez à votre service StorSimple Device Manager et cliquez sur **Appareils**. Dans le panneau **Appareils**, sélectionnez l’appareil à désactiver, cliquez avec le bouton droit, puis cliquez sur **Désactiver**.
@@ -99,7 +100,6 @@ Si vous voulez supprimer un appareil tout en conservant ses données, procédez 
        ![Désactiver l’appareil StorSimple](./media/storsimple-8000-deactivate-and-delete-device/deactivate6.png)
    3. Vous êtes averti une fois la suppression terminée. La liste des appareils est également actualisée afin de refléter la suppression.
 
-     
 ## <a name="deactivate-and-delete-a-cloud-appliance"></a>Désactiver et supprimer une appliance cloud
 
 Pour une instance Cloud StorSimple Appliance, la désactivation à partir du portail libère et supprime la machine virtuelle, ainsi que les ressources créées lors de son approvisionnement. Une fois l’appliance cloud désactivée, elle ne peut pas être restaurée vers son état précédent.

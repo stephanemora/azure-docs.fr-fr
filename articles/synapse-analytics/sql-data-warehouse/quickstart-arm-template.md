@@ -8,16 +8,16 @@ ms.topic: quickstart
 ms.custom: subject-armqs
 ms.author: jrasnick
 ms.date: 06/09/2020
-ms.openlocfilehash: 766a41b61f32804c7d7f59c946530f8e1a7b869a
-ms.sourcegitcommit: 4042aa8c67afd72823fc412f19c356f2ba0ab554
+ms.openlocfilehash: 3f84cd92a4c4f96831d39cac783df6710c5ea5f4
+ms.sourcegitcommit: 374e47efb65f0ae510ad6c24a82e8abb5b57029e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/24/2020
-ms.locfileid: "85296268"
+ms.lasthandoff: 06/28/2020
+ms.locfileid: "85513421"
 ---
 # <a name="quickstart-create-an-azure-synapse-analytics-sql-pool-by-using-an-arm-template"></a>Démarrage rapide : Créer un pool SQL Azure Synapse Analytics à l’aide d’un modèle ARM
 
-Ce modèle crée un pool SQL Azure Synapse Analytics avec Transparent Data Encryption activé. Le pool Synapse SQL fait référence aux fonctionnalités d’entreposage de données d’entreprise qui sont généralement disponibles dans Azure Synapse.
+Ce modèle Azure Resource Manager (modèle ARM) crée un pool SQL Azure Synapse Analytics avec Transparent Data Encryption activé. Le pool Synapse SQL fait référence aux fonctionnalités d’entreposage de données d’entreprise qui sont généralement disponibles dans Azure Synapse.
 
 [!INCLUDE [About Azure Resource Manager](../../../includes/resource-manager-quickstart-introduction.md)]
 
@@ -107,8 +107,8 @@ Write-Host "Press [ENTER] to continue..."
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Dans le cadre de ce guide de démarrage rapide, vous avez créé un pool SQL Azure Synapse Analytics en utilisant un modèle Azure Resource Manager, puis vous avez vérifié le déploiement. Pour plus d’informations sur Azure Synapse Analytics et Azure Resource Manager, passez aux articles ci-dessous.
+Dans le cadre de ce guide de démarrage rapide, vous avez créé un pool SQL Azure Synapse Analytics en utilisant un modèle Resource Manager, puis vous avez vérifié le déploiement. Pour plus d’informations sur Azure Synapse Analytics et Azure Resource Manager, passez aux articles ci-dessous.
 
 - Consulter la [Vue d’ensemble d’Azure Synapse Analytics](sql-data-warehouse-overview-what-is.md)
 - En savoir plus sur [Azure Resource Manager](../../azure-resource-manager/management/overview.md)
-- [Créer et déployer votre premier modèle Azure Resource Manager](../../azure-resource-manager/templates/template-tutorial-create-first-template.md)
+- [Créer et déployer votre premier modèle Resource Manager](../../azure-resource-manager/templates/template-tutorial-create-first-template.md)

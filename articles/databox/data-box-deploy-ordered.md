@@ -8,12 +8,12 @@ ms.subservice: pod
 ms.topic: tutorial
 ms.date: 04/23/2019
 ms.author: alkohli
-ms.openlocfilehash: bc21ba73ef7e8f5879af2b15787449315f36a3f8
-ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
+ms.openlocfilehash: cfb95f2fb02544197f9b2796a705844e33eca201
+ms.sourcegitcommit: b56226271541e1393a4b85d23c07fd495a4f644d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/21/2020
-ms.locfileid: "83745317"
+ms.lasthandoff: 06/26/2020
+ms.locfileid: "85392475"
 ---
 # <a name="tutorial-order-azure-data-box"></a>Tutoriel : Commander Azure Data Box
 
@@ -30,22 +30,175 @@ Ce tutoriel explique comment commander une Azure Data Box. Ce tutoriel vous four
 
 ## <a name="prerequisites"></a>Prérequis
 
-Effectuez les prérequis de configuration suivants pour l’appareil et le service Data Box avant de déployer l’appareil.
+# <a name="portal"></a>[Portail](#tab/portal)
 
-### <a name="for-service"></a>Pour le service
+Respectez les prérequis de configuration suivants pour l’appareil et le service Data Box avant de déployer l’appareil :
 
-[!INCLUDE [Data Box service prerequisites](../../includes/data-box-supported-subscriptions.md)]
+[!INCLUDE [Prerequisites](../../includes/data-box-deploy-ordered-prerequisites.md)]
 
-### <a name="for-device"></a>Pour l’appareil
+# <a name="azure-cli"></a>[Azure CLI](#tab/azure-cli)
 
-Avant de commencer, assurez-vous que :
+[!INCLUDE [Prerequisites](../../includes/data-box-deploy-ordered-prerequisites.md)]
 
-* Vous disposez d’un ordinateur hôte connecté au réseau du centre de données. La Data Box va copier les données de cet ordinateur. Votre ordinateur hôte doit exécuter un système d’exploitation pris en charge comme décrit dans [Conditions requises pour le système Azure Data Box](data-box-system-requirements.md).
-* Votre centre de données doit avoir un réseau haut débit. Nous vous recommandons vivement d’utiliser au minimum une connexion 10 GbE. Si vous ne disposez pas d’une connexion 10 GbE, vous pouvez utiliser une liaison de données 1 GbE. Cependant, cela a une incidence sur les vitesses de copie.
+Si vous ne disposez pas d’abonnement Azure, créez un [compte gratuit](https://azure.microsoft.com/free/) avant de commencer.
+
+Vous pouvez vous connecter à Azure et exécuter des commandes Azure CLI de l’une des deux façons suivantes :
+
+* Vous pouvez installer l’interface CLI et exécuter des commandes CLI localement.
+* Vous pouvez exécuter des commandes CLI à partir du Portail Azure, dans Azure Cloud Shell.
+
+Nous utilisons Azure CLI par le biais de Windows PowerShell pour le tutoriel, mais vous êtes libre de choisir l’une ou l’autre option.
+
+### <a name="install-the-cli-locally"></a>Installer la CLI localement
+
+* Installez [Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli) version 2.0.67 ou ultérieure. Vous pouvez également effectuer l’[installation à l’aide de MSI](https://aka.ms/installazurecliwindows).
+
+#### <a name="sign-in-to-azure"></a>Connexion à Azure
+
+Ouvrez une fenêtre de commande Windows PowerShell, puis connectez-vous à Azure avec la commande [az login](/cli/azure/reference-index#az-login) :
+
+```azurecli
+PS C:\Windows> az login
+```
+
+Voici la sortie d’une connexion réussie :
+
+```output
+You have logged in. Now let us find all the subscriptions to which you have access.
+[
+   {
+      "cloudName": "AzureCloud",
+      "homeTenantId": "aaaaaaaa-aaaa-aaaa-aaaa-aaaaaaaaaaaa",
+      "id": "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx",
+      "isDefault": true,
+      "managedByTenants": [],
+      "name": "My Subscription",
+      "state": "Enabled",
+      "tenantId": "aaaaaaaa-aaaa-aaaa-aaaa-aaaaaaaaaaaa",
+      "user": {
+          "name": "gusp@contoso.com",
+          "type": "user"
+      }
+   }
+]
+```
+
+#### <a name="install-the-azure-data-box-cli-extension"></a>Installer l’extension CLI Azure Data Box
+
+Avant de pouvoir utiliser les commandes CLI Azure Data Box, vous devez installer l’extension. Les extensions Azure CLI vous donnent accès à des commandes expérimentales et en préversion qui ne sont pas encore offertes par l’interface CLI principale. Pour plus d’informations sur les extensions, consultez [Utiliser des extensions avec Azure CLI](/cli/azure/azure-cli-extensions-overview).
+
+Pour installer l’extension pour Azure Data Box, exécutez la commande suivante : `az extension add --name databox` :
+
+```azurecli
+
+    PS C:\Windows> az extension add --name databox
+```
+
+Si l’extension est correctement installée, la sortie suivante s’affiche :
+
+```output
+    The installed extension 'databox' is experimental and not covered by customer support. Please use with discretion.
+    PS C:\Windows>
+
+    # az databox help
+
+    PS C:\Windows> az databox -h
+
+    Group
+        az databox
+
+    Subgroups:
+        job [Experimental] : Commands to manage databox job.
+
+    For more specific examples, use: az find "az databox"
+
+        Please let us know how we are doing: https://aka.ms/clihats
+```
+
+### <a name="use-azure-cloud-shell"></a>Utiliser Azure Cloud Shell
+
+Vous pouvez utiliser [Azure Cloud Shell](https://shell.azure.com/), un environnement d’interpréteur de commandes interactif hébergé Azure, par le biais de votre navigateur pour exécuter des commandes CLI. Azure Cloud Shell prend en charge Bash ou Windows PowerShell avec les services Azure. L’interface Azure CLI est préinstallée et configurée pour être utilisée avec votre compte. Cliquez sur le bouton Cloud Shell du menu situé dans la section en haut à droite du portail Azure :
+
+![Cloud Shell](../storage/common/media/storage-quickstart-create-account/cloud-shell-menu.png)
+
+Ce bouton lance un interpréteur de commandes interactif que vous pouvez utiliser pour exécuter les étapes décrites dans cet article de guide pratique.
+
+<!-- To start Azure Cloud Shell:
+
+| Option | Example/Link |
+|-----------------------------------------------|---|
+| Select **Try It** in the upper-right corner of a code block. Selecting **Try It** doesn't automatically copy the code to Cloud Shell. | ![Example of Try It for Azure Cloud Shell](../../includes/media/cloud-shell-try-it/hdi-azure-cli-try-it.png) |
+| Go to [https://shell.azure.com](https://shell.azure.com), or select the **Launch Cloud Shell** button to open Cloud Shell in your browser. | [![Launch Cloud Shell in a new window](../../includes/media/cloud-shell-try-it/hdi-launch-cloud-shell.png)](https://shell.azure.com) |
+| Select the **Cloud Shell** button on the menu bar at the upper right in the [Azure portal](https://portal.azure.com). | ![Cloud Shell button in the Azure portal](../../includes/media/cloud-shell-try-it/hdi-cloud-shell-menu.png) |
+
+To run the code in this article in Azure Cloud Shell:
+
+1. Start Cloud Shell.
+
+2. Select the **Copy** button on a code block to copy the code.
+
+3. Paste the code into the Cloud Shell session by selecting **Ctrl**+**Shift**+**V** on Windows and Linux or by selecting **Cmd**+**Shift**+**V** on macOS.
+
+4. Select **Enter** to run the code.
+
+For this tutorial, we use Windows PowerShell command prompt to run Azure CLI commands. -->
+
+<!-- This goes away, we'll show this later when we show how to order a Data Box. -->
+<!-- ## Change the output format type
+
+All Azure CLI commands will use json as the output format by default unless you change it. You can change the output format by using the global parameter `--output <output-format>`. -->
+
+<!-- ```azurecli
+
+az databox job <command> --output <output-format>
+
+```
+
+Azure Data Box CLI commands support the following output formats:
+
+* json (default setting)
+* jsonc
+* table
+* tsv
+* yaml
+* yamlc
+* none
+
+You can use the parameter `--output` with all Azure Data Box CLI commands. -->
+
+<!-- To set the output format to yaml: -->
+
+<!-- ```azurecli
+PS C:\Windows>az databox job show --resource-group "myresourcegroup" --name "mydataboxorder" --output "yaml"
+
+``` -->
+<!-- 
+To set the out format to tabular form (easier to read):
+
+```azurecli
+PS C:\Windows>az databox job show --resource-group "myresourcegroup" --name "mydataboxorder" --output "table"
+
+``` -->
+
+<!-- Here's the example output of `az databox job show` after changing the output format to table:
+
+```azurecli
+PS C:\WINDOWS\system32> az databox job show --resource-group "GDPTest" --name "mydataboxtest3" --output "table"
+Command group 'databox job' is experimental and not covered by customer support. Please use with discretion.
+
+DeliveryType    IsCancellable    IsCancellableWithoutFee    IsDeletable    IsShippingAddressEditable    Location    Name            ResourceGroup    StartTime                         Status
+--------------  ---------------  -------------------------  -------------  ---------------------------  ----------  --------------  ---------------  --------------------------------  -------------
+NonScheduled    True             True                       False          True                         westus      mydataboxorder  myresourcegroup          2020-06-11T22:05:49.436622+00:00  DeviceOrdered
+
+``` -->
+
+---
 
 ## <a name="order-data-box"></a>Commander une Data Box
 
-Procédez comme suit dans le portail Azure pour commander un appareil.
+# <a name="portal"></a>[Portail](#tab/portal)
+
+Effectuez les étapes suivantes dans le portail Azure pour commander un appareil.
 
 1. Utilisez vos informations d’identification Microsoft Azure pour vous connecter à cette URL : [https://portal.azure.com](https://portal.azure.com).
 2. Cliquez sur **+ Créer une ressource** et recherchez *Azure Data Box*. Cliquez sur **Azure Data Box**.
@@ -54,7 +207,7 @@ Procédez comme suit dans le portail Azure pour commander un appareil.
 
 3. Cliquez sur **Créer**.
 
-4. Vérifiez si le service Data Box est disponible dans votre région. Saisissez ou sélectionnez les informations suivantes, puis sélectionnez **Appliquer**.
+4. Vérifiez si le service Data Box est disponible dans votre région. Entrez ou sélectionnez les informations suivantes, puis sélectionnez **Appliquer**.
 
     |Paramètre  |Valeur  |
     |---------|---------|
@@ -67,7 +220,7 @@ Procédez comme suit dans le portail Azure pour commander un appareil.
 
       [![Sélectionner Data Box, option 1](media/data-box-deploy-ordered/select-data-box-option1.png)](media/data-box-deploy-ordered/select-data-box-option1.png#lightbox)
 
-6. Dans **Commande**, indiquez les **Détails de la commande**. Saisissez ou sélectionnez les informations suivantes, puis cliquez sur **Suivant**.
+6. Dans **Commande**, indiquez les **Détails de la commande**. Entrez ou sélectionnez les informations suivantes, puis sélectionnez **Suivant**.
 
     |Paramètre  |Valeur  |
     |---------|---------|
@@ -80,7 +233,7 @@ Procédez comme suit dans le portail Azure pour commander un appareil.
 
     ![Azure Data Box pour un compte de stockage](media/data-box-deploy-ordered/order-storage-account.png)
 
-    Si vous utilisez Data Box pour créer des disques managés à partir de disques durs virtuels locaux, vous devez également fournir les informations suivantes :
+    Si vous utilisez Data Box pour créer des disques managés à partir de disques durs virtuels (VHD) locaux, vous devez également fournir les informations suivantes :
 
     |Paramètre  |Valeur  |
     |---------|---------|
@@ -92,7 +245,7 @@ Procédez comme suit dans le portail Azure pour commander un appareil.
 
 7. Dans la zone **Adresse d’expédition**, indiquez vos nom et prénom, le nom et l’adresse postale de la société, et un numéro de téléphone valide. Cliquez sur **Valider l’adresse**. Le service valide l’adresse d’expédition de disponibilité du service. Si le service est disponible pour l’adresse de livraison indiquée, vous recevez une notification à cet effet.
 
-   Une fois la commande passée, si l’expédition gérée par vous-même a été sélectionnée, vous recevez une notification par e-mail. Pour plus d’informations sur l’expédition gérée par vous-même, consultez [Utiliser l’expédition autogérée](data-box-portal-customer-managed-shipping.md).
+   Si vous avez sélectionné l’expédition autogérée, vous recevez une notification par e-mail une fois la commande passée. Pour plus d’informations sur l’expédition gérée par vous-même, consultez [Utiliser l’expédition autogérée](data-box-portal-customer-managed-shipping.md).
 
 8. Cliquez sur **Suivant** une fois que les détails de l’expédition ont été correctement validés.
 
@@ -104,7 +257,124 @@ Procédez comme suit dans le portail Azure pour commander un appareil.
 
 11. Cliquez sur **Commande**. La création d’une commande peut prendre quelques minutes.
 
+# <a name="azure-cli"></a>[Azure CLI](#tab/azure-cli)
+
+Effectuez les étapes suivantes l’aide d’Azure CLI pour commander un appareil :
+
+1. Notez vos paramètres pour votre commande Data Box. Ces paramètres incluent vos informations personnelles/professionnelles, le nom de l’abonnement, les informations sur l’appareil et les informations d’expédition. Vous aurez besoin d’utiliser ces paramètres comme paramètres lors de l’exécution de la commande CLI pour créer la commande Data Box. Le tableau suivant indique la configuration des paramètres utilisés pour `az databox job create` :
+
+   | Configuration (paramètre) | Description |  Exemple de valeur |
+   |---|---|---|
+   |resource-group| Créez-en un nouveau ou utilisez un groupe existant. Un groupe de ressources est un conteneur logique pour les ressources qui peuvent être gérées ou déployées ensemble. | « myresourcegroup »|
+   |name| Nom de la commande que vous créez. | « mydataboxorder »|
+   |contact-name| Nom associé à l’adresse de livraison. | « Gus Poland »|
+   |phone| Numéro de téléphone de la personne ou de l’entreprise qui recevra la commande.| « 14255551234 »
+   |location| Région Azure la plus proche de vous qui expédiera votre appareil.| « USA Ouest »|
+   |sku| Appareil Data Box spécifique que vous commandez. Les valeurs autorisées sont : « DataBox », « DataBoxDisk » et « DataBoxHeavy »| « DataBox » |
+   |email-list| Adresses e-mail associées à la commande.| "gusp@contoso.com" |
+   |street-address1| Adresse postale de l’endroit où la commande sera expédiée. | « 15700 NE 39th St » |
+   |street-address2| Informations sur l’adresse secondaire, comme le numéro de l’appartement ou le numéro du bâtiment. | « Bld 123 » |
+   |city| Ville dans laquelle l’appareil sera expédié. | « Redmond » |
+   |state-or-province| État dans lequel l’appareil sera expédié.| « WA » |
+   |country| Pays dans lequel l’appareil sera expédié. | « États-Unis » |
+   |postal-code| Code postal associé à l’adresse d’expédition.| « 98052 »|
+   |company-name| Nom de l’entreprise pour laquelle vous travaillez.| « Contoso, LTD » |
+   |compte de stockage| Compte de Stockage Azure à partir duquel vous voulez importer des données.| « mystorageaccount »|
+   |debug| Inclure les informations de débogage à la journalisation détaillée  | --debug |
+   |help| Afficher les informations d’aide pour cette commande. | --help -h |
+   |only-show-errors| Afficher uniquement les erreurs, en supprimant les avertissements. | --only-show-errors |
+   |output -o| Définit le format de sortie.  Valeurs autorisées : json, jsonc, none, table, tsv, yaml, yamlc. La valeur par défaut est json. | --output "json" |
+   |query| Chaîne de requêtes JMESPath. Pour plus d’informations, consultez [JMESPath](http://jmespath.org/). | --query <string>|
+   |verbose| Inclure la journalisation détaillée. | --verbose |
+
+2. Dans l’invite de commandes de votre choix ou dans votre terminal, utilisez la commande [az databox job create](https://docs.microsoft.com/cli/azure/ext/databox/databox/job?view=azure-cli-latest#ext-databox-az-databox-job-create) pour créer votre commande Azure Data Box.
+
+   ```azurecli
+   az databox job create --resource-group <resource-group> --name <order-name> --location <azure-location> --sku <databox-device-type> --contact-name <contact-name> --phone <phone-number> --email-list <email-list> --street-address1 <street-address-1> --street-address2 <street-address-2> --city "contact-city" --state-or-province <state-province> --country <country> --postal-code <postal-code> --company-name <company-name> --storage-account "storage-account"
+   ```
+
+   Voici un exemple d’utilisation de la commande :
+
+   ```azurecli
+   az databox job create --resource-group "myresourcegroup" \
+                         --name "mydataboxtest3" \
+                         --location "westus" \
+                         --sku "DataBox" \
+                         --contact-name "Gus Poland" \
+                         --phone "14255551234" \
+                         --email-list "gusp@contoso.com" \
+                         --street-address1 "15700 NE 39th St" \
+                         --street-address2 "Bld 25" \
+                         --city "Redmond" \
+                         --state-or-province "WA" \
+                         --country "US" \
+                         --postal-code "98052" \
+                         --company-name "Contoso" \
+                         --storage-account mystorageaccount
+   ```
+
+   Voici la sortie de l’exécution de la commande :
+
+   ```output
+   Command group 'databox job' is experimental and not covered by customer support. Please use with discretion.
+   {
+     "cancellationReason": null,
+     "deliveryInfo": {
+        "scheduledDateTime": "0001-01-01T00:00:00+00:00"
+   },
+   "deliveryType": "NonScheduled",
+   "details": null,
+   "error": null,
+   "id": "/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/myresourcegroup/providers/Microsoft.DataBox/jobs/mydataboxtest3",
+   "identity": {
+     "type": "None"
+   },
+   "isCancellable": true,
+   "isCancellableWithoutFee": true,
+   "isDeletable": false,
+   "isShippingAddressEditable": true,
+   "location": "westus",
+   "name": "mydataboxtest3",
+   "resourceGroup": "myresourcegroup",
+   "sku": {
+     "displayName": null,
+     "family": null,
+     "name": "DataBox"
+   },
+   "startTime": "2020-06-10T23:28:27.354241+00:00",
+   "status": "DeviceOrdered",
+   "tags": {},
+   "type": "Microsoft.DataBox/jobs"
+
+   }
+   PS C:\Windows>
+
+   ```
+
+3. Toutes les commandes Azure CLI utilisent JSON comme format de sortie par défaut, sauf si vous le changez. Vous pouvez changer le format de sortie à l’aide du paramètre global `--output <output-format>`. Le fait de remplacer le format par « table » améliore la lisibilité de la sortie.
+
+   Voici la même commande que celle que nous venons d’exécuter avec un petit ajustement pour changer la mise en forme :
+
+    ```azurecli
+    az databox job create --resource-group "myresourcegroup" --name "mydataboxtest4" --location "westus" --sku "DataBox" --contact-name "Gus Poland" --phone "14255551234" --email-list "gusp@contoso.com" --street-address1 "15700 NE 39th St" --street-address2 "Bld 25" --city "Redmond" --state-or-province "WA" --country "US" --postal-code "98052" --company-name "Contoso" --storage-account mystorageaccount --output "table"
+   ```
+
+   Voici la sortie de l’exécution de la commande :
+
+   ```output
+
+    Command group 'databox job' is experimental and not covered by customer support. Please use with discretion.
+    DeliveryType    IsCancellable    IsCancellableWithoutFee    IsDeletable    IsShippingAddressEditable    Location    Name            ResourceGroup    StartTime                         Status
+    --------------  ---------------  -------------------------  -------------  ---------------------------  ----------  --------------  ---------------  --------------------------------  -------------
+    NonScheduled    True             True                       False          True                         westus      mydataboxtest4  myresourcegroup  2020-06-18T03:48:00.905893+00:00  DeviceOrdered
+
+    ```
+
+---
+
 ## <a name="track-the-order"></a>Suivre la commande
+
+# <a name="portal"></a>[Portail](#tab/portal)
 
 Une fois la commande passée, vous pouvez suivre son état à partir du portail Azure. Accédez à votre commande Data Box, puis à **Vue d’ensemble** pour voir l’état. Le portail affiche la commande avec l’état **Commandé**.
 
@@ -123,17 +393,183 @@ Ensuite, Microsoft prépare et achemine l’appareil via un transporteur région
 
 ![Commande de Data Box expédiée](media/data-box-overview/data-box-order-status-dispatched.png)
 
+# <a name="azure-cli"></a>[Azure CLI](#tab/azure-cli)
+
+### <a name="track-a-single-order"></a>Suivre une commande unique
+
+Pour obtenir des informations de suivi sur une commande Azure Data Box unique existante, exécutez [az databox job show](https://docs.microsoft.com/cli/azure/ext/databox/databox/job?view=azure-cli-latest#ext-databox-az-databox-job-show). La commande affiche des informations sur la commande, notamment (liste non exhaustive) : nom, groupe de ressources, informations de suivi, ID d’abonnement, informations de contact, type d’expédition et référence SKU de l’appareil.
+
+   ```azurecli
+   az databox job show --resource-group <resource-group> --name <order-name>
+   ```
+
+   Le tableau suivant indique les informations des paramètres pour `az databox job show` :
+
+   | Paramètre | Description |  Exemple de valeur |
+   |---|---|---|
+   |resource-group [Obligatoire]| Nom du groupe de ressources associé à la commande. Un groupe de ressources est un conteneur logique pour les ressources qui peuvent être gérées ou déployées ensemble. | « myresourcegroup »|
+   |name [Obligatoire]| Nom de la commande à afficher. | « mydataboxorder »|
+   |debug| Inclure les informations de débogage à la journalisation détaillée | --debug |
+   |help| Afficher les informations d’aide pour cette commande. | --help -h |
+   |only-show-errors| Afficher uniquement les erreurs, en supprimant les avertissements. | --only-show-errors |
+   |output -o| Définit le format de sortie.  Valeurs autorisées : json, jsonc, none, table, tsv, yaml, yamlc. La valeur par défaut est json. | --output "json" |
+   |query| Chaîne de requêtes JMESPath. Pour plus d’informations, consultez [JMESPath](http://jmespath.org/). | --query <string>|
+   |verbose| Inclure la journalisation détaillée. | --verbose |
+
+   Voici un exemple de la commande avec le format de sortie défini sur « table » :
+
+   ```azurecli
+    PS C:\WINDOWS\system32> az databox job show --resource-group "myresourcegroup" \
+                                                --name "mydataboxtest4" \
+                                                --output "table"
+   ```
+
+   Voici la sortie de l’exécution de la commande :
+
+   ```output
+    Command group 'databox job' is experimental and not covered by customer support. Please use with discretion.
+    DeliveryType    IsCancellable    IsCancellableWithoutFee    IsDeletable    IsShippingAddressEditable    Location    Name            ResourceGroup    StartTime                         Status
+    --------------  ---------------  -------------------------  -------------  ---------------------------  ----------  --------------  ---------------  --------------------------------  -------------
+    NonScheduled    True             True                       False          True                         westus      mydataboxtest4  myresourcegroup  2020-06-18T03:48:00.905893+00:00  DeviceOrdered
+   ```
+
+> [!NOTE]
+> L’ordre de liste peut être pris en charge au niveau de l’abonnement et fait du groupe de ressources un paramètre facultatif (au lieu d’un paramètre obligatoire).
+
+### <a name="list-all-orders"></a>Lister toutes les commandes
+
+Si vous avez commandé plusieurs appareils, vous pouvez exécuter [az databox job list](https://docs.microsoft.com/cli/azure/ext/databox/databox/job?view=azure-cli-latest#ext-databox-az-databox-job-list) pour voir toutes vos commandes Azure Data Box. La commande liste toutes les commandes qui appartiennent à un groupe de ressources spécifique. Également affichés dans la sortie : nom de la commande, état de l’expédition, région Azure, type de livraison, état de la commande. Les commandes annulées sont également incluses dans la liste.
+La commande affiche également les horodatages de chaque commande.
+
+```azurecli
+az databox job list --resource-group <resource-group>
+```
+
+Le tableau suivant indique les informations des paramètres pour `az databox job list` :
+
+   | Paramètre | Description |  Exemple de valeur |
+   |---|---|---|
+   |resource-group [Obligatoire]| Nom du groupe de ressources qui contient les commandes. Un groupe de ressources est un conteneur logique pour les ressources qui peuvent être gérées ou déployées ensemble. | « myresourcegroup »|
+   |debug| Inclure les informations de débogage à la journalisation détaillée | --debug |
+   |help| Afficher les informations d’aide pour cette commande. | --help -h |
+   |only-show-errors| Afficher uniquement les erreurs, en supprimant les avertissements. | --only-show-errors |
+   |output -o| Définit le format de sortie.  Valeurs autorisées : json, jsonc, none, table, tsv, yaml, yamlc. La valeur par défaut est json. | --output "json" |
+   |query| Chaîne de requêtes JMESPath. Pour plus d’informations, consultez [JMESPath](http://jmespath.org/). | --query <string>|
+   |verbose| Inclure la journalisation détaillée. | --verbose |
+
+   Voici un exemple de la commande avec le format de sortie défini sur « table » :
+
+   ```azurecli
+    PS C:\WINDOWS\system32> az databox job list --resource-group "GDPTest" --output "table"
+   ```
+
+   Voici la sortie de l’exécution de la commande :
+
+   ```output
+   Command group 'databox job' is experimental and not covered by customer support. Please use with discretion.
+   CancellationReason                                               DeliveryType    IsCancellable    IsCancellableWithoutFee    IsDeletable    IsShippingAddressEditable    Location    Name                 ResourceGroup    StartTime                         Status
+   ---------------------- ----------------------------------------  --------------  ---------------  -------------------------  -------------  ---------------------------  ----------  -------------------  ---------------  --------------------------------  -------------
+   OtherReason This was a test order for documentation purposes.    NonScheduled    False            False                      True           False                        westus      gdpImportTest        GDPTest          2020-05-26T23:20:57.464075+00:00  Cancelled
+   NoLongerNeeded This order was created for documentation purposes.NonScheduled    False            False                      True           False                        westus      mydataboxExportTest  GDPTest          2020-05-27T00:04:16.640397+00:00  Cancelled
+   IncorrectOrder                                                   NonScheduled    False            False                      True           False                        westus      mydataboxtest2       GDPTest          2020-06-10T16:54:23.509181+00:00  Cancelled
+                                                                    NonScheduled    True             True                       False          True                         westus      mydataboxtest3       GDPTest          2020-06-11T22:05:49.436622+00:00  DeviceOrdered
+                                                                    NonScheduled    True             True                       False          True                         westus      mydataboxtest4       GDPTest          2020-06-18T03:48:00.905893+00:00  DeviceOrdered
+   PS C:\WINDOWS\system32>
+   ```
+
+---
+
 ## <a name="cancel-the-order"></a>Annuler la commande
 
-Pour annuler cette commande, dans le portail Azure, accédez à **Vue d’ensemble** et cliquez sur **Annuler** dans la barre de commandes.
+# <a name="portal"></a>[Portail](#tab/portal)
+
+Pour annuler cette commande, dans le portail Azure, accédez à **Vue d’ensemble**, puis sélectionnez **Annuler** dans la barre de commandes.
 
 Après avoir passé commande, vous pouvez l’annuler à tout moment tant qu’elle n’a pas été traitée.
 
-Pour supprimer une commande annulée, accédez à **Vue d’ensemble** et cliquez sur **Supprimer** à partir de la barre de commandes.
+Pour supprimer une commande annulée, accédez à **Vue d’ensemble**, puis sélectionnez **Supprimer** dans la barre de commandes.
+
+# <a name="azure-cli"></a>[Azure CLI](#tab/azure-cli)
+
+### <a name="cancel-an-order"></a>Annuler une commande
+
+Pour annuler une commande Azure Data Box, exécutez [az databox job cancel](https://docs.microsoft.com/cli/azure/ext/databox/databox/job?view=azure-cli-latest#ext-databox-az-databox-job-cancel). Vous devez spécifier la raison de l’annulation de la commande.
+
+   ```azurecli
+   az databox job cancel --resource-group <resource-group> --name <order-name> --reason <cancel-description>
+   ```
+
+   Le tableau suivant indique les informations des paramètres pour `az databox job cancel` :
+
+   | Paramètre | Description |  Exemple de valeur |
+   |---|---|---|
+   |resource-group [Obligatoire]| Nom du groupe de ressources associé à la commande à supprimer. Un groupe de ressources est un conteneur logique pour les ressources qui peuvent être gérées ou déployées ensemble. | « myresourcegroup »|
+   |name [Obligatoire]| Nom de la commande à supprimer. | « mydataboxorder »|
+   |reason [Obligatoire]| Motif de l’annulation de la commande. | « J’ai entré des informations erronées et j’ai dû annuler la commande. » |
+   |Oui| Ne pas demander de confirmation. | --yes (-y)| --yes -y |
+   |debug| Inclure les informations de débogage à la journalisation détaillée | --debug |
+   |help| Afficher les informations d’aide pour cette commande. | --help -h |
+   |only-show-errors| Afficher uniquement les erreurs, en supprimant les avertissements. | --only-show-errors |
+   |output -o| Définit le format de sortie.  Valeurs autorisées : json, jsonc, none, table, tsv, yaml, yamlc. La valeur par défaut est json. | --output "json" |
+   |query| Chaîne de requêtes JMESPath. Pour plus d’informations, consultez [JMESPath](http://jmespath.org/). | --query <string>|
+   |verbose| Inclure la journalisation détaillée. | --verbose |
+
+   Voici un exemple de la commande avec la sortie :
+
+   ```azurecli
+   PS C:\Windows> az databox job cancel --resource-group "myresourcegroup" --name "mydataboxtest3" --reason "Our budget was slashed due to **redacted** and we can no longer afford this device."
+   ```
+
+   Voici la sortie de l’exécution de la commande :
+
+   ```output
+   Command group 'databox job' is experimental and not covered by customer support. Please use with discretion.
+   Are you sure you want to perform this operation? (y/n): y
+   PS C:\Windows>
+   ```
+
+### <a name="delete-an-order"></a>Supprimer une commande
+
+Si vous avez annulé une commande Azure Data Box, vous pouvez exécuter [az databox job delete](https://docs.microsoft.com/cli/azure/ext/databox/databox/job?view=azure-cli-latest#ext-databox-az-databox-job-delete) pour la supprimer.
+
+   ```azurecli
+   az databox job delete --name [-n] <order-name> --resource-group <resource-group> [--yes] [--verbose]
+   ```
+
+   Le tableau suivant indique les informations des paramètres pour `az databox job delete` :
+
+   | Paramètre | Description |  Exemple de valeur |
+   |---|---|---|
+   |resource-group [Obligatoire]| Nom du groupe de ressources associé à la commande à supprimer. Un groupe de ressources est un conteneur logique pour les ressources qui peuvent être gérées ou déployées ensemble. | « myresourcegroup »|
+   |name [Obligatoire]| Nom de la commande à supprimer. | « mydataboxorder »|
+   |subscription| Nom ou ID (GUID) de votre abonnement Azure. | « xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx » |
+   |Oui| Ne pas demander de confirmation. | --yes (-y)| --yes -y |
+   |debug| Inclure les informations de débogage à la journalisation détaillée | --debug |
+   |help| Afficher les informations d’aide pour cette commande. | --help -h |
+   |only-show-errors| Afficher uniquement les erreurs, en supprimant les avertissements. | --only-show-errors |
+   |output -o| Définit le format de sortie.  Valeurs autorisées : json, jsonc, none, table, tsv, yaml, yamlc. La valeur par défaut est json. | --output "json" |
+   |query| Chaîne de requêtes JMESPath. Pour plus d’informations, consultez [JMESPath](http://jmespath.org/). | --query <string>|
+   |verbose| Inclure la journalisation détaillée. | --verbose |
+
+Voici un exemple de la commande avec la sortie :
+
+   ```azurecli
+   PS C:\Windows> az databox job delete --resource-group "myresourcegroup" --name "mydataboxtest3" --yes --verbose
+   ```
+
+   Voici la sortie de l’exécution de la commande :
+
+   ```output
+   Command group 'databox job' is experimental and not covered by customer support. Please use with discretion.
+   command ran in 1.142 seconds.
+   PS C:\Windows>
+   ```
+
+---
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Ce tutoriel vous a apporté des connaissances concernant Azure Data Box, notamment concernant les points suivants :
+Dans ce tutoriel, vous avez découvert des articles Azure Data Box comme les suivants :
 
 > [!div class="checklist"]
 >

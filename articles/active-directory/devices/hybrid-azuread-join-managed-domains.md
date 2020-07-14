@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sandeo
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b5d631143b839e052316490d3b3b89ca10469cb1
-ms.sourcegitcommit: a9784a3fd208f19c8814fe22da9e70fcf1da9c93
+ms.openlocfilehash: 2f3ea5f1810b5ca80e096b19e1dcf230e21eabcc
+ms.sourcegitcommit: 01cd19edb099d654198a6930cebd61cae9cb685b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/22/2020
-ms.locfileid: "83778832"
+ms.lasthandoff: 06/24/2020
+ms.locfileid: "85317631"
 ---
 # <a name="tutorial-configure-hybrid-azure-active-directory-join-for-managed-domains"></a>Tutoriel : Configurer la jointure hybride Azure Active Directory pour des domaines managés
 
@@ -70,9 +70,9 @@ Pour permettre le bon fonctionnement de la jonction Azure AD Hybride, les appar
 - `https://device.login.microsoftonline.com`
 - `https://autologon.microsoftazuread-sso.com` (si vous utilisez ou prévoyez d’utiliser l’authentification unique fluide)
 
-Si votre organisation nécessite un accès à Internet via un proxy sortant, nous recommandons d’[implémenter le protocole WPAD (Web Proxy AutoDiscovery)](https://docs.microsoft.com/previous-versions/tn-archive/cc995261(v%3dtechnet.10)) pour permettre aux ordinateurs Windows 10 de s’inscrire en tant qu’appareils auprès d’Azure AD. Pour résoudre des problèmes de configuration et de gestion du protocole WPAD, consultez [Résolution des problèmes liés à la détection automatique](/previous-versions/tn-archive/cc302643(v=technet.10)).
+Si votre organisation nécessite un accès à Internet par le biais d’un proxy sortant, vous pouvez utiliser l’[implémentation du protocole WPAD (Web Proxy AutoDiscovery, détection automatique de proxy web)](https://docs.microsoft.com/previous-versions/tn-archive/cc995261(v%3dtechnet.10)) pour permettre aux ordinateurs Windows 10 de s’inscrire en tant qu’appareils auprès d’Azure AD. Pour résoudre des problèmes de configuration et de gestion du protocole WPAD, consultez [Résolution des problèmes liés à la détection automatique](/previous-versions/tn-archive/cc302643(v=technet.10)). Dans les appareils Windows 10 antérieurs à la mise à jour 1709, WPAD est la seule option disponible pour configurer un proxy afin qu’il fonctionne avec une jointure Azure AD Hybride. 
 
-Si vous n’utilisez pas le protocole WPAD, vous pouvez configurer des paramètres de proxy sur votre ordinateur à partir de la build 1709 de Windows 10. Pour plus d’informations, consultez [WinHTTP Proxy Settings deployed by GPO](https://blogs.technet.microsoft.com/netgeeks/2018/06/19/winhttp-proxy-settings-deployed-by-gpo/).
+Si vous n’utilisez pas le protocole WPAD, vous pouvez configurer des paramètres de proxy WinHTTP sur votre ordinateur à partir de la build 1709 de Windows 10. Pour plus d’informations, consultez [WinHTTP Proxy Settings deployed by GPO](https://blogs.technet.microsoft.com/netgeeks/2018/06/19/winhttp-proxy-settings-deployed-by-gpo/).
 
 > [!NOTE]
 > Si vous configurez les paramètres du proxy sur votre ordinateur à l’aide des paramètres WinHTTP, les ordinateurs qui ne peuvent pas se connecter au proxy configuré ne pourront pas non plus se connecter à Internet.

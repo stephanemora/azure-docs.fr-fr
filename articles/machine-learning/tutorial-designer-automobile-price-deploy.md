@@ -8,14 +8,14 @@ services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
 ms.topic: tutorial
-ms.date: 11/04/2019
+ms.date: 06/28/2020
 ms.custom: designer
-ms.openlocfilehash: 41b6fb38798e9aa7264000676d81101db1c83236
-ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
+ms.openlocfilehash: e10e5050912788732128a8b765716c22fe9e576e
+ms.sourcegitcommit: 581aaca8956b1717b7bc1c1d7710c782c22e6320
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83656525"
+ms.lasthandoff: 06/29/2020
+ms.locfileid: "85517452"
 ---
 # <a name="tutorial-deploy-a-machine-learning-model-with-the-designer-preview"></a>Tutoriel : Déployer un modèle Machine Learning avec le concepteur (préversion)
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-enterprise-sku.md)]
@@ -40,7 +40,7 @@ Pour déployer votre pipeline, vous devez d’abord convertir le pipeline d’en
 
 1. Au-dessus du canevas de pipeline, sélectionnez **Create inference pipeline** > **Real-time inference pipeline** (Créer un pipeline d’inférence > Pipeline d’inférence en temps réel).
 
-    ![Capture d’écran montrant l’emplacement du bouton pour créer un pipeline](./media/tutorial-designer-automobile-price-deploy/tutorial2-create-inference-pipeline.png)
+    :::image type="content" source="./media/tutorial-designer-automobile-price-deploy/tutorial2-create-inference-pipeline.png"alt-text="Capture d’écran montrant l’emplacement du bouton pour créer un pipeline":::
 
     Votre pipeline doit maintenant se présenter comme suit : 
 
@@ -72,7 +72,7 @@ Dans la boîte de dialogue qui s’affiche, vous pouvez sélectionner n’import
 1. Dans le ruban de navigation, sélectionnez **Clusters d’inférence** >  **+ Nouveau**.
 
     ![Capture d’écran montrant comment accéder au volet Nouveau cluster d’inférence](./media/tutorial-designer-automobile-price-deploy/new-inference-cluster.png)
-
+   
 1. Dans le volet Cluster d’inférence, configurez un nouveau service Kubernetes.
 
 1. Entrez *aks-compute* pour **Nom du calcul**.
@@ -96,8 +96,8 @@ Une fois le provisionnement du service AKS terminé, revenez au pipeline d’inf
 1. Sélectionnez le cluster AKS que vous avez créé.
 
 1. Sélectionnez **Déployer**.
-
-    ![Capture d’écran montrant comment configurer un nouveau point de terminaison en temps réel](./media/tutorial-designer-automobile-price-deploy/setup-endpoint.png)
+    
+    :::image type="content" source="./media/tutorial-designer-automobile-price-deploy/setup-endpoint.png"alt-text="Capture d’écran montrant comment configurer un nouveau point de terminaison en temps réel":::
 
     Une notification de réussite s’affiche au-dessus du canevas, une fois le déploiement effectué. Cela peut prendre quelques minutes.
 

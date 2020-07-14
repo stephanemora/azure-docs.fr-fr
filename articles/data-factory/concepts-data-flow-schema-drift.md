@@ -8,12 +8,12 @@ ms.service: data-factory
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 04/15/2020
-ms.openlocfilehash: 6e361d23860ce8f40abba5c246242cf345bb974c
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 5b7fe9cf6c751bfb96dff8aa911172ae91a17653
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81606116"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84886626"
 ---
 # <a name="schema-drift-in-mapping-data-flow"></a>Dérive de schéma dans le flux de données de mappage
 
@@ -37,7 +37,7 @@ Cette vidéo présente quelques-unes des solutions complexes que vous pouvez fac
 
 ## <a name="schema-drift-in-source"></a>Dérive de schéma dans la source
 
-Les colonnes entrant dans votre flux de données à partir de la définition de votre source sont définies comme étant « dérivées » lorsqu’elles ne sont pas présentes dans la projection de votre source. Vous pouvez voir la projection de votre source sous l’onglet Projection dans la transformation de la source. Lorsque vous sélectionnez un jeu de données pour votre source, le fichier de définition d’application (ADF) prend automatiquement le schéma du jeu de données et crée un projet à partir de cette définition de schéma du jeu de données.
+Les colonnes entrant dans votre flux de données à partir de la définition de votre source sont définies comme étant « dérivées » lorsqu’elles ne sont pas présentes dans la projection de votre source. Vous pouvez voir la projection de votre source sous l’onglet Projection dans la transformation de la source. Lorsque vous sélectionnez un jeu de données pour votre source, le fichier de définition d’application (ADF) prend automatiquement le schéma du jeu de données et crée une projection à partir de cette définition de schéma du jeu de données.
 
 Dans une transformation de source, la dérive de schéma est définie sous forme de colonnes de lecture qui ne sont pas définies dans votre schéma de jeu de données. Pour autoriser la dérive de schéma, cochez la case **Autoriser la dérive de schéma** dans la transformation de la source.
 

@@ -8,14 +8,14 @@ ms.service: storage
 ms.date: 03/12/2020
 ms.topic: conceptual
 ms.author: tamram
-ms.reviewer: cbrooks
+ms.reviewer: ozgun
 ms.subservice: common
-ms.openlocfilehash: b2755d5aa5dbaa669fa2fdd8b84596e040b5dd6b
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 5dedd70b51361936808724ef70b96cdf9cfa13f5
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81456819"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85515409"
 ---
 # <a name="use-customer-managed-keys-with-azure-key-vault-to-manage-azure-storage-encryption"></a>Utiliser des clés gérées par le client avec Azure Key Vault pour gérer le chiffrement du Stockage Azure
 
@@ -62,13 +62,13 @@ Pour savoir comment utiliser des clés gérées par le client avec Azure Key Vau
 - [Configurer les clés gérées par le client avec Key Vault pour le chiffrement de Stockage Azure depuis Azure CLI](storage-encryption-keys-cli.md)
 
 > [!IMPORTANT]
-> Les clés gérées par le client s’appuient sur des identités managées pour les ressources Azure, une fonctionnalité d’Azure AD. Les identités managées ne prennent actuellement pas en charge les scénarios entre annuaires. Quand vous configurez des clés managées par le client dans le portail Azure, une identité managée est affectée automatiquement à votre compte de stockage dans les coulisses. Si, par la suite, vous déplacez l’abonnement, le groupe de ressources ou le compte de stockage d’un annuaire Azure AD vers un autre, l’identité managée associée au compte de stockage n’est pas transférée vers le nouveau locataire ; les clés managées par le client risquent donc de ne plus fonctionner. Pour plus d’informations, consultez **Transfert d’un abonnement entre des répertoires Azure AD** dans [FAQ et problèmes connus en lien avec les identités managées pour ressources Azure](../../active-directory/managed-identities-azure-resources/known-issues.md#transferring-a-subscription-between-azure-ad-directories).  
+> Les clés gérées par le client s’appuient sur des identités managées pour les ressources Azure, une fonctionnalité d’Azure AD. Les identités managées ne prennent actuellement pas en charge les scénarios entre répertoires. Quand vous configurez des clés managées par le client dans le portail Azure, une identité managée est affectée automatiquement à votre compte de stockage dans les coulisses. Si, par la suite, vous déplacez l’abonnement, le groupe de ressources ou le compte de stockage d’un annuaire Azure AD vers un autre, l’identité managée associée au compte de stockage n’est pas transférée vers le nouveau locataire ; les clés managées par le client risquent donc de ne plus fonctionner. Pour plus d’informations, consultez **Transfert d’un abonnement entre des répertoires Azure AD** dans [FAQ et problèmes connus en lien avec les identités managées pour ressources Azure](../../active-directory/managed-identities-azure-resources/known-issues.md#transferring-a-subscription-between-azure-ad-directories).  
 
 ## <a name="store-customer-managed-keys-in-azure-key-vault"></a>Stocker les clés gérées par le client dans Azure Key Vault
 
 Pour activer les clés gérées par le client sur un compte de stockage, vous devez utiliser un coffre de clés Azure pour stocker vos clés. Vous devez activer les propriétés **Suppression réversible** et **Ne pas vider** sur le coffre de clés.
 
-Seules les clés RSA et RSA-HSM 2048 bits sont prises en charge avec le chiffrement Stockage Azure. Pour plus d’informations sur les clés, consultez **Clés Key Vault** dans [À propos des clés, des secrets et des certificats Azure Key Vault](../../key-vault/about-keys-secrets-and-certificates.md#key-vault-keys).
+Le chiffrement de stockage Azure prend en charge les clés RSA et RSA-HSM de tailles 2048, 3072 et 4096. Pour plus d’informations sur les clés, consultez **Clés Key Vault** dans [À propos des clés, des secrets et des certificats Azure Key Vault](../../key-vault/about-keys-secrets-and-certificates.md#key-vault-keys).
 
 ## <a name="rotate-customer-managed-keys"></a>Permuter des clés gérées par le client
 

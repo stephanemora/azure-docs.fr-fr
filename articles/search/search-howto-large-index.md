@@ -8,12 +8,12 @@ ms.author: delegenz
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 05/05/2020
-ms.openlocfilehash: 915243fb4dbc6bb274e26261bc5741811ef24592
-ms.sourcegitcommit: a6d477eb3cb9faebb15ed1bf7334ed0611c72053
+ms.openlocfilehash: e544e720f024b265e957e67d5bd2ee8af91f5c7f
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/08/2020
-ms.locfileid: "82925981"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84484577"
 ---
 # <a name="how-to-index-large-data-sets-in-azure-cognitive-search"></a>Comment indexer des grands ensembles de données dans la Recherche cognitive Azure
 
@@ -139,7 +139,7 @@ Pour les indexeurs, la capacité de traitement est plus ou moins basée sur un s
 
 1. Dans le [portail Azure](https://portal.azure.com), sur la page **Vue d’ensemble** de votre tableau de bord de service de recherche, vérifiez le **niveau tarifaire** pour vous assurer qu’il est compatible avec l’indexation parallèle. Les niveaux De base et Standard fournissent plusieurs réplicas.
 
-2. Sous **Paramètres** > **Échelle**, [augmentez le nombre de réplicas](search-capacity-planning.md) pour le traitement parallèle : un réplica supplémentaire pour chaque charge de travail d’indexeur. Conservez-en un nombre suffisant pour le volume de requêtes existant. Sacrifier les charges de travail de requête au profit de l’indexation n’est pas judicieux.
+2. Vous pouvez exécuter autant d’indexeurs en parallèle que le nombre d’unités de recherche dans votre service. Sous **Paramètres** > **Échelle**, [augmentez le nombre de réplicas](search-capacity-planning.md) ou de partitions pour le traitement parallèle : un réplica ou une partition supplémentaire pour chaque charge de travail d’indexeur. Conservez-en un nombre suffisant pour le volume de requêtes existant. Sacrifier les charges de travail de requête au profit de l’indexation n’est pas judicieux.
 
 3. Répartissez les données dans plusieurs conteneurs à un niveau qui est accessible par les indexeurs Recherche cognitive Azure. Placez-les par exemple dans plusieurs tables dans Azure SQL Database, dans différents conteneurs du stockage Blob Azure ou dans plusieurs collections. Définissez un objet de source de données pour chaque table ou conteneur.
 

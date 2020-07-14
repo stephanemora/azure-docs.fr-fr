@@ -12,10 +12,10 @@ ms.workload: infrastructure-services
 ms.date: 09/10/2018
 ms.author: sharadag
 ms.openlocfilehash: d4fed878e2c0b1430e963f43743fd772493d3270
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "79471742"
 ---
 # <a name="caching-with-azure-front-door"></a>Mise en cache avec Azure Front Door
@@ -100,9 +100,9 @@ Les vidages du cache dans la porte d’entrée ne respectent pas la casse. Par a
 
 ## <a name="cache-expiration"></a>Expiration du cache
 L’ordre suivant des en-têtes sert à déterminer la durée de stockage d’un élément dans le cache :</br>
-1. Cache-Control: s-maxage=\<secondes>
-2. Cache-Control: max-age=\<secondes>
-3. Expires: \<http-date>
+1. Cache-Control: s-maxage=\<seconds>
+2. Cache-Control: max-age=\<seconds>
+3. Expire : \<http-date>
 
 Les en-têtes de réponse Cache-Control qui indiquent que la réponse n’est pas mise en cache, comme Cache-Control: private, Cache-Control: no cache et Cache-Control: no-store, sont respectés. Cependant, s’il existe plusieurs demandes en cours au niveau d’un point de présence pour la même URL, il se peut qu’elles partagent la réponse. En l’absence de Cache-Control, AFD met en cache la ressource pendant une durée X par défaut, où X est choisi de manière aléatoire entre 1 et 3 jours.
 

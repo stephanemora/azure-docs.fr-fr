@@ -9,14 +9,14 @@ ms.reviewer: douglasl
 ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
-ms.date: 10/26/2018
+ms.date: 06/22/2020
 ms.author: yexu
-ms.openlocfilehash: a44703aabc35131cf040892999409173638437a7
-ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
+ms.openlocfilehash: 6b172a6e15cbb22c3a0a16cb1e238ddfe45048bf
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83658771"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85130770"
 ---
 #  <a name="fault-tolerance-of-copy-activity-in-azure-data-factory"></a>Tolérance de panne de l’activité de copie dans Azure Data Factory
 > [!div class="op_single_selector" title1="Sélectionnez la version du service Data Factory que vous utilisez :"]
@@ -80,6 +80,21 @@ logStorageSettings  | Groupe de propriétés pouvant être spécifié lorsque vo
 linkedServiceName | Service lié de [Stockage Blob Azure](connector-azure-blob-storage.md#linked-service-properties) ou [Azure Data Lake Storage Gen2](connector-azure-data-lake-storage.md#linked-service-properties) pour stocker les fichiers journaux de session. | Noms d’un service lié de type `AzureBlobStorage` ou `AzureBlobFS` faisant référence à l’instance que vous utilisez pour stocker le fichier journal. | Non
 path | Chemin des fichiers journaux. | Spécifiez le chemin que vous utilisez pour stocker les fichiers journaux. Si vous ne spécifiez pas le chemin d’accès, le service crée un conteneur à votre place. | Non
 
+> [!NOTE]
+> Vous trouverez ci-dessous les conditions préalables à l’activation de la tolérance de panne dans l’activité de copie lors de la copie de fichiers binaires.
+> Pour ignorer des fichiers particuliers lorsqu’ils sont supprimés du magasin source :
+> - Les jeux de données source et récepteur doivent être au format binaire, et le type de compression ne peut pas être spécifié. 
+> - Les types de magasins de données pris en charge sont Azure Blob Storage, Azure Data Lake Storage Gen1, Azure Data Lake Storage Gen2, Azure File Storage, Système de fichiers, FTP, SFTP, Amazon S3, Google Cloud Storage et HDFS.
+> - Si vous spécifiez plusieurs fichiers dans le jeu de données source, qui peut être un dossier, un caractère générique ou une liste de fichiers, l’activité de copie peut ignorer les fichiers d’erreur particuliers. Si un seul fichier est spécifié dans le jeu de données source à copier vers la destination, l’activité de copie échoue si une erreur s’est produite.
+>
+> Pour ignorer des fichiers particuliers lorsqu’ils ne sont plus accessibles du magasin source :
+> - Les jeux de données source et récepteur doivent être au format binaire, et le type de compression ne peut pas être spécifié. 
+> - Les types de magasins de données pris en charge sont Azure Blob Storage, Azure Data Lake Storage Gen1, Azure Data Lake Storage Gen2, Azure File Storage, SFTP, Amazon S3 et HDFS.
+> - Si vous spécifiez plusieurs fichiers dans le jeu de données source, qui peut être un dossier, un caractère générique ou une liste de fichiers, l’activité de copie peut ignorer les fichiers d’erreur particuliers. Si un seul fichier est spécifié dans le jeu de données source à copier vers la destination, l’activité de copie échoue si une erreur s’est produite.
+>
+> Pour ignorer des fichiers particuliers lorsqu’ils sont vérifiés comme étant incohérents entre la source et le magasin de destination :
+> - Vous pouvez obtenir plus de détails à partir du document de cohérence des données [ici](https://docs.microsoft.com/azure/data-factory/copy-activity-data-consistency).
+
 ### <a name="monitoring"></a>Surveillance 
 
 #### <a name="output-from-copy-activity"></a>Sortie de l’activité de copie
@@ -113,7 +128,7 @@ Colonne | Description
 -------- | -----------  
 Timestamp | Timestamp lorsqu’Azure Data Factory ignore le fichier.
 Level | Niveau de journalisation de cet élément. Il sera au niveau « Avertissement » pour l’élément indiquant que le fichier est ignoré.
-OperationName | Comportement opérationnel de l’activité de copie Azure Data Factory sur chaque fichier. Le fichier à ignorer sera indiqué par la mention « FileSkip ».
+NomOpération | Comportement opérationnel de l’activité de copie Azure Data Factory sur chaque fichier. Le fichier à ignorer sera indiqué par la mention « FileSkip ».
 OperationItem | Noms des fichiers à ignorer.
 Message | Informations supplémentaires permettant d’expliquer la raison pour laquelle le fichier est ignoré.
 

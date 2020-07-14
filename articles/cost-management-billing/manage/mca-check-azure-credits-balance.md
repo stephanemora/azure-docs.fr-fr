@@ -6,20 +6,23 @@ ms.reviewer: amberb
 tags: billing
 ms.service: cost-management-billing
 ms.topic: conceptual
-ms.date: 02/13/2019
+ms.date: 06/24/2019
 ms.author: banders
-ms.openlocfilehash: e65637f20d14b93c212b1af2f20695ff5dfeb350
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: e238a409adda674e1182c0ffd40a4f666d362731
+ms.sourcegitcommit: f98ab5af0fa17a9bba575286c588af36ff075615
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "77199685"
+ms.lasthandoff: 06/25/2020
+ms.locfileid: "85361504"
 ---
 # <a name="track-microsoft-customer-agreement-azure-credit-balance"></a>Suivre le solde de crédit Azure d’un Contrat client Microsoft
 
 Vous pouvez vérifier le solde de crédit Azure pour votre compte de facturation d’un Contrat client Microsoft dans le portail Azure ou via des API REST.
 
 Dans le compte de facturation associé à un Contrat Client Microsoft, les crédits sont attribués à un profil de facturation. Chaque profil de facturation a ses propres crédits qui sont automatiquement appliqués aux frais sur sa facture. Vous devez avoir un rôle de propriétaire, contributeur, lecteur ou gestionnaire de factures sur le profil de facturation ou bien un rôle de propriétaire, contributeur ou lecteur sur le compte de facturation pour voir le solde de crédits Azure d’un profil de facturation. Pour en savoir plus sur les rôles, consultez [Présentation des rôles d’administrateur Azure dans le cadre des Contrats client Microsoft](understand-mca-roles.md).
+
+> [!NOTE]
+> Le nouveau crédit apparaît dans le portail Azure avec un délai pouvant atteindre 24 heures. Si vous obtenez un nouveau crédit et que vous ne le voyez pas dans le portail, patientez 24 heures.
 
 Cet article s'applique à un compte de facturation associé à un contrat client Microsoft. [Vérifiez que vous avez accès à un contrat client Microsoft](#check-access-to-a-microsoft-customer-agreement).
 

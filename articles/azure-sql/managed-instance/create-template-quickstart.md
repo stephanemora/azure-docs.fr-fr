@@ -11,43 +11,39 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: carlrab
 ms.date: 06/22/2020
-ms.openlocfilehash: 01c6c37d31d41f88b370face372555536724adde
-ms.sourcegitcommit: bf99428d2562a70f42b5a04021dde6ef26c3ec3a
+ms.openlocfilehash: eed333b5e6a83b140df515fc02767b8a7c7a63c7
+ms.sourcegitcommit: 374e47efb65f0ae510ad6c24a82e8abb5b57029e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/23/2020
-ms.locfileid: "85256069"
+ms.lasthandoff: 06/28/2020
+ms.locfileid: "85506637"
 ---
-# <a name="quickstart-create-an-azure-sql-managed-instance-using-an-azure-resource-manager-template"></a>Démarrage rapide : Créer une instance managée Azure SQL Managed Instance à l’aide d’un modèle Azure Resource Manager
+# <a name="quickstart-create-an-azure-sql-managed-instance-using-an-arm-template"></a>Démarrage rapide : Créer une instance managée Azure SQL Managed Instance à l’aide d’un modèle Resource Manager
 
-Ce guide de démarrage rapide porte essentiellement sur le déploiement d’un modèle Resource Manager en vue de créer une instance managée Azure SQL Managed Instance et un réseau virtuel.
+Ce guide de démarrage rapide porte essentiellement sur le déploiement d’un modèle Azure Resource Manager (modèle ARM) en vue de créer une instance managée Azure SQL Managed Instance et un réseau virtuel. [Azure SQL Managed Instance](sql-managed-instance-paas-overview.md) est une base de données cloud intelligente, complètement managée et évolutive, présentant une parité de fonctionnalités quasi totale avec le moteur de base de données SQL Server.
 
 [!INCLUDE [About Azure Resource Manager](../../../includes/resource-manager-quickstart-introduction.md)]
 
-Si vous n’avez pas d’abonnement Azure, [créez un compte gratuit](https://azure.microsoft.com/free/).
+Si votre environnement remplit les prérequis et que vous êtes déjà familiarisé avec l’utilisation des modèles ARM, sélectionnez le bouton **Déployer sur Azure**. Le modèle s’ouvre dans le portail Azure.
+
+[![Déployer sur Azure](../../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-sqlmi-new-vnet%2Fazuredeploy.json)
 
 ## <a name="prerequisites"></a>Prérequis
 
-Aucun.
+Si vous n’avez pas d’abonnement Azure, [créez un compte gratuit](https://azure.microsoft.com/free/).
 
-## <a name="create-an-azure-sql-managed-instance"></a>Créer une instance gérée SQL Azure
+## <a name="review-the-template"></a>Vérifier le modèle
 
-[Azure SQL Managed Instance](sql-managed-instance-paas-overview.md) est une base de données cloud intelligente, complètement managée et évolutive, présentant une parité de fonctionnalités quasi totale avec le moteur de base de données SQL Server.
+Le modèle utilisé dans ce démarrage rapide est tiré des [modèles de démarrage rapide Azure](https://azure.microsoft.com/resources/templates/101-sqlmi-new-vnet/).
 
-### <a name="review-the-template"></a>Vérifier le modèle
-
-Le modèle utilisé dans ce guide de démarrage rapide est tiré des [modèles de démarrage rapide Azure](https://azure.microsoft.com/resources/templates/101-sqlmi-new-vnet/).
-
-:::code language="json" source="~/quickstart-templates/101-sqlmi-new-vnet/azuredeploy.json":::
+:::code language="json" source="~/quickstart-templates/101-sqlmi-new-vnet/azuredeploy.json" range="001-249" highlight="113,178,188,226":::
 
 Ces ressources Azure sont définies dans le modèle :
 
-- [**Microsoft.Sql/managedinstances**](/azure/templates/microsoft.sql/managedinstances)
-- [**Microsoft.Network/virtualNetworks**](/azure/templates/microsoft.Network/virtualNetworks)
-- [**Microsoft.Network/routeTables**](/azure/templates/microsoft.Network/routeTables)
 - [**Microsoft.Network/networkSecurityGroups**](/azure/templates/microsoft.Network/networkSecurityGroups)
-
-
+- [**Microsoft.Network/routeTables**](/azure/templates/microsoft.Network/routeTables)
+- [**Microsoft.Network/virtualNetworks**](/azure/templates/microsoft.Network/virtualNetworks)
+- [**Microsoft.Sql/managedinstances**](/azure/templates/microsoft.sql/managedinstances)
 
 Vous trouverez d’autres exemples de modèles dans [Modèles de démarrage rapide Azure](https://azure.microsoft.com/resources/templates/?resourceType=Microsoft.Sql&pageNumber=1&sort=Popular).
 
@@ -73,7 +69,7 @@ New-AzResourceGroupDeployment -ResourceGroupName $resourceGroupName -TemplateUri
 Read-Host -Prompt "Press [ENTER] to continue ..."
 ```
 
-# <a name="the-azure-cli"></a>[L’interface de ligne de commande Microsoft Azure](#tab/azure-cli)
+# <a name="azure-cli"></a>[Azure CLI](#tab/azure-cli)
 
 ```azurecli-interactive
 read -p "Enter a project name that is used for generating resource names:" projectName &&
@@ -86,7 +82,7 @@ echo "Press [ENTER] to continue ..." &&
 read
 ```
 
-* * *
+---
 
 ## <a name="review-deployed-resources"></a>Vérifier les ressources déployées
 
@@ -109,7 +105,7 @@ $resourceGroupName = Read-Host -Prompt "Enter the Resource Group name"
 Remove-AzResourceGroup -Name $resourceGroupName
 ```
 
-# <a name="the-azure-cli"></a>[L’interface de ligne de commande Microsoft Azure](#tab/azure-cli)
+# <a name="azure-cli"></a>[Azure CLI](#tab/azure-cli)
 
 ```azurecli-interactive
 echo "Enter the Resource Group name:" &&
@@ -117,7 +113,7 @@ read resourceGroupName &&
 az group delete --name $resourceGroupName
 ```
 
-* * *
+---
 
 ## <a name="next-steps"></a>Étapes suivantes
 

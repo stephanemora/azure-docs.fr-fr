@@ -9,19 +9,19 @@ editor: ''
 ms.assetid: 6b395e8f-fa3c-4e55-be54-392dd303c472
 ms.service: active-directory
 ms.devlang: na
-ms.topic: conceptual
+ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 05/18/2020
+ms.date: 06/09/2020
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a05de8bf6a6e4ab79e63d6634ddb1b79fae6045f
-ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
+ms.openlocfilehash: 749c97549661f2b2d647f8f7ba718d7696ef8355
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/20/2020
-ms.locfileid: "83680219"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85359005"
 ---
 # <a name="azure-ad-connect-automatic-upgrade"></a>Azure AD Connect : Mise à jour automatique
 Cette fonctionnalité date de la build [1.1.105.0 (publiée en février 2016)](reference-connect-version-history.md#111050).  Cette fonctionnalité a été mise à jour dans la [build 1.1.561](reference-connect-version-history.md#115610) et prend désormais en charge des scénarios supplémentaires.
@@ -57,6 +57,10 @@ Tout d'abord, ne vous attendez pas à ce qu’il y ait déjà une tentative de m
 
 Si vous pensez que quelque chose ne convient pas, commencez par exécuter `Get-ADSyncAutoUpgrade` pour garantir l’activation de la mise à niveau automatique.
 
+Si l’état est interrompu, vous pouvez utiliser `Get-ADSyncAutoUpgrade -Detail` pour afficher le motif.  La raison de l’interruption peut contenir une valeur de chaîne quelconque, mais elle contient généralement la valeur de chaîne UpgradeResult, autrement dit, `UpgradeNotSupportedNonLocalDbInstall` ou `UpgradeAbortedAdSyncExeInUse`.  Une valeur composée peut également être retournée, par exemple `UpgradeFailedRollbackSuccess-GetPasswordHashSyncStateFailed`.
+
+Il est également possible d’obtenir un résultat qui n’est pas un UpgradeResult, c.-à-d. « AADHealthEndpointNotDefined » ou « DirSyncInPlaceUpgradeNonLocalDb ».
+
 Assurez-vous ensuite que vous avez ouvert les URL requises dans votre proxy ou pare-feu. La mise à jour automatique utilise Azure AD Connect Health comme décrit dans la [présentation](#overview). Si vous utilisez un proxy, vérifiez que Health a été configuré pour utiliser un [serveur proxy](how-to-connect-health-agent-install.md#configure-azure-ad-connect-health-agents-to-use-http-proxy). Testez également la [connectivité de Health](how-to-connect-health-agent-install.md#test-connectivity-to-azure-ad-connect-health-service) à Azure AD.
 
 Une fois que vous avez vérifié la connectivité à Azure AD, passez aux journaux d’événements. Démarrez l’Observateur d’événements et consultez le journal des événements **Application** . Ajoutez un filtre de journal des événements pour la source **mise à niveau d’Azure AD Connect** et la plage d'ID d’événements **300-399**.  
@@ -89,18 +93,11 @@ Voici une liste de messages les plus courants. Elle n’est pas exhaustive, mais
 | UpgradeAbortedSyncExeInUse |L’ [interface utilisateur du gestionnaire des services de synchronisation](how-to-connect-sync-service-manager-ui.md) est ouverte sur le serveur. |
 | UpgradeAbortedSyncOrConfigurationInProgress |L'Assistant Installation est en cours d'exécution ou une synchronisation a été planifiée à l'extérieur du planificateur. |
 | **UpgradeNotSupported** | |
-| UpgradeNotSupportedAdfsSignInMethod | Vous avez sélectionné AD FS en tant que méthode de connexion. |
 | UpgradeNotSupportedCustomizedSyncRules |Vous avez ajouté vos propres règles de personnalisation à la configuration. |
-| UpgradeNotSupportedDeviceWritebackEnabled |Vous avez activé la fonctionnalité [Écriture différée des appareils](how-to-connect-device-writeback.md) . |
-| UpgradeNotSupportedGroupWritebackEnabled |Vous avez activé la fonctionnalité Écriture différée de groupe. |
 | UpgradeNotSupportedInvalidPersistedState |L’installation n’est pas une configuration rapide ou une mise à niveau DirSync. |
-| UpgradeNotSupportedMetaverseSizeExceeeded |Vous avez plus de 100 000 objets dans le métaverse. |
-| UpgradeNotSupportedMultiForestSetup |Vous vous connectez à plusieurs forêts. L’installation rapide se connecte à une seule forêt. |
 | UpgradeNotSupportedNonLocalDbInstall |Vous n’utilisez pas une base de données LocalDB SQL Server Express. |
-| UpgradeNotSupportedNonMsolAccount |Le [compte de connecteur AD DS](reference-connect-accounts-permissions.md#ad-ds-connector-account) n’est plus le compte MSOL_ par défaut. |
-| UpgradeNotSupportedNotConfiguredSignInMethod | Lorsque vous configurez AAD Connect, vous avez choisi *Ne pas configurer* lors de la sélection de la méthode d’authentification unique. |
-| UpgradeNotSupportedStagingModeEnabled |Le serveur est défini pour être en [mode intermédiaire](how-to-connect-sync-staging-server.md). |
-| UpgradeNotSupportedUserWritebackEnabled |Vous avez activé la fonctionnalité [Écriture différée de l’utilisateur](how-to-connect-preview.md#user-writeback) . |
+|UpgradeNotSupportedLocalDbSizeExceeded|La taille de la base de données locale est supérieure ou égale à 8 Go|
+|UpgradeNotSupportedAADHealthUploadDisabled|Les chargements de données d’intégrité ont été désactivés à partir du portail|
 
 ## <a name="next-steps"></a>Étapes suivantes
 En savoir plus sur l’ [intégration de vos identités locales avec Azure Active Directory](whatis-hybrid-identity.md).

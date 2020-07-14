@@ -8,12 +8,12 @@ ms.service: storage
 ms.topic: how-to
 ms.date: 02/25/2019
 ms.author: tamram
-ms.openlocfilehash: 9afbade408d6f95fcd3a61aa1ba65bc09c7a875b
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 725c319e4abb6cc65e1e6a900218393ace2d4d16
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80067231"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84629561"
 ---
 # <a name="upgrade-to-a-general-purpose-v2-storage-account"></a>Mettre à niveau vers un compte de stockage v2 à usage général
 

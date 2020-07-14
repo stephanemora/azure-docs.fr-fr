@@ -3,12 +3,12 @@ title: Modèle de données pour les événements de diagnostics de sauvegarde Az
 description: Ce modèle de données fait référence au mode spécifique à la ressource pour envoyer des événements de diagnostic à Log Analytics (LA).
 ms.topic: conceptual
 ms.date: 10/30/2019
-ms.openlocfilehash: 0713db1cee9d6737ce69cb108f3cb8f81d1eb2ac
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: af1e4159ff2794f8d4dd11480eb7f1789e034c06
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82183566"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84484497"
 ---
 # <a name="data-model-for-azure-backup-diagnostics-events"></a>Modèle de données pour les événements de diagnostics de sauvegarde Azure
 
@@ -124,7 +124,7 @@ Ce tableau fournit plus d’informations sur les champs liés aux travaux.
 | AdhocOrScheduledJob            | Texte          | Champ qui indique si le travail est de type ad hoc ou planifié           |
 | BackupItemUniqueId             | Texte          | ID unique utilisé pour identifier l’élément de sauvegarde associé à l’entité de stockage |
 | BackupManagementServerUniqueId | Texte          | ID unique utilisé pour identifier le serveur de gestion des sauvegardes associé à l’entité de stockage |
-| BackupManagementType           | Texte          | Type de fournisseur exécutant la sauvegarde (par exemple, Machine virtuelle IaaS, Dossier de fichiers) auquel appartient cette alerte |
+| BackupManagementType           | Texte          | Type de fournisseur exécutant la sauvegarde (par exemple, Machine virtuelle IaaS, Dossier de fichiers) auquel appartient ce travail |
 | DataTransferredInMB            | Number        | Données transférées en Mo pour ce travail                          |
 | JobDurationInSecs              | Number        | Durée totale de la tâche en secondes                                |
 | JobFailureCode                 | Texte          | Chaîne de Code d’échec en raison du type d’échec de travail survenu    |
@@ -133,14 +133,14 @@ Ce tableau fournit plus d’informations sur les champs liés aux travaux.
 | JobStartDateTime               | DateTime      | Date et heure de démarrage de l’exécution du travail                       |
 | JobStatus                      | Texte          | État du travail terminé par exemple, Terminé, Échec   |
 | JobUniqueId                    | Texte          | ID unique d’identification du travail                                |
-| ProtectedContainerUniqueId     | Texte          | Identificateur unique du serveur protégé associé à l’alerte |
+| ProtectedContainerUniqueId     | Texte          | Identificateur unique du serveur protégé associé au travail |
 | RecoveryJobDestination         | Texte          | Destination d’un travail de récupération, où les données sont récupérées   |
 | RecoveryJobRPDateTime          | DateTime      | Date et heure de la création du point de récupération en cours de récupération |
 | RecoveryJobLocation            | Texte          | Emplacement auquel a été stocké le point de récupération en cours de récupération |
 | RecoveryLocationType           | Texte          | Type de l’emplacement de récupération                                |
 | SchemaVersion                  | Texte          | Version actuelle du schéma, par exemple **V2**            |
-| State                          | Texte          | État actuel de l’objet alerte, par exemple, Actif, Supprimé |
-| VaultUniqueId                  | Texte          | Identificateur unique du coffre protégé associé à l’alerte |
+| State                          | Texte          | État actuel de l’objet travail, par exemple, « Actif » ou « Supprimé » |
+| VaultUniqueId                  | Texte          | Identificateur unique du coffre protégé associé au travail |
 | SourceSystem                   | Texte          | Système source des données actuelles - Azure                    |
 
 ## <a name="addonazurebackuppolicy"></a>AddonAzureBackupPolicy
@@ -205,7 +205,7 @@ Ce tableau fournit plus d’informations sur les champs liés au stockage.
 | BackupManagementServerUniqueId | Texte          | Champ qui identifie de manière unique le serveur de gestion des sauvegardes par le biais duquel l’élément de sauvegarde est protégé, le cas échéant |
 | BackupManagementType           | Texte          | Type de fournisseur pour le serveur qui effectue le travail de sauvegarde. Par exemple, IaaSVM, FileFolder |
 | PreferredWorkloadOnVolume      | Texte          | Les charges de travail pour lesquelles ce volume est le stockage par défaut      |
-| ProtectedContainerUniqueId     | Texte          | Identificateur unique du serveur protégé associé à l’alerte |
+| ProtectedContainerUniqueId     | Texte          | Identificateur unique du conteneur protégé associé à l’élément de sauvegarde |
 | SchemaVersion                  | Texte          | Version du schéma. Par exemple, **V2**                   |
 | State                          | Texte          | État de l’objet élément de sauvegarde. Par exemple, Actif, Supprimé |
 | StorageAllocatedInMBs          | Number        | Taille de stockage allouée par l’élément de sauvegarde correspondant dans le stockage correspondant de type disque |

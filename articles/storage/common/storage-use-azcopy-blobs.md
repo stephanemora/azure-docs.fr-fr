@@ -3,17 +3,17 @@ title: Transférer des données vers ou depuis le stockage Blob Azure à l’aid
 description: Cet article contient une collection d’exemples de commandes AzCopy qui vous permettent de créer des conteneurs, de copier des fichiers et de synchroniser les répertoires entre les systèmes de fichiers locaux et les conteneurs.
 author: normesta
 ms.service: storage
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 04/10/2020
 ms.author: normesta
 ms.subservice: common
 ms.reviewer: dineshm
-ms.openlocfilehash: b676c2647fbf7c93d271e1d7f68653452125e39b
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: ac96008987b0dbed9e3a39f92e608b8ae6c82512
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82137193"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85513777"
 ---
 # <a name="transfer-data-with-azcopy-and-blob-storage"></a>Transférer des données avec AzCopy et le stockage Blob
 
@@ -241,7 +241,7 @@ AzCopy utilise des [API](https://docs.microsoft.com/rest/api/storageservices/put
 > [!NOTE]
 > Ce scénario présente les limitations suivantes dans la version actuelle.
 >
-> - Vous devez ajouter un jeton SAS à chaque URL source. Si vous fournissez des informations d’identification à l’aide d’Azure Active Directory (AD), vous pouvez omettre le jeton SAS uniquement à partir de l’URL de destination.
+> - Vous devez ajouter un jeton SAS à chaque URL source. Si vous fournissez des informations d’identification à l’aide d’Azure Active Directory (AD), vous pouvez omettre le jeton SAS uniquement à partir de l’URL de destination. Assurez-vous que vous avez configuré les rôles appropriés dans votre compte de destination. Voir [Option 1 : Utiliser Azure Active Directory](storage-use-azcopy-v10.md?toc=/azure/storage/blobs/toc.json#option-1-use-azure-active-directory).
 >-  Les comptes de stockage d’objet blob de blocs Premium ne prennent pas en charge les niveaux d’accès. Omettez le niveau d’accès d’un objet blob de l’opération de copie en définissant la valeur `s2s-preserve-access-tier` sur `false` (par exemple, `--s2s-preserve-access-tier=false`).
 
 Cette section contient les exemples suivants :

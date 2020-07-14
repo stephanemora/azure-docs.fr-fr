@@ -4,12 +4,12 @@ description: Découvrez comment créer rapidement un cluster Kubernetes et dépl
 services: container-service
 ms.topic: article
 ms.date: 05/06/2020
-ms.openlocfilehash: 28925961ea3b99f939ac650d54b5dcece2551f59
-ms.sourcegitcommit: a6d477eb3cb9faebb15ed1bf7334ed0611c72053
+ms.openlocfilehash: 29ee22cb4b28726b25ead6ff78d90de99847666b
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/08/2020
-ms.locfileid: "82926610"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84886953"
 ---
 # <a name="create-a-windows-server-container-on-an-azure-kubernetes-service-aks-cluster-using-the-azure-cli"></a>Créer un conteneur Windows Server sur un cluster Azure Kubernetes Service (AKS) à l’aide d’Azure CLI
 
@@ -67,24 +67,35 @@ L’exemple de sortie suivant montre que le groupe de ressources a été créé 
 
 ## <a name="create-an-aks-cluster"></a>Créer un cluster AKS
 
-Pour exécuter un cluster AKS qui prend en charge des pools de nœuds pour les conteneurs Windows Server, votre cluster doit utiliser une stratégie de réseau qui utilise un plug-in réseau [Azure CNI][azure-cni-about] (avancé). Pour plus d’informations sur la planification des plages de sous-réseau nécessaires et les considérations réseau, consultez [Configurer le réseau Azure CNI][use-advanced-networking]. Utilisez la commande [az aks create][az-aks-create] ci-dessous pour créer un cluster AKS nommé *myAKSCluster*. Cette commande crée les ressources réseau nécessaires si elles n’existent pas.
+Pour pouvoir exécuter un cluster AKS qui prend en charge des pools de nœuds pour les conteneurs Windows Server, votre cluster doit appliquer une stratégie de réseau qui utilise un plug-in réseau [Azure CNI][azure-cni-about] (avancé). Pour plus d’informations sur la planification des plages de sous-réseau nécessaires et les considérations réseau, consultez [Configurer le réseau Azure CNI][use-advanced-networking]. Utilisez la commande [az aks create][az-aks-create] pour créer un cluster AKS nommé *myAKSCluster*. Cette commande crée les ressources réseau nécessaires si elles n’existent pas.
+
+* Le cluster est configuré avec deux nœuds
+* Les paramètres *windows-admin-password* et *windows-admin-username* définissent les informations d’identification administrateur pour les conteneurs Windows Server créés sur le cluster.
+* Le pool de nœuds utilise `VirtualMachineScaleSets`
 
 > [!NOTE]
 > Pour garantir un fonctionnement fiable de votre cluster, vous devez exécuter au moins 2 (deux) nœuds dans le pool de nœuds par défaut.
 
+Fournissez votre propre *PASSWORD_WIN* sécurisé (n’oubliez pas que les commandes dans cet article sont entrées dans un interpréteur de commandes BASH) :
+
 ```azurecli-interactive
+PASSWORD_WIN="P@ssw0rd1234"
+
 az aks create \
     --resource-group myResourceGroup \
     --name myAKSCluster \
     --node-count 2 \
     --enable-addons monitoring \
-    --kubernetes-version 1.16.7 \
     --generate-ssh-keys \
+    --windows-admin-password $PASSWORD_WIN \
+    --windows-admin-username azureuser \
+    --vm-set-type VirtualMachineScaleSets \
     --network-plugin azure
 ```
 
-> [!Note]
-> Si vous ne parvenez pas à créer le cluster AKS parce que la version n’est pas prise en charge dans cette région, vous pouvez utiliser la commande [az aks get-versions --location eastus] pour trouver la liste des versions prises en charge pour cette région.
+> [!NOTE]
+> Si vous obtenez une erreur de validation de mot de passe, essayez de créer votre groupe de ressources dans une autre région.
+> Puis essayez de créer le cluster avec le nouveau groupe de ressources.
 
 Au bout de quelques minutes, la commande se termine et retourne des informations au format JSON sur le cluster. Parfois, le provisionnement du cluster peut prendre plus de quelques minutes. Autorisez jusqu’à 10 minutes dans ces cas de figure.
 
@@ -98,8 +109,7 @@ az aks nodepool add \
     --cluster-name myAKSCluster \
     --os-type Windows \
     --name npwin \
-    --node-count 1 \
-    --kubernetes-version 1.16.7
+    --node-count 1
 ```
 
 La commande ci-dessus crée un pool de nœuds nommé *npwin* et l’ajoute à *myAKSCluster*. Lorsque vous créez un pool de nœuds pour exécuter des conteneurs Windows Server, la valeur par défaut de *node-vm-size* est *Standard_D2s_v3*. Si vous choisissez de définir le paramètre *node-vm-size*, veuillez consulter la liste des [tailles de machines virtuelles limitées][restricted-vm-sizes]. La taille minimale recommandée est *Standard_D2s_v3*. La commande ci-dessus utilise également le sous-réseau par défaut dans le réseau virtuel par défaut créé lors de l’exécution de `az aks create`.
@@ -128,8 +138,8 @@ L’exemple de sortie suivant montre tous les nœuds du cluster. Vérifiez que l
 
 ```output
 NAME                                STATUS   ROLES   AGE    VERSION
-aks-nodepool1-12345678-vmssfedcba   Ready    agent   13m    v1.16.7
-aksnpwin987654                      Ready    agent   108s   v1.16.7
+aks-nodepool1-12345678-vmssfedcba   Ready    agent   13m    v1.16.9
+aksnpwin987654                      Ready    agent   108s   v1.16.9
 ```
 
 ## <a name="run-the-application"></a>Exécution de l'application

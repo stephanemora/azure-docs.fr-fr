@@ -4,14 +4,14 @@ description: Problèmes couramment rencontrés avec les alertes de métrique Azu
 author: harelbr
 ms.author: harelbr
 ms.topic: reference
-ms.date: 04/28/2020
+ms.date: 06/21/2020
 ms.subservice: alerts
-ms.openlocfilehash: 605d1f550335417a26340b6ee54736321ad69f80
-ms.sourcegitcommit: d118ad4fb2b66c759b70d4d8a18e6368760da3ad
+ms.openlocfilehash: 36ff80bc0858d6d08cc120d126628de02ba6e703
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/02/2020
-ms.locfileid: "84302661"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85130736"
 ---
 # <a name="troubleshooting-problems-in-azure-monitor-metric-alerts"></a>Résolution des problèmes liés aux alertes de métrique dans Azure Monitor 
 
@@ -112,7 +112,7 @@ Le nombre autorisé de règles d'alerte de métrique par abonnement est soumis �
 Si vous avez atteint la limite de quota, les étapes suivantes peuvent vous aider à résoudre le problème :
 1. Essayez de supprimer ou de désactiver les règles d'alerte de métrique qui ne sont plus utilisées.
 
-2. Utilisez plutôt des règles d’alerte de métrique qui supervisent plusieurs ressources. Avec cette fonctionnalité, une même règle d'alerte peut superviser plusieurs ressources en utilisant une seule règle d'alerte comptabilisée dans le quota. Pour plus d'informations sur cette fonctionnalité et sur les types de ressources pris en charge, consultez [cette page](https://docs.microsoft.com/azure/azure-monitor/platform/alerts-metric-overview#monitoring-at-scale-using-metric-alerts-in-azure-monitor).
+2. Utilisez plutôt des règles d’alerte de métrique qui supervisent plusieurs ressources. Avec cette fonctionnalité, une même règle d'alerte peut superviser plusieurs ressources en utilisant une seule règle d'alerte comptabilisée dans le quota. Pour plus d’informations sur cette fonctionnalité et les types de ressources pris en charge, consultez [cette page](https://docs.microsoft.com/azure/azure-monitor/platform/alerts-metric-overview#monitoring-at-scale-using-metric-alerts-in-azure-monitor).
 
 3. Si vous avez besoin d'augmenter la limite de quota, ouvrez une demande de support et fournissez les informations suivantes :
 
@@ -191,6 +191,33 @@ Pour créer une règle d'alerte de métrique, vous devez disposer des autorisati
 - Autorisation de lecture sur la ressource cible de la règle d'alerte
 - Autorisation d'écriture sur le groupe de ressources dans lequel la règle d'alerte est créée (si vous créez la règle d'alerte à partir du portail Azure, elle est créée dans le groupe de ressources dans lequel réside la ressource cible)
 - Autorisation de lecture sur tout groupe d'actions associé à la règle d'alerte (le cas échéant)
+
+
+## <a name="naming-restrictions-for-metric-alert-rules"></a>Restrictions de nommage pour les règles d’alerte d’indicateurs de performance
+
+Notez les restrictions suivantes pour les noms de règle d’alerte d’indicateurs de performance :
+
+- Les noms de règle d’alerte d’indicateurs de performance ne peuvent pas être modifiés (renommés) une fois créés
+- Les noms de règles d’alerte des indicateurs de performance doivent être uniques au sein d’un groupe de ressources
+- Les noms de règle d’alerte des indicateurs de performance ne peuvent pas contenir les caractères suivants : * # & + : < > ? @ % { } \ / 
+- Les noms de règle d’alerte des indicateurs de performance ne peuvent pas se terminer par le caractère suivant : .
+
+
+## <a name="restrictions-when-using-dimensions-in-a-metric-alert-rule-with-multiple-conditions"></a>Restrictions lors de l’utilisation de dimensions dans une règle d’alerte des indicateurs de performance avec plusieurs conditions
+
+Les alertes de métrique plus récentes prennent en charge la génération d’alertes sur des métriques multidimensionnelles, ainsi que la définition de plusieurs conditions (jusqu’à 5 conditions par règle d’alerte).
+
+Notez les contraintes suivantes liées à l’utilisation de dimensions dans une règle d’alerte qui contient plusieurs conditions :
+1. Vous ne pouvez sélectionner qu’une seule valeur par dimension au sein de chaque condition.
+2. Vous ne pouvez pas utiliser l’option « Sélectionner toutes les valeurs actuelles et futures » (sélectionnez \*).
+3. Quand des indicateurs de performance configurés dans différentes conditions prennent en charge la même dimension, une valeur de dimension configurée doit être explicitement définie de la même façon pour toutes ces métriques (dans les conditions appropriées).
+Par exemple :
+    - Prenons l’exemple d’une règle d’alerte des indicateurs de performance qui est définie sur un compte de stockage et qui analyse deux conditions :
+        * Nombre total de **Transactions** > 5
+        * Moyenne de **SuccessE2ELatency** > 250 ms
+    - J’aimerais mettre à jour la première condition et surveiller uniquement les transactions où la dimension **ApiName** est égale à *« GetBlob »*
+    - Étant donné que les **Transactions** et les indicateurs de performance **SuccessE2ELatency** prennent en charge une dimension **ApiName**, je dois mettre à jour les deux conditions, et les deux doivent spécifier la dimension **ApiName** avec une valeur *« GetBlob »* .
+
 
 ## <a name="next-steps"></a>Étapes suivantes
 

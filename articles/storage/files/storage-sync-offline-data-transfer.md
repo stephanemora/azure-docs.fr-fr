@@ -3,16 +3,16 @@ title: Migrer des données vers Azure File Sync avec Azure Data Box
 description: Migrez des données en bloc d’une manière compatible avec Azure File Sync.
 author: roygara
 ms.service: storage
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 02/12/2019
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: d0331419de89775062f1309c5d854cd7325c68e4
-ms.sourcegitcommit: 62c5557ff3b2247dafc8bb482256fef58ab41c17
+ms.openlocfilehash: 438fe490bb241cbc42e53d8502e9065454ebcc4c
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/03/2020
-ms.locfileid: "80656766"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85514390"
 ---
 # <a name="migrate-bulk-data-to-azure-file-sync-with-azure-databox"></a>Migrer des données en bloc vers Azure File Sync avec Azure Data Box
 Vous pouvez migrer des données en bloc vers Azure File Sync de deux manières :

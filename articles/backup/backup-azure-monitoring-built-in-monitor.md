@@ -4,12 +4,12 @@ description: Dans cet article, découvrez les fonctionnalités de surveillance e
 ms.topic: conceptual
 ms.date: 03/05/2019
 ms.assetid: 86ebeb03-f5fa-4794-8a5f-aa5cbbf68a81
-ms.openlocfilehash: 8c72c192f3bd12169703b70cbee76599b15eb560
-ms.sourcegitcommit: 8017209cc9d8a825cc404df852c8dc02f74d584b
+ms.openlocfilehash: f4b91302723119e707d12a86480bbaff2eb4bec5
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/01/2020
-ms.locfileid: "84247051"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84485103"
 ---
 # <a name="monitoring-azure-backup-workloads"></a>Surveillance des charges de travail de Sauvegarde Azure
 
@@ -77,7 +77,7 @@ Dans le cadre des exceptions ci-dessus, il est entendu que le résultat de ces o
 Les alertes peuvent être définies selon trois types, en fonction de leur gravité :
 
 - **Critique** : En principe, tout échec de sauvegarde ou de récupération (planifiée ou déclenchée par l’utilisateur) conduit à la génération d’une alerte et s’affiche en tant qu’alerte critique, de même que les opérations destructrices telles que la suppression de sauvegarde.
-- **Avertissement** : Si l’opération de sauvegarde réussit, mais avec quelques avertissements, ces derniers sont répertoriés sous forme d’alertes d’avertissement.
+- **Avertissement** : Si l’opération de sauvegarde réussit, mais avec quelques avertissements, ces derniers sont répertoriés sous forme d’alertes d’avertissement. Les alertes d’avertissement sont disponibles uniquement pour les sauvegardes d’Agent Sauvegarde Azure.
 - **Informations** : À ce jour, aucune alerte d’information n’est générée par le service Sauvegarde Azure.
 
 ## <a name="notification-for-backup-alerts"></a>Notification pour les alertes de sauvegarde

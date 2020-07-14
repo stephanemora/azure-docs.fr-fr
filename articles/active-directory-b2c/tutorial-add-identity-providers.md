@@ -7,16 +7,16 @@ author: msmimart
 manager: celestedg
 ms.service: active-directory
 ms.workload: identity
-ms.topic: article
+ms.topic: tutorial
 ms.date: 07/08/2019
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 1f49061210ca8e3c106b0569f77a67d1f10757a1
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 746c406c4e6d458f699eb844156190e47d5c7a26
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "78183514"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85384904"
 ---
 # <a name="tutorial-add-identity-providers-to-your-applications-in-azure-active-directory-b2c"></a>Tutoriel : Ajouter des fournisseurs d’identité à vos applications dans Azure Active Directory B2C
 
@@ -26,7 +26,7 @@ Dans cet article, vous apprendrez comment :
 
 > [!div class="checklist"]
 > * Créer des applications de fournisseurs d’identité
-> * Ajouter les fournisseurs d’identité dans votre locataire
+> * Ajouter les fournisseurs d’identité à votre locataire, à la fois dans Facebook et dans Azure Active Directory
 > * Ajouter les fournisseurs d’identité à votre flux d’utilisateur
 
 Vous utilisez généralement un seul fournisseur d’identité dans vos applications, mais vous pouvez en ajouter d’autres. Ce tutoriel vous montre comment ajouter un fournisseur d’identité Azure AD et un fournisseur d’identité Facebook à votre application. L’ajout de ces deux fournisseurs d’identité à votre application est facultatif. Vous pouvez également ajouter d’autres fournisseurs d’identité, comme [Amazon](identity-provider-amazon.md), [GitHub](identity-provider-github.md), [Google](identity-provider-google.md), [LinkedIn](identity-provider-linkedin.md), [Microsoft](identity-provider-microsoft-account.md) ou [Twitter](identity-provider-twitter.md).

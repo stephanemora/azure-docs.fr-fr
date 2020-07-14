@@ -5,13 +5,13 @@ author: craigshoemaker
 ms.topic: reference
 ms.date: 02/18/2020
 ms.author: cshoe
-ms.custom: cc996988-fb4f-47
-ms.openlocfilehash: dd8442c00e2b7685b0dc1a7bd5150c87f2c27b7c
-ms.sourcegitcommit: b396c674aa8f66597fa2dd6d6ed200dd7f409915
+ms.custom: cc996988-fb4f-47, tracking-python
+ms.openlocfilehash: eb61cad5f505e6895b550adca3e9f156222d6d30
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/07/2020
-ms.locfileid: "82891448"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84559970"
 ---
 # <a name="azure-queue-storage-output-bindings-for-azure-functions"></a>Liaisons de sortie de Stockage File d’attente Azure pour Azure Functions
 
@@ -307,7 +307,7 @@ public class HttpTriggerQueueOutput {
 |`queueName`  | Déclare le nom de la file d’attente dans le compte de stockage. |
 |`connection` | Pointe vers la chaîne de connexion du compte de stockage. |
 
-Le paramètre associé à l’annotation `QueueOutput` est typée en tant qu’instance [OutputBinding\<T\>](https://github.com/Azure/azure-functions-java-library/blob/master/src/main/java/com/microsoft/azure/functions/OutputBinding.java).
+Le paramètre associé à l’annotation `QueueOutput` est tapé en tant qu’instance [OutputBinding\<T\>](https://github.com/Azure/azure-functions-java-library/blob/master/src/main/java/com/microsoft/azure/functions/OutputBinding.java).
 
 ---
 

@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/18/2019
 ms.author: TomSh
-ms.openlocfilehash: 401317f6b47c97a76ef2ded603063821a420933a
-ms.sourcegitcommit: 1f48ad3c83467a6ffac4e23093ef288fea592eb5
+ms.openlocfilehash: e2113df2db89e204fd5d2c0a62234e0c1f7b16cc
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/29/2020
-ms.locfileid: "84192537"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85125666"
 ---
 # <a name="introduction-to-azure-security"></a>Présentation de la sécurité Azure
 ## <a name="overview"></a>Vue d’ensemble
@@ -223,7 +223,7 @@ Microsoft Azure [ExpressRoute](../../expressroute/expressroute-introduction.md) 
 
 ![ExpressRoute](./media/overview/azure-security-fig1.png)
 
-Grâce à ExpressRoute, vous pouvez établir des connexions aux services de cloud computing Microsoft, comme Microsoft Azure, Office 365 et CRM Online. La connectivité peut provenir d'un réseau universel (IP VPN), d’un réseau Ethernet point à point ou d’une interconnexion virtuelle via un fournisseur de connectivité dans un centre de colocalisation.
+Grâce à ExpressRoute, vous pouvez établir des connexions aux services de cloud computing Microsoft, comme Microsoft Azure, Microsoft 365 et CRM Online. La connectivité peut provenir d'un réseau universel (IP VPN), d’un réseau Ethernet point à point ou d’une interconnexion virtuelle via un fournisseur de connectivité dans un centre de colocalisation.
 
 Les connexions ExpressRoute ne transitent pas par l’Internet public et peuvent donc être considérées comme plus sécurisées que les solutions VPN. Elles offrent ainsi de meilleurs niveaux de fiabilité, de rapidité, de latence et de sécurité que les connexions classiques sur Internet.
 

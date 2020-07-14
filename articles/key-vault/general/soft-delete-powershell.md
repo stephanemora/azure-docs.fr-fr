@@ -9,12 +9,12 @@ ms.subservice: general
 ms.topic: tutorial
 ms.date: 08/12/2019
 ms.author: mbaldwin
-ms.openlocfilehash: f883b8527fff97ea3e16e7ffa7637c432dc33c2f
-ms.sourcegitcommit: 52d2f06ecec82977a1463d54a9000a68ff26b572
+ms.openlocfilehash: 452dd99ae58858b661892e3f962fce8086d4503c
+ms.sourcegitcommit: 74ba70139781ed854d3ad898a9c65ef70c0ba99b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/15/2020
-ms.locfileid: "84783365"
+ms.lasthandoff: 06/26/2020
+ms.locfileid: "85444656"
 ---
 # <a name="how-to-use-key-vault-soft-delete-with-powershell"></a>Utilisation de la suppression réversible Key Vault avec l’interface PowerShell
 
@@ -267,7 +267,7 @@ L’énumération des objets du coffre de clés supprimés indique également qu
 
 Quand la protection contre le vidage est activée, un coffre ou un objet à l’état Supprimé ne peut pas être supprimé définitivement tant que la période de rétention n’est pas terminée. Ce type de coffre ou d’objet peut toujours être récupéré. Cette fonctionnalité donne l’assurance qu’un coffre ou un objet ne peut jamais être supprimé définitivement tant que la période de conservation ne s’est pas écoulée. La durée de rétention par défaut est de 90 jours, mais pendant la création d’un coffre de clés, il est possible de définir l’intervalle de la stratégie de rétention sur une valeur comprise entre 7 et 90 jours. La stratégie de rétention pour la protection contre le vidage utilise le même intervalle. Une fois défini, l'intervalle de la stratégie de rétention ne peut plus être modifié.
 
-Vous pouvez activer la protection contre le vidage seulement si la suppression réversible est également activée. 
+Vous pouvez activer la protection contre le vidage seulement si la suppression réversible est également activée. La désactivation de la protection contre le vidage n’est pas prise en charge pour le moment. 
 
 Pour activer à la fois la suppression réversible et la protection contre le vidage lors de la création d’un coffre, utilisez l’applet de commande [New-AzKeyVault](/powershell/module/az.keyvault/new-azkeyvault?view=azps-1.5.0) :
 

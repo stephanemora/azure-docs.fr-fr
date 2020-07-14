@@ -4,18 +4,18 @@ description: En savoir plus sur l’impact des stratégies de sécurité et de c
 services: logic-apps
 ms.suite: integration
 ms.reviewer: divswa, logicappspm
-ms.topic: article
-ms.date: 04/24/2020
-ms.openlocfilehash: 590ad6a52d768c7e59d8d97691e146205e43cadd
-ms.sourcegitcommit: 1895459d1c8a592f03326fcb037007b86e2fd22f
+ms.topic: conceptual
+ms.date: 06/05/2020
+ms.openlocfilehash: 384335898c7cd6b379c6107152b49e9931cf513a
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/01/2020
-ms.locfileid: "82628706"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85194968"
 ---
 # <a name="data-security-and-privacy-policies-for-google-connectors-in-azure-logic-apps"></a>Stratégies de confidentialité et de sécurité des données pour les connecteurs Google dans Azure Logic Apps
 
-À partir du **1er mai 2020**, les modifications apportées en raison des [stratégies de confidentialité et de sécurité des données](https://www.blog.google/technology/safety-security/project-strobe/) de Google peuvent perturber vos workflows d’application logique qui utilisent le [connecteur Gmail](https://docs.microsoft.com/connectors/gmail/). Si vos applications logiques utilisent le connecteur Gmail avec un compte Gmail grand public (adresse e-mail qui se termine par @gmail.com ou @googlemail.com), vos applications logiques peuvent uniquement utiliser [des déclencheurs, des actions et des connecteurs approuvés par Google](#approved-connectors). 
+À partir du **1er mai 2020**, les modifications apportées en raison des [stratégies de confidentialité et de sécurité des données](https://www.blog.google/technology/safety-security/project-strobe/) de Google peuvent perturber vos workflows d’application logique qui utilisent le [connecteur Gmail](https://docs.microsoft.com/connectors/gmail/). Si vos applications logiques utilisent le connecteur Gmail avec un compte Gmail grand public (adresse e-mail qui se termine par @gmail.com ou @googlemail.com), vos applications logiques peuvent uniquement utiliser [des déclencheurs, des actions et des connecteurs approuvés par Google](#approved-connectors).
 
 > [!NOTE]
 > Si vos applications logiques utilisent le connecteur Gmail avec un compte professionnel G-suite (adresse e-mail avec un domaine personnalisé), vos applications logiques ne sont pas concernées et n’ont aucune restriction quant à l’utilisation du connecteur Gmail.
@@ -36,11 +36,31 @@ Dans le cadre de cette stratégie, lorsque vous utilisez un compte Gmail grand p
 
 * Déclencheurs et actions intégrés à Logic Apps : Lot, contrôle, opérations de données, délai d’exécution, Fichier plat, liquid, requête, calendrier, variables et XML
 
+  Les déclencheurs intégrés et les actions qui ne sont pas approuvés par Google, comme HTTP, Azure Functions, Azure Logic Apps et autres, rendent une application logique non conforme au connecteur Gmail, car celle-ci peut envoyer ou recevoir des données depuis n’importe où.
+
 * Services Google : Gmail, Google Agenda, Google Contacts, Google Drive, Google Sheets et Google Tasks
 
 * Services Microsoft approuvés : Dynamics 365, Excel Online, Microsoft Teams, Office 365, OneDrive et SharePoint Online
 
 * Connecteurs pour les sources de données gérées par le client : FTP, RSS, SFTP, SMTP et SQL Server
+
+## <a name="non-compliant-examples"></a>Exemples non conformes
+
+Voici quelques exemples qui utilisent le connecteur Gmail avec des déclencheurs et des actions intégrés ou des connecteurs managés qui ne sont pas approuvés par Google :
+
+* Cette application logique utilise le connecteur Gmail avec le déclencheur intégré HTTP :
+
+  ![Application logique non conforme : exemple 1](./media/connectors-google-data-security-privacy-policy/not-compliant-logic-app-1.png)
+  
+  L’application logique utilise également le connecteur Google Calendar, qui est approuvé.
+
+* Cette application logique utilise le connecteur Gmail avec le connecteur Stockage Blob Azure :
+
+  ![Application logique non conforme : exemple 2](./media/connectors-google-data-security-privacy-policy/not-compliant-logic-app-2.png)
+
+* Cette application logique utilise le connecteur Gmail avec le connecteur Twitter :
+
+  ![Application logique non conforme : exemple 3](./media/connectors-google-data-security-privacy-policy/not-compliant-logic-app-3.png)
 
 Pour obtenir les informations les plus récentes, consultez la [documentation technique de référence du connecteur Gmail](https://docs.microsoft.com/connectors/gmail/).
 

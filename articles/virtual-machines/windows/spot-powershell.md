@@ -5,15 +5,15 @@ author: cynthn
 ms.service: virtual-machines
 ms.workload: infrastructure-services
 ms.topic: how-to
-ms.date: 03/25/2020
+ms.date: 06/26/2020
 ms.author: cynthn
 ms.reviewer: jagaveer
-ms.openlocfilehash: 321983fbe99d17dc78198feb195eed8ea26de569
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: f615ed5183142ca7684c7e705fa6a42bd3124d19
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82100615"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85514823"
 ---
 # <a name="deploy-spot-vms-using-azure-powershell"></a>Déployer des machines virtuelles Spot à l’aide d’Azure PowerShell
 
@@ -32,7 +32,8 @@ Créez une machine virtuelle Spot avec [New-AzVmConfig](/powershell/module/az.co
 - un montant en dollars, jusqu’à 5 chiffres. Par exemple, `-MaxPrice .98765` signifie que la machine virtuelle sera désallouée une fois que le prix d’une machine virtuelle Spot atteindra 0,98765 $ par heure.
 
 
-Cet exemple crée une machine virtuelle Spot qui n’est pas désallouée en fonction du prix (uniquement quand Azure a besoin de récupérer toute la capacité).
+Cet exemple crée une machine virtuelle Spot qui n’est pas désallouée en fonction du prix (uniquement quand Azure a besoin de récupérer toute la capacité). La stratégie d’éviction est définie pour désallouer la machine virtuelle, afin qu’elle puisse être redémarrée ultérieurement. Si vous souhaitez supprimer la machine virtuelle et le disque sous-jacent lorsque la machine virtuelle est supprimée, définissez `-EvictionPolicy` sur `Delete` dans `New-AzVMConfig`.
+
 
 ```azurepowershell-interactive
 $resourceGroup = "mySpotRG"
@@ -57,7 +58,7 @@ $nic = New-AzNetworkInterface -Name myNic -ResourceGroupName $resourceGroup -Loc
 
 # Create a virtual machine configuration and set this to be a Spot VM
 
-$vmConfig = New-AzVMConfig -VMName $vmName -VMSize Standard_D1 -Priority "Spot" -MaxPrice -1| `
+$vmConfig = New-AzVMConfig -VMName $vmName -VMSize Standard_D1 -Priority "Spot" -MaxPrice -1 -EvictionPolicy Deallocate | `
 Set-AzVMOperatingSystem -Windows -ComputerName $vmName -Credential $cred | `
 Set-AzVMSourceImage -PublisherName MicrosoftWindowsServer -Offer WindowsServer -Skus 2016-Datacenter -Version latest | `
 Add-AzVMNetworkInterface -Id $nic.Id
@@ -74,6 +75,6 @@ Get-AzVM -ResourceGroupName $resourceGroup | `
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Vous pouvez également créer une machine virtuelle Spot à l’aide d’[Azure CLI](../linux/spot-cli.md) ou d’un [modèle](../linux/spot-template.md).
+Vous pouvez également créer une machine virtuelle Spot à l’aide d’[Azure CLI](../linux/spot-cli.md), du [portail](spot-portal.md) ou d’un [modèle](../linux/spot-template.md).
 
 Si vous rencontrez une erreur, consultez [Codes d’erreur](../error-codes-spot.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).

@@ -1,19 +1,19 @@
 ---
 title: 'Vue d’ensemble du dépannage de Windows Virtual Desktop : Azure'
-description: Vue d’ensemble de la résolution des problèmes lors de la configuration d’un environnement de locataire Windows Virtual Desktop.
+description: Vue d’ensemble de la résolution des problèmes lors de la configuration d’un environnement Windows Virtual Desktop.
 services: virtual-desktop
 author: Heidilohr
 ms.service: virtual-desktop
 ms.topic: troubleshooting
-ms.date: 04/30/2020
+ms.date: 06/05/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: c5be26509eccdaebf1b504c1b0b8c7edb35e101c
-ms.sourcegitcommit: 0fa52a34a6274dc872832560cd690be58ae3d0ca
+ms.openlocfilehash: 07857feb2e5552429c445b22c4c4b2f121f29a93
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/29/2020
-ms.locfileid: "84203853"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84976487"
 ---
 # <a name="troubleshooting-overview-feedback-and-support"></a>Vue d’ensemble du dépannage, commentaires et support
 
@@ -23,7 +23,7 @@ ms.locfileid: "84203853"
 > La mise à jour Printemps 2020 de Windows Virtual Desktop est en préversion publique. Cette préversion est fournie sans contrat de niveau de service, c’est pourquoi nous déconseillons son utilisation pour les charges de travail de production. Certaines fonctionnalités peuvent être limitées ou non prises en charge. 
 > Pour plus d’informations, consultez [Conditions d’Utilisation Supplémentaires relatives aux Évaluations Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
-Cet article fournit une vue d’ensemble des problèmes que vous pouvez rencontrer lors de la configuration d’un environnement de locataire Windows Virtual Desktop et fournit des moyens de résoudre les problèmes.
+Cet article fournit une vue d’ensemble des problèmes que vous pouvez rencontrer lors de la configuration d’un environnement Windows Virtual Desktop et fournit des moyens de résoudre les problèmes.
 
 ## <a name="report-issues-during-public-preview"></a>Signaler des problèmes pendant la phase de préversion publique
 
@@ -35,14 +35,13 @@ Quand vous demandez de l’aide ou que vous proposez une nouvelle fonctionnalit�
 
 Avant de passer à autre chose, veillez à consulter la [page des états Azure](https://status.azure.com/status) et [Azure Service Health](https://azure.microsoft.com/features/service-health/) pour vérifier que votre service Azure fonctionne correctement.
 
-Utilisez le tableau suivant pour identifier et résoudre les problèmes que vous pouvez rencontrer quand vous configurez un environnement de locataire avec le client Bureau à distance. Une fois votre locataire configuré, vous pouvez utiliser notre nouveau [service Diagnostics](diagnostics-role-service.md) pour identifier les problèmes pour les scénarios courants.
+Référez-vous au tableau suivant pour identifier et résoudre les problèmes que vous pouvez rencontrer quand vous configurez un environnement avec le client Bureau à distance. Une fois votre environnement configuré, vous pouvez utiliser notre nouveau [service Diagnostics](diagnostics-role-service.md) pour identifier les problèmes pour les scénarios courants.
 
 | **Problème**                                                            | **Solution suggérée**  |
 |----------------------------------------------------------------------|-------------------------------------------------|
-| Accès aux modèles de la Place de marché dans le portail Azure       | Les modèles Windows Virtual Desktop de la Place de marché Azure sont disponibles gratuitement.|
 | Paramètres de Réseau virtuel Azure et d’ExpressRoute des pools d’hôtes de session               | [Ouvrez une demande de support Azure](https://azure.microsoft.com/support/create-ticket/), puis sélectionnez le service approprié (sous la catégorie Réseaux). |
-| Création d’une machine virtuelle de pool d’hôtes quand les modèles Azure Resource Manager fournis avec Windows Virtual Desktop ne sont pas utilisés | [Ouvrez une demande de support Azure](https://azure.microsoft.com/support/create-ticket/), puis sélectionnez **Machine virtuelle exécutant Windows** pour le service. <br> <br> Pour les problèmes avec les modèles Azure Resource Manager qui sont fournis avec Windows Virtual Desktop, consultez la section « Création d’un locataire Windows Virtual Desktop » de [Création d’un pool d’hôtes dans un environnement](troubleshoot-set-up-issues.md). |
-| Gestion des environnements d’hôtes de session Windows Virtual Desktop à partir du portail Azure    | [Ouvrez une demande de support Azure](https://azure.microsoft.com/support/create-ticket/). <br> <br> Pour les problèmes de gestion survenant quand vous utilisez les services Bureau à distance/Windows Virtual Desktop PowerShell, consultez [Windows Virtual Desktop PowerShell](troubleshoot-powershell.md) ou [ouvrez une demande de support Azure](https://azure.microsoft.com/support/create-ticket/), sélectionnez **Windows Virtual Desktop** pour le service, sélectionnez **Configuration et gestion** pour le type de problème, puis sélectionnez **Problèmes avec la configuration du locataire à l’aide de PowerShell** pour le sous-type de problème. |
+| Création d’une machine virtuelle de pool d’hôtes quand les modèles Azure Resource Manager fournis avec Windows Virtual Desktop ne sont pas utilisés | [Ouvrez une demande de support Azure](https://azure.microsoft.com/support/create-ticket/), puis sélectionnez **Windows Virtual Desktop** comme service. <br> <br> Pour les problèmes avec les modèles Azure Resource Manager fournis avec Windows Virtual Desktop, consultez la section Erreurs liées au modèle Azure Resource Manager dans [Création d’un pool d’hôtes](troubleshoot-set-up-issues.md). |
+| Gestion des environnements d’hôtes de session Windows Virtual Desktop à partir du portail Azure    | [Ouvrez une demande de support Azure](https://azure.microsoft.com/support/create-ticket/). <br> <br> Pour les problèmes de gestion survenant quand vous utilisez les services Bureau à distance/Windows Virtual Desktop PowerShell, consultez [Windows Virtual Desktop PowerShell](troubleshoot-powershell.md) ou [ouvrez une demande de support Azure](https://azure.microsoft.com/support/create-ticket/), sélectionnez **Windows Virtual Desktop** comme service, sélectionnez **Configuration et gestion** comme type de problème, puis sélectionnez **Problèmes avec la configuration de l’environnement à l’aide de PowerShell** comme sous-type de problème. |
 | Gestion de la configuration de Windows Virtual Desktop liée à des pools d’hôtes et à des groupes d’applications      | Consultez [Windows Virtual Desktop PowerShell](troubleshoot-powershell.md) ou [ouvrez une de demande de support Azure](https://azure.microsoft.com/support/create-ticket/), sélectionnez **Windows Virtual Desktop** pour le service, puis sélectionnez le type de problème approprié.|
 | Déploiement et gestion de conteneurs de profils FSLogix | Consultez le [Guide de résolution des problèmes relatifs aux produits FSLogix](/fslogix/fslogix-trouble-shooting-ht/). Si ce guide ne vous permet pas de résoudre le problème, [ouvrez une demande de support Azure](https://azure.microsoft.com/support/create-ticket/), sélectionnez **Windows Virtual Desktop** pour le service, sélectionnez **FSLogix** pour le type de problème, puis sélectionnez le sous-type de problème approprié. |
 | Dysfonctionnement des clients Bureau à distance au démarrage                                                 | Consultez [Résoudre des problèmes du client Bureau à distance](troubleshoot-client.md). Si vous ne parvenez toujours pas à résoudre le problème, [ouvrez une demande de support Azure](https://azure.microsoft.com/support/create-ticket/), sélectionnez **Windows Virtual Desktop** pour le service, puis sélectionnez **Clients Bureau à distance** pour le type de problème.  <br> <br> S’il s’agit d’un problème réseau, vos utilisateurs doivent contacter leur administrateur réseau. |
@@ -57,7 +56,7 @@ Utilisez le tableau suivant pour identifier et résoudre les problèmes que vous
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-- Pour résoudre les problèmes de création d’un pool d’hôtes dans un environnement Windows Virtual Desktop, consultez [Création d’un pool d’hôtes dans un environnement](troubleshoot-set-up-issues.md).
+- Pour résoudre les problèmes de création d’un pool d’hôtes dans un environnement Windows Virtual Desktop, consultez [Création d’un pool d’hôtes](troubleshoot-set-up-issues.md).
 - Pour résoudre les problèmes de configuration d’une machine virtuelle dans Windows Virtual Desktop, consultez [Configuration d’une machine virtuelle hôte de session](troubleshoot-vm-configuration.md).
 - Pour résoudre les problèmes de connexion au client Windows Virtual Desktop, consultez [Connexions au service Windows Virtual Desktop](troubleshoot-service-connection.md).
 - Pour résoudre les problèmes liés aux clients Bureau à distance, consultez [Résoudre des problèmes du client Bureau à distance](troubleshoot-client.md).

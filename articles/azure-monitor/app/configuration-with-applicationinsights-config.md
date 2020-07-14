@@ -4,12 +4,12 @@ description: Activez ou désactivez les modules de collecte de données et ajout
 ms.topic: conceptual
 ms.date: 05/22/2019
 ms.reviewer: olegan
-ms.openlocfilehash: 3375c24739da8663aa6a40deeb53e02e65d1f9bf
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: dde2cbf227f085b751f6ad22e1f2fa95f38c5915
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81537557"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84485131"
 ---
 # <a name="configuring-the-application-insights-sdk-with-applicationinsightsconfig-or-xml"></a>Configuration du kit de développement logiciel (SDK) Application Insights à l’aide du fichier ApplicationInsights.config ou .xml
 Le kit de développement logiciel (SDK) .NET Application Insights se compose d’un certain nombre de packages NuGet. Le [package principal](https://www.nuget.org/packages/Microsoft.ApplicationInsights) fournit l'API pour l'envoi des données télémétriques à Application Insights. Des [packages supplémentaires](https://www.nuget.org/packages?q=Microsoft.ApplicationInsights) fournissent les *modules* et les *initialiseurs* de télémétrie pour le suivi télémétrique automatique de votre application et de son contexte. La modification du fichier config permet d’activer ou de désactiver les modules et initialiseurs de télémétrie, et de définir les paramètres pour certains d’entre eux.
@@ -69,7 +69,7 @@ Indique le [temps de réponse et le code résultant](../../azure-monitor/app/asp
 
 * `Microsoft.ApplicationInsights.Web.ExceptionTrackingTelemetryModule`
 * [Microsoft.ApplicationInsights.Web](https://www.nuget.org/packages/Microsoft.ApplicationInsights.Web)
-* `Microsoft.ApplicationInsights.WindowsServer.UnobservedExceptionTelemetryModule` - suit [les exceptions de tâche non prises en charge](https://blogs.msdn.com/b/pfxteam/archive/2011/09/28/task-exception-handling-in-net-4-5.aspx).
+* `Microsoft.ApplicationInsights.WindowsServer.UnobservedExceptionTelemetryModule` - suit les exceptions de tâche non prises en charge
 * `Microsoft.ApplicationInsights.WindowsServer.UnhandledExceptionTelemetryModule` - suit les exceptions non gérées pour les rôles de travail, les services Windows et les applications de console.
 * [Application Insights Windows Server](https://www.nuget.org/packages/Microsoft.ApplicationInsights.WindowsServer/) .
 

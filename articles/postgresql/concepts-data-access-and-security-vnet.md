@@ -6,12 +6,12 @@ ms.author: raagyema
 ms.service: postgresql
 ms.topic: conceptual
 ms.date: 5/6/2019
-ms.openlocfilehash: 512ad8f93da53afb618491cd1769645d8edb0b14
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: bee705e33267a765c1fb5300c0bfe2d04ff2015d
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "75965840"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85099650"
 ---
 # <a name="use-virtual-network-service-endpoints-and-rules-for-azure-database-for-postgresql---single-server"></a>Utiliser des points de terminaison de service de réseau virtuel et des règles pour Azure Database pour PostgreSQL - Serveur unique
 
@@ -45,7 +45,7 @@ Une règle de réseau virtuel donne l’instruction au serveur Azure Database po
 
 
 
-<a name="anch-benefits-of-a-vnet-rule-68b" />
+<a name="anch-details-about-vnet-rules-38q"></a>
 
 ## <a name="benefits-of-a-virtual-network-rule"></a>Avantages d’une règle de réseau virtuel
 
@@ -69,7 +69,7 @@ Si votre serveur **Microsoft.Sql** était un nœud sur un sous-réseau de votre 
 
 Toutefois, depuis août 2018, le service Azure Database pour PostgreSQL ne figure plus parmi les services pouvant être assignés directement à un sous-réseau.
 
-<a name="anch-details-about-vnet-rules-38q" />
+<a name="anch-details-about-vnet-rules-38q"></a>
 
 ## <a name="details-about-virtual-network-rules"></a>Informations sur les règles de réseau virtuel
 
@@ -102,7 +102,7 @@ Vous avez la possibilité d’utiliser le [contrôle d’accès en fonction du r
 > Il peut arriver que l’instance Azure Database pour PostgreSQL et le sous-réseau de réseau virtuel se trouvent dans des abonnements différents. Dans ce cas, vous devez vérifier les configurations suivantes :
 > - Les deux abonnements doivent se trouver dans le même locataire Azure Active Directory.
 > - L’utilisateur dispose des autorisations requises pour lancer des opérations, telles que l’activation des points de terminaison de service et l’ajout d’un sous-réseau de réseau virtuel sur le serveur donné.
-> - Assurez-vous que le fournisseur de ressources **Microsoft.Sql** est inscrit pour les deux abonnements. Pour plus d’informations, reportez-vous à [resource-manager-registration][resource-manager-portal]
+> - Assurez-vous que les fournisseurs de ressources **Microsoft.Sql** et **Microsoft. DBforPostgreSQL** sont inscrit pour les deux abonnements. Pour plus d’informations, reportez-vous à [resource-manager-registration][resource-manager-portal]
 
 ## <a name="limitations"></a>Limites
 

@@ -5,23 +5,24 @@ description: Contrôler l’accès aux espaces de travail Azure Machine Learning
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
-ms.topic: conceptual
+ms.topic: how-to
 ms.author: aashishb
 author: aashishb
 ms.reviewer: larryfr
 ms.date: 04/27/2020
-ms.openlocfilehash: 40c25dda3fefa9c54df832e16149a68a4aa5a33b
-ms.sourcegitcommit: 999ccaf74347605e32505cbcfd6121163560a4ae
+ms.custom: tracking-python
+ms.openlocfilehash: 31daec93352c0e142075a55c61f2b8d3a6d56fab
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/08/2020
-ms.locfileid: "82981963"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85080245"
 ---
 # <a name="use-workspace-behind-azure-firewall-for-azure-machine-learning"></a>Utiliser l’espace de travail derrière le Pare-feu Azure pour Azure Machine Learning
 
 Dans cet article, découvrez comment configurer le Pare-feu Azure pour l’utiliser avec un espace de travail Azure Machine Learning.
 
-Le pare-feu Azure peut être utilisé pour contrôler l’accès à votre espace de travail Azure Machine Learning et à l’Internet public. S’il n’est pas configuré correctement, le pare-feu peut causer des problèmes lors de l’utilisation de votre espace de travail.
+Le pare-feu Azure peut être utilisé pour contrôler l’accès à votre espace de travail Azure Machine Learning et à l’Internet public. S’il n’est pas configuré correctement, le pare-feu peut causer des problèmes lors de l’utilisation de votre espace de travail. Un grand nombre de noms d’hôtes sont utilisés à la fois par l’espace de travail Azure Machine Learning, qui sont décrits dans cet article.
 
 ## <a name="network-rules"></a>Règles de réseau
 
@@ -40,16 +41,18 @@ Les hôtes de cette section sont détenus par Microsoft et fournissent les servi
 | ---- | ---- |
 | **\*.batchai.core.windows.net** | Clusters d’entraînement |
 | **ml.azure.com** | Azure Machine Learning Studio |
+| **default.exp-tas.com** | Utilisé par Azure Machine Learning Studio |
 | **\*.azureml.ms** | Utilisé par les API Azure Machine Learning |
-| **\*.experiments.azureml.net** | Utilisé par les expériences exécutées dans Azure Machine Learning|
+| **\*.experiments.azureml.net** | Utilisé par les expériences exécutées dans Azure Machine Learning |
 | **\*.modelmanagement.azureml.net** | Utilisé pour inscrire et déployer les modèles|
 | **mlworkspace.azure.ai** | Utilisé par le portail Azure lors de l’affichage d’un espace de travail |
 | **\*.aether.ms** | Utilisé lors de l’exécution des pipelines Azure Machine Learning |
 | **\*.instances.azureml.net** | Instances de calcul Azure Machine Learning |
+| **\*.instances.azureml.ms** | Azure Machine Learning calcule des instances lorsque l’espace de travail a un lien privé activé |
 | **windows.net** | Stockage Blob Azure |
 | **vault.azure.net** | Azure Key Vault |
-| **microsoft.com** | Images Docker de base |
 | **azurecr.io** | Azure Container Registry |
+| **mcr.microsoft.com** | Registre de conteneurs Microsoft Container Registry pour les images Docker de base |
 
 ## <a name="python-hosts"></a>Hôtes Python
 

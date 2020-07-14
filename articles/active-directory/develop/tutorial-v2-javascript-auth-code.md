@@ -12,12 +12,12 @@ ms.workload: identity
 ms.date: 05/19/2020
 ms.author: hahamil
 ms.custom: aaddev
-ms.openlocfilehash: e02f6946ff6f520fec63ead7e14e94f33182357f
-ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
+ms.openlocfilehash: 3e6f94c3b44cd3316a25c356dc5e33835f8c9337
+ms.sourcegitcommit: 73ac360f37053a3321e8be23236b32d4f8fb30cf
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/20/2020
-ms.locfileid: "83682341"
+ms.lasthandoff: 06/30/2020
+ms.locfileid: "85553802"
 ---
 # <a name="tutorial-sign-in-users-and-call-the-microsoft-graph-api-from-a-javascript-single-page-app-spa-using-auth-code-flow"></a>Tutoriel : Connecter les utilisateurs et appeler l’API Microsoft Graph à partir d’une application monopage (SPA) JavaScript à l’aide du flux de code d’authentification
 
@@ -29,7 +29,7 @@ Ce tutoriel montre comment créer une application monopage JavaScript qui utilis
 > [!div class="checklist"]
 > * Effectuer le flux de code d’autorisation OAuth 2.0 avec PKCE.
 > * Connecter des comptes personnels Microsoft, ainsi que des comptes professionnels et scolaires.
-> * Obtenir un jeton d’accès.
+> * Obtenir un jeton d’accès
 > * Appeler l’API Microsoft Graph ou votre propre API qui exige des jetons d’accès obtenus à partir du point de terminaison de la plateforme d’identités Microsoft.
 
 MSAL.js 2.0 offre une amélioration par rapport à MSAL.js 1.0 en prenant en charge le flux de code d’autorisation dans le navigateur au lieu du flux d’octroi implicite. MSAL.js 2.0 ne prend **PAS** en charge le flux implicite.
@@ -42,10 +42,7 @@ L’application que vous créez dans ce tutoriel permet à une application monop
 
 Ce tutoriel utilise la bibliothèque suivante :
 
-| | |
-|---|---|
-|[msal.js](https://github.com/AzureAD/microsoft-authentication-library-for-js/tree/dev/lib/msal-browser)|Package de navigateur de la bibliothèque d’authentification Microsoft pour JavaScript v2.0|
-| | |
+Package de navigateur de la bibliothèque d’authentification Microsoft pour JavaScript v2.0 [msal.js](https://github.com/AzureAD/microsoft-authentication-library-for-js/tree/dev/lib/msal-browser)
 
 ## <a name="get-the-completed-code-sample"></a>Obtenir l’exemple de code complet
 
@@ -292,7 +289,7 @@ msal-spa-tutorial/
     }
     ```
 
-## <a name="register-your-application"></a>Inscrire votre application
+## <a name="register-your-application"></a>Inscrivez votre application
 
 Suivez les étapes décrites dans [Application monopage : inscription d’application](scenario-spa-app-registration.md) pour créer une inscription d’application pour votre SPA.
 
@@ -300,7 +297,7 @@ Suivez les étapes décrites dans [Application monopage : inscription d’appli
 
 Si vous souhaitez utiliser un autre port, entrez `http://localhost:<port>`, où `<port>` est votre numéro de port TCP par défaut. Si vous spécifiez un numéro de port autre que `3000`, mettez également à jour *server.js* avec le numéro de port de votre choix.
 
-### <a name="configure-your-javascript-spa"></a>Configurer votre application monopage JavaScript
+### <a name="configure-your-javascript-spa"></a>Configurer une application SPA JavaScript
 
 Créez un fichier nommé *authConfig.js* dans le dossier *app* qui contiendra vos paramètres de configuration pour l’authentification, puis ajoutez le code suivant :
 
@@ -621,7 +618,7 @@ Dans ce tutoriel, vous avez créé une application monopage JavaScript qui utili
 > [!div class="checklist"]
 > * Effectuer le flux de code d’autorisation OAuth 2.0 avec PKCE.
 > * Connecter des comptes personnels Microsoft, ainsi que des comptes professionnels et scolaires.
-> * Obtenir un jeton d’accès.
+> * Obtenir un jeton d’accès
 > * Appeler l’API Microsoft Graph ou votre propre API qui exige des jetons d’accès obtenus à partir du point de terminaison de la plateforme d’identités Microsoft.
 
 Pour en savoir plus sur le flux de code d’autorisation, notamment les différences entre les flux de code implicite et d’authentification, consultez [Plateforme d’identités Microsoft et flux de code d’autorisation OAuth 2.0](v2-oauth2-auth-code-flow.md).

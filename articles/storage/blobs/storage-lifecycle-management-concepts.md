@@ -8,12 +8,12 @@ ms.service: storage
 ms.subservice: common
 ms.topic: conceptual
 ms.reviewer: yzheng
-ms.openlocfilehash: 255e440586af2a5c9115023f45fbf02e25c57ab6
-ms.sourcegitcommit: 366e95d58d5311ca4b62e6d0b2b47549e06a0d6d
+ms.openlocfilehash: 789d70f77558bbade854ba31fd10ecd2b8e7b853
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/01/2020
-ms.locfileid: "82692140"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85194703"
 ---
 # <a name="manage-the-azure-blob-storage-lifecycle"></a>Gérer le cycle de vie du Stockage Blob Azure
 
@@ -202,7 +202,7 @@ Vous pouvez définir une gestion du cycle de vie à l’aide de modèles Azure R
 
 ---
 
-## <a name="policy"></a>Stratégie
+## <a name="policy"></a>Policy
 
 Une stratégie de gestion du cycle de vie est un ensemble de règles dans un document JSON :
 
@@ -357,7 +357,7 @@ Cet exemple montre comment déplacer des objets blob de blocs ayant le préfixe 
 D’autres sont inactives dans le cloud dès le départ et sont peu, voire pas sollicitées une fois stockées. La stratégie du cycle de vie suivante est configurée pour archiver les données peu après leur ingestion. Cet exemple déplace les objets blob de blocs du compte de stockage au sein du conteneur `archivecontainer` dans un niveau archive. Le déplacement est accompli en agissant sur les objets blob 0 jour après l’heure de dernière modification :
 
 > [!NOTE] 
-> Il est recommandé de charger vos objets BLOB directement au niveau Archive pour gagner en efficacité. Vous pouvez utiliser l’en-tête x-ms-acess-tier pour [PutBlob](https://docs.microsoft.com/rest/api/storageservices/put-blob) ou [PutBlockList](https://docs.microsoft.com/rest/api/storageservices/put-block-list) avec REST 2018-11-09 et les versions ultérieures ou nos dernières bibliothèques clientes de stockage d’objets BLOB. 
+> Il est recommandé de charger vos objets BLOB directement au niveau Archive pour gagner en efficacité. Vous pouvez utiliser l’en-tête x-ms-access-tier pour [PutBlob](https://docs.microsoft.com/rest/api/storageservices/put-blob) ou [PutBlockList](https://docs.microsoft.com/rest/api/storageservices/put-block-list) avec REST 2018-11-09 et les versions ultérieures ou nos dernières bibliothèques clientes de stockage d’objets BLOB. 
 
 ```json
 {

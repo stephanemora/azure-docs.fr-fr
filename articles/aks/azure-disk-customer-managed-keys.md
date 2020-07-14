@@ -4,12 +4,12 @@ description: BYOK (Bring Your Own Keys) pour chiffrer les disques de données et
 services: container-service
 ms.topic: article
 ms.date: 01/12/2020
-ms.openlocfilehash: ac6c4d2c4b3f309e2098ff6a6513aab8a3f8ea5f
-ms.sourcegitcommit: f0b206a6c6d51af096a4dc6887553d3de908abf3
+ms.openlocfilehash: 9fd04b44be969e03eec2ed18f618068316572066
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/28/2020
-ms.locfileid: "84141532"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84882533"
 ---
 # <a name="bring-your-own-keys-byok-with-azure-disks-in-azure-kubernetes-service-aks"></a>BYOK (Bring Your Own Keys) avec des disques Azure dans Azure Kubernetes Service (AKS)
 
@@ -105,14 +105,13 @@ diskEncryptionSetId=$(az resource show -n mydiskEncryptionSetName -g myResourceG
 az group create -n myResourceGroup -l myAzureRegionName
 
 # Create the AKS cluster
-az aks create -n myAKSCluster -g myResourceGroup --node-osdisk-diskencryptionset-id $diskEncryptionSetId --kubernetes-version 1.17.0 --generate-ssh-keys
+az aks create -n myAKSCluster -g myResourceGroup --node-osdisk-diskencryptionset-id $diskEncryptionSetId --kubernetes-version KUBERNETES_VERSION --generate-ssh-keys
 ```
 
 Quand de nouveaux pools de nœuds sont ajoutés au cluster créé ci-dessus, la clé gérée par le client fournie pendant l’opération de création est utilisée pour chiffrer le disque de système d’exploitation.
 
-## <a name="encrypt-your-aks-cluster-data-disk"></a>Chiffrer votre disque de données de cluster AKS
-
-Vous pouvez également chiffrer les disques de données AKS avec vos propres clés.
+## <a name="encrypt-your-aks-cluster-data-diskoptional"></a>Chiffrez votre disque de données de cluster AKS (facultatif)
+La clé de chiffrement du disque du système d’exploitation sera utilisée pour chiffrer le disque de données si la clé n’est pas fournie pour le disque de données à partir de v 1.17.2, et vous pouvez également chiffrer les disques de données AKS avec les autres clés.
 
 > [!IMPORTANT]
 > Vérifiez que vous disposez des informations d’identification AKS appropriées. Le principal du service doit disposer d’un accès de contributeur au groupe de ressources où diskencryptionset est déployé. Sinon, vous obtenez une erreur suggérant que le principal du service ne dispose pas d’autorisations.
@@ -166,11 +165,9 @@ kubectl apply -f byok-azure-disk.yaml
 ## <a name="limitations"></a>Limites
 
 * BYOK est disponible uniquement en disponibilité générale et en préversion dans certaines [régions Azure][supported-regions]
-* Chiffrement de disque de système d’exploitation pris en charge avec Kubernetes version 1.17 et versions ultérieures   
+* Le chiffrement de disque de données avec la version Kubernetes 1.17 et ultérieure   
 * Disponible uniquement dans les régions où BYOK est pris en charge
 * Le chiffrement avec des clés gérées par le client est actuellement réservé aux nouveaux clusters AKS. Les clusters existants ne peuvent pas être mis à niveau
-* Le cluster AKS utilisant Virtual Machine Scale Sets est nécessaire. Aucune prise en charge de Virtual Machine Availability Sets
-
 
 ## <a name="next-steps"></a>Étapes suivantes
 

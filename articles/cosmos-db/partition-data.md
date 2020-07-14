@@ -6,12 +6,12 @@ ms.author: dech
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 04/28/2020
-ms.openlocfilehash: 19e4c61ba930bb9b127e2401174bcea3fd240dce
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 57417a80ea83005c01b6f2a17206d46e6c049719
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82234206"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85112776"
 ---
 # <a name="partitioning-and-horizontal-scaling-in-azure-cosmos-db"></a>Partitionnement et mise à l’échelle horizontale dans Azure Cosmos DB
 
@@ -40,7 +40,7 @@ Le débit approvisionné pour un conteneur est uniformément réparti entre les 
 
 Vous pouvez voir les partitions physiques de votre conteneur dans la section **Stockage** du **panneau Métriques** du portail Azure :
 
-[![Affichage du nombre de partitions physiques](./media/partition-data/view-partitions-zoomed-out.png) ](./media/partition-data/view-partitions-zoomed-in.png#lightbox)
+:::image type="content" source="./media/partition-data/view-partitions-zoomed-out.png" alt-text="Affichage du nombre de partitions physiques" lightbox="./media/partition-data/view-partitions-zoomed-in.png" ::: 
 
 Dans cet exemple de conteneur où nous avons choisi `/foodGroup` comme clé de partition, chacun des trois rectangles représente une partition physique. Dans l’image, la **plage de clés de partition** est identique à une partition physique. La partition physique sélectionnée contient trois partitions logiques : `Beef Products`, `Vegetable and Vegetable Products` et `Soups, Sauces, and Gravies`.
 
@@ -54,7 +54,7 @@ La plupart des petits conteneurs Cosmos nécessitent uniquement une seule partit
 
 L’illustration suivante montre comment les partitions logiques sont mappées sur des partitions physiques mondialement distribuées :
 
-![Image illustrant le partitionnement dans Azure Cosmos DB](./media/partition-data/logical-partitions.png)
+:::image type="content" source="./media/partition-data/logical-partitions.png" alt-text="Image illustrant le partitionnement dans Azure Cosmos DB" border="false":::
 
 ## <a name="next-steps"></a>Étapes suivantes
 

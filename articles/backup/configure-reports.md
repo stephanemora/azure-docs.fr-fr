@@ -3,12 +3,12 @@ title: Configurer les rapports de la Sauvegarde Azure
 description: Configurez et affichez les rapports de la Sauvegarde Azure à l’aide de Log Analytics et des classeurs Azure.
 ms.topic: conceptual
 ms.date: 02/10/2020
-ms.openlocfilehash: e0c7418d7141a3b12f367f1b12ee740eaac64703
-ms.sourcegitcommit: cf7caaf1e42f1420e1491e3616cc989d504f0902
+ms.openlocfilehash: 20dcf7f3f9bbc5626c4a05ef064203b3ae5020cd
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/22/2020
-ms.locfileid: "83797526"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84484975"
 ---
 # <a name="configure-azure-backup-reports"></a>Configurer les rapports de la Sauvegarde Azure
 
@@ -22,7 +22,7 @@ Aujourd’hui, la Sauvegarde Azure fournit une solution de reporting qui utilise
 
 ## <a name="supported-scenarios"></a>Scénarios pris en charge
 
-- Les rapports de sauvegarde sont pris en charge pour les machines virtuelles Azure, SQL dans les machines virtuelles Azure, SAP HANA dans les machines virtuelles Azure, l’agent Microsoft Azure Recovery Services (MARS), le serveur de sauvegarde Microsoft Azure (MABS) et System Center Data Protection Manager (DPM). Les données pour la sauvegarde du partage de fichiers Azure ne sont actuellement pas visibles dans les Rapports de sauvegarde.
+- Les rapports de sauvegarde sont pris en charge pour les machines virtuelles Azure, SQL dans les machines virtuelles Azure, SAP HANA dans les machines virtuelles Azure, l’agent Microsoft Azure Recovery Services (MARS), le serveur de sauvegarde Microsoft Azure (MABS) et System Center Data Protection Manager (DPM). Pour la sauvegarde de partage de fichiers Azure, les données sont affichées pour tous les enregistrements créés le ou après le 1er juin 2020.
 - Concernant les charges de travail DPM, les rapports de sauvegarde sont pris en charge pour la version 5.1.363.0 et les versions ultérieures de DPM et la version 2.0.9127.0 et les versions ultérieures de l’agent.
 - Concernant les charges de travail MABS, les rapports de sauvegarde sont pris en charge pour la version 13.0.415.0 et les versions ultérieures de MABS ainsi que pour la version 2.0.9170.0 et les versions ultérieures de l’agent.
 - Les rapports de sauvegarde peuvent être affichés sur l’ensemble des éléments de sauvegarde, des coffres, des abonnements et des régions, à condition que leurs données soient envoyées à un espace de travail Log Analytics auquel l’utilisateur a accès. Pour visualiser les rapports d’un ensemble de coffres, il suffit d’un accès lecteur à l’espace de travail Log Analytics auquel les coffres envoient leurs données. Il n’est pas nécessaire d’avoir accès aux différents coffres.

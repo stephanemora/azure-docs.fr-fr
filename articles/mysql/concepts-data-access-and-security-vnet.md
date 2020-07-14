@@ -6,12 +6,12 @@ ms.author: andrela
 ms.service: mysql
 ms.topic: conceptual
 ms.date: 3/18/2020
-ms.openlocfilehash: 2c0714bf27897de72246461ae3ad3250c55390e1
-ms.sourcegitcommit: 1692e86772217fcd36d34914e4fb4868d145687b
+ms.openlocfilehash: 045b938e2612aa7e5b366f93c22669412f2d98e8
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/29/2020
-ms.locfileid: "84170662"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85100802"
 ---
 # <a name="use-virtual-network-service-endpoints-and-rules-for-azure-database-for-mysql"></a>Utiliser des points de terminaison de service de réseau virtuel et des règles pour Azure Database pour MySQL
 
@@ -102,7 +102,7 @@ Vous avez la possibilité d’utiliser le [contrôle d’accès en fonction du r
 > Il peut arriver que l’instance Azure Database pour MySQL et le sous-réseau de réseau virtuel se trouvent dans des abonnements différents. Dans ce cas, vous devez vérifier les configurations suivantes :
 > - Les deux abonnements doivent se trouver dans le même locataire Azure Active Directory.
 > - L’utilisateur dispose des autorisations requises pour lancer des opérations, telles que l’activation des points de terminaison de service et l’ajout d’un sous-réseau de réseau virtuel sur le serveur donné.
-> - Assurez-vous que le fournisseur de ressources **Microsoft.Sql** est inscrit pour les deux abonnements. Pour plus d’informations, reportez-vous à [resource-manager-registration][resource-manager-portal]
+> - Assurez-vous que les fournisseurs de ressources **Microsoft.sql** et **Microsoft. DBforMySQL** sont inscrit pour les deux abonnements. Pour plus d’informations, reportez-vous à [resource-manager-registration][resource-manager-portal]
 
 ## <a name="limitations"></a>Limites
 

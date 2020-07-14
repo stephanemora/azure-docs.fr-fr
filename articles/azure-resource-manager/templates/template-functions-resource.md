@@ -2,13 +2,13 @@
 title: Fonctions de modèle - Ressources
 description: Décrit les fonctions à utiliser dans un modèle Azure Resource Manager pour récupérer des valeurs sur les ressources.
 ms.topic: conceptual
-ms.date: 06/01/2020
-ms.openlocfilehash: a31aadb02ed3fff83ee6dc62a71aa32d0b716629
-ms.sourcegitcommit: 223cea58a527270fe60f5e2235f4146aea27af32
+ms.date: 06/18/2020
+ms.openlocfilehash: f79fa3420420a2ff440c3228f227cc71436b4a1c
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/01/2020
-ms.locfileid: "84259437"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85099264"
 ---
 # <a name="resource-functions-for-arm-templates"></a>Fonctions de ressource pour les modèles ARM
 
@@ -83,7 +83,7 @@ L’exemple suivant retourne l’ID de la ressource pour un verrou de groupe de 
 
 ```json
 {
-    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+    "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
     "contentVersion": "1.0.0.0",
     "parameters": {
         "lockName":{
@@ -101,8 +101,8 @@ L’exemple suivant retourne l’ID de la ressource pour un verrou de groupe de 
 }
 ```
 
-<a id="listkeys" />
-<a id="list" />
+<a id="listkeys"></a>
+<a id="list"></a>
 
 ## <a name="list"></a>list*
 
@@ -120,7 +120,9 @@ La syntaxe de cette fonction varie en fonction du nom des opérations de liste. 
 
 ### <a name="valid-uses"></a>Utilisations valides
 
-Les fonctions list peuvent être utilisées uniquement dans les propriétés d’une définition de ressource et dans la section outputs d’un modèle ou d’un déploiement. Quand elles sont utilisées avec une [itération de propriété](copy-properties.md), vous pouvez utiliser les fonctions list pour `input`, car l’expression est affectée à la propriété de ressource. Vous ne pouvez pas les utiliser avec `count`, car le nombre doit être déterminé avant que la fonction list ne soit résolue.
+Les fonctions de liste peuvent être utilisés dans les propriétés d’une définition de ressource. N’utilisez pas de fonction de liste qui expose des informations sensibles dans la section de sortie d’un modèle. Les valeurs de sortie sont stockées dans l’historique de déploiement et peuvent être récupérées par un utilisateur malveillant.
+
+Quand elles sont utilisées avec une [itération de propriété](copy-properties.md), vous pouvez utiliser les fonctions list pour `input`, car l’expression est affectée à la propriété de ressource. Vous ne pouvez pas les utiliser avec `count`, car le nombre doit être déterminé avant que la fonction list ne soit résolue.
 
 ### <a name="implementations"></a>Implémentations
 
@@ -167,8 +169,8 @@ Les utilisations possibles de list* sont indiquées dans le tableau suivant.
 | Microsoft.DocumentDB/databaseAccounts | [listKeys](/rest/api/cosmos-db-resource-provider/databaseaccounts/listkeys) |
 | Microsoft.DomainRegistration | [listDomainRecommendations](/rest/api/appservice/domains/listrecommendations) |
 | Microsoft.DomainRegistration/topLevelDomains | [listAgreements](/rest/api/appservice/topleveldomains/listagreements) |
-| Microsoft.EventGrid/domains | [listKeys](/rest/api/eventgrid/version2019-06-01/domains/listsharedaccesskeys) |
-| Microsoft.EventGrid/topics | [listKeys](/rest/api/eventgrid/version2019-06-01/topics/listsharedaccesskeys) |
+| Microsoft.EventGrid/domains | [listKeys](/rest/api/eventgrid/version2020-06-01/domains/listsharedaccesskeys) |
+| Microsoft.EventGrid/topics | [listKeys](/rest/api/eventgrid/version2020-06-01/topics/listsharedaccesskeys) |
 | Microsoft.EventHub/namespaces/authorizationRules | [listkeys](/rest/api/eventhub) |
 | Microsoft.EventHub/namespaces/disasterRecoveryConfigs/authorizationRules | [listkeys](/rest/api/eventhub) |
 | Microsoft.EventHub/namespaces/eventhubs/authorizationRules | [listkeys](/rest/api/eventhub) |
@@ -284,71 +286,31 @@ Si vous utilisez une fonction **list** dans une ressource qui est déployée con
 
 ### <a name="list-example"></a>Exemple de liste
 
-[L’exemple de modèle](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/listkeys.json) suivant montre comment retourner les clés primaires et secondaires à partir d’un compte de stockage dans la section outputs. Il retourne également un jeton SAS pour le compte de stockage.
-
-Pour obtenir le jeton SAS, passez un objet pour l’heure d’expiration. L’heure d’expiration doit être dans le futur. Cet exemple vise à montrer comment vous utilisez les fonctions de liste. En général, vous devez utiliser le jeton SAS dans une valeur de ressource au lieu de la retourner sous la forme d’une valeur de sortie. Les valeurs de sortie sont stockées dans l’historique de déploiement et ne sont pas sécurisées.
+L’exemple suivant utilise listKeys lors de la définition d’une valeur pour [les scripts de déploiement](deployment-script-template.md).
 
 ```json
-{
-    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
-    "contentVersion": "1.0.0.0",
-    "parameters": {
-        "storagename": {
-            "type": "string"
-        },
-        "location": {
-            "type": "string",
-            "defaultValue": "southcentralus"
-        },
-        "accountSasProperties": {
-            "type": "object",
-            "defaultValue": {
-                "signedServices": "b",
-                "signedPermission": "r",
-                "signedExpiry": "2018-08-20T11:00:00Z",
-                "signedResourceTypes": "s"
-            }
-        }
-    },
-    "resources": [
-        {
-            "apiVersion": "2018-02-01",
-            "name": "[parameters('storagename')]",
-            "location": "[parameters('location')]",
-            "type": "Microsoft.Storage/storageAccounts",
-            "sku": {
-                "name": "Standard_LRS"
-            },
-            "kind": "StorageV2",
-            "properties": {
-                "supportsHttpsTrafficOnly": false,
-                "accessTier": "Hot",
-                "encryption": {
-                    "services": {
-                        "blob": {
-                            "enabled": true
-                        },
-                        "file": {
-                            "enabled": true
-                        }
-                    },
-                    "keySource": "Microsoft.Storage"
-                }
-            },
-            "dependsOn": []
-        }
-    ],
-    "outputs": {
-        "keys": {
-            "type": "object",
-            "value": "[listKeys(parameters('storagename'), '2018-02-01')]"
-        },
-        "accountSAS": {
-            "type": "object",
-            "value": "[listAccountSas(parameters('storagename'), '2018-02-01', parameters('accountSasProperties'))]"
+"storageAccountSettings": {
+    "storageAccountName": "[variables('storageAccountName')]",
+    "storageAccountKey": "[listKeys(resourceId('Microsoft.Storage/storageAccounts', variables('storageAccountName')), '2019-06-01').keys[0].value]"
+}
+```
+
+L’exemple suivant montre une fonction de liste qui accepte un paramètre. Dans ce cas, la fonction est toujours **listAccountSas**. Passez un objet pour l’heure d’expiration. L’heure d’expiration doit être dans le futur.
+
+```json
+"parameters": {
+    "accountSasProperties": {
+        "type": "object",
+        "defaultValue": {
+            "signedServices": "b",
+            "signedPermission": "r",
+            "signedExpiry": "2020-08-20T11:00:00Z",
+            "signedResourceTypes": "s"
         }
     }
-}
+},
+...
+"sasToken": "[listAccountSas(parameters('storagename'), '2018-02-01', parameters('accountSasProperties')).accountSasToken]"
 ```
 
 Pour obtenir un exemple de valeur listKeyValue, voir [Démarrage rapide : Déploiement automatique d’une machine virtuelle avec un modèle Resource Manager et App Configuration](../../azure-app-configuration/quickstart-resource-manager.md#deploy-vm-using-stored-key-values).
@@ -386,7 +348,7 @@ Le classement du tableau des valeurs retournées n’est pas garanti.
 
 ```json
 {
-    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+    "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
     "contentVersion": "1.0.0.0",
     "parameters": {
         "providerNamespace": {
@@ -559,7 +521,7 @@ Ou, pour obtenir l'ID de locataire d'une identité managée appliquée à un gro
 
 ```json
 {
-  "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+  "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
   "contentVersion": "1.0.0.0",
   "parameters": {
       "storageAccountName": {
@@ -653,7 +615,7 @@ L’objet complet retourné présente le format suivant :
 
 ```json
 {
-    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+    "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
     "contentVersion": "1.0.0.0",
     "parameters": {
         "storageResourceGroup": {
@@ -725,7 +687,7 @@ Quand vous utilisez des modèles imbriqués pour effectuer un déploiement sur p
 
 ```json
 {
-    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+    "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
     "contentVersion": "1.0.0.0",
     "resources": [],
     "outputs": {
@@ -827,7 +789,7 @@ Souvent, vous devez utiliser cette fonction lorsque vous utilisez un compte de s
 
 ```json
 {
-  "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+  "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
   "contentVersion": "1.0.0.0",
   "parameters": {
       "virtualNetworkName": {
@@ -873,7 +835,7 @@ Souvent, vous devez utiliser cette fonction lorsque vous utilisez un compte de s
 
 ```json
 {
-    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+    "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
     "contentVersion": "1.0.0.0",
     "resources": [],
     "outputs": {
@@ -935,7 +897,7 @@ Quand vous utilisez des modèles imbriqués pour effectuer un déploiement sur p
 
 ```json
 {
-    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+    "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
     "contentVersion": "1.0.0.0",
     "resources": [],
     "outputs": {
@@ -982,7 +944,7 @@ Le modèle suivant attribue un rôle intégré. Vous pouvez le déployer soit su
 
 ```json
 {
-    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+    "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
     "contentVersion": "1.0.0.0",
     "parameters": {
         "principalId": {

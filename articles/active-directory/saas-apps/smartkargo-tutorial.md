@@ -12,15 +12,15 @@ ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.topic: tutorial
-ms.date: 06/02/2020
+ms.date: 06/19/2020
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 310023893d25a484cf05dac00628c632a4421edb
-ms.sourcegitcommit: a8928136b49362448e992a297db1072ee322b7fd
+ms.openlocfilehash: d8f65236fee57b4dc3e2bb012d8cdd222f431ec0
+ms.sourcegitcommit: 1d9f7368fa3dadedcc133e175e5a4ede003a8413
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/11/2020
-ms.locfileid: "84719949"
+ms.lasthandoff: 06/27/2020
+ms.locfileid: "85482613"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-smartkargo"></a>Tutoriel : Intégration de l’authentification unique Azure Active Directory à SmartKargo
 
@@ -83,7 +83,7 @@ Effectuez les étapes suivantes pour activer l’authentification unique Azure A
 
 1. Dans la section **Configuration SAML de base**, entrez les valeurs pour les champs suivants :
 
-    a. Dans la zone de texte **URL de connexion**, saisissez une URL au format suivant : `https://<CUSTOMER_NAME>.smartkargo.com/`
+    a. Dans la zone de texte **URL de connexion**, tapez une URL au format suivant : `https://<CUSTOMER_NAME>.smartkargo.com/`.
 
     b. Dans la zone de texte **Identificateur (ID d’entité)** , saisissez une URL au format suivant : `https://<CUSTOMER_NAME>.smartkargo.com/`
 
@@ -92,13 +92,9 @@ Effectuez les étapes suivantes pour activer l’authentification unique Azure A
     > [!NOTE]
     > Il ne s’agit pas de valeurs réelles. Mettez à jour ces valeurs avec l’URL de connexion, l’URL de réponse et l’identificateur réels. Pour obtenir ces valeurs, contactez l’[équipe du support client SmartKargo](https://www.smartkargo.com/company/contact-2/). Vous pouvez également consulter les modèles figurant à la section **Configuration SAML de base** dans le portail Azure.
 
-1. Dans la section **Certificat de signature SAML**, cliquez sur le bouton **Modifier** pour ouvrir la boîte de dialogue **Certificat de signature SAML**.
+1. Dans la page **Configurer l’authentification unique avec SAML**, dans la section **Certificat de signature SAML**, recherchez **XML de métadonnées de fédération** et sélectionnez **Télécharger** pour télécharger le certificat et l’enregistrer sur votre ordinateur.
 
-    ![Modifier le certificat de signature SAML](common/edit-certificate.png)
-
-1. Dans la section **Certificat de signature SAML**, copiez la **valeur de l’empreinte** et enregistrez-la sur votre ordinateur.
-
-    ![Copier la valeur de l’empreinte](common/copy-thumbprint.png)
+    ![Lien Téléchargement de certificat](common/metadataxml.png)
 
 1. Dans la section **Configurer SmartKargo**, copiez la ou les URL appropriées en fonction de vos besoins.
 
@@ -136,7 +132,7 @@ Dans cette section, vous allez autoriser B.Simon à utiliser l’authentificatio
 
 ## <a name="configure-smartkargo-sso"></a>Configurer l’authentification unique SmartKargo
 
-Pour configurer l’authentification unique côté **SmartKargo**, vous devez envoyer la **valeur de l’empreinte** et les URL appropriées, copiées à partir du portail Azure, à l’[équipe du support technique de SmartKargo](https://www.smartkargo.com/company/contact-2/). Celles-ci configurent ensuite ce paramètre pour que la connexion SSO SAML soit définie correctement des deux côtés.
+Pour configurer l’authentification unique côté **SmartKargo**, vous devez envoyer le fichier **XML des métadonnées de fédération** téléchargé et les URL appropriées, copiées à partir du portail Azure, à l’[équipe de support technique de la plateforme SmartKargo](https://www.smartkargo.com/company/contact-2/). Celles-ci configurent ensuite ce paramètre pour que la connexion SSO SAML soit définie correctement des deux côtés.
 
 ### <a name="create-smartkargo-test-user"></a>Créer un utilisateur de test SmartKargo
 

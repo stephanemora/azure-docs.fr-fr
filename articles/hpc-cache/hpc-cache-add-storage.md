@@ -3,15 +3,15 @@ title: Ajouter du stockage à Azure HPC Cache
 description: Comment définir des cibles de stockage pour qu’Azure HPC Cache puisse utiliser votre système NFS local ou des conteneurs d’objets blob Azure dans le but de stocker des fichiers à long terme
 author: ekpgh
 ms.service: hpc-cache
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 04/23/2020
 ms.author: v-erkel
-ms.openlocfilehash: dde29d02f3dbf10ca068d6b3f1ef6c326c206370
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 4c3ef79806d29b188eb2738919bf912cfedc8ef1
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82195041"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85513878"
 ---
 # <a name="add-storage-targets"></a>Ajouter des cibles de stockage
 
@@ -22,6 +22,10 @@ Vous pouvez définir jusqu’à dix cibles de stockage différentes pour un mêm
 N’oubliez pas que les exportations de stockage doivent être accessibles à partir du réseau virtuel de votre cache. Pour le stockage matériel local, vous devrez peut-être configurer un serveur DNS capable de résoudre les noms d’hôtes pour l’accès au stockage NFS. Pour plus d’informations, lisez [Accès DNS](hpc-cache-prereqs.md#dns-access).
 
 Ajoutez des cibles de stockage après avoir créé votre cache. La procédure est légèrement différente selon que vous ajoutez du stockage Blob Azure ou une exportation NFS. Vous trouverez ci-dessous des informations détaillées pour chacune de ces options.
+
+Cliquez sur l’image ci-dessous pour regarder une [démonstration vidéo](https://azure.microsoft.com/resources/videos/set-up-hpc-cache/) de la création d’un cache et de l’ajout d’une cible de stockage.
+
+[![Miniature de vidéo : Azure HPC Cache : Configuration (cliquez pour visiter la page vidéo)](media/video-4-setup.png)](https://azure.microsoft.com/resources/videos/set-up-hpc-cache/)
 
 ## <a name="open-the-storage-targets-page"></a>Ouvrir la page des cibles de stockage
 

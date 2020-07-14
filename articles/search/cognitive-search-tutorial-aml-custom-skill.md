@@ -8,24 +8,24 @@ ms.author: terrychr
 ms.service: cognitive-search
 ms.topic: tutorial
 ms.date: 06/10/2020
-ms.openlocfilehash: 1ff29be9cde4a2bd53f0edbe57f3eab603c1796f
-ms.sourcegitcommit: c4ad4ba9c9aaed81dfab9ca2cc744930abd91298
+ms.openlocfilehash: f673fd4b49a33c2faf6bc8b489520f2a877b0689
+ms.sourcegitcommit: 374e47efb65f0ae510ad6c24a82e8abb5b57029e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/12/2020
-ms.locfileid: "84739493"
+ms.lasthandoff: 06/28/2020
+ms.locfileid: "85513804"
 ---
 # <a name="tutorial-build-and-deploy-a-custom-skill-with-azure-machine-learning"></a>Tutoriel : Créer et déployer une compétence personnalisée avec Azure Machine Learning 
 
-Dans ce tutoriel, vous utilisez le [jeu de données des avis sur les hôtels](https://www.kaggle.com/datafiniti/hotel-reviews) (distribué dans le cadre de la licence Creative Commons [CC BY-NC-SA 4.0](https://creativecommons.org/licenses/by-nc-sa/4.0/legalcode.txt)) et vous créez une [compétence personnalisée](https://docs.microsoft.com/azure/search/cognitive-search-custom-skill-interface) à l’aide d’Azure Machine Learning pour extraire, à partir des avis, des sentiments basés sur les aspects. L’affectation de sentiments positifs et négatifs au sein d’un même avis est ainsi possible, et une imputation correcte est alors effectuée aux entités identifiées, telles que le personnel, la chambre, la réception ou la piscine.
+Dans ce tutoriel, vous utilisez le [jeu de données des avis sur les hôtels](https://www.kaggle.com/datafiniti/hotel-reviews) (distribué dans le cadre de la licence Creative Commons [CC BY-NC-SA 4.0](https://creativecommons.org/licenses/by-nc-sa/4.0/legalcode.txt)) et vous créez une [compétence personnalisée](https://docs.microsoft.com/azure/search/cognitive-search-aml-skill) à l’aide d’Azure Machine Learning pour extraire, à partir des avis, des sentiments basés sur les aspects. L’affectation de sentiments positifs et négatifs au sein d’un même avis est ainsi possible, et une imputation correcte est alors effectuée aux entités identifiées, telles que le personnel, la chambre, la réception ou la piscine.
 
-Pour entraîner le modèle de sentiment basé sur l’aspect, vous allez utiliser le [dépôt de recettes nlp](https://github.com/microsoft/nlp-recipes/tree/master/examples/sentiment_analysis/absa). Le modèle sera ensuite déployé en tant que point de terminaison sur un cluster Azure Kubernetes. Aussitôt déployé, le modèle sera ajouté au pipeline d’enrichissement en tant que compétence personnalisée à utiliser par le service Recherche cognitive.
+Pour entraîner le modèle de sentiment basé sur l’aspect dans Azure Machine Learning, vous allez utiliser le [dépôt de recettes nlp](https://github.com/microsoft/nlp-recipes/tree/master/examples/sentiment_analysis/absa). Le modèle sera ensuite déployé en tant que point de terminaison sur un cluster Azure Kubernetes. Aussitôt déployé, le point de terminaison est ajouté au pipeline d’enrichissement en tant que compétence Azure Machine Learning à utiliser par le service Recherche cognitive.
 
 Deux jeux de données sont fournis. Si vous souhaitez effectuer l’apprentissage du modèle vous-même, le fichier hotel_reviews_1000.csv est demandé. Vous préférez ignorer l’étape d’entraînement ? Téléchargez le fichier hotel_reviews_100.csv.
 
 > [!div class="checklist"]
 > * Créer une instance Recherche cognitive Azure
-> * Créer un espace de travail Microsoft Azure Machine Learning
+> * Créer un espace de travail Azure Machine Learning (le service de recherche et l’espace de travail doivent se trouver dans le même abonnement)
 > * Entraîner et déployer un modèle sur un cluster Azure Kubernetes
 > * Lier un pipeline d’enrichissement par IA au modèle déployé
 > * Ingérer la sortie du modèle déployé en tant que compétence personnalisée
@@ -86,7 +86,7 @@ Dans le portail, accédez à Ensemble de compétences, puis sélectionnez le lie
 
 * Nom
 * Description
-* Contexte
+* Context
 * Nom et source des « entrées »
 * Nom et targetName des « sorties »
 

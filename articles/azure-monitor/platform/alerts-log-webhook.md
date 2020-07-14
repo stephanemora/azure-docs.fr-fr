@@ -7,12 +7,12 @@ services: monitoring
 ms.topic: conceptual
 ms.date: 06/25/2019
 ms.subservice: alerts
-ms.openlocfilehash: 7b1956ad2bf9bf38ba9edc4c7234078557564071
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 6c9bacfc4354351cbbf2eb735414ff3334cd7d0a
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "77667701"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84323669"
 ---
 # <a name="webhook-actions-for-log-alert-rules"></a>Actions webhook pour les règles d’alerte de journal
 Quand une [alerte de journal est créée dans Azure](alerts-log.md), vous avez l’option de la [configuration à l’aide de groupes d’actions](action-groups.md) pour exécuter une ou plusieurs actions. Cet article décrit les différentes actions webhook disponibles et les détails de la configuration du webhook personnalisé basé sur JSON.
@@ -44,19 +44,23 @@ Les webhooks incluent une URL et une charge utile au format JSON qui correspond 
 | *AlertThresholdOperator* |#thresholdoperator |Opérateur de seuil pour la règle d’alerte, qui utilise supérieur à ou inférieur à. |
 | *AlertThresholdValue* |#thresholdvalue |Valeur de seuil de la règle d’alerte. |
 | *LinkToSearchResults* |#linktosearchresults |Lien vers le portail Analytics qui retourne les enregistrements de la requête ayant créé l’alerte. |
+| *LinkToSearchResultsAPI* |#linktosearchresultsapi |Lien vers l’API Analytics qui retourne les enregistrements de la requête ayant créé l’alerte. |
+| *LinkToFilteredSearchResultsUI* |#linktofilteredsearchresultsui |Lien vers le portail Analytics qui retourne les enregistrements de la requête filtrés par combinaisons de valeurs de dimensions ayant créé l’alerte. |
+| *LinkToFilteredSearchResultsAPI* |#linktofilteredsearchresultsapi |Lien vers l’API Analytics qui retourne les enregistrements de la requête filtrés par combinaisons de valeurs de dimensions ayant créé l’alerte. |
 | *ResultCount* |#searchresultcount |Nombre d’enregistrements dans les résultats de recherche. |
 | *Heure de fin de l’intervalle de recherche* |#searchintervalendtimeutc |Heure de fin de la requête au format UTC, au format mm/jj/aaaa HH:mm:ss AM/PM. |
 | *Intervalle de recherche* |#searchinterval |Fenêtre de temps de la règle d’alerte, au format HH:mm:ss. |
 | *Heure de début de l’intervalle de recherche* |#searchintervalstarttimeutc |Heure de début de la requête au format UTC, au format mm/jj/aaaa HH:mm:ss AM/PM. 
 | *SearchQuery* |#searchquery |Requête de recherche de journal utilisée par la règle d’alerte. |
-| *SearchResults* |"IncludeSearchResults": true|Enregistrements retournés par la requête en tant que tableau JSON, limités aux 1 000 premiers enregistrements ; si « IncludeSearchResults » : true est ajouté dans la définition de webhook JSON personnalisé en tant que propriété de niveau supérieur. |
+| *SearchResults* |"IncludeSearchResults": true|Enregistrements retournés par la requête sous forme de table JSON, limitée aux 1 000 premiers enregistrements. « IncludeSearchResults » : true est ajouté à une définition de webhook JSON personnalisée en tant que propriété de niveau supérieur. |
+| *Dimensions* |« IncludeDimension »" : true|Combinaisons de valeurs de dimensions ayant déclenché une alerte en tant que section JSON. « IncludeDimensions » : true est ajouté à une définition de webhook JSON personnalisée en tant que propriété de niveau supérieur. |
 | *Type d’alerte*| #alerttype | Le type de règle d’alerte de journal configuré en tant que [Mesure de métriques](alerts-unified-log.md#metric-measurement-alert-rules) ou [Nombre de résultats](alerts-unified-log.md#number-of-results-alert-rules).|
 | *WorkspaceID* |#workspaceid |ID de votre espace de travail Log Analytics. |
 | *ID d’application* |#applicationid |ID de votre application Application Insights. |
 | *Identifiant d’abonnement* |#subscriptionid |ID de votre abonnement Azure utilisé. 
 
 > [!NOTE]
-> *LinkToSearchResults* passe des paramètres comme *SearchQuery*, *Heure de début de l’intervalle de recherche* et *Heure de fin de l’intervalle de recherche* dans l’URL au portail Azure pour les afficher dans la section Analytics. Le portail Azure a une limite de taille d’URI d’environ 2 000 caractères. Le portail n’ouvre *pas* les liens fournis dans les alertes si les valeurs de paramètre dépassent la limite. Vous pouvez entrer manuellement les détails pour afficher les résultats dans le portail Analytics. Vous pouvez également utiliser [l’API REST d’Application Insights Analytics](https://dev.applicationinsights.io/documentation/Using-the-API) ou [l’API REST de Log Analytics](/rest/api/loganalytics/) pour récupérer les résultats par programmation. 
+> Les liens fournis transmettent des paramètres, tels que *SearchQuery*, *Search Interval StartTime* et *Search Interval End time*, dans l’URL du portail Azure ou l’API.
 
 Par exemple, vous pouvez spécifier la charge utile personnalisée suivante qui inclut un paramètre unique appelé *text*. Le service appelé par ce webhook s’attendrait à recevoir ce paramètre.
 
@@ -88,9 +92,9 @@ L’exemple de charge utile suivant est destiné à une action de webhook standa
 
 ```json
 {
-    "SubscriptionId":"12345a-1234b-123c-123d-12345678e",
-    "AlertRuleName":"AcmeRule",
-    "SearchQuery":"Perf | where ObjectName == \"Processor\" and CounterName == \"% Processor Time\" | summarize AggregatedValue = avg(CounterValue) by bin(TimeGenerated, 5m), Computer",
+    "SubscriptionId": "12345a-1234b-123c-123d-12345678e",
+    "AlertRuleName": "AcmeRule",
+    "SearchQuery": "Perf | where ObjectName == \"Processor\" and CounterName == \"% Processor Time\" | summarize AggregatedValue = avg(CounterValue) by bin(TimeGenerated, 5m), Computer",
     "SearchIntervalStartTimeUtc": "2018-03-26T08:10:40Z",
     "SearchIntervalEndtimeUtc": "2018-03-26T09:10:40Z",
     "AlertThresholdOperator": "Greater Than",
@@ -98,28 +102,56 @@ L’exemple de charge utile suivant est destiné à une action de webhook standa
     "ResultCount": 2,
     "SearchIntervalInSeconds": 3600,
     "LinkToSearchResults": "https://portal.azure.com/#Analyticsblade/search/index?_timeInterval.intervalEnd=2018-03-26T09%3a10%3a40.0000000Z&_timeInterval.intervalDuration=3600&q=Usage",
+    "LinkToFilteredSearchResultsUI": "https://portal.azure.com/#Analyticsblade/search/index?_timeInterval.intervalEnd=2018-03-26T09%3a10%3a40.0000000Z&_timeInterval.intervalDuration=3600&q=Usage",
+    "LinkToSearchResultsAPI": "https://api.loganalytics.io/v1/workspaces/workspaceID/query?query=Heartbeat&timespan=2020-05-07T18%3a11%3a51.0000000Z%2f2020-05-07T18%3a16%3a51.0000000Z",
+    "LinkToFilteredSearchResultsAPI": "https://api.loganalytics.io/v1/workspaces/workspaceID/query?query=Heartbeat&timespan=2020-05-07T18%3a11%3a51.0000000Z%2f2020-05-07T18%3a16%3a51.0000000Z",
     "Description": "log alert rule",
     "Severity": "Warning",
-    "SearchResult":
+    "AffectedConfigurationItems": [
+        "INC-Gen2Alert"
+    ],
+    "Dimensions": [
         {
-        "tables":[
-                    {"name":"PrimaryResult","columns":
-                        [
-                        {"name":"$table","type":"string"},
-                        {"name":"Id","type":"string"},
-                        {"name":"TimeGenerated","type":"datetime"}
-                        ],
-                    "rows":
-                        [
-                            ["Fabrikam","33446677a","2018-02-02T15:03:12.18Z"],
-                            ["Contoso","33445566b","2018-02-02T15:16:53.932Z"]
-                        ]
+            "name": "Computer",
+            "value": "INC-Gen2Alert"
+        }
+    ],
+    "SearchResult": {
+        "tables": [
+            {
+                "name": "PrimaryResult",
+                "columns": [
+                    {
+                        "name": "$table",
+                        "type": "string"
+                    },
+                    {
+                        "name": "Computer",
+                        "type": "string"
+                    },
+                    {
+                        "name": "TimeGenerated",
+                        "type": "datetime"
                     }
+                ],
+                "rows": [
+                    [
+                        "Fabrikam",
+                        "33446677a",
+                        "2018-02-02T15:03:12.18Z"
+                    ],
+                    [
+                        "Contoso",
+                        "33445566b",
+                        "2018-02-02T15:16:53.932Z"
+                    ]
                 ]
-        },
-    "WorkspaceId":"12345a-1234b-123c-123d-12345678e",
+            }
+        ]
+    },
+    "WorkspaceId": "12345a-1234b-123c-123d-12345678e",
     "AlertType": "Metric measurement"
- }
+}
  ```
 
 > [!NOTE]
@@ -131,39 +163,64 @@ L’exemple de charge utile suivant concerne un webhook standard *sans option JS
     
 ```json
 {
-    "schemaId":"Microsoft.Insights/LogAlert","data":
-    { 
-    "SubscriptionId":"12345a-1234b-123c-123d-12345678e",
-    "AlertRuleName":"AcmeRule",
-    "SearchQuery":"requests | where resultCode == \"500\"",
-    "SearchIntervalStartTimeUtc": "2018-03-26T08:10:40Z",
-    "SearchIntervalEndtimeUtc": "2018-03-26T09:10:40Z",
-    "AlertThresholdOperator": "Greater Than",
-    "AlertThresholdValue": 0,
-    "ResultCount": 2,
-    "SearchIntervalInSeconds": 3600,
-    "LinkToSearchResults": "https://portal.azure.com/AnalyticsBlade/subscriptions/12345a-1234b-123c-123d-12345678e/?query=search+*+&timeInterval.intervalEnd=2018-03-26T09%3a10%3a40.0000000Z&_timeInterval.intervalDuration=3600&q=Usage",
-    "Description": null,
-    "Severity": "3",
-    "SearchResult":
-        {
-        "tables":[
-                    {"name":"PrimaryResult","columns":
+    "schemaId": "Microsoft.Insights/LogAlert",
+    "data": {
+        "SubscriptionId": "12345a-1234b-123c-123d-12345678e",
+        "AlertRuleName": "AcmeRule",
+        "SearchQuery": "requests | where resultCode == \"500\" | summarize AggregatedValue = Count by bin(Timestamp, 5m), IP",
+        "SearchIntervalStartTimeUtc": "2018-03-26T08:10:40Z",
+        "SearchIntervalEndtimeUtc": "2018-03-26T09:10:40Z",
+        "AlertThresholdOperator": "Greater Than",
+        "AlertThresholdValue": 0,
+        "ResultCount": 2,
+        "SearchIntervalInSeconds": 3600,
+        "LinkToSearchResults": "https://portal.azure.com/AnalyticsBlade/subscriptions/12345a-1234b-123c-123d-12345678e/?query=search+*+&timeInterval.intervalEnd=2018-03-26T09%3a10%3a40.0000000Z&_timeInterval.intervalDuration=3600&q=Usage",
+        "LinkToFilteredSearchResultsUI": "https://portal.azure.com/AnalyticsBlade/subscriptions/12345a-1234b-123c-123d-12345678e/?query=search+*+&timeInterval.intervalEnd=2018-03-26T09%3a10%3a40.0000000Z&_timeInterval.intervalDuration=3600&q=Usage",
+        "LinkToSearchResultsAPI": "https://api.applicationinsights.io/v1/apps/0MyAppId0/metrics/requests/count",
+        "LinkToFilteredSearchResultsAPI": "https://api.applicationinsights.io/v1/apps/0MyAppId0/metrics/requests/count",
+        "Description": null,
+        "Severity": "3",
+        "Dimensions": [
+            {
+                "name": "IP",
+                "value": "1.1.1.1"
+            }
+        ],
+        "SearchResult": {
+            "tables": [
+                {
+                    "name": "PrimaryResult",
+                    "columns": [
+                        {
+                            "name": "$table",
+                            "type": "string"
+                        },
+                        {
+                            "name": "Id",
+                            "type": "string"
+                        },
+                        {
+                            "name": "Timestamp",
+                            "type": "datetime"
+                        }
+                    ],
+                    "rows": [
                         [
-                        {"name":"$table","type":"string"},
-                        {"name":"Id","type":"string"},
-                        {"name":"TimeGenerated","type":"datetime"}
+                            "Fabrikam",
+                            "33446677a",
+                            "2018-02-02T15:03:12.18Z"
                         ],
-                    "rows":
                         [
-                            ["Fabrikam","33446677a","2018-02-02T15:03:12.18Z"],
-                            ["Contoso","33445566b","2018-02-02T15:16:53.932Z"]
+                            "Contoso",
+                            "33445566b",
+                            "2018-02-02T15:16:53.932Z"
                         ]
-                    }
-                ]
+                    ]
+                }
+            ]
         },
-    "ApplicationId": "123123f0-01d3-12ab-123f-abc1ab01c0a1",
-    "AlertType": "Number of results"
+        "ApplicationId": "123123f0-01d3-12ab-123f-abc1ab01c0a1",
+        "AlertType": "Metric measurement"
     }
 }
 ```

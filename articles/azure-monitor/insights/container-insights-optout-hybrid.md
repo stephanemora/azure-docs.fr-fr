@@ -2,19 +2,28 @@
 title: Arrêter la surveillance de votre cluster Kubernetes hybride | Microsoft Docs
 description: Cet article décrit comment arrêter la surveillance de votre cluster Kubernetes hybride à l’aide d’Azure Monitor pour conteneurs.
 ms.topic: conceptual
-ms.date: 04/24/2020
-ms.openlocfilehash: f2f3a8671c1f2baf60d399cc87f2f843dfee4f70
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.date: 06/16/2020
+ms.openlocfilehash: 86a774737d5269d77c4053ad61ab870b13288aa7
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82195724"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84885850"
 ---
 # <a name="how-to-stop-monitoring-your-hybrid-cluster"></a>Arrêter la surveillance de votre cluster hybride
 
-Une fois que vous avez activé la surveillance de votre cluster Kubernetes s’exécutant sur Azure Stack ou localement, vous pouvez arrêter la surveillance à l’aide d’Azure Monitor pour conteneurs si vous décidez de ne plus le surveiller. Cet article explique comment effectuer cette procédure.  
+Une fois que vous avez activé l’analyse de votre cluster Kubernetes, vous pouvez arrêter l’analyse du cluster avec Azure Monitor pour les conteneurs si vous le décidez. Cet article explique comment accomplir cette tâche pour les environnements suivants :
+
+- Moteur AKS sur Azure et Azure Stack
+- Version 4 d’OpenShift et versions ultérieures
+- Kubernetes avec Azure Arc (préversion)
 
 ## <a name="how-to-stop-monitoring-using-helm"></a>Arrêt de la surveillance à l’aide de Helm
+
+Les étapes suivantes s’appliquent à ces environnements :
+
+- Moteur AKS sur Azure et Azure Stack
+- Version 4 d’OpenShift et versions ultérieures
 
 1. Pour identifier d’abord la version de chart Helm pour Azure Monitor pour conteneurs qui est installée sur votre cluster, exécutez la commande Helm suivante.
 
@@ -46,6 +55,68 @@ Une fois que vous avez activé la surveillance de votre cluster Kubernetes s’e
     ```
 
 Le changement de configuration peut prendre quelques minutes. Étant donné que Helm suit vos versions même après les avoir supprimées, vous pouvez auditer l’historique d’un cluster et même annuler la suppression d’une version grâce à `helm rollback`.
+
+## <a name="how-to-stop-monitoring-on-arc-enabled-kubernetes"></a>Comment arrêter l’analyse sur les Kubernetes avec Arc activé
+
+### <a name="using-powershell"></a>Utilisation de PowerShell
+
+1. Téléchargez et enregistrez dans un dossier local le script qui configure votre cluster avec le module complémentaire de supervision à l’aide des commandes suivantes :
+
+    ```powershell
+    wget https://aka.ms/disable-monitoring-powershell-script -OutFile disable-monitoring.ps1
+    ```
+
+2. Configurez la variable `$azureArcClusterResourceId` en définissant les valeurs correspondantes pour `subscriptionId`, `resourceGroupName` et `clusterName` représentant l’ID de la ressource de votre ressource de cluster Kubernetes compatible avec Azure Arc.
+
+    ```powershell
+    $azureArcClusterResourceId = "/subscriptions/<subscriptionId>/resourceGroups/<resourceGroupName>/providers/Microsoft.Kubernetes/connectedClusters/<clusterName>"
+    ```
+
+3. Configurez la variable `$kubeContext` avec le **kube-context** de votre cluster en exécutant la commande `kubectl config get-contexts`. Si vous souhaitez utiliser le contexte actuel, définissez la valeur sur `""`.
+
+    ```powershell
+    $kubeContext = "<kubeContext name of your k8s cluster>"
+    ```
+
+4. Exécutez la commande suivante pour arrêter l’analyse du cluster.
+
+    ```powershell
+    .\disable-monitoring.ps1 -clusterResourceId $azureArcClusterResourceId -kubeContext $kubeContext
+    ```
+
+### <a name="using-bash"></a>Avec Bash
+
+1. Téléchargez et enregistrez dans un dossier local le script qui configure votre cluster avec le module complémentaire de supervision à l’aide des commandes suivantes :
+
+    ```bash
+    curl -o disable-monitoring.sh -L https://aka.ms/disable-monitoring-bash-script
+    ```
+
+2. Configurez la variable `azureArcClusterResourceId` en définissant les valeurs correspondantes pour `subscriptionId`, `resourceGroupName` et `clusterName` représentant l’ID de la ressource de votre ressource de cluster Kubernetes compatible avec Azure Arc.
+
+    ```bash
+    export azureArcClusterResourceId="/subscriptions/<subscriptionId>/resourceGroups/<resourceGroupName>/providers/Microsoft.Kubernetes/connectedClusters/<clusterName>"
+    ```
+
+3. Configurez la variable `kubeContext` avec le **kube-context** de votre cluster en exécutant la commande `kubectl config get-contexts`.
+
+    ```bash
+    export kubeContext="<kubeContext name of your k8s cluster>"
+    ```
+
+4. Pour arrêter l’analyse de votre cluster, différentes commandes sont fournies en fonction de votre scénario de déploiement.
+
+    Exécutez la commande suivante pour arrêter l’analyse du cluster avec le contexte actuel.
+
+    ```bash
+    bash disable-monitoring.sh --resource-id $azureArcClusterResourceId
+    ```
+
+    Exécutez la commande suivante pour arrêter l’analyse du cluster en précisant un contexte
+
+    ```bash
+    bash disable-monitoring.sh --resource-id $azureArcClusterResourceId --kube-context $kubeContext
+    ```
 
 ## <a name="next-steps"></a>Étapes suivantes
 

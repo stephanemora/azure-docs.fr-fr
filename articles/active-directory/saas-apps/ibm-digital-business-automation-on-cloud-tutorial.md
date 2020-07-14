@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 06/08/2020
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f33992c7aa205e503c7de150adad7180ff823881
-ms.sourcegitcommit: 51718f41d36192b9722e278237617f01da1b9b4e
+ms.openlocfilehash: c0a8185d81966932c17fd3b0590b5f8ef2f7b6df
+ms.sourcegitcommit: 1d9f7368fa3dadedcc133e175e5a4ede003a8413
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/19/2020
-ms.locfileid: "85099666"
+ms.lasthandoff: 06/27/2020
+ms.locfileid: "85479791"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-ibm-digital-business-automation-on-cloud"></a>Tutoriel : Intégration de l’authentification unique Azure Active Directory avec IBM Digital Business Automation on Cloud
 
@@ -93,7 +93,7 @@ Effectuez les étapes suivantes pour activer l’authentification unique Azure A
     > Si les valeurs **Identificateur** et **URL de réponse** ne sont pas automatiquement renseignées, renseignez-les manuellement en fonction de vos besoins.
 
     > [!Note]
-    > Les clients peuvent obtenir le fichier de métadonnées de leur abonnement cloud auprès de l’[équipe DBAoC DevOps](mailto:supportbpmoncloud@us.ibm.com).
+    > Les clients peuvent obtenir le fichier de métadonnées de leur abonnement cloud auprès de l’[équipe de support technique IBM Digital Business Automation on Cloud](mailto:supportbpmoncloud@us.ibm.com).
 
 1. Si vous ne disposez pas d’un **fichier de métadonnées du fournisseur de services**, dans la section **Configuration SAML de base**, pour configurer si vous le souhaitez l’application en mode Initié par le **fournisseur d’identité**, entrez les valeurs pour les champs suivants :
 

@@ -6,12 +6,12 @@ ms.service: cache
 ms.topic: conceptual
 ms.date: 01/06/2020
 ms.author: joncole
-ms.openlocfilehash: 105a3996753a1d1c2d71846cc8bad574e4498acf
-ms.sourcegitcommit: efefce53f1b75e5d90e27d3fd3719e146983a780
+ms.openlocfilehash: 6a1dddfbcdbf2bd49586238872db15f1da5d7ce1
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/01/2020
-ms.locfileid: "80478611"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84457301"
 ---
 # <a name="best-practices-for-azure-cache-for-redis"></a>Bonnes pratiques en matière d’utilisation du cache Azure pour Redis 
 En suivant ces bonnes pratiques, vous pouvez optimiser les performances et la rentabilité d’utilisation de votre instance du cache Azure pour Redis.
@@ -38,6 +38,8 @@ En suivant ces bonnes pratiques, vous pouvez optimiser les performances et la re
  * **Évitez les opérations coûteuses**. Certaines opérations Redis, comme la commande [KEYS](https://redis.io/commands/keys), sont *très* coûteuses et sont donc à proscrire.  Pour plus d’informations, lisez ces quelques considérations à propos des [commandes de longue durée](cache-troubleshoot-server.md#long-running-commands)
 
  * **Utilisez le chiffrement TLS**. Azure Cache pour Redis nécessite des communications chiffrées avec le protocole TLS par défaut.  Les versions 1.0, 1.1 et 1.2 de TLS sont actuellement prises en charge.  Toutefois, TLS 1.0 et 1.1 étant en passe de dépréciation dans l’ensemble du secteur, utilisez TLS 1.2 dans la mesure du possible.  Si votre outil ou bibliothèque de client ne prend pas en charge TLS, vous pouvez activer des connexions non chiffrées par le biais du [portail Azure](cache-configure.md#access-ports) ou des [API de gestion](https://docs.microsoft.com/rest/api/redis/redis/update).  Dans les cas où il est impossible d’établir des connexions chiffrées, nous vous recommandons de placer votre cache et votre application cliente dans un réseau virtuel.  Pour plus d’informations sur les ports utilisés dans le scénario de mise en cache du réseau virtuel, consultez [ce tableau](cache-how-to-premium-vnet.md#outbound-port-requirements).
+ 
+ * **Délai d’inactivité**-les inconnus Azure ont actuellement un délai d’expiration de 10 minutes pour les connexions, donc cette valeur doit être inférieure à 10 minutes.
  
 ## <a name="memory-management"></a>Gestion de la mémoire
 Il y a plusieurs points à prendre en compte en ce qui concerne l’utilisation de la mémoire dans votre instance de serveur Redis.  En voici quelques-uns :

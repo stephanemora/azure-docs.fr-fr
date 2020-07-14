@@ -8,20 +8,20 @@ ms.date: 10/16/2019
 ms.author: normesta
 ms.subservice: common
 ms.reviewer: zezha-msft
-ms.openlocfilehash: 331d0cd4a20cb4351a1bc9a204c500386c499ada
-ms.sourcegitcommit: 12f23307f8fedc02cd6f736121a2a9cea72e9454
+ms.openlocfilehash: 40ff6c6c76e255945681e678ef296ffcf9978f61
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/30/2020
-ms.locfileid: "84220142"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84485188"
 ---
-# <a name="azcopy-bench"></a>azcopy bench
+# <a name="azcopy-benchmark"></a>référence azcopy
 
 Exécute un test d’évaluation des performances en chargeant les données de test vers une destination spécifiée. Les données de test sont générées automatiquement.
 
 La commande benchmark exécute le même processus de chargement que « copy », sauf que :
 
-  - Il n’y a aucun paramètre source.  La commande nécessite uniquement une URL de destination. Dans la version actuelle, cette URL de destination doit faire référence à un conteneur d’objets blob.
+  - Il n’y a aucun paramètre source.  La commande nécessite uniquement une URL de destination. 
   
   - La charge utile est décrite par les paramètres de ligne de commande, qui contrôlent le nombre de fichiers générés automatiquement et leur taille. Le processus de génération s’effectue entièrement en mémoire. Le disque n’est pas utilisé.
   
@@ -38,7 +38,7 @@ Tous les types d’authentification habituels sont pris en charge. Toutefois, l�
 ## <a name="examples"></a>Exemples
 
 ```azcopy
-azcopy bench [destination] [flags]
+azcopy benchmark [destination] [flags]
 ```
 
 Exécuter un test d’évaluation avec les paramètres par défaut (adapté aux réseaux d’évaluation jusqu’à 1 Gbit/s) :’
@@ -47,9 +47,9 @@ Exécuter un test d’évaluation avec les paramètres par défaut (adapté aux 
 
 Exécuter un test d’évaluation qui charge 100 fichiers, chacun d’une taille de 2 Gio : (adapté à l’évaluation sur un réseau rapide, par exemple 10 Gbits/s) :’
 
-- azcopy bench "https://[compte].blob.core.windows.net/[conteneur]?<SAS>" --file-count 100 --size-per-file 2G
+- azcopy bench "https://[account].blob.core.windows.net/[container]?<SAS>"--file-count 100 --size-per-file 2G
 
-Comme ci-dessus, mais utiliser 50 000 fichiers, chacun d’une taille de 8 MiB, et calculer leurs hachages MD5 (de la même façon qu’effectué par l’indicateur --put-md5 dans la commande copy). L’objectif de --put-md5 lors des tests d’évaluation est de tester si le calcul MD5 affecte le débit pour le nombre de fichiers et la taille sélectionnés :
+Exécutez un test de référence, mais utiliser 50 000 fichiers, chacun d’une taille de 8 Mio, et calculer leurs hachages MD5 (de la même façon qu’effectué par l’indicateur `--put-md5` dans la commande copy). L’objectif de `--put-md5` lors des tests d’évaluation est de tester si le calcul MD5 affecte le débit pour le nombre de fichiers et la taille sélectionnés :
 
 - azcopy bench "https://[compte].blob.core.windows.net/[conteneur]?<SAS>" --file-count 50000 --size-per-file 8M --put-md5
 

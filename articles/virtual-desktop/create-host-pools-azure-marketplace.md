@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.date: 04/30/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: 8a20d7cb05f4529d5aa8a115b7d1db6e4d812be0
-ms.sourcegitcommit: 51718f41d36192b9722e278237617f01da1b9b4e
+ms.openlocfilehash: 7c22ad844f0a543cfbf2e007ab2bfc8f0fe22ef7
+ms.sourcegitcommit: f98ab5af0fa17a9bba575286c588af36ff075615
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/19/2020
-ms.locfileid: "85100850"
+ms.lasthandoff: 06/25/2020
+ms.locfileid: "85362932"
 ---
 # <a name="tutorial-create-a-host-pool-with-the-azure-portal"></a>Tutoriel : Créer un pool d’hôtes avec le portail Azure
 
@@ -67,20 +67,23 @@ Pour commencer à créer votre nouveau pool d’hôtes
    
    La zone géographique Azure associée aux régions sélectionnées est l’emplacement où seront stockées les métadonnées de ce pool d’hôtes et ses objets connexes. Veillez à choisir les régions à l’intérieur de la zone géographique dans laquelle vous souhaitez stocker les métadonnées de service.
 
-     ![Capture d’écran du portail Azure montrant le champ Emplacement avec l’emplacement USA Est sélectionné. En regard du champ figure le texte « Les métadonnées seront stockées dans USA Est ».](media/portal-location-field.png)
+     > [!div class="mx-imgBorder"]
+     > ![Capture d’écran du portail Azure montrant le champ Emplacement avec l’emplacement USA Est sélectionné. En regard du champ figure le texte « Les métadonnées seront stockées dans USA Est ».](media/portal-location-field.png)
 
 8. Sous Type de pool d’hôtes, indiquez si votre pool d’hôtes sera **Personnel** ou **Groupé**.
 
     - Si vous choisissez **Personnel**, sélectionnez **Automatique** ou **Direct** dans le champ Type d’affectation.
 
-      ![Capture d’écran du menu déroulant du champ Type d’affectation. L’utilisateur a sélectionné Automatique.](media/assignment-type-field.png)
+      > [!div class="mx-imgBorder"]
+      > ![Capture d’écran du menu déroulant du champ Type d’affectation. L’utilisateur a sélectionné Automatique.](media/assignment-type-field.png)
 
 9. Si vous choisissez **Groupé**, entrez les informations suivantes :
 
      - Pour **Limite de session maximale**, entrez le nombre maximal d’utilisateurs dont vous souhaitez équilibrer la charge sur un seul hôte de session.
      - Pour **Algorithme d’équilibrage de charge**, choisissez l’équilibrage de charge en profondeur d’abord ou en largeur d’abord, en fonction de votre modèle d’utilisation.
 
-       ![Capture d’écran du champ Type d’affectation avec l’option « Groupé » sélectionnée. L’utilisateur pointe son curseur sur Largeur d’abord dans le menu déroulant de l’équilibrage de charge.](media/pooled-assignment-type.png)
+       > [!div class="mx-imgBorder"]
+       > ![Capture d’écran du champ Type d’affectation avec l’option « Groupé » sélectionnée. L’utilisateur pointe son curseur sur Largeur d’abord dans le menu déroulant de l’équilibrage de charge.](media/pooled-assignment-type.png)
 
 10. Sélectionnez **Suivant : Détails de la machine virtuelle**.
 
@@ -117,11 +120,13 @@ Pour configurer votre machine virtuelle durant le processus de création du pool
 
      Si vous ne voyez pas l’image souhaitée, sélectionnez **Parcourir toutes les images et tous les disques** afin de pouvoir sélectionner une autre image dans votre galerie ou une image fournie par Microsoft ou d’autres éditeurs.
 
-     ![Capture d’écran de la Place de marché avec une liste d’images Microsoft.](media/marketplace-images.png)
+     > [!div class="mx-imgBorder"]
+     > ![Capture d’écran de la Place de marché avec une liste d’images Microsoft.](media/marketplace-images.png)
 
      Vous pouvez également accéder à **Mes éléments** et choisir une image personnalisée que vous avez déjà chargée.
 
-     ![Capture d’écran de l’onglet Mes éléments.](media/my-items.png)
+     > [!div class="mx-imgBorder"]
+     > ![Capture d’écran de l’onglet Mes éléments.](media/my-items.png)
 
     - Si vous choisissez **Objet blob de stockage**, vous pouvez tirer parti de votre propre build d’image via Hyper-V ou sur une machine virtuelle Azure. Il vous suffit d’entrer l’emplacement de l’image dans l’objet blob de stockage sous la forme d’un URI.
 
@@ -136,7 +141,8 @@ Pour configurer votre machine virtuelle durant le processus de création du pool
     >[!NOTE]
     >Pour une sécurité accrue, nous vous recommandons de ne pas ouvrir de ports entrants publics.
 
-    ![Capture d’écran de la page de groupe de sécurité qui montre la liste des ports disponibles dans un menu déroulant.](media/available-ports.png)
+    > [!div class="mx-imgBorder"]
+    > ![Capture d’écran de la page du groupe de sécurité qui montre la liste des ports disponibles dans un menu déroulant.](media/available-ports.png)
     
     Si vous choisissez **Avancé**, sélectionnez un groupe de sécurité réseau existant que vous avez déjà configuré.
 

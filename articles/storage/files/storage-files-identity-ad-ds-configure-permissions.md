@@ -4,21 +4,19 @@ description: Découvrez comment configurer les autorisations de listes de contr�
 author: roygara
 ms.service: storage
 ms.subservice: files
-ms.topic: conceptual
-ms.date: 05/29/2020
+ms.topic: how-to
+ms.date: 06/22/2020
 ms.author: rogarana
-ms.openlocfilehash: 6e49201b0574e0a1235cc9e2cb313b40b0563f93
-ms.sourcegitcommit: 309cf6876d906425a0d6f72deceb9ecd231d387c
+ms.openlocfilehash: 38168db9706bd168b3edc2e740eaea40b23d4b0b
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/01/2020
-ms.locfileid: "84268377"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85510576"
 ---
 # <a name="part-three-configure-directory-and-file-level-permissions-over-smb"></a>Troisième partie : configurer les autorisations au niveau des répertoires et des fichiers sur SMB 
 
-Avant de commencer à lire cet article, veillez à parcourir l’article précédent, intitulé [Attribuer des autorisations au niveau du partage à une identité](storage-files-identity-ad-ds-assign-permissions.md), pour vous assurer que vos autorisations au niveau du partage sont en place.
-
-Une fois que vous avez attribué des autorisations au niveau du partage avec RBAC, vous devez attribuer les listes de contrôle d’accès (ACL, access-control list) Windows appropriées (également appelées autorisations NTFS) au niveau du fichier, du répertoire ou de la racine pour tirer parti du contrôle d’accès granulaire. Considérez les autorisations RBAC au niveau du partage comme un gardien de niveau supérieur qui détermine si un utilisateur peut accéder au partage. En revanche, les ACL Windows agissent à un niveau plus granulaire pour déterminer les opérations que l’utilisateur peut effectuer au niveau du répertoire ou du fichier.
+Avant de commencer à lire cet article, veillez à parcourir l’article précédent, intitulé [Attribuer des autorisations au niveau du partage à une identité](storage-files-identity-ad-ds-assign-permissions.md) pour vous assurer que vos autorisations de partage sont définies.
 
 Une fois que vous avez attribué des autorisations au niveau du partage avec RBAC, vous devez configurer les ACL Windows appropriées au niveau du fichier, du répertoire ou de la racine pour tirer parti du contrôle d’accès granulaire. Considérez les autorisations RBAC au niveau du partage comme un gardien de niveau supérieur qui détermine si un utilisateur peut accéder au partage. En revanche, les ACL Windows fonctionnent à un niveau plus granulaire pour déterminer les opérations que l’utilisateur peut effectuer au niveau du répertoire ou du fichier. Les autorisations au niveau du partage et au niveau du fichier/répertoire sont appliquées lorsqu’un utilisateur tente d’accéder à un fichier/répertoire. Par conséquent, s’il existe une différence entre ces deux niveaux, seules les autorisations dont le niveau est le plus restrictif sont appliquées. Par exemple, si un utilisateur dispose d’un accès en lecture/écriture au niveau du fichier, mais uniquement en lecture au niveau du partage, il peut uniquement lire ce fichier. Il en va de même dans le cas contraire : si un utilisateur avait un accès en lecture/écriture au niveau du partage, mais uniquement en lecture au niveau du fichier, il ne peut toujours que lire le fichier.
 
@@ -31,12 +29,22 @@ Pour configurer des ACL avec des autorisations de superutilisateur, vous devez m
 Les autorisations suivantes sont incluses dans le répertoire racine d’un partage de fichiers :
 
 - BUILTIN\Administrators:(OI)(CI)(F)
-- NT AUTHORITY\SYSTEM:(OI)(CI)(F)
 - BUILTIN\Users:(RX)
 - BUILTIN\Users:(OI)(CI)(IO)(GR,GE)
 - NT AUTHORITY\Authenticated Users:(OI)(CI)(M)
+- NT AUTHORITY\SYSTEM:(OI)(CI)(F)
 - NT AUTHORITY\SYSTEM:(F)
 - CREATOR OWNER:(OI)(CI)(IO)(F)
+
+|Utilisateurs|Définition|
+|---|---|
+|BUILTIN\Administrators|Tous les utilisateurs qui sont des administrateurs de domaine de l’environnement local AD DS.
+|BUILTIN\Users|Groupe de sécurité intégré dans AD. Il comprend NT AUTHORITY\Authenticated Users par défaut. Pour un serveur de fichiers traditionnel, vous pouvez configurer la définition d’appartenance par serveur. Pour Azure Files, il n’existe pas de serveur d’hébergement. BUILTIN\Users qui inclut le même ensemble d’utilisateurs que NT AUTHORITY\Authenticated Users.|
+|NT AUTHORITY\SYSTEM|Compte de service du système d’exploitation du serveur de fichiers. Ce compte de service n’est pas applicable dans un contexte Azure Files. Il est inclus dans le répertoire racine pour être cohérent avec l’expérience Windows Files Server pour les scénarios hybrides.|
+|NT AUTHORITY\Authenticated Users|Tous les utilisateurs dans Active Directory qui peuvent obtenir un jeton Kerberos valide.|
+|CREATOR OWNER|Chaque objet, répertoire ou fichier, a un propriétaire pour cet objet. Si des ACL sont affectées à l’objet « CREATOR OWNER » sur cet objet, l’utilisateur qui est le propriétaire de cet objet dispose des autorisations définies par la liste de contrôle d’accès.|
+
+
 
 ## <a name="mount-a-file-share-from-the-command-prompt"></a>Monter un partage de fichiers Azure à partir de l’invite de commandes
 

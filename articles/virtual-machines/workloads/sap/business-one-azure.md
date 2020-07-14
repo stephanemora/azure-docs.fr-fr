@@ -15,12 +15,12 @@ ms.workload: infrastructure
 ms.date: 07/15/2018
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 18409f93ab50f7d031ec78a55b9eaf8ad1b85a49
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 601af3a5e642b4bbda54f461b3139e72b01b21d6
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "70101408"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85193496"
 ---
 # <a name="sap-business-one-on-azure-virtual-machines"></a>SAP Business One sur les machines virtuelles Azure
 Ce document fournit des conseils pour déployer SAP Business One sur des machines virtuelles Azure. Ce document n’est pas un substitue au document d’installation pour SAP Business One. Le document doit couvrir la planification de base et les instructions de déploiement pour que l’infrastructure Azure exécute des applications Business One.
@@ -31,7 +31,7 @@ Business One prend en charge deux bases de données différentes :
 
 Concernant SQL Server, les points à prendre en considérations pour le déploiement de base documentés dans [SQL Server Azure Virtual Machines DBMS deployment for SAP NetWeaver](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/dbms-guide) (Déploiement SGBD des machines virtuelles Azure SQL Server pour SAP NetWeaver) s’appliquent. Pour SAP HANA, les points à prendre en considération sont mentionnés dans ce document.
 
-## <a name="prerequisites"></a>Conditions préalables requises
+## <a name="prerequisites"></a>Prérequis
 Pour utiliser ce guide, vous devez disposer des connaissances de base quant aux différents composants Azure suivants :
 
 - [Machines virtuelles Azure sur Windows](https://docs.microsoft.com/azure/virtual-machines/windows/tutorial-manage-vm)
@@ -67,13 +67,13 @@ Business One est une application à deux niveaux :
 - Un niveau client avec un client « fat »
 - Un niveau base de données qui contient le schéma de la base de données pour un abonné
 
-Une meilleure vue d’ensemble des composants exécutés dans la partie client et ceux exécutés dans la partie serveur est documentée dans le [Guide administrateur SAP Business One](https://help.sap.com/http.svc/rc/879bd9289df34a47af838e67d74ea302/9.3/en-US/AdministratorGuide_SQL.pdf) 
+Une meilleure vue d’ensemble des composants exécutés dans la partie client et ceux exécutés dans la partie serveur est documentée dans le [Guide administrateur SAP Business One](https://help.sap.com/doc/601fbd9113be4240b81d74626439cfa9/10.0/en-US/AdministratorGuide_SQL.pdf) 
 
 Étant donné l’interaction critique en termes de latence importante entre le niveau client et le niveau base de données, les deux niveaux doivent être situés dans Azure lors du déploiement dans Azure. Il est courant que les utilisateurs se connectent à distance à une ou plusieurs machines virtuelles qui exécutent un service Bureau à distance pour les composants client Business One.
 
 ### <a name="sizing-vms-for-sap-business-one"></a>Dimensionnement des machines virtuelles pour SAP Business One
 
-Concernant le dimensionnement des machines virtuelles client, les exigences en ressources sont documentées par SAP dans le document [Guide sur les conditions matérielles requises SAP Business One](https://help.sap.com/http.svc/rc/011000358700000244612011e/9.3/en-US/B1_Hardware_Requirements_Guide.pdf). Pour Azure, vous devez vous concentrer sur le calcul des conditions requises stipulées dans le chapitre 2.4 du document.
+Concernant le dimensionnement des machines virtuelles client, les exigences en ressources sont documentées par SAP dans le document [Guide sur les conditions matérielles requises SAP Business One](https://help.sap.com/doc/bfa9770d12284cce8509956dcd4c5fcb/9.3/en-US/B1_Hardware_Requirements_Guide.pdf). Pour Azure, vous devez vous concentrer sur le calcul des conditions requises stipulées dans le chapitre 2.4 du document.
 
 Comme les machines virtuelles Azure qui hébergent les composants client Business One et l’hôte de base de données, seules les machines virtuelles prises en charge par SAP NetWeaver sont autorisées. Pour obtenir la liste des machines virtuelles Azure prises en charge par SAP NetWeaver, consultez les [notes SAP #1928533](https://launchpad.support.sap.com/#/notes/1928533).
 
@@ -107,7 +107,7 @@ Une version plus sophistiquée d’une configuration réseau Azure est basée su
 Dans les cas où les utilisateurs se connectent via Internet sans connectivité privé à Azure, la conception du réseau dans Azure doit correspondre aux principes documentés dans l’architecture de référence Azure pour la [zone DMZ entre Azure et Internet](https://docs.microsoft.com/azure/architecture/reference-architectures/dmz/secure-vnet-dmz).
 
 ### <a name="business-one-database-server"></a>Serveur de base de données Business One
-SQL Server et SAP HANA sont disponibles comme type de base de données. Indépendamment de SGBD, vous devez lire le document [Considerations for Azure Virtual Machines DBMS deployment for SAP workload](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/dbms_guide_general) (Facteurs à prendre en compte pour le déploiement SGBD des machines virtuelles Azure pour la charge de travail SAP) pour obtenir une compréhension générale des déploiements SGBD de machines virtuelles Azure et les rubriques connexes à la mise en réseau et le stockage.
+SQL Server et SAP HANA sont disponibles comme type de base de données. Indépendamment de SGBD, vous devez lire le document [Considerations for Azure Virtual Machines DBMS deployment for SAP workload](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/dbms_guide_general) (Facteurs à prendre en compte pour le déploiement SGBD des machines virtuelles Azure pour la charge de travail SAP) pour obtenir une compréhension générale des déploiements SGBD de machines virtuelles Azure et les rubriques connexes à la mise en réseau et au stockage.
 
 Bien que cela soit déjà mentionné dans les documents spécifiques et génériques aux bases de données, nous insistons sur le fait que vous devez savoir :
 

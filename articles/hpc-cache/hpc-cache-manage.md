@@ -3,15 +3,15 @@ title: Gérer et mettre à jour Azure HPC Cache
 description: Comment gérer et mettre à jour Azure HPC Cache à l’aide du Portail Azure
 author: ekpgh
 ms.service: hpc-cache
-ms.topic: conceptual
-ms.date: 1/29/2020
-ms.author: rohogue
-ms.openlocfilehash: 57d6a2024cd6fd979426ca5de5e261f110f6156f
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.topic: how-to
+ms.date: 06/01/2020
+ms.author: v-erkel
+ms.openlocfilehash: 825b8a34e130286a5772363107311fe4170e8743
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81537948"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85515551"
 ---
 # <a name="manage-your-cache-from-the-azure-portal"></a>Gérer votre cache à partir du Portail Azure
 
@@ -30,6 +30,10 @@ Les boutons situés en haut de la page peuvent vous aider à gérer le cache :
 * [**Supprimer**](#delete-the-cache) : supprime définitivement le cache
 
 Apprenez-en davantage sur ces options ci-dessous.
+
+Cliquez sur l’image ci-dessous pour regarder une [vidéo](https://azure.microsoft.com/resources/videos/managing-hpc-cache/) illustrant les tâches de gestion du cache.
+
+[![Miniature de vidéo : Azure HPC Cache : Gestion (cliquez pour visiter la page vidéo)](media/video-5-manage.png)](https://azure.microsoft.com/resources/videos/managing-hpc-cache/)
 
 ## <a name="stop-the-cache"></a>Arrêter le cache
 

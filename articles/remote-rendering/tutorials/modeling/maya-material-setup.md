@@ -1,116 +1,124 @@
 ---
-title: Configuration de matériaux PBR dans Maya
-description: Explique comment configurer des matériaux au rendu physique réaliste (les matériaux PBR) dans Maya et comment les exporter au format FBX
+title: Configurer des matériaux PBR dans Maya
+description: Explique comment configurer des matériaux au rendu physique réaliste (matériaux PBR) dans Maya et comment les exporter au format FBX.
 author: muxanickms
 ms.author: misams
 ms.date: 06/16/2020
 ms.topic: tutorial
-ms.openlocfilehash: 5579994b0746a2de4b0f2ca927027ac709940024
-ms.sourcegitcommit: 9bfd94307c21d5a0c08fe675b566b1f67d0c642d
+ms.openlocfilehash: 72742ff4f6aa19fda092b44d8d2237e7d49dd816
+ms.sourcegitcommit: dfa5f7f7d2881a37572160a70bac8ed1e03990ad
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/17/2020
-ms.locfileid: "84977379"
+ms.lasthandoff: 06/25/2020
+ms.locfileid: "85373237"
 ---
-# <a name="tutorial-setting-up-physically-based-rendering-materials-in-maya"></a>Tutoriel : Configuration de matériaux PBR dans Maya
+# <a name="tutorial-set-up-physically-based-rendering-materials-in-maya"></a>Tutoriel : Configurer des matériaux PBR dans Maya
 
 ## <a name="overview"></a>Vue d’ensemble
-Dans ce tutoriel, vous allez apprendre à :
+Ce didacticiel vous montre comment effectuer les opérations suivantes :
 
 > [!div class="checklist"]
 >
-> * Affecter des matériaux qui créent un modèle d’éclairage précis des objets dans la scène.
+> * Affecter des matériaux dotés d’un éclairage avancé à des objets dans la scène.
 > * Gérer l’instanciation des objets et des matériaux.
 > * Exporter une scène au format FBX et sélectionner les options importantes.
 
-La création de [matériaux au rendu physique réaliste (matériaux PBR)](../../overview/features/pbr-materials.md) dans `Maya` est une tâche relativement simple, qui est semblable en de nombreux points à la configuration PBR dans d’autres applications de création de contenu comme `3DS Max`. Le tutoriel ci-dessous explique les étapes de base de la configuration du nuanceur PBR et de l’exportation au format FBX dans le cadre de projets ARR. 
+La création de [matériaux au rendu physique réaliste (matériaux PBR)](../../overview/features/pbr-materials.md) dans Maya est une tâche relativement simple. Elle est semblable en de nombreux points à la configuration du rendu PBR dans d’autres applications de création de contenu comme 3DS Max. Ce tutoriel explique les étapes de base de la configuration du nuanceur PBR et de l’exportation au format FBX dans le cadre de projets Azure Remote Rendering. 
 
-L’exemple de scène utilisé dans ce tutoriel contient divers objets `Polygon Box` auxquels ont été affectés différents matériaux (bois, métal, métal peint, plastique et caoutchouc). Globalement, chaque matériau comporte la totalité ou la plupart des textures suivantes 
+L’exemple de scène de ce tutoriel contient plusieurs boîtes polygonales. Différents matériaux leur sont attribués, tels que du bois, du métal, du métal peint, du plastique et du caoutchouc. Globalement, chaque matériau comporte la totalité ou la plupart des textures suivantes :
 
-* `Albedo`, qui est la table des couleurs des matériaux, également appelée `Diffuse` ou `BaseColor`
-* `Metalness`, qui détermine si un matériau est métallique et quelles parties de ce matériau sont métalliques. 
-* `Roughness`, qui détermine dans quelle mesure la surface est rugueuse ou lisse, ce qui rend les réflexions et les surbrillances sur une surface plus ou moins nettes ou floues.
-* `Normals`, qui ajoute des détails à une surface, par exemple des piqûres et des bosses sur une surface métallique ou un grain de bois, sans avoir à ajouter de polygones.
-* `Ambient Occlusion`, qui ajoute un léger ombrage et des ombres de contact à un modèle. Il s’agit d’une carte de nuances de gris qui détermine quelles zones sont entièrement éclairées (blanc) ou ombrées (noir). 
+* **Albedo**, qui est la table des couleurs du matériau, également appelée **Diffuse** ou **BaseColor**.
+* **Metalness** (Aspect métallique), qui détermine si un matériau est métallique et quelles parties sont métalliques. 
+* **Roughness** (Rugosité), qui détermine dans quelle mesure la surface est rugueuse ou lisse, ce qui rend les réflexions et les surbrillances sur une surface plus ou moins nettes ou floues.
+* **Normal**, qui ajoute des détails à une surface sans imposer l’ajout de polygones. Des exemples de tels détails sont des piqûres et des bosses sur une surface métallique ou un grain de bois.
+* **Ambient Occlusion** (Occlusion ambiante), qui ajoute un léger ombrage et des ombres de contact à un modèle. Il s’agit d’une carte de nuances de gris qui détermine quelles zones sont totalement éclairées (blanches) ou ombrées (noires). 
 
 ## <a name="prerequisites"></a>Prérequis
-* `Autodesk Maya 2017` ou version ultérieure
+* Autodesk Maya 2017 ou version ultérieure
 
-## <a name="setting-up-materials-in-the-scene"></a>Configuration de matériaux dans la scène
-Dans Maya, le processus de configuration d’un matériau PBR est le suivant :
+## <a name="set-up-materials-in-the-scene"></a>Configurer des matériaux dans la scène
+Voici comment configurer un matériau PBR dans Maya.
 
-Dans un premier temps, comme vous le verrez dans l’exemple de scène, nous avons créé plusieurs objets Box, chacun représentant un type de matériau différent. Vous remarquerez dans l’image ci-dessous que chacun de ces objets a un nom approprié qui lui est propre 
+Comme vous le verrez dans l’exemple de scène, nous avons créé plusieurs objets de boîte. Chaque objet représente un type de matériau différent. Comme illustré dans l’image, chacun de ces objets a un nom approprié qui lui est propre.
 
-> Avant de commencer à créer des ressources pour Azure Remote Rendering (ARR), il est important de noter que l’unité de mesure est le mètre et que l’axe Y correspond à la direction vers le haut. Il est donc conseillé de choisir les mètres comme unités de votre scène dans Maya. De la même façon, il est conseillé pour l’exportation de définir les unités sur les mètres dans les paramètres d’exportation au format FBX. 
+Azure Remote Rendering utilise le mètre comme unité de mesure et l’axe Y correspond à la direction vers le haut. Avant de commencer à créer des ressources, nous vous recommandons de définir le mètre comme unité de scène dans Maya. Pour l’exportation, définissez le mètre comme unité dans les paramètres d’exportation FBX.
 
 > [!TIP]
-Une bonne pratique est de nommer vos ressources de modèle d’une manière appropriée, généralement en mentionnant la partie ou le type de matériau en question. Choisir des noms pertinents facilitera la navigation dans les scènes contenant beaucoup d’objets.
+> Donnez des noms appropriés à vos ressources de modèle en fonction de la pièce ou du type de matériau en question. Choisir des noms pertinents facilite la navigation dans les scènes contenant beaucoup d’objets.
 
 ![les noms d'objets ;](media/object-names.jpg)
 
-Après avoir créé/obtenu vos textures (selon vos besoins, vous voudrez créer des textures uniques pour un modèle dans des applications de texturing comme `Quixel Suite`, `Photoshop` ou `Substance Suite`, ou bien utiliser des textures de mosaïque génériques d’autres sources), vous pouvez les appliquer à votre modèle comme suit :
+Une fois que vous avez créé ou acquis des textures, vous pouvez également créer des textures uniques. Vous pouvez utiliser des applications de texturing, comme Quixel Suite, PhotoShop ou Substance Suite, ou bien obtenir des textures de mosaïque génériques à partir d’autres sources.
 
-* Dans la fenêtre d’affichage (le viewport) de votre scène, sélectionnez le modèle/la géométrie, puis cliquez dessus avec le bouton droit. Dans le menu qui s’affiche, cliquez sur `Assign New Material`
-* Dans les options `Assign New Material`, accédez à `Maya`>`Stingray PBS`. Cette action affecte un matériau PBR à votre modèle. 
+Pour appliquer des textures à votre modèle :
 
-Dans `Maya 2020`, plusieurs nuanceurs PBR sont disponibles : `Maya Standard Surface`, `Arnold Standard Surface` et `Stingray PBR`. Le `Maya Standard Surface Shader` n’est pas exportable avec `FBX plugin 2020`, alors que le `Arnold Standard Surface Shader` peut être exporté avec des fichiers FBX. Sur la plupart des autres aspects, il est identique au `Maya Standard Surface Shader` et est analogue au `Physical Material` dans `3D Studio Max`.
+1. Dans la fenêtre d’affichage (le viewport) de votre scène, sélectionnez le modèle ou la géométrie, puis cliquez dessus avec le bouton droit. Dans le menu qui s’affiche, sélectionnez **Assign New Material** (Affecter un nouveau matériau).
+1. Dans la boîte de dialogue **Assign New Material** (Affecter un nouveau matériau), accédez à **Maya** > **Stingray PBS**. Cette action affecte un matériau PBR à votre modèle. 
 
-**`The Stingray PBR Shader`** est compatible avec de nombreuses autres applications, il remplit globalement les exigences d’`ARR` et il est pris en charge depuis `Maya 2017`. De plus, il est pratique que ce type de matériaux visualisés dans le viewport ressemble à ce qui sera visualisé ultérieurement dans ARR.
+Dans Maya 2020, plusieurs nuanceurs PBR sont disponibles. Ils incluent **Maya Standard Surface**, **Arnold Standard Surface** et **Stingray PBR**. Le nuanceur **Maya Standard Surface Shader** n’est pas encore exportable via le plug-in FBX 2020. Le nuanceur **Arnold Standard Surface Shader** peut être exporté avec des fichiers FBX. Sur la plupart des autres aspects, il est identique au nuanceur **Maya Standard Surface Shader**. Il est analogue à **Physical Material** dans 3D Studio Max.
 
-![Matériau « Stingray »](media/stingray-material.jpg)
+Le nuanceur **Stingray PBR Shader** est compatible avec de nombreuses autres applications et satisfait au mieux les exigences d’Azure Remote Rendering. Il est pris en charge depuis Maya 2017. Lorsque ce type de matériau est visualisé dans la fenêtre d’affichage, il est semblable à ce qui est visualisé ultérieurement dans Azure Remote Rendering.
 
-Maintenant que vous avez affecté le matériau à votre ressource et que vous l’avez nommé de manière appropriée, vous pouvez affecter vos différentes textures. Dans les images suivantes, vous voyez précisément à quoi correspond chaque type de texture dans le matériau PBR. Avec le matériau `Stingray PBR`, vous pouvez sélectionner les attributs à activer. Par conséquent, avant de pouvoir faire un `plug in` de vos cartes de textures, vous devez activer les attributs appropriés : 
+![Matériau Stingray](media/stingray-material.jpg)
+
+Maintenant que vous avez affecté le matériau à votre ressource et que vous l’avez nommé de manière appropriée, vous pouvez affecter vos différentes textures. Les images suivantes montrent à quoi correspond chaque type de texture sur le matériau PBR. Le matériau PBR Stingray vous permet de sélectionner les attributs que vous pouvez activer. Avant d’insérer vos cartes de texture, vous devez activer les attributs appropriés.
 
 ![Configuration des matériaux](media/material-setup.jpg)
 
-> [!TIP]
-Une bonne pratique à suivre est de nommer vos matériaux de manière pertinente, en fonction de leur usage et/ou de leur type. Un matériau destiné à être utilisé sur une seule partie peut être nommé spécifiquement pour cette partie, alors qu’un matériau susceptible d’être utilisé plus largement sur différentes zones peut être nommé d’après ses propriétés ou son type.
+Nommez vos matériaux de manière pertinente en prenant en compte leur usage ou leur type. Un matériau utilisé sur une pièce unique peut être nommé en fonction de cette pièce. Un matériau utilisé sur un plus grand nombre de zones peut être nommé en fonction de ses propriétés ou de son type.
 
-Affectez vos textures comme ceci :
+Affectez vos textures comme indiqué dans l’image.
 
 ![Configuration des textures](media/texture-setup.jpg)
 
-Vous avez créé et configuré vos matériaux PBR. Il est temps maintenant de réfléchir à l’[instanciation des objets](../../how-tos/conversion/configure-model-conversion.md#instancing) dans votre scène. L’instanciation d’objets similaires dans votre scène (par exemple, les écrous, les boulons et les rondelles), fondamentalement, tous les objets qui sont identiques, peut réduire considérablement la taille des fichiers. Les instances d’un objet principal peuvent avoir leurs propres transformations, rotation et échelle, ce qui vous permet de les placer où vous le souhaitez dans votre scène. Dans Maya, le processus d’instanciation est simple.
+Une fois que vous avez créé et configuré vos matériaux PBR, envisagez d’[instancier les objets](../../how-tos/conversion/configure-model-conversion.md#instancing) dans votre scène. L’instanciation d’objets similaires dans votre scène, tels que des écrous, des boulons, des vis et des rondelles, entraîne une économie substantielle de taille de fichier. Les instances d’un objet principal peuvent avoir leurs propres transformations, rotation et échelle, ce qui vous permet de les placer où vous le souhaitez dans votre scène. 
 
-* Dans le menu `Edit`, accédez à `Duplicate Special` et ouvrez `Options` 
-* Dans les options `Duplicate Special`, changez l’option `Geometry Type` de `Copy` à `Instance` 
-* Cliquez sur `Duplicate Special`
+Dans Maya, le processus d’instanciation est simple.
 
-![Instanciation](media/instancing.jpg)
+1. Dans le menu **Edit** (Edition), accédez à **Duplicate Special** (Duplication spéciale) pour ouvrir les options.
+1. Dans la boîte de dialogue **Duplicate Special Options** (Options de duplication spéciale), pour **Geometry type** (Type de géométrie), sélectionnez l’option **Instance**. 
+1. Sélectionnez **Duplicate Special** (Duplication spéciale).
 
-Cette action crée une instance de votre objet qui peut être déplacée, pivotée ou mise à l’échelle indépendamment de son parent et des autres instances de ce parent. 
->Toutefois, sachez que les modifications apportées à une instance en mode composant sont transmises à toutes les instances de votre objet. Donc, si vous utilisez des composants d’objets instanciés, comme des sommets, des faces de polygone, etc., vous devez être sûr de vouloir appliquer les modifications à l’ensemble de ces instances.
+   ![Instanciation](media/instancing.jpg)
 
-Dans l’exemple de scène, chacun des objets Box a été instancié. Nous verrons en quoi cela est utile quand nous exporterons la scène au format FBX.
+Cette action crée une instance de votre objet. Vous pouvez la déplacer, la faire pivoter ou la mettre à l’échelle indépendamment de son parent et des autres instances de ce parent. 
+
+Toutes les modifications que vous apportez à une instance en mode composant sont transmises à toutes les instances de votre objet. Par exemple, vous pouvez utiliser les composants d’un objet instancié, tels que les sommets et les faces de polygone. Veillez à ce que toutes les modifications que vous avez apportées affectent toutes les instances. 
+
+Dans l’exemple de scène, chaque boîte individuelle a été instanciée. Nous verrons en quoi cela est utile quand nous exporterons la scène au format FBX.
 
 ![Vue d’ensemble de la scène](media/scene-overview.jpg)
 
->La bonne pratique en matière d’instanciation dans votre scène consiste à créer les objets instanciés au fur et à mesure, car le remplacement ultérieur des « copies » par des objets instanciés est extrêmement difficile. 
+> [!TIP]
+> Créez des instances dans votre scène au fur et à mesure. Le remplacement ultérieur de copies par des objets instanciés est extrêmement difficile. 
 
 ## <a name="fbx-export-process"></a>Processus d’exportation au format FBX
 
-Nous pouvons maintenant procéder à l’exportation au format FBX de votre scène ou de ses ressources. En règle générale, quand vous exportez des ressources, il vaut mieux sélectionner comme objets/ressources à exporter de votre scène uniquement ceux que vous comptez réutiliser. En effet, si votre scène contient 100 objets, mais que vous souhaitez utiliser seulement 30 d’entre eux, il n’y a aucun intérêt à exporter la scène entière. Donc, sauf si vous tenez vraiment à exporter l’intégralité de la scène, effectuez votre sélection, puis accédez à :
+Procédons maintenant à l’exportation au format FBX de votre scène ou de ses ressources. Lorsque vous exportez des ressources, il est judicieux de sélectionner uniquement les objets ou les ressources de votre scène que vous souhaitez exporter. Par exemple, vous pouvez avoir 100 objets dans une scène. Si vous souhaitez utiliser uniquement 30 d’entre eux, il n’est pas judicieux d’exporter la scène entière. 
 
-* `File` > `Export Selection` et, en bas de la boîte de dialogue d’exportation, définissez `Files of Type` sur `FBX Export`. Cette fenêtre présente les paramètres d’exportation au format FBX disponibles. Les principaux paramètres pour l’exportation au format FBX sont entourés en rouge dans l’image ci-dessous.
+Pour effectuer votre sélection :
 
-![Exportation au format FBX](media/FBX-exporting.jpg)
+1. Accédez à **File** (Fichier) > **Export Selection** (Exporter la sélection) pour ouvrir la boîte de dialogue **Export Selection** (Exporter la sélection).
+1. Dans la zone **Files of type** (Fichiers de type), sélectionnez **FBX export** (Exportation FBX) pour afficher les paramètres d’exportation FBX. Les principaux paramètres d’exportation au format FBX sont encadrés en rouge dans l’image.
 
-En fonction de vos besoins, par exemple, si vous souhaitez envoyer une ressource à un client sans joindre de multiples fichiers de textures avec la ressource, vous pouvez choisir d’incorporer les textures dans le fichier FBX exporté. En choisissant cette option, vous n’avez qu’un seul fichier à inclure dans le package, mais cela augmente considérablement la taille de cette ressource FBX. Pour activer l’incorporation des textures, cochez l’option `Embed Media` comme illustré ci-dessous.
+   ![Exportation au format FBX](media/FBX-exporting.jpg)
+
+Selon vos besoins, par exemple, vous pouvez envoyer une ressource à un client. Vous ne souhaitez peut-être pas envoyer un grand nombre de fichiers de texture avec la ressource. Vous pouvez choisir d’incorporer les textures dans le fichier FBX exporté. Cette option signifie que vous avez un seul fichier à inclure dans le package, mais la taille de cette ressource FBX augmente considérablement. Pour activer l’incorporation des textures, sélectionnez l’option **Embed Media** (Incorporer des médias) comme illustré ci-dessous.
 
 > [!TIP]
-> Notez qu’ici, le nom du fichier reflète la condition d’incorporation. C’est une bonne pratique qui facilite la gestion des ressources. 
+> Dans cet exemple, le fichier a été nommé pour refléter cette condition. Ce style de nommage est pratique pour effectuer le suivi de vos ressources. 
 
-Une fois que vous avez terminé la configuration de l’exportation, cliquez sur le bouton « Export Selection » (Exporter la sélection) dans le coin inférieur droit.
+Une fois que vous avez défini votre configuration pour l’exportation, sélectionnez **Export Selection** (Exporter la sélection) dans le coin inférieur droit.
 
 ![Incorporation de ressource](media/embedding-media.jpg)
 
 ## <a name="conclusion"></a>Conclusion
 
-En général, ce type de matériaux semble plus réaliste, car il est basé sur les vraies propriétés physiques de la lumière. Il ajoute un effet immersif qui donne l’impression que la scène existe réellement.
+En général, ce type de matériau semble plus réaliste, car il est basé sur les propriétés physiques réelles de la lumière. Il ajoute un effet immersif qui donne un aspect réel à la scène.
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Vous connaissez à présent les fonctionnalités les plus importantes pour configurer des matériaux qui apportent un éclairage précis aux objets dans une scène et pour les exporter dans un format FBX pris en charge par ARR. Dans l’étape suivante, nous allons convertir le fichier FBX et le visualiser dans ARR.
+Vous savez maintenant configurer des matériaux avec un éclairage avancé pour les objets d’une scène. Vous savez également exporter les objets au format FBX pris en charge par Azure Remote Rendering. L’étape suivante consiste à convertir le fichier FBX et à le visualiser dans Azure Remote Rendering.
 
 > [!div class="nextstepaction"]
 > [Démarrage rapide : Convertir un modèle pour le rendu](../../quickstarts\convert-model.md)

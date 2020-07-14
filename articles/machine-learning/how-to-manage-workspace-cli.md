@@ -5,16 +5,16 @@ description: Découvrez comment utiliser Azure CLI pour créer un espace de trav
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
-ms.topic: conceptual
+ms.topic: how-to
 ms.author: larryfr
 author: Blackmist
-ms.date: 03/05/2020
-ms.openlocfilehash: 9a7d0b75140c50df61ff63f350e5b312a6a684c7
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.date: 06/25/2020
+ms.openlocfilehash: 64963bfc28921d195d9ed0f96b2673a9c9e4aa2b
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81617786"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85392707"
 ---
 # <a name="create-a-workspace-for-azure-machine-learning-with-azure-cli"></a>Créer un espace de travail pour Azure Machine Learning avec Azure CLI
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -59,7 +59,7 @@ az extension add -n azure-cli-ml
 L’espace de travail d’Azure Machine Learning s’appuie sur les entités ou services Azure suivants :
 
 > [!IMPORTANT]
-> Si vous ne spécifiez pas de service Azure existant, il en sera créé un automatiquement lors de la création de l’espace de travail. Vous devez toujours spécifier un groupe de ressources.
+> Si vous ne spécifiez pas de service Azure existant, il en sera créé un automatiquement lors de la création de l’espace de travail. Vous devez toujours spécifier un groupe de ressources. Lorsque vous attachez votre propre compte de stockage, assurez-vous que les fonctionnalités Azure Blob et Azure File sont activées et que l’espace de noms hiérarchique (ADLS Gen 2) est désactivé. Vous pouvez toujours attacher votre propre compte de stockage ultérieurement, une fois que l’espace de travail est créé en tant que magasins de stockage.
 
 | Service | Paramètre pour spécifier une instance existante |
 | ---- | ---- |
@@ -317,7 +317,7 @@ Pour plus d’informations, consultez la documentation [az ml workspace share](h
 
 ## <a name="sync-keys-for-dependent-resources"></a>Synchroniser les clés pour les ressources dépendantes
 
-Si vous modifiez les clés d’accès pour l’une des ressources utilisées par votre espace de travail, utilisez la commande suivante pour synchroniser les nouvelles clés avec l’espace de travail :
+Si vous modifiez les clés d’accès pour l’une des ressources utilisées par votre espace de travail, cela prend environ une heure de synchroniser l’espace de travail avec la nouvelle clé. Pour forcer l’espace de travail à synchroniser les nouvelles clés immédiatement, utilisez la commande suivante :
 
 ```azurecli-interactive
 az ml workspace sync-keys -w <workspace-name> -g <resource-group-name>

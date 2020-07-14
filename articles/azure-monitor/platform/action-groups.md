@@ -3,15 +3,15 @@ title: Créer et gérer des groupes d’actions sur le Portail Azure
 description: Découvrez comment créer et gérer des groupes d’action sur le Portail Azure.
 author: dkamstra
 ms.topic: conceptual
-ms.date: 4/17/2020
+ms.date: 6/5/2020
 ms.author: dukek
 ms.subservice: alerts
-ms.openlocfilehash: b88b6d1ea4b9d9fc2b33849157968ee1c2f8c620
-ms.sourcegitcommit: 1692e86772217fcd36d34914e4fb4868d145687b
+ms.openlocfilehash: dbc810ad7227d9d47099fe85e89a92c8fa750302
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/29/2020
-ms.locfileid: "84170458"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84465250"
 ---
 # <a name="create-and-manage-action-groups-in-the-azure-portal"></a>Créer et gérer des groupes d’actions sur le Portail Azure
 Un groupe d’actions est une collection de préférences de notification définies par le propriétaire d’un abonnement Azure. Les alertes Azure Monitor et Service Health utilisent des groupes d’actions pour avertir les utilisateurs qu’une alerte a été déclenchée. Plusieurs alertes peuvent utiliser le même groupe d’actions ou des groupes d’actions différents selon les besoins de l’utilisateur. Vous pouvez configurer jusqu'à 2 000 groupes d'actions au sein d'un abonnement.
@@ -217,7 +217,12 @@ Vous pouvez avoir un nombre limité d’actions de voix par groupe d’actions.
 La tarification pour les pays/régions pris en charge est indiquée dans la [page de tarification Azure Monitor](https://azure.microsoft.com/pricing/details/monitor/).
 
 ### <a name="webhook"></a>webhook
-Les Webhooks sont retentés au travers des règles suivantes. L’appel de webhook est retenté 2 fois au maximum lorsque les codes d’état HTTP suivants sont retournés : 408, 429, 503, 504 ou que le point de terminaison HTTP ne répond pas. La première nouvelle tentative se produit après 10 secondes. La deuxième nouvelle tentative se produit après 100 secondes. Après deux échecs, aucun groupe d’actions n’appellera le point de terminaison pendant 30 minutes. 
+Les Webhooks sont exécutés avec les règles suivantes
+- Un appel de webhook est tenté au maximum 3 fois.
+- L’appel sera retenté si aucune réponse n’est reçue dans le délai imparti ou si l’un des codes d’état HTTP suivants est renvoyé : 408, 429, 503 ou 504.
+- Le premier appel attendra 10 secondes pour une réponse.
+- Les deuxième et troisième tentatives attendent 30 secondes pour une réponse.
+- Une fois que les 3 tentatives d’appel du webhook ont échoué, aucun groupe d’actions n’appellera le point de terminaison pendant 15 minutes.
 
 Plage d’adresses IP sources
  - 13.72.19.232

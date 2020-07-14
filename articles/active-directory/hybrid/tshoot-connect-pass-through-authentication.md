@@ -11,17 +11,17 @@ ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: troubleshooting
 ms.date: 4/15/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: ae83cea866367fa6a6596caa683d0287bea96c29
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 36844c3c2fcfdbf016b3e2d148345e9ce31ea2b4
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "60456123"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85356149"
 ---
 # <a name="troubleshoot-azure-active-directory-pass-through-authentication"></a>Résolution des problèmes d’authentification directe Azure Active Directory
 
@@ -51,6 +51,33 @@ Si l’utilisateur ne peut pas se connecter avec l’authentification directe, l
 |AADSTS80004|Le nom d’utilisateur envoyé à l’agent n’était pas valide|Vérifiez que l’utilisateur tente de se connecter avec le nom d’utilisateur correct.
 |AADSTS80005|La validation a rencontré une WebException imprévisible|Erreur temporaire. Relancez la requête. Si l’erreur se reproduit, contactez le Support Microsoft.
 |AADSTS80007|Une erreur s’est produite lors de la communication avec Active Directory|Consultez les journaux d’activité de l’agent pour plus d’informations, et vérifiez qu’Active Directory fonctionne comme prévu.
+
+### <a name="users-get-invalid-usernamepassword-error"></a>Les utilisateurs obtiennent une erreur de nom d’utilisateur/mot de passe non valide 
+
+Cela peut se produire lorsque le nom d’utilisateur local UserPrincipalName (UPN) d’un utilisateur est différent de l’UPN cloud de l’utilisateur.
+
+Pour confirmer qu’il s’agit du problème, commencez par vérifier que l’agent d’authentification directe fonctionne correctement :
+
+
+1. Créez un compte de test.  
+2. Importez le module PowerShell sur l’ordinateur de l’agent :
+ 
+ ```powershell
+ Import-Module "C:\Program Files\Microsoft Azure AD Connect Authentication  Agent\Modules\PassthroughAuthPSModule\PassthroughAuthPSModule.psd1"
+ ```
+3. Exécutez la commande Invoke PowerShell : 
+
+ ```powershell
+ Invoke-PassthroughAuthOnPremLogonTroubleshooter 
+ ``` 
+4. Lorsque vous êtes invité à entrer des informations d’identification, entrez les mêmes nom d’utilisateur et mot de passe que ceux utilisés pour vous connecter à https://login.microsoftonline.com).
+
+Si vous obtenez la même erreur de nom d’utilisateur/mot de passe, cela signifie que l’agent d’authentification directe fonctionne correctement et que le problème est que l’UPN local n’est peut-être pas routable. Pour en savoir plus, consultez [Configuration d’un ID secondaire de connexion]( https://docs.microsoft.com/windows-server/identity/ad-fs/operations/configuring-alternate-login-id#:~:text=%20Configuring%20Alternate%20Login%20ID,See%20Also.%20%20More).
+
+
+
+
+
 
 ### <a name="sign-in-failure-reasons-on-the-azure-active-directory-admin-center-needs-premium-license"></a>Raisons des échecs de connexion dans le Centre d’administration Azure Active Directory (licence Premium requise)
 

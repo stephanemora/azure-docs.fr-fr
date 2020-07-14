@@ -3,19 +3,22 @@ title: Mettre à jour les cibles de stockage Azure HPC Cache
 description: Comment modifier les cibles de stockage Azure HPC Cache
 author: ekpgh
 ms.service: hpc-cache
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 1/08/2020
-ms.author: rohogue
-ms.openlocfilehash: 5635bfc6ea5faea41b125037c76c0b8635e0f528
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.author: v-erkel
+ms.openlocfilehash: 0fa8be58db9754c652d6e1ee5349c950a1c19109
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "75866999"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85513850"
 ---
 # <a name="edit-storage-targets"></a>Modifier les cibles de stockage
 
 Vous pouvez supprimer ou modifier une cible de stockage à partir de la page **Cibles de stockage** du cache.
+
+> [!TIP]
+> La vidéo [Gestion d’Azure HPC Cache](https://azure.microsoft.com/resources/videos/managing-hpc-cache/) montre comment modifier une cible de stockage.
 
 ## <a name="remove-a-storage-target"></a>Supprimer une cible de stockage
 

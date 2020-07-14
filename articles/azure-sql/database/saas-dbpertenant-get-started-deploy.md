@@ -11,19 +11,20 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: ''
 ms.date: 01/25/2019
-ms.openlocfilehash: d94f7219c5a29de9a707aa9ae4ed25ac4b2bf03e
-ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
+ms.openlocfilehash: 15a623068c46109b95ce9a9300348d29f95610a3
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "84028160"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85254308"
 ---
 # <a name="deploy-and-explore-a-multitenant-saas-app-that-uses-the-database-per-tenant-pattern-with-azure-sql-database"></a>Déployer et explorer une application SaaS multilocataire qui utilise le modèle de base de données par locataire avec Azure SQL Database
+
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
 
 Dans ce didacticiel, vous allez déployer et explorer l’application de base de données par locataire SaaS Wingtip Tickets. L’application utilise un modèle de base de données par locataire pour stocker les données de plusieurs locataires. L’application est conçue pour tirer parti des fonctionnalités Azure SQL Database qui simplifient l’activation des scénarios SaaS.
 
-Cinq minutes après avoir sélectionné **Déployer sur Azure**, vous avez une application SaaS multilocataire. L’application inclut une base de données SQL qui s’exécute dans le cloud. Elle est déployée avec trois exemples de locataire, chacun avec sa propre base de données. Toutes les bases de données sont déployées sur un pool élastique SQL. L’application est déployée sur votre abonnement Azure. Vous avez un accès complet pour explorer et utiliser les composants individuels de l’application. Le code source en C# de l’application et les scripts de gestion sont disponibles dans le [référentiel GitHub WingtipTicketsSaaS-DbPerTenant][github-wingtip-dpt].
+Cinq minutes après avoir sélectionné **Déployer sur Azure**, vous avez une application SaaS multilocataire. L’application comprend une base de données qui s’exécute dans Azure SQL Database. Elle est déployée avec trois exemples de locataire, chacun avec sa propre base de données. Toutes les bases de données sont déployées sur un pool élastique SQL. L’application est déployée sur votre abonnement Azure. Vous avez un accès complet pour explorer et utiliser les composants individuels de l’application. Le code source en C# de l’application et les scripts de gestion sont disponibles dans le [référentiel GitHub WingtipTicketsSaaS-DbPerTenant][github-wingtip-dpt].
 
 Ce didacticiel vous apprend à effectuer les opérations suivantes :
 
@@ -107,7 +108,7 @@ Ces valeurs sont référencées dans la quasi-totalité des scripts.
 
 L’application présente les lieux qui hébergent des événements. Les types de lieu incluent des salles de concert, des clubs de jazz et des salles de sport. Dans Wingtip Tickets, les lieux sont enregistrés en tant que locataires. En étant locataire, un lieu obtient un moyen simple de répertorier des événements et de vendre des billets à ses clients. Chaque lieu obtient un site web personnalisé pour répertorier ses événements et vendre des billets.
 
-En interne dans l’application, chaque locataire obtient une base de données SQL déployée sur un pool élastique SQL.
+En interne dans l’application, chaque locataire obtient une base de données déployée sur un pool élastique.
 
 Une page **Events Hub** centrale fournit une liste de liens vers les locataires de votre déploiement.
 

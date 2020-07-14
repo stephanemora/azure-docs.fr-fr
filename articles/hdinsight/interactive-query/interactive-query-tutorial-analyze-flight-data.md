@@ -8,16 +8,16 @@ ms.service: hdinsight
 ms.topic: tutorial
 ms.custom: hdinsightactive,mvc
 ms.date: 07/02/2019
-ms.openlocfilehash: 431cd5efbb1087d99fc8521cec7a5c604856dac5
-ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
+ms.openlocfilehash: 5c5a3c9e66a4d25a84d7940f49ec332d57f4c818
+ms.sourcegitcommit: 01cd19edb099d654198a6930cebd61cae9cb685b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "84021736"
+ms.lasthandoff: 06/24/2020
+ms.locfileid: "85319189"
 ---
 # <a name="tutorial-extract-transform-and-load-data-using-interactive-query-in-azure-hdinsight"></a>Tutoriel : Extraire, transformer et charger des données à l’aide d’Interactive Query sur Azure HDInsight
 
-Dans ce tutoriel, vous téléchargez un fichier de données brutes CSV de données de vol disponibles publiquement. Importez-le dans le stockage de cluster HDInsight, puis transformez les données avec Interactive Query dans Azure HDInsight. Une fois les données transformées, chargez-les dans une base de données Azure SQL à l’aide d’[Apache Sqoop](https://sqoop.apache.org/).
+Dans ce tutoriel, vous téléchargez un fichier de données brutes CSV de données de vol disponibles publiquement. Importez-le dans le stockage de cluster HDInsight, puis transformez les données avec Interactive Query dans Azure HDInsight. Une fois les données transformées, chargez-les dans une base de données dans Azure SQL Database à l’aide d’[Apache Sqoop](https://sqoop.apache.org/).
 
 Ce tutoriel décrit les tâches suivantes :
 
@@ -25,14 +25,14 @@ Ce tutoriel décrit les tâches suivantes :
 > * Télécharger l’exemple des données de vol
 > * Charger des données vers un cluster HDInsight
 > * Transformer les données à l’aide d’Interactive Query
-> * Créer une table dans une base de données Azure SQL
-> * Utiliser Sqoop pour exporter des données vers une base de données Azure SQL
+> * Créer une table dans une base de données dans Azure SQL Database
+> * Utiliser Sqoop pour exporter des données vers une base de données Azure SQL Database
 
 ## <a name="prerequisites"></a>Prérequis
 
 * Un cluster Interactive Query sur HDInsight. Consultez [Création clusters Apache Hadoop à l’aide du portail Azure](../hdinsight-hadoop-create-linux-clusters-portal.md) et sélectionnez **Interactive Query** pour le **Type de cluster**.
 
-* Une base de données Azure SQL. Vous allez utiliser une base de données Azure SQL comme magasin de données cible. Si vous n’avez pas de base de données SQL, consultez [Créer une base de données Azure SQL dans le portail Azure](/azure/sql-database/sql-database-single-database-get-started).
+* base de données Azure SQL Database. Vous utilisez la base de données en tant que magasin de données de destination. Si vous n’avez pas de base de données dans Azure SQL Database, consultez [Créer une base de données dans Azure SQL Database dans le portail Azure](/azure/sql-database/sql-database-single-database-get-started).
 
 * Un client SSH. Pour plus d’informations, consultez [Se connecter à HDInsight (Apache Hadoop) à l’aide de SSH](../hdinsight-hadoop-linux-use-ssh-unix.md).
 
@@ -250,9 +250,9 @@ Il existe de nombreuses façons de se connecter à la base de données SQL et de
 
 4. Entrée `exit` at the `1>` .
 
-## <a name="export-data-to-sql-database-using-apache-sqoop"></a>Exporter des données vers la base de données SQL à l’aide d’ Apache Sqoop
+## <a name="export-data-to-sql-database-using-apache-sqoop"></a>Exporter des données vers SQL Database à l’aide d’Apache Sqoop
 
-Dans les sections précédentes, vous avez copié les données transformées dans `/tutorials/flightdelays/output`. Dans cette section, vous allez utiliser Sqoop pour exporter les données de `/tutorials/flightdelays/output` vers la table que vous avez créée dans la base de données Azure SQL.
+Dans les sections précédentes, vous avez copié les données transformées dans `/tutorials/flightdelays/output`. Dans cette section, vous allez utiliser Sqoop pour exporter les données de `/tutorials/flightdelays/output` vers la table que vous avez créée dans Azure SQL Database.
 
 1. Pour vérifier que Sqoop peut voir votre base de données SQL, entrez la commande ci-dessous :
 

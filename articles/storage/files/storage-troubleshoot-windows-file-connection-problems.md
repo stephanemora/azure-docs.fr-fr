@@ -3,16 +3,16 @@ title: Résoudre les problèmes liés à Azure Files sous Windows | Microsoft D
 description: Résoudre les problèmes liés à Azure Files sous Windows
 author: jeffpatt24
 ms.service: storage
-ms.topic: conceptual
+ms.topic: troubleshooting
 ms.date: 05/31/2019
 ms.author: jeffpatt
 ms.subservice: files
-ms.openlocfilehash: 40b8616f40f2ce33332fc42ec68532e4ae0ecdb0
-ms.sourcegitcommit: 309cf6876d906425a0d6f72deceb9ecd231d387c
+ms.openlocfilehash: 89a5fa0be104c3a7b7e035f82d2fed80d4781701
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/01/2020
-ms.locfileid: "84267815"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85511984"
 ---
 # <a name="troubleshoot-azure-files-problems-in-windows"></a>Résoudre les problèmes liés à Azure Files sous Windows
 
@@ -340,14 +340,14 @@ $StorageAccountName = "<storage-account-name-here>"
 Debug-AzStorageAccountAuth -StorageAccountName $StorageAccountName -ResourceGroupName $ResourceGroupName -Verbose
 ```
 L’applet de commande effectue dans l’ordre les vérifications ci-dessous, puis fournit des conseils en cas d’échec :
-1. CheckPort445Connectivity : vérifier que le port 445 est ouvert pour la connexion SMB
-2. CheckDomainJoined : vérifier que l’ordinateur client est joint au domaine Active Directory
-3. CheckADObject : vérifier que l’utilisateur connecté dispose d’une représentation valide dans le domaine AD auquel le compte de stockage est associé
-4. CheckGetKerberosTicket : tenter d’obtenir un ticket Kerberos pour se connecter au compte de stockage 
-5. CheckADObjectPasswordIsCorrect : vérifier que le mot de passe configuré sur l’identité AD qui représente le compte de stockage correspond à celui de la clé Kerberos du compte de stockage
-6. CheckSidHasAadUser : vérifier que l’utilisateur AD connecté est synchronisé avec Azure AD
-
-Nous travaillons activement à l’extension de cette applet de commande de diagnostics pour fournir des conseils de dépannage plus performants.
+1. CheckPort445Connectivity : Vérifier que le port 445 est ouvert pour la connexion SMB
+2. CheckDomainJoined : Vérifier que l’ordinateur client est joint au domaine Active Directory
+3. CheckADObject : Confirmer qu’il existe un objet dans Active Directory qui représente le compte de stockage et qu’il possède le nom de principal du service (SPN) correct.
+4. CheckGetKerberosTicket : Tenter d’obtenir un ticket Kerberos pour se connecter au compte de stockage 
+5. CheckADObjectPasswordIsCorrect : Vérifier que le mot de passe configuré sur l’identité AD qui représente le compte de stockage correspond à celui de la clé kerb1 ou kerb2 du compte de stockage
+6. CheckSidHasAadUser : Vérifiez que l’utilisateur AD connecté est synchronisé avec Azure AD. Si vous souhaitez rechercher si un utilisateur AD spécifique est synchronisé avec Azure AD, vous pouvez spécifier les paramètres -UserName et -Domain dans les paramètres d’entrée.
+7. CheckAadUserHasSid : Vérifier si un utilisateur Azure AD possède un SID dans Active Directory, cette vérification exige que l’utilisateur saisisse l’ID d’objet de l’utilisateur Azure AD avec le paramètre -ObjectId. 
+8. CheckStorageAccountDomainJoined : Vérifier les propriétés du compte de stockage pour voir si l’authentification Active Directory a été activée et que les propriétés AD du compte sont remplies.
 
 ## <a name="unable-to-configure-directoryfile-level-permissions-windows-acls-with-windows-file-explorer"></a>Impossible de configurer des autorisations au niveau des répertoires/fichiers (listes de contrôle d’accès Windows) avec l’Explorateur de fichiers Windows
 

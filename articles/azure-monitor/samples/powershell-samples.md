@@ -6,12 +6,12 @@ ms.topic: sample
 author: bwren
 ms.author: bwren
 ms.date: 2/14/2018
-ms.openlocfilehash: 14fe27c28e2eb6a527dc6f026916002cfb5b0147
-ms.sourcegitcommit: 51977b63624dfd3b4f22fb9fe68761d26eed6824
+ms.openlocfilehash: 4313d9fec9e858a5d30cfea2bbe7372e6a96169c
+ms.sourcegitcommit: fdaad48994bdb9e35cdd445c31b4bac0dd006294
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/17/2020
-ms.locfileid: "84945254"
+ms.lasthandoff: 06/26/2020
+ms.locfileid: "85413890"
 ---
 # <a name="azure-monitor-powershell-samples"></a>Exemples PowerShell Azure Monitor
 Cet article vous présente des exemples de commandes PowerShell qui vous aideront à accéder rapidement aux fonctions de surveillance Azure Insights.
@@ -220,6 +220,10 @@ Set-AzActivityLogAlert -Location 'Global' -Name 'alert on VM create' -ResourceGr
 Les propriétés de Webhook supplémentaires sont facultatives. Vous pouvez récupérer le contenu d’une alerte de journal d’activité à l’aide de `Get-AzActivityLogAlert`.
 
 ## <a name="create-and-manage-autoscale-settings"></a>Créer et gérer les paramètres de mise à l'échelle automatique
+
+> [!NOTE] 
+> Pour les services cloud (Microsoft.ClassicCompute), la mise à l’échelle automatique prend en charge un fragment de temps de 5 minutes (PT5M). Pour les autres services, la mise à l’échelle automatique prend en charge un fragment de temps minimal de 1 minute (PT1M)
+
 Une ressource (application web, machine virtuelle, service cloud ou groupe de machines virtuelles identiques) ne peut avoir qu’un seul paramètre de mise à l’échelle automatique configuré.
 Cependant, chaque paramètre de mise à l'échelle automatique peut avoir plusieurs profils. Par exemple, un pour un profil de mise à l’échelle en fonction des performances et un autre pour un profil basé sur une planification. Chaque profil peut avoir plusieurs règles configurées. Pour plus d’informations sur la mise à l’échelle automatique, voir [Mise à l’échelle automatique d’une application](../../cloud-services/cloud-services-how-to-scale-portal.md).
 

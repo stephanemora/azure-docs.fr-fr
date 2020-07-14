@@ -5,12 +5,12 @@ services: automation
 ms.subservice: update-management
 ms.date: 05/17/2019
 ms.topic: conceptual
-ms.openlocfilehash: 7fa2dd335e457307dd6d7e4ecdc787015b742b32
-ms.sourcegitcommit: 2721b8d1ffe203226829958bee5c52699e1d2116
+ms.openlocfilehash: f05e705f351d75fdf772d3197b94fcece40d43fb
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/28/2020
-ms.locfileid: "84148274"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85100386"
 ---
 # <a name="manage-pre-scripts-and-post-scripts"></a>Gérer des pré-scripts et des post-scripts
 
@@ -90,6 +90,9 @@ Un exemple complet avec toutes les propriétés est disponible ici : [Obtenir l
 
 > [!NOTE]
 > L’objet `SoftwareUpdateConfigurationRunContext` peut contenir des entrées en double pour les machines. De ce fait, il se peut que les pré-scripts et les post-scripts s’exécutent plusieurs fois sur la même machine. Pour éviter ce comportement, utilisez le paramètre `Sort-Object -Unique` pour sélectionner uniquement les noms de machine virtuelle uniques.
+
+> [!NOTE]
+> Actuellement, seuls les runbooks PowerShell sont pris en charge en tant que pré/post-scripts. Les autres types de runbook tels que Python, Graphical, PowerShell Workflow, Graphical PowerShell ne sont actuellement pas pris en charge en tant que pré/post-scripts.
 
 ## <a name="use-a-pre-script-or-post-script-in-a-deployment"></a>Utiliser un pré-script ou d’un post-script dans un déploiement
 

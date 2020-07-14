@@ -8,14 +8,14 @@ services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
 ms.topic: tutorial
-ms.date: 05/12/2020
+ms.date: 06/28/2020
 ms.custom: designer
-ms.openlocfilehash: 2fab23e9f765d9ab4908cc4be69d8b747c6856b9
-ms.sourcegitcommit: 6571e34e609785e82751f0b34f6237686470c1f3
+ms.openlocfilehash: 7068c1e795e7a607776c48d1b026562a1be6b25d
+ms.sourcegitcommit: 581aaca8956b1717b7bc1c1d7710c782c22e6320
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/15/2020
-ms.locfileid: "84790532"
+ms.lasthandoff: 06/29/2020
+ms.locfileid: "85517614"
 ---
 # <a name="tutorial-predict-automobile-price-with-the-designer-preview"></a>Tutoriel : Prédire le prix de voitures avec le concepteur (version préliminaire)
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-enterprise-sku.md)]
@@ -107,8 +107,8 @@ Vous pouvez visualiser les données pour comprendre le jeu de données que vous 
 1. Dans le volet de détails du module à droite du canevas, sélectionnez **Sorties + journaux**.
 
 1. Sélectionnez l’icône de graphique pour visualiser les données.
-
-    ![Visualiser les données](./media/tutorial-designer-automobile-price-train-score/visualize-data.png)
+    
+    :::image type="content" source="./media/tutorial-designer-automobile-price-train-score/visualize-data.png"alt-text="Texte de remplacement ici.":::
 
 1. Cliquez sur différentes colonnes dans la fenêtre de données pour visualiser des informations les concernant.
 
@@ -180,8 +180,8 @@ Il manque encore des valeurs dans votre jeu de données après la suppression de
 1. Dans le volet d’informations du module à droite du canevas, sélectionnez la zone de texte **Comment** (Commentaire) et entrez *Supprimer les lignes avec des valeurs manquantes*. 
 
     Votre pipeline doit maintenant se présenter comme ceci :
-    
-    ![Sélectionner une colonne](./media/tutorial-designer-automobile-price-train-score/pipeline-clean.png)
+
+    :::image type="content" source="./media/tutorial-designer-automobile-price-train-score/pipeline-clean.png"alt-text="Select-column":::
 
 ## <a name="train-a-machine-learning-model"></a>Entraîner un modèle Machine Learning
 
@@ -229,7 +229,7 @@ Entraînez le modèle en lui fournissant un jeu de données incluant le prix. L�
     > [!IMPORTANT]
     > Vérifiez que le port de sortie de gauche de **Split Data** est connecté à **Train Model**. Le port de gauche contient le jeu d’entraînement. Le port de droite contient le jeu de test.
 
-    ![Capture d’écran montrant la configuration correcte du module Entraîner le modèle Le module Régression linéaire se connecte au port gauche du module Entraîner le modèle et le module Fractionner les données se connecte au port droit du module Entraîner le modèle.](./media/tutorial-designer-automobile-price-train-score/pipeline-train-model.png)
+    :::image type="content" source="./media/tutorial-designer-automobile-price-train-score/pipeline-train-model.png"alt-text="Capture d’écran montrant la configuration correcte du module Entraîner le modèle. Le module Régression linéaire se connecte au port gauche du module Entraîner le modèle et le module Fractionner les données se connecte au port droit du module Entraîner le modèle.":::
 
 1. Sélectionnez le module **Entraîner le modèle**.
 
@@ -244,7 +244,7 @@ Entraînez le modèle en lui fournissant un jeu de données incluant le prix. L�
 
     Votre pipeline doit se présenter comme suit :
 
-    ![Capture d’écran montrant la configuration correcte du pipeline après l’ajout du module Entraîner le modèle.](./media/tutorial-designer-automobile-price-train-score/pipeline-train-graph.png)
+    :::image type="content" source="./media/tutorial-designer-automobile-price-train-score/pipeline-train-graph.png"alt-text="Capture d’écran montrant la configuration correcte du pipeline après l’ajout du module Entraîner le modèle.":::
 
 ### <a name="add-the-score-model-module"></a>Ajoutez le module Score Model (Noter le modèle)
 
@@ -264,7 +264,7 @@ Utilisez le module **Evaluate Model** (Évaluer le modèle) pour évaluer le sco
 
     Le pipeline final doit maintenant se présenter comme ceci :
 
-    ![Capture d’écran montrant la configuration correcte du pipeline](./media/tutorial-designer-automobile-price-train-score/pipeline-final-graph.png)
+    :::image type="content" source="./media/tutorial-designer-automobile-price-train-score/pipeline-final-graph.png"alt-text="Capture d’écran montrant la configuration correcte du pipeline.":::
 
 ## <a name="submit-the-pipeline"></a>Envoyer le pipeline
 
@@ -295,7 +295,7 @@ Une fois l’exécution terminée, vous pouvez voir les résultats de l’exécu
 
     Vous pouvez voir ici les prix prédits et les prix réels des données à partir des données de test.
 
-    ![Capture d’écran de la visualisation de la sortie mettant en évidence la colonne Scored Labels (Étiquettes de score)](./media/tutorial-designer-automobile-price-train-score/score-result.png)
+    :::image type="content" source="./media/tutorial-designer-automobile-price-train-score/score-result.png"alt-text="Capture d’écran de la visualisation de la sortie mettant en évidence la colonne d’étiquettes notées":::
 
 ### <a name="evaluate-models"></a>Évaluer les modèles
 

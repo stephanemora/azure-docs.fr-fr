@@ -6,12 +6,12 @@ ms.author: manishku
 ms.service: mariadb
 ms.topic: conceptual
 ms.date: 03/10/2020
-ms.openlocfilehash: b05a202537492fe54a76cf40a3b15987e099a7e3
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 6f2043b91f8345a638d6fc773230cd182fb0fead
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79367718"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84508843"
 ---
 # <a name="private-link-for-azure-database-for-mariadb"></a>Private Link pour Azure Database for MariaDB
 
@@ -46,6 +46,10 @@ Grâce à Private Link, vous pouvez désormais configurer des contrôles d’acc
 Lorsque vous vous connectez au point de terminaison public à partir de machines locales, votre adresse IP doit être ajoutée au pare-feu IP à l’aide d’une règle de pare-feu au niveau du serveur. Bien que ce modèle fonctionne bien pour autoriser l’accès à des machines individuelles pour des charges de travail de développement ou de test, il est difficile à gérer dans un environnement de production.
 
 Grâce à Private Link, vous pouvez activer l’accès entre différents locaux au point de terminaison privé en utilisant [ExpressRoute](https://azure.microsoft.com/services/expressroute/) (ER), un peering privé ou un [tunnel VPN](https://docs.microsoft.com/azure/vpn-gateway/). Vous pouvez ensuite désactiver tous les accès via le point de terminaison public et ne pas utiliser le pare-feu IP.
+
+> [!NOTE]
+> Il peut arriver que l’instance Azure Database for MariaDB et le sous-réseau de réseau virtuel se trouvent dans des abonnements différents. Dans ce cas, vous devez vérifier les configurations suivantes :
+> - Assurez-vous que le fournisseur de ressources **Microsoft.DBforMariaDB** est inscrit pour les deux abonnements. Pour plus d’informations, reportez-vous à [resource-manager-registration][resource-manager-portal]
 
 ## <a name="configure-private-link-for-azure-database-for-mariadb"></a>Configurer Private Link pour Azure Database for MariaDB
 
@@ -112,10 +116,10 @@ Les situations et résultats suivants sont possibles lorsque vous utilisez Priva
 
 Si vous souhaitez uniquement vous fier entièrement aux points de terminaison privés pour accéder à leur base de données Azure Database for MariaDB, vous pouvez désactiver la définition de tous les points de terminaison publics ([règles de pare-feu](concepts-firewall-rules.md) et [points de terminaison de service de réseau virtuel](concepts-data-access-security-vnet.md)) en définissant la configuration **Refuser l’accès au réseau public** sur le serveur de base de données. 
 
-Lorsque ce paramètre est défini sur *OUI*, seules les connexions via des points de terminaison privés sont autorisées vers votre base de données Azure Database for MariaDB. Lorsque ce paramètre est défini sur *NON*, les clients peuvent se connecter à votre base de données Azure Database for MariaDB en fonction des paramètres des points de terminaison de votre service de pare-feu ou de réseau virtuel. En outre, une fois que la valeur de l’accès au réseau privé est définie, vous ne pouvez pas ajouter et/ou mettre à jour les règles existantes des points de terminaison de votre service de pare-feu ou de réseau virtuel.
+Lorsque ce paramètre est défini sur *OUI*, seules les connexions via des points de terminaison privés sont autorisées vers votre base de données Azure Database for MariaDB. Lorsque ce paramètre est défini sur *NON*, les clients peuvent se connecter à votre base de données Azure Database for MariaDB en fonction des paramètres des points de terminaison de votre service de pare-feu ou de réseau virtuel. En outre, une fois la valeur d'accès au réseau privé définie, les clients ne peuvent ajouter et/ou mettre à jour ni des « règles de pare-feu » existantes, ni des « règles de points de terminaison du service de réseau virtuel ».
 
 > [!Note]
-> Cette fonctionnalité est disponible dans toutes les régions Azure où Azure Database pour PostgreSQL - Serveur unique prend en charge les niveaux tarifaires Usage général et Mémoire optimisée.
+> Cette fonctionnalité est disponible dans toutes les régions Azure où Azure Database pour PostgreSQL - Serveur unique prend en charge les niveaux tarifaires Usage général et Mémoire optimisée.
 >
 > Ce paramètre n’a aucun impact sur les configurations SSL et TLS pour votre base de données Azure Database for MariaDB.
 
@@ -130,3 +134,6 @@ Pour en savoir plus sur les fonctionnalités de sécurité d’Azure Database fo
 * Pour découvrir comment configurer un point de terminaison de service de réseau virtuel pour Azure Database for MariaDB, consultez [Configurer l’accès à partir de réseaux virtuels](https://docs.microsoft.com/azure/mariadb/concepts-data-access-security-vnet).
 
 * Pour obtenir une vue d’ensemble de la connectivité Azure Database for MariaDB, consultez [Architecture de connectivité Azure Database for MariaDB](https://docs.microsoft.com/azure/MariaDB/concepts-connectivity-architecture)
+
+<!-- Link references, to text, Within this same GitHub repo. -->
+[resource-manager-portal]: ../azure-resource-manager/management/resource-providers-and-types.md

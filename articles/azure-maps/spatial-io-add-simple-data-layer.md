@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: philmea
-ms.openlocfilehash: 8862c33b7660b8130f692dc4beea89a7b6b5f5ad
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 61272bee350fc7c7dd7d0e17adc55c436f4706ef
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80804484"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84885959"
 ---
 # <a name="add-a-simple-data-layer"></a>Ajouter une couche de données simple
 
@@ -89,7 +89,7 @@ Les propriétés de style Azure Maps et GitHub sont les deux principaux ensemble
 
 Si le lecteur rencontre une propriété de style moins courante, il la convertit dans la propriété de style Azure Maps la plus proche. En outre, les expressions de style par défaut peuvent être remplacées à l’aide de la fonction `getLayers` de la couche de données simple et de la mise à jour des options sur l’une des couches.
 
-La section suivante fournit des détails sur les propriétés de style par défaut qui sont prises en charge par la couche de données simple. L’ordre du nom de propriété pris en charge représente également la priorité de la propriété. Si deux propriétés de style sont définies pour la même option de couche, la première dans la liste a une priorité plus élevée.
+La section suivante fournit des détails sur les propriétés de style par défaut qui sont prises en charge par la couche de données simple. L’ordre du nom de propriété pris en charge représente également la priorité de la propriété. Si deux propriétés de style sont définies pour la même option de couche, la première dans la liste a une priorité plus élevée. Les couleurs peuvent être n’importe quelle valeur de couleur CSS3 ; HEX, RGB, RVBA, TSL, HSLA ou la valeur de couleur nommée.
 
 ### <a name="bubble-layer-style-properties"></a>Propriétés de style de la couche de bulles
 

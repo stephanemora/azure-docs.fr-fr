@@ -7,12 +7,12 @@ ms.custom: subject-cost-optimization
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 02/02/2020
-ms.openlocfilehash: cf259dfa0b00393cf0fee259b199527569ba1792
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 42421f745759d9aee75b285c3fbc6ea7217ba5c0
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "77152582"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85112699"
 ---
 # <a name="plan-and-manage-costs-for-azure-cosmos-db"></a>Planifier et gérer les coûts pour Azure Cosmos DB
 
@@ -30,7 +30,7 @@ Utilisez la [calculatrice de capacité d’Azure Cosmos DB](https://cosmos.azure
 
 La capture d’écran suivante montre le débit et l’estimation des coûts à l’aide de la calculatrice de capacité :
 
-![Estimation des coûts dans la calculatrice de capacité d’Azure Cosmos DB](./media/plan-manage-costs/capacity-calculator-cost-estimate.png)
+:::image type="content" source="./media/plan-manage-costs/capacity-calculator-cost-estimate.png" alt-text="Estimation des coûts dans la calculatrice de capacité d’Azure Cosmos DB":::
 
 ## <a name="review-estimated-costs-from-the-azure-portal"></a>Passer en revue les coûts estimés dans le portail Azure
 
@@ -41,7 +41,7 @@ Au fur et à mesure que vous créez des ressources Azure Cosmos DB à partir du 
 1. Créez un conteneur, comme un conteneur de graphiques.
 1. Entrez le débit nécessaire pour votre charge de travail, par exemple, 400 RU/s. Une fois que vous avez entré la valeur du débit, vous pouvez voir l’estimation de prix comme le montre la capture d’écran suivante :
 
-   ![Estimation de coût dans le portail Azure](./media/plan-manage-costs/cost-estimate-portal.png)
+   :::image type="content" source="./media/plan-manage-costs/cost-estimate-portal.png" alt-text="Estimation de coût dans le portail Azure":::
 
 Si votre abonnement Azure a une limite de dépense, Azure vous empêche de dépenser au-delà que le montant de votre crédit. À mesure que vous créez et utilisez des ressources Azure, vos crédits sont utilisés. Quand vous atteignez votre limite de crédit, les ressources que vous avez déployées sont désactivées pour le reste de cette période de facturation. Vous ne pouvez pas changer votre limite de crédit, mais vous pouvez la supprimer. Pour plus d’informations sur les limites de dépense, consultez [Limite de dépense Azure](../billing/billing-spending-limit.md).
 
@@ -63,7 +63,7 @@ Quand vous utilisez l’analyse des coûts, vous pouvez voir les coûts d’Azur
 
 1. Pour limiter les coûts à un seul service, par exemple Azure Cosmos DB, sélectionnez **Ajouter un filtre**, puis sélectionnez **Nom du service**. Choisissez ensuite **Azure Cosmos DB** dans la liste. Voici un exemple montrant les coûts seulement pour Azure Cosmos DB :
  
-   ![Superviser les coûts avec le volet Analyse des coûts](./media/plan-manage-costs/cost-analysis-pane.png)
+   :::image type="content" source="./media/plan-manage-costs/cost-analysis-pane.png" alt-text="Superviser les coûts avec le volet Analyse des coûts":::
 
 Dans l’exemple précédent, vous voyez le coût actuel d’Azure Cosmos DB pour le mois de février. Les graphiques contiennent également les coûts d’Azure Cosmos DB par emplacement et par groupe de ressources.
 

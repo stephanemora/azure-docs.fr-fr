@@ -8,12 +8,12 @@ ms.author: luisca
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 11/04/2019
-ms.openlocfilehash: b1cf1750924ab8ea8afff6ac788683565433866b
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 59d181d8f4c176a8fc00ac0fb8ab0216c6ae27f4
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81618022"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85080036"
 ---
 # <a name="built-in-cognitive-skills-for-text-and-image-processing-during-indexing-azure-cognitive-search"></a>Compétences cognitives intégrées pour le traitement de texte et d'images pendant l'indexation (Recherche cognitive Azure)
 
@@ -22,7 +22,7 @@ Dans cet article, vous découvrirez les compétences cognitives fournies avec Re
 > [!NOTE]
 > Si vous élargissez le champ en augmentant la fréquence des traitements, en ajoutant des documents supplémentaires ou en ajoutant plusieurs algorithmes d’IA, vous devez [attacher une ressource Cognitive Services facturable](cognitive-search-attach-cognitive-services.md). Des frais s’appliquent durant l’appel des API dans Cognitive Services ainsi que pour l’extraction d’images dans le cadre de la phase de craquage de document de la Recherche cognitive Azure. L’extraction de texte à partir des documents est gratuite.
 >
-> L'exécution des compétences intégrées est facturée au prix actuel du [paiement à l'utilisation de Cognitive Services](https://azure.microsoft.com/pricing/details/cognitive-services/). Les prix appliqués pour l’extraction d’images sont présentés sur la [page de tarification du service Recherche cognitive Azure](https://go.microsoft.com/fwlink/?linkid=2042400).
+> L'exécution des compétences intégrées est facturée au prix actuel du [paiement à l'utilisation de Cognitive Services](https://azure.microsoft.com/pricing/details/cognitive-services/). Les prix appliqués pour l’extraction d’images sont présentés sur la [page de tarification du service Recherche cognitive Azure](https://azure.microsoft.com/pricing/details/search/).
 >
 > La fonctionnalité [d’enrichissement incrémentiel (préversion)](cognitive-search-incremental-indexing-conceptual.md) permet de fournir un cache qui augmente l’efficacité de l’indexeur en exécutant uniquement les compétences cognitives nécessaires en cas de modification ultérieure de l’ensemble de compétences, ce qui représente un gain de temps et d’argent.
 
@@ -48,6 +48,7 @@ Diverses compétences sont flexibles du point de vue de ce qu’elles consomment
 | [Microsoft.Skills.Util.DocumentExtractionSkill](cognitive-search-skill-document-extraction.md) | Extrait le contenu d’un fichier dans le pipeline d’enrichissement. |
 | [Microsoft.Skills.Util.ShaperSkill](cognitive-search-skill-shaper.md) | Mappe la sortie sur un type complexe (type de données de plusieurs parties, qui peut être utilisé pour un nom complet, une adresse sur plusieurs lignes ou une combinaison d’un nom et d’un identificateur personnel.) |
 | [Microsoft.Skills.Custom.WebApiSkill](cognitive-search-custom-skill-web-api.md) | Permet l’extensibilité du pipeline d’enrichissement de l’intelligence artificielle en passant un appel HTTP dans une API web personnalisée |
+| [Microsoft.Skills.Custom.AmlSkill](cognitive-search-aml-skill.md) | Permet l’extensibilité d’un pipeline d’enrichissement d’intelligence artificielle avec un modèle Azure Machine Learning |
 
 
 Pour obtenir des conseils sur la création d’une [compétence personnalisée](cognitive-search-custom-skill-web-api.md), consultez [Guide pratique pour définir une interface personnalisée](cognitive-search-custom-skill-interface.md) et [Exemple : Création d’une compétence personnalisée pour l’enrichissement de l’IA](cognitive-search-create-custom-skill-example.md).

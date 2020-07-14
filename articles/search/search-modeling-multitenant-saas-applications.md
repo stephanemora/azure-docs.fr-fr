@@ -8,20 +8,24 @@ ms.author: liamca
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 11/04/2019
-ms.openlocfilehash: d8e453336005f3389f67e9571fac438bfc340c1b
-ms.sourcegitcommit: 980c3d827cc0f25b94b1eb93fd3d9041f3593036
+ms.openlocfilehash: 90a9672e3a58a068d1a4488a514a6fd51c272a56
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/02/2020
-ms.locfileid: "80549025"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85081114"
 ---
 # <a name="design-patterns-for-multitenant-saas-applications-and-azure-cognitive-search"></a>Modèles de conception pour les applications SaaS mutualisées et Recherche cognitive Azure
+
 Une application mutualisée est une application qui fournit les mêmes services et fonctionnalités à plusieurs clients qui ne peuvent pas voir ni partager les données d’un autre client. Ce document aborde les stratégies d’isolation de client pour les applications mutualisées conçues avec Recherche cognitive Azure.
 
 ## <a name="azure-cognitive-search-concepts"></a>Concepts de Recherche cognitive Azure
-En tant que solution SaaS (search-as-a-service), Recherche cognitive Azure permet aux développeurs d’ajouter des expériences de recherche enrichies dans les applications sans avoir à gérer d’infrastructure, ni devenir un expert en matière de récupération d’informations. Les données sont téléchargées vers le service, puis stockées dans le cloud. À l’aide de requêtes simples dans l’API Recherche cognitive Azure, les données peuvent ensuite être modifiées et faire l’objet de recherches. [Cet article](https://aka.ms/whatisazsearch)présente une vue d’ensemble du service. Avant d’aborder les modèles de conception, il est important de comprendre certains concepts de Recherche cognitive Azure.
+En tant que solution SaaS (search-as-a-service), [Recherche cognitive Azure](search-what-is-azure-search.md) permet aux développeurs d’ajouter des expériences de recherche enrichies dans les applications sans avoir à gérer d’infrastructure, ni devenir un expert en matière de récupération d’informations. Les données sont téléchargées vers le service, puis stockées dans le cloud. À l’aide de requêtes simples dans l’API Recherche cognitive Azure, les données peuvent ensuite être modifiées et faire l’objet de recherches. 
 
 ### <a name="search-services-indexes-fields-and-documents"></a>Rechercher des services, des index, des champs et des documents
+
+Avant d’aborder les modèles de conception, il est important de comprendre certains concepts de base.
+
 Lorsque vous utilisez Recherche cognitive Azure, vous vous abonnez à un *service de recherche*. Lorsque les données sont téléchargées vers Recherche cognitive Azure, elles sont stockées dans un *index* au sein du service de recherche. Un seul service peut contenir plusieurs index. Pour utiliser les concepts familiers des bases de données, le service de recherche peut être comparé à une base de données, tandis que les index au sein d’un service peuvent être comparés aux tables dans une base de données.
 
 Chaque index au sein d’un service de recherche possède son propre schéma, qui est défini par un certain nombre de *champs*personnalisables. Les données sont ajoutées à un index Recherche cognitive Azure sous la forme de *documents*individuels. Chaque document doit être téléchargé dans un index spécifique et doit respecter le schéma de cet index. Lors de la recherche de données à l’aide de Recherche cognitive Azure, les requêtes de recherche en texte intégral sont exécutées sur un index spécifique.  Pour comparer ces concepts à ceux d’une base de données, les champs peuvent être comparés aux colonnes d’une table et les documents peuvent être comparés aux lignes.
@@ -42,8 +46,8 @@ Il existe différents [niveaux tarifaires](https://azure.microsoft.com/pricing/d
 | Nombre maximal de réplicas par service |3 |12 |12 |12 |12 |
 | Nombre maximal de partitions par service |1 |12 |12 |12 |3 |
 | Nombre maximal d’unités de recherche (réplicas*partitions) par service |3 |36 |36 |36 |36 (3 partitions max.) |
-| Stockage maximal par service |2 Go |300 Go |1,2 To |2,4 To |600 Go |
-| Stockage maximal par partition |2 Go |25 Go |100 Go |200 Go |200 Go |
+| Stockage maximal par service |2 Go |300 Go |1,2 To |2,4 To |600 Go |
+| Stockage maximal par partition |2 Go |25 Go |100 Go |200 Go |200 Go |
 | Nombre maximal d’index par service |5 |50 |200 |200 |3000 (1 000 index max. par partition) |
 
 #### <a name="s3-high-density"></a>Haute densité S3

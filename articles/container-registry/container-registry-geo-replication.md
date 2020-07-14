@@ -1,16 +1,16 @@
 ---
 title: Géorépliquer un registre
-description: Prenez en main la création et la gestion d’un registre de conteneurs Azure géorépliqué, ce qui permet au registre de servir plusieurs régions grâce à des réplicas régionaux multimaîtres.
+description: Prenez en main la création et la gestion d’un registre de conteneurs Azure géorépliqué, ce qui permet au registre de servir plusieurs régions grâce à des réplicas régionaux multimaîtres. La géoréplication est une fonctionnalité disponible pour le niveau de service Premium.
 author: stevelas
 ms.topic: article
 ms.date: 05/11/2020
 ms.author: stevelas
-ms.openlocfilehash: bea71695c66c77a8e9fff3cb708113a04f24ed96
-ms.sourcegitcommit: 958f086136f10903c44c92463845b9f3a6a5275f
+ms.openlocfilehash: 35525906135db02c453c55d8798e1405396c8598
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/20/2020
-ms.locfileid: "83711565"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84508792"
 ---
 # <a name="geo-replication-in-azure-container-registry"></a>Géoréplication dans Azure Container Registry
 

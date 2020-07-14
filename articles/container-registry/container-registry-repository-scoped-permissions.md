@@ -1,14 +1,14 @@
 ---
 title: Autorisations pour des référentiels dans Azure Container Registry
-description: Créer un jeton avec des autorisations étendues à des référentiels spécifiques dans un registre pour tirer (pull) ou envoyer (push) des images ou effectuer d’autres actions
+description: Créer un jeton avec des autorisations étendues à des référentiels spécifiques dans un registre Premium pour tirer (pull) ou envoyer (push) des images ou effectuer d’autres actions
 ms.topic: article
 ms.date: 05/27/2020
-ms.openlocfilehash: 8534c62db862f5c929d0145948fc4049c036d412
-ms.sourcegitcommit: f0b206a6c6d51af096a4dc6887553d3de908abf3
+ms.openlocfilehash: 8661ff2e320788d3899ae16dd3bee7d3ff662caa
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/28/2020
-ms.locfileid: "84142193"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84509404"
 ---
 # <a name="create-a-token-with-repository-scoped-permissions"></a>Créer un jeton avec des autorisations délimitées par le référentiel
 
@@ -20,7 +20,7 @@ Les scénarios de création d’un jeton sont les suivants :
 * Fournir à une organisation externe des autorisations sur un référentiel spécifique 
 * Limiter l’accès au référentiel à différents groupes d’utilisateurs de votre organisation. Par exemple, fournissez un accès en écriture et en lecture aux développeurs qui génèrent des images ciblant des référentiels spécifiques, ainsi qu’un accès en lecture aux équipes qui déploient à partir de ces référentiels.
 
-Cette fonctionnalité est disponible dans les registres de conteneurs **Premium**. Pour plus d’informations sur les niveaux de service et les limites de registre, consultez [Niveaux de service d’Azure Container Registry](container-registry-skus.md).
+Cette fonctionnalité est disponible uniquement au niveau de service **Premium** de registre de conteneurs. Pour plus d’informations sur les niveaux de service et les limites de registre, consultez [Niveaux de service d’Azure Container Registry](container-registry-skus.md).
 
 > [!IMPORTANT]
 > Cette fonctionnalité est actuellement en préversion et certaines [limitations s’appliquent](#preview-limitations). Les préversions sont à votre disposition, à condition que vous acceptiez les [conditions d’utilisation supplémentaires][terms-of-use]. Certains aspects de cette fonctionnalité sont susceptibles d’être modifiés avant la mise à disposition générale.

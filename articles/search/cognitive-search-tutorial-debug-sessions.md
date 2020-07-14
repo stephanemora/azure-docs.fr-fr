@@ -8,22 +8,20 @@ manager: nitinme
 ms.service: cognitive-search
 ms.topic: tutorial
 ms.date: 05/19/2020
-ms.openlocfilehash: 14760eaef309ec5695b423b98e59a8ae1ab5cacb
-ms.sourcegitcommit: e3c28affcee2423dc94f3f8daceb7d54f8ac36fd
+ms.openlocfilehash: 35590fd8aefb8b6a90adeef52fabe773663403c2
+ms.sourcegitcommit: 374e47efb65f0ae510ad6c24a82e8abb5b57029e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/17/2020
-ms.locfileid: "84886739"
+ms.lasthandoff: 06/28/2020
+ms.locfileid: "85510980"
 ---
 # <a name="tutorial-diagnose-repair-and-commit-changes-to-your-skillset"></a>Tutoriel : Diagnostiquer, réparer et valider les changements apportés à votre ensemble de compétences
 
 Dans cet article, vous allez utiliser le portail Azure pour accéder à des sessions de débogage afin de résoudre les problèmes liés à l’ensemble de compétences fourni. L’ensemble de compétences comporte des erreurs qui doivent être traitées. Ce tutoriel va vous guider tout au long d’une session de débogage pour identifier et résoudre les problèmes liés aux entrées et sorties de compétences.
 
 > [!Important]
-> La prise en charge des sessions de débogage pour la Recherche cognitive Azure est disponible [sur demande](https://aka.ms/DebugSessions) en tant que préversion à accès limité. Les fonctionnalités d’évaluation sont fournies sans contrat de niveau de service et sont déconseillées pour les charges de travail de production. Pour plus d’informations, consultez [Conditions d’Utilisation Supplémentaires relatives aux Évaluations Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+> Sessions de débogage est une fonctionnalité en préversion fournie sans contrat de niveau de service ; elle n’est pas recommandée pour les charges de travail de production. Pour plus d’informations, consultez [Conditions d’Utilisation Supplémentaires relatives aux Évaluations Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 >
-> Une fois que vous avez accès à la préversion, vous pouvez accéder aux sessions de débogage de votre service et les utiliser à l’aide du portail Azure.
->   
 
 Si vous n’avez pas d’abonnement Azure, créez un [compte gratuit](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) avant de commencer.
 

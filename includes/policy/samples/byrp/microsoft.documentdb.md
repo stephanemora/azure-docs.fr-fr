@@ -2,18 +2,20 @@
 author: DCtheGeek
 ms.service: azure-policy
 ms.topic: include
-ms.date: 06/10/2020
+ms.date: 06/23/2020
 ms.author: dacoulte
 ms.custom: generated
-ms.openlocfilehash: b28641a184503dc36b5e3f8315e810c69f3be9d3
-ms.sourcegitcommit: 537c539344ee44b07862f317d453267f2b7b2ca6
+ms.openlocfilehash: 85fc561f485da8ca90717678951b253235b58285
+ms.sourcegitcommit: 01cd19edb099d654198a6930cebd61cae9cb685b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/11/2020
-ms.locfileid: "84686515"
+ms.lasthandoff: 06/24/2020
+ms.locfileid: "85322902"
 ---
 |Nom<br /><sub>(Portail Azure)</sub> |Description |Effet(s) |Version<br /><sub>(GitHub)</sub> |
 |---|---|---|---|
+|[Le compte Azure Cosmos DB doit utiliser des clés gérées par le client pour chiffrer les données au repos](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F1f905d99-2ab7-462c-a6b0-f709acca6c8f) |Utilisez des clés gérées par le client pour contrôler le chiffrement au repos des données stockées dans Azure Cosmos DB lorsqu’il s’agit d’une exigence réglementaire ou de conformité. Les clés gérées par le client fournissent également un double chiffrement en ajoutant une deuxième couche de chiffrement en plus du chiffrement par défaut effectué avec les clés gérées par le service. Consultez [https://aka.ms/cosmosdb-cmk](https://aka.ms/cosmosdb-cmk) |audit, deny, disabled |[1.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Cosmos%20DB/Cosmos_CMK_Deny.json) |
+|[Les comptes Azure Cosmos DB doivent avoir des règles de pare-feu](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F862e97cf-49fc-4a5c-9de4-40d4e2e7c8eb) |Auditez ou refusez les ressources qui n’ont pas de règles IP configurées, et autorisez tous les réseaux par défaut. Les comptes qui possèdent au moins une règle IP définie avec le filtre de réseau virtuel activé sont considérés comme conformes. Les comptes qui désactivent l’accès public sont également jugés conformes. |Audit, Refuser, Désactivé |[1.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Cosmos%20DB/Cosmos_NetworkRulesExist_Audit.json) |
 |[Localisations Azure Cosmos DB autorisées](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F0473574d-2d43-4217-aefe-941fcdf7e684) |Cette stratégie vous permet de limiter les localisations que votre organisation peut spécifier pendant le déploiement de ressources Azure Cosmos DB. Utilisez-la pour appliquer vos exigences de conformité géographique. |[parameters('policyEffect')] |[1.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Cosmos%20DB/Cosmos_Locations_Deny.json) |
 |[L’accès en écriture des métadonnées basé sur une clé Azure Cosmos DB doit être désactivé](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F4750c32b-89c0-46af-bfcb-2e4541a818d5) |Cette stratégie vous permet de vérifier que tous les comptes Azure Cosmos DB désactivent l’accès en écriture des métadonnées basé sur une clé. |append |[1.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Cosmos%20DB/Cosmos_DisableMetadata_Append.json) |
 |[Le débit Azure Cosmos DB doit être limité](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F0b7ef78e-a035-4f23-b9bd-aff122a1b1cf) |Cette stratégie vous permet de limiter le débit maximal que votre organisation peut spécifier pendant la création de bases de données et de conteneurs Azure Cosmos DB via le fournisseur de ressources. La création de ressources de mise à l’échelle automatique est bloquée. |audit, deny, disabled |[1.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Cosmos%20DB/Cosmos_MaxThroughput_Deny.json) |

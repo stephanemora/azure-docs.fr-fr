@@ -4,15 +4,15 @@ description: Découvrez comment affecter des autorisations à une identité Acti
 author: roygara
 ms.service: storage
 ms.subservice: files
-ms.topic: conceptual
-ms.date: 05/29/2020
+ms.topic: how-to
+ms.date: 06/22/2020
 ms.author: rogarana
-ms.openlocfilehash: eda083265d94888a4ccfd466f084982614770c41
-ms.sourcegitcommit: 309cf6876d906425a0d6f72deceb9ecd231d387c
+ms.openlocfilehash: 3335bfbed592c9e13d5be437e8013a89ae86e970
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/01/2020
-ms.locfileid: "84268387"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85510621"
 ---
 # <a name="part-two-assign-share-level-permissions-to-an-identity"></a>Deuxième partie : affecter des autorisations au niveau du partage à une identité
 
@@ -77,5 +77,7 @@ az role assignment create --role "<role-name>" --assignee <user-principal-name> 
 ```
 
 ## <a name="next-steps"></a>Étapes suivantes
+
+Maintenant que vous avez affecté des autorisations au niveau du partage, vous devez configurer les autorisations au niveau des répertoires et des fichiers. Passez à l’article suivant.
 
 [Troisième partie : configurer les autorisations au niveau des répertoires et des fichiers sur SMB](storage-files-identity-ad-ds-configure-permissions.md)

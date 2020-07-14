@@ -10,17 +10,17 @@ ms.reviewer: sgilley
 author: revodavid
 ms.author: davidsmi
 ms.date: 02/07/2020
-ms.openlocfilehash: dea5b3fb6cf20924666668e59e370399664d6b28
-ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
+ms.openlocfilehash: d95c0fc9baf1e53e6643660726c72660719908ba
+ms.sourcegitcommit: 1d9f7368fa3dadedcc133e175e5a4ede003a8413
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/20/2020
-ms.locfileid: "83684752"
+ms.lasthandoff: 06/27/2020
+ms.locfileid: "85483378"
 ---
-# <a name="tutorial-use-r-to-create-a-machine-learning-model"></a>Tutoriel : Utiliser R pour créer un modèle Machine Learning
+# <a name="tutorial-use-r-to-create-a-machine-learning-model-preview"></a>Tutoriel : Utiliser R pour créer un modèle Machine Learning (préversion)
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
 
-Dans ce tutoriel, vous allez utiliser le SDK R Azure Machine Learning pour créer un modèle de régression logistique qui prédit la probabilité de décès au cours d’un accident de voiture. Vous verrez comment les ressources cloud Azure Machine Learning fonctionnent avec R afin de fournir un environnement scalable pour entraîner et déployer un modèle.  
+Dans ce tutoriel, vous allez utiliser le kit SDK R Azure Machine Learning (préversion) pour créer un modèle de régression logistique qui prédit la probabilité de décès au cours d’un accident de voiture. Vous verrez comment les ressources cloud Azure Machine Learning fonctionnent avec R afin de fournir un environnement scalable pour entraîner et déployer un modèle.  
 
 Dans ce didacticiel, vous allez effectuer les tâches suivantes :
 > [!div class="checklist"]
@@ -73,7 +73,7 @@ Vous effectuez les étapes de configuration et d’exécution d’expérience su
 
 1. Une liste de dossiers indiquant tous les utilisateurs qui accèdent à l’espace de travail s’affiche.  Sélectionnez le dossier où cloner le dossier **vignettes**.
 
-## <a name="a-nameopenopen-rstudio"></a><a name="open">Ouvrir RStudio
+## <a name="open-rstudio"></a><a name="open"></a>Ouvrir RStudio
 
 Utilisez RStudio sur une machine virtuelle d’instance de calcul ou Notebook pour exécuter ce tutoriel.  
 
