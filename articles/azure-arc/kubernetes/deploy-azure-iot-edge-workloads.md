@@ -8,12 +8,12 @@ author: mlearned
 ms.author: mlearned
 description: Déployer des charges de travail Azure IoT Edge
 keywords: Kubernetes, Arc, Azure, K8s, conteneurs
-ms.openlocfilehash: d82c93783d80060bc3443131191b7cec32dc4878
-ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
+ms.openlocfilehash: bfaa43a03ddd98616b22fc3fc7b4dccb4c38f44c
+ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/20/2020
-ms.locfileid: "83680770"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86103974"
 ---
 # <a name="deploy-azure-iot-edge-workloads-preview"></a>Déployer des charges de travail Azure IoT Edge (préversion)
 
@@ -25,11 +25,11 @@ Azure Arc et Azure IoT Edge se complètent à merveille. Azure Arc fournit des
 
 ## <a name="pre-requisites"></a>Conditions préalables
 
-* [Inscrivez un appareil IoT Edge](https://docs.microsoft.com/azure/iot-edge/quickstart-linux#register-an-iot-edge-device) et [déployez le module de capteur de température simulé](https://docs.microsoft.com/azure/iot-edge/quickstart-linux#deploy-a-module). Veillez à noter la chaîne de connexion de l’appareil.
+* [Inscrivez un appareil IoT Edge](../../iot-edge/quickstart-linux.md#register-an-iot-edge-device) et [déployez le module de capteur de température simulé](../../iot-edge/quickstart-linux.md#deploy-a-module). Veillez à noter la chaîne de connexion de l’appareil.
 
 * Utilisez la [prise en charge IoT Edge pour Kubernetes](https://aka.ms/edgek8sdoc) afin de le déployer par le biais de l’opérateur Flux d’Azure Arc.
 
-* Téléchargez le fichier [**values.yaml**](https://github.com/Azure/iotedge/blob/master/kubernetes/charts/edge-kubernetes/values.yaml) pour le chart Helm IoT Edge, et remplacez l’espace réservé **deviceConnectionString** situé à la fin du fichier par celui noté à l’étape 1. Vous pouvez définir toutes les autres options d’installation de graphique prises en charge, si nécessaire. Créez un espace de noms pour la charge de travail IoT Edge, puis créez-y un secret :
+* Téléchargez le fichier [**values.yaml**](https://github.com/Azure/iotedge/blob/master/kubernetes/charts/edge-kubernetes/values.yaml) pour le chart Helm IoT Edge, et remplacez l’espace réservé **deviceConnectionString** situé à la fin du fichier par celui noté à l’étape 1. Vous pouvez définir toutes les autres options d’installation de graphique prises en charge, si nécessaire. Créez un espace de noms pour la charge de travail IoT Edge, puis créez-y un secret :
 
     ```
     $ kubectl create ns iotedge

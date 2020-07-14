@@ -5,14 +5,14 @@ keywords: connexion postgresql,chaîne de connexion,problèmes de connectivité
 author: rachel-msft
 ms.author: raagyema
 ms.service: postgresql
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 5/6/2019
-ms.openlocfilehash: cf051da4e2976ca54c95b54cd6ac89cb6f6cc1b1
-ms.sourcegitcommit: 856db17a4209927812bcbf30a66b14ee7c1ac777
+ms.openlocfilehash: c97e8e0d55a99e0b022bdc6e97edc778d7b6588a
+ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "82562217"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86107595"
 ---
 # <a name="troubleshoot-connection-issues-to-azure-database-for-postgresql---single-server"></a>Résoudre les problèmes de connexion à la base de données Azure Database pour PostgreSQL - Serveur unique
 
@@ -50,6 +50,7 @@ Si l’application échoue de façon permanente à se connecter à la base de do
 * Configuration du pare-feu côté client : le pare-feu du client doit autoriser les connexions au serveur de base de données. Les adresses IP et les ports du serveur auquel vous ne pouvez pas vous connecter doivent être autorisés, ainsi que les noms d’application, comme PostgreSQL, sur certains pare-feu.
 * Erreur utilisateur : il se peut que vous ayez fait une erreur lors de la saisie des paramètres de connexion, comme le nom du serveur dans la chaîne de connexion ou le suffixe *\@servername* manquant dans le nom de l’utilisateur.
 * Si l’erreur _Le serveur n’est pas configuré pour autoriser les connexions IPv6_, s’affiche, notez que le niveau de base ne prend pas en charge les points de terminaison de service VNet. Vous devez supprimer le point de terminaison Microsoft.Sql du sous-réseau qui tente de se connecter au serveur de base.
+* Si vous voyez le message d’erreur de connexion _valeur sslmode « * * * » non valide lorsque la prise en charge du protocole SSL n’est pas compilée_, cela signifie que votre client PostgreSQL ne prend pas en charge le protocole SSL. Le plus souvent, le libpq côté client n’a pas été compilé avec l’indicateur « --with-openssl ». Essayez de vous connecter avec un client PostgreSQL qui prend en charge le protocole SSL. 
 
 ### <a name="steps-to-resolve-persistent-connectivity-issues"></a>Étapes permettant résoudre les problèmes de connectivité persistants
 

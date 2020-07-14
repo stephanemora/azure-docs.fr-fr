@@ -11,12 +11,12 @@ ms.date: 03/19/2019
 ms.author: xiaoyul
 ms.reviewer: igorstan
 ms.custom: seo-lt-2019, azure-synapse
-ms.openlocfilehash: 8328750849f5466c8754499694a41615776ff3da
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 036cb15cf16b5f90dc17ccdce378a073a398d403
+ms.sourcegitcommit: ec682dcc0a67eabe4bfe242fce4a7019f0a8c405
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85201699"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86181333"
 ---
 # <a name="design-guidance-for-using-replicated-tables-in-synapse-sql-pool"></a>Conseils de conception pour l'utilisation de tables répliquées dans un pool Synapse SQL
 
@@ -149,9 +149,9 @@ Lors du chargement de données dans des tables répliquées, essayez de réduire
 
 Par exemple, ce modèle de chargement charge les données à partir de quatre sources et appelle quatre reconstructions.
 
-        Load from source 1.
+- Charger à partir de la source 1.
 - Instruction select qui déclenche la reconstruction 1.
-        Charger à partir de la source 2.
+- Charger à partir de la source 2.
 - Instruction select qui déclenche la reconstruction 2.
 - Charger à partir de la source 3.
 - Instruction select qui déclenche la reconstruction 3.

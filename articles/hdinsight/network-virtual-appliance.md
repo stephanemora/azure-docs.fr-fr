@@ -5,14 +5,14 @@ author: hrasheed-msft
 ms.author: hrasheed
 ms.reviewer: jasonh
 ms.service: hdinsight
-ms.topic: conceptual
-ms.date: 05/06/2020
-ms.openlocfilehash: cbc2104ae3c55ae3670867b7a253d812f3a4be0e
-ms.sourcegitcommit: 602e6db62069d568a91981a1117244ffd757f1c2
+ms.topic: how-to
+ms.date: 06/30/2020
+ms.openlocfilehash: 805be8d5c9ab4f6316251adbb9bce3e99f4fa01d
+ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/06/2020
-ms.locfileid: "82868278"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86086668"
 ---
 # <a name="configure-network-virtual-appliance-in-azure-hdinsight"></a>Configurer une appliance virtuelle réseau dans Azure HDInsight
 
@@ -21,13 +21,14 @@ ms.locfileid: "82868278"
 
 Le pare-feu Azure est automatiquement configuré pour autoriser le trafic dans la plupart des scénarios importants courants. L’utilisation d’une autre appliance virtuelle réseau vous oblige à configurer un certain nombre de fonctionnalités supplémentaires. Gardez les facteurs suivants à l’esprit pendant la configuration de votre appliance virtuelle réseau :
 
-* Les services compatibles avec les points de terminaison de service doivent être configurés avec des points de terminaison de service.
+* Les services pouvant prendre en charge les points de terminaison de service peuvent être configurés avec des points de terminaison de service, ce qui entraîne le contournement du NVA, généralement pour des considérations relatives aux coûts ou aux performances.
 * Les dépendances d’adresses IP sont destinées au trafic non HTTP/S (à la fois le trafic TCP et UDP).
-* Les points de terminaison HTTP/HTTPS avec des noms FQDN peuvent être placés dans votre dispositif NVA.
-* Les points de terminaison HTTP/HTTPS avec des caractères génériques sont des dépendances qui peuvent varier selon le nombre de qualificateurs.
+* Les points de terminaison HTTP/HTTPS avec des noms FQDN peuvent être mis sur liste verte dans votre dispositif NVA.
 * Affectez la table de routage créée à votre sous-réseau HDInsight.
 
 ## <a name="service-endpoint-capable-dependencies"></a>Dépendances compatibles avec les points de terminaison de service
+
+Vous pouvez éventuellement activer un ou plusieurs points de terminaison de service suivants, ce qui entraînera le contournement du NVA. Cette option peut être utile pour de grandes quantités de transferts de données afin de réduire les coûts et d’optimiser les performances. 
 
 | **Point de terminaison** |
 |---|
@@ -39,33 +40,19 @@ Le pare-feu Azure est automatiquement configuré pour autoriser le trafic dans l
 
 | **Point de terminaison** | **Détails** |
 |---|---|
-| \*:123 | Vérification de l’horloge NTP. Le trafic est vérifié à plusieurs points de terminaison sur le port 123 |
-| Adresses IP publiées [ici](hdinsight-management-ip-addresses.md) | Ces adresses IP sont associées au service HDInsight |
-| Adresses IP privées AAD-DS pour les clusters ESP |
-| \*:16800 pour KMS Windows Activation |
-| \*12000 pour Log Analytics |
+| Adresses IP publiées [ici](hdinsight-management-ip-addresses.md) | Ces adresses IP sont destinées à l’emplacement de contrôle HDInsight et doivent être incluses dans UDR pour éviter le routage asymétrique |
+| Adresses IP privées AAD-DS | Nécessaires uniquement pour les clusters ESP|
+
 
 ### <a name="fqdn-httphttps-dependencies"></a>Dépendances HTTP/HTTPS FQDN
 
 > [!Important]
-> La liste ci-dessous contient seulement quelques-uns des noms FQDN les plus importants. Si vous avez besoin de noms FQDN supplémentaires (principalement Stockage Azure et Azure Service Bus) pour configurer votre appliance virtuelle réseau (NVA), accédez à [ce fichier](https://github.com/Azure-Samples/hdinsight-fqdn-lists/blob/master/HDInsightFQDNTags.json).
+> La liste ci-dessous contient seulement quelques-uns des noms FQDN les plus importants. Si vous avez d’une liste complète de noms FQDN supplémentaires (principalement Stockage Azure et Azure Service Bus) pour configurer votre appliance virtuelle réseau (NVA), accédez à [ce fichier](https://github.com/Azure-Samples/hdinsight-fqdn-lists/blob/master/HDInsightFQDNTags.json). Ces dépendances sont utilisées par les opérations du plan de contrôle HDInsight pour créer un cluster.
 
 | **Point de terminaison**                                                          |
 |---|
 | azure.archive.ubuntu.com:80                                           |
 | security.ubuntu.com:80                                                |
-| ocsp.msocsp.com:80                                                    |
-| ocsp.digicert.com:80                                                  |
-| wawsinfraprodbay063.blob.core.windows.net:443                         |
-| registry-1.docker.io:443                                              |
-| auth.docker.io:443                                                    |
-| production.cloudflare.docker.com:443                                  |
-| download.docker.com:443                                               |
-| us.archive.ubuntu.com:80                                              |
-| download.mono-project.com:80                                          |
-| packages.treasuredata.com:80                                          |
-| security.ubuntu.com:80                                                |
-| azure.archive.ubuntu.com:80                                           |
 | ocsp.msocsp.com:80                                                    |
 | ocsp.digicert.com:80                                                  |
 

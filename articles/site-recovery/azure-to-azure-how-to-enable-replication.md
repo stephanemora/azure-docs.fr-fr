@@ -5,12 +5,12 @@ author: sideeksh
 manager: rochakm
 ms.topic: how-to
 ms.date: 04/29/2018
-ms.openlocfilehash: 1c6b7cfbf193f02598052b6922efec17fb16ec83
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 3a1ac6dd940ea5d31adae45a435c5425497362b1
+ms.sourcegitcommit: e995f770a0182a93c4e664e60c025e5ba66d6a45
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "75973687"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86135770"
 ---
 # <a name="replicate-azure-vms-to-another-azure-region"></a>Répliquer des machines virtuelles Azure dans une autre région Azure
 
@@ -50,7 +50,7 @@ Activez la réplication. Cette procédure suppose que la région principale Azur
        - Si le groupe de ressources créé par Site Recovery existe déjà, il est réutilisé.
        - Vous pouvez personnaliser les paramètres du groupe de ressources.
        - L’emplacement du groupe de ressources cible peut être n’importe quelle région Azure à l’exception de la région dans laquelle les machines virtuelles sources sont hébergées.
-   - **Réseau virtuel cible** : Par défaut, Site Recovery crée un réseau virtuel dans la région cible dont le nom porte un suffixe « asr ». Il est mappé à votre réseau source et utilisé pour toute protection ultérieure. [En savoir plus](site-recovery-network-mapping-azure-to-azure.md) sur le mappage réseau.
+   - **Réseau virtuel cible** : Par défaut, Site Recovery crée un réseau virtuel dans la région cible dont le nom porte un suffixe « asr ». Il est mappé à votre réseau source et utilisé pour toute protection ultérieure. [En savoir plus](./azure-to-azure-network-mapping.md) sur le mappage réseau.
    - **Comptes de stockage cibles (la machine virtuelle source n’utilise pas de disques managés)**  : par défaut, Site Recovery crée un compte de stockage cible avec la même configuration que celle du compte de stockage de machines virtuelles source. Si le compte de stockage existe déjà, il est réutilisé.
    - **Disques managés de réplica (la machine virtuelle source utilise des disques managés)**  : Site Recovery crée des disques managés de réplica dans la région cible pour refléter les disques managés de la machine virtuelle source du même type de stockage (Standard ou Premium).
    - **Comptes de stockage de cache** : Site Recovery a besoin d’un compte de stockage supplémentaire appelé « stockage de cache » dans la région source. Toutes les modifications effectuées sur les machines virtuelles sources sont suivies et envoyées au compte de stockage de cache avant leur réplication vers l’emplacement cible. Ce compte de stockage doit être Standard.
@@ -117,8 +117,9 @@ Vous pouvez modifier les paramètres de cible par défaut utilisés par Site Rec
 6. Une fois que les machines virtuelles sont activées pour la réplication, vous pouvez vérifier leur état d’intégrité sous **Éléments répliqués**
 
 >[!NOTE]
->Pendant la réplication initiale, l’état des peut prendre un certain temps à s’actualiser à défaut de progression. Cliquez sur le bouton **Actualiser** pour obtenir le dernier état.
 >
+> - Pendant la réplication initiale, l’état des peut prendre un certain temps à s’actualiser à défaut de progression. Cliquez sur le bouton **Actualiser** pour obtenir le dernier état.
+> - Si aucun point de récupération n’a été généré au cours des 60 dernières minutes, l’intégrité de la réplication de la machine virtuelle devient critique.
 
 ## <a name="next-steps"></a>Étapes suivantes
 

@@ -5,12 +5,12 @@ services: automation
 ms.subservice: update-management
 ms.date: 05/17/2019
 ms.topic: conceptual
-ms.openlocfilehash: f05e705f351d75fdf772d3197b94fcece40d43fb
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 246fcdb27737e99bb677e23216f0305037f54526
+ms.sourcegitcommit: ec682dcc0a67eabe4bfe242fce4a7019f0a8c405
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85100386"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86187453"
 ---
 # <a name="manage-pre-scripts-and-post-scripts"></a>Gérer des pré-scripts et des post-scripts
 
@@ -147,7 +147,7 @@ Les tâches antérieures et les tâches postérieures s’exécutent sous la for
 * compte d’identification ;
 * runbook à exécuter.
 
-Pour interagir avec des machines Azure, vous devez utiliser la cmdlet [Invoke-AzVMRunCommand](https://docs.microsoft.com/powershell/module/az.compute/invoke-azvmruncommand?view=azps-3.7.0) pour interagir avec vos machines virtuelles Azure. Pour savoir comment faire, consultez l’exemple de runbook [Update Management - run script with Run command](https://gallery.technet.microsoft.com/Update-Management-Run-40f470dc).
+Pour interagir avec des machines Azure, vous devez utiliser la cmdlet [Invoke-AzVMRunCommand](/powershell/module/az.compute/invoke-azvmruncommand?view=azps-3.7.0) pour interagir avec vos machines virtuelles Azure. Pour savoir comment faire, consultez l’exemple de runbook [Update Management - run script with Run command](https://gallery.technet.microsoft.com/Update-Management-Run-40f470dc).
 
 ### <a name="interact-with-non-azure-machines"></a>Interagir avec les machines non Azure
 
@@ -158,7 +158,7 @@ Les tâches antérieures et les tâches postérieures s’exécutent dans le con
 * runbook à exécuter localement ;
 * runbook parent.
 
-Pour interagir avec les machines non-Azure, un runbook parent est exécuté dans le contexte Azure. Ce runbook appelle un runbook enfant avec l’applet de commande [Start-AzAutomationRunbook](https://docs.microsoft.com/powershell/module/Az.Automation/Start-AzAutomationRunbook?view=azps-3.7.0). Vous devez spécifier le paramètre `RunOn` et indiquer le nom du Runbook Worker hybride sur lequel exécuter le script. Consultez l’exemple de runbook [Update Management – exécuter le script localement](https://gallery.technet.microsoft.com/Update-Management-Run-6949cc44).
+Pour interagir avec les machines non-Azure, un runbook parent est exécuté dans le contexte Azure. Ce runbook appelle un runbook enfant avec l’applet de commande [Start-AzAutomationRunbook](/powershell/module/Az.Automation/Start-AzAutomationRunbook?view=azps-3.7.0). Vous devez spécifier le paramètre `RunOn` et indiquer le nom du Runbook Worker hybride sur lequel exécuter le script. Consultez l’exemple de runbook [Update Management – exécuter le script localement](https://gallery.technet.microsoft.com/Update-Management-Run-6949cc44).
 
 ## <a name="abort-patch-deployment"></a>À propos du déploiement de correctifs
 
@@ -243,7 +243,7 @@ $variable = Get-AutomationVariable -Name $runId
 ```
 
 > [!NOTE]
-> Pour les runbooks PowerShell non graphiques, `Add-AzAccount` et `Add-AzureRMAccount` sont des alias de [Connect-AzAccount](https://docs.microsoft.com/powershell/module/az.accounts/connect-azaccount?view=azps-3.5.0). Vous pouvez utiliser ces cmdlets ou [mettre à jour vos modules](automation-update-azure-modules.md) dans votre compte Automation vers les dernières versions. Il est possible que vous deviez mettre à jour vos modules, même si vous venez de créer un compte Automation.
+> Pour les runbooks PowerShell non graphiques, `Add-AzAccount` et `Add-AzureRMAccount` sont des alias de [Connect-AzAccount](/powershell/module/az.accounts/connect-azaccount?view=azps-3.5.0). Vous pouvez utiliser ces cmdlets ou [mettre à jour vos modules](automation-update-azure-modules.md) dans votre compte Automation vers les dernières versions. Il est possible que vous deviez mettre à jour vos modules, même si vous venez de créer un compte Automation.
 
 ## <a name="next-steps"></a>Étapes suivantes
 

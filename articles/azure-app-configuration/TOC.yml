@@ -103,6 +103,8 @@
       href: howto-import-export-data.md
     - name: Acheminer des événements vers un point de terminaison personnalisé
       href: howto-app-configuration-event.md
+    - name: Sauvegarder automatiquement le magasin de configuration
+      href: howto-backup-config-store.md
     - name: Meilleures pratiques
       href: howto-best-practices.md
 - name: Informations de référence
@@ -141,7 +143,7 @@
   items:
     - name: Tarifs
       href: 'https://azure.microsoft.com/pricing/details/app-configuration/'
-    - name: Videos
+    - name: Vidéos
       items:
         - name: Prise en main
           href: 'https://channel9.msdn.com/Shows/Azure-Friday/Getting-started-with-Azure-App-Configuration'

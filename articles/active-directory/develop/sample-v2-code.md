@@ -12,12 +12,12 @@ ms.date: 06/01/2020
 ms.author: marsma
 ms.reviewer: jmprieur
 ms.custom: aaddev, identityplatformtop40
-ms.openlocfilehash: 788f7eab3e547347beb4d95b523ad3c77e954687
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 42b7cf88942fb9b54b1292ece18cf14eb0d21958
+ms.sourcegitcommit: 1e6c13dc1917f85983772812a3c62c265150d1e7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85477360"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86165960"
 ---
 # <a name="microsoft-identity-platform-code-samples-v20-endpoint"></a>Exemples de code de la plateforme d’identité Microsoft (point de terminaison v2.0)
 
@@ -65,22 +65,22 @@ Les exemples suivants illustrent des applications web qui connectent les utilisa
 
 ## <a name="desktop-and-mobile-public-client-apps"></a>Applications clientes publiques mobiles et de bureau
 
-Les exemples suivants illustrent des applications clientes publiques (applications de bureau ou mobiles) qui accèdent à l’API Graph ou à votre API web pour le compte d’un utilisateur. Toutes ces applications clientes utilisent une bibliothèque d’authentification Microsoft (MSAL).
+Les exemples suivants illustrent des applications clientes publiques (applications de bureau ou mobiles) qui accèdent à l’API Graph ou à votre API web pour le compte d’un utilisateur. Outre l’exemple *Desktop (console) avec WAM*, toutes ces applications clientes utilisent la bibliothèque d’authentification Microsoft (MSAL).
 
-| Application cliente | Plateforme | Flux/Grant | Appelle Microsoft Graph | Appelle une API web ASP.NET Core |
+| Application cliente | Plateforme | Flux/octroi | Appelle Microsoft Graph | Appelle une API web ASP.NET Core |
 | ------------------ | -------- |  ----------| ---------- | ------------------------- |
-| Bureau (WPF)      | ![Cette image affiche le logo .NET/C#](media/sample-v2-code/logo_NET.png) | [interactive](msal-authentication-flows.md#interactive)| [dotnet-desktop-msgraph-v2](https://github.com/azure-samples/active-directory-dotnet-desktop-msgraph-v2) | [dotnet-native-aspnetcore-v2](https://aka.ms/msidentity-aspnetcore-webapi) |
+| Bureau (WPF)      | ![Cette image affiche le logo .NET/C#](media/sample-v2-code/logo_NET.png) | [Code d’autorisation](msal-authentication-flows.md#authorization-code)| [dotnet-desktop-msgraph-v2](https://github.com/azure-samples/active-directory-dotnet-desktop-msgraph-v2) | [dotnet-native-aspnetcore-v2](https://aka.ms/msidentity-aspnetcore-webapi) |
 | Bureau (Console)   | ![Cette image affiche le logo .NET/C# (bureau)](media/sample-v2-code/logo_NET.png) | [Authentification Windows intégrée](msal-authentication-flows.md#integrated-windows-authentication) | [dotnet-iwa-v2](https://github.com/azure-samples/active-directory-dotnet-iwa-v2) |  |
 | Bureau (Console)   | ![Cette image affiche le logo Java](media/sample-v2-code/logo_java.png) | [Authentification Windows intégrée](msal-authentication-flows.md#integrated-windows-authentication) |[ms-identity-java-desktop](https://github.com/Azure-Samples/ms-identity-java-desktop/) |  |
 | Bureau (Console)   | ![Cette image affiche le logo .NET/C# (bureau)](media/sample-v2-code/logo_NETcore.png) | [Nom d’utilisateur/mot de passe](msal-authentication-flows.md#usernamepassword) |[dotnetcore-up-v2](https://github.com/azure-samples/active-directory-dotnetcore-console-up-v2) |  |
-| Bureau (console) avec WAM  | ![Cette image affiche le logo .NET/C# (bureau)](media/sample-v2-code/logo_NETcore.png) | [Interactif avec WAM](msal-authentication-flows.md#interactive) |[dotnet-native-uwp-wam](https://github.com/azure-samples/active-directory-dotnet-native-uwp-wam) |  |
+| Bureau (console) avec WAM  | ![Cette image affiche le logo .NET/C# (bureau)](media/sample-v2-code/logo_NETcore.png) | Interactif avec [Gestionnaire de comptes web](/windows/uwp/security/web-account-manager) (WAM) |[dotnet-native-uwp-wam](https://github.com/azure-samples/active-directory-dotnet-native-uwp-wam) |  |
 | Bureau (Console)   | ![Cette image affiche le logo Java](media/sample-v2-code/logo_java.png) | [Nom d’utilisateur/mot de passe](msal-authentication-flows.md#usernamepassword) |[ms-identity-java-desktop](https://github.com/Azure-Samples/ms-identity-java-desktop/) |  |
 | Bureau (Console)   | ![Cette image affiche le logo Python](media/sample-v2-code/logo_python.png) | [Nom d’utilisateur/mot de passe](msal-authentication-flows.md#usernamepassword) |[ms-identity-python-desktop](https://github.com/Azure-Samples/ms-identity-python-desktop) |  |
-| Mobile (Android, iOS, UWP)   | ![Cette image affiche le logo .NET/C# (Xamarin)](media/sample-v2-code/logo_xamarin.png) | [interactive](msal-authentication-flows.md#interactive) |[xamarin-native-v2](https://github.com/azure-samples/active-directory-xamarin-native-v2) |  |
-| Mobile (iOS)       | ![Cette image affiche iOS/Objective-C ou Swift](media/sample-v2-code/logo_iOS.png) | [interactive](msal-authentication-flows.md#interactive) |[ios-swift-objc-native-v2](https://github.com/azure-samples/active-directory-ios-swift-native-v2) </p> [ios-native-nxoauth2-v2](https://github.com/azure-samples/active-directory-ios-native-nxoauth2-v2) |  |
-| Bureau (macOS)       | macOS | [interactive](msal-authentication-flows.md#interactive) |[macOS-swift-objc-native-v2](https://github.com/Azure-Samples/ms-identity-macOS-swift-objc) |  |
-| Mobile (Android-Java)   | ![Cette image affiche le logo Android](media/sample-v2-code/logo_Android.png) | [interactive](msal-authentication-flows.md#interactive) |  [Android-Java](https://github.com/Azure-Samples/ms-identity-android-java) |  |
-| Mobile (Android-Kotlin)   | ![Cette image affiche le logo Android](media/sample-v2-code/logo_Android.png) | [interactive](msal-authentication-flows.md#interactive) |  [Android-Kotlin](https://github.com/Azure-Samples/ms-identity-android-kotlin) |  |
+| Mobile (Android, iOS, UWP)   | ![Cette image affiche le logo .NET/C# (Xamarin)](media/sample-v2-code/logo_xamarin.png) | [Code d’autorisation](msal-authentication-flows.md#authorization-code) |[xamarin-native-v2](https://github.com/azure-samples/active-directory-xamarin-native-v2) |  |
+| Mobile (iOS)       | ![Cette image affiche iOS/Objective-C ou Swift](media/sample-v2-code/logo_iOS.png) | [Code d’autorisation](msal-authentication-flows.md#authorization-code) |[ios-swift-objc-native-v2](https://github.com/azure-samples/active-directory-ios-swift-native-v2) </p> [ios-native-nxoauth2-v2](https://github.com/azure-samples/active-directory-ios-native-nxoauth2-v2) |  |
+| Bureau (macOS)       | macOS | [Code d’autorisation](msal-authentication-flows.md#authorization-code) |[macOS-swift-objc-native-v2](https://github.com/Azure-Samples/ms-identity-macOS-swift-objc) |  |
+| Mobile (Android-Java)   | ![Cette image affiche le logo Android](media/sample-v2-code/logo_Android.png) | [Code d’autorisation](msal-authentication-flows.md#authorization-code) |  [Android-Java](https://github.com/Azure-Samples/ms-identity-android-java) |  |
+| Mobile (Android-Kotlin)   | ![Cette image affiche le logo Android](media/sample-v2-code/logo_Android.png) | [Code d’autorisation](msal-authentication-flows.md#authorization-code) |  [Android-Kotlin](https://github.com/Azure-Samples/ms-identity-android-kotlin) |  |
 
 ## <a name="daemon-applications"></a>Applications de démon
 

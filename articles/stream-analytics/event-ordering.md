@@ -5,18 +5,18 @@ author: sidram
 ms.author: sidram
 ms.reviewer: mamccrea
 ms.service: stream-analytics
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 03/12/2019
-ms.openlocfilehash: c0a108565a6a0f62c6252113f984e8b10967c5db
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: e9617018b06d4f62b49946ae5593bd51805355e0
+ms.sourcegitcommit: e132633b9c3a53b3ead101ea2711570e60d67b83
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "75461195"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86044564"
 ---
 # <a name="configuring-event-ordering-policies-for-azure-stream-analytics"></a>Configuration de stratégies de classement des événements pour Azure Stream Analytics
 
-Cet article explique comment configurer et utiliser des stratégies de classement des événements tardifs et désordonnés dans Azure Stream Analytics. Ces stratégies s’appliquent uniquement quand vous utilisez la clause [TIMESTAMP BY](https://docs.microsoft.com/stream-analytics-query/timestamp-by-azure-stream-analytics) dans votre requête.
+Cet article explique comment configurer et utiliser des stratégies de classement des événements tardifs et désordonnés dans Azure Stream Analytics. Ces stratégies sont appliquées uniquement lorsque vous utilisez la clause [TIMESTAMP BY](https://docs.microsoft.com/stream-analytics-query/timestamp-by-azure-stream-analytics) dans votre requête, et ne sont appliquées que pour des sources d’entrée cloud.
 
 ## <a name="event-time-and-arrival-time"></a>Heure de l’événement et heure d’arrivée
 

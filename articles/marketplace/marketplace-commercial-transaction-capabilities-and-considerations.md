@@ -1,18 +1,16 @@
 ---
 title: Fonctionnalités de transaction de la place de marché commerciale de Microsoft
 description: Cet article décrit les considérations sur les prix, la facturation et le paiement pour l’option de transaction de la place de marché commerciale.
-author: dsindona
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
-ms.date: 04/14/2020
-ms.author: dsindona
-ms.openlocfilehash: 8818b06e84f6ffe05398087c4aaeba282adc8b2e
-ms.sourcegitcommit: d118ad4fb2b66c759b70d4d8a18e6368760da3ad
+ms.date: 06/15/2020
+ms.openlocfilehash: 653c55fa7476fa5fed077002db226297a33dfef6
+ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/02/2020
-ms.locfileid: "84298208"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86119427"
 ---
 # <a name="commercial-marketplace-transact-capabilities"></a>Fonctionnalités de transaction de la place de marché commerciale
 
@@ -42,7 +40,7 @@ L’option de publication Transaction est actuellement disponible pour ces types
 
 ### <a name="billing-infrastructure-costs"></a>Facturation des coûts d’infrastructure
 
-Pour les **Machines virtuelles et les Applications Azure**, des frais d’utilisation de l’infrastructure Azure sont facturés sur l’abonnement Azure du client. Ils sont détaillés et présentés séparément des frais de licence logicielle du fournisseur sur la facture du client.
+Pour les **machines virtuelles** et les **applications Azure**, des frais d’utilisation de l’infrastructure Azure sont facturés sur l’abonnement Azure du client. Ils sont détaillés et présentés séparément des frais de licence logicielle du fournisseur sur la facture du client.
 
 Pour les **Applications SaaS**, l’éditeur doit regrouper les frais d’utilisation de l’infrastructure Azure et les frais de licence logicielle dans le même élément de coût.  Ils font facturés au client selon un tarif fixe. L’utilisation de l’infrastructure Azure est présentée et facturée directement au partenaire. Les frais réels d’utilisation de l’infrastructure ne sont pas visibles par le client. Les éditeurs choisissent généralement d’inclure les frais d’utilisation de l’infrastructure Azure dans leurs tarifs de licence logicielle. Les frais de licence logicielle ne sont pas comptabilisés ni basés sur la consommation.
 
@@ -51,9 +49,9 @@ Pour les **Applications SaaS**, l’éditeur doit regrouper les frais d’utilis
 Selon l’option Transaction choisie, les frais de licence logicielle se présentent ainsi :
 
 - **Gratuit** : aucuns frais ne sont facturés pour les licences logicielles.
-- **BYOL (apportez votre propre licence)**  : les frais facturables pour les licences logicielles sont gérés directement entre l’éditeur et le client. Microsoft transmet uniquement les frais d’utilisation de l’infrastructure Azure. Cela s’applique uniquement aux offres Machines virtuelles et Applications Azure.
-- **Paiement à l’utilisation** : des frais de licence logicielle sont facturés à un taux tarifaire par heure et par cœur (processeur virtuel) basé sur l’utilisation de l’infrastructure Azure. Cela s’applique uniquement aux offres Machines virtuelles et Applications Azure.
-- **Tarification par abonnement** : les frais de licence logicielle sont facturés mensuellement ou annuellement selon un tarif fixe ou par poste. Cela s’applique uniquement aux offres Applications SaaS (mensuelle ou annuelle) et Applications Azure - Applications gérées uniquement (mensuelle).
+- **BYOL (apportez votre propre licence)**  : les frais facturables pour les licences logicielles sont gérés directement entre l’éditeur et le client. Microsoft transmet uniquement les frais d’utilisation de l’infrastructure Azure. Cela s’applique uniquement aux machines virtuelles et aux applications Azure.
+- **Paiement à l’utilisation** : des frais de licence logicielle sont facturés à un taux tarifaire par heure et par cœur (processeur virtuel) basé sur l’utilisation de l’infrastructure Azure. Cela s’applique uniquement aux machines virtuelles et aux applications Azure.
+- **Tarification par abonnement** : les frais de licence logicielle sont facturés mensuellement ou annuellement selon un tarif fixe ou par poste. Cela s’applique uniquement aux applications SaaS (mensuel ou annuel) et aux applications Azure – applications managées (mensuel).
 - **Essai logiciel gratuit** : aucuns frais ne sont facturés pour les licences logicielles pendant une période de 30 ou 90 jours.
 
 ### <a name="free-and-bring-your-own-license-byol-pricing"></a>Options tarifaires Gratuit et BYOL (apportez votre propre licence)
@@ -136,7 +134,7 @@ Dans ce scénario, Microsoft facture 100 $ pour votre licence logicielle et ver
 |Microsoft vous verse 80 % des revenus générés par les licences <br> \* Microsoft paie 90 % de vos coûts de licence pour les applications SaaS qualifiées   |   80 $/mois <br> \* 90 $/mois    |
 |Microsoft conserve 20 % des revenus générés par les licences <br> \* Microsoft conserve 10 % de vos coûts de licence pour les applications SaaS qualifiées  |  20 $/mois <br> \* 10 $     |
 
-Pour certains produits SaaS que vous publiez sur notre Place de marché commerciale, Microsoft réduit ses **frais liés au service de la Place de marché** de 20 % (comme décrit dans le Contrat d’éditeur Microsoft) à 10 %. Pour que votre offre soit qualifiée, au moins une de vos offres doit avoir été désignée par Microsoft comme étant Prête à la co-vente IP ou Priorité à la co-vente IP. Pour recevoir ces frais réduits liés au service de la Place de marché pour le mois, l’éligibilité doit être respectée au moins 5 jours ouvrés avant la fin du mois précédent. Les frais réduits liés au service de la Place de marché ne s’appliquent pas aux machines virtuelles, aux applications managées ou à tout autre produit, disponible via la place de marché commerciale. Les frais réduits sont disponibles pour les offres qualifiées, avec frais de licence collectés par Microsoft entre le 1er mai 2019 et le 30 juin 2020. Au-delà de cette date, les frais retrouvent leur montant initial.
+Pour certains produits SaaS publiés sur notre place de marché commerciale, Microsoft réduit les **frais du service de la Place de marché** de 20 % (cf. Contrat d’éditeur Microsoft) à 10 %. Pour que votre offre soit qualifiée, au moins une de vos offres doit avoir été désignée par Microsoft comme étant Prête à la co-vente IP ou Priorité à la co-vente IP. Pour recevoir ces frais réduits liés au service de la Place de marché pour le mois, l’éligibilité doit être respectée au moins 5 jours ouvrés avant la fin du mois précédent. Les frais réduits du service de la Place de marché ne s’appliquent pas aux machines virtuelles, aux applications managées ni à aucun autre produit disponible sur la place de marché commerciale. Les frais réduits sont disponibles pour les offres qualifiées, avec frais de licence collectés par Microsoft entre le 1er mai 2019 et le 30 juin 2020. Au-delà de cette date, les frais retrouvent leur montant initial.
 
 ### <a name="customer-invoicing-payment-billing-and-collections"></a>Tarification, paiement, facturation et collecte côté client
 
@@ -176,14 +174,17 @@ Cette section décrit la configuration requise pour les différents types d’of
 - Un compte Microsoft et des informations financières sont requis pour l’offre de publication Transaction, quel que soit son modèle de tarification.
 - Les informations financières obligatoires comprennent un compte de paiement et un profil fiscal.
 
-Pour plus d’informations sur la configuration de ces comptes, consultez [Gérer votre compte Place de marché commerciale dans l’Espace partenaires](https://docs.microsoft.com/azure/marketplace/partner-center-portal/manage-account).
+Pour plus d’informations sur la configuration de ces comptes, consultez [Gestion de votre compte de la place de marché commerciale dans l’Espace partenaires](partner-center-portal/manage-account.md).
 
 ### <a name="requirements-for-specific-offer-types"></a>Exigences applicables à certains types d’offres
 
 L’option de publication Transaction est uniquement disponible pour les types d’offres de la Place de marché suivants :
 
-- **Machine virtuelle** : choisissez entre le modèle tarifaire Gratuit, BYOL (apportez votre propre licence) et Paiement à l’utilisation, et présentez les frais comme des références SKU définies au niveau de l’offre. Sur la facture Azure du client, Microsoft présente les frais de licence logicielle de l’éditeur séparément des frais d’infrastructure Azure sous-jacents. Les frais d’utilisation de l’infrastructure Azure sont occasionnés par l’utilisation du logiciel de l’éditeur.
-- **Applications Azure : Modèle de solution ou application gérée** : vous devez provisionner une ou plusieurs machines virtuelles et transmettre le total à payer pour chaque machine virtuelle. Pour les applications managées dans un plan unique, il est possible de sélectionner un abonnement mensuel fixe comme modèle tarifaire à la place de la tarification par machine virtuelle. Dans certains cas, les frais d’utilisation de l’infrastructure Azure sont dissociés des frais de licence logicielle, mais ils sont présentés au client sur la même facture. Toutefois, si vous configurez une offre d'application managée pour les frais d'infrastructure ISV, les ressources Azure sont facturées à l'éditeur et le client se voit présenter un tarif fixe incluant le coût de l'infrastructure, des licences logicielles et des services de gestion.
+- **Machine virtuelle** : choisissez entre les modèles tarifaires Gratuit, BYOL (apportez votre propre licence) et Paiement à l’utilisation, et présentez-les sous forme de références SKU définies au niveau de l’offre. Sur la facture Azure du client, Microsoft présente les frais de licence logicielle de l’éditeur séparément des frais d’infrastructure Azure sous-jacents. Les frais d’utilisation de l’infrastructure Azure sont occasionnés par l’utilisation du logiciel de l’éditeur.
+
+- **Application Azure : modèle de solution ou application managée** : vous devez provisionner une ou plusieurs machines virtuelles et transmettre le total à payer pour chaque machine virtuelle. Pour les applications managées dans un plan unique, il est possible de sélectionner un abonnement mensuel fixe comme modèle tarifaire à la place de la tarification par machine virtuelle. Dans certains cas, les frais d’utilisation de l’infrastructure Azure sont dissociés des frais de licence logicielle, mais ils sont présentés au client sur la même facture. Toutefois, si vous configurez une offre d’application managée pour les frais d’infrastructure ISV, les ressources Azure sont facturées à l’éditeur et le client se voit présenter un tarif fixe incluant le coût de l’infrastructure, des licences logicielles et des services de gestion.
+
+- **Application SaaS** : il doit s’agir d’une solution multilocataire, qui utilise [Azure Active Directory](https://azure.microsoft.com/services/active-directory/) pour l’authentification et s’intègre aux [API d’approvisionnement SaaS](partner-center-portal/pc-saas-fulfillment-api-v2.md). L’utilisation de l’infrastructure Azure est gérée et vous est facturée directement (en tant que partenaire). Vous devez donc considérer ces frais et les frais de licence logicielle comme un seul poste de coût. Pour plus d’informations, consultez [Création d’une offre SaaS sur la place de marché commerciale](partner-center-portal/create-new-saas-offer.md).
 
 ## <a name="next-steps"></a>Étapes suivantes
 

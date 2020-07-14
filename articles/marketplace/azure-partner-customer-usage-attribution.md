@@ -1,18 +1,18 @@
 ---
 title: Attribution de partenaires de place de marché et d’utilisation de client
 description: Obtenir une vue d’ensemble du suivi de l’utilisation de client pour les solutions de la place de marché Azure.
-author: dsindona
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
+author: vikrambmsft
+ms.author: vikramb
 ms.date: 04/14/2020
-ms.author: dsindona
-ms.openlocfilehash: 9c70f8d728786e8aff8da33f9a39b8c2cfaafdc4
-ms.sourcegitcommit: d118ad4fb2b66c759b70d4d8a18e6368760da3ad
+ms.openlocfilehash: 6997c1aaab8cbe635ccef21967a0fce1f735c1ab
+ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/02/2020
-ms.locfileid: "84295573"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86103022"
 ---
 # <a name="commercial-marketplace-partner-and-customer-usage-attribution"></a>Attribution de partenaires de place de marché et d’utilisation de client
 
@@ -66,7 +66,7 @@ Une fois que vous avez ajouté un GUID à votre modèle ou dans l’agent utilis
 
 1. Inscrivez-vous en tant qu’[éditeur de la place de marché commerciale](https://aka.ms/JoinMarketplace).
 
-   * Les partenaires doivent [avoir un profil dans l’Espace partenaires](https://docs.microsoft.com/azure/marketplace/become-publisher). Vous êtes invité à répertorier l’offre dans la Place de marché Azure ou AppSource.
+   * Les partenaires doivent [avoir un profil dans l’Espace partenaires](become-publisher.md). Vous êtes invité à répertorier l’offre dans la Place de marché Azure ou AppSource.
    * Les partenaires peuvent inscrire plusieurs GUID.
    * Les partenaires peuvent également enregistrer des GUID pour des modèles et des offres de solutions extérieures à la place de marché.
 
@@ -74,7 +74,7 @@ Une fois que vous avez ajouté un GUID à votre modèle ou dans l’agent utilis
 
 1. Sur la page **Paramètres du compte**, sélectionnez **Ajouter un GUID de suivi**.
 
-1. Dans la zone **GUID**, entrez votre GUID de suivi. Entrez simplement le GUID sans le préfixe **pid-** . Dans la zone **Description**, entrez le nom ou la description de l’offre.
+1. Dans la zone **GUID**, entrez votre GUID de suivi. Entrez simplement le GUID sans le préfixe `pid-`. Dans la zone **Description**, entrez le nom ou la description de l’offre.
 
 1. Pour inscrire plusieurs GUID, sélectionnez de nouveau **Add Tracking GUID** (Ajouter un GUID de suivi). Des champs supplémentaires apparaissent sur la page.
 
@@ -85,7 +85,7 @@ De nombreuses solutions de partenaires sont déployées à l’aide des modèles
 
 > [!NOTE]
 > Pour plus d’informations sur la création et la publication de modèles de solution, consultez
-> * [Créer et déployer votre premier modèle Resource Manager](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-quickstart-create-templates-use-the-portal).
+> * [Créer et déployer votre premier modèle Resource Manager](../azure-resource-manager/templates/quickstart-create-templates-use-the-portal.md).
 >* [Offre d’application Azure](./partner-center-portal/create-new-azure-apps-offer.md).
 >* Vidéo : [Création de modèles de solution et d’applications managées pour la Place de marché Azure](https://channel9.msdn.com/Events/Build/2018/BRK3603).
 
@@ -98,7 +98,7 @@ Pour ajouter un identificateur global unique (GUID), vous devez apporter une mod
 
 1. Ajoutez une nouvelle ressource dans le fichier de modèle principal. Cette ressource doit être uniquement dans le fichier **mainTemplate.json** ou **azuredeploy.json**, et pas dans l’un des modèles imbriqués ou liés.
 
-1. Entrez la valeur du GUID après le préfixe **pid-** (par exemple, pid-eb7927c8-dd66-43e1-b0cf-c346a422063).
+1. Entrez la valeur GUID après le préfixe `pid-` (par exemple, pid-eb7927c8-dd66-43e1-b0cf-c346a422063).
 
 1. Recherchez d’éventuelles erreurs dans le modèle.
 
@@ -137,12 +137,12 @@ Si vous utilisez un modèle Resource Manager, vous devez baliser votre solution 
 
 ### <a name="tag-a-deployment-with-the-resource-manager-apis"></a>Baliser un déploiement avec les API Resource Manager
 
-Pour autoriser l’attribution de l’utilisation de client, lorsque vous concevez vos appels d’API, incluez un GUID dans l’en-tête d’agent utilisateur au sein de la demande. Ajoutez le GUID pour chaque offre ou référence SKU. Mettez la chaîne en forme avec le préfixe **pid-** et incluez le GUID généré par le partenaire. Voici un exemple de format GUID à insérer dans l’agent utilisateur :
+Pour autoriser l’attribution de l’utilisation de client, lorsque vous concevez vos appels d’API, incluez un GUID dans l’en-tête d’agent utilisateur au sein de la demande. Ajoutez le GUID pour chaque offre ou référence SKU. Mettez la chaîne en forme avec le préfixe `pid-` et incluez le GUID généré par le partenaire. Voici un exemple de format GUID à insérer dans l’agent utilisateur :
 
 ![Exemple de format GUID](media/marketplace-publishers-guide/tracking-sample-guid-for-lu-2.PNG)
 
 > [!NOTE]
-> Le format de la chaîne est important. Si le préfixe **pid-** n’est pas inclus, il est impossible d’interroger les données. D’autres kits SDK procèdent au suivi différemment. Pour implémenter cette méthode, passez en revue la prise en charge et le suivi de votre kit SDK Azure préféré.
+> Le format de la chaîne est important. Si le préfixe `pid-` n’est pas inclus, il est impossible d’interroger les données. D’autres kits SDK procèdent au suivi différemment. Pour implémenter cette méthode, passez en revue la prise en charge et le suivi de votre kit SDK Azure préféré.
 
 #### <a name="example-the-python-sdk"></a>Exemple : SDK Python
 
@@ -168,7 +168,7 @@ Lorsque vous utilisez Azure CLI pour ajouter votre GUID, définissez la variable
 ```
 export AZURE_HTTP_USER_AGENT='pid-eb7927c8-dd66-43e1-b0cf-c346a422063'
 ```
-Pour plus d’informations, consultez la page [Kit de développement logiciel (SDK) Azure pour Go](https://docs.microsoft.com/azure/go/).
+Pour plus d’informations, consultez la page [Kit de développement logiciel (SDK) Azure pour Go](https://docs.microsoft.com/azure/developer/go/).
 
 ## <a name="use-terraform"></a>Utiliser Terraform
 
@@ -257,7 +257,7 @@ Deux canaux de support sont disponibles selon les problèmes que vous rencontrez
 
 Si vous rencontrez des problèmes dans l’Espace partenaires, notamment concernant la connexion ou l’affichage du rapport relatif à l’attribution de l’utilisation de client, créez ici une demande de support avec l’équipe du support technique de l’Espace partenaires : [https://partner.microsoft.com/support](https://partner.microsoft.com/support)
 
-![](./media/marketplace-publishers-guide/partner-center-log-in-support.png)
+![Capture d’écran de la page Obtenir une assistance](./media/marketplace-publishers-guide/partner-center-log-in-support.png)
 
 Si vous avez besoin d’aide pour l’intégration à la Place de marché et/ou l’attribution de l’utilisation de client en général, notamment pour la configuration de cette dernière, suivez les étapes ci-dessous :
 
@@ -332,7 +332,7 @@ Le formulaire Générateur de GUID de Stockage Azure est l’assurance de géné
 
 **Puis-je utiliser un disque dur virtuel privé personnalisé dans le cadre d’une offre de modèle de solution sur la Place de marché Azure ?**
 
-Non, vous ne pouvez pas. L’image de machine virtuelle doit provenir de la Place de marché Azure. Consultez : [https://docs.microsoft.com/azure/marketplace/marketplace-virtual-machines](https://docs.microsoft.com/azure/marketplace/marketplace-virtual-machines).
+Non, vous ne pouvez pas. L’image de machine virtuelle doit provenir de la Place de marché Azure. Consultez [Guide de publication d’offres de machine virtuelle sur la Place de marché Azure](marketplace-virtual-machines.md).
 
 Vous pouvez créer une offre de machine virtuelle dans la place de marché à l’aide de votre disque dur virtuel personnalisé et le marquer comme privé afin que personne ne puisse le voir. Ajoutez ensuite une référence à cette machine virtuelle dans votre modèle de solution.
 

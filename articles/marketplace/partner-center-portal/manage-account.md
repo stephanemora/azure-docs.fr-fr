@@ -1,18 +1,18 @@
 ---
 title: Comment gérer un compte Place de marché commerciale dans l’Espace partenaires Microsoft
 description: Découvrez comment gérer un compte Place de marché commerciale dans l’Espace partenaires Microsoft.
-author: dsindona
-ms.author: dsindona
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
+author: anbene
+ms.author: mingshen
 ms.date: 04/27/2020
-ms.openlocfilehash: 76eb0638d2b67e7859b25cdda8a6f4cbda285920
-ms.sourcegitcommit: cf7caaf1e42f1420e1491e3616cc989d504f0902
+ms.openlocfilehash: 90ce9e48515213460fdb3db4fed57fd6f5d2688a
+ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/22/2020
-ms.locfileid: "83800219"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86112848"
 ---
 # <a name="manage-your-commercial-marketplace-account-in-partner-center"></a>Gérer votre compte Place de marché commerciale dans l’Espace partenaires
 
@@ -128,7 +128,7 @@ Si vous déployez un produit à l’aide d’un modèle et qu’il est disponibl
 
 Les rapports sont établis à l'aide de la valeur de partenaire (ID partenaire Microsoft) et des GUID. Vous pouvez également suivre les GUID alignés sur chaque plan au sein de l’offre à un niveau plus granulaire.
 
-Pour plus d’informations, consultez le [FAQ Suivi de l’utilisation d’Azure des clients avec des GUID](https://docs.microsoft.com/azure/marketplace/azure-partner-customer-usage-attribution#faq).
+Pour plus d’informations, consultez la [FAQ Suivi de l’utilisation d’Azure des clients avec des GUID](../azure-partner-customer-usage-attribution.md#faq).
 
 ## <a name="create-a-billing-profile"></a>Créer un profil de facturation
 
@@ -138,7 +138,7 @@ L’adresse de facturation est préremplie avec votre entité légale et vous po
 
 ## <a name="multi-user-account-management"></a>Gestion des comptes multi-utilisateurs
 
-L’Espace partenaires s’appuie sur [Azure Active Directory](https://docs.microsoft.com/azure/active-directory/fundamentals/active-directory-whatis) (Azure AD) pour l’accès et la gestion des comptes multi-utilisateurs. L’Azure AD de votre organisation est automatiquement associé à votre compte Espace partenaires dans le cadre du processus d’inscription.
+L’Espace partenaires s’appuie sur [Azure Active Directory](../../active-directory/fundamentals/active-directory-whatis.md) (Azure AD) pour l’accès et la gestion des comptes multi-utilisateurs. L’Azure AD de votre organisation est automatiquement associé à votre compte Espace partenaires dans le cadre du processus d’inscription.
 
 ## <a name="manage-users"></a>Gestion des utilisateurs
 
@@ -168,7 +168,7 @@ Pour ajouter des utilisateurs qui existent déjà dans le [compte professionnel 
 
 ### <a name="create-new-users"></a>Créer de nouveaux utilisateurs
 
-Pour créer de nouveaux comptes d’utilisateur, vous devez disposer d’un compte avec des autorisations d’[**Administrateur général**](https://docs.microsoft.com/azure/active-directory/users-groups-roles/directory-assign-admin-roles). 
+Pour créer de nouveaux comptes d’utilisateur, vous devez disposer d’un compte avec des autorisations d’[**Administrateur général**](../../active-directory/users-groups-roles/directory-assign-admin-roles.md). 
 
 1. Accédez à **Utilisateurs** (sous **Paramètres de compte**), sélectionnez **Ajouter des utilisateurs**, puis **Créer de nouveaux utilisateurs**.
 1. Entrez le prénom, le nom de famille et le nom d’utilisateur pour chaque nouvel utilisateur. 
@@ -182,7 +182,7 @@ La création d’un utilisateur dans l’Espace partenaires entraîne également
 
 ### <a name="invite-new-users-by-email"></a>Inviter de nouveaux utilisateurs par e-mail
 
-Pour inviter des utilisateurs qui ne font actuellement pas partie du compte professionnel de votre entreprise (locataire Azure AD) par courrier électronique, vous devez disposer d’un compte avec des autorisations d’[**Administrateur général**](https://docs.microsoft.com/azure/active-directory/users-groups-roles/directory-assign-admin-roles).
+Pour inviter des utilisateurs qui ne font actuellement pas partie du compte professionnel de votre entreprise (locataire Azure AD) par courrier électronique, vous devez disposer d’un compte avec des autorisations d’[**Administrateur général**](../../active-directory/users-groups-roles/directory-assign-admin-roles.md).
 
 1. Accédez à **Utilisateurs** (sous **Paramètres de compte**), sélectionnez **Ajouter des utilisateurs**, puis **Inviter des utilisateurs par e-mail**.
 2. Entrez une ou plusieurs adresses e-mail (jusqu’à dix), séparées par des virgules ou des points-virgules.
@@ -202,7 +202,7 @@ Pour supprimer un utilisateur de votre compte professionnel (locataire Azure AD)
 
 ### <a name="change-a-user-password"></a>Modifier le mot de passe utilisateur
 
-Si l’un de vos utilisateurs a besoin de modifier son mot de passe, il peut le faire lui-même si vous avez fourni une **adresse e-mail de récupération de mot de passe** lors de la création du compte d’utilisateur. Vous pouvez également mettre à jour le mot de passe utilisateur en suivant les étapes ci-dessous. Pour modifier un mot de passe utilisateur dans votre compte professionnel d’entreprise (locataire Azure AD), vous devez être connecté sur un compte avec des autorisations d’[**Administrateur général**](https://docs.microsoft.com/azure/active-directory/users-groups-roles/directory-assign-admin-roles). Notez que cela modifiera le mot de passe utilisateur dans votre locataire Azure AD, ainsi que le mot de passe permettant d’accéder à l’Espace partenaires.
+Si l’un de vos utilisateurs a besoin de modifier son mot de passe, il peut le faire lui-même si vous avez fourni une **adresse e-mail de récupération de mot de passe** lors de la création du compte d’utilisateur. Vous pouvez également mettre à jour le mot de passe utilisateur en suivant les étapes ci-dessous. Pour modifier un mot de passe utilisateur dans votre compte professionnel d’entreprise (locataire Azure AD), vous devez être connecté sur un compte avec des autorisations d’[**Administrateur général**](../../active-directory/users-groups-roles/directory-assign-admin-roles.md). Notez que cela modifiera le mot de passe utilisateur dans votre locataire Azure AD, ainsi que le mot de passe permettant d’accéder à l’Espace partenaires.
 
 1. Depuis la page **Utilisateurs** (sous **Paramètres de compte**), sélectionnez le nom du compte d’utilisateur que vous souhaitez modifier.
 2. Cliquez sur le bouton **Réinitialiser le mot de passe** en bas de la page.
@@ -264,7 +264,7 @@ Si vous souhaitez accorder l’accès à l’Espace partenaires à un tout nouve
 1. Depuis la page **Utilisateurs** (sous **Paramètres de compte**), sélectionnez **Ajouter des applications Azure AD**.
 2. Sur la page suivante, sélectionnez **Nouvelle application Azure AD**.
 3. Entrez l’**URL de réponse** pour la nouvelle application Azure AD. Il s’agit de l’URL grâce à laquelle les utilisateurs peuvent se connecter et utiliser votre application Azure AD (parfois également appelée URL de l’application ou URL de connexion). L’**URL de réponse** ne peut pas dépasser 256 caractères et doit être unique dans votre répertoire.
-4. Entrez l’**URI ID d’application** pour la nouvelle application Azure AD. Il s’agit d’un identificateur logique de l’application Azure AD qui est présenté lorsqu’une demande d’authentification unique est envoyée à Azure AD. Notez que l’**URI ID d’application** doit être unique pour chaque application Azure AD de votre répertoire. Il ne doit pas comporter plus de 256 caractères. Pour plus d’informations sur l’URI ID d’application, consultez [Intégration d’applications dans Azure Active Directory](https://docs.microsoft.com/azure/active-directory/develop/quickstart-modify-supported-accounts#change-the-application-registration-to-support-different-accounts).
+4. Entrez l’**URI ID d’application** pour la nouvelle application Azure AD. Il s’agit d’un identificateur logique de l’application Azure AD qui est présenté lorsqu’une demande d’authentification unique est envoyée à Azure AD. Notez que l’**URI ID d’application** doit être unique pour chaque application Azure AD de votre répertoire. Il ne doit pas comporter plus de 256 caractères. Pour plus d’informations sur l’URI ID d’application, consultez [Intégration d’applications dans Azure Active Directory](../../active-directory/develop/quickstart-modify-supported-accounts.md#change-the-application-registration-to-support-different-accounts).
 5. Dans la section **Rôles**, spécifiez le(s) rôle(s) ou les autorisations personnalisées pour l’application Azure AD.
 6. Sélectionnez **Enregistrer**.
 
@@ -328,7 +328,7 @@ Pour créer un nouveau locataire Azure AD avec votre compte Espace partenaires :
 3. Sélectionnez **Créer** pour confirmer les nouvelles informations du compte et du domaine.
 4. Connectez-vous avec vos nouveaux nom d’utilisateur d’administrateur général Azure AD et mot de passe pour commencer à [ajouter et gérer les utilisateurs](#manage-users).
 
-Pour plus d’informations sur la création de nouveaux locataires au sein du Portail Azure, plutôt que via le portail Espace partenaires, consultez l’article [Créer un nouveau locataire dans Azure Active Directory](https://docs.microsoft.com/azure/active-directory/fundamentals/active-directory-access-create-new-tenant).
+Pour plus d’informations sur la création de nouveaux locataires au sein du Portail Azure, plutôt que via le portail Espace partenaires, consultez l’article [Créer un nouveau locataire dans Azure Active Directory](../../active-directory/fundamentals/active-directory-access-create-new-tenant.md).
 
 ### <a name="remove-a-tenant"></a>Supprimer un locataire
 

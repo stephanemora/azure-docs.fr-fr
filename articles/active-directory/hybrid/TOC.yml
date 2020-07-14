@@ -106,6 +106,8 @@
           href: how-to-connect-install-express.md
         - name: Installer la Fédération d’Azure AD Connect ou d’autres paramètres personnalisés
           href: how-to-connect-install-custom.md
+        - name: Importer et exporter des paramètres de configuration
+          href: how-to-connect-import-export-config.md
         - name: Installer Azure AD Connect avec l’authentification directe (PTA)
           href: how-to-connect-pta-quick-start.md
         - name: Installer Azure AD Connect Health

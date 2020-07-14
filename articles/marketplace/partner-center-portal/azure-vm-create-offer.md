@@ -1,24 +1,24 @@
 ---
 title: Créer une offre de machine virtuelle Azure sur la Place de marché Azure
 description: Découvrez comment créer une offre de machine virtuelle sur la Place de marché Azure avec la référence SKU nécessaire.
-author: emuench
-ms.author: mingshen
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
-ms.date: 05/19/2020
-ms.openlocfilehash: a64908eb639a44c6bc9d742e84ebb4d01082d49d
-ms.sourcegitcommit: 1f25aa993c38b37472cf8a0359bc6f0bf97b6784
+author: emuench
+ms.author: mingshen
+ms.date: 06/17/2020
+ms.openlocfilehash: fe53de2c81f9e9df5fd9270951f943b0b3505f1e
+ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/26/2020
-ms.locfileid: "83847920"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86110978"
 ---
 # <a name="create-an-azure-virtual-machine-offer-on-azure-marketplace"></a>Créer une offre de machine virtuelle Azure sur la Place de marché Azure
 
 Cet article explique comment créer et publier une offre de machine virtuelle Azure sur la [Place de marché Azure](https://azuremarketplace.microsoft.com/). Il s’applique aux machines virtuelles Windows et Linux qui contiennent un système d’exploitation, un disque dur virtuel (VHD) et jusqu’à 16 disques de données. 
 
-Avant de commencer, [créez un compte Place de marché commerciale dans l’Espace partenaires](https://docs.microsoft.com/azure/marketplace/partner-center-portal/create-account). Vérifiez que votre compte est inscrit dans le programme de Place de marché commerciale.
+Avant de commencer, [créez un compte Place de marché commerciale dans l’Espace partenaires](create-account.md). Vérifiez que votre compte est inscrit dans le programme de Place de marché commerciale.
 
 ## <a name="introduction"></a>Introduction
 
@@ -28,24 +28,24 @@ Quand vous publiez vos offres sur la Place de marché Microsoft Azure, vous pouv
 
 - Promouvoir votre entreprise avec l’aide de la marque Microsoft.
 - Toucher plus de 100 millions d’utilisateurs Office 365 et Dynamics 365, ainsi que plus de 200 000 organisations.
-- Obtenir des prospects de grande qualité à partir de ces places de marché.
+- Obtenez des prospects de grande qualité à partir de ces places de marché.
 - Bénéficier d’une promotion de vos services assurée par les équipes de vente sur le terrain et de télévente de Microsoft.
 
 ### <a name="before-you-begin"></a>Avant de commencer
 
-Si vous ne l’avez pas encore fait, consultez le [Guide de publication de l’offre de machine virtuelle](https://docs.microsoft.com/azure/marketplace/marketplace-virtual-machines) et ces ressources dédiées à Machine virtuelle Azure :
+Si vous ne l’avez pas encore fait, consultez le [Guide de publication de l’offre de machine virtuelle](../marketplace-virtual-machines.md) et ces ressources dédiées à Machine virtuelle Azure :
 
 - Guides de démarrage rapide
   - [Modèles de démarrage rapide Azure](https://azure.microsoft.com/resources/templates/)
   - [Modèles de démarrage rapide Azure sur GitHub](https://github.com/azure/azure-quickstart-templates)
 - Tutoriels
-  - [Machines virtuelles Linux](https://docs.microsoft.com/azure/virtual-machines/linux/tutorial-manage-vm)
-  - [Machines virtuelles Windows](https://docs.microsoft.com/azure/virtual-machines/windows/tutorial-manage-vm)
+  - [Machines virtuelles Linux](../../virtual-machines/linux/tutorial-manage-vm.md)
+  - [Machines virtuelles Windows](../../virtual-machines/windows/tutorial-manage-vm.md)
 - Exemples
-  - [Exemples d’interface de ligne de commande Azure pour machines virtuelles Linux](https://docs.microsoft.com/azure/virtual-machines/linux/cli-samples)
-  - [Azure PowerShell pour les machines virtuelles Linux](https://docs.microsoft.com/azure/virtual-machines/linux/powershell-samples)
-  - [Exemples d’interface de ligne de commande Azure pour machines virtuelles Windows](https://docs.microsoft.com/azure/virtual-machines/windows/cli-samples)
-  - [Azure PowerShell pour machines virtuelles Windows](https://docs.microsoft.com/azure/virtual-machines/scripts/virtual-machines-windows-powershell-sample-create-vm-quick)
+  - [Exemples d’interface de ligne de commande Azure pour machines virtuelles Linux](../../virtual-machines/linux/cli-samples.md)
+  - [Azure PowerShell pour les machines virtuelles Linux](../../virtual-machines/linux/powershell-samples.md)
+  - [Exemples d’interface de ligne de commande Azure pour machines virtuelles Windows](../../virtual-machines/windows/cli-samples.md)
+  - [Azure PowerShell pour machines virtuelles Windows](../../virtual-machines/scripts/virtual-machines-windows-powershell-sample-create-vm-quick.md)
 
 ### <a name="fundamentals-in-technical-knowledge"></a>Notions de base des connaissances techniques
 
@@ -63,7 +63,7 @@ Votre équipe d’ingénierie doit avoir une connaissance élémentaire des tech
 2. Dans le volet gauche, sélectionnez **Place de marché commerciale** > **Vue d’ensemble**.
 3. Dans la page **Vue d’ensemble**, sélectionnez **Nouvelle offre** > **Machine virtuelle Azure**.
 
-    ![Capture d’écran montrant les options du menu du volet gauche et le bouton « Nouvelle offre ».](./media/new-offer-azure-vm.png)
+    ![Capture d’écran montrant les options du menu du volet gauche et le bouton « Nouvelle offre ».](./media/new-offer-azure-virtual-machine.png)
 
 > [!NOTE]
 > Une fois votre offre publiée, les modifications que vous y apportez dans l’Espace partenaires apparaissent sur la Place de marché Azure uniquement après la republication de l’offre. Veillez à toujours republier une offre après y avoir apporté des modifications.
@@ -86,14 +86,14 @@ Sélectionnez **Créer** pour générer l’offre et continuer.
 
 ### <a name="test-drive"></a>Version d’évaluation
 
-Une *version d’évaluation* est un excellent moyen de présenter votre offre aux clients potentiels. Elle leur donne la possibilité d’« essayer avant d’acheter », ce qui peut vous aider à augmenter vos conversions et à générer des prospects hautement qualifiés. Pour plus d’informations, consultez [Qu’est-ce qu’une version d’évaluation ?](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal/test-drive/what-is-test-drive).
+Une *version d’évaluation* est un excellent moyen de présenter votre offre aux clients potentiels. Elle leur donne la possibilité d’« essayer avant d’acheter », ce qui peut vous aider à augmenter vos conversions et à générer des prospects hautement qualifiés. Pour plus d’informations, consultez [Qu’est-ce qu’une version d’évaluation ?](../what-is-test-drive.md).
 
 Pour activer une version d’évaluation pour une durée déterminée, cochez la case **Activer une version d’évaluation**. Pour supprimer la version d’évaluation de votre offre, décochez la case.
 
 Ressources supplémentaires pour version d’évaluation :
 
 - [Meilleures pratiques techniques](https://github.com/Azure/AzureTestDrive/wiki/Test-Drive-Best-Practices)
-- [Bonnes pratiques marketing](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal/test-drive/marketing-and-best-practices)
+- [Bonnes pratiques marketing](../what-is-test-drive.md)
 - [Téléchargez le fichier PDF de vue d’ensemble de version d’évaluation](https://assetsprod.microsoft.com/mpn/azure-marketplace-appsource-test-drives.pdf) (vérifiez que le bloqueur de fenêtres publicitaires est désactivé).
 
 ### <a name="customer-leads"></a>Prospects
@@ -101,12 +101,12 @@ Ressources supplémentaires pour version d’évaluation :
 Quand vous publiez votre offre sur la Place de marché commerciale avec l’Espace partenaires, connectez-la à votre système de gestion des relations avec la clientèle (CRM). Cela vous permet de recevoir les coordonnées des clients dès qu’une personne exprime son intérêt ou utilise votre produit. La connexion à un CRM est nécessaire si vous souhaitez activer une version d’évaluation (voir la section précédente). Dans le cas contraire, la connexion à un CRM est facultative.
 
 1. Sélectionnez une destination de prospect afin de diriger les prospects vers le système de votre choix. L’Espace partenaires prend en charge les systèmes CRM suivants :
-    - [Dynamics 365](https://docs.microsoft.com/azure/marketplace/partner-center-portal/commercial-marketplace-lead-management-instructions-dynamics) for Customer Engagement
-    - [Marketo](https://docs.microsoft.com/azure/marketplace/partner-center-portal/commercial-marketplace-lead-management-instructions-marketo)
-    - [Salesforce](https://docs.microsoft.com/azure/marketplace/partner-center-portal/commercial-marketplace-lead-management-instructions-salesforce)
+    - [Dynamics 365](commercial-marketplace-lead-management-instructions-dynamics.md) for Customer Engagement
+    - [Marketo](commercial-marketplace-lead-management-instructions-marketo.md)
+    - [Salesforce](commercial-marketplace-lead-management-instructions-salesforce.md)
 
     > [!NOTE]
-    > Si votre système CRM n’est pas listé ici, utilisez le [stockage Table Azure](https://docs.microsoft.com/azure/marketplace/partner-center-portal/commercial-marketplace-lead-management-instructions-azure-table) ou un [point de terminaison HTTPS](https://docs.microsoft.com/azure/marketplace/partner-center-portal/commercial-marketplace-lead-management-instructions-https) pour stocker vos données de prospects. Ensuite, exportez les données vers votre système CRM.
+    > Si votre système CRM n’est pas listé ici, utilisez le [stockage Table Azure](commercial-marketplace-lead-management-instructions-azure-table.md) ou un [point de terminaison HTTPS](commercial-marketplace-lead-management-instructions-https.md) pour stocker vos données de prospects. Ensuite, exportez les données vers votre système CRM.
 
 1. Connectez votre offre à la destination de prospect lors de la publication dans l’Espace partenaires.
 1. Vérifiez que la connexion à la destination de prospect est correctement configurée. Une fois que vous avez effectué la publication dans l’Espace partenaires, Microsoft valide la connexion et vous envoie un prospect de test. Quand vous visualisez l’offre avant son lancement, vous pouvez également tester votre connexion de prospect en essayant de déployer vous-même l’offre dans l’environnement en préversion.
@@ -116,11 +116,16 @@ Quand vous publiez votre offre sur la Place de marché commerciale avec l’Espa
 
 ## <a name="properties"></a>Propriétés
 
-Dans la page **Propriétés**, vous définissez les catégories et secteurs utilisés pour grouper votre offre sur la Place de marché, la version de votre application et les contrats légaux associés.
+Dans la page **Propriétés**, vous définissez les catégories utilisées pour grouper votre offre sur la Place de marché, la version de votre application et les contrats légaux associés.
 
-### <a name="categories"></a>Catégories
+### <a name="category"></a>Category
 
-Sélectionnez au minimum une et au maximum cinq catégories. Vous utilisez ces catégories pour placer votre offre dans les zones de recherche appropriées sur la Place de marché Azure. Dans la description de l’offre, expliquez comment votre offre prend en charge ces catégories. Les offres de machines virtuelles apparaissent sous la catégorie **Calcul** sur la Place de marché Azure.
+Sélectionnez les catégories et les sous-catégories pour placer votre offre dans les zones de recherche appropriées sur la Place de marché. Veillez à décrire l’adéquation de votre offre à ces catégories dans la description de l’offre. Sélectionnez :
+
+- Au moins une et jusqu’à deux catégories, y compris une catégorie principale et une catégorie secondaire (facultatif).
+- Jusqu’à deux sous-catégories pour chaque catégorie principale et/ou secondaire. Si aucune sous-catégorie n’est applicable à votre offre, sélectionnez **Non applicable**.
+
+Consultez la liste complète des catégories et sous-catégories dans [Bonnes pratiques pour le référencement des offres](../gtm-offer-listing-best-practices.md). Les offres de machines virtuelles apparaissent toujours sous la catégorie **Calcul** sur la Place de marché Azure.
 
 ### <a name="legal"></a>Informations juridiques
 
@@ -143,21 +148,21 @@ Vous devez indiquer les Conditions générales de l’offre à vos clients. Deux
   > [!NOTE]
   > Après avoir publié une offre à l’aide du contrat Standard pour la Place de marché commerciale, vous ne pouvez pas utiliser vos propres conditions générales. Vous pouvez proposer une solution avec le contrat Standard ou avec vos propres conditions générales.
 
-  Pour plus d’informations, consultez [Contrat standard pour la Place de marché commerciale de Microsoft](https://docs.microsoft.com/azure/marketplace/standard-contract). Téléchargez le fichier PDF de [contrat Standard](https://go.microsoft.com/fwlink/?linkid=2041178) (vérifiez que le bloqueur de fenêtres publicitaires est désactivé).
+  Pour plus d’informations, consultez [Contrat standard pour la Place de marché commerciale de Microsoft](../standard-contract.md). Téléchargez le fichier PDF de [contrat Standard](https://go.microsoft.com/fwlink/?linkid=2041178) (vérifiez que le bloqueur de fenêtres publicitaires est désactivé).
 
   **Avenants au contrat Standard**
 
   Les avenants au contrat Standard vous permettent de sélectionner le contrat Standard par souci pratique et d’établir les conditions pour votre produit ou entreprise. Les clients doivent examiner les avenants apportés au contrat uniquement s’ils ont déjà lu et accepté le contrat Standard de Microsoft. Il existe deux types d’avenants :
 
-  * **Avenants universels** : ces avenants sont appliqués de manière universelle au contrat Standard de tous les clients. Ils s’affichent pour chaque client de l’offre dans le flux d’achat. Les clients doivent accepter les conditions du contrat Standard et les avenants avant de pouvoir utiliser votre offre. Vous pouvez fournir un seul avenant universel par offre. Vous pouvez entrer un nombre illimité de caractères dans cette zone. Ces termes sont présentés aux clients dans AppSource, la Place de marché Azure et/ou le portail Azure pendant le flux de découverte et d’achat.
+  * **Avenants universels** : Ces modifications sont appliquées de manière universelle au contrat Standard de tous les clients. Elles s’affichent pour chaque client de l’offre dans le flux d’achat. Les clients doivent accepter les conditions du contrat Standard et les avenants avant de pouvoir utiliser votre offre. Vous pouvez fournir un seul amendement universel par offre. Vous pouvez entrer un nombre illimité de caractères dans cette zone. Ces termes sont présentés aux clients dans AppSource, la Place de marché Azure et/ou le portail Azure pendant le flux de découverte et d’achat.
 
   * **Avenants personnalisés** : il s’agit d’avenants spéciaux apportés au contrat Standard qui ciblent certains clients par le biais des ID de locataires Azure. Vous pouvez choisir le locataire que vous souhaitez cibler. Seuls les clients du locataire reçoivent les termes des avenants personnalisés dans le flux d’achat de l’offre. Les clients doivent accepter les conditions du contrat Standard et les avenants avant de pouvoir utiliser votre offre.
 
-    1. Commencez par sélectionner **Ajouter les termes de l’avenant personnalisé (10 max)** . Vous pouvez fournir jusqu’à dix termes d’avenant personnalisé par offre. Effectuez les actions suivantes :
+    1. Commencez par sélectionner **Ajouter des conditions d’amendement personnalisées (10 max)** . Vous pouvez fournir jusqu’à dix conditions d’amendement personnalisées par offre. Effectuez les actions suivantes :
 
        a. Entrez vos propres termes d’avenant dans la zone **Termes d’avenant personnalisé**. Vous pouvez entrer un nombre illimité de caractères. Seuls les clients des ID de locataire que vous spécifiez pour ces termes personnalisés les verront dans le flux d’achat de l’offre dans le portail Azure.
 
-       b. (Obligatoire) Spécifiez les **ID de locataire**. Chaque avenant personnalisé peut être ciblé vers jusqu’à 20 ID de locataire. Si vous ajoutez un avenant personnalisé, vous devez fournir au moins un ID de locataire, qui identifie votre client dans Azure. Votre client peut le trouver pour vous dans Azure en sélectionnant **Azure Active Directory** > **Propriétés**. La valeur de l’ID d’annuaire est l’ID de locataire (par exemple, 50c464d3-4930-494c-963C-1e951d15360e). Vous pouvez également rechercher l’ID de locataire de l’organisation de votre client à l’aide de son adresse Web de nom de domaine sur [Qu’est-ce que mon Microsoft Azure et mon ID de locataire Office 365 ?](https://www.whatismytenantid.com/).
+       b. (Obligatoire) Spécifiez les **ID de locataire**. Chaque amendement personnalisé peut être ciblé vers jusqu’à 20 ID de locataire. Si vous ajoutez un amendement personnalisé, vous devez fournir au moins un ID de locataire, qui identifie votre client dans Azure. Votre client peut le trouver pour vous dans Azure en sélectionnant **Azure Active Directory** > **Propriétés**. La valeur de l’ID de répertoire est l’ID de locataire (par exemple, 50c464d3-4930-494c-963C-1e951d15360e). Vous pouvez également rechercher l’ID de locataire de l’organisation de votre client à l’aide de son adresse Web de nom de domaine sur [Qu’est-ce que mon Microsoft Azure et mon ID de locataire Office 365 ?](https://www.whatismytenantid.com/).
 
        c. (Facultatif) : fournissez une **Description** claire de l’ID de locataire, qui vous aide à identifier le client que vous ciblez avec cet avenant.
 
@@ -171,7 +176,7 @@ Vous devez indiquer les Conditions générales de l’offre à vos clients. Deux
 Dans la page **Annonce de l’offre**, vous définissez les détails de l’offre, notamment le nom de l’offre, la description, les liens et les contacts.
 
 > [!NOTE]
-> Il n’est pas nécessaire que le contenu de l’annonce de l’offre (par exemple la description, les documents, les captures d’écran et les conditions d’utilisation) soit en anglais, tant que sa description commence par l’expression : « This application is available only in \<langue autre que l’anglais>. » Vous pouvez également fournir une URL vers un site qui offre du contenu dans une langue autre que celle utilisée dans le contenu de l’annonce de l’offre.
+> Il n’est pas nécessaire que le contenu de l’annonce de l’offre (par exemple la description, les documents, les captures d’écran et les conditions d’utilisation) soit en anglais, tant que sa description commence par l’expression : « This application is available only in \<non-English language>. » Vous pouvez également fournir une URL vers un site qui offre du contenu dans une langue autre que celle utilisée dans le contenu de l’annonce de l’offre.
 
 ### <a name="marketplace-details"></a>Détails de la Place de marché
 
@@ -237,8 +242,8 @@ Fournissez les coordonnées que Microsoft doit utiliser en cas de problème avec
 
 Fournissez des logos et images à utiliser avec votre offre. Toutes les images doivent être au format PNG. Votre demande sera rejetée si les images sont floues.
 
->[!Note]
->Si vous rencontrez un problème pendant le chargement de fichiers, vérifiez que votre réseau local ne bloque pas le service *https://upload.xboxlive.com* utilisé par l’Espace partenaires.
+>[!NOTE]
+>Si vous rencontrez un problème pendant le chargement de fichiers, vérifiez que votre réseau local ne bloque pas le service https://upload.xboxlive.com utilisé par l’Espace partenaires.
 
 #### <a name="azure-marketplace-logos"></a>Logos de la Place de marché Azure
 
@@ -255,15 +260,15 @@ Les quatre logos sont obligatoires. Ils sont affichés dans différentes listes 
 
 Ajoutez jusqu’à cinq captures d’écran qui illustrent le fonctionnement de votre offre. Chaque capture d’écran doit avoir une taille de 1280 &times; 720 pixels et être au format PNG. Chaque capture d’écran doit inclure une légende.
 
-#### <a name="videos"></a>Videos
+#### <a name="videos"></a>Vidéos
 
 Ajoutez jusqu’à cinq vidéos qui illustrent votre offre. Les vidéos doivent être hébergées sur un service vidéo externe. Entrez le nom, l’adresse web et une image miniature PNG de 1280 &times; 720 pixels de chaque vidéo.
 
-Pour obtenir des ressources supplémentaires concernant la place de marché, consultez [Meilleures pratiques pour les annonces d’offre d’une place de marché](https://docs.microsoft.com/azure/marketplace/gtm-offer-listing-best-practices).
+Pour obtenir des ressources supplémentaires concernant la place de marché, consultez [Meilleures pratiques pour les annonces d’offre d’une place de marché](../gtm-offer-listing-best-practices.md).
 
 Sélectionnez **Enregistrer le brouillon** avant de continuer.
 
-## <a name="preview"></a>Préversion
+## <a name="preview"></a>PRÉVERSION
 
 Sélectionnez l’onglet **Préversion**, puis sélectionnez un **public de préversion** restreint en vue de valider votre offre avant de la publier plus largement en ligne sur la Place de marché commerciale.
 
@@ -324,11 +329,11 @@ Si vous avez plusieurs plans du même type et que les packages qu’ils utilisen
 
 Votre plan doit être rendu disponible dans au moins une région Azure.
 
-Sélectionnez l’option **Azure Global** pour mettre votre plan à la disposition des clients de toutes les régions Azure qui disposent d’une intégration de la Place de marché commerciale. Pour plus d’informations, consultez [Disponibilité géographique et prise en charge des devises](https://docs.microsoft.com/azure/marketplace/marketplace-geo-availability-currencies).
+Sélectionnez l’option **Azure Global** pour mettre votre plan à la disposition des clients de toutes les régions Azure qui disposent d’une intégration de la Place de marché commerciale. Pour plus d’informations, consultez [Disponibilité géographique et prise en charge des devises](../marketplace-geo-availability-currencies.md).
 
-Sélectionnez l’option **Azure Government** pour proposer votre plan dans la région [Azure Government](https://docs.microsoft.com/azure/azure-government/documentation-government-welcome). Cette région fournit un accès contrôlé aux clients d’entités gouvernementales fédérales, étatiques, locales ou tribales des États-Unis, ainsi qu’aux partenaires éligibles pour les servir. En tant qu’éditeur, il vous incombe de mettre en place l’ensemble des contrôles de conformité, des mesures de sécurité et des bonnes pratiques nécessaires. Azure Government utilise des réseaux et des centres de données qui sont physiquement isolés (situés aux États-Unis uniquement).
+Sélectionnez l’option **Azure Government** pour proposer votre plan dans la région [Azure Government](../../azure-government/documentation-government-welcome.md). Cette région fournit un accès contrôlé aux clients d’entités gouvernementales fédérales, étatiques, locales ou tribales des États-Unis, ainsi qu’aux partenaires éligibles pour les servir. En tant qu’éditeur, il vous incombe de mettre en place l’ensemble des contrôles de conformité, des mesures de sécurité et des bonnes pratiques nécessaires. Azure Government utilise des réseaux et des centres de données qui sont physiquement isolés (situés aux États-Unis uniquement).
 
-Avant de le publier dans [Azure Government](https://docs.microsoft.com/azure/azure-government/documentation-government-manage-marketplace-partners), testez et validez votre plan dans l’environnement, car certains points de terminaison peuvent être différents. Pour configurer et tester votre plan, demandez un compte d’essai à partir de la page [Microsoft Azure Government Trial](https://azure.microsoft.com/global-infrastructure/government/request/).
+Avant de le publier dans [Azure Government](../../azure-government/documentation-government-manage-marketplace-partners.md), testez et validez votre plan dans l’environnement, car certains points de terminaison peuvent être différents. Pour configurer et tester votre plan, demandez un compte d’essai à partir de la page [Microsoft Azure Government Trial](https://azure.microsoft.com/global-infrastructure/government/request/).
 
 > [!NOTE]
 > Une fois votre plan publié et disponible dans une région Azure spécifique, vous ne pouvez pas supprimer cette région.
@@ -388,7 +393,7 @@ Pour un plan facturé mensuellement selon l’utilisation, utilisez l’une des 
 > [!NOTE]
 > Enregistrez les modifications de la tarification pour autoriser l’exportation des données de tarification. Une fois qu’un prix pour un marché dans votre plan est publié, il ne peut pas être modifié ultérieurement. Pour vérifier que les prix sont corrects avant de les publier, exportez la feuille de calcul de prix et passez en revue les prix sur chaque marché.
 
-#### <a name="free-trial"></a>Essai gratuit
+#### <a name="free-trial"></a>Version d’évaluation gratuite
 
 Vous pouvez proposer à vos clients un *essai gratuit* d’un mois ou de trois mois.
 
@@ -400,10 +405,14 @@ Vous pouvez concevoir chaque plan pour qu’il soit visible par tous les utilisa
 
 **Public privé** : votre plan ne peut être consulté que par un public présélectionné. Une fois votre plan publié en tant que plan privé, vous pouvez mettre à jour le public visé ou rendre le plan public. Une fois que vous avez rendu un plan public, il doit rester public. Vous ne pouvez pas le reconvertir en plan privé.
 
-**Audience restreinte (ID d’abonnement Azure)**  : définissez le public qui aura accès à ce plan privé au moyen d’ID d’abonnements Azure. Le cas échéant, incluez une description de chaque ID d’abonnement Azure que vous avez attribué. Ajoutez jusqu’à 10 ID d’abonnements manuellement, ou jusqu’à 20 000 ID si vous importez une feuille de calcul CSV. Les ID d’abonnements Azure sont représentés par des GUID, où toutes les lettres doivent être en minuscules.
-
 > [!NOTE]
 > Un public privé ou restreint est différent du public de préversion que vous avez défini dans le volet **Préversion**. Un public de préversion peut accéder à votre offre _avant_ sa publication sur la Place de marché Azure. La sélection d’un public privé ne s’applique qu’à un plan spécifique, tandis que le public de préversion peut voir tous les plans privés et publics dans le cadre de la validation.
+
+**Audience restreinte (ID d’abonnement Azure)**  : définissez le public qui aura accès à ce plan privé au moyen d’ID d’abonnements Azure. Le cas échéant, incluez une description de chaque ID d’abonnement Azure que vous avez attribué. Ajoutez jusqu’à 10 ID d’abonnements manuellement, ou jusqu’à 20 000 ID si vous importez une feuille de calcul CSV. Les ID d’abonnements Azure sont représentés par des GUID, où toutes les lettres doivent être en minuscules.
+
+>[!Note]
+>Les offres privées ne sont pas prises en charge avec les abonnements Azure souscrits via un revendeur participant au programme des fournisseurs de solutions cloud (CSP).
+
 
 #### <a name="hide-a-plan"></a>Masquer un plan
 
@@ -416,7 +425,7 @@ Sélectionnez **Enregistrer le brouillon** avant de continuer.
 
 ### <a name="technical-configuration"></a>Configuration technique
 
-Fournissez les images et autres propriétés techniques associées à ce plan. Pour plus d’informations, consultez [Créer une offre de conteneur Azure](https://docs.microsoft.com/azure/marketplace/partner-center-portal/create-azure-container-technical-assets).
+Fournissez les images et autres propriétés techniques associées à ce plan. Pour plus d’informations, consultez [Créer une offre de conteneur Azure](create-azure-container-technical-assets.md).
 
 > [!NOTE]
 > L’onglet **Configuration technique** ne s’affiche pas si vous avez configuré ce plan pour réutiliser les packages d’un autre plan sous l’onglet **Configuration du plan**.
@@ -450,7 +459,7 @@ Pour **Prendre en charge l’accélération réseau**, indiquez si votre machine
 Spécifiez une version de disque et l’URI de signature d’accès partagé (SAS) pour les images de machine virtuelle. Ajoutez jusqu’à 16 disques de données pour chaque image de machine virtuelle. Spécifiez une seule nouvelle version d’image par plan à chaque envoi. Quand une image a été publiée, vous ne pouvez pas la modifier, mais vous pouvez la supprimer. La suppression d’une version empêche les utilisateurs nouveaux et existants de déployer une nouvelle instance de la version supprimée.
 
 - **Version du disque** : version de l’image que vous fournissez.
-- **URI SAS** : emplacement dans votre compte Stockage Azure où vous avez stocké le disque dur virtuel du système d’exploitation.
+- **URI SAS** : emplacement dans votre compte Stockage Azure où vous avez stocké le disque dur virtuel du système d’exploitation. Pour obtenir l’URI SAS, consultez [Obtenir l’URI de la signature d’accès partagé pour vos images de machine virtuelle](get-sas-uri.md).
 - Les images de disque de données sont également des URI de signature d’accès partagé VHD qui sont stockés dans leurs comptes de stockage Azure.
 - Ajoutez une seule image par envoi dans un plan.
 
@@ -466,13 +475,13 @@ Sélectionnez **Enregistrer le brouillon** avant de continuer.
 
 ## <a name="test-drive"></a>Version d’évaluation
 
-Configurez une démonstration, ou *version d’évaluation*, qui permet aux clients d’essayer votre offre pendant un laps de temps fixe avant de l’acheter. Pour créer un environnement de démonstration pour vos clients, consultez [Versions d’évaluation d’offres sur la Place de marché commerciale](https://docs.microsoft.com/azure/marketplace/partner-center-portal/test-drive).
+Configurez une démonstration, ou *version d’évaluation*, qui permet aux clients d’essayer votre offre pendant un laps de temps fixe avant de l’acheter. Pour créer un environnement de démonstration pour vos clients, consultez [Versions d’évaluation d’offres sur la Place de marché commerciale](test-drive.md).
 
 Pour activer une version d’évaluation, cochez la case **Activer une version d’évaluation** dans le volet **Configuration de l’offre**. Pour supprimer la version d’évaluation de votre offre, décochez la case.
 
 Ressources supplémentaires pour version d’évaluation :
 
-- [Bonnes pratiques marketing](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal/test-drive/marketing-and-best-practices)
+- [Bonnes pratiques marketing](../what-is-test-drive.md)
 - [Meilleures pratiques techniques](https://github.com/Azure/AzureTestDrive/wiki/Test-Drive-Best-Practices)
 - Fichier PDF de [vue d’ensemble de version d’évaluation](https://assetsprod.microsoft.com/mpn/azure-marketplace-appsource-test-drives.pdf) (vérifiez que le bloqueur de fenêtres publicitaires est désactivé)
 
@@ -488,9 +497,9 @@ Dans ce volet, vous pouvez :
 
 - Afficher le statut d’achèvement de chaque section de l’offre :
 
-  - **Non démarrée** : la section n’a pas été démarrée et doit être complétée.
-  - **Incomplète** : la section comporte des erreurs qui doivent être corrigées ou nécessite plus d’informations de votre part. Pour obtenir des instructions sur la mise à jour des informations incomplètes, consultez les sections précédentes de cet article.
-  - **Complète** : la section est complète et ne comporte aucune erreur. Toutes les sections de l’offre doivent être complètes pour que vous puissiez envoyer l’offre.
+  - **Non démarré** : la section n’a pas été démarrée et doit être complétée.
+  - **Caractère incomplet** : la section comporte des erreurs qui doivent être corrigées ou nécessite plus d’informations de votre part. Pour obtenir des instructions sur la mise à jour des informations incomplètes, consultez les sections précédentes de cet article.
+  - **Complet** : la section est complète et ne comporte aucune erreur. Toutes les sections de l’offre doivent être complètes pour que vous puissiez envoyer l’offre.
 - Fournissez des **Notes pour la certification** à l’équipe de certification afin de vous assurer que votre application est testée correctement. Incluez des instructions de test et toutes les notes supplémentaires susceptibles d’aider l’équipe à comprendre votre application.
 
 Pour envoyer l’offre à des fins de publication, sélectionnez **Vérifier et publier**.
@@ -507,39 +516,80 @@ La page **Vue d’ensemble de l’offre** affiche une représentation visuelle d
 
 Elle contient également des liens pour vous aider à gérer l’offre, en fonction de son état :
 
-- Si l’offre est un brouillon : [Supprimer un brouillon d’offre](https://docs.microsoft.com/azure/marketplace/partner-center-portal/update-existing-offer#delete-a-draft-offer)
-- Si l’offre est active : [Arrêter la vente d’une offre](https://docs.microsoft.com/azure/marketplace/partner-center-portal/update-existing-offer#stop-selling-an-offer-or-plan)
-- Si l’offre est disponible en préversion : [Mise en service](https://docs.microsoft.com/azure/marketplace/partner-center-portal/publishing-status#publisher-approval)
-- Si vous n’avez pas effectué la déconnexion de l’éditeur : [Annuler la publication](https://docs.microsoft.com/azure/marketplace/partner-center-portal/update-existing-offer#cancel-publishing)
+- Si l’offre est un brouillon : [Supprimer un brouillon d’offre](update-existing-offer.md#delete-a-draft-offer))
+- Si l’offre est active : [Arrêter la vente d’une offre](update-existing-offer.md#stop-selling-an-offer-or-plan))
+- Si l’offre est disponible en préversion : [Mise en service](publishing-status.md#publisher-approval))
+- Si vous n’avez pas effectué la déconnexion de l’éditeur : [Annuler la publication](update-existing-offer.md#cancel-publishing))
 
 ## <a name="marketplace-examples"></a>Exemples de la Place de marché
 
-Les exemples suivants illustrent la façon dont l’offre apparaît sur la Place de marché Azure.
+Voici un exemple de la façon dont les informations s’affichent dans la Place de marché Azure :
 
-### <a name="azure-marketplace-offer-details"></a>Détails de l’offre sur la Place de marché Azure
+:::image type="content" source="media/example-azure-marketplace-virtual-machine-offer.png" alt-text="Illustre la façon dont cette offre apparaît dans la Place de marché Azure.":::
 
-![Exemple de page des détails de l’offre sur la Place de marché Azure](media/avm-create1.png)
+#### <a name="call-out-descriptions"></a>Descriptions de légende
 
-### <a name="azure-marketplace-search-results"></a>Résultats de recherche de la Place de marché Azure
+1. Logo de grande taille
+2. Price
+3. Catégories
+4. Conditions générales
+5. Adresse de la politique de confidentialité (lien)
+6. Nom de l’offre
+7. Description
+8. Liens utiles
+9. Captures d’écran/vidéos
 
-![Exemple de page des détails de la recherche sur la Place de marché Azure](media/avm-create2.png)
+<br>Voici un exemple de la façon dont les informations de l’offre s’affichent dans les résultats de la recherche de la Place de marché Azure :
 
-### <a name="azure-marketplace-plan-details"></a>Détails du plan dans la Place de marché Azure
+:::image type="content" source="media/example-azure-marketplace-virtual-machine-search-results.png" alt-text="Illustre la façon dont cette offre apparaît dans les résultats de la recherche de la Place de marché Azure.":::
 
-![Exemple de page des détails du plan sur la Place de marché Azure](media/avm-create3.png)
+#### <a name="call-out-descriptions"></a>Descriptions de légende
 
-### <a name="azure-portal-offer-details"></a>Détails de l’offre dans le portail Azure
+1. Logo de petite taille
+2. Nom de l’offre
+3. Résumé des résultats de recherche
+4. Version d’évaluation
 
-![Exemple de page des détails de l’offre dans le portail Azure](media/avm-create4.png)
+<br>Voici un exemple de détails du plan dans la Place de marché Azure :
 
-### <a name="azure-portal-search-results"></a>Résultats de la recherche du Portail Azure
+:::image type="content" source="media/example-azure-marketplace-virtual-machine-plan-details.png" alt-text="Illustre des détails du plan dans la Place de marché Azure.":::
 
-![Exemple de page des résultats de la recherche dans le portail Azure](media/avm-create5.png)
+#### <a name="call-out-descriptions"></a>Descriptions de légende
 
-### <a name="azure-portal-plan-details"></a>Détails du plan dans le portail Azure
+1. Nom et résumé du plan
+2. Tailles de machines virtuelles recommandées
+3. Tarification du plan
 
-![Exemple de page des détails du plan dans le portail Azure](media/avm-create6.png)
+<br>Voici un exemple de la façon dont les informations de l’offre s’affichent dans le portail Azure :
 
-## <a name="next-steps"></a>Étapes suivantes
+:::image type="content" source="media/example-azure-portal-virtual-machine-offer.png" alt-text="Illustre la façon dont cette offre s’affiche dans le portail Azure.":::
 
-- [Mettre à jour une offre existante dans la Place de marché commerciale](https://docs.microsoft.com/azure/marketplace/partner-center-portal/update-existing-offer)
+#### <a name="call-out-descriptions"></a>Descriptions de légende
+
+1. Nom
+2. Description
+3. Liens utiles
+4. Captures d’écran/vidéos
+
+<br>Voici un exemple de la façon dont les informations de l’offre s’affichent dans les résultats de la recherche du portail Azure :
+
+:::image type="content" source="media/example-azure-portal-virtual-machine-search-results.png" alt-text="Illustre la façon dont cette offre apparaît dans les résultats de la recherche de Portail Azure.":::
+
+#### <a name="call-out-descriptions"></a>Descriptions de légende
+
+1. Logo de petite taille
+2. Nom de l’offre
+3. Résumé des résultats de recherche
+
+<br>Voici un exemple de détails du plan dans le portail Azure :
+
+:::image type="content" source="media/example-azure-portal-virtual-machine-plan-details.png" alt-text="Illustre les détails du plan dans le portail Azure.":::
+
+#### <a name="call-out-descriptions"></a>Descriptions de légende
+
+1. Nom du plan
+2. Description du plan
+
+## <a name="next-step"></a>Étape suivante
+
+- [Mettre à jour une offre existante dans la Place de marché commerciale](update-existing-offer.md)

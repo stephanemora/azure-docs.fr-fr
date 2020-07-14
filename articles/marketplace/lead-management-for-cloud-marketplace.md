@@ -1,18 +1,18 @@
 ---
 title: Gestion des prospects pour la Place de marché commerciale | Place de marché Azure et AppSource
 description: Vue d’ensemble des différentes questions relatives à la publication d’offres et d’artefacts techniques sur la Place de marché Azure et AppSource
-author: dsindona
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
+author: keferna
+ms.author: keferna
 ms.date: 04/14/2020
-ms.author: dsindona
-ms.openlocfilehash: f8b466dca9f3af55e3c11b39b3fbdac315af3675
-ms.sourcegitcommit: cf7caaf1e42f1420e1491e3616cc989d504f0902
+ms.openlocfilehash: 2abbef88ed7bac41b84eb06c8c0ec9c8a906b2f6
+ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/22/2020
-ms.locfileid: "83798586"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86119444"
 ---
 # <a name="lead-management-for-commercial-marketplace"></a>Gestion des prospects pour la Place de marché commerciale
 
@@ -91,7 +91,7 @@ Vous pouvez rechercher des informations dans [Obtenir des prospects](./partner-c
 **Dois-je obligatoirement configurer une destination des prospects pour publier une offre sur la Place de marché ?**
 
 Oui, si vous publiez une application SaaS Contact Me ou des services de conseil.  
- 
+
 **Comment puis-je vérifier que la configuration des prospects est correcte ?**
 
 Après avoir configuré votre offre et la destination des prospects, publiez votre offre. À l’étape de validation des prospects, la Place de marché envoie un prospect de test à la destination des prospects configurée dans votre offre. 
@@ -100,6 +100,7 @@ Après avoir configuré votre offre et la destination des prospects, publiez vot
 
 Recherchez « MSFT_TEST » dans votre destination des prospects. Voici un exemple de données de prospect de test : 
 
+```text
 company = MSFT_TEST_636573304831318844 
 
 country = US 
@@ -116,64 +117,50 @@ first_name = MSFT_TEST_636573304831318844
 
 last_name = MSFT_TEST_636573304831318844 
 
-lead_source = MSFT_TEST_636573304831318844-MSFT_TEST_636573304831318844|\<Nom Offre> 
+lead_source = MSFT_TEST_636573304831318844-MSFT_TEST_636573304831318844|\<Offer Name> 
 
 oid = 00Do0000000ZHog 
 
 phone = 1234567890 
 
 title = MSFT_TEST_636573304831318844 
+```
 
 **J’ai une offre en ligne, mais je ne vois aucun prospect.**
 
-Les données de chaque prospect passent dans les champs de la destination des prospects que vous avez sélectionnée ; les offres se présentent sous la forme suivante : **Source-Action|Offre** 
+Les données de chaque prospect passent dans les champs de la destination des prospects que vous avez sélectionnée ; les offres se présentent sous la forme suivante : **Source-Action|Offre**
 
-  *Sources :*
+- *Sources :*
+  - AzureMarketplace
+  - AzurePortal
+  - TestDrive  
+  - SPZA (acronyme de AppSource)
 
-    "AzureMarketplace", 
-    "AzurePortal", 
-    "TestDrive",  
-    "SPZA" (acronym for AppSource) 
+- *Actions :*
+  - « INS » : signifie « installation ». Apparaît sur la Place de marché Microsoft Azure ou sur AppSource chaque fois qu’un client appuie sur le bouton pour acquérir votre produit.
+  - « PLT » : désigne une évaluation conduite par un partenaire. Apparaît sur AppSource chaque fois qu’un client clique sur le bouton Me contacter.
+  - «DNC » : signifie « Ne pas contacter ». Apparaît sur AppSource chaque fois qu’un partenaire qui a été répertorié sur la page de votre application reçoit une demandé de contact. Nous vous informons que ce client a été répertorié sur votre application, mais qu’il n’est pas nécessaire de le contacter.
+  - « Créer » : apparaît uniquement à l’intérieur du portail Azure à chaque fois qu’un client achète votre offre sur son compte.
+  - « StartTestDrive » : uniquement pour les versions d’évaluation ; apparaît chaque fois qu’un client démarre sa version d’évaluation.
 
-  *Actions :*
+- *Offres :*
+  - « checkpoint.check-point-r77-10sg-byol »,
+  - « bitnami.openedxcypress »,
+  - « docusign.3701c77e-1cfa-4c56-91e6-3ed0b622145a »
 
-    "INS" - Stands for Installation. This is on Azure Marketplace or AppSource whenever a customer hits the button to acquire your product. 
-    "PLT" - Stands for Partner Led Trial. This is on AppSource whenever a customer hits the Contact me button. 
+*Voici des exemples de données d’informations client :*
 
-    "DNC" - Stands for Do Not Contact. This is on AppSource whenever a Partner who was cross listed on your app page gets requested to be contacted. We are sharing the heads up that this customer was cross listed on your app, but they do not need to be contacted. 
-
-    "Create" - This is inside Azure portal only and is whenever a customer purchases your offer to their account. 
-
-    "StartTestDrive" - This is for Test Drives only and is whenever a customer starts their test drive. 
-
-
-  *Offres :*
-
-    "checkpoint.check-point-r77-10sg-byol", 
-    "bitnami.openedxcypress", 
-    "docusign.3701c77e-1cfa-4c56-91e6-3ed0b622145a" 
-
- 
-
-  *Voici des exemples de données d’informations client :*
-
-    { 
-
-    "FirstName":"John", 
-
-    "LastName":"Smith", 
-
-    "Email":"jsmith@microsoft.com", 
-
-    "Phone":"1234567890", 
-
-    "Country":"US", 
-
-    "Company":"Microsoft", 
-
-    "Title":"CTO" 
-
-    } 
+```json
+{ 
+"FirstName":"John",
+"LastName":"Smith",
+"Email":"jsmith@microsoft.com",
+"Phone":"1234567890",
+"Country":"US",
+"Company":"Microsoft",
+"Title":"CTO"
+}
+```
 
 Pour en savoir plus, consultez [Informations sur les prospects](./partner-center-portal/commercial-marketplace-get-customer-leads.md). 
 

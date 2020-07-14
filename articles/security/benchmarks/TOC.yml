@@ -39,12 +39,34 @@
       href: ../../application-gateway/security-baseline.md
     - name: Base de référence de sécurité relative à l’automatisation
       href: ../../automation/security-baseline.md
+    - name: Base de référence de sécurité pour Sauvegarde Azure
+      href: ../../backup/security-baseline.md
     - name: Base de référence de la sécurité Azure Cache pour Redis
       href: ../../azure-cache-for-redis/security-baseline.md
+    - name: Base de référence de sécurité pour Azure Data Box
+      href: ../../databox/security-baseline.md
+    - name: Base de référence de sécurité pour Azure Data Explorer
+      href: /azure/data-explorer/security-baseline
+    - name: Base de référence de sécurité pour Azure Data Factory
+      href: ../../data-factory/security-baseline.md
+    - name: Base de référence de sécurité pour Azure Database pour MySQL
+      href: ../../mysql/security-baseline.md
+    - name: Base de référence de sécurité pour Azure Database for MariaDB
+      href: ../../mariadb/security-baseline.md
+    - name: Base de référence de sécurité pour Azure Database pour PostgreSQL
+      href: ../../postgresql/security-baseline.md
+    - name: Base de référence de sécurité pour Azure Databricks
+      href: ../../azure-databricks/security-baseline.md
+    - name: Base de référence de sécurité pour Azure Functions
+      href: ../../azure-functions/security-baseline.md
     - name: Base de référence de la sécurité Azure Policy
       href: ../../governance/policy/concepts/azure-security-benchmark-baseline.md
-    - name: Base de référence de la sécurité Sauvegarde
-      href: ../../backup/security-baseline.md
+    - name: Base de référence de sécurité pour Azure Resource Graph
+      href: ../../governance/resource-graph/concepts/azure-security-benchmark-baseline.md
+    - name: Base de référence de sécurité pour Azure SQL Database
+      href: ../../sql-database/security-baseline.md
+    - name: Base de référence de sécurité pour Stockage Azure
+      href: ../../storage/common/security-baseline.md
     - name: Base de référence de la sécurité Batch
       href: ../../batch/security-baseline.md
     - name: Base de référence de la sécurité Cognitive Services
@@ -57,39 +79,19 @@
       href: ../../cosmos-db/security-baseline.md
     - name: Base de référence de la sécurité Customer Lockbox
       href: ../fundamentals/customer-lockbox-security-baseline.md
-    - name: Base de référence de la sécurité Data Box
-      href: ../../databox/security-baseline.md
-    - name: Base de référence de sécurité Data Explorer
-      href: /azure/data-explorer/security-baseline
-    - name: Base de référence de la sécurité Data Factory
-      href: ../../data-factory/security-baseline.md
-    - name: Base de référence de la sécurité Databricks
-      href: ../../azure-databricks/security-baseline.md
     - name: Base de référence de la sécurité Event Hubs
       href: ../../event-hubs/security-baseline.md
     - name: Base de référence de sécurité ExpressRoute
       href: ../../expressroute/security-baseline.md
-    - name: Base de référence de la sécurité Functions
-      href: ../../azure-functions/security-baseline.md
     - name: Base de référence de la sécurité HDInsight
       href: ../../hdinsight/security-baseline.md
     - name: Base de référence de la sécurité Key Vault
       href: ../../key-vault/security-baseline.md
     - name: Base de référence de sécurité Logic Apps
       href: ../../logic-apps/security-baseline.md
-    - name: Base de référence de la sécurité MariaDB
-      href: ../../mariadb/security-baseline.md
-    - name: Base de référence de la sécurité MySQL
-      href: ../../mysql/security-baseline.md
     - name: Base de référence de sécurité Network Watcher
       href: ../../network-watcher/security-baseline.md
-    - name: Base de référence de la sécurité PostgreSQL
-      href: ../../postgresql/security-baseline.md
-    - name: Base de référence de la sécurité SQL Database
-      href: ../../sql-database/security-baseline.md
     - name: Base de référence de la sécurité Stream Analytics
       href: ../../stream-analytics/security-baseline.md
-    - name: Base de référence de la sécurité Stockage
-      href: ../../storage/common/security-baseline.md
     - name: Base de référence de la sécurité Synapse Analytics
       href: ../../synapse-analytics/security-baseline.md

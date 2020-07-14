@@ -3,16 +3,16 @@ title: 'Démarrage rapide : Créer un blueprint dans le portail'
 description: Dans ce guide de démarrage rapide, vous allez utiliser Azure Blueprints pour créer, définir et déployer des artefacts via le portail Azure.
 ms.date: 03/25/2020
 ms.topic: quickstart
-ms.openlocfilehash: dd50b1833f16d364a4494483fcccfee017bb982b
-ms.sourcegitcommit: ea006cd8e62888271b2601d5ed4ec78fb40e8427
+ms.openlocfilehash: dfd0aeb22801776fc9effdf8d0418a9c9b6ab802
+ms.sourcegitcommit: e132633b9c3a53b3ead101ea2711570e60d67b83
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/14/2020
-ms.locfileid: "81381887"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86045210"
 ---
 # <a name="quickstart-define-and-assign-a-blueprint-in-the-portal"></a>Démarrage rapide : Définir et affecter un blueprint dans le portail
 
-Lorsque vous apprenez à créer et à affecter des blueprints, vous pouvez définir des modèles courants et développer des configurations réutilisables et rapides à déployer basées sur des modèles Azure Resource Manager, des stratégies, des exigences de sécurité, etc. Dans ce tutoriel, vous allez découvrir comment utiliser Azure Blueprints pour effectuer des tâches courantes liées à la création, à la publication et à l’affectation d’un blueprint dans votre organisation. Il s’agit notamment des tâches suivantes :
+Quand vous apprenez à créer et à affecter des blueprints, vous pouvez définir des modèles courants et développer des configurations réutilisables et rapides à déployer basées sur des modèles Azure Resource Manager (modèles ARM), des stratégies, des exigences de sécurité, etc. Dans ce tutoriel, vous allez découvrir comment utiliser Azure Blueprints pour effectuer des tâches courantes liées à la création, à la publication et à l’affectation d’un blueprint dans votre organisation. Il s’agit notamment des tâches suivantes :
 
 ## <a name="prerequisites"></a>Prérequis
 
@@ -85,8 +85,7 @@ La première étape de la définition d’un modèle standard à des fins de con
 
    1. Sélectionnez **Modèle Azure Resource Manager** comme **type d’artefact**, définissez **Nom complet de l’artefact** sur la valeur **StorageAccount**, et laissez le champ **Description** vide.
 
-   1. Sous l’onglet **Modèle** dans la zone de l’éditeur, collez le modèle Resource Manager suivant.
-      Après avoir collé le modèle, sélectionnez l’onglet **Paramètres** et notez que les paramètres du modèle **storageAccountType** et **location** ont été détectés. Chaque paramètre est automatiquement détecté et renseigné, mais configuré en tant que paramètre dynamique.
+   1. Sous l’onglet **Modèle** dans la zone de l’éditeur, collez le modèle Resource Manager suivant. Après avoir collé le modèle, sélectionnez l’onglet **Paramètres** et notez que les paramètres du modèle **storageAccountType** et **location** ont été détectés. Chaque paramètre est automatiquement détecté et renseigné, mais configuré en tant que paramètre dynamique.
 
       > [!IMPORTANT]
       > Si vous importez le modèle, vérifiez que le fichier est uniquement au format JSON et qu’il ne contient pas de code HTML. Quand vous pointez vers une URL GitHub, vérifiez que vous avez bien sélectionné **RAW** pour obtenir le fichier JSON pur et non celui qui a été wrappé avec du code HTML à des fins d’affichage sur GitHub. Si le modèle importé n’est pas entièrement au format JSON, une erreur se produit.
@@ -207,7 +206,7 @@ Une fois publié, vous pouvez affecter le blueprint à un abonnement. Affectez l
 
 1. Dans la liste déroulante **Abonnement** de la page **Affecter le blueprint**, sélectionnez les abonnements dans lesquels vous souhaitez déployer ce blueprint.
 
-   Si des offres Entreprise prises en charge sont disponibles à partir de [Facturation Azure](../../billing/index.md), un lien **Créer** est activé sous la zone **Abonnement**. Procédez comme suit :
+   Si des offres Entreprise prises en charge sont disponibles à partir de [Facturation Azure](../../cost-management-billing/index.yml), un lien **Créer** est activé sous la zone **Abonnement**. Procédez comme suit :
 
    1. Sélectionnez le lien **Créer** pour créer un abonnement au lieu d’en sélectionner des existants.
 
@@ -249,7 +248,7 @@ Une fois publié, vous pouvez affecter le blueprint à un abonnement. Affectez l
    > Chaque artefact ajouté sous le groupe de ressources durant la définition du blueprint est mis en retrait de façon à être aligné sur le groupe de ressources ou l’objet avec lequel il sera déployé.
    > Les artefacts qui ne prennent pas de paramètres, ou qui n’ont pas de paramètres devant être définis au moment de l’affectation, sont uniquement listés dans le but de fournir des informations contextuelles.
 
-1. Dans le modèle Azure Resource Manager **StorageAccount**, sélectionnez **Standard_GRS** comme paramètre **storageAccountType**.
+1. Dans le modèle Resource Manager **StorageAccount**, sélectionnez **Standard_GRS** comme paramètre **storageAccountType**.
 
 1. Lisez les informations en bas de page, puis sélectionnez **Affecter**.
 

@@ -11,12 +11,12 @@ ms.date: 12/05/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 0c922b95154f16a199660bcd5e58f792e46eade7
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: d4fbfe9222971ccd1d28ceaddc91b137c6106e12
+ms.sourcegitcommit: 5cace04239f5efef4c1eed78144191a8b7d7fee8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85360603"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86146742"
 ---
 # <a name="tutorial-integrate-a-single-forest-with-a-single-azure-ad-tenant"></a>Tutoriel : Intégrer une seule forêt à un seul locataire Azure AD
 
@@ -108,13 +108,13 @@ Pour vérifier que l’agent est en cours d’exécution, effectuez les étapes 
 2.  Cliquez sur **Azure Active Directory**.
 3.  Cliquez sur **Azure AD Connect**.
 4.  Sélectionnez **Gérer le provisionnement (préversion)** 
-![](media/how-to-configure/manage1.png).
+![Capture d’écran montrant le lien « Gérer le provisionnement (préversion) ».](media/how-to-configure/manage1.png)
 5.  Cliquez sur **Nouvelle configuration**
-![](media/tutorial-single-forest/configure1.png).
+![Capture d’écran de l’écran Provisionnement Azure AD (préversion) avec le lien « Nouvelle configuration » mis en surbrillance.](media/tutorial-single-forest/configure1.png)
 7.  Dans l’écran de configuration, entrez une adresse **e-mail de notification**, déplacez le sélecteur sur **Activer** et cliquez sur **Enregistrer**.
-![](media/tutorial-single-forest/configure2.png)
+![Capture d’écran de l’écran de configuration avec l’e-mail de notification rempli et l’option Activer sélectionnée.](media/tutorial-single-forest/configure2.png)
 1.  L’état de la configuration doit maintenant être **Sain**.
-![](media/how-to-configure/manage4.png)
+![Capture d’écran de l’écran Provisionnement Azure AD (préversion) montrant l’état Intègre.](media/how-to-configure/manage4.png)
 
 ## <a name="verify-users-are-created-and-synchronization-is-occurring"></a>Vérifier les utilisateurs créés et l’exécution de la synchronisation
 Vous allez maintenant vérifier que les utilisateurs de l’annuaire local ont été synchronisés et figurent désormais dans le locataire Azure AD.  Cette opération peut prendre quelques heures.  Pour vérifier que les utilisateurs sont synchronisés, procédez comme suit.

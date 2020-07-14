@@ -1,19 +1,19 @@
 ---
-title: Tutoriel - Configurer votre instance de serveur de configuration dans Azure Spring Cloud
-description: Dans ce tutoriel, vous apprenez à configurer une instance de serveur de configuration Spring Cloud pour votre service Azure Spring Cloud dans le portail Azure
+title: Configurer votre instance Config Server dans Azure Spring Cloud
+description: Découvrez comment configurer une instance Config Server Spring Cloud pour votre service Azure Spring Cloud dans le portail Azure
 ms.service: spring-cloud
-ms.topic: tutorial
+ms.topic: how-to
 ms.author: brendm
 author: bmitchell287
 ms.date: 10/18/2019
-ms.openlocfilehash: 4c8b2e92cd7e88dde434e42971d091db689bfbc9
-ms.sourcegitcommit: 6571e34e609785e82751f0b34f6237686470c1f3
+ms.openlocfilehash: bfce1ce54da9d9e8e7feaa8e8eb5cd676866a1cb
+ms.sourcegitcommit: 5cace04239f5efef4c1eed78144191a8b7d7fee8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/15/2020
-ms.locfileid: "84791297"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86142182"
 ---
-# <a name="tutorial-set-up-a-spring-cloud-config-server-instance-for-your-service"></a>Tutoriel : Configurer une instance de serveur de configuration Spring Cloud pour votre service
+# <a name="set-up-a-spring-cloud-config-server-instance-for-your-service"></a>Configurer une instance de serveur de configuration Spring Cloud pour votre service
 
 Ce tutoriel vous montre comment connecter une instance de serveur de configuration Spring Cloud à votre service Azure Spring Cloud.
 
@@ -190,7 +190,4 @@ Une fois que vous avez enregistré un fichier de configuration, le bouton **Supp
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Dans ce tutoriel, vous avez appris à activer et configurer votre instance de serveur de configuration Spring Cloud. Pour en savoir plus sur la gestion de votre application, passez au tutoriel sur la mise à l’échelle manuelle d’une application.
-
-> [!div class="nextstepaction"]
-> [Tutoriel : Mettre à l’échelle une application dans Azure Spring Cloud](spring-cloud-tutorial-scale-manual.md)
+Dans cet article, vous avez appris à activer et à configurer votre instance Config Server Spring Cloud. Pour en savoir plus sur la gestion de votre application, consultez [Mettre à l’échelle une application dans Azure Spring Cloud](spring-cloud-tutorial-scale-manual.md).

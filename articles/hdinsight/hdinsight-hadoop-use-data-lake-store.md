@@ -5,15 +5,15 @@ author: hrasheed-msft
 ms.author: hrasheed
 ms.reviewer: jasonh
 ms.service: hdinsight
-ms.topic: conceptual
+ms.topic: how-to
 ms.custom: hdinsightactive,hdiseo17may2017,seoapr2020
 ms.date: 04/24/2020
-ms.openlocfilehash: b45af924b75392374265ca41bd4dc1627edd4e01
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 89e3aa1fec2157d77ac5c180bc4dd193f10398cd
+ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82190807"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86078950"
 ---
 # <a name="use-data-lake-storage-gen1-with-azure-hdinsight-clusters"></a>Utiliser Data Lake Storage Gen1 avec des clusters Azure HDInsight
 
@@ -42,12 +42,12 @@ Actuellement, seules certain(e)s versions/types de cluster HDInsight prennent en
 
 | Type de cluster HDInsight | Utiliser Data Lake Storage Gen1 comme stockage par défaut | Utiliser Data Lake Storage Gen1 comme stockage supplémentaire| Notes |
 |------------------------|------------------------------------|---------------------------------------|------|
-| HDInsight version 4.0 | Non  | Non  |ADLS Gen1 n’est pas pris en charge avec HDInsight 4.0 |
+| HDInsight version 4.0 | Non | Non |ADLS Gen1 n’est pas pris en charge avec HDInsight 4.0 |
 | HDInsight version 3.6 | Oui | Oui | Tout sauf HBase|
 | HDInsight version 3.5 | Oui | Oui | Tout sauf HBase|
-| HDInsight version 3.4 | Non  | Oui | |
-| HDInsight version 3.3 | Non  | Non  | |
-| HDInsight version 3.2 | Non  | Oui | |
+| HDInsight version 3.4 | Non | Oui | |
+| HDInsight version 3.3 | Non | Non | |
+| HDInsight version 3.2 | Non | Oui | |
 | Storm | | |Vous pouvez utiliser Data Lake Storage Gen1 pour écrire des données à partir d’une topologie Storm. Vous pouvez également vous en servir pour stocker des données de référence qui peuvent ensuite être lues par une topologie Storm.|
 
 > [!WARNING]  
@@ -62,7 +62,7 @@ Quand HDInsight est déployé avec Data Lake Storage Gen1 en tant que stockage p
 * Cluster1 peut utiliser le chemin d’accès `adl://mydatalakestore/cluster1storage`
 * Cluster2 peut utiliser le chemin d’accès `adl://mydatalakestore/cluster2storage`
 
-Notez que les deux clusters utilisent le même compte Data Lake Storage Gen1 **mydatalakestore**. Chaque cluster a accès à son propre système de fichiers racine dans Data Lake Storage. L’expérience de déploiement avec le portail Azure vous invite à utiliser un nom de dossier comme **/clusters/\<nom de cluster>** pour le chemin d’accès racine.
+Notez que les deux clusters utilisent le même compte Data Lake Storage Gen1 **mydatalakestore**. Chaque cluster a accès à son propre système de fichiers racine dans Data Lake Storage. L’expérience de déploiement avec le Portail Azure vous invite à utiliser un nom de dossier du type **/clusters/\<clustername>** comme chemin racine.
 
 Pour utiliser Data Lake Storage Gen1 comme stockage par défaut, vous devez accorder au principal de service l’accès aux chemins suivants :
 
@@ -110,13 +110,13 @@ New-AzResourceGroupDeployment `
 
 Vous pouvez également utiliser Data Lake Storage Gen1 en tant que stockage supplémentaire pour le cluster. Dans ce cas, le stockage de cluster par défaut peut être un compte Azure Storage Blob ou Data Lake Storage. Quand vous exécutez des tâches HDInsight sur des données stockées dans Data Lake Storage en tant que stockage supplémentaire, utilisez le chemin complet. Par exemple :
 
-    adl://mydatalakestore.azuredatalakestore.net/<file_path>
+`adl://mydatalakestore.azuredatalakestore.net/<file_path>`
 
 Il n’y a encore aucun **cluster_root_path** dans l’URL. Cela est dû au fait que Data Lake Storage n’est pas un stockage par défaut dans ce cas. Il vous suffit donc de fournir le chemin d’accès aux fichiers.
 
 Pour pouvoir utiliser Data Lake Storage Gen1 comme stockage supplémentaire, accordez au principal de service l’accès aux chemins où sont stockés vos fichiers.  Par exemple :
 
-    adl://mydatalakestore.azuredatalakestore.net/<file_path>
+`adl://mydatalakestore.azuredatalakestore.net/<file_path>`
 
 Pour plus d’informations sur la création du principal de service et l’octroi de l’accès, consultez Configurer l’accès à Data Lake Storage.
 

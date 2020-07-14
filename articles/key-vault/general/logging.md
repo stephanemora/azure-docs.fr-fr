@@ -10,12 +10,12 @@ ms.subservice: general
 ms.topic: tutorial
 ms.date: 08/12/2019
 ms.author: mbaldwin
-ms.openlocfilehash: b62d69220a931bef8d91a85bcbbaedfbce86110a
-ms.sourcegitcommit: 6fd28c1e5cf6872fb28691c7dd307a5e4bc71228
+ms.openlocfilehash: b3f337798525860748cf7b535c2bce478dad8e27
+ms.sourcegitcommit: e132633b9c3a53b3ead101ea2711570e60d67b83
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/23/2020
-ms.locfileid: "85211390"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86043000"
 ---
 # <a name="azure-key-vault-logging"></a>Journalisation d’Azure Key Vault
 
@@ -105,15 +105,17 @@ Set-AzDiagnosticSetting -ResourceId $kv.ResourceId -StorageAccountId $sa.Id -Ena
 
 Le résultat se présente ainsi :
 
-    StorageAccountId   : /subscriptions/<subscription-GUID>/resourceGroups/ContosoResourceGroup/providers/Microsoft.Storage/storageAccounts/ContosoKeyVaultLogs
-    ServiceBusRuleId   :
-    StorageAccountName :
-        Logs
-        Enabled           : True
-        Category          : AuditEvent
-        RetentionPolicy
-        Enabled : False
-        Days    : 0
+```output
+StorageAccountId   : /subscriptions/<subscription-GUID>/resourceGroups/ContosoResourceGroup/providers/Microsoft.Storage/storageAccountContosoKeyVaultLogs
+ServiceBusRuleId   :
+StorageAccountName :
+    Logs
+    Enabled           : True
+    Category          : AuditEvent
+    RetentionPolicy
+    Enabled : False
+    Days    : 0
+```
 
 Cette sortie confirme que la journalisation est à présent activée pour votre coffre de clés, et qu’elle enregistrera les informations dans votre compte de stockage.
 
@@ -330,5 +332,3 @@ Pour accéder à un tutoriel utilisant Azure Key Vault dans une application web 
 Pour les références de programmation, consultez le [guide du développeur de coffre de clés Azure](developers-guide.md).
 
 Pour obtenir la liste des cmdlets Azure PowerShell 1.0 concernant Azure Key Vault, consultez l’article [Azure Key Vault Cmdlets](/powershell/module/az.keyvault/?view=azps-1.2.0#key_vault) (Cmdlets Azure Key Vault).
-
-Pour accéder à un tutoriel sur la rotation des clés et les journaux d’audit avec Azure Key Vault, consultez l’article [Configurer Key Vault avec une rotation des clés et un audit de bout en bout](../secrets/key-rotation-log-monitoring.md).

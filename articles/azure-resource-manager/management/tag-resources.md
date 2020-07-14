@@ -2,13 +2,13 @@
 title: Baliser les ressources, les groupes de ressources et les abonnements pour l’organisation logique
 description: Indique comment appliquer des étiquettes afin d'organiser des ressources Azure dédiées à la facturation et à la gestion.
 ms.topic: conceptual
-ms.date: 05/06/2020
-ms.openlocfilehash: 9ba7c58f6fa56b8ef2c233a5fe7f8f8e04fe29e1
-ms.sourcegitcommit: 602e6db62069d568a91981a1117244ffd757f1c2
+ms.date: 07/01/2020
+ms.openlocfilehash: 9dd025818a64a8ece1f4218a8341a40ecc617829
+ms.sourcegitcommit: bcb962e74ee5302d0b9242b1ee006f769a94cfb8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/06/2020
-ms.locfileid: "82864485"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86056920"
 ---
 # <a name="use-tags-to-organize-your-azure-resources-and-management-hierarchy"></a>Utiliser des étiquettes pour organiser vos ressources Azure et votre hiérarchie de gestion
 
@@ -17,7 +17,9 @@ Vous allez appliquer des étiquettes à vos ressources Azure, groupes de ressour
 Pour obtenir des recommandations sur la façon d’implémenter une stratégie d’étiquetage, consultez [Guides de décision concernant le nommage et l’étiquetage des ressources](/azure/cloud-adoption-framework/decision-guides/resource-tagging/?toc=/azure/azure-resource-manager/management/toc.json).
 
 > [!IMPORTANT]
-> Les noms des étiquettes ne respectent pas la casse. Les valeurs des étiquettes respectent la casse.
+> Les noms des étiquettes ne respectent pas la casse pour les opérations. Une étiquette portant un nom, quelle que soit la casse, est mise à jour ou récupérée. Toutefois, le fournisseur de ressources peut conserver la casse que vous utilisez pour le nom de l’étiquette. Vous verrez cette casse dans les rapports sur les coûts.
+> 
+> Les valeurs des étiquettes respectent la casse.
 
 [!INCLUDE [Handle personal data](../../../includes/gdpr-intro-sentence.md)]
 
@@ -263,7 +265,7 @@ Pour ajouter une étiquette aux étiquettes existantes dans un groupe de ressour
 az group update -n examplegroup --set tags.'Status'='Approved'
 ```
 
-Actuellement, Azure CLI ne prend pas en charge l’application d’étiquettes aux abonnements.
+Actuellement, Azure CLI n’a pas de commande pour l’application d’étiquettes aux abonnements. Toutefois, vous pouvez utiliser l’interface CLI pour déployer un modèle ARM qui applique les étiquettes à un abonnement. Voir [Appliquer des étiquettes à des groupes de ressources ou à des abonnements](#apply-tags-to-resource-groups-or-subscriptions).
 
 ### <a name="list-tags"></a>Répertorier les balises
 
@@ -523,6 +525,8 @@ New-AzSubscriptionDeployment -name tagresourcegroup -Location westus2 -TemplateU
 az deployment sub create --name tagresourcegroup --location westus2 --template-uri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/tags.json
 ```
 
+Pour plus d’informations sur les déploiements dans des abonnements, consultez [Créer des groupes de ressources et des ressources au niveau de l’abonnement](../templates/deploy-to-subscription.md).
+
 Le modèle suivant ajoute les étiquettes depuis un objet vers un groupe de ressources ou un abonnement.
 
 ```json
@@ -574,7 +578,7 @@ Les balises appliquées au groupe de ressources ou à l’abonnement ne sont pas
 
 Vous pouvez utiliser des étiquettes pour regrouper vos données de facturation. Par exemple, si vous exécutez plusieurs machines virtuelles pour différentes organisations, vous pouvez recourir aux étiquettes afin de regrouper l'utilisation par centre de coûts. Vous pouvez également utiliser des étiquettes pour catégoriser les coûts par environnement d'exécution ; par exemple, l'utilisation de la facturation pour les machines virtuelles en cours d'exécution dans l'environnement de production.
 
-Vous pouvez récupérer des informations sur les étiquettes par le biais des [API Resource Usage et RateCard](../../billing/billing-usage-rate-card-overview.md) ou du fichier de valeurs séparées par des virgules (CSV). Téléchargez le fichier d’utilisation depuis le [Centre des comptes Azure](https://account.azure.com/Subscriptions) ou depuis le portail Azure. Pour plus d’informations, consultez [Télécharger et consulter votre facture Azure et vos données d’utilisation quotidienne](../../billing/billing-download-azure-invoice-daily-usage-date.md). Lorsque vous téléchargez le fichier d’utilisation depuis le Centre des comptes Azure, sélectionnez **Version 2**. Pour les services qui prennent en charge les étiquettes avec la facturation, les étiquettes s'affichent dans la colonne **Étiquettes**.
+Vous pouvez récupérer des informations sur les étiquettes par le biais des [API Resource Usage et RateCard](../../cost-management-billing/manage/usage-rate-card-overview.md) ou du fichier de valeurs séparées par des virgules (CSV). Téléchargez le fichier d’utilisation depuis le [Centre des comptes Azure](https://account.azure.com/Subscriptions) ou depuis le portail Azure. Pour plus d’informations, consultez [Télécharger et consulter votre facture Azure et vos données d’utilisation quotidienne](../../cost-management-billing/manage/download-azure-invoice-daily-usage-date.md). Lorsque vous téléchargez le fichier d’utilisation depuis le Centre des comptes Azure, sélectionnez **Version 2**. Pour les services qui prennent en charge les étiquettes avec la facturation, les étiquettes s'affichent dans la colonne **Étiquettes**.
 
 Pour plus d’informations sur les opérations de l’API REST, consultez [Informations de référence sur l’API REST Azure Billing](/rest/api/billing/).
 
@@ -583,10 +587,8 @@ Pour plus d’informations sur les opérations de l’API REST, consultez [Infor
 Les limites suivantes s’appliquent aux balises :
 
 * Les types de ressources ne prennent pas tous en charge les étiquettes. Pour déterminer si vous pouvez appliquer une étiquette à un type de ressource, consultez [Prise en charge des étiquettes pour les ressources Azure](tag-support.md).
-* Les groupes d’administration ne prennent actuellement pas en charge les étiquettes.
 * Chaque ressource, groupe de ressources et abonnement peuvent inclure un maximum de 50 paires nom/valeur d’étiquette. Si vous devez appliquer plus de balises que le nombre maximal autorisé, utilisez une chaîne JSON comme valeur de balise. La chaîne JSON peut contenir plusieurs valeurs appliquées à un seul nom de balise. Un groupe de ressources ou un abonnement peut contenir de nombreuses ressources qui ont chacune 50 paires nom/valeur d’étiquette.
 * Le nom de balise est limité à 512 caractères, et la valeur de balise à 256 caractères. Pour les comptes de stockage, le nom de balise est limité à 128 caractères, et la valeur de balise à 256 caractères.
-* Les machines virtuelles généralisées ne prennent pas en charge les balises.
 * Les balises ne peuvent pas être appliquées à des ressources classiques comme les Services cloud.
 * Les noms de balise ne peuvent pas contenir ces caractères : `<`, `>`, `%`, `&`, `\`, `?`, `/`
 

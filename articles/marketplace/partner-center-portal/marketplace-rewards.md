@@ -2,18 +2,16 @@
 title: Récompenses de la place de marché – Vos avantages sur la Place de marché commerciale | Azure
 description: Les récompenses de la place de marché sont conçues pour vous soutenir dans votre phase de croissance spécifique.
 services: Azure, Marketplace, Compute, Storage, Networking, Blockchain, Security, Partner Center
-author: MaggiePucciEvans
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: article
 ms.date: 01/18/2019
-ms.author: evansma
-ms.openlocfilehash: 3d250ce3960bdc7687babb08ee6a6c52bb2cd15d
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: e393b6a499ad2b84f25ca1a1c062ca4ef2eec21c
+ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82195764"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86120736"
 ---
 # <a name="marketplace-rewards"></a>Récompenses de la place de marché
 
@@ -21,7 +19,7 @@ Les récompenses de la place de marché sont conçues pour vous aider à votre p
 
 Le programme crée une boucle de rétroaction positive : les avantages à chaque étape de la croissance sont conçus pour vous aider à passer à l’étape suivante, ce qui vous permet de développer votre activité auprès des clients Microsoft, sur le terrain de Microsoft et grâce au réseau de Microsoft en utilisant comme plateforme la place de marché commerciale. 
 
-Vos avantages sont différents selon que votre offre est de type [Liste, Version d'évaluation ou Transact](https://docs.microsoft.com/azure/marketplace/determine-your-listing-type#choose-a-publishing-option).
+Vos avantages sont différents selon que votre offre est de type [Liste, Version d'évaluation ou Transact](../determine-your-listing-type.md#choose-a-publishing-option)).
 
 Vous serez contacté par un membre de l’équipe de récompenses lorsque votre offre sera active, en fonction de votre éligibilité. 
 
@@ -36,13 +34,13 @@ Vérifiez votre admissibilité au programme Récompenses de la place de marché 
 Les étapes à suivre pour démarrer sont simples :
 
 1. Publiez une offre sur Microsoft AppSource ou la Place de marché.
-2. Accédez au [tableau de bord](https://partner.microsoft.com/dashboard/directory) de l’Espace partenaires et sélectionnez l’onglet **Avantages de marketing et de vente** dans la page Récompenses de la place de marché pour afficher votre liste d’avantages.
-3. Pour activer l’avantage de marketing et de vente, vous devez d’abord affecter un contact marketing d’entreprise. Ce contact recevra les communications de suivi sur vos récompenses de la place de marché.
-4. Pour ajouter ou mettre à jour vos informations de contact marketing, accédez à la partie supérieure de l’onglet Avantages de marketing et de vente, dans la page Récompenses de la place de marché, puis sélectionnez **Ajouter, mettre à jour ou modifier**.  Ensuite, effectuez les actions suivantes :
+2. Accédez au [tableau de bord](https://partner.microsoft.com/dashboard/directory) de l’Espace partenaires et sélectionnez l’onglet **Avantages de marketing et de vente** dans la page Récompenses de la Place de marché pour afficher votre liste d’avantages.
+3. Pour activer l’avantage de marketing et de vente, vous devez d’abord attribuer un contact marketing d’entreprise. Ce contact recevra les communications de suivi concernant vos récompenses de la Place de marché.
+4. Pour ajouter ou mettre à jour vos informations de contact marketing, accédez à la partie supérieure de l’onglet Avantages de marketing et de vente, dans la page Récompenses de la Place de marché, puis sélectionnez **Ajouter, mettre à jour ou modifier**.  Ensuite, effectuez les actions suivantes :
 
     1. Sélectionnez un utilisateur dans la liste. Si l’utilisateur que vous souhaitez attribuer ne figure pas dans la liste, vous pouvez ajouter de nouveaux utilisateurs dans **Paramètres du compte**.
-    1. Fournissez une adresse de messagerie pour l’utilisateur qui diffère de l’adresse de messagerie associée au compte de l’Espace partenaires de votre société. Nous vous enverrons par e-mail des instructions pour l’utilisation de votre avantage Récompenses de la place de marché à l’adresse e-mail de votre contact marketing désigné.
-    1. Fournissez le numéro de téléphone et la langue par défaut de ce contact marketing. Une fois que vous avez terminé d’entrer ces informations, sélectionnez **Affecter un utilisateur**.
+    1. Fournissez une adresse e-mail pour l’utilisateur qui diffère de celle associée au compte de l’Espace partenaires de votre société. Nous vous enverrons par e-mail des instructions pour l’utilisation de votre avantage Récompenses de la Place de marché à l’adresse e-mail de votre contact marketing désigné.
+    1. Fournissez le numéro de téléphone et la langue par défaut de ce contact marketing. Une fois que vous avez terminé d’entrer ces informations, sélectionnez **Attribuer l’utilisateur**.
     1. Une fois que vous avez mis à jour le contact marketing, sélectionnez **Activer** pour l’avantage que vous souhaitez commencer à utiliser. Une fois que vous avez activé un avantage, votre contact marketing sera contacté par un membre de l’équipe Récompenses dans un délai d’une semaine.
 
 **Avantages techniques**

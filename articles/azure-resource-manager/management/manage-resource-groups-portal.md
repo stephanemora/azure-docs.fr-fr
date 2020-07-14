@@ -5,12 +5,12 @@ author: mumian
 ms.topic: conceptual
 ms.date: 03/26/2019
 ms.author: jgao
-ms.openlocfilehash: 622c0cb8d58dddcdb13c7dc9412ada3f2e2d93e4
-ms.sourcegitcommit: d597800237783fc384875123ba47aab5671ceb88
+ms.openlocfilehash: a6788651928b631d9298867a140f29b273f14734
+ms.sourcegitcommit: bcb962e74ee5302d0b9242b1ee006f769a94cfb8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/03/2020
-ms.locfileid: "80632987"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86057549"
 ---
 # <a name="manage-azure-resource-manager-resource-groups-by-using-the-azure-portal"></a>Gérer les groupes de ressources Azure Resource Manager à l’aide du Portail Azure
 
@@ -86,7 +86,7 @@ Vous pouvez déplacer les ressources du groupe vers un autre groupe de ressource
 
 Le verrouillage empêche d’autres utilisateurs de votre organisation de supprimer ou de modifier accidentellement des ressources stratégiques, telles qu’une ressource, un groupe de ressources ou un abonnement Azure. 
 
-1. Ouvrez le groupe de ressources à supprimer.  Consultez [Ouvrir des groupes de ressources](#open-resource-groups).
+1. Ouvrez le groupe de ressources à verrouiller.  Consultez [Ouvrir des groupes de ressources](#open-resource-groups).
 2. Dans le volet gauche, sélectionnez **Verrous**.
 3. Pour ajouter un verrou au groupe de ressources, sélectionnez **Ajouter**.
 4. Entrez le **nom du verrou**, le **type de verrou** et des **notes**. Les types de verrous incluent **En lecture seule** et **Supprimer**.
@@ -111,5 +111,5 @@ Le [contrôle d’accès en fonction du rôle (RBAC)](../../role-based-access-co
 
 - Pour vous familiariser avec Azure Resource Manager, consultez [Vue d’ensemble d’Azure Resource Manager](overview.md).
 - Pour vous familiariser avec la syntaxe des modèles Resource Manager, consultez [Comprendre la structure et la syntaxe des modèles Azure Resource Manager](../templates/template-syntax.md).
-- Pour apprendre à développer des modèles, consultez les [tutoriels pas à pas](/azure/azure-resource-manager/).
+- Pour apprendre à développer des modèles, consultez les [tutoriels pas à pas](../index.yml).
 - Pour accéder aux schémas liés aux modèles Azure Resource Manager, consultez [Informations de référence sur les modèles](/azure/templates/).

@@ -1,15 +1,15 @@
 ---
 title: Consortium Hyperledger Fabric sur Azure Kubernetes Service (AKS)
 description: Guide pratique pour déployer un réseau de consortium Hyperledger Fabric sur Azure Kubernetes Service
-ms.date: 01/08/2020
-ms.topic: article
-ms.reviewer: v-umha
-ms.openlocfilehash: da4ec99f1b9d73ab67a2312094feaa1a89aee394
-ms.sourcegitcommit: 999ccaf74347605e32505cbcfd6121163560a4ae
+ms.date: 07/07/2020
+ms.topic: how-to
+ms.reviewer: ravastra
+ms.openlocfilehash: e1cbfa56f1e4ea9f8cbaa0ad973d06e8b8d486ca
+ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/08/2020
-ms.locfileid: "82980221"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86085800"
 ---
 # <a name="hyperledger-fabric-consortium-on-azure-kubernetes-service-aks"></a>Consortium Hyperledger Fabric sur Azure Kubernetes Service (AKS)
 
@@ -19,6 +19,18 @@ Vous pouvez utiliser le modèle Hyperledger Fabric (HLF) sur Azure Kubernetes Se
 
 - d’obtenir des connaissances de travail sur Hyperledger Fabric et les divers composants qui constituent les blocs de création d’un réseau blockchain Hyperledger Fabric ;
 - de déployer et configurer un consortium Hyperledger Fabric sur Azure Kubernetes Service pour vos scénarios de production.
+
+[!INCLUDE [Preview note](./includes/preview.md)]
+
+## <a name="choose-an-azure-blockchain-solution"></a>Choisir une solution Azure Blockchain
+
+Avant d’opter pour un modèle de solution, comparez votre scénario avec les cas d’utilisation courants des options Azure Blockchain disponibles.
+
+Option | Modèle de service | Cas d’utilisation courant
+-------|---------------|-----------------
+Modèles de solution | IaaS | Les modèles de solution correspondent à des modèles Azure Resource Manager que vous pouvez utiliser pour approvisionner une topologie de réseau blockchain entièrement configurée. Les modèles déploient et configurent les services de calcul, de mise en réseau et de stockage Microsoft Azure pour un type de réseau blockchain donné. Les modèles de solution sont fournis sans contrat SLA. Utilisez la [page de questions Microsoft Q&A](https://docs.microsoft.com/answers/topics/azure-blockchain-workbench.html) pour obtenir de l’aide.
+[Azure Blockchain Service](../service/overview.md) | PaaS | Azure Blockchain Service (préversion) simplifie la formation, la gestion et la gouvernance des réseaux blockchain de consortium. Utilisez Azure Blockchain Service pour les solutions nécessitant PaaS, la gestion de consortium ou la confidentialité des contrats et transactions.
+[Azure Blockchain Workbench](../workbench/overview.md) | IaaS et PaaS | La préversion d’Azure Blockchain Workbench est une collection de services et de fonctionnalités Azure conçus pour vous aider à créer et à déployer des applications blockchain afin de partager des processus métier et des données avec d’autres organisations. Utilisez Azure Blockchain Workbench pour le prototypage d’une solution blockchain ou d’une preuve de concept d’application blockchain. Azure Blockchain Workbench est fourni sans contrat de niveau de service. Utilisez la [page de questions Microsoft Q&A](https://docs.microsoft.com/answers/topics/azure-blockchain-workbench.html) pour obtenir de l’aide.
 
 ## <a name="hyperledger-fabric-consortium-architecture"></a>Architecture de consortium Hyperledger Fabric
 
@@ -200,7 +212,7 @@ STORAGE_LOCATION=<azureStorageAccountLocation>
 STORAGE_FILE_SHARE=<azureFileShareName>
 ```
 
-Suivez les étapes ci-dessous pour la création d’un compte Stockage Azure. Si vous avez déjà créé un compte Stockage Azure, ignorez ces étapes
+Suivez les étapes ci-dessous pour la création d’un compte Stockage Azure. Si vous avez déjà créé un compte Stockage Azure, ignorez ces étapes.
 
 ```bash
 az account set --subscription $STORAGE_SUBSCRIPTION
@@ -284,7 +296,7 @@ Voici les deux commandes de gestion des canaux :
 > Avant de commencer toute opération de consortium, assurez-vous que la configuration initiale de l’application cliente est terminée.  
 
 Exécutez les commandes ci-dessous dans l’ordre indiqué pour ajouter une organisation homologue dans un canal et un consortium.
-1.  À partir du client de l’organisation homologue, téléchargez le MSP de l’organisation homologue sur le stockage Azure
+1.  À partir du client de l’organisation homologue, téléchargez le MSP de l’organisation homologue sur Stockage Azure.
 
       ```bash
       ./azhlf msp export toAzureStorage -f  $AZURE_FILE_CONNECTION_STRING -o $PEER_ORG_NAME
@@ -297,7 +309,7 @@ Exécutez les commandes ci-dessous dans l’ordre indiqué pour ajouter une orga
       ./azhlf consortium join -o $ORDERER_ORG_NAME  -u $ORDERER_ADMIN_IDENTITY -p $PEER_ORG_NAME
       ```
 
-3.  À partir du client de l’organisation de l’ordonnanceur, chargez le profil de connexion de l’ordonnanceur sur le Stockage Azure afin que l’organisation homologue puisse se connecter aux nœuds de l’ordonnanceur commande à l’aide de ce profil
+3.  À partir du client de l’organisation de l’ordonnanceur, chargez le profil de connexion de l’ordonnanceur sur le Stockage Azure afin que l’organisation homologue puisse se connecter aux nœuds de l’ordonnanceur à l’aide de ce profil.
 
       ```bash
       ./azhlf connectionProfile  export toAzureStorage -o $ORDERER_ORG_NAME -f $AZURE_FILE_CONNECTION_STRING
@@ -418,3 +430,17 @@ SWITCH_TO_AKS_CLUSTER $AKS_CLUSTER_RESOURCE_GROUP $AKS_CLUSTER_NAME $AKS_CLUSTER
 kubectl describe pod fabric-tools -n tools | grep "Image:" | cut -d ":" -f 3
 
 ```
+
+## <a name="support-and-feedback"></a>Support et commentaires
+
+Pour vous tenir informé sur Azure Blockchain, visitez le [blog Azure Blockchain](https://azure.microsoft.com/blog/topics/blockchain/). Vous y trouverez les toutes dernières offres du service Blockchain ainsi que diverses informations de l’équipe technique d’Azure Blockchain.
+
+Pour faire des commentaires sur le produit ou suggérer de nouvelles fonctionnalités, postez votre idée ou votez pour une autre idée sur le [forum de commentaires Azure pour Blockchain](https://aka.ms/blockchainuservoice).
+
+### <a name="community-support"></a>Support de la communauté pour les objets blob
+
+Communiquez avec les ingénieurs Microsoft et les experts de la communauté Azure Blockchain.
+
+- [Page de questions Microsoft Q&A](https://docs.microsoft.com/answers/topics/azure-blockchain-workbench.html). Le support d’ingénierie pour les modèles blockchain est limité aux problèmes de déploiement.
+- [Microsoft Tech Community](https://techcommunity.microsoft.com/t5/Blockchain/bd-p/AzureBlockchain)
+- [Stack Overflow](https://stackoverflow.com/questions/tagged/azure-blockchain-workbench)

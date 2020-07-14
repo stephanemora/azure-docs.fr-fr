@@ -1,5 +1,5 @@
 ---
-title: S’authentifier avec l’authentification unique auprès des applications - Azure Active Directory | Microsoft Docs
+title: Qu’est-ce que l’authentification unique Azure ?
 description: Découvrez comment choisir une méthode d’authentification unique lors de la configuration d’applications dans Azure Active Directory (Azure AD). Utilisez l’authentification unique pour éviter aux utilisateurs de devoir mémoriser des mots de passe pour chaque application et pour simplifier l’administration de la gestion des comptes.
 services: active-directory
 author: kenwith
@@ -12,14 +12,14 @@ ms.date: 12/03/2019
 ms.author: kenwith
 ms.reviewer: arvindh, japere
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: fd8b20d7d285f30eb0aa9ba5ac22739b57856d6c
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: a50f2cf6fc00189c8cc764a132b550153b80b52e
+ms.sourcegitcommit: 5cace04239f5efef4c1eed78144191a8b7d7fee8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85479706"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86144606"
 ---
-# <a name="single-sign-on-to-applications-in-azure-active-directory"></a>S’authentifier avec l’authentification unique auprès des applications dans Azure Active Directory
+# <a name="what-is-single-sign-on-sso"></a>Qu’est-ce que l’authentification unique ?
 
 L’authentification unique (SSO) est plus sûre et plus pratique quand les utilisateurs s’authentifient auprès d’applications dans Azure Active Directory (Azure AD). Cet article décrit les différentes méthodes d’authentification unique et vous aide à choisir la méthode SSO la plus appropriée lors de la configuration de vos applications.
 
@@ -99,8 +99,8 @@ L’authentification unique par mot de passe est prise en charge pour toutes les
 - Microsoft Edge sur Windows 10 Édition anniversaire ou version ultérieure
 - Microsoft Edge pour iOS et Android
 - Intune Managed Browser
-- Chrome sur Windows 7 ou version ultérieure, et sur Mac OS X ou version ultérieure
-- Firefox 26.0 ou version ultérieure sur Windows XP SP2 ou version ultérieure, et sur Mac OS X 10.6 ou version ultérieure
+- Chrome sur Windows 7 ou version ultérieure, et sur macOS X ou version ultérieure
+- Firefox 26.0 ou version ultérieure sur Windows XP SP2 ou version ultérieure, et sur macOS X 10.6 ou version ultérieure
 
 Pour configurer une application cloud pour l’authentification unique par mot de passe, consultez [Configurer l’authentification unique par mot de passe](configure-password-single-sign-on-non-gallery-applications.md).
 

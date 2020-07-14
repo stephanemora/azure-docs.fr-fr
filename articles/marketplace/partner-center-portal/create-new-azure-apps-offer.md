@@ -1,24 +1,22 @@
 ---
 title: Créer une offre d’application Azure – Place de marché commerciale de Microsoft
 description: Découvrez les étapes et considérations relatives à la création d’une offre d’application Azure via le portail de la Place de marché commerciale dans l’Espace partenaires. Vous pouvez répertorier ou vendre votre offre d’application Azure sur la Place de marché Azure ou via le programme Fournisseur de solutions Cloud (CSP).
-author: qianw211
-ms.author: dsindona
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
-ms.date: 05/19/2020
-ms.openlocfilehash: ace85727680ecf6d62860ac2239a8c0b68ae6e0e
-ms.sourcegitcommit: 1f25aa993c38b37472cf8a0359bc6f0bf97b6784
+ms.date: 06/17/2020
+ms.openlocfilehash: c5371b2d9379ca861addac07de50d7cdf9c34c8b
+ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/26/2020
-ms.locfileid: "83848785"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86121966"
 ---
 # <a name="create-an-azure-application-offer"></a>Créer une offre d’application Azure
 
 Cet article explique les étapes et considérations relatives à la création d’une offre d’application Azure sur la Place de marché commerciale. Vous devez connaître ces concepts avant de créer une offre d’application Azure.
 
-Avant de publier une nouvelle offre d’application Azure, vous devez [créer un compte sur la Place de marché commerciale dans l’Espace partenaires](https://docs.microsoft.com/azure/marketplace/partner-center-portal/create-account), et vérifiez que votre compte est inscrit dans le programme de la Place de marché commerciale.
+Avant de publier une nouvelle offre d’application Azure, vous devez [créer un compte sur la Place de marché commerciale dans l’Espace partenaires](create-account.md), et vérifiez que votre compte est inscrit dans le programme de la Place de marché commerciale.
 
 ## <a name="before-you-begin"></a>Avant de commencer
 
@@ -34,25 +32,25 @@ Concevoir, créer et tester une offre d’application Azure nécessite de dispos
 
 Lors de la préparation de votre offre d’application Azure pour la Place de marché commerciale, consultez les ressources suivantes.
 
-* [Comprendre les modèles Azure Resource Manager](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-authoring-templates)
+* [Comprendre les modèles Azure Resource Manager](../../azure-resource-manager/resource-group-authoring-templates.md)
 
 * Guides de démarrage rapide :
 
     * [Modèles de démarrage rapide Azure](https://azure.microsoft.com/documentation/templates/)
-    * [Modèles de démarrage rapide Azure sur GitHub](https://github.com/azure/azure-quickstart-templates)
-    * [Publier une définition d’application](https://docs.microsoft.com/azure/managed-applications/publish-service-catalog-app)
-    * [Déployer une application de catalogue de services](https://docs.microsoft.com/azure/managed-applications/deploy-service-catalog-quickstart)
+    * [Guide des meilleures pratiques pour les modèles Azure](https://github.com/Azure/azure-quickstart-templates/blob/master/1-CONTRIBUTION-GUIDE/best-practices.md)
+    * [Publier une définition d’application](../../managed-applications/publish-service-catalog-app.md)
+    * [Déployer une application de catalogue de services](../../managed-applications/deploy-service-catalog-quickstart.md)
 
 * Tutoriels :
 
-    * [Créer les fichiers de définition](https://docs.microsoft.com/azure/managed-applications/publish-service-catalog-app)
-    * [Publier l’application de la Place de marché](https://docs.microsoft.com/azure/managed-applications/publish-marketplace-app)
+    * [Créer les fichiers de définition](../../managed-applications/publish-service-catalog-app.md)
+    * [Publier l’application de la Place de marché](../../managed-applications/publish-marketplace-app.md)
 
 * Exemples :
 
-    * [Azure CLI](https://docs.microsoft.com/azure/managed-applications/cli-samples)
-    * [Azure PowerShell](https://docs.microsoft.com/azure/managed-applications/powershell-samples)
-    * [Solutions d’applications managées](https://docs.microsoft.com/azure/managed-applications/sample-projects)
+    * [Azure CLI](../../managed-applications/cli-samples.md)
+    * [Azure PowerShell](../../managed-applications/powershell-samples.md)
+    * [Solutions d’applications managées](../../managed-applications/sample-projects.md)
 
 La vidéo sur la [Création de modèles de solution et d’applications managées pour la Place de marché Azure](https://channel9.msdn.com/Events/Build/2018/BRK3603) présente de façon exhaustive le type d’offre d’application Azure :
 
@@ -72,7 +70,7 @@ Choisissez un ou plusieurs des environnements de scripts suivants pour faciliter
 
 Nous vous recommandons d’ajouter les outils suivants à votre environnement de développement :
 
-* [Azure Storage Explorer](https://docs.microsoft.com/azure/vs-azure-tools-storage-manage-with-storage-explorer)
+* [Azure Storage Explorer](../../vs-azure-tools-storage-manage-with-storage-explorer.md)
 * [Visual Studio Code](https://code.visualstudio.com/) avec les extensions suivantes :
     * Extension : [Outils Azure Resource Manager](https://marketplace.visualstudio.com/items?itemName=msazurermtools.azurerm-vscode-tools)
     * Extension : [Beautify](https://marketplace.visualstudio.com/items?itemName=HookyQR.beautify)
@@ -84,19 +82,19 @@ Vous pouvez examiner les outils disponibles dans la page [Outils de développeme
 
 Il existe deux types de plans d’application Azure : les modèles de solution et les applications managées.
 
-* Le **modèle de solution** constitue l’un des principaux moyens de publier une solution sur la Place de marché. Utilisez ce type de plan si votre solution nécessite une automatisation supplémentaire du déploiement et de la configuration, au-delà d’une seule machine virtuelle. Avec un modèle de solution, vous pouvez automatiser la fourniture de plusieurs ressources, notamment les machines virtuelles, les ressources réseau et les ressources de stockage nécessaires pour fournir des solutions IaaS complexes.  Pour plus d’informations sur la création de modèles de solution, consultez la documentation [Azure Resource Manager](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview).
+* Le **modèle de solution** constitue l’un des principaux moyens de publier une solution sur la Place de marché. Utilisez ce type de plan si votre solution nécessite une automatisation supplémentaire du déploiement et de la configuration, au-delà d’une seule machine virtuelle. Avec un modèle de solution, vous pouvez automatiser la fourniture de plusieurs ressources, notamment les machines virtuelles, les ressources réseau et les ressources de stockage nécessaires pour fournir des solutions IaaS complexes.  Pour plus d’informations sur la création de modèles de solution, consultez la documentation [Azure Resource Manager](../../azure-resource-manager/resource-group-overview.md).
 
-* Une **application managée** est similaire aux modèles de solution, à une importante différence près. Dans une application managée, les ressources sont déployées vers un groupe de ressources géré par l’éditeur de l’application. Le groupe de ressources est présent dans l’abonnement du consommateur, mais une identité du locataire de l’éditeur a accès au groupe de ressources. En tant qu’éditeur, vous spécifiez le coût de l’assistance en continu de la solution. Utilisez des applications managées pour créer et fournir facilement des applications clés en main et entièrement managées à vos clients.  Pour plus d’informations sur les avantages et les différents types d’applications managées, consultez [Vue d’ensemble des applications managées Azure](https://docs.microsoft.com/azure/managed-applications/overview).
+* Une **application managée** est similaire aux modèles de solution, à une importante différence près. Dans une application managée, les ressources sont déployées vers un groupe de ressources géré par l’éditeur de l’application. Le groupe de ressources est présent dans l’abonnement du consommateur, mais une identité du locataire de l’éditeur a accès au groupe de ressources. En tant qu’éditeur, vous spécifiez le coût de l’assistance en continu de la solution. Utilisez des applications managées pour créer et fournir facilement des applications clés en main et entièrement managées à vos clients.  Pour plus d’informations sur les avantages et les différents types d’applications managées, consultez [Vue d’ensemble des applications managées Azure](../../managed-applications/overview.md).
 
 ## <a name="technical-requirements"></a>Exigences techniques
 
 Toutes les applications Azure incluent au moins deux fichiers dans le dossier racine d’une archive `.zip` :
 
-* Un fichier de modèle Resource Manager nommé [mainTemplate.json](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview).  Ce modèle qui définit les ressources à déployer dans l’abonnement Azure du client.  Pour obtenir des exemples de modèles Resource Manager, consultez la [Galerie de modèles de démarrage rapide Microsoft Azure](https://azure.microsoft.com/resources/templates/) ou le dépôt [GitHub : Modèles de démarrage rapide Azure Resource Manager](https://github.com/azure/azure-quickstart-templates) correspondant.
+* Un fichier de modèle Resource Manager nommé [mainTemplate.json](../../azure-resource-manager/resource-group-overview.md).  Ce modèle qui définit les ressources à déployer dans l’abonnement Azure du client. Pour obtenir des exemples de modèles Resource Manager, consultez la [Galerie de modèles de démarrage rapide Microsoft Azure](https://azure.microsoft.com/resources/templates/) ou le dépôt [GitHub : Modèles de démarrage rapide Azure Resource Manager](https://github.com/azure/azure-quickstart-templates) correspondant.
 
-* Une définition d’interface utilisateur pour l’expérience de création d’applications Azure nommée [createUiDefinition.json](https://docs.microsoft.com/azure/managed-applications/create-uidefinition-overview).  Dans l’interface utilisateur, vous spécifiez les éléments qui permettent aux consommateurs de fournir des valeurs de paramètre.
+* Une définition d’interface utilisateur pour l’expérience de création d’applications Azure nommée [createUiDefinition.json](../../managed-applications/create-uidefinition-overview.md).  Dans l’interface utilisateur, vous spécifiez les éléments qui permettent aux consommateurs de fournir des valeurs de paramètre.
 
-Toutes les nouvelles offres d’applications Azure doivent inclure un [GUID d’attribution de l’utilisation de client partenaire Azure](https://docs.microsoft.com/azure/marketplace/azure-partner-customer-usage-attribution). 
+Toutes les nouvelles offres d’applications Azure doivent inclure un [GUID d’attribution de l’utilisation de client partenaire Azure](../azure-partner-customer-usage-attribution.md). 
 
 Pour en savoir plus sur la publication des conditions requises pour chaque plan d’application, consultez [Conditions requises pour la publication d’une offre de modèle de solution](../marketplace-solution-templates.md) et [Exigences relatives à la publication d’une offre d’application managée](../marketplace-managed-apps.md).
 
@@ -132,14 +130,14 @@ La page **Configuration de l’offre** vous permet de configurer une version d�
 
 ### <a name="test-drive"></a>Test drive
 
-Une version d’évaluation constitue un excellent moyen de présenter votre offre à vos clients potentiels en leur offrant la possibilité de l’essayer avant d’acheter, ce qui se traduit par une hausse du taux de conversion et par la génération de prospects de qualité. [Découvrez-en plus sur les versions d’évaluation](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal/test-drive/what-is-test-drive).
+Une version d’évaluation constitue un excellent moyen de présenter votre offre à vos clients potentiels en leur offrant la possibilité de l’essayer avant d’acheter, ce qui se traduit par une hausse du taux de conversion et par la génération de prospects de qualité. [Découvrez-en plus sur les versions d’évaluation](../what-is-test-drive.md).
 
 Pour activer une version d’évaluation pour une durée déterminée, cochez la case **Activer une version d’évaluation**. Pour supprimer une version d'évaluation de votre offre, désactivez cette case à cocher. Configurez l’environnement de la version d’évaluation dans la section [Configuration technique de la version d’évaluation](#test-drive-technical-configuration) plus loin dans cette rubrique.
 
-Pour plus d’informations, consultez [Proposer une version d’évaluation de votre offre sur la Place de marché commerciale](https://docs.microsoft.com/azure/marketplace/partner-center-portal/test-drive). Vous pouvez également découvrir les [meilleures pratiques en matière de version d’évaluation](https://github.com/Azure/AzureTestDrive/wiki/Test-Drive-Best-Practices) et télécharger le [PDF de présentation des versions d’évaluation](https://assetsprod.microsoft.com/mpn/azure-marketplace-appsource-test-drives.pdf) (assurez-vous que le bloqueur de fenêtres publicitaires est désactivé).
+Pour plus d’informations, consultez [Proposer une version d’évaluation de votre offre sur la Place de marché commerciale](test-drive.md). Vous pouvez également découvrir les [meilleures pratiques en matière de version d’évaluation](https://github.com/Azure/AzureTestDrive/wiki/Test-Drive-Best-Practices) et télécharger le [PDF de présentation des versions d’évaluation](https://assetsprod.microsoft.com/mpn/azure-marketplace-appsource-test-drives.pdf) (assurez-vous que le bloqueur de fenêtres publicitaires est désactivé).
 
 >[!Note]
->Du fait que toutes les applications Azure sont implémentées à l’aide d’un modèle Azure Resource Manager, le seul type de version d’évaluation disponible pour une application Azure est une [version d’évaluation d’Azure Resource Manager](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal/test-drive/azure-resource-manager-test-drive).
+>Du fait que toutes les applications Azure sont implémentées à l’aide d’un modèle Azure Resource Manager, le seul type de version d’évaluation disponible pour une application Azure est une [version d’évaluation d’Azure Resource Manager](../azure-resource-manager-test-drive.md).
 
 ### <a name="customer-leads"></a>Prospects
 
@@ -151,9 +149,16 @@ Sélectionnez **Enregistrer le brouillon** avant de continuer.
 
 ## <a name="properties"></a>Propriétés
 
-La page **Propriétés** vous permet de définir les catégories et secteurs utilisés pour grouper votre offre selon les places de marché, la version de votre application et les contrats légaux associés.
+La page **Propriétés** vous permet de définir les catégories utilisées pour grouper votre offre selon les places de marché, la version de votre application et les contrats légaux associés.
 
-Sélectionnez de une à trois catégories pour placer votre offre dans les zones de recherche appropriées de la Place de marché. Veillez à décrire en quoi votre offre prend en charge ces catégories dans la description de l’offre.
+### <a name="category"></a>Category
+
+Sélectionnez les catégories et les sous-catégories pour placer votre offre dans les zones de recherche appropriées sur la Place de marché. Veillez à décrire l’adéquation de votre offre à ces catégories dans la description de l’offre. Sélectionnez :
+
+- Au moins une et jusqu’à deux catégories, y compris une catégorie principale et une catégorie secondaire (facultatif).
+- Jusqu’à deux sous-catégories pour chaque catégorie principale et/ou secondaire. Si aucune sous-catégorie n’est applicable à votre offre, sélectionnez **Non applicable**.
+
+Consultez la liste complète des catégories et sous-catégories dans [Bonnes pratiques pour le référencement des offres](../gtm-offer-listing-best-practices.md).
 
 ### <a name="legal"></a>Informations juridiques
 
@@ -161,12 +166,39 @@ Sélectionnez de une à trois catégories pour placer votre offre dans les zones
 
 ## <a name="offer-listing"></a>Annonce de l’offre
 
-Cette page vous permet de gérer la copie et les images de votre offre sur la Place de marché commerciale. 
+Cette page vous permet de gérer la copie et les images de votre offre sur la Place de marché commerciale.
 
 ### <a name="marketplace-details"></a>Détails de la Place de marché
 
 > [!NOTE]
 > Il n’est pas nécessaire que le contenu du référencement de l’offre (par exemple, la description, les documents, les captures d’écran et les conditions d’utilisation) soit en anglais, tant que sa description commence par l’expression : « This application is available only in [langue autre que l’anglais]. » Il est également possible de fournir une *URL de lien utile* pour offrir du contenu dans une langue autre que celle utilisée dans le contenu de la liste des offres.
+
+Voici un exemple de la façon dont les informations de l’offre s’affichent dans la Place de marché Azure (les prix répertoriés sont fournis à titre d’exemple uniquement et ne reflètent pas les coûts réels) :
+
+:::image type="content" source="media/example-azure-marketplace-app.png" alt-text="Illustre la façon dont cette offre apparaît dans la Place de marché Azure.":::
+
+#### <a name="call-out-descriptions"></a>Descriptions de légende
+
+1. Logo
+2. Catégories
+3. Adresse du support technique (lien)
+4. Conditions d’utilisation
+5. Adresse de la politique de confidentialité (lien)
+6. Nom de l’offre
+7. Résumé
+8. Description
+9. Captures d’écran/vidéos
+
+<br>Voici un exemple de la façon dont les informations de l’offre s’affichent dans le portail Azure :
+
+:::image type="content" source="media/example-virtual-machine-container-iot-edge-saas.png" alt-text="Illustre la façon dont cette offre s’affiche dans le portail Azure.":::
+
+#### <a name="call-out-descriptions"></a>Descriptions de légende
+
+1. Intitulé
+2. Description
+3. Liens utiles
+4. Captures d’écran.
 
 #### <a name="name"></a>Nom
 
@@ -226,13 +258,13 @@ Les trois logos sont requis et utilisés à différents endroits de la descripti
 
 Ajoutez jusqu’à cinq captures d’écran qui illustrent le fonctionnement de votre offre. Chaque capture d’écran doit avoir une taille de 1280 x 720 pixels et être au format PNG. Chaque capture d’écran doit inclure une légende.
 
-#### <a name="videos"></a>Videos
+#### <a name="videos"></a>Vidéos
 
 Ajoutez jusqu’à cinq vidéos qui illustrent votre offre. Elles doivent être hébergées sur un service vidéo externe. Entrez le nom, l’adresse web et une image miniature PNG de 1280 x 720 pixels de chaque vidéo.
 
 #### <a name="additional-marketplace-listing-resources"></a>Ressources d’annonce supplémentaires de place de marché
 
-- [Meilleures pratiques pour les annonces d’offre d’une place de marché](https://docs.microsoft.com/azure/marketplace/gtm-offer-listing-best-practices)
+- [Meilleures pratiques pour les annonces d’offre d’une place de marché](../gtm-offer-listing-best-practices.md)
 
 Sélectionnez **Enregistrer le brouillon** avant de continuer.
 
@@ -265,14 +297,14 @@ Sélectionnez **Enregistrer le brouillon** avant de continuer.
 
 La configuration technique définit les détails (ID de locataire et ID d’application) utilisés pour identifier votre service qui émettra les événements de mesure pour une application managée à l’aide des [API du service de mesure de la Place de marché](./marketplace-metering-service-apis.md).  Entrez l’identité que votre service utilisera lors de l’émission d’événements de mesure.
 
-* **ID du locataire Azure AD** (obligatoire) : Dans le portail Azure, vous devez [créer une application Azure Active Directory](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal) afin que nous puissions confirmer que la connexion entre nos deux services se fait bien dans le cadre d’une communication authentifiée. Pour trouver l’[ID de locataire](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal#get-values-for-signing-in), accédez à votre Azure Active Directory et sélectionnez **Propriétés**, puis cherchez le numéro de l’**ID de répertoire** affiché (par exemple, 50c464d3-4930-494c-963c-1e951d15360e).
-* **ID de l’application Azure AD** (obligatoire) : Vous avez également besoin de l’[ID de votre application](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal#get-values-for-signing-in) et d’une clé d’authentification. Pour obtenir ces valeurs, accédez à votre Azure Active Directory et sélectionnez **Inscriptions des applications**, puis cherchez le numéro d’**ID d’application** affiché (par exemple, 50c464d3-4930-494c-963c-1e951d15360e). Pour trouver la clé d’authentification, accédez à **Paramètres** et sélectionnez **Clés**. Vous devez fournir une description et une durée, et vous obtiendrez ensuite une valeur numérique.
+* **ID du locataire Azure AD** (obligatoire) : Dans le portail Azure, vous devez [créer une application Azure Active Directory (AD)](../../active-directory/develop/howto-create-service-principal-portal.md) afin que nous puissions confirmer que la connexion entre nos deux services se fait bien dans le cadre d’une communication authentifiée. Pour trouver l’[ID de locataire](../../active-directory/develop/howto-create-service-principal-portal.md#get-tenant-and-app-id-values-for-signing-in)), accédez à votre Azure Active Directory et sélectionnez **Propriétés**, puis cherchez le numéro de l’**ID de répertoire** affiché (par exemple, 50c464d3-4930-494c-963c-1e951d15360e).
+* **ID de l’application Azure AD** (obligatoire) : Vous avez également besoin de l’[ID) de votre application](../../active-directory/develop/howto-create-service-principal-portal.md#get-tenant-and-app-id-values-for-signing-in) et d’une clé d’authentification. Pour obtenir ces valeurs, accédez à votre Azure Active Directory et sélectionnez **Inscriptions des applications**, puis cherchez le numéro d’**ID d’application** affiché (par exemple, 50c464d3-4930-494c-963c-1e951d15360e). Pour trouver la clé d’authentification, accédez à **Paramètres** et sélectionnez **Clés**. Vous devez fournir une description et une durée, et vous obtiendrez ensuite une valeur numérique.
 
 >[!Note]
 >L’ID d’application Azure est associé à votre ID d’éditeur et ne peut être réutilisé que dans ce compte d’éditeur.
 
 >[!Note]
->Cette configuration est requise si vous souhaitez utiliser l’option [Événement d’utilisation par lot](https://docs.microsoft.com/azure/marketplace/partner-center-portal/marketplace-metering-service-apis#batch-usage-event).  Si vous souhaitez soumettre un [événement d’utilisation](https://docs.microsoft.com/azure/marketplace/partner-center-portal/marketplace-metering-service-apis#usage-event), vous pouvez également utiliser le [service de métadonnées d’instance](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/overview) pour obtenir le [Jeton du porteur du JSON Web Token (JWT)](https://docs.microsoft.com/azure/marketplace/partner-center-portal/pc-saas-registration#get-a-token-based-on-the-azure-ad-app).
+>Cette configuration est requise si vous souhaitez utiliser l’option [Événement d’utilisation par lot](marketplace-metering-service-apis.md#metered-billing-batch-usage-event)).  Si vous souhaitez soumettre un [événement d’utilisation](marketplace-metering-service-apis.md#metered-billing-single-usage-event)), vous pouvez également utiliser le [service de métadonnées d’instance](../../active-directory/managed-identities-azure-resources/overview.md) pour obtenir le [Jeton du porteur du JSON Web Token (JWT)](pc-saas-registration.md#how-to-get-the-publishers-authorization-token)).
 
 ## <a name="plan-overview"></a>Vue d’ensemble du plan
 
@@ -309,11 +341,11 @@ Si vous avez plusieurs plans du même type et que les packages qu’ils utilisen
 
 Votre plan doit être rendu disponible dans au moins une région Azure.
 
-Sélectionnez l’option **Azure Global** pour mettre votre plan à la disposition des clients de toutes les régions Azure qui disposent d’une intégration de la Place de marché commerciale. Pour plus d’informations, consultez [Prise en charge de la disponibilité géographique et des devises](https://docs.microsoft.com/azure/marketplace/marketplace-geo-availability-currencies).
+Sélectionnez l’option **Azure Global** pour mettre votre plan à la disposition des clients de toutes les régions Azure qui disposent d’une intégration de la Place de marché commerciale. Pour plus d’informations, consultez [Prise en charge de la disponibilité géographique et des devises](../marketplace-geo-availability-currencies.md).
 
-Sélectionnez l’option **Azure Government** pour proposer votre plan dans la région [Azure Government](https://docs.microsoft.com/azure/azure-government/documentation-government-welcome). Cette région fournit un accès contrôlé aux clients d’entités gouvernementales fédérales, étatiques, locales ou tribales des États-Unis, ainsi qu’aux partenaires éligibles pour les servir. En tant qu’éditeur, il vous incombe de mettre en place l’ensemble des contrôles de conformité, des mesures de sécurité et des bonnes pratiques nécessaires. Azure Government utilise des réseaux et des centres de données qui sont physiquement isolés (situés aux États-Unis uniquement).
+Sélectionnez l’option **Azure Government** pour proposer votre plan dans la région [Azure Government](../../azure-government/documentation-government-welcome.md). Cette région fournit un accès contrôlé aux clients d’entités gouvernementales fédérales, étatiques, locales ou tribales des États-Unis, ainsi qu’aux partenaires éligibles pour les servir. En tant qu’éditeur, il vous incombe de mettre en place l’ensemble des contrôles de conformité, des mesures de sécurité et des bonnes pratiques nécessaires. Azure Government utilise des réseaux et des centres de données qui sont physiquement isolés (situés aux États-Unis uniquement).
 
-Avant de le publier dans [Azure Government](https://docs.microsoft.com/azure/azure-government/documentation-government-manage-marketplace-partners), testez et validez votre plan dans l’environnement, car certains points de terminaison peuvent être différents. Pour configurer et tester votre plan, demandez un compte d’essai depuis la page [Microsoft Azure Government Trial](https://azure.microsoft.com/global-infrastructure/government/request/).
+Avant de le publier dans [Azure Government](../../azure-government/documentation-government-manage-marketplace-partners.md), testez et validez votre plan dans l’environnement, car certains points de terminaison peuvent être différents. Pour configurer et tester votre plan, demandez un compte d’essai depuis la page [Microsoft Azure Government Trial](https://azure.microsoft.com/global-infrastructure/government/request/).
 
 >[!NOTE]
 >Une fois votre plan publié et disponible dans une région Azure spécifique, vous ne pouvez pas supprimer cette région.
@@ -399,10 +431,14 @@ Vous pouvez configurer chaque plan de sorte qu’il soit visible de tous ou d’
 
 Activez l’option **Il s’agit d’un plan privé** pour que votre plan ne soit visible que du public restreint de votre choix. Une fois publié en tant que plan privé, vous pouvez mettre à jour le public ou choisir de rendre le plan disponible pour tous. Une fois un plan publié comme visible de tous, il doit le rester. Il n’est pas possible de le reconfigurer en tant que plan privé.
 
+>[!Note]
+>Un public privé ou restreint est différent du public de préversion que vous avez défini sous l’onglet **Préversion**. Un public de préversion peut accéder à votre offre _avant_ sa publication sur la place de marché. Tandis que la sélection d’un public privé ne s’applique qu’à un plan spécifique, le public de préversion peut voir tous les plans (privés ou non) dans le cadre de la validation.
+
 Si vous rendez le plan privé, entrez un **ID d’abonnement Azure** et sa description. Définissez un public qui aura accès à ce plan privé. Attribuez l’accès à l’aide des ID d’abonnements Azure, en ajoutant facultativement une description de chaque ID d’abonnement Azure affecté. Vous pouvez ajouter jusqu’à 10 ID d’abonnement client individuellement ou 20 000 en important un fichier CSV. Les ID d’abonnements Azure sont représentés par des GUID, où les lettres doivent être en minuscules.
 
 >[!Note]
->Un public privé ou restreint est différent du public de préversion que vous avez défini sous l’onglet **Préversion**. Un public de préversion peut accéder à votre offre _avant_ sa publication sur la place de marché. Tandis que la sélection d’un public privé ne s’applique qu’à un plan spécifique, le public de préversion peut voir tous les plans (privés ou non) dans le cadre de la validation.
+>Les offres privées ne sont pas prises en charge avec les abonnements Azure souscrits via un revendeur participant au programme des fournisseurs de solutions cloud (CSP).
+
 
 ### <a name="technical-configuration"></a>Configuration technique 
 
@@ -421,15 +457,15 @@ Cet onglet vous permet de modifier la version provisoire de votre configuration 
 
 Tous les packages de plan d’application Azure doivent inclure ces deux fichiers dans le dossier racine d’une archive `.zip` :
 
-* Un fichier de modèle Resource Manager nommé [mainTemplate.json](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview). Ce modèle automatise le déploiement de ressources dans l’abonnement Azure des clients.  Pour obtenir des exemples de modèles Resource Manager, consultez la [Galerie de modèles de démarrage rapide Microsoft Azure](https://azure.microsoft.com/documentation/templates/) ou le dépôt [GitHub : Modèles de démarrage rapide Azure Resource Manager](https://github.com/azure/azure-quickstart-templates) correspondant.
-* Une définition d’interface utilisateur pour l’expérience de création d’applications Azure nommée [createUiDefinition.json](https://docs.microsoft.com/azure/azure-resource-manager/managed-application-createuidefinition-overview).
+* Un fichier de modèle Resource Manager nommé [mainTemplate.json](../../azure-resource-manager/resource-group-overview.md). Ce modèle automatise le déploiement de ressources dans l’abonnement Azure des clients.  Pour obtenir des exemples de modèles Resource Manager, consultez la [Galerie de modèles de démarrage rapide Microsoft Azure](https://azure.microsoft.com/documentation/templates/) ou le dépôt [GitHub : Modèles de démarrage rapide Azure Resource Manager](https://github.com/azure/azure-quickstart-templates) correspondant.
+* Une définition d’interface utilisateur pour l’expérience de création d’applications Azure nommée [createUiDefinition.json](../../azure-resource-manager/managed-application-createuidefinition-overview.md).
 
 Tailles maximales de fichiers prises en charge :
 
 * Jusqu’à 1 Go dans la taille totale des archives `.zip` compressées
 * Jusqu’à 1 Go pour tous les fichiers non compressés individuels au sein de l’archive `.zip`  
 
-Toutes les nouvelles offres d’applications Azure doivent également inclure un GUID d’[attribution de l’utilisation de client partenaire Azure](https://docs.microsoft.com/azure/marketplace/azure-partner-customer-usage-attribution).
+Toutes les nouvelles offres d’applications Azure doivent également inclure un GUID d’[attribution de l’utilisation de client partenaire Azure](../azure-partner-customer-usage-attribution.md).
 
 >[!Note]
 >Si vous rencontrez un problème de chargement de fichiers, vérifiez que votre réseau local ne bloque pas le service https://upload.xboxlive.com utilisé par l’Espace partenaires.
@@ -442,7 +478,7 @@ Le sous-onglet **Packages précédemment publiés** affiche toutes les versions 
 
 #### <a name="enable-just-in-time-jit-access"></a>Activer l’accès juste-à-temps (JIT)
 
-Sélectionnez cette option pour activer l’accès juste-à-temps (JIT) pour ce plan.  L'accès JIT vous permet de demander un accès élevé aux ressources d'une application managée à des fins de résolution des problèmes ou de maintenance. Vous bénéficiez toujours d'un accès en lecture seule aux ressources, mais pour une durée spécifique, votre accès est étendu.  Pour plus d’informations, consultez [Activer et demander l’accès juste-à-temps pour les applications managées Azure](https://docs.microsoft.com/azure/managed-applications/request-just-in-time-access).  Pour exiger que les consommateurs de votre application managée accordent à votre compte un accès permanent, laissez cette option non cochée.
+Sélectionnez cette option pour activer l’accès juste-à-temps (JIT) pour ce plan.  L'accès JIT vous permet de demander un accès élevé aux ressources d'une application managée à des fins de résolution des problèmes ou de maintenance. Vous bénéficiez toujours d'un accès en lecture seule aux ressources, mais pour une durée spécifique, votre accès est étendu.  Pour plus d’informations, consultez [Activer et demander l’accès juste-à-temps pour les applications managées Azure](../../managed-applications/request-just-in-time-access.md).  Pour exiger que les consommateurs de votre application managée accordent à votre compte un accès permanent, laissez cette option non cochée.
 
 >[!Note]
 >N’oubliez pas de mettre à jour votre fichier `createUiDefinition.json` pour la prise en charge de cette fonctionnalité.  
@@ -454,7 +490,7 @@ Configurez le **mode de déploiement incrémentiel** ou **complet** pour ce plan
 * En **mode complet**, un redéploiement de l’application par le client entraîne la suppression des ressources dans le groupe de ressources managées si les ressources ne sont pas définies dans le fichier `mainTemplate.json`. 
 * En **mode incrémentiel**, le redéploiement de l’application laisse les ressources existantes inchangées.
 
-Pour en savoir plus sur les modes de déploiement, consultez [Modes de déploiement Azure Resource Manager](https://docs.microsoft.com/azure/azure-resource-manager/deployment-modes).
+Pour en savoir plus sur les modes de déploiement, consultez [Modes de déploiement Azure Resource Manager](../../azure-resource-manager/deployment-modes.md).
 
 #### <a name="notification-endpoint-url"></a>URL de point de terminaison de notification
 
@@ -464,7 +500,7 @@ Spécifiez un point de terminaison webhook HTTPS pour recevoir des notifications
 
 Sélectionnez cette option pour spécifier les actions que les clients peuvent effectuer sur les ressources managées en plus des actions « `*/read` » autorisées par défaut. 
 
-Listez les actions supplémentaires que vous souhaitez autoriser pour votre client, en séparant les actions par des points-virgules.  Pour plus d’informations, consultez [Comprendre les affectations de refus relatives aux ressources Azure](https://docs.microsoft.com/azure/role-based-access-control/deny-assignments).  Pour obtenir la liste des actions disponibles, consultez [Opérations du fournisseur de ressources Azure Resource Manager](https://docs.microsoft.com/azure/role-based-access-control/resource-provider-operations). Par exemple, pour permettre aux consommateurs de redémarrer des machines virtuelles, ajoutez `Microsoft.Compute/virtualMachines/restart/action` aux actions autorisées.
+Listez les actions supplémentaires que vous souhaitez autoriser pour votre client, en séparant les actions par des points-virgules.  Pour plus d’informations, consultez [Comprendre les affectations de refus relatives aux ressources Azure](../../role-based-access-control/deny-assignments.md).  Pour obtenir la liste des actions disponibles, consultez [Opérations du fournisseur de ressources Azure Resource Manager](../../role-based-access-control/resource-provider-operations.md). Par exemple, pour permettre aux consommateurs de redémarrer des machines virtuelles, ajoutez `Microsoft.Compute/virtualMachines/restart/action` aux actions autorisées.
 
 #### <a name="global-azure--azure-government-cloud"></a>Azure international / Cloud Azure Government
 
@@ -474,14 +510,14 @@ Définissez qui doit avoir un accès administrateur à cette application managé
 
 **Autorisations** : ajoutez l’ID d’objet Azure Active Directory de l’utilisateur, du groupe ou de l’application que vous souhaitez autoriser à accéder au groupe de ressources managées. Identifiez l’utilisateur par son ID de principal, que vous trouverez dans le [panneau des utilisateurs Azure Active Directory sur le portail Azure](https://portal.azure.com/#blade/Microsoft_AAD_IAM/UsersManagementMenuBlade/AllUsers).
 
-Pour chaque principal, sélectionnez l’un des rôles intégrés Azure AD dans la liste (Propriétaire ou Contributeur). Le rôle sélectionné détermine les autorisations que le principal aura sur les ressources dans l’abonnement client. Pour plus d’informations, consultez [Rôles intégrés pour les ressources Azure](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles). Pour plus d’informations sur le contrôle d’accès en fonction du rôle (RBAC), consultez [Bien démarrer avec le contrôle d’accès en fonction du rôle (RBAC) dans le portail Azure](https://docs.microsoft.com/azure/role-based-access-control/overview).
+Pour chaque principal, sélectionnez l’un des rôles intégrés Azure AD dans la liste (Propriétaire ou Contributeur). Le rôle sélectionné détermine les autorisations que le principal aura sur les ressources dans l’abonnement client. Pour plus d’informations, consultez [Rôles intégrés pour les ressources Azure](../../role-based-access-control/built-in-roles.md). Pour plus d’informations sur le contrôle d’accès en fonction du rôle (RBAC), consultez [Bien démarrer avec le contrôle d’accès en fonction du rôle (RBAC) dans le portail Azure](../../role-based-access-control/overview.md).
 
 >[!Note]
 >Vous avez la possibilité d'ajouter jusqu'à 100 autorisations par cloud. Toutefois, il est généralement plus simple de créer un groupe d'utilisateurs Active Directory et de spécifier son ID dans le champ « ID du principal ». Cela vous permet d’ajouter des utilisateurs au groupe d’administration après le déploiement du plan, et a pour effet de réduire le besoin de mise à jour du plan à l’ajout de quelques autorisations.
 
 #### <a name="policy-settings"></a>Paramètres de stratégie
 
-Appliquez des [stratégies Azure](https://docs.microsoft.com/azure/governance/policy/overview) à votre application managée afin de spécifier des exigences de conformité pour la solution déployée. Pour les définitions de stratégie et le format des valeurs de paramètre, consultez [Exemples Azure Policy](https://docs.microsoft.com/azure/governance/policy/samples/index). Vous pouvez configurer un maximum de cinq stratégies, et une seule instance de chaque option de stratégie. Certaines stratégies requièrent des paramètres supplémentaires. La référence SKU Standard est requise pour les stratégies d’audit. Le nom de la stratégie est limité à 50 caractères.
+Appliquez des [stratégies Azure](../../governance/policy/overview.md) à votre application managée afin de spécifier des exigences de conformité pour la solution déployée. Pour les définitions de stratégie et le format des valeurs de paramètre, consultez [Exemples Azure Policy](../../governance/policy/samples/index.md). Vous pouvez configurer un maximum de cinq stratégies, et une seule instance de chaque option de stratégie. Certaines stratégies requièrent des paramètres supplémentaires. La référence SKU Standard est requise pour les stratégies d’audit. Le nom de la stratégie est limité à 50 caractères.
 
 Sélectionnez **Enregistrer le brouillon** avant de continuer.
 
@@ -489,7 +525,7 @@ Sélectionnez **Enregistrer le brouillon** avant de continuer.
 
 L’entrée d’informations sous l’onglet Co-vente est totalement facultative pour la publication de votre offre. Ces informations sont toutefois nécessaires pour devenir « Co-sell Ready » et « IP Co-sell Ready ». Les informations que vous fournissez seront utilisées par les équipes commerciales de Microsoft pour en savoir plus sur votre solution lors de l'évaluation de son adéquation avec les besoins des clients. Les clients n'y auront pas directement accès.
 
-Pour plus d’informations sur cet onglet, consultez [Option Co-vente de l’Espace partenaires](https://docs.microsoft.com/azure/marketplace/partner-center-portal/commercial-marketplace-co-sell).
+Pour plus d’informations sur cet onglet, consultez [Option Co-vente de l’Espace partenaires](commercial-marketplace-co-sell.md).
 
 ## <a name="resell-through-csps"></a>Revendre via des fournisseurs de solutions cloud
 
@@ -499,23 +535,23 @@ Sélectionnez **Enregistrer le brouillon** avant de continuer.
 
 ## <a name="test-drive"></a>Test drive
 
-Configurez une démonstration (version d'évaluation) permettant aux clients d’évaluer votre offre avant de l’acheter. Pour créer un environnement de démonstration permettant aux clients d’évaluer votre offre pendant une période fixe, consultez [Évaluer votre offre sur la Place de marché commerciale](https://docs.microsoft.com/azure/marketplace/partner-center-portal/test-drive).
+Configurez une démonstration (version d'évaluation) permettant aux clients d’évaluer votre offre avant de l’acheter. Pour créer un environnement de démonstration permettant aux clients d’évaluer votre offre pendant une période fixe, consultez [Évaluer votre offre sur la Place de marché commerciale](test-drive.md).
 
 Pour activer une version d’évaluation, cochez la case **Activer une version d’évaluation** sous l’onglet [Configuration de l’offre](#test-drive). Pour supprimer une version d'évaluation de votre offre, désactivez cette case à cocher.
 
 ### <a name="test-drive-technical-configuration"></a>Configuration technique de la version d’évaluation
 
-- **ID de l’application Azure AD** (obligatoire) : Entrez l’[ID de votre application](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal#get-values-for-signing-in) Azure Active Directory. Pour trouver cet ID, connectez-vous au [portail Azure](https://portal.azure.com/), sélectionnez l’onglet Active Directory dans le menu de gauche, choisissez **Inscriptions d’applications**, puis cherchez le numéro d’**ID d’application** (par exemple, 50c464d3-4930-494c-963c-1e951d15360e).
+- **ID de l’application Azure AD** (obligatoire) : Entrez l’[ID de votre application](../../active-directory/develop/howto-create-service-principal-portal.md#get-tenant-and-app-id-values-for-signing-in) Azure Active Directory. Pour trouver cet ID, connectez-vous au [portail Azure](https://portal.azure.com/), sélectionnez l’onglet Active Directory dans le menu de gauche, choisissez **Inscriptions d’applications**, puis cherchez le numéro d’**ID d’application** (par exemple, 50c464d3-4930-494c-963c-1e951d15360e).
 
 #### <a name="deployment-subscription-details"></a>Détails de l’abonnement de déploiement
 
 Pour autoriser le déploiement de la version d’évaluation pour votre compte, créez et fournissez un abonnement Azure unique distinct (non requis pour les versions d’évaluation de Power BI).
 
-* **ID d’abonnement Azure** (obligatoire pour Azure Resource Manager et Logic Apps) : entrez l’ID d’abonnement pour accorder l’accès aux services de votre compte Azure pour les rapports d’utilisation des ressources et la facturation. Nous vous recommandons d’envisager la [création d’un abonnement Azure distinct](https://docs.microsoft.com/azure/billing/billing-create-subscription) à utiliser pour les versions d’évaluation si vous n’en avez pas déjà. Pour trouver vos ID d’abonnement Azure en vous connectant au [portail Azure](https://portal.azure.com/) et en accédant à l’onglet **Abonnements** dans le menu de gauche. Sélectionnez l’onglet pour afficher votre ID d’abonnement (par exemple, « a83645ac-1234-5ab6-6789-1h234g764ghty »).
-* **ID de locataire Azure AD** (obligatoire) : entrez votre [ID de locataire](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal#get-values-for-signing-in) Azure Active Directory (AD). Pour obtenir cet ID, connectez-vous au [portail Azure](https://portal.azure.com/), sélectionnez l’onglet Active Directory dans le menu de gauche, choisissez **Propriétés**, puis cherchez le numéro d’**ID d’annuaire** (par exemple, 50c464d3-4930-494c-963c-1e951d15360e). Vous pouvez aussi rechercher l’ID locataire de votre organisation à l’aide l’URL de votre nom de domaine : [https://www.whatismytenantid.com](https://www.whatismytenantid.com).
+* **ID d’abonnement Azure** (obligatoire pour Azure Resource Manager et Logic Apps) : entrez l’ID d’abonnement pour accorder l’accès aux services de votre compte Azure pour les rapports d’utilisation des ressources et la facturation. Nous vous recommandons d’envisager la [création d’un abonnement Azure distinct](../../billing/billing-create-subscription.md) à utiliser pour les versions d’évaluation si vous n’en avez pas déjà. Pour trouver vos ID d’abonnement Azure en vous connectant au [portail Azure](https://portal.azure.com/) et en accédant à l’onglet **Abonnements** dans le menu de gauche. Sélectionnez l’onglet pour afficher votre ID d’abonnement (par exemple, « a83645ac-1234-5ab6-6789-1h234g764ghty »).
+* **ID de locataire Azure AD** (obligatoire) – Entrez votre [ID de locataire](../../active-directory/develop/howto-create-service-principal-portal.md#get-tenant-and-app-id-values-for-signing-in)) Azure Active Directory (AD). Pour obtenir cet ID, connectez-vous au [portail Azure](https://portal.azure.com/), sélectionnez l’onglet Active Directory dans le menu de gauche, choisissez **Propriétés**, puis cherchez le numéro d’**ID d’annuaire** (par exemple, 50c464d3-4930-494c-963c-1e951d15360e). Vous pouvez aussi rechercher l’ID locataire de votre organisation à l’aide l’URL de votre nom de domaine : [https://www.whatismytenantid.com](https://www.whatismytenantid.com).
 * **Nom de locataire Azure AD** (obligatoire pour Dynamic 365) : entrez votre nom Azure Active Directory (AD). Pour rechercher ce nom, connectez-vous au [portail Azure](https://portal.azure.com/), et dans le coin supérieur droit, le nom de votre locataire s’affichera sous le nom de votre compte.
-* **ID d’application Azure AD** (obligatoire) : entrez votre [ID d’application](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal#get-values-for-signing-in) Azure Active Directory (AD). Pour trouver cet ID, connectez-vous au [portail Azure](https://portal.azure.com/), sélectionnez l’onglet Active Directory dans le menu de gauche, choisissez **Inscriptions d’applications**, puis cherchez le numéro d’**ID d’application** (par exemple, 50c464d3-4930-494c-963c-1e951d15360e).
-* **Clé secrète client de l’application Azure Active Directory** (obligatoire) : entrez la [clé secrète client](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal#certificates-and-secrets) de votre application Azure AD. Pour trouver cette valeur, connectez-vous au [portail Azure](https://portal.azure.com/). Dans le volet de navigation de gauche, sélectionnez l’onglet **Azure Active Directory**, choisissez **Inscriptions d’applications**, puis sélectionnez votre application de version d’évaluation. Ensuite, sélectionnez **Certificats et clés secrètes**, **Nouvelle clé secrète client**, entrez une description, sélectionnez **Jamais** sous **Expiration** puis choisissez **Ajouter**. Veillez à copier la valeur avant de quitter cette page.
+* **ID d’application Azure AD** (obligatoire) : entrez votre [ID d’application](../../active-directory/develop/howto-create-service-principal-portal.md#get-tenant-and-app-id-values-for-signing-in)) Azure Active Directory (AD). Pour trouver cet ID, connectez-vous au [portail Azure](https://portal.azure.com/), sélectionnez l’onglet Active Directory dans le menu de gauche, choisissez **Inscriptions d’applications**, puis cherchez le numéro d’**ID d’application** (par exemple, 50c464d3-4930-494c-963c-1e951d15360e).
+* **Clé secrète client de l’application Azure Active Directory** (obligatoire) : entrez la [clé secrète client](../../active-directory/develop/howto-create-service-principal-portal.md#create-a-new-application-secret)) de votre application Azure AD. Pour trouver cette valeur, connectez-vous au [portail Azure](https://portal.azure.com/). Dans le volet de navigation de gauche, sélectionnez l’onglet **Azure Active Directory**, choisissez **Inscriptions d’applications**, puis sélectionnez votre application de version d’évaluation. Ensuite, sélectionnez **Certificats et clés secrètes**, **Nouvelle clé secrète client**, entrez une description, sélectionnez **Jamais** sous **Expiration** puis choisissez **Ajouter**. Veillez à copier la valeur avant de quitter cette page.
 
 Sélectionnez **Enregistrer le brouillon** avant de continuer.
 
@@ -531,7 +567,7 @@ Décrivez la version d’évaluation.
 * **Vidéos : Ajouter des vidéos** (facultatif) : vous pouvez charger des vidéos sur YouTube ou Vimeo et les référencer ici via un lien et une image miniature (533 x 324 pixels) pour présenter au client des informations qui l’aideront à mieux comprendre la version d’évaluation, notamment la façon d’exploiter les fonctionnalités de l’offre, ainsi que des scénarios qui mettent en avant ses avantages.
   * **Nom** (obligatoire)
   * **Adresse** (obligatoire, YouTube ou Vimeo uniquement)
-  * **Miniature** (ce fichier image doit être au format PNG et d’une taille de 533 x 324 pixels)
+  * **Miniature** (ce fichier image doit être au format PNG et 533 x 324 pixels).
 
 Sélectionnez **Enregistrer le brouillon** avant de continuer.
 

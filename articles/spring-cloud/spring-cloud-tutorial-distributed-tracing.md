@@ -1,17 +1,17 @@
 ---
-title: Tutoriel - Utiliser le traçage distribué avec Azure Spring Cloud
-description: Ce tutoriel montre comment utiliser le traçage distribué de Spring Cloud via Azure Application Insights
+title: Utiliser le suivi distribué avec Azure Spring Cloud
+description: Découvrez comment utiliser le suivi distribué de Spring Cloud par le biais d’Azure Application Insights
 author: bmitchell287
 ms.service: spring-cloud
-ms.topic: tutorial
+ms.topic: how-to
 ms.date: 10/06/2019
 ms.author: brendm
-ms.openlocfilehash: 0815aa084462d1b829d64cd7c5d6fa7cebf534fc
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: ccaf58465c1ade0228daea2b535d06fb6168d64f
+ms.sourcegitcommit: 5cace04239f5efef4c1eed78144191a8b7d7fee8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "78273206"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86142111"
 ---
 # <a name="use-distributed-tracing-with-azure-spring-cloud"></a>Utiliser le suivi distribué avec Azure Spring Cloud
 
@@ -27,7 +27,7 @@ Dans cet article, vous apprendrez comment :
 
 ## <a name="prerequisites"></a>Prérequis
 
-Pour suivre ce tutoriel, vous avez besoin d’un service Azure Spring Cloud déjà provisionné et en cours d’exécution. Suivez le [guide de démarrage rapide concernant le déploiement d’une application via Azure CLI](spring-cloud-quickstart-launch-app-cli.md) afin de provisionner et d’exécuter un service Azure Spring Cloud.
+Pour suivre ces procédures, vous avez besoin d’un service Azure Spring Cloud déjà provisionné et en cours d’exécution. Suivez le [guide de démarrage rapide concernant le déploiement d’une application via Azure CLI](spring-cloud-quickstart-launch-app-cli.md) afin de provisionner et d’exécuter un service Azure Spring Cloud.
     
 ## <a name="add-dependencies"></a>Ajout de dépendances
 
@@ -102,7 +102,4 @@ En plus des fonctionnalités de cartographie d’application et de recherche, Ap
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Dans ce tutoriel, vous avez appris ce qu’est le suivi distribué dans Azure Spring Cloud et vous avez vu comment l’activer. Pour savoir comment lier votre application à une base de données Azure Cosmos DB, passez au tutoriel suivant.
-
-> [!div class="nextstepaction"]
-> [En savoir plus sur la liaison à une base de données Azure Cosmos DB](spring-cloud-tutorial-bind-cosmos.md)
+Dans cet article, vous avez appris ce qu’est le suivi distribué dans Azure Spring Cloud et vous avez vu comment l’activer. Pour en savoir plus sur la liaison de services à une application, consultez [Lier une base de données Azure Cosmos DB à une application Azure Spring Cloud](spring-cloud-tutorial-bind-cosmos.md).

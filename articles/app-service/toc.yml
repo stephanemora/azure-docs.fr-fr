@@ -176,6 +176,8 @@
               href: configure-authentication-provider-microsoft.md
             - name: S’authentifier avec Twitter
               href: configure-authentication-provider-twitter.md
+            - name: S’authentifier auprès d’un fournisseur OpenID Connect (préversion)
+              href: configure-authentication-provider-openid-connect.md
         - name: Authentification avancée
           href: app-service-authentication-how-to.md
         - name: Restriction de l’accès

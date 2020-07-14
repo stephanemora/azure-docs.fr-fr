@@ -5,14 +5,14 @@ author: jonels-msft
 ms.author: jonels
 ms.service: postgresql
 ms.subservice: hyperscale-citus
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 1/8/2019
-ms.openlocfilehash: 684116f92544e61a892b3653f8539f9f8f03e0c9
-ms.sourcegitcommit: b9d4b8ace55818fcb8e3aa58d193c03c7f6aa4f1
+ms.openlocfilehash: 85366b8b3e3ba7d612373e6b754aa9805d00f8f5
+ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "82584084"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86116962"
 ---
 # <a name="create-users-in-azure-database-for-postgresql---hyperscale-citus"></a>Créer des utilisateurs dans Azure Database pour PostgreSQL - Hyperscale (Citus)
 
@@ -66,16 +66,11 @@ Par exemple, pour autoriser `db_user` à lire `mytable`, accordez l’autorisati
 GRANT SELECT ON mytable TO db_user;
 ```
 
-Hyperscale (Citus) propage les instructions GRANT sur une table unique à travers l’ensemble du cluster, en les appliquant à tous les nœuds Worker. Toutefois, les allocations à l’échelle du système (par exemple, pour toutes les tables d’un schéma) doivent être exécutées sur chaque nœud de date.  Utilisez la fonction d’assistance `run_command_on_workers()` :
+Hyperscale (Citus) propage les instructions GRANT sur une table unique à travers l’ensemble du cluster, en les appliquant à tous les nœuds Worker. Il propage également les allocations à l’ensemble du système (par exemple, pour toutes les tables d’un schéma) :
 
 ```sql
--- applies to the coordinator node
+-- applies to the coordinator node and propagates to workers
 GRANT SELECT ON ALL TABLES IN SCHEMA public TO db_user;
-
--- make it apply to workers as well
-SELECT run_command_on_workers(
-  'GRANT SELECT ON ALL TABLES IN SCHEMA public TO db_user;'
-);
 ```
 
 ## <a name="how-to-delete-a-user-role-or-change-their-password"></a>Comment supprimer un rôle d’utilisateur ou modifier son mot de passe

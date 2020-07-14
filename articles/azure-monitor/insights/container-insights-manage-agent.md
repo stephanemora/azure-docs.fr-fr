@@ -2,13 +2,13 @@
 title: Guide pratique pour la gestion de l’agent Azure Monitor pour conteneurs | Microsoft Docs
 description: Cet article décrit la gestion des tâches de maintenance les plus courantes avec l’agent en conteneur Log Analytics utilisé par Azure Monitor pour conteneurs.
 ms.topic: conceptual
-ms.date: 05/12/2020
-ms.openlocfilehash: ce014d27c6acc473c4a435dfed4757fb0884f4fe
-ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
+ms.date: 06/15/2020
+ms.openlocfilehash: fc5bc0d60cb4ef1e375a997cbb3fe4bd2aed3235
+ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83652196"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86107408"
 ---
 # <a name="how-to-manage-the-azure-monitor-for-containers-agent"></a>Guide pratique pour la gestion de l’agent Azure Monitor pour conteneurs
 
@@ -34,24 +34,27 @@ Après l’activation de la surveillance, un délai d’environ 15 minutes peut
 
 L’état doit ressembler à l’exemple suivant, où la valeur *omi* et *omsagent* doit correspondre à la dernière version spécifiée dans [l’historique des versions de l’agent](https://github.com/microsoft/docker-provider/tree/ci_feature_prod).  
 
-    User@aksuser:~$ kubectl logs omsagent-484hw --namespace=kube-system
-    :
-    :
-    instance of Container_HostInventory
-    {
-        [Key] InstanceID=3a4407a5-d840-4c59-b2f0-8d42e07298c2
-        Computer=aks-nodepool1-39773055-0
-        DockerVersion=1.13.1
-        OperatingSystem=Ubuntu 16.04.3 LTS
-        Volume=local
-        Network=bridge host macvlan null overlay
-        NodeRole=Not Orchestrated
-        OrchestratorType=Kubernetes
-    }
-    Primary Workspace: b438b4f6-912a-46d5-9cb1-b44069212abc    Status: Onboarded(OMSAgent Running)
-    omi 1.4.2.5
-    omsagent 1.6.0-163
-    docker-cimprov 1.0.0.31
+```console
+User@aksuser:~$ kubectl logs omsagent-484hw --namespace=kube-system
+:
+:
+instance of Container_HostInventory
+{
+    [Key] InstanceID=3a4407a5-d840-4c59-b2f0-8d42e07298c2
+    Computer=aks-nodepool1-39773055-0
+    DockerVersion=1.13.1
+    OperatingSystem=Ubuntu 16.04.3 LTS
+    Volume=local
+    Network=bridge host macvlan null overlay
+    NodeRole=Not Orchestrated
+    OrchestratorType=Kubernetes
+}
+Primary Workspace: b438b4f6-912a-46d5-9cb1-b44069212abc
+Status: Onboarded(OMSAgent Running)
+omi 1.4.2.5
+omsagent 1.6.0-163
+docker-cimprov 1.0.0.31
+```
 
 ### <a name="upgrade-agent-on-hybrid-kubernetes-cluster"></a>Mettre à niveau l’agent sur un cluster Kubernetes hybride
 
@@ -63,21 +66,21 @@ Procédez comme suit pour mettre à niveau l’agent sur un cluster Kubernetes s
 
 Si l’espace de travail Log Analytics se trouve dans un cloud commercial Azure, exécutez la commande suivante :
 
-```
+```console
 $ helm upgrade --name myrelease-1 \
 --set omsagent.secret.wsid=<your_workspace_id>,omsagent.secret.key=<your_workspace_key>,omsagent.env.clusterName=<my_prod_cluster> incubator/azuremonitor-containers
 ```
 
-Si l’espace de travail Log Analytics se trouve dans Azure Chine, exécutez la commande suivante :
+Si l’espace de travail Log Analytics se trouve dans Azure China 21Vianet, exécutez la commande suivante :
 
-```
+```console
 $ helm upgrade --name myrelease-1 \
 --set omsagent.domain=opinsights.azure.cn,omsagent.secret.wsid=<your_workspace_id>,omsagent.secret.key=<your_workspace_key>,omsagent.env.clusterName=<your_cluster_name> incubator/azuremonitor-containers
 ```
 
 Si l’espace de travail Log Analytics se trouve dans Azure US Government, exécutez la commande suivante :
 
-```
+```console
 $ helm upgrade --name myrelease-1 \
 --set omsagent.domain=opinsights.azure.us,omsagent.secret.wsid=<your_workspace_id>,omsagent.secret.key=<your_workspace_key>,omsagent.env.clusterName=<your_cluster_name> incubator/azuremonitor-containers
 ```
@@ -90,9 +93,23 @@ Procédez comme suit pour mettre à niveau l’agent sur un cluster Kubernetes s
 >Azure Red Hat OpenShift version 4.x prend uniquement en charge l’exécution dans le cloud commercial Azure.
 >
 
-```
+```console
 $ helm upgrade --name myrelease-1 \
 --set omsagent.secret.wsid=<your_workspace_id>,omsagent.secret.key=<your_workspace_key>,omsagent.env.clusterId=<azureAroV4ResourceId> incubator/azuremonitor-containers
+```
+
+### <a name="upgrade-agent-on-azure-arc-enabled-kubernetes"></a>Mettre à niveau un agent sur Azure Arc pour Kubernetes
+
+Exécutez la commande suivante pour mettre à niveau l’agent sur un cluster Kubernetes Azure Arc activé sans point de terminaison proxy.
+
+```console
+$ helm upgrade --install azmon-containers-release-1  –set omsagent.secret.wsid=<your_workspace_id>,omsagent.secret.key=<your_workspace_key>,omsagent.env.clusterId=<resourceIdOfAzureArcK8sCluster>
+```
+
+Exécutez la commande suivante pour mettre à niveau l’agent lorsqu’un point de terminaison de proxy est spécifié. Pour plus d’informations sur le point de terminaison proxy, consultez [Configurer le point de terminaison proxy](container-insights-enable-arc-enabled-clusters.md#configure-proxy-endpoint) plus loin dans cet article.
+
+```console
+$ helm upgrade –name azmon-containers-release-1 –set omsagent.proxy=<proxyEndpoint>,omsagent.secret.wsid=<your_workspace_id>,omsagent.secret.key=<your_workspace_key>,omsagent.env.clusterId=<resourceIdOfAzureArcK8sCluster>
 ```
 
 ## <a name="how-to-disable-environment-variable-collection-on-a-container"></a>Comment désactiver la collecte des variables d’environnement sur un conteneur
@@ -101,14 +118,14 @@ Azure Monitor pour conteneurs collecte des variables d’environnement à partir
 
 Pour désactiver la collecte des variables d’environnement sur un nouveau conteneur ou sur un conteneur existant, définissez la variable **AZMON_COLLECT_ENV** avec la valeur **False** dans votre fichier de configuration yaml pour le déploiement de Kubernetes. 
 
-```  
+```yaml
 - name: AZMON_COLLECT_ENV  
   value: "False"  
-```  
+```
 
 Pour appliquer la modification aux clusters Kubernetes autres qu’Azure Red Hat OpenShift, exécutez cette commande : `kubectl apply -f  <path to yaml file>`. Pour modifier ConfigMap et appliquer cette modification aux clusters Azure Red Hat OpenShift, exécutez la commande suivante :
 
-``` bash
+```bash
 oc edit configmaps container-azm-ms-agentconfig -n openshift-azure-logging
 ```
 
@@ -118,7 +135,7 @@ Pour vérifier que le changement de configuration est effectif, sélectionnez un
 
 Pour réactiver la découverte des variables d’environnement, suivez le même processus et remplacez la valeur **False** par **True**, avant de réexécuter la commande `kubectl` pour mettre à jour le conteneur.  
 
-```  
+```yaml
 - name: AZMON_COLLECT_ENV  
   value: "True"  
 ```  

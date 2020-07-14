@@ -1,18 +1,18 @@
 ---
 title: Obtenir un support technique pour le portail de la Place de marché commerciale dans l’Espace partenaires
 description: En savoir plus sur vos options de support dans le centre de partenaires, notamment comment créer une demande de prise en charge.
-author: qianw211
-ms.author: dsindona
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
+author: keferna
+ms.author: keferna
 ms.date: 03/07/2020
-ms.openlocfilehash: fd7582877a74aa998de3a6d0a0f38e56c3c3af91
-ms.sourcegitcommit: ffc6e4f37233a82fcb14deca0c47f67a7d79ce5c
+ms.openlocfilehash: 01c93c046a78db70a237ddf1d4514938fd4e40ac
+ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/21/2020
-ms.locfileid: "81733113"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86109091"
 ---
 # <a name="support-for-the-commercial-marketplace-program-in-partner-center"></a>Support technique pour le programme Place de marché commerciale dans l’Espace partenaires
 
@@ -40,7 +40,7 @@ Microsoft prend en charge un large éventail de produits et services. Le fait de
 
 5. Sélectionnez **[Forum de communauté partenaire de Place de marché](https://www.microsoftpartnercommunity.com/t5/Azure-Marketplace-and-AppSource/bd-p/2222)** pour répondre à vos questions en tirant parti des connaissances des autres éditeurs Microsoft. 
 
-6. Sélectionnez **[Aide supplémentaire](https://partner.microsoft.com/support/v2/?stage=1)** pour ouvrir un ticket **Nouvelle demande de support**.  
+6. Sélectionnez **[Aide supplémentaire](https://aka.ms/marketplacepublishersupport)** pour ouvrir un ticket **Nouvelle demande de support**.  
 
 ## <a name="how-to-open-a-support-ticket"></a>Ouverture d’un ticket de support
 

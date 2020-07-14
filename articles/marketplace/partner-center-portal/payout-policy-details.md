@@ -1,18 +1,18 @@
 ---
 title: Détails de la politique de paiement | Place de marché Azure
 description: Détails concernant la politique de paiement, notamment les calendriers et les recouvrements.
-author: mingshen
-ms.author: mingshen
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
+author: mingshen
+ms.author: mingshen
 ms.date: 04/24/2020
-ms.openlocfilehash: 6aa40d0914237a28c7bbd32b15bf0d8d02140192
-ms.sourcegitcommit: 31236e3de7f1933be246d1bfeb9a517644eacd61
+ms.openlocfilehash: f26e006998b0818ba84fa23ee1941a1033ef205b
+ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/04/2020
-ms.locfileid: "82782558"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86118288"
 ---
 # <a name="payout-policy-details"></a>Détails de la politique de paiement
 
@@ -25,7 +25,7 @@ Dans l’Espace partenaires, sélectionnez **Revenu** en haut à droite du porta
 ![Illustre l’icône Revenu en haut à droite du portail Espace partenaires.](./media/payout-overview.png)
 
 > [!TIP]
-> Certains rôles de compte n’ont pas accès aux informations de paiement. Pour plus d’informations, consultez [Rôles et autorisations permettant d’accéder au rapport de revenu](./payout-summary.md).
+> Certains rôles de compte n’ont pas accès aux informations de paiement. Pour plus d’informations, consultez [Rôles et autorisations permettant d’accéder au rapport de revenu](./payout-summary-overview.md#roles-and-permissions).
 
 ## <a name="payment-schedules"></a>Calendriers de paiement
 
@@ -101,15 +101,15 @@ Voici un exemple de calendrier :
 | --- | --- | --- |
 | Exemple de date de paiement | 15/10/2020 | Marqué **Envoyé** dans l’Historique des transactions et dans la section Paiements du tableau de bord Revenu |
 | <font color="red">Si le client ne paie pas Microsoft</font> | 12/02/2020 – 05/12/2020 | Inchangée, comme ci-dessus |
-| Le client reçoit un premier e-mail l’avisant d’un retard de paiement | 06/12/2020 | Aucune |
-| Le client reçoit des e-mails à intervalles réguliers pour l’aviser de l’urgence croissante | 12/07/2020 – 31/01/2020 | Aucune |
-| L’éditeur est avisé du passage probable en pertes et profits | 07/01/2020 | L’éditeur est notifié par e-mail que le client n’a pas encore envoyé le paiement. L’ID de transaction et le montant en dollars sont inclus. |
-| Le client reçoit un avis d’expiration | 01/02/2020 | Aucune |
-| Fin du processus de recouvrement. Les fonds sont passés en pertes et profits | 15/02/2020 | L’éditeur est notifié par e-mail que les fonds ont été passés en pertes et profits. L’ID de transaction et le montant en dollars sont inclus. |
-| Le paiement est déduit | 01/03/2020 | Une transaction négative figurera dans le Relevé des revenus de l’Espace partenaires de l’éditeur |
-| Le paiement est retenu | 15/03/2020 | Les futurs paiements seront indiqués dans le Relevé des revenus de l’Espace partenaires. L’éditeur ne recevra pas de paiement tant que le solde sera négatif.  |
+| Le client reçoit un premier e-mail l’avisant d’un retard de paiement | 06/12/2020 | None |
+| Le client reçoit des e-mails à intervalles réguliers pour l’aviser de l’urgence croissante | 7/12/2020 – 31/1/2021 | None |
+| L’éditeur est avisé du passage probable en pertes et profits | 7/1/2021 | L’éditeur est notifié par e-mail que le client n’a pas encore envoyé le paiement. L’ID de transaction et le montant en dollars sont inclus. |
+| Le client reçoit un avis d’expiration | 1/2/2021 | None |
+| Fin du processus de recouvrement. Les fonds sont passés en pertes et profits | 15/2/2021 | L’éditeur est notifié par e-mail que les fonds ont été passés en pertes et profits. L’ID de transaction et le montant en dollars sont inclus. |
+| Le paiement est déduit | 1/3/2021 | Une transaction négative figurera dans le Relevé des revenus de l’Espace partenaires de l’éditeur |
+| Le paiement est retenu | 15/3/2021 | Les futurs paiements seront indiqués dans le Relevé des revenus de l’Espace partenaires. L’éditeur ne recevra pas de paiement tant que le solde sera négatif.  |
 |||
 
-## <a name="next-step"></a>Étape suivante
+## <a name="next-step"></a>étape suivante
 
 - [Détails des taxes](./tax-details-paid-transactions.md)

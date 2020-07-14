@@ -7,12 +7,12 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 04/28/2020
 ms.author: sideeksh
-ms.openlocfilehash: 367ca77b0f3a142d8aa36143052993d1ed96f052
-ms.sourcegitcommit: fc718cc1078594819e8ed640b6ee4bef39e91f7f
+ms.openlocfilehash: 1a522193e9e704dce967daeeef70f82a6c0b1378
+ms.sourcegitcommit: e995f770a0182a93c4e664e60c025e5ba66d6a45
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "83996497"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86135717"
 ---
 # <a name="enable-zone-to-zone-disaster-recovery-for-azure-virtual-machines"></a>Activer la récupération d’urgence de zone à zone pour les machines virtuelles Azure
 
@@ -20,7 +20,7 @@ Cet article explique comment répliquer, basculer et restaurer automatiquement d
 
 >[!NOTE]
 >
->- Site Recovery ne prend actuellement pas en charge les plans de récupération d’urgence de zone à zone. 
+>- Actuellement, Site Recovery ne prend pas en charge les plans de récupération d’urgence de zone à zone. Utilisez PowerShell ou une API REST pour tirer parti des plans de récupération pour la récupération d’urgence de zone à zone. 
 >- La prise en charge de la récupération d’urgence de zone à zone est actuellement limitée à deux régions : Asie Sud-Est et Royaume-Uni Sud.  
 
 Le service Site Recovery contribue à votre stratégie de continuité d’activité et reprise d’activité en veillant à ce que vos applications métier restent opérationnelles lors d’interruptions planifiées ou non. Il s’agit de l’option de récupération d’urgence recommandée pour maintenir vos applications opérationnelles en cas de pannes régionales.
@@ -98,7 +98,7 @@ Connectez-vous au portail Azure.
 
 5. Si vous souhaitez apporter des modifications aux paramètres de réplication, cliquez sur « Suivant : Paramètres avancés ».
 
-6. Modifiez les paramètres par défaut partout où c’est approprié. Cette page peut paraître familière aux utilisateurs de la récupération d’urgence d’Azure vers Azure. Vous trouverez plus d’informations sur les options présentées dans ce panneau [ici](https://docs.microsoft.com/azure/site-recovery/azure-to-azure-tutorial-enable-replication)
+6. Modifiez les paramètres par défaut partout où c’est approprié. Cette page peut paraître familière aux utilisateurs de la récupération d’urgence d’Azure vers Azure. Vous trouverez plus d’informations sur les options présentées dans ce panneau [ici](./azure-to-azure-tutorial-enable-replication.md)
 
     ![Page Paramètres avancés](./media/azure-to-azure-how-to-enable-zone-to-zone-disaster-recovery/zonal-disaster-recovery-advanced-settings-blade.png)
 
@@ -116,7 +116,7 @@ Le SLA pour le RTO est le même que pour Site Recovery dans son ensemble. Nous m
 L’équipe Site Recovery et l’équipe de gestion de la capacité Azure planifient une capacité d’infrastructure suffisante. Lorsque vous démarrez un basculement, les équipes vous aident également à vous assurer que les instances de machine virtuelle protégées par Site Recovery se déploient dans la zone cible.
 
 **4. Quels systèmes d’exploitation sont pris en charge ?**
-La récupération d’urgence de zone à zone prend en charge les mêmes systèmes d’exploitation que la récupération d’urgence d’Azure vers Azure. Reportez-vous au tableau de prise en charge [ici](https://docs.microsoft.com/azure/site-recovery/azure-to-azure-support-matrix).
+La récupération d’urgence de zone à zone prend en charge les mêmes systèmes d’exploitation que la récupération d’urgence d’Azure vers Azure. Reportez-vous au tableau de prise en charge [ici](./azure-to-azure-support-matrix.md).
 
 **5. Les groupes de ressources source et cible peuvent-ils être identiques ?**
 Non, vous devez basculer vers un autre groupe de ressources.
@@ -125,8 +125,8 @@ Non, vous devez basculer vers un autre groupe de ressources.
 
 La procédure à suivre pour exécuter une simulation de récupération d’urgence, un basculement, une reprotection et une restauration automatique est la même que dans le scénario de récupération d’urgence d’Azure vers Azure.
 
-Pour effectuer une simulation de récupération d’urgence, procédez de la manière décrite [ici](https://docs.microsoft.com/azure/site-recovery/azure-to-azure-tutorial-dr-drill).
+Pour effectuer une simulation de récupération d’urgence, procédez de la manière décrite [ici](./azure-to-azure-tutorial-dr-drill.md).
 
-Pour opérer un basculement et reprotéger les machines virtuelles dans la zone secondaire, procédez de la manière décrite [ici](https://docs.microsoft.com/azure/site-recovery/azure-to-azure-tutorial-failover-failback).
+Pour opérer un basculement et reprotéger les machines virtuelles dans la zone secondaire, procédez de la manière décrite [ici](./azure-to-azure-tutorial-failover-failback.md).
 
-Pour effectuer une restauration automatique vers la zone principale, procédez de la manière décrite [ici](https://docs.microsoft.com/azure/site-recovery/azure-to-azure-tutorial-failback).
+Pour effectuer une restauration automatique vers la zone principale, procédez de la manière décrite [ici](./azure-to-azure-tutorial-failback.md).

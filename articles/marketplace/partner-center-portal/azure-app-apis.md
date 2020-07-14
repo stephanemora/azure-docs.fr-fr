@@ -1,18 +1,16 @@
 ---
 title: API de soumission de l’Espace partenaires pour intégrer des applications Azure dans la Place de marché commerciale Microsoft
 description: Découvrez les conditions préalables à l’utilisation de l’API de soumission de l’Espace partenaires pour les applications Azure dans la Place de marché commerciale sur l’Espace partenaires Microsoft.
-author: dsindona
-ms.author: dsindona
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 12/10/2019
-ms.openlocfilehash: e50534639f5f46b1675ba5c074fb8fdd843ac87e
-ms.sourcegitcommit: 318d1bafa70510ea6cdcfa1c3d698b843385c0f6
+ms.openlocfilehash: c8343f0954f02423fc48347911f10cf5b9ddee96
+ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/21/2020
-ms.locfileid: "83770055"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86121994"
 ---
 # <a name="partner-center-submission-api-to-onboard-azure-apps-in-partner-center"></a>API de soumission de l’Espace partenaires pour l’intégration d’applications Azure dans l’Espace partenaires
 
@@ -29,7 +27,7 @@ Différentes ressources de programmation sont nécessaires pour pouvoir utiliser
 
 Avant de commencer à écrire du code pour appeler l’API de soumission de l’Espace partenaires, veillez à respecter les prérequis suivants.
 
-- Vous (ou votre organisation) devez disposer d’un annuaire Azure AD et de l’autorisation [Administrateur général](https://docs.microsoft.com/azure/active-directory/users-groups-roles/directory-assign-admin-roles) sur l’annuaire. Si vous utilisez déjà Office 365 ou d’autres services professionnels de Microsoft, vous disposez déjà d’un annuaire Azure AD. Dans le cas contraire, vous pouvez [créer un annuaire Azure AD dans l’Espace partenaires](https://docs.microsoft.com/windows/uwp/publish/associate-azure-ad-with-partner-center#create-a-brand-new-azure-ad-to-associate-with-your-partner-center-account) sans frais supplémentaires.
+- Vous (ou votre organisation) devez disposer d’un annuaire Azure AD et de l’autorisation [Administrateur général](../../active-directory/users-groups-roles/directory-assign-admin-roles.md) sur l’annuaire. Si vous utilisez déjà Microsoft 365 ou d’autres services professionnels de Microsoft, vous disposez déjà d’un annuaire Azure AD. Dans le cas contraire, vous pouvez [créer un annuaire Azure AD dans l’Espace partenaires](https://docs.microsoft.com/windows/uwp/publish/associate-azure-ad-with-partner-center#create-a-brand-new-azure-ad-to-associate-with-your-partner-center-account) sans frais supplémentaires.
 
 - Vous devez [associer une application Azure AD à votre compte Espace partenaires](https://docs.microsoft.com/windows/uwp/monetize/create-and-manage-submissions-using-windows-store-services#associate-an-azure-ad-application-with-your-windows-partner-center-account) et récupérer votre ID tenant, votre ID client et votre clé. Ces valeurs sont nécessaires pour obtenir un jeton d’accès Azure AD, que vous utiliserez dans les appels à l’API de soumission au Microsoft Store.
 

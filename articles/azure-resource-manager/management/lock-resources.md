@@ -2,19 +2,19 @@
 title: Verrouiller les ressources pour empêcher des modifications
 description: Empêchez les utilisateurs de mettre à jour ou de supprimer des ressources Azure critiques en appliquant un verrou à tous les utilisateurs et rôles.
 ms.topic: conceptual
-ms.date: 05/19/2020
-ms.openlocfilehash: 2060a7ed2de4956eb15bc85fb1a905705e21f813
-ms.sourcegitcommit: 1f25aa993c38b37472cf8a0359bc6f0bf97b6784
+ms.date: 06/17/2020
+ms.openlocfilehash: 7fe735cf523758f51fd9d6751de8507b2af46737
+ms.sourcegitcommit: bcb962e74ee5302d0b9242b1ee006f769a94cfb8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/26/2020
-ms.locfileid: "83847665"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86057583"
 ---
 # <a name="lock-resources-to-prevent-unexpected-changes"></a>Verrouiller les ressources pour empêcher les modifications inattendues
 
 En tant qu’administrateur, vous pouvez avoir besoin de verrouiller un abonnement, une ressource ou un groupe de ressources afin d’empêcher d’autres utilisateurs de votre organisation de supprimer ou modifier de manière accidentelle des ressources critiques. Vous pouvez définir le niveau de verrouillage sur **CanNotDelete** ou **ReadOnly**. Dans le portail, les verrous sont appelés **Supprimer** et **Lecture seule** respectivement.
 
-* **CanNotDelete** signifie que les utilisateurs autorisés peuvent lire et modifier une ressource, mais pas la supprimer. 
+* **CanNotDelete** signifie que les utilisateurs autorisés peuvent lire et modifier une ressource, mais pas la supprimer.
 * **ReadOnly** signifie que les utilisateurs autorisés peuvent lire une ressource, mais pas la supprimer ni la mettre à jour. Appliquer ce verrou revient à limiter à tous les utilisateurs autorisés les autorisations accordées par le rôle **Lecteur**.
 
 ## <a name="how-locks-are-applied"></a>Application des verrous
@@ -35,9 +35,11 @@ Si vous appliquez des verrous, il se peut que vous obteniez des résultats inatt
 
 * Un verrou en lecture seule appliqué à un **groupe de ressources** contenant une **machine virtuelle** empêche tous les utilisateurs de démarrer ou de redémarrer cette dernière. Ces opérations nécessitent une demande POST.
 
-* Un verrou en lecture seule sur un **abonnement** empêche **Azure Advisor** de fonctionner correctement. Advisor ne peut pas stocker les résultats de ses requêtes.
+* Un verrou cannot-delete (suppression impossible) sur un **groupe de ressources** empêche Azure Resource Manager de [supprimer automatiquement les déploiements](../templates/deployment-history-deletions.md) dans l’historique. Si vous atteignez 800 déploiements dans l’historique, vos déploiements échouent.
 
 * Un verrou cannot-delete (suppression impossible) sur un **groupe de ressources** créé par le **service Sauvegarde Azure**, fera échouer les sauvegardes. Le service prend en charge un maximum de 18 points de restauration. Lorsqu’il est verrouillé, le service de sauvegarde ne peut pas nettoyer les points de restauration. Pour plus d’informations, consultez le [Forum aux questions – Sauvegarde de machines virtuelles Azure](../../backup/backup-azure-vm-backup-faq.md).
+
+* Un verrou en lecture seule sur un **abonnement** empêche **Azure Advisor** de fonctionner correctement. Advisor ne peut pas stocker les résultats de ses requêtes.
 
 ## <a name="who-can-create-or-delete-locks"></a>Utilisateurs autorisés à créer ou à supprimer des verrous
 
@@ -85,62 +87,63 @@ L’exemple suivant représente un modèle créant un verrou sur un compte de st
 
 ```json
 {
-    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
-    "contentVersion": "1.0.0.0",
-    "parameters": {
-        "hostingPlanName": {
-            "type": "string"
-        }
+  "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
+  "contentVersion": "1.0.0.0",
+  "parameters": {
+    "hostingPlanName": {
+      "type": "string"
+    }
+  },
+  "variables": {
+    "siteName": "[concat('ExampleSite', uniqueString(resourceGroup().id))]"
+  },
+  "resources": [
+    {
+      "type": "Microsoft.Web/serverfarms",
+      "apiVersion": "2019-08-01",
+      "name": "[parameters('hostingPlanName')]",
+      "location": "[resourceGroup().location]",
+      "sku": {
+        "tier": "Free",
+        "name": "f1",
+        "capacity": 0
+      },
+      "properties": {
+        "targetWorkerCount": 1
+      }
     },
-    "variables": {
-        "siteName": "[concat('ExampleSite', uniqueString(resourceGroup().id))]"
+    {
+      "type": "Microsoft.Web/sites",
+      "apiVersion": "2019-08-01",
+      "name": "[variables('siteName')]",
+      "location": "[resourceGroup().location]",
+      "dependsOn": [
+        "[resourceId('Microsoft.Web/serverfarms', parameters('hostingPlanName'))]"
+      ],
+      "properties": {
+        "serverFarmId": "[parameters('hostingPlanName')]"
+      }
     },
-    "resources": [
-        {
-            "apiVersion": "2016-09-01",
-            "type": "Microsoft.Web/serverfarms",
-            "name": "[parameters('hostingPlanName')]",
-            "location": "[resourceGroup().location]",
-            "sku": {
-                "tier": "Free",
-                "name": "f1",
-                "capacity": 0
-            },
-            "properties": {
-                "targetWorkerCount": 1
-            }
-        },
-        {
-            "apiVersion": "2016-08-01",
-            "name": "[variables('siteName')]",
-            "type": "Microsoft.Web/sites",
-            "location": "[resourceGroup().location]",
-            "dependsOn": [
-                "[resourceId('Microsoft.Web/serverfarms', parameters('hostingPlanName'))]"
-            ],
-            "properties": {
-                "serverFarmId": "[parameters('hostingPlanName')]"
-            }
-        },
-        {
-            "type": "Microsoft.Web/sites/providers/locks",
-            "apiVersion": "2016-09-01",
-            "name": "[concat(variables('siteName'), '/Microsoft.Authorization/siteLock')]",
-            "dependsOn": [
-                "[resourceId('Microsoft.Web/sites', variables('siteName'))]"
-            ],
-            "properties": {
-                "level": "CanNotDelete",
-                "notes": "Site should not be deleted."
-            }
-        }
-    ]
+    {
+      "type": "Microsoft.Web/sites/providers/locks",
+      "apiVersion": "2016-09-01",
+      "name": "[concat(variables('siteName'), '/Microsoft.Authorization/siteLock')]",
+      "dependsOn": [
+        "[resourceId('Microsoft.Web/sites', variables('siteName'))]"
+      ],
+      "properties": {
+        "level": "CanNotDelete",
+        "notes": "Site should not be deleted."
+      }
+    }
+  ]
 }
 ```
 
-Pour obtenir un exemple de définition d’un verrou pour un groupe de ressources, voir [Créer un groupe de ressources et de le verrouiller](https://github.com/Azure/azure-quickstart-templates/tree/master/subscription-level-deployments/create-rg-lock-role-assignment) (Créer un groupe de ressources et le verrouiller).
+Pour obtenir un exemple de définition d’un verrou pour un groupe de ressources, voir [Créer un groupe de ressources et de le verrouiller](https://github.com/Azure/azure-quickstart-templates/tree/master/subscription-deployments/create-rg-lock-role-assignment) (Créer un groupe de ressources et le verrouiller).
 
 ## <a name="powershell"></a>PowerShell
+
 Vous pouvez verrouiller des ressources déployées avec Azure PowerShell en utilisant la commande [New-AzResourceLock](/powershell/module/az.resources/new-azresourcelock).
 
 Pour verrouiller une ressource, indiquez le nom de la ressource, son type de ressource et son nom de groupe de ressources.
@@ -222,25 +225,30 @@ az lock delete --ids $lockid
 ```
 
 ## <a name="rest-api"></a>API REST
-Vous pouvez verrouiller des ressources déployées à l’aide de l’ [API REST pour les verrous de gestion](https://docs.microsoft.com/rest/api/resources/managementlocks). L’API REST vous permet de créer et de supprimer des verrous, et de récupérer des informations relatives aux verrous existants.
+
+Vous pouvez verrouiller des ressources déployées à l’aide de l’ [API REST pour les verrous de gestion](/rest/api/resources/managementlocks). L’API REST vous permet de créer et de supprimer des verrous, et de récupérer des informations relatives aux verrous existants.
 
 Pour créer un verrou, exécutez :
 
-    PUT https://management.azure.com/{scope}/providers/Microsoft.Authorization/locks/{lock-name}?api-version={api-version}
+```http
+PUT https://management.azure.com/{scope}/providers/Microsoft.Authorization/locks/{lock-name}?api-version={api-version}
+```
 
 Le verrou peut être appliqué à un abonnement, à un groupe de ressources ou à une ressource. Le nom du verrou est personnalisable. Pour la version de l’API, utilisez **2016-09-01**.
 
 Dans la demande, incluez un objet JSON spécifiant les propriétés du verrou.
 
-    {
-      "properties": {
-        "level": "CanNotDelete",
-        "notes": "Optional text notes."
-      }
-    } 
+```json
+{
+  "properties": {
+  "level": "CanNotDelete",
+  "notes": "Optional text notes."
+  }
+}
+```
 
 ## <a name="next-steps"></a>Étapes suivantes
+
 * Pour en savoir plus sur l’organisation logique de vos ressources, consultez [Organisation des ressources à l’aide de balises](tag-resources.md).
 * Vous pouvez appliquer des restrictions et des conventions sur votre abonnement avec des stratégies personnalisées. Pour plus d’informations, consultez [Qu’est-ce qu’Azure Policy ?](../../governance/policy/overview.md).
 * Pour obtenir des conseils sur l’utilisation de Resource Manager par les entreprises pour gérer efficacement les abonnements, voir [Structure d’Azure Enterprise - Gouvernance normative de l’abonnement](/azure/architecture/cloud-adoption-guide/subscription-governance).
-

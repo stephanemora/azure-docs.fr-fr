@@ -1,18 +1,18 @@
 ---
 title: Certification de machine virtuelle Azure - Place de marché Azure
 description: Découvrez comment tester et envoyer une offre de machine virtuelle sur la Place de marché commerciale.
-author: emuench
-ms.author: mingshen
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
+author: emuench
+ms.author: mingshen
 ms.date: 04/09/2020
-ms.openlocfilehash: fe04cb12dc1afea78b023eab623927a07224888c
-ms.sourcegitcommit: 6fd8dbeee587fd7633571dfea46424f3c7e65169
+ms.openlocfilehash: d3b89945c077b9c26bab1709bd6d1def20959e33
+ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/21/2020
-ms.locfileid: "83726143"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86110043"
 ---
 # <a name="azure-virtual-machine-vm-image-certification"></a>Certification d’image de machine virtuelle Azure
 
@@ -649,4 +649,4 @@ Enfin, sélectionnez **Generate Report** (Générer le rapport) afin de téléch
 
 ## <a name="next-step"></a>Étape suivante
 
-- [Générer un URI pour chaque disque dur virtuel](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal/virtual-machine/cpp-get-sas-uri)
+- [Problèmes courants des URI SAS et correctifs](common-sas-uri-issues.md)

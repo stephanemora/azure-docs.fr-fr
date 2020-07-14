@@ -1,35 +1,33 @@
 ---
 title: Stratégies d’authentification du service de mesure de la Place de marché | Place de marché Azure
 description: Stratégies d’authentification du service de mesure prises en charge dans la Place de marché Azure.
-author: qianw211
-ms.author: dsindona
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
-ms.date: 05/13/2020
-ms.openlocfilehash: 4b3a2ed71845b8848c9cb0ac5002e0c69a170410
-ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
+ms.date: 05/21/2020
+ms.openlocfilehash: e24dcdc2de94fe73f6bb83dcc03bbd1139503784
+ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83642308"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86120753"
 ---
 # <a name="marketplace-metering-service-authentication-strategies"></a>Stratégies d’authentification du service de mesure de la Place de marché
 
 Le service de mesure de la Place de marché prend en charge deux stratégies d’authentification :
 
-* [jeton de sécurité Azure AD](https://docs.microsoft.com/azure/active-directory/develop/access-tokens)
-* [identités managées](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/overview) 
+* [jeton de sécurité Azure AD](../../active-directory/develop/access-tokens.md)
+* [Identités managées](../../active-directory/managed-identities-azure-resources/overview.md) 
 
 Nous allons vous expliquer quand et comment utiliser les différentes stratégies d’authentification pour soumettre en toute sécurité des compteurs personnalisés à l’aide du service de mesure de la Place de marché.
 
 ## <a name="using-the-azure-ad-security-token"></a>Utilisation du jeton de sécurité Azure AD
 
-Les types d’offres applicables sont les applications SaaS et Azure avec le type de plan d’application managée.  
+Les types d’offres applicables sont les applications SaaS et Azure traitées avec le type de plan d’application managée.  
 
-Soumettez des compteurs personnalisés à l’aide d’un ID d’application fixe prédéfini pour l’authentification.
+Soumettez des compteurs personnalisés à l’aide d’un ID d’application Azure AD fixe prédéfini pour l’authentification.
 
-Pour les offres SaaS, Azure AD est la seule option disponible.
+Pour les offres SaaS, il s’agit de la seule option disponible. Il s’agit d’une étape obligatoire pour la publication d’une offre SaaS, comme décrit dans [Inscrire une application SaaS](./pc-saas-registration.md).
 
 Pour les applications Azure avec un plan d’application managée, vous devez envisager d’utiliser cette stratégie dans les cas suivants :
 
@@ -38,7 +36,7 @@ Pour les applications Azure avec un plan d’application managée, vous devez en
 
 Une fois que vous avez inscrit votre application, vous pouvez demander par programmation un jeton de sécurité Azure AD. Le serveur de publication doit utiliser ce jeton et effectuer une requête pour le résoudre.
 
-Pour plus d’informations sur ces jetons, consultez [Jetons d’accès Azure Active Directory](https://docs.microsoft.com/azure/active-directory/develop/access-tokens).
+Pour plus d’informations sur ces jetons, consultez [Jetons d’accès Azure Active Directory](../../active-directory/develop/access-tokens.md).
 
 ### <a name="get-a-token-based-on-the-azure-ad-app"></a>Obtenir un jeton basé sur l’application Azure AD
 
@@ -68,10 +66,10 @@ Pour plus d’informations sur ces jetons, consultez [Jetons d’accès Azure Ac
 
 |  **Nom de la propriété**  |  **Obligatoire**  |  **Description**          |
 |  ------------------ |--------------- | ------------------------  |
-|  `Grant_type`       |   True         | Type d’autorisation. La valeur par défaut est `client_credentials`. |
+|  `Grant_type`       |   True         | Type d’autorisation. Utilisez `client_credentials`. |
 |  `Client_id`        |   True         | Identificateur du client/de l’application associé à l’application Azure AD.|
-|  `client_secret`    |   True         | Mot de passe associé à l’application Azure AD.  |
-|  `Resource`         |   True         | Ressource cible pour laquelle le jeton est demandé. La valeur par défaut est `20e940b3-4c77-4b0b-9a53-9e16a1b010a7`.  |
+|  `client_secret`    |   True         | Secret associé à l’application Azure AD.  |
+|  `Resource`         |   True         | Ressource cible pour laquelle le jeton est demandé. Utilisez `20e940b3-4c77-4b0b-9a53-9e16a1b010a7`. |
 | | | |
 
 #### <a name="response"></a>*Réponse*
@@ -106,17 +104,17 @@ Cette approche permet à l’identité des ressources déployées de s’authent
 >[!Note]
 >Le serveur de publication doit s’assurer que les ressources qui émettent l’utilisation sont verrouillées afin qu’il n’y ait pas de falsification.
 
-Votre application managée peut contenir différents types de ressources, des machines virtuelles aux Azure Functions.  Pour plus d’informations sur la façon de s’authentifier à l’aide d’identités managées pour différents services, consultez [Comment utiliser des identités managées pour des ressources Azure](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/overview#how-can-i-use-managed-identities-for-azure-resources).
+Votre application managée peut contenir différents types de ressources, des machines virtuelles aux Azure Functions.  Pour plus d’informations sur la façon de s’authentifier à l’aide d’identités managées pour différents services, consultez [Comment utiliser des identités managées pour des ressources Azure](../../active-directory/managed-identities-azure-resources/overview.md#how-can-i-use-managed-identities-for-azure-resources)).
 
 Par exemple, suivez les étapes ci-dessous pour vous authentifier à l’aide d’une machine virtuelle Windows.
 
 1. Assurez-vous que l’identité managée est configurée à l’aide de l’une des méthodes suivantes :
-    * [Interface utilisateur du portail Azure](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/qs-configure-portal-windows-vm)
-    * [INTERFACE DE LIGNE DE COMMANDE](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/qs-configure-cli-windows-vm)
-    * [PowerShell](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/qs-configure-powershell-windows-vm)
-    * [Modèle Azure Resource Manager](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/qs-configure-template-windows-vm)
-    * [REST](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/qs-configure-rest-vm#system-assigned-managed-identity)
-    * [Kits Azure SDK](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/qs-configure-sdk-windows-vm)
+    * [Interface utilisateur du portail Azure](../../active-directory/managed-identities-azure-resources/qs-configure-portal-windows-vm.md)
+    * [INTERFACE DE LIGNE DE COMMANDE](../../active-directory/managed-identities-azure-resources/qs-configure-cli-windows-vm.md)
+    * [PowerShell](../../active-directory/managed-identities-azure-resources/qs-configure-powershell-windows-vm.md)
+    * [Modèle Azure Resource Manager](../../active-directory/managed-identities-azure-resources/qs-configure-template-windows-vm.md)
+    * [REST](../../active-directory/managed-identities-azure-resources/qs-configure-rest-vm.md#system-assigned-managed-identity))
+    * [Kits Azure SDK](../../active-directory/managed-identities-azure-resources/qs-configure-sdk-windows-vm.md)
 
 1. Obtenez un jeton d’accès pour l’ID d’application du service de mesure de la Place de marché (`20e940b3-4c77-4b0b-9a53-9e16a1b010a7`) en utilisant l’identité système, connectez-vous avec le protocole RDP à la machine virtuelle, ouvrez la console PowerShell, puis exécutez la commande ci-dessous :
 
@@ -145,7 +143,7 @@ Par exemple, suivez les étapes ci-dessous pour vous authentifier à l’aide d�
 
     ```powershell
     # Get resourceUsageId from the managed app
-    $managedAppUrl = "https://management.azure.com/subscriptions/" + $metadata.compute.subscriptionId + "/resourceGroups/" + $metadata.compute.resourceGroupName + "/providers/Microsoft.Solutions/applications/" + $managedappId + "\?api-version=2019-07-01"
+    $managedAppUrl = "https://management.azure.com" + $managedappId + "\?api-version=2019-07-01"
     $ManagedApp = curl $managedAppUrl -H $Headers | Select-Object -Expand Content | ConvertFrom-Json
     # Use this resource ID to emit usage 
     $resourceUsageId = $ManagedApp.properties.billingDetails.resourceUsageId
@@ -156,3 +154,4 @@ Par exemple, suivez les étapes ci-dessous pour vous authentifier à l’aide d�
 ## <a name="next-steps"></a>Étapes suivantes
 
 * [Créer une offre Azure Application](./create-new-azure-apps-offer.md)
+* [Créer une offre SaaS](./offer-creation-checklist.md)
