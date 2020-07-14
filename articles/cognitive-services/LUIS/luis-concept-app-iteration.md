@@ -9,14 +9,14 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: conceptual
-ms.date: 05/06/2020
+ms.date: 07/06/2020
 ms.author: diberry
-ms.openlocfilehash: 0545be9ebe067a62b398c6c89b79a8484f0b48d4
-ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
+ms.openlocfilehash: 560a7d9106b9eaef0f82766615253715deb9238a
+ms.sourcegitcommit: bcb962e74ee5302d0b9242b1ee006f769a94cfb8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/20/2020
-ms.locfileid: "83683116"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86057872"
 ---
 # <a name="iterative-app-design-for-luis"></a>Conception d’application itérative pour LUIS
 
@@ -107,11 +107,22 @@ Vous pouvez publier dans l’emplacement intermédiaire et/ou l’emplacement de
 
 Les versions formées ne sont pas automatiquement disponibles sur le [point de terminaison](luis-glossary.md#endpoint) de votre application LUIS. Vous devez [publier](luis-how-to-publish-app.md) ou republier une version afin qu’elle soit disponible sur le point de terminaison de votre application LUIS. Vous pouvez publier dans **Intermédiaire** et **Production**, ce qui vous donne deux versions de l’application disponibles sur le point de terminaison. Si davantage de versions de l’application doivent être disponibles sur un point de terminaison, vous devez exporter la version et la réimporter dans une nouvelle application. La nouvelle application a un ID d’application différent.
 
-### <a name="import-and-export-a-version"></a>Importer et exporter une version
+### <a name="import-a-version"></a>Importation d’une version
 
-Une version peut être importée au niveau de l’application. Cette version devient la version active et utilise l’ID de version dans la propriété `versionId` du fichier de l’application. Vous pouvez également importer au niveau de la version dans une application existante. La nouvelle version devient la version active.
+Il est possible **d’importer** une version sous plusieurs formes :
+* Nouvelle application, avec un nouvel ID d’application
+* Nouvelle version d’une application existante
 
-Une version peut également être exportée au niveau de l’application ou de la version. La seule différence est que la version exportée au niveau de l’application est la version active, alors qu’au niveau de la version, vous pouvez choisir n’importe quelle version à exporter dans la page **[Paramètres](luis-how-to-manage-versions.md)** .
+Cette version devient la version active et utilise l’ID de version dans la propriété `versionId` du fichier de l’application.
+
+### <a name="export-a-version"></a>Exportation d’une version
+
+Il est possible **d’exporter** une version à partir du portail LUIS au niveau de l’application ou de la version :
+
+* Niveau de l’application : sélectionnez l’application sur la page **Mes applications**, puis sélectionnez **Exporter**.
+* Niveau de la version : sélectionnez le lien de l’application sur la page **Mes applications**, puis sélectionnez **Gérer** et **Versions**
+
+La seule différence est que la version exportée au niveau de l’application est la version active, alors que, au niveau de la version, vous pouvez choisir n’importe quelle version à exporter sur la page **[Paramètres](luis-how-to-manage-versions.md)** .
 
 Le fichier exporté **ne contient pas** les éléments suivants :
 
@@ -132,7 +143,7 @@ Commencez par le [clonage](luis-how-to-manage-versions.md#clone-a-version) à pa
 
 Chaque auteur apporte des modifications à sa propre version de l’application. Lorsque l’auteur est satisfait du modèle, exportez les nouvelles versions sous forme de fichiers JSON.
 
-Les applications exportées, les fichiers .JSON ou .lu peuvent être comparés pour connaître les modifications. Combinez les fichiers pour créer un seul fichier de la nouvelle version. Modifiez la propriété `versionId` pour indiquer la nouvelle version fusionnée. Importez cette version dans l’application d’origine.
+Les applications exportées, les fichiers `.json` ou `.lu`, peuvent être comparées pour mettre en évidence les modifications. Combinez les fichiers pour créer un seul fichier de la nouvelle version. Modifiez la propriété `versionId` pour indiquer la nouvelle version fusionnée. Importez cette version dans l’application d’origine.
 
 Cette méthode vous permet d’avoir une version active, une version intermédiaire et une version publiée. Vous pouvez comparer les résultats de la version active avec une version publiée (de phase ou de production) dans le [volet de test interactif](luis-interactive-test.md).
 
@@ -150,4 +161,4 @@ Lorsque vous avez terminé un cycle d’itération, vous pouvez répéter le pro
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Découvrez les concepts de la [collaboration](luis-concept-keys.md).
+Découvrez les concepts de la [collaboration](luis-how-to-azure-subscription.md).

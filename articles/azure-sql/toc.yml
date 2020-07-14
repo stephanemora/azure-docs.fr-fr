@@ -921,6 +921,8 @@
                   href: virtual-machines/windows/storage-configuration.md
                 - name: Intégration d’Azure Key Vault
                   href: virtual-machines/windows/azure-key-vault-integration-configure.md
+                - name: Migrer le stockage vers le stockage SSD Ultra
+                  href: virtual-machines/windows/storage-migrate-to-ultradisk.md
                 - name: S’inscrire auprès de SQL VM RP
                   displayName: 'resource provider, registration'
                   items:

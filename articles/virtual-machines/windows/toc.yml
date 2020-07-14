@@ -434,6 +434,8 @@
                   items:
                     - name: À partir d’une machine virtuelle
                       href: ../image-version-vm-powershell.md
+                    - name: À partir d’un disque dur virtuel ou d’un instantané
+                      href: ../image-version-snapshot-powershell.md
                     - name: Migrer à partir d’une image managée
                       href: ../image-version-managed-image-powershell.md
                     - name: Copier à partir d’une autre galerie
@@ -454,6 +456,8 @@
                   items:
                     - name: À partir d’une machine virtuelle
                       href: ../image-version-vm-cli.md
+                    - name: À partir d’un disque dur virtuel ou d’un instantané
+                      href: ../image-version-snapshot-cli.md
                     - name: Migrer à partir d’une image managée
                       href: ../image-version-managed-image-cli.md
                     - name: Copier à partir d’une autre galerie
@@ -508,6 +512,8 @@
               href: 'https://github.com/danielsollondon/azvmimagebuilder/blob/master/troubleshootingaib.md'
         - name: Trouver et utiliser des images
           href: cli-ps-findimage.md
+        - name: Informations sur le plan d’achat
+          href: ../marketplace-images.md
         - name: Préparer des machines virtuelles pour chargement
           href: prepare-for-upload-vhd-image.md
         - name: Capturer la machine virtuelle dans l’image
@@ -853,10 +859,18 @@
           href: disks-incremental-snapshots-portal.md
         - name: Sauvegarder des disques non managés
           href: incremental-snapshots.md
+        - name: Chiffrement
+          items:
+            - name: Activer le chiffrement basé sur l’hôte - PowerShell
+              href: disks-enable-host-based-encryption-powershell.md
+            - name: Activer les clés gérées par le client - PowerShell
+              href: disks-enable-customer-managed-keys-powershell.md
+            - name: Activer les clés gérées par le client - Portail
+              href: disks-enable-customer-managed-keys-portal.md
+            - name: Activer le double chiffrement au repos
+              href: disks-enable-double-encryption-at-rest-powershell.md
         - name: Migration et conversion
           items:
-            - name: Convertir en chiffrement côté serveur
-              href: disks-ade-sse-conversion-powershell.md
             - name: Convertir un disque Standard en disque Premium
               href: convert-disk-storage.md
             - name: Migrer vers le stockage Premium avec Azure Site Recovery
