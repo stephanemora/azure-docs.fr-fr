@@ -1,7 +1,7 @@
 ---
 title: Guide de démarrage rapide de la bibliothèque de client Swift Lecteur immersif
 titleSuffix: Azure Cognitive Services
-description: Dans ce guide de démarrage rapide, vous générez une application web à partir de zéro et lui ajoutez les fonctions de l’API Lecteur immersif.
+description: Dans ce guide de démarrage rapide, vous générez une application iOS à partir de zéro et lui ajoutez les fonctions de l’API Lecteur immersif.
 services: cognitive-services
 author: pasta
 manager: nitinme
@@ -9,12 +9,12 @@ ms.service: cognitive-services
 ms.topic: include
 ms.date: 05/20/2020
 ms.author: pasta
-ms.openlocfilehash: 191d802064d477babd8aa1f782ad15876b821d11
-ms.sourcegitcommit: 309cf6876d906425a0d6f72deceb9ecd231d387c
+ms.openlocfilehash: 3d0a8444312f37b1f59817d50bdc50d3aff22164
+ms.sourcegitcommit: e132633b9c3a53b3ead101ea2711570e60d67b83
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/01/2020
-ms.locfileid: "84268684"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86038362"
 ---
 Le [lecteur immersif](https://www.onenote.com/learningtools) est un outil conçu de façon inclusive qui implémente des techniques éprouvées pour améliorer la compréhension de la lecture.
 
@@ -573,4 +573,4 @@ Lorsque vous cliquez sur le bouton **Lecteur immersif**, vous voyez le Lecteur i
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-* Explorer le [Guide de référence du SDK du Lecteur immersif](../../reference.md)
+* Explorer le [SDK Lecteur Immersif](https://github.com/microsoft/immersive-reader-sdk) et la [référence du SDK Lecteur immersif](../../reference.md)

@@ -7,13 +7,13 @@ author: tchristiani
 ms.author: terrychr
 ms.service: cognitive-search
 ms.topic: quickstart
-ms.date: 06/07/2020
-ms.openlocfilehash: 83b723c815825a255727e9a48d415fedd405c942
-ms.sourcegitcommit: 20e246e86e25d63bcd521a4b4d5864fbc7bad1b0
+ms.date: 06/24/2020
+ms.openlocfilehash: f802ec10410d0a412e29d9ad51bb409a5d099f31
+ms.sourcegitcommit: 73ac360f37053a3321e8be23236b32d4f8fb30cf
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/08/2020
-ms.locfileid: "84488220"
+ms.lasthandoff: 06/30/2020
+ms.locfileid: "85562531"
 ---
 # <a name="quickstart-create-an-azure-cognitive-search-service-in-the-portal"></a>Démarrage rapide : Créer un service Recherche cognitive Azure dans le portail
 
@@ -24,6 +24,14 @@ Dans cet article, découvrez comment créer une ressource dans le [portail Azure
 [![GIF animé](./media/search-create-service-portal/AnimatedGif-AzureSearch-small.gif)](./media/search-create-service-portal/AnimatedGif-AzureSearch.gif#lightbox)
 
 Vous préférez PowerShell ? Utilisez le [modèle de service](https://azure.microsoft.com/resources/templates/101-azure-search-create/) Azure Resource Manager. Pour obtenir de l’aide et bien démarrer, consultez [Gérer la Recherche cognitive Azure avec PowerShell](search-manage-powershell.md).
+
+## <a name="before-you-start"></a>Avant de commencer
+
+Les propriétés de service suivantes sont fixes pendant la durée de vie du service et leur modification nécessite un nouveau service. Quand vous créez un service, réfléchissez à la façon dont vous allez l’utiliser :
+
+* Nom (Consultez [ces suggestions](#name-the-service) pour les noms de service.)
+* Niveau (Les niveaux gratuit, de base et standard [affectent la facturation](search-sku-tier.md) et définissent une limite de croissance de la capacité.)
+* Région (Choisissez un emplacement qui a des services liés. Pour une intégration à Cognitive Services ou Azure Machine Learning, la colocalisation des services dans la même région est obligatoire.)
 
 ## <a name="subscribe-free-or-paid"></a>S’abonner (payant ou gratuit)
 

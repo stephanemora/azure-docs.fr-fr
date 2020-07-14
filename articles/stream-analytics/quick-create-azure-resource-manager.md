@@ -10,18 +10,22 @@ ms.workload: big-data
 ms.topic: quickstart
 ms.custom: mvc, subject-armqs
 ms.date: 05/28/2020
-ms.openlocfilehash: 127a8550b7f4ca89b8b3a8e61880b295a806e5d0
-ms.sourcegitcommit: 0a5bb9622ee6a20d96db07cc6dd45d8e23d5554a
+ms.openlocfilehash: b7217df7fe7ccedf2419480b1114fa1ef6c8e24a
+ms.sourcegitcommit: e132633b9c3a53b3ead101ea2711570e60d67b83
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/05/2020
-ms.locfileid: "84449360"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86043544"
 ---
-# <a name="quickstart-create-an-azure-stream-analytics-job-by-using-the-azure-resource-manager-template"></a>Démarrage rapide : Créer une tâche Azure Stream Analytics avec le modèle Azure Resource Manager
+# <a name="quickstart-create-an-azure-stream-analytics-job-by-using-an-arm-template"></a>Démarrage rapide : Créer une tâche Azure Stream Analytics à l’aide d’un modèle Resource Manager
 
-Dans le cadre de ce guide de démarrage rapide, vous allez utiliser un modèle Azure Resource Manager pour créer une tâche Azure Stream Analytics. Une fois la tâche créée, vous vérifierez le déploiement.
+Dans le cadre de ce guide de démarrage rapide, vous allez utiliser un modèle Resource Manager (Azure Resource Manager) pour créer une tâche Azure Stream Analytics. Une fois la tâche créée, vous vérifierez le déploiement.
 
 [!INCLUDE [About Azure Resource Manager](../../includes/resource-manager-quickstart-introduction.md)]
+
+Si votre environnement remplit les prérequis et que vous êtes déjà familiarisé avec l’utilisation des modèles ARM, sélectionnez le bouton **Déployer sur Azure**. Le modèle s’ouvre dans le portail Azure.
+
+[![Déployer sur Azure](../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-streamanalytics-create%2Fazuredeploy.json)
 
 ## <a name="prerequisites"></a>Prérequis
 
@@ -29,9 +33,7 @@ Pour effectuer ce qui est décrit dans cet article, vous avez besoin de ce qui s
 
 * Un abonnement Azure - [En créer un gratuitement](https://azure.microsoft.com/free/)
 
-## <a name="create-an-azure-stream-analytics-job"></a>Créer un travail Azure Stream Analytics
-
-### <a name="review-the-template"></a>Vérifier le modèle
+## <a name="review-the-template"></a>Vérifier le modèle
 
 Le modèle utilisé dans ce démarrage rapide est tiré des [modèles de démarrage rapide Azure](https://azure.microsoft.com/resources/templates/101-streamanalytics-create/).
 
@@ -39,7 +41,7 @@ Le modèle utilisé dans ce démarrage rapide est tiré des [modèles de démarr
 
 La ressource Azure définie dans le modèle est [Microsoft.StreamAnalytics/StreamingJobs](/azure/templates/microsoft.streamanalytics/streamingjobs) : créer une tâche Azure Stream Analytics.
 
-### <a name="deploy-the-template"></a>Déployer le modèle
+## <a name="deploy-the-template"></a>Déployer le modèle
 
 Dans cette section, vous créez une tâche Azure Stream Analytics en utilisant le modèle Resource Manager.
 
@@ -108,7 +110,7 @@ Write-Host "Press [ENTER] to continue..."
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Dans le cadre de ce guide de démarrage rapide, vous avez créé une tâche Azure Stream Analytics en utilisant un modèle Azure Resource Manager, puis vous avez vérifié le déploiement. Passez à l’article suivant pour découvrir comment exporter un modèle Azure Resource Manager pour une tâche existante à l’aide de VS Code.
+Dans le cadre de ce guide de démarrage rapide, vous avez créé une tâche Azure Stream Analytics en utilisant un modèle Resource Manager, puis vous avez vérifié le déploiement. Passez à l’article suivant pour découvrir comment exporter un modèle Resource Manager pour une tâche existante à l’aide de VS Code.
 
 > [!div class="nextstepaction"]
-> [Exporter un modèle Azure Resource Manager de tâche Azure Stream Analytics](resource-manager-export.md)
+> [Exporter un modèle Resource Manager de tâche Azure Stream Analytics](resource-manager-export.md)

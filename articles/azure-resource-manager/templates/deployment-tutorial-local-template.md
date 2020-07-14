@@ -4,12 +4,12 @@ description: Découvrez comment déployer un modèle Azure Resource Manager à p
 ms.date: 05/20/2020
 ms.topic: tutorial
 ms.author: jgao
-ms.openlocfilehash: 01f04d18ae54c3c512010dd005e9d820b914e536
-ms.sourcegitcommit: 958f086136f10903c44c92463845b9f3a6a5275f
+ms.openlocfilehash: 3112c3940f9d2668f4825de3c2e57a63af009d92
+ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/20/2020
-ms.locfileid: "83714064"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86118900"
 ---
 # <a name="tutorial-deploy-a-local-azure-resource-manager-template"></a>Tutoriel : Déployer un modèle Azure Resource Manager local
 
@@ -33,7 +33,7 @@ Après avoir installé Azure PowerShell ou Azure CLI, prenez soin de vous connec
 
 ### <a name="editor-optional"></a>Éditeur (facultatif)
 
-Les modèles sont des fichiers JSON. Pour examiner/modifier des modèles, vous avez besoin d’un bon éditeur JSON. Nous conseillons Visual Studio Code avec l’extension Outils Resource Manager. Si vous devez installer ces outils, consultez [Utiliser Visual Studio Code pour créer des modèles Azure Resource Manager](use-vs-code-to-create-template.md).
+Les modèles sont des fichiers JSON. Pour examiner/modifier des modèles, vous avez besoin d’un bon éditeur JSON. Nous conseillons Visual Studio Code avec l’extension Outils Resource Manager. Si vous devez installer ces outils, consultez [Démarrage rapide : Créer des modèles Azure Resource Manager avec Visual Studio Code](quickstart-create-templates-use-visual-studio-code.md).
 
 ## <a name="review-template"></a>Vérifier le modèle
 

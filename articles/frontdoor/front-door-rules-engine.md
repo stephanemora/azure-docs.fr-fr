@@ -1,6 +1,6 @@
 ---
-title: Azure Front Door | Microsoft Docs
-description: Cet article fournit une vue d’ensemble d’Azure Front Door. Déterminez s’il représente un choix adapté à l’équilibrage de charge du trafic utilisateur pour votre application.
+title: Azure Front Door
+description: Cet article fournit une vue d’ensemble de la fonctionnalité du moteur de règles pour Azure Front Door.
 services: frontdoor
 documentationcenter: ''
 author: megan-beatty
@@ -12,27 +12,23 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 4/30/2020
 ms.author: mebeatty
-ms.openlocfilehash: 19deb763c8e750490854892c90d0293d3e209c09
-ms.sourcegitcommit: eaec2e7482fc05f0cac8597665bfceb94f7e390f
+ms.openlocfilehash: ee981d08e53765003e88870d35b291a5802e6848
+ms.sourcegitcommit: 01cd19edb099d654198a6930cebd61cae9cb685b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "82515794"
+ms.lasthandoff: 06/24/2020
+ms.locfileid: "85322019"
 ---
 # <a name="what-is-rules-engine-for-azure-front-door"></a>Qu’est-ce que le moteur de règles pour Azure Front Door ? 
 
 Le moteur de règles vous permet de personnaliser la façon dont les requêtes HTTP sont gérées à la périphérie et fournit davantage de contrôle sur le comportement de votre application web. Le moteur de règles pour Azure Front Door comprend plusieurs fonctionnalités clés, notamment :
 
-- Routage basé sur l’en-tête – routez les requêtes en fonction des séquences dans le contenu des en-têtes, des cookies et des chaînes de requête.
-- Routage basé sur les paramètres – tirez parti d’une série de conditions de correspondance, notamment les arguments Post, les chaînes de requête, les cookies et les méthodes de requête, pour router les requêtes en fonction des paramètres de requête HTTP. 
-- Remplacements de configurations de route : 
-    - Utilisez les fonctionnalités de redirection pour retourner les redirections 301/302/307/308 au client afin de rediriger vers de nouveaux noms d’hôte, chemins et protocoles. 
-    - Utilisez les fonctionnalités de transfert pour réécrire le chemin de l’URL de la requête sans effectuer de redirection classique et transférer la requête au back-end approprié dans votre pool de back-ends configuré. 
-    - Personnalisez votre configuration de mise en cache et changez dynamiquement une route en passant du transfert à la mise en cache en fonction des conditions de correspondance. 
-
-> [!IMPORTANT]
-> Cette préversion publique est fournie sans contrat de niveau de service et ne doit pas être utilisée pour les charges de travail de production. Certaines fonctionnalités peuvent ne pas être prises en charge, disposer de capacités limitées ou ne pas être disponibles dans tous les emplacements Azure. Consultez les [Conditions d’utilisation supplémentaires des préversions de Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
->
+- Application du protocole HTTPS pour veiller à ce que tous vos utilisateurs finaux interagissent avec votre contenu par le biais d’une connexion sécurisée.
+- Implémentation d’en-têtes de sécurité pour prévenir les vulnérabilités basées sur le navigateur, comme HTTP Strict-Transport-Security (HSTS), X-XSS-Protection, Content-Security-Policy, X-Frame-Options, ainsi que des en-têtes Access-Control-Allow-Origin pour les scénarios de partage des ressources cross-origin (CORS). Les attributs basés sur la sécurité peuvent également être définis avec des cookies.
+- Routage des requêtes vers les versions mobiles ou bureau de votre application en fonction des modèles inclus dans le contenu des en-têtes de requête, cookies ou chaînes de requête.
+- Utilisation de fonctionnalités de redirection pour retourner les redirections 301, 302, 307 et 308 au client afin de rediriger vers de nouveaux noms d’hôte, chemins ou protocoles.
+- Modification dynamique de la configuration de la mise en cache de votre route en fonction des requêtes entrantes.
+- Réécriture du chemin de l’URL de la requête et transfert de la requête au back-end approprié dans votre pool back-end configuré.
 
 ## <a name="architecture"></a>Architecture 
 
@@ -52,7 +48,7 @@ Dans ces deux exemples, si aucune des conditions de correspondance n’est rempl
 
 Avec le moteur de règles AFD, vous pouvez créer une série de configurations de moteur de règles, chacune composée d’un ensemble de règles. Ce qui suit présente une terminologie utile que vous rencontrerez lors de la configuration de votre moteur de règles. 
 
-- *Configuration de moteur de règles* : Ensemble de règles appliquées à une seule règle de routage. Chaque configuration est limitée à 5 règles. Vous pouvez créer jusqu’à 10 configurations. 
+- *Configuration de moteur de règles* : Ensemble de règles appliquées à une seule règle de routage. Chaque configuration est limitée à 25 règles. Vous pouvez créer jusqu’à 10 configurations. 
 - *Règle du moteur de règles* : Chaque règle peut avoir jusqu’à 10 conditions de correspondance et 5 actions.
 - *Condition de correspondance* : Il existe de nombreuses conditions de correspondance qui peuvent être utilisées pour analyser vos requêtes entrantes. Une règle peut contenir jusqu’à 10 conditions de correspondance. Les conditions de correspondance sont évaluées avec un opérateur **AND**. Vous trouverez la liste complète des conditions de correspondance [ici](front-door-rules-engine-match-conditions.md). 
 - *Action* : Les actions dictent ce qui arrive à vos requêtes entrantes : actions d’en-tête de requête/réponse, transfert, redirection et réécriture sont toutes disponibles aujourd’hui. Une règle peut contenir jusqu’à 5 actions, mais seulement 1 remplacement de configuration de route.  Vous trouverez la liste complète des actions [ici](front-door-rules-engine-actions.md).

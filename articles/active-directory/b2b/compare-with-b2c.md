@@ -11,12 +11,12 @@ author: msmimart
 manager: celestedg
 ms.reviewer: elisolMS
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 9006a70ae941abb700412a7c596627939c994028
-ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
+ms.openlocfilehash: 1c45aae35c7c1cf2fbde436303a2ac000dfdd5ec
+ms.sourcegitcommit: 61d92af1d24510c0cc80afb1aebdc46180997c69
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83587508"
+ms.lasthandoff: 06/24/2020
+ms.locfileid: "85339606"
 ---
 # <a name="compare-solutions-for-external-identities-in-azure-active-directory"></a>Comparer les solutions pour les identités externes dans Azure Active Directory
 
@@ -34,13 +34,13 @@ Les identités externes Azure AD se concentrent moins sur la relation d’un uti
 
 Le tableau ci-dessous fournit une comparaison détaillée des différents scénarios que vous pouvez activer avec des identités externes Azure AD.
 
-| Applications mutualisées  | Collaboration d’utilisateur externe (B2B) | Applications pour consommateurs ou clients (B2C)  |
+| Applications multilocataires  | Collaboration d’utilisateur externe (B2B) | Applications pour consommateurs ou clients (B2C)  |
 | ---- | --- | --- |
-| Scénario principal : logiciel en tant que service (SaaS) d’entreprise | Scénario principal : collaboration à l’aide d’applications Microsoft (Office 365, Teams, ...) ou de votre propre logiciel de collaboration.  | Scénario principal : applications transactionnelles utilisant des applications développées personnalisées.   |
-| Usage prévu : organisations qui souhaitent fournir des logiciels à de nombreux clients d’entreprise.    | Usage prévu : organisations qui souhaitent être en mesure d’authentifier les utilisateurs issus d’une organisation partenaire, quel que soit le fournisseur d’identité.    | Usage prévu : invitation de clients de vos applications mobiles et web, qu’il s’agisse d’individus, de clients institutionnel ou organisationnel dans un répertoire Azure AD séparé de l’annuaire de votre organisation. |
+| Scénario principal : logiciel en tant que service (SaaS) d’entreprise | Scénario principal : Collaboration à l’aide d’applications Microsoft (Microsoft 365, Teams, …) ou de votre propre logiciel de collaboration.  | Scénario principal : applications transactionnelles utilisant des applications développées personnalisées.   |
+| Usage prévu : organisations qui souhaitent fournir des logiciels à de nombreux clients d’entreprise.    | Usage prévu : les entreprises qui souhaitent être en mesure d’authentifier les utilisateurs issus d’une organisation partenaire, quel que soit le fournisseur d’identité.    | Usage prévu : invitation de clients de vos applications mobiles et web, qu’il s’agisse d’individus, de clients institutionnel ou organisationnel dans un répertoire Azure AD séparé de l’annuaire de votre organisation. |
 | Identités prises en charge : employés avec des comptes Azure AD. | Identités prises en charge : employés ou partenaires disposant d’un compte professionnel ou scolaire, ou de n’importe quelle adresse e-mail. La fédération directe sera bientôt prise en charge.      | Identités prises en charge : utilisateurs consommateurs disposant de comptes d’application locaux (n’importe quel nom d’utilisateur ou adresse e-mail) ou toute identité sociale prenant en charge la fédération directe.       |
 | Les utilisateurs externes sont gérés dans leur propre répertoire, isolé du répertoire dans lequel l’application a été inscrite.    | Les utilisateurs externes sont gérés dans le même annuaire que les employés, mais font l’objet d’une annotation spéciale. Ils peuvent être gérés de la même façon que des employés, être ajoutés aux mêmes groupes, etc.    | Les utilisateurs externes sont gérés dans l’annuaire de l’application. Ils sont gérés séparément du répertoire des partenaires et des employés de l’organisation (s’il existe).  |
-| Authentification unique : l’authentification unique (SSO) auprès de toutes les applications connectées à Azure AD est prise en charge.          | Authentification unique : l’authentification unique (SSO) auprès de toutes les applications connectées à Azure AD est prise en charge. Par exemple, vous pouvez donner accès à des applications Office 365 ou des applications locales, et à d’autres applications SaaS telles que Salesforce ou Workday.    | Authentification unique : l’authentification unique auprès d’applications détenues par le client dans les clients Azure AD B2C est prise en charge. L’authentification unique auprès d’Office 365 ou d’autres applications SaaS Microsoft n’est pas prise en charge.    |
+| Authentification unique : l’authentification unique (SSO) auprès de toutes les applications connectées à Azure AD est prise en charge.          | Authentification unique : l’authentification unique (SSO) auprès de toutes les applications connectées à Azure AD est prise en charge. Par exemple, vous pouvez donner accès à des applications Microsoft 365 ou des applications locales, et à d’autres applications SaaS telles que Salesforce ou Workday.    | Authentification unique : L’authentification unique auprès d’applications détenues par le client dans les clients Azure AD B2C est prise en charge. L’authentification unique auprès de Microsoft 365 ou d’autres applications SaaS Microsoft n’est pas prise en charge.    |
 | Cycle de vie client : géré par l’organisation d’origine de l’utilisateur.      | Cycle de vie partenaire : géré par l’organisation hôte (qui invite).    | Cycle de vie client : libre-service ou géré par l’application.      |
 | Stratégie de sécurité et conformité : gérée par l’organisation hôte ou qui invite (par exemple, avec des [règles d’accès conditionnelles](https://docs.microsoft.com/azure/active-directory/b2b/conditional-access)).           | Stratégie de sécurité et conformité : gérée par l’organisation hôte ou qui invite (par exemple, avec des [règles d’accès conditionnelles](https://docs.microsoft.com/azure/active-directory/b2b/conditional-access)). | Stratégie de sécurité et conformité : gérée par l’application.        |
 | Marque : la marque de l’organisation hôte (qui invite) est utilisée.   | Marque : la marque de l’organisation hôte (qui invite) est utilisée.    | Marque : gérée par l’application. En général, la marque du produit apparaît, avec l’organisation en arrière-plan.   |

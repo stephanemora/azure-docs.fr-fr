@@ -5,12 +5,12 @@ author: florianborn71
 ms.author: flborn
 ms.date: 01/23/2020
 ms.topic: quickstart
-ms.openlocfilehash: 7ba8d201c29b5e3835fec52d8c479a388ca07f71
-ms.sourcegitcommit: 7e04a51363de29322de08d2c5024d97506937a60
+ms.openlocfilehash: d457e911dec481e2b1a8bdae1ca05f80452bb883
+ms.sourcegitcommit: 73ac360f37053a3321e8be23236b32d4f8fb30cf
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/14/2020
-ms.locfileid: "81312995"
+ms.lasthandoff: 06/30/2020
+ms.locfileid: "85557176"
 ---
 # <a name="quickstart-convert-a-model-for-rendering"></a>Démarrage rapide : Convertir un modèle pour le rendu
 
@@ -70,7 +70,7 @@ Quand vous cliquez sur ce bouton, l’écran suivant s’affiche avec les propri
 Remplissez le formulaire de la manière suivante :
 
 * Créez un groupe de ressources à partir du lien situé sous la zone de liste déroulante et nommez-le **ARR_Tutorial**.
-* Sous **Nom du groupe de stockage**, entrez un nom unique. **Ce nom doit être globalement unique**. Sinon, une invite vous informe qu’il est déjà utilisé. Dans le cadre de ce guide de démarrage rapide, nous le nommons **arrtutorialstorage**. Chaque occurrence de ce nom dans ce guide de démarrage rapide doit donc être remplacée par le nom de votre propre compte.
+* Sous **Nom du groupe de stockage**, entrez un nom unique. **Ce nom doit être globalement unique**. Sinon, une invite vous informe qu’il est déjà pris. Dans le cadre de ce guide de démarrage rapide, nous le nommons **arrtutorialstorage**. Chaque occurrence de ce nom dans ce guide de démarrage rapide doit donc être remplacée par le nom de votre propre compte.
 * Sélectionnez un **emplacement** proche de vous. Dans l’idéal, utilisez le même emplacement que celui utilisé pour la configuration du rendu dans l’autre guide de démarrage rapide.
 * **Performances** défini sur Standard
 * **Type de compte** défini sur StorageV2 (v2 universel)
@@ -157,7 +157,7 @@ Définissez **inputAssetPath** sur le chemin du modèle à convertir (chemin rel
 
 Quand le modèle est converti, il est réécrit dans le conteneur de stockage **blobOutputContainerName**. Vous pouvez spécifier un sous-chemin en définissant **outputFolderPath** si vous le souhaitez. Dans l’exemple ci-dessus, le fichier « robot.arrAsset » obtenu est copié dans le conteneur d’objets Blob de sortie sous « converted/robot ».
 
-Le paramètre de configuration **outputAssetFileName** détermine le nom de la ressource convertie. Ce paramètre est facultatif. S’il n’est pas défini, le nom du fichier de sortie est déduit du nom du fichier d’entrée. 
+Le paramètre de configuration **outputAssetFileName** détermine le nom de la ressource convertie. Ce paramètre est facultatif. S’il n’est pas défini, le nom du fichier de sortie est déduit du nom du fichier d’entrée.
 
 Ouvrez PowerShell. Assurez-vous que vous avez installé *Azure PowerShell* comme indiqué dans les [prérequis](#prerequisites). Ensuite, connectez-vous à votre abonnement avec la commande suivante et suivez les instructions à l’écran :
 
@@ -175,6 +175,8 @@ Placez-vous dans le répertoire `azure-remote-rendering\Scripts` et exécutez le
 ```
 
 Le résultat suivant devrait s'afficher : ![Conversion.ps1](./media/successful-conversion.png)
+
+## <a name="insert-new-model-into-quickstart-sample-app"></a>Insérer un nouveau modèle dans l’exemple d’application de démarrage rapide
 
 Le script de conversion génère un URI de *signature d’accès partagé (SAS)* pour le modèle converti. Vous pouvez maintenant copier cet URI comme **Nom de modèle** dans l’exemple d’application de démarrage rapide (consultez [Démarrage rapide : Afficher un modèle avec Unity](render-model.md)).
 
@@ -198,4 +200,4 @@ Vous connaissez maintenant les principes de base. À présent, consultez nos tut
 Pour obtenir des informations détaillées sur la conversion de modèle, consultez l’article sur l’[API REST de conversion de modèle](../how-tos/conversion/conversion-rest-api.md).
 
 > [!div class="nextstepaction"]
-> [Tutoriel : Configuration d’un projet Unity en partant de zéro](../tutorials/unity/project-setup.md)
+> [Tutoriel : Affichage de modèles rendus à distance](../tutorials/unity/view-remote-models/view-remote-models.md)

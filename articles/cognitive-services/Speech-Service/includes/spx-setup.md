@@ -5,12 +5,12 @@ ms.service: cognitive-services
 ms.topic: include
 ms.date: 05/15/2020
 ms.author: v-demjoh
-ms.openlocfilehash: c57187ae15e5f15a601edbc74921b3c879abe715
-ms.sourcegitcommit: cf7caaf1e42f1420e1491e3616cc989d504f0902
+ms.openlocfilehash: b0f70fccf3f7f4a6856ae64d0946c2c473fed93c
+ms.sourcegitcommit: e132633b9c3a53b3ead101ea2711570e60d67b83
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/22/2020
-ms.locfileid: "83800700"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86050250"
 ---
 ## <a name="prerequisites"></a>Prérequis
 
@@ -27,6 +27,10 @@ Procédez ainsi pour installer l’interface CLI Speech sur Windows :
 3. Accédez au répertoire racine `spx-zips` que vous avez extrait du téléchargement, puis extrayez le sous-répertoire dont vous avez besoin (`spx-net471` pour .NET Framework 4.7 ou `spx-netcore-win-x64` pour .NET Core 3.0 sur un processeur x64).
 
 Dans l’invite de commandes, accédez à l’emplacement de votre répertoire, puis tapez `spx` pour afficher l’aide de l’interface CLI Speech.
+
+> [!NOTE]
+> PowerShell ne vérifie pas le répertoire local lors de la recherche d’une commande. Dans PowerShell, changez de répertoire en accédant à l’emplacement de `spx` et appelez l’outil en entrant `.\spx`.
+> Si vous ajoutez ce répertoire à votre chemin, PowerShell et l’invite de commandes Windows recherchent `spx` à partir de n’importe quel répertoire sans inclure le préfixe `.\`.
 
 #### <a name="linux-install"></a>[Installation Linux](#tab/linuxinstall)
 

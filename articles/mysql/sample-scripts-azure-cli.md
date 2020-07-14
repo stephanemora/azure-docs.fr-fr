@@ -8,17 +8,17 @@ ms.devlang: azurecli
 ms.topic: sample
 ms.custom: mvc
 ms.date: 12/02/2019
-ms.openlocfilehash: 18c52505ddf82cb29b13a9ee7621db5c3422eab6
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 467d14e1f00e88999e130d28ee0e5a00dac47825
+ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "74769759"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86120957"
 ---
 # <a name="azure-cli-samples-for-azure-database-for-mysql"></a>Exemples de CLI Azure pour Azure Database pour MySQL 
 Le tableau suivant comprend des liens vers des exemples de scripts de CLI Azure pour Azure Database pour MySQL.
 
-| |  |
+| Exemple de lien | Description  |
 |---|---|
 |**Créer un serveur**||
 | [Créer un serveur et une règle de pare-feu](./scripts/sample-create-server-and-firewall-rule.md?toc=%2fcli%2fazure%2ftoc.json) | Un script CLI Azure qui crée un serveur Azure Database pour MySQL unique et configure une règle de pare-feu au niveau du serveur. |

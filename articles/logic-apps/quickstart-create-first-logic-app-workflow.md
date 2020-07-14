@@ -3,16 +3,16 @@ title: Créer votre premier workflow automatisé
 description: 'Démarrage rapide : Générer votre premier workflow automatisé avec Azure Logic Apps pour des solutions d’intégration des systèmes et d’intégration d’applications d’entreprise'
 services: logic-apps
 ms.suite: integration
-ms.reviewer: klam, logicappspm
+ms.reviewer: logicappspm
 ms.topic: quickstart
 ms.custom: mvc
 ms.date: 10/20/2019
-ms.openlocfilehash: 555230499ebda106cbca616b779ae632d65349ab
-ms.sourcegitcommit: ad66392df535c370ba22d36a71e1bbc8b0eedbe3
+ms.openlocfilehash: 0b3559a27fe9fae6c34b07c648a289d205560bd8
+ms.sourcegitcommit: 01cd19edb099d654198a6930cebd61cae9cb685b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/16/2020
-ms.locfileid: "84807867"
+ms.lasthandoff: 06/24/2020
+ms.locfileid: "85321589"
 ---
 # <a name="quickstart-create-your-first-workflow-by-using-azure-logic-apps---azure-portal"></a>Démarrage rapide : Créer votre premier workflow à l’aide d’Azure Logic Apps - Portail Azure
 
@@ -74,13 +74,13 @@ Ensuite, ajoutez un [déclencheur](../logic-apps/logic-apps-overview.md#logic-ap
 
    ![Sélectionner le déclencheur « Lors de la publication d’un élément de flux »](./media/quickstart-create-first-logic-app-workflow/add-rss-trigger-new-feed-item.png)
 
-1. Fournissez ces informations pour votre déclencheur, comme illustré et décrit ici :
+1. Fournissez les informations pour votre déclencheur, comme décrit dans le tableau :
 
    ![Définir un déclencheur avec le flux RSS, la fréquence et l’intervalle](./media/quickstart-create-first-logic-app-workflow/add-rss-trigger-settings.png)
 
    | Propriété | Valeur | Description |
    |----------|-------|-------------|
-   | **URL du flux RSS** | `http://feeds.reuters.com/reuters/topNews` | Lien du flux RSS que vous souhaitez surveiller. |
+   | **URL du flux RSS** | <*URL-flux-RSS*> | Lien du flux RSS à surperviser. Cet exemple utilise `http://feeds.reuters.com/reuters/topNews`. |
    | **Intervalle** | 1 | Nombre d’intervalles d’attente entre les vérifications. |
    | **Fréquence** | Minute | Unité de temps de chaque intervalle entre les vérifications.  |
    ||||

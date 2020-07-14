@@ -1,6 +1,6 @@
 ---
-title: Azure Front Door | Microsoft Docs
-description: Cet article fournit une vue d’ensemble d’Azure Front Door. Déterminez s’il représente un choix adapté à l’équilibrage de charge du trafic utilisateur pour votre application.
+title: Azure Front Door
+description: Cet article fournit la liste des différentes actions que vous pouvez effectuer avec le moteur de règles Azure Front Door.
 services: frontdoor
 documentationcenter: ''
 author: megan-beatty
@@ -12,18 +12,18 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 4/30/2020
 ms.author: mebeatty
-ms.openlocfilehash: 3e7c9606a17736ea45b09a4d6981b4d55fa6dee6
-ms.sourcegitcommit: eaec2e7482fc05f0cac8597665bfceb94f7e390f
+ms.openlocfilehash: e11555e883a323bcb5b0be1c62b2825bce77524e
+ms.sourcegitcommit: 01cd19edb099d654198a6930cebd61cae9cb685b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "82515804"
+ms.lasthandoff: 06/24/2020
+ms.locfileid: "85313992"
 ---
 # <a name="azure-front-door-rules-engine-actions"></a>Actions du moteur de règles Azure Front Door
 
 Dans le [moteur de règles AFD](front-door-rules-engine.md), une règle se compose de zéro, d’une ou de plusieurs conditions de correspondance et actions. Cet article fournit les descriptions détaillées des actions que vous pouvez utiliser dans le moteur de règles AFD.
 
-Une action définit le comportement appliqué au type de requête qu’une condition de correspondance ou un ensemble de conditions de correspondance identifie. Dans le moteur de règles AFD, une règle peut contenir jusqu’à cinq actions, dont une seule peut être une action de remplacement de configuration de route (transfert ou redirection). 
+Une action définit le comportement appliqué au type de requête qu’une condition de correspondance ou un ensemble de conditions de correspondance identifie. Dans le moteur de règles AFD, une règle peut contenir jusqu’à cinq actions, dont une seule peut être une action de remplacement de configuration de route (transfert ou redirection).
 
 Les actions suivantes sont prêtes à être utilisées dans le moteur de règles Azure Front Door.  
 
@@ -75,7 +75,7 @@ Utilisez cette action pour transférer les clients vers une nouvelle URL. Cette 
 
 Champ | Description 
 ------|------------
-Pool de back-ends | Sélectionnez le pool de back-ends à remplacer et à partir duquel servir les requêtes. Cela montre tous vos pools de back-ends préconfigurés qui sont actuellement dans votre profil Front Door. 
+Pool principal | Sélectionnez le pool de back-ends à remplacer et à partir duquel servir les requêtes. Cela montre tous vos pools de back-ends préconfigurés qui sont actuellement dans votre profil Front Door. 
 Protocole de transfert | Requête correspondante, HTTP ou HTTPS.
 Réécrire URL | Utilisez cette action pour réécrire le chemin d’accès d’une requête en cours d’acheminement vers votre origine. S’il est activé, voir ci-dessous pour les autres champs obligatoires
 Mise en cache | Activé, Désactivé. Voir ci-dessous pour les autres champs obligatoires s’il est activé. 

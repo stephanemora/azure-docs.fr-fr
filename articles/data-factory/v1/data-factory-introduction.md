@@ -12,12 +12,12 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: overview
 ms.date: 01/22/2018
-ms.openlocfilehash: 4175214219350620ae44d0249243e23b1a25144a
-ms.sourcegitcommit: 1f48ad3c83467a6ffac4e23093ef288fea592eb5
+ms.openlocfilehash: 69265b17d5030d30bbb4d4be3e68c3d98fc90af0
+ms.sourcegitcommit: 01cd19edb099d654198a6930cebd61cae9cb685b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/29/2020
-ms.locfileid: "84196605"
+ms.lasthandoff: 06/24/2020
+ms.locfileid: "85321088"
 ---
 # <a name="introduction-to-azure-data-factory"></a>Présentation d’Azure Data Factory 
 > [!div class="op_single_selector" title1="Sélectionnez la version du service Data Factory que vous utilisez :"]
@@ -142,6 +142,6 @@ Pour découvrir comment créer des fabriques de données avec des pipelines de d
 
 | Didacticiel | Description |
 | --- | --- |
-| [Déplacer des données entre deux magasins de données cloud](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md) |Créez une fabrique de données avec un pipeline qui déplace des données de Blob Storage vers une base de données SQL. |
+| [Déplacer des données entre deux magasins de données cloud](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md) |Créez une fabrique de données avec un pipeline qui déplace des données du stockage blob vers SQL Database. |
 | [Transformer des données à l’aide du cluster Hadoop](data-factory-build-your-first-pipeline.md) |Générez votre première fabrique de données Azure avec un pipeline de données qui traite les données en exécutant le script Hive sur un cluster Azure HDInsight (Hadoop). |
 | [Déplacer des données entre un magasin de données locale et un magasin de données cloud à l’aide de la passerelle de gestion des données](data-factory-move-data-between-onprem-and-cloud.md) |Créez une fabrique de données avec un pipeline qui déplace des données d’une base de données SQL Server vers un objet blob Azure. Dans le cadre de la procédure pas à pas, vous installez et configurez la passerelle de gestion des données sur votre ordinateur. |

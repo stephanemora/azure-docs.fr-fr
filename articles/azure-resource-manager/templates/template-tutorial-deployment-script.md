@@ -13,12 +13,12 @@ ms.devlang: na
 ms.date: 04/23/2020
 ms.topic: tutorial
 ms.author: jgao
-ms.openlocfilehash: 2b4b94c05b39dddcef83644638a105d5b6c75118
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 81574f25e2132a7079fa0242284fb67b0132a8af
+ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "82184977"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86119325"
 ---
 # <a name="tutorial-use-deployment-scripts-to-create-a-self-signed-certificate-preview"></a>Tutoriel : Utiliser des scripts de déploiement pour créer un certificat auto-signé (préversion)
 
@@ -40,7 +40,7 @@ Ce tutoriel décrit les tâches suivantes :
 
 Pour effectuer ce qui est décrit dans cet article, vous avez besoin des éléments suivants :
 
-* **[Visual Studio Code](https://code.visualstudio.com/) avec l’extension Outils Resource Manager**. Consultez [Utiliser Visual Studio Code pour créer des modèles ARM](./use-vs-code-to-create-template.md).
+* **[Visual Studio Code](https://code.visualstudio.com/) avec l’extension Outils Resource Manager**. Consultez [Démarrage rapide : Créer des modèles Azure Resource Manager avec Visual Studio Code](./quickstart-create-templates-use-visual-studio-code.md).
 
 * **Une identité managée affectée par l’utilisateur avec le rôle de contributeur au niveau de l’abonnement**. Cette identité est utilisée pour exécuter les scripts de déploiement. Pour en créer une, consultez [Identité managée affectée par l’utilisateur](../../active-directory/managed-identities-azure-resources/qs-configure-portal-windows-vm.md#user-assigned-managed-identity). Vous avez besoin de l’ID d’identité lorsque vous déployez le modèle. Le format de l’identité est le suivant :
 

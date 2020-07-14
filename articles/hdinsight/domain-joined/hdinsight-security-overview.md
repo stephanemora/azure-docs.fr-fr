@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.topic: overview
 ms.custom: seoapr2020
 ms.date: 04/20/2020
-ms.openlocfilehash: 65df89aff0232d7bf9809cdffc4262d1a640a5a1
-ms.sourcegitcommit: 99d016949595c818fdee920754618d22ffa1cd49
+ms.openlocfilehash: 1869671b465b7175cf3160c41debc66cbd0818ad
+ms.sourcegitcommit: bf8c447dada2b4c8af017ba7ca8bfd80f943d508
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/15/2020
-ms.locfileid: "84771119"
+ms.lasthandoff: 06/25/2020
+ms.locfileid: "85367102"
 ---
 # <a name="overview-of-enterprise-security-in-azure-hdinsight"></a>Vue d’ensemble de la sécurité d’entreprise dans Azure HDInsight
 
@@ -81,6 +81,7 @@ Le tableau suivant fournit des liens vers des ressources pour chaque type de sol
 |  | Configurer des [points de terminaison de service de réseau virtuel Azure](https://docs.microsoft.com/azure/virtual-network/virtual-network-service-endpoints-overview) pour Cosmos DB et [Azure SQL DB](https://docs.microsoft.com/azure/sql-database/sql-database-vnet-service-endpoint-rule-overview) | Customer |
 |  | Vérifier que le [chiffrement TLS](../../storage/common/storage-security-tls.md) est activé pour les données en transit | Customer |
 |  | Configurer des [clés gérées par le client](../../storage/common/storage-encryption-keys-portal.md) pour le chiffrement du Stockage Azure | Customer |
+|  | Contrôler l’accès à vos données par le support Azure à l’aide de [Customer Lockbox](https://docs.microsoft.com/azure/security/fundamentals/customer-lockbox-overview) | Customer |
 | Sécurité des applications et des middlewares (intergiciels) | Intégrer à AAD-DS et [configurer l’authentification](apache-domain-joined-configure-using-azure-adds.md) | Customer |
 |  | Configurer des stratégies d’[autorisation Apache Ranger](apache-domain-joined-run-hive.md) | Customer |
 |  | Utiliser les [journaux Azure Monitor](../hdinsight-hadoop-oms-log-analytics-tutorial.md) | Customer |

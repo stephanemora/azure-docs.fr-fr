@@ -12,15 +12,15 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 11/23/2019
 ms.author: sharadag
-ms.openlocfilehash: b2ee41324cfaefa4d5aec3aa02b2d0d8c75da78f
-ms.sourcegitcommit: 2d7910337e66bbf4bd8ad47390c625f13551510b
+ms.openlocfilehash: 081305170020aa35511ad574bd8c5575c192d577
+ms.sourcegitcommit: 01cd19edb099d654198a6930cebd61cae9cb685b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/08/2020
-ms.locfileid: "80879120"
+ms.lasthandoff: 06/24/2020
+ms.locfileid: "85322293"
 ---
 # <a name="what-is-azure-front-door"></a>Qu’est-ce qu’Azure Front Door ?
-Azure Front Door vous permet de définir, gérer et superviser le routage global de votre trafic web en privilégiant l’optimisation des performances et le basculement instantané global à des fins de haute disponibilité. Avec Front Door, vous pouvez transformer vos applications globales (multirégion) d’entreprise et grand public en applications, API et contenus qui seront modernes, personnalisés, robustes et hautes performances pour toucher une audience mondiale avec Azure.
+Azure Front Door vous permet de définir, gérer et superviser le routage global de votre trafic web en privilégiant l’optimisation des performances et le basculement global rapide à des fins de haute disponibilité. Avec Front Door, vous pouvez transformer vos applications globales (multirégion) d’entreprise et grand public en applications, API et contenus qui seront modernes, personnalisés, robustes et hautes performances pour toucher une audience mondiale avec Azure.
 
 Front Door fonctionne au niveau de la couche 7 ou HTTP/HTTPS et utilise le protocole anycast avec Split TCP et le réseau global de Microsoft pour améliorer la connectivité globale. Veillez donc à sélectionner la méthode de routage appropriée dans la configuration pour que Front Door route les requêtes de vos clients vers le backend d’application offrant les plus hautes performances et la meilleure disponibilité. Un backend d’application est un service accessible sur Internet hébergé dans ou hors Azure. Front Door fournit un large éventail de [méthodes de routage du trafic](front-door-routing-methods.md) et [d’options de supervision de l’intégrité du backend](front-door-health-probes.md) pour répondre aux besoins variés des applications et aux divers modèles de basculement automatique. À l’instar de [Traffic Manager](../traffic-manager/traffic-manager-overview.md), Front Door est résilient aux défaillances, notamment à l’échec d’une région Azure entière.
 
@@ -36,7 +36,7 @@ Grâce au protocole anycast basé sur Split TCP, Front Door garantit la connexio
 
 ## <a name="increase-application-availability-with-smart-health-probes"></a>Amélioration de la disponibilité des applications avec des sondes d’intégrité actives
 
-Pour garantir la haute disponibilité de vos applications critiques, Front Door utilise des sondes d’intégrité actives qui supervisent la latence et la disponibilité de vos backends et qui assurent le basculement automatique instantané en cas de panne d’un backend. Vous pouvez donc effectuer des opérations de maintenance planifiées sur vos applications sans temps d’arrêt. Front Door dirige le trafic vers les autres backends pendant la maintenance.
+Pour garantir la haute disponibilité de vos applications critiques, Front Door utilise des sondes d’intégrité actives qui supervisent la latence et la disponibilité de vos backends et qui assurent le basculement automatique rapide en cas de panne d’un backend. Vous pouvez donc effectuer des opérations de maintenance planifiées sur vos applications sans temps d’arrêt. Front Door dirige le trafic vers les autres backends pendant la maintenance.
 
 ## <a name="url-based-routing"></a>Routage basé sur des URL
 Le routage basé sur le chemin d’accès de l’URL vous permet de router le trafic vers des pools de backends en fonction des chemins d’URL de la requête. L’un des scénarios consiste à router les requêtes pour différents types de contenu vers des pools de backends différents.

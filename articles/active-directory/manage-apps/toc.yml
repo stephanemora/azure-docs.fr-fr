@@ -5,6 +5,8 @@
   items:
     - name: "Qu’est-ce que la gestion des applications\_?"
       href: what-is-application-management.md
+    - name: "Qu’est-ce que l’authentification unique\_?"
+      href: what-is-single-sign-on.md
 - name: Démarrages rapides
   items:
     - name: Voir vos applications
@@ -19,6 +21,8 @@
       href: delete-application-portal.md
 - name: Tutoriels
   items:
+    - name: Ajouter une application non listée dans la galerie
+      href: add-non-gallery-app.md
     - name: "Applications de galerie intégrées (p.\_ex., ServiceNow, Salesforce, Dropbox)"
       href: /azure/active-directory/saas-apps/
     - name: Ajouter une application locale via le proxy d’application
@@ -46,8 +50,6 @@
               href: developer-guidance-for-integrating-applications.md
         - name: Authentification unique
           items:
-            - name: Qu’est-ce que l’authentification unique
-              href: what-is-single-sign-on.md
             - name: Activer SSO pour votre application multilocataire
               href: isv-sso-content.md
             - name: Créer un locataire Azure pour une application multilocataire
@@ -103,10 +105,6 @@
   items:
     - name: Applications cloud et authentification unique
       items:
-        - name: Ajouter une application cloud
-          items:
-            - name: Ajouter une application non-galerie
-              href: add-non-gallery-app.md
         - name: Configurer l’authentification unique
           items:
             - name: Configurer l’authentification unique SAML
@@ -143,6 +141,8 @@
               href: configure-admin-consent-workflow.md
             - name: Affecter un utilisateur ou un groupe à une application
               href: assign-user-or-group-access-portal.md
+            - name: Vérifier les autorisations accordées aux applications
+              href: manage-application-permissions.md
             - name: Créer des collections sur Mes applications
               href: access-panel-collections.md
             - name: Utiliser l’accès aux applications en libre-service

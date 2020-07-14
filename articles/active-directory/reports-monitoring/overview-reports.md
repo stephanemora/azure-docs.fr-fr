@@ -17,12 +17,12 @@ ms.date: 11/13/2018
 ms.author: markvi
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b655fa2f12eac894e97c61cc931983aa58fff7a9
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.openlocfilehash: 6c2ae9e7654fa468d499ca6ef8543b98b1e372ca
+ms.sourcegitcommit: 1d9f7368fa3dadedcc133e175e5a4ede003a8413
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "74007920"
+ms.lasthandoff: 06/27/2020
+ms.locfileid: "85481389"
 ---
 # <a name="what-are-azure-active-directory-reports"></a>Présentation des rapports Azure Active Directory
 
@@ -81,7 +81,7 @@ Le [rapport de journaux d’audit](concept-audit-logs.md) vous fournit les enreg
 
 #### <a name="what-azure-ad-license-do-you-need-to-access-the-audit-logs-report"></a>De quelle licence Azure AD avez-vous besoin pour accéder au rapport de journaux d’audit ?  
 
-Le rapport de journaux d’audit est disponible pour les fonctionnalités dont vous disposez les licences. Si vous possédez une licence pour une fonctionnalité spécifique, vous avez également accès aux informations du journal d’audit correspondantes. Pour plus de détails, consultez [Fonctionnalités Azure Active Directory](https://www.microsoft.com/cloud-platform/azure-active-directory-features).   
+Le rapport de journaux d’audit est disponible pour les fonctionnalités dont vous disposez les licences. Si vous possédez une licence pour une fonctionnalité spécifique, vous avez également accès aux informations du journal d’audit correspondantes. Une comparaison détaillée des fonctionnalités selon les [différents types de licences](https://docs.microsoft.com/azure/active-directory/fundamentals/active-directory-whatis#what-are-the-azure-ad-licenses) est disponible dans la [page Tarification Azure Active Directory](https://azure.microsoft.com/pricing/details/active-directory/). Pour plus de détails, consultez [Fonctionnalités Azure Active Directory](https://docs.microsoft.com/azure/active-directory/fundamentals/active-directory-whatis#which-features-work-in-azure-ad).
 
 ### <a name="sign-ins-report"></a>Rapport de connexions
 

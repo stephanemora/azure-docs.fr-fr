@@ -3,16 +3,16 @@ title: Instances réservées de machine virtuelle Azure EA
 description: Cet article résume la façon dont les réservations Azure pour les instances réservées de machine virtuelle peuvent vous aider à faire des économies dans le cadre de l’inscription de votre entreprise.
 author: bandersmsft
 ms.author: banders
-ms.date: 06/11/2020
+ms.date: 07/06/2020
 ms.topic: conceptual
 ms.service: cost-management-billing
 ms.reviewer: boalcsva
-ms.openlocfilehash: a06f416ed1d4df33cc6777eba878eee2b4f6b047
-ms.sourcegitcommit: c4ad4ba9c9aaed81dfab9ca2cc744930abd91298
+ms.openlocfilehash: b78abeaac3066839636918923636f4b7bdf9ee35
+ms.sourcegitcommit: e132633b9c3a53b3ead101ea2711570e60d67b83
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/12/2020
-ms.locfileid: "84735419"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86044853"
 ---
 # <a name="azure-ea-vm-reserved-instances"></a>Instances réservées de machine virtuelle Azure EA
 
@@ -83,9 +83,9 @@ Si vous n’avez pas utilisé l’offre Azure Hybrid Benefit pour acheter des in
 
 ### <a name="reserved-instance-billing"></a>Facturation d’instance réservée
 
-Pour les clients professionnels, l’engagement financier Azure pour acheter des instances de machines virtuelles réservées Azure. Si votre inscription dispose d’un solde d’engagement financier suffisant pour couvrir l’achat d’instance réservée, le montant est déduit de votre solde d’engagement financier et vous ne recevez pas de facture pour l’achat.
+Pour les clients professionnels, Paiement anticipé Azure est utilisé pour acheter des instances de machines virtuelles réservées Azure. Si votre inscription dispose d’un solde de Paiement anticipé Azure suffisant pour couvrir l’achat d’instance réservée, le montant est déduit de votre solde de Paiement anticipé Azure et vous ne recevez pas de facture pour l’achat.
 
-Dans les scénarios où les clients EA Azure ont utilisé la totalité de leur engagement financier, des instances réservées peuvent toujours être achetées, et ces achats sont facturés sur la facture de dépassement suivante. Le dépassement d’instance réservée, le cas échéant, sera inclus sur la facture de dépassement normale.
+Dans les scénarios où les clients EA Azure ont utilisé la totalité de leur Paiement anticipé Azure, des instances réservées peuvent toujours être achetées, et ces achats sont facturés sur la facture de dépassement suivante. Le dépassement d’instance réservée, le cas échéant, sera inclus sur la facture de dépassement normale.
 
 ### <a name="reserved-instance-expiration"></a>Expiration d’instance réservée
 

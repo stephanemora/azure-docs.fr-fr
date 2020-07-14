@@ -1,6 +1,6 @@
 ---
-title: Fichier Include
-description: Fichier Include
+title: Fichier include
+description: Fichier include
 services: app-service
 author: cephalin
 ms.service: app-service
@@ -9,15 +9,15 @@ ms.date: 03/29/2019
 ms.author: cephalin
 ms.custom: include file
 ms.openlocfilehash: 060bc1039982cc0a77214d5dbe2a08de7a839c84
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/26/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "67177542"
 ---
 Pour établir une session SSH directe avec votre conteneur, votre application doit être en cours d’exécution.
 
-Collez l’URL suivante dans votre navigateur, puis remplacez \<app-name> par le nom de votre application :
+Collez l’URL suivante dans votre navigateur et remplacez \<app-name> par le nom de votre application :
 
 ```
 https://<app-name>.scm.azurewebsites.net/webssh/host

@@ -7,12 +7,12 @@ ms.service: cache
 ms.topic: tutorial
 ms.custom: mvc
 ms.date: 03/30/2018
-ms.openlocfilehash: ca70262a7980df9d427fbd7e58e08b41c37d7133
-ms.sourcegitcommit: 1f48ad3c83467a6ffac4e23093ef288fea592eb5
+ms.openlocfilehash: 177aa42991612d8ce2e899576599aafc43015c58
+ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/29/2020
-ms.locfileid: "84195578"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86082775"
 ---
 # <a name="tutorial-create-a-cache-aside-leaderboard-on-aspnet"></a>Tutoriel : Créer un leaderboard de type Cache-Aside sur ASP.NET
 
@@ -680,8 +680,8 @@ Dans cette section, vous allez provisionner une nouvelle base de données dans S
 
     | Espace réservé | Valeur suggérée |
     | --- | --- |
-    | *{your_username}* | Utilisez la **connexion d’administrateur du serveur** pour le serveur de base de données que vous venez de créer. |
-    | *{your_password}* | Utilisez le mot de passe pour le serveur de base de données que vous venez de créer. |
+    | *{your_username}* | Utilisez les **informations de connexion d’administrateur de serveur** pour le serveur que vous venez de créer. |
+    | *{your_password}* | Utilisez le mot de passe pour le serveur que vous venez de créer. |
 
     En ajoutant le nom d’utilisateur et un mot de passe comme paramètre d’application, votre nom d’utilisateur et un mot de passe ne sont pas inclus dans votre code. Cette approche permet de protéger les informations d’identification.
 

@@ -7,12 +7,12 @@ ms.service: cosmos-db
 ms.devlang: javascript
 ms.topic: how-to
 ms.date: 12/26/2018
-ms.openlocfilehash: 0fe0c9e41a5787a963920d300cd99ecaf8803019
-ms.sourcegitcommit: 635114a0f07a2de310b34720856dd074aaf4f9cd
+ms.openlocfilehash: 74c140f2fa08fb49235c0503ea5812e047185f8b
+ms.sourcegitcommit: 0100d26b1cac3e55016724c30d59408ee052a9ab
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/23/2020
-ms.locfileid: "85262767"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86023497"
 ---
 # <a name="expire-data-with-azure-cosmos-dbs-api-for-mongodb"></a>Faire expirer des données avec l’API Azure Cosmos DB pour MongoDB
 
@@ -74,7 +74,7 @@ globaldb:PRIMARY> db.coll.insert({id:1, location: "Paris", ttl: NumberLong(21474
 
 La fonctionnalité de durée de vie par document peut être activée avec l’API Azure Cosmos DB pour MongoDB.
 
-![Capture d’écran de l’activation de la fonctionnalité de durée de vie par document dans le portail](./media/mongodb-ttl/mongodb_portal_ttl.png) 
+:::image type="content" source="./media/mongodb-ttl/mongodb_portal_ttl.png" alt-text="Capture d’écran de l’activation de la fonctionnalité de durée de vie par document dans le portail":::
 
 ## <a name="next-steps"></a>Étapes suivantes
 * [Faire expirer automatiquement des données avec la durée de vie dans Azure Cosmos DB](../cosmos-db/time-to-live.md)

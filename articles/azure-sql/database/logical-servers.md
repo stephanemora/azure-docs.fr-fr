@@ -1,7 +1,7 @@
 ---
-title: Qu’est-ce qu’un serveur dans Azure SQL Database et Azure Synapse ?
+title: Qu’est-ce qu’un serveur dans Azure SQL Database et Azure Synapse Analytics ?
 titleSuffix: ''
-description: Découvrez les serveurs SQL logiques utilisés par Azure SQL Database et Azure Synapse et comment les gérer.
+description: Découvrez les serveurs SQL logiques utilisés par Azure SQL Database et Azure Synapse Analytics et comment les gérer.
 services: sql-database
 ms.service: sql-database
 ms.subservice: single-database
@@ -12,17 +12,17 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: ''
 ms.date: 03/12/2019
-ms.openlocfilehash: 6df3cd82413f9a1c352be4349006accd52c24490
-ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
+ms.openlocfilehash: b45714489f13d33d90b5694f458e6339e33595f3
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "84035930"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85367567"
 ---
 # <a name="what-is-a-logical-sql-server-in-azure-sql-database-and-azure-synapse"></a>Qu’est-ce qu’un serveur SQL logique dans Azure SQL Database et Azure Synapse ?
 [!INCLUDE[appliesto-sqldb-asa](../includes/appliesto-sqldb-asa.md)]
 
-Dans Azure SQL Database et Azure Synapse, un serveur est une construction logique qui joue le rôle d’un point d’administration central pour une collection de bases de données. Au niveau du serveur, vous pouvez administrer des [connexions](logins-create-manage.md), des [règles de pare-feu](firewall-configure.md), des [règles d’audit](../../azure-sql/database/auditing-overview.md), des [stratégies de détection des menaces](threat-detection-configure.md) et des [groupes de basculement automatique](auto-failover-group-overview.md). Un serveur logique peut se trouver dans une région différente de celle de son groupe de ressources. Le serveur doit déjà exister pour que vous puissiez créer une base de données dans Azure SQL Database ou une base de données de l’entrepôt de données dans Azure Synapse. Toutes les bases de données gérées par un serveur unique sont créées dans la même région que le serveur.
+Dans Azure SQL Database et Azure Synapse Analytics, un serveur est une construction logique qui joue le rôle d’un point d’administration central pour une collection de bases de données. Au niveau du serveur, vous pouvez administrer des [connexions](logins-create-manage.md), des [règles de pare-feu](firewall-configure.md), des [règles d’audit](../../azure-sql/database/auditing-overview.md), des [stratégies de détection des menaces](threat-detection-configure.md) et des [groupes de basculement automatique](auto-failover-group-overview.md). Un serveur logique peut se trouver dans une région différente de celle de son groupe de ressources. Le serveur doit déjà exister pour que vous puissiez créer une base de données dans Azure SQL Database ou une base de données de l’entrepôt de données dans Azure Synapse Analytics. Toutes les bases de données gérées par un serveur unique sont créées dans la même région que le serveur.
 
 Ce serveur SQL Database est différent d’une instance que vous connaissez peut-être dans le monde local. Plus précisément, il n’existe aucune garantie concernant l’emplacement des bases de données ou de la base de données de l’entrepôt de données par rapport au serveur qui les gère. En outre, ni Azure SQL Database ni Azure Synapse n’expose des accès ou des fonctionnalités au niveau de l’instance. En revanche, les bases de données d’instance dans une instance gérée sont toutes physiquement colocalisées, de la même manière que SQL Server dans le monde des machines virtuelles ou local.
 
@@ -53,9 +53,9 @@ Vous pouvez créer le groupe de ressources d’un serveur en avance ou lors de l
 
 ### <a name="create-a-blank-server"></a>Créer un serveur vide
 
-Pour créer un serveur (sans base de données, pool élastique ni base de données de l’entrepôt de données) à l’aide du [Portail Azure](https://portal.azure.com), accédez à un formulaire de serveur SQL vide (serveur logique).
+Pour créer un serveur (sans base de données, pool élastique ni base de données de l’entrepôt de données) à l’aide du [Portail Azure](https://portal.azure.com), accédez à un formulaire de serveur SQL vide (serveur SQL logique).
 
-### <a name="create-a-blank-or-sample-sql-database-in-azure-sql-database"></a>Créer une base de données SQL vide ou un échantillon dans Azure SQL Database
+### <a name="create-a-blank-or-sample-database-in-azure-sql-database"></a>Créer une base de données vide ou un échantillon dans Azure SQL Database
 
 Pour créer une base de données dans SQL Database à l’aide du [Portail Azure](https://portal.azure.com), accédez à un formulaire SQL Database vide et renseignez les informations demandées. Vous pouvez créer le groupe de ressources et le serveur en avance ou lors de la création de la base de données elle-même. Vous pouvez créer une base de données vide ou créer un exemple de base de données reposant sur Adventure Works LT.
 
@@ -105,7 +105,7 @@ Pour créer et gérer des serveurs, des bases de données et des pare-feux avec 
 | New-AzSqlServerVirtualNetworkRule | Crée une [*règle de réseau virtuel*](vnet-service-endpoint-rule-overview.md), basée sur un sous-réseau qui est un point de terminaison de service de réseau virtuel. |
 
 > [!TIP]
-> Pour un démarrage rapide de PowerShell, consultez la page [Créer une base de données SQL Azure unique à l’aide de PowerShell](single-database-create-quickstart.md). Pour obtenir des exemples de script PowerShell, consultez [Utiliser PowerShell pour créer une base de données unique SQL Azure et configurer une règle de pare-feu](scripts/create-and-configure-database-powershell.md) et [Utiliser PowerShell pour surveiller et mettre à l’échelle une base de données unique SQL Azure](scripts/monitor-and-scale-database-powershell.md).
+> Pour un guide de démarrage rapide PowerShell, consultez [Créer une base de données dans Azure SQL Database à l’aide de PowerShell](single-database-create-quickstart.md). Pour obtenir des exemples de scripts PowerShell, consultez [Utiliser PowerShell pour créer une base de données dans Azure SQL Database et configurer une règle de pare-feu](scripts/create-and-configure-database-powershell.md) et [Superviser et mettre à l’échelle une base de données dans Azure SQL Database avec PowerShell](scripts/monitor-and-scale-database-powershell.md).
 >
 
 ## <a name="manage-servers-databases-and-firewalls-using-the-azure-cli"></a>Gérer des serveurs, des bases de données et des pare-feux à l’aide d’Azure CLI
@@ -135,7 +135,7 @@ Pour créer et gérer des serveurs, des bases de données et des pare-feux avec 
 |[az sql server firewall-rule delete](/cli/azure/sql/server/firewall-rule#az-sql-server-firewall-rule-delete)|Supprime une règle de pare-feu|
 
 > [!TIP]
-> Pour un démarrage rapide d’Azure CLI, consultez [Exemples Azure CLI pour Azure SQL Database](az-cli-script-samples-content-guide.md). Pour obtenir des exemples de scripts Azure CLI, consultez [Utiliser CLI pour créer une base de données unique Azure SQL et configurer une règle de pare-feu](scripts/create-and-configure-database-cli.md) et [Utiliser CLI pour surveiller et mettre à l’échelle une base de données unique SQL Azure](scripts/monitor-and-scale-database-cli.md).
+> Pour un démarrage rapide Azure CLI, consultez [Créer une base de données Azure SQL Database à l’aide d’Azure CLI](az-cli-script-samples-content-guide.md). Pour obtenir des exemples de scripts Azure CLI, consultez [Utiliser CLI pour créer une base de données Azure SQL et configurer une règle de pare-feu](scripts/create-and-configure-database-cli.md) et [Utiliser CLI pour superviser et mettre à l’échelle une base de données Azure SQL Database](scripts/monitor-and-scale-database-cli.md).
 >
 
 ## <a name="manage-servers-databases-and-firewalls-using-transact-sql"></a>Gérer des serveurs, des bases de données et des pare-feux à l’aide de Transact-SQL
@@ -150,11 +150,11 @@ Pour créer et gérer des serveurs, des bases de données et des pare-feux avec 
 |[CREATE DATABASE (Azure SQL Database)](/sql/t-sql/statements/create-database-transact-sql?view=azuresqldb-current) | Crée une nouvelle base de données Azure SQL Database. Vous devez être connecté à la base de données master pour créer une base de données.|
 |[CREATE DATABASE (Azure Synapse)](/sql/t-sql/statements/create-database-transact-sql?view=azure-sqldw-latest) | Crée une nouvelle base de données de l’entrepôt de données dans Azure Synapse. Vous devez être connecté à la base de données master pour créer une base de données.|
 | [ALTER DATABASE (Azure SQL Database)](/sql/t-sql/statements/alter-database-transact-sql?view=azuresqldb-current) |Modifie la base de données ou le pool élastique. |
-|[ALTER DATABASE (Azure SQL Data Warehouse)](/t-sql/statements/alter-database-transact-sql?view=azure-sqldw-latest)|Crée une base de données de l’entrepôt de données dans Azure Synapse.|
+|[ALTER DATABASE (Azure SQL Data Warehouse)](https://docs.microsoft.com/sql/t-sql/statements/alter-database-transact-sql?view=sql-server-ver15)|Crée une base de données de l’entrepôt de données dans Azure Synapse.|
 |[DROP DATABASE (Transact-SQL)](/sql/t-sql/statements/drop-database-transact-sql)|Supprime une base de données.|
 |[sys.database_service_objectives (Azure SQL Database)](/sql/relational-databases/system-catalog-views/sys-database-service-objectives-azure-sql-database)|Renvoie l’édition (niveau de service), l’objectif de service (niveau tarifaire) et, le cas échéant, le nom du pool élastique d’une base de données. Si vous êtes connecté à la base de données MASTER d’un serveur, retourne les informations sur toutes les bases de données. Pour Azure Synapse, vous devez être connecté à la base de données MASTER.|
 |[sys.dm_db_resource_stats (Azure SQL Database)](/sql/relational-databases/system-dynamic-management-views/sys-dm-db-resource-stats-azure-sql-database)| Retourne la consommation de mémoire, d’E/S et d’UC d’une base de données dans Azure SQL Database. Il existe une ligne pour chaque période de 15 secondes, même s'il n'y a aucune activité dans la base de données.|
-|[sys.resource_stats (Azure SQL Database)](/sql/relational-databases/system-catalog-views/sys-resource-stats-azure-sql-database)|Renvoie les données de stockage et l’utilisation d’UC pour une base de données Azure SQL Database. Les données sont collectées et agrégées dans des intervalles de cinq minutes.|
+|[sys.resource_stats (Azure SQL Database)](/sql/relational-databases/system-catalog-views/sys-resource-stats-azure-sql-database)|Renvoie les données de stockage et l’utilisation d’UC pour une base de données dans Azure SQL Database. Les données sont collectées et agrégées dans des intervalles de cinq minutes.|
 |[sys.database_connection_stats (Azure SQL Database)](/sql/relational-databases/system-catalog-views/sys-database-connection-stats-azure-sql-database)|Contient des statistiques sur les événements de connectivité de Azure SQL Database, ce qui fournit une vue d’ensemble du nombre d’échecs et de réussites de connexion de base de données. |
 |[sys.event_log (Azure SQL Database)](/sql/relational-databases/system-catalog-views/sys-event-log-azure-sql-database)|Renvoie les connexions de base de données, échecs de connexions et interblocages pour Azure SQL Database. Utilisez ces informations pour suivre ou détecter un problème de l'activité de base de données.|
 |[sp_set_firewall_rule (Azure SQL Database)](/sql/relational-databases/system-stored-procedures/sp-set-firewall-rule-azure-sql-database)|Crée ou met à jour les paramètres de pare-feu au niveau serveur de votre serveur. Cette procédure stockée est uniquement disponible dans la base de données master à la connexion du principal au niveau du serveur. Une règle de pare-feu au niveau du serveur peut uniquement être créée à l’aide de Transact-SQL, après que la première règle de pare-feu au niveau du serveur a été créée par un utilisateur disposant des autorisations au niveau d’Azure|
@@ -162,7 +162,7 @@ Pour créer et gérer des serveurs, des bases de données et des pare-feux avec 
 |[sp_delete_firewall_rule (Azure SQL Database)](/sql/relational-databases/system-stored-procedures/sp-delete-firewall-rule-azure-sql-database)|Supprime des paramètres de pare-feu au niveau serveur d’un serveur. Cette procédure stockée est uniquement disponible dans la base de données master à la connexion du principal au niveau du serveur.|
 |[sp_set_database_firewall_rule (Azure SQL Database)](/sql/relational-databases/system-stored-procedures/sp-set-database-firewall-rule-azure-sql-database)|Crée ou met à jour les règles de pare-feu au niveau base de données pour une base de données dans Azure SQL Database. Les règles de pare-feu d’une base de données peuvent être configurées pour la base de données MASTER, ainsi que pour les bases de données utilisateur sur SQL Database. Les règles de pare-feu d’une base de données sont utiles lors de l’utilisation d’utilisateurs de base de données autonome. Les règles de pare-feu de base de données ne sont pas prises en charge dans Azure Synapse.|
 |[sys.database_firewall_rules (Azure SQL Database)](/sql/relational-databases/system-catalog-views/sys-database-firewall-rules-azure-sql-database)|Renvoie des informations sur les paramètres de pare-feu au niveau base de données pour une base de données dans Azure SQL Database. |
-|[sp_delete_database_firewall_rule (Azure SQL Database)](/sql/relational-databases/system-stored-procedures/sp-delete-database-firewall-rule-azure-sql-database)|Supprime le paramètre de pare-feu au niveau base de données pour une base de données de Azure SQL Database. |
+|[sp_delete_database_firewall_rule (Azure SQL Database)](/sql/relational-databases/system-stored-procedures/sp-delete-database-firewall-rule-azure-sql-database)|Supprime le paramètre de pare-feu au niveau de la base de données pour une de vos bases de données dans Azure SQL Database. |
 
 > [!TIP]
 > Pour un guide de démarrage rapide en utilisant SQL Server Management Studio sur Microsoft Windows, consultez [Azure SQL Database : Utiliser SQL Server Management Studio pour se connecter et interroger des données](connect-query-ssms.md). Pour un guide de démarrage rapide en utilisant Visual Studio Code sur macOS, Linux ou Windows, consultez [Azure SQL Database : Utiliser Visual Studio Code pour se connecter et interroger des données](connect-query-vscode.md).

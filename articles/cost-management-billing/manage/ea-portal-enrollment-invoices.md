@@ -3,16 +3,16 @@ title: Factures d’inscription Azure Entreprise
 description: Cet article explique comment gérer et traiter votre facture Azure Enterprise.
 author: bandersmsft
 ms.author: banders
-ms.date: 06/01/2020
+ms.date: 07/06/2020
 ms.topic: conceptual
 ms.service: cost-management-billing
 ms.reviewer: boalcsva
-ms.openlocfilehash: 5c26af74a392e3e6d3bb5557960b81604de7cdf3
-ms.sourcegitcommit: ad66392df535c370ba22d36a71e1bbc8b0eedbe3
+ms.openlocfilehash: 5276780d06671b8358f615b1fcb6447c8e1310f9
+ms.sourcegitcommit: e132633b9c3a53b3ead101ea2711570e60d67b83
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/16/2020
-ms.locfileid: "84807794"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86044870"
 ---
 # <a name="azure-enterprise-enrollment-invoices"></a>Factures d’inscription Azure Entreprise
 
@@ -46,14 +46,14 @@ Le portail Azure Enterprise génère automatiquement un numéro de bon de comman
 
 ## <a name="azure-enterprise-billing-frequency"></a>Fréquence de facturation d’Azure Enterprise
 
-Chaque année à la date d’effet de l’inscription, Microsoft facture tous les achats avec engagement des services Microsoft Azure. Microsoft vous facturera pour les arriérés de paiement relatifs à toute utilisation au-delà des montants de cet engagement.
+Chaque année à la date d’effet de l’inscription, Microsoft facture tous les achats avec Paiement anticipé des services Microsoft Azure. Microsoft vous facturera pour les arriérés de Paiement anticipé relatifs à toute utilisation au-delà des montants de cet engagement.
 
-- Les frais d’engagement sont établis selon un taux mensuel et facturés une fois par an à l’avance.
+- Les frais de Paiement anticipé sont établis selon un taux mensuel et facturés une fois par an à l’avance.
 - Les frais de dépassement sont calculés chaque mois et facturés en arriérés à la fin de votre période de facturation.
 
 ### <a name="billing-intervals"></a>Intervalles de facturation
 
-Votre intervalle de facturation dépend de la manière dont vous choisissez d'effectuer vos achats d'engagement. Votre engagement annuel coïncide avec l'un ou l'autre des termes suivants :
+Votre intervalle de facturation dépend de la manière dont vous choisissez d’effectuer vos achats Paiement anticipé. Votre Paiement anticipé annuel coïncide avec l’un ou l’autre des termes suivants :
 
 - La date anniversaire de votre inscription
 - La date d'entrée en vigueur de votre abonnement d'un an aux avenants.
@@ -62,12 +62,12 @@ Vous recevrez votre facture de dépassement en fonction de la date de début et 
 
 - **Inscriptions directes avec une date de début antérieure au 1er mai 2018** :
   - Si vous avez conclu un Contrat Entreprise (EA) direct, vous serez facturé selon un cycle de facturation annuel pour les services Azure, à l’exception des services de la Place de marché Azure. Votre cycle de facturation est basé sur la date d'anniversaire, la date d’entrée en vigueur de votre contrat.
-  - Si vous dépassez 150 % du seuil de votre engagement financier (Monetary Commitment ou MC) EA, vous basculerez automatiquement vers un cycle de facturation trimestriel basé sur votre date d'anniversaire. Vous recevrez également une facture de dépassement de service Azure.
-  - Si vous ne dépassez pas 150 % du seuil de votre engagement financier, votre inscription restera sur un cycle de facturation annuel. Vous recevrez la facture de dépassement à la fin de l'année d'engagement.
+  - Si vous dépassez 150 % du seuil de votre Paiement anticipé Azure EA, vous basculerez automatiquement vers un cycle de facturation trimestriel basé sur votre date d’anniversaire. Vous recevrez également une facture de dépassement de service Azure.
+  - Si vous ne dépassez pas 150 % du seuil de votre Paiement anticipé Azure, votre inscription restera sur un cycle de facturation annuel. Vous recevrez la facture de dépassement à la fin de l’année de Paiement anticipé.
 
 - **Inscriptions directes avec une date de début postérieure au 1er mai 2018** :
   - Votre consommation Azure et les frais facturés séparément sont calculés sur un cycle de facturation mensuel.
-  - Les frais qui ne sont pas couverts par votre engagement financier sont dus en tant que paiement de dépassement.  
+  - Les frais qui ne sont pas couverts par votre Paiement anticipé Azure sont dus en tant que paiement de dépassement.  
 
 - **Inscriptions indirectes avec une inscription qui a commencé avant le 1er mai 2018** :
 
@@ -77,21 +77,21 @@ Vous recevrez votre facture de dépassement en fonction de la date de début et 
 
   Vous êtes sur un cycle de facturation mensuel.  
 
-### <a name="increase-your-monetary-commitment"></a>Augmenter votre engagement financier
+### <a name="increase-your-azure-prepayment"></a>Augmenter votre Paiement anticipé Azure
 
-Vous pouvez augmenter votre engagement à tout moment. Vous serez facturé pour le nombre de mois restant dans la période d'engagement de l’année en cours. Par exemple, si vous vous inscrivez à un avenant d’abonnement d’un an et que vous augmentez votre engagement au cours du sixième six mois, vous serez facturé pour les six mois restants de cette période. Vos quantités d’engagement seront ensuite mises à jour au cours des six derniers mois de votre période d’engagement. Les nouvelles quantités serviront à déterminer les frais de dépassement.
+Vous pouvez augmenter votre Paiement anticipé à tout moment. Vous serez facturé pour le nombre de mois restant dans la période de Paiement anticipé de l’année en cours. Par exemple, si vous signez un avenant d’abonnement d’un an et que vous augmentez votre Paiement anticipé au cours du sixième six mois, vous serez facturé pour les six mois restants de cette période. Vos quantités de Paiement anticipé seront ensuite mises à jour au cours des six derniers mois de votre période de Paiement anticipé. Les nouvelles quantités serviront à déterminer les frais de dépassement.
 
 ### <a name="overage"></a>Dépassement
 
-Pour le dépassement, vous êtes facturé pour l’utilisation ou les réservations qui ont dépassé votre engagement pendant la période de facturation. Pour afficher une répartition du calcul des quantités de dépassement pour des éléments individuels, consultez le rapport Résumé de l’utilisation ou contactez votre partenaire de canal.
+Pour le dépassement, vous êtes facturé pour l’utilisation ou les réservations qui ont dépassé votre Paiement anticipé pendant la période de facturation. Pour afficher une répartition du calcul des quantités de dépassement pour des éléments individuels, consultez le rapport Résumé de l’utilisation ou contactez votre partenaire de canal.
 
 Chaque ligne de la facture affiche les informations suivantes :
 
 - **Montant total** : total des frais
-- **Utilisation de l’engagement** : montant de votre engagement utilisé pour couvrir les frais
-- **Montant net** : frais qui dépassent votre engagement
+- **Utilisation de Paiement anticipé** : montant de votre Paiement anticipé utilisé pour couvrir les frais
+- **Montant net** : frais qui dépassent votre Paiement anticipé
 
-Les taxes applicables sont calculées uniquement sur le montant net qui dépasse votre engagement.
+Les taxes applicables sont calculées uniquement sur le montant net qui dépasse votre Paiement anticipé.
 
 La facturation de dépassement est automatisée. Le calendrier des notifications et des factures dépend de la date de fin de votre période de facturation.
 
@@ -130,18 +130,18 @@ Pour afficher les crédits :
 1. Dans le [portail Azure Enterprise](https://ea.azure.com), sélectionnez la section **Rapports**.
 1. Sélectionnez **Résumé de l’utilisation**.
 1. Dans le coin supérieur droit, modifiez l’affichage **M** en **C**.
-1. Étendez le champ d’ajustement dans la table d’engagement de service Azure.
+1. Étendez le champ d’ajustement dans la table de Paiement anticipé de service Azure.
 1. Vous verrez les crédits appliqués à votre inscription ainsi qu’une courte explication. Par exemple : Crédit de contrat de niveau de service.
 
-## <a name="pay-your-overage-with-your-monetary-commitment"></a>Payer votre dépassement avec votre engagement financier
+## <a name="pay-your-overage-with-your-azure-prepayment"></a>Payer votre dépassement avec votre Paiement anticipé Azure
 
-Pour pouvoir appliquer votre engagement financier aux dépassements, vous devez répondre aux critères suivants :
+Pour pouvoir appliquer votre Paiement anticipé Azure aux dépassements, vous devez remplir les critères suivants :
 
 - Vous devez avoir des frais de dépassement engagés et qui n’ont pas encore été payés, compris dans un délai d’un an à compter de la date de fin du service facturé.
-- Le montant de votre engagement financier disponible doit couvrir le montant total des frais engagés, y compris toutes les factures Azure échues non payées.
+- Le montant de votre Paiement anticipé Azure disponible doit couvrir le montant total des frais engagés, y compris toutes les factures Azure échues non payées.
 - La durée de facturation que vous demandez doit être entièrement clôturée. La facturation est entièrement clôturée après le cinq du mois.
 - La période de facturation que vous demandez pour le décalage doit être entièrement clôturée.
-- Votre remise ACD (Azure Commitment Discount) se base sur le nouvel engagement réel moins les fonds prévus pour la consommation précédente. Cette exigence s’applique uniquement aux frais de dépassement engagés. Elle n’est valable que pour les services qui consomment un engagement financier et exclut donc les frais relatifs à la Place de marché Azure. Les frais relatifs à la Place de marché Azure sont facturés séparément.
+- Votre remise ACD (Paiement anticipé Azure) se base sur le nouveau Paiement anticipé réel moins les fonds prévus pour la consommation précédente. Cette exigence s’applique uniquement aux frais de dépassement engagés. Elle n’est valable que pour les services qui consomment Paiement anticipé Azure, et exclut donc les frais relatifs à la Place de marché Azure. Les frais relatifs à la Place de marché Azure sont facturés séparément.
 
 Pour effectuer un décalage de dépassement, vous ou l’équipe en charge des comptes pouvez ouvrir une demande de support. Une approbation par e-mail de la part de l'administrateur de votre entreprise ou du contact facturation est nécessaire.
 
@@ -178,13 +178,13 @@ Par exemple, lorsque le premier chiffre à arrondir est 5 et qu'il n'y a pas de 
 
 ### <a name="conversion-between-usage-detail-report-and-the-usage-summary-page"></a>Conversion entre le rapport de détails de l’utilisation et la page de résumé de l’utilisation
 
-Dans le rapport de téléchargement des données d’utilisation, vous pouvez voir l'utilisation des ressources brutes jusqu'à six décimales. Toutefois, les données d’utilisation affichées dans le portail Azure Enterprise sont arrondies à quatre décimales pour les unités d’engagement et tronquées à zéro décimale pour les unités de dépassement. Les données d'utilisation brutes sont d'abord arrondies à quatre chiffres avant d'être converties en unités utilisées dans le portail Azure Enterprise. Les unités Enterprise converties sont ensuite à nouveau arrondies à quatre chiffres. Vous pouvez afficher les heures consommées réelles avant la conversion dans le rapport de téléchargement de l’utilisation et non dans le portail Azure Enterprise.
+Dans le rapport de téléchargement des données d’utilisation, vous pouvez voir l'utilisation des ressources brutes jusqu'à six décimales. Toutefois, les données d’utilisation affichées dans le portail Azure Enterprise sont arrondies à quatre décimales pour les unités de Paiement anticipé et tronquées à zéro décimale pour les unités de dépassement. Les données d'utilisation brutes sont d'abord arrondies à quatre chiffres avant d'être converties en unités utilisées dans le portail Azure Enterprise. Les unités Enterprise converties sont ensuite à nouveau arrondies à quatre chiffres. Vous pouvez afficher les heures consommées réelles avant la conversion dans le rapport de téléchargement de l’utilisation et non dans le portail Azure Enterprise.
 
 Par exemple : Supposons que 694,533404 heures SQL Server réelles sont indiquées dans le rapport de détails de l’utilisation. Ces unités sont converties en unités 6,94533404 de 100 heures de calcul, puis arrondies à 6,9453 pour être affichées dans le portail Azure Enterprise.
 
-- Pour déterminer le montant de facturation total, les unités affichées sont multipliées par le prix unitaire de l’engagement, et le résultat est tronqué à deux décimales. Pour le yen japonais (JPY) et le won coréen (KRW), le montant total est arrondi à zéro décimale.
+- Pour déterminer le montant de facturation total, les unités affichées sont multipliées par le prix unitaire de Paiement anticipé, et le résultat est tronqué à deux décimales. Pour le yen japonais (JPY) et le won coréen (KRW), le montant total est arrondi à zéro décimale.
 - Pour calculer le dépassement, les unités de facturation sont tronquées à six chiffres, puis multipliées par le prix unitaire de dépassement pour déterminer le montant de facturation total.
-- Pour la facturation du fournisseur de services managés (MSP), toute utilisation associée à un service marqué comme MSP est tronquée à zéro décimale après la conversion en unité de mesure EA. En conséquence, la somme de cette utilisation peut être inférieure à la somme totale de l’utilisation indiquée dans le portail Azure Enterprise. Cela dépend si le MSP se trouve toujours dans le solde de son engagement financier ou s’il est déjà en dépassement.
+- Pour la facturation du fournisseur de services managés (MSP), toute utilisation associée à un service marqué comme MSP est tronquée à zéro décimale après la conversion en unité de mesure EA. En conséquence, la somme de cette utilisation peut être inférieure à la somme totale de l’utilisation indiquée dans le portail Azure Enterprise. Cela dépend selon que le MSP se trouve toujours dans le solde de son Paiement anticipé ou s’il est déjà en dépassement.
 
 ### <a name="graduated-pricing"></a>Tarification progressive
 
@@ -226,13 +226,13 @@ Pour les services où la zone et la région affectent la tarification, consultez
 
 Aucuns frais ne sont facturés pour la sortie de données entre des services hébergés dans le même centre de données. Par exemple, Microsoft 365 et Azure.
 
-### <a name="monetary-commitment-and-unbilled-usage"></a>Engagement financier et utilisation non facturée
+### <a name="azure-prepayment-and-unbilled-usage"></a>Paiement anticipé Azure et utilisation non facturée
 
-L’engagement financier Azure est un montant payé à l’avance pour les services Azure. Il est consommé à fur et à mesure que des services sont utilisés. Les services Azure internes sont facturés en fonction de l’engagement financier. Toutefois, certains frais sont facturés séparément, et les services de la Place de marché Azure ne consomment pas l'engagement financier.
+Paiement anticipé Azure est un montant payé à l’avance pour les services Azure. Paiement anticipé Azure est consommé en tant que services utilisés. Les services Azure internes sont facturés sur Paiement anticipé Azure. Toutefois, certains frais sont facturés séparément, et les services de la Place de marché Azure ne consomment pas Paiement anticipé Azure.
 
 ### <a name="charges-billed-separately"></a>Frais facturés séparément
 
-Certains produits et services fournis par des sources tierces ne consomment pas l’engagement financier Azure. Au lieu de cela, ces éléments sont facturés séparément dans le cadre de la facture de dépassement du cycle de facturation standard.
+Certains produits et services fournis par des sources tierces ne consomment pas Paiement anticipé Azure. Au lieu de cela, ces éléments sont facturés séparément dans le cadre de la facture de dépassement du cycle de facturation standard.
 
 Nous avons regroupé tous les frais liés à Azure et à la Place de marché Azure dans une facture unique qui s’aligne sur le cycle de facturation de l’inscription. La facture combinée ne s’applique pas aux clients en Australie, au Japon ou à Singapour.
 
@@ -265,7 +265,7 @@ Les factures sont publiées après le mois suivant la fin de la période de fact
 
    | Intitulé | Description | Nom de fichier |
    | --- | --- | --- |
-   | [Noms de services conviviaux](https://azurepricing.blob.core.windows.net/supplemental/Friendly_Service_Names.xlsx) | Répertorie de tous les services actifs, et inclus les informations suivantes : <br>  <ul><li>catégorie de service</li>   <li>nom de service convivial</li>   <li>nom de l’engagement et numéro de référence</li> <li>nom de la consommation et numéro de pièce</li>   <li>unité de mesure</li>   <li>facteurs de conversion entre l'utilisation déclarée et l'utilisation affichée sur le portail Enterprise</li></ul> | Friendly\_Service\_Names.xlsx |
+   | [Noms de services conviviaux](https://azurepricing.blob.core.windows.net/supplemental/Friendly_Service_Names.xlsx) | Répertorie de tous les services actifs, et inclus les informations suivantes : <br>  <ul><li>catégorie de service</li>   <li>nom de service convivial</li>   <li>nom de Paiement anticipé et numéro de référence</li> <li>nom de la consommation et numéro de pièce</li>   <li>unité de mesure</li>   <li>facteurs de conversion entre l'utilisation déclarée et l'utilisation affichée sur le portail Enterprise</li></ul> | Friendly\_Service\_Names.xlsx |
    | [Champs de téléchargement de service](https://azurepricing.blob.core.windows.net/supplemental/Service_Download_Fields.xlsx) | Cette feuille de calcul fournit une liste de toutes les combinaisons possibles de champs liés au service dans le rapport de téléchargement de l’utilisation. | Service\_Download\_Fields.xlsx |
 
 - Pour plus d’informations sur la compréhension de votre facture et de vos frais, consultez [Comprendre votre facture Contrat Entreprise Azure](../understand/review-enterprise-agreement-bill.md).

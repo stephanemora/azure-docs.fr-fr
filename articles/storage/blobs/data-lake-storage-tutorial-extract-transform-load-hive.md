@@ -8,16 +8,16 @@ ms.topic: tutorial
 ms.date: 11/19/2019
 ms.author: normesta
 ms.reviewer: jamesbak
-ms.openlocfilehash: 1e408f27d4c9b2686bd9f56ca754f5553a446440
-ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
+ms.openlocfilehash: b247a72b5d7db9892c6a2a763b7b71dc5f972d95
+ms.sourcegitcommit: e132633b9c3a53b3ead101ea2711570e60d67b83
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "84014908"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86045295"
 ---
 # <a name="tutorial-extract-transform-and-load-data-by-using-azure-hdinsight"></a>Tutoriel : Extraire, transformer et charger des données avec Azure HDInsight
 
-Dans ce tutoriel, vous effectuez une opération ETL : extraction, transformation et chargement de données. Vous prenez un fichier de données CSV brut, vous l’importez dans un cluster Azure HDInsight, le transformez avec Apache Hive, puis vous le chargez dans une base de données Azure SQL avec Apache Sqoop.
+Dans ce tutoriel, vous effectuez une opération ETL : extraction, transformation et chargement de données. Vous prenez un fichier de données CSV brut, vous l’importez dans un cluster Azure HDInsight, le transformez avec Apache Hive, puis vous le chargez dans une base de données Azure SQL avec Apache Sqoop.
 
 Dans ce tutoriel, vous allez apprendre à :
 
@@ -38,7 +38,7 @@ Si vous ne disposez pas d’abonnement Azure, créez un [compte gratuit](https:/
 
     Consultez [Démarrage rapide : Bien démarrer avec Apache Hadoop et Apache Hive dans Azure HDInsight à l’aide du portail Azure](https://docs.microsoft.com/azure/hdinsight/hadoop/apache-hadoop-linux-create-cluster-get-started-portal).
 
-* **Azure SQL Database** : Vous allez utiliser une base de données Azure SQL comme magasin de données cible. Si vous n’avez pas de base de données SQL, consultez [Créer une base de données Azure SQL dans le portail Azure](../../sql-database/sql-database-get-started.md).
+* **Azure SQL Database** : Vous allez utiliser une base de données Azure SQL comme magasin de données cible. Si vous n’avez pas de base de données dans SQL Database, consultez [Créer une base de données dans Azure SQL Database dans le portail Azure](../../sql-database/sql-database-get-started.md).
 
 * **Azure CLI** : Si vous n’avez pas installé l’interface de ligne de commande Azure, consultez [Installer l’interface de ligne de commande Azure](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest).
 
@@ -224,7 +224,7 @@ Dans le cadre du travail Apache Hive, vous allez importer les données du fichie
 
 ## <a name="create-a-sql-database-table"></a>Créer une table de base de données SQL
 
-Vous avez besoin du nom du serveur de votre base de données SQL pour cette opération. Effectuez ces étapes pour rechercher le nom de votre serveur.
+Pour cette opération, vous avez besoin du nom du serveur de SQL Database. Effectuez ces étapes pour rechercher le nom de votre serveur.
 
 1. Accédez au [portail Azure](https://portal.azure.com).
 

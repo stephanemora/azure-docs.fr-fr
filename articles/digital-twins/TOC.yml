@@ -78,16 +78,22 @@
       href: reference-service-limits.md
     - name: API et Kits de développement logiciel (SDK)
       items:
+        - name: Référence d’API REST
+          href: 'https://docs.microsoft.com/rest/api/azure-digitaltwins/'
         - name: Plan de contrôle
           items:
             - name: Fichier Swagger
               href: 'https://github.com/Azure/azure-rest-api-specs/tree/master/specification/digitaltwins/resource-manager/Microsoft.DigitalTwins'
             - name: Kit SDK .NET (C#) - NuGet
               href: 'https://www.nuget.org/packages/Microsoft.Azure.Management.DigitalTwins/1.0.0-preview.1'
+            - name: Kit SDK .NET (C#) - référence
+              href: 'https://docs.microsoft.com/dotnet/api/overview/azure/digitaltwins/management?view=azure-dotnet-preview'
             - name: Kit SDK .NET (C#) - source
               href: 'https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/digitaltwins/Microsoft.Azure.Management.DigitalTwins'
             - name: Kit de développement logiciel (SDK) Java
               href: 'https://search.maven.org/artifact/com.microsoft.azure.digitaltwins.v2020_03_01_preview/azure-mgmt-digitaltwins'
+            - name: Kit de développement logiciel (SDK) Java - référence
+              href: 'https://docs.microsoft.com/java/api/overview/azure/digitaltwins/management?view=azure-java-preview'
             - name: Kit SDK Java - source
               href: 'https://github.com/Azure/azure-sdk-for-java/tree/master/sdk/digitaltwins'
             - name: Kit de développement logiciel (SDK) JavaScript
@@ -102,14 +108,12 @@
               href: 'https://github.com/Azure/azure-sdk-for-go/tree/master/services/preview/digitaltwins/mgmt/2020-03-01-preview/digitaltwins'
         - name: Plan de données
           items:
-            - name: Référence d’API REST
-              href: 'https://docs.microsoft.com/rest/api/azure-digitaltwins/'
             - name: Fichier Swagger
               href: 'https://github.com/Azure/azure-rest-api-specs/tree/master/specification/digitaltwins/data-plane/Microsoft.DigitalTwins'
-            - name: Kit SDK .NET (C#) - référence
-              href: 'https://docs.microsoft.com/dotnet/api/overview/azure/digitaltwins?view=azure-dotnet-preview'
             - name: Kit SDK .NET (C#) - NuGet
               href: 'https://www.nuget.org/packages/Azure.DigitalTwins.Core'
+            - name: Kit SDK .NET (C#) - référence
+              href: 'https://docs.microsoft.com/dotnet/api/overview/azure/digitaltwins?view=azure-dotnet-preview'
             - name: Kit SDK .NET (C#) - source
               href: 'https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/digitaltwins/Azure.DigitalTwins.Core'
     - name: Interface CLI Digital Twins
@@ -126,10 +130,20 @@
           href: 'https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.vscode-dtdl'
         - name: Bibliothèque de l’analyseur DTDL - NuGet
           href: 'https://www.nuget.org/packages/Microsoft.Azure.DigitalTwins.Parser/'
-        - name: Exemple de validateur DTDL
-          href: 'https://github.com/Azure-Samples/dtdl-validator'
+        - name: Validateur DTDL (exemple)
+          href: 'https://docs.microsoft.com/samples/azure-samples/dtdl-validator/dtdl-validator/'
         - name: Spécification DTMI
           href: 'https://github.com/Azure/digital-twin-model-identifier'
+    - name: Outils et exemples de projets
+      items:
+        - name: Service de simulateur d’appareil
+          href: 'https://github.com/Azure/device-simulation-dotnet/tree/master'
+        - name: Exemples Azure Digital Twins
+          href: 'https://docs.microsoft.com/samples/azure-samples/digital-twins-samples/digital-twins-samples/'
+        - name: Explorateur Azure Digital Twins (exemple)
+          href: 'https://github.com/Azure-Samples/digital-twins-explorer'
+        - name: Validateur DTDL (exemple)
+          href: 'https://docs.microsoft.com/samples/azure-samples/dtdl-validator/dtdl-validator/'
     - name: Outils Azure
       items:
         - name: Azure Cloud Shell

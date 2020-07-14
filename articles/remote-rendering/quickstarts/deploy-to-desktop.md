@@ -5,12 +5,12 @@ author: christophermanthei
 ms.author: chmant
 ms.date: 03/20/2020
 ms.topic: quickstart
-ms.openlocfilehash: 4e9ddeddf616c581b116d48738e110dd8cdac2d3
-ms.sourcegitcommit: 5a8c8ac84c36859611158892422fc66395f808dc
+ms.openlocfilehash: dc566d2702fb24ef551e4900bed7b828d2597383
+ms.sourcegitcommit: 73ac360f37053a3321e8be23236b32d4f8fb30cf
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/10/2020
-ms.locfileid: "84659926"
+ms.lasthandoff: 06/30/2020
+ms.locfileid: "85557061"
 ---
 # <a name="quickstart-deploy-unity-sample-to-desktop"></a>Démarrage rapide : Déployer l’exemple Unity sur un Bureau
 
@@ -38,7 +38,7 @@ Seules les applications de bureau plates sont actuellement prises en charge sur 
 1. Sélectionnez **Player** sur la gauche.
 1. Sélectionnez l’onglet **Universal Windows Platform settings**.
 1. Développez **XR Settings**.
-1. Désactiver l’option **Virtual Reality Supported**.
+1. Désactiver l’option **Virtual Reality Supported**.\
     ![Paramètres du lecteur](./media/unity-disable-xr.png)
 1. Au-dessus de *XR Settings*, développez **Publishing Settings**.
 1. Sous **Supported Device Families**, assurez-vous que l’option **Desktop** est activée.
@@ -49,13 +49,13 @@ Seules les applications de bureau plates sont actuellement prises en charge sur 
 1. Remplacez *Plateforme* par **Plateforme Windows universelle** (**PC indépendant** est également pris en charge, mais non utilisé ici. Consultez les [limitations de plateforme](../reference/limits.md#platform-limitations)).
 1. Définissez *Target Device* sur **PC**.
 1. Définissez *Architecture* sur **x86**.
-1. Définissez *Build Type* sur **D3D Project**.
+1. Définissez *Build Type* sur **D3D Project**.\
   ![Paramètres de génération](./media/unity-build-settings-pc.png)
 1. Sélectionnez **Switch to Platform**.
 1. Quand vous sélectionnez **Build** (ou « Build And Run »), vous êtes invité à sélectionner le dossier dans lequel la solution doit être stockée.
 1. Ouvrez le fichier **Quickstart.sln** généré dans Visual Studio.
 1. Modifiez la configuration en la définissant sur **Version** et **x86**.
-1. Basculez le mode du débogueur sur **Ordinateur local**.
+1. Basculez le mode du débogueur sur **Ordinateur local**.\
   ![Configuration de la solution](./media/unity-deploy-config-pc.png)
 1. Générez la solution (F7).
 

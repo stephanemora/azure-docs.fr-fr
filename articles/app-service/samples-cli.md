@@ -4,14 +4,14 @@ description: Recherchez des exemples Azure CLI pour certains des scénarios App 
 tags: azure-service-management
 ms.assetid: 53e6a15a-370a-48df-8618-c6737e26acec
 ms.topic: sample
-ms.date: 12/12/2017
+ms.date: 07/07/2020
 ms.custom: mvc
-ms.openlocfilehash: 857d6cdc26e41f5ea7b1d66aaff6efb4056c47c4
-ms.sourcegitcommit: bf99428d2562a70f42b5a04021dde6ef26c3ec3a
+ms.openlocfilehash: ce10c0e95d77103f386174c7bd0ffd56adff871b
+ms.sourcegitcommit: bcb962e74ee5302d0b9242b1ee006f769a94cfb8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/23/2020
-ms.locfileid: "85254495"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86054540"
 ---
 # <a name="cli-samples-for-azure-app-service"></a>Exemples d’interface CLI pour Azure App Service
 
@@ -25,7 +25,8 @@ Le tableau suivant contient des liens vers des scripts Bash créés à l’aide 
 | [Créer une application avec un déploiement continu à partir de GitHub](./scripts/cli-continuous-deployment-github.md?toc=%2fcli%2fazure%2ftoc.json)| Crée une application App Service avec la publication continue à partir d’un dépôt GitHub dont vous êtes le propriétaire. |
 | [Créer une application et déployer le code à partir d’un dépôt Git local](./scripts/cli-deploy-local-git.md?toc=%2fcli%2fazure%2ftoc.json) | Crée une application App Service et configure la transmission de code de type push à partir d’un dépôt Git local. |
 | [Créer une application et déployer le code dans un environnement de préproduction](./scripts/cli-deploy-staging-environment.md?toc=%2fcli%2fazure%2ftoc.json) | Crée une application App Service avec un emplacement de déploiement pour les modifications de code intermédiaires. |
-| [Créer une application ASP.NET Core dans un conteneur Docker](./scripts/cli-linux-docker-aspnetcore.md?toc=%2fcli%2fazure%2ftoc.json)| Crée une application App Service sur Linux et charge une image Docker à partir de Docker Hub. |
+| [Créer une application ASP.NET Core dans un conteneur Docker](./scripts/cli-linux-docker-aspnetcore.md?toc=%2fcli%2fazure%2ftoc.json) | Crée une application App Service sur Linux et charge une image Docker à partir de Docker Hub. |
+| [Créer et exposer une application avec un point de terminaison privé](./scripts/cli-deploy-privateendpoint.md?toc=%2fcli%2fazure%2ftoc.json) | Crée une application App Service et un point de terminaison privé. |
 |**Configurer l’application**||
 | [Mapper un domaine personnalisé à une application](./scripts/cli-configure-custom-domain.md?toc=%2fcli%2fazure%2ftoc.json)| Crée une application App Service et mappe un nom de domaine personnalisé à celle-ci. |
 | [Lier un certificat TLS/SSL personnalisé à une application](./scripts/cli-configure-ssl-certificate.md?toc=%2fcli%2fazure%2ftoc.json)| Crée une application App Service et lie le certificat TLS/SSL d’un nom de domaine personnalisé à celle-ci. |

@@ -4,18 +4,18 @@ ms.service: sql-database
 ms.topic: include
 ms.date: 12/10/2018
 ms.author: genemi
-ms.openlocfilehash: e30651cb0ed7d74082163a92acbc428c21018255
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: 7943ea13d93fa68b76d333bda5438fb5738f5cd1
+ms.sourcegitcommit: e132633b9c3a53b3ead101ea2711570e60d67b83
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "67177141"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86050374"
 ---
 ## <a name="c-program-example"></a>Exemple de programme C#
 
 Les sections suivantes de cet article présentent un programme C# qui utilise ADO.NET pour envoyer des instructions Transact-SQL (T-SQL) à la base de données SQL. Le programme C# fait la démonstration des opérations suivantes :
 
-- [Se connecter à la base de données SQL avec ADO.NET](#cs_1_connect)
+- [Se connecter à SQL Database avec ADO.NET](#cs_1_connect)
 - [Méthodes qui retournent des instructions T-SQL](#cs_2_return)
     - Créer des tables
     - Remplir des tables avec des données
@@ -82,7 +82,7 @@ Logiquement, le programme C# est un fichier .cs qui est physiquement divisé en 
 
 <a name="cs_1_connect"/>
 
-### <a name="connect-to-sql-database-using-adonet"></a>Se connecter à la base de données SQL avec ADO.NET
+### <a name="connect-to-sql-database-using-adonet"></a>Se connecter à SQL Database avec ADO.NET
 
 ```csharp
 using System;

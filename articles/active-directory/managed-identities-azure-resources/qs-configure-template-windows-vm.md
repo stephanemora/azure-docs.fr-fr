@@ -9,30 +9,30 @@ editor: ''
 ms.service: active-directory
 ms.subservice: msi
 ms.devlang: na
-ms.topic: conceptual
+ms.topic: quickstart
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 09/26/2019
 ms.author: markvi
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e5540697e8e64586d73e34d253fb95e549fc0301
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: c7970f321f301cc394732b1557d65974e7902574
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "75972145"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85609025"
 ---
-# <a name="configure-managed-identities-for-azure-resources-on-an-azure-vm-using-a-templates"></a>Configurer des identités managées pour ressources Azure sur une machine virtuelle Azure en utilisant un modèle
+# <a name="configure-managed-identities-for-azure-resources-on-an-azure-vm-using-templates"></a>Configurer des identités managées pour les ressources Azure sur une machine virtuelle Azure en utilisant des modèles
 
 [!INCLUDE [preview-notice](../../../includes/active-directory-msi-preview-notice.md)]
 
-Les identités managées pour ressources Azure fournissent des services Azure avec une identité managée automatiquement dans Azure Active Directory. Vous pouvez utiliser cette identité pour vous authentifier sur n’importe quel service prenant en charge l’authentification Azure AD, sans avoir d’informations d’identification dans votre code.
+Les identités managées pour ressources Azure fournissent automatiquement aux services Azure une identité managée dans Azure Active Directory. Vous pouvez utiliser cette identité pour vous authentifier sur n’importe quel service prenant en charge l’authentification Azure AD, sans avoir d’informations d’identification dans votre code.
 
 Dans cet article, en utilisant le modèle de déploiement Azure Resource Manager, vous allez apprendre à effectuer les opérations suivantes d’identités managées pour ressources Azure sur une machine virtuelle Azure :
 
 ## <a name="prerequisites"></a>Prérequis
 
-- Si vous n’êtes pas familiarisé avec l’utilisation d’un modèle de déploiement Azure Resource Manager, voir la [section Vue d’ensemble](overview.md). **Veillez à consulter la [différence entre les identités managées affectées par le système et celles affectées par l’utilisateur](overview.md#how-does-the-managed-identities-for-azure-resources-work)** .
+- Si vous n’êtes pas familiarisé avec l’utilisation d’un modèle de déploiement Azure Resource Manager, voir la [section Vue d’ensemble](overview.md). **Veillez à consulter la [différence entre les identités managées affectées par le système et celles affectées par l’utilisateur](overview.md#managed-identity-types)** .
 - Si vous n’avez pas encore de compte Azure, [inscrivez-vous à un essai gratuit](https://azure.microsoft.com/free/) avant de continuer.
 
 ## <a name="azure-resource-manager-templates"></a>Modèles Microsoft Azure Resource Manager
@@ -66,7 +66,7 @@ Pour activer l’identité managée affectée par le système sur une machine vi
 
 
 
-3. Lorsque vous avez terminé, les sections ci-après doivent être ajoutées à la section `resource` de votre modèle et doivent ressembler à ce qui suit :
+3. Lorsque vous avez terminé, les sections ci-après doivent être ajoutées à la section `resource` de votre modèle et doivent ressembler à ce qui suit :
 
    ```JSON
    "resources": [
@@ -230,7 +230,7 @@ Pour affecter une identité managée affectée par l’utilisateur à une machin
    }
    ```
 
-3. Lorsque vous avez terminé, les sections ci-après doivent être ajoutées à la section `resource` de votre modèle et doivent ressembler à ce qui suit :
+3. Lorsque vous avez terminé, les sections ci-après doivent être ajoutées à la section `resource` de votre modèle et doivent ressembler à ce qui suit :
 
    **API Microsoft.Compute/virtualMachines version 2018-06-01**    
 
@@ -336,13 +336,13 @@ Pour supprimer une identité affectée par l’utilisateur d’une machine virtu
 
    Pour supprimer d’une machine virtuelle une seule identité managée affectée par l’utilisateur, supprimez-la du dictionnaire `useraAssignedIdentities`.
 
-   Si vous disposez d’une identité managée affectée par le système, conservez-la dans la valeur `type` sous la valeur `identity`.
+   Si vous disposez d’une identité managée affectée par le système, conservez-la dans la valeur `type`, sous la valeur `identity`.
 
    **API Microsoft.Compute/virtualMachines version 2017-12-01**
 
    Pour supprimer d’une machine virtuelle une seule identité managée affectée par l’utilisateur, supprimez-la du tableau `identityIds`.
 
-   Si vous disposez d’une identité managée affectée par le système, conservez-la dans la valeur `type` sous la valeur `identity`.
+   Si vous disposez d’une identité managée affectée par le système, conservez-la dans la valeur `type`, sous la valeur `identity`.
 
 ## <a name="next-steps"></a>Étapes suivantes
 

@@ -7,18 +7,20 @@ ms.service: active-directory
 ms.subservice: domain-services
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 03/30/2020
+ms.date: 07/06/2020
 ms.author: iainfou
-ms.openlocfilehash: 1e3b94208c3ead6e7ed4e15dac7c32b50025064a
-ms.sourcegitcommit: c4ad4ba9c9aaed81dfab9ca2cc744930abd91298
+ms.openlocfilehash: e0d2b235f671ca9b30bf61aef254cb850b25373e
+ms.sourcegitcommit: 0100d26b1cac3e55016724c30d59408ee052a9ab
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/12/2020
-ms.locfileid: "84733804"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86024772"
 ---
 # <a name="tutorial-configure-virtual-networking-for-an-azure-active-directory-domain-services-managed-domain"></a>Tutoriel : Configurer un réseau virtuel pour un domaine managé Azure Active Directory Domain Services
 
-Pour fournir la connectivité nécessaire aux utilisateurs et aux applications, un domaine managé Azure Active Directory Domain Services (Azure AD DS) est déployé dans un sous-réseau de réseau virtuel Azure. Ce sous-réseau de réseau virtuel doit être utilisé uniquement pour les ressources du domaine managé qui sont fournies par la plateforme Azure. Vous ne devez pas y déployer les applications et les machines virtuelles que vous créez. Créez et déployez vos applications dans un sous-réseau de réseau virtuel séparé, ou dans un autre réseau virtuel qui est appairé avec le réseau virtuel Azure AD DS.
+Pour fournir la connectivité nécessaire aux utilisateurs et aux applications, un domaine managé Azure Active Directory Domain Services (Azure AD DS) est déployé dans un sous-réseau de réseau virtuel Azure. Ce sous-réseau de réseau virtuel doit être utilisé uniquement pour les ressources du domaine managé qui sont fournies par la plateforme Azure.
+
+Lorsque vous créez vos propres machines virtuelles et applications, celles-ci ne doivent pas être déployées dans le même sous-réseau de réseau virtuel. Créez et déployez vos applications dans un sous-réseau de réseau virtuel séparé, ou dans un autre réseau virtuel qui est appairé avec le réseau virtuel Azure AD DS.
 
 Ce tutoriel vous montre comment créer et configurer un sous-réseau de réseau virtuel dédié ou comment appairer un réseau différent avec le réseau virtuel du domaine managé Azure AD DS.
 
@@ -39,7 +41,7 @@ Pour effectuer ce tutoriel, vous avez besoin des ressources et des privilèges s
     * Si vous n’avez pas d’abonnement Azure, [créez un compte](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 * Un locataire Azure Active Directory associé à votre abonnement, synchronisé avec un annuaire local ou un annuaire cloud uniquement.
     * Si nécessaire, [créez un locataire Azure Active Directory][create-azure-ad-tenant] ou [associez un abonnement Azure à votre compte][associate-azure-ad-tenant].
-* Vous devez disposer des privilèges d’*Administrateur global* dans votre locataire Azure AD pour activer Azure AD DS.
+* Vous devez disposer des privilèges d’*Administrateur global* dans votre locataire Azure AD pour configurer Azure AD DS.
 * Vous avez besoin de privilèges de *Contributeur* dans votre abonnement Azure pour créer les ressources Azure AD DS nécessaires.
 * Un domaine managé Azure Active Directory Domain Services activé et configuré dans votre locataire Azure AD.
     * Si nécessaire, le premier tutoriel [crée et configure un domaine managé Azure Active Directory Domain Services][create-azure-ad-ds-instance].
@@ -54,16 +56,20 @@ Dans le tutoriel précédent, vous avez créé un domaine managé en utilisant c
 
 Quand vous créez et exécutez des machines virtuelles qui doivent accéder au domaine managé, vous devez leur fournir la connectivité réseau nécessaire. Cette connectivité réseau peut être fournie de l’une des manières suivantes :
 
-* Créez un sous-réseau de réseau virtuel supplémentaire sur le réseau virtuel du domaine managé par défaut. Ce sous-réseau supplémentaire est l’endroit où vous créez et connectez vos machines virtuelles.
+* Créez un sous-réseau de réseau virtuel supplémentaire sur le réseau virtuel du domaine managé. Ce sous-réseau supplémentaire est l’endroit où vous créez et connectez vos machines virtuelles.
     * Comme ces machines virtuelles font partie du même réseau virtuel, elles peuvent automatiquement résoudre les noms et communiquer avec les contrôleurs de domaine Azure AD DS.
 * Configurez l’appairage de réseaux virtuels Azure entre le réseau virtuel du domaine managé et un ou plusieurs réseaux virtuels distincts. Vous créez et connectez vos machines virtuelles dans ces réseaux virtuels séparés.
-    * Quand vous configurez l’appairage de réseaux virtuels, vous devez également configurer les paramètres DNS pour utiliser la résolution de noms par les contrôleurs de domaine Azure AD DS.
+    * Quand vous configurez l’appairage de réseaux virtuels, vous devez également configurer les paramètres DNS pour utiliser la résolution de noms par les contrôleurs de domaine Azure AD DS.
 
-En règle générale, vous utilisez une seule de ces options de connectivité réseau. Le choix est souvent dicté par la façon dont vous souhaitez gérer vos différentes ressources Azure. Si vous souhaitez gérer les machines virtuelles connectées et Azure AD DS dans un même groupe de ressources, créez un sous-réseau de réseau virtuel supplémentaire pour les machines virtuelles. Si vous préférez les gérer séparément, utilisez l’appairage de réseaux virtuels. Vous pouvez également choisir d’utiliser l’appairage de réseaux virtuels pour fournir la connectivité réseau aux machines virtuelles dans votre environnement Azure qui sont déjà connectées à un réseau virtuel existant.
+En règle générale, vous utilisez une seule de ces options de connectivité réseau. Le choix est souvent dicté par la façon dont vous souhaitez gérer vos différentes ressources Azure.
+
+* Si vous souhaitez gérer les machines virtuelles connectées et Azure AD DS dans un même groupe de ressources, créez un sous-réseau de réseau virtuel supplémentaire pour les machines virtuelles.
+* Si vous préférez les gérer séparément, utilisez l’appairage de réseaux virtuels.
+    * Vous pouvez également choisir d’utiliser l’appairage de réseaux virtuels pour fournir la connectivité réseau aux machines virtuelles dans votre environnement Azure qui sont déjà connectées à un réseau virtuel existant.
 
 Dans ce tutoriel, vous devez configurer une seule de ces options de connectivité de réseau virtuel.
 
-Pour plus d’informations sur la planification et la configuration du réseau virtuel, consultez [Considérations relatives à la mise en réseau pour Azure Active Directory Domain Services][network-considerations].
+Pour plus d’informations sur la planification et la configuration du réseau virtuel, consultez [Considérations relatives au réseau pour Azure Active Directory Domain Services][network-considerations].
 
 ## <a name="create-a-virtual-network-subnet"></a>Créer un sous-réseau de réseau virtuel
 
@@ -95,7 +101,9 @@ Quand vous créez une machine virtuelle qui doit utiliser le domaine managé, ve
 
 Vous souhaitez peut-être utiliser un réseau virtuel Azure existant pour les machines virtuelles, ou conserver votre réseau virtuel séparé du domaine managé. Pour utiliser le domaine managé, les machines virtuelles situées dans d’autres réseaux virtuels doivent pouvoir communiquer avec les contrôleurs de domaine Azure AD DS. Il est possible de fournir cette connectivité par l’appairage de réseaux virtuels Azure.
 
-L’appairage de réseaux virtuels Azure vous permet de connecter deux réseaux virtuels sans avoir besoin d’un périphérique de réseau privé virtuel (VPN). Vous pouvez ainsi connecter rapidement des réseaux virtuels et définir les flux de trafic dans votre environnement Azure. Pour plus d’informations sur l’appairage, consultez cette [vue d’ensemble de l’appairage de réseaux virtuels Azure][peering-overview].
+L’appairage de réseaux virtuels Azure vous permet de connecter deux réseaux virtuels sans avoir besoin d’un périphérique de réseau privé virtuel (VPN). Vous pouvez ainsi connecter rapidement des réseaux virtuels et définir les flux de trafic dans votre environnement Azure.
+
+Pour plus d’informations sur l’appairage, consultez cette [vue d’ensemble de l’appairage de réseaux virtuels Azure][peering-overview].
 
 Pour appairer un réseau virtuel avec le réseau virtuel du domaine managé, effectuez les étapes suivantes :
 
@@ -121,7 +129,7 @@ Pour que les machines virtuelles du réseau virtuel appairé puissent utiliser l
 
 ### <a name="configure-dns-servers-in-the-peered-virtual-network"></a>Configurer les serveurs DNS dans le réseau virtuel appairé
 
-Pour permettre aux machines virtuelles et aux applications déployées sur le réseau virtuel appairé de communiquer correctement avec le domaine managé, vous devez mettre à jour les paramètres DNS. Les adresses IP des contrôleurs de domaine Azure AD DS doivent être configurées en tant que serveurs DNS sur le réseau virtuel appairé. Il existe deux façons de configurer les contrôleurs de domaine comme serveurs DNS dans le réseau virtuel appairé :
+Pour permettre aux machines virtuelles et aux applications déployées sur le réseau virtuel appairé de communiquer correctement avec le domaine managé, vous devez mettre à jour les paramètres DNS. Les adresses IP des contrôleurs de domaine Azure AD DS doivent être configurées en tant que serveurs DNS sur le réseau virtuel appairé. Il existe deux façons de configurer les contrôleurs de domaine comme serveurs DNS dans le réseau virtuel appairé :
 
 * Configurez les serveurs DNS du réseau virtuel Azure pour qu’ils utilisent les contrôleurs de domaine Azure AD DS.
 * Configurez le serveur DNS existant actuellement utilisé sur le réseau virtuel appairé afin qu’il transfère les requêtes au domaine managé à l’aide de la redirection DNS conditionnelle. Ces étapes varient selon le serveur DNS existant qui est utilisé.
@@ -159,3 +167,4 @@ Pour voir ce domaine managé en action, créez et joignez une machine virtuelle 
 [create-azure-ad-ds-instance]: tutorial-create-instance.md
 [create-join-windows-vm]: join-windows-vm.md
 [peering-overview]: ../virtual-network/virtual-network-peering-overview.md
+[network-considerations]: network-considerations.md

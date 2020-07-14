@@ -9,12 +9,12 @@ ms.service: cognitive-services
 ms.topic: include
 ms.date: 05/20/2020
 ms.author: pasta
-ms.openlocfilehash: 2b6f4bb707d6c5c07dd6a1205ce7be542a220f17
-ms.sourcegitcommit: 309cf6876d906425a0d6f72deceb9ecd231d387c
+ms.openlocfilehash: a5bd7b3e6262fa21865f04a6b65d1a75faafefa4
+ms.sourcegitcommit: e132633b9c3a53b3ead101ea2711570e60d67b83
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/01/2020
-ms.locfileid: "84268668"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86038361"
 ---
 Le [lecteur immersif](https://www.onenote.com/learningtools) est un outil conçu de façon inclusive qui implémente des techniques éprouvées pour améliorer la compréhension de la lecture.
 
@@ -305,7 +305,8 @@ Lorsque vous cliquez sur le bouton « Lecteur immersif », vous verrez le lect
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-* Consulter le [guide de démarrage rapide Node.js](../../quickstart-nodejs.md) pour voir ce que vous pouvez faire d’autre avec la bibliothèque de client Lecteur immersif en utilisant Node.js
+* Consulter le [guide de démarrage rapide Node.js](../../tutorial-nodejs.md) pour voir ce que vous pouvez faire d’autre avec la bibliothèque de client Lecteur immersif en utilisant Node.js
+* Consulter le [tutoriel Android](../../tutorial-android.md) pour voir ce que vous pouvez faire d’autre avec le SDK Lecteur immersif en utilisant Java ou Kotlin pour Android
+* Consulter le [tutoriel iOS](../../tutorial-ios.md) pour voir ce que vous pouvez faire d’autre avec le SDK Lecteur immersif en utilisant Swift pour iOS
 * Consulter le [tutoriel Python](../../tutorial-python.md) pour voir ce que vous pouvez faire d’autre avec la bibliothèque de client Lecteur immersif en utilisant Python
-* Consulter le [tutoriel iOS](../../tutorial-ios-picture-immersive-reader.md) pour voir ce que vous pouvez faire d’autre avec la bibliothèque de client Lecteur immersif en utilisant Swift
 * Explorer le [SDK Lecteur Immersif](https://github.com/microsoft/immersive-reader-sdk) et la [référence du SDK Lecteur immersif](../../reference.md)

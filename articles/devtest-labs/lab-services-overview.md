@@ -1,26 +1,16 @@
 ---
-title: À propos d’Azure Lab Services | Microsoft Docs
-description: Découvrez comment Lab Services facilite la création, la gestion et la sécurisation de laboratoires grâce à des machines virtuelles pouvant être utilisées par les développeurs, les testeurs, les enseignants et les étudiants, entre autres.
-services: lab-services
-documentationcenter: na
-author: spelluru
-manager: ''
-editor: ''
-ms.service: lab-services
-ms.workload: na
-ms.tgt_pltfrm: na
-ms.devlang: na
+title: Azure Lab Services et Azure DevTest Labs
+description: Comparez Azure DevTest Labs et Azure Lab Services.
 ms.topic: overview
-ms.date: 02/03/2020
-ms.author: spelluru
-ms.openlocfilehash: a1e42a415e99bfaec1c48204efdaacd178005705
-ms.sourcegitcommit: e3c28affcee2423dc94f3f8daceb7d54f8ac36fd
+ms.date: 06/26/2020
+ms.openlocfilehash: b1cd476faf6c457033ffeace03cd2e37b51e8578
+ms.sourcegitcommit: 1d9f7368fa3dadedcc133e175e5a4ede003a8413
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/17/2020
-ms.locfileid: "84899369"
+ms.lasthandoff: 06/27/2020
+ms.locfileid: "85480080"
 ---
-# <a name="an-introduction-to-azure-lab-services"></a>Présentation d’Azure Lab Services
+# <a name="compare-azure-devtest-labs-and-azure-lab-services"></a>Comparer Azure DevTest Labs et Azure Lab Services
 Il existe deux services dans Azure qui vous permettent de configurer des environnements lab dans le cloud. 
 
 - **Azure DevTest Labs** : ce service vous permet de configurer rapidement un environnement pour votre équipe, par exemple un environnement de développement ou un environnement de test dans le cloud. Le propriétaire d’un laboratoire crée un laboratoire, configure Windows ou des machines virtuelles Linux, installe les logiciels et outils nécessaires, puis les rend disponibles aux utilisateurs du laboratoire. Les utilisateurs du lab se connectent à des machines virtuelles dans le lab, puis s’en servent pour leurs tâches quotidiennes ou leurs projets à court terme. Lorsque les utilisateurs commencent à exploiter les ressources du laboratoire, un administrateur de laboratoire peut analyser les coûts et l’utilisation entre plusieurs laboratoires et définir des stratégies globales afin d’optimiser les coûts de l’équipe ou de l’organisation.

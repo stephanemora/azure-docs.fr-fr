@@ -4,12 +4,12 @@ description: Découvrez comment générer, tester et déployer des modèles Azur
 ms.date: 04/22/2020
 ms.topic: tutorial
 ms.author: jgao
-ms.openlocfilehash: dacbdbcbebbbd696c14745e055ed9f7bd7905b1d
-ms.sourcegitcommit: 4499035f03e7a8fb40f5cff616eb01753b986278
+ms.openlocfilehash: b8163c357f184ac41ce72dc8c89fcc5030c3180d
+ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/03/2020
-ms.locfileid: "82731932"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86118917"
 ---
 # <a name="tutorial-continuous-integration-of-azure-resource-manager-templates-with-azure-pipelines"></a>Tutoriel : Intégration continue de modèles Azure Resource Manager avec Azure Pipelines
 
@@ -39,8 +39,8 @@ Pour effectuer ce qui est décrit dans cet article, vous avez besoin des éléme
 
 * **Un compte GitHub**, que vous utiliserez pour créer un référentiel pour vos modèles. Si vous n’en avez pas, vous pouvez en [créer un gratuitement](https://github.com). Pour plus d’informations sur l’utilisation de référentiels GitHub, consultez [Développer des référentiels GitHub](/azure/devops/pipelines/repos/github).
 * **Installer Git**. Lors de ce didacticiel, nous utiliserons *Git Bash* ou *Git Shell*. Pour en savoir plus sur leur installation, veuillez consulter la page [Installer Git]( https://www.atlassian.com/git/tutorials/install-git).
-* **Une organisation Azure DevOps**. Si vous n’en avez pas, vous pouvez en créer une gratuitement. Pour en savoir plus, veuillez consulter [Créer une organisation ou une collection de projet]( https://docs.microsoft.com/azure/devops/organizations/accounts/create-organization?view=azure-devops).
-* (facultatif) **Visual Studio Code avec l’extension Outils Resource Manager**. Consultez [Utiliser Visual Studio Code pour créer des modèles Azure Resource Manager](use-vs-code-to-create-template.md).
+* **Une organisation Azure DevOps**. Si vous n’en avez pas, vous pouvez en créer une gratuitement. Pour en savoir plus, veuillez consulter [Créer une organisation ou une collection de projet](/azure/devops/organizations/accounts/create-organization?view=azure-devops).
+* (facultatif) **Visual Studio Code avec l’extension Outils Resource Manager**. Consultez [Démarrage rapide : Créer des modèles Azure Resource Manager avec Visual Studio Code](quickstart-create-templates-use-visual-studio-code.md).
 
 ## <a name="prepare-a-github-repository"></a>Préparer un dépôt GitHub
 

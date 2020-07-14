@@ -3,12 +3,12 @@ title: Exemples de contrôles de blueprint Canada Federal PBMM
 description: Correspondance des contrôles des exemples de blueprint Canada Federal PBMM. Chaque contrôle est mis en correspondance avec une ou plusieurs stratégies Azure qui simplifient l’évaluation.
 ms.date: 05/08/2020
 ms.topic: sample
-ms.openlocfilehash: 8fc5b2f369dbe174fb4d5ea8160d592e9aaef3af
-ms.sourcegitcommit: ac4a365a6c6ffa6b6a5fbca1b8f17fde87b4c05e
+ms.openlocfilehash: e9153972938a572f8d37610e5721f7b0a578157c
+ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/10/2020
-ms.locfileid: "83005710"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86085631"
 ---
 # <a name="control-mapping-of-the-canada-federal-pbmm-blueprint-sample"></a>Correspondance des contrôles de l’exemple de blueprint Canada Federal PBMM
 
@@ -108,7 +108,7 @@ Ce blueprint affecte des définitions [Azure Policy](../../../policy/overview.md
 
 - Auditer le paramètre de diagnostic
 - L’audit sur SQL Server doit être activé
-- Advanced Data Security doit être activé sur vos instances managées
+- Advanced Data Security doit être activée sur vos instances managées SQL.
 - Advanced Data Security doit être activé sur vos serveurs SQL
 
 ## <a name="au-6-4-audit-review-analysis-and-reporting--central-review-and-analysis"></a>AU-6 (4) Révision, analyse et rapports d’audit | Révision et analyse centralisées
@@ -132,7 +132,7 @@ Ce blueprint vous permet de garantir que les événements système sont journali
 - \[Préversion\] : Déployer Log Analytics Agent pour les machines virtuelles Windows
 - Auditer le paramètre de diagnostic
 - L’audit sur SQL Server doit être activé
-- Advanced Data Security doit être activé sur vos instances managées
+- Advanced Data Security doit être activée sur vos instances managées SQL.
 - Advanced Data Security doit être activé sur vos serveurs SQL
 - Déployer Advanced Data Security sur des serveurs SQL
 - Déployer l’audit sur des serveurs SQL
@@ -198,7 +198,7 @@ Ce blueprint permet de limiter et de contrôler les accès privilégiés en affe
 
 Ce blueprint permet de gérer les vulnérabilités du système d’informations en affectant des définitions [Azure Policy](../../../policy/overview.md) qui supervisent les vulnérabilités en rapport avec le système d’exploitation, SQL et les machines virtuelles dans Azure Security Center. Azure Security Center fournit des fonctionnalités de création de rapports qui vous permettent d’obtenir des insights en temps réel sur l’état de la sécurité des ressources Azure déployées. Ce blueprint affecte également des définitions de stratégie qui auditent et appliquent Advanced Data Security sur les serveurs SQL. Advanced Data Security comprend l’évaluation des vulnérabilités et des fonctionnalités de protection avancée contre les menaces pour vous aider à comprendre les vulnérabilités dans vos ressources déployées.
 
-- Advanced Data Security doit être activé sur vos instances managées
+- Advanced Data Security doit être activée sur vos instances managées SQL.
 - Advanced Data Security doit être activé sur vos serveurs SQL
 - Déployer Advanced Data Security sur des serveurs SQL
 - Les vulnérabilités détectées dans la configuration de la sécurité de vos groupes de machines virtuelles identiques doivent être corrigées
@@ -249,7 +249,7 @@ Ce blueprint permet de protéger la confidentialité et l’intégrité des info
 
 Ce blueprint permet d’appliquer votre stratégie sur l’utilisation des contrôles de chiffrement pour protéger les informations au repos en affectant des définitions [Azure Policy](../../../policy/overview.md) qui mettent en œuvre des contrôles de chiffrement spécifiques et détectent l’utilisation de paramètres de chiffrement faibles. Le fait de savoir où vos ressources Azure peuvent avoir des configurations de chiffrement non optimales peut vous aider à prendre des mesures correctives visant à vérifier que les ressources sont configurées conformément à votre stratégie de sécurité des informations. Plus précisément, les définitions de stratégie affectées par ce blueprint exigent le chiffrement des comptes Data Lake Storage, exigent le chiffrement transparent des données sur les bases de données SQL et vérifient l’absence de chiffrement sur les bases de données SQL, les disques de machine virtuelle et les variables de compte Automation.
 
-- Advanced Data Security doit être activé sur vos instances managées
+- Advanced Data Security doit être activée sur vos instances managées SQL.
 - Advanced Data Security doit être activé sur vos serveurs SQL
 - Déployer Advanced Data Security sur des serveurs SQL
 - Déployer le chiffrement transparent des données sur les bases de données SQL
@@ -293,7 +293,7 @@ Ce blueprint vous aide à superviser votre système en auditant et en appliquant
 - \[Préversion\] : Vérifier les machines virtuelles de l’espace de travail Log Analytics - Signaler les incompatibilités
 - \[Préversion\] : Déployer Log Analytics Agent pour les machines virtuelles Linux
 - \[Préversion\] : Déployer Log Analytics Agent pour les machines virtuelles Windows
-- Advanced Data Security doit être activé sur vos instances managées
+- Advanced Data Security doit être activée sur vos instances managées SQL.
 - Advanced Data Security doit être activé sur vos serveurs SQL
 - Déployer Advanced Data Security sur des serveurs SQL
 - Déployer Advanced Threat Protection sur les comptes de stockage

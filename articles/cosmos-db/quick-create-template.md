@@ -8,20 +8,22 @@ ms.service: cosmos-db
 ms.topic: quickstart
 ms.date: 06/01/2020
 ms.custom: subject-armqs
-ms.openlocfilehash: e626f6e5b65e369c3c77900cd46f2b86cd6f9d52
-ms.sourcegitcommit: 23604d54077318f34062099ed1128d447989eea8
+ms.openlocfilehash: 249ff87813fe23505a09db020d4c6ad0f272796d
+ms.sourcegitcommit: 1d9f7368fa3dadedcc133e175e5a4ede003a8413
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/20/2020
-ms.locfileid: "85117996"
+ms.lasthandoff: 06/27/2020
+ms.locfileid: "85483293"
 ---
-# <a name="quickstart-create-an-azure-cosmos-db-and-a-container-by-using-azure-resource-manager-template"></a>Démarrage rapide : Créer une base de données et un conteneur Azure Cosmos DB avec un modèle Azure Resource Manager
+# <a name="quickstart-create-an-azure-cosmos-db-and-a-container-by-using-an-arm-template"></a>Démarrage rapide : Créer une base de données et un conteneur Azure Cosmos DB à l’aide d’un modèle Resource Manager
 
-Azure Cosmos DB est le service de base de données multi-modèle de Microsoft distribué à l’échelle mondiale. Vous pouvez utiliser Azure Cosmos DB pour créer et interroger rapidement des bases de données de clés/valeurs, de documents et de graphes. Ce guide de démarrage rapide porte essentiellement sur le processus de déploiement d’un modèle Resource Manager pour créer une base de données Azure Cosmos et un conteneur dans cette base de données. Vous pouvez ensuite stocker des données dans ce conteneur.
+Azure Cosmos DB est le service de base de données multi-modèle de Microsoft distribué à l’échelle mondiale. Vous pouvez utiliser Azure Cosmos DB pour créer et interroger rapidement des bases de données de clés/valeurs, de documents et de graphes. Ce guide de démarrage rapide porte essentiellement sur le processus de déploiement d’un modèle Resource Manager (Azure Resource Manager) pour créer une base de données Azure Cosmos DB et un conteneur dans cette base de données. Vous pouvez ensuite stocker des données dans ce conteneur.
 
 [!INCLUDE [About Azure Resource Manager](../../includes/resource-manager-quickstart-introduction.md)]
 
-Si vous n’avez pas d’abonnement Azure, créez un [compte gratuit](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) avant de commencer.
+Si votre environnement remplit les prérequis et que vous êtes déjà familiarisé avec l’utilisation des modèles ARM, sélectionnez le bouton **Déployer sur Azure**. Le modèle s’ouvre dans le portail Azure.
+
+[:::image type="content" source="../media/template-deployments/deploy-to-azure.svg" alt-text="Déployer sur Azure":::](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-cosmosdb-sql%2Fazuredeploy.json)
 
 ## <a name="prerequisites"></a>Prérequis
 
@@ -31,11 +33,9 @@ Un abonnement Azure ou un compte d’essai gratuit Azure Cosmos DB
 
 - [!INCLUDE [cosmos-db-emulator-docdb-api](../../includes/cosmos-db-emulator-docdb-api.md)]
 
-## <a name="create-an-azure-cosmos-account-database-container"></a>Créer un compte, une base de données et un conteneur Azure Cosmos
+## <a name="review-the-template"></a>Vérifier le modèle
 
-### <a name="review-the-template"></a>Vérifier le modèle
-
-Le modèle utilisé dans ce guide de démarrage rapide est tiré des [modèles de démarrage rapide Azure](https://azure.microsoft.com/resources/templates/101-cosmosdb-sql/).
+Le modèle utilisé dans ce démarrage rapide est tiré des [modèles de démarrage rapide Azure](https://azure.microsoft.com/resources/templates/101-cosmosdb-sql/).
 
 :::code language="json" source="~/quickstart-templates/101-cosmosdb-sql/azuredeploy.json":::
 
@@ -49,7 +49,7 @@ Trois ressources Azure sont définies dans le modèle :
 
 Vous trouverez d’autres exemples de modèles Azure Cosmos DB dans la [galerie de modèles de démarrage rapide](https://azure.microsoft.com/resources/templates/?resourceType=Microsoft.Documentdb).
 
-### <a name="deploy-the-template"></a>Déployer le modèle
+## <a name="deploy-the-template"></a>Déployer le modèle
 
 1. Cliquez sur l’image ci-après pour vous connecter à Azure et ouvrir un modèle. Le modèle crée un compte, une base de données et un conteneur Azure Cosmos.
 
@@ -132,7 +132,7 @@ Write-Host "Press [ENTER] to continue..."
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Dans ce guide de démarrage rapide, vous avez créé un compte, une base de données et un conteneur Azure Cosmos avec un modèle Azure Resource Manager et vous avez vérifié le déploiement. Pour plus d’informations sur Azure Cosmos DB et Azure Resource Manager, passez aux articles ci-dessous.
+Dans ce guide de démarrage rapide, vous avez créé un compte, une base de données et un conteneur Azure Cosmos DB avec un modèle Resource Manager et vous avez vérifié le déploiement. Pour plus d’informations sur Azure Cosmos DB et Azure Resource Manager, passez aux articles ci-dessous.
 
 - Consultez [Vue d’ensemble d’Azure Cosmos DB](introduction.md)
 - En savoir plus sur [Azure Resource Manager](../azure-resource-manager/management/overview.md)

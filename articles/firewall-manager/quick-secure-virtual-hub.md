@@ -1,27 +1,27 @@
 ---
-title: 'Démarrage rapide : Sécurisation d’un hub virtuel à l’aide de la préversion d’Azure Firewall Manager – Modèle Resource Manager'
-description: Découvrez comment sécuriser votre hub virtuel à l’aide de la préversion d’Azure Firewall Manager.
+title: 'Démarrage rapide : Sécuriser un hub virtuel à l’aide d’Azure Firewall Manager – Modèle Resource Manager'
+description: Découvrez comment sécuriser votre hub virtuel à l’aide d’Azure Firewall Manager.
 services: firewall-manager
 author: vhorne
 ms.service: firewall
 ms.topic: quickstart
 ms.custom: subject-armqs
-ms.date: 05/19/2020
+ms.date: 06/30/2020
 ms.author: victorh
-ms.openlocfilehash: 9c51fdb5142159e390ac4fcf59a04aa3dd747469
-ms.sourcegitcommit: 1692e86772217fcd36d34914e4fb4868d145687b
+ms.openlocfilehash: 6641cc29025d39ddff33e706dd9b1b0da517b884
+ms.sourcegitcommit: 73ac360f37053a3321e8be23236b32d4f8fb30cf
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/29/2020
-ms.locfileid: "84167194"
+ms.lasthandoff: 06/30/2020
+ms.locfileid: "85563696"
 ---
 # <a name="quickstart-secure-your-virtual-hub-using-azure-firewall-manager---resource-manager-template"></a>Démarrage rapide : Sécurisation d’un hub virtuel à l’aide d’Azure Firewall Manager – Modèle Resource Manager
 
-Ce guide de démarrage rapide consiste à utiliser un modèle Resource Manager pour sécuriser un hub virtuel à l’aide de la préversion d’Azure Firewall Manager. Le pare-feu déployé comprend une règle d’application qui autorise les connexions à `www.microsoft.com`. Deux machines virtuelles Windows Server 2019 sont déployées pour tester le pare-feu. Un serveur de rebond est utilisé pour se connecter au serveur de charge de travail. À partir du serveur de charge de travail, il n’est possible de se connecter qu’à `www.microsoft.com`.
+Ce guide de démarrage rapide consiste à utiliser un modèle Resource Manager pour sécuriser un hub virtuel à l’aide d’Azure Firewall Manager. Le pare-feu déployé comprend une règle d’application qui autorise les connexions à `www.microsoft.com`. Deux machines virtuelles Windows Server 2019 sont déployées pour tester le pare-feu. Un serveur de rebond est utilisé pour se connecter au serveur de charge de travail. À partir du serveur de charge de travail, il n’est possible de se connecter qu’à `www.microsoft.com`.
 
 [!INCLUDE [About Azure Resource Manager](../../includes/resource-manager-quickstart-introduction.md)]
 
-Pour plus d’informations sur la préversion d’Azure Firewall Manager, consultez [Présentation de la préversion d’Azure Firewall Manager](overview.md).
+Pour plus d’informations sur Azure Firewall Manager, consultez [Qu’est-ce qu’Azure Firewall Manager ?](overview.md)
 
 ## <a name="prerequisites"></a>Prérequis
 
@@ -29,7 +29,7 @@ Pour plus d’informations sur la préversion d’Azure Firewall Manager, consul
 
 ## <a name="create-a-secured-virtual-hub"></a>Créer un hub virtuel sécurisé
 
-Ce modèle crée un hub virtuel sécurisé à l’aide de la préversion d’Azure Firewall Manager, ainsi que les ressources nécessaires au scénario.
+Ce modèle crée un hub virtuel sécurisé à l’aide d’Azure Firewall Manager, ainsi que les ressources nécessaires au scénario.
 
 ### <a name="review-the-template"></a>Vérifier le modèle
 
@@ -101,4 +101,4 @@ Remove-AzResourceGroup -Name "<your resource group name>"
 ## <a name="next-steps"></a>Étapes suivantes
 
 > [!div class="nextstepaction"]
-> [En savoir plus sur les partenaires de sécurité de confiance](trusted-security-partners.md)
+> [En savoir plus sur les fournisseurs de partenaire de sécurité](trusted-security-partners.md)

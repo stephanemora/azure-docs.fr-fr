@@ -16,12 +16,12 @@ ms.date: 06/18/2020
 ms.author: barclayn
 ms.reviewer: markwahl-msft
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 44c8a46c844b9bc4b92702323df18addb207dd6c
-ms.sourcegitcommit: 971a3a63cf7da95f19808964ea9a2ccb60990f64
+ms.openlocfilehash: 2f05fa9f9f31011f04aee0d2bedbcd4c4dad5d39
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/19/2020
-ms.locfileid: "85078165"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85338193"
 ---
 # <a name="what-is-azure-ad-entitlement-management"></a>Présentation de la gestion des droits d’utilisation Azure AD
 
@@ -67,13 +67,13 @@ La gestion des droits d’utilisation introduit sur Azure AD le concept de *pack
  La gestion des droits d’utilisation vous permet de gérer l’accès utilisateur aux types de ressources ci-dessous :
 
 - Appartenance des groupes de sécurité Azure AD
-- Appartenance des groupes et équipes Office 365
+- Appartenance des groupes et équipes Microsoft 365
 - Affectation aux applications d’entreprise Azure AD, y compris aux applications SaaS et aux applications intégrées personnalisées prenant en charge la fédération/l’authentification unique et/ou le provisionnement
 - Appartenance des sites SharePoint Online
 
-Vous pouvez également contrôler l’accès à d’autres ressources qui s’appuient sur des groupes de sécurité Azure AD ou des groupes Office 365.  Par exemple :
+Vous pouvez également contrôler l’accès à d’autres ressources qui s’appuient sur des groupes de sécurité Azure AD ou des groupes Microsoft 365.  Par exemple :
 
-- Vous pouvez accorder des licences aux utilisateurs pour Microsoft Office 365 en utilisant un groupe de sécurité Azure AD dans un package d’accès et en configurant la [gestion des licences par groupe](../users-groups-roles/licensing-groups-assign.md) pour ce groupe
+- Vous pouvez accorder des licences aux utilisateurs pour Microsoft 365 en utilisant un groupe de sécurité Azure AD dans un package d’accès et en configurant la [gestion des licences par groupe](../users-groups-roles/licensing-groups-assign.md) pour ce groupe
 - Vous pouvez accorder un accès aux utilisateurs pour gérer des ressources Azure en utilisant un groupe de sécurité Azure AD dans un package d'accès et en créant un [attribution de rôle Azure](../../role-based-access-control/role-assignments-portal.md) pour ce groupe
 
 ## <a name="how-do-i-control-who-gets-access"></a>Comment contrôler qui a accès ?

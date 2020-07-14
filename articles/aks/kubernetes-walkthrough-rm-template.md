@@ -5,16 +5,16 @@ services: container-service
 ms.topic: quickstart
 ms.date: 04/19/2019
 ms.custom: mvc,subject-armqs
-ms.openlocfilehash: bbe5d9ac21ae9e03d629a1667567a915c8653a8a
-ms.sourcegitcommit: 5e49f45571aeb1232a3e0bd44725cc17c06d1452
+ms.openlocfilehash: 447af1580f601c1f55690434b371aeeed2d335a0
+ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/17/2020
-ms.locfileid: "81602650"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86106286"
 ---
-# <a name="quickstart-deploy-an-azure-kubernetes-service-aks-cluster-using-an-azure-resource-manager-template"></a>Démarrage rapide : déployer un cluster AKS (Azure Kubernetes Service) à l’aide d’un modèle Azure Resource Manager
+# <a name="quickstart-deploy-an-azure-kubernetes-service-aks-cluster-using-an-arm-template"></a>Démarrage rapide : Déployer un cluster AKS (Azure Kubernetes Service) à l’aide d’un modèle ARM
 
-AKS (Azure Kubernetes Service) est un service Kubernetes managé qui vous permet de déployer et de gérer rapidement des clusters. Dans ce guide de démarrage rapide, vous déployez un cluster AKS à l’aide d’un modèle Azure Resource Manager. Une application multiconteneur composée d’un front-end web et d’une instance Redis est exécutée dans le cluster.
+AKS (Azure Kubernetes Service) est un service Kubernetes managé qui vous permet de déployer et de gérer rapidement des clusters. Dans ce guide de démarrage rapide, vous allez déployer un cluster AKS à l’aide d’un modèle ARM (Azure Resource Manager). Une application multiconteneur composée d’un front-end web et d’une instance Redis est exécutée dans le cluster.
 
 ![Image de la navigation vers Azure Vote](media/container-service-kubernetes-walkthrough/azure-voting-application.png)
 
@@ -22,7 +22,9 @@ AKS (Azure Kubernetes Service) est un service Kubernetes managé qui vous permet
 
 Ce guide de démarrage rapide suppose une compréhension élémentaire des concepts liés à Kubernetes. Pour plus d’informations, consultez [Concepts de base de Kubernetes pour AKS (Azure Kubernetes Service)][kubernetes-concepts].
 
-Si vous n’avez pas d’abonnement Azure, créez un [compte gratuit](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) avant de commencer.
+Si votre environnement remplit les prérequis et que vous êtes déjà familiarisé avec l’utilisation des modèles ARM, sélectionnez le bouton **Déployer sur Azure**. Le modèle s’ouvre dans le portail Azure.
+
+[![Déployer sur Azure](../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-aks%2Fazuredeploy.json)
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
@@ -30,7 +32,9 @@ Si vous choisissez d’installer et d’utiliser l’interface CLI localement, c
 
 ## <a name="prerequisites"></a>Prérequis
 
-Pour créer un cluster AKS à l’aide d’un modèle Resource Manager, vous fournissez une clé publique SSH et un principal de service Azure Active Directory.  Vous pouvez également utiliser une [identité managée](use-managed-identity.md) au lieu d’un principal de service pour les autorisations. Si vous avez besoin d’une de ces ressources, consultez la section suivante ; sinon, passez à la section [Créer un cluster AKS](#create-an-aks-cluster).
+Si vous n’avez pas d’abonnement Azure, créez un [compte gratuit](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) avant de commencer.
+
+Pour créer un cluster AKS à l’aide d’un modèle Resource Manager, vous fournissez une clé publique SSH et un principal de service Azure Active Directory. Vous pouvez également utiliser une [identité managée](use-managed-identity.md) au lieu d’un principal de service pour les autorisations. Si vous avez besoin de l’une de ces ressources, consultez la section suivante ; sinon, passez à la section [Vérifier le modèle](#review-the-template).
 
 ### <a name="create-an-ssh-key-pair"></a>Création d’une paire de clés SSH
 
@@ -68,9 +72,7 @@ Le résultat ressemble à l’exemple suivant :
 
 Prenez note des valeurs de *appId* et de *password*. Ces valeurs sont utilisées dans les étapes suivantes.
 
-## <a name="create-an-aks-cluster"></a>Créer un cluster AKS
-
-### <a name="review-the-template"></a>Vérifier le modèle
+## <a name="review-the-template"></a>Vérifier le modèle
 
 Le modèle utilisé dans ce guide de démarrage rapide est tiré des [modèles de démarrage rapide Azure](https://azure.microsoft.com/resources/templates/101-aks/).
 
@@ -78,7 +80,7 @@ Le modèle utilisé dans ce guide de démarrage rapide est tiré des [modèles d
 
 Pour plus d’exemples AKS, consultez le site [Modèles de démarrage rapide AKS][aks-quickstart-templates].
 
-### <a name="deploy-the-template"></a>Déployer le modèle
+## <a name="deploy-the-template"></a>Déployer le modèle
 
 1. Cliquez sur l’image ci-après pour vous connecter à Azure et ouvrir un modèle.
 

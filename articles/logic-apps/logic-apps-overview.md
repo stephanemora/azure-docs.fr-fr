@@ -3,16 +3,16 @@ title: Automatiser les tâches pour l’intégration d’entreprise
 description: Découvrez comment automatiser des workflows qui intègrent des applications, des données, des services et des systèmes avec un minimum de code pour l’intégration d’entreprise à l’aide d’Azure Logic Apps.
 services: logic-apps
 ms.suite: integration
-ms.reviewer: klam, logicappspm
+ms.reviewer: logicappspm
 ms.topic: overview
 ms.custom: mvc
 ms.date: 03/11/2020
-ms.openlocfilehash: 789ddf39e4493d11d63a07f2341ab36ac161f32d
-ms.sourcegitcommit: 5a8c8ac84c36859611158892422fc66395f808dc
+ms.openlocfilehash: 08b3863ac9a03cda2659cf4934b781eeb9330e17
+ms.sourcegitcommit: 73ac360f37053a3321e8be23236b32d4f8fb30cf
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/10/2020
-ms.locfileid: "84659597"
+ms.lasthandoff: 06/30/2020
+ms.locfileid: "85563814"
 ---
 # <a name="overview---what-is-azure-logic-apps"></a>Vue d’ensemble d’Azure Logic Apps
 
@@ -32,7 +32,7 @@ Pour créer des solutions d’intégration d’entreprise avec Azure Logic Apps,
 
 > [!VIDEO https://channel9.msdn.com/Blogs/Azure/Introducing-Azure-Logic-Apps/player]
 
-## <a name="how-does-logic-apps-work"></a>Comment fonctionne Logic Apps ? 
+## <a name="how-do-logic-apps-work"></a>Comment les applications logiques fonctionnent-elles ? 
 
 Chaque flux de travail d’application logique commence par un déclencheur, qui se déclenche lorsqu’un événement spécifique se produit, ou lorsque de nouvelles données disponibles répondent aux critères spécifiques. Plusieurs déclencheurs fournis par les connecteurs dans Logic Apps incluent des fonctionnalités de planification de base qui vous permettent de configurer la régularité d’exécution des charges de travail. Pour configurer une planification plus complexe ou des fréquences avancées, vous pouvez utiliser un déclencheur de fréquence comme première étape d’un workflow. Découvrez les [workflows basés sur une planification](../logic-apps/concepts-schedule-automated-recurring-tasks-workflows.md).
 
@@ -42,7 +42,7 @@ Chaque fois que le déclencheur s’active, le moteur Logic Apps crée une insta
 
 Vous pouvez créer vos applications logiques visuellement avec le Concepteur d’applications logiques, disponible dans le portail Azure via votre navigateur et dans Visual Studio. Pour disposer d’applications logiques plus personnalisées, vous pouvez créer ou modifier des définitions d’application logique dans JavaScript Objet Notation (JSON) en travaillant dans l’éditeur « code ». Vous pouvez également utiliser des commandes Azure PowerShell et des modèles Azure Resource Manager pour sélectionner des tâches. Les applications logiques se déploient et s’exécutent dans le cloud sur Azure. Pour avoir une présentation plus complète, regardez cette vidéo : [Utiliser Azure Enterprise Integration Services pour exécuter des applications cloud à grande échelle](https://channel9.msdn.com/Events/Connect/2017/T119/)
 
-## <a name="why-use-logic-apps"></a>Pourquoi utiliser Logic Apps ?
+## <a name="why-use-logic-apps"></a>Pourquoi utiliser des applications logiques ?
 
 Avec des entreprises de plus en plus portées sur la numérisation, les applications logiques vous permettent de connecter facilement et rapidement des systèmes hérités, modernes et innovants, en fournissant des API prédéfinies en tant que connecteurs gérés par Microsoft. De cette façon, vous pouvez vous concentrer sur la logique métier et les fonctionnalités de vos applications. Vous n’avez pas à vous soucier de la création, de l’hébergement, de la mise à l’échelle, de la gestion, de la maintenance et de la surveillance de vos applications. Logic Apps gère ces problèmes pour vous. De plus, vous payez uniquement ce que vous utilisez, avec un [modèle de tarification](../logic-apps/logic-apps-pricing.md) basé sur la consommation.
 

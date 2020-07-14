@@ -7,12 +7,12 @@ ms.topic: how-to
 ms.date: 01/28/2020
 ms.author: dech
 ms.reviewer: sngun
-ms.openlocfilehash: 77cf98cae943b8652e20ed48fd41ed717d1e4fc5
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: ba90bb89d731c343dfcb3778433d444f2d9a617a
+ms.sourcegitcommit: 0100d26b1cac3e55016724c30d59408ee052a9ab
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85262121"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86025860"
 ---
 # <a name="set-up-a-cicd-pipeline-with-the-azure-cosmos-db-emulator-build-task-in-azure-devops"></a>Configurer un pipeline CI/CD avec la tâche de génération d’émulateur Azure Cosmos DB
 
@@ -26,14 +26,14 @@ Cet article montre comment configurer un pipeline d’intégration continue dans
 
 Pour utiliser la tâche de génération, nous devons d’abord l’installer dans notre organisation Azure DevOps. Recherchez l’extension **Azure Cosmos DB Emulator** sur la [Place de marché](https://marketplace.visualstudio.com/items?itemName=azure-cosmosdb.emulator-public-preview) et cliquez sur **Obtenir gratuitement.**
 
-![Rechercher la tâche de génération de l’émulateur Azure Cosmos DB dans la Place de marché Azure DevOps et l’installer](./media/tutorial-setup-ci-cd/addExtension_1.png)
+:::image type="content" source="./media/tutorial-setup-ci-cd/addExtension_1.png" alt-text="Rechercher la tâche de génération de l’émulateur Azure Cosmos DB dans la Place de marché Azure DevOps et l’installer":::
 
 Ensuite, choisissez l’organisation dans laquelle installer l’extension. 
 
 > [!NOTE]
 > Pour installer une extension dans une organisation Azure DevOps, vous devez être propriétaire de compte ou administrateur de collection de projets. Si vous ne disposez pas des autorisations nécessaires, mais que vous êtes un membre de compte, vous pouvez demander des extensions. [En savoir plus.](https://docs.microsoft.com/azure/devops/marketplace/faq-extensions?view=vsts)
 
-![Choisir une organisation Azure DevOps dans laquelle installer une extension](./media/tutorial-setup-ci-cd/addExtension_2.png)
+:::image type="content" source="./media/tutorial-setup-ci-cd/addExtension_2.png" alt-text="Choisir une organisation Azure DevOps dans laquelle installer une extension":::
 
 ## <a name="create-a-build-definition"></a>Créer une définition de build
 
@@ -41,11 +41,11 @@ Maintenant que l’extension est installée, connectez-vous à votre compte Azur
 
 1. Pour créer une définition de build, accédez à l’onglet **Builds** dans Azure DevOps. Sélectionnez **+Nouveau.** \> **Nouveau pipeline de build**
 
-   ![Créer un pipeline de build](./media/tutorial-setup-ci-cd/CreateNewBuildDef_1.png)
+   :::image type="content" source="./media/tutorial-setup-ci-cd/CreateNewBuildDef_1.png" alt-text="Créer un nouveau pipeline de build":::
 
 2. Sélectionnez la **source**, le **projet d’équipe**, le **référentiel** et la **branche par défaut des builds manuels et planifiés** souhaités. Après avoir choisi les options requises, sélectionnez **Continuer**.
 
-   ![Sélectionner le projet d’équipe, le référentiel et la branche pour le pipeline de build](./media/tutorial-setup-ci-cd/CreateNewBuildDef_2.png)
+   :::image type="content" source="./media/tutorial-setup-ci-cd/CreateNewBuildDef_2.png" alt-text="Sélectionner le projet d’équipe, le référentiel et la branche pour le pipeline de build":::
 
 3. Enfin, sélectionnez le modèle souhaité pour le pipeline de build. Nous allons sélectionner le modèle **ASP.NET** dans ce tutoriel. Vous disposez maintenant d’un pipeline de build que vous pouvez configurer pour utiliser la tâche de génération de l’émulateur Azure Cosmos DB. 
 
@@ -65,7 +65,7 @@ Start-CosmosDbEmulator
 
 1. Sélectionnez ensuite le symbole **+** en regard de la tâche d’agent pour ajouter la tâche de génération d’émulateur. Dans la zone de recherche, tapez **cosmos**, puis sélectionnez **Azure Cosmos DB Emulator** (Émulateur Azure Cosmos DB) et ajoutez-le au travail d’agent. La tâche de génération démarre un conteneur avec une instance de l’émulateur Cosmos DB déjà en cours d’exécution sur ce dernier. La tâche de l’émulateur Azure Cosmos DB doit être placée avant toutes les autres tâches qui attendent que l’émulateur soit en cours d’exécution.
 
-   ![Ajouter la tâche de génération d’émulateur à une définition de build](./media/tutorial-setup-ci-cd/addExtension_3.png)
+   :::image type="content" source="./media/tutorial-setup-ci-cd/addExtension_3.png" alt-text="Ajouter la tâche de génération d’émulateur à une définition de build":::
 
 Dans ce didacticiel, vous allez ajouter la tâche au début, afin que l’émulateur soit disponible avant d’exécuter nos tests.
 
@@ -140,21 +140,21 @@ namespace todo.Tests
 
 Accédez aux options d’exécution dans la tâche de test Visual Studio. Dans l’option **Settings file** (Fichier de paramètres), spécifiez que les tests sont configurés à l’aide du fichier **.runsettings**. Dans l’option **Remplacer les paramètres de série de tests**, ajoutez `-endpoint $(CosmosDbEmulator.Endpoint)`. Cela configurera la tâche de test pour faire référence au point de terminaison de la tâche de génération d’émulateur, au lieu de celle définie dans le fichier **.runsettings**.  
 
-![Remplacer la variable de point de terminaison par le point de terminaison de la tâche de génération d’émulateur](./media/tutorial-setup-ci-cd/addExtension_5.png)
+:::image type="content" source="./media/tutorial-setup-ci-cd/addExtension_5.png" alt-text="Remplacer la variable de point de terminaison par le point de terminaison de la tâche de génération d’émulateur":::
 
 ## <a name="run-the-build"></a>Exécutez la génération
 
 Maintenant, **enregistrez et mettez en file d’attente** le build. 
 
-![Enregistrer et exécuter la génération](./media/tutorial-setup-ci-cd/runBuild_1.png)
+:::image type="content" source="./media/tutorial-setup-ci-cd/runBuild_1.png" alt-text="Enregistrer et exécuter la génération":::
 
 Une fois que la génération a démarré, vous noterez que la tâche d’émulateur Cosmos DB a commencé une extraction de l’image Docker avec l’émulateur installé. 
 
-![Enregistrer et exécuter la génération](./media/tutorial-setup-ci-cd/runBuild_4.png)
+:::image type="content" source="./media/tutorial-setup-ci-cd/runBuild_4.png" alt-text="Enregistrer et exécuter la génération":::
 
 Une fois la génération terminée, vous noterez que vos tests réussissent, et qu’ils s’exécutent tous sur l’émulateur Cosmos DB de la tâche de génération !
 
-![Enregistrer et exécuter la génération](./media/tutorial-setup-ci-cd/buildComplete_1.png)
+:::image type="content" source="./media/tutorial-setup-ci-cd/buildComplete_1.png" alt-text="Enregistrer et exécuter la génération":::
 
 ## <a name="set-up-using-yaml"></a>Configurer à l’aide de YAML
 

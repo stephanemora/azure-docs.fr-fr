@@ -1,14 +1,14 @@
 ---
-title: Vue d’ensemble
+title: Présentation d’Azure Resource Manager
 description: Explique comment utiliser Azure Resource Manager pour les tâches de déploiement, de gestion et de contrôle d’accès des ressources sur Azure.
 ms.topic: overview
 ms.date: 04/21/2020
-ms.openlocfilehash: 253fc2f296fa764a6c22fa1331221df60ca21bb5
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 089919e227b33859dbeabd98ecd75845a28a3f42
+ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "81870493"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86087025"
 ---
 # <a name="what-is-azure-resource-manager"></a>Qu’est-ce qu’Azure Resource Manager ?
 
@@ -68,7 +68,7 @@ Vous pouvez déployer des modèles sur des locataires, des groupes d’administr
 
 Lorsque vous définissez votre groupe de ressources, vous devez prendre en compte certains facteurs importants :
 
-* Toutes les ressources de votre groupe doivent partager le même cycle de vie. Les opérations de déploiement, de mise à jour et de suppression porteront sur toutes les ressources du groupe. Si l’une des ressources, comme un serveur de base de données, doit exister dans un autre cycle de déploiement, elle doit appartenir à un autre groupe de ressources.
+* Toutes les ressources de votre groupe doivent partager le même cycle de vie. Les opérations de déploiement, de mise à jour et de suppression porteront sur toutes les ressources du groupe. Si l’une des ressources, comme un serveur, doit exister dans un autre cycle de déploiement, elle doit se trouver à un autre groupe de ressources.
 
 * Chaque ressource ne peut exister que dans un seul groupe de ressources.
 

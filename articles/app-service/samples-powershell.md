@@ -4,14 +4,14 @@ description: Recherchez des exemples Azure PowerShell pour certains des scénari
 tags: azure-service-management
 ms.assetid: b48d1137-8c04-46e0-b430-101e07d7e470
 ms.topic: sample
-ms.date: 03/08/2017
+ms.date: 07/07/2020
 ms.custom: mvc
-ms.openlocfilehash: 6300b9fe10d7b12d71f87adec85d3a86658a8c97
-ms.sourcegitcommit: bf99428d2562a70f42b5a04021dde6ef26c3ec3a
+ms.openlocfilehash: 51693ad4d233ea180607bc7358a0847e23688099
+ms.sourcegitcommit: bcb962e74ee5302d0b9242b1ee006f769a94cfb8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/23/2020
-ms.locfileid: "85254478"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86057906"
 ---
 # <a name="powershell-samples-for-azure-app-service"></a>Exemples PowerShell pour Azure App Service
 
@@ -25,6 +25,7 @@ Le tableau suivant contient des liens vers des scripts PowerShell créés à l�
 | [Créer une application et déployer du code avec FTP](./scripts/powershell-deploy-ftp.md?toc=%2fpowershell%2fmodule%2ftoc.json) | Crée une application App Service et charge des fichiers à partir d’un répertoire local via FTP. |
 | [Créer une application et déployer le code à partir d’un dépôt Git local](./scripts/powershell-deploy-local-git.md?toc=%2fpowershell%2fmodule%2ftoc.json) | Crée une application App Service et configure la transmission de code de type push à partir d’un dépôt Git local. |
 | [Créer une application et déployer le code dans un environnement de préproduction](./scripts/powershell-deploy-staging-environment.md?toc=%2fpowershell%2fmodule%2ftoc.json) | Crée une application App Service avec un emplacement de déploiement pour les modifications de code intermédiaires. |
+|  [Créer et exposer une application avec un point de terminaison privé](./scripts/powershell-deploy-private-endpoint.md?toc=%2fpowershell%2fmodule%2ftoc.json) | Crée une application App Service avec un point de terminaison privé. |
 |**Configurer l’application**||
 | [Mapper un domaine personnalisé à une application](./scripts/powershell-configure-custom-domain.md?toc=%2fpowershell%2fmodule%2ftoc.json)| Crée une application App Service et mappe un nom de domaine personnalisé à celle-ci. |
 | [Lier un certificat TLS/SSL personnalisé à une application](./scripts/powershell-configure-ssl-certificate.md?toc=%2fpowershell%2fmodule%2ftoc.json)| Crée une application App Service et lie le certificat TLS/SSL d’un nom de domaine personnalisé à celle-ci. |

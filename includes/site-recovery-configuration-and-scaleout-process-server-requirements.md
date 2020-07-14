@@ -1,20 +1,20 @@
 ---
-title: Fichier Include
-description: Fichier Include
+title: Fichier include
+description: Fichier include
 services: site-recovery
 author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
 ms.topic: include
-ms.date: 06/10/2018
+ms.date: 06/23/2020
 ms.author: raynew
 ms.custom: include file
-ms.openlocfilehash: 1aaec104e9130eeef723c6505e04e3317271566b
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: c8c51d671cd98a606c11a39b6cf489aa288d71b3
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80234242"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85292078"
 ---
 **Exigences des serveur de configuration et de traitement**
 
@@ -52,14 +52,12 @@ Type de carte réseau | VMXNET3 (si le serveur de configuration est une machine 
  |
 **Accès Internet** (le serveur doit également accéder aux URL suivantes, directement ou par le biais d’un proxy) :|
 \*.backup.windowsazure.com | Élément utilisé pour la coordination et le transfert des données répliquées
-\*.store.core.windows.net | Élément utilisé pour la coordination et le transfert des données répliquées
-\*.blob.core.windows.net | Utilisé pour l’accès au compte de stockage qui stocke les données répliquées
+\*.blob.core.windows.net | Élément utilisé pour l’accès au compte de stockage qui stocke les données répliquées Vous pouvez fournir l’URL spécifique de votre compte de stockage de cache.
 \*.hypervrecoverymanager.windowsazure.com | Élément utilisé pour la coordination et l’administration des opérations de gestion de la réplication
-https:\//management.azure.com | Élément utilisé pour la coordination et l’administration des opérations de gestion de la réplication 
-*.services.visualstudio.com | Utilisé dans le cadre de la télémétrie (facultatif)
+https:\//login.microsoftonline.com | Élément utilisé pour la coordination et l’administration des opérations de gestion de la réplication 
 time.nist.gov | Éléments utilisés pour vérifier la synchronisation horaire entre l’horloge système et l’heure globale
 time.windows.com | Éléments utilisés pour vérifier la synchronisation horaire entre l’horloge système et l’heure globale
-| <ul> <li> https:\//login.microsoftonline.com </li><li> https:\//secure.aadcdn.microsoftonline-p.com </li><li> https:\//login.live.com </li><li> https:\//graph.windows.net </li><li> https:\//login.windows.net </li><li> https:\//www.live.com </li><li> https:\//www.microsoft.com </li></ul> | L’installation OVF nécessite l’accès à ces URL. Azure Active Directory utilise ces adresses pour le contrôle d’accès et la gestion des identités.
+| <ul> <li> https:\//management.azure.com </li><li> https:\//secure.aadcdn.microsoftonline-p.com </li><li> https:\//login.live.com </li><li> https:\//graph.windows.net </li><li> https:\//login.windows.net </li><li> *.services.visualstudio.com (facultatif) </li><li> https:\//www.live.com </li><li> https:\//www.microsoft.com </li></ul> | L’installation OVF nécessite l’accès à ces URL supplémentaires. Azure Active Directory utilise ces adresses pour le contrôle d’accès et la gestion des identités.
 https:\//dev.mysql.com/get/Downloads/MySQLInstaller/mysql-installer-community-5.7.20.0.msi  | Pour effectuer le téléchargement de MySQL. </br> Dans certaines régions, le téléchargement peut être redirigé vers l’URL CDN. Vérifiez que l’URL CDN figure également dans la liste verte, si nécessaire.
 |
 

@@ -6,12 +6,12 @@ ms.service: spring-cloud
 ms.topic: quickstart
 ms.date: 02/15/2020
 ms.author: brendm
-ms.openlocfilehash: 9cd59fdf81e9b5d56872d20c76e8ea177b3c8577
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.openlocfilehash: e4ea76a888ba51b3560139e9efc3df512c4fbadf
+ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "79470892"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86120940"
 ---
 # <a name="quickstart-launch-an-existing-azure-spring-cloud-application-using-the-azure-portal"></a>Démarrage rapide : Lancer une application Azure Spring Cloud existante en utilisant le portail Azure
 
@@ -134,7 +134,13 @@ Le déploiement du service nécessite environ 5 minutes.  Une fois le déploiem
     az configure --defaults spring-cloud=<service instance name>
     ```
 
-4. Créez l’application `gateway` et déployez le fichier JAR.
+4. Créez l’application `gateway` et déployez le fichier JAR.  Les étapes suivantes nécessitent l’extension Spring Cloud. Si vous ne l’avez pas installée avec les prérequis, exécutez la commande suivante :
+
+    ```azurecli
+    az extension add --name spring-cloud
+    ```
+
+    À l’aide de l’extension Spring Cloud, créez l’application :
 
     ```azurecli
     az spring-cloud app create -n gateway

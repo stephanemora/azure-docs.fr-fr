@@ -6,12 +6,12 @@ ms.topic: quickstart
 author: bwren
 ms.author: bwren
 ms.date: 12/15/2019
-ms.openlocfilehash: c4b80e62d3800392b847a411dfc66c3278e72bba
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.openlocfilehash: 597b12a584e7b4c17ec21635e18368f897ad168a
+ms.sourcegitcommit: 74ba70139781ed854d3ad898a9c65ef70c0ba99b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "77661862"
+ms.lasthandoff: 06/26/2020
+ms.locfileid: "85443874"
 ---
 # <a name="quickstart-monitor-an-azure-resource-with-azure-monitor"></a>Démarrage rapide : Superviser une ressource Azure avec Azure Monitor
 [Azure Monitor](../overview.md) commence à collecter des données des ressources Azure dès le moment de leur création. Ce guide de démarrage rapide décrit brièvement les données qui sont collectées automatiquement pour une ressource particulière et explique comment les afficher dans le portail Azure. Ensuite, vous pouvez ajouter une configuration pour collecter des données supplémentaires. À partir du menu d’Azure Monitor, vous pouvez utiliser les mêmes outils pour accéder aux données collectées pour toutes les ressources dans votre abonnement.
@@ -67,7 +67,7 @@ Les métriques sont des valeurs numériques qui décrivent certains aspects de v
 
 
 ## <a name="next-steps"></a>Étapes suivantes
-Dans ce guide de démarrage rapide, vous avez affiché le journal d’activité et les métriques pour une ressource Azure qui sont collectées automatiquement par Azure Monitor. Les journaux de ressource fournissent des insights détaillés sur les opérations sur la ressource, mais ils doivent être configurés pour être collectés. Passez au tutoriel pour collecter les journaux de ressource dans un espace de travail Log Analytics et ensuite les analyser à l’aide de requêtes de journal.
+Dans ce guide de démarrage rapide, vous avez affiché le journal d’activité et les métriques pour une ressource Azure qui sont collectées automatiquement par Azure Monitor. Passez au guide de démarrage rapide suivant, qui vous montre comment collecter le journal d’activité dans un espace de travail Log Analytics dans lequel il peut être analysé à l’aide de [requêtes de journal](../log-query/log-query-overview.md).
 
 > [!div class="nextstepaction"]
-> [Collecter et analyser des journaux de ressources avec Azure Monitor](tutorial-resource-logs.md)
+> [Envoyer le journal d’activité Azure à un espace de travail Log Analytics](quick-monitor-azure-resource.md)

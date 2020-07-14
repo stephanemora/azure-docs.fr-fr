@@ -10,29 +10,32 @@ ms.date: 06/10/2020
 ms.service: machine-learning
 ms.subservice: data-science-vm
 ms.topic: quickstart
-ms.openlocfilehash: 7e3e45d96839be06deec238deccdc9873492d68f
-ms.sourcegitcommit: 5a8c8ac84c36859611158892422fc66395f808dc
+ms.openlocfilehash: 675ddf073393afde6ac8d08a65b40da11d90d3ea
+ms.sourcegitcommit: 0100d26b1cac3e55016724c30d59408ee052a9ab
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/10/2020
-ms.locfileid: "84660250"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86026659"
 ---
-# <a name="quickstart-create-an-ubuntu-data-science-virtual-machine-using-a-resource-manager-template"></a>Démarrage rapide : Créer une machine virtuelle Data Science Virtual Machine Ubuntu à l’aide d’un modèle Resource Manager
+# <a name="quickstart-create-an-ubuntu-data-science-virtual-machine-using-an-arm-template"></a>Démarrage rapide : Créer une machine virtuelle Data Science Virtual Machine Ubuntu à l’aide d’un modèle Resource Manager
+
 [!INCLUDE [applies-to-skus](../../../includes/aml-applies-to-basic-enterprise-sku.md)]
 
-Ce guide de démarrage rapide vous montre comment créer une machine virtuelle Data Science Virtual Machine Ubuntu 18.04 à l’aide d’un modèle Azure Resource Manager. Les machines virtuelles Data Science Virtual Machine sont des machines virtuelles basées sur le cloud et préchargées avec une suite de frameworks et d’outils de science des données et de machine learning. En cas de déploiement sur des ressources de calcul alimentées par GPU, l’ensemble des outils et bibliothèques sont configurés pour utiliser le GPU. 
+Ce guide de démarrage rapide vous montre comment créer une machine virtuelle Data Science Virtual Machine Ubuntu 18.04 à l’aide d’un modèle Resource Manager (Azure Resource Manager). Les machines virtuelles Data Science Virtual Machine sont des machines virtuelles basées sur le cloud et préchargées avec une suite de frameworks et d’outils de science des données et de machine learning. En cas de déploiement sur des ressources de calcul alimentées par GPU, l’ensemble des outils et bibliothèques sont configurés pour utiliser le GPU. 
 
 [!INCLUDE [About Azure Resource Manager](../../../includes/resource-manager-quickstart-introduction.md)]
 
+Si votre environnement remplit les prérequis et que vous êtes déjà familiarisé avec l’utilisation des modèles ARM, sélectionnez le bouton **Déployer sur Azure**. Le modèle s’ouvre dans le portail Azure.
+
+[![Déployer sur Azure](../../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-vm-ubuntu-DSVM-GPU-or-CPU%2Fazuredeploy.json)
+
 ## <a name="prerequisites"></a>Prérequis
 
-* Un abonnement Azure. Si vous n’avez pas d’abonnement Azure, créez un [compte gratuit](https://aka.ms/AMLFree) avant de commencer.
+* Un abonnement Azure. Si vous n’avez pas d’abonnement Azure, créez un [compte gratuit](https://azure.microsoft.com/free/services/machine-learning/) avant de commencer.
 
-* Pour utiliser les commandes CLI dans ce document depuis votre **environnement local**, vous avez besoin de l’interface [Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest).
+* Pour utiliser les commandes CLI dans ce document à partir de votre **environnement local**, vous avez besoin [d’Azure CLI](/cli/azure/install-azure-cli).
 
-## <a name="create-a-workspace"></a>Créer un espace de travail
-
-### <a name="review-the-template"></a>Vérifier le modèle
+## <a name="review-the-template"></a>Vérifier le modèle
 
 Le modèle utilisé dans ce démarrage rapide est tiré des [modèles de démarrage rapide Azure](https://azure.microsoft.com/resources/templates/101-vm-ubuntu-DSVM-GPU-or-CPU/). Le modèle complet utilisé pour cet article est trop long pour être affiché ici. Pour voir ce modèle, consultez [azuredeploy.json](https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-vm-ubuntu-DSVM-GPU-or-CPU/azuredeploy.json). La partie qui définit les caractéristiques de la machine virtuelle DSVM est présentée ici :
 
@@ -42,9 +45,9 @@ Les ressources suivantes sont définies dans le modèle :
 
 * [Microsoft.Compute/virtualMachines](/azure/templates/microsoft.compute/virtualmachines) : Créez une machine virtuelle basée sur le cloud. Dans ce modèle, la machine virtuelle est configurée en tant que machine Data Science Virtual Machine exécutant Ubuntu 18.04.
 
-### <a name="deploy-the-template"></a>Déployer le modèle 
+## <a name="deploy-the-template"></a>Déployer le modèle
 
-Pour utiliser le modèle à partir de l’interface Azure CLI, connectez-vous, puis choisissez votre abonnement (Voir [Se connecter avec Azure CLI](https://docs.microsoft.com/cli/azure/authenticate-azure-cli?view=azure-cli-latest)). Ensuite, exécutez :
+Pour utiliser le modèle à partir de l’interface Azure CLI, connectez-vous, puis choisissez votre abonnement (Voir [Se connecter avec Azure CLI](/cli/azure/authenticate-azure-cli)). Ensuite, exécutez :
 
 ```azurecli-interactive
 read -p "Enter the name of the resource group to create:" resourceGroupName &&
@@ -54,36 +57,36 @@ read -p "Enter the login name for the administrator account (may not be 'admin')
 read -p "Enter administrator account secure string (value of password or ssh public key):" adminPasswordOrKey &&
 templateUri="https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-vm-ubuntu-DSVM-GPU-or-CPU/azuredeploy.json" &&
 az group create --name $resourceGroupName --location "$location" &&
-az deployment group create --resource-group $resourceGroupName --template-uri $templateUri --parameters adminUsername=$adminUsername authenticationType=$authenticationType adminPasswordOrKey=$adminPasswordOrKey && 
+az deployment group create --resource-group $resourceGroupName --template-uri $templateUri --parameters adminUsername=$adminUsername authenticationType=$authenticationType adminPasswordOrKey=$adminPasswordOrKey &&
 echo "Press [ENTER] to continue ..." &&
 read
 ```
 
 Lorsque vous exécutez la commande ci-dessus, indiquez :
 
-1. Le nom du groupe de ressources que vous voulez créer pour contenir la machine virtuelle DSVM et les ressources associées. 
-1. L’emplacement Azure dans lequel vous souhaitez effectuer le déploiement
-1. Le type d’authentification que vous voulez utiliser (entrez la chaîne `password` ou `sshPublicKey`)
-1. Le nom de connexion du compte d’administrateur (cette valeur ne peut pas être `admin`)
-1. La valeur du mot de passe ou de la clé publique SSH pour le compte
+1. Le nom du groupe de ressources que vous voulez créer pour contenir la machine virtuelle DSVM et les ressources associées.
+1. L’emplacement Azure dans lequel vous souhaitez effectuer le déploiement.
+1. Le type d’authentification que vous voulez utiliser (entrez la chaîne `password` ou `sshPublicKey`).
+1. Le nom de connexion du compte administrateur (cette valeur ne peut pas être `admin`).
+1. La valeur du mot de passe ou de la clé publique SSH pour le compte.
 
 ## <a name="review-deployed-resources"></a>Vérifier les ressources déployées
 
 Pour voir votre machine Data Science Virtual Machine :
 
-1. Accédez à https://portal.azure.com 
-1. Se connecter 
-1. Utilisez le groupe de ressources que vous venez de créer
+1. Atteindre https://portal.azure.com.
+1. Connectez-vous.
+1. Utilisez le groupe de ressources que vous venez de créer.
 
-Les informations du groupe de ressources s’affichent : 
+Les informations du groupe de ressources s’affichent :
 
 :::image type="content" source="media/dsvm-tutorial-resource-manager/resource-group-home.png" alt-text="Capture d’écran d’un groupe de ressources de base contenant une machine virtuelle DSVM":::
 
-Cliquez sur la ressource de machine virtuelle pour accéder à la page d’informations correspondante. Vous y trouverez des informations sur la machine virtuelle, notamment les détails de connexion. 
+Cliquez sur la ressource de machine virtuelle pour accéder à la page d’informations correspondante. Vous y trouverez des informations sur la machine virtuelle, notamment les détails de connexion.
 
 ## <a name="clean-up-resources"></a>Nettoyer les ressources
 
-Si vous ne voulez pas utiliser cette machine virtuelle, supprimez-la. Étant donné que la machine DSVM est associée à d’autres ressources, comme un compte de stockage, vous voudrez probablement supprimer l’intégralité du groupe de ressources que vous avez créé. Vous pouvez supprimer le groupe de ressources par l’intermédiaire du portail en cliquant sur le bouton « Supprimer » et en confirmant ce choix. Vous pouvez également supprimer le groupe de ressources à partir de l’interface CLI avec : 
+Si vous ne voulez pas utiliser cette machine virtuelle, supprimez-la. Étant donné que la machine DSVM est associée à d’autres ressources, comme un compte de stockage, vous voudrez probablement supprimer l’intégralité du groupe de ressources que vous avez créé. Vous pouvez supprimer le groupe de ressources par l’intermédiaire du portail en cliquant sur le bouton **Supprimer** et en confirmant ce choix. Vous pouvez également supprimer le groupe de ressources à partir de l’interface CLI avec :
 
 ```azurecli-interactive
 echo "Enter the Resource Group name:" &&
@@ -94,7 +97,7 @@ echo "Press [ENTER] to continue ..."
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Dans ce guide de démarrage rapide, vous avez créé une machine virtuelle Data Science Virtual Machine à partir d’un modèle Azure Resource Manager. 
+Dans ce guide de démarrage rapide, vous avez créé une machine virtuelle Data Science Virtual Machine à partir d’un modèle Resource Manager.
 
 > [!div class="nextstepaction"]
 > [Exemples de programmes et procédures pas à pas sur le machine learning](dsvm-samples-and-walkthroughs.md)

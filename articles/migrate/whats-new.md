@@ -4,12 +4,12 @@ description: Découvrez les nouveautés et les mises à jour récentes du servic
 ms.topic: overview
 ms.date: 04/19/2020
 ms.custom: mvc
-ms.openlocfilehash: be617590ce0c96c3ec8ea705732534c8395ac0ce
-ms.sourcegitcommit: ff19f4ecaff33a414c0fa2d4c92542d6e91332f8
+ms.openlocfilehash: 58c77dccd1e43ed497cd56b2831eb2ab914d8d5d
+ms.sourcegitcommit: 73ac360f37053a3321e8be23236b32d4f8fb30cf
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/18/2020
-ms.locfileid: "85052326"
+ms.lasthandoff: 06/30/2020
+ms.locfileid: "85556922"
 ---
 # <a name="whats-new-in-azure-migrate"></a>Nouveautés d’Azure Migrate
 
@@ -17,6 +17,7 @@ ms.locfileid: "85052326"
 
 ## <a name="update-june-2020"></a>Mise à jour (juin 2020)
 
+- Les évaluations pour la migration de machines virtuelles VMware locales vers [Azure VMware Solution (AVS)](https://go.microsoft.com/fwlink/?linkid=2132637) sont désormais prises en charge. [En savoir plus](how-to-create-azure-vmware-solution-assessment.md)
 - Prise en charge de plusieurs informations d’identification sur l’appliance pour la découverte des serveurs physiques.
 - Prise en charge pour autoriser la connexion Azure à partir de l’appliance pour le locataire où la restriction du locataire a été configurée.
 - Nouvelles versions d’appliance Azure Migrate, comme indiqué ci-dessous.

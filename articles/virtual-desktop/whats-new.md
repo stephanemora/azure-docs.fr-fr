@@ -9,21 +9,21 @@ ms.date: 06/15/2020
 ms.author: helohr
 ms.reviewer: thhickli; darank
 manager: lizross
-ms.openlocfilehash: 383b59d10fa1de1b2ee0ea8b505c164577487255
-ms.sourcegitcommit: 9bfd94307c21d5a0c08fe675b566b1f67d0c642d
+ms.openlocfilehash: 7052e9203532320a7de5197e983d40cb0a34b50d
+ms.sourcegitcommit: dfa5f7f7d2881a37572160a70bac8ed1e03990ad
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/17/2020
-ms.locfileid: "84974379"
+ms.lasthandoff: 06/25/2020
+ms.locfileid: "85374778"
 ---
 # <a name="whats-new-in-windows-virtual-desktop"></a>Nouveautés de Windows Virtual Desktop
 
 Windows Virtual Desktop est mis à jour régulièrement. Vous trouverez dans cet article des informations sur :
 
 - Les dernières mises à jour.
-- Les nouvelles fonctionnalités.
+- Nouvelles fonctionnalités
 - Les améliorations apportées aux fonctionnalités existantes.
-- Les résolution des bogues.
+- Résolution des bogues
 
 Cet article est mis à jour tous les mois. Pensez à consulter cette page régulièrement pour être tenu informé des nouvelles mises à jour.
 
@@ -73,6 +73,8 @@ Nous avons apporté des améliorations à Microsoft Teams pour Windows Virtual D
 Pour plus d’informations, consultez [notre billet de blog](https://azure.microsoft.com/updates/windows-virtual-desktop-media-optimization-for-microsoft-teams-is-now-available-in-public-preview/).
 
 ## <a name="next-steps"></a>Étapes suivantes
+
+Apprenez-en davantage sur ce qui est prévu à l’avenir en consultant la [feuille de route Microsoft 365 Windows Virtual Desktop](https://www.microsoft.com/microsoft-365/roadmap?filters=Windows%20Virtual%20Desktop).
 
 Consultez ces articles pour en savoir plus sur les mises à jour de nos clients pour Windows Virtual Desktop et Windows Virtual Desktop :
 

@@ -7,14 +7,14 @@ ms.service: active-directory
 ms.subservice: domain-services
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 03/30/2020
+ms.date: 07/06/2020
 ms.author: iainfou
-ms.openlocfilehash: 2333ace1b1e9116acf85964fb180f44e0f66e6e7
-ms.sourcegitcommit: c4ad4ba9c9aaed81dfab9ca2cc744930abd91298
+ms.openlocfilehash: 28c56b7ece51e39d72c4ddff39d681eeb57d2252
+ms.sourcegitcommit: 0100d26b1cac3e55016724c30d59408ee052a9ab
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/12/2020
-ms.locfileid: "84733488"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86024721"
 ---
 # <a name="tutorial-create-and-configure-an-azure-active-directory-domain-services-managed-domain"></a>Tutoriel : Créer et configurer un domaine managé Azure Active Directory Domain Services
 
@@ -87,16 +87,19 @@ Les restrictions de nom DNS suivantes s’appliquent également :
 Renseignez les champs de la fenêtre *De base* du portail Azure pour créer un domaine managé :
 
 1. Entrez un **Nom de domaine DNS** pour votre domaine managé, en tenant compte des points précédents.
-1. Choisissez l’**Emplacement** Azure dans lequel créer le domaine managé. Si vous choisissez une région qui prend en charge les Zones de disponibilité, les ressources Azure AD DS sont réparties entre les zones pour assurer une redondance supplémentaire.
+1. Choisissez l’**Emplacement** Azure dans lequel créer le domaine managé. Si vous choisissez une région qui prend en charge les Zones de disponibilité Azure, les ressources Azure AD DS sont réparties entre les zones pour assurer une redondance supplémentaire.
 
-    Les Zones de disponibilité sont des emplacements physiques uniques au sein d’une région Azure. Chaque zone de disponibilité est composée d’un ou de plusieurs centres de données équipés d’une alimentation, d’un système de refroidissement et d’un réseau indépendants. Pour garantir la résilience, un minimum de trois zones distinctes sont activées dans toutes les régions.
-
-    Vous ne devez rien configurer pour la répartition d’Azure AD DS entre les zones. La plateforme Azure gère automatiquement la répartition de zone des ressources. Pour plus d’informations et pour connaître la disponibilité régionale, consultez [Que sont les zones de disponibilité dans Azure ?][availability-zones]
+    > [!TIP]
+    > Les Zones de disponibilité sont des emplacements physiques uniques au sein d’une région Azure. Chaque zone de disponibilité est composée d’un ou de plusieurs centres de données équipés d’une alimentation, d’un système de refroidissement et d’un réseau indépendants. Pour garantir la résilience, un minimum de trois zones distinctes sont activées dans toutes les régions.
+    >
+    > Vous ne devez rien configurer pour la répartition d’Azure AD DS entre les zones. La plateforme Azure gère automatiquement la répartition de zone des ressources. Pour plus d’informations et pour connaître la disponibilité régionale, consultez [Que sont les zones de disponibilité dans Azure ?][availability-zones]
 
 1. La référence **SKU** détermine les performances, la fréquence de sauvegarde et le nombre maximal d’approbations de forêt que vous pouvez créer. Vous pouvez changer de référence SKU après la création du domaine managé en cas de changement des besoins métier. Pour plus d’informations, consultez [Concepts relatifs aux références SKU dans Azure AD DS][concepts-sku].
 
     Pour ce tutoriel, sélectionnez la référence SKU *Standard*.
-1. Une *forêt* est une construction logique utilisée par Active Directory Domain Services pour regrouper un ou plusieurs domaines. Par défaut, un domaine managé est créé en tant que forêt d’*utilisateurs*. Ce type de forêt synchronise tous les objets d’Azure AD, notamment les comptes d’utilisateur créés dans un environnement AD DS local. Une forêt de *ressources* synchronise uniquement les utilisateurs et les groupes créés directement dans Azure AD. Les forêts de ressources sont actuellement en préversion. Pour plus d’informations sur les forêts de *ressources*, notamment sur la raison pour laquelle vous pouvez en utiliser une et comment créer des approbations de forêts avec des domaines AD DS locaux, consultez [Vue d’ensemble des forêts de ressources Azure AD DS][resource-forests].
+1. Une *forêt* est une construction logique utilisée par Active Directory Domain Services pour regrouper un ou plusieurs domaines. Par défaut, un domaine managé est créé en tant que forêt d’*utilisateurs*. Ce type de forêt synchronise tous les objets d’Azure AD, notamment les comptes d’utilisateur créés dans un environnement AD DS local.
+
+    Une forêt de *ressources* synchronise uniquement les utilisateurs et les groupes créés directement dans Azure AD. Les forêts de ressources sont actuellement en préversion. Pour plus d’informations sur les forêts de *ressources*, notamment sur la raison pour laquelle vous pouvez en utiliser une et comment créer des approbations de forêts avec des domaines AD DS locaux, consultez [Vue d’ensemble des forêts de ressources Azure AD DS][resource-forests].
 
     Pour ce tutoriel, choisissez de créer une forêt d’*utilisateurs*.
 
@@ -128,11 +131,12 @@ Dans la page **Résumé** de l’Assistant, examinez les paramètres de configur
 
     ![État des services de domaine une fois le provisionnement terminé](./media/tutorial-create-instance/successfully-provisioned.png)
 
-Le domaine managé est associé à votre locataire Azure AD. Pendant le processus d’approvisionnement, Azure AD DS crée deux applications d’entreprise nommées *Services de contrôleur de domaine* et *AzureActiveDirectoryDomainControllerServices* dans le locataire Azure AD. Ces applications d’entreprise sont nécessaires pour entretenir votre domaine géré. Ne supprimez pas ces applications.
+> [!IMPORTANT]
+> Le domaine managé est associé à votre locataire Azure AD. Pendant le processus d’approvisionnement, Azure AD DS crée deux applications d’entreprise nommées *Services de contrôleur de domaine* et *AzureActiveDirectoryDomainControllerServices* dans le locataire Azure AD. Ces applications d’entreprise sont nécessaires pour entretenir votre domaine géré. Ne supprimez pas ces applications.
 
 ## <a name="update-dns-settings-for-the-azure-virtual-network"></a>Mettre à jour les paramètres DNS pour le réseau virtuel Azure
 
-Avec Azure AD DS correctement déployé, configurez maintenant le réseau virtuel pour permettre à d’autres machines virtuelles et applications connectées d’utiliser le domaine managé. Pour fournir cette connectivité, mettez à jour les paramètres du serveur DNS pour que votre réseau virtuel pointe vers les deux adresses IP où Azure AD DS est déployé.
+Avec Azure AD DS correctement déployé, configurez maintenant le réseau virtuel pour permettre à d’autres machines virtuelles et applications connectées d’utiliser le domaine managé. Pour fournir cette connectivité, mettez à jour les paramètres du serveur DNS pour que votre réseau virtuel pointe vers les deux adresses IP où le domaine managé est déployé.
 
 1. L’onglet **Vue d’ensemble** pour votre domaine managé montre quelques **Étapes de configuration obligatoires**. La première étape de configuration est de mettre à jour les paramètres du serveur DNS pour votre réseau virtuel. Une fois les paramètres DNS correctement configurés, cette étape n’apparaît plus.
 
@@ -150,9 +154,17 @@ Avec Azure AD DS correctement déployé, configurez maintenant le réseau virtue
 Pour authentifier les utilisateurs sur le domaine managé, Azure AD DS nécessite les hachages de mot de passe dans un format adapté à l’authentification NTLM (NT LAN Manager) et Kerberos. Azure AD ne génère pas et ne stocke pas les hachages de mot de passe au format nécessaire pour l’authentification NTLM ou Kerberos tant que vous n’activez pas Azure AD DS pour votre locataire. Pour des raisons de sécurité, Azure AD ne stocke pas non plus d’informations d’identification de mot de passe sous forme de texte en clair. Par conséquent, Azure AD ne peut pas générer automatiquement ces hachages de mot de passe NTLM ou Kerberos en fonction des informations d’identification existantes des utilisateurs.
 
 > [!NOTE]
-> Une fois configurés de façon appropriée, les hachages de mot de passe utilisables sont stockés dans le domaine managé. Si vous supprimez le domaine managé, tout hachage de mot de passe stocké à ce stade est également supprimé. Les informations d’identification synchronisées dans Azure AD ne peuvent pas être réutilisées si vous créez par la suite un domaine managé : vous devez reconfigurer la synchronisation de hachage de mot de passe pour stocker à nouveau les hachages de mot de passe. Les machines virtuelles ou les utilisateurs auparavant joints à un domaine ne pourront pas s’authentifier immédiatement : Azure AD doit générer et stocker les hachages de mot de passe dans le nouveau domaine managé. Pour plus d’informations, consultez [Processus de synchronisation du hachage de mot de passe pour Azure AD DS et Azure AD Connect][password-hash-sync-process].
+> Une fois configurés de façon appropriée, les hachages de mot de passe utilisables sont stockés dans le domaine managé. Si vous supprimez le domaine managé, tout hachage de mot de passe stocké à ce stade est également supprimé.
+>
+> Les informations d’identification synchronisées dans Azure AD ne peuvent pas être réutilisées si vous créez par la suite un domaine managé : vous devez reconfigurer la synchronisation de hachage de mot de passe pour stocker à nouveau les hachages de mot de passe. Les machines virtuelles ou les utilisateurs auparavant joints à un domaine ne pourront pas s’authentifier immédiatement : Azure AD doit générer et stocker les hachages de mot de passe dans le nouveau domaine managé.
+>
+> Pour plus d’informations, consultez [Processus de synchronisation du hachage de mot de passe pour Azure AD DS et Azure AD Connect][password-hash-sync-process].
 
-Les étapes de génération et de stockage de ces hachages de mot de passe sont différentes pour les comptes d’utilisateur cloud uniquement créés dans Azure AD et pour les comptes d’utilisateur qui sont synchronisés à partir de votre annuaire local avec Azure AD Connect. Un compte d’utilisateur uniquement dans le cloud est un compte qui a été créé dans votre répertoire Azure AD à l’aide du portail Azure ou d’applets de commande PowerShell Azure AD. Ces comptes d’utilisateurs ne sont pas synchronisés à partir d’un annuaire local. Dans ce tutoriel, nous utilisons un compte d’utilisateur de base cloud uniquement. Pour plus d’informations sur les étapes supplémentaires nécessaires pour utiliser Azure AD Connect, consultez [Synchroniser les hachages de mot de passe pour les comptes d’utilisateur synchronisés à partir de votre annuaire Active Directory local vers votre domaine managé][on-prem-sync].
+Les étapes de génération et de stockage de ces hachages de mot de passe sont différentes pour les comptes d’utilisateur cloud uniquement créés dans Azure AD et pour les comptes d’utilisateur qui sont synchronisés à partir de votre annuaire local avec Azure AD Connect.
+
+Un compte d’utilisateur uniquement dans le cloud est un compte qui a été créé dans votre répertoire Azure AD à l’aide du portail Azure ou d’applets de commande PowerShell Azure AD. Ces comptes d’utilisateurs ne sont pas synchronisés à partir d’un annuaire local.
+
+> Dans ce tutoriel, nous utilisons un compte d’utilisateur de base cloud uniquement. Pour plus d’informations sur les étapes supplémentaires nécessaires pour utiliser Azure AD Connect, consultez [Synchroniser les hachages de mot de passe pour les comptes d’utilisateur synchronisés à partir de votre annuaire Active Directory local vers votre domaine managé][on-prem-sync].
 
 > [!TIP]
 > Si votre locataire Azure AD utilise une combinaison d’utilisateurs cloud uniquement et d’utilisateurs provenant de votre annuaire Active Directory local, vous devez effectuer ces deux ensembles d’étapes.
@@ -197,7 +209,7 @@ Avant de joindre des machines virtuelles au domaine et de déployer des applicat
 [create-dedicated-subnet]: ../virtual-network/virtual-network-manage-subnet.md#add-a-subnet
 [scoped-sync]: scoped-synchronization.md
 [on-prem-sync]: tutorial-configure-password-hash-sync.md
-[configure-sspr]: ../active-directory/authentication/quickstart-sspr.md
+[configure-sspr]: ../active-directory/authentication/tutorial-enable-sspr.md
 [password-hash-sync-process]: ../active-directory/hybrid/how-to-connect-password-hash-synchronization.md#password-hash-sync-process-for-azure-ad-domain-services
 [tutorial-create-instance-advanced]: tutorial-create-instance-advanced.md
 [skus]: overview.md

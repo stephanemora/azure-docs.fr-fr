@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 06/18/2020
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: ebbb73b6fc4e2a934c7c4235cfcdc39b8fa81b60
-ms.sourcegitcommit: 398fecceba133d90aa8f6f1f2af58899f613d1e3
+ms.openlocfilehash: 18dc2e4393175751f5ac52d53e0c331c82fce7e8
+ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/21/2020
-ms.locfileid: "85127055"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86078117"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-shopify-plus"></a>Tutoriel : Intégration de l’authentification unique Azure Active Directory à Shopify Plus
 
@@ -103,7 +103,8 @@ Effectuez les étapes suivantes pour activer l’authentification unique Azure A
     | ---------------| --------------- | --------- |
     | email | | user.mail |
 
-1. Dans la page **Configurer l’authentification unique avec SAML**, dans la section **Certificat de signature SAML**, cliquez sur le bouton Copier pour copier l’**URL des métadonnées de fédération d’application**, puis enregistrez-la sur votre ordinateur.
+1. Remplacez le format de l’**Identificateur de nom** par **Persistant**. Sélectionnez l’option **Identificateur d’utilisateur unique (ID nom)** , puis sélectionnez le format **Identificateur de nom**. Sélectionnez **Persistant** pour cette option. Enregistrez vos modifications.
+1. Dans la page **Configurer l’authentification unique avec SAML**, dans la section **Certificat de signature SAML**, sélectionnez le bouton de copie pour copier l’**URL des métadonnées de fédération d’application** et enregistrez-la sur votre ordinateur.
 
     ![Lien Téléchargement de certificat](common/copy-metadataurl.png)
 
@@ -139,11 +140,31 @@ Dans cette section, vous allez autoriser B.Simon à utiliser l’authentificatio
 
 ## <a name="configure-shopify-plus-sso"></a>Configurer l’authentification unique Shopify Plus
 
-Pour configurer l’authentification unique côté **Shopify Plus**, vous devez envoyer l’**URL des métadonnées de fédération de l’application** à l’[équipe du support technique Shopify Plus](mailto:plus-user-management@shopify.com). Celles-ci configurent ensuite ce paramètre pour que la connexion SSO SAML soit définie correctement des deux côtés.
+Pour obtenir les étapes complètes, consultez la [documentation Shopify concernant la configuration des intégrations SAML](https://help.shopify.com/en/manual/shopify-plus/saml).
+
+Si vous souhaitez configurer l’authentification unique pour **Shopify Plus**, copiez l’**URL des métadonnées de fédération d’application** à partir d’Azure Active Directory. Ensuite, connectez-vous en tant qu’[administrateur de l’organisation](https://shopify.plus), puis accédez à **Utilisateurs** > **Sécurité**. Sélectionnez **Set up configuration** (Configurer), puis collez l’URL des métadonnées de fédération d’application dans la section **Identity provider metadata URL** (URL de métadonnées du fournisseur d’identité). Pour terminer cette étape, sélectionnez **Add** (Ajouter).
 
 ### <a name="create-shopify-plus-test-user"></a>Créer un utilisateur de test Shopify Plus
 
-Dans cette section, vous allez créer un utilisateur appelé B.Simon dans Shopify Plus. Collaborez avec l’ [équipe du support technique Shopify Plus](mailto:plus-user-management@shopify.com) pour ajouter les utilisateurs dans la plateforme Shopify Plus. Les utilisateurs doivent être créés et activés avant que vous utilisiez l’authentification unique.
+Dans cette section, vous allez créer un utilisateur appelé B.Simon dans Shopify Plus. Revenez à la section **Users** (Utilisateurs) pour ajouter un utilisateur en entrant son adresse e-mail et ses autorisations. Les utilisateurs doivent être créés et activés avant que vous utilisiez l’authentification unique.
+
+### <a name="enforce-saml-authentication"></a>Appliquer l’authentification SAML
+
+> [!NOTE]
+> Nous vous recommandons de tester l’intégration avec certains utilisateurs avant de l’appliquer à tous les utilisateurs.
+
+Utilisateurs individuels :
+1. Accédez à la page d’un utilisateur dans Shopify Plus avec un domaine de messagerie géré par Azure AD et vérifié dans Shopify Plus.
+1. Dans la section SAML Authentication (Authentification SAML), sélectionnez **Edit** (Modifier), sélectionnez **Required** (Obligatoire), puis sélectionnez **Save** (Enregistrer).
+1. Vérifiez que cet utilisateur peut se connecter à l’aide des flux lancés par le fournisseur d’identité ou le fournisseur de service.
+
+Pour tous les utilisateurs d’un domaine de messagerie :
+1. Retournez à la page **Security** (Sécurité).
+1. Sélectionnez **Required** (Obligatoire) pour votre paramètre d’authentification SAML. Cela applique l’authentification SAML à tous les utilisateurs associés à ce domaine de messagerie dans Shopify Plus.
+1. Sélectionnez **Enregistrer**.
+
+> [!IMPORTANT]
+> L’activation de l’authentification SAML pour tous les utilisateurs d’un domaine de messagerie affecte tous les utilisateurs qui utilisent cette application. Les utilisateurs ne pourront pas se connecter à partir de leur page de connexion standard. Ils pourront uniquement accéder à l’application par le biais d’Azure Active Directory. Shopify ne fournit pas d’URL de connexion de secours, à partir de laquelle les utilisateurs peuvent se connecter avec leur nom d’utilisateur et leur mot de passe habituels. Si nécessaire, vous pouvez contacter le support technique Shopify pour désactiver l’authentication SAML.
 
 ## <a name="test-sso"></a>Tester l’authentification unique (SSO) 
 
@@ -153,7 +174,7 @@ Quand vous cliquez sur la vignette Shopify Plus dans le volet d’accès, vous d
 
 ## <a name="additional-resources"></a>Ressources supplémentaires
 
-- [Liste de tutoriels sur l’intégration d’applications SaaS avec Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
+- [Liste de didacticiels sur l’intégration d’applications SaaS avec Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
 - [Qu’est-ce que l’accès aux applications et l’authentification unique avec Azure Active Directory ?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 

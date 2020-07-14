@@ -3,16 +3,16 @@ title: Contrats et avenants Azure EA
 description: Cet article explique dans quelle mesure les contrats et avenants Azure EA affectent votre utilisation du portail Azure EA.
 author: bandersmsft
 ms.author: banders
-ms.date: 06/01/2020
+ms.date: 07/06/2020
 ms.topic: conceptual
 ms.service: cost-management-billing
 ms.reviewer: boalcsva
-ms.openlocfilehash: 4904390ce0642d0331e82610e8aef4b735b56f1f
-ms.sourcegitcommit: d118ad4fb2b66c759b70d4d8a18e6368760da3ad
+ms.openlocfilehash: 50f7a1bab17b9a98b7ca282387def52b24d448c4
+ms.sourcegitcommit: e132633b9c3a53b3ead101ea2711570e60d67b83
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/02/2020
-ms.locfileid: "84298140"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86044904"
 ---
 # <a name="azure-ea-agreements-and-amendments"></a>Contrats et avenants Azure EA
 
@@ -20,7 +20,7 @@ L’article décrit dans quelle mesure les contrats et avenants Azure EA peuvent
 
 ## <a name="enrollment-provisioning-status"></a>État du provisionnement de l’inscription
 
-La date de début d’un nouvel engagement financier est définie par la date à laquelle le centre régional des opérations l’a traité. Étant donné que les commandes d’engagement financier via le portail Azure EA sont traitées dans le fuseau horaire UTC, vous pouvez constater un certain délai si votre bon de commande d’engagement financier a été traité dans une autre région. La date de début de couverture sur le bon de commande sur https://www.explore.ms indique le début de l’engagement financier. La date de début de couverture est le moment où l’engagement financier apparaît dans le portail Azure EA.
+La date de début d’un nouveau Paiement anticipé Azure est définie par la date à laquelle le centre régional des opérations l’a traité. Étant donné que les commandes de Paiement anticipé Azure par le biais du portail Azure EA sont traitées dans le fuseau horaire UTC, vous pouvez constater un certain délai si votre bon de commande de Paiement anticipé Azure a été traité dans une autre région. La date de début de couverture sur le bon de commande sur https://www.explore.ms indique le début du Paiement anticipé Azure. La date de début de couverture est le moment où le Paiement anticipé Azure apparaît dans le portail Azure EA.
 
 ## <a name="support-for-enterprise-customers"></a>Prise en charge des clients Entreprise
 
@@ -36,7 +36,7 @@ Une inscription a l’une des valeurs d’état suivantes. Chaque valeur déterm
 
 **Durée prolongée indéterminée** Cet état est activé quand la date de fin du contrat Entreprise est atteinte. Avant que l’inscription EA n’atteigne la date de fin du contrat Entreprise, l’administrateur de l’inscription doit prendre l’une des décisions suivantes :
 
-- Renouveler l’inscription en ajoutant un engagement financier
+- Renouveler l’inscription en ajoutant un Paiement anticipé Azure supplémentaire
 - Transférer l’inscription existante vers une nouvelle inscription
 - Migrer vers le Programme d’abonnement en ligne Microsoft (MOSP)
 - Confirmer la désactivation de tous les services associés à l’inscription
@@ -51,7 +51,7 @@ Une inscription a l’une des valeurs d’état suivantes. Chaque valeur déterm
 
 Dans le portail Azure EA, la majoration des prix des partenaires aide à améliorer les rapports de coût pour les clients. Le portail Azure EA montre l’utilisation et les prix configurés par les partenaires pour leurs clients.
 
-La majoration permet aux administrateurs partenaires d’ajouter un pourcentage de majoration à leurs contrats entreprise indirects. Le pourcentage de majoration s’applique à toutes les informations de service interne Microsoft dans le portail Azure EA telles que : tarifs de compteur, engagements financiers et commandes. Une fois la majoration publiée par le partenaire, le client voit les coûts Azure dans le portail Azure EA. Par exemple, le résumé d’utilisation, les listes de prix et les rapports d’utilisation téléchargés.
+La majoration permet aux administrateurs partenaires d’ajouter un pourcentage de majoration à leurs contrats entreprise indirects. Le pourcentage de majoration s’applique à toutes les informations de service interne Microsoft dans le portail Azure EA telles que : tarifs de compteur, Paiement anticipé Azure et commandes. Une fois la majoration publiée par le partenaire, le client voit les coûts Azure dans le portail Azure EA. Par exemple, le résumé d’utilisation, les listes de prix et les rapports d’utilisation téléchargés.
 
 À compter de septembre 2019, les partenaires peuvent appliquer une majoration à tout moment. Ils n’ont pas besoin d’attendre la prochaine date anniversaire pour appliquer la majoration.
 
@@ -61,7 +61,7 @@ Microsoft n’a pas accès et n’utilise pas la majoration fournie et aux prix 
 
 Le LSP fournit un seul pourcentage dans le portail EA.  Toutes les informations commerciales sur le portail seront réparties en fonction du pourcentage fourni par le LSP. Exemple :
 
-- Le client signe un Contrat Entreprise avec un engagement financier de 100 000 USD.
+- Le client signe un contrat entreprise avec un Paiement anticipé Azure de 100 000 USD.
 - Le tarif de compteur pour le service A est de 10 USD/heure.
 - Le LSP définit un pourcentage de majoration de 10 % sur le portail EA.
 - L’exemple ci-dessous montre comment le client verra les informations commerciales :
@@ -72,10 +72,10 @@ Le LSP fournit un seul pourcentage dans le portail EA.  Toutes les informations
 
 ### <a name="when-to-use-a-markup"></a>Quand utiliser une majoration
 
-Utilisez la fonctionnalité si vous définissez le même pourcentage de majoration sur TOUTES les transactions commerciales dans l’EA. À savoir, si vous majorez les informations d’engagement financier, les tarifs de compteur, les informations de commande, etc.
+Utilisez la fonctionnalité si vous définissez le même pourcentage de majoration sur TOUTES les transactions commerciales dans l’EA. À savoir, si vous majorez les informations de Paiement anticipé Azure, les tarifs de compteur, les informations de commande, etc.
 
 N’utilisez pas la fonctionnalité de majoration si :
-- Vous utilisez des tarifs différents entre l’engagement financier et le tarifs de compteur.
+- Vous utilisez des tarifs différents entre Paiement anticipé Azure et les tarifs de compteur.
 - Vous utilisez des tarifs différents pour différents compteurs.
 
 Si vous utilisez des tarifs différents pour différents compteurs, nous vous recommandons de développer une solution personnalisée basée sur la clé d’API, qui peut être fournie par le client, pour extraire les données de consommation et fournir des rapports.
@@ -97,11 +97,11 @@ Veillez à consulter les informations commerciales, informations sur le solde fi
 
 **Étape 2 : Réviser et valider**
 
-Passez en revue le prix de la majoration dans le _Résumé de l’utilisation_ pour la période d’engagement dans la vue client. Le tarif Microsoft sera toujours disponible dans la vue partenaire. Vous pouvez changer de vue avec le bouton bascule « personnes » de la majoration partenaire en haut à droite.
+Passez en revue le prix de la majoration dans le _Résumé de l’utilisation_ pour la période du Paiement anticipé dans la vue client. Le tarif Microsoft sera toujours disponible dans la vue partenaire. Vous pouvez changer de vue avec le bouton bascule « personnes » de la majoration partenaire en haut à droite.
 
 1. Consultez les prix dans la grille tarifaire.
 1. Des modifications peuvent être apportées avant la publication en sélectionnant **Modifier** dans l’onglet _Afficher le résumé d’utilisation > Vue client_.  
-  Les prix des services et les soldes d’engagement sont majorés selon les mêmes pourcentages. Si vous avez des pourcentages différents pour le solde financier et les tarifs de compteur, ou des pourcentages différents pour différents services, n’utilisez pas cette fonctionnalité.
+  Les prix des services et les soldes de Paiement anticipé sont majorés selon les mêmes pourcentages. Si vous avez des pourcentages différents pour le solde financier et les tarifs de compteur, ou des pourcentages différents pour différents services, n’utilisez pas cette fonctionnalité.
 
 **Étape 3 : Publier**
 
@@ -121,7 +121,7 @@ Une fois que la majoration partenaire est publiée, le client indirect a accès 
 Les partenaires peuvent utiliser la fonctionnalité de majoration (sur Azure EA) après le traitement d’un changement de partenaire de canal. Vous n’avez pas besoin d’attendre le prochain terme anniversaire.
 
 
-## <a name="resource-commitment-and-requesting-quota-increases"></a>Augmentations d’engagement sur les ressources et de demande de quota
+## <a name="resource-prepayment-and-requesting-quota-increases"></a>Paiement anticipé de ressources et demande d’augmentation de quota
 
 **Le système applique les quotas par défaut suivants par abonnement :**
 
@@ -135,11 +135,11 @@ Les partenaires peuvent utiliser la fonctionnalité de majoration (sur Azure EA)
 | Contrôle d’accès | 50 espaces de noms par compte. 100 millions de transactions de contrôle d’accès par mois |   |
 | Service Bus | 50 espaces de noms par compte. 40 connexions Service Bus | Les clients qui achètent des connexions Service Bus via des packs de connexion disposent de quotas égaux au point médian entre le pack de connexion qu’ils ont acheté et le montant de pack de connexion suivant le plus élevé. Les clients qui choisissent un pack de 500 auront un quota de 750. |
 
-## <a name="resource-commitment"></a>Engagement sur les ressources
+## <a name="resource-prepayment"></a>Paiement anticipé de ressources
 
-Microsoft s’engage à vous fournir des services à hauteur (au minimum) du niveau d’utilisation associé inclus dans l’engagement mensuel que vous avez acheté (engagement de service), mais toutes les autres augmentations des niveaux d’utilisation des ressources du service (par exemple, l’ajout du nombre d’instances de calcul exécutées ou l’augmentation du volume de stockage utilisé) sont sujettes à la disponibilité de ces ressources de service.
+Microsoft s’engage à vous fournir des services à hauteur (au minimum) du niveau d’utilisation associé inclus dans le Paiement anticipé mensuel que vous avez acheté (Paiement anticipé de service), mais toutes les autres augmentations des niveaux d’utilisation des ressources du service (par exemple, l’ajout du nombre d’instances de calcul exécutées ou l’augmentation du volume de stockage utilisé) sont sujettes à la disponibilité de ces ressources de service.
 
-Tout quota décrit ci-dessus n’est pas un engagement de service. Afin de déterminer le nombre de petites instances de calcul simultanées (ou leur équivalent) fourni dans le cadre de l’engagement de service, Microsoft divise le nombre d’heures de petites instances de calcul validées et achetées pour un mois par le nombre d’heures du mois le plus court de l’année (soit février, 672 heures).
+Tout quota décrit ci-dessus n’est pas un Paiement anticipé de service. Afin de déterminer le nombre de petites instances de calcul simultanées (ou leur équivalent) fourni dans le cadre du Paiement anticipé de service, Microsoft divise le nombre d’heures de petites instances de calcul validées et achetées pour un mois par le nombre d’heures du mois le plus court de l’année (soit février, 672 heures).
 
 ## <a name="requesting-a-quota-increase"></a>Demande d’augmentation de quota
 

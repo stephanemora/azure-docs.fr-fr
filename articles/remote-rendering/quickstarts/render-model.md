@@ -5,18 +5,18 @@ author: florianborn71
 ms.author: flborn
 ms.date: 01/23/2020
 ms.topic: quickstart
-ms.openlocfilehash: ed533f571ada4cacf053157b397cca07cd65e6f8
-ms.sourcegitcommit: d118ad4fb2b66c759b70d4d8a18e6368760da3ad
+ms.openlocfilehash: 62669457f73ba78186614433fb6d10cc4dc01089
+ms.sourcegitcommit: 73ac360f37053a3321e8be23236b32d4f8fb30cf
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/02/2020
-ms.locfileid: "84300570"
+ms.lasthandoff: 06/30/2020
+ms.locfileid: "85565516"
 ---
 # <a name="quickstart-render-a-model-with-unity"></a>Démarrage rapide : Afficher un modèle avec Unity
 
 Ce guide de démarrage rapide explique comment exécuter un exemple Unity qui effectue le rendu d’un modèle intégré à distance à l’aide du service Azure Remote Rendering (ARR).
 
-Nous n’aborderons pas en détail l’API ARR elle-même ni la configuration d’un nouveau projet Unity. Ces rubriques sont traitées dans le [tutoriel : Configuration d’un projet Unity en partant de zéro](../tutorials/unity/project-setup.md).
+Nous n’aborderons pas en détail l’API ARR elle-même ni la configuration d’un nouveau projet Unity. Ces rubriques sont traitées dans le [tutoriel : Affichage de modèles rendus à distance](../tutorials/unity/view-remote-models/view-remote-models.md).
 
 Dans ce guide de démarrage rapide, vous allez apprendre à :
 > [!div class="checklist"]

@@ -11,12 +11,12 @@ ms.subservice: anomaly-detector
 ms.topic: tutorial
 ms.date: 03/05/2020
 ms.author: aahi
-ms.openlocfilehash: d3f3842265e0c8a36c7eb4b14abca771bd3d38f2
-ms.sourcegitcommit: dee7b84104741ddf74b660c3c0a291adf11ed349
+ms.openlocfilehash: b8263e0445f7997469ba9165decbaccfa9ed2d6e
+ms.sourcegitcommit: 0100d26b1cac3e55016724c30d59408ee052a9ab
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85918939"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86027846"
 ---
 # <a name="tutorial-anomaly-detection-on-streaming-data-using-azure-databricks"></a>Tutoriel : Détection d’anomalie sur les données de streaming avec Azure Databricks
 
@@ -41,7 +41,7 @@ Ce tutoriel décrit les tâches suivantes :
 
 > [!Note]
 > * Ce tutoriel présente une approche de l’implémentation de l’[architecture de solution](https://azure.microsoft.com/solutions/architecture/anomaly-detector-process/) recommandée pour l’API Détecteur d’anomalies.
-> * Vous ne pouvez pas suivre ce tutoriel dans le cadre d’un essai gratuit pour l’API Détecteur d’anomalies ou Azure Databricks. 
+> * Vous ne pouvez pas suivre ce tutoriel avec le niveau Gratuit (`F0`) de l’API Détecteur d’anomalies ou Azure Databricks. 
 
 Créez un [abonnement Azure](https://azure.microsoft.com/free/) si vous n’en avez pas.
 

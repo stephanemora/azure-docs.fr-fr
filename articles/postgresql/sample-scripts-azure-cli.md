@@ -8,17 +8,17 @@ ms.devlang: azurecli
 ms.topic: sample
 ms.custom: sample, mvc
 ms.date: 5/6/2019
-ms.openlocfilehash: 154dc8b8569162992f4fc231caee2a43682db456
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 094222c9d6cee6c785f44111a9f9ac6a2185536c
+ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "74774718"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86120533"
 ---
 # <a name="azure-cli-samples-for-azure-database-for-postgresql---single-server"></a>Exemples Azure CLI pour Azure Database pour PostgreSQL (serveur unique)
 Le tableau suivant comprend des liens vers des exemples de scripts de CLI Azure pour Azure Database pour PostgreSQL.
 
-| |  |
+| Exemple de lien | Description |
 |---|---|
 |**Créer un serveur**||
 | [Créer un serveur et une règle de pare-feu](scripts/sample-create-server-and-firewall-rule.md?toc=%2fcli%2fazure%2ftoc.json) | Script CLI Azure qui crée un serveur Azure Database pour PostgreSQL et configure une règle de pare-feu au niveau du serveur. |

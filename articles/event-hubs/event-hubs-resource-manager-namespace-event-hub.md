@@ -2,31 +2,32 @@
 title: 'Démarrage rapide : Créer un hub d’événements avec un groupe de consommateurs - Azure Event Hubs'
 description: 'Démarrage rapide : Créer un espace de noms Event Hubs avec un concentrateur d’événements et un groupe de consommateurs à l’aide de modèles Azure Resource Manager'
 ms.topic: quickstart
+ms.custom: subject-armqs
 ms.date: 06/23/2020
-ms.openlocfilehash: 6ddf17030da8b0ff50f10938221b9c1dba08084d
-ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
+ms.openlocfilehash: 1aa1dc0a4be8c74651a764788184ae1eefe17e75
+ms.sourcegitcommit: e132633b9c3a53b3ead101ea2711570e60d67b83
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/05/2020
-ms.locfileid: "85964292"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86038087"
 ---
-# <a name="quickstart-create-an-event-hub-by-using-an-azure-resource-manager-template"></a>Démarrage rapide : Créer un Event Hub à l’aide d’un modèle Azure Resource Manager
+# <a name="quickstart-create-an-event-hub-by-using-an-arm-template"></a>Démarrage rapide : Créer un hub d’événements à l’aide d’un modèle Resource Manager
 
-Azure Event Hubs est une plateforme de diffusion de données volumineuses et un service d’ingestion d’événements, capable de recevoir et de traiter des millions d’événements par seconde. Les concentrateurs d’événements peuvent traiter et stocker des événements, des données ou la télémétrie produits par des logiciels et appareils distribués. Les données envoyées à un concentrateur d’événements peuvent être transformées et stockées à l’aide d’adaptateurs de traitement par lot/stockage ou d’un fournisseur d’analyse en temps réel. Pour une présentation détaillée d’Event Hubs, consultez [Vue d’ensemble d’Event Hubs](event-hubs-about.md) et [Fonctionnalités d’Event Hubs](event-hubs-features.md). Dans ce guide de démarrage rapide, vous allez créer un Event Hub à l’aide d’un [modèle Azure Resource Manager](../azure-resource-manager/management/overview.md). Vous allez déployer un modèle Azure Resource Manager pour créer un espace de noms de type [Event Hubs](event-hubs-what-is-event-hubs.md), avec un seul Event Hub.
+Azure Event Hubs est une plateforme de diffusion de données volumineuses et un service d’ingestion d’événements, capable de recevoir et de traiter des millions d’événements par seconde. Les concentrateurs d’événements peuvent traiter et stocker des événements, des données ou la télémétrie produits par des logiciels et appareils distribués. Les données envoyées à un concentrateur d’événements peuvent être transformées et stockées à l’aide d’adaptateurs de traitement par lot/stockage ou d’un fournisseur d’analyse en temps réel. Pour une présentation détaillée d’Event Hubs, consultez [Vue d’ensemble d’Event Hubs](event-hubs-about.md) et [Fonctionnalités d’Event Hubs](event-hubs-features.md). Dans ce guide de démarrage rapide, vous allez créer un hub d’événements à l’aide d’un [modèle Resource Manager (Azure Resource Manager)](../azure-resource-manager/management/overview.md). Vous allez déployer un modèle Resource Manager pour créer un espace de noms de type [Event Hubs](event-hubs-what-is-event-hubs.md), avec un seul hub d’événements.
 
 [!INCLUDE [About Azure Resource Manager](../../includes/resource-manager-quickstart-introduction.md)]
 
-Si vous ne disposez pas d’abonnement Azure, créez un [compte gratuit](https://azure.microsoft.com/free/) avant de commencer.
+Si votre environnement remplit les prérequis et que vous êtes déjà familiarisé avec l’utilisation des modèles ARM, sélectionnez le bouton **Déployer sur Azure**. Le modèle s’ouvre dans le portail Azure.
+
+[![Déployer sur Azure](../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-eventhubs-create-namespace-and-eventhub%2Fazuredeploy.json)
 
 ## <a name="prerequisites"></a>Prérequis
 
-Aucun.
+Si vous ne disposez pas d’abonnement Azure, créez un [compte gratuit](https://azure.microsoft.com/free/) avant de commencer.
 
-## <a name="create-an-event-hub"></a>Créer un hub d’événements
+## <a name="review-the-template"></a>Vérifier le modèle
 
-### <a name="review-the-template"></a>Vérifier le modèle
-
-Le modèle utilisé dans ce guide de démarrage rapide est tiré des [modèles de démarrage rapide Azure](https://azure.microsoft.com/resources/templates/101-eventhubs-create-namespace-and-eventhub/).
+Le modèle utilisé dans ce démarrage rapide est tiré des [modèles de démarrage rapide Azure](https://azure.microsoft.com/resources/templates/101-eventhubs-create-namespace-and-eventhub/).
 
 :::code language="json" source="~/quickstart-templates/101-eventhubs-create-namespace-and-eventhub/azuredeploy.json" range="1-61" highlight="32-59":::
 
@@ -37,7 +38,7 @@ Les ressources définies dans le modèle incluent :
 
 Pour obtenir d’autres exemples de modèles, voir [Modèles de démarrage rapide Azure](https://azure.microsoft.com/resources/templates/?term=eventhub&pageNumber=1&sort=Popular).
 
-### <a name="deploy-the-template"></a>Déployer le modèle
+## <a name="deploy-the-template"></a>Déployer le modèle
 
 Pour déployer le modèle, procédez comme suit :
 
@@ -60,9 +61,9 @@ Pour déployer le modèle, procédez comme suit :
 1. Sélectionnez **Copier** pour copier le script PowerShell.
 1. Cliquez avec le bouton droit sur la console d’interpréteur de commandes, puis sélectionnez **Coller**.
 
-## <a name="verify-the-deployment"></a>Vérifier le déploiement
+## <a name="validate-the-deployment"></a>Valider le déploiement
 
-Pour vérifier le déploiement, vous pouvez ouvrir le groupe de ressources à partir du [portail Microsoft Azure](https://portal.azure.com) ou utiliser le script Azure PowerShell suivant.  Si Cloud Shell est toujours ouvert, vous n’avez pas besoin de copier/exécuter la première ligne (Read-Host).
+Pour vérifier le déploiement, vous pouvez ouvrir le groupe de ressources à partir du [portail Microsoft Azure](https://portal.azure.com) ou utiliser le script Azure PowerShell suivant. Si Cloud Shell est toujours ouvert, vous n’avez pas besoin de copier/exécuter la première ligne (Read-Host).
 
 ```azurepowershell-interactive
 $projectName = Read-Host -Prompt "Enter the same project name that you used in the last procedure"

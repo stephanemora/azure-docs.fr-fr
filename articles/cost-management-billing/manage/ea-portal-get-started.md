@@ -3,16 +3,16 @@ title: Bien démarrer avec le portail Azure Enterprise
 description: Cet article explique comment les clients Contrat Entreprise Azure (Azure EA) utilisent le portail Azure Enterprise.
 author: bandersmsft
 ms.author: banders
-ms.date: 06/29/2020
+ms.date: 07/06/2020
 ms.topic: conceptual
 ms.service: cost-management-billing
 ms.reviewer: boalcsva
-ms.openlocfilehash: 6b31f3cd8ca6baa2d20d0281de51ed83424eca17
-ms.sourcegitcommit: 73ac360f37053a3321e8be23236b32d4f8fb30cf
+ms.openlocfilehash: 2d4fbf90afa93f3dbde12a3bc5ce02f9a60b6c5d
+ms.sourcegitcommit: e132633b9c3a53b3ead101ea2711570e60d67b83
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/30/2020
-ms.locfileid: "85560353"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86044955"
 ---
 # <a name="get-started-with-the-azure-enterprise-portal"></a>Bien démarrer avec le portail Azure Enterprise
 
@@ -372,7 +372,7 @@ Si votre Accord Entreprise ne dispose pas d’un abonnement au support et que vo
 
 ## <a name="view-usage-summary-and-download-reports"></a>Consulter le résumé de l’utilisation et télécharger les rapports
 
-Les administrateurs d’entreprise peuvent voir un résumé de leurs données d’utilisation, l’engagement financier consommé et les frais associés à l’utilisation supplémentaire dans le portail Azure Enterprise. Les frais sont présentés au niveau du résumé pour tous les comptes et abonnements.
+Les administrateurs d’entreprise peuvent voir le récapitulatif de leurs données d’utilisation, l’acompte Azure consommé et les frais associés à l’utilisation supplémentaire dans le portail Azure Enterprise. Les frais sont présentés au niveau du résumé pour tous les comptes et abonnements.
 
 Pour voir l’utilisation détaillée de comptes spécifiques, téléchargez le rapport de détails de l’utilisation :
 
@@ -390,7 +390,7 @@ Pour voir les rapports et graphes du résumé de l’utilisation :
 
 1. Connectez-vous au portail Azure Enterprise.
 
-1. Sélectionnez une durée d’engagement.
+1. Sélectionnez un terme pour l’acompte.
 
    Pour modifier la plage de dates pour le **Résumé de l’utilisation**, vous pouvez basculer de **M** (mensuel) à **C** (personnalisé) en haut à droite de la page, puis entrer des dates de début et de fin personnalisées.
 
@@ -455,7 +455,7 @@ Le portail Azure Enterprise filtre les inscriptions inactives en dehors de l’a
 - **Compte**  : unité d’organisation dans le portail Azure Enterprise. Elle est utilisée pour gérer des abonnements et pour créer des rapports.
 - **Propriétaire du compte** : la personne qui gère les abonnements et les administrateurs de services sur Azure. Elles peuvent afficher les données d’utilisation sur ce compte et ses abonnements associés.
 - **Abonnement de modification** : abonnement d’un an ou équivalent dans le cadre de la modification de l’inscription.
-- **Engagement** : engagement d’un montant monétaire annuel pour les services Azure à un tarif d’engagement réduit pour une utilisation à partir de ce prépaiement.
+- **Acompte** : acompte pour un montant annuel en devises concernant les services Azure, à un tarif réduit.
 - **Administrateur de service** : personne identifiée qui gère les services, crée des comptes et des propriétaires de comptes, affiche les détails d’utilisation des services qu’elle gère et peut afficher les coûts quand des autorisations lui sont accordées.
 - **Numéro d’inscription** : identificateur unique fourni par Microsoft pour identifier l’inscription spécifique associée à un Accord Entreprise.
 - **Administrateur d’entreprise** : personne qui gère les services, les propriétaires de service, les comptes et les propriétaires de comptes sur Azure. Elles ont la possibilité de gérer les administrateurs d’entreprise, ainsi que d’afficher les données d’utilisation, les quantités facturées et les frais non facturés pour tous les comptes et abonnements associés à l’inscription d’entreprise.
@@ -478,7 +478,7 @@ Le portail Azure Enterprise filtre les inscriptions inactives en dehors de l’a
 
    Avant que l’inscription Azure EA n’atteigne la date de fin de l’Accord Entreprise, l’administrateur de l’inscription doit prendre l’une des décisions suivantes :
 
-  - Renouveler l’inscription en ajoutant un engagement financier.
+  - Renouveler l’inscription en ajoutant un Paiement anticipé Azure supplémentaire.
   - Transférer vers une nouvelle inscription.
   - Migrer vers le programme d’abonnement Microsoft Online (MOSP).
   - Confirmer la désactivation de tous les services associés à l’inscription.

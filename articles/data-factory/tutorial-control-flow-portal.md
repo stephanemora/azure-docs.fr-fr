@@ -11,12 +11,12 @@ ms.workload: data-services
 ms.topic: tutorial
 ms.custom: seo-lt-2019; seo-dt-2019
 ms.date: 01/11/2018
-ms.openlocfilehash: edb6846d199470818e07a208feb778aca3021d9e
-ms.sourcegitcommit: bf99428d2562a70f42b5a04021dde6ef26c3ec3a
+ms.openlocfilehash: e12f0cd44143621d34096a6c1161a22a89d21d9b
+ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/23/2020
-ms.locfileid: "85253662"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86077647"
 ---
 # <a name="branching-and-chaining-activities-in-an-azure-data-factory-pipeline-using-the-azure-portal"></a>Création de branches et de chaînage pour les activités dans un pipeline Azure Data Factory à l’aide du portail Azure
 
@@ -139,7 +139,8 @@ https://prodxxx.eastus.logic.azure.com:443/workflows/000000/triggers/manual/path
 
    Le nom de la fabrique de données Azure doit être un nom **global unique**. Si l’erreur suivante s’affiche, changez le nom de la fabrique de données (par exemple, votrenomADFTutorialDataFactory), puis tentez de la recréer. Consultez l’article [Data Factory - Règles d’affectation des noms](naming-rules.md) pour savoir comment nommer les artefacts Data Factory.
 
-       `Data factory name “ADFTutorialDataFactory” is not available`
+   *Le nom de fabrique de données « ADFTutorialDataFactory » n’est pas disponible*.
+
 3. Sélectionnez l’**abonnement** Azure dans lequel vous voulez créer la fabrique de données.
 4. Pour le **groupe de ressources**, effectuez l’une des opérations suivantes :
 
@@ -202,10 +203,11 @@ Dans cette étape, vous allez créer un pipeline avec une activité de copie et 
    ![Nouveau service lié Stockage Azure](./media/tutorial-control-flow-portal/new-azure-storage-linked-service.png)
 12. Saisissez `@pipeline().parameters.sourceBlobContainer` pour le dossier et `emp.txt` pour le nom du fichier. Le paramètre de pipeline sourceBlobContainer vous permet de définir le chemin d’accès de dossier pour le jeu de données.
 
-   ![Paramètres du jeu de données source](./media/tutorial-control-flow-portal/source-dataset-settings.png)
-13. Basculez vers l’onglet **pipeline** (ou) cliquez sur le pipeline dans l’arborescence. Vérifiez que **SourceBlobDataset** est sélectionné comme **jeu de données source**.
+    ![Paramètres du jeu de données source](./media/tutorial-control-flow-portal/source-dataset-settings.png)
 
-    ![Jeu de données source](./media/tutorial-control-flow-portal/pipeline-source-dataset-selected.png)
+13. Basculez vers l’onglet **pipeline** (ou) cliquez sur le pipeline dans l’arborescence. Vérifiez que **SourceBlobDataset** est sélectionné comme **jeu de données source**.
+      
+   ![Jeu de données source](./media/tutorial-control-flow-portal/pipeline-source-dataset-selected.png)
 
 13. Dans la fenêtre Propriétés, basculez vers l’onglet **Récepteur**, puis cliquez sur **+ Nouveau** pour **Jeu de données récepteur**. Vous créez un jeu de données récepteur pour l’activité de copie dans cette étape d’une façon similaire à la création du jeu de données source.
 

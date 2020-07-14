@@ -3,16 +3,16 @@ title: Administration du portail Azure EA
 description: Cet article présente les tâches courantes à la charge d’un administrateur dans le portail Azure EA.
 author: bandersmsft
 ms.author: banders
-ms.date: 06/01/2020
+ms.date: 07/06/2020
 ms.topic: conceptual
 ms.service: cost-management-billing
 ms.reviewer: boalcsva
-ms.openlocfilehash: eefd4a9ddf2150728578a4e058686a3204e34930
-ms.sourcegitcommit: ba8df8424d73c8c4ac43602678dae4273af8b336
+ms.openlocfilehash: 6169a18148b251540d66bce6e34374a16f697015
+ms.sourcegitcommit: e132633b9c3a53b3ead101ea2711570e60d67b83
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/05/2020
-ms.locfileid: "84456553"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86044887"
 ---
 # <a name="azure-ea-portal-administration"></a>Administration du portail Azure EA
 
@@ -33,7 +33,7 @@ Les administrateurs d’entreprise peuvent associer des comptes existants à des
 
 ## <a name="department-spending-quotas"></a>Quotas de dépenses des services
 
-Les clients EA peuvent définir ou changer des quotas de dépenses pour chaque service dans le cadre d’une inscription. Le montant de quota de dépenses est défini pour la période d’engagement actuelle. À la fin de la période d’engagement actuelle, le système prolonge le quota de dépenses existant jusqu’à la période d’engagement suivante, sauf si les valeurs sont mises à jour.
+Les clients EA peuvent définir ou changer des quotas de dépenses pour chaque service dans le cadre d’une inscription. Le montant de quota de dépenses est défini pour la période de Paiement anticipé actuelle. À la fin de la période de Paiement anticipé actuelle, le système prolonge le quota de dépenses existant jusqu’à la période de Paiement anticipé suivante, sauf si les valeurs sont mises à jour.
 
 L’administrateur de service peut afficher le quota de dépenses, mais seul l’administrateur d’entreprise peut mettre à jour le montant du quota. L’administrateur d’entreprise et l’administrateur de service recevront des notifications lorsque le quota aura atteint 50 %, 75 %, 90 % et 100 %.
 
@@ -48,9 +48,9 @@ L’administrateur de service peut afficher le quota de dépenses, mais seul l�
     - Vous pouvez également modifier le nom du service et le centre de coûts à ce stade.
  1. Sélectionnez **Enregistrer**.
 
-Le quota de dépenses du service apparaît maintenant dans la vue de liste des services de l’onglet Service. À la fin de l’engagement actuel, le portail Azure EA conserve les quotas de dépenses pour la période d’engagement suivante.
+Le quota de dépenses du service apparaît maintenant dans la vue de liste des services de l’onglet Service. À la fin du Paiement anticipé actuel, le portail Azure EA conserve les quotas de dépenses pour la période de Paiement anticipé suivante.
 
-Le montant du quota du service est indépendant de l’engagement financier actuel, et le montant et les alertes du quota s’appliquent uniquement à l’utilisation de la première partie. Le quota de dépenses du service est fourni à titre d’information uniquement et n’applique pas de limites de dépense.
+Le montant du quota du service est indépendant du Paiement anticipé Azure actuel, et le montant et les alertes du quota s’appliquent uniquement à l’utilisation de la première partie. Le quota de dépenses du service est fourni à titre d’information uniquement et n’applique pas de limites de dépense.
 
 ### <a name="department-administrator-to-view-the-quota"></a>Administrateur de service, pour afficher le quota :
 
@@ -174,7 +174,7 @@ Ce document répond à des questions fréquemment posées relatives à la propri
 
 ### <a name="how-many-azure-account-owners-can-you-have-per-subscription"></a>Combien de propriétaires de compte Azure pouvez-vous avoir par abonnement ?
 
-Un seul propriétaire de compte est autorisé par abonnement.  Des rôles supplémentaires peuvent être ajoutés à l’aide de l’accès en fonction du rôle ou (Contrôle d’accès (IAM)) dans l’onglet de l’abonnement dans le coin supérieur gauche de la page sur [portal.azure.com]] (https://portal.azure.com).
+Un seul propriétaire de compte est autorisé par abonnement.  Des rôles supplémentaires peuvent être ajoutés à l’aide de l’accès en fonction du rôle ou (Contrôle d’accès (IAM)) sous l’onglet de l’abonnement dans le coin supérieur gauche de la page du [portail Azure](https://portal.azure.com).
 
 ### <a name="can-an-azure-account-owner-be-listed-under-more-than-one-department"></a>Un propriétaire de compte Azure peut-il être répertorié sous plusieurs services ?
 

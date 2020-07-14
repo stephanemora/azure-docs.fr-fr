@@ -11,16 +11,21 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 06/04/2020
 ms.author: allensu
-ms.openlocfilehash: b696cdf2d54c42d3967041c5d10b1bd9bb5a3065
-ms.sourcegitcommit: 0a5bb9622ee6a20d96db07cc6dd45d8e23d5554a
+ms.openlocfilehash: a055216634775254867421854aa0b456fa90c709
+ms.sourcegitcommit: 73ac360f37053a3321e8be23236b32d4f8fb30cf
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/05/2020
-ms.locfileid: "84448680"
+ms.lasthandoff: 06/30/2020
+ms.locfileid: "85551061"
 ---
 # <a name="azure-load-balancer-components"></a>Composants Azure Load Balancer
 
-Azure Load Balancer comprend quelques composants clés, qui peuvent être configurés dans un abonnement par le biais du Portail Azure, d’Azure CLI, d’Azure PowerShell ou de modèles.
+Azure Load Balancer inclut quelques composants clés. Ces composants peuvent être configurés dans votre abonnement via :
+
+* Portail Azure
+* Azure CLI
+* Azure PowerShell
+* Modèles de Gestionnaire des ressources
 
 ## <a name="frontend-ip-configuration"></a>Configuration IP front-end <a name = "frontend-ip-configurations"></a>
 
@@ -51,7 +56,7 @@ Quand vous envisagez la conception de votre pool de back-ends, concevez le moins
 
 ## <a name="health-probes"></a>Sondes d’intégrité
 
-Une sonde d’intégrité sert à déterminer l’état d’intégrité des instances du pool de back-ends. Lorsque vous créez un équilibreur de charge, vous devez configurer une sonde d’intégrité lui permettant de savoir si une instance est saine et d’acheminer le trafic vers celle-ci.
+Une sonde d’intégrité sert à déterminer l’état d’intégrité des instances du pool de back-ends. Pendant la création de l’équilibreur de charge, configurez une sonde d’intégrité qu’il pourra utiliser.  Cette sonde d’intégrité déterminera si une instance est saine et peut recevoir du trafic.
 
 Vous pouvez définir le seuil de défaillance sur le plan de l’intégrité pour vos sondes d’intégrité. Quand une sonde ne répond pas, l’équilibreur de charge n’envoie plus de nouvelles connexions aux instances non saines. Un échec de la sonde n’affecte pas les connexions existantes. La connexion se poursuit :
 
@@ -67,32 +72,55 @@ L’équilibreur de charge de base ne prend pas en charge les sondes HTTPS. Il f
 
 Une règle d’équilibrage de charge sert à définir la manière dont le trafic entrant est distribué à **toutes** les instances du pool de back-ends. Elle fait correspondre une configuration IP front-end et un port donnés à plusieurs adresses IP back-end et ports.
 
-Par exemple, si vous souhaitez que le trafic sur le port 80 (ou un autre port) de votre adresse IP front-end soit routé vers le port 80 de toutes vos instances back-end, vous devez utiliser une règle d’équilibrage de charge.
+Par exemple, utilisez une règle d’équilibrage de charge pour le port 80 pour router le trafic de votre adresse IP front-end vers le port 80 de vos instances back-end.
 
-### <a name="high-availability-ports"></a>Ports à haute disponibilité
+<p align="center">
+  <img src="./media/load-balancer-components/lbrules.svg" width="512" title="Règles d’équilibrage de charge">
+</p>
 
-Une règle Load Balancer configurée avec le protocole All et le port 0. Cela permet de fournir une seule règle pour équilibrer la charge de tous les flux TCP et UDP qui arrivent sur tous les ports d’un Standard Load Balancer interne. La décision d’équilibrage de charge est prise par flux. Cette action est basée sur la connexion à cinq tuples suivante : 
+*Figure : Règles d’équilibrage de charge*
+
+## <a name="high-availability-ports"></a>Ports à haute disponibilité
+
+Une règle d’équilibreur de charge configurée avec **tous les protocoles et le port 0**. 
+
+Cette règle permet de fournir une seule règle pour équilibrer la charge de tous les flux TCP et UDP qui arrivent sur tous les ports d’un équilibreur de charge standard interne. 
+
+La décision d’équilibrage de charge est prise par flux. Cette action est basée sur la connexion à cinq tuples suivante : 
+
 1. adresse IP source
 2. port source
 3. adresse IP de destination
 4. port de destination
 5. protocol
 
-Les règles d’équilibrage de charge des ports haute disponibilité sont utiles dans les scénarios critiques, comme pour la haute disponibilité et la mise à l’échelle d’appliances virtuelles réseau dans des réseaux virtuels. La fonctionnalité peut également servir quand un grand nombre de ports doit avoir une charge équilibrée.
+Les règles d’équilibrage de charge des ports haute disponibilité sont utiles dans les scénarios critiques, comme pour la haute disponibilité et la mise à l’échelle d’appliances virtuelles réseau dans des réseaux virtuels. La fonctionnalité peut servir quand un grand nombre de ports doit avoir une charge équilibrée.
 
-Pour en savoir plus sur les [ports à haute disponibilité, cliquez ici](load-balancer-ha-ports-overview.md).
+<p align="center">
+  <img src="./media/load-balancer-components/harules.svg" width="512" title="Règles des ports HA">
+</p>
+
+*Figure : Règles des ports HA*
+
+Découvrez-en plus sur les [ports à haute disponibilité](load-balancer-ha-ports-overview.md).
 
 ## <a name="inbound-nat-rules"></a>Règles NAT entrantes
 
-Une règle NAT de trafic entrant transfère le trafic entrant envoyé à une combinaison d’adresse IP front-end et de port sélectionnée à une machine virtuelle ou à une instance **spécifique** du pool de back-ends. Ce réacheminement de port est accompli à l’aide de la même distribution basée sur le hachage que l’équilibrage de charge.
+Une règle NAT de trafic entrant transfère le trafic entrant envoyé à la combinaison de l’adresse IP front-end et du port. Le trafic est envoyé à une machine virtuelle ou instance **spécifique** dans le pool back-end. Ce réacheminement de port est accompli à l’aide de la même distribution basée sur le hachage que l’équilibrage de charge.
 
 Par exemple, si vous souhaitez que les sessions RDP (Remote Desktop Protocol) ou SSH (Secure Shell) séparent les instances de machine virtuelle d’un pool de back-ends, plusieurs points de terminaison internes peuvent être mappés à des ports sur la même adresse IP front-end. Les adresses IP front-end peuvent être utilisées pour administrer à distance vos machines virtuelles sans serveur de rebond supplémentaire.
 
-Les règles NAT de trafic entrant dans le contexte de Virtual Machine Scale Sets (VMSS) sont des pools NAT entrants. En savoir plus sur les [composants Load Balancer et VMSS](../virtual-machine-scale-sets/virtual-machine-scale-sets-networking.md#azure-virtual-machine-scale-sets-with-azure-load-balancer).
+<p align="center">
+  <img src="./media/load-balancer-components/inboundnatrules.svg" width="512" title="Règles NAT entrantes">
+</p>
+
+*Figure : Règles NAT de trafic entrant*
+
+Les règles NAT de trafic entrant dans le contexte de Virtual Machine Scale Sets sont des pools NAT entrants. Découvrez-en plus sur les [composants de Load Balancer et le groupe de machines virtuelles identiques](../virtual-machine-scale-sets/virtual-machine-scale-sets-networking.md#azure-virtual-machine-scale-sets-with-azure-load-balancer).
 
 ## <a name="outbound-rules"></a>Règles de trafic sortant
 
-Une règle de trafic sortant configure la traduction d’adresses réseau (NAT) du trafic sortant pour toutes les machines virtuelles ou instances identifiées par le pool de back-ends. Les instances du back-end peuvent ainsi communiquer (vers l’extérieur) sur Internet ou vers d’autres points de terminaison.
+Une règle de trafic sortant configure la traduction d’adresses réseau (NAT) du trafic sortant pour toutes les machines virtuelles ou instances identifiées par le pool de back-ends. Cette règle permet aux instances du back-end de communiquer (vers l’extérieur) sur Internet ou vers d’autres points de terminaison.
 
 En savoir plus sur les [connexions sortantes et les règles](load-balancer-outbound-connections.md).
 

@@ -1,23 +1,23 @@
 ---
-title: Nouveautés d’Azure Front Door
-description: Découvrez les nouveautés d’Azure Front Door.
+title: Azure Front Door
+description: Cet article fournit la liste des modifications récentes apportées à Azure Front Door.
 services: frontdoor
 documentationcenter: ''
 author: megan-beatty
 editor: ''
 ms.service: frontdoor
 ms.devlang: na
-ms.topic: article
+ms.topic: overview
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 4/30/2020
 ms.author: mebeatty
-ms.openlocfilehash: f76e54d698e30cb2b8f929050264a3afaec36562
-ms.sourcegitcommit: 24f31287b6a526e23ff5b5469113522d1ccd4467
+ms.openlocfilehash: d00ed607322205daefd80c111b83483524c4a742
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/12/2020
-ms.locfileid: "84743471"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85321518"
 ---
 # <a name="whats-new-in-azure-front-door"></a>Nouveautés d’Azure Front Door
 
@@ -32,6 +32,7 @@ Azure Front Door est mis à jour en continu. Pour vous informer des développeme
 
 |Fonctionnalité  |Description  |Date de l’ajout  |
 |---------|---------|---------|
+| Disponibilité générale du moteur de règles | Personnalisez la gestion des requêtes HTTP à la périphérie. Pour plus d’informations, consultez [Vue d’ensemble du moteur de règles](front-door-rules-engine.md). |Juin 2020 |
 | Moteur de règles (préversion) | Personnalisez la gestion des requêtes HTTP à la périphérie. Pour plus d’informations, consultez [Vue d’ensemble du moteur de règles](front-door-rules-engine.md). |Avril 2020 |
 
 

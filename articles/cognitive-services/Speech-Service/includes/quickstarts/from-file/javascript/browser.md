@@ -3,13 +3,13 @@ author: IEvangelist
 ms.service: cognitive-services
 ms.topic: include
 ms.date: 04/03/2020
-ms.author: dapine
-ms.openlocfilehash: b5bdbb76a822f8b6d5134da819828b3dee518165
-ms.sourcegitcommit: cf7caaf1e42f1420e1491e3616cc989d504f0902
+ms.author: trbye
+ms.openlocfilehash: 7e2960adce028450fd3ccdb9eb11190629bf7bb8
+ms.sourcegitcommit: 0100d26b1cac3e55016724c30d59408ee052a9ab
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/22/2020
-ms.locfileid: "83806246"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86035717"
 ---
 ## <a name="prerequisites"></a>Prérequis
 
@@ -168,7 +168,7 @@ Avant de pouvoir initialiser un objet `SpeechRecognizer`, vous devez créer une 
 À présent, vous devez créer un objet `AudioConfig` qui pointe vers votre fichier audio. Insérez ce code dans la méthode `startRecognizeOnceAsyncButton.addEventListener()`, juste en dessous de votre configuration Speech.
 
 ```JavaScript
-        var audioConfig  = SpeechSDK.AudioConfig.fromFile(audioFile);
+        var audioConfig  = SpeechSDK.AudioConfig.fromWavFileInput(audioFile);
 ```
 
 ## <a name="initialize-a-speechrecognizer"></a>Initialiser un SpeechRecognizer
@@ -212,7 +212,7 @@ recognizer.recognizeOnceAsync(
 Si vous souhaitez héberger la page web sur un serveur web, vous avez la possibilité de fournir une source de jeton pour votre application de démonstration.
 De cette façon, votre clé d’abonnement ne quitte jamais le serveur et vous permet d’utiliser les fonctionnalités de reconnaissance vocale sans avoir à entrer de code d’autorisation.
 
-Créez un nouveau fichier appelé `token.php`. Dans cet exemple, nous supposons que votre serveur web prend en charge le langage de script PHP. Entrez le code suivant :
+Créez un nouveau fichier appelé `token.php`. Dans cet exemple, nous supposons que votre serveur web prend en charge le langage de script PHP avec curl activé. Entrez le code suivant :
 
 ```php
 <?php

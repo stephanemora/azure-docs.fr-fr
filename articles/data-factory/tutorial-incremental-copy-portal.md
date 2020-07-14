@@ -11,12 +11,12 @@ ms.workload: data-services
 ms.topic: tutorial
 ms.custom: seo-dt-2019
 ms.date: 06/10/2020
-ms.openlocfilehash: df185f8b75af6a845306fccc18d7d3cce74d0815
-ms.sourcegitcommit: bf99428d2562a70f42b5a04021dde6ef26c3ec3a
+ms.openlocfilehash: 10253b435461d62a4176164ea2a929843283f414
+ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/23/2020
-ms.locfileid: "85249166"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86082656"
 ---
 # <a name="incrementally-load-data-from-azure-sql-database-to-azure-blob-storage-using-the-azure-portal"></a>Charger de façon incrémentielle les données depuis Azure SQL Database dans le stockage Blob Azure par le biais du portail Azure
 
@@ -161,7 +161,7 @@ END
 
    Le nom de la fabrique de données Azure doit être un nom **global unique**. Si vous voyez un point d’exclamation rouge avec l’erreur suivante, changez le nom de la fabrique de données (par exemple, votrenomADFIncCopyTutorialDF), puis tentez de la recréer. Consultez l’article [Data Factory - Règles d’affectation des noms](naming-rules.md) pour savoir comment nommer les artefacts Data Factory.
 
-       `Data factory name "ADFIncCopyTutorialDF" is not available`
+    *Le nom de fabrique de données « ADFIncCopyTutorialDF » n’est pas disponible*
 4. Sélectionnez l’**abonnement** Azure dans lequel vous voulez créer la fabrique de données.
 5. Pour le **groupe de ressources**, effectuez l’une des opérations suivantes :
 

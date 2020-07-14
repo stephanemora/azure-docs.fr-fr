@@ -1,5 +1,5 @@
 ---
-title: 'Démarrage rapide : Créer un registre géorépliqué - Modèle Resource Manager'
+title: 'Démarrage rapide : Créer un registre géorépliqué - Modèle Azure Resource Manager'
 description: Découvrez comment créer un registre de conteneurs Azure géorépliqué à l’aide d’un modèle Azure Resource Manager.
 services: azure-resource-manager
 author: dlepow
@@ -8,28 +8,28 @@ ms.topic: quickstart
 ms.custom: subject-armqs
 ms.author: danlep
 ms.date: 05/26/2020
-ms.openlocfilehash: c94cd3b4b455691e85e7525007fcdf7a056a2b28
-ms.sourcegitcommit: 964af22b530263bb17fff94fd859321d37745d13
+ms.openlocfilehash: 3ed160780e15cc36648f7e2ad77e726901ee86c3
+ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/09/2020
-ms.locfileid: "84558079"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86119852"
 ---
-# <a name="quickstart-create-a-geo-replicated-container-registry-by-using-a-resource-manager-template"></a>Démarrage rapide : Créer un registre de conteneurs géorépliqué à l’aide d’un modèle Azure Resource Manager
+# <a name="quickstart-create-a-geo-replicated-container-registry-by-using-an-arm-template"></a>Démarrage rapide : Créer un registre de conteneurs géorépliqué à l’aide d’un modèle Resource Manager
 
-Ce guide de démarrage rapide montre comment créer une instance Azure Container Registry à l’aide d’un modèle Azure Resource Manager. Le modèle configure un registre [géorépliqué](container-registry-geo-replication.md), qui synchronise automatiquement le contenu du registre entre plusieurs régions Azure. La géoréplication permet un accès aux images à proximité du réseau à partir de déploiements régionaux, tout en offrant une expérience de gestion unique. Il s’agit d’une caractéristique du niveau de service de registre [Premium](container-registry-skus.md). 
+Ce guide de démarrage rapide montre comment créer une instance Azure Container Registry à l’aide d’un modèle Resource Manager (Azure Resource Manager). Le modèle configure un registre [géorépliqué](container-registry-geo-replication.md), qui synchronise automatiquement le contenu du registre entre plusieurs régions Azure. La géoréplication permet un accès aux images à proximité du réseau à partir de déploiements régionaux, tout en offrant une expérience de gestion unique. Il s’agit d’une caractéristique du niveau de service de registre [Premium](container-registry-skus.md).
 
 [!INCLUDE [About Azure Resource Manager](../../includes/resource-manager-quickstart-introduction.md)]
 
-Si vous n’avez pas d’abonnement Azure, créez un compte [gratuit](https://azure.microsoft.com/free/) avant de commencer.
+Si votre environnement remplit les prérequis et que vous êtes déjà familiarisé avec l’utilisation des modèles ARM, sélectionnez le bouton **Déployer sur Azure**. Le modèle s’ouvre dans le portail Azure.
+
+[![Déployer sur Azure](../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-container-registry-geo-replication%2Fazuredeploy.json)
 
 ## <a name="prerequisites"></a>Prérequis
 
-Aucun.
+Si vous n’avez pas d’abonnement Azure, créez un compte [gratuit](https://azure.microsoft.com/free/) avant de commencer.
 
-## <a name="create-a-geo-replicated-registry"></a>Créer un registre géorépliqué
-
-### <a name="review-the-template"></a>Vérifier le modèle
+## <a name="review-the-template"></a>Vérifier le modèle
 
 Le modèle utilisé dans ce démarrage rapide est tiré des [modèles de démarrage rapide Azure](https://azure.microsoft.com/resources/templates/101-container-registry-geo-replication/). Le modèle configure un registre et un réplica régional supplémentaire.
 
@@ -42,7 +42,7 @@ Les ressources suivantes sont définies dans le modèle :
 
 Vous trouverez d’autres exemples de modèles Azure Container Registry dans la [galerie de modèles de démarrage rapide](https://azure.microsoft.com/resources/templates/?resourceType=Microsoft.Containerregistry&pageNumber=1&sort=Popular).
 
-### <a name="deploy-the-template"></a>Déployer le modèle
+## <a name="deploy-the-template"></a>Déployer le modèle
 
  1. Cliquez sur l’image ci-après pour vous connecter à Azure et ouvrir un modèle.
 
@@ -94,4 +94,4 @@ Dans le cadre de ce guide de démarrage rapide, vous avez créé un registre Azu
 Pour obtenir un tutoriel pas à pas vous guidant tout au long du processus de création d’un modèle, consultez :
 
 > [!div class="nextstepaction"]
-> [Tutoriel : Créer et déployer votre premier modèle Azure Resource Manager](../azure-resource-manager/templates/template-tutorial-create-first-template.md)
+> [Tutoriel : Créer et déployer votre premier modèle Resource Manager](../azure-resource-manager/templates/template-tutorial-create-first-template.md)

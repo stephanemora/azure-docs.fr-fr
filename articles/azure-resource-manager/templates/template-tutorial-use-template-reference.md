@@ -6,12 +6,12 @@ ms.date: 04/23/2020
 ms.topic: tutorial
 ms.author: jgao
 ms.custom: seodec18
-ms.openlocfilehash: 12990238455046d837b175318225bb4f3d317706
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 3709511fa8da0a40f4faf4ab2dac9505d69003ab
+ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "82185045"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86118509"
 ---
 # <a name="tutorial-utilize-the-resource-manager-template-reference"></a>Tutoriel : Utiliser les informations de référence des modèles Resource Manager
 
@@ -36,7 +36,7 @@ Si vous ne disposez pas d’abonnement Azure, créez un [compte gratuit](https:/
 
 Pour effectuer ce qui est décrit dans cet article, vous avez besoin des éléments suivants :
 
-* Visual Studio Code avec l’extension Outils Resource Manager. Consultez [Utiliser Visual Studio Code pour créer des modèles ARM](use-vs-code-to-create-template.md).
+* Visual Studio Code avec l’extension Outils Resource Manager. Consultez [Démarrage rapide : Créer des modèles Azure Resource Manager avec Visual Studio Code](quickstart-create-templates-use-visual-studio-code.md).
 
 ## <a name="open-a-quickstart-template"></a>Ouvrir un modèle de démarrage rapide
 
@@ -75,7 +75,7 @@ Pour effectuer ce qui est décrit dans cet article, vous avez besoin des éléme
 
 ## <a name="find-the-template-reference"></a>Trouver la référence du modèle
 
-1. Accédez à la [documentation de référence du modèle Azure](https://docs.microsoft.com/azure/templates/).
+1. Accédez à la [documentation de référence du modèle Azure](/azure/templates/).
 1. Dans la zone **Filtrer par titre**, entrez **comptes de stockage**, puis sélectionnez la première occurrence de **Comptes de stockage** sous **Informations de référence > Stockage**.
 
     ![Resource Manager modèle référence compte de stockage](./media/template-tutorial-use-template-reference/resource-manager-template-resources-reference-storage-accounts.png)

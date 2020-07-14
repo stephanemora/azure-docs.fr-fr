@@ -1,6 +1,6 @@
 ---
-title: Azure Front Door | Microsoft Docs
-description: Cet article fournit une vue d’ensemble d’Azure Front Door. Déterminez s’il représente un choix adapté à l’équilibrage de charge du trafic utilisateur pour votre application.
+title: Azure Front Door
+description: Cet article fournit la liste des différentes conditions de correspondance disponibles avec le moteur de règles Azure Front Door.
 services: frontdoor
 documentationcenter: ''
 author: megan-beatty
@@ -12,18 +12,18 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 4/30/2020
 ms.author: mebeatty
-ms.openlocfilehash: 77c0d68f507e09b315c912d1d91fdf9cf63db6fa
-ms.sourcegitcommit: eaec2e7482fc05f0cac8597665bfceb94f7e390f
+ms.openlocfilehash: d42b6b56f0cdd1f6ef2ea45b21a027f1b4c56b1c
+ms.sourcegitcommit: 01cd19edb099d654198a6930cebd61cae9cb685b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "82515764"
+ms.lasthandoff: 06/24/2020
+ms.locfileid: "85321991"
 ---
 # <a name="azure-front-door-rules-engine-match-conditions"></a>Conditions de correspondance du moteur de règles Azure Front Door
 
-Dans le [moteur de règles AFD](front-door-rules-engine.md), une règle se compose de zéro, d’une ou de plusieurs conditions de correspondance et d’une action. Cet article fournit les descriptions détaillées des conditions de correspondance que vous pouvez utiliser dans le moteur de règles AFD. 
+Dans le [moteur de règles AFD](front-door-rules-engine.md), une règle se compose de zéro, d’une ou de plusieurs conditions de correspondance et d’une action. Cet article fournit les descriptions détaillées des conditions de correspondance que vous pouvez utiliser dans le moteur de règles AFD.
 
-La première partie d’une règle est une condition de correspondance ou un ensemble de conditions de correspondance. Une règle peut comporter jusqu’à 10 conditions de correspondance. Une condition de correspondance identifie des types spécifiques de requêtes pour lesquelles des actions définies sont exécutées. Si vous utilisez plusieurs conditions de correspondance, elles seront regroupées à l’aide de la logique AND. Pour toutes les conditions de correspondance qui prennent en charge plusieurs valeurs (indiquées ci-dessous comme « séparées par des espaces »), l’opérateur « OR » est supposé. 
+La première partie d’une règle est une condition de correspondance ou un ensemble de conditions de correspondance. Une règle peut comporter jusqu’à 10 conditions de correspondance. Une condition de correspondance identifie des types spécifiques de requêtes pour lesquelles des actions définies sont exécutées. Si vous utilisez plusieurs conditions de correspondance, elles seront regroupées à l’aide de la logique AND. Pour toutes les conditions de correspondance qui prennent en charge plusieurs valeurs (indiquées ci-dessous comme « séparées par des espaces »), l’opérateur « OR » est supposé.
 
 Par exemple, vous pouvez utiliser une condition de correspondance pour les tâches suivantes :
 
@@ -136,13 +136,13 @@ Identifie les requêtes qui correspondent à l’URL spécifiée.
 
 #### <a name="required-fields"></a>Champs obligatoires
 
-Opérateur | URL de la requête | Transformation de cas
+Opérateur | URL de la demande | Transformation de cas
 ---------|-------------|---------------
 [Liste des opérateurs standard](#standard-operator-list) | Chaîne, Int | Minuscules, majuscules, découpage, suppression d’espace, encodage d’URL, décodage d’URL
 
 #### <a name="key-information"></a>Informations essentielles
 
-- Lorsque vous utilisez cette condition de règle, veillez à inclure les informations de protocole. Par exemple : *https://www.\<yourdomain\>.com* .
+- Lorsque vous utilisez cette condition de règle, veillez à inclure les informations de protocole. Par exemple : *https://www.\<yourdomain\>.com*.
 
 ## <a name="request-file-extension"></a>Extension de fichier de la requête
 

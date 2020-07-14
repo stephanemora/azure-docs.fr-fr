@@ -1,30 +1,28 @@
 ---
 title: Envoyer des événements de Stockage Blob à un point de terminaison web – modèle
 description: Utilisez Azure Event Grid et un modèle Azure Resource Manager pour créer un compte de stockage Blob, puis abonnez-vous à ses événements. Envoyez les événements à un webhook.
-services: event-grid
-keywords: ''
-author: spelluru
-ms.author: spelluru
-ms.date: 06/03/2020
+ms.date: 07/07/2020
 ms.topic: quickstart
-ms.service: event-grid
-ms.custom: subject-armqs
-ms.openlocfilehash: 0cf880411a5c2a8eefd592a01de40b5098f31cda
-ms.sourcegitcommit: c052c99fd0ddd1171a08077388d221482026cd58
+ms.openlocfilehash: 603d6bf11f2ec6988d52e69817bddf2fd3ccf3b3
+ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/04/2020
-ms.locfileid: "84424125"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86103311"
 ---
-# <a name="route-blob-storage-events-to-web-endpoint-by-using-azure-resource-manager-template"></a>Router des événements de Stockage Blob vers un point de terminaison web en utilisant un modèle Azure Resource Manager
+# <a name="route-blob-storage-events-to-web-endpoint-by-using-an-arm-template"></a>Router des événements de stockage blob vers un point de terminaison web à l’aide d’un modèle Resource Manager
 
-Azure Event Grid est un service de gestion d’événements pour le cloud. Dans cet article, vous utilisez un **modèle Azure Resource Manager** pour créer un compte de stockage Blob, pour vous abonner aux événements de ce stockage blob et pour déclencher un événement visant à afficher le résultat. En règle générale, vous envoyez des événements à un point de terminaison qui traite les données d’événement et entreprend des actions. Toutefois, pour simplifier cet article, vous envoyez les événements à une application web qui collecte et affiche les messages.
+Azure Event Grid est un service de gestion d’événements pour le cloud. Dans cet article, vous utilisez un modèle Resource Manager (Azure Resource Manager) pour créer un compte de stockage blob, vous abonner aux événements de ce stockage blob et déclencher un événement pour afficher le résultat. En règle générale, vous envoyez des événements à un point de terminaison qui traite les données d’événement et entreprend des actions. Toutefois, pour simplifier cet article, vous envoyez les événements à une application web qui collecte et affiche les messages.
 
 [!INCLUDE [About Azure Resource Manager](../../includes/resource-manager-quickstart-introduction.md)]
 
-Si vous n’avez pas d’abonnement Azure, créez un [compte gratuit](https://azure.microsoft.com/free/) avant de commencer.
+Si votre environnement remplit les prérequis et que vous êtes déjà familiarisé avec l’utilisation des modèles ARM, sélectionnez le bouton **Déployer sur Azure**. Le modèle s’ouvre dans le portail Azure.
+
+[![Déployer sur Azure](../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-event-grid-subscription-and-storage%2Fazuredeploy.json)
 
 ## <a name="prerequisites"></a>Prérequis
+
+Si vous n’avez pas d’abonnement Azure, créez un [compte gratuit](https://azure.microsoft.com/free/) avant de commencer.
 
 ### <a name="create-a-message-endpoint"></a>Créer un point de terminaison de message
 
@@ -39,21 +37,19 @@ Avant de nous abonner aux événements du stockage d’objets blob, nous allons 
 
    ![Afficher le nouveau site](./media/blob-event-quickstart-portal/view-site.png)
 
-## <a name="create-a-storage-account-with-an-event-grid-subscription"></a>Créer un compte de stockage avec un abonnement Event Grid
+## <a name="review-the-template"></a>Vérifier le modèle
 
-### <a name="review-the-template"></a>Vérifier le modèle
+Le modèle utilisé dans ce démarrage rapide est tiré des [modèles de démarrage rapide Azure](https://azure.microsoft.com/resources/templates/101-event-grid-subscription-and-storage/).
 
-Le modèle utilisé dans ce guide de démarrage rapide est tiré des [modèles de démarrage rapide Azure](https://github.com/Azure/azure-quickstart-templates/tree/master/101-event-grid-subscription-and-storage).
-
-[!code-json[<Azure Resource Manager template create Blob storage Event Grid subscription>](~/quickstart-templates/101-event-grid-subscription-and-storage/azuredeploy.json)]
+:::code language="json" source="~/quickstart-templates/101-event-grid-subscription-and-storage/azuredeploy.json" range="1-91" highlight="40-85":::
 
 Deux ressources Azure sont définies dans le modèle :
 
 * [**Microsoft.Storage/storageAccounts**](/azure/templates/microsoft.storage/storageaccounts) : crée un compte Stockage Azure.
-* [**Microsoft. EventGrid/systemTopics**](/azure/templates/microsoft.eventgrid/systemtopics) : créer une rubrique système avec le nom spécifié pour le compte de stockage. 
+* [**Microsoft. EventGrid/systemTopics**](/azure/templates/microsoft.eventgrid/systemtopics) : créer une rubrique système avec le nom spécifié pour le compte de stockage.
 * [**Microsoft. EventGrid/systemTopics/eventSubscriptions**](/azure/templates/microsoft.eventgrid/systemtopics/eventsubscriptions) : créer un abonnement Azure Event Grid pour la rubrique système.
 
-### <a name="deploy-the-template"></a>Déployer le modèle
+## <a name="deploy-the-template"></a>Déployer le modèle
 
 1. Sélectionnez le lien suivant pour vous connecter à Azure et ouvrir un modèle. Le modèle crée un coffre de clés et un secret.
 
@@ -65,7 +61,7 @@ Deux ressources Azure sont définies dans le modèle :
   Le portail Azure est utilisé ici pour déployer le modèle. Vous pouvez également utiliser Azure PowerShell, Azure CLI ou l’API REST. Pour découvrir d’autres méthodes de déploiement, consultez [Déployer des modèles](../azure-resource-manager/templates/deploy-powershell.md).
 
 > [!NOTE]
-> Vous trouverez d’autres exemples de modèles Azure Event Grid [ici](https://azure.microsoft.com/resources/templates/?resourceType=Microsoft.Eventgrid).
+> Vous trouverez d’autres exemples de modèles Azure Event Grid [ici](https://azure.microsoft.com/resources/templates/?resourceType=Microsoft.Eventgrid&pageNumber=1&sort=Popular).
 
 ## <a name="validate-the-deployment"></a>Valider le déploiement
 

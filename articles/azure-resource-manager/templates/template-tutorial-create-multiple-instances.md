@@ -5,12 +5,12 @@ author: mumian
 ms.date: 04/23/2020
 ms.topic: tutorial
 ms.author: jgao
-ms.openlocfilehash: b62cca48323d4e12a92c89d64ab67bf5b783c36f
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 0a6f9e723fb6374f5ac72241501f49a94c2c2fe2
+ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "82183827"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86101951"
 ---
 # <a name="tutorial-create-multiple-resource-instances-with-arm-templates"></a>Tutoriel : Créer plusieurs instances de ressources grâce à des modèles ARM
 
@@ -31,7 +31,7 @@ Si vous ne disposez pas d’abonnement Azure, créez un [compte gratuit](https:/
 
 Pour effectuer ce qui est décrit dans cet article, vous avez besoin des éléments suivants :
 
-* Visual Studio Code avec l’extension Outils Resource Manager. Consultez [Utiliser Visual Studio Code pour créer des modèles ARM](use-vs-code-to-create-template.md).
+* Visual Studio Code avec l’extension Outils Resource Manager. Consultez [Démarrage rapide : Créer des modèles Azure Resource Manager avec Visual Studio Code](quickstart-create-templates-use-visual-studio-code.md).
 
 ## <a name="open-a-quickstart-template"></a>Ouvrir un modèle de démarrage rapide
 
@@ -44,7 +44,7 @@ Pour effectuer ce qui est décrit dans cet article, vous avez besoin des éléme
     https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-storage-account-create/azuredeploy.json
     ```
 3. Sélectionnez **Ouvrir** pour ouvrir le fichier.
-4. Une ressource « Microsoft.Storage/storageaccounts » est définie dans le modèle. Comparer le modèle à la [référence du modèle](https://docs.microsoft.com/azure/templates/Microsoft.Storage/storageAccounts). Il est préférable de comprendre quelques notions basiques du modèle avant de le personnaliser.
+4. Une ressource « Microsoft.Storage/storageaccounts » est définie dans le modèle. Comparer le modèle à la [référence du modèle](/azure/templates/Microsoft.Storage/storageAccounts). Il est préférable de comprendre quelques notions basiques du modèle avant de le personnaliser.
 5. Sélectionnez **Fichier**>**Enregistrer sous** pour enregistrer le fichier sous le nom **azuredeploy.json** sur votre ordinateur local.
 
 ## <a name="edit-the-template"></a>Modifier le modèle

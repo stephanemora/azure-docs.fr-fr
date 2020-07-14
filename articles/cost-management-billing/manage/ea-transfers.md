@@ -5,14 +5,14 @@ author: bandersmsft
 ms.reviewer: baolcsva
 ms.service: cost-management-billing
 ms.topic: conceptual
-ms.date: 06/01/2020
+ms.date: 07/06/2020
 ms.author: banders
-ms.openlocfilehash: a0846a07fd8107a87483753c8dbff1301fda4a0c
-ms.sourcegitcommit: d118ad4fb2b66c759b70d4d8a18e6368760da3ad
+ms.openlocfilehash: ff10d9ec9b92b85d057e556a21c144b9e8f155cf
+ms.sourcegitcommit: e132633b9c3a53b3ead101ea2711570e60d67b83
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/02/2020
-ms.locfileid: "84299908"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86043272"
 ---
 # <a name="azure-enterprise-transfers"></a>Transferts Azure Enterprise
 
@@ -49,7 +49,7 @@ Autres points à garder à l’esprit avant un transfert de compte :
 
 Un transfert d’inscription est envisagé dans les cas suivants :
 
-- La durée d’engagement d’une inscription en cours se termine.
+- La durée de Paiement anticipé d’une inscription en cours se termine.
 - Une inscription présente l’état expiré/étendu et un nouveau contrat est négocié.
 - Vous avez plusieurs inscriptions et vous voulez combiner tous les comptes et la facturation sous une seule inscription.
 
@@ -60,7 +60,7 @@ Lorsque vous demandez à transférer une inscription d’entreprise complète ve
 - L’ensemble des services, abonnements et comptes Azure, ainsi que la structure d’inscription toute entière, dont tous les administrateurs de service EA, effectuent un transfert vers une nouvelle inscription cible.
 - L’état de l’inscription est défini sur _Transféré_. L’inscription transférée est disponible uniquement à des fins de création de rapports d’utilisation.
 - Vous ne pouvez pas ajouter de rôles ni d’abonnements à une inscription transférée. L’état transféré empêche une utilisation supplémentaire en relation avec l’inscription.
-- Tout solde restant de l’engagement monétaire dans le contrat est perdu, y compris les termes futurs.
+- Tout solde restant de Paiement anticipé Azure dans le contrat est perdu, y compris les termes futurs.
 -    Si l’inscription à partir de laquelle vous effectuez le transfert inclut des achats RI, les frais d’achat RI resteront dans l’inscription source. Toutefois, tous les avantages RI seront transférés pour être utilisés dans la nouvelle inscription.
 -    Les frais d’achat à usage unique de la place de marché et les frais fixes mensuels déjà engagés sur l’ancienne inscription ne seront pas transférés vers la nouvelle inscription. Les frais de la place de marché basés sur la consommation seront transférés.
 
@@ -68,7 +68,7 @@ Lorsque vous demandez à transférer une inscription d’entreprise complète ve
 
 Le jour du transfert effectif peut correspondre à la date de début de l’inscription cible ou à une date ultérieure.
 
-L’utilisation de l’inscription source est facturée dans le cadre de l’engagement monétaire ou comme dépassement. L’utilisation postérieure à la date de transfert effectif est transférée vers la nouvelle inscription et facturée en conséquence.
+L’utilisation de l’inscription source est facturée dans le cadre du Paiement anticipé Azure ou comme dépassement. L’utilisation postérieure à la date de transfert effectif est transférée vers la nouvelle inscription et facturée en conséquence.
 
 ### <a name="prerequisites"></a>Prérequis
 
@@ -84,9 +84,9 @@ Autres points à garder à l’esprit avant un transfert d’inscription :
 - Si un transfert d’inscription ne répond pas à vos exigences, envisagez un transfert de compte.
 - L’état de l’inscription source est mis à jour sur Transféré et sera disponible uniquement à des fins de création de rapports d’utilisation historiques.
 
-### <a name="monetary-commitment"></a>Engagement monétaire
+### <a name="azure-prepayment"></a>Paiement anticipé Azure
 
-L’engagement monétaire n’est pas transférable entre les inscriptions. Les soldes d’engagement monétaire sont liées contractuellement à l’inscription dans laquelle elles ont été commandées. L’engagement monétaire n’est pas transféré dans le cadre du processus de transfert d’un compte ou d’une inscription.
+Le Paiement anticipé Azure n’est pas transférable entre les inscriptions. Les soldes de Paiement anticipé Azure sont liés contractuellement à l’inscription dans laquelle ils ont été commandés. Le Paiement anticipé Azure n’est pas transféré dans le cadre du processus de transfert d’un compte ou d’une inscription.
 
 ### <a name="no-services-affected-for-account-and-enrollment-transfers"></a>Aucun service n’est affecté pour les transferts de comptes et d’inscriptions
 

@@ -7,20 +7,20 @@ ms.service: active-directory
 ms.subservice: domain-services
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 03/30/2020
+ms.date: 07/06/2020
 ms.author: iainfou
-ms.openlocfilehash: f0b6e66a0d3a78a62fe105a175a7a519d0b37ccd
-ms.sourcegitcommit: c4ad4ba9c9aaed81dfab9ca2cc744930abd91298
+ms.openlocfilehash: afeac24a5d3c21fce120512813d68c49a505c6c1
+ms.sourcegitcommit: 0100d26b1cac3e55016724c30d59408ee052a9ab
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/12/2020
-ms.locfileid: "84733413"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86024602"
 ---
 # <a name="tutorial-create-a-management-vm-to-configure-and-administer-an-azure-active-directory-domain-services-managed-domain"></a>Tutoriel : Créer une machine virtuelle de gestion pour configurer et administrer un domaine managé Azure Active Directory Domain Services
 
 Azure Active Directory Domain Services (Azure AD DS) fournit des services de domaines managés, comme la jonction de domaine, la stratégie de groupe, le protocole LDAP, et l’authentification Kerberos/NTLM entièrement compatible avec Windows Server Active Directory. Vous administrez ce domaine managé avec les mêmes outils d’administration de serveur distant (RSAT, Remote Server Administration Tool) qu’avec un domaine Active Directory Domain Services local. Comme Azure AD DS est un service managé, vous ne pouvez pas effectuer certaines tâches d’administration, comme utiliser le protocole RDP (Remote Desktop Protocol) pour vous connecter aux contrôleurs de domaine.
 
-Ce tutoriel vous montre comment créer une machine virtuelle Windows Server dans Azure et comment installer les outils nécessaires à l’administration d’un domaine Azure AD DS managé.
+Ce tutoriel explique comment configurer une machine virtuelle Windows Server dans Azure et comment installer les outils nécessaires à l’administration d’un domaine Azure AD DS managé.
 
 Dans ce tutoriel, vous allez apprendre à :
 
@@ -59,10 +59,10 @@ Azure AD DS fournit un domaine managé que vos utilisateurs, vos applications et
 
 Les membres du groupe *AAD DC Administrators* bénéficient de privilèges leur permettant d’effectuer les tâches suivantes sur le domaine managé :
 
-* Configurer l’objet de stratégie de groupe intégré pour les conteneurs *Ordinateurs AADDC* et *Utilisateurs AADDC* dans le domaine managé
-* Administrer le système DNS sur le domaine géré
-* Créer et administrer des unités d’organisation personnalisées dans le domaine managé
-* Obtenir un accès d’administrateur aux ordinateurs joints au domaine managé
+* Configurer l’objet de stratégie de groupe intégré pour les conteneurs *Ordinateurs AADDC* et *Utilisateurs AADDC* dans le domaine managé.
+* administrer le DNS sur le domaine géré ;
+* Créer et administrer des unités d’organisation personnalisées dans le domaine managé.
+* obtenir un accès d’administrateur aux ordinateurs joints au domaine géré ;
 
 ### <a name="administrative-privileges-you-dont-have-on-a-managed-domain"></a>Privilèges d’administrateur dont vous ne disposez pas sur un domaine managé
 
@@ -75,7 +75,7 @@ Le domaine managé est verrouillé : vous ne disposez donc pas de privilèges p
 
 ## <a name="sign-in-to-the-windows-server-vm"></a>Se connecter à la machine virtuelle Windows Server
 
-Dans le tutoriel précédent, une machine virtuelle Windows Server a été créée et jointe au domaine managé. Utilisons cette machine virtuelle pour installer les outils de gestion. Si nécessaire, [suivez les étapes du tutoriel pour créer et joindre une machine virtuelle Windows Server à un domaine managé][create-join-windows-vm].
+Dans le tutoriel précédent, une machine virtuelle Windows Server a été créée et jointe au domaine managé. Utilisez cette machine virtuelle pour installer les outils de gestion. Si nécessaire, [suivez les étapes du tutoriel pour créer et joindre une machine virtuelle Windows Server à un domaine managé][create-join-windows-vm].
 
 > [!NOTE]
 > Dans ce tutoriel, vous utilisez une machine virtuelle Windows Server dans Azure qui est jointe au domaine managé. Vous pouvez également utiliser un client Windows, comme Windows 10, qui est joint au domaine managé.
@@ -97,7 +97,7 @@ Si nécessaire, autorisez votre navigateur web à ouvrir des fenêtres contextue
 
 ## <a name="install-active-directory-administrative-tools"></a>Installer les outils d’administration Active Directory
 
-Les domaines managés sont gérés avec les mêmes outils d’administration que les environnements AD DS locaux, comme le Centre d’administration Active Directory (ADAC) ou AD PowerShell. Ces outils peuvent être installés dans le cadre de la fonctionnalité Outils d’administration de serveur distant sur des ordinateurs Windows Server et des ordinateurs clients. Les membres du groupe *Administrateurs AAD DC* peuvent administrer les domaines managés à distance en utilisant ces outils d’administration AD à partir d’un ordinateur joint au domaine managé.
+Dans un domaine managé, vous utilisez les mêmes outils d’administration que dans les environnements AD DS locaux, comme le Centre d’administration Active Directory (ADAC) ou AD PowerShell. Ces outils peuvent être installés dans le cadre de la fonctionnalité Outils d’administration de serveur distant sur des ordinateurs Windows Server et des ordinateurs clients. Les membres du groupe *Administrateurs AAD DC* peuvent administrer les domaines managés à distance en utilisant ces outils d’administration AD à partir d’un ordinateur joint au domaine managé.
 
 Pour installer les outils d’administration Active Directory sur une machine virtuelle jointe au domaine, effectuez les étapes suivantes :
 
@@ -125,7 +125,7 @@ Une fois les outils d’administration installés, voyons comment les utiliser p
     ![Liste des outils d’administration installés sur le serveur](./media/tutorial-create-management-vm/list-admin-tools.png)
 
 1. Sélectionnez **Centre d’administration Active Directory**.
-1. Pour explorer le domaine managé, choisissez le nom de domaine dans le volet gauche, par exemple *aaddscontoso.com*. Deux conteneurs nommés *Ordinateurs AADDC* et *Utilisateurs AADDC* se trouvent en haut de la liste.
+1. Pour explorer le domaine managé, choisissez le nom de domaine dans le volet gauche, par exemple *aaddscontoso*. Deux conteneurs nommés *Ordinateurs AADDC* et *Utilisateurs AADDC* se trouvent en haut de la liste.
 
     ![Lister les conteneurs disponibles faisant partie du domaine managé](./media/tutorial-create-management-vm/active-directory-administrative-center.png)
 
@@ -135,7 +135,7 @@ Une fois les outils d’administration installés, voyons comment les utiliser p
 
     ![Afficher la liste des utilisateurs du domaine Azure AD DS dans le Centre d’administration Active Directory](./media/tutorial-create-management-vm/list-azure-ad-users.png)
 
-1. Pour voir les ordinateurs qui sont joints au domaine managé, sélectionnez le conteneur **Ordinateurs AADDC**. Une entrée pour la machine virtuelle actuelle, par exemple *myVM* figure dans la liste. Les comptes d’ordinateurs pour tous les ordinateurs joints au domaine managé sont stockés dans ce conteneur *Ordinateurs AADDC*.
+1. Pour voir les ordinateurs qui sont joints au domaine managé, sélectionnez le conteneur **Ordinateurs AADDC**. Une entrée pour la machine virtuelle actuelle, par exemple *myVM* figure dans la liste. Les comptes d’ordinateurs de tous les appareils joints au domaine managé sont stockés dans le conteneur *Ordinateurs AADDC*.
 
 Les actions courantes du Centre d’administration Active Directory, comme la réinitialisation du mot de passe d’un compte d’utilisateur ou la gestion de l’appartenance à un groupe, sont disponibles. Ces actions fonctionnent seulement pour les utilisateurs et les groupes créés directement dans le domaine managé. Les informations d’identité ne sont synchronisées que *depuis* Azure AD vers Azure AD DS. Il n’y a pas de mise à jour depuis Azure AD DS vers Azure AD. Vous ne pouvez pas changer les mots de passe ou l’appartenance à un groupe managé pour les utilisateurs synchronisés à partir d’Azure AD et obtenir la synchronisation de ces modifications.
 
@@ -150,7 +150,7 @@ Dans ce didacticiel, vous avez appris à :
 > * Installer les outils d’administration Active Directory sur une machine virtuelle Windows Server
 > * Utiliser le Centre d’administration Active Directory pour effectuer des tâches courantes
 
-Pour interagir de façon sécurisée avec votre domaine managé, activez le protocole LDAPS (Lightweight Directory Access Protocol).
+Pour interagir de façon sécurisée avec votre domaine managé à partir d’autres applications, activez le protocole LDAPS.
 
 > [!div class="nextstepaction"]
 > [Configurer le protocole LDAP sécurisé pour votre domaine managé](tutorial-configure-ldaps.md)

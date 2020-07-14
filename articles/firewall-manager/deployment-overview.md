@@ -1,24 +1,22 @@
 ---
-title: Vue d’ensemble du déploiement d’Azure Firewall Manager Preview
-description: Découvrez les étapes de déploiement de haut niveau requises pour Azure Firewall Manager Preview
+title: Vue d’ensemble du déploiement d’Azure Firewall Manager
+description: Découvrez les étapes générales de déploiement nécessaires pour Azure Firewall Manager.
 author: vhorne
 ms.service: firewall-manager
 services: firewall-manager
 ms.topic: overview
-ms.date: 02/18/2020
+ms.date: 06/30/2020
 ms.author: victorh
-ms.openlocfilehash: c3a94cea838609f65511a21ee2f64e8782a6adea
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.openlocfilehash: 90f817ac3bbd475d8a84df44bc284f09fcd19ce3
+ms.sourcegitcommit: 73ac360f37053a3321e8be23236b32d4f8fb30cf
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "77443123"
+ms.lasthandoff: 06/30/2020
+ms.locfileid: "85565805"
 ---
-# <a name="azure-firewall-manager-preview-deployment-overview"></a>Vue d’ensemble du déploiement d’Azure Firewall Manager Preview
+# <a name="azure-firewall-manager-deployment-overview"></a>Vue d’ensemble du déploiement d’Azure Firewall Manager
 
-[!INCLUDE [Preview](../../includes/firewall-manager-preview-notice.md)]
-
-Azure Firewall Manager Preview peut être déployé de différentes manières, mais la procédure générale suivante est recommandée.
+Azure Firewall Manager peut être déployé de différentes manières, mais la procédure générale suivante est recommandée.
 
 ## <a name="general-deployment-process"></a>Processus général de déploiement
 
@@ -70,4 +68,4 @@ Azure Firewall Manager Preview peut être déployé de différentes manières, m
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-- [Tutoriel : Sécuriser votre réseau cloud avec Azure Firewall Manager Preview à l’aide du portail Azure](secure-cloud-network.md)
+- [Tutoriel : Sécuriser votre réseau cloud avec Azure Firewall Manager à l’aide du portail Azure](secure-cloud-network.md)

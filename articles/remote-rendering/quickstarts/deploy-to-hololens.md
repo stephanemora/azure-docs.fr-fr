@@ -5,12 +5,12 @@ author: jakrams
 ms.author: jakras
 ms.date: 02/14/2020
 ms.topic: quickstart
-ms.openlocfilehash: 75b6629ea924ec17888ec2f981ff85ed917434c9
-ms.sourcegitcommit: 642a297b1c279454df792ca21fdaa9513b5c2f8b
+ms.openlocfilehash: d6acc16780179654975d63ab2c0b04caf141510c
+ms.sourcegitcommit: 73ac360f37053a3321e8be23236b32d4f8fb30cf
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/06/2020
-ms.locfileid: "80677614"
+ms.lasthandoff: 06/30/2020
+ms.locfileid: "85557042"
 ---
 # <a name="quickstart-deploy-unity-sample-to-hololens"></a>Démarrage rapide : Déployer l’exemple Unity sur HoloLens
 
@@ -36,12 +36,14 @@ Vérifiez que vos informations d’identification sont correctement enregistrée
 1. Sélectionnez **Universal Windows Platform** sous *Platform*.
 1. Définissez *Target Device* sur **HoloLens**.
 1. Définissez *Architecture* sur **ARM64**.
-1. Définissez *Build Type* sur **D3D Project**. ![Paramètres de génération](./media/unity-build-settings.png)
+1. Définissez *Build Type* sur **D3D Project**\.
+    ![Paramètres de génération](./media/unity-build-settings.png)
 1. Sélectionnez **Switch to Platform**.
 1. Quand vous sélectionnez **Build** (ou « Build And Run »), vous êtes invité à sélectionner le dossier dans lequel la solution doit être stockée.
 1. Ouvrez le fichier **Quickstart.sln** généré dans Visual Studio.
 1. Changez la configuration en la définissant sur **Version** et **ARM64**.
-1. Basculez le mode du débogueur sur **Ordinateur distant**. ![Configuration de la solution](media/unity-deploy-config.png)
+1. Basculez le mode du débogueur sur **Ordinateur distant**\.
+    ![Configuration de la solution](media/unity-deploy-config.png)
 1. Générez la solution (F7).
 1. Pour le projet « Quickstart », accédez à *Propriétés > Débogage*.
     1. Vérifiez que la configuration *Version* est active.

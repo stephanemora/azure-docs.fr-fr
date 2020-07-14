@@ -3,13 +3,13 @@ author: IEvangelist
 ms.service: cognitive-services
 ms.topic: include
 ms.date: 04/03/2020
-ms.author: dapine
-ms.openlocfilehash: 61c5370bc8dd77babaaa79c814c0d7a9c8049d73
-ms.sourcegitcommit: 999ccaf74347605e32505cbcfd6121163560a4ae
+ms.author: trbye
+ms.openlocfilehash: ad3e005f65b1660bd843bf2819f41eddbed44e9c
+ms.sourcegitcommit: 0100d26b1cac3e55016724c30d59408ee052a9ab
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/08/2020
-ms.locfileid: "82978822"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86035683"
 ---
 ## <a name="prerequisites"></a>Prérequis
 
@@ -41,7 +41,7 @@ Créez un fichier nommé `index.html` dans le dossier, puis ouvrez-le dans un é
 Si vous souhaitez héberger la page web sur un serveur web, vous avez la possibilité de fournir une source de jeton pour votre application de démonstration.
 De cette façon, votre clé d’abonnement ne quitte jamais le serveur et vous permet d’utiliser les fonctionnalités de reconnaissance vocale sans avoir à entrer de code d’autorisation.
 
-Créez un nouveau fichier appelé `token.php`. Dans cet exemple, nous supposons que votre serveur web prend en charge le langage de script PHP. Entrez le code suivant :
+Créez un nouveau fichier appelé `token.php`. Dans cet exemple, nous supposons que votre serveur web prend en charge le langage de script PHP avec curl activé. Entrez le code suivant :
 
 ```php
 <?php
@@ -67,11 +67,11 @@ echo curl_exec($ch);
 
 ## <a name="build-and-run-the-sample-locally"></a>Générer et exécuter l’exemple localement
 
-Pour lancer l’application, double-cliquez sur le fichier index.html ou ouvrez-le dans votre navigateur web de votre choix. Celui-ci présente une interface graphique simple, dans laquelle vous pouvez entrer votre clé d’abonnement et votre [région](../../../../regions.md), puis déclencher la synthèse du texte d’entrée.
+Pour lancer l’application, double-cliquez sur le fichier index.html ou ouvrez-le dans votre navigateur web de votre choix. Celui-ci présente une interface graphique simple, dans laquelle vous pouvez entrer votre clé d’abonnement et votre [région](../../../../regions.md), puis déclencher la transcription en texte de la voix entrée.
 
 ## <a name="build-and-run-the-sample-via-a-web-server"></a>Générer et exécuter l’exemple via un serveur web
 
-Pour lancer l’application, ouvrez le navigateur web de votre choix, accédez à l’URL publique où est hébergé le dossier, entrez votre [région](../../../../regions.md), puis déclenchez la synthèse du texte d’entrée. Vous obtiendrez un jeton de votre source de jeton, si cette option est configurée.
+Pour lancer l’application, ouvrez le navigateur web de votre choix, accédez à l’URL publique où est hébergé le dossier, entrez votre [région](../../../../regions.md), puis déclenchez la transcription en texte de la voix entrée. Vous obtiendrez un jeton de votre source de jeton, si cette option est configurée.
 
 ## <a name="next-steps"></a>Étapes suivantes
 

@@ -6,12 +6,12 @@ ms.topic: tutorial
 author: milismsft
 ms.author: adrianmi
 ms.date: 06/20/2019
-ms.openlocfilehash: ab31daafe496f1aaad2bbc8075b2514d9e57e997
-ms.sourcegitcommit: 537c539344ee44b07862f317d453267f2b7b2ca6
+ms.openlocfilehash: 12e1c79e610526dec11467cc08c753bf90daa095
+ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/11/2020
-ms.locfileid: "84687172"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86083455"
 ---
 # <a name="azure-cosmos-emulator---release-notes-and-download-information"></a>Émulateur Azure Cosmos - Notes de publication et informations sur le téléchargement
 
@@ -26,7 +26,11 @@ Cet article présente les notes de publication de l’émulateur Azure Cosmos av
 
 ## <a name="release-notes"></a>Notes de publication
 
-### <a name="2111"></a>2.11.1
+### <a name="2112-07072020"></a>2.11.2 (07/07/2020)
+
+- Cette version modifie la manière dont sont collectées les traces ETL qui sont nécessaires lors du dépannage de l’émulateur Cosmos. Les outils WPR (Windows Performance Runtime) sont désormais utilisés par défaut pour la capture des traces ETL. La capture basée sur LOGMAN est désormais dépréciée. Ce changement a été en partie nécessaire à cause des mises à jour de sécurité Windows récentes qui impactent le fonctionnement de LOGMAN lorsque celui-ci est exécuté via l’émulateur Cosmos.
+
+### <a name="2111-06102020"></a>2.11.1 (10/06/2020)
 
 - Cette version corrige deux bogues liés à l’émulateur Data Explorer. Dans certains cas, quand vous utilisez l’émulateur Data Explorer par le biais d’un navigateur web, il ne parvient pas à se connecter au point de terminaison de l’émulateur Cosmos et toutes les actions associées, telles que la création d’une base de données ou d’un conteneur, génèrent une erreur. Le deuxième problème résolu est lié à la création d’un élément à partir d’un fichier JSON à l’aide de l’action de chargement de Data Explorer.
 

@@ -5,14 +5,14 @@ author: bandersmsft
 ms.reviewer: adwise
 ms.service: cost-management-billing
 ms.topic: conceptual
-ms.date: 06/01/2020
+ms.date: 07/06/2020
 ms.author: banders
-ms.openlocfilehash: e38271b3a56894380ca5456146a7ab36fb09e08c
-ms.sourcegitcommit: f01c2142af7e90679f4c6b60d03ea16b4abf1b97
+ms.openlocfilehash: b8693ea09ccbb6f0a3f8dfe0846a9b1b256872b6
+ms.sourcegitcommit: e132633b9c3a53b3ead101ea2711570e60d67b83
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/10/2020
-ms.locfileid: "84678016"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86045142"
 ---
 # <a name="managing-azure-enterprise-roles"></a>Gestion des rôles Azure Enterprise
 
@@ -84,7 +84,7 @@ Pour plus d’informations sur l’ajout d’un administrateur de service, consu
 
 |Tâches| Administrateur d’entreprise|Administrateur d’entreprise (lecture seule)|Administrateur de service|Administrateur de service (lecture seule) |Propriétaire du compte| Partenaire|
 |---|---|---|---|---|---|---|
-|Voir le solde de crédit, notamment l’engagement financier|✔|✔|✘|✘|✘|✔|
+|Afficher le solde du crédit, y compris Paiement anticipé Azure|✔|✔|✘|✘|✘|✔|
 |Voir les quotas de dépenses des services|✔|✔|✘|✘|✘|✔|
 |Définir les quotas de dépenses des services|✔|✘|✘|✘|✘|✘|
 |Voir la grille tarifaire du Contrat Entreprise de l’organisation|✔|✔|✘|✘|✘|✔|

@@ -8,14 +8,14 @@ ms.service: active-directory
 ms.subservice: domain-services
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 03/31/2020
+ms.date: 07/06/2020
 ms.author: iainfou
-ms.openlocfilehash: 37f1f129122a64dc27227bee8a267702c7f9d903
-ms.sourcegitcommit: c4ad4ba9c9aaed81dfab9ca2cc744930abd91298
+ms.openlocfilehash: 40dd7f1b177fd1319b145036c8263ba2c6e30137
+ms.sourcegitcommit: 0100d26b1cac3e55016724c30d59408ee052a9ab
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/12/2020
-ms.locfileid: "84733668"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86024670"
 ---
 # <a name="tutorial-create-an-outbound-forest-trust-to-an-on-premises-domain-in-azure-active-directory-domain-services-preview"></a>Tutoriel : Créer une approbation de forêt sortante vers un domaine local dans Azure Active Directory Domain Services (préversion)
 
@@ -45,7 +45,9 @@ Pour effectuer ce tutoriel, vous avez besoin des ressources et des privilèges s
     * Si nécessaire, [créez et configurez un domaine managé Azure Active Directory Domain Services][create-azure-ad-ds-instance-advanced].
     
     > [!IMPORTANT]
-    > Veillez à créer un domaine managé à l’aide d’une forêt de *ressources*. L’option par défaut crée une forêt d’*utilisateur*. Seules les forêts de ressources peuvent créer des approbations dans des environnements locaux AD DS. Vous devez également utiliser une référence (SKU) minimale d’*Enterprise* pour votre domaine managé. Si nécessaire, [changez de référence SKU pour un domaine managé][howto-change-sku].
+    > Veillez à créer un domaine managé à l’aide d’une forêt de *ressources*. L’option par défaut crée une forêt d’*utilisateur*. Seules les forêts de ressources peuvent créer des approbations dans des environnements locaux AD DS.
+    >
+    > Vous devez également utiliser une référence (SKU) minimale d’*Enterprise* pour votre domaine managé. Si nécessaire, [changez de référence SKU pour un domaine managé][howto-change-sku].
 
 ## <a name="sign-in-to-the-azure-portal"></a>Connectez-vous au portail Azure.
 
@@ -69,10 +71,10 @@ Avant de configurer une approbation de forêt dans Azure AD DS, assurez-vous que
 
 ## <a name="configure-dns-in-the-on-premises-domain"></a>Configurer DNS dans le domaine local
 
-Pour résoudre correctement le domaine managé à partir de l’environnement local, vous serez peut-être amené à ajouter des redirecteurs aux serveurs DNS existants. Si vous n’avez pas configuré l’environnement local de manière à ce qu’il communique avec le domaine managé, effectuez les étapes suivantes à partir d’une station de travail de gestion pour le domaine AD DS local :
+Pour résoudre correctement le domaine managé à partir de l’environnement local, vous serez peut-être amené à ajouter des redirecteurs aux serveurs DNS existants. Si vous n’avez pas configuré l’environnement local de manière à ce qu’il communique avec le domaine managé, effectuez les étapes suivantes à partir d’une station de travail de gestion pour le domaine AD DS local :
 
 1. Sélectionnez **Démarrer | Outils d'administration | DNS**.
-1. Cliquez avec le bouton droit sur le serveur DNS, comme *myAD01*, sélectionnez **Propriétés**.
+1. Cliquez avec le bouton droit sur un serveur DNS comme *myAD01*, puis sélectionnez **Propriétés**.
 1. Sélectionnez **Redirecteurs**, puis **Modifier** pour ajouter des redirecteurs supplémentaires.
 1. Ajoutez les adresses IP du domaine managé, par exemple *10.0.2.4* et *10.0.2.5*.
 
@@ -83,9 +85,9 @@ Le domaine AD DS local nécessite une approbation de forêt entrante pour le dom
 Pour configurer l’approbation entrante sur le domaine AD DS local, procédez comme suit à partir d’une station de travail de gestion pour le domaine AD DS local :
 
 1. Sélectionnez **Démarrer | Outils d'administration | Domaines et approbations Active Directory**
-1. Cliquez avec le bouton droit sur un domaine, par exemple *onprem.contoso.com*, sélectionnez **Propriétés**.
+1. Cliquez avec le bouton droit sur un domaine, par exemple *onprem.contoso.com*, puis sélectionnez **Propriétés**.
 1. Sélectionnez l'onglet **Approbations**, puis **Nouvelle approbation**.
-1. Entrez un nom dans le nom de domaine Azure AD DS, comme *aaddscontoso.com*, puis sélectionnez **Suivant**.
+1. Entrez le nom du domaine Azure AD DS, comme *aaddscontoso.com*, puis sélectionnez **Suivant**.
 1. Sélectionnez l’option permettant de créer une **approbation de forêt**, puis une approbation **unidirectionnelle : entrante**.
 1. Choisissez de créer l’approbation pour **ce domaine uniquement**. À l’étape suivante, vous allez créer l’approbation dans le portail Azure pour le domaine managé.
 1. Choisissez d’utiliser l'**authentification à l'échelle de la forêt**, puis entrez et confirmez un mot de passe d’approbation. Ce même mot de passe est également entré dans le portail Azure à la section suivante.
@@ -94,7 +96,7 @@ Pour configurer l’approbation entrante sur le domaine AD DS local, procédez c
 
 ## <a name="create-outbound-forest-trust-in-azure-ad-ds"></a>Créer une approbation de forêt sortante dans Azure AD DS
 
-Une fois le domaine AD DS local configuré pour résoudre le domaine managé et une approbation de forêt entrante créée, créez l’approbation de forêt sortante. Cette approbation de forêt sortante établit la relation d’approbation entre le domaine AD DS local et le domaine managé.
+Une fois le domaine AD DS local configuré pour résoudre le domaine managé et une approbation de forêt entrante créée, créez l’approbation de forêt sortante. Cette approbation de forêt sortante établit la relation d’approbation entre le domaine AD DS local et le domaine managé.
 
 Pour créer l’approbation sortante destinée au domaine managé dans le portail Azure, effectuez les étapes suivantes :
 
@@ -124,7 +126,7 @@ Les scénarios courants suivants vous permettent de vérifier que l’approbatio
 
 ### <a name="on-premises-user-authentication-from-the-azure-ad-ds-resource-forest"></a>Authentification des utilisateurs locaux à partir de la forêt de ressources Azure AD DS
 
-Vous devez disposer d’une machine virtuelle Windows Server jointe au domaine de ressources Azure AD DS. Utilisez cette machine virtuelle pour vérifier que votre utilisateur local peut s’authentifier sur une machine virtuelle.
+Vous devez disposer d’une machine virtuelle Windows Server jointe au domaine managé. Utilisez cette machine virtuelle pour vérifier que votre utilisateur local peut s’authentifier sur une machine virtuelle. Si nécessaire, [créez une machine virtuelle Windows et joignez-la au domaine managé][join-windows-vm].
 
 1. Connectez-vous à la machine virtuelle Windows Server jointe à la forêt de ressources Azure AD DS en utilisant [Azure Bastion](https://docs.microsoft.com/azure/bastion/bastion-overview) et vos informations d’identification d’administrateur Azure AD DS.
 1. Ouvrez une invite de commandes et utilisez la commande `whoami` pour afficher le nom unique de l’utilisateur actuellement authentifié :
@@ -167,7 +169,7 @@ Vous devez disposer d’une machine virtuelle Windows Server jointe au domaine d
 1. Entrez *Utilisateurs du domaine* dans la zone **Entrer les noms des objets à sélectionner**. Sélectionnez **Vérifier les noms**, fournissez les informations d’identification de l'instance Active Directory locale, puis sélectionnez **OK**.
 
     > [!NOTE]
-    > La relation d'approbation étant unidirectionnelle, vous devez fournir les informations d’identification. Cela signifie que les utilisateurs de l'instance Azure AD DS ne peuvent pas accéder aux ressources ou rechercher des utilisateurs ou groupes dans le domaine (local) approuvé.
+    > La relation d'approbation étant unidirectionnelle, vous devez fournir les informations d’identification. Cela signifie que les utilisateurs du domaine managé Azure AD DS ne pourront pas accéder aux ressources ni rechercher des utilisateurs ou groupes dans le domaine (local) approuvé.
 
 1. Le groupe **Utilisateurs du domaine** de votre instance Active Directory locale doit être membre du groupe **FileServerAccess**. Sélectionnez **OK** pour enregistrer le groupe et fermer la fenêtre.
 
@@ -216,3 +218,4 @@ Pour plus d’informations conceptuelles sur les types de forêts dans Azure AD 
 [howto-change-sku]: change-sku.md
 [vpn-gateway]: ../vpn-gateway/vpn-gateway-about-vpngateways.md
 [expressroute]: ../expressroute/expressroute-introduction.md
+[join-windows-vm]: join-windows-vm.md

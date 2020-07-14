@@ -1,20 +1,14 @@
 ---
 title: Qu'est-ce qu'Azure Event Grid ?
 description: Envoyez des données d'événement d'une source vers des gestionnaires avec Azure Event Grid. Créez des applications basées sur des événements et intégrez-les à des services Azure.
-services: event-grid
-author: femila
-manager: timlt
-ms.service: event-grid
 ms.topic: overview
-ms.date: 02/20/2020
-ms.author: femila
-ms.custom: seodec18
-ms.openlocfilehash: 38f0218a7dedd243cccfab4b0b5ecfb73d3a626a
-ms.sourcegitcommit: 964af22b530263bb17fff94fd859321d37745d13
+ms.date: 07/07/2020
+ms.openlocfilehash: 95deeddbd7ae3f5ee07bef0c4ac73559d208c352
+ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/09/2020
-ms.locfileid: "84560303"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86116129"
 ---
 # <a name="what-is-azure-event-grid"></a>Qu'est-ce qu'Azure Event Grid ?
 
@@ -103,7 +97,7 @@ La grille d’événement connecte des sources de données et des gestionnaires 
 
 ![Automatisation des opérations](./media/overview/Ops_automation.png)
 
-Event Grid vous permet d’accélérer l’automatisation et de simplifier l’application de la stratégie. Par exemple, utilisez Event Grid pour notifier Azure Automation lorsqu'une machine virtuelle ou une base de données SQL est créée. Utilisez les événements pour automatiser la vérification de la conformité des configurations de service, l'intégration des métadonnées dans les outils d'exploitation, l'étiquetage des machines virtuelles ou l'archivage des éléments de travail.
+Event Grid vous permet d’accélérer l’automatisation et de simplifier l’application de la stratégie. Par exemple, utilisez Event Grid pour notifier Azure Automation quand une machine virtuelle ou une base de données SQL est créée dans Azure SQL. Utilisez les événements pour automatiser la vérification de la conformité des configurations de service, l'intégration des métadonnées dans les outils d'exploitation, l'étiquetage des machines virtuelles ou l'archivage des éléments de travail.
 
 ### <a name="application-integration"></a>Intégration d’applications
 

@@ -1,6 +1,6 @@
 ---
 title: Qu’est-ce qu’Azure Sentinel ? | Microsoft Docs
-description: Découvrez Azure Sentinel, ses fonctionnalités principales et son fonctionnement.
+description: Découvrez Azure Sentinel, une solution native cloud et scalable de type SIEM (Security Information and Event Management) et SOAR (Security Orchestrated Automated Response).
 services: sentinel
 documentationcenter: na
 author: yelevin
@@ -16,12 +16,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/24/2019
 ms.author: yelevin
-ms.openlocfilehash: 517bdc0846ae56e0db41631f1dc5411471c6c2bd
-ms.sourcegitcommit: cf7caaf1e42f1420e1491e3616cc989d504f0902
+ms.openlocfilehash: ebc9756afc43648f2b44ca317abe3373807f4efa
+ms.sourcegitcommit: 73ac360f37053a3321e8be23236b32d4f8fb30cf
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/22/2020
-ms.locfileid: "83800140"
+ms.lasthandoff: 06/30/2020
+ms.locfileid: "85564620"
 ---
 # <a name="what-is-azure-sentinel"></a>Qu’est-ce qu’Azure Sentinel ?
 

@@ -8,19 +8,19 @@ ms.service: cognitive-services
 ms.topic: include
 ms.date: 03/05/2020
 ms.author: aahi
-ms.openlocfilehash: b6ab34019207ccbeec5448b848e501e063707d16
-ms.sourcegitcommit: 34a6fa5fc66b1cfdfbf8178ef5cdb151c97c721c
+ms.openlocfilehash: bdbd183ba161c96e0ed8e160ce602da2ec30dfb7
+ms.sourcegitcommit: dee7b84104741ddf74b660c3c0a291adf11ed349
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81385005"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85940411"
 ---
 La bibliothèque de client de l’API Recherche Web Bing simplifie l’intégration de l’API dans votre application Python. Dans ce démarrage rapide, vous allez apprendre à envoyer une requête, recevoir une réponse JSON et filtrer et analyser les résultats.
 
 Vous voulez voir le code tout de suite ? Des exemples pour les [bibliothèques clientes Recherche Bing pour Python](https://github.com/Azure-Samples/cognitive-services-python-sdk-samples/tree/master/samples/search) sont disponibles sur GitHub.
 
 
-## <a name="prerequisites"></a>Conditions préalables requises
+## <a name="prerequisites"></a>Prérequis
 Le Kit de développement logiciel de l’API Recherche Web Bing est compatible avec Python 2.7, 3.3, 3.4, 3.5 et 3.6. Nous vous recommandons d’utiliser un environnement virtuel pour ce démarrage rapide.
 
 * Python 2.7, 3.3, 3.4, 3.5 ou 3.6
@@ -167,7 +167,7 @@ Si la réponse contient des pages web, des images, des actualités ou des vidéo
 
 1. Remplacez `SUBSCRIPTION_KEY` par une clé d’abonnement valide.
 
-1. Remplacez `YOUR_ENDPOINT` par votre URL de point de terminaison dans le portail.
+1. Remplacez `YOUR_ENDPOINT` par votre URL de point de terminaison dans le portail, puis supprimez la section « bing/v7.0 » du point de terminaison.
 
 1. Exécutez le programme. Par exemple : `python your_program.py`.
 

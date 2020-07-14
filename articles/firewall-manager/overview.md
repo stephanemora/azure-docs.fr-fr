@@ -1,24 +1,22 @@
 ---
-title: Présentation de la préversion d’Azure Firewall Manager
+title: Qu’est-ce qu’Azure Firewall Manager ?
 description: En savoir plus sur les fonctionnalités Azure Firewall Manager
 author: vhorne
 ms.service: firewall-manager
 services: firewall-manager
 ms.topic: overview
-ms.date: 06/11/2020
+ms.date: 06/30/2020
 ms.author: victorh
-ms.openlocfilehash: bef948def487e2b60764641e6cf38a3e122e2f87
-ms.sourcegitcommit: 6571e34e609785e82751f0b34f6237686470c1f3
+ms.openlocfilehash: 8b457198655af50427545a0e93e2cfe6903131c8
+ms.sourcegitcommit: 73ac360f37053a3321e8be23236b32d4f8fb30cf
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/15/2020
-ms.locfileid: "84792153"
+ms.lasthandoff: 06/30/2020
+ms.locfileid: "85563751"
 ---
-# <a name="what-is-azure-firewall-manager-preview"></a>Présentation de la préversion d’Azure Firewall Manager
+# <a name="what-is-azure-firewall-manager"></a>Qu’est-ce qu’Azure Firewall Manager ?
 
-[!INCLUDE [Preview](../../includes/firewall-manager-preview-notice.md)]
-
-Azure Firewall Manager en préversion est un service de gestion de la sécurité qui fournit une stratégie de sécurité centralisée et la gestion des itinéraires pour les périmètres de sécurité basés sur le cloud. 
+Azure Firewall Manager est un service de gestion de la sécurité qui propose une stratégie de sécurité centralisée et une gestion des routes pour les périmètres de sécurité basés sur le cloud. 
 
 Firewall Manager assure la gestion de la sécurité pour deux types d’architecture réseau :
 
@@ -33,9 +31,9 @@ Pour avoir une comparaison détaillée des architectures de *hub virtuel sécuri
 
 ![firewall-manager](media/overview/trusted-security-partners.png)
 
-## <a name="azure-firewall-manager-preview-features"></a>Fonctionnalités de la préversion d’Azure Firewall Manager
+## <a name="azure-firewall-manager-features"></a>Fonctionnalités d’Azure Firewall Manager
 
-La préversion d’Azure Firewall Manager offre les fonctionnalités suivantes :
+Azure Firewall Manager offre les fonctionnalités suivantes :
 
 ### <a name="central-azure-firewall-deployment-and-configuration"></a>Configuration et déploiement centralisés du Pare-feu Azure
 
@@ -43,7 +41,7 @@ Vous pouvez déployer et configurer de manière centralisée plusieurs instances
 
 ### <a name="hierarchical-policies-global-and-local"></a>Stratégies hiérarchiques (mondiales et locales)
 
-Vous pouvez utiliser la préversion d’Azure Firewall Manager pour gérer de manière centralisée les stratégies de Pare-feu Azure sur plusieurs hubs virtuels sécurisés. Vos équipes informatiques centrales peuvent créer des stratégies de pare-feu globales pour appliquer la stratégie de pare-feu à l’échelle de l’organisation et dans différentes équipes. Les stratégies de pare-feu créées localement autorisent un modèle en libre-service DevOps qui offre une meilleure agilité.
+Vous pouvez utiliser Azure Firewall Manager pour gérer de manière centralisée les stratégies de Pare-feu Azure sur plusieurs hubs virtuels sécurisés. Vos équipes informatiques centrales peuvent créer des stratégies de pare-feu globales pour appliquer la stratégie de pare-feu à l’échelle de l’organisation et dans différentes équipes. Les stratégies de pare-feu créées localement autorisent un modèle en libre-service DevOps qui offre une meilleure agilité.
 
 ### <a name="integrated-with-third-party-security-as-a-service-for-advanced-security"></a>Intégration à une sécurité de tiers en tant que service pour une sécurité avancée
 
@@ -60,7 +58,7 @@ Cette fonctionnalité est disponible uniquement avec les déploiements de hubs v
 
    Tirez parti de votre connectivité Azure et de votre distribution mondiale pour ajouter facilement un filtrage tiers dans le cadre des scénarios de type « filiale vers Internet ».
 
-Pour plus d’informations sur les fournisseurs de sécurité approuvés, consultez [Présentation des partenaires de sécurité de confiance Azure Firewall Manager (préversion)](trusted-security-partners.md)
+Pour plus d’informations sur les fournisseurs de partenaire de sécurité, consultez [Que sont les fournisseurs de partenaire de sécurité Azure Firewall Manager ?](trusted-security-partners.md)
 
 ### <a name="centralized-route-management"></a>Gestion de routes centralisée
 
@@ -76,20 +74,17 @@ Les stratégies de pare-feu Azure sont utilisables dans plusieurs régions. Par 
 
 ## <a name="known-issues"></a>Problèmes connus
 
-Les problèmes connus de la préversion d’Azure Firewall Manager sont les suivants :
+Les problèmes connus d’Azure Firewall Manager sont les suivants :
 
 |Problème  |Description  |Limitation des risques  |
 |---------|---------|---------|
-|Limitations du filtrage tiers.|Le filtrage du trafic V2I avec des fournisseurs tiers n’est pas pris en charge avec le Pare-feu Azure B2V et V2V.|Enquête|
 |La division du trafic n’est pas prise en charge.|Le fractionnement du trafic Office 365 et du trafic PaaS public Azure n’est pas pris en charge actuellement. Par conséquent, la sélection d’un fournisseur tiers pour V2I ou B2I envoie également tout le trafic PaaS public Azure et le trafic Office 365 via le service partenaire.|Enquête sur la division du trafic au niveau du hub.
 |Un seul hub virtuel sécurisé par région.|Vous ne pouvez pas avoir plus d’un hub virtuel sécurisé par région.|Créez plusieurs réseaux étendus virtuels dans une région.|
 |Les stratégies de base doivent se trouver dans la même région que la stratégie locale.|Créez toutes vos stratégies locales dans la même région que la stratégie de base. Vous pouvez toujours appliquer une stratégie qui a été créée dans une région sur un hub sécurisé à partir d’une autre région.|Enquête|
 |La communication entre les hubs ne fonctionne pas pour les hubs virtuels sécurisés|La communication de hub virtuel sécurisé à hub virtuel sécurisé n’est pas encore prise en charge.|Enquête|
 |Tous les hubs virtuels sécurisés partageant le même réseau étendu virtuel doivent se trouver dans le même groupe de ressources.|Ce comportement est aujourd’hui cohérent avec les hubs Virtual WAN.|Créez plusieurs réseaux étendus virtuels pour permettre la création de hubs virtuels sécurisés dans différents groupes de ressources.|
-|Les groupes IP ne sont pas pris en charge dans la stratégie de pare-feu.|Les groupes IP sont en préversion publique et sont pris en charge uniquement avec les règles de pare-feu classiques.|Correction en cours.
-|Les abonnements de fournisseurs de solutions Cloud ne sont pas pris en charge.|Les [abonnements de fournisseurs de solutions Cloud](https://azure.microsoft.com/offers/ms-azr-0145p/) ne sont pas pris en charge.|Enquête
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-- Consultez [Vue d’ensemble du déploiement d’Azure Firewall Manager en préversion](deployment-overview.md)
+- Consulter la [vue d’ensemble du déploiement d’Azure Firewall Manager](deployment-overview.md)
 - En savoir plus sur les [hubs virtuels sécurisés](secured-virtual-hub.md)

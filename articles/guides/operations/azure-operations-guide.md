@@ -8,12 +8,12 @@ ms.service: azure
 ms.topic: overview
 ms.workload: infrastructure
 ms.date: 08/24/2018
-ms.openlocfilehash: 4f9da6cbfe8d1e6b92c39148b275de193730c8f1
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.openlocfilehash: e7ebcf39c203f9956b23ef22754b38f32e9d9352
+ms.sourcegitcommit: 01cd19edb099d654198a6930cebd61cae9cb685b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "77623576"
+ms.lasthandoff: 06/24/2020
+ms.locfileid: "85323011"
 ---
 # <a name="get-started-for-azure-it-operators"></a>Prise en main pour les opérateurs informatiques Azure
 
@@ -50,7 +50,7 @@ Pour plus d’informations sur les régions Azure disponibles, consultez [Régio
 Azure utilise un modèle de cloud computing basé sur les catégories de service fournies aux clients. Les trois catégories de service incluent l’IaaS (infrastructure as a service), le PaaS (platform as a service) et le SaaS (software as a service). Les fournisseurs partagent tout ou partie de la responsabilité pour les composants dans la pile informatique dans chacune de ces catégories. Jetons un œil à chacune des catégories pour le cloud computing.
 ![Comparaison de pile de cloud computing](./media/cloud-computing-comparison.png)
 
-#### <a name="iaas-infrastructure-as-a-service"></a>IaaS : Infrastructure as a Service
+#### <a name="iaas-infrastructure-as-a-service"></a>IaaS : Infrastructure as a service
 
 Un fournisseur de cloud IaaS exécute et gère toutes les ressources de calcul physiques ainsi que les logiciels nécessaires à la virtualisation de l’ordinateur. Un client de ce service déploie les machines virtuelles dans ces centres de données hébergés. Même si les machines virtuelles sont situées dans un centre de données hors site, le consommateur IaaS garde le contrôle sur la configuration et la gestion du système d’exploitation laissant l’infrastructure sous-jacente au fournisseur de cloud.
 
@@ -58,13 +58,13 @@ Azure comprend plusieurs solutions IaaS, notamment les machines virtuelles, les 
 
 Les groupes de machines virtuelles identiques reposent sur des machines virtuelles Microsoft Azure et offrent un moyen facile de déployer des clusters de machines virtuelles identiques. Les groupes de machines virtuelles identiques prennent également en charge la mise à l’échelle automatique afin de pouvoir déployer les nouvelles machines virtuelles automatiquement à la demande. Les groupes de machines virtuelles identiques offrent une plateforme idéale pour héberger les clusters de calcul de microservice plus importants, tels que Azure Service Fabric et Azure Container Service.
 
-#### <a name="paas-platform-as-a-service"></a>PaaS : Platform as a Service
+#### <a name="paas-platform-as-a-service"></a>PaaS : Platform as a service
 
 Avec PaaS, vous déployez votre application dans un environnement qui est fourni par le prestataire de services cloud. Le fournisseur s’occupe de toute la gestion de l’infrastructure pour vous permettre de vous consacrer au développement d’applications et à la gestion de données.
 
 Azure fournit plusieurs offres de calcul PaaS, notamment le composant Web Apps d’Azure App Service et d’Azure Cloud Services (rôles web et de travail). Dans un cas comme dans l’autre, les développeurs ont à leur disposition plusieurs moyens de déployer leur application sans avoir à se préoccuper de l’infrastructure qui les prend en charge. Les développeurs n’ont aucun besoin de créer des machines virtuelles, ni d’utiliser le protocole RDP (Remote Desktop Protocol) pour se connecter à chacune d’elles, ni même d’installer l’application. Ils appuient simplement sur un bouton (ou peu s’en faut) et les outils fournis par Microsoft approvisionnent les machines virtuelles, puis déploient et installent l’application sur celles-ci.
 
-#### <a name="saas-software-as-a-service"></a>SaaS : Software as a Service
+#### <a name="saas-software-as-a-service"></a>SaaS : Software as a service
 
 SaaS est un logiciel qui est hébergé et géré de manière centralisée. Il s’appuie généralement sur une architecture multilocataire, où une seule version de l’application est utilisée pour tous les clients. Il peut être monté en charge parallèle sur plusieurs instances pour garantir des performances optimales dans tous les emplacements. Le logiciel SaaS est généralement concédé sous licence, par abonnement mensuel ou annuel. Les éditeurs de logiciels SaaS sont responsables de tous les composants de la pile logicielle afin de vous faire gérer uniquement les services fournis.
 
@@ -184,17 +184,17 @@ Un abonnement est un regroupement logique de services Azure, associé à un comp
 
 Avant de pouvoir utiliser les services Azure, vous devez vous abonner. Plusieurs types d’abonnements sont disponibles.
 
-**Comptes gratuits** : le lien pour s’abonner à un compte gratuit se trouve sur le [site web Azure](https://azure.microsoft.com/). Vous disposez d’un crédit valable sur une période de 30 jours, pour essayer la combinaison de ressources de votre choix dans Azure. Si vous dépassez le montant du crédit alloué, votre compte est suspendu. À la fin de la période d’essai, vos services sont désactivés et ne fonctionnent plus. Vous pouvez à tout moment passer à un abonnement avec paiement à l’utilisation.
+**Comptes gratuits** : Le lien pour s’abonner à un compte gratuit se trouve sur le [site web Azure](https://azure.microsoft.com/). Vous disposez d’un crédit valable sur une période de 30 jours, pour essayer la combinaison de ressources de votre choix dans Azure. Si vous dépassez le montant du crédit alloué, votre compte est suspendu. À la fin de la période d’essai, vos services sont désactivés et ne fonctionnent plus. Vous pouvez à tout moment passer à un abonnement avec paiement à l’utilisation.
 
-**Abonnements MSDN** : si vous avez un abonnement MSDN, vous disposez d’un crédit Azure d’un montant spécifique tous les mois. Par exemple, si vous utilisez une édition de Microsoft Visual Studio Enterprise avec un abonnement MSDN, vous bénéficiez d’un crédit Azure de \$150 USD par mois.
+**Abonnements MSDN** : Si vous avez un abonnement MSDN, vous obtenez un crédit Azure d’un montant spécifique tous les mois. Par exemple, si vous utilisez une édition de Microsoft Visual Studio Enterprise avec un abonnement MSDN, vous bénéficiez d’un crédit Azure de \$150 USD par mois.
 
 Si vous dépassez le montant du crédit, vos services sont désactivés jusqu’au début du mois suivant. Vous pouvez désactiver le plafond des dépenses et ajouter une carte de crédit à utiliser pour les dépassements. Certains de ces coûts bénéficient de remise pour les comptes MSDN. Par exemple, vous pouvez payer le prix Linux pour les machines virtuelles exécutant Windows Server, sans aucuns frais supplémentaires pour les serveurs Microsoft tels que Microsoft SQL Server. Les comptes MSDN s’avèrent ainsi parfaits pour les scénarios de développement et de test.
 
-**Les comptes BizSpark** : le programme Microsoft BizSpark présente de nombreux avantages pour les start-ups. Vous bénéficiez notamment de l’accès à tous les logiciels Microsoft dans les environnements de développement et de test pour cinq comptes MSDN maximum. Vous obtenez 150 USD de crédit Azure pour chacun de ces cinq comptes MSDN et profitez de tarifs réduits pour plusieurs services Azure tels que Machines virtuelles.
+**Comptes BizSpark** : Le programme Microsoft BizSpark présente de nombreux avantages pour les start-ups. Vous bénéficiez notamment de l’accès à tous les logiciels Microsoft dans les environnements de développement et de test pour cinq comptes MSDN maximum. Vous obtenez 150 USD de crédit Azure pour chacun de ces cinq comptes MSDN et profitez de tarifs réduits pour plusieurs services Azure tels que Machines virtuelles.
 
-**Paiement à l’utilisation** : avec cet abonnement, vous payez uniquement ce que vous utilisez en associant une carte de crédit ou de débit à ce compte. Si vous êtes une organisation, vous pouvez également être approuvé pour la facturation.
+**Paiement à l’utilisation** : Avec cet abonnement, vous payez uniquement ce que vous utilisez en associant une carte de crédit ou de débit au compte. Si vous êtes une organisation, vous pouvez également être approuvé pour la facturation.
 
-**Accords Entreprise** : avec un accord Entreprise, vous vous engagez à utiliser un certain nombre de services dans Azure sur l’année à venir et vous payez ce montant à l’avance. L’engagement que vous contractez court tout au long de l’année. Si vous dépassez le montant de l’engagement, vous pouvez régler le surplus en retard. Selon le montant de l’engagement, vous bénéficiez d’une remise sur les services dans Azure.
+**Contrats Entreprise** : Avec un contrat Entreprise, vous vous engagez à utiliser un certain nombre de services dans Azure sur l’année à venir et vous payez ce montant à l’avance. L’engagement que vous contractez court tout au long de l’année. Si vous dépassez le montant de l’engagement, vous pouvez régler le surplus en retard. Selon le montant de l’engagement, vous bénéficiez d’une remise sur les services dans Azure.
 
 ### <a name="grant-administrative-access-to-an-azure-subscription"></a>Accorder un accès administratif à un abonnement Azure
 
@@ -226,7 +226,7 @@ Le tarif de chaque service dans Azure est différent. De nombreux services Azure
 
 Azure Resource Manager est un système de déploiement, de gestion et d’organisation des ressources Azure. En l’utilisant, vous pouvez rassembler de nombreuses ressources individuelles dans un groupe de ressources.
 
-Il comporte également des fonctionnalités de déploiement permettant un déploiement personnalisable et la configuration des ressources associées. Ainsi, en utilisant Azure Resource Manager, vous pouvez déployer une application composée de plusieurs machines virtuelles, d’un équilibreur de charge et d’une base de données SQL comme une unité unique. Vous développez ces déploiements à l’aide d’un modèle Azure Resource Manager.
+Il comporte également des fonctionnalités de déploiement permettant un déploiement personnalisable et la configuration des ressources associées. Ainsi, en utilisant Resource Manager, vous pouvez déployer une application composée de plusieurs machines virtuelles, d’un équilibreur de charge et d’une base de données dans Azure SQL Database sous la forme d’une unité unique. Vous développez ces déploiements à l’aide d’un modèle Azure Resource Manager.
 
 Resource Manager offre plusieurs avantages :
 
@@ -266,21 +266,21 @@ Les modèles Resource Manager définissent de façon déclarative les ressources
 
 Un modèle Resource Manager se compose de quatre sections :
 
-- **Paramètres** : il s’agit d’entrées pour le déploiement. Les valeurs des paramètres peuvent être fournies par un être humain ou un processus automatisé. Un exemple de paramètre peut être le nom d’utilisateur de l’administrateur et le mot de passe associé pour une machine virtuelle Windows. Les valeurs des paramètres sont utilisées dans le déploiement lorsqu’elles sont spécifiées.
+- **Paramètres** : Il s’agit d’entrées pour le déploiement. Les valeurs des paramètres peuvent être fournies par un être humain ou un processus automatisé. Un exemple de paramètre peut être le nom d’utilisateur de l’administrateur et le mot de passe associé pour une machine virtuelle Windows. Les valeurs des paramètres sont utilisées dans le déploiement lorsqu’elles sont spécifiées.
 
-- **Variables** : elles servent à contenir les valeurs qui sont utilisées dans le déploiement. Contrairement aux paramètres, une valeur de variable n’est pas fournie au moment du déploiement. Au lieu de cela, elle est codée en dur ou générée de façon dynamique.
+- **Variables** : Elles servent à contenir les valeurs qui sont utilisées dans le déploiement. Contrairement aux paramètres, une valeur de variable n’est pas fournie au moment du déploiement. Au lieu de cela, elle est codée en dur ou générée de façon dynamique.
 
-- **Ressources** : cette section du modèle définit les ressources à déployer, telles que les machines virtuelles, les comptes de stockage et les réseaux virtuels.
+- **Ressources** : Cette section du modèle définit les ressources à déployer, comme les machines virtuelles, les comptes de stockage et les réseaux virtuels.
 
-- **Sortie** : à l’issue d’un déploiement, Resource Manager peut retourner des données, telles que les chaînes de connexion générées dynamiquement.
+- **Sortie**: Après un déploiement, Resource Manager peut retourner des données, comme des chaînes de connexion générées dynamiquement.
 
 Les mécanismes suivants sont disponibles pour l’automatisation du déploiement :
 
-- **Fonctions** : vous pouvez utiliser plusieurs fonctions dans les modèles Resource Manager. Celles-ci incluent des opérations, telles que la conversion d’une chaîne en minuscules, le déploiement de plusieurs instances d’une ressource définie, et le retour de façon dynamique du groupe de ressources cible. Les fonctions Resource Manager permettent de créer des déploiements dynamiques.
+- **Fonctions** : Vous pouvez utiliser plusieurs fonctions dans les modèles Resource Manager. Celles-ci incluent des opérations, telles que la conversion d’une chaîne en minuscules, le déploiement de plusieurs instances d’une ressource définie, et le retour de façon dynamique du groupe de ressources cible. Les fonctions Resource Manager permettent de créer des déploiements dynamiques.
 
-- **Dépendances de ressource** : lorsque vous déployez plusieurs ressources, certaines ont une dépendance sur d’autres. Pour faciliter le déploiement, vous pouvez utiliser une déclaration de dépendance, afin que les ressources dépendantes soient déployées avant les autres.
+- **Dépendances des ressources** : Quand vous déployez plusieurs ressources, certaines ont une dépendance sur d’autres. Pour faciliter le déploiement, vous pouvez utiliser une déclaration de dépendance, afin que les ressources dépendantes soient déployées avant les autres.
 
-- **Liaison de modèle** : à partir d’un modèle Resource Manager, vous pouvez lier à un autre modèle. Cela permet une décomposition du déploiement en un ensemble de modèles dont les usages sont spécifiques et ciblés.
+- **Liaison de modèles** : À partir d’un modèle Resource Manager, vous pouvez lier un autre modèle. Cela permet une décomposition du déploiement en un ensemble de modèles dont les usages sont spécifiques et ciblés.
 
 Vous pouvez générer des modèles Resource Manager dans n’importe quel éditeur de texte. Cela dit, le kit SDK Azure pour Visual Studio comprend des outils pour vous aider. À l’aide de Visual Studio, vous pouvez ajouter des ressources au modèle par l’intermédiaire d’un Assistant, puis déployer et déboguer le modèle directement à partir de Visual Studio. Pour plus d’informations, consultez [Création de modèles Azure Resource Manager](../../resource-group-authoring-templates.md).
 
@@ -294,17 +294,17 @@ Pour accorder l’accès, vous assignez un rôle à l’utilisateur ou au groupe
 
 Voici quelques exemples de [rôles intégrés dans Azure](../../role-based-access-control/built-in-roles.md) :
 
-- **Propriétaire** : un utilisateur disposant de ce rôle peut tout gérer, y compris l’accès.
+- **Propriétaire** : Un utilisateur avec ce rôle peut tout gérer, y compris l’accès.
 
-- **Lecteur** : un utilisateur disposant de ce rôle peut lire les ressources de tous les types (à l’exception des secrets), mais ne peut pas apporter de modifications.
+- **Lecteur** : Un utilisateur avec ce rôle peut lire les ressources de tous les types (à l’exception des secrets), mais ne peut pas faire de changements.
 
-- **Contributeur de machines virtuelles** : un utilisateur disposant de ce rôle peut gérer des machines virtuelles, mais ne peut pas gérer le réseau virtuel sur lequel il est connecté, ni le compte de stockage où réside le fichier VHD.
+- **Contributeur de machine virtuelle** : Un utilisateur avec ce rôle peut gérer des machines virtuelles, mais ne peut pas gérer le réseau virtuel auxquelles elle sont connectées, ni le compte de stockage où réside le fichier VHD.
 
-- **Contributeur de SQL DB** : un utilisateur disposant de ce rôle peut gérer des bases de données SQL, mais pas leurs stratégies de sécurité.
+- **Contributeur de base de données SQL** : Un utilisateur avec ce rôle peut gérer des bases de données SQL, mais pas leurs stratégies de sécurité.
 
-- **Gestionnaire de sécurité SQL** : un utilisateur disposant de ce rôle peut gérer les stratégies de sécurité des serveurs et bases de données SQL.
+- **Gestionnaire de sécurité SQL** : Un utilisateur avec ce rôle peut gérer les stratégies de sécurité des serveurs et bases de données SQL.
 
-- **Contributeur de comptes de stockage** : un utilisateur disposant de ce rôle peut gérer les comptes de stockage, mais ne peut pas en gérer l’accès.
+- **Contributeur de compte de stockage** : Un utilisateur avec ce rôle peut gérer les comptes de stockage, mais ne peut pas en gérer l’accès.
 
 Pour plus d’informations, consultez [Gérer l’accès à l’aide de RBAC et du portail Azure](../../role-based-access-control/role-assignments-portal.md).
 
@@ -352,7 +352,7 @@ Enfin, comme c’est le cas pour la gestion de tout système informatique, vous 
 
 ## <a name="azure-storage"></a>Stockage Azure
 
-Stockage Azure est un service géré par Microsoft qui fournit un stockage redondant, évolutif et durable. En tant que ressource, vous pouvez ajouter un compte de stockage Azure à n’importe quel groupe de ressources au moyen d’une méthode de déploiement de ressource. Azure comprend quatre types de stockage : le stockage Blob, le stockage Fichier, le stockage Table et le stockage File d’attente. Lors du déploiement d’un compte de stockage, deux types de comptes sont disponibles, l’un à usage général, l’autre de stockage blob. Un compte de stockage à usage général vous donne accès aux quatre types de stockage. Les comptes de stockage blob sont similaires aux comptes à usage général, mais contiennent des objets blob spécialisés qui incluent les niveaux d’accès à chaud et à froid. Pour plus d’informations sur le stockage d’objets blob, consultez [Stockage Blob Azure](../../storage/blobs/storage-blob-storage-tiers.md).
+Stockage Azure est un service géré par Microsoft qui fournit un stockage redondant, évolutif et durable. En tant que ressource, vous pouvez ajouter un compte de stockage Azure à n’importe quel groupe de ressources au moyen d’une méthode de déploiement de ressource. Azure comporte quatre types de stockage : Stockage Blob, stockage Fichier, stockage Table et stockage File d’attente. Lors du déploiement d’un compte de stockage, deux types de comptes sont disponibles, l’un à usage général, l’autre de stockage blob. Un compte de stockage à usage général vous donne accès aux quatre types de stockage. Les comptes de stockage blob sont similaires aux comptes à usage général, mais contiennent des objets blob spécialisés qui incluent les niveaux d’accès à chaud et à froid. Pour plus d’informations sur le stockage d’objets blob, consultez [Stockage Blob Azure](../../storage/blobs/storage-blob-storage-tiers.md).
 
 Les comptes de stockage Azure peuvent être configurés selon différents niveaux de redondance :
 
@@ -473,9 +473,9 @@ Il existe plusieurs options pour déployer un réseau virtuel.
 
 - Modèles Azure Resource Manager
 
-> **Application** : chaque fois que vous utilisez des machines virtuelles dans Azure, vous utilisez des réseaux virtuels. Ainsi, vous pouvez segmenter vos machines virtuelles en sous-réseaux publics et privés, à l’image des centres de données locaux.
+> **Quand les utiliser** : Chaque fois que vous utilisez des machines virtuelles dans Azure, vous utilisez des réseaux virtuels. Ainsi, vous pouvez segmenter vos machines virtuelles en sous-réseaux publics et privés, à l’image des centres de données locaux.
 >
-> **Prise en main** : le déploiement d’un réseau virtuel Azure à l’aide du portail Azure ne requiert qu’un abonnement Azure actif et l’accès à un navigateur web. Vous pouvez déployer un nouveau réseau virtuel dans un groupe de ressources existant ou nouveau. Lorsque vous créez une machine virtuelle à partir du portail, vous pouvez sélectionner un réseau virtuel existant ou en créer un. Pour commencer, [créez un réseau virtuel à l’aide du portail Azure](../../virtual-network/quick-create-portal.md).
+> **Prise en main** : Le déploiement d’un réseau virtuel Azure à l’aide du portail Azure ne demande qu’un abonnement Azure actif et l’accès à un navigateur web. Vous pouvez déployer un nouveau réseau virtuel dans un groupe de ressources existant ou nouveau. Lorsque vous créez une machine virtuelle à partir du portail, vous pouvez sélectionner un réseau virtuel existant ou en créer un. Pour commencer, [créez un réseau virtuel à l’aide du portail Azure](../../virtual-network/quick-create-portal.md).
 
 ### <a name="access-and-security-for-virtual-networks"></a>Accès et sécurité des réseaux virtuels
 

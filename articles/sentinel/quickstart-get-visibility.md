@@ -1,6 +1,6 @@
 ---
 title: 'Démarrage rapide : Bien démarrer avec Azure Sentinel'
-description: Démarrage rapide Azure Sentinel - Bien démarrer avec Azure Sentinel en préversion
+description: Utilisez ce guide de démarrage rapide pour apprendre rapidement à afficher et superviser ce qui se passe dans votre environnement à l’aide d’Azure Sentinel. 
 services: sentinel
 author: yelevin
 manager: rkarlin
@@ -10,12 +10,12 @@ ms.topic: quickstart
 ms.custom: mvc, fasttrack-edit
 ms.date: 09/23/2019
 ms.author: yelevin
-ms.openlocfilehash: 4bd01b737c4a80ff286458c122f3b0ab9573a40b
-ms.sourcegitcommit: cf7caaf1e42f1420e1491e3616cc989d504f0902
+ms.openlocfilehash: 60e3529e68183488016e40211730412da8e3e0bb
+ms.sourcegitcommit: 73ac360f37053a3321e8be23236b32d4f8fb30cf
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/22/2020
-ms.locfileid: "83798670"
+ms.lasthandoff: 06/30/2020
+ms.locfileid: "85564610"
 ---
 # <a name="quickstart-get-started-with-azure-sentinel"></a>Démarrage rapide : Bien démarrer avec Azure Sentinel
 

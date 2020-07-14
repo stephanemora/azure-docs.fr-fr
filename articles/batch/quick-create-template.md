@@ -4,18 +4,22 @@ description: Apprenez rapidement à exécuter un travail Batch avec l’interfac
 ms.topic: quickstart
 ms.date: 05/19/2020
 ms.custom: subject-armqs
-ms.openlocfilehash: 5f26aeead41fa1ffcebefdeaabae84490dfdae2b
-ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
+ms.openlocfilehash: d92751d1463a20c8fb0cb83fe678789860957189
+ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/05/2020
-ms.locfileid: "85959821"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86086124"
 ---
-# <a name="quickstart-create-a-batch-account-by-using-azure-resource-manager-template"></a>Démarrage rapide : Création d’un compte Batch à l’aide d’un modèle Azure Resource Manager
+# <a name="quickstart-create-a-batch-account-by-using-arm-template"></a>Démarrage rapide : Créer un compte Batch à l’aide d’un modèle ARM
 
-Un compte Batch est nécessaire pour créer des ressources de calcul (pools de nœuds de calcul) et des travaux Batch. Vous pouvez lier un compte de stockage Azure avec votre compte Batch, ce qui est utile pour déployer des applications et stocker des données d’entrée et de sortie pour la plupart des charges de travail réelles. Ce guide de démarrage rapide montre comment utiliser un modèle Azure Resource Manager pour créer un compte Batch, stockage compris. À l’issue de ce démarrage rapide, vous maîtriserez les concepts clés du service Batch et serez prêt à essayer Azure Batch avec des charges de travail plus réalistes à plus grande échelle.
+Un compte Batch est nécessaire pour créer des ressources de calcul (pools de nœuds de calcul) et des travaux Batch. Vous pouvez lier un compte de stockage Azure avec votre compte Batch, ce qui est utile pour déployer des applications et stocker des données d’entrée et de sortie pour la plupart des charges de travail réelles. Ce guide de démarrage rapide montre comment utiliser un modèle ARM (Azure Resource Manager) pour créer un compte Batch, stockage compris. À l’issue de ce démarrage rapide, vous maîtriserez les concepts clés du service Batch et serez prêt à essayer Azure Batch avec des charges de travail plus réalistes à plus grande échelle.
 
 [!INCLUDE [About Azure Resource Manager](../../includes/resource-manager-quickstart-introduction.md)]
+
+Si votre environnement remplit les prérequis et que vous êtes déjà familiarisé avec l’utilisation des modèles ARM, sélectionnez le bouton **Déployer sur Azure**. Le modèle s’ouvre dans le portail Azure.
+
+[![Déployer sur Azure](../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-batchaccount-with-storage%2Fazuredeploy.json)
 
 ## <a name="prerequisites"></a>Prérequis
 
@@ -23,9 +27,7 @@ Vous devez avoir un abonnement Azure actif.
 
 - [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
-## <a name="create-a-batch-account-with-storage"></a>Créer un compte Batch avec stockage
-
-### <a name="review-the-template"></a>Vérifier le modèle
+## <a name="review-the-template"></a>Vérifier le modèle
 
 Le modèle utilisé dans ce démarrage rapide est tiré des [modèles de démarrage rapide Azure](https://azure.microsoft.com/resources/templates/101-batchaccount-with-storage/).
 
@@ -36,7 +38,7 @@ Deux ressources Azure sont définies dans le modèle :
 - [Microsoft.Storage/storageAccounts](/azure/templates/microsoft.storage/storageaccounts) : Crée un compte de stockage.
 - [Microsoft.Batch/batchAccounts](/azure/templates/microsoft.batch/batchaccounts) : Crée un compte Batch.
 
-### <a name="deploy-the-template"></a>Déployer le modèle
+## <a name="deploy-the-template"></a>Déployer le modèle
 
 1. Cliquez sur l’image ci-après pour vous connecter à Azure et ouvrir un modèle. Le modèle crée un compte Azure Batch et un compte de stockage Azure.
 

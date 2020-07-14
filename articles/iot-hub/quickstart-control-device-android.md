@@ -12,12 +12,12 @@ ms.custom:
 - mqtt
 ms.date: 06/21/2019
 ms.author: wesmc
-ms.openlocfilehash: b9afd1c4ca5e4c652a03bc2ef652b8e43ea12787
-ms.sourcegitcommit: 6fd8dbeee587fd7633571dfea46424f3c7e65169
+ms.openlocfilehash: 3e5afae9421d13d986ad6c891c8e889f590f04a2
+ms.sourcegitcommit: e132633b9c3a53b3ead101ea2711570e60d67b83
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/21/2020
-ms.locfileid: "83727197"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86044717"
 ---
 # <a name="quickstart-control-a-device-connected-to-an-iot-hub-android"></a>Démarrage rapide : contrôler un appareil connecté à un hub IoT (Android)
 
@@ -113,9 +113,7 @@ Ces deux exemples de ce guide de démarrage rapide font partie du dépôt azure-
 
 L’exemple d’application de kit SDK d’appareil peut être exécuté sur un appareil Android physique ou sur un émulateur Android. Cet exemple se connecte à un point de terminaison spécifique de l’appareil sur votre hub IoT, envoie les données de télémétrie simulée et écoute les appels de méthode directe provenant de votre hub. Dans ce démarrage rapide, l’appel de méthode directe à partir du concentrateur indique à l’appareil de modifier la fréquence à laquelle il envoie des données de télémétrie. L’appareil simulé renvoie un accusé de réception à votre hub après l’exécution de la méthode directe.
 
-1. Ouvrez l’exemple de projet Android GitHub dans Android Studio. Ce projet se trouve dans le répertoire suivant de votre copie clonée ou téléchargée du dépôt [azure-iot-sample-java](https://github.com/Azure-Samples/azure-iot-samples-java).
-
-        \azure-iot-samples-java\iot-hub\Samples\device\AndroidSample
+1. Ouvrez l’exemple de projet Android GitHub dans Android Studio. Le projet se trouve dans le répertoire suivant de votre copie clonée ou téléchargée du dépôt [azure-iot-sample-java](https://github.com/Azure-Samples/azure-iot-samples-java) : *\azure-iot-samples-java\iot-hub\Samples\device\AndroidSample*.
 
 2. Dans Android Studio, ouvrez *gradle.properties* pour l’exemple de projet et remplacez l’espace réservé **Device_Connection_String** par la chaîne de connexion d’appareil que vous avez notée précédemment.
 
@@ -165,9 +163,7 @@ Exécutez cette application sur un appareil Android physique ou un émulateur An
 
 Une application de service back-end IoT Hub s’exécute généralement dans le cloud, où il est plus facile d’atténuer les risques associés à la chaîne de connexion sensible qui contrôle tous les appareils sur un hub IoT. Dans cet exemple, nous l’exécutons comme une application Android uniquement à des fins de démonstration. Les versions de ce guide de démarrage rapide propres à d’autres langages fournissent des exemples qui s’alignent plus étroitement avec une application de service back-end typique.
 
-1. Ouvrez l’exemple de projet Android de service GitHub dans Android Studio. Ce projet se trouve dans le répertoire suivant de votre copie clonée ou téléchargée du dépôt [azure-iot-sample-java](https://github.com/Azure-Samples/azure-iot-samples-java).
-
-        \azure-iot-samples-java\iot-hub\Samples\service\AndroidSample
+1. Ouvrez l’exemple de projet Android de service GitHub dans Android Studio. Le projet se trouve dans le répertoire suivant de votre copie clonée ou téléchargée du dépôt [azure-iot-sample-java](https://github.com/Azure-Samples/azure-iot-samples-java) : *\azure-iot-samples-java\iot-hub\Samples\service\AndroidSample*.
 
 2. Dans Android Studio, ouvrez *gradle.properties* pour l’exemple de projet. Mettez à jour les valeurs des propriétés **ConnectionString** et **DeviceId** avec la chaîne de connexion de service que vous avez notée précédemment et l’ID d’appareil Android que vous avez inscrit.
 

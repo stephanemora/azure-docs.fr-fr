@@ -11,12 +11,12 @@ ms.workload: identity
 ms.date: 10/28/2019
 ms.author: jmprieur
 ms.custom: aaddev, identityplatformtop40, scenarios:getting-started, languages:ASP.NET
-ms.openlocfilehash: 1ff92b8a9477800477ebb2d79145ddaa78831f30
-ms.sourcegitcommit: 31ef5e4d21aa889756fa72b857ca173db727f2c3
+ms.openlocfilehash: 5522d35faf1888c862e0c42328f08067e7b9be26
+ms.sourcegitcommit: 61d92af1d24510c0cc80afb1aebdc46180997c69
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "81536061"
+ms.lasthandoff: 06/24/2020
+ms.locfileid: "85339900"
 ---
 # <a name="quickstart-add-sign-in-using-openid-connect-to-a-nodejs-web-app"></a>Démarrage rapide : Ajouter la connexion à l’aide d’OpenID Connect à une application web Node.js
 
@@ -28,7 +28,7 @@ Pour exécuter cet exemple, vous avez besoin des éléments suivants :
 
 * Installation de Node.js à partir de http://nodejs.org/
 
-* Un [compte Microsoft](https://www.outlook.com) ou [Programme pour développeurs Office 365](/office/developer-program/office-365-developer-program)
+* Un [compte Microsoft](https://www.outlook.com) ou un [programme pour développeurs Microsoft 365](/office/developer-program/office-365-developer-program)
 
 ## <a name="register-your-application"></a>Inscrivez votre application
 1. Connectez-vous au [portail Azure](https://portal.azure.com/) avec un compte professionnel ou scolaire ou avec un compte personnel Microsoft.

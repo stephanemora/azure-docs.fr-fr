@@ -7,12 +7,12 @@ ms.date: 05/08/2020
 ms.service: storage
 ms.subservice: blobs
 ms.topic: quickstart
-ms.openlocfilehash: e0845e7cdc2ce6dc57ed5a18d263f117f0c2005c
-ms.sourcegitcommit: ac4a365a6c6ffa6b6a5fbca1b8f17fde87b4c05e
+ms.openlocfilehash: c66766b39ae104cf4a031c3fd73c173e81d47fb8
+ms.sourcegitcommit: 73ac360f37053a3321e8be23236b32d4f8fb30cf
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/10/2020
-ms.locfileid: "83006385"
+ms.lasthandoff: 06/30/2020
+ms.locfileid: "85563486"
 ---
 # <a name="quickstart-azure-blob-storage-client-library-v12-with-xamarin"></a>Démarrage rapide : Bibliothèque de client Stockage Blob Azure v12 avec Xamarin
 
@@ -151,7 +151,7 @@ protected async override void OnAppearing()
 L’extrait de code suivant :
 
 1. Crée un `MemoryStream` de texte.
-1. Charge le texte dans un objet BLOB en appelant la fonction [UploadAsync](/dotnet/api/azure.storage.blobs.blobcontainerclient.uploadblobasync?view=azure-dotnet#Azure_Storage_Blobs_BlobContainerClient_UploadBlobAsync_System_String_System_IO_Stream_System_Threading_CancellationToken_) de la classe [BlobContainerClient](/dotnet/api/azure.storage.blobs.blobcontainerclient), en lui transmettant le nom de fichier défini comme variable au niveau de la classe et le `MemoryStream` de texte. Cette méthode crée l’objet blob s’il n’existe pas déjà, et le remplace s’il existe.
+1. Charge le texte dans un objet blob en appelant la fonction [UploadAsync](/dotnet/api/azure.storage.blobs.blobcontainerclient.uploadblobasync?view=azure-dotnet#Azure_Storage_Blobs_BlobContainerClient_UploadBlobAsync_System_String_System_IO_Stream_System_Threading_CancellationToken_) de la classe [BlobContainerClient](/dotnet/api/azure.storage.blobs.blobcontainerclient), en lui transmettant à la fois le nom de fichier et le `MemoryStream` de texte. Cette méthode crée l’objet blob s’il n’existe pas déjà, et le remplace s’il existe.
 
 Ajoutez ce code au fichier *MainPage.xaml.cs* :
 

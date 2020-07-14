@@ -3,12 +3,12 @@ title: 'Tutoriel : Extraire des données structurées avec une entité issue du
 description: Extrayez des données structurées d’un énoncé à l’aide de l’entité issue du machine learning. Pour augmenter la précision de l’extraction, ajoutez des sous-entités avec des composants.
 ms.topic: tutorial
 ms.date: 05/08/2020
-ms.openlocfilehash: e16badfb2e024c5d82f1aed8a02aa901dca2c2a9
-ms.sourcegitcommit: 32592ba24c93aa9249f9bd1193ff157235f66d7e
+ms.openlocfilehash: eb9761a3d3a98a3318fe0adc6fa170652639a9a1
+ms.sourcegitcommit: e132633b9c3a53b3ead101ea2711570e60d67b83
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/01/2020
-ms.locfileid: "85611014"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86045601"
 ---
 # <a name="tutorial-extract-structured-data-from-user-utterance-with-machine-learning-entities-in-language-understanding-luis"></a>Tutoriel : Extraire des données structurées à partir d’un énoncé utilisateur avec des entités issues du machine learning dans LUIS
 
@@ -108,7 +108,7 @@ L’ajout d’une liste de tailles courantes reconnues par l’application clien
 
 1. Sélectionnez **Entities** dans le menu de gauche, puis sélectionnez **+ Create**.
 
-1. Attribuez à l’entité le nom `SizeListentity` pour qu’il soit facile de la différencier de la liste `SizePhraselist` créée à la section précédente.
+1. Attribuez à l’entité le nom `SizeListentity` et définissez le type sur **Liste** pour qu’il soit facile de la différencier de la `SizePhraselist` créée à la section précédente.
 
 1. Ajoutez les tailles attendues par l’application cliente (`Small`, `Medium`, `Large` et `XLarge`), puis ajoutez des synonymes pour chacune d’elles. Les synonymes doivent correspondre aux termes qu’un utilisateur entre dans le chatbot. L’entité est extraite avec une entité de liste quand elle correspond exactement à la valeur normalisée ou aux synonymes.
 
