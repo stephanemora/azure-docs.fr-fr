@@ -6,17 +6,17 @@ ms.topic: tutorial
 author: bwren
 ms.author: bwren
 ms.date: 10/24/2019
-ms.openlocfilehash: f56abe2bf6ccea1f55f9b3fe94b75016d449b46b
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: dcb3afd14a7355a08291cd8553d5050d96919aec
+ms.sourcegitcommit: a989fb89cc5172ddd825556e45359bac15893ab7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "77670177"
+ms.lasthandoff: 07/01/2020
+ms.locfileid: "85801425"
 ---
 # <a name="get-started-with-log-queries-in-azure-monitor"></a>Bien démarrer avec les requêtes de journal dans Azure Monitor
 
 > [!NOTE]
-> Vous pouvez effectuer cet exercice dans votre propre environnement si vous collectez des données à partir d’au moins une machine virtuelle. Si ce n’est pas le cas, utilisez notre [environnement de démonstration](https://portal.loganalytics.io/demo), qui comporte de nombreux exemples de données.
+> Vous pouvez effectuer cet exercice dans votre propre environnement si vous collectez des données à partir d’au moins une machine virtuelle. Si ce n’est pas le cas, utilisez notre [environnement de démonstration](https://portal.loganalytics.io/demo), qui comporte de nombreux exemples de données.  Si vous savez déjà comment interroger dans KQL, mais que vous devez simplement créer rapidement des requêtes utiles basées sur le ou les types de ressources, consultez le [volet des exemples de requêtes enregistrées](saved-queries.md).
 
 Dans ce didacticiel, vous allez apprendre à écrire des requêtes de journal dans Azure Monitor. Au terme du tutoriel, vous saurez :
 
@@ -36,12 +36,14 @@ Suivez une version vidéo de ce tutoriel ci-dessous :
 > [!VIDEO https://www.microsoft.com/videoplayer/embed/RE42pGX]
 
 ## <a name="writing-a-new-query"></a>Écriture d’une nouvelle requête
+
 Les requêtes peuvent commencer par un nom de table ou la commande *search*. Vous devez commencer par un nom de table, dans la mesure où il définit une étendue précise pour la requête et améliore les performances de la requête et la pertinence des résultats.
 
 > [!NOTE]
 > Le langage de requête Kusto utilisé par Azure Monitor est sensible à la casse. Les mots clés du langage sont généralement écrits en minuscules. Quand vous utilisez des noms de tables ou de colonnes dans une requête, veillez à utiliser la casse adéquate, comme indiqué dans le volet Schéma.
 
 ### <a name="table-based-queries"></a>Requêtes basées sur une table
+
 Azure Monitor organise les données de journal en tables, chacune composée de plusieurs colonnes. Toutes les tables et colonnes sont affichées dans le volet Schéma de Log Analytics sur le portail Analytics. Identifiez une table qui vous intéresse et jetez un œil à une partie des données :
 
 ```Kusto
@@ -58,6 +60,7 @@ La requête ci-dessus retourne 10 résultats à partir de la table *SecurityEven
 Nous pourrions exécuter la requête sans ajouter `| take 10` : elle serait toujours valide, mais pourrait retourner jusqu’à 10 000 résultats.
 
 ### <a name="search-queries"></a>Requêtes de recherche
+
 Les requêtes de recherche sont moins structurées et généralement plus adaptées pour rechercher des enregistrements qui incluent une valeur spécifique dans une de leurs colonnes :
 
 ```Kusto
@@ -132,12 +135,14 @@ SecurityEvent
 ## <a name="specify-a-time-range"></a>Spécifier un intervalle de temps
 
 ### <a name="time-picker"></a>Sélecteur d’heure
+
 Le sélecteur d’heure se trouve près du bouton Exécuter et indique que notre recherche ne porte que sur les enregistrements générés au cours des dernières 24 heures. Il s’agit de l’intervalle de temps par défaut appliqué à toutes les requêtes. Pour obtenir uniquement les enregistrements générés au cours de la dernière heure, sélectionnez _Dernière heure_ et réexécutez la requête.
 
 ![Sélecteur d’heure](media/get-started-queries/timepicker.png)
 
 
 ### <a name="time-filter-in-query"></a>Filtre de temps dans la requête
+
 Vous pouvez également définir votre propre intervalle de temps en ajoutant un filtre de temps à la requête. Il est préférable de placer le filtre de temps immédiatement après le nom de la table : 
 
 ```Kusto
@@ -150,6 +155,7 @@ Dans le filtre de temps ci-dessus, `ago(30m)` signifie « il y a 30 minutes » ;
 
 
 ## <a name="project-and-extend-select-and-compute-columns"></a>Project et Extend : sélectionner et calculer des colonnes
+
 Utilisez **project** pour sélectionner les colonnes à inclure dans les résultats :
 
 ```Kusto

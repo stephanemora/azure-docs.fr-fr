@@ -3,12 +3,12 @@ title: 'Tutoriel : Prédire les intentions - LUIS'
 description: Dans ce tutoriel, vous allez créer une application personnalisée qui prédit l’intention d’un utilisateur sur la base de l’énoncé (texte).
 ms.topic: tutorial
 ms.date: 05/05/2020
-ms.openlocfilehash: c76273d7c180928d25be70e0abd7abf26c90b44a
-ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
+ms.openlocfilehash: d0a625708e730094ab4dea8f705852f38ee6e1da
+ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83588936"
+ms.lasthandoff: 07/05/2020
+ms.locfileid: "85959857"
 ---
 # <a name="tutorial-build-a-luis-app-to-determine-user-intentions"></a>Tutoriel : Générer une application LUIS pour déterminer les intentions d’un utilisateur
 
@@ -113,9 +113,8 @@ Pour classifier un énoncé, l’intention a besoin d’exemples d’énoncés u
 
     `get a medium vegetarian pizza for delivery`
 
-    Ceci n’est pas exactement la même chose qu’un exemple d’énoncé. C’est donc un bon test pour voir si LUIS peut savoir ce qui faut prédire avec cette intention.
-
-    Le dernier paramètre de la chaîne de requête est `query`, l’énoncé est **requête**. Cet énoncé diffère de tous les exemples d’énoncés. Il constitue un bon test et doit retourner l’intention `OrderPizza` en tant qu’intention avec le score le plus élevé.
+  
+    Le paramètre de la chaîne de requête est `query`. L’énoncé **requête** est passé à l’URI. Cet énoncé diffère de tous les exemples d’énoncés. Il doit constituer un bon test pour vérifier si LUIS apprend et prédit l’intention `OrderPizza` en tant qu’intention avec le score le plus élevé.
 
     ```JSON
     {

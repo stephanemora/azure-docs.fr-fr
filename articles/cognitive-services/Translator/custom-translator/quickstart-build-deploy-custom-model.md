@@ -9,12 +9,12 @@ ms.subservice: translator-text
 ms.date: 05/26/2020
 ms.author: swmachan
 ms.topic: quickstart
-ms.openlocfilehash: ea01fcd259075caee1e21eb091b8df1b326c553f
-ms.sourcegitcommit: fc718cc1078594819e8ed640b6ee4bef39e91f7f
+ms.openlocfilehash: b0992c4d18fdb9cb5201ab3ef52fba8ee3feb7a2
+ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "83996463"
+ms.lasthandoff: 07/05/2020
+ms.locfileid: "85964377"
 ---
 # <a name="quickstart-build-deploy-and-use-a-custom-model-for-translation"></a>Démarrage rapide : Générer, déployer et utiliser un modèle personnalisé pour la traduction
 
@@ -24,13 +24,13 @@ Cet article fournit des instructions détaillées permettant de créer un systè
 
 1. Pour utiliser le portail [Custom Translator](https://portal.customtranslator.azure.ai), vous devez avoir un [compte Microsoft](https://signup.live.com) ou un [compte Azure AD](https://docs.microsoft.com/azure/active-directory/fundamentals/active-directory-whatis) (compte d’organisation hébergé sur Azure) pour vous connecter.
 
-2. Un abonnement à Translator via le portail Azure. Vous devez avoir la clé d’abonnement de Translator à associer à votre espace de travail dans Custom Translator. Consultez [Guide pratique pour s’inscrire à Translator](https://docs.microsoft.com/azure/cognitive-services/translator/translator-text-how-to-signup).
+2. Un abonnement à Traducteur via le portail Azure. Vous devez avoir une clé d’abonnement de Traducteur à associer à votre espace de travail dans Custom Translator. Consultez [Guide pratique pour s’inscrire à Translator](https://docs.microsoft.com/azure/cognitive-services/translator/translator-text-how-to-signup).
 
 3. Quand vous disposez des deux éléments ci-dessus, connectez-vous à [Custom Translator](https://portal.customtranslator.azure.ai) pour créer des espaces de travail, des projets, charger des fichiers et créer/déployer des modèles.
 
 ## <a name="create-a-workspace"></a>Créer un espace de travail
 
-Si vous êtes ici pour la première fois, il vous est demandé d’accepter les conditions d’utilisation du service, de créer un espace de travail et d’associer votre espace de travail à l’abonnement Translator.
+Si vous êtes ici pour la première fois, il vous est demandé d’accepter les conditions d’utilisation du service, de créer un espace de travail et d’associer votre espace de travail à votre abonnement Traducteur.
 
 ![Créer un espace de travail](media/quickstart/terms-of-service.png)
 ![Créer un espace de travail](media/quickstart/create-workspace-1.png)
@@ -83,7 +83,7 @@ Lorsque vous êtes prêt à déployer votre modèle entraîné, cliquez sur le b
 
 ## <a name="use-a-deployed-model"></a>Utiliser un modèle déployé
 
-Les modèles déployés sont accessibles via l’[API de traduction de texte Translator Text V3 de Microsoft en spécifiant le CategoryID](https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-translate?tabs=curl). Vous trouverez plus d’informations sur Translator dans la page web [Informations de référence sur les API](https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-reference).
+Les modèles déployés sont accessibles via Traducteur en spécifiant le CategoryID](https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-translate?tabs=curl). Vous trouverez plus d’informations sur Traducteur dans la page web [Informations de référence sur les API](https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-reference).
 
 ## <a name="next-steps"></a>Étapes suivantes
 

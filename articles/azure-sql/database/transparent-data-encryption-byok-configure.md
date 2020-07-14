@@ -1,9 +1,9 @@
 ---
 title: Activer SQL TDE avec Azure Key Vault
-titleSuffix: Azure SQL Database & Azure Synapse Analytics
-description: Découvrez comment configurer Azure SQL Database et Azure Synapse Analytics pour commencer à utiliser Transparent Data Encryption (TDE) pour le chiffrement au repos à l’aide de PowerShell ou CLI.
+titleSuffix: Azure SQL Database & SQL Managed Instance & Azure Synapse Analytics
+description: Découvrez comment configurer Azure SQL Database et Azure Synapse Analytics pour commencer à utiliser Transparent Data Encryption (TDE) pour le chiffrement au repos à l’aide de PowerShell ou Azure CLI.
 services: sql-database
-ms.service: sql-database
+ms.service: sql-db-mi
 ms.subservice: security
 ms.custom: seo-lt-2019 sqldbrb=1
 ms.devlang: ''
@@ -12,17 +12,17 @@ author: jaszymas
 ms.author: jaszymas
 ms.reviewer: vanto
 ms.date: 03/12/2019
-ms.openlocfilehash: 7a71d4f2d724584509f25c7ae458ed6ab1b415af
-ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
+ms.openlocfilehash: ac72e3e232ec17c4c4d810f6d2c7fed6fa84fd02
+ms.sourcegitcommit: 93462ccb4dd178ec81115f50455fbad2fa1d79ce
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "84039870"
+ms.lasthandoff: 07/06/2020
+ms.locfileid: "85981326"
 ---
-# <a name="powershell-and-cli-enable-transparent-data-encryption-with-customer-managed-key-from-azure-key-vault"></a>PowerShell et CLI : Activer Transparent Data Encryption à l’aide d'une clé gérée par le client à partir d'Azure Key Vault
+# <a name="powershell-and-the-azure-cli-enable-transparent-data-encryption-with-customer-managed-key-from-azure-key-vault"></a>PowerShell et Azure CLI : Activer Transparent Data Encryption à l’aide d'une clé gérée par le client à partir d'Azure Key Vault
 [!INCLUDE[appliesto-sqldb-sqlmi-asa](../includes/appliesto-sqldb-sqlmi-asa.md)]
 
-Cet article explique comment utiliser une clé Azure Key Vault pour Transparent Data Encryption (TDE) sur Azure SQL Database ou Azure Synapse Analytics (anciennement SQL DW). Pour en savoir plus sur TDE avec intégration Azure Key Vault - Prise en charge de BYOK (Bring Your Own Key), consultez [TDE avec clés managées dans Azure Key Vault](transparent-data-encryption-byok-overview.md).
+Cet article explique comment utiliser une clé Azure Key Vault pour Transparent Data Encryption (TDE) sur Azure SQL Database ou Azure Synapse Analytics (anciennement SQL Data Warehouse). Pour en savoir plus sur TDE avec intégration Azure Key Vault - Prise en charge de BYOK (Bring Your Own Key), consultez [TDE avec clés managées dans Azure Key Vault](transparent-data-encryption-byok-overview.md).
 
 ## <a name="prerequisites-for-powershell"></a>Prérequis pour PowerShell
 
@@ -47,9 +47,9 @@ Pour obtenir des informations spécifiques sur Key Vault, consultez [Instruction
 > [!IMPORTANT]
 > Le module PowerShell Azure Resource Manager (RM) est toujours pris en charge, mais tous les développements à venir sont destinés au module Az.Sql. Le module AzureRM continue à recevoir des résolutions de bogues jusqu’à au moins décembre 2020.  Les arguments des commandes dans le module Az sont sensiblement identiques à ceux des modules AzureRm. Pour en savoir plus sur leur compatibilité, consultez [Présentation du nouveau module Az Azure PowerShell](/powershell/azure/new-azureps-module-az).
 
-## <a name="assign-an-azure-ad-identity-to-your-server"></a>Assigner une identité Azure AD à votre serveur
+## <a name="assign-an-azure-active-directory-azure-ad-identity-to-your-server"></a>Affecter une identité Azure Active Directory (Azure AD) à votre serveur
 
-Si vous avez un [serveur](logical-servers.md) existant, utilisez ce qui suit pour ajouter une identité Azure AD à votre serveur :
+Si vous avez un [serveur](logical-servers.md) existant, utilisez ce qui suit pour ajouter une identité Azure Active Directory (Azure AD) à votre serveur :
 
    ```powershell
    $server = Set-AzSqlServer -ResourceGroupName <SQLDatabaseResourceGroupName> -ServerName <LogicalServerName> -AssignIdentity
@@ -121,11 +121,11 @@ Get-AzSqlDatabaseTransparentDataEncryptionActivity -ResourceGroupName <SQLDataba
    -ServerName <LogicalServerName> -DatabaseName <DatabaseName>  
 ```
 
-# <a name="azure-cli"></a>[Azure CLI](#tab/azure-cli)
+# <a name="the-azure-cli"></a>[L’interface de ligne de commande Microsoft Azure](#tab/azure-cli)
 
-Pour installer l’interface de ligne de commande dans la version 2.0 ou ultérieure requise et la connecter à votre abonnement Azure, consultez [Installer et configurer l’interface de ligne de commande multiplateforme Azure 2.0](https://docs.microsoft.com/cli/azure/install-azure-cli).
+Pour installer la version requise d’Azure CLI (version 2.0 ou ultérieure) et la connecter à votre abonnement Azure, consultez [Installer et configurer l’interface de ligne de commande multiplateforme Azure 2.0](https://docs.microsoft.com/cli/azure/install-azure-cli).
 
-Pour obtenir des informations spécifiques sur Key Vault, consultez [Gérer Key Vault à l’aide de l’interface de ligne de commande (CLI) 2.0](../../key-vault/general/manage-with-cli2.md) et [Guide pratique pour utiliser la suppression réversible Key Vault avec l’interface CLI](../../key-vault/general/soft-delete-cli.md).
+Pour obtenir des informations spécifiques sur Key Vault, consultez [Gérer Key Vault à l’aide de l’interface de ligne de commande (CLI) 2.0](../../key-vault/general/manage-with-cli2.md) et [Guide pratique pour utiliser la suppression réversible Key Vault avec l’interface CLI](../../key-vault/general/soft-delete-cli.md).
 
 ## <a name="assign-an-azure-ad-identity-to-your-server"></a>Assigner une identité Azure AD à votre serveur
 
@@ -207,7 +207,7 @@ az sql db tde show --database <dbname> --server <servername> --resource-group <r
    Remove-AzSqlServerKeyVaultKey -KeyId <KeyVaultKeyId> -ServerName <LogicalServerName> -ResourceGroupName <SQLDatabaseResourceGroupName>
    ```
 
-# <a name="azure-cli"></a>[Azure CLI](#tab/azure-cli)
+# <a name="the-azure-cli"></a>[L’interface de ligne de commande Microsoft Azure](#tab/azure-cli)
 
 - Pour plus d’informations sur les paramètres de base de données généraux, consultez [az sql](/cli/azure/sql).
 
@@ -229,7 +229,7 @@ Vérifiez les points suivants en cas de problème :
    Get-AzSubscription -SubscriptionId <SubscriptionId>
    ```
 
-   # <a name="azure-cli"></a>[Azure CLI](#tab/azure-cli)
+   # <a name="the-azure-cli"></a>[L’interface de ligne de commande Microsoft Azure](#tab/azure-cli)
 
    ```powershell
    az account show - s <SubscriptionId>

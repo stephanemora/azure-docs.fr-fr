@@ -2,26 +2,28 @@
 title: Suppressions de l’historique de déploiement
 description: Décrit la manière dont Azure Resource Manager supprime automatiquement les déploiements de l’historique de déploiement. Les déploiements sont supprimés lorsque l’historique approche de la limite des 800 déploiements.
 ms.topic: conceptual
-ms.date: 05/27/2020
-ms.openlocfilehash: 3e48b2da00986da00f7597cf887aa74f84587710
-ms.sourcegitcommit: 6a9f01bbef4b442d474747773b2ae6ce7c428c1f
+ms.date: 07/06/2020
+ms.openlocfilehash: 70730ce814ebc689d9672952bad7c3dd39b5a7f1
+ms.sourcegitcommit: 93462ccb4dd178ec81115f50455fbad2fa1d79ce
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "84122335"
+ms.lasthandoff: 07/06/2020
+ms.locfileid: "85981654"
 ---
 # <a name="automatic-deletions-from-deployment-history"></a>Suppressions automatiques de l’historique de déploiement
 
 Chaque fois que vous déployez un modèle, les informations concernant le déploiement sont écrites dans l’historique de déploiement. L'historique de déploiement de chaque groupe de ressources est limité à 800 déploiements.
 
-À compter de juin 2020, Azure Resource Manager supprime automatiquement les déploiements de votre historique lorsque vous vous approchez de la limite. Cette suppression automatique est un changement de comportement par rapport au passé. Auparavant, vous deviez supprimer manuellement les déploiements de l’historique des déploiements pour éviter d’obtenir une erreur.
+Azure Resource Manager commencera bientôt à supprimer automatiquement les déploiements de votre historique lorsque vous vous approchez de la limite. Cette suppression automatique est un changement de comportement par rapport au passé. Auparavant, vous deviez supprimer manuellement les déploiements de l’historique des déploiements pour éviter d’obtenir une erreur. **Cette fonctionnalité n’a pas encore été ajoutée à Azure. Nous vous informons de cette modification à venir, au cas où vous souhaiteriez refuser.**
 
 > [!NOTE]
 > La suppression d'un déploiement de l'historique n'a aucun impact sur les ressources déployées.
+>
+> Si vous avez un [verrou CanNotDelete](../management/lock-resources.md) sur un groupe de ressources, les déploiements pour ce groupe de ressources ne peuvent pas être supprimés. Vous devez supprimer le verrou pour tirer parti des suppressions automatiques dans l’historique de déploiement.
 
 ## <a name="when-deployments-are-deleted"></a>Lors de la suppression des déploiements
 
-Les déploiements sont supprimés de votre historique uniquement lorsque vous approchez la limite des 800 déploiements. Azure Resource Manager supprime une petite série des déploiements les plus anciens pour libérer de l’espace pour les déploiements futurs. La majeure partie de votre historique reste inchangée. Les déploiements les plus anciens sont toujours supprimés en premier.
+Les déploiements sont supprimés de votre historique de déploiement lorsque vous approchez la limite des 790 déploiements. Azure Resource Manager supprime une petite série des déploiements les plus anciens pour libérer de l’espace pour les déploiements futurs. La majeure partie de votre historique reste inchangée. Les déploiements les plus anciens sont toujours supprimés en premier.
 
 :::image type="content" border="false" source="./media/deployment-history-deletions/deployment-history.svg" alt-text="Suppressions de l’historique de déploiement":::
 
@@ -29,11 +31,14 @@ En plus des déploiements, vous déclenchez également des suppressions lorsque 
 
 Lorsque vous donnez à un déploiement le même nom qu’un autre dans l’historique, vous réinitialisez sa place dans l’historique. Le déploiement passe au rang le plus récent dans l’historique. Vous pouvez également réinitialiser le rang d’un déploiement lorsque vous [restaurer ce déploiement](rollback-on-error.md) après une erreur.
 
+> [!NOTE]
+> Si votre groupe de ressources est déjà à la limite de 800, le prochain déploiement échoue avec une erreur. Le processus de suppression automatique démarre immédiatement. Vous pouvez réessayer votre déploiement après une brève attente.
+
 ## <a name="opt-out-of-automatic-deletions"></a>Refuser les suppressions automatiques
 
 Vous pouvez refuser les suppressions automatiques de l’historique. **Utilisez cette option uniquement lorsque vous souhaitez gérer vous-même l’historique des déploiements.** La limite de 800 déploiements dans l’historique est toujours en vigueur. Si vous dépassez les 800 déploiements, vous recevrez une erreur et votre déploiement échouera.
 
-Pour désactiver les suppressions automatiques, inscrivez l’indicateur de fonctionnalité `Microsoft.Resources/DisableDeploymentGrooming`. Lorsque vous enregistrez l’indicateur de fonctionnalité, vous refusez les suppressions automatiques pour l’intégralité de l’abonnement Azure. Vous ne pouvez pas refuser uniquement pour un groupe de ressources particulier.
+Pour désactiver les suppressions automatiques, inscrivez l’indicateur de fonctionnalité `Microsoft.Resources/DisableDeploymentGrooming`. Lorsque vous enregistrez l’indicateur de fonctionnalité, vous refusez les suppressions automatiques pour l’intégralité de l’abonnement Azure. Vous ne pouvez pas refuser uniquement pour un groupe de ressources particulier. Pour réactiver les suppressions automatiques, désinscrivez l’indicateur de fonctionnalité.
 
 # <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
 
@@ -49,6 +54,8 @@ Pour afficher l’état actuel de votre abonnement, utilisez :
 Get-AzProviderFeature -ProviderNamespace Microsoft.Resources -FeatureName DisableDeploymentGrooming
 ```
 
+Pour réactiver les suppressions automatiques, utilisez l’API REST Azure ou Azure CLI.
+
 # <a name="azure-cli"></a>[Azure CLI](#tab/azure-cli)
 
 Pour Azure CLI, utilisez [az feature register](/cli/azure/feature#az-feature-register).
@@ -63,6 +70,12 @@ Pour afficher l’état actuel de votre abonnement, utilisez :
 az feature show --namespace Microsoft.Resources --name DisableDeploymentGrooming
 ```
 
+Pour réactiver les suppressions automatiques, utilisez [az Feature Unregister](/cli/azure/feature#az-feature-unregister).
+
+```azurecli-interactive
+az feature unregister --namespace Microsoft.Resources --name DisableDeploymentGrooming
+```
+
 # <a name="rest"></a>[REST](#tab/rest)
 
 Pour l’API REST, utilisez [Fonctionnalités – Inscrire](/rest/api/resources/features/register).
@@ -75,6 +88,12 @@ Pour afficher l’état actuel de votre abonnement, utilisez :
 
 ```rest
 GET https://management.azure.com/subscriptions/{subscriptionId}/providers/Microsoft.Features/providers/Microsoft.Resources/features/DisableDeploymentGrooming/register?api-version=2015-12-01
+```
+
+Pour réactiver les suppressions automatiques, utilisez [fonctionnalités - annuler l’inscription](/rest/api/resources/features/unregister)
+
+```rest
+POST https://management.azure.com/subscriptions/{subscriptionId}/providers/Microsoft.Features/providers/Microsoft.Resources/features/DisableDeploymentGrooming/unregister?api-version=2015-12-01
 ```
 
 ---

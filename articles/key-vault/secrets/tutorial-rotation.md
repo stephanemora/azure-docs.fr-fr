@@ -1,6 +1,6 @@
 ---
-title: Tutoriel sur la permutation avec l’authentification par utilisateur/mot de passe uniques
-description: Utilisez ce tutoriel pour découvrir comment automatiser la permutation d’un secret pour des ressources qui utilisent l’authentification par utilisateur/mot de passe uniques.
+title: Tutoriel sur la rotation des ressources avec un seul jeu d’informations d’authentification
+description: Utilisez ce tutoriel pour découvrir comment automatiser la rotation d’un secret pour des ressources qui utilisent un seul jeu d’informations d’authentification.
 services: key-vault
 author: msmbaldwin
 manager: rkarlin
@@ -10,18 +10,18 @@ ms.subservice: general
 ms.topic: tutorial
 ms.date: 01/26/2020
 ms.author: mbaldwin
-ms.openlocfilehash: 8f9c0dca29d173eb2c7893a20b2ab41dd31522e1
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 9bff8c040f4cfed612278dd83ebb354b31a3a1f3
+ms.sourcegitcommit: a989fb89cc5172ddd825556e45359bac15893ab7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82183209"
+ms.lasthandoff: 07/01/2020
+ms.locfileid: "85801442"
 ---
-# <a name="automate-the-rotation-of-a-secret-for-resources-that-use-single-usersingle-password-authentication"></a>Automatiser la permutation d’un secret pour les ressources qui utilisent l’authentification par utilisateur/mot de passe uniques
+# <a name="automate-the-rotation-of-a-secret-for-resources-that-use-one-set-of-authentication-credentials"></a>Automatiser la rotation d’un secret pour des ressources qui utilisent un seul jeu d’informations d’authentification
 
 La meilleure façon de s’authentifier auprès des services Azure consiste à utiliser une [identité managée](../general/managed-identity.md). Il existe toutefois des scénarios dans lesquels cette approche est inappropriée. Dans ces cas-là, des clés d’accès ou des secrets sont utilisés. Vous devez permuter régulièrement les clés d’accès ou les secrets.
 
-Ce tutoriel montre comment automatiser une permutation régulière des secrets pour les bases de données et les services qui utilisent l’authentification par utilisateur/mot de passe uniques. Plus précisément, ce tutoriel permute les mots de passe SQL Server stockés dans Azure Key Vault à l’aide d’une fonction déclenchée par une notification Azure Event Grid :
+Ce tutoriel montre comment automatiser la rotation régulière des secrets pour les bases de données et les services qui utilisent un seul jeu d’informations d’authentification. Plus précisément, ce tutoriel permute les mots de passe SQL Server stockés dans Azure Key Vault à l’aide d’une fonction déclenchée par une notification Azure Event Grid :
 
 ![Diagramme de la solution de permutation](../media/rotate1.png)
 

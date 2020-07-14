@@ -8,12 +8,12 @@ ms.service: cloud-services
 ms.topic: article
 ms.date: 07/18/2017
 ms.author: tagore
-ms.openlocfilehash: 73762c431c84de01ce3561d586c5a12bfd26ac81
-ms.sourcegitcommit: 69156ae3c1e22cc570dda7f7234145c8226cc162
+ms.openlocfilehash: beebe60d70b7e4908bd3e9348fe815036d6955c3
+ms.sourcegitcommit: dee7b84104741ddf74b660c3c0a291adf11ed349
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/03/2020
-ms.locfileid: "84310123"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85920065"
 ---
 # <a name="common-cloud-service-startup-tasks"></a>Tâches courantes de démarrage dans le service cloud
 Cet article fournit des exemples courants de tâches de démarrage que vous pouvez effectuer dans votre service cloud. Vous pouvez utiliser des tâches de démarrage pour exécuter des opérations avant le démarrage d’un rôle. Parmi les opérations que vous pouvez effectuer figurent l’installation d’un composant, l’enregistrement de composants COM, la définition des clés du Registre ou le démarrage d’un processus de longue durée. 
@@ -377,9 +377,7 @@ EXIT /B 0
 Voici quelques meilleures pratiques à suivre quand vous configurez la tâche pour votre rôle web ou de travail.
 
 ### <a name="always-log-startup-activities"></a>Toujours consigner les activités de démarrage
-Comme Visual Studio ne fournit pas de débogueur pour parcourir les fichiers de commandes, il est préférable de récupérer autant de données que possible sur le fonctionnement des fichiers de commandes. La consignation de la sortie des fichiers de commandes, **stdout** et **stderr**, peut fournir des informations importantes au moment du débogage et de la correction des fichiers de commandes. Pour consigner **stdout** et **stderr** dans le fichier StartupLog.txt dans le répertoire indiqué par la variable d’environnement **%TEMP%** , ajoutez le texte `>>  "%TEMP%\\StartupLog.txt" 2>&1` à la fin des lignes que vous souhaitez enregistrer. Par exemple, pour exécuter setup.exe dans le répertoire **% PathToApp1Install** :
-
-    "%PathToApp1Install%\setup.exe" >> "%TEMP%\StartupLog.txt" 2>&1
+Comme Visual Studio ne fournit pas de débogueur pour parcourir les fichiers de commandes, il est préférable de récupérer autant de données que possible sur le fonctionnement des fichiers de commandes. La consignation de la sortie des fichiers de commandes, **stdout** et **stderr**, peut fournir des informations importantes au moment du débogage et de la correction des fichiers de commandes. Pour consigner **stdout** et **stderr** dans le fichier StartupLog.txt dans le répertoire indiqué par la variable d’environnement **%TEMP%** , ajoutez le texte `>>  "%TEMP%\\StartupLog.txt" 2>&1` à la fin des lignes que vous souhaitez enregistrer. Par exemple, pour exécuter setup.exe dans le répertoire **%PathToApp1Install%** : `"%PathToApp1Install%\setup.exe" >> "%TEMP%\StartupLog.txt" 2>&1`
 
 Pour simplifier votre code xml, vous pouvez créer un fichier *cmd* wrapper qui appelle toutes vos tâches de démarrage avec la journalisation et garantit que chaque tâche enfant partage les mêmes variables d’environnement.
 

@@ -1,5 +1,5 @@
 ---
-title: 'Didacticiel : Intégration d’Azure Active Directory à Predictix Price Reporting | Microsoft Docs'
+title: 'Tutoriel : Intégration d’Azure Active Directory à Predictix Price Reporting | Microsoft Docs'
 description: Dans ce tutoriel, vous allez découvrir comment configurer l’authentification unique entre Azure Active Directory et Predictix Price Reporting.
 services: active-directory
 documentationCenter: na
@@ -15,14 +15,14 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 03/26/2019
 ms.author: jeedes
-ms.openlocfilehash: 808b2d964bb39af6b410a84563717102ebece454
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: ad80956cf7d6324487da5d0fabc2e93a5b4bf52f
+ms.sourcegitcommit: a989fb89cc5172ddd825556e45359bac15893ab7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "67094104"
+ms.lasthandoff: 07/01/2020
+ms.locfileid: "85800234"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-predictix-price-reporting"></a>Didacticiel : Intégration d’Azure Active Directory à Predictix Price Reporting
+# <a name="tutorial-azure-active-directory-integration-with-predictix-price-reporting"></a>Tutoriel : Intégration d’Azure Active Directory à Predictix Price Reporting
 
 Dans ce didacticiel, vous allez apprendre à intégrer Predictix Price Reporting à Azure AD (Azure Active Directory).
 
@@ -36,7 +36,7 @@ Pour en savoir plus sur l’intégration d’applications SaaS à Azure AD, cons
 
 Si vous n’avez pas d’abonnement Azure, créez un [compte gratuit](https://azure.microsoft.com/free/) avant de commencer.
 
-## <a name="prerequisites"></a>Conditions préalables requises
+## <a name="prerequisites"></a>Prérequis
 
 Pour configurer l’intégration d’Azure AD à Predictix Price Reporting, vous devez disposer de ce qui suit :
 
@@ -111,11 +111,10 @@ Pour configurer l’authentification unique Azure AD avec Predictix Price Repor
 
     1. Dans la zone **Identificateur (ID d’entité)** , entrez une URL au format suivant :
 
-        | |
-        |--|
-        | `https://<companyname-pricing>.predictix.com` |
-        | `https://<companyname-pricing>.dev.predictix.com` |
-        | |
+        ```https
+        https://<companyname-pricing>.predictix.com
+        https://<companyname-pricing>.dev.predictix.com
+        ```
 
     > [!NOTE]
     > Ces valeurs sont des espaces réservés. Vous devez utiliser l’URL de connexion et l’identificateur réels. Contactez l’[équipe du support technique Predictix Price Reporting](https://www.infor.com/company/customer-center/) pour obtenir les valeurs. Vous pouvez aussi vous référer aux modèles figurant dans la boîte de dialogue **Configuration SAML de base** dans le portail Azure.
@@ -156,7 +155,7 @@ Dans cette section, vous allez créer un utilisateur de test appelé Britta Simo
 
     1. Dans la zone **Nom**, entrez **BrittaSimon**.
   
-    1. Dans la zone **Nom d’utilisateur**, entrez **BrittaSimon@\<votre_domaine_d'entreprise>.\<extension>** . (Par exemple, BrittaSimon@contoso.com.)
+    1. Dans la zone **Nom d’utilisateur**, entrez **BrittaSimon@\<yourcompanydomain>.\<extension>** . (Par exemple, BrittaSimon@contoso.com.)
 
     1. Sélectionnez **Afficher le mot de passe**, puis notez la valeur affichée dans la zone **Mot de passe**.
 

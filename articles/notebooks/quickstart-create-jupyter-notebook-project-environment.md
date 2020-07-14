@@ -4,18 +4,18 @@ description: Créez un projet dans Azure Notebooks (préversion) configuré avec
 ms.topic: quickstart
 ms.date: 12/04/2018
 ms.custom: tracking-python
-ms.openlocfilehash: 03935b9672c25db11b91733fac1c63f1f5978b87
-ms.sourcegitcommit: 964af22b530263bb17fff94fd859321d37745d13
+ms.openlocfilehash: c5f73b73b4bab99e07874c2d16d47da69f8026ba
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/09/2020
-ms.locfileid: "84559746"
+ms.lasthandoff: 07/01/2020
+ms.locfileid: "85832897"
 ---
 # <a name="quickstart-create-a-project-with-a-custom-environment-in-azure-notebooks-preview"></a>Démarrage rapide : Créer un projet avec un environnement personnalisé dans Azure Notebooks (préversion)
 
-Dans Azure Notebooks, un projet est une collection de fichiers : notebooks, fichiers de données, documentation, images et ainsi de suite, dans un environnement qui peut être configuré avec des commandes de configuration spécifiques. En définissant l’environnement avec le projet, tout utilisateur clonant le projet dans son propre compte Azure Notebooks dispose de toutes les informations dont il a besoin pour recréer l’environnement nécessaire.
-
 [!INCLUDE [notebooks-status](../../includes/notebooks-status.md)]
+
+Dans Azure Notebooks, un projet est une collection de fichiers : notebooks, fichiers de données, documentation, images et ainsi de suite, dans un environnement qui peut être configuré avec des commandes de configuration spécifiques. En définissant l’environnement avec le projet, tout utilisateur clonant le projet dans son propre compte Azure Notebooks dispose de toutes les informations dont il a besoin pour recréer l’environnement nécessaire.
 
 ## <a name="create-a-project"></a>Création d’un projet
 

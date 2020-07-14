@@ -2,27 +2,24 @@
 title: Résolution des problèmes Azure Automation Update Management
 description: Cet article explique comment dépanner et résoudre les problèmes liés à Azure Automation Update Management.
 services: automation
-author: mgoedtel
-ms.author: magoedte
-ms.date: 03/17/2020
+ms.date: 06/30/2020
 ms.topic: conceptual
 ms.service: automation
-manager: carmonm
-ms.openlocfilehash: 2989d85ddfca036a27ff6b886bd3b13a981c27a3
-ms.sourcegitcommit: 1692e86772217fcd36d34914e4fb4868d145687b
+ms.openlocfilehash: 95e3fc12a77124c32e220d700a112f52cbad08fb
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/29/2020
-ms.locfileid: "84170254"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85801884"
 ---
 # <a name="troubleshoot-update-management-issues"></a>Résoudre les problèmes liés à Update Management
 
 Cet article décrit les problèmes que vous pouvez rencontrer lors du déploiement de la fonctionnalité Update Management sur vos ordinateurs. Il existe un utilitaire de résolution des problèmes qui permet à l’agent Runbook Worker hybride de déterminer le problème sous-jacent. Pour en savoir plus sur l’utilitaire de résolution des problèmes, consultez [Résoudre les problèmes de l’agent de mise à jour Windows](update-agent-issues.md) et [Résoudre les problèmes de l’agent de mise à jour Linux](update-agent-issues-linux.md). Pour d’autres problèmes de déploiement de fonctionnalités, voir [Résoudre les problèmes de déploiement de fonctionnalités](onboarding.md).
 
 >[!NOTE]
->Si vous rencontrez des problèmes lors du déploiement d’Update Management sur une machine virtuelle, examinez le journal **Operations Manager** sous **Journaux des applications et des services** sur l’ordinateur local. Recherchez les événements présentant l’ID d’événement 4502 et les détails d’événement qui contiennent `Microsoft.EnterpriseManagement.HealthService.AzureAutomation.HybridAgent`.
+>Si vous rencontrez des problèmes lors du déploiement d’Update Management sur un ordinateur Windows, ouvrez l’observateur d’événements Windows et examinez le journal **Operations Manager** sous **Journaux des applications et des services** sur l’ordinateur local. Recherchez les événements présentant l’ID d’événement 4502 et les détails d’événement qui contiennent `Microsoft.EnterpriseManagement.HealthService.AzureAutomation.HybridAgent`.
 
-## <a name="scenario-you-receive-the-error-failed-to-enable-the-update-solution"></a>Scénario : Vous recevez l’erreur « Échec de l’activation de la solution Update »
+## <a name="scenario-you-receive-the-error-failed-to-enable-the-update-solution"></a><a name="failed-to-enable-error"></a>Scénario : Vous recevez l’erreur « Échec de l’activation de la solution Update »
 
 ### <a name="issue"></a>Problème
 
@@ -48,9 +45,7 @@ Cette erreur peut se produire pour les raisons suivantes :
 
 * Accédez à [Configuration réseau](../automation-hybrid-runbook-worker.md#network-planning) pour connaître les adresses et ports à autoriser pour le fonctionnement d’Update Management.  
 
-* Accédez à [Configuration réseau](../../azure-monitor/platform/log-analytics-agent.md#network-requirements) pour connaître les adresses et ports à autoriser pour le fonctionnement de l’agent Log Analytics.
-
-* Recherchez les problèmes de configuration d’étendue. La [configuration de l’étendue](../automation-scope-configurations-update-management.md) permet de déterminer les ordinateurs qui sont configurés pour Update Management. Si votre ordinateur figure dans votre espace de travail, mais pas sur le portail Update Management, vous devez définir la configuration de l’étendue pour qu’elle cible les ordinateurs concernés. Pour en savoir plus sur la configuration de l’étendue, consultez [Activer des machines dans l’espace de travail](../automation-onboard-solutions-from-automation-account.md#enable-machines-in-the-workspace).
+* Recherchez les problèmes de configuration d’étendue. La [configuration de l’étendue](../automation-scope-configurations-update-management.md) permet de déterminer les ordinateurs qui sont configurés pour Update Management. Si votre ordinateur figure dans votre espace de travail, mais pas dans Update Management, vous devez définir la configuration de l’étendue de sorte qu’elle cible l’ordinateur. Pour en savoir plus sur la configuration de l’étendue, consultez [Activer des machines dans l’espace de travail](../automation-onboard-solutions-from-automation-account.md#enable-machines-in-the-workspace).
 
 * Pour supprimer la configuration du Worker, suivez les étapes décrites dans [Supprimer la fonctionnalité Runbook Worker hybride d’un ordinateur Windows local](../automation-windows-hrw-install.md#remove-windows-hybrid-runbook-worker) ou [Supprimer le Runbook Worker hybride à partir d’un ordinateur Linux local](../automation-linux-hrw-install.md#remove-linux-hybrid-runbook-worker). 
 

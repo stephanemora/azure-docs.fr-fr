@@ -1,10 +1,10 @@
 ---
-title: Utiliser l’authentification AAD multifacteur
+title: Utilisation de l’authentification multifacteur Azure Active Directory
 description: Azure SQL Database, Azure SQL Managed Instance et Azure Synapse Analytics prennent en charge les connexions depuis SQL Server Management Studio (SSMS) à l'aide de l'authentification universelle Active Directory.
 services: sql-database
-ms.service: sql-database
+ms.service: sql-db-mi
 ms.subservice: security
-titleSuffix: Azure SQL Database and Azure Synapse
+titleSuffix: Azure SQL Database & SQL Managed Instance & Azure Synapse Analytics
 ms.custom: seoapril2019, has-adal-ref, sqldbrb=1
 ms.devlang: ''
 ms.topic: conceptual
@@ -13,14 +13,14 @@ ms.author: mireks
 ms.reviewer: vanto
 ms.date: 04/23/2020
 tags: azure-synapse
-ms.openlocfilehash: 574999686c38ce4ce1e6d40b3148b70e3602fe00
-ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
+ms.openlocfilehash: 25d08e86fde47c24c134bc03b036c4f456314856
+ms.sourcegitcommit: 93462ccb4dd178ec81115f50455fbad2fa1d79ce
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "84026600"
+ms.lasthandoff: 07/06/2020
+ms.locfileid: "85983577"
 ---
-# <a name="using-multi-factor-aad-authentication"></a>Utiliser l’authentification AAD multifacteur
+# <a name="using-multi-factor-azure-active-directory-authentication"></a>Utilisation de l’authentification multifacteur Azure Active Directory
 [!INCLUDE[appliesto-sqldb-sqlmi-asa](../includes/appliesto-sqldb-sqlmi-asa.md)]
 
 Azure SQL Database, Azure Managed Instance et Azure Synapse Analytics prennent en charge les connexions depuis SQL Server Management Studio (SSMS) à l'aide de l'authentification *universelle Azure Active Directory avec MFA*. Cet article décrit les différences entre les différentes options d’authentification, ainsi que les limitations associées à l’utilisation de l’authentification universelle.
@@ -46,7 +46,7 @@ La méthode interactive qui prend également en charge Azure Multi-Factor Authen
 
 Azure MFA contribue à sécuriser l’accès aux données et aux applications tout en répondant à la demande des utilisateurs souhaitant un processus d’authentification simple. Il assure une authentification forte avec une gamme d’options de vérification simples (appel téléphonique, SMS, cartes à puce avec code PIN ou notification d’application mobile) pour permettre aux utilisateurs de choisir leur méthode préférée. L’authentification multifacteur (MFA) interactive avec Azure AD peut afficher une boîte de dialogue contextuelle de validation.
 
-Pour une description de Multi-Factor Authentication, consultez la rubrique [Multi-Factor Authentication](../../active-directory/authentication/multi-factor-authentication.md).
+Pour une description d’Azure Multi-Factor Authentication, consultez la rubrique [Multi-Factor Authentication](../../active-directory/authentication/multi-factor-authentication.md).
 Pour les étapes de configuration, consultez [Configuration de l’authentification multifacteur pour les bases de données Azure SQL pour SQL Server Management Studio](authentication-mfa-ssms-configure.md).
 
 ### <a name="azure-ad-domain-name-or-tenant-id-parameter"></a>Nom de domaine Azure AD et paramètre d’ID de locataire
@@ -80,7 +80,7 @@ Les utilisateurs Azure AD pris en charge pour les scénarios d’Azure AD B2B en
 - [Configurer et gérer l’authentification Azure Active Directory avec SQL Database ou Azure Synapse](authentication-aad-configure.md)  
 - [Microsoft SQL Server Data-Tier Application Framework (17.0.0 GA)](https://www.microsoft.com/download/details.aspx?id=55088)  
 - [SQLPackage.exe](https://docs.microsoft.com/sql/tools/sqlpackage)  
-- [Importer un fichier BACPAC dans une nouvelle base de données Azure SQL](database-import.md)  
-- [Exporter une base de données Azure SQL vers un fichier BACPAC](database-export.md)  
+- [Importer un fichier BACPAC dans une nouvelle base de données](database-import.md)  
+- [Exporter une base de données vers un fichier BACPAC](database-export.md)  
 - Interface C# [Interface IUniversalAuthProvider](https://msdn.microsoft.com/library/microsoft.sqlserver.dac.iuniversalauthprovider.aspx)  
 - Quand vous utilisez l’authentification **Active Directory - Authentification universelle avec prise en charge de MFA**, le suivi ADAL est disponible à compter de [SSMS 17.3](https://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms). Le suivi ADAL étant désactivé par défaut, vous pouvez l’activer comme suit : dans le menu **Outils**, choisissez **Options**, puis sous **Services Azure**, choisissez **Cloud Azure** et **Niveau de trace dans la fenêtre Sortie ADAL**, et activez **Sortie** dans le menu **Affichage**. Les suivis sont disponibles dans la fenêtre de sortie quand vous sélectionnez l’option **Azure Active Directory**.  

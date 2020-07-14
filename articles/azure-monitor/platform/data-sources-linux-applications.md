@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 05/04/2017
-ms.openlocfilehash: 2fd148dbb85a4fd60fe63d4fb73128bf92dea1d8
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 10851754bda73fc769e613153582e491265ebb71
+ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "77670557"
+ms.lasthandoff: 07/05/2020
+ms.locfileid: "85963238"
 ---
 # <a name="collect-performance-counters-for-linux-applications-in-azure-monitor"></a>Collecte des compteurs de performances pour les applications Linux dans Azure Monitor 
 [!INCLUDE [log-analytics-agent-note](../../../includes/log-analytics-agent-note.md)]
@@ -34,10 +34,10 @@ Le fichier d’authentification MySQL est stocké dans `/var/opt/microsoft/mysql
 ### <a name="authentication-file-format"></a>Format du fichier d’authentification
 Le format du fichier d’authentification OMI MySQL est le suivant
 
-    [Port]=[Bind-Address], [username], [Base64 encoded Password]
-    (Port)=(Bind-Address), (username), (Base64 encoded Password)
-    (Port)=(Bind-Address), (username), (Base64 encoded Password)
-    AutoUpdate=[true|false]
+> [Port]=[Adresse de liaison], [nom d’utilisateur], [Mot de passe codé en base64]  
+> (Port) = (Adresse de liaison), (nom d’utilisateur), (mot de passe codé en base64)  
+> (Port) = (Adresse de liaison), (nom d’utilisateur), (mot de passe codé en base64)  
+> AutoUpdate=[true|false]  
 
 Les entrées du fichier d’authentification sont décrites dans le tableau suivant.
 
@@ -63,7 +63,7 @@ Le tableau suivant contient des exemples de paramètres d’instance
 ### <a name="mysql-omi-authentication-file-program"></a>Programme du fichier d’authentification OMI MySQL
 Le programme du fichier d’authentification OMI MySQL est inclus dans l’installation du fournisseur OMI MySQL. Il peut être utilisé pour modifier le fichier d’authentification OMI MySQL. Vous trouverez le programme du fichier d’authentification à l’emplacement suivant.
 
-    /opt/microsoft/mysql-cimprov/bin/mycimprovauth
+`/opt/microsoft/mysql-cimprov/bin/mycimprovauth`
 
 > [!NOTE]
 > Le fichier des informations d’identification doit être accessible en lecture par le compte omsagent. L’exécution de la commande mycimprovauth comme omsgent est recommandée.
@@ -81,15 +81,18 @@ Le tableau suivant fournit des détails sur la syntaxe pour utiliser mycimprovau
 
 Les exemples de commande suivants définissent un compte utilisateur par défaut pour le serveur MySQL sur localhost.  Le champ du mot de passe doit être renseigné en texte brut ; le mot de passe dans le fichier d’authentification MySQL OMI sera encodé en Base64
 
-    sudo su omsagent -c '/opt/microsoft/mysql-cimprov/bin/mycimprovauth default 127.0.0.1 <username> <password>'
-    sudo /opt/omi/bin/service_control restart
+```console
+sudo su omsagent -c '/opt/microsoft/mysql-cimprov/bin/mycimprovauth default 127.0.0.1 <username> <password>'
+sudo /opt/omi/bin/service_control restart
+```
 
 ### <a name="database-permissions-required-for-mysql-performance-counters"></a>Autorisations de base de données requises pour les compteurs de performances MySQL
 L’utilisateur MySQL requiert l’accès aux requêtes suivantes pour collecter les données de performances du serveur MySQL. 
 
-    SHOW GLOBAL STATUS;
-    SHOW GLOBAL VARIABLES:
-
+```sql
+SHOW GLOBAL STATUS;
+SHOW GLOBAL VARIABLES:
+```
 
 L’utilisateur MySQL requiert également un accès SELECT aux tables par défaut suivantes.
 
@@ -98,9 +101,10 @@ L’utilisateur MySQL requiert également un accès SELECT aux tables par défau
 
 Ces privilèges peuvent être accordés à l’aide des commandes Grant suivantes.
 
-    GRANT SELECT ON information_schema.* TO ‘monuser’@’localhost’;
-    GRANT SELECT ON mysql.* TO ‘monuser’@’localhost’;
-
+```sql
+GRANT SELECT ON information_schema.* TO ‘monuser’@’localhost’;
+GRANT SELECT ON mysql.* TO ‘monuser’@’localhost’;
+```
 
 > [!NOTE]
 > Pour accorder des autorisations à un utilisateur surveillant MySQL, l’utilisateur qui souhaite accorder un privilège doit posséder le privilège « GRANT option », ainsi que le privilège accordé.
@@ -132,12 +136,14 @@ Une fois l’agent Log Analytics pour Linux configuré pour envoyer des données
 
 ## <a name="apache-http-server"></a>Apache HTTP Server 
 Si Apache HTTP Server est détecté sur l’ordinateur lors de l’installation du groupe omsagent, un fournisseur de surveillance des performances pour Apache HTTP Server est automatiquement installé. Ce fournisseur repose sur un module Apache qui doit être chargé dans Apache HTTP Server afin d’accéder aux données de performances. Le module peut être chargé à l’aide de la commande suivante :
-```
+
+```console
 sudo /opt/microsoft/apache-cimprov/bin/apache_config.sh -c
 ```
 
 Pour décharger le module de surveillance Apache, exécutez la commande suivante :
-```
+
+```console
 sudo /opt/microsoft/apache-cimprov/bin/apache_config.sh -u
 ```
 

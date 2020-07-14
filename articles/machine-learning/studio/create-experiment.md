@@ -10,12 +10,12 @@ author: likebupt
 ms.author: keli19
 ms.custom: seodec18
 ms.date: 02/06/2019
-ms.openlocfilehash: a8ad945e20e1274025595620e08f264863297892
-ms.sourcegitcommit: 6a9f01bbef4b442d474747773b2ae6ce7c428c1f
+ms.openlocfilehash: f8984b3b712d591b64c383dabb723ba5afc61efc
+ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "84117372"
+ms.lasthandoff: 07/05/2020
+ms.locfileid: "85965142"
 ---
 # <a name="quickstart-create-your-first-data-science-experiment-in-azure-machine-learning-studio-classic"></a>Démarrage rapide : Créer votre première expérience de science des données dans Azure Machine Learning Studio (classique)
 
@@ -136,7 +136,7 @@ La recherche du jeu de fonctionnalités adéquat pour la création d’un modèl
 
 Nous allons développer un modèle utilisant un sous-ensemble de ces fonctionnalités pour notre jeu de données. Vous pouvez revenir en arrière et sélectionner d’autres fonctionnalités, relancer l’expérience et voir si vous obtenez de meilleurs résultats. Mais pour commencer, nous allons essayer les fonctionnalités suivantes :
 
-    make, body-style, wheel-base, engine-size, horsepower, peak-rpm, highway-mpg, price
+> make, body-style, wheel-base, engine-size, horsepower, peak-rpm, highway-mpg, price
 
 1. Faites glisser un autre module [Sélectionner des colonnes dans le jeu de données][select-columns] vers le canevas de l’expérience. Connectez le port de sortie de gauche du module [Nettoyage des données manquantes][clean-missing-data] à l’entrée du module [Sélectionner des colonnes dans le jeu de données][select-columns].
 

@@ -11,18 +11,18 @@ author: iainfoulds
 manager: daveba
 ms.reviewer: librown
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f4de359f60b556390b8271b728580ef66ae53ffa
-ms.sourcegitcommit: 67bddb15f90fb7e845ca739d16ad568cbc368c06
+ms.openlocfilehash: 3a0295a73d325d8de7673b9a66c7047a80d82b09
+ms.sourcegitcommit: 93462ccb4dd178ec81115f50455fbad2fa1d79ce
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82201718"
+ms.lasthandoff: 07/06/2020
+ms.locfileid: "85981853"
 ---
 # <a name="passwordless-authentication-options-for-azure-active-directory"></a>Options d’authentification sans mot de passe pour Azure Active Directory
 
 L’authentification multifacteur (MFA) est un excellent moyen de sécuriser votre organisation, mais les utilisateurs sont souvent déçus de la couche de sécurité supplémentaire en plus de devoir se rappeler leurs mots de passe. Les méthodes d’authentification sans mot de passe sont plus pratiques, car le mot de passe est supprimé et remplacé par quelque chose que vous avez, en plus de quelque chose que vous êtes ou que vous savez.
 
-|   | Quelque chose que vous avez | Quelque chose que vous êtes ou savez |
+| Authentification  | Quelque chose que vous avez | Quelque chose que vous êtes ou savez |
 | --- | --- | --- |
 | Sans mot de passe | Appareil Windows 10, téléphone ou clé de sécurité | Biométrie ou code confidentiel |
 
@@ -116,7 +116,7 @@ Les fournisseurs suivants offrent des clés de sécurité FIDO2 de différents f
 | Feitian | [https://www.ftsafe.com/about/Contact_Us](https://www.ftsafe.com/about/Contact_Us) |
 | HID | [https://www.hidglobal.com/contact-us](https://www.hidglobal.com/contact-us) |
 | Ensurity | [https://www.ensurity.com/contact](https://www.ensurity.com/contact) |
-| eWBM | [https://www.ewbm.com/support](https://www.ewbm.com/support) |
+| Solutions TrustKey | [https://www.trustkeysolutions.com/security-keys/](https://www.trustkeysolutions.com/security-keys/) |
 | AuthenTrend | [https://authentrend.com/about-us/#pg-35-3](https://authentrend.com/about-us/#pg-35-3) |
 | Gemalto (Thales Group) | [https://safenet.gemalto.com/multi-factor-authentication/authenticators/passwordless-authentication/](https://safenet.gemalto.com/multi-factor-authentication/authenticators/passwordless-authentication/) |
 | OneSpan Inc. | [https://www.onespan.com/products/fido](https://www.onespan.com/products/fido) |

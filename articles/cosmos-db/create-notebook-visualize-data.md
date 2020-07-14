@@ -7,12 +7,12 @@ ms.service: cosmos-db
 ms.date: 11/05/2019
 ms.author: dech
 ms.reviewer: sngun
-ms.openlocfilehash: dfcde775780cdb42f9df1d677ff2f2475de92843
-ms.sourcegitcommit: 23604d54077318f34062099ed1128d447989eea8
+ms.openlocfilehash: 9b2ef5ddb56e3d0422a2a876993ddda0bd97e4ff
+ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/20/2020
-ms.locfileid: "85115276"
+ms.lasthandoff: 07/05/2020
+ms.locfileid: "85961096"
 ---
 # <a name="tutorial-create-a-notebook-in-azure-cosmos-db-to-analyze-and-visualize-the-data"></a>Tutoriel : Créer un notebook dans Azure Cosmos DB pour analyser et visualiser les données
 
@@ -235,7 +235,7 @@ Dans cette section, vous allez exécuter des requêtes sur les données récupé
 
    La sortie affiche la carte du monde avec différentes couleurs. Les couleurs plus sombres représentent les pays/régions dont le chiffre d’affaires est le plus élevé, et les couleurs plus claires le chiffre d’affaires le plus bas.
 
-   ![Visualisation de la carte des chiffres d’affaires par pays/région](./media/create-notebook-visualize-data/countries-revenue-map-visualization.png)
+   :::image type="content" source="./media/create-notebook-visualize-data/countries-revenue-map-visualization.png" alt-text="Visualisation de la carte des chiffres d’affaires par pays/région":::
 
 1. Examinons un autre cas de visualisation des données. Le conteneur WebsiteData contient des enregistrements d’utilisateurs qui ont visualisé un article, l’ont ajouté à leur panier et l’ont acheté. Nous allons tracer le taux de conversion des articles achetés. Exécutez le code suivant dans une nouvelle cellule afin de visualiser le taux de conversion pour chaque article :
 

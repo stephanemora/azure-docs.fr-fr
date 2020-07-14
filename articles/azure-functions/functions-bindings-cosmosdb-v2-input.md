@@ -1,18 +1,19 @@
 ---
-title: Liaison d'entrée Azure Cosmos DB pour Functions 2.x
+title: Liaison d'entrée Azure Cosmos DB pour Functions 2.x et versions ultérieures
 description: Apprenez à utiliser la liaison d'entrée Azure Cosmos DB dans Azure Functions.
 author: craigshoemaker
 ms.topic: reference
 ms.date: 02/24/2020
 ms.author: cshoe
-ms.openlocfilehash: eabcf40e28927919215979ccc46fa029d19adbfe
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.custom: tracking-python
+ms.openlocfilehash: 5e41f5d2189cce19dab3e0b48943ef0568ddedb8
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "78943418"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85807007"
 ---
-# <a name="azure-cosmos-db-input-binding-for-azure-functions-2x"></a>Liaison d'entrée Azure Cosmos DB pour Azure Functions 2.x
+# <a name="azure-cosmos-db-input-binding-for-azure-functions-2x-and-higher"></a>Liaison d'entrée Azure Cosmos DB pour Azure Functions 2.x et versions ultérieures
 
 La liaison d’entrée Azure Cosmos DB utilise l’API SQL pour récupérer un ou plusieurs documents Azure Cosmos DB et les transmet au paramètre d’entrée de la fonction. L’ID du document ou les paramètres de requête peuvent être déterminés en fonction du déclencheur qui appelle la fonction.
 
@@ -860,7 +861,7 @@ Voici le fichier *function.json* :
       "name": "toDoItem",
       "databaseName": "ToDoItems",
       "collectionName": "Items",
-      "connection": "CosmosDBConnection",
+      "connectionStringSetting": "CosmosDBConnection",
       "direction": "in",
       "Id": "{id}",
       "PartitionKey": "{partitionKeyValue}"
@@ -1017,7 +1018,6 @@ Voici le fichier *function.json* :
       "PartitionKey": "{Query.partitionKeyValue}"
     }
   ],
-  "disabled": true,
   "scriptFile": "__init__.py"
 }
 ```

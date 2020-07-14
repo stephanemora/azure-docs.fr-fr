@@ -7,12 +7,12 @@ ms.date: 05/12/2020
 ms.topic: how-to
 ms.service: iot-central
 services: iot-central
-ms.openlocfilehash: e2018f4d6f8e0813892a43c66975961356333bff
-ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
+ms.openlocfilehash: 07e5ce5cb6fee11e3f55ce808da51ccad59b9ff2
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83663747"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85801357"
 ---
 # <a name="use-workflows-to-integrate-your-azure-iot-central-application-with-other-cloud-services"></a>Utiliser des workflows pour intégrer votre application Azure IoT Central à d’autres services cloud
 
@@ -20,27 +20,36 @@ ms.locfileid: "83663747"
 
 Vous pouvez créer des règles dans IoT Central qui déclenchent des actions, telles que l’envoi d’un e-mail, en réponse à des conditions basées sur la télémétrie, comme la température d’un appareil dépassant un seuil.
 
-Le connecteur IoT Central pour Power Automate et Azure Logic Apps vous permet de créer des règles plus avancées pour automatiser les opérations dans IoT Central :
+Le connecteur Azure IoT Central v3 pour Power Automate et Azure Logic Apps vous permet de créer des règles plus avancées pour automatiser les opérations dans IoT Central :
 
 - Lorsqu’une règle est déclenchée dans votre application Azure IoT Central, elle peut déclencher un workflow dans Power Automate ou Azure Logic Apps. Ces workflows peuvent exécuter des actions dans d’autres services cloud, tels qu’Office 365 ou un service tiers.
 - Un événement dans un autre service cloud, tel qu’Office 365, peut déclencher un workflow dans Power Automate ou Azure Logic Apps. Ces workflows peuvent exécuter des actions ou récupérer des données à partir de votre application IoT Central.
+
+## <a name="prerequisites"></a>Prérequis
+
+Pour effectuer les étapes décrites dans ce guide pratique, vous avez besoin d’un abonnement Azure actif. Si vous n’avez pas d’abonnement Azure, créez un [compte gratuit](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) avant de commencer.
+
+La configuration de la solution nécessite une application IoT Central version 3. Pour savoir comment vérifier la version de votre application, consultez [À propose de votre application](./howto-get-app-info.md). Pour savoir comment créer une application IoT Central, consultez [Créer une application Azure IoT Central](./quick-deploy-iot-central.md).
+
+> [!NOTE]
+> Si vous utilisez une application IoT Central version 2, consultez [Créer des flux de travail avec le connecteur IoT Central dans Azure Logic Apps](https://docs.microsoft.com/previous-versions/azure/iot-central/core/howto-build-azure-logic-apps) sur le site de documentation des versions précédentes et utiliser le connecteur Azure IoT Central v2
 
 ## <a name="trigger-a-workflow-from-a-rule"></a>Déclencher un workflow à partir d’une règle
 
 Avant de pouvoir déclencher un workflow dans Power Automate ou Azure Logic Apps, vous avez besoin d’une règle dans votre application IoT Central. Pour en savoir plus, consultez [Configurer des règles et des actions dans Azure IoT Central](./howto-configure-rules.md).
 
-Pour ajouter le connecteur **Azure IoT Central –Préversion** en tant que déclencheur dans Power Automate :
+Pour ajouter le connecteur **Azure IoT Central v3 – Préversion** en tant que déclencheur dans Power Automate :
 
 1. Dans Power Automate, sélectionnez **+ Créer**, sélectionnez l’onglet **Personnaliser**.
-1. Recherchez *IoT Central*, puis sélectionnez le connecteur **Azure IoT Central – Préversion**.
+1. Recherchez *IoT Central*, puis sélectionnez le connecteur **Azure IoT Central v3 – Préversion**.
 1. Dans la liste des déclencheurs, sélectionnez **Lors du déclenchement d’une règle (préversion)** .
 1. À l’étape **Lors du déclenchement d’une règle**, sélectionnez votre application IoT Central et la règle que vous utilisez.
 
-Pour ajouter le connecteur **Azure IoT Central –Préversion** en tant que déclencheur dans Azure Logic Apps :
+Pour ajouter le connecteur **Azure IoT Central v3 – Préversion** en tant que déclencheur dans Azure Logic Apps :
 
 1. Dans **Concepteur d’applications logiques**, sélectionnez le modèle **Application logique vide**.
 1. Dans le concepteur, sélectionnez l’onglet **Personnaliser**.
-1. Recherchez *IoT Central*, puis sélectionnez le connecteur **Azure IoT Central – Préversion**.
+1. Recherchez *IoT Central*, puis sélectionnez le connecteur **Azure IoT Central v3 – Préversion**.
 1. Dans la liste des déclencheurs, sélectionnez **Lors du déclenchement d’une règle (préversion)** .
 1. À l’étape **Lors du déclenchement d’une règle**, sélectionnez votre application IoT Central et la règle que vous utilisez.
 
@@ -50,27 +59,27 @@ Vous pouvez maintenant ajouter d’autres étapes à votre workflow pour créer 
 
 ## <a name="run-an-action"></a>Exécuter une action
 
-Vous pouvez exécuter des actions dans une application IoT Central à partir des workflows Power Automate et Azure Logic Apps. Tout d’abord, créez votre workflow et utilisez un connecteur pour définir un déclencheur permettant de démarrer le workflow. Utilisez ensuite le connecteur **Azure IoT Central – Préversion** en tant qu’action.
+Vous pouvez exécuter des actions dans une application IoT Central à partir des workflows Power Automate et Azure Logic Apps. Tout d’abord, créez votre workflow et utilisez un connecteur pour définir un déclencheur permettant de démarrer le workflow. Utilisez ensuite le connecteur **Azure IoT Central v3 – Préversion** en tant qu’action.
 
-Pour ajouter le connecteur **Azure IoT Central –Préversion** en tant qu’action dans Power Automate :
+Pour ajouter le connecteur **Azure IoT Central v3 – Préversion** en tant qu’action dans Power Automate :
 
 1. Dans Power Automate, dans le panneau **Choisir une action**, sélectionnez l’onglet **Personnaliser**.
-1. Recherchez *IoT Central*, puis sélectionnez le connecteur **Azure IoT Central – Préversion**.
+1. Recherchez *IoT Central*, puis sélectionnez le connecteur **Azure IoT Central v3 – Préversion**.
 1. Dans la liste des actions, sélectionnez l’action IoT Central que vous souhaitez utiliser.
 1. Dans l’étape d’action, terminez la configuration de l’action que vous avez choisie. Ensuite, sélectionnez **Enregistrer**.
 
-Pour ajouter le connecteur **Azure IoT Central –Préversion** en tant qu’action dans Azure Logic Apps :
+Pour ajouter le connecteur **Azure IoT Central v3 – Préversion** en tant qu’action dans Azure Logic Apps :
 
 1. Dans **Concepteur d’applications logiques**, dans le panneau **Choisir une action**, sélectionnez l’onglet **Personnaliser**.
-1. Recherchez *IoT Central*, puis sélectionnez le connecteur **Azure IoT Central – Préversion**.
+1. Recherchez *IoT Central*, puis sélectionnez le connecteur **Azure IoT Central v3 – Préversion**.
 1. Dans la liste des actions, sélectionnez l’action IoT Central que vous souhaitez utiliser.
 1. Dans l’étape d’action, terminez la configuration de l’action que vous avez choisie. Ensuite, sélectionnez **Enregistrer**.
 
-:::image type="content" source="./media/howto-configure-rules-advanced/actions.png" alt-text="Rechercher le connecteur Azure IoT Central – Préversion et choisir une action":::
+:::image type="content" source="./media/howto-configure-rules-advanced/actions.png" alt-text="Rechercher le connecteur Azure IoT Central v3 et choisir une action":::
 
 ## <a name="list-of-actions"></a>Liste d’actions
 
-La liste suivante affiche toutes les actions IoT Central disponibles dans le connecteur **Azure IoT Central – Préversion** et leurs options de configuration. La plupart des champs peuvent avoir un contenu généré dynamiquement. Par exemple, une étape précédente peut déterminer l’identité d’appareil sur lequel l’étape actuelle agit.
+La liste suivante affiche toutes les actions IoT Central disponibles dans le connecteur **Azure IoT Central v3 – Préversion** et leurs options de configuration. La plupart des champs peuvent avoir un contenu généré dynamiquement. Par exemple, une étape précédente peut déterminer l’identité d’appareil sur lequel l’étape actuelle agit.
 
 ### <a name="create-or-update-a-device"></a>Créer ou mettre à jour un appareil
 

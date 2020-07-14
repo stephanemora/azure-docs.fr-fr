@@ -7,12 +7,12 @@ ms.devlang: nodejs
 ms.topic: tutorial
 ms.date: 04/27/2020
 ms.custom: mvc, seodec18
-ms.openlocfilehash: 116ec218b1f3947b85b4ab865df30477f05c601a
-ms.sourcegitcommit: 856db17a4209927812bcbf30a66b14ee7c1ac777
+ms.openlocfilehash: 46c27f18f8f16f783248790f03364654d0b3c2fe
+ms.sourcegitcommit: 93462ccb4dd178ec81115f50455fbad2fa1d79ce
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "82559889"
+ms.lasthandoff: 07/06/2020
+ms.locfileid: "85986825"
 ---
 # <a name="tutorial-map-an-existing-custom-dns-name-to-azure-app-service"></a>Tutoriel : Mapper un nom DNS personnalisé existant à Azure App Service
 
@@ -95,9 +95,7 @@ Lorsque la notification suivante s’affiche, cela signifie que l’opération e
 
 ## <a name="get-domain-verification-id"></a>Obtenir l’ID de vérification du domaine
 
-Pour ajouter un domaine personnalisé à votre application, vous devez vérifier votre propriété du domaine, en ajoutant un ID de vérification sous forme d’enregistrement TXT avec votre fournisseur de domaine. Dans le volet de navigation de gauche de la page de votre application, cliquez sur l’**Explorateur de ressources** sous **Outils de développement**, puis cliquez sur **Atteindre**.
-
-Dans la vue JSON des propriétés de votre application, recherchez `customDomainVerificationId` et copiez sa valeur à l’intérieur des guillemets doubles. Vous avez besoin de cet ID de vérification pour l’étape suivante.
+Pour ajouter un domaine personnalisé à votre application, vous devez vérifier votre propriété du domaine, en ajoutant un ID de vérification sous forme d’enregistrement TXT avec votre fournisseur de domaine. Dans le volet de navigation de gauche de la page de votre application, cliquez sur **Domaines personnalisés** sous **Paramètres**. Copiez la valeur de l’ID de vérification des domaines personnalisés à partir d’ici. Vous avez besoin de cet ID de vérification pour l’étape suivante.
 
 ## <a name="map-your-domain"></a>Mapper votre domaine
 
@@ -113,6 +111,8 @@ Vous pouvez utiliser un **enregistrement CNAME** ou un **enregistrement A** pou
 ### <a name="map-a-cname-record"></a>Mapper un enregistrement CNAME
 
 Dans l’exemple de ce didacticiel, vous ajoutez un enregistrement CNAME pour le sous-domaine `www` (`www.contoso.com`, par exemple).
+
+Si vous avez un sous-domaine autre que `www`, remplacez `www` par votre sous-domaine (par exemple, par `sub` si votre domaine personnalisé est `sub.constoso.com`).
 
 #### <a name="access-dns-records-with-domain-provider"></a>Accès aux enregistrements DNS avec le fournisseur de domaine
 

@@ -5,18 +5,18 @@ description: Vous pouvez exporter et supprimer d’Azure AI Gallery vos données
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: studio
-ms.topic: conceptual
+ms.topic: how-to
 author: likebupt
 ms.author: keli19
 ms.custom: seodec18
 ms.date: 05/25/2018
 ms.reviewer: jmartens, mldocs
-ms.openlocfilehash: 03341b9e663398f2c42266dead0d2dd01e97c3f3
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 6bf0d889d70272988c9d2b243ae255f9654656bd
+ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79204543"
+ms.lasthandoff: 07/05/2020
+ms.locfileid: "85955588"
 ---
 # <a name="view-and-delete-in-product-user-data-from-azure-ai-gallery"></a>Visualiser et supprimer d’Azure AI Gallery des données utilisateur intégrées au produit
 
@@ -45,11 +45,13 @@ Les réponses du catalogue sont retournées au format JSON.
 ### <a name="get-an-author-id"></a>Obtenir un ID d’auteur
 L’ID d’auteur est basé sur l’adresse e-mail utilisée lors de la publication sur Azure AI Gallery. Il ne change pas :
 
-1.    Connectez-vous à [Azure AI Gallery](https://gallery.azure.ai/).
-2.    Cliquez sur l’image du profil dans le coin supérieur droit, puis sur le nom du compte pour charger la page de votre profil.
-3.    L’URL dans la barre d’adresse affiche l’ID alphanumérique après `authorId=`. Par exemple, pour l’URL : `https://gallery.azure.ai/Home/Author?authorId=99F1F5C6260295F1078187FA179FBE08B618CB62129976F09C6AF0923B02A5BA`
-        
-    L’ID d’auteur est : `99F1F5C6260295F1078187FA179FBE08B618CB62129976F09C6AF0923B02A5BA`
+1. Connectez-vous à [Azure AI Gallery](https://gallery.azure.ai/).
+2. Cliquez sur l’image du profil dans le coin supérieur droit, puis sur le nom du compte pour charger la page de votre profil.
+3. L’URL dans la barre d’adresse affiche l’ID alphanumérique après `authorId=`. Par exemple, pour l’URL :\
+    `https://gallery.azure.ai/Home/Author?authorId=99F1F5C6260295F1078187FA179FBE08B618CB62129976F09C6AF0923B02A5BA`
+
+    ID de l’auteur :\
+    `99F1F5C6260295F1078187FA179FBE08B618CB62129976F09C6AF0923B02A5BA`
 
 ### <a name="get-your-access-token"></a>Obtenir votre jeton d’accès
 
@@ -67,16 +69,17 @@ Pour obtenir un jeton d’accès, vous devez examiner l’en-tête `DataLabAcces
 ### <a name="view-user-information"></a>Visualiser les informations utilisateur
 Avec l’ID d’auteur que vous avez obtenu lors des étapes précédentes, visualisez les informations d’un profil d’utilisateur en remplaçant `[AuthorId]` dans l’URL suivante :
 
-    https://catalog.cortanaanalytics.com/users/[AuthorID]
+`https://catalog.cortanaanalytics.com/users/[AuthorID]`
 
 Par exemple, cette requête d’URL :
-    
-    https://catalog.cortanaanalytics.com/users/99F1F5C6260295F1078187FA179FBE08B618CB62129976F09C6AF0923B02A5BA
+
+`https://catalog.cortanaanalytics.com/users/99F1F5C6260295F1078187FA179FBE08B618CB62129976F09C6AF0923B02A5BA`
 
 Retourne une réponse comme :
 
-    {"entities_count":9,"contribution_score":86.351575190956922,"scored_at":"2018-05-07T14:30:25.9305671+00:00","contributed_at":"2018-05-07T14:26:55.0381756+00:00","created_at":"2017-12-15T00:49:15.6733094+00:00","updated_at":"2017-12-15T00:49:15.6733094+00:00","name":"First Last","slugs":["First-Last"],"tenant_id":"14b2744cf8d6418c87ffddc3f3127242","community_id":"9502630827244d60a1214f250e3bbca7","id":"99F1F5C6260295F1078187FA179FBE08B618CB62129976F09C6AF0923B02A5BA","_links":{"self":"https://catalog.azureml.net/tenants/14b2744cf8d6418c87ffddc3f3127242/communities/9502630827244d60a1214f250e3bbca7/users/99F1F5C6260295F1078187FA179FBE08B618CB62129976F09C6AF0923B02A5BA"},"etag":"\"2100d185-0000-0000-0000-5af063010000\""}
-
+```json
+{"entities_count":9,"contribution_score":86.351575190956922,"scored_at":"2018-05-07T14:30:25.9305671+00:00","contributed_at":"2018-05-07T14:26:55.0381756+00:00","created_at":"2017-12-15T00:49:15.6733094+00:00","updated_at":"2017-12-15T00:49:15.6733094+00:00","name":"First Last","slugs":["First-Last"],"tenant_id":"14b2744cf8d6418c87ffddc3f3127242","community_id":"9502630827244d60a1214f250e3bbca7","id":"99F1F5C6260295F1078187FA179FBE08B618CB62129976F09C6AF0923B02A5BA","_links":{"self":"https://catalog.azureml.net/tenants/14b2744cf8d6418c87ffddc3f3127242/communities/9502630827244d60a1214f250e3bbca7/users/99F1F5C6260295F1078187FA179FBE08B618CB62129976F09C6AF0923B02A5BA"},"etag":"\"2100d185-0000-0000-0000-5af063010000\""}
+```
 
 ### <a name="view-public-entities"></a>Visualiser des entités publiques
 
@@ -84,11 +87,11 @@ L’API de catalogue stocke des informations concernant les entités publiées s
 
 Pour visualiser des entités publiées, accédez à l’URL suivante, en remplaçant `[AuthorId]` par l’ID d’auteur obtenu dans [Obtenir un ID d’auteur](#get-an-author-id) ci-dessus.
 
-    https://catalog.cortanaanalytics.com/entities?$filter=author/id eq '[AuthorId]'
+`https://catalog.cortanaanalytics.com/entities?$filter=author/id eq '[AuthorId]'`
 
 Par exemple :
 
-    https://catalog.cortanaanalytics.com/entities?$filter=author/id eq '99F1F5C6260295F1078187FA179FBE08B618CB62129976F09C6AF0923B02A5BA'
+`https://catalog.cortanaanalytics.com/entities?$filter=author/id eq '99F1F5C6260295F1078187FA179FBE08B618CB62129976F09C6AF0923B02A5BA'`
 
 ### <a name="view-unlisted-and-public-entities"></a>Visualiser des entités non répertoriées et publiques
 

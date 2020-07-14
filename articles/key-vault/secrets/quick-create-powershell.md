@@ -11,12 +11,12 @@ ms.topic: quickstart
 ms.custom: mvc
 ms.date: 11/08/2019
 ms.author: mbaldwin
-ms.openlocfilehash: 3bac3cc2a5cedbd4b963a0759e6c8b940d2ca924
-ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
+ms.openlocfilehash: 459c9f2d68d8a3a3c1b597665914146987aecdc2
+ms.sourcegitcommit: a989fb89cc5172ddd825556e45359bac15893ab7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "81421413"
+ms.lasthandoff: 07/01/2020
+ms.locfileid: "85801669"
 ---
 # <a name="quickstart-set-and-retrieve-a-secret-from-azure-key-vault-using-powershell"></a>Démarrage rapide : Définir et récupérer un secret depuis Azure Key Vault à l’aide de PowerShell
 
@@ -64,6 +64,13 @@ La sortie de cette cmdlet affiche les propriétés du coffre de clés que vous v
 Une fois le coffre créé, votre compte Azure est le seul compte autorisé à exécuter des actions sur ce nouveau coffre.
 
 ![Sortie après l’exécution de la commande de création du coffre de clés](../media/quick-create-powershell/output-after-creating-keyvault.png)
+
+## <a name="give-your-user-account-permissions-to-manage-secrets-in-key-vault"></a>Donner à votre compte d’utilisateur des autorisations pour gérer les secrets dans Key Vault
+
+Utilisez l’applet de commande Azure PowerShell Set-AzKeyVaultAccessPolicy pour mettre à jour la stratégie d’accès au coffre de clés et accorder des autorisations de secret à votre compte d’utilisateur.
+```azurepowershell-interactive
+Set-AzKeyVaultAccessPolicy -VaultName 'Contoso-Vault2' -UserPrincipalName 'user@domain.com' -PermissionsToSecrets get,set,delete
+```
 
 ## <a name="adding-a-secret-to-key-vault"></a>Ajout d’un secret au coffre de clés
 

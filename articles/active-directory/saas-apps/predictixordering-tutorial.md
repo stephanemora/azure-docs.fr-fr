@@ -1,5 +1,5 @@
 ---
-title: 'Didacticiel : Intégration d’Azure Active Directory à Predictix Ordering | Microsoft Docs'
+title: 'Tutoriel : Intégration d’Azure Active Directory à Predictix Ordering | Microsoft Docs'
 description: Dans ce tutoriel, vous allez découvrir comment configurer l’authentification unique entre Azure Active Directory et Predictix Ordering.
 services: active-directory
 documentationCenter: na
@@ -15,14 +15,14 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 03/26/2019
 ms.author: jeedes
-ms.openlocfilehash: 457ab3a0d5e816becbd2b32d858d5172951f27ad
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: 9ab66dc7bc2aea249e105df20652c0f5904e294d
+ms.sourcegitcommit: a989fb89cc5172ddd825556e45359bac15893ab7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "67094120"
+ms.lasthandoff: 07/01/2020
+ms.locfileid: "85800248"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-predictix-ordering"></a>Didacticiel : Intégration d’Azure Active Directory à Predictix Ordering
+# <a name="tutorial-azure-active-directory-integration-with-predictix-ordering"></a>Tutoriel : Intégration d’Azure Active Directory à Predictix Ordering
 
 Dans ce tutoriel, vous allez découvrir comment intégrer Predictix Ordering à Azure AD (Azure Active Directory).
 Cette intégration offre les avantages suivants :
@@ -35,7 +35,7 @@ Pour en savoir plus sur l’intégration d’applications SaaS à Azure AD, cons
 
 Si vous n’avez pas d’abonnement Azure, créez un [compte gratuit](https://azure.microsoft.com/free/) avant de commencer.
 
-## <a name="prerequisites"></a>Conditions préalables requises
+## <a name="prerequisites"></a>Prérequis
 
 Pour configurer l’intégration d’Azure AD à Predictix Ordering, vous devez avoir :
 
@@ -110,11 +110,10 @@ Pour configurer l’authentification unique Azure AD avec Predictix Ordering, e
 
     1. Dans la zone **Identificateur (ID d’entité)** , entrez une URL au format suivant :
 
-        | |
-        |--|
-        | `https://<companyname-pricing>.dev.ordering.predictix.com` |
-        | `https://<companyname-pricing>.ordering.predictix.com` |
-        | |
+        ```https
+        https://<companyname-pricing>.dev.ordering.predictix.com
+        https://<companyname-pricing>.ordering.predictix.com
+        ```
 
     > [!NOTE]
     > Ces valeurs sont des espaces réservés. Vous devez utiliser l’URL de connexion et l’identificateur réels. Contactez l’[équipe de support Predictix Ordering](https://www.predix.io/support/) pour obtenir les valeurs. Vous pouvez aussi vous référer aux modèles figurant dans la boîte de dialogue **Configuration SAML de base** dans le portail Azure.
@@ -155,7 +154,7 @@ Dans cette section, vous allez créer un utilisateur de test appelé Britta Simo
 
     1. Dans la zone **Nom**, entrez **BrittaSimon**.
   
-    1. Dans la zone **Nom d’utilisateur**, entrez **BrittaSimon@\<votre_domaine_d'entreprise>.\<extension>** . (Par exemple, BrittaSimon@contoso.com.)
+    1. Dans la zone **Nom d’utilisateur**, entrez **BrittaSimon@\<yourcompanydomain>.\<extension>** . (Par exemple, BrittaSimon@contoso.com.)
 
     1. Sélectionnez **Afficher le mot de passe**, puis notez la valeur affichée dans la zone **Mot de passe**.
 

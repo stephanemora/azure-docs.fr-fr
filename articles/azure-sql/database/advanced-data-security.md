@@ -2,22 +2,22 @@
 title: Advanced Data Security
 description: Apprenez-en plus sur les fonctionnalités permettant de découvrir et de classifier les données sensibles, de gérer les vulnérabilités de votre base de données et de détecter les activités anormales pouvant indiquer une menace ciblant votre base de données dans Azure SQL Database, Azure SQL Managed Instance ou Azure Synapse.
 services: sql-database
-ms.service: sql-database
+ms.service: sql-db-mi
 ms.subservice: security
 ms.devlang: ''
 ms.custom: sqldbrb=2
 ms.topic: conceptual
 ms.author: memildin
-author: memildin
 manager: rkarlin
+author: memildin
 ms.reviewer: vanto
 ms.date: 04/23/2020
-ms.openlocfilehash: d600d174aa37c5c4d5d1011b9cb61e4487256c13
-ms.sourcegitcommit: 1f48ad3c83467a6ffac4e23093ef288fea592eb5
+ms.openlocfilehash: 53765ee97f0f253db4df4ecca3c1c90d6068fb07
+ms.sourcegitcommit: 93462ccb4dd178ec81115f50455fbad2fa1d79ce
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/29/2020
-ms.locfileid: "84195142"
+ms.lasthandoff: 07/06/2020
+ms.locfileid: "85983992"
 ---
 # <a name="advanced-data-security"></a>Advanced Data Security
 [!INCLUDE[appliesto-sqldb-sqlmi-asa](../includes/appliesto-sqldb-sqlmi-asa.md)]
@@ -62,7 +62,7 @@ Pour afficher et gérer les paramètres ADS, accédez à **Advanced Data Securi
 
 ![Paramètres du serveur](./media/advanced-data-security/server_settings.png)
 
-## <a name="4-manage-ads-settings-for-a-sql-database"></a>4. Gérer les paramètres Advanced Data Security pour une base de données SQL
+## <a name="4-manage-ads-settings-for-a-database"></a>4. Gérer les paramètres ADS (Advanced Data Security) pour une base de données
 
 Pour écraser les paramètres de détection des menaces ADS d’une base de données spécifiée, cochez la case **Activer Advanced Data Security au niveau de la base de données**. Utilisez cette option uniquement si vous avez besoin de recevoir des alertes Advanced Threat Protection ou des résultats d’évaluation des vulnérabilités distincts pour la base de données individuelle, au lieu ou en plus des alertes et résultats reçus pour toutes les bases de données présentes sur le serveur ou l’instance gérée.
 

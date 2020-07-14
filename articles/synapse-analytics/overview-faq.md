@@ -5,16 +5,16 @@ services: synapse-analytics
 author: ArnoMicrosoft
 ms.service: synapse-analytics
 ms.topic: overview
-ms.subservice: ''
+ms.subservice: overview
 ms.date: 04/15/2020
 ms.author: acomet
 ms.reviewer: jrasnick
-ms.openlocfilehash: 2c470483cee8b621475fa70dd09c80aa126173be
-ms.sourcegitcommit: 1de57529ab349341447d77a0717f6ced5335074e
+ms.openlocfilehash: 43f0dfa5fd413d201eb8c63aa752a6fd8db68f6c
+ms.sourcegitcommit: 374d1533ea2f2d9d3f8b6e6a8e65c6a5cd4aea47
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/09/2020
-ms.locfileid: "84609146"
+ms.lasthandoff: 07/01/2020
+ms.locfileid: "85807874"
 ---
 # <a name="azure-synapse-analytics-workspaces-preview-frequently-asked-questions"></a>Questions fréquentes sur Azure Synapse Analytics (espace de travail, préversion)
 
@@ -48,6 +48,10 @@ A : Azure Synapse a les fonctionnalités suivantes :
 A : Azure Synapse Analytics est une évolution d’Azure SQL Data Warehouse vers une plateforme d’analytique, où le pool SQL fait office de solution d’entrepôt de données. Cette plateforme combine l’exploration de données, l’ingestion, la transformation, la préparation et une couche d’analytique de service.
 
 ## <a name="use-cases"></a>Cas d'utilisation
+
+### <a name="q-how-do-i-rename-a-published-artifact-dataset-notebook-sql-script-and-so-on-in-azure-synapse"></a>Q : Comment renommer un artefact publié (jeu de données, notebook, script SQL, etc.) dans Azure Synapse ?
+
+A : Pour renommer un fichier d’artefact publié, commencez par cloner le fichier et renommez le nouveau fichier à votre convenance. Vous devrez mettre à jour manuellement toutes les références de l’artefact avec le nouveau nom de fichier et supprimer l’ancien.
 
 ### <a name="q-what-is-a-good-use-case-for-synapse-sql-pool"></a>Q : Qu’est-ce qu’un bon cas d’usage pour le pool SQL Synapse ?
 

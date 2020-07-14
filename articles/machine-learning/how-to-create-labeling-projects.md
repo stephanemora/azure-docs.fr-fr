@@ -5,16 +5,17 @@ description: Découvrez comment créer et exécuter des projets d’étiquetage 
 author: sdgilley
 ms.author: sgilley
 ms.service: machine-learning
+ms.subservice: core
 ms.topic: tutorial
 ms.date: 04/09/2020
-ms.openlocfilehash: f514c33f2c39e205ac186b70711b478f67fcb4e5
-ms.sourcegitcommit: 6fd28c1e5cf6872fb28691c7dd307a5e4bc71228
+ms.openlocfilehash: e20b7b447797a957f860c6b1dd9679519960ebc5
+ms.sourcegitcommit: 0100d26b1cac3e55016724c30d59408ee052a9ab
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/23/2020
-ms.locfileid: "85212003"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86025180"
 ---
-# <a name="create-a-data-labeling-project-and-export-labels"></a>Créer un projet d’étiquetage des données et exporter des étiquettes 
+# <a name="create-a-data-labeling-project-preview-and-export-labels"></a>Créer un projet d’étiquetage des données (préversion) et exporter des étiquettes 
 
 [!INCLUDE [aml-applies-to-basic-enterprise-sku](../../includes/aml-applies-to-basic-enterprise-sku.md)]
 
@@ -81,7 +82,7 @@ Pour créer un jeu de données à partir de données que vous avez déjà stock�
 1. Sélectionnez le magasin de données.
 1. Si vos données se trouvent dans un sous-dossier de votre Stockage Blob, choisissez **Parcourir** pour sélectionner le chemin.
     * Ajoutez « /** » au chemin pour inclure tous les fichiers des sous-dossiers du chemin sélectionné.
-    * Ajoutez « * */* .* » pour inclure toutes les données figurant dans le conteneur actuel et ses sous-dossiers.
+    * Ajoutez « **/*.* » pour inclure toutes les données figurant dans le conteneur actuel et ses sous-dossiers.
 1. Fournissez une description pour votre jeu de données.
 1. Sélectionnez **Suivant**.
 1. Vérifiez les détails. Sélectionnez **Précédent** pour modifier les paramètres, ou **Créer** pour créer le jeu de données.
@@ -187,7 +188,7 @@ Une fois le projet initialisé, Azure commence à l’exécuter. Sélectionnez l
 
 Sous l’onglet **Données**, vous pouvez voir votre jeu de données et passer en revue les données étiquetées. Si vous voyez des données étiquetées de manière incorrecte, sélectionnez-les, puis choisissez **Rejeter**. Les étiquettes sont alors supprimées et les données replacées en file d’attente des données sans étiquette.
 
-Pour suspendre ou redémarrer le projet, sélectionnez le bouton **Suspendre**/**Démarrer** . Vous pouvez uniquement étiqueter des données quand le projet est en cours d’exécution.
+Pour suspendre ou redémarrer le projet, sélectionnez le bouton **Suspendre**/**Démarrer **. Vous pouvez uniquement étiqueter des données quand le projet est en cours d’exécution.
 
 Vous pouvez étiqueter des données directement à partir de la page **Détails du projet** en sélectionnant **Étiqueter les données**.
 

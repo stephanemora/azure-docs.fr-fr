@@ -8,12 +8,12 @@ ms.service: cost-management-billing
 ms.topic: conceptual
 ms.date: 06/23/2020
 ms.author: banders
-ms.openlocfilehash: 8552b6732736d1d10711479639fa45114f8b039b
-ms.sourcegitcommit: 4042aa8c67afd72823fc412f19c356f2ba0ab554
+ms.openlocfilehash: 5fb8a9cd5e00bf3a6ebeddaf44a09ac48b94fe7c
+ms.sourcegitcommit: cec9676ec235ff798d2a5cad6ee45f98a421837b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/24/2020
-ms.locfileid: "85298002"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85849089"
 ---
 # <a name="pay-for-your-azure-subscription-by-invoice"></a>Paiement de vos abonnements Azure par facture
 
@@ -42,28 +42,28 @@ Si vous passez au paiement par facture, cela signifie que vous devez payer votre
 
 5. Entrez les informations suivantes dans la zone **Détails** puis sélectionnez **Suivant**.
 
-         New or existing customer:
-         If existing, current payment method:
-         Order ID (requesting for invoice option):
-         Account Admins Live ID (or Org ID) (should be company domain):
-         Commerce Account ID:
-         Company Name (as registered under VAT or Government Website):
-         Company Address (as registered under VAT or Government Website):
-         Company Website:
-         Country:
-         TAX ID/ VAT ID:
-         Company Established on (Year):
-         Any prior business with Microsoft:
-         Contact Name:
-         Contact Phone:
-         Contact Email:
-         Justification on why you prefer Invoice option over credit card:
+     Client nouveau ou existant :<br>
+     Si existant, mode de paiement actuel :<br>
+     ID de commande (nécessitant l’option de paiement par facturation) :<br>
+     Live ID des administrateurs de compte (ou ID d’organisation) (doit être le domaine d’entreprise) :<br>
+     ID de compte de commerce :<br>
+     Raison sociale (tel qu’elle est enregistrée auprès du Greffe du Tribunal de Commerce ou sur le site web de l’administration fiscale) :<br>
+     Adresse de la société (tel qu’elle est enregistrée auprès du Greffe du Tribunal de Commerce ou sur le site web de l’administration fiscale) :<br>
+     Site web de l’entreprise :<br>
+     Pays :<br>
+     TID / N° DE T.V.A. :<br>
+     Société établie en (Année) :<br>
+     Avez-vous déjà travaillé avec Microsoft :<br>
+     Nom du contact :<br>
+     Numéro de téléphone du contact :<br>
+     E-mail du contact :<br>
+     Justification sur la raison pour laquelle vous préférez l’option de facturation à celle de la carte de crédit :<br>
 
-         For cores increase, provide the following additional information:
+     Pour une augmentation du nombre de cœurs, indiquez les informations supplémentaires suivantes :<br>
 
-         (Old quota) Existing Cores:
-         (New quota) Requested cores:
-         Specific region & series of Subscription:
+     (Ancien quota) Cœurs existants :<br>
+     (Nouveau quota) Cœurs demandés :<br>
+     Région spécifique & série d’abonnements :<br>
 
     - Le **nom de la société** et l’**adresse de la société** doivent correspondre aux informations que vous avez fournies pour le compte Azure. Pour afficher ou mettre à jour les informations, consultez [Modifier les informations de profil de votre compte Azure](change-azure-account-profile.md).
     - Ajoutez vos informations de contact de facturation dans le portail Azure pour que la limite de crédit puisse être approuvée. Les détails du contact doivent être liés au service financier et comptabilité fournisseurs de l’entreprise. Pour mettre à jour les informations de contact de facturation, accédez au [Centre des comptes Azure](https://account.azure.com/Profile).

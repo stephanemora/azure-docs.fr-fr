@@ -5,12 +5,13 @@ author: craigshoemaker
 ms.topic: reference
 ms.date: 02/21/2020
 ms.author: cshoe
-ms.openlocfilehash: ce40a46d4c1da627930ef8de8813936b71dcc281
-ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
+ms.custom: tracking-python
+ms.openlocfilehash: 14da272ce5ce7c078719909345961f6ddf57f37b
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83648912"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85833789"
 ---
 # <a name="azure-functions-http-trigger"></a>Déclencheur HTTP Azure Functions
 
@@ -497,7 +498,9 @@ Le type d’entrée du déclencheur est déclaré comme étant `HttpRequest` ou 
 
 Par défaut, quand vous créez une fonction pour un déclencheur HTTP, la fonction est adressable avec une route de la forme :
 
-    http://<APP_NAME>.azurewebsites.net/api/<FUNCTION_NAME>
+```http
+http://<APP_NAME>.azurewebsites.net/api/<FUNCTION_NAME>
+```
 
 Vous pouvez personnaliser cet itinéraire en utilisant la propriété facultative `route` sur la liaison d’entrée du déclencheur HTTP. Par exemple, le fichier *function.json* suivant définit une propriété `route` pour un déclencheur HTTP :
 
@@ -634,12 +637,14 @@ public class HttpTriggerJava {
 
 ---
 
-Par défaut, tous les itinéraires de fonction sont préfixés par *api*. Vous pouvez également personnaliser ou supprimer le préfixe avec la propriété `http.routePrefix` dans votre fichier [host.json](functions-host-json.md). L’exemple suivant supprime le préfixe d’itinéraire *api* en sélectionnant une chaîne vide pour le préfixe dans le fichier *host.json*.
+Par défaut, tous les itinéraires de fonction sont préfixés par *api*. Vous pouvez également personnaliser ou supprimer le préfixe avec la propriété `extensions.http.routePrefix` dans votre fichier [host.json](functions-host-json.md). L’exemple suivant supprime le préfixe d’itinéraire *api* en sélectionnant une chaîne vide pour le préfixe dans le fichier *host.json*.
 
 ```json
 {
-    "http": {
-    "routePrefix": ""
+    "extensions": {
+        "http": {
+            "routePrefix": ""
+        }
     }
 }
 ```
@@ -749,9 +754,6 @@ L’utilisateur authentifié est disponible par l’intermédiaire d’[en-tête
 
 ## <a name="function-access-keys"></a><a name="authorization-keys"></a>Clé d’accès aux fonctions
 
-> [!IMPORTANT]
-> Alors que les clés peuvent aider à masquer vos points de terminaison HTTP pendant le développement, elles ne sont pas destinées à sécuriser un déclencheur HTTP en production. Pour plus d’informations, consultez [Sécuriser un point de terminaison HTTP en production](#secure-an-http-endpoint-in-production).
-
 [!INCLUDE [functions-authorization-keys](../../includes/functions-authorization-keys.md)]
 
 ## <a name="obtaining-keys"></a>Obtention de clés
@@ -766,7 +768,9 @@ Vous pouvez obtenir des clés de fonction programmatiquement en utilisant des [A
 
 La plupart des modèles de déclencheur HTTP nécessitent une clé d’API dans la requête. Ainsi, votre requête HTTP doit se présenter comme l’URL suivante :
 
-    https://<APP_NAME>.azurewebsites.net/api/<FUNCTION_NAME>?code=<API_KEY>
+```http
+https://<APP_NAME>.azurewebsites.net/api/<FUNCTION_NAME>?code=<API_KEY>
+```
 
 La clé peut être incluse dans une variable de chaîne de requête nommée `code`, comme ci-dessus. Elle peut également être incluse dans un en-tête HTTP `x-functions-key`. La valeur de la clé peut être toute clé de fonction définie pour la fonction, ou toute clé d’hôte.
 
@@ -786,7 +790,7 @@ Pour sécuriser complètement vos points de terminaison de fonction en productio
 
 [!INCLUDE [functions-deploy-isolation](../../includes/functions-deploy-isolation.md)]
 
-## <a name="webhooks"></a>webhooks
+## <a name="webhooks"></a>Webhooks
 
 > [!NOTE]
 > Le mode Webhook est disponible seulement pour la version 1.x du runtime Functions. Cette modification a été apportée afin d’améliorer les performances des déclencheurs HTTP dans les versions 2.x et ultérieures.
@@ -809,6 +813,14 @@ Une autorisation de webhook est gérée par le composant récepteur de webhook, 
 
 * **Chaîne de requête** : Le fournisseur transmet le nom de la clé au paramètre de chaîne de requête `clientid` (par exemple, `https://<APP_NAME>.azurewebsites.net/api/<FUNCTION_NAME>?clientid=<KEY_NAME>`).
 * **En-tête de requête** : Le fournisseur transmet le nom de la clé à l’en-tête `x-functions-clientid`.
+
+## <a name="content-types"></a>Types de contenu
+
+La transmission de données binaires et de formulaire à une fonction non C# requiert l’utilisation de l’en-tête de contenu-type approprié. Les types de contenu pris en charge incluent `octet-stream` pour les données binaires et les types [en plusieurs parties](https://www.iana.org/assignments/media-types/media-types.xhtml#multipart).
+
+### <a name="known-issues"></a>Problèmes connus
+
+Dans les fonctions non C#, les requêtes envoyées avec le type de contenu `image/jpeg` entraînent la transmission d’une valeur `string` à la fonction. Dans ce type de cas, vous pouvez convertir manuellement la valeur `string` en un tableau d’octets pour accéder aux données binaires brutes.
 
 ## <a name="limits"></a>limites
 

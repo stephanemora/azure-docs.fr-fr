@@ -7,14 +7,14 @@ ms.service: storage
 ms.topic: conceptual
 ms.date: 12/12/2019
 ms.author: tamram
-ms.reviewer: cbrooks
+ms.reviewer: ozgun
 ms.subservice: common
-ms.openlocfilehash: f5d42a6a0567d3949bc4b0fb1947450a9c957f18
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 73077b6b25c09c17deb4ad468c79fe6d5ddd648e
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "75972343"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85833253"
 ---
 # <a name="use-the-azure-storage-resource-provider-to-access-management-resources"></a>Utiliser le fournisseur de ressources Stockage Azure pour accéder aux ressources de gestion
 
@@ -36,7 +36,7 @@ Chaque abonnement Azure est associé à un annuaire Azure Active Directory qui g
 
 Quand vous attribuez un rôle RBAC à un principal de sécurité, vous indiquez également l’étendue à laquelle les autorisations accordées par le rôle sont appliquées. Pour les opérations de gestion, vous pouvez attribuer un rôle au niveau de l’abonnement, du groupe de ressources ou du compte de stockage. Vous pouvez attribuer un rôle RBAC à un principal de sécurité en utilisant le [portail Azure](https://portal.azure.com/), les [outils Azure CLI](../../cli-install-nodejs.md), [PowerShell](/powershell/azureps-cmdlets-docs) ou l’[API REST du fournisseur de ressources Stockage Azure](/rest/api/storagerp).
 
-Pour plus d’informations sur RBAC, consultez [Présentation du contrôle d’accès en fonction du rôle (RBAC) pour les ressources Azure](../../role-based-access-control/overview.md) et [Rôles d’administrateur d’abonnement classique, rôles RBAC Azure et rôles d’administrateur Azure AD](../../role-based-access-control/rbac-and-directory-admin-roles.md).
+Pour plus d’informations, consultez [Qu’est-ce que le contrôle d’accès en fonction du rôle Azure (Azure RBAC) ?](../../role-based-access-control/overview.md) et [Rôles d’administrateur d’abonnement classique, rôles RBAC Azure et rôles d’administrateur Azure AD](../../role-based-access-control/rbac-and-directory-admin-roles.md).
 
 ### <a name="built-in-roles-for-management-operations"></a>Rôles intégrés pour les opérations de gestion
 
@@ -77,5 +77,5 @@ Pour plus d’informations sur les modèles de déploiement Azure, consultez [D�
 ## <a name="next-steps"></a>Étapes suivantes
 
 - [Présentation d’Azure Resource Manager](/azure/azure-resource-manager/resource-group-overview)
-- [Qu’est-ce que le contrôle d’accès en fonction du rôle (RBAC) pour les ressources Azure ?](../../role-based-access-control/overview.md)
+- [Qu’est-ce que le contrôle d’accès en fonction du rôle Azure (RBAC Azure) ?](../../role-based-access-control/overview.md)
 - [Objectifs d’extensibilité pour le fournisseur de ressources de stockage Azure](scalability-targets-resource-provider.md)

@@ -3,7 +3,7 @@ title: Groupes de basculement automatique
 titleSuffix: Azure SQL Database & SQL Managed Instance
 description: Les groupes de basculement automatique vous permettent de gérer la réplication et le basculement automatique/coordonné d’un groupe de bases de données sur un serveur, ou de toutes les bases de données dans une instance gérée.
 services: sql-database
-ms.service: sql-database
+ms.service: sql-db-mi
 ms.subservice: high-availability
 ms.custom: sqldbrb=2
 ms.devlang: ''
@@ -12,12 +12,12 @@ author: anosov1960
 ms.author: sashan
 ms.reviewer: mathoma, carlrab
 ms.date: 2/10/2020
-ms.openlocfilehash: d32670ba79bd526c8f53438bf348323084f99928
-ms.sourcegitcommit: 223cea58a527270fe60f5e2235f4146aea27af32
+ms.openlocfilehash: 39329eb9ea2c396f8b5f04287f3e933bb6242f85
+ms.sourcegitcommit: 93462ccb4dd178ec81115f50455fbad2fa1d79ce
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/01/2020
-ms.locfileid: "84258570"
+ms.lasthandoff: 07/06/2020
+ms.locfileid: "85982977"
 ---
 # <a name="use-auto-failover-groups-to-enable-transparent-and-coordinated-failover-of-multiple-databases"></a>Utiliser les groupes de basculement automatique pour permettre le basculement transparent et coordonné de plusieurs bases de données
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
@@ -162,7 +162,7 @@ Quand vous concevez un service en pensant à la continuité d’activité, suive
 
 ### <a name="using-one-or-several-failover-groups-to-manage-failover-of-multiple-databases"></a>Utilisation d’un ou plusieurs groupes de basculement pour gérer le basculement de plusieurs bases de données
 
-Un ou plusieurs groupes de basculement peuvent être créés entre deux serveurs situés dans des régions différentes (serveur principal et serveur secondaire). Chaque groupe peut inclure une ou plusieurs bases de données qui sont récupérées ensemble dans le cas où une partie ou la totalité des bases de données primaires deviennent indisponibles en raison d’une panne dans la région principale. Le groupe de basculement crée une base de données géo-secondaire avec le même objectif de service que la base de données primaire. Si vous ajoutez une relation de géoréplication existante au groupe de basculement, vérifiez que la base de données géosecondaire est configurée avec le même niveau de service et la même taille de calcul que la base de données primaire.
+Un ou plusieurs groupes de basculement peuvent être créés entre deux serveurs situés dans des régions différentes (serveurs principal et serveur secondaire). Chaque groupe peut inclure une ou plusieurs bases de données qui sont récupérées ensemble dans le cas où une partie ou la totalité des bases de données primaires deviennent indisponibles en raison d’une panne dans la région principale. Le groupe de basculement crée une base de données géo-secondaire avec le même objectif de service que la base de données primaire. Si vous ajoutez une relation de géoréplication existante au groupe de basculement, vérifiez que la base de données géosecondaire est configurée avec le même niveau de service et la même taille de calcul que la base de données primaire.
   
 > [!IMPORTANT]
 > La création de groupes de basculement entre deux serveurs dans différents abonnements n’est actuellement pas prise en charge pour Azure SQL Database. Le fait de déplacer le serveur principal ou secondaire vers un autre abonnement après la création du groupe de basculement peut entraîner des défaillances au niveau des requêtes de basculement et d’autres opérations.
@@ -229,9 +229,9 @@ Si votre application utilise une instance SQL Managed Instance en tant que couch
 Pour garantir une connectivité ininterrompue à l’instance SQL Managed Instance principale après le basculement, les instances principale et secondaire doivent se trouver dans la même zone DNS. Cela garantit que le même certificat multidomaine (SAN) peut être utilisé pour authentifier les connexions clientes avec les deux instances du groupe de basculement. Lorsque votre application est prête pour le déploiement en production, créez une instance SQL Managed Instance secondaire dans une autre région et assurez-vous qu’elle partage la même zone DNS que l’instance SQL Managed Instance principale. Pour cela, vous pouvez spécifier un paramètre `DNS Zone Partner` facultatif à l’aide du Portail Azure, de PowerShell ou de l’API REST.
 
 > [!IMPORTANT]
-> La première instance SQL Managed Instance créée dans le sous-réseau détermine la zone DNS pour toutes les instances suivantes de ce même sous-réseau. Cela signifie que deux instances d'un même sous-réseau ne peuvent pas appartenir à des zones DNS différentes.
+> La première instance gérée créée dans le sous-réseau détermine la zone DNS pour toutes les instances suivantes de ce même sous-réseau. Cela signifie que deux instances d'un même sous-réseau ne peuvent pas appartenir à des zones DNS différentes.
 
-Pour plus d’informations sur la création de l’instance SQL Managed Instance secondaire dans la même zone DNS que l’instance principale, voir [Créer une instance managée secondaire](../managed-instance/failover-group-add-instance-tutorial.md#3---create-a-secondary-sql-managed-instance).
+Pour plus d’informations sur la création de l’instance SQL Managed Instance secondaire dans la même zone DNS que l’instance principale, voir [Créer une instance managée secondaire](../managed-instance/failover-group-add-instance-tutorial.md#3---create-a-secondary-managed-instance).
 
 ### <a name="enabling-replication-traffic-between-two-instances"></a>Activation du trafic de réplication entre deux instances
 

@@ -1,8 +1,8 @@
 ---
 title: Utiliser le connecteur Spark avec Microsoft Azure SQL et SQL Server
-description: Découvrez comment utiliser le connecteur Spark avec Microsoft Azure SQL et SQL Server
+description: Découvrez comment utiliser le connecteur Spark avec Azure SQL Database, Azure SQL Managed Instance et SQL Server.
 services: sql-database
-ms.service: sql-database
+ms.service: sql-db-mi
 ms.subservice: development
 ms.custom: sqldbrb=2
 ms.devlang: ''
@@ -11,19 +11,19 @@ author: denzilribeiro
 ms.author: denzilr
 ms.reviewer: carlrab
 ms.date: 09/25/2018
-ms.openlocfilehash: b2e042f2c3a7c6e1528ff96fb4fb96f392274855
-ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
+ms.openlocfilehash: cb7fb7f6c44f9e1c4a9b073c666543a2e892582a
+ms.sourcegitcommit: 93462ccb4dd178ec81115f50455fbad2fa1d79ce
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "84025680"
+ms.lasthandoff: 07/06/2020
+ms.locfileid: "85985497"
 ---
 # <a name="accelerate-real-time-big-data-analytics-using-the-spark-connector"></a>Accélérer l’analytique en temps réel du Big Data au moyen du connecteur Spark 
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
 
-Le connecteur Spark permet aux bases de données Azure SQL Database, Azure SQL Managed Instance et SQL Server de jouer le rôle de source de données d’entrée ou de récepteur de données de sortie pour les travaux Spark. Il vous permet d’utiliser des données transactionnelles en temps réel dans l’analytique du Big Data et de conserver les résultats pour des requêtes ad hoc ou des rapports. Par rapport au connecteur JDBC intégré, ce connecteur offre la possibilité d’insérer des données en bloc dans des bases de données Microsoft Azure SQL et SQL Server. Il peut donner de meilleurs résultats que l’insertion ligne par ligne et atteindre des performances entre 10 et 20 fois plus rapides. Le connecteur Spark prend en charge l’authentification AAD pour la connexion des bases de données Azure SQL. Il vous permet de vous connecter en toute sécurité à votre base de données Azure SQL depuis Azure Databricks à l’aide de votre compte AAD. Il fournit des interfaces similaires à celles du connecteur JDBC intégré. Effectuer la migration de vos travaux Spark existants pour utiliser ce nouveau connecteur est très simple.
+Le connecteur Spark permet aux bases de données dans Azure SQL Database, Azure SQL Managed Instance et SQL Server de jouer le rôle de source de données d’entrée ou de récepteur de données de sortie pour les travaux Spark. Il vous permet d’utiliser des données transactionnelles en temps réel dans l’analytique du Big Data et de conserver les résultats pour des requêtes ad hoc ou des rapports. Par rapport au connecteur JDBC intégré, ce connecteur offre la possibilité d’insérer des données en bloc dans votre base de données. Il peut donner de meilleurs résultats que l’insertion ligne par ligne et atteindre des performances entre 10 et 20 fois plus rapides. Le connecteur Spark prend en charge l’authentification Azure Active Directory (Azure AD) pour se connecter à Azure SQL Database et Azure SQL Managed Instance, ce qui vous permet de connecter votre base de données à partir d’Azure Databricks à l’aide de votre compte Azure AD. Il fournit des interfaces similaires à celles du connecteur JDBC intégré. Effectuer la migration de vos travaux Spark existants pour utiliser ce nouveau connecteur est très simple.
 
-## <a name="download-and-build-spark-connector"></a>Télécharger et créer un connecteur Spark
+## <a name="download-and-build-a-spark-connector"></a>Télécharger et créer un connecteur Spark
 
 Pour commencer, téléchargez le connecteur Spark depuis le [référentiel azure-sqldb-spark](https://github.com/Azure/azure-sqldb-spark) sur GitHub.
 
@@ -38,13 +38,13 @@ Pour commencer, téléchargez le connecteur Spark depuis le [référentiel azure
 | Azure SQL Database                    | Prise en charge                |
 | Azure SQL Managed Instance            | Prise en charge                |
 
-Le connecteur Spark utilise le Pilote JDBC Microsoft pour SQL Server pour déplacer des données entre les nœuds Worker Spark et les bases de données SQL :
+Le connecteur Spark utilise le Pilote JDBC Microsoft pour SQL Server afin de déplacer des données entre les nœuds Worker Spark et les bases de données :
 
 Le flux de données est le suivant :
 
-1. Le nœud maître Spark se connecte aux bases de données de bases de données Azure SQL ou SQL Server et charge les données à partir d’une table spécifique ou à l’aide d’une requête SQL spécifique
+1. Le nœud principal Spark se connecte à des bases de données dans SQL Database ou SQL Server et charge les données à partir d’une table spécifique ou à l’aide d’une requête SQL spécifique.
 2. Le nœud principal Spark distribue les données aux nœuds de rôle de travail à des fins de transformation.
-3. Le nœud Worker se connecte à une base de données Azure SQL ou SQL Server et écrit les données dans la base de données. L’utilisateur peut choisir d’utiliser l’insertion ligne par ligne ou l’insertion en bloc.
+3. Le nœud Worker se connecte aux bases de données qui se connectent à SQL Database ou SQL Server et écrit les données dans la base de données. L’utilisateur peut choisir d’utiliser l’insertion ligne par ligne ou l’insertion en bloc.
 
 Le diagramme suivant illustre le flux de données.
 
@@ -60,7 +60,7 @@ Actuellement, le projet de connecteur utilise maven. Pour créer le connecteur s
 
 ## <a name="connect-and-read-data-using-the-spark-connector"></a>Se connecter et lire des données à l’aide du connecteur Spark
 
-Vous pouvez vous connecter à une base de données Azure SQL ou SQL Server à partir d’un travail Spark, lire ou écrire des données. Vous pouvez également exécuter une requête DML ou DDL dans une base de données dans Azure SQL ou SQL Server.
+Vous pouvez vous connecter à des bases de données dans SQL Database et SQL Server à partir d’un travail Spark pour lire ou écrire des données. Vous pouvez également exécuter une requête DML ou DDL dans des bases de données dans SQL Database et SQL Server.
 
 ### <a name="read-data-from-azure-sql-and-sql-server"></a>Lire des données à partir d’Azure SQL et SQL Server
 
@@ -143,9 +143,9 @@ val config = Config(Map(
 sqlContext.sqlDBQuery(config)
 ```
 
-## <a name="connect-from-spark-to-azure-sql-using-aad-authentication"></a>Se connecter à partir de Spark à Azure SQL à l’aide de l’authentification AAD
+## <a name="connect-from-spark-using-azure-ad-authentication"></a>Se connecter à partir de Spark à l’aide de l’authentification Azure AD
 
-Vous pouvez vous connecter à Azure SQL à l’aide de l’authentification Azure Active Directory (AAD). Utilisez l’authentification AAD pour gérer de manière centralisée les identités des utilisateurs de base de données et comme alternative à l’authentification SQL Server.
+Vous pouvez vous connecter à Azure SQL Database et SQL Managed Instance à l’aide de l’authentification Azure AD. Utilisez l’authentification Azure AD pour gérer de manière centralisée les identités des utilisateurs de base de données et comme alternative à l’authentification SQL Server.
 
 ### <a name="connecting-using-activedirectorypassword-authentication-mode"></a>Connexion à l’aide du mode d’authentification ActiveDirectoryPassword
 
@@ -170,7 +170,7 @@ val collection = sqlContext.read.sqlDB(config)
 collection.show()
 ```
 
-### <a name="connecting-using-access-token"></a>Connexion à l’aide du jeton d’accès
+### <a name="connecting-using-an-access-token"></a>Connexion à l’aide d’un jeton d’accès
 
 #### <a name="setup-requirement"></a>Configuration requise
 
@@ -194,9 +194,9 @@ val collection = sqlContext.read.sqlDB(config)
 collection.show()
 ```
 
-## <a name="write-data-to-azure-sql-and-sql-server-using-bulk-insert"></a>Écrire des données dans Azure SQL et SQL Server en utilisant l’insertion en bloc
+## <a name="write-data-using-bulk-insert"></a>Écrire des données à l’aide de l’insertion en bloc
 
-Le connecteur JDBC traditionnel écrit des données dans Azure SQL et SQL Server en utilisant l’insertion ligne par ligne. Vous pouvez utiliser le connecteur Spark pour écrire des données dans Azure SQL et SQL Server en utilisant l’insertion en bloc. Ce connecteur améliore considérablement les performances d’écriture lors du chargement de grands jeux de données ou de données dans des tables où un index de banque des colonnes est utilisé.
+Le connecteur JDBC traditionnel écrit des données dans votre base de données en utilisant l’insertion ligne par ligne. Vous pouvez utiliser le connecteur Spark pour écrire des données dans Azure SQL et SQL Server en utilisant l’insertion en bloc. Ce connecteur améliore considérablement les performances d’écriture lors du chargement de grands jeux de données ou de données dans des tables où un index de banque des colonnes est utilisé.
 
 ```scala
 import com.microsoft.azure.sqldb.spark.bulkcopy.BulkCopyMetadata

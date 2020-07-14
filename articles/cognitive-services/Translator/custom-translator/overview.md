@@ -9,20 +9,20 @@ ms.subservice: translator-text
 ms.date: 05/26/2020
 ms.author: swmachan
 ms.topic: overview
-ms.openlocfilehash: a78e2cbc6f1e33f516912911e2038a0de3ff6b99
-ms.sourcegitcommit: fc718cc1078594819e8ed640b6ee4bef39e91f7f
+ms.openlocfilehash: d78767474150bc9571b25fe1f26135d6f41d1f20
+ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "83996939"
+ms.lasthandoff: 07/05/2020
+ms.locfileid: "85961232"
 ---
 # <a name="what-is-custom-translator"></a>Qu’est-ce que Custom Translator ?
 
-[Custom Translator](https://portal.customtranslator.azure.ai) est une fonctionnalité du service Microsoft Translator qui permet aux entreprises de traduction, aux développeurs d’applications et aux fournisseurs de services linguistiques de créer des systèmes de traduction automatique neuronaux (NMT) personnalisés. Les systèmes de traduction personnalisés s’intègrent de manière fluide aux applications, aux workflows et aux sites web existants. [Custom Translator](https://portal.customtranslator.azure.ai/) offre des fonctions similaires à celles de [Microsoft Translator Hub](https://hub.microsofttranslator.com/) pour la traduction automatique statistique (SMT), mais exclusivement pour les systèmes de traduction automatique neuronaux (NMT).
+[Custom Translator](https://portal.customtranslator.azure.ai) est une fonctionnalité du service Traducteur qui permet aux entreprises, aux développeurs d’applications et aux fournisseurs de services linguistiques de créer des systèmes de traduction automatique neuronaux (NMT) personnalisés. Les systèmes de traduction personnalisés s’intègrent de manière fluide aux applications, aux workflows et aux sites web existants. 
 
-Les systèmes de traduction créés avec [Custom Translator](https://portal.customtranslator.azure.ai) sont disponibles via la même [API de traduction de texte Translator Text V3](https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-translate?tabs=curl) cloud [sécurisée](https://cognitive.uservoice.com/knowledgebase/articles/1147537-api-and-customization-confidentiality) extrêmement performante et scalable de Microsoft qui génère des milliards de traductions tous les jours.
+Les systèmes de traduction créés avec [Custom Translator](https://portal.customtranslator.azure.ai) sont disponibles via le même [service Azure Cognitive Services Traducteur V3](https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-translate?tabs=curl) cloud [sécurisé](https://cognitive.uservoice.com/knowledgebase/articles/1147537-api-and-customization-confidentiality) extrêmement performant et scalable de Microsoft qui génère des milliards de traductions tous les jours.
 
-Custom Translator prend en charge plus de trente-six langues et mappe directement vers les langues disponibles pour les systèmes NMT. Pour une liste complète, consultez [Langues Microsoft Translator](https://docs.microsoft.com/azure/cognitive-services/translator/language-support#customization).
+Custom Translator prend en charge plus de trente-six langues et mappe directement vers les langues disponibles pour les systèmes NMT. Pour une liste complète, consultez [Langues Traducteur](https://docs.microsoft.com/azure/cognitive-services/translator/language-support#customization).
 
 ## <a name="features"></a>Fonctionnalités
 
@@ -38,7 +38,7 @@ Custom Translator offre différentes fonctionnalités pour créer un système de
 
 ## <a name="get-better-translations"></a>Obtenir de meilleures traductions
 
-Microsoft Translator a publié un service de [Traduction automatique neuronale (NTM)](https://www.microsoft.com/translator/blog/2016/11/15/microsoft-translator-launching-neural-network-based-translations-for-all-its-speech-languages/) en 2016. Le service NMT a présenté une avancée majeure en termes de qualité de traduction par rapport à la technologie standard de [traduction automatique statistique (SMT)](https://en.wikipedia.org/wiki/Statistical_machine_translation). Dans la mesure où le service NMT saisit mieux le contexte des phrases dans leur ensemble avant de les traduire, il offre de meilleures traductions dans un style plus naturel et plus fluide. [Custom Translator](https://portal.customtranslator.azure.ai) fournit le service NMT pour vos modèles personnalisés, ce qui donnera lieu à une amélioration de la qualité de traduction.
+Traducteur a publié un service de [Traduction automatique neuronale (NTM)](https://www.microsoft.com/translator/blog/2016/11/15/microsoft-translator-launching-neural-network-based-translations-for-all-its-speech-languages/) en 2016. Le service NMT a présenté une avancée majeure en termes de qualité de traduction par rapport à la technologie standard de [traduction automatique statistique (SMT)](https://en.wikipedia.org/wiki/Statistical_machine_translation). Dans la mesure où le service NMT saisit mieux le contexte des phrases dans leur ensemble avant de les traduire, il offre de meilleures traductions dans un style plus naturel et plus fluide. [Custom Translator](https://portal.customtranslator.azure.ai) fournit le service NMT pour vos modèles personnalisés, ce qui donnera lieu à une amélioration de la qualité de traduction.
 
 Vous pouvez utiliser des documents déjà traduits pour créer un système de traduction. Ces documents présentent un style et une terminologie spécifiques à un domaine, qui sont meilleurs qu’un système de traduction standard. Les utilisateurs peuvent charger des documents ALIGN, PDF, LCL, HTML, HTM, XLF, TMX, XLIFF, TXT, DOCX et XLSX.
 
@@ -58,7 +58,7 @@ Le coût d’utilisation d’un modèle personnalisé pour traduire du contenu v
 
 ## <a name="securely-translate-anytime-anywhere-on-all-your-apps-and-services"></a>Traduisez sans crainte où et quand vous voulez sur toutes vos applications et tous vos services
 
-Des systèmes personnalisés peuvent être accessibles et intégrés de manière fluide à n’importe quel produit ou workflow métier et sur n’importe quel appareil, par le biais de Translator et d’une technologie REST standard.
+Des systèmes personnalisés peuvent être accessibles et intégrés de manière fluide à n’importe quel produit ou workflow métier et sur n’importe quel appareil, par le biais de Traducteur et d’une technologie REST standard.
 
 ## <a name="next-steps"></a>Étapes suivantes
 

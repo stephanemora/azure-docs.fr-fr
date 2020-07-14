@@ -1,5 +1,5 @@
 ---
-title: 'Tutoriel : Créer une application à page unique Recherche de vidéos Bing'
+title: 'Tutoriel : Générer une application monopage pour la recherche de vidéos Bing'
 titleSuffix: Azure Cognitive Services
 description: Ce tutoriel explique comment utiliser l’API Recherche de vidéos Bing dans une application web monopage.
 services: cognitive-services
@@ -10,14 +10,14 @@ ms.subservice: bing-video-search
 ms.topic: tutorial
 ms.date: 02/03/2020
 ms.author: aahi
-ms.openlocfilehash: fb989825ed27cc83c14c36e6394e37ae2db2c12a
-ms.sourcegitcommit: 9ee0cbaf3a67f9c7442b79f5ae2e97a4dfc8227b
+ms.openlocfilehash: c6e36bdbb3d58878e6afa28610ab2b214f47de20
+ms.sourcegitcommit: a989fb89cc5172ddd825556e45359bac15893ab7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "76988258"
+ms.lasthandoff: 07/01/2020
+ms.locfileid: "85800723"
 ---
-# <a name="tutorial-single-page-video-search-app"></a>Didacticiel : Application à page unique Recherche de vidéos
+# <a name="tutorial-single-page-video-search-app"></a>Tutoriel : Application monopage pour la recherche de vidéos
 L’API Recherche de vidéos Bing vous permet de parcourir le web et d’obtenir des résultats de vidéos relatifs à une requête de recherche. Dans ce didacticiel, nous allons générer une application web à page unique qui utilise l’API Recherche de vidéos Bing pour afficher les résultats de la recherche sur la page. L’application inclut des composants HTML, CSS et JavaScript.
 
 <!-- Remove until it can be replaced with a sanitized version.
@@ -393,15 +393,18 @@ Les stratégies de sécurité de navigateur (CORS) peuvent rendre l’en-tête `
 
 Il est facile d’installer un proxy CORS pour autoriser l’application du didacticiel à accéder à l’en-tête d’ID client. Tout d’abord, [installez Node.js](https://nodejs.org/en/download/) si ce n’est pas déjà fait. Exécutez alors la commande suivante dans une fenêtre de commande :
 
-    npm install -g cors-proxy-server
+```console
+npm install -g cors-proxy-server
+```
 
-Ensuite, remplacez le point de terminaison Recherche Web Bing dans le fichier HTML par :
-
-    http://localhost:9090/https://api.cognitive.microsoft.com/bing/v7.0/search
+Ensuite, remplacez le point de terminaison Recherche Web Bing dans le fichier HTML par : \
+`http://localhost:9090/https://api.cognitive.microsoft.com/bing/v7.0/search`
 
 Enfin, lancez le proxy CORS avec la commande suivante :
 
-    cors-proxy-server
+```console
+cors-proxy-server
+```
 
 Laissez la fenêtre de commande ouverte pendant que vous utilisez l’application du tutoriel ; si vous fermez la fenêtre, le proxy s’arrête. Dans la section des en-têtes HTTP (qui peut être développée) sous les résultats de la recherche, vous pouvez maintenant voir l’en-tête `X-MSEdge-ClientID` (entre autres) et vérifier qu’il est identique pour toutes les requêtes.
 

@@ -7,12 +7,12 @@ ms.service: cost-management-billing
 ms.topic: conceptual
 ms.date: 06/11/2020
 ms.author: banders
-ms.openlocfilehash: 379f7a0ef60020566de9edfcafb0809d1955cac8
-ms.sourcegitcommit: 4ac596f284a239a9b3d8ed42f89ed546290f4128
+ms.openlocfilehash: cd6e075448c68b6d2c65832d128e14c016c69c7c
+ms.sourcegitcommit: 32592ba24c93aa9249f9bd1193ff157235f66d7e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/12/2020
-ms.locfileid: "84752138"
+ms.lasthandoff: 07/01/2020
+ms.locfileid: "85601409"
 ---
 # <a name="get-billing-ownership-of-azure-subscriptions-to-your-mpa-account"></a>Obtenir la propriété de facturation des abonnements Azure associés à votre compte MPA
 
@@ -22,7 +22,7 @@ Cette fonctionnalité est disponible uniquement pour les partenaires CSP à fact
 
 Pour demander la propriété de facturation, vous devez avoir le rôle **Administrateur général** ou **Agents d’administration**. Pour plus d’informations, consultez [Espace partenaires - Affecter des rôles et des autorisations aux utilisateurs](https://docs.microsoft.com/partner-center/permissions-overview).
 
-Cet article concerne les comptes de facturation associés aux Contrats Partenaire Microsoft. Ces comptes sont créés pour permettre aux fournisseurs de solutions Cloud (ou CSP) de gérer la facturation de leurs clients dans la nouvelle expérience de commerce. La nouvelle expérience est disponible uniquement pour les partenaires ayant au moins un client qui a accepté un Contrat Client Microsoft (MCA) et qui possède un plan Azure. [Vérifiez si vous avez accès à un Contrat Partenaire Microsoft](#check-access-to-a-microsoft-partner-agreement).
+Cet article concerne les comptes de facturation associés aux Contrats Partenaire Microsoft. Ces comptes sont créés pour permettre aux fournisseurs de solutions Cloud (ou CSP) de gérer la facturation de leurs clients dans la nouvelle expérience de commerce. La nouvelle expérience est disponible uniquement pour les partenaires ayant au moins un client qui a accepté un Contrat client Microsoft (MCA) et qui possède un plan Azure. [Vérifiez si vous avez accès à un Contrat Partenaire Microsoft](#check-access-to-a-microsoft-partner-agreement).
 
 ## <a name="prerequisites"></a>Prérequis
 

@@ -1,23 +1,23 @@
 ---
-title: Utilisation des boucles T-SQL
+title: Utiliser des boucles T-SQL
 description: Conseils pour utiliser des boucles T-SQL, remplacer des curseurs et développer des solutions connexes avec un pool SQL dans SQL Synapse.
 services: synapse-analytics
 author: filippopovic
 manager: craigg
 ms.service: synapse-analytics
 ms.topic: conceptual
-ms.subservice: ''
+ms.subservice: sql
 ms.date: 04/15/2020
 ms.author: fipopovi
 ms.reviewer: jrasnick
-ms.openlocfilehash: baff2806b1a8c3c99546365c2496238c24b2b243
-ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
+ms.openlocfilehash: ec15f87bdbf381b71faa7cefd986dd5e55e17a19
+ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "81427053"
+ms.lasthandoff: 07/05/2020
+ms.locfileid: "85964989"
 ---
-# <a name="using-t-sql-loops-in-synapse-sql"></a>Utilisation de boucles T-SQL dans SQL Synapse
+# <a name="use-t-sql-loops-in-synapse-sql"></a>Utiliser des boucles T-SQL dans SQL Synapse
 Cet article vous fournit des conseils essentiels pour l’utilisation de boucles T-SQL, le remplacement de curseurs et le développement de solutions connexes avec un pool SQL dans SQL Synapse.
 
 ## <a name="purpose-of-while-loops"></a>Objectif des boucles WHILE

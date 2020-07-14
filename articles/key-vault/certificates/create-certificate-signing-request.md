@@ -10,16 +10,16 @@ ms.subservice: certificates
 ms.topic: tutorial
 ms.date: 06/17/2020
 ms.author: sebansal
-ms.openlocfilehash: 9772ea320ff28325ffdc8cdcb6e35947b182d1b3
-ms.sourcegitcommit: 971a3a63cf7da95f19808964ea9a2ccb60990f64
+ms.openlocfilehash: ae2d6259bac6a2034edc98de9b0405f32f17fbc3
+ms.sourcegitcommit: cec9676ec235ff798d2a5cad6ee45f98a421837b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/19/2020
-ms.locfileid: "85095318"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85849491"
 ---
 # <a name="creating-and-merging-csr-in-key-vault"></a>Création et fusion d’une demande de signature de certificat dans Key Vault
 
-Azure Key Vault prend en charge la création de la demande de signature de certificat avec une paire de clés publique/privée et sa signature par l’autorité de certification de votre choix. Il peut s’agir d’une autorité de certification interne de l’entreprise ou d’une autorité de certification publique externe. Une demande de signature de certificat (également appelée CSR ou demande de certification) est un message envoyé par l’utilisateur à une autorité de certification afin de demander l’émission d’un certificat numérique.
+Azure Key Vault prend en charge le stockage d’un certificat numérique émis par toute autorité de certification de votre choix dans votre coffre de clés. Il prend en charge la création de la demande de signature de certificat avec une paire de clés publique/privée pouvant être signée par toute autorité de certification de votre choix. Il peut s’agir d’une autorité de certification interne de l’entreprise ou d’une autorité de certification publique externe. Une demande de signature de certificat (également appelée CSR ou demande de certification) est un message envoyé par l’utilisateur à une autorité de certification afin de demander l’émission d’un certificat numérique.
 
 Pour plus d’informations générales sur les certificats, consultez [Certificats Azure Key Vault](/azure/key-vault/certificates/about-certificates).
 

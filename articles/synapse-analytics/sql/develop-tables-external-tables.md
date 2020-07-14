@@ -9,12 +9,12 @@ ms.subservice: ''
 ms.date: 05/07/2020
 ms.author: jrasnick
 ms.reviewer: jrasnick
-ms.openlocfilehash: bf014c7188232f07a399cc3e438d1d894c96a233
-ms.sourcegitcommit: 595cde417684e3672e36f09fd4691fb6aa739733
+ms.openlocfilehash: 7c795e6077bc5a7b755a388a6f50848ad6094d48
+ms.sourcegitcommit: dee7b84104741ddf74b660c3c0a291adf11ed349
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/20/2020
-ms.locfileid: "83701441"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85921805"
 ---
 # <a name="use-external-tables-with-synapse-sql"></a>Utiliser des tables externes avec Synapse SQL
 
@@ -96,13 +96,17 @@ data_source_name
 Spécifie le nom défini par l’utilisateur de la source de données. Le nom doit être unique au sein de la base de données.
 
 #### <a name="location"></a>Emplacement
-LOCATION = `'<prefix>://<path>'`   - Fournit le protocole de connectivité et le chemin de la source de données externe. Le chemin peut inclure un conteneur au format `'<prefix>://<path>/container'` et un dossier au format `'<prefix>://<path>/container/folder'`.
+LOCATION = `'<prefix>://<path>'`   - Fournit le protocole de connectivité et le chemin de la source de données externe. Les modèles suivants peuvent être utilisés dans l’emplacement :
 
 | Source de données externe        | Préfixe de l’emplacement | Chemin d’emplacement                                         |
 | --------------------------- | --------------- | ----------------------------------------------------- |
 | Stockage Blob Azure          | `wasb[s]`       | `<container>@<storage_account>.blob.core.windows.net` |
+|                             | `https`         | `<storage_account>.blob.core.windows.net/<container>/subfolders` |
 | Azure Data Lake Store Gén. 1 | `adl`           | `<storage_account>.azuredatalake.net`                 |
 | Azure Data Lake Store Gén. 2 | `abfs[s]`       | `<container>@<storage_account>.dfs.core.windows.net`  |
+|                             | `https`         | `<storage_account>.dfs.core.windows.net/<container>/subfolders`  |
+
+Le préfixe `https:` vous permet d’utiliser un sous-dossier dans le chemin.
 
 #### <a name="credential"></a>Informations d'identification
 CREDENTIAL = `<database scoped credential>` est une information d’identification facultative qui sera utilisée pour l’authentification sur le stockage Azure. Une source de données externe dépourvue d’informations d’identification peut accéder au compte de stockage public. 
@@ -124,7 +128,7 @@ L’exemple suivant crée une source de données externe pour Azure Data Lake Ge
 CREATE EXTERNAL DATA SOURCE AzureDataLakeStore
 WITH
   -- Please note the abfss endpoint when your account has secure transfer enabled
-  ( LOCATION = 'abfss://newyorktaxidataset.azuredatalakestore.net' ,
+  ( LOCATION = 'abfss://data@newyorktaxidataset.dfs.core.windows.net' ,
     CREDENTIAL = ADLS_credential ,
     TYPE = HADOOP
   ) ;

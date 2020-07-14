@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.date: 11/05/2019
 ms.reviewer: sngun
 ms.custom: tracking-python
-ms.openlocfilehash: d50217bed3850f0e9021dda4bf1b577d006839d1
-ms.sourcegitcommit: f01c2142af7e90679f4c6b60d03ea16b4abf1b97
+ms.openlocfilehash: 15f5ac1da6d24feceed3a9106b990ae31e3571e3
+ms.sourcegitcommit: cec9676ec235ff798d2a5cad6ee45f98a421837b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/10/2020
-ms.locfileid: "84674480"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85851609"
 ---
 # <a name="tutorial-set-up-azure-cosmos-db-global-distribution-using-the-sql-api"></a>Tutoriel : Configuration de la distribution mondiale Azure Cosmos DB à l’aide de l’API SQL
 
@@ -104,7 +104,6 @@ const client = new CosmosClient{ endpoint, key, connectionPolicy: { preferredLoc
 Le code suivant montre comment définir des emplacements préférés à l’aide du SDK Python :
 
 ```python
-
 connectionPolicy = documents.ConnectionPolicy()
 connectionPolicy.PreferredLocations = ['West US', 'East US', 'North Europe']
 client = cosmos_client.CosmosClient(ENDPOINT, {'masterKey': MASTER_KEY}, connectionPolicy)
@@ -130,44 +129,44 @@ Le code suivant montre comment définir des emplacements préférés à l’aide
 --- 
 
 ## <a name="rest"></a>REST
-Une fois qu’un compte de base de données est mis à disposition dans plusieurs régions, les clients peuvent interroger sa disponibilité en exécutant une requête GET sur l’URI suivant.
 
-    https://{databaseaccount}.documents.azure.com/
+Une fois qu’un compte de base de données est mis à disposition dans plusieurs régions, les clients peuvent interroger sa disponibilité en exécutant une requête GET sur l’URI `https://{databaseaccount}.documents.azure.com/`
 
 Le service renvoie une liste des régions et leurs URI de points de terminaison Azure Cosmos DB correspondants pour les réplicas. La région d’écriture en cours est indiquée dans la réponse. Le client peut ensuite sélectionner le point de terminaison approprié pour toutes les autres requêtes d’API REST, comme suit.
 
 Exemple de réponse
 
-    {
-        "_dbs": "//dbs/",
-        "media": "//media/",
-        "writableLocations": [
-            {
-                "Name": "West US",
-                "DatabaseAccountEndpoint": "https://globaldbexample-westus.documents.azure.com:443/"
-            }
-        ],
-        "readableLocations": [
-            {
-                "Name": "East US",
-                "DatabaseAccountEndpoint": "https://globaldbexample-eastus.documents.azure.com:443/"
-            }
-        ],
-        "MaxMediaStorageUsageInMB": 2048,
-        "MediaStorageUsageInMB": 0,
-        "ConsistencyPolicy": {
-            "defaultConsistencyLevel": "Session",
-            "maxStalenessPrefix": 100,
-            "maxIntervalInSeconds": 5
-        },
-        "addresses": "//addresses/",
-        "id": "globaldbexample",
-        "_rid": "globaldbexample.documents.azure.com",
-        "_self": "",
-        "_ts": 0,
-        "_etag": null
-    }
-
+```json
+{
+    "_dbs": "//dbs/",
+    "media": "//media/",
+    "writableLocations": [
+        {
+            "Name": "West US",
+            "DatabaseAccountEndpoint": "https://globaldbexample-westus.documents.azure.com:443/"
+        }
+    ],
+    "readableLocations": [
+        {
+            "Name": "East US",
+            "DatabaseAccountEndpoint": "https://globaldbexample-eastus.documents.azure.com:443/"
+        }
+    ],
+    "MaxMediaStorageUsageInMB": 2048,
+    "MediaStorageUsageInMB": 0,
+    "ConsistencyPolicy": {
+        "defaultConsistencyLevel": "Session",
+        "maxStalenessPrefix": 100,
+        "maxIntervalInSeconds": 5
+    },
+    "addresses": "//addresses/",
+    "id": "globaldbexample",
+    "_rid": "globaldbexample.documents.azure.com",
+    "_self": "",
+    "_ts": 0,
+    "_etag": null
+}
+```
 
 * Les requêtes PUT, POST et DELETE doivent accéder à l’URI d’écriture indiqué
 * Toutes les requêtes GET et autres demandes en lecture seule (par ex., Requêtes) peuvent accéder à n’importe quel point de terminaison choisi par le client

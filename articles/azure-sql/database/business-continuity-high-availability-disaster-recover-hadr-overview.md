@@ -4,7 +4,7 @@ titleSuffix: Azure SQL Database & SQL Managed Instance
 description: Découvrez comment Azure SQL Database et SQL Managed Instance prennent en charge la continuité de l’activité cloud et la récupération de base de données et vous aident à maintenir les applications cloud stratégiques en cours d’exécution.
 keywords: continuité des activités, continuité des activités cloud, récupération d’urgence de base de données, récupération de base de données
 services: sql-database
-ms.service: sql-database
+ms.service: sql-db-mi
 ms.subservice: high-availability
 ms.custom: sqldbrb=2
 ms.devlang: ''
@@ -13,12 +13,12 @@ author: anosov1960
 ms.author: sashan
 ms.reviewer: mathoma, carlrab
 ms.date: 06/25/2019
-ms.openlocfilehash: 8312fe1370ded990bd3523d531d168fd2cac5564
-ms.sourcegitcommit: 1f48ad3c83467a6ffac4e23093ef288fea592eb5
+ms.openlocfilehash: 8ceef173e33c3603d9bc5d6ef217d54eef88609c
+ms.sourcegitcommit: 93462ccb4dd178ec81115f50455fbad2fa1d79ce
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/29/2020
-ms.locfileid: "84189759"
+ms.lasthandoff: 07/06/2020
+ms.locfileid: "85982470"
 ---
 # <a name="overview-of-business-continuity-with-azure-sql-database"></a>Vue d’ensemble de la continuité de l’activité avec la base de données Azure SQL
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
@@ -42,14 +42,14 @@ Du point de vue de la base de données, il existe quatre scénarios d’interrup
 
 Pour atténuer les défaillances matérielles et logicielles locales, SQL Database inclut une [architecture haute disponibilité](high-availability-sla.md) qui garantit une récupération automatique de ces défaillances jusqu’à une disponibilité SLA de 99,995 %.  
 
-Pour protéger votre entreprise contre la perte de données, SQL Database et SQL Managed Instance créent automatiquement des sauvegardes de bases de données complètes (toutes les semaines), des sauvegardes de bases de données différentielles (toutes les 12 heures) et des sauvegardes de fichiers journaux (toutes les 5 à 10 minutes). Les sauvegardes sont stockées dans le stockage RA-GRS pendant au moins 7 jours pour tous les niveaux de service. Tous les niveaux de service, à l’exception du support De base, prennent en charge une période de conservation des sauvegardes configurable pour la restauration dans le temps jusqu’à 35 jours.
+Pour protéger votre entreprise contre la perte de données, SQL Database et SQL Managed Instance créent automatiquement des sauvegardes de bases de données complètes (toutes les semaines), des sauvegardes de bases de données différentielles (toutes les 12 heures) et des sauvegardes de fichiers journaux (toutes les 5 à 10 minutes). Les sauvegardes sont stockées dans le stockage RA-GRS pendant au moins 7 jours pour tous les niveaux de service. Tous les niveaux de service, à l’exception du support De base, prennent en charge une période de rétention des sauvegardes configurable pour la restauration dans le temps jusqu’à 35 jours.
 
 SQL Database et SQL Managed Instance fournissent également plusieurs fonctionnalités de continuité de l’activité que vous pouvez utiliser pour atténuer différents scénarios non planifiés.
 
 - Les [tables temporelles](../temporal-tables.md) vous permettent de restaurer des versions de ligne à partir de n’importe quel point dans le temps.
-- Les [sauvegardes automatisées intégrées](automated-backups-overview.md) et la [limite de restauration dans le temps](recovery-using-backups.md#point-in-time-restore) vous permettent de restaurer l’ensemble de la base de données selon un moment donné au cours de la période de conservation configurée jusqu’à 35 jours.
+- Les [sauvegardes automatisées intégrées](automated-backups-overview.md) et la [limite de restauration dans le temps](recovery-using-backups.md#point-in-time-restore) vous permettent de restaurer l’ensemble de la base de données selon un moment donné au cours de la période de rétention configurée jusqu’à 35 jours.
 - Vous pouvez [restaurer une base de données supprimée](recovery-using-backups.md#deleted-database-restore) au point où sa suppression s’est produite si le **serveur n’a pas été supprimé**.
-- La [conservation des sauvegardes à long terme](long-term-retention-overview.md) vous permet de conserver les sauvegardes sur une période allant jusqu’à 10 ans. Cette fonctionnalité est en préversion publique limitée pour SQL Managed Instance.
+- La [rétention des sauvegardes à long terme](long-term-retention-overview.md) vous permet de conserver les sauvegardes sur une période allant jusqu’à 10 ans. Cette fonctionnalité est en préversion publique limitée pour SQL Managed Instance.
 - La [géoréplication active](active-geo-replication-overview.md) vous permet de créer des réplicas lisibles et d’effectuer un basculement manuel vers n’importe quel réplica en cas de panne de centre de données ou de mise à niveau d’application.
 - Le [groupe de basculement automatique](auto-failover-group-overview.md#terminology-and-capabilities) permet à l’application d’effectuer automatiquement une récupération en cas de panne de centre de données.
 
@@ -57,7 +57,7 @@ SQL Database et SQL Managed Instance fournissent également plusieurs fonctionna
 
 Vous pouvez utiliser des sauvegardes de base de données automatiques pour restaurer une base de données à un point dans le temps passé. Vous pouvez ainsi récupérer suite à des altérations de données dues à des erreurs humaines. La restauration dans le temps vous permet de créer une nouvelle base de données sur le même serveur qui représente l’état des données avant l’événement de corruption. Pour la plupart des bases de données, les opérations de restauration prennent moins de 12 heures. La récupération d’une base de données très volumineuse ou très active peut prendre plus de temps. Pour plus d’informations sur le temps de récupération, voir [Temps de récupération de la base de données](recovery-using-backups.md#recovery-time).
 
-Si la période maximale de conservation de base de données prise en charge associée à la limite de restauration dans le temps n’est pas suffisante pour votre application, vous pouvez la rallonger en configurant une stratégie de conservation à long terme (LTR) pour les bases de données. Pour plus d’informations, consultez [Conservation des sauvegardes à long terme](long-term-retention-overview.md).
+Si la période maximale de rétention de base de données prise en charge associée à la limite de restauration dans le temps n’est pas suffisante pour votre application, vous pouvez la rallonger en configurant une stratégie de conservation à long terme (LTR) pour les bases de données. Pour plus d’informations, consultez [Conservation des sauvegardes à long terme](long-term-retention-overview.md).
 
 ## <a name="compare-geo-replication-with-failover-groups"></a>Comparer la géoréplication et des groupes de basculement
 
@@ -65,14 +65,14 @@ Les [groupes de basculement automatique](auto-failover-group-overview.md#termino
 
 |                                              | Géoréplication | Groupes de basculement  |
 |:---------------------------------------------| :-------------- | :----------------|
-| Basculement automatique                           |     Non          |      Oui         |
-| Basculement simultanément de plusieurs bases de données  |     Non          |      Oui         |
-| L'utilisateur doit mettre à jour la chaîne de connexion après le basculement      |     Oui         |      Non          |
-| Prise en charge de SQL Managed Instance                   |     Non          |      Oui         |
-| Peut être dans la même région que l’élément principal             |     Oui         |      Non          |
-| Réplicas multiples                            |     Oui         |      Non          |
-| Prise en charge de l’échelle lecture                          |     Oui         |      Oui         |
-| &nbsp; | &nbsp; | &nbsp; |
+| **Basculement automatique**                          |     Non          |      Oui         |
+| **Basculement simultanément de plusieurs bases de données**  |     Non          |      Oui         |
+| **L'utilisateur doit mettre à jour la chaîne de connexion après le basculement**      |     Oui         |      Non          |
+| **Prise en charge de SQL Managed Instance**                   |     Non          |      Oui         |
+| **Peut être dans la même région que l’élément principal**             |     Oui         |      Non          |
+| **Réplicas multiples**                            |     Oui         |      Non          |
+| **Prise en charge de l’échelle lecture**                          |     Oui         |      Oui         |
+
 
 ## <a name="recover-a-database-to-the-existing-server"></a>Récupération d’une base de données sur le serveur existant
 

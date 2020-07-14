@@ -1,6 +1,6 @@
 ---
 title: 'Tutoriel : Exécuter un playbook dans Azure Sentinel'
-description: 'Tutoriel : Cet article décrit comment exécuter un playbook dans Azure Sentinel.'
+description: Utilisez ce tutoriel pour vous aider à utiliser des playbooks de sécurité dans Azure Sentinel, afin de définir des réponses automatisées aux menaces liées aux problèmes de sécurité.
 services: sentinel
 documentationcenter: na
 author: yelevin
@@ -16,12 +16,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 02/18/2019
 ms.author: yelevin
-ms.openlocfilehash: f6adcb978dbe540d3bdd352089d4dde407d0fb4c
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: 5bc6ca30b9dff3686b16fe5237f815f16f849e9e
+ms.sourcegitcommit: 73ac360f37053a3321e8be23236b32d4f8fb30cf
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "77585082"
+ms.lasthandoff: 06/30/2020
+ms.locfileid: "85558477"
 ---
 # <a name="tutorial-set-up-automated-threat-responses-in-azure-sentinel"></a>Tutoriel : Configurer des réponses automatisées aux menaces dans Azure Sentinel
 

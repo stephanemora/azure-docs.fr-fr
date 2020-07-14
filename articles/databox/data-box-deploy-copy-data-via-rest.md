@@ -1,5 +1,5 @@
 ---
-title: 'Tutoriel : Utiliser des API REST pour copier dans le stockage d’objets blob'
+title: 'Tutoriel : Copier dans le Stockage Blob par le biais des API REST'
 titleSuffix: Azure Data Box
 description: Découvrez comment copier des données dans votre stockage Blob Azure Data Box par le biais des API REST.
 services: databox
@@ -7,16 +7,16 @@ author: alkohli
 ms.service: databox
 ms.subservice: pod
 ms.topic: tutorial
-ms.date: 05/09/2019
+ms.date: 07/02/2020
 ms.author: alkohli
-ms.openlocfilehash: aa59d2dea4456b977afee92103fa66d6afe9bf31
-ms.sourcegitcommit: 12f23307f8fedc02cd6f736121a2a9cea72e9454
+ms.openlocfilehash: 50c4daabe3dc980937f52db7e56cd778890b84d8
+ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/30/2020
-ms.locfileid: "84219135"
+ms.lasthandoff: 07/05/2020
+ms.locfileid: "85960676"
 ---
-# <a name="tutorial-copy-data-to-azure-data-box-blob-storage-via-rest-apis"></a>Tutoriel : Copier des données vers le stockage Blob Azure Data Box par le biais des API REST  
+# <a name="tutorial-use-rest-apis-to-copy-data-to-azure-data-box-blob-storage"></a>Tutoriel : Utiliser les API REST pour copier des données vers le stockage Blob Azure Data Box  
 
 Ce tutoriel explique comment se connecter au stockage Blob Azure Data Box par le biais des API REST sur *http* ou *https*. Une fois connecté, les étapes nécessaires pour copier les données dans le stockage Blob Data Box et préparer la Data Box pour l’expédition sont également décrites.
 
@@ -186,15 +186,19 @@ Utilisez AzCopy pour charger tous les fichiers d’un dossier dans le stockage B
 
 #### <a name="linux"></a>Linux
 
-    azcopy \
-        --source /mnt/myfolder \
-        --destination https://data-box-storage-account-name.blob.device-serial-no.microsoftdatabox.com/container-name/files/ \
-        --dest-key <key> \
-        --recursive
+```azcopy
+azcopy \
+    --source /mnt/myfolder \
+    --destination https://data-box-storage-account-name.blob.device-serial-no.microsoftdatabox.com/container-name/files/ \
+    --dest-key <key> \
+    --recursive
+```
 
 #### <a name="windows"></a>Windows
 
-    AzCopy /Source:C:\myfolder /Dest:https://data-box-storage-account-name.blob.device-serial-no.microsoftdatabox.com/container-name/files/ /DestKey:<key> /S
+```azcopy
+AzCopy /Source:C:\myfolder /Dest:https://data-box-storage-account-name.blob.device-serial-no.microsoftdatabox.com/container-name/files/ /DestKey:<key> /S
+```
 
 Remplacez `<key>` par votre clé de compte. Pour obtenir votre clé de compte, dans le portail Azure, accédez à votre compte de stockage. Accédez à **Paramètres > Clés d’accès**, sélectionnez une clé, puis collez-la dans la commande AzCopy.
 
@@ -209,16 +213,21 @@ Utilisez AzCopy pour charger des fichiers en fonction de l’heure de leur derni
 Si vous souhaitez copier uniquement les ressources de code source qui n’existent pas dans la destination, spécifiez les deux paramètres `--exclude-older` et `--exclude-newer` (Linux) ou les deux paramètres `/XO` et `/XN` (Windows) dans la commande AzCopy. AzCopy charge uniquement les données mises à jour, en se basant sur leur horodatage.
 
 #### <a name="linux"></a>Linux
-    azcopy \
-    --source /mnt/myfolder \
-    --destination https://data-box-storage-account-name.blob.device-serial-no.microsoftdatabox.com/container-name/files/ \
-    --dest-key <key> \
-    --recursive \
-    --exclude-older
+
+```azcopy
+azcopy \
+--source /mnt/myfolder \
+--destination https://data-box-storage-account-name.blob.device-serial-no.microsoftdatabox.com/container-name/files/ \
+--dest-key <key> \
+--recursive \
+--exclude-older
+```
 
 #### <a name="windows"></a>Windows
 
-    AzCopy /Source:C:\myfolder /Dest:https://data-box-storage-account-name.blob.device-serial-no.microsoftdatabox.com/container-name/files/ /DestKey:<key> /S /XO
+```azcopy
+AzCopy /Source:C:\myfolder /Dest:https://data-box-storage-account-name.blob.device-serial-no.microsoftdatabox.com/container-name/files/ /DestKey:<key> /S /XO
+```
 
 S’il existe des erreurs pendant l’opération de copie ou de connexion, consultez [Résoudre les problèmes avec le Stockage Blob Data Box](data-box-troubleshoot-rest.md).
 

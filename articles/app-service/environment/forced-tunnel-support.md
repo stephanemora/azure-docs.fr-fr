@@ -7,12 +7,12 @@ ms.topic: quickstart
 ms.date: 05/29/2018
 ms.author: ccompy
 ms.custom: mvc, seodec18
-ms.openlocfilehash: 3334a19b1ba0e3949ab2670c5d2f70d3bcd02fe8
-ms.sourcegitcommit: 7d8158fcdcc25107dfda98a355bf4ee6343c0f5c
+ms.openlocfilehash: 6dc002b0ed9e68ea15eaa58c226249837c7df32d
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/09/2020
-ms.locfileid: "80983908"
+ms.lasthandoff: 07/01/2020
+ms.locfileid: "85830857"
 ---
 # <a name="configure-your-app-service-environment-with-forced-tunneling"></a>Configurer votre environnement App Service avec le tunneling forcé
 
@@ -95,35 +95,39 @@ Pour tunneliser tout le trafic sortant à partir de votre ASE, à l’exception 
 
 3. Recherchez les adresses qui seront utilisées pour tout le trafic sortant de votre environnement App Service vers Internet. Si vous effectuez un tunneling forcé, il s’agit de vos adresses NAT ou adresses IP de passerelle. Si vous voulez acheminer le trafic sortant de l’environnement App Service via une appliance virtuelle réseau, l’adresse de sortie est l’adresse IP publique de l’appliance.
 
-4. _Pour définir les adresses de sortie dans une instance App Service Environment existante :_ accédez à resources.azure.com, puis à Subscription/\<subscription id>/resourceGroups/\<ase resource group>/providers/Microsoft.Web/hostingEnvironments/\<ase name>. Vous voyez ainsi le code JSON qui décrit votre environnement App Service. Vérifiez que la mention **read/write** apparaît au début. Sélectionnez **Modifier**. Faites défiler vers le bas. Modifiez la valeur **userWhitelistedIpRanges** **null** en quelque chose qui ressemble à ce qui suit. Utiliser les adresses que vous souhaitez définir en tant que plage d’adresses de sortie. 
+4. _Pour définir les adresses de sortie dans une instance App Service Environment existante :_ Accédez à resources.azure.com, puis à Subscription/\<subscription id>/resourceGroups/\<ase resource group>/providers/Microsoft.Web/hostingEnvironments/\<ase name>. Vous voyez ainsi le code JSON qui décrit votre environnement App Service. Vérifiez que la mention **read/write** apparaît au début. Sélectionnez **Modifier**. Faites défiler vers le bas. Modifiez la valeur **userWhitelistedIpRanges** **null** en quelque chose qui ressemble à ce qui suit. Utiliser les adresses que vous souhaitez définir en tant que plage d’adresses de sortie. 
 
-        "userWhitelistedIpRanges": ["11.22.33.44/32", "55.66.77.0/24"] 
+    ```json
+    "userWhitelistedIpRanges": ["11.22.33.44/32", "55.66.77.0/24"]
+    ```
 
    Sélectionnez **PUT** (Placer) en haut. Cette option déclenche une opération de mise à l’échelle de votre environnement App Service et ajuste le pare-feu.
 
 _Pour créer votre ASE avec les adresses de sortie_ : suivez les instructions données dans [Créer un ASE à l’aide d’un modèle][template] et tirez (pull) le modèle approprié.  Modifiez la section « resources » dans le fichier azuredeploy.json, mais pas dans le bloc « properties », et incluez une ligne pour **userWhitelistedIpRanges** avec vos valeurs.
 
-    "resources": [
-      {
+```json
+"resources": [
+    {
         "apiVersion": "2015-08-01",
         "type": "Microsoft.Web/hostingEnvironments",
         "name": "[parameters('aseName')]",
         "kind": "ASEV2",
         "location": "[parameters('aseLocation')]",
         "properties": {
-          "name": "[parameters('aseName')]",
-          "location": "[parameters('aseLocation')]",
-          "ipSslAddressCount": 0,
-          "internalLoadBalancingMode": "[parameters('internalLoadBalancingMode')]",
-          "dnsSuffix" : "[parameters('dnsSuffix')]",
-          "virtualNetwork": {
-            "Id": "[parameters('existingVnetResourceId')]",
-            "Subnet": "[parameters('subnetName')]"
-          },
-        "userWhitelistedIpRanges":  ["11.22.33.44/32", "55.66.77.0/30"]
+            "name": "[parameters('aseName')]",
+            "location": "[parameters('aseLocation')]",
+            "ipSslAddressCount": 0,
+            "internalLoadBalancingMode": "[parameters('internalLoadBalancingMode')]",
+            "dnsSuffix" : "[parameters('dnsSuffix')]",
+            "virtualNetwork": {
+                "Id": "[parameters('existingVnetResourceId')]",
+                "Subnet": "[parameters('subnetName')]"
+            },
+            "userWhitelistedIpRanges":  ["11.22.33.44/32", "55.66.77.0/30"]
         }
-      }
-    ]
+    }
+]
+```
 
 Ces modifications envoient le trafic directement vers Stockage Azure à partir de l’ASE et autorisent l’accès à Azure SQL à partir des adresses supplémentaires autres que l’adresse IP virtuelle de l’ASE.
 

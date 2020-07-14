@@ -8,12 +8,12 @@ ms.topic: quickstart
 ms.service: iot-pnp
 services: iot-pnp
 ms.custom: mvc
-ms.openlocfilehash: 4f9b8f3edc475ec50eaf11080020aa9f62a0d2c1
-ms.sourcegitcommit: 595cde417684e3672e36f09fd4691fb6aa739733
+ms.openlocfilehash: b02455c153c6205b87a64a388d5588c3c431e0c9
+ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/20/2020
-ms.locfileid: "83700878"
+ms.lasthandoff: 07/05/2020
+ms.locfileid: "85963498"
 ---
 # <a name="quickstart-use-a-device-capability-model-to-create-an-iot-plug-and-play-preview-device-windows"></a>Démarrage rapide : Utiliser un modèle de fonctionnalité d’appareil pour créer un appareil IoT Plug-and-Play Preview (Windows)
 
@@ -78,7 +78,7 @@ Dans ce guide de démarrage rapide, vous utilisez le gestionnaire de bibliothèq
 1. Installez le Vcpkg du kit de développement logiciel (SDK) C de l’appareil Azure IoT :
 
     ```cmd
-    .\vcpkg.exe install azure-iot-sdk-c[public-preview,use_prov_client]
+    .\vcpkg.exe install azure-iot-sdk-c[public-preview,use-prov-client]
     ```
 
 ## <a name="author-your-model"></a>Créer votre modèle
@@ -87,7 +87,7 @@ Dans ce démarrage rapide, vous utilisez un exemple de modèle de fonctionnalit�
 
 1. Créez un dossier `pnp_app` sur votre lecteur local. Vous utilisez ce dossier pour les fichiers de modèle d’appareil et le stub de code d’appareil.
 
-1. Téléchargez le [modèle de fonctionnalité d’appareil et les exemples de fichiers de l’interface](https://github.com/Azure/IoTPlugandPlay/blob/master/samples/SampleDevice.model.json), ainsi que l’[exemple d’interface](https://github.com/Azure/IoTPlugandPlay/blob/master/samples/EnvironmentalSensor.interface.json), puis enregistrez les fichiers dans le dossier `pnp_app`.
+1. Téléchargez le [modèle de fonctionnalité d’appareil](https://github.com/Azure/opendigitaltwins-dtdl/blob/9004219bff1e958b7cd6ff2a52209f4b7ae19396/samples/SampleDevice.capabilitymodel.json) et les [exemples de fichiers d’interface](https://github.com/Azure/opendigitaltwins-dtdl/blob/9004219bff1e958b7cd6ff2a52209f4b7ae19396/samples/EnvironmentalSensor.interface.json), puis enregistrez-les dans le dossier `pnp_app`.
 
     > [!TIP]
     > Pour télécharger un fichier à partir de GitHub, accédez au fichier, cliquez avec le bouton droit sur **Brut**, puis sélectionnez **Enregistrer le lien sous**.

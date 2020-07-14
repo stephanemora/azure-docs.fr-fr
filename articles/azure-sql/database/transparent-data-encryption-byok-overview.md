@@ -1,8 +1,9 @@
 ---
 title: Chiffrement transparent des données (TDE, Transparent Data Encryption) managé par le client
-description: Bring Your Own Key (BYOK) prend en charge le chiffrement transparent des données (TDE, Transparent Data Encryption) avec Azure Key Vault pour SQL Database et Azure Synapse. Vue d'ensemble de TDE avec BYOK, avantages, fonctionnement, considérations et recommandations.
+description: Bring Your Own Key (BYOK) prend en charge le chiffrement transparent des données (TDE, Transparent Data Encryption) avec Azure Key Vault pour SQL Database et Azure Synapse Analytics. Vue d'ensemble de TDE avec BYOK, avantages, fonctionnement, considérations et recommandations.
+titleSuffix: Azure SQL Database & SQL Managed Instance & Azure Synapse Analytics
 services: sql-database
-ms.service: sql-database
+ms.service: sql-db-mi
 ms.subservice: security
 ms.custom: seo-lt-2019, azure-synapse
 ms.devlang: ''
@@ -11,12 +12,12 @@ author: jaszymas
 ms.author: jaszymas
 ms.reviewer: vanto
 ms.date: 03/18/2020
-ms.openlocfilehash: 4677a16f1c3bd4a0d04e5ada5cee98e3e0f8e094
-ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
+ms.openlocfilehash: 32347f6d943565eeca7c37a9cdd2cf511e39ddb3
+ms.sourcegitcommit: 93462ccb4dd178ec81115f50455fbad2fa1d79ce
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "84036380"
+ms.lasthandoff: 07/06/2020
+ms.locfileid: "85985307"
 ---
 # <a name="azure-sql-transparent-data-encryption-with-customer-managed-key"></a>Transparent Data Encryption Azure SQL avec une clé managée par le client
 [!INCLUDE[appliesto-sqldb-sqlmi-asa](../includes/appliesto-sqldb-sqlmi-asa.md)]
@@ -25,10 +26,13 @@ ms.locfileid: "84036380"
 
 Dans ce scénario, la clé utilisée pour le chiffrement de la Clé de chiffrement (DEK) de la base de données, appelée protecteur TDE, est une clé asymétrique managée par le client, stockée dans un système de gestion des clés externes informatique [Azure Key Vault (AKV)](../../key-vault/general/secure-your-key-vault.md) appartenant au client et managé par le client. Key Vault fournit un stockage sécurisé hautement disponible et évolutif pour les clés de chiffrement RSA, éventuellement sauvegardé par les modules de sécurité matériels validés FIPS 140-2 niveau 2 (HSM). Il n’autorise pas l’accès direct à une clé stockée, mais fournit des services de chiffrement/déchiffrement à l’aide de la clé aux entités autorisées. La clé peut être générée par le coffre de clés, importée ou [transférée vers le coffre de clés à partir d’un dispositif HSM local](../../key-vault/keys/hsm-protected-keys.md).
 
-Pour Azure SQL Database et Azure Synapse, le protecteur TDE est défini au niveau du serveur et est hérité par toutes les bases de données chiffrées associées à ce serveur. Pour Azure SQL Managed Instance, le protecteur TDE est défini au niveau de l’instance et il est hérité par toutes les bases de données chiffrées sur cette instance. Le terme *serveur* fait référence à la fois au serveur dans SQL Database et Azure Synapse et à une instance gérée dans SQL Managed Instance tout au long de ce document, sauf indication contraire.
+Pour Azure SQL Database et Azure Synapse Analytics, le protecteur TDE est défini au niveau du serveur et est hérité par toutes les bases de données chiffrées associées à ce serveur. Pour Azure SQL Managed Instance, le protecteur TDE est défini au niveau de l’instance et il est hérité par toutes les bases de données chiffrées sur cette instance. Le terme *serveur* fait référence à la fois au serveur dans SQL Database et Azure Synapse et à une instance gérée dans SQL Managed Instance tout au long de ce document, sauf indication contraire.
 
 > [!IMPORTANT]
 > Pour ceux qui utilisent le TDE géré par le service et qui souhaitent commencer à utiliser le TDE géré par le client, les données restent chiffrées pendant le processus de basculement et il n’y a pas de temps d’arrêt ni de rechiffrement des fichiers de base de données. Le basculement d’une clé managée par le service à une clé managée par le client nécessite uniquement de rechiffrement de la clé de chiffrement (DEK), une opération rapide et en ligne.
+
+> [!NOTE]
+> Pour fournir aux clients Azure SQL deux couches de chiffrement des données au repos, le chiffrement de l’infrastructure (à l’aide de l’algorithme de chiffrement AES-256) avec des clés gérées par la plateforme est déployé. Cela fournit une couche supplémentaire de chiffrement au repos, ainsi que le TDE avec des clés gérées par le client, ce qui est déjà disponible. À ce stade, les clients doivent demander l’accès à cette fonctionnalité. Si cette fonctionnalité vous intéresse, contactez AzureSQLDoubleEncryptionAtRest@service.microsoft.com.
 
 ## <a name="benefits-of-the-customer-managed-tde"></a>Avantages de TDE managé par le client
 
@@ -50,7 +54,7 @@ Le TDE managé par le client offre les avantages suivants au client :
 
 ![Configuration et fonctionnement de TDE managé par le client](./media/transparent-data-encryption-byok-overview/customer-managed-tde-with-roles.PNG)
 
-Pour que le serveur puisse utiliser le protecteur TDE stocké dans AKV pour le chiffrement de la clé de chiffrement, l’administrateur du coffre de clés doit accorder les droits d’accès suivants au serveur à l’aide de son identité AAD unique :
+Pour que le serveur puisse utiliser le protecteur TDE stocké dans AKV pour le chiffrement de la clé de chiffrement, l’administrateur du coffre de clés doit accorder les droits d’accès suivants au serveur à l’aide de son identité Azure Active Directory (Azure AD) unique :
 
 - **obtenir** : pour récupérer la partie publique et les propriétés de la clé dans Key Vault
 
@@ -74,9 +78,9 @@ Les auditeurs peuvent utiliser Azure Monitor pour évaluer les journaux AuditEve
 
 - Le coffre de clés et SQL Database/instance gérée doivent appartenir au même abonné Azure Active Directory. Les interactions entre un serveur et un coffre de clés inter-abonnés ne sont pas prises en charge. Pour déplacer des ressources par la suite, vous devez reconfigurer TDE avec AKV. En savoir plus sur le [déplacement des ressources](../../azure-resource-manager/management/move-resource-group-and-subscription.md).
 
-- La fonctionnalité [suppression réversible](../../key-vault/general/overview-soft-delete.md) doit être activée sur le coffre de clés pour protéger contre la suppression accidentelle d’une clé de perte de données (ou d’un coffre de clés). Les ressources supprimées de manière réversible sont conservées pendant 90 jours, sauf si elles sont récupérées ou purgées par le client entre-temps. Les actions de *récupération* et de *vidage* ont leurs propres autorisations associées dans une stratégie d’accès au coffre de clés. La fonctionnalité de suppression réversible désactivée par défaut peut être activée via [PowerShell](../../key-vault/general/soft-delete-powershell.md#enabling-soft-delete) ou [CLI](../../key-vault/general/soft-delete-cli.md#enabling-soft-delete). Elle ne peut pas être activée via le Portail Azure.  
+- La fonctionnalité [suppression réversible](../../key-vault/general/overview-soft-delete.md) doit être activée sur le coffre de clés pour protéger contre la suppression accidentelle d’une clé de perte de données (ou d’un coffre de clés). Les ressources supprimées de manière réversible sont conservées pendant 90 jours, sauf si elles sont récupérées ou purgées par le client entre-temps. Les actions de *récupération* et de *vidage* ont leurs propres autorisations associées dans une stratégie d’accès au coffre de clés. La fonctionnalité de suppression réversible désactivée par défaut peut être activée via [PowerShell](../../key-vault/general/soft-delete-powershell.md#enabling-soft-delete) ou [la CLI](../../key-vault/general/soft-delete-cli.md#enabling-soft-delete). Elle ne peut pas être activée via le portail Azure.  
 
-- Accordez au serveur ou à l’instance gérée l’accès au coffre de clés (get, wrapKey, unwrapKey) à l’aide de son identité Azure Active Directory. Lors de l’utilisation du Portail Azure, l’identité Azure AD est créée automatiquement. En utilisant PowerShell ou CLI, l’identité Azure AD doit être explicitement créée et sa saisie vérifiée. Consultez [Configurer TDE avec BYOK](transparent-data-encryption-byok-configure.md) et [Configure TDE with BYOK for Managed Instance](../managed-instance/scripts/transparent-data-encryption-byok-powershell.md) (Configurer TDE avec BYOK pour Managed Instance) pour obtenir des instructions détaillées lors de l’utilisation de PowerShell.
+- Accordez au serveur ou à l’instance gérée l’accès au coffre de clés (get, wrapKey, unwrapKey) à l’aide de son identité Azure Active Directory. Lors de l’utilisation du portail Azure, l’identité Azure AD est créée automatiquement. Lors de l’utilisation de PowerShell ou de la CLI, l’identité Azure AD doit être explicitement créée et sa saisie vérifiée. Consultez [Configurer TDE avec BYOK](transparent-data-encryption-byok-configure.md) et [Configure TDE with BYOK for SQL Managed Instance](../managed-instance/scripts/transparent-data-encryption-byok-powershell.md) (Configurer TDE avec BYOK pour SQL Managed Instance) pour obtenir des instructions détaillées lors de l’utilisation de PowerShell.
 
 - Lorsque vous utilisez le pare-feu avec AKV, vous devez activer l’option *Autoriser les services Microsoft approuvés pour contourner le pare-feu*.
 
@@ -133,7 +137,7 @@ Après la restauration de l’accès à la clé, la sauvegarde de la base de don
 
 Il peut arriver qu’une personne disposant de droits d’accès suffisants au coffre de clés désactive accidentellement l’accès du serveur à la clé en :
 
-- révocation des autorisations *get*, *wrapKey*, *unwrapKey* à partir du serveur
+- révoquant les autorisations *get*, *wrapKey*, *unwrapKey* du coffre de clés à partir du serveur
 
 - supprimant la clé
 
@@ -166,7 +170,7 @@ Si la clé nécessaire à la restauration d’une sauvegarde n’est plus dispon
 
 Pour l’atténuer, exécutez la cmdlet [Get-AzSqlServerKeyVaultKey](/powershell/module/az.sql/get-azsqlserverkeyvaultkey) pour le serveur cible ou [Get-AzSqlInstanceKeyVaultKey](/powershell/module/az.sql/get-azsqlinstancekeyvaultkey) pour l’instance gérée cible afin de retourner la liste des clés disponibles et d’identifier celles qui sont manquantes. Pour garantir la restauration possible de toutes les sauvegardes, vérifiez que le serveur cible pour la sauvegarde dispose d’un accès à toutes les clés nécessaires. Ces clés n’ont pas besoin d’être marquées comme protecteur TDE.
 
-Afin d’en savoir plus sur la récupération d’une sauvegarde pour SQL Database, consultez [Récupérer une base de données dans SQL Database](recovery-using-backups.md). Pour en savoir plus sur la récupération d’une sauvegarde de pool SQL, consultez [Récupérer un pool SQL](../../synapse-analytics/sql-data-warehouse/backup-and-restore.md). Pour la sauvegarde/restauration native de SQL Server avec SQL Managed Instance, consultez [Démarrage rapide : Restaurer une base de données sur une instance gérée SQL](../managed-instance/restore-sample-database-quickstart.md).
+Afin d’en savoir plus sur la récupération d’une sauvegarde pour SQL Database, consultez [Récupérer une base de données dans SQL Database](recovery-using-backups.md). Pour en savoir plus sur la récupération d’une sauvegarde de pool SQL, consultez [Récupérer un pool SQL](../../synapse-analytics/sql-data-warehouse/backup-and-restore.md). Pour la sauvegarde/restauration native de SQL Server avec SQL Managed Instance, consultez [Démarrage rapide : Restaurer une base de données sur SQL Managed Instance](../managed-instance/restore-sample-database-quickstart.md)
 
 Attention particulière pour les fichiers journaux : Les fichiers journaux sauvegardés restent chiffrés avec le protecteur TDE d’origine, même s’il a subi une rotation et si la base de données utilise maintenant un nouveau protecteur TDE.  Lors d’une restauration, les deux clés seront nécessaires pour restaurer la base de données.  Si le fichier journal utilise un protecteur TDE stocké dans Azure Key Vault, cette clé sera nécessaire lors de la restauration, même si entretemps la base de données est passée à un TDE managé par le service.
 
@@ -174,9 +178,9 @@ Attention particulière pour les fichiers journaux : Les fichiers journaux sauve
 
 Même dans les cas où aucune géoredondance n’est configurée pour le serveur, il est fortement recommandé de configurer le serveur pour utiliser deux coffres de clés différents dans deux régions différentes, avec le même matériel de clé. Cela est possible en créant un protecteur TDE utilisant le coffre de clés primaires situé dans la même région que le serveur et en clonant la clé dans un coffre de clés situé dans une autre région Azure, afin que le serveur puisse accéder à un deuxième coffre de clés si le coffre de clés primaires venait à tomber en panne pendant que la base de données fonctionne correctement.
 
-Utilisez la cmdlet Backup-AzKeyVaultKey pour récupérer la clé au format chiffré depuis le coffre de clés primaires, puis utilisez la cmdlet Restore-AzKeyVaultKey et spécifiez un coffre de clés dans la deuxième région pour cloner la clé. Vous pouvez également utiliser le Portail Azure pour sauvegarder et restaurer la clé. La clé du coffre de clés secondaires d’une autre région ne doit pas être marquée comme protecteur TDE et n’est même pas autorisée.
+Utilisez la cmdlet Backup-AzKeyVaultKey pour récupérer la clé au format chiffré depuis le coffre de clés primaires, puis utilisez la cmdlet Restore-AzKeyVaultKey et spécifiez un coffre de clés dans la deuxième région pour cloner la clé. Vous pouvez également utiliser le portail Azure pour sauvegarder et restaurer la clé. La clé du coffre de clés secondaire dans l’autre région ne doit pas être marquée comme protecteur TDE et n’est même pas autorisée.
 
- En cas de panne affectant le coffre de clés primaires, et uniquement dans ce cas, le système bascule automatiquement vers l’autre clé liée avec la même empreinte numérique dans le coffre de clés secondaires, le cas échéant. Notez cependant que ce commutateur ne se produira pas si le protecteur TDE est inaccessible en raison de droits d’accès révoqués ou parce que la clé ou le coffre de clés est supprimé, car il peut indiquer que le client voulait intentionnellement empêcher le serveur d’accéder à la clé.
+En cas de panne affectant le coffre de clés principal, et uniquement dans ce cas, le système bascule automatiquement vers l’autre clé liée avec la même empreinte numérique dans le coffre de clés secondaire, le cas échéant. Notez cependant que ce commutateur ne se produira pas si le protecteur TDE est inaccessible en raison de droits d’accès révoqués ou parce que la clé ou le coffre de clés est supprimé, car il peut indiquer que le client voulait intentionnellement empêcher le serveur d’accéder à la clé.
 
 ![Haute disponibilité de serveur unique](./media/transparent-data-encryption-byok-overview/customer-managed-tde-with-ha.png)
 
@@ -194,7 +198,7 @@ Pour éviter tout problème lors de l’établissement ou de la géoréplication
 
 ![Groupes de basculement et géo-reprise](./media/transparent-data-encryption-byok-overview/customer-managed-tde-with-bcdr.png)
 
-Pour tester un basculement, suivez les étapes décrites dans [Aperçu de la géo-réplication active](active-geo-replication-overview.md). Elle doit être effectuée régulièrement pour confirmer que les autorisations d’accès à SQL pour les deux coffres de clés ont été conservées.
+Pour tester un basculement, suivez les étapes décrites dans [Aperçu de la géo-réplication active](active-geo-replication-overview.md). Le test de basculement doit être effectué régulièrement pour confirmer que SQL Database a conservé l’autorisation d’accès aux deux coffres de clés.
 
 ## <a name="next-steps"></a>Étapes suivantes
 
@@ -204,4 +208,4 @@ Vous pouvez également vérifier les exemples de scripts PowerShell suivants pou
 
 - [Supprimer un protecteur Transparent Data Encryption pour SQL Database à l’aide de PowerShell](transparent-data-encryption-byok-remove-tde-protector.md)
 
-- [Gérer Transparent Data Encryption dans Managed Instance avec votre propre clé à l’aide de PowerShell](../managed-instance/scripts/transparent-data-encryption-byok-powershell.md?toc=%2fpowershell%2fmodule%2ftoc.json)
+- [Gérer Transparent Data Encryption dans SQL Managed Instance avec votre propre clé à l’aide de PowerShell](../managed-instance/scripts/transparent-data-encryption-byok-powershell.md?toc=%2fpowershell%2fmodule%2ftoc.json)

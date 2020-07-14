@@ -1,23 +1,25 @@
 ---
-title: Créer une application de recherche dans le portail Azure
+title: Créer une application de démonstration dans le portail Azure
 titleSuffix: Azure Cognitive Search
-description: Exécutez l’Assistant Créer une application (préversion) pour générer des pages HTML et un script pour une application web opérationnelle. La page comprend une barre de recherche, une zone de résultats, une barre latérale et prend en charge la saisie semi-automatique.
+description: Exécutez l’Assistant Créer une application de démonstration (préversion) afin de générer des pages HTML et un script pour une application web opérationnelle. La page comprend une barre de recherche, une zone de résultats, une barre latérale et prend en charge la saisie semi-automatique.
 manager: nitinme
 author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: quickstart
-ms.date: 06/07/2020
-ms.openlocfilehash: 6c956c937027b16d51141ded4de5ff9b019c37d4
-ms.sourcegitcommit: 20e246e86e25d63bcd521a4b4d5864fbc7bad1b0
+ms.date: 07/01/2020
+ms.openlocfilehash: 11dd12fce669d6b6a027eb182d5f9e6e493577ad
+ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/08/2020
-ms.locfileid: "84488169"
+ms.lasthandoff: 07/05/2020
+ms.locfileid: "85955690"
 ---
-# <a name="quickstart-create-a-search-app-in-the-portal-azure-cognitive-search"></a>Démarrage rapide : Créer une application de recherche dans le portail (Recherche cognitive Azure)
+# <a name="quickstart-create-a-demo-app-in-the-portal-azure-cognitive-search"></a>Démarrage rapide : Créer une application de démonstration dans le portail (Recherche cognitive Azure)
 
-Utilisez l’Assistant **Créer une application de recherche** du portail Azure pour générer une application web de type « localhost » téléchargeable qui s’exécute dans un navigateur. En fonction de sa configuration, l’application générée est opérationnelle dès la première utilisation, avec une connexion active à un index distant. Une application par défaut peut inclure une barre de recherche, une zone de résultats, des filtres dans une barre latérale et prendre en charge la saisie semi-automatique.
+Utilisez l’Assistant **Créer une application de démonstration**  du portail Azure pour générer une application web de type « localhost » téléchargeable qui s’exécute dans un navigateur. En fonction de sa configuration, l’application générée est opérationnelle dès la première utilisation, avec une connexion en lecture seule active à un index distant. Une application par défaut peut inclure une barre de recherche, une zone de résultats, des filtres dans une barre latérale et prendre en charge la saisie semi-automatique.
+
+L’application de démonstration peut vous aider à visualiser la manière dont un index fonctionne dans une application cliente, mais elle n’est pas destinée aux scénarios de production. Les applications clientes doivent inclure la logique de sécurité, de gestion des erreurs et d’hébergement que la page HTML générée ne fournit pas. Quand vous êtes prêt à créer une application cliente, consultez [Créer votre première application de recherche à l’aide du SDK .NET](tutorial-csharp-create-first-app.md) pour connaître les étapes suivantes.
 
 ## <a name="prerequisites"></a>Prérequis
 
@@ -45,7 +47,7 @@ Quand l’index est prêt à être utilisé, passez à l’étape suivante.
 
 1. Choisissez *realestate-us-sample-index* dans la liste des index existants.
 
-1. Dans la page de l’index, en haut, sélectionnez **Créer une application de recherche (préversion)** pour démarrer l’Assistant.
+1. Dans la page de l’index, en haut, sélectionnez **Créer une application de démonstration (préversion)** pour démarrer l’Assistant.
 
 1. Dans la première page de l’Assistant, sélectionnez **Activer le partage des ressources inter-origines (CORS)** pour ajouter la prise en charge du mécanisme CORS à votre définition d’index. Cette étape est facultative, mais votre application web locale ne se connecte pas à l’index distant sans elle.
 
@@ -85,7 +87,7 @@ La capture d’écran suivante montre les options de l’Assistant, en regard d�
 
 ## <a name="create-download-and-execute"></a>Créer, télécharger et exécuter
 
-1. Sélectionnez **Créer une application de recherche** pour générer le fichier HTML.
+1. Sélectionnez **Créer une application de démonstration** pour générer le fichier HTML.
 
 1. À l’invite, sélectionnez **Télécharger votre application** pour télécharger le fichier.
 

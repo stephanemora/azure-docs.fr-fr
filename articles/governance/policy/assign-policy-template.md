@@ -1,17 +1,17 @@
 ---
 title: 'Démarrage rapide : Nouvelle affectation de stratégie à l’aide de modèles'
-description: Dans ce guide de démarrage rapide, vous allez utiliser un modèle Resource Manager pour créer une affectation de stratégie dans le but d’identifier les ressources non conformes.
+description: Dans ce guide de démarrage rapide, vous allez utiliser un modèle Azure Resource Manager (modèle ARM) pour créer une affectation de stratégie dans le but d’identifier les ressources non conformes.
 ms.date: 05/21/2020
 ms.topic: quickstart
 ms.custom: subject-armqs
-ms.openlocfilehash: 7b9e372e8b86e1ac5b0a99d0aba77982896b4d11
-ms.sourcegitcommit: 0690ef3bee0b97d4e2d6f237833e6373127707a7
+ms.openlocfilehash: c3a37e9086744fb45c8d1e4ebe3bd16da7a83770
+ms.sourcegitcommit: f684589322633f1a0fafb627a03498b148b0d521
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/21/2020
-ms.locfileid: "83757447"
+ms.lasthandoff: 07/06/2020
+ms.locfileid: "85971138"
 ---
-# <a name="quickstart-create-a-policy-assignment-to-identify-non-compliant-resources-by-using-a-resource-manager-template"></a>Démarrage rapide : Créer une affectation de stratégie pour identifier des ressources non conformes à l’aide d’un modèle Resource Manager
+# <a name="quickstart-create-a-policy-assignment-to-identify-non-compliant-resources-by-using-an-azure-resource-manager-template"></a>Démarrage rapide : Créer une affectation de stratégie pour identifier des ressources non conformes à l’aide d’un modèle Azure Resource Manager
 
 La première étape pour comprendre la conformité dans Azure consiste à identifier l’état de vos ressources.
 Ce démarrage rapide vous guide pas à pas dans le processus de création d’une attribution de stratégie pour identifier les machines virtuelles qui n’utilisent pas de disques managés. À la fin de ce processus, vous aurez identifié correctement les machines virtuelles qui n’utilisent pas de disques managés. Elles sont _non conformes_ à l’attribution de stratégie.
@@ -43,14 +43,14 @@ La ressource définie dans le modèle est :
 
 1. Sélectionnez l’image suivante pour vous connecter au portail Azure et ouvrir le modèle :
 
-   [![Déployer le modèle de stratégie sur Azure](../../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-azurepolicy-assign-builtinpolicy-resourcegroup%2Fazuredeploy.json)
+   :::image type="content" source="../../media/template-deployments/deploy-to-azure.svg" alt-text="Déployer le modèle Resource Manager pour l’affectation d’une stratégie Azure à Azure" border="false" link="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-azurepolicy-assign-builtinpolicy-resourcegroup%2Fazuredeploy.json":::
 
 1. Sélectionnez ou entrez les valeurs suivantes :
 
    | Nom | Valeur |
    |------|-------|
    | Abonnement | Sélectionnez votre abonnement Azure. |
-   | Resource group | Sélectionnez **Créer**, spécifiez un nom, puis sélectionnez **OK**. Dans la capture d’écran, le nom du groupe de ressources est _mypolicyquickstart\<date au format MMJJ\>rg_. |
+   | Resource group | Sélectionnez **Créer**, spécifiez un nom, puis sélectionnez **OK**. Dans la capture d’écran, le nom du groupe de ressources est _mypolicyquickstart\<Date in MMDD\>rg_. |
    | Emplacement | Sélectionnez une région. Par exemple, **USA Centre**. |
    | Nom de l’affectation de stratégie | Spécifiez un nom d’affectation de stratégie. Vous pouvez utiliser l’écran de définition de stratégie si vous le souhaitez. Par exemple, **Auditer les machines virtuelles qui n’utilisent pas de disques managés**. |
    | Nom du groupe de ressources | Spécifiez le nom du groupe de ressources auquel vous voulez affecter la stratégie. Dans ce démarrage rapide, utilisez la valeur par défaut **[resourceGroup().name]** . **[resourceGroup()](../../azure-resource-manager/templates/template-functions-resource.md#resourcegroup)** est une fonction de modèle qui récupère le groupe de ressources. |
@@ -63,7 +63,7 @@ Ressources supplémentaires :
 
 - Pour trouver des exemples de modèles supplémentaires, consultez [Modèle de démarrage rapide Azure](https://azure.microsoft.com/resources/templates/?resourceType=Microsoft.Authorization&pageNumber=1&sort=Popular).
 - Pour obtenir des informations de référence sur les modèles, accédez au [document de référence des modèles Azure](/azure/templates/microsoft.authorization/allversions).
-- Pour savoir comment développer des modèles Resource Manager, consultez la [documentation Azure Resource Manager](../../azure-resource-manager/management/overview.md).
+- Pour savoir comment développer des modèles Resource Manager (modèles ARM), consultez la [documentation Azure Resource Manager](../../azure-resource-manager/management/overview.md).
 - Pour découvrir le déploiement au niveau de l’abonnement, consultez [Créer des groupes de ressources et des ressources au niveau de l’abonnement](../../azure-resource-manager/templates/deploy-to-subscription.md).
 
 ## <a name="validate-the-deployment"></a>Valider le déploiement

@@ -1,9 +1,9 @@
 ---
 title: Technologies en mémoire
-description: Les technologies en mémoire améliorent considérablement les performances des charges de travail transactionnelles et analytiques d'Azure SQL Database et Azure SQL Managed Instance.
+description: Les technologies en mémoire améliorent considérablement les performances des charges de travail transactionnelles et analytiques d’Azure SQL Database et Azure SQL Managed Instance.
 services: sql-database
-ms.service: sql-database
-ms.subservice: development
+ms.service: sql-db-mi
+ms.subservice: ''
 ms.custom: sqldbrb=2
 ms.devlang: ''
 ms.topic: conceptual
@@ -11,19 +11,19 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: ''
 ms.date: 03/19/2019
-ms.openlocfilehash: c9b25912e1386520d61412a8ba05f6b02224fbe6
-ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
+ms.openlocfilehash: 43527e8e5860e0bbfc50643210156be943d2f174
+ms.sourcegitcommit: 93462ccb4dd178ec81115f50455fbad2fa1d79ce
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "84033750"
+ms.lasthandoff: 07/06/2020
+ms.locfileid: "85985188"
 ---
-# <a name="optimize-performance-by-using-in-memory-technologies-in-azure-sql-database-and-azure-sql-managed-instance"></a>Optimiser les performances en utilisant les technologies en mémoire d'Azure SQL Database et Azure SQL Managed Instance
+# <a name="optimize-performance-by-using-in-memory-technologies-in-azure-sql-database-and-azure-sql-managed-instance"></a>Optimiser les performances en utilisant les technologies en mémoire d’Azure SQL Database et Azure SQL Managed Instance
 [!INCLUDE[appliesto-sqldb-sqlmi](includes/appliesto-sqldb-sqlmi.md)]
 
-Les technologies en mémoire vous permettent d'améliorer les performances de votre application, et potentiellement de réduire le coût de votre base de données.
+Les technologies en mémoire vous permettent d’améliorer les performances de votre application, et potentiellement de réduire le coût de votre base de données.
 
-## <a name="when-to-use-in-memory-technologies"></a>Quand utiliser les technologies SQL en mémoire
+## <a name="when-to-use-in-memory-technologies"></a>Quand utiliser les technologies en mémoire
 
 Grâce aux technologies en mémoire, vous pouvez améliorer vos performances au niveau des charges de travail suivantes :
 
@@ -50,11 +50,11 @@ Les technologies en mémoire vous aident également à réduire les coûts grâc
 
 Voici deux exemples illustrant comment la technologie OLTP en mémoire a permis d’améliorer les performances :
 
-- À l’aide de l’OLTP en mémoire, [Quorum Business Solutions a pu doubler leur charge de travail tout en améliorant les DTU de 70 %](https://customers.microsoft.com/story/quorum-doubles-key-databases-workload-while-lowering-dtu-with-sql-database).
+- À l’aide de l’OLTP en mémoire, [Quorum Business Solutions a pu doubler leur charge de travail tout en améliorant les DTU de 70 %](https://resources.quorumsoftware.com/case-studies/quorum-doubles-key-database-s-workload-while-lowering-dtu).
 - La vidéo suivante montre une amélioration significative de la consommation de ressources avec un exemple de charge de travail : [Vidéo sur l'OLTP en mémoire](https://channel9.msdn.com/Shows/Data-Exposed/In-Memory-OTLP-in-Azure-SQL-DB) Pour plus d’informations, consultez le billet de blog : [OLTP en mémoire](https://azure.microsoft.com/blog/in-memory-oltp-in-azure-sql-database/)
 
 > [!NOTE]  
-> Les technologies en mémoire sont disponibles aux niveaux Premium et Critique pour l'entreprise.
+> Les technologies en mémoire sont disponibles aux niveaux Premium et Critique pour l’entreprise.
 
 La vidéo suivante explique les gains de performance potentiels que peuvent apporter les technologies en mémoire. N’oubliez pas que le gain de performance que vous remarquez dépend de nombreux facteurs, notamment de la nature de la charge de travail et des données, du modèle d’accès de la base de données, etc.
 
@@ -67,7 +67,7 @@ Cet article décrit des aspects de l'OLTP en mémoire et des index columnstore q
 - Vous verrez ensuite comment gérer le déplacement de bases de données qui exploitent ces technologies entre les différents niveaux tarifaires.
 - Vous verrez deux exemples qui illustrent l'utilisation de l'OLTP en mémoire, ainsi que les index columnstore.
 
-Pour plus d'informations sur la fonctionnalité En mémoire dans SQL Server, consultez :
+Pour plus d’informations sur les technologies en mémoire dans SQL Server, consultez :
 
 - [Présentation de l’OLTP en mémoire et scénarios d’utilisation](/sql/relational-databases/in-memory-oltp/overview-and-usage-scenarios) (avec notamment des références à des études de cas client et des informations de prise en main)
 - [Documentation pour l’OLTP In-Memory](/sql/relational-databases/in-memory-oltp/in-memory-oltp-in-memory-optimization)
@@ -111,7 +111,7 @@ SELECT * FROM sys.sql_modules WHERE uses_native_compilation=1
 
 ### <a name="data-size-and-storage-cap-for-in-memory-oltp"></a>Seuil de la taille des données et du stockage pour l’OLTP en mémoire
 
-l’OLTP en mémoire inclut des tables optimisées en mémoire, qui sont utilisées pour stocker des données de l’utilisateur. Le volume de ces tables doit tenir dans la mémoire. Étant donné que vous gérez la mémoire directement dans le service SQL Database, nous disposons du concept de quota pour les données utilisateur. Ce concept est appelé *stockage OLTP en mémoire*.
+l’OLTP en mémoire inclut des tables optimisées en mémoire, qui sont utilisées pour stocker des données de l’utilisateur. Le volume de ces tables doit tenir dans la mémoire. Étant donné que vous gérez la mémoire directement dans SQL Database, nous disposons du concept de quota pour les données utilisateur. Ce concept est appelé *stockage OLTP en mémoire*.
 
 Chaque niveau tarifaire de base de données unique pris en charge et chaque niveau tarifaire de pool élastique inclut une certaine quantité de stockage OLTP en mémoire.
 
@@ -142,14 +142,14 @@ Avec les pools élastiques, le stockage OLTP en mémoire est partagé entre tout
 
 Vous pouvez toujours mettre à niveau votre base de données ou instance vers un niveau supérieur, comme passer du niveau Usage général au niveau Critique pour l’entreprise (ou de Standard à Premium). Les ressources et les fonctionnalités disponibles ne font qu’augmenter.
 
-Toutefois, le passage à un niveau inférieur peut impacter négativement votre base de données. L’impact est particulièrement évident quand vous descendez du niveau Critique pour l’entreprise au niveau Usage général (ou de Premium à Standard ou De base) et que votre base de données contient des objets OLTP en mémoire. Les tables optimisées par la mémoire ne sont pas disponibles après la mise à niveau (même si elles restent visibles). Les mêmes considérations s'appliquent lors de la réduction du niveau tarifaire d'un pool élastique, ou du déplacement d'une base de données avec des technologies en mémoire vers un pool élastique de niveau Usage général, Standard ou De base.
+Toutefois, le passage à un niveau inférieur peut impacter négativement votre base de données. L’impact est particulièrement évident quand vous descendez du niveau Critique pour l’entreprise au niveau Usage général (ou de Premium à Standard ou De base) et que votre base de données contient des objets OLTP en mémoire. Les tables optimisées par la mémoire ne sont pas disponibles après la mise à niveau (même si elles restent visibles). Les mêmes considérations s’appliquent lors de la réduction du niveau tarifaire d’un pool élastique ou du déplacement d’une base de données avec des technologies en mémoire vers un pool élastique de niveau Usage général, Standard ou De base.
 
 > [!Important]
 > OLTP en mémoire n’est pas pris en charge dans les niveaux Usage général, Standard ou De base. Vous ne pouvez donc pas déplacer une base de données qui contient des objets OLTP en mémoire vers un de ces niveaux.
 
 Avant de rétrograder la base de données vers le niveau Usage général, Standard ou De base, supprimez toutes les tables à mémoire optimisée et tous les types de table, ainsi que tous les modules T-SQL compilés en mode natif.
 
-*Effectuer un scale-down des ressources dans le niveau Critique pour l’entreprise* : Les données des tables à mémoire optimisée doivent tenir dans le stockage OLTP en mémoire associé au niveau de la base de données ou Managed Instance, ou disponible dans le pool élastique. Si vous essayez d’effectuer un scale-down du niveau ou de déplacer la base de données dans un pool qui n’a pas de stockage OLTP en mémoire suffisant, l’opération échoue.
+*Effectuer un scale-down des ressources dans le niveau Critique pour l’entreprise* : Les données des tables à mémoire optimisée doivent tenir dans le stockage OLTP en mémoire qui est associé au niveau de la base de données ou de l’instance gérée, ou qui est disponible dans le pool élastique. Si vous essayez d’effectuer un scale-down du niveau ou de déplacer la base de données dans un pool qui n’a pas de stockage OLTP en mémoire suffisant, l’opération échoue.
 
 ## <a name="in-memory-columnstore"></a>Columnstore en mémoire
 
@@ -174,7 +174,7 @@ Lors de l’utilisation d’index columnstore en cluster, la compression en colo
 
 Par exemple, si vous disposez d’une base de données avec une taille maximale de 1 téraoctet (To), et que vous atteignez une compression de 10 fois à l’aide d’index columntore, vous pouvez afficher un total de 10 To de données utilisateur dans la base de données.
 
-Lors de l’utilisation d’index columnstore sans cluster, la table de base est toujours stockée au format rowstore traditionnel. Par conséquent, les économies en stockage ne sont pas aussi importantes qu’avec des index columnstore en cluster. Toutefois, si vous remplacez un nombre d’index sans cluster traditionnels par un index columntore unique, vous pouvez toujours voir une économie globale d’espace de stockage pour la table.
+Lors de l’utilisation d’index columnstore sans cluster, la table de base est toujours stockée au format rowstore traditionnel. Par conséquent, les économies en stockage ne sont pas aussi significatives qu’avec des index columnstore en cluster. Toutefois, si vous remplacez un nombre d’index sans cluster traditionnels par un index columntore unique, vous pouvez toujours voir une économie globale d’espace de stockage pour la table.
 
 ### <a name="changing-service-tiers-of-databases-containing-columnstore-indexes"></a>Changement de niveaux de service des bases de données contenant des index columnstore
 
@@ -183,7 +183,7 @@ Le *passage d’une base de données unique au niveau De base ou Standard* n’e
 Si vous disposez d’un index columnstore **en cluster**, la totalité de la table devient indisponible après le passage à une version antérieure. Par conséquent, nous vous recommandons d’annuler tous les index columnstore *en index* avant de rétrograder votre base de données vers un niveau non pris en charge.
 
 > [!Note]
-> Managed Instance prend en charge les index ColumnStore dans tous les niveaux.
+> SQL Managed Instance prend en charge les index columnstore dans tous les niveaux.
 
 <a id="install_oltp_manuallink" name="install_oltp_manuallink"></a>
 
@@ -207,7 +207,7 @@ Si vous disposez d’un index columnstore **en cluster**, la totalité de la tab
 
 ### <a name="application-design"></a>Conception des applications
 
-- [In-Memory OLTP (optimisation en mémoire)](https://msdn.microsoft.com/library/dn133186.aspx)
+- [OLTP en mémoire (optimisation en mémoire)](https://msdn.microsoft.com/library/dn133186.aspx)
 - [Utiliser OLTP en mémoire dans une application SQL Azure existante](in-memory-oltp-configure.md)
 
 ### <a name="tools"></a>Outils

@@ -1,25 +1,24 @@
 ---
 title: Nouveautés
 titleSuffix: Azure SQL Database & SQL Managed Instance
-description: Découvrez les nouvelles fonctionnalités et améliorations apportées à la documentation et aux services Azure SQL Database et SQL Managed Instance
+description: Découvrez les nouvelles fonctionnalités et améliorations apportées à la documentation et aux services Azure SQL Database et SQL Managed Instance.
 services: sql-database
 author: stevestein
-ms.service: sql-database
+ms.service: sql-db-mi
 ms.subservice: service
 ms.custom: sqldbrb=2
 ms.devlang: ''
 ms.topic: conceptual
 ms.date: 05/13/2020
 ms.author: sstein
-ms.openlocfilehash: 4ad793ee27d00359dd63f3394b8d7fd4a70b297f
-ms.sourcegitcommit: 309cf6876d906425a0d6f72deceb9ecd231d387c
+ms.openlocfilehash: ed6f164adb9e0a6daf24342021087b2cede3289d
+ms.sourcegitcommit: 93462ccb4dd178ec81115f50455fbad2fa1d79ce
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/01/2020
-ms.locfileid: "84266676"
+ms.lasthandoff: 07/06/2020
+ms.locfileid: "85981371"
 ---
 # <a name="whats-new-in-azure-sql-database--sql-managed-instance"></a>Nouveautés d’Azure SQL Database et de SQL Managed Instance
-
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
 
 Cet article liste les fonctionnalités Azure SQL Database et Azure SQL Managed Instance actuellement en préversion publique. Pour connaître les mises à jour et améliorations apportées à SQL Database et SQL Managed Instance, consultez [Mises à jour des services SQL Database et SQL Managed Instance](https://azure.microsoft.com/updates/?product=sql-database). Pour connaître les mises à jour et améliorations apportées aux autres services Azure, consultez [Mises à jour des services](https://azure.microsoft.com/updates).
@@ -28,7 +27,7 @@ Cet article liste les fonctionnalités Azure SQL Database et Azure SQL Managed I
 
 La documentation relative à Azure SQL Database et Azure SQL Managed Instance a été divisée en sections distinctes. Nous avons également mis à jour la manière dont nous faisons référence à une instance managée en remplaçant *instance managée Azure SQL Database* par *instance Azure SQL Managed Instance*.
 
-Nous avons procédé à ce changement parce que certaines caractéristiques et fonctionnalités varient considérablement entre une base de données unique et une instance managée, et il est devenu de plus en plus difficile d’expliquer les nuances complexes entre Azure SQL Database et Azure SQL Managed Instance dans des articles individuels « communs ».
+Nous avons procédé à ce changement parce que certaines caractéristiques et fonctionnalités varient considérablement entre une base de données unique et une instance gérée, et il est devenu de plus en plus difficile d’expliquer les nuances complexes entre Azure SQL Database et Azure SQL Managed Instance dans des articles individuels communs.
 
 Cette clarification entre les différents produits Azure SQL devrait simplifier et rationaliser le processus d’utilisation du moteur de base de données SQL Server dans Azure, qu’il s’agisse d’une base de données managée unique dans Azure SQL Database, d’une instance managée à part entière hébergeant plusieurs bases de données dans Azure SQL Managed Instance ou du produit SQL Server familier hébergé sur une machine virtuelle dans Azure.
 
@@ -68,29 +67,29 @@ Ce tableau fournit une comparaison rapide concernant la modification de la termi
 | ---| --- |
 | <a href="/azure/sql-database/sql-database-instance-pools">Pools d’instances</a> | Moyen pratique et économique de migrer des instances SQL plus petites vers le cloud. |
 | <a href="https://aka.ms/managed-instance-aadlogins">Principaux de serveur (connexions) Azure AD au niveau de l’instance</a> | Créez des connexions de niveau instance avec l’instruction <a href="https://docs.microsoft.com/sql/t-sql/statements/create-login-transact-sql?view=azuresqldb-mi-current">CREATE LOGIN FROM EXTERNAL PROVIDER</a>. |
-| [Réplication transactionnelle](../managed-instance/replication-transactional-overview.md) | Répliquez les changements apportés à vos tables dans d’autres bases de données placées sur des instances managées SQL, des bases de données SQL ou des instances SQL Server, ou mettez à jour vos tables quand certaines lignes sont modifiées dans d’autres instances managées SQL ou dans une instance SQL Server. Pour plus d’informations, consultez [Configurer la réplication dans Azure SQL Managed Instance](../managed-instance/replication-between-two-instances-configure-tutorial.md). |
+| [Réplication transactionnelle](../managed-instance/replication-transactional-overview.md) | Répliquez les modifications de vos tableaux dans d’autres bases de données dans SQL Managed Instance, SQL Database ou SQL Server. Ou mettez à jour vos tableaux lorsque certaines lignes sont modifiées dans d’autres instances de SQL Managed Instance ou SQL Server. Pour plus d’informations, consultez [Configurer la réplication dans Azure SQL Managed Instance](../managed-instance/replication-between-two-instances-configure-tutorial.md). |
 | Détection de menaces |Pour plus d’informations, consultez [Configurer la détection des menaces dans Azure SQL Managed Instance](../managed-instance/threat-detection-configure.md).|
 | Rétention des sauvegardes à long terme | Pour plus d’informations, consultez [Configurer la conservation des sauvegardes à long terme dans Azure SQL Managed Instance](../managed-instance/long-term-backup-retention-configure.md), actuellement en préversion publique limitée. | 
 
 ---
 
-## <a name="sql-managed-instance---new-features-and-known-issues"></a>SQL Managed Instance - Nouvelles fonctionnalités et problèmes connus
+## <a name="sql-managed-instance-new-features-and-known-issues"></a>SQL Managed Instance : nouvelles fonctionnalités et problèmes connus
 
 ### <a name="sql-managed-instance-h2-2019-updates"></a>Mises à jour de SQL Managed Instance (deuxième partie de l’exercice 2019)
 
-- [Configuration de sous-réseau assistée par le service](https://azure.microsoft.com/updates/service-aided-subnet-configuration-for-managed-instance-in-azure-sql-database-available/) Moyen sécurisé et pratique de gérer la configuration de sous-réseau ; vous contrôlez le trafic de données tandis que SQL Managed Instance assure le flux ininterrompu du trafic de gestion
+- La [Configuration de sous-réseau assistée par le service](https://azure.microsoft.com/updates/service-aided-subnet-configuration-for-managed-instance-in-azure-sql-database-available/) est un moyen sécurisé et pratique de gérer la configuration de sous-réseau ; vous contrôlez le trafic de données tandis que SQL Managed Instance assure le flux ininterrompu du trafic de gestion.
 - [Transparent Data Encryption (TDE) avec Bring Your Own Key (BYOK)](https://azure.microsoft.com/updates/general-avilability-transparent-data-encryption-with-customer-managed-keys-for-azure-sql-database-managed-instance/) active le scénario Bring Your Own Key (BYOK) pour la protection des données au repos et permet aux organisations de séparer les tâches de gestion relatives aux clés et aux données.
 - Des [groupes de basculement automatique](https://azure.microsoft.com/updates/azure-sql-database-auto-failover-groups-feature-now-available-in-all-regions/) vous permettent de répliquer toutes les bases de données de l’instance principale vers une instance secondaire dans une autre région.
-- Configurez le comportement de SQL Managed Instance avec des [indicateurs de trace globaux](https://azure.microsoft.com/updates/global-trace-flags-are-now-available-in-azure-sql-database-managed-instance/).
+- Les [indicateurs de trace généraux](https://azure.microsoft.com/updates/global-trace-flags-are-now-available-in-azure-sql-database-managed-instance/) vous permettent de configurer le comportement de SQL Managed Instance.
 
 ### <a name="sql-managed-instance-h1-2019-updates"></a>Mises à jour de SQL Managed Instance (première partie de l’exercice 2019)
 
-Les fonctionnalités suivantes sont activées dans le modèle de déploiement SQL Managed Instance de la première partie de l’exercice 2019 :
+Les fonctionnalités suivantes sont activées dans le modèle de déploiement SQL Managed Instance de la première partie de l’exercice 2019 :
   - Prise en charge des abonnements avec le <a href="https://aka.ms/sql-mi-visual-studio-subscribers">crédit mensuel Azure pour les abonnés Visual Studio</a> et des [limites régionales](../managed-instance/resource-limits.md#regional-resource-limitations) étendues.
-  - Prise en charge de <a href="https://docs.microsoft.com/sharepoint/administration/deploy-azure-sql-managed-instance-with-sharepoint-servers-2016-2019"> SharePoint 2016 et SharePoint 2019 </a> ainsi que de <a href="https://docs.microsoft.com/business-applications-release-notes/october18/dynamics365-business-central/support-for-azure-sql-database-managed-instance"> Dynamics 365 Business Central </a>
-  - Créez des instances SQL Managed Instance pour lesquelles vous choisissez le <a href="https://aka.ms/managed-instance-collation">classement au niveau de l’instance</a> et le <a href="https://azure.microsoft.com/updates/managed-instance-time-zone-ga/">fuseau horaire</a>.
-  - Les instances SQL Managed Instance sont maintenant protégées par un [pare-feu intégré](../managed-instance/management-endpoint-verify-built-in-firewall.md).
-  - Configurez des instances SQL Managed Instance pour utiliser des [points de terminaison publics](../managed-instance/public-endpoint-configure.md), [remplacer par proxy](connectivity-architecture.md#connection-policy) une connexion afin d’obtenir de meilleures performances réseau, utiliser <a href="https://aka.ms/four-cores-sql-mi-update"> 4 vCores sur la génération de matériel Gen5</a> ou <a href="https://aka.ms/managed-instance-configurable-backup-retention">configurer la conservation des sauvegardes jusqu’à 35 jours</a> pour une restauration dans le temps. La [rétention des sauvegardes à long terme](long-term-retention-overview.md#managed-instance-support) (jusqu’à 10 ans) est actuellement en version préliminaire publique limitée.  
+  - Prise en charge de <a href="https://docs.microsoft.com/sharepoint/administration/deploy-azure-sql-managed-instance-with-sharepoint-servers-2016-2019"> SharePoint 2016 et SharePoint 2019 </a> ainsi que de <a href="https://docs.microsoft.com/business-applications-release-notes/october18/dynamics365-business-central/support-for-azure-sql-database-managed-instance">Dynamics 365 Business Central </a>
+  - Créez des instances gérées avec le <a href="https://aka.ms/managed-instance-collation">classement au niveau de l’instance</a> et le <a href="https://azure.microsoft.com/updates/managed-instance-time-zone-ga/">fuseau horaire</a>.
+  - Les instances managées sont maintenant protégées par un [pare-feu intégré](../managed-instance/management-endpoint-verify-built-in-firewall.md).
+  - Configurez des instances SQL Managed Instance pour utiliser des [points de terminaison publics](../managed-instance/public-endpoint-configure.md), [remplacer par proxy](connectivity-architecture.md#connection-policy) une connexion afin d’obtenir de meilleures performances réseau, utiliser <a href="https://aka.ms/four-cores-sql-mi-update"> 4 vCores sur la génération de matériel Gen5</a> ou <a href="https://aka.ms/managed-instance-configurable-backup-retention">configurer la conservation des sauvegardes jusqu’à 35 jours</a> pour une restauration dans le temps. La [rétention des sauvegardes à long terme](long-term-retention-overview.md#sql-managed-instance-support) (jusqu’à 10 ans) est actuellement en version préliminaire publique limitée.  
   - De nouvelles fonctionnalités vous permettent de <a href="https://medium.com/@jocapc/geo-restore-your-databases-on-azure-sql-instances-1451480e90fa">géo-restaurer votre base de données dans un autre centre de données à l’aide de PowerShell</a>, de [renommer la base de données](https://azure.microsoft.com/updates/azure-sql-database-managed-instance-database-rename-is-supported/) et de [supprimer un cluster virtuel](../managed-instance/virtual-cluster-delete.md).
   - Le nouveau [rôle Contributeur d’instance intégré](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#sql-managed-instance-contributor) permet la conformité de la séparation des tâches aux principes de sécurité et le respect des normes d’entreprise.
   - SQL Managed Instance est en disponibilité générale dans les régions Azure Government suivantes (US Gov Texas, US Gov Arizona) ainsi que dans les régions Chine Nord 2 et Chine Est 2. Elle est également disponible dans les régions publiques suivantes : Australie Centre, Australie Centre 2, Brésil Sud, France Sud, Émirats arabes unis Centre, Émirats arabes unis Nord, Afrique du Sud Nord, Afrique du Sud Ouest.
@@ -105,13 +104,13 @@ Les fonctionnalités suivantes sont activées dans le modèle de déploiement SQ
 |[Limitation du basculement manuel via le portail pour les groupes de basculement](#limitation-of-manual-failover-via-portal-for-failover-groups)|janvier 2020|Solution de contournement||
 |[Les rôles SQL Agent requièrent des autorisations d’exécution explicites pour les connexions non-sysadmin](#in-memory-oltp-memory-limits-are-not-applied)|Décembre 2019|Solution de contournement||
 |[Les travaux SQL Agent peuvent être interrompus par le redémarrage du processus de l’agent](#sql-agent-jobs-can-be-interrupted-by-agent-process-restart)|Décembre 2019|Résolu|Mars 2020|
-|[Les utilisateurs et connexions AAD ne sont pas pris en charge dans SSDT](#aad-logins-and-users-are-not-supported-in-ssdt)|Nov 2019|Aucune solution de contournement||
+|[Les utilisateurs et connexions Azure AD ne sont pas pris en charge dans SSDT](#azure-ad-logins-and-users-are-not-supported-in-ssdt)|Nov 2019|Aucune solution de contournement||
 |[Les limites de mémoire OLTP en mémoire ne sont pas appliquées](#in-memory-oltp-memory-limits-are-not-applied)|Octobre 2019|Solution de contournement||
 |[Erreur retournée lors de la tentative de suppression d’un fichier qui n’est pas vide](#wrong-error-returned-while-trying-to-remove-a-file-that-is-not-empty)|Octobre 2019|Solution de contournement||
 |[Les opérations de changement de niveau de service et de création d’instance sont bloquées par la restauration de base de données en cours](#change-service-tier-and-create-instance-operations-are-blocked-by-ongoing-database-restore)|Septembre 2019|Solution de contournement||
 |[Il peut être nécessaire de reconfigurer Resource Governor sur le niveau de service Critique pour l’entreprise après le basculement](#resource-governor-on-business-critical-service-tier-might-need-to-be-reconfigured-after-failover)|Septembre 2019|Solution de contournement||
 |[Les boîtes de dialogue Service Broker utilisées entre plusieurs bases de données doivent être réinitialisées après la mise à niveau du niveau de service](#cross-database-service-broker-dialogs-must-be-reinitialized-after-service-tier-upgrade)|août 2019|Solution de contournement||
-|[L’emprunt d’identité des types de connexion Azure AD n’est pas pris en charge](#impersonification-of-azure-ad-login-types-is-not-supported)|Juillet 2019|Aucune solution de contournement||
+|[L’emprunt d’identité des types de connexion Azure AD n’est pas pris en charge](#impersonation-of-azure-ad-login-types-is-not-supported)|Juillet 2019|Aucune solution de contournement||
 |[Le paramètre @query n’est pas pris en charge dans sp_send_db_mail](#-parameter-not-supported-in-sp_send_db_mail)|Avril 2019|Aucune solution de contournement||
 |[La réplication transactionnelle doit être reconfigurée après un basculement géographique](#transactional-replication-must-be-reconfigured-after-geo-failover)|mars 2019|Aucune solution de contournement||
 |[Une base de données temporaire est utilisée d’une opération de restauration](#temporary-database-is-used-during-restore-operation)||Solution de contournement||
@@ -129,9 +128,9 @@ Les fonctionnalités suivantes sont activées dans le modèle de déploiement SQ
 
 ### <a name="restoring-manual-backup-without-checksum-might-fail"></a>La restauration d’une sauvegarde manuelle sans CHECKSUM peut échouer
 
-Dans certains cas, la restauration d’une sauvegarde manuelle de bases de données effectuée sur une instance managée sans CHECKSUM peut échouer. Vous devez alors réessayer de restaurer la sauvegarde jusqu’à ce que l’opération réussisse.
+Dans certains cas, la restauration d’une copie de sauvegarde manuelle de bases de données effectuée sur une instance gérée sans CHECKSUM peut échouer. Vous devez alors réessayer de restaurer la copie de sauvegarde jusqu’à ce que l’opération réussisse.
 
-**Solution de contournement** : Effectuez des sauvegardes manuelles des bases de données sur une instance managée avec activation de CHECKSUM.
+**Solution de contournement** : Effectuez des copies de sauvegarde manuelles des bases de données sur une instance gérée avec activation de la CHECKSUM.
 
 ### <a name="agent-becomes-unresponsive-upon-modifying-disabling-or-enabling-existing-jobs"></a>L’agent ne répond plus lors de la modification, la désactivation ou l’activation de travaux existants
 
@@ -151,9 +150,9 @@ Si le groupe de basculement s’étend sur plusieurs instances dans différents 
 
 ### <a name="sql-agent-roles-need-explicit-execute-permissions-for-non-sysadmin-logins"></a>Les rôles d’agent SQL requièrent des autorisations d’exécution explicites pour les connexions non-sysadmin
 
-Si des connexions non-sysadmin sont ajoutées à un [rôle de base de données fixe de l’agent SQL](https://docs.microsoft.com/sql/ssms/agent/sql-server-agent-fixed-database-roles) , il y a un problème du fait que des autorisations EXECUTE explicites doivent être accordées aux procédures stockées principales pour que ces connexions fonctionnent. Si ce problème survient, le message d’erreur « L’autorisation EXECUTE a été refusée sur l’objet <object_name> (Microsoft SQL Server, erreur : 229) » s’affiche.
+Si des connexions non-sysadmin sont ajoutées à un [rôle de base de données fixe de SQL Agent](https://docs.microsoft.com/sql/ssms/agent/sql-server-agent-fixed-database-roles), il y a un problème du fait que des autorisations EXECUTE explicites doivent être accordées aux procédures stockées principales pour que ces connexions fonctionnent. Si ce problème survient, le message d’erreur « L’autorisation EXECUTE a été refusée sur l’objet <object_name> (Microsoft SQL Server, erreur : 229) » s’affiche.
 
-**Solution de contournement** : Une fois que vous ajoutez des connexions à l’un des rôles de base de données fixes de l’agent SQL : SQLAgentUserRole, SQLAgentReaderRole ou SQLAgentOperatorRole, pour chacune des connexions ajoutées à ces rôles, le script T-SQL ci-dessous est exécuté pour accorder explicitement des autorisations EXECUTE aux procédures stockées mentionnées.
+**Solution de contournement** : Une fois que vous avez ajouté des connexions à un rôle de base de données fixe SQL Agent (SQLAgentUserRole, SQLAgentReaderRole, ou SQLAgentOperatorRole) pour chaque connexion ajoutée à ces rôles, exécutez le script T-SQL ci-dessous pour autoriser explicitement l’accès EXÉCUTER aux procédures stockées listées.
 
 ```tsql
 USE [master]
@@ -167,23 +166,25 @@ GRANT EXECUTE ON master.dbo.xp_sqlagent_notify TO [login_name]
 
 ### <a name="sql-agent-jobs-can-be-interrupted-by-agent-process-restart"></a>Les travaux de l’agent SQL peuvent être interrompus par le redémarrage du processus de l’agent
 
-**(Résolu en mars 2020)** L’agent SQL crée une nouvelle session chaque fois que le travail est démarré, ce qui augmente progressivement la consommation de mémoire. Pour éviter d’atteindre la limite de mémoire interne qui bloquerait l’exécution de tâches planifiées, le processus de l’agent sera redémarré une fois que la consommation de mémoire aura atteint le seuil. Cela peut entraîner l’interruption de l’exécution des tâches en cours au moment du redémarrage.
+**(Résolu en mars 2020)** SQL Agent crée une session chaque fois qu’une tâche démarre, ce qui augmente progressivement la consommation de mémoire. Pour éviter d’atteindre la limite de mémoire interne qui bloquerait l’exécution de tâches planifiées, le processus de l’agent sera redémarré une fois que la consommation de mémoire aura atteint le seuil. Cela peut entraîner l’interruption de l’exécution des tâches en cours au moment du redémarrage.
 
 ### <a name="in-memory-oltp-memory-limits-are-not-applied"></a>Les limites de mémoire OLTP en mémoire ne sont pas appliquées
 
-Le niveau de service Critique pour l'entreprise n’appliquera pas correctement les [limites max de mémoire pour les objets à mémoire optimisée ](../managed-instance/resource-limits.md#in-memory-oltp-available-space) dans certains cas. SQL Managed Instance peut permettre à la charge de travail d’utiliser davantage de mémoire pour les opérations OLTP en mémoire, ce qui peut affecter la disponibilité et la stabilité de l’instance. Les requêtes OLTP en mémoire qui atteignent les limites peuvent ne pas échouer immédiatement. Ce problème sera corrigé bientôt. Les requêtes qui utilisent plus de mémoire OLTP en mémoire échoueront plus tôt si elles atteignent les [limites](../managed-instance/resource-limits.md#in-memory-oltp-available-space).
+Le niveau de service critique pour l'entreprise n’appliquera pas correctement les [limites max de mémoire pour les objets à mémoire optimisée ](../managed-instance/resource-limits.md#in-memory-oltp-available-space) dans certains cas. SQL Managed Instance peut permettre à la charge de travail d’utiliser davantage de mémoire pour les opérations OLTP en mémoire, ce qui peut affecter la disponibilité et la stabilité de l’instance. Les requêtes OLTP en mémoire qui atteignent les limites peuvent ne pas échouer immédiatement. Ce problème sera corrigé bientôt. Les requêtes qui utilisent plus de mémoire OLTP en mémoire échoueront plus tôt si elles atteignent les [limites](../managed-instance/resource-limits.md#in-memory-oltp-available-space).
 
-**Solution de contournement :** [Surveillez l’utilisation du stockage OLTP en mémoire ](https://docs.microsoft.com/azure/sql-database/sql-database-in-memory-oltp-monitor-space) à l’aide de [SQL Server Management Studio](/sql/relational-databases/in-memory-oltp/monitor-and-troubleshoot-memory-usage#bkmk_Monitoring) pour vous assurer que la charge de travail n’utilise pas plus que la mémoire disponible. Augmentez les limites de mémoire qui dépendent du nombre de vCores ou optimisez votre charge de travail pour utiliser moins de mémoire.
+**Solution de contournement** : [Surveillez l’utilisation du stockage OLTP en mémoire ](https://docs.microsoft.com/azure/azure-sql/in-memory-oltp-monitor-space) à l’aide de [SQL Server Management Studio](/sql/relational-databases/in-memory-oltp/monitor-and-troubleshoot-memory-usage#bkmk_Monitoring) pour vous assurer que la charge de travail n’utilise pas plus que la mémoire disponible. Augmentez les limites de mémoire qui dépendent du nombre de vCores ou optimisez votre charge de travail pour utiliser moins de mémoire.
  
 ### <a name="wrong-error-returned-while-trying-to-remove-a-file-that-is-not-empty"></a>Erreur retournée lors de la tentative de suppression d’un fichier qui n’est pas vide
 
-SQL Server/SQL Managed Instance [ne permettent pas à l’utilisateur de supprimer un fichier qui n’est pas vide](/sql/relational-databases/databases/delete-data-or-log-files-from-a-database#Prerequisites). Si vous tentez de supprimer un fichier de données non vide à l’aide d’une instruction `ALTER DATABASE REMOVE FILE`, l’erreur `Msg 5042 – The file '<file_name>' cannot be removed because it is not empty` n’est pas retournée immédiatement. SQL Managed Instance continue d’essayer de supprimer le fichier et l’opération échoue après 30 minutes avec `Internal server error`.
+SQL Server et SQL Managed Instance [ne permettent pas à l’utilisateur de déposer un fichier qui n’est pas vide](/sql/relational-databases/databases/delete-data-or-log-files-from-a-database#Prerequisites). Si vous tentez de supprimer un fichier de données non vide à l’aide d’une instruction; `ALTER DATABASE REMOVE FILE`l’erreur `Msg 5042 – The file '<file_name>' cannot be removed because it is not empty` n’est pas retournée immédiatement. SQL Managed Instance continue d’essayer de déposer le fichier et l’opération échoue après 30 minutes avec `Internal server error`.
 
-**Solution de contournement** : Supprimez le contenu du fichier à l’aide de la commande `DBCC SHRINKFILE (N'<file_name>', EMPTYFILE)`. S’il s’agit du seul fichier dans le groupe de fichiers, vous devez supprimer les données de la table ou de la partition associées à ce groupe de fichiers avant de réduire le fichier, et éventuellement charger ces données dans une autre table ou partition.
+**Solution de contournement** : Supprimez les contenus du fichier à l’aide de la commande `DBCC SHRINKFILE (N'<file_name>', EMPTYFILE)`. S’il s’agit du seul fichier dans le groupe de fichiers, vous devez supprimer les données de la table ou de la partition associées à ce groupe de fichiers avant de réduire le fichier, et éventuellement charger ces données dans un autre tableau/partition.
 
 ### <a name="change-service-tier-and-create-instance-operations-are-blocked-by-ongoing-database-restore"></a>Les opérations de changement de niveau de service et de création d’instance sont bloquées par la restauration de base de données en cours
 
-Les instructions `RESTORE` en cours, le processus de migration Data Migration Service et la limite de restauration dans le temps intégrée bloquent la mise à jour du niveau de service ou le redimensionnement de l’instance existante et la création de nouvelles instances jusqu’à la fin du processus de restauration. Le processus de restauration bloquera ces opérations sur les instances managées et les pools d’instances sur le sous-réseau où le processus de restauration est en cours d’exécution. Les instances dans les pools d’instances ne sont pas affectées. Les opérations de création ou de changement du niveau de service n’échoueront pas et n’expireront pas : elles se poursuivront une fois le processus de restauration terminé ou annulé.
+Les instructions `RESTORE` en cours, le processus de migration Data Migration Service et la limite de restauration dans le temps intégrée bloquent la mise à jour du niveau de service ou le redimensionnement de l’instance existante et la création de nouvelles instances jusqu’à la fin du processus de restauration. 
+
+Le processus de restauration bloquera ces opérations sur les instances managées et les pools d’instances sur le sous-réseau où le processus de restauration est en cours d’exécution. Les instances dans les pools d’instances ne sont pas affectées. Les opérations de création ou de modification du niveau de service n’échouent pas ou expirent. Elles se poursuivront une fois le processus de restauration terminé ou annulé.
 
 **Solution de contournement** : Attendez la fin du processus de restauration ou annulez-le si l’opération de création ou de mise à jour du niveau de service a une priorité plus élevée.
 
@@ -191,19 +192,19 @@ Les instructions `RESTORE` en cours, le processus de migration Data Migration Se
 
 Il se peut que la fonctionnalité [Resource Governor](/sql/relational-databases/resource-governor/resource-governor) qui permet de limiter les ressources affectées aux charges de travail utilisateur classe erronément une charge de travail utilisateur après un basculement ou une modification du niveau de service apportée par un utilisateur (par exemple, la modification du nombre maximal de vCores ou de la taille maximale de stockage d’instance).
 
-**Solution de contournement** : Exécutez `ALTER RESOURCE GOVERNOR RECONFIGURE` régulièrement ou dans le cadre du travail de l’agent SQL qui exécute la tâche SQL lorsque l’instance démarre si vous utilisez [Resource Governor](/sql/relational-databases/resource-governor/resource-governor).
+**Solution de contournement** : Exécutez `ALTER RESOURCE GOVERNOR RECONFIGURE` régulièrement ou dans le cadre du travail du SQL Agent qui exécute la tâche SQL lorsque l’instance démarre si vous utilisez [Resource Governor](/sql/relational-databases/resource-governor/resource-governor).
 
 ### <a name="cross-database-service-broker-dialogs-must-be-reinitialized-after-service-tier-upgrade"></a>Les boîtes de dialogue Service Broker utilisées entre plusieurs bases de données doivent être réinitialisées après la mise à niveau du niveau de service
 
-Les boîtes de dialogue Service Broker utilisées entre plusieurs bases de données cessent de transmettre les messages aux services dans d’autres bases de données après un changement du niveau de service. Les messages ne sont **pas perdus** et peuvent être retrouvés dans la file d’attente de l’expéditeur. Toute modification du nombre de vCores ou de la taille de stockage des instances dans SQL Managed Instance entraîne le changement de la valeur `service_broke_guid` affichée dans [sys.databases](/sql/relational-databases/system-catalog-views/sys-databases-transact-sql) pour toutes les bases de données. Tout élément `DIALOG` créé à l’aide de l’instruction [BEGIN DIALOG](/sql/t-sql/statements/begin-dialog-conversation-transact-sql) qui référence des répartiteurs Service Brokers dans une autre base de données cesse de remettre les messages au service cible.
+Les boîtes de dialogue Service Broker utilisées entre plusieurs bases de données cessent de transmettre les messages aux services dans d’autres bases de données après un changement du niveau de service. Les messages ne sont *pas perdus* et peuvent être retrouvés dans la file d’attente de l’expéditeur. Toute modification du nombre de vCores ou de la taille de stockage des instances dans SQL Managed Instance entraîne le changement de la valeur `service_broke_guid` affichée dans [sys.databases](/sql/relational-databases/system-catalog-views/sys-databases-transact-sql) pour toutes les bases de données. Tout élément `DIALOG` créé à l’aide de l’instruction [COMMENCER LE DIALOGUE](/sql/t-sql/statements/begin-dialog-conversation-transact-sql) qui référence des répartiteurs Service Brokers dans une autre base de données cesse de remettre les messages au service cible.
 
-**Solution de contournement :** Arrêtez toutes les activités qui utilisent des conversations de boîtes de dialogue Service Broker entre plusieurs bases de données avant de mettre à jour le niveau de service et réinitialisez-les ensuite. S’il reste des messages non transmis après le changement de niveau de service, consultez les messages en question dans la file d’attente source et renvoyez-les à la file d’attente cible.
+**Solution de contournement** : Arrêtez toutes les activités qui utilisent des conversations de boîtes de dialogue Service Broker entre plusieurs bases de données avant de mettre à jour le niveau de service et réinitialisez-les ensuite. S’il reste des messages non transmis après le changement de niveau de service, consultez les messages en question dans la file d’attente source et renvoyez-les à la file d’attente cible.
 
-### <a name="impersonification-of-azure-ad-login-types-is-not-supported"></a>L’emprunt d’identité des types de connexion Azure AD n’est pas pris en charge
+### <a name="impersonation-of-azure-ad-login-types-is-not-supported"></a>L’emprunt d’identité des types de connexion Azure AD n’est pas pris en charge
 
-L’emprunt d’identité avec `EXECUTE AS USER` ou `EXECUTE AS LOGIN` des principaux AAD suivants n’est pas pris en charge :
--    Utilisateurs AAD avec alias. L’erreur suivante est retournée dans ce cas `15517`.
-- Connexions et utilisateurs AAD basés sur des applications ou des principaux de service AAD. Les erreurs suivantes sont retournées dans ces cas `15517` et `15406`.
+L’emprunt d’identité à l’aide de `EXECUTE AS USER` ou `EXECUTE AS LOGIN` des principaux Azure Active Directory (Azure AD) suivants n’est pas pris en charge :
+-   Ajoutez des utilisateurs Azure AD. L’erreur suivante est renvoyée dans ce cas : `15517`.
+- Connexions et utilisateurs Azure AD basés sur des applications ou des principaux de service Azure AD. Les erreurs suivantes sont retournées dans ces cas `15517` et `15406`.
 
 ### <a name="query-parameter-not-supported-in-sp_send_db_mail"></a>Le paramètre @query n’est pas pris en charge dans sp_send_db_mail
 
@@ -211,34 +212,38 @@ Le paramètre `@query` dans la procédure [sp_send_db_mail](/sql/relational-data
 
 ### <a name="transactional-replication-must-be-reconfigured-after-geo-failover"></a>La réplication transactionnelle doit être reconfigurée après un basculement géographique
 
-Si la réplication transactionnelle est activée sur une base de données dans un groupe de basculement automatique, l’administrateur de SQL Managed Instance doit nettoyer toutes les publications de l’ancien principal et les reconfigurer sur le nouveau principal après un basculement vers une autre région. Pour plus d’informations, consultez [Réplication](../managed-instance/transact-sql-tsql-differences-sql-server.md#replication).
+Si la réplication transactionnelle est activée sur une base de données dans un groupe de basculement automatique, l’administrateur de SQL Managed Instance doit nettoyer toutes les publications de l’ancien principal et les reconfigurer sur le nouveau principal après un basculement vers une autre région. Pour plus d'informations, voir [Réplication](../managed-instance/transact-sql-tsql-differences-sql-server.md#replication).
 
-### <a name="aad-logins-and-users-are-not-supported-in-ssdt"></a>Les utilisateurs et connexions AAD ne sont pas pris en charge dans SSDT
+### <a name="azure-ad-logins-and-users-are-not-supported-in-ssdt"></a>Les utilisateurs et connexions Azure AD ne sont pas pris en charge dans SSDT
 
-SQL Server Data Tools ne prend pas complètement en charge les utilisateurs et les connexions Azure Active Directory.
+SQL Server Data Tools ne prend pas complètement en charge les utilisateurs et les connexions Azure AD.
 
 ### <a name="temporary-database-is-used-during-restore-operation"></a>Une base de données temporaire est utilisée d’une opération de restauration
 
-Lors de la restauration d’une base de données sur SQL Managed Instance, le service de restauration commence par créer une base de données vide du nom souhaité pour allouer le nom sur l’instance. Après un certain temps, cette base de données est supprimée et la restauration de la base de données réelle commence. Une valeur GUID aléatoire est allouée temporairement, plutôt qu’un nom, à la base de données en état de *restauration*. Le nom temporaire est remplacé par le nom spécifié dans l’instruction `RESTORE` une fois le processus de restauration terminé. Au cours de la phase initiale, l’utilisateur peut accéder à la base de données vide et même créer des tables ou charger des données dans celle-ci. Cette base de données temporaire est supprimée lorsque le service de restauration démarre la deuxième phase.
+Lors de la restauration d’une base de données sur SQL Managed Instance, le service de restauration commence par créer une base de données vide du nom souhaité pour allouer le nom sur l’instance. Après un certain temps, cette base de données est supprimée et la restauration de la base de données réelle commence. 
+
+Une valeur GUID aléatoire est allouée temporairement, plutôt qu’un nom, à la base de données en état de *Restauration*. Le nom temporaire est remplacé par le nom spécifié dans l’instruction `RESTORE` une fois le processus de restauration terminé. 
+
+Au cours de la phase initiale, un utilisateur peut accéder à la base de données vide et même créer des tableaux ou charger des données dans celui-ci. Cette base de données temporaire est supprimée lorsque le service de restauration démarre la deuxième phase.
 
 **Solution de contournement** : N’accédez pas à la base de données que vous restaurez tant que la restauration n’est pas terminée.
 
 ### <a name="tempdb-structure-and-content-is-re-created"></a>La structure et le contenu de TEMPDB sont recréés
 
-La base de données `tempdb` est toujours fractionnée en 12 fichiers de données, et cette structure de fichiers ne peut pas être modifiée. La taille maximale par fichier n’est pas modifiable, et il n’est pas possible d’ajouter de nouveaux fichiers dans `tempdb`. `Tempdb` est toujours recréé en tant que base de données vide lorsque l’instance démarre ou bascule, et les modifications apportées dans `tempdb` ne sont pas conservées.
+La base de données `tempdb` est toujours fractionnée en 12 fichiers de données, et cette structure de fichiers ne peut pas être modifiée. La taille maximale par fichier n’est pas modifiable, et il n’est pas possible d’ajouter de nouveaux fichiers dans `tempdb`. `Tempdb` est toujours recréé en tant que base de données vide lorsque l’instance démarre ou bascule, et les modifications apportées dans `tempdb` ne sont pas conservées.
 
 ### <a name="exceeding-storage-space-with-small-database-files"></a>Dépassement de l’espace de stockage avec des fichiers de base de données de petite taille
 
 Les instructions `CREATE DATABASE`, `ALTER DATABASE ADD FILE` et `RESTORE DATABASE` risquent d’échouer, car l’instance peut atteindre la limite de Stockage Azure.
 
-Chaque instance SQL Managed Instance à usage général a jusqu’à 35 To de stockage réservé pour l’espace disque Azure Premium. Chaque fichier de base de données est placé sur un disque physique distinct. Les tailles de disque peuvent être de 128 Go, 256 Go, 512 Go, 1 To ou 4 To. L’espace non utilisé sur le disque n’est pas facturé, mais la somme des tailles des disques Premium Azure ne peut pas dépasser 35 To. Dans certains cas, une instance SQL Managed Instance qui n’a pas besoin de 8 To au total peut dépasser la limite Azure de 35 To en taille de stockage à cause d’une fragmentation interne.
+Chaque instance SQL Managed Instance à usage général a jusqu’à 35 To de stockage réservé pour l’espace disque Azure Premium. Chaque fichier de base de données est placé sur un disque physique distinct. Les tailles de disque peuvent être de 128 Go, 256 Go, 512 Go, 1 To ou 4 To. L’espace non utilisé sur le disque n’est pas facturé, mais la somme des tailles des disques Premium Azure ne peut pas dépasser 35 To. Dans certains cas, une instance managée qui n’a pas besoin de 8 To au total peut dépasser la limite Azure de 35 To en taille de stockage à cause d’une fragmentation interne.
 
-Par exemple, une instance SQL Managed Instance à usage général peut avoir un fichier d’une taille de 1,2 To placé sur un disque de 4 To. Elle peut également comporter 248 fichiers, d’une taille de 1 Go chacun, qui sont placés sur des disques distincts de 128 Go. Dans cet exemple :
+Par exemple, une instance SQL Managed Instance à usage général peut avoir un fichier d’une taille de 1,2 To placé sur un disque de 4 To. Elle peut également posséder 248 fichiers, d’une taille de 1 Go chacun, qui sont placés sur des disques distincts de 128 Go. Dans cet exemple :
 
 - La taille totale du stockage de disque alloué est de 1 x 4 To + 248 x 128 Go = 35 To.
 - L’espace total réservé pour les bases de données sur l’instance est de 1 x 1,2 To + 248 x 1 Go = 1,4 To.
 
-Cet exemple montre que, dans certaines circonstances, du fait d’une répartition spécifique des fichiers, une instance SQL Managed Instance peut atteindre la limite des 35 To réservée pour un disque Azure Premium attaché, sans que vous vous y attendiez.
+Cet exemple montre que, dans certaines circonstances, du fait d’une répartition spécifique des fichiers, une instance SQL Managed Instance peut atteindre la limite des 35 To réservée pour un disque Azure Premium attaché, sans que vous vous y attendiez.
 
 Dans cet exemple, les bases de données existantes continuent de fonctionner et peuvent croître sans aucun problème du moment que de nouveaux fichiers ne sont pas ajoutés. La création ou la restauration de bases de données est impossible, car il n’y a pas suffisamment d’espace pour les nouveaux lecteurs de disque, même si la taille totale de toutes les bases de données n’atteint pas la limite de taille d’instance. L’erreur qui est retournée dans ce cas n’est pas claire.
 
@@ -248,7 +253,7 @@ Vous pouvez [identifier le nombre de fichiers restants](https://medium.com/azure
 
 Plusieurs vues système, compteurs de performances, messages d’erreur, événements XEvent et entrées du journal des erreurs affichent des identificateurs de base de données GUID au lieu d’afficher les noms des bases de données. Ne prenez pas en compte ces identificateurs GUID, car ils vont être remplacés à l’avenir par les noms des bases de données.
 
-**Solution de contournement** : utilisez la vue sys.databases pour résoudre le nom de la base de données à partir du nom de la base de données physique, spécifié sous forme d’identificateurs de base de données GUID.
+**Solution de contournement** : Utilisez l’affichage sys.databases pour résoudre le nom de la base de données à partir du nom de la base de données physique, spécifié sous forme d’identificateurs de base de données GUID :
 
 ```tsql
 SELECT name as ActualDatabaseName, physical_database_name as GUIDDatabaseIdentifier 
@@ -287,13 +292,13 @@ using (var scope = new TransactionScope())
 
 ```
 
-**Solution de contournement (non nécessaire depuis mars 2020) :** servez-vous de [SqlConnection.ChangeDatabase(String)](/dotnet/api/system.data.sqlclient.sqlconnection.changedatabase) pour utiliser une autre base de données dans un contexte de connexion au lieu d’utiliser deux connexions.
+**Solution de contournement (non nécessaire depuis mars 2020)** : servez-vous de [SqlConnection.ChangeDatabase(String)](/dotnet/api/system.data.sqlclient.sqlconnection.changedatabase) pour utiliser une autre base de données dans un contexte de connexion au lieu d’utiliser deux connexions.
 
 ### <a name="clr-modules-and-linked-servers-sometimes-cant-reference-a-local-ip-address"></a>Les modules CLR et les serveurs liés parfois ne parviennent pas à référencer une adresse IP locale
 
-Il arrive que des modules CLR placés dans une instance SQL Managed Instance et que des serveurs liés ou des requêtes distribuées référençant une instance active ne parviennent pas à résoudre l’adresse IP d’une instance locale. Cette erreur est un problème temporaire.
+Il arrive que des modules CLR placés dans une instance SQL Managed Instance et que des serveurs liés ou des requêtes distribuées référençant une instance active ne parviennent pas à résoudre l’adresse IP d’une instance locale. Cette erreur est un problème temporaire.
 
-**Solution de contournement :** utilisez des connexions contextuelles dans un module CLR, si possible.
+**Solution de contournement** : utilisez des connexions contextuelles dans un module CLR, si possible.
 
 ## <a name="updates"></a>Mises à jour
 
@@ -303,4 +308,4 @@ Pour connaître les mises à jour et améliorations apportées à tous les servi
 
 ## <a name="contribute-to-content"></a>Contribuer au contenu
 
-Pour contribuer à la documentation Azure SQL, consultez le [guide du contributeur de documents](https://docs.microsoft.com/contribute/).
+Pour contribuer à la documentation Azure SQL, consultez le [guide du contributeur Docs](https://docs.microsoft.com/contribute/).

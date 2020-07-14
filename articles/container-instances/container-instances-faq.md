@@ -3,13 +3,13 @@ title: Forum aux questions
 description: Réponses aux questions fréquemment posées sur le service Azure Container Instances
 author: dkkapur
 ms.topic: article
-ms.date: 04/10/2020
-ms.openlocfilehash: 4fca198356c8db006c4190e0f16b20f78dc1d477
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.date: 06/02/2020
+ms.openlocfilehash: 21643ccfb6bb256e29114435ccb39a009d1b8dae
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82115225"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85806599"
 ---
 # <a name="frequently-asked-questions-about-azure-container-instances"></a>Forum aux questions sur Azure Container Instances
 
@@ -27,25 +27,28 @@ La taille de votre image de conteneur a un impact sur la durée du déploiement.
 
 Étant donné qu’un des principaux facteurs déterminants pour la durée du déploiement est la taille de l’image, essayez par tous les moyens de réduire sa taille. Supprimez les calques dont vous n’avez besoin ou réduisez la taille des calques de l’image (en choisissant une image de système d’exploitation de base plus légère). Par exemple, si vous exécutez des conteneurs Linux, envisagez d’utiliser Alpine comme image de base au lieu d’un serveur Ubuntu complet. De même, pour les conteneurs Windows, utilisez une image de base Nano Server si possible. 
 
-Vous devez également vérifier la liste des images préalablement mises en cache dans Azure Container Images, disponible via l’[API répertoriant les images mises en cache](/rest/api/container-instances/listcachedimages). Vous pouvez éventuellement retirer un calque de l’une des images préalablement mises en cache. 
+Vous devez également vérifier la liste des images préalablement mises en cache dans Azure Container Images, disponible via l’[API répertoriant les images mises en cache](/rest/api/container-instances/location/listcachedimages). Vous pouvez éventuellement retirer un calque de l’une des images préalablement mises en cache. 
 
 Retrouvez des [conseils détaillés](container-instances-troubleshooting.md#container-takes-a-long-time-to-start) sur la réduction du temps de démarrage des conteneurs.
 
 ### <a name="what-windows-base-os-images-are-supported"></a>Quelles images de système d’exploitation de base Windows sont prises en charge ?
 
+> [!NOTE]
+> En raison de problèmes de compatibilité descendante après les mises à jour de Windows en 2020, les versions d’image suivantes incluent le numéro de version minimal que nous vous recommandons d’utiliser dans votre image de base. Les déploiements actuels utilisant d’anciennes versions d’images ne sont pas affectés, mais les nouveaux déploiements doivent adhérer aux images de base suivantes. 
+
 #### <a name="windows-server-2016-base-images"></a>Images de base Windows Server 2016
 
-* [Nano Server](https://hub.docker.com/_/microsoft-windows-nanoserver) : `10.0.14393.x`, `sac2016`
-* [Windows Server Core](https://hub.docker.com/_/microsoft-windows-servercore) : `ltsc2016`, `10.0.14393.x`
+* [Nano Server](https://hub.docker.com/_/microsoft-windows-nanoserver) : `sac2016`, `10.0.14393.3506` ou version plus récente
+* [Windows Server Core](https://hub.docker.com/_/microsoft-windows-servercore) : `ltsc2016`, `10.0.14393.3506`, ou version plus récente
 
 > [!NOTE]
 > Les images de Windows basées sur canal semi-annuel version 1709 ou 1803 ne sont pas prises en charge.
 
 #### <a name="windows-server-2019-and-client-base-images-preview"></a>Images de base Windows Server 2019 et client (préversion)
 
-* [Nano Server](https://hub.docker.com/_/microsoft-windows-nanoserver) : `1809`, `10.0.17763.914` ou antérieur
-* [Windows Server Core](https://hub.docker.com/_/microsoft-windows-servercore) : `ltsc2019`, `1809`, `10.0.17763.914` ou antérieur
-* [Windows](https://hub.docker.com/_/microsoft-windows) : `1809`, `10.0.17763.914` ou antérieur
+* [Nano Server](https://hub.docker.com/_/microsoft-windows-nanoserver) : `1809`, `10.0.17763.1040` ou version plus récente
+* [Windows Server Core](https://hub.docker.com/_/microsoft-windows-servercore) : `ltsc2019`, `1809`, `10.0.17763.1040` ou version plus récente
+* [Windows](https://hub.docker.com/_/microsoft-windows) : `1809`, `10.0.17763.1040` ou version plus récente
 
 ### <a name="what-net-or-net-core-image-layer-should-i-use-in-my-container"></a>Quels calques d’image .NET ou .NET Core dois-je utiliser dans mon conteneur ? 
 

@@ -4,16 +4,16 @@ description: Découvrez Azure Analysis Services, une plateforme complètement ma
 author: minewiskan
 ms.service: azure-analysis-services
 ms.topic: overview
-ms.date: 04/13/2020
+ms.date: 06/24/2020
 ms.author: owend
 ms.reviewer: minewiskan
 ms.custom: references_regions
-ms.openlocfilehash: 0fb0e9e2611ed882bffa1df62adeb617e7211354
-ms.sourcegitcommit: 1f48ad3c83467a6ffac4e23093ef288fea592eb5
+ms.openlocfilehash: f1e70c5b7eb4efdde1bfc20b1ec3e058bfa5b054
+ms.sourcegitcommit: dee7b84104741ddf74b660c3c0a291adf11ed349
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/29/2020
-ms.locfileid: "84191980"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85918952"
 ---
 # <a name="what-is-azure-analysis-services"></a>Qu’est-ce qu’Azure Analysis Services ?
 
@@ -65,14 +65,13 @@ Ce niveau est destiné aux applications de production stratégiques qui nécessi
 |S1    |    100     |    25     |
 |S2    |    200     |    50     |
 |S4    |    400     |    100     |
-|S8 <sup>[1](#depr)</sup>, <sup>[2](#rec)</sup>    |    320    |    200     |
-|S9 <sup>[1](#depr)</sup>, <sup>[2](#rec)</sup>    |    640    |    400     |
-|S8v2 <sup>[1](#depr)</sup>   |    640     |    200     |
-|S9v2 <sup>[1](#depr)</sup>    |    1 280    |    400     |
+|S8 <sup>[1](#naar)</sup>, <sup>[2](#rec)</sup>   |    320    |    200     |
+|S9 <sup>[1](#naar)</sup>, <sup>[2](#rec)</sup>    |    640    |    400     |
+|S8v2 <sup>[1](#naar)</sup>   |    640     |    200     |
+|S9v2 <sup>[1](#naar)</sup>    |    1 280    |    400     |
 
-<a name="depr">1</a> - Non disponible dans toutes les régions.   
-<a name="rec">2</a> - Ce plan est déprécié. v2 est recommandé.
-
+<a name="naar">1</a> - Non disponible dans toutes les régions.   
+<a name="rec">2</a> - v2 est recommandé.
 
 ## <a name="availability-by-region"></a>Disponibilité par région
 
@@ -86,15 +85,15 @@ Azure Analysis Services est pris en charge dans les régions du monde entier. Le
 |Centre du Canada    |     B1, B2, S0, S1, S2, S4, D1    |     1    |
 |USA Est     |     B1, B2, S0, S1, S2, S4, D1    |    1     |
 |USA Est 2     |     B1, B2, S0, S1, S2, S4, D1   |    7    |
-|USA Est 2     |     S8<sup>[2](#rec)</sup>, S9<sup>[2](#rec)</sup>, S8v2, S9v2   |    1    |
+|USA Est 2     |     S8, S9, S8v2, S9v2   |    1    |
 |Centre-Nord des États-Unis     |     B1, B2, S0, S1, S2, S4, D1     |    1     |
 |USA Centre     |    B1, B2, S0, S1, S2, S4, D1     |    1     |
 |États-Unis - partie centrale méridionale     |    B1, B2, S0, S1, S2, S4, D1     |    1     |
 |Centre-USA Ouest   |     B1, B2, S0, S1, S2, S4, D1    |    3     |
 |USA Ouest     |    B1, B2, S0, S1, S2, S4, D1    |    7   |
-|USA Ouest     |    S8<sup>[2](#rec)</sup>, S9<sup>[2](#rec)</sup>, S8v2, S9v2   |    2  |
+|USA Ouest     |    S8, S9, S8v2, S9v2   |    2  |
 |USA Ouest 2    |    B1, B2, S0, S1, S2, S4, D1    |    3   |
-|USA Ouest 2    |    S8<sup>[2](#rec)</sup>, S9<sup>[2](#rec)</sup>, S8v2, S9v2  |    1     |
+|USA Ouest 2    |    S8, S9, S8v2, S9v2  |    1     |
 
 ### <a name="europe"></a>Europe
 
@@ -104,17 +103,17 @@ Azure Analysis Services est pris en charge dans les régions du monde entier. Le
 |Europe Nord     |    S8v2, S9v2      |    3     |
 |Sud du Royaume-Uni     |    B1, B2, S0, S1, S2, S4, D1      |     1    |
 |Europe Ouest     |    B1, B2, S0, S1, S2, S4, D1   |    7    |
-|Europe Ouest    |   S8<sup>[2](#rec)</sup>, S9<sup>[2](#rec)</sup>, S8v2, S9v2  |  1  |
+|Europe Ouest    |   S8, S9, S8v2, S9v2  |  1  |
 
 ### <a name="asia-pacific"></a>Asie-Pacifique 
 
 |Région  | Plans pris en charge | Réplicas de requête (plans Standard uniquement) |
 |---------|---------|:---------:|
 |Australie Est     |    B1, B2, S0, S1, S2, S4     |    3     |
-|Australie Est     |    S8<sup>[2](#rec)</sup>, S9<sup>[2](#rec)</sup>, S8v2, S9v2    |    1     |
+|Australie Est     |    S8, S9, S8v2, S9v2    |    1     |
 |Sud-Australie Est     | B1, B2, S0, S1, S2, S4, D1       |    1     |
 |Japon Est     |   B1, B2, S0, S1, S2, S4, D1       |    1     |
-|Asie Sud-Est     |     B1, B2, S0, S1, S2, S4, S8<sup>[2](#rec)</sup>, S9<sup>[2](#rec)</sup>, S8v2, S9v2, D1     |   1      |
+|Asie Sud-Est     |     B1, B2, S0, S1, S2, S4, S8, S9, S8v2, S9v2, D1     |   1      |
 |Inde Ouest     |    B1, B2, S0, S1, S2, S4, D1     |    1     |
 
 ## <a name="scale-to-your-needs"></a>Évolutif selon vos besoins
@@ -133,15 +132,17 @@ Comme pour la modification des niveaux, vous pouvez effectuer un scale-out des r
 
 ## <a name="pricing"></a>Tarifs
 
-Le coût total dépend de plusieurs facteurs. Par exemple, la région que vous avez choisie, le niveau, les réplicas de requête et suspendre/reprendre. Utilisez la calculatrice [Azure Analysis Services Pricing](https://azure.microsoft.com/pricing/details/analysis-services/) (Tarification d’Azure Analysis Services) pour déterminer la tarification standard pour votre région. Cet outil calcule la tarification pour une instance de serveur unique pour une seule région. N’oubliez pas que les réplicas de requête sont facturés au même prix que le serveur. 
+Le coût total dépend de plusieurs facteurs, tels que la région que vous avez choisie, le niveau, les réplicas de requête et suspendre/reprendre. Utilisez la calculatrice [Azure Analysis Services Pricing](https://azure.microsoft.com/pricing/details/analysis-services/) (Tarification d’Azure Analysis Services) pour déterminer la tarification standard pour votre région. Cet outil calcule la tarification pour une instance de serveur unique pour une seule région. N’oubliez pas que les réplicas de requête sont facturés au même prix que le serveur. 
 
 ## <a name="built-on-sql-server-analysis-services"></a>Basé sur SQL Server Analysis Services
 
 Azure Analysis Services est compatible avec de nombreuses fonctionnalités d’exception déjà intégrées à SQL Server Analysis Services Enterprise Edition. Azure Analysis Services prend en charge les modèles tabulaires aux [niveaux de compatibilité](analysis-services-compat-level.md) 1200 et ultérieurs. Les modèles tabulaires sont des constructions de modélisation relationnelle (modèle, tables, colonnes), articulés dans des définitions d’objets de métadonnées tabulaires dans le code de langage de script de modèle tabulaire (TMSL, Tabular Model Scripting Language) et de modèle d’objet tabulaire (TOM, Tabular Object Model). Les partitions, les perspectives, la sécurité au niveau des lignes, les relations bidirectionnelles et les traductions sont toutes prises en charge\*. Les modèles multidimensionnels et PowerPivot pour SharePoint *ne sont pas* pris en charge dans Azure Analysis Services.
 
-Les modèles tabulaires dans les modes En mémoire et DirectQuery sont pris en charge. En mode En mémoire (par défaut), les modèles tabulaires prennent en charge plusieurs sources de données. Étant donné que les données de modèle sont fortement compressées et mises en mémoire cache, ce mode offre la réponse de requête la plus rapide pour les quantités importantes de données. Il offre également la plus grande flexibilité pour les jeux de données et les requêtes complexes. Le partitionnement permet des charges incrémentielles, augmente la parallélisation et réduit la consommation de mémoire. D’autres fonctionnalités de modélisation de données avancées incluent les tables calculées, et toutes les fonctions DAX sont prises en charge. Les modèles en mémoire doivent être actualisés (traités) pour mettre à jour les données en cache à partir de sources de données. Grâce à la prise en charge de principaux de service Azure, les opérations d’actualisation imprévues à l’aide de PowerShell, TOM, TMSL et REST offrent une flexibilité permettant de garantir que vos données de modèle sont toujours à jour. 
+Les modèles tabulaires dans les modes En mémoire et DirectQuery sont pris en charge. En mode En mémoire (par défaut), les modèles tabulaires prennent en charge plusieurs sources de données. Étant donné que les données de modèle sont fortement compressées et mises en mémoire cache, ce mode offre la réponse de requête la plus rapide pour les quantités importantes de données. Il offre également la plus grande flexibilité pour les jeux de données et les requêtes complexes. 
 
-Le mode DirectQuery* tire profit de la base de données relationnelle principale pour le stockage et l’exécution de la requête. Les jeux de données extrêmement volumineux de sources de données SQL Server, SQL Server Data Warehouse, Azure SQL Database, Azure Synapse Analytics (SQL Data Warehouse), Oracle et Teradata sont pris en charge. Les jeux de données de serveur principal peuvent dépasser la mémoire de ressource serveur disponible. Des scénarios d’actualisation de modèle de données complexes ne sont pas nécessaires. Il existe également certaines restrictions, telles que des limitations des types de sources de données, des limitations liées aux formules DAX, et certaines fonctionnalités de modélisation de données avancées qui ne sont pas prises en charge. Avant de déterminer le mode vous convenant le mieux, consultez [Mode DirectQuery](https://docs.microsoft.com/analysis-services/tabular-models/directquery-mode-ssas-tabular).
+Le partitionnement permet des charges incrémentielles, augmente la parallélisation et réduit la consommation de mémoire. D’autres fonctionnalités de modélisation de données avancées incluent les tables calculées, et toutes les fonctions DAX sont prises en charge. Les modèles en mémoire doivent être actualisés (traités) pour mettre à jour les données en cache à partir de sources de données. Grâce à la prise en charge de principaux de service Azure, les opérations d’actualisation imprévues à l’aide de PowerShell, TOM, TMSL et REST offrent une flexibilité permettant de garantir que vos données de modèle sont toujours à jour. 
+
+Le mode DirectQuery* tire profit de la base de données relationnelle principale pour le stockage et l’exécution de la requête. Les jeux de données extrêmement volumineux de sources de données SQL Server, SQL Server Data Warehouse, Azure SQL Database, Azure Synapse Analytics (anciennement SQL Data Warehouse), Oracle et Teradata sont pris en charge. Les jeux de données de serveur principal peuvent dépasser la mémoire de ressource serveur disponible. Des scénarios d’actualisation de modèle de données complexes ne sont pas nécessaires. Il existe également certaines restrictions, telles que des limitations des types de sources de données, des limitations liées aux formules DAX, et certaines fonctionnalités de modélisation de données avancées qui ne sont pas prises en charge. Avant de déterminer le mode vous convenant le mieux, consultez [Mode DirectQuery](https://docs.microsoft.com/analysis-services/tabular-models/directquery-mode-ssas-tabular).
 
 \* La disponibilité des fonctionnalités dépend du niveau.
 

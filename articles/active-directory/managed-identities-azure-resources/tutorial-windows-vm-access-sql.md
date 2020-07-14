@@ -14,18 +14,18 @@ ms.workload: identity
 ms.date: 01/14/2020
 ms.author: markvi
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: dd3d3aeecb66ba332d9c32c944d527ac3a07f2fe
-ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
+ms.openlocfilehash: 13be33843172f505ed8f12293137c0808e9bd2a0
+ms.sourcegitcommit: dee7b84104741ddf74b660c3c0a291adf11ed349
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "84014313"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85920370"
 ---
 # <a name="tutorial-use-a-windows-vm-system-assigned-managed-identity-to-access-azure-sql"></a>Tutoriel : Utiliser une identité managée de machine virtuelle Windows attribuée par le système pour accéder à Azure SQL
 
 [!INCLUDE [preview-notice](../../../includes/active-directory-msi-preview-notice.md)]
 
-Ce tutoriel illustre comment utiliser une identité attribuée par le système pour une machine virtuelle Windows afin d’accéder à Azure SQL Database. Les identités MSI sont managées automatiquement par Azure et vous permettent de vous authentifier auprès des services prenant en charge l’authentification Azure AD sans avoir à insérer des informations d’identification dans votre code. Vous allez apprendre à effectuer les actions suivantes :
+Ce tutoriel illustre comment utiliser une identité attribuée par le système pour une machine virtuelle Windows afin d’accéder à Azure SQL Database. Les identités MSI sont gérées automatiquement par Azure et vous permettent de vous authentifier auprès des services prenant en charge l’authentification Azure AD sans avoir à insérer des informations d’identification dans votre code. Vous allez apprendre à effectuer les actions suivantes :
 
 > [!div class="checklist"]
 >
@@ -49,7 +49,7 @@ Pour accorder à votre machine virtuelle l’accès à une base de données dans
 Pour accorder à votre machine virtuelle l’accès à une base de données, deux étapes sont nécessaires :
 
 1. Activer l’authentification Azure AD pour le serveur
-2. Créer un **utilisateur contenu** dans la base de données représentant l’identité attribuée du système de la machine virtuelle
+2. Créez un **utilisateur contenu** dans la base de données représentant l’identité attribuée du système de la machine virtuelle.
 
 ### <a name="enable-azure-ad-authentication"></a>Activer l’authentification Azure AD
 
@@ -66,10 +66,10 @@ Pour accorder à votre machine virtuelle l’accès à une base de données, deu
 
 Cette section montre comment créer un utilisateur contenu dans la base de données représentant l’identité attribuée par le système de la machine virtuelle. Pour cette étape, vous avez besoin de [Microsoft SQL Server Management Studio](https://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms) (SSMS). Avant de commencer, il peut également être utile de lire les articles suivants pour acquérir une compréhension de l’intégration d’Azure AD :
 
-* [Authentification universelle avec SQL Database et SQL Data Warehouse (prise en charge de SSMS pour MFA)](/azure/sql-database/sql-database-ssms-mfa-authentication)
-* [Configurer et gérer l’authentification Azure Active Directory avec SQL Database ou SQL Data Warehouse](/azure/sql-database/sql-database-aad-authentication-configure)
+- [Authentification universelle avec SQL Database et Azure Synapse Analytics (prise en charge de SSMS pour l’authentification MFA)](/azure/sql-database/sql-database-ssms-mfa-authentication)
+- [Configurer et gérer l’authentification Azure Active Directory avec SQL Database ou Azure Synapse Analytics](/azure/sql-database/sql-database-aad-authentication-configure)
 
-SQL Database nécessite des noms d’affichage AAD uniques. Ainsi, les comptes AAD comme utilisateurs, groupes et principaux de service (applications), et noms des machines virtuelles activées pour l’identité managée doivent être définis de façon unique dans AAD en termes de noms d'affichage. SQL Database vérifie le nom d’affichage AAD lors de la création T-SQL de tels utilisateurs, et s’il n’est pas unique, la commande ne permet pas la mise à disposition d’un nom d’affichage AAD unique pour un compte donné.
+SQL DB requiert des noms d’affichage AAD uniques. Ainsi, les comptes AAD comme les comptes d’utilisateurs, de groupes et de principaux de service (applications), et les noms des machines virtuelles activées pour l’identité managée doivent être définis de façon unique dans AAD concernant leurs noms complets. SQL DB vérifie le nom d’affichage AAD lors de la création T-SQL de tels utilisateurs, et s'il n’est pas unique, la commande ne permet pas la mise à disposition d'un nom d’affichage AAD unique pour un compte donné.
 
 **Pour créer un utilisateur contenu :**
 
@@ -109,7 +109,7 @@ Le code qui s’exécute dans la machine virtuelle peut désormais obtenir un je
 
 Cette section montre comment obtenir un jeton d’accès à l’aide de l’identité managée attribuée par le système de la machine virtuelle et comment l’utiliser pour appeler Azure SQL. Azure SQL prenant en charge Azure AD Authentication en mode natif, il peut accepter directement des jetons d’accès obtenus à l’aide d’identités managées attribuées par le système pour les ressources Azure. Vous utilisez la méthode de **jeton d’accès** pour créer une connexion à SQL. Cela fait partie de l’intégration d’Azure SQL avec Azure AD, et diffère de la fourniture d’informations d’identification sur la chaîne de connexion.
 
-Voici un exemple de code .NET pour l’ouverture d’une connexion à SQL à l’aide d’un jeton d’accès. Pour permettre l’accès au point de terminaison de l’identité managée attribuée par le système de machine virtuelle, ce code doit s’exécuter sur la machine virtuelle. Pour pouvoir utiliser la méthode de jeton d’accès, **.NET framework 4.6** ou version ultérieure ou **.NET Core 2.2** ou version ultérieure est requis. Remplacez les valeurs AZURE-SQL-SERVERNAME et DATABASE en conséquence. Notez l’ID de ressource pour SQL Azure est `https://database.windows.net/`.
+Voici un exemple de code .NET pour l’ouverture d’une connexion à SQL à l’aide d’un jeton d’accès. Pour permettre l’accès au point de terminaison de l’identité managée attribuée par le système de la machine virtuelle, le code doit s’exécuter sur la machine virtuelle. Pour pouvoir utiliser la méthode de jeton d’accès, **.NET framework 4.6** ou version ultérieure ou **.NET Core 2.2** ou version ultérieure est requis. Remplacez les valeurs AZURE-SQL-SERVERNAME et DATABASE en conséquence. Notez l’ID de ressource pour SQL Azure est `https://database.windows.net/`.
 
 ```csharp
 using System.Net;

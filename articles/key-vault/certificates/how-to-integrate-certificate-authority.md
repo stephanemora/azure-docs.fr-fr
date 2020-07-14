@@ -10,12 +10,12 @@ ms.subservice: certificates
 ms.topic: tutorial
 ms.date: 06/02/2020
 ms.author: sebansal
-ms.openlocfilehash: d6cb8d386efbcdaf053f0740d955b249c0e636b4
-ms.sourcegitcommit: 34eb5e4d303800d3b31b00b361523ccd9eeff0ab
+ms.openlocfilehash: 7627625a917a8f652da62d4197368f023ad8c110
+ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/17/2020
-ms.locfileid: "84907813"
+ms.lasthandoff: 07/05/2020
+ms.locfileid: "85964496"
 ---
 # <a name="integrating-key-vault-with-digicert-certificate-authority"></a>Intégration de Key Vault à l’autorité de certification DigiCert
 
@@ -56,9 +56,9 @@ Après avoir récupéré les informations ci-dessus du compte DigiCert CertCentr
 4.  Sélectionnez l’option **Ajouter**.
  ![Propriétés de certificat](../media/certificates/how-to-integrate-certificate-authority/add-certificate-authority.png)
 5.  Dans l’écran **Créer une autorité de certification**, choisissez les valeurs suivantes :
-    -   **Nom** : ajoutez un nom d’émetteur identifiable. Par exemple : DigicertCA
+    -   **Name** : ajoutez un nom d’émetteur identifiable. Par exemple : DigicertCA
     -   **Fournisseur** : sélectionnez DigiCert dans le menu.
-    -   **ID de compte** : entrez votre ID de compte DigiCert CertCentral.
+    -   **Account ID** (ID de compte) : entrez votre ID de compte DigiCert CertCentral.
     -   **Mot de passe du compte** : entrez la clé d’API que vous avez générée dans votre compte DigiCert CertCentral.
     -   **ID d’organisation** : entrez l’OrgID récupéré à partir du compte DigiCert CertCentral. 
     -   Cliquez sur **Créer**.

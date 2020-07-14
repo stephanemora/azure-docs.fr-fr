@@ -6,12 +6,12 @@ ms.author: andrela
 ms.service: mysql
 ms.topic: conceptual
 ms.date: 2/27/2020
-ms.openlocfilehash: 158dd5e1f69340e233a0c2392d3f19fd5cf562ea
-ms.sourcegitcommit: 1f25aa993c38b37472cf8a0359bc6f0bf97b6784
+ms.openlocfilehash: c30faa31f6f733f80d4bfd5184c09d9fdbd6f389
+ms.sourcegitcommit: f684589322633f1a0fafb627a03498b148b0d521
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/26/2020
-ms.locfileid: "83845544"
+ms.lasthandoff: 07/06/2020
+ms.locfileid: "85971179"
 ---
 # <a name="migrate-your-mysql-database-to-azure-database-for-mysql-using-dump-and-restore"></a>Migrer une base de données MySQL vers une base de données Azure pour MySQL à l’aide des images mémoire et de la restauration
 Cet article décrit deux méthodes courantes pour sauvegarder et restaurer des bases de données dans votre base de données Azure pour MySQL.
@@ -67,7 +67,11 @@ Voici les paramètres à fournir :
 - [backupfile.sql] le nom du fichier de sauvegarde de votre base de données ; 
 - [--opt] l’option mysqldump. 
 
-Par exemple, pour sauvegarder une base de données nommée « testdb » sur votre serveur MySQL avec le nom d’utilisateur « testuser » et sans mot de passe dans un fichier testdb_backup.sql, utilisez la commande suivante. La commande sauvegarde la base de données `testdb` dans un fichier appelé `testdb_backup.sql`, qui contient toutes les instructions SQL nécessaires pour recréer la base de données. 
+Par exemple, pour sauvegarder une base de données nommée « testdb » sur votre serveur MySQL avec le nom d’utilisateur « testuser » et sans mot de passe dans un fichier testdb_backup.sql, utilisez la commande suivante. La commande sauvegarde la base de données `testdb` dans un fichier appelé `testdb_backup.sql`, qui contient toutes les instructions SQL nécessaires pour recréer la base de données. Assurez-vous que le nom d’utilisateur « testuser » possède au moins le privilège SELECT pour les tableaux vidés, SHOW VIEW pour les vues de vidage, TRIGGER pour les déclencheurs vidés et LOCK TABLES si l’option --single-transaction n’est pas utilisée.
+
+```bash
+GRANT SELECT, LOCK TABLES, SHOW VIEW ON *.* TO 'testuser'@'hostname' IDENTIFIED BY 'password';
+```
 
 ```bash
 $ mysqldump -u root -p testdb > testdb_backup.sql
@@ -96,9 +100,10 @@ Ajoutez les informations de connexion à MySQL Workbench.
 Pour préparer le serveur Azure Database pour MySQL cible afin d’accélérer les chargements de données, les paramètres et la configuration de serveur suivants doivent être modifiés.
 - max_allowed_packet : définissez cette valeur sur 1073741824 (par exemple, 1 Go) pour éviter tout problème de dépassement de capacité en raison de longues lignes.
 - slow_query_log : définissez cette valeur sur OFF pour désactiver le journal des requêtes lentes. Cela élimine la surcharge causée par la journalisation de requêtes lentes pendant les chargements de données.
-- query_store_capture_mode : définissez les deux valeurs sur NONE pour désactiver le magasin de données des requêtes. Cela permet d’éliminer la surcharge causée par les activités d’échantillonnage par le magasin de données des requêtes.
+- query_store_capture_mode : définissez la valeur sur NONE pour désactiver le Magasin de données des requêtes. Cela permet d’éliminer la surcharge causée par les activités d’échantillonnage par le magasin de données des requêtes.
 - innodb_buffer_pool_size : effectuez un scale-up du serveur avec la référence SKU 32 vCore Memory Optimized à partir du niveau tarifaire du portail pendant la migration afin d’augmenter la valeur innodb_buffer_pool_size. La valeur Innodb_buffer_pool_size peut être augmentée uniquement en effectuant un scale-up du calcul pour le serveur Azure Database pour MySQL.
-- innodb_write_io_threads & innodb_write_io_threads : affectez la valeur 16 aux paramètres du serveur dans le portail Azure pour accélérer la migration.
+- innodb_io_capacity & innodb_io_capacity_max : passez à 9000 à partir des paramètres de serveur dans le Portail Azure pour améliorer l’utilisation des E/S afin d’optimiser la vitesse de la migration.
+- innodb_write_io_threads & innodb_write_io_threads : affectez la valeur 4 aux paramètres du serveur dans le Portail Azure pour accélérer la migration.
 - Effectuer un scale-up du niveau de stockage : le nombre d’opérations d’E/S par seconde (IOPS) pour le serveur Azure Database pour MySQL augmente progressivement. Pour accélérer les chargements, vous pouvez augmenter le niveau de stockage et accroître ainsi les IOPS. N’oubliez pas que le stockage peut seulement faire l’objet d’un scale-up.
 
 Une fois la migration terminée, vous pouvez rétablir les valeurs précédentes des paramètres du serveur et du niveau de calcul. 

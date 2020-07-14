@@ -8,12 +8,12 @@ ms.devlang: java
 ms.topic: how-to
 ms.date: 06/11/2020
 ms.author: anfeldma
-ms.openlocfilehash: 8028b1f301a3c7fb4ca39c8920824091a4065118
-ms.sourcegitcommit: 635114a0f07a2de310b34720856dd074aaf4f9cd
+ms.openlocfilehash: ccbafcfcbf13809b84883352c5a31835c6988d51
+ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/23/2020
-ms.locfileid: "85261951"
+ms.lasthandoff: 07/05/2020
+ms.locfileid: "85962694"
 ---
 # <a name="how-to-create-a-java-application-that-uses-azure-cosmos-db-sql-api-and-change-feed-processor"></a>Guide pratique pour créer une application Java qui utilise l’API SQL Azure Cosmos DB et le processeur de flux de modification
 
@@ -31,7 +31,7 @@ Ce guide de procédure explique comment créer une application Java simple qui u
 
 * Java 8
 
-## <a name="background"></a>Contexte
+## <a name="background"></a>Arrière-plan
 
 Le flux de modification Azure Cosmos DB fournit une interface basée sur des événements pour déclencher des actions en réponse à l’insertion de documents. Il a de nombreux usages. Par exemple, dans les applications gourmandes en opérations de lecture et d’écriture, le flux de modification est important, car il permet de créer une **vue matérialisée** en temps réel d’un conteneur durant le processus d’ingestion des documents. Le conteneur de la vue matérialisée héberge les mêmes données, mais celles-ci sont partitionnées pour optimiser les lectures, ce qui rend l’application performante aussi bien en lecture qu’en écriture.
 
@@ -57,7 +57,7 @@ mvn clean package
 
 1. En premier lieu, vous devez avoir un compte Azure Cosmos DB. Ouvrez le **portail Azure** dans votre navigateur, accédez à votre compte Azure Cosmos DB et, dans le volet de gauche, accédez à l’**Explorateur de données**.
 
-    ![Compte Azure Cosmos DB](media/create-sql-api-java-changefeed/cosmos_account_empty.JPG)
+   :::image type="content" source="media/create-sql-api-java-changefeed/cosmos_account_empty.JPG" alt-text="Compte Azure Cosmos DB":::
 
 1. Exécutez l’application dans le terminal à l’aide de la commande suivante :
 
@@ -77,9 +77,7 @@ mvn clean package
     * **InventoryContainer-pktype** : vue matérialisée de l’enregistrement d’inventaire, optimisée pour les requêtes sur l’élément ```type```.
     * **InventoryContainer-leases** : un conteneur de baux est obligatoire pour le flux de modification ; les baux suivent la progression de l’application dans la lecture du flux de modification.
 
-
-    ![Conteneurs vides](media/create-sql-api-java-changefeed/cosmos_account_resources_lease_empty.JPG)
-
+    :::image type="content" source="media/create-sql-api-java-changefeed/cosmos_account_resources_lease_empty.JPG" alt-text="Conteneurs vides":::
 
 1. Dans le terminal, vous devez maintenant voir une invite
 
@@ -97,7 +95,7 @@ mvn clean package
 
     Retournez ensuite dans l’Explorateur de données du portail Azure dans votre navigateur. Sous le conteneur **InventoryContainer-leases**, cliquez sur **Éléments** pour voir le contenu. Vous voyez que le processeur de flux de modification a rempli le conteneur de baux, c’est-à-dire que le processeur a affecté au worker ```SampleHost_1``` un bail sur certaines partitions du conteneur **InventoryContainer**.
 
-    ![Baux](media/create-sql-api-java-changefeed/cosmos_leases.JPG)
+    :::image type="content" source="media/create-sql-api-java-changefeed/cosmos_leases.JPG" alt-text="Baux":::
 
 1. Appuyez une nouvelle fois sur Entrée dans le terminal. Cette action déclenche l’insertion de dix documents dans **InventoryContainer**. Chaque insertion de document apparaît dans le flux de modification au format JSON. Le code de rappel suivant gère ces événements en mettant en miroir les documents JSON dans une vue matérialisée :
 
@@ -107,15 +105,15 @@ mvn clean package
 
 1. Laissez le code s’exécuter pendant 5 à 10 secondes. Ensuite, retournez dans l’Explorateur de données du portail Azure et accédez à **InventoryContainer > Éléments**. Vous devez voir que les éléments sont insérés dans le conteneur d’inventaire. Notez la clé de partition (```id```).
 
-    ![Conteneur de flux](media/create-sql-api-java-changefeed/cosmos_items.JPG)
+    :::image type="content" source="media/create-sql-api-java-changefeed/cosmos_items.JPG" alt-text="Conteneur de flux":::
 
 1. À présent, dans l’Explorateur de données, accédez à **InventoryContainer-pktype > Éléments**. Il s’agit de la vue matérialisée : les éléments de ce conteneur sont en miroir d’**InventoryContainer** car ils ont été insérés programmatiquement par le flux de modification. Notez la clé de partition (```type```). Cette vue matérialisée est optimisée pour un filtrage des requêtes sur ```type```, mais c’est inefficace sur **InventoryContainer** qui est lui partitionné sur ```id```.
 
-    ![Vue matérialisée](media/create-sql-api-java-changefeed/cosmos_materializedview2.JPG)
+    :::image type="content" source="media/create-sql-api-java-changefeed/cosmos_materializedview2.JPG" alt-text="Vue matérialisée":::
 
 1. Nous allons supprimer un document dans **InventoryContainer** et **InventoryContainer-pktype** en utilisant un seul appel ```upsertItem()```. Avant cela, jetons un coup d’œil à l’Explorateur de données du portail Azure. Nous supprimerons le document dont l’élément ```/type == "plums"``` est entouré en rouge ci-dessous
 
-    ![Vue matérialisée](media/create-sql-api-java-changefeed/cosmos_materializedview-emph-todelete.JPG)
+    :::image type="content" source="media/create-sql-api-java-changefeed/cosmos_materializedview-emph-todelete.JPG" alt-text="Vue matérialisée":::
 
     Appuyez de nouveau sur Entrée pour appeler la fonction ```deleteDocument()``` dans l’exemple de code. Cette fonction, illustrée ci-dessous, fait un upsert d’une nouvelle version du document avec ```/ttl == 5```, qui définit la durée de vie (TTL) du document à cinq secondes. 
     

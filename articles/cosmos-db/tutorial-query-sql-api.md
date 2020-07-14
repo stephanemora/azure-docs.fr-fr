@@ -1,6 +1,6 @@
 ---
 title: 'Tutoriel : Comment effectuer des interrogation avec le langage SQL dans Azure Cosmos DB ?'
-description: 'Tutoriel : Découvrez comment effectuer des interrogations avec des requêtes SQL dans Azure Cosmos DB à l’aide du playground de test de requêtes'
+description: 'Tutoriel : Découvrir comment effectuer des interrogations avec des requêtes SQL dans Azure Cosmos DB à l’aide du playground de test de requêtes'
 author: markjbrown
 ms.author: mjbrown
 ms.service: cosmos-db
@@ -8,12 +8,12 @@ ms.custom: tutorial-develop, mvc
 ms.topic: tutorial
 ms.date: 11/05/2019
 ms.reviewer: sngun
-ms.openlocfilehash: 7e83ed0f9e635ed24b7e6115eeaaa9057d422c69
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: e8d1498520ea0c59372ec4e1096b6f2b4bcf885f
+ms.sourcegitcommit: dee7b84104741ddf74b660c3c0a291adf11ed349
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "74870069"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85921126"
 ---
 # <a name="tutorial-query-azure-cosmos-db-by-using-the-sql-api"></a>Tutoriel : Interroger Azure Cosmos DB à l’aide de l’API SQL
 
@@ -56,6 +56,7 @@ L’exemple de document suivant est utilisé pour les interrogations SQL de cet 
   "isRegistered": false
 }
 ```
+
 ## <a name="where-can-i-run-sql-queries"></a>Où puis-je exécuter des requêtes SQL ?
 
 Vous pouvez exécuter des requêtes à l’aide de l’Explorateur de données dans le portail Azure, via l’[API REST et Kits de développement logiciel (SDK) ](sql-api-sdk-dotnet.md)et même l’[interface de requête](https://www.documentdb.com/sql/demo), qui exécute des requêtes sur un ensemble d’exemples de données existant.
@@ -65,17 +66,19 @@ Pour plus d’informations sur les requêtes SQL, consultez :
 
 ## <a name="prerequisites"></a>Prérequis
 
-Ce didacticiel suppose que vous ayez un compte et une collection Azure Cosmos DB. Cela n’est pas le cas ? Procédez au [démarrage rapide en 5 minutes](create-cosmosdb-resources-portal.md).
+Ce didacticiel suppose que vous ayez un compte et une collection Azure Cosmos DB. Vous ne disposez d’aucune de ces ressources ? Procédez au [démarrage rapide en 5 minutes](create-cosmosdb-resources-portal.md).
 
 ## <a name="example-query-1"></a>Exemple de requête 1
 
-Étant donné l’exemple de document de famille ci-dessus, la requête SQL suivante renvoie les documents où le champ id correspond à `WakefieldFamily`. Comme il s’agit d’une instruction `SELECT *`, le résultat de la requête est le document JSON complet :
+Étant donné l’exemple de document de famille ci-dessus, la requête SQL suivante retourne les documents dans lesquels le champ ID correspond à `WakefieldFamily`. Comme il s’agit d’une instruction `SELECT *`, le résultat de la requête est le document JSON complet :
 
 **Requête**
 
+```sql
     SELECT * 
     FROM Families f 
     WHERE f.id = "WakefieldFamily"
+```
 
 **Résultats**
 
@@ -110,23 +113,34 @@ Ce didacticiel suppose que vous ayez un compte et une collection Azure Cosmos DB
 
 ## <a name="example-query-2"></a>Exemple de requête 2
 
-La requête suivante renvoie tous les noms donnés des enfants de la famille dont l’ID correspond à `WakefieldFamily` classés par classe.
+La requête suivante retourne tous les noms donnés des enfants de la famille dont l’ID correspond à `WakefieldFamily`, classés par classe.
 
 **Requête**
 
+```sql
     SELECT c.givenName 
     FROM Families f 
     JOIN c IN f.children 
     WHERE f.id = 'WakefieldFamily'
+```
 
 **Résultats**
 
-[ { "givenName": "Jesse" }, { "givenName": "Lisa" } ]
+```
+[
+    {
+        "givenName": "Jesse"
+    },
+    {
+        "givenName": "Lisa"
+    }
+]
+```
 
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Dans ce tutoriel, vous avez :
+Dans ce tutoriel, vous avez effectué les tâches suivantes :
 
 > [!div class="checklist"]
 > * Effectuer des interrogations à l’aide de SQL  

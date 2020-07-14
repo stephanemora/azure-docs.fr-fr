@@ -3,16 +3,16 @@ title: Bien démarrer avec le portail Azure Enterprise
 description: Cet article explique comment les clients Contrat Entreprise Azure (Azure EA) utilisent le portail Azure Enterprise.
 author: bandersmsft
 ms.author: banders
-ms.date: 06/01/2020
+ms.date: 06/29/2020
 ms.topic: conceptual
 ms.service: cost-management-billing
 ms.reviewer: boalcsva
-ms.openlocfilehash: 7983afa32ff8104d181fbcdc75a50d12e2240128
-ms.sourcegitcommit: d118ad4fb2b66c759b70d4d8a18e6368760da3ad
+ms.openlocfilehash: 6b31f3cd8ca6baa2d20d0281de51ed83424eca17
+ms.sourcegitcommit: 73ac360f37053a3321e8be23236b32d4f8fb30cf
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/02/2020
-ms.locfileid: "84298106"
+ms.lasthandoff: 06/30/2020
+ms.locfileid: "85560353"
 ---
 # <a name="get-started-with-the-azure-enterprise-portal"></a>Bien démarrer avec le portail Azure Enterprise
 
@@ -471,6 +471,7 @@ Le portail Azure Enterprise filtre les inscriptions inactives en dehors de l’a
 
 ### <a name="enrollment-statuses"></a>États de l'inscription
 
+- **Nouveau** : Cet état est affecté à une inscription dans les 24 heures qui suivent sa création et est mis à jour en état d’attente dans un délais de 24 heures.
 - **Pending** : l’administrateur de l’inscription doit se connecter au portail Azure Enterprise. Une fois la connexion établie, l’inscription passe à l’état Active.
 - **Actif** : l’inscription est active et les comptes et les abonnements peuvent être créés dans le portail Azure Enterprise. L’inscription reste active jusqu’à la date de fin de l’Accord Entreprise.
 - **Durée prolongée indéterminée** : une durée prolongée indéterminée prend place quand la date de fin d’Accord Entreprise est atteinte. Il permet aux clients Azure EA qui ont opté pour le terme étendu de continuer à utiliser des services Azure indéfiniment à la fin de leur Accord Entreprise.

@@ -9,12 +9,12 @@ ms.date: 05/19/2020
 ms.author: normesta
 ms.reviewer: fryu
 ms.custom: monitoring
-ms.openlocfilehash: 3ede22b5af942c3f0c0cd88d86b56a625c7656c0
-ms.sourcegitcommit: 309cf6876d906425a0d6f72deceb9ecd231d387c
+ms.openlocfilehash: 9810d29750e7c741c84b11b296099a37d67fc595
+ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/01/2020
-ms.locfileid: "84267611"
+ms.lasthandoff: 07/05/2020
+ms.locfileid: "85955163"
 ---
 # <a name="monitor-azure-storage"></a>Surveiller le Stockage Azure
 
@@ -78,7 +78,9 @@ Aucune autre demande anonyme ayant échoué n'est enregistrée. Pour obtenir une
 
 Les métriques de la plateforme et le journal d’activité sont collectés automatiquement, mais vous devez créer un paramètre de diagnostic pour collecter les journaux des ressources ou les transférer en dehors d’Azure Monitor. Pour connaître le processus de création d’un paramètre de diagnostic à l’aide du Portail Azure, de l’interface Azure CLI ou de PowerShell, consultez [Créer un paramètre de diagnostic pour collecter des journaux et métriques de plateforme dans Azure](../../azure-monitor/platform/diagnostic-settings.md).
 
-Lorsque vous créez un paramètre de diagnostic, choisissez le type de stockage pour lequel vous souhaitez activer les journaux (tel que : objet blob, file d’attente, table ou fichier). Si vous créez le paramètre de diagnostic dans le Portail Azure, vous pouvez sélectionner la ressource dans une liste. Si vous utilisez PowerShell ou Azure CLI, vous devez utiliser l’ID de ressource du type de stockage. Vous pouvez trouver l’ID de ressource dans le portail Azure en ouvrant la page **Propriétés** de votre compte de stockage.
+Lorsque vous créez un paramètre de diagnostic, choisissez le type de stockage pour lequel vous souhaitez activer les journaux (tel que : objet blob, file d’attente, table ou fichier). Data Lake Storage Gen2 n’apparaît pas en tant que type de stockage. Cela est dû au fait que Data Lake Storage Gen2 est un ensemble de fonctionnalités disponibles pour le stockage Blob. 
+
+Si vous créez le paramètre de diagnostic dans le Portail Azure, vous pouvez sélectionner la ressource dans une liste. Si vous utilisez PowerShell ou Azure CLI, vous devez utiliser l’ID de ressource du type de stockage. Vous pouvez trouver l’ID de ressource dans le portail Azure en ouvrant la page **Propriétés** de votre compte de stockage.
 
 Vous devez également spécifier les catégories d’opérations pour lesquelles vous souhaitez collecter les journaux. Les catégories pour le Stockage Azure sont répertoriées dans ce tableau.
 
@@ -343,6 +345,8 @@ Les données sont stockées dans ces tableaux.
 |StorageFileLogs | Journaux qui décrivent l’activité dans les partages de fichiers |
 |StorageQueueLogs | Journaux qui décrivent l’activité dans les files d’attente|
 |StorageTableLogs| Journaux qui décrivent l’activité dans les tables|
+
+Les journaux de Data Lake Storage Gen2 n’apparaissent pas dans une table dédiée. Cela est dû au fait que Data Lake Storage Gen2 n’est pas un service. Il s’agit d’un ensemble de fonctionnalités que vous pouvez activer sur un compte de stockage Blob. Si vous avez activé ces fonctionnalités, les journaux continueront d’apparaître dans la table StorageBlobLogs. 
 
 ### <a name="azure-storage-log-analytics-queries-in-azure-monitor"></a>Requêtes Log Analytics de stockage Azure dans Azure Monitor
 

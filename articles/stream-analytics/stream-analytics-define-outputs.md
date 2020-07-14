@@ -7,12 +7,12 @@ ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 05/8/2020
-ms.openlocfilehash: ead7361ba48a9a1b646310d3a47850545fff3ade
-ms.sourcegitcommit: 1f48ad3c83467a6ffac4e23093ef288fea592eb5
+ms.openlocfilehash: a7b2e2b14c6358d0dd9a6f8934e88c0fa89c8bd8
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/29/2020
-ms.locfileid: "84195617"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85833806"
 ---
 # <a name="understand-outputs-from-azure-stream-analytics"></a>Comprendre les sorties d’Azure Stream Analytics
 
@@ -111,8 +111,8 @@ Le tableau suivant répertorie les noms de propriétés et leur description pour
 | Format de la date | facultatif. Si le jeton de la date est utilisé dans le chemin d’accès du préfixe, vous pouvez sélectionner le format de date dans lequel vos fichiers sont organisés. Exemple : AAAA/MM/JJ |
 | Format de l’heure | facultatif. Si le jeton de l’heure est utilisé dans le chemin d’accès du préfixe, spécifiez le format d’heure dans lequel vos fichiers sont organisés. Actuellement, la seule valeur possible est HH. |
 | Format de sérialisation de l’événement | Format de sérialisation pour les données de sortie. JSON, CSV, Avro et Parquet sont pris en charge. |
-|Lignes minimum (Parquet uniquement)|Le nombre minimum de lignes par lot. Pour Parquet, chaque lot crée un nouveau fichier. La valeur par défaut actuelle est de 2 000 lignes et la valeur maximum autorisée est de 10 000 lignes.|
-|Durée maximum (Parquet uniquement)|Le délai d’attente maximum par lot. À l’issue de cette période, le lot est écrit dans la sortie même si l’exigence de lignes minimum n’est pas remplie. La valeur par défaut actuelle est de 1 minute et la valeur maximum autorisée est de 2 heures. Si la sortie de votre objet BLOB a une fréquence de modèle de chemin d’accès, le délai d’attente ne peut pas être supérieur à l’intervalle de temps de la partition.|
+|Nombre minimal de lignes |Le nombre minimum de lignes par lot. Pour Parquet, chaque lot crée un nouveau fichier. La valeur par défaut actuelle est de 2 000 lignes et la valeur maximum autorisée est de 10 000 lignes.|
+|Durée maximale |Le délai d’attente maximum par lot. À l’issue de cette période, le lot est écrit dans la sortie même si l’exigence de lignes minimum n’est pas remplie. La valeur par défaut actuelle est de 1 minute et la valeur maximum autorisée est de 2 heures. Si la sortie de votre objet BLOB a une fréquence de modèle de chemin d’accès, le délai d’attente ne peut pas être supérieur à l’intervalle de temps de la partition.|
 | Encodage    | Si vous utilisez le format CSV ou JSON, vous devez spécifier un encodage. UTF-8 est le seul format de codage actuellement pris en charge. |
 | Délimiteur   | Applicable uniquement pour la sérialisation CSV. Stream Analytics prend en charge un certain nombre de délimiteurs communs pour sérialiser des données CSV. Valeurs prises en charge : virgule, point-virgule, espace, tabulation et barre verticale. |
 | Format      | Applicable uniquement pour la sérialisation JSON. L’expression **Séparé par une ligne** indique que la sortie est mise en forme de sorte que tous les objets JSON soient séparés par une nouvelle ligne. Si vous sélectionnez **Séparé par une ligne**, le JSON est lu un objet à la fois. Le contenu entier seul ne serait pas un JSON valide. Le terme **Tableau** indique que la sortie est mise en forme en tant que tableau d’objets JSON. Ce tableau se ferme uniquement lorsque le travail s’arrête ou que Stream Analytics est passé à la période suivante. En règle générale, il est préférable d’utiliser du code JSON séparé par des lignes, car il ne requiert aucun traitement spécial pendant que le fichier de sortie est écrit. |

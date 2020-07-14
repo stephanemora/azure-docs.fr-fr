@@ -6,14 +6,14 @@ author: alkohli
 ms.service: databox
 ms.subservice: pod
 ms.topic: tutorial
-ms.date: 06/25/2019
+ms.date: 07/02/2020
 ms.author: alkohli
-ms.openlocfilehash: 81732f13b85a7c0b514aad61c40802f4547957c2
-ms.sourcegitcommit: 12f23307f8fedc02cd6f736121a2a9cea72e9454
+ms.openlocfilehash: 2b5789acfbb088ca8dbeb731b1ce7748041233cb
+ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/30/2020
-ms.locfileid: "84219125"
+ms.lasthandoff: 07/05/2020
+ms.locfileid: "85960511"
 ---
 # <a name="tutorial-copy-data-to-azure-data-box-via-nfs"></a>Tutoriel : Copier des données sur Azure Data Box Disk par le biais de NFS
 
@@ -48,7 +48,7 @@ Sous les partages d’objet blob de blocs et d’objet blob de pages, les entit�
 
 Le tableau suivant montre le chemin UNC aux partages sur votre Data Box et l’URL de chemin Stockage Azure où les données sont chargées. La dernière URL de chemin de Stockage Azure peut être dérivée à partir du chemin de partage UNC.
  
-|                   |                                                            |
+| Type de stockage Azure| Partages Data Box                                       |
 |-------------------|--------------------------------------------------------------------------------|
 | Objets blob de blocs Azure | <li>Chemin UNC aux partages : `//<DeviceIPAddress>/<StorageAccountName_BlockBlob>/<ContainerName>/files/a.txt`</li><li>URL de Stockage Azure : `https://<StorageAccountName>.blob.core.windows.net/<ContainerName>/files/a.txt`</li> |  
 | Objets blob de pages Azure  | <li>Chemin UNC aux partages : `//<DeviceIPAddres>/<StorageAccountName_PageBlob>/<ContainerName>/files/a.txt`</li><li>URL de Stockage Azure : `https://<StorageAccountName>.blob.core.windows.net/<ContainerName>/files/a.txt`</li>   |  
@@ -58,7 +58,7 @@ Si vous utilisez un ordinateur hôte Linux, procédez comme suit afin de configu
 
 1. Indiquez les adresses IP des clients autorisés pouvant accéder au partage. Dans l’interface utilisateur web locale, accédez à la page **Connect and copy** (Connexion et copie). Sous **Paramètres NFS**, cliquez sur **Accès au client NFS**. 
 
-    ![Configurer l’accès au client NFS 1](media/data-box-deploy-copy-data/nfs-client-access.png)
+    ![Configurer l’accès au client NFS 1](media/data-box-deploy-copy-data/nfs-client-access-1.png)
 
 2. Indiquez l’adresse IP du client NFS, puis cliquez sur **Ajouter**. Vous pouvez configurer un accès à plusieurs clients NFS en répétant cette étape. Cliquez sur **OK**.
 
@@ -139,7 +139,19 @@ Si vous utilisez l’option rsync pour une copie multithread, suivez ces instruc
 > [!IMPORTANT]
 > Les types de fichiers Linux suivants ne sont pas pris en charge : liens symboliques, fichiers de caractères, fichiers de blocs, sockets et pipes. Ces types de fichiers entraînent des échecs au cours de l’étape **Préparer l’expédition**.
 
-Ouvrez le dossier cible pour afficher et vérifier les fichiers copiés. Si vous rencontrez des erreurs au cours du processus de copie, téléchargez les fichiers d’erreurs pour résoudre les problèmes. Pour plus d’informations, consultez [Afficher les journaux d’erreurs pendant la copie de données vers Data Box](data-box-logs.md#view-error-log-during-data-copy). Pour obtenir une liste détaillée des erreurs lors de la copie des données, consultez [Résolution des problèmes liés à Data Box](data-box-troubleshoot.md).
+Pendant le processus de copie, si des erreurs se produisent, une notification s’affiche.
+
+![Télécharger et voir les erreurs dans Connexion et copie](media/data-box-deploy-copy-data/view-errors-1.png)
+
+Sélectionnez **Télécharger la liste des problèmes**.
+
+![Télécharger et voir les erreurs dans Connexion et copie](media/data-box-deploy-copy-data/view-errors-2.png)
+
+Ouvrez la liste pour voir les détails de l’erreur, puis sélectionnez l’URL de résolution pour afficher la résolution recommandée.
+
+![Télécharger et voir les erreurs dans Connexion et copie](media/data-box-deploy-copy-data/view-errors-3.png)
+
+Pour plus d’informations, consultez [Afficher les journaux d’erreurs pendant la copie de données vers Data Box](data-box-logs.md#view-error-log-during-data-copy). Pour obtenir une liste détaillée des erreurs lors de la copie des données, consultez [Résolution des problèmes liés à Data Box](data-box-troubleshoot.md).
 
 Pour garantir l’intégrité des données, la somme de contrôle est calculée par le biais d’une fonction inline lors de la copie des données. Une fois la copie terminée, vérifiez l’espace utilisé et l’espace libre sur votre appareil.
 

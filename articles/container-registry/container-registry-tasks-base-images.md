@@ -3,12 +3,12 @@ title: Mises à jour des images de base – Tâches
 description: Familiarisez-vous avec les images de base pour les images conteneurs d’application et découvrez comment la mise à jour d’une image de base peut déclencher une tâche Azure Container Registry.
 ms.topic: article
 ms.date: 01/22/2019
-ms.openlocfilehash: 017c8f8a3a15896bd6e14a54136ba713e9f9c499
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 35933c4cdbbf2762f7a54bd945f8a8ffa55b9f21
+ms.sourcegitcommit: dee7b84104741ddf74b660c3c0a291adf11ed349
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "77617729"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85918510"
 ---
 # <a name="about-base-image-updates-for-acr-tasks"></a>À propos des mises à jour des images de base pour ACR Tasks
 
@@ -38,6 +38,13 @@ Pour les générations d’images à partir d’un fichier Dockerfile, une tâch
 * Un référentiel public dans Microsoft Container Registry
 
 Si l’image de base spécifiée dans l’instruction `FROM` se trouve à l’un de ces emplacements, la tâche ACR ajoute un hook pour que l’image soit bien regénérée à chaque mise à jour de sa base.
+
+## <a name="base-image-notifications"></a>Notifications d’images de base
+
+Le délai entre le moment où une image de base est mise à jour et le moment où la tâche dépendante est déclenchée dépend de l’emplacement de l’image de base :
+
+* **Images de base à partir d’un référentiel public dans Docker Hub ou MCR** : pour les images de base dans des référentiels publics, une tâche ACR vérifie les mises à jour de l’image à un intervalle aléatoire compris entre 10 et 60 minutes. Les tâches dépendantes sont exécutées en conséquence.
+* **Images de base à partir d’un registre de conteneurs Azure** : pour les images de base dans des registres de conteneurs Azure, une tâche ACR se déclenche immédiatement lorsque son image de base est mise à jour. L’image de base peut figurer dans le même ACR que celui dans lequel la tâche s’exécute, ou dans un ACR différent d’une autre région.
 
 ## <a name="additional-considerations"></a>Considérations supplémentaires
 

@@ -4,12 +4,12 @@ description: Activer la mise à l’échelle automatique sur un pool de cloud po
 ms.topic: how-to
 ms.date: 10/24/2019
 ms.custom: H1Hack27Feb2017,fasttrack-edit
-ms.openlocfilehash: ad1bf47cd2b9d8db950154b5a36786c294549566
-ms.sourcegitcommit: a9784a3fd208f19c8814fe22da9e70fcf1da9c93
+ms.openlocfilehash: cb40ea72dad2313618fb3c38bf73bf822f4b4433
+ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/22/2020
-ms.locfileid: "83780245"
+ms.lasthandoff: 07/05/2020
+ms.locfileid: "85960841"
 ---
 # <a name="create-an-automatic-formula-for-scaling-compute-nodes-in-a-batch-pool"></a>Créer une formule automatique pour la mise à l’échelle des nœuds de calcul dans un pool Batch
 
@@ -127,6 +127,9 @@ Vous pouvez obtenir la valeur des variables définies par le service ci-après p
 | $CurrentLowPriorityNodes |Nombre actuel de nœuds de calcul de faible priorité, y compris tous les nœuds réalloués. |
 | $PreemptedNodeCount | Le nombre de nœuds dans le pool qui sont à l’état Reporté. |
 
+> [!IMPORTANT]
+> Les tâches de validation du travail ne font pas partie des variables ci-dessus qui indiquent le nombre de tâches, par exemple $ActiveTasks et $PendingTasks. En fonction de votre formule de mise à l’échelle automatique, cela peut entraîner la suppression des nœuds et l’absence de nœuds disponibles pour exécuter les tâches de validation du travail.
+
 > [!TIP]
 > Les variables en lecture seule qui sont définies par le service et illustrées dans le tableau précédent sont des *objets* fournissant diverses méthodes pour accéder aux données qui leur sont associées. Pour plus d’informations, consultez la section [Obtenir des échantillons de données](#getsampledata) dans la suite de cet article.
 >
@@ -212,7 +215,7 @@ Les **fonctions** prédéfinies disponibles pour la définition d’une formule 
 | time(string dateTime="") |timestamp |Retourne l’horodatage de l’heure actuelle si aucun paramètre n’est transmis, ou l’horodatage de la chaîne dateTime dans le cas contraire. Les formats dateTime pris en charge sont W3C-DTF et RFC 1123. |
 | val(doubleVec v, double i) |double |Retourne la valeur de l’élément qui est à l’emplacement i du vecteur v avec un index de départ de zéro. |
 
-Certaines des fonctions décrites dans le tableau précédent peuvent accepter une liste en tant qu’argument. La liste séparée par des virgules se compose de n’importe quelle combinaison d’éléments *double* et *doubleVec*. Par exemple : 
+Certaines des fonctions décrites dans le tableau précédent peuvent accepter une liste en tant qu’argument. La liste séparée par des virgules se compose de n’importe quelle combinaison d’éléments *double* et *doubleVec*. Par exemple :
 
 `doubleVecList := ( (double | doubleVec)+(, (double | doubleVec) )* )?`
 
@@ -232,7 +235,7 @@ $CPUPercent.GetSample(TimeInterval_Minute * 5)
 | GetSamplePeriod() |Retourne la période des échantillons considérés dans un jeu de données d’échantillon historiques. |
 | Count() |Renvoie le nombre total d’échantillons dans l’historique des métriques. |
 | HistoryBeginTime() |Retourne l’horodateur du plus ancien échantillon de données disponible pour la métrique. |
-| GetSamplePercent() |Retourne le pourcentage d’échantillons disponibles pour un intervalle de temps donné. Par exemple : <br/><br/>`doubleVec GetSamplePercent( (timestamp or timeinterval) startTime [, (timestamp or timeinterval) endTime] )`<br/><br/>Comme la méthode `GetSample` échoue si le pourcentage d’échantillons retourné est inférieur au `samplePercent` spécifié, vous pouvez utiliser la méthode `GetSamplePercent` pour procéder d’abord à une vérification. Vous pouvez ensuite effectuer une autre action si des échantillons insuffisants sont présents, sans arrêter l’évaluation de la mise à l’échelle automatique. |
+| GetSamplePercent() |Retourne le pourcentage d’échantillons disponibles pour un intervalle de temps donné. Par exemple :<br/><br/>`doubleVec GetSamplePercent( (timestamp or timeinterval) startTime [, (timestamp or timeinterval) endTime] )`<br/><br/>Comme la méthode `GetSample` échoue si le pourcentage d’échantillons retourné est inférieur au `samplePercent` spécifié, vous pouvez utiliser la méthode `GetSamplePercent` pour procéder d’abord à une vérification. Vous pouvez ensuite effectuer une autre action si des échantillons insuffisants sont présents, sans arrêter l’évaluation de la mise à l’échelle automatique. |
 
 ### <a name="samples-sample-percentage-and-the-getsample-method"></a>Échantillons, pourcentage d’échantillonnage et méthode *GetSample()*
 La principale opération d’une formule de mise à l’échelle automatique vise à obtenir des données métriques des tâches et des ressources, puis à ajuster la taille du pool en fonction de ces données. Par conséquent, il est important de comprendre clairement comment les formules de mise à l’échelle automatique interagissent avec les données de mesures (échantillons).
@@ -257,7 +260,7 @@ Pour ce faire, utilisez `GetSample(interval look-back start, interval look-back 
 $runningTasksSample = $RunningTasks.GetSample(1 * TimeInterval_Minute, 6 * TimeInterval_Minute);
 ```
 
-Lorsque Batch évalue la ligne ci-dessus, il retourne une plage d’exemples sous la forme d’un vecteur de valeurs. Par exemple : 
+Lorsque Batch évalue la ligne ci-dessus, il retourne une plage d’exemples sous la forme d’un vecteur de valeurs. Par exemple :
 
 ```
 $runningTasksSample=[1,1,1,1,1,1,1,1,1,1];
@@ -372,17 +375,17 @@ $TargetDedicatedNodes = min(400, $totalDedicatedNodes)
 
 ## <a name="create-an-autoscale-enabled-pool-with-batch-sdks"></a>Créer un pool avec mise à l’échelle automatique avec des Kits de développement logiciel (SDK) Batch
 
-La mise à l’échelle automatique du pool peut être configurée à l’ aide d’un des [Kits de développement logiciel (SDK) Batch](batch-apis-tools.md#azure-accounts-for-batch-development), des [cmdlets PowerShell Batch](https://docs.microsoft.com/rest/api/batchservice/) de l’[API Rest Batch](batch-powershell-cmdlets-get-started.md) et de l’interface [CLI Batch](batch-cli-get-started.md). Cette section vous propose des exemples pour .NET et Python.
+La mise à l’échelle automatique du pool peut être configurée à l’ aide d’un des [Kits de développement logiciel (SDK) Batch](batch-apis-tools.md#azure-accounts-for-batch-development), des [cmdlets PowerShell Batch](/rest/api/batchservice/) de l’[API Rest Batch](batch-powershell-cmdlets-get-started.md) et de l’interface [CLI Batch](batch-cli-get-started.md). Cette section vous propose des exemples pour .NET et Python.
 
 ### <a name="net"></a>.NET
 
 Pour créer un pool avec mise à l’échelle automatique dans .NET, procédez comme suit :
 
-1. Créez le pool avec [BatchClient.PoolOperations.CreatePool](https://docs.microsoft.com/dotnet/api/microsoft.azure.batch.pooloperations.createpool).
-1. Affectez à la propriété [CloudPool.AutoScaleEnabled](https://docs.microsoft.com/dotnet/api/microsoft.azure.batch.cloudpool.autoscaleenabled) la valeur `true`.
-1. Affectez à la propriété [CloudPool.AutoScaleFormula](https://docs.microsoft.com/dotnet/api/microsoft.azure.batch.cloudpool.autoscaleformula) votre formule de mise à l’échelle automatique.
-1. (Facultatif) Définissez la propriété [CloudPool.AutoScaleEvaluationInterval](https://docs.microsoft.com/dotnet/api/microsoft.azure.batch.cloudpool.autoscaleevaluationinterval) (la valeur par défaut est de 15 minutes).
-1. Validez le pool avec [CloudPool.Commit](https://docs.microsoft.com/dotnet/api/microsoft.azure.batch.cloudpool.commit) ou [CommitAsync](https://docs.microsoft.com/dotnet/api/microsoft.azure.batch.cloudpool.commitasync).
+1. Créez le pool avec [BatchClient.PoolOperations.CreatePool](/dotnet/api/microsoft.azure.batch.pooloperations.createpool).
+1. Affectez à la propriété [CloudPool.AutoScaleEnabled](/dotnet/api/microsoft.azure.batch.cloudpool.autoscaleenabled) la valeur `true`.
+1. Affectez à la propriété [CloudPool.AutoScaleFormula](/dotnet/api/microsoft.azure.batch.cloudpool.autoscaleformula) votre formule de mise à l’échelle automatique.
+1. (Facultatif) Définissez la propriété [CloudPool.AutoScaleEvaluationInterval](/dotnet/api/microsoft.azure.batch.cloudpool.autoscaleevaluationinterval) (la valeur par défaut est de 15 minutes).
+1. Validez le pool avec [CloudPool.Commit](/dotnet/api/microsoft.azure.batch.cloudpool.commit) ou [CommitAsync](/dotnet/api/microsoft.azure.batch.cloudpool.commitasync).
 
 L’extrait de code suivant crée un pool avec mise à l’échelle automatique dans .NET. La formule de mise à l’échelle automatique du pool définit le nombre cible de nœuds dédiés comme suit : 5 les lundis et 1 les autres jours de la semaine. L’[intervalle de mise à l’échelle automatique](#automatic-scaling-interval) est de 30 minutes. Dans cet extrait de code C# et les autres extraits de cet article, `myBatchClient` est une instance entièrement initialisée de la classe [BatchClient][net_batchclient].
 
@@ -462,7 +465,7 @@ response = batch_service_client.pool.enable_auto_scale(pool_id, auto_scale_formu
 
 ## <a name="enable-autoscaling-on-an-existing-pool"></a>Activer la mise à l’échelle automatique sur un pool existant
 
-Chaque SDK Batch fournit un moyen d’activer la mise à l’échelle automatique. Par exemple : 
+Chaque SDK Batch fournit un moyen d’activer la mise à l’échelle automatique. Par exemple :
 
 * [BatchClient.PoolOperations.EnableAutoScaleAsync][net_enableautoscaleasync] (Batch .NET)
 * [Activer la mise à l’échelle automatique sur un pool][rest_enableautoscale] (API REST)
@@ -519,11 +522,11 @@ Vous pouvez évaluer une formule avant de l’appliquer à un pool. De cette fa�
 
 Pour évaluer une formule de mise à l’échelle automatique, vous devez d’abord activer la mise à l’échelle automatique sur le pool à l’aide d’une formule valide. Pour tester une formule sur un pool dont la mise à l’échelle automatique n’est pas encore activée, utilisez la formule à une ligne `$TargetDedicatedNodes = 0` lors de l’activation initiale de la mise à l’échelle automatique. Ensuite, utilisez l’une des méthodes suivantes pour évaluer la formule à tester :
 
-* [BatchClient.PoolOperations.EvaluateAutoScale](https://docs.microsoft.com/dotnet/api/microsoft.azure.batch.pooloperations.evaluateautoscale) ou [EvaluateAutoScaleAsync](https://docs.microsoft.com/dotnet/api/microsoft.azure.batch.pooloperations.evaluateautoscaleasync)
+* [BatchClient.PoolOperations.EvaluateAutoScale](/dotnet/api/microsoft.azure.batch.pooloperations.evaluateautoscale) ou [EvaluateAutoScaleAsync](/dotnet/api/microsoft.azure.batch.pooloperations.evaluateautoscaleasync)
 
     Ces méthodes Batch .NET nécessitent l’ID d’un pool existant et une chaîne contenant la formule de mise à l’échelle automatique à évaluer.
 
-* [Évaluer une formule de mise à l’échelle automatique](https://docs.microsoft.com/rest/api/batchservice/evaluate-an-automatic-scaling-formula)
+* [Évaluer une formule de mise à l’échelle automatique](/rest/api/batchservice/evaluate-an-automatic-scaling-formula)
 
     Dans cette requête API REST, spécifiez l’ID du pool dans l’URI et la formule de mise à l’échelle automatique dans l’élément *autoScaleFormula* du corps de la requête. La réponse de l’opération contient les éventuelles informations d’erreur associées à la formule.
 
@@ -609,13 +612,13 @@ AutoScaleRun.Results:
 
 Pour vérifier que votre formule fonctionne comme prévu, nous vous recommandons d’examiner régulièrement les résultats des exécutions de mise à l’échelle automatique effectuées par Batch sur votre pool. Pour ce faire, obtenez (ou actualisez) une référence au pool et examinez les propriétés de la dernière exécution de mise à l’échelle automatique.
 
-Dans Batch .NET, la propriété [CloudPool.AutoScaleRun](https://docs.microsoft.com/dotnet/api/microsoft.azure.batch.cloudpool.autoscalerun) comprend plusieurs propriétés qui fournissent des informations sur la dernière exécution de mise à l’échelle automatique effectuée sur le pool :
+Dans Batch .NET, la propriété [CloudPool.AutoScaleRun](/dotnet/api/microsoft.azure.batch.cloudpool.autoscalerun) comprend plusieurs propriétés qui fournissent des informations sur la dernière exécution de mise à l’échelle automatique effectuée sur le pool :
 
-* [AutoScaleRun.Timestamp](https://docs.microsoft.com/dotnet/api/microsoft.azure.batch.autoscalerun.timestamp)
-* [AutoScaleRun.Results](https://docs.microsoft.com/dotnet/api/microsoft.azure.batch.autoscalerun.results)
-* [AutoScaleRun.Error](https://docs.microsoft.com/dotnet/api/microsoft.azure.batch.autoscalerun.error)
+* [AutoScaleRun.Timestamp](/dotnet/api/microsoft.azure.batch.autoscalerun.timestamp)
+* [AutoScaleRun.Results](/dotnet/api/microsoft.azure.batch.autoscalerun.results)
+* [AutoScaleRun.Error](/dotnet/api/microsoft.azure.batch.autoscalerun.error)
 
-Dans l’API REST, la requête [Obtenir des informations sur un pool](https://docs.microsoft.com/rest/api/batchservice/get-information-about-a-pool) retourne des informations sur le pool, notamment des détails sur la dernière exécution de mise à l’échelle automatique dans la propriété [autoScaleRun](https://docs.microsoft.com/rest/api/batchservice/get-information-about-a-pool).
+Dans l’API REST, la requête [Obtenir des informations sur un pool](/rest/api/batchservice/get-information-about-a-pool) retourne des informations sur le pool, notamment des détails sur la dernière exécution de mise à l’échelle automatique dans la propriété [autoScaleRun](/rest/api/batchservice/get-information-about-a-pool).
 
 L’extrait de code C# suivant utilise la bibliothèque Batch .NET pour imprimer des informations sur la dernière exécution de mise à l’échelle automatique sur le pool _myPool_ :
 
@@ -644,7 +647,7 @@ Error:
 
 Passons en revue quelques formules illustrant les différentes façons d’ajuster la quantité de ressources de calcul dans un pool.
 
-### <a name="example-1-time-based-adjustment"></a>Exemple 1 : ajustement en fonction du temps
+### <a name="example-1-time-based-adjustment"></a>Exemple 1 : ajustement en fonction du temps
 
 Supposons que vous souhaitiez ajuster la taille du pool selon le jour et l’heure. Cet exemple montre comment augmenter ou diminuer le nombre de nœuds dans le pool en conséquence.
 
@@ -660,7 +663,7 @@ $NodeDeallocationOption = taskcompletion;
 ```
 Le paramètre `$curTime` peut être ajusté pour refléter votre fuseau horaire local en ajoutant `time()` au produit de `TimeZoneInterval_Hour` et votre décalage UTC. Par exemple, utilisez `$curTime = time() + (-6 * TimeInterval_Hour);` pour Heure des Rocheuses (heure d'été). Gardez à l’esprit que le décalage doit être ajusté au début et à la fin de l’heure d’été (le cas échéant).
 
-### <a name="example-2-task-based-adjustment"></a>Exemple 2 : ajustement en fonction de la tâche
+### <a name="example-2-task-based-adjustment"></a>Exemple 2 : ajustement en fonction de la tâche
 
 Dans cet exemple, la taille du pool est ajustée en fonction du nombre de tâches présentes dans la file d’attente. Les commentaires et les sauts de ligne sont acceptés dans les chaînes de formule.
 
@@ -732,15 +735,15 @@ string formula = string.Format(@"
 * [Optimiser l’utilisation des ressources de calcul Azure Batch avec des tâches de nœud simultanées](batch-parallel-node-tasks.md) contient des informations sur la façon dont vous pouvez effectuer plusieurs tâches simultanément sur les nœuds de calcul de votre pool. En plus de la mise à l’échelle automatique, cette fonctionnalité peut aider à réduire la durée du travail pour certaines charges de travail et vous permettre d’économiser de l’argent.
 * Afin d’améliorer encore l’efficacité, assurez-vous que votre application Batch interroge le service Batch de la manière la plus optimale qui soit. Consultez [Interroger efficacement le service Azure Batch](batch-efficient-list-queries.md) pour découvrir comment limiter la quantité de données qui transitent par le réseau lorsque vous interrogez l’état des milliers de nœuds de calcul ou de tâches potentiels.
 
-[net_api]: https://docs.microsoft.com/dotnet/api/microsoft.azure.batch
-[net_batchclient]: https://docs.microsoft.com/dotnet/api/microsoft.azure.batch.batchclient
-[net_cloudpool_autoscaleformula]: https://docs.microsoft.com/dotnet/api/microsoft.azure.batch.cloudpool.autoscaleformula
-[net_cloudpool_autoscaleevalinterval]: https://docs.microsoft.com/dotnet/api/microsoft.azure.batch.cloudpool.autoscaleevaluationinterval
-[net_enableautoscaleasync]: https://docs.microsoft.com/dotnet/api/microsoft.azure.batch.pooloperations.enableautoscaleasync
-[net_maxtasks]: https://docs.microsoft.com/dotnet/api/microsoft.azure.batch.cloudpool.maxtaskspercomputenode
-[net_poolops_resizepoolasync]: https://docs.microsoft.com/dotnet/api/microsoft.azure.batch.pooloperations.resizepoolasync
+[net_api]: /dotnet/api/microsoft.azure.batch
+[net_batchclient]: /dotnet/api/microsoft.azure.batch.batchclient
+[net_cloudpool_autoscaleformula]: /dotnet/api/microsoft.azure.batch.cloudpool.autoscaleformula
+[net_cloudpool_autoscaleevalinterval]: /dotnet/api/microsoft.azure.batch.cloudpool.autoscaleevaluationinterval
+[net_enableautoscaleasync]: /dotnet/api/microsoft.azure.batch.pooloperations.enableautoscaleasync
+[net_maxtasks]: /dotnet/api/microsoft.azure.batch.cloudpool.maxtaskspercomputenode
+[net_poolops_resizepoolasync]: /dotnet/api/microsoft.azure.batch.pooloperations.resizepoolasync
 
-[rest_api]: https://docs.microsoft.com/rest/api/batchservice/
-[rest_autoscaleformula]: https://docs.microsoft.com/rest/api/batchservice/enable-automatic-scaling-on-a-pool
-[rest_autoscaleinterval]: https://docs.microsoft.com/rest/api/batchservice/enable-automatic-scaling-on-a-pool
-[rest_enableautoscale]: https://docs.microsoft.com/rest/api/batchservice/enable-automatic-scaling-on-a-pool
+[rest_api]: /rest/api/batchservice/
+[rest_autoscaleformula]: /rest/api/batchservice/enable-automatic-scaling-on-a-pool
+[rest_autoscaleinterval]: /rest/api/batchservice/enable-automatic-scaling-on-a-pool
+[rest_enableautoscale]: /rest/api/batchservice/enable-automatic-scaling-on-a-pool

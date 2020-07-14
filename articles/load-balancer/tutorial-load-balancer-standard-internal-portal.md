@@ -15,12 +15,12 @@ ms.workload: infrastructure-services
 ms.date: 01/08/2020
 ms.author: allensu
 ms.custom: seodec18
-ms.openlocfilehash: 918a7700df6b5be3ebca7949875127e42f8d3a91
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: b8fcef13fbe41ac26b2a31d6871896428649eaa1
+ms.sourcegitcommit: dee7b84104741ddf74b660c3c0a291adf11ed349
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "75780694"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85920851"
 ---
 # <a name="tutorial-balance-internal-traffic-load-with-a-standard-load-balancer-in-the-azure-portal"></a>Tutoriel : Équilibrer la charge du trafic interne avec un équilibreur de charge Standard dans le portail Azure
 
@@ -180,6 +180,8 @@ La règle d’équilibreur de charge nommée **MyLoadBalancerRule** écoute sur 
    - **Pool principal** : Sélectionnez **MyBackendPool**.
    - **Sonde d’intégrité** : Sélectionnez **MyHealthProbe**. 
    
+Pour configurer des [ports haute disponibilité](load-balancer-ha-ports-overview.md) à l’aide du portail Azure, cochez la case **Ports HA**. Lorsqu’elle est cochée, la configuration correspondante du protocole et des ports est automatiquement remplie. 
+
 1. Sélectionnez **OK**.
    
    ![Ajouter une règle d’équilibreur de charge](./media/tutorial-load-balancer-basic-internal-portal/5-load-balancing-rules.png)

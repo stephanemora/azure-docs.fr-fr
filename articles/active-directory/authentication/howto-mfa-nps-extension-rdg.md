@@ -11,12 +11,12 @@ author: iainfoulds
 manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c61bea7f3ca1105edfec54501c5f0725a5a10225
-ms.sourcegitcommit: 62c5557ff3b2247dafc8bb482256fef58ab41c17
+ms.openlocfilehash: 21b8748cf74a5061e9dfa154047f867df4cb5428
+ms.sourcegitcommit: cec9676ec235ff798d2a5cad6ee45f98a421837b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/03/2020
-ms.locfileid: "80654116"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85848742"
 ---
 # <a name="integrate-your-remote-desktop-gateway-infrastructure-using-the-network-policy-server-nps-extension-and-azure-ad"></a>Intégrez votre infrastructure de passerelle des services Bureau à distance à l’aide de l’extension du serveur NPS (Network Policy Server) et Azure AD
 
@@ -115,24 +115,24 @@ Suivez les étapes dans [Que fait l’authentification multifacteur Azure pour m
 
 Cette section fournit des instructions pour la configuration de l’infrastructure des services Bureau à distance pour utiliser Azure MFA pour l’authentification du client avec la passerelle des services Bureau à distance.
 
-### <a name="acquire-azure-active-directory-guid-id"></a>Acquérir l’ID du GUID Azure Active Directory
+### <a name="acquire-azure-active-directory-tenant-id"></a>Acquérir l’ID locataire Azure Active Directory
 
-Dans le cadre de la configuration de l’extension de serveur NPS, vous devez fournir les informations d’identification d’administrateur et l’ID Azure AD pour votre client Azure AD. Les étapes suivantes vous expliquent comment obtenir l’ID client.
+Dans le cadre de la configuration de l’extension de serveur NPS, vous devez fournir les informations d’identification d’administrateur et l’ID Azure AD pour votre client Azure AD. Pour obtenir l’ID locataire, suivez ces étapes :
 
 1. Connectez-vous au [portail Azure](https://portal.azure.com) en tant qu’administrateur général du client Azure.
 1. Dans le menu du portail Azure, sélectionnez **Azure Active Directory** ou recherchez et sélectionnez **Azure Active Directory** dans n’importe quelle page.
-1. Sélectionner **Propriétés**.
-1. Dans le panneau Propriétés, en regard de l’ID de répertoire, cliquez sur l’icône **Copier**, comme illustré ci-dessous, pour copier l’ID dans le presse-papiers.
+1. Dans la page **Vue d’ensemble**, les *Informations du locataire* sont affichées. À côté de l’*ID locataire*, sélectionnez l’icône **Copier**, comme indiqué dans la capture d’écran de l’exemple suivant :
 
-   ![Obtention de l’ID de répertoire à partir du portail Azure](./media/howto-mfa-nps-extension-rdg/azure-active-directory-id-in-azure-portal.png)
+   ![Obtention l’ID locataire depuis le Portail Azure](./media/howto-mfa-nps-extension-rdg/azure-active-directory-tenant-id-portal.png)
 
 ### <a name="install-the-nps-extension"></a>Installer l’extension NPS
 
 Installez l’extension de serveur NPS sur un serveur ayant le rôle des services de stratégie réseau et d’accès réseau (NPS) est installé. Cela fonctionne comme serveur RADIUS pour votre conception.
 
-> [!Important]
-> Assurez-vous que vous n’installez pas l’extension de serveur NPS sur votre serveur de passerelle des services Bureau à distance.
+> [!IMPORTANT]
+> N’installez pas l’extension de serveur NPS sur votre serveur de passerelle bureau distant (RDG). Le serveur RDG n’utilise pas le protocole RADIUS avec son client, de sorte que l’extension ne peut pas interpréter et effectuer l’authentification MFA.
 >
+> Lorsque le serveur RDG et le serveur NPS avec l’extension NPS sont des serveurs différents, RDG utilise NPS en interne pour communiquer avec d’autres serveurs NPS et utilise RADIUS comme protocole pour communiquer correctement.
 
 1. Téléchargez [l’extension de serveur NPS](https://aka.ms/npsmfa).
 1. Copiez le fichier exécutable du programme d’installation (NpsExtnForAzureMfaInstaller.exe) sur le serveur NPS.
@@ -166,9 +166,9 @@ Pour utiliser le script, spécifiez l’extension avec vos informations d’iden
 
    ![Authentification auprès d’Azure AD dans PowerShell](./media/howto-mfa-nps-extension-rdg/image5.png)
 
-1. Lorsque vous y êtes invité, collez l’ID de répertoire que vous avez copié précédemment dans le presse-papiers, puis appuyez sur **Entrée**.
+1. Lorsque vous y êtes invité, collez l’*ID locataire* que vous avez copié précédemment dans le presse-papiers, puis appuyez sur **ENTRÉE**.
 
-   ![Saisie de l’ID de répertoire dans PowerShell](./media/howto-mfa-nps-extension-rdg/image6.png)
+   ![Saisie de l’ID locataire dans PowerShell](./media/howto-mfa-nps-extension-rdg/image6.png)
 
 1. Le script crée un certificat auto-signé et effectue d’autres modifications de configuration. La sortie doit être comme l’image ci-dessous.
 

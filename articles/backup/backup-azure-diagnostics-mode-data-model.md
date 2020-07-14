@@ -3,12 +3,12 @@ title: Modèles de données des journaux Azure Monitor
 description: Dans cet article, découvrez les détails du modèle de données Azure Monitor Log Analytics pour les données de Sauvegarde Azure.
 ms.topic: conceptual
 ms.date: 02/26/2019
-ms.openlocfilehash: ba50e10eee61c571249a9b99c7e3b53d74474382
-ms.sourcegitcommit: 8017209cc9d8a825cc404df852c8dc02f74d584b
+ms.openlocfilehash: e776649ff22e3249e2472adbe298c869ff5c946a
+ms.sourcegitcommit: 9b5c20fb5e904684dc6dd9059d62429b52cb39bc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/01/2020
-ms.locfileid: "84248921"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85854755"
 ---
 # <a name="log-analytics-data-model-for-azure-backup-data"></a>Modèle de données Log Analytics pour les données de sauvegarde Azure
 
@@ -466,6 +466,30 @@ Précédemment, les données de diagnostic pour l’agent de sauvegarde Azure et
 Pour des raisons de compatibilité descendante, les données de diagnostic pour l’agent de sauvegarde Azure et la sauvegarde de machine virtuelle Azure sont actuellement envoyées à la table Azure Diagnostics à la fois dans les schémas v1 et v2 (le schéma v1 se dirigeant vers la dépréciation). Vous pouvez identifier les enregistrements Log Analytics du schéma v1 en filtrant les enregistrements pour SchemaVersion_s=="V1" dans vos requêtes de journal. 
 
 Reportez-vous à la troisième colonne « Description » dans le [modèle de données](https://docs.microsoft.com/azure/backup/backup-azure-diagnostics-mode-data-model#using-azure-backup-data-model) décrit ci-dessus pour identifier les colonnes qui appartiennent au schéma v1 uniquement.
+
+### <a name="modifying-your-queries-to-use-the-v2-schema"></a>Modification de vos requêtes afin d’utiliser le schéma V2
+Comme le schéma V1 est sur le point d’être déconseillé, il est recommandé d’utiliser uniquement le schéma V2 dans toutes vos requêtes personnalisées sur les données de diagnostics Sauvegarde Azure. Voici un exemple de mise à jour de vos requêtes pour supprimer les dépendances sur le schéma V1 :
+
+1. Déterminez si votre requête utilise un champ qui s’applique uniquement au schéma V1. Supposons que vous disposez d’une requête pour répertorier tous les éléments de sauvegarde et leurs serveurs protégés associés comme suit :
+
+````Kusto
+AzureDiagnostics
+| where Category=="AzureBackupReport"
+| where OperationName=="BackupItemAssociation"
+| distinct BackupItemUniqueId_s, ProtectedServerUniqueId_s
+````
+
+La requête ci-dessus utilise le champ ProtectedServerUniqueId_s uniquement applicable au schéma V1. L’équivalent de ce champ pour le schéma V2 est ProtectedContainerUniqueId_s (voir les tables ci-dessus). Le champ BackupItemUniqueId_s s’applique même au schéma V2, et le même champ peut être utilisé dans cette requête.
+
+2. Mettez à jour la requête pour utiliser les noms de champs du schéma V2. Il est recommandé d’utiliser le filtre 'where SchemaVersion_s=="V2"''dans toutes vos requêtes afin que seuls les enregistrements correspondant au schéma V2 soient analysés par la requête :
+
+````Kusto
+AzureDiagnostics
+| where Category=="AzureBackupReport"
+| where OperationName=="BackupItemAssociation"
+| where SchemaVersion_s=="V2"
+| distinct BackupItemUniqueId_s, ProtectedContainerUniqueId_s 
+````
 
 ## <a name="next-steps"></a>Étapes suivantes
 

@@ -3,12 +3,12 @@ title: 'Démarrage rapide : Votre première requête dans le portail'
 description: Dans ce guide de démarrage rapide, vous suivez les étapes pour exécuter votre première requête à partir du portail Azure en utilisant l’Explorateur Azure Resource Graph.
 ms.date: 05/20/2020
 ms.topic: quickstart
-ms.openlocfilehash: a4b8e0b792dfda1bbd1866444ddc6c4ec8d289b6
-ms.sourcegitcommit: 2721b8d1ffe203226829958bee5c52699e1d2116
+ms.openlocfilehash: 1e506ee1b1c610381f300323f80c38eb6bf67caa
+ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/28/2020
-ms.locfileid: "84148036"
+ms.lasthandoff: 07/05/2020
+ms.locfileid: "85958805"
 ---
 # <a name="quickstart-run-your-first-resource-graph-query-using-azure-resource-graph-explorer"></a>Démarrage rapide : Exécuter votre première requête Resource Graph à l’aide de l’Explorateur Azure Resource Graph
 
@@ -90,11 +90,11 @@ Pour disposer d’exemples de requêtes Resource Graph et savoir comment utilise
 
 - [Explorateur Resource Graph - Exemple de tableau de bord n° 1](https://github.com/Azure-Samples/Governance/blob/master/src/resource-graph/portal-dashboards/sample-1/resourcegraphexplorer-sample-1.json)
 
-  [![Exemple d’image pour l’exemple de tableau de bord n° 1](./media/arge-sample1-small.png)](./media/arge-sample1-large.png#lightbox)
+  :::image type="content" source="./media/arge-sample1-small.png" alt-text="Exemple d’image pour l’exemple de tableau de bord n° 1" lightbox="./media/arge-sample1-large.png":::
 
 - [Explorateur Resource Graph - Exemple de tableau de bord n° 2](https://github.com/Azure-Samples/Governance/blob/master/src/resource-graph/portal-dashboards/sample-2/resourcegraphexplorer-sample-2.json)
 
-  [![Exemple d’image pour l’exemple de tableau de bord n° 2](./media/arge-sample2-small.png)](./media/arge-sample2-large.png#lightbox)
+  :::image type="content" source="./media/arge-sample2-small.png" alt-text="Exemple d’image pour l’exemple de tableau de bord n° 2" lightbox="./media/arge-sample2-large.png":::
 
 > [!NOTE]
 > Les nombres et les graphiques dans les exemples de captures d’écran de tableau de bord ci-dessus varient en fonction de votre environnement Azure.

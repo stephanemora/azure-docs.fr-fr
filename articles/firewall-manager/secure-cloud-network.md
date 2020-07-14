@@ -1,24 +1,22 @@
 ---
-title: 'Tutoriel : Sécuriser votre réseau étendu virtuel à l’aide de la préversion d’Azure Firewall Manager'
-description: Dans ce tutoriel, vous allez apprendre à sécuriser votre réseau étendu virtuel avec Azure Firewall Manager à l’aide du portail Azure.
+title: 'Tutoriel : Sécuriser votre hub virtuel avec Azure Firewall Manager'
+description: Dans ce tutoriel, vous allez apprendre à sécuriser votre hub virtuel avec Azure Firewall Manager à l’aide du portail Azure.
 services: firewall-manager
 author: vhorne
 ms.service: firewall-manager
 ms.topic: tutorial
-ms.date: 05/01/2020
+ms.date: 06/30/2020
 ms.author: victorh
-ms.openlocfilehash: b13f3b4eeb57c34f51152bb6d1914f6c80f31be1
-ms.sourcegitcommit: 366e95d58d5311ca4b62e6d0b2b47549e06a0d6d
+ms.openlocfilehash: c44daa67b4029c73c57ca82d72ee0a9759dd4c2d
+ms.sourcegitcommit: 73ac360f37053a3321e8be23236b32d4f8fb30cf
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/01/2020
-ms.locfileid: "82691037"
+ms.lasthandoff: 06/30/2020
+ms.locfileid: "85563651"
 ---
-# <a name="tutorial-secure-your-virtual-wan-using-azure-firewall-manager-preview"></a>Tutoriel : Sécuriser votre réseau étendu virtuel à l’aide de la préversion d’Azure Firewall Manager 
+# <a name="tutorial-secure-your-virtual-hub-using-azure-firewall-manager"></a>Tutoriel : Sécuriser votre hub virtuel avec Azure Firewall Manager
 
-[!INCLUDE [Preview](../../includes/firewall-manager-preview-notice.md)]
-
-À l’aide d’Azure Firewall Manager Preview, vous pouvez créer des hubs virtuels sécurisés pour sécuriser le trafic de votre réseau cloud à destination d’adresses IP privées, d’Azure PaaS et d’Internet. Le routage du trafic vers le pare-feu étant automatique, vous n’avez pas besoin de créer des itinéraires définis par l’utilisateur.
+À l’aide d’Azure Firewall Manager, vous pouvez créer des hubs virtuels sécurisés pour sécuriser le trafic de votre réseau cloud à destination d’adresses IP privées, d’Azure PaaS et d’Internet. Le routage du trafic vers le pare-feu étant automatique, vous n’avez pas besoin de créer des itinéraires définis par l’utilisateur.
 
 ![sécuriser le réseau cloud](media/secure-cloud-network/secure-cloud-network.png)
 
@@ -95,7 +93,7 @@ Vous pouvez maintenant appairer les réseaux virtuels hub et spoke.
 5. Pour **Hubs**, sélectionnez **Hub-01**.
 6. Pour **Groupe de ressources**, sélectionnez **FW-Manager**.
 7. Pour **Réseau virtuel**, sélectionnez **Spoke-01**.
-8. Sélectionnez **OK**.
+8. Sélectionnez **Create** (Créer).
 
 ## <a name="create-a-firewall-policy-and-secure-your-hub"></a>Créer une stratégie de pare-feu et sécuriser votre hub
 
@@ -111,16 +109,18 @@ Une stratégie de pare-feu définit des collections de règles pour diriger le t
 8. Pour **Priorité**, tapez **100**.
 9. Vérifiez que **Action de collection de règles** est défini sur **Autoriser**.
 10. Pour **Nom**, entrez **Allow-msft**.
-11. Pour **Adresse source**, entrez **\*** .
-12. Pour **Protocole**, entrez **http,https**.
-13. Vérifiez que **Type de destination est défini sur **FQDN**.
-14. Pour **Destination**, entrez **\*.microsoft.com**.
-15. Sélectionnez **Ajouter**.
-16. Sélectionnez **Suivant : Hubs**.
-17. Sous l’onglet **Hubs**, sélectionnez **Associer des hubs virtuels**.
-18. Sélectionnez **Hub-01**, puis **Ajouter**.
-1. Sélectionnez **Revoir + créer**.
-2. Sélectionnez **Create** (Créer).
+11. Pour **Type de source**, sélectionnez **Adresse IP**.
+12. Pour **Source**, tapez **\*** .
+13. Pour **Protocole**, entrez **http,https**.
+14. Vérifiez que **Type de destination** est défini sur **FQDN**.
+15. Pour **Destination**, entrez **\*.microsoft.com**.
+16. Sélectionnez **Ajouter**.
+17. Sélectionnez **Suivant : Renseignement sur les menaces**.
+18. Sélectionnez **Suivant : Hubs**.
+19. Sous l’onglet **Hubs**, sélectionnez **Associer des hubs virtuels**.
+20. Sélectionnez **Hub-01**, puis **Ajouter**.
+21. Sélectionnez **Revoir + créer**.
+22. Sélectionnez **Create** (Créer).
 
 Cette opération peut prendre environ cinq minutes voire plus.
 
@@ -130,13 +130,11 @@ Vous devez maintenant vérifier que le trafic réseau est acheminé via votre pa
 
 1. Dans Firewall Manager, sélectionnez **Hubs virtuels sécurisés**.
 2. Sélectionnez **Hub-01**.
-3. Sous **Paramètres**, sélectionnez **Paramètres de routage**.
-4. Sous **Trafic Internet**, **Trafic provenant des réseaux virtuels**, sélectionnez **Envoyer via le Pare-feu Azure**.
-5. Sous **Trafic privé Azure**, **Trafic vers les réseaux virtuels**, sélectionnez **Envoyer via le Pare-feu Azure**.
-6. Sélectionnez **Modifier les préfixes d’adresse IP**.
-8. Entrez **10.0.1.0/24** comme adresse du sous-réseau Charge de travail et sélectionnez **Enregistrer**.
-9. Sous **Paramètres**, sélectionnez **Connexions**.
+3. Sous **Paramètres**, sélectionnez **Configuration de la sécurité**.
+4. Sous **Trafic Internet**, sélectionnez **Pare-feu Azure**.
+5. Sous **Trafic privé**, sélectionnez **Envoyer via le Pare-feu Azure**.
 10. Vérifiez que la connexion **hub-spoke** indique **Trafic Internet** comme étant **Sécurisé**.
+11. Sélectionnez **Enregistrer**.
 
 
 ## <a name="test-your-firewall"></a>Tester votre pare-feu

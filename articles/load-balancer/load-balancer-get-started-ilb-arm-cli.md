@@ -1,5 +1,5 @@
 ---
-title: Créer un équilibreur de charge de base interne - Azure CLI
+title: Créer un équilibreur de charge interne - Azure CLI
 titleSuffix: Azure Load Balancer
 description: Dans cet article, vous découvrirez comment créer un équilibreur de charge interne avec Azure CLI
 services: load-balancer
@@ -7,18 +7,18 @@ documentationcenter: na
 author: asudbring
 ms.service: load-balancer
 ms.devlang: na
-ms.topic: article
+ms.topic: how-to
 ms.custom: seodec18
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 06/27/2018
+ms.date: 07/02/2020
 ms.author: allensu
-ms.openlocfilehash: 51df1936e5d8725b2243e7c0084973370139c540
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 2557ac6f3fb8e9091faad5c9c219db529838495d
+ms.sourcegitcommit: dee7b84104741ddf74b660c3c0a291adf11ed349
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79457009"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85921717"
 ---
 # <a name="create-an-internal-load-balancer-to-load-balance-vms-using-azure-cli"></a>Créer un équilibreur de charge interne pour équilibrer la charge de machines virtuelles avec Azure CLI
 
@@ -52,7 +52,7 @@ Créez un réseau virtuel nommé *myVnet* avec un sous-réseau nommé *mySubnet*
     --subnet-name mySubnet
 ```
 
-## <a name="create-basic-load-balancer"></a>Créer un équilibreur de charge de base
+## <a name="create-standard-load-balancer"></a>Créer un Standard Load Balancer
 
 Cette section explique en détail comment vous pouvez créer et configurer les composants suivants de l’équilibreur de charge :
   - Une configuration IP frontale qui reçoit le trafic réseau entrant sur l’équilibreur de charge.
@@ -62,12 +62,15 @@ Cette section explique en détail comment vous pouvez créer et configurer les c
 
 ### <a name="create-the-load-balancer"></a>Créer l’équilibreur de charge
 
-Créez un équilibreur de charge interne à l’aide de la commande [az network lb create](https://docs.microsoft.com/cli/azure/network/lb?view=azure-cli-latest), nommé **myLoadBalancer**, qui inclut une configuration IP de back-end nommée **myFrontEnd**, un pool de back-ends nommé **myBackEndPool** qui est associé à une adresse IP privée **10.0.0.7.
+Créez un équilibreur de charge interne à l’aide de la commande [az network lb create](https://docs.microsoft.com/cli/azure/network/lb?view=azure-cli-latest), nommé **myLoadBalancer**, qui inclut une configuration IP de back-end nommée **myFrontEnd**, un pool de back-ends nommé **myBackEndPool** qui est associé à une adresse IP privée **10.0.0.7**. 
+
+Utilisez `--sku basic` pour créer un équilibreur de charge de base. Microsoft recommande de sélectionner la référence SKU Standard pour les charges de travail de production.
 
 ```azurecli-interactive
   az network lb create \
     --resource-group myResourceGroupILB \
     --name myLoadBalancer \
+    --sku standard \
     --frontend-ip-name myFrontEnd \
     --private-ip-address 10.0.0.7 \
     --backend-pool-name myBackEndPool \
@@ -85,7 +88,7 @@ Une sonde d’intégrité vérifie toutes les instances de machine virtuelle pou
     --lb-name myLoadBalancer \
     --name myHealthProbe \
     --protocol tcp \
-    --port 80   
+    --port 80
 ```
 
 ### <a name="create-the-load-balancer-rule"></a>Créer la règle d’équilibreur de charge
@@ -103,6 +106,12 @@ Une règle d’équilibreur de charge définit la configuration IP frontale pour
     --frontend-ip-name myFrontEnd \
     --backend-pool-name myBackEndPool \
     --probe-name myHealthProbe  
+```
+
+Vous pouvez également créer une règle d’équilibreur de charge sur les [ports HA](load-balancer-ha-ports-overview.md) à l’aide de la configuration ci-dessous avec la version standard de Load Balancer.
+
+```azurecli-interactive
+az network lb rule create --resource-group myResourceGroupILB --lb-name myLoadBalancer --name haportsrule --protocol all --frontend-port 0 --backend-port 0 --frontend-ip-name myFrontEnd --backend-address-pool-name myBackEndPool
 ```
 
 ## <a name="create-servers-for-the-backend-address-pool"></a>Créer des serveurs pour le pool d’adresses principal

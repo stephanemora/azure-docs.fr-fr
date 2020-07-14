@@ -7,12 +7,12 @@ ms.service: cosmos-db
 ms.subservice: cosmosdb-cassandra
 ms.topic: conceptual
 ms.date: 05/20/2020
-ms.openlocfilehash: 2f62af434a49d11cdc1acfc4a09b5bffbd69140b
-ms.sourcegitcommit: 69156ae3c1e22cc570dda7f7234145c8226cc162
+ms.openlocfilehash: 5f159ffcea0aa88f354ae503be96a5c571c10adb
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/03/2020
-ms.locfileid: "84316410"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85806830"
 ---
 # <a name="partitioning-in-azure-cosmos-db-cassandra-api"></a>Partitionnement dans l'API Cassandra Azure Cosmos DB
 
@@ -27,7 +27,7 @@ Du point de vue du développeur, le comportement de partitionnement de l'API Cas
 
 Dans Azure Cosmos DB, chaque machine sur laquelle des partitions sont stockées est elle-même appelée [partition physique](partition-data.md#physical-partitions). La partition physique est semblable à une machine virtuelle puisqu'il s'agit d'une unité Compute dédiée ou d'un ensemble de ressources physiques. Dans Azure Cosmos DB, chaque partition stockée sur cette unité Compute est appelée [partition logique](partition-data.md#logical-partitions). Si vous connaissez déjà Apache Cassandra, les partitions logiques sont comparables aux partitions standard de Cassandra. 
 
-Apache Cassandra recommande de limiter à 100 Mo la taille des données qui peuvent être stockées dans une partition. L'API Cassandra Azure Cosmos DB prend en charge 20 Go par partition logique, et 50 Go de données par partition physique. Dans Azure Cosmos DB, contrairement à Apache Cassandra, la capacité de calcul disponible dans la partition physique est exprimée à l'aide d'une métrique appelée [unité de requête (RU)](request-units.md), qui vous permet d'aborder votre charge de travail en termes de requêtes (lectures ou écritures) par seconde, plutôt qu'en termes de cœurs, de mémoire ou d'IOPS. Une fois que vous avez identifié le coût de chaque requête, la planification des capacités est plus simple. Chaque partition physique peut disposer d'un maximum de 10 000 RU de calcul. Pour en savoir plus sur les options de scalabilité, lisez l'article consacré à la [mise à l'échelle élastique](manage-scale-cassandra.md) dans l'API Cassandra. 
+Apache Cassandra recommande de limiter à 100 Mo la taille des données qui peuvent être stockées dans une partition. L'API Cassandra Azure Cosmos DB prend en charge 20 Go par partition logique, et 30 Go de données par partition physique. Dans Azure Cosmos DB, contrairement à Apache Cassandra, la capacité de calcul disponible dans la partition physique est exprimée à l'aide d'une métrique appelée [unité de requête (RU)](request-units.md), qui vous permet d'aborder votre charge de travail en termes de requêtes (lectures ou écritures) par seconde, plutôt qu'en termes de cœurs, de mémoire ou d'IOPS. Une fois que vous avez identifié le coût de chaque requête, la planification des capacités est plus simple. Chaque partition physique peut disposer d'un maximum de 10 000 RU de calcul. Pour en savoir plus sur les options de scalabilité, lisez l'article consacré à la [mise à l'échelle élastique](manage-scale-cassandra.md) dans l'API Cassandra. 
 
 Dans Azure Cosmos DB, chaque partition physique se compose d'un ensemble de réplicas, également appelés jeux de réplicas, avec au moins 4 réplicas par partition. Cela contraste avec Apache Cassandra, où la définition d'un facteur de réplication de 1 est possible. Toutefois, cela aboutit à une faible disponibilité si le seul nœud qui contient les données tombe en panne. Dans l'API Cassandra, le facteur de réplication est toujours de 4 (quorum de 3). Azure Cosmos DB gère automatiquement les jeux de réplicas, alors que dans Apache Cassandra ceux-ci doivent être gérés à l'aide de divers outils. 
 
@@ -53,7 +53,7 @@ CREATE TABLE uprofile.user (
 
 Dans cette conception, nous avons défini le champ `id` comme clé primaire. La clé primaire sert à identifier l'enregistrement dans la table, et elle est également utilisée comme clé de partition dans Azure Cosmos DB. Si la clé primaire est définie comme décrit précédemment, il n'y aura qu'un seul enregistrement dans chaque partition. Cela se traduira par une répartition parfaitement horizontale et évolutive lors de l'écriture de données dans la base de données, ce qui est idéal pour les cas d'usage de recherche de valeurs-clés. L'application doit fournir la clé primaire lors de la lecture des données de la table, afin d'optimiser les performances de lecture. 
 
-![partitions](./media/cassandra-partitioning/cassandra-partitioning.png)
+:::image type="content" source="./media/cassandra-partitioning/cassandra-partitioning.png" alt-text="partitions" border="false":::
 
 
 ## <a name="compound-primary-key"></a>Clé primaire composée
@@ -83,11 +83,11 @@ insert into uprofile.user (user, id, message) values ('theo', 2, 'hello again');
 
 Lorsque les données sont renvoyées, elles sont triées en fonction de la clé de clustering, comme prévu dans Apache Cassandra :
 
-![partitions](./media/cassandra-partitioning/select-from-pk.png)
+:::image type="content" source="./media/cassandra-partitioning/select-from-pk.png" alt-text="partitions":::
 
 Avec des données ainsi modélisées, plusieurs enregistrements, regroupés par utilisateur, peuvent être attribués à chaque partition. Nous pouvons donc émettre une requête qui est efficacement acheminée par la `partition key` (dans ce cas, `user`) pour obtenir tous les messages d'un utilisateur donné. 
 
-![partitions](./media/cassandra-partitioning/cassandra-partitioning2.png)
+:::image type="content" source="./media/cassandra-partitioning/cassandra-partitioning2.png" alt-text="partitions" border="false":::
 
 
 ## <a name="composite-partition-key"></a>Clé de partition composite

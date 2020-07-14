@@ -7,21 +7,21 @@ ms.reviewer: amberb
 tags: billing,top-support-issue
 ms.service: cost-management-billing
 ms.topic: conceptual
-ms.date: 02/12/2020
+ms.date: 07/01/2020
 ms.author: banders
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 633f406d042ce5b8ddde5b28022bdb33fdd70377
-ms.sourcegitcommit: ff19f4ecaff33a414c0fa2d4c92542d6e91332f8
+ms.openlocfilehash: 722d1bca7f983c124c85e6d675f51d29c5357522
+ms.sourcegitcommit: 9b5c20fb5e904684dc6dd9059d62429b52cb39bc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/18/2020
-ms.locfileid: "85052150"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85854952"
 ---
 # <a name="transfer-billing-ownership-of-an-azure-subscription-to-another-account"></a>Transfert de la propriété de facturation d’un abonnement Azure à un autre compte
 
 Vous pouvez transférer la propriété de la facturation de votre abonnement Azure si vous quittez votre organisation ou si voulez que votre abonnement soit facturé sur un autre compte. Le transfert de la propriété de la facturation à un autre compte fournit aux administrateurs du nouveau compte l’autorisation sur les tâches de facturation. Ils peuvent changer le mode de paiement, visualiser les coûts facturés et annuler l’abonnement.
 
-Si vous souhaitez conserver la propriété de facturation tout en changeant le type de votre abonnement, consultez [Changer d’offre pour votre abonnement Azure](switch-azure-offer.md). Pour contrôler qui peut gérer les ressources de l’abonnement, consultez [Rôles intégrés pour les ressources Azure](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles).
+Si vous souhaitez conserver la propriété de facturation tout en changeant le type de votre abonnement, consultez [Changer d’offre pour votre abonnement Azure](switch-azure-offer.md). Pour contrôler qui peut accéder aux ressources de l’abonnement, consultez [Rôles intégrés Azure](../../role-based-access-control/built-in-roles.md).
 
 Si vous êtes client Contrat Entreprise (EA), les administrateurs de votre entreprise peuvent transférer la propriété de facturation de vos abonnements entre les comptes. Pour plus d’informations, consultez [Transférer la propriété de facturation des abonnements Contrat Entreprise (EA)](#EA).
 
@@ -45,7 +45,7 @@ Si vous êtes client Contrat Entreprise (EA), les administrateurs de votre entre
 
     > [!IMPORTANT]
     >
-    > Si vous choisissez de déplacer l’abonnement vers le locataire Azure AD du nouveau compte, toutes les affectations de [contrôle d’accès en fonction du rôle (RBAC)](../../role-based-access-control/overview.md) permettant de gérer les ressources de l’abonnement sont définitivement supprimées. Seul l’utilisateur dans le nouveau compte qui accepte votre demande de transfert a accès à la gestion des ressources de l’abonnement. Pour plus d’informations, consultez [Transfert de l’abonnement à un utilisateur dans un autre locataire Azure AD](../../active-directory/managed-identities-azure-resources/known-issues.md#transferring-a-subscription-between-azure-ad-directories). Vous pouvez également désactiver la case à cocher Locataire Azure AD de l’abonnement pour transférer la propriété de facturation sans déplacer l’abonnement vers le locataire du nouveau compte. Dans ce cas, les autorisations RBAC existantes permettant de gérer les ressources Azure sont conservées.
+    > Si vous choisissez de déplacer l’abonnement vers le locataire Azure AD du nouveau compte, toutes les [attributions de rôles Azure](../../role-based-access-control/role-assignments-portal.md) permettant d’accéder aux ressources de l’abonnement sont définitivement supprimées. Seul l’utilisateur dans le nouveau compte qui accepte votre demande de transfert a accès à la gestion des ressources de l’abonnement. Pour plus d’informations, consultez la section suivante [Transférer un abonnement vers un autre compte de locataire Azure AD](#transfer-a-subscription-to-another-azure-ad-tenant-account). Vous pouvez également décocher la case **Locataire Azure AD de l’abonnement** pour transférer la propriété de facturation sans déplacer l’abonnement vers le locataire du nouveau compte. Dans ce cas, les attributions de rôles Azure existantes permettant d’accéder aux ressources Azure sont conservées.
 
     ![Page d’envoi du transfert](./media/billing-subscription-transfer/billing-send-transfer-request.PNG)
 
@@ -71,7 +71,7 @@ Un locataire Azure Active Directory (AD) est créé pour vous quand vous vous in
 
 Quand vous créez un abonnement, il est hébergé dans le locataire Azure AD de votre compte. Si vous voulez donner à d’autres utilisateurs l’accès à votre abonnement ou à ses ressources, vous devez les inviter à rejoindre votre locataire. Ceci vous aide à contrôler l’accès à vos abonnements et à vos ressources.
 
-Quand vous transférez la propriété de facturation de votre abonnement à un compte dans un autre locataire Azure AD, vous pouvez déplacer l’abonnement vers le locataire du nouveau compte. Dans ce cas, tous les utilisateurs, groupes ou principaux de service qui disposaient d’un [accès RBAC](../../role-based-access-control/role-assignments-portal.md) pour gérer les abonnements et leurs ressources perdent cet accès. Seul l’utilisateur dans le nouveau compte qui accepte votre demande de transfert a accès à la gestion des ressources. Le nouveau propriétaire doit [ajouter manuellement ces utilisateurs à l’abonnement](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-portal) pour fournir l’accès à l’utilisateur l’a perdu.
+Quand vous transférez la propriété de facturation de votre abonnement à un compte dans un autre locataire Azure AD, vous pouvez déplacer l’abonnement vers le locataire du nouveau compte. Dans ce cas, tous les utilisateurs, groupes ou principaux de service qui disposaient d’[attributions de rôles Azure](../../role-based-access-control/role-assignments-portal.md) pour gérer les abonnements et leurs ressources perdent cet accès. Seul l’utilisateur dans le nouveau compte qui accepte votre demande de transfert a accès à la gestion des ressources. Le nouveau propriétaire doit ajouter manuellement ces utilisateurs à l’abonnement pour fournir l’accès à l’utilisateur l’a perdu. Pour plus d’informations, consultez [Transférer un abonnement Azure vers une autre instance Azure AD Directory (préversion)](../../role-based-access-control/transfer-subscription.md).
 
 
 ## <a name="transfer-visual-studio-and-partner-network-subscriptions"></a>Transférer des abonnements Visual Studio et Partner Network
@@ -89,7 +89,7 @@ L’administrateur d’entreprise peut transférer la propriété des abonnement
 
 Si vous avez accepté la propriété de la facturation d’un abonnement Azure, nous vous recommandons de passer en revue ces étapes suivantes :
 
-1. Passez en revue et mettez à jour l’administrateur de service, les coadministrateurs et les autres rôles RBAC. Pour plus d’informations, consultez [Ajout ou modification des administrateurs d’abonnements Azure](add-change-subscription-administrator.md) et [Gérer les accès à l’aide du contrôle d’accès en fonction du rôle et du portail Azure](../../role-based-access-control/role-assignments-portal.md).
+1. Passez en revue et mettez à jour l’administrateur de service, les coadministrateurs et les attributions de rôles Azure. Pour plus d’informations, consultez [Ajout ou modification des administrateurs d’abonnements Azure](add-change-subscription-administrator.md) et [Ajouter ou supprimer des attributions de rôle Azure à l’aide du portail Azure](../../role-based-access-control/role-assignments-portal.md).
 1. Mettez à jour les informations d’identification associées aux services de cet abonnement, notamment :
    1. Certificats de gestion accordant à l’utilisateur des droits d’administrateur sur les ressources d’abonnement. Pour plus d'informations, consultez [Créer et télécharger un certificat de gestion pour Microsoft Azure](../../cloud-services/cloud-services-certs-create.md)
    1. Touches d’accès rapide pour les services tels que Storage. Pour plus d’informations, consultez [À propos des comptes de stockage Azure](../../storage/common/storage-create-storage-account.md).
@@ -142,7 +142,7 @@ Si vous ne savez pas qui est l’administrateur de compte d’un abonnement, pro
 
 ### <a name="does-everything-transfer-including-resource-groups-vms-disks-and-other-running-services"></a>Tous les éléments sont-ils transférés ? Notamment les groupes de ressources, les machines virtuelles, les disques et les autres services en cours d’exécution ?
 
-Toutes les ressources telles que les machines virtuelles, les disques et les sites web sont transférées au nouveau compte. Cependant, si vous transférez un abonnement à un compte dans un autre locataire Azure AD, les affectations des [rôles Administrateur](add-change-subscription-administrator.md) et de [RBAC (contrôle d’accès en fonction du rôle)](../../role-based-access-control/role-assignments-portal.md) sur l’abonnement [ne sont pas transférées](#transfer-a-subscription-to-another-azure-ad-tenant-account). Les [inscriptions des applications](../../active-directory/develop/quickstart-v1-integrate-apps-with-azure-ad.md) et autres services spécifiques du locataire ne sont pas non plus transférés avec l’abonnement.
+Toutes les ressources telles que les machines virtuelles, les disques et les sites web sont transférées au nouveau compte. Cependant, si vous transférez un abonnement à un compte dans un autre locataire Azure AD, les [rôles Administrateur](add-change-subscription-administrator.md) et les [attributions de rôles Azure](../../role-based-access-control/role-assignments-portal.md) sur l’abonnement [ne sont pas transférés](#transfer-a-subscription-to-another-azure-ad-tenant-account). Les [inscriptions des applications](../../active-directory/develop/quickstart-v1-integrate-apps-with-azure-ad.md) et autres services spécifiques du locataire ne sont pas non plus transférés avec l’abonnement.
 
 ### <a name="can-i-transfer-ownership-to-an-account-in-another-countryregion"></a>Puis-je transférer la propriété à un compte d’un autre pays/d’une autre région ?
 Malheureusement, les transferts entre pays/régions ne peuvent pas être effectués sur le Portail Azure. Pour transférer votre abonnement d’un pays/d’une région à un autre, [contactez le support](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade).
@@ -152,7 +152,7 @@ Oui, vous pouvez transférer l’abonnement entre vos comptes. Vos comptes étan
 
 ### <a name="does-a-subscription-transfer-result-in-any-service-downtime"></a>Un transfert d’abonnement entraîne-t-il une interruption de service ?
 
-Si vous transférez un abonnement à un compte dans le même locataire Azure AD, il n’y a pas d’impact sur les ressources en cours d’exécution dans l’abonnement. Cependant, les informations de contexte enregistrées dans PowerShell ne sont pas mises à jour : il peut donc être nécessaire de les effacer ou de changer des paramètres. Si vous transférez l’abonnement à un compte dans un autre locataire et que vous décidez de déplacer l’abonnement vers ce locataire, tous les utilisateurs, groupes et principaux de service qui disposaient d’un [accès RBAC](../../role-based-access-control/overview.md) pour gérer les ressources de l’abonnement perdent cet accès. Il peut en résulter un temps d’arrêt du service.
+Si vous transférez un abonnement à un compte dans le même locataire Azure AD, il n’y a pas d’impact sur les ressources en cours d’exécution dans l’abonnement. Cependant, les informations de contexte enregistrées dans PowerShell ne sont pas mises à jour : il peut donc être nécessaire de les effacer ou de changer des paramètres. Si vous transférez l’abonnement à un compte dans un autre locataire et que vous décidez de déplacer l’abonnement vers ce locataire, tous les utilisateurs, groupes et principaux de service qui disposaient d’[attributions de rôles Azure](../../role-based-access-control/role-assignments-portal.md) pour accéder aux ressources de l’abonnement perdent cet accès. Il peut en résulter un temps d’arrêt du service.
 
 ### <a name="can-users-in-new-account-access-usage-and-billing-history"></a>Les utilisateurs du nouveau compte ont-ils accès à l’historique d’utilisation et de facturation ?
 
@@ -173,19 +173,19 @@ Ces FAQ concernent les utilisateurs qui acceptent la propriété de facturation 
 
 ### <a name="if-i-take-over-billing-ownership-of-a-subscription-from-another-account-do-users-in-that-account-continue-to-have-access-to-my-resources"></a>Si je deviens titulaire de la facturation d’un abonnement d’un autre compte, les utilisateurs dans ce compte ont-ils toujours accès à mes ressources ?
 
-Oui. Cependant, les [rôles d’administrateur](add-change-subscription-administrator.md) et les attributions de [Contrôle d’accès en fonction du rôle (RBAC)](../../role-based-access-control/role-assignments-portal.md) peuvent être supprimées. La perte de l’accès se produit quand votre compte se trouve dans un locataire Azure AD autre que le locataire de l’abonnement et que l’utilisateur qui a envoyé la demande de transfert déplace l’abonnement vers le locataire de votre compte. Pour visualiser les utilisateurs disposant d’un [accès RBAC](../../role-based-access-control/overview.md) permettant de gérer les ressources de l’abonnement, suivez les étapes ci-après :
+Oui. Cependant, les [rôles d’administrateur](add-change-subscription-administrator.md) et les [attributions de rôles Azure](../../role-based-access-control/role-assignments-portal.md) peuvent être supprimées. La perte de l’accès se produit quand votre compte se trouve dans un locataire Azure AD autre que le locataire de l’abonnement et que l’utilisateur qui a envoyé la demande de transfert déplace l’abonnement vers le locataire de votre compte. Pour visualiser les utilisateurs disposant d’attributions de rôles Azure pour accéder aux ressources de l’abonnement, suivez les étapes ci-après :
 
 1. Accédez à la [page Abonnement du portail Azure](https://portal.azure.com/#blade/Microsoft_Azure_Billing/SubscriptionsBlade).
 1. Sélectionnez l’abonnement que vous souhaitez vérifier, puis sélectionnez **Contrôle d’accès (IAM)** dans le volet gauche.
-1. Sélectionnez **Attributions de rôles** en haut de la page. La page des attributions de rôles liste tous les utilisateurs qui disposent d’un accès RBAC à l’abonnement.
+1. Sélectionnez **Attributions de rôles** en haut de la page. La page des attributions de rôles liste tous les utilisateurs qui disposent d’un accès à l’abonnement.
 
-Même si les attributions de [Contrôle d’accès en fonction du rôle (RBAC)](../../role-based-access-control/role-assignments-portal.md) sont supprimées lors du transfert, les utilisateurs du compte du propriétaire d’origine peuvent toujours avoir accès à l’abonnement via certains mécanismes de sécurité, notamment :
+Même si les [attributions de rôles Azure](../../role-based-access-control/role-assignments-portal.md) sont supprimées pendant le transfert, les utilisateurs du compte du propriétaire d’origine peuvent continuer à avoir accès à l’abonnement par le biais d’autres mécanismes de sécurité, notamment :
 
 * Certificats de gestion accordant à l’utilisateur des droits d’administrateur sur les ressources d’abonnement. Pour plus d'informations, consultez la rubrique [Créer et télécharger un certificat de gestion pour Microsoft Azure](../../cloud-services/cloud-services-certs-create.md).
 * Touches d’accès rapide pour les services tels que Storage. Pour plus d’informations, consultez la rubrique [À propos des comptes de stockage Azure](../../storage/common/storage-create-storage-account.md).
 * Informations d’identification d’accès à distance pour les services tels que les machines virtuelles Azure.
 
-Le destinataire doit envisager la mise à jour des secrets associés au service s’il doit restreindre l’accès aux ressources. La plupart des ressources peuvent être mises à jour en procédant comme suit :
+Le destinataire doit envisager la mise à jour des clés secrètes associées au service s’il doit restreindre l’accès aux ressources. La plupart des ressources peuvent être mises à jour en procédant comme suit :
 
   1. Connectez-vous au [portail Azure](https://portal.azure.com).
   2. Dans le menu Hub, sélectionnez **Toutes les ressources**.
@@ -225,4 +225,4 @@ Si vous avez des questions ou besoin d’aide, [créez une demande de support](h
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-- Passez en revue et mettez à jour l’administrateur de service, les coadministrateurs et les autres rôles RBAC. Pour plus d’informations, consultez [Ajout ou modification des administrateurs d’abonnements Azure](add-change-subscription-administrator.md) et [Gérer les accès à l’aide du contrôle d’accès en fonction du rôle et du portail Azure](../../role-based-access-control/role-assignments-portal.md).
+- Passez en revue et mettez à jour l’administrateur de service, les coadministrateurs et les attributions de rôles Azure. Pour plus d’informations, consultez [Ajout ou modification des administrateurs d’abonnements Azure](add-change-subscription-administrator.md) et [Ajouter ou supprimer des attributions de rôle Azure à l’aide du portail Azure](../../role-based-access-control/role-assignments-portal.md).

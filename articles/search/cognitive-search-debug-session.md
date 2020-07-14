@@ -1,5 +1,5 @@
 ---
-title: Déboguer un ensemble de compétences d’enrichissement par IA (préversion)
+title: Concepts des sessions de débogage (préversion)
 titleSuffix: Azure Cognitive Search
 description: Les sessions de débogage, accessibles via le portail Azure, fournissent un environnement de type IDE au sein duquel vous pouvez identifier et corriger les erreurs, valider les modifications et les transférer vers un ensemble de compétences dans le pipeline d’enrichissement par IA. Les sessions de débogage sont disponibles en préversion.
 manager: nitinme
@@ -8,21 +8,20 @@ ms.author: terrychr
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 05/19/2020
-ms.openlocfilehash: 04b221d772abf923d7aabfe767a6424b72ed8fb2
-ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
+ms.openlocfilehash: edce8f3460e92eef4f6665b1b38a61582d6841ad
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83662407"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85560385"
 ---
-# <a name="debug-sessions"></a>Sessions de débogage
+# <a name="debug-sessions-in-azure-cognitive-search"></a>Sessions de débogage dans Recherche cognitive Azure
 
 Les sessions de débogage consistent en un éditeur visuel qui fonctionne avec un ensemble de compétences existant dans le portail Azure. Au sein d’une session de débogage, vous pouvez identifier et résoudre les erreurs, valider les modifications et les transférer vers un ensemble de compétences de production dans le pipeline d’enrichissement par IA.
 
 > [!Important]
-> La prise en charge des sessions de débogage pour la Recherche cognitive Azure est disponible [sur demande](https://aka.ms/DebugSessions) en tant que préversion à accès limité. Les fonctionnalités d’évaluation sont fournies sans contrat de niveau de service et sont déconseillées pour les charges de travail de production. Pour plus d’informations, consultez [Conditions d’Utilisation Supplémentaires relatives aux Évaluations Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+> Les sessions de débogage constituent une fonctionnalité d’évaluation qui est fournie sans contrat de niveau de service et qui n’est pas recommandée pour les charges de travail de production. Pour plus d’informations, consultez [Conditions d’Utilisation Supplémentaires relatives aux Évaluations Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 >
-> Une fois que vous avez accès à la préversion, vous pouvez accéder aux sessions de débogage du service et les utiliser à l’aide du portail Azure.
 
 ## <a name="using-debug-sessions"></a>Utilisation des sessions de débogage
 
@@ -86,6 +85,10 @@ Le volet **Structure de données enrichie** montre les enrichissements du docume
 ## <a name="errorswarnings"></a>Erreurs/avertissements
 
 Cette fenêtre affiche toutes les erreurs et les avertissements produits par l’ensemble de compétences lorsqu’il est exécuté sur le document dans la session de débogage.
+
+## <a name="limitations"></a>Limites
+
+Les sessions de débogage fonctionnent avec toutes les sources de données généralement disponibles et la plupart des sources de données en préversion. Les API MongoDB et Cassandra de Cosmos DB (toutes deux en préversion) ne sont actuellement pas prises en charge.
 
 ## <a name="next-steps"></a>Étapes suivantes
 

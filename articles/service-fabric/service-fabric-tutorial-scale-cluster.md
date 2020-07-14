@@ -4,14 +4,14 @@ description: Dans ce tutoriel, vous allez apprendre à effectuer un scale-out et
 ms.topic: tutorial
 ms.date: 07/22/2019
 ms.custom: mvc
-ms.openlocfilehash: 6e8dbb5a56bf313bf35ad97ec6ea7df8ce483be9
-ms.sourcegitcommit: e0330ef620103256d39ca1426f09dd5bb39cd075
+ms.openlocfilehash: ed212083a29836e1da593ec42c31bbf86b907546
+ms.sourcegitcommit: 32592ba24c93aa9249f9bd1193ff157235f66d7e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/05/2020
-ms.locfileid: "82788819"
+ms.lasthandoff: 07/01/2020
+ms.locfileid: "85611643"
 ---
-# <a name="tutorial-scale-a-service-fabric-cluster-in-azure"></a>Tutoriel : mettre à l’échelle un cluster Service Fabric dans Azure
+# <a name="tutorial-scale-a-service-fabric-cluster-in-azure"></a>Tutoriel : Mettre à l’échelle un cluster Service Fabric dans Azure
 
 Ce didacticiel constitue la troisième partie d’une série et montre comment diminuer ou augmenter la taille de votre cluster existant. À la fin de ce tutoriel, vous saurez comment mettre à l’échelle votre cluster et comment nettoyer les ressources restantes.  Pour plus d’informations sur la mise à l’échelle d’un cluster exécuté dans Azure, consultez [Mise à l’échelle de clusters Service Fabric](service-fabric-cluster-scaling.md).
 
@@ -33,7 +33,7 @@ Cette série de tutoriels vous montre comment effectuer les opérations suivante
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-## <a name="prerequisites"></a>Conditions préalables requises
+## <a name="prerequisites"></a>Prérequis
 
 Avant de commencer ce tutoriel :
 
@@ -833,13 +833,12 @@ Foreach($node in $nodes)
 ```
 
 ## <a name="increase-node-resources"></a>Augmenter les ressources du nœud 
-Une fois que vous avez créé un cluster Service Fabric, vous pouvez mettre à l’échelle le type de nœud d’un cluster verticalement (changement des ressources des nœuds) ou mettre à niveau le système d’exploitation des machines virtuelles du type de nœud.  
+Une fois que vous avez créé un cluster Service Fabric, vous pouvez mettre à l’échelle le type de nœud d’un cluster verticalement (changement des ressources des nœuds) ou mettre à niveau le système d’exploitation des machines virtuelles du type de nœud en remplaçant le type de nœud d’origine par un nouveau type de nœud (avec image du système d’exploitation ou référence SKU de machine virtuelle mise à jour). Pour plus d’informations, consultez [Effectuer un scale-up d’un type de nœud Azure Service Fabric](service-fabric-scale-up-node-type.md).
 
-> [!WARNING]
-> Nous vous recommandons de ne pas modifier la référence SKU des machines virtuelles d’un type de nœud/groupe identique dont le niveau de durabilité est inférieur à Silver. Modifier la taille de référence SKU des machines virtuelles est une opération d’infrastructure sur place destructrice de données. Faute de pouvoir ne serait-ce que retarder ou surveiller cette modification, il est possible que l’opération occasionne une perte de données pour les services avec état ou provoque d’autres problèmes opérationnels imprévus, même pour les charges de travail sans état.
+> [!IMPORTANT]
+> Ne tentez jamais une modification sur place d’une référence SKU de machine virtuelle ou d’une image de système d’exploitation, car cette opération est dangereuse et non prise en charge.
 
-> [!WARNING]
-> Nous vous recommandons de ne pas modifier la référence SKU des machines virtuelles du type de nœud principal, car cette opération est dangereuse et non prise en charge.  Si vous avez besoin de plus de capacité de cluster, vous pouvez ajouter des instances de machines virtuelles ou des types de nœuds supplémentaires.  Si ce n’est pas possible, créez un cluster et [restaurez l’état des applications](service-fabric-reliable-services-backup-restore.md) (le cas échéant) de votre ancien cluster.  Si ce n’est pas possible, vous pouvez [modifier la référence SKU des machines virtuelles du type de nœud principal](service-fabric-scale-up-node-type.md).
+Si cela n’est pas possible, créez un cluster et [restaurez l’état des applications](service-fabric-reliable-services-backup-restore.md) (le cas échéant) de votre ancien cluster. Vous n’avez pas besoin de restaurer l’état des services système ; ceux-ci sont recréés pendant le déploiement de vos applications sur le nouveau cluster. Si les applications que vous exécutiez sur votre cluster étaient sans état, tout ce que vous avez à faire, c’est déployer vos applications sur le nouveau cluster, sans rien avoir à restaurer.
 
 ### <a name="update-the-template"></a>Mettre à jour le modèle
 
@@ -873,19 +872,7 @@ Maintenant, passez au didacticiel suivant pour savoir comment mettre à niveau l
 > [!div class="nextstepaction"]
 > [Mettre à niveau le runtime d’un cluster](service-fabric-tutorial-upgrade-cluster.md)
 
-[durability]: service-fabric-cluster-capacity.md#the-durability-characteristics-of-the-cluster
-[reliability]: service-fabric-cluster-capacity.md#the-reliability-characteristics-of-the-cluster
-[template]:https://github.com/Azure-Samples/service-fabric-cluster-templates/blob/master/7-VM-Windows-3-NodeTypes-Secure-NSG/AzureDeploy.json
-[parameters]:https://github.com/Azure-Samples/service-fabric-cluster-templates/blob/master/7-VM-Windows-3-NodeTypes-Secure-NSG/AzureDeploy.Parameters.json
-
-> * Ajouter et supprimer des types de nœuds (scale-out et scale-in)
-> * Augmenter les ressources de nœud (scale up)
-
-Maintenant, passez au didacticiel suivant pour savoir comment mettre à niveau le runtime d’un cluster.
-> [!div class="nextstepaction"]
-> [Mettre à niveau le runtime d’un cluster](service-fabric-tutorial-upgrade-cluster.md)
-
-[durability]: service-fabric-cluster-capacity.md#the-durability-characteristics-of-the-cluster
-[reliability]: service-fabric-cluster-capacity.md#the-reliability-characteristics-of-the-cluster
+[durability]: service-fabric-cluster-capacity.md#durability-characteristics-of-the-cluster
+[reliability]: service-fabric-cluster-capacity.md#reliability-characteristics-of-the-cluster
 [template]:https://github.com/Azure-Samples/service-fabric-cluster-templates/blob/master/7-VM-Windows-3-NodeTypes-Secure-NSG/AzureDeploy.json
 [parameters]:https://github.com/Azure-Samples/service-fabric-cluster-templates/blob/master/7-VM-Windows-3-NodeTypes-Secure-NSG/AzureDeploy.Parameters.json

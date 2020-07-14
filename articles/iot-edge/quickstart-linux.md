@@ -4,21 +4,21 @@ description: Dans ce démarrage rapide, vous allez apprendre à créer un appare
 author: kgremban
 manager: philmea
 ms.author: kgremban
-ms.date: 11/06/2019
+ms.date: 06/30/2020
 ms.topic: quickstart
 ms.service: iot-edge
 services: iot-edge
 ms.custom: mvc
-ms.openlocfilehash: e015999d8c1f60340fb30609c6563f770c5c824f
-ms.sourcegitcommit: 6fd8dbeee587fd7633571dfea46424f3c7e65169
+ms.openlocfilehash: a5829057aed913ea824cbd2fd6b52369b5e70d88
+ms.sourcegitcommit: a989fb89cc5172ddd825556e45359bac15893ab7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/21/2020
-ms.locfileid: "83726211"
+ms.lasthandoff: 07/01/2020
+ms.locfileid: "85801838"
 ---
 # <a name="quickstart-deploy-your-first-iot-edge-module-to-a-virtual-linux-device"></a>Démarrage rapide : Déployer votre premier module IoT Edge sur un appareil virtuel Linux
 
-Testez Azure IoT Edge dans ce démarrage rapide en déployant du code conteneurisé sur un appareil IoT Edge virtuel. IoT Edge vous permet de gérer à distance du code sur vos appareils afin que vous puissiez envoyer plus de charges de travail à la périphérie. Pour ce démarrage rapide, nous vous recommandons d’utiliser une machine virtuelle Azure pour votre appareil IoT Edge, ce qui vous permet de créer rapidement une machine de test avec tous les composants requis installés, puis de la supprimer une fois que vous avez terminé.
+Testez Azure IoT Edge dans ce guide de démarrage rapide en déployant du code conteneurisé sur un appareil IoT Edge Linux virtuel. IoT Edge vous permet de gérer à distance du code sur vos appareils afin que vous puissiez envoyer plus de charges de travail à la périphérie. Pour ce guide de démarrage rapide, nous vous recommandons d’utiliser une machine virtuelle Azure pour votre appareil IoT Edge, ce qui vous permet de créer rapidement une machine de test avec le service IoT Edge installé, puis de la supprimer une fois que vous avez terminé.
 
 Dans ce guide de démarrage rapide, vous apprenez à :
 
@@ -29,7 +29,7 @@ Dans ce guide de démarrage rapide, vous apprenez à :
 
 ![Diagramme - Démarrage rapide : architecture pour appareil et cloud](./media/quickstart-linux/install-edge-full.png)
 
-Ce démarrage rapide vous explique comment créer une machine virtuelle Linux configurée pour être un appareil IoT Edge. Vous pouvez ensuite déployer un module depuis le portail Azure vers votre appareil. Le module que vous déployez dans ce guide de démarrage rapide est un capteur simulé qui génère des données de pression, d’humidité et de température. Les autres tutoriels Azure IoT Edge s’appuient sur le travail que vous effectuez ici en déployant des modules qui analysent les données simulées des informations métier.
+Ce guide de démarrage rapide vous explique comment créer une machine virtuelle Linux configurée pour être un appareil IoT Edge. Ensuite, vous déployez un module depuis le portail Azure vers votre appareil. Le module utilisé dans ce guide de démarrage rapide est un capteur simulé qui génère des données de pression, d’humidité et de température. Les autres tutoriels Azure IoT Edge s’appuient sur le travail que vous effectuez ici en déployant des modules supplémentaires qui analysent les données simulées des insights métier.
 
 Si vous n’avez pas d’abonnement Azure actif, créez un [compte gratuit](https://azure.microsoft.com/free) avant de commencer.
 
@@ -42,33 +42,18 @@ Ajoutez l’extension Azure IoT à l’instance de Cloud Shell.
    ```azurecli-interactive
    az extension add --name azure-iot
    ```
-   
+
 [!INCLUDE [iot-hub-cli-version-info](../../includes/iot-hub-cli-version-info.md)]
 
 ## <a name="prerequisites"></a>Prérequis
 
 Ressources cloud :
 
-* Un groupe de ressources permettant de gérer toutes les ressources que vous utilisez lors de ce démarrage rapide.
+* Un groupe de ressources permettant de gérer toutes les ressources que vous utilisez lors de ce démarrage rapide. Nous utilisons l’exemple de nom de groupe de ressources **IoTEdgeResources** tout au long de ce guide de démarrage rapide et des tutoriels suivants.
 
    ```azurecli-interactive
    az group create --name IoTEdgeResources --location westus2
    ```
-
-Appareil IoT Edge :
-
-* Un appareil ou une machine virtuelle Linux faisant office de périphérique IoT Edge. Vous devez utiliser la machine virtuelle [Azure IoT Edge sur Ubuntu](https://azuremarketplace.microsoft.com/marketplace/apps/microsoft_iot_edge.iot_edge_vm_ubuntu) fournie par Microsoft, qui préinstalle tout ce dont vous avez besoin pour exécuter IoT Edge sur un appareil. Acceptez les conditions d’utilisation et créez cette machine virtuelle à l’aide des commandes suivantes :
-
-   ```azurecli-interactive
-   az vm image terms accept --urn microsoft_iot_edge:iot_edge_vm_ubuntu:ubuntu_1604_edgeruntimeonly:latest
-   az vm create --resource-group IoTEdgeResources --name EdgeVM --image microsoft_iot_edge:iot_edge_vm_ubuntu:ubuntu_1604_edgeruntimeonly:latest --admin-username azureuser --generate-ssh-keys
-   ```
-
-   Quelques minutes peuvent être nécessaires pour créer et démarrer la nouvelle machine virtuelle.
-
-   Quand vous créez une machine virtuelle, prenez note de **publicIpAddress**, qui est fourni dans la sortie de la commande create. Vous utiliserez cette adresse IP publique pour vous connecter à la machine virtuelle plus loin dans le guide de démarrage rapide.
-
-* Si vous préférez exécuter le runtime Azure IoT Edge sur votre propre appareil, suivez les instructions fournies dans [Installer le runtime Azure IoT Edge sur Linux](how-to-install-iot-edge-linux.md).
 
 ## <a name="create-an-iot-hub"></a>Créer un hub IoT
 
@@ -76,7 +61,7 @@ Commencez le guide de démarrage rapide en créant un hub IoT avec Azure CLI.
 
 ![Diagramme - Créer un IoT Hub dans le cloud](./media/quickstart-linux/create-iot-hub.png)
 
-Le niveau gratuit d'IoT Hub fonctionne pour ce démarrage rapide. Si vous avez utilisé IoT Hub par le passé et que vous avez créé gratuitement un hub, vous pouvez utiliser cet IoT Hub. Chaque abonnement peut avoir uniquement un IoT hub gratuit.
+Le niveau gratuit d'IoT Hub fonctionne pour ce démarrage rapide. Si vous avez utilisé IoT Hub par le passé et que vous avez créé un hub, vous pouvez utiliser ce hub IoT.
 
 Le code suivant crée un hub gratuit **F1** dans le groupe de ressources **IoTEdgeResources**. Remplacez `{hub_name}` par un nom unique pour votre hub IoT.
 
@@ -84,7 +69,7 @@ Le code suivant crée un hub gratuit **F1** dans le groupe de ressources **IoTEd
    az iot hub create --resource-group IoTEdgeResources --name {hub_name} --sku F1 --partition-count 2
    ```
 
-   Si vous obtenez une erreur parce qu’un hub gratuit existe déjà dans votre abonnement, remplacez la référence SKU par **S1**. Si vous recevez une erreur indiquant que le nom du hub IoT n’est pas disponible, cela signifie que quelqu’un d’autre a déjà un hub portant ce nom. Essayez avec un autre nom.
+   Si vous obtenez une erreur parce qu’un hub gratuit existe déjà dans votre abonnement, remplacez la référence SKU par **S1**. Chaque abonnement peut avoir uniquement un IoT hub gratuit. Si vous recevez une erreur indiquant que le nom du hub IoT n’est pas disponible, cela signifie que quelqu’un d’autre a déjà un hub portant ce nom. Essayez avec un autre nom.
 
 ## <a name="register-an-iot-edge-device"></a>Enregistrer un appareil IoT Edge
 
@@ -99,53 +84,86 @@ Créez une identité d’appareil pour votre appareil IoT Edge afin qu’il puis
 1. Dans Azure cloud shell, entrez la commande suivante pour créer un appareil nommé **myEdgeDevice** dans votre hub.
 
    ```azurecli-interactive
-   az iot hub device-identity create --hub-name {hub_name} --device-id myEdgeDevice --edge-enabled
+   az iot hub device-identity create --device-id myEdgeDevice --edge-enabled --hub-name {hub_name}
    ```
 
    Si vous recevez une erreur relative aux clés de stratégie iothubowner, vérifiez que votre shell cloud exécute la dernière version de l’extension azure-iot.
 
-2. Récupérez la chaîne de connexion pour votre appareil, qui lie votre appareil physique à l’aide de son identité dans IoT Hub.
+2. Affichez la chaîne de connexion pour votre appareil, qui lie votre appareil physique à l’aide de son identité dans IoT Hub. Elle contient le nom de votre hub IoT, le nom de votre appareil, puis une clé partagée qui authentifie les connexions entre les deux. Nous ferons référence à cette chaîne de connexion dans la section suivante quand vous configurerez votre appareil IoT Edge.
 
    ```azurecli-interactive
    az iot hub device-identity show-connection-string --device-id myEdgeDevice --hub-name {hub_name}
    ```
 
-3. Copiez la valeur de la clé `connectionString` à partir de la sortie JSON et enregistrez-la. Cette valeur est la chaîne de connexion de l’appareil. Vous l’utiliserez pour configurer le runtime IoT Edge dans la section suivante.
-
-   ![Récupérer la chaîne de connexion à partir de la sortie CLI](./media/quickstart/retrieve-connection-string.png)
+   ![Afficher la chaîne de connexion à partir de la sortie CLI](./media/quickstart/retrieve-connection-string.png)
 
 ## <a name="configure-your-iot-edge-device"></a>Configurer votre appareil IoT Edge
 
-Démarrer le runtime Azure IoT Edge sur votre appareil IoT Edge
+Créez une machine virtuelle avec le runtime Azure IoT Edge.
 
 ![Diagramme - Démarrer le runtime sur l’appareil](./media/quickstart-linux/start-runtime.png)
 
-Le runtime IoT Edge est déployé sur tous les appareils IoT Edge. Il comprend trois composants. Le **démon de sécurité IoT Edge** démarre chaque fois qu’un appareil IoT Edge démarre et amorce l’appareil en démarrant l’agent IoT Edge. **L’agent IoT Edge** facilite le déploiement et la surveillance des modules sur l’appareil IoT Edge, notamment le hub IoT Edge. Le **hub IoT Edge** gère les communications entre les modules sur l’appareil IoT Edge et entre l’appareil et IoT Hub.
+Le runtime IoT Edge est déployé sur tous les appareils IoT Edge. Il comprend trois composants. Le *démon de sécurité IoT Edge* démarre chaque fois qu’un appareil IoT Edge démarre et amorce l’appareil en démarrant l’agent IoT Edge. *L’agent IoT Edge* facilite le déploiement et la surveillance des modules sur l’appareil IoT Edge, notamment le hub IoT Edge. Le *hub IoT Edge* gère les communications entre les modules sur l’appareil IoT Edge et entre l’appareil et IoT Hub.
 
-Pendant la configuration du runtime, vous fournissez une chaîne de connexion d’appareil. Utilisez la chaîne que vous avez récupérée à partir de Azure CLI. Cette chaîne associe votre appareil physique à l’identité d’appareil IoT Edge dans Azure.
+Pendant la configuration du runtime, vous fournissez une chaîne de connexion d’appareil. Il s’agit de la chaîne que vous avez récupérée à partir d’Azure CLI. Cette chaîne associe votre appareil physique à l’identité d’appareil IoT Edge dans Azure.
 
-### <a name="set-the-connection-string-on-the-iot-edge-device"></a>Définir la chaîne de connexion sur l’appareil IoT Edge
+### <a name="deploy-the-iot-edge-device"></a>Déployer l’appareil IoT Edge
 
-Si vous utilisez la machine virtuelle Azure IoT Edge sur Ubuntu comme indiqué dans les prérequis, le runtime IoT Edge est déjà installé sur votre appareil. Il vous suffit simplement de configurer votre appareil avec la chaîne de connexion d’appareil que vous avez récupérée dans la section précédente. Vous pouvez procéder à distance sans avoir à vous connecter à la machine virtuelle. Exécutez la commande suivante, en remplaçant `{device_connection_string}` par votre propre chaîne.
+Cette section utilise un modèle Azure Resource Manager pour créer une machine virtuelle et y installer le runtime IoT Edge. Si vous souhaitez utiliser votre propre appareil Linux à la place, vous pouvez suivre les étapes d’installation indiquées dans [Installer le runtime Azure IoT Edge sur Linux](how-to-install-iot-edge-linux.md), puis revenir à ce guide de démarrage rapide.
+
+Utilisez la commande CLI suivante pour créer votre appareil IoT Edge en fonction du modèle [iotedge-vm-deploy](https://github.com/Azure/iotedge-vm-deploy) prégénéré.
+
+* Si vous utilisez Bash ou Cloud Shell, copiez la commande suivante dans un éditeur de texte, remplacez le texte des espaces réservés par vos informations, puis copiez la commande dans votre fenêtre Bash ou Cloud Shell :
 
    ```azurecli-interactive
-   az vm run-command invoke -g IoTEdgeResources -n EdgeVM --command-id RunShellScript --script "/etc/iotedge/configedge.sh '{device_connection_string}'"
+   az deployment group create \
+   --resource-group IoTEdgeResources \
+   --template-uri "https://aka.ms/iotedge-vm-deploy" \
+   --parameters dnsLabelPrefix='my-edge-vm' \
+   --parameters adminUsername='azureUser' \
+   --parameters deviceConnectionString=$(az iot hub device-identity show-connection-string --device-id myEdgeDevice --hub-name <REPLACE_WITH_HUB_NAME> -o tsv) \
+   --parameters authenticationType='password' \
+   --parameters adminPasswordOrKey="<REPLACE_WITH_PASSWORD>"
    ```
 
-Si vous exécutez IoT Edge sur votre ordinateur local ou sur un appareil ARM32 ou ARM64, vous devez installer le runtime IoT Edge et ses prérequis sur votre appareil. Suivez les instructions fournies dans [Installer le runtime Azure IoT Edge sur Linux](how-to-install-iot-edge-linux.md), puis revenez à ce guide de démarrage rapide.
+* Si vous utilisez PowerShell, copiez la commande suivante dans votre fenêtre PowerShell, puis remplacez le texte des espaces réservés par vos propres informations :
+
+   ```azurecli
+   az deployment group create `
+   --resource-group IoTEdgeResources `
+   --template-uri "https://aka.ms/iotedge-vm-deploy" `
+   --parameters dnsLabelPrefix='my-edge-vm1' `
+   --parameters adminUsername='azureUser' `
+   --parameters deviceConnectionString=$(az iot hub device-identity show-connection-string --device-id myEdgeDevice --hub-name <REPLACE_WITH_HUB_NAME> -o tsv) `
+   --parameters authenticationType='password' `
+   --parameters adminPasswordOrKey="<REPLACE_WITH_PASSWORD>"
+   ```
+
+Ce modèle prend les paramètres suivants :
+
+| Paramètre | Description |
+| --------- | ----------- |
+| **resource-group** | Groupe de ressources dans lequel les ressources seront créées. Utilisez le nom **IoTEdgeResources** par défaut que nous avons utilisé dans cet article ou fournissez le nom d’un groupe de ressources existant dans votre abonnement. |
+| **template-uri** | Pointeur vers le modèle Resource Manager que nous utilisons. |
+| **dnsLabelPrefix** | Chaîne qui sera utilisée pour créer le nom d’hôte de la machine virtuelle. Utilisez l’exemple **my-edge-vm** ou fournissez une nouvelle chaîne. |
+| **adminUsername** | Nom d’utilisateur du compte administrateur de la machine virtuelle. Utilisez l’exemple **azureUser** ou indiquez un nouveau nom d’utilisateur. |
+| **deviceConnectionString** | Chaîne de connexion de l’identité d’appareil dans IoT Hub, qui est utilisée pour configurer le runtime IoT Edge sur la machine virtuelle. La commande CLI dans ce paramètre récupère la chaîne de connexion pour vous. Remplacez le texte de l’espace réservé par le nom de votre hub IoT. |
+| **authenticationType** | Méthode d’authentification pour le compte administrateur. Ce guide de démarrage rapide utilise l’authentification par mot de passe (**password**), mais vous pouvez également définir ce paramètre sur **sshPublicKey**. |
+| **adminPasswordOrKey** | Mot de passe ou valeur de la clé SSH pour le compte administrateur. Remplacez le texte de l’espace réservé par un mot de passe sécurisé. Votre mot de passe doit comporter au moins 12 caractères, choisis dans trois des quatre catégories suivantes : caractères minuscules, caractères majuscules, chiffres et caractères spéciaux. |
+
+Une fois le déploiement terminé, vous devez recevoir dans l’interface CLI une sortie au format JSON qui contient les informations SSH pour la connexion à la machine virtuelle. Copiez la valeur de l’entrée **public SSH** de la section **outputs** :
+
+   ![Récupérer la valeur public SSH de la sortie](./media/quickstart-linux/outputs-public-ssh.png)
 
 ### <a name="view-the-iot-edge-runtime-status"></a>Afficher l’état du runtime IoT Edge
 
-Les autres commandes de ce guide sont exécutées sur votre appareil IoT Edge lui-même, afin que vous puissiez voir ce qui s’y passe concrètement. Si vous utilisez une machine virtuelle, connectez-vous à cet ordinateur dès maintenant en utilisant l’adresse IP publique générée par la commande de création. Vous pouvez également trouver l’adresse IP publique dans la page Vue d’ensemble de la machine virtuelle dans le portail Azure. Utilisez la commande suivante pour vous connecter à votre machine virtuelle. Remplacez `{azureuser}` si vous avez utilisé un nom d’utilisateur autre que celui suggéré dans les prérequis. Remplacez `{publicIpAddress}` par l’adresse de votre machine.
+Les autres commandes de ce guide sont exécutées sur votre appareil IoT Edge lui-même, afin que vous puissiez voir ce qui s’y passe concrètement. Si vous utilisez une machine virtuelle, connectez-vous maintenant à celle-ci à l’aide du nom d’utilisateur administrateur que vous avez configuré et du nom DNS qui a été généré par la commande de déploiement. Vous pouvez également trouver le nom DNS dans la page Vue d’ensemble de la machine virtuelle dans le portail Azure. Utilisez la commande suivante pour vous connecter à votre machine virtuelle. Remplacez `{admin username}` et `{DNS name}` par vos propres valeurs.
 
    ```console
-   ssh azureuser@{publicIpAddress}
+   ssh {admin username}@{DNS name}
    ```
 
-Vérifiez que le runtime a été correctement installé et configuré sur votre appareil IoT Edge.
-
->[!TIP]
->Vous avez besoin de privilèges élevés pour exécuter les commandes `iotedge`. Une fois que vous vous déconnectez de votre machine et que vous vous reconnectez pour la première fois après avoir installé le runtime IoT Edge, vos autorisations sont automatiquement mises à jour. Dans l’intervalle, ajoutez `sudo` devant les commandes.
+Une fois connecté à votre machine virtuelle, vérifiez que le runtime a été correctement installé et configuré sur votre appareil IoT Edge.
 
 1. Vérifiez que le démon de sécurité IoT Edge s’exécute en tant que service système.
 
@@ -155,13 +173,16 @@ Vérifiez que le runtime a été correctement installé et configuré sur votre 
 
    ![Voir le démon IoT Edge s’exécuter en tant que service système](./media/quickstart-linux/iotedged-running.png)
 
+   >[!TIP]
+   >Vous avez besoin de privilèges élevés pour exécuter les commandes `iotedge`. Une fois que vous vous déconnectez de votre machine et que vous vous reconnectez pour la première fois après avoir installé le runtime IoT Edge, vos autorisations sont automatiquement mises à jour. Dans l’intervalle, ajoutez `sudo` devant les commandes.
+
 2. Si vous avez besoin de résoudre les problèmes du service, récupérez les journaux d’activité de ce dernier.
 
    ```bash
    journalctl -u iotedge
    ```
 
-3. Affichez les modules en cours d’exécution sur votre appareil.
+3. Affichez tous les modules s’exécutant sur votre appareil IoT Edge. Comme le service vient de démarrer pour la première fois, vous devez uniquement voir le module **edgeAgent** en cours d’exécution. Le module edgeAgent s’exécute par défaut et vous aide à installer et démarrer tous les modules supplémentaires que vous déployez sur votre appareil.
 
    ```bash
    sudo iotedge list
@@ -174,6 +195,7 @@ Votre appareil IoT Edge est maintenant configuré. Il est prêt à exécuter les
 ## <a name="deploy-a-module"></a>Déployer un module
 
 Gérez votre appareil Azure IoT Edge depuis le cloud pour déployer un module qui transmettra des données de télémétrie à IoT Hub.
+
 ![Diagramme - Déployer un module du cloud vers un appareil](./media/quickstart-linux/deploy-module.png)
 
 [!INCLUDE [iot-edge-deploy-module](../../includes/iot-edge-deploy-module.md)]
@@ -182,7 +204,7 @@ Gérez votre appareil Azure IoT Edge depuis le cloud pour déployer un module qu
 
 Dans ce guide de démarrage rapide, vous avez créé un nouveau périphérique IoT Edge et installé le runtime IoT Edge. Puis vous avez utilisé le portail Azure pour déployer un module IoT Edge afin de l’exécuter sur l’appareil sans avoir à apporter des modifications à l’appareil lui-même.
 
-Dans ce cas, le module que vous avez envoyé (push) crée des exemples de données que vous pouvez utiliser pour les tests. Le module du capteur de température simulé génère des données d’environnement que vous pouvez utiliser plus tard pour les tests. Le capteur simulé surveille à la fois une machine et l’environnement de la machine. Par exemple, ce capteur peut être installé dans une salle de serveurs, dans une usine ou sur une éolienne. Le message inclut la température et l’humidité ambiantes, la température et la pression de la machine ainsi qu’un horodatage. Les tutoriels IoT Edge se servent des données créées par ce module comme données de test pour l’analytique.
+Dans ce cas, le module que vous avez envoyé (push) génère des exemples de données d’environnement que vous pouvez utiliser pour les tests ultérieurement. Le capteur simulé surveille à la fois une machine et l’environnement de la machine. Par exemple, ce capteur peut être installé dans une salle de serveurs, dans une usine ou sur une éolienne. Le message inclut la température et l’humidité ambiantes, la température et la pression de la machine ainsi qu’un horodatage. Les tutoriels IoT Edge se servent des données créées par ce module comme données de test pour l’analytique.
 
 Rouvrez l’invite de commandes sur votre appareil IoT Edge ou utilisez la connexion SSH à partir d’Azure CLI. Confirmez que le module déployé à partir du cloud est en cours d’exécution sur votre appareil IoT Edge :
 

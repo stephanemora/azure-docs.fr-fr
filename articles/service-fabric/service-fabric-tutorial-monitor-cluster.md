@@ -6,12 +6,12 @@ ms.topic: tutorial
 ms.date: 07/22/2019
 ms.author: srrengar
 ms.custom: mvc
-ms.openlocfilehash: 338ebc584cc718fd9d3b587d17ec0895483dfb0c
-ms.sourcegitcommit: 964af22b530263bb17fff94fd859321d37745d13
+ms.openlocfilehash: 048161ec13edbd0cf474fb6598fdd9ff981077ae
+ms.sourcegitcommit: 32592ba24c93aa9249f9bd1193ff157235f66d7e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/09/2020
-ms.locfileid: "84560434"
+ms.lasthandoff: 07/01/2020
+ms.locfileid: "85611677"
 ---
 # <a name="tutorial-monitor-a-service-fabric-cluster-in-azure"></a>Tutoriel : Superviser un cluster Service Fabric dans Azure
 
@@ -191,7 +191,7 @@ ServiceFabricReliableServiceEvent
 | sort by TimeGenerated desc
 ```
 
-Vous pouvez voir différents événements qui surviennent lorsque le service runasync est démarré et terminé, ce qui est généralement le cas lors de déploiements et de mises à niveau.
+Vous pouvez voir différents événements qui surviennent lorsque le service `runasync` est démarré et terminé, ce qui est généralement le cas lors de déploiements et de mises à niveau.
 
 ![Modèle Reliable Services de la solution Service Fabric](media/service-fabric-tutorial-monitor-cluster/oms-reliable-services-events-selection.png)
 
@@ -487,5 +487,5 @@ Maintenant, passez au tutoriel suivant pour savoir comment mettre à l’échell
 > [!div class="nextstepaction"]
 > [Mise à l'échelle d'un cluster](service-fabric-tutorial-scale-cluster.md)
 
-[durability]: service-fabric-cluster-capacity.md#the-durability-characteristics-of-the-cluster
+[durability]: service-fabric-cluster-capacity.md#durability-characteristics-of-the-cluster
 [template]: https://github.com/Azure-Samples/service-fabric-cluster-templates/blob/master/7-VM-Windows-3-NodeTypes-Secure-NSG/AzureDeploy.json

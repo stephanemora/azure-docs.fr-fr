@@ -12,12 +12,12 @@ manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
 ms.custom: has-adal-ref
-ms.openlocfilehash: 09468272397925d9afd1d3014f4fcc1d6a222198
-ms.sourcegitcommit: 50ef5c2798da04cf746181fbfa3253fca366feaa
+ms.openlocfilehash: 6a292201796ccb08f684d2c44a3cee71442edbfe
+ms.sourcegitcommit: cec9676ec235ff798d2a5cad6ee45f98a421837b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/30/2020
-ms.locfileid: "82611379"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85848669"
 ---
 # <a name="resolve-error-messages-from-the-nps-extension-for-azure-multi-factor-authentication"></a>Résoudre les messages d’erreur liés à l’extension NPS pour Azure Multi-Factor Authentication
 
@@ -27,7 +27,7 @@ Si vous rencontrez des erreurs au niveau de l’extension NPS pour Azure Multi-F
 
 | Code d'erreur | Étapes de dépannage |
 | ---------- | --------------------- |
-| **CONTACT_SUPPORT** | [Contactez le support technique](#contact-microsoft-support) et mentionnez la liste des étapes de collecte des journaux d’activité. Fournissez autant d’informations que possible sur ce qui s’est produit avant l’erreur, y compris l’ID de locataire et le nom d’utilisateur principal. |
+| **CONTACT_SUPPORT** | [Contactez le support technique](#contact-microsoft-support) et mentionnez la liste des étapes de collecte des journaux d’activité. Fournissez autant d’informations que possible sur ce qui s’est produit avant l’erreur, y compris l’ID de locataire et le nom d’utilisateur principal (UPN). |
 | **CLIENT_CERT_INSTALL_ERROR** | Il peut y avoir un problème avec la façon dont le certificat client a été installé ou associé à votre locataire. Suivez les instructions de [Résolution des problèmes liés à l’extension NPS pour MFA](howto-mfa-nps-extension.md#troubleshooting) pour explorer les problèmes de certificat client. |
 | **ESTS_TOKEN_ERROR** | Suivez les instructions de [Résolution des problèmes liés à l’extension NPS pour MFA](howto-mfa-nps-extension.md#troubleshooting) pour explorer les problèmes de certificat client et de jeton ADAL. |
 | **HTTPS_COMMUNICATION_ERROR** | Le serveur NPS ne reçoit pas les réponses d’Azure MFA. Vérifiez que vos pare-feu sont ouverts en mode bidirectionnel et qu’ils autorisent le trafic vers et depuis https://adnotifications.windowsazure.com |
@@ -43,7 +43,7 @@ Si vous rencontrez des erreurs au niveau de l’extension NPS pour Azure Multi-F
 | Code d'erreur | Message d’erreur | Étapes de dépannage |
 | ---------- | ------------- | --------------------- |
 | **ALTERNATE_LOGIN_ID_ERROR** | Erreur : échec de la recherche userObjectSid | Vérifiez que l’utilisateur existe dans votre instance Active Directory locale. Si vous utilisez des approbations inter-forêts, [contactez le support technique](#contact-microsoft-support) pour plus d’informations. |
-| **ALTERNATE_LOGIN_ID_ERROR** | Erreur : échec de la recherche d’un ID de connexion de substitution | Vérifiez que LDAP_ALTERNATE_LOGINID_ATTRIBUTE est défini sur un [attribut Active Directory valide](https://msdn.microsoft.com/library/ms675090(v=vs.85).aspx). <br><br> Si LDAP_FORCE_GLOBAL_CATALOG est défini sur True, ou si LDAP_LOOKUP_FORESTS est configuré avec une valeur non vide, vérifiez que vous avez configuré un catalogue global et que l’attribut AlternateLoginId y est ajouté. <br><br> Si LDAP_LOOKUP_FORESTS est configuré avec une valeur non vide, vérifiez que la valeur est correcte. S’il existe plusieurs noms de forêt, ces noms doivent être séparés par des points-virgules, et non des espaces. <br><br> Si ces étapes ne résolvent pas le problème, [contactez le support technique](#contact-microsoft-support) pour plus d’informations. |
+| **ALTERNATE_LOGIN_ID_ERROR** | Erreur : Échec de la recherche d’un ID de connexion de substitution | Vérifiez que LDAP_ALTERNATE_LOGINID_ATTRIBUTE est défini sur un [attribut Active Directory valide](https://msdn.microsoft.com/library/ms675090(v=vs.85).aspx). <br><br> Si LDAP_FORCE_GLOBAL_CATALOG est défini sur True, ou si LDAP_LOOKUP_FORESTS est configuré avec une valeur non vide, vérifiez que vous avez configuré un catalogue global et que l’attribut AlternateLoginId y est ajouté. <br><br> Si LDAP_LOOKUP_FORESTS est configuré avec une valeur non vide, vérifiez que la valeur est correcte. S’il existe plusieurs noms de forêt, ces noms doivent être séparés par des points-virgules, et non des espaces. <br><br> Si ces étapes ne résolvent pas le problème, [contactez le support technique](#contact-microsoft-support) pour plus d’informations. |
 | **ALTERNATE_LOGIN_ID_ERROR** | Erreur : La valeur relative à l’ID de connexion de substitution est vide | Vérifiez que l’attribut AlternateLoginId est configuré pour l’utilisateur. |
 
 ## <a name="errors-your-users-may-encounter"></a>Erreurs que vos utilisateurs pourraient rencontrer
@@ -60,7 +60,7 @@ Si vous rencontrez des erreurs au niveau de l’extension NPS pour Azure Multi-F
 | **OathCodePinIncorrect** | Code et PIN saisis erronés. | Cette erreur ne devrait pas survenir avec l’extension NPS. Si l’utilisateur la rencontre, [contactez le support technique](#contact-microsoft-support) pour obtenir de l’aide. |
 | **ProofDataNotFound** | Les données de vérification ne sont pas configurées pour la méthode d’authentification sélectionnée. | Invitez l’utilisateur à essayer une nouvelle méthode de vérification ou à en ajouter d’autres en suivant les instructions de la page [Gérer les paramètres de la vérification en deux étapes](../user-help/multi-factor-authentication-end-user-manage-settings.md). Si l’erreur persiste après que vous avez confirmé la bonne configuration de sa méthode de vérification, [contactez le support technique](#contact-microsoft-support). |
 | **SMSAuthFailedWrongCodePinEntered** | Code et PIN saisis erronés. (OneWaySMS) | Cette erreur ne devrait pas survenir avec l’extension NPS. Si l’utilisateur la rencontre, [contactez le support technique](#contact-microsoft-support) pour obtenir de l’aide. |
-| **TenantIsBlocked** | Locataire bloqué | [Contactez le support technique](#contact-microsoft-support) et indiquez l’ID de répertoire figurant dans la page de propriétés Azure AD du portail Azure. |
+| **TenantIsBlocked** | Locataire bloqué | [Contactez le support technique](#contact-microsoft-support) et indiquez l’*ID locataire* figurant dans la page de propriétés Azure AD du Portail Azure. |
 | **UserNotFound** | L’utilisateur spécifié est introuvable | Le locataire n’apparaît plus comme étant actif dans Azure AD. Vérifiez que votre abonnement est actif et que vous disposez des applications internes requises. Assurez-vous également que le locataire spécifié dans l’objet du certificat est le locataire attendu et que le certificat est toujours valide et enregistré sous le principal de service. |
 
 ## <a name="messages-your-users-may-encounter-that-arent-errors"></a>Messages qui ne sont pas des erreurs que vos utilisateurs peuvent rencontrer

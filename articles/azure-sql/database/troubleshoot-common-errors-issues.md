@@ -1,25 +1,26 @@
 ---
 title: Résolution des problèmes de connexion courants à Azure SQL Database
-description: Fournit la procédure pour détecter des problèmes de connexion Azure SQL Database et résoudre d’autres problèmes Azure SQL Database ou SQL Managed Instance spécifiques
+description: Fournit la procédure pour détecter des problèmes de connexion Azure SQL Database et résoudre d’autres problèmes Azure SQL Database ou Azure SQL Managed Instance spécifiques
 services: sql-database
-ms.service: sql-database
+ms.service: sql-db-mi
+ms.subservice: development
 ms.topic: troubleshooting
 ms.custom: seo-lt-2019, OKR 11/2019, sqldbrb=1
 author: ramakoni1
 ms.author: ramakoni
 ms.reviewer: carlrab,vanto
 ms.date: 01/14/2020
-ms.openlocfilehash: 0420138ac7366916e8b83cf40abcab1a376017bd
-ms.sourcegitcommit: 6a9f01bbef4b442d474747773b2ae6ce7c428c1f
+ms.openlocfilehash: e1a018b06b7ee7230612d2ee6a582214a817547b
+ms.sourcegitcommit: 93462ccb4dd178ec81115f50455fbad2fa1d79ce
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "84116807"
+ms.lasthandoff: 07/06/2020
+ms.locfileid: "85985222"
 ---
-# <a name="troubleshooting-connectivity-issues-and-other-errors-with-sql-database-and-sql-managed-instance"></a>Résolution des problèmes de connectivité et autres erreurs avec SQL Database et SQL Managed Instance
+# <a name="troubleshooting-connectivity-issues-and-other-errors-with-azure-sql-database-and-azure-sql-managed-instance"></a>Résolution des problèmes de connectivité et autres erreurs avec Azure SQL Database et Azure SQL Managed Instance
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
 
-En cas d’échec de la connexion à Azure SQL Database ou SQL Managed Instance, vous recevez des messages d’erreur. Ces problèmes de connexion peuvent être dus à une reconfiguration, aux paramètres du pare-feu, au délai d’expiration de la connexion, à des informations de connexion incorrectes ou à l’impossibilité d’appliquer les meilleures pratiques et les lignes directrices de conception lors du processus de [conception de l’application](develop-overview.md). En outre, vous ne pourrez plus vous connecter si la limite de certaines de ses ressources Azure SQL Database ou SQL Managed Instance est atteinte.
+En cas d’échec de la connexion à Azure SQL Database ou Azure SQL Managed Instance, vous recevez des messages d’erreur. Ces problèmes de connexion peuvent être dus à une reconfiguration, aux paramètres du pare-feu, au délai d’expiration de la connexion, à des informations de connexion incorrectes ou à l’impossibilité d’appliquer les meilleures pratiques et les lignes directrices de conception lors du processus de [conception de l’application](develop-overview.md). En outre, vous ne pourrez plus vous connecter si la limite de certaines de ses ressources Azure SQL Database ou SQL Managed Instance est atteinte.
 
 ## <a name="transient-fault-error-messages-40197-40613-and-others"></a>Messages d’erreur pour les erreurs temporaires (40197, 40613 et autres)
 
@@ -30,7 +31,7 @@ L’infrastructure Azure a la capacité de reconfigurer dynamiquement les serveu
 | Code d'erreur | severity | Description |
 | ---:| ---:|:--- |
 | 4060 |16 |Impossible d'ouvrir de base de données "%.&#x2a;ls" demandée par la connexion. La connexion a échoué. Pour plus d’informations, consultez [Erreurs 4000 à 4999](https://docs.microsoft.com/sql/relational-databases/errors-events/database-engine-events-and-errors#errors-4000-to-4999)|
-| 40197 |17 |Le service a rencontré une erreur lors du traitement de votre demande. Réessayez. Code d'erreur % d.<br/><br/>Vous recevez cette erreur lorsque le service est arrêté en raison de mises à niveau logicielles ou matérielles, de pannes de matériel ou tout autre problème de basculement. Le code d’erreur (%d) incorporé au message d’erreur 40197] fournit des informations supplémentaires sur le type de défaillance ou de basculement survenu. 40020, 40143, 40166 et 40540 sont des exemples de codes d'erreur incorporés au message d'erreur 40197.<br/><br/>La reconnexion vous reconnecte automatiquement à une copie saine de votre base de données. Votre application doit détecter l'erreur 40197, consigner le code d'erreur incorporé (%d) dans le message pour la résolution des problèmes, et essayer de se reconnecter à la base de données SQL jusqu'à ce que les ressources soient disponibles et que votre connexion soit rétablie. Pour plus d’informations, consultez [Erreurs temporaires](troubleshoot-common-connectivity-issues.md#transient-errors-transient-faults).|
+| 40197 |17 |Le service a rencontré une erreur lors du traitement de votre demande. Réessayez. Code d'erreur % d.<br/><br/>Vous recevez cette erreur lorsque le service est arrêté en raison de mises à niveau logicielles ou matérielles, de pannes de matériel ou tout autre problème de basculement. Le code d'erreur (%d) incorporé au message d'erreur 40197 fournit des informations supplémentaires sur le type de défaillance ou de basculement survenu. 40020, 40143, 40166 et 40540 sont des exemples de codes d'erreur incorporés au message d'erreur 40197.<br/><br/>La reconnexion vous reconnecte automatiquement à une copie saine de votre base de données. Votre application doit détecter l'erreur 40197, consigner le code d'erreur incorporé (%d) dans le message pour la résolution des problèmes, et essayer de se reconnecter à la base de données SQL jusqu'à ce que les ressources soient disponibles et que votre connexion soit rétablie. Pour plus d’informations, consultez [Erreurs temporaires](troubleshoot-common-connectivity-issues.md#transient-errors-transient-faults).|
 | 40501 |20 |Le service est actuellement occupé. Relancez la demande dans 10 secondes. ID de l'incident : %ls. Code : %d. Pour plus d'informations, consultez les pages suivantes : <br/>&bull;&nbsp;[Limites de ressources du serveur SQL logique](resource-limits-logical-server.md)<br/>&bull; &nbsp;[Limites de DTU pour les bases de données uniques](service-tiers-dtu.md)<br/>&bull; &nbsp;[Limites de DTU pour les pools élastiques](resource-limits-dtu-elastic-pools.md)<br/>&bull; &nbsp;[Limites de vCores pour les bases de données uniques](resource-limits-vcore-single-databases.md)<br/>&bull; &nbsp;[Limites de vCores pour les pools élastiques](resource-limits-vcore-elastic-pools.md)<br/>&bull;&nbsp;[Limites des ressources d’Azure SQL Managed Instance](../managed-instance/resource-limits.md).|
 | 40613 |17 |La base de données ’%.&#x2a;ls’ sur le serveur ’%.&#x2a;ls’ n’est pas disponible actuellement. Veuillez réessayer la connexion ultérieurement. Si le problème persiste, contactez le support technique en indiquant l'ID de suivi de session ’%.&#x2a;ls’’.<br/><br/> Cette erreur peut se produire s’il existe déjà une connexion d’administrateur dédiée à la base de données. Pour plus d’informations, consultez [Erreurs temporaires](troubleshoot-common-connectivity-issues.md#transient-errors-transient-faults).|
 | 49918 |16 |Impossible de traiter la requête. Ressources insuffisantes pour traiter la demande.<br/><br/>Le service est actuellement occupé. Relancez la requête ultérieurement. Pour plus d'informations, consultez les pages suivantes : <br/>&bull;&nbsp;[Limites de ressources du serveur SQL logique](resource-limits-logical-server.md)<br/>&bull; &nbsp;[Limites de DTU pour les bases de données uniques](service-tiers-dtu.md)<br/>&bull; &nbsp;[Limites de DTU pour les pools élastiques](resource-limits-dtu-elastic-pools.md)<br/>&bull; &nbsp;[Limites de vCores pour les bases de données uniques](resource-limits-vcore-single-databases.md)<br/>&bull; &nbsp;[Limites de vCores pour les pools élastiques](resource-limits-vcore-elastic-pools.md)<br/>&bull;&nbsp;[Limites des ressources d’Azure SQL Managed Instance](../managed-instance/resource-limits.md). |
@@ -390,4 +391,4 @@ Pour plus d’informations sur la façon d’activer la journalisation, consulte
 ## <a name="next-steps"></a>Étapes suivantes
 
 - [Architecture de connectivité Azure SQL Database](https://docs.microsoft.com/azure/sql-database/sql-database-connectivity-architecture)
-- [Contrôles d’accès réseau Azure SQL Database et Data Warehouse](https://docs.microsoft.com/azure/sql-database/sql-database-networkaccess-overview)
+- [Contrôles d’accès réseau Azure SQL Database et Azure Synapse Analytics](https://docs.microsoft.com/azure/sql-database/sql-database-networkaccess-overview)

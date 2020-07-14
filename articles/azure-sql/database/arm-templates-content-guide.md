@@ -1,9 +1,8 @@
 ---
-title: Modèles Microsoft Azure Resource Manager
-titleSuffix: Azure SQL Database & SQL Managed Instance
+title: Modèles Azure Resource Manager - Azure SQL Database et Azure SQL Managed Instance
 description: Utilisez des modèles Azure Resource Manager pour créer et configurer Azure SQL Database et Azure SQL Managed Instance.
 services: sql-database
-ms.service: sql-database
+ms.service: sql-db-mi
 ms.subservice: service
 ms.custom: overview-samples sqldbrb=2
 ms.devlang: ''
@@ -12,12 +11,12 @@ author: jovanpop-msft
 ms.author: jovanpop
 ms.reviewer: sstein
 ms.date: 02/04/2019
-ms.openlocfilehash: 76b9b1301a0aeee24b698b15a3871754de8ca0b9
-ms.sourcegitcommit: a8928136b49362448e992a297db1072ee322b7fd
+ms.openlocfilehash: ee2c6580285246d3b170602e507aed038b2507f4
+ms.sourcegitcommit: 93462ccb4dd178ec81115f50455fbad2fa1d79ce
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/11/2020
-ms.locfileid: "84718799"
+ms.lasthandoff: 07/06/2020
+ms.locfileid: "85983636"
 ---
 # <a name="azure-resource-manager-templates-for-azure-sql-database--sql-managed-instance"></a>Modèles Azure Resource Manager pour Azure SQL Database et Azure SQL Managed Instance
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
@@ -28,7 +27,7 @@ Les modèles Azure Resource Manager vous permettent de définir votre infrastruc
 
 Le tableau suivant inclut des liens vers des modèles Azure Resource Manager pour Azure SQL Database.
 
-| |  |
+|Lien |Description|
 |---|---|
 | [Base de données SQL](https://github.com/Azure/azure-quickstart-templates/tree/master/201-sql-database-transparent-encryption-create) | Ce modèle Azure Resource Manager crée une base de données unique dans Azure SQL Database et configure des règles de pare-feu IP au niveau du serveur. |
 | [Serveur](https://github.com/Azure/azure-quickstart-templates/tree/master/101-sql-logical-server) | Ce modèle Azure Resource Manager crée un serveur pour Azure SQL Database. |
@@ -47,7 +46,7 @@ Le tableau suivant inclut des liens vers des modèles Azure Resource Manager pou
 
 Le tableau suivant inclut des liens vers des modèles Azure Resource Manager pour Azure SQL Managed Instance.
 
-| |  |
+|Lien|Description|
 |---|---|
 | [SQL Managed Instance dans un nouveau réseau virtuel](https://github.com/Azure/azure-quickstart-templates/tree/master/101-sqlmi-new-vnet) | Ce modèle Azure Resource Manager crée un réseau virtuel Azure configuré et une instance managée sur ce réseau virtuel. |
 | [Environnement réseau pour instance managée SQL](https://github.com/Azure/azure-quickstart-templates/tree/master/101-sql-managed-instance-azure-environment) | Ce déploiement crée un réseau virtuel Azure configuré avec deux sous-réseaux : un dédié à vos instances managées et un autre sur lequel vous pouvez placer d’autres ressources (par exemple des machines virtuelles, des environnements App Service, et ainsi de suite). Ce modèle crée un environnement réseau correctement configuré, où vous pouvez déployer des instances managées. |

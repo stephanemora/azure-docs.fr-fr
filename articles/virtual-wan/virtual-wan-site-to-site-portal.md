@@ -5,15 +5,15 @@ services: virtual-wan
 author: cherylmc
 ms.service: virtual-wan
 ms.topic: tutorial
-ms.date: 11/04/2019
+ms.date: 06/29/2020
 ms.author: cherylmc
 Customer intent: As someone with a networking background, I want to connect my local site to my VNets using Virtual WAN and I don't want to go through a Virtual WAN partner.
-ms.openlocfilehash: b4278cb2e8c5152f522258a37c37acda5efbacf8
-ms.sourcegitcommit: 537c539344ee44b07862f317d453267f2b7b2ca6
+ms.openlocfilehash: 13949bef7b26058c577a3ab85b4fb2e736bba8f5
+ms.sourcegitcommit: 73ac360f37053a3321e8be23236b32d4f8fb30cf
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/11/2020
-ms.locfileid: "84687920"
+ms.lasthandoff: 06/30/2020
+ms.locfileid: "85563007"
 ---
 # <a name="tutorial-create-a-site-to-site-connection-using-azure-virtual-wan"></a>Tutoriel : Créer une connexion de site à site à l’aide d’Azure Virtual WAN
 
@@ -29,7 +29,7 @@ Ce didacticiel vous montre comment effectuer les opérations suivantes :
 > * Connecter un site VPN à un hub
 > * Connecter un réseau virtuel à un hub
 > * Télécharger un fichier de configuration
-> * Afficher votre WAN virtuel
+> * Configurer votre passerelle VPN
 
 > [!NOTE]
 > Si vous avez de nombreux sites, vous utiliseriez généralement un [partenaire WAN virtuel](https://aka.ms/virtualwan) pour créer cette configuration. Toutefois, vous pouvez créer cette configuration vous-même si vous êtes familiarisé avec la mise en réseau et expert dans la configuration de votre propre périphérique VPN.
@@ -75,7 +75,7 @@ Un hub est un réseau virtuel qui peut contenir des passerelles pour offrir des 
 
 ## <a name="create-a-site"></a><a name="site"></a>Créer un site
 
-Vous êtes maintenant prêt à créer les sites correspondant à vos emplacements physiques. Créez autant de sites que nécessaire correspondant à vos emplacements physiques. Par exemple, si vous avez une succursale à New York, une autre à Londres et une autre à LA, vous créeriez trois sites distincts. Ces sites contiennent vos points de terminaison du périphérique VPN local. Vous pouvez créer jusqu’à 1 000 sites par hub virtuel dans Virtual WAN. Si vous aviez plusieurs hubs, vous pouvez créer 1 000 sites pour chacun de ces hubs. Si vous avez un appareil CPE de partenaire Virtual WAN (lien d’insertion), contactez ce dernier pour en savoir plus sur son automatisation sur Azure. En général, l’automatisation permet d’exporter en un seul clic des informations de branche à grande échelle dans Azure et de configurer la connectivité entre l’appareil CPE et la passerelle VPN Azure Virtual WAN. Pour plus d’informations, consultez [Guide d’automatisation Azure à l’intention des partenaires CPE](virtual-wan-configure-automation-providers.md).
+Vous êtes maintenant prêt à créer les sites correspondant à vos emplacements physiques. Créez autant de sites que nécessaire correspondant à vos emplacements physiques. Par exemple, si vous avez une succursale à New York, une autre à Londres et une autre à LA, vous créeriez trois sites distincts. Ces sites contiennent vos points de terminaison du périphérique VPN local. Vous pouvez créer jusqu’à 1 000 sites par hub virtuel dans Virtual WAN. Si vous aviez plusieurs hubs, vous pouvez créer 1 000 sites pour chacun de ces hubs. Si vous avez un appareil CPE de partenaire Virtual WAN (lien d’insertion), contactez ce dernier pour en savoir plus sur son automatisation sur Azure. En général, l’automatisation permet d’exporter en un seul clic des informations de branche à grande échelle dans Azure, et de configurer la connectivité entre l’appareil CPE et la passerelle VPN Azure Virtual WAN. Pour plus d’informations, consultez [Guide d’automatisation Azure à l’intention des partenaires CPE](virtual-wan-configure-automation-providers.md).
 
 [!INCLUDE [Create a site](../../includes/virtual-wan-tutorial-s2s-site-include.md)]
 
@@ -251,11 +251,20 @@ Si vous avez besoin d’instructions pour configurer votre périphérique, vous 
 * Un nouvel élément Virtual WAN peut prendre en charge IKEv1 et IKEv2.
 * Virtual WAN peut utiliser des appareils VPN basés sur une stratégie et sur une route, et des instructions d’appareil.
 
-## <a name="view-your-virtual-wan"></a><a name="viewwan"></a>Afficher votre WAN virtuel
+## <a name="configure-your-vpn-gateway"></a><a name="gateway-config"></a>Configurer votre passerelle VPN
 
-1. Accédez au WAN virtuel.
-2. Sur la page **Vue d’ensemble**, chaque point sur la carte représente un hub. Placez le curseur sur n’importe quel point pour afficher le résumé d’intégrité du hub, son état de connexion et son nombre d’octets entrants et sortants.
-3. Dans la section Hubs et connexions, vous pouvez afficher l’état du hub, les sites VPN, etc. Vous pouvez cliquer sur un nom de hub spécifique et accéder au site VPN pour obtenir des détails supplémentaires.
+Vous pouvez afficher et configurer les paramètres de votre passerelle VPN à tout moment en sélectionnant **Afficher/Configurer**.
+
+:::image type="content" source="media/virtual-wan-site-to-site-portal/view-configuration-1.png" alt-text="Afficher la configuration" lightbox="media/virtual-wan-site-to-site-portal/view-configuration-1-expand.png":::
+
+Sur la page **Modifier la passerelle VPN**, vous pouvez voir les paramètres suivants :
+
+* Adresse IP publique de la passerelle VPN (affectée par Azure)
+* Adresse IP privée de la passerelle VPN (affectée par Azure)
+* Adresse IP BGP par défaut de la passerelle VPN (affectée par Azure)
+* Option de configuration de l’adresse IP BGP personnalisée : Ce champ est réservé à APIPA (Automatic Private IP Addressing). Azure prend en charge l’adresse IP BGP dans les plages 169.254.21.* et 169.254.22.*
+
+   :::image type="content" source="media/virtual-wan-site-to-site-portal/view-configuration-2.png" alt-text="Afficher la configuration" lightbox="media/virtual-wan-site-to-site-portal/view-configuration-2-expand.png":::
 
 ## <a name="next-steps"></a>Étapes suivantes
 

@@ -2,7 +2,7 @@
 title: Activer le réglage automatique
 description: Vous pouvez facilement activer le réglage automatique sur votre base de données à l’aide du portail Azure.
 services: sql-database
-ms.service: sql-database
+ms.service: sql-db-mi
 ms.subservice: performance
 ms.custom: sqldbrb=1
 ms.devlang: ''
@@ -11,12 +11,12 @@ author: danimir
 ms.author: danil
 ms.reviewer: jrasnik, carlrab
 ms.date: 12/03/2019
-ms.openlocfilehash: 02a6bba2dd4162a1cd9f05249174c2174a85b931
-ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
+ms.openlocfilehash: 6ffc81f7fc5cf36ff4e9bada8f72cfef013afcbc
+ms.sourcegitcommit: 93462ccb4dd178ec81115f50455fbad2fa1d79ce
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "84029170"
+ms.lasthandoff: 07/06/2020
+ms.locfileid: "85982784"
 ---
 # <a name="enable-automatic-tuning-in-the-azure-portal-to-monitor-queries-and-improve-workload-performance"></a>Activer le réglage automatique dans le portail Azure pour superviser les requêtes et améliorer les performances de la charge de travail
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
@@ -25,7 +25,6 @@ ms.locfileid: "84029170"
 Azure SQL Database gère automatiquement les services de données qui supervisent vos requêtes en permanence et identifie l’action que vous pouvez effectuer pour améliorer les performances de votre charge de travail. Vous pouvez consulter les recommandations et les appliquer manuellement ou laisser Azure SQL Database appliquer automatiquement des actions correctives : il s’agit du **mode de réglage automatique**.
 
 Pour activer le réglage automatique au niveau du serveur ou de la base de données, vous pouvez l’une des méthodes suivantes :
-
 
 - [Portail Azure](automatic-tuning-enable.md#azure-portal)
 - Appels de l’[API REST](automatic-tuning-enable.md#rest-api)
@@ -42,7 +41,7 @@ Pour activer le réglage automatique au niveau du serveur ou de la base de donn�
 Au niveau du serveur, vous pouvez choisir d’hériter de la configuration du réglage automatique à partir de « Valeurs Azure par défaut » ou de ne pas hériter de la configuration. Les valeurs Azure par défaut sont FORCE_LAST_GOOD_PLAN activé, CREATE_INDEX désactivé et DROP_INDEX désactivé.
 
 > [!IMPORTANT]
-> Depuis mars 2020, les valeurs par défaut Azure pour le réglage automatique sont les suivantes :
+> Depuis mars 2020, les valeurs par défaut Azure pour le réglage automatique sont les suivantes :
 >
 > - FORCE_LAST_GOOD_PLAN activé, CREATE_INDEX désactivé et DROP_INDEX désactivé.
 > - Les serveurs existants sans préférences de réglage automatique configurées sont automatiquement configurés pour hériter (INHERIT) des paramètres Azure par défaut. Cela s’applique à tous les clients qui ont actuellement des paramètres de serveur pour un réglage automatique dans un état non défini.

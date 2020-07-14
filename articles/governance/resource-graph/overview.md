@@ -1,14 +1,14 @@
 ---
 title: Vue d’ensemble d’Azure Resource Graph
 description: Découvrez comment le service Azure Resource Graph permet d’exécuter des requêtes complexes sur des ressources à grande échelle entre des abonnements et des locataires.
-ms.date: 03/02/2020
+ms.date: 06/29/2020
 ms.topic: overview
-ms.openlocfilehash: a084215f6f2d1b5a8ed34ca59266e1c0087f608b
-ms.sourcegitcommit: 1692e86772217fcd36d34914e4fb4868d145687b
+ms.openlocfilehash: 9c15ff12f21c1d3d168828eae67de51069cdcada
+ms.sourcegitcommit: f684589322633f1a0fafb627a03498b148b0d521
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/29/2020
-ms.locfileid: "84167262"
+ms.lasthandoff: 07/06/2020
+ms.locfileid: "85970601"
 ---
 # <a name="what-is-azure-resource-graph"></a>Qu’est-ce qu’Azure Resource Graph ?
 
@@ -29,7 +29,7 @@ Azure Resource Graph est un service Azure conçu pour étendre Gestion des resso
 
 ## <a name="how-does-resource-graph-complement-azure-resource-manager"></a>Comment Resource Graph vient compléter Azure Resource Manager
 
-Azure Resource Manager prend actuellement en charge les requêtes effectuées sur des champs de ressource de base, à savoir le nom de la ressource, l’ID, le type, le groupe de ressources, l’abonnement et l’emplacement. Resource Manager fournit également des fonctionnalités permettant d’appeler des fournisseurs de ressources individuels afin d’obtenir des propriétés détaillées sur une ressource à la fois.
+Resource Manager prend actuellement en charge les requêtes effectuées sur des champs de ressource de base, à savoir le nom de la ressource, l’ID, le type, le groupe de ressources, l’abonnement et l’emplacement. Resource Manager fournit également des fonctionnalités permettant d’appeler des fournisseurs de ressources individuels afin d’obtenir des propriétés détaillées sur une ressource à la fois.
 
 Avec Azure Resource Graph, vous pouvez accéder aux propriétés retournées par les fournisseurs de ressources sans appeler chaque fournisseur. Pour obtenir la liste des types de ressources pris en charge, consultez les [informations de référence sur les types et tables de ressources](./reference/supported-tables-resources.md). Un autre moyen de voir les types de ressource pris en charge consiste à utiliser le [Navigateur de schémas de l’Explorateur Azure Resource Graph](./first-query-portal.md#schema-browser).
 
@@ -52,8 +52,7 @@ Maintenant que vous avez une meilleure idée de ce qu’est Azure Resource Graph
 
 Il est important de comprendre que le langage de requête d’Azure Resource Graph est basé sur le [langage de requête Kusto](/azure/data-explorer/data-explorer-overview) utilisé par Azure Data Explorer.
 
-Tout d’abord, pour obtenir des informations sur les opérations et fonctions qui peuvent être utilisées avec Azure Resource Graph, consultez le [langage de requête Resource Graph](./concepts/query-language.md).
-Pour parcourir des ressources, consultez [Explorer les ressources](./concepts/explore-resources.md).
+Tout d’abord, pour obtenir des informations sur les opérations et fonctions qui peuvent être utilisées avec Azure Resource Graph, consultez le [langage de requête Resource Graph](./concepts/query-language.md). Pour parcourir des ressources, consultez [Explorer les ressources](./concepts/explore-resources.md).
 
 ## <a name="permissions-in-azure-resource-graph"></a>Autorisations dans Azure Resource Graph
 
@@ -62,8 +61,7 @@ Pour utiliser Resource Graph, vous devez disposer des droits appropriés pour le
 > [!NOTE]
 > Resource Graph utilise les abonnements disponibles pour un principal lors de la connexion. Pour afficher les ressources d’un nouvel abonnement ajouté pendant une session active, le principal doit actualiser le contexte. Cette action se produit automatiquement quand vous vous déconnectez puis vous reconnectez.
 
-Azure CLI et Azure PowerShell utilisent des abonnements auxquels l’utilisateur a accès. Lors de l’utilisation directe de l’API REST, la liste des abonnements est fournie par l’utilisateur. Si l’utilisateur a accès à l’un des abonnements de la liste, les résultats de la requête sont retournés pour les abonnements auxquels l’utilisateur a accès. Ce comportement est le même que lors de l’appel de [Groupes de ressources - Liste](/rest/api/resources/resourcegroups/list) : vous obtenez les groupes de ressources auxquels vous avez accès sans indication que le résultat peut être partiel.
-S’il n’existe aucun abonnement dans la liste des abonnements pour lesquels l’utilisateur dispose des droits appropriés, la réponse est un _403_ (Interdit).
+Azure CLI et Azure PowerShell utilisent des abonnements auxquels l’utilisateur a accès. Lors de l’utilisation directe de l’API REST, la liste des abonnements est fournie par l’utilisateur. Si l’utilisateur a accès à l’un des abonnements de la liste, les résultats de la requête sont retournés pour les abonnements auxquels l’utilisateur a accès. Ce comportement est le même que lors de l’appel de [Groupes de ressources - Liste](/rest/api/resources/resourcegroups/list) : vous obtenez les groupes de ressources auxquels vous avez accès sans indication que le résultat peut être partiel. S’il n’existe aucun abonnement dans la liste des abonnements pour lesquels l’utilisateur dispose des droits appropriés, la réponse est un _403_ (Interdit).
 
 ## <a name="throttling"></a>Limitation
 

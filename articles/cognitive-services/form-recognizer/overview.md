@@ -9,12 +9,12 @@ ms.subservice: forms-recognizer
 ms.topic: overview
 ms.date: 04/14/2020
 ms.author: pafarley
-ms.openlocfilehash: 8885f66b3501217ead302486d2e5ef7de63f5f47
-ms.sourcegitcommit: 73ac360f37053a3321e8be23236b32d4f8fb30cf
+ms.openlocfilehash: 2193bd85265103957c5cafad10a243b266f7e5bc
+ms.sourcegitcommit: 0100d26b1cac3e55016724c30d59408ee052a9ab
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/30/2020
-ms.locfileid: "85563249"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86026880"
 ---
 # <a name="what-is-form-recognizer"></a>Qu’est-ce que Form Recognizer ?
 
@@ -57,18 +57,20 @@ Form Recognizer peut également extraire la structure du texte et des tableaux (
 
 Suivez un guide de démarrage rapide pour commencer à extraire des données de vos formulaires. Nous vous recommandons d’utiliser le service gratuit pendant que vous apprenez la technologie. N’oubliez pas que le nombre de pages gratuites est limité à 500 par mois.
 
-* Personnaliser : entraîner un modèle par rapport à vos formulaires
-  * Effectuer l’entraînement sans étiquettes
-    * [Démarrage rapide : Entraîner un modèle Form Recognizer et extraire des données à partir de formulaires au moyen d’une API REST avec cURL](quickstarts/curl-train-extract.md)
-    * [Démarrage rapide : Entraîner un modèle Form Recognizer et extraire des données à partir de formulaires au moyen d’une API REST avec Python](quickstarts/python-train-extract.md)
-  * Effectuer l’entraînement avec des étiquettes
-    * [Entraîner un modèle Form Recognizer avec des étiquettes à l’aide de l’outil d’étiquetage des exemples](quickstarts/label-tool.md)
-    * [Entraîner un modèle Form Recognizer avec des étiquettes à l’aide de l’API REST et de Python](quickstarts/python-labeled-data.md)
-* Reçus prédéfinis : extraire les données des reçus de ventes aux États-Unis
-  * [Démarrage rapide : Extraire des données de reçu à l’aide de cURL](quickstarts/curl-receipts.md)
-  * [Démarrage rapide : Extraire des données de reçu à l’aide de Python](quickstarts/python-receipts.md)
-* Disposition : extraire la structure du texte et des tableaux à partir de formulaires
-  * [Démarrage rapide : Extraire des données de disposition à l’aide de Python](quickstarts/python-layout.md)
+* [Démarrage rapide sur la bibliothèque cliente](./quickstarts/client-library.md) (tous les langages, plusieurs scénarios)
+* Démarrages rapides sur l’interface utilisateur web
+  * [Entraînement avec des étiquettes - Outil Exemple d’étiquetage](quickstarts/label-tool.md)
+* Démarrages rapides REST
+  * Entraîner des modèles personnalisés et extraire des données de formulaire
+    * [Effectuer l’entraînement sans étiquettes - cURL](quickstarts/curl-train-extract.md)
+    * [Effectuer l’entraînement sans étiquettes - Python](quickstarts/python-train-extract.md)
+    * [Effectuer l’entraînement avec des étiquettes - Python](quickstarts/python-labeled-data.md)
+  * Extraire les données des reçus de ventes aux États-Unis
+    * [Extraire des données de reçu - cURL](quickstarts/curl-receipts.md)
+    * [Extraire des données de reçu - Python](quickstarts/python-receipts.md)
+  * Extraire la structure du texte et des tableaux à partir de formulaires
+    * [Extraire des données de disposition - Python](quickstarts/python-layout.md)
+
 
 ### <a name="review-the-rest-apis"></a>Passer en revue les API REST
 
@@ -81,7 +83,7 @@ Vous allez utiliser les API suivantes pour entraîner des modèles et extraire d
 | **Analyser le reçu** |Analysez un document de reçu unique pour extraire les informations clés et les autres éléments textuels du reçu.|
 | **Analyser la disposition** |Analysez la disposition d’un formulaire pour extraire la structure du texte et des tableaux.|
 
-Explorez la [documentation de référence sur l’API REST](https://westus2.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-preview/operations/AnalyzeWithCustomForm) pour en savoir plus. Si vous êtes familiarisé avec une version précédente de l’API, consultez l’article [Nouveautés](./whats-new.md) pour en savoir plus sur les modifications récentes.
+Explorez la [documentation de référence sur l’API REST](https://westus2.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2/operations/AnalyzeWithCustomForm) pour en savoir plus. Si vous êtes familiarisé avec une version précédente de l’API, consultez l’article [Nouveautés](./whats-new.md) pour en savoir plus sur les modifications récentes.
 
 ## <a name="input-requirements"></a>Critères des entrées
 ### <a name="custom-model"></a>Modèle personnalisé
@@ -104,4 +106,4 @@ Comme c’est le cas pour tous les services Cognitive Services, les développeur
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Suivez un guide de [démarrage rapide](quickstarts/curl-train-extract.md) pour commencer à utiliser les [API Form Recognizer](https://westus2.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-preview/operations/AnalyzeWithCustomForm).
+Suivez un guide de [démarrage rapide](quickstarts/curl-train-extract.md) pour commencer à utiliser les [API Form Recognizer](https://westus2.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2/operations/AnalyzeWithCustomForm).

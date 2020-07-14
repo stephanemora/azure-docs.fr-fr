@@ -2,13 +2,13 @@
 title: Nœuds et pools dans Azure Batch
 description: En savoir plus sur les nœuds de calcul et les pools et leur utilisation dans un flux de travail Azure Batch du point de vue du développeur.
 ms.topic: conceptual
-ms.date: 05/12/2020
-ms.openlocfilehash: eadc5236926fed12ebee087f7354c492ae5fc745
-ms.sourcegitcommit: a9784a3fd208f19c8814fe22da9e70fcf1da9c93
+ms.date: 06/16/2020
+ms.openlocfilehash: f71be75c0358dbc7f76a61680df2c54f44bc4173
+ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/22/2020
-ms.locfileid: "83790916"
+ms.lasthandoff: 07/05/2020
+ms.locfileid: "85964040"
 ---
 # <a name="nodes-and-pools-in-azure-batch"></a>Nœuds et pools dans Azure Batch
 
@@ -27,6 +27,8 @@ Tous les nœuds de calcul Batch incluent également les éléments suivants :
 - Une [structure de dossiers](files-and-directories.md) standard et des [variables d’environnement](jobs-and-tasks.md) associées pouvant être référencées par les tâches.
 - **pare-feu** configurés pour le contrôle de l’accès.
 - [accès distant](error-handling.md#connect-to-compute-nodes) aux nœuds Windows (protocole RDP [Remote Desktop Protocol]) et Linux (Secure Shell [SSH]).
+
+Par défaut, les nœuds peuvent communiquer entre eux, mais ils ne peuvent pas communiquer avec les machines virtuelles qui ne font pas partie du même pool. Pour permettre aux nœuds de communiquer en toute sécurité avec d’autres machines virtuelles, ou avec un réseau local, vous pouvez provisionner le pool [dans un sous-réseau d’un réseau virtuel Azure (VNet)](batch-virtual-network.md). Dans ce cas, vos nœuds sont accessibles via des adresses IP publiques. Ces adresses IP publiques sont créées par Batch et peuvent changer au cours de la durée de vie du pool. Vous pouvez également [créer un pool avec des adresses IP publiques statiques](create-pool-public-ip.md) que vous contrôlez, ce qui garantit qu’elles ne changeront pas de manière inattendue.
 
 ## <a name="pools"></a>Pools
 
@@ -78,7 +80,7 @@ Comme avec les rôles de travail dans Cloud Services, vous pouvez spécifier une
 
 ### <a name="node-agent-skus"></a>Références SKU de l’agent de nœud
 
-Lorsque vous créez un pool, vous devez sélectionner la valeur **nodeAgentSkuId** appropriée, selon le système d’exploitation de l’image de base de votre VHD. Vous pouvez obtenir un mappage des ID de référence SKU d’agents de nœud disponibles sur leurs références d’image de système d’exploitation en appelant l’opération permettant de [lister les références SKU d’agent de nœud prises en charge](https://docs.microsoft.com/rest/api/batchservice/list-supported-node-agent-skus).
+Lorsque vous créez un pool, vous devez sélectionner la valeur **nodeAgentSkuId** appropriée, selon le système d’exploitation de l’image de base de votre VHD. Vous pouvez obtenir un mappage des ID de référence SKU d’agents de nœud disponibles sur leurs références d’image de système d’exploitation en appelant l’opération permettant de [lister les références SKU d’agent de nœud prises en charge](/rest/api/batchservice/list-supported-node-agent-skus).
 
 ### <a name="custom-images-for-virtual-machine-pools"></a>Images personnalisées pour les pools de machines virtuelles
 
@@ -127,7 +129,7 @@ Une formule de mise à l’échelle peut être basée sur les mesures suivantes�
 - **mesures de ressources** sont basées sur l’utilisation du processeur, de la bande passante et de la mémoire, et sur le nombre de nœuds.
 - Les **mesures de tâches** sont basées sur l’état de la tâche, tel que *Active* (en file d’attente), *En cours d’exécution* ou *Terminée*.
 
-Lorsque la mise à l’échelle automatique diminue le nombre de nœuds de calcul dans un pool, vous devez réfléchir aux méthodes pour gérer les tâches s’exécutant au moment de cette opération de réduction. Pour ce faire, Batch fournit une [*option de désallocation de nœud*](https://docs.microsoft.com/rest/api/batchservice/pool/removenodes#computenodedeallocationoption) que vous pouvez inclure dans vos formules. Par exemple, vous pouvez spécifier d’arrêter immédiatement les tâches en cours, puis les remettre en file d’attente pour une exécution sur un autre nœud, ou les autoriser à terminer avant la suppression du nœud du pool. Notez que la définition de l’option de désallocation de sur en `taskcompletion` ou `retaineddata` empêche les opérations de redimensionnement de pool jusqu’à ce que toutes les tâches soient terminées ou que toutes les périodes de rétention des tâches aient expiré, respectivement.
+Lorsque la mise à l’échelle automatique diminue le nombre de nœuds de calcul dans un pool, vous devez réfléchir aux méthodes pour gérer les tâches s’exécutant au moment de cette opération de réduction. Pour ce faire, Batch fournit une [*option de désallocation de nœud*](/rest/api/batchservice/pool/removenodes#computenodedeallocationoption) que vous pouvez inclure dans vos formules. Par exemple, vous pouvez spécifier d’arrêter immédiatement les tâches en cours, puis les remettre en file d’attente pour une exécution sur un autre nœud, ou les autoriser à terminer avant la suppression du nœud du pool. Notez que la définition de l’option de désallocation de sur en `taskcompletion` ou `retaineddata` empêche les opérations de redimensionnement de pool jusqu’à ce que toutes les tâches soient terminées ou que toutes les périodes de rétention des tâches aient expiré, respectivement.
 
 Pour plus d’informations sur la mise à l’échelle automatique d’une application, consultez la section [Mettre automatiquement à l’échelle les nœuds de calcul dans un pool Azure Batch](batch-automatic-scaling.md).
 
@@ -162,13 +164,16 @@ Pour plus d’informations sur l’utilisation de packages d’applications pour
 
 ## <a name="virtual-network-vnet-and-firewall-configuration"></a>Configuration du pare-feu et du réseau virtuel (VNet)
 
-Lorsque vous configurez un pool de nœuds de calcul dans Batch, vous pouvez associer le pool au sous-réseau d’un [réseau virtuel (VNet)](../virtual-network/virtual-networks-overview.md) Azure. Pour utiliser un réseau virtuel Azure, l’API du client Batch doit utiliser l’authentification Azure Active Directory (AD). La prise en charge d’Azure Batch pour Azure AD est documentée dans [Authentifier les solutions de service Batch avec Active Directory](batch-aad-auth.md).  
+Lorsque vous configurez un pool de nœuds de calcul dans Batch, vous pouvez associer le pool au sous-réseau d’un [réseau virtuel (VNet)](../virtual-network/virtual-networks-overview.md) Azure. Pour utiliser un réseau virtuel Azure, l’API du client Batch doit utiliser l’authentification Azure Active Directory (AD). La prise en charge d’Azure Batch pour Azure AD est documentée dans [Authentifier les solutions de service Batch avec Active Directory](batch-aad-auth.md).
 
 ### <a name="vnet-requirements"></a>Configuration requise du réseau virtuel
 
 [!INCLUDE [batch-virtual-network-ports](../../includes/batch-virtual-network-ports.md)]
 
 Pour plus d’informations sur la configuration d’un pool Batch dans un réseau virtuel, consultez [Créer un pool de machines virtuelles avec votre réseau virtuel](batch-virtual-network.md).
+
+> [!TIP]
+> Pour vous assurer que les adresses IP publiques utilisées pour accéder aux nœuds ne changent pas, vous pouvez [créer un pool avec des adresses IP publiques spécifiées que vous contrôlez](create-pool-public-ip.md).
 
 ## <a name="pool-and-compute-node-lifetime"></a>Durée de vie de nœud de pool et de calcul
 
@@ -184,7 +189,7 @@ Une approche combinée est généralement utilisée pour la gestion d’une char
 
 En principe, vous devez utiliser des certificats lorsque vous chiffrez ou déchiffrez des informations sensibles pour les tâches, comme la clé d’un [compte Stockage Azure](accounts.md#azure-storage-accounts). Pour ce faire, vous pouvez installer des certificats sur les nœuds. Les secrets chiffrés sont transmis aux tâches dans les paramètres de ligne de commande ou incorporés dans l’une des ressources et les certificats installés peuvent être utilisés pour les déchiffrer.
 
-Pour ajouter un certificat à un compte Batch, vous utilisez l’opération [Ajouter le certificat](https://docs.microsoft.com/rest/api/batchservice/certificate/add) (REST Batch) ou la méthode [CertificateOperations.CreateCertificate](https://docs.microsoft.com/dotnet/api/microsoft.azure.batch.certificateoperations) (.NET Batch). Vous pouvez ensuite associer le certificat à un pool existant ou nouveau.
+Pour ajouter un certificat à un compte Batch, vous utilisez l’opération [Ajouter le certificat](/rest/api/batchservice/certificate/add) (REST Batch) ou la méthode [CertificateOperations.CreateCertificate](/dotnet/api/microsoft.azure.batch.certificateoperations) (.NET Batch). Vous pouvez ensuite associer le certificat à un pool existant ou nouveau.
 
 Lorsqu’un certificat est associé à un pool, le service Batch installe le certificat sur chaque nœud du pool. Le service Batch installe les certificats appropriés au démarrage du nœud, avant de lancer une tâche quelconque (notamment les [tâches de démarrage](jobs-and-tasks.md#start-task) et celles du [gestionnaire de travaux](jobs-and-tasks.md#job-manager-task)).
 

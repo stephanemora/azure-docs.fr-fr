@@ -10,12 +10,12 @@ ms.author: iainfou
 author: iainfoulds
 ms.reviewer: rhicock
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c84aa99608a4fc2ac1842c617cca54e2afc3cdbe
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 5842d21f9fb35cd8fddc5521d630d597aedcc2ba
+ms.sourcegitcommit: 93462ccb4dd178ec81115f50455fbad2fa1d79ce
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82201990"
+ms.lasthandoff: 07/06/2020
+ms.locfileid: "85983147"
 ---
 # <a name="tutorial-enable-users-to-unlock-their-account-or-reset-passwords-using-azure-active-directory-self-service-password-reset"></a>Tutoriel : Permettre aux utilisateurs de déverrouiller leur compte ou de réinitialiser des mots de passe à l’aide de la réinitialisation de mot de passe en libre-service Azure Active Directory
 
@@ -47,7 +47,11 @@ Pour effectuer ce tutoriel, vous avez besoin des ressources et des privilèges s
 
 ## <a name="enable-self-service-password-reset"></a>Activer la réinitialisation du mot de passe libre-service
 
-Azure AD vous permet d’activer l’option SSPR pour *Aucun* utilisateur, pour les utilisateurs *sélectionnés* ou pour *Tous* les utilisateurs. Cette capacité à indiquer la précision vous permet de choisir un sous-ensemble d’utilisateurs pour tester le processus d’inscription et le workflow SSPR. Quand que vous vous êtes familiarisé avec le processus et que vous pouvez communiquer les exigences avec un ensemble d’utilisateurs plus large, vous pouvez sélectionner des groupes d’utilisateurs supplémentaires à activer pour SSPR. Vous pouvez également activer SSPR pour tous les membres du locataire Azure AD.
+Azure AD vous permet d’activer l’option SSPR pour *Aucun* utilisateur, pour les utilisateurs *sélectionnés* ou pour *Tous* les utilisateurs. Cette capacité à indiquer la précision vous permet de choisir un sous-ensemble d’utilisateurs pour tester le processus d’inscription et le workflow SSPR. Une fois que vous êtes familiarisé avec le processus et que vous pouvez communiquer les exigences avec un ensemble plus large d’utilisateurs, vous pouvez sélectionner un groupe d’utilisateurs à activer pour SSPR. Vous pouvez également activer SSPR pour tous les membres du locataire Azure AD.
+
+> [!NOTE]
+>
+> Un seul groupe Azure AD peut actuellement être activé pour SSPR à l’aide du portail Azure. Dans le cadre d’un déploiement plus étendu de SSPR, les groupes imbriqués sont pris en charge. Vérifiez que les licences appropriées sont attribuées aux utilisateurs des groupes que vous choisissez. Il n’existe actuellement aucun processus de validation pour ces exigences de licences.
 
 Dans ce tutoriel, vous allez configurer SSPR pour un ensemble d’utilisateurs dans un groupe de test. Dans l’exemple suivant, le groupe *SSPR-Test-Group* est utilisé. Spécifiez votre propre groupe Azure AD en fonction des besoins :
 
@@ -57,8 +61,6 @@ Dans ce tutoriel, vous allez configurer SSPR pour un ensemble d’utilisateurs d
 1. Recherchez et sélectionnez votre groupe Azure AD, par exemple *SSPR-Test-Group*, puis choisissez *Sélectionner*.
 
     [![](media/tutorial-enable-sspr/enable-sspr-for-group-cropped.png "Select a group in the Azure portal to enable for self-service password reset")](media/tutorial-enable-sspr/enable-sspr-for-group.png#lightbox)
-
-    Dans le cadre d’un déploiement plus étendu de SSPR, les groupes imbriqués sont pris en charge. Vérifiez que les licences appropriées sont attribuées aux utilisateurs des groupes que vous choisissez. Il n’existe actuellement aucun processus de validation pour ces exigences de licences.
 
 1. Pour activer SSPR pour les utilisateurs sélectionnés, sélectionnez **Enregistrer**.
 
@@ -77,6 +79,7 @@ Quand les utilisateurs doivent déverrouiller leur compte ou réinitialiser leur
     * *E-mail*
     * *Téléphone mobile*
     * *Téléphone de bureau*
+    * *Question de sécurité*
 
 1. Pour appliquer les méthodes d’authentification, sélectionnez **Enregistrer**.
 

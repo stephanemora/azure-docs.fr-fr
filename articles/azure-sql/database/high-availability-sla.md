@@ -3,7 +3,7 @@ title: Haute disponibilité
 titleSuffix: Azure SQL Database and SQL Managed Instance
 description: En savoir plus sur les fonctionnalités de haute disponibilité des services Azure SQL Database et SQL Managed Instance
 services: sql-database
-ms.service: sql-database
+ms.service: sql-db-mi
 ms.subservice: high-availability
 ms.custom: sqldbrb=2
 ms.devlang: ''
@@ -12,12 +12,12 @@ author: sashan
 ms.author: sashan
 ms.reviewer: carlrab, sashan
 ms.date: 04/02/2020
-ms.openlocfilehash: 527fe8fa2ad8916f9e5209e4823457d81e745034
-ms.sourcegitcommit: 12f23307f8fedc02cd6f736121a2a9cea72e9454
+ms.openlocfilehash: 01906935de76b2b262f2058563a3eee0e297e8a4
+ms.sourcegitcommit: 93462ccb4dd178ec81115f50455fbad2fa1d79ce
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/30/2020
-ms.locfileid: "84219368"
+ms.lasthandoff: 07/06/2020
+ms.locfileid: "85985325"
 ---
 # <a name="high-availability-for-azure-sql-database-and-sql-managed-instance"></a>Haute disponibilité des services Azure SQL Database et SQL Managed Instance
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
@@ -75,12 +75,14 @@ Pour plus d’informations sur la haute disponibilité dans Hyperscale, consulte
 
 ## <a name="zone-redundant-configuration"></a>Configuration de zone redondante
 
-Par défaut, le cluster de nœuds pour le modèle de disponibilité Premium est créé dans le même centre de données. Avec l'introduction des [Zones de disponibilité Azure](../../availability-zones/az-overview.md), SQL Database et SQL Managed Instance peuvent placer différents réplicas de la base de données critique pour l'entreprise dans des zones de disponibilité distinctes au sein de la même région. Pour éliminer un point de défaillance unique, l’anneau de contrôle est également dupliqué sur plusieurs fuseaux horaires sous forme de trois anneaux de passerelle (GW). Le routage vers un anneau de passerelle spécifique est contrôlé par [Azure Traffic Manager](../../traffic-manager/traffic-manager-overview.md) (ATM). Étant donné que la configuration redondante interzone dans les niveaux de service Premium ou Critique pour l’entreprise ne crée pas de redondance de base de données supplémentaire, vous pouvez l’activer sans frais supplémentaires. En sélectionnant une configuration redondante dans une zone, vous rendez vos bases de données Premium ou Critique pour l’entreprise résistantes à un plus grand éventail d’échecs, notamment les pannes graves de centre de données, sans aucune modification à la logique d’application. Vous pouvez également convertir vos bases de données ou pools Premium ou Critique pour l’entreprise en configuration avec redondance dans une zone.
+Par défaut, le cluster de nœuds pour le modèle de disponibilité Premium est créé dans le même centre de données. Avec l’introduction des [Zones de disponibilité Azure](../../availability-zones/az-overview.md), SQL Database peut placer différents réplicas de la base de données Critique pour l’entreprise dans des zones de disponibilité distinctes au sein de la même région. Pour éliminer un point de défaillance unique, l’anneau de contrôle est également dupliqué sur plusieurs fuseaux horaires sous forme de trois anneaux de passerelle (GW). Le routage vers un anneau de passerelle spécifique est contrôlé par [Azure Traffic Manager](../../traffic-manager/traffic-manager-overview.md) (ATM). Étant donné que la configuration redondante interzone dans les niveaux de service Premium ou Critique pour l’entreprise ne crée pas de redondance de base de données supplémentaire, vous pouvez l’activer sans frais supplémentaires. En sélectionnant une configuration redondante dans une zone, vous rendez vos bases de données Premium ou Critique pour l’entreprise résistantes à un plus grand éventail d’échecs, notamment les pannes graves de centre de données, sans aucune modification à la logique d’application. Vous pouvez également convertir vos bases de données ou pools Premium ou Critique pour l’entreprise en configuration avec redondance dans une zone.
 
 Les bases de données de redondance de zone, ayant des réplicas dans différents centres de données avec une certaine distance entre eux, la latence accrue du réseau peut augmenter le temps de validation et ainsi avoir un impact sur les performances de certaines charges de travail OLTP. Vous pouvez toujours revenir à la configuration de zone unique en désactivant le paramètre de redondance de zone. Ce processus est une opération en ligne, semblable à la mise à niveau des niveaux de service ordinaires. À la fin du processus, la base de données ou le pool est migré à partir d’un anneau de redondance de zone vers un anneau de zone unique, ou vice versa.
 
 > [!IMPORTANT]
-> Les bases de données avec redondance de zone et les pools élastiques ne sont actuellement pris en charge que dans les niveaux de service Premium et Critique pour l’entreprise, dans les régions sélectionnées. Lorsque vous utilisez le niveau Critique pour l’entreprise, la configuration de zone redondante est uniquement disponible lorsque le matériel de calcul Gen5 est sélectionné. Pour obtenir des informations à jour sur les régions qui prennent en charge les bases de données redondantes dans une zone, consultez [Prise en charge des services par région](../../availability-zones/az-region.md).  
+> Les bases de données avec redondance de zone et les pools élastiques ne sont actuellement pris en charge que dans les niveaux de service Premium et Critique pour l’entreprise, dans les régions sélectionnées. Lorsque vous utilisez le niveau Critique pour l’entreprise, la configuration de zone redondante est uniquement disponible lorsque le matériel de calcul Gen5 est sélectionné. Pour obtenir des informations à jour sur les régions qui prennent en charge les bases de données redondantes dans une zone, consultez [Prise en charge des services par région](../../availability-zones/az-region.md).
+
+> [!NOTE]
 > Cette fonctionnalité n'est pas disponible dans SQL Managed Instance.
 
 La version avec redondance de zone de l’architecture de haute disponibilité est illustrée dans le diagramme suivant :
@@ -89,7 +91,7 @@ La version avec redondance de zone de l’architecture de haute disponibilité e
 
 ## <a name="accelerated-database-recovery-adr"></a>Récupération de base de données accélérée (ADR)
 
-La [récupération de base de données accélérée](../accelerated-database-recovery.md) est une nouvelle fonctionnalité du moteur de base de données SQL qui améliore considérablement la disponibilité des bases de données, particulièrement en présence de transactions durables. ADR est actuellement disponible pour Azure SQL Database, Azure SQL Managed Instance et Azure SQL Data Warehouse.
+La [récupération de base de données accélérée](../accelerated-database-recovery.md) est une nouvelle fonctionnalité du moteur de base de données qui améliore considérablement la disponibilité des bases de données, particulièrement en présence de transactions durables. ADR est actuellement disponible pour Azure SQL Database, Azure SQL Managed Instance et Azure SQL Data Warehouse.
 
 ## <a name="testing-application-fault-resiliency"></a>Test de résilience aux erreurs de l’application
 

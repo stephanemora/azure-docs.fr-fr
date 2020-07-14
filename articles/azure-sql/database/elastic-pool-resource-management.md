@@ -10,13 +10,13 @@ ms.topic: conceptual
 author: dimitri-furman
 ms.author: dfurman
 ms.reviewer: carlrab
-ms.date: 03/13/2019
-ms.openlocfilehash: 1db8eeecf411ae219474029e09cb866aaf0d5bbe
-ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
+ms.date: 06/29/2020
+ms.openlocfilehash: d35b4691bcf6e40edd57d4caeae00e18a8298925
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "84032080"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85558877"
 ---
 # <a name="resource-management-in-dense-elastic-pools"></a>Gestion des ressources dans les pools élastiques denses
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -60,7 +60,7 @@ Azure SQL Database fournit plusieurs mesures pertinentes pour ce type de surveil
 |`avg_log_write_percent`|Utilisation du débit pour les E/S en écriture du journal des transactions. Fournie pour chaque base de données du pool, ainsi que pour le pool lui-même. Il existe différentes limites sur le débit des journaux au niveau de la base de données et au niveau du pool. Il est donc recommandé de surveiller cette métrique aux deux niveaux. Disponible dans l’affichage [sys.dm_db_resource_stats](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-db-resource-stats-azure-sql-database) de chaque base de données et dans l’affichage [sys.elastic_pool_resource_stats](https://docs.microsoft.com/sql/relational-databases/system-catalog-views/sys-elastic-pool-resource-stats-azure-sql-database) de la base de données `master`. Cette métrique est également émise pour Azure Monitor, où elle est [nommée](https://docs.microsoft.com/azure/azure-monitor/platform/metrics-supported#microsoftsqlserverselasticpools) `log_write_percent`, et peut être affichée dans le portail Azure. Lorsque cette mesure est proche de 100 %, toutes les modifications de base de données (instructions INSERT, UPDATE, DELETE, MERGE, SELECT… INTO, BULK INSERT, etc.) seront plus lentes.|En dessous de 90 %. De courts pics occasionnels allant jusqu’à 100 % peuvent être acceptables.|
 |`oom_per_second`|Taux d’erreurs de mémoire insuffisante (OOM) dans un pool élastique, qui est un indicateur de sollicitation de la mémoire. Disponible dans l’affichage [sys.dm_resource_governor_resource_pools_history_ex](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-resource-governor-resource-pools-history-ex-azure-sql-database?view=azuresqldb-current). Consultez [Exemples](#examples) pour obtenir un exemple de requête afin de calculer cette mesure.|0|
 |`avg_storage_percent`|Utilisation de l’espace de stockage au niveau du pool élastique. Disponible dans l’affichage [sys.elastic_pool_resource_stats](https://docs.microsoft.com/sql/relational-databases/system-catalog-views/sys-elastic-pool-resource-stats-azure-sql-database) de la base de données `master`. Cette métrique est également émise pour Azure Monitor, où elle est [nommée](https://docs.microsoft.com/azure/azure-monitor/platform/metrics-supported#microsoftsqlserverselasticpools) `storage_percent`, et peut être affichée dans le portail Azure.|En dessous de 80 %. Peut approcher 100 % pour les pools sans croissance des données.|
-|`tempdb_log_used_percent`|Utilisation de l’espace du journal des transactions dans la base de données `tempdb`. Même si les objets temporaires créés dans une base de données ne sont pas visibles dans d’autres bases de données du même pool élastique, `tempdb` est une ressource partagée pour toutes les bases de données du même pool. Une transaction durable ou inactive dans `tempdb` démarrée à partir d’une base de données du pool peut consommer une grande partie du journal des transactions et provoquer des échecs pour les requêtes dans d’autres bases de données du même pool. Disponible dans l’affichage [sys.dm_db_log_space_usage](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-db-log-space-usage-transact-sql). Cette métrique est également émise pour Azure Monitor et peut être affichée dans le Portail Azure. Consultez [Exemples](#examples) pour obtenir un exemple de requête afin de retourner la valeur actuelle de cette mesure.|En dessous de 50 %. Des pics occasionnels allant jusqu’à 80 % sont acceptables.|
+|`tempdb_log_used_percent`|Utilisation de l’espace du journal des transactions dans la base de données `tempdb`. Même si les objets temporaires créés dans une base de données ne sont pas visibles dans d’autres bases de données du même pool élastique, `tempdb` est une ressource partagée pour toutes les bases de données du même pool. Une transaction durable ou orpheline dans `tempdb` démarrée à partir d’une base de données du pool peut consommer une grande partie du journal des transactions et provoquer des échecs pour les requêtes dans d’autres bases de données du même pool. Dérivé des affichages [sys.dm_db_log_space_usage](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-db-log-space-usage-transact-sql)et [sys.database_files](https://docs.microsoft.com/sql/relational-databases/system-catalog-views/sys-database-files-transact-sql) Cette métrique est également émise pour Azure Monitor et peut être affichée dans le Portail Azure. Consultez [Exemples](#examples) pour obtenir un exemple de requête afin de retourner la valeur actuelle de cette mesure.|En dessous de 50 %. Des pics occasionnels allant jusqu’à 80 % sont acceptables.|
 |||
 
 En plus de ces métriques, Azure SQL Database fournit un affichage qui retourne les limites réelles de la gouvernance des ressources, ainsi que des affichages supplémentaires qui retournent des statistiques d’utilisation des ressources au niveau de la liste de ressources partagées et au niveau du groupe de charge de travail.
@@ -114,11 +114,17 @@ ORDER BY pool_id;
 
 ### <a name="monitoring-tempdb-log-space-utilization"></a>Surveillance de l’utilisation de l’espace du journal `tempdb`
 
-Cette requête retourne la valeur actuelle de la métrique `tempdb_log_used_percent`. Cette requête peut être exécutée dans n’importe quelle base de données d’un pool élastique.
+Cette requête retourne la valeur actuelle de la métrique `tempdb_log_used_percent`, en présentant l’utilisation relative du journal des transactions `tempdb` par rapport à sa taille maximale autorisée. Cette requête peut être exécutée dans n’importe quelle base de données d’un pool élastique.
 
 ```sql
-SELECT used_log_space_in_percent AS tempdb_log_used_percent
-FROM tempdb.sys.dm_db_log_space_usage;
+SELECT (lsu.used_log_space_in_bytes / df.log_max_size_bytes) * 100 AS tempdb_log_space_used_percent
+FROM tempdb.sys.dm_db_log_space_usage AS lsu
+CROSS JOIN (
+           SELECT SUM(CAST(max_size AS bigint)) * 8 * 1024. AS log_max_size_bytes
+           FROM tempdb.sys.database_files
+           WHERE type_desc = N'LOG'
+           ) AS df
+;
 ```
 
 ## <a name="next-steps"></a>Étapes suivantes

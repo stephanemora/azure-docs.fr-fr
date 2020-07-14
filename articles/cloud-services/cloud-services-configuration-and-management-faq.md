@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 07/23/2018
 ms.author: genli
-ms.openlocfilehash: 5821c72ae1be4759cf5aa76ff1f5af43337749c0
-ms.sourcegitcommit: 67addb783644bafce5713e3ed10b7599a1d5c151
+ms.openlocfilehash: c418ed87bd74471ce8c2e8186bd6244eaf6f21de
+ms.sourcegitcommit: dee7b84104741ddf74b660c3c0a291adf11ed349
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/05/2020
-ms.locfileid: "80668577"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85921585"
 ---
 # <a name="configuration-and-management-issues-for-azure-cloud-services-frequently-asked-questions-faqs"></a>Problèmes de configuration et de gestion pour Azure Cloud Services : Forum Aux Questions (FAQ)
 
@@ -97,9 +97,11 @@ La demande de signature de certificat est un simple fichier texte. Il n’est pa
 
 Vous pouvez utiliser les commandes PowerShell suivantes pour renouveler vos certificats de gestion :
 
-    Add-AzureAccount
-    Select-AzureSubscription -Current -SubscriptionName <your subscription name>
-    Get-AzurePublishSettingsFile
+```powershell
+Add-AzureAccount
+Select-AzureSubscription -Current -SubscriptionName <your subscription name>
+Get-AzurePublishSettingsFile
+```
 
 **Get-AzurePublishSettingsFile** crée un certificat de gestion dans **Abonnement** > **Certificats de gestion** dans le portail Azure. Le nom du nouveau certificat ressemble à « [nom_de_votre_abonnement]-[date_actuelle]-credentials ».
 
@@ -282,7 +284,7 @@ Consultez [Limites spécifiques des services](../azure-resource-manager/manageme
 ### <a name="why-does-the-drive-on-my-cloud-service-vm-show-very-little-free-disk-space"></a>Pourquoi le lecteur de la machine virtuelle de mon service cloud dispose-t-il d’aussi peu d’espace disque ?
 Il s’agit d’un comportement normal qui ne devrait pas causer de problèmes à votre application. La journalisation est activée pour le lecteur %approot% des machines virtuelles Azure PaaS, ce qui dans l’absolu a pour effet de consommer normalement le double d’espace que les fichiers. Cependant, cela ne pose pas de problème, et ce pour plusieurs raisons.
 
-La taille du lecteur %approot% est calculée selon la formule \<taille du fichier .cspkg + taille maximale du journal + marge d’espace libre> ou est égale à 1,5 Go, la valeur la plus grande étant retenue. La taille de votre machine virtuelle n’a pas d’incidence sur ce calcul. (La taille de machine virtuelle affecte uniquement la taille du lecteur C: temporaire.) 
+La taille du lecteur %AppRoot% est calculée comme suit \<size of .cspkg + max journal size + a margin of free space>, ou est égale à 1,5 Go, la valeur la plus grande étant retenue. La taille de votre machine virtuelle n’a pas d’incidence sur ce calcul. (La taille de machine virtuelle affecte uniquement la taille du lecteur C: temporaire.) 
 
 L’écriture sur le lecteur %approot% n’est pas prise en charge. Si vous écrivez sur la machine virtuelle Azure, vous devez le faire dans une ressource LocalStorage temporaire (ou une autre option, telle que le Stockage Blob, Azure Files, etc..). Autrement dit, la quantité d’espace libre dans le dossier %approot % n’est pas significative. Pour savoir avec certitude si votre application écrit ou non sur le lecteur %approot%, vous pouvez toujours laisser votre service s’exécuter pendant quelques jours et comparer sa taille avant et après. 
 
@@ -306,9 +308,11 @@ Vous pouvez activer SNI dans les services cloud en utilisant l’une des méthod
 **Méthode 1 : Utiliser PowerShell**
 
 La liaison SNI peut être configurée à l’aide de l’applet de commande PowerShell **New-WebBinding** dans une tâche de démarrage pour une instance de rôle de service cloud comme indiqué ci-dessous :
-    
-    New-WebBinding -Name $WebsiteName -Protocol "https" -Port 443 -IPAddress $IPAddress -HostHeader $HostHeader -SslFlags $sslFlags 
-    
+
+```powershell
+New-WebBinding -Name $WebsiteName -Protocol "https" -Port 443 -IPAddress $IPAddress -HostHeader $HostHeader -SslFlags $sslFlags
+```
+
 Comme décrit [ici](https://technet.microsoft.com/library/ee790567.aspx), $sslFlags peut adopter l’une des valeurs suivantes :
 
 |Valeur|Signification|
@@ -322,14 +326,15 @@ Comme décrit [ici](https://technet.microsoft.com/library/ee790567.aspx), $sslFl
 
 La liaison SNI peut également être configurée via code au cours du démarrage de rôle comme décrit dans ce [billet de blog](https://blogs.msdn.microsoft.com/jianwu/2014/12/17/expose-ssl-service-to-multi-domains-from-the-same-cloud-service/) :
 
-    
-    //<code snip> 
-                    var serverManager = new ServerManager(); 
-                    var site = serverManager.Sites[0]; 
-                    var binding = site.Bindings.Add(":443:www.test1.com", newCert.GetCertHash(), "My"); 
-                    binding.SetAttributeValue("sslFlags", 1); //enables the SNI 
-                    serverManager.CommitChanges(); 
-    //</code snip> 
+```csharp
+//<code snip> 
+                var serverManager = new ServerManager(); 
+                var site = serverManager.Sites[0]; 
+                var binding = site.Bindings.Add(":443:www.test1.com", newCert.GetCertHash(), "My"); 
+                binding.SetAttributeValue("sslFlags", 1); //enables the SNI 
+                serverManager.CommitChanges(); 
+    //</code snip>
+```
     
 Si vous utilisez l’une des approches ci-dessus, les certificats respectifs (*.pfx) pour les noms d’hôte spécifiques doivent être installés au préalable sur les instances de rôle à l’aide d’une tâche de démarrage ou via code pour activer la liaison SNI.
 
@@ -341,7 +346,9 @@ Le service cloud est une ressource classique. Seules les ressources créées via
 
 Nous travaillons à l’ajout de cette fonctionnalité au portail Azure. D’ici là, vous pouvez utiliser les commandes PowerShell suivantes pour obtenir la version du SDK :
 
-    Get-AzureService -ServiceName "<Cloud Service name>" | Get-AzureDeployment | Where-Object -Property SdkVersion -NE -Value "" | select ServiceName,SdkVersion,OSVersion,Slot
+```powershell
+Get-AzureService -ServiceName "<Cloud Service name>" | Get-AzureDeployment | Where-Object -Property SdkVersion -NE -Value "" | select ServiceName,SdkVersion,OSVersion,Slot
+```
 
 ### <a name="i-want-to-shut-down-the-cloud-service-for-several-months-how-to-reduce-the-billing-cost-of-cloud-service-without-losing-the-ip-address"></a>Je souhaite arrêter le service cloud pendant plusieurs mois. Comment réduire le coût de facturation du service cloud sans perdre l’adresse IP ?
 

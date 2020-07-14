@@ -6,17 +6,14 @@ ms.author: manishku
 ms.service: mysql
 ms.topic: conceptual
 ms.date: 01/13/2020
-ms.openlocfilehash: 24b52042e037e998069550599ca006eded70d1c4
-ms.sourcegitcommit: 1f25aa993c38b37472cf8a0359bc6f0bf97b6784
+ms.openlocfilehash: e2f732a8cf51c51de1b6125717eafb672d7fff74
+ms.sourcegitcommit: 0100d26b1cac3e55016724c30d59408ee052a9ab
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/26/2020
-ms.locfileid: "83849725"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86027407"
 ---
 # <a name="azure-database-for-mysql-data-encryption-with-a-customer-managed-key"></a>Chiffrement des données d'Azure Database pour MySQL à l'aide d'une clé gérée par le client
-
-> [!NOTE]
-> À ce stade, vous devez demander l’accès pour utiliser cette fonctionnalité. Pour ce faire, contactez AskAzureDBforMySQL@service.microsoft.com.
 
 Le chiffrement des données d’Azure Database pour MySQL à l’aide d’une clé gérée par le client vous permet de mettre en place votre propre scénario Bring Your Own Key (BYOK) pour la protection des données au repos. Il permet également aux organisations d'implémenter la séparation des tâches dans la gestion des clés et des données. Avec le chiffrement géré par le client, vous êtes responsable du cycle de vie des clés, des autorisations d'utilisation des clés et de l'audit des opérations sur les clés, et contrôlez totalement le processus.
 
@@ -129,6 +126,19 @@ Pour éviter les problèmes lors de la configuration du chiffrement des données
 * Initiez le processus de création de réplicas en lecture ou de restauration à partir du serveur maître Azure Database pour MySQL.
 * Veillez à ce que le serveur nouvellement créé (restauré/réplica) reste inaccessible car son identité unique n'a pas encore reçu les autorisations d'accès à Key Vault.
 * Sur le serveur restauré/réplica, revalidez la clé managée par le client dans les paramètres de chiffrement des données pour vous assurer que le serveur créé reçoit les autorisations wrap et unwrap sur la clé stockée dans Key Vault.
+
+## <a name="limitations"></a>Limites
+
+Pour Azure Database pour MySQL, la prise en charge du chiffrement des données au repos à l’aide de Customer Managed Key (CMK) présente peu de restrictions.
+
+* La prise en charge de cette fonctionnalité est limitée aux niveaux tarifaires **Usage général** et **À mémoire optimisée**.
+* Cette fonctionnalité est uniquement prise en charge dans les régions et les serveurs qui prennent en charge jusqu’à 16 To de stockage. Pour obtenir la liste des régions Azure qui prennent en charge le stockage jusqu’à 16 To, reportez-vous à la section consacrée au stockage dans la documentation [ici](concepts-pricing-tiers.md#storage)
+
+    > [!NOTE]
+    > - Pour tous les nouveaux serveurs MySQL créés dans les régions mentionnées ci-dessus, la prise en charge du chiffrement avec les clés CMK est **disponible**. En théorie, le serveur de restauration jusqu’à une date et une heure (PITR) ou le réplica de lecture ne sont pas signalés comme des ressources « nouvelles ».
+    > - Pour vérifier si votre serveur approvisionné prend en charge jusqu’à 16 To, vous pouvez accéder au tableau de bord de niveau tarifaire dans le portail et voir la taille de stockage maximale prise en charge par votre serveur approvisionné. Si vous pouvez déplacer le curseur jusqu’à 4 To, il se peut que votre serveur ne prenne pas en charge le chiffrement avec les clés managées par le client. Toutefois, les données sont chiffrées à l’aide de clés managées par le service à tout moment. Posez vos questions en contactant AskAzureDBforMySQL@service.microsoft.com.
+
+* Le chiffrement est pris en charge uniquement avec la clé de chiffrement RSA 2048.
 
 ## <a name="next-steps"></a>Étapes suivantes
 

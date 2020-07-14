@@ -4,12 +4,12 @@ description: Fournit un récapitulatif des limitations et des paramètres de pri
 ms.topic: conceptual
 ms.date: 5/07/2020
 ms.custom: references_regions
-ms.openlocfilehash: 8198c06c1151dd86d99bc64f825764d0a4988287
-ms.sourcegitcommit: 1f48ad3c83467a6ffac4e23093ef288fea592eb5
+ms.openlocfilehash: 5670f4702a8e8d199b9762d87793a053cf6e53b1
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/29/2020
-ms.locfileid: "84193863"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85806869"
 ---
 # <a name="support-matrix-for-azure-file-share-backup"></a>Matrice de prise en charge de la sauvegarde de partage de fichiers Azure
 
@@ -23,7 +23,7 @@ La sauvegarde des partages de fichiers Azure est disponible dans toutes les rég
 
 ### <a name="supported-regions-for-accidental-delete-protection"></a>Régions prises en charge pour la protection contre la suppression accidentelle
 
-Centre-USA Ouest
+USA Centre-Ouest, Australie Sud-Est, Canada Centre
 
 ## <a name="supported-storage-accounts"></a>Comptes de stockage pris en charge
 
@@ -31,7 +31,8 @@ Centre-USA Ouest
 | ------------------------ | ------------------------------------------------------------ |
 | Type de compte            | Sauvegarde Azure prend en charge les partages de fichiers Azure présents dans les comptes de stockage de type à usage général v1, à usage général v2 et stockage de fichiers |
 | Performances              | Sauvegarde Azure prend en charge les partages de fichiers dans des comptes de stockage Standard et Premium |
-| Réplication              | Les partage de fichiers Azure dans des comptes de stockage avec tout type de réplication sont pris en charge |
+| Réplication              | Les partages de fichiers Azure dans des comptes de stockage avec tout type de réplication sont pris en charge |
+| Pare-feu activé         | Les partages de fichiers Azure dans des comptes de stockage avec des règles de pare-feu qui permettent aux services Microsoft Azure d’accéder au compte de stockage sont pris en charge|
 
 ## <a name="supported-file-shares"></a>Partages de fichiers pris en charge
 
@@ -46,14 +47,16 @@ Centre-USA Ouest
 
 | Paramètre                                                      | Limite |
 | ------------------------------------------------------------ | ----- |
-| Nombre maximal de partages de fichiers pouvant être protégés par jour par coffre | 200   |
+| Nombre maximal de partages de fichiers pouvant être protégés par coffre par jour| 200   |
 | Nombre maximal de comptes de stockage pouvant être inscrits par coffre par jour | 50    |
+| Nombre maximal de partages de fichiers pouvant être protégés par coffre | 2000   |
+| Nombre maximal de comptes de stockage pouvant être inscrits par coffre | 200   |
 
 ## <a name="backup-limits"></a>Limites Azure Backup
 
 | Paramètre                                      | Limite |
 | -------------------------------------------- | ----- |
-| Nombre maximal de sauvegardes à la demande par jour | 4     |
+| Nombre maximal de sauvegardes à la demande par jour | 10   |
 | Nombre maximal de sauvegardes planifiées par jour | 1     |
 
 ## <a name="restore-limits"></a>Limites de restauration

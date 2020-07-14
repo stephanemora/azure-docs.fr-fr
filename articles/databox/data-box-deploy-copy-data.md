@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.date: 09/03/2019
 ms.author: alkohli
 ms.localizationpriority: high
-ms.openlocfilehash: a3e66e7f6857361136fb4b7839953790f66b4db5
-ms.sourcegitcommit: 12f23307f8fedc02cd6f736121a2a9cea72e9454
+ms.openlocfilehash: 82cdd8519f1e3fce80aaf051d6bc5fc40a9b8be9
+ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/30/2020
-ms.locfileid: "84219111"
+ms.lasthandoff: 07/05/2020
+ms.locfileid: "85959593"
 ---
 ::: zone target="docs"
 
@@ -62,7 +62,7 @@ Sous les partages d’objet blob de blocs et d’objet blob de pages, les entit�
 
 Le tableau suivant montre le chemin UNC aux partages sur votre Data Box et l’URL de chemin Stockage Azure où les données sont chargées. La dernière URL de chemin de Stockage Azure peut être dérivée à partir du chemin de partage UNC.
  
-|                   |                                                            |
+|Type de stockage Azure  | Partages Data Box            |
 |-------------------|--------------------------------------------------------------------------------|
 | Objets blob de blocs Azure | <li>Chemin UNC aux partages : `\\<DeviceIPAddress>\<StorageAccountName_BlockBlob>\<ContainerName>\files\a.txt`</li><li>URL de Stockage Azure : `https://<StorageAccountName>.blob.core.windows.net/<ContainerName>/files/a.txt`</li> |  
 | Objets blob de pages Azure  | <li>Chemin UNC aux partages : `\\<DeviceIPAddres>\<StorageAccountName_PageBlob>\<ContainerName>\files\a.txt`</li><li>URL de Stockage Azure : `https://<StorageAccountName>.blob.core.windows.net/<ContainerName>/files/a.txt`</li>   |  
@@ -70,32 +70,32 @@ Le tableau suivant montre le chemin UNC aux partages sur votre Data Box et l’U
 
 Si vous utilisez un ordinateur hôte Windows Server, effectuez les étapes suivantes pour vous connecter à la Data Box.
 
-1. La première étape consiste à vous authentifier et à démarrer une session. Accédez à la page **Connect and copy** (Connexion et copie). Cliquez sur **Get credentials** (Obtenir les informations d’identification) pour obtenir les informations d’identification requises pour accéder aux partages associés à votre compte de stockage. 
+1. La première étape consiste à vous authentifier et à démarrer une session. Accédez à la page **Connect and copy** (Connexion et copie). Sélectionnez **SMB** pour obtenir les informations d’identification nécessaires pour accéder aux partages associés à votre compte de stockage. 
 
     ![Obtenir les informations d’identification du partage 1](media/data-box-deploy-copy-data/get-share-credentials1.png)
 
-2. Dans la boîte de dialogue Access share and copy data (Accéder au partage et copier les données), copiez les valeurs **Nom d’utilisateur** et **Mot de passe** correspondant au partage. Cliquez sur **OK**.
+2. Dans la boîte de dialogue Access share and copy data (Accéder au partage et copier les données), copiez les valeurs **Nom d’utilisateur** et **Mot de passe** correspondant au partage. Sélectionnez **OK**.
     
     ![Obtenir les informations d’identification du partage 1](media/data-box-deploy-copy-data/get-share-credentials2.png)
 
-3. Pour accéder aux partages associés à votre compte de stockage (*devicemanagertest1* dans l’exemple suivant) à partir de votre ordinateur hôte, ouvrez une fenêtre de commande. À l’invite de commandes, tapez :
+3. Pour accéder aux partages associés à votre compte de stockage (*utsac1* dans l’exemple suivant) à partir de votre ordinateur hôte, ouvrez une fenêtre de commande. À l’invite de commandes, tapez :
 
     `net use \\<IP address of the device>\<share name>  /u:<user name for the share>`
 
     En fonction du format de vos données, les chemins de partage sont les suivants :
-    - Objet blob de blocs Azure - `\\10.126.76.172\devicemanagertest1_BlockBlob`
-    - Objet blob de pages Azure - `\\10.126.76.172\devicemanagertest1_PageBlob`
-    - Azure Files - `\\10.126.76.172\devicemanagertest1_AzFile`
+    - Objet blob de blocs Azure - `\\10.126.76.138\utSAC1_202006051000_BlockBlob`
+    - Objet blob de pages Azure - `\\10.126.76.138\utSAC1_202006051000_PageBlob`
+    - Azure Files - `\\10.126.76.138\utSAC1_202006051000_AzFile`
 
 4. Lorsque vous y êtes invité, entrez le mot de passe du partage. L’exemple suivant illustre la connexion à un partage à l’aide de la commande précédente.
 
     ```
-    C:\Users\Databoxuser>net use \\10.126.76.172\devicemanagertest1_BlockBlob /u:devicemanagertest1
-    Enter the password for 'devicemanagertest1' to connect to '10.126.76.172':
+    C:\Users\Databoxuser>net use \\10.126.76.138\utSAC1_202006051000_BlockBlob /u:testuser1
+    Enter the password for 'testuser1' to connect to '10.126.76.138':
     The command completed successfully.
     ```
 
-4. Appuyez sur Windows + R. Dans la fenêtre **Exécuter**, spécifiez `\\<device IP address>`. Cliquez sur **OK** pour ouvrir l’Explorateur de fichiers.
+4. Appuyez sur Windows + R. Dans la fenêtre **Exécuter**, spécifiez `\\<device IP address>`. Sélectionnez **OK** pour ouvrir l’Explorateur de fichiers.
     
     ![Se connecter au partage à l’aide de l’Explorateur de fichiers 2](media/data-box-deploy-copy-data/connect-shares-file-explorer1.png)
 
@@ -107,7 +107,7 @@ Si vous utilisez un ordinateur hôte Windows Server, effectuez les étapes suiva
     
 Si vous utilisez un client Linux, utilisez la commande suivante pour monter le partage SMB. Le paramètre « vers » ci-dessous est la version de SMB que votre hôte Linux prend en charge. Utilisez la version appropriée dans la commande ci-dessous. Pour connaître les versions de SMB que le service the Data Box prend en charge, consultez [Systèmes de fichiers pris en charge pour les clients Linux](https://docs.microsoft.com/azure/databox/data-box-system-requirements#supported-file-systems-for-linux-clients). 
 
-    `sudo mount -t nfs -o vers=2.1 10.126.76.172:/devicemanagertest1_BlockBlob /home/databoxubuntuhost/databox`
+    `sudo mount -t nfs -o vers=2.1 10.126.76.138:/utSAC1_202006051000_BlockBlob /home/databoxubuntuhost/databox`
 
 ## <a name="copy-data-to-data-box"></a>Copier des données sur Data Box
 
@@ -215,11 +215,23 @@ Pour optimiser les performances, utilisez les paramètres robocopy suivants lors
 
 Pour plus d’informations sur la commande Robocopy, consultez [Robocopy and a few examples](https://social.technet.microsoft.com/wiki/contents/articles/1073.robocopy-and-a-few-examples.aspx) (Robocopy et quelques exemples).
 
-Ouvrez le dossier cible pour afficher et vérifier les fichiers copiés. Si vous rencontrez des erreurs au cours du processus de copie, téléchargez les fichiers d’erreurs pour résoudre les problèmes. Pour plus d’informations, consultez [Afficher les journaux d’erreurs pendant la copie de données vers Data Box](data-box-logs.md#view-error-log-during-data-copy). Pour obtenir une liste détaillée des erreurs lors de la copie des données, consultez [Résolution des problèmes liés à Data Box](data-box-troubleshoot.md).
+Pendant le processus de copie, si des erreurs se produisent, une notification s’affiche.
+
+![Télécharger et voir les erreurs dans Connexion et copie](media/data-box-deploy-copy-data/view-errors-1.png)
+
+Sélectionnez **Télécharger la liste des problèmes**.
+
+![Télécharger et voir les erreurs dans Connexion et copie](media/data-box-deploy-copy-data/view-errors-2.png)
+
+Ouvrez la liste pour voir les détails de l’erreur, puis sélectionnez l’URL de résolution pour afficher la résolution recommandée.
+
+![Télécharger et voir les erreurs dans Connexion et copie](media/data-box-deploy-copy-data/view-errors-3.png)
+
+Pour plus d’informations, consultez [Afficher les journaux d’erreurs pendant la copie de données vers Data Box](data-box-logs.md#view-error-log-during-data-copy). Pour obtenir une liste détaillée des erreurs lors de la copie des données, consultez [Résolution des problèmes liés à Data Box](data-box-troubleshoot.md).
 
 Pour garantir l’intégrité des données, la somme de contrôle est calculée par le biais d’une fonction inline lors de la copie des données. Une fois la copie terminée, vérifiez l’espace utilisé et l’espace libre sur votre appareil.
 
-   ![Vérifier l’espace libre et l’espace utilisé sur le tableau de bord](media/data-box-deploy-copy-data/verify-used-space-dashboard.png)
+![Vérifier l’espace libre et l’espace utilisé sur le tableau de bord](media/data-box-deploy-copy-data/verify-used-space-dashboard.png)
 
 ::: zone-end
 

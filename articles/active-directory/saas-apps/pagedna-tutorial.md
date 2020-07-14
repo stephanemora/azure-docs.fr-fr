@@ -16,12 +16,12 @@ ms.topic: tutorial
 ms.date: 04/03/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 3c7f8c8efcad0a07a3d3a56925866b10d94f82ed
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: 34e496ea9d2a89894951856a19854bff18f20a8b
+ms.sourcegitcommit: a989fb89cc5172ddd825556e45359bac15893ab7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "68227481"
+ms.lasthandoff: 07/01/2020
+ms.locfileid: "85800879"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-pagedna"></a>Tutoriel : Intégration d’Azure Active Directory à PageDNA
 
@@ -110,21 +110,19 @@ Pour configurer l'authentification unique Azure AD auprès de PageDNA, procédez
 
     1. Dans la zone **URL de connexion**, entrez une URL en utilisant l'un des formats suivants :
 
-        ||
-        |--|
-        | `https://stores.pagedna.com/<your site>` |
-        | `https://<your domain>` |
-        | `https://<your domain>/<your site>` |
-        | `https://www.nationsprint.com/<your site>` |
-        | |
+        ```https
+        https://stores.pagedna.com/<your site>
+        https://<your domain>
+        https://<your domain>/<your site>
+        https://www.nationsprint.com/<your site>
+        ```
 
     1. Dans la zone **Identificateur (ID d'entité)** , entrez une URL en utilisant l'un des formats suivants :
 
-        ||
-        |--|
-        | `https://stores.pagedna.com/<your site>/saml2ep.cgi` |
-        | `https://www.nationsprint.com/<your site>/saml2ep.cgi` |
-        | |
+        ```https
+        https://stores.pagedna.com/<your site>/saml2ep.cgi
+        https://www.nationsprint.com/<your site>/saml2ep.cgi
+        ```
 
     > [!NOTE]
     > Il ne s’agit pas de valeurs réelles. Mettez à jour ces valeurs avec l’URL de connexion et l’identificateur réels. Pour obtenir ces valeurs, contactez [l'équipe de support technique PageDNA](mailto:success@pagedna.com). Vous pouvez aussi vous référer aux modèles figurant dans le volet **Configuration SAML de base** sur le portail Azure.
@@ -163,7 +161,7 @@ Dans cette section, vous allez créer un utilisateur de test nommé Britta Simon
 
     1. Dans la zone **Nom**, entrez **BrittaSimon**.
   
-    1. Dans la zone **Nom d’utilisateur**, entrez **BrittaSimon\@\<votre_domaine_d’entreprise>.\<extension>** . Par exemple, **BrittaSimon\@contoso.com**.
+    1. Dans la zone **Nom d’utilisateur**, entrez **BrittaSimon\@\<yourcompanydomain>.\<extension>** . Par exemple, **BrittaSimon\@contoso.com**.
 
     1. Cochez la case **Afficher le mot de passe**, puis notez la valeur affichée dans le champ **Mot de passe**.
 

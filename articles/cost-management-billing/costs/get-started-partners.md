@@ -3,23 +3,25 @@ title: Prise en main d’Azure Cost Management pour les partenaires
 description: Cet article explique aux partenaires comment utiliser les fonctionnalités d’Azure Cost Management et comment autoriser l’accès à Cost Management à leurs clients.
 author: bandersmsft
 ms.author: banders
-ms.date: 06/08/2020
+ms.date: 07/01/2020
 ms.topic: conceptual
 ms.service: cost-management-billing
 ms.reviewer: aparnag
 ms.custom: secdec18
-ms.openlocfilehash: 08037cbd3723604720a273722bd5dbee3fb79b8e
-ms.sourcegitcommit: 964af22b530263bb17fff94fd859321d37745d13
+ms.openlocfilehash: 0b0b5eb8ec41eccf99c23b671cef42a9c1bc8859
+ms.sourcegitcommit: cec9676ec235ff798d2a5cad6ee45f98a421837b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/09/2020
-ms.locfileid: "84554555"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85849842"
 ---
 # <a name="get-started-with-azure-cost-management-for-partners"></a>Prise en main d’Azure Cost Management pour les partenaires
 
-Azure Cost Management est disponible de façon native pour les partenaires directs qui ont intégré leurs clients à un Contrat client Microsoft et qui ont [acheté un plan Azure](/partner-center/purchase-azure-plan). Cet article explique comment les partenaires utilisent les fonctionnalités d’[Azure Cost Management](../index.yml) pour afficher les coûts des abonnements dans le plan Azure. Il leur explique également comment autoriser l’accès à Cost Management à leurs clients.
+Azure Cost Management est disponible de façon native pour les partenaires directs qui ont intégré leurs clients à un Contrat client Microsoft et qui ont [acheté un plan Azure](/partner-center/purchase-azure-plan). Cet article explique comment les partenaires utilisent les fonctionnalités d’[Azure Cost Management](../index.yml) pour afficher les coûts des abonnements dans le plan Azure. Il leur explique également comment autoriser l’accès à Cost Management aux prix à la revente à leurs clients.
 
-Pour les partenaires directs et les fournisseurs indirects, l’administrateur général et les agents d’administration du fournisseur indirect peuvent accéder à Cost Management dans le locataire du partenaire. Les revendeurs et les clients peuvent accéder à Cost Management dans le locataire du client et voir les coûts pour les abonnements, où les coûts sont calculés et indiqués aux prix à la revente. Ils doivent cependant disposer d’un accès RBAC à l’abonnement dans le locataire du client pour voir les coûts. La stratégie de visibilité des coûts pour le locataire du client doit être activée par le fournisseur.
+Pour les partenaires directs et les fournisseurs indirects, l’administrateur général et les agents d’administration peuvent accéder à Cost Management dans le locataire du partenaire et gérer les coûts aux prix facturés.
+
+Les revendeurs et les clients peuvent accéder à Cost Management dans le locataire du client et voir les coûts pour les abonnements, où les coûts sont calculés et indiqués aux prix à la revente. Ils doivent cependant disposer d’un accès RBAC à l’abonnement dans le locataire du client pour voir les coûts. La stratégie de visibilité des coûts pour le locataire du client doit être activée par le fournisseur.
 
 Les clients peuvent utiliser les fonctionnalités de Cost Management si elles sont activées par leur partenaire CSP.
 
@@ -33,10 +35,12 @@ Les partenaires CSP utilisent Cost Management pour :
 - Exporter leurs données d’utilisation et de coût vers un objet blob de stockage avec un abonnement avec paiement à l’utilisation.
 
 Voici un exemple montrant les coûts pour tous les clients.
-![Exemple montrant les coûts pour tous les clients](./media/get-started-partners/customer-costs1.png)
+
+[![Exemple montrant les coûts pour tous les clients](./media/get-started-partners/customer-costs1.png)](./media/get-started-partners/customer-costs1.png#lightbox)
 
 Voici un exemple montrant les coûts pour un client unique.
-![Exemple montrant les coûts pour un client unique](./media/get-started-partners/customer-costs2.png)
+
+[![Exemple montrant les coûts pour un client unique](./media/get-started-partners/customer-costs2.png)](./media/get-started-partners/customer-costs2.png#lightbox)
 
 Toutes les fonctionnalités disponibles dans Azure Cost Management sont également disponibles avec les API REST. Utilisez les API pour automatiser les tâches de gestion des coûts.
 
@@ -50,8 +54,7 @@ Azure Cost Management nécessite un accès en lecture à votre abonnement ou vot
 
 Pour plus d’informations sur l’autorisation et l’attribution de l’accès à Azure Cost Management pour un compte de facturation, consultez [Attribuer des rôles et des autorisations aux utilisateurs](/partner-center/permissions-overview). Les rôles **Administrateur général** et **Agent d’administration** peuvent gérer les coûts d’un compte de facturation.
 
-Pour accéder à Azure Cost Management dans l’étendue de l’abonnement, tout utilisateur disposant d’un accès RBAC à un abonnement peut afficher les coûts au tarif de vente au détail (paiement à l’utilisation). Toutefois, la stratégie de visibilité des coûts pour le locataire client doit être activée. Pour accéder à la liste complète des types de comptes pris en charge, consultez [Comprendre les données de Cost Management](understand-cost-mgt-data.md).
-
+Pour accéder à Azure Cost Management dans l’étendue de l’abonnement, tout utilisateur disposant d’un accès RBAC à un abonnement peut afficher les coûts au tarif de vente au détail (paiement à l’utilisation). Toutefois, la [stratégie de visibilité des coûts pour le locataire client](#enable-the-policy-to-view-azure-usage-charges) doit être activée. Pour accéder à la liste complète des types de comptes pris en charge, consultez [Comprendre les données de Cost Management](understand-cost-mgt-data.md).
 
 ## <a name="how-cost-management-uses-scopes"></a>Utilisation des étendues par Cost Management
 
@@ -110,13 +113,13 @@ L’étendue de client n’inclut pas les clients bénéficiant de l’offre CSP
 
 Seuls les utilisateurs ayant les rôles **Administrateur général** et **Agent d’administration** peuvent gérer et voir les coûts pour les comptes de facturation, les profils de facturation et les clients directement dans le locataire Azure du partenaire. Pour plus d’informations sur les rôles de l’espace Partenaires, consultez [Affecter des rôles et des autorisations aux utilisateurs](/partner-center/permissions-overview).
 
-## <a name="enable-cost-management-in-the-customer-tenant"></a>Autoriser l’accès à la gestion des coûts dans le locataire client
+## <a name="enable-cost-management-for-customer-tenant-subscriptions"></a>Activer la gestion des coûts pour les abonnements des locataires des clients
 
-Les partenaires peuvent autoriser l’accès à Cost Management une fois les clients intégrés à un contrat client Microsoft. Ils peuvent ainsi activer une stratégie permettant aux clients de voir leurs coûts calculés selon les tarifs de paiement à l’utilisation au détail. Les coûts sont indiqués dans la devise de facturation du client pour sa consommation dans les étendues de groupe de ressources et d’abonnement RBAC.
+Les partenaires peuvent autoriser l’accès à Cost Management une fois les clients intégrés à un contrat client Microsoft. Ils peuvent ainsi activer une stratégie permettant aux clients de voir leurs coûts pour les services consommés Azure calculés selon les tarifs de paiement à l’utilisation au détail. Les coûts sont indiqués dans la devise de facturation du client pour sa consommation dans les étendues de groupe de ressources et d’abonnement RBAC.
 
 Quand la stratégie de visualisation des coûts est activée par le partenaire, tout utilisateur disposant d’un accès Azure Resource Manager à l’abonnement peut gérer et analyser les coûts selon les tarifs de paiement à l’utilisation. En effet, les revendeurs et les clients qui disposent de l’accès RBAC approprié aux abonnements Azure peuvent voir les coûts.
 
-Quelle que soit la stratégie appliquée, les partenaires peuvent également voir les coûts s’ils ont accès à l’abonnement et au groupe de ressources.
+Quelle que soit la stratégie, les administrateurs généraux et les agents d’administration du fournisseur peuvent voir les coûts d’abonnement s’ils ont accès à l’abonnement et au groupe de ressources.
 
 ### <a name="enable-the-policy-to-view-azure-usage-charges"></a>Activer la stratégie de visualisation des frais d’utilisation d’Azure
 
@@ -126,7 +129,7 @@ Dans le portail Azure, connectez-vous au locataire partenaire, puis sélectionne
 
 Dans la liste des clients, sélectionnez le client auquel vous souhaitez donner l’autorisation de voir les coûts.
 
-![Sélectionner des clients dans Cost Management](./media/get-started-partners/customer-list.png)
+[![Sélectionner des clients dans Cost Management](./media/get-started-partners/customer-list.png)](./media/get-started-partners/customer-list.png#lightbox)
 
 Sous **Paramètres**, sélectionnez **Stratégies**.
 
@@ -139,16 +142,17 @@ Quand la stratégie de coût est définie sur **Oui**, les utilisateurs d’abon
 
 Quand la stratégie de visualisation des coûts est activée, tous les services associés à l’utilisation d’abonnements indiquent les coûts selon les tarifs de paiement à l’utilisation. L’utilisation de réservations apparaît avec des frais nuls pour les coûts réels et amortis. Les achats et les droits ne sont pas associés à un abonnement spécifique. Ainsi, les achats ne sont pas affichés dans l’étendue d’abonnement.
 
+### <a name="view-subscription-costs-in-the-customer-tenant"></a>Afficher les coûts d’abonnement dans le locataire du client
 
-### <a name="view-customer-costs"></a>Consulter les coûts client
+Pour afficher les coûts d’un abonnement, ouvrez **Cost Management + Facturation** dans le locataire Azure du client. Sélectionnez **Analyse du coût** pour l’abonnement requis afin de commencer à examiner les coûts. Vous pouvez afficher les coûts de consommation pour chaque abonnement individuellement dans le locataire du client.
 
-Pour voir les coûts relatifs au locataire client, ouvrez **Gestion des coûts + Facturation**. Sélectionnez **Analyse des coûts**, puis définissez l’étendue sur l’abonnement du locataire client pour commencer à examiner les coûts.
-
-![Voir l’analyse des coûts en tant que client ](./media/get-started-partners/customer-tenant-view-cost-analysis.png)
+[![Voir l’analyse des coûts en tant que client ](./media/get-started-partners/subscription-costs.png)](./media/get-started-partners/subscription-costs.png#lightbox)
 
 L’analyse des coûts, les budgets et les alertes sont disponibles pour les étendues RBAC de groupe de ressources et d’abonnement selon les tarifs de paiement à l’utilisation.
 
 Les vues amorties et les coûts réels pour les instances réservées dans les étendues RBAC indiquent des frais nuls. Les coûts des instances réservées sont indiqués uniquement dans les étendues de facturation dans lesquelles les achats ont été effectués.
+
+Les tarifs utilisés pour calculer les coûts affichés dans la vue sont les mêmes que ceux indiqués dans la calculatrice de prix Azure pour tous les clients. Les coûts indiqués n’incluent pas les remises ni les crédits que le partenaire peut avoir, comme les crédits partenaires, les remises de niveau et les remises globales sur les services.
 
 ## <a name="analyze-costs-in-cost-analysis"></a>Analyser les coûts dans la vue d’analyse des coûts
 
