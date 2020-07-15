@@ -7,13 +7,13 @@ author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 02/14/2020
-ms.openlocfilehash: 58b60a0eee8ab407709f33911d3c6b13ffbf301a
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.date: 06/18/2020
+ms.openlocfilehash: 96177686e78a0595ac4ad49b9969b22d862facd6
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "77498377"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85051725"
 ---
 # <a name="how-to-rebuild-an-index-in-azure-cognitive-search"></a>Guide pratique pour regénérer un index dans la Recherche cognitive Azure
 
@@ -21,7 +21,17 @@ Cet article explique comment regénerer un index Recherche cognitive Azure et le
 
 Une *regénération* fait référence à la suppression et à la recréation des structures de données physiques associées à un index, notamment tous les index inversés basés sur un champ. Dans Recherche cognitive Azure, vous ne pouvez pas supprimer et recréer des champs un par un. Pour regénerer un index, la totalité du stockage des champs doit être supprimé, recréé sur la base d’un schéma d’index existant ou révisé, puis à nouveau rempli avec les données envoyées à l’index ou extraites de sources externes. 
 
-Il est courant de regénérer les index pendant le développement, mais il peut également être nécessaire de les regénérer au niveau de la production pour prendre en compte des modifications structurelles, comme l’ajout de types complexes ou l’ajout de champs à des suggesteurs.
+Il est courant de regénérer les index pendant le développement quand vous itérez sur la conception de l’index, mais il peut également être nécessaire de les regénérer au niveau de la production pour prendre en compte des modifications structurelles, comme l’ajout de types complexes ou l’ajout de champs à des suggesteurs.
+
+## <a name="rebuild-versus-refresh"></a>« Regénérer » ou « actualiser » ?
+
+Ne confondez pas la regénération avec l’actualisation du contenu d’un index avec des documents nouveaux, modifiés ou supprimés. L’actualisation d’un corpus de recherche est presque inévitable dans toute application de recherche, certains scénarios nécessitant même des mises à jour à la minute (par exemple quand un corpus de recherche doit refléter les modifications d’inventaire dans une application de vente en ligne).
+
+Tant que vous ne changez pas la structure de l’index, vous pouvez l’actualiser en appliquant les mêmes techniques que celles appliquées pour le charger initialement :
+
+* Pour l’indexation en mode Push, appelez [Ajouter, mettre à jour ou supprimer des documents](https://docs.microsoft.com/rest/api/searchservice/addupdate-or-delete-documents) pour envoyer (push) les modifications vers un index.
+
+* Pour les indexeurs, vous pouvez [planifier l’exécution de l’indexeur](search-howto-schedule-indexers.md) et utiliser le suivi des modifications ou des horodatages pour identifier le delta. Si les mises à jour doivent être reflétées plus rapidement que ce qu’un planificateur peut gérer, vous pouvez utiliser l’indexation en mode Push à la place.
 
 ## <a name="rebuild-conditions"></a>Conditions de la recréation
 

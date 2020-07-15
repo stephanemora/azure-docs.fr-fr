@@ -9,12 +9,12 @@ ms.date: 05/01/2020
 ms.author: normesta
 ms.subservice: logs
 ms.custom: monitoring
-ms.openlocfilehash: 481406b02d7d864dd16ac42918ae1aa2dea0b145
-ms.sourcegitcommit: 1f48ad3c83467a6ffac4e23093ef288fea592eb5
+ms.openlocfilehash: 12df9566dd3ddfedd1f4553ad8877258d840858c
+ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/29/2020
-ms.locfileid: "84195225"
+ms.lasthandoff: 07/05/2020
+ms.locfileid: "85960212"
 ---
 # <a name="azure-storage-monitoring-data-reference"></a>Informations de référence sur les données de supervision du stockage Azure
 
@@ -32,11 +32,15 @@ Stockage Azure fournit les mesures de capacité suivantes dans Azure Monitor.
 
 #### <a name="account-level"></a>Niveau du compte
 
+Ce tableau montre des [métriques au niveau du compte](https://docs.microsoft.com/azure/azure-monitor/platform/metrics-supported#microsoftstoragestorageaccounts).
+
 | Métrique | Description |
 | ------------------- | ----------------- |
 | UsedCapacity | Quantité de stockage utilisée par le compte de stockage. Pour les comptes de stockage standard, il s’agit de la somme de la capacité utilisée par les objets blob, tables, fichiers et files d’attente. Pour les comptes de stockage Premium et les comptes de stockage Blob, elle équivaut à BlobCapacity. <br/><br/> Unité : Octets <br/> Type d’agrégation : Average <br/> Exemple de valeur : 1 024 |
 
 #### <a name="blob-storage"></a>Stockage d'objets blob
+
+Ce tableau montre des [métriques de Stockage Blob](https://docs.microsoft.com/azure/azure-monitor/platform/metrics-supported#microsoftstoragestorageaccountsblobservices).
 
 | Métrique | Description |
 | ------------------- | ----------------- |
@@ -47,6 +51,8 @@ Stockage Azure fournit les mesures de capacité suivantes dans Azure Monitor.
 
 #### <a name="table-storage"></a>Stockage de tables
 
+Ce tableau montre des [métriques de Stockage Table](https://docs.microsoft.com/azure/azure-monitor/platform/metrics-supported#microsoftstoragestorageaccountstableservices).
+
 | Métrique | Description |
 | ------------------- | ----------------- |
 | TableCapacity | Quantité de stockage de tables utilisée par le compte de stockage. <br/><br/> Unité : Octets <br/> Type d’agrégation : Average <br/> Exemple de valeur : 1 024 |
@@ -55,13 +61,17 @@ Stockage Azure fournit les mesures de capacité suivantes dans Azure Monitor.
 
 #### <a name="queue-storage"></a>Stockage de files d'attente
 
+Ce tableau montre des [métriques de Stockage File d’attente](https://docs.microsoft.com/azure/azure-monitor/platform/metrics-supported#microsoftstoragestorageaccountsfileservices).
+
 | Métrique | Description |
 | ------------------- | ----------------- |
 | QueueCapacity | Quantité de stockage de files d’attente utilisée par le compte de stockage. <br/><br/> Unité : Octets <br/> Type d’agrégation : Average <br/> Exemple de valeur : 1 024 |
 | QueueCount   | Nombre de files d’attente dans le compte de stockage. <br/><br/> Unité : Count <br/> Type d’agrégation : Average <br/> Exemple de valeur : 1 024 |
-| QueueMessageCount | Nombre de messages de file d’attente non expirés dans le compte de stockage. <br/><br/>Unité : Count <br/> Type d’agrégation : Average <br/> Exemple de valeur : 1 024 |
+| QueueMessageCount | Nombre approximatif de messages en file d’attente dans le service File d’attente du compte de stockage. <br/><br/>Unité : Count <br/> Type d’agrégation : Average <br/> Exemple de valeur : 1 024 |
 
 #### <a name="file-storage"></a>Stockage Fichier
+
+Ce tableau montre des [métriques de Stockage Fichier](https://docs.microsoft.com/azure/azure-monitor/platform/metrics-supported#microsoftstoragestorageaccountsqueueservices).
 
 | Métrique | Description |
 | ------------------- | ----------------- |

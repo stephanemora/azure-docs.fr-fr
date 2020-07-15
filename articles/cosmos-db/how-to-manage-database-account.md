@@ -6,12 +6,12 @@ ms.service: cosmos-db
 ms.topic: how-to
 ms.date: 04/30/2020
 ms.author: mjbrown
-ms.openlocfilehash: 76e8167a5d0dc83a5cc1b238d3015594278e344d
-ms.sourcegitcommit: 6a9f01bbef4b442d474747773b2ae6ce7c428c1f
+ms.openlocfilehash: 35659eba274b4b93ca74e480f6ad2b5edfd2e293
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "84116708"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85116755"
 ---
 # <a name="manage-an-azure-cosmos-account"></a>Gérer un compte Azure Cosmos
 
@@ -49,7 +49,7 @@ Veuillez consulter [Créer un compte Azure Cosmos DB avec des modèles Azure Res
 
 1. Pour enregistrer vos modifications, sélectionnez **OK**.
 
-   ![Ajouter ou supprimer le menu des régions](./media/how-to-manage-database-account/add-region.png)
+   :::image type="content" source="./media/how-to-manage-database-account/add-region.png" alt-text="Ajouter ou supprimer le menu des régions":::
 
 Dans un mode écriture dans une seule région, vous ne pouvez pas supprimer la région d’écriture. Vous devez basculer vers une autre région avant de pouvoir supprimer la région d’écriture actuelle.
 
@@ -69,7 +69,7 @@ Veuillez consulter [Ajouter ou supprimer des régions avec PowerShell](manage-wi
 
 Ouvrez l’onglet **Répliquer les données globalement** et sélectionnez **Activer** pour activer l’écriture dans plusieurs régions. Une fois que vous avez activé l’écriture dans plusieurs régions, toutes les régions de lecture indiquées sur votre compte deviennent des régions de lecture et d’écriture.
 
-![Capture d’écran de la configuration de la fonction multimaître dans un compte Azure Cosmos](./media/how-to-manage-database-account/single-to-multi-master.png)
+:::image type="content" source="./media/how-to-manage-database-account/single-to-multi-master.png" alt-text="Capture d’écran de la configuration de la fonction multimaître dans un compte Azure Cosmos":::
 
 ### <a name="azure-cli"></a><a id="configure-multiple-write-regions-cli"></a>Interface CLI Azure
 
@@ -149,13 +149,13 @@ L’option de basculement automatique permet à Azure Cosmos DB de basculer vers
 
 2. En haut du volet, sélectionnez **Basculement automatique**.
 
-   ![Menu pour répliquer les données globalement](./media/how-to-manage-database-account/replicate-data-globally.png)
+   :::image type="content" source="./media/how-to-manage-database-account/replicate-data-globally.png" alt-text="Menu pour répliquer les données globalement":::
 
 3. Dans le volet **Basculement automatique**, vérifiez que l’option **Activer le basculement automatique** est définie sur **ACTIVÉ**. 
 
 4. Sélectionnez **Enregistrer**.
 
-   ![Menu du portail pour le basculement automatique](./media/how-to-manage-database-account/automatic-failover.png)
+   :::image type="content" source="./media/how-to-manage-database-account/automatic-failover.png" alt-text="Menu du portail pour le basculement automatique":::
 
 ### <a name="azure-cli"></a><a id="enable-automatic-failover-via-cli"></a>Interface CLI Azure
 
@@ -178,7 +178,7 @@ Une fois qu’un compte Cosmos est configuré pour le basculement automatique, l
 
 2. En haut du volet, sélectionnez **Basculement automatique**.
 
-   ![Menu pour répliquer les données globalement](./media/how-to-manage-database-account/replicate-data-globally.png)
+   :::image type="content" source="./media/how-to-manage-database-account/replicate-data-globally.png" alt-text="Menu pour répliquer les données globalement":::
 
 3. Dans le volet **Basculement automatique**, vérifiez que l’option **Activer le basculement automatique** est définie sur **ACTIVÉ**.
 
@@ -186,7 +186,7 @@ Une fois qu’un compte Cosmos est configuré pour le basculement automatique, l
 
 5. Sélectionnez **Enregistrer**.
 
-   ![Menu du portail pour le basculement automatique](./media/how-to-manage-database-account/automatic-failover.png)
+   :::image type="content" source="./media/how-to-manage-database-account/automatic-failover.png" alt-text="Menu du portail pour le basculement automatique":::
 
 ### <a name="azure-cli"></a><a id="set-failover-priorities-via-cli"></a>Interface CLI Azure
 
@@ -212,13 +212,13 @@ Le processus de basculement manuel implique de changer la région d’écriture 
 
 2. En haut du menu, sélectionnez **Basculement manuel**.
 
-   ![Menu pour répliquer les données globalement](./media/how-to-manage-database-account/replicate-data-globally.png)
+   :::image type="content" source="./media/how-to-manage-database-account/replicate-data-globally.png" alt-text="Menu pour répliquer les données globalement":::
 
 3. Dans le menu **Basculement manuel**, sélectionnez votre nouvelle région d’écriture. Sélectionnez la case à cocher pour indiquer que vous comprenez que cette option modifie votre région d’écriture.
 
 4. Pour déclencher le basculement, sélectionnez **OK**.
 
-   ![Menu du portail pour le basculement manuel](./media/how-to-manage-database-account/manual-failover.png)
+   :::image type="content" source="./media/how-to-manage-database-account/manual-failover.png" alt-text="Menu du portail pour le basculement manuel":::
 
 ### <a name="azure-cli"></a><a id="enable-manual-failover-via-cli"></a>Interface CLI Azure
 

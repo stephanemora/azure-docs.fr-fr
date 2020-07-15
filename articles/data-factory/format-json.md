@@ -7,14 +7,14 @@ ms.reviewer: craigg
 ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
-ms.date: 05/29/2020
+ms.date: 06/05/2020
 ms.author: jingwang
-ms.openlocfilehash: c488c57f8c755bfc062dc81a242fbfbb605406e0
-ms.sourcegitcommit: d118ad4fb2b66c759b70d4d8a18e6368760da3ad
+ms.openlocfilehash: 7fd8fd35ee411d929843be81a1daaa512e0b3ca1
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/02/2020
-ms.locfileid: "84298565"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84611042"
 ---
 # <a name="json-format-in-azure-data-factory"></a>Format JSON dans Azure Data Factory
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
@@ -81,8 +81,8 @@ Les propriétés prises en charge dans la section ***\*source\**** de l’activi
 | Propriété      | Description                                                  | Obligatoire |
 | ------------- | ------------------------------------------------------------ | -------- |
 | type          | Le type de formatSettings doit être défini sur **JsonReadSettings**. | Oui      |
-| compressionProperties | Groupe de propriétés permettant de décompresser les données d'un codec de compression spécifique. | Non       |
-| preserveZipFileNameAsFolder<br>(*sous `compressionProperties`* ) | S'applique lorsque le jeu de données d'entrée est configuré avec la compression **ZipDeflate**. Indique si le nom du fichier zip source doit être conservé en tant que structure de dossiers lors de la copie. Lorsque ce paramètre est défini sur true (par défaut), Data Factory inscrit les fichiers décompressés dans `<path specified in dataset>/<folder named as source zip file>/` ; lorsqu'il est défini sur false, Data Factory les inscrit directement dans `<path specified in dataset>`.  | Non |
+| compressionProperties | Groupe de propriétés permettant de décompresser les données d’un codec de compression spécifique. | Non       |
+| preserveZipFileNameAsFolder<br>(*sous `compressionProperties`* ) | S’applique lorsque le jeu de données d’entrée est configuré avec la compression **ZipDeflate**. Indique si le nom du fichier zip source doit être conservé en tant que structure de dossiers lors de la copie. Lorsque ce paramètre est défini sur true (par défaut), Data Factory inscrit les fichiers décompressés dans `<path specified in dataset>/<folder named as source zip file>/` ; lorsqu’il est défini sur false, Data Factory les inscrit directement dans `<path specified in dataset>`.  | Non |
 
 ### <a name="json-as-sink"></a>JSON en tant que récepteur
 
@@ -194,73 +194,25 @@ Lors de la copie de données à partir de fichiers JSON, l’activité de copie 
 
 ## <a name="mapping-data-flow-properties"></a>Propriétés du mappage de flux de données
 
-Les types de fichiers JSON peuvent être utilisés à la fois comme récepteur et comme source dans le flux de données de mappage.
+Dans les flux de données de mappage, vous pouvez lire et écrire des données au format JSON dans les magasins de données suivants : [Stockage Blob Azure](connector-azure-blob-storage.md#mapping-data-flow-properties), [Azure Data Lake Storage Gen1](connector-azure-data-lake-store.md#mapping-data-flow-properties) et [Azure Data Lake Storage Gen2](connector-azure-data-lake-storage.md#mapping-data-flow-properties).
 
-### <a name="creating-json-structures-in-a-derived-column"></a>Création de structures JSON dans une colonne dérivée
+### <a name="source-properties"></a>Propriétés sources
 
-Vous pouvez ajouter une colonne complexe à votre flux de données à l’aide du générateur d’expressions de la colonne dérivée. Dans la transformation de colonne dérivée, ajoutez une nouvelle colonne et ouvrez le générateur d’expressions en cliquant sur la zone bleue. Pour rendre une colonne complexe, vous pouvez entrer la structure JSON manuellement ou utiliser l’expérience utilisateur pour ajouter des sous-colonnes de manière interactive.
+Le tableau ci-dessous liste les propriétés prises en charge par une source JSON. Vous pouvez modifier ces propriétés sous l’onglet **Options de la source**.
 
-#### <a name="using-the-expression-builder-ux"></a>Utilisation de l’expérience utilisateur pour le générateur d’expressions
-
-Dans le volet latéral du schéma de sortie, pointez sur une colonne, puis cliquez sur l’icône plus. Sélectionnez **Ajouter une sous-colonne** pour transformer la colonne en type complexe.
-
-![Ajouter une sous-colonne](media/data-flow/addsubcolumn.png "Ajouter une sous-colonne")
-
-Vous pouvez ajouter des colonnes et des sous-colonnes supplémentaires de la même façon. Pour chaque champ non complexe, une expression peut être ajoutée dans l’éditeur d’expressions vers la droite.
-
-![Colonne complexe](media/data-flow/complexcolumn.png "Colonne complexe")
-
-#### <a name="entering-the-json-structure-manually"></a>Saisie manuelle de la structure JSON
-
-Pour ajouter manuellement une structure JSON, ajoutez une nouvelle colonne et entrez l’expression dans l’éditeur. L’expression suit le format général suivant :
-
-```
-@(
-    field1=0,
-    field2=@(
-        field1=0
-    )
-)
-```
-
-Si cette expression était entrée pour une colonne nommée « complexColumn », elle serait écrite dans le récepteur sous la forme du code JSON suivant :
-
-```
-{
-    "complexColumn": {
-        "field1": 0,
-        "field2": {
-            "field1": 0
-        }
-    }
-}
-```
-
-#### <a name="sample-manual-script-for-complete-hierarchical-definition"></a>Exemple de script manuel pour une définition hiérarchique complète
-```
-@(
-    title=Title,
-    firstName=FirstName,
-    middleName=MiddleName,
-    lastName=LastName,
-    suffix=Suffix,
-    contactDetails=@(
-        email=EmailAddress,
-        phone=Phone
-    ),
-    address=@(
-        line1=AddressLine1,
-        line2=AddressLine2,
-        city=City,
-        state=StateProvince,
-        country=CountryRegion,
-        postCode=PostalCode
-    ),
-    ids=[
-        toString(CustomerID), toString(AddressID), rowguid
-    ]
-)
-```
+| Nom | Description | Obligatoire | Valeurs autorisées | Propriété du script de flux de données |
+| ---- | ----------- | -------- | -------------- | ---------------- |
+| Chemins génériques | Tous les fichiers correspondant au chemin générique seront traités. Remplace le chemin du dossier et du fichier défini dans le jeu de données. | non | String[] | wildcardPaths |
+| Chemin racine de la partition | Pour les données de fichier qui sont partitionnées, vous pouvez entrer le chemin racine d’une partition pour pouvoir lire les dossiers partitionnés comme des colonnes. | non | String | partitionRootPath |
+| Liste de fichiers | Si votre source pointe ou non vers un fichier texte qui liste les fichiers à traiter | non | `true` ou `false` | fileList |
+| Colonne où stocker le nom du fichier | Crée une colonne avec le nom et le chemin du fichier source | non | String | rowUrlColumn |
+| Après l’exécution | Supprime ou déplace les fichiers après le traitement. Le chemin du fichier commence à la racine du conteneur | non | Supprimer : `true` ou `false` <br> Déplacer : `['<from>', '<to>']` | purgeFiles <br> moveFiles |
+| Filtrer par date de dernière modification | Pour filtrer les fichiers en fonction de leur date de dernière modification | non | Timestamp | modifiedAfter <br> modifiedBefore |
+| Document individuel | Les flux de données de mappage lisent un document JSON à partir de chaque fichier | non | `true` ou `false` | singleDocument |
+| Noms de colonnes sans guillemets | Si **Noms de colonnes sans guillemets** est sélectionné, le mappage des flux de données lit les colonnes JSON qui ne sont pas entourées de guillemets. | non | `true` ou `false` |  unquotedColumnNames
+| Comporte des commentaires | Sélectionnez **Comporte des commentaires** si les données JSON ont des commentaires de style C ou C++ | non | `true` ou `false` | asComments |
+| Apostrophes simples | Lit les colonnes JSON qui ne sont pas entourées de guillemets | non | `true` ou `false` | singleQuoted |
+| Barres obliques inverses d’échappement | Sélectionnez **Barres obliques inverses d’échappement** si les barres obliques inverses sont utilisées pour échapper les caractères dans les données JSON. | non | `true` ou `false` | backslashEscape |
 
 ### <a name="source-format-options"></a>Options de format source
 
@@ -331,12 +283,87 @@ Sélectionnez **Apostrophes simples** si les champs et valeurs JSON utilisent de
 
 #### <a name="backslash-escaped"></a>Barres obliques inverses d’échappement
 
-Sélectionnez **Apostrophes simples** si les barres obliques inverses sont utilisées pour échapper les caractères dans les données JSON.
+Sélectionnez **Barres obliques inverses d’échappement** si les barres obliques inverses sont utilisées pour échapper les caractères dans les données JSON.
 
 ```
 { "json": "record 1" }
 { "json": "\} \" \' \\ \n \\n record 2" }
 { "json": "record 3" }
+```
+
+### <a name="sink-properties"></a>Propriétés du récepteur
+
+Le tableau ci-dessous liste les propriétés prises en charge par un récepteur JSON. Vous pouvez modifier ces propriétés sous l’onglet **Paramètres**.
+
+| Nom | Description | Obligatoire | Valeurs autorisées | Propriété du script de flux de données |
+| ---- | ----------- | -------- | -------------- | ---------------- |
+| Effacer le contenu du dossier | Pour effacer le contenu du dossier de destination avant l’écriture de données | non | `true` ou `false` | truncate |
+| Option de nom de fichier | Format de nommage des données écrites. Par défaut, un fichier par partition au format `part-#####-tid-<guid>` | non | Modèle : String <br> Par partition : String[] <br> Comme les données de la colonne : String <br> Sortie dans un fichier unique : `['<fileName>']`  | filePattern <br> partitionFileNames <br> rowUrlColumn <br> partitionFileNames |
+
+### <a name="creating-json-structures-in-a-derived-column"></a>Création de structures JSON dans une colonne dérivée
+
+Vous pouvez ajouter une colonne complexe à votre flux de données à l’aide du générateur d’expressions de la colonne dérivée. Dans la transformation de colonne dérivée, ajoutez une nouvelle colonne et ouvrez le générateur d’expressions en cliquant sur la zone bleue. Pour rendre une colonne complexe, vous pouvez entrer la structure JSON manuellement ou utiliser l’expérience utilisateur pour ajouter des sous-colonnes de manière interactive.
+
+#### <a name="using-the-expression-builder-ux"></a>Utilisation de l’expérience utilisateur pour le générateur d’expressions
+
+Dans le volet latéral du schéma de sortie, pointez sur une colonne, puis cliquez sur l’icône plus. Sélectionnez **Ajouter une sous-colonne** pour transformer la colonne en type complexe.
+
+![Ajouter une sous-colonne](media/data-flow/addsubcolumn.png "Ajouter une sous-colonne")
+
+Vous pouvez ajouter des colonnes et des sous-colonnes supplémentaires de la même façon. Pour chaque champ non complexe, une expression peut être ajoutée dans l’éditeur d’expressions vers la droite.
+
+![Colonne complexe](media/data-flow/complexcolumn.png "Colonne complexe")
+
+#### <a name="entering-the-json-structure-manually"></a>Saisie manuelle de la structure JSON
+
+Pour ajouter manuellement une structure JSON, ajoutez une nouvelle colonne et entrez l’expression dans l’éditeur. L’expression suit le format général suivant :
+
+```
+@(
+    field1=0,
+    field2=@(
+        field1=0
+    )
+)
+```
+
+Si cette expression était entrée pour une colonne nommée « complexColumn », elle serait écrite dans le récepteur sous la forme du code JSON suivant :
+
+```
+{
+    "complexColumn": {
+        "field1": 0,
+        "field2": {
+            "field1": 0
+        }
+    }
+}
+```
+
+#### <a name="sample-manual-script-for-complete-hierarchical-definition"></a>Exemple de script manuel pour une définition hiérarchique complète
+```
+@(
+    title=Title,
+    firstName=FirstName,
+    middleName=MiddleName,
+    lastName=LastName,
+    suffix=Suffix,
+    contactDetails=@(
+        email=EmailAddress,
+        phone=Phone
+    ),
+    address=@(
+        line1=AddressLine1,
+        line2=AddressLine2,
+        city=City,
+        state=StateProvince,
+        country=CountryRegion,
+        postCode=PostalCode
+    ),
+    ids=[
+        toString(CustomerID), toString(AddressID), rowguid
+    ]
+)
 ```
 
 ## <a name="next-steps"></a>Étapes suivantes

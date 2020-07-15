@@ -6,16 +6,16 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 05/20/2020
-ms.openlocfilehash: 7213cb10936fc1c2117b2c5c3fc32a6bfea02d30
-ms.sourcegitcommit: fc0431755effdc4da9a716f908298e34530b1238
+ms.openlocfilehash: 0c9982fd4aa6459cdcbd715077f08092075a9776
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/24/2020
-ms.locfileid: "83816584"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84610064"
 ---
 # <a name="customer-owned-storage-accounts-for-log-ingestion-in-azure-monitor"></a>Comptes de stockage appartenant au client pour l’ingestion des journaux dans Azure Monitor
 
-Azure Monitor utilise des comptes de stockage dans le processus d’ingestion de certains types de données tels que des [journaux personnalisés](data-sources-custom-logs.md) et certains [journaux Azure](azure-storage-iis-table.md). Pendant le processus d’ingestion, les journaux sont d’abord envoyés à un compte de stockage puis ingérés dans Log Analytics ou Application Insights. Si vous souhaitez contrôler vos données lors de l’ingestion, vous pouvez utiliser vos propres comptes de stockage au lieu du stockage géré par le service. L’utilisation de votre propre compte de stockage vous permet de contrôler l’accès, le contenu, le chiffrement et la rétention des journaux lors de l’ingestion. Nous appelons cela « Bring Your Own Storage », ou BYOS. 
+Azure Monitor utilise des comptes de stockage dans le processus d’ingestion de certains types de données tels que des [journaux personnalisés](data-sources-custom-logs.md) et certains [journaux Azure](azure-storage-iis-table.md). Pendant le processus d’ingestion, les journaux sont d’abord envoyés à un compte de stockage puis ingérés dans Log Analytics ou Application Insights. Si vous souhaitez contrôler vos données lors de l’ingestion, vous pouvez utiliser vos propres comptes de stockage au lieu du stockage géré par le service. L’utilisation de votre propre compte de stockage vous permet de contrôler l’accès, le contenu, le chiffrement et la conservation des journaux lors de l’ingestion. Nous appelons cela « Bring Your Own Storage », ou BYOS. 
 
 Un scénario qui requiert BYOS est l’isolement réseau via des liaisons privés. Lorsque vous utilisez un réseau virtuel, l’isolement réseau est souvent une exigence et l’accès à l’Internet public est limité. Dans ce cas, l’accès au stockage du service Azure Monitor pour l’ingestion de journaux est soit complètement bloqué, soit considéré comme une mauvaise pratique. Au lieu de cela, les journaux doivent être ingérés par le bais d’un compte de stockage appartenant au client au sein du réseau virtuel ou facilement accessible à partir de celui-ci.
 
@@ -232,4 +232,4 @@ Si le compte de stockage inscrit de votre espace de travail se trouve dans une a
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-- Pour plus d’informations sur la configuration d’une liaison privée, consultez [Utiliser Azure Private Link pour connecter en toute sécurité des réseaux à Azure Monitor}(private-link-security.md).
+- Pour plus d’informations sur la configuration d’une liaison privée, consultez [Utiliser Azure Private Link pour connecter en toute sécurité des réseaux à Azure Monitor](private-link-security.md).

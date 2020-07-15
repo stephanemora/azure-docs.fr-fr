@@ -3,12 +3,12 @@ title: Créer des stratégies par programmation
 description: Cet article vous explique comment créer et gérer des stratégies par programmation pour Azure Policy avec Azure CLI, Azure PowerShell et l’API REST.
 ms.date: 05/20/2020
 ms.topic: how-to
-ms.openlocfilehash: 8ee87ecd9e7c636b5bb63c8e94be0e353acc3e13
-ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
+ms.openlocfilehash: 3f785556dd86aa8b02f5aa0af09190266b8c509f
+ms.sourcegitcommit: f684589322633f1a0fafb627a03498b148b0d521
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/20/2020
-ms.locfileid: "83682126"
+ms.lasthandoff: 07/06/2020
+ms.locfileid: "85969887"
 ---
 # <a name="programmatically-create-policies"></a>Créer des stratégies par programmation
 
@@ -95,7 +95,7 @@ Pour une meilleure visibilité de vos ressources, la première chose à faire es
    - Abonnement : `/subscriptions/{subId}/`
    - Groupe d'administration : `/providers/Microsoft.Management/managementGroups/{mgName}`
 
-Pour plus d'informations sur la gestion des stratégies de ressources à l'aide du module Azure Resource Manager PowerShell, consultez [Az.Resources](/powershell/module/az.resources/#policies).
+Pour plus d’informations sur la gestion des stratégies de ressources à l’aide du module Resource Manager PowerShell, consultez [Az.Resources](/powershell/module/az.resources/#policies).
 
 ### <a name="create-and-assign-a-policy-definition-using-armclient"></a>Créer et assigner une définition de stratégie avec ARMClient
 

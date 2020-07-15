@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 09/06/2019
 ms.author: erhopf
-ms.openlocfilehash: 27229d36dbe9592b6ad6fc2740f7714f99fd6857
-ms.sourcegitcommit: d7fba095266e2fb5ad8776bffe97921a57832e23
+ms.openlocfilehash: cadbe79bbe0af2b5cebacb3d0c7c4e910fc7dbb8
+ms.sourcegitcommit: 9b5c20fb5e904684dc6dd9059d62429b52cb39bc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/09/2020
-ms.locfileid: "84629057"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85856836"
 ---
 # <a name="evaluate-custom-speech-accuracy"></a>Évaluer la précision de Custom Speech
 
@@ -23,7 +23,7 @@ Dans ce document, vous allez apprendre à quantifier la qualité du modèle de r
 
 ## <a name="what-is-word-error-rate-wer"></a>Qu’est-ce que le taux d'erreur de mots ?
 
-Le standard de mesure de la précision d’un modèle est le *taux d’erreur de mots*  (WER, de l’anglais « Word Error Rate »). Il compte le nombre de mots incorrects identifiés lors de la reconnaissance, puis le divise par le nombre total de mots fournis dans la transcription étiquetée à la main. Enfin, ce nombre est multiplié par 100 % pour calculer le taux WER.
+Le standard de mesure de la précision d’un modèle est le *taux d’erreur de mots*  (WER, de l’anglais « Word Error Rate »). Il compte le nombre de mots incorrects identifiés lors de la reconnaissance, puis le divise par le nombre total de mots fournis dans la transcription étiquetée à la main (il s’agit de « N » ci-dessous). Enfin, ce nombre est multiplié par 100 % pour calculer le taux WER.
 
 ![Formule du taux WER](./media/custom-speech/custom-speech-wer-formula.png)
 

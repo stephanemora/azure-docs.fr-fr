@@ -3,20 +3,23 @@ title: Présentation de Start/Stop VMs during off-hours d’Azure Automation
 description: Cet article décrit la fonctionnalité Start/Stop VMs during off-hours, qui démarre ou arrête des machines virtuelles selon une planification et les surveille de manière proactive à partir des journaux d’activité d’Azure Monitor.
 services: automation
 ms.subservice: process-automation
-ms.date: 04/28/2020
+ms.date: 06/04/2020
 ms.topic: conceptual
-ms.openlocfilehash: 7c0cc2b4996c1002aae0656234c356c805923811
-ms.sourcegitcommit: 0fa52a34a6274dc872832560cd690be58ae3d0ca
+ms.openlocfilehash: 3b4358651b811ba5c1e7644333a1e9f5a8da2990
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/29/2020
-ms.locfileid: "84205124"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84424072"
 ---
 # <a name="startstop-vms-during-off-hours-overview"></a>Vue d’ensemble de Start/Stop VMs during off-hours
 
 La fonctionnalité Start/Stop VMs during off-hours démarre ou arrête les machines virtuelles Azure activées. Elle démarre ou arrête les machines selon une planification définie par l’utilisateur. En outre, elle fournit des informations via Azure les Azure journaux Azure Monitor et peut envoyer des e-mails à l’aide de [groupes d’actions](../azure-monitor/platform/action-groups.md). La fonctionnalité peut être activée sur Azure Resource Manager et les machines virtuelles classiques dans la plupart des scénarios. 
 
-Cette fonctionnalité utilise la cmdlet [Start-AzureRmVM](https://docs.microsoft.com/powershell/module/azurerm.compute/start-azurermvm?view=azurermps-6.13.0) pour démarrer des machines virtuelles. Elle utilise [Stop-AzureRmVM](https://docs.microsoft.com/powershell/module/AzureRM.Compute/Stop-AzureRmVM?view=azurermps-6.13.0) pour l’arrêt des machines virtuelles.
+Cette fonctionnalité utilise l’applet de commande [Start-AzVm](https://docs.microsoft.com/powershell/module/az.compute/start-azvm) pour démarrer des machines virtuelles. Elle utilise [Stop-AzVM](https://docs.microsoft.com/powershell/module/az.compute/stop-azvm) pour l’arrêt des machines virtuelles.
+
+> [!NOTE]
+> Les runbooks ont été mis à jour pour utiliser les nouvelles applets de commande du module Azure Az et utilisent l’alias de préfixe AzureRM.
 
 > [!NOTE]
 > Start/Stop VMs during off-hours a été mise à jour pour prendre en charge les versions les plus récentes des modules Azure disponibles. La version mise à jour de cette fonctionnalité, disponible sur Place de marché, ne prend pas en charge les modules AzureRM, car nous avons migré des modules AzureRM vers des modules Az.
@@ -73,7 +76,7 @@ Afin d’activer des machines virtuelles pour la fonctionnalité Start/Stop VMs 
 
 Vous pouvez activer des machines virtuelles pour la fonctionnalité Start/Stop VMs during off-hours à l’aide d’un compte Automation et d’un espace de travail Log Analytics nouvellement créés. Dans ce cas, vous avez non seulement besoin des autorisations définies dans la section précédente, mais encore de celles définies dans cette section. Vous avez également besoin des rôles suivants :
 
-- Coadministrateur pour l'abonnement. Ce rôle est requis pour créer le compte d’identification Classic si vous comptez gérer des machines virtuelles classiques. Les [comptes d’identification Classic](automation-create-standalone-account.md#create-a-classic-run-as-account) ne sont plus créés par défaut.
+- Coadministrateur pour l’abonnement. Ce rôle est requis pour créer le compte d’identification Classic si vous comptez gérer des machines virtuelles classiques. Les [comptes d’identification Classic](automation-create-standalone-account.md#create-a-classic-run-as-account) ne sont plus créés par défaut.
 - Appartenance au rôle Développeur d’applications [Azure AD](../active-directory/users-groups-roles/directory-assign-admin-roles.md). Pour plus d’informations sur la configuration de comptes d’identification, voir [Autorisations pour configurer des comptes d’identification](manage-runas-account.md#permissions).
 - Contributeur sur l’abonnement ou les autorisations suivantes.
 
@@ -90,7 +93,7 @@ Vous pouvez activer des machines virtuelles pour la fonctionnalité Start/Stop V
 
 ## <a name="components"></a>Components
 
-La fonctionnalité Start/Stop VMs during off-hours inclut des runbooks, des planifications et une intégration préconfigurés avec des journaux d’activité Azure Monitor. Vous pouvez utiliser ces éléments pour adapter le démarrage et l’arrêt de vos machines virtuelles aux besoins de votre entreprise.
+La fonctionnalité Start/Stop VMs during off-hours inclut des runbooks, des planifications et une intégration préconfigurés avec les journaux Azure Monitor. Vous pouvez utiliser ces éléments pour adapter le démarrage et l’arrêt de vos machines virtuelles aux besoins de votre entreprise.
 
 ### <a name="runbooks"></a>Runbooks
 
@@ -132,7 +135,7 @@ Le tableau suivant répertorie les variables créées dans votre compte Automati
 |External_AutoStop_TimeAggregationOperator | Opérateur d’agrégation de temps appliqué à la taille de la fenêtre sélectionnée pour évaluer la condition. Les valeurs possibles sont `Average`, `Minimum`, `Maximum`, `Total` et `Last`.|
 |External_AutoStop_TimeWindow | Taille de la fenêtre durant laquelle Azure analyse la métrique sélectionnée pour déclencher une alerte. Ce paramètre accepte une entrée au format d’un intervalle de temps. Les valeurs possibles sont comprises entre 5 minutes et 6 heures.|
 |External_EnableClassicVMs| Valeur spécifiant si les machines virtuelles classiques sont ciblées par la fonctionnalité. La valeur par défaut est True. Définissez cette variable sur False pour les abonnements de fournisseurs de solutions Azure Cloud (CSP). Un [compte d’identification Classic](automation-create-standalone-account.md#create-a-classic-run-as-account) est nécessaire pour les machines virtuelles Classic.|
-|External_ExcludeVMNames | Liste séparée par des virgules des noms de machines virtuelles à exclure, limitée à 140 machines virtuelles. Si vous ajoutez plus de 140 machines virtuelles à la liste, les machines virtuelles définies comme exclues pourraient être démarrées ou arrêtées par inadvertance.|
+|External_ExcludeVMNames | Liste séparée par des virgules des noms de machines virtuelles à exclure, limitée à 140 machines virtuelles. Si vous ajoutez plus de 140 machines virtuelles à la liste, les machines virtuelles spécifiées pour l’exclusion pourraient être démarrées ou arrêtées par inadvertance.|
 |External_Start_ResourceGroupNames | Liste séparée par des virgules d’un ou de plusieurs groupes de ressources ciblés pour des actions de démarrage.|
 |External_Stop_ResourceGroupNames | Liste séparée par des virgules d’un ou de plusieurs groupes de ressources ciblés pour des actions d’arrêt.|
 |External_WaitTimeForVMRetrySeconds |Délai d’attente, en secondes, des actions à effectuer sur les machines virtuelles pour le runbook **SequencedStartStop_Parent**. Cette variable permet au runbook d’attendre des opérations enfants pendant un nombre de secondes spécifié avant de passer à l’action suivante. Le délai d’attente maximal est 10800, soit trois heures. La valeur par défaut est 2100 secondes.|

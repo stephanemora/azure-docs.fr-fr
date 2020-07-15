@@ -5,15 +5,15 @@ author: cynthn
 ms.service: virtual-machines
 ms.workload: infrastructure-services
 ms.topic: article
-ms.date: 03/25/2020
+ms.date: 06/26/2020
 ms.author: cynthn
 ms.reviewer: jagaveer
-ms.openlocfilehash: 3f341271c208cc56a704c836433c33af0129a4ac
-ms.sourcegitcommit: 31e9f369e5ff4dd4dda6cf05edf71046b33164d3
+ms.openlocfilehash: d6560f11d26200bdd9f39c4cbae643022872d362
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/22/2020
-ms.locfileid: "81758364"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85506070"
 ---
 # <a name="deploy-spot-vms-using-the-azure-cli"></a>Déployer des machines virtuelles Spot avec Azure CLI
 
@@ -23,7 +23,7 @@ Les tarifs des machines virtuelles Spot sont variables, en fonction de la régio
 
 Vous avez la possibilité de définir un prix maximal que vous êtes prêt à payer, par heure, pour la machine virtuelle. Le prix maximal d’une machine virtuelle Spot peut être défini en dollars américains (USD), en utilisant jusqu’à 5 décimales. Par exemple, la valeur `0.98765` correspond à un prix maximal de 0,98765 $ USD par heure. Si vous définissez `-1` comme prix maximal, la machine virtuelle n’est pas supprimée en fonction du prix. Le prix de la machine virtuelle sera le prix actuel de Spot ou le prix d’une machine virtuelle standard, la valeur la plus faible étant retenue, à condition que la capacité et le quota soient disponibles. Pour plus d’informations sur la définition du prix maximal, consultez [Machines virtuelles Spot - Tarifs](spot-vms.md#pricing).
 
-Le processus de création d’une machine virtuelle Spot à l’aide d’Azure CLI est le même que celui décrit dans l’[article de démarrage rapide](/azure/virtual-machines/linux/quick-create-cli). Ajoutez simplement le paramètre « --priority Spot » et indiquez un prix maximal ou `-1`.
+Le processus de création d’une machine virtuelle Spot à l’aide d’Azure CLI est le même que celui décrit dans l’[article de démarrage rapide](/azure/virtual-machines/linux/quick-create-cli). Ajoutez simplement le paramètre « --priority Spot », définissez `--eviction-policy` avec Deallocate (par défaut) ou `Delete`, puis indiquez un prix maximal ou `-1`. 
 
 
 ## <a name="install-azure-cli"></a>Installation de l’interface de ligne de commande Azure
@@ -38,7 +38,7 @@ az login
 
 ## <a name="create-a-spot-vm"></a>Créer une machine virtuelle Spot
 
-Cet exemple montre comment déployer une machine virtuelle Spot Linux qui ne sera pas supprimée en fonction du prix. 
+Cet exemple montre comment déployer une machine virtuelle Spot Linux qui ne sera pas supprimée en fonction du prix. La stratégie d’éviction est définie pour désallouer la machine virtuelle, afin qu’elle puisse être redémarrée ultérieurement. Si vous souhaitez supprimer la machine virtuelle et le disque sous-jacent quand la machine virtuelle est supprimée, définissez `--eviction-policy` avec `Delete`.
 
 ```azurecli
 az group create -n mySpotGroup -l eastus
@@ -49,8 +49,11 @@ az vm create \
     --admin-username azureuser \
     --generate-ssh-keys \
     --priority Spot \
-    --max-price -1
+    --max-price -1 \
+    --eviction-policy Deallocate
 ```
+
+
 
 Une fois la machine virtuelle créée, vous pouvez effectuer une requête pour voir le prix de facturation maximal pour toutes les machines virtuelles du groupe de ressources.
 
@@ -63,6 +66,6 @@ az vm list \
 
 **Étapes suivantes**
 
-Vous pouvez également créer une machine virtuelle Spot à l’aide d’[Azure PowerShell](../windows/spot-powershell.md) ou d’un [modèle](spot-template.md).
+Vous pouvez également créer une machine virtuelle Spot à l’aide d’[Azure PowerShell](../windows/spot-powershell.md), du [portail](../windows/spot-portal.md) ou d’un [modèle](spot-template.md).
 
 Si vous rencontrez une erreur, consultez [Codes d’erreur](../error-codes-spot.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).

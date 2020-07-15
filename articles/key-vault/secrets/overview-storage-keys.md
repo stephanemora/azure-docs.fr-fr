@@ -9,16 +9,16 @@ author: msmbaldwin
 ms.author: mbaldwin
 manager: rkarlin
 ms.date: 09/18/2019
-ms.openlocfilehash: 1125bafa43ce1752c58d1cce0bba66a6bbd32c32
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 58f41742519effc3959a3868345ed77c64db6341
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81685430"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85508501"
 ---
 # <a name="manage-storage-account-keys-with-key-vault-and-the-azure-cli"></a>Gérer les clés de compte de stockage avec Key Vault et l’interface de ligne de commande Azure
 
-Un compte de stockage Azure utilise des informations d’identification comprenant un nom de compte et une clé. La clé qui est générée automatiquement sert de mot de passe et non de clé de chiffrement. Key Vault gère les clés de compte de stockage en les stockant en tant que secrets Key Vault. 
+Un compte de stockage Azure utilise des informations d’identification comprenant un nom de compte et une clé. La clé qui est générée automatiquement sert de mot de passe et non de clé de chiffrement. Key Vault gère les clés de compte de stockage en les regénérant régulièrement dans le compte de stockage. De plus, il fournit des jetons de signature d’accès partagé pour permettre un accès délégué aux ressources de votre compte de stockage.
 
 Vous pouvez utiliser la fonctionnalité de clé de compte de stockage gérée de Key Vault pour lister (synchroniser) les clés avec un compte de stockage Azure et regénérer (faire tourner) régulièrement les clés. Vous pouvez gérer les clés des comptes de stockage et des comptes de stockage classiques.
 
@@ -125,11 +125,11 @@ Une fois l’opération exécutée avec succès, copiez la sortie.
 "se=2020-01-01&sp=***"
 ```
 
-Cette sortie est transmise au paramètre `--template-id` à l’étape suivante.
+Cette sortie est transmise au paramètre `--template-uri` à l’étape suivante.
 
 ### <a name="generate-a-shared-access-signature-definition"></a>Générer une définition de signature d’accès partagé
 
-Utilisez la commande Azure CLI [az keyvault storage sas-definition create](/cli/azure/keyvault/storage/sas-definition?view=azure-cli-latest#az-keyvault-storage-sas-definition-create), en transmettant la sortie de l’étape précédente au paramètre `--template-id`, afin de créer une définition de signature d’accès partagé.  Vous pouvez fournir le nom de votre choix au paramètre `-n`.
+Utilisez la commande Azure CLI [az keyvault storage sas-definition create](/cli/azure/keyvault/storage/sas-definition?view=azure-cli-latest#az-keyvault-storage-sas-definition-create), en transmettant la sortie de l’étape précédente au paramètre `--template-uri`, afin de créer une définition de signature d’accès partagé.  Vous pouvez fournir le nom de votre choix au paramètre `-n`.
 
 ```azurecli-interactive
 az keyvault storage sas-definition create --vault-name <YourKeyVaultName> --account-name <YourStorageAccountName> -n <YourSASDefinitionName> --validity-period P2D --sas-type account --template-uri <OutputOfSasTokenCreationStep>

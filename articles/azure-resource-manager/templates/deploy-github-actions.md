@@ -2,13 +2,13 @@
 title: Déployer des modèles Resource Manager à l’aide de GitHub Actions
 description: Décrit comment déployer des modèles Azure Resource Manager à l’aide de GitHub Actions.
 ms.topic: conceptual
-ms.date: 05/05/2020
-ms.openlocfilehash: f2e0d73c838d16c161605972b87d6f07ef8869b9
-ms.sourcegitcommit: 64fc70f6c145e14d605db0c2a0f407b72401f5eb
+ms.date: 07/02/2020
+ms.openlocfilehash: 313354499901bc69ec6e00f0ba7c385065cae615
+ms.sourcegitcommit: 9b5c20fb5e904684dc6dd9059d62429b52cb39bc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "83869181"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85854738"
 ---
 # <a name="deploy-azure-resource-manager-templates-by-using-github-actions"></a>Déployer des modèles Azure Resource Manager à l’aide de GitHub Actions
 
@@ -82,7 +82,7 @@ Vous pouvez placer le fichier n’importe où dans le référentiel. L’exemple
 
 ## <a name="create-workflow"></a>Créer un workflow
 
-Le fichier de workflow doit être stocké dans le dossier **.github/workflow** à la racine de votre référentiel. L’extension du fichier de workflow peut être **.yml** ou **.yaml**.
+Le fichier de workflow doit être stocké dans le dossier **.github/workflows** à la racine de votre référentiel. L’extension du fichier de workflow peut être **.yml** ou **.yaml**.
 
 Vous pouvez soit créer un fichier de workflow puis envoyer/télécharger le fichier vers le référentiel, soit utiliser la procédure suivante :
 

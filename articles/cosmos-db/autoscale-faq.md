@@ -6,12 +6,12 @@ ms.author: dech
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 05/10/2020
-ms.openlocfilehash: b398f739189232f39a2fee06fc6e6ff0d53348f0
-ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
+ms.openlocfilehash: ca4e79977132586c619f323015f9d915e04707f1
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83656609"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84449513"
 ---
 # <a name="frequently-asked-questions-about-autoscale-provisioned-throughput-in-azure-cosmos-db"></a>Forum aux questions sur le débit provisionné en mode de mise à l’échelle automatique dans Azure Cosmos DB
 
@@ -86,6 +86,10 @@ Oui, la mise à l’échelle automatique est prise en charge pour les bases de d
 
 ### <a name="what-is-the-number-of-allowed-containers-per-shared-throughput-database-when-autoscale-is-enabled"></a>Quel est le nombre de conteneurs autorisé par base de données à débit partagé quand la mise à l’échelle automatique est activée ?
 Azure Cosmos DB applique un maximum de 25 conteneurs dans une base de données à débit partagé, qui s’applique aux bases de données avec mise à l’échelle automatique ou débit standard (manuel). 
+
+### <a name="what-is-the-impact-of-autoscale-on-database-consistency-level"></a>Quel est l’impact de la mise à l’échelle automatique au niveau de la cohérence des bases de données ?
+La mise à l’échelle automatique n’a aucun impact sur la cohérence des bases de données.
+Pour plus d’informations sur les niveaux de cohérence disponibles, consultez l’article [Niveaux de cohérence](consistency-levels.md).
 
 ### <a name="what-is-the-storage-limit-associated-with-each-max-rus-option"></a>Quelle est la limite de stockage associée à chaque option RU/s max ?  
 La limite de stockage en Go pour chaque RU/s max est de : RU/s max de base de données ou conteneur / 100. Par exemple, si le nombre maximal de RU/s est de 20 000, la ressource peut prendre en charge 200 Go de stockage. Pour connaître le nombre maximal de RU/s disponibles et les options de stockage, consultez l’article sur les [limites de la mise à l’échelle automatique](provision-throughput-autoscale.md#autoscale-limits). 

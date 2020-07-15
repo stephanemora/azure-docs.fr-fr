@@ -3,12 +3,12 @@ title: Tableau de prise en charge pour la sauvegarde de machines virtuelles Azur
 description: Fournit un récapitulatif des limitations et des paramètres de prise en charge de la sauvegarde de machines virtuelles Azure avec le service Sauvegarde Azure.
 ms.topic: conceptual
 ms.date: 09/13/2019
-ms.openlocfilehash: b331fe757fc18029aa270f805c72150161a38f47
-ms.sourcegitcommit: 1f25aa993c38b37472cf8a0359bc6f0bf97b6784
+ms.openlocfilehash: 904240e066a83fa1278d663b8614b5b9269ba4d3
+ms.sourcegitcommit: f684589322633f1a0fafb627a03498b148b0d521
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/26/2020
-ms.locfileid: "83849414"
+ms.lasthandoff: 07/06/2020
+ms.locfileid: "85970669"
 ---
 # <a name="support-matrix-for-azure-vm-backup"></a>Tableau de prise en charge pour la sauvegarde de machines virtuelles Azure
 
@@ -17,7 +17,7 @@ Vous pouvez utiliser le [service Sauvegarde Azure](backup-overview.md) pour sauv
 Autres tableaux de prise en charge :
 
 - [Tableau de prise en charge générale](backup-support-matrix.md) pour Sauvegarde Azure
-- [Tableau de prise en charge](backup-support-matrix-mabs-dpm.md) pour le serveur de sauvegarde Azure/la sauvegarde System Center Data Protection Manager
+- [Tableau de prise en charge](backup-support-matrix-mabs-dpm.md) pour le serveur de sauvegarde Azure ou la sauvegarde System Center Data Protection Manager
 - [Tableau de prise en charge](backup-support-matrix-mars-agent.md) de la sauvegarde avec l’agent MARS (Microsoft Azure Recovery Services)
 
 ## <a name="supported-scenarios"></a>Scénarios pris en charge
@@ -63,7 +63,7 @@ Le tableau suivant récapitule les systèmes d’exploitation pris en charge lor
 
 **Scénario** | **Système d’exploitation pris en charge**
 --- | ---
-Sauvegarder avec l’extension de l’agent de machine virtuelle Azure | - Client Windows 10 (64 bits uniquement) <br/><br/>- Windows Server 2019 (Datacenter/Datacenter Core/Standard) <br/><br/> - Windows Server 2016 (Datacenter/Datacenter Core/Standard) <br/><br/> - Windows Server 2012 R2 (Datacenter/Standard) <br/><br/> - Windows Server 2008 R2 (RTM et SP1 Standard)  <br/><br/> - Windows Server 2008 (64 bits uniquement)
+Sauvegarder avec l’extension de l’agent de machine virtuelle Azure | - Client Windows 10 (64 bits uniquement) <br/><br/>- Windows Server 2019 (Datacenter/Datacenter Core/Standard) <br/><br/> - Windows Server 2016 (Datacenter/Datacenter Core/Standard) <br/><br/> - Windows Server 2012 R2 (Datacenter/Standard) <br/><br/> - Windows Server 2012 (Datacenter/Standard) <br/><br/> - Windows Server 2008 R2 (RTM et SP1 Standard)  <br/><br/> - Windows Server 2008 (64 bits uniquement)
 Sauvegarder avec l’agent MARS | Systèmes d’exploitation [pris en charge](backup-support-matrix-mars-agent.md#supported-operating-systems).
 Sauvegarder avec DPM/MABS | Systèmes d’exploitation pris en charge pour la sauvegarde avec [MABS](backup-mabs-protection-matrix.md) et [DPM](https://docs.microsoft.com/system-center/dpm/dpm-protection-matrix?view=sc-dpm-1807).
 
@@ -153,12 +153,13 @@ Cohérence multimachine virtuelle de la sauvegarde | La Sauvegarde Azure ne four
 Sauvegarde avec les [Paramètres de diagnostic](https://docs.microsoft.com/azure/azure-monitor/platform/diagnostic-logs-overview)  | Non prise en charge. <br/><br/> Si la restauration de la machine virtuelle Azure avec les paramètres de diagnostic est déclenchée à l’aide de l’option [Créer](backup-azure-arm-restore-vms.md#create-a-vm), la restauration échoue.
 Restauration des machines virtuelles épinglées par zone | Prise en charge (pour une machine virtuelle sauvegardée après janvier 2019 et pour laquelle la [zone de disponibilité](https://azure.microsoft.com/global-infrastructure/availability-zones/) est disponible)<br/><br/>Nous prenons actuellement en charge la restauration dans la même zone que celle épinglée dans des machines virtuelles. Toutefois, si la zone n’est pas disponible, la restauration échoue.
 Machines virtuelles de deuxième génération | Prise en charge <br> Sauvegarde Azure prend en charge la sauvegarde et la restauration des [machines virtuelles de deuxième génération](https://azure.microsoft.com/updates/generation-2-virtual-machines-in-azure-public-preview/). Lorsque ces machines virtuelles sont restaurées à partir du point de récupération, elles sont restaurées sous la forme de [machines virtuelles de deuxième génération](https://azure.microsoft.com/updates/generation-2-virtual-machines-in-azure-public-preview/).
+Sauvegarde des machines virtuelles Azure avec des verrous | Non pris en charge pour les machines virtuelles non managées. <br><br> Pris en charge pour les machines virtuelles managées.
 
 ## <a name="vm-storage-support"></a>Prise en charge du stockage des machines virtuelles
 
 **Composant** | **Support**
 --- | ---
-Disques de données de machine virtuelle Azure | Prise en charge de la sauvegarde des machines virtuelles Azure avec un maximum de 32 disques en préversion publique dans [ces régions](#backup-of-azure-virtual-machines-with-up-to-32-disks).<br><br> Prise en charge de la sauvegarde des machines virtuelles Azure avec des disques non managés ou des machines virtuelles classiques avec 16 disques uniquement.
+Disques de données de machine virtuelle Azure | La prise en charge de la sauvegarde des machines virtuelles Azure avec un maximum de 32 disques est actuellement en préversion publique dans toutes les régions, à l’exception des clouds nationaux (Azure Government, Azure Chine et Azure Allemagne).<br><br> Prise en charge de la sauvegarde des machines virtuelles Azure avec des disques non managés ou des machines virtuelles classiques avec 16 disques uniquement.
 Taille de disque de données | La taille d’un disque individuel peut atteindre jusqu’à 32 To et un maximum de 256 To combinés pour tous les disques d’une machine virtuelle.
 Type de stockage | HDD Standard, SSD Standard, SSD Premium.
 Disques managés | Pris en charge.
@@ -169,13 +170,6 @@ Ajouter un disque à une machine virtuelle protégée | Pris en charge.
 Redimensionner un disque sur une machine virtuelle protégée | Pris en charge.
 Stockage partagé| La sauvegarde des machines virtuelles à l’aide d’un volume partagé de cluster (CSV) ou d’un serveur de fichiers avec montée en puissance parallèle n’est pas recommandée. En effet, il existe un risque d’échec pour les enregistreurs de volumes partagés de cluster lors de la sauvegarde. Lors de la restauration, les disques contenant des volumes partagés de cluster risquent de ne pas apparaître.
 [Disques partagés](https://docs.microsoft.com/azure/virtual-machines/windows/disks-shared-enable) | Non pris en charge.
-
-### <a name="backup-of-azure-virtual-machines-with-up-to-32-disks"></a>Sauvegarde de machines virtuelles Azure (jusqu’à 32 disques)
-
-Sauvegarde Azure prend désormais en charge la sauvegarde de machines virtuelles Azure avec jusqu’à 32 disques attachés.  Cette fonctionnalité est en préversion publique dans les régions suivantes : USA Centre-Ouest, Canada Centre, Asie Sud-Est, Brésil Sud, Canada Est, France Centre, France Sud, Inde Centre, Japon Est, Japon Ouest, Corée Centre, Corée Sud, Afrique du Sud Nord, Royaume-Uni Sud, Royaume-Uni Ouest, Australie Est.  Si vous êtes intéressé par cette fonctionnalité dans d’autres régions, écrivez-nous à l’adresse AskAzureBackupTeam@microsoft.com pour vous inscrire à la préversion limitée.  
-
->[!NOTE]
->Sauvegarde Azure prend uniquement en charge jusqu’à 16 disques pour les machines virtuelles Azure avec des disques non managés ou des machines virtuelles classiques.
 
 ## <a name="vm-network-support"></a>Prise en charge des réseaux de machines virtuelles
 

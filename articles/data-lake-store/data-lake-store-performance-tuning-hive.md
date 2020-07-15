@@ -3,15 +3,15 @@ title: Optimisation du niveau de performance – Hive sur Azure Data Lake Storag
 description: Recommandations en matière d’optimisation des performances pour Hive sur HDInsight et Azure Data Lake Storage Gen1.
 author: stewu
 ms.service: data-lake-store
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 12/19/2016
 ms.author: stewu
-ms.openlocfilehash: 2e44332ddab9387c05a45d15101ccd2bdec3ada4
-ms.sourcegitcommit: 366e95d58d5311ca4b62e6d0b2b47549e06a0d6d
+ms.openlocfilehash: c49388d50b79b037b0a0923f2c5e9ac72105c54e
+ms.sourcegitcommit: 9b5c20fb5e904684dc6dd9059d62429b52cb39bc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/01/2020
-ms.locfileid: "82690523"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85855760"
 ---
 # <a name="performance-tuning-guidance-for-hive-on-hdinsight-and-azure-data-lake-storage-gen1"></a>Recommandations en matière d’optimisation des performances pour Hive sur HDInsight et Azure Data Lake Storage Gen1
 
@@ -55,17 +55,15 @@ Des charges de travail d’e/s intensives peuvent bénéficier de davantage de p
 
 Le nombre de tâches simultanées en cours d’exécution ou le parallélisme sera limité par la mémoire YARN totale.  Le nombre de conteneurs YARN détermine le nombre de tâches simultanées pouvant être exécutées.  Pour rechercher la mémoire YARN par nœud, vous pouvez accéder à Ambari.  Accédez à YARN et affichez l’onglet Configurations.  La mémoire YARN s’affiche dans cette fenêtre.  
 
-        Total YARN memory = nodes * YARN memory per node
-        # of YARN containers = Total YARN memory / Tez container size
+> Mémoire YARN totale = nœuds * mémoire YARN par nœud Nombre de conteneurs YARN = total de la mémoire YARN / taille du conteneur Tez
+
 La clé de l’amélioration des performances à l’aide de Data Lake Storage Gen1 consiste à augmenter la concurrence autant que possible.  Tez calcule automatiquement le nombre de tâches à créer pour que vous ne deviez pas le définir.   
 
 ## <a name="example-calculation"></a>Exemple de calcul
 
 Supposons que vous disposiez d’un cluster D14 à 8 nœuds.  
 
-    Total YARN memory = nodes * YARN memory per node
-    Total YARN memory = 8 nodes * 96GB = 768GB
-    # of YARN containers = 768GB / 3072MB = 256
+> Mémoire YARN totale = nœuds * mémoire YARN par nœud Mémoire YARN totale = 8 nœuds * 96 Go = 768 GB Nombre de conteneurs YARN = 768 GB / 3072 MB = 256
 
 ## <a name="limitations"></a>Limites
 

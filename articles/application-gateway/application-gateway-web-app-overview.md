@@ -6,14 +6,14 @@ services: application-gateway
 author: vhorne
 ms.service: application-gateway
 ms.topic: article
-ms.date: 11/14/2019
+ms.date: 06/09/2020
 ms.author: victorh
-ms.openlocfilehash: a171dc795e685655b5a3c73d088d3963c2aaa4ae
-ms.sourcegitcommit: 7e04a51363de29322de08d2c5024d97506937a60
+ms.openlocfilehash: 308098bd1ac49510afccf0a7964face726906332
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/14/2020
-ms.locfileid: "81312322"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84628686"
 ---
 # <a name="application-gateway-support-for-multi-tenant-back-ends-such-as-app-service"></a>Prise en charge d’Application Gateway pour les back-ends multilocataires tels qu’App Service
 
@@ -42,7 +42,7 @@ Avec cette fonctionnalité, les clients spécifient les options dans les paramè
 
 ### <a name="tls-termination-and-end-to-end-tls-with-multi-tenant-services"></a>Arrêt TLS et protocole TLS de bout en bout avec les services multi-locataires
 
-L'arrêt TLS et le chiffrement TLS de bout en bout sont tous deux pris en charge avec les services multi-locataires. Pour un arrêt TLS au niveau de la passerelle d'application, l'ajout du certificat TLS à l'écouteur de la passerelle d'application est toujours requis. En revanche, pour le de protocole TLS de bout en bout, les services Azure approuvés, tels que les applications web du service Azure App, n'exigent pas que les serveurs principaux de la passerelle d'application soient mis en liste verte. Par conséquent, il n’est pas nécessaire d’ajouter de certificat d’authentification. 
+L'arrêt TLS et le chiffrement TLS de bout en bout sont tous deux pris en charge avec les services multi-locataires. Pour un arrêt TLS au niveau de la passerelle d'application, l'ajout du certificat TLS à l'écouteur de la passerelle d'application est toujours requis. En revanche, pour le de protocole TLS de bout en bout, les services Azure approuvés, tels que les applications web du service Azure App, n’exigent pas l’autorisation des serveurs principaux de la passerelle d’application. Par conséquent, il n’est pas nécessaire d’ajouter de certificat d’authentification. 
 
 ![Protocole TLS de bout en bout](./media/application-gateway-web-app-overview/end-to-end-ssl.png)
 

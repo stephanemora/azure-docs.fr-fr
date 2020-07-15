@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/28/2019
 ms.author: terrylan
-ms.openlocfilehash: baa0ad790491351a17b638ba9d8eb75ed1f355b0
-ms.sourcegitcommit: 0690ef3bee0b97d4e2d6f237833e6373127707a7
+ms.openlocfilehash: aa662dfbd98be5ec16a30e690f28196ca3868390
+ms.sourcegitcommit: 9b5c20fb5e904684dc6dd9059d62429b52cb39bc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/21/2020
-ms.locfileid: "83758620"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85855892"
 ---
 # <a name="azure-identity-management-and-access-control-security-best-practices"></a>Meilleures pratiques en matière de sécurité du contrôle d’accès et de la gestion des identités Azure
 
@@ -167,7 +167,7 @@ Voici les options et les avantages de la vérification en deux étapes :
 * Exiger une stimulation MFA via Microsoft Authenticator pour tous les utilisateurs
 * Restreindre les protocoles d’authentification hérités.
 
-Cette méthode est disponible pour tous les niveaux de licence, mais elle ne peut pas être combinée à des stratégies d’accès conditionnel existantes. Vous trouverez plus d’informations dans la section consacrée aux valeurs par défaut de sécurité d’Azure AD
+Cette méthode est disponible pour tous les niveaux de licence, mais elle ne peut pas être combinée à des stratégies d’accès conditionnel existantes. Vous trouverez plus d’informations dans la section [Valeurs par défaut de la sécurité Azure AD](/azure/active-directory/fundamentals/concept-fundamentals-security-defaults)
 
 **Option 2** : [Activez Multi-Factor Authentication en modifiant l’état de l’utilisateur](../../active-directory/authentication/howto-mfa-userstates.md).   
 **Avantage** : C’est la méthode traditionnelle pour exiger une vérification en deux étapes. Elle fonctionne avec [l’authentification multifacteur Azure dans le cloud et le serveur Multi-Factor Authentication Azure](/azure/active-directory/authentication/concept-mfa-whichversion). Cette méthode nécessite que les utilisateurs effectuent la vérification en deux étapes chaque fois qu’ils se connectent, puis remplace les stratégies d’accès conditionnel.
@@ -189,7 +189,7 @@ Il s’agit de la méthode la plus souple pour activer la vérification en deux 
 Cette méthode utilise l’évaluation de risques d’Azure AD Identity Protection pour déterminer si la vérification en deux étapes est exigée en se basant sur les risques de l’utilisateur et de la connexion pour toutes les applications cloud. Cette méthode requiert une licence Azure Active Directory P2. Vous trouverez plus d’informations sur cette méthode dans [Azure Active Directory Identity Protection](/azure/active-directory/identity-protection/overview).
 
 > [!Note]
-> Option 1, l’activation de Multi-Factor Authentication en changeant l’état de l’utilisateur remplace les stratégies d’accès conditionnel. Étant donné que les options 2 et 3 utilisent des stratégies d’accès conditionnel, vous ne pouvez pas utiliser l’option 1 avec elles.
+> Option 2 : l’activation de Multi-Factor Authentication en changeant l’état de l’utilisateur remplace les stratégies d’accès conditionnel. Étant donné que les options 3 et 4 utilisent des stratégies d’accès conditionnel, vous ne pouvez pas utiliser l’option 2 avec elles.
 
 Les organisations qui n’ajoutent pas de couche supplémentaire de protection d’identité, comme la vérification en deux étapes, sont plus sensibles au vol d’informations d’identification. Le vol d’informations d’identification peut entraîner une compromission des données.
 

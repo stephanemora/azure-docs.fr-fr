@@ -5,15 +5,14 @@ ms.service: iot-central
 services: iot-central
 author: sarahhubbard
 ms.author: sahubbar
-ms.date: 03/03/2020
+ms.date: 06/08/2020
 ms.topic: how-to
-manager: peterpr
-ms.openlocfilehash: c9d5a0daa364b09e45699e898511c28d4b4d92ce
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: dec9abc38bc0354ef3d22994a7988bfb006f5769
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80157753"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84609716"
 ---
 # <a name="create-and-run-a-job-in-your-azure-iot-central-application"></a>Créer et exécuter un travail dans votre application Azure IoT Central
 
@@ -27,42 +26,42 @@ Cette section vous montre comment créer et exécuter un travail. Elle montre co
 
 2. Sélectionnez **+ Nouveau** pour créer un travail :
 
-    ![Créer un travail](./media/howto-run-a-job/createnewjob.png)
+    ![Créer un travail](./media/howto-run-a-job/create-new-job.png)
 
 3. Entrez un nom et une description pour identifier le travail que vous créez.
 
 4. Sélectionnez le groupe d’appareils cible auquel doit s’appliquer votre travail. Vous pouvez voir le nombre d’appareils auxquels votre configuration de travail s’applique dans la section **Récapitulatif**.
 
-5. Ensuite, choisissez **Propriété cloud**, **Propriété** ou **Commande** comme type de travail à configurer. Pour définir une configuration de travail de **Propriété**, sélectionnez une propriété et définissez sa nouvelle valeur. Pour configurer une **Commande**, choisissez la commande à exécuter. Un travail de propriété peut définir plusieurs propriétés :
+5. Choisissez ensuite **Propriété cloud**, **Propriété** ou **Commande** en tant que type de travail à configurer. Pour définir une configuration de travail de **Propriété**, sélectionnez une propriété et définissez sa nouvelle valeur. Pour configurer une **Commande**, choisissez la commande à exécuter. Un travail de propriété peut définir plusieurs propriétés :
 
-    ![Configurer le travail](./media/howto-run-a-job/configurejob.png)
+    ![Configurer le travail](./media/howto-run-a-job/configure-job.png)
 
 6. Après avoir créé votre travail, choisissez **Exécuter** ou **Enregistrer**. Le travail apparaît maintenant dans la page **Travaux** principale. Dans cette page, vous pouvez voir le travail en cours d’exécution et l’historique des travaux déjà exécutés ou enregistrés. Vos pouvez rouvrir votre travail enregistré à tout moment afin de le modifier ou de l’exécuter :
 
-    ![Afficher le travail](./media/howto-run-a-job/viewjob.png)
+    ![Afficher le travail](./media/howto-run-a-job/view-job.png)
 
     > [!NOTE]
     > Vous pouvez afficher jusqu’à 30 jours d’historique pour vos travaux exécutés.
 
 7. Pour obtenir une vue d’ensemble de votre travail, sélectionnez le travail à afficher dans la liste. Cette vue d’ensemble contient les détails du travail, ainsi que les noms et les états des appareils. Dans cette vue d’ensemble, vous pouvez également sélectionner **Détails du travail de téléchargement** pour télécharger un fichier CSV des détails de votre travail, notamment les appareils et leurs valeurs d’état. Ces informations peuvent être utiles pour le dépannage :
 
-    ![Afficher l’état de l’appareil](./media/howto-run-a-job/downloaddetails.png)
+    ![Afficher l’état de l’appareil](./media/howto-run-a-job/download-details.png)
 
-### <a name="manage-a-job"></a>Gérer un travail
+## <a name="manage-jobs"></a>Gestion des travaux
 
 Pour arrêter l’un de vos travaux en cours d’exécution, ouvrez-le et sélectionnez **Arrêter**. L’état du travail change pour indiquer qu’il est arrêté. La section **Récapitulatif** indique les appareils dont l’état est terminé, en échec ou en attente.
 
 Pour exécuter un travail qui est actuellement arrêté, sélectionnez-le, puis sélectionnez **Exécuter**. L’état du travail change pour indiquer qu’il est à nouveau en cours d’exécution. La section **Récapitulatif** continue à être mise à jour avec la progression la plus récente.
 
-![Gérer un travail](./media/howto-run-a-job/managejob.png)
+![Gérer un travail](./media/howto-run-a-job/manage-job.png)
 
 ## <a name="copy-a-job"></a>Copier un travail
 
 Pour copier l’un de vos travaux existants, sélectionnez-le dans la page **Travaux** et sélectionnez **Copier**. Une copie de la configuration du travail s’ouvre afin de vous permettre de le modifier, et **Copie** est ajouté au nom du travail. Vous pouvez enregistrer ou d’exécuter le nouveau travail :
 
-![Copier un travail](./media/howto-run-a-job/copyjob.png)
+![Copier un travail](./media/howto-run-a-job/copy-job.png)
 
-## <a name="view-the-job-status"></a>Afficher l’état d’un travail
+## <a name="view-job-status"></a>Afficher le statut de la tâche
 
 Une fois qu’un travail a été créé, la colonne **État** est mise à jour avec le dernier message d’état du travail. Le tableau suivant liste les valeurs d’état possibles :
 
@@ -81,18 +80,55 @@ Le message d’état est suivi d’une vue d’ensemble des appareils au sein du
 | Opération réussie            | Nombre d’appareils sur lesquels le travail s’est exécuté correctement.       |
 | Échec               | Nombre d’appareils sur lesquels l’exécution du travail a échoué.       |
 
-### <a name="view-the-device-status"></a>Afficher l’état des appareils
+### <a name="view-the-device-status-values"></a>Voir les valeurs d’état de l’appareil
 
-Pour voir l’état du travail et tous les appareils affectés, ouvrez le travail. Pour télécharger un fichier CSV des détails de votre travail, avec la liste des appareils et leurs valeurs d’état, sélectionnez **Détails du travail de téléchargement**. En regard du nom de chaque appareil, vous voyez un des messages d’état suivants :
+Pour voir l’état du travail et tous les appareils affectés, ouvrez le travail. En regard du nom de chaque appareil, vous voyez un des messages d’état suivants :
 
 | Message d’état       | Signification de l’état                                                                |
 | -------------------- | ----------------------------------------------------------------------------- |
 | Completed            | Le travail a été exécuté sur cet appareil.                                     |
-| Échec               | Le travail n’a pas pu être exécuté sur cet appareil. Le message d’erreur montre plus d’informations.  |
+| Échec               | L’exécution du travail a été un échec sur cet appareil. Le message d’erreur montre plus d’informations.  |
 | Pending              | Le travail n’a pas encore été exécuté sur cet appareil.                                   |
 
+Pour télécharger un fichier CSV qui comprend les détails du travail ainsi que la liste des appareils et leurs valeurs d’état, sélectionnez **Télécharger**.
+
+### <a name="filter-the-list-of-devices"></a>Filtrer la liste des appareils
+
+Vous pouvez filtrer la liste des appareils dans la page des détails du travail en sélectionnant l’icône de filtre. Vous pouvez filtrer les champs **ID d’appareil** ou **État** :
+
+:::image type="content" source="media/howto-run-a-job/filter.png" alt-text="Filtrer la liste des appareils":::
+
+### <a name="customize-columns-in-the-device-list"></a>Personnaliser les colonnes de la liste des appareils
+
+Vous pouvez choisir des colonnes supplémentaires à afficher dans la liste des appareils en sélectionnant l’icône d’options de colonne :
+
+:::image type="content" source="media/howto-run-a-job/column-options.png" alt-text="Options de colonne":::
+
+Vous voyez une boîte de dialogue qui vous permet de choisir les colonnes à afficher dans la liste des appareils. Sélectionnez les colonnes à afficher, sélectionnez l’icône représentant une flèche vers la droite, puis sélectionnez **OK**. Pour sélectionner toutes les colonnes disponibles, cochez **Tout sélectionner** :
+
+:::image type="content" source="media/howto-run-a-job/column-picker-popup.png" alt-text="Boîte de dialogue du sélecteur de colonnes":::
+
+Les colonnes sélectionnées s’affichent dans la liste des appareils :
+
+:::image type="content" source="media/howto-run-a-job/column-picker-column-selected.png" alt-text="Sélectionner les colonnes":::
+
+Les colonnes sélectionnées sont conservées tout au long d’une session utilisateur ou des sessions utilisateur ayant accès à l’application.
+
+## <a name="rerun-jobs"></a>Réexécuter les travaux
+
+Vous pouvez réexécuter un travail pour lequel des actions n’ont pas abouti sur certains appareils. Sélectionnez **Réexécuter** :
+
+:::image type="content" source="media/howto-run-a-job/rerun.png" alt-text="Réexécuter un travail":::
+
+Entrez le nom et la description du travail, puis sélectionnez **Réexécuter le travail**. Un nouveau travail est soumis pour que l’action soit retentée sur les appareils où un échec s’est produit :
+
+:::image type="content" source="media/howto-run-a-job/rerun-failed.png" alt-text="Réexécuter le travail sur les appareils où un échec s’est produit":::
+
 > [!NOTE]
-> Si un appareil a été supprimé, vous ne pouvez pas le sélectionner. Il s’affiche comme étant supprimé, avec mention de l’ID d’appareil.
+> Vous ne pouvez pas exécuter plus de cinq travaux à la fois à partir d’une application IoT Central.
+
+> [!NOTE]
+> Quand un travail a été effectué et que vous supprimez un appareil qui figure dans la liste d’appareils de ce travail, l’entrée de l’appareil s’affiche comme étant supprimée dans le nom de l’appareil. De plus, le lien des détails de l’appareil n’est pas disponible pour l’appareil supprimé.
 
 ## <a name="next-steps"></a>Étapes suivantes
 

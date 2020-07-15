@@ -1,33 +1,48 @@
 ---
 title: Avis de migration du trafic des passerelles
-description: Cet article informe les utilisateurs de la migration des adresses IP des passerelles Azure SQL Database
+description: Cet article informe les utilisateurs sur la migration des adresses IP des passerelles Azure SQL Database
 services: sql-database
-ms.service: sql-database
-ms.subservice: development
+ms.service: sql-db-mi
+ms.subservice: service
 ms.custom: sqldbrb=1 
 ms.topic: conceptual
 author: rohitnayakmsft
 ms.author: rohitna
 ms.reviewer: vanto
 ms.date: 07/01/2019
-ms.openlocfilehash: f5e45a4625b1cf9422f7ef7e10e9080a7878172d
-ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
+ms.openlocfilehash: e9bf1f06b1ec1f99da1ce653b4bc72f4638ba451
+ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "84028750"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86084951"
 ---
 # <a name="azure-sql-database-traffic-migration-to-newer-gateways"></a>Migration du trafic des bases de données Azure SQL Database vers des passerelles plus récentes
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
 
 Comme l’infrastructure Azure évolue, Microsoft actualise régulièrement le matériel, afin de proposer la meilleure expérience client possible. Dans les prochains mois, nous prévoyons d’ajouter des passerelles basées sur des générations de matériel plus récentes, de migrer le trafic vers ces passerelles et de mettre hors service les passerelles basées sur du matériel plus ancien dans certaines régions.  
 
-Les clients seront informés très tôt de toute modification apportée aux passerelles disponibles dans chaque région, par e-mail et via le portail Microsoft Azure. Les informations les plus récentes seront conservées dans la table [Adresses IP des passerelles Azure SQL Database](connectivity-architecture.md#gateway-ip-addresses).
+Les clients seront informés très tôt de toute modification apportée aux passerelles disponibles dans chaque région, par e-mail et via le Portail Microsoft Azure. Les informations les plus récentes seront conservées dans la table [Adresses IP des passerelles Azure SQL Database](connectivity-architecture.md#gateway-ip-addresses).
 
-## <a name="impact-of-this-change"></a>Portée de ce changement
+## <a name="status-updates"></a>Mises à jour d’état
 
-Le premier cycle de migration du trafic vers les passerelles plus récentes est prévu pour le **14 octobre 2019** dans les régions suivantes :
+# <a name="in-progress"></a>[En cours](#tab/in-progress-ip)
 
+### <a name="august-2020"></a>Août 2020
+
+De nouvelles passerelles SQL sont ajoutées aux régions suivantes :
+
+- Australie Est : 13.70.112.9
+- Canada Centre : 52.246.152.0, 20.38.144.1 
+- USA Ouest 2 : 40.78.240.8
+
+Ces passerelles SQL devraient commencer à accepter le trafic client le 10 août 2020. 
+
+# <a name="completed"></a>[Terminé](#tab/completed-ip)
+
+Les migrations de passerelle suivantes sont terminées : 
+
+### <a name="october-2019"></a>2 octobre 2019
 - Brésil Sud
 - USA Ouest
 - Europe Ouest
@@ -42,13 +57,18 @@ Le premier cycle de migration du trafic vers les passerelles plus récentes est 
 - USA Est 2
 - Asie Est
 
-La migration du trafic change l’adresse IP publique résolue par DNS pour votre base de données SQL.
-Vous êtes impacté dans les cas suivants :
+---
 
-- Vous avez codé en dur l’adresse IP d’une passerelle particulière dans votre pare-feu local.
-- Vous avez des sous-réseaux qui utilisent Microsoft.SQL comme point de terminaison de service, mais vous ne pouvez pas communiquer avec les adresses IP de passerelle.
+## <a name="impact-of-this-change"></a>Portée de ce changement
 
-Vous n’êtes pas impacté dans les cas suivants :
+La migration du trafic peut changer l’adresse IP publique résolue par DNS pour votre base de données dans Azure SQL Database.
+Vous risquez d’être impacté si :
+
+- Vous avez codé en dur l’adresse IP d’une passerelle particulière dans votre pare-feu local
+- Vous avez des sous-réseaux qui utilisent Microsoft.SQL comme point de terminaison de service, mais vous ne pouvez pas communiquer avec les adresses IP de passerelle
+- Vous utilisez la [configuration de zone redondante](high-availability-sla.md#zone-redundant-configuration) pour votre base de données
+
+Vous n’êtes pas impacté dans les cas suivants :
 
 - Vous utilisez la redirection comme stratégie de connexion.
 - Vous avez des connexions à SQL Database à partir d’Azure et vous utilisez des balises de service.

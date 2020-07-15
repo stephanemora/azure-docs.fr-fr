@@ -6,19 +6,19 @@ ms.author: mingshen
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
-ms.date: 05/19/2020
-ms.openlocfilehash: 16b44b3a4496e98f8b6b643bf76aa5aa7ce593c6
-ms.sourcegitcommit: 1f25aa993c38b37472cf8a0359bc6f0bf97b6784
+ms.date: 06/17/2020
+ms.openlocfilehash: 8a4ff5c5bce7774f805130f68d7418a73cb751f8
+ms.sourcegitcommit: 93462ccb4dd178ec81115f50455fbad2fa1d79ce
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/26/2020
-ms.locfileid: "83849091"
+ms.lasthandoff: 07/06/2020
+ms.locfileid: "85980343"
 ---
 # <a name="create-a-power-bi-app-for-microsoft-appsource"></a>Créer une application Power BI pour Microsoft AppSource
 
 Cet article explique comment créer une offre d’application Power BI et la publier sur Microsoft [AppSource](https://appsource.microsoft.com/).
 
-Avant de commencer, si ce n’est déjà fait, [créez un compte de la Place de marché commerciale dans l’Espace partenaires](https://docs.microsoft.com/azure/marketplace/partner-center-portal/create-account). Vérifiez que votre compte est inscrit dans le programme du marketplace commercial.
+Avant de commencer, si ce n’est déjà fait, [créez un compte de la Place de marché commerciale dans l’Espace partenaires](create-account.md). Vérifiez que votre compte est inscrit dans le programme du marketplace commercial.
 
 ## <a name="create-a-new-offer"></a>Créer une offre
 
@@ -26,7 +26,7 @@ Avant de commencer, si ce n’est déjà fait, [créez un compte de la Place de 
 2. Dans le menu de navigation de gauche, sélectionnez **Place de marché commerciale** > **Vue d’ensemble**.
 3. Dans la page de présentation, sélectionnez **+ Nouvelle offre** > **Application de service Power BI**.
 
-   ![Illustre le menu de navigation de gauche.](./media/new-offer-pbi-app.png)
+   ![Illustre le menu de navigation de gauche.](./media/new-offer-power-bi-app.png)
 
 > [!NOTE]
 > Après la publication d’une offre, les modifications qui lui ont été apportées dans l’Espace partenaires apparaissent uniquement dans les vitrines après la republication de l’offre. Veillez à toujours effectuer une nouvelle publication après avoir apporté des modifications.
@@ -55,10 +55,10 @@ La page montre une représentation visuelle des étapes nécessaires à la publi
 
 Elle contient des liens permettant d’effectuer des opérations sur cette offre en fonction de la sélection que vous effectuez. Par exemple :
 
-- Si l’offre est un brouillon : [Supprimer le brouillon de l’offre](https://docs.microsoft.com/azure/marketplace/partner-center-portal/update-existing-offer#delete-a-draft-offer)
-- Si l’offre est publiée : [Arrêter de vendre l’offre](https://docs.microsoft.com/azure/marketplace/partner-center-portal/update-existing-offer#stop-selling-an-offer-or-plan)
-- Si l’offre est disponible en préversion : [Mise en service](https://docs.microsoft.com/azure/marketplace/partner-center-portal/publishing-status#publisher-approval)
-- Si vous n’avez pas complété Déconnexion de l’éditeur : [Annuler la publication](https://docs.microsoft.com/azure/marketplace/partner-center-portal/update-existing-offer#cancel-publishing)
+- Si l’offre est un brouillon : [Supprimer le brouillon de l’offre](update-existing-offer.md#delete-a-draft-offer))
+- Si l’offre est publiée : [Arrêter de vendre l’offre](update-existing-offer.md#stop-selling-an-offer-or-plan))
+- Si l’offre est disponible en préversion : [Mise en service](publishing-status.md#publisher-approval))
+- Si vous n’avez pas complété Déconnexion de l’éditeur : [Annuler la publication](update-existing-offer.md#cancel-publishing))
 
 ## <a name="offer-setup"></a>Configuration de l’offre
 
@@ -68,12 +68,12 @@ Lors de la publication de votre offre sur la Place de marché avec l’Espace pa
 
 1. Sélectionnez une destination de prospect afin de diriger les prospects vers le système de votre choix. L’Espace partenaires prend en charge les systèmes CRM suivants :
 
-    - [Dynamics 365](https://docs.microsoft.com/azure/marketplace/partner-center-portal/commercial-marketplace-lead-management-instructions-dynamics) for Customer Engagement
-    - [Marketo](https://docs.microsoft.com/azure/marketplace/partner-center-portal/commercial-marketplace-lead-management-instructions-marketo)
-    - [Salesforce](https://docs.microsoft.com/azure/marketplace/partner-center-portal/commercial-marketplace-lead-management-instructions-salesforce)
+    - [Dynamics 365](commercial-marketplace-lead-management-instructions-dynamics.md) for Customer Engagement
+    - [Marketo](commercial-marketplace-lead-management-instructions-marketo.md)
+    - [Salesforce](commercial-marketplace-lead-management-instructions-salesforce.md)
 
     > [!NOTE]
-    > Si votre système de CRM n’est pas listé ci-dessus, utilisez une [table Azure](https://docs.microsoft.com/azure/marketplace/partner-center-portal/commercial-marketplace-lead-management-instructions-azure-table) ou un [point de terminaison HTTPS](https://docs.microsoft.com/azure/marketplace/partner-center-portal/commercial-marketplace-lead-management-instructions-https) pour stocker les données des prospects. Ensuite, exportez les données vers votre système CRM.
+    > Si votre système de CRM n’est pas listé ci-dessus, utilisez une [table Azure](commercial-marketplace-lead-management-instructions-azure-table.md) ou un [point de terminaison HTTPS](commercial-marketplace-lead-management-instructions-https.md) pour stocker les données des prospects. Ensuite, exportez les données vers votre système CRM.
 
 2. Connectez votre offre à la destination de prospect tout en la publiant dans l’Espace partenaires.
 3. Vérifiez que la connexion à la destination de prospect est correctement configurée. Une fois que vous avez effectué la publication dans l’Espace partenaires, nous validons la connexion et nous vous envoyons un prospect de test. Quand vous visualisez l’offre avant son lancement, vous pouvez également tester votre connexion de prospect en essayant d’acheter vous-même l’offre dans l’environnement en version préliminaire.
@@ -81,9 +81,9 @@ Lors de la publication de votre offre sur la Place de marché avec l’Espace pa
 
 Voici des ressources de gestion des prospects supplémentaires :
 
-- [Vue d’ensemble de la gestion des prospects](https://docs.microsoft.com/azure/marketplace/partner-center-portal/commercial-marketplace-get-customer-leads)
-- [Questions fréquentes sur la gestion des prospects](https://docs.microsoft.com/azure/marketplace/lead-management-for-cloud-marketplace#frequently-asked-questions)
-- [Erreurs courantes de configuration des prospects](https://docs.microsoft.com/azure/marketplace/lead-management-for-cloud-marketplace#common-lead-configuration-errors-during-publishing-on-cloud-partner-portal)
+- [Vue d’ensemble de la gestion des prospects](commercial-marketplace-get-customer-leads.md)
+- [Questions fréquentes sur la gestion des prospects](../lead-management-for-cloud-marketplace.md#frequently-asked-questions))
+- [Erreurs courantes de configuration des prospects](../lead-management-for-cloud-marketplace.md#publishing-config-errors))
 - PDF [Vue d’ensemble de la gestion des prospects](https://assetsprod.microsoft.com/mpn/cloud-marketplace-lead-management.pdf) (assurez-vous que votre bloqueur de fenêtres publicitaires est désactivé)
 
 Sélectionnez **Enregistrer le brouillon** avant de continuer.
@@ -94,33 +94,16 @@ C’est dans cette page que vous définissez les catégories et secteurs utilis�
 
 ### <a name="category"></a>Category
 
-Sélectionnez au minimum une et au maximum trois catégories. Ces catégories servent à placer votre offre dans les zones de recherche appropriées sur la Place de marché et apparaissent dans la page des détails de votre offre. Dans la description de l’offre, expliquez comment votre offre prend en charge ces catégories.
+Sélectionnez les catégories et les sous-catégories pour placer votre offre dans les zones de recherche appropriées sur la Place de marché. Veillez à décrire l’adéquation de votre offre à ces catégories dans la description de l’offre. Sélectionnez :
+
+- Au moins une et jusqu’à deux catégories, y compris une catégorie principale et une catégorie secondaire (facultatif).
+- Jusqu’à deux sous-catégories pour chaque catégorie principale et/ou secondaire. Si aucune sous-catégorie n’est applicable à votre offre, sélectionnez **Non applicable**.
+
+Consultez la liste complète des catégories et sous-catégories dans [Bonnes pratiques pour le référencement des offres](../gtm-offer-listing-best-practices.md).
 
 ### <a name="industry"></a>Secteur d’activité
 
-Éventuellement, sélectionnez jusqu’à deux secteurs et deux marchés verticaux sous chaque secteur d’activité. Tandis que les catégories sont utilisées pour afficher votre offre, le secteur et les marchés verticaux sont utilisés dans les filtres de recherche et sont appliqués dans la vitrine. Si votre offre cible un secteur d’activité et/ou un marché vertical spécifiques, utilisez la description de l’offre pour expliquer la manière dont votre offre prend en charge les secteurs ou les marchés verticaux sélectionnés. Si votre offre n’est pas spécifique d’un secteur d’activité, laissez cette section vide.
-
-> [!NOTE]
-> À mesure que nous travaillons à l’introduction de nouveaux secteurs et marchés verticaux pour améliorer l’expérience de découverte de l’offre, certains secteurs ou marchés verticaux peuvent ne pas encore être visibles sur la vitrine. Les secteurs et marchés verticaux marqués d’un (*) seront disponibles à une date ultérieure. Toutes les offres publiées sont détectables par le biais d’une recherche par mot clé.
-<p>&nbsp;
-
-| **Secteur d’activité** | **Sous-secteur** |
-| --- | --- |
-| *Industrie automobile | *Industrie automobile |
-| Agriculture | *Autre - Non segmenté |
-| Distribution | *Vente en gros<br>Expédition de paquets et colis |
-| Formation | *Enseignement supérieur<br>* Enseignement primaire et secondaire/K-12<br>*Bibliothèques et musées |
-| Services financiers | *Banques et marchés financiers<br>* Assurance |
-| Gouvernement américain | *Défense et renseignement (précédemment Sécurité nationale et publique)<br>* Sécurité publique et justice<br>*Gouvernement civil |
-| Soins de santé (précédemment Santé) | *Organisme de sécurité sociale<br>* Professionnel de santé<br>*Produits pharmaceutiques |
-| Fabrication et ressources (précédemment Fabrication) | *Produits chimiques et agrochimiques<br>* Fabrication discrète<br>*Énergie |
-| Distribution et biens de consommation (précédemment Vente au détail) | *Produits de consommation courante<br>* Détaillants |
-| *Médias et communications (précédemment Multimédia et divertissement) | *Multimédia et divertissement<br>* Télécommunications |
-| Services professionnels | *Juridique<br>* Services professionnels partenaires |
-| *Construction et architecture (précédemment Ingénierie d’architecture) | *Autre - Non segmenté |
-| **Hôtellerie et voyage | *Hôtels et loisirs<br>* Transport et voyages<br>*Restaurants et services alimentaires |
-| *Autres secteurs publics | *Foresterie et pêche<br>* Organisations à but non lucratif |
-| *Immobilier | *Autre - Non segmenté |
+[!INCLUDE [Industry Taxonomy](./includes/industry-taxonomy.md)]
 
 ### <a name="legal"></a>Informations juridiques
 
@@ -144,6 +127,24 @@ Définissez les informations de la Place de marché (telles que le nom de l’of
 
 > [!NOTE]
 > Les détails de l’offre n’ont pas à être en anglais si la description de l’offre commence par l’expression « This application is available only in [langue non anglaise] ». Il est également possible de fournir un lien utile pour offrir du contenu dans une langue autre que celle utilisée dans la description de l’offre.
+
+Voici un exemple de la façon dont les informations de l’offre s’affichent dans Microsoft AppSource (les prix listés sont fournis à titre d’exemple uniquement et ne reflètent pas les coûts réels) :
+
+:::image type="content" source="media/example-power-bi-app.png" alt-text="Illustre la façon dont cette offre s’affiche dans Microsoft AppSource.":::
+
+#### <a name="call-out-descriptions"></a>Descriptions de légende
+
+1. Logo
+2. Products
+3. Catégories
+4. Secteurs d’activité
+5. Adresse du support technique (lien)
+6. Conditions d’utilisation
+7. Politique de confidentialité
+8. Nom de l’offre
+9. Résumé
+10. Description
+11. Captures d’écran/vidéos
 
 ### <a name="name"></a>Nom
 
@@ -202,11 +203,11 @@ Fournissez au moins un et au plus trois documents marketing associés au format 
 Fournissez des logos et images à utiliser avec votre offre. Toutes les images doivent être au format .png. Les images floues seront rejetées.
 
 >[!NOTE]
->Si vous rencontrez un problème lors du chargement de fichiers, vérifiez que votre réseau local ne bloque pas le service https://upload.xboxlive.com utilisé par l’Espace partenaires.
+>Si vous rencontrez un problème lors du chargement de fichiers, vérifiez que votre réseau local ne bloque pas le service `https://upload.xboxlive.com` utilisé par l’Espace partenaires.
 
 #### <a name="store-logos"></a>Stocker des logos
 
-Fournissez des fichiers .png du logo de votre offre dans deux tailles en pixels :
+Fournissez des fichiers PNG du logo de votre offre dans deux tailles en pixels :
 - **Petit** (48 x 48)
 - **Grand** (216 x 216)
 
@@ -214,15 +215,15 @@ Les deux logos sont requis et sont utilisés à différents endroits de l’anno
 
 #### <a name="screenshots"></a>Captures d’écran.
 
-Ajoutez au moins une et au plus cinq captures d’écran qui illustrent le fonctionnement de votre offre. Chacune doit avoir une taille de 1280 x 720 pixels et être au format .png.
+Ajoutez au moins une et au plus cinq captures d’écran qui illustrent le fonctionnement de votre offre. Chacune doit avoir une taille de 1280 x 720 pixels et être au format .png.
 
 #### <a name="videos-optional"></a>Vidéos (facultatif)
 
-Ajoutez jusqu’à cinq vidéos qui illustrent votre offre. Entrez le nom de la vidéo, son adresse web et une image miniature .png de 1280 x 720 pixels de la vidéo.
+Ajoutez jusqu’à cinq vidéos qui illustrent votre offre. Entrez le nom de la vidéo, son adresse web et une image miniature PNG de 1280 x 720 pixels de la vidéo.
 
 #### <a name="additional-marketplace-listing-resources"></a>Ressources d’annonce supplémentaires de place de marché
 
-Pour en savoir plus sur la création d’annonces d’offres, consultez [Bonnes pratiques pour le référencement des offres](https://docs.microsoft.com/azure/marketplace/gtm-offer-listing-best-practices).
+Pour en savoir plus sur la création d’annonces d’offres, consultez [Bonnes pratiques pour le référencement des offres](../gtm-offer-listing-best-practices.md).
 
 ## <a name="technical-configuration"></a>Configuration technique
 
@@ -252,4 +253,4 @@ Dans la page de révision, vous pouvez :
 
 Pour envoyer l’offre à des fins de publication, sélectionnez **Publier**.
 
-Nous vous enverrons un e-mail pour vous faire savoir si une préversion de l’offre est disponible pour vérification et approbation. Pour que votre offre soit publiée pour le public (ou pour un public privé, si elle est privée), accédez à l’Espace partenaires et sélectionnez **Mise en service**.
+Nous vous enverrons un e-mail pour vous faire savoir si une préversion de l’offre est disponible pour vérification et approbation. Pour publier votre offre au public, accédez à l’Espace partenaires, puis sélectionnez **Mise en service**.

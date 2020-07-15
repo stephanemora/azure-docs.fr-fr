@@ -3,14 +3,16 @@ title: Profil et identifiant utilisateur pour Azure Notebooks (préversion)
 description: Guide pratique pour créer et gérer, avec Azure Notebooks, un profil utilisateur ainsi qu’un identifiant utilisateur qui fera partie de l’URL des notebooks partagés.
 ms.topic: conceptual
 ms.date: 02/25/2019
-ms.openlocfilehash: d90eebf1b7b463e038bc5e54f51df0eb6ca746c4
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 9a1ff7f92faec21f537f068f0a33473700ddfed8
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "75646277"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85831350"
 ---
 # <a name="your-profile-and-user-id-for-azure-notebooks-preview"></a>Profil et identifiant utilisateur pour Azure Notebooks (préversion)
+
+[!INCLUDE [notebooks-status](../../includes/notebooks-status.md)]
 
 Dans le puissant espace collaboratif d’Azure Notebooks, votre profil utilisateur présente aux autres votre image publique :
 
@@ -23,8 +25,6 @@ L’identifiant utilisateur fait partie des URL utilisées pour partager des pro
 - `https://notebooks.azure.com/<user_id>/projects/<project_id>`: fichiers projet.
 - `https://notebooks.azure.com/<user_id>/projects/<project_id>/clones`: clones d’un projet donné.
 - `https://notebooks.azure.com/<user_id>/projects/<project_id>/html/<notebook>.ipynb`: aperçu HTML d’un bloc-notes ou d’un fichier donné.
-
-[!INCLUDE [notebooks-status](../../includes/notebooks-status.md)]
 
 ## <a name="your-user-id"></a>L’identifiant utilisateur
 

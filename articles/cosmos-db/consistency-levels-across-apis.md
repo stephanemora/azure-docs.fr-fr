@@ -7,12 +7,12 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 04/23/2020
 ms.reviewer: sngun
-ms.openlocfilehash: 2851968b102bdcbae95a81352439f39f5837020b
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 2398e95d9a119fe24c97f3887d16aa5b86c6ac76
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82191785"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85119305"
 ---
 # <a name="consistency-levels-and-azure-cosmos-db-apis"></a>Niveaux de cohérence et API Azure Cosmos DB
 
@@ -32,7 +32,7 @@ Contrairement à Azure Cosmos DB, Apache Cassandra ne fournit pas en mode natif 
 
 Le tableau suivant illustre le mappage des niveaux de cohérence Cassandra en mode natif aux niveaux de cohérence d’Azure Cosmos DB lors de l’utilisation de l’API Cassandra :  
 
-[![Mappage du modèle de cohérence Cassandra](./media/consistency-levels-across-apis/consistency-model-mapping-cassandra.png)](./media/consistency-levels-across-apis/consistency-model-mapping-cassandra.png#lightbox)
+:::image type="content" source="./media/consistency-levels-across-apis/consistency-model-mapping-cassandra.png" alt-text="Mappage du modèle de cohérence Cassandra" lightbox="./media/consistency-levels-across-apis/consistency-model-mapping-cassandra.png" :::
 
 ## <a name="mapping-between-mongodb-and-azure-cosmos-db-consistency-levels"></a><a id="mongo-mapping"></a>Mappage entre les niveaux de cohérence MongoDB et Azure Cosmos DB
 
@@ -50,7 +50,7 @@ Lors de l’utilisation de l’API Azure Cosmos DB pour MongoDB :
 
 Le tableau suivant illustre le mappage des problèmes d’écriture/lecture Cassandra en mode natif aux niveaux de cohérence d’Azure Cosmos lors de l’utilisation de l’API Azure Cosmos DB pour MongoDB :
 
-[![Mappage du modèle de cohérence MongoDB](./media/consistency-levels-across-apis/consistency-model-mapping-mongodb.png)](./media/consistency-levels-across-apis/consistency-model-mapping-mongodb.png#lightbox)
+:::image type="content" source="./media/consistency-levels-across-apis/consistency-model-mapping-mongodb.png" alt-text="Mappage du modèle de cohérence MongoDB" lightbox= "./media/consistency-levels-across-apis/consistency-model-mapping-mongodb.png":::
 
 ## <a name="next-steps"></a>Étapes suivantes
 

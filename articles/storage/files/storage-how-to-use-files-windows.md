@@ -3,16 +3,16 @@ title: Utilisation d’un partage de fichiers Azure avec Windows | Microsoft Doc
 description: Découvrez comment utiliser un partage de fichiers Azure avec Windows et Windows Server.
 author: roygara
 ms.service: storage
-ms.topic: conceptual
-ms.date: 06/07/2018
+ms.topic: how-to
+ms.date: 06/22/2020
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: 4fef6102ac2ee69926c1c56af338b6e92670dd71
-ms.sourcegitcommit: 318d1bafa70510ea6cdcfa1c3d698b843385c0f6
+ms.openlocfilehash: bb9e7582317851d1968e104cd351a2b5e02b1e19
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/21/2020
-ms.locfileid: "83773098"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85509776"
 ---
 # <a name="use-an-azure-file-share-with-windows"></a>Utiliser un partage de fichiers Azure avec Windows
 [Azure Files](storage-files-introduction.md) est le système de fichiers cloud facile à utiliser de Microsoft. Il est possible d’utiliser sans problème le partage de fichiers Azure dans Windows et Windows Server. Cet article décrit les considérations concernant l’utilisation d’un partage de fichiers Azure avec Windows et Windows Server.
@@ -41,41 +41,8 @@ Vous pouvez utiliser des partages de fichiers Azure sur une installation Window
 > Nous vous conseillons de prendre la base de connaissances la plus récente pour votre version de Windows.
 
 ## <a name="prerequisites"></a>Prérequis 
-* **Nom du compte de stockage** : Pour monter un partage de fichiers Azure, vous avez besoin du nom du compte de stockage.
 
-* **Clé du compte de stockage** : Pour monter un partage de fichiers Azure, vous avez besoin de la clé de stockage primaire (ou secondaire). Actuellement, les clés SAS ne sont pas prises en charge pour le montage.
-
-* **Vérifiez que le port 445 est ouvert** : Le protocole SMB nécessite que le port TCP 445 soit ouvert, les connexions échoueront si ce port est bloqué. Vous pouvez vérifier si votre pare-feu bloque le port 445 avec l’applet de commande `Test-NetConnection`. Vous pouvez en apprendre davantage sur les [différentes manières de contourner un port 445 bloqué ici](https://docs.microsoft.com/azure/storage/files/storage-troubleshoot-windows-file-connection-problems#cause-1-port-445-is-blocked).
-
-    Le code PowerShell suivant suppose que vous avez installé le module Azure PowerShell. Consultez [Installer un module Azure PowerShell](https://docs.microsoft.com/powershell/azure/install-az-ps) pour plus d’informations. N’oubliez pas de remplacer `<your-storage-account-name>` et `<your-resource-group-name>` avec les noms appropriés de votre compte de stockage.
-
-    ```powershell
-    $resourceGroupName = "<your-resource-group-name>"
-    $storageAccountName = "<your-storage-account-name>"
-
-    # This command requires you to be logged into your Azure account, run Login-AzAccount if you haven't
-    # already logged in.
-    $storageAccount = Get-AzStorageAccount -ResourceGroupName $resourceGroupName -Name $storageAccountName
-
-    # The ComputerName, or host, is <storage-account>.file.core.windows.net for Azure Public Regions.
-    # $storageAccount.Context.FileEndpoint is used because non-Public Azure regions, such as sovereign clouds
-    # or Azure Stack deployments, will have different hosts for Azure file shares (and other storage resources).
-    Test-NetConnection -ComputerName ([System.Uri]::new($storageAccount.Context.FileEndPoint).Host) -Port 445
-    ```
-
-    Si la connexion a réussi, vous devez voir la sortie suivante :
-
-    ```
-    ComputerName     : <storage-account-host-name>
-    RemoteAddress    : <storage-account-ip-address>
-    RemotePort       : 445
-    InterfaceAlias   : <your-network-interface>
-    SourceAddress    : <your-ip-address>
-    TcpTestSucceeded : True
-    ```
-
-    > [!Note]  
-    > La commande ci-dessus retourne l’adresse IP actuelle du compte de stockage. Cette adresse IP est susceptible de changer à tout moment. Ne codez pas cette adresse IP en dur dans un script ou dans une configuration de pare-feu. 
+Vérifiez que le port 445 est ouvert : Le protocole SMB nécessite que le port TCP 445 soit ouvert, les connexions échoueront si ce port est bloqué. Vous pouvez vérifier si votre pare-feu bloque le port 445 avec l’applet de commande `Test-NetConnection`. Pour découvrir comment contourner un port 445 bloqué, consultez la section [Cause 1 : Le port 445 est bloqué](storage-troubleshoot-windows-file-connection-problems.md#cause-1-port-445-is-blocked) de notre guide de dépannage de Windows.
 
 ## <a name="using-an-azure-file-share-with-windows"></a>Utiliser un partage de fichiers Azure avec Windows
 Pour utiliser un partage de fichiers Azure avec Windows, vous devez soit le monter (lui affecter un chemin de point de montage ou une lettre de lecteur), soit y accéder via son [chemin d’accès UNC](https://msdn.microsoft.com/library/windows/desktop/aa365247.aspx). 
@@ -84,97 +51,31 @@ Cet article utilise la clé de compte de stockage pour accéder au partage de fi
 
 Un modèle commun pour délester et déplacer les applications métier (LOB) qui attendent un partage de fichiers SMB vers Azure consiste à utiliser un partage de fichiers Azure comme alternative pour l’exécution d’un serveur de fichiers Windows dédié dans une machine virtuelle Azure. Pour réussir la migration d’une application métier afin qu’elle utilise un partage de fichiers Azure, il est important de considérer que de nombreuses applications métier s’exécutent dans le contexte d’un compte de service dédié avec des autorisations système limitées, plutôt que le compte administrateur de la machine virtuelle. Par conséquent, vous devez vous assurer que vous montez/enregistrez les informations d’identification pour le partage de fichiers Azure à partir du contexte du compte de service plutôt que de votre compte d’administration.
 
-### <a name="persisting-azure-file-share-credentials-in-windows"></a>Persistance des informations d’identification du partage de fichiers Azure dans Windows  
-L’utilitaire [cmdkey](https://docs.microsoft.com/windows-server/administration/windows-commands/cmdkey) vous permet de stocker vos informations d’identification de compte de stockage dans Windows. Cela signifie que lorsque vous essayez d’accéder à un partage de fichiers Azure via son chemin d’accès UNC ou de monter le partage de fichiers Azure, vous n’aurez pas à spécifier les informations d’identification. Pour enregistrer les informations d’identification de votre compte de stockage, exécutez les commandes PowerShell suivantes, en remplaçant `<your-storage-account-name>` et `<your-resource-group-name>` lorsque cela est approprié.
+### <a name="mount-the-azure-file-share"></a>Monter le partage de fichiers Azure
 
-```powershell
-$resourceGroupName = "<your-resource-group-name>"
-$storageAccountName = "<your-storage-account-name>"
+Le portail Azure vous fournit un script que vous pouvez utiliser pour monter votre partage de fichiers directement sur un hôte. Nous vous recommandons d’utiliser ce script fourni.
 
-# These commands require you to be logged into your Azure account, run Login-AzAccount if you haven't
-# already logged in.
-$storageAccount = Get-AzStorageAccount -ResourceGroupName $resourceGroupName -Name $storageAccountName
-$storageAccountKeys = Get-AzStorageAccountKey -ResourceGroupName $resourceGroupName -Name $storageAccountName
+Pour obtenir ce script :
 
-# The cmdkey utility is a command-line (rather than PowerShell) tool. We use Invoke-Expression to allow us to 
-# consume the appropriate values from the storage account variables. The value given to the add parameter of the
-# cmdkey utility is the host address for the storage account, <storage-account>.file.core.windows.net for Azure 
-# Public Regions. $storageAccount.Context.FileEndpoint is used because non-Public Azure regions, such as sovereign 
-# clouds or Azure Stack deployments, will have different hosts for Azure file shares (and other storage resources).
-Invoke-Expression -Command ("cmdkey /add:$([System.Uri]::new($storageAccount.Context.FileEndPoint).Host) " + `
-    "/user:AZURE\$($storageAccount.StorageAccountName) /pass:$($storageAccountKeys[0].Value)")
-```
+1. Connectez-vous au [portail Azure](https://portal.azure.com/).
+1. Accédez au compte de stockage contenant le partage de fichiers que vous souhaitez monter.
+1. Sélectionner **Partages de fichiers**.
+1. Sélectionnez le fichier que vous voulez monter.
 
-Vous pouvez vérifier que l’utilitaire cmdkey a stocké les informations d’identification du compte de stockage en utilisant le paramètre de liste :
+    :::image type="content" source="media/storage-how-to-use-files-windows/select-file-shares.png" alt-text="Exemple":::
 
-```powershell
-cmdkey /list
-```
+1. Sélectionnez **Connecter**.
 
-Si les informations d’identification pour votre partage de fichiers Azure sont stockées avec succès, la sortie suivante est attendue (des clés supplémentaires peuvent être stockées dans la liste) :
+    :::image type="content" source="media/storage-how-to-use-files-windows/file-share-connect-icon.png" alt-text="Capture d’écran de l’icône de connexion pour votre partage de fichiers.":::
 
-```
-Currently stored credentials:
+1. Sélectionnez la lettre de lecteur sur laquelle monter le partage.
+1. Copiez le script fourni.
 
-Target: Domain:target=<storage-account-host-name>
-Type: Domain Password
-User: AZURE\<your-storage-account-name>
-```
+    :::image type="content" source="media/storage-how-to-use-files-windows/files-portal-mounting-cmdlet-resize.png" alt-text="Exemple de texte":::
 
-Vous devez maintenant être en mesure de monter ou d’accéder au partage sans avoir à fournir des informations d’identification supplémentaires.
+1. Collez le script dans un shell sur l’hôte sur lequel vous voulez monter le partage de fichiers, puis exécutez-le.
 
-#### <a name="advanced-cmdkey-scenarios"></a>Scénarios cmdkey avancés
-Il existe deux scénarios supplémentaires à prendre en considération avec cmdkey : le stockage des informations d’identification pour un autre utilisateur sur la machine, par exemple un compte de service, et le stockage des informations d’identification sur un ordinateur distant avec la communication à distance PowerShell.
-
-Stocker les informations d’identification pour un autre utilisateur sur la machine est simple : lorsque vous êtes connecté à votre compte, exécutez tout simplement la commande PowerShell suivante :
-
-```powershell
-$password = ConvertTo-SecureString -String "<service-account-password>" -AsPlainText -Force
-$credential = New-Object System.Management.Automation.PSCredential -ArgumentList "<service-account-username>", $password
-Start-Process -FilePath PowerShell.exe -Credential $credential -LoadUserProfile
-```
-
-Une nouvelle fenêtre PowerShell s’ouvre dans le contexte utilisateur de votre compte de service (ou compte utilisateur). Vous pouvez ensuite utiliser l’utilitaire cmdkey selon la procédure [ci-dessus](#persisting-azure-file-share-credentials-in-windows).
-
-Il est toutefois impossible de stocker les informations d’identification sur un ordinateur distant à l’aide de la communication à distance PowerShell, étant donné que cmdkey ne permet pas l’accès à son magasin d’informations d’identification lorsque l’utilisateur est connecté via la communication à distance PowerShell, même pour les ajouts. Nous vous recommandons de vous connecter à la machine avec le [Bureau à distance](https://docs.microsoft.com/windows-server/remote/remote-desktop-services/clients/windows).
-
-### <a name="mount-the-azure-file-share-with-powershell"></a>Montage du partage de fichiers Azure avec PowerShell
-Exécutez les commandes suivantes à partir d’une session PowerShell régulière (sans élévation de privilèges) afin de monter le partage de fichiers Azure. N’oubliez pas de remplacer `<your-resource-group-name>`, `<your-storage-account-name>`, `<your-file-share-name>`, et `<desired-drive-letter>` avec les informations appropriées.
-
-```powershell
-$resourceGroupName = "<your-resource-group-name>"
-$storageAccountName = "<your-storage-account-name>"
-$fileShareName = "<your-file-share-name>"
-
-# These commands require you to be logged into your Azure account, run Login-AzAccount if you haven't
-# already logged in.
-$storageAccount = Get-AzStorageAccount -ResourceGroupName $resourceGroupName -Name $storageAccountName
-$storageAccountKeys = Get-AzStorageAccountKey -ResourceGroupName $resourceGroupName -Name $storageAccountName
-$fileShare = Get-AzStorageShare -Context $storageAccount.Context | Where-Object { 
-    $_.Name -eq $fileShareName -and $_.IsSnapshot -eq $false
-}
-
-if ($fileShare -eq $null) {
-    throw [System.Exception]::new("Azure file share not found")
-}
-
-# The value given to the root parameter of the New-PSDrive cmdlet is the host address for the storage account, 
-# <storage-account>.file.core.windows.net for Azure Public Regions. $fileShare.StorageUri.PrimaryUri.Host is 
-# used because non-Public Azure regions, such as sovereign clouds or Azure Stack deployments, will have different 
-# hosts for Azure file shares (and other storage resources).
-$password = ConvertTo-SecureString -String $storageAccountKeys[0].Value -AsPlainText -Force
-$credential = New-Object System.Management.Automation.PSCredential -ArgumentList "AZURE\$($storageAccount.StorageAccountName)", $password
-New-PSDrive -Name <desired-drive-letter> -PSProvider FileSystem -Root "\\$($fileShare.StorageUri.PrimaryUri.Host)\$($fileShare.Name)" -Credential $credential -Persist
-```
-
-> [!Note]  
-> L’option `-Persist` sur l’applet de commande `New-PSDrive` autorise uniquement à remonter le partage de fichiers au démarrage si les informations d’identification sont enregistrées. Vous pouvez enregistrer les informations d’identification à l’aide de cmdkey comme [décrit précédemment](#persisting-azure-file-share-credentials-in-windows). 
-
-Si vous le souhaitez, vous pouvez démonter le partage de fichiers Azure à l’aide de l’applet de commande PowerShell suivant.
-
-```powershell
-Remove-PSDrive -Name <desired-drive-letter>
-```
+Vous avez maintenant monté votre partage de fichiers Azure.
 
 ### <a name="mount-the-azure-file-share-with-file-explorer"></a>Montage du partage de fichiers Azure avec l’Explorateur de fichiers
 > [!Note]  
@@ -182,7 +83,7 @@ Remove-PSDrive -Name <desired-drive-letter>
 
 1. Ouvrez l’Explorateur de fichiers. Pour cela, accédez au menu Démarrer ou appuyez sur les touches Win+E.
 
-1. Accédez à l’élément **Ce PC** sur la gauche de la fenêtre. Cela modifie les menus disponibles dans le ruban. Dans le menu Ordinateur, sélectionnez **Connecter un lecteur réseau**.
+1. Accédez à **Ce PC** sur le côté gauche de la fenêtre. Cela modifie les menus disponibles dans le ruban. Dans le menu Ordinateur, sélectionnez **Connecter un lecteur réseau**.
     
     ![Une capture d’écran du menu déroulant « Connecter un lecteur réseau »](./media/storage-how-to-use-files-windows/1_MountOnWindows10.png)
 
@@ -201,7 +102,7 @@ Remove-PSDrive -Name <desired-drive-letter>
 1. Lorsque vous êtes prêt à démonter le partage de fichiers Azure, il vous suffit de cliquer avec le bouton droit de la souris sur l’entrée du partage, sous **Emplacements réseau**, dans l’Explorateur de fichiers et de sélectionner **Déconnecter**.
 
 ### <a name="accessing-share-snapshots-from-windows"></a>Accès aux instantanés de partage à partir de Windows
-Si vous avez utilisé un instantané de partage, soit manuellement, soit automatiquement par le biais d’un script ou d’un service tel que Sauvegarde Microsoft Azure, vous pouvez visualiser les versions précédentes d’un partage, d’un répertoire ou d’un fichier spécifique d’un partage de fichiers sur Windows. Vous pouvez prendre un instantané de partage depuis le [portail Azure](storage-how-to-use-files-portal.md), [Azure PowerShell](storage-how-to-use-files-powershell.md) et [Azure CLI](storage-how-to-use-files-cli.md).
+Si vous avez utilisé un instantané de partage, soit manuellement, soit automatiquement par le biais d’un script ou d’un service tel que Sauvegarde Microsoft Azure, vous pouvez visualiser les versions précédentes d’un partage, d’un répertoire ou d’un fichier spécifique d’un partage de fichiers sur Windows. Vous pouvez prendre un instantané du partage en utilisant [Azure PowerShell](storage-how-to-use-files-powershell.md), [Azure CLI](storage-how-to-use-files-cli.md) ou le [Portail Azure](storage-how-to-use-files-portal.md).
 
 #### <a name="list-previous-versions"></a>Répertorier les versions précédentes
 Accédez à l’élément ou à l’élément parent à restaurer. Double-cliquez pour accéder au répertoire souhaité. Cliquez avec le bouton droit et sélectionnez **Propriétés** dans le menu.

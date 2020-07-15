@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.author: luquinta
 author: luisquintanilla
 ms.date: 05/08/2020
-ms.openlocfilehash: 3cef3c2179019f6d84de5596e61abaf8d7d3182c
-ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
+ms.openlocfilehash: 09bb7710df19482e9625c1834d2646f70368fc1d
+ms.sourcegitcommit: dee7b84104741ddf74b660c3c0a291adf11ed349
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83595008"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85920356"
 ---
 # <a name="responsible-machine-learning-ml"></a>Apprentissage automatique responsable
 
@@ -36,7 +36,7 @@ La confiance doit toujours rester au cœur du développement et de l’utilisati
 
 ## <a name="interpret-and-explain-model-behavior"></a>Interpréter et expliquer le comportement d’un modèle
 
-Les systèmes de boîte noire difficiles à expliquer peuvent être problématiques, car il est difficile pour les parties prenantes, telles que les développeurs système, les régulateurs, les utilisateurs et les décideurs de comprendre pourquoi les systèmes prennent certaines décisions. Certains systèmes d’intelligence artificielle sont plus faciles à expliquer que d’autres, et ils résultent parfois d’un compromis entre l’exactitude et la transparence.
+Les systèmes de boîte opaque peuvent être problématiques, car il est difficile pour les parties prenantes, telles que les développeurs système, les régulateurs, les utilisateurs et les décideurs de comprendre pourquoi les systèmes prennent certaines décisions. Certains systèmes d’intelligence artificielle sont plus faciles à expliquer que d’autres, et ils résultent parfois d’un compromis entre l’exactitude et la transparence.
 
 Pour créer des systèmes d’intelligence artificielle interprétables, utilisez [InterpretML](https://github.com/interpretml/interpret), un package open source créé par Microsoft. Vous pouvez [utiliser InterpretML à l’intérieur d’Azure Machine Learning](how-to-machine-learning-interpretability.md) pour [interpréter et expliquer vos modèles d’apprentissage automatique](how-to-machine-learning-interpretability-aml.md), dont des [modèles d’apprentissage automatique automatisé](how-to-machine-learning-interpretability-automl.md).
 
@@ -61,11 +61,14 @@ Dans les scénarios traditionnels, les données brutes sont stockées dans des f
 
 L’implémentation de systèmes de confidentialité différentielle est difficile. [WhiteNoise](https://github.com/opendifferentialprivacy/whitenoise-core) est un projet open source contenant différents composants pour la création de systèmes globaux assortis d’une confidentialité différentielle. Pour en savoir plus sur la confidentialité différentielle et le projet WhiteNoise, consultez l’article [Préserver la confidentialité des données à l’aide de la confidentialité différentielle et de WhiteNoise](./concept-differential-privacy.md).
 
+> [!NOTE]
+> Veuillez noter que nous allons renommer le kit de ressources et présenterons le nouveau nom dans les semaines à venir. 
+
 ## <a name="document-the-machine-learning-lifecycle-with-datasheets"></a>Documenter le cycle de vie de l’apprentissage automatique avec des feuilles de données
 
 La documentation des informations adéquates dans le processus d’apprentissage automatique est la clé de la prise de décisions responsables à chaque étape. Les feuilles de données sont un moyen de documenter les ressources d’apprentissage automatique utilisées et créées dans le cadre du cycle de vie de l’apprentissage automatique.
 
-Il existe une tendance consistant à considérer les modèles comme des « boîtes noires », qui a pour effet qu’il y a souvent peu d’informations à leur sujet. Les systèmes d’apprentissage automatique intervenant de plus en plus dans les prises de décisions, l’utilisation de feuilles de données est une étape vers le développement de systèmes d’apprentissage automatique plus responsables.
+Il existe une tendance consistant à considérer les modèles comme des « boîtes opaques », qui a pour effet qu’il y a souvent peu d’informations à leur sujet. Les systèmes d’apprentissage automatique intervenant de plus en plus dans les prises de décisions, l’utilisation de feuilles de données est une étape vers le développement de systèmes d’apprentissage automatique plus responsables.
 
 Voici des informations sur le modèle qu’il peut être utile de documenter dans une feuille de données :
 
@@ -80,4 +83,5 @@ Pour apprendre à utiliser le Kit de développement logiciel (SDK) Azure Machine
 
 ## <a name="additional-resources"></a>Ressources supplémentaires
 
+- Utilisez le chiffrement homomorphe pour [déployer un service web d’inférence chiffré](how-to-homomorphic-encryption-seal.md).
 - En savoir plus sur l’ensemble de recommandations [À PROPOS DE L’APPRENTISSAGE AUTOMATIQUE](https://www.partnershiponai.org/about-ml/) pour la documentation de système d’apprentissage automatique.

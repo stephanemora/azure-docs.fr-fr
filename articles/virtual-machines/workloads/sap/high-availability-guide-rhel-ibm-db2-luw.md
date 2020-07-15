@@ -15,10 +15,10 @@ ms.workload: infrastructure
 ms.date: 02/13/2020
 ms.author: juergent
 ms.openlocfilehash: 1a00a3c1e0d34a8c7abbcd5bfc7a6771d9e2a4c3
-ms.sourcegitcommit: 999ccaf74347605e32505cbcfd6121163560a4ae
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/08/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "82983038"
 ---
 # <a name="high-availability-of-ibm-db2-luw-on-azure-vms-on-red-hat-enterprise-linux-server"></a>Haute disponibilité d’IBM Db2 LUW sur les machines virtuelles Azure sur Red Hat Enterprise Linux Server
@@ -557,7 +557,7 @@ L’état d’origine dans un système SAP est documenté dans Transaction DBACO
 > Avant de commencer le test, vérifiez les points suivants :
 > * Pacemaker ne comporte pas d’action ayant échoué (pcs status).
 > * Il n’existe aucune contrainte d’emplacement (reliquats d’un test de migration)
-> * La synchronisation HADR IBM Db2 fonctionne. Vérifiez auprès de l’utilisateur db2\<sid> <pre><code>db2pd -hadr -db \<DBSID></code></pre>
+> * La synchronisation HADR IBM Db2 fonctionne. Vérifiez avec l’utilisateur db2\<sid> <pre><code>db2pd -hadr -db \<DBSID></code></pre>
 
 
 Migrez le nœud qui exécute la base de données Db2 primaire en exécutant la commande suivante :

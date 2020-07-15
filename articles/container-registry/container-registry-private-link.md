@@ -1,14 +1,14 @@
 ---
 title: Configurer une liaison privée
-description: Configurer un point de terminaison privé sur un registre de conteneurs et activer l’accès sur une liaison privée dans un réseau virtuel local
+description: Configurez un point de terminaison privé sur un registre de conteneurs et activez l’accès sur une liaison privée dans un réseau virtuel local. L’accès à la liaison privée est une fonctionnalité du niveau de service Premium.
 ms.topic: article
 ms.date: 05/19/2020
-ms.openlocfilehash: da51a35b66b793294f146c5a0a30b6a91d8aa01b
-ms.sourcegitcommit: 1f25aa993c38b37472cf8a0359bc6f0bf97b6784
+ms.openlocfilehash: f25f7b94a3008b829340cdaaed247d7ab1203c19
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/26/2020
-ms.locfileid: "83850043"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84509336"
 ---
 # <a name="configure-azure-private-link-for-an-azure-container-registry"></a>Configurer Azure Private Link pour un registre de conteneurs Azure 
 

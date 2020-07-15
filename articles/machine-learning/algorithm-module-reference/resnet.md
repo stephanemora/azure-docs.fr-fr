@@ -1,0 +1,63 @@
+---
+title: ResNet
+titleSuffix: Azure Machine Learning
+description: Découvrez comment créer un modèle de classification d’images à l’aide de l’algorithme ResNet.
+services: machine-learning
+ms.service: machine-learning
+ms.subservice: core
+ms.topic: reference
+author: likebupt
+ms.author: keli19
+ms.date: 05/26/2020
+ms.openlocfilehash: ea8c13e134eceeb27bd064e794d46d711092a867
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84450103"
+---
+# <a name="resnet"></a>ResNet
+
+Cet article explique comment utiliser le module **ResNet** dans le concepteur Azure Machine Learning (préversion) pour créer un modèle de classification d’images à l’aide de l’algorithme ResNet.  
+
+Cet algorithme de classification est une méthode d’apprentissage supervisé qui nécessite un jeu de données étiqueté. Consultez le module [Convert to Image Directory](convert-to-image-directory.md) (Convertir en répertoire d’images) pour plus d’informations sur l’obtention d’un répertoire d’images étiquetées. Pour entraîner un modèle, indiquez ce dernier ainsi qu’un répertoire d’images étiquetées en tant qu’entrées du module [Train Pytorch Model](train-pytorch-model.md). Vous pouvez ensuite utiliser le modèle entraîné pour prédire les valeurs des nouveaux exemples d’entrée à l’aide du module [Score Image Model](score-image-model.md).
+
+### <a name="more-about-resnet"></a>En savoir plus sur ResNet
+
+Pour plus d’informations, consultez [cet article](https://pytorch.org/docs/stable/torchvision/models.html?highlight=resnext101_32x8d#torchvision.models.resnext101_32x8d) sur ResNet.
+
+## <a name="how-to-configure-resnet"></a>Guide pratique pour configurer ResNet
+
+1.  Ajoutez le module **ResNet** à votre pipeline dans le concepteur.  
+
+2.  Pour **Model name** (Nom du modèle), indiquez le nom d’une structure ResNet spécifique que vous pouvez sélectionner parmi les structures resnet prises en charge : « resnet18 », « resnet34 », « resnet50 », « resnet101 », « resnet152 », « resnext50\_32x4d », « resnext101\_32x8d », « wide_resnet50\_2 », « wide_resnet101\_2 ».
+
+3.  Pour **Pretrained** (Préentraîné), indiquez si vous souhaitez utiliser un modèle préentraîné sur ImageNet. Si cette option est sélectionnée, vous pouvez affiner le modèle en fonction du modèle préentraîné sélectionné. Si cette option est désélectionnée, vous pouvez commencer l’entraînement à partir de zéro.
+
+4.  Connectez la sortie du module **DenseNet**, du module de jeu de données d’images d’entraînement et de validation au module [Train Pytorch Model](train-pytorch-model.md). 
+
+5. Envoyez le pipeline.
+
+## <a name="results"></a>Résultats
+
+Une fois l’exécution du pipeline effectuée, si vous souhaitez utiliser le modèle à des fins de scoring, connectez le module [Train Pytorch Model](train-pytorch-model.md) (Entraîner un modèle PyTorch) au module [Score Image Model](score-image-model.md) (Scorer un modèle d’image) pour prédire les valeurs des nouveaux exemples d’entrée.
+
+## <a name="technical-notes"></a>Notes techniques  
+
+###  <a name="module-parameters"></a>Paramètres du module  
+
+| Nom       | Plage | Type    | Default           | Description                              |
+| ---------- | ----- | ------- | ----------------- | ---------------------------------------- |
+| Nom du modèle | Quelconque   | Mode    | resnext101\_32x8d | Nom d’une structure ResNet spécifique       |
+| Pretrained (Préentraîné) | Quelconque   | Boolean | True              | Spécifie si un modèle préentraîné doit être utilisé ou non sur ImageNet |
+|            |       |         |                   |                                          |
+
+###  <a name="output"></a>Output  
+
+| Nom            | Type                    | Description                              |
+| --------------- | ----------------------- | ---------------------------------------- |
+| Untrained model (Modèle non entraîné) | UntrainedModelDirectory | Modèle ResNet non entraîné qui peut être connecté au module Train Pytorch Model. |
+
+## <a name="next-steps"></a>Étapes suivantes
+
+Consultez [l’ensemble des modules disponibles](module-reference.md) pour Azure Machine Learning. 

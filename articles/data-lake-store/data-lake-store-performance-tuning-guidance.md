@@ -6,12 +6,12 @@ ms.service: data-lake-store
 ms.topic: conceptual
 ms.date: 06/30/2017
 ms.author: stewu
-ms.openlocfilehash: 2521700e0f07691541ee6cbbf085a8be72f08129
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 51716bdd6ab7f5b5102ccba3e6d57855dee5df33
+ms.sourcegitcommit: 9b5c20fb5e904684dc6dd9059d62429b52cb39bc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "73904627"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85855917"
 ---
 # <a name="tune-azure-data-lake-storage-gen1-for-performance"></a>Optimisation d’Azure Data Lake Storage Gen1 pour le niveau de performance
 
@@ -65,15 +65,11 @@ Parfois, les pipelines de données ont un contrôle limité sur les données bru
 
 Pour les charges de travail Hive et ADLA, le nettoyage de partition de données de série chronologique peut aider certaines requêtes à lire uniquement un sous-ensemble de données, ce qui améliore le niveau de performance.
 
-Ces pipelines qui ingèrent des données de série chronologique organisent souvent leurs fichiers selon une dénomination structurée pour les fichiers et les dossiers. Voici un exemple courant de données structurées par date :
-
-    \DataSet\YYYY\MM\DD\datafile_YYYY_MM_DD.tsv
+Ces pipelines qui ingèrent des données de série chronologique organisent souvent leurs fichiers selon une dénomination structurée pour les fichiers et les dossiers. Voici un exemple courant de données structurées par date : *\DataSet\AAAA\MM\JJ\datafile_AAAA_MM_JJ.tsv*.
 
 Notez que les informations de date / heure s’affichent à la fois en tant que dossiers et dans le nom de fichier.
 
-Pour la date et l’heure, le modèle suivant est récurrent.
-
-    \DataSet\YYYY\MM\DD\HH\mm\datafile_YYYY_MM_DD_HH_mm.tsv
+Pour la date et l’heure, voici un modèle courant : *\DataSet\AAAA\MM\JJ\HH\mm\datafile_AAAA_MM_JJ_HH_mm.tsv*.
 
 Là encore, le type d’organisation des dossiers et fichiers sélectionné doit optimiser les plus gros fichiers et un nombre raisonnable de fichiers par dossier.
 

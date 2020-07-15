@@ -7,16 +7,17 @@ ms.reviewer: gamal
 ms.service: data-factory
 ms.topic: conceptual
 ms.date: 11/01/2019
-ms.openlocfilehash: 3b8632eaf7662d705235adaad7cd03d2e7e4904b
-ms.sourcegitcommit: 1895459d1c8a592f03326fcb037007b86e2fd22f
+ms.openlocfilehash: 203e5fcaa99f7aebeda34e6968f636ed72851ec8
+ms.sourcegitcommit: dee7b84104741ddf74b660c3c0a291adf11ed349
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/01/2020
-ms.locfileid: "82626869"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85921532"
 ---
 # <a name="what-are-wrangling-data-flows"></a>Que sont les flux de données de wrangling ?
 
 [!INCLUDE[appliesto-adf-xxx-md](includes/appliesto-adf-xxx-md.md)]
+
 
 Les organisations doivent procéder à la préparation et au wrangling des données pour une analyse précise des données complexes qui continuent à croître quotidiennement. La préparation des données est nécessaire pour que les organisations puissent utiliser les données dans différents processus d’entreprise et accélérer la rentabilité.
 
@@ -25,6 +26,9 @@ Les flux de données de wrangling dans Azure Data Factory vous permettent d’ef
 Le flux de données de wrangling convertit le M généré par l’éditeur mashup Power Query Online en code Spark pour l’exécution à l’échelle du cloud.
 
 Les flux de données de wrangling sont particulièrement utiles pour les ingénieurs de données ou les « intégrateurs de données citoyen ».
+
+> [!NOTE]
+> Le flux de wrangling data est actuellement disponible en préversion publique.
 
 ## <a name="use-cases"></a>Cas d'utilisation
 

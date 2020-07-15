@@ -1,18 +1,18 @@
 ---
 title: Gestion des prospects avec le service Stockage Blob Azure – Place de marché commerciale Microsoft
 description: Découvrez comment utiliser le service Stockage Blob Azure pour configurer des prospects pour Microsoft AppSource et la Place de marché Azure.
-author: qianw211
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
+author: keferna
+ms.author: keferna
 ms.date: 05/01/2020
-ms.author: dsindona
-ms.openlocfilehash: 9ac7640dd8b63c72bac83c98e07cf861fb26c870
-ms.sourcegitcommit: 1f25aa993c38b37472cf8a0359bc6f0bf97b6784
+ms.openlocfilehash: e6ad75178bdc8ce7db18555508e2b819f08352f0
+ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/26/2020
-ms.locfileid: "83845785"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86121909"
 ---
 # <a name="use-azure-blob-storage-to-manage-commercial-marketplace-leads"></a>Utiliser Stockage Blob Azure pour gérer les prospects de la Place de marché commerciale
 
@@ -33,11 +33,11 @@ ms.locfileid: "83845785"
 3. Dans le portail Microsoft Azure, créez un compte de stockage à l’aide de la procédure suivante.  
     1. Dans la barre de menus de gauche, sélectionnez **+ Créer une ressource**.  Le volet **Nouveau** (panneau) est affiché sur la droite.
     2. Sélectionnez **Stockage** dans le volet **Nouveau**.  Une liste **Sélection** est affichée sur la droite.
-    3. Sélectionnez le **Compte de stockage** pour commencer à créer un compte.  Suivez les instructions de l’article [Créer un compte de stockage](https://docs.microsoft.com/azure/storage/common/storage-quickstart-create-account?tabs=azure-portal).
+    3. Sélectionnez le **Compte de stockage** pour commencer à créer un compte.  Suivez les instructions de l’article [Créer un compte de stockage](../../storage/common/storage-quickstart-create-account.md?tabs=azure-portal).
 
     ![Procédure de création d’un compte Azure Storage](./media/commercial-marketplace-lead-management-instructions-azure-blob/azure-storage-create.png)
 
-    Pour en savoir plus sur les comptes de stockage, sélectionnez [Tutoriel de démarrage rapide](https://docs.microsoft.com/azure/storage/).  Pour plus d’informations sur la tarification du stockage, consultez [Tarification de Storage](https://azure.microsoft.com/pricing/details/storage/).
+    Pour en savoir plus sur les comptes de stockage, consultez ce [guide de démarrage rapide](../../storage/blobs/storage-quickstart-blobs-portal.md).  Pour plus d’informations sur la tarification du stockage, consultez [Tarification de Storage](https://azure.microsoft.com/pricing/details/storage/).
 
 4. Attendez que votre compte de stockage soit approvisionné (ce processus prend généralement quelques minutes).  Ensuite, accédez à votre compte de stockage à partir de la page **Accueil** du portail Microsoft Azure, en sélectionnant **Voir toutes vos ressources** ou **Toutes les ressources** dans la barre de menus de navigation de gauche du portail Microsoft Azure.
 

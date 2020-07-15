@@ -11,18 +11,24 @@ ms.workload: ''
 ms.topic: article
 ms.date: 04/07/2020
 ms.author: juliako
-ms.openlocfilehash: 713acbd098255af2869d7a462c9990f3d7e10bf1
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: e54944c0c10fb773a4a3141c0d3fb6524f288ae2
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81309183"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84987236"
 ---
 # <a name="media-services-v3-frequently-asked-questions"></a>Forum Aux Questions (FAQ) Media Services v3
 
 Cet article contient des réponses aux questions les plus fréquemment posées sur Azure Media Services v3.
 
 ## <a name="general"></a>Général
+
+### <a name="what-are-the-azure-portal-limitations-for-media-services-v3"></a>Quelles sont les limitations du portail Azure pour Media Services v3 ?
+
+Vous pouvez utiliser le [portail Azure](https://portal.azure.com/) pour gérer les événements en direct v3, voir des actifs multimédias et des travaux v3, obtenir des informations sur l’accès aux API, et chiffrer du contenu. <br/>Pour toutes les autres tâches de gestion (par exemple la gestion des transformations et travaux ou l’analyse de contenu v3), utilisez l’[API REST](https://aka.ms/ams-v3-rest-ref), l’[interface CLI](https://aka.ms/ams-v3-cli-ref) ou l’un des [SDK](media-services-apis-overview.md#sdks) pris en charge.
+
+Si votre vidéo a été chargée dans le compte Media Services à l’aide de l’API Media Services v3, ou si du contenu a été généré à partir d’une sortie en direct, vous ne verrez pas les boutons **Encoder**, **Analyser** ou **Chiffrer** dans le portail Azure. Utilisez les API Media Services v3 pour effectuer ces tâches.  
 
 ### <a name="what-azure-roles-can-perform-actions-on-azure-media-services-resources"></a>Quels sont les rôles Azure pouvant effectuer des actions sur les ressources Azure Media Services ? 
 

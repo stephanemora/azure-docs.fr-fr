@@ -3,12 +3,12 @@ title: Sauvegarder un partage de fichiers Azure en utilisant PowerShell
 description: Dans cet article, découvrez comment sauvegarder un partage de fichiers Azure Files avec le service Sauvegarde Azure et PowerShell.
 ms.topic: conceptual
 ms.date: 08/20/2019
-ms.openlocfilehash: 53187152802908e94ee4a8a231d3b7874cf42422
-ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
+ms.openlocfilehash: 18c03eda9d9daca3a0fa536843e32f7fc3158287
+ms.sourcegitcommit: f684589322633f1a0fafb627a03498b148b0d521
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/12/2020
-ms.locfileid: "83199354"
+ms.lasthandoff: 07/06/2020
+ms.locfileid: "85971026"
 ---
 # <a name="back-up-an-azure-file-share-by-using-powershell"></a>Sauvegarder un partage de fichiers Azure en utilisant PowerShell
 
@@ -60,7 +60,7 @@ Configurez PowerShell comme suit :
 5. Sur la page web qui s’affiche, vous êtes invité à entrer les informations d’identification de votre compte.
 
     Vous pouvez également inclure les informations d’identification de votre compte en tant que paramètre dans la cmdlet **Connect-AzAccount** à l'aide de **-Credential**.
-   
+
     Si vous êtes partenaire CSP travaillant pour le compte d’un locataire, spécifiez le client en tant que locataire. Utilisez son ID locataire ou son nom de domaine principal. Par exemple **Connect-AzAccount -Tenant « fabrikam.com »** .
 
 6. Associez l’abonnement que vous souhaitez utiliser avec le compte, car un compte peut compter plusieurs abonnements :
@@ -95,20 +95,11 @@ Pour créer un coffre Recovery Services, procédez comme suit :
    New-AzResourceGroup -Name "test-rg" -Location "West US"
    ```
 
-2. Utilisez la cmdlet [New-AzRecoveryServicesVault](https://docs.microsoft.com/powershell/module/az.recoveryservices/New-AzRecoveryServicesVault?view=azps-1.4.0) pour créer le coffre. Pour le coffre, spécifiez le même emplacement que celui utilisé pour le groupe de ressources.
+1. Utilisez la cmdlet [New-AzRecoveryServicesVault](https://docs.microsoft.com/powershell/module/az.recoveryservices/New-AzRecoveryServicesVault?view=azps-1.4.0) pour créer le coffre. Pour le coffre, spécifiez le même emplacement que celui utilisé pour le groupe de ressources.
 
     ```powershell
     New-AzRecoveryServicesVault -Name "testvault" -ResourceGroupName "test-rg" -Location "West US"
     ```
-
-3. Spécifiez le type de redondance à utiliser pour le stockage de coffre. Vous pouvez utiliser le [stockage localement redondant](../storage/common/storage-redundancy-lrs.md) ou le [stockage géoredondant](../storage/common/storage-redundancy-grs.md).
-   
-   L’exemple suivant définit l’option **-BackupStorageRedundancy** pour la cmdlet [Set-AzRecoveryServicesBackupProperties](https://docs.microsoft.com/powershell/module/az.recoveryservices/set-azrecoveryservicesbackupproperty) de **testvault** définie sur **GeoRedundant** :
-
-   ```powershell
-   $vault1 = Get-AzRecoveryServicesVault -Name "testvault"
-   Set-AzRecoveryServicesBackupProperties  -Vault $vault1 -BackupStorageRedundancy GeoRedundant
-   ```
 
 ### <a name="view-the-vaults-in-a-subscription"></a>Afficher les coffres dans un abonnement
 
@@ -246,20 +237,22 @@ WorkloadName       Operation            Status                 StartTime        
 testAzureFS       ConfigureBackup      Completed            11/12/2018 2:15:26 PM     11/12/2018 2:16:11 PM     ec7d4f1d-40bd-46a4-9edb-3193c41f6bf6
 ```
 
+Pour plus d’informations sur l’obtention d’une liste de partages de fichiers pour un compte de stockage, consultez [cet article](https://docs.microsoft.com/powershell/module/az.storage/get-azstorageshare?view=azps-4.3.0).
+
 ## <a name="important-notice-backup-item-identification"></a>Remarque importante : Identification de l’élément de sauvegarde
 
 Cette section décrit un changement important en termes de sauvegardes de partages de fichiers Azure pour préparer la mise à la disposition générale.
 
-Lors de l’activation d'une sauvegarde pour partages de fichiers Azure, l’utilisateur fournit un nom de partage de fichiers du client comme nom d’entité ; un élément de sauvegarde est alors créé. Le nom de l’élément de sauvegarde est un identificateur unique créé par le service Sauvegarde Azure. En général, l’identificateur correspond à un nom convivial. Cependant, pour gérer le scénario des suppressions réversibles, où un partage de fichiers peut être supprimé et un autre partage de fichiers créé avec le même nom, l’identité unique d'un partage de fichiers Azure correspond désormais à un ID. 
+Lors de l’activation d'une sauvegarde pour partages de fichiers Azure, l’utilisateur fournit un nom de partage de fichiers du client comme nom d’entité ; un élément de sauvegarde est alors créé. Le nom de l’élément de sauvegarde est un identificateur unique créé par le service Sauvegarde Azure. En général, l’identificateur correspond à un nom convivial. Cependant, pour gérer le scénario des suppressions réversibles, où un partage de fichiers peut être supprimé et un autre partage de fichiers créé avec le même nom, l’identité unique d'un partage de fichiers Azure correspond désormais à un ID.
 
-Pour connaître l’ID unique de chaque élément, exécutez la commande **Get-AzRecoveryServicesBackupItem** avec les filtres appropriés pour **backupManagementType** et **WorkloadType** afin d'obtenir tous les éléments pertinents. Observez ensuite le champ de nom dans la réponse/l’objet PowerShell retourné. 
+Pour connaître l’ID unique de chaque élément, exécutez la commande **Get-AzRecoveryServicesBackupItem** avec les filtres appropriés pour **backupManagementType** et **WorkloadType** afin d'obtenir tous les éléments pertinents. Observez ensuite le champ de nom dans la réponse/l’objet PowerShell retourné.
 
 Nous vous recommandons de lister les éléments, puis de récupérer leur nom unique dans le champ de nom de la réponse. Utilisez cette valeur pour filtrer les éléments avec le paramètre *Name*. Sinon, utilisez le paramètre *FriendlyName* pour récupérer l’élément avec son ID.
 
 > [!IMPORTANT]
-> Assurez-vous que PowerShell est mis à niveau vers la version minimale (Az. RecoveryServices 2.6.0) pour les sauvegardes des partages de fichiers Azure. Avec cette version, le filtre *FriendlyName* est disponible pour la commande **Get-AzRecoveryServicesBackupItem**. 
+> Assurez-vous que PowerShell est mis à niveau vers la version minimale (Az. RecoveryServices 2.6.0) pour les sauvegardes des partages de fichiers Azure. Avec cette version, le filtre *FriendlyName* est disponible pour la commande **Get-AzRecoveryServicesBackupItem**.
 >
-> Passez le nom du partage de fichiers Azure au paramètre *FriendlyName*. Si vous passez le nom du partage de fichiers Azure au paramètre *Name*, cette version génère un avertissement indiquant de passer ce nom au paramètre *FriendlyName*. 
+> Passez le nom du partage de fichiers Azure au paramètre *FriendlyName*. Si vous passez le nom du partage de fichiers Azure au paramètre *Name*, cette version génère un avertissement indiquant de passer ce nom au paramètre *FriendlyName*.
 >
 > Si vous n’installez pas cette version minimale, vous risquez de provoquer un échec des scripts existants. Installez la version minimale de PowerShell à l'aide de la commande suivante :
 >
@@ -295,5 +288,5 @@ Les instantanés de partage de fichiers Azure sont utilisés lors des sauvegarde
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-- Apprenez-en davantage sur la [sauvegarde Azure Files dans le portail Azure](backup-afs.md).
-- Reportez-vous à l’[exemple de script sur GitHub](https://github.com/Azure-Samples/Use-PowerShell-for-long-term-retention-of-Azure-Files-Backup) pour utiliser un runbook Azure Automation afin de planifier des sauvegardes.
+* Apprenez-en davantage sur la [sauvegarde Azure Files dans le portail Azure](backup-afs.md).
+* Reportez-vous à l’[exemple de script sur GitHub](https://github.com/Azure-Samples/Use-PowerShell-for-long-term-retention-of-Azure-Files-Backup) pour utiliser un runbook Azure Automation afin de planifier des sauvegardes.

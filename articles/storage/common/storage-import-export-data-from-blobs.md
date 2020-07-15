@@ -4,16 +4,16 @@ description: Découvrez comment créer des tâches d’exportation dans le Porta
 author: alkohli
 services: storage
 ms.service: storage
-ms.topic: article
+ms.topic: how-to
 ms.date: 03/12/2020
 ms.author: alkohli
 ms.subservice: common
-ms.openlocfilehash: fe58f59147db43b1c15298f83a2945b50766f8a8
-ms.sourcegitcommit: 1692e86772217fcd36d34914e4fb4868d145687b
+ms.openlocfilehash: c9ce265707743d98f6c93d3facca33e16d1b75ea
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/29/2020
-ms.locfileid: "84169200"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85513505"
 ---
 # <a name="use-the-azure-importexport-service-to-export-data-from-azure-blob-storage"></a>Utilisation du service Azure Import/Export pour exporter des données à partir du Stockage Blob Azure
 
@@ -39,7 +39,7 @@ Vous devez respecter les consignes suivantes :
 
 Effectuez les étapes suivantes pour créer une tâche d’exportation dans le Portail Azure.
 
-1. Connectez-vous sur https://portal.azure.com/.
+1. Connectez-vous sur <https://portal.azure.com/>.
 2. Accédez à **Tous les services > Stockage > Tâches d’importation/exportation**.
 
     ![Accéder à Tâches d’importation/exportation](./media/storage-import-export-data-from-blobs/export-from-blob1.png)
@@ -129,7 +129,11 @@ L’exportation est effectuée.
 
 Si vous utilisez la version 1.4.0.300 de l’outil WAImportExport, utilisez la commande suivante pour déverrouiller le lecteur :
 
-   `WAImportExport Unlock /bk:<BitLocker key (base 64 string) copied from journal (*.jrn*) file>`  
+   `WAImportExport Unlock /bk:<BitLocker key (base 64 string) copied from journal (*.jrn*) file> /driveLetter:<Drive letter>`  
+
+Voici un exemple de ces données en entrée.
+
+   `WAImportExport.exe Unlock /bk:CAAcwBoAG8AdQBsAGQAIABiAGUAIABoAGkAZABkAGUAbgA= /driveLetter:e`
 
 Si vous utilisez des versions antérieures de l’outil, utilisez la boîte de dialogue BitLocker pour déverrouiller le lecteur.
 
@@ -143,11 +147,11 @@ Cette étape *facultative* vous permet de déterminer le nombre de disques néce
 2. Décompressez le package dans le dossier par défaut : `waimportexportv1`. Par exemple : `C:\WaImportExportV1`.
 3. Ouvrez une fenêtre PowerShell ou de ligne de commande avec des privilèges d’administrateur. Pour accéder au répertoire du dossier décompressé, exécutez la commande suivante :
 
-    `cd C:\WaImportExportV1`
+   `cd C:\WaImportExportV1`
 
 4. Pour vérifier le nombre de disques nécessaires pour les objets blob sélectionnés, exécutez la commande suivante :
 
-    `WAImportExport.exe PreviewExport /sn:<Storage account name> /sk:<Storage account key> /ExportBlobListFile:<Path to XML blob list file> /DriveSize:<Size of drives used>`
+   `WAImportExport.exe PreviewExport /sn:<Storage account name> /sk:<Storage account key> /ExportBlobListFile:<Path to XML blob list file> /DriveSize:<Size of drives used>`
 
     Les paramètres sont décrits dans le tableau suivant :
 

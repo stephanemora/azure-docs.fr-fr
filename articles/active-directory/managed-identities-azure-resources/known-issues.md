@@ -17,12 +17,12 @@ ms.date: 12/12/2017
 ms.author: markvi
 ms.collection: M365-identity-device-management
 ms.custom: has-adal-ref
-ms.openlocfilehash: d29689b088759b73465b24d06d4341571b599782
-ms.sourcegitcommit: 958f086136f10903c44c92463845b9f3a6a5275f
+ms.openlocfilehash: 6f18c9fe43b0b714e5709b014c051520b3722138
+ms.sourcegitcommit: 9b5c20fb5e904684dc6dd9059d62429b52cb39bc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/20/2020
-ms.locfileid: "83714047"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85855128"
 ---
 # <a name="faqs-and-known-issues-with-managed-identities-for-azure-resources"></a>FAQ et problèmes connus en lien avec des identités managées pour les ressources Azure
 
@@ -32,6 +32,24 @@ ms.locfileid: "83714047"
 
 > [!NOTE]
 > Identités managées pour les ressources Azure est le nouveau nom du service anciennement nommé Managed Service Identity (MSI).
+
+
+### <a name="how-can-you-find-resources-that-have-a-managed-identity"></a>Comment trouver les ressources qui ont une identité managée ?
+
+Vous pouvez obtenir la liste des ressources qui ont une identité managée affectée par le système en exécutant la commande Azure CLI suivante : 
+
+`az resource list --query "[?identity.type=='SystemAssigned'].{Name:name,  principalId:identity.principalId}" --output table`
+
+
+
+
+### <a name="do-managed-identities-have-a-backing-app-object"></a>Les identités managées ont-elles un objet de sauvegarde d’application ?
+
+Non. Les identités managées et les inscriptions d’applications Azure AD sont deux choses différentes dans l’annuaire. 
+
+Les inscriptions d’applications ont deux composants : un objet application et un objet principal de service. Les identités managées des ressources Azure ont un seul de ces composants : un objet principal de service. 
+
+Les identités managées n’ont pas d’objet application dans l’annuaire, qui est l’objet couramment utilisé pour accorder des autorisations d’application pour MS Graph. Au lieu de cela, les autorisations MS Graph pour les identités managées doivent être accordées directement au principal de service.  
 
 ### <a name="does-managed-identities-for-azure-resources-work-with-azure-cloud-services"></a>Les identités managées pour les ressources Azure fonctionnent-elles avec Azure Cloud Services ?
 
@@ -114,6 +132,8 @@ Solution de contournement pour les identités managées dans un abonnement dépl
 
  - Pour les identités managées affectées par le système : désactivez et réactivez-les. 
  - Pour les identités managées affectées par l’utilisateur : supprimez, recréez et joignez-les à nouveau aux ressources nécessaires (par exemple, des machines virtuelles)
+
+Pour plus d’informations, consultez [Transférer un abonnement Azure vers une autre instance Azure AD Directory (préversion)](../../role-based-access-control/transfer-subscription.md).
 
 ### <a name="moving-a-user-assigned-managed-identity-to-a-different-resource-groupsubscription"></a>Le déplacement d’une identité managée affectée par l’utilisateur à un autre groupe de ressources/abonnement
 

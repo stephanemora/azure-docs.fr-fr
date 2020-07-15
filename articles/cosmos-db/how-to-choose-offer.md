@@ -6,12 +6,12 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 05/19/2020
 ms.author: dech
-ms.openlocfilehash: b8c4fd3804bfa02b86f62912641eb936ff8cd15e
-ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
+ms.openlocfilehash: 94022b9959b6a7f2bc30e31f918f2f5a916ccd8c
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83662927"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85116806"
 ---
 # <a name="how-to-choose-between-standard-manual-and-autoscale-provisioned-throughput"></a>Comment choisir entre le débit approvisionné standard (manuel) et le débit approvisionné avec mise à l’échelle automatique 
 
@@ -61,7 +61,7 @@ Par la suite, une fois que vous avez choisi le type de débit, vous devez survei
 
 Lorsque vous utilisez la mise à l’échelle automatique, utilisez Azure Monitor pour afficher le nombre maximal de RU/s approvisionnées avec mise à l’échelle automatique (**Débit maximal avec mise à l’échelle automatique**) et les RU/s sur lesquelles le système est actuellement mis à l’échelle (**Débit approvisionné**). Vous trouverez ci-dessous un exemple de charge de travail variable ou imprévisible utilisant la mise à l’échelle automatique. Notez qu’en l’absence de trafic, le système met à l’échelle les RU/s vers la valeur minimale de 10 % du nombre maximal de RU/s, soit respectivement 5 000 RU/s et 50 000 RU/s. 
 
-![Exemple de charge de travail utilisant la mise à l’échelle automatique](media/how-to-choose-offer/autoscale-metrics-azure-monitor.png)
+:::image type="content" source="media/how-to-choose-offer/autoscale-metrics-azure-monitor.png" alt-text="Exemple de charge de travail utilisant la mise à l’échelle automatique":::
 
 > [!NOTE]
 > Lorsque vous utilisez un débit approvisionné standard (manuel), la métrique **Débit approvisionné** fait référence à ce que vous, en tant qu’utilisateur, avez défini. Lorsque vous utilisez le débit avec mise à l’échelle automatique, cette mesure fait référence aux RU/s sur lesquelles le système est actuellement mis à l’échelle.

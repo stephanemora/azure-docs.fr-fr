@@ -1,18 +1,16 @@
 ---
 title: Services de Conseil dans la Place de marché commerciale Microsoft
 description: Cet article décrit les critères d’éligibilité et les exigences de publication applicables aux nouvelles offres de services de conseil dans Microsoft AppSource et la Place de marché Azure.
-author: qianw211
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
-ms.date: 05/08/2020
-ms.author: dsindona
-ms.openlocfilehash: da2588125b455deaf18110687d54adc04a7dd4c0
-ms.sourcegitcommit: cf7caaf1e42f1420e1491e3616cc989d504f0902
+ms.date: 06/08/2020
+ms.openlocfilehash: 4a45239836779fc83aa2e3927c6e3ff752c87182
+ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/22/2020
-ms.locfileid: "83799861"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86103753"
 ---
 # <a name="consulting-service-offers"></a>Offre de services de conseil
 
@@ -22,20 +20,11 @@ Les offres de services de conseil sont des engagements spécifiques pour le clie
 
 ## <a name="compare-consulting-services"></a>Comparer les services de conseil
 
-Les vitrines commerciales, Microsoft AppSource et la Place de marché Azure, sont adaptées aux publics et aux produits cloud pour aider les clients à trouver ce dont ils ont besoin. Chaque vitrine propose des options de publication spécialisées destinées à optimiser votre investissement. Ces options sont décrites dans le tableau suivant :
-
-|         |Place de marché Azure  |Microsoft AppSource |
-|---------|---------|---------|
-|Public visé      |Professionnels de l’informatique et développeurs cloud|Utilisateurs professionnels et décideurs des secteurs d’activité|
-|Pertinence de la solution      |Applications techniques générées pour ou reposant sur Azure|Applications métier qui utilisent ou étendent Dynamics 365, Power BI, Office 365, Azure (applications finies sous la forme de complément ou de module complémentaire)|
-|Options de publication      |Me contacter, Essai gratuit, Transact ou Services pour Azure|Me contacter, Essai gratuit ou Services pour Dynamics 365 et Power BI|
-|Expérience intégrée au produit      |Portail Azure|Dynamics 365, Office 365, applications clientes Office| 
-|Autres      |Publication locale par le biais d’Azure Stack, services de conseil pour Azure, services gérés pour Azure|Services de conseil pour Dynamics 365 et Power BI|
-||
+Les vitrines commerciales, Microsoft AppSource et la Place de marché Azure, sont adaptées aux publics et aux produits cloud pour aider les clients à trouver ce dont ils ont besoin. Chaque vitrine propose des options de publication spécialisées destinées à optimiser votre investissement. Pour en savoir plus sur la différence entre les deux vitrines, consultez [Comparaison entre Microsoft AppSource et la Place de marché Azure](comparing-appsource-azure-marketplace.md).
 
 Les offres de services de conseil qui sont basées sur Dynamics 365, Power Apps et Power BI peuvent être listées sur AppSource. Pour plus d’informations, téléchargez le fichier PDF [Instructions de référencement des services de conseil Microsoft AppSource](https://go.microsoft.com/fwlink/?LinkId=828734&clcid=0x409).
 
-Les offres de services de conseil et de services gérés basées sur Microsoft Azure peuvent être listées sur la Place de marché Azure. Pour plus d’informations, consultez les articles [Publier une offre de services de conseil Azure](./partner-center-portal/create-consulting-service-offer.md) et [Publier une offre de services gérés sur la Place de marché Azure](https://docs.microsoft.com/azure/lighthouse/how-to/publish-managed-services-offers).
+Les offres de services de conseil et de services gérés basées sur Microsoft Azure peuvent être listées sur la Place de marché Azure. Pour plus d’informations, consultez les articles [Publier une offre de services de conseil Azure](./partner-center-portal/create-consulting-service-offer.md) et [Publier une offre de services gérés sur la Place de marché Azure](../lighthouse/how-to/publish-managed-services-offers.md).
 
 > [!Note]
 > Les services de conseil de la Place de marché Azure doivent se concentrer sur les offres destinées à un public technique et mettre en évidence les services et solutions techniques d’Azure.
@@ -79,21 +68,20 @@ Références et ressources supplémentaires :
 
 Pour plus d’informations sur les compétences, accédez à la page [Compétences Microsoft Partner Network](https://partner.microsoft.com/membership/competencies).
 
-Les partenaires intégrateurs de systèmes peuvent envoyer des offres de services de conseil pour les 21 pays/régions suivant(e)s :
+Les partenaires intégrateurs de systèmes peuvent envoyer des offres de services de conseil pour les 20 pays/régions suivant(e)s :
 
-|   |   |   |   |
+| Pays  | (suite...)   | (suite...)  | (suite...)  |
 |---------|----------|----------|----------|
 | Australie | Belgique | Canada | Danemark |
 | Finlande  | France | Allemagne  | Inde   |
 | Italie    | Japon  |  Mexique  |  Pays-Bas  |
 |  Nouvelle-Zélande  |  Norvège  |  Pologne  | Afrique du Sud |
-|  Espagne  | Suède  | Suisse  |  États-Unis  |
-| Royaume-Uni  |
+|  Suède  | Suisse  |  États-Unis  | Royaume-Uni  |
 ||
 
 ## <a name="register-for-consulting-services-in-the-commercial-marketplace"></a>S’inscrire aux services de conseil du marketplace commercial
 
-Commencez par [inscrire](https://partner.microsoft.com/dashboard/account/v3/enrollment/introduction/partnership) votre entreprise dans la Place de marché. Pour obtenir une liste de contrôle complète des conditions d’inscription, consultez [Devenir éditeur sur le marketplace](https://docs.microsoft.com/azure/marketplace/become-publisher). 
+Commencez par [inscrire](https://partner.microsoft.com/dashboard/account/v3/enrollment/introduction/partnership) votre entreprise dans la Place de marché. Pour obtenir une liste de contrôle complète des conditions d’inscription, consultez [Devenir éditeur sur le marketplace](become-publisher.md). 
 
 ## <a name="prepare-your-publishing-artifacts"></a>Préparer vos artefacts de publication
 Avant de vous inscrire, vous pouvez commencer à collecter et à préparer le contenu pour que votre référencement décrive la valeur de vos service et solution à votre client cible. 

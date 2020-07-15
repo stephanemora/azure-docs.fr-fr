@@ -5,14 +5,14 @@ ms.service: hdinsight
 author: hrasheed-msft
 ms.author: hrasheed
 ms.reviewer: jasonh
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 12/12/2019
-ms.openlocfilehash: aa778aa395d013bd644f69886ea5ebc2399e6f54
-ms.sourcegitcommit: 309cf6876d906425a0d6f72deceb9ecd231d387c
+ms.openlocfilehash: ff7cb3c03edf9b421347815311796896caaffd70
+ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/01/2020
-ms.locfileid: "84265248"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86086600"
 ---
 # <a name="use-id-broker-preview-for-credential-management"></a>Utiliser un broker d’ID pour la gestion des informations d’identification
 
@@ -89,6 +89,8 @@ Si vous ajoutez un nouveau rôle appelé `idbrokernode` avec les attributs suiva
 ## <a name="tool-integration"></a>Intégration d’outils
 
 Le plug-in [IntelliJ](https://docs.microsoft.com/azure/hdinsight/spark/apache-spark-intellij-tool-plugin#integrate-with-hdinsight-identity-broker-hib) HDInsight est mis à jour pour prendre en charge OAuth. Vous pouvez utiliser ce plug-in pour vous connecter au cluster et envoyer des travaux.
+
+Vous pouvez également utiliser les [outils Spark et Hive pour VS Code](https://docs.microsoft.com/azure/hdinsight/hdinsight-for-vscode) pour tirer parti du notebook et envoyer des travaux.
 
 ## <a name="ssh-access-without-a-password-hash-in-azure-ad-ds"></a>Accès SSH sans hachage de Mot de passe dans Azure AD DS
 

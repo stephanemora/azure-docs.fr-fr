@@ -2,7 +2,7 @@
 title: Journal de diagnostic des performances Intelligent Insights
 description: Intelligent Insights fournit un journal de diagnostic des problèmes de performance d’Azure SQL Database et d’Azure SQL Managed Instance
 services: sql-database
-ms.service: sql-database
+ms.service: sql-db-mi
 ms.subservice: performance
 ms.custom: sqldbrb=2
 ms.devlang: ''
@@ -10,18 +10,21 @@ ms.topic: conceptual
 author: danimir
 ms.author: danil
 ms.reviewer: jrasnik, carlrab
-ms.date: 03/10/2020
-ms.openlocfilehash: 42edccf0530e0b8041bfb0a182126bc7cd1a9d65
-ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
+ms.date: 06/12/2020
+ms.openlocfilehash: 398a96dc505309e565b13cb42f610d8571b9413e
+ms.sourcegitcommit: 93462ccb4dd178ec81115f50455fbad2fa1d79ce
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "84028660"
+ms.lasthandoff: 07/06/2020
+ms.locfileid: "85986325"
 ---
 # <a name="use-the-intelligent-insights-performance-diagnostics-log-of-azure-sql-database-and-azure-sql-managed-instance-performance-issues"></a>Utiliser le journal de diagnostic des performances Intelligent Insights pour détecter les problèmes de performance d’Azure SQL Database et d’Azure SQL Managed Instance
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
 
 Cette page fournit des informations sur l’utilisation du journal de diagnostic des performances généré par [Intelligent Insights](intelligent-insights-overview.md) sur les problèmes de performance d’Azure SQL Database et d’Azure SQL Managed Instance, son format et les données qu’il contient pour vos besoins de développement. Vous pouvez envoyer ce journal de diagnostic aux [journaux Azure Monitor](../../azure-monitor/insights/azure-sql.md), à [Azure Event Hubs](../../azure-monitor/platform/resource-logs-stream-event-hubs.md), au [Stockage Azure](metrics-diagnostic-telemetry-logging-streaming-export-configure.md#stream-into-azure-storage) ou à une solution tierce pour des fonctionnalités d’alertes et de rapports DevOps personnalisées.
+
+> [!NOTE]
+> Intelligent Insights est une fonctionnalité en préversion qui n’est pas disponible dans les régions suivantes : Europe Ouest, Europe Nord, USA Ouest 1 et USA Est 1.
 
 ## <a name="log-header"></a>En-tête du journal
 

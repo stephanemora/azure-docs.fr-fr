@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/19/2019
 ms.author: allensu
-ms.openlocfilehash: d3bd1156de4aed7d1ea5c530605697f2dc80d63c
-ms.sourcegitcommit: efefce53f1b75e5d90e27d3fd3719e146983a780
+ms.openlocfilehash: da776c679d5ded6f53cd0d224828fffee058d37d
+ms.sourcegitcommit: dee7b84104741ddf74b660c3c0a291adf11ed349
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/01/2020
-ms.locfileid: "80476983"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85920614"
 ---
 # <a name="high-availability-ports-overview"></a>Vue d’ensemble des ports haute disponibilité
 
@@ -87,20 +87,17 @@ Si votre scénario nécessite la configuration de plusieurs frontends de ports h
 
 ### <a name="an-internal-load-balancer-with-ha-ports-and-a-public-load-balancer-on-the-same-back-end-instance"></a>Équilibreur de charge interne avec ports haute disponibilité et équilibreur de charge public sur la même instance backend
 
-Vous pouvez configurer *une* ressource d’équilibreur de charge standard public pour les ressources backend ainsi qu’un seul équilibreur de charge standard interne avec des ports haute disponibilité.
-
->[!NOTE]
->Cette fonctionnalité est actuellement disponible via les modèles Azure Resource Manager, mais pas via le portail Azure.
+Vous pouvez configurer *une* ressource Standard Load Balancer publique pour les ressources de serveur principal, ainsi qu’un seul équilibreur de charge standard interne avec des ports haute disponibilité.
 
 ## <a name="limitations"></a>Limites
 
 - Les règles d’équilibrage de charge des ports haute disponibilité sont utilisables uniquement avec l’équilibreur Standard Load Balancer interne.
-- La combinaison d’une règle d’équilibrage de charge de ports haute disponibilité et d’une règle d’équilibrage de charge de ports sans haute disponibilité pointant vers les mêmes configurations IP back-end n’est pas prise en charge.
+- La combinaison d’une règle d’équilibrage de charge de ports haute disponibilité et d’une règle d’équilibrage de charge de ports sans haute disponibilité pointant vers les mêmes configurations IP back-end n’est pas prise en charge, sauf si l’adresse IP flottante est activée pour les deux.
 - Les fragments IP existants sont transférés par les règles d’équilibrage de charge des ports haute disponibilité vers la même destination que le premier paquet.  La fragmentation IP d’un paquet UDP ou TCP n’est pas prise en charge.
 - La symétrie des flux (principalement pour les scénarios d'appliance virtuelle réseau) est prise en charge avec l'instance du serveur back-end et une seule carte réseau (ainsi qu'une seule configuration IP) uniquement en cas d'utilisation tel qu'indiqué dans le diagramme ci-dessus et avec les règles d'équilibrage de charge des ports haute disponibilité. Elle n’est pas fournie dans les autres scénarios. Autrement dit, plusieurs ressources Load Balancer et leurs règles respectives prennent des décisions indépendantes et ne sont jamais coordonnées. Consultez la description et le diagramme des [appliances virtuelles réseau](#nva). Lorsque vous utilisez plusieurs cartes réseau ou insérez l’appliance virtuelle réseau entre un équilibreur de charge public et l’équilibreur de charge Load Balancer interne, la symétrie des flux n’est pas disponible.  Vous serez peut-être en mesure de contourner ce problème en approvisionnant la traduction d’adresses réseau du flux d’entrée vers l’adresse IP de l’appliance pour autoriser la réception de réponses sur la même appliance virtuelle réseau.  Toutefois, nous vous recommandons vivement d'utiliser une seule carte réseau et l'architecture de référence présentée dans le diagramme ci-dessus.
 
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-- [Configurer des ports haute disponibilité sur un équilibreur de charge standard interne](load-balancer-configure-ha-ports.md)
+- Découvrez comment configurer des ports haute disponibilité pour votre ILB via le portail (tutorial-load-balancer-standard-internal-portal.mdl#create-a-load-balancer-rule), [PowerShell](load-balancer-get-started-ilb-arm-ps.md#create-the-configuration-rules-probe-and-load-balancer), [CLI](load-balancer-get-started-ilb-arm-cli.md#create-the-load-balancer-rule) ou des [modèles](load-balancer-get-started-ilb-arm-template.md).
 - [Présentation de la référence Standard d’Azure Load Balancer (préversion)](load-balancer-standard-overview.md)

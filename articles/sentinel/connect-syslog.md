@@ -1,6 +1,6 @@
 ---
 title: Connecter des données Syslog à Azure Sentinel | Microsoft Docs
-description: Découvrez comment connecter des données Syslog à Azure Sentinel.
+description: Connectez une appliance locale qui prend en charge Syslog à Azure Sentinel en utilisant un agent sur une machine Linux entre l’appliance et Sentinel. 
 services: sentinel
 documentationcenter: na
 author: yelevin
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 12/30/2019
 ms.author: yelevin
-ms.openlocfilehash: 73fd55fc24fd94dc88bba2f591c32480f77c7d5d
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 65c4e5d9e0752379541063c8a80a4316196ad7c3
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "77588074"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85565373"
 ---
 # <a name="connect-your-external-solution-using-syslog"></a>Connectez votre solution externe à l’aide de Syslog
 

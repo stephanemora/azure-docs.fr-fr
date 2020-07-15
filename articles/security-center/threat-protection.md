@@ -8,14 +8,14 @@ manager: rkarlin
 ms.assetid: 33c45447-3181-4b75-aa8e-c517e76cd50d
 ms.service: security-center
 ms.topic: conceptual
-ms.date: 03/15/2020
+ms.date: 06/30/2020
 ms.author: memildin
-ms.openlocfilehash: 2e563cd0f9a8a25e57312494f1313f895c3b4628
-ms.sourcegitcommit: 309cf6876d906425a0d6f72deceb9ecd231d387c
+ms.openlocfilehash: f5218b2346b6ddebcee87a0e24f4924deafdb0f2
+ms.sourcegitcommit: e132633b9c3a53b3ead101ea2711570e60d67b83
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/01/2020
-ms.locfileid: "84267152"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86037186"
 ---
 # <a name="threat-protection-in-azure-security-center"></a>Protection contre les menaces dans Azure Security Center
 
@@ -106,36 +106,18 @@ Pour plus d’informations sur les plans App Service, consultez [Plans App Servi
 
 
 
-## <a name="threat-protection-for-azure-containers"></a>Protection contre les menaces pour les conteneurs Azure <a name="azure-containers"></a>
+## <a name="threat-protection-for-containers"></a>Protection contre les menaces pour les conteneurs <a name="azure-containers"></a>
 
-> [!NOTE]
-> Ce service n’est pas disponible actuellement dans les régions Azure Government et de cloud souverain.
+### <a name="availability"></a>Disponibilité
 
-Security Center fournit une protection contre les menaces en temps réel pour vos environnements conteneurisés, et génère des alertes en cas d’activités suspectes. Vous pouvez utiliser ces informations pour remédier rapidement aux problèmes de sécurité et améliorer la sécurité de vos conteneurs.
+- État de sortie : **Disponibilité générale**
+- Rôles nécessaires : L’**administrateur de sécurité** peut ignorer les alertes. Le **Lecteur de sécurité** peut afficher les résultats.
+- Clouds :<br>
+    ✔ Clouds commerciaux<br>
+    ✘ US Gov<br>
+    ✘ Chine Gov, autres Gov
 
-Security Center offre une protection contre les menaces à différents niveaux : 
-
-* **Au niveau de l’hôte** : l’agent de Security Center (disponible avec le niveau tarifaire Standard ; consultez les [tarifs](security-center-pricing.md) pour plus d’informations) supervise Linux pour détecter les activités suspectes. L’agent déclenche des alertes s’il détecte des activités suspectes réalisées à partir du nœud ou d’un conteneur qui y est exécuté. Parmi ces activités, citons la détection de shell web et la connexion avec des adresses IP suspectes connues.
-
-    Pour fournir des insights plus complets sur la sécurité de votre environnement conteneurisé, l’agent supervise l’analytique des conteneurs. Il déclenche des alertes sur des événements tels que la création de conteneurs privilégiés, l’accès suspect à des serveurs d’API et à des serveurs Secure Shell (SSH) s’exécutant dans un conteneur Docker.
-
-    >[!IMPORTANT]
-    > Si vous choisissez de ne pas installer les agents sur vos machines hôtes, vous ne recevrez qu’une partie des avantages et alertes de sécurité relatifs à la protection contre les menaces. Vous recevrez toujours les alertes liées à l’analyse réseau et aux communications avec des serveurs malveillants.
-
-    Pour obtenir la liste des alertes au niveau de l’hôte, consultez la [table de référence des alertes](alerts-reference.md#alerts-containerhost).
-
-
-* Au **niveau du cluster AKS**, la protection contre les menaces est basée sur l’analyse des journaux d’audit de Kubernetes. Pour activer cette supervision **sans agent**, ajoutez l’option Kubernetes à votre abonnement à partir de la page **Tarification et paramètres** (voir les [tarifs](security-center-pricing.md)). Pour générer des alertes à ce niveau, Security Center supervise vos services managés par AKS à l’aide des journaux collectés par AKS. Les tableaux de bord Kubernetes exposés, la création de rôles dotés de privilèges élevés et la création de montages sensibles sont des exemples d’événements à ce niveau.
-
-    >[!NOTE]
-    > Security Center génère des alertes de sécurité pour les actions et les déploiements Azure Kubernetes Service, qui se produisent après l’activation de l’option Kubernetes dans les paramètres de l’abonnement. 
-
-    Pour obtenir la liste des alertes au niveau du cluster AKS, consultez la [table de référence des alertes](alerts-reference.md#alerts-akscluster).
-
-De plus, notre équipe mondiale d’experts en sécurité surveille en permanence l’évolution des menaces. Ils ajoutent des alertes et des vulnérabilités propres aux conteneurs au fur et à mesure de leur découverte.
-
-> [!TIP]
-> Vous pouvez simuler des alertes de conteneur en suivant les instructions données dans [ce billet de blog](https://techcommunity.microsoft.com/t5/azure-security-center/how-to-demonstrate-the-new-containers-features-in-azure-security/ba-p/1011270).
+[!INCLUDE [AKS in ASC threat protection](../../includes/security-center-azure-kubernetes-threat-protection.md)]
 
 
 
@@ -150,7 +132,7 @@ Advanced Threat Protection pour Azure SQL Database détecte les activités anorm
 
 Vous voyez s’afficher des alertes en cas d’activités de base de données suspectes, de vulnérabilités potentielles ou d’attaques par injection de code SQL ainsi qu’en cas de détection de modèles de requêtes et d’accès anormaux à la base de données.
 
-Advanced Threat Protection pour Azure SQL Database et SQL font partie du package unifié [Advanced Data Security (ADS)](https://docs.microsoft.com/azure/sql-database/sql-database-advanced-data-security) pour les fonctionnalités de sécurité SQL avancées, couvrant les bases de données Azure SQL Database, les instances gérées d’Azure SQL Database, les bases de données Azure SQL Data Warehouse et les serveurs SQL Server sur les machines virtuelles Azure.
+Advanced Threat Protection pour Azure SQL Database et SQL fait partie du package unifié [Advanced Data Security](https://docs.microsoft.com/azure/sql-database/sql-database-advanced-data-security) pour les fonctionnalités de sécurité SQL avancées, qui couvre Azure SQL Database, les instances Azure SQL Managed Instance et les bases de données Azure SQL Data Warehouse, ainsi que les serveurs SQL Server sur les Machines virtuelles Azure.
 
 Pour plus d'informations, consultez les pages suivantes :
 
@@ -162,15 +144,44 @@ Pour plus d'informations, consultez les pages suivantes :
 
 ## <a name="threat-protection-for-azure-storage"></a>Protection contre les menaces pour Stockage Azure <a name="azure-storage"></a>
 
-Advanced Threat Protection pour le Stockage Azure détecte les tentatives d’accès ou d’exploitation inhabituelles et potentiellement dangereuses des comptes de stockage. Cette couche de protection vous permet de traiter efficacement les menaces sans pour autant être un expert en sécurité, et vous aide à gérer des systèmes de supervision de la sécurité. 
+### <a name="availability"></a>Disponibilité
 
-Des alertes de sécurité sont déclenchées en cas d’activités suspectes sur votre compte de stockage ou si un comportement anormal est détecté. Les activités suspectes peuvent inclure le chargement d’un BLOB suspecté de contenir des programmes malveillants. Les alertes de comportement anormal incluent les modifications apportées au modèle d’accès à un compte de stockage.
+- État de sortie :
+    - [Stockage Blob](https://azure.microsoft.com/services/storage/blobs/) (disponibilité générale)
+    - [Azure Files](https://docs.microsoft.com/azure/storage/files/storage-files-introduction) (préversion)
+    - [Azure Data Lake Storage Gen2](https://docs.microsoft.com/azure/storage/blobs/data-lake-storage-introduction) (préversion)
+- Clouds :<br>
+    ✔ Clouds commerciaux<br>
+    ✔ US Gov<br>
+    ✘ Chine Gov, autres Gov
+
+### <a name="whats-protected"></a>Qu’est-ce qui est protégé ?
+
+La protection contre les menaces pour Stockage Azure détecte les activités potentiellement dangereuses sur vos comptes Stockage Azure. Vos données peuvent être protégées, qu’elles soient stockées en tant que conteneurs blob, de partages de fichiers ou de lacs de données.
+
+Cette couche de protection vous permet de traiter efficacement les menaces *sans* pour autant être un expert en sécurité, et vous aide à gérer des systèmes de supervision de la sécurité.
+
+Vos comptes de stockage sont protégés 
+
+### <a name="what-kind-of-alerts-does-threat-protection-for-azure-storage-provide"></a>Quels types d’alertes la protection des menaces offre-t-elle pour le stockage Azure ?
+
+Les alertes de sécurité sont déclenchées dans les cas suivants :
+
+- **Activité suspecte** : par exemple, le compte de stockage a fait l’objet d’un accès à partir d’une adresse IP connue comme étant un nœud de sortie actif de Tor
+- **Comportement anormal** : par exemple, inclut les modifications apportées au modèle d’accès à un compte de stockage
+- **Programmes malveillants potentiels chargés** : analyse de réputation du code de hachage qui indique qu’un fichier chargé contient des programmes malveillants
 
 Les alertes fournissent des détails sur l’incident qui les a déclenchées, ainsi que des suggestions pour enquêter et contrer les menaces.
 
-La protection contre les menaces pour le Stockage Azure est actuellement disponible pour le [Stockage Blob](https://azure.microsoft.com/services/storage/blobs/). 
+### <a name="what-is-hash-reputation-analysis-for-malware"></a>Qu’est-ce que l’analyse de réputation du code de hachage pour les programmes malveillants ?
 
-Ce service est disponible dans tous les clouds publics et les clouds US Government, mais pas dans d’autres régions de cloud souverain ou de cloud Azure Government. 
+Pour déterminer si un fichier téléchargé est suspect, la protection contre les menaces pour Azure Storage utilise l’analyse de réputation du code de hachage prise en charge par [Microsoft Threat Intelligence](https://go.microsoft.com/fwlink/?linkid=2128684). Les outils de protection contre les menaces n’analysent pas les fichiers téléchargés, mais ils examinent les journaux de stockage et comparent le code de hachage des fichiers récemment téléchargés avec ceux des virus, chevaux de Troie, logiciels espions et ransomware connus. 
+
+Lorsqu’un fichier est supposé contenir un logiciel malveillant, Security Center affiche une alerte et peut éventuellement envoyer un e-mail au propriétaire du stockage pour approbation afin de supprimer le fichier suspect. Pour configurer cette suppression automatique des fichiers signalée par l’analyse du code de hachage, déployez une [automatisation du flux de travail pour déclencher des alertes « Logiciel malveillant potentiel chargé sur un compte de stockage »](https://techcommunity.microsoft.com/t5/azure-security-center/how-to-respond-to-potential-malware-uploaded-to-azure-storage/ba-p/1452005).
+
+
+
+### <a name="next-steps"></a>Étapes suivantes 
 
 Pour plus d’informations sur la tarification, y compris une version d’évaluation gratuite de 30 jours, consultez la [page de tarification d’Azure Security Center](https://azure.microsoft.com/pricing/details/security-center/).
 
@@ -178,9 +189,13 @@ Pour plus d'informations, consultez les pages suivantes :
 
 * [Comment activer Advanced Threat Protection pour Stockage Azure](https://docs.microsoft.com/azure/storage/common/storage-advanced-threat-protection)
 * [Liste des alertes de protection contre les menaces pour Stockage Azure](alerts-reference.md#alerts-azurestorage)
+* [Fonctionnalités de renseignement sur les menaces de Microsoft](https://go.microsoft.com/fwlink/?linkid=2128684)
 
 > [!TIP]
-> Vous pouvez simuler des alertes de stockage Azure en suivant les instructions données dans [ce billet de blog](https://techcommunity.microsoft.com/t5/azure-security-center/validating-atp-for-azure-storage-detections-in-azure-security/ba-p/1068131).
+> Vous pouvez simuler des alertes de stockage en suivant les instructions données dans [ce billet de blog](https://techcommunity.microsoft.com/t5/azure-security-center/validating-atp-for-azure-storage-detections-in-azure-security/ba-p/1068131).
+
+
+
 
 
 
@@ -228,14 +243,17 @@ Pour obtenir la liste des alertes Azure Resource Manager (préversion), consulte
 >[!NOTE]
 > Plusieurs des analyses précédentes sont alimentées par Microsoft Cloud App Security. Pour tirer parti de ces analyses, vous devez activer une licence Cloud App Security. Si vous avez une licence Cloud App Security, ces alertes sont activées par défaut. Pour désactiver les alertes :
 >
-> 1. Dans le panneau **Security Center**, sélectionnez **Stratégie de sécurité**. Pour l’abonnement que vous souhaitez modifier, sélectionnez **Modifier les paramètres**.
-> 2. Sélectionnez **Détection des menaces**.
-> 3. Sous **Activer les intégrations**, décochez la case **Autoriser Microsoft Cloud App Security à accéder à mes données** et sélectionnez **Enregistrer**.
+> 1. Dans le menu de Security Center, sélectionnez **Tarification et paramètres**.
+> 1. Sélectionnez l’abonnement que vous souhaitez modifier.
+> 1. Sélectionnez **Détection des menaces**.
+> 1. Décochez la case **Autoriser Microsoft Cloud App Security à accéder à mes données** et sélectionnez **Enregistrer**.
 
 >[!NOTE]
 >Security Center stocke les données de client liées à la sécurité dans la même zone géographique que la ressource. Si Microsoft n’a pas encore déployé Security Center dans la zone géographique de la ressource, il stocke les données aux États-Unis. Quand Cloud App Security est activé, ces informations sont stockées selon les règles d’emplacement géographique de Cloud App Security. Pour plus d’informations, consultez [Stockage des données pour les services non régionaux](https://azuredatacentermap.azurewebsites.net/).
 
+1. Définissez l’espace de travail sur lequel vous installez l’agent. Assurez-vous que l’espace de travail est dans le même abonnement que vous utilisez dans Security Center et que vous disposez d’autorisations en lecture/écriture sur l’espace de travail.
 
+1. Définissez le niveau tarifaire standard, puis sélectionnez **Enregistrer**.
 
 
 

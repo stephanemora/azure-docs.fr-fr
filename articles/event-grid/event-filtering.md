@@ -1,18 +1,14 @@
 ---
 title: Filtrage d’événements pour Azure Event Grid
 description: Explique comment filtrer des événements lors de la création d’un abonnement Azure Event Grid.
-services: event-grid
-author: spelluru
-ms.service: event-grid
 ms.topic: conceptual
-ms.date: 04/28/2020
-ms.author: spelluru
-ms.openlocfilehash: 0f503b21d5a7d0fdfbee79354c198775789c0b91
-ms.sourcegitcommit: b396c674aa8f66597fa2dd6d6ed200dd7f409915
+ms.date: 07/07/2020
+ms.openlocfilehash: 837209d4197c271598155776b8d171a705e1f454
+ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/07/2020
-ms.locfileid: "82888777"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86120090"
 ---
 # <a name="understand-event-filtering-for-event-grid-subscriptions"></a>Comprendre le filtrage d’événements pour les abonnements Event Grid
 
@@ -155,7 +151,7 @@ Les valeurs peuvent être les suivantes :
 
 Le filtrage avancé présente les limites suivantes :
 
-* Cinq filtres avancés par abonnement Event Grid
+* 5 filtres avancés et 25 valeurs de filtre pour tous les filtres par abonnement Event Grid
 * 512 caractères par valeur de type chaîne
 * Cinq valeurs pour les opérateurs **dans** et **pas dans**
 * Clés contenant le signe **`.` (point)** . Par exemple, `http://schemas.microsoft.com/claims/authnclassreference` ou `john.doe@contoso.com`. Actuellement, les caractères d’échappement ne sont pas pris en charge dans les clés. 

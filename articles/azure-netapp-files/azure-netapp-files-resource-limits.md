@@ -12,14 +12,14 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 04/03/2020
+ms.date: 06/08/2020
 ms.author: b-juche
-ms.openlocfilehash: ac660b20d519e49e832e979603f763fa672757a5
-ms.sourcegitcommit: 0450ed87a7e01bbe38b3a3aea2a21881f34f34dd
+ms.openlocfilehash: 8b417559a17dc05a07467a28d37fec9b9a7c12cb
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/03/2020
-ms.locfileid: "80637395"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84553467"
 ---
 # <a name="resource-limits-for-azure-netapp-files"></a>Limites des ressources pour Azure NetApp Files
 
@@ -39,10 +39,10 @@ Le tableau suivant décrit les limites des ressources pour Azure NetApp Files :
 |  Nombre d’adresses IP utilisées dans un réseau virtuel (notamment les réseaux virtuels immédiatement appairés) avec Azure NetApp Files   |    1 000   |    Non   |
 |  Taille minimale d’un pool de capacités   |  4 Tio     |    Non  |
 |  Taille maximale d’un pool de capacités    |  500 Tio   |   Non   |
-|  Taille minimale d’un volume    |    100 Gio    |    Non    |
+|  Taille minimale d’un volume    |    100 Gio    |    Non    |
 |  Taille maximale d’un volume     |    100 Tio    |    Non    |
 |  Taille maximale d’un fichier unique     |    16 Tio    |    Non    |    
-|  Taille maximale de répertoire unique      |    320 Mo    |    Non    |    
+|  Taille maximale des métadonnées de répertoire dans un répertoire unique      |    320 Mo    |    Non    |    
 |  Nombre maximal de fichiers ([maxfiles](#maxfiles)) par volume     |    100 millions    |    Oui    |    
 
 Pour plus d’informations, consultez [Questions fréquentes (FAQ) sur la gestion de la capacité](azure-netapp-files-faqs.md#capacity-management-faqs).

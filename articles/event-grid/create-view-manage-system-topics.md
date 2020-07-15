@@ -1,35 +1,23 @@
 ---
-title: Créer, afficher et gérer des rubriques système dans Azure Event Grid
+title: Créer, afficher et gérer des rubriques système dans Azure Event Grid (portail)
 description: Cet article explique comment afficher une rubrique système existante et créer des rubriques système Azure Event Grid à l’aide du portail Azure.
-services: event-grid
-author: spelluru
-ms.service: event-grid
 ms.topic: conceptual
-ms.date: 06/02/2020
-ms.author: spelluru
-ms.openlocfilehash: ac22afb351973397960e66c2a8fe86031e0b213a
-ms.sourcegitcommit: 69156ae3c1e22cc570dda7f7234145c8226cc162
+ms.date: 07/07/2020
+ms.openlocfilehash: 2dbb0893668d72cfebf2d64e6515ff6ab6fed9bc
+ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/03/2020
-ms.locfileid: "84316340"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86115109"
 ---
-# <a name="create-view-and-manage-system-topics-in-azure-event-grid"></a>Créer, afficher et gérer des rubriques système dans Azure Event Grid
-Cet article explique comment effectuer les tâches suivantes :
-
-- Créer une rubrique système
-- Afficher toutes les rubriques système existantes 
-- Supprime une rubrique système
-- Créer un abonnement à un événement pour une rubrique système
-
+# <a name="create-view-and-manage-event-grid-system-topics-in-the-azure-portal"></a>Créer, afficher et gérer des rubriques système Event Grid dans le portail Azure
+Cet article vous montre comment créer et gérer des rubriques système dans le portail Azure. Pour une présentation des rubriques système, consultez [Rubriques système](system-topics.md).
 
 ## <a name="create-a-system-topic"></a>Créer une rubrique système
-Vous pouvez créer une rubrique système pour une ressource Azure de deux manières :
+Vous pouvez créer une rubrique système pour une ressource Azure (compte de stockage, espace de noms Event Hubs, etc.) de deux manières :
 
-- À l’aide de la page de ressources, par exemple page Compte de stockage ou page Espace de noms Event Hubs. 
-- À l’aide de la page **Rubriques système Event Grid**. 
-
-Consultez [ce guide de démarrage rapide](blob-event-quickstart-portal.md) pour un exemple de création de rubrique système à l’aide d’une page de ressources (onglet **Événements** d’une page de ressources dans le portail Azure). Les étapes suivantes permettent de créer une rubrique système à l’aide de la page **Rubrique système Event Grid**. 
+- En utilisant la page **Événements** d’une ressource, par exemple Compte de stockage ou Espace de noms Event Hubs. Lorsque vous utilisez la page **Événements** du portail Azure pour créer un abonnement à un événement déclenché par une source Azure (par exemple : Compte de stockage Azure), le portail crée une rubrique système pour la ressource Azure, puis crée un abonnement pour cette rubrique système. Si vous créez un abonnement d’événement pour la première fois dans la ressource Azure, vous devez spécifier le nom de la rubrique système. Les fois suivantes, le nom de la rubrique système s’affichera en mode Lecture seule. Consultez [Démarrage rapide : Acheminer des événements de stockage Blob vers un point de terminaison web avec le portail Azure](blob-event-quickstart-portal.md#subscribe-to-the-blob-storage) pour obtenir les étapes détaillées.
+- À l’aide de la page **Rubriques système Event Grid**. Les étapes suivantes permettent de créer une rubrique système à l’aide de la page **Rubrique système Event Grid**. 
 
 1. Connectez-vous au [portail Azure](https://portal.azure.com).
 2. Dans la zone de recherche située en haut, saisissez**Rubriques système Event Grid**, puis appuyez sur **Entrée**. 
@@ -57,11 +45,9 @@ Consultez [ce guide de démarrage rapide](blob-event-quickstart-portal.md) pour 
 
         ![Page des rubriques système](./media/create-view-manage-system-topics/system-topic-page.png)
 
+
 ## <a name="view-all-system-topics"></a>Afficher toutes les rubriques système
 Procédez comme suit pour afficher toutes les rubriques système Event Grid existantes. 
-
-> [!NOTE]
-> Auparavant, lorsque vous créiez un abonnement pour un événement déclenché par des sources Azure, le service Event Grid créait automatiquement une rubrique système avec un nom généré de manière aléatoire. Vous pouvez désormais spécifier un nom pour la rubrique système lors de la création de cette rubrique. Vous pouvez utiliser cette ressource de rubrique système pour découvrir des métriques et des journaux de diagnostic.
 
 1. Connectez-vous au [portail Azure](https://portal.azure.com).
 2. Dans la zone de recherche située en haut, saisissez**Rubriques système Event Grid**, puis appuyez sur **Entrée**. 
@@ -100,7 +86,6 @@ Procédez comme suit pour afficher toutes les rubriques système Event Grid exis
 3. Vérifiez que les sections **Type de rubrique**, **Ressource source** et **Nom de rubrique** sont automatiquement renseignées. Entrez un nom, sélectionnez un **Type de point de terminaison** et spécifiez le **point de terminaison**. Sélectionnez ensuite **Créer** pour créer l’abonnement à un événement. 
 
     ![Rubrique système - Abonnement à un événement](./media/create-view-manage-system-topics/create-event-subscription.png)
-
 
 ## <a name="next-steps"></a>Étapes suivantes
 Pour en savoir plus sur les rubriques système et les types de rubriques pris en charge par Azure Event Grid, consultez la section [Rubriques système dans Azure Event Grid](system-topics.md). 

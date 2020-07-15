@@ -11,13 +11,13 @@ ms.service: dms
 ms.workload: data-services
 ms.custom: seo-lt-2019
 ms.topic: article
-ms.date: 01/08/2020
-ms.openlocfilehash: c34de48d0184057f42d1b779abee56e1fa9ac169
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.date: 06/09/2020
+ms.openlocfilehash: 8cfe8d1a87b8b52c21927696101704bd01b7641a
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "78255161"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84609248"
 ---
 # <a name="tutorial-migrate-rds-mysql-to-azure-database-for-mysql-online-using-dms"></a>Tutoriel : Migrer RDS MySQL vers Azure Database pour MySQL en ligne à l’aide de DMS
 
@@ -67,6 +67,7 @@ Pour suivre ce didacticiel, vous devez effectuer les opérations suivantes :
 
 1. Pour créer un groupe de paramètres, suivez les instructions fournies par AWS dans la section **Format de journalisation binaire** de l’article [Fichiers journaux de base de données MySQL](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_LogAccess.Concepts.MySQL.html).
 2. Créez un groupe de paramètres avec la configuration suivante :
+    * log_bin = ON
     * binlog_format = row
     * binlog_checksum = NONE
 3. Enregistrez le nouveau groupe de paramètres.

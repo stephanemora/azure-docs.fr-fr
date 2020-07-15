@@ -7,12 +7,12 @@ services: azure-monitor
 ms.topic: conceptual
 ms.date: 06/01/2020
 ms.subservice: metrics
-ms.openlocfilehash: 2aca113e21d759416580c8876ec2092762893da5
-ms.sourcegitcommit: d118ad4fb2b66c759b70d4d8a18e6368760da3ad
+ms.openlocfilehash: 930e32cfc57cb5b48180c7695b7b6c7d11df8caa
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/02/2020
-ms.locfileid: "84299823"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85506971"
 ---
 # <a name="custom-metrics-in-azure-monitor-preview"></a>Métriques personnalisées dans Azure Monitor (Préversion)
 
@@ -189,28 +189,28 @@ Dans la préversion publique, la publication des métriques personnalisées n’
 |Région Azure |Préfixe du point de terminaison régional|
 |---|---|
 | **États-Unis et Canada** | |
-|Centre-USA Ouest | https:\//westcentralus.monitoring.azure.com/ |
-|USA Ouest 2       | https:\//westus2.monitoring.azure.com/ |
+|Centre-USA Ouest | https:\//westcentralus.monitoring.azure.com |
+|USA Ouest 2       | https:\//westus2.monitoring.azure.com |
 |Centre-Nord des États-Unis | https:\//northcentralus.monitoring.azure.com
-|États-Unis - partie centrale méridionale| https:\//southcentralus.monitoring.azure.com/ |
+|États-Unis - partie centrale méridionale| https:\//southcentralus.monitoring.azure.com |
 |USA Centre      | https:\//centralus.monitoring.azure.com |
-|Centre du Canada | https:\//canadacentral.monitoring.azure.comc
-|USA Est| https:\//eastus.monitoring.azure.com/ |
-|USA Est 2 | https:\//eastus2.monitoring.azure.com/
+|Centre du Canada | https:\//canadacentral.monitoring.azure.com |
+|USA Est| https:\//eastus.monitoring.azure.com |
+|USA Est 2 | https:\//eastus2.monitoring.azure.com |
 | **Europe** | |
-|Europe Nord    | https:\//northeurope.monitoring.azure.com/ |
-|Europe Ouest     | https:\//westeurope.monitoring.azure.com/ |
+|Europe Nord    | https:\//northeurope.monitoring.azure.com |
+|Europe Ouest     | https:\//westeurope.monitoring.azure.com |
 |Sud du Royaume-Uni | https:\//uksouth.monitoring.azure.com
 |France Centre | https:\//francecentral.monitoring.azure.com |
 | **Afrique** | |
-|Afrique du Sud Nord | https:\//southafricanorth.monitoring.azure.com
+|Afrique du Sud Nord | https:\//southafricanorth.monitoring.azure.com |
 | **Asie** | |
-|Inde centrale | https:\//centralindia.monitoring.azure.com
-|Australie Est | https:\//australiaeast.monitoring.azure.com
-|Japon Est | https:\//japaneast.monitoring.azure.com
+|Inde centrale | https:\//centralindia.monitoring.azure.com |
+|Australie Est | https:\//australiaeast.monitoring.azure.com |
+|Japon Est | https:\//japaneast.monitoring.azure.com |
 |Asie Sud-Est  | https:\//southeastasia.monitoring.azure.com |
-|Asie Est | https:\//eastasia.monitoring.azure.com
-|Centre de la Corée   | https:\//koreacentral.monitoring.azure.com
+|Asie Est | https:\//eastasia.monitoring.azure.com |
+|Centre de la Corée   | https:\//koreacentral.monitoring.azure.com |
 
 ## <a name="latency-and-storage-retention"></a>Conservation de stockage et latence
 

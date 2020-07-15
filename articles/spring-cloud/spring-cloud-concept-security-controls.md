@@ -6,12 +6,12 @@ ms.author: brendm
 ms.service: spring-cloud
 ms.topic: conceptual
 ms.date: 04/23/2020
-ms.openlocfilehash: 5b459ef57d0e8a22ce1cd53f56c44d31e53c7c93
-ms.sourcegitcommit: 3abadafcff7f28a83a3462b7630ee3d1e3189a0e
+ms.openlocfilehash: 8d002fae52fec1fafb2ad8e63bd8e3b779a1537c
+ms.sourcegitcommit: 93462ccb4dd178ec81115f50455fbad2fa1d79ce
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/30/2020
-ms.locfileid: "82594982"
+ms.lasthandoff: 07/06/2020
+ms.locfileid: "85984821"
 ---
 # <a name="security-controls-for-azure-spring-cloud-service"></a>Contrôles de sécurité pour le service Azure Spring Cloud
 Des contrôles de sécurité sont intégrés dans le service Azure Spring Cloud.
@@ -26,3 +26,8 @@ Un contrôle de sécurité est une qualité ou une caractéristique d’un servi
 | Chiffrement en transit | Oui | Les points de terminaison publics de l’application utilisateur utilisent le protocole HTTPs pour le trafic entrant par défaut. |  |
 | Appels d’API chiffrés | Oui | Les appels de gestion pour configurer le service Azure Spring Cloud se font via des appels Azure Resource Manager sur HTTPS. | [Azure Resource Manager](https://docs.microsoft.com/azure/azure-resource-manager/) |
 
+**Contrôles de sécurité d’accès réseau**
+
+| Contrôle de sécurité | Oui/Non | Notes | Documentation |
+|:-------------|:-------|:-------------------------------|:----------------------|
+| Étiquette du service | Oui | Utilisez la balise de service **AzureSpringCloud** pour définir les contrôles d’accès réseau sortants sur des [groupes de sécurité réseau](https://docs.microsoft.com/azure/virtual-network/security-overview#security-rules) ou [Pare-feu Azure](https://docs.microsoft.com/azure/firewall/service-tags) pour autoriser le trafic vers les applications Azure Spring Cloud.<br><br>*Remarque :* Actuellement, seule la nouvelle instance de service Azure Spring Cloud créée après le 07/07/2020 prend en charge la balise de service **AzureSpringCloud**. | [Balises de service](https://docs.microsoft.com/azure/virtual-network/service-tags-overview) |

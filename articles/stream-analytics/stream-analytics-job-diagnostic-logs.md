@@ -5,14 +5,14 @@ author: jseb225
 ms.author: jeanb
 ms.reviewer: mamccrea
 ms.service: stream-analytics
-ms.topic: conceptual
-ms.date: 03/27/2020
-ms.openlocfilehash: 40b57af95f9ea4d4212756634c721ddd55f85d7b
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.topic: troubleshooting
+ms.date: 06/18/2020
+ms.openlocfilehash: 2fb1f22fd555e8ddbdc04842906cddb990956fb5
+ms.sourcegitcommit: e132633b9c3a53b3ead101ea2711570e60d67b83
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82127748"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86044513"
 ---
 # <a name="troubleshoot-azure-stream-analytics-by-using-resource-logs"></a>Résoudre les problèmes liés à Azure Stream Analytics à l’aide des journaux de ressources
 
@@ -59,23 +59,23 @@ Les journaux d’activité sont activés par défaut et proposent des informatio
 
 Il est vivement conseillé d’activer les journaux de ressources et de les envoyer aux journaux Azure Monitor. Ils sont **désactivés** par défaut. Pour les activer, suivez ces étapes :
 
-1.  Connectez-vous au portail Azure et accédez à votre travail Stream Analytics. Sous **Supervision**, sélectionnez **Journaux de diagnostic**. Ensuite, sélectionnez **Activer les diagnostics**.
+1.  [Créez un espace de travail Log Analytics](https://docs.microsoft.com/azure/azure-monitor/learn/quick-create-workspace) si vous n’en avez pas déjà un. Il est recommandé d’avoir votre espace de travail Log Analytics dans la même région que votre travail Stream Analytics.
+
+2.  Connectez-vous au portail Azure et accédez à votre travail Stream Analytics. Sous **Supervision**, sélectionnez **Journaux de diagnostic**. Ensuite, sélectionnez **Activer les diagnostics**.
 
     ![Navigation du panneau aux journaux de ressources](./media/stream-analytics-job-diagnostic-logs/diagnostic-logs-monitoring.png)  
 
-2.  Créez un **nom** dans **Paramètres de diagnostic** et cochez la case située en regard de **Envoyer à Log Analytics**. Ajoutez ou créez ensuite un **espace de travail Log Analytics**. Cochez les cases **Exécution** et **Création** sous **JOURNAL**, ainsi que **AllMetrics** sous **MÉTRIQUE** . Cliquez sur **Enregistrer**. Il est recommandé d’utiliser un espace de travail Log Analytics dans la même région Azure que votre travail Stream Analytics, afin d’éviter des frais supplémentaires.
+2.  Indiquez un **nom** dans le champ **Nom des paramètres de diagnostic** et cochez les cases **Exécution** et **Création** sous **Journal**, ainsi que **AllMetrics** sous **Métrique**. Sélectionnez ensuite **Envoyer à Log Analytics** et choisissez votre espace de travail. Cliquez sur **Enregistrer**.
 
-    ![Paramètres des journaux de ressources](./media/stream-analytics-job-diagnostic-logs/diagnostic-settings.png)
+    ![Paramètres des journaux de ressources](./media/stream-analytics-job-diagnostic-logs/logs-setup.png)
 
 3. Lorsque votre tâche Stream Analytics démarre, les journaux de ressources sont routés vers votre espace de travail Log Analytics. Pour afficher les journaux de ressources de votre travail, sélectionnez **Journaux** sous la section **Surveillance**.
 
    ![Journaux de ressources sous Surveillance](./media/stream-analytics-job-diagnostic-logs/diagnostic-logs.png)
 
-4. Stream Analytics fournit des requêtes prédéfinies qui vous permettent de rechercher facilement les journaux qui vous intéressent. Les trois catégories sont **Général**, **Erreurs des données d’entrée** et **Erreurs des données de sortie**. Par exemple, pour afficher un résumé de toutes les erreurs de votre travail au cours des sept derniers jours, vous pouvez sélectionner **Exécuter** pour la requête prédéfinie appropriée. 
+4. Stream Analytics fournit des requêtes prédéfinies qui vous permettent de rechercher facilement les journaux qui vous intéressent. Vous pouvez sélectionner n’importe quelle requête prédéfinie dans le volet gauche, puis sélectionner **Exécuter**. Les résultats de la requête s’affichent dans le volet inférieur. 
 
-   ![Journaux de ressources sous Surveillance](./media/stream-analytics-job-diagnostic-logs/logs-categories.png)
-
-   ![Résultats des journaux](./media/stream-analytics-job-diagnostic-logs/logs-result.png)
+   ![Journaux de ressources sous Surveillance](./media/stream-analytics-job-diagnostic-logs/logs-example.png)
 
 ## <a name="resource-log-categories"></a>Catégories de journaux de ressources
 

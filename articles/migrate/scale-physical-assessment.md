@@ -7,12 +7,12 @@ ms.service: azure-migrate
 ms.topic: conceptual
 ms.date: 01/19/2020
 ms.author: hamusa
-ms.openlocfilehash: a19a1b6e7416667079ab07fc5440ee8828c26bf4
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: b84a7b88f700e2ba8e9fbe29099dfcbce8dbf3b7
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "76294835"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85081078"
 ---
 # <a name="assess-large-numbers-of-physical-servers-for-migration-to-azure"></a>Évaluer un grand nombre de serveurs physiques pour la migration vers Azure
 
@@ -47,7 +47,7 @@ Utilisez les limites résumées dans ce tableau pour la planification.
 **Planification** | **Limites**
 --- | --- 
 **Projets Azure Migrate** | Évaluez jusqu’à 35 000 serveurs par projet.
-**Appliance Azure Migrate** | Une appliance peut découvrir jusqu’à 250 serveurs.<br/> Une appliance ne peut être associée qu’à un seul projet Azure Migrate.<br/> Un nombre quelconque d’appliances peut être associé à un même projet Azure Migrate. <br/><br/> 
+**Appliance Azure Migrate** | Une appliance peut découvrir jusqu’à 1000 serveurs.<br/> Une appliance ne peut être associée qu’à un seul projet Azure Migrate.<br/> Un nombre quelconque d’appliances peut être associé à un même projet Azure Migrate. <br/><br/> 
 **Groupe** | Vous pouvez ajouter jusqu’à 35 000 serveurs dans un groupe unique.
 **Évaluation d’Azure Migrate** | Vous pouvez évaluer jusqu’à 35 000 serveurs par évaluation.
 

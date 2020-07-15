@@ -9,13 +9,13 @@ ms.reviewer: maghan
 ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
-ms.date: 05/15/2020
-ms.openlocfilehash: 44a95430ece9c55bb088ae5b968c33691f25b4c5
-ms.sourcegitcommit: 95269d1eae0f95d42d9de410f86e8e7b4fbbb049
+ms.date: 06/30/2020
+ms.openlocfilehash: b65b5b847712ce32c6723d725be9cf2ed1f99050
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/26/2020
-ms.locfileid: "83860776"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85801520"
 ---
 # <a name="visually-monitor-azure-data-factory"></a>Surveiller visuellement Azure Data Factory
 
@@ -191,6 +191,10 @@ Pour voir une présentation de sept minutes et la démonstration de cette foncti
     ![Zone pour les critères cibles](media/monitor-visually/add-criteria-1.png)
 
     ![Liste des critères](media/monitor-visually/add-criteria-2.png)
+
+    ![Liste des critères](media/monitor-visually/add-criteria-3.png)
+
+    Vous pouvez créer des alertes sur différentes métriques, notamment celles relatives au nombre/à la taille des entités ADF, aux exécutions d’activité/de pipeline/de déclencheur, à l’utilisation de l’UC/à la mémoire/au nombre de nœuds/à la file d’attente du runtime d’intégration (IR), ainsi qu’aux exécutions de packages SSIS et aux opérations de démarrage/d’arrêt de l’IR SSIS.
 
 1.  Configurez la logique d’alerte. Vous pouvez créer une alerte pour la métrique sélectionnée pour tous les pipelines et activités correspondantes. Vous pouvez également sélectionner un type d’activité, un nom d’activité, un nom de pipeline ou un type d’échec particulier.
 

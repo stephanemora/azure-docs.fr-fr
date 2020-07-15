@@ -5,17 +5,17 @@ description: Découvrez comment appliquer les meilleures pratiques en matière d
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
-ms.topic: conceptual
+ms.topic: how-to
 ms.author: slbird
 author: slbird
 ms.reviewer: luquinta
 ms.date: 05/17/2020
-ms.openlocfilehash: 47497f23da94e529826b8dddb05b869727fb528e
-ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
+ms.openlocfilehash: b43fd25e77e07b7b64416d8784d47c14fed48ea7
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83663667"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84981844"
 ---
 # <a name="use-differential-privacy-in-azure-machine-learning"></a>Utiliser la confidentialité différentielle dans Azure Machine Learning
 
@@ -24,6 +24,9 @@ ms.locfileid: "83663667"
 Découvrez comment appliquer les meilleures pratiques en matière de confidentialité différentielle aux modèles Azure Machine Learning à l’aide des packages Python WhiteNoise.
 
 La confidentialité différentielle est la définition de référence de la confidentialité. Les systèmes qui adhèrent à cette définition de la confidentialité fournissent de solides garanties contre un large éventail d’attaques de reconstruction et de réidentification des données, notamment les attaques par des adversaires qui possèdent des informations auxiliaires. En savoir plus sur le [fonctionnement de la confidentialité différentielle](./concept-differential-privacy.md).
+
+> [!NOTE]
+> Veuillez noter que nous allons renommer le kit de ressources et présenterons le nouveau nom dans les semaines à venir. 
 
 ## <a name="prerequisites"></a>Prérequis
 

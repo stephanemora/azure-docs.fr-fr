@@ -6,12 +6,13 @@ ms.topic: article
 ms.date: 05/27/2020
 ms.author: mahender
 ms.reviewer: yevbronsh
-ms.openlocfilehash: d206ff114cd08f2ab3f2068076bf7cadb047a689
-ms.sourcegitcommit: 223cea58a527270fe60f5e2235f4146aea27af32
+ms.custom: tracking-python
+ms.openlocfilehash: 87e4d67086ea9f260becb2d63765e807e2b73546
+ms.sourcegitcommit: 93462ccb4dd178ec81115f50455fbad2fa1d79ce
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/01/2020
-ms.locfileid: "84258451"
+ms.lasthandoff: 07/06/2020
+ms.locfileid: "85985750"
 ---
 # <a name="how-to-use-managed-identities-for-app-service-and-azure-functions"></a>Guide pratique pour utiliser des identités managées pour App Service et Azure Functions
 
@@ -42,7 +43,7 @@ Pour configurer une identité managée dans le portail, vous créez une applicat
 
 
 > [!NOTE] 
-> Pour trouver l’identité managée pour votre application web ou d’emplacement dans le portail Azure, accédez à la section Paramètres utilisateur sous Applications d’entreprise.
+> Pour trouver l’identité managée de votre application web ou application d’emplacement dans le portail Azure, sous **Applications d’entreprise**, accédez à la section **Paramètres utilisateur**. Le nom de l’emplacement est généralement semblable à `<app name>/slots/<slot name>`.
 
 
 ### <a name="using-the-azure-cli"></a>Utilisation de l’interface de ligne de commande Azure (CLI)

@@ -3,16 +3,16 @@ title: Configurer une appliance Azure Migrate dans Azure Government
 description: Apprenez à configurer une appliance Azure Migrate dans Azure Government
 ms.topic: article
 ms.date: 04/16/2020
-ms.openlocfilehash: fd97161ffa075a6165ea963ef80bfabf8904576e
-ms.sourcegitcommit: acb82fc770128234f2e9222939826e3ade3a2a28
+ms.openlocfilehash: f0ebc882646b5ff3f62ddddf91cffc85cb5e0da6
+ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/21/2020
-ms.locfileid: "81725742"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86109975"
 ---
 # <a name="set-up-an-appliance-in-azure-government"></a>Configurer une appliance dans Azure Government 
 
-Suivez cet article afin de déployer une [appliance Azure Migrate](deploy-appliance.md) sur des machines virtuelles VMware, des machines virtuelles Hyper-V et des serveurs physiques dans un cloud Azure Government. Vous devez exécuter un script pour créer l'appliance et vérifier qu'elle peut se connecter à Azure. Si vous souhaitez configurer une appliance dans le cloud public, suivez [cet article](deploy-appliance-script.md).
+Suivez cet article afin de déployer une [appliance Azure Migrate](./migrate-appliance-architecture.md) sur des machines virtuelles VMware, des machines virtuelles Hyper-V et des serveurs physiques dans un cloud Azure Government. Vous devez exécuter un script pour créer l'appliance et vérifier qu'elle peut se connecter à Azure. Si vous souhaitez configurer une appliance dans le cloud public, suivez [cet article](deploy-appliance-script.md).
 
 
 > [!NOTE]
@@ -29,7 +29,7 @@ Le script configure l’appliance Azure Migrate sur une machine physique ou virt
 
 ## <a name="set-up-the-appliance-for-vmware"></a>Configurer l'appliance pour VMware
 
-Afin de configurer l'appliance pour VMware, téléchargez un fichier zip à partir du portail Azure et extrayez son contenu. Exécutez le script PowerShell pour lancer l'application web de l'appliance. Installez l'appliance et configurez-la pour la première fois. Puis inscrivez l'appliance auprès du projet Azure Migrate.
+Afin de configurer l'appliance pour VMware, téléchargez un fichier zip à partir du portail Azure et extrayez son contenu. Exécutez le script PowerShell pour lancer l'application web de l'appliance. Installez l'appliance et configurez-la pour la première fois. Inscrivez ensuite l'appliance auprès du projet Azure Migrate.
 
 ### <a name="download-the-script"></a>Télécharger le script
 
@@ -45,14 +45,14 @@ Vérifiez que le fichier compressé est sécurisé avant de le déployer.
 1. Sur l’ordinateur où vous avez téléchargé le fichier, ouvrez une fenêtre de commande d’administrateur.
 2. Exécutez la commande suivante pour générer le code de hachage du fichier compressé
     - ```C:\>CertUtil -HashFile <file_location> [Hashing Algorithm]```
-    - Exemple : ```C:\>CertUtil -HashFile C:\Users\administrator\Desktop\AzureMigrateInstaller-VMWare-USGov.zip MD5```
+    - Exemple : ```C:\>CertUtil -HashFile C:\Users\administrator\Desktop\AzureMigrateInstaller-VMWare-USGov.zip SHA256```
 
-3. Vérifiez les valeurs de hachage générées. Pour la dernière version de l'appliance :
+3. Vérifiez la dernière version de l’appliance et les valeurs de hachage :
 
-    **Algorithme** | **Valeur de hachage**
-    --- | ---
-    MD5 | 6316bcc8bc932204295bfe33f4be3949
-          
+    **Algorithme** | **Télécharger** | **SHA256**
+    --- | --- | ---
+    VMware (63,1 Mo) | [Version la plus récente](https://go.microsoft.com/fwlink/?linkid=2120300&clcid=0x409 ) | 3d5822038646b81f458d89d706832c0a2c0e827bfa9b0a55cc478eaf2757a4de
+
 
 ### <a name="run-the-script"></a>Exécuter le script
 
@@ -81,7 +81,7 @@ Vérifiez que l'appliance peut se connecter aux URL Azure des [clouds du secteur
 
 ## <a name="set-up-the-appliance-for-hyper-v"></a>Configurer l'appliance pour Hyper-V
 
-Afin de configurer l'appliance pour Hyper-V, téléchargez un fichier zip à partir du portail Azure et extrayez son contenu. Exécutez le script PowerShell pour lancer l'application web de l'appliance. Installez l'appliance et configurez-la pour la première fois. Puis inscrivez l'appliance auprès du projet Azure Migrate.
+Afin de configurer l'appliance pour Hyper-V, téléchargez un fichier zip à partir du portail Azure et extrayez son contenu. Exécutez le script PowerShell pour lancer l'application web de l'appliance. Installez l'appliance et configurez-la pour la première fois. Inscrivez ensuite l'appliance auprès du projet Azure Migrate.
 
 ### <a name="download-the-script"></a>Télécharger le script
 
@@ -97,13 +97,14 @@ Vérifiez que le fichier compressé est sécurisé avant de le déployer.
 1. Sur l’ordinateur où vous avez téléchargé le fichier, ouvrez une fenêtre de commande d’administrateur.
 2. Exécutez la commande suivante pour générer le code de hachage du fichier compressé
     - ```C:\>CertUtil -HashFile <file_location> [Hashing Algorithm]```
-    - Exemple : ```C:\>CertUtil -HashFile C:\Users\administrator\Desktop\AzureMigrateInstaller-HyperV-USGov.zip MD5```
+    - Exemple : ```C:\>CertUtil -HashFile C:\Users\administrator\Desktop\AzureMigrateInstaller-HyperV-USGov.zip SHA256```
 
-3. Vérifiez les valeurs de hachage générées. Pour la dernière version de l'appliance :
+3. Vérifiez la dernière version de l’appliance et la valeur de hachage :
 
-    **Algorithme** | **Valeur de hachage**
-    --- | ---
-    MD5 | 717f8b9185f565006b5aff0215ecadac
+    **Scénario** | **Télécharger** | **SHA256**
+    --- | --- | ---
+    Hyper-V (63,1 Mo) | [Version la plus récente](https://go.microsoft.com/fwlink/?linkid=2120200&clcid=0x409) |  2c5e73a1e5525d4fae468934408e43ab55ff397b7da200b92121972e683f9aa3
+
           
 
 ### <a name="run-the-script"></a>Exécuter le script
@@ -133,7 +134,7 @@ Vérifiez que l'appliance peut se connecter aux URL Azure des [clouds du secteur
 
 ## <a name="set-up-the-appliance-for-physical-servers"></a>Configurer l'appliance pour des serveurs physiques
 
-Afin de configurer l'appliance pour VMware, téléchargez un fichier zip à partir du portail Azure et extrayez son contenu. Exécutez le script PowerShell pour lancer l'application web de l'appliance. Installez l'appliance et configurez-la pour la première fois. Puis inscrivez l'appliance auprès du projet Azure Migrate.
+Afin de configurer l'appliance pour VMware, téléchargez un fichier zip à partir du portail Azure et extrayez son contenu. Exécutez le script PowerShell pour lancer l'application web de l'appliance. Installez l'appliance et configurez-la pour la première fois. Inscrivez ensuite l'appliance auprès du projet Azure Migrate.
 
 ### <a name="download-the-script"></a>Télécharger le script
 
@@ -149,13 +150,13 @@ Vérifiez que le fichier compressé est sécurisé avant de le déployer.
 1. Sur l’ordinateur où vous avez téléchargé le fichier, ouvrez une fenêtre de commande d’administrateur.
 2. Exécutez la commande suivante pour générer le code de hachage du fichier compressé
     - ```C:\>CertUtil -HashFile <file_location> [Hashing Algorithm]```
-    - Exemple : ```C:\>CertUtil -HashFile C:\Users\administrator\Desktop\AzureMigrateInstaller-Server-USGov.zip MD5```
+    - Exemple : ```C:\>CertUtil -HashFile C:\Users\administrator\Desktop\AzureMigrateInstaller-Server-USGov.zip SHA256```
 
-3. Vérifiez les valeurs de hachage générées. Pour la dernière version de l'appliance :
+3. Vérifiez la dernière version de l’appliance et la valeur de hachage :
 
-    **Algorithme** | **Valeur de hachage**
-    --- | ---
-    MD5 | f81c155fc4a1409901caea948713913f
+    **Scénario** | **Télécharger*** | **Valeur de hachage**
+    --- | --- | ---
+    Physique (63,1 Mo) | [Version la plus récente](https://go.microsoft.com/fwlink/?linkid=2120100&clcid=0x409) | 93dfef131026e70acdfad2769cd208ff745ab96a96f013cdf3f9e1e61c9b37e1
           
 
 ### <a name="run-the-script"></a>Exécuter le script

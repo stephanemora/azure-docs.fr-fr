@@ -3,23 +3,23 @@ title: Créer un partage de fichiers Azure premium
 description: Dans cet article, vous allez apprendre à créer un partage de fichiers Azure premium.
 author: roygara
 ms.service: storage
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 05/05/2019
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: 7680a28b165dc252159cf95311439508d3c867e1
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: ae40f94ca6c8c0b92c85a49e634aa02c81a98eff
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79529105"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85509980"
 ---
 # <a name="how-to-create-an-premium-azure-file-share"></a>Créer un partage de fichiers premium via le portail Azure
 Les partages de fichiers premium sont proposés sur les supports de stockage SSD et sont utiles pour les charges de travail gourmandes en E/S, notamment l’hébergement de bases de données et le calcul haute performance (HPC). Les partages de fichiers premium sont hébergés dans un type de compte de stockage spécial, appelé compte FileStorage. Les partages de fichiers premium sont conçus pour les applications d’entreprise évolutives et à hautes performances, en fournissant des partages à latence faible et homogène, nombre élevé d’IOPS et débit élevé.
 
 Cet article vous montre comment créer ce nouveau type de compte en utilisant le [portail Azure](https://portal.azure.com/), Azure PowerShell et Azure CLI.
 
-## <a name="prerequisites"></a>Conditions préalables requises
+## <a name="prerequisites"></a>Prérequis
 
 Pour accéder aux ressources Azure, dont les partages de fichiers Azure premium, vous aurez besoin d’un abonnement Azure. Si vous n’avez pas d’abonnement, vous pouvez [créer un compte gratuit](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) avant de commencer.
 
@@ -46,6 +46,9 @@ Chaque compte de stockage doit appartenir à un groupe de ressources Azure. Un g
 1. Ensuite, entrez un nom pour votre compte de stockage. Le nom choisi doit être unique dans tout Azure. Le nom doit aussi contenir entre 3 et 24 caractères, et uniquement des lettres minuscules et des chiffres.
 1. Sélectionnez l’emplacement de votre compte de stockage ou utilisez l’emplacement par défaut.
 1. Pour **Performances**, sélectionnez **Premium**.
+
+    Vous devez sélectionner **Premium** pour que **FileStorage** soit une option disponible dans la liste déroulante **Type de compte**.
+
 1. Sélectionnez **Type de compte** et choisissez **FileStorage**.
 1. Laissez **Réplication** défini sur sa valeur par défaut, **Stockage localement redondant (LRS)** .
 

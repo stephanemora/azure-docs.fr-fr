@@ -12,14 +12,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 10/28/2018
+ms.date: 07/02/2020
 ms.author: memildin
-ms.openlocfilehash: 6e61571400930d4a781d6d67647bd662a7f2d350
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 953881b0c576ad6ce12a4dc44bb0980edd7bcd50
+ms.sourcegitcommit: f684589322633f1a0fafb627a03498b148b0d521
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82106217"
+ms.lasthandoff: 07/06/2020
+ms.locfileid: "85970550"
 ---
 # <a name="permissions-in-azure-security-center"></a>Autorisations dans Azure Security Center
 
@@ -35,21 +35,20 @@ Outre ces rôles, il existe deux rôles propres à Security Center :
 > [!NOTE]
 > Les rôles de sécurité que sont le lecteur Sécurité et l’administrateur de la sécurité ont uniquement accès à Security Center. Les rôles de sécurité n’ont pas accès aux autres services d’Azure (par exemple, Stockage, Web et mobile ou Internet des objets).
 >
->
 
 ## <a name="roles-and-allowed-actions"></a>Rôles et actions autorisées
 
 Le tableau suivant affiche les rôles et les actions autorisées dans Security Center.
 
-| Role | Modifier une stratégie de sécurité | Appliquer des recommandations de sécurité à une ressource</br> (y compris avec « Correction rapide ! ») | Ignorer les alertes et les recommandations | Afficher les alertes et les recommandations |
-|:--- |:---:|:---:|:---:|:---:|
-| Propriétaire de l’abonnement | ✔ | ✔ | ✔ | ✔ |
-| Collaborateur de l’abonnement | -- | ✔ | ✔ | ✔ |
-| Propriétaire du groupe de ressources | -- | ✔ | -- | ✔ |
-| Collaborateur du groupe de ressources | -- | ✔ | -- | ✔ |
-| Lecteur | -- | -- | -- | ✔ |
-| Administrateur de la sécurité | ✔ | -- | ✔ | ✔ |
-| Lecteur de sécurité | -- | -- | -- | ✔ |
+|Action|Lecteur Sécurité / <br> Lecteur |Administrateur de la sécurité  |Contributeur sur le groupe de ressources / <br> Propriétaire du groupe de ressources  |Collaborateur de l’abonnement  |Propriétaire de l’abonnement  |
+|:--- |:---:|:---:|:---:|:---:|:---:|
+|Modifier une stratégie de sécurité|-|✔|-|-|✔|
+|Ajouter/attribuer des initiatives (y compris) des standards de conformité réglementaire)|-|-|-|-|✔|
+|Changer le niveau de tarification de l’abonnement|-|✔|-|-|✔|
+|Activer/désactiver le provisionnement automatique|-|✔|✔|-|✔|
+|Appliquer des recommandations de sécurité à une ressource</br> (et utiliser [Correction rapide !](security-center-remediate-recommendations.md#quick-fix-remediation))|-|-|✔|✔|✔|
+|Ignorer les alertes|-|✔|-|✔|✔|
+|Afficher les alertes et les recommandations|✔|✔|✔|✔|✔|
 
 > [!NOTE]
 > Nous vous recommandons d’attribuer le rôle le moins permissif permettant aux utilisateurs d’effectuer leurs tâches. Par exemple, affectez le rôle Lecteur aux utilisateurs qui n’ont besoin que de consulter des informations sur l’intégrité de la sécurité d’une ressource sans effectuer aucune action, telles que l’application des recommandations ou la modification des stratégies.

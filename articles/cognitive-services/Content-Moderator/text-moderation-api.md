@@ -10,12 +10,12 @@ ms.subservice: content-moderator
 ms.topic: conceptual
 ms.date: 05/18/2020
 ms.author: pafarley
-ms.openlocfilehash: 31bd6a2680d8c71df6b6030187ff44ca10d09440
-ms.sourcegitcommit: 964af22b530263bb17fff94fd859321d37745d13
+ms.openlocfilehash: fa292f0441369ed13f3f85035a2ec8cc3f5c6723
+ms.sourcegitcommit: a989fb89cc5172ddd825556e45359bac15893ab7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/09/2020
-ms.locfileid: "84561043"
+ms.lasthandoff: 07/01/2020
+ms.locfileid: "85800089"
 ---
 # <a name="learn-text-moderation-concepts"></a>Familiarisez-vous avec les concepts de modération de texte
 
@@ -36,13 +36,15 @@ La réponse du service inclut les informations suivantes :
 
 Si l’API détecte des termes injurieux dans l’une des [langues prises en charge](Text-Moderation-API-Languages.md), ces termes sont inclus dans la réponse. La réponse contient également leur emplacement (`Index`) dans le texte d’origine. La valeur `ListId` dans l’exemple JSON suivant fait référence à des termes se trouvant dans les [listes de termes personnalisées](try-terms-list-api.md), le cas échéant.
 
-    "Terms": [
+```json
+"Terms": [
     {
         "Index": 118,
         "OriginalIndex": 118,
         "ListId": 0,
         "Term": "crap"
     }
+```
 
 > [!NOTE]
 > Pour le paramètre **langue**, attribuez `eng` ou laissez-le vide pour voir la réponse de la **classification** assistée par ordinateur (fonctionnalité en préversion). **Cette fonctionnalité prend en charge uniquement l’anglais**.
@@ -55,18 +57,20 @@ La **fonctionnalité de classification de texte** assistée par ordinateur de Co
 
 L’extrait suivant de l’extrait de code JSON présente un exemple de sortie :
 
-    "Classification": {
-        "ReviewRecommended": true,
-        "Category1": {
-              "Score": 1.5113095059859916E-06
-            },
-        "Category2": {
-              "Score": 0.12747249007225037
-            },
-        "Category3": {
-              "Score": 0.98799997568130493
-        }
+```json
+"Classification": {
+    "ReviewRecommended": true,
+    "Category1": {
+        "Score": 1.5113095059859916E-06
+    },
+    "Category2": {
+        "Score": 0.12747249007225037
+    },
+    "Category3": {
+        "Score": 0.98799997568130493
     }
+}
+```
 
 ### <a name="explanation"></a>Explication
 
@@ -127,11 +131,11 @@ L’exemple suivant illustre une réponse :
 
 Supposons que le texte d’entrée soit le suivant (les fautes « lzay » et « f0x » sont intentionnelles) :
 
-    The qu!ck brown f0x jumps over the lzay dog.
+> The qu!ck brown f0x jumps over the lzay dog.
 
 Si vous demandez la correction automatique, la réponse contient la version corrigée du texte :
 
-    The quick brown fox jumps over the lazy dog.
+> The quick brown fox jumps over the lazy dog.
 
 ## <a name="creating-and-managing-your-custom-lists-of-terms"></a>Création et gestion de vos listes personnalisées de termes
 
@@ -143,13 +147,15 @@ Bien que la liste globale par défaut de termes fonctionne parfaitement pour la 
 
 L’exemple suivant présente l’ID de liste correspondant :
 
-    "Terms": [
+```json
+"Terms": [
     {
         "Index": 118,
         "OriginalIndex": 118,
         "ListId": 231.
         "Term": "crap"
     }
+```
 
 Content Moderator fournit une [API de liste de termes](https://westus.dev.cognitive.microsoft.com/docs/services/57cf755e3f9b070c105bd2c2/operations/57cf755e3f9b070868a1f67f) avec des opérations pour la gestion des listes de termes personnalisées. Commencez avec la [Console d’API de listes de termes personnalisées](try-terms-list-api.md) et utilisez les exemples de code API REST. Consultez également le [démarrage rapide .NET des listes de termes](term-lists-quickstart-dotnet.md) si vous connaissez déjà Visual Studio et C#.
 

@@ -17,10 +17,10 @@ ms.date: 05/05/2017
 ms.author: radeltch
 ms.custom: H1Hack27Feb2017
 ms.openlocfilehash: cf85632ff062bff5b71451379f37c14830bf6b68
-ms.sourcegitcommit: 999ccaf74347605e32505cbcfd6121163560a4ae
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/08/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "82982953"
 ---
 # <a name="cluster-an-sap-ascsscs-instance-on-a-windows-failover-cluster-by-using-a-cluster-shared-disk-in-azure"></a>Mettre en cluster une instance SAP ASCS/SCS sur un cluster de basculement Windows à l’aide d’un disque partagé de cluster dans Azure
@@ -60,8 +60,8 @@ Dans Windows, une instance SAP ASCS/SCS contient des services SAP centraux, le s
 Une instance SAP ASCS/SCS inclut les composants suivants :
 
 * Services centraux SAP :
-    * Deux processus, un serveur de messages et de mise en file d’attente, et un \<nom_hôte_virtuel_ASCS/SCS> utilisé pour accéder à ces deux processus.
-    * Structure de fichiers : S:\usr\sap\\&lt;SID&gt;\ASCS/SCS\<numéro d’instance\>
+    * Deux processus, un serveur de messages et de mise en file d’attente, et un \<ASCS/SCS virtual host name> utilisé pour accéder à ces deux processus.
+    * Structure de fichiers : S:\usr\sap\\&lt;SID&gt;\ASCS/SCS\<instance number\>
 
 
 * Fichiers d’hôte global SAP :
@@ -83,7 +83,7 @@ _**Figure 3 :** Architecture de haute disponibilité (HA) SAP ASCS/SCS avec disq
 
 > [!IMPORTANT]
 > Ces deux composants s’exécutent sous la même instance SAP ASCS/SCS :
->* Le même \<nom d’hôte virtuel ASCS/SCS> est utilisé pour accéder aux processus de serveur de mise en file d’attente et de messages SAP, ainsi qu’aux fichiers d’hôte global SAP par le biais du partage de fichiers sapmnt.
+>* Le même \<ASCS/SCS virtual host name> est utilisé pour accéder aux processus de serveur de mise en file d’attente et de messages SAP, ainsi qu’aux fichiers d’hôte global SAP par le biais du partage de fichiers sapmnt.
 >* Ils partagent le même lecteur de disque partagé de cluster S.
 >
 

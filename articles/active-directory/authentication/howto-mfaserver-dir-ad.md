@@ -13,10 +13,10 @@ ms.reviewer: michmcla
 ms.custom: seo-update-azuread-jan
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: fceaa203944074b0c3fcf5cb6254f1e87ac16cba
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "79480978"
 ---
 # <a name="directory-integration-between-azure-mfa-server-and-active-directory"></a>Intégration d'annuaires entre le serveur Azure MFA et Active Directory
@@ -80,7 +80,7 @@ Les attributs peuvent être entrés manuellement et ne doivent pas nécessaireme
 | --- | --- |
 | Identificateur unique |Entrez le nom de l'attribut qui sert d'identificateur unique pour le conteneur, le groupe de sécurité et les enregistrements utilisateur.  Dans Active Directory, il s'agit généralement de objectGUID. Les autres implémentations LDAP peuvent utiliser entryUUID ou autre paramètre similaire.  La valeur par défaut est objectGUID. |
 | Type d'identificateur unique |Sélectionnez le type de l'attribut d'identificateur unique.  Dans Active Directory, l'attribut objectGUID est du type GUID. Les autres implémentations LDAP peuvent utiliser Chaîne ou Tableau d’octets ASCII.  La valeur par défaut est GUID. <br><br>Il est important de définir correctement ce type dans la mesure où les éléments de synchronisation sont référencés par leur identificateur unique. Le type d’identificateur unique est utilisé pour trouver directement l’objet dans le répertoire.  La définition de ce type sur Chaîne alors que le répertoire stocke la valeur sous forme de tableau d’octets de caractères ASCII empêche la synchronisation de fonctionner correctement. |
-| Nom unique |Entrez le nom de l'attribut qui contient le nom unique de chaque enregistrement.  Dans Active Directory, il s'agit généralement de distinguishedName. Les autres implémentations LDAP peuvent utiliser entryDN ou autre paramètre similaire.  La valeur par défaut est distinguishedName. <br><br>Si un attribut contenant seulement le nom unique n’existe pas, l’attribut ads path peut être utilisé.  La partie « LDAP://\<server\>/ » du chemin d’accès est automatiquement supprimée. Seul le nom unique de l’objet est conservé. |
+| Nom unique |Entrez le nom de l'attribut qui contient le nom unique de chaque enregistrement.  Dans Active Directory, il s'agit généralement de distinguishedName. Les autres implémentations LDAP peuvent utiliser entryDN ou autre paramètre similaire.  La valeur par défaut est distinguishedName. <br><br>Si un attribut contenant seulement le nom unique n’existe pas, l’attribut ads path peut être utilisé.  La partie « LDAP://\<server\>/ » du chemin d’accès est automatiquement supprimée. Seul le nom unique de l’objet est conservé. |
 | Nom du conteneur |Entrez le nom de l'attribut qui contient le nom d'un enregistrement de conteneur.  La valeur de cet attribut s’affiche dans la hiérarchie de conteneur lors de l’importation à partir d’Active Directory ou l’ajout d’éléments de synchronisation.  La valeur par défaut est name. <br><br>Si des conteneurs différents utilisent des attributs différents pour leurs noms, séparez les attributs de nom de conteneur par des points-virgules.  Le premier attribut de nom de conteneur trouvé sur un objet de conteneur est utilisé pour afficher son nom. |
 | Nom de groupe de sécurité |Entrez le nom de l'attribut qui contient le nom d'un enregistrement de groupe de sécurité.  La valeur de cet attribut s’affiche dans la liste des groupes de sécurité lors de l’importation à partir d’Active Directory ou lors de l’ajout d’éléments de synchronisation.  La valeur par défaut est name. |
 | Nom d’utilisateur |Entrez le nom de l'attribut qui contient le nom d'utilisateur dans un enregistrement utilisateur.  La valeur de cet attribut est utilisée comme nom d’utilisateur du serveur MFA.  Un deuxième attribut peut être spécifié en tant que sauvegarde.  Le deuxième attribut n’est utilisé que si le premier attribut ne contient pas de valeur pour l’utilisateur.  Les valeurs par défaut sont userPrincipalName et sAMAccountName. |

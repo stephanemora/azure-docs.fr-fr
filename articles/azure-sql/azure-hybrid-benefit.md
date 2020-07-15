@@ -3,20 +3,20 @@ title: Azure Hybrid Benefit
 titleSuffix: Azure SQL Database & SQL Managed Instance
 description: Utilisez des licences SQL Server existantes pour recevoir des remises sur Azure SQL Database et SQL Managed Instance.
 services: sql-database
-ms.service: sql-database
+ms.service: sql-db-mi
+ms.subservice: features
 ms.custom: sqldbrb=4
-ms.subservice: service
 ms.topic: conceptual
 author: stevestein
 ms.author: sstein
 ms.reviewer: sashan, moslake, carlrab
 ms.date: 11/13/2019
-ms.openlocfilehash: e5af5c6b30c6f03930a61200a11bfa0bd2f72093
-ms.sourcegitcommit: 1f48ad3c83467a6ffac4e23093ef288fea592eb5
+ms.openlocfilehash: b4af9fce3c5ca779866055d2835ebfebe9fbb9cf
+ms.sourcegitcommit: 93462ccb4dd178ec81115f50455fbad2fa1d79ce
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/29/2020
-ms.locfileid: "84196447"
+ms.lasthandoff: 07/06/2020
+ms.locfileid: "85987006"
 ---
 # <a name="azure-hybrid-benefit---azure-sql-database--sql-managed-instance"></a>Azure Hybrid Benefit – Azure SQL Database et SQL Managed Instance
 [!INCLUDE[appliesto-sqldb-sqlmi](includes/appliesto-sqldb-sqlmi.md)]
@@ -30,9 +30,13 @@ Dans le niveau de calcul approvisionné du modèle d’achat vCore, vous pouvez 
 
 ## <a name="choose-a-license-model"></a>Choisir un modèle de licence
 
-Avec Azure Hybrid Benefit, vous pouvez choisir de payer uniquement pour l’infrastructure Azure sous-jacente en utilisant votre licence SQL Server existante pour le moteur de base de données SQL lui-même (tarification de calcul de base) ou de payer à la fois pour l’infrastructure sous-jacente et pour la licence SQL Server (tarification avec licence incluse).
+Avec Azure Hybrid Benefit, vous pouvez choisir de payer uniquement pour l’infrastructure Azure sous-jacente en utilisant votre licence SQL Server existante pour le moteur de base de données SQL Server lui-même (tarif de calcul de base) ou de payer à la fois pour l’infrastructure sous-jacente et pour la licence SQL Server (tarif avec licence comprise).
 
-Vous pouvez choisir ou modifier votre modèle de licence en utilisant le Portail Azure ou l’une des API suivantes :
+Vous pouvez choisir ou changer votre modèle de licence dans le portail Azure : 
+- Pour les nouvelles bases de données, lors de la création, sélectionnez **Configurer la base de données** sous l’onglet **De base** et sélectionnez l’option permettant de réaliser des économies.
+- Pour les bases de données existantes, sélectionnez **Configurer** dans le menu **Paramètres** et sélectionnez l’option permettant de réaliser des économies.
+
+Vous pouvez également configurer une base de données nouvelle ou existante à l’aide de l’une des API suivantes :
 
 # <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
 
@@ -77,7 +81,7 @@ Nous proposons aux clients SQL Server des avantages de mobilité de licence ave
 La différence entre Azure Hybrid Benefit pour SQL Server et la mobilité de licence se trouve dans deux domaines clés :
 
 - Azure Hybrid Benefit pour SQL Server propose des avantages économiques pour la migration de charges de travail hautement virtualisées vers Azure. Les clients SQL Server Enterprise Edition peuvent obtenir quatre cœurs dans Azure dans la référence (SKU) Usage général pour chaque cœur qu’ils possèdent localement pour des applications hautement virtualisées. La mobilité de licence n’offre aucun avantage spécifique en termes de coûts pour la migration des charges de travail virtualisées vers le cloud.
-- Elle fournit une destination PaaS sur Azure (SQL Database Managed Instance) qui est hautement compatible avec SQL Server.
+- Elle fournit une destination PaaS sur Azure (SQL Managed Instance) qui est hautement compatible avec SQL Server.
 
 #### <a name="what-are-the-specific-rights-of-the-azure-hybrid-benefit-for-sql-server"></a>Quels sont les droits spécifiques associés à Azure Hybrid Benefit pour SQL Server ?
 

@@ -3,22 +3,23 @@ title: Accéder à des données dans des notebooks Jupyter - Azure Notebooks (pr
 description: Découvrez comment accéder à des fichiers, API REST, bases de données et différentes ressources de stockage Azure à partir d’un notebook Jupyter.
 ms.topic: how-to
 ms.date: 12/04/2018
-ms.openlocfilehash: 47d2f869021851c1451a66a84b1a70ec4ff4998f
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.custom: tracking-python
+ms.openlocfilehash: e0473a885860fad71c066f9d129f859528fa16e1
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "75646345"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85833483"
 ---
 # <a name="access-cloud-data-in-a-notebook"></a>Accéder aux données de cloud dans un notebook
+
+[!INCLUDE [notebooks-status](../../includes/notebooks-status.md)]
 
 Pour que votre travail dans un notebook Jupyter soit intéressant, vous devez avoir des données. Les données sont en effet l’élément moteur des notebooks.
 
 Vous pouvez certainement [importer des fichiers de données dans un projet](work-with-project-data-files.md), même à l’aide des commandes telles que `curl` à partir d’un notebook pour télécharger un fichier directement. Toutefois, vous devrez probablement utiliser des données beaucoup plus complètes disponibles dans des sources autres que des fichiers, telles que des API REST, des bases de données relationnelles et le stockage cloud comme les tables Azure.
 
 Cet article décrit brièvement ces différentes options. Étant donné que l’accès aux données est mieux compris en pratique, vous pouvez trouver le code exécutable dans [Exemples Azure Notebooks - Accéder à vos données](https://github.com/Microsoft/AzureNotebooks/blob/master/Samples/Access%20your%20data%20in%20Azure%20Notebooks.ipynb).
-
-[!INCLUDE [notebooks-status](../../includes/notebooks-status.md)]
 
 ## <a name="rest-apis"></a>API REST
 
@@ -41,11 +42,11 @@ if response.status_code == 200:
     print(dataframe_rest2)
 ```
 
-## <a name="azure-sql-databases"></a>Bases de données Azure SQL
+## <a name="azure-sql-database-and-sql-managed-instance"></a>Azure SQL Database et SQL Managed Instance
 
-Vous pouvez accéder aux bases de données SQL Server à l’aide des bibliothèques pyodbc ou pymssql.
+Vous pouvez accéder aux bases de données dans SQL Database ou SQL Managed Instance à l’aide des bibliothèques pyodbc ou pymssql.
 
-La page [Utilisation de Python pour interroger une base de données Azure SQL](https://docs.microsoft.com/azure/sql-database/sql-database-connect-query-python) vous fournit des instructions sur la création d’une base de données contenant des données AdventureWorks et montre comment interroger ces données. Le même code est illustré dans l’exemple de notebook pour cet article.
+La page [Utilisation de Python pour interroger une base de données Azure SQL](https://docs.microsoft.com/azure/sql-database/sql-database-connect-query-python) fournit des instructions sur la création d’une base de données dans SQL Database contenant des données AdventureWorks, et montre comment interroger ces données. Le même code est illustré dans l’exemple de notebook pour cet article.
 
 ## <a name="azure-storage"></a>Stockage Azure
 

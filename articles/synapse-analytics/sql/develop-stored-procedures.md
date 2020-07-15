@@ -1,23 +1,23 @@
 ---
-title: Utilisation des procédures stockées
+title: Utiliser des procédures stockées
 description: Conseils relatifs à l’implémentation de procédures stockées dans un pool SQL Synapse à des fins de développement de solutions.
 services: synapse-analytics
 author: XiaoyuMSFT
 manager: craigg
 ms.service: synapse-analytics
 ms.topic: conceptual
-ms.subservice: ''
+ms.subservice: sql
 ms.date: 04/15/2020
 ms.author: xiaoyul
 ms.reviewer: igorstan
-ms.openlocfilehash: a431df1ff4ef0984d1197933e7ca78979fa23089
-ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
+ms.openlocfilehash: 0f88b994104ed8a2d80fb3b16f125f8a087cbe3c
+ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "81427369"
+ms.lasthandoff: 07/05/2020
+ms.locfileid: "85958376"
 ---
-# <a name="using-stored-procedures-in-sql-pool"></a>Utilisation de procédures stockées dans un pool SQL
+# <a name="use-stored-procedures-in-sql-pool"></a>Utiliser des procédures stockées dans un pool SQL
 
 Conseils relatifs à l’implémentation de procédures stockées dans un pool SQL Synapse à des fins de développement de solutions.
 

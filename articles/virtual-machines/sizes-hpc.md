@@ -1,26 +1,20 @@
 ---
 title: Tailles des machines virtuelles Azure – HPC | Microsoft Docs
 description: Répertorie les différentes tailles disponibles pour les machines virtuelles de calcul haute performance dans Azure. Répertorie des informations sur le nombre de processeurs virtuels, de disques de données et de cartes réseau, ainsi que sur le débit de stockage et la bande passante réseau pour les tailles disponibles dans cette série.
-services: virtual-machines
-documentationcenter: ''
 author: vermagit
-manager: gwallace
-editor: ''
-tags: azure-resource-manager,azure-service-management
-ms.assetid: ''
 ms.service: virtual-machines
-ms.devlang: na
+ms.subservice: sizes
 ms.topic: article
 ms.workload: infrastructure-services
 ms.date: 02/03/2020
 ms.author: amverma
-ms.reviewer: jonbeck
-ms.openlocfilehash: 409fe69d111e2c5aebe0ad0bd38ced10604b5f1b
-ms.sourcegitcommit: 11572a869ef8dbec8e7c721bc7744e2859b79962
+ms.reviewer: jushiman
+ms.openlocfilehash: 2d52287d1c343ada58ed4f7e5e1d3e85a4e7162e
+ms.sourcegitcommit: cec9676ec235ff798d2a5cad6ee45f98a421837b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/05/2020
-ms.locfileid: "82839060"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85850448"
 ---
 # <a name="high-performance-computing-vm-sizes"></a>Tailles des machines virtuelles de calcul haute performance (HPC)
 
@@ -44,13 +38,13 @@ La plupart des tailles de machines virtuelles HPC (HBv2, HB, HC, H16r, H16mr, A8
 Cette interface permet aux instances prenant en charge l’accès RDMA de communiquer sur un réseau InfiniBand (IB), opérant à des vitesses HDR pour les machines virtuelles HBv2, EDR pour les machines virtuelles HB, HC, à des vitesses FDR pour les machines virtuelles de la série N H16r et H16mr, compatibles RDMA, et à des vitesses QDR pour les machines virtuelles A8 et A9. Ces fonctionnalités RDMA peuvent améliorer l’extensibilité et les performances de certaines applications MPI (Message Passing Interface). Pour plus d’informations sur la vitesse, consultez les détails dans les tables sur cette page.
 
 > [!NOTE]
-> Dans Azure HPC, il existe deux classes de machines virtuelles, selon qu’elles sont compatibles SR-IOV pour InfiniBand. Actuellement, les machines virtuelles prenant en charge SR-IOV pour InfiniBand sont les suivantes : HBv2, HB, HC et NCv3. Les autres machines virtuelles prenant en charge InfiniBand ne sont pas compatibles avec SR-IOV.
+> Dans Azure HPC, il existe deux classes de machines virtuelles, selon qu’elles sont compatibles SR-IOV pour InfiniBand. Actuellement, les machines virtuelles prenant en charge SR-IOV pour InfiniBand sont les suivantes : HBv2, HB, HC, NCv3 et NDv2. Les autres machines virtuelles prenant en charge InfiniBand ne sont pas compatibles avec SR-IOV.
 > RDMA over IB est pris en charge pour toutes les machines virtuelles compatibles RDMA.
 > IP over IB est uniquement pris en charge sur les machines virtuelles compatibles SR-IOV.
 
-- **Système d’exploitation** : Linux est bien pris en charge pour les machines virtuelles HPC, et les distributions comme CentOS, RHEL, Ubuntu, SUSE sont courantes. En ce qui concerne la prise en charge Windows, Windows Server 2016 est pris en charge sur toutes les machines virtuelles de la série HPC. Windows Server 2012 R2, Windows Server 2012 sont également pris en charge sur les machines virtuelles non compatibles SR-IOV.
+- **Système d’exploitation** : Linux est bien pris en charge pour les machines virtuelles HPC, et les distributions comme CentOS, RHEL, Ubuntu et SUSE sont couramment utilisées. En ce qui concerne la prise en charge Windows, Windows Server 2016 et les versions ultérieures sont pris en charge sur toutes les machines virtuelles de la série HPC. Windows Server 2012 R2 et Windows Server 2012 sont également pris en charge sur les machines virtuelles non compatibles SR-IOV (H16r, H16mr, A8 et A9). Notez que [Windows Server 2012 R2 n’est pas pris en charge sur les HBv2 et autres machines virtuelles ayant plus de 64 cœurs (virtuels ou physiques)](https://docs.microsoft.com/windows-server/virtualization/hyper-v/supported-windows-guest-operating-systems-for-hyper-v-on-windows).
 
-- **MPI** : les tailles des machines virtuelles SR-IOV activées sur Azure (HBv2, HB, HC, NCv3) permettent d’utiliser presque tous les qualificateurs de MPI avec Mellanox OFED.
+- **MPI** : les tailles des machines virtuelles compatibles SR-IOV sur Azure (HBv2, HB, HC, NCv3 et NDv2) permettent d’utiliser presque toutes les saveurs de MPI avec Mellanox OFED.
 Sur les machines virtuelles non compatibles SR-IOV, les implémentations MPI prises en charge utilisent l’interface Microsoft Network Direct (ND) pour la communication entre les machines virtuelles. Par conséquent, seules les versions Microsoft MPI (MS-MPI) 2012 R2 ou ultérieures et Intel MPI 5.x sont supportées. Les versions ultérieures (2017, 2018) de la bibliothèque runtime MPI Intel peuvent ne pas être compatibles avec les pilotes Azure RDMA.
 
 - **Extension de machine virtuelle InfiniBandDriver<Linux|Windows>**  : sur les machines virtuelles compatibles RDMA, ajoutez l’extension InfiniBandDriver<Linux|Windows> pour activer InfiniBand. Sur Linux, l’extension de machine virtuelle InfiniBandDriverLinux installe les pilotes Mellanox OFED (sur les machines virtuelles SR-IOV) pour la connectivité RDMA. Sur Windows, l’extension de machine virtuelle InfiniBandDriverWindows installe des pilotes Windows Network Direct (sur des machines virtuelles non compatibles SR-IOV) ou des pilotes Mellanox OFED (sur des machines virtuelles compatibles SR-IOV) pour la connectivité RDMA.

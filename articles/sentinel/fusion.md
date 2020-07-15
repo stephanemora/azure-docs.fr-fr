@@ -13,10 +13,10 @@ ms.workload: na
 ms.date: 02/18/2020
 ms.author: yelevin
 ms.openlocfilehash: 87ca322cbdfdd8a53a3ecefcb120a961ea1bb936
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "77587921"
 ---
 # <a name="advanced-multistage-attack-detection-in-azure-sentinel"></a>Détection avancée des attaques multiphases dans Azure Sentinel
@@ -89,7 +89,7 @@ Dans le cadre de la détection avancée des attaques multiphases, Azure Sentinel
 
 Le [connecteur de données Azure AD Identity Protection](connect-azure-ad-identity-protection.md) et les connecteurs [Cloud App Security](connect-cloud-app-security.md) doivent être configurés.
 
-Les descriptions qui suivent contiennent des variables entre crochets. Azure Sentinel indiquera cependant les valeurs réelles basées sur vos données. Par exemple, Azure Sentinel indiquera le nom d’affichage réel d’un compte et non \<*nom du compte*> et un nombre réel et non \<*nombre*>.
+Les descriptions qui suivent contiennent des variables entre crochets. Azure Sentinel indiquera cependant les valeurs réelles basées sur vos données. Par exemple, Azure Sentinel indiquera le nom d’affichage réel d’un compte et non \<*account name*>, et un nombre réel au lieu de \<*number*>.
 
 ### <a name="impossible-travel-to-atypical-location-followed-by-anomalous-office-365-activity"></a>Déplacement impossible vers un lieu inhabituel suivi d’une activité Office 365 anormale
 
@@ -97,45 +97,45 @@ Il existe sept incidents Azure Sentinel combinant des alertes de déplacement im
 
 - **Déplacement impossible vers des lieux inhabituels à l’origine d’une exfiltration de boîte aux lettres Office 365**
     
-    Cette alerte indique un événement de connexion de \<*nom du compte*> impliquant un déplacement impossible vers \<*emplacement*>, un lieu inhabituel, suivi de la définition d’une règle de transfert de boîte de réception suspecte sur la boîte de réception d’un utilisateur.
+    Cette alerte indique un événement de connexion de \<*account name*> impliquant un déplacement impossible vers \<*location*>, un emplacement inhabituel, suivi de la définition d’une règle suspecte de transfert de boîte de réception sur la boîte de réception d’un utilisateur.
     
-    Ceci peut indiquer que le compte est compromis et que la boîte aux lettres est utilisée pour exfiltrer des informations de votre organisation. L’utilisateur \<*nom du compte*> a créé ou mis à jour une règle de transfert de boîte de réception qui transfère tous les e-mails entrants à l’adresse externe \<*adresse e-mail*>.
+    Ceci peut indiquer que le compte est compromis et que la boîte aux lettres est utilisée pour exfiltrer des informations de votre organisation. L’utilisateur \<*account name*> a créé ou mis à jour une règle de transfert de boîte de réception qui transfère tous les e-mails entrants vers l’adresse externe \<*email address*>.
 
 - **Déplacement impossible vers des lieux inhabituels à l’origine d’une activité d’administration d’application cloud suspecte**
     
-    Cette alerte indique un événement de connexion de \<*nom du compte*> impliquant un déplacement impossible vers \<*emplacement*>, un lieu inhabituel.
+    Cette alerte indique un événement de connexion de \<*account name*> impliquant un déplacement impossible vers \<*location*>, un emplacement inhabituel.
     
-    Ensuite, le compte \<*nom du compte*> a effectué plus de \<*nombre*> activités d’administration au cours d’une même session.
+    Ensuite, le compte \<*account name*> a effectué plus de \<*number*> activités d’administration au cours d’une même session.
 
 - **Déplacement impossible vers des lieux inhabituels à l’origine d’une suppression de fichiers en masse**
     
-    Cette alerte indique un événement de connexion de \<*nom du compte*> à \<*emplacement*>, un lieu inhabituel. 
+    Cette alerte indique un événement de connexion de \<*account name*> à \<*location*>, un emplacement inhabituel. 
     
-    Ensuite, le compte \<*nom du compte*> a supprimé \<*nombre*> fichiers distincts au cours d’une même session.
+    Ensuite, le compte \<*account name*> a supprimé \<*number of*> fichiers distincts au cours d’une même session.
 
 - **Déplacement impossible vers des lieux inhabituels à l’origine d’un téléchargement de fichiers en masse**
     
-    Cette alerte indique un événement de connexion de \<*nom du compte*> impliquant un déplacement impossible vers \<*emplacement*>, un lieu inhabituel. 
+    Cette alerte indique un événement de connexion de \<*account name*> impliquant un déplacement impossible vers \<*location*>, un emplacement inhabituel. 
     
-    Ensuite, le compte \<*nom du compte*> a téléchargé plus de \<*nombre*> fichiers distincts au cours d’une même session.
+    Ensuite, le compte \<*account name*> a téléchargé plus de \<*number of*> fichiers distincts au cours d’une même session.
 
 - **Déplacement impossible vers des lieux inhabituels à l’origine d’un emprunt d’identité dans Office 365**
     
-    Cette alerte indique un événement de connexion de \<*nom du compte*> impliquant un déplacement impossible vers \<*emplacement*>, un lieu inhabituel. 
+    Cette alerte indique un événement de connexion de \<*account name*> impliquant un déplacement impossible vers \<*location*>, un emplacement inhabituel. 
     
-    Ensuite, le compte \<*nom du compte*> a effectué un nombre inhabituel (\<*nombre d’activités*>) d’activités d’emprunt d’identité au cours d’une même session.
+    Ensuite, le compte \<*account name*> a effectué un nombre inhabituel (\<*number of activities*>) d’activités d’emprunt d’identité au cours d’une même session.
 
 - **Déplacement impossible vers des lieux inhabituels à l’origine d’un partage de fichiers en masse**
     
-    Cette alerte indique un événement de connexion de \<*nom du compte*> impliquant un déplacement impossible vers \<*emplacement*>, un lieu inhabituel. 
+    Cette alerte indique un événement de connexion de \<*account name*> impliquant un déplacement impossible vers \<*location*>, un emplacement inhabituel. 
     
-    Ensuite, le compte \<*nom du compte*> a partagé plus de \<*nombre*> fichiers distincts au cours d’une même session.
+    Ensuite, le compte \<*account name*> a partagé plus de \<*number of*> fichiers distincts au cours d’une même session.
 
 - **Déplacement impossible vers des lieux inhabituels à l’origine du déploiement d’un ransomware dans une application cloud**
     
-    Cette alerte indique un événement de connexion de \<*nom du compte*> impliquant un déplacement impossible vers \<*emplacement*>, un lieu inhabituel. 
+    Cette alerte indique un événement de connexion de \<*account name*> impliquant un déplacement impossible vers \<*location*>, un emplacement inhabituel. 
     
-    Ensuite, le compte \<*nom du compte*> a chargé \<*nombre*> fichiers et supprimé \<*nombre*> fichiers au total. 
+    Ensuite, le compte \<*account name*> a chargé \<*number of*> fichiers et supprimé un total de \<*number of*> fichiers. 
     
     Ce modèle d’activité indique une attaque par ransomware potentielle.
 
@@ -146,45 +146,45 @@ Il existe sept incidents Azure Sentinel combinant des alertes d’activité de c
 
 - **Événement de connexion à partir d’un lieu inconnu à l’origine de l’exfiltration d’une boîte aux lettres Exchange Online**
     
-    Cette alerte indique un événement de connexion de \<*nom du compte*> à partir de \<*emplacement*>, un lieu inconnu, suivi de la définition d’une règle de transfert de boîte de réception suspecte sur la boîte de réception d’un utilisateur.
+    Cette alerte indique un événement de connexion de \<*account name*> à partir de \<*location*>, un emplacement inconnu, suivi de la définition d’une règle suspecte de transfert de boîte de réception sur la boîte de réception d’un utilisateur.
     
-    Ceci peut indiquer que le compte est compromis et que la boîte aux lettres est utilisée pour exfiltrer des informations de votre organisation. L’utilisateur \<*nom du compte*> a créé ou mis à jour une règle de transfert de boîte de réception qui transfère tous les e-mails entrants à l’adresse externe \<*adresse e-mail*>. 
+    Ceci peut indiquer que le compte est compromis et que la boîte aux lettres est utilisée pour exfiltrer des informations de votre organisation. L’utilisateur \<*account name*> a créé ou mis à jour une règle de transfert de boîte de réception qui transfère tous les e-mails entrants vers l’adresse externe \<*email address*>. 
 
 - **Événement de connexion à partir d’un lieu inconnu à l’origine d’une activité d’administration d’application cloud suspecte**
     
-    Cette alerte indique un événement de connexion de \<*nom du compte*> à partir de \<*emplacement*>, un lieu inconnu. 
+    Cette alerte indique un événement de connexion de \<*account name*> à partir de \<*location*>, un emplacement inconnu. 
     
-    Ensuite, le compte \<*nom du compte*> a effectué plus de \<*nombre*> activités d’administration au cours d’une même session.
+    Ensuite, le compte \<*account name*> a effectué plus de \<*number of*> activités d’administration au cours d’une même session.
 
 - **Événement de connexion à partir d’un lieu inconnu à l’origine d’une suppression de fichiers en masse**
     
-    Cette alerte indique un événement de connexion de \<*nom du compte*> à partir de \<*emplacement*>, un lieu inconnu. 
+    Cette alerte indique un événement de connexion de \<*account name*> à partir de \<*location*>, un emplacement inconnu. 
     
-    Ensuite, le compte \<*nom du compte*> a supprimé \<*nombre*> fichiers distincts au cours d’une même session.
+    Ensuite, le compte \<*account name*> a supprimé \<*number of*> fichiers distincts au cours d’une même session.
 
 - **Événement de connexion à partir d’un lieu inconnu à l’origine d’un téléchargement de fichiers en masse**
     
-    Cette alerte indique un événement de connexion de \<*nom du compte*> à partir de \<*emplacement*>, un lieu inconnu. 
+    Cette alerte indique un événement de connexion de \<*account name*> à partir de \<*location*>, un emplacement inconnu. 
     
-    Ensuite, le compte \<*nom du compte*> a téléchargé plus de \<*nombre*> fichiers distincts au cours d’une même session.
+    Ensuite, le compte \<*account name*> a téléchargé plus de \<*number of*> fichiers distincts au cours d’une même session.
 
 - **Événement de connexion à partir d’un lieu inconnu à l’origine d’un emprunt d’identité dans Office 365**
     
-    Cette alerte indique un événement de connexion de \<*nom du compte*> à partir de \<*emplacement*>, un lieu inconnu.
+    Cette alerte indique un événement de connexion de \<*account name*> à partir de \<*location*>, un emplacement inconnu.
     
-    Ensuite, le compte \<*nom du compte*> a emprunté l’identité de plus de \<*nombre*> comptes différents au cours d’une même session.
+    Ensuite, le compte \<*account name*> a emprunté l’identité de plus de \<*number of*> comptes différents au cours d’une même session.
 
 - **Événement de connexion à partir d’un lieu inconnu à l’origine d’un partage de fichiers en masse**
     
-    Cette alerte indique un événement de connexion de \<*nom du compte*> à partir de \<*emplacement*>, un lieu inconnu. 
+    Cette alerte indique un événement de connexion de \<*account name*> à partir de \<*location*>, un emplacement inconnu. 
     
-    Ensuite, le compte \<*nom du compte*> a partagé plus de \<*nombre*> fichiers distincts au cours d’une même session.
+    Ensuite, le compte \<*account name*> a partagé plus de \<*number of*> fichiers distincts au cours d’une même session.
 
 - **Événement de connexion à partir d’un lieu inconnu à l’origine du déploiement d’un ransomware dans une application cloud**
     
-    Cette alerte indique un événement de connexion de \<*nom du compte*> à partir de \<*emplacement*>, un lieu inconnu. 
+    Cette alerte indique un événement de connexion de \<*account name*> à partir de \<*location*>, un emplacement inconnu. 
     
-    Ensuite, le compte \<*nom du compte*> a chargé \<*nombre*> fichiers et supprimé \<*nombre*> fichiers au total. 
+    Ensuite, le compte \<*account name*> a chargé \<*number of*> fichiers et supprimé un total de \<*number of*> fichiers. 
     
     Ce modèle d’activité indique une attaque par ransomware potentielle.
 
@@ -194,45 +194,45 @@ Il existe sept incidents Azure Sentinel combinant des alertes d’activité de c
 
 - **Événement de connexion à partir d’un appareil infecté à l’origine de l’exfiltration d’une boîte aux lettres Office 365**
     
-    Cette alerte indique un événement de connexion de \<*nom du compte*> à partir d’un appareil potentiellement infecté par un programme malveillant, suivi de la définition d’une règle de transfert de boîte de réception suspecte sur la boîte de réception d’un utilisateur.
+    Cette alerte indique un événement de connexion de \<*account name*> à partir d’un appareil potentiellement infecté par un programme malveillant, suivi de la définition d’une règle suspecte de transfert de boîte de réception sur la boîte de réception d’un utilisateur.
     
-    Ceci peut indiquer que le compte est compromis et que la boîte aux lettres est utilisée pour exfiltrer des informations de votre organisation. L’utilisateur \<*nom du compte*> a créé ou mis à jour une règle de transfert de boîte de réception qui transfère tous les e-mails entrants à l’adresse externe \<*adresse e-mail*>. 
+    Ceci peut indiquer que le compte est compromis et que la boîte aux lettres est utilisée pour exfiltrer des informations de votre organisation. L’utilisateur \<*account name*> a créé ou mis à jour une règle de transfert de boîte de réception qui transfère tous les e-mails entrants vers l’adresse externe \<*email address*>. 
 
 - **Événement de connexion à partir d’un appareil infecté à l’origine d’une activité d’administration d’application cloud suspecte**
     
-    Cette alerte indique un événement de connexion de \<*nom du compte*> à partir d’un appareil potentiellement infecté par un programme malveillant.
+    Cette alerte indique un événement de connexion de \<*account name*> à partir d’un appareil potentiellement infecté par un programme malveillant.
     
-    Ensuite, le compte \<*nom du compte*> a effectué plus de \<*nombre*> activités d’administration au cours d’une même session.
+    Ensuite, le compte \<*account name*> a effectué plus de \<*number of*> activités d’administration au cours d’une même session.
 
 - **Événement de connexion à partir d’un appareil infecté à l’origine d’une suppression de fichiers en masse**
     
-    Cette alerte indique un événement de connexion de \<*nom du compte*> à partir d’un appareil potentiellement infecté par un programme malveillant. 
+    Cette alerte indique un événement de connexion de \<*account name*> à partir d’un appareil potentiellement infecté par un programme malveillant. 
     
-    Ensuite, le compte \<*nom du compte*> a supprimé \<*nombre*> fichiers distincts au cours d’une même session.
+    Ensuite, le compte \<*account name*> a supprimé \<*number of*> fichiers distincts au cours d’une même session.
 
 - **Événement de connexion à partir d’un appareil infecté à l’origine d’un téléchargement de fichiers en masse**
     
-    Cette alerte indique un événement de connexion de \<*nom du compte*> à partir d’un appareil potentiellement infecté par un programme malveillant. 
+    Cette alerte indique un événement de connexion de \<*account name*> à partir d’un appareil potentiellement infecté par un programme malveillant. 
     
-    Ensuite, le compte \<*nom du compte*> a téléchargé plus de \<*nombre*> fichiers distincts au cours d’une même session.
+    Ensuite, le compte \<*account name*> a téléchargé plus de \<*number of*> fichiers distincts au cours d’une même session.
 
 - **Événement de connexion à partir d’un appareil infecté à l’origine d’un emprunt d’identité dans Office 365**
     
-    Cette alerte indique un événement de connexion de \<*nom du compte*> à partir d’un appareil potentiellement infecté par un programme malveillant. 
+    Cette alerte indique un événement de connexion de \<*account name*> à partir d’un appareil potentiellement infecté par un programme malveillant. 
     
-    Ensuite, le compte \<*nom du compte*> a emprunté l’identité de plus de \<*nombre*> comptes différents au cours d’une même session.
+    Ensuite, le compte \<*account name*> a emprunté l’identité de plus de \<*number of*> comptes différents au cours d’une même session.
 
 - **Événement de connexion à partir d’un appareil infecté à l’origine d’un partage de fichiers en masse**
     
-    Cette alerte indique un événement de connexion de \<*nom du compte*> à partir d’un appareil potentiellement infecté par un programme malveillant. 
+    Cette alerte indique un événement de connexion de \<*account name*> à partir d’un appareil potentiellement infecté par un programme malveillant. 
     
-    Ensuite, le compte \<*nom du compte*> a partagé plus de \<*nombre*> fichiers distincts au cours d’une même session.
+    Ensuite, le compte \<*account name*> a partagé plus de \<*number of*> fichiers distincts au cours d’une même session.
 
 - **Événement de connexion à partir d’un appareil infecté à l’origine du déploiement d’un ransomware dans une application cloud**
     
-    Cette alerte indique un événement de connexion de \<*nom du compte*> à partir d’un appareil potentiellement infecté par un programme malveillant. 
+    Cette alerte indique un événement de connexion de \<*account name*> à partir d’un appareil potentiellement infecté par un programme malveillant. 
     
-    Ensuite, le compte \<*nom du compte*> a chargé \<*nombre*> fichiers et supprimé \<*nombre*> fichiers au total. 
+    Ensuite, le compte \<*account name*> a chargé \<*number of*> fichiers et supprimé un total de \<*number of*> fichiers. 
     
     Ce modèle d’activité indique une attaque par ransomware potentielle.
 
@@ -242,45 +242,45 @@ Il existe sept incidents Azure Sentinel combinant des alertes d’activité de c
 
 - **Événement de connexion à partir d’une adresse IP anonyme à l’origine de l’exfiltration d’une boîte aux lettres Office 365**
     
-    Cette alerte indique un événement de connexion de \<*nom du compte*> à partir de l’adresse IP de proxy anonyme \<*adresse IP*>, suivi de la définition d’une règle de transfert de boîte de réception suspecte sur la boîte de réception d’un utilisateur.
+    Cette alerte indique un événement de connexion de \<*account name*> à partir de l’adresse IP de proxy anonyme \<*IP address*>, suivi de la définition d’une règle suspecte de transfert de boîte de réception sur la boîte de réception d’un utilisateur.
     
-    Ceci peut indiquer que le compte est compromis et que la boîte aux lettres est utilisée pour exfiltrer des informations de votre organisation. L’utilisateur \<*nom du compte*> a créé ou mis à jour une règle de transfert de boîte de réception qui transfère tous les e-mails entrants à l’adresse externe \<*adresse e-mail*>. 
+    Ceci peut indiquer que le compte est compromis et que la boîte aux lettres est utilisée pour exfiltrer des informations de votre organisation. L’utilisateur \<*account name*> a créé ou mis à jour une règle de transfert de boîte de réception qui transfère tous les e-mails entrants vers l’adresse externe \<*email address*>. 
 
 - **Événement de connexion à partir d’une adresse IP anonyme à l’origine d’une activité d’administration d’application cloud suspecte**
     
-    Cette alerte indique un événement de connexion de \<*nom du compte*> à partir de l’adresse IP de proxy anonyme \<*adresse IP*>. 
+    Cette alerte indique un événement de connexion de \<*account name*> à partir de l’adresse IP de proxy anonyme \<*IP address*>. 
     
-    Ensuite, le compte \<*nom du compte*> a effectué plus de \<*nombre*> activités d’administration au cours d’une même session.
+    Ensuite, le compte \<*account name*> a effectué plus de \<*number of*> activités d’administration au cours d’une même session.
 
 - **Événement de connexion à partir d’une adresse IP anonyme à l’origine d’une suppression de fichiers en masse**
     
-    Cette alerte indique un événement de connexion de \<*nom du compte*> à partir de l’adresse IP de proxy anonyme \<*adresse IP*>. 
+    Cette alerte indique un événement de connexion de \<*account name*> à partir de l’adresse IP de proxy anonyme \<*IP address*>. 
     
-    Ensuite, le compte \<*nom du compte*> a supprimé \<*nombre*> fichiers distincts au cours d’une même session.
+    Ensuite, le compte \<*account name*> a supprimé \<*number of*> fichiers distincts au cours d’une même session.
 
 - **Événement de connexion à partir d’une adresse IP anonyme à l’origine d’un téléchargement de fichiers en masse**
     
-    Cette alerte indique un événement de connexion de \<*nom du compte*> à partir de l’adresse IP de proxy anonyme \<*adresse IP*>. 
+    Cette alerte indique un événement de connexion de \<*account name*> à partir de l’adresse IP de proxy anonyme \<*IP address*>. 
     
-    Ensuite, le compte \<*nom du compte*> a téléchargé plus de \<*nombre*> fichiers distincts au cours d’une même session.
+    Ensuite, le compte \<*account name*> a téléchargé plus de \<*number of*> fichiers distincts au cours d’une même session.
 
 - **Événement de connexion à partir d’une adresse IP anonyme à l’origine d’un emprunt d’identité dans Office 365**
     
-    Cette alerte indique un événement de connexion de \<*nom du compte*> à partir de l’adresse IP de proxy anonyme \<*adresse IP*>. 
+    Cette alerte indique un événement de connexion de \<*account name*> à partir de l’adresse IP de proxy anonyme \<*IP address*>. 
     
-    Ensuite, le compte \<*nom du compte*> a emprunté l’identité de plus de \<*nombre*> comptes différents au cours d’une même session.
+    Ensuite, le compte \<*account name*> a emprunté l’identité de plus de \<*number of*> comptes différents au cours d’une même session.
 
 - **Événement de connexion à partir d’une adresse IP anonyme à l’origine d’un partage de fichiers en masse**
     
-    Cette alerte indique un événement de connexion de \<*nom du compte*> à partir de l’adresse IP de proxy anonyme \<*adresse IP*>. 
+    Cette alerte indique un événement de connexion de \<*account name*> à partir de l’adresse IP de proxy anonyme \<*IP address*>. 
     
-    Ensuite, le compte \<*nom du compte*> a partagé plus de \<*nombre*> fichiers distincts au cours d’une même session.
+    Ensuite, le compte \<*account name*> a partagé plus de \<*number of*> fichiers distincts au cours d’une même session.
 
 - **Événement de connexion à partir d’une adresse IP anonyme à l’origine du déploiement d’un ransomware dans une application cloud**
     
-    Cette alerte indique un événement de connexion de \<*nom du compte*> à partir de l’adresse IP de proxy anonyme \<*adresse IP*>. 
+    Cette alerte indique un événement de connexion de \<*account name*> à partir de l’adresse IP de proxy anonyme \<*IP address*>. 
     
-    Ensuite, le compte \<*nom du compte*> a chargé \<*nombre*> fichiers et supprimé \<*nombre*> fichiers au total. 
+    Ensuite, le compte \<*account name*> a chargé \<*number of*> fichiers et supprimé un total de \<*number of*> fichiers. 
     
     Ce modèle d’activité indique une attaque par ransomware potentielle.
 
@@ -290,45 +290,45 @@ Il existe sept incidents Azure Sentinel combinant des alertes d’activité de c
 
 - **Événement de connexion d’un utilisateur dont les informations d’identification ont fuité à l’origine de l’exfiltration d’une boîte aux lettres Office 365**
     
-    Cette alerte indique que des informations d’identification ayant fuité ont été utilisées lors de l’événement de connexion de \<*nom du compte*>, puis qu’une règle de transfert de boîte de réception suspecte a été définie sur la boîte de réception d’un utilisateur. 
+    Cette alerte indique que des informations d’identification divulguées ont été utilisées lors de l’événement de connexion de \<*account name*>, puis qu’une règle suspecte de transfert de boîte de réception a été définie sur la boîte de réception d’un utilisateur. 
     
-    Ceci peut indiquer que le compte est compromis et que la boîte aux lettres est utilisée pour exfiltrer des informations de votre organisation. L’utilisateur \<*nom du compte*> a créé ou mis à jour une règle de transfert de boîte de réception qui transfère tous les e-mails entrants à l’adresse externe \<*adresse e-mail*>. 
+    Ceci peut indiquer que le compte est compromis et que la boîte aux lettres est utilisée pour exfiltrer des informations de votre organisation. L’utilisateur \<*account name*> a créé ou mis à jour une règle de transfert de boîte de réception qui transfère tous les e-mails entrants vers l’adresse externe \<*email address*>. 
 
 - **Événement de connexion d’un utilisateur dont les informations d’identification ont fuité à l’origine d’une activité d’administration d’application cloud suspecte**
     
-    Cette alerte indique que des informations d’identification ayant fuité ont été utilisées lors de l’événement de connexion de \<*nom du compte*>.
+    Cette alerte indique que des informations d’identification divulguées ont été utilisées lors de l’événement de connexion de \<*account name*>.
     
-    Ensuite, le compte \<*nom du compte*> a effectué plus de \<*nombre*> activités d’administration au cours d’une même session.
+    Ensuite, le compte \<*account name*> a effectué plus de \<*number of*> activités d’administration au cours d’une même session.
 
 - **Événement de connexion d’un utilisateur dont les informations d’identification ont fuité à l’origine d’une suppression de fichiers en masse**
     
-    Cette alerte indique que des informations d’identification ayant fuité ont été utilisées lors de l’événement de connexion de \<*nom du compte*>.
+    Cette alerte indique que des informations d’identification divulguées ont été utilisées lors de l’événement de connexion de \<*account name*>.
     
-    Ensuite, le compte \<*nom du compte*> a supprimé \<*nombre*> fichiers distincts au cours d’une même session.
+    Ensuite, le compte \<*account name*> a supprimé \<*number of*> fichiers distincts au cours d’une même session.
 
 - **Événement de connexion d’un utilisateur dont les informations d’identification ont fuité à l’origine d’un téléchargement de fichiers en masse**
     
-    Cette alerte indique que des informations d’identification ayant fuité ont été utilisées lors de l’événement de connexion de \<*nom du compte*>.
+    Cette alerte indique que des informations d’identification divulguées ont été utilisées lors de l’événement de connexion de \<*account name*>.
     
-    Ensuite, le compte \<*nom du compte*> a téléchargé plus de \<*nombre*> fichiers distincts au cours d’une même session.
+    Ensuite, le compte \<*account name*> a téléchargé plus de \<*number of*> fichiers distincts au cours d’une même session.
 
 - **Événement de connexion d’un utilisateur dont les informations d’identification ont fuité à l’origine d’un emprunt d’identité dans Office 365**
     
-    Cette alerte indique que des informations d’identification ayant fuité ont été utilisées lors de l’événement de connexion de \<*nom du compte*>. 
+    Cette alerte indique que des informations d’identification divulguées ont été utilisées lors de l’événement de connexion de \<*account name*>. 
     
-    Ensuite, le compte \<*nom du compte*> a emprunté l’identité de plus de \<*nombre*> comptes différents au cours d’une même session.
+    Ensuite, le compte \<*account name*> a emprunté l’identité de plus de \<*number of*> comptes différents au cours d’une même session.
 
 - **Événement de connexion d’un utilisateur dont les informations d’identification ont fuité à l’origine d’un partage de fichiers en masse**
     
-    Cette alerte indique que des informations d’identification ayant fuité ont été utilisées lors de l’événement de connexion de \<*nom du compte*>.
+    Cette alerte indique que des informations d’identification divulguées ont été utilisées lors de l’événement de connexion de \<*account name*>.
     
-    Ensuite, le compte \<*nom du compte*> a partagé plus de \<*nombre*> fichiers distincts au cours d’une même session.
+    Ensuite, le compte \<*account name*> a partagé plus de \<*number of*> fichiers distincts au cours d’une même session.
 
 - **Événement de connexion d’un utilisateur dont les informations d’identification ont fuité à l’origine du déploiement d’un ransomware dans une application cloud**
     
-    Cette alerte indique que des informations d’identification ayant fuité ont été utilisées lors de l’événement de connexion de \<*nom du compte*>. 
+    Cette alerte indique que des informations d’identification divulguées ont été utilisées lors de l’événement de connexion de \<*account name*>. 
     
-    Ensuite, le compte \<*nom du compte*> a chargé \<*nombre*> fichiers et supprimé \<*nombre*> fichiers au total. 
+    Ensuite, le compte \<*account name*> a chargé \<*number of*> fichiers et supprimé un total de \<*number of*> fichiers. 
     
     Ce modèle d’activité indique une attaque par ransomware potentielle.
 

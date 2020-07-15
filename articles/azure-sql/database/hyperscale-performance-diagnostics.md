@@ -10,12 +10,12 @@ author: denzilribeiro
 ms.author: denzilr
 ms.reviewer: sstein
 ms.date: 10/18/2019
-ms.openlocfilehash: c9b69b751067ba36daad614b84367aee882d17b1
-ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
+ms.openlocfilehash: 7bd2b404627e21a80fc41a4561300d7252d1519c
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "84040970"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84324388"
 ---
 # <a name="sql-hyperscale-performance-troubleshooting-diagnostics"></a>Diagnostics de résolution des problèmes de performances Hyperscale SQL
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -41,7 +41,7 @@ Les réplicas de calcul ne mettent pas en cache une copie complète de la base d
 
 Quand une lecture est émise sur un réplica de calcul, si les données n’existent pas dans le pool de mémoires tampons ou dans le cache RBPEX local, un appel de fonction getPage (pageId, LSN) est émis et la page est récupérée à partir du serveur de pages correspondant. Les lectures à partir des serveurs de pages étant des lectures distantes, elles sont plus lentes que les lectures à partir du cache RBPEX local. Pour résoudre les problèmes de performances liés aux E/S, il importe de connaître le nombre d’E/S liées aux lectures distantes relativement lentes effectuées à partir d’un serveur de pages.
 
-Plusieurs vues de gestion dynamique (DMV) et événements étendus contiennent des colonnes et des champs qui spécifient le nombre de lectures à distante à partir d’un serveur de pages, qui peuvent être comparées aux lectures totales. Le magasin des requêtes capture également les lectures distantes dans le cadre des statistiques de durée d’exécution des requêtes.
+Plusieurs vues de gestion dynamique (DMV) et événements étendus contiennent des colonnes et des champs qui spécifient le nombre de lectures à distante à partir d’un serveur de pages, qui peuvent être comparées au nombre total de lectures. Le magasin des requêtes capture également les lectures distantes dans le cadre des statistiques de durée d’exécution des requêtes.
 
 - Les colonnes où sont consignées les lectures de serveur de pages sont disponibles dans les vues DMV d’exécution et les vues catalogue, à savoir :
 
@@ -79,10 +79,10 @@ Le ratio de lectures effectuées dans le cache RBPEX par rapport aux lectures ag
 
 ### <a name="data-reads"></a>Lectures de données
 
-- Quand les lectures sont émises par le moteur de base de données SQL sur un réplica de calcul, elles peuvent être traitées par le cache RBPEX local, par des serveurs de pages distants ou par une combinaison des deux dans le cas où plusieurs pages sont lues.
+- Quand les lectures sont émises par le moteur de base de données SQL Server sur un réplica de calcul, elles peuvent être traitées par le cache RBPEX local, par des serveurs de pages distants ou par une combinaison des deux dans le cas où plusieurs pages sont lues.
 - Quand le réplica de calcul lit certaines pages d’un fichier spécifique, par exemple file_id 1, si ces données résident uniquement dans le cache RBPEX local, toutes les E/S de cette lecture comptent pour file_id 0 (RBPEX). Si une partie de ces données se trouve dans le cache RBPEX local et qu’une autre partie se trouve sur un serveur de pages distant, les E/S comptent pour file_id 0 pour la partie traitée à partir du cache RBPEX, et la partie traitée à partir du serveur de pages distant compte pour file_id 1.
 - Quand un réplica de calcul demande une page à un numéro [LSN](/sql/relational-databases/sql-server-transaction-log-architecture-and-management-guide/) particulier sur un serveur de pages, si celui-ci a tardé à atteindre le LSN demandé, la lecture sur le réplica de calcul attend que le serveur de pages l’ait atteinte avant que la page soit retournée au réplica de calcul. Pour toute lecture auprès d’un serveur de pages du réplica de calcul, vous constaterez la présence du type d’attente PAGEIOLATCH_* si cette E/S est attendue. Dans Hyperscale, ce temps d’attente est constitué à la fois du temps nécessaire pour atteindre la page demandée sur le serveur de pages au numéro LSN voulu et du temps nécessaire pour transférer la page du serveur de pages au réplica de calcul.
-- Les lectures volumineuses que sont notamment les lectures anticipées se produisent souvent sous forme de [lectures par ventilation-regroupement](/sql/relational-databases/reading-pages/). Cela autorise des lectures pouvant atteindre 4 Mo de pages à la fois, ce que le moteur de base de données SQL considère comme une lecture unique. En revanche, quand les données lues se trouvent dans un cache RBPEX, ces lectures comptent pour plusieurs lectures individuelles de 8 Ko, car le pool de mémoires tampons et le cache RBPEX utilisent toujours des pages de 8 Ko. De ce fait, le nombre d’E/S en lecture détectées sur le cache RBPEX peut être supérieur au nombre réel d’E/S exécutées par le moteur.
+- Les lectures volumineuses que sont notamment les lectures anticipées se produisent souvent sous forme de [lectures par ventilation-regroupement](/sql/relational-databases/reading-pages/). Cela autorise des lectures pouvant atteindre 4 Mo de pages à la fois, ce que le moteur de base de données SQL Server considère comme une lecture unique. En revanche, quand les données lues se trouvent dans un cache RBPEX, ces lectures comptent pour plusieurs lectures individuelles de 8 Ko, car le pool de mémoires tampons et le cache RBPEX utilisent toujours des pages de 8 Ko. De ce fait, le nombre d’E/S en lecture détectées sur le cache RBPEX peut être supérieur au nombre réel d’E/S exécutées par le moteur.
 
 ### <a name="data-writes"></a>Écritures de données
 
@@ -93,13 +93,13 @@ Le ratio de lectures effectuées dans le cache RBPEX par rapport aux lectures ag
 ### <a name="log-writes"></a>Écritures de journal
 
 - Sur le réplica de calcul principal, une écriture de journal est représentée dans le fichier file_id 2 de sys.dm_io_virtual_file_stats. Une écriture de journal sur le réplica de calcul principal est une écriture dans la zone d’atterrissage du journal.
-- Les enregistrements de journal ne sont pas renforcés sur le réplica secondaire après une validation. Dans Hyperscale, le journal est appliqué par le service Wlog aux réplicas distants. Étant donné que les écritures de journal ne se produisent pas réellement sur les réplicas secondaires, toute comptabilité des E/S de journal sur les réplicas secondaires est établie uniquement à des fins de suivi.
+- Les enregistrements de journal ne sont pas renforcés sur le réplica secondaire après une validation. Dans Hyperscale, le journal est appliqué par le service de journal aux réplicas secondaires de manière asynchrone. Étant donné que les écritures de journal ne se produisent pas réellement sur les réplicas secondaires, toute comptabilité des E/S de journal sur les réplicas secondaires est établie uniquement à des fins de suivi.
 
 ## <a name="data-io-in-resource-utilization-statistics"></a>E/S de données dans les statistiques d’utilisation des ressources
 
-Dans une base de données non Hyperscale, les E/S en lecture et en écriture combinées sur les fichiers de données, par rapport à la limite d’E/S de données de la [gouvernance des ressources](/azure/sql-database/sql-database-resource-limits-database-server#resource-governance), sont rapportées dans les affichages [sys.dm_db_resource_stats](/sql/relational-databases/system-dynamic-management-views/sys-dm-db-resource-stats-azure-sql-database) et [sys.resource_stats](/sql/relational-databases/system-catalog-views/sys-resource-stats-azure-sql-database), au niveau de la colonne `avg_data_io_percent`. La même valeur est indiquée dans le portail en tant que _Pourcentage d'E/S de données_.
+Dans une base de données non Hyperscale, les E/S en lecture et en écriture combinées sur les fichiers de données, par rapport à la limite d’E/S de données de la [gouvernance des ressources](/azure/sql-database/sql-database-resource-limits-database-server#resource-governance), sont rapportées dans les affichages [sys.dm_db_resource_stats](/sql/relational-databases/system-dynamic-management-views/sys-dm-db-resource-stats-azure-sql-database) et [sys.resource_stats](/sql/relational-databases/system-catalog-views/sys-resource-stats-azure-sql-database), au niveau de la colonne `avg_data_io_percent`. La même valeur est indiquée dans le portail Azure en tant que _pourcentage d’E/S de données_.
 
-Dans une base de données Hyperscale, cette colonne indique l’utilisation d’IOPS des données par rapport à la limite du stockage local sur le réplica de calcul uniquement, en particulier les E/S liées à RBPEX et `tempdb`. Une valeur de 100 % dans cette colonne indique que la gouvernance des ressources limite le stockage local en IOPS. Si cela est lié à un problème de performances, paramétrez la charge de travail pour générer moins d’E/S ou augmentez le service de base de données afin d’augmenter la _limite_ [Max Data IOPS](resource-limits-vcore-single-databases.md) (IOPS maxi de données) pour la gouvernance des ressources. Pour la gouvernance des ressources des lectures et écritures RBPEX, le système compte un nombre d’E/S individuelles de 8 Ko plutôt que des E/S plus volumineuses qui peuvent être émises par le moteur de base de données SQL.
+Dans une base de données Hyperscale, cette colonne indique l’utilisation d’IOPS des données par rapport à la limite du stockage local sur le réplica de calcul uniquement, en particulier les E/S liées à RBPEX et `tempdb`. Une valeur de 100 % dans cette colonne indique que la gouvernance des ressources limite le stockage local en IOPS. Si cela est lié à un problème de performances, paramétrez la charge de travail pour générer moins d’E/S ou augmentez le service de base de données afin d’augmenter la _limite_ [Max Data IOPS](resource-limits-vcore-single-databases.md) (IOPS maxi de données) pour la gouvernance des ressources. Pour la gouvernance des ressources des lectures et écritures RBPEX, le système compte un nombre d’E/S individuelles de 8 Ko plutôt que des E/S plus volumineuses qui peuvent être émises par le moteur de base de données SQL Server.
 
 Les E/S de données sur les serveurs de pages distants ne sont pas rapportées dans les affichages d’utilisation des ressources ou dans le portail, mais le sont dans la fonction de gestion dynamique [sys.dm_io_virtual_file_stats()](/sql/relational-databases/system-dynamic-management-views/sys-dm-io-virtual-file-stats-transact-sql/), comme indiqué précédemment.
 

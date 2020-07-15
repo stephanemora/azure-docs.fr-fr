@@ -4,16 +4,16 @@ description: Utilisez l’accélération des requêtes (préversion) pour récup
 author: normesta
 ms.subservice: data-lake-storage-gen2
 ms.service: storage
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 04/21/2020
 ms.author: normesta
 ms.reviewer: jamsbak
-ms.openlocfilehash: d7213bb44503fbe191a69683188bdea6976827ee
-ms.sourcegitcommit: a6d477eb3cb9faebb15ed1bf7334ed0611c72053
+ms.openlocfilehash: cc9235f07c0829abfb8be42e83d05d8428bc1806
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/08/2020
-ms.locfileid: "82930078"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84465862"
 ---
 # <a name="filter-data-by-using-azure-data-lake-storage-query-acceleration-preview"></a>Filtrer des données à l’aide de l’accélération des requêtes Azure Data Lake Storage (préversion)
 
@@ -57,7 +57,7 @@ L’accélération des requêtes (préversion) est une nouvelle capacité d’Az
 
 2. Extrayez le contenu de ce fichier dans le répertoire de votre projet.
 
-3. Ouvrez votre Fichier projet ( *.csproj*) dans un éditeur de texte et ajoutez ces références de package à l’intérieur de l’élément \<Project\>.
+3. Ouvrez votre fichier projet ( *.csproj*) dans un éditeur de texte, puis ajoutez ces références de package à l’intérieur de l’élément \<Project\>.
 
    ```xml
    <ItemGroup>

@@ -3,16 +3,16 @@ title: Résoudre les problèmes d’Azure File Sync | Microsoft Docs
 description: Découvrez comment résoudre les problèmes courants avec Azure File Sync.
 author: jeffpatt24
 ms.service: storage
-ms.topic: conceptual
-ms.date: 1/22/2019
+ms.topic: troubleshooting
+ms.date: 6/12/2020
 ms.author: jeffpatt
 ms.subservice: files
-ms.openlocfilehash: 39106f863352061cdaa583bde96f50d3f91a07e9
-ms.sourcegitcommit: 0b80a5802343ea769a91f91a8cdbdf1b67a932d3
+ms.openlocfilehash: ec7469210bcfae53407a157a325c749aee2c2b08
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/25/2020
-ms.locfileid: "83836513"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85512051"
 ---
 # <a name="troubleshoot-azure-file-sync"></a>Résoudre les problèmes de synchronisation de fichiers Azure
 Utilisez Azure File Sync pour centraliser les partages de fichiers de votre organisation dans Azure Files tout en conservant la flexibilité, le niveau de performance et la compatibilité d’un serveur de fichiers local. Azure File Sync transforme Windows Server en un cache rapide de votre partage de fichiers Azure. Vous pouvez utiliser tout protocole disponible dans Windows Server pour accéder à vos données localement, notamment SMB, NFS et FTPS. Vous pouvez avoir autant de caches que nécessaire dans le monde entier.
@@ -315,6 +315,7 @@ Pour afficher ces erreurs, exécutez le script PowerShell **FileSyncErrorsReport
 |---------|-------------------|--------------|-------|-------------|
 | 0x80070043 | -2147942467 | ERROR_BAD_NET_NAME | Le fichier hiérarchisé sur le serveur n’est pas accessible. Ce problème se produit si le fichier hiérarchisé n’a pas été rappelé avant la suppression d’un point de terminaison de serveur. | Pour résoudre ce problème, consultez [Fichiers hiérarchisés non accessibles sur le serveur après la suppression d’un point de terminaison de serveur](https://docs.microsoft.com/azure/storage/files/storage-sync-files-troubleshoot?tabs=portal1%2Cazure-portal#tiered-files-are-not-accessible-on-the-server-after-deleting-a-server-endpoint). |
 | 0x80c80207 | -2134375929 | ECS_E_SYNC_CONSTRAINT_CONFLICT | La modification de fichier ou de répertoire ne peut pas encore être synchronisée, car un dossier dépendant n’est pas encore synchronisé. Cet élément sera synchronisé une fois que les modifications dépendantes seront synchronisées. | Aucune action requise. Si l’erreur persiste pendant plusieurs jours, utilisez le script PowerShell FileSyncErrorsReport.ps1 pour déterminer la raison pour laquelle le dossier dépendant n’est pas encore synchronisé. |
+| 0x80C8028A | -2134375798 | ECS_E_SYNC_CONSTRAINT_CONFLICT_ON_FAILED_DEPENDEE | La modification de fichier ou de répertoire ne peut pas encore être synchronisée, car un dossier dépendant n’est pas encore synchronisé. Cet élément sera synchronisé une fois que les modifications dépendantes seront synchronisées. | Aucune action requise. Si l’erreur persiste pendant plusieurs jours, utilisez le script PowerShell FileSyncErrorsReport.ps1 pour déterminer la raison pour laquelle le dossier dépendant n’est pas encore synchronisé. |
 | 0x80c80284 | -2134375804 | ECS_E_SYNC_CONSTRAINT_CONFLICT_SESSION_FAILED | La modification de fichier ou de répertoire ne peut pas encore être synchronisée, car un dossier dépendant n’est pas encore synchronisé et la session de synchronisation a échoué. Cet élément sera synchronisé une fois que les modifications dépendantes seront synchronisées. | Aucune action requise. Si l’erreur persiste, recherchez la cause de l’échec de la session de synchronisation. |
 | 0x8007007b | -2147024773 | ERROR_INVALID_NAME | Le nom de répertoire est non valide. | Renommez le fichier ou le répertoire en question. Pour plus d’informations, voir [Gestion des caractères non pris en charge](https://docs.microsoft.com/azure/storage/files/storage-sync-files-troubleshoot?tabs=portal1%2Cazure-portal#handling-unsupported-characters). |
 | 0x80c80255 | -2134375851 | ECS_E_XSMB_REST_INCOMPATIBILITY | Le nom de répertoire est non valide. | Renommez le fichier ou le répertoire en question. Pour plus d’informations, voir [Gestion des caractères non pris en charge](https://docs.microsoft.com/azure/storage/files/storage-sync-files-troubleshoot?tabs=portal1%2Cazure-portal#handling-unsupported-characters). |
@@ -552,13 +553,13 @@ Si le partage de fichiers Azure a été supprimé, vous devez créer un nouveau 
 
 Cette erreur se produit lorsque l’abonnement Azure est suspendu. La synchronisation est réactivée lors de la restauration de l’abonnement Azure. Consultez [Pourquoi mon abonnement Azure est-il désactivé et comment puis-je le réactiver ?](../../cost-management-billing/manage/subscription-disabled.md) pour plus d’informations.
 
-<a id="-2134364052"></a>**Le compte de stockage comporte un pare-feu ou des réseaux virtuels configurés.**  
+<a id="-2134375618"></a>**Le compte de stockage comporte un pare-feu ou des réseaux virtuels configurés.**  
 
 | | |
 |-|-|
-| **HRESULT** | 0x80c8306c |
-| **HRESULT (décimal)** | -2134364052 |
-| **Chaîne d’erreur** | ECS_E_MGMT_STORAGEACLSNOTSUPPORTED |
+| **HRESULT** | 0x80c8033e |
+| **HRESULT (décimal)** | -2134375618 |
+| **Chaîne d’erreur** | ECS_E_SERVER_BLOCKED_BY_NETWORK_ACL |
 | **Correction requise** | Oui |
 
 Cette erreur se produit lorsque le partage de fichiers Azure est inaccessible en raison d’un pare-feu de compte de stockage ou parce que le compte de stockage appartient à un réseau virtuel. Vérifiez que les paramètres de pare-feu et de réseau virtuel sur le compte de stockage sont configurés correctement. Pour plus d’informations, consultez [Configurer les paramètres du pare-feu et du réseau virtuel](https://docs.microsoft.com/azure/storage/files/storage-sync-files-deployment-guide?tabs=azure-portal#configure-firewall-and-virtual-network-settings). 
@@ -1087,6 +1088,7 @@ Si la hiérarchisation des fichiers dans Azure Files échoue :
 
 | HRESULT | HRESULT (décimal) | Chaîne d’erreur | Problème | Correction |
 |---------|-------------------|--------------|-------|-------------|
+| 0x80c86045 | -2134351803 | ECS_E_INITIAL_UPLOAD_PENDING | Le fichier n’a pas pu être hiérarchisé, car le chargement initial est en cours. | Aucune action requise. Le fichier sera hiérarchisé une fois le chargement initial terminé. |
 | 0x80c86043 | -2134351805 | ECS_E_GHOSTING_FILE_IN_USE | Le fichier n’a pas pu être hiérarchisé car il est en cours d’utilisation. | Aucune action requise. Le fichier sera hiérarchisé quand il ne sera plus en cours d’utilisation. |
 | 0x80c80241 | -2134375871 | ECS_E_GHOSTING_EXCLUDED_BY_SYNC | Le fichier n’a pas pu être hiérarchisé car il est exclu par synchronisation. | Aucune action requise. Les fichiers de la liste d’exclusion de synchronisation ne peuvent pas être hiérarchisés. |
 | 0x80c86042 | -2134351806 | ECS_E_GHOSTING_FILE_NOT_FOUND | Le fichier n’a pas pu être hiérarchisé car il est introuvable sur le serveur. | Aucune action requise. Si l’erreur persiste, vérifiez si le fichier existe sur le serveur. |
@@ -1108,6 +1110,8 @@ Si la hiérarchisation des fichiers dans Azure Files échoue :
 | 0x80072ee2 | -2147012894 | WININET_E_TIMEOUT | La hiérarchisation du fichier a échoué à cause d’un problème réseau. | Aucune action requise. Si l’erreur persiste, vérifiez la connectivité réseau vers le partage de fichiers Azure. |
 | 0x80c80017 | -2134376425 | ECS_E_SYNC_OPLOCK_BROKEN | Le fichier n’a pas pu être hiérarchisé car il a été modifié. | Aucune action requise. Le fichier sera hiérarchisé une fois que le fichier modifié aura été synchronisé avec le partage de fichiers Azure. |
 | 0x800705aa | -2147023446 | ERROR_NO_SYSTEM_RESOURCES | La hiérarchisation du fichier a échoué car les ressources système sont insuffisantes. | Si l’erreur persiste, essayez d’identifier l’application ou le pilote en mode noyau qui épuise les ressources système. |
+| 0x8e5e03fe | -1906441218 | JET_errDiskIO | Le fichier n’a pas pu être hiérarchisé en raison d’une erreur d’E/S lors de l’écriture dans la base de données de hiérarchisation cloud. | Si l’erreur persiste, exécutez chkdsk sur le volume et vérifiez le matériel de stockage. |
+| 0x8e5e0442 | -1906441150 | JET_errInstanceUnavailable | Le fichier n’a pas pu être hiérarchisé car la base de données de hiérarchisation cloud n’est pas en cours d’exécution. | Pour résoudre ce problème, redémarrez le service ou le serveur FileSyncSvc. Si l’erreur persiste, exécutez chkdsk sur le volume et vérifiez le matériel de stockage. |
 
 
 

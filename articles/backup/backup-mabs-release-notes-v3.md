@@ -2,14 +2,14 @@
 title: Notes de publication du serveur de sauvegarde Microsoft Azure v3
 description: Cet article décrit les informations relatives aux problèmes connus et les solutions de contournement pour le serveur de sauvegarde Microsoft Azure (MABS) v3.
 ms.topic: conceptual
-ms.date: 11/22/2018
+ms.date: 06/03/2020
 ms.asset: 0c4127f2-d936-48ef-b430-a9198e425d81
-ms.openlocfilehash: a5c99bcb95fde39bddc9e9db9ab000881c89081a
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 2f67b73612bd970c903b179a4a02c787ee0320b0
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82185623"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84629169"
 ---
 # <a name="release-notes-for-microsoft-azure-backup-server"></a>Notes de publication du serveur de sauvegarde Microsoft Azure
 
@@ -71,6 +71,40 @@ Cet article décrit les problèmes connus et les solutions de contournement pour
 
 9. Démarrez le service MSDPM.
 
+## <a name="after-installing-ur1-the-mabs-reports-arent-updated-with-new-rdl-files"></a>Après l’installation d’UR1, les rapports MABS ne sont pas mis à jour avec les nouveaux fichiers RDL
+
+**Description** : Avec UR1, le problème de mise en forme du rapport MABS est résolu grâce à la mise à jour des fichiers RDL. Les nouveaux fichiers RDL ne sont pas automatiquement remplacés par les fichiers existants.
+
+**Solution de contournement** : Pour remplacer les fichiers RDL, procédez comme suit :
+
+1. Sur l’ordinateur MABS, ouvrez l’URL du portail web de SQL Reporting Services.
+1. Sur l’URL du portail web, le dossier DPMReports est présent au format **`DPMReports_<GUID>`** .
+
+    >[!NOTE]
+    >Il n’existe toujours qu’un seul dossier avec cette convention d’affectation de noms. Si MABS est mis à niveau à partir d’une version antérieure, il peut également y avoir un autre dossier plus ancien, mais vous ne pourrez pas l’ouvrir.
+
+    ![Dossier DPMReports](./media/backup-mabs-release-notes-v3/dpm-reports-folder.png)
+
+1. Sélectionnez et ouvrez le dossier **`DPMReports_<GUID>`** . Les fichiers de rapport individuels sont répertoriés comme indiqué ci-dessous.
+
+    ![Liste des fichiers de rapport individuels](./media/backup-mabs-release-notes-v3/individual-report-files.png)
+
+1. Sélectionnez les fichiers de rapport qui ne se terminent pas par **Report**, cliquez avec le bouton droit sur **Option**, puis sélectionnez **Gérer**.
+
+    ![Sélectionner Gérer pour les fichiers de rapport](./media/backup-mabs-release-notes-v3/manage-files.png)
+
+1. Dans la nouvelle page, sélectionnez l’option **Remplacer** pour remplacer les fichiers par les fichiers de rapport les plus récents.
+
+    Les fichiers de rapport les plus récents se trouvent sous le chemin d’accès `<MABS Installation Directory>\Program Files\Microsoft Azure Backup Server\DPM\DPM\bin\DpmReports`.
+
+    Par exemple : `C:\Program Files\Microsoft Azure Backup Server\DPM\DPM\bin\DpmReports`
+
+    ![Remplacer les fichiers par les fichiers de rapport les plus récents](./media/backup-mabs-release-notes-v3/replace-files.png)
+
+    Une fois les fichiers remplacés, assurez-vous que les champs **Nom** et **Description** sont intacts et ne sont pas vides.
+
+1. Une fois les fichiers remplacés, redémarrez les services MABS et utilisez les fichiers de rapport.
+
 ## <a name="next-steps"></a>Étapes suivantes
 
-[Nouveautés de MABS V3](backup-mabs-whats-new-mabs.md)
+[Nouveautés dans MABS](backup-mabs-whats-new-mabs.md)

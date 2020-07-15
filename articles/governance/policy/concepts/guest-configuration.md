@@ -3,16 +3,17 @@ title: Découvrez comment auditer le contenu des machines virtuelles
 description: Découvrez comment Azure Policy utilise l’agent Configuration d’invité pour auditer les paramètres à l’intérieur des machines virtuelles.
 ms.date: 05/20/2020
 ms.topic: conceptual
-ms.openlocfilehash: f37364f62550a76360ea0dbb35b92f8aac67f22f
-ms.sourcegitcommit: 223cea58a527270fe60f5e2235f4146aea27af32
+ms.openlocfilehash: ec2a9f53fbe2ad0201af0250b0dcfa8dc4d519f0
+ms.sourcegitcommit: f684589322633f1a0fafb627a03498b148b0d521
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/01/2020
-ms.locfileid: "84259148"
+ms.lasthandoff: 07/06/2020
+ms.locfileid: "85971094"
 ---
 # <a name="understand-azure-policys-guest-configuration"></a>Comprendre la configuration d’invité d’Azure Policy
 
-Azure Policy peut auditer les paramètres dans une machine. La validation est effectuée par le client et l’extension de configuration d’invité. L’extension, via le client, valide des paramètres tels que :
+Azure Policy peut vérifier les paramètres à l’intérieur d’une machine, tant pour les machines s’exécutant dans Azure que dans [Arc Connected Machines](../../../azure-arc/servers/overview.md).
+La validation est effectuée par le client et l’extension de configuration d’invité. L’extension, via le client, valide des paramètres tels que :
 
 - La configuration du système d’exploitation
 - La configuration ou la présence de l’application
@@ -21,13 +22,17 @@ Azure Policy peut auditer les paramètres dans une machine. La validation est ef
 À ce stade, la plupart des stratégies de configuration d’invité Azure Policy effectue uniquement un audit des paramètres à l’intérieur de la machine.
 Elles n’appliquent pas de configurations. L’exception est une stratégie intégrée [référencée ci-dessous](#applying-configurations-using-guest-configuration).
 
+## <a name="enable-guest-configuration"></a>Activer la configuration d’invité
+
+Pour vérifier l’état des machines dans votre environnement, y compris les machines dans Azure et Arc Connected Machines, examinez les informations suivantes.
+
 ## <a name="resource-provider"></a>Fournisseur de ressources
 
 Avant de pouvoir utiliser la configuration d’invité, vous devez inscrire le fournisseur de ressources. Le fournisseur de ressources est inscrit automatiquement si l’affectation d’une stratégie de configuration d’invité est effectuée via le portail. Vous pouvez l’inscrire manuellement via le [portail](../../../azure-resource-manager/management/resource-providers-and-types.md#azure-portal), [Azure PowerShell](../../../azure-resource-manager/management/resource-providers-and-types.md#azure-powershell) ou [Azure CLI](../../../azure-resource-manager/management/resource-providers-and-types.md#azure-cli).
 
-## <a name="extension-and-client"></a>Extension et client
+## <a name="deploy-requirements-for-azure-virtual-machines"></a>Configuration requise pour le déploiement de machines virtuelles Azure
 
-Pour auditer les paramètres à l’intérieur d’une machine, une [extension de machine virtuelle](../../../virtual-machines/extensions/overview.md) est activée. L’extension télécharge l’attribution de stratégie applicable et la définition de configuration correspondante.
+Pour vérifier les paramètres à l’intérieur d’une machine, une [extension de machine virtuelle](../../../virtual-machines/extensions/overview.md) est activée et la machine doit disposer d’une identité managée par le système. L’extension télécharge l’attribution de stratégie applicable et la définition de configuration correspondante. L’identité est utilisée pour authentifier la machine lorsqu’elle lit et écrit dans le service de configuration d’invité. L’extension n’est pas requise pour Arc Connected Machines, car elle est incluse dans l’agent Arc Connected Machines.
 
 > [!IMPORTANT]
 > L’extension Guest Configuration est requise pour effectuer des audits sur des machines virtuelles Azure. Pour déployer l’extension à grande échelle, attribuez les définitions de stratégie suivantes : 
@@ -36,13 +41,13 @@ Pour auditer les paramètres à l’intérieur d’une machine, une [extension d
 
 ### <a name="limits-set-on-the-extension"></a>Limites définies sur l’extension
 
-Pour limiter l’impact de l’extension sur les applications qui s’exécutent à l’intérieur de la machine, la configuration d’invité ne peut pas dépasser plus de 5 % de la capacité du processeur. Cette limitation existe à la fois pour les définitions intégrées et personnalisées.
+Pour limiter l’impact de l’extension sur les applications qui s’exécutent à l’intérieur de la machine, la configuration d’invité ne peut pas dépasser plus de 5 % de la capacité du processeur. Cette limitation existe à la fois pour les définitions intégrées et personnalisées. Il en va de même pour le service de configuration invité de l’agent Arc Connected Machines.
 
 ### <a name="validation-tools"></a>Outils de validation
 
 À l’intérieur de la machine, le client de configuration d’invité utilise des outils locaux pour exécuter l’audit.
 
-Le tableau suivant affiche une liste des outils locaux utilisés sur chaque système d’exploitation pris en charge :
+Le tableau suivant affiche une liste des outils locaux utilisés sur chaque système d’exploitation pris en charge. Pour le contenu intégré, la configuration d’invité gère automatiquement le chargement de ces outils.
 
 |Système d’exploitation|Outil de validation|Notes|
 |-|-|-|
@@ -65,14 +70,10 @@ Le tableau suivant affiche une liste des systèmes d’exploitation pris en char
 |Microsoft|Windows Server|2012 ou version ultérieure|
 |Microsoft|Client Windows|Windows 10|
 |OpenLogic|CentOS|7.3 ou version ultérieure|
-|Red Hat|Red Hat Enterprise Linux|7.4 ou version ultérieure|
+|Red Hat|Red Hat Enterprise Linux|7.4 à 7.8, 9.0 ou version ultérieure|
 |SUSE|SLES|12 SP3 ou version ultérieure|
 
 Les images de machine virtuelle personnalisées sont prises en charge par les stratégies de configuration d’invité, dans la mesure où il s’agit d’un des systèmes d’exploitation répertoriés dans le tableau ci-dessus.
-
-### <a name="unsupported-client-types"></a>Types de clients non pris en charge
-
-Windows Server Nano Server n’est pris en charge dans aucune version.
 
 ## <a name="guest-configuration-extension-network-requirements"></a>Configuration réseau requise pour l’extension de configuration d’invité
 
@@ -116,7 +117,7 @@ Alignez la stratégie sur vos besoins ou mappez la stratégie à des information
 
 Certains paramètres prennent en charge une plage de valeurs entières. Par exemple, le paramètre Antériorité maximale du mot de passe peut auditer le paramètre Stratégie de groupe effectif. Une plage de « 1,70 » confirme que les utilisateurs doivent modifier leur mot de passe au moins tous les 70 jours, mais pas plus d’une fois par jour.
 
-Si vous attribuer la stratégie à l’aide d’un modèle de déploiement Azure Resource Manager, utilisez un fichier de paramètres pour gérer les exceptions. Archivez les fichiers dans un système de contrôle de version tel que Git. Les commentaires sur les modifications de fichiers fournissent une preuve de la raison pour laquelle une affectation est une exception à la valeur attendue.
+Si vous attribuez la stratégie à l’aide d’un modèle Resource Manager, utilisez un fichier de paramètres pour gérer les exceptions. Archivez les fichiers dans un système de contrôle de version tel que Git. Les commentaires sur les modifications de fichiers fournissent une preuve de la raison pour laquelle une affectation est une exception à la valeur attendue.
 
 #### <a name="applying-configurations-using-guest-configuration"></a>Application de configurations à l’aide de Guest Configuration
 

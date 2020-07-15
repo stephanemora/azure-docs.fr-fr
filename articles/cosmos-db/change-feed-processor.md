@@ -8,12 +8,12 @@ ms.devlang: dotnet
 ms.topic: conceptual
 ms.date: 05/13/2020
 ms.reviewer: sngun
-ms.openlocfilehash: 584fc48aad6a64f8df54088e6dbfd990e8e112e8
-ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
+ms.openlocfilehash: 4325f75ac8181e088d64e53d3f65e085a09c0224
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83655307"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85119407"
 ---
 # <a name="change-feed-processor-in-azure-cosmos-db"></a>Processeur de flux de modification dans Azure Cosmos DB
 
@@ -35,7 +35,7 @@ Il existe quatre composants principaux dans l’implémentation du processeur de
 
 Pour mieux comprendre comment ces quatre éléments du processeur de flux de modification interagissent, examinons un exemple à l’aide du schéma suivant. Le conteneur surveillé stocke les documents et utilise « City » comme clé de partition. Nous voyons que les valeurs de clé de partition sont distribuées dans des plages qui contiennent des éléments. Il existe deux instances d’hôte et le processeur de flux de modification affecte différentes plages de valeurs de clés de partition à chaque instance pour optimiser la distribution de calcul. Chaque plage est lue en parallèle et sa progression est gérée séparément des autres plages dans le conteneur de baux.
 
-![Exemple de processeur de flux de modification](./media/change-feed-processor/changefeedprocessor.png)
+:::image type="content" source="./media/change-feed-processor/changefeedprocessor.png" alt-text="Exemple de processeur de flux de modification" border="false":::
 
 ## <a name="implementing-the-change-feed-processor"></a>Implémentation du processeur de flux de modification
 

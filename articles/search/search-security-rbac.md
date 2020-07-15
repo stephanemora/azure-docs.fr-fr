@@ -7,13 +7,13 @@ author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 11/04/2019
-ms.openlocfilehash: 9262d01e35bd03a9116a30b070b023f578f0b15a
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.date: 06/03/2020
+ms.openlocfilehash: 402fae5622219b14cfdab921ebe1a78ad5dd111e
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "74112562"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84462836"
 ---
 # <a name="set-rbac-roles-for-administrative-access-to-azure-cognitive-search"></a>Définir des rôles RBAC pour l’accès des administrateurs à Recherche cognitive Azure
 
@@ -34,6 +34,21 @@ Pour Recherche cognitive Azure, les rôles sont associés à des niveaux d’aut
 | Lecteur |Affichez les bases et les métriques du service. Les membres de ce rôle ne peuvent pas afficher l’index, l’indexeur, la source de données ni les informations clés.  |
 
 Les rôles n’accordent pas de droits d’accès au point de terminaison de service. Les opérations du service Search telles que la gestion ou le remplissage d'index, tout comme les requêtes de données de recherche, sont contrôlées via des clés api, et non par des rôles. Pour plus d’informations, consultez [Gérer des clés API](search-security-api-keys.md).
+
+## <a name="permissions-table"></a>Tableau des autorisations
+
+Le tableau suivant récapitule les opérations autorisées dans Recherche cognitive Azure, en indiquant la clé qui déverrouille l’accès à une opération particulière.
+
+| Opération | Autorisations |
+|-----------|-------------------------|
+| Créer un service | Détenteur de l'abonnement Azure |
+| Mettre à l’échelle un service | Clé d’administration, Propriétaire ou Collaborateur RBAC sur la ressource  |
+| Supprimer un service | Clé d’administration, Propriétaire ou Collaborateur RBAC sur la ressource |
+| Créer, modifier et supprimer des objets du service : <br>Index et composants (y compris les définitions de l’analyseur, les profils de scoring et les options CORS), indexeurs, sources de données, synonymes et générateurs de suggestions | Clé d’administration, Propriétaire ou Collaborateur RBAC sur la ressource |
+| Interroger un index | Clé d’administration ou clé de requête (RBAC non applicable) |
+| Interroger des informations système, telles que l’obtention de statistiques, de comptes et de listes d’objets | Clé d’administration, RBAC sur la ressource (Propriétaire, Collaborateur ou Lecteur) |
+| Gérer les clés d’administration | Clé d’administration, Propriétaire ou Collaborateur RBAC sur la ressource |
+| Gérer les clés de requête |  Clé d’administration, Propriétaire ou Collaborateur RBAC sur la ressource  |
 
 ## <a name="see-also"></a>Voir aussi
 

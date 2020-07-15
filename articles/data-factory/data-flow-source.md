@@ -7,13 +7,13 @@ manager: anandsub
 ms.service: data-factory
 ms.topic: conceptual
 ms.custom: seo-lt-2019
-ms.date: 12/12/2019
-ms.openlocfilehash: b2f533e8bd9199025260aaca9cff587b13adce64
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.date: 06/05/2020
+ms.openlocfilehash: e106f5b615cd667551ef3d597a45b522320eed6e
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81606320"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84610179"
 ---
 # <a name="source-transformation-in-mapping-data-flow"></a>Transformation de la source d’un mappage de flux de données 
 
@@ -23,20 +23,34 @@ Une transformation de la source configure votre source de données pour le flux 
 
 Chaque flux de données nécessite au moins une transformation de source. Vous pouvez cependant ajouter autant de sources que nécessaire pour effectuer vos transformations de données. Vous pouvez joindre ces sources à l’aide d’une transformation de jointure, de recherche ou d’union.
 
-Un jeu de données Data Factory unique est associé à chaque transformation de source. Le jeu de données définit la forme et l’emplacement des données que vous voulez lire ou écrire. Si le jeu de données est basé sur des fichiers, vous pouvez utiliser des caractères génériques et des listes de fichiers dans votre source pour utiliser plusieurs fichiers à la fois.
+Chaque transformation de source est associée à un jeu de données ou à un service lié unique. Le jeu de données définit la forme et l’emplacement des données que vous voulez lire ou écrire. Si le jeu de données est basé sur des fichiers, vous pouvez utiliser des caractères génériques et des listes de fichiers dans votre source pour utiliser plusieurs fichiers à la fois.
 
-## <a name="supported-source-connectors-in-mapping-data-flow"></a>Connecteurs source pris en charge dans le flux de données de mappage
+## <a name="inline-datasets"></a>Jeux de données inline
+
+Lors de la création d’une transformation de source, vous devez d’abord décider si les informations de votre source doivent être définies dans un objet DataSet ou dans la transformation de source. La plupart des formats sont uniquement disponibles dans l’un ou l’autre. Pour savoir comment utiliser un connecteur en particulier, référez-vous à la documentation le concernant.
+
+Si un format est pris en charge à la fois pour les jeux de données inline et les objets DataSet, notez que ces deux options présentent des avantages. Les objets DataSet sont des entités réutilisables qui peuvent être exploitées dans d’autres flux de données et activités telles que la copie. Ils sont particulièrement utiles lors de l’utilisation d’un schéma plus strict. Les jeux de données ne sont pas basés sur Spark, et il peut arriver que vous deviez remplacer certains paramètres ou la projection de schéma dans la transformation de source.
+
+Les jeux de données inline sont recommandés lors de l’utilisation de schémas flexibles, d’instances sources uniques ou de sources paramétrables. Si votre source est fortement paramétrable, les jeux de données inline vous permettront de ne pas créer un objet « factice ». Les jeux de données inline sont basés sur Spark et leurs propriétés sont natives au flux de données.
+
+Pour utiliser un jeu de données inline, sélectionnez le format souhaité à l’aide du sélecteur **Type de source**. Au lieu de sélectionner un jeu de données source, sélectionnez le service lié auquel vous souhaitez vous connecter.
+
+![Jeu de données inline](media/data-flow/inline-selector.png "Jeu de données inline")
+
+##  <a name="supported-source-types"></a><a name="supported-sources"></a> Types de sources pris en charge
 
 Le flux de données de mappage suit une approche basée sur l’extraction, le chargement et la transformation (ELT, extract, load, transform) et fonctionne avec des jeux de données *intermédiaires* qui se trouvent tous dans Azure. Actuellement, les jeux de données suivants peuvent être utilisés dans une transformation de source :
-    
-* [Stockage Blob Azure](connector-azure-blob-storage.md#mapping-data-flow-properties) (JSON, Avro, Text, Parquet)
-* [Azure Data Lake Storage Gen1](connector-azure-data-lake-store.md#mapping-data-flow-properties) (JSON, Avro, Text, Parquet)
-* [Azure Data Lake Storage Gen2](connector-azure-data-lake-storage.md#mapping-data-flow-properties) (JSON, Avro, Text, Parquet)
-* [Azure Synapse Analytics](connector-azure-sql-data-warehouse.md#mapping-data-flow-properties)
-* [Azure SQL Database](connector-azure-sql-database.md#mapping-data-flow-properties)
-* [Azure CosmosDB](connector-azure-cosmos-db.md#mapping-data-flow-properties)
 
-Les paramètres spécifiques à ces connecteurs se trouvent dans l’onglet **Options de la source**. Vous trouverez des informations sur ces paramètres dans la documentation relative aux connecteurs. 
+| Connecteur | Format | DataSet/Inline |
+| --------- | ------ | -------------- |
+| [Stockage Blob Azure](connector-azure-blob-storage.md#mapping-data-flow-properties) | [JSON](format-json.md#mapping-data-flow-properties) <br> [Avro](format-avro.md#mapping-data-flow-properties) <br> [Texte délimité](format-delimited-text.md#mapping-data-flow-properties) <br> [Parquet](format-parquet.md#mapping-data-flow-properties) | ✓/- <br> ✓/- <br> ✓/- <br> ✓/- |
+| [Azure Data Lake Storage Gen1](connector-azure-data-lake-store.md#mapping-data-flow-properties) | [JSON](format-json.md#mapping-data-flow-properties) <br> [Avro](format-avro.md#mapping-data-flow-properties) <br> [Texte délimité](format-delimited-text.md#mapping-data-flow-properties) <br> [Parquet](format-parquet.md#mapping-data-flow-properties)  | ✓/- <br> ✓/- <br> ✓/- <br> ✓/- |
+| [Azure Data Lake Storage Gen2](connector-azure-data-lake-storage.md#mapping-data-flow-properties) | [JSON](format-json.md#mapping-data-flow-properties) <br> [Avro](format-avro.md#mapping-data-flow-properties) <br> [Texte délimité](format-delimited-text.md#mapping-data-flow-properties) <br> [Parquet](format-parquet.md#mapping-data-flow-properties)  <br> [Common Data Model (préversion)](format-common-data-model.md#source-properties) | ✓/- <br> ✓/- <br> ✓/- <br> ✓/- <br> -/✓ |
+| [Azure Synapse Analytics](connector-azure-sql-data-warehouse.md#mapping-data-flow-properties) | | ✓/- |
+| [Azure SQL Database](connector-azure-sql-database.md#mapping-data-flow-properties) | | ✓/- |
+| [Azure CosmosDB (API SQL)](connector-azure-cosmos-db.md#mapping-data-flow-properties) | | ✓/- |
+
+Les paramètres propres à ces connecteurs se trouvent sous l’onglet **Options de la source**. Vous trouverez des informations et des exemples de scripts de flux de données concernant ces paramètres dans la documentation relative aux connecteurs. 
 
 Azure Data Factory a accès à plus de [90 connecteurs natifs](connector-overview.md). Pour inclure dans votre flux de données des données provenant de ces autres sources, utilisez l’outil Copier l’activité pour charger ces données dans l’une des zones de transit prises en charge.
 
@@ -46,6 +60,10 @@ Une fois que vous avez ajouté une source, configurez-la à l’aide de l’ongl
 
 ![Onglet Paramètres de la source](media/data-flow/source1.png "Onglet Paramètres de la source")
 
+**Nom du flux de sortie :** nom de la transformation de source.
+
+**Type de source :** permet de choisir entre un jeu de données inline et un objet DataSet existant.
+ 
 **Tester la connexion :** Faites un test pour déterminer si le service Spark du flux de données peut se connecter au service lié utilisé dans votre jeu de données source. Le mode de débogage doit être activé pour que cette fonctionnalité soit activée.
 
 **Dérive de schéma :** La [dérive de schéma](concepts-data-flow-schema-drift.md) est la capacité de la fabrique de données à gérer nativement des schémas flexibles dans vos flux de données sans avoir besoin de définir explicitement des changements de colonnes.
@@ -60,12 +78,14 @@ Une fois que vous avez ajouté une source, configurez-la à l’aide de l’ongl
 
 **Échantillonnage :** Activez l’échantillonnage pour limiter le nombre de lignes provenant de la source. Utilisez ce paramètre quand vous testez ou échantillonnez des données à partir de votre source à des fins de débogage.
 
-**Lignes multilignes :** sélectionnez l’option des lignes multilignes si votre fichier texte source contient des valeurs de chaîne qui s’étendent sur plusieurs lignes, c’est-à-dire de nouvelles lignes à l’intérieur d’une valeur. Ce paramètre est uniquement disponible dans les jeux de données DelimitedText.
-
 Pour vérifier que votre source est correctement configurée, activez le mode débogage et récupérez un aperçu des données. Pour en savoir plus, consultez [Mode débogage](concepts-data-flow-debug-mode.md).
 
 > [!NOTE]
 > Quand le mode débogage est activé, la configuration de la limite du nombre de lignes dans les paramètres de débogage remplace le paramètre d’échantillonnage dans la source lors de l’affichage de l’aperçu des données.
+
+## <a name="source-options"></a>Options de la source
+
+L’onglet Options de la source contient des paramètres propres au connecteur et au format choisis. Pour plus d’informations et d’exemples, reportez-vous à la [documentation du connecteur](#supported-sources) en question.
 
 ## <a name="projection"></a>Projection
 
@@ -83,26 +103,18 @@ Vous pouvez modifier les types de données des colonnes lors d’une transformat
 
 Le bouton **Importer un schéma** sous l’onglet **Projection** vous permet d’utiliser un cluster de débogage actif pour créer une projection de schéma. Disponible dans chaque type de source, l’importation du schéma ici remplace la projection définie dans le jeu de données. L’objet de jeu de données ne sera pas changé.
 
-Cela est utile dans les jeux de données tels que Avro et CosmosDB qui prennent en charge des structures de données complexes et qui n’ont pas besoin de définitions de schéma pour exister dans le jeu de données.
+Cela est utile dans les jeux de données tels que Avro et CosmosDB qui prennent en charge des structures de données complexes et qui n’ont pas besoin de définitions de schéma pour exister dans le jeu de données. Pour les jeux de données inline, il s’agit de la seule façon de référencer des métadonnées de colonne sans dérive de schéma.
 
 ## <a name="optimize-the-source-transformation"></a>Optimiser la transformation de la source
 
-Sous l’onglet **Optimiser** de la transformation de la source, vous pouvez voir un type de partition **Source**. Cette option est disponible uniquement quand votre source est Azure SQL Database. En effet, Data Factory tente de rendre les connexions parallèles pour exécuter des requêtes volumineuses sur votre source SQL Database.
+L’onglet **Optimiser** permet de modifier les informations de partition à chaque étape de transformation. Dans la plupart des cas, l’option **Utiliser le partitionnement actuel** sera optimisée afin d’obtenir la structure de partitionnement idéale d’une source.
+
+Si vous lisez des données à partir d’une source Azure SQL Database, c’est probablement le partitionnement **Source** personnalisé qui permettra de lire les données le plus rapidement. ADF lit les requêtes volumineuses en établissant des connexions avec votre base de données en parallèle. Ce partitionnement de la source peut être effectué sur une colonne ou à l’aide d’une requête.
 
 ![Paramètres de la partition source](media/data-flow/sourcepart3.png "partitionnement")
-
-Vous n’avez pas besoin de partitionner les données de votre source SQL Database, mais les partitions sont utiles pour les requêtes volumineuses. Vous pouvez baser votre partition sur une colonne ou sur une requête.
-
-### <a name="use-a-column-to-partition-data"></a>Utiliser une colonne pour partitionner des données
-
-Dans la table source, sélectionnez une colonne sur laquelle effectuer le partitionnement. Définissez également le nombre de partitions.
-
-### <a name="use-a-query-to-partition-data"></a>Utiliser une requête pour partitionner des données
-
-Vous pouvez choisir de partitionner les connexions en fonction d’une requête. Entrez le contenu d’un prédicat WHERE. Par exemple, entrez year > 1980.
 
 Pour plus d’informations sur l’optimisation dans le mappage de flux de données, consultez la section [Onglet Optimiser](concepts-data-flow-overview.md#optimize).
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Commencez à créer une [transformation de colonne dérivée](data-flow-derived-column.md), puis une [transformation de sélection](data-flow-select.md).
+Commencez à créer votre flux de données avec une [transformation de colonne dérivée](data-flow-derived-column.md), puis une [transformation de sélection](data-flow-select.md).

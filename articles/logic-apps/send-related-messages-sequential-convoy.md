@@ -6,12 +6,12 @@ ms.suite: integration
 ms.reviewer: apseth, divswa, logicappspm
 ms.topic: conceptual
 ms.date: 05/29/2020
-ms.openlocfilehash: f2a5ad78ecf4bf02e84b9bf2e37fea13c708e072
-ms.sourcegitcommit: f0b206a6c6d51af096a4dc6887553d3de908abf3
+ms.openlocfilehash: bd6b05489d13f835de4dce2aa3d885132285efca
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/28/2020
-ms.locfileid: "84142830"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84987617"
 ---
 # <a name="send-related-messages-in-order-by-using-a-sequential-convoy-in-azure-logic-apps-with-azure-service-bus"></a>Envoi de messages connexes dans l’ordre en suivant un convoi séquentiel dans Azure Logic Apps avec Azure Service Bus
 
@@ -249,7 +249,7 @@ Cette [boucle **Tant que**](../logic-apps/logic-apps-control-flow-loops.md#until
 1. Dans l’action Service Bus **Récupérer des messages supplémentaires de la session**, indiquez le nom de votre file d’attente Service Bus. Sinon, conservez la valeur par défaut de toutes les autres propriétés de l’action.
 
    > [!NOTE]
-   > Par défaut, le nombre maximal de messages est défini sur `175`, mais cette limite est affectée par les propriétés de taille et de taille maximale du message dans Service Bus. Actuellement, cette limite est de 256 Ko pour la version Standard et de 1 Mo pour la version Premium.
+   > Par défaut, le nombre maximal de messages est défini sur `175`, mais cette limite est affectée par les propriétés de taille et de taille maximale du message dans Service Bus. Pour plus d’informations, consultez les détails relatifs à la [taille d’un message en file d’attente](../service-bus-messaging/service-bus-quotas.md).
 
    ![Action Service Bus – « Récupérer des messages supplémentaires de la session »](./media/send-related-messages-sequential-convoy/get-additional-messages-from-session.png)
 

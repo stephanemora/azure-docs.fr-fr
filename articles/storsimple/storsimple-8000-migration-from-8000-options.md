@@ -4,15 +4,15 @@ description: Fournit une vue d’ensemble des options pour migrer des données d
 services: storsimple
 author: priestlg
 ms.service: storsimple
-ms.topic: article
+ms.topic: how-to
 ms.date: 03/25/2020
 ms.author: v-grpr
-ms.openlocfilehash: 974bcc657b811a10e28b41150439e83d26a208d2
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 39c78e1dc579f74207ba828f2f6a49ad44dd4a43
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81767054"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85514716"
 ---
 # <a name="options-to-migrate-data-from-storsimple-8000-series"></a>Options de migration de données à partir de la gamme StorSimple 8000
 
@@ -40,6 +40,12 @@ Pour plus d’informations sur la migration des données vers Azure File Sync, a
 Les clients de la gamme StorSimple 5000-7000 et de la gamme StorSimple 8000 peuvent choisir de migrer vers Panzura Freedom NAS pour conserver leurs données dans Azure. La solution Panzura Freedom fournit une solution NAS qui couvre les centres de données, les bureaux, ainsi que les clouds publics et privés. Elle prend en charge les workflows de données locaux, hybrides et dans le cloud pour les clients NFS, SMB et mobiles.
 
 Cette migration est assurée par Panzura. Les clients peuvent commencer en demandant la prise en charge de la migration sur le [site web Panzura](https://panzura.com/migrate-storsimple-panzura/).
+
+#### <a name="migrate-to-nasuni"></a>Migrer vers Nasuni
+
+Grâce à Nasuni, il est facile de transférer l’ensemble de votre environnement StorSimple vers une plateforme de services de fichiers stable, sécurisée et à haute performance. Nasuni offre la sécurité et les performances du stockage de fichiers localement tout en le combinant avec la scalabilité et la durabilité d’Azure.  En tant qu’éditeur de logiciels indépendant (ISV) Azure, Nasuni intègre tous les outils nécessaires pour déplacer vos données StorSimple vers une plateforme moderne qui vous permet de partager vos fichiers et de collaborer sur plusieurs sites.
+
+Commencez dès aujourd’hui : [site web de Nasuni](https://info.nasuni.com/storsimple8000-webinar).
 
 <!-- 04/09/2020 v-grpr (priestlg) - As per request, commenting out this section because the information that will go into this section is forthcoming
 #### Migrate to Cohesity

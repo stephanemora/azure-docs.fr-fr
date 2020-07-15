@@ -5,12 +5,12 @@ author: craigshoemaker
 ms.author: cshoe
 ms.date: 3/18/2020
 ms.topic: article
-ms.openlocfilehash: f0b738f394c4a544ddb31e25b4570890ccfa9235
-ms.sourcegitcommit: fc718cc1078594819e8ed640b6ee4bef39e91f7f
+ms.openlocfilehash: cdbb5bbde1e5efef9bef992a62a54f1525a16df7
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "83995868"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85052578"
 ---
 # <a name="azure-functions-custom-handlers-preview"></a>Gestionnaires personnalisés Azure Functions (préversion)
 
@@ -447,9 +447,14 @@ Sachant que cet exemple repose sur Node.js, vous devrez peut-être le modifier p
 
 Il est possible de déployer un gestionnaire personnalisé pour pratiquement chaque option d’hébergement Azure Functions (voir les [restrictions](#restrictions)). Si votre gestionnaire nécessite des dépendances personnalisées (comme le runtime d’un langage), vous devrez peut-être utiliser un [conteneur personnalisé](./functions-create-function-linux-custom-image.md).
 
+Pour déployer une application de gestionnaire personnalisée à l’aide d’Azure Functions Core Tools, exécutez la commande suivante.
+
+```bash
+func azure functionapp publish $functionAppName --no-build --force
+```
+
 ## <a name="restrictions"></a>Restrictions
 
-- Les gestionnaires personnalisés ne sont pas pris en charge dans les plans de consommation Linux.
 - Le serveur web doit démarrer dans un délai de 60 secondes.
 
 ## <a name="samples"></a>Exemples

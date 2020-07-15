@@ -13,12 +13,12 @@ ms.workload: infrastructure-services
 ms.date: 05/18/2020
 ms.author: kumud
 ms.reviewer: kumud
-ms.openlocfilehash: ea756b965a2539886e695585c9b5f5034eac7684
-ms.sourcegitcommit: 309cf6876d906425a0d6f72deceb9ecd231d387c
+ms.openlocfilehash: fd44c07ea44e7487a22b0de67737dcc135c813b6
+ms.sourcegitcommit: e132633b9c3a53b3ead101ea2711570e60d67b83
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/01/2020
-ms.locfileid: "84263188"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86038036"
 ---
 # <a name="virtual-network-service-tags"></a>Balises de service du réseau virtuel
 <a name="network-service-tags"></a>
@@ -96,7 +96,7 @@ Par défaut, les balises de service reflètent les plages pour l’ensemble du C
 | **PowerQueryOnline** | Power Query en ligne. | Les deux | Non | Non |
 | **ServiceBus** | Trafic Azure Service Bus qui utilise le niveau de service Premium. | Règle de trafic sortant | Oui | Oui |
 | **ServiceFabric** | Azure Service Fabric.<br/><br/>*Remarque :* Cette balise représente le point de terminaison du service Service Fabric pour le plan de contrôle par région. Ceci permet aux clients d’effectuer des opérations de gestion pour leurs clusters Service Fabric à partir de leur réseau virtuel (point de terminaison, par exemple https://westus.servicefabric.azure.com) | Les deux | Non | Non |
-| **Sql** | Azure SQL Database, Azure Database pour MySQL, Azure Database pour PostgreSQL et Azure SQL Data Warehouse.<br/><br/>*Remarque :* Cette balise représente le service, mais pas des instances spécifiques du service. Par exemple, la balise représente le service Azure SQL Database, mais pas une base de données ou un serveur SQL spécifique. Cette balise ne s’applique pas à une instance gérée SQL. | Règle de trafic sortant | Oui | Oui |
+| **Sql** | Azure SQL Database, Azure Database pour MySQL, Azure Database pour PostgreSQL et Azure SQL Data Warehouse.<br/><br/>*Remarque :* Cette balise représente le service, mais pas des instances spécifiques du service. Par exemple, la balise représente le service Azure SQL Database, mais pas une base de données ou un serveur SQL spécifique. Cette balise ne s’applique pas à SQL Managed Instance. | Règle de trafic sortant | Oui | Oui |
 | **SqlManagement** | Trafic de gestion pour les déploiements dédiés de SQL. | Les deux | Non | Oui |
 | **Stockage** | Stockage Azure. <br/><br/>*Remarque :* Cette balise représente le service, mais pas des instances spécifiques du service. Par exemple, la balise représente le service Azure Storage, mais pas un compte Azure Storage spécifique. | Règle de trafic sortant | Oui | Oui |
 | **StorageSyncService** | Service de synchronisation du stockage. | Les deux | Non | Non |
@@ -139,6 +139,8 @@ Vous pouvez télécharger des fichiers JSON qui contiennent la liste actuelle de
 - [Azure US Government](https://www.microsoft.com/download/details.aspx?id=57063)  
 - [Azure Chine](https://www.microsoft.com/download/details.aspx?id=57062) 
 - [Azure Allemagne](https://www.microsoft.com/download/details.aspx?id=57064)   
+
+Les plages d’adresses IP de ces fichiers sont en notation CIDR. 
 
 > [!NOTE]
 >Un sous-ensemble de ces informations a été publié dans des fichiers XML pour [Azure public](https://www.microsoft.com/download/details.aspx?id=41653), [Azure Chine](https://www.microsoft.com/download/details.aspx?id=42064) et [Azure Allemagne](https://www.microsoft.com/download/details.aspx?id=54770). Ces téléchargements XML seront obsolètes à compter du 30 juin 2020 et ne seront plus disponibles après cette date. Vous devez effectuer une migration à l’aide de l’API Discovery ou des téléchargements de fichiers JSON, comme décrit dans les sections précédentes.

@@ -1,25 +1,19 @@
 ---
-title: Tailles des machines virtuelles Linux Azure - Générations précédentes | Microsoft Docs
-description: Répertorie les tailles des générations précédentes disponibles pour les machines virtuelles Linux dans Azure. Répertorie des informations sur le nombre de processeurs virtuels, de disques de données et de cartes réseau, ainsi que sur le débit de stockage et la bande passante réseau pour les tailles disponibles dans cette série.
-services: virtual-machines-linux
-documentationcenter: ''
+title: Tailles des machines virtuelles Azure – Générations précédentes | Microsoft Docs
+description: Répertorie les tailles des générations précédentes disponibles pour les machines virtuelles dans Azure. Répertorie des informations sur le nombre de processeurs virtuels, de disques de données et de cartes réseau, ainsi que sur le débit de stockage et la bande passante réseau pour les tailles disponibles dans cette série.
+services: virtual-machines
+ms.subservice: sizes
 author: mimckitt
-manager: gwallace
-editor: ''
-tags: azure-resource-manager,azure-service-management
-ms.assetid: ''
-ms.service: virtual-machines-linux
 ms.topic: article
-ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 02/20/2020
-ms.author: jonbeck
-ms.openlocfilehash: ac49d2da9d05c9677dbb6f5328874ab3a45ff661
-ms.sourcegitcommit: 09a124d851fbbab7bc0b14efd6ef4e0275c7ee88
+ms.author: jushiman
+ms.openlocfilehash: 6ebd13317940d131facfb36987fb37358260ec05
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2020
-ms.locfileid: "82081538"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85119220"
 ---
 # <a name="previous-generations-of-virtual-machine-sizes"></a>Tailles de machines virtuelles des générations précédentes
 
@@ -175,7 +169,7 @@ Les tailles A8 à A11 et celles de la série H sont également appelées *inst
 
 ### <a name="d-series"></a>Série D  
 
-**Recommandation de taille plus récente** : [Série Dv3](dv3-dsv3-series.md)
+**Recommandation de taille plus récente** : [série Dav4](dav4-dasv4-series.md), [série Dv4](dv4-dsv4-series.md) et [série Ddv4](ddv4-ddsv4-series.md)
 
 ACU : 160-250 <sup>1</sup>
 
@@ -196,7 +190,7 @@ Mise en cache du Stockage Premium :  Non pris en charge
 
 ### <a name="d-series---memory-optimized"></a>Série D - à mémoire optimisée  
 
-**Recommandation de taille plus récente** : [Série Dv3](dv3-dsv3-series.md)
+**Recommandation de taille plus récente** : [série Dav4](dav4-dasv4-series.md), [série Dv4](dv4-dsv4-series.md) et [série Ddv4](ddv4-ddsv4-series.md)
 
 ACU : 160-250 <sup>1</sup>
 
@@ -237,7 +231,7 @@ La série DC utilise le processeur Intel XEON E-2176G 3,7 GHz de dernière gén
 
 ### <a name="ds-series"></a>Série DS  
 
-**Recommandation de taille plus récente** : [Série Dsv3](dv3-dsv3-series.md)
+**Recommandation de taille plus récente** : [série Dasv4](dav4-dasv4-series.md), [série Dsv4](dv4-dsv4-series.md) et [série Ddsv4](ddv4-ddsv4-series.md)
 
 ACU : 160-250 <sup>1</sup>
 
@@ -258,7 +252,7 @@ Mise en cache du Stockage Premium :  Prise en charge
 
 ### <a name="ds-series---memory-optimized"></a>Série DS - à mémoire optimisée  
 
-**Recommandation de taille plus récente** : [Série Dsv3](dv3-dsv3-series.md)
+**Recommandation de taille plus récente** : [série Dasv4](dav4-dasv4-series.md), [série Dsv4](dv4-dsv4-series.md) et [série Ddsv4](ddv4-ddsv4-series.md)
 
 ACU : 160-250 <sup>1,2</sup>
 
@@ -279,6 +273,8 @@ Mise en cache du Stockage Premium :  Prise en charge
 <br>
 
 ### <a name="ls-series"></a>Série Ls
+
+**Recommandation de taille plus récente** : [Série Lsv2](lsv2-series.md)
 
 La série Ls offre jusqu’à 32 processeurs virtuels, grâce à la [Famille de processeurs Intel® Xeon® E5 v3](https://www.intel.com/content/www/us/en/processors/xeon/xeon-e5-solutions.html). Cette série propose les mêmes performances de processeur que celles de la série G/GS, associées à 8 Gio de mémoire par processeur virtuel.
 
@@ -303,6 +299,8 @@ Le débit de disque maximal possible avec des machines virtuelles de la série L
 
 ### <a name="gs-series"></a>Série GS
 
+**Recommandation de taille plus récente** : [série Easv4](eav4-easv4-series.md), [série Esv4](ev4-esv4-series.md), [série Edsv4](edv4-edsv4-series.md) et [série M](m-series.md)
+
 ACU : 180 - 240 <sup>1</sup>
 
 Premium Storage :  Prise en charge
@@ -326,6 +324,8 @@ Mise en cache du Stockage Premium :  Prise en charge
 <br>
 
 ### <a name="g-series"></a>Série G
+
+**Recommandation de taille plus récente** : [série Eav4](eav4-easv4-series.md), [série Ev4](ev4-esv4-series.md), [série Edv4](edv4-edsv4-series.md) et [série M](m-series.md)
 
 ACU : 180 - 240
 

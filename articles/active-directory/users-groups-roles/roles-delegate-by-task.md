@@ -8,18 +8,18 @@ manager: daveba
 ms.service: active-directory
 ms.workload: identity
 ms.subservice: users-groups-roles
-ms.topic: article
+ms.topic: reference
 ms.date: 05/04/2020
 ms.author: curtand
 ms.reviewer: vincesm
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 4837b654e5b538dda6f55eae9b15ddf0c5604693
-ms.sourcegitcommit: d118ad4fb2b66c759b70d4d8a18e6368760da3ad
+ms.openlocfilehash: 3bc1546566e5bb79a207899fab7418480e5cfab0
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/02/2020
-ms.locfileid: "84299466"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85117877"
 ---
 # <a name="administrator-roles-by-admin-task-in-azure-active-directory"></a>Rôles d'administrateur par tâche administrateur dans Azure Active Directory
 
@@ -38,7 +38,7 @@ Désactiver le proxy d’application | Administrateur d’application |
 Télécharger le service de connecteur | Administrateur d’application | 
 Lire toute la configuration | Administrateur d’application | 
 
-## <a name="b2c"></a>B2C
+## <a name="external-identitiesb2c"></a>Identités externes/B2C
 
 Tâche | Rôle moins privilégié | Autres rôles
 ---- | --------------------- | ----------------
@@ -47,11 +47,11 @@ Créer des applications B2C | Administrateur général |
 Créer des applications d’entreprise | Administrateur d'applications cloud | Administrateur d’application
 Créer, lire, mettre à jour et supprimer des stratégies B2C | Administrateur de stratégies B2C IEF | 
 Créer, lire, mettre à jour et supprimer des fournisseurs d’identité | Administrateur de fournisseurs d’identité externes | 
-Créer, lire, mettre à jour et supprimer des flux utilisateur de réinitialisation de mot de passe | Administrateur de flux d’utilisateurs B2C | 
-Créer, lire, mettre à jour et supprimer des flux utilisateur de modification de profil | Administrateur de flux d’utilisateurs B2C | 
-Créer, lire, mettre à jour et supprimer des flux utilisateur de connexion | Administrateur de flux d’utilisateurs B2C | 
-Créer, lire, mettre à jour et supprimer des flux utilisateur d’inscription |Administrateur de flux d’utilisateurs B2C | 
-Créer, lire, mettre à jour et supprimer des attributs utilisateur | Administrateur d’attributs de flux d’utilisateurs B2C | 
+Créer, lire, mettre à jour et supprimer des flux utilisateur de réinitialisation de mot de passe | Administrateur de flux d’utilisateurs ID externe | 
+Créer, lire, mettre à jour et supprimer des flux utilisateur de modification de profil | Administrateur de flux d’utilisateurs ID externe | 
+Créer, lire, mettre à jour et supprimer des flux utilisateur de connexion | Administrateur de flux d’utilisateurs ID externe | 
+Créer, lire, mettre à jour et supprimer des flux utilisateur d’inscription |Administrateur de flux d’utilisateurs ID externe | 
+Créer, lire, mettre à jour et supprimer des attributs utilisateur | Administrateur d’attribut de flux d’utilisateurs ID externe | 
 Créer, lire, mettre à jour et supprimer des utilisateurs | Administrateur d'utilisateurs
 Lire toute la configuration | Lecteur général | 
 Lire les journaux d’audit B2C | Lecteur général ([consultez la documentation](https://docs.microsoft.com/azure/active-directory-b2c/active-directory-b2c-faqs)) | 
@@ -73,6 +73,14 @@ Tâche | Rôle moins privilégié | Autres rôles
 Configurer les propriétés de l’entreprise | Administrateur général | 
 
 ## <a name="connect"></a>Se connecter
+
+Tâche | Rôle moins privilégié | Autres rôles
+---- | --------------------- | ----------------
+Authentification directe | Administrateur général  | 
+Lire toute la configuration | Lecteur général | Administrateur général  |
+Authentification unique homogène | Administrateur général  | 
+
+## <a name="cloud-provisioning"></a>Provisionnement cloud
 
 Tâche | Rôle moins privilégié | Autres rôles
 ---- | --------------------- | ----------------
@@ -109,7 +117,7 @@ Lire toute la configuration | Lecteurs d’annuaires | Rôle d’utilisateur par
 Tâche | Rôle moins privilégié | Autres rôles
 ---- | --------------------- | ----------------
 Créer une instance Azure AD Domain Services | Administrateur général | 
-Effectuer toutes les tâches Azure AD Domain Services | Groupe Administrateurs de contrôleur de domaine Azure AD ([consultez la documentation](../../active-directory-domain-services/tutorial-create-management-vm.md#administrative-tasks-you-can-perform-on-an-azure-ad-ds-managed-domain)) | 
+Effectuer toutes les tâches Azure AD Domain Services | Groupe Administrateurs de contrôleur de domaine Azure AD ([consultez la documentation](../../active-directory-domain-services/tutorial-create-management-vm.md#administrative-tasks-you-can-perform-on-a-managed-domain)) | 
 Lire toute la configuration | Lecteur sur l’abonnement Azure contenant le service AD DS | 
 
 ## <a name="devices"></a>Appareils

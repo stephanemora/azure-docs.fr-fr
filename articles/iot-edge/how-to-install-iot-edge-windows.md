@@ -9,12 +9,12 @@ services: iot-edge
 ms.topic: conceptual
 ms.date: 04/09/2020
 ms.author: kgremban
-ms.openlocfilehash: e95f68610f8469a829255d6a16115dcf728ef612
-ms.sourcegitcommit: c535228f0b77eb7592697556b23c4e436ec29f96
+ms.openlocfilehash: ba3e8b9d7649d56d1639f7f608d85a2da04ff74a
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/06/2020
-ms.locfileid: "82856738"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84465556"
 ---
 # <a name="install-the-azure-iot-edge-runtime-on-windows"></a>Installer le runtime Azure IoT Edge sur Windows
 
@@ -42,7 +42,7 @@ Cette section a pour but de vous aider à déterminer si votre appareil Windows 
 IoT Edge pour Windows requiert Windows version 1809/Build 17763, qui est la dernière version de [support long terme Windows](https://docs.microsoft.com/windows/release-information/). Pour la prise en charge des références SKU Windows, consultez ce qui est pris en charge selon que vous vous préparez à des scénarios de production ou des scénarios de développement et de test :
 
 * **Production** : Pour les dernières informations sur les systèmes d’exploitation actuellement pris en charge pour les scénarios de production, consultez [Systèmes pris en charge par Azure IoT Edge](support.md#operating-systems).
-* **Développement et tests** : Pour les scénarios de développement et de test, Azure IoT Edge avec conteneurs Windows peut être installé sur n’importe quelle version de Windows 10 ou Windows Server 2019 qui prend en charge la fonctionnalité de conteneurs.
+* **Développement et tests** : Pour les scénarios de type développement et test, Azure IoT Edge avec conteneurs Windows peut être installé sur n’importe quelle référence SKU (Pro, Enterprise, Server, etc.) de Windows (build 17763) prenant en charge la fonctionnalité de conteneurs.
 
 Les appareils IoT Core doivent inclure la fonctionnalité facultative IoT Core Conteneurs Windows pour prendre en charge le runtime IoT Edge. Utilisez la commande suivante dans une [session PowerShell à distance](https://docs.microsoft.com/windows/iot-core/connect-your-device/powershell) pour vérifier que les conteneurs Windows sont pris en charge sur votre appareil :
 

@@ -3,12 +3,12 @@ title: Résoudre des problèmes de sauvegarde de partages de fichiers Azure
 description: Cet article contient des informations de dépannage concernant les problèmes qui se produisent lors de la protection de vos partages de fichiers Azure.
 ms.date: 02/10/2020
 ms.topic: troubleshooting
-ms.openlocfilehash: 3d04a60b8bab5ba764818eab341ac08836b0dfd1
-ms.sourcegitcommit: 6a9f01bbef4b442d474747773b2ae6ce7c428c1f
+ms.openlocfilehash: d09c89433be17e16ad768e2d28305819146e6b5e
+ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "84116730"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86079885"
 ---
 # <a name="troubleshoot-problems-while-backing-up-azure-file-shares"></a>Résoudre des problèmes lors de la sauvegarde de partages de fichiers Azure
 
@@ -25,6 +25,7 @@ Cet article fournit des informations pour vous aider à résoudre des problèmes
   >Tous les partages de fichiers dans un compte de stockage peuvent être protégés sous un seul coffre Recovery Services. [Ce script](scripts/backup-powershell-script-find-recovery-services-vault.md) vous aide à trouver le coffre Recovery Services dans lequel votre compte de stockage est inscrit.
 
 - Assurez-vous que le partage de fichiers ne figure pas dans un des compte de stockage non pris en charge. Pour trouver les comptes de stockage pris en charge, vous pouvez consulter la [Matrice de prise en charge pour la sauvegarde de partage de fichiers Azure](azure-file-share-support-matrix.md).
+- Vérifiez que la longueur combinée du nom du compte de stockage et du nom du groupe de ressources ne dépasse pas 84 caractères en cas de nouveaux comptes de stockage, et 77 caractères dans le cas de comptes de stockage classiques. 
 - Vérifiez les paramètres de pare-feu du compte de stockage pour vous assurer que l’option autorisant les services Microsoft approuvés à accéder au compte de stockage est activée.
 
 ### <a name="error-in-portal-states-discovery-of-storage-accounts-failed"></a>Erreur dans le portail indiquant que la découverte des comptes de stockage a échoué
@@ -276,8 +277,6 @@ Code d’erreur : BMSUserErrorObjectLocked
 Message d’erreur : Une autre opération est en cours sur l’élément sélectionné.
 
 Attendez que l’autre opération en cours soit terminée, puis réessayez.
-
-À partir du fichier : troubleshoot-azure-files.md
 
 ## <a name="common-soft-delete-related-errors"></a>Erreurs courantes liées à la suppression réversible
 

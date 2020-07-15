@@ -1,10 +1,9 @@
 ---
 title: S’inscrire auprès du fournisseur de ressources de machine virtuelle SQL
-description: Inscrivez votre machine virtuelle Azure SQL Server auprès du fournisseur de ressources de machine virtuelle SQL pour activer les fonctionnalités des machines virtuelles SQL Server déployées en dehors de la Place de marché Azure ainsi que la conformité et la gestion améliorée.
+description: Inscrivez votre machine virtuelle Azure SQL Server auprès du fournisseur de ressources de machine virtuelle SQL pour activer les fonctionnalités des machines virtuelles SQL Server déployées en dehors de Place de marché Azure, ainsi que la conformité et la gestion améliorée.
 services: virtual-machines-windows
 documentationcenter: na
 author: MashaMSFT
-manager: craigg
 tags: azure-resource-manager
 ms.service: virtual-machines-sql
 ms.devlang: na
@@ -14,14 +13,14 @@ ms.workload: iaas-sql-server
 ms.date: 11/13/2019
 ms.author: mathoma
 ms.reviewer: jroth
-ms.openlocfilehash: af2d23104f07991fc9833951bb4e2395d39be9b3
-ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
+ms.openlocfilehash: 60d184b3739d05063a0cddd108a2b2d7d49b57d7
+ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "84039830"
+ms.lasthandoff: 07/05/2020
+ms.locfileid: "85962745"
 ---
-# <a name="register-a-sql-server-virtual-machine-in-azure-with-the-sql-vm-resource-provider"></a>Inscrire une machine virtuelle SQL Server dans Azure auprès du fournisseur de ressources de machine virtuelle SQL
+# <a name="register-a-sql-server-vm-in-azure-with-the-sql-vm-resource-provider-rp"></a>Inscrire une machine virtuelle SQL Server dans Azure auprès du fournisseur de ressources de machine virtuelle SQL
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
 
 Cet article explique comment inscrire votre machine virtuelle SQL Server dans Azure auprès du fournisseur de ressources de machine virtuelle SQL. L’inscription auprès du fournisseur de ressources crée la _ressource_ de **machine virtuelle SQL** dans votre abonnement, qui est une ressource distincte de la ressource de machine virtuelle. Le fait de désinscrire votre machine virtuelle SQL Server du fournisseur de ressources va supprimer la _ressource_ de **machine virtuelle SQL**, mais pas la machine virtuelle elle-même. 
@@ -32,7 +31,7 @@ Pendant le déploiement d’une image de machine virtuelle SQL Server de la Plac
 
 - **Conformité** : l’inscription auprès du fournisseur de ressources de machine virtuelle SQL offre une méthode simplifiée pour notifier à Microsoft qu’Azure Hybrid Benefit a été activé comme spécifié dans les termes du produit. Ce processus élimine la nécessité de gérer les formulaires d’inscription de licence pour chaque ressource.  
 
-- **Administration gratuite** :  l’inscription auprès du fournisseur de ressources de machine virtuelle SQL dans les trois modes de gestion est entièrement gratuite. Aucun coût supplémentaire n’est associé au fournisseur de ressources ou au changement de modes de gestion. 
+- **Administration gratuite** : l’inscription auprès du fournisseur de ressources de machine virtuelle SQL dans les trois modes de gestion est entièrement gratuite. Aucun coût supplémentaire n’est associé au fournisseur de ressources ou au changement de modes de gestion. 
 
 - **Gestion des licences simplifiée**  : l’inscription auprès du fournisseur de ressources de machines virtuelles SQL simplifie la gestion des licences SQL Server et vous permet d’identifier rapidement les machines virtuelles SQL Server avec Azure Hybrid Benefit activé à l’aide du [Portail Azure](manage-sql-vm-portal.md), de l’interface de ligne de commande Azure ou de PowerShell : 
 
@@ -51,7 +50,7 @@ Pendant le déploiement d’une image de machine virtuelle SQL Server de la Plac
 
    ---
 
-Pour utiliser le fournisseur de ressources de machine virtuelle SQL, vous devez d’abord [inscrire votre abonnement auprès du fournisseur de ressources](#register-subscription-with-rp), ce qui donne au fournisseur de ressources la possibilité de créer des ressources dans cet abonnement.
+Pour utiliser le fournisseur de ressources de machine virtuelle SQL, vous devez d’abord [inscrire votre abonnement auprès du fournisseur de ressources](#register-subscription-with-rp), ce qui donne à ce dernier la possibilité de créer des ressources dans cet abonnement spécifique.
 
 ## <a name="prerequisites"></a>Prérequis
 
@@ -95,14 +94,14 @@ Pour pouvoir inscrire votre machine virtuelle SQL Server auprès du fournisseur 
 1. Entrez **sql** dans le filtre pour afficher les fournisseurs de ressources liées à SQL. 
 1. Sélectionnez **Inscrire**, **Réinscrire** ou **Désinscrire** pour le fournisseur **Microsoft.SqlVirtualMachine**, en fonction de l’action souhaitée. 
 
-![Modifier le fournisseur](./media/sql-vm-resource-provider-register/select-resource-provider-sql.png)
+   ![Modifier le fournisseur](./media/sql-vm-resource-provider-register/select-resource-provider-sql.png)
 
 
 ### <a name="command-line"></a>Ligne de commande
 
 Inscrivez votre fournisseur de ressources de machines virtuelles SQL dans votre abonnement Azure en utilisant Azure CLI ou PowerShell. 
 
-# <a name="az-cli"></a>[AZ CLI](#tab/bash)
+# <a name="azure-cli"></a>[Azure CLI](#tab/bash)
 
 ```azurecli-interactive
 # Register the SQL VM resource provider to your subscription 
@@ -118,19 +117,19 @@ Register-AzResourceProvider -ProviderNamespace Microsoft.SqlVirtualMachine
 
 ---
 
-## <a name="register-sql-vm-with-rp"></a>Inscrire une machine virtuelle SQL auprès du fournisseur de ressources 
+## <a name="register-with-rp"></a>Inscrire auprès du RP
 
 ### <a name="lightweight-management-mode"></a>Mode de gestion léger
 
-Si l’[extension SQL Server IaaS Agent](sql-server-iaas-agent-extension-automate-management.md) n’a pas été installée sur la machine virtuelle, nous vous recommandons d’effectuer l’inscription auprès du fournisseur de ressources de machines virtuelles SQL en mode léger. Cette opération installe l’extension SQL IaaS en [mode léger](#management-modes) et empêche le redémarrage du service SQL Server. Vous pouvez ensuite effectuer une mise à niveau vers le mode complet à tout moment ; cependant, comme cela entraîne le redémarrage du service SQL Server, nous vous recommandons d’attendre une fenêtre de maintenance planifiée. 
+Si l’[extension SQL Server IaaS Agent](sql-server-iaas-agent-extension-automate-management.md) n’a pas été installée sur la machine virtuelle, nous vous recommandons d’effectuer l’inscription auprès du fournisseur de ressources de machines virtuelles SQL en mode allégé. Cette opération installe l’extension SQL IaaS en [mode léger](#management-modes) et empêche le redémarrage du service SQL Server. Vous pouvez ensuite effectuer une mise à niveau vers le mode complet à tout moment ; cependant, comme cela entraîne le redémarrage du service SQL Server, nous vous recommandons d’attendre une fenêtre de maintenance planifiée. 
 
 Indiquez une licence SQL Server de type paiement à l’utilisation (`PAYG`) pour payer en fonction de l’utilisation, Azure Hybrid Benefit (`AHUB`) pour utiliser votre propre licence ou récupération d’urgence (`DR`) pour activer la [licence de réplica de récupération d’urgence gratuite](business-continuity-high-availability-disaster-recovery-hadr-overview.md#free-dr-replica-in-azure).
 
-Les instances de cluster de basculement et les déploiements multi-instances ne peuvent être inscrits auprès du fournisseur de ressources de machine virtuelle SQL qu’en mode léger. 
+Les instances de cluster de basculement et les déploiements multi-instances ne peuvent être inscrits auprès du fournisseur de ressources de machine virtuelle SQL qu’en mode allégé. 
 
-# <a name="az-cli"></a>[AZ CLI](#tab/bash)
+# <a name="azure-cli"></a>[Azure CLI](#tab/bash)
 
-Inscrire la machine virtuelle SQL Server en mode léger avec l’interface de ligne de commande Azure : 
+Inscrire une machine virtuelle SQL Server en mode allégé avec l’interface de ligne de commande Azure : 
 
   ```azurecli-interactive
   # Register Enterprise or Standard self-installed VM in Lightweight mode
@@ -140,7 +139,7 @@ Inscrire la machine virtuelle SQL Server en mode léger avec l’interface de li
 
 # <a name="powershell"></a>[PowerShell](#tab/powershell)
 
-Inscrire la machine virtuelle SQL Server en mode léger avec PowerShell :  
+Inscrire une machine virtuelle SQL Server en mode léger avec PowerShell :  
 
 
   ```powershell-interactive
@@ -179,9 +178,9 @@ Spécifiez `AHUB`, `PAYG` ou `DR` pour **sqlLicenseType** et `SQL2008-WS2008` ou
 Pour inscrire votre SQL Server 2008 ou 2008 R2 sur une instance Windows Server 2008, utilisez l’extrait de code PowerShell ou Azure CLI suivant : 
 
 
-# <a name="az-cli"></a>[AZ CLI](#tab/bash)
+# <a name="azure-cli"></a>[Azure CLI](#tab/bash)
 
-Inscrire votre machine virtuelle SQL Server 2008 en mode sans agent avec l'interface de ligne de commande Azure : 
+Inscrire votre machine virtuelle SQL Server 2008 en mode sans agent avec l’interface de ligne de commande Azure : 
 
   ```azurecli-interactive
    az sql vm create -n sqlvm -g myresourcegroup -l eastus |
@@ -190,7 +189,7 @@ Inscrire votre machine virtuelle SQL Server 2008 en mode sans agent avec l'inte
  ```
  
  
-Inscrire votre machine virtuelle SQL Server 2008 R2 en mode sans agent avec l'interface de ligne de commande Azure : 
+Inscrire votre machine virtuelle SQL Server 2008 R2 en mode sans agent avec l’interface de ligne de commande Azure : 
 
   ```azurecli-interactive
    az sql vm create -n sqlvm -g myresourcegroup -l eastus |
@@ -200,7 +199,7 @@ Inscrire votre machine virtuelle SQL Server 2008 R2 en mode sans agent avec l'
 
 # <a name="powershell"></a>[PowerShell](#tab/powershell)
 
-Inscrire la machine virtuelle SQL Server 2008 en mode sans agent avec PowerShell : 
+Inscrire votre machine virtuelle SQL Server 2008 en mode sans agent avec PowerShell : 
 
 
   ```powershell-interactive
@@ -211,7 +210,7 @@ Inscrire la machine virtuelle SQL Server 2008 en mode sans agent avec PowerShel
     -LicenseType PAYG -SqlManagementType NoAgent -Sku Standard -Offer SQL2008-WS2008
   ```
   
-  Inscrire la machine virtuelle SQL Server 2008 R2 en mode sans agent avec PowerShell : 
+  Inscrire votre machine virtuelle SQL Server 2008 R2 en mode sans agent avec PowerShell : 
 
 
   ```powershell-interactive
@@ -224,9 +223,9 @@ Inscrire la machine virtuelle SQL Server 2008 en mode sans agent avec PowerShel
 
 ---
 
-## <a name="upgrade-to-full-management-mode"></a>Effectuer une mise à niveau vers le mode de gestion complet 
+## <a name="upgrade-to-full"></a>Mettre à niveau vers le mode complet  
 
-Les machines virtuelles SQL Server sur lesquelles l’extension IaaS en mode *léger* est installée peuvent passer en mode _complet_ par le biais du Portail Azure, d’Azure CLI et de PowerShell. Les machines virtuelles SQL Server en mode _sans agent_ peuvent passer en mode _complet_ une fois que le système d’exploitation est mis à niveau vers Windows 2008 R2 et versions ultérieures. Il est impossible de passer à une version antérieure. Pour ce faire, vous devez [annuler l’inscription](#unregister-vm-from-rp) de la machine virtuelle SQL Server auprès du fournisseur de ressources de machine virtuelle SQL. Cette opération supprime la _ressource_ de **machine virtuelle SQL**, mais ne supprime pas la machine virtuelle elle-même. 
+Les machines virtuelles SQL Server sur lesquelles l’extension IaaS en mode *léger* est installée peuvent passer en mode _complet_ par le biais du Portail Azure, d’Azure CLI et de PowerShell. Les machines virtuelles SQL Server en mode _sans agent_ peuvent passer en mode _complet_ une fois que le système d’exploitation est mis à niveau vers Windows 2008 R2 et versions ultérieures. Il est impossible de passer à une version antérieure. Pour ce faire, vous devez [annuler l’inscription](#unregister-from-rp) de la machine virtuelle SQL Server auprès du fournisseur de ressources de machine virtuelle SQL. Cette opération supprime la _ressource_ de **machine virtuelle SQL**, mais ne supprime pas la machine virtuelle elle-même. 
 
 Vous pouvez afficher le mode actuel de votre agent SQL Server IaaS à l’aide de PowerShell : 
 
@@ -254,7 +253,7 @@ Pour mettre à niveau l’agent en mode complet :
 
 ### <a name="command-line"></a>Ligne de commande
 
-# <a name="az-cli"></a>[AZ CLI](#tab/bash)
+# <a name="azure-cli"></a>[Azure CLI](#tab/bash)
 
 Exécutez l’extrait de code Azure CLI suivant :
 
@@ -287,13 +286,13 @@ Vous pouvez vérifier si votre machine virtuelle SQL Server a déjà été inscr
 1. Sélectionnez votre machine virtuelle SQL Server dans la liste. Si votre machine virtuelle SQL Server n’est pas listée ici, il est probable qu’elle n’a pas été inscrite auprès du fournisseur de ressources de machine virtuelle SQL. 
 1. Examinez la valeur sous **État**. Si l’**État** indique **Réussi**, la machine virtuelle SQL Server a bien été inscrite auprès du fournisseur de ressources de machine virtuelle SQL. 
 
-![Vérifier l’état avec l’inscription avec le fournisseur de ressources SQL](./media/sql-vm-resource-provider-register/verify-registration-status.png)
+   ![Vérifier l’état avec l’inscription avec le fournisseur de ressources SQL](./media/sql-vm-resource-provider-register/verify-registration-status.png)
 
 ### <a name="command-line"></a>Ligne de commande
 
 Vérifiez l’état d’inscription actuel d’une machine virtuelle SQL Server à l’aide d’Azure CLI ou de PowerShell. `ProvisioningState` affichera `Succeeded` si l’inscription a réussi. 
 
-# <a name="az-cli"></a>[AZ CLI](#tab/bash)
+# <a name="azure-cli"></a>[Azure CLI](#tab/bash)
 
 
   ```azurecli-interactive
@@ -311,18 +310,18 @@ Vérifiez l’état d’inscription actuel d’une machine virtuelle SQL Server 
 Une erreur indique que la machine virtuelle SQL Server n’a pas été inscrite avec le fournisseur de ressources. 
 
 
-## <a name="unregister-vm-from-rp"></a>Annuler l’inscription de la machine virtuelle auprès du fournisseur de ressources
+## <a name="unregister-from-rp"></a>Désinscrire du fournisseur de ressources
 
-Pour annuler l’inscription de votre machine virtuelle SQL Server auprès du fournisseur de ressources de machine virtuelle SQL, supprimez la *ressource* de machine virtuelle SQL à l’aide du Portail Azure ou de l’interface de ligne de commande Azure. La suppression de la *ressource* de machine virtuelle SQL n’entraîne pas la suppression de la machine virtuelle SQL Server proprement dite. Toutefois, suivez attentivement les étapes, car il est possible de supprimer par inadvertance la machine virtuelle lors de la tentative de suppression de la *ressource*. 
+Pour désinscrire votre machine virtuelle SQL Server du fournisseur de ressources de machine virtuelle SQL, supprimez la *ressource* de machine virtuelle SQL à l’aide du portail Azure ou de l’interface de ligne de commande Azure. La suppression de la *ressource* de machine virtuelle SQL n’entraîne pas la suppression de la machine virtuelle SQL Server proprement dite. Toutefois, suivez attentivement les étapes, car il est possible de supprimer par inadvertance la machine virtuelle lors de la tentative de suppression de la *ressource*. 
 
-L’annulation de l’inscription de la machine virtuelle SQL auprès du fournisseur de ressources de machine virtuelle SQL est nécessaire pour passer du mode de gestion complet à un mode de gestion de niveau inférieur. 
+La désinscription de la machine virtuelle SQL du fournisseur de ressources de machine virtuelle SQL est nécessaire pour passer du mode d’administration complet à une version inférieure. 
 
 ### <a name="azure-portal"></a>Portail Azure
 
 Pour annuler l’inscription de votre machine virtuelle SQL Server auprès du fournisseur de ressources à l’aide du Portail Azure, procédez comme suit :
 
 1. Connectez-vous au [portail Azure](https://portal.azure.com).
-1. Accédez à la ressource de machine virtuelle SQL Server. 
+1. Accédez à la ressource de machine virtuelle SQL. 
   
    ![Ressource Machines virtuelles SQL](./media/sql-vm-resource-provider-register/sql-vm-manage.png)
 
@@ -330,19 +329,19 @@ Pour annuler l’inscription de votre machine virtuelle SQL Server auprès du fo
 
    ![Supprimer le fournisseur de ressources de machine virtuelle SQL](./media/sql-vm-resource-provider-register/delete-sql-vm-resource-provider.png)
 
-1. Saisissez le nom de la machine virtuelle SQL et **désactivez la case à cocher en regard de celle-ci**.
+1. Saisissez le nom de la machine virtuelle SQL et **désactivez la case à cocher à côte de celle-ci**.
 
    ![Supprimer le fournisseur de ressources de machine virtuelle SQL](./media/sql-vm-resource-provider-register/confirm-delete-of-resource-uncheck-box.png)
 
    >[!WARNING]
    > Si vous ne désactivez pas la case à cocher en regard du nom de la machine virtuelle, vous *supprimez entièrement* celle-ci. Désactivez la case à cocher pour annuler l’inscription de la machine virtuelle SQL Server du fournisseur de ressources *sans supprimer la machine virtuelle proprement dite*. 
 
-1. Sélectionnez **Supprimer** pour confirmer la suppression de la *ressource* de la machine virtuelle SQL et non pas la machine virtuelle SQL Server. 
+1. Sélectionnez **Supprimer** pour confirmer la suppression de la *ressource* de machine virtuelle SQL et non pas la machine virtuelle SQL Server. 
 
 ### <a name="command-line"></a>Ligne de commande
 
 # <a name="azure-cli"></a>[Azure CLI](#tab/azure-cli)
-Pour annuler l’inscription de votre machine virtuelle SQL Server auprès du fournisseur de ressources à l’aide de la ligne de commande Azure, utilisez la commande [az sql vm delete](/cli/azure/sql/vm?view=azure-cli-latest#az-sql-vm-delete). Cela supprimera la *ressource* de machine virtuelle SQL Server mais ne supprimera pas la machine virtuelle. 
+Pour désinscrire votre machine virtuelle SQL Server du fournisseur de ressources à l’aide d’Azure CLI, utilisez la commande [az sql vm delete](/cli/azure/sql/vm?view=azure-cli-latest#az-sql-vm-delete). Cela supprimera la *ressource* de machine virtuelle SQL Server, mais ne supprimera pas la machine virtuelle. 
 
 
 ```azurecli-interactive
@@ -353,7 +352,7 @@ az sql vm delete
 ```
 
 # <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
-Pour annuler l’inscription de votre machine virtuelle SQL Server auprès du fournisseur de ressources à l’aide de l’interface de ligne de commande Azure, utilisez la commande [New-AzSqlVM](/powershell/module/az.sqlvirtualmachine/new-azsqlvm). Cela supprimera la *ressource* de machine virtuelle SQL Server mais ne supprimera pas la machine virtuelle. 
+Pour désinscrire votre machine virtuelle SQL Server du fournisseur de ressources à l’aide de PowerShell, utilisez la commande [New-AzSqlVM](/powershell/module/az.sqlvirtualmachine/new-azsqlvm). Cela supprimera la *ressource* de machine virtuelle SQL Server, mais ne supprimera pas la machine virtuelle. 
 
 ```powershell-interactive
 Remove-AzSqlVM -ResourceGroupName <resource_group_name> -Name <VM_name>
@@ -380,7 +379,7 @@ Oui. Les clients doivent inscrire leurs machines virtuelles SQL Server auprès d
 
 **Dois-je m’inscrire auprès du fournisseur de ressources de machine virtuelle SQL si l’extension IaaS SQL Server est déjà installée sur ma machine virtuelle SQL Server ?**
 
-Si votre machine virtuelle SQL Server est installée automatiquement et n’est pas provisionnée à partir des images SQL Server de la Place de marché Azure, vous devez vous inscrire auprès du fournisseur de ressources de machine virtuelle SQL, même si vous avez installé l’extension IaaS SQL Server. L’inscription auprès du fournisseur de ressources de machine virtuelle SQL crée une ressource de type Microsoft.SqlVirtualMachines. L’installation de l’extension IaaS SQL Server ne crée pas cette ressource.
+Si votre machine virtuelle SQL Server est installée automatiquement et n’est pas provisionnée à partir des images SQL Server de la Place de marché Azure, vous devez vous inscrire auprès du fournisseur de ressources de machine virtuelle SQL, même si vous avez installé l’extension IaaS SQL Server. L’inscription auprès du fournisseur de ressources de machine virtuelle SQL crée une ressource de type Microsoft.SqlVirtualMachine. L’installation de l’extension IaaS SQL Server ne crée pas cette ressource.
 
 **Quel est le mode de gestion par défaut au moment de l’inscription auprès du fournisseur de ressources de machine virtuelle SQL ?**
 
@@ -402,7 +401,7 @@ Non. L’inscription auprès du fournisseur de ressources de machine virtuelle S
 
 L’extension IaaS SQL Server n’est nécessaire que pour activer la gestion complète. La mise à niveau du mode de gestion léger à complet a pour effet d’installer l’extension IaaS SQL Server et de redémarrer SQL Server.
 
-**L’inscription auprès du fournisseur de ressources de machine virtuelle SQL a-t-elle pour effet de redémarrer SQL Server sur ma machine virtuelle ?**
+**Est-ce que l’inscription auprès du fournisseur de ressources de machine virtuelle SQL permet de redémarrer SQL Server sur ma machine virtuelle ?**
 
 Cela dépend du mode spécifié lors de l’inscription. Si le mode léger ou sans agent est spécifié, le service SQL Server ne redémarre pas. Toutefois, si vous spécifiez le mode de gestion complet ou laissez le mode de gestion vide, l’extension SQL IaaS est installée en mode de gestion complet, ce qui entraîne le redémarrage du service SQL Server. 
 
@@ -428,7 +427,7 @@ Oui. La mise à niveau du mode de gestion de léger à complet est prise en char
 
 Non. La rétrogradation du mode de gestion de l’extension IaaS SQL Server n’est pas prise en charge. Le mode de gestion SQL ne peut pas être rétrogradé du mode complet vers le mode léger ou sans agent, ni du mode léger vers le mode sans agent. 
 
-Pour changer le mode de gérabilité à partir de la gérabilité complète, [annulez l’inscription](#unregister-vm-from-rp) de la machine virtuelle SQL Server auprès du fournisseur de ressources SQL Server en supprimant la *ressource* SQL Server et en réinscrivant la machine virtuelle SQL Server auprès du fournisseur de ressources de machine virtuelle SQL avec un mode d’administration différent.
+Pour passer d’un mode d’administration complet à un autre mode d’administration, [désinscrivez](#unregister-from-rp) la machine virtuelle SQL Server du fournisseur de ressources de machine virtuelle SQL en supprimant la *ressource* SQL Server et en réinscrivant la machine virtuelle SQL Server auprès du fournisseur de ressources de machine virtuelle SQL avec un mode d’administration différent.
 
 **Puis-je m’inscrire auprès du fournisseur de ressources de machine virtuelle SQL à partir du portail Azure ?**
 

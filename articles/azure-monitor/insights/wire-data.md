@@ -5,13 +5,13 @@ ms.subservice: logs
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
-ms.date: 10/03/2018
-ms.openlocfilehash: ee7a2f49641eb0cfe1f8a4bffb44c7f8642408fa
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.date: 05/29/2020
+ms.openlocfilehash: afcad5df1072f2eb474e54aaeca866735a12c5c8
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "77670642"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84424463"
 ---
 # <a name="wire-data-20-preview-solution-in-azure-monitor"></a>Solution Wire Data 2.0 (préversion) dans Azure Monitor
 
@@ -19,12 +19,15 @@ ms.locfileid: "77670642"
 
 Les données de communication sont des données de performances et réseau consolidées, collectées à partir d’ordinateurs connectés à Windows et à Linux avec l’agent Log Analytics, notamment les ordinateurs analysés par Operations Manager dans votre environnement. Les données réseau sont associées aux autres données de journaux pour faciliter la mise en corrélation des données.
 
-[!INCLUDE [azure-monitor-log-analytics-rebrand](../../../includes/azure-monitor-log-analytics-rebrand.md)]
-
 Outre l’agent Log Analytics, la solution Wire Data utilise des agents Microsoft Dependency Agent installés sur les ordinateurs de votre infrastructure informatique. Les agents de dépendances surveillent les données réseau envoyées par et à ces ordinateurs pour les niveaux de réseau 2 et 3 dans le [modèle OSI](https://en.wikipedia.org/wiki/OSI_model), y compris les différents protocoles et ports utilisés. Les données sont ensuite envoyées à Azure Monitor à l’aide d’agents.  
 
 >[!NOTE]
->Si vous avez déjà déployé Service Map ou si vous envisagez d’utiliser Service Map ou [Azure Monitor pour machines virtuelles](../../azure-monitor/insights/vminsights-overview.md), un nouveau jeu de métriques de connexion collecté et stocké dans Azure Monitor fournit des informations comparables à Wire Data.
+>La solution Wire Data a été remplacée par la [solution Service Map](service-map.md).  Toutes deux utilisent l’agent Log Analytics et l’agent de dépendances pour collecter les données de connexion réseau dans Azure Monitor. 
+> 
+>Les clients existants qui utilisent la solution Wire Data peuvent continuer à l’utiliser. Nous publierons des instructions concernant la chronologie de la migration vers Service Map.
+>
+>Les nouveaux clients doivent installer la [solution Service Map](service-map.md) ou [Azure Monitor pour machines virtuelles](vminsights-overview.md).  Le jeu de données Service Map est comparable à Wire Data.  Azure Monitor pour machines virtuelles comprend le jeu de données Service Map avec des fonctionnalités et des données de performances supplémentaires pour l’analyse. 
+
 
 Par défaut, Azure Monitor journalise les données pour l’UC, la mémoire, le disque et les données de performances du réseau à partir de compteurs intégrés à Windows et à Linux, ainsi que d’autres compteurs de performances que vous pouvez spécifier. La collecte des données réseau et autres est effectuée en temps réel pour chaque agent, notamment les sous-réseaux et les protocoles de niveau application utilisés par l’ordinateur.  Wire Data examine les données réseau au niveau de l’application, pas au niveau de la couche de transport TCP.  La solution n’examine pas les données ACK et SYN individuelles.  Une fois la connexion effectuée, elle est considérée comme une connexion active et marquée en tant que Connecté. Cette connexion reste active tant que les deux côtés acceptent que le socket est ouvert et que des données peuvent être transférées dans les deux sens.  Si l’un des deux côtés ferme la connexion, celle-ci est marquée en tant que Déconnecté.  Par conséquent, elle ne compte que la bande passante des paquets terminés avec succès et ne signale pas les renvois ou les paquets ayant échoué.
 
@@ -164,7 +167,7 @@ Les sections suivantes répertorient les systèmes d’exploitation pris en char
 
 Suivez les étapes ci-dessous afin de configurer la solution Wire Data pour vos espaces de travail.
 
-1. Activez la solution Activity Log Analytics depuis la [Place de marché Microsoft Azure](https://azuremarketplace.microsoft.com/marketplace/apps/Microsoft.WireData2OMS?tab=Overview) ou en procédant de la manière décrite dans [Ajouter des solutions de surveillance à partir de la galerie de solutions](../../azure-monitor/insights/solutions.md).
+1. Activez la solution Activity Log Analytics à partir de la [Place de marché Microsoft Azure](https://azuremarketplace.microsoft.com/marketplace/apps/Microsoft.WireData2OMS?tab=Overview) ou en procédant de la manière décrite dans [Ajouter des solutions de supervision à partir de la galerie de solutions](../../azure-monitor/insights/solutions.md).
 2. Installez l’agent de dépendances sur chacun des ordinateurs sur lesquels vous souhaitez récupérer des données. L’agent de dépendances peut surveiller les connexions aux voisins immédiats ; par conséquent, vous n’avez pas forcément besoin d’un agent sur chaque ordinateur.
 
 > [!NOTE]

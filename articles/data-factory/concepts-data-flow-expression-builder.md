@@ -6,13 +6,13 @@ ms.author: makromer
 ms.reviewer: daperlov
 ms.service: data-factory
 ms.topic: conceptual
-ms.date: 04/08/2020
-ms.openlocfilehash: dda2812b5e2cc79d53658d568ba0845d593f41d6
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.date: 06/20/2020
+ms.openlocfilehash: 7e2b655b344af90c4555beb0af85fa11cbc6d1c8
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81605376"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85126159"
 ---
 # <a name="build-expressions-in-mapping-data-flow"></a>Générer des expressions dans un flux de données de mappage
 
@@ -76,16 +76,12 @@ Voici quelques exemples d’interpolation de chaîne :
 
 Ajoutez des commentaires à vos expressions en utilisant une seule ligne et une syntaxe de commentaire multiligne.
 
-![Syntaxe de commentaire sur une seule ligne et multiligne](media/data-flow/comments.png "Commentaires")
-
 Les exemples suivants sont des commentaires valides :
 
 * ```/* This is my comment */```
 
 * ```/* This is a```
 *   ```multi-line comment */```
-   
-* ```// This is a single line comment```
 
 Si vous placez un commentaire en haut de votre expression, il apparaît dans la zone de texte de transformation afin de documenter vos expressions de transformation.
 
@@ -133,6 +129,10 @@ Pour convertir des millisecondes issues de l’époque en date ou en horodatage,
 ```toTimestamp(1574127407*1000l)```
 
 Le « l » situé à la fin de l’expression précédente signifie la conversion en type long comme la syntaxe en ligne.
+
+## <a name="find-time-from-epoch-or-unix-time"></a>Connaître l’heure à l’aide d’Epoch ou de l’heure Unix
+
+toLong( currentTimestamp() - toTimestamp('1970-01-01 00:00:00.000', 'yyyy-MM-dd HH:mm:ss.SSS') ) * 1000l
 
 ## <a name="next-steps"></a>Étapes suivantes
 

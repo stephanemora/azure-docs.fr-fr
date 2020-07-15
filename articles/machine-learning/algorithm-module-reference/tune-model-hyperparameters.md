@@ -8,13 +8,13 @@ ms.subservice: core
 ms.topic: reference
 author: likebupt
 ms.author: keli19
-ms.date: 02/11/2020
-ms.openlocfilehash: ff0ccbf201f2b83dd446859d8054d115a70f402e
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.date: 06/17/2020
+ms.openlocfilehash: 01e33f7b0133eb5d081e6e8f3c3c9497c11bae95
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80064156"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84983409"
 ---
 # <a name="tune-model-hyperparameters"></a>Optimiser les hyperparamètres du modèle
 
@@ -43,33 +43,35 @@ Cette section décrit comment effectuer un balayage de paramètres de base, qui 
 
 2.  Connectez un modèle non entraîné à l’entrée la plus à gauche. 
 
+    > [!NOTE] 
+    > Le module **Tune Model Hyperparameters** peut uniquement être connecté aux modules d’algorithme de machine learning intégrés. Il ne peut pas prendre en charge un modèle personnalisé intégré au module **Create Python Model** (Créer un modèle Python).
 
 
-4.  Ajoutez le jeu de données que vous souhaitez utiliser pour l’entraînement et connectez-le à l’entrée du milieu du module Optimiser les hyperparamètres du modèle.  
+3.  Ajoutez le jeu de données que vous souhaitez utiliser pour l’entraînement et connectez-le à l’entrée du milieu du module Optimiser les hyperparamètres du modèle.  
 
     Éventuellement, si vous avez un jeu de données étiqueté, vous pouvez le connecter au port d’entrée le plus à droite (**Jeu de données de validation facultatif**). Cela vous permet de mesurer la justesse pendant l’entraînement et l’optimisation.
 
-5.  Dans le volet droit du module Optimiser les hyperparamètres du modèle, choisissez une valeur pour **Mode de balayage de paramètres**. Cette option contrôle la manière dont les paramètres sont sélectionnés.
+4.  Dans le volet droit du module Optimiser les hyperparamètres du modèle, choisissez une valeur pour **Mode de balayage de paramètres**. Cette option contrôle la manière dont les paramètres sont sélectionnés.
 
     - **Grille entière** : Quand vous sélectionnez cette option, le module effectue une boucle sur une grille prédéfinie par le système, pour essayer différentes combinaisons et identifier le meilleur apprenant. Cette option est utile quand vous ne savez pas quels sont les meilleurs réglages de paramètres et que vous souhaitez essayer toutes les combinaisons de valeurs possibles.
 
     - **Balayage aléatoire** : Quand vous sélectionnez cette option, le module sélectionne aléatoirement des valeurs de paramètre sur une plage définie par le système. Vous devez spécifier le nombre maximal d’exécutions que le module doit exécuter. Cette option est utile quand vous souhaitez augmenter les performances du modèle à l’aide des métriques de votre choix, tout en économisant les ressources de calcul.    
 
-6.  Pour **Label column** (Colonne d’étiquette), ouvrez le sélecteur de colonne pour choisir une colonne d’étiquette unique.
+5.  Pour **Label column** (Colonne d’étiquette), ouvrez le sélecteur de colonne pour choisir une colonne d’étiquette unique.
 
-7.  Choisissez le nombre d’exécutions :
+6.  Choisissez le nombre d’exécutions :
 
-    1. **Nombre maximal d’exécutions lors d’un balayage aléatoire** : Si vous choisissez un balayage aléatoire, vous pouvez spécifier le nombre de fois que le modèle doit être entraîné, en utilisant une combinaison aléatoire de valeurs de paramètre.
+    - **Nombre maximal d’exécutions lors d’un balayage aléatoire** : Si vous choisissez un balayage aléatoire, vous pouvez spécifier le nombre de fois que le modèle doit être entraîné, en utilisant une combinaison aléatoire de valeurs de paramètre.
 
-8.  Pour **Classement**, choisissez une métrique unique à utiliser lors du classement des modèles.
+7.  Pour **Classement**, choisissez une métrique unique à utiliser lors du classement des modèles.
 
     Quand vous exécutez un balayage de paramètres, le module calcule toutes les métriques applicables pour le type de modèle et les retourne dans le rapport **Résultats de balayage**. Le module utilise des métriques distinctes pour les modèles de régression et de classification.
 
     Toutefois, la métrique que vous choisissez détermine la façon dont les modèles sont classés. Seul le premier modèle, tel que classé par la métrique choisie, est généré en tant que modèle entraîné à utiliser pour le scoring.
 
-9.  Pour **Random seed** (Valeur de départ aléatoire), entrez un nombre à utiliser pour commencer le balayage de paramètres. 
+8.  Pour **Random seed** (Valeur de départ aléatoire), entrez un nombre à utiliser pour commencer le balayage de paramètres. 
 
-10. Envoyez le pipeline.
+9. Envoyez le pipeline.
 
 ## <a name="results-of-hyperparameter-tuning"></a>Résultats de l’optimisation des hyperparamètres
 

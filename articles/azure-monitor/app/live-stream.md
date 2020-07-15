@@ -4,16 +4,16 @@ description: Surveillez votre application web en temps réel avec des métriques
 ms.topic: conceptual
 ms.date: 04/22/2019
 ms.reviewer: sdash
-ms.openlocfilehash: ea0d786d0b8b96941d791bcc8e92fad9a869c5f3
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 10818a531a43b50b86a6d413c7a504e2c19c3986
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "77670098"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85507339"
 ---
 # <a name="live-metrics-stream-monitor--diagnose-with-1-second-latency"></a>Flux de métriques temps réel : Surveiller et diagnostiquer avec une latence de 1 seconde
 
-Sondez le cœur de votre application web dynamique en production en utilisant les flux de métriques temps réel depuis [Application Insights](../../azure-monitor/app/app-insights-overview.md). Sélectionnez et filtrez les métriques et les compteurs de performances à surveiller en temps réel, sans aucune perturbation de votre service. Inspectez les traces de pile à partir d’échantillons de demandes en échec et d’exceptions. Avec [Profiler](../../azure-monitor/app/profiler.md), le [Débogueur de capture instantanée](../../azure-monitor/app/snapshot-debugger.md). Live Metrics Stream fournit un outil de diagnostic puissant et non invasif pour votre site web actif.
+Supervisez votre application web dynamique en production en utilisant les flux de métriques temps réel à partir d’[Application Insights](../../azure-monitor/app/app-insights-overview.md). Sélectionnez et filtrez les métriques et les compteurs de performances à surveiller en temps réel, sans aucune perturbation de votre service. Inspectez les traces de pile à partir d’échantillons de demandes en échec et d’exceptions. En combinaison avec le [profileur](../../azure-monitor/app/profiler.md) et le [débogueur d’instantané](../../azure-monitor/app/snapshot-debugger.md), les flux de métriques temps réel constituent un outil de diagnostic puissant et non invasif pour votre site web dynamique.
 
 Avec les flux de métriques temps réel, vous pouvez :
 
@@ -25,13 +25,13 @@ Avec les flux de métriques temps réel, vous pouvez :
 * Surveiller en temps réel des compteurs de performances Windows.
 * Identifiez plus facilement un serveur qui rencontre des problèmes et filtrez tous les indicateurs de performance clés/flux en temps réel sur ce serveur uniquement.
 
-[![Vidéo sur les flux de métriques temps réel](./media/live-stream/youtube.png)](https://www.youtube.com/watch?v=zqfHf1Oi5PY)
+![Onglet Métriques temps réel](./media/live-stream/live-metric.png)
 
 Les métriques temps réel sont actuellement prises en charge pour les applications ASP.NET, ASP.NET Core, Azure Functions, Java et Node.js.
 
 ## <a name="get-started"></a>Bien démarrer
 
-1. Si vous n’avez pas encore [installé Application Insights](../../azure-monitor/azure-monitor-app-hub.yml) dans votre application web, faites-le maintenant.
+1. [Installez Application Insights](../../azure-monitor/azure-monitor-app-hub.yml) dans votre application.
 2. En plus des packages Application Insights standard, [Microsoft.ApplicationInsights.PerfCounterCollector](https://www.nuget.org/packages/Microsoft.ApplicationInsights.PerfCounterCollector/) est nécessaire pour activer le flux de métriques temps réel.
 3. **Mettez à jour vers la dernière version** du package Application Insights. Dans Visual Studio, cliquez avec le bouton droit sur votre projet et choisissez **Gérer les packages NuGet**. Ouvrez l’onglet **Mises à jour** et sélectionnez tous les packages Microsoft.ApplicationInsights.*.
 
@@ -51,7 +51,7 @@ Vérifiez que les [ports sortants pour le flux de métriques temps réel](../../
 |---|---|---|
 |Latence|Données affichées en une seconde|Agrégé sur plusieurs minutes|
 |Pas de conservation|Les données persistent tant qu’elles se trouvent sur le graphique puis elles sont abandonnées.|[Données conservées pendant 90 jours](../../azure-monitor/app/data-retention-privacy.md#how-long-is-the-data-kept)|
-|À la demande|Les données sont diffusées dès que vous ouvrez les métriques temps réel|Les données sont envoyées quand le SDK est installé et activé|
+|À la demande|Les données sont diffusées uniquement tant que le volet Métriques temps réel est ouvert |Les données sont envoyées quand le SDK est installé et activé|
 |Gratuit|Pas de facturation pour les données du flux temps réel|Soumis à [tarification](../../azure-monitor/app/pricing.md)
 |échantillonnage|Tous les compteurs et métriques sélectionnés sont transmis. Les échecs et les traces de pile sont échantillonnés. Les processeurs de télémétrie ne sont pas appliqués.|Les événements peuvent être [échantillonnés](../../azure-monitor/app/api-filtering-sampling.md)|
 |Canal de contrôle|Les signaux de contrôle de filtre sont envoyés au SDK. Nous vous recommandons de sécuriser ce canal.|La communication est unidirectionnelle vers le portail|
@@ -62,42 +62,48 @@ Vérifiez que les [ports sortants pour le flux de métriques temps réel](../../
 
 Vous pouvez surveiller un KPI personnalisé en temps réel en appliquant des filtres arbitraires sur les données de télémétrie Application Insights à partir du portail. Cliquez sur la commande de filtre qui s’affiche lorsque vous passez la souris sur un graphique. Le graphique suivant indique un KPI de nombre de demandes personnalisé avec des filtres sur les attributs d’URL et de durée. Vérifiez vos filtres grâce à la section Vue d’ensemble du flux qui affiche un flux en temps réel de télémétrie correspondant aux critères que vous avez spécifiés.
 
-![Indicateur de performance clé (KPI) de demande personnalisé](./media/live-stream/live-stream-filteredMetric.png)
+![Filtrer le taux de requêtes](./media/live-stream/filter-request.png)
 
 Vous pouvez surveiller une valeur autre qu’un nombre. Les options varient selon le type de flux, qui peut être n’importe quelle télémétrie Application Insights : demandes, dépendances, exceptions, suivis, événements ou métriques. Il peut s’agir d’une [mesure personnalisée](../../azure-monitor/app/api-custom-events-metrics.md#properties) :
 
-![Options de valeur](./media/live-stream/live-stream-valueoptions.png)
+![Générateur de requêtes sur le taux de demandes avec métrique personnalisée](./media/live-stream/query-builder-request.png)
 
 En plus des données de télémétrie Application Insights, vous pouvez également surveiller n’importe quel compteur de performances Windows en le sélectionnant dans les options de flux et en fournissant le nom du compteur de performances.
 
 Les métriques temps réel sont agrégées à deux endroits : localement sur chaque serveur, puis sur tous les serveurs. Vous pouvez modifier la valeur par défaut en sélectionnant d’autres options dans les listes déroulantes respectives.
 
 ## <a name="sample-telemetry-custom-live-diagnostic-events"></a>Exemple de télémétrie : Événements de diagnostic Azure personnalisés et en temps réel
-Par défaut, le flux d’événements temps réel présente des exemples de demandes ayant échoué et d’appels de dépendance, d’exceptions, d’événements et de suivis. Cliquez sur l’icône de filtre pour afficher les critères appliqués. 
+Par défaut, le flux d’événements temps réel présente des exemples de demandes ayant échoué et d’appels de dépendance, d’exceptions, d’événements et de suivis. Cliquez sur l’icône de filtre pour afficher les critères appliqués.
 
-![Flux temps réel par défaut](./media/live-stream/live-stream-eventsdefault.png)
+![Bouton Filtrer](./media/live-stream/filter.png)
 
-Comme avec les métriques, vous pouvez spécifier un critère arbitraire sur les types de données de télémétrie Application Insights. Dans cet exemple, nous sélectionnons des échecs de demande, des suivis et des événements spécifiques. Nous sélectionnons également toutes les exceptions et tous les échecs de dépendance.
+Comme avec les métriques, vous pouvez spécifier un critère arbitraire sur les types de données de télémétrie Application Insights. Dans cet exemple, nous sélectionnons des échecs de demande spécifiques et des événements.
 
-![Flux temps réel personnalisé](./media/live-stream/live-stream-events.png)
+![Générateur de requêtes](./media/live-stream/query-builder.png)
 
-Remarque : pour les critères basés sur un message d’exception, utilisez le message d’exception le plus à l’extérieur. Dans l’exemple précédent, pour éliminer l’exception sans gravité avec le message d’exception interne (après le délimiteur « <-- ») « Client déconnecté ». utilisez un critère de message ne contenant pas « Erreur de lecture du contenu de la demande ».
+> [!NOTE]
+> pour les critères basés sur un message d’exception, utilisez le message d’exception le plus à l’extérieur. Dans l’exemple précédent, pour éliminer l’exception sans gravité avec le message d’exception interne (après le délimiteur « <-- ») « Client déconnecté ». utilisez un critère de message ne contenant pas « Erreur de lecture du contenu de la demande ».
 
 Consultez les informations détaillées d’un élément dans le flux temps réel en cliquant dessus. Vous pouvez interrompre le flux en cliquant sur **Suspendre**, en faisant simplement défiler ou en cliquant sur un élément. Le flux temps réel reprend lorsque vous refaites défiler vers le haut, ou en cliquant sur le compteur d’éléments collectés alors qu’il était suspendu.
 
-![Échecs dynamiques échantillonnés](./media/live-stream/live-metrics-eventdetail.png)
+![Échecs dynamiques échantillonnés](./media/live-stream/sample-telemetry.png)
 
 ## <a name="filter-by-server-instance"></a>Filtrer par instance de serveur
 
-Si vous voulez surveiller une instance de rôle serveur spécifique, vous pouvez appliquer un filtre par serveur.
+Si vous voulez surveiller une instance de rôle serveur spécifique, vous pouvez appliquer un filtre par serveur. Pour filtrer, sélectionnez le nom du serveur sous *Serveurs*.
 
-![Échecs dynamiques échantillonnés](./media/live-stream/live-stream-filter.png)
+![Échecs dynamiques échantillonnés](./media/live-stream/filter-by-server.png)
 
 ## <a name="secure-the-control-channel"></a>Sécuriser le canal de contrôle
+
+> [!NOTE]
+> Actuellement, vous pouvez uniquement configurer un canal authentifié à l’aide de la supervision de base du code, et vous ne pouvez pas authentifier les serveurs à l’aide de l’attachement sans code.
+
 Les critères de filtres personnalisés que vous spécifiez sont renvoyés au composant de métriques temps réel dans le Kit de développement logiciel (SDK) Application Insights. Les filtres peuvent potentiellement contenir des informations sensibles telles que des ID clients. Vous pouvez sécuriser le canal avec une clé API secrète en plus de la clé d’instrumentation.
 ### <a name="create-an-api-key"></a>Création d’une clé API
 
-![Créer une clé API](./media/live-stream/live-metrics-apikeycreate.png)
+![Clé API > Créer une clé API](./media/live-stream/api-key.png)
+![onglet Créer une clé API. Sélectionnez « Authentifier le canal de contrôle du SDK », puis « Générer la clé »](./media/live-stream/create-api-key.png)
 
 ### <a name="add-api-key-to-configuration"></a>Ajout d’une clé API à la configuration
 

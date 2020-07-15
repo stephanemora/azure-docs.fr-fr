@@ -2,7 +2,7 @@
 title: Résoudre les problèmes de performances avec Intelligent Insights
 description: Intelligent Insights vous permet de résoudre les problèmes de performances liés à Azure SQL Database et Azure SQL Managed Instance.
 services: sql-database
-ms.service: sql-database
+ms.service: sql-db-mi
 ms.subservice: performance
 ms.custom: sqldbrb=2
 ms.devlang: ''
@@ -10,13 +10,13 @@ ms.topic: conceptual
 author: danimir
 ms.author: danil
 ms.reviewer: jrasnik, carlrab
-ms.date: 03/10/2020
-ms.openlocfilehash: 2008dd5e1e583a99756f62bc25f27e8f9832646e
-ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
+ms.date: 06/12/2020
+ms.openlocfilehash: 0fd391bfb7ed8944866b80acb31d76ea43c77912
+ms.sourcegitcommit: 93462ccb4dd178ec81115f50455fbad2fa1d79ce
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "84031910"
+ms.lasthandoff: 07/06/2020
+ms.locfileid: "85986383"
 ---
 # <a name="troubleshoot-azure-sql-database-and-azure-sql-managed-instance-performance-issues-with-intelligent-insights"></a>Résoudre les problèmes de performances liés à Azure SQL Database et Azure SQL Managed Instance avec Intelligent Insights
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
@@ -25,6 +25,8 @@ Cette page fournit des informations sur les problèmes de performances liés à 
 
 > [!NOTE]
 > Pour appréhender rapidement la résolution des problèmes de performances à l’aide d’Intelligent Insights, consultez l’organigramme [Flux de résolution des problèmes recommandé](intelligent-insights-troubleshoot-performance.md#recommended-troubleshooting-flow) dans le présent document.
+>
+> Intelligent Insights est une fonctionnalité en préversion qui n’est pas disponible dans les régions suivantes : Europe Ouest, Europe Nord, USA Ouest 1 et USA Est 1.
 
 ## <a name="detectable-database-performance-patterns"></a>Modèles de performances de base de données détectables
 
@@ -72,7 +74,7 @@ Le journal de diagnostic génère les codes de hachage des requêtes qui ont aff
 
 Si vous avez atteint les limites de sessions disponibles, vous pouvez optimiser vos applications en réduisant le nombre de connexions à la base de données. Si vous ne parvenez pas à réduire le nombre de connexions de vos applications à la base de données, augmentez éventuellement le niveau tarifaire de votre abonnement de base de données. Vous pouvez également fractionner et déplacer votre base de données vers plusieurs bases de données pour obtenir une distribution plus équilibrée de la charge de travail.
 
-Pour plus de suggestions sur la résolution des problèmes liés aux limites de sessions, consultez [Guide pratique pour traiter les limites de connexions maximales](https://blogs.technet.microsoft.com/latam/20../../how-to-deal-with-the-limits-of-azure-sql-database-maximum-logins/). Pour plus d’informations sur les limites au niveau du serveur et de l’abonnement, consultez [Vue d’ensemble des limites de ressources sur un serveur ](resource-limits-logical-server.md).
+Pour plus de suggestions sur la résolution des problèmes liés aux limites de sessions, consultez [Guide pratique pour traiter les limites de connexions maximales](https://blogs.technet.microsoft.com/latam/20../../how-to-deal-with-the-limits-of-azure-sql-database-maximum-logins/). Pour plus d'informations sur les limites au niveau du serveur et de l'abonnement, consultez [Vue d'ensemble des limites de ressources sur un serveur](resource-limits-logical-server.md).
 
 ## <a name="workload-increase"></a>Augmentation de la charge de travail
 
@@ -301,7 +303,7 @@ Ce modèle de performances détectables indique un problème côté client. Vous
 
 Vous pouvez optimiser les performances de votre application pour la consommation de ces requêtes. Vous pouvez également rechercher d’éventuels problèmes de latence réseau. Dans la mesure où le problème de détérioration des performances provient d’un changement de la base de référence des performances au cours des sept derniers jours, vous pouvez rechercher d’éventuelles modifications apportées récemment aux applications ou au réseau, et qui peuvent avoir déclenché cet événement de régression des performances.
 
-## <a name="pricing-tier-downgrade"></a>Passage à une version antérieure du niveau tarifaire
+## <a name="pricing-tier-downgrade"></a>Rétrogradation à un niveau tarifaire inférieur
 
 ### <a name="what-is-happening"></a>Ce qui se passe
 

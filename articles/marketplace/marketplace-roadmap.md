@@ -1,18 +1,18 @@
 ---
 title: Ressources sur les mises en production de la Place de marché commerciale Microsoft
 description: Découvrez les fonctionnalités nouvelles et à venir, les mises en production et autres mises à jour de la Place de marché commerciale.
-author: qianw211
-ms.author: dsindona
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
+author: vikrambmsft
+ms.author: vikramb
 ms.date: 05/19/2020
-ms.openlocfilehash: ae482a4c7b656a4bc84895501c49bf0a98517acc
-ms.sourcegitcommit: cf7caaf1e42f1420e1491e3616cc989d504f0902
+ms.openlocfilehash: 880b9027a3708dc283e43b813d3dabf2c9ffd401
+ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/22/2020
-ms.locfileid: "83800639"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86120804"
 ---
 # <a name="microsoft-commercial-marketplace-resources"></a>Ressources concernant la Place de marché commerciale Microsoft
 
@@ -28,9 +28,8 @@ Consultez les ressources suivantes pour plus d’informations sur les récentes 
 * [Analytique pour la place de marché commerciale dans l’Espace partenaires](./partner-center-portal/analytics.md)
 * [Blog de la Place de marché Microsoft Build](https://aka.ms/marketplacebuildblog)
 * [Blog sur les mises à jour de mai de la Place de marché](https://azure.microsoft.com/blog/microsoft-commercial-marketplace-updates-may-2019/)
-* Espace partenaire : [Créer un compte](https://docs.microsoft.com/azure/marketplace/partner-center-portal/create-account) / [Gérer un compte](https://docs.microsoft.com/azure/marketplace/partner-center-portal/manage-account) / [Migration à partir de CPP](https://docs.microsoft.com/azure/marketplace/partner-center-portal/account-migration-from-cpp-to-pc)
-* Espace partenaire : [Créer une offre SaaS](https://docs.microsoft.com/azure/marketplace/partner-center-portal/create-new-saas-offer) / [Publication d’état](https://docs.microsoft.com/azure/marketplace/partner-center-portal/publishing-status
-) / [Mettre à jour une offre existante](https://docs.microsoft.com/azure/marketplace/partner-center-portal/update-existing-offer) / [Offre Analytics](https://docs.microsoft.com/azure/marketplace/partner-center-portal/analytics)
-* [Obtenir un support technique pour la Place de marché dans l’Espace partenaires](https://docs.microsoft.com/azure/marketplace/partner-center-portal/support)
+* Espace partenaire : [Créer un compte](partner-center-portal/create-account.md) / [Gérer un compte](partner-center-portal/manage-account.md) / [Migration à partir de CPP](partner-center-portal/account-migration-from-cpp-to-pc.md)
+* Espace partenaire : [Créer une offre SaaS](partner-center-portal/create-new-saas-offer.md) / [Publication d’état](partner-center-portal/publishing-status.md)/[Mettre à jour une offre existante](partner-center-portal/update-existing-offer.md) / [Offre Analytics](partner-center-portal/analytics.md)
+* [Obtenir un support technique pour la Place de marché dans l’Espace partenaires](partner-center-portal/support.md)
 
 N’hésitez pas à nous faire part de vos suggestions. Rejoignez la conversation dans la [Communauté de partenaires Microsoft](https://www.microsoftpartnercommunity.com/) pour obtenir les dernières mises à jour sur les nouvelles fonctionnalités, les nouveaux programmes et les événements.

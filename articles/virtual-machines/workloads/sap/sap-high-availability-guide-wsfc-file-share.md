@@ -17,10 +17,10 @@ ms.date: 07/24/2019
 ms.author: radeltch
 ms.custom: H1Hack27Feb2017
 ms.openlocfilehash: 2df092d49f2dfe9153b52be677e8ee6314dd9b60
-ms.sourcegitcommit: 999ccaf74347605e32505cbcfd6121163560a4ae
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/08/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "82982970"
 ---
 # <a name="cluster-an-sap-ascsscs-instance-on-a-windows-failover-cluster-by-using-a-file-share-in-azure"></a>Mettre en cluster une instance SAP ASCS/SCS sur un cluster de basculement Windows à l’aide du partage de fichiers dans Azure
@@ -70,10 +70,10 @@ Voici les spécificités de cette architecture :
 
 * Les services centraux SAP (avec une structure de fichiers et des processus de messages et d’empilement propres) sont séparés des fichiers d’hôte global SAP.
 * Les services centraux SAP s’exécutent sous une instance SAP ASCS/SCS.
-* L’instance SAP ASCS/SCS est en cluster et est accessible à l’aide du nom d’hôte virtuel \<nom d’hôte virtuel ASCS/SCS\>.
-* Les fichiers globaux SAP sont placés sur le partage de fichiers SMB et sont accessibles à l’aide du nom d’hôte \<hôte global SAP\> : \\\\&lt;Hôte global SAP&gt;\sapmnt\\&lt;SID&gt;\SYS\..
+* L’instance SAP ASCS/SCS est en cluster et accessible à l’aide du nom d’hôte virtuel \<ASCS/SCS virtual host name\>.
+* Les fichiers globaux SAP sont placés sur le partage de fichiers SMB et accessibles à l’aide du nom d’hôte \<SAP global host\> : \\\\&lt;Hôte global SAP&gt;\sapmnt\\&lt;SID&gt;\SYS\..
 * L’instance SAP ASCS/SCS est installée sur un disque local sur les deux nœuds de cluster
-* Le nom de réseau \<nom d’hôte virtuel ASCS/SCS\> est différent de &lt;l’hôte global SAP&gt;.
+* Le nom réseau \<ASCS/SCS virtual host name\> est différent de &lt;SAP global host&gt;.
 
 ![Figure 2 : Architecture à haute disponibilité SAP ASCS/SCS avec partage de fichiers SMB][sap-ha-guide-figure-8004]
 
@@ -87,7 +87,7 @@ Conditions préalables pour un partage de fichiers SMB :
     * Les disques utilisés pour stocker des fichiers ne doivent pas constituer un point de défaillance unique.
     * Les temps d’arrêt de serveur ou de machine virtuelle n’entraînent pas de temps d’arrêt du partage de fichiers.
 
-Le rôle de cluster SAP \<SID\> ne contient aucun disque partagé de cluster et aucune ressource de cluster de partage de fichiers générique.
+Le rôle de cluster SAP \<SID\> ne contient aucun disque partagé de cluster ni aucune ressource de cluster générique de partage de fichiers.
 
 
 ![Figure 3 : Ressources du rôle de cluster SAP \<SID\> pour l’utilisation d’un partage de fichiers][sap-ha-guide-figure-8005]
@@ -137,11 +137,11 @@ Si vous souhaitez utiliser un partage de fichiers avec montée en puissance para
 * Pour obtenir de bonnes performances réseau entre les machines virtuelles (nécessaires pour la synchronisation des disques d’espaces de stockage direct), utilisez un type de machine virtuelle disposant au moins d’une bande passante réseau élevée.
     Pour plus d’informations, consultez les spécifications des [séries DSv2][dv2-series] et des [séries DS][ds-series].
 * Nous vous recommandons de réserver une capacité non allouée dans le pool de stockage. Vous laisserez ainsi aux volumes suffisamment d’espace pour effectuer une réparation « sur place » en cas d’échec d’un disque. Cette méthode améliore les performances et la sécurité des données.  Pour plus d’informations, consultez la rubrique [Choix de la taille des volumes][choosing-the-size-of-volumes-s2d].
-* Vous n’avez pas besoin de configurer l’équilibreur de charge interne Azure avec le nom réseau du partage de fichiers avec montée en puissance parallèle, comme pour \<l’hôte global SAP\>. Cette opération s’effectue pour le \<nom d’hôte virtuel ASCS/SCS\> de l’instance SAP ASCS/SCS ou pour le système de gestion de base de données (SGBD). Un partage de fichiers avec montée en puissance parallèle fait monter en charge l’ensemble des nœuds de cluster. \<L’hôte global SAP\> utilise l’adresse IP locale pour tous les nœuds de cluster.
+* Vous n’avez pas besoin de configurer l’équilibreur de charge interne Azure avec le nom réseau du partage de fichiers Scale-out, comme pour \<SAP global host\>. Cette opération s’effectue pour le \<ASCS/SCS virtual host name\> de l’instance SAP ASCS/SCS ou pour le système de gestion de base de données (SGBD). Un partage de fichiers avec montée en puissance parallèle fait monter en charge l’ensemble des nœuds de cluster. \<SAP global host\> utilise l’adresse IP locale pour tous les nœuds de cluster.
 
 
 > [!IMPORTANT]
-> Vous ne pouvez pas renommer le partage de fichiers SAPMNT, qui pointe vers \<l’hôte global SAP\>. SAP prend en charge uniquement le nom de partage « sapmnt ».
+> Vous ne pouvez pas renommer le partage de fichiers SAPMNT, qui pointe vers \<SAP global host\>. SAP prend en charge uniquement le nom de partage « sapmnt ».
 >
 > Pour plus d’informations, reportez-vous au document [SAP Note 2492395 - Can the share name sapmnt be changed?][2492395] (Note SAP n° 2492395 : Le nom de partage sapmnt peut-il être modifié ?).
 

@@ -11,12 +11,12 @@ author: anosov1960
 ms.author: sashan
 ms.reviewer: mathoma, carlrab
 ms.date: 03/12/2019
-ms.openlocfilehash: 415f76fc7c8b52a79bc864e61e1f85759e3f5d1f
-ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
+ms.openlocfilehash: 523fd3103585865a969f6463b3dc41fe362b9130
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "84028730"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84324714"
 ---
 # <a name="tutorial-implement-a-geo-distributed-database-azure-sql-database"></a>Tutoriel : Implémenter une base de données géo-distribuée (Azure SQL Database)
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -42,8 +42,8 @@ Pour suivre le tutoriel, vérifiez que les éléments suivants sont installés 
 
 - [Azure PowerShell](/powershell/azureps-cmdlets-docs)
 - Une base de données unique dans Azure SQL Database Pour en créer une :
-  - [Portail](single-database-create-quickstart.md)
-  - [INTERFACE DE LIGNE DE COMMANDE](az-cli-script-samples-content-guide.md)
+  - [Le portail Azure](single-database-create-quickstart.md)
+  - [L’interface de ligne de commande Microsoft Azure](az-cli-script-samples-content-guide.md)
   - [PowerShell](powershell-script-content-guide.md)
 
   > [!NOTE]
@@ -92,7 +92,7 @@ Get-AzSqlDatabase -ResourceGroupName $resourceGroup -ServerName $server -Databas
     Add-AzSqlDatabaseToFailoverGroup -ResourceGroupName $resourceGroup -ServerName $server -FailoverGroupName $failoverGroup
 ```
 
-# <a name="azure-cli"></a>[Azure CLI](#tab/azure-cli)
+# <a name="the-azure-cli"></a>[L’interface de ligne de commande Microsoft Azure](#tab/azure-cli)
 
 > [!IMPORTANT]
 > Exécutez `az login` pour vous connecter à Azure.
@@ -344,7 +344,7 @@ Pour tester un basculement :
     -ServerName $server -FailoverGroupName $failoverGroup
    ```
 
-# <a name="azure-cli"></a>[Azure CLI](#tab/azure-cli)
+# <a name="the-azure-cli"></a>[L’interface de ligne de commande Microsoft Azure](#tab/azure-cli)
 
 Vous pouvez vérifier le rôle du serveur de reprise d’activité pendant le test avec la commande suivante :
 
@@ -370,7 +370,7 @@ Pour tester un basculement :
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Dans ce tutoriel, vous avez configuré une instance d'Azure SQL Database et une application pour le basculement vers une région distante, puis testé votre plan de basculement. Vous avez appris à :
+Dans ce didacticiel, vous avez configuré une base de données dans Azure SQL Database et une application pour le basculement vers une région distante, puis testé votre plan de basculement. Vous avez appris à :
 
 > [!div class="checklist"]
 >
@@ -378,7 +378,7 @@ Dans ce tutoriel, vous avez configuré une instance d'Azure SQL Database et une 
 > - Exécuter une application Java pour interroger une base de données dans SQL Database
 > - Test de basculement
 
-Passez au tutoriel suivant pour apprendre à ajouter une instance d'Azure SQL Managed Instance à un groupe de basculement :
+Passez au didacticiel suivant pour apprendre à ajouter une instance d’Azure SQL Managed Instance à un groupe de basculement :
 
 > [!div class="nextstepaction"]
-> [Ajouter une instance d'Azure SQL Managed Instance à un groupe de basculement](../managed-instance/failover-group-add-instance-tutorial.md)
+> [Ajouter une instance d’Azure SQL Managed Instance à un groupe de basculement](../managed-instance/failover-group-add-instance-tutorial.md)

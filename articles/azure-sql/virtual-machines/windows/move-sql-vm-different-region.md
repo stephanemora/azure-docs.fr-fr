@@ -4,7 +4,6 @@ description: Découvrez comment vous pouvez migrer votre machine virtuelle SQL S
 services: virtual-machines-windows
 documentationcenter: na
 author: MashaMSFT
-manager: jroth
 tags: azure-resource-manager
 ms.assetid: aa5bf144-37a3-4781-892d-e0e300913d03
 ms.service: virtual-machines-sql
@@ -15,24 +14,24 @@ ms.date: 07/30/2019
 ms.author: mathoma
 ms.reviewer: jroth
 ms.custom: seo-lt-2019
-ms.openlocfilehash: bca7237b38c1164d14ccf796e18980ba326090ac
-ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
+ms.openlocfilehash: 37f098bc28ee89bdad9e5bde213e3c2a6847b0bf
+ms.sourcegitcommit: cec9676ec235ff798d2a5cad6ee45f98a421837b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "84027830"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85851809"
 ---
-# <a name="move-sql-server-vm-to-another-region-within-azure-with-azure-site-recovery-services"></a>Déplacer une machine virtuelle SQL Server vers une autre région dans Azure avec les services Azure Site Recovery
+# <a name="move-a-sql-server-vm-to-another-region-within-azure-with-azure-site-recovery"></a>Déplacer une machine virtuelle SQL Server vers une autre région au sein d’Azure à l’aide d’Azure Site Recovery
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
 
 Cet article explique comment utiliser Azure Site Recovery pour migrer votre machine virtuelle SQL Server d’une région à l’autre dans Azure. 
 
 Pour déplacer une machine virtuelle SQL Server vers une autre région, vous devez effectuer les opérations suivantes :
-1. [**Préparation**](#prepare-to-move) : Vérifiez que votre machine virtuelle SQL Server source et votre région cible sont correctement préparées pour le déplacement. 
-1. [**Configuration**](#configure-azure-site-recovery-vault) : Le déplacement de votre machine virtuelle SQL Server nécessite qu’elle soit un objet répliqué au sein du coffre Azure Site Recovery. Vous devez ajouter votre machine virtuelle SQL Server au coffre Azure Site Recovery. 
-1. [**Test**](#test-move-process) : La migration de la machine virtuelle SQL Server nécessite son basculement de la région source vers la région cible répliquée. Pour garantir la réussite du processus de déplacement, vous devez d’abord tester si votre machine virtuelle SQL Server peut basculer correctement vers la région cible. Ceci permet de faire apparaître les éventuels problèmes et de les éviter lors du déplacement réel. 
-1. [**Déplacement**](#move-the-sql-server-vm) : Une fois que le test de basculement a réussi et que vous savez que vous pouvez migrer sans problèmes votre machine virtuelle SQL Server, vous pouvez effectuer le déplacement de la machine virtuelle vers la région cible. 
-1. [**Nettoyage**](#clean-up-source-resources) : Pour éviter des coûts, supprimez la machine virtuelle SQL Server du coffre ainsi que les ressources non nécessaires laissées dans le groupe de ressources. 
+1. [Préparation](#prepare-to-move) : Vérifiez que votre machine virtuelle SQL Server source et votre région cible sont correctement préparées pour le déplacement. 
+1. [Configuration](#configure-azure-site-recovery-vault) : Le déplacement de votre machine virtuelle SQL Server nécessite qu’elle soit un objet répliqué au sein du coffre Azure Site Recovery. Vous devez ajouter votre machine virtuelle SQL Server au coffre Azure Site Recovery. 
+1. [Test](#test-move-process) : La migration de la machine virtuelle SQL Server nécessite son basculement de la région source vers la région cible répliquée. Pour garantir la réussite du processus de déplacement, vous devez d’abord tester si votre machine virtuelle SQL Server peut basculer correctement vers la région cible. Ceci permet de faire apparaître les éventuels problèmes et de les éviter lors du déplacement réel. 
+1. [Déplacement](#move-the-sql-server-vm) : Une fois que le test de basculement a réussi et que vous savez que vous pouvez migrer sans problèmes votre machine virtuelle SQL Server, vous pouvez effectuer le déplacement de la machine virtuelle vers la région cible. 
+1. [Nettoyage](#clean-up-source-resources) : Pour éviter des coûts, supprimez la machine virtuelle SQL Server du coffre ainsi que les ressources non nécessaires laissées dans le groupe de ressources. 
 
 ## <a name="verify-prerequisites"></a>Vérifier la configuration requise 
 
@@ -51,7 +50,7 @@ Préparez la machine virtuelle SQL Server source et la région cible pour le dé
 ### <a name="prepare-the-source-sql-server-vm"></a>Préparer la machine virtuelle SQL Server source
 
 - Vérifiez que tous les certificats racines les plus récents se trouvent sur la machine virtuelle SQL Server à déplacer. Si les certificats racines les plus récents ne sont pas présents, les contraintes de sécurité empêcheront la copie des données vers la région cible. 
-- Pour les machines virtuelles Windows, installez toutes les mises à jour de Windows les plus récentes afin que tous les certificats racines approuvés s’y trouvent. Dans un environnement déconnecté, suivez les processus standard de Windows Update et de mise à jour des certificats en vigueur au sein de votre organisation. 
+- Pour les machines virtuelles Windows, installez toutes les mises à jour de Windows les plus récentes afin que tous les certificats racines approuvés s’y trouvent. Dans un environnement déconnecté, suivez les processus standard de Windows Update et de mise à jour des certificats au sein de votre organisation. 
 - Pour des machines virtuelles Linux, suivez les instructions fournies par votre distributeur Linux pour obtenir les certificats racines approuvés les plus récents et la dernière liste de révocation de certificats sur la machine virtuelle. 
 - N’utilisez pas de proxy d’authentification pour contrôler la connectivité réseau pour les machines virtuelles que vous voulez déplacer. 
 - Si la machine virtuelle que vous voulez déplacer n’a pas d’accès à Internet, ou si elle utilise un proxy de pare-feu pour contrôler l’accès sortant, vérifiez la configuration requise. 
@@ -65,7 +64,7 @@ Préparez la machine virtuelle SQL Server source et la région cible pour le dé
     - Azure Site Recovery détecte et crée automatiquement un réseau virtuel quand vous activez la réplication pour la machine virtuelle source. Vous pouvez également créer au préalable un réseau et l’affecter à la machine virtuelle dans le flux de l’utilisateur pour activer la réplication. Vous devez créer manuellement les autres ressources dans la région cible.
 - Pour créer les ressources réseau courantes dont vous avez besoin, en fonction de la configuration de la machine virtuelle source, consultez la documentation suivante : 
     - [Groupes de sécurité réseau](../../../virtual-network/tutorial-filter-network-traffic.md) 
-    - [Équilibreur de charge](../../../load-balancer/tutorial-load-balancer-basic-internal-portal.md)
+    - [Équilibreur de charge](../../../load-balancer/tutorial-load-balancer-standard-internal-portal.md)
     - [Adresse IP publique](../../../virtual-network/virtual-network-public-ip-address.md)
     - Pour tous les autres composants réseau, consultez la [documentation sur les réseaux](../../../virtual-network/virtual-networks-overview.md).
 - Créez manuellement un réseau hors production dans la région cible si vous voulez tester la configuration avant d’effectuer le déplacement final vers la région cible. Nous recommandons cette étape car elle garantit une interférence minimale avec le réseau de production. 
@@ -127,7 +126,7 @@ Les étapes suivantes vous montrent comment déplacer la machine virtuelle SQL S
    ![Lancer le basculement](./media/move-sql-vm-different-region/initiate-failover.png)
 
 1. Sélectionnez le point de récupération **Dernier point de cohérence des applications** sous **Point de récupération**. 
-1. Cochez la case en regard de **Arrêter la machine avant de commencer le basculement**. Site Recovery tente d’arrêter la machine virtuelle source avant de déclencher le basculement. Le basculement continue même en cas d’échec de l’arrêt. 
+1. Cochez la case de l’option **Arrêter la machine avant de commencer le basculement**. Site Recovery tente d’arrêter la machine virtuelle source avant de déclencher le basculement. Le basculement continue même en cas d’échec de l’arrêt. 
 1. Sélectionnez **OK** pour démarrer le basculement.
 1. Vous pouvez superviser le processus de basculement à partir de la même page **Travaux Site Recovery** que celle que vous avez consultée lors de la supervision du test de basculement dans la section précédente. 
 1. Une fois le travail terminé, vérifiez que la machine virtuelle SQL Server apparaît bien dans la région cible comme prévu. 

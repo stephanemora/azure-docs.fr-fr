@@ -4,19 +4,19 @@ description: Liste des services qui prennent en charge les identités managées 
 services: active-directory
 author: MarkusVi
 ms.author: markvi
-ms.date: 05/12/2020
+ms.date: 06/11/2020
 ms.topic: conceptual
 ms.service: active-directory
 ms.subservice: msi
 manager: markvi
 ms.collection: M365-identity-device-management
 ms.custom: references_regions
-ms.openlocfilehash: 46a0e258e092beab7b0e96727d5aff95e814cb5b
-ms.sourcegitcommit: 223cea58a527270fe60f5e2235f4146aea27af32
+ms.openlocfilehash: 0dc8b77f75cffdd0b2017d8a9b0f7c168fb796cb
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/01/2020
-ms.locfileid: "84259182"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85193768"
 ---
 # <a name="services-that-support-managed-identities-for-azure-resources"></a>Services Azure qui prennent en charge les identités managées pour ressources Azure
 
@@ -56,6 +56,14 @@ Reportez-vous à la liste suivante pour configurer l'identité managée d'Azure 
 - [Azure PowerShell](/azure/app-service/overview-managed-identity#using-azure-powershell)
 - [Modèle Azure Resource Manager](/azure/app-service/overview-managed-identity#using-an-azure-resource-manager-template)
 
+### <a name="azure-arc-enabled-kubernetes"></a>Kubernetes avec Azure Arc
+
+| Type d'identité managée | Toutes mises à la disposition générale<br>Régions Azure à l'échelle internationale | Azure Government | Azure Germany | Azure China 21Vianet |
+| --- | :-: | :-: | :-: | :-: |
+| Attribuée par le système | PRÉVERSION | Non disponible | Non disponible | Non disponible | 
+| Attribuée par l'utilisateur | Non disponible | Non disponible | Non disponible | Non disponible |
+
+Kubernetes avec Azure Arc [prend actuellement en charge l’identité attribuée par le système](https://docs.microsoft.com/azure/azure-arc/kubernetes/connect-cluster#azure-arc-agents-for-kubernetes). Le certificat d’identité de service managée est utilisé par tous les agents Kubernetes avec Azure Arc pour la communication avec Azure.
 
 ### <a name="azure-blueprints"></a>Azure Blueprints
 
@@ -68,6 +76,14 @@ Reportez-vous à la liste suivante pour utiliser une identité managée avec [Az
 
 - [Portail Azure : attribution de blueprint](../../governance/blueprints/create-blueprint-portal.md#assign-a-blueprint)
 - [API REST : attribution de blueprint](../../governance/blueprints/create-blueprint-rest-api.md#assign-a-blueprint)
+
+
+### <a name="azure-cognitive-search"></a>Recherche cognitive Azure
+
+Type d'identité managée | Toutes mises à la disposition générale<br>Régions Azure à l'échelle internationale | Azure Government | Azure Germany | Azure China 21Vianet |
+| --- | :-: | :-: | :-: | :-: |
+| Attribuée par le système | ![Disponible][check] | ![Disponible][check] | Non disponible | ![Disponible][check] |
+| Attribuée par l'utilisateur | Non disponible | Non disponible | Non disponible | Non disponible |
 
 
 ### <a name="azure-container-instances"></a>Azure Container Instances
@@ -95,6 +111,12 @@ Reportez-vous à la liste suivante pour configurer une identité managée pour A
 
 - [Azure CLI](~/articles/container-registry/container-registry-tasks-authentication-managed-identity.md)
 
+### <a name="azure-data-explorer"></a>Explorateur de données Azure
+
+Type d'identité managée | Toutes mises à la disposition générale<br>Régions Azure à l'échelle internationale | Azure Government | Azure Germany | Azure China 21Vianet |
+| --- | :-: | :-: | :-: | :-: |
+| Attribuée par le système | ![Disponible][check] | ![Disponible][check] | Non disponible | ![Disponible][check] |
+| Attribuée par l'utilisateur | Non disponible | Non disponible | Non disponible | Non disponible |
 
 ### <a name="azure-data-factory-v2"></a>Azure Data Factory V2
 
@@ -109,6 +131,22 @@ Reportez-vous à la liste suivante pour configurer l'identité managée du servi
 - [PowerShell](~/articles/data-factory/data-factory-service-identity.md#generate-managed-identity-using-powershell)
 - [REST](~/articles/data-factory/data-factory-service-identity.md#generate-managed-identity-using-rest-api)
 - [Kit SDK](~/articles/data-factory/data-factory-service-identity.md#generate-managed-identity-using-sdk)
+
+
+
+### <a name="azure-event-grid"></a>Azure Event Grid 
+
+Type d'identité managée |Toutes mises à la disposition générale<br>Régions Azure à l'échelle internationale | Azure Government | Azure Germany | Azure China 21Vianet |
+| --- | :-: | :-: | :-: | :-: |
+| Attribuée par le système | PRÉVERSION | Non disponible | Non disponible | Non disponible |
+| Attribuée par l'utilisateur | Non disponible | Non disponible  | Non disponible  | Non disponible |
+
+
+
+
+
+
+
 
 
 ### <a name="azure-functions"></a>Azure Functions
@@ -168,6 +206,22 @@ Reportez-vous à la liste suivante pour configurer l'identité managée du servi
 - [Modèle Azure Resource Manager](https://docs.microsoft.com/azure/logic-apps/logic-apps-azure-resource-manager-templates-overview)
 
 
+### <a name="azure-policy"></a>Azure Policy
+
+|Type d'identité managée | Toutes mises à la disposition générale<br>Régions Azure à l'échelle internationale | Azure Government | Azure Germany | Azure China 21Vianet |
+| --- | :-: | :-: | :-: | :-: |
+| Attribuée par le système | ![Disponible][check] | ![Disponible][check] | ![Disponible][check] | ![Disponible][check] |
+| Attribuée par l'utilisateur | Non disponible | Non disponible | Non disponible | Non disponible |
+
+Reportez-vous à la liste suivante pour configurer l’identité managée du service Azure Policy (dans les régions où il est disponible) :
+
+- [Azure portal](../../governance/policy/tutorials/create-and-manage.md#assign-a-policy)
+- [PowerShell](../../governance/policy/how-to/remediate-resources.md#create-managed-identity-with-powershell)
+- [Azure CLI](https://docs.microsoft.com/cli/azure/policy/assignment?view=azure-cli-latest#az-policy-assignment-create)
+- [Modèles Microsoft Azure Resource Manager](https://docs.microsoft.com/azure/templates/microsoft.authorization/policyassignments)
+- [REST](https://docs.microsoft.com/rest/api/resources/policyassignments/create)
+
+
 ### <a name="azure-service-fabric"></a>Azure Service Fabric
 
 La fonctionnalité [Identité managée pour les applications Service Fabric](https://docs.microsoft.com/azure/service-fabric/concepts-managed-identity) est disponible en préversion et disponible dans toutes les régions.
@@ -181,6 +235,15 @@ Reportez-vous à la liste suivante pour configurer l’identité managée pour l
 
 - [Modèle Azure Resource Manager](https://github.com/Azure-Samples/service-fabric-managed-identity/tree/anmenard-docs)
 
+### <a name="azure-spring-cloud"></a>Azure Spring Cloud
+
+| Type d'identité managée | Toutes mises à la disposition générale<br>Régions Azure à l'échelle internationale | Azure Government | Azure Germany | Azure China 21Vianet |
+| --- | :-: | :-: | :-: | :-: |
+| Attribuée par le système | ![Disponible][check] | Non disponible | Non disponible | Non disponible | 
+| Attribuée par l'utilisateur | Non disponible | Non disponible | Non disponible | Non disponible |
+
+
+Pour plus d’informations, consultez [Activer une identité managée affectée par le système pour une application Azure Spring Cloud](~/articles/spring-cloud/spring-cloud-howto-enable-system-assigned-managed-identity.md).
 
 
 ### <a name="azure-virtual-machine-scale-sets"></a>Groupes de machines virtuelles identiques Azure
@@ -216,7 +279,24 @@ Reportez-vous à la liste suivante pour configurer l'identité managée des mach
 - [REST](qs-configure-rest-vm.md)
 
 
+### <a name="azure-vm-image-builder"></a>Azure VM Image Builder
 
+| Type d'identité managée | Toutes mises à la disposition générale<br>Régions Azure à l'échelle internationale | Azure Government | Azure Germany | Azure China 21Vianet |
+| --- | :-: | :-: | :-: | :-: |
+| Attribuée par le système | Non disponible | Non disponible | Non disponible | Non disponible | 
+| Attribuée par l'utilisateur | [Disponible dans les régions prises en charge](https://docs.microsoft.com/azure/virtual-machines/windows/image-builder-overview#regions) | Non disponible | Non disponible | Non disponible |
+
+Pour savoir comment configurer l’identité managée pour Azure VM Image Builder (dans les régions où le service est disponible), consultez la [présentation d’Image Builder](https://docs.microsoft.com/azure/virtual-machines/windows/image-builder-overview#permissions).
+### <a name="azure-signalr-service"></a>Service Azure SignalR
+
+Type d'identité managée | Toutes mises à la disposition générale<br>Régions Azure à l'échelle internationale | Azure Government | Azure Germany | Azure China 21Vianet |
+| --- | :-: | :-: | :-: | :-: |
+| Attribuée par le système | PRÉVERSION | PRÉVERSION | Non disponible | PRÉVERSION |
+| Attribuée par l'utilisateur | PRÉVERSION | PRÉVERSION | Non disponible | PRÉVERSION |
+
+Reportez-vous à la liste suivante pour configurer l’identité managée d’Azure SignalR Service (dans les régions où il est disponible) :
+
+- [Modèle Azure Resource Manager](../../azure-signalr/howto-use-managed-identity.md)
 
 ## <a name="azure-services-that-support-azure-ad-authentication"></a>Services Azure qui prennent en charge l’authentification Azure AD
 

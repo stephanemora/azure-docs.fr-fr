@@ -6,12 +6,12 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 03/10/2020
 ms.author: mjbrown
-ms.openlocfilehash: 8a0ef4c5abcd4c4137a878adf6a7fff9e80c2764
-ms.sourcegitcommit: 530e2d56fc3b91c520d3714a7fe4e8e0b75480c8
+ms.openlocfilehash: a0c8b984801a0db2af648b0711d95de34bc9386f
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/14/2020
-ms.locfileid: "81273509"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85114807"
 ---
 # <a name="security-in-azure-cosmos-db---overview"></a>Indexation dans Azure Cosmos DB - Vue d’ensemble
 
@@ -25,7 +25,7 @@ Le chiffrement au repos est désormais disponible pour les documents et les sauv
 
 La sécurité des données est une responsabilité partagée entre vous, le client et le fournisseur de votre base de données. Selon le fournisseur de base de données que vous choisissez, la part de votre responsabilité peut varier. Si vous choisissez une solution locale, vous devez fournir tous les éléments de la protection de point de terminaison à la sécurité physique de votre matériel, ce qui n’est pas une tâche facile. Si vous choisissez un fournisseur de base de données cloud PaaS comme Azure Cosmos DB, vous réduisez considérablement votre niveau d’inquiétude. L’image suivante, tirée du livre blanc Microsoft [Shared Responsibilities for Cloud Computing](https://gallery.technet.microsoft.com/Shared-Responsibilities-81d0ff91) (Responsabilités partagées en matière de cloud computing), montre en quoi votre responsabilité diminue en faisant appel à un fournisseur PaaS tel qu’Azure Cosmos DB.
 
-![Responsabilités du client et du fournisseur de base de données](./media/database-security/nosql-database-security-responsibilities.png)
+:::image type="content" source="./media/database-security/nosql-database-security-responsibilities.png" alt-text="Responsabilités du client et du fournisseur de base de données":::
 
 Le diagramme précédent présente les composants de sécurité cloud de haut niveau. Quels sont ceux auxquels vous devez être particulièrement attentif pour votre solution de base de données ? Et comment comparer les solutions entre elles ?
 
@@ -79,7 +79,7 @@ Examinons à présent chacune d’entre elles en détail.
 |Comptes administratifs avec des mots de passe forts|Il est difficile de croire que nous devions encore mentionner cette exigence, mais contrairement à certains de nos concurrents, il est impossible d’avoir un compte d’administrateur sans mot de passe dans Azure Cosmos DB.<br><br> La sécurité via TLS et l’authentification basée sur un secret HMAC sont intégrées par défaut.|
 |Certifications de sécurité et de protection des données| Pour obtenir la toute dernière liste de certifications, consultez le [site de conformité Azure](https://www.microsoft.com/en-us/trustcenter/compliance/complianceofferings) général, ainsi que le [document dédié à la conformité Azure](https://gallery.technet.microsoft.com/Overview-of-Azure-c1be3942) le plus récent, contenant toutes les certifications (recherchez Cosmos). Pour obtenir des informations plus ciblées, lisez l’article intitulé [Azure #CosmosDB: Secure, private, compliant] du 25 avril 2018 qui traite des normes SOCS 1/2 Type 2, HITRUST, PCI DSS niveau 1, ISO 27001, HIPAA, FedRAMP High et de nombreuses autres certifications.
 
-La capture d’écran suivante montre comment utiliser l’enregistrement d’audit et les journaux d’activité pour surveiller votre compte : ![Journaux d’activité pour Azure Cosmos DB](./media/database-security/nosql-database-security-application-logging.png)
+La capture d’écran suivante montre comment utiliser l’enregistrement d’audit et les journaux d’activité pour surveiller votre compte : :::image type="content" source="./media/database-security/nosql-database-security-application-logging.png" alt-text="Journaux d’activité pour Azure Cosmos DB":::
 
 ## <a name="next-steps"></a>Étapes suivantes
 

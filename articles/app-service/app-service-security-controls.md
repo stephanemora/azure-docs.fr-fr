@@ -1,16 +1,16 @@
 ---
-title: Contrôles de sécurité
+title: Contrôles de sécurité pour Azure App Service
 description: Trouvez une check-list de contrôles de sécurité pour évaluer Azure App Service pour votre organisation.
 author: msmbaldwin
 ms.topic: conceptual
 ms.date: 09/04/2019
 ms.author: mbaldwin
-ms.openlocfilehash: 2586821c4c48f809efb5408c3cdae5e42e3b3fcf
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 9b0c336d9d9c463a7ed7acf42eaf292ecce4f1bb
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "74671448"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85831146"
 ---
 # <a name="security-controls-for-azure-app-service"></a>Contrôles de sécurité pour Azure App Service
 
@@ -39,8 +39,8 @@ Cet article décrit les contrôles de sécurité intégrés à Azure App Service
 
 | Contrôle de sécurité | Oui/Non | Notes |  Documentation
 |---|---|--|
-| Authentification| Oui | Les clients peuvent générer des applications sur App Service qui s’intègrent automatiquement à [Azure Active Directory (Azure AD)](../active-directory/index.yml), ainsi qu’à d’autres fournisseurs d’identité compatibles avec OAuth. Pour un accès en gestion aux ressources App Service, tous les accès sont contrôlés par une combinaison de principaux authentifiés par Azure AD et de rôles RBAC d’Azure Resource Manager. | [Authentification et autorisation dans Azure App Service](overview-authentication-authorization.md)
-| Autorisation| Oui | Pour la gestion de l’accès aux ressources App Service, tous les accès sont contrôlés par une combinaison de principaux authentifiés par Azure AD et de rôles RBAC d’Azure Resource Manager.  | [Authentification et autorisation dans Azure App Service](overview-authentication-authorization.md)
+| Authentification| Oui | Les clients peuvent générer des applications sur App Service qui s’intègrent automatiquement à [Azure Active Directory (Azure AD)](../active-directory/index.yml), ainsi qu’à d’autres fournisseurs d’identité compatibles avec OAuth. Pour un accès en gestion aux ressources App Service, tous les accès sont contrôlés par une combinaison de principaux authentifiés par Azure AD et de rôles RBAC Azure. | [Authentification et autorisation dans Azure App Service](overview-authentication-authorization.md)
+| Autorisation| Oui | Pour la gestion de l’accès aux ressources App Service, tous les accès sont contrôlés par une combinaison de principaux authentifiés par Azure AD et de rôles RBAC Azure.  | [Authentification et autorisation dans Azure App Service](overview-authentication-authorization.md)
 
 ## <a name="data-protection"></a>Protection de données
 

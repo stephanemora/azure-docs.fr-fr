@@ -3,12 +3,12 @@ title: Résolution des erreurs courantes
 description: Découvrez comment résoudre les problèmes liés à la création de définitions de stratégie, aux divers Kits de développement logiciel (SDK) et au module complémentaire pour Kubernetes.
 ms.date: 05/22/2020
 ms.topic: troubleshooting
-ms.openlocfilehash: b1cb8ab51ecc00610f1e04532ba3063be5415607
-ms.sourcegitcommit: f1132db5c8ad5a0f2193d751e341e1cd31989854
+ms.openlocfilehash: 6d23a148521506adf0c0fc16913a32aab5eb7a30
+ms.sourcegitcommit: e995f770a0182a93c4e664e60c025e5ba66d6a45
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/31/2020
-ms.locfileid: "84234184"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86135565"
 ---
 # <a name="troubleshoot-errors-using-azure-policy"></a>Résoudre les erreurs à l’aide d’Azure Policy
 
@@ -28,7 +28,7 @@ L’emplacement des détails de l’erreur dépend de l’action à l’origine 
 
 #### <a name="issue"></a>Problème
 
-Azure Policy utilise des [alias](../concepts/definition-structure.md#aliases) à mapper aux propriétés Resource Manager.
+Azure Policy utilise des [alias](../concepts/definition-structure.md#aliases) à mapper aux propriétés Azure Resource Manager.
 
 #### <a name="cause"></a>Cause
 
@@ -95,7 +95,7 @@ Une attribution de stratégie sur l’étendue de la ressource nouvelle ou mise 
 
 #### <a name="resolution"></a>Résolution
 
-Le message d’erreur d’une attribution de stratégie de refus comprend la définition de stratégie et les ID d’attribution de la stratégie. Si vous avez besoin de retrouver les informations d’erreur indiquées dans le message, elles sont également disponibles dans le [journal d’activité](../../../azure-monitor/platform/activity-log-view.md). Utilisez ces informations pour obtenir plus de détails afin de comprendre les restrictions relatives aux ressources et d’ajuster les propriétés de ressource dans votre demande pour qu’elles correspondent aux valeurs autorisées.
+Le message d’erreur d’une attribution de stratégie de refus comprend la définition de stratégie et les ID d’attribution de la stratégie. Si vous avez besoin de retrouver les informations d’erreur indiquées dans le message, elles sont également disponibles dans le [journal d’activité](../../../azure-monitor/platform/activity-log.md#view-the-activity-log). Utilisez ces informations pour obtenir plus de détails afin de comprendre les restrictions relatives aux ressources et d’ajuster les propriétés de ressource dans votre demande pour qu’elles correspondent aux valeurs autorisées.
 
 ## <a name="template-errors"></a>Erreurs de modèle
 
@@ -103,7 +103,7 @@ Le message d’erreur d’une attribution de stratégie de refus comprend la dé
 
 #### <a name="issue"></a>Problème
 
-Azure Policy prend en charge un certain nombre de fonctions de modèle Resource Manager et de fonctions qui sont uniquement disponibles dans une définition de stratégie. Resource Manager traite ces fonctions dans le cadre d’un déploiement plutôt que dans le cadre d’une définition de stratégie.
+Azure Policy prend en charge un certain nombre de fonctions de modèle Azure Resource Manager (modèle ARM) et de fonctions qui sont uniquement disponibles dans une définition de stratégie. Resource Manager traite ces fonctions dans le cadre d’un déploiement plutôt que dans le cadre d’une définition de stratégie.
 
 #### <a name="cause"></a>Cause
 
@@ -152,6 +152,6 @@ Suivez les instructions pour [supprimer la stratégie Azure pour le module compl
 
 Si votre problème ne figure pas dans cet article ou si vous ne parvenez pas à le résoudre, utilisez un des canaux suivants pour obtenir de l’aide :
 
-- Obtenez des réponses d’experts par le biais de [Microsoft Q&A](https://docs.microsoft.com/answers/topics/azure-policy.html).
+- Obtenez des réponses d’experts par le biais de [Microsoft Q&A](/answers/topics/azure-policy.html).
 - Connectez-vous avec [@AzureSupport](https://twitter.com/azuresupport), qui est le compte Microsoft Azure officiel pour améliorer l’expérience client en connectant la communauté Azure aux ressources appropriées : réponses, support technique et experts.
 - Si vous avez besoin de plus d’aide, vous pouvez signaler un incident au support Azure. Accédez au [site du support Azure](https://azure.microsoft.com/support/options/) , puis cliquez sur **Obtenir un support**.

@@ -12,21 +12,20 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 04/07/2020
 ms.author: memildin
-ms.openlocfilehash: a741fb76827327c1231890d71ee1da79e052ed50
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: d394f0bb72f353e65c48a564fa7187364eae8121
+ms.sourcegitcommit: f684589322633f1a0fafb627a03498b148b0d521
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82232408"
+ms.lasthandoff: 07/06/2020
+ms.locfileid: "85970805"
 ---
 # <a name="microsoft-defender-advanced-threat-protection-with-azure-security-center"></a>Microsoft Defender Advanced Threat Protection avec Azure Security Center
 
-Azure Security Center étend son offre de plateformes de protection de charge de travail cloud en s’intégrant à [Microsoft Defender Advanced Threat Protection](https://www.microsoft.com/microsoft-365/windows/microsoft-defender-atp) (ATP).
-Cette modification apporte des fonctionnalités complètes de détection du point de terminaison et de réponse (EDR). L’intégration de Microsoft Defender ATP vous permet de repérer les anomalies. Vous pouvez également détecter les attaques avancées sur les points de terminaison de serveur surveillés par Azure Security Center et y répondre.
+Azure Security Center s’intègre à [Microsoft Defender ATP (Advanced Threat Protection)](https://www.microsoft.com/microsoft-365/windows/microsoft-defender-atp) pour fournir des fonctionnalités complètes de détection de point de terminaison et réponse (EDR, Endpoint Detection and Response).
 
 ## <a name="microsoft-defender-atp-features-in-security-center"></a>Fonctionnalités de Microsoft Defender ATP dans Security Center
 
-Quand vous utilisez Microsoft Defender ATP, vous disposez des fonctionnalités suivantes :
+Microsoft Defender ATP fournit les éléments suivants :
 
 - **Capteurs de détection des violations avancés** : les capteurs Microsoft Defender ATP pour serveurs Windows collectent un large éventail de signaux comportementaux.
 
@@ -34,22 +33,27 @@ Quand vous utilisez Microsoft Defender ATP, vous disposez des fonctionnalités s
 
 - **Informations sur les menaces** : Microsoft Defender ATP génère des alertes quand il identifie les outils, les techniques et les procédures de l’attaquant. Il utilise les données générées par les chasseurs de menaces de Microsoft et les équipes de sécurité, complétées par les renseignements fournis par les partenaires.
 
-Les fonctionnalités suivantes sont maintenant disponibles dans Azure Security Center :
 
-- **Intégration automatisée** : Le capteur Microsoft Defender ATP est automatiquement activé pour les serveurs Windows intégrés à Azure Security Center (à l’exception de ceux qui exécutent Windows Server 2019).
+L’intégration de Defender ATP à Azure Security Center vous permet également de bénéficier des fonctionnalités supplémentaires suivantes :
 
-- **Volet unique** : la console Azure Security Center affiche des alertes Microsoft Defender ATP.
+- **Intégration automatisée** : L’intégration active automatiquement le capteur Microsoft Defender ATP pour les serveurs Windows supervisés par Azure Security Center (à moins qu’ils n’exécutent Windows Server 2019).
 
-Pour approfondir vos recherches, utilisez Microsoft Defender ATP. Microsoft Defender ATP fournit des informations supplémentaires telles que l’arborescence des processus d’alerte et le graphe d’incident. Vous pouvez également voir une chronologie détaillée de la machine, qui indique tous les comportements pour un historique pouvant s’étendre sur six mois.
+- **Volet unique** : la console Azure Security Center affiche des alertes Microsoft Defender ATP. Pour approfondir vos recherches, utilisez Microsoft Defender ATP. Microsoft Defender ATP fournit des informations supplémentaires telles que l’arborescence des processus d’alerte et le graphe d’incident. Vous pouvez également voir une chronologie détaillée de la machine, qui indique tous les comportements pour un historique pouvant s’étendre sur six mois.
 
-![Page Microsoft Defender ATP avec des informations détaillées sur une alerte](media/security-center-wdatp/image3.png)
+    ![Page Microsoft Defender ATP avec des informations détaillées sur une alerte](media/security-center-wdatp/image3.png)
 
 ## <a name="platform-support"></a>Plateforme prise en charge
 
-Microsoft Defender ATP dans Security Center prend en charge la détection sur Windows Server 2016, 2012 R2 et 2008 R2 SP1. Pour les machines virtuelles Azure, vous avez besoin d’un abonnement de niveau standard ; pour les autres, il vous faut un niveau standard pour l’espace de travail uniquement.
+Microsoft Defender ATP dans Security Center prend en charge la détection sur Windows Server 2016, 2012 R2 et 2008 R2 SP1. Pour les machines virtuelles Azure, vous avez besoin d’un abonnement de niveau standard, et pour les machines virtuelles non Azure, vous avez besoin seulement du niveau standard au niveau de l’espace de travail.
 
-> [!NOTE]
-> Quand vous utilisez Azure Security Center pour superviser les serveurs, un locataire Microsoft Defender ATP est automatiquement créé et les données Microsoft Defender ATP sont stockées dans la région Europe par défaut. Si vous avez besoin de déplacer des données vers un autre emplacement, vous devez contacter le Support Microsoft pour réinitialiser le locataire. La supervision des points de terminaison de serveur qui utilise cette intégration a été désactivée pour les clients Office 365 GCC.
+La supervision des points de terminaison de serveur qui utilise cette intégration a été désactivée pour les clients Office 365 GCC.
+
+## <a name="data-storage-location"></a>Emplacement de stockage des données
+
+Quand vous utilisez Azure Security Center pour superviser des serveurs, un locataire Microsoft Defender ATP est créé automatiquement. Les données collectées par Microsoft Defender ATP sont stockées dans la zone géographique du locataire tel qu’il est identifié lors du provisionnement. Les données des clients sous une forme pseudonymisée peuvent également être stockées dans des systèmes de stockage et de traitement centralisés aux États-Unis. 
+
+Une fois qu’il est configuré, vous ne pouvez pas changer l’emplacement de stockage de vos données. Si vous avez besoin de déplacer des données vers un autre emplacement, contactez le Support Microsoft pour réinitialiser le locataire.
+
 
 ## <a name="onboarding-servers-to-security-center"></a>Intégration de serveurs à Security Center 
 
@@ -81,11 +85,9 @@ Vous pouvez voir ici les intégrations actuellement activées.
 
 ## <a name="access-to-the-microsoft-defender-atp-portal"></a>Accéder au portail Microsoft Defender ATP
 
-Suivez les instructions données dans [Attribuer l’accès utilisateur au portail](https://docs.microsoft.com/windows/security/threat-protection/microsoft-defender-atp/assign-portal-access).
+1. Suivez les instructions données dans [Attribuer l’accès utilisateur au portail](https://docs.microsoft.com/windows/security/threat-protection/microsoft-defender-atp/assign-portal-access).
 
-## <a name="set-the-firewall-configuration"></a>Définir la configuration du pare-feu
-
-Si vous avez un proxy ou un pare-feu qui bloque le trafic anonyme, comme un capteur Microsoft Defender ATP se connecte à partir du contexte système, vérifiez que le trafic anonyme est autorisé. Suivez les instructions mentionnées dans [Activer l’accès aux URL du service Microsoft Defender ATP dans le serveur proxy](https://docs.microsoft.com/windows/security/threat-protection/microsoft-defender-atp/configure-proxy-internet#enable-access-to-microsoft-defender-atp-service-urls-in-the-proxy-server).
+1. Vérifiez si vous avez un proxy ou un pare-feu qui bloque le trafic anonyme. Le capteur Defender ATP se connecte à partir du contexte système, de sorte que le trafic anonyme doit être autorisé. Pour garantir un accès sans entraves au portail Microsoft Defender ATP, suivez les instructions mentionnées dans [Activer l’accès aux URL du service Microsoft Defender ATP dans le serveur proxy](https://docs.microsoft.com/windows/security/threat-protection/microsoft-defender-atp/configure-proxy-internet#enable-access-to-microsoft-defender-atp-service-urls-in-the-proxy-server).
 
 ## <a name="test-the-feature"></a>Tester la fonctionnalité
 

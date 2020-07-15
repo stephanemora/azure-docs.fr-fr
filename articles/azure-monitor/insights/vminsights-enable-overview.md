@@ -5,23 +5,29 @@ ms.subservice: ''
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
-ms.date: 05/28/2020
-ms.openlocfilehash: 3c9c5e69eea72b20da485ffb1edf806f2c9f3b41
-ms.sourcegitcommit: 1f48ad3c83467a6ffac4e23093ef288fea592eb5
+ms.date: 06/25/2020
+ms.openlocfilehash: 261e5f17e787fd96697b06a9b338e74ea0409454
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/29/2020
-ms.locfileid: "84195312"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85507073"
 ---
 # <a name="enable-azure-monitor-for-vms-overview"></a>Vue d’ensemble de l’activation d’Azure Monitor pour machines virtuelles
 
-Cet article fournit une vue d’ensemble des options disponibles permettant d’activer Azure Monitor pour machines virtuelles sur vos machines virtuelles afin d’en surveiller l’intégrité et les performances. Découvrez les dépendances d’application qui s’exécutent sur des machines virtuelles et des groupes de machines virtuelles identiques Azure, des machines virtuelles locales ou des machines virtuelles hébergées dans un autre environnement cloud.  
+Cet article fournit une vue d’ensemble des options disponibles pour activer Azure Monitor pour machines virtuelles afin de superviser l’intégrité et les performances des éléments suivants :
+
+- Machines virtuelles Azure 
+- Groupes de machines virtuelles identiques Azure
+- Machines virtuelles hybrides connectées avec Azure Arc
+- Machines virtuelles locales
+- Machines virtuelles hébergées dans un autre environnement cloud.  
 
 Pour configurer Azure Monitor pour des machines virtuelles :
 
-* Activez une machine virtuelle ou un groupe de machines virtuelles identiques Azure en sélectionnant **Insights** directement à partir de la machine virtuelle ou du groupe de machines virtuelles identiques.
-* Activez au moins deux machines virtuelles et groupes de machines virtuelles identiques Azure à l’aide d’Azure Policy. Cette méthode vérifie que, sur des machines virtuelles et des groupes identiques Azure, les dépendances requises sont installées et correctement configurées. Les machines virtuelles et groupes identiques non conformes sont signalés afin que vous puissiez décider si vous voulez les activer et les corriger.
-* Activez plusieurs machines virtuelles Azure ou groupes de machines virtuelles identiques sur un abonnement ou un groupe de ressources spécifié à l’aide de PowerShell.
+* Activez une machine virtuelle Azure, Azure VMSS ou Azure Arc unique en sélectionnant **Insights** directement à partir de son menu dans le portail Azure.
+* Activez plusieurs machines virtuelles Azure, Azure VMSS ou Azure Arc à l’aide d’Azure Policy. Cette méthode vérifie que, sur des machines virtuelles et des groupes identiques Azure, les dépendances requises sont installées et correctement configurées. Les machines virtuelles et groupes identiques non conformes sont signalés afin que vous puissiez décider si vous voulez les activer et les corriger.
+* Activez plusieurs machines virtuelles Azure, machines virtuelles Azure Arc, Azure VMSS ou machines Azure Arc sur un abonnement ou un groupe de ressources spécifique à l’aide de PowerShell.
 * Activez Azure Monitor pour machines virtuelles afin de surveiller les machines virtuelles ou ordinateurs physiques hébergés dans votre réseau d’entreprise ou un autre environnement cloud.
 
 ## <a name="prerequisites"></a>Prérequis
@@ -43,6 +49,8 @@ Azure Monitor pour machines virtuelles prend en charge un espace de travail Log 
 - USA Est 2
 - USA Centre
 - Centre-Nord des États-Unis
+- US Gov Arizona
+- US Gov Va
 - Centre du Canada
 - Sud du Royaume-Uni
 - Europe Nord
@@ -66,15 +74,13 @@ Si vous n’avez pas d’espace de travail Log Analytics, vous pouvez en créer 
 
 Vous pouvez également créer un espace de travail pendant que vous activez la surveillance pour une machine virtuelle ou un groupe de machines virtuelles identiques Azure dans le portail Azure.
 
-Pour configurer un scénario à grande échelle qui utilise des modèles Azure Policy, Azure PowerShell ou Azure Resource Manager, dans votre espace de travail Log Analytics :
-
-* Installez les solutions *ServiceMap* et *InfrastructureInsights*. Vous pouvez effectuer cette installation à l’aide d’un modèle Azure Resource Manager fourni. Ou bien, sous l’onglet **Prise en main** du Portail Azure, sélectionnez **Configurer l’espace de travail**.
-* Configurez l’espace de travail Log Analytics pour collecter les compteurs de performances.
-
-Pour configurer votre espace de travail pour le scénario à grande échelle, utilisez l’une des méthodes suivantes :
+Pour configurer un scénario à grande échelle qui utilise Azure Policy, Azure PowerShell ou des modèles Azure Resource Manager, vous devez installer la solution *VMInsights*. Pour ce faire, vous pouvez appliquer l’une des méthodes suivantes :
 
 * Utilisez [Azure PowerShell](vminsights-enable-at-scale-powershell.md#set-up-a-log-analytics-workspace).
 * Sur la page [**Couverture de stratégie**](vminsights-enable-at-scale-policy.md#manage-policy-coverage-feature-overview) d’Azure Monitor pour machines virtuelles, sélectionnez **Configurer l’espace de travail**. 
+
+### <a name="azure-arc-machines"></a>Machines Azure Arc
+Azure Monitor pour machines virtuelles est disponible pour les serveurs Azure Arc dans les régions où le service d’extension Arc est disponible. Les utilisateurs doivent exécuter la version 0.9 ou supérieure de l’agent Arc pour activer Azure Monitor pour machines virtuelles sur leurs serveurs Arc.
 
 ### <a name="supported-operating-systems"></a>Systèmes d’exploitation pris en charge
 
@@ -190,10 +196,10 @@ Pour activer Azure Monitor pour les machines virtuelles, utilisez l’une des m�
 
 | État du déploiement | Méthode | Description |
 |------------------|--------|-------------|
-| Machine virtuelle ou groupe de machines virtuelles identiques uniques Azure | [Activer à partir de la machine virtuelle](vminsights-enable-single-vm.md) | Vous pouvez activer une machine virtuelle Azure en sélectionnant **Insights** directement à partir de la machine virtuelle ou du groupe de machines virtuelles identiques. |
-| Machines virtuelles ou groupes de machines virtuelles identiques multiples Azure | [Activer via Azure Policy](vminsights-enable-at-scale-policy.md) | Vous pouvez activer plusieurs machines virtuelles Azure à l’aide d’Azure Policy et des définitions de stratégie disponibles. |
-| Machines virtuelles ou groupes de machines virtuelles identiques multiples Azure | [Activer à l’aide de modèles Azure PowerShell ou Azure Resource Manager](vminsights-enable-at-scale-powershell.md) | Vous pouvez activer plusieurs machines virtuelles ou groupes de machines virtuelles identiques Azure sur un abonnement ou un groupe de ressources spécifié en utilisant des modèles Azure PowerShell ou Azure Resource Manager. |
-| Cloud hybride | [Activer pour l’environnement hybride](vminsights-enable-hybrid-cloud.md) | Vous pouvez déployer sur des machines virtuelles ou des ordinateurs physiques hébergés dans votre centre de données ou d’autres environnements cloud. |
+| Machine virtuelle Azure unique, Azure VMSS ou machine Azure Arc | [Activer à partir du portail](vminsights-enable-single-vm.md) | Sélectionnez **Insights** directement à partir du menu dans le portail Azure. |
+| Plusieurs machines virtuelles Azure, Azure VMSS ou machines Azure Arc | [Activer via Azure Policy](vminsights-enable-at-scale-policy.md) | Utilisez Azure Policy pour activer automatiquement la création d’une machine virtuelle ou d’un VMSS. |
+| | [Activer à l’aide de modèles Azure PowerShell ou Azure Resource Manager](vminsights-enable-at-scale-powershell.md) | Utilisez Azure PowerShell ou des modèles Azure Resource Manager pour activer plusieurs machines virtuelles Azure, machines virtuelles Azure Arc ou groupes de machines virtuelles identiques Azure sur un abonnement ou un groupe de ressources spécifié. |
+| Cloud hybride | [Activer pour l’environnement hybride](vminsights-enable-hybrid-cloud.md) | Déployez sur des machines virtuelles ou des ordinateurs physiques hébergés dans votre centre de données ou d’autres environnements cloud. |
 
 ## <a name="management-packs"></a>Packs d’administration
 

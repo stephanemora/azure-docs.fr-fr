@@ -11,17 +11,17 @@ ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: troubleshooting
 ms.date: 03/13/2017
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 6feed11fcfc597658f3ec148b5dd18bb7e3f8f83
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: dbc9e5a9187f9ef16ea03cfa6c97e438c2b26c99
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79227797"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85807602"
 ---
 # <a name="troubleshoot-password-hash-synchronization-with-azure-ad-connect-sync"></a>Résoudre les problèmes de synchronisation du hachage de mot de passe avec Azure AD Connect Sync
 
@@ -288,12 +288,15 @@ Si vous avez utilisé une installation personnalisée, définissez les autorisat
 6. Les contrôleurs de domaine sont-ils accessibles pour Azure AD Connect ? Si le serveur Connect ne peut pas se connecter à tous les contrôleurs de domaine, vous devez configurer **Utiliser uniquement le contrôleur de domaine préféré**.  
     
     ![Contrôleur de domaine utilisé par le connecteur Active Directory](./media/tshoot-connect-password-hash-synchronization/preferreddc.png)  
-    
+
 7. Revenez à **Synchronization Service Manager** et **Configurer une partition d’annuaire**. 
  
 8. Sélectionnez votre domaine dans **Sélectionner les partitions d’annuaire**, cochez la case **Utiliser uniquement les contrôleurs de domaine préférés**, puis cliquez sur **Configurer**. 
 
 9. Dans la liste, entrez les contrôleurs de domaine que Connect doit utiliser pour la synchronisation de mot de passe. La même liste est également utilisée pour importer et exporter. Effectuez ces étapes pour tous vos domaines.
+
+> [!NOTE]
+> Pour appliquer ces modifications, redémarrez le service **Microsoft Azure AD Sync** (ADSync).
 
 10. Si le script indique qu’il n’y a aucune pulsation, exécutez le script [Déclencher une synchronisation complète de tous les mots de passe](#trigger-a-full-sync-of-all-passwords).
 

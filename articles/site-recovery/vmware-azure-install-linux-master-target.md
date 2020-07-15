@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.date: 03/06/2019
 ms.author: mayg
 ms.openlocfilehash: 9ab4db53086046ff831fe91d003599841aa8148c
-ms.sourcegitcommit: 0b80a5802343ea769a91f91a8cdbdf1b67a932d3
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/25/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "83829781"
 ---
 # <a name="install-a-linux-master-target-server-for-failback"></a>Installer un serveur cible maître Linux pour la restauration automatique
@@ -244,7 +244,7 @@ Pour créer un disque de rétention, procédez comme suit :
 
     ![ID Multipath](./media/vmware-azure-install-linux-master-target/image27.png)
 
-3. Formatez le lecteur, puis créez un système de fichiers sur le nouveau lecteur : **mkfs.ext4 /dev/mapper/\<ID multipath du disque de conservation>** .
+3. Formatez le lecteur, puis créez un système de fichiers dessus : **mkfs.ext4 /dev/mapper/\<Retention disk's multipath id>** .
     
     ![Système de fichiers](./media/vmware-azure-install-linux-master-target/image23-centos.png)
 

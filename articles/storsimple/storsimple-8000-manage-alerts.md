@@ -3,15 +3,15 @@ title: Afficher et gérer les alertes pour les appareils StorSimple 8000 Series
 description: Décrit les conditions et la gravité des alertes StorSimple, comment configurer les notifications d’alerte et comment utiliser le service StorSimple Device Manager pour gérer les alertes.
 author: alkohli
 ms.service: storsimple
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 03/14/2019
 ms.author: alkohli
-ms.openlocfilehash: ff50836e1438b8d35f26ddfdf165084406f52faf
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 36f416183bd44180bee59142714e924e0ac8fefe
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79232189"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85830041"
 ---
 # <a name="use-the-storsimple-device-manager-service-to-view-and-manage-storsimple-alerts"></a>Utiliser le service StorSimple Device Manager pour afficher et gérer les alertes StorSimple
 
@@ -120,6 +120,7 @@ Les tableaux suivants répertorient certaines des alertes Microsoft Azure StorSi
 * [Alertes de performances](#performance-alerts)
 * [Alertes de sécurité](#security-alerts)
 * [Alertes du package de prise en charge](#support-package-alerts)
+* [Alertes de l’environnement du boîtier](#enclosure-environment-alerts)
 
 ### <a name="cloud-connectivity-alerts"></a>Alertes de connectivité au cloud
 
@@ -134,11 +135,11 @@ Que se passe-t-il en cas d'échec de connexion au cloud pour mon appareil StorS
 
 En cas d'échec de la connexion au cloud sur votre appareil de production StorSimple, en fonction de l'état de votre périphérique, les événements suivants peuvent se produire :
 
-* **Pour les données locales sur votre appareil**: pendant un certain temps, il n’y a pas d’interruption de service et les lectures sont traitées. Toutefois, lorsque les E/S en attente augmentent et dépassent la limite, les lectures peuvent commencer à échouer.
+* **Pour les données locales sur votre appareil** : pendant un certain temps, il n’y a aucune interruption et les lectures continuent. Toutefois, lorsque les E/S en attente augmentent et dépassent la limite, les lectures peuvent commencer à échouer.
 
     Selon la quantité de données sur votre appareil, les écritures continuent également à se produire pendant les premières heures suivant l’interruption de la connexion au cloud. Puis, les écritures ralentissent et finissent par échouer si l'interruption de la connexion au cloud dure plusieurs heures. (L’appareil contient une zone de stockage temporaire destinée aux données à envoyer par transmission Push vers le cloud. Cette zone est vidée lorsque les données sont envoyées. En cas d’échec de la connexion, les données de cette zone de stockage ne sont pas envoyées par transmission Push vers le cloud, et les E/S sont en échec.)
-* **Pour les données du cloud**: pour la plupart des erreurs de connexion au cloud, une erreur est renvoyée. Une fois que la connectivité est rétablie, les E/S reprennent sans que l'utilisateur doive mettre le volume en ligne. Dans de rares cas, l’intervention de l’utilisateur peut être nécessaire pour ramener le volume en ligne à partir du portail Azure.
-* **Pour les instantanés cloud en cours**: l’opération est retentée plusieurs fois pendant 4 à 5 heures, et si la connexion n’est pas restaurée, les instantanés cloud échouent.
+* **Pour les données dans le cloud** : pour la plupart des erreurs de connectivité au cloud, un message d’erreur est retourné. Une fois que la connectivité est rétablie, les E/S reprennent sans que l'utilisateur doive mettre le volume en ligne. Dans de rares cas, l’intervention de l’utilisateur peut être nécessaire pour ramener le volume en ligne à partir du portail Azure.
+* **Pour les instantanés cloud en cours** : l’opération est retentée plusieurs fois pendant 4 à 5 heures et, si la connexion n’est pas restaurée, les instantanés cloud échouent.
 
 ### <a name="cluster-alerts"></a>Alertes de cluster
 
@@ -193,7 +194,7 @@ En cas d'échec de la connexion au cloud sur votre appareil de production StorS
 |:--- |:--- |:--- |
 | Impossible de démarrer les services StorSimple. |Erreur de chemin d’accès des données |Si le problème persiste, contactez le support technique Microsoft. |
 | Adresse IP en double détectée pour « Data0 ». | |Le système a détecté un conflit pour l’adresse IP 10.0.0.1. La ressource réseau « Data0 » sur l’appareil *\<device1>* est hors connexion. Assurez-vous que cette adresse IP n’est pas utilisée par une autre entité de ce réseau. Pour résoudre les problèmes de réseau, consultez la section [Résolution des problèmes avec l’applet de commande Get-NetAdapter](storsimple-8000-troubleshoot-deployment.md#troubleshoot-with-the-get-netadapter-cmdlet). Pour obtenir de l’aide sur la résolution de ce problème, contactez votre administrateur réseau. Si le problème persiste, contactez le support technique Microsoft. |
-| Adresse IPv4 (ou IPv6) de « Data0 » hors connexion. | |La ressource réseau « Data0 » pourvue de l’adresse IP 10.0.0.1. et de la longueur de préfixe « 22 » sur l’appareil *\<device1>* est hors connexion. Assurez-vous que les ports de commutateur auxquels cette interface est connectée sont opérationnels. Pour résoudre les problèmes de réseau, consultez la section [Résolution des problèmes avec l’applet de commande Get-NetAdapter](storsimple-8000-troubleshoot-deployment.md#troubleshoot-with-the-get-netadapter-cmdlet). |
+| Adresse IPv4 (ou IPv6) de « Data0 » hors connexion. | |La ressource réseau « Data0 » pourvue de l’adresse IP 10.0.0.1. et de la longueur de préfixe 22 sur l’appareil *\<device1>* est hors connexion. Assurez-vous que les ports de commutateur auxquels cette interface est connectée sont opérationnels. Pour résoudre les problèmes de réseau, consultez la section [Résolution des problèmes avec l’applet de commande Get-NetAdapter](storsimple-8000-troubleshoot-deployment.md#troubleshoot-with-the-get-netadapter-cmdlet). |
 | Impossible de se connecter au service d’authentification. |Erreur de chemin d’accès des données |L’URL qui est utilisée pour l’authentification n’est pas accessible. Vérifiez que vos règles de pare-feu incluent les modèles d’URL spécifiés pour l’appareil StorSimple. Pour plus d’informations sur les modèles d’URL dans le portail Azure, accédez à https:\//aka.ms/ss-8000-network-reqs. Si vous utilisez le cloud Azure Government, accédez aux modèles d’URL dans https:\//aka.ms/ss8000-gov-network-reqs.|
 
 ### <a name="performance-alerts"></a>Alertes de performances
@@ -219,7 +220,12 @@ En cas d'échec de la connexion au cloud sur votre appareil de production StorS
 |:--- |:--- |:--- |
 | Échec de la création du package de prise en charge. |StorSimple n'a pas pu générer le package. |Retentez l'opération. Si le problème persiste, contactez le support technique Microsoft. Après avoir résolu ce problème, effacez cette alerte de la page des alertes. |
 
+### <a name="enclosure-environment-alerts"></a>Alertes de l’environnement du boîtier
+
+| Texte d'alerte | Événement | Plus d'informations/actions recommandées |
+|:--- |:--- |:--- |
+| Le capteur de température ambiante du composant matériel signale un état d’échec.  | Type de boîtier : Boîtier principal | Cette alerte est déclenchée quand la température extérieure ambiante autour de StorSimple est supérieure à une plage acceptable. Vérifiez la température extérieure ambiante ou la ventilation de l’orifice d’aération dans le centre de donnée. Quand la température revient à la normale, l’alerte est automatiquement désactivée après un certain temps. Si le problème persiste, contactez le support technique Microsoft.   |
+
 ## <a name="next-steps"></a>Étapes suivantes
 
 Découvrir plus en détail les [erreurs StorSimple et la résolution des problèmes de déploiement d’un appareil](storsimple-8000-troubleshoot-deployment.md).
-

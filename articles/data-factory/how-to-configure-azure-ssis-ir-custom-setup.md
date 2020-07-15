@@ -11,27 +11,27 @@ ms.author: sawinark
 manager: mflasko
 ms.reviewer: douglasl
 ms.custom: seo-lt-2019
-ms.date: 04/15/2020
-ms.openlocfilehash: d2a5928d8326c4a0628ebc1bfb7eec3cd20f9254
-ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
+ms.date: 06/03/2020
+ms.openlocfilehash: 576861265771977f7e13140dd595f47bf556e585
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/21/2020
-ms.locfileid: "83747520"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84331897"
 ---
 # <a name="customize-the-setup-for-an-azure-ssis-integration-runtime"></a>Personnaliser l’installation d’un Azure-SSIS Integration Runtime
 
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
-L’installation personnalisée d’un Azure-SQL Server Integration Services Integration Runtime (Azure-SSIS IR) fournit une interface permettant d’ajouter vos propres étapes lors de l’installation ou de la reconfiguration de votre Azure-SSIS IR. 
+L’installation personnalisée d’un runtime d’intégration (IR) Azure-SQL Server Integration Services (SSIS) dans Azure Data Factory (ADF) fournit une interface permettant d’ajouter vos propres étapes lors de l’approvisionnement ou de la reconfiguration de votre IR Azure-SSIS. 
 
-L’installation personnalisée vous permet de modifier la configuration ou l’environnement d’exploitation par défaut pour, par exemple, démarrer des services Windows supplémentaires ou conserver les informations d’identification d’accès pour les partages de fichiers, ou utiliser un chiffrement fort/protocole réseau plus sécurisé (TLS 1.2). Vous pouvez aussi installer des composants supplémentaires, tels que des assemblys, des pilotes ou des extensions, sur chaque nœud de votre Azure-SSIS IR.
+L’installation personnalisée vous permet de modifier la configuration ou l’environnement d’exploitation par défaut pour, par exemple, démarrer des services Windows supplémentaires ou conserver les informations d’identification d’accès pour les partages de fichiers, ou utiliser un chiffrement fort/protocole réseau plus sécurisé (TLS 1.2). Vous pouvez aussi installer des composants tiers ou personnalisés supplémentaires, tels que des assemblys, des pilotes ou des extensions, sur chaque nœud de votre IR Azure-SSIS. Pour plus d’informations sur les composants intégrés/préinstallés, consultez [Composants intégrés/préinstallés sur Azure-SSIS IR](https://docs.microsoft.com/azure/data-factory/built-in-preinstalled-components-ssis-integration-runtime).
 
 Vous pouvez effectuer des installations personnalisées sur votre Azure-SSIS IR de l’une des deux manières suivantes : 
-* **Installation personnalisée rapide sans script** : Exécutez certaines configurations système et commandes Windows courantes ou installez des composants supplémentaires populaires ou recommandés sans utiliser le moindre script.
 * **Installation personnalisée standard avec un script** : Préparez un script et ses fichiers associés, puis chargez le tout dans un conteneur de blobs de votre compte de stockage Azure. Vous fournissez ensuite un URI (Uniform Resource Identifier) à signature d’accès partagé (SAP) pour votre conteneur lorsque vous installez ou reconfigurez votre Azure-SSIS IR. Chaque nœud de votre Azure-SSIS IR télécharge ensuite le script et ses fichiers associés à partir de votre conteneur et exécute votre installation personnalisée avec des autorisations élevées. Lorsque votre installation personnalisée est terminée, chaque nœud charge la sortie standard de l’exécution et d’autres journaux d’activité dans votre conteneur.
+* **Installation personnalisée rapide sans script** : Exécutez certaines configurations système et commandes Windows courantes ou installez des composants supplémentaires populaires ou recommandés sans utiliser le moindre script.
 
-Vous pouvez installer des composants gratuits et sans licence ainsi que des composants payants et sous licence avec des installations personnalisées rapides et standard. Si vous êtes un éditeur de logiciels indépendant (ISV), consultez [Développer des composants payants ou sous licence pour un Azure-SSIS IR](how-to-develop-azure-ssis-ir-licensed-components.md).
+Vous pouvez installer des composants gratuits et sans licence ainsi que des composants payants et sous licence avec des installations personnalisées rapides et standard. Si vous êtes un éditeur de logiciels indépendant (ISV), consultez [Développer des composants payants ou sous licence pour Azure-SSIS IR](how-to-develop-azure-ssis-ir-licensed-components.md).
 
 > [!IMPORTANT]
 > Afin de tirer parti des améliorations futures, nous vous recommandons d'utiliser la série de nœuds v3 ou version ultérieure pour votre runtime d'intégration Azure-SSIS IR, en l'association à une configuration personnalisée.
@@ -62,7 +62,11 @@ Pour personnaliser votre Azure-SSIS IR, vous avez besoin des éléments suivants
 
 ## <a name="instructions"></a>Instructions
 
-1. Si vous souhaitez installer ou reconfigurer votre Azure-SSIS IR avec PowerShell, téléchargez et installez [Azure PowerShell](/powershell/azure/install-az-ps). Pour les configurations personnalisées rapides, passez à l’étape 4.
+Vous pouvez approvisionner ou reconfigurer votre IR Azure-SSIS avec des installations personnalisées sur l’interface utilisateur ADF. Si vous souhaitez faire de même avec PowerShell, téléchargez et installez [Azure PowerShell](/powershell/azure/install-az-ps).
+
+### <a name="standard-custom-setup"></a>Installation personnalisée standard
+
+Pour approvisionner ou reconfigurer votre IR Azure-SSIS à l’aide d’installations personnalisées standard, procédez comme suit.
 
 1. Préparer votre script d’installation personnalisée et ses fichiers associés (par exemple, les fichiers .bat, .cmd, .exe, .dll, .msi ou .ps1).
 
@@ -70,7 +74,7 @@ Pour personnaliser votre Azure-SSIS IR, vous avez besoin des éléments suivants
    * Pour vous assurer que le script peut être exécuté sans assistance, nous vous recommandons de le tester d’abord sur votre ordinateur local.  
    * Si vous souhaitez que des journaux supplémentaires générés par d’autres outils (par exemple, *msiexec.exe*) soient chargés dans votre conteneur, spécifiez la variable d’environnement prédéfinie `CUSTOM_SETUP_SCRIPT_LOG_DIR` comme dossier de journal d’activité dans vos scripts (par exemple, *msiexec /i xxx.msi /quiet /lv %CUSTOM_SETUP_SCRIPT_LOG_DIR%\install.log*).
 
-1. Téléchargez, installez et ouvrez [Explorateur Stockage Azure](https://storageexplorer.com/). Pour ce faire :
+1. Téléchargez, installez et ouvrez [Explorateur Stockage Azure](https://storageexplorer.com/).
 
    a. Sous **(Local et attaché)** , cliquez avec le bouton droit sur **Comptes de stockage**, puis sélectionnez **Se connecter au stockage Azure**.
 
@@ -107,11 +111,17 @@ Pour personnaliser votre Azure-SSIS IR, vous avez besoin des éléments suivants
 
       ![Copiez et enregistrez la signature d’accès partagé.](media/how-to-configure-azure-ssis-ir-custom-setup/custom-setup-image8.png)
 
-1. Lorsque vous installez ou reconfigurez votre Azure-SSIS IR avec une interface utilisateur Data Factory, vous pouvez ajouter ou supprimer des installations personnalisées en activant la case à cocher **Personnaliser votre Azure-SSIS Integration Runtime avec des installations de composants/configurations système supplémentaires** dans la section **Paramètres avancés** du volet **Configuration du runtime d’intégration**. 
+1. Lorsque vous approvisionnez ou reconfigurez votre IR Azure-SSIS sur l’interface utilisateur ADF, activez la case à cocher **Personnaliser votre IR Azure-SSIS avec des installations de composants/configurations système supplémentaires** sur la page **Paramètres avancés** du volet **Configuration du runtime d’intégration**, puis entrez l’URI de SAP de votre conteneur dans la zone **URI de SAP du conteneur d’installation personnalisée**.
 
-   Si vous souhaitez ajouter des installations personnalisées standard, entrez l’URI de SAP de votre conteneur dans la zone **URI SAP du conteneur d’installation personnalisée**. 
-   
-   Si vous souhaitez ajouter des installations personnalisées rapides, sélectionnez **Nouveau** pour ouvrir le volet **Ajouter une installation personnalisée rapide**, puis sélectionnez un type de votre choix dans la liste déroulante **Type d’installation personnalisée rapide** :
+   ![Paramètres avancés avec des installations personnalisées](./media/tutorial-create-azure-ssis-runtime-portal/advanced-settings-custom.png)
+
+### <a name="express-custom-setup"></a>Installation personnalisée rapide
+
+Pour approvisionner ou reconfigurer votre IR Azure-SSIS à l’aide d’installations personnalisées rapides, procédez comme suit.
+
+1. Lorsque vous approvisionnez ou reconfigurez votre IR Azure-SSIS sur l’interface utilisateur ADF, activez la case à cocher **Personnaliser votre IR Azure-SSIS avec des installations de composants/configurations système supplémentaires** sur la page **Paramètres avancés** du volet **Configuration du runtime d’intégration**. 
+
+1. Sélectionnez **Nouveau** pour ouvrir le volet **Ajouter une installation personnalisée rapide**, puis sélectionnez un type de votre choix dans la liste déroulante **Type d’installation personnalisée rapide** :
 
    * Si vous sélectionnez le type **Exécuter la commande cmdkey**, vous pouvez conserver les informations d’identification d’accès pour vos partages de fichiers ou vos partages Azure Files sur Azure-SSIS IR en entrant votre nom d’ordinateur ou de domaine ciblé, votre nom de compte ou nom d’utilisateur et votre clé de compte ou mot de passe dans les zones **/Add**, **/User** et **/Pass**. Cela est similaire à l’exécution de la commande Windows [cmdkey](https://docs.microsoft.com/windows-server/administration/windows-commands/cmdkey) sur votre ordinateur local.
    
@@ -131,12 +141,16 @@ Pour personnaliser votre Azure-SSIS IR, vous avez besoin des éléments suivants
 
      * Si vous sélectionnez le composant **Xtract IS de Theobald Software**, vous pouvez installer la suite de connecteurs [Xtract IS](https://theobald-software.com/en/xtract-is/) pour SAP System (ERP, S/4HANA, BW) de Theobald Software sur votre Azure-SSIS IR en glissant-déposant/chargeant le fichier de licence produit que vous leur avez acheté dans la zone **Fichier de licence**. La version intégrée actuelle est **6.1.1.3**.
 
-   Vos installations personnalisées rapides ajoutées s’affichent dans la section **Paramètres avancés**. Pour les supprimer, activez leurs cases à cocher, puis sélectionnez **Supprimer**.
+Vos nouvelles installations personnalisées rapides s’affichent sur la page **Paramètres avancés**. Pour les supprimer, activez leurs cases à cocher, puis sélectionnez **Supprimer**.
 
-   ![Paramètres avancés avec des installations personnalisées](./media/tutorial-create-azure-ssis-runtime-portal/advanced-settings-custom.png)
+### <a name="azure-powershell"></a>Azure PowerShell
 
-1. Lorsque vous installez ou reconfigurez votre Azure-SSIS IR avec PowerShell, vous pouvez ajouter ou supprimer des installations personnalisées en exécutant la cmdlet `Set-AzDataFactoryV2IntegrationRuntime` avant de démarrer votre Azure-SSIS IR.
-   
+Pour approvisionner ou reconfigurer votre IR Azure-SSIS avec des installations personnalisées en utilisant Azure PowerShell, procédez comme suit.
+
+1. Si votre IR Azure-SSIS est déjà démarré ou en cours d’exécution, arrêtez-le d’abord.
+
+1. Vous pouvez ensuite ajouter ou supprimer des installations personnalisées en exécutant la cmdlet `Set-AzDataFactoryV2IntegrationRuntime` avant de démarrer votre IR Azure-SSIS.
+
    ```powershell
    $ResourceGroupName = "[your Azure resource group name]"
    $DataFactoryName = "[your data factory name]"
@@ -214,10 +228,14 @@ Pour personnaliser votre Azure-SSIS IR, vous avez besoin des éléments suivants
        -Name $AzureSSISName `
        -Force
    ```
-   
-   Une fois votre installation personnalisée standard terminée et votre Azure-SSIS IR démarré, vous pouvez trouver la sortie standard de *main.cmd* et d’autres journaux d’exécution dans le dossier *main.cmd.log* de votre conteneur de stockage.
 
-1. Pour voir d’autres exemples d’installations personnalisées standard, connectez-vous à notre conteneur en Préversion publique en utilisant Explorateur Stockage Azure.
+1. Une fois votre installation personnalisée standard terminée et votre IR Azure-SSIS démarré, vous pouvez trouver la sortie standard de *main.cmd* et d’autres journaux d’exécution dans le dossier *main.cmd.log* de votre conteneur.
+
+### <a name="standard-custom-setup-samples"></a>Exemples d’installation personnalisée standard
+
+Pour afficher et réutiliser certains exemples d’installation personnalisée standard, procédez comme suit.
+
+1. Connectez-vous à notre conteneur Préversion publique à l’aide d’Explorateur Stockage Azure.
 
    a. Sous **(Locale et attaché)** , cliquez avec le bouton droit sur **Comptes de stockage**, sélectionnez **Se connecter au stockage Azure**, **Utiliser une chaîne de connexion ou un URI de signature d’accès partagé**, puis **Suivant**.
 
@@ -295,13 +313,15 @@ Pour personnaliser votre Azure-SSIS IR, vous avez besoin des éléments suivants
 
         ![Dossiers dans le dossier de scénarios utilisateur](media/how-to-configure-azure-ssis-ir-custom-setup/custom-setup-image12.png)
 
-   f. Pour tester ces exemples d’installation personnalisée, copiez le contenu du dossier sélectionné et collez-le dans votre conteneur.
+   f. Pour réutiliser ces exemples d’installation personnalisée standard, copiez le contenu du dossier sélectionné et collez-le dans votre conteneur.
+
+1. Lorsque vous approvisionnez ou reconfigurez votre IR Azure-SSIS sur l’interface utilisateur ADF, activez la case à cocher **Personnaliser votre IR Azure-SSIS avec des installations de composants/configurations système supplémentaires** sur la page **Paramètres avancés** du volet **Configuration du runtime d’intégration**, puis entrez l’URI de SAP de votre conteneur dans la zone **URI de SAP du conteneur d’installation personnalisée**.
    
-      Lorsque vous installez ou reconfigurez votre Azure-SSIS IR avec l’interface utilisateur Data Factory, activez la case à cocher **Personnaliser votre Azure-SSIS Integration Runtime avec des installations de composants/configurations système supplémentaires** dans la section **Paramètres avancés**, puis entrez l’URI SAP de votre conteneur dans la zone **URI SAP du conteneur d’installation personnalisée**.
-   
-      Lorsque vous installez ou reconfigurez votre Azure-SSIS IR avec PowerShell, exécutez la cmdlet `Set-AzDataFactoryV2IntegrationRuntime` avec l’URI SAP de votre conteneur comme valeur pour le paramètre `SetupScriptContainerSasUri`.
+1. Lorsque vous approvisionnez ou reconfigurez votre IR Azure-SSIS à l’aide de PowerShell, arrêtez-le s’il est déjà démarré ou en cours d’exécution, exécutez la cmdlet `Set-AzDataFactoryV2IntegrationRuntime` avec l’URI de SAP de votre conteneur comme valeur du paramètre `SetupScriptContainerSasUri`, puis démarrez votre IR Azure-SSIS.
+
+1. Une fois votre installation personnalisée standard terminée et votre IR Azure-SSIS démarré, vous pouvez trouver la sortie standard de *main.cmd* et d’autres journaux d’exécution dans le dossier *main.cmd.log* de votre conteneur.
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-- [Configurer l’Édition Entreprise d’Azure-SSIS Integration Runtime](how-to-configure-azure-ssis-ir-enterprise-edition.md)
-- [Développer des composants personnalisés payants ou sous licence pour Azure-SSIS Integration Runtime](how-to-develop-azure-ssis-ir-licensed-components.md)
+- [Configurer Enterprise Edition pour Azure-SSIS IR](how-to-configure-azure-ssis-ir-enterprise-edition.md)
+- [Développer des composants payants ou sous licence pour Azure-SSIS IR](how-to-develop-azure-ssis-ir-licensed-components.md)

@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 02/18/2020
 ms.author: tisande
 ms.reviewer: sngun
-ms.openlocfilehash: 16e8f770445218e10ab7e7645a81325d11be55da
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: ea1fec022227aba1be09e988b5802f0c1ecd4e8e
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "77505973"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85118931"
 ---
 # <a name="optimize-cost-with-reserved-capacity-in-azure-cosmos-db"></a>Optimiser les coûts avec une capacité réservée dans Azure Cosmos DB
 
@@ -52,7 +52,7 @@ En outre, vous pouvez choisir l’étendue des recommandations pour qu’elles s
 
 Voici un exemple de recommandation :
 
-![Recommandations sur la capacité de réserve](./media/cosmos-db-reserved-capacity/reserved-capacity-recommendation.png)
+:::image type="content" source="./media/cosmos-db-reserved-capacity/reserved-capacity-recommendation.png" alt-text="Recommandations sur la capacité de réserve":::
 
 Cette recommandation d’achat indique que, parmi les réservations d’une durée de 3 ans, une taille de réservation de 30 000 RU/s maximisera les économies. Dans ce cas, la recommandation est calculée sur la base des 30 derniers jours d’utilisation d’Azure Cosmos DB. Si ce client s’attend à ce que les 30 derniers jours d’utilisation d’Azure Cosmos DB soient représentatifs de son utilisation future, il maximisera ses économies en achetant une réservation de 30 000 RU/s.
 
@@ -66,7 +66,7 @@ Cette recommandation d’achat indique que, parmi les réservations d’une dur�
 
 4. Renseignez les champs obligatoires, comme décrit dans le tableau suivant :
 
-   ![Remplir le formulaire de réservation de capacité](./media/cosmos-db-reserved-capacity/fill-reserved-capacity-form.png)
+   :::image type="content" source="./media/cosmos-db-reserved-capacity/fill-reserved-capacity-form.png" alt-text="Remplir le formulaire de réservation de capacité":::
 
    |Champ  |Description  |
    |---------|---------|
@@ -82,7 +82,7 @@ Cette recommandation d’achat indique que, parmi les réservations d’une dur�
 
 6. Vérifiez la remise et le prix de la réservation dans le volet **Acheter des réservations**. Ce prix de réservation s’applique aux ressources Azure Cosmos DB avec débit provisionné dans toutes les régions.  
 
-   ![Résumé de la capacité réservée](./media/cosmos-db-reserved-capacity/reserved-capacity-summary.png)
+   :::image type="content" source="./media/cosmos-db-reserved-capacity/reserved-capacity-summary.png" alt-text="Résumé de la capacité réservée":::
 
 7. Sélectionnez **Évaluer et acheter**, puis **Acheter maintenant**. Vous voyez la page suivante une fois l’achat correctement effectué :
 

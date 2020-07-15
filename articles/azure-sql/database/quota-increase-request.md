@@ -2,18 +2,19 @@
 title: Demander une augmentation de quota
 description: Cette page explique comment créer une demande de support pour augmenter les quotas Azure SQL Database et Azure SQL Managed Instance.
 services: sql-database
-ms.service: sql-database
+ms.service: sql-db-mi
+ms.subservice: service
 ms.topic: conceptual
 author: sachinpMSFT
 ms.author: sachinp
 ms.reviewer: sstein
-ms.date: 02/04/2020
-ms.openlocfilehash: 53160fa5a2d24f747b0653673a6f817ae14a7975
-ms.sourcegitcommit: 6a9f01bbef4b442d474747773b2ae6ce7c428c1f
+ms.date: 06/04/2020
+ms.openlocfilehash: 4557d2ecdb49cd50396986f0ea30277f50ecf9f7
+ms.sourcegitcommit: 93462ccb4dd178ec81115f50455fbad2fa1d79ce
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "84118866"
+ms.lasthandoff: 07/06/2020
+ms.locfileid: "85987283"
 ---
 # <a name="request-quota-increases-for-azure-sql-database-and-sql-managed-instance"></a>Demander des augmentations de quota pour Azure SQL Database et SQL Managed Instance
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
@@ -49,19 +50,20 @@ Suivez les étapes ci-après pour créer une demande de support à partir du por
 
    ![Sélectionner un type de quota](./media/quota-increase-request/select-quota-type.png)
 
-1. Dans la fenêtre **Détails**, sélectionnez **Fournir des détails** pour entrer des informations supplémentaires.
+1. Dans la fenêtre **Détails**, sélectionnez **Entrer les détails** pour entrer des informations supplémentaires.
 
-   ![Lien « Fournir des détails »](./media/quota-increase-request/provide-details-link.png)
+   ![Lien Entrer les détails](./media/quota-increase-request/provide-details-link.png)
 
-Quand vous cliquez sur **Fournir des détails**, la fenêtre **Détails du quota** s’affiche. Elle vous permet d’ajouter des informations. Les sections suivantes décrivent les différentes options disponibles pour les types de quota **SQL Database** et **SQL Database Managed Instance**.
+Quand vous cliquez sur **Entrer les détails**, la fenêtre **Détails du quota** s’affiche. Elle vous permet d’ajouter des informations. Les sections suivantes décrivent les différentes options disponibles pour les types de quota **SQL Database** et **SQL Database Managed Instance**.
 
 ## <a name="sql-database-quota-types"></a><a id="sqldbquota"></a> Types de quota SQL Database
 
-Les sections suivantes décrivent trois options d’augmentation de quota pour les types de quota **SQL Database** :
+Les sections suivantes décrivent les options d’augmentation de quota pour les types de quota **SQL Database** :
 
 - Unités de transaction de base de données (DTU) par serveur
 - Serveurs par abonnement
-- Activer l’accès d’un abonnement à une région
+- Accès à la région de série M
+- Accès à une région
 
 ### <a name="database-transaction-units-dtus-per-server"></a>Unités de transaction de base de données (DTU) par serveur
 
@@ -91,15 +93,32 @@ Suivez les étapes ci-après pour demander une augmentation du nombre de serveur
 
 Pour en savoir plus, consultez [Limites de ressources SQL Database et gouvernance des ressources](resource-limits-logical-server.md).
 
-### <a name="enable-subscription-access-to-a-region"></a><a id="other"></a>Activer l’accès d’un abonnement à une région
+### <a name="enable-subscription-access-to-a-region"></a><a id="region"></a>Activer l’accès d’un abonnement à une région
 
 Certains types d’offre ne sont pas disponibles dans toutes les régions. Vous pouvez rencontrer une erreur telle que la suivante :
 
-`This location is not available for subscription`
+`Your subscription does not have access to create a server in the selected region. For the latest information about region availability for your subscription, go to aka.ms/sqlcapacity. Please try another region or create a support ticket to request access.`
 
-Si votre abonnement a besoin d’un accès à une région particulière, utilisez l’option **Autre demande de quota** pour demander l’accès. Dans votre demande, spécifiez les détails de l’offre et de la référence SKU à activer pour la région. Pour en savoir plus sur les options de l’offre et de la référence SKU, consultez [Tarification Azure SQL Database](https://azure.microsoft.com/pricing/details/sql-database/single/).
+Si votre abonnement a besoin d’un accès dans une région particulière, sélectionnez l’option **Accès à une région**. Dans votre demande, spécifiez les détails de l’offre et de la référence SKU à activer pour la région. Pour en savoir plus sur les options de l’offre et de la référence SKU, consultez [Tarification Azure SQL Database](https://azure.microsoft.com/pricing/details/sql-database/single/).
 
-![Autres détails de quota](./media/quota-increase-request/quota-details-whitelisting.png)
+1. Sélectionnez le type de quota **Accès à une région**.
+
+1. Dans la liste **Sélectionner un emplacement**, sélectionnez la région Azure à utiliser. Le quota s’entend par abonnement dans chaque région.
+
+1. Entrez le **Modèle d’achat** et les détails sur la **Consommation prévue**.
+
+   ![Demander l’accès à une région](./media/quota-increase-request/quota-details-whitelisting.png)
+
+### <a name="enable-m-series-access-to-a-region"></a><a id="mseries"></a> Activer l’accès à une région de la série M
+
+Pour activer le matériel de série M sur un abonnement et une région, il est nécessaire d’ouvrir une demande de support.
+
+1. Sélectionnez le type de quota **Accès à la région de série M**.
+
+1. Dans la liste **Sélectionner un emplacement**, sélectionnez la région Azure à utiliser. Le quota s’entend par abonnement dans chaque région.
+
+
+   ![Demander l’accès à une région](./media/quota-increase-request/quota-m-series.png)
 
 ## <a name="sql-managed-instance-quota-type"></a><a id="sqlmiquota"></a> Type de quota SQL Managed Instance
 

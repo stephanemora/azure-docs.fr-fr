@@ -3,16 +3,16 @@ title: Comment utiliser une identité managée de machine virtuelle Linux attrib
 description: Découvrez comment configurer une identité managée affectée par le système (Managed Service Identity) Azure Active Directory (Azure AD) pour accéder à des clés à partir d’Azure Cosmos DB.
 author: j-patrick
 ms.service: cosmos-db
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 03/20/2020
 ms.author: justipat
 ms.reviewer: sngun
-ms.openlocfilehash: 8136ad7a1fe29bc3394e959c10aafc52988c0a23
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 2555719e13b0cba38150d3bce7a18f043158d5b5
+ms.sourcegitcommit: f684589322633f1a0fafb627a03498b148b0d521
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81641225"
+ms.lasthandoff: 07/06/2020
+ms.locfileid: "85970958"
 ---
 # <a name="use-system-assigned-managed-identities-to-access-azure-cosmos-db-data"></a>Utiliser des identités managées affectées par le système pour accéder aux données Azure Cosmos DB
 
@@ -30,11 +30,11 @@ Dans cette étape, vous allez attribuer une identité managée affectée par le 
 
 1. Ouvrez l’onglet **Identité** >  **des fonctionnalités de plateforme** : 
 
-   ![Capture d’écran montrant les fonctionnalités de la plateforme et les options d’identité pour l’application de fonction.](./media/managed-identity-based-authentication/identity-tab-selection.png)
+   :::image type="content" source="./media/managed-identity-based-authentication/identity-tab-selection.png" alt-text="Capture d’écran montrant les fonctionnalités de la plateforme et les options d’identité pour l’application de fonction.":::
 
 1. Sous l’onglet **Identité**, définissez l’**état** de l’identité du système sur **Activé** et sélectionnez **Enregistrer**. Le volet **Identité** doit se présenter comme suit :  
 
-   ![Capture d’écran montrant l’état de l’identité du système défini sur Activé.](./media/managed-identity-based-authentication/identity-tab-system-managed-on.png)
+   :::image type="content" source="./media/managed-identity-based-authentication/identity-tab-system-managed-on.png" alt-text="Capture d’écran montrant l’état de l’identité du système défini sur Activé.":::
 
 ## <a name="grant-access-to-your-azure-cosmos-account"></a>Accorder l’accès à votre compte Azure Cosmos
 
@@ -43,7 +43,7 @@ Dans cette étape, vous allez attribuer un rôle à l’identité managée affec
 |Rôle intégré  |Description  |
 |---------|---------|
 |[Contributeur de compte DocumentDB](../role-based-access-control/built-in-roles.md#documentdb-account-contributor)|Gérer des comptes Azure Cosmos DB. Autorise la récupération des clés en lecture/écriture. |
-|[Lecteur de compte Cosmos DB](../role-based-access-control/built-in-roles.md#cosmos-db-account-reader-role)|Lire les données de comptes Azure Cosmos DB. Autorise la récupération des clés de lecture. |
+|[Rôle de lecteur de compte Cosmos DB](../role-based-access-control/built-in-roles.md#cosmos-db-account-reader-role)|Lire les données de comptes Azure Cosmos DB. Autorise la récupération des clés de lecture. |
 
 > [!IMPORTANT]
 > La prise en charge du contrôle d’accès en fonction du rôle dans Azure Cosmos DB s’applique uniquement aux opérations du plan de contrôle. Les opérations du plan de données sont sécurisées par le biais de clés principales ou de jetons de ressources. Pour en savoir plus, consultez l’article [Sécuriser l’accès aux données](secure-access-to-data.md).
@@ -55,19 +55,19 @@ Dans ce scénario, l’application de fonction lira la température de l’aquar
 
 1. Connectez-vous au Portail Azure et accédez à votre compte Azure Cosmos DB. Ouvrez le volet **Contrôle d’accès (IAM)** , puis l’onglet **Attributions de rôle** :
 
-   ![Capture d’écran montrant le volet Contrôle d’accès et l’onglet Attributions de rôles.](./media/managed-identity-based-authentication/cosmos-db-iam-tab.png)
+   :::image type="content" source="./media/managed-identity-based-authentication/cosmos-db-iam-tab.png" alt-text="Capture d’écran montrant le volet Contrôle d’accès et l’onglet Attributions de rôles.":::
 
 1. Sélectionnez **+ Ajouter** > **Ajouter une attribution de rôle**.
 
 1. Le volet **Ajouter une attribution de rôle** s’ouvre à droite :
 
-   ![Capture d’écran montrant le volet Ajouter une attribution de rôle.](./media/managed-identity-based-authentication/cosmos-db-iam-tab-add-role-pane.png)
+   :::image type="content" source="./media/managed-identity-based-authentication/cosmos-db-iam-tab-add-role-pane.png" alt-text="Capture d’écran montrant le volet Ajouter une attribution de rôle.":::
 
    * **Rôle** : sélectionnez **Contributeur de compte DocumentDB**.
    * **Attribuer l’accès à** : sous la sous-section **Sélectionner l’identité managée affectée par le système**, sélectionnez **Application de fonction**.
    * **Select** : le volet sera rempli avec toutes les applications de fonction de votre abonnement qui ont une **Identité de système managée**. Dans ce cas, sélectionnez l’application de fonction **FishTankTemperatureService** : 
 
-      ![Capture d’écran montrant le volet Ajouter une attribution de rôle rempli avec des exemples.](./media/managed-identity-based-authentication/cosmos-db-iam-tab-add-role-pane-filled.png)
+      :::image type="content" source="./media/managed-identity-based-authentication/cosmos-db-iam-tab-add-role-pane-filled.png" alt-text="Capture d’écran montrant le volet Ajouter une attribution de rôle rempli avec des exemples.":::
 
 1. Après avoir sélectionné votre application de fonction, sélectionnez **Enregistrer**.
 
@@ -75,10 +75,10 @@ Dans ce scénario, l’application de fonction lira la température de l’aquar
 
 À présent, nous disposons d’une application de fonction dotée d’une identité managée affectée par le système avec le rôle **Contributeur de compte DocumentDB** dans les autorisations d’Azure Cosmos DB. Le code d’application de fonction suivant obtient les clés d’Azure Cosmos DB, crée un objet CosmosClient, obtient la température de l’aquarium, puis enregistre cette dernière dans Cosmos DB.
 
-Cet exemple utilise l’[API Répertorier les clés](https://docs.microsoft.com/rest/api/cosmos-db-resource-provider/DatabaseAccounts/ListKeys) pour accéder à vos clés de compte Azure Cosmos DB.
+Cet exemple utilise l’[API Répertorier les clés](/rest/api/cosmos-db-resource-provider/DatabaseAccounts/ListKeys) pour accéder à vos clés de compte Azure Cosmos DB.
 
 > [!IMPORTANT] 
-> Si vous voulez attribuer le rôle [Lecteur de compte Cosmos DB](#grant-access-to-your-azure-cosmos-account), vous allez devoir utiliser l’[API Répertorier les clés en lecture seule](https://docs.microsoft.com/rest/api/cosmos-db-resource-provider/DatabaseAccounts/ListReadOnlyKeys). Seules les clés en lecture seule seront remplies.
+> Si vous voulez attribuer le rôle [Lecteur de compte Cosmos DB](#grant-access-to-your-azure-cosmos-account), vous allez devoir utiliser l’[API Répertorier les clés en lecture seule](/rest/api/cosmos-db-resource-provider/DatabaseAccounts/ListReadOnlyKeys). Seules les clés en lecture seule seront remplies.
 
 L’API Répertorier les clés retourne l’objet `DatabaseAccountListKeysResult`. Ce type n’est pas défini dans les bibliothèques C#. Le code suivant montre l'implémentation de cette classe :  
 

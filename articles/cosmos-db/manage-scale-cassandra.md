@@ -6,12 +6,12 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 01/13/2020
 ms.author: thvankra
-ms.openlocfilehash: 8f84d611ecdf3fc0f86273498753e550315cd878
-ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
+ms.openlocfilehash: c9517b6d48f21a2ac2c4b92e68c788a33897511b
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83586182"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85119152"
 ---
 # <a name="elastically-scale-an-azure-cosmos-db-cassandra-api-account"></a>Mettre à l’échelle de manière élastique un compte d’API Cassandra Azure Cosmos DB
 
@@ -19,7 +19,7 @@ Il existe diverses options pour explorer la nature élastique de l’API d’Azu
 
 Pour l'API Cassandra, vous pouvez récupérer les frais de l'unité de requête pour les requêtes individuelles en utilisant les [SDK .NET et Java](https://docs.microsoft.com/azure/cosmos-db/find-request-unit-charge#cassandra-api). Cette méthode est utile pour déterminer la quantité d’unités de requête que vous devrez provisionner dans le service.
 
-![Les opérations de base de données consomment des unités de requête](./media/request-units/request-units.png)
+:::image type="content" source="./media/request-units/request-units.png" alt-text="Les opérations de base de données consomment des unités de requête" border="false":::
 
 ## <a name="handling-rate-limiting-429-errors"></a>Gestion de la limitation du débit (erreurs 429)
 

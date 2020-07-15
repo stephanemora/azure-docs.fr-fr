@@ -7,12 +7,12 @@ ms.service: static-web-apps
 ms.topic: conceptual
 ms.date: 05/08/2020
 ms.author: buhollan
-ms.openlocfilehash: 0f8e1be92d77dc928389dffb61da52f2db4c804d
-ms.sourcegitcommit: f0b206a6c6d51af096a4dc6887553d3de908abf3
+ms.openlocfilehash: 8e832f57053cb950f705875f2895a9197cc7c83e
+ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/28/2020
-ms.locfileid: "84142059"
+ms.lasthandoff: 07/05/2020
+ms.locfileid: "85960297"
 ---
 # <a name="setup-a-custom-domain-in-azure-static-web-apps-preview"></a>Configurer un domaine personnalisé dans Azure Static Web Apps en préversion
 
@@ -29,11 +29,11 @@ Lors de la configuration des noms de domaine, les enregistrements « A » sont
 
 Il existe plusieurs types de configurations DNS disponibles pour une application.
 
-| Pour                            | Alors                                                |
-| ----------------------------------------- | --------------------------------------------------- |
-| Prise en charge d’`www.example.com`                 | [Mapper un enregistrement CNAME](#map-a-cname-record)           |
-| Prise en charge d’`example.com`                     | [Configurer un domaine racine](#configure-a-root-domain) |
-| Diriger tous les sous-domaines vers `www.example.com` | [Mapper un domaine générique](#map-a-wildcard-domain)                   |
+| Pour                                 | Alors                                                |
+| -----------------------------------------------| --------------------------------------------------- |
+| Prendre en charge `www.example.com` ou `blog.example.net`| [Mapper un enregistrement CNAME](#map-a-cname-record)           |
+| Prise en charge d’`example.com`                          | [Configurer un domaine racine](#configure-a-root-domain) |
+| Diriger tous les sous-domaines vers `www.example.com`      | [Mapper un domaine générique](#map-a-wildcard-domain)            |
 
 ## <a name="map-a-cname-record"></a>Mapper un enregistrement CNAME
 

@@ -6,12 +6,12 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 05/03/2020
 ms.author: tisande
-ms.openlocfilehash: cd96f440c4e8c971d1f1473f667d31e60edef137
-ms.sourcegitcommit: 11572a869ef8dbec8e7c721bc7744e2859b79962
+ms.openlocfilehash: b06a8737c1ceb538417f966a989ccb39069f4d4c
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/05/2020
-ms.locfileid: "82839201"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85116296"
 ---
 # <a name="index-geospatial-data-with-azure-cosmos-db"></a>Indexer des données géospatiales avec Azure Cosmos DB
 
@@ -34,7 +34,7 @@ Vous pouvez basculer entre les types spatiaux **géographie** et **géométrie**
 
 Voici comment définir la **configuration géospatiale** dans l’**Explorateur de données** au sein du portail Azure :
 
-![Définition de la configuration géospatiale](./media/sql-query-geospatial-index/geospatial-configuration.png)
+:::image type="content" source="./media/sql-query-geospatial-index/geospatial-configuration.png" alt-text="Définition de la configuration géospatiale":::
 
 Vous pouvez également modifier la `geospatialConfig` dans le kit de développement logiciel (SDK) .NET pour ajuster la **Configuration géospatiale** :
 

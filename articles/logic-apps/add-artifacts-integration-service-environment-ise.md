@@ -6,12 +6,12 @@ ms.suite: integration
 ms.reviewer: klam, logicappspm
 ms.topic: conceptual
 ms.date: 02/28/2020
-ms.openlocfilehash: 58d2efd0c61045739930ce36ba317b1aa6a40ce8
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: a4811bcb47120ba37337c73604e33826d9affcbb
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79140894"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85830024"
 ---
 # <a name="add-resources-to-your-integration-service-environment-ise-in-azure-logic-apps"></a>Ajouter des ressources à votre environnement de service d’intégration (ISE) dans Azure Logic Apps
 
@@ -26,7 +26,7 @@ Après avoir créé un [environnement de service d’intégration](../logic-apps
 
 * L’environnement ISE que vous avez créé pour exécuter vos applications logiques. Si vous ne disposez pas d’un environnement ISE, commencez par [créer cet environnement](../logic-apps/connect-virtual-network-vnet-isolated-environment.md).
 
-* Pour créer, ajouter ou mettre à jour des ressources qui sont déployées dans un ISE, vous devez disposer du rôle Propriétaire ou Contributeur sur cet ISE, ou avoir des autorisations héritées via l’abonnement Azure ou le groupe de ressources Azure associé à l’ISE. Les personnes qui ne disposent pas d’autorisations de Propriétaire ou de Contributeur, ou d’autorisations héritées, peuvent se voir attribuer le rôle Contributeur de l’environnement de service d’intégration ou Développeur de l’environnement de service d’intégration. Pour plus d’informations sur le contrôle d’accès en fonction du rôle (RBAC), consultez [Qu’est-ce que le contrôle d’accès en fonction du rôle (RBAC) pour les ressources Azure ?](../role-based-access-control/overview.md).
+* Pour créer, ajouter ou mettre à jour des ressources qui sont déployées dans un ISE, vous devez disposer du rôle Propriétaire ou Contributeur sur cet ISE, ou avoir des autorisations héritées via l’abonnement Azure ou le groupe de ressources Azure associé à l’ISE. Les personnes qui ne disposent pas d’autorisations de Propriétaire ou de Contributeur, ou d’autorisations héritées, peuvent se voir attribuer le rôle Contributeur de l’environnement de service d’intégration ou Développeur de l’environnement de service d’intégration. Pour plus d’informations, consultez [Qu’est-ce que le contrôle d’accès en fonction du rôle Azure (RBAC Azure)](../role-based-access-control/overview.md) ?
 
 <a name="create-logic-apps-environment"></a>
 

@@ -4,12 +4,12 @@ description: Découvrez comment mettre à niveau un cluster Azure Kubernetes ser
 services: container-service
 ms.topic: article
 ms.date: 05/28/2020
-ms.openlocfilehash: 761df8abc60671341fcdd74e7c66111cfeb105ad
-ms.sourcegitcommit: 223cea58a527270fe60f5e2235f4146aea27af32
+ms.openlocfilehash: ea9f0154c221fe99d683cc58d5f6dccfce8d948c
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/01/2020
-ms.locfileid: "84259233"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85800492"
 ---
 # <a name="upgrade-an-azure-kubernetes-service-aks-cluster"></a>Mise à jour d’un cluster Azure Kubernetes Service (AKS)
 
@@ -53,6 +53,8 @@ ERROR: Table output unavailable. Use the --query option to specify an appropriat
 
 > [!Important]
 > Une augmentation du nombre de nœuds nécessite un quota d’abonnement pour l’augmentation maximale (max-surge) demandée pour chaque opération de mise à niveau. Par exemple, un cluster comprenant 5 pools de 4 nœuds a 20 nœuds en tout. Si chaque pool de nœuds a une valeur max-surge de 50 %, un quota de calcul et d’adresse IP supplémentaire de 10 nœuds (2 nœuds * 5 pools) est nécessaire pour effectuer la mise à niveau.
+>
+> Si vous utilisez Azure CNI, vérifiez que des adresses IP sont disponibles dans le sous-réseau et assurez-vous de [satisfaire aux exigences IP d’Azure CNI](configure-azure-cni.md).
 
 Par défaut, AKS configure les mises à niveau avec un nœud supplémentaire. La valeur par défaut d’un nœud pour le paramètre max-surge permet à AKS de réduire les interruptions de la charge de travail en créant un nœud supplémentaire avant l’isolation ou le drainage des applications existantes pour remplacer un nœud d’une version antérieure. La valeur max-surge peut être personnalisée par pool de nœuds pour obtenir un compromis entre la vitesse de mise à niveau et l’interruption causée par la mise à niveau. En augmentant la valeur max-surge, le processus de mise à niveau se termine plus rapidement, bien que celui-ci puisse faire l’objet d’interruptions. 
 
@@ -105,13 +107,14 @@ az aks nodepool update -n mynodepool -g MyResourceGroup --cluster-name MyManaged
 
 Avec une liste des versions disponibles pour votre cluster AKS, utilisez la commande [az aks upgrade][az-aks-upgrade] pour opérer la mise à niveau. Pendant le processus de mise à niveau, AKS ajoute un nouveau nœud au cluster exécutant la version de Kubernetes indiquée, puis il [isole et draine][kubernetes-drain] précautionneusement l’un des anciens nœuds afin de perturber le moins possible les applications en cours d’exécution. Une fois que l’exécution des pods d’application par le nouveau nœud est confirmée, l’ancien nœud est supprimé. Ce processus se répète jusqu’à ce que tous les nœuds du cluster soient mis à niveau.
 
-L’exemple suivant met à niveau le cluster vers la version *1.13.10* :
-
 ```azurecli-interactive
-az aks upgrade --resource-group myResourceGroup --name myAKSCluster --kubernetes-version 1.13.10
+az aks upgrade \
+    --resource-group myResourceGroup \
+    --name myAKSCluster \
+    --kubernetes-version KUBERNETES_VERSION
 ```
 
-Quelques minutes suffisent pour mettre à niveau le cluster. Le temps nécessaire varie en fonction du nombre de nœuds. 
+Quelques minutes suffisent pour mettre à niveau le cluster. Le temps nécessaire varie en fonction du nombre de nœuds.
 
 > [!NOTE]
 > Il existe un temps total alloué à la mise à niveau de cluster. Cette durée est calculée en prenant le produit de l’opération `10 minutes * total number of nodes in the cluster`. Par exemple, dans un cluster de 20 nœuds, les opérations de mise à niveau doivent réussir en 200 minutes. Dans le cas contraire, AKS fait échouer l’opération pour éviter un état de cluster irrécupérable. Pour effectuer une récupération en cas d’échec de mise à niveau, retentez l’opération de mise à niveau une fois le délai d’expiration atteint.

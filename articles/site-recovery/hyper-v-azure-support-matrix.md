@@ -7,12 +7,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 1/27/2020
 ms.author: raynew
-ms.openlocfilehash: 99204657b7604250826ff0a4a870ad92fdb4df32
-ms.sourcegitcommit: 8017209cc9d8a825cc404df852c8dc02f74d584b
+ms.openlocfilehash: b48dfba6fa5dc270a4d711864d15e9128f4beb98
+ms.sourcegitcommit: e995f770a0182a93c4e664e60c025e5ba66d6a45
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/01/2020
-ms.locfileid: "84249142"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86132406"
 ---
 # <a name="support-matrix-for-disaster-recovery-of-on-premises-hyper-v-vms-to-azure"></a>Prendre en charge la matrice pour effectuer une récupération d’urgence de machines virtuelles Hyper-V locales vers Azure
 
@@ -32,9 +32,13 @@ Hyper-V sans Virtual Machine Manager | Vous pouvez effectuer la récupération d
 
 **Serveur** | **Configuration requise** | **Détails**
 --- | --- | ---
-Hyper-V (exécuté sans Virtual Machine Manager) |  Windows Server 2019, Windows Server 2016 (installation de Server Core incluse), Windows Server 2012 R2 avec les dernières mises à jour | Si vous avez déjà configuré Windows Server 2012 R2 avec/ou SCVMM 2012 R2 avec Azure Site Recovery et que vous prévoyez de mettre à niveau le système d’exploitation, suivez les instructions de la [documentation.](upgrade-2012R2-to-2016.md) <br/><br/> Remarque : La restauration automatique n’est pas prise en charge pour la version principale de Windows Server 2019.
-Hyper-V (exécuté avec Virtual Machine Manager) | Virtual Machine Manager 2019, Virtual Machine Manager 2016, Virtual Machine Manager 2012 R2 | Si Virtual Machine Manager est utilisé, les hôtes Windows Server 2019 doivent être managés dans Virtual Machine Manager 2019. De même, les hôtes Windows Server 2016 doivent être gérés dans Virtual Machine Manager 2016.<br/><br/> Remarque : La restauration automatique vers un autre emplacement n’est pas prise en charge pour les hôtes Windows Server 2019.
+Hyper-V (exécuté sans Virtual Machine Manager) |  Windows Server 2019, Windows Server 2016, Windows Server 2012 R2 avec les dernières mises à jour (y compris l’installation Server Core de ces systèmes d’exploitation, à l’exception de Windows Server 2019) | Si vous avez déjà configuré Windows Server 2012 R2 avec/ou SCVMM 2012 R2 avec Azure Site Recovery et que vous prévoyez de mettre à niveau le système d’exploitation, suivez les instructions de la [documentation.](upgrade-2012R2-to-2016.md)
+Hyper-V (exécuté avec Virtual Machine Manager) | Virtual Machine Manager 2019, Virtual Machine Manager 2016, Virtual Machine Manager 2012 R2 (y compris l’installation Server Core de ces systèmes d’exploitation, à l’exception de Virtual Machine Manager 2019) | Si Virtual Machine Manager est utilisé, les hôtes Windows Server 2019 doivent être managés dans Virtual Machine Manager 2019. De même, les hôtes Windows Server 2016 doivent être gérés dans Virtual Machine Manager 2016.
 
+> [!NOTE]
+>
+> - Vérifiez que .NET Framework 4.6.2 ou ultérieur est présent sur le serveur local.
+> - Le basculement et la restauration automatique vers un autre emplacement ou à l’emplacement d’origine, s’exécutant avec ou sans Virtual Machine Manager, ne sont pas pris en charge pour la version Server Core de Windows Server 2019.
 
 ## <a name="replicated-vms"></a>Machines virtuelles répliquées
 
@@ -44,7 +48,7 @@ Le tableau suivant récapitule la prise en charge des machines virtuelles. Site 
  **Composant** | **Détails**
 --- | ---
 Configuration des machines virtuelles | Les machines virtuelles qui répliquent vers Azure doivent répondre aux [conditions requises par Azure](#azure-vm-requirements).
-Système d’exploitation invité | N’importe quel système d’exploitation invité [pris en charge par Azure](https://docs.microsoft.com/azure/cloud-services/cloud-services-guestos-update-matrix#family-5-releases).<br/><br/> Windows Server 2016 Nano Server n’est pas pris en charge.
+Système d’exploitation invité | N’importe quel système d’exploitation invité [pris en charge par Azure](../cloud-services/cloud-services-guestos-update-matrix.md#family-5-releases).<br/><br/> Windows Server 2016 Nano Server n’est pas pris en charge.
 
 
 ## <a name="vmdisk-management"></a>Gestion des machines virtuelles/disques
@@ -133,6 +137,7 @@ Objets blob de blocs | Non | Non
 Chiffrement au repos (SSE)| Oui | Oui
 Chiffrement au repos (CMK) <br></br> (Uniquement pour le basculement vers des disques managés)| Oui (via le module PowerShell Az 3.3.0 et versions ultérieures) | Oui (via le module PowerShell Az 3.3.0 et versions ultérieures)
 Stockage Premium | Oui | Oui
+Stockage Standard | Oui | Oui
 Service d’importation/exportation | Non | Non
 Comptes Stockage Azure avec un pare-feu activé | Oui. Pour le stockage et le cache cibles. | Oui. Pour le stockage et le cache cibles.
 Modifier le compte de stockage | Non. Le compte Stockage Azure cible ne peut pas être modifié une fois la réplication activée. Pour le modifier, désactivez puis réactivez la récupération d’urgence. | Non
@@ -152,7 +157,7 @@ Les machines virtuelles locales que vous répliquez vers Azure doivent respecter
 
 **Composant** | **Configuration requise** | **Détails**
 --- | --- | ---
-Système d’exploitation invité | Site Recovery fonctionne sur tous les systèmes d’exploitation [pris en charge par Azure](https://technet.microsoft.com/library/cc794868%28v=ws.10%29.aspx).  | La vérification de la configuration requise est mise en échec en cas de défaut de prise en charge.
+Système d’exploitation invité | Site Recovery fonctionne sur tous les systèmes d’exploitation [pris en charge par Azure](/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/cc794868(v=ws.10)).  | La vérification de la configuration requise est mise en échec en cas de défaut de prise en charge.
 Architecture du système d’exploitation invité | 32 bits (Windows Server 2008)/64 bits | La vérification de la configuration requise est mise en échec en cas de défaut de prise en charge.
 Taille du disque du système d’exploitation | Jusqu’à 2 048 Go pour les machines virtuelles de 1ère génération.<br/><br/> Jusqu’à 300 Go pour les machines virtuelles de 2e génération.  | La vérification de la configuration requise est mise en échec en cas de défaut de prise en charge.
 Nombre de disques du système d’exploitation | 1 | La vérification de la configuration requise est mise en échec en cas de défaut de prise en charge.

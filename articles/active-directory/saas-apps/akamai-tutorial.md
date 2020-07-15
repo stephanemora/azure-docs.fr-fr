@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 01/03/2020
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: bb9135873b61abf5a5ebd0d9c4d7f52ae314ee12
-ms.sourcegitcommit: f01c2142af7e90679f4c6b60d03ea16b4abf1b97
+ms.openlocfilehash: 17d0c91d31f7746c53d62af87670c40e9902554c
+ms.sourcegitcommit: 0100d26b1cac3e55016724c30d59408ee052a9ab
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/10/2020
-ms.locfileid: "84675052"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86026829"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-akamai"></a>Tutoriel : Intégration de l’authentification unique Azure Active Directory à Akamai
 
@@ -79,7 +79,7 @@ L’application Akamai EAA est configurée individuellement dans le portail Azur
 
 • Vous pouvez définir des stratégies d’autorité de certification individuelles
 
-• Toutes les applications sont représentées dans la gaufre 0365 et le panneau myApps.microsoft.com.
+• Toutes les applications sont représentées dans la gaufre O365 et le panneau myApps.microsoft.com.
 
 **Inconvénients** :
 
@@ -102,7 +102,7 @@ Dans ce tutoriel, vous allez configurer et tester l’authentification unique Az
 
 #### <a name="important"></a>Important
 
-Toutes les configurations listées ci-dessous sont identiques pour le **scénario d’intégration 1** et le **scénario 2**. Pour le **scénario d’intégration 2**, vous avez configuré un fournisseur d’identité individuel dans Akamai EAA, et la propriété URL doit être modifiée pour pointer vers l’URL de l’application.
+Toutes les configurations listées ci-dessous sont identiques pour le **scénario d’intégration 1** et le **scénario 2**. Pour le **scénario d’intégration 2**, vous devez configurer un fournisseur d’identité individuel dans Akamai EAA, et la propriété URL doit être modifiée pour pointer vers l’URL de l’application.
 
 ![Important](./media/header-akamai-tutorial/important.png)
 

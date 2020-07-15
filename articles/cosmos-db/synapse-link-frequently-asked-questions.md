@@ -6,12 +6,12 @@ ms.author: srchi
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 05/19/2020
-ms.openlocfilehash: 36be05f72597ae9864eff812862589cafb1f5b0d
-ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
+ms.openlocfilehash: bead905a3bd4b1cdd46c4cd27775f9d7e03040d5
+ms.sourcegitcommit: dee7b84104741ddf74b660c3c0a291adf11ed349
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83596468"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85921189"
 ---
 # <a name="frequently-asked-questions-about-azure-synapse-link-for-azure-cosmos-db"></a>Foire aux questions sur Azure Synapse Link pour Azure Cosmos DB
 
@@ -29,6 +29,9 @@ Lors de la planification de la configuration d’un compte Azure Cosmos à plusi
 
 ### <a name="can-i-choose-to-enable-synapse-link-for-only-certain-region-and-not-all-regions-in-a-multi-region-account-set-up"></a>Puis-je choisir d’activer Synapse Link pour une seule région et non dans toutes les régions d’un compte à plusieurs régions ?
 Dans la préversion, lorsque Synapse Link est activé pour un compte à plusieurs régions, le magasin analytique est créé dans toutes les régions. Les données sous-jacentes sont optimisées pour le débit et la cohérence transactionnelle dans le magasin transactionnel.
+
+### <a name="is-backup-and-restore-supported-for-synapse-link-enabled-accounts"></a>La sauvegarde et la restauration sont-elles prises en charge par les comptes Synapse Link ?
+Dans la préversion, la sauvegarde et la restauration des conteneurs ne sont pas prises en charge pour les comptes de base de données Synapse Link. Si vous avez des charges de travail de production qui nécessitent des fonctionnalités de sauvegarde et de restauration, nous vous recommandons de ne pas activer Synapse Link dans ces comptes de base de données. 
 
 ### <a name="can-i-disable-the-synapse-link-feature-for-my-azure-cosmos-account"></a>Puis-je désactiver la fonctionnalité Synapse Link de mon compte Azure Cosmos ?
 Actuellement, une fois que la fonction Synapse Link est activée au niveau du compte, vous ne pouvez pas la désactiver.  Si vous souhaitez désactiver cette fonctionnalité, vous devez supprimer votre compte Azure Cosmos et en créer un nouveau.
@@ -107,7 +110,7 @@ L’authentification auprès du magasin analytique est identique à celle du mag
 |Synapse SQL serverless    | Lire, afficher (préversion limitée)  |
 |Synapse SQL approvisionné   |  Non disponible |
 
-### <a name="do-my-synapse-spark-tables-sync-with-my-synapse-sql-serverless-tables-the-same-way-they-do-with-azure-data-lake"></a>Mes tables Synapse Spark se synchronisent-elles avec mes tables Synapse SQL Serverless de la même manière qu’avec Azure Data Lake ?
+### <a name="do-my-synapse-spark-tables-sync-with-my-synapse-sql-serverless-tables-the-same-way-they-do-with-azure-data-lake"></a>Mes tables Synapse Spark se synchronisent-elles avec mes tables Synapse SQL serverless de la même manière qu’avec Azure Data Lake ?
 Cette fonctionnalité n’est pas disponible pour l’instant.
 
 ### <a name="can-i-do-spark-structured-streaming-from-analytical-store"></a>Puis-je utiliser le flux structuré Spark à partir du magasin analytique ?
@@ -118,11 +121,11 @@ Actuellement, la prise en charge du flux structuré Spark pour Azure Cosmos DB e
 ### <a name="in-the-synapse-studio-how-do-i-recognize-if-im-connected-to-an-azure-cosmos-db-container-with-the-analytics-store-enabled"></a>Dans Synapse Studio, comment puis-je savoir si je suis connecté à un conteneur Azure Cosmos DB avec le magasin d’analytique activé ?
 Les conteneurs Azure Cosmos DB activés avec le magasin analytique présentent l’icône suivante :
 
-![Conteneur Azure Cosmos DB activé avec icône de magasin analytique](./media/synapse-link-frequently-asked-questions/analytical-store-icon.png)
+:::image type="content" source="./media/synapse-link-frequently-asked-questions/analytical-store-icon.png" alt-text="Conteneur Azure Cosmos DB activé avec icône de magasin analytique":::
 
 Le conteneur de magasin transactionnel est représenté par l’icône suivante :
 
-![Conteneur Azure Cosmos DB activé avec l’icône de magasin transactionnel](./media/synapse-link-frequently-asked-questions/transactional-store-icon.png)
+:::image type="content" source="./media/synapse-link-frequently-asked-questions/transactional-store-icon.png" alt-text="Conteneur Azure Cosmos DB activé avec l’icône de magasin transactionnel":::
  
 ### <a name="how-do-you-pass-azure-cosmos-db-credentials-from-synapse-studio"></a>Comment transmettre les informations d’identification Azure Cosmos DB depuis Synapse Studio ?
 Actuellement, les informations d’identification Azure Cosmos DB sont transmises lors de la création du service lié par l’utilisateur qui a accès aux bases de données Azure Cosmos DB. L’accès à ce magasin est possible pour les autres utilisateurs qui ont accès à l’espace de travail.

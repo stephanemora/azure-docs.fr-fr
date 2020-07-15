@@ -13,12 +13,12 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 01/29/2020
 ms.author: mathoma
-ms.openlocfilehash: 36c4a141acf38d83ff925bafaa75c294847a7d74
-ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
+ms.openlocfilehash: 93819332def05022272eabc130e0f2240938f244
+ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "84037230"
+ms.lasthandoff: 07/05/2020
+ms.locfileid: "85955503"
 ---
 # <a name="configure-a-workgroup-availability-group"></a>Configurer un groupe de disponibilité pour un groupe de travail 
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
@@ -46,7 +46,7 @@ Pour référence, cet article utilise les paramètres suivants, mais ceux-ci peu
 | **Nom du groupe de travail** | AGWorkgroup | 
 | &nbsp; | &nbsp; |
 
-## <a name="set-dns-suffix"></a>Définir le suffixe DNS 
+## <a name="set-a-dns-suffix"></a>Définir un suffixe DNS 
 
 Au cours de cette étape, vous allez configurer le suffixe DNS des deux serveurs. Par exemple : `ag.wgcluster.example.com`. Cela vous permettra d'utiliser le nom de l'objet auquel vous souhaitez vous connecter en tant qu'adresse complète sur votre réseau, par exemple `AGNode1.ag.wgcluster.example.com`. 
 
@@ -71,7 +71,7 @@ Pour configurer le suffixe DNS, procédez comme suit :
 1. Lorsque vous y êtes invité, redémarrez le serveur. 
 1. Répétez ces étapes sur tous les autres nœuds à utiliser pour le groupe de disponibilité. 
 
-## <a name="edit-host-file"></a>Modifier le fichier hosts
+## <a name="edit-a-host-file"></a>Modifier un fichier hôte
 
 En l'absence de répertoire actif, il n'y a aucun moyen d'authentifier les connexions Windows. Par conséquent, vous devez attribuer un niveau de confiance en modifiant le fichier hosts à l'aide d'un éditeur de texte. 
 
@@ -104,7 +104,7 @@ new-itemproperty -path HKLM:\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\
 
 ## <a name="create-the-failover-cluster"></a>Créer le cluster de basculement
 
-Au cours de cette étape, vous allez créer le cluster de basculement. Pour en savoir plus sur ces étapes, suivez le [tutoriel consacré au cluster de basculement](failover-cluster-instance-storage-spaces-direct-manually-configure.md#step-2-configure-the-windows-server-failover-cluster-with-storage-spaces-direct).
+Au cours de cette étape, vous allez créer le cluster de basculement. Pour en savoir plus sur ces étapes, suivez le [tutoriel consacré au cluster de basculement](failover-cluster-instance-storage-spaces-direct-manually-configure.md).
 
 Différences notables entre le tutoriel et ce qui doit être fait pour un cluster de groupes de travail :
 - Désactivez **Stockage** et **Espaces de stockage direct** lors de l'exécution de la validation du cluster. 
@@ -130,13 +130,13 @@ Une fois le cluster créé, attribuez une adresse IP de cluster statique. Pour c
 
 ## <a name="create-a-cloud-witness"></a>Créer un témoin cloud 
 
-Au cours de cette étape, vous allez configurer un témoin de partage cloud. Pour en savoir plus sur ces étapes, suivez le [tutoriel consacré au cluster de basculement](failover-cluster-instance-storage-spaces-direct-manually-configure.md#create-a-cloud-witness). 
+Au cours de cette étape, vous allez configurer un témoin de partage cloud. Pour en savoir plus sur ces étapes, consultez [Déployer un témoin cloud pour un cluster de basculement](/windows-server/failover-clustering/deploy-cloud-witness). 
 
-## <a name="enable-availability-group-feature"></a>Activer la fonctionnalité Groupe de disponibilité 
+## <a name="enable-the-availability-group-feature"></a>Activer la fonctionnalité de groupes de disponibilité 
 
 Au cours de cette étape, vous allez activer la fonctionnalité Groupes de disponibilité. Pour en savoir plus sur ces étapes, suivez le [tutoriel consacré aux groupes de disponibilité](availability-group-manually-configure-tutorial.md#enable-availability-groups). 
 
-## <a name="create-keys-and-certificate"></a>Créer des clés et un certificat
+## <a name="create-keys-and-certificates"></a>Créer des clés et des certificats
 
 Au cours de cette étape, vous allez créer les certificats utilisés par la connexion SQL sur le point de terminaison chiffré. Créez un dossier sur chaque nœud pour y conserver les sauvegardes des certificats, par exemple `c:\certs`. 
 
@@ -277,16 +277,16 @@ GO
 
 Si le cluster comprend d'autres nœuds, répétez-y ces étapes, en modifiant les noms des certificats et des utilisateurs correspondants. 
 
-## <a name="configure-availability-group"></a>Configurer un groupe de disponibilité
+## <a name="configure-an-availability-group"></a>Configurer un groupe de disponibilité
 
 Au cours de cette étape, vous allez configurer votre groupe de disponibilité et y ajouter vos bases de données. Ne créez pas d'écouteur pour le moment. Pour en savoir plus sur ces étapes, suivez le [tutoriel consacré aux groupes de disponibilité](availability-group-manually-configure-tutorial.md#create-the-availability-group). Lancez une procédure de basculement et de restauration automatique pour vérifier que tout fonctionne bien. 
 
    > [!NOTE]
    > En cas d'échec du processus de synchronisation, vous devrez peut-être accorder temporairement à l'administrateur système `NT AUTHORITY\SYSTEM` les droits nécessaires à la création des ressources de cluster sur le premier nœud, par exemple `AGNode1`. 
 
-## <a name="configure-load-balancer"></a>Configurer l'équilibreur de charge
+## <a name="configure-a-load-balancer"></a>Configurer un équilibreur de charge
 
-Au cours de cette dernière étape, vous allez configurer l'équilibreur de charge à l'aide du [portail Azure](availability-group-load-balancer-portal-configure.md) ou de [PowerShell](availability-group-listener-powershell-configure.md).
+Dans cette dernière étape, vous allez configurer l’équilibreur de charge à l’aide du [portail Azure](availability-group-load-balancer-portal-configure.md) ou de [PowerShell](availability-group-listener-powershell-configure.md).
 
 
 ## <a name="next-steps"></a>Étapes suivantes

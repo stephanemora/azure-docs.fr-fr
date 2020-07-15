@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 05/11/2020
 ms.author: memildin
-ms.openlocfilehash: 253ea748462ec09cd9cf4eab14c05be678cfb82d
-ms.sourcegitcommit: 95269d1eae0f95d42d9de410f86e8e7b4fbbb049
+ms.openlocfilehash: 36c3515bbdd0f08063ecad2ba26fc7b92a5f0e19
+ms.sourcegitcommit: f684589322633f1a0fafb627a03498b148b0d521
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/26/2020
-ms.locfileid: "83860900"
+ms.lasthandoff: 07/06/2020
+ms.locfileid: "85970686"
 ---
 # <a name="archive-for-whats-new-in-azure-security-center"></a>Archive des nouveautés d’Azure Security Center
 
@@ -29,9 +29,37 @@ Cette page fournit des informations sur les points suivants :
 - Résolution des bogues
 - Fonctionnalités dépréciées
 
+
+## <a name="january-2020"></a>Janvier 2020
+
+### <a name="enhanced-secure-score-preview"></a>Amélioration du degré de sécurisation (préversion)
+
+Une version améliorée de la fonctionnalité de degré de sécurisation d’Azure Security Center est désormais disponible en préversion. Dans cette version, plusieurs recommandations sont regroupées en contrôles de sécurité qui reflètent mieux vos surfaces d’attaque vulnérables (et, par exemple, restreignent l’accès aux ports de gestion).
+
+Familiarisez-vous avec les changements apportés au degré de sécurisation au cours de la phase de préversion, et épinglez d’autres corrections qui vous aideront à sécuriser davantage votre environnement.
+
+Pour en savoir plus, consultez [Version améliorée du degré de sécurisation (préversion)](secure-score-security-controls.md).
+
+
+
 ## <a name="november-2019"></a>Novembre 2019
 
-### <a name="threat-protection-for-azure-key-vault-in-public-preview-in-north-america-regions"></a>Préversion publique de la protection contre les menaces pour Azure Key Vault dans les régions d’Amérique du Nord
+Les mises à jour en novembre sont les suivantes :
+ - [Protection contre les menaces pour Azure Key Vault dans les régions d’Amérique du Nord (préversion)](#threat-protection-for-azure-key-vault-in-north-america-regions-preview)
+ - [La protection contre les menaces pour Stockage Azure inclut le filtrage de la réputation des programmes malveillants](#threat-protection-for-azure-storage-includes-malware-reputation-screening)
+ - [Automatisation des workflows avec Azure Logic Apps (préversion)](#workflow-automation-with-logic-apps-preview)
+ - [Disponibilité générale d’un correctif rapide pour les ressources en bloc](#quick-fix-for-bulk-resources-generally-available)
+ - [Analyser des images conteneur pour détecter les vulnérabilités (préversion)](#scan-container-images-for-vulnerabilities-preview)
+ - [Autres normes de conformité réglementaire (préversion)](#additional-regulatory-compliance-standards-preview)
+ - [Protection contre les menaces pour Azure Kubernetes Service (préversion)](#threat-protection-for-azure-kubernetes-service-preview)
+ - [Évaluation des vulnérabilités des machines virtuelles (préversion)](#virtual-machine-vulnerability-assessment-preview)
+ - [Advanced Data Security pour les serveurs SQL sur Machines virtuelles Microsoft Azure (préversion)](#advanced-data-security-for-sql-servers-on-azure-virtual-machines-preview)
+ - [Prise en charge de stratégies personnalisées (préversion)](#support-for-custom-policies-preview)
+ - [Extension de la couverture d’Azure Security Center avec une plateforme pour la communauté et les partenaires](#extending-azure-security-center-coverage-with-platform-for-community-and-partners)
+ - [Intégrations avancées avec exportation de recommandations et d’alertes (préversion)](#advanced-integrations-with-export-of-recommendations-and-alerts-preview)
+ - [Intégrer des serveurs locaux à Security Center à partir du Centre d’administration Windows (préversion)](#onboard-on-prem-servers-to-security-center-from-windows-admin-center-preview)
+
+### <a name="threat-protection-for-azure-key-vault-in-north-america-regions-preview"></a>Protection contre les menaces pour Azure Key Vault dans les régions d’Amérique du Nord (préversion)
 
 Azure Key Vault est un service essentiel pour la protection des données et l’amélioration des performances des applications cloud, offrant la possibilité de gérer de manière centralisée les clés, les secrets, les clés de chiffrement et les stratégies dans le cloud. Étant donné qu’Azure Key Vault stocke des données sensibles et stratégiques, ses coffres de clés et les données qui y sont stockées exigent une sécurité maximale.
 
@@ -107,7 +135,7 @@ Les applications installées sur les machines virtuelles peuvent souvent présen
 
 Le support d’Azure Security Center en lien avec la protection contre les menaces et l’évaluation des vulnérabilités pour les bases de données SQL s’exécutant sur des machines virtuelles IaaS est désormais en préversion.
 
-La fonctionnalité [Évaluation des vulnérabilités](https://docs.microsoft.com/azure/sql-database/sql-vulnerability-assessment) est un service simple à configurer, qui vous permet de découvrir, suivre et corriger des vulnérabilités de base de données potentielles. Il offre une visibilité sur votre posture de sécurité en lien avec le degré de sécurisation Azure, et inclut des étapes pour résoudre des problèmes de sécurité et renforcer la protection de votre base de données.
+La fonctionnalité [Évaluation des vulnérabilités](https://docs.microsoft.com/azure/sql-database/sql-vulnerability-assessment) est un service simple à configurer, qui vous permet de découvrir, suivre et de corriger des vulnérabilités de base de données potentielles. Il offre une visibilité sur votre posture de sécurité en lien avec le degré de sécurisation Azure, et inclut des étapes pour résoudre des problèmes de sécurité et renforcer la protection de votre base de données.
 
 La [protection avancée contre les menaces](https://docs.microsoft.com/azure/sql-database/sql-database-threat-detection-overview) détecte des activités anormales indiquant des tentatives inhabituelles et potentiellement dangereuses d’accès à votre serveur SQL ou d’exploitation de celui-ci. Elle supervise en permanence votre base de données pour détecter des activités suspectes, et envoie des alertes de sécurité orientées action en cas de modèles d’accès anormaux à la base de données. Ces alertes fournissent des détails sur les activités suspectes et des mesures recommandées pour examiner et atténuer la menace.
 
@@ -146,6 +174,11 @@ Avec cette nouvelle expérience, les utilisateurs devront intégrer un serveur W
 
 ## <a name="september-2019"></a>Septembre 2019
 
+Les mises à jour en septembre sont les suivantes :
+
+ - [Gestion des règles avec des améliorations des contrôles d’application adaptatifs](#managing-rules-with-adaptive-application-controls-improvements)
+ - [Contrôler la recommandation de sécurité de conteneur à l’aide d’Azure Policy](#control-container-security-recommendation-using-azure-policy)
+
 ### <a name="managing-rules-with-adaptive-application-controls-improvements"></a>Gestion des règles avec des améliorations des contrôles d’application adaptatifs
 
 L’expérience de gestion des règles pour les machines virtuelles à l’aide de contrôles d’application adaptatifs a été améliorée. Les contrôles d’application adaptatifs d’Azure Security Center vous aident à contrôler les applications qui peuvent s’exécuter sur vos machines virtuelles. En plus d’une amélioration générale de la gestion des règles, un nouvel avantage vous permet de contrôler les types de fichiers qui seront protégés lorsque vous ajoutez une nouvelle règle.
@@ -161,6 +194,12 @@ Pour afficher vos stratégies de sécurité activées, dans le Security Center, 
 
 
 ## <a name="august-2019"></a>Août 2019
+
+Les mises à jour en août sont les suivantes :
+
+ - [Accès de machine virtuelle juste-à-temps (JAT) pour Pare-feu Azure](#just-in-time-jit-vm-access-for-azure-firewall)
+ - [Correction en un seul clic pour améliorer votre posture de sécurité (préversion)](#single-click-remediation-to-boost-your-security-posture-preview)
+ - [Gestion multilocataire](#cross-tenant-management)
 
 ### <a name="just-in-time-jit-vm-access-for-azure-firewall"></a>Accès de machine virtuelle juste-à-temps (JAT) pour le Pare-feu Azure 
 

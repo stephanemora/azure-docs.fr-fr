@@ -7,13 +7,13 @@ ms.reviewer: douglasl
 ms.service: data-factory
 ms.topic: conceptual
 ms.custom: seo-lt-2019
-ms.date: 04/17/2020
-ms.openlocfilehash: 9594a2ddfaa0103e171618925ba6974bf9ad7f00
-ms.sourcegitcommit: 0b80a5802343ea769a91f91a8cdbdf1b67a932d3
+ms.date: 07/03/2020
+ms.openlocfilehash: 1126f73b4d2e51e952a7cf971363020242838c34
+ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/25/2020
-ms.locfileid: "83833964"
+ms.lasthandoff: 07/05/2020
+ms.locfileid: "85958892"
 ---
 # <a name="monitor-data-flows"></a>Superviser les flux de données
 
@@ -56,12 +56,31 @@ Quand votre flux de données est exécuté dans Spark, Azure Data Factory déter
   * Heure de démarrage du cluster : Durée d’acquisition de l’environnement de calcul JIT Spark pour l’exécution de votre flux de données
   * Nombre de transformations : Nombre d’étapes de transformation exécutées dans votre flux
   
-![Supervision du flux de données](media/data-flow/monitornew.png "Supervision du flux de données - Nouveau")  
+![Supervision du flux de données](media/data-flow/monitornew.png "Supervision du flux de données - Nouveau")
+
+## <a name="total-sink-processing-time-vs-transformation-processing-time"></a>Différence entre le temps de traitement du récepteur et le temps de traitement de la transformation
+
+Chaque étape de transformation indique une durée totale d’exécution, dans laquelle sont totalisés les temps d’exécution de chaque partition. Lorsque vous cliquez sur le récepteur, vous devez voir « Temps de traitement du récepteur ». Cette durée comprend la durée totale de la transformation *plus* le temps d’E/S nécessaire à l’écriture de vos données dans le magasin de destination. C’est le temps d’E/S nécessaire à l’écriture de vos données qui fait la différence entre le temps de traitement du récepteur et la durée totale de la transformation.
+
+Vous pouvez également voir le minutage détaillé de chaque étape de transformation de partition en ouvrant la sortie JSON de votre activité de flux de données dans la vue de supervision du pipeline ADF. La sortie JSON contient la durée en millisecondes de chaque partition, tandis que la vue de supervision de l’expérience utilisateur présente le minutage agrégé des partitions :
+
+```
+ {
+     "stage": 4,
+     "partitionTimes": [
+          14353,
+          14914,
+          14246,
+          14912,
+          ...
+         ]
+}
+```
   
 ## <a name="monitor-icons"></a>Icônes Superviser
 
 Cette icône signifie que les données de la transformation étaient déjà en cache sur le cluster. Les minutages et le chemin d’exécution en ont donc tenu compte :
 
-![Supervision du flux de données](media/data-flow/mon004.png "Supervision du flux de données")
+![Supervision du flux de données](media/data-flow/mon005.png "Supervision du flux de données")
 
 Vous pouvez également voir des icônes de cercle vert dans la transformation. Elles représentent un décompte du nombre de récepteurs dans lesquels les données s’écoulent.

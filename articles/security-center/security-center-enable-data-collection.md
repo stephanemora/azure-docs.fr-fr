@@ -8,12 +8,12 @@ ms.service: security-center
 ms.topic: conceptual
 ms.date: 04/27/2020
 ms.author: memildin
-ms.openlocfilehash: 843cd74c85c619dbbd2b11a32fccf75d030b5613
-ms.sourcegitcommit: 318d1bafa70510ea6cdcfa1c3d698b843385c0f6
+ms.openlocfilehash: be212de7a24b416ad4e5dc08998ba1147c6f3753
+ms.sourcegitcommit: 9b5c20fb5e904684dc6dd9059d62429b52cb39bc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/21/2020
-ms.locfileid: "83772962"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85855948"
 ---
 # <a name="data-collection-in-azure-security-center"></a>Collecte de données dans Azure Security Center
 Azure Security Center collecte des données à partir de vos machines virtuelles Azure, groupes de machines virtuelles identiques, conteneurs IaaS et ordinateurs autres qu’Azure (y compris locaux) pour surveiller les menaces et vulnérabilités de sécurité. Les données sont collectées à l’aide de l’agent Log Analytics, qui lit divers journaux d’événements et configurations liées à la sécurité de la machine et copie les données dans votre espace de travail à des fins d’analyse. Il peut s’agir des données suivantes : type et version de système d’exploitation, journaux d’activité de système d’exploitation (journaux d’événements Windows), processus en cours d’exécution, nom de machine, adresses IP et utilisateur connecté.
@@ -199,7 +199,7 @@ Si l’espace de travail configuré est un espace de travail utilisateur (pas un
 <br>
 Pour les machines Linux, le multihébergement d’agent n’est pas encore pris en charge, par conséquent, si une installation existante de l’agent est détectée, l’approvisionnement automatique n’a pas lieu et la configuration de la machine n’est pas modifiée.
 <br>
-Pour les machines existantes sur les abonnements intégrés à Security Center avant le 17/03/2019, lorsqu’un agent existant est détecté, le Log Analytics Agent n’est pas installé et la machine n’est pas affectée. Pour ces machines, consultez la recommandation « Résoudre les problèmes d’intégrité de l’agent d’analyse sur vos machines » pour résoudre les problèmes d’installation de l’agent sur ces machines.
+Pour les machines existantes sur les abonnements intégrés à Security Center avant le 17 mars 2019, quand un agent existant est détecté, l’agent Log Analytics n’est pas installé et la machine n’est pas affectée. Pour ces machines, consultez la recommandation « Résoudre les problèmes d’intégrité de l’agent d’analyse sur vos machines » pour résoudre les problèmes d’installation de l’agent sur ces machines.
 
   
 - L'agent System Center Operations Manager est installé sur la machine<br>
@@ -237,58 +237,44 @@ Il existe plusieurs manières d’installer le Log Analytics Agent manuellement.
 ### <a name="operations-management-suite-vm-extension-deployment"></a>Déploiement de l’extension de machines virtuelles Operations Management Suite 
 
 Vous pouvez installer manuellement Microsoft le Log Analytics Agent pour que Security Center puisse collecter des données de sécurité sur vos machines virtuelles et fournir des suggestions et des alertes.
-1. Sélectionnez Approvisionnement automatique : OFF.
-2. Créez un espace de travail et définissez le niveau tarifaire de l’espace de travail que vous souhaitez définir pour le Log Analytics Agent :
 
-   a.  Dans le menu principal de Security Center, sélectionnez **Stratégie de sécurité**.
-     
-   b.  Sélectionnez l’espace de travail dans lequel vous avez l’intention de connecter l’agent. Assurez-vous que l’espace de travail est dans le même abonnement que vous utilisez dans Security Center et que vous disposez d’autorisations en lecture/écriture sur l’espace de travail.
-       ![Sélectionnez un espace de travail][8]
-3. Définir le niveau tarifaire.
-   ![Sélectionnez le niveau tarifaire][9] 
-   >[!NOTE]
-   >Si l’espace de travail a déjà une solution **Security** ou **SecurityCenterFree** activée, la tarification sera définie automatiquement. 
+1. Désactivez le provisionnement automatique.
+
+1. Si vous le souhaitez, vous pouvez créer un espace de travail.
+
+1. Définissez l’espace de travail sur lequel vous installez l’agent Log Analytics sur le niveau tarifaire standard :
+
+    1. Dans le menu de Security Center, sélectionnez **Tarification et paramètres**.
+
+    1. Définissez l’espace de travail sur lequel vous installez l’agent. Assurez-vous que l’espace de travail est dans le même abonnement que vous utilisez dans Security Center et que vous disposez d’autorisations en lecture/écriture sur l’espace de travail.
+
+    1. Définissez le niveau tarifaire standard, puis sélectionnez **Enregistrer**.
+
+        ![Définir un espace de travail sur le niveau tarifaire standard](.\media\security-center-enable-data-collection\workspace-to-standard-tier.gif)
+
+       >[!NOTE]
+       >Si l’espace de travail a déjà une solution **Security** ou **SecurityCenterFree** activée, la tarification sera définie automatiquement. 
    > 
 
-4. Si vous souhaitez déployer les agents sur de nouvelles machines virtuelles à l’aide d’un modèle Resource Manager, installez l’extension de machine virtuelle OMS :
+1. Si vous voulez déployer les agents sur de nouvelles machines virtuelles en utilisant un modèle Resource Manager, installez l’agent Log Analytics :
 
-   a.  [Installez l’extension de machine virtuelle OMS pour Windows](../virtual-machines/extensions/oms-windows.md)
+   a.  [Installer l’agent Log Analytics pour Windows](../virtual-machines/extensions/oms-windows.md)
     
-   b.  [Installez l’extension de machine virtuelle OMS pour Linux](../virtual-machines/extensions/oms-linux.md)
-5. Pour déployer les extensions sur des machines virtuelles existantes, suivez les instructions de [Collecter des données sur les machines virtuelles Azure](../azure-monitor/learn/quick-collect-azurevm.md).
+   b.  [Installer l’agent Log Analytics pour Linux](../virtual-machines/extensions/oms-linux.md)
+
+1. Pour déployer les extensions sur des machines virtuelles existantes, suivez les instructions de [Collecter des données sur les machines virtuelles Azure](../azure-monitor/learn/quick-collect-azurevm.md).
 
    > [!NOTE]
    > La section **Collecter les données d’événements et de performances** est facultative.
    >
-6. Pour utiliser PowerShell afin de déployer l’extension, utilisez l’exemple PowerShell suivant :
-   
-   [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
-   
-   1. Accédez à **Log Analytics** et cliquez sur **Paramètres avancés**.
-    
-      ![Définir l’analytique des journaux d’activité][11]
 
-   2. Copiez les valeurs hors **WorkspaceID** et **clé primaire**.
-  
-      ![Copier les valeurs][12]
+1. Pour utiliser PowerShell afin de déployer l’extension, suivez les instructions de la documentation relative aux machines virtuelles :
 
-   3. Remplir la configuration publique et la configuration privée avec ces valeurs :
-     
-           $PublicConf = @{
-               "workspaceId"= "<WorkspaceID value>"
-           }
- 
-           $PrivateConf = @{
-               "workspaceKey"= "<Primary key value>"
-           }
+    - [Pour les machines Windows](https://docs.microsoft.com/azure/virtual-machines/extensions/oms-windows?toc=%2Fazure%2Fazure-monitor%2Ftoc.json#powershell-deployment)
 
-      - Lors de l’installation sur une machine virtuelle Windows :
-        
-            Set-AzVMExtension -ResourceGroupName $vm.ResourceGroupName -VMName $vm.Name -Name "MicrosoftMonitoringAgent" -Publisher "Microsoft.EnterpriseCloud.Monitoring" -ExtensionType "MicrosoftMonitoringAgent" -TypeHandlerVersion '1.0' -Location $vm.Location -settings $PublicConf -ProtectedSettingString $PrivateConf -ForceRerun True 
-    
-      - Lors de l’installation sur une machine virtuelle Linux :
-        
-            Set-AzVMExtension -ResourceGroupName $vm1.ResourceGroupName -VMName $vm1.Name -Name "OmsAgentForLinux" -Publisher "Microsoft.EnterpriseCloud.Monitoring" -ExtensionType "OmsAgentForLinux" -TypeHandlerVersion '1.0' -Location $vm.Location -Settingstring $PublicConf -ProtectedSettingString $PrivateConf -ForceRerun True`
+    - [Pour les machines Linux](https://docs.microsoft.com/azure/virtual-machines/extensions/oms-linux?toc=%2Fazure%2Fazure-monitor%2Ftoc.json#azure-cli-deployment)
+
+
 
 > [!NOTE]
 > Pour obtenir des instructions sur la manière d’intégrer Security Center à l’aide de PowerShell, voir [Automatiser l’intégration d’Azure Security Center à l’aide de PowerShell](security-center-powershell-onboarding.md).

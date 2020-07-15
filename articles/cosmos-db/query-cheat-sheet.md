@@ -6,12 +6,12 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 05/28/2019
 ms.author: sngun
-ms.openlocfilehash: 51660fb416aa9850381f515a3a31cc57519094b0
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: fb080858ff6be98846c542844810cf976eb3f264
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "66256976"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85117979"
 ---
 # <a name="azure-cosmos-db-query-cheat-sheets"></a>Aide-mémoires pour les requêtes Azure Cosmos DB
 
@@ -23,12 +23,12 @@ Choisissez à partir d’un téléchargement au format A4 ou A3.
 
 Téléchargez les[aide-mémoires pour les requêtes au format A4 Azure Cosmos DB](https://go.microsoft.com/fwlink/?LinkId=623215) si vous souhaitez imprimer au format A4 (8,5 x 11 pouces).
 
-![Aide-mémoires pour les requêtes Azure Cosmos DB : format A4, avec les fonctions et requêtes des API SQL, JavaScript, MongoDB, Gremlin et Table](./media/query-cheat-sheet/azure-cosmos-db-cheat-sheet-letter.png)
+:::image type="content" source="./media/query-cheat-sheet/azure-cosmos-db-cheat-sheet-letter.png" alt-text="Aide-mémoires pour les requêtes Azure Cosmos DB : format A4, avec les fonctions et requêtes des API SQL, JavaScript, MongoDB, Gremlin et Table" border="false":::
 
 ## <a name="oversized-cheat-sheets"></a>Aide-mémoires volumineux
 Téléchargez les [aide-mémoires pour les requêtes au format A3 Azure Cosmos DB](https://go.microsoft.com/fwlink/?linkid=870413) si vous souhaitez imprimer à l’aide d’un traceur ou d’une imprimante grand format sur du papier A3 (11,7 x 16,5 pouces).
 
-![Aide-mémoires pour les requêtes Azure Cosmos DB : format A3, avec les fonctions et requêtes des API SQL, JavaScript, MongoDB, Gremlin et Table](./media/query-cheat-sheet/azure-cosmos-db-cheat-sheet-a3.png)
+:::image type="content" source="./media/query-cheat-sheet/azure-cosmos-db-cheat-sheet-a3.png" alt-text="Aide-mémoires pour les requêtes Azure Cosmos DB : format A3, avec les fonctions et requêtes des API SQL, JavaScript, MongoDB, Gremlin et Table" border="false":::
 
 ## <a name="next-steps"></a>Étapes suivantes
 Pour plus d’informations sur l’écriture de requêtes, consultez les articles suivants :

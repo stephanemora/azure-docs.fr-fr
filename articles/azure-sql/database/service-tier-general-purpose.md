@@ -1,10 +1,10 @@
 ---
-title: Niveau de service universel
-titleSuffix: Azure SQL Database & SQL Managed Instance
+title: Niveau de service Usage général
+titleSuffix: Azure SQL Database & Azure SQL Managed Instance
 description: Découvrez le niveau de service Usage général pour Azure SQL Database et Azure SQL Managed Instance.
 services: sql-database
-ms.service: sql-database
-ms.subservice: service
+ms.service: sql-db-mi
+ms.subservice: features
 ms.custom: sqldbrb=2
 ms.devlang: ''
 ms.topic: conceptual
@@ -12,14 +12,14 @@ author: jovanpop-msft
 ms.author: jovanpop
 ms.reviewer: sstein
 ms.date: 02/07/2019
-ms.openlocfilehash: 7fd446e6894c3c88701527bb2d3668a570888a06
-ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
+ms.openlocfilehash: ee218253309995e721c97f4a7f7b4547b32f7c36
+ms.sourcegitcommit: 93462ccb4dd178ec81115f50455fbad2fa1d79ce
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "84038060"
+ms.lasthandoff: 07/06/2020
+ms.locfileid: "85986639"
 ---
-# <a name="general-purpose-service-tier---azure-sql-database--sql-managed-instance"></a>Niveau de service Usage général - Azure SQL Database et SQL Managed Instance
+# <a name="general-purpose-service-tier---azure-sql-database-and-azure-sql-managed-instance"></a>Niveau de service Usage général - Azure SQL Database et Azure SQLAzure SQL Managed Instance
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
 
 > [!NOTE]
@@ -30,9 +30,9 @@ Azure SQL Database et Azure SQL Managed Instance sont basés sur une architectur
 Deux niveaux de service sont utilisés par Azure SQL Database et SQL Managed Instance : 
 
 - Usage général
-- Critique pour l'entreprise
+- Critique pour l’entreprise
 
-Azure SQL Database a également un troisième niveau de service, qui n’est pas actuellement disponible pour Azure SQL Managed Instance : 
+Azure SQL Database a également un troisième niveau de service, qui n’est pas actuellement disponible pour Azure SQL Managed Instance :
 
 - Hyperscale
 
@@ -51,11 +51,11 @@ Dès que le moteur de base de données ou le système d’exploitation est mis �
 
 ## <a name="when-to-choose-this-service-tier"></a>Quand choisir ce niveau de service ?
 
-Le niveau de service Usage général est un niveau de service par défaut dans Azure SQL Database et Azure SQL Managed Instance conçu pour la plupart des charges de travail génériques. Si vous avez besoin d’un moteur de base de données complètement managé, avec un SLA de 99,99 % et une latence de stockage comprise entre 5 et 10 ms, adapté à SQL Server sur une machine virtuelle Azure dans la majorité des cas, choisissez le niveau Usage général.
+Le niveau de service Usage général est un niveau de service par défaut dans Azure SQL Database et Azure SQL Managed Instance conçu pour la plupart des charges de travail génériques. Si vous avez besoin d’un moteur de base de données complètement managé, avec un SLA de 99,99 % et une latence de stockage comprise entre cinq et dix millisecondes, adapté à SQL Server sur une machine virtuelle Azure dans la plupart des cas, choisissez le niveau Usage général.
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-- Recherchez les caractéristiques des ressources (nombre de cœurs, E/S, mémoire) du niveau Usage général/Standard dans [SQL Managed Instance](../managed-instance/resource-limits.md#service-tier-characteristics), Base de données unique dans [Modèle vCore](resource-limits-vcore-single-databases.md#general-purpose---provisioned-compute---gen4) ou [Modèle DTU](resource-limits-dtu-single-databases.md#single-database-storage-sizes-and-compute-sizes), ou Pool élastique dans [Modèle vCore](resource-limits-vcore-elastic-pools.md#general-purpose---provisioned-compute---gen4) et [Modèle DTU](resource-limits-dtu-elastic-pools.md#standard-elastic-pool-limits).
+- Recherchez les caractéristiques des ressources (nombre de cœurs, E/S, mémoire) du niveau Usage général/standard dans [SQL Managed Instance](../managed-instance/resource-limits.md#service-tier-characteristics), base de données unique dans [Modèle vCore](resource-limits-vcore-single-databases.md#general-purpose---provisioned-compute---gen4) ou [Modèle DTU](resource-limits-dtu-single-databases.md#single-database-storage-sizes-and-compute-sizes), ou pool élastique dans [Modèle vCore](resource-limits-vcore-elastic-pools.md#general-purpose---provisioned-compute---gen4) et [Modèle DTU](resource-limits-dtu-elastic-pools.md#standard-elastic-pool-limits).
 - Découvrez les niveaux [Critique pour l’entreprise](service-tier-business-critical.md) et [Hyperscale](service-tier-hyperscale.md).
 - Découvrez [Service Fabric](../../service-fabric/service-fabric-overview.md).
 - Pour découvrir d’autres options de haute disponibilité et de récupération d’urgence, consultez [Continuité d’activité](business-continuity-high-availability-disaster-recover-hadr-overview.md).

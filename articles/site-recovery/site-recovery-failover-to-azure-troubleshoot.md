@@ -9,12 +9,12 @@ ms.topic: article
 ms.workload: storage-backup-recovery
 ms.date: 01/08/2020
 ms.author: mayg
-ms.openlocfilehash: 9ef38829a18f9e43f38cbdb291a799110d710cd7
-ms.sourcegitcommit: 0b80a5802343ea769a91f91a8cdbdf1b67a932d3
+ms.openlocfilehash: 09a4700ce794458ee4dcad2291a93e0b13ca5feb
+ms.sourcegitcommit: e995f770a0182a93c4e664e60c025e5ba66d6a45
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/25/2020
-ms.locfileid: "83834728"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86133765"
 ---
 # <a name="troubleshoot-errors-when-failing-over-vmware-vm-or-physical-machine-to-azure"></a>Résoudre les erreurs se produisant lors du basculement d’une machine virtuelle VMware ou d'une machine physique vers Azure
 
@@ -74,6 +74,10 @@ Pour modifier manuellement le type de démarrage des pilotes pour **SE invité W
 
 ## <a name="unable-to-connectrdpssh-to-the-failed-over-virtual-machine-due-to-grayed-out-connect-button-on-the-virtual-machine"></a>Impossible de se connecter ou d’établir une liaison RDP ou SSH à la machine virtuelle après son basculement, car le bouton Se connecter est grisé
 
+Pour obtenir des instructions détaillées de résolution des problèmes liés à RDP, consultez notre documentation [ici](../virtual-machines/troubleshooting/troubleshoot-rdp-connection.md).
+
+Pour obtenir des instructions détaillées sur la résolution des problèmes liés à SSH, consultez notre documentation [ici](../virtual-machines/troubleshooting/troubleshoot-ssh-connection.md).
+
 Si le bouton **Se connecter** de la machine virtuelle basculée dans Azure est grisé et que vous n’avez pas établi de connexion ExpressRoute ou réseau privé virtuel de site à site à Azure :
 
 1. Accédez à **Machine virtuelle** > **Réseaux**, cliquez sur le nom de l’interface réseau concernée.  ![interface-réseau](media/site-recovery-failover-to-azure-troubleshoot/network-interface.PNG)
@@ -86,7 +90,7 @@ Si le bouton **Se connecter** de la machine virtuelle basculée dans Azure est g
 
 ## <a name="unable-to-connectrdpssh---vm-connect-button-available"></a>Impossible de se connecter/RDP/SSH – Le bouton Se connecter de la machine virtuelle est disponible
 
-Si le bouton **Se connecter** de la machine virtuelle basculée dans Azure est disponible (s’il n’est pas grisé), cochez **Diagnostics de démarrage** sur votre machine virtuelle et recherchez les erreurs mentionnées dans [cet article](../virtual-machines/windows/boot-diagnostics.md).
+Si le bouton **Se connecter** de la machine virtuelle basculée dans Azure est disponible (s’il n’est pas grisé), cochez **Diagnostics de démarrage** sur votre machine virtuelle et recherchez les erreurs mentionnées dans [cet article](../virtual-machines/troubleshooting/boot-diagnostics.md).
 
 1. Si la machine virtuelle n’a pas démarré, tentez de basculer vers un point de récupération plus ancien.
 2. Si l’application de la machine virtuelle n’est pas disponible, tentez de basculer vers un point de récupération cohérent au niveau application.
@@ -170,7 +174,7 @@ Pour résoudre le problème :
 
 
 ## <a name="next-steps"></a>Étapes suivantes
-- Résoudre les problèmes de [connexion à la machine virtuelle Windows via RDP](../virtual-machines/windows/troubleshoot-rdp-connection.md)
-- Résoudre les problèmes de [connexion à la machine virtuelle Linux via SSH](../virtual-machines/linux/detailed-troubleshoot-ssh-connection.md)
+- Résoudre les problèmes de [connexion à la machine virtuelle Windows via RDP](../virtual-machines/troubleshooting/troubleshoot-rdp-connection.md)
+- Résoudre les problèmes de [connexion à la machine virtuelle Linux via SSH](../virtual-machines/troubleshooting/detailed-troubleshoot-ssh-connection.md)
 
-Si vous avez besoin d’aide supplémentaire, posez votre question sur la [Page de questions Microsoft Q&A pour Site Recovery](https://docs.microsoft.com/answers/topics/azure-site-recovery.html) ou laissez un commentaire à la fin de ce document. Notre communauté est active et doit être en mesure de vous aider.
+Si vous avez besoin d’aide supplémentaire, posez votre question sur la [Page de questions Microsoft Q&A pour Site Recovery](/answers/topics/azure-site-recovery.html) ou laissez un commentaire à la fin de ce document. Notre communauté est active et doit être en mesure de vous aider.

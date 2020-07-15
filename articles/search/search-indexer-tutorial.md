@@ -1,23 +1,23 @@
 ---
 title: Tutoriel C# sur l’indexation des données Azure SQL
 titleSuffix: Azure Cognitive Search
-description: Dans ce tutoriel C#, vous vous connectez à une base de données Azure SQL, extrayez des données interrogeables et les chargez dans un index de Recherche cognitive Azure.
+description: Dans ce tutoriel C#, vous vous connectez à Azure SQL Database, extrayez des données interrogeables et les chargez dans un index de Recherche cognitive Azure.
 manager: nitinme
 author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: tutorial
 ms.date: 06/23/2020
-ms.openlocfilehash: cf0c2c75b795fcca347439714e163d4022b79fa4
-ms.sourcegitcommit: 635114a0f07a2de310b34720856dd074aaf4f9cd
+ms.openlocfilehash: a3a7657aa83a675982adc304de01ba0fcc26d193
+ms.sourcegitcommit: e132633b9c3a53b3ead101ea2711570e60d67b83
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/23/2020
-ms.locfileid: "85261016"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86045448"
 ---
 # <a name="tutorial-index-azure-sql-data-using-the-net-sdk"></a>Tutoriel : Indexer des données Azure SQL à l’aide du SDK .NET
 
-Configurez un [indexeur](search-indexer-overview.md) pour extraire des données interrogeables d’une base de données Azure SQL, en les envoyant à un index de recherche dans Recherche cognitive Azure. 
+Configurez un [indexeur](search-indexer-overview.md) pour extraire des données interrogeables d’Azure SQL Database, en les envoyant à un index de recherche dans Recherche cognitive Azure. 
 
 Ce tutoriel utilise C# et le [SDK .NET](https://docs.microsoft.com/dotnet/api/overview/azure/search) pour effectuer les tâches suivantes :
 
@@ -144,7 +144,7 @@ Un schéma peut également inclure d’autres éléments, y compris des profils 
 
 Le programme principal inclut une logique pour la création d’un client, d’un index, d’une source de données et d’un indexeur. Le code recherche et supprime les ressources existantes du même nom, en supposant que vous pouvez exécuter ce programme plusieurs fois.
 
-L’objet de source de données est configuré avec des paramètres propres aux ressources de base de données Azure SQL, notamment l’[indexation partielle ou incrémentielle](search-howto-connecting-azure-sql-database-to-azure-search-using-indexers.md#capture-new-changed-and-deleted-rows), pour tirer parti des [fonctionnalités de détection des modifications](https://docs.microsoft.com/sql/relational-databases/track-changes/about-change-tracking-sql-server) d’Azure SQL. La base de données des hôtels de démonstration dans Azure SQL a une colonne « suppression réversible » nommée **IsDeleted**. Quand cette colonne est définie sur true dans la base de données, l’indexeur supprime le document correspondant dans l’index de Recherche cognitive Azure.
+L’objet de source de données est configuré avec des paramètres propres aux ressources Azure SQL Database, notamment l’[indexation partielle ou incrémentielle](search-howto-connecting-azure-sql-database-to-azure-search-using-indexers.md#capture-new-changed-and-deleted-rows), pour tirer parti des [fonctionnalités intégrées de détection des modifications](https://docs.microsoft.com/sql/relational-databases/track-changes/about-change-tracking-sql-server) d’Azure SQL. La base de données des hôtels de démonstration dans Azure SQL a une colonne « suppression réversible » nommée **IsDeleted**. Quand cette colonne est définie sur true dans la base de données, l’indexeur supprime le document correspondant dans l’index de Recherche cognitive Azure.
 
   ```csharp
   Console.WriteLine("Creating data source...");
@@ -253,4 +253,4 @@ Vous pouvez rechercher et gérer les ressources dans le portail à l’aide des 
 Maintenant que vous êtes familiarisé avec les principes fondamentaux de l’indexation de SQL Database, examinons de plus près la configuration de l’indexeur.
 
 > [!div class="nextstepaction"]
-> [Configurer un indexeur Azure SQL Database](search-howto-connecting-azure-sql-database-to-azure-search-using-indexers.md)
+> [Configurer un indexeur SQL Database](search-howto-connecting-azure-sql-database-to-azure-search-using-indexers.md)

@@ -8,10 +8,10 @@ ms.date: 04/15/2020
 ms.author: owend
 ms.reviewer: minewiskan
 ms.openlocfilehash: 944a84405bd7e03b72b2610278f9f0e4d3cfaf38
-ms.sourcegitcommit: b55d7c87dc645d8e5eb1e8f05f5afa38d7574846
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/16/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "81454235"
 ---
 # <a name="manage-server-administrators"></a>Gérer des administrateurs de serveur
@@ -23,7 +23,7 @@ Lors de l'ajout d'un **groupe de sécurité**, utilisez `obj:groupid@tenantid`.
 ## <a name="to-add-server-administrators-by-using-azure-portal"></a>Pour ajouter des administrateurs de serveur à l’aide du portail Azure
 
 1. Dans le portail, cliquez sur **Administrateurs Analysis Services** pour votre serveur.
-2. Dans **\<NomServeur> - Administrateurs Analysis Services**, cliquez sur **Ajouter**.
+2. Dans **\<servername>– Administrateurs Analysis Services**, cliquez sur **Ajouter**.
 3. Dans **Ajouter des administrateurs de serveur**, sélectionnez des comptes d’utilisateur à partir d’Azure AD ou invitez des utilisateurs externes par le biais de leur adresse e-mail.
 
     ![Administrateurs de serveur dans le portail Azure](./media/analysis-services-server-admins/aas-manage-users-admins.png)

@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 08/22/2019
 ms.author: johndeu
 ms.openlocfilehash: 551fb0cb9f3745a62d5d84f2c4878bbbbe5ad9a0
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "79137320"
 ---
 # <a name="signaling-timed-metadata-in-live-streaming"></a>Signalisation de métadonnées chronométrées dans une vidéo en flux continu 
@@ -67,7 +67,7 @@ Cette spécification présente plusieurs modes pris en charge par Media Services
 Les documents suivants contiennent des dispositions qui, par référence à ce texte, constituent des dispositions du présent document. Tous les documents sont soumis à des révisions par les organismes de normalisation et les lecteurs sont encouragés à examiner la possibilité d’appliquer les éditions les plus récentes des documents répertoriés ci-dessous. Il est également rappelé aux lecteurs que les éditions plus récentes des documents référencés peuvent ne pas être compatibles avec cette version des spécifications de métadonnées chronométrées pour Azure Media Services.
 
 
-| standard          | Définition                                                                                                                                                                                                     |
+| Standard          | Définition                                                                                                                                                                                                     |
 | ----------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | [Adobe-Primetime] | [Spécification de signalement d’insertion de programme numérique Primetime 1.2](https://www.adobe.com/content/dam/acom/en/devnet/primetime/PrimetimeDigitalProgramInsertionSignalingSpecification.pdf)                       |
 | [Adobe-Flash-AS]  | [Informations de référence sur le langage Flash ActionScript](https://help.adobe.com/archive/en_US/as2/flashlite_2.x_3.x_aslr.pdf)                                                                                                   |

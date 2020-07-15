@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 09/09/2019
 ms.author: ancav
 ms.subservice: ''
-ms.openlocfilehash: 65bb1a3915ece384974da12b4e7a1ad0c1e08133
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 7656b60c31e7da7841f9afb723167eb061fe3401
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "77655810"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85124470"
 ---
 # <a name="send-guest-os-metrics-to-the-azure-monitor-metrics-database-for-a-windows-virtual-machine-classic"></a>Envoyer les mesures du système d’exploitation invité à une base de données de mesures Azure Monitor d’une machine virtuelle Windows (classique)
 
@@ -26,7 +26,7 @@ En les stockant dans cet emplacement, vous avez accès aux mêmes actions que ce
 
 La procédure décrite dans cet article fonctionne uniquement avec les machines virtuelles classiques qui exécutent un système d’exploitation Windows.
 
-## <a name="prerequisites"></a>Conditions préalables requises
+## <a name="prerequisites"></a>Prérequis
 
 - Vous devez être [administrateur ou coadministrateur de services fédérés](../../cost-management-billing/manage/add-change-subscription-administrator.md) dans votre abonnement Azure. 
 
@@ -48,7 +48,7 @@ La procédure décrite dans cet article fonctionne uniquement avec les machines 
 
 ## <a name="create-a-service-principal"></a>Créer un principal du service
 
-Créez un principal de service dans votre locataire Azure Active Directory en suivant les instructions indiquées dans [Créer un principal du service](../../active-directory/develop/howto-create-service-principal-portal.md). Notez ce qui suit au cours de ce processus : 
+Créez un principal du service dans votre locataire Azure Active Directory en suivant les instructions indiquées dans [Créer un principal du service](../../active-directory/develop/howto-create-service-principal-portal.md). Notez ce qui suit au cours de ce processus : 
 - Créez un secret client pour cette application.
 - Enregistrez la clé et l’ID client pour les utiliser ultérieurement.
 

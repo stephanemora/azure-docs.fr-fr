@@ -4,12 +4,12 @@ description: Découvrez des scénarios de sécurité relatifs aux clusters Azure
 ms.topic: conceptual
 ms.date: 08/14/2018
 ms.custom: sfrev
-ms.openlocfilehash: c43cfbd4468a64867d50482d9c8055622602f159
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: ba1565c31e8a3ce3f25501f0cad321d5413dc962
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81461580"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85080684"
 ---
 # <a name="service-fabric-cluster-security-scenarios"></a>Scénarios de sécurité d’un cluster Service Fabric
 
@@ -33,13 +33,18 @@ Les clusters exécutés dans Azure et les clusters autonomes exécutés sur Wind
 
 Service Fabric utilise des certificats de serveur X.509 que vous spécifiez dans le cadre de la configuration du type de nœud, lorsque vous créez un cluster. La fin de cet article propose un rapide aperçu de ce que sont ces certificats et de la façon dont vous pouvez les acquérir ou les créer.
 
-Pour configurer la sécurité par certificat lors de la création du cluster, vous pouvez utiliser un modèle Azure Resource Manager dans le portail Azure, ou un modèle JSON autonome. Le comportement par défaut du Kit de développement logiciel (SDK) Service Fabric consiste à déployer et à installer le certificat avec le certificat dont la date d’expiration est la plus lointaine ; le comportement classique permettait de définir des certificats principaux et secondaires, pour autoriser les déploiements manuels, mais cette approche n’est pas recommandée avec cette nouvelle fonctionnalité. Les certificats principaux qui seront utilisés présentant la date d’expiration la plus lointaine doivent être différents de ceux du client d’administration et du client en lecture seule que vous spécifiez pour la [sécurité client à nœud](#client-to-node-security).
+Pour configurer la sécurité par certificat lors de la création du cluster, vous pouvez utiliser un modèle Azure Resource Manager dans le portail Azure, ou un modèle JSON autonome. Le comportement par défaut du SDK Service Fabric est de déployer et d’installer le certificat dont la date d’expiration est la plus lointaine ; le comportement classique permettait de définir des certificats principaux et secondaires pour autoriser les déploiements manuels, mais cette approche n’est pas recommandée avec cette nouvelle fonctionnalité. Les certificats principaux qui seront utilisés présentant la date d’expiration la plus lointaine doivent être différents de ceux du client d’administration et du client en lecture seule que vous spécifiez pour la [sécurité client à nœud](#client-to-node-security).
 
 Pour plus d’informations sur la configuration de la sécurité par certificat dans un cluster Azure, consultez [Configurer un cluster à l’aide d’un modèle Azure Resource Manager](service-fabric-cluster-creation-via-arm.md).
 
 Pour plus d’informations sur la configuration de la sécurité par certificat dans un cluster autonome Windows Server, consultez [Sécuriser un cluster autonome sur Windows à l’aide de certificats X.509](service-fabric-windows-cluster-x509-security.md).
 
 ### <a name="node-to-node-windows-security"></a>Sécurité Windows de nœud à nœud
+
+> [!NOTE]
+> L’authentification Windows est basée sur Kerberos. NTLM n’est pas pris en charge comme type d’authentification.
+>
+> Quand c’est possible, utilisez l’authentification par certificat X.509 pour les clusters Service Fabric.
 
 Pour plus d’informations sur la configuration Windows dans un cluster autonome Windows Server, consultez [Sécuriser un cluster autonome sous Windows avec la sécurité Windows](service-fabric-windows-cluster-windows-security.md).
 
@@ -49,7 +54,7 @@ La sécurité client à nœud authentifie les clients et sécurise la communicat
 
 ![Diagramme de communication client à nœud][Client-to-Node]
 
-Les clusters exécutés dans Azure et les clusters autonomes exécutés sur Windows peuvent utiliser la [sécurité par certificat](https://msdn.microsoft.com/library/ff649801.aspx) ou la [sécurité Windows](https://msdn.microsoft.com/library/ff649396.aspx).
+Les clusters qui s’exécutent sur Azure et les clusters autonomes qui s’exécutent sur Windows peuvent utiliser la [sécurité par certificat](https://msdn.microsoft.com/library/ff649801.aspx) ou la [sécurité Windows](https://msdn.microsoft.com/library/ff649396.aspx), bien que la recommandation soit d’utiliser un certificat d’authentification X.509 quand c’est possible.
 
 ### <a name="client-to-node-certificate-security"></a>Sécurité par certificat de client à nœud
 

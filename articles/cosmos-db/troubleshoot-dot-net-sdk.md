@@ -3,23 +3,23 @@ title: Diagnostiquer et résoudre des problèmes lors de l’utilisation du Kit 
 description: Utilisez des fonctionnalités telles que la journalisation côté client et d’autres outils tiers pour identifier, diagnostiquer et résoudre des problèmes liés à Azure Cosmos DB lors de l’utilisation du Kit de développement logiciel .NET.
 author: anfeldma-ms
 ms.service: cosmos-db
-ms.date: 05/06/2020
+ms.date: 06/16/2020
 ms.author: anfeldma
 ms.subservice: cosmosdb-sql
 ms.topic: troubleshooting
 ms.reviewer: sngun
-ms.openlocfilehash: 55c462795b29cd678a5fd7816211bce720d554e1
-ms.sourcegitcommit: 1692e86772217fcd36d34914e4fb4868d145687b
+ms.openlocfilehash: 0eb5d9cd86be05e5ad69bc9543231987e3c1dd2c
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/29/2020
-ms.locfileid: "84170356"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85799263"
 ---
 # <a name="diagnose-and-troubleshoot-issues-when-using-azure-cosmos-db-net-sdk"></a>Diagnostiquer et résoudre des problèmes lors de l’utilisation du Kit de développement logiciel (SDK) Azure Cosmos DB
 
 > [!div class="op_single_selector"]
 > * [Kit SDK Java v4](troubleshoot-java-sdk-v4-sql.md)
-> * [Kit SDK Java asynchrone v2](troubleshoot-java-async-sdk.md)
+> * [Kit SDK Java asynchrone v2](troubleshoot-java-async-sdk.md)
 > * [.NET](troubleshoot-dot-net-sdk.md)
 > 
 
@@ -32,10 +32,10 @@ Examinez la liste de contrôle avant de mettre votre application en production. 
 *    Utilisez le dernier [Kit de développement logiciel (SDK)](sql-api-sdk-dotnet-standard.md). Le Kit de développement logiciel (SDK) en préversion ne doit pas être utilisé en production. Cela vous évitera de rencontrer des problèmes connus déjà corrigés.
 *    Consultez les [conseils relatifs aux performances](performance-tips.md) et suivez les pratiques suggérées. Cela vous aidera à éviter des problèmes de mise à l’échelle, de latence et autres liés aux performances.
 *    Activez la journalisation du SDK pour vous aider à résoudre un problème. L’activation de la journalisation pouvant affecter les performances, il est préférable de ne l’activer que lors de la résolution de problèmes. Vous pouvez activer les journaux suivants :
-    *    [Journaliser les métriques](monitor-accounts.md) à l’aide du portail Azure. Les métriques du portail présentent la télémétrie d’Azure Cosmos DB, qui est utile pour déterminer si le problème est lié à Azure Cosmos DB ou au client.
-    *    Consignez la [chaîne de diagnostics](https://docs.microsoft.com/dotnet/api/microsoft.azure.documents.client.resourceresponsebase.requestdiagnosticsstring) dans le Kit de développement logiciel (SDK) v2 ou le [diagnostics](https://docs.microsoft.com/dotnet/api/microsoft.azure.cosmos.responsemessage.diagnostics) dans le Kit de développement logiciel (SDK) V3 à partir des réponses d’opération ponctuelle.
-    *    Journaliser les [métriques de requête SQL](sql-api-query-metrics.md) de toutes les réponses à la requête. 
-    *    Suivez la configuration de la [journalisation du Kit de développement logiciel (SDK)]( https://github.com/Azure/azure-cosmos-dotnet-v2/blob/master/docs/documentdb-sdk_capture_etl.md).
+*    [Journaliser les métriques](monitor-accounts.md) à l’aide du portail Azure. Les métriques du portail présentent la télémétrie d’Azure Cosmos DB, qui est utile pour déterminer si le problème est lié à Azure Cosmos DB ou au client.
+*    Consignez la [chaîne de diagnostics](https://docs.microsoft.com/dotnet/api/microsoft.azure.documents.client.resourceresponsebase.requestdiagnosticsstring) dans le Kit de développement logiciel (SDK) v2 ou le [diagnostics](https://docs.microsoft.com/dotnet/api/microsoft.azure.cosmos.responsemessage.diagnostics) dans le Kit de développement logiciel (SDK) V3 à partir des réponses d’opération ponctuelle.
+*    Journaliser les [métriques de requête SQL](sql-api-query-metrics.md) de toutes les réponses à la requête. 
+*    Suivez la configuration de la [journalisation du Kit de développement logiciel (SDK)]( https://github.com/Azure/azure-cosmos-dotnet-v2/blob/master/docs/documentdb-sdk_capture_etl.md).
 
 Jetez un coup d’œil à la section [Problèmes courants et solutions de contournement](#common-issues-workarounds) dans cet article.
 
@@ -87,7 +87,7 @@ Cette latence peut avoir plusieurs causes :
 
 ### <a name="azure-snat-pat-port-exhaustion"></a><a name="snat"></a>Insuffisance de ports Azure SNAT (PAT)
 
-Si votre application est déployée sur des [Machines virtuelles Azure sans adresse IP publique](../load-balancer/load-balancer-outbound-connections.md#defaultsnat), par défaut les [ports Azure SNAT](../load-balancer/load-balancer-outbound-connections.md#preallocatedports) établissent des connexions avec n’importe quel point de terminaison en dehors de votre machine virtuelle. Le nombre de connexions autorisées de la machine virtuelle au point de terminaison Azure Cosmos DB est limité par la [configuration Azure SNAT](../load-balancer/load-balancer-outbound-connections.md#preallocatedports). Cette situation peut aboutir à la limitation de la connexion, à la fermeture de la connexion ou aux [délais d’expiration de la requête](#request-timeouts) mentionnés ci-dessus.
+Si votre application est déployée sur des [Machines virtuelles Azure sans adresse IP publique](../load-balancer/load-balancer-outbound-connections.md), par défaut les [ports Azure SNAT](../load-balancer/load-balancer-outbound-connections.md#preallocatedports) établissent des connexions avec n’importe quel point de terminaison en dehors de votre machine virtuelle. Le nombre de connexions autorisées de la machine virtuelle au point de terminaison Azure Cosmos DB est limité par la [configuration Azure SNAT](../load-balancer/load-balancer-outbound-connections.md#preallocatedports). Cette situation peut aboutir à la limitation de la connexion, à la fermeture de la connexion ou aux [délais d’expiration de la requête](#request-timeouts) mentionnés ci-dessus.
 
  Les ports Azure SNAT sont utilisés uniquement quand votre machine virtuelle a une adresse IP privée et tente de se connecter avec une adresse IP publique. Il existe deux solutions de contournement pour éviter la limitation d’Azure SNAT (à condition que vous utilisiez déjà une seule instance client sur l’ensemble de l’application) :
 
@@ -113,9 +113,11 @@ Si vous avez reçu le message d’erreur 401 suivant : « La signature MAC t
 
 1. La clé a été pivotée et n’a pas respecté les [meilleures pratiques](secure-access-to-data.md#key-rotation). Il s’agit du scénario le plus fréquent. La rotation des clés de compte Cosmos DB peut prendre de quelques secondes à plusieurs jours, selon la taille du compte Cosmos DB.
    1. L’erreur 401 de signature MAC est visible peu après une rotation de clé et finit par s’arrêter sans aucune modification. 
-2. La clé est mal configurée sur l’application, de sorte que la clé ne correspond pas au compte.
+1. La clé est mal configurée sur l’application, de sorte que la clé ne correspond pas au compte.
    1. Le problème 401 de signature MAC est cohérent et se produit pour tous les appels.
-3. Il existe une condition de concurrence avec la création d’un conteneur. Une instance d’application tente d’accéder au conteneur avant que la création du conteneur soit terminée. C’est le cas le plus fréquent si l’application est en cours d’exécution et que le conteneur est supprimé et recréé avec le même nom pendant que l’application est en cours d’exécution. Le Kit de développement logiciel (SDK) tentera d’utiliser le nouveau conteneur, mais la création du conteneur est toujours en cours, de sorte qu’il n’en a pas les clés.
+1. L’application utilise les [clés en lecture seule](secure-access-to-data.md#master-keys) pour les opérations d’écriture.
+   1. Le problème 401 de signature MAC se produit uniquement quand l’application effectue des demandes d’écriture, mais les demandes de lecture réussissent.
+1. Il existe une condition de concurrence avec la création d’un conteneur. Une instance d’application tente d’accéder au conteneur avant que la création du conteneur soit terminée. C’est le cas le plus fréquent si l’application est en cours d’exécution et que le conteneur est supprimé et recréé avec le même nom pendant que l’application est en cours d’exécution. Le Kit de développement logiciel (SDK) tentera d’utiliser le nouveau conteneur, mais la création du conteneur est toujours en cours, de sorte qu’il n’en a pas les clés.
    1. Le problème 401 de signature MAC s’affiche peu après la création d’un conteneur et ne survient que pendant le processus de création du conteneur.
  
  ### <a name="http-error-400-the-size-of-the-request-headers-is-too-long"></a>Erreur HTTP 400. La taille des en-têtes de requête est trop longue.

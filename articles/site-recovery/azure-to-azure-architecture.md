@@ -8,12 +8,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 3/13/2020
 ms.author: raynew
-ms.openlocfilehash: a9468f437a89a85f28b6ce869b948ca2a4aff7bf
-ms.sourcegitcommit: 999ccaf74347605e32505cbcfd6121163560a4ae
+ms.openlocfilehash: 5d0808b93d0c9c7b49d1fd394d2b776c008bc594
+ms.sourcegitcommit: e995f770a0182a93c4e664e60c025e5ba66d6a45
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/08/2020
-ms.locfileid: "82983327"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86135862"
 ---
 # <a name="azure-to-azure-disaster-recovery-architecture"></a>Architecture pour la récupération d’urgence d’Azure vers Azure
 
@@ -34,7 +34,7 @@ Les composants impliqués dans la reprise d’activité des machines virtuelles 
 **Compte de stockage de cache** | Vous avez besoin d’un compte de stockage de cache dans le réseau source. Lors de la réplication, les modifications apportées aux machines virtuelles sont stockées dans le cache avant d’être envoyées vers le stockage cible.  Les comptes de stockage de cache doivent être Standard.<br/><br/> L’utilisation d’un cache garantit un impact minimal sur les applications de production qui sont exécutées sur une machine virtuelle.<br/><br/> [En savoir plus](azure-to-azure-support-matrix.md#cache-storage) sur les exigences de stockage de cache 
 **Ressources cibles** | Les ressources cibles sont utilisées pendant la réplication et lors d’un basculement. Site Recovery peut configurer une ressource cible par défaut. Vous pouvez également en créer ou en personnaliser une.<br/><br/> Dans la région cible, vérifiez que vous pouvez créer des machines virtuelles, et que votre abonnement dispose de suffisamment de ressources pour prendre en charge les machines virtuelles qui seront nécessaires dans la région cible. 
 
-![Réplication source et cible](./media/concepts-azure-to-azure-architecture/enable-replication-step-1.png)
+![Réplication source et cible](./media/concepts-azure-to-azure-architecture/enable-replication-step-1-v2.png)
 
 ## <a name="target-resources"></a>Ressources cibles
 
@@ -116,7 +116,7 @@ Lorsque vous activez la réplication pour une machine virtuelle Azure, il se pro
 4. Site Recovery traite les données dans le cache, puis les envoie au compte de stockage cible ou aux disques managés de réplica.
 5. Une fois les données traitées, des points de récupération de cohérence en cas d’incident sont générés toutes les cinq minutes. Les points de récupération de cohérence des applications sont générés en fonction du paramètre spécifié dans la stratégie de réplication.
 
-![Activer le processus de réplication, étape 2](./media/concepts-azure-to-azure-architecture/enable-replication-step-2.png)
+![Activer le processus de réplication, étape 2](./media/concepts-azure-to-azure-architecture/enable-replication-step-2-v2.png)
 
 **Processus de réplication**
 
@@ -167,11 +167,11 @@ Autoriser le trafic HTTPS sortant : port 443 | Autoriser les plages corresponda
 
 #### <a name="control-access-with-nsg-rules"></a>Contrôler l’accès avec des règles de groupe de sécurité réseau
 
-Si vous contrôlez la connectivité des machines virtuelles en filtrant le trafic entrant et sortant des réseaux/sous-réseaux Azure à l’aide de [règles NSG](https://docs.microsoft.com/azure/virtual-network/security-overview), notez les exigences suivantes :
+Si vous contrôlez la connectivité des machines virtuelles en filtrant le trafic entrant et sortant des réseaux/sous-réseaux Azure à l’aide de [règles NSG](../virtual-network/security-overview.md), notez les exigences suivantes :
 
 - Les règles NSG de la région Azure source doivent autoriser l’accès sortant pour le trafic de réplication.
 - Nous vous recommandons de créer des règles dans un environnement de test avant de les utiliser en production.
-- Utilisez des [étiquettes de service](https://docs.microsoft.com/azure/virtual-network/security-overview#service-tags) au lieu d’autoriser les adresses IP individuelles.
+- Utilisez des [étiquettes de service](../virtual-network/security-overview.md#service-tags) au lieu d’autoriser les adresses IP individuelles.
     - Les étiquettes de service correspondent à un groupe de préfixes d’adresses IP permettant de simplifier la création de règles de sécurité.
     - Microsoft met automatiquement à jour les étiquettes de service. 
  
@@ -191,7 +191,7 @@ Si vous activez la cohérence multimachine virtuelle, les machines du groupe de 
 
 Quand vous démarrez un basculement, les machines virtuelles sont créées dans le groupe de ressources cible, le réseau virtuel cible, le sous-réseau cible et dans le groupe à haute disponibilité cible. Lors d’un basculement, vous pouvez utiliser n’importe quel point de récupération.
 
-![Processus de basculement](./media/concepts-azure-to-azure-architecture/failover.png)
+![Processus de basculement](./media/concepts-azure-to-azure-architecture/failover-v2.png)
 
 ## <a name="next-steps"></a>Étapes suivantes
 

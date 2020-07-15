@@ -1,17 +1,17 @@
 ---
 title: Authentifier avec des identités gérées
-description: Accédez à des ressources protégées par Azure Active Directory sans informations d’identification ni secrets en utilisant une identité managée.
+description: Accéder aux ressources protégées par Azure Active Directory sans devoir se connecter à l’aide d’informations d’identification ou de secrets, grâce à une identité managée
 services: logic-apps
 ms.suite: integration
 ms.reviewer: jonfan, logicappspm
 ms.topic: article
 ms.date: 02/10/2020
-ms.openlocfilehash: 73f3e7561b97574c4603e480b972eaf2a9a1ed48
-ms.sourcegitcommit: a3c6efa4d4a48e9b07ecc3f52a552078d39e5732
+ms.openlocfilehash: 190cc74bc2967cdee7f3154e0d6a6fedd8ee90dd
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/20/2020
-ms.locfileid: "83708038"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85565029"
 ---
 # <a name="authenticate-access-to-azure-resources-by-using-managed-identities-in-azure-logic-apps"></a>Authentifier l’accès aux ressources Azure avec des identités managées dans Azure Logic Apps
 

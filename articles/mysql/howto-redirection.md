@@ -4,21 +4,27 @@ description: Cet article décrit comment vous pouvez configurer votre applicatio
 author: ajlam
 ms.author: andrela
 ms.service: mysql
-ms.topic: conceptual
-ms.date: 05/18/2020
-ms.openlocfilehash: 608206ed1c1ffe1015f579d69868385ebd32208c
-ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
+ms.topic: how-to
+ms.date: 6/8/2020
+ms.openlocfilehash: be660101a28d5ef289de1b25f8f7d33fbe9f617b
+ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83660278"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86107816"
 ---
 # <a name="connect-to-azure-database-for-mysql-with-redirection"></a>Se connecter à Azure Database pour MySQL avec la redirection
 
 Cette rubrique explique comment connecter une application à votre serveur Azure Database pour MySQL avec le mode de redirection. La redirection vise à réduire la latence réseau entre les applications clientes et les serveurs MySQL en permettant aux applications de se connecter directement aux nœuds du serveur back-end.
 
 ## <a name="before-you-begin"></a>Avant de commencer
-Connectez-vous au [portail Azure](https://portal.azure.com). Créez un serveur Azure Database pour MySQL avec un moteur version 5.6, 5.7 ou 8.0. Pour plus d’informations, reportez-vous à [Guide pratique pour créer un serveur de base de données Azure pour MySQL à partir du portail](quickstart-create-mysql-server-database-using-azure-portal.md) ou à [Guide pratique pour créer un serveur de base de données Azure pour MySQL à l’aide de l’interface CLI](quickstart-create-mysql-server-database-using-azure-cli.md).
+Connectez-vous au [portail Azure](https://portal.azure.com). Créez un serveur Azure Database pour MySQL avec un moteur version 5.6, 5.7 ou 8.0. 
+
+Pour plus d’informations, consultez la rubrique relative à la création d’un serveur Azure Database pour MySQL à l’aide du [portail Azure](quickstart-create-mysql-server-database-using-azure-portal.md) ou d’[Azure CLI](quickstart-create-mysql-server-database-using-azure-cli.md).
+
+## <a name="enable-redirection"></a>Activer la redirection
+
+Sur votre serveur Azure Database pour MySQL, configurez le paramètre `redirect_enabled` sur `ON` pour autoriser les connexions avec le mode de redirection. Pour mettre à jour ce paramètre de serveur, utilisez le [portail Azure](howto-server-parameters.md) ou [Azure CLI](howto-configure-server-parameters-using-cli.md).
 
 ## <a name="php"></a>PHP
 

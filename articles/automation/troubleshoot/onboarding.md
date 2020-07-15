@@ -2,18 +2,15 @@
 title: Résoudre les problèmes de déploiement des fonctionnalités Azure Automation
 description: Cet article explique comment résoudre les problèmes de déploiement des fonctionnalités Azure Automation.
 services: automation
-author: mgoedtel
-ms.author: magoedte
-ms.date: 05/22/2019
+ms.date: 06/30/2020
 ms.topic: conceptual
 ms.service: automation
-manager: carmonm
-ms.openlocfilehash: 4c4c43d8522c6f507d458c56abc445e2da35fa6d
-ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
+ms.openlocfilehash: ca2f866dc882e003469163a22d32d3d72031443a
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/21/2020
-ms.locfileid: "83739377"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85801027"
 ---
 # <a name="troubleshoot-feature-deployment-issues"></a>Résoudre les problèmes de déploiement de fonctionnalités
 
@@ -71,7 +68,7 @@ Cette erreur est due à des autorisations incorrectes ou manquantes sur la machi
 
 #### <a name="resolution"></a>Résolution
 
-Vérifiez que vous disposez des [autorisations de déploiement de fonctionnalité](../automation-role-based-access-control.md#feature-setup-permissions) nécessaires, puis réessayez de déployer la fonctionnalité. Si le message d’erreur `The solution cannot be enabled on this VM because the permission to read the workspace is missing` s’affiche, vérifiez que vous disposez de l’autorisation `Microsoft.OperationalInsights/workspaces/read` afin de pouvoir déterminer si la machine virtuelle est activée dans un espace de travail.
+Vérifiez que vous disposez des [autorisations de déploiement de fonctionnalité](../automation-role-based-access-control.md#feature-setup-permissions) nécessaires, puis réessayez de déployer la fonctionnalité. Si vous recevez le message d’erreur `The solution cannot be enabled on this VM because the permission to read the workspace is missing`, consultez les [informations de dépannage](update-management.md#failed-to-enable-error) suivantes.
 
 ### <a name="scenario-feature-deployment-fails-with-the-message-failed-to-configure-automation-account-for-diagnostic-logging"></a><a name="diagnostic-logging"></a>Scénario : Le déploiement de la fonctionnalité échoue avec le message : « Échec de la configuration du compte Automation pour la journalisation des diagnostics »
 
@@ -145,8 +142,8 @@ Cette erreur se produit lorsque des fonctionnalités de votre espace de travail 
 Dans votre espace de travail, supprimez les ressources des fonctionnalités suivantes, si vous les utilisez :
 
 * Update Management
-* Change Tracking et Inventory
-* Start/Stop VMs during off-hours
+* Suivi des modifications et inventaire
+* Démarrer/arrêter des machines virtuelles pendant les heures creuses
 
 Une fois les ressources des fonctionnalités supprimées, vous pouvez dissocier votre espace de travail. Il est important de supprimer tous les artefacts existants de ces fonctionnalités dans votre espace de travail et votre compte Automation.
 

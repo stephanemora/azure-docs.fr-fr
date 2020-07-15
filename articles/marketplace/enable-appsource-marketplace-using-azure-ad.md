@@ -1,18 +1,18 @@
 ---
 title: Intégrer votre offre de la Place de marché commerciale Microsoft avec Azure Active Directory
 description: Utilisez Azure Active Directory pour authentifier vos offres sur Microsoft AppSource et de la Place de marché Azure.
-author: qianw211
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
+author: keferna
+ms.author: keferna
 ms.date: 04/15/2020
-ms.author: dsindona
-ms.openlocfilehash: 17cbfe92744ad96f2b5651b7e2f47a6443337068
-ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
+ms.openlocfilehash: eab7b556dc45d03bf440a3bc63aa6bf2d799face
+ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83658046"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86103621"
 ---
 # <a name="integrate-your-commercial-marketplace-listing-with-azure-active-directory"></a>Intégrer votre liste de la Place de marché commerciale avec Azure Active Directory
 
@@ -29,11 +29,10 @@ Les clients de Microsoft AppSource et de la Place de marché Azure utilisent des
 
 ## <a name="offers-that-require-azure-ad"></a>Offres qui nécessitent Azure AD
 
-Aux différents [types d’offre et options de référencement](https://docs.microsoft.com/azure/marketplace/determine-your-listing-type) pour AppSource et la Place de marché Azure correspondent différentes exigences pour l’implémentation d’Azure AD. Pour plus de détails, consultez le tableau suivant.
+Aux différents [types d’offre et options de référencement](determine-your-listing-type.md) pour AppSource et la Place de marché Azure correspondent différentes exigences pour l’implémentation d’Azure AD. Pour plus de détails, consultez le tableau suivant.
 
-| **Type d’offre**    | **Authentification unique Azure AD nécessaire ?**  |  |   |  |
+| Type d’offre    | Authentification unique Azure AD nécessaire pour Me contacter ?  | Authentification unique Azure AD nécessaire pour Essai ? | Authentification unique Azure AD nécessaire pour Version d’évaluation ?  | Authentification unique Azure AD nécessaire pour Transact |
 | :------------------- | :-------------------|:-------------------|:-------------------|:-------------------|
-|  | Me contacter | Version d’évaluation | Version d’évaluation | Transaction |
 | Machine virtuelle | N/A | Non | Non | Non |
 | Applications Azure ( modèle de solution)  | N/A | N/A | N/A | N/A |
 | Applications managées  | N/A | N/A | N/A | Non |
@@ -41,18 +40,18 @@ Aux différents [types d’offre et options de référencement](https://docs.mic
 | Containers  | N/A | N/A | N/A | Non |
 | Services de conseil  | Non | N/A | N/A | N/A |
 
-Pour plus d’informations sur les exigences techniques SaaS, consultez le [guide de publication de l’offre des applications SaaS](https://docs.microsoft.com/azure/marketplace/marketplace-saas-applications-technical-publishing-guide).
+Pour plus d’informations sur les exigences techniques SaaS, consultez le [guide de publication de l’offre des applications SaaS](marketplace-saas-applications-technical-publishing-guide.md).
 
 ## <a name="azure-ad-integration"></a>Intégration Azure AD
 
-- Pour savoir comment activer l’authentification unique en intégrant Azure AD dans votre liste, consultez [Azure Active Directory pour les développeurs]( https://docs.microsoft.com/azure/active-directory/develop/).
-- Pour obtenir des détails sur l’authentification unique Azure AD, consultez [Qu’est-ce que l’accès aux applications et l’authentification unique avec Azure Active Directory ?](https://docs.microsoft.com/azure/active-directory/manage-apps/what-is-single-sign-on).
+- Pour savoir comment activer l’authentification unique en intégrant Azure AD dans votre liste, consultez [Azure Active Directory pour les développeurs](../active-directory/develop/index.yml).
+- Pour obtenir des détails sur l’authentification unique Azure AD, consultez [Qu’est-ce que l’accès aux applications et l’authentification unique avec Azure Active Directory ?](../active-directory/manage-apps/what-is-single-sign-on.md).
 
 ## <a name="enable-a-trial-listing"></a>Activer une liste d’essai
 
 La configuration automatisée des clients peut accroître les chances de conversion. Quand un client sélectionne votre liste d’essai et qu’il est redirigé vers votre environnement d’essai, vous pouvez configurer le client directement sans avoir besoin d’étapes de connexion supplémentaires.
 
-Pendant l’authentification, Azure AD envoie un jeton à votre application ou offre. Les informations utilisateur fournies par le jeton permettent la création d’un compte d’utilisateur dans votre application ou offre. Pour plus d’informations, consultez [Exemples de jetons](https://docs.microsoft.com/azure/active-directory/develop/active-directory-token-and-claims).
+Pendant l’authentification, Azure AD envoie un jeton à votre application ou offre. Les informations utilisateur fournies par le jeton permettent la création d’un compte d’utilisateur dans votre application ou offre. Pour plus d’informations, consultez [Exemples de jetons](../active-directory/develop/id-tokens.md).
 
 Quand vous utilisez Azure AD pour activer l’authentification en un clic dans votre application ou liste d’essai, vous :
 
@@ -67,20 +66,20 @@ Quand vous utilisez Azure AD pour activer l’authentification en un clic dans v
 
 Utilisez Azure AD pour permettre les actions suivantes :
 
-- Inscrire votre application dans l’une des vitrines de la Place de marché. Pour plus d’informations, consultez [Inscription d’une application](https://docs.microsoft.com/azure/active-directory/develop/active-directory-integrating-applications) ou [Certification AppSource](https://docs.microsoft.com/azure/active-directory/develop/active-directory-devhowto-appsource-certified).
+- Inscrire votre application dans l’une des vitrines de la Place de marché. Pour plus d’informations, consultez [Inscription d’une application](../active-directory/develop/quickstart-register-app.md) ou [Certification AppSource](../active-directory/azuread-dev/howto-get-appsource-certified.md).
 - Activez la fonctionnalité de prise en charge multilocataire dans Azure AD pour bénéficier de l’expérience de version d’évaluation en un clic.
 
 Si vous n’avez jamais utilisé l’authentification unique fédérée Azure AD, effectuez les étapes suivantes :
 
 1. Inscrivez votre application sur la Place de marché.
-1. Développez l’authentification unique avec Azure AD en utilisant [OAuth 2.0](https://docs.microsoft.com/azure/active-directory/develop/active-directory-protocols-oauth-code) ou [OpenID Connect](https://docs.microsoft.com/azure/active-directory/develop/active-directory-protocols-openid-connect-code).
+1. Développez l’authentification unique avec Azure AD en utilisant [OAuth 2.0](../active-directory/azuread-dev/v1-protocols-oauth-code.md) ou [OpenID Connect](../active-directory/azuread-dev/v1-protocols-openid-connect-code.md).
 1. Activez la fonctionnalité de prise en charge multilocataire dans Azure AD pour fournir une expérience de version d’évaluation en un clic.
 
 ### <a name="single-tenant-solutions"></a>Solutions à un seul locataire
 
 Utilisez Azure AD pour permettre l’une des actions suivantes :
 
-- Ajouter des utilisateurs invités à votre annuaire en utilisant [Azure AD B2B](https://docs.microsoft.com/azure/active-directory/active-directory-b2b-what-is-azure-ad-b2b).
+- Ajouter des utilisateurs invités à votre annuaire en utilisant [Azure AD B2B](../active-directory/b2b/what-is-b2b.md).
 - Configurer manuellement des versions d’évaluation pour les clients en utilisant l’option de publication **Me contacter**.
 - Développer un test drive par client.
 - Créez un exemple d’application de démonstration mutualisée utilisant le SSO.

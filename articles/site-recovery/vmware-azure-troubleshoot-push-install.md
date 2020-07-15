@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.author: ramamill
 ms.date: 04/03/2020
 ms.openlocfilehash: 1afd931249d4dbeda2b4b25f822837e2a564f959
-ms.sourcegitcommit: 62c5557ff3b2247dafc8bb482256fef58ab41c17
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/03/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "80656320"
 ---
 # <a name="troubleshoot-mobility-service-push-installation"></a>Résoudre les problèmes d’installation Push du service Mobility
@@ -362,7 +362,7 @@ Ce problème entraîne l’échec de l’installation de l’agent Mobility d’
 
 ### <a name="to-identify-the-issue"></a>Pour identifier le problème
 
-Dans le journal situé sur le serveur de configuration dans _C:\ProgramData\ASRSetupLogs\UploadedLogs\<date-heure>UA_InstallLogFile.log_, vous trouverez l’exception suivante :
+Dans le journal situé sur le serveur de configuration dans _C:\ProgramData\ASRSetupLogs\UploadedLogs\<date-time>UA_InstallLogFile.log_, vous trouverez l’exception suivante :
 
 ```plaintext
 COM+ was unable to talk to the Microsoft Distributed Transaction Coordinator (Exception from HRESULT: 0x8004E00F)

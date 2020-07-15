@@ -11,12 +11,12 @@ author: barbaraselden
 manager: daveba
 ms.reviewer: sahenry
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 6151bbd9f056ef95c0875b83c7b6fccb732aebfe
-ms.sourcegitcommit: 64fc70f6c145e14d605db0c2a0f407b72401f5eb
+ms.openlocfilehash: a56f7248d5782b63befc55c4215360e0f5cb52b2
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "83870973"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84338564"
 ---
 # <a name="plan-an-azure-active-directory-self-service-password-reset-deployment"></a>Planification du déploiement de la réinitialisation de mot de passe en libre-service Azure Active Directory
 
@@ -75,7 +75,7 @@ Pour plus d'informations sur les prix, consultez [Tarifs Azure Active Directory]
 
 | Ressources| Lien et description |
 | - | - |
-| Videos| [Offrez une meilleure extensibilité informatique à vos utilisateurs](https://youtu.be/g9RpRnylxS8) 
+| Vidéos| [Offrez une meilleure extensibilité informatique à vos utilisateurs](https://youtu.be/g9RpRnylxS8) 
 | |[Qu'est-ce que la réinitialisation de mot de passe en libre-service ?](https://youtu.be/hc97Yx5PJiM)|
 | |[Déployer la réinitialisation de mot de passe en libre-service](https://www.youtube.com/watch?v=Pa0eyqjEjvQ&index=18&list=PLLasX02E8BPBm1xNMRdvP6GtA6otQUqp0)|
 | |[Configurer la réinitialisation de mot de passe en libre-service pour les utilisateurs dans Azure AD](https://azure.microsoft.com/resources/videos/self-service-password-reset-azure-ad/) |

@@ -3,18 +3,18 @@ title: Concevoir des workflows de type Policy as Code
 description: Apprenez à concevoir des workflows pour déployer vos définitions Azure Policy grâce à du code et valider automatiquement les ressources.
 ms.date: 05/20/2020
 ms.topic: conceptual
-ms.openlocfilehash: 972ec40609c340b159d21dde2bf18ab3330bf8cd
-ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
+ms.openlocfilehash: 17964459c6c06e6d7df09da4d3f0813350f209ec
+ms.sourcegitcommit: f684589322633f1a0fafb627a03498b148b0d521
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/20/2020
-ms.locfileid: "83684274"
+ms.lasthandoff: 07/06/2020
+ms.locfileid: "85970941"
 ---
 # <a name="design-policy-as-code-workflows"></a>Concevoir des workflows de type Policy as Code
 
 Au fil de votre progression dans la gouvernance cloud, vous allez chercher à passer de la gestion manuelle de chacune des définitions de stratégies sur le Portail Azure ou à l’aide des différents kits de développement logiciel (SDK) à un processus plus gérable et reproductible à l’échelle de l’entreprise. Voici deux des approches prédominantes de la gestion des systèmes à grande échelle dans le cloud :
 
-- Infrastructure as Code : pratique consistant à traiter en tant que code source tout le contenu qui définit les environnements, des modèles Resource Manager aux définitions Azure Policy en passant par Azure Blueprints.
+- Infrastructure as Code : pratique consistant à traiter en tant que code source tout le contenu qui définit les environnements, des modèles Azure Resource Manager (modèles ARM) aux définitions Azure Policy en passant par Azure Blueprints.
 - DevOps : rassemblement des personnes, des processus et des produits qui permettent une livraison continue de valeur ajoutée aux clients finaux.
 
 Le Policy as Code (« stratégie sous forme de code ») est la combinaison de ces idées. Pour l’essentiel, vous conservez vos définitions de stratégies dans le contrôle de code source, puis testez et validez chaque modification effectuée. Toutefois, l’implication des stratégies avec l’Infrastructure as Code ou le DevOps ne devrait pas s’arrêter là.
@@ -115,7 +115,7 @@ Une fois toutes les épreuves de validation effectuées, mettez à jour l’affe
 
 ## <a name="process-integrated-evaluations"></a>Traiter les évaluations intégrées
 
-Le workflow Policy as Code général vise à développer et à déployer des stratégies et des initiatives dans un environnement à grande échelle. Toutefois, l’évaluation de la stratégie doit faire partie du processus de déploiement de tous les workflows qui déploient ou créent des ressources dans Azure, par exemple le déploiement d’applications ou l’exécution de modèles Resource Manager dans le but de créer une infrastructure.
+Le workflow Policy as Code général vise à développer et à déployer des stratégies et des initiatives dans un environnement à grande échelle. Toutefois, l’évaluation de la stratégie doit faire partie du processus de déploiement de tous les workflows qui déploient ou créent des ressources dans Azure, par exemple le déploiement d’applications ou l’exécution de modèles ARM dans le but de créer une infrastructure.
 
 Dans ce cas, une fois le déploiement de l’application ou de l’infrastructure effectué sur un abonnement ou un groupe de ressources de test, l’évaluation de la stratégie doit être effectuée pour cette validation de toutes les stratégies et initiatives existantes. Bien qu’elles puissent être configurées comme **enforcementMode** _disabled_ dans un environnement de ce type, il est utile de savoir très vite si le déploiement d’une application ou d’une infrastructure est contraire aux définitions de stratégies. Cette évaluation de stratégie doit donc constituer une étape de ces workflows et faire échouer les déploiements qui créent des ressources non conformes.
 

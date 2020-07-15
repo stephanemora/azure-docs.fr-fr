@@ -7,12 +7,12 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 05/19/2020
 ms.reviewer: sngun
-ms.openlocfilehash: 709b442fde94d88adc7fe4cce16ee1a50bf06c6b
-ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
+ms.openlocfilehash: ff64f3f4891aac27a32b642b50ebd51dea9bd34a
+ms.sourcegitcommit: 0100d26b1cac3e55016724c30d59408ee052a9ab
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/20/2020
-ms.locfileid: "83674337"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86025775"
 ---
 # <a name="what-is-azure-synapse-link-for-azure-cosmos-db-preview"></a>Qu’est-ce qu’Azure Synapse Link pour Azure Cosmos DB (préversion) ?
 
@@ -25,7 +25,7 @@ Azure Synapse Link pour Azure Cosmos DB est une fonctionnalité de traitement tr
 
 L’illustration suivante représente l’intégration d’Azure Synapse Link dans Azure Cosmos DB et Azure Synapse Analytics : 
 
-![Diagramme d’architecture pour l’intégration d’Azure Synapse Analytics dans Azure Cosmos DB](./media/synapse-link/synapse-analytics-cosmos-db-architecture.png)
+:::image type="content" source="./media/synapse-link/synapse-analytics-cosmos-db-architecture.png" alt-text="Diagramme d’architecture pour l’intégration d’Azure Synapse Analytics dans Azure Cosmos DB" border="false":::
 
 ## <a name="benefits"></a><a id="synapse-link-benefits"></a> Avantages
 
@@ -121,6 +121,8 @@ L’utilisation de Synapse Link est déconseillée si vos exigences en matière 
 * Durant la préversion publique, Azure Synapse Link est pris en charge uniquement pour l’API Azure Cosmos DB SQL (Core). La prise en charge de l’API Azure Cosmos DB pour Mongo DB et l’API Cassandra est actuellement en préversion contrôlée. Pour demander l’accès à cette préversion contrôlée, envoyez un e-mail à [l’équipe Azure Cosmos DB](mailto:cosmosdbsynapselink@microsoft.com).
 
 * Actuellement, le magasin analytique ne peut être activé que pour les nouveaux conteneurs (à la fois dans les comptes Azure Cosmos DB nouveaux et existants).
+
+* Dans la préversion, la sauvegarde et la restauration des conteneurs ne sont pas prises en charge pour les comptes de base de données Synapse Link. Si vous avez des charges de travail de production qui nécessitent des fonctionnalités de sauvegarde et de restauration, nous vous recommandons de ne pas activer Synapse Link dans ces comptes de base de données. 
 
 * L’accès au magasin analytique Azure Cosmos DB avec Synapse SQL serverless est actuellement en préversion contrôlée. Pour demander l’accès, envoyez un e-mail à [l’équipe Azure Cosmos DB](mailto:cosmosdbsynapselink@microsoft.com).
 

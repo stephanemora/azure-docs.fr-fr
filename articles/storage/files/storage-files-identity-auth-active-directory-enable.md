@@ -4,15 +4,15 @@ description: Découvrez l’authentification AD DS (Azure Active Directory Domai
 author: roygara
 ms.service: storage
 ms.subservice: files
-ms.topic: conceptual
-ms.date: 05/29/2020
+ms.topic: how-to
+ms.date: 06/22/2020
 ms.author: rogarana
-ms.openlocfilehash: f505f8222bd5959a9bb0213dc5c8c48092723bba
-ms.sourcegitcommit: 309cf6876d906425a0d6f72deceb9ecd231d387c
+ms.openlocfilehash: 7999f042b8a67bed8ef01cccec5890b1a2d58ebb
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/01/2020
-ms.locfileid: "84266625"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85510218"
 ---
 # <a name="overview---on-premises-active-directory-domain-services-authentication-over-smb-for-azure-file-shares"></a>Vue d’ensemble - Authentification Active Directory Domain Services locale sur SMB pour les partages de fichiers Azure
 
@@ -57,7 +57,7 @@ Avant d’activer l’authentification AD DS pour des partages de fichiers Azur
 
 ## <a name="regional-availability"></a>Disponibilité régionale
 
-L’authentification Azure Files avec AD DS est disponible dans [toutes les régions publiques et les régions Azure Gov](https://azure.microsoft.com/global-infrastructure/locations/).
+L’authentification Azure Files avec AD DS est disponible dans [toutes les régions publiques Azure](https://azure.microsoft.com/global-infrastructure/locations/).
 
 ## <a name="overview"></a>Vue d’ensemble
 

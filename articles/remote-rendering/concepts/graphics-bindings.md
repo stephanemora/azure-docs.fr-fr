@@ -9,12 +9,12 @@ ms.author: flborn
 ms.date: 12/11/2019
 ms.topic: conceptual
 ms.service: azure-remote-rendering
-ms.openlocfilehash: 4854d5ff9d697a2bf082a788c0e761a2152b0294
-ms.sourcegitcommit: 0690ef3bee0b97d4e2d6f237833e6373127707a7
+ms.openlocfilehash: d29500db5efd0abde4c9555fde9a7e3d5bbe070a
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/21/2020
-ms.locfileid: "83758705"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85564986"
 ---
 # <a name="graphics-binding"></a>Liaison graphique
 
@@ -27,7 +27,7 @@ Une fois configurée, la liaison graphique donne accès à différentes fonction
 Dans Unity, la liaison entière est gérée par le struct `RemoteUnityClientInit` passé dans `RemoteManagerUnity.InitializeManager`. Pour définir le mode graphique, le champ `GraphicsApiType` doit être défini sur la liaison choisie. Le champ est renseigné automatiquement selon qu’un XRDevice est présent ou non. Le comportement peut être substitué manuellement par les comportements suivants :
 
 * **HoloLens 2** : la liaison graphique [Windows Mixed Reality](#windows-mixed-reality) est toujours utilisée.
-* **Application de bureau UWP plate** : la [simulation](#simulation) est toujours utilisée. Pour utiliser ce mode, veillez à suivre les étapes décrites dans [Didacticiel : Configuration d’un projet Unity en partant de zéro](../tutorials/unity/project-setup.md).
+* **Application de bureau UWP plate** : la [simulation](#simulation) est toujours utilisée.
 * **Éditeur Unity** : la [simulation](#simulation) est toujours utilisée à moins qu’un casque de réalité virtuelle WMR soit connecté, auquel cas ARR est désactivé pour permettre le débogage des parties non-ARR de l’application. Voir aussi la [communication à distance holographique](../how-tos/unity/holographic-remoting.md).
 
 La seule autre partie pertinente pour Unity est l’accès à la [liaison de base](#access), toutes les autres sections ci-dessous peuvent être ignorées.
@@ -233,4 +233,4 @@ else
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-* [Tutoriel : Configuration d’un projet Unity en partant de zéro](../tutorials/unity/project-setup.md)
+* [Tutoriel : Affichage de modèles rendus à distance](../tutorials/unity/view-remote-models/view-remote-models.md)

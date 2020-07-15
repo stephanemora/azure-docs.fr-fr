@@ -4,7 +4,7 @@ titleSuffix: Azure SQL Database & SQL Managed Instance & Azure Synapse Analytics
 description: Découvrez comment Azure SQL Database, SQL Managed Instance et Azure Synapse authentifient les utilisateurs à des fins d'accès à l'aide de connexions et de comptes d'utilisateur. Apprenez également à attribuer des rôles de base de données et des autorisations explicites pour autoriser les connexions, et permettre aux utilisateurs d'effectuer des actions et d'interroger des données.
 keywords: sécurité sql database, gestion de la sécurité de base de données, sécurité de connexion,sécurité de base de données, accès aux bases de données
 services: sql-database
-ms.service: sql-database
+ms.service: sql-db-mi
 ms.subservice: security
 ms.custom: sqldbrb=3
 ms.devlang: ''
@@ -13,12 +13,12 @@ author: VanMSFT
 ms.author: vanto
 ms.reviewer: carlrab
 ms.date: 03/23/2020
-ms.openlocfilehash: 296bf84c22313723c328e1775f697ee19dcb8f04
-ms.sourcegitcommit: 12f23307f8fedc02cd6f736121a2a9cea72e9454
+ms.openlocfilehash: fbcec1ace45927561c56449cd8ca0c8d3306b3bd
+ms.sourcegitcommit: 93462ccb4dd178ec81115f50455fbad2fa1d79ce
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/30/2020
-ms.locfileid: "84220549"
+ms.lasthandoff: 07/06/2020
+ms.locfileid: "85986281"
 ---
 # <a name="authorize-database-access-to-sql-database-sql-managed-instance-and-azure-synapse-analytics"></a>Configurer SQL Database, SQL Managed Instance et Azure Synapse Analytics pour autoriser l'accès aux bases de données
 [!INCLUDE[appliesto-sqldb-sqlmi-asa](../includes/appliesto-sqldb-sqlmi-asa.md)]
@@ -85,13 +85,13 @@ Pour identifier les comptes d’administrateur d’une base de données, ouvrez 
 
   - Créez une connexion SQL supplémentaire dans la base de données MASTER.
   - Ajoutez la connexion au [rôle serveur fixe sysadmin](https://docs.microsoft.com/sql/relational-databases/security/authentication-access/server-level-roles) à l’aide de l’instruction [ALTER SERVER ROLE](https://docs.microsoft.com/sql/t-sql/statements/alter-server-role-transact-sql). Cette connexion a des autorisations d’administration complètes.
-  - Vous pouvez également créer une [connexion Azure AD](authentication-aad-configure.md)#provision-azure-ad-admin-sql-managed-instance) en utilisant la syntaxe [CREATE LOGIN](/sql/t-sql/statements/create-login-transact-sql?view=azuresqldb-mi-current).
+  - Vous pouvez également créer une [connexion Azure AD](authentication-aad-configure.md#provision-azure-ad-admin-sql-managed-instance) à l’aide de la syntaxe [CREATE LOGIN](/sql/t-sql/statements/create-login-transact-sql?view=azuresqldb-mi-current).
 
 - **Dans SQL Database, créer des connexions SQL avec des autorisations d'administration limitées**
 
   - Créez une connexion SQL supplémentaire dans la base de données MASTER.
   - Créez un compte d'utilisateur dans la base de données MASTER associée à cette nouvelle connexion.
-  - Dans la base de données `master`, ajoutez le compte d'utilisateur au rôle `dbmanager`, au rôle `loginmanager` ou aux deux en utilisant l'instruction [ALTER SERVER ROLE](https://docs.microsoft.com/sql/t-sql/statements/alter-server-role-transact-sql) (pour Azure Synapse, utilisez l'instruction [sp_addrolemember](https://docs.microsoft.com/sql/relational-databases/system-stored-procedures/sp-addrolemember-transact-sql)).
+  - Dans la base de données `master`, ajoutez le compte d’utilisateur au rôle `dbmanager`, au rôle `loginmanager` ou aux deux en utilisant l’instruction [ALTER ROLE](https://docs.microsoft.com/sql/t-sql/statements/alter-role-transact-sql) (pour Azure Synapse, utilisez l’instruction [sp_addrolemember](https://docs.microsoft.com/sql/relational-databases/system-stored-procedures/sp-addrolemember-transact-sql)).
 
   > [!NOTE]
   > Les rôles `dbmanager` et `loginmanager` ne se rapportent **pas** aux déploiements SQL Managed Instance.
@@ -155,7 +155,7 @@ Après avoir créé un compte d’utilisateur dans une base de données, sur la 
 
 La gestion efficace de l’accès utilise des autorisations affectées à des groupes de sécurité Active Directory et des rôles fixes ou personnalisés plutôt qu’à des utilisateurs individuels.
 
-- Lorsque vous utilisez l’authentification Azure Active Directory, placez les utilisateurs Azure Active Directory dans un groupe de sécurité Azure Active Directory. Créez un utilisateur de base de données autonome pour le groupe. Placez un ou plusieurs utilisateurs de base de données dans un rôle de base de données personnalisé avec des autorisations spécifiques appropriées pour ce groupe d’utilisateurs.
+- Lorsque vous utilisez l’authentification Azure Active Directory, placez les utilisateurs Azure Active Directory dans un groupe de sécurité Azure Active Directory. Créez un utilisateur de base de données autonome pour le groupe. Ajoutez un ou plusieurs utilisateurs de base de données en tant que membre de rôles de base de données personnalisés ou intégrés disposant des autorisations spécifiques appropriées pour ce groupe d’utilisateurs.
 
 - Lorsque vous utilisez l’authentification SQL, créez des utilisateurs de base de données autonome dans la base de données. Placez un ou plusieurs utilisateurs de base de données dans un rôle de base de données personnalisé avec des autorisations spécifiques appropriées pour ce groupe d’utilisateurs.
 

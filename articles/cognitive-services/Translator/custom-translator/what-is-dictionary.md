@@ -9,16 +9,16 @@ ms.subservice: translator-text
 ms.date: 05/26/2020
 ms.author: swmachan
 ms.topic: conceptual
-ms.openlocfilehash: 510c75b6e1a06ab800128534a72c5e1f6e510600
-ms.sourcegitcommit: fc718cc1078594819e8ed640b6ee4bef39e91f7f
+ms.openlocfilehash: 826da5c3754ad03ac1fb62288f0b03ee2353d1f3
+ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "83997041"
+ms.lasthandoff: 07/05/2020
+ms.locfileid: "85962260"
 ---
 # <a name="what-is-a-dictionary"></a>Qu’est un dictionnaire ?
 
-Un dictionnaire est une paire alignée de documents qui spécifie une liste d’expressions ou de phrases avec les traductions correspondantes. Utilisez un dictionnaire dans votre apprentissage si vous souhaitez que Microsoft Translator traduise toujours toutes les instances de l’expression ou de la phrase source selon la traduction que vous avez indiquée dans le dictionnaire. Les dictionnaires sont parfois appelés glossaires ou bases terminologiques. On peut considérer le dictionnaire comme un « copier-remplacer » par force brute pour tous les termes listés. En outre, le service Microsoft Custom Translator crée et utilise ses propres dictionnaires à usage général pour améliorer la qualité de sa traduction. Toutefois, un dictionnaire fourni par le client est prioritaire et fera en premier l’objet de recherches pour des mots ou des phrases.
+Un dictionnaire est une paire alignée de documents qui spécifie une liste d’expressions ou de phrases avec les traductions correspondantes. Utilisez un dictionnaire dans le cadre de votre entraînement si vous souhaitez que Translator traduise toujours toutes les instances de l’expression ou de la phrase source selon la traduction que vous avez indiquée dans le dictionnaire. Les dictionnaires sont parfois appelés glossaires ou bases terminologiques. On peut considérer le dictionnaire comme un « copier-remplacer » par force brute pour tous les termes listés. En outre, la fonctionnalité Custom Translator crée et utilise ses propres dictionnaires à usage général pour améliorer la qualité de sa traduction. Toutefois, un dictionnaire fourni par le client est prioritaire et fera en premier l’objet de recherches pour des mots ou des phrases.
 
 Les dictionnaires ne fonctionnent que pour les projets des paires de langues qui s’appuient sur un modèle de réseau neuronal global Microsoft entièrement pris en charge. [Affichez la liste complète des langues](https://docs.microsoft.com/azure/cognitive-services/translator/language-support#customization).
 

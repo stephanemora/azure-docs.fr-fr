@@ -3,21 +3,23 @@ title: Authentification de service à service auprès d’Azure Key Vault à l�
 description: Utilisez la bibliothèque de Microsoft.Azure.Services.AppAuthentication pour effectuer l’authentification auprès d’Azure Key Vault à l’aide de .NET.
 keywords: informations d’identification locales pour l’authentification Auzre Key Vault
 author: msmbaldwin
-manager: rkarlin
 services: key-vault
 ms.author: mbaldwin
-ms.date: 08/28/2019
+ms.date: 06/30/2020
 ms.topic: conceptual
 ms.service: key-vault
 ms.subservice: general
-ms.openlocfilehash: 84cf12aa91de72ae54e63f2cfe7a61586b6bf457
-ms.sourcegitcommit: c535228f0b77eb7592697556b23c4e436ec29f96
+ms.openlocfilehash: 7ad3af46be26816231a15156d13fbec3275a5559
+ms.sourcegitcommit: 9b5c20fb5e904684dc6dd9059d62429b52cb39bc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/06/2020
-ms.locfileid: "82857080"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85855081"
 ---
 # <a name="service-to-service-authentication-to-azure-key-vault-using-net"></a>Authentification de service à service auprès d’Azure Key Vault à l’aide de .NET
+
+> [!NOTE]
+> Les méthodes d’authentification documentées dans cet article ne sont plus considérées comme de bonnes pratiques. Nous vous encourageons à adopter les méthodes d’authentification mises à jour dans le [Guide pratique pour s’authentifier auprès d’Azure Key Vault](authentication.md).
 
 Pour vous authentifier auprès d’Azure Key Vault, vous avez besoin d’informations d’identification Azure Active Directory (Azure AD), soit un secret partagé ou certificat.
 
@@ -130,9 +132,9 @@ Cette approche s’applique uniquement au développement local. Lorsque votre so
 
 ## <a name="running-the-application-using-managed-identity-or-user-assigned-identity"></a>Exécution de l’application en utilisant une identité managée ou une identité affectée par l’utilisateur
 
-Lorsque vous exécutez votre code dans Azure App Service ou une machine virtuelle Azure pour laquelle une identité managée est activée, la bibliothèque utilise automatiquement l’identité managée. Aucune modification de code n’est requise, mais l’identité managée doit avoir les autorisations *get* pour le coffre de clés. Vous pouvez accorder à l’identité managée les autorisations *get* via les *stratégies d’accès* du coffre de clés.
+Lorsque vous exécutez votre code dans Azure App Service ou une machine virtuelle Azure pour laquelle une identité managée est activée, la bibliothèque utilise automatiquement l’identité managée. Aucun changement dans le code n’est nécessaire. Toutefois, l’identité managée doit disposer des autorisations *GET* pour accéder au coffre de clés. Vous pouvez accorder à l’identité managée les autorisations *GET* via les *stratégies d’accès* du coffre de clés.
 
-Vous pouvez aussi authentifier avec une identité affectée par l’utilisateur. Pour en savoir plus sur les identités affectées par l’utilisateur, consultez [À propos des identités managées pour les ressources Azure](../../active-directory/managed-identities-azure-resources/overview.md#how-does-the-managed-identities-for-azure-resources-work). Pour s’authentifier avec une identité affectée à l’utilisateur, vous devez spécifier l’ID client dans la chaîne de connexion. La chaîne de connexion est spécifiée dans [Prise en charge de chaînes de connexion](#connection-string-support).
+Vous pouvez aussi authentifier avec une identité affectée par l’utilisateur. Pour en savoir plus sur les identités affectées par l’utilisateur, consultez [À propos des identités managées pour les ressources Azure](../../active-directory/managed-identities-azure-resources/overview.md#managed-identity-types). Pour s’authentifier avec une identité affectée à l’utilisateur, vous devez spécifier l’ID client dans la chaîne de connexion. La chaîne de connexion est spécifiée dans [Prise en charge de chaînes de connexion](#connection-string-support).
 
 ## <a name="running-the-application-using-a-service-principal"></a>Exécution de l’application à l’aide d’un principal de service
 
@@ -202,7 +204,7 @@ L’identité managée ou votre identité de développeur doit avoir l’autoris
 
 Pour utiliser un certificat client pour l’authentification de principal de service :
 
-1. Créez un certificat de principal du service et stockez-le automatiquement dans votre Key Vault. Utilisez la commande Azure CLI [az ad sp create-for-rbac --keyvault \<keyvaultname> --cert \<certificatename> --create-cert --skip-assignment](/cli/azure/ad/sp?view=azure-cli-latest#az-ad-sp-create-for-rbac) :
+1. Créez un certificat de principal du service et stockez-le automatiquement dans votre Key Vault. Utilisez la commande Azure CLI [az ad sp create-for-rbac --keyvault \<keyvaultname> --cert \<certificatename> --create-cert --skip-assignment](/cli/azure/ad/sp?view=azure-cli-latest#az-ad-sp-create-for-rbac) :
 
     ```azurecli
     az ad sp create-for-rbac --keyvault <keyvaultname> --cert <certificatename> --create-cert --skip-assignment
@@ -236,7 +238,7 @@ Les options suivantes sont prises en charge :
 | `RunAs=Developer; DeveloperTool=VisualStudio` | Développement local | `AzureServiceTokenProvider` utilise Visual Studio pour obtenir un jeton. |
 | `RunAs=CurrentUser` | Développement local | `AzureServiceTokenProvider` utilise l’authentification intégrée Azure AD pour obtenir un jeton. |
 | `RunAs=App` | [Identités managées pour les ressources Azure](../../active-directory/managed-identities-azure-resources/index.yml) | `AzureServiceTokenProvider` utilise une identité managée pour obtenir in jeton. |
-| `RunAs=App;AppId={ClientId of user-assigned identity}` | [Identité affectée par l’utilisateur pour les ressources Azure](../../active-directory/managed-identities-azure-resources/overview.md#how-does-the-managed-identities-for-azure-resources-work) | `AzureServiceTokenProvider` utilise une identité affectée par l’utilisateur pour obtenir un jeton. |
+| `RunAs=App;AppId={ClientId of user-assigned identity}` | [Identité affectée par l’utilisateur pour les ressources Azure](../../active-directory/managed-identities-azure-resources/overview.md#managed-identity-types) | `AzureServiceTokenProvider` utilise une identité affectée par l’utilisateur pour obtenir un jeton. |
 | `RunAs=App;AppId={TestAppId};KeyVaultCertificateSecretIdentifier={KeyVaultCertificateSecretIdentifier}` | Authentification des services personnalisés | `KeyVaultCertificateSecretIdentifier` est l’identificateur du secret du certificat. |
 | `RunAs=App;AppId={AppId};TenantId={TenantId};CertificateThumbprint={Thumbprint};CertificateStoreLocation={LocalMachine or CurrentUser}`| Principal du service | `AzureServiceTokenProvider` utilise un certificat pour obtenir un jeton de la part d’Azure AD. |
 | `RunAs=App;AppId={AppId};TenantId={TenantId};CertificateSubjectName={Subject};CertificateStoreLocation={LocalMachine or CurrentUser}` | Principal du service | `AzureServiceTokenProvider` utilise un certificat pour obtenir un jeton de la part d’Azure AD.|

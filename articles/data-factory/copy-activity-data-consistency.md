@@ -11,12 +11,12 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.date: 3/27/2020
 ms.author: yexu
-ms.openlocfilehash: a386c7d44cf5ba7eda895006cda7ce1fa9b798ac
-ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
+ms.openlocfilehash: a45c8ce820532d11f18758924dc3399818cb9158
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83663707"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84610217"
 ---
 #  <a name="data-consistency-verification-in-copy-activity-preview"></a>Vérification de la cohérence des données dans l’activité de copie (préversion)
 
@@ -86,16 +86,15 @@ L’exemple suivant fournit une définition JSON pour activer la vérification 
 Propriété | Description | Valeurs autorisées | Obligatoire
 -------- | ----------- | -------------- | -------- 
 validateDataConsistency | Si vous définissez la valeur true pour cette propriété, l’activité de copie vérifie la taille de fichier, la valeur lastModifiedDate et la somme de contrôle MD5 pour chaque objet copié du magasin source au magasin de destination pour garantir la cohérence des données entre les deux magasins de données. Soyez conscient que l’activation de cette option aura une incidence sur les performances de copie.  | True<br/>False (valeur par défaut) | Non
-dataInconsistency | L’une des paires clé-valeur dans le conteneur des propriétés skipErrorFile pour déterminer si vous souhaitez ignorer les données incohérentes.<br/> - True : vous souhaitez copier le reste en ignorant les données incohérentes.<br/> - False : vous souhaitez abandonner l’activité de copie une fois que des données incohérentes ont été trouvées.<br/>Sachez que cette propriété n’est valide que lorsque vous définissez validateDataConsistency sur la valeur True.  | True<br/>False (valeur par défaut) | Non
+dataInconsistency | L’une des paires clé-valeur dans le conteneur des propriétés skipErrorFile pour déterminer si vous souhaitez ignorer les données incohérentes.<br/> - True : vous souhaitez copier le reste en ignorant les données incohérentes.<br/> - False : vous souhaitez abandonner l’activité de copie lorsque des données incohérentes ont été trouvées.<br/>Sachez que cette propriété n’est valide que lorsque vous définissez validateDataConsistency sur la valeur True.  | True<br/>False (valeur par défaut) | Non
 logStorageSettings | Groupe de propriétés qui peut être spécifié pour permettre au journal de session de consigner les objets ignorés. | | Non
 linkedServiceName | Service lié de [Stockage Blob Azure](connector-azure-blob-storage.md#linked-service-properties) ou [Azure Data Lake Storage Gen2](connector-azure-data-lake-storage.md#linked-service-properties) pour stocker les fichiers journaux de session. | Noms de services liés de type `AzureBlobStorage` ou `AzureBlobFS` faisant référence à l’instance que vous souhaitez utiliser pour stocker les fichiers journaux. | Non
 path | Chemin d’accès des fichiers journaux. | Spécifiez le chemin d’accès que vous souhaitez utiliser pour stocker les fichiers journaux. Si vous ne spécifiez pas le chemin d’accès, le service crée un conteneur à votre place. | Non
 
 >[!NOTE]
 >- La cohérence des données n’est pas prise en charge dans le scénario de copie intermédiaire. 
->- Lors de la copie de fichiers binaires d’un magasin de stockage vers Stockage Blob Azure ou Azure Data Lake Storage Gen2, l’activité de copie effectue une vérification de la taille de fichier et de la somme de contrôle MD5 pour garantir la cohérence des données entre les magasins source et de destination. 
->- Lors de la copie de fichiers binaires d’un magasin de stockage vers un magasin de stockage autre que Stockage Blob Azure ou Azure Data Lake Storage Gen2, l’activité de copie effectue une vérification de la taille de fichier pour garantir la cohérence des données entre les magasins source et de destination.
-
+>- Lorsque vous copiez des fichiers dans Azure Blob ou Azure Data Lake Storage Gen2, ADF effectue une vérification de la somme de contrôle MD5 au niveau du bloc en tirant parti de l’[API Azure Blob](https://docs.microsoft.com/dotnet/api/microsoft.azure.storage.blob.blobrequestoptions?view=azure-dotnet-legacy) et de l’[API Azure Data Lake Storage Gen2](https://docs.microsoft.com/rest/api/storageservices/datalakestoragegen2/path/update#request-headers). Si des fichiers ContentMD5 se trouvent dans Azure Blob ou Azure Data Lake Storage Gen2 sous la forme de sources de données, ADF effectue également une vérification de la somme de contrôle MD5 au niveau du fichier après la lecture des fichiers. Après la copie des fichiers vers Azure Blob ou Azure Data Lake Storage Gen2 en tant que destination des données, ADF écrit des données ContentMD5 dans Azure Blob ou Azure Data Lake Storage Gen2, qui pourront être consommées plus tard par les applications en aval en vue de vérifier la cohérence des données.
+>- Lorsque vous copiez des fichiers d’un magasin de stockage à l’autre, ADF vérifie la taille de ces fichiers.
 
 ## <a name="monitoring"></a>Surveillance
 
@@ -141,7 +140,7 @@ Colonne | Description
 -------- | -----------  
 Timestamp | Timestamp lorsqu’ADF ignore les fichiers incohérents.
 Level | Niveau de journalisation de cet élément. Il sera au niveau « Avertissement » pour l’élément indiquant que le fichier est ignoré.
-NomOpération | Comportement opérationnel de l’activité de copie ADF sur chaque fichier. Le fichier à ignorer sera indiqué par la mention « FileSkip ».
+NomOpération | Comportement opérationnel de l’activité de copie Azure Data Factory sur chaque fichier. Le fichier à ignorer sera indiqué par la mention « FileSkip ».
 OperationItem | Nom du fichier à ignorer.
 Message | Plus d’informations pour illustrer la raison pour laquelle les fichiers sont ignorés.
 

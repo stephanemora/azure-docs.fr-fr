@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 05/07/2020
 ms.author: allensu
-ms.openlocfilehash: 6deb5714a43d61f5ceb793757d49bd099f09f2b7
-ms.sourcegitcommit: 999ccaf74347605e32505cbcfd6121163560a4ae
+ms.openlocfilehash: e6f788689b4e817aae6dc84f66703f4f88b8d44a
+ms.sourcegitcommit: 0100d26b1cac3e55016724c30d59408ee052a9ab
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/08/2020
-ms.locfileid: "82977642"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86027560"
 ---
 # <a name="standard-load-balancer-and-availability-zones"></a>Référence Standard de Load Balancer et zones de disponibilité
 
@@ -50,7 +50,9 @@ Une adresse IP de serveur frontend unique va survivre à une défaillance de zo
 
 L’adresse IP frontend est servie simultanément par plusieurs déploiements d’infrastructure indépendants dans plusieurs zones de disponibilité. Toute nouvelle tentative ou tout rétablissement réussissent dans les autres zones non affectée par les défaillances de zone. 
 
-:::image type="content" source="./media/az-zonal/zone-redundant-lb-1.svg" alt-text="Redondant dans une zone" border="true":::
+<p align="center">
+  <img src="./media/az-zonal/zone-redundant-lb-1.svg" width="512" title="Service NAT de Réseau virtuel">
+</p>
 
 *Figure : Équilibreur de charge redondant dans une zone*
 
@@ -60,7 +62,12 @@ Vous pouvez choisir de garantir un frontend dans une seule zone, ce qui donne un
 
 En outre, vous pouvez utiliser des frontends zonaux directement pour les points de terminaison à charge équilibrée dans chaque zone. Vous pouvez également utiliser cette configuration pour exposer des points de terminaison à charge équilibrée par zone afin de surveiller individuellement chaque zone. Pour les points de terminaison publics, vous pouvez les intégrer à un produit d’équilibrage de charge DNS comme [Traffic Manager](../traffic-manager/traffic-manager-overview.md) et utiliser un nom DNS unique.
 
-:::image type="content" source="./media/az-zonal/zonal-lb-1.svg" alt-text="Redondant dans une zone" border="true":::
+
+<p align="center">
+  <img src="./media/az-zonal/zonal-lb-1.svg" width="512" title="Service NAT de Réseau virtuel">
+</p>
+
+*Figure : Équilibreur de charge redondant zonal*
 
 Pour fusionner ces concepts (le même backend à la fois redondant interzone et zonal), passez en revue [Frontends multiples pour Azure Load Balancer](load-balancer-multivip-overview.md).
 
@@ -98,7 +105,7 @@ Les autres zones qui peuvent accéder à cette machine virtuelle peuvent continu
 
 L’équilibreur de charge est flexible dans le contexte des zones de disponibilité. Vous pouvez choisir de vous aligner sur des zones ou d’appliquer la redondance interzone pour chaque règle. Plus de disponibilité peut aussi engendrer plus de complexité. Envisagez la conception de façon à obtenir des performances optimales.
 
-### <a name="automatic-zone-redundancy"></a>Redondance dans une zone automatique
+### <a name="zone-redundancy"></a>Redondance interzone
 
 Avec Load Balancer, il est simple d’avoir une adresse IP unique comme frontend redondant interzone. Une adresse IP redondante interzone peut servir une ressource zonale dans n’importe quelle zone.  L’adresse IP peut survivre à un ou plusieurs défaillances de zone tant qu’une zone reste fonctionnelle dans la région.  Inversement, un frontend zonal est une réduction du service à une seule zone et partage son sort avec la zone concernée.
 

@@ -4,7 +4,7 @@ description: Notes de publication d’Azure Synapse Analytics.
 services: synapse-analytics
 ms.service: synapse-analytics
 ms.topic: conceptual
-ms.subservice: ''
+ms.subservice: sql-dw
 ms.date: 4/30/2020
 author: anumjs
 ms.author: anjangsh
@@ -12,12 +12,12 @@ ms.reviewer: jrasnick
 manager: craigg
 ms.custom: seo-lt-2019
 tags: azure-synapse
-ms.openlocfilehash: bf74e520340690c3dda71496360e5d9a2fe54ae8
-ms.sourcegitcommit: 6a9f01bbef4b442d474747773b2ae6ce7c428c1f
+ms.openlocfilehash: 6af05a6c17253a2032f493a7d2cd6254dafd352c
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "84115373"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85831418"
 ---
 # <a name="azure-synapse-analytics-release-notes"></a>Notes de publication d’Azure Synapse Analytics
 
@@ -41,6 +41,13 @@ Pour améliorer les outils, assurez-vous d’avoir installé la version spécifi
 > SELECT SERVERPROPERTY('EngineEdition')
 > ```
 
+## <a name="july-2020"></a>Juillet 2020
+| Améliorations du service | Détails |
+| --- | --- |
+|**Chiffrement au niveau des colonnes (Préversion publique)**|Protégez les informations sensibles dans votre entrepôt de données Synapse SQL en appliquant un chiffrement symétrique à une colonne de données à l’aide de Transact-SQL. Le chiffrement au niveau des colonnes offre des fonctions intégrées que vous pouvez utiliser pour chiffrer les données à l’aide de clés symétriques qui sont en outre protégées par un certificat, un mot de passe, une clé symétrique ou une clé asymétrique. Pour plus d’informations, consultez [Chiffrer une colonne de données](/sql/relational-databases/security/encryption/encrypt-a-column-of-data?view=azure-sqldw-latest).|
+|**Prise en charge du niveau de compatibilité (GA)**|Avec cette version, les utilisateurs peuvent désormais définir le niveau de compatibilité d'une base de données pour obtenir le langage Transact-SQL et les comportements de traitement des requêtes d'une version spécifique du moteur Synapse SQL. Pour plus d’informations, consultez [sys.database_scoped_configurations](/sql/relational-databases/system-catalog-views/sys-database-scoped-configurations-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest) et [Modifier la configuration délimitée à la base de données](/sql/t-sql/statements/alter-database-scoped-configuration-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest).|
+|**Sécurité au niveau des lignes**|Cette version comprend une amélioration des opérations de mise à jour et de suppression sur les lignes sur lesquelles SNL est appliquée. Avec cette version, les opérations de mise à jour et de suppression avec des fonctions intrinsèques telles que « is_rolemember » réussissent si l’intrinsèque ne fait référence à aucune colonne de la table cible DML. Avant cette amélioration, ces opérations échouaient en raison d’une limitation des opérations DML sous-jacentes.|
+
 ## <a name="may-2020"></a>Mai 2020
 
 | Améliorations du service | Détails |
@@ -48,9 +55,9 @@ Pour améliorer les outils, assurez-vous d’avoir installé la version spécifi
 |**Isolation des charges de travail (GA)**|L’[isolation des charges de travail](https://docs.microsoft.com/azure/synapse-analytics/sql-data-warehouse/sql-data-warehouse-workload-isolation) est maintenant en disponibilité générale.  Par le biais des [groupes de charges de travail](https://docs.microsoft.com/sql/t-sql/statements/create-workload-group-transact-sql?view=azure-sqldw-latest), vous pouvez réserver et contenir des ressources.  La possibilité de configurer des délais d’expiration de requête pour annuler les pertes de contrôle de requêtes est également possible.|
 |**Expérience de portail de gestion des charges de travail (préversion)**| Les utilisateurs peuvent configurer et gérer leurs paramètres de gestion des charges de travail par le biais du portail Azure.  La possibilité de configurer des [groupes de charges de travail](https://docs.microsoft.com/azure/synapse-analytics/sql-data-warehouse/quickstart-create-a-workload-classifier-portal) et des [classifieurs de charges de travail](https://docs.microsoft.com/azure/synapse-analytics/sql-data-warehouse/quickstart-create-a-workload-classifier-portal) avec une importance est possible.|
 |**Modifier un groupe de charges de travail**|Il est maintenant possible d’utiliser la commande [ALTER WORKLOAD GROUP](https://docs.microsoft.com/sql/t-sql/statements/alter-workload-group-transact-sql?view=azure-sqldw-latest).  Utilisez cette commande pour changer la configuration d’un [groupe de charges de travail](https://docs.microsoft.com/azure/synapse-analytics/sql-data-warehouse/sql-data-warehouse-workload-isolation) existant.|
-|**Détection de schéma automatique pour les fichiers Parquet avec la commande COPY (préversion)**|La [commande COPY](https://docs.microsoft.com/sql/t-sql/statements/copy-into-transact-sql?view=azure-sqldw-latest) prend désormais en charge la détection de schéma automatique lors du chargement de fichiers Parquet. La commande détecte automatiquement le schéma de fichier Parquet et crée la table avant le chargement. Contactez la liste de distribution e-mail suivante pour obtenir l’autorisation : sqldwcopypreview@service.microsoft.com. |
-|**Charger des types de données Parquet complexes avec la commande COPY (préversion)**|La [commande COPY](https://docs.microsoft.com/sql/t-sql/statements/copy-into-transact-sql?view=azure-sqldw-latest) prend désormais en charge le chargement de types Parquet complexes. Vous pouvez charger des types complexes tels que Maps et Lists dans des colonnes de chaîne.  Contactez la liste de distribution e-mail suivante pour obtenir l’autorisation : sqldwcopypreview@service.microsoft.com. |
-|**Détection de compression automatique des fichiers Parquet avec la commande COPY**|La [commande COPY](https://docs.microsoft.com/sql/t-sql/statements/copy-into-transact-sql?view=azure-sqldw-latest) prend désormais en charge la détection automatique de la méthode de compression des fichiers Parquet.|
+|**Détection de schéma automatique pour les fichiers Parquet avec la commande COPY (préversion)**|La [commande COPY](https://docs.microsoft.com/sql/t-sql/statements/copy-into-transact-sql?view=azure-sqldw-latest) prend désormais en charge la détection de schéma automatique lors du chargement de fichiers Parquet. La commande détecte automatiquement le schéma de fichier Parquet et crée la table avant le chargement. Pour activer cette fonctionnalité, contactez la liste de distribution e-mail suivante : sqldwcopypreview@service.microsoft.com. |
+|**Charger des types de données Parquet complexes avec la commande COPY (préversion)**|La [commande COPY](https://docs.microsoft.com/sql/t-sql/statements/copy-into-transact-sql?view=azure-sqldw-latest) prend désormais en charge le chargement de types Parquet complexes. Vous pouvez charger des types complexes tels que Maps et Lists dans des colonnes de chaîne.  Pour activer cette fonctionnalité, contactez la liste de distribution e-mail suivante : sqldwcopypreview@service.microsoft.com. |
+|**Détection de compression automatique des fichiers Parquet avec la commande COPY**|La [commande COPY](https://docs.microsoft.com/sql/t-sql/statements/copy-into-transact-sql?view=azure-sqldw-latest) prend désormais en charge la détection automatique de la méthode de compression des fichiers Parquet. Pour activer cette fonctionnalité, contactez la liste de distribution e-mail suivante : sqldwcopypreview@service.microsoft.com.|
 |**Autres recommandations de chargement**|Des [recommandations de chargement](https://docs.microsoft.com/azure/synapse-analytics/sql-data-warehouse/sql-data-warehouse-concept-recommendations) sont désormais disponibles pour Synapse SQL. Recevez des notifications proactives quand vous devez fractionner vos fichiers pour obtenir un débit maximal, colocaliser votre compte de stockage avec votre pool SQL ou augmenter la taille du lot lors du recours à des utilitaires de chargement comme l’API SQLBulkCopy ou BCP.|
 |**Colonne de distribution T-SQL Updatable (GA)**|Les utilisateurs peuvent désormais mettre à jour les données stockées dans la colonne de distribution. Consultez les [conseils sur la conception de tables distribuées dans un pool Synapse SQL](https://docs.microsoft.com/azure/synapse-analytics/sql-data-warehouse/sql-data-warehouse-tables-distribute) pour plus d’informations.|
 |**T-SQL Update/Delete from...Join (GA)**|Les mises à jour et suppressions basées sur les résultats de la jointure avec une autre table sont désormais disponibles. Pour plus d’informations, consultez la documentation sur [Update](https://docs.microsoft.com/sql/t-sql/queries/update-transact-sql?view=azure-sqldw-latest) et [Delete](https://docs.microsoft.com/sql/t-sql/statements/delete-transact-sql?view=azure-sqldw-latest).|

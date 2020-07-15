@@ -3,18 +3,18 @@ title: Concepts – Interconnexion de réseaux
 description: Découvrez des aspects clés et des cas d’utilisation de mise en réseau et d’interconnexion dans la solution Azure VMware (AVS)
 ms.topic: conceptual
 ms.date: 05/04/2020
-ms.openlocfilehash: 82e5497c30bf02313e5ff8ad24167af569a153c2
-ms.sourcegitcommit: d9cd51c3a7ac46f256db575c1dfe1303b6460d04
+ms.openlocfilehash: 35d886fe0f6a68e522d7f2cf20b450b5d9afc199
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/04/2020
-ms.locfileid: "82739953"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84629210"
 ---
 # <a name="azure-vmware-solution-avs-preview-networking-and-interconnectivity-concepts"></a>Concepts de mise en réseau et d’interconnexion de la solution Azure VMware (AVS) en préversion
 
 L’interconnexion réseau entre vos clouds privés de solution Azure VMware (AVS) et des environnements locaux ou des réseaux virtuels dans Azure vous permet d’accéder à votre cloud privé et de l’utiliser. Cet article décrit quelques concepts clés de la mise en réseau et de l’interconnexion, qui sont à la base de l’interconnexion.
 
-Une approche utile de l’interconnexion consiste à prendre en compte les deux types d’implémentations de cloud privé AVS : les implémentations avec une interconnexion de base exclusivement Azure et les implémentations avec une interconnexion complète d’environnement local à cloud privé.
+Une perspective utile de l’interconnexion consiste à prendre en compte les deux types d’implémentations de cloud privé AVS : les implémentations avec l’interconnexion de base Azure uniquement et les implémentations avec l’interconnexion intégrale d’un environnement local vers un cloud privé.
 
 Les cas d’usage pour les clouds privés AVS sont les suivants :
 - nouvelle charge de travail de machine virtuelle VMware dans le cloud ;
@@ -25,7 +25,7 @@ Les cas d’usage pour les clouds privés AVS sont les suivants :
 
  Tous les cas d’usage du service AVS sont activés avec une connexion d’environnement local à cloud privé. Le modèle d’interconnexion de base est idéal pour les évaluations ou implémentations d’AVS qui ne nécessitent pas d’accès à partir d’environnements locaux.
 
-Les deux types d’interconnexions de cloud privé AVS sont décrits dans les sections ci-dessous.  L’interconnexion la plus simple est la « connexion de réseau virtuel Azure ». Elle vous permet de gérer et d’utiliser votre cloud privé avec un seul réseau virtuel dans Azure. L’interconnexion décrite dans « Connexion locale » étend la connexion de réseau virtuel pour inclure également l’interconnexion entre environnements locaux et clouds privés AVS.
+Les deux types d’interconnexions de cloud privé AVS sont décrits dans les sections ci-dessous.  L’interconnexion la plus simple est la « connectivité de réseau virtuel Azure ». Elle vous permet de gérer et d’utiliser votre cloud privé avec un seul réseau virtuel dans Azure. L’interconnexion décrite dans « Connexion locale » étend la connexion de réseau virtuel pour inclure également l’interconnexion entre environnements locaux et clouds privés AVS.
 
 ## <a name="azure-virtual-network-interconnectivity"></a>Interconnexion de réseau virtuel Azure
 
@@ -37,7 +37,7 @@ L’interconnexion de réseaux de base établie au moment du déploiement d’un
 
 ![Connexion de base de réseau virtuel à cloud privé](./media/concepts/adjacency-overview-drawing-single.png)
 
-Le circuit ExpressRoute dans ce scénario de connexion de réseau virtuel à cloud privé est établi lorsque vous créez une connexion à partir d’un réseau virtuel faisant partie de votre abonnement au circuit ExpressRoute de votre cloud privé. L’appairage utilise une clé d’autorisation et un ID de circuit que vous demandez via le portail Azure. La connexion ExpressRoute établie par le biais de l’appairage est une connexion privée de type un-à-un entre votre cloud privé et le réseau virtuel. Vous pouvez gérer votre cloud privé, utiliser des charges de travail dans votre cloud privé et accéder à des services Azure via cette connexion ExpressRoute.
+Le circuit ExpressRoute dans ce scénario de connexion de réseau virtuel à cloud privé est établi lorsque vous créez une connexion à partir d’un réseau virtuel faisant partie de votre abonnement au circuit ExpressRoute de votre cloud privé. L’appairage utilise une clé d’autorisation et un ID de circuit que vous demandez via le portail Azure. La connexion ExpressRoute établie par le biais du Peering est une connexion privée de type un-à-un entre votre cloud privé et le réseau virtuel. Vous pouvez gérer votre cloud privé, utiliser des charges de travail dans votre cloud privé et accéder à des services Azure via cette connexion ExpressRoute.
 
 Lorsque vous déployez un cloud privé AVS, un espace d’adressage de réseau privé /22 unique est requis. Cet espace d’adressage ne doit pas chevaucher des espaces d’adressage utilisés dans d’autres réseaux virtuels de votre abonnement. Dans cet espace d’adressage, la gestion, l’approvisionnement et les réseaux vMotion sont approvisionnés automatiquement. Le routage est basé sur le protocole BGP et automatiquement approvisionné et activé par défaut pour chaque déploiement de cloud privé.
 
@@ -58,7 +58,7 @@ Un circuit ExpressRoute d’environnement local à réseau un virtuel Azure est 
 Une fois liés à Global Reach, les deux circuits ExpressRoute acheminent le trafic réseau entre vos environnements locaux et votre cloud privé. L’interconnexion d’environnement local à cloud privé est illustrée dans le diagramme précédent. L’interconnexion représentée dans le diagramme permet les cas d’usage suivants :
 
 - Croisement à chauf/à froid – vCenter-vMotion
-- Accès pour gestion d’environnement local à cloud privé
+- Accès pour gestion d’environnement local à cloud privé AVS
 
 Pour permettre une connexion complète, vous pouvez demander une clé d’autorisation et un ID d’appairage privé pour Global Reach dans le portail Azure. Vous utilisez la clé et l’ID pour établir un service Global Reach entre un circuit ExpressRoute faisant partie de votre abonnement et le circuit ExpressRoute destiné à votre nouveau cloud privé. Le [didacticiel pour la création d’un cloud privé](tutorial-create-private-cloud.md) décrit les procédures à suivre pour demander et utiliser la clé et l’ID.
 

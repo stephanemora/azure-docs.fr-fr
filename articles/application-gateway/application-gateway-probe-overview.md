@@ -8,10 +8,10 @@ ms.topic: article
 ms.date: 02/20/2020
 ms.author: victorh
 ms.openlocfilehash: e1afc389508eb75313d046b759bcc9c03a50daad
-ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/19/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "83648413"
 ---
 # <a name="application-gateway-health-monitoring-overview"></a>Vue d’ensemble de l’analyse d’intégrité Application Gateway
@@ -97,7 +97,7 @@ Le tableau suivant fournit des définitions pour les propriétés d’une sonde 
 
 > [!IMPORTANT]
 > Si Application Gateway est configuré pour un seul site, le nom d’hôte par défaut doit être spécifié sous la forme « 127.0.0.1 », sauf s’il est configuré d’une autre manière dans la sonde personnalisée.
-> Pour référence, une sonde personnalisée est envoyée à \<protocole\>://\<hôte\>:\<port\>\<chemin d’accès\>. Le port utilisé est identique à celui défini dans les paramètres HTTP du serveur principal.
+> Pour référence, une sonde personnalisée est envoyée à \<protocol\>://\<host\>:\<port\>\<path\>. Le port utilisé est identique à celui défini dans les paramètres HTTP du serveur principal.
 
 ## <a name="nsg-considerations"></a>Considérations pour un groupe de sécurité réseau
 

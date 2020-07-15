@@ -7,10 +7,10 @@ ms.topic: conceptual
 ms.date: 04/15/2019
 ms.author: ramamill
 ms.openlocfilehash: 56c53b9e2388cc0594076a5ef35b072216aec20d
-ms.sourcegitcommit: b129186667a696134d3b93363f8f92d175d51475
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/06/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "80672730"
 ---
 # <a name="manage-the-configuration-server-for-vmware-vmphysical-server-disaster-recovery"></a>Gérer le serveur de configuration pour la récupération d'urgence d’un serveur physique ou d’une machine virtuelle VMware
@@ -138,7 +138,7 @@ Vous pouvez réinscrire le serveur de configuration dans le même coffre, si né
    ```
 
     >[!NOTE]
-    >Afin **d’extraire les derniers certificats** du serveur de configuration au serveur de traitement scale-out, exécutez la commande *"\<Lecteur d’installation\Microsoft Azure Site Recovery\agent\cdpcli.exe>"--registermt*.
+    >Afin **d’extraire les derniers certificats** du serveur de configuration et de les transmettre au serveur de traitement Scale-out, exécutez la commande *"\<Installation Drive\Microsoft Azure Site Recovery\agent\cdpcli.exe>"--registermt*.
 
 8. Enfin, redémarrez la machine en exécutant la commande suivante.
    ```

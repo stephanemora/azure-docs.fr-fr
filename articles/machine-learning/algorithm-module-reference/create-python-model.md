@@ -8,13 +8,13 @@ ms.subservice: core
 ms.topic: reference
 author: likebupt
 ms.author: keli19
-ms.date: 11/19/2019
-ms.openlocfilehash: 0285520c2733cd6e190f9055824cdfed0ce4b842
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.date: 06/18/2020
+ms.openlocfilehash: 59a335e41116818e41579488cc6931ed1534c9ab
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82189852"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84984887"
 ---
 # <a name="create-python-model-module"></a>Module Create Python Model
 
@@ -25,7 +25,7 @@ Découvrez comment utiliser le module Create Python Model pour créer un modèle
 Après avoir créé le modèle, vous pouvez utiliser le module [Train Model](train-model.md) pour former le modèle sur un jeu de données, comme tout autre apprenant dans Azure Machine Learning. Le modèle formé peut être transmis au module [Score Model](score-model.md) pour utiliser le modèle afin d’effectuer des prédictions. Vous pouvez ensuite enregistrer le modèle formé et publier le flux de travail de notation en tant que service web.
 
 > [!WARNING]
-> Il n’est actuellement pas possible de transmettre les résultats notés d’un modèle Python au module [Evaluate Model](evaluate-model.md). Si vous avez besoin évaluer un modèle, vous pouvez écrire un script Python personnalisé et l’exécuter à l’aide du module [Execute Python Script](execute-python-script.md).  
+> Pour le moment, il est impossible de connecter ce module au module **Tune Model Hyperparameters** (Optimiser les hyperparamètres du modèle), ou de passer les résultats scorés d’un modèle Python au module [Evaluate Model](evaluate-model.md) (Évaluer le modèle). Si vous devez optimiser les hyperparamètres ou évaluer un modèle, vous pouvez écrire un script Python personnalisé à l’aide du module [Execute Python Script](execute-python-script.md) (Exécuter un script Python).
 
 
 ## <a name="configure-the-module"></a>Configurer le module

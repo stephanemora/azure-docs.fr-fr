@@ -3,12 +3,12 @@ title: Configurer votre environnement de développement sur Linux
 description: Installez le runtime et le Kit de développement logiciel (SDK), puis créez un cluster de développement local sur Linux. Une fois la configuration terminée, vous êtes prêt à générer des applications.
 ms.topic: conceptual
 ms.date: 2/23/2018
-ms.openlocfilehash: 000d615d779ed14eb1698cf297075480a07c71ef
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: cfc97a540ed8c4c17ca4030c45b16021b926d7c5
+ms.sourcegitcommit: 9b5c20fb5e904684dc6dd9059d62429b52cb39bc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82193409"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85854789"
 ---
 # <a name="prepare-your-development-environment-on-linux"></a>Préparer votre environnement de développement sur Linux
 > [!div class="op_single_selector"]
@@ -29,7 +29,7 @@ L’installation du runtime Service Fabric et du Kit de développement logiciel 
 
 Ces versions de système d’exploitation sont prises en charge pour le développement.
 
-* Ubuntu 16.04 (`Xenial Xerus`)
+* Ubuntu 16.04 (`Xenial Xerus`), 18.04 (`Bionic Beaver`)
 
     Assurez-vous que le package `apt-transport-https` est bien installé.
          
@@ -60,46 +60,40 @@ Pour installer le Kit de développement logiciel (SDK) et le package runtime ass
 ### <a name="ubuntu"></a>Ubuntu
 
 1. Ouvrez un terminal.
-2. Ajoutez le référentiel Service Fabric à votre liste de sources.
+
+2. Ajoutez le référentiel `dotnet` à votre liste de sources correspondant à votre distribution.
 
     ```bash
-    sudo sh -c 'echo "deb [arch=amd64] https://apt-mo.trafficmanager.net/repos/servicefabric/ xenial main" > /etc/apt/sources.list.d/servicefabric.list'
-    ```
-
-3. Ajoutez le référentiel `dotnet` à votre liste de sources.
-
-    ```bash
-    wget -q https://packages.microsoft.com/config/ubuntu/16.04/packages-microsoft-prod.deb
+    wget -q https://packages.microsoft.com/config/ubuntu/$(lsb_release -rs)/packages-microsoft-prod.deb
     sudo dpkg -i packages-microsoft-prod.deb
     ```
 
-4. Ajoutez la nouvelle clé de protection de la confidentialité Gnu (GnuPG ou GPG) à votre porte-clés APT.
+3. Ajoutez la nouvelle clé de protection de la confidentialité MS Open Tech Gnu (GnuPG ou GPG) à votre porte-clés APT.
 
     ```bash
-    curl -fsSL https://packages.microsoft.com/keys/msopentech.asc | sudo apt-key add -
+    sudo curl -fsSL https://packages.microsoft.com/keys/msopentech.asc | sudo apt-key add -
     ```
 
-5. Ajoutez les clés GPG Docker officielles à votre porte-clés APT.
+4. Ajoutez les clés GPG Docker officielles à votre porte-clés APT.
 
     ```bash
-    sudo apt-get install curl
     sudo curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add -
     ```
 
-6. Configurer le référentiel de Docker.
+5. Configurer le référentiel de Docker.
 
     ```bash
     sudo add-apt-repository "deb [arch=amd64] https://download.docker.com/linux/ubuntu $(lsb_release -cs) stable"
     ```
 
-7. Ajouter la clé Azul JDK à votre porte-clés APT et configurer son référentiel.
+6. Ajouter la clé Azul JDK à votre porte-clés APT et configurer son référentiel.
 
     ```bash
     sudo apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv-keys 0xB1998361219BD9C9
     sudo apt-add-repository "deb http://repos.azul.com/azure-only/zulu/apt stable main"
     ```
 
-8. Actualisez vos listes de packages selon les référentiels nouvellement ajoutés.
+7. Actualisez vos listes de packages selon les référentiels nouvellement ajoutés.
 
     ```bash
     sudo apt-get update

@@ -1,18 +1,14 @@
 ---
 title: Livraison sécurisée de webhooks à l’aide d’Azure AD dans Azure Event Grid
 description: Décrit comment livrer des événements aux points de terminaison HTTPS protégés par Azure Active Directory à l’aide d’Azure Event Grid
-services: event-grid
-author: banisadr
-ms.service: event-grid
 ms.topic: conceptual
-ms.date: 11/18/2019
-ms.author: babanisa
-ms.openlocfilehash: 86d647ebfcf6e4c1ea8d05f58dd1f559d6e30cfc
-ms.sourcegitcommit: 0fda81f271f1a668ed28c55dcc2d0ba2bb417edd
+ms.date: 07/07/2020
+ms.openlocfilehash: b0503d7da9e191e9d6764076392ead8faa5109a1
+ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/07/2020
-ms.locfileid: "82900473"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86119121"
 ---
 # <a name="publish-events-to-azure-active-directory-protected-endpoints"></a>Publier des événements sur des points de terminaison protégés par Azure Active Directory
 
@@ -29,7 +25,7 @@ Commencez par créer une application Azure AD pour votre point de terminaison pr
     
 ## <a name="enable-event-grid-to-use-your-azure-ad-application"></a>Activer Event Grid pour utiliser votre application Azure AD
 
-Utilisez le script PowerShell ci-dessous pour créer un rôle et un principe de service dans votre application Azure AD. Vous aurez besoin de l’ID de locataire et de l’ID d’objet de votre application Azure AD :
+Utilisez le script PowerShell ci-dessous pour créer un rôle et un principal de service dans votre application Azure AD. Vous aurez besoin de l’ID de locataire et de l’ID d’objet de votre application Azure AD :
 
    > [!NOTE]
    > Pour exécuter ce script, vous devez être membre du [rôle d’administrateur de l’application Azure AD](https://docs.microsoft.com/azure/active-directory/users-groups-roles/directory-assign-admin-roles#available-roles).

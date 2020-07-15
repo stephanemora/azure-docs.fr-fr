@@ -17,10 +17,10 @@ ms.date: 02/03/2019
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
 ms.openlocfilehash: 1de9c07c99666ed4011214bd9b426eac8f494991
-ms.sourcegitcommit: 999ccaf74347605e32505cbcfd6121163560a4ae
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/08/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "82978176"
 ---
 # <a name="sap-ascsscs-instance-multi-sid-high-availability-with-windows-server-failover-clustering-and-file-share-on-azure"></a>Haute disponibilité multi-SID de l’instance SAP ASCS/SCS avec le clustering de basculement Windows Server et le partage de fichiers sur Azure
@@ -70,17 +70,17 @@ L’objectif est d’installer plusieurs instances en cluster SAP ABAP (ASCS) ou
 
 _**Figure 2 :** Configuration multi-SID SAP dans deux clusters_
 
-L’installation d’un système **SAP\<SID2>** supplémentaire est identique à l’installation d’un système \<SID>. Deux étapes de préparation supplémentaires sont requises sur le cluster ASCS/SCS et sur le cluster SOFS de partage de fichiers.
+L’installation d’un système **SAP \<SID2>** supplémentaire est identique à l’installation d’un système \<SID>. Deux étapes de préparation supplémentaires sont requises sur le cluster ASCS/SCS et sur le cluster SOFS de partage de fichiers.
 
 ## <a name="prepare-the-infrastructure-for-an-sap-multi-sid-scenario"></a>Préparer l’infrastructure pour un scénario SAP multi-SID
 
 ### <a name="prepare-the-infrastructure-on-the-domain-controller"></a>Préparer l’infrastructure sur le contrôleur de domaine
 
-Créez le groupe de domaines **\<Domaine>\SAP_\<SID2>_GlobalAdmin**, par exemple avec \<SID2> = PR2. Le nom du groupe de domaines est \<Domaine>\SAP_PR2_GlobalAdmin.
+Créez le groupe de domaines **\<Domain>\SAP_\<SID2>_GlobalAdmin**, par exemple avec \<SID2> = PR2. Le nom du groupe de domaines est \<Domain>\SAP_PR2_GlobalAdmin.
 
 ### <a name="prepare-the-infrastructure-on-the-ascsscs-cluster"></a>Préparer l’infrastructure sur le cluster ASCS/SCS
 
-Vous devez préparer l’infrastructure sur le cluster ASCS/SCS existant pour un deuxième SID>\< SAP :
+Vous devez préparer l’infrastructure sur le cluster ASCS/SCS existant pour un deuxième SAP \<SID> :
 
 * Créer un nom d’hôte virtuel pour l’instance SAP ASCS/SCS en cluster sur le serveur DNS.
 * Ajouter une adresse IP à un équilibreur de charge interne Azure existant à l’aide de PowerShell.
@@ -90,22 +90,22 @@ Ces étapes sont décrites dans [Préparation de l’infrastructure pour le scé
 
 ### <a name="prepare-the-infrastructure-on-an-sofs-cluster-by-using-the-existing-sap-global-host"></a>Préparer l’infrastructure sur un cluster SOFS à l’aide de l’hôte global SAP existant
 
-Vous pouvez réutiliser le système \<SAPGlobalHost> existant et le Volume1 du premier système SAP \<SID1>.
+Vous pouvez réutiliser le \<SAPGlobalHost> et Volume1 du premier système SAP \<SID1>.
 
 ![Figure 3 : Le SOFS multi-SID est identique au nom d'hôte global SAP][sap-ha-guide-figure-8014]
 
 _**Figure 3 :** Le SOFS multi-SID est identique au nom d'hôte global SAP_
 
 > [!IMPORTANT]
->Pour le deuxième système **SAP\<SID2>** , les mêmes noms de réseau sont utilisés pour Volume1 et pour **\<SAPGlobalHost>** .
->Étant donné que vous avez déjà défini **SAPMNT** comme nom de partage pour différents systèmes SAP, pour réutiliser le nom de réseau de **\<SAPGlobalHost >** , vous devez utiliser le même **Volume1**.
+>Pour le deuxième système **SAP \<SID2>** , le même Volume1 et le même nom réseau **\<SAPGlobalHost>** sont utilisés.
+>Étant donné que vous avez déjà défini **SAPMNT** comme nom de partage pour différents systèmes SAP, pour réutiliser le nom réseau **\<SAPGlobalHost>** , vous devez utiliser le même **Volume1**.
 >
->Le chemin de fichier de l’hôte global \<SID2> est C:\ClusterStorage\\**Volume1**\usr\sap\<SID2>\SYS\.
+>Le chemin de fichier pour l’hôte global \<SID2> est C:\ClusterStorage\\**Volume1**\usr\sap\<SID2>\SYS\.
 >
 
-Pour le système SID2 >\<, vous devez préparer l’hôte global SAP... \SYS\.. dossier sur le cluster SOFS.
+Pour le système \<SID2>, vous devez préparer l’hôte global SAP ..\SYS\.. dossier sur le cluster SOFS.
 
-Exécutez le script PowerShell suivant pour préparer l’hôte global SAP pour l’instance \<SID2> :
+Exécutez le script PowerShell suivant pour préparer l’hôte global SAP pour l’instance \<SID2> :
 
 
 ```powershell
@@ -156,7 +156,7 @@ Set-Acl $UsrSAPFolder $Acl -Verbose
 
 ### <a name="prepare-the-infrastructure-on-the-sofs-cluster-by-using-a-different-sap-global-host"></a>Préparer l’infrastructure sur un cluster SOFS à l’aide d’un hôte global SAP différent
 
-Vous pouvez configurer le deuxième SOFS (par exemple le deuxième rôle de cluster SOFS avec **\<SAPGlobalHost2>** et un **Volume2** différent pour le deuxième **\<SID2>** ).
+Vous pouvez configurer le deuxième SOFS (par exemple, le deuxième rôle de cluster SOFS avec **\<SAPGlobalHost2>** et un **Volume2** différent pour le deuxième **\<SID2>** ).
 
 ![Figure 4 : Le SOFS multi-SID est identique au nom d'hôte GLOBAL SAP 2][sap-ha-guide-figure-8015]
 

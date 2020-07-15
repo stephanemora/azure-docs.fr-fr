@@ -3,16 +3,16 @@ title: Utiliser des paramètres pour créer des blueprints dynamiques
 description: Découvrez les paramètres statiques et dynamiques et comment les utiliser pour créer des blueprints sécurisés et dynamiques.
 ms.date: 04/15/2020
 ms.topic: conceptual
-ms.openlocfilehash: e5953617d5fa27098380f3f0e95843c69800f823
-ms.sourcegitcommit: b55d7c87dc645d8e5eb1e8f05f5afa38d7574846
+ms.openlocfilehash: 831dd69f58130247518ee7465bc1059aed61b319
+ms.sourcegitcommit: f684589322633f1a0fafb627a03498b148b0d521
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "81458486"
+ms.lasthandoff: 07/06/2020
+ms.locfileid: "85970635"
 ---
 # <a name="creating-dynamic-blueprints-through-parameters"></a>Création de blueprints dynamiques au moyen de paramètres
 
-Un blueprint entièrement défini avec divers artefacts (tels que des groupes de ressources, des modèles Resource Manager, des stratégies ou des attributions de rôles) permet de créer rapidement et de manière cohérente des objets dans Azure. Pour permettre une utilisation flexible de ces conteneurs et modèles de conception réutilisables, Azure Blueprint prend en charge des paramètres. Le paramètre offre, à la fois pendant la définition et l’affectation, la flexibilité nécessaire pour changer les propriétés sur les artefacts déployés par le blueprint.
+Un blueprint entièrement défini avec divers artefacts, tels que des groupes de ressources, des modèles Azure Resource Manager (modèles ARM), des stratégies ou des attributions de rôles, permet de créer rapidement et de manière cohérente des objets dans Azure. Pour permettre une utilisation flexible de ces conteneurs et modèles de conception réutilisables, Azure Blueprint prend en charge des paramètres. Le paramètre offre, à la fois pendant la définition et l’affectation, la flexibilité nécessaire pour changer les propriétés sur les artefacts déployés par le blueprint.
 
 Un exemple simple est l’artefact de groupe de ressources. Quand un groupe de ressources est créé, deux valeurs obligatoires doivent être fournies : le nom et l’emplacement. Lors de l’ajout d’un groupe de ressources à votre blueprint, si les paramètres n’existaient pas, il vous faudrait définir ce nom et cet emplacement pour chaque utilisation du blueprint. Chaque utilisation du blueprint créerait alors des artefacts dans le même groupe de ressources. Les ressources contenues dans ce groupe seraient dupliquées et provoqueraient des conflits.
 
@@ -28,7 +28,7 @@ Les paramètres constituent la solution à ce problème. Azure Blueprints vous p
 
 ### <a name="using-securestring-and-secureobject-parameters"></a>Utilisation de paramètres secureString et secureObject
 
-Bien qu’un _artefact_ de modèle Resource Manager prenne en charge les paramètres de type **secureString** et **secureObject**, Azure Blueprint exige que chacun d’eux soit connecté avec un coffre de clés Azure. Cette mesure de sécurité empêche la pratique risquée consistant à stocker des secrets avec le blueprint, et encourage l’utilisation de modèles sécurisés. Les blueprints Azure prennent en charge cette mesure de sécurité, en détectant l’inclusion de l’un ou l’autre paramètre sécurisé dans un _artefact_ de modèle Resource Manager. Lors de l’affectation, le service invite alors à entrer les propriétés de coffre de clés suivantes pour chaque paramètre sécurisé détecté :
+Bien qu’un _artefact_ de modèle ARM prenne en charge les paramètres de type **secureString** et **secureObject**, Azure Blueprint exige que chacun d’eux soit connecté avec un coffre de clés Azure. Cette mesure de sécurité empêche la pratique risquée consistant à stocker des secrets avec le blueprint, et encourage l’utilisation de modèles sécurisés. Les blueprints Azure prennent en charge cette mesure de sécurité, en détectant l’inclusion de l’un ou l’autre paramètre sécurisé dans un _artefact_ de modèle ARM. Lors de l’affectation, le service invite alors à entrer les propriétés de coffre de clés suivantes pour chaque paramètre sécurisé détecté :
 
 - ID de ressource Key Vault
 - Nom du secret Key Vault
@@ -180,7 +180,7 @@ Un **paramètre dynamique** est l’inverse d’un paramètre statique. Ce param
 
 #### <a name="setting-dynamic-parameters-from-rest-api"></a>Définition des paramètres dynamiques à partir de l’API REST
 
-La définition des **paramètres dynamiques** pendant l’affectation s’effectue en entrant directement la valeur. Au lieu d’utiliser une fonction, telle que [parameters()](../reference/blueprint-functions.md#parameters), la valeur fournie est une chaîne appropriée. Les artefacts pour un groupe de ressources sont définis avec un « nom de modèle » ainsi que des propriétés de **nom** et d’**emplacement**. Tous les autres paramètres pour l’artefact inclus sont définis sous **Paramètres** avec une paire de clés **\<nom\>** et **valeur**. Si le blueprint est configuré pour un paramètre dynamique qui n’est pas fourni lors de l’affectation, celle-ci échoue.
+La définition des **paramètres dynamiques** pendant l’affectation s’effectue en entrant directement la valeur. Au lieu d’utiliser une fonction, telle que [parameters()](../reference/blueprint-functions.md#parameters), la valeur fournie est une chaîne appropriée. Les artefacts pour un groupe de ressources sont définis avec un « nom de modèle » ainsi que des propriétés de **nom** et d’**emplacement**. Tous les autres paramètres de l’artefact inclus sont définis sous **Paramètres** avec une paire de clés **\<name\>** et **value**. Si le blueprint est configuré pour un paramètre dynamique qui n’est pas fourni lors de l’affectation, celle-ci échoue.
 
 - URI de l’API REST
 

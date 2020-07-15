@@ -4,10 +4,10 @@ description: Mettre en file d’attente une exécution de tâche ACR pour géné
 ms.topic: article
 ms.date: 04/22/2020
 ms.openlocfilehash: 7ad40d2e925d5e1443af9bce4115d45b0e8c06e1
-ms.sourcegitcommit: a6d477eb3cb9faebb15ed1bf7334ed0611c72053
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/08/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "82927766"
 ---
 # <a name="run-acr-tasks-using-resource-manager-templates"></a>Exécuter ACR Tasks à l’aide de modèles Resource Manager
@@ -187,7 +187,7 @@ Pour cet exemple, fournissez des valeurs pour les paramètres de modèle suivant
 |userAssignedIdentity |ID de ressource de l’identité attribuée par l’utilisateur qui est activée dans la tâche|
 |customRegistryIdentity | ID client de l’identité attribuée par l’utilisateur qui est activée dans la tâche, utilisé pour l’authentification auprès du registre personnalisé |
 |customRegistry |Nom du serveur de connexion du registre personnalisé auquel la tâche accède, par exemple, *mybaseregistry.azurecr.io*|
-|sourceLocation     |Contexte distant pour la tâche de génération, par exemple, *https://github.com/\<your-GitHub-ID\>/acr-build-helloworld-node* |
+|sourceLocation     |Contexte distant pour la tâche de génération, par exemple, *https://github.com/\<your-GitHub-ID\> /acr-build-helloworld-node* |
 |dockerFilePath | Chemin d’accès au Dockerfile dans le contexte distant, utilisé pour générer l’image |
 
 ### <a name="deploy-the-template"></a>Déployer le modèle

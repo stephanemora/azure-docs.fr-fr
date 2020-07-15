@@ -7,18 +7,20 @@ ms.service: active-directory
 ms.subservice: domain-services
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 03/31/2020
+ms.date: 07/06/2020
 ms.author: iainfou
-ms.openlocfilehash: f532976e80c4284addcf09d81d8a32fd5f6f8827
-ms.sourcegitcommit: c4ad4ba9c9aaed81dfab9ca2cc744930abd91298
+ms.openlocfilehash: 995ca20ed264d78e93e04a6f54e4f691ec551e84
+ms.sourcegitcommit: 0100d26b1cac3e55016724c30d59408ee052a9ab
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/12/2020
-ms.locfileid: "84733940"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86024857"
 ---
 # <a name="tutorial-configure-secure-ldap-for-an-azure-active-directory-domain-services-managed-domain"></a>Tutoriel : Configurer le protocole LDAP sécurisé pour un domaine managé Azure Active Directory Domain Services
 
-Pour communiquer avec votre domaine managé Azure Active Directory Domain Services (Azure AD DS), le protocole LDAP (Lightweight Directory Access Protocol) est utilisé. Par défaut, le trafic LDAP n’est pas chiffré, ce qui constitue un problème de sécurité pour de nombreux environnements. Avec Azure AD DS, vous pouvez configurer le domaine managé pour qu’utilise le protocole LDAPS (Lightweight Directory Access Protocol sécurisé). Quand vous utilisez le protocole LDAP sécurisé, le trafic est chiffré. Le protocole LDAP sécurisé est également appelé LDAP over SSL (Secure Sockets Layer) / TLS (Transport Layer Security).
+Pour communiquer avec votre domaine managé Azure Active Directory Domain Services (Azure AD DS), le protocole LDAP (Lightweight Directory Access Protocol) est utilisé. Par défaut, le trafic LDAP n’est pas chiffré, ce qui constitue un problème de sécurité pour de nombreux environnements.
+
+Avec Azure AD DS, vous pouvez configurer le domaine managé pour qu’utilise le protocole LDAPS (Lightweight Directory Access Protocol sécurisé). Quand vous utilisez le protocole LDAP sécurisé, le trafic est chiffré. Le protocole LDAP sécurisé est également appelé LDAP over SSL (Secure Sockets Layer) / TLS (Transport Layer Security).
 
 Ce tutoriel vous montre comment configurer LDAPS pour un domaine managé Azure AD DS.
 
@@ -68,7 +70,11 @@ Le certificat que vous demandez ou que vous créez doit répondre aux exigences 
 * **Utilisation de la clé** : Le certificat doit être configuré pour les *signatures numériques* et le *chiffrage des clés*.
 * **Rôle du certificat** : le certificat doit être valide pour l’authentification de serveur TLS.
 
-Plusieurs outils sont disponibles pour créer un certificat auto-signé, parmi lesquels OpenSSL, Keytool, MakeCert et l’[applet de commande New-SelfSignedCertificate][New-SelfSignedCertificate]. Dans ce tutoriel, nous allons créer un certificat auto-signé pour le protocole LDAP sécurisé en utilisant l’applet de commande [New-SelfSignedCertificate][New-SelfSignedCertificate]. Ouvrez une fenêtre PowerShell en tant qu’**Administrateur**, puis exécutez les commandes suivantes. Remplacez la variable *$dnsName* par le nom DNS utilisé par votre propre domaine managé, par exemple *aaddscontoso.com* :
+Plusieurs outils sont disponibles pour créer un certificat auto-signé, parmi lesquels OpenSSL, Keytool, MakeCert et l’applet de commande [New-SelfSignedCertificate][New-SelfSignedCertificate].
+
+Dans ce tutoriel, nous allons créer un certificat auto-signé pour le protocole LDAP sécurisé en utilisant l’applet de commande [New-SelfSignedCertificate][New-SelfSignedCertificate].
+
+Ouvrez une fenêtre PowerShell en tant qu’**Administrateur**, puis exécutez les commandes suivantes. Remplacez la variable *$dnsName* par le nom DNS utilisé par votre propre domaine managé, par exemple *aaddscontoso.com* :
 
 ```powershell
 # Define your own DNS name used by your managed domain
@@ -108,7 +114,9 @@ Pour utiliser le protocole LDAP sécurisé, le trafic réseau est chiffré avec 
     * Cette clé publique est utilisée pour *chiffrer* le trafic LDAP sécurisé. La clé publique peut être distribuée aux ordinateurs clients.
     * Les certificats sans clé privée utilisent le format de fichier *.CER*.
 
-Ces deux clés, les clés *privées* et *publiques*, permettent de garantir que seuls les ordinateurs appropriés peuvent communiquer entre eux. Si vous utilisez une autorité de certification publique ou une autorité de certification d’entreprise, vous recevez un certificat qui inclut la clé privée et qui peut être appliqué à un domaine managé. La clé publique doit déjà être connue et approuvée par les ordinateurs clients. Dans ce tutoriel, vous avez créé un certificat auto-signé avec la clé privée : vous devez donc exporter les composants privés et publics appropriés.
+Ces deux clés, les clés *privées* et *publiques*, permettent de garantir que seuls les ordinateurs appropriés peuvent communiquer entre eux. Si vous utilisez une autorité de certification publique ou une autorité de certification d’entreprise, vous recevez un certificat qui inclut la clé privée et qui peut être appliqué à un domaine managé. La clé publique doit déjà être connue et approuvée par les ordinateurs clients.
+
+Dans ce tutoriel, vous avez créé un certificat auto-signé avec la clé privée : vous devez donc exporter les composants privés et publics appropriés.
 
 ### <a name="export-a-certificate-for-azure-ad-ds"></a>Exporter un certificat pour Azure AD DS
 
@@ -148,7 +156,9 @@ Pour pouvoir utiliser le certificat numérique créé à l’étape précédente
 
 ### <a name="export-a-certificate-for-client-computers"></a>Exporter un certificat pour les ordinateurs clients
 
-Les ordinateurs clients doivent approuver l’émetteur du certificat LDAP sécurisé afin d’être en mesure de se connecter au domaine managé avec LDAPS. Les ordinateurs clients ont besoin d’un certificat pour chiffrer correctement les données qui sont déchiffrées par Azure AD DS. Si vous utilisez une autorité de certification publique, l’ordinateur doit approuver automatiquement ces émetteurs de certificats et disposer d’un certificat correspondant. Dans ce tutoriel, vous utilisez un certificat auto-signé et vous générez un certificat incluant la clé privée de l’étape précédente. À présent, exportons puis installons le certificat auto-signé dans le magasin de certificats de confiance sur l’ordinateur client :
+Les ordinateurs clients doivent approuver l’émetteur du certificat LDAP sécurisé afin d’être en mesure de se connecter au domaine managé avec LDAPS. Les ordinateurs clients ont besoin d’un certificat pour chiffrer correctement les données qui sont déchiffrées par Azure AD DS. Si vous utilisez une autorité de certification publique, l’ordinateur doit approuver automatiquement ces émetteurs de certificats et disposer d’un certificat correspondant.
+
+Dans ce tutoriel, vous utilisez un certificat auto-signé et vous générez un certificat incluant la clé privée de l’étape précédente. À présent, exportons puis installons le certificat auto-signé dans le magasin de certificats de confiance sur l’ordinateur client :
 
 1. Revenez à la console MMC pour le magasin *Certificats (ordinateur local) > Personnel > Certificats*. Le certificat auto-signé créé à une étape précédente est affiché, par exemple *aaddscontoso.com*. Cliquez avec le bouton droit sur ce certificat, puis choisissez **Toutes les tâches > Exporter...**
 1. Dans l’**Assistant Exportation de certificat**, sélectionnez **Suivant**.
@@ -186,7 +196,10 @@ Avec un certificat numérique créé et exporté incluant la clé privée, et l�
 
 1. Sélectionnez l’icône de dossier en regard de **Fichier .PFX avec certificat LDAP sécurisé**. Accédez au chemin du fichier *.PFX*, puis sélectionnez le certificat créé à l’étape précédente qui inclut la clé privée.
 
-    Comme indiqué dans la section précédente concernant les exigences en matière de certificats, vous ne pouvez pas utiliser un certificat d’une autorité de certification publique avec le domaine *.onmicrosoft.com* par défaut. Microsoft détient le domaine *.onmicrosoft.com* : une autorité de certification publique n’émettra donc pas de certificat. Vérifiez que votre certificat est au format approprié. Si ce n’est pas le cas, la plateforme Azure génère des erreurs de validation de certificat quand vous activez le protocole LDAP sécurisé.
+    > [!IMPORTANT]
+    > Comme indiqué dans la section précédente concernant les exigences en matière de certificats, vous ne pouvez pas utiliser un certificat d’une autorité de certification publique avec le domaine *.onmicrosoft.com* par défaut. Microsoft détient le domaine *.onmicrosoft.com* : une autorité de certification publique n’émettra donc pas de certificat.
+    >
+    > Vérifiez que votre certificat est au format approprié. Si ce n’est pas le cas, la plateforme Azure génère des erreurs de validation de certificat quand vous activez le protocole LDAP sécurisé.
 
 1. Entrez le **Mot de passe pour déchiffrer le fichier .PFX** défini dans une étape précédente quand le certificat a été exporté vers un fichier *.PFX*.
 1. Sélectionnez **Enregistrer** pour activer le protocole LDAP sécurisé.
@@ -195,7 +208,9 @@ Avec un certificat numérique créé et exporté incluant la clé privée, et l�
 
 Une notification vous informe que le protocole LDAP sécurisé est en cours de configuration pour le domaine managé. Vous ne pouvez pas modifier d’autres paramètres pour le domaine managé tant que cette opération n’est pas terminée.
 
-L’activation du protocole LDAP sécurisé pour votre domaine managé prend quelques minutes. Si le certificat LDAP sécurisé que vous fournissez ne correspond pas aux critères demandés, l’action d’activation du protocole LDAP sécurisé pour le domaine managé échoue. Voici quelques raisons d’échec courantes : le nom de domaine est incorrect, le certificat expire bientôt ou il a déjà expiré. Vous pouvez recréer le certificat avec des paramètres valides, puis activer le protocole LDAP sécurisé en utilisant ce certificat mis à jour.
+L’activation du protocole LDAP sécurisé pour votre domaine managé prend quelques minutes. Si le certificat LDAP sécurisé que vous fournissez ne correspond pas aux critères demandés, l’action d’activation du protocole LDAP sécurisé pour le domaine managé échoue.
+
+Voici quelques raisons d’échec courantes : le nom de domaine est incorrect, le certificat expire bientôt ou il a déjà expiré. Vous pouvez recréer le certificat avec des paramètres valides, puis activer le protocole LDAP sécurisé en utilisant ce certificat mis à jour.
 
 ## <a name="lock-down-secure-ldap-access-over-the-internet"></a>Verrouiller l’accès LDAP sécurisé via Internet
 
@@ -230,7 +245,7 @@ Avec l’accès LDAP sécurisé activé via Internet, mettez à jour la zone DNS
 
 ![Afficher l’adresse IP externe de LDAP sécurisé pour votre domaine managé dans le portail Azure](./media/tutorial-configure-ldaps/ldaps-external-ip-address.png)
 
-Configurez votre fournisseur DNS externe pour créer un enregistrement d’hôte, par exemple *ldaps*, qui doit être résolu en cette adresse IP externe. Pour tester localement d’abord sur votre ordinateur, vous pouvez ’abord créer une entrée dans le fichier hosts de Windows. Pour modifier le fichier hosts sur votre ordinateur local, ouvrez le *Bloc-notes* en tant qu’administrateur , puis ouvrez le fichier *C:\Windows\System32\drivers\etc*
+Configurez votre fournisseur DNS externe pour créer un enregistrement d’hôte, par exemple *ldaps*, qui doit être résolu en cette adresse IP externe. Pour tester localement d’abord sur votre ordinateur, vous pouvez ’abord créer une entrée dans le fichier hosts de Windows. Pour modifier le fichier hosts sur votre ordinateur local, ouvrez le *Bloc-notes* en tant qu’administrateur, puis ouvrez le fichier *C:\Windows\System32\drivers\etc\hosts*
 
 L’exemple d’entrée DNS suivant, avec votre fournisseur DNS externe ou dans le fichier hosts local, résout le trafic pour *ldaps.aaddscontoso.com* avec l’adresse IP externe *168.62.205.103* :
 
@@ -269,7 +284,7 @@ Pour interroger directement un conteneur spécifique, dans le menu **Afficher > 
 Si vous avez ajouté une entrée DNS au fichier hosts local de votre ordinateur pour tester la connectivité dans le cadre de ce tutoriel, supprimez cette entrée et ajoutez un enregistrement formel dans votre zone DNS. Pour supprimer l’entrée du fichier hosts local, effectuez les étapes suivantes :
 
 1. Sur votre machine locale, ouvrez le *Bloc-notes* en tant qu’administrateur.
-1. Recherchez et ouvrez le fichier *C:\Windows\System32\drivers\etc*
+1. Recherchez et ouvrez le fichier *C:\Windows\System32\drivers\etc\hosts*
 1. Supprimez la ligne de l’enregistrement que vous avez ajouté, par exemple `168.62.205.103    ldaps.aaddscontoso.com`
 
 ## <a name="next-steps"></a>Étapes suivantes

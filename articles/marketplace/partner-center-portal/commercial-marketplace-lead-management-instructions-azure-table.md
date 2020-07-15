@@ -1,18 +1,18 @@
 ---
 title: Gestion des prospects avec Stockage Table Azure – Marketplace commercial de Microsoft
 description: Découvrez comment utiliser Stockage Table Azure pour configurer des prospects pour Microsoft AppSource et la Place de marché Azure.
-author: qianw211
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
+author: keferna
+ms.author: keferna
 ms.date: 03/30/2020
-ms.author: dsindona
-ms.openlocfilehash: c115859c24b2c26ab2c221c4fdc35cb442d652b1
-ms.sourcegitcommit: 1f25aa993c38b37472cf8a0359bc6f0bf97b6784
+ms.openlocfilehash: 485da8549175af8813a9d0c3052d1e77f336e619
+ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/26/2020
-ms.locfileid: "83848010"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86120838"
 ---
 # <a name="use-azure-table-storage-to-manage-commercial-marketplace-leads"></a>Utiliser Stockage Table Azure pour gérer les prospects de marketplaces commerciaux
 
@@ -26,11 +26,11 @@ Si votre système Gestion des relations avec la clientèle (CRM) n’est pas exp
 
     1. Dans la barre de menus de gauche, sélectionnez **+ Créer une ressource**. Le volet **Nouveau** s’affiche à droite.
     1. Sélectionnez **Stockage** dans le volet **Nouveau**. Une liste **Éléments proposés** apparaît à droite.
-    1. Sélectionnez **Compte de stockage** pour commencer la création du compte. Suivez les instructions pour [créer un compte de stockage](https://docs.microsoft.com/azure/storage/common/storage-quickstart-create-account?tabs=azure-portal).
+    1. Sélectionnez **Compte de stockage** pour commencer la création du compte. Suivez les instructions pour [créer un compte de stockage](../../storage/common/storage-quickstart-create-account.md?tabs=azure-portal).
 
         ![Procédure de création d’un compte Azure Storage](./media/commercial-marketplace-lead-management-instructions-azure-table/azure-storage-create.png)
 
-        Pour en savoir plus sur les comptes de stockage, consultez [Tutoriel de démarrage rapide](https://docs.microsoft.com/azure/storage/). Pour plus d’informations sur la tarification du stockage, consultez [Tarification de Storage](https://azure.microsoft.com/pricing/details/storage/).
+        Pour en savoir plus sur les comptes de stockage, consultez [Tutoriel de démarrage rapide](../../storage/index.yml). Pour plus d’informations sur la tarification du stockage, consultez [Tarification de Storage](https://azure.microsoft.com/pricing/details/storage/).
 
 1. Attendez que votre compte de stockage soit approvisionné. Ce processus prend généralement quelques minutes. 
 
@@ -107,7 +107,7 @@ L’exemple crée un flux qui envoie automatiquement une notification par e-mail
 
    Après avoir sélectionné **Créer**, la fenêtre **Obtenir des entités** apparaît. Sélectionnez **Afficher les options avancées** et remplissez les zones suivantes :
 
-   * **Table**: sélectionnez le nom de votre table (dans [Créer une table](#create-a-table-in-your-storage-account)). L’image suivante montre l’invite lorsque la table « marketplaceleads » est sélectionnée pour cet exemple.
+   * **Table**: sélectionnez le nom de votre table (dans [Créer une table](#create-a-table-in-your-storage-account)). L’image suivante montre l’invite quand la table `marketplaceleads` est sélectionnée pour cet exemple.
 
      ![Fenêtre Obtenir des entités](./media/commercial-marketplace-lead-management-instructions-azure-table/azure-table-get-entities.png)
 

@@ -9,12 +9,12 @@ ms.reviewer: dseven
 ms.author: matjazl
 author: matjazl
 ms.date: 10/13/2019
-ms.openlocfilehash: d274160cc2ed1102dfc8fd11df358b34e40d9923
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 937be72bfec96119474e7effe9ba88a2cf253444
+ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "84870298"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86081841"
 ---
 # <a name="add-data-to-audit-logs-by-using-custom-http-headers"></a>Ajouter des données aux journaux d’audit en utilisant des en-têtes HTTP personnalisés
 
@@ -36,7 +36,7 @@ Vous pouvez utiliser des en-têtes personnalisés pour capturer plusieurs types 
 > [!IMPORTANT]
 > Sachez que les informations envoyées dans les en-têtes personnalisés sont stockées dans un système de journalisation interne de Microsoft pendant 30 jours après leur mise à disposition dans Azure Log Monitoring. Nous vous recommandons de chiffrer les informations avant de les ajouter à des en-têtes personnalisés. Il est déconseillé de transmettre des informations PHI dans les en-têtes de clients.
 
-Vous devez utiliser la convention de nommage suivante pour vos en-têtes HTTP : X-MS-AZUREFHIR-AUDIT-AUDIT-\<name>.
+Vous devez utiliser la convention de nommage suivante pour vos en-têtes HTTP : X-MS-AZUREFHIR-AUDIT-\<name>.
 
 Ces en-têtes HTTP sont inclus dans un jeu de propriétés qui est ajouté au journal. Par exemple :
 
@@ -55,7 +55,7 @@ Ces informations sont ensuite sérialisées en JSON quand elles sont ajoutées �
 Comme pour tout en-tête HTTP, il est possible de répéter le même nom d’en-tête avec des valeurs différentes. Par exemple :
 
 * X-MS-AZUREFHIR-AUDIT-USERLOCATION : HospitalA
-* X-MS-AZUREFHIR-AUDIT-USERLOCATION : Emergency
+* X-MS-AZUREFHIR-AUDIT-USERLOCATION : Urgence
 
 Une fois ajoutées au journal, les valeurs sont combinées à l’aide d’une liste séparée par des virgules. Par exemple :
 
@@ -63,7 +63,7 @@ Une fois ajoutées au journal, les valeurs sont combinées à l’aide d’une l
  
 Vous pouvez ajouter au maximum 10 en-têtes uniques (les répétitions d’un même en-tête avec des valeurs différentes comptent pour un). Au total, la longueur maximale de la valeur d’un en-tête est de 2 048 caractères.
 
-Si vous utilisez la bibliothèque d’API de client C# Firely, le code se présente suit :
+Si vous utilisez la bibliothèque d’API du client C# Firefly, le code se présente comme suit :
 
 ```C#
 FhirClient client;

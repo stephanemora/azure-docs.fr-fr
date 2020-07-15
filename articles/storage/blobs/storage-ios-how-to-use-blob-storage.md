@@ -6,13 +6,13 @@ ms.author: mhopkins
 ms.date: 11/20/2018
 ms.service: storage
 ms.subservice: blobs
-ms.topic: conceptual
-ms.openlocfilehash: 2e168abaf522fa1126e3cb4618941952b562df31
-ms.sourcegitcommit: 0b80a5802343ea769a91f91a8cdbdf1b67a932d3
+ms.topic: how-to
+ms.openlocfilehash: 378c21a6904acad16847bb32955e4bc091e587df
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/25/2020
-ms.locfileid: "83831872"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84465488"
 ---
 # <a name="how-to-use-blob-storage-from-ios"></a>Utilisation du stockage d’objets blob à partir d’iOS
 
@@ -82,7 +82,7 @@ Vous pouvez ensuite importer le fichier d’infrastructure dans votre applicatio
 #import <AZSClient/AZSClient.h>
 ```
 
-Si vous utilisez Swift, vous devez créer un en-tête de pontage et importer \<<AZSClient/AZSClient.h> ici :
+Si vous utilisez Swift, vous devez créer un en-tête de pontage et importer \<AZSClient/AZSClient.h> ici :
 
 1. Créez un fichier d’en-tête `Bridging-Header.h`, puis ajoutez l’instruction import ci-dessus.
 2. Accédez à l’onglet *Paramètre de génération* et recherchez *En-tête de pontage Objective-C*.

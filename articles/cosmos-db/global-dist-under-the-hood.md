@@ -4,21 +4,21 @@ description: Cet article fournit des détails techniques sur la distribution mon
 author: SnehaGunda
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 12/02/2019
+ms.date: 07/02/2020
 ms.author: sngun
 ms.reviewer: sngun
-ms.openlocfilehash: a46a69476a2ad6550bc7b3a533fd09565d461db3
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 7e315a7366793d355967f777cbc1dda0f9277087
+ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "74872126"
+ms.lasthandoff: 07/05/2020
+ms.locfileid: "85955911"
 ---
 # <a name="global-data-distribution-with-azure-cosmos-db---under-the-hood"></a>Distribution de données mondiale avec Azure Cosmos DB - Sous le capot
 
 Cosmos DB étant un service fondamental dans Azure, il est déployé dans toutes les régions Azure du monde entier, dont les clouds publics, souverains, du ministère de la Défense et du secteur public. À l’intérieur d’un centre de données, nous déployons et gérons Azure Cosmos DB sur des tampons massifs de machines, chacune avec un stockage local dédié. À l’intérieur d’un centre de données, Cosmos DB est déployé dans de nombreux clusters, chacun pouvant exécuter plusieurs générations de matériel. Les machines au sein d’un cluster sont généralement réparties sur 10 à 20 domaines d’erreur pour assurer la haute disponibilité au sein d’une région. L’image suivante montre la topologie du système de distribution mondiale Cosmos DB :
 
-![Topologie du système](./media/global-dist-under-the-hood/distributed-system-topology.png)
+:::image type="content" source="./media/global-dist-under-the-hood/distributed-system-topology.png" alt-text="Topologie du système" border="false":::
 
 **La distribution à l’échelle mondiale dans Azure Cosmos DB est une solution clé en main :** À tout moment, en quelques clics ou par programmation à l’aide d’un appel d’API unique, vous pouvez ajouter ou supprimer les régions géographiques associées à votre base de données Cosmos. Une base de données Cosmos comprend à son tour une série de conteneurs Cosmos. Dans Cosmos DB, les conteneurs font office d’unités logiques de distribution et d’extensibilité. Les collections, tables et graphiques que vous créez sont (en interne) tout simplement des conteneurs Cosmos. Les conteneurs sont totalement indépendants du schéma et fournissent une étendue pour les requêtes. Les données d’un conteneur Cosmos sont automatiquement indexées lors de l’ingestion. L’indexation automatique permet aux utilisateurs d’interroger les données sans les tracas associés à la gestion du schéma ou de l’index, en particulier dans une configuration globalement distribuée.  
 
@@ -30,7 +30,7 @@ Quand une application utilisant Cosmos DB met à l’échelle le débit de faço
 
 Comme le montre l’illustration suivante, les données d’un conteneur sont distribuées en deux dimensions - dans une ou plusieurs régions, à l’échelle mondiale :  
 
-![partition physique](./media/global-dist-under-the-hood/distribution-of-resource-partitions.png)
+:::image type="content" source="./media/global-dist-under-the-hood/distribution-of-resource-partitions.png" alt-text="Partitions physiques" border="false":::
 
 Une partition physique est implémentée par un groupe de réplicas appelé *jeu de réplicas*. Chaque machine héberge des centaines de réplicas correspondant à diverses partitions physiques au sein d’un ensemble fixe de processus, comme le montre l’illustration ci-dessus. Les réplicas correspondant aux partitions physiques sont distribués de façon dynamique, et leur charge est équilibrée sur les machines au sein d’un cluster, et sur les centres de données au sein d’une région.  
 
@@ -52,7 +52,7 @@ Une partition physique est matérialisée sous la forme d’un groupe de réplic
 
 Un groupe de partitions physiques, une de chacune des régions configurées avec la base de données Cosmos, est composé pour gérer le même ensemble de clés répliqué dans toutes les régions configurées. Cette primitive de coordination supérieure est appelée *groupe de partitions*. Il s’agit d’une superposition dynamique distribuée géographiquement de partitions physiques gérant un ensemble de clés donné. Si une partition physique (un jeu de réplicas) est circonscrite à l’intérieur d’un cluster, un groupe de partitions peut couvrir plusieurs clusters, centres de données et régions géographiques, comme le montre l’illustration ci-dessous :  
 
-![Jeux de partitions](./media/global-dist-under-the-hood/dynamic-overlay-of-resource-partitions.png)
+:::image type="content" source="./media/global-dist-under-the-hood/dynamic-overlay-of-resource-partitions.png" alt-text="Jeux de partitions" border="false":::
 
 Vous pouvez considérer un jeu de partitions comme un « super jeu de réplicas » dispersé géographiquement, composé de plusieurs jeux de réplicas possédant le même ensemble de clés. De façon similaire à un jeu de réplicas, l’appartenance à un groupe de partitions est dynamique. Elle varie en fonction des opérations de gestion de partition physique implicites pour ajouter/supprimer des partitions dans un groupe de partitions donné (par exemple, quand vous effectuez un scale-out du débit sur un conteneur, ajoutez/supprimez une région pour votre base de données Cosmos ou en cas d’échec). Étant donné que chaque partition (d’un groupe de partitions) gère l’appartenance au groupe de partitions à l’intérieur de son propre jeu de réplicas, l’appartenance est entièrement décentralisée et hautement disponible. Lors de la reconfiguration d’un groupe de partitions, la topologie de la superposition entre les partitions physiques est également établie. La topologie est sélectionnée de façon dynamique en fonction du niveau de cohérence, de la distance géographique et de la bande passante réseau disponible entre les partitions physiques source et cible.  
 

@@ -4,15 +4,15 @@ description: Cet article fournit une vue d’ensemble de la prise en charge TLS 
 services: application-gateway
 author: amsriva
 ms.service: application-gateway
-ms.topic: article
+ms.topic: conceptual
 ms.date: 5/13/2020
 ms.author: victorh
-ms.openlocfilehash: adaf3dea5855a4af75977cb820ae12675c7f2ced
-ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
+ms.openlocfilehash: 1986955c7135cb9296937392b23635ae62d8d9f7
+ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83648136"
+ms.lasthandoff: 07/05/2020
+ms.locfileid: "85962099"
 ---
 # <a name="overview-of-tls-termination-and-end-to-end-tls-with-application-gateway"></a>Présentation de la terminaison TLS et du chiffrement TLS de bout en bout avec Application Gateway
 
@@ -68,7 +68,7 @@ Pour la référence (SKU) Application Gateway et WAF v1, la stratégie TLS s’a
 
 Pour la référence (SKU) Application Gateway et WAF v2, la stratégie TLS s’applique uniquement au trafic frontal, et tous les chiffrements sont offerts au serveur principal qui contrôle la sélection de chiffrements spécifiques et de la version TLS pendant la poignée de main.
 
-Le service Application Gateway communique uniquement avec les serveurs principaux qui ont mis leur certificat en liste verte avec Application Gateway, ou dont les certificats sont signés par des autorités de certification connues, et lorsque le nom commun du certificat correspond au nom de l’hôte dans les paramètres HTTP du serveur principal. Cela inclut les services Azure approuvés, tels que Azure App Service/Web Apps et la Gestion des API Azure.
+Application Gateway communique uniquement avec les serveurs back-end qui ont mis leur certificat en liste verte avec Application Gateway, ou dont les certificats sont signés par des autorités de certification reconnues, et lorsque le nom commun du certificat correspond au nom de l’hôte dans les paramètres HTTP du serveur back-end. Cela inclut les services Azure approuvés, tels que Azure App Service/Web Apps et la Gestion des API Azure.
 
 Si les certificats des membres dans le pool principal ne sont pas signés par des autorités de certification connues, chaque instance du pool principal pour lequel un chiffrement TLS de bout en bout est activé doit être configurée avec un certificat afin de permettre une communication sécurisée. L’ajout du certificat permet à la passerelle d’application de communiquer uniquement avec des instances de serveur principal connues. Il sécurise la communication de bout en bout.
 
@@ -80,9 +80,9 @@ Si les certificats des membres dans le pool principal ne sont pas signés par de
 
 Dans cet exemple, les demandes utilisant TLS1.2 sont acheminées vers les serveurs principaux dans Pool1 à l’aide du chiffrement TLS de bout en bout.
 
-## <a name="end-to-end-tls-and-whitelisting-of-certificates"></a>Chiffrement TLS de bout en bout et liste verte de certificats
+## <a name="end-to-end-tls-and-allow-listing-of-certificates"></a>Chiffrement TLS de bout en bout et mise en liste verte de certificats
 
-Le service Application Gateway communique uniquement avec des instances de serveur principal connues qui ont mis en liste verte leur certificat avec la Application Gateway. Il existe des différences de processus de configuration du protocole TLS de bout en bout en lien avec la version d’Application Gateway utilisée. La section suivante les décrit individuellement.
+Application Gateway communique uniquement avec des instances de serveur back-end connues qui ont mis leur certificat en liste verte avec la passerelle Application Gateway. Il existe des différences de processus de configuration du protocole TLS de bout en bout en lien avec la version d’Application Gateway utilisée. La section suivante les décrit individuellement.
 
 ## <a name="end-to-end-tls-with-the-v1-sku"></a>Protocole TLS de bout en bout avec la référence (SKU) v1
 
@@ -90,7 +90,7 @@ Pour activer le protocole TLS de bout en bout avec les serveurs principaux et po
 
 Pour des sondes d’intégrité HTTPS, la référence (SKU) Application Gateway v1 utilise une concordance exacte du certificat d’authentification (clé publique du certificat de serveur principal et non du certificat racine) à télécharger dans les paramètres HTTP.
 
-Seules les connexions aux serveurs principaux connus et sur liste verte sont alors autorisées. Les sondes d’intégrité considèrent les serveurs principaux restants comme non sains. Les certificats auto-signés sont uniquement destinés à des fins de test et ne sont pas recommandés pour les charges de travail de production. Ces certificats doivent figurer sur la liste approuvée par la passerelle d’application comme décrit dans les étapes précédentes avant de pouvoir être utilisés.
+Seules les connexions à des serveurs back-end connus et sur liste verte sont alors autorisées. Les sondes d’intégrité considèrent les serveurs principaux restants comme non sains. Les certificats auto-signés sont uniquement destinés à des fins de test et ne sont pas recommandés pour les charges de travail de production. Avant de pouvoir être utilisés, ces certificats doivent être mis sur liste verte avec la passerelle d’application comme décrit dans les étapes précédentes.
 
 > [!NOTE]
 > La configuration de l’authentification et du certificat racine approuvé n’est pas requise pour des services Azure approuvés, tels qu’Azure App Service. Ils sont considérés comme approuvés par défaut.
@@ -111,7 +111,7 @@ Les certificats d’authentification ont été déconseillés et remplacés par 
 
 - En plus de la concordance du certificat racine, le service Application Gateway v2 vérifie si le paramètre Host spécifié dans le paramètre HTTP de serveur principal correspond à celui du nom commun présenté par le certificat TLS/SSL du serveur principal. Lorsque vous tentez d’établir une connexion TLS au serveur principal, le service Application Gateway v2 définit l’extension SNI d’indication du nom de serveur sur l’hôte spécifié dans le paramètre HTTP de serveur principal.
 
-- Si vous choisissez l’option **Choisir le nom d’hôte à partir de l’adresse du serveur principal** au lieu du champ Hôte dans le paramètre HTTP du serveur principal, l’en-tête SNI est toujours défini sur le nom de domaine complet du pool principal et le nom commun sur le certificat TLS/SSL du serveur principal doit correspondre à son nom de domaine complet. Les membres du pool principal avec des adresses IP ne sont pas pris en charge dans ce scénario.
+- Si vous choisissez l’option **Choisir le nom d’hôte à partir de la cible back-end** au lieu du champ Hôte dans le paramètre HTTP du serveur back-end, l’en-tête SNI est toujours défini sur le nom de domaine complet du pool back-end, et le nom commun dans le certificat TLS/SSL du serveur back-end doit correspondre à son nom de domaine complet. Les membres du pool principal avec des adresses IP ne sont pas pris en charge dans ce scénario.
 
 - Le certificat racine est un des certificats de serveur principal codés en base64.
 
@@ -138,10 +138,10 @@ Scénario | v1 | v2 |
 Scénario | v1 | v2 |
 | --- | --- | --- |
 | En-tête SNI (nom_serveur) durant la poignée de main TLS en tant que nom de domaine complet (FQDN) | Défini comme nom de domaine complet (FQDN) à partir du pool principal. En vertu de la norme [RFC 6066](https://tools.ietf.org/html/rfc6066), la présence d’adresses IPv4 et IPv6 littérales n’est pas autorisée dans un nom d’hôte SNI. <br> **Remarque :** Le nom de domaine complet (FQDN) dans le pool principal doit être résolu par DNS en adresse IP (publique ou privée) du serveur principal. | L’en-tête SNI (nom_serveur) est défini en tant que nom d’hôte à partir de la sonde personnalisée attachée aux paramètres HTTP (s’ils sont configurés), ou bien à partir du nom d’hôte mentionné dans les paramètres HTTP, ou encore à partir du nom de domaine complet (FQDN) mentionné dans le pool principal. L’ordre de priorité est Sonde personnalisée > Paramètres HTTP > Pool principal. <br> **Remarque :** Si les noms d’hôte configurés dans les paramètres HTTP et la sonde personnalisée diffèrent, en fonction de la priorité, l’en-tête SNI est défini en tant que nom d’hôte à partir de la sonde personnalisée.
-| Si l’adresse du pool principal est une adresse IP (v1) ou si le nom d’hôte de la sonde personnalisée est configuré en tant qu’adresse IP (v2) | L’en-tête SNI (nom_serveur) n’est pas défini. <br> **Remarque :** Dans ce cas, le serveur principal doit pouvoir retourner un certificat par défaut/de secours, et doit être mie en liste verte dans les paramètres HTTP sous le certificat d’authentification. Si aucun certificat par défaut/de secours n’est configuré sur le serveur principal, et si l’en-tête SNI est attendu, le serveur peut réinitialiser la connexion et entraîner des échecs de sonde. | Dans l’ordre de priorité mentionné précédemment, s’ils ont une adresse IP en tant que nom d’hôte, l’en-tête SNI n’est pas défini conformément à la norme [RFC 6066](https://tools.ietf.org/html/rfc6066). <br> **Remarque :** L’en-tête SNI n’est pas non plus défini dans des sondes v2 si aucune sonde personnalisée n’est configurée et qu’aucun nom d’hôte n’est défini sur les paramètres HTTP ou le pool principal. |
+| Si l’adresse du pool principal est une adresse IP (v1) ou si le nom d’hôte de la sonde personnalisée est configuré en tant qu’adresse IP (v2) | L’en-tête SNI (nom_serveur) n’est pas défini. <br> **Remarque :** Dans ce cas, le serveur back-end doit pouvoir retourner un certificat par défaut/de secours, et doit être mis en liste verte dans les paramètres HTTP sous le certificat d’authentification. Si aucun certificat par défaut/de secours n’est configuré sur le serveur principal, et si l’en-tête SNI est attendu, le serveur peut réinitialiser la connexion et entraîner des échecs de sonde. | Dans l’ordre de priorité mentionné précédemment, s’ils ont une adresse IP en tant que nom d’hôte, l’en-tête SNI n’est pas défini conformément à la norme [RFC 6066](https://tools.ietf.org/html/rfc6066). <br> **Remarque :** L’en-tête SNI n’est pas non plus défini dans des sondes v2 si aucune sonde personnalisée n’est configurée et qu’aucun nom d’hôte n’est défini sur les paramètres HTTP ou le pool principal. |
 
 > [!NOTE] 
-> Si aucune sonde personnalisée n’est configurée, le service Application Gateway envoie une sonde par défaut au format suivant : \<protocole\>://127.0.0.1 :\<port\>/. Par exemple, pour une sonde HTTPS par défaut, elle est envoyée en tant que https://127.0.0.1:443/. Notez que l’adresse 127.0.0.1 mentionnée ici est utilisée uniquement comme en-tête d’hôte HTTP et, conformément à la norme RFC 6066, n’est pas utilisée en tant qu’en-tête SNI. Pour plus d’informations sur les erreurs de sonde d’intégrité, consultez le [Guide de résolution des problèmes d’intégrité du serveur principal](application-gateway-backend-health-troubleshooting.md).
+> Si aucune sonde personnalisée n’est configurée, Application Gateway envoie une sonde par défaut au format suivant : \<protocol\>://127.0.0.1:\<port\>/. Par exemple, pour une sonde HTTPS par défaut, elle est envoyée en tant que https://127.0.0.1:443/. Notez que l’adresse 127.0.0.1 mentionnée ici est utilisée uniquement comme en-tête d’hôte HTTP et, conformément à la norme RFC 6066, n’est pas utilisée en tant qu’en-tête SNI. Pour plus d’informations sur les erreurs de sonde d’intégrité, consultez le [Guide de résolution des problèmes d’intégrité du serveur principal](application-gateway-backend-health-troubleshooting.md).
 
 #### <a name="for-live-traffic"></a>Pour le trafic en direct
 

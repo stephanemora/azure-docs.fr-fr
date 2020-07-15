@@ -5,12 +5,12 @@ author: craigshoemaker
 ms.topic: reference
 ms.date: 12/20/2017
 ms.author: cshoe
-ms.openlocfilehash: 770187693e5bac6e059dfd20455099fcc695b74b
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: ef746186717f3eb6bb93263c7f86c26606f65ea9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "76715036"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84322513"
 ---
 # <a name="microsoft-graph-bindings-for-azure-functions"></a>Liaisons Microsoft Graph pour Azure Functions
 
@@ -40,11 +40,11 @@ La liaison d’entrée du jeton d’authentification est fournie dans le package
 
 Les liaisons Microsoft Graph sont disponibles via des _extensions de liaison_. Les extensions de liaison sont des composants facultatifs du runtime Azure Functions. Cette section explique comment configurer l’élément Microsoft Graph et les extensions de jeton d’authentification.
 
-### <a name="enabling-functions-20-preview"></a>Activation de la préversion d’Azure Functions 2.0
+### <a name="enabling-functions-20"></a>Activation de Functions 2.0
 
-Les extensions de liaison sont uniquement disponibles pour la préversion d’Azure Functions 2.0. 
+Les extensions de liaison sont uniquement disponibles pour Azure Functions 2.0. 
 
-Pour plus d’informations sur la façon de configurer une application de fonction pour utiliser la préversion 2.0 du runtime de Functions, consultez [Comment cibler des versions du runtime Azure Functions](set-runtime-version.md).
+Pour plus d’informations sur la façon de configurer une application de fonction pour utiliser la version 2.0 du runtime de Functions, consultez [Comment cibler des versions du runtime d’Azure Functions](set-runtime-version.md).
 
 ### <a name="installing-the-extension"></a>Installation de l’extension
 
@@ -976,7 +976,7 @@ La liaison expose les types suivants de fonctions .NET :
 
 
 
-## <a name="webhooks"></a>webhooks
+## <a name="webhooks"></a>Webhooks
 
 Les webhooks vous permettent de réagir à événements dans l’élément Microsoft Graph. Pour prendre en charge les webhooks, des fonctions sont requises pour créer et actualiser les _webhook abonnements_, ainsi qu’y réagir. Une solution webhook complète nécessite une combinaison des liaisons suivantes :
 - Un [déclencheur de webhook Microsoft Graph](#webhook-trigger) vous permet de réagir à un webhook entrant.

@@ -1,21 +1,21 @@
 ---
 title: Détails de la structure des définitions de stratégies
 description: Décrit comment les définitions de stratégie permettent d’établir des conventions pour les ressources Azure dans votre organisation.
-ms.date: 05/11/2020
+ms.date: 06/12/2020
 ms.topic: conceptual
-ms.openlocfilehash: de9b3c5242f361c9f0cf7128a5ec32c0e7dce428
-ms.sourcegitcommit: 0fa52a34a6274dc872832560cd690be58ae3d0ca
+ms.openlocfilehash: 28f4e3a99b7241711e46ce92fdfd2d7689b4527b
+ms.sourcegitcommit: f684589322633f1a0fafb627a03498b148b0d521
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/29/2020
-ms.locfileid: "84205022"
+ms.lasthandoff: 07/06/2020
+ms.locfileid: "85971111"
 ---
 # <a name="azure-policy-definition-structure"></a>Structure de définition Azure Policy
 
 Azure Policy établit des conventions pour les ressources. Les définitions de stratégie décrivent les [conditions](#conditions) de la conformité des ressources et l’effet à exécuter si une condition est remplie. Une condition compare un [champ](#fields) de propriété de ressource à une valeur requise. Les champs de propriétés de ressources sont accessibles à l’aide d’[alias](#aliases). Un champ de propriété de ressource est un champ à valeur unique ou un [tableau](#understanding-the--alias) de plusieurs valeurs. L’évaluation de la condition est différente sur les tableaux.
 Apprenez-en davantage sur les [conditions](#conditions).
 
-En définissant des conventions, vous pouvez contrôler les coûts et gérer plus facilement vos ressources. Par exemple, vous pouvez spécifier que seuls certains types de machines virtuelles sont autorisés. Vous pouvez aussi exiger que toutes les ressources soient marquées. Toutes les ressources enfants héritent des stratégies. Une stratégie appliquée à un groupe de ressources s’applique à toutes les ressources appartenant à ce groupe de ressources.
+En définissant des conventions, vous pouvez contrôler les coûts et gérer plus facilement vos ressources. Par exemple, vous pouvez spécifier que seuls certains types de machines virtuelles sont autorisés. Vous pouvez aussi exiger que les ressources soient marquées avec une balise particulière. Les ressources enfants héritent des attributions de stratégie. Si une attribution de stratégie est appliquée à un groupe de ressources, elle s’applique à toutes les ressources appartenant à ce groupe de ressources.
 
 Le schéma de la définition de stratégie se trouve ici : [https://schema.management.azure.com/schemas/2019-09-01/policyDefinition.json](https://schema.management.azure.com/schemas/2019-09-01/policyDefinition.json)
 
@@ -37,7 +37,7 @@ Par exemple, le code JSON suivant illustre une stratégie qui limite les emplace
     "properties": {
         "displayName": "Allowed locations",
         "description": "This policy enables you to restrict the locations your organization can specify when deploying resources.",
-        "mode": "all",
+        "mode": "Indexed",
         "metadata": {
             "version": "1.0.0",
             "category": "Locations"
@@ -91,7 +91,7 @@ Le **Mode** est configuré selon que la stratégie cible une propriété Azure R
 
 ### <a name="resource-manager-modes"></a>Modes Resource Manager
 
-Le **mode** détermine les types de ressources à évaluer pour une stratégie. Les modes pris en charge sont les suivants :
+Le **mode** détermine les types de ressources à évaluer pour une définition de stratégie. Les modes pris en charge sont les suivants :
 
 - `all` : évaluer les groupes de ressources, les abonnements et tous les types de ressources
 - `indexed` : évaluer uniquement les types de ressources qui prennent en charge les balises et l’emplacement
@@ -106,8 +106,8 @@ Il est recommandé (quoique non obligatoire) d’utiliser `indexed` pour créer 
 
 Les modes Fournisseur de ressources suivants sont actuellement pris en charge pendant la préversion :
 
-- `Microsoft.ContainerService.Data` pour la gestion des règles d’admission de contrôleur sur [Azure Kubernetes Service](../../../aks/intro-kubernetes.md). Les stratégies utilisant ce mode Fournisseur de ressources **doivent** utiliser l’effet [EnforceRegoPolicy](./effects.md#enforceregopolicy). Ce mode est _déconseillé_.
-- `Microsoft.Kubernetes.Data` pour la gestion de vos clusters Kubernetes sur ou hors Azure. Les stratégies utilisant ce mode Fournisseur de ressources **doivent** utiliser l’effet [EnforceOPAConstraint](./effects.md#enforceopaconstraint).
+- `Microsoft.ContainerService.Data` pour la gestion des règles d’admission de contrôleur sur [Azure Kubernetes Service](../../../aks/intro-kubernetes.md). Les définitions utilisant ce mode Fournisseur de ressources **doivent** utiliser l’effet [EnforceRegoPolicy](./effects.md#enforceregopolicy). Ce mode est _déconseillé_.
+- `Microsoft.Kubernetes.Data` pour la gestion de vos clusters Kubernetes sur ou hors Azure. Les définitions utilisant ce mode Fournisseur de ressources utilisent les effects _audit_, _deny_ et _disabled_. L’utilisation de l’effet [EnforceOPAConstraint](./effects.md#enforceopaconstraint) est _déconseillée_.
 - `Microsoft.KeyVault.Data` pour la gestion des coffres et des certificats dans [Azure Key Vault](../../../key-vault/general/overview.md).
 
 > [!NOTE]
@@ -207,7 +207,7 @@ Lors de la création d’une initiative ou d’une stratégie, il est important 
 Si l’emplacement de la définition est l’un ou l’autre élément suivant :
 
 - **Abonnement** : seules les ressources au sein de cet abonnement peuvent être assignées à la stratégie.
-- **Groupe d’administration** : seules les ressources au sein des groupes d’administration enfants et des abonnements enfants peuvent être assignées à la stratégie. Si vous voulez appliquer la définition de stratégie à plusieurs abonnements, l’emplacement doit correspondre à un groupe d’administration comportant ces abonnements.
+- **Groupe d’administration** : seules les ressources au sein des groupes d’administration enfants et des abonnements enfants peuvent être assignées à la stratégie. Si vous voulez appliquer la définition de stratégie à plusieurs abonnements, l’emplacement doit correspondre à un groupe d’administration comportant l’abonnement.
 
 ## <a name="policy-rule"></a>Règle de stratégie
 
@@ -603,9 +603,9 @@ Toutes les [fonctions de modèle Resource Manager](../../../azure-resource-manag
 > [!NOTE]
 > Ces fonctions sont toujours disponibles dans la partie `details.deployment.properties.template` du déploiement de modèle dans une définition de stratégie **deployIfNotExists**.
 
-La fonction suivante est utilisable dans une règle de stratégie, mais diffère de l’utilisation dans un modèle Azure Resource Manager :
+La fonction suivante est utilisable dans une règle de stratégie, mais diffère de l’utilisation dans un modèle Resource Manager :
 
-- `utcNow()` : contrairement à un modèle Resource Manager, cette fonction peut être utilisée en dehors de defaultValue.
+- `utcNow()` : contrairement à un modèle Resource Manager, cette propriété peut être utilisée en dehors de _defaultValue_.
   - Retourne une chaîne qui est définie sur la date et l’heure actuelles au format de date/heure universel ISO 8601 « yyyy-MM-ddTHH:mm:ss.fffffffZ »
 
 Les fonctions suivantes sont disponibles uniquement dans les règles de stratégie :
@@ -619,7 +619,7 @@ Les fonctions suivantes sont disponibles uniquement dans les règles de stratég
   - `field` est principalement utilisé avec **AuditIfNotExists** et **DeployIfNotExists** pour faire référence aux champs actuellement évalués de la ressource. Vous pouvez en voir une illustration dans [l’exemple DeployIfNotExists](effects.md#deployifnotexists-example).
 - `requestContext().apiVersion`
   - Retourne la version d’API de la requête qui a déclenché l’évaluation de la stratégie (par exemple : `2019-09-01`).
-    Il s’agit de la version d’API qui a été utilisée dans la requête PUT/PATCH pour les évaluations relatives à la création/mise à jour de ressources. La dernière version de l’API est toujours utilisée lors de l’évaluation de la conformité sur des ressources existantes.
+    Cette valeur est la version d’API qui a été utilisée dans la requête PUT/PATCH pour les évaluations relatives à la création/mise à jour de ressources. La dernière version de l’API est toujours utilisée lors de l’évaluation de la conformité sur des ressources existantes.
   
 #### <a name="policy-function-example"></a>Exemple de fonction de stratégie
 

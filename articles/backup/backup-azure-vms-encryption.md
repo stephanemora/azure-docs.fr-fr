@@ -3,12 +3,12 @@ title: Sauvegarder et restaurer des machines virtuelles Azure chiffrées
 description: Décrit comment sauvegarder et restaurer des machines virtuelles Azure chiffrées avec le service Sauvegarde Azure.
 ms.topic: conceptual
 ms.date: 04/03/2019
-ms.openlocfilehash: ea4d2830fb9db9f95ba8ab87626a79d94aaecb8a
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 0800a15b215b37ceb75abc0d6480331d642dc746
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82187934"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85124501"
 ---
 # <a name="back-up-and-restore-encrypted-azure-vm"></a>Sauvegarder et restaurer une machine virtuelle Azure chiffrée
 
@@ -132,7 +132,9 @@ Pour définir des autorisations :
 
 ## <a name="restore-an-encrypted-vm"></a>Restaurer une machine virtuelle chiffrée
 
-Vous restaurez des machines virtuelles chiffrées comme suit :
+Vous ne pouvez restaurer les machines virtuelles chiffrées qu’en restaurant le disque des machines virtuelles, comme expliqué ci-dessous. Les fonctionnalités **Remplacer l'existant** et **Restaurer la machine virtuelle** ne sont pas prises en charge.
+
+Restaurez les machines virtuelles chiffrées de la façon suivante :
 
 1. [Restaurez le disque de la machine virtuelle](backup-azure-arm-restore-vms.md#restore-disks).
 2. Recréez l’instance de machine virtuelle en procédant de l’une des manières suivantes :

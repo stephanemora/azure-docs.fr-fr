@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 05/26/2020
 ms.author: victorh
 ms.custom: references_regions
-ms.openlocfilehash: e61ce629e723f56524ee22d8b127243f9568a835
-ms.sourcegitcommit: 1f48ad3c83467a6ffac4e23093ef288fea592eb5
+ms.openlocfilehash: 578d674a197936c6222d4520893fdb1afa00161e
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/29/2020
-ms.locfileid: "84196501"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84981997"
 ---
 # <a name="frequently-asked-questions-about-application-gateway"></a>Forum aux questions sur Application Gateway
 
@@ -73,7 +73,13 @@ Pour la référence SKU v2, ouvrez la ressource IP publique et sélectionnez **C
 
 Le *délai d’expiration Keep-Alive* régit la durée pendant laquelle Application Gateway attend qu’un client envoie une autre requête HTTP sur une connexion permanente avant de la réutiliser ou de la fermer. Le *délai d’inactivité TCP* régit la durée pendant laquelle une connexion TCP est maintenue ouverte en cas d’absence d’activité. 
 
-Le *délai d’expiration Keep-Alive* est de 120 secondes dans la référence SKU Application Gateway v1 et de 75 secondes dans la référence SKU v2. Par défaut, le *délai d’inactivité TCP* est de 4 minutes sur l’adresse IP virtuelle du serveur frontal des SKU v1 et v2 d’Application Gateway. Vous ne pouvez pas modifier ces valeurs.
+Le *délai d’expiration Keep-Alive* est de 120 secondes dans la référence SKU Application Gateway v1 et de 75 secondes dans la référence SKU v2. Par défaut, le *délai d’inactivité TCP* est de 4 minutes sur l’adresse IP virtuelle du serveur frontal des SKU v1 et v2 d’Application Gateway. Vous pouvez configurer la valeur du délai d’inactivité TCP sur les passerelles d’applications v1 et v2 pour qu’elle soit comprise entre 4 et 30 minutes. Pour les passerelles d’application v1 et v2, vous devrez accéder à l’IP publique de la passerelle d’application et modifier le délai d’inactivité TCP sous le panneau « Configuration » de l’IP publique sur le portail. Vous pouvez définir la valeur du délai d’inactivité TCP de l’IP publique via PowerShell en exécutant les commandes suivantes : 
+
+```azurepowershell-interactive
+$publicIP = Get-AzPublicIpAddress -Name MyPublicIP -ResourceGroupName MyResourceGroup
+$publicIP.IdleTimeoutInMinutes = "15"
+Set-AzPublicIpAddress -PublicIpAddress $publicIP
+```
 
 ### <a name="does-the-ip-or-dns-name-change-over-the-lifetime-of-the-application-gateway"></a>L’adresse IP ou le nom DNS changent-ils pendant la durée de vie d’Application Gateway ?
 
@@ -338,11 +344,31 @@ Non, utilisez uniquement des caractères alphanumériques dans le mot de passe d
 Kubernetes permet de créer des ressources `deployment` et `service` pour exposer en interne un groupe de pods dans le cluster. Pour exposer le même service en externe, une ressource [`Ingress`](https://kubernetes.io/docs/concepts/services-networking/ingress/) est définie, ce qui permet l’équilibrage de charge, l’arrêt TLS et l’hébergement virtuel basé sur le nom.
 Pour satisfaire cette ressource `Ingress`, un contrôleur d’entrée est nécessaire, qui écoute les modifications apportées aux ressources `Ingress` et configure les stratégies d’équilibreur de charge.
 
-Le contrôleur d’entrée Application Gateway permet l’utilisation d’[Azure Application Gateway](https://azure.microsoft.com/services/application-gateway/) en tant qu’entrée pour un service [Azure Kubernetes Service](https://azure.microsoft.com/services/kubernetes-service/), également appelé un cluster AKS.
+Le contrôleur d’entrée Application Gateway (AGIC) permet l’utilisation d’[Azure Application Gateway](https://azure.microsoft.com/services/application-gateway/) en tant qu’entrée pour [Azure Kubernetes Service](https://azure.microsoft.com/services/kubernetes-service/), également appelé cluster AKS.
 
 ### <a name="can-a-single-ingress-controller-instance-manage-multiple-application-gateways"></a>Une seule instance de contrôleur d’entrée peut-elle gérer plusieurs Application Gateways ?
 
 Actuellement, une instance de contrôleur d’entrée ne peut être associée qu’à une seule Application Gateway.
+
+### <a name="why-is-my-aks-cluster-with-kubenet-not-working-with-agic"></a>Pourquoi mon cluster AKS avec kubenet ne fonctionne-t-il pas avec l’AGIC ?
+
+L’AGIC essaie d’associer automatiquement la ressource de la table de routage au sous-réseau de la passerelle d’application, mais peut ne pas y parvenir en raison du manque d’autorisations de l’AGIC. Si l’AGIC n’est pas en mesure d’associer la table de routage au sous-réseau de la passerelle d’application, une erreur se produira dans les journaux de l’AGIC. Dans ce cas, vous devrez associer manuellement la table de routage créée par le cluster AKS au sous-réseau de la passerelle d’application. Pour plus d’informations, consultez les instructions [ici](configuration-overview.md#user-defined-routes-supported-on-the-application-gateway-subnet).
+
+### <a name="can-i-connect-my-aks-cluster-and-application-gateway-in-separate-virtual-networks"></a>Puis-je connecter mon cluster AKS et Application Gateway dans des réseaux virtuels distincts ? 
+
+Oui, tant que les réseaux virtuels font l’objet d’un peering et qu’ils n’ont pas d’espaces d’adressage qui se chevauchent. Si vous exécutez AKS avec kubenet, veillez à associer la table de routage générée par AKS au sous-réseau de la passerelle d’application. 
+
+### <a name="what-features-are-not-supported-on-the-agic-add-on"></a>Quelles fonctionnalités ne sont pas prises en charge sur le module complémentaire AGIC ? 
+
+Consultez [ici](ingress-controller-overview.md#difference-between-helm-deployment-and-aks-add-on) les différences entre l’AGIC déployé via Helm et celui déployé en tant que module complémentaire AKS.
+
+### <a name="when-should-i-use-the-add-on-versus-the-helm-deployment"></a>Quand dois-je utiliser le module complémentaire plutôt que le déploiement Helm ? 
+
+Consultez [ici](ingress-controller-overview.md#difference-between-helm-deployment-and-aks-add-on) les différences entre l’AGIC déployé via Helm et celui déployé en tant que module complémentaire AKS, en particulier les tables qui documentent les scénarios pris en charge par l’AGIC déployé via Helm, par opposition à un module complémentaire AKS. En général, le déploiement via Helm vous permet de tester les fonctionnalités bêta et les versions finales (RC) avant leur publication officielle. 
+
+### <a name="can-i-control-which-version-of-agic-will-be-deployed-with-the-add-on"></a>Puis-je contrôler quelle version de l’AGIC sera déployée avec le module complémentaire ?
+
+Non, le module complémentaire AGIC est un service géré, ce qui signifie que Microsoft met automatiquement à jour le module complémentaire vers la version stable la plus récente. 
 
 ## <a name="diagnostics-and-logging"></a>Diagnostics et journalisation
 
