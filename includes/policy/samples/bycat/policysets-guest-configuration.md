@@ -2,15 +2,15 @@
 author: DCtheGeek
 ms.service: azure-policy
 ms.topic: include
-ms.date: 06/23/2020
+ms.date: 07/10/2020
 ms.author: dacoulte
 ms.custom: generated
-ms.openlocfilehash: f16f9b3fe6cd17b9fb6eb1cb2bd3ef1f42824701
-ms.sourcegitcommit: 01cd19edb099d654198a6930cebd61cae9cb685b
+ms.openlocfilehash: a1df804681f0066fda025a60e0baddedc51f7a78
+ms.sourcegitcommit: 0b2367b4a9171cac4a706ae9f516e108e25db30c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/24/2020
-ms.locfileid: "85312726"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86276846"
 ---
 |Nom |Description |Stratégies |Version |
 |---|---|---|---|
@@ -37,4 +37,3 @@ ms.locfileid: "85312726"
 |[Auditer les machines virtuelles Windows qui ont les applications spécifiées installées](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policySetDefinitions/Guest%20Configuration/GuestConfiguration_NotInstalledApp.json) |Cette initiative permet de déployer les exigences de stratégie et d’auditer les machines virtuelles Windows sur lesquelles les applications spécifiées sont installées. Pour plus d’informations sur les stratégies Guest Configuration, consultez [https://aka.ms/gcpol](https://aka.ms/gcpol) |2 |1.0.0 |
 |[Auditer les machines virtuelles Windows avec un redémarrage en attente](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policySetDefinitions/Guest%20Configuration/GuestConfiguration_WindowsPendingReboot.json) |Cette initiative permet de déployer les exigences de stratégie et d’auditer les machines virtuelles Windows avec un redémarrage en attente. Pour plus d’informations sur les stratégies Guest Configuration, consultez [https://aka.ms/gcpol](https://aka.ms/gcpol) |2 |1.0.0 |
 |[Auditer les serveurs web Windows qui n’utilisent pas de protocole de communication sécurisé](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policySetDefinitions/Guest%20Configuration/GuestConfiguration_TLS.json) |Cette initiative permet de déployer les exigences de stratégie et d’auditer les serveurs web Windows qui n’utilisent pas de protocoles de communication sécurisée (TLS 1.1 ou TLS 1.2). Pour plus d’informations sur les stratégies Guest Configuration, consultez [https://aka.ms/gcpol](https://aka.ms/gcpol) |2 |1.0.0 |
-|[Déployer les prérequis pour activer les stratégies Guest Configuration sur les machines virtuelles](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policySetDefinitions/Guest%20Configuration/GuestConfiguration_Prerequisites.json) |Cette initiative ajoute une identité managée affectée par le système, et déploie l’extension Guest Configuration appropriée à la plateforme sur les machines virtuelles pouvant être supervisées par des stratégies Guest Configuration. Il s’agit d’un prérequis pour toutes les stratégies Guest Configuration, et il doit être affecté à l’étendue d’attribution des stratégies avant l’utilisation d’une stratégie Guest Configuration. Pour plus d’informations sur Guest Configuration, consultez [https://aka.ms/gcpol](https://aka.ms/gcpol). |4 |1.0.0-preview |

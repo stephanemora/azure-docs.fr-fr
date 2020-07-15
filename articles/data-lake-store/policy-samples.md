@@ -1,24 +1,24 @@
 ---
 title: Définitions de stratégie intégrées pour Azure Data Lake Storage Gen1
 description: Liste les définitions de stratégie intégrées d’Azure Policy pour Azure Data Lake Storage Gen1. Ces définitions de stratégie intégrées fournissent des approches courantes pour la gestion de vos ressources Azure.
-ms.date: 06/23/2020
+ms.date: 07/10/2020
 ms.topic: sample
 author: twooley
 ms.author: twooley
 ms.service: data-lake-store
 ms.custom: subject-policy-samples
-ms.openlocfilehash: 09044f402205b2ee03ed923b52833be2b6dfc9cc
-ms.sourcegitcommit: 01cd19edb099d654198a6930cebd61cae9cb685b
+ms.openlocfilehash: 96e70ff848bd44f2b3dadaefb186bd2fe0fe2306
+ms.sourcegitcommit: 0b2367b4a9171cac4a706ae9f516e108e25db30c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/24/2020
-ms.locfileid: "85322065"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86275958"
 ---
 # <a name="azure-policy-built-in-definitions-for-azure-data-lake-storage-gen1"></a>Définitions intégrées d’Azure Policy pour Azure Data Lake Storage Gen1
 
 Cette page constitue un index des définitions de stratégie intégrées d’[Azure Policy](../governance/policy/overview.md) pour Azure Data Lake Storage Gen1. Pour obtenir des éléments intégrés supplémentaires d’Azure Policy pour d’autres services, consultez [Définitions intégrées d’Azure Policy](../governance/policy/samples/built-in-policies.md).
 
-Le nom de chaque définition de stratégie intégrée est un lien vers la définition de la stratégie dans le portail Azure. Utilisez le lien de la colonne **Version** pour voir la source dans le [dépôt GitHub Azure Policy](https://github.com/Azure/azure-policy).
+Le nom de chaque définition de stratégie intégrée est un lien vers la définition de la stratégie dans le portail Azure. Utilisez le lien figurant dans la colonne **Version** pour voir la source dans le [dépôt GitHub Azure Policy](https://github.com/Azure/azure-policy).
 
 ## <a name="azure-data-lake-storage-gen1"></a>Azure Data Lake Storage Gen1
 

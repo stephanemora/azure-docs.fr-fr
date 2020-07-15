@@ -9,14 +9,14 @@ ms.subservice: forms-recognizer
 ms.topic: include
 ms.date: 05/08/2020
 ms.author: pafarley
-ms.openlocfilehash: f5bf8a0420614b69f4022891e76b5d959f5782f3
-ms.sourcegitcommit: 0100d26b1cac3e55016724c30d59408ee052a9ab
+ms.openlocfilehash: 2d8cdda28cc7176496457399fd1356634ddafddf
+ms.sourcegitcommit: f7e160c820c1e2eb57dc480b2a8fd6bef7053e91
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/07/2020
-ms.locfileid: "86035793"
+ms.lasthandoff: 07/10/2020
+ms.locfileid: "86277736"
 ---
-[Documentation de référence](https://docs.microsoft.com/javascript/api/overview/azure/formrecognizer) | [Code source de la bibliothèque](https://github.com/Azure/azure-sdk-for-js/blob/master/sdk/formrecognizer/ai-form-recognizer/) | [Package (npm)](https://www.npmjs.com/package/@azure/ai-form-recognizer) | [Exemples](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/formrecognizer/ai-form-recognizer/samples)
+[Documentation de référence](https://docs.microsoft.com/azure/cognitive-services/form-recognizer/) | [Code source de la bibliothèque](https://github.com/Azure/azure-sdk-for-js/blob/master/sdk/formrecognizer/ai-form-recognizer/) | [Package (npm)](https://www.npmjs.com/package/@azure/ai-form-recognizer) | [Exemples](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/formrecognizer/ai-form-recognizer/samples)
 
 ## <a name="prerequisites"></a>Prérequis
 
@@ -116,7 +116,7 @@ Vous devrez aussi ajouter des références aux URL pour vos données d’entraî
 * Employez également la méthode ci-dessus pour obtenir l’URL d’une image de ticket de caisse ou utilisez l’exemple d’URL d’image fourni.
 
 > [!NOTE]
-> Les extraits de code présentés dans ce guide utilisent des formulaires distants accessibles par URL. Si vous voulez traiter des documents de formulaire locaux, consultez les méthodes correspondantes dans la [documentation de référence](https://docs.microsoft.com/javascript/api/overview/azure/formrecognizer).
+> Les extraits de code présentés dans ce guide utilisent des formulaires distants accessibles par URL. Si vous voulez traiter des documents de formulaire locaux, consultez les méthodes correspondantes dans la [documentation de référence](https://docs.microsoft.com/azure/cognitive-services/form-recognizer/).
 
 
 ```javascript

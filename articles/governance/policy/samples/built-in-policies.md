@@ -1,15 +1,15 @@
 ---
 title: Liste des définitions de stratégie intégrées
 description: Liste les définitions de stratégie intégrées pour Azure Policy. Les catégories incluent Étiquettes, Conformité réglementaire, Key Vault, Kubernetes, Guest Configuration et plus encore.
-ms.date: 06/23/2020
+ms.date: 07/10/2020
 ms.topic: sample
 ms.custom: generated
-ms.openlocfilehash: 94f69754ab51728a18da10b45e05770f1271760b
-ms.sourcegitcommit: 01cd19edb099d654198a6930cebd61cae9cb685b
+ms.openlocfilehash: 1db053744a68e34fc3995916605be75a49887f01
+ms.sourcegitcommit: 0b2367b4a9171cac4a706ae9f516e108e25db30c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/24/2020
-ms.locfileid: "85313773"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86277162"
 ---
 # <a name="azure-policy-built-in-policy-definitions"></a>Définitions de stratégie Azure Policy intégrées
 
@@ -164,6 +164,10 @@ Le nom de chaque définition intégrée est un lien vers la définition de strat
 ## <a name="tags"></a>Balises
 
 [!INCLUDE [azure-policy-samples-policies-tags](../../../../includes/policy/samples/bycat/policies-tags.md)]
+
+## <a name="vm-image-builder"></a>Générateur d’images de machine virtuelle
+
+[!INCLUDE [azure-policy-samples-policies-vm-image-builder](../../../../includes/policy/samples/bycat/policies-vm-image-builder.md)]
 
 ## <a name="next-steps"></a>Étapes suivantes
 

@@ -1,24 +1,24 @@
 ---
 title: Définitions de stratégie intégrées pour Azure Cache pour Redis
 description: Liste les définitions de stratégie intégrées d’Azure Policy pour Azure Cache pour Redis. Ces définitions de stratégie intégrées fournissent des approches courantes pour la gestion de vos ressources Azure.
-ms.date: 06/23/2020
+ms.date: 07/10/2020
 ms.topic: sample
 author: yegu-ms
 ms.author: yegu
 ms.service: cache
 ms.custom: subject-policy-samples
-ms.openlocfilehash: ee64e2200511118d55f3df152b5adaa574a333d3
-ms.sourcegitcommit: 01cd19edb099d654198a6930cebd61cae9cb685b
+ms.openlocfilehash: 6ed9d352f0c33d12a756869782e28e480316aac9
+ms.sourcegitcommit: 0b2367b4a9171cac4a706ae9f516e108e25db30c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/24/2020
-ms.locfileid: "85313238"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86275549"
 ---
 # <a name="azure-policy-built-in-definitions-for-azure-cache-for-redis"></a>Définitions intégrées d’Azure Policy pour Azure Cache pour Redis
 
 Cette page constitue un index des définitions de stratégie intégrées d’[Azure Policy](../governance/policy/overview.md) pour Azure Cache pour Redis. Pour obtenir des éléments intégrés supplémentaires d’Azure Policy pour d’autres services, consultez [Définitions intégrées d’Azure Policy](../governance/policy/samples/built-in-policies.md).
 
-Le nom de chaque définition de stratégie intégrée est un lien vers la définition de la stratégie dans le portail Azure. Utilisez le lien de la colonne **Version** pour voir la source dans le [dépôt GitHub Azure Policy](https://github.com/Azure/azure-policy).
+Le nom de chaque définition de stratégie intégrée est un lien vers la définition de la stratégie dans le portail Azure. Utilisez le lien figurant dans la colonne **Version** pour voir la source dans le [dépôt GitHub Azure Policy](https://github.com/Azure/azure-policy).
 
 ## <a name="azure-cache-for-redis"></a>Cache Azure pour Redis
 
