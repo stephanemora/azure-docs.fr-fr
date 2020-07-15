@@ -12,12 +12,12 @@ ms.date: 03/12/2020
 ms.author: ryanwi
 ms.reviewer: jmprieur
 ms.custom: aaddev, identityplatformtop40, fasttrack-edit
-ms.openlocfilehash: a45160db09b3f6bf68bda3f25e40a29a1154099d
-ms.sourcegitcommit: 69156ae3c1e22cc570dda7f7234145c8226cc162
+ms.openlocfilehash: 19c94a4807b8958fa8b1ec46ccae660c7cbe92de
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/03/2020
-ms.locfileid: "84308487"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86256694"
 ---
 # <a name="quickstart-set-up-a-tenant"></a>Démarrage rapide : Configurer un locataire
 
@@ -34,7 +34,7 @@ Vous pouvez créer deux types d’environnements. Pour décider celui dont vous 
 * Comptes professionnels et scolaires (comptes Azure AD) ou comptes Microsoft (par exemple, outlook.com et live.com)
 * Comptes sociaux et locaux (Azure AD B2C)
 
-Le guide de démarrage rapide comporte deux scénarios selon le type d’application que vous souhaitez générer. Si vous avez besoin d’aide pour cibler le type d’identité, jetez un œil à l’article relatif à [la plateforme d’identité Microsoft](about-microsoft-identity-platform.md).
+Le guide de démarrage rapide comporte deux scénarios selon le type d’application que vous souhaitez générer.
 
 ## <a name="work-and-school-accounts-or-personal-microsoft-accounts"></a>Comptes professionnels et scolaires ou comptes Microsoft personnels
 

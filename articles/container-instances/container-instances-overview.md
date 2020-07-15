@@ -4,12 +4,12 @@ description: Le service Azure Container Instances offre le moyen le plus simple 
 ms.topic: overview
 ms.date: 04/25/2019
 ms.custom: seodec18, mvc
-ms.openlocfilehash: c871c09e29b64c4f0dcd107361154efdce306481
-ms.sourcegitcommit: 537c539344ee44b07862f317d453267f2b7b2ca6
+ms.openlocfilehash: 261e5d0159b4201aab0e8aad1e05fa320cc76a14
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/11/2020
-ms.locfileid: "84695282"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86259508"
 ---
 # <a name="what-is-azure-container-instances"></a>Présentation d’Azure Container Instances
 
@@ -43,7 +43,7 @@ Pour les travaux nécessitant beaucoup de ressources système, comme le machine 
 
 ## <a name="persistent-storage"></a>Stockage persistant
 
-Pour récupérer et rendre persistants des états avec Azure Container Instances, nous proposons le [montage direct des partages Azure Files](container-instances-mounting-azure-files-volume.md) sauvegardés par le service Stockage Azure.
+Pour récupérer et rendre persistants des états avec Azure Container Instances, nous proposons le [montage direct des partages Azure Files](./container-instances-volume-azure-files.md) sauvegardés par le service Stockage Azure.
 
 ## <a name="linux-and-windows-containers"></a>Conteneurs Windows et Linux
 

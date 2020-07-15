@@ -5,12 +5,12 @@ ms.author: puagarw
 ms.topic: tutorial
 ms.date: 07/12/2019
 author: pulkitaggarwl
-ms.openlocfilehash: b0a9597e370648faab3787218c7d038798dbd455
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: 42bdde45b3a289a35c5bf4c4651e5a50a639f049
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "80048110"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86251771"
 ---
 # <a name="deployment-center-for-azure-kubernetes"></a>Centre de déploiement pour Azure Kubernetes
 
@@ -34,7 +34,7 @@ Ce didacticiel présente les procédures suivantes :
 
 1. Connectez-vous à votre [portail Azure](https://portal.azure.com/).
 
-1. Sélectionnez le bouton [Cloud Shell](https://docs.microsoft.com/azure/cloud-shell/overview) du côté droit de la barre de menus sur le portail Azure.
+1. Sélectionnez le bouton [Cloud Shell](../cloud-shell/overview.md) du côté droit de la barre de menus sur le portail Azure.
 
 1. Pour créer le cluster AKS, exécutez les commandes suivantes :
 
@@ -56,7 +56,7 @@ Ce didacticiel présente les procédures suivantes :
 
    ![paramètres](media/deployment-center-launcher/settings.png)
 
-1. Choisissez l’emplacement du code, puis sélectionnez **Suivant**. Sélectionnez ensuite l’un des référentiels actuellement pris en charge : **[Azure Repos](https://docs.microsoft.com/azure/devops/repos/index?view=azure-devops)** ou **GitHub**.
+1. Choisissez l’emplacement du code, puis sélectionnez **Suivant**. Sélectionnez ensuite l’un des référentiels actuellement pris en charge : **[Azure Repos](/azure/devops/repos/index?view=azure-devops)** ou **GitHub**.
 
     Azure Repos est un ensemble d’outils de gestion de version qui vous aident à gérer votre code. Quelle que soit la taille de votre projet logiciel, nous vous conseillons d’utiliser la gestion de version au plus tôt.
 
@@ -77,7 +77,7 @@ Ce didacticiel présente les procédures suivantes :
 
     ![Dockerfile](media/deployment-center-launcher/dockerfile.png)
 
-1. Sélectionnez un registre de conteneurs existant ou créez-en un, puis sélectionnez **Terminer**. Le pipeline automatiquement met une build en file d’attente dans [Azure Pipelines](https://docs.microsoft.com/azure/devops/pipelines/index?view=azure-devops).
+1. Sélectionnez un registre de conteneurs existant ou créez-en un, puis sélectionnez **Terminer**. Le pipeline automatiquement met une build en file d’attente dans [Azure Pipelines](/azure/devops/pipelines/index?view=azure-devops).
 
     Azure Pipelines est un service cloud que vous pouvez utiliser pour générer et tester automatiquement votre projet de code et le mettre à la disposition d’autres utilisateurs. Azure Pipelines combine l’intégration continue (CI) et le déploiement continu (CD) afin de tester et générer votre code de manière constante et cohérente, et de l’expédier vers toute cible.
 

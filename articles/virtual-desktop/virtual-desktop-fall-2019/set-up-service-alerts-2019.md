@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.date: 05/27/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: 29e1bb33b98b1fbc8fcfcd541d0014ca1bc75d8d
-ms.sourcegitcommit: 6a9f01bbef4b442d474747773b2ae6ce7c428c1f
+ms.openlocfilehash: f2eead8dfd1f4d88d28de1f70134dcfcad8471d3
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "84114138"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86259762"
 ---
 # <a name="tutorial-set-up-service-alerts"></a>Tutoriel : Configurer des alertes de service
 
@@ -61,4 +61,4 @@ Pour configurer des alertes de service :
 Dans ce didacticiel, vous avez appris à configurer et utiliser Azure Service Health pour surveiller les problèmes de service et les avis d’intégrité pour Windows Virtual Desktop. Pour en savoir plus sur la façon de se connecter à Windows Virtual Desktop, passez aux guides pratiques concernant la connexion à Windows Virtual Desktop.
 
 > [!div class="nextstepaction"]
-> [Se connecter au client Bureau à distance sur Windows 7 et Windows 10](../connect-windows-7-and-10.md)
+> [Se connecter au client Bureau à distance sur Windows 7 et Windows 10](connect-windows-7-10-2019.md)

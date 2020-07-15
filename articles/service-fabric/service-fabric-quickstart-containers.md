@@ -5,12 +5,12 @@ ms.topic: quickstart
 ms.date: 07/10/2019
 ms.author: atsenthi
 ms.custom: mvc
-ms.openlocfilehash: 477d47fabc59c5718c449418f225d6a38838b270
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.openlocfilehash: da50fb9f331e91089bb6bf0fb373cab8045639f0
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "75466270"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86260506"
 ---
 # <a name="quickstart-deploy-windows-containers-to-service-fabric"></a>Démarrage rapide : Déployer des conteneurs Windows sur Service Fabric
 
@@ -148,7 +148,7 @@ Ouvrez un navigateur et accédez à l’adresse que vous avez indiquée dans le 
 
 ## <a name="clean-up"></a>Nettoyer
 
-Vous continuez à être facturé tant que le cluster est en cours d’exécution. Songez à [supprimer votre cluster](service-fabric-cluster-delete.md).
+Vous continuez à être facturé tant que le cluster est en cours d’exécution. Songez à [supprimer votre cluster](./service-fabric-tutorial-delete-cluster.md).
 
 ## <a name="next-steps"></a>Étapes suivantes
 

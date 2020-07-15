@@ -3,16 +3,16 @@ title: Déployer une application .NET dans un conteneur vers Azure Service Fabri
 description: Découvrez comment mettre en conteneur une application .NET existante à l’aide de Visual Studio et comment déboguer des conteneurs Service Fabric en local. L’application en conteneur est envoyée par push dans un registre de conteneur Azure et déployée dans un cluster Service Fabric. Lorsqu’elle est déployée dans Azure, l’application utilise Azure SQL DB pour conserver des données.
 ms.topic: tutorial
 ms.date: 07/08/2019
-ms.openlocfilehash: aa99897da99ff1a1443e548e98ae415b6a8d49f5
-ms.sourcegitcommit: f1132db5c8ad5a0f2193d751e341e1cd31989854
+ms.openlocfilehash: 4970cf6492da38ad76a51df88eeb73538c850c67
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/31/2020
-ms.locfileid: "84234232"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86258871"
 ---
 # <a name="tutorial-deploy-a-net-application-in-a-windows-container-to-azure-service-fabric"></a>Tutoriel : Déployer une application .NET dans un conteneur Windows vers Azure Service Fabric
 
-Ce didacticiel explique comment mettre une application ASP.NET existante en conteneur et l’empaqueter en tant qu’application Service Fabric.  Exécutez les conteneurs en local sur le cluster de développement Service Fabric puis déployez l’application vers Azure.  L’application conserve les données dans [Azure SQL Database](/azure/sql-database/sql-database-technical-overview).
+Ce didacticiel explique comment mettre une application ASP.NET existante en conteneur et l’empaqueter en tant qu’application Service Fabric.  Exécutez les conteneurs en local sur le cluster de développement Service Fabric puis déployez l’application vers Azure.  L’application conserve les données dans [Azure SQL Database](../azure-sql/database/sql-database-paas-overview.md).
 
 Dans ce tutoriel, vous allez apprendre à :
 
@@ -55,7 +55,7 @@ Dans ce tutoriel, vous allez apprendre à :
 
 Lors de l’exécution de l’application Fabrikam Fiber CallCenter en production, les données doivent être conservées dans une base de données. Comme il n’existe aucun moyen de garantir la persistance des données dans un conteneur, vous ne pouvez pas stocker les données de production de SQL Server dans un conteneur.
 
-Nous recommandons [Azure SQL Database](/azure/sql-database/sql-database-get-started-powershell). Pour configurer et exécuter une base de données SQL Server gérée dans Azure, exécutez le script suivant.  Modifiez les variables de script selon vos besoins. *clientIP* représente l’adresse IP de votre ordinateur de développement. Notez le nom du serveur généré par le script.
+Nous recommandons [Azure SQL Database](../azure-sql/database/powershell-script-content-guide.md). Pour configurer et exécuter une base de données SQL Server gérée dans Azure, exécutez le script suivant.  Modifiez les variables de script selon vos besoins. *clientIP* représente l’adresse IP de votre ordinateur de développement. Notez le nom du serveur généré par le script.
 
 ```powershell
 $subscriptionID="<subscription ID>"
@@ -126,7 +126,7 @@ Appuyez sur **F5** pour exécuter et déboguer l’application dans un conteneur
 
 ## <a name="create-a-container-registry"></a>Créer un registre de conteneur
 
-Maintenant que l’application est exécutée localement, commencez à préparer le déploiement vers Azure.  Les images de conteneur doivent être stockées dans un registre de conteneurs.  Créez un [registre de conteneurs Azure](/azure/container-registry/container-registry-intro) à l’aide du script suivant. Le nom du registre de conteneurs est visible par d’autres abonnements Azure, il doit donc être unique.
+Maintenant que l’application est exécutée localement, commencez à préparer le déploiement vers Azure.  Les images de conteneur doivent être stockées dans un registre de conteneurs.  Créez un [registre de conteneurs Azure](../container-registry/container-registry-intro.md) à l’aide du script suivant. Le nom du registre de conteneurs est visible par d’autres abonnements Azure, il doit donc être unique.
 Avant de déployer l’application vers Azure, vous envoyez par push l’image de conteneur dans le registre.  Lorsque l’application déploie le cluster dans Azure, l’image de conteneur est extraite de ce registre.
 
 ```powershell
@@ -179,7 +179,7 @@ Lors de la création du cluster :
 
 ## <a name="allow-your-application-running-in-azure-to-access-sql-database"></a>Autoriser votre application s’exécutant dans Azure à accéder à SQL Database
 
-Précédemment, vous avez créé une règle de pare-feu SQL pour autoriser l’accès à votre application exécutée localement.  Ensuite, vous devez autoriser l’application qui s’exécute dans Azure à accéder à la base de données SQL.  Créez un [point de terminaison de service de réseau virtuel](/azure/sql-database/sql-database-vnet-service-endpoint-rule-overview) pour le cluster Service Fabric puis créez une règle pour autoriser ce point de terminaison à accéder à la base de données SQL. Veillez à spécifier la variable de groupe de ressources de cluster que vous avez notée pendant la création du cluster.
+Précédemment, vous avez créé une règle de pare-feu SQL pour autoriser l’accès à votre application exécutée localement.  Ensuite, vous devez autoriser l’application qui s’exécute dans Azure à accéder à la base de données SQL.  Créez un [point de terminaison de service de réseau virtuel](../azure-sql/database/vnet-service-endpoint-rule-overview.md) pour le cluster Service Fabric puis créez une règle pour autoriser ce point de terminaison à accéder à la base de données SQL. Veillez à spécifier la variable de groupe de ressources de cluster que vous avez notée pendant la création du cluster.
 
 ```powershell
 # Create a virtual network service endpoint

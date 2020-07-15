@@ -8,12 +8,12 @@ ms.topic: how-to
 ms.date: 03/30/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: cd309b7c3b37e338b1d8e69635247cc90511b34f
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: b4472baa51bb0b8806c7ad617c0fc1001c800ff0
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85204742"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86256847"
 ---
 # <a name="tutorial-create-a-host-pool-by-using-the-azure-marketplace"></a>Tutoriel : Créer un pool d’hôtes en utilisant la Place de marché Azure
 
@@ -154,7 +154,7 @@ Les utilisateurs que vous ajoutez au groupe d’applications de bureau peuvent s
 
 Voici les clients actuellement pris en charge :
 
-* [Client Bureau à distance pour Windows 7 et Windows 10](../connect-windows-7-and-10.md)
+* [Client Bureau à distance pour Windows 7 et Windows 10](connect-windows-7-10-2019.md)
 * [Client web Windows Virtual Desktop](connect-web-2019.md)
 
 ## <a name="next-steps"></a>Étapes suivantes
