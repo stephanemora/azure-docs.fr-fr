@@ -4,18 +4,18 @@ description: Créer un conteneur de profils FSLogix à l'aide d'Azure NetApp Fil
 services: virtual-desktop
 author: Heidilohr
 ms.service: virtual-desktop
-ms.topic: conceptual
-ms.date: 06/02/2020
+ms.topic: how-to
+ms.date: 06/05/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: c2ffd22c8b3e3ca1786e0a1f905cd07d0568fcf2
-ms.sourcegitcommit: d118ad4fb2b66c759b70d4d8a18e6368760da3ad
+ms.openlocfilehash: 2656c7ee433198d2ccd883b1c3a175c141c43813
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/02/2020
-ms.locfileid: "84296355"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85362983"
 ---
-# <a name="create-an-fslogix-profile-container-for-a-host-pool-using-azure-netapp-files"></a>Créer un conteneur de profils FSLogix pour un pool d'hôtes à l'aide d'Azure NetApp Files
+# <a name="create-a-profile-container-with-azure-netapp-files-and-ad-ds"></a>Créer un conteneur de profil avec Azure NetApp Files et Azure AD DS
 
 Nous vous recommandons d’utiliser des conteneurs de profils FSLogix en tant que solution de profil utilisateur pour le [service Windows Virtual Desktop](overview.md). Les conteneurs de profils FSLogix stockent un profil utilisateur complet dans un même conteneur et sont conçus pour l'itinérance des profils dans les environnements informatiques distants non persistants comme Windows Virtual Desktop. Lorsque vous vous connectez, le conteneur se connecte de manière dynamique à l'environnement informatique à l'aide d'un disque dur virtuel (VHD) et d'un disque dur virtuel Hyper-V (VHDX) pris en charge localement. Grâce à ces technologies avancées de pilote de filtre, le profil utilisateur est immédiatement disponible et apparaît dans le système exactement comme un profil utilisateur local. Pour en savoir plus sur les conteneurs de profils FSLogix, consultez [Conteneurs de profils FSLogix et fichiers Azure](fslogix-containers-azure-files.md).
 
@@ -53,7 +53,8 @@ Pour commencer, vous devez configurer un compte Azure NetApp Files.
 
 4. Si vous utilisez Azure Cloud Shell pour la première fois, créez un compte de stockage avec l'abonnement associé à Azure NetApp Files et Windows Virtual Desktop.
 
-   ![Fenêtre du compte de stockage avec bouton Créer un stockage encadré en rouge en bas de la fenêtre.](media/create-storage-button.png)
+   > [!div class="mx-imgBorder"]
+   > ![Fenêtre du compte de stockage avec bouton Créer un stockage encadré en rouge en bas de la fenêtre.](media/create-storage-button.png)
 
 5. Une fois Azure Cloud Shell chargé, exécutez les deux cmdlets suivantes.
 
@@ -67,7 +68,8 @@ Pour commencer, vous devez configurer un compte Azure NetApp Files.
 
 6. Dans la partie gauche de la fenêtre, sélectionnez **Tous les services**. Entrez **Azure NetApp Files** dans la zone de recherche qui s'affiche en haut du menu.
 
-   ![Capture d'écran d'un utilisateur entrant « Azure NetApp Files » dans la zone de recherche Tous les services. Les résultats de la recherche affichent la ressource Azure NetApp Files.](media/azure-netapp-files-search-box.png)
+   > [!div class="mx-imgBorder"]
+   > ![Capture d’écran d’un utilisateur entrant « Azure NetApp Files » dans la zone de recherche Tous les services. Les résultats de la recherche affichent la ressource Azure NetApp Files.](media/azure-netapp-files-search-box.png)
 
 
 7. Sélectionnez **Azure NetApp Files** dans les résultats de la recherche, puis cliquez sur **Créer**.
@@ -87,7 +89,7 @@ Pour commencer, vous devez configurer un compte Azure NetApp Files.
 
 ## <a name="create-a-capacity-pool"></a>Créer un pool de capacités
 
-Créez ensuite un pool de capacités : 
+Créez ensuite un pool de capacités :
 
 1. Accédez au menu Azure NetApp Files et sélectionnez votre nouveau compte.
 2. Dans le menu de votre compte, sélectionnez **Pools de capacités** sous Service de stockage.
@@ -108,7 +110,8 @@ Vous devez ensuite joindre une connexion Active Directory.
 
 1. Sélectionnez **Connexions Active Directory** dans le menu situé à gauche de la page, puis sélectionnez le bouton **Joindre** pour ouvrir la page **Joindre Active Directory**.
 
-   ![Capture d'écran du menu Joindre des connexions Active Directory.](media/active-directory-connections-menu.png)
+   > [!div class="mx-imgBorder"]
+   > ![Capture d’écran du menu Joindre des connexions Active Directory.](media/active-directory-connections-menu.png)
 
 2. Entrez les valeurs suivantes sur la page **Joindre Active Directory** pour joindre une connexion :
 
@@ -148,7 +151,8 @@ Une fois le volume créé, configurez les paramètres d'accès à celui-ci.
 
 6.  Pour afficher le chemin de montage, sélectionnez **Accéder à la ressource** et recherchez-le dans l'onglet Vue d'ensemble.
 
-    ![Capture de l'écran Vue d'ensemble avec une flèche rouge pointant vers le chemin de montage.](media/overview-mount-path.png)
+    > [!div class="mx-imgBorder"]
+    > ![Capture de l’écran Vue d’ensemble avec une flèche rouge pointant vers le chemin de montage.](media/overview-mount-path.png)
 
 ## <a name="configure-fslogix-on-session-host-virtual-machines-vms"></a>Configurer FSLogix sur des machines virtuelles hôtes de session
 
@@ -218,7 +222,8 @@ Cette section est basée sur [Créer un conteneur de profils pour un pool d'hôt
 
 4. Ouvrez **Azure NetApp Files**, sélectionnez votre compte Azure NetApp Files, puis cliquez sur **Volumes**. Lorsque le menu Volumes s'ouvre, sélectionnez le volume correspondant.
 
-   ![Capture d'écran du compte NetApp que vous avez précédemment configuré sur le portail Azure avec bouton Volumes sélectionné.](media/netapp-account.png)
+   > [!div class="mx-imgBorder"]
+   > ![Capture d’écran du compte NetApp que vous avez précédemment configuré sur le portail Azure avec bouton Volumes sélectionné.](media/netapp-account.png)
 
 5. Accédez à l'onglet **Vue d'ensemble** et vérifiez que le conteneur de profils FSLogix utilise de l'espace.
 
@@ -226,7 +231,8 @@ Cette section est basée sur [Créer un conteneur de profils pour un pool d'hôt
 
    Ce dossier doit contenir un fichier VHD (ou VHDX) de profils comme celui de l'exemple suivant.
 
-   ![Capture d'écran du contenu du dossier dans le chemin de montage. Celui-ci contient un fichier VHD nommé « Profile_ssbb ».](media/mount-path-folder.png)
+   > [!div class="mx-imgBorder"]
+   > ![Capture d’écran du contenu du dossier dans le chemin de montage. Celui-ci contient un fichier VHD nommé « Profile_ssbb ».](media/mount-path-folder.png)
 
 ## <a name="next-steps"></a>Étapes suivantes
 

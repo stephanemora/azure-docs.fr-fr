@@ -5,15 +5,15 @@ description: Cet article fournit des exemples sur la manière de convertir un ce
 services: application-gateway
 author: vhorne
 ms.service: application-gateway
-ms.topic: article
-ms.date: 11/14/2019
+ms.topic: how-to
+ms.date: 06/17/2020
 ms.author: absha
-ms.openlocfilehash: 20f588639c54b0a8b7cd304f33b5a9d633a73be6
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 125da04c9fafe33c7f3de3a5849e4238b3b45d6d
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80133044"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84976538"
 ---
 # <a name="create-certificates-to-allow-the-backend-with-azure-application-gateway"></a>Créer des certificats pour autoriser le serveur back-end dans Azure Application Gateway
 
@@ -74,11 +74,11 @@ Un certificat d’authentification est nécessaire pour autoriser les instances 
 
 ## <a name="export-trusted-root-certificate-for-v2-sku"></a>Exporter le certificat racine approuvé (pour le SKU v2)
 
-Un certificat racine approuvé est nécessaire pour mettre les instances back-end en liste verte dans le SKU v2 d’Application Gateway. Le certificat racine est un certificat racine au format X.509 avec codage base 64 (.CER) provenant des certificats de serveur back-end. Dans cet exemple, nous allons utiliser un certificat TLS/SSL pour le certificat de serveur back-end, nous allons exporter sa clé publique, puis le certificat racine de l’autorité de certification approuvée à partir de la clé publique au format de codage base64 afin d’obtenir le certificat racine approuvé. Le ou les certificats intermédiaires doivent être regroupés avec le certificat de serveur et installés sur le serveur principal.
+Un certificat racine approuvé est nécessaire pour autoriser les instances de serveur principal dans la référence de passerelle SKU v2. Le certificat racine est un certificat racine au format X.509 avec codage base 64 (.CER) provenant des certificats de serveur back-end. Dans cet exemple, nous allons utiliser un certificat TLS/SSL pour le certificat de serveur back-end, nous allons exporter sa clé publique, puis le certificat racine de l’autorité de certification approuvée à partir de la clé publique au format de codage base64 afin d’obtenir le certificat racine approuvé. Le ou les certificats intermédiaires doivent être regroupés avec le certificat de serveur et installés sur le serveur principal.
 
 Les étapes suivantes vous aident à exporter le fichier .cer de votre certificat :
 
-1. Utilisez les étapes 1 à 9 mentionnées dans la section **Exporter un certificat d’authentification à partir d’un certificat de serveur back-end (pour le SKU v1)** ci-dessus afin d’exporter la clé publique à partir de votre certificat de serveur back-end.
+1. Utilisez les étapes 1 à 8 mentionnées dans la section [Exporter le certificat d’authentification (pour le SKU v1)](#export-authentication-certificate-for-v1-sku) ci-dessus afin d’exporter la clé publique à partir de votre certificat de serveur principal.
 
 2. Une fois la clé publique exportée, ouvrez le fichier.
 
@@ -106,5 +106,5 @@ Les étapes suivantes vous aident à exporter le fichier .cer de votre certifica
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Vous disposez maintenant du certificat d’authentification/certificat racine approuvé au format X.509 avec codage base 64 (.CER). Vous pouvez l’ajouter à la passerelle d’application afin de mettre vos serveurs back-end en liste verte pour le chiffrement TLS de bout en bout. Consultez [Configurer le protocole SSL de bout en bout avec Application Gateway en utilisant PowerShell](https://docs.microsoft.com/azure/application-gateway/application-gateway-end-to-end-ssl-powershell).
+Vous disposez maintenant du certificat d’authentification/certificat racine approuvé au format X.509 avec codage base 64 (.CER). Vous pouvez l’ajouter à la passerelle d’application afin d’autoriser vos serveurs verte pour le chiffrement TLS de bout en bout. Consultez [Configurer le protocole SSL de bout en bout avec Application Gateway en utilisant PowerShell](https://docs.microsoft.com/azure/application-gateway/application-gateway-end-to-end-ssl-powershell).
 

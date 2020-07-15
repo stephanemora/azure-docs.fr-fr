@@ -8,12 +8,12 @@ ms.author: magottei
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 11/04/2019
-ms.openlocfilehash: 1e3692920c35a6965a23c0305aeeebfc80505d85
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 79db94298d190f646393410ec73ba1a25bb48270
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "77190929"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85560397"
 ---
 # <a name="troubleshooting-common-indexer-issues-in-azure-cognitive-search"></a>Résoudre les problèmes courants des indexeurs dans la Recherche cognitive Azure
 
@@ -76,7 +76,7 @@ La Recherche cognitive Azure comporte une dépendance implicite vis-à-vis de l�
 L’indexeur d’objets blob [précise quels formats de documents sont pris en charge explicitement](search-howto-indexing-azure-blob-storage.md#SupportedFormats). Il peut arriver qu’un conteneur de stockage blob contienne des documents non pris en charge ou bien problématiques. Pour ne pas avoir à arrêter votre indexeur sur ces documents, vous pouvez [modifier les options de configuration](search-howto-indexing-azure-blob-storage.md#DealingWithErrors) :
 
 ```
-PUT https://[service name].search.windows.net/indexers/[indexer name]?api-version=2019-05-06
+PUT https://[service name].search.windows.net/indexers/[indexer name]?api-version=2020-06-30
 Content-Type: application/json
 api-key: [admin key]
 
@@ -94,7 +94,7 @@ L’indexeur d’objets blob [recherche et extrait du texte dans les objets blob
 * L’indexeur d’objets blob est configuré pour indexer uniquement les métadonnées. Pour extraire le contenu, il doit être configuré de façon à [extraire à la fois le contenu et les métadonnées](search-howto-indexing-azure-blob-storage.md#controlling-which-parts-of-the-blob-are-indexed) :
 
 ```
-PUT https://[service name].search.windows.net/indexers/[indexer name]?api-version=2019-05-06
+PUT https://[service name].search.windows.net/indexers/[indexer name]?api-version=2020-06-30
 Content-Type: application/json
 api-key: [admin key]
 
@@ -111,6 +111,7 @@ api-key: [admin key]
 Les indexeurs recherchent des documents dans une [source de données](https://docs.microsoft.com/rest/api/searchservice/create-data-source). Parfois, il manque un document qui aurait dû être indexé. Ces erreurs peuvent se produire pour plusieurs raisons :
 
 * Le document n’a pas été indexé. Consultez le portail pour une exécution réussie de l’indexeur.
+* Vérifiez votre valeur de [suivi des modifications](https://docs.microsoft.com/rest/api/searchservice/create-data-source#data-change-detection-policies). Si la valeur de la limite supérieure est une date future, tous les documents dont la date est antérieure à celle-ci sont ignorés par l’indexeur. Vous pouvez comprendre l’état de suivi des modifications de votre indexeur à l’aide des champs « initialTrackingState » et « finalTrackingState » dans l’[état de l’indexeur](https://docs.microsoft.com/rest/api/searchservice/get-indexer-status#indexer-execution-result).
 * Le document a été mis à jour après l’exécution de l’indexeur. Si votre indexeur suit une [planification](https://docs.microsoft.com/rest/api/searchservice/create-indexer#indexer-schedule), il s’exécutera à nouveau et trouvera le document.
 * La [requête](/rest/api/searchservice/create-data-source) spécifiée dans la source de données exclut le document. Les indexeurs ne peuvent pas indexer de documents qui ne font pas partie de la source de données.
 * Des [mappages de champs](https://docs.microsoft.com/rest/api/searchservice/create-indexer#fieldmappings) ou l’[enrichissement de l’IA](https://docs.microsoft.com/azure/search/cognitive-search-concept-intro) ont modifié le document, qui n’a pas l’aspect prévu.

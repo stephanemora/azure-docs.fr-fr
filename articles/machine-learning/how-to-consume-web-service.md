@@ -5,18 +5,18 @@ description: Apprenez à appeler un point de terminaison de service web génér�
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
-ms.topic: conceptual
+ms.topic: how-to
 ms.author: aashishb
 author: aashishb
 ms.reviewer: larryfr
-ms.date: 04/14/2020
-ms.custom: seodec18
-ms.openlocfilehash: 0222b63323c4e546628d790fabb881eba006494e
-ms.sourcegitcommit: ea006cd8e62888271b2601d5ed4ec78fb40e8427
+ms.date: 06/17/2020
+ms.custom: seodec18, tracking-python
+ms.openlocfilehash: ced9453982615485e25b56be9b7a36dc8f6ce988
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/14/2020
-ms.locfileid: "81383392"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84974668"
 ---
 # <a name="consume-an-azure-machine-learning-model-deployed-as-a-web-service"></a>Utiliser un modèle Azure Machine Learning déployé en tant que service web
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -128,8 +128,16 @@ token, refresh_by = service.get_token()
 print(token)
 ```
 
+Si vous avez [Azure CLI et l’extension Machine Learning](reference-azure-machine-learning-cli.md), vous pouvez utiliser la commande suivante pour obtenir un jeton :
+
+```azurecli
+az ml service get-access-token -n <service-name>
+```
+
 > [!IMPORTANT]
-> Vous devrez demander un nouveau jeton après l’heure de `refresh_by` du jeton. 
+> Actuellement, le seul moyen de récupérer le jeton consiste à utiliser le Kit de développement logiciel (SDK) Azure Machine Learning ou l’extension d’apprentissage automatique d’Azure CLI.
+
+Vous devrez demander un nouveau jeton après l’heure de `refresh_by` du jeton. 
 
 ## <a name="request-data"></a>Données de la demande
 

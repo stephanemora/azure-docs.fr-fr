@@ -4,15 +4,15 @@ description: Vous pouvez utiliser un VPN P2S pour vous connecter à votre résea
 services: vpn-gateway
 author: anzaman
 ms.service: vpn-gateway
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 04/17/2020
 ms.author: alzam
-ms.openlocfilehash: 00db2ed05285a1637414aa1e3adbe3b047ff0568
-ms.sourcegitcommit: d791f8f3261f7019220dd4c2dbd3e9b5a5f0ceaf
+ms.openlocfilehash: 2dda6cb84fc881b4ca628ff1cecdec7c00555e8b
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/18/2020
-ms.locfileid: "81641345"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85414303"
 ---
 # <a name="create-an-azure-active-directory-tenant-for-p2s-openvpn-protocol-connections"></a>Créer un locataire Azure Active Directory pour les connexions de protocole OpenVPN P2S
 
@@ -91,38 +91,26 @@ Utilisez les étapes décrites dans [cet article](../active-directory/fundamenta
 
     ![VPN Azure](./media/openvpn-create-azure-ad-tenant/azurevpn.png)
     
-8. Si vous ne disposez pas d’un environnement de point à site opérationnel, suivez les instructions de création. Consultez l’article [Créer un VPN de point à site](vpn-gateway-howto-point-to-site-resource-manager-portal.md) pour créer et configurer une passerelle VPN de point à site avec l’authentification par certificat native Azure. 
+8. Si vous ne disposez pas d’un environnement de point à site opérationnel, suivez les instructions de création. Pour créer et configurer une passerelle VPN de point à site, consultez [Créer un réseau VPN de point à site](vpn-gateway-howto-point-to-site-resource-manager-portal.md). 
 
     > [!IMPORTANT]
     > La référence De base n’est pas prise en charge pour OpenVPN.
 
-9. Activez l'authentification Azure AD sur la passerelle VPN en exécutant les commandes suivantes, tout en veillant à les modifier pour refléter votre propre environnement :
+9. Activez l’authentification Azure AD sur la passerelle VPN en accédant à **Configuration point à site** et en choisissant **OpenVPN (SSL)** comme **Type de tunnel**. Sélectionnez **Azure Active Directory** comme **Type d’authentification**, puis renseignez les informations sous la section **Azure Active Directory**.
 
-    ```azurepowershell-interactive
-    $gw = Get-AzVirtualNetworkGateway -Name <name of VPN gateway> -ResourceGroupName <Resource group>
-    Set-AzVirtualNetworkGateway -VirtualNetworkGateway $gw -VpnClientRootCertificates @()
-    Set-AzVirtualNetworkGateway -VirtualNetworkGateway $gw -AadTenantUri "https://login.microsoftonline.com/<your Directory ID>/" -AadAudienceId "41b23e61-6c1e-4545-b367-cd054e0ed4b4" -AadIssuerUri "https://sts.windows.net/<your Directory ID>/" -VpnClientAddressPool 192.168.0.0/24 -VpnClientProtocol OpenVPN
-    ```
+    ![VPN Azure](./media/openvpn-create-azure-ad-tenant/azure-ad-auth-portal.png)
+
 
    > [!NOTE]
-   > Veillez à inclure une barre oblique finale à la fin de la valeur `AadIssuerUri`. Sinon, la commande échoue.
+   > Veillez à inclure une barre oblique finale à la fin de la valeur `AadIssuerUri`. À défaut, la connexion peut échouer.
 
-10. Créez et téléchargez le profil en exécutant les commandes suivantes. Modifiez les valeurs -ResourceGroupName et -Name pour qu’elles correspondent aux vôtres.
+10. Créez et téléchargez le profil en cliquant sur le lien **Télécharger le client VPN**.
 
-    ```azurepowershell-interactive
-    $profile = New-AzVpnClientConfiguration -Name <name of VPN gateway> -ResourceGroupName <Resource group> -AuthenticationMethod "EapTls"
-    $PROFILE.VpnProfileSASUrl
-    ```
+11. Extrayez le fichier zip téléchargé.
 
-11. Après avoir exécuté les commandes, vous obtenez un résultat semblable à celui présenté ci-dessous. Copiez l'URL du résultat dans votre navigateur pour télécharger le fichier zip du profil.
+12. Accédez au dossier « AzureVPN » décompressé.
 
-    ![VPN Azure](./media/openvpn-create-azure-ad-tenant/profile.png)
-
-12. Extrayez le fichier zip téléchargé.
-
-13. Accédez au dossier « AzureVPN » décompressé.
-
-14. Notez l'emplacement du fichier « azurevpnconfig.xml ». Le fichier azurevpnconfig.xml contient la configuration de la connexion VPN et peut être importé directement dans l'application Azure VPN Client. Vous pouvez également distribuer ce fichier à tous les utilisateurs qui ont besoin de se connecter par e-mail ou par d'autres moyens. L'utilisateur doit disposer d'informations d'identification Azure AD valides pour se connecter.
+13. Notez l'emplacement du fichier « azurevpnconfig.xml ». Le fichier azurevpnconfig.xml contient la configuration de la connexion VPN et peut être importé directement dans l'application Azure VPN Client. Vous pouvez également distribuer ce fichier à tous les utilisateurs qui ont besoin de se connecter par e-mail ou par d'autres moyens. L'utilisateur doit disposer d'informations d'identification Azure AD valides pour se connecter.
 
 ## <a name="next-steps"></a>Étapes suivantes
 

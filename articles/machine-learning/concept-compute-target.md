@@ -8,13 +8,13 @@ ms.subservice: core
 ms.topic: conceptual
 ms.author: sgilley
 author: sdgilley
-ms.date: 03/30/2020
-ms.openlocfilehash: ed65d69c18f2dbcd53324fe3cc18af8c51c546b2
-ms.sourcegitcommit: 31236e3de7f1933be246d1bfeb9a517644eacd61
+ms.date: 06/26/2020
+ms.openlocfilehash: 8b0fa1402452d8e1f348cd353b00d0ef050d866c
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/04/2020
-ms.locfileid: "82780111"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85483276"
 ---
 #  <a name="what-are-compute-targets-in-azure-machine-learning"></a>Qu’est-ce qu’une cible de calcul dans Azure Machine Learning ? 
 
@@ -52,21 +52,23 @@ Vous pouvez créer des instances de calcul Azure Machine Learning (préversion) 
 * Azure Machine Learning Studio
 * Portail Azure
 * Classes [ComputeInstance](https://docs.microsoft.com/python/api/azureml-core/azureml.core.compute.computeinstance(class)?view=azure-ml-py) et [AmlCompute](https://docs.microsoft.com/python/api/azureml-core/azureml.core.compute.amlcompute(class)?view=azure-ml-py) du Kit de développement logiciel (SDK) Python
-* [R SDK](https://azure.github.io/azureml-sdk-for-r/reference/index.html#section-compute-targets)
+* [Kit de développement logiciel (SDK) R](https://azure.github.io/azureml-sdk-for-r/reference/index.html#section-compute-targets) (préversion)
 * Modèle Resource Manager
-
-Vous pouvez également créer des clusters de calcul à l’aide de l’[extension Machine Learning pour l’interface de ligne de commande Azure](tutorial-train-deploy-model-cli.md#create-the-compute-target-for-training).
+* [Extension de Machine Learning pour l’interface de ligne de commande Azure](reference-azure-machine-learning-cli.md#resource-management).  
 
 Une fois créées, ces instances de calcul font automatiquement partie de votre espace de travail, contrairement à d’autres types de cibles de calcul.
 
-### <a name="compute-clusters"></a>Clusters de calcul
 
-Vous pouvez utiliser les clusters de calcul Azure Machine Learning pour l’entraînement et l’inférence par lots (version préliminaire).  Grâce à cette ressource de calcul, vous disposez de ce qui suit :
+|Fonctionnalité  |Cluster de calcul  |Instance de calcul  |
+|---------|---------|---------|
+|Cluster unique ou à plusieurs nœuds     |    **&check;**       |         |
+|Mises à l’échelle automatique chaque fois que vous envoyez une exécution     |     **&check;**      |         |
+|Gestion des clusters et planification automatiques des travaux     |   **&check;**        |     **&check;**      |
+|Prise en charge des ressources UC et GPU     |  **&check;**         |    **&check;**       |
 
-* Cluster à nœud unique ou à plusieurs nœuds
-* Mise à l’échelle automatique chaque fois que vous soumettez une exécution 
-* Gestion des clusters et planification automatiques des travaux 
-* Prise en charge des ressources UC et GPU
+
+> [!NOTE]
+> Quand un cluster de calcul est inactif, il adapte son échelle automatiquement à 0 nœud, ce qui vous évite de payer quand il n’est pas utilisé.  Cependant, une *instance* de calcul est toujours activée et n’adapte pas son échelle automatiquement.  Vous devez [arrêter l’instance de calcul](tutorial-1st-experiment-sdk-train.md#stop-the-compute-instance) quand vous ne l’utilisez pas pour éviter des frais supplémentaires.
 
 ### <a name="supported-vm-series-and-sizes"></a>Tailles et séries de machine virtuelle prises en charge
 

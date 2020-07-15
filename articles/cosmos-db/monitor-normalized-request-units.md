@@ -2,22 +2,22 @@
 title: Surveiller les unités de requête normalisée par seconde pour un conteneur ou un compte Azure Cosmos
 description: Découvrez comment surveiller l’utilisation des unités de requête normalisée d’une opération dans Azure Cosmos DB. Les propriétaires d’un compte Azure Cosmos DB peuvent déterminer les opérations qui consomment le plus d’unités de requête.
 ms.service: cosmos-db
-ms.topic: conceptual
+ms.topic: how-to
 author: kanshiG
 ms.author: govindk
-ms.date: 05/10/2020
-ms.openlocfilehash: 23001bdaab0732dbeb088ebadefa90a27e622b19
-ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
+ms.date: 06/25/2020
+ms.openlocfilehash: 8709389208ba1320685b1834b20893f08ef33ed7
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/12/2020
-ms.locfileid: "83118807"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85482902"
 ---
 # <a name="how-to-monitor-normalized-rus-for-an-azure-cosmos-container-or-an-account"></a>Comment surveiller des unités de requête normalisée par seconde pour un conteneur ou un compte Azure Cosmos
 
 Azure Monitor pour Azure Cosmos DB fournit une vue de métriques pour surveiller votre compte et créer des tableaux de bord. Cette fonctionnalité ne vous oblige pas à activer ou à configurer quoi que ce soit explicitement, car ces métriques Azure Cosmos DB sont collectées par défaut.
 
-La métrique **Consommation d’unités de requête normalisée** permet de déterminer la capacité de saturation des réplicas WRT par rapport à la consommation d’unités de demande sur les plages de clés de partition. Azure Cosmos DB distribue le débit de manière égale entre toutes les partitions physiques. Cette métrique fournit une vue par seconde de l’utilisation maximale du débit au sein d’un jeu de réplicas. En utilisant cette métrique, si vous constatez un pourcentage élevé d’utilisation d’unités de requête, vous devez augmenter le débit pour répondre aux besoins de votre charge de travail.
+La métrique **Consommation d’unités de requête normalisée** permet de déterminer la saturation des réplicas par rapport à la consommation d’unités de demande dans les plages de clés de partition. Azure Cosmos DB distribue le débit de manière égale entre toutes les partitions physiques. Cette métrique fournit une vue par seconde de l’utilisation maximale du débit au sein d’un jeu de réplicas. Utilisez cette métrique pour calculer l’utilisation d’unités de requête dans des partitions pour un conteneur donné. En utilisant cette métrique, si vous constatez un pourcentage élevé d’utilisation d’unités de requête, vous devez augmenter le débit pour répondre aux besoins de votre charge de travail.
 
 ## <a name="what-to-expect-and-do-when-normalized-rus-is-higher"></a>Ce qu’il faut attendre et faire quand les unités de requête normalisée par seconde sont plus élevés
 
@@ -37,17 +37,17 @@ La métrique **Normalized RU Consumption** (Consommation d’unités de requête
 
 2. Sélectionnez **Surveillance** dans la barre de navigation gauche, puis sélectionnez **Métriques**.
 
-   ![Volet Métriques dans Azure Monitor](./media/monitor-normalized-request-units/monitor-metrics-blade.png)
+   :::image type="content" source="./media/monitor-normalized-request-units/monitor-metrics-blade.png" alt-text="Volet Métriques dans Azure Monitor":::
 
 3. À partir du volet **Métriques** > **Sélectionner une ressource** > choisissez l’**abonnement** exigé, puis **Groupe de ressources**. Pour le **type de ressource**, sélectionnez **Comptes Azure Cosmos DB**, choisissez une de vos comptes Azure Cosmos existants, puis sélectionnez **Appliquer**.
 
-   ![Choisir un compte Azure Cosmos pour afficher les métriques](./media/monitor-normalized-request-units/select-cosmos-db-account.png)
+   :::image type="content" source="./media/monitor-normalized-request-units/select-cosmos-db-account.png" alt-text="Choisir un compte Azure Cosmos pour afficher les métriques":::
 
 4. Ensuite, vous pouvez sélectionner une métrique dans la liste des métriques disponibles. Vous pouvez sélectionner des métriques propres aux unités de requête, au stockage, à la latence, à la disponibilité, à Cassandra, etc. Pour découvrir de plus près toutes les métriques disponibles dans cette liste, consultez l’article [Métriques par catégorie](monitor-cosmos-db-reference.md). Dans cet exemple, nous allons sélectionner la métrique **Normalized RU Consumption** (Consommation d’unités de requête normalisée) et la valeur d’agrégation **Max**.
 
    En plus de ces détails, vous pouvez également sélectionner l’**intervalle de temps** et la **granularité temporelle** des métriques. Au maximum, vous pouvez voir les métriques des 30 derniers jours.  Une fois que vous avez appliqué le filtre, un graphique s’affiche.
 
-   ![Choisir une métrique à partir du portail Azure](./media/monitor-normalized-request-units/normalized-request-unit-usage-metric.png)
+   :::image type="content" source="./media/monitor-normalized-request-units/normalized-request-unit-usage-metric.png" alt-text="Choisir une métrique à partir du portail Azure":::
 
 ### <a name="filters-for-normalized-request-unit-consumption"></a>Filtres pour la consommation d’unités de requête normalisée
 
@@ -57,7 +57,7 @@ Vous pouvez regrouper des métriques à l’aide de l’option **Appliquer la di
 
 La métrique de consommation de l’unité de requête normalisée pour chaque conteneur s’affiche comme indiqué dans l’image suivante :
 
-![Appliquer des filtres à la métrique de consommation d’unités de requête normalisée](./media/monitor-normalized-request-units/normalized-request-unit-usage-filters.png)
+:::image type="content" source="./media/monitor-normalized-request-units/normalized-request-unit-usage-filters.png" alt-text="Appliquer des filtres à la métrique de consommation d’unités de requête normalisée":::
 
 ## <a name="next-steps"></a>Étapes suivantes
 

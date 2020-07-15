@@ -3,15 +3,16 @@ title: Guide pratique pour configurer les fonctionnalités multimaîtres dans Az
 description: Découvrez comment configurer les fonctionnalités multimaîtres pour vos applications en utilisant différents SDK dans Azure Cosmos DB.
 author: markjbrown
 ms.service: cosmos-db
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 12/02/2019
 ms.author: mjbrown
-ms.openlocfilehash: 654baed649093add2aa62f4ba81bf6ce7c3e0df5
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.custom: tracking-python
+ms.openlocfilehash: a07ab3f65fcdeacf37626ad05d0b95ac3f4e7e64
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "74873639"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85263666"
 ---
 # <a name="configure-multi-master-in-your-applications-that-use-azure-cosmos-db"></a>Configurer les fonctionnalités multimaîtres dans les applications qui utilisent Azure Cosmos DB
 
@@ -55,9 +56,27 @@ CosmosClientBuilder cosmosClientBuilder = new CosmosClientBuilder("<connection-s
 CosmosClient client = cosmosClientBuilder.Build();
 ```
 
-## <a name="java-async-sdk"></a><a id="java"></a>Kit SDK Java Async
+## <a name="java-v4-sdk"></a><a id="java4-multi-master"></a> SDK Java V4
 
-Pour activer la fonctionnalité multimaître dans votre application, définissez `policy.setUsingMultipleWriteLocations(true)` et `policy.setPreferredLocations` en fonction de la région sur laquelle l’application est déployée et où Cosmos DB est répliquée :
+Pour activer la fonctionnalité multimaître dans votre application, appelez les fonctions `.multipleWriteRegionsEnabled(true)` et `.preferredRegions(preferredRegions)` dans le générateur de clients, où `preferredRegions` est une `List` contenant un élément, c’est-à-dire la région dans laquelle l’application est déployée et où Cosmos DB est répliqué :
+
+# <a name="async"></a>[Async](#tab/api-async)
+
+   API asynchrone du [kit SDK Java V4](sql-api-sdk-java-v4.md) (Maven [com.azure::azure-cosmos](https://mvnrepository.com/artifact/com.azure/azure-cosmos))
+
+   [!code-java[](~/azure-cosmos-java-sql-api-samples/src/main/java/com/azure/cosmos/examples/documentationsnippets/async/SampleDocumentationSnippetsAsync.java?name=ConfigureMultimasterAsync)]
+
+# <a name="sync"></a>[Synchronisation](#tab/api-sync)
+
+   API synchrone du [kit SDK Java V4](sql-api-sdk-java-v4.md) (Maven [com.azure::azure-cosmos](https://mvnrepository.com/artifact/com.azure/azure-cosmos))
+
+   [!code-java[](~/azure-cosmos-java-sql-api-samples/src/main/java/com/azure/cosmos/examples/documentationsnippets/sync/SampleDocumentationSnippets.java?name=ConfigureMultimasterSync)]
+
+--- 
+
+## <a name="async-java-v2-sdk"></a><a id="java2-milti-master"></a> Kit de développement logiciel (SDK) Async Java v2
+
+Le kit de développement logiciel (SDK) Java v2 utilisait l’outil Maven [com.microsoft.azure::azure-cosmosdb](https://mvnrepository.com/artifact/com.microsoft.azure/azure-cosmosdb). Pour activer la fonctionnalité multimaître dans votre application, définissez `policy.setUsingMultipleWriteLocations(true)` et `policy.setPreferredLocations` en fonction de la région sur laquelle l’application est déployée et où Cosmos DB est répliquée :
 
 ```java
 ConnectionPolicy policy = new ConnectionPolicy();

@@ -6,12 +6,12 @@ author: jnoller
 ms.topic: article
 ms.date: 01/24/2020
 ms.author: jenoller
-ms.openlocfilehash: c4146dd4988be93475dc4d2d0dade06b8738ad83
-ms.sourcegitcommit: 90d2d95f2ae972046b1cb13d9956d6668756a02e
+ms.openlocfilehash: ec58f8df5507fd9c52950e880c062e6cad964b7a
+ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/14/2020
-ms.locfileid: "83402458"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86106983"
 ---
 # <a name="support-policies-for-azure-kubernetes-service"></a>Stratégies de support pour Azure Kubernetes Service
 
@@ -51,9 +51,12 @@ Lors de la création d’un cluster, le client définit les nœuds Worker Kubern
 
 Microsoft fournit un support technique pour les éléments suivants :
 
+> [!NOTE]
+> Toute mesure relative au cluster prise par Microsoft/AKS est effectuée avec le consentement de l’utilisateur sous un rôle Kubernetes intégré `aks-service` et une liaison de rôle intégrée `aks-service-rolebinding`. Ce rôle permet à AKS de dépanner et de diagnostiquer les problèmes de cluster, mais ne peut pas modifier les autorisations, ni créer des rôles ou des liaisons de rôle, ni d’autres actions à privilèges élevés. L’accès aux rôles est activé uniquement sous les tickets de support actifs avec l’accès juste-à-temps (JIT).
+
 * Connectivité à tous les composants Kubernetes que le service Kubernetes fournit et prend en charge, tel que le serveur d’API.
 * Gestion, durée de fonctionnement, QoS et opérations des services de plan de contrôle Kubernetes (nœuds master Kubernetes, serveur d’API, etcd et kube-dns, par exemple).
-* Etcd. Le support inclut des sauvegardes automatisées et transparentes de l’ensemble des données etcd toutes les 30 minutes pour la planification de la récupération d’urgence et la restauration de l’état du cluster. Ces sauvegardes ne sont pas directement disponibles pour les clients ou utilisateurs. Elles garantissent la cohérence et la fiabilité des données.
+* Etcd. Le support inclut des sauvegardes automatisées et transparentes de l’ensemble des données etcd toutes les 30 minutes pour la planification de la récupération d’urgence et la restauration de l’état du cluster. Ces sauvegardes ne sont pas directement disponibles pour les clients ou utilisateurs. Elles garantissent la cohérence et la fiabilité des données. Etcd. la restauration à la demande ou la restauration ne sont pas prises en charge en tant que fonctionnalité.
 * Points d’intégration dans le pilote du fournisseur cloud Azure pour Kubernetes. Ceux-ci incluent des intégrations à d’autres services Azure tels que les équilibreurs de charge, les volumes persistants ou la mise en réseau (Kubernetes et Azure CNI).
 * Questions ou problèmes relatifs à la personnalisation des composants du plan de contrôle tels que le serveur d’API Kubernetes, etcd et kube-dns.
 * Problèmes relatifs au réseau, tels qu’Azure CNI, que kubenet, ou d’autres problématiques en lien avec des fonctionnalités ou l’accès réseau. Les problèmes peuvent inclure la résolution DNS, la perte de paquets, le routage, etc. Microsoft prend en charge différents scénarios de mise en réseau :

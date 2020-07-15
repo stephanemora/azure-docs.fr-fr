@@ -4,22 +4,22 @@ description: Découvrez comment utiliser les flux de modification dans l’API p
 author: srchi
 ms.service: cosmos-db
 ms.subservice: cosmosdb-mongo
-ms.topic: conceptual
-ms.date: 11/16/2019
+ms.topic: how-to
+ms.date: 06/04/2020
 ms.author: srchi
-ms.openlocfilehash: cc6b74a56d2a538d35e324090832e6c7e03e609f
-ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
+ms.openlocfilehash: 2028a8048830587195271675997bf4c880a3fae1
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83647292"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85260761"
 ---
 # <a name="change-streams-in-azure-cosmos-dbs-api-for-mongodb"></a>Flux de modification dans l’API pour MongoDB d’Azure Cosmos DB
 
 La prise en charge du [flux de modification](change-feed.md) dans l’API pour MongoDB d’Azure Cosmos DB est disponible à l’aide de l’API de flux de modification. À l’aide de l’API de flux de modification, vos applications peuvent obtenir les modifications apportées à la collection ou aux éléments d’une seul partition. Par la suite, vous pouvez effectuer d’autres actions en fonction des résultats. Les modifications apportées aux éléments de la collection sont capturées dans l’ordre de leur modification, et l’ordre de tri est garanti par clé de partition.
 
-[!NOTE]
-Pour utiliser les flux de modification, créez le compte à l’aide de la version 3.6 ou une version ultérieure de l’API d’Azure Cosmos DB pour MongoDB. Si vous exécutez les exemples de flux de modification sur une version antérieure, vous pouvez voir l’erreur `Unrecognized pipeline stage name: $changeStream`.
+> [!NOTE]
+> Pour utiliser les flux de modification, créez le compte à l’aide de la version 3.6 ou une version ultérieure de l’API d’Azure Cosmos DB pour MongoDB. Si vous exécutez les exemples de flux de modification sur une version antérieure, vous pouvez voir l’erreur `Unrecognized pipeline stage name: $changeStream`.
 
 ## <a name="current-limitations"></a>Limites actuelles
 
@@ -61,6 +61,7 @@ while (!cursor.isExhausted()) {
     }
 }
 ```
+
 # <a name="c"></a>[C#](#tab/csharp)
 
 ```csharp
@@ -81,6 +82,52 @@ while (enumerator.MoveNext()){
 
 enumerator.Dispose();
 ```
+
+# <a name="java"></a>[Java](#tab/java)
+
+L’exemple suivant montre comment utiliser la fonctionnalité de flux de modifications dans Java. Pour obtenir un exemple complet, consultez ce [Dépôt GitHub](https://github.com/Azure-Samples/azure-cosmos-db-mongodb-java-changestream/blob/master/mongostream/src/main/java/com/azure/cosmos/mongostream/App.java). Cet exemple montre également comment utiliser la méthode `resumeAfter` pour rechercher toutes les modifications de la dernière lecture. 
+
+```java
+Bson match = Aggregates.match(Filters.in("operationType", asList("update", "replace", "insert")));
+
+// Pick the field you are most interested in
+Bson project = Aggregates.project(fields(include("_id", "ns", "documentKey", "fullDocument")));
+
+// This variable is for second example
+BsonDocument resumeToken = null;
+
+// Now time to build the pipeline
+List<Bson> pipeline = Arrays.asList(match, project);
+
+//#1 Simple example to seek changes
+
+// Create cursor with update_lookup
+MongoChangeStreamCursor<ChangeStreamDocument<org.bson.Document>> cursor = collection.watch(pipeline)
+        .fullDocument(FullDocument.UPDATE_LOOKUP).cursor();
+
+Document document = new Document("name", "doc-in-step-1-" + Math.random());
+collection.insertOne(document);
+
+while (cursor.hasNext()) {
+    // There you go, we got the change document.
+    ChangeStreamDocument<Document> csDoc = cursor.next();
+
+    // Let is pick the token which will help us resuming
+    // You can save this token in any persistent storage and retrieve it later
+    resumeToken = csDoc.getResumeToken();
+    //Printing the token
+    System.out.println(resumeToken);
+    
+    //Printing the document.
+    System.out.println(csDoc.getFullDocument());
+    //This break is intentional but in real project feel free to remove it.
+    break;
+}
+
+cursor.close();
+
+```
+---
 
 ## <a name="changes-within-a-single-shard"></a>Modifications au sein d’une partition unique
 

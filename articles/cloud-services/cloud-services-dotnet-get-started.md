@@ -10,12 +10,12 @@ ms.devlang: dotnet
 ms.topic: conceptual
 ms.date: 05/15/2017
 ms.author: tagore
-ms.openlocfilehash: dcaa87b8bf37cc0410c052b82014209327d5fe99
-ms.sourcegitcommit: 69156ae3c1e22cc570dda7f7234145c8226cc162
+ms.openlocfilehash: 71020453f51e5baa9172ad8902eeb537dd55763b
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/03/2020
-ms.locfileid: "84310646"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85255226"
 ---
 # <a name="get-started-with-azure-cloud-services-and-aspnet"></a>Prise en main des services cloud Azure et d'ASP.NET
 
@@ -104,9 +104,9 @@ Dans la section suivante, vous allez configurer la solution pour utiliser les re
 Pour exécuter l'application dans le cloud, procédez comme suit :
 
 * Créez un service cloud Azure.
-* Créez une base de données Azure SQL.
+* Créez une base de données dans Azure SQL Database.
 * Créez un compte de stockage Azure.
-* Configurez la solution pour utiliser votre base de données Azure SQL lorsqu’elle est exécutée dans Azure.
+* Configuration de la solution pour utiliser votre base de données lorsqu’elle est exécutée dans Azure.
 * Configurez la solution pour utiliser votre compte de stockage Azure lorsqu'il est exécuté dans Azure.
 * Déployez le projet dans votre service cloud Azure.
 
@@ -130,7 +130,7 @@ Un service cloud Azure est l'environnement dans lequel l'application s'exécute.
 
     ![New Cloud Service](./media/cloud-services-dotnet-get-started/newcs.png)
 
-### <a name="create-an-azure-sql-database"></a>Création d’une base de données Azure SQL
+### <a name="create-a-database-in-azure-sql-database"></a>Créer une base de données dans Azure SQL Database
 Lorsque l'application s'exécute dans le cloud, elle utilise une base de données basée sur le cloud.
 
 1. Dans le [portail Azure](https://portal.azure.com), cliquez sur **Créer une ressource > Bases de données > SQL Database**.
@@ -182,8 +182,9 @@ Dans une application réelle, on crée généralement des comptes distincts pour
 
     Dans l’image, un compte de stockage est créé avec l’URL `csvccontosoads.core.windows.net`.
 
-### <a name="configure-the-solution-to-use-your-azure-sql-database-when-it-runs-in-azure"></a>Configuration de la solution pour utiliser votre base de données Azure SQL lorsqu’elle est exécutée dans Azure
-Le projet web et le projet de rôle de travail ont chacun leur chaîne de connexion à la base de données et doivent tous deux pointer vers la base de données Azure SQL lorsque l’application s'exécute dans Azure.
+### <a name="configure-the-solution-to-use-your-database-in-azure-sql-database-when-it-runs-in-azure"></a>Configuration de la solution pour utiliser votre base de données dans Azure SQL Database lorsqu’elle est exécutée dans Azure
+
+Le projet web et le projet de rôle de travail ont chacun leur chaîne de connexion à la base de données et doivent tous deux pointer vers la base de données dans Azure SQL Database lorsque l’application s’exécute dans Azure.
 
 Utilisez une [transformation Web.config](https://www.asp.net/mvc/tutorials/deployment/visual-studio-web-deployment/web-config-transformations) pour le rôle web et un paramètre d'environnement de service cloud pour le rôle de travail.
 
