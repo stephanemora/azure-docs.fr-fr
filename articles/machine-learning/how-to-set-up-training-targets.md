@@ -9,14 +9,14 @@ ms.reviewer: sgilley
 ms.service: machine-learning
 ms.subservice: core
 ms.topic: how-to
-ms.date: 06/11/2020
+ms.date: 07/08/2020
 ms.custom: seodec18, tracking-python
-ms.openlocfilehash: 253d2c80f5a6ff96ba9249eddd127abb74f79a33
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: c87812e665617f3ccfe48db3a0cca2ceac67f0bc
+ms.sourcegitcommit: 5cace04239f5efef4c1eed78144191a8b7d7fee8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85515820"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86147436"
 ---
 # <a name="set-up-and-use-compute-targets-for-model-training"></a>Configurer et utiliser des cibles de calcul pour effectuer l’apprentissage du modèle 
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -389,7 +389,7 @@ Pour plus d’informations, voir [Gestion des ressources](reference-azure-machin
 
 ## <a name="set-up-with-vs-code"></a>Configurer avec VS Code
 
-Vous pouvez accéder, créer et gérer les cibles de calcul associées à votre espace de travail en utilisant l’[extension VS Code](tutorial-train-deploy-image-classification-model-vscode.md#configure-compute-targets) pour Azure Machine Learning.
+Vous pouvez accéder, créer et gérer les cibles de calcul associées à votre espace de travail en utilisant l’[extension VS Code](how-to-manage-resources-vscode.md#compute-clusters) pour Azure Machine Learning.
 
 ## <a name="submit-training-run-using-azure-machine-learning-sdk"></a><a id="submit"></a>Envoyer une série de tests d’apprentissage à l’aide du Kit de développement logiciel (SDK) Azure Machine Learning
 

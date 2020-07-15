@@ -16,12 +16,12 @@ ms.topic: tutorial
 ms.date: 12/24/2018
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 71d2fe97a4af07f48038ffd88de648247b56bb80
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: 9c535b6610b569c4d3649f3d97428b2c97d0db91
+ms.sourcegitcommit: 1e6c13dc1917f85983772812a3c62c265150d1e7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "73160034"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86168182"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-citrix-sharefile"></a>Didacticiel : Intégration d’Azure Active Directory à Citrix ShareFile
 
@@ -110,22 +110,17 @@ Pour configurer l’authentification unique Azure AD avec Citrix ShareFile, proc
 
     b. Dans la zone de texte **Identificateur (ID d’entité)** , entrez une URL au format suivant :
 
-    | |
-    |---|
-    | `https://<tenant-name>.sharefile.com`|
-    | `https://<tenant-name>.sharefile.com/saml/info`|
-    | `https://<tenant-name>.sharefile1.com/saml/info`|
-    | `https://<tenant-name>.sharefile1.eu/saml/info`|
-    | `https://<tenant-name>.sharefile.eu/saml/info`|
-    | |
-    
+    - `https://<tenant-name>.sharefile.com`
+    - `https://<tenant-name>.sharefile.com/saml/info`
+    - `https://<tenant-name>.sharefile1.com/saml/info`
+    - `https://<tenant-name>.sharefile1.eu/saml/info`
+    - `https://<tenant-name>.sharefile.eu/saml/info`
+
     c. Dans la zone de texte **URL de réponse** , tapez une URL au format suivant :
     
-    | |
-    |---|
-    | `https://<tenant-name>.sharefile.com/saml/acs`|
-    | `https://<tenant-name>.sharefile.eu/saml/<URL path>`|
-    | `https://<tenant-name>.sharefile.com/saml/<URL path>`|
+    - `https://<tenant-name>.sharefile.com/saml/acs`
+    - `https://<tenant-name>.sharefile.eu/saml/<URL path>`
+    - `https://<tenant-name>.sharefile.com/saml/<URL path>`
 
     > [!NOTE]
     > Il ne s’agit pas de valeurs réelles. Mettez à jour ces valeurs avec l’URL de connexion, l’identificateur et l’URL de réponse réels. Pour obtenir ces valeurs, contactez [l’équipe du support Citrix ShareFile](https://www.citrix.co.in/products/citrix-content-collaboration/support.html). Vous pouvez également consulter les modèles figurant à la section **Configuration SAML de base** dans le portail Azure.

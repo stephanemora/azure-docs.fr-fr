@@ -12,18 +12,18 @@ ms.date: 05/26/2020
 ms.author: erhopf
 ms.custom: tracking-python
 zone_pivot_groups: programming-languages-set-one
-ms.openlocfilehash: 47580e45f030cd49d30a5a8cc3d9e1a2160357fc
-ms.sourcegitcommit: 1de57529ab349341447d77a0717f6ced5335074e
+ms.openlocfilehash: 31d316635211d56207b2d612997938c2baaff02f
+ms.sourcegitcommit: 5cace04239f5efef4c1eed78144191a8b7d7fee8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/09/2020
-ms.locfileid: "84606511"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86144230"
 ---
 # <a name="quickstart-use-the-translator-to-transliterate-text"></a>Démarrage rapide : Utiliser Translator pour translittérer du texte
 
 Dans ce guide de démarrage rapide, vous allez découvrir comment translittérer (convertir) le texte d’un script vers un autre script à l’aide de l’API REST Translator. Dans l’exemple fourni, le japonais est translittéré pour utiliser l’alphabet latin.
 
-Pour suivre ce démarrage rapide, vous devrez disposer d’un [compte Azure Cognitive Services](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) avec une ressource Translator. Si vous n’avez pas de compte, vous pouvez utiliser la [version d’évaluation gratuite](https://azure.microsoft.com/try/cognitive-services/) pour obtenir une clé d’abonnement.
+Pour suivre ce démarrage rapide, vous devrez disposer d’un [compte Azure Cognitive Services](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) avec une ressource Translator.
 
 ::: zone pivot="programming-language-csharp"
 [!INCLUDE [C# quickstart](includes/transliterate-csharp.md)]

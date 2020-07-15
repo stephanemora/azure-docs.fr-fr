@@ -16,12 +16,12 @@ ms.topic: tutorial
 ms.date: 12/24/2018
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 036737bd945f9abecef04e6e747c2d05dcb25187
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: 2d4967e9aeb5d8f0a1e05d272f6e5f372c11dd64
+ms.sourcegitcommit: 1e6c13dc1917f85983772812a3c62c265150d1e7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "73161070"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86170188"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-ultipro"></a>Didacticiel : Intégration d’Azure Active Directory à UltiPro
 
@@ -108,27 +108,21 @@ Pour configurer l’authentification unique Azure AD avec UltiPro, procédez com
 
     a. Dans la zone de texte **URL de connexion**, tapez une URL au format suivant :
 
-    | |
-    |--|
-    | `https://<companyname>.ultipro.com/`|
-    | `https://<companyname>.ultiproworkplace.com?cpi=AZUREADISSSUERURL`|
-    | `https://<companyname>.ultipro.ca`|
+    - `https://<companyname>.ultipro.com/`
+    - `https://<companyname>.ultiproworkplace.com?cpi=AZUREADISSSUERURL`
+    - `https://<companyname>.ultipro.ca`
     
     b. Dans la zone de texte **Identificateur**, tapez une URL au format suivant :
 
-    | |
-    |--|
-    | `https://<companyname>.ultipro.com/adfs/services/trust`|
-    | `https://<companyname>.ultiproworkplace.com/adfs/services/trust`|
-    | `https://<companyname>.ultipro.ca/adfs/services/trust`|
+    - `https://<companyname>.ultipro.com/adfs/services/trust`
+    - `https://<companyname>.ultiproworkplace.com/adfs/services/trust`
+    - `https://<companyname>.ultipro.ca/adfs/services/trust`
     
     c. Dans la zone de texte **URL de réponse** , tapez une URL au format suivant :
     
-    | |
-    |--|
-    | `https://<companyname>.ultipro.com/<instancename>`|
-    | `https://<companyname>.ultiproworkplace.com/<instancename>`|
-    | `https://<companyname>.ultipro.ca/<instancename>`|
+    - `https://<companyname>.ultipro.com/<instancename>`
+    - `https://<companyname>.ultiproworkplace.com/<instancename>`
+    - `https://<companyname>.ultipro.ca/<instancename>`
 
     > [!NOTE]
     > Il ne s’agit pas de valeurs réelles. Mettez à jour ces valeurs avec l’URL de connexion, l’identificateur et l’URL de réponse réels. Pour obtenir ces valeurs, contactez l’[équipe de support technique d’UltiPro](https://www.ultimatesoftware.com/ContactUs). Vous pouvez également consulter les modèles figurant à la section **Configuration SAML de base** dans le portail Azure.

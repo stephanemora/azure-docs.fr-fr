@@ -6,19 +6,19 @@ ms.service: virtual-machines-linux
 ms.topic: article
 ms.date: 12/06/2019
 ms.author: cynthn
-ms.openlocfilehash: 5add789809f274ef5634f3c33dfedd3cd96b36d0
-ms.sourcegitcommit: f0b206a6c6d51af096a4dc6887553d3de908abf3
+ms.openlocfilehash: 8c826f5e0e36d693dd3ba98640bceae228ba34e8
+ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/28/2020
-ms.locfileid: "84142467"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86119206"
 ---
 # <a name="detailed-steps-create-and-manage-ssh-keys-for-authentication-to-a-linux-vm-in-azure"></a>Étapes détaillées : Créer et gérer des clés SSH pour l’authentification sur une machine virtuelle Linux dans Azure 
 Avec une paire de clés SSH (secure shell), vous pouvez créer une machine virtuelle Linux sur Azure qui utilise par défaut des clés SSH pour l’authentification sans avoir à utiliser de mot de passe pour la connexion. Les machines virtuelles créées avec le portail Azure, Azure CLI, les modèles Resource Manager ou d’autres outils peuvent inclure votre clé publique SSH dans le cadre du déploiement, qui configure l’authentification par clé SSH pour les connexions SSH. 
 
 Cet article fournit des informations et des étapes détaillées pour créer et gérer une paire de fichiers de clés publique et privée SSH RSA pour les connexions de client SSH. Pour connaître les commandes rapides, consultez [Comment créer une paire de clés publique et privée SSH pour les machines virtuelles Linux dans Azure](mac-create-ssh-keys.md).
 
-Pour découvrir d’autres méthodes permettant de générer et d’utiliser des clés SSH sur un ordinateur Windows, consultez [Utilisation de clés SSH avec Windows sur Azure](ssh-from-windows.md).
+Pour générer des clés SSH et les utiliser pour se connecter à un ordinateur **Windows**, consultez [Utilisation de clés SSH avec Windows sur Azure](ssh-from-windows.md).
 
 [!INCLUDE [virtual-machines-common-ssh-overview](../../../includes/virtual-machines-common-ssh-overview.md)]
 
@@ -41,7 +41,7 @@ Par défaut, les clés SSH sont conservées dans le `~/.ssh`répertoire.  Si vou
 
 ### <a name="basic-example"></a>Exemple de base
 
-La commande `ssh-keygen` suivante génère des fichiers de clés publique et privée SSH RSA 2048 bits par défaut dans le répertoire `~/.ssh`. Si une paire de clés SSH existe dans l’emplacement actuel, les fichiers sont remplacés.
+La commande `ssh-keygen` suivante génère des fichiers de clés publique et privée SSH RSA 4096 bits par défaut dans le répertoire `~/.ssh`. Si une paire de clés SSH existe dans l’emplacement actuel, les fichiers sont remplacés.
 
 ```bash
 ssh-keygen -m PEM -t rsa -b 4096

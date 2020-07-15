@@ -7,13 +7,13 @@ manager: anandsub
 ms.service: data-factory
 ms.topic: conceptual
 ms.custom: seo-lt-2019
-ms.date: 06/05/2020
-ms.openlocfilehash: e106f5b615cd667551ef3d597a45b522320eed6e
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.date: 07/08/2020
+ms.openlocfilehash: 5fc8352caa05a59508df7ada95518a5efb58e7df
+ms.sourcegitcommit: 5cace04239f5efef4c1eed78144191a8b7d7fee8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84610179"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86147455"
 ---
 # <a name="source-transformation-in-mapping-data-flow"></a>Transformation de la source d’un mappage de flux de données 
 
@@ -29,7 +29,7 @@ Chaque transformation de source est associée à un jeu de données ou à un ser
 
 Lors de la création d’une transformation de source, vous devez d’abord décider si les informations de votre source doivent être définies dans un objet DataSet ou dans la transformation de source. La plupart des formats sont uniquement disponibles dans l’un ou l’autre. Pour savoir comment utiliser un connecteur en particulier, référez-vous à la documentation le concernant.
 
-Si un format est pris en charge à la fois pour les jeux de données inline et les objets DataSet, notez que ces deux options présentent des avantages. Les objets DataSet sont des entités réutilisables qui peuvent être exploitées dans d’autres flux de données et activités telles que la copie. Ils sont particulièrement utiles lors de l’utilisation d’un schéma plus strict. Les jeux de données ne sont pas basés sur Spark, et il peut arriver que vous deviez remplacer certains paramètres ou la projection de schéma dans la transformation de source.
+Si un format est pris en charge à la fois inlined et dans les objets de jeu de données, notez que ces deux options présentent des avantages. Les objets de jeu de données sont des entités réutilisables qui peuvent être exploitées dans d’autres flux de données et activités telles que la copie. Ils sont particulièrement utiles lors de l’utilisation d’un schéma plus strict. Les jeux de données ne sont pas basés sur Spark, et il peut arriver que vous deviez remplacer certains paramètres ou la projection de schéma dans la transformation de source.
 
 Les jeux de données inline sont recommandés lors de l’utilisation de schémas flexibles, d’instances sources uniques ou de sources paramétrables. Si votre source est fortement paramétrable, les jeux de données inline vous permettront de ne pas créer un objet « factice ». Les jeux de données inline sont basés sur Spark et leurs propriétés sont natives au flux de données.
 
@@ -41,11 +41,11 @@ Pour utiliser un jeu de données inline, sélectionnez le format souhaité à l�
 
 Le flux de données de mappage suit une approche basée sur l’extraction, le chargement et la transformation (ELT, extract, load, transform) et fonctionne avec des jeux de données *intermédiaires* qui se trouvent tous dans Azure. Actuellement, les jeux de données suivants peuvent être utilisés dans une transformation de source :
 
-| Connecteur | Format | DataSet/Inline |
+| Connecteur | Format | Jeu de données/Inlined |
 | --------- | ------ | -------------- |
-| [Stockage Blob Azure](connector-azure-blob-storage.md#mapping-data-flow-properties) | [JSON](format-json.md#mapping-data-flow-properties) <br> [Avro](format-avro.md#mapping-data-flow-properties) <br> [Texte délimité](format-delimited-text.md#mapping-data-flow-properties) <br> [Parquet](format-parquet.md#mapping-data-flow-properties) | ✓/- <br> ✓/- <br> ✓/- <br> ✓/- |
-| [Azure Data Lake Storage Gen1](connector-azure-data-lake-store.md#mapping-data-flow-properties) | [JSON](format-json.md#mapping-data-flow-properties) <br> [Avro](format-avro.md#mapping-data-flow-properties) <br> [Texte délimité](format-delimited-text.md#mapping-data-flow-properties) <br> [Parquet](format-parquet.md#mapping-data-flow-properties)  | ✓/- <br> ✓/- <br> ✓/- <br> ✓/- |
-| [Azure Data Lake Storage Gen2](connector-azure-data-lake-storage.md#mapping-data-flow-properties) | [JSON](format-json.md#mapping-data-flow-properties) <br> [Avro](format-avro.md#mapping-data-flow-properties) <br> [Texte délimité](format-delimited-text.md#mapping-data-flow-properties) <br> [Parquet](format-parquet.md#mapping-data-flow-properties)  <br> [Common Data Model (préversion)](format-common-data-model.md#source-properties) | ✓/- <br> ✓/- <br> ✓/- <br> ✓/- <br> -/✓ |
+| [Stockage Blob Azure](connector-azure-blob-storage.md#mapping-data-flow-properties) | [Avro](format-avro.md#mapping-data-flow-properties) <br> [Texte délimité](format-delimited-text.md#mapping-data-flow-properties) <br> [Excel](format-excel.md#mapping-data-flow-properties) <br> [JSON](format-json.md#mapping-data-flow-properties) <br> [Parquet](format-parquet.md#mapping-data-flow-properties) | ✓/- <br> ✓/- <br>✓/✓ <br/> ✓/- <br> ✓/- |
+| [Azure Data Lake Storage Gen1](connector-azure-data-lake-store.md#mapping-data-flow-properties) | [Avro](format-avro.md#mapping-data-flow-properties) <br> [Texte délimité](format-delimited-text.md#mapping-data-flow-properties) <br> [Excel](format-excel.md#mapping-data-flow-properties) <br> [JSON](format-json.md#mapping-data-flow-properties) <br> [Parquet](format-parquet.md#mapping-data-flow-properties)  | ✓/- <br> ✓/- <br>✓/✓ <br/> ✓/- <br> ✓/- |
+| [Azure Data Lake Storage Gen2](connector-azure-data-lake-storage.md#mapping-data-flow-properties) | [Avro](format-avro.md#mapping-data-flow-properties)  <br> [Common Data Model (préversion)](format-common-data-model.md#source-properties) <br> [Texte délimité](format-delimited-text.md#mapping-data-flow-properties) <br> [Excel](format-excel.md#mapping-data-flow-properties) <br> [JSON](format-json.md#mapping-data-flow-properties) <br> [Parquet](format-parquet.md#mapping-data-flow-properties) | ✓/-<br/> -/✓ <br> ✓/- <br> ✓/✓ <br>✓/- <br/> ✓/- |
 | [Azure Synapse Analytics](connector-azure-sql-data-warehouse.md#mapping-data-flow-properties) | | ✓/- |
 | [Azure SQL Database](connector-azure-sql-database.md#mapping-data-flow-properties) | | ✓/- |
 | [Azure CosmosDB (API SQL)](connector-azure-cosmos-db.md#mapping-data-flow-properties) | | ✓/- |
@@ -63,7 +63,7 @@ Une fois que vous avez ajouté une source, configurez-la à l’aide de l’ongl
 **Nom du flux de sortie :** nom de la transformation de source.
 
 **Type de source :** permet de choisir entre un jeu de données inline et un objet DataSet existant.
- 
+
 **Tester la connexion :** Faites un test pour déterminer si le service Spark du flux de données peut se connecter au service lié utilisé dans votre jeu de données source. Le mode de débogage doit être activé pour que cette fonctionnalité soit activée.
 
 **Dérive de schéma :** La [dérive de schéma](concepts-data-flow-schema-drift.md) est la capacité de la fabrique de données à gérer nativement des schémas flexibles dans vos flux de données sans avoir besoin de définir explicitement des changements de colonnes.

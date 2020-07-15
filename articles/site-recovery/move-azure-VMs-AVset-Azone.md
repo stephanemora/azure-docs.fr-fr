@@ -7,15 +7,15 @@ ms.topic: tutorial
 ms.date: 01/28/2019
 ms.author: rajanaki
 ms.custom: MVC
-ms.openlocfilehash: 3efa8da87ac15495900dd264a9c37143f5e08181
-ms.sourcegitcommit: 537c539344ee44b07862f317d453267f2b7b2ca6
+ms.openlocfilehash: 7d92311dfa699247995c7ded3e3930e19a9a537a
+ms.sourcegitcommit: e995f770a0182a93c4e664e60c025e5ba66d6a45
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/11/2020
-ms.locfileid: "84699717"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86135470"
 ---
 # <a name="move-azure-vms-into-availability-zones"></a>Déplacer des machines virtuelles Azure vers des zones de disponibilité
-Les zones de disponibilité dans Azure contribuent à protéger les applications et les données contre des échecs du centre de données. Chaque zone de disponibilité est composée d’un ou de plusieurs centres de données équipés d’une alimentation, d’un refroidissement et d’un réseau indépendants. Pour garantir la résilience, il existe un minimum de trois zones distinctes dans toutes les régions activées. La séparation physique des zones de disponibilité au sein d’une région contribue à protéger les applications et les données contre des échecs du centre de données. Avec les zones de disponibilité, Azure offre un Contrat de niveau de service (SLA) de 99,99 % en lien avec la durée de fonctionnement des machines virtuelles. Les zones de disponibilité sont prises en charge dans certaines régions, comme indiqué dans [Régions prenant en charge les zones de disponibilité](https://docs.microsoft.com/azure/availability-zones/az-region).
+Les zones de disponibilité dans Azure contribuent à protéger les applications et les données contre des échecs du centre de données. Chaque zone de disponibilité est composée d’un ou de plusieurs centres de données équipés d’une alimentation, d’un refroidissement et d’un réseau indépendants. Pour garantir la résilience, il existe un minimum de trois zones distinctes dans toutes les régions activées. La séparation physique des zones de disponibilité au sein d’une région contribue à protéger les applications et les données contre des échecs du centre de données. Avec les zones de disponibilité, Azure offre un Contrat de niveau de service (SLA) de 99,99 % en lien avec la durée de fonctionnement des machines virtuelles. Les zones de disponibilité sont prises en charge dans certaines régions, comme indiqué dans [Régions prenant en charge les zones de disponibilité](../availability-zones/az-region.md).
 
 Si vous avez déployé vos machines virtuelles en tant qu’*instance unique* dans une région spécifique, et souhaitez améliorer leur disponibilité en les déplaçant vers une zone de disponibilité, vous le pouvez en utilisant Azure Site Recovery. Cette action peut encore être catégorisée comme suit :
 
@@ -23,11 +23,11 @@ Si vous avez déployé vos machines virtuelles en tant qu’*instance unique* da
 - Déplacer des machines virtuelles d’un groupe à haute disponibilité vers des zones de disponibilité dans une région cible
 
 > [!IMPORTANT]
-> Actuellement, Azure Site Recovery prend en charge le déplacement des machines virtuelles d’une région à une autre. Il prend uniquement en charge le déplacement entre les zones d’une région, dans quelques régions. [Plus d’informations](https://docs.microsoft.com/azure/site-recovery/azure-to-azure-how-to-enable-zone-to-zone-disaster-recovery)
+> Actuellement, Azure Site Recovery prend en charge le déplacement des machines virtuelles d’une région à une autre. Il prend uniquement en charge le déplacement entre les zones d’une région, dans quelques régions. [Plus d’informations](./azure-to-azure-how-to-enable-zone-to-zone-disaster-recovery.md)
 
 ## <a name="check-prerequisites"></a>Vérifier les conditions préalables
 
-- Vérifiez si la région cible [prend en charge les zones de disponibilité](https://docs.microsoft.com/azure/availability-zones/az-region). Vérifiez que votre choix de [combinaison de région source/région cible est pris en charge](https://docs.microsoft.com/azure/site-recovery/azure-to-azure-support-matrix#region-support). Prenez une décision éclairée concernant a région cible.
+- Vérifiez si la région cible [prend en charge les zones de disponibilité](../availability-zones/az-region.md). Vérifiez que votre choix de [combinaison de région source/région cible est pris en charge](./azure-to-azure-support-matrix.md#region-support). Prenez une décision éclairée concernant a région cible.
 - Assurez-vous que vous comprenez [l’architecture et les composants du scénario](azure-to-azure-architecture.md).
 - Examinez les [exigences et les limites de prise en charge](azure-to-azure-support-matrix.md).
 - Vérifiez les autorisations du compte. Si vous venez de créer votre compte Azure gratuit, vous êtes l’administrateur de votre abonnement. Si vous n’êtes pas l’administrateur de l’abonnement, demandez à l’administrateur de vous affecter les autorisations dont vous avez besoin. Pour activer la réplication d’une machine virtuelle et copier éventuellement des données vers la cible à l’aide d’Azure Site Recovery, vous devez disposer des autorisations suivantes :
@@ -41,7 +41,7 @@ Si vous avez déployé vos machines virtuelles en tant qu’*instance unique* da
 
 ## <a name="prepare-the-source-vms"></a>Préparer les machines virtuelles sources
 
-1. Vos machines virtuelles doivent utiliser des disques managés si vous voulez pouvoir les déplacer vers une zone de disponibilité à l’aide de Site Recovery. Vous pouvez convertir des machines virtuelles Windows existantes utilisant des disques non managés de façon à ce qu’elles utilisent des disques managés. Procédez de la manière décrite dans [Convertir les disques non managés d’une machine virtuelle Windows en disques managés](https://docs.microsoft.com/azure/virtual-machines/windows/convert-unmanaged-to-managed-disks). Assurez-vous que le groupe à haute disponibilité est configuré en tant que groupe *managé*.
+1. Vos machines virtuelles doivent utiliser des disques managés si vous voulez pouvoir les déplacer vers une zone de disponibilité à l’aide de Site Recovery. Vous pouvez convertir des machines virtuelles Windows existantes utilisant des disques non managés de façon à ce qu’elles utilisent des disques managés. Procédez de la manière décrite dans [Convertir les disques non managés d’une machine virtuelle Windows en disques managés](../virtual-machines/windows/convert-unmanaged-to-managed-disks.md). Assurez-vous que le groupe à haute disponibilité est configuré en tant que groupe *managé*.
 2. Assurez-vous que tous les certificats racines les plus récents sont présents sur les machines virtuelles Azure à déplacer. À défaut, la copie de données vers la région cible ne peut pas être activée en raison de contraintes de sécurité.
 
 3. Pour les machines virtuelles Windows, installez-y toutes les mises à jour de Windows les plus récentes afin que tous les certificats racines approuvés s’y trouvent. Dans un environnement déconnecté, suivez les processus Windows Update et de mise à jour de certificat standard en vigueur au sein de votre organisation.
@@ -66,16 +66,16 @@ Si vous avez déployé vos machines virtuelles en tant qu’*instance unique* da
 
      Les documents suivants décrivent comment créer les ressources réseau les plus couramment utilisées dont vous avez besoin, en fonction de la configuration de la machine virtuelle source.
 
-    - [Groupes de sécurité réseau](https://docs.microsoft.com/azure/virtual-network/manage-network-security-group)
-    - [Équilibreurs de charge](https://docs.microsoft.com/azure/load-balancer)
+    - [Groupes de sécurité réseau](../virtual-network/manage-network-security-group.md)
+    - [Équilibreurs de charge](../load-balancer/index.yml)
     - [Adresse IP publique](../virtual-network/virtual-network-public-ip-address.md)
     
-   Pour tous les autres composants réseau, reportez-vous à la [documentation](https://docs.microsoft.com/azure/?pivot=products&panel=network) sur la mise en réseau.
+   Pour tous les autres composants réseau, reportez-vous à la [documentation](../index.yml?pivot=products&panel=network) sur la mise en réseau.
 
     > [!IMPORTANT]
-    > Veillez à utiliser un équilibreur de charge redondant interzone dans la cible. Pour en savoir plus, lisez le document [Standard Load Balancer et zones de disponibilité](https://docs.microsoft.com/azure/load-balancer/load-balancer-standard-availability-zones).
+    > Veillez à utiliser un équilibreur de charge redondant interzone dans la cible. Pour en savoir plus, lisez le document [Standard Load Balancer et zones de disponibilité](../load-balancer/load-balancer-standard-availability-zones.md).
 
-4. Si vous souhaitez tester la configuration avant de passer à la région cible, vous devez [créer manuellement un réseau hors production](https://docs.microsoft.com/azure/virtual-network/quick-create-portal) dans la région cible. Nous recommandons cette approche parce qu’elle minimise l’interférence avec le réseau de production.
+4. Si vous souhaitez tester la configuration avant de passer à la région cible, vous devez [créer manuellement un réseau hors production](../virtual-network/quick-create-portal.md) dans la région cible. Nous recommandons cette approche parce qu’elle minimise l’interférence avec le réseau de production.
 
 ## <a name="enable-replication"></a>Activer la réplication
 Les étapes ci-dessous vous guident dans l’utilisation d’Azure Site Recovery pour activer la réplication de données dans la région cible, avant d’opérer leur déplacement final vers les zones de disponibilité.
@@ -85,7 +85,7 @@ Les étapes ci-dessous vous guident dans l’utilisation d’Azure Site Recovery
 
 1. Dans le portail Azure, sélectionnez **Machines virtuelles**, puis choisissez la machine virtuelle que vous souhaitez déplacer vers les zones de disponibilité.
 2. Dans **Opérations**, sélectionnez **Récupération d’urgence**.
-3. Dans **Configurer la récupération d’urgence** > **Région cible**, sélectionnez la région cible vers laquelle vous allez effectuer la réplication. Vérifiez que cette région [prend en charge](https://docs.microsoft.com/azure/availability-zones/az-region) les zones de disponibilité.
+3. Dans **Configurer la récupération d’urgence** > **Région cible**, sélectionnez la région cible vers laquelle vous allez effectuer la réplication. Vérifiez que cette région [prend en charge](../availability-zones/az-region.md) les zones de disponibilité.
 
     ![Sélection de la région cible](media/azure-vms-to-zones/enable-rep-1.PNG)
 
@@ -149,5 +149,3 @@ Dans ce didacticiel, vous avez amélioré la disponibilité d’une machine virt
 
 > [!div class="nextstepaction"]
 > [Configurer la récupération d’urgence après la migration](azure-to-azure-quickstart.md)
-
-

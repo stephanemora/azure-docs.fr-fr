@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.date: 11/14/2019
 ms.author: raynew
 ms.custom: MVC
-ms.openlocfilehash: ef623b95e104b485c6bfc8b2f489afeca436d81e
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: 3be81d104e32946e2bfd7dc76052dad464f95623
+ms.sourcegitcommit: e995f770a0182a93c4e664e60c025e5ba66d6a45
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "74084170"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86130978"
 ---
 # <a name="prepare-azure-resources-for-hyper-v-disaster-recovery"></a>Préparer les ressources Azure à la reprise d’activité après sinistre pour Hyper-V
 
@@ -98,8 +98,8 @@ La création du réseau virtuel prend quelques secondes. Une fois qu’il est cr
 ## <a name="useful-links"></a>Liens utiles
 
 Vous en saurez plus sur :
-- [Réseaux Azure](https://docs.microsoft.com/azure/virtual-network/virtual-networks-overview)
-- [Disques managés](https://docs.microsoft.com/azure/virtual-machines/windows/managed-disks-overview)
+- [Réseaux Azure](../virtual-network/virtual-networks-overview.md)
+- [Disques managés](../virtual-machines/windows/managed-disks-overview.md)
 
 
 

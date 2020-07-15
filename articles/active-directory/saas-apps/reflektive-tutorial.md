@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 03/27/2019
 ms.author: jeedes
-ms.openlocfilehash: d26e8a21865304b2065a28da5e241f58cb5ab34c
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: 76ded60421c1f6d39328ec88e964876e3eb64d78
+ms.sourcegitcommit: 1e6c13dc1917f85983772812a3c62c265150d1e7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "68383221"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86169049"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-reflektive"></a>Didacticiel : Intégration d’Azure Active Directory à Reflektive
 
@@ -107,11 +107,8 @@ Pour configurer l’authentification unique Azure AD avec Reflektive, effectuez 
 
     Dans la zone de texte **Identificateur**, utilisez l’une des URL ci-dessous conformément aux instructions de l’équipe du support technique Reflektive :
 
-    | |
-    |--|
-    | `reflektive.com` |
-    | `https://www.reflektive.com/saml/metadata` |
-    | |
+    - `reflektive.com`
+    - `https://www.reflektive.com/saml/metadata`
 
 5. Si vous souhaitez configurer l’application en **mode démarré par le fournisseur de services**, cliquez sur **Définir des URL supplémentaires**, puis effectuez les étapes suivantes :
 

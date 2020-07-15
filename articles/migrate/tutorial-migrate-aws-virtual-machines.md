@@ -4,12 +4,12 @@ description: Cet article explique comment migrer des machines virtuelles AWS ver
 ms.topic: tutorial
 ms.date: 06/16/2020
 ms.custom: MVC
-ms.openlocfilehash: 6eeff73bdcac214eb3836731fcbfd2f9410c6045
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.openlocfilehash: 5d697c2146144ca7f4b9a8739b6863ba31845f4e
+ms.sourcegitcommit: 1e6c13dc1917f85983772812a3c62c265150d1e7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86102801"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86165428"
 ---
 # <a name="discover-assess-and-migrate-amazon-web-services-aws-vms-to-azure"></a>Découvrir, évaluer et migrer des machines virtuelles Amazon Web Services (AWS) vers Azure
 
@@ -77,9 +77,9 @@ Préparez Azure à la migration avec l’outil Server Migration d’Azure Migrat
 
 Affectez le rôle Contributeur de machines virtuelles au compte Azure. Cela permet d’effectuer les opérations suivantes :
 
-    - Créer une machine virtuelle dans le groupe de ressources sélectionné
-    - Créer une machine virtuelle dans le réseau virtuel sélectionné
-    - Écrire sur un disque managé Azure. 
+- Créer une machine virtuelle dans le groupe de ressources sélectionné
+- Créer une machine virtuelle dans le réseau virtuel sélectionné
+- Écrire sur un disque managé Azure. 
 
 ### <a name="create-an-azure-network"></a>Créer un réseau Azure
 

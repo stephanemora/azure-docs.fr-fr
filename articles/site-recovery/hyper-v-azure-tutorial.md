@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.date: 11/12/2019
 ms.author: raynew
 ms.custom: MVC
-ms.openlocfilehash: 9a2bb636ba749cae50195cefeb8e7237d382fb99
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: afa8375805ebc5d52ac716126adca86850147166
+ms.sourcegitcommit: e995f770a0182a93c4e664e60c025e5ba66d6a45
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "82182342"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86134092"
 ---
 # <a name="set-up-disaster-recovery-of-on-premises-hyper-v-vms-to-azure"></a>Configurer la récupération d’urgence de machines virtuelles Hyper-V locales vers Azure
 
@@ -30,7 +30,7 @@ Dans ce tutoriel, vous allez apprendre à :
 > * Activer la réplication pour une machine virtuelle.
 
 > [!NOTE]
-> Les tutoriels vous montrent le chemin de déploiement le plus simple pour un scénario. Ils utilisent les options par défaut lorsque cela est possible et n’affichent pas tous les paramètres et chemins d’accès possibles. Pour obtenir des instructions détaillées, consultez les articles de la section **Guides pratiques** de la [documentation sur Site Recovery](https://docs.microsoft.com/azure/site-recovery).
+> Les tutoriels vous montrent le chemin de déploiement le plus simple pour un scénario. Ils utilisent les options par défaut lorsque cela est possible et n’affichent pas tous les paramètres et chemins d’accès possibles. Pour obtenir des instructions détaillées, consultez les articles de la section **Guides pratiques** de la [documentation sur Site Recovery](./index.yml).
 
 
 
@@ -39,7 +39,7 @@ Dans ce tutoriel, vous allez apprendre à :
 Il s’agit du troisième didacticiel d’une série. Il suppose que vous avez déjà effectué les tâches des tutoriels précédents :
 
 1. [Préparer Azure](tutorial-prepare-azure.md)
-2. [Préparer un serveur Hyper-V local](tutorial-prepare-on-premises-hyper-v.md)
+2. [Préparer un serveur Hyper-V local](./hyper-v-prepare-on-premises-tutorial.md)
 
 ## <a name="select-a-replication-goal"></a>Sélectionner un objectif de réplication
 

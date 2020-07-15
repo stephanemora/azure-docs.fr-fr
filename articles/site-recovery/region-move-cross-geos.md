@@ -7,12 +7,12 @@ ms.topic: tutorial
 ms.date: 04/16/2019
 ms.author: rajanaki
 ms.custom: MVC
-ms.openlocfilehash: acaf16e7469b3ea4e5e391db91e37dc76be3b261
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: d99a5feb344f970b10925b596726520b9dba9464
+ms.sourcegitcommit: e995f770a0182a93c4e664e60c025e5ba66d6a45
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "78298528"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86134026"
 ---
 # <a name="move-azure-vms-between-azure-government-and-public-regions"></a>Déplacer des machines virtuelles Azure entre Azure Government et des régions publiques 
 
@@ -32,7 +32,7 @@ Ce tutoriel vous montre comment déplacer des machines virtuelles Azure entre Az
 > * Supprimer les ressources dans la région source
 
 > [!IMPORTANT]
-> Ce tutoriel vous montre comment déplacer des machines virtuelles Azure entre Azure Government et des régions publiques, ou entre des paires de régions qui ne sont pas prises en charge par la solution habituelle de récupération d’urgence des machines virtuelles Azure. Si vos paires de régions source et cible sont [prises en charge](https://docs.microsoft.com/azure/site-recovery/azure-to-azure-support-matrix#region-support), reportez-vous à ce [document](azure-to-azure-tutorial-migrate.md) pour le déplacement. Si votre objectif est d’améliorer la disponibilité des machines virtuelles d’un groupe à haute disponibilité en les déplaçant vers une autre région pour les déployer en tant que machines virtuelles rattachées à une zone, consultez le tutoriel fourni [ici](move-azure-VMs-AVset-Azone.md).
+> Ce tutoriel vous montre comment déplacer des machines virtuelles Azure entre Azure Government et des régions publiques, ou entre des paires de régions qui ne sont pas prises en charge par la solution habituelle de récupération d’urgence des machines virtuelles Azure. Si vos paires de régions source et cible sont [prises en charge](./azure-to-azure-support-matrix.md#region-support), reportez-vous à ce [document](azure-to-azure-tutorial-migrate.md) pour le déplacement. Si votre objectif est d’améliorer la disponibilité des machines virtuelles d’un groupe à haute disponibilité en les déplaçant vers une autre région pour les déployer en tant que machines virtuelles rattachées à une zone, consultez le tutoriel fourni [ici](move-azure-VMs-AVset-Azone.md).
 
 > [!IMPORTANT]
 > Il n’est pas recommandé d’utiliser cette méthode pour configurer la récupération d’urgence entre des paires de régions non prises en charge, car les paires sont définies en tenant compte de la latence des données, ce qui est essentiel pour un scénario de récupération d’urgence.
@@ -96,13 +96,13 @@ Le service Mobilité doit être installé sur chaque serveur que vous souhaitez 
 
      Consultez la documentation suivante pour créer les ressources réseau courantes dont vous avez besoin, en fonction de la configuration de la machine virtuelle source.
 
-    - [Groupes de sécurité réseau](https://docs.microsoft.com/azure/virtual-network/manage-network-security-group)
-    - [Équilibreurs de charge](https://docs.microsoft.com/azure/load-balancer)
+    - [Groupes de sécurité réseau](../virtual-network/manage-network-security-group.md)
+    - [Équilibreurs de charge](../load-balancer/index.yml)
     - [Adresse IP publique](../virtual-network/virtual-network-public-ip-address.md)
     
-    Pour tous les autres composants réseau, reportez-vous à la [documentation](https://docs.microsoft.com/azure/?pivot=products&panel=network) sur la mise en réseau.
+    Pour tous les autres composants réseau, reportez-vous à la [documentation](../index.yml?pivot=products&panel=network) sur la mise en réseau.
 
-4. Vous devez [créer un réseau hors production](https://docs.microsoft.com/azure/virtual-network/quick-create-portal) manuellement dans la région cible si vous souhaitez tester la configuration avant d’effectuer le déplacement final vers la région cible. Cette pratique est recommandée dans la mesure où elle limite les interférences avec l’environnement de production.
+4. Vous devez [créer un réseau hors production](../virtual-network/quick-create-portal.md) manuellement dans la région cible si vous souhaitez tester la configuration avant d’effectuer le déplacement final vers la région cible. Cette pratique est recommandée dans la mesure où elle limite les interférences avec l’environnement de production.
 
 ## <a name="copy-data-to-the-target-region"></a>Copier les données vers la région cible
 Suivez les étapes ci-dessous pour copier les données vers la région cible à l’aide d’Azure Site Recovery.
@@ -136,7 +136,7 @@ Configurez le serveur de configuration, inscrivez-le dans le coffre et découvre
 Avant de commencer, procédez comme suit : 
 
 #### <a name="verify-time-accuracy"></a>Vérifier la précision de l’heure
-Sur la machine du serveur de configuration, assurez-vous que l’horloge système est synchronisée avec un [Serveur de temps](https://technet.microsoft.com/windows-server-docs/identity/ad-ds/get-started/windows-time-service/windows-time-service). Elles doivent correspondre. S’il y a 15 minutes d’avance ou de retard, le programme d’installation peut échouer.
+Sur la machine du serveur de configuration, assurez-vous que l’horloge système est synchronisée avec un [Serveur de temps](/windows-server/networking/windows-time-service/windows-time-service-top). Elles doivent correspondre. S’il y a 15 minutes d’avance ou de retard, le programme d’installation peut échouer.
 
 #### <a name="verify-connectivity"></a>Vérifier la connectivité
 Vérifiez que la machine peut accéder à ces URL en fonction de votre environnement : 

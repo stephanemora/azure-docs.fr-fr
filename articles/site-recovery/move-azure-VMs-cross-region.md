@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.date: 01/28/2019
 ms.author: rajanaki
 ms.custom: MVC
-ms.openlocfilehash: dc37cb6fa05a2be56de7bf5536d7274190257d85
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: 463bd290c304d9436316c9e08778f37ce8bd0b55
+ms.sourcegitcommit: e995f770a0182a93c4e664e60c025e5ba66d6a45
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "78303917"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86135434"
 ---
 # <a name="move-azure-vms-to-another-azure-region"></a>Déplacer des machines virtuelles Azure vers une autre région Azure
 
@@ -35,7 +35,7 @@ Vous souhaitez peut-être déplacer les machines virtuelles de l’infrastructur
 ## <a name="prerequisites"></a>Prérequis
 
 - Vérifiez que vous avez des machines virtuelles Azure dans la région Azure source *à partir de laquelle* vous souhaitez effectuer le déplacement.
-- Vérifiez que votre choix de [combinaison de région source/région cible est pris en charge](https://docs.microsoft.com/azure/site-recovery/azure-to-azure-support-matrix#region-support) et sélectionnez la région cible appropriée.
+- Vérifiez que votre choix de [combinaison de région source/région cible est pris en charge](./azure-to-azure-support-matrix.md#region-support) et sélectionnez la région cible appropriée.
 - Assurez-vous que vous comprenez [l’architecture et les composants du scénario](azure-to-azure-architecture.md).
 - Examinez les [exigences et les limites de prise en charge](azure-to-azure-support-matrix.md).
 - Vérifiez les autorisations du compte. Si vous venez de créer votre compte Azure gratuit, *vous* êtes l’administrateur de votre abonnement. Si vous n’êtes pas administrateur, contactez l’administrateur pour obtenir les autorisations dont vous avez besoin :
@@ -66,13 +66,13 @@ Vous souhaitez peut-être déplacer les machines virtuelles de l’infrastructur
 
    Azure Site Recovery détecte et crée automatiquement un réseau virtuel et un compte de stockage quand vous activez la réplication pour la machine virtuelle source. Vous pouvez également créer au préalable ces ressources et les affecter à la machine virtuelle dans le cadre de l’étape d’activation de la réplication. Mais vous devez créer manuellement toutes les autres ressources dans la région cible. Consultez la documentation suivante pour créer les ressources réseau courantes dont vous avez besoin, en fonction de la configuration de votre machine virtuelle source :
 
-   - [Groupes de sécurité réseau](https://docs.microsoft.com/azure/virtual-network/manage-network-security-group)
-   - [Équilibreurs de charge](https://docs.microsoft.com/azure/load-balancer)
+   - [Groupes de sécurité réseau](../virtual-network/manage-network-security-group.md)
+   - [Équilibreurs de charge](../load-balancer/index.yml)
    - [Adresse IP publique](../virtual-network/virtual-network-public-ip-address.md)
     
-   Pour tous les autres composants réseau, consultez la [documentation Azure sur la mise en réseau](https://docs.microsoft.com/azure/?pivot=products&panel=network). 
+   Pour tous les autres composants réseau, consultez la [documentation Azure sur la mise en réseau](../index.yml?pivot=products&panel=network). 
 
-4. Pour tester la configuration avant d’effectuer le déplacement final vers la région cible, vous devez [créer un réseau hors production](https://docs.microsoft.com/azure/virtual-network/quick-create-portal) manuellement dans la région cible. Le test de la configuration est une pratique recommandée dans la mesure où elle limite les interférences avec l’environnement de production.
+4. Pour tester la configuration avant d’effectuer le déplacement final vers la région cible, vous devez [créer un réseau hors production](../virtual-network/quick-create-portal.md) manuellement dans la région cible. Le test de la configuration est une pratique recommandée dans la mesure où elle limite les interférences avec l’environnement de production.
     
 ## <a name="copy-data-to-the-target-region"></a>Copier les données vers la région cible
 Les étapes ci-dessous copient les données vers la région cible à l’aide d’Azure Site Recovery.
@@ -149,4 +149,3 @@ Dans ce tutoriel, vous avez appris à déplacer des machines virtuelles Azure ve
 
 > [!div class="nextstepaction"]
 > [Configurer la récupération d’urgence après la migration](azure-to-azure-quickstart.md)
-

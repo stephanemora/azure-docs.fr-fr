@@ -4,12 +4,12 @@ description: Configurez rapidement la récupération d’urgence vers une autre 
 ms.topic: quickstart
 ms.date: 03/27/2020
 ms.custom: mvc
-ms.openlocfilehash: e26c2a1f24a88dc979f4ec68de65afc618740c00
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 8681ccaac30402927005e5e8802d7da2bddc2c5c
+ms.sourcegitcommit: e995f770a0182a93c4e664e60c025e5ba66d6a45
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "80371861"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86135704"
 ---
 # <a name="quickstart-set-up-disaster-recovery-to-a-secondary-azure-region-for-an-azure-vm"></a>Démarrage rapide : Configurer la récupération d’urgence vers une région Azure secondaire pour une machine virtuelle Azure
 
@@ -22,7 +22,7 @@ Ce guide de démarrage rapide explique comment configurer la reprise d’activit
 Pour suivre ce tutoriel, vous avez besoin d’un abonnement Azure et d’une machine virtuelle.
 
 - Si vous n’avez pas de compte Azure avec un abonnement actif, vous pouvez [créer un compte gratuitement](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
-- Nous recommandons une machine virtuelle avec au moins 1 Go de RAM. [Découvrez-en plus](/azure/virtual-machines/windows/quick-create-portal) sur la création d’une machine virtuelle.
+- Nous recommandons une machine virtuelle avec au moins 1 Go de RAM. [Découvrez-en plus](../virtual-machines/windows/quick-create-portal.md) sur la création d’une machine virtuelle.
 
 ## <a name="sign-in-to-azure"></a>Connexion à Azure
 

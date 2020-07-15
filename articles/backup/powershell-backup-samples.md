@@ -4,18 +4,18 @@ description: Cet article renvoie à des exemples de scripts PowerShell qui utili
 ms.topic: sample
 ms.date: 01/31/2019
 ms.custom: mvc
-ms.openlocfilehash: 3709ad6bcb70d4054b13458188a0638c58d59f3c
-ms.sourcegitcommit: 6a9f01bbef4b442d474747773b2ae6ce7c428c1f
+ms.openlocfilehash: 29af774c857f20b0ed4d5392f4933e8056f0d246
+ms.sourcegitcommit: 1e6c13dc1917f85983772812a3c62c265150d1e7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "84118216"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86170681"
 ---
 # <a name="azure-backup-powershell-samples"></a>Exemples Azure Backup PowerShell
 
 Le tableau suivant renvoie à des exemples de scripts PowerShell qui utilisent Sauvegarde Azure pour sauvegarder et restaurer des données.
 
-| |                                                              |
+| Script | Description |
 |---|---|
 | [Sauvegarder une machine virtuelle chiffrée dans Azure](./scripts/backup-powershell-sample-backup-encrypted-vm.md) | Sauvegardez toutes les données sur la machine virtuelle chiffrée.|
 | [Rechercher le compte de stockage inscrit](./scripts/backup-powershell-script-find-recovery-services-vault.md) | Trouver le coffre Recovery Services dans lequel votre compte de stockage est inscrit |

@@ -6,12 +6,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 04/15/2019
 ms.author: ramamill
-ms.openlocfilehash: 56c53b9e2388cc0594076a5ef35b072216aec20d
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 83535fde7f577c4cd5d0b3866afcc0a916c16337
+ms.sourcegitcommit: e995f770a0182a93c4e664e60c025e5ba66d6a45
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "80672730"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86134827"
 ---
 # <a name="manage-the-configuration-server-for-vmware-vmphysical-server-disaster-recovery"></a>Gérer le serveur de configuration pour la récupération d'urgence d’un serveur physique ou d’une machine virtuelle VMware
 
@@ -22,7 +22,7 @@ Quand vous utilisez [Azure Site Recovery](site-recovery-overview.md) pour la rep
 
 ## <a name="update-windows-license"></a>Mettre à jour la licence Windows
 
-La licence fournie avec le modèle OVF est une licence d’évaluation valide 180 jours. Pour une utilisation ininterrompue, vous devez activer Windows avec une licence achetée. La mise à jour de licence peut être effectuée à l’aide d’une clé autonome ou d’une clé KMS standard. Vous trouverez des conseils sur la [ligne de commande Windows DISM pour exécuter le système d’exploitation](https://docs.microsoft.com/windows-hardware/manufacture/desktop/dism-windows-edition-servicing-command-line-options). Pour obtenir des clés, reportez-vous à [Configurer un client KMS](https://docs.microsoft.com/windows-server/get-started/kmsclientkeys).
+La licence fournie avec le modèle OVF est une licence d’évaluation valide 180 jours. Pour une utilisation ininterrompue, vous devez activer Windows avec une licence achetée. La mise à jour de licence peut être effectuée à l’aide d’une clé autonome ou d’une clé KMS standard. Vous trouverez des conseils sur la [ligne de commande Windows DISM pour exécuter le système d’exploitation](/windows-hardware/manufacture/desktop/dism-windows-edition-servicing-command-line-options). Pour obtenir des clés, reportez-vous à [Configurer un client KMS](/windows-server/get-started/kmsclientkeys).
 
 ## <a name="access-configuration-server"></a>Accéder au serveur de configuration
 
@@ -266,7 +266,7 @@ ProxyPassword="Password"
 
 Vous pouvez également supprimer le serveur de configuration à l’aide de PowerShell.
 
-1. [Installez](https://docs.microsoft.com/powershell/azure/install-Az-ps) le module Azure PowerShell.
+1. [Installez](/powershell/azure/install-Az-ps) le module Azure PowerShell.
 2. Connectez-vous à votre compte Azure à l’aide de cette commande :
 
     `Connect-AzAccount`

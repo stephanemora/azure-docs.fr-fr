@@ -1,30 +1,29 @@
 ---
 title: 'Azure SQL Database : Gérer la rétention des sauvegardes à long terme'
-description: Apprenez à stocker et à restaurer les sauvegardes automatisées d'une base de données Azure SQL Database unique ou mise en pool dans Stockage Azure (pendant 10 ans maximum) à l'aide du portail Azure et de PowerShell
+description: Apprenez à stocker et à restaurer les sauvegardes automatisées pour Azure SQL Database dans Stockage Azure (pendant 10 ans maximum) à l’aide du Portail Microsoft Azure et de PowerShell
 services: sql-database
-ms.service: sql-database
-ms.subservice: operations
+ms.service: sql-db-mi
+ms.subservice: backup-restore
 ms.custom: ''
 ms.devlang: ''
 ms.topic: conceptual
 author: anosov1960
 ms.author: sashan
 ms.reviewer: mathoma, carlrab
-manager: craigg
 ms.date: 04/14/2020
-ms.openlocfilehash: 6ae38bb81ad0b229d6bb5a9e2f626d17810d7b01
-ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
+ms.openlocfilehash: 713ac569acb7866b4c7431b80e2afb1e7953ce08
+ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "84035820"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86087348"
 ---
 # <a name="manage-azure-sql-database-long-term-backup-retention"></a>Gérer la conservation à long terme des sauvegardes Azure SQL Database
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
 
 Azure SQL Database vous permet de configurer une base de données dotée d'une stratégie de [conservation des sauvegardes à long terme](long-term-retention-overview.md) (LTR) afin de conserver automatiquement les sauvegardes de la base de données dans des conteneurs de stockage Blob Azure distincts pendant une durée maximale de 10 ans. Vous pouvez ensuite récupérer une base de données à l’aide de ces sauvegardes via le portail Azure ou PowerShell. Vous pouvez également configurer la conservation à long terme pour une instance d'[Azure SQL Managed Instance](../managed-instance/long-term-backup-retention-configure.md), mais cette fonctionnalité n'est actuellement disponible qu'en préversion publique limitée.
 
-## <a name="using-azure-portal"></a>En passant par le portail Azure
+## <a name="using-the-azure-portal"></a>Utilisation du portail Azure
 
 Les sections suivantes vous montrent comment utiliser le portail Azure pour configurer la rétention à long terme, afficher des sauvegardes dans une rétention à long terme et restaurer la sauvegarde à partir d’une rétention à long terme.
 
@@ -32,7 +31,7 @@ Les sections suivantes vous montrent comment utiliser le portail Azure pour conf
 
 Vous pouvez configurer SQL Database pour [conserver des sauvegardes automatisées](long-term-retention-overview.md) sur une période plus longue que la période de rétention associée à votre niveau de service.
 
-1. Dans le portail Azure, sélectionnez votre serveur SQL, puis cliquez sur **Gérer les sauvegardes**. Dans l’onglet **Configurer les stratégies**, cochez la case pour la base de données sur laquelle vous souhaitez définir ou modifier des stratégies de rétention des sauvegardes à long terme. Si la case à cocher située en regard de la base de données n’est pas sélectionnée, les modifications de la stratégie ne s’appliqueront pas à cette base de données.  
+1. Dans le portail Azure, sélectionnez votre instance SQL Server, puis cliquez sur **Gérer les sauvegardes**. Dans l’onglet **Configurer les stratégies**, cochez la case pour la base de données sur laquelle vous souhaitez définir ou modifier des stratégies de rétention des sauvegardes à long terme. Si la case à cocher située en regard de la base de données n’est pas sélectionnée, les modifications de la stratégie ne s’appliqueront pas à cette base de données.  
 
    ![lien gérer les sauvegardes](./media/long-term-backup-retention-configure/ltr-configure-ltr.png)
 
@@ -47,7 +46,7 @@ Vous pouvez configurer SQL Database pour [conserver des sauvegardes automatisée
 
 ### <a name="view-backups-and-restore-from-a-backup"></a>Afficher des sauvegardes et restaurer à partir d’une sauvegarde
 
-Affichez les sauvegardes qui sont conservées pour une base de données spécifique avec une stratégie de rétention à long terme, et restaurez à partir de ces sauvegardes.
+Affichez les sauvegardes qui sont conservées pour une base de données spécifique avec une stratégie de conservation à long terme et restaurez à partir de ces sauvegardes.
 
 1. Sur le portail Azure, sélectionnez votre serveur, puis cliquez sur **Gérer les sauvegardes**. Dans l’onglet **Sauvegardes disponibles**, sélectionnez la base de données pour laquelle vous souhaitez afficher les sauvegardes disponibles.
 
@@ -61,7 +60,7 @@ Affichez les sauvegardes qui sont conservées pour une base de données spécifi
 
    ![restauration](./media/long-term-backup-retention-configure/ltr-restore.png)
 
-1. Cliquez sur **OK** pour restaurer votre base de données à partir de la sauvegarde dans le stockage SQL Azure vers une nouvelle base de données.
+1. Cliquez sur **OK** pour restaurer votre base de données à partir de la sauvegarde qui se trouve dans le stockage Azure vers une nouvelle base de données.
 
 1. Dans la barre d’outils, cliquez sur l’icône de notification pour visualiser l’état du travail de restauration.
 
@@ -79,7 +78,7 @@ Affichez les sauvegardes qui sont conservées pour une base de données spécifi
 > [!IMPORTANT]
 > Le module PowerShell Azure Resource Manager est toujours pris en charge par Azure SQL Database, mais tous les développements futurs sont destinés au module Az.Sql. Pour ces cmdlets, voir [AzureRM.Sql](https://docs.microsoft.com/powershell/module/AzureRM.Sql/). Les arguments des commandes dans le module Az sont sensiblement identiques à ceux des modules AzureRm.
 
-Les sections suivantes vous montrent comment utiliser PowerShell pour configurer la rétention des sauvegardes à long terme, afficher des sauvegardes dans le stockage SQL Azure et restaurer à partir d’une sauvegarde dans le stockage SQL Azure.
+Les sections suivantes vous montrent comment utiliser PowerShell pour configurer la rétention des sauvegardes à long terme, afficher des sauvegardes dans le stockage Azure et restaurer à partir d’une sauvegarde dans le stockage Azure.
 
 ### <a name="rbac-roles-to-manage-long-term-retention"></a>Rôles RBAC pour gérer la rétention à long terme
 
@@ -134,12 +133,12 @@ Cet exemple montre comment répertorier les stratégies de rétention à long te
 
 ```powershell
 # get all LTR policies within a server
-$ltrPolicies = Get-AzSqlDatabase -ResourceGroupName Default-SQL-WestCentralUS -ServerName trgrie-ltr-server | `
-    Get-AzSqlDatabaseLongTermRetentionPolicy -Current
+$ltrPolicies = Get-AzSqlDatabase -ResourceGroupName $resourceGroup -ServerName $serverName | `
+    Get-AzSqlDatabaseLongTermRetentionPolicy
 
 # get the LTR policy of a specific database
 $ltrPolicies = Get-AzSqlDatabaseBackupLongTermRetentionPolicy -ServerName $serverName -DatabaseName $dbName `
-    -ResourceGroupName $resourceGroup -Current
+    -ResourceGroupName $resourceGroup
 ```
 
 ### <a name="clear-an-ltr-policy"></a>Effacer une stratégie de rétention à long terme
@@ -188,7 +187,7 @@ Remove-AzSqlDatabaseLongTermRetentionBackup -ResourceId $ltrBackup.ResourceId
 
 ### <a name="restore-from-ltr-backups"></a>Restaurer à partir de sauvegardes de rétention à long terme
 
-Cet exemple montre comment restaurer à partir d’une sauvegarde de rétention à long terme. Notez que cette interface n’a pas changé, mais que le paramètre d’ID de ressource requiert désormais l’ID de ressource de sauvegarde de rétention à long terme.
+Cet exemple montre comment restaurer à partir d’une sauvegarde de rétention à long terme. Notez que cette interface n’a pas changé, mais que le paramètre d’ID de ressource requiert désormais l’ID de ressource de sauvegarde LTR.
 
 ```powershell
 # restore a specific LTR backup as an P1 database on the server $serverName of the resource group $resourceGroup

@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.date: 09/09/2019
 ms.author: raynew
 ms.custom: MVC
-ms.openlocfilehash: 929bc0695bda2e64f77f7e9286e06cee787822ba
-ms.sourcegitcommit: 0553a8b2f255184d544ab231b231f45caf7bbbb0
+ms.openlocfilehash: 1070230d968a6239a5a4aab5ac412280393d17da
+ms.sourcegitcommit: e995f770a0182a93c4e664e60c025e5ba66d6a45
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/30/2020
-ms.locfileid: "80388965"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86133169"
 ---
 # <a name="migrate-amazon-web-services-aws-vms-to-azure"></a>Migrer des machines virtuelles Amazon Web Services (AWS) vers Azure
 
@@ -133,7 +133,7 @@ Dans **Avez-vous effectué la planification du déploiement ?** , sélectionnez 
 Dans la page **Préparer la source**, sélectionnez **+ Serveur de configuration**.
 
 1. Utilisez une instance EC2 exécutant Windows Server 2012 R2 pour créer un serveur de configuration et l’inscrire auprès de votre coffre de récupération.
-2. Configurez le proxy sur la machine virtuelle de l’instance EC2 que vous utilisez comme serveur de configuration, afin qu’il puisse accéder aux [URL de service](site-recovery-support-matrix-to-azure.md).
+2. Configurez le proxy sur la machine virtuelle de l’instance EC2 que vous utilisez comme serveur de configuration, afin qu’il puisse accéder aux [URL de service](./vmware-physical-azure-support-matrix.md).
 3. Téléchargez [Installation unifiée de Microsoft Azure Site Recovery](https://aka.ms/unifiedinstaller_wus). Vous pouvez le télécharger sur votre machine locale, puis le copier sur la machine virtuelle que vous utilisez comme serveur de configuration.
 4. Sélectionnez le bouton **Télécharger** pour télécharger la clé d’inscription du coffre. Copiez le fichier téléchargé sur la machine virtuelle que vous utilisez comme serveur de configuration.
 5. Sur la machine virtuelle, cliquez avec le bouton droit sur le programme d’installation que vous avez téléchargé pour l’installation unifiée de Microsoft Azure Site Recovery, et sélectionnez **Exécuter en tant qu’administrateur**.

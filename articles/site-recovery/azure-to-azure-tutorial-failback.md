@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.date: 11/14/2019
 ms.author: raynew
 ms.custom: mvc
-ms.openlocfilehash: c27b7bf29e5f124fdcfb886b658fd8e9d4cc48fe
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: e6257311473987ee053caeade6bfe14533353b73
+ms.sourcegitcommit: e995f770a0182a93c4e664e60c025e5ba66d6a45
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "74091344"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86134445"
 ---
 # <a name="fail-back-an-azure-vm-between-azure-regions"></a>Restaurer automatiquement des machines virtuelles Azure entre des régions Azure
 
@@ -28,7 +28,7 @@ Ce didacticiel explique comment restaurer une machine virtuelle Azure. Une fois 
 > 
 > [!NOTE]
 > 
-> Ce tutoriel vous aide à faire basculer plusieurs machines virtuelles vers une région cible et à les restaurer vers la région source avec des personnalisations minimales. Pour plus d’instructions détaillées, consultez les [guides pratiques sur les machines virtuelles Azure](https://docs.microsoft.com/azure/virtual-machines/windows/).
+> Ce tutoriel vous aide à faire basculer plusieurs machines virtuelles vers une région cible et à les restaurer vers la région source avec des personnalisations minimales. Pour plus d’instructions détaillées, consultez les [guides pratiques sur les machines virtuelles Azure](../virtual-machines/windows/index.yml).
 
 ## <a name="before-you-start"></a>Avant de commencer
 

@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.date: 01/28/2019
 ms.author: rajanaki
 ms.custom: MVC
-ms.openlocfilehash: 4882206692c334d6ab6af28feb5d2cba5277eea1
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: 09a00d2c6a889f396e5c18da29530c94a624568b
+ms.sourcegitcommit: e995f770a0182a93c4e664e60c025e5ba66d6a45
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "78303934"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86134425"
 ---
 # <a name="move-azure-vms-to-another-region"></a>Déplacer des machines virtuelles Azure vers une autre région
 
@@ -37,7 +37,7 @@ Ce didacticiel présente les procédures suivantes :
 ## <a name="prerequisites"></a>Conditions préalables requises
 
 - Vérifiez que les machines virtuelles Azure se trouvent dans la région Azure à partir de laquelle vous souhaitez effectuer le déplacement.
-- Vérifiez que votre choix de [combinaison région source/région cible est prise en charge](https://docs.microsoft.com/azure/site-recovery/azure-to-azure-support-matrix#region-support), et sélectionnez la région cible appropriée.
+- Vérifiez que votre choix de [combinaison région source/région cible est prise en charge](./azure-to-azure-support-matrix.md#region-support), et sélectionnez la région cible appropriée.
 - Assurez-vous que vous comprenez [l’architecture et les composants du scénario](azure-to-azure-architecture.md).
 - Examinez les [exigences et les limites de prise en charge](azure-to-azure-support-matrix.md).
 - Vérifiez les autorisations du compte. Si vous avez créé votre compte Azure gratuit, vous êtes l’administrateur de votre abonnement. Si vous n’êtes pas administrateur de l’abonnement, collaborez avec l’administrateur pour affecter les autorisations dont vous avez besoin. Pour activer la réplication d’une machine virtuelle et copier essentiellement des données à l’aide d’Azure Site Recovery, vous devez avoir :
@@ -70,10 +70,10 @@ Ce didacticiel présente les procédures suivantes :
      > Azure Site Recovery détecte et crée automatiquement un réseau virtuel quand vous activez la réplication pour la machine virtuelle source. Vous pouvez également créer au préalable un réseau et l’affecter à la machine virtuelle dans le flux d’utilisateur pour activer la réplication. Comme mentionné plus loin, vous devez créer manuellement toute autre ressource dans la région cible.
 
     Pour créer les ressources réseau courantes dont vous avez besoin, en fonction de la configuration de la machine virtuelle source, consultez la documentation suivante :
-    - [Groupes de sécurité réseau](https://docs.microsoft.com/azure/virtual-network/manage-network-security-group)
-    - [Équilibreurs de charge](https://docs.microsoft.com/azure/load-balancer)
+    - [Groupes de sécurité réseau](../virtual-network/manage-network-security-group.md)
+    - [Équilibreurs de charge](../load-balancer/index.yml)
     -  [Adresse IP publique](../virtual-network/virtual-network-public-ip-address.md)
-    - Pour tous les autres composants réseau, consultez la [documentation sur les réseaux](https://docs.microsoft.com/azure/?pivot=products&panel=network).
+    - Pour tous les autres composants réseau, consultez la [documentation sur les réseaux](../index.yml?pivot=products&panel=network).
 
 
 
@@ -146,4 +146,3 @@ Dans ce tutoriel, vous avez déplacé une machine virtuelle Azure vers une autre
 
 > [!div class="nextstepaction"]
 > [Configurer la récupération d’urgence après la migration](azure-to-azure-quickstart.md)
-

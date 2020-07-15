@@ -4,12 +4,12 @@ description: Restaurer une machine virtuelle Azure à partir d’un point de ré
 ms.reviewer: geg
 ms.topic: conceptual
 ms.date: 09/17/2019
-ms.openlocfilehash: 6a170755673c05448d1bb86af993cad929664949
-ms.sourcegitcommit: acc558d79d665c8d6a5f9e1689211da623ded90a
+ms.openlocfilehash: 00b0f7313ba77037d90dcdb8ed04e5f61e335c55
+ms.sourcegitcommit: 0100d26b1cac3e55016724c30d59408ee052a9ab
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/30/2020
-ms.locfileid: "82597771"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86023327"
 ---
 # <a name="how-to-restore-azure-vm-data-in-azure-portal"></a>Comment restaurer des données de machine virtuelle Azure dans le Portail Azure
 
@@ -161,6 +161,9 @@ L’expérience utilisateur de restauration de la région secondaire est similai
 
 ![Configuration de la restauration](./media/backup-azure-arm-restore-vms/rest-config.png)
 
+>[!NOTE]
+>Le réseau virtuel de la région secondaire doit être attribué de manière unique et ne peut être utilisé pour aucune autre machine virtuelle de ce groupe de ressources.
+
 ![Déclencher la notification de restauration en cours](./media/backup-azure-arm-restore-vms/restorenotifications.png)
 
 - Pour restaurer et créer une machine virtuelle, reportez-vous à [Créer une machine virtuelle](https://docs.microsoft.com/azure/backup/backup-azure-arm-restore-vms#create-a-vm).
@@ -183,7 +186,7 @@ Il existe un certain nombre de scénarios courants dans lesquels vous pouvez avo
 **Scénario** | **Assistance**
 --- | ---
 **Restaurer des machines virtuelles avec Hybrid Use Benefit** | Si une machine virtuelle Windows utilise une [licence HUB (Hybrid Use Benefit)](../virtual-machines/windows/hybrid-use-benefit-licensing.md), restaurez les disques et créez une machine virtuelle à l’aide du modèle fourni (**Type de licence** ayant pour valeur **Windows_Server**) ou de PowerShell.  Vous pouvez également appliquer ce paramètre après avoir créé la machine virtuelle.
-**Restaurer des machines virtuelles en cas de défaillance du centre de données Azure** | Si le coffre utilise GRS et que le centre de données principal de la machine virtuelle tombe en panne, Sauvegarde Azure prend en charge la restauration des machines virtuelles sauvegardées sur le centre de données appairé. Sélectionnez un compte de stockage dans le centre de données appairé et restaurez-le comme d’habitude. Sauvegarde Azure utilise le service de calcul dans la région associée pour créer la machine virtuelle restaurée. [Découvrez-en plus](../resiliency/resiliency-technical-guidance-recovery-loss-azure-region.md) sur la résilience des centres de données.
+**Restaurer des machines virtuelles en cas de défaillance du centre de données Azure** | Si le coffre utilise GRS et que le centre de données principal de la machine virtuelle tombe en panne, Sauvegarde Azure prend en charge la restauration des machines virtuelles sauvegardées sur le centre de données appairé. Sélectionnez un compte de stockage dans le centre de données appairé et restaurez-le comme d’habitude. Sauvegarde Azure utilise le service de calcul dans la région associée pour créer la machine virtuelle restaurée. [Découvrez-en plus](../resiliency/resiliency-technical-guidance-recovery-loss-azure-region.md) sur la résilience des centres de données.<br><br> Si le coffre utilise le stockage géoredondant (GRS), vous pouvez choisir la nouvelle fonctionnalité, la [restauration interrégion](#cross-region-restore). Cela vous permet de restaurer dans une région secondaire en cas de panne complète ou partielle, ou même s’il n’y a pas de panne du tout.
 **Restaurer une machine virtuelle contrôleur de domaine unique dans un seul domaine** | Restaurez la machine virtuelle comme n’importe quelle autre machine virtuelle. Notez les points suivants :<br/><br/> Du point de vue d’Active Directory, la machine virtuelle Azure est semblable à toute autre machine virtuelle.<br/><br/> Le mode DSRM (Directory Restore Mode) étant également disponible, tous les scénarios de récupération Active Directory sont viables. [Découvrez-en plus](https://docs.microsoft.com/azure/backup/backup-azure-arm-restore-vms#post-restore-steps) sur les considérations relatives à la sauvegarde et à la restauration de contrôleurs de domaine virtualisés.
 **Restaurer plusieurs machines virtuelles contrôleurs de domaine dans un seul domaine** | Si d’autres contrôleurs de domaine du même domaine sont accessibles sur le réseau, le contrôleur de domaine peut être restauré comme n’importe quelle machine virtuelle. S’il s’agit du dernier contrôleur de domaine dans le domaine ou si une récupération dans un réseau isolé est effectuée, utilisez une [récupération de forêt](https://docs.microsoft.com/windows-server/identity/ad-ds/manage/ad-forest-recovery-single-domain-in-multidomain-recovery).
 **Restaurer plusieurs domaines dans une forêt** | Nous recommandons une [récupération de forêt](https://docs.microsoft.com/windows-server/identity/ad-ds/manage/ad-forest-recovery-single-domain-in-multidomain-recovery).
@@ -191,6 +194,8 @@ Il existe un certain nombre de scénarios courants dans lesquels vous pouvez avo
 **Restaurer des machines virtuelles avec des configurations réseau spéciales** | Les machines virtuelles qui utilisent un équilibrage de charge interne ou externe, plusieurs cartes réseau ou plusieurs adresses IP réservées sont des exemples de configurations réseau spéciales. Vous pouvez restaurer ces machines virtuelles à l’aide de l’[option de restauration de disque](#restore-disks). Cette option effectue une copie des disques durs virtuels dans le compte de stockage spécifié. Vous pouvez ensuite créer une machine virtuelle avec un équilibreur de charge[ interne](https://azure.microsoft.com/documentation/articles/load-balancer-internal-getstarted/) ou [externe](/azure/load-balancer/quickstart-create-standard-load-balancer-powershell), [plusieurs cartes réseau](../virtual-machines/windows/multiple-nics.md) ou [plusieurs adresses IP réservées](../virtual-network/virtual-network-multiple-ip-addresses-powershell.md), conformément à votre configuration.
 **Groupe de sécurité réseau sur une carte réseau/un sous-réseau.** | La sauvegarde des machines virtuelles Azure prend en charge les informations de sauvegarde et de restauration de groupe de sécurité réseau au niveau de la carte réseau, du sous-réseau et du réseau virtuel.
 **Machines virtuelles épinglées à des zones** | Si vous sauvegardez une machine virtuelle Azure qui est épinglée à une zone (avec Sauvegarde Azure), vous pouvez la restaurer dans la même zone où elle a été épinglée. [En savoir plus](https://docs.microsoft.com/azure/availability-zones/az-overview)
+**Restaurer une machine virtuelle dans un groupe à haute disponibilité** | Lorsqu’une machine virtuelle est restaurée à partir du portail, il n’est pas possible de choisir un groupe à haute disponibilité. Une machine virtuelle restaurée n’a pas de groupe à haute disponibilité. Si vous utilisez l’option de restauration de disque, vous pouvez [spécifier un groupe à haute disponibilité](../virtual-machines/windows/tutorial-availability-sets.md) quand vous créez une machine virtuelle à partir du disque à l’aide du modèle fourni ou de PowerShell.
+**Restaurer les machines virtuelles spéciales telles que les machines virtuelles SQL** | Si vous sauvegardez une machine virtuelle SQL à l’aide de la sauvegarde de la machine virtuelle Azure et que vous utilisez ensuite l’option de restauration de la machine virtuelle ou que vous créez une machine virtuelle après avoir restauré des disques, la nouvelle machine virtuelle créée doit être inscrite auprès du fournisseur SQL comme mentionné [ici](https://docs.microsoft.com/azure/azure-sql/virtual-machines/windows/sql-vm-resource-provider-register?tabs=azure-cli%2Cbash). Cette opération convertit la machine virtuelle restaurée en machine virtuelle SQL.
 
 ## <a name="track-the-restore-operation"></a>Suivi de l’opération de restauration
 

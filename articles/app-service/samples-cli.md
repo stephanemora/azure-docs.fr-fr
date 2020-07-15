@@ -6,18 +6,18 @@ ms.assetid: 53e6a15a-370a-48df-8618-c6737e26acec
 ms.topic: sample
 ms.date: 07/07/2020
 ms.custom: mvc
-ms.openlocfilehash: ce10c0e95d77103f386174c7bd0ffd56adff871b
-ms.sourcegitcommit: bcb962e74ee5302d0b9242b1ee006f769a94cfb8
+ms.openlocfilehash: beab87618b97da4e61b0525c0c5a6bdd134fb7f8
+ms.sourcegitcommit: 1e6c13dc1917f85983772812a3c62c265150d1e7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/07/2020
-ms.locfileid: "86054540"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86169440"
 ---
 # <a name="cli-samples-for-azure-app-service"></a>Exemples d’interface CLI pour Azure App Service
 
 Le tableau suivant contient des liens vers des scripts Bash créés à l’aide de l’interface de ligne de commande Azure.
 
-| | |
+| Script | Description |
 |-|-|
 |**Créer une application**||
 | [Créer une application et déployer des fichiers par FTP](./scripts/cli-deploy-ftp.md?toc=%2fcli%2fazure%2ftoc.json)| Crée une application App Service et y déploie un fichier à l’aide de FTP. |

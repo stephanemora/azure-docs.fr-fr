@@ -4,21 +4,21 @@ description: Cet article explique comment gérer les administrateurs d’un serv
 author: minewiskan
 ms.service: azure-analysis-services
 ms.topic: conceptual
-ms.date: 04/15/2020
+ms.date: 07/07/2020
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: 944a84405bd7e03b72b2610278f9f0e4d3cfaf38
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 9edc43f9b2b62a3d9da9d6fba5ab52318e8b6427
+ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "81454235"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86077505"
 ---
 # <a name="manage-server-administrators"></a>Gérer des administrateurs de serveur
 
-Un administrateur de serveur doit être un utilisateur ou un groupe valide présent dans Azure Active Directory (Azure AD) pour le tenant disposant du serveur. Pour gérer les administrateurs de serveur, vous pouvez utiliser **Administrateurs Analysis Services** pour votre serveur dans le portail Microsoft Azure, ou Propriétés du serveur dans SSMS, PowerShell ou l’API REST. 
+Un administrateur de serveur doit être un utilisateur, un principal du service ou un groupe valide présent dans Azure Active Directory (Azure AD) pour le tenant disposant du serveur. Pour gérer les administrateurs de serveur, vous pouvez utiliser **Administrateurs Analysis Services** pour votre serveur dans le portail Microsoft Azure, ou Propriétés du serveur dans SSMS, PowerShell ou l’API REST. 
 
-Lors de l'ajout d'un **groupe de sécurité**, utilisez `obj:groupid@tenantid`.
+Lors de l'ajout d'un **groupe de sécurité**, utilisez `obj:groupid@tenantid`. Les principaux de service ne sont pas pris en charge dans les groupes de sécurité ajoutés au rôle Administrateur du serveur.
 
 ## <a name="to-add-server-administrators-by-using-azure-portal"></a>Pour ajouter des administrateurs de serveur à l’aide du portail Azure
 

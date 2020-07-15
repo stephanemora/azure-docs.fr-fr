@@ -5,12 +5,12 @@ ms.topic: tutorial
 ms.date: 1/24/2020
 ms.author: raynew
 ms.custom: mvc
-ms.openlocfilehash: 145ae5f6f9204366052d9a182c61d76ff7ffa715
-ms.sourcegitcommit: f57297af0ea729ab76081c98da2243d6b1f6fa63
+ms.openlocfilehash: e7f7535cf66da721e1738da6d0efbf335d97a6da
+ms.sourcegitcommit: e995f770a0182a93c4e664e60c025e5ba66d6a45
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/06/2020
-ms.locfileid: "82871495"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86134495"
 ---
 # <a name="set-up-disaster-recovery-for-azure-vms"></a>Configurer la récupération d’urgence pour les machines virtuelles Azure
 
@@ -31,8 +31,8 @@ Ce didacticiel vous montre comment configurer la récupération d’urgence pour
 
 Pour suivre ce tutoriel :
 
-- Examinez [l’architecture et les composants du scénario](concepts-azure-to-azure-architecture.md).
-- Avant de commencer, consultez les [conditions de prise en charge](site-recovery-support-matrix-azure-to-azure.md).
+- Examinez [l’architecture et les composants du scénario](./azure-to-azure-architecture.md).
+- Avant de commencer, consultez les [conditions de prise en charge](./azure-to-azure-support-matrix.md).
 
 ## <a name="create-a-recovery-services-vault"></a>Créer un coffre Recovery Services
 
@@ -137,7 +137,7 @@ Site Recovery crée les paramètres par défaut et la stratégie de réplication
    | **Emplacement cible** | région cible utilisée pour la récupération d’urgence.<br/><br/> Il est recommandé que l’emplacement cible corresponde à l’emplacement du coffre Site Recovery. |
    | **Groupe de ressources cible** | groupe de ressources dans la région cible qui héberge les machines virtuelles Azure après le basculement.<br/><br/> Par défaut, Site Recovery crée un groupe de ressources dans la région cible avec un suffixe `asr`. L’emplacement du groupe de ressources cible peut être n’importe quelle région Azure à l’exception de la région dans laquelle vos machines virtuelles sources sont hébergées. |
    | **Réseau virtuel cible** | réseau dans la région cible où se trouvent les machines virtuelles après le basculement.<br/><br/> Par défaut, Site Recovery crée un réseau virtuel (et des sous-réseaux) dans la région cible avec un suffixe `asr`. |
-   | **Comptes Stockage de cache** | Site Recovery utilise un compte de stockage dans la région source. Les modifications apportées aux machines virtuelles sources sont envoyées sur ce compte avant la réplication vers l’emplacement cible.<br/><br/> Si vous utilisez un compte de stockage de cache autorisé par le pare-feu, veillez à activer l’option **Autoriser les services Microsoft approuvés**. [Plus d’informations](https://docs.microsoft.com/azure/storage/common/storage-network-security#exceptions) Vérifiez également que vous autorisez l’accès à au moins un sous-réseau du réseau virtuel source. |
+   | **Comptes Stockage de cache** | Site Recovery utilise un compte de stockage dans la région source. Les modifications apportées aux machines virtuelles sources sont envoyées sur ce compte avant la réplication vers l’emplacement cible.<br/><br/> Si vous utilisez un compte de stockage de cache autorisé par le pare-feu, veillez à activer l’option **Autoriser les services Microsoft approuvés**. [Plus d’informations](../storage/common/storage-network-security.md#exceptions) Vérifiez également que vous autorisez l’accès à au moins un sous-réseau du réseau virtuel source. |
    | **Comptes de stockage cibles (si la machine virtuelle source utilise des disques non managés)** | par défaut, Site Recovery crée un compte de stockage dans la région cible qui reflète le compte de stockage de la machine virtuelle source.<br/><br/> Activez **Autoriser les services Microsoft approuvés** si vous utilisez un compte de stockage de cache autorisé par le pare-feu. |
    | **Disques managés de réplica (si la machine virtuelle source utilise des disques managés)** | Par défaut, Site Recovery crée des disques managés de réplica dans la région cible pour mettre en miroir les disques managés de la machine virtuelle source avec le même type de stockage (Standard ou Premium) que celui du disque managé de la machine virtuelle source. Seul le type de disque peut être personnalisé. |
    | **Groupes à haute disponibilité cibles** | Par défaut, Azure Site Recovery crée un groupe à haute disponibilité dans la région cible avec un nom comportant le suffixe `asr`, pour les machines virtuelles qui font partie d’un groupe à haute disponibilité dans la région source. Si le groupe à haute disponibilité créé par Azure Site Recovery existe déjà, il est réutilisé. |

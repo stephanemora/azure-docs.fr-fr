@@ -4,16 +4,16 @@ description: Découvrez comment configurer Azure Active Directory (AAD) pour l�
 author: lfittl
 ms.author: lufittl
 ms.service: postgresql
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 11/04/2019
-ms.openlocfilehash: 81d02b32bc1eb6edf22845a4d02ba2ba02536855
-ms.sourcegitcommit: f1132db5c8ad5a0f2193d751e341e1cd31989854
+ms.openlocfilehash: e813459ddf516b170e7f429646dad38452188335
+ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/31/2020
-ms.locfileid: "84236316"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86102376"
 ---
-# <a name="use-azure-active-directory-for-authenticating-with-postgresql"></a>Utiliser Azure Active Directory pour l’authentification avec PostgreSQL
+# <a name="use-azure-active-directory-for-authentication-with-postgresql"></a>Utiliser Azure Active Directory pour l’authentification avec PostgreSQL
 
 Cet article vous détaille les étapes de configuration de l’accès à Azure Active Directory avec Azure Database pour PostgreSQL et de la manière de se connecter à l’aide d’un jeton Azure AD.
 
@@ -60,7 +60,7 @@ Vous pouvez poursuivre dans Azure Cloud Shell, une machine virtuelle Azure ou su
 
 ### <a name="step-1-authenticate-with-azure-ad"></a>Étape 1 : S’authentifier avec Azure AD
 
-Commencez par vous authentifier avec Azure AD à l’aide de l’outil Azure CLI. Cette étape n’est pas obligatoire dans Azure Cloud Shell.
+Commencez par vous authentifier auprès d’Azure AD à l’aide de l’outil Azure CLI. Cette étape n’est pas obligatoire dans Azure Cloud Shell.
 
 ```
 az login
@@ -115,8 +115,12 @@ Lorsque vous utilisez le client de ligne de commande `psql`, le jeton d’accès
 
 Exemple Windows :
 
-```shell
+```cmd
 set PGPASSWORD=<copy/pasted TOKEN value from step 2>
+```
+
+```PowerShell
+$env:PGPASSWORD='<copy/pasted TOKEN value from step 2>'
 ```
 
 Exemple Linux/macOS :
@@ -130,6 +134,15 @@ Vous pouvez désormais établir une connexion avec Azure Database pour PostgreSQ
 ```shell
 psql "host=mydb.postgres... user=user@tenant.onmicrosoft.com@mydb dbname=postgres sslmode=require"
 ```
+
+Considérations importantes à prendre en compte lors de la connexion :
+
+* `user@tenant.onmicrosoft.com` est le nom de l’utilisateur ou du groupe Azure AD auquel vous essayez de vous connecter
+* Ajoutez toujours le nom du serveur après le nom de groupe/d’utilisateur Azure AD (par exemple, `@mydb`)
+* Veillez à utiliser exactement la façon dont le nom d’utilisateur ou de groupe Azure AD est épelé
+* Les noms d’utilisateurs et de groupes Azure AD respectent la casse
+* Quand vous vous connectez en tant que groupe, utilisez uniquement le nom du groupe (par exemple, `GroupName@mydb`)
+* Si le nom contient des espaces, utilisez `\` avant chaque espace pour le placer dans une séquence d’échappement
 
 Vous êtes maintenant authentifié auprès de votre serveur PostgreSQL à l’aide de l’authentification Azure AD.
 
