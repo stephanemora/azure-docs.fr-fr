@@ -4,21 +4,21 @@ description: Apprenez à concevoir des stratégies d’accès conditionnel et à
 services: active-directory
 ms.service: active-directory
 ms.subservice: conditional-access
-ms.topic: conceptual
-ms.date: 09/17/2019
+ms.topic: how-to
+ms.date: 06/09/2020
 ms.author: baselden
 author: BarbaraSelden
 manager: daveba
 ms.reviewer: joflore
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 5d4ae1c9926c7ea1d18bf5c87fbed837edc2a5d5
-ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
+ms.openlocfilehash: 83cc75c1d69ee7232edf0c21643d25027b97f088
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83641490"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85339726"
 ---
-# <a name="plan--a-conditional-access-deployment"></a>Planifier un déploiement d’accès conditionnel
+# <a name="plan-a-conditional-access-deployment"></a>Planifier un déploiement d’accès conditionnel
 
 La planification de votre déploiement d’accès conditionnel joue un rôle capital dans la réussite de la stratégie d’accès de votre organisation pour les applications et les ressources.
 
@@ -28,11 +28,11 @@ Les accès conditionnels Azure Active Directory (Azure AD) analysent les signaux
 
 ![Présentation de l’accès conditionnel](./media/plan-conditional-access/conditional-access-overview-how-it-works.png)
 
-Microsoft fournit des stratégies conditionnelles standard, appelées [paramètres de sécurité par défaut](https://docs.microsoft.com/azure/active-directory/fundamentals/concept-fundamentals-security-defaults), et qui garantissent un niveau de sécurité de base. Toutefois, votre organisation peut avoir besoin de plus de flexibilité que ce que propose la sécurité par défaut. Vous pouvez utiliser l’accès conditionnel pour personnaliser les paramètres de sécurité par défaut avec une plus grande granularité, et pour configurer de nouvelles stratégies qui répondent à vos besoins.
+Microsoft fournit des stratégies conditionnelles standard, appelées [paramètres de sécurité par défaut](../fundamentals/concept-fundamentals-security-defaults.md), et qui garantissent un niveau de sécurité de base. Toutefois, votre organisation peut avoir besoin de plus de flexibilité que ce que propose la sécurité par défaut. Vous pouvez utiliser l’accès conditionnel pour personnaliser les paramètres de sécurité par défaut avec une plus grande granularité, et pour configurer de nouvelles stratégies qui répondent à vos besoins.
 
 ## <a name="learn"></a>Découvrir
 
-Avant de commencer, vous devez bien comprendre le fonctionnement de l’[accès conditionnel](https://docs.microsoft.com/azure/active-directory/conditional-access/overview) et quand vous devez l’utiliser.
+Avant de commencer, vous devez bien comprendre le fonctionnement de l’[accès conditionnel](overview.md) et quand vous devez l’utiliser.
 
 ### <a name="benefits"></a>Avantages
 
@@ -40,7 +40,7 @@ Le déploiement de l’accès conditionnel présente les avantages suivants :
 
 * Meilleure productivité. N’interrompt que les utilisateurs dotés d’une condition de connexion, telle que MFA, lorsqu’un ou plusieurs signaux le justifient. Les stratégies d’accès conditionnel vous permettent de contrôler le moment auquel les utilisateurs sont invités à utiliser l’authentification multifacteur, quand l’accès est bloqué et quand les utilisateurs doivent utiliser un appareil de confiance.
 
-* Gestion des risques. Automatiser l’évaluation des risques avec des conditions de stratégie signifie que les connexions risquées sont immédiatement identifiées et corrigées ou bloquées. Le couplage de l’accès conditionnel à [Identity Protection](https://docs.microsoft.com/azure/active-directory/identity-protection/overview), qui détecte les anomalies et les événements suspects, vous permet de cibler le moment où l’accès aux ressources est bloqué ou contrôlé. 
+* Gérer le risque. Automatiser l’évaluation des risques avec des conditions de stratégie signifie que les connexions risquées sont immédiatement identifiées et corrigées ou bloquées. Le couplage de l’accès conditionnel à [Identity Protection](../identity-protection/overview-identity-protection.md), qui détecte les anomalies et les événements suspects, vous permet de cibler le moment où l’accès aux ressources est bloqué ou contrôlé. 
 
 * Gouvernance et conformité des adresses. L’accès conditionnel vous permet d’auditer l’accès aux applications, de présenter les conditions d’utilisation pour le consentement et de restreindre l’accès en fonction des stratégies de conformité.
 
@@ -48,7 +48,7 @@ Le déploiement de l’accès conditionnel présente les avantages suivants :
 
 ### <a name="license-requirements"></a>Conditions de licence :
 
-Consultez [Conditions de licence de l’accès conditionnel](https://docs.microsoft.com/azure/active-directory/conditional-access/overview).
+Consultez [Conditions de licence de l’accès conditionnel](overview.md).
 
 Si des fonctionnalités supplémentaires sont nécessaires, il est possible que vous ayez également besoin des licences associées. Pour plus d’informations, consultez [Tarification Azure Active Directory](https://azure.microsoft.com/pricing/details/active-directory/).
 
@@ -58,76 +58,73 @@ Si des fonctionnalités supplémentaires sont nécessaires, il est possible que 
 
 * Un compte doté des privilèges d’administrateur de l’accès conditionnel.
 
-* Un utilisateur non-administrateur avec un mot de passe que vous connaissez, par exemple testuser. Si vous devez créer un utilisateur, consultez [Démarrage rapide : Ajouter de nouveaux utilisateurs à Azure Active Directory](https://docs.microsoft.com/azure/active-directory/add-users-azure-active-directory).
+* Un utilisateur non-administrateur avec un mot de passe que vous connaissez, par exemple testuser. Si vous devez créer un utilisateur, consultez [Démarrage rapide : Ajouter de nouveaux utilisateurs à Azure Active Directory](../fundamentals/add-users-azure-active-directory.md).
 
-* Un groupe dont l’utilisateur non-administrateur est membre. Si vous devez créer un groupe, consultez [Créer un groupe et ajouter des membres dans Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-groups-create-azure-portal).
+* Un groupe dont l’utilisateur non-administrateur est membre. Si vous devez créer un groupe, consultez [Créer un groupe et ajouter des membres dans Azure Active Directory](../fundamentals/active-directory-groups-create-azure-portal.md).
 
 ### <a name="training-resources"></a>Ressources de formation
 
 Les ressources suivantes peuvent être utiles lorsque vous vous familiarisez avec l’accès conditionnel :
 
 
-**Vidéos**
+#### <a name="videos"></a>Vidéos
+
 * [Qu’est-ce que l’accès conditionnel ?](https://youtu.be/ffMAw2IVO7A)
 * [Comment déployer l’accès conditionnel](https://youtu.be/c_izIRNJNuk)
 * [Comment déployer des stratégies d’accès conditionnel pour les utilisateurs finaux](https://youtu.be/0_Fze7Zpyvc)
 * [L’accès conditionnel et les contrôles d’appareil](https://youtu.be/NcONUf-jeS4)
 * [L’accès conditionnel avec Azure MFA](https://youtu.be/Tbc-SU97G-w)
 * [Conditional Access in Enterprise Mobility + Security](https://youtu.be/A7IrxAH87wc) (Accès conditionnel dans Enterprise Mobility + Security)
-* [Device-based Conditional Access](https://in.video.search.yahoo.com/search/video;_ylt=AwrPiBX0yHRcZiMAhFa7HAx.;_ylu=X3oDMTB0N2poMXRwBGNvbG8Dc2czBHBvcwMxBHZ0aWQDBHNlYwNwaXZz?p=conditional+access+videos+microsoft&fr2=piv-web&fr=mcafee) (Accès conditionnel basé sur les appareils)
 
-**Cours en ligne sur Pluralsight**
+
+#### <a name="online-courses-on-pluralsight"></a>Cours en ligne sur Pluralsight
+
 * [Design Identity Management in Microsoft Azure](https://www.pluralsight.com/courses/microsoft-azure-identity-management-design) (Conception de la gestion des identités dans Microsoft Azure)
 * [Design Authentication for Microsoft Azure](https://www.pluralsight.com/courses/microsoft-azure-authentication-design) (Conception de l’authentification pour Microsoft Azure)
 * [Design Authorization for Microsoft Azure](https://www.pluralsight.com/courses/microsoft-azure-authorization-design) (Conception des autorisations pour Microsoft Azure)
 
-**FORUM AUX QUESTIONS**
-
-[Questions fréquentes (FAQ) sur l’accès conditionnel Azure AD](https://docs.microsoft.com/azure/active-directory/conditional-access/faqs)
 ## <a name="plan-the-deployment-project"></a>Planifier le projet de déploiement
 
 Tenez compte des besoins de votre organisation lorsque vous déterminez la stratégie de ce déploiement dans votre environnement.
+
 ### <a name="engage-the-right-stakeholders"></a>Impliquer les parties prenantes appropriées
-Lorsque des projets technologiques échouent, les attentes ne correspondant pas à l’impact, aux résultats et aux responsabilités en sont généralement la cause. Pour éviter un tel cas de figure, [prenez soin de faire appel aux bonnes parties prenantes](https://aka.ms/deploymentplans) et à clarifier les rôles du projet.
+
+Lorsque des projets technologiques échouent, cela est généralement dû à des attentes qui ne correspondent pas à l’impact, aux résultats et aux responsabilités réels. Pour éviter un tel cas de figure, [prenez soin de faire appel aux bonnes parties prenantes](https://aka.ms/deploymentplans) et à clarifier les rôles du projet.
 
 ### <a name="plan-communications"></a>Planifier les communications
+
 La communication est essentielle à la réussite de tout nouveau service. Communiquez de manière proactive avec vos utilisateurs sur ce qui va changer, à quel moment les changements seront appliqués et comment ils peuvent obtenir de l’aide en cas de problème.
 
 ### <a name="plan-a-pilot"></a>Prévoir un pilote
-Lorsque de nouvelles stratégies sont prêtes pour votre environnement, déployez-les en phases dans l’environnement de production. Tout d’abord, appliquez une stratégie à un petit ensemble d’utilisateurs dans un environnement de test et vérifiez si la stratégie se comporte comme prévu. Consultez [Meilleures pratiques pour un pilote](https://docs.microsoft.com/azure/active-directory/fundamentals/active-directory-deployment-plans).
+
+Lorsque de nouvelles stratégies sont prêtes pour votre environnement, déployez-les en phases dans l’environnement de production. Tout d’abord, appliquez une stratégie à un petit ensemble d’utilisateurs dans un environnement de test et vérifiez si la stratégie se comporte comme prévu. Consultez [Meilleures pratiques pour un pilote](../fundamentals/active-directory-deployment-plans.md).
 
 > [!NOTE]
 > Pour déployer de nouvelles stratégies qui ne sont pas spécifiques aux administrateurs, excluez tous les administrateurs. De cette façon, vous garantissez toujours l’accès des administrateurs à la stratégie, à laquelle ils apportent des modifications s’ils ne la révoquent pas en cas d’impact significatif. Validez toujours la stratégie avec des groupes d’utilisateurs plus petits avant de l’appliquer à tous les utilisateurs.
 
 ## <a name="understand-ca-policy-components"></a>Comprendre les composants de la stratégie d’accès conditionnel
-
-Les stratégies d’accès conditionnel sont des instructions if-then : si une condition assignée est remplie, dans ce cas appliquez ces contrôles d’accès. 
-
-![Présentation de l’accès conditionnel](media/plan-conditional-access/10.png)
+Les stratégies d’accès conditionnel sont des instructions de type si-alors : si une affectation est remplie, alors appliquer ces contrôles d’accès.
 
 Lors de la configuration de stratégies d’accès conditionnel, les conditions s’appellent des *affectations*. Les stratégies d’accès conditionnel vous permettent d’appliquer des contrôles d’accès aux applications de votre organisation, en fonction de certaines affectations.
 
-![Affectations et contrôles d’accès ](media/plan-conditional-access/ca-policy-access.png)
 
-
-Pour plus d’informations, consultez [Création d’une stratégie d’accès conditionnel](https://docs.microsoft.com/azure/active-directory/conditional-access/concept-conditional-access-policies).
-
-Les [affectations](https://docs.microsoft.com/azure/active-directory/conditional-access/concept-conditional-access-policies) définissent les
-
-* [utilisateurs et groupes](https://docs.microsoft.com/azure/active-directory/conditional-access/concept-conditional-access-users-groups) devant être concernés par la stratégie ;
-
-* [applications cloud ou actions](https://docs.microsoft.com/azure/active-directory/conditional-access/concept-conditional-access-cloud-apps) auxquelles la stratégie s’appliquera ; 
-
-* [conditions](https://docs.microsoft.com/azure/active-directory/conditional-access/concept-conditional-access-conditions) selon lesquelles la stratégie s’appliquera. 
-<p>
+Pour plus d’informations, consultez [Création d’une stratégie d’accès conditionnel](concept-conditional-access-policies.md).
 
 ![écran de création d’une stratégie](media/plan-conditional-access/create-policy.png)
 
-Les paramètres des [contrôles d’accès](https://docs.microsoft.com/azure/active-directory/conditional-access/concept-conditional-access-policies) déterminent la façon dont appliquer une stratégie :
+Les [affectations](concept-conditional-access-policies.md#assignments) définissent les
 
-* [Accorder ou bloquer l’accès](https://docs.microsoft.com/azure/active-directory/conditional-access/concept-conditional-access-grant) aux applications cloud.
+* [utilisateurs et groupes](concept-conditional-access-users-groups.md) que la stratégie doit affecter ;
 
-* Les [contrôles de session](https://docs.microsoft.com/azure/active-directory/conditional-access/concept-conditional-access-session) permettent de limiter les expériences dans des applications cloud particulières.
+* [applications cloud ou actions](concept-conditional-access-cloud-apps.md) auxquelles la stratégie s’appliquera ; 
+
+* [conditions](concept-conditional-access-conditions.md) en vertu desquelles la stratégie s’appliquera.
+
+Les paramètres des [contrôles d’accès](concept-conditional-access-policies.md) déterminent la façon dont appliquer une stratégie :
+
+* [Accorder ou bloquer l’accès](concept-conditional-access-grant.md) aux applications cloud.
+
+* Les [contrôles de session](concept-conditional-access-session.md) permettent de limiter les expériences dans des applications cloud particulières.
 
 ### <a name="ask-the-right-questions-to-build-your-policies"></a>Poser les bonnes questions pour créer vos stratégies
 
@@ -137,19 +134,19 @@ Documentez les réponses aux questions pour chaque stratégie avant de la créer
 
 #### <a name="common-questions-about-assignments"></a>Questions courantes sur les affectations
 
-[Utilisateurs et groupes](https://docs.microsoft.com/azure/active-directory/conditional-access/concept-conditional-access-users-groups)
+[Utilisateurs et groupes](concept-conditional-access-users-groups.md)
 
 * Quels utilisateurs et groupes seront inclus ou exclus de la stratégie ?
 
 * Cette stratégie peut-elle inclure tous les utilisateurs, groupes d’utilisateurs particuliers, rôles d’annuaire ou utilisateurs externes ?
 
-[Applications cloud ou actions](https://docs.microsoft.com/azure/active-directory/conditional-access/concept-conditional-access-cloud-apps)
+[Applications cloud ou actions](concept-conditional-access-cloud-apps.md)
 
 * À quelle(s) application(s) la stratégie s’appliquera-t-elle ?
 
 * Quelles actions de l’utilisateur seront soumises à cette stratégie ?
 
-[Conditions](https://docs.microsoft.com/azure/active-directory/conditional-access/concept-conditional-access-conditions)
+[Conditions](concept-conditional-access-conditions.md)
 
 * Quelles plateformes d’appareils seront incluses ou exclues de la stratégie ?
 
@@ -161,11 +158,11 @@ Documentez les réponses aux questions pour chaque stratégie avant de la créer
 
 * Comptez-vous des stratégies qui pourraient aboutir à exclure des appareils joints Azure AD ou des appareils Azure AD Hybride de stratégies ? 
 
-* Si vous utilisez [Identity Protection](https://docs.microsoft.com/azure/active-directory/identity-protection/overview), voulez-vous incorporer la protection contre la connexion à risque ?
+* Si vous utilisez [Identity Protection](../identity-protection/concept-identity-protection-risks.md), voulez-vous incorporer la protection contre la connexion à risque ?
 
 #### <a name="common-questions-about-access-controls"></a>Questions courantes sur les contrôles d’accès
 
-[Octroyer ou bloquer](https://docs.microsoft.com/azure/active-directory/conditional-access/concept-conditional-access-grant) 
+[Octroyer ou bloquer](concept-conditional-access-grant.md) 
 
 Voulez-vous accorder l’accès aux ressources en exigeant un ou plusieurs des éléments suivants ?
 
@@ -179,7 +176,7 @@ Voulez-vous accorder l’accès aux ressources en exigeant un ou plusieurs des �
 
 * Exiger une stratégie de protection des applications
 
-[Contrôle de session](https://docs.microsoft.com/azure/active-directory/conditional-access/concept-conditional-access-session)
+[Contrôle de session](concept-conditional-access-session.md)
 
 Voulez-vous appliquer les contrôles d’accès suivants sur les applications cloud ?
 
@@ -197,7 +194,8 @@ Il est important de comprendre comment les jetons d’accès sont émis.
 
 ![Diagramme d’émission du jeton d’accès](media/plan-conditional-access/CA-policy-token-issuance.png)
 
-**Remarquez plus particulièrement que si aucune affectation n’est exigée, et qu’aucune stratégie d’accès conditionnel n’est appliquée, le comportement par défaut consiste à émettre un jeton d’accès**. 
+> [!NOTE]
+> Si aucune affectation n’est exigée, et qu’aucune stratégie d’accès conditionnel n’est appliquée, le comportement par défaut consiste à émettre un jeton d’accès. 
 
 Par exemple, imaginons une stratégie dans laquelle :
 
@@ -218,11 +216,11 @@ Les jetons d’accès sont émis par défaut si une condition de stratégie d’
 
 ### <a name="minimize-the-number-of-ca-policies"></a>Réduire le nombre de stratégies d’accès conditionnel
 
-Créer une stratégie pour chaque application n’est pas avantageux et débouche sur une administration compliqué. L’accès conditionnel n’appliquera que les 195 premières stratégies par utilisateur. Nous vous recommandons d’analyser vos applications et de les regrouper par applications partageant les mêmes exigences en ressources pour les mêmes utilisateurs. Par exemple, si toutes les applications Office 365 ou toutes les applications RH présentent les mêmes exigences pour les mêmes utilisateurs, créez une stratégie unique et incluez toutes les applications auxquelles elle s’applique. 
+Créer une stratégie pour chaque application n’est pas avantageux et débouche sur une administration compliqué. L’accès conditionnel n’appliquera que les 195 premières stratégies par utilisateur. Nous vous recommandons d’analyser vos applications et de les regrouper par applications partageant les mêmes exigences en ressources pour les mêmes utilisateurs. Par exemple, si toutes les applications Microsoft 365 ou de RH présentent les mêmes exigences pour les mêmes utilisateurs, créez une stratégie unique et incluez toutes les applications auxquelles elle s’applique. 
 
 ### <a name="set-up-emergency-access-accounts"></a>Configurer des comptes d’accès d’urgence
 
-Si votre stratégie est mal configurée, elle peut verrouiller les organisations à l’extérieur du portail Azure. Vous pouvez pallier l’impact du verrouillage accidentel d’administrateurs en créant quelques [comptes d’accès d’urgence](https://docs.microsoft.com/azure/active-directory/users-groups-roles/directory-emergency-access) dans votre organisation.
+Si votre stratégie est mal configurée, elle peut verrouiller les organisations à l’extérieur du portail Azure. Vous pouvez pallier l’impact du verrouillage accidentel d’administrateurs en créant quelques [comptes d’accès d’urgence](../users-groups-roles/directory-emergency-access.md) dans votre organisation.
 
 * Créez un compte d’utilisateur dédié à l’administration de stratégies, et qui est exclu de toutes vos stratégies.
 
@@ -242,13 +240,13 @@ Il peut ne pas être aisé de prévoir le nombre et les noms des utilisateurs co
 * l’obligation d’utiliser MFA ;
 * l’implémentation de stratégies de connexion à risque.
 
-[Le mode rapport seul](https://docs.microsoft.com/azure/active-directory/conditional-access/concept-conditional-access-report-only) permet aux administrateurs d’évaluer l’impact des stratégies d’accès conditionnel avant de les activer dans leur environnement.
+[Le mode rapport seul](concept-conditional-access-report-only.md) permet aux administrateurs d’évaluer l’impact des stratégies d’accès conditionnel avant de les activer dans leur environnement.
 
-Apprenez à [Configurer le mode rapport seul sur une stratégie d’accès conditionnel](https://docs.microsoft.com/azure/active-directory/conditional-access/howto-conditional-access-report-only).
+Apprenez à [Configurer le mode rapport seul sur une stratégie d’accès conditionnel](howto-conditional-access-report-only.md).
 
 ### <a name="plan-for-disruption"></a>Planifier une interruption
 
-Si vous vous appuyez sur un seul contrôle d’accès, comme MFA ou un emplacement réseau, pour sécuriser vos systèmes informatiques, vous êtes susceptible de rencontrer des problèmes d’accès si ce contrôle d’accès unique est indisponible ou mal configuré. Pour réduire le risque de verrouillage pendant des interruptions imprévues, [planifiez des stratégies](https://docs.microsoft.com/azure/active-directory/authentication/concept-resilient-controls) à adopter pour votre organisation.
+Si vous vous appuyez sur un seul contrôle d’accès, comme MFA ou un emplacement réseau, pour sécuriser vos systèmes informatiques, vous êtes susceptible de rencontrer des problèmes d’accès si ce contrôle d’accès unique est indisponible ou mal configuré. Pour réduire le risque de verrouillage pendant des interruptions imprévues, [planifiez des stratégies](../authentication/concept-resilient-controls.md) à adopter pour votre organisation.
 
 ### <a name="set-naming-standards-for-your-policies"></a>Définir des normes de nommage pour vos stratégies
 
@@ -274,7 +272,7 @@ Un nom descriptif vous aide à conserver une vue globale de votre implémentatio
 
 #### <a name="naming-standards-for-emergency-access-controls"></a>Normes de nommage pour les contrôles d’accès d’urgence
 
-En plus de vos stratégies actives, implémentez des stratégies désactivées qui agissent comme des [contrôles d’accès résilients secondaires dans les scénarios d’urgence ou de panne](https://docs.microsoft.com/azure/active-directory/authentication/concept-resilient-controls). Votre norme de nommage pour les stratégies d’urgence doit inclure quelques éléments supplémentaires :
+En plus de vos stratégies actives, implémentez des stratégies désactivées qui agissent comme des [contrôles d’accès résilients secondaires dans les scénarios d’urgence ou de panne](../authentication/concept-resilient-controls.md). Votre norme de nommage pour les stratégies d’urgence doit inclure quelques éléments supplémentaires :
 * ACTIVER EN CAS D’URGENCE au début, pour faire ressortir le nom au milieu des autres stratégies.
 
 * Le nom d’interruption auquel elle doit s’appliquer.
@@ -289,55 +287,61 @@ EM01 - ACTIVER EN CAS D’URGENCE : Interruption MFA [1/4] - Exchange SharePoin
 
 ### <a name="exclude-countries-from-which-you-never-expect-a-sign-in"></a>Exclure les pays depuis lesquels vous n’espérez jamais aucune connexion.
 
-Azure Active Directory vous permet de créer des [emplacements nommés](https://docs.microsoft.com/azure/active-directory/conditional-access/location-condition). Créez un emplacement nommé qui comprend tous les pays à partir desquels vous n’escomptez jamais qu’une connexion se produise. Créez ensuite une stratégie pour Toutes les applications qui bloquent la connexion à partir de cet emplacement nommé. **Veillez à exempter vos administrateurs de cette stratégie**.
+Azure Active Directory vous permet de créer des [emplacements nommés](location-condition.md). Créez un emplacement nommé qui comprend tous les pays à partir desquels vous n’escomptez jamais qu’une connexion se produise. Créez ensuite une stratégie pour Toutes les applications qui bloquent la connexion à partir de cet emplacement nommé. **Veillez à exempter vos administrateurs de cette stratégie**.
 
 ### <a name="plan-your-policy-deployment"></a>Planifier votre déploiement de stratégies
 
 Lorsque de nouvelles stratégies sont prêtes pour votre environnement, prenez soin de passer en revue chacune d’elle avant sa publication pour éviter des résultats indésirables. Consultez la documentation suivante pour comprendre les informations importantes qui se rapportent à la façon dont les stratégies sont appliquées et aux moyens d’éviter des problèmes
 
-* [Ce que vous devez savoir](https://docs.microsoft.com/azure/active-directory/conditional-access/best-practices)
+* [Ce que vous devez savoir](best-practices.md)
 
-* [Ce que vous devez éviter](https://docs.microsoft.com/azure/active-directory/conditional-access/best-practices)
+* [Ce que vous devez éviter](best-practices.md)
 
 ## <a name="common-policies"></a>Stratégies courantes
 
 Quand vous planifiez votre solution de stratégie d’accès conditionnel, déterminez si vous devez créer des stratégies pour obtenir les résultats suivants.
 
+* [Comment exiger l’authentification MFA](#require-mfa)
+* [Répondre aux comptes potentiellement compromis](#respond-to-potentially-compromised-accounts)
+* [Exiger des appareils gérés](#require-managed-devices)
+* [Exiger des applications clientes approuvées](#require-approved-client-apps)
+* [Bloquer l’accès](#block-access)
+
 ### <a name="require-mfa"></a>Exiger une authentification multifacteur
 
 Les cas d’utilisation courants pour lesquels exiger l’accès MFA :
 
-* [Par les administrateurs](https://docs.microsoft.com/azure/active-directory/conditional-access/howto-conditional-access-policy-admin-mfa)
+* [Par les administrateurs](howto-conditional-access-policy-admin-mfa.md)
 
-* [À des applications spécifiques](https://docs.microsoft.com/azure/active-directory/conditional-access/app-based-mfa)
+* [À des applications spécifiques](app-based-mfa.md)
 
-* [Pour tous les utilisateurs](https://docs.microsoft.com/azure/active-directory/conditional-access/howto-conditional-access-policy-all-users-mfa)
+* [Pour tous les utilisateurs](howto-conditional-access-policy-all-users-mfa.md)
 
-* [À partir d’emplacements réseau non fiables](https://docs.microsoft.com/azure/active-directory/conditional-access/untrusted-networks)
+* [À partir d’emplacements réseau non fiables](untrusted-networks.md)
 
-* [ Pour la gestion Azure](https://docs.microsoft.com/azure/active-directory/conditional-access/howto-conditional-access-policy-azure-management)
+* [ Pour la gestion Azure](howto-conditional-access-policy-azure-management.md)
 
 ### <a name="respond-to-potentially-compromised-accounts"></a>Répondre aux comptes potentiellement compromis
 
 Avec des stratégies d’accès conditionnel, vous pouvez implémenter des réponses automatiques aux connexions par identités potentiellement compromises. La probabilité qu’un compte soit compromis est exprimée sous forme de niveaux de risque. Il existe deux niveaux de risque calculés par Identity Protection : la connexion à risque et l’utilisateur à risque. Les trois stratégies par défaut suivantes peuvent être activées.
 
-* [Demander à tous les utilisateurs de s’inscrire pour l’authentification multifacteur](https://docs.microsoft.com/azure/active-directory/conditional-access/howto-conditional-access-policy-risk)
+* [Demander à tous les utilisateurs de s’inscrire pour l’authentification multifacteur](howto-conditional-access-policy-risk.md)
 
-* [Exiger un changement de mot de passe pour les utilisateurs à risque élevé](https://docs.microsoft.com/azure/active-directory/conditional-access/howto-conditional-access-policy-risk)
+* [Exiger un changement de mot de passe pour les utilisateurs à risque élevé](howto-conditional-access-policy-risk.md)
 
-* [Exiger l’authentification multifacteur pour les utilisateurs dont la connexion est à risque moyen ou élevé](https://docs.microsoft.com/azure/active-directory/conditional-access/howto-conditional-access-policy-risk)
+* [Exiger l’authentification multifacteur pour les utilisateurs dont la connexion est à risque moyen ou élevé](howto-conditional-access-policy-risk.md)
 
 ### <a name="require-managed-devices"></a>Exiger des appareils gérés
 
-L’augmentation du nombre d’appareils pris en charge pour accéder aux ressources cloud permet d’améliorer la productivité de vos utilisateurs. Il est probable que vous ne souhaitiez pas que des appareils dont le niveau de protection est inconnu puissent accéder à certaines ressources de votre environnement. Pour ces ressources, [exigez que les utilisateurs y accèdent uniquement au moyen d’un appareil géré](https://docs.microsoft.com/azure/active-directory/conditional-access/require-managed-devices).
+L’augmentation du nombre d’appareils pris en charge pour accéder aux ressources cloud permet d’améliorer la productivité de vos utilisateurs. Il est probable que vous ne souhaitiez pas que des appareils dont le niveau de protection est inconnu puissent accéder à certaines ressources de votre environnement. Pour ces ressources, [exigez que les utilisateurs y accèdent uniquement au moyen d’un appareil géré](require-managed-devices.md).
 
 ### <a name="require-approved-client-apps"></a>Exiger des applications client approuvées
 
-Les employés utilisent leurs appareils mobiles pour des tâches à la fois personnelles et professionnelles. Pour les scénarios BYOD, vous devez décider si vous voulez gérer l’appareil entièrement, ou seules les données qu’il contient. Si vous gérez uniquement les données et les accès, vous pouvez [exiger des applications cloud approuvées](https://docs.microsoft.com/azure/active-directory/conditional-access/app-based-conditional-access) qui peuvent protéger vos données d’entreprise. Par exemple, vous pouvez imposer l’accès à la messagerie électronique uniquement via Outlook Mobile, et non par le biais d’un programme de messagerie générique.
+Les employés utilisent leurs appareils mobiles pour des tâches à la fois personnelles et professionnelles. Pour les scénarios BYOD, vous devez décider si vous voulez gérer l’appareil entièrement, ou seules les données qu’il contient. Si vous gérez uniquement les données et les accès, vous pouvez [exiger des applications cloud approuvées](app-based-conditional-access.md) qui peuvent protéger vos données d’entreprise. Par exemple, vous pouvez imposer l’accès à la messagerie électronique uniquement via Outlook Mobile, et non par le biais d’un programme de messagerie générique.
 
 ### <a name="block-access"></a>Bloquer l’accès
 
-L’option permettant de [bloquer tous les accès](https://docs.microsoft.com/azure/active-directory/conditional-access/howto-conditional-access-policy-block-access) est puissante. Elle peut être utilisée, par exemple, lorsque vous migrez une application vers Azure AD, alors que vous n’êtes pas prêt à ce que tout le monde s’y connecte pour le moment. Bloquer l’accès : 
+L’option permettant de [bloquer tous les accès](howto-conditional-access-policy-block-access.md) est puissante. Elle peut être utilisée, par exemple, lorsque vous migrez une application vers Azure AD, alors que vous n’êtes pas prêt à ce que tout le monde s’y connecte pour le moment. Bloquer l’accès : 
 
 * Remplace toutes les autres affectations d’un utilisateur
 
@@ -348,9 +352,9 @@ L’option permettant de [bloquer tous les accès](https://docs.microsoft.com/az
 
 Voici d’autres scénarios courants dans lesquels vous pouvez bloquer l’accès à vos utilisateurs :
 
-* [Bloquer à certains emplacements réseau](https://docs.microsoft.com/azure/active-directory/conditional-access/howto-conditional-access-policy-location) l’accès à vos applications cloud. Vous pouvez utiliser cette stratégie pour bloquer certains pays à partir desquels vous savez que le trafic ne se fera pas.
+* [Bloquer à certains emplacements réseau](howto-conditional-access-policy-location.md) l’accès à vos applications cloud. Vous pouvez utiliser cette stratégie pour bloquer certains pays à partir desquels vous savez que le trafic ne se fera pas.
 
-* Azure AD prend en charge l’authentification hérité. Toutefois, l’authentification héritée ne prend pas en charge MFA alors que de nombreux environnements l’exigent pour assurer la sécurité des identités. Dans ce cas, vous pouvez [empêcher des applications utilisant l’authentification héritée](https://docs.microsoft.com/azure/active-directory/conditional-access/block-legacy-authentication) d’accéder aux ressources de votre locataire.
+* Azure AD prend en charge l’authentification hérité. Toutefois, l’authentification héritée ne prend pas en charge MFA alors que de nombreux environnements l’exigent pour assurer la sécurité des identités. Dans ce cas, vous pouvez [empêcher des applications utilisant l’authentification héritée](block-legacy-authentication.md) d’accéder aux ressources de votre locataire.
 
 ## <a name="build-and-test-policies"></a>Générer et tester les stratégies
 
@@ -378,16 +382,14 @@ Le plan de test est important pour comparer les résultats attendus et les résu
 
 | Policy| Scénario| Résultat attendu |
 | - | - | - |
-| [Exiger l’authentification multifacteur en dehors du bureau](https://docs.microsoft.com/azure/active-directory/conditional-access/untrusted-networks)| L’utilisateur autorisé se connecte à l’application quand il est dans un emplacement approuvé / au bureau| L’utilisateur n’est pas invité à utiliser l’authentification multifacteur |
-| [Exiger l’authentification multifacteur en dehors du bureau](https://docs.microsoft.com/azure/active-directory/conditional-access/untrusted-networks)| L’utilisateur autorisé se connecte à l’application quand il n’est pas dans un emplacement approuvé / au bureau| L’utilisateur est invité à utiliser l’authentification multifacteur et peut se connecter |
-| [Exiger l’authentification multifacteur (pour les administrateurs)](https://docs.microsoft.com/azure/active-directory/conditional-access/howto-baseline-protect-administrators)| L’administrateur général se connecte à l’application| L’administrateur est invité à utiliser l’authentification multifacteur |
-| [Connexions risquées](https://docs.microsoft.com/azure/active-directory/identity-protection/howto-sign-in-risk-policy)| L’utilisateur se connecte à l’application au moyen d’un [navigateur Tor](https://microsoft.sharepoint.com/azure/active-directory/active-directory-identityprotection-playbook)| L’administrateur est invité à utiliser l’authentification multifacteur |
-| [Gestion des appareils](https://docs.microsoft.com/azure/active-directory/conditional-access/require-managed-devices)| L’utilisateur autorisé tente de se connecter à partir d’un appareil autorisé| Accès accordé |
-| [Gestion des appareils](https://docs.microsoft.com/azure/active-directory/conditional-access/require-managed-devices)| L’utilisateur autorisé tente de se connecter à partir d’un appareil non autorisé| Accès bloqué |
+| [Exiger l’authentification multifacteur en dehors du bureau](untrusted-networks.md)| L’utilisateur autorisé se connecte à l’application quand il est dans un emplacement approuvé / au bureau| L’utilisateur n’est pas invité à utiliser l’authentification multifacteur |
+| [Exiger l’authentification multifacteur en dehors du bureau](untrusted-networks.md)| L’utilisateur autorisé se connecte à l’application quand il n’est pas dans un emplacement approuvé / au bureau| L’utilisateur est invité à utiliser l’authentification multifacteur et peut se connecter |
+| [Exiger l’authentification multifacteur (pour les administrateurs)](howto-baseline-protect-administrators.md)| L’administrateur général se connecte à l’application| L’administrateur est invité à utiliser l’authentification multifacteur |
+| [Connexions risquées](https://docs.microsoft.com/azure/active-directory/identity-protection/howto-sign-in-risk-policy)| L’utilisateur se connecte à l’application à l’aide d’un navigateur non approuvé| L’administrateur est invité à utiliser l’authentification multifacteur |
+| [Gestion des appareils](require-managed-devices.md)| L’utilisateur autorisé tente de se connecter à partir d’un appareil autorisé| Accès accordé |
+| [Gestion des appareils](require-managed-devices.md)| L’utilisateur autorisé tente de se connecter à partir d’un appareil non autorisé| Accès bloqué |
 | [Changement de mot de passe pour les utilisateurs à risque](https://docs.microsoft.com/azure/active-directory/identity-protection/howto-user-risk-policy)| L’utilisateur autorisé tente de se connecter avec des informations d’identification compromises (connexion à haut risque)| L’utilisateur est invité à changer le mot de passe ou l’accès est bloqué selon votre stratégie |
 
-
- 
 
 ### <a name="configure-the-test-policy"></a>Configurer la stratégie de test
 
@@ -401,7 +403,7 @@ Si vous souhaitez en savoir plus sur la façon de créer des stratégies d’acc
 
 ### <a name="enable-the-policy-in-report-only-mode"></a>Activer la stratégie en mode rapport seul
 
-Pour évaluer l’impact de votre stratégie, commencez par activer la stratégie en [mode rapport seul](https://docs.microsoft.com/azure/active-directory/conditional-access/concept-conditional-access-report-only). Les stratégies de rapport seul sont évaluées lors de la connexion, mais les contrôles d’octroi et de session ne sont pas appliqués. Une fois que vous avez enregistré la stratégie en mode rapport seul, vous pouvez voir l’impact sur les connexions en temps réel dans les journaux de connexion. Dans les journaux de connexion, sélectionnez un événement et accédez à l’onglet Rapport seul pour afficher le résultat de chaque stratégie de rapport seul.
+Pour évaluer l’impact de votre stratégie, commencez par activer la stratégie en [mode rapport seul](concept-conditional-access-report-only.md). Les stratégies de rapport seul sont évaluées lors de la connexion, mais les contrôles d’octroi et de session ne sont pas appliqués. Une fois que vous avez enregistré la stratégie en mode rapport seul, vous pouvez voir l’impact sur les connexions en temps réel dans les journaux de connexion. Dans les journaux de connexion, sélectionnez un événement et accédez à l’onglet Rapport seul pour afficher le résultat de chaque stratégie de rapport seul.
 
 
 ![mode rapport seul ](media/plan-conditional-access/report-only-mode.png)
@@ -410,11 +412,11 @@ En sélectionnant la stratégie, vous pouvez également savoir comment les affec
 
 ### <a name="understand-the-impact-of-your-policies-using-the-insights-and-reporting-workbook"></a>Comprendre l’impact de vos stratégies à l’aide du classeur Insights et rapports
 
-Vous pouvez afficher l’impact agrégé de vos stratégies d’accès conditionnel dans le classeur Insights et rapports. Pour accéder au classeur, vous devez disposer d’un abonnement Azure Monitor et [envoyer en streaming vos journaux de connexion à un espace de travail Log Analytics](https://docs.microsoft.com/azure/active-directory/reports-monitoring/howto-integrate-activity-logs-with-log-analytics). 
+Vous pouvez afficher l’impact agrégé de vos stratégies d’accès conditionnel dans le classeur Insights et rapports. Pour accéder au classeur, vous devez disposer d’un abonnement Azure Monitor et [envoyer en streaming vos journaux de connexion à un espace de travail Log Analytics](../reports-monitoring/howto-integrate-activity-logs-with-log-analytics.md). 
 
 ### <a name="simulate-sign-ins-using-the-what-if-tool"></a>Simuler des connexions à l’aide de l’outil de simulation
 
-Une autre façon de valider votre stratégie d’accès conditionnel consiste à utiliser l’[outil de simulation](https://docs.microsoft.com/azure/active-directory/conditional-access/troubleshoot-conditional-access-what-if) qui reproduit les stratégies pouvant s’appliquer à un utilisateur se connectant dans une situation hypothétique. Sélectionnez les attributs de connexion que vous souhaitez tester (par exemple, utilisateur, application, plateforme d’appareil et emplacement) et voyez quelles stratégies pourraient s’appliquer.
+Une autre façon de valider votre stratégie d’accès conditionnel consiste à utiliser l’[outil de simulation](troubleshoot-conditional-access-what-if.md) qui reproduit les stratégies pouvant s’appliquer à un utilisateur se connectant dans une situation hypothétique. Sélectionnez les attributs de connexion que vous souhaitez tester (par exemple, utilisateur, application, plateforme d’appareil et emplacement) et voyez quelles stratégies pourraient s’appliquer.
 
 > [!NOTE] 
 > Bien qu’une exécution simulée vous donne une bonne idée de l’impact d’une stratégie d’accès conditionnel, elle ne remplace pas une série de tests réels.
@@ -451,19 +453,19 @@ Utilisez les options de gestion suivantes pour contrôler et gérer vos stratég
 
 ### <a name="named-locations"></a>Emplacements nommés
 
-La condition d’emplacement d’une stratégie d’accès conditionnel vous permet de lier des paramètres de contrôle d’accès aux emplacements réseau de vos utilisateurs. Avec les [Emplacements nommés](https://docs.microsoft.com/azure/active-directory/conditional-access/location-condition), vous pouvez créer des regroupements logiques de plages d’adresses IP, ou de pays et de régions.
+La condition d’emplacement d’une stratégie d’accès conditionnel vous permet de lier des paramètres de contrôle d’accès aux emplacements réseau de vos utilisateurs. Avec les [Emplacements nommés](location-condition.md), vous pouvez créer des regroupements logiques de plages d’adresses IP, ou de pays et de régions.
 
 ### <a name="custom-controls"></a>Contrôles personnalisés
 
-Les [Contrôles personnalisés](https://docs.microsoft.com/azure/active-directory/conditional-access/controls) redirigent vos utilisateurs vers un service compatible pour satisfaire aux exigences d’authentification en dehors d’Azure AD. Pour satisfaire à ce contrôle, le navigateur de l’utilisateur est redirigé vers le service externe, il effectue les opérations d’authentification nécessaires, puis est redirigé vers Azure AD. Azure AD vérifie la réponse. Si l’utilisateur a été correctement authentifié ou vérifié, il continue dans le flux d’accès conditionnel.
+Les [Contrôles personnalisés](controls.md) redirigent vos utilisateurs vers un service compatible pour satisfaire aux exigences d’authentification en dehors d’Azure AD. Pour satisfaire à ce contrôle, le navigateur de l’utilisateur est redirigé vers le service externe, il effectue les opérations d’authentification nécessaires, puis est redirigé vers Azure AD. Azure AD vérifie la réponse. Si l’utilisateur a été correctement authentifié ou vérifié, il continue dans le flux d’accès conditionnel.
 
 ### <a name="terms-of-use"></a>Conditions d’utilisation
 
-Avant qu’ils n’accèdent à certaines applications cloud de votre environnement, vous pouvez obtenir le consentement des utilisateurs par l’acceptation de vos conditions d’utilisation. Suivez ce guide de démarrage rapide [pour créer des conditions d’utilisation](https://docs.microsoft.com/azure/active-directory/conditional-access/require-tou).
+Avant qu’ils n’accèdent à certaines applications cloud de votre environnement, vous pouvez obtenir le consentement des utilisateurs par l’acceptation de vos conditions d’utilisation. Suivez ce guide de démarrage rapide [pour créer des conditions d’utilisation](require-tou.md).
 
 ### <a name="classic-policies"></a>Stratégies classiques
 
-Dans le [portail Azure](https://portal.azure.com/), vous pouvez trouver vos stratégies d’accès conditionnel sous Azure Active Directory > Sécurité > Accès conditionnel. Votre organisation peut également disposer d’anciennes stratégies d’accès conditionnel qui n’ont pas été créées à l’aide de cette page. Ces stratégies sont désignées sous l’expression « stratégies classiques ». Nous vous conseillons d’[envisager la migration de ces stratégies classiques dans le portail Azure](https://docs.microsoft.com/azure/active-directory/conditional-access/best-practices).
+Dans le [portail Azure](https://portal.azure.com/), vous pouvez trouver vos stratégies d’accès conditionnel sous Azure Active Directory > Sécurité > Accès conditionnel. Votre organisation peut également disposer d’anciennes stratégies d’accès conditionnel qui n’ont pas été créées à l’aide de cette page. Ces stratégies sont désignées sous l’expression « stratégies classiques ». Nous vous conseillons d’[envisager la migration de ces stratégies classiques dans le portail Azure](best-practices.md).
 
 ## <a name="troubleshoot-conditional-access"></a>Résoudre les problèmes d’accès conditionnel
 
@@ -489,14 +491,14 @@ Si l’utilisateur a reçu un message contenant un lien Plus de détails, il peu
 
 Dès que vous avez collecté les informations, consultez les ressources suivantes :
 
-* [Problèmes de connexion liés à l’accès conditionnel](https://docs.microsoft.com/azure/active-directory/conditional-access/troubleshoot-conditional-access) – Comprenez les événements de connexion inattendus, relatifs à l’accès conditionnel, à l’aide des messages d’erreur et du journal des connexions Azure AD.
+* [Problèmes de connexion liés à l’accès conditionnel](troubleshoot-conditional-access.md) – Comprenez les événements de connexion inattendus, relatifs à l’accès conditionnel, à l’aide des messages d’erreur et du journal des connexions Azure AD.
 
-* [Utilisation de l’outil de simulation](https://docs.microsoft.com/azure/active-directory/conditional-access/troubleshoot-conditional-access-what-if) – Comprenez pourquoi une stratégie a été ou n’a pas été appliquée à un utilisateur dans une situation particulière, ou si une stratégie pourrait s’appliquer à un état connu.
+* [Utilisation de l’outil de simulation](troubleshoot-conditional-access-what-if.md) – Comprenez pourquoi une stratégie a été ou n’a pas été appliquée à un utilisateur dans une situation particulière, ou si une stratégie pourrait s’appliquer à un état connu.
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-[En savoir plus sur l’authentification multifacteur](https://docs.microsoft.com/azure/active-directory/authentication/concept-mfa-howitworks)
+[En savoir plus sur l’authentification multifacteur](../authentication/concept-mfa-howitworks.md)
 
-[En savoir plus sur Identity Protection](https://docs.microsoft.com/azure/active-directory/identity-protection/overview-identity-protection)
+[En savoir plus sur Identity Protection](../identity-protection/overview-identity-protection.md)
 
-[Gérer des stratégies d’accès conditionnel avec API Graph de Microsoft](https://docs.microsoft.com/graph/api/resources/conditionalaccesspolicy?view=graph-rest-beta)
+[Gérer des stratégies d’accès conditionnel avec API Graph de Microsoft](https://docs.microsoft.com/graph/api/resources/conditionalaccesspolicy?view=graph-rest-beta.md)

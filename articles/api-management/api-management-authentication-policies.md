@@ -11,14 +11,14 @@ ms.service: api-management
 ms.workload: mobile
 ms.tgt_pltfrm: na
 ms.topic: article
-ms.date: 11/27/2017
+ms.date: 06/12/2020
 ms.author: apimpm
-ms.openlocfilehash: 70f124a498ff4aa45b5d90f6221fe3d0121e804a
-ms.sourcegitcommit: 12f23307f8fedc02cd6f736121a2a9cea72e9454
+ms.openlocfilehash: 70f1e4414888ceb8fb04fd92dc954d1a7c06dcb4
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/30/2020
-ms.locfileid: "84221044"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85557988"
 ---
 # <a name="api-management-authentication-policies"></a>Stratégies d’authentification dans Gestion des API
 Cette rubrique est une ressource de référence au sujet des stratégies Gestion des API suivantes. Pour plus d'informations sur l'ajout et la configuration des stratégies, consultez la page [Stratégies dans Gestion des API](https://go.microsoft.com/fwlink/?LinkID=398186).
@@ -77,14 +77,23 @@ Cette rubrique est une ressource de référence au sujet des stratégies Gestion
 
 ### <a name="examples"></a>Exemples
 
-Dans cet exemple, le certificat client est identifié par son empreinte.
+Dans cet exemple, le certificat client est identifié par son empreinte :
+
 ```xml
 <authentication-certificate thumbprint="CA06F56B258B7A0D4F2B05470939478651151984" />
 ```
-Dans cet exemple, le certificat client est identifié par le nom de ressource.
+
+Dans cet exemple, le certificat client est identifié par le nom de ressource :
+
 ```xml  
 <authentication-certificate certificate-id="544fe9ddf3b8f30fb490d90f" />  
-```  
+``` 
+
+Dans cet exemple, le certificat client est défini dans la stratégie plutôt que récupéré dans le magasin de certificats intégré :
+
+```xml
+<authentication-certificate body="@(context.Variables.GetValueOrDefault<byte[]>("byteCertificate"))" password="optional-certificate-password" />
+```
 
 ### <a name="elements"></a>Éléments  
   
@@ -96,8 +105,10 @@ Dans cet exemple, le certificat client est identifié par le nom de ressource.
   
 |Nom|Description|Obligatoire|Default|  
 |----------|-----------------|--------------|-------------|  
-|thumbprint|Empreinte du certificat client.|`thumbprint` ou `certificate-id` doit être présent.|N/A|  
-|certificate-id|Le nom de ressource du certificat.|`thumbprint` ou `certificate-id` doit être présent.|N/A|  
+|thumbprint|Empreinte du certificat client.|`thumbprint` ou `certificate-id` doit être présent.|N/A|
+|certificate-id|Le nom de ressource du certificat.|`thumbprint` ou `certificate-id` doit être présent.|N/A|
+|body|Certificat client en tant que tableau d’octets.|Non|N/A|
+|mot de passe|Mot de passe du certificat client.|Utilisé si le certificat spécifié dans `body` est protégé par un mot de passe.|N/A|
   
 ### <a name="usage"></a>Usage  
  Cette stratégie peut être utilisée dans les [sections](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) et [étendues](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes) de stratégie suivantes.  
@@ -107,12 +118,14 @@ Dans cet exemple, le certificat client est identifié par le nom de ressource.
 -   **Étendues de la stratégie :** toutes les étendues  
 
 ##  <a name="authenticate-with-managed-identity"></a><a name="ManagedIdentity"></a> Authentifier avec l’identité managée  
- Utilisez la stratégie `authentication-managed-identity` pour vous authentifier auprès d’un service principal à l’aide de l’identité managée du service Gestion des API. Cette stratégie utilise essentiellement l’identité managée pour obtenir un jeton d’accès auprès d’Azure Active Directory afin d’accéder à la ressource spécifiée. Une fois le jeton obtenu, la stratégie définit la valeur du jeton dans l'en-tête `Authorization` à l’aide du schéma `Bearer`.
+ La stratégie `authentication-managed-identity` permet l’authentification auprès d’un service principal à l’aide de l’identité managée. Cette stratégie utilise essentiellement l’identité managée pour obtenir un jeton d’accès auprès d’Azure Active Directory afin d’accéder à la ressource spécifiée. Une fois le jeton obtenu, la stratégie définit la valeur du jeton dans l'en-tête `Authorization` à l’aide du schéma `Bearer`.
+
+Tant les identités attribuées par le système que les identités attribuées par l’utilisateur permettent de demander un jeton. Si la valeur `client-id` n’est pas fournie, l’identité attribuée par le système est supposée. Si la variable `client-id` est fournie, un jeton est demandé pour cette identité attribuée par l’utilisateur à partir d’Azure Active Directory
   
 ### <a name="policy-statement"></a>Instruction de la stratégie  
   
 ```xml  
-<authentication-managed-identity resource="resource" output-token-variable-name="token-variable" ignore-error="true|false"/>  
+<authentication-managed-identity resource="resource" client-id="clientid of user-assigned identity" output-token-variable-name="token-variable" ignore-error="true|false"/>  
 ```  
   
 ### <a name="example"></a>Exemple  
@@ -127,7 +140,7 @@ Dans cet exemple, le certificat client est identifié par le nom de ressource.
 <authentication-managed-identity resource="https://vault.azure.net"/> <!--Azure Key Vault-->
 ```
 ```xml  
-<authentication-managed-identity resource="https://servicebus.azure.net/"/> <!--Azure Service Busr-->
+<authentication-managed-identity resource="https://servicebus.azure.net/"/> <!--Azure Service Bus-->
 ```
 ```xml  
 <authentication-managed-identity resource="https://storage.azure.com/"/> <!--Azure Blob Storage-->
@@ -169,7 +182,8 @@ Dans cet exemple, le certificat client est identifié par le nom de ressource.
   
 |Nom|Description|Obligatoire|Default|  
 |----------|-----------------|--------------|-------------|  
-|resource|Chaîne. ID d’application de l’API web cible (ressource sécurisée) dans Azure Active Directory.|Oui|N/A|  
+|resource|Chaîne. ID d’application de l’API web cible (ressource sécurisée) dans Azure Active Directory.|Oui|N/A|
+|client-id|Chaîne. ID d’application de l’identité attribuée par l’utilisateur dans Azure Active Directory.|Non|identité attribuée par le système|
 |output-token-variable-name|Chaîne. Nom de la variable de contexte qui recevra la valeur du jeton en tant que type d’objet `string`. |Non|N/A|  
 |ignore-error|Propriété booléenne. Si cet attribut a la valeur `true`, le pipeline de stratégie continuera à s’exécuter même si aucun jeton d’accès n’est obtenu.|Non|false|  
   

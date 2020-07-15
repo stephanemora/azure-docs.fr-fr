@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 05/26/2020
-ms.openlocfilehash: 3784eda2db5f375f04cdde84108a78ae277baf60
-ms.sourcegitcommit: 95269d1eae0f95d42d9de410f86e8e7b4fbbb049
+ms.openlocfilehash: c93ba19cc70aa6b5df054dcc2e7e06885b02d661
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/26/2020
-ms.locfileid: "83860662"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85367952"
 ---
 # <a name="delete-and-recover-azure-log-analytics-workspace"></a>Supprimer et récupérer un espace de travail Azure Log Analytics
 
@@ -22,9 +22,9 @@ Cet article décrit le concept de suppression réversible d'un espace de travail
 Lorsque vous supprimez un espace de travail Log Analytics, une opération de suppression réversible est lancée pour permettre la récupération de l'espace de travail, y compris de ses données et des agents connectés, dans un délai de 14 jours, que la suppression ait été accidentelle ou intentionnelle. À l’issue de cette période de suppression réversible, la ressource d’espace de travail et ses données deviennent irrécupérables : ses données sont mises en file d’attente pour une suppression définitive et sont complètement supprimées dans un délai de 30 jours. Le nom de l’espace de travail est « libéré » et vous pouvez l’utiliser pour créer un espace de travail.
 
 > [!NOTE]
-> Si vous souhaitez modifier le comportement de suppression réversible et supprimer votre espace de travail définitivement, suivez les étapes décrites dans [Suppression d’espace de travail permanent](#permanent-workspace-delete).
+> Si vous souhaitez modifier le comportement de suppression réversible et supprimer définitivement votre espace de travail, suivez les étapes décrites dans [Suppression définitive de l’espace de travail](#permanent-workspace-delete).
 
-Soyez prudent lorsque vous supprimez un espace de travail, car celui-ci peut contenir une configuration et des données importantes dont la suppression peut avoir un impact négatif sur le fonctionnement de votre service. Examinez les agents, les solutions ainsi que les autres services et sources Azure qui stockent leurs données dans Log Analytics, comme :
+Soyez prudent lorsque vous supprimez un espace de travail, car celui-ci peut contenir une configuration et des données importantes dont la suppression peut avoir un impact négatif sur le fonctionnement de votre service. Examinez les agents, solutions et autres services Azure qui stockent leurs données dans Log Analytics, par exemple :
 
 * Liste des solutions de gestion
 * Azure Automation
@@ -64,21 +64,11 @@ La méthode de suppression réversible peut ne pas convenir dans certains cas, p
 > [!IMPORTANT]
 > Utilisez l’opération de suppression définitive d’espace de travail avec précaution, car elle est irréversible et vous ne pourrez récupérer ni votre espace de travail ni ses données.
 
-Pour supprimer définitivement votre espace de travail, utilisez la requête REST [Workspaces – Delete](https://docs.microsoft.com/rest/api/loganalytics/workspaces/delete) avec une balise force :
+Ajoutez la balise « -force » pour supprimer définitivement votre espace de travail :
 
-```rst
-DELETE https://management.azure.com/subscriptions/<subscription-id>/resourcegroups/<resource-group-name>/providers/Microsoft.OperationalInsights/workspaces/<workspace-name>?api-version=2015-11-01-preview&force=true
-Authorization: Bearer <token>
+```powershell
+PS C:\>Remove-AzOperationalInsightsWorkspace -ResourceGroupName "resource-group-name" -Name "workspace-name" -Force
 ```
-
-Vous pouvez également exécuter l’opération à partir du site de documentation REST Azure :
-1.  Accédez à l’API REST [Workspaces – Delete](https://docs.microsoft.com/rest/api/loganalytics/workspaces/delete), puis cliquez sur **Essayer**. 
-2.  Entrez les détails de l’espace de travail que vous souhaitez supprimer définitivement.
-3.  Entrez un nouveau paramètre *force* avec la valeur *true*.
-4.  Cliquez sur l’icône « + » à droite de la valeur. Cela a pour effet d’ajouter *force=true* à l’URI dans la demande.
-5.  Cliquez sur le bouton *Exécuter*.
-
-La réponse doit être la suivante 200 OK.
 
 ## <a name="recover-workspace"></a>Récupérer un espace de travail
 Lorsque vous supprimez un espace de travail Log Analytics accidentellement ou intentionnellement, le service place l’espace de travail dans un état de suppression réversible, ce qui le rend inaccessible à toute opération. Le nom de l’espace de travail supprimé est conservé pendant la période de suppression réversible et ne peut pas être utilisé pour créer un espace de travail. Après la période de suppression réversible, l’espace de travail n’est plus récupérable. Il est planifié pour une suppression définitive, tandis que son nom est libéré et peut être utilisé pour créer un nouvel espace de travail.
@@ -114,11 +104,14 @@ L’espace de travail et toutes ses données sont restaurés après l’opérati
 > [!NOTE]
 > * La recréation d’un espace de travail pendant la période de suppression réversible indique que le nom de cet espace de travail est déjà utilisé. 
  
-### <a name="troubleshooting"></a>Dépannage
-Vous devez disposer au moins des autorisations *Contributeur Log Analytics* pour supprimer un espace de travail.<br>
-Si vous obtenez le message d’erreur *Ce nom d’espace de travail est déjà utilisé* ou un *conflit* s’est produit pendant la création d’un espace de travail ; en voici les raisons possibles :
-* Le nom de l’espace de travail n’est pas disponible et qu’il est utilisé par une personne de votre organisation ou par un autre client.
-* L’espace de travail a été supprimé au cours des 14 derniers jours et son nom est réservé pour la période de suppression réversible. Pour annuler la suppression réversible et supprimer définitivement votre espace de travail pour en créer un nouveau sous le même nom, suivez ces étapes afin de récupérer d’abord l’espace de travail et effectuer la suppression définitive :<br>
-   1. [Récupérez](https://docs.microsoft.com/azure/azure-monitor/platform/delete-workspace#recover-workspace) votre espace de travail.
-   2. [Supprimez définitivement](https://docs.microsoft.com/azure/azure-monitor/platform/delete-workspace#permanent-workspace-delete) votre espace de travail.
-   3. Créez un espace de travail en reprenant le même nom d’espace de travail.
+## <a name="troubleshooting"></a>Dépannage
+
+Vous devez disposer au moins des autorisations *Contributeur Log Analytics* pour supprimer un espace de travail.
+
+* Si vous ignorez si l’espace de travail supprimé est ou non dans un état de suppression réversible et peut être récupéré, cliquez sur [Récupérer](#recover-workspace) dans la page *Espaces de travail Log Analytics* pour afficher la liste des espaces de travail supprimés de manière réversible par abonnement. Les espaces de travail définitivement supprimés ne figurent pas dans la liste.
+* Si vous obtenez le message d’erreur *Ce nom d’espace de travail est déjà utilisé* ou un *conflit* s’est produit pendant la création d’un espace de travail ; en voici les raisons possibles :
+  * Le nom de l’espace de travail n’est pas disponible et qu’il est utilisé par une personne de votre organisation ou par un autre client.
+  * L’espace de travail a été supprimé au cours des 14 derniers jours et son nom est réservé pour la période de suppression réversible. Pour annuler la suppression réversible et supprimer définitivement votre espace de travail pour en créer un nouveau sous le même nom, suivez ces étapes afin de récupérer d’abord l’espace de travail et effectuer la suppression définitive :<br>
+     1. [Récupérez](https://docs.microsoft.com/azure/azure-monitor/platform/delete-workspace#recover-workspace) votre espace de travail.
+     2. [Supprimez définitivement](https://docs.microsoft.com/azure/azure-monitor/platform/delete-workspace#permanent-workspace-delete) votre espace de travail.
+     3. Créez un espace de travail en reprenant le même nom d’espace de travail.

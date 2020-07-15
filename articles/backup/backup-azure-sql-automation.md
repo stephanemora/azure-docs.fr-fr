@@ -4,12 +4,12 @@ description: Sauvegardez et restaurez des bases de données SQL dans des machine
 ms.topic: conceptual
 ms.date: 03/15/2019
 ms.assetid: 57854626-91f9-4677-b6a2-5d12b6a866e1
-ms.openlocfilehash: 21c8ea5ff50cc78b60ccb3b09c953b184757f3c9
-ms.sourcegitcommit: 8017209cc9d8a825cc404df852c8dc02f74d584b
+ms.openlocfilehash: 862455175497fe5496c7eea459c32772074671ff
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/01/2020
-ms.locfileid: "84246983"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85255141"
 ---
 # <a name="back-up-and-restore-sql-databases-in-azure-vms-with-powershell"></a>Sauvegarder et restaurer des bases de données SQL dans des machines virtuelles Azure à l’aide de PowerShell
 
@@ -499,7 +499,7 @@ Si la sortie est perdue ou si vous souhaitez obtenir l’ID de travail pertinent
 
 ### <a name="change-policy-for-backup-items"></a>Modifier la stratégie pour les éléments de sauvegarde
 
-L’utilisateur peut modifier la stratégie existante ou changer la stratégie de l’élément sauvegardé de Policy1 en Policy2. Pour changer de stratégie pour un élément sauvegardé, récupérez la stratégie et l’élément de sauvegarde appropriés, puis utilisez la commande [Enable-AzRecoveryServices](https://docs.microsoft.com/powershell/module/az.recoveryservices/Enable-AzRecoveryServicesBackupProtection?view=azps-1.5.0) avec l’élément de sauvegarde comme paramètre.
+L’utilisateur peut modifier la stratégie de l’élément sauvegardé de Policy1 en Policy2. Pour changer de stratégie pour un élément sauvegardé, récupérez la stratégie et l’élément de sauvegarde appropriés, puis utilisez la commande [Enable-AzRecoveryServices](https://docs.microsoft.com/powershell/module/az.recoveryservices/Enable-AzRecoveryServicesBackupProtection?view=azps-1.5.0) avec l’élément de sauvegarde comme paramètre.
 
 ```powershell
 $TargetPol1 = Get-AzRecoveryServicesBackupProtectionPolicy -Name <PolicyName>
@@ -513,6 +513,19 @@ La commande attend la fin de la configuration de la sauvegarde et renvoie le ré
 WorkloadName     Operation            Status               StartTime                 EndTime                   JobID
 ------------     ---------            ------               ---------                 -------                   -----
 master           ConfigureBackup      Completed            3/18/2019 8:00:21 PM      3/18/2019 8:02:16 PM      654e8aa2-4096-402b-b5a9-e5e71a496c4e
+```
+
+### <a name="edit-an-existing-backup-policy"></a>Modifier une stratégie de sauvegarde existante
+
+Pour modifier une stratégie existante, utilisez la commande [Set-AzRecoveryServicesBackupProtectionPolicy](https://docs.microsoft.com/powershell/module/az.recoveryservices/set-azrecoveryservicesbackupprotectionpolicy?view=azps-3.8.0).
+
+```powershell
+Set-AzRecoveryServicesBackupProtectionPolicy -Policy $Pol -SchedulePolicy $SchPol -RetentionPolicy $RetPol
+```
+Vérifiez les travaux de sauvegarde au bout d’un certain temps pour suivre l’existence d’échecs éventuels. S’il y en a, vous devez résoudre les problèmes. Réexécutez ensuite la commande de modification de stratégie avec le paramètre **FixForInconsistentItems** pour réessayer de modifier la stratégie sur tous les éléments de sauvegarde pour lesquels l’opération a échoué précédemment.
+
+```powershell
+Set-AzRecoveryServicesBackupProtectionPolicy -Policy $Pol -FixForInconsistentItems
 ```
 
 ### <a name="re-register-sql-vms"></a>Inscrire de nouveau des machines virtuelles SQL
@@ -597,4 +610,4 @@ Supposons par exemple qu’un groupe de disponibilité SQL a deux nœuds : « sq
 
 sql-server-0 et sql-server-1 seront également répertoriés sous la forme « AzureVMAppContainer » dans la [liste des conteneurs de sauvegarde](https://docs.microsoft.com/powershell/module/az.recoveryservices/Get-AzRecoveryServicesBackupContainer?view=azps-1.5.0).
 
-Récupérez simplement la base de données SQL pour [activer la sauvegarde](#configuring-backup) et les [cmdlets PS de sauvegarde à la demande](#on-demand-backup) et de [restauration](#restore-sql-dbs) restent identiques.
+Récupérez simplement la base de données pour [activer la sauvegarde](#configuring-backup) et les [cmdlets PS de sauvegarde à la demande](#on-demand-backup) et de [restauration](#restore-sql-dbs) restent identiques.

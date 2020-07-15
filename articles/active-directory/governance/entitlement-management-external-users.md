@@ -10,18 +10,18 @@ ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: conceptual
+ms.topic: how-to
 ms.subservice: compliance
-ms.date: 03/22/2020
+ms.date: 06/18/2020
 ms.author: barclayn
 ms.reviewer: mwahl
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: af0f68ca9520c1715463212da80aaabed48f8269
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 8576088069f419872db57b063163e8d9b1968b33
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80128701"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85338220"
 ---
 # <a name="govern-access-for-external-users-in-azure-ad-entitlement-management"></a>Régir l’accès des utilisateurs externes dans la gestion des droits d’utilisation Azure AD
 
@@ -103,13 +103,13 @@ Pour vous assurer que les personnes extérieures à votre organisation peuvent d
 
 - Assurez-vous que les paramètres au niveau du site autorisent l’accès invité (mêmes options que celles précédemment listées). Pour plus d’informations, consultez [Activer ou désactiver le partage externe pour un site](https://docs.microsoft.com/sharepoint/change-external-sharing-site).
 
-### <a name="review-your-office-365-group-sharing-settings"></a>Passer en revue vos paramètres de partage de groupe Office 365
+### <a name="review-your-microsoft-365-group-sharing-settings"></a>Examinez vos paramètres de partage de groupe Microsoft 365
 
-- Si vous souhaitez inclure des groupes Office 365 dans vos packages d’accès pour des utilisateurs externes, assurez-vous que le paramètre **Permettre aux utilisateurs d’ajouter de nouveaux invités à l’organisation** est défini sur **Activé** pour autoriser l’accès invité. Pour plus d’informations, consultez [Gérer l’accès invité à des groupes Office 365](https://docs.microsoft.com/office365/admin/create-groups/manage-guest-access-in-groups?view=o365-worldwide#manage-groups-guest-access).
+- Si vous souhaitez inclure des groupes Microsoft 365 dans vos packages d’accès pour des utilisateurs externes, assurez-vous que le paramètre **Permettre aux utilisateurs d’ajouter de nouveaux invités à l’organisation** est défini sur **Activé** pour autoriser l’accès invité. Pour plus d’informations, consultez [Gérer l’accès invité à des groupes Microsoft 365](https://docs.microsoft.com/office365/admin/create-groups/manage-guest-access-in-groups?view=o365-worldwide#manage-groups-guest-access).
 
-- Si vous souhaitez que les utilisateurs externes puissent accéder au site SharePoint Online et aux ressources associées à un groupe Office 365, veillez à activer le partage externe SharePoint Online. Pour plus d’informations, consultez [Activer ou désactiver le partage externe](https://docs.microsoft.com/sharepoint/turn-external-sharing-on-or-off#change-the-organization-level-external-sharing-setting).
+- Si vous souhaitez que les utilisateurs externes puissent accéder au site SharePoint Online et aux ressources associées à un groupe Microsoft 365, veillez à activer le partage externe SharePoint Online. Pour plus d’informations, consultez [Activer ou désactiver le partage externe](https://docs.microsoft.com/sharepoint/turn-external-sharing-on-or-off#change-the-organization-level-external-sharing-setting).
 
-- Pour plus d’informations sur la façon de définir la stratégie d’invité pour les groupes Office 365 au niveau du répertoire dans PowerShell, consultez [Exemple : Configurer une stratégie d’invité pour les groupes au niveau du répertoire](../users-groups-roles/groups-settings-cmdlets.md#example-configure-guest-policy-for-groups-at-the-directory-level).
+- Pour plus d’informations sur la façon de définir la stratégie d’invité pour les groupes Microsoft 365 au niveau du répertoire dans PowerShell, consultez [Exemple : Configurer une stratégie d’invité pour les groupes au niveau du répertoire](../users-groups-roles/groups-settings-cmdlets.md#example-configure-guest-policy-for-groups-at-the-directory-level).
 
 ### <a name="review-your-teams-sharing-settings"></a>Passer en revue vos paramètres de partage des équipes
 

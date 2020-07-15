@@ -3,12 +3,12 @@ title: Utilisation des collections fiables
 description: Découvrez les bonnes pratiques liées à l’utilisation des collections fiables dans une application Azure Service Fabric.
 ms.topic: conceptual
 ms.date: 03/10/2020
-ms.openlocfilehash: 94836a37a62e3eeffb94d891980cc02694bd973e
-ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
+ms.openlocfilehash: f0f1d332b3636e28ffc50ee8b8edcd253474a307
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "81409806"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85374693"
 ---
 # <a name="working-with-reliable-collections"></a>Utilisation des collections fiables
 Service Fabric propose un modèle de programmation avec état disponible pour les développeurs .NET via les collections fiables. Plus précisément, Service Fabric fournit un dictionnaire fiable et des classes de file d’attente fiables. Lorsque vous utilisez ces classes, votre état est partitionné (pour l’évolutivité) répliqué (pour la disponibilité) et traité dans une partition (pour la sémantique ACID). Examinons l'utilisation type d'un objet de dictionnaire fiable afin de découvrir ses fonctionnalités réelles.
@@ -42,9 +42,14 @@ Toutes les opérations relatives aux objets de dictionnaires fiables (à l'excep
 
 Dans le code ci-dessus, l'objet ITransaction est transféré vers la méthode AddAsync d'un dictionnaire fiable. En interne, les méthodes de dictionnaire qui acceptent une clé prennent un verrou de lecture/écriture associé à la clé. Si la méthode modifie la valeur de la clé, elle accepte un verrou d'écriture sur la clé, et si elle ne lit qu'à partir de la valeur de la clé, un verrou de lecture est appliqué sur la clé. Puisque AddAsync modifie la valeur de la clé en la remplaçant par la nouvelle valeur transmise, le verrou d'écriture de la clé est appliqué. Par conséquent, si 2 threads (ou plus) tentent d'ajouter des valeurs à la même clé au même moment, un thread acquerra le verrou d'écriture et les autres threads se bloqueront. Par défaut, les méthodes se bloquent pendant 4 secondes maximum pour acquérir le verrou. Après 4 secondes, les méthodes lèvent une exception TimeoutException. Il existe des surcharges de méthode qui vous permettent de transmettre une valeur de délai d'attente explicite si vous le souhaitez.
 
-En règle générale, vous écrivez votre code de manière à réagir à une exception TimeoutException en l’interceptant et en recommençant toute l’opération (comme indiqué dans le code ci-dessus). Dans mon code simple, j'appelle simplement Task.Delay en transmettant 100 millisecondes à chaque fois. Mais, en réalité, vous pouvez juger préférable d’utiliser un type de délai de temporisation exponentiel.
+En règle générale, vous écrivez votre code de manière à réagir à une exception TimeoutException en l’interceptant et en recommençant toute l’opération (comme indiqué dans le code ci-dessus). Dans ce code simple, nous appellons simplement Task.Delay en transmettant 100 millisecondes à chaque fois. Mais, en réalité, vous pouvez juger préférable d’utiliser un type de délai de temporisation exponentiel.
 
-Une fois le verrou acquis, AddAsync ajoute les références d’objet de clé et de valeur à un dictionnaire temporaire interne associé à l’objet ITransaction. De cette manière, vous obtenez une sémantique de type « lecture de vos propres écritures ». Autrement dit, après avoir appelé AddAsync, un appel ultérieur à TryGetValueAsync (à l’aide du même objet ITransaction) renverra la valeur même si vous n’avez pas encore validé la transaction. Ensuite, AddAsync sérialise vos objets de clé et de valeur dans des tableaux d’octets et ajoute ces tableaux d’octets à un fichier journal situé sur le nœud local. Pour finir, AddAsync envoie les tableaux d’octets à tous les réplicas secondaires de manière à leur fournir les mêmes informations de clé/valeur. Même si les informations de clé/valeur ont été écrites dans un fichier journal, les informations ne sont pas considérées comme intégrées au dictionnaire tant que la transaction qui leur est associée n’a pas été validée.
+Une fois le verrou acquis, AddAsync ajoute les références d’objet de clé et de valeur à un dictionnaire temporaire interne associé à l’objet ITransaction. De cette manière, vous obtenez une sémantique de type « lecture de vos propres écritures ». Autrement dit, après avoir appelé AddAsync, un appel ultérieur à TryGetValueAsync à l’aide du même objet ITransaction renverra la valeur même si vous n’avez pas encore validé la transaction.
+
+> [!NOTE]
+> L’appel de TryGetValueAsync avec une nouvelle transaction retourne une référence à la dernière valeur validée. Ne modifiez pas directement cette référence, car cela a pour effet de contourner le mécanisme de persistance et de réplication des modifications. Nous vous recommandons de faire en sorte que les valeurs soient en lecture seule, de sorte que la seule façon de modifier la valeur d’une clé soit d’utiliser des API de dictionnaire fiables.
+
+Ensuite, AddAsync sérialise vos objets de clé et de valeur dans des tableaux d’octets et ajoute ces tableaux d’octets à un fichier journal situé sur le nœud local. Pour finir, AddAsync envoie les tableaux d’octets à tous les réplicas secondaires de manière à leur fournir les mêmes informations de clé/valeur. Même si les informations de clé/valeur ont été écrites dans un fichier journal, les informations ne sont pas considérées comme intégrées au dictionnaire tant que la transaction qui leur est associée n’a pas été validée.
 
 Dans le code ci-dessus, l'appel à CommitAsync permet de valider toutes les opérations de la transaction. Plus précisément, il ajoute des informations de validation au fichier journal situé sur le nœud local et envoie également l’enregistrement de validation à tous les réplicas secondaires. Dès lors qu’un quorum (une majorité) de réplicas a répondu, toutes les modifications apportées aux données sont considérées comme permanentes et tous les verrous associés aux clés qui ont été manipulées à l’aide de l’objet ITransaction sont libérés afin que d’autres threads/transactions puissent manipuler les mêmes clés et les valeurs qui leur sont associées.
 

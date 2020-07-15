@@ -5,17 +5,17 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: how-to
-ms.date: 05/22/2020
+ms.date: 06/24/2020
 ms.author: iainfou
 author: iainfoulds
 manager: daveba
 ms.reviewer: scottsta
-ms.openlocfilehash: 9a02a01bb55e63322964b52a5f4d6113b3280360
-ms.sourcegitcommit: 12f23307f8fedc02cd6f736121a2a9cea72e9454
+ms.openlocfilehash: 0a7048e79ddd4a86d7e14e573cf5b8556f462f03
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/30/2020
-ms.locfileid: "84220715"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85550337"
 ---
 # <a name="sign-in-to-azure-active-directory-using-email-as-an-alternate-login-id-preview"></a>Se connecter à Azure Active Directory en utilisant un e-mail en guise d’ID de connexion alternatif (préversion)
 
@@ -29,10 +29,8 @@ Certaines organisations n’ont pas adopté l’authentification hybride pour le
 
 Pour faciliter l’adoption de l’authentification hybride, vous pouvez désormais configurer Azure AD de façon à permettre aux utilisateurs de se connecter en utilisant une adresse e-mail de votre domaine vérifié en guise d’ID de connexion alternatif. Par exemple, si *Contoso* a été rebaptisé *Fabrikam*, au lieu de continuer à se connecter avec l’UPN `balas@contoso.com` hérité, il est maintenant possible d’utiliser une adresse e-mail en tant qu’ID de connexion alternatif. Pour accéder à une application ou à des services, les utilisateurs se connectent à Azure AD à l’aide de l’e-mail qui leur est attribué, par exemple, `balas@fabrikam.com`.
 
-|     |
-| --- |
-| La connexion à Azure AD avec une adresse e-mail en guise d’ID de connexion alternatif est une fonctionnalité en préversion publique d’Azure Active Directory. Pour plus d’informations sur les préversions, consultez [Conditions d’utilisation supplémentaires pour les préversions de Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).|
-|     |
+> [!NOTE]
+> La connexion à Azure AD avec une adresse e-mail en guise d’ID de connexion alternatif est une fonctionnalité en préversion publique d’Azure Active Directory. Pour plus d’informations sur les préversions, consultez [Conditions d’utilisation supplémentaires pour les préversions de Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 ## <a name="overview-of-azure-ad-sign-in-approaches"></a>Vue d’ensemble des approches de la connexion à Azure AD
 
@@ -45,6 +43,19 @@ Cela étant, dans certaines organisations, l’UPN local n’est pas utilisé en
 La solution de contournement à ce problème consiste à définir l’UPN Azure AD sur l’adresse e-mail que l’utilisateur envisage d’utiliser pour se connecter. Cette approche fonctionne, même si elle donne lieu à des UPN différents entre AD local et Azure AD. Qui plus est, cette configuration n’est pas compatible avec toutes les charges de travail Microsoft 365.
 
 Une autre approche consiste à synchroniser les UPN Azure AD et locaux avec la même valeur, puis à configurer Azure AD pour permettre aux utilisateurs de se connecter à Azure AD à l’aide d’une adresse e-mail vérifiée. Pour ce faire, vous définissez une ou plusieurs adresses e-mail dans l’attribut *ProxyAddresses* de l’utilisateur dans le répertoire local. Les valeurs *ProxyAddresses* sont ensuite synchronisées automatiquement avec Azure AD à l’aide d’Azure AD Connect.
+
+## <a name="preview-limitations"></a>Limitations de la version préliminaire
+
+Pendant la période de la préversion, les limitations suivantes s’appliquent lorsqu’un utilisateur se connecte en utilisant un e-mail non-UPN comme ID de connexion alternatif :
+
+* Les utilisateurs peuvent voir leur UPN, même quand ils sont connectés avec leur e-mail non-UPN. L’exemple de comportement suivant peut être observé :
+    * L’utilisateur est invité à se connecter avec l’UPN lorsqu’il est dirigé vers la connexion Azure AD avec `login_hint=<non-UPN email>`.
+    * Lorsqu’un utilisateur se connecte avec un e-mail non-UPN et qu’il entre un mot de passe incorrect, la page *Entrez votre mot de passe* change pour afficher l’UPN.
+    * Sur certains sites et applications Microsoft, tels que [https://portal.azure.com](https://portal.azure.com) et Microsoft Office, le contrôle du **gestionnaire de comptes** généralement affiché en haut à droite peut afficher l’UPN de l’utilisateur au lieu de l’e-mail non-UPN utilisé pour la connexion.
+
+* Certains flux ne sont actuellement pas compatibles avec l’e-mail non-UPN, notamment :
+    * Identity Protection ne fait pas correspondre actuellement les ID de connexion alternatifs avec la détection de risque *Informations d’identification fuitées*. Cette détection de risque utilise l’UPN pour faire correspondre les informations d’identification qui ont été divulguées. Pour plus d’informations, consultez [Détection et correction des riques Azure AD Identity Protection][identity-protection].
+    * Les invitations B2B envoyées à un ID de connexion alternatif ne sont pas entièrement prises en charge. Après avoir accepté une invitation envoyée à un e-mail en tant qu’ID de connexion alternatif, la connexion avec l’e-mail alternatif peut ne pas fonctionner pour l’utilisateur sur le point de terminaison du locataire.
 
 ## <a name="synchronize-sign-in-email-addresses-to-azure-ad"></a>Synchroniser les adresses e-mail de connexion sur Azure AD
 
@@ -177,6 +188,7 @@ Pour plus d’informations sur les opérations d’identité hybrides, voyez com
 [hybrid-overview]: ../hybrid/cloud-governed-management-for-on-premises.md
 [phs-overview]: ../hybrid/how-to-connect-password-hash-synchronization.md
 [pta-overview]: ../hybrid/how-to-connect-pta-how-it-works.md
+[identity-protection]: ../identity-protection/overview-identity-protection.md#risk-detection-and-remediation
 
 <!-- EXTERNAL LINKS -->
 [Install-Module]: /powershell/module/powershellget/install-module

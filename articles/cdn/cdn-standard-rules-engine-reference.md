@@ -5,14 +5,14 @@ services: cdn
 author: asudbring
 ms.service: azure-cdn
 ms.topic: article
-ms.date: 11/01/2019
+ms.date: 06/22/2020
 ms.author: allensu
-ms.openlocfilehash: 6d4fa4451c3db3d6f2a506eabd5676d18b0219f4
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 6260a4b78197329e020bebaa3bc08db5ad792086
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81259899"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85559301"
 ---
 # <a name="standard-rules-engine-reference-for-azure-cdn"></a>Informations de référence sur le moteur de règles standard pour Azure CDN
 
@@ -32,9 +32,16 @@ Pour définir une règle dans le moteur de règles, définissez les [conditions 
 
  ![Structure des règles Azure CDN](./media/cdn-standard-rules-engine-reference/cdn-rules-structure.png)
 
-Chaque règle peut avoir jusqu’à quatre conditions de correspondance et trois actions. Chaque point de terminaison Azure CDN peut avoir jusqu’à cinq règles. 
+Chaque règle peut avoir jusqu’à dix conditions de correspondance et cinq actions. Chaque point de terminaison Azure CDN peut avoir jusqu’à 25 règles. 
 
-La limite actuelle de cinq règles pour un point de terminaison Azure CDN inclut une *règle générale* par défaut. La règle générale n’a pas de conditions de correspondance, et les actions définies dans une règle générale se déclenchent toujours.
+Une valeur par défaut *règle globale* est incluse dans cette limite. La règle globale n’a pas de conditions de correspondance ; les actions définies dans une règle globale se déclenchent toujours.
+
+## <a name="limits-and-pricing"></a>Limites et tarification 
+
+Chaque point de terminaison Azure CDN peut avoir jusqu’à 25 règles. Chaque règle peut avoir jusqu’à dix conditions de correspondance et cinq actions. La tarification du moteur de règles suit les dimensions ci-dessous : 
+- Règles : 1 USD par règle par mois 
+- Demandes traitées : 0,60 USD par million de demandes
+- Les 5 premières règles restent gratuites
 
 ## <a name="syntax"></a>Syntaxe
 

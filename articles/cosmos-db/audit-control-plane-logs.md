@@ -3,15 +3,15 @@ title: Guide pratique pour auditer les opérations de plan de contrôle Azure Co
 description: Découvrez comment auditer les opérations de plan de contrôle telles que l’ajout d’une région, la mise à jour du débit, le basculement de région, l’ajout d’un réseau virtuel, etc., dans Azure Cosmos DB
 author: SnehaGunda
 ms.service: cosmos-db
-ms.topic: conceptual
-ms.date: 04/23/2020
+ms.topic: how-to
+ms.date: 06/25/2020
 ms.author: sngun
-ms.openlocfilehash: a5df7866f7897109dbd7a0ea8a52b857ab671875
-ms.sourcegitcommit: 4499035f03e7a8fb40f5cff616eb01753b986278
+ms.openlocfilehash: 4c9f02784507ee893b6396fef4ed34a87610166d
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/03/2020
-ms.locfileid: "82735349"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85414172"
 ---
 # <a name="how-to-audit-azure-cosmos-db-control-plane-operations"></a>Guide pratique pour auditer les opérations de plan de contrôle Azure Cosmos DB
 
@@ -51,7 +51,7 @@ Effectuez les étapes suivantes pour activer la journalisation sur les opératio
 
 Vous pouvez également stocker les journaux dans un compte de stockage ou les transmettre à un hub d’événements. Cet article explique comment envoyer des journaux à Log Analytics, puis les interroger. Une fois l’activation effectuée, la prise en compte des journaux de diagnostic prend quelques minutes. Toutes les opérations de plan de contrôle effectuées par la suite peuvent faire l’objet d’un suivi. La capture d’écran suivante montre comment activer les journaux du plan de contrôle :
 
-![Activer la journalisation des demandes du plan de contrôle](./media/audit-control-plane-logs/enable-control-plane-requests-logs.png)
+:::image type="content" source="./media/audit-control-plane-logs/enable-control-plane-requests-logs.png" alt-text="Activer la journalisation des demandes du plan de contrôle":::
 
 ## <a name="view-the-control-plane-operations"></a>Afficher les opérations de plan de contrôle
 
@@ -69,17 +69,17 @@ Après avoir activé la journalisation, suivez les étapes ci-dessous pour effec
 
 Les captures d’écran suivantes capturent des journaux lorsqu’un niveau de cohérence est modifié par un compte Azure Cosmos :
 
-![Journaux du plan de contrôle lors de l’ajout d’un réseau virtuel](./media/audit-control-plane-logs/add-ip-filter-logs.png)
+:::image type="content" source="./media/audit-control-plane-logs/add-ip-filter-logs.png" alt-text="Journaux du plan de contrôle lors de l’ajout d’un réseau virtuel":::
 
-La capture d’écran suivante montre les journaux générés lors de la mise à jour du débit d’une table Cassandra :
+Les captures d’écran suivantes capturent les journaux lorsque l’espace de clés ou une table d’un compte Cassandra sont créés et lorsque le débit est mis à jour. Les journaux du plan de contrôle pour les opérations de création et de mise à jour sur la base de données et le conteneur sont consignés séparément, comme le montre la capture d’écran suivante :
 
-![Journaux du plan de contrôle lors de la mise à jour du débit](./media/audit-control-plane-logs/throughput-update-logs.png)
+:::image type="content" source="./media/audit-control-plane-logs/throughput-update-logs.png" alt-text="Journaux du plan de contrôle lors de la mise à jour du débit":::
 
 ## <a name="identify-the-identity-associated-to-a-specific-operation"></a>Identifier l’identité associée à une opération spécifique
 
 Si vous souhaitez effectuer un débogage supplémentaire, vous pouvez identifier une opération spécifique dans le **journal d’activité** à l’aide de l’ID d’activité ou de l’horodatage de l’opération. L’horodatage est utilisé pour certains clients Resource Manager dans les cas où l’ID d’activité n’est pas explicitement passée. Le journal d’activité fournit des détails sur l’identité sous laquelle l’opération a été lancée. La capture d’écran suivante montre comment utiliser l’ID d’activité et rechercher les opérations qui lui sont associées dans le journal d’activité :
 
-![Utiliser l’ID d’activité et rechercher les opérations](./media/audit-control-plane-logs/find-operations-with-activity-id.png)
+:::image type="content" source="./media/audit-control-plane-logs/find-operations-with-activity-id.png" alt-text="Utiliser l’ID d’activité et rechercher les opérations":::
 
 ## <a name="control-plane-operations-for-azure-cosmos-account"></a>Opérations du plan de contrôle pour le compte Azure Cosmos
 
@@ -101,30 +101,39 @@ Voici les opérations du plan de contrôle accessibles au niveau du compte. La p
 
 Voici les opérations du plan de contrôle accessibles au niveau de la base de données et di conteneur. Ces opérations sont accessibles en tant que métriques dans Azure Monitor :
 
+* Base de données SQL créée
 * Base de données SQL mise à jour
-* Conteneur SQL mis à jour
 * Débit de base de données SQL mis à jour
-* Débit de conteneur SQL mis à jour
 * Base de données SQL supprimée
+* Conteneur SQL créé
+* Conteneur SQL mis à jour
+* Débit de conteneur SQL mis à jour
 * Conteneur SQL supprimé
+* Espace de clés Cassandra créé
 * Espace de clés Cassandra mis à jour
-* Table Cassandra mise à jour
 * Débit d’espace de clés Cassandra mis à jour
-* Débit de table Cassandra mis à jour
 * Espace de clés Cassandra supprimé
+* Table Cassandra créée
+* Table Cassandra mise à jour
+* Débit de table Cassandra mis à jour
 * Table Cassandra supprimée
+* Base de données Gremlin créée
 * Base de données Gremlin mise à jour
-* Graphique Gremlin mis à jour
 * Débit de base de données Gremlin mis à jour
-* Débit de graphique Gremlin mis à jour
 * Base de données Gremlin supprimée
+* Graphique Gremlin créé
+* Graphique Gremlin mis à jour
+* Débit de graphique Gremlin mis à jour
 * Graphique Gremlin supprimé
+* Base de données Mongo créée
 * Base de données Mongo mise à jour
-* Collection Mongo mise à jour
 * Débit de base de données Mongo mis à jour
-* Débit de collection Mongo mis à jour
 * Base de données Mongo supprimée
+* Collection Mongo créée
+* Collection Mongo mise à jour
+* Débit de collection Mongo mis à jour
 * Collection Mongo supprimée
+* Table AzureTable créée
 * Table AzureTable mise à jour
 * Débit de table AzureTable mis à jour
 * Table AzureTable supprimée
@@ -144,14 +153,15 @@ Voici les noms d’opération dans les journaux de diagnostic pour différentes 
 
 Pour les opérations spécifiques à l’API, l’opération est nommée selon le format suivant :
 
-* GenreApi + TypeRessourceGenreApi + TypeOpération + Start/Complete
-* GenreApi + TypeRessourceGenreApi + « Throughput » + TypeOpération + Start/Complete
+* GenreApi + TypeRessourceGenreApi + TypeOpération
+* GenreApi + TypeRessourceGenreApi + « Débit » + TypeOpération
 
 **Exemple** 
 
-* CassandraKeyspacesUpdateStart, CassandraKeyspacesUpdateComplete
-* CassandraKeyspacesThroughputUpdateStart, CassandraKeyspacesThroughputUpdateComplete
-* SqlContainersUpdateStart, SqlContainersUpdateComplete
+* CassandraKeyspacesCreate
+* CassandraKeyspacesUpdate
+* CassandraKeyspacesThroughputUpdate
+* SqlContainersUpdate
 
 La propriété *ResourceDetails* contient l’intégralité du corps de la ressource en tant que charge utile de la demande, ainsi que toutes les propriétés requises pour la mise à jour.
 
@@ -161,14 +171,28 @@ Voici quelques exemples pour obtenir des journaux de diagnostic pour les opérat
 
 ```kusto
 AzureDiagnostics 
-| where Category =="ControlPlaneRequests"
-| where  OperationName startswith "SqlContainersUpdateStart"
+| where Category startswith "ControlPlane"
+| where OperationName contains "Update"
+| project httpstatusCode_s, statusCode_s, OperationName, resourceDetails_s, activityId_g
 ```
 
 ```kusto
 AzureDiagnostics 
 | where Category =="ControlPlaneRequests"
-| where  OperationName startswith "SqlContainersThroughputUpdateStart"
+| where TimeGenerated >= todatetime('2020-05-14T17:37:09.563Z')
+| project TimeGenerated, OperationName, apiKind_s, apiKindResourceType_s, operationType_s, resourceDetails_s
+```
+
+```kusto
+AzureDiagnostics 
+| where Category =="ControlPlaneRequests"
+| where  OperationName startswith "SqlContainersUpdate"
+```
+
+```kusto
+AzureDiagnostics 
+| where Category =="ControlPlaneRequests"
+| where  OperationName startswith "SqlContainersThroughputUpdate"
 ```
 
 ## <a name="next-steps"></a>Étapes suivantes

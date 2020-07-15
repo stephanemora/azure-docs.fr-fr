@@ -4,12 +4,12 @@ description: Dans cet article, découvrez comment résoudre les problèmes liés
 ms.reviewer: saurse
 ms.topic: troubleshooting
 ms.date: 07/15/2019
-ms.openlocfilehash: 1d1397519b39ffbc439cdd0d3e78d9b553ea302e
-ms.sourcegitcommit: acc558d79d665c8d6a5f9e1689211da623ded90a
+ms.openlocfilehash: cb9e5cf48f960a70c6a699df1163089eb4e8bc31
+ms.sourcegitcommit: bcb962e74ee5302d0b9242b1ee006f769a94cfb8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/30/2020
-ms.locfileid: "82598009"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86056595"
 ---
 # <a name="troubleshoot-the-microsoft-azure-recovery-services-mars-agent"></a>Résoudre les problèmes liés à l’agent Microsoft Azure Recovery Services (MARS)
 
@@ -68,7 +68,7 @@ Nous vous recommandons de passer en revue les points suivants avant de commencer
 
 | Error   | Actions recommandées |
 | ---     | ---    |
-|Échec de téléchargement du fichier d'informations d'identification du coffre. (ID : 403) | <ul><li> Essayez de télécharger les informations d’identification de coffre à l’aide d’un autre navigateur, ou procédez comme suit : <ul><li> Démarrez Internet Explorer. Sélectionnez F12. </li><li> Accédez à l’onglet **Réseau** et effacez le cache et les cookies. </li> <li> Actualisez la page.<br></li></ul> <li> Vérifiez si l’abonnement est désactivé ou a expiré.<br></li> <li> Vérifiez si une règle de pare-feu bloque le téléchargement. <br></li> <li> Assurez-vous de ne pas avoir atteint la limite relative au coffre (50 machines par coffre).<br></li>  <li> Vérifiez que l’utilisateur a les autorisations Sauvegarde Azure nécessaires pour télécharger les informations d’identification du coffre et inscrire un serveur dans le coffre. Consultez [Use Role-Based Access Control to manage Azure Backup recovery points](backup-rbac-rs-vault.md) (Utiliser le contrôle d’accès en fonction du rôle pour gérer les points de récupération Sauvegarde Azure).</li></ul> |
+|Échec de téléchargement du fichier d’informations d’identification du coffre. (ID : 403) | <ul><li> Essayez de télécharger les informations d’identification de coffre à l’aide d’un autre navigateur, ou procédez comme suit : <ul><li> Démarrez Internet Explorer. Sélectionnez F12. </li><li> Accédez à l’onglet **Réseau** et effacez le cache et les cookies. </li> <li> Actualisez la page.<br></li></ul> <li> Vérifiez si l’abonnement est désactivé ou a expiré.<br></li> <li> Vérifiez si une règle de pare-feu bloque le téléchargement. <br></li> <li> Assurez-vous de ne pas avoir atteint la limite relative au coffre (50 machines par coffre).<br></li>  <li> Vérifiez que l’utilisateur a les autorisations Sauvegarde Azure nécessaires pour télécharger les informations d’identification du coffre et inscrire un serveur dans le coffre. Consultez [Use Role-Based Access Control to manage Azure Backup recovery points](backup-rbac-rs-vault.md) (Utiliser le contrôle d’accès en fonction du rôle pour gérer les points de récupération Sauvegarde Azure).</li></ul> |
 
 ## <a name="the-microsoft-azure-recovery-service-agent-was-unable-to-connect-to-microsoft-azure-backup"></a>L’agent Microsoft Azure Recovery Service n’a pas pu se connecter à la Sauvegarde Microsoft Azure
 
@@ -165,6 +165,25 @@ Set-ExecutionPolicy Unrestricted
 Error | Causes possibles | Actions recommandées
 --- | --- | ---
 L'opération actuelle a échoué en raison d'une erreur de service interne « Ressource non approvisionnée dans l'horodatage du service ». Veuillez réessayer l’opération après un certain temps. (ID : 230006) | Le serveur protégé a été renommé. | <li> Renommez le serveur avec le nom d'origine inscrit auprès du coffre. <br> <li> Réinscrivez le serveur dans le coffre avec le nouveau nom.
+
+## <a name="job-could-not-be-started-as-another-job-was-in-progress"></a>Impossible de démarrer le travail car un autre travail est en cours
+
+Si vous voyez dans la **console MARS** > **historique des travaux**, le message d’avertissement « Impossible de démarrer le travail car un autre travail est en cours », cela peut être dû à une instance en double du travail déclenchée par le Planificateur de tâches.
+
+![Impossible de démarrer le travail car un autre travail est en cours](./media/backup-azure-mars-troubleshoot/job-could-not-be-started.png)
+
+Pour résoudre ce problème :
+
+1. Lancez le composant logiciel enfichable Planificateur de tâches en tapant *taskschd. msc* dans la fenêtre Exécuter
+1. Dans le volet gauche, accédez à **Bibliothèque du Planificateur de tâches** -> **Microsoft** -> **OnlineBackup**.
+1. Pour chaque tâche figurant dans cette bibliothèque, double-cliquez dessus pour ouvrir ses propriétés, puis procédez comme suit :
+    1. Basculez vers l’onglet **Paramètres** .
+
+         ![Onglet Paramètres](./media/backup-azure-mars-troubleshoot/settings-tab.png)
+
+    1. Modifiez le paramétrage de l’option **Si la tâche s’exécute déjà, la règle suivante s’applique**. Choisissez **Ne pas démarrer une nouvelle instance**.
+
+         ![Modifiez la règle pour ne pas démarrer une nouvelle instance](./media/backup-azure-mars-troubleshoot/change-rule.png)
 
 ## <a name="troubleshoot-restore-problems"></a>Résoudre les problèmes de restauration
 

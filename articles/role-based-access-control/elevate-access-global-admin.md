@@ -2,25 +2,19 @@
 title: Élever l’accès pour gérer tous les abonnements et groupes d’administration Azure
 description: Cet article décrit comment élever l’accès d’un administrateur général pour gérer tous les abonnements et groupes d’administration dans Azure Active Directory à l’aide du portail Azure ou d’une API REST.
 services: active-directory
-documentationcenter: ''
 author: rolyon
 manager: mtillman
-editor: bagovind
-ms.assetid: b547c5a5-2da2-4372-9938-481cb962d2d6
 ms.service: role-based-access-control
-ms.devlang: na
-ms.topic: conceptual
-ms.tgt_pltfrm: na
+ms.topic: how-to
 ms.workload: identity
-ms.date: 04/17/2020
+ms.date: 06/09/2020
 ms.author: rolyon
-ms.reviewer: bagovind
-ms.openlocfilehash: 6821e3de3bfec891d98e9291a479cbb7537364ca
-ms.sourcegitcommit: 4499035f03e7a8fb40f5cff616eb01753b986278
+ms.openlocfilehash: a93901bd95d57b29aeb1464652737a77a1a84376
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/03/2020
-ms.locfileid: "82733655"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84791994"
 ---
 # <a name="elevate-access-to-manage-all-azure-subscriptions-and-management-groups"></a>Élever l’accès pour gérer tous les abonnements et groupes d’administration Azure
 
@@ -55,6 +49,8 @@ Effectuez les étapes suivantes pour élever l’accès d’un administrateur g�
 
 1. Connectez-vous au [portail Azure](https://portal.azure.com) ou au [Centre d’administration Azure Active Directory](https://aad.portal.azure.com) en tant qu’administrateur général.
 
+    Si vous utilisez Azure AD Privileged Identity Management, [activez votre d’attribution de rôle Administrateur général](../active-directory/privileged-identity-management/pim-how-to-activate-role.md).
+
 1. Ouvrez **Azure Active Directory**.
 
 1. Sous **Gérer**, sélectionnez **Propriétés**.
@@ -70,7 +66,7 @@ Effectuez les étapes suivantes pour élever l’accès d’un administrateur g�
    Quand vous définissez la bascule sur **Non**, le rôle Administrateur de l’accès utilisateur dans Azure RBAC est supprimé de votre compte d’utilisateur. Vous ne pouvez plus attribuer des rôles dans tous les abonnements et groupes d’administration Azure associés à cet annuaire Azure AD. Vous pouvez voir et gérer seulement les abonnements et groupes d’administration Azure auxquels l’accès vous a été accordé.
 
     > [!NOTE]
-    > Si vous utilisez [Azure AD Privileged Identity Management (PIM)](../active-directory/privileged-identity-management/pim-configure.md), la désactivation de l’attribution de rôle ne définit pas cette bascule sur **Non**. Si vous souhaitez conserver l’accès avec privilèges minimum, nous vous recommandons de définir cette bascule sur **Non** avant de désactiver l’attribution de rôle.
+    > Si vous utilisez [Privileged Identity Management](../active-directory/privileged-identity-management/pim-configure.md), la désactivation de l’attribution de rôle n’a pas pour effet de définir l’option **Gestion de l’accès pour les ressources Azure** sur **Non**. Si vous souhaitez conserver l’accès avec privilèges minimum, nous vous recommandons de définir cette bascule sur **Non** avant de désactiver l’attribution de rôle.
     
 1. Cliquez sur **Enregistrer** pour enregistrer votre paramètre.
 
@@ -82,9 +78,11 @@ Effectuez les étapes suivantes pour élever l’accès d’un administrateur g�
 
    ![Attributions de rôle d’abonnement au niveau de l’étendue racine : capture d’écran](./media/elevate-access-global-admin/iam-root.png)
 
-1. Effectuez les modifications que vous devez apporter via l’accès élevé.
+1. Apportez les modifications nécessaires via un accès avec élévation de privilèges.
 
-    Pour obtenir des informations sur la l’attribution de rôles, consultez [Ajouter ou supprimer des attributions de rôle Azure à l’aide du portail Azure](role-assignments-portal.md). Si vous utilisez Azure AD Privileged Identity Management (PIM), consultez [Découvrir les ressources Azure à gérer dans PIM](../active-directory/privileged-identity-management/pim-resource-roles-discover-resources.md) ou [Attribuer des rôles de ressources Azure dans PIM](../active-directory/privileged-identity-management/pim-resource-roles-assign-roles.md).
+    Pour obtenir des informations sur la l’attribution de rôles, consultez [Ajouter ou supprimer des attributions de rôle Azure à l’aide du portail Azure](role-assignments-portal.md). Si vous utilisez Privileged Identity Management, consultez [Découvrir les ressources Azure à gérer](../active-directory/privileged-identity-management/pim-resource-roles-discover-resources.md) ou [Attribuer des rôles de ressources Azure](../active-directory/privileged-identity-management/pim-resource-roles-assign-roles.md).
+
+1. Procédez de la manière décrite dans la section suivante pour supprimer votre accès avec élévation de privilèges.
 
 ### <a name="remove-elevated-access"></a>Supprimer l’accès élevé
 
@@ -99,6 +97,13 @@ Pour supprimer l’attribution de rôle Administrateur de l’accès utilisateur
     Si vous tentez de supprimer l’attribution de rôle Administrateur de l’accès utilisateur dans le volet de contrôle d’accès (IAM), le message suivant s’affiche. Pour supprimer l’attribution de rôle, vous devez rétablir la bascule sur **Non** ou utiliser Azure PowerShell, Azure CLI ou l’API REST.
 
     ![Supprimer des attributions de rôle avec une étendue racine](./media/elevate-access-global-admin/iam-root-remove.png)
+
+1. Déconnectez-vous en tant qu’administrateur général.
+
+    Si vous utilisez Privileged Identity Management, désactivez votre attribution de rôle Administrateur général.
+
+    > [!NOTE]
+    > Si vous utilisez [Privileged Identity Management](../active-directory/privileged-identity-management/pim-configure.md), la désactivation de l’attribution de rôle n’a pas pour effet de définir l’option **Gestion de l’accès pour les ressources Azure** sur **Non**. Si vous souhaitez conserver l’accès avec privilèges minimum, nous vous recommandons de définir cette bascule sur **Non** avant de désactiver l’attribution de rôle.
 
 ## <a name="azure-powershell"></a>Azure PowerShell
 
@@ -190,24 +195,11 @@ Pour élever l’accès d’un administrateur général à l’aide de l’API R
    POST https://management.azure.com/providers/Microsoft.Authorization/elevateAccess?api-version=2016-07-01
    ```
 
-1. Créez une [attribution de rôle](/rest/api/authorization/roleassignments) pour attribuer le rôle de votre choix quelle que soit l’étendue. L’exemple suivant montre les propriétés pour l’attribution du rôle {roleDefinitionID} au niveau de l’étendue racine (`/`) :
+1. Apportez les modifications nécessaires via un accès avec élévation de privilèges.
 
-   ```json
-   { 
-     "properties": {
-       "roleDefinitionId": "providers/Microsoft.Authorization/roleDefinitions/{roleDefinitionID}",
-       "principalId": "{objectID}",
-       "scope": "/"
-     },
-     "id": "providers/Microsoft.Authorization/roleAssignments/11111111-1111-1111-1111-111111111111",
-     "type": "Microsoft.Authorization/roleAssignments",
-     "name": "11111111-1111-1111-1111-111111111111"
-   }
-   ```
+    Pour obtenir des informations sur la l’attribution de rôles, consultez [Ajouter ou supprimer des attributions de rôle Azure à l’aide de l’API REST](role-assignments-rest.md).
 
-1. En tant qu’Administrateur de l’accès utilisateur, vous pouvez également supprimer des attributions de rôle au niveau de l’étendue racine (`/`).
-
-1. Révoquez vos privilèges d’Administrateur des accès utilisateur jusqu’à ce que vous en ayez de nouveau besoin.
+1. Procédez de la manière décrite dans une section ultérieure pour supprimer votre accès avec élévation de privilèges.
 
 ### <a name="list-role-assignments-at-root-scope-"></a>Lister les attributions de rôle au niveau de l’étendue racine (/)
 
