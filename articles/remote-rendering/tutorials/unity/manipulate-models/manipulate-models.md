@@ -1,16 +1,16 @@
 ---
 title: Manipulation de modèles
 description: Manipuler des modèles rendus à distance en déplaçant, faisant pivoter, mettant à l’échelle, etc.
-author: michael-house
-ms.author: v-mihous
+author: florianborn71
+ms.author: flborn
 ms.date: 06/15/2020
 ms.topic: tutorial
-ms.openlocfilehash: d3ccdc54e50c3b5a722f490e04ce50d4aaf6e2fd
-ms.sourcegitcommit: 73ac360f37053a3321e8be23236b32d4f8fb30cf
+ms.openlocfilehash: 182ceca11d6e9b9bbebcf2911de1783cef43dd1a
+ms.sourcegitcommit: 3541c9cae8a12bdf457f1383e3557eb85a9b3187
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/30/2020
-ms.locfileid: "85566354"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86207323"
 ---
 # <a name="tutorial-manipulating-models"></a>Tutoriel : Manipulation de modèles
 

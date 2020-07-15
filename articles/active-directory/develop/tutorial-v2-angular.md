@@ -3,7 +3,7 @@ title: Tutoriel sur les applications monopages Angular - Azure
 titleSuffix: Microsoft identity platform
 description: Découvrez comment les applications monopages Angular peuvent appeler une API qui exige des jetons d’accès en provenance du point de terminaison de la plateforme d’identités Microsoft.
 services: active-directory
-author: hahamil
+author: hamiltonha
 manager: CelesteDG
 ms.service: active-directory
 ms.subservice: develop
@@ -12,12 +12,12 @@ ms.workload: identity
 ms.date: 03/05/2020
 ms.author: hahamil
 ms.custom: aaddev, identityplatformtop40
-ms.openlocfilehash: 6d869243f7f125ef7a795d6049d0b4f70fc51361
-ms.sourcegitcommit: 58ff2addf1ffa32d529ee9661bbef8fbae3cddec
+ms.openlocfilehash: 7cd2d5d8728e2a0539d5f106ab39c563e6e7c382
+ms.sourcegitcommit: f7e160c820c1e2eb57dc480b2a8fd6bef7053e91
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/03/2020
-ms.locfileid: "84322768"
+ms.lasthandoff: 07/10/2020
+ms.locfileid: "86231690"
 ---
 # <a name="tutorial-sign-in-users-and-call-the-microsoft-graph-api-from-an-angular-single-page-application"></a>Tutoriel : Connecter des utilisateurs et appeler l’API Microsoft Graph à partir d’une application monopage Angular
 
@@ -138,7 +138,7 @@ Inscrivez la valeur de votre **URI de redirection** sous la forme **http://local
 3. Ajoutez les instructions import suivantes en haut du fichier `src/app/app.component.ts` :
 
     ```javascript
-    import { MsalService } from '@azure/msal-angular';
+    import { MsalService, BroadcastService } from '@azure/msal-angular';
     import { Component, OnInit } from '@angular/core';
     ```
 ## <a name="sign-in-a-user"></a>Connecter un utilisateur
@@ -148,6 +148,8 @@ Ajoutez le code suivant à `AppComponent` pour connecter un utilisateur :
 ```javascript
 export class AppComponent implements OnInit {
     constructor(private broadcastService: BroadcastService, private authService: MsalService) { }
+    
+    ngOnInit() { }
 
     login() {
         const isIE = window.navigator.userAgent.indexOf('MSIE ') > -1 || window.navigator.userAgent.indexOf('Trident/') > -1;

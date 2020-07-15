@@ -12,18 +12,18 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 6/22/2020
 ms.author: mebeatty
-ms.openlocfilehash: 4d698375488d4dac551f0028883fc4e18a10d8ef
-ms.sourcegitcommit: 01cd19edb099d654198a6930cebd61cae9cb685b
+ms.openlocfilehash: d489186dc1c012fe8c181f17e00bcdb999e230dd
+ms.sourcegitcommit: f7e160c820c1e2eb57dc480b2a8fd6bef7053e91
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/24/2020
-ms.locfileid: "85323483"
+ms.lasthandoff: 07/10/2020
+ms.locfileid: "86232132"
 ---
 # <a name="add-security-headers-with-rules-engine"></a>Ajouter des en-têtes de sécurité avec le moteur de règles
 
 Pour empêcher les vulnérabilités de navigateur, implémentez des en-têtes de sécurité comme HTTP Strict-Transport-Security (HSTS), X-XSS-Protection, Content-Security-Policy ou X-Frame-Options. Les attributs basés sur la sécurité peuvent également être définis avec des cookies.
 
-L’exemple suivant vous montre comment ajouter un en-tête Content-Security-Policy à toutes les demandes entrantes qui correspondent au chemin défini dans la route à laquelle votre configuration du moteur de règles est associée. Ici, nous autorisons uniquement les scripts de notre site de confiance, **https://apis.contoso.com** , à s’exécuter sur notre application.
+L’exemple suivant vous montre comment ajouter un en-tête Content-Security-Policy à toutes les demandes entrantes qui correspondent au chemin défini dans la route à laquelle votre configuration du moteur de règles est associée. Ici, nous autorisons uniquement les scripts de notre site de confiance, **https://apiphany.portal.azure-api.net** , à s’exécuter sur notre application.
 
 ## <a name="add-a-content-security-policy-header-in-azure-portal"></a>Ajouter un en-tête Content-Security-Policy dans le portail Azure
 
@@ -33,7 +33,7 @@ L’exemple suivant vous montre comment ajouter un en-tête Content-Security-Pol
 
 3. Pour l’opérateur, choisissez **Ajouter** pour ajouter cet en-tête en tant que réponse à toutes les demandes entrantes adressées à cette route.
 
-4. Ajoutez le nom de l’en-tête : **Content-Security-Policy** et définissez les valeurs que cet en-tête doit accepter. Dans ce scénario, nous choisissons *« script-src 'self' https://apis.contoso.com  »* .
+4. Ajoutez le nom de l’en-tête : **Content-Security-Policy** et définissez les valeurs que cet en-tête doit accepter. Dans ce scénario, nous choisissons *« script-src 'self' https://apiphany.portal.azure-api.net  »* .
 
 5. Une fois que vous avez ajouté toutes les règles souhaitées à votre configuration, n’oubliez pas d’accéder à votre route préférée pour associer la configuration de votre moteur de règles à votre règle de routage. Cette étape est nécessaire pour permettre à la règle de fonctionner. 
 

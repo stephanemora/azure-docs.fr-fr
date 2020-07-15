@@ -5,12 +5,12 @@ ms.topic: tutorial
 ms.date: 07/22/2019
 ms.author: dekapur
 ms.custom: mvc
-ms.openlocfilehash: eeb279892f987ed1f26ced97ab267e8140ccb20e
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: 6a3a5211864c4cbadc03bbc77bfef2204f6c2ccf
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "75614058"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86244801"
 ---
 # <a name="tutorial-monitor-windows-containers-on-service-fabric-using-azure-monitor-logs"></a>Tutoriel : surveiller des conteneurs Windows sur Service Fabric avec les journaux Azure Monitor
 
@@ -37,7 +37,7 @@ Avant de commencer ce didacticiel, vous devez :
 Si vous avez utilisé le [modèle fourni](https://github.com/Azure-Samples/service-fabric-cluster-templates/tree/master/5-VM-Windows-OMS-UnSecure) dans la première partie de ce didacticiel, il devrait normalement inclure les ajouts suivants à un modèle Azure Resource Manager Service Fabric générique. Si, au contraire, vous cherchez à configurer votre propre cluster pour surveiller des conteneurs avec les journaux Azure Monitor :
 
 * Apportez les modifications suivantes à votre modèle Resource Manager.
-* Déployez-le avec PowerShell pour mettre à niveau votre cluster en [déployant le modèle](https://docs.microsoft.com/azure/service-fabric/service-fabric-cluster-creation-via-arm). Azure Resource Manager se rend compte que la ressource existe, et par conséquent la déploie comme une mise à niveau.
+* Déployez-le avec PowerShell pour mettre à niveau votre cluster en [déployant le modèle](./service-fabric-cluster-creation-via-arm.md). Azure Resource Manager se rend compte que la ressource existe, et par conséquent la déploie comme une mise à niveau.
 
 ### <a name="adding-azure-monitor-logs-to-your-cluster-template"></a>Ajout de journaux Azure Monitor à votre modèle de cluster
 
@@ -233,6 +233,6 @@ Dans ce didacticiel, vous avez appris à :
 Maintenant que vous avez configuré le monitorage de votre application en conteneur, essayez les opérations suivantes :
 
 * Configurez les journaux Azure Monitor pour un cluster Linux, en suivant les étapes ci-dessus. Référencez [ce modèle](https://github.com/Azure-Samples/service-fabric-cluster-templates/tree/master/5-VM-Ubuntu-1-NodeType-Secure-OMS) pour apporter des modifications à votre modèle Resource Manager.
-* Configurez les journaux Azure Monitor pour paramétrer l’[alerte automatisée](../log-analytics/log-analytics-alerts.md) afin de faciliter la détection et les diagnostics.
+* Configurez les journaux Azure Monitor pour paramétrer l’[alerte automatisée](../azure-monitor/platform/alerts-overview.md) afin de faciliter la détection et les diagnostics.
 * Explorez la liste Service Fabric de [compteurs de performances recommandés](service-fabric-diagnostics-event-generation-perf.md) à configurer pour vos clusters.
-* Familiarisez-vous avec les fonctionnalités de [requêtes et recherches dans les journaux](../log-analytics/log-analytics-log-searches.md) proposées par les journaux Azure Monitor.
+* Familiarisez-vous avec les fonctionnalités de [requêtes et recherches dans les journaux](../azure-monitor/log-query/log-query-overview.md) proposées par les journaux Azure Monitor.

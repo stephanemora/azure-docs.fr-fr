@@ -7,12 +7,12 @@ ms.date: 04/11/2018
 ms.topic: tutorial
 ms.subservice: change-inventory-management
 ms.custom: mvc
-ms.openlocfilehash: d4acecbc6d1a1d7f617b0da95da1b97dc5a3dd75
-ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
+ms.openlocfilehash: cad92ef376a14805049772cd0bfdbac04309f6c4
+ms.sourcegitcommit: ec682dcc0a67eabe4bfe242fce4a7019f0a8c405
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/21/2020
-ms.locfileid: "83743670"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86185821"
 ---
 # <a name="discover-what-software-is-installed-on-your-vms"></a>Détecter les logiciels installés sur vos machines virtuelles
 
@@ -32,7 +32,7 @@ Ce didacticiel vous montre comment effectuer les opérations suivantes :
 Pour suivre ce didacticiel, vous avez besoin des éléments suivants :
 
 * Un abonnement Azure. Si vous n’avez pas encore d’abonnement, vous pouvez [activer vos avantages abonnés MSDN](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/) ou créer [un compte gratuit](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
-* Un [compte Automation](automation-offering-get-started.md) qui contiendra les runbooks Watcher et d’action, ainsi que la tâche Watcher.
+* Un [compte Automation](./index.yml) qui contiendra les runbooks Watcher et d’action, ainsi que la tâche Watcher.
 * Une [machine virtuelle](../virtual-machines/windows/quick-create-portal.md) à activer pour la fonctionnalité.
 
 ## <a name="log-in-to-azure"></a>Connexion à Azure
@@ -48,7 +48,7 @@ Pour ce didacticiel, vous devez d’abord activer le suivi des modifications et 
 
 1. Accédez à votre compte Automation et sélectionnez **Inventory** ou **Change Tracking** sous **Gestion de la configuration**.
 
-2. Choisissez l’espace de travail [Log Analytics](../log-analytics/log-analytics-overview.md?toc=%2fazure%2fautomation%2ftoc.json). Cet espace de travail collecte les données qui sont générées par des fonctionnalités, telles que Change Tracking and Inventory. L’espace de travail fournit un emplacement unique permettant de consulter et d’analyser les données provenant de plusieurs sources.
+2. Choisissez l’espace de travail [Log Analytics](../azure-monitor/log-query/log-query-overview.md). Cet espace de travail collecte les données qui sont générées par des fonctionnalités, telles que Change Tracking and Inventory. L’espace de travail fournit un emplacement unique permettant de consulter et d’analyser les données provenant de plusieurs sources.
 
 [!INCLUDE [azure-monitor-log-analytics-rebrand](../../includes/azure-monitor-log-analytics-rebrand.md)]
 

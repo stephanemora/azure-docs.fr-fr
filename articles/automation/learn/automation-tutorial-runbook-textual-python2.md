@@ -6,12 +6,12 @@ ms.subservice: process-automation
 ms.date: 04/19/2020
 ms.topic: tutorial
 ms.custom: has-adal-ref, tracking-python
-ms.openlocfilehash: 1203feaf6b400e91e6ab5381df0af245db0a2973
-ms.sourcegitcommit: 964af22b530263bb17fff94fd859321d37745d13
+ms.openlocfilehash: 9c587ad9b791d953dce66df2337cf0e7dca52324
+ms.sourcegitcommit: ec682dcc0a67eabe4bfe242fce4a7019f0a8c405
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/09/2020
-ms.locfileid: "84559557"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86185362"
 ---
 # <a name="tutorial-create-a-python-runbook"></a>Tutoriel : Créer un runbook Python
 
@@ -31,7 +31,7 @@ Ce didacticiel vous guide dans la création d’un [Runbook Python](../automatio
 Pour réaliser ce didacticiel, vous avez besoin des éléments suivants :
 
 - Abonnement Azure. Si vous n’avez pas encore d’abonnement, vous pouvez [activer vos avantages abonnés MSDN](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/) ou créer [un compte gratuit](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
-- [compte Automation](../automation-offering-get-started.md) pour le stockage du Runbook et l’authentification auprès des ressources Azure. Ce compte doit avoir l’autorisation de démarrer et d’arrêter la machine virtuelle.
+- [compte Automation](../index.yml) pour le stockage du Runbook et l’authentification auprès des ressources Azure. Ce compte doit avoir l’autorisation de démarrer et d’arrêter la machine virtuelle.
 - Une machine virtuelle Azure. Vous arrêtez et démarrez cette machine afin qu’elle ne soit pas une machine virtuelle de production.
 
 ## <a name="create-a-new-runbook"></a>Créer un Runbook
@@ -161,7 +161,7 @@ Pour ce faire, le script doit s’authentifier à l’aide des informations d’
 
 ## <a name="add-code-to-create-python-compute-client-and-start-the-vm"></a>Ajouter du code pour créer le client Compute Python et démarrer la machine virtuelle
 
-Pour utiliser des machines virtuelles Azure, créez une instance du [client Compute Azure pour Python](https://docs.microsoft.com/python/api/azure-mgmt-compute/azure.mgmt.compute.computemanagementclient).
+Pour utiliser des machines virtuelles Azure, créez une instance du [client Compute Azure pour Python](/python/api/azure-mgmt-compute/azure.mgmt.compute.computemanagementclient).
 
 Utilisez le client Compute pour démarrer la machine virtuelle. Ajoutez le code suivant au Runbook :
 

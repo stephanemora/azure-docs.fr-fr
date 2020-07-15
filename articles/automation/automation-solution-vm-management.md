@@ -5,18 +5,18 @@ services: automation
 ms.subservice: process-automation
 ms.date: 06/04/2020
 ms.topic: conceptual
-ms.openlocfilehash: 3b4358651b811ba5c1e7644333a1e9f5a8da2990
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: dbfb50b40b4705cae55ba6e4f1ef950b586b5fb5
+ms.sourcegitcommit: ec682dcc0a67eabe4bfe242fce4a7019f0a8c405
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84424072"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86185872"
 ---
 # <a name="startstop-vms-during-off-hours-overview"></a>Vue d’ensemble de Start/Stop VMs during off-hours
 
 La fonctionnalité Start/Stop VMs during off-hours démarre ou arrête les machines virtuelles Azure activées. Elle démarre ou arrête les machines selon une planification définie par l’utilisateur. En outre, elle fournit des informations via Azure les Azure journaux Azure Monitor et peut envoyer des e-mails à l’aide de [groupes d’actions](../azure-monitor/platform/action-groups.md). La fonctionnalité peut être activée sur Azure Resource Manager et les machines virtuelles classiques dans la plupart des scénarios. 
 
-Cette fonctionnalité utilise l’applet de commande [Start-AzVm](https://docs.microsoft.com/powershell/module/az.compute/start-azvm) pour démarrer des machines virtuelles. Elle utilise [Stop-AzVM](https://docs.microsoft.com/powershell/module/az.compute/stop-azvm) pour l’arrêt des machines virtuelles.
+Cette fonctionnalité utilise l’applet de commande [Start-AzVm](/powershell/module/az.compute/start-azvm) pour démarrer des machines virtuelles. Elle utilise [Stop-AzVM](/powershell/module/az.compute/stop-azvm) pour l’arrêt des machines virtuelles.
 
 > [!NOTE]
 > Les runbooks ont été mis à jour pour utiliser les nouvelles applets de commande du module Azure Az et utilisent l’alias de préfixe AzureRM.
@@ -37,7 +37,7 @@ Les limitations de la fonctionnalité actuelle sont les suivantes :
 
 ## <a name="prerequisites"></a>Prérequis
 
-Les runbooks de la fonctionnalité Start/Stop VMs during off-hours fonctionnent avec un [compte d’identification Azure](automation-create-runas-account.md). Le compte d’identification est la méthode d’authentification recommandée, car elle utilise l’authentification par certificat au lieu d’un mot de passe, susceptible d’expirer ou de changer fréquemment.
+Les runbooks de la fonctionnalité Start/Stop VMs during off-hours fonctionnent avec un [compte d’identification Azure](./manage-runas-account.md). Le compte d’identification est la méthode d’authentification recommandée, car elle utilise l’authentification par certificat au lieu d’un mot de passe, susceptible d’expirer ou de changer fréquemment.
 
 Il vous est recommandé d’utiliser un compte Automation distinct pour travailler avec la fonctionnalité Start/Stop VMs during off-hours. Les versions de module Azure sont fréquemment mises à niveau et leurs paramètres peuvent changer. La fonctionnalité n’est pas mise à niveau à la même cadence et il est possible qu’elle ne fonctionne pas avec des versions plus récentes des cmdlets qu’elle utilise. Il vous est recommandé de tester les mises à jour de module dans un compte Automation de test avant de les importer dans vos comptes Automation de production.
 
@@ -122,7 +122,7 @@ Tous les runbooks parents incluent le paramètre `WhatIf`. Une fois configuré s
 Le tableau suivant répertorie les variables créées dans votre compte Automation. Modifiez uniquement les variables ayant le préfixe `External`. La modification de variables avec le préfixe `Internal` a des effets indésirables.
 
 > [!NOTE]
-> Les limitations relatives au nom de la machine virtuelle et au groupe de ressources proviennent en grande partie d’une taille définie dans la variable. Consultez la page [Ressources de variables dans Azure Automation](https://docs.microsoft.com/azure/automation/shared-resources/variables).
+> Les limitations relatives au nom de la machine virtuelle et au groupe de ressources proviennent en grande partie d’une taille définie dans la variable. Consultez la page [Ressources de variables dans Azure Automation](./shared-resources/variables.md).
 
 |Variable | Description|
 |---------|------------|
@@ -177,7 +177,7 @@ Si vous avez plus de 20 machines virtuelles par service cloud, voici quelques re
 
 Sinon, si le travail Automation pour cette fonctionnalité s’exécute pendant plus de trois heures, il est momentanément déchargé ou arrêté par la limite de [répartition de charge équilibrée](automation-runbook-execution.md#fair-share).
 
-Les abonnements Azure CSP prennent uniquement en charge le modèle Azure Resource Manager. Les services non-Azure Resource Manager ne sont pas disponibles dans le programme. Quand la fonctionnalité Start/Stop VMs during off-hours s’exécute, vous pouvez recevoir des messages d’erreur, car elle contient des cmdlets pour gérer des ressources classiques. Pour en savoir plus sur CSP, consultez [Services disponibles dans les abonnements CSP](https://docs.microsoft.com/azure/cloud-solution-provider/overview/azure-csp-available-services). Si vous utilisez un abonnement CSP, vous devez définir la variable [External_EnableClassicVMs](#variables) sur False après le déploiement.
+Les abonnements Azure CSP prennent uniquement en charge le modèle Azure Resource Manager. Les services non-Azure Resource Manager ne sont pas disponibles dans le programme. Quand la fonctionnalité Start/Stop VMs during off-hours s’exécute, vous pouvez recevoir des messages d’erreur, car elle contient des cmdlets pour gérer des ressources classiques. Pour en savoir plus sur CSP, consultez [Services disponibles dans les abonnements CSP](/azure/cloud-solution-provider/overview/azure-csp-available-services). Si vous utilisez un abonnement CSP, vous devez définir la variable [External_EnableClassicVMs](#variables) sur False après le déploiement.
 
 [!INCLUDE [azure-monitor-log-analytics-rebrand](../../includes/azure-monitor-log-analytics-rebrand.md)]
 

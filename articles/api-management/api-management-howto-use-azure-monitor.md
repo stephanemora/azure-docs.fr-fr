@@ -10,12 +10,12 @@ ms.custom: mvc
 ms.topic: tutorial
 ms.date: 06/15/2018
 ms.author: apimpm
-ms.openlocfilehash: 989608b9a087599ab73864ae2605fbffcf3221d9
-ms.sourcegitcommit: 55b2bbbd47809b98c50709256885998af8b7d0c5
+ms.openlocfilehash: 7f6c7a651e133122dab86d6ed81572f239718b43
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/18/2020
-ms.locfileid: "84982048"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86243237"
 ---
 # <a name="monitor-published-apis"></a>Surveiller les API publiées
 
@@ -43,7 +43,7 @@ La vidéo suivante montre comment surveiller la gestion des API à l’aide d’
 
 ## <a name="view-metrics-of-your-apis"></a>Afficher les métriques de vos API
 
-Le service Gestion des API émet des métriques chaque minute, pour une visibilité en quasi temps réel de l’intégrité de vos API. Vous trouverez ci-dessous les deux métriques les plus fréquemment utilisées. Pour obtenir la liste de toutes les métriques disponibles, consultez [Métriques prises en charge](https://docs.microsoft.com/azure/azure-monitor/platform/metrics-supported#microsoftapimanagementservice).
+Le service Gestion des API émet des métriques chaque minute, pour une visibilité en quasi temps réel de l’intégrité de vos API. Vous trouverez ci-dessous les deux métriques les plus fréquemment utilisées. Pour obtenir la liste de toutes les métriques disponibles, consultez [Métriques prises en charge](../azure-monitor/platform/metrics-supported.md#microsoftapimanagementservice).
 
 * Capacité : vous aide à prendre des décisions concernant la mise à niveau/le passage à une version antérieure de vos services APIM. La métrique est émise chaque minute et reflète la capacité de la passerelle au moment de la création de rapports. Le calcul de cette métrique, dont la valeur est comprise entre 0 et 100, repose sur les ressources de la passerelle, telles que l’utilisation du processeur et de la mémoire.
 * Demandes : vous aide à analyser le trafic d’API transitant par vos services APIM. La métrique est émise par minute, et indique le nombre de demandes de passerelle avec des dimensions, y compris les codes de réponse, l’emplacement, le nom d’hôte et les erreurs. 

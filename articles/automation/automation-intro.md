@@ -7,12 +7,12 @@ keywords: azure automation, DSC, powershell, configuration de l’état, gestion
 ms.date: 10/18/2018
 ms.custom: mvc
 ms.topic: overview
-ms.openlocfilehash: e02cfdaac602adfe455c26d9e87939586fd9738a
-ms.sourcegitcommit: 0b80a5802343ea769a91f91a8cdbdf1b67a932d3
+ms.openlocfilehash: 30cfadcec1f0c28a463740ddaefa8fc76f04af3f
+ms.sourcegitcommit: ec682dcc0a67eabe4bfe242fce4a7019f0a8c405
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/25/2020
-ms.locfileid: "83835272"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86186178"
 ---
 # <a name="an-introduction-to-azure-automation"></a>Présentation d’Azure Automation
 
@@ -53,14 +53,14 @@ Azure Automation propose un certain nombre de fonctionnalités partagées, notam
 
 Azure Automation se compose d’un ensemble de ressources partagées qui facilitent l’automatisation et la configuration de vos environnements à grande échelle.
 
-* **[Planifications](automation-schedules.md)** - Déclenchez des opérations Automation à des heures prédéfinies.
-* **[Modules](automation-integration-modules.md)** - Gérez Azure et d’autres systèmes. Vous pouvez importer les modules dans le compte Automation pour Microsoft, un tiers ou une communauté, et des ressources DSC et des applets de commande définies personnalisées.
+* **[Planifications](./shared-resources/schedules.md)** - Déclenchez des opérations Automation à des heures prédéfinies.
+* **[Modules](./shared-resources/modules.md)** - Gérez Azure et d’autres systèmes. Vous pouvez importer les modules dans le compte Automation pour Microsoft, un tiers ou une communauté, et des ressources DSC et des applets de commande définies personnalisées.
 * **[Galerie de modules](automation-runbook-gallery.md)** - Prend en charge l’intégration native à PowerShell Gallery pour que vous puissiez afficher des runbooks et les importer dans le compte Automation. La galerie vous permet de commencer rapidement à intégrer et à créer vos processus à partir de PowerShell Gallery et du Centre de scripts Microsoft.
 * **[Packages Python 2](python-packages.md)** - Prennent en charge les runbooks Python 2 pour votre compte Automation.
-* **[Informations d’identification](automation-credentials.md)** - Permettent de stocker en toute sécurité des informations sensibles que les runbooks et configurations peuvent utiliser lors de l’exécution.
+* **[Informations d’identification](./shared-resources/credentials.md)** - Permettent de stocker en toute sécurité des informations sensibles que les runbooks et configurations peuvent utiliser lors de l’exécution.
 * **[Connexions](automation-connections.md)** - Stockent des paires nom-valeur d’informations communes pour les connexions aux systèmes. L’auteur du module définit les connexions dans des runbooks et configurations pour les utiliser lors de l’exécution.
-* **[Certificats](automation-certificates.md)** - Définissent des informations à utiliser pour l’authentification et la sécurisation des ressources déployées quand les runbooks ou les configurations DSC y accèdent au moment de l’exécution. 
-* **[Variables](automation-variables.md)** - Stockent du contenu pouvant être utilisé dans des runbooks et des configurations. Vous pouvez changer les valeurs des variables sans avoir à modifier les runbooks ou configurations qui y font référence.
+* **[Certificats](./shared-resources/certificates.md)** - Définissent des informations à utiliser pour l’authentification et la sécurisation des ressources déployées quand les runbooks ou les configurations DSC y accèdent au moment de l’exécution. 
+* **[Variables](./shared-resources/variables.md)** - Stockent du contenu pouvant être utilisé dans des runbooks et des configurations. Vous pouvez changer les valeurs des variables sans avoir à modifier les runbooks ou configurations qui y font référence.
 
 ### <a name="role-based-access-control"></a>Contrôle d’accès en fonction du rôle
 

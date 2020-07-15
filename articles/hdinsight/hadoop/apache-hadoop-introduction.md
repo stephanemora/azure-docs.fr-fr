@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.topic: overview
 ms.custom: hdinsightactive,hdiseo17may2017,mvc,seodec18
 ms.date: 02/27/2020
-ms.openlocfilehash: 7e8dd69b7c58e090c30ea1aa59feddab610dd3c5
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.openlocfilehash: 2dc9d5d154c8128e0744e8dd9f08dec6e52381a4
+ms.sourcegitcommit: 3541c9cae8a12bdf457f1383e3557eb85a9b3187
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "78244886"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86205301"
 ---
 # <a name="what-is-apache-hadoop-in-azure-hdinsight"></a>Qu’est-ce qu’Apache Hadoop dans Azure HDInsight ?
 
@@ -48,7 +48,7 @@ Les langages ou infrastructures basés sur Java et la Machine virtuelle Java peu
 
 La diffusion en continu Hadoop communique avec le mappeur et le raccord de réduction via STDIN et STDOUT. Le mappeur et le raccord de réduction lisent les données ligne par ligne depuis STDIN et écrivent la sortie dans STDOUT. Chaque ligne lue ou émise par le mappeur et le raccord de réduction doit être au format d’une paire clé / valeur, délimitée par un caractère de tabulation :
 
-    [key]/t[value]
+`[key]/t[value]`
 
 Pour plus d’informations, consultez [Diffusion en continu Hadoop](https://hadoop.apache.org/docs/current/hadoop-streaming/HadoopStreaming.html).
 

@@ -7,12 +7,12 @@ keywords: modification, suivi, suivi des modifications, change tracking, invento
 ms.date: 12/05/2018
 ms.topic: tutorial
 ms.custom: mvc
-ms.openlocfilehash: 211b34b4424fa5bc9b82dc1cc2a2da574ffc5d96
-ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
+ms.openlocfilehash: 63fe36a51b69648039c3a16be4267fc0c72e8a58
+ms.sourcegitcommit: ec682dcc0a67eabe4bfe242fce4a7019f0a8c405
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/21/2020
-ms.locfileid: "83743689"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86185804"
 ---
 # <a name="troubleshoot-changes-on-an-azure-vm"></a>Résoudre les problèmes liés aux modifications apportées à une machine virtuelle Azure
 
@@ -35,7 +35,7 @@ Ce didacticiel vous montre comment effectuer les opérations suivantes :
 Pour suivre ce didacticiel, vous avez besoin des éléments suivants :
 
 * Un abonnement Azure. Si vous n’avez pas encore d’abonnement, vous pouvez [activer vos avantages abonnés MSDN](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/) ou créer [un compte gratuit](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
-* Un [compte Automation](automation-offering-get-started.md) qui contiendra les runbooks Watcher et d’action, ainsi que la tâche Watcher.
+* Un [compte Automation](./index.yml) qui contiendra les runbooks Watcher et d’action, ainsi que la tâche Watcher.
 * Une [machine virtuelle](../virtual-machines/windows/quick-create-portal.md) à activer pour la fonctionnalité.
 
 ## <a name="sign-in-to-azure"></a>Connexion à Azure
@@ -54,7 +54,7 @@ Pour ce tutoriel, vous devez d’abord activer Change Tracking and Inventory. Si
 
     ![Activer la modification](./media/automation-tutorial-troubleshoot-changes/enableinventory.png)
 
-3. Choisissez l’espace de travail [Log Analytics](../log-analytics/log-analytics-overview.md?toc=%2fazure%2fautomation%2ftoc.json). Cet espace de travail collecte les données qui sont générées par des fonctionnalités, telles que Change Tracking and Inventory. L’espace de travail fournit un emplacement unique permettant de consulter et d’analyser les données provenant de plusieurs sources.
+3. Choisissez l’espace de travail [Log Analytics](../azure-monitor/log-query/log-query-overview.md). Cet espace de travail collecte les données qui sont générées par des fonctionnalités, telles que Change Tracking and Inventory. L’espace de travail fournit un emplacement unique permettant de consulter et d’analyser les données provenant de plusieurs sources.
 
     [!INCLUDE [azure-monitor-log-analytics-rebrand](../../includes/azure-monitor-log-analytics-rebrand.md)]
 
@@ -238,4 +238,4 @@ Dans ce tutoriel, vous avez appris à effectuer les opérations suivantes :
 Accédez ensuite à la présentation de la fonctionnalité Change Tracking and Inventory pour en savoir plus.
 
 > [!div class="nextstepaction"]
-> [Vue d’ensemble de Change Tracking and Inventory](automation-change-tracking.md)
+> [Vue d’ensemble de Change Tracking and Inventory](./change-tracking.md)

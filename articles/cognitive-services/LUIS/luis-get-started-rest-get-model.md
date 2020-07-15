@@ -3,20 +3,20 @@ title: 'Démarrage rapide : Obtenir un modèle avec les API REST - LUIS'
 titleSuffix: Azure Cognitive Services
 description: Dans ce guide de démarrage rapide des API REST, vous utilisez le programme cURL pour ajouter des énoncés et entraîner un modèle.
 services: cognitive-services
-author: roy-har
+author: nitinme
 manager: diberry
 ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: quickstart
 ms.date: 06/19/2020
-ms.author: v-royha
-ms.openlocfilehash: 00bc71f76b15455dd8e4f8242c5379e9e97a53f2
-ms.sourcegitcommit: 23604d54077318f34062099ed1128d447989eea8
+ms.author: nitinme
+ms.openlocfilehash: e5cf3160e6592a48e3a81480480ad8f01cc6af3a
+ms.sourcegitcommit: 3541c9cae8a12bdf457f1383e3557eb85a9b3187
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/20/2020
-ms.locfileid: "85119544"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86206251"
 ---
 # <a name="quickstart-use-curl-and-rest-to-change-model"></a>Démarrage rapide : Utiliser cURL et REST pour changer le modèle
 
