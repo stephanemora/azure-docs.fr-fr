@@ -5,20 +5,20 @@ ms.date: 06/02/2020
 ms.topic: conceptual
 description: Décrit les processus d’utilisation de Processus local avec Kubernetes pour connecter votre ordinateur de développement à votre cluster Kubernetes
 keywords: Processus local avec Kubernetes, Azure Dev Spaces, Dev Spaces, Docker, Kubernetes, Azure, AKS, Azure Kubernetes Service, conteneurs
-ms.openlocfilehash: 443783eb7f5359318cf8efbec8b6466a80fa1e85
-ms.sourcegitcommit: 69156ae3c1e22cc570dda7f7234145c8226cc162
+ms.openlocfilehash: dd126fc55a86b1de115239a31e5adb7b1d264846
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/03/2020
-ms.locfileid: "84316260"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84974396"
 ---
 # <a name="how-local-process-with-kubernetes-works"></a>Fonctionnement de Processus local avec Kubernetes
 
-Processus local avec Kubernetes vous permet d’exécuter et de déboguer votre code sur votre ordinateur de développement tout en restant connecté à votre cluster Kubernetes avec le reste de votre application ou de vos services. Par exemple, si vous avez une architecture de microservices importante avec de nombreux services et bases de données interdépendants, la réplication de ces dépendances sur votre ordinateur de développement peut s’avérer difficile. En outre, la création et le déploiement de code sur votre cluster Kubernetes pour chaque changement de code pendant le développement en boucle interne peuvent être lents, fastidieux et difficiles à utiliser avec un débogueur.
+Processus local avec Kubernetes vous permet d’exécuter et de déboguer votre code sur votre ordinateur de développement tout en restant connecté à votre cluster Kubernetes avec le reste de votre application ou de vos services. Par exemple, si vous avez une architecture de microservices importante avec de nombreux services et bases de données interdépendants, la réplication de ces dépendances sur votre ordinateur de développement peut s’avérer difficile. En outre, la création et le déploiement de code sur votre cluster Kubernetes pour chaque changement de code pendant le développement en boucle interne peuvent être lents, fastidieux et difficiles à effectuer avec un débogueur.
 
-Processus local avec Kubernetes vous évite d’avoir à créer et à déployer votre code sur votre cluster en créant à la place une connexion directement entre votre ordinateur de développement et votre cluster. La connexion de votre ordinateur de développement à votre cluster pendant le débogage vous permet de tester et de développer rapidement votre service dans le contexte de l’application complète sans créer une configuration Docker ou Kubernetes.
+Local Process with Kubernetes vous évite d’avoir à créer et à déployer votre code sur votre cluster en créant une connexion directement entre votre ordinateur de développement et votre cluster. La connexion de votre ordinateur de développement à votre cluster pendant le débogage vous permet de tester et de développer rapidement votre service dans le contexte de l’application complète sans créer une configuration Docker ou Kubernetes.
 
-Processus local avec Kubernetes redirige le trafic entre votre cluster Kubernetes connecté et votre ordinateur de développement. Cette redirection du trafic permet au code sur votre ordinateur de développement et les services en cours d’exécution dans votre cluster Kubernetes de communiquer comme s’ils se trouvaient dans le même cluster Kubernetes. Processus local avec Kubernetes offre également un moyen de répliquer des variables d’environnement et des volumes montés disponibles pour les pods dans votre cluster Kubernetes sur votre ordinateur de développement. L’accès aux variables d’environnement et aux volumes montés sur votre ordinateur de développement vous permet de travailler rapidement sur votre code sans avoir à répliquer ces dépendances manuellement.
+Local Process with Kubernetes redirige le trafic entre votre cluster Kubernetes connecté et votre ordinateur de développement. Grâce à cette redirection du trafic, le code sur votre ordinateur de développement et les services en cours d’exécution dans votre cluster Kubernetes peuvent communiquer comme s’ils se trouvaient dans le même cluster Kubernetes. Local Process with Kubernetes offre également un moyen de répliquer des variables d’environnement et des volumes montés disponibles pour les pods dans votre cluster Kubernetes sur votre ordinateur de développement. L’accès aux variables d’environnement et aux volumes montés sur votre ordinateur de développement vous permet de travailler rapidement sur votre code sans avoir à répliquer ces dépendances manuellement.
 
 ## <a name="using-local-process-with-kubernetes"></a>Utilisation de Processus local avec Kubernetes
 
@@ -42,6 +42,15 @@ Après avoir établi une connexion à votre cluster, vous pouvez exécuter et d�
 ## <a name="diagnostics-and-logging"></a>Diagnostics et journalisation
 
 Lorsque vous utilisez Processus local avec Kubernetes pour vous connecter à votre cluster, les journaux de diagnostic de votre cluster sont enregistrés dans le [répertoire temporaire][azds-tmp-dir] de votre ordinateur de développement. À l’aide de Visual Studio Code, vous pouvez également utiliser la commande *Afficher les informations de diagnostic* pour imprimer les variables d’environnement actuelles et les entrées DNS de votre cluster.
+
+## <a name="limitations"></a>Limites
+
+Un processus local avec Kubernetes présente les limitations suivantes :
+
+* Un processus local avec Kubernetes redirige le trafic pour un seul service vers votre ordinateur de développement. Vous ne pouvez pas utiliser un processus local avec Kubernetes pour rediriger plusieurs services en même temps.
+* Pour pouvoir se connecter à un service, celui-ci doit être sauvegardé par un seul pod. Vous ne pouvez pas vous connecter à un service comportant plusieurs pod, tel qu’un service avec des réplicas.
+* Un pod ne peut comprendre qu’un seul conteneur en cours d’exécution pour qu’un processus local avec Kubernetes se connecte correctement. Un processus local avec Kubernetes ne peut pas se connecter à des services comportant des pods ayant des conteneurs supplémentaires, tels que des conteneurs sidecar injectés par des mailles de services.
+* Un processus local avec Kubernetes a besoin d’autorisations élevées pour s’exécuter sur votre ordinateur de développement afin de modifier votre fichier hosts.
 
 ## <a name="next-steps"></a>Étapes suivantes
 

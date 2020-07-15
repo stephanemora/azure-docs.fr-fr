@@ -6,12 +6,12 @@ ms.author: nikiest
 ms.topic: conceptual
 ms.date: 05/20/2020
 ms.subservice: ''
-ms.openlocfilehash: 95345ba864d498190186e1a366c8551be97c33f5
-ms.sourcegitcommit: d118ad4fb2b66c759b70d4d8a18e6368760da3ad
+ms.openlocfilehash: 14ecd1a35f8aae8365b7c7dc458712acdb894e62
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/02/2020
-ms.locfileid: "84299661"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85602582"
 ---
 # <a name="use-azure-private-link-to-securely-connect-networks-to-azure-monitor"></a>Utiliser Azure Private Link pour connecter en toute sécurité des réseaux à Azure Monitor
 
@@ -123,7 +123,7 @@ Maintenant que vous disposez de ressources connectées à votre AMPLS, créez un
 
    a.    Choisissez le **réseau virtuel** et le **sous-réseau** que vous souhaitez connecter à vos ressources Azure Monitor. 
  
-   b.    Choisissez **Oui** pour **Intégrer à une zone DNS privée**, et laissez-le créer automatiquement une nouvelle zone DNS privée. 
+   b.    Choisissez **Oui** pour **Intégrer à une zone DNS privée**, et laissez-le créer automatiquement une nouvelle zone DNS privée. Les zones DNS réelles peuvent différer de ce que montre la capture d’écran ci-dessous. 
  
    c.    Cliquez sur **Vérifier + créer**.
  
@@ -168,9 +168,8 @@ Cette restriction d’accès ne s’applique qu’aux données de la ressource A
 
 > [!NOTE]
 > Pour sécuriser entièrement un espace de travail basé sur Application Insights, vous devez verrouiller à la fois l’accès à la ressource Application Insights et à l’espace de travail Log Analytics sous-jacent.
-
-> [!NOTE]
-> Les diagnostics au niveau du code (profileur/débogueur) ne prennent pas en charge Azure Private Link pour le moment.
+>
+> Les diagnostics au niveau du code (profileur/débogueur) nécessitent que vous fournissiez votre propre compte de stockage pour prendre en charge une liaison privée. Voici de la [documentation](https://docs.microsoft.com/azure/azure-monitor/app/profiler-bring-your-own-storage) sur la manière de procéder.
 
 ## <a name="use-apis-and-command-line"></a>Utiliser des API et une ligne de commande
 
@@ -226,9 +225,13 @@ Pour permettre à l’agent Log Analytics de télécharger des packs de solution
 
 | Environnement cloud | Ressource de l'agent | Ports | Sens |
 |:--|:--|:--|:--|
-|Azure (public)     | scadvisor.blob.core.windows.net         | 443 | Règle de trafic sortant
+|Azure (public)     | scadvisorcontent.blob.core.windows.net         | 443 | Règle de trafic sortant
 |Azure Government | usbn1oicore.blob.core.usgovcloudapi.net | 443 |  Règle de trafic sortant
 |Azure China 21Vianet      | mceast2oicore.blob.core.chinacloudapi.cn| 443 | Règle de trafic sortant
+
+### <a name="browser-dns-settings"></a>Paramètres DNS du navigateur
+
+Si vous vous connectez à vos ressources de Azure Monitor via une liaison privée, le trafic vers ces ressources doit traverser le point de terminaison privé configuré sur votre réseau. Pour activer le point de terminaison privé, mettez à jour vos paramètres DNS en procédant de la manière décrite dans [Se connecter à un point de terminaison privé](#connect-to-a-private-endpoint). Certains navigateurs utilisent leurs propres paramètres DNS à la place de ceux que vous définissez. Le navigateur peut tenter de se connecter à des points de terminaison publics d’Azure Monitor et ignorer entièrement la liaison privée. Vérifiez que les paramètres de votre navigateur ne remplacent pas ou ne mettent pas en cache d’anciens paramètres DNS. 
 
 ## <a name="next-steps"></a>Étapes suivantes
 

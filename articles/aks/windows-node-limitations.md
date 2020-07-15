@@ -4,13 +4,13 @@ titleSuffix: Azure Kubernetes Service
 description: En savoir plus sur les limitations connues lors de l’exécution de charges de travail d’application et de pools de nœuds Windows Server dans Azure Kubernetes Service (AKS)
 services: container-service
 ms.topic: article
-ms.date: 12/18/2019
-ms.openlocfilehash: 935b049ce5e1951952b4af4e7df9574df764b6e8
-ms.sourcegitcommit: 34a6fa5fc66b1cfdfbf8178ef5cdb151c97c721c
+ms.date: 05/28/2020
+ms.openlocfilehash: c420eb850313900d3726b93dd97f911a428d3560
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82208004"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85339885"
 ---
 # <a name="current-limitations-for-windows-server-node-pools-and-application-workloads-in-azure-kubernetes-service-aks"></a>Limitations actuelles pour les pools de nœuds Windows Server et les charges de travail d’application dans Azure Kubernetes Service (AKS)
 
@@ -58,6 +58,19 @@ Les nœuds Windows Server dans AKS doivent être *mis à niveau* pour obtenir le
 > L’image Windows Server mise à jour n’est utilisée que si une mise à niveau de cluster (mise à niveau de plan de contrôle) a été effectuée avant la mise à niveau du pool de nœuds.
 >
 
+## <a name="why-am-i-seeing-an-error-when-i-try-to-create-a-new-windows-agent-pool"></a>Pourquoi un message d’erreur s’affiche-t-il lorsque j’essaie de créer un pool d’agents Windows ?
+
+Si vous avez créé votre cluster avant février 2020 et n’avez jamais effectué d’opérations de mise à niveau du cluster, le cluster utilise toujours une ancienne image Windows. Vous avez peut-être rencontré une erreur ressemblant à ceci :
+
+«La liste suivante d’images référencées à partir du modèle de déploiement est introuvable : Éditeur : MicrosoftWindowsServer, Offre : WindowsServer, référence (SKU) : 2019-datacenter-core-smalldisk-2004, Version : dernière. Pour obtenir des instructions sur la recherche d’images disponibles, consultez https://docs.microsoft.com/azure/virtual-machines/windows/cli-ps-findimage. »
+
+Pour résoudre ce problème :
+
+1. Mettez à niveau le [plan de contrôle du cluster][upgrade-cluster-cp]. Cette opération met à jour l’offre d’image et l’éditeur.
+1. Créez des pools d’agents Windows.
+1. Déplacez les pod Windows des pools d’agents Windows existants vers les nouveaux pools d’agents Windows.
+1. Supprimez les anciens pools d’agents Windows.
+
 ## <a name="how-do-i-rotate-the-service-principal-for-my-windows-node-pool"></a>Comment faire pivoter le principal du service pour mon pool de nœuds Windows ?
 
 Les pools de nœuds Windows ne prennent pas en charge la rotation du principal de service. Pour mettre à jour le principal du service, créez un pool de nœuds Windows, puis migrez vos pods de l’ancien pool vers le nouveau. Une fois cette opération terminée, supprimez l’ancien pool de nœuds.
@@ -72,7 +85,7 @@ Le nom ne peut pas compter plus de 6 (six) caractères. Il s’agit d’une limi
 
 ## <a name="are-all-features-supported-with-windows-nodes"></a>Toutes les fonctionnalités sont-elles prises en charge avec les nœuds Windows ?
 
-Les stratégies réseau et Kubenet ne sont actuellement pas pris en charge avec des nœuds Windows. 
+Les stratégies réseau et Kubenet ne sont actuellement pas pris en charge avec des nœuds Windows.
 
 ## <a name="can-i-run-ingress-controllers-on-windows-nodes"></a>Puis-je exécuter des contrôleurs d’entrée sur des nœuds Windows ?
 
@@ -88,7 +101,7 @@ Les comptes de service gérés de groupe (gMSA) ne sont actuellement pas pris en
 
 ## <a name="can-i-use-azure-monitor-for-containers-with-windows-nodes-and-containers"></a>Puis-je utiliser Azure Monitor pour des conteneurs avec des nœuds et conteneurs Windows ?
 
-Oui. Toutefois Azure Monitor ne collecte pas de journaux (stdout) de conteneurs Windows. Vous pouvez toujours établir un attachement au flux en direct des journaux stdout à partir d’un conteneur Windows.
+Oui. Toutefois, Azure Monitor est en préversion publique pour la collecte des journaux (stdout, stderr) et des métriques des conteneurs Windows. Vous pouvez aussi établir un attachement au flux en direct des journaux stdout à partir d’un conteneur Windows.
 
 ## <a name="what-if-i-need-a-feature-which-is-not-supported"></a>Que se passe-t-il si j’ai besoin d’une fonctionnalité qui n’est pas prise en charge ?
 
@@ -112,7 +125,10 @@ Pour vous lancer avec des conteneurs Windows Server dans AKS, [créez un pool de
 [windows-node-cli]: windows-container-cli.md
 [aks-support-policies]: support-policies.md
 [aks-faq]: faq.md
+[upgrade-cluster]: upgrade-cluster.md
+[upgrade-cluster-cp]: use-multiple-node-pools.md#upgrade-a-cluster-control-plane-with-multiple-node-pools
 [azure-outbound-traffic]: ../load-balancer/load-balancer-outbound-connections.md#defaultsnat
 [nodepool-limitations]: use-multiple-node-pools.md#limitations
 [windows-container-compat]: /virtualization/windowscontainers/deploy-containers/version-compatibility?tabs=windows-server-2019%2Cwindows-10-1909
 [maximum-number-of-pods]: configure-azure-cni.md#maximum-pods-per-node
+[azure-monitor]: ../azure-monitor/insights/container-insights-overview.md#what-does-azure-monitor-for-containers-provide

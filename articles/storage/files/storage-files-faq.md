@@ -7,12 +7,12 @@ ms.date: 02/23/2020
 ms.author: rogarana
 ms.subservice: files
 ms.topic: conceptual
-ms.openlocfilehash: ac9d9fddc45abbcbe4890d1060dcc2c931c72182
-ms.sourcegitcommit: 309cf6876d906425a0d6f72deceb9ecd231d387c
+ms.openlocfilehash: 87c1aa4d65b313f4c068ef11c9d2209e9318ef02
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/01/2020
-ms.locfileid: "84265163"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85482868"
 ---
 # <a name="frequently-asked-questions-faq-about-azure-files"></a>Questions fréquentes (FAQ) sur Azure Files
 [Azure Files](storage-files-introduction.md) offre des partages de fichiers managés dans le cloud qui sont accessibles via le [protocole SMB (Server Message Block)](https://msdn.microsoft.com/library/windows/desktop/aa365233.aspx) standard. Vous pouvez monter des partages de fichiers Azure simultanément sur des déploiements cloud ou locaux de Windows, Linux et macOS. Vous pouvez également mettre en cache des partages de fichiers Azure sur des ordinateurs Windows Server à l’aide d’Azure File Sync pour bénéficier d’un accès rapide proche de l’endroit où les données sont utilisées.
@@ -105,9 +105,9 @@ Cet article répond à des questions courantes sur les fonctionnalités d’Azur
     Les performances varient en fonction de vos paramètres d’environnement, de votre configuration et du type de synchronisation (initiale ou continue). Pour plus d’informations, consultez la page [Mesures de performances d’Azure File Sync](storage-files-scale-targets.md#azure-file-sync-performance-metrics).
 
 * <a id="afs-conflict-resolution"></a>**Si le même fichier est modifié sur deux serveurs à peu près au même moment, que se passe-t-il ?**  
-    Azure File Sync utilise une stratégie de résolution de conflit simple : nous conservons les modifications apportées aux fichiers modifiés sur deux serveurs en même temps. Le fichier le plus récemment écrit conserve son nom d’origine. Concernant l’ancien fichier, la machine « source » et le numéro de conflit sont ajoutés à son nom, avec le format suivant : 
+    Azure File Sync utilise une stratégie de résolution de conflit simple : nous conservons les modifications apportées aux fichiers modifiés dans deux points de terminaison en même temps. Le fichier le plus récemment écrit conserve son nom d’origine. L’ancien fichier (déterminé par LastWriteTime) a le nom du point de terminaison et le numéro de conflit ajoutés au nom de fichier. Pour les points de terminaison de serveur, le nom du point de terminaison est le nom du serveur. Pour les points de terminaison cloud, le nom du point de terminaison est **Cloud**. La taxonomie du nom est la suivante : 
    
-    \<FileNameWithoutExtension\>-\<MachineName\>\[-#\].\<ext\>  
+    \<FileNameWithoutExtension\>-\<endpointName\>\[-#\].\<ext\>  
 
     Par exemple, le premier conflit de CompanyReport.docx deviendra CompanyReport-CentralServer.docx si CentralServer est l’endroit où l’écriture la plus ancienne s’est produite. Le deuxième conflit sera nommé CompanyReport-CentralServer-1.docx. Azure File Sync prend en charge 100 fichiers conflictuels par fichier. Une fois le nombre maximal de fichiers conflictuels atteint, la synchronisation du fichier échoue. Pour qu’elle aboutisse, le nombre de fichiers conflictuels doit être inférieur à 100.
 
@@ -133,6 +133,10 @@ Cet article répond à des questions courantes sur les fonctionnalités d’Azur
 * <a id="afs-effective-vfs"></a>
   **Comment *l’espace libre du volume* est-il interprété quand il y a plusieurs points de terminaison de serveur sur un volume ?**  
   Voir [Introduction à la hiérarchisation cloud](storage-sync-cloud-tiering.md#afs-effective-vfs).
+  
+* <a id="afs-tiered-files-tiering-disabled"></a>
+  **La hiérarchisation cloud est désactivée. Pourquoi y a-t-il des fichiers hiérarchisés dans l’emplacement du point de terminaison de serveur ?**  
+  Voir [Introduction à la hiérarchisation cloud](storage-sync-cloud-tiering.md#afs-tiering-disabled).
 
 * <a id="afs-files-excluded"></a>
   **Quels fichiers ou dossiers sont automatiquement exclus par Azure File Sync ?**  
@@ -151,16 +155,16 @@ Cet article répond à des questions courantes sur les fonctionnalités d’Azur
     [!INCLUDE [storage-sync-files-remove-server-endpoint](../../../includes/storage-sync-files-remove-server-endpoint.md)]
     
 * <a id="afs-resource-move"></a>
-  **Puis-je déplacer le service de synchronisation de stockage et/ou le compte de stockage vers un autre groupe de ressources ou un autre abonnement ?**  
-   Oui, le service de synchronisation de stockage et/ou le compte de stockage peuvent être déplacés vers un autre groupe de ressources ou un autre abonnement à l’intérieur du locataire Azure AD existant. Si le compte de stockage est déplacé, vous devez donner à Hybrid File Sync Service l’accès au compte de stockage (consultez [Vérifiez qu’Azure File Sync a accès au compte de stockage](https://docs.microsoft.com/azure/storage/files/storage-sync-files-troubleshoot?tabs=portal1%2Cportal#troubleshoot-rbac)).
+  **Puis-je déplacer le service de synchronisation de stockage et/ou le compte de stockage vers un groupe de ressources, un abonnement ou un locataire Azure AD différents ?**  
+   Oui. Le service de synchronisation de stockage et/ou le compte de stockage peuvent être déplacés vers un autre groupe de ressources, un autre abonnement ou un autre locataire Azure AD. Une fois le service de synchronisation de stockage ou le compte de stockage déplacé, vous devez donner à l’application Microsoft.StorageSync l’accès au compte de stockage (consultez [Vérifiez qu’Azure File Sync a accès au compte de stockage](https://docs.microsoft.com/azure/storage/files/storage-sync-files-troubleshoot?tabs=portal1%2Cportal#troubleshoot-rbac)).
 
     > [!Note]  
-    > Azure File Sync ne prend pas en charge le déplacement de l’abonnement vers un autre locataire Azure AD.
+    > Lors de la création du point de terminaison cloud, le service de synchronisation du stockage et le compte de stockage doivent se trouver dans le même locataire Azure AD. Une fois le point de terminaison cloud créé, le service de synchronisation du stockage et le compte de stockage peuvent être déplacés vers des locataires Azure AD différents.
     
 * <a id="afs-ntfs-acls"></a>
   **Azure File Sync conserve-t-il les ACL NTFS de niveau répertoire/fichier en plus des données stockées dans Azure Files ?**
 
-    À compter du 24 février 2020, les listes de contrôle d’accès (ACL, access-control list) nouvelles et existantes hiérarchisées par Azure File Sync sont conservées au format NTFS, et les modifications apportées aux ACL directement dans le partage de fichiers Azure sont synchronisées avec tous les serveurs du groupe de synchronisation. Toutes les modifications apportées aux ACL dans Azure Files sont synchronisées via Azure File Sync. Lorsque vous copiez des données vers Azure Files, veillez à utiliser SMB pour accéder au partage de fichiers et à conserver vos ACL. Les outils REST existants, tels qu’AzCopy ou Explorateur Stockage, ne conservent pas les ACL.
+    À compter du 24 février 2020, les listes de contrôle d’accès (ACL, access-control list) nouvelles et existantes hiérarchisées par Azure File Sync sont conservées au format NTFS, et les modifications apportées aux ACL directement dans le partage de fichiers Azure sont synchronisées avec tous les serveurs du groupe de synchronisation. Toutes les modifications apportées aux ACL dans Azure Files sont synchronisées via Azure File Sync. Lorsque vous copiez des données vers Azure Files, veillez à utiliser un outil de copie qui offre la « fidélité » nécessaire pour copier des attributs, des horodateurs et des listes de contrôle d’accès dans un partage de fichiers Azure via le protocole SMB ou REST. Lorsque vous utilisez des outils de copie Azure tels qu’AzCopy, il est important d’utiliser la version la plus récente. Pour une vue d’ensemble des outils de copie Azure qui vous garantissent de pouvoir copier toutes les métadonnées importantes d’un fichier, consultez le [tableau des outils de copie de fichiers](storage-files-migration-overview.md#file-copy-tools).
 
     Si vous avez activé Sauvegarde Azure sur vos partages de fichiers gérés par synchronisation de fichiers, les ACL de fichier peuvent continuer à être restaurées dans le cadre du workflow de restauration de la sauvegarde. Cela fonctionne pour l’ensemble du partage de fichiers ou pour des fichiers/répertoires individuels.
 
