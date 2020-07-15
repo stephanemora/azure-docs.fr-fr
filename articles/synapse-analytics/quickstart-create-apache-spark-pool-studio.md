@@ -9,12 +9,12 @@ ms.subservice: spark
 ms.date: 3/19/2020
 ms.author: jrasnick
 ms.reviewer: jrasnick
-ms.openlocfilehash: c945e56aa0b6f851f54cf7679276558190b4bc10
-ms.sourcegitcommit: 3988965cc52a30fc5fed0794a89db15212ab23d7
+ms.openlocfilehash: 87fcbef5a3cedab3142fe9ad47c68752515fdd2e
+ms.sourcegitcommit: 0b2367b4a9171cac4a706ae9f516e108e25db30c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/22/2020
-ms.locfileid: "85194954"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86274337"
 ---
 # <a name="quickstart-create-an-apache-spark-pool-preview-using-synapse-studio"></a>Démarrage rapide : Créer un pool Apache Spark (préversion) à l’aide de Synapse Studio
 

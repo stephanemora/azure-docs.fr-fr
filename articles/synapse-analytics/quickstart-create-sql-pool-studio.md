@@ -1,5 +1,5 @@
 ---
-title: 'Démarrage rapide : Créer un pool SQL Synapse (préversion) à l’aide de Synapse Studio'
+title: 'Démarrage rapide : créer un pool SQL Synapse (préversion) à l’aide de Synapse Studio'
 description: Créez un pool SQL Synapse à l’aide de Synapse Studio en suivant les étapes décrites dans ce guide.
 services: synapse-analytics
 author: julieMSFT
@@ -9,12 +9,12 @@ ms.subservice: sql
 ms.date: 3/19/2020
 ms.author: jrasnick
 ms.reviewer: jrasnick
-ms.openlocfilehash: f93eb55b888c58ad111bd67b2011ba9c996b16bb
-ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
+ms.openlocfilehash: 4aac32ec69a4572a0988a22f1bc3b7bdf3f947d7
+ms.sourcegitcommit: 0b2367b4a9171cac4a706ae9f516e108e25db30c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/05/2020
-ms.locfileid: "85960263"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86274269"
 ---
 # <a name="quickstart-create-a-synapse-sql-pool-preview-using-synapse-studio"></a>Démarrage rapide : créer un pool SQL Synapse (préversion) à l’aide de Synapse Studio
 

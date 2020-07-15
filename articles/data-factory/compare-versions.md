@@ -10,12 +10,12 @@ ms.workload: data-services
 ms.topic: overview
 ms.date: 04/09/2018
 ms.author: makromer
-ms.openlocfilehash: ea625fbe28dad08ec2c3e2a64bada96460a04225
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 6c43906468ee0124187dc5ce6d6f1405e3b96b2e
+ms.sourcegitcommit: f7e160c820c1e2eb57dc480b2a8fd6bef7053e91
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "81415566"
+ms.lasthandoff: 07/10/2020
+ms.locfileid: "86231231"
 ---
 # <a name="compare-azure-data-factory-with-data-factory-version-1"></a>Comparer Azure Data Factory et Azure Data Factory version 1
 
@@ -130,14 +130,14 @@ Les Kits de développement logiciel (SDK) mis à jour dans la version actuelle n
 
 ## <a name="authoring-experience"></a>Expérience de création
 
-| &nbsp; | V2 | V1 |
+| | version 2 | version 1 |
 | ------ | -- | -- | 
-| Portail Azure | [Oui](quickstart-create-data-factory-portal.md) | Non |
-| Azure PowerShell | [Oui](quickstart-create-data-factory-powershell.md) | [Oui](data-factory-build-your-first-pipeline-using-powershell.md) |
-| Kit de développement logiciel (SDK) .NET | [Oui](quickstart-create-data-factory-dot-net.md) | [Oui](data-factory-build-your-first-pipeline-using-vs.md) |
-| API REST | [Oui](quickstart-create-data-factory-rest-api.md) | [Oui](data-factory-build-your-first-pipeline-using-rest-api.md) |
-| Kit de développement logiciel (SDK) Python | [Oui](quickstart-create-data-factory-python.md) | Non |
-| Modèle Resource Manager | [Oui](quickstart-create-data-factory-resource-manager-template.md) | [Oui](data-factory-build-your-first-pipeline-using-arm.md) | 
+| **Azure portal** | [Oui](quickstart-create-data-factory-portal.md) | Non |
+| **Azure PowerShell** | [Oui](quickstart-create-data-factory-powershell.md) | [Oui](data-factory-build-your-first-pipeline-using-powershell.md) |
+| **Kit de développement logiciel (SDK) .NET** | [Oui](quickstart-create-data-factory-dot-net.md) | [Oui](data-factory-build-your-first-pipeline-using-vs.md) |
+| **REST API** | [Oui](quickstart-create-data-factory-rest-api.md) | [Oui](data-factory-build-your-first-pipeline-using-rest-api.md) |
+| **Kit de développement logiciel (SDK) Python** | [Oui](quickstart-create-data-factory-python.md) | Non |
+| **modèle Azure Resource Manager** | [Oui](quickstart-create-data-factory-resource-manager-template.md) | [Oui](data-factory-build-your-first-pipeline-using-arm.md) | 
 
 ## <a name="roles-and-permissions"></a>Rôles et autorisations
 

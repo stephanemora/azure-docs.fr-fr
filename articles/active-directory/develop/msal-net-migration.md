@@ -13,12 +13,12 @@ ms.date: 04/10/2019
 ms.author: jmprieur
 ms.reviewer: saeeda
 ms.custom: aaddev
-ms.openlocfilehash: f389943d284c573312473f426048f8aadb79088e
-ms.sourcegitcommit: 31ef5e4d21aa889756fa72b857ca173db727f2c3
+ms.openlocfilehash: e758c69f91fb60a83dfcc119b2c7f7aba44384ca
+ms.sourcegitcommit: bcb962e74ee5302d0b9242b1ee006f769a94cfb8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "81533970"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86054659"
 ---
 # <a name="migrating-applications-to-msalnet"></a>Migration d’applications vers MSAL.NET
 

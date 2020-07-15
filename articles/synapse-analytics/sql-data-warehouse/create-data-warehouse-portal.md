@@ -11,12 +11,12 @@ ms.date: 05/28/2019
 ms.author: Kevin
 ms.reviewer: igorstan
 ms.custom: seo-lt-2019, azure-synapse
-ms.openlocfilehash: c7efccf35ddb47bf349d9a21628e9445e37b7699
-ms.sourcegitcommit: 6fd28c1e5cf6872fb28691c7dd307a5e4bc71228
+ms.openlocfilehash: c1b640fa5104ceb0f330c9aee9813ed8b3914d33
+ms.sourcegitcommit: 1e6c13dc1917f85983772812a3c62c265150d1e7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/23/2020
-ms.locfileid: "85211304"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86166040"
 ---
 # <a name="quickstart-create-and-query-a-synapse-sql-pool-using-the-azure-portal"></a>Démarrage rapide : Créer et interroger un pool SQL Synapse avec le portail Azure
 
@@ -199,6 +199,10 @@ Suivez ces étapes pour nettoyer les ressources dont vous n’avez plus besoin.
 4. Pour supprimer le serveur que vous avez créé, sélectionnez **sqlpoolservername.database.windows.net** dans l’image précédente, puis **Supprimer**. N’oubliez pas que la suppression du serveur supprime également toutes les bases de données qui lui sont attribuées.
 
 5. Pour supprimer le groupe de ressources, sélectionnez **myResourceGroup**, puis **Supprimer le groupe de ressources**.
+
+Vous souhaitez optimiser et réduire vos coûts de cloud ?
+
+[!INCLUDE [cost-management-horizontal](../../../includes/cost-management-horizontal.md)]
 
 ## <a name="next-steps"></a>Étapes suivantes
 

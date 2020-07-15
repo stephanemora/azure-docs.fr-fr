@@ -11,12 +11,12 @@ author: MladjoA
 ms.author: mlandzic
 ms.reviewer: sstein
 ms.date: 12/05/2019
-ms.openlocfilehash: 9069ec574af54c5c44efac5a6a9df1da62053219
-ms.sourcegitcommit: 1f48ad3c83467a6ffac4e23093ef288fea592eb5
+ms.openlocfilehash: 0497356e536632d179f4f64a6a9df8551a7a1897
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/29/2020
-ms.locfileid: "84195087"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85557868"
 ---
 # <a name="azure-sql-database-elastic-query-overview-preview"></a>Vue d’ensemble de la requête élastique Azure SQL Database (préversion)
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -148,7 +148,7 @@ La requête élastique est incluse dans le coût d’Azure SQL Database. Notez q
 * Les statistiques des colonnes via les tables externes ne sont pas prises en charge actuellement. Les statistiques des tables sont prises en charge, mais doivent être créées manuellement.
 * Une requête élastique fonctionne uniquement avec Azure SQL Database. Vous ne pouvez pas l’utiliser pour interroger une instance SQL Server.
 
-## <a name="feedback"></a>Commentaires
+## <a name="share-your-feedback"></a>Partager vos commentaires
 
 Partagez vos commentaires sur votre expérience des requêtes élastiques avec nous ci-dessous, sur les forums MSDN ou sur Stack Overflow. Nous souhaitons connaître votre avis concernant le service (défauts, améliorations possibles, lacunes).
 

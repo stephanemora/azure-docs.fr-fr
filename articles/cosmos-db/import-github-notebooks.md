@@ -4,14 +4,14 @@ description: Découvrez comment vous connecter à GitHub et importer les blocs-n
 author: deborahc
 ms.author: dech
 ms.service: cosmos-db
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 05/19/2020
-ms.openlocfilehash: 9ce65d316b8236b83435388d2c1883cb9b89b03a
-ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
+ms.openlocfilehash: d85f020152fa3cadb1d437c125d327f5e895e14e
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/20/2020
-ms.locfileid: "83690405"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85262886"
 ---
 # <a name="import-notebooks-from-a-github-repo-into-azure-cosmos-db"></a>Importer des blocs-notes à partir d’un dépôt GitHub dans Azure Cosmos DB
 
@@ -29,7 +29,7 @@ Vous pouvez vous connecter à vos propres dépôts GitHub ou à d’autres dép�
 
 1. Un onglet s’ouvre, dans lequel vous pouvez choisir de vous connecter uniquement aux **Dépôts publics** ou aux **Dépôts publics et privés**.  Après avoir choisi l’option requise, sélectionnez **Autoriser l’accès**. Une autorisation est requise pour qu’Azure Cosmos DB puisse accéder aux dépôts de votre compte GitHub.
 
-   ![Autoriser Azure Cosmos DB à accéder à vos dépôts GitHub](./media/import-github-notebooks/authorize-access-github.png)
+   :::image type="content" source="./media/import-github-notebooks/authorize-access-github.png" alt-text="Autoriser Azure Cosmos DB à accéder à vos dépôts GitHub":::
 
 1. Vous êtes redirigé vers la page web « github.com », dans laquelle vous pouvez confirmer l’autorisation. Sélectionnez le bouton **autoriser AzureCosmosDBNotebooks**, puis entrez le mot de passe de votre compte GitHub dans l’invite.
 
@@ -37,7 +37,7 @@ Vous pouvez vous connecter à vos propres dépôts GitHub ou à d’autres dép�
 
 1. Une fois que vous avez sélectionné le dépôt requis, son entrée passe de la section des **dépôt désépinglés** à celle des **dépôts épinglés**. Si nécessaire, vous pouvez également choisir une branche spécifique de ce dépôt à partir de laquelle importer les blocs-notes.
 
-   ![Choisir un dépôt et une branche](./media/import-github-notebooks/choose-repo-branch.png)
+   :::image type="content" source="./media/import-github-notebooks/choose-repo-branch.png" alt-text="Choisir un dépôt et une branche":::
 
 1. Sélectionnez **OK** pour terminer l’opération d’importation. Tous les blocs-notes disponibles dans la branche sélectionnée de votre dépôt sont importés dans votre compte Azure Cosmos.
 
@@ -53,7 +53,7 @@ Après avoir modifié un bloc-notes existant, sélectionnez **Enregistrer**. Une
 
 Dans le flux GitHub normal, après avoir validé les modifications, vous expédiez (push) généralement les modifications à distance. Toutefois, dans ce cas, l’option Valider sert à mettre en lots, valider, puis pousser vos mises à jour vers GitHub.
 
-![Modifier des blocs-notes et valider les modifications sur GitHub](./media/import-github-notebooks/commit-changes-github.png)
+:::image type="content" source="./media/import-github-notebooks/commit-changes-github.png" alt-text="Modifier des blocs-notes et valider les modifications sur GitHub":::
 
 ## <a name="next-steps"></a>Étapes suivantes
 

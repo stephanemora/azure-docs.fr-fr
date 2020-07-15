@@ -6,12 +6,12 @@ ms.service: cost-management-billing
 ms.topic: conceptual
 ms.date: 02/13/2020
 ms.author: banders
-ms.openlocfilehash: 1003e26fa670a804328d5e34def7c9d78eced9c0
-ms.sourcegitcommit: 537c539344ee44b07862f317d453267f2b7b2ca6
+ms.openlocfilehash: 76aa21aea647e5096ba47fb691622ea5146d9901
+ms.sourcegitcommit: 3541c9cae8a12bdf457f1383e3557eb85a9b3187
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/11/2020
-ms.locfileid: "84702599"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86207207"
 ---
 # <a name="understand-microsoft-customer-agreement-administrative-roles-in-azure"></a>Présentation des rôles d'administrateur Azure dans le cadre des Contrats client Microsoft
 
@@ -141,12 +141,12 @@ Les tableaux suivants indiquent le rôle dont vous avez besoin pour accomplir de
 
 ### <a name="manage-invoice-section-permissions-and-properties"></a>Gérer les autorisations et les propriétés des sections de facture
 
-|Tâches|Propriétaire de section de facture|Contributeur de section de facture|Lecteur de section de facture|Créateur de l'abonnement Azure|Propriétaire du compte de facturation|Collaborateur du compte de facturation|Lecteur du compte de facturation | |
-|---|---|---|---|---|---|---|---|---|
-|Afficher toutes les autorisations associées à la section de facture|✔|✔|✔|✔|✔|✔|✔| |
-|Autoriser d'autres utilisateurs à consulter et gérer la section de facture|✔|✘|✘|✘|✘|✘|✘| |
-|Afficher les propriétés de la section de facture|✔|✔|✔|✔|✔|✔|✔| |
-|Mettre à jour les propriétés de la section de facture|✔|✔|✘|✘|✘|✘|✘|✘|
+|Tâches|Propriétaire de section de facture|Contributeur de section de facture|Lecteur de section de facture|Créateur de l'abonnement Azure|Propriétaire du compte de facturation|Collaborateur du compte de facturation|Lecteur du compte de facturation |
+|---|---|---|---|---|---|---|---|
+|Afficher toutes les autorisations associées à la section de facture|✔|✔|✔|✔|✔|✔|✔|
+|Autoriser d'autres utilisateurs à consulter et gérer la section de facture|✔|✘|✘|✘|✘|✘|✘|
+|Afficher les propriétés de la section de facture|✔|✔|✔|✔|✔|✔|✔|
+|Mettre à jour les propriétés de la section de facture|✔|✔|✘|✘|✘|✘|✘|
 
 ### <a name="manage-products-for-invoice-section"></a>Gérer les produits associés à la section de facture
 

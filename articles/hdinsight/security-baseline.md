@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 04/09/2020
 ms.author: mbaldwin
 ms.custom: security-benchmark
-ms.openlocfilehash: 62188aefffd05af49bb00c242b266e808b991c84
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: bbc421baddf03068ac72907aaa88a71a81d208d0
+ms.sourcegitcommit: e132633b9c3a53b3ead101ea2711570e60d67b83
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "82188172"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86041317"
 ---
 # <a name="azure-security-baseline-for-hdinsight"></a>Base de référence de sécurité Azure pour HDInsight
 
@@ -36,7 +36,7 @@ Comment déployer Azure HDInsight dans un réseau virtuel et utiliser un groupe 
 
 Comment limiter le trafic sortant pour les clusters Azure HDInsight avec le pare-feu Azure : https://docs.microsoft.com/azure/hdinsight/hdinsight-restrict-outbound-traffic
 
-**Supervision Azure Security Center** : Oui
+**Supervision d’Azure Security Center** : Oui
 
 **Responsabilité** : Customer
 
@@ -122,7 +122,7 @@ Adresses IP de gestion HDInsight : https://docs.microsoft.com/azure/hdinsight/
 
 **Aide** : Non applicable. Le test d’évaluation est destiné à Azure Apps Service ou aux ressources de calcul hébergeant des applications web.
 
-**Supervision Azure Security Center** : Non applicable
+**Supervision d’Azure Security Center** : Non applicable
 
 **Responsabilité** : Non applicable
 
@@ -446,7 +446,7 @@ Comment superviser les activités liées aux identités et aux accès des utilis
 
 https://docs.microsoft.com/azure/security-center/security-center-identity-access
 
-**Supervision d’Azure Security Center** : Oui
+**Supervision Azure Security Center** : Oui
 
 **Responsabilité** : Customer
 
@@ -912,7 +912,7 @@ Comment refuser un type de ressource spécifique avec Azure Policy : https://do
 Configurer l’accès conditionnel pour bloquer l’accès à Azure Resource Manager : https://docs.microsoft.com/azure/role-based-access-control/conditional-access-azure-management
 
 
-**Supervision d’Azure Security Center** : actuellement non disponible
+**Supervision Azure Security Center** : actuellement non disponible
 
 **Responsabilité** : Customer
 
@@ -926,9 +926,9 @@ Configurer l’accès conditionnel pour bloquer l’accès à Azure Resource Man
 
 ### <a name="613-physically-or-logically-segregate-high-risk-applications"></a>6.13 : Séparer physiquement ou logiquement des applications à risque élevé
 
-**Conseils** : Non applicable. Le test d’évaluation est destiné à Azure Apps Service ou aux ressources de calcul hébergeant des applications web.
+**Aide** : Non applicable. Le test d’évaluation est destiné à Azure Apps Service ou aux ressources de calcul hébergeant des applications web.
 
-**Supervision Azure Security Center** : actuellement non disponible
+**Supervision d’Azure Security Center** : actuellement non disponible
 
 **Responsabilité** : Non applicable
 
@@ -1006,7 +1006,7 @@ https://docs.microsoft.com/azure/devops/repos/index?view=azure-devops
 
 **Aide** : Non applicable. Les images personnalisées ne sont pas applicables à Azure HDInsight.
 
-**Supervision d’Azure Security Center** : actuellement non disponible
+**Supervision Azure Security Center** : actuellement non disponible
 
 **Responsabilité** : Non applicable
 
@@ -1152,11 +1152,11 @@ Comment configurer la redondance du stockage pour les comptes de Stockage Azure�
 
 https://docs.microsoft.com/azure/storage/common/storage-redundancy
 
-Comment configurer la redondance pour les bases de données SQL Azure :
+Comment configurer la redondance pour une base de données SQL Azure :
 
 https://docs.microsoft.com/azure/sql-database/sql-database-active-geo-replication
 
-**Supervision Azure Security Center** : actuellement non disponible
+**Supervision d’Azure Security Center** : actuellement non disponible
 
 **Responsabilité** : Customer
 
