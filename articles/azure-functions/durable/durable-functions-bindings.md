@@ -5,11 +5,11 @@ ms.topic: conceptual
 ms.date: 12/17/2019
 ms.author: azfuncdf
 ms.openlocfilehash: 1f42c6c9b0086d49e539040334c83cfc0c6feb42
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79235389"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84698059"
 ---
 # <a name="bindings-for-durable-functions-azure-functions"></a>Liaisons pour Fonctions durables (Azure Functions)
 
@@ -392,11 +392,11 @@ Chaque fonction d’entité dispose d'un type de paramètre de `IDurableEntityCo
 * **EntityId** : ID de l’entité en cours d’exécution.
 * **OperationName** : nom de l’opération en cours.
 * **HasState** : indique si l’entité existe, c’est-à-dire si elle a un état. 
-* **GetState\<TState>()**  : Obtient l’état actuel de l’entité. S’il n’existe pas déjà, il est créé et initialisé pour `default<TState>`. Le paramètre `TState` doit correspondre à un type primitif ou sérialisable JSON. 
-* **GetState\<TState>(initfunction)**  : Obtient l’état actuel de l’entité. S’il n’existe pas déjà, il est créé en appelant le paramètre `initfunction` fourni. Le paramètre `TState` doit correspondre à un type primitif ou sérialisable JSON. 
+* **GetState\<TState>()**  : obtient l’état actuel de l’entité. S’il n’existe pas déjà, il est créé et initialisé pour `default<TState>`. Le paramètre `TState` doit correspondre à un type primitif ou sérialisable JSON. 
+* **GetState\<TState>(initfunction)**  : obtient l’état actuel de l’entité. S’il n’existe pas déjà, il est créé en appelant le paramètre `initfunction` fourni. Le paramètre `TState` doit correspondre à un type primitif ou sérialisable JSON. 
 * **SetState(arg)**  : crée ou met à jour l’état de l’entité. Le paramètre `arg` doit être un objet ou primitif sérialisable JSON.
 * **DeleteState()**  : supprime l’état de l’entité. 
-* **GetInput\<TInput()**  : Obtient l’entrée pour l’opération en cours. Le paramètre de type `TInput` doit correspondre à un type primitif ou sérialisable JSON.
+* **GetInput\<TInput>()**  : obtient l’entrée pour l’opération en cours. Le paramètre de type `TInput` doit correspondre à un type primitif ou sérialisable JSON.
 * **Return(arg)**  : renvoie une valeur à l'orchestration qui a appelé l’opération. Le paramètre `arg` doit correspondre à un objet primitif ou sérialisable JSON.
 * **SignalEntity(EntityId, scheduledTimeUtc, operation, input)**  : envoie un message unidirectionnel à une entité. Le paramètre `operation` doit être une chaîne non null, le `scheduledTimeUtc` facultatif doit être une valeur de date et d’heure UTC pour l’appel de l’opération, et le paramètre `input` doit être un objet primitif ou sérialisable par du code JSON.
 * **CreateNewOrchestration(orchestratorFunctionName, input)** : démarre une nouvelle orchestration. Le paramètre `input` doit correspondre à un objet primitif ou sérialisable JSON.
@@ -533,7 +533,7 @@ Si vous utilisez des scripts de langage (par exemple, des fichiers *.csx* ou *.j
 
 Dans les fonctions .NET, vous établissez généralement une liaison avec `IDurableEntityClient`, ce qui vous donne un accès total à toutes les API clientes prises en charge par les entités durables. Vous pouvez également créer une liaison avec l'interface`IDurableOrchestrationClient`, qui fournit l’accès aux API clientes pour les entités et les orchestrations. Les API sur l’objet client incluent :
 
-* **ReadEntityStateAsync\<T>**  : Lit l’état d’une entité. Ceci retourne une réponse qui indique si l’entité cible existe et, si tel est le cas, son état.
+* **ReadEntityStateAsync\<T>**  : lit l’état d’une entité. Ceci retourne une réponse qui indique si l’entité cible existe et, si tel est le cas, son état.
 * **SignalEntityAsync** : Envoie un message unidirectionnel à une entité et attend qu’elle soit mise en file d’attente.
 * **ListEntitiesAsync** : interroge l’état de plusieurs entités. Les entités peuvent être interrogées selon leur *nom* ou l’*heure de la dernière opération*.
 

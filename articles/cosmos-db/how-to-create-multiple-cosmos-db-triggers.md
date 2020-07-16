@@ -3,21 +3,21 @@ title: Créer plusieurs déclencheurs Azure Functions indépendants pour Cosmos 
 description: Découvrez comment configurer plusieurs déclencheurs Azure Functions indépendants pour Cosmos DB afin de créer des architectures basées sur les événements.
 author: ealsur
 ms.service: cosmos-db
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 07/17/2019
 ms.author: maquaran
-ms.openlocfilehash: 32b680acdee29bf97a0e132fee93d5fee3377245
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 695513bb572f5931ee1f0fa54a330cfa0574fc21
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "77604948"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85261594"
 ---
 # <a name="create-multiple-azure-functions-triggers-for-cosmos-db"></a>Créer plusieurs déclencheurs Azure Functions pour Cosmos DB
 
 Cet article explique comment configurer plusieurs déclencheurs Azure Functions pour Cosmos DB fonctionnant en parallèle et réagissant de façon indépendante aux modifications.
 
-![Fonctions basées sur les événements serverless fonctionnant avec le déclencheur Azure Functions pour Cosmos DB et partageant un conteneur de baux](./media/change-feed-functions/multi-trigger.png)
+:::image type="content" source="./media/change-feed-functions/multi-trigger.png" alt-text="Fonctions basées sur les événements serverless fonctionnant avec le déclencheur Azure Functions pour Cosmos DB et partageant un conteneur de baux" border="false":::
 
 ## <a name="event-based-architecture-requirements"></a>Exigences de l’architecture basée sur les événements
 

@@ -7,23 +7,23 @@ manager: daveba
 ms.service: active-directory
 ms.workload: identity
 ms.subservice: fundamentals
-ms.topic: conceptual
-ms.date: 05/07/2020
+ms.topic: how-to
+ms.date: 06/24/2020
 ms.author: ajburnle
 ms.reviewer: kexia
 ms.custom: it-pro, seodec18, fasttrack-edit
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 7e0fc3cb450c253882ed34a2c4f5748efe55d0ec
-ms.sourcegitcommit: 999ccaf74347605e32505cbcfd6121163560a4ae
+ms.openlocfilehash: 14e1e84fa96b1e6b686d039abedd38e080b5720e
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/08/2020
-ms.locfileid: "82982035"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85603908"
 ---
 # <a name="add-branding-to-your-organizations-azure-active-directory-sign-in-page"></a>Personnaliser la page de connexion Azure Active Directory de votre organisation
 Utilisez le logo et la palette de couleurs personnalisée de votre organisation pour offrir une apparence cohérente à vos pages de connexion Azure Active Directory (Azure AD). Vos pages de connexion s’affichent quand les utilisateurs se connectent aux applications web de votre organisation, comme Office 365, qui utilise Azure AD comme fournisseur d’identité.
 
->[!Note]
+>[!NOTE]
 >La personnalisation nécessite l’utilisation des éditions Azure Active Directory Premium 1, Premium 2 ou De base, ou encore une licence Office 365. Pour plus d’informations sur les licences et les éditions, consultez [S’inscrire à Azure AD Premium](active-directory-get-started-premium.md).<br><br>Les clients vivant en Chine peuvent accéder aux éditions De base et Premium d’Azure Active Directory à l’aide de l’instance mondiale d’Azure Active Directory. Actuellement, les éditions De base et Premium d’Azure AD ne sont pas prises en charge dans le service Azure géré par 21Vianet en Chine. Pour plus d’informations, contactez-nous sur le [forum Azure Active Directory](https://feedback.azure.com/forums/169401-azure-active-directory/).
 
 ## <a name="customize-your-azure-ad-sign-in-page"></a>Personnaliser votre page de connexion Azure AD
@@ -43,7 +43,7 @@ Votre personnalisation ne s’affiche pas immédiatement quand vos utilisateurs 
 
 3. Dans la page **Configurer la marque de société**, fournissez tout ou partie des informations suivantes.
 
-    >[!Important]
+    >[!IMPORTANT]
     >Toutes les images personnalisées que vous ajoutez sur cette page présentent des restrictions en termes de taille d’image (pixels), et éventuellement de taille de fichier (Ko). En raison de ces restrictions, vous devrez probablement utiliser un éditeur de photos pour créer des images à la bonne taille.
 
     - **Paramètres généraux :**
@@ -62,7 +62,17 @@ Votre personnalisation ne s’affiche pas immédiatement quand vos utilisateurs 
 
         - **Indication sur le nom d’utilisateur.** Entrez le texte d’indication qui s’affiche pour les utilisateurs ayant oublié leur nom d’utilisateur. Ce texte doit être au format Unicode, ne comporter aucun lien ni code, et ne pas dépasser 64 caractères. Si des invités se connectent à votre application, nous vous suggérons de ne pas ajouter cet indicateur.
 
-        - **Texte de la page de connexion.** Entrez le texte qui apparaît au bas de la page de connexion. Vous pouvez utiliser ce texte pour communiquer des informations supplémentaires telles que le numéro de téléphone à votre support technique ou une mention légale. Ce texte doit être au format Unicode et ne doit pas dépasser 256 caractères.
+        - **Texte de la page de connexion et mise en forme.** Entrez le texte qui apparaît au bas de la page de connexion. Vous pouvez utiliser ce texte pour communiquer des informations supplémentaires telles que le numéro de téléphone à votre support technique ou une mention légale. Ce texte doit être au format Unicode et ne doit pas dépasser 1 024 caractères.
+
+           Vous pouvez personnaliser le texte de la page de connexion que vous avez entré. Pour commencer un nouveau paragraphe, utilisez deux fois la touche Entrée. Vous pouvez également modifier la mise en forme du texte pour y inclure le gras, l’italique, le soulignement ou un lien hypertexte. Pour ajouter une mise en forme au texte, utilisez la syntaxe suivante : 
+
+          > Lien hypertexte : ```[text](link)``` 
+          
+          > Gras : ``` **text** ``` ou ``` __text__ ``` 
+          
+          > Italique : ``` *text* ``` ou ``` _text_ ``` 
+          
+          > Souligné : ``` ++text++ ``` 
 
     - **Paramètres avancés**
             
@@ -77,8 +87,10 @@ Votre personnalisation ne s’affiche pas immédiatement quand vos utilisateurs 
         - **Logo carré, thème foncé.** Identique à l’image de logo carré ci-dessus. Cette image de logo prend la place de l’image de logo carré dans le cas d’un arrière-plan foncé, comme avec les écrans « Windows 10 Azure AD Joined » de l’expérience OOBE (out-of-box experience).  Si votre logo ressort bien sur des arrière-plans blancs, bleu foncé et noirs, vous n’avez pas besoin d’ajouter cette image. 
         
         - **Afficher l’option permettant de rester connecté.** Vous pouvez autoriser les utilisateurs à rester connecté à Azure AD jusqu’à ce qu’ils se déconnectent de manière explicite. Si vous sélectionnez **Non**, cette option est masquée et les utilisateurs doivent se connecter chaque fois que le navigateur est fermé puis ouvert.
+
+            Pour en savoir plus sur la configuration et la résolution des problèmes de l’option permettant de rester connecté, consultez [Configurer l’invite « Rester connecté ? » pour les comptes Azure AD](keep-me-signed-in.md)
         
-            >[!Note]
+            >[!NOTE]
             >Certaines fonctionnalités de SharePoint Online et Office 2010 dépendent du choix des utilisateurs de rester connecté. Si vous définissez cette option sur **Non**, il se peut que vos utilisateurs voient des invites de connexion supplémentaires et inattendues.
    
 
@@ -86,7 +98,7 @@ Votre personnalisation ne s’affiche pas immédiatement quand vos utilisateurs 
 
     Si ce processus crée votre première configuration de personnalisation, il devient le processus par défaut pour votre locataire. Si vous avez d’autres configurations, vous pouvez choisir votre configuration par défaut.
     
-    >[!Important]
+    >[!IMPORTANT]
     >Si vous souhaitez ajouter d’autres configurations de personnalisation d’entreprise pour votre locataire, vous devez sélectionnez **Nouvelle langue** dans la page **Contoso - Marque de société**. Cette opération ouvre la page **Configurer la marque de société**, où vous pouvez suivre les mêmes étapes que ci-dessus.
 
 ## <a name="update-your-custom-branding"></a>Mettre à jour votre personnalisation
@@ -134,5 +146,3 @@ Pour ajouter votre personnalisation aux pages, modifiez la fin de l’URL avec l
 
 **URL d’origine :** https://aka.ms/SSPR<br>
 **URL personnalisée :** `https://passwordreset.microsoftonline.com/?whr=contoso.com`
-
- 

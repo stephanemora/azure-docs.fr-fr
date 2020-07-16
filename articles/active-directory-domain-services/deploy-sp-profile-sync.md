@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: how-to
 ms.date: 01/21/2020
 ms.author: iainfou
-ms.openlocfilehash: a684a669c491e35b5c6b62dd318b4fe61edeb52b
-ms.sourcegitcommit: 62c5557ff3b2247dafc8bb482256fef58ab41c17
+ms.openlocfilehash: c45921b75fff000185c7e24b998b761ecc088d9f
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/03/2020
-ms.locfileid: "80655378"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84734790"
 ---
 # <a name="configure-azure-active-directory-domain-services-to-support-user-profile-synchronization-for-sharepoint-server"></a>Configurer Azure Active Directory Domain Services pour prendre en charge la synchronisation de profils utilisateur pour SharePoint Server
 
@@ -33,7 +33,7 @@ Pour faire ce qui est décrit dans cet article, vous avez besoin des ressources 
 * Un locataire Azure Active Directory associé à votre abonnement, synchronisé avec un annuaire local ou un annuaire cloud uniquement.
     * Si nécessaire, [créez un locataire Azure Active Directory][create-azure-ad-tenant] ou [associez un abonnement Azure à votre compte][associate-azure-ad-tenant].
 * Un domaine managé Azure Active Directory Domain Services activé et configuré dans votre locataire Azure AD.
-    * Si nécessaire, suivez le tutoriel pour [créer et configurer une instance Azure Active Directory Domain Services][create-azure-ad-ds-instance].
+    * Si nécessaire, suivez le tutoriel pour [créer et configurer un domaine managé Azure Active Directory Domain Services][create-azure-ad-ds-instance].
 * Une machine virtuelle de gestion Windows Server jointe au domaine managé Azure AD DS.
     * Si nécessaire, suivez le tutoriel [Créer une machine virtuelle de gestion][tutorial-create-management-vm].
 * Un compte d’utilisateur membre du groupe *Administrateurs Azure AD DC* dans votre locataire Azure AD.
@@ -42,7 +42,7 @@ Pour faire ce qui est décrit dans cet article, vous avez besoin des ressources 
 
 ## <a name="service-accounts-overview"></a>Vue d’ensemble des comptes de service
 
-Dans un domaine managé Azure AD DS, un groupe de sécurité nommé **AAD DC Service Accounts** existe dans l’unité d’organisation *Users*. Les privilèges suivants sont délégués aux membres de ce groupe de sécurité :
+Dans un domaine managé, un groupe de sécurité nommé **AAD DC Service Accounts** existe dans l’unité d’organisation *Users*. Les privilèges suivants sont délégués aux membres de ce groupe de sécurité :
 
 - Le privilège **Répliquer les changements de répertoire** au DSE racine.
 - Le privilège **Répliquer les changements de répertoire** dans le contexte de nommage *Configuration* (conteneur `cn=configuration`).
@@ -58,11 +58,11 @@ Le compte de service pour SharePoint Server a besoin des privilèges adéquats p
 À partir de votre machine virtuelle de gestion Azure AD DS, effectuez les étapes suivantes :
 
 > [!NOTE]
-> Pour modifier l’appartenance au groupe dans un domaine managé Azure AD DS, vous devez être connecté à un compte d’utilisateur qui est membre du groupe *AAD DC Administrators*.
+> Pour modifier l’appartenance au groupe dans un domaine managé, vous devez être connecté à un compte d’utilisateur qui est membre du groupe *AAD DC Administrators*.
 
 1. Dans l’écran d’accueil, sélectionnez **Outils d’administration**. La liste des outils de gestion disponibles qui ont été installés dans le tutoriel [Créer une machine virtuelle de gestion][tutorial-create-management-vm] s’affiche à l’écran.
 1. Pour gérer l’appartenance au groupe, sélectionnez **Centre d’administration Active Directory** dans la liste des outils d’administration.
-1. Dans le volet de gauche, choisissez votre domaine managé Azure AD DS, par exemple *aaddscontoso.com*. Une liste d’unités d’organisation et de ressources existantes s’affiche.
+1. Dans le volet de gauche, choisissez votre domaine managé, par exemple *aaddscontoso.com*. Une liste d’unités d’organisation et de ressources existantes s’affiche.
 1. Sélectionnez l’unité d’organisation **Users**, puis choisissez le groupe de sécurité *AAD DC Service Accounts*.
 1. Sélectionnez **Membres**, puis choisissez **Ajouter...** .
 1. Entrez le nom du compte de service SharePoint, puis sélectionnez **OK**. Dans l’exemple suivant, le compte de service SharePoint se nomme *spadmin* :

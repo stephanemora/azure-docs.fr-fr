@@ -5,15 +5,15 @@ description: Cet article fournit de l’aide sur la configuration des applicatio
 services: application-gateway
 author: abshamsft
 ms.service: application-gateway
-ms.topic: article
-ms.date: 11/14/2019
+ms.topic: how-to
+ms.date: 06/09/2020
 ms.author: absha
-ms.openlocfilehash: 0ec417b3c7a025d2d05bdd74ec683a2891c3b0de
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 1109dae90790c9667b3c60afb6416c20061a95fe
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "74075164"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84808105"
 ---
 # <a name="configure-app-service-with-application-gateway"></a>Configurer App Service avec Application Gateway
 
@@ -59,7 +59,7 @@ Dans cet article, vous apprendrez comment :
 3. Choisissez le protocole HTTP ou HTTPS selon le cas d’usage. 
 
    > [!NOTE]
-   > Si vous sélectionnez HTTPS, vous n'avez pas besoin de charger un certificat d'authentification ou un certificat racine approuvé pour mettre sur liste verte le back-end de l'application puisque l'application est un service Azure approuvé.
+   > Si vous sélectionnez HTTPS, vous n’avez pas besoin de charger un certificat d’authentification ou un certificat racine approuvé pour autoriser le back-end de l’application puisque l’application est un service Azure approuvé.
 
 4. Cochez la case **Utiliser pour App Service**. Notez que les commutateurs `Create a probe with pick host name from backend address` et `Pick host name from backend address` seront automatiquement activés.`Pick host name from backend address` remplacera l'en-tête de l'hôte dans la requête par le nom d'hôte du back-end lorsque la requête est acheminée d'Application Gateway vers le back-end.  
 

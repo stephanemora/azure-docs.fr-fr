@@ -3,15 +3,15 @@ title: Rechercher des frais d’unités de requête (RU) dans Azure Cosmos DB
 description: Découvrez comment trouver les frais d’unités de requête pour toute opération exécutée sur un conteneur Azure Cosmos.
 author: ThomasWeiss
 ms.service: cosmos-db
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 09/01/2019
 ms.author: thweiss
-ms.openlocfilehash: e5420b9b765fffcf7b4ccd6775d05795b1b13871
-ms.sourcegitcommit: f57297af0ea729ab76081c98da2243d6b1f6fa63
+ms.openlocfilehash: bf109d3f15c9865a8e9ad1d27a1e8d320d172761
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/06/2020
-ms.locfileid: "82872237"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85261832"
 ---
 # <a name="find-the-request-unit-charge-in-azure-cosmos-db"></a>Rechercher les frais d’unités de requête dans Azure Cosmos DB
 
@@ -37,7 +37,7 @@ Actuellement, vous pouvez trouver les frais de requête sur le portail Azure uni
 
 1. Sélectionnez **Statistiques des requêtes** pour afficher les frais réels de la demande que vous avez exécutée.
 
-![Capture d’écran des frais de demande de requête SQL sur le portail Azure](./media/find-request-unit-charge/portal-sql-query.png)
+:::image type="content" source="./media/find-request-unit-charge/portal-sql-query.png" alt-text="Capture d’écran des frais de demande de requête SQL sur le portail Azure":::
 
 ### <a name="use-the-net-sdk"></a>Utiliser le kit de développement logiciel (SDK) .NET
 
@@ -187,7 +187,7 @@ Actuellement, vous pouvez trouver les frais de requête sur le portail Azure uni
 
 1. Sélectionnez **Statistiques des requêtes** pour afficher les frais réels de la demande que vous avez exécutée.
 
-![Capture d’écran des frais de demande de requête MongoDB sur le portail Azure](./media/find-request-unit-charge/portal-mongodb-query.png)
+:::image type="content" source="./media/find-request-unit-charge/portal-mongodb-query.png" alt-text="Capture d’écran des frais de demande de requête MongoDB sur le portail Azure":::
 
 ### <a name="use-the-mongodb-net-driver"></a>Utiliser le pilote .NET MongoDB
 

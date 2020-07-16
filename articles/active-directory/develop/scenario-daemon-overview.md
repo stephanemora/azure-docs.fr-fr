@@ -11,12 +11,12 @@ ms.workload: identity
 ms.date: 01/31/2020
 ms.author: jmprieur
 ms.custom: aaddev, identityplatformtop40
-ms.openlocfilehash: df06c4c55941f4424d6b90d2846af17bf055b2e4
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: df5755c585d99333bf0c64ca08705309b4d4fc58
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80885461"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85253118"
 ---
 # <a name="scenario-daemon-application-that-calls-web-apis"></a>Scénario : Application démon appelant des API web
 
@@ -38,7 +38,7 @@ Voici quelques exemples de cas d’utilisation d’applications démon :
 - Applications de bureau (comme des services Windows sur Windows ou des processus démon sur Linux) qui effectuent des traitements par lots, ou un service de système d’exploitation qui s’exécute en arrière-plan
 - API web que ont besoin de manipuler des annuaires, pas des utilisateurs spécifiques.
 
-Il existe un autre cas courant où des applications non-démon utilisent les informations d’identification du client. Même quand elles agissent pour le compte d’utilisateurs, pour des raisons techniques, elles ont besoin d’accéder à une API web ou à une ressource sous leur propre identité. L’accès aux secrets dans Azure Key Vault ou dans une base de données Azure SQL pour un cache en est un exemple.
+Il existe un autre cas courant où des applications non-démon utilisent les informations d’identification du client. Même quand elles agissent pour le compte d’utilisateurs, pour des raisons techniques, elles ont besoin d’accéder à une API web ou à une ressource sous leur propre identité. L’accès aux secrets dans Azure Key Vault ou Azure SQL Database pour un cache en est un exemple.
 
 Applications qui acquièrent un jeton pour leurs propres identités :
 

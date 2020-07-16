@@ -3,19 +3,19 @@ title: Créer des environnements de service d'intégration (ISE) à l'aide de l'
 description: Créez un environnement de service d'intégration (ISE) à l'aide de l'API REST Logic Apps afin de pouvoir accéder aux réseaux virtuels Azure à partir d'Azure Logic Apps
 services: logic-apps
 ms.suite: integration
-ms.reviewer: klam, logicappspm
+ms.reviewer: rarayudu, logicappspm
 ms.topic: conceptual
-ms.date: 03/11/2020
-ms.openlocfilehash: 0670331d2338b4b6419ffbff1452b5fbac91029f
-ms.sourcegitcommit: efefce53f1b75e5d90e27d3fd3719e146983a780
+ms.date: 05/29/2020
+ms.openlocfilehash: d33207639ebef912307a3c594ec274fd9609bd67
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/01/2020
-ms.locfileid: "80478835"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84656540"
 ---
 # <a name="create-an-integration-service-environment-ise-by-using-the-logic-apps-rest-api"></a>Créer un environnement de service d'intégration (ISE) à l'aide de l'API REST Logic Apps
 
-Cet article explique comment créer un [*environnement de service d'intégration* (ISE)](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md) à l'aide de l'API REST Logic Apps pour les scénarios dans lesquels vos applications logiques et vos comptes d'intégration doivent accéder à un [réseau virtuel Azure](../virtual-network/virtual-networks-overview.md). Un ISE est un environnement isolé qui utilise un stockage dédié et d’autres ressources conservées séparément du service Logic Apps multilocataire « mondial ». Cette séparation réduit également l’impact que d’autres locataires Azure peuvent avoir sur les performances de vos applications. Un environnement ISE vous fournit également vos propres adresses IP statiques. Ces adresses IP sont séparées des adresses IP statiques qui sont partagées par les applications logiques dans le service multilocataire public.
+Cet article explique comment créer un [*environnement de service d'intégration* (ISE)](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md) à l'aide de l'API REST Logic Apps pour les scénarios dans lesquels vos applications logiques et vos comptes d'intégration doivent accéder à un [réseau virtuel Azure](../virtual-network/virtual-networks-overview.md). Un ISE est un environnement dédié qui utilise un stockage dédié et d’autres ressources qui sont conservées séparément du service Logic Apps multilocataire « mondial ». Cette séparation réduit également l’impact que d’autres locataires Azure peuvent avoir sur les performances de vos applications. Un environnement ISE vous fournit également vos propres adresses IP statiques. Ces adresses IP sont séparées des adresses IP statiques qui sont partagées par les applications logiques dans le service multilocataire public.
 
 Vous pouvez également créer un environnement ISE à l’aide de l’[exemple de modèle de démarrage rapide Azure Resource Manager](https://github.com/Azure/azure-quickstart-templates/tree/master/201-integration-service-environment) ou à l’aide du [portail Azure](../logic-apps/connect-virtual-network-vnet-isolated-environment.md).
 
@@ -54,9 +54,11 @@ Dans l’en-tête de la requête, incluez les propriétés suivantes :
 
 * `Authorization`: affectez comme valeur de cette propriété le jeton du porteur pour le client qui a accès à l’abonnement Azure ou au groupe de ressources que vous souhaitez utiliser
 
-### <a name="request-body-syntax"></a>Syntaxe du corps de la demande
+<a name="request-body"></a>
 
-Voici la syntaxe du corps de la requête, qui décrit les propriétés à utiliser lors de la création de votre ISE :
+## <a name="request-body"></a>Corps de la demande
+
+Voici la syntaxe du corps de la requête, qui décrit les propriétés à utiliser lors de la création de votre ISE. Pour créer un environnement ISE qui autorise l’utilisation d’un certificat auto-signé installé à l’emplacement `TrustedRoot`, incluez l’objet `certificates` à l’intérieur de la section `properties` de la définition ISE. Pour une application ISE existante, vous pouvez envoyer une requête PATCH pour l’objet `certificates` seulement. Pour plus d’informations sur l’utilisation des certificats auto-signés, voir aussi [Connecteur HTTP - Certificats auto-signés](../connectors/connectors-native-http.md#self-signed).
 
 ```json
 {
@@ -88,6 +90,13 @@ Voici la syntaxe du corps de la requête, qui décrit les propriétés à utilis
                "id": "/subscriptions/{Azure-subscription-ID}/resourceGroups/{Azure-resource-group}/providers/Microsoft.Network/virtualNetworks/{virtual-network-name}/subnets/{subnet-4}",
             }
          ]
+      },
+      // Include `certificates` object to enable self-signed certificate support
+      "certificates": {
+         "testCertificate": {
+            "publicCertificate": "{base64-encoded-certificate}",
+            "kind": "TrustedRoot"
+         }
       }
    }
 }
@@ -127,7 +136,12 @@ Cet exemple de corps de requête montre les exemples de valeurs :
                "id": "/subscriptions/********************/resourceGroups/Fabrikam-RG/providers/Microsoft.Network/virtualNetworks/Fabrikam-VNET/subnets/subnet-4",
             }
          ]
-      }
+      },
+      "certificates": {
+         "testCertificate": {
+            "publicCertificate": "LS0tLS1CRUdJTiBDRV...",
+            "kind": "TrustedRoot"
+         }
    }
 }
 ```

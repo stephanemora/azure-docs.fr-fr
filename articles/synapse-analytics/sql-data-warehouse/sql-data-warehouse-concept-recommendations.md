@@ -6,17 +6,17 @@ author: kevinvngo
 manager: craigg-msft
 ms.service: synapse-analytics
 ms.topic: conceptual
-ms.subservice: ''
-ms.date: 04/30/2020
+ms.subservice: sql-dw
+ms.date: 06/26/2020
 ms.author: kevin
 ms.reviewer: igorstan
 ms.custom: azure-synapse
-ms.openlocfilehash: 17b8ce04cb5029d1bea11344617bf65718ca579c
-ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
+ms.openlocfilehash: e4564005e3b9cc9673cc20596d4114d102174b9e
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83653027"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85482851"
 ---
 # <a name="synapse-sql-recommendations"></a>Recommandations Synapse SQL
 
@@ -70,3 +70,7 @@ Lorsque vous disposez d’une plage de travail volumineuse, vous pouvez constate
 ## <a name="tempdb-contention"></a>Contention sur Tempdb
 
 Les performances des requêtes peuvent se dégrader en cas de forte contention sur tempdb.  La contention sur tempdb peut se produire via des tables temporaires définies par l’utilisateur ou en cas de déplacement d’un grand volume de données. Pour ce scénario, vous pouvez effectuer une mise à l’échelle pour accroître l’allocation tempdb et [configurer les classes de ressources et la gestion des charges de travail](https://docs.microsoft.com/azure/synapse-analytics/sql-data-warehouse/sql-data-warehouse-workload-management) pour fournir plus de mémoire à vos requêtes. 
+
+## <a name="data-loading-misconfiguration"></a>Échec de la configuration du chargement des données
+
+Pour réduire la latence, vous devez toujours charger les données à partir d’un compte de stockage situé dans la même région que votre pool SQL. Utilisez l’[instruction COPY pour l’ingestion de données à débit élevé](https://docs.microsoft.com/sql/t-sql/statements/copy-into-transact-sql?view=azure-sqldw-latest) et fractionnez vos fichiers intermédiaires dans votre compte de stockage pour optimiser le débit. Si vous ne pouvez pas utiliser l’instruction COPY, vous pouvez utiliser l’API SqlBulkCopy ou BCP avec une taille de lot élevée pour obtenir un meilleur débit. Pour obtenir de l’aide sur le chargement de données supplémentaires, consultez la [documentation](https://docs.microsoft.com/azure/synapse-analytics/sql-data-warehouse/guidance-for-loading-data) suivante. 

@@ -11,20 +11,20 @@ ms.workload: identity
 ms.topic: how-to
 ms.date: 03/31/2020
 ms.author: iainfou
-ms.openlocfilehash: c1dc5216f758c2dda263e2f61b043dbde5f76604
-ms.sourcegitcommit: 62c5557ff3b2247dafc8bb482256fef58ab41c17
+ms.openlocfilehash: 285f5aabe32013a629eebb150e55ba343150f589
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/03/2020
-ms.locfileid: "80655501"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84734841"
 ---
-# <a name="deploy-azure-ad-application-proxy-for-secure-access-to-internal-applications-in-an-azure-ad-domain-services-managed-domain"></a>Déployer le proxy d'application Azure AD pour un accès sécurisé aux applications internes dans un domaine managé Azure AD Domain Services
+# <a name="deploy-azure-ad-application-proxy-for-secure-access-to-internal-applications-in-an-azure-active-directory-domain-services-managed-domain"></a>Déployer le proxy d’application Azure AD pour un accès sécurisé aux applications internes dans un domaine managé Azure Active Directory Domain Services
 
 Grâce à Azure AD Domain Services (Azure AD DS), vous pouvez transférer des applications héritées lift-and-shift s’exécutant localement vers Azure. Le proxy d’application Azure Active Directory (AD) vous aide à prendre en charge les Workers à distance en publiant en toute sécurité les applications internes qui font partie d’un domaine managé Azure AD DS afin qu’elles soient accessibles via Internet.
 
 Si vous débutez avec le Proxy d'application Azure AD et que vous souhaitez en savoir plus, consultez [Comment fournir un accès à distance sécurisé aux applications internes](../active-directory/manage-apps/application-proxy.md).
 
-Cet article explique comment créer et configurer un connecteur de Proxy d'application Azure AD pour fournir un accès sécurisé aux applications dans un domaine managé Azure AD DS.
+Cet article explique comment créer et configurer un connecteur de Proxy d’application Azure AD pour fournir un accès sécurisé aux applications dans un domaine managé.
 
 ## <a name="before-you-begin"></a>Avant de commencer
 
@@ -36,18 +36,18 @@ Pour faire ce qui est décrit dans cet article, vous avez besoin des ressources 
     * Si nécessaire, [créez un locataire Azure Active Directory][create-azure-ad-tenant] ou [associez un abonnement Azure à votre compte][associate-azure-ad-tenant].
     * Une **licence Azure AD Premium** est nécessaire pour utiliser le proxy d’application Azure AD.
 * Un domaine managé Azure Active Directory Domain Services activé et configuré dans votre locataire Azure AD.
-    * Si nécessaire, [créez et configurez une instance Azure Active Directory Domain Services][create-azure-ad-ds-instance].
+    * Si nécessaire, [créez et configurez un domaine managé Azure Active Directory Domain Services][create-azure-ad-ds-instance].
 
 ## <a name="create-a-domain-joined-windows-vm"></a>Créer une machine virtuelle Windows jointe à un domaine
 
-Pour acheminer le trafic vers des applications qui s’exécutent dans votre environnement, vous devez installer le composant connecteur de Proxy d’application Azure AD. Ce connecteur de Proxy d'application Azure AD doit être installé sur des machines virtuelles Windows Server jointes au domaine managé Azure AD DS. Pour certaines applications, vous pouvez déployer plusieurs serveurs sur lesquels le connecteur est installé. Cette option de déploiement vous donne une plus grande disponibilité et vous permet de traiter des charges d’authentification plus importantes.
+Pour acheminer le trafic vers des applications qui s’exécutent dans votre environnement, vous devez installer le composant connecteur de Proxy d’application Azure AD. Ce connecteur de Proxy d’application Azure AD doit être installé sur des machines virtuelles Windows Server jointes au domaine managé. Pour certaines applications, vous pouvez déployer plusieurs serveurs sur lesquels le connecteur est installé. Cette option de déploiement vous donne une plus grande disponibilité et vous permet de traiter des charges d’authentification plus importantes.
 
 La machine virtuelle qui exécute le connecteur de Proxy d’application Azure AD doit se trouver sur le même réseau virtuel ou homologué dans lequel vous avez activé Azure AD DS. Les machines virtuelles qui hébergent ensuite les applications que vous publiez à l’aide du Proxy d’application doivent également être déployées sur le même réseau virtuel Azure.
 
 Pour créer une machine virtuelle pour le connecteur de Proxy d’application Azure AD, procédez comme suit :
 
-1. [Créer une unité d’organisation personnalisée](create-ou.md) Vous pouvez déléguer des autorisations à des utilisateurs du domaine managé Azure AD DS pour gérer cette unité d’organisation personnalisée. Les machines virtuelles pour le Proxy d'application Azure AD et qui exécutent vos applications doivent faire partie de l’unité d’organisation personnalisée et non de l’unité d’organisation des *Ordinateurs AAD DC* par défaut.
-1. [Joignez au domaine les machines virtuelles][create-join-windows-vm], celle qui exécute le connecteur de Proxy d’application Azure AD et celles qui exécutent vos applications, sur le domaine managé Azure AD DS. Créez ces comptes d’ordinateur dans l’unité d’organisation personnalisée de l’étape précédente.
+1. [Créer une unité d’organisation personnalisée](create-ou.md) Vous pouvez déléguer des autorisations pour gérer cette unité d’organisation personnalisée aux utilisateurs du domaine managé. Les machines virtuelles pour le Proxy d'application Azure AD et qui exécutent vos applications doivent faire partie de l’unité d’organisation personnalisée et non de l’unité d’organisation des *Ordinateurs AAD DC* par défaut.
+1. [Joignez au domaine les machines virtuelles][create-join-windows-vm], celle qui exécute le connecteur de Proxy d’application Azure AD et celles qui exécutent vos applications, sur le domaine managé. Créez ces comptes d’ordinateur dans l’unité d’organisation personnalisée de l’étape précédente.
 
 ## <a name="download-the-azure-ad-application-proxy-connector"></a>Télécharger le connecteur de Proxy d’application Azure AD
 
@@ -82,11 +82,11 @@ Une fois qu’une machine virtuelle est prête à être utilisée en tant que co
     ![Le nouveau connecteur de Proxy d’application Azure AD affiché comme actif dans le Portail Azure](./media/app-proxy/connected-app-proxy.png)
 
 > [!NOTE]
-> Pour fournit une haute disponibilité pour l’authentification des applications par le biais du Proxy d’application Azure AD, vous pouvez installer des connecteurs sur plusieurs machines virtuelles. Effectuez les étapes répertoriées dans la section précédente pour installer le connecteur sur d’autres serveurs joints au domaine managé Azure AD DS.
+> Pour fournit une haute disponibilité pour l’authentification des applications par le biais du Proxy d’application Azure AD, vous pouvez installer des connecteurs sur plusieurs machines virtuelles. Effectuez les étapes répertoriées dans la section précédente pour installer le connecteur sur d’autres serveurs joints au domaine managé.
 
 ## <a name="enable-resource-based-kerberos-constrained-delegation"></a>Activer la délégation Kerberos contrainte basée sur les ressources
 
-Si vous voulez utiliser l’authentification unique pour vos applications avec l’authentification Windows intégrée, octroyez aux connecteurs de Proxy d’application Azure AD l’autorisation d’emprunter l’identité des utilisateurs et d’envoyer et de recevoir des jetons en leur nom. Pour octroyer ces autorisations, configurez la délégation Kerberos contrainte (KCD) pour le connecteur afin d’accéder aux ressources sur le domaine managé Azure AD DS. Comme vous n’avez pas de privilèges d’administrateur de domaine dans un domaine managé Azure AD DS, les KCD de niveau de compte traditionnels ne peuvent pas être configurés sur un domaine managé. Utilisez à la place KCD basée sur des ressources.
+Si vous voulez utiliser l’authentification unique pour vos applications avec l’authentification Windows intégrée, octroyez aux connecteurs de Proxy d’application Azure AD l’autorisation d’emprunter l’identité des utilisateurs et d’envoyer et de recevoir des jetons en leur nom. Pour octroyer ces autorisations, configurez la délégation Kerberos contrainte (KCD) pour le connecteur afin d’accéder aux ressources sur le domaine managé. Comme vous n’avez pas de privilèges d’administrateur de domaine dans un domaine managé, les KCD de niveau de compte traditionnels ne peuvent pas être configurés sur un domaine managé. Utilisez à la place KCD basée sur des ressources.
 
 Pour plus d’informations, consultez [Configurer la délégation Kerberos contrainte (KCD) dans Azure Active Directory Domain Services](deploy-kcd.md).
 

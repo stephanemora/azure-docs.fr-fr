@@ -3,15 +3,15 @@ title: Approvisionner le débit d’une base de données dans Azure Cosmos DB
 description: Apprenez à approvisionner le débit au niveau de la base de données dans Azure Cosmos DB à l’aide du Portail Azure, de l’interface CLI, de PowerShell et des différents Kits de développement logiciel (SDK).
 author: markjbrown
 ms.service: cosmos-db
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 09/28/2019
 ms.author: mjbrown
-ms.openlocfilehash: cc89c0052097ba9250370334386943ec4107140c
-ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
+ms.openlocfilehash: 63f8d408d76cfce86c254ad3840c2f0eefb09fd4
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83655327"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85263637"
 ---
 # <a name="provision-standard-manual-throughput-on-a-database-in-azure-cosmos-db"></a>Approvisionner le débit standard (manuel) sur une base de données Azure Cosmos DB
 
@@ -32,7 +32,7 @@ Cet article explique comment approvisionner le débit standard (manuel) sur une 
    * Entrez un débit, par exemple 1 000 RU.
    * Sélectionnez **OK**.
 
-    ![Capture d’écran de la boîte de dialogue Nouvelle base de données](./media/how-to-provision-database-throughput/provision-database-throughput-portal-all-api.png)
+    :::image type="content" source="./media/how-to-provision-database-throughput/provision-database-throughput-portal-all-api.png" alt-text="Capture d’écran de la boîte de dialogue Nouvelle base de données":::
 
 ## <a name="provision-throughput-using-azure-cli-or-powershell"></a>Configurer le débit à l’aide d’Azure CLI ou de PowerShell
 

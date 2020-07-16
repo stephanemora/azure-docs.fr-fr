@@ -3,25 +3,25 @@ title: Impossible d’accéder à cette erreur d’application d’entreprise av
 description: Comment résoudre les problèmes d’accès courants avec les applications Proxy d’application Azure AD.
 services: active-directory
 documentationcenter: ''
-author: msmimart
-manager: CelesteDG
+author: kenwith
+manager: celestedg
 ms.assetid: ''
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: conceptual
+ms.topic: troubleshooting
 ms.date: 05/21/2019
-ms.author: mimart
+ms.author: kenwith
 ms.reviewer: asteen
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: bbb3743251f2818ab1e4255b3dc6e7f4f9cbbcba
-ms.sourcegitcommit: 1f25aa993c38b37472cf8a0359bc6f0bf97b6784
+ms.openlocfilehash: 6eca304901e391c931aba892abf3cb2a19d4ae3b
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/26/2020
-ms.locfileid: "83846730"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85367748"
 ---
 # <a name="cant-access-this-corporate-application-error-when-using-an-application-proxy-application"></a>Erreur « Impossible d’accéder à cette application d’entreprise » lors de l’utilisation d’une application Proxy d’application
 
@@ -71,7 +71,7 @@ La première chose à faire consiste à vérifier l’URL interne et à la corri
 Pour vérifier que l’application est affectée à un groupe de connecteurs opérationnel :
 
 1. Ouvrez l’application dans le portail. Pour cela, accédez à **Azure Active Directory**, cliquez sur **Applications d’entreprise**, puis sur **Toutes les applications**. Ouvrez l’application, puis sélectionnez **Proxy d’application** dans le menu gauche.
-1. Examinez le champ Groupe de connecteurs. Si le groupe ne comprend aucun connecteur actif, un avertissement s’affiche. Si vous ne voyez aucun avertissement, passez à la vérification de l’autorisation de tous les [ports nécessaires](https://docs.microsoft.com/azure/active-directory/manage-apps/application-proxy-connectivity-ports-how-to).
+1. Examinez le champ Groupe de connecteurs. Si le groupe ne comprend aucun connecteur actif, un avertissement s’affiche. Si vous ne voyez aucun avertissement, passez à la vérification de l’autorisation de tous les [ports nécessaires](application-proxy-add-on-premises-application.md).
 1. Si le mauvais groupe de connecteurs apparaît, utilisez la liste déroulante pour sélectionner le bon groupe et vérifiez l’absence d’avertissements. Si le groupe de connecteurs souhaité apparaît, cliquez sur le message de l’avertissement pour ouvrir la page dans l’outil de gestion des connecteurs.
 1. À partir de là, plusieurs options s’offrent à vous :
 
@@ -83,7 +83,7 @@ Après avoir suivi ces étapes pour vérifier que l’application est affectée 
 
 ## <a name="check-all-required-ports-are-open"></a>Vérifier que tous les ports nécessaires sont ouverts
 
-Pour vérifier que tous les ports nécessaires sont ouverts, consultez la [documentation sur l’ouverture des ports](https://docs.microsoft.com/azure/active-directory/manage-apps/application-proxy-connectivity-ports-how-to). Si tous les ports nécessaires sont ouverts, passez à la section suivante.
+Vérifiez que tous les ports nécessaires sont ouverts. Pour connaître les ports obligatoires, consultez la section ports ouverts du [Didacticiel : Ajouter une application locale pour un accès à distance via le service Proxy d’application d’Azure Active Directory](application-proxy-add-on-premises-application.md). Si tous les ports nécessaires sont ouverts, passez à la section suivante.
 
 ## <a name="check-for-other-connector-errors"></a>Rechercher d’autres erreurs liées aux connecteurs
 

@@ -3,19 +3,19 @@ title: Planifier des tâches et des workflows périodiques
 description: Planifier et exécuter des tâches et des flux de travail automatisés et récurrents avec le déclencheur Récurrence dans Azure Logic Apps
 services: logic-apps
 ms.suite: integration
-ms.reviewer: deli, klam, logicappspm
+ms.reviewer: deli, logicappspm
 ms.topic: conceptual
 ms.date: 03/25/2020
-ms.openlocfilehash: 47bb4e4cc4902168631fa67f186d0b3259c94328
-ms.sourcegitcommit: ac4a365a6c6ffa6b6a5fbca1b8f17fde87b4c05e
+ms.openlocfilehash: 18a58815ccd7bd229b6c1a27c92e903f22c8fd55
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/10/2020
-ms.locfileid: "83004638"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85322572"
 ---
 # <a name="create-schedule-and-run-recurring-tasks-and-workflows-with-the-recurrence-trigger-in-azure-logic-apps"></a>Créer, planifier et exécuter des tâches et des flux de travail récurrents avec le déclencheur Récurrence dans Azure Logic Apps
 
-Pour exécuter régulièrement des tâches, des processus ou des travaux en fonction d’une planification spécifique, vous pouvez démarrer le flux de travail de votre application logique avec le déclencheur **Récurrence - Planification** intégré. Vous pouvez définir une date et une heure, ainsi qu’un fuseau horaire, pour démarrer le flux de travail, et une récurrence pour la répétition de ce flux de travail. Si des récurrences sont omises pour une raison quelconque, ce déclencheur poursuit la récurrence lors du prochain intervalle planifié. Pour plus d’informations sur les déclencheurs et actions de Planification intégrés, voir [Planifier et exécuter des tâches et des workflows automatisés et récurrents avec Azure Logic Apps](../logic-apps/concepts-schedule-automated-recurring-tasks-workflows.md).
+Pour exécuter régulièrement des tâches, des processus ou des travaux en fonction d’une planification spécifique, vous pouvez démarrer le flux de travail de votre application logique avec le déclencheur **Récurrence - Planification** intégré. Vous pouvez définir une date et une heure, ainsi qu’un fuseau horaire, pour démarrer le flux de travail, et une récurrence pour la répétition de ce flux de travail. Si des périodicités sont manquées pour une quelconque raison, par exemple en raison d’interruptions ou de désactivation de workflows, le déclencheur ne les traite pas, mais redémarre les périodicités selon l’intervalle planifié suivant. Pour plus d’informations sur les déclencheurs et actions de Planification intégrés, voir [Planifier et exécuter des tâches et des workflows automatisés et récurrents avec Azure Logic Apps](../logic-apps/concepts-schedule-automated-recurring-tasks-workflows.md).
 
 Voici quelques modèles pris en charge par ce déclencheur, ainsi que des récurrences plus avancées et des planifications complexes :
 

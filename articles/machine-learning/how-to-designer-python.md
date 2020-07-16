@@ -1,5 +1,5 @@
 ---
-title: Python
+title: Exécuter un script Python dans le concepteur
 titleSuffix: Azure Machine Learning
 description: Découvrez comment utiliser Python dans le concepteur Azure Machine Learning pour transformer des données.
 services: machine-learning
@@ -10,14 +10,14 @@ author: peterclu
 ms.author: peterlu
 ms.date: 02/28/2020
 ms.custom: designer, tracking-python
-ms.openlocfilehash: af26dce03c0dcf5226c52dcdd8af4408186aa343
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 31028ba0417f312aa0caaf49cb4b2d432f89979f
+ms.sourcegitcommit: e132633b9c3a53b3ead101ea2711570e60d67b83
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84557046"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86041011"
 ---
-# <a name="execute-python-code-in-azure-machine-learning-designer"></a>Exécuter du code Python dans le concepteur Azure Machine Learning
+# <a name="run-python-code-in-azure-machine-learning-designer"></a>Exécuter du code Python dans le concepteur Azure Machine Learning
 
 Dans cet article, vous allez apprendre à utiliser le module [Exécuter le script Python](algorithm-module-reference/execute-python-script.md) pour ajouter une logique personnalisée au concepteur Azure Machine Learning. Dans la procédure suivante, vous utilisez la bibliothèque Pandas pour effectuer une ingénierie de fonctionnalité simple.
 

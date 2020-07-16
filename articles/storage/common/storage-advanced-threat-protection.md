@@ -7,15 +7,15 @@ author: tamram
 ms.service: storage
 ms.subservice: common
 ms.topic: conceptual
-ms.date: 04/16/2020
+ms.date: 07/07/2020
 ms.author: tamram
-ms.reviewer: cbrooks
-ms.openlocfilehash: 724c250b56107cb68da387bdd531602e8d239e1c
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.reviewer: ozgun
+ms.openlocfilehash: 3069ee020d5f127eb0bdb8cbaf251cd3f3cef8d9
+ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82127527"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86118412"
 ---
 # <a name="configure-advanced-threat-protection-for-azure-storage"></a>Configurer la protection avancée contre les menaces pour Stockage Azure
 
@@ -23,28 +23,19 @@ La protection avancée contre les menaces pour Stockage Azure offre une couche s
 
 Les alertes de sécurité sont déclenchées lorsque des anomalies se produisent dans l’activité. Ces alertes de sécurité sont intégrées avec [Azure Security Center](https://azure.microsoft.com/services/security-center/) et sont également envoyées par e-mail aux administrateurs d’abonnement, avec les détails des activités suspectes et des recommandations sur la façon d’examiner et de corriger les menaces.
 
-Le service ingère les journaux de ressources des demandes de lecture, d’écriture et de suppression adressées à Stockage Blob en vue de détecter les menaces potentielles. Pour examiner les alertes de la protection avancée contre les menaces, vous pouvez afficher l’activité de stockage associée à l’aide de la journalisation Storage Analytics. Pour plus d’informations, consultez **Configuration de la journalisation** dans [Surveillance d’un compte de stockage dans le portail Azure](storage-monitor-storage-account.md#configure-logging).
+Le service ingère les journaux de ressources des demandes de lecture, d’écriture et de suppression adressées au Stockage Blob et à Azure Files (préversion) en vue de détecter les menaces. Pour examiner les alertes de la protection avancée contre les menaces, vous pouvez afficher l’activité de stockage associée à l’aide de la journalisation Storage Analytics. Pour plus d’informations, consultez **Configuration de la journalisation** dans [Surveillance d’un compte de stockage dans le portail Azure](storage-monitor-storage-account.md#configure-logging).
 
 ## <a name="availability"></a>Disponibilité
 
-La protection avancée contre les menaces pour Stockage Azure est actuellement disponible pour le [Stockage Blob](https://azure.microsoft.com/services/storage/blobs/) uniquement. Les types de compte qui prennent en charge Advanced Threat Protection incluent les comptes à usage général v2, les objets blob de blocs et les comptes Stockage Blob. Advanced Threat Protection est disponible dans tous les clouds publics US Government, mais pas dans d’autres régions de cloud souverain ou de cloud Azure Government.
+Advanced Threat Protection pour Stockage Azure est actuellement disponible pour Stockage Blob, Azure Files (préversion) et Azure Data Lake Storage Gen2 (préversion). Les types de compte qui prennent en charge Advanced Threat Protection incluent les comptes à usage général v2, les objets blob de blocs et les comptes Stockage Blob. Advanced Threat Protection est disponible dans tous les clouds publics et US Government, mais pas dans d’autres régions de cloud souverain ou de cloud Azure Government.
+
+Les comptes avec des espaces de noms hiérarchiques activés pour Data Lake Storage prennent en charge les transactions à l’aide des API Stockage Blob Azure et des API Data Lake Storage. Les partages de fichiers Azure prennent en charge les transactions via SMB.
 
 Pour plus d’informations sur la tarification, y compris une version d’évaluation gratuite de 30 jours, consultez la [page de tarification d’Azure Security Center](https://azure.microsoft.com/pricing/details/security-center/).
-
 
 ## <a name="set-up-advanced-threat-protection"></a>Configurer la protection avancée contre les menaces
 
 Vous pouvez configurer la protection avancée contre les menaces de plusieurs façons, qui sont décrites dans les sections suivantes.
-
-### <a name="portal"></a>[Portail](#tab/azure-portal)
-
-1. Lancez le [portail Azure](https://portal.azure.com/).
-1. Accédez à votre compte Stockage Azure. Sous **Paramètres**, sélectionnez **Sécurité avancée**.
-1. Sélectionnez le lien **Paramètres** dans la page de configuration de la sécurité avancée.
-1. Définissez **Sécurité avancée** sur **ACTIVÉ**.
-1. Cliquez sur **Enregistrer** pour enregistrer la stratégie nouvelle ou mise à jour.
-
-    ![Activer la protection avancée contre les menaces dans le stockage Azure](./media/storage-advanced-threat-protection/storage-advanced-threat-protection-turn-on.png)
 
 ### <a name="azure-security-center"></a>[Centre de sécurité Azure](#tab/azure-security-center)
 
@@ -61,6 +52,16 @@ Quand vous vous abonnez au niveau Standard dans Azure Security Center, la protec
 
     ![Activer ATP dans Security Center](./media/storage-advanced-threat-protection/storage-advanced-threat-protection-pricing2.png)
 1. Cliquez sur **Enregistrer**.
+
+### <a name="portal"></a>[Portail](#tab/azure-portal)
+
+1. Lancez le [portail Azure](https://portal.azure.com/).
+1. Accédez à votre compte Stockage Azure. Sous **Paramètres**, sélectionnez **Sécurité avancée**.
+1. Sélectionnez le lien **Paramètres** dans la page de configuration de la sécurité avancée.
+1. Définissez **Sécurité avancée** sur **ACTIVÉ**.
+1. Cliquez sur **Enregistrer** pour enregistrer la stratégie nouvelle ou mise à jour.
+
+    ![Activer la protection avancée contre les menaces dans le stockage Azure](./media/storage-advanced-threat-protection/storage-advanced-threat-protection-turn-on.png)
 
 ### <a name="template"></a>[Modèle](#tab/template)
 

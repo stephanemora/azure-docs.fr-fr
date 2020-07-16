@@ -10,17 +10,17 @@ ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 05/27/2020
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e8c8d6c1aca81d59b42ceca17ecfb071ee5f13bd
-ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
+ms.openlocfilehash: ce5f47fe662092219180064f7ea49f5573b27818
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "84014364"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85358240"
 ---
 # <a name="azure-active-directory-pass-through-authentication-security-deep-dive"></a>Immersion dans la sécurité de l’authentification directe Azure Active Directory
 
@@ -106,7 +106,7 @@ Les agents d’authentification suivent la procédure ci-dessous pour s’inscri
     - L’autorité de certification est utilisée uniquement par la fonctionnalité d’authentification directe. L’autorité de certification est utilisée uniquement pour signer les CSR lors de l’inscription de l’agent d’authentification.
     -  Aucun des autres services Azure AD n’utilise cette autorité de certification.
     - L’objet du certificat (Nom unique ou DN) est défini sur votre ID de locataire. Ce DN est un GUID qui identifie de manière unique votre locataire. Avec ce DN, le certificat ne peut donc être utilisé qu’avec votre locataire.
-6. Azure AD stocke la clé publique de l’agent d’authentification dans une base de données Azure SQL accessible uniquement à Azure AD.
+6. Azure AD stocke la clé publique de l’agent d’authentification dans une base de données dans Azure SQL Database, qui est accessible uniquement à Azure AD.
 7. Le certificat (émis à l’étape 5) est stocké sur le serveur local dans le magasin de certificats Windows (plus précisément à l’emplacement [CERT_SYSTEM_STORE_LOCAL_MACHINE](https://msdn.microsoft.com/library/windows/desktop/aa388136.aspx#CERT_SYSTEM_STORE_LOCAL_MACHINE)). Il est utilisé par l’agent d’authentification et les applications du programme de mise à jour.
 
 ### <a name="authentication-agent-initialization"></a>Initialisation de l’agent d’authentification
@@ -139,7 +139,7 @@ L’authentification directe traite une demande de connexion de l’utilisateur 
 4. L’utilisateur entre son nom d’utilisateur dans la page **Connexion utilisateur**, puis sélectionne le bouton **Suivant**.
 5. L’utilisateur entre son mot de passe dans la page **Connexion utilisateur**, puis sélectionne le bouton **Se connecter**.
 6. Le nom d’utilisateur et le mot de passe sont envoyés à Azure AD STS dans une requête POST HTTPS.
-7. Azure AD STS récupère les clés publiques de tous les agents d’authentification inscrits sur votre locataire à partir de la base de données Azure SQL et les utilise pour chiffrer le mot de passe.
+7. Azure AD STS récupère les clés publiques de tous les agents d’authentification inscrits sur votre locataire à partir d’Azure SQL Database et les utilise pour chiffrer le mot de passe.
     - Azure AD STS produit « N » valeurs de mot de passe chiffré pour « N » agents d’authentification inscrits sur votre locataire.
 8. Azure AD STS place la demande de validation de mot de passe (qui inclut le nom d’utilisateur et les valeurs de mot de passe chiffré) dans la file d’attente Service Bus propre à votre locataire.
 9. Étant donné que les agents d’authentification initialisés sont connectés en permanence à la file d’attente Service Bus, l’un des agents d’authentification disponibles récupère la demande de validation de mot de passe.
@@ -178,7 +178,7 @@ Pour renouveler la relation d’approbation d’un agent d’authentification av
 6. Si le certificat existant est arrivé à expiration, Azure AD supprime l’agent d’authentification dans la liste des agents d’authentification inscrits de votre locataire. Un administrateur général doit alors installer et inscrire un nouvel agent d’authentification manuellement.
     - Utilisez l’autorité de certification racine Azure AD pour signer le certificat.
     - Définissez l’objet du certificat (Nom unique ou DN) sur votre ID de locataire, qui est un GUID qui identifie de manière unique votre locataire. Avec le DN, le certificat ne peut être utilisé qu’avec votre locataire.
-6. Azure AD stocke la nouvelle clé publique de l’agent d’authentification dans une base de données Azure SQL accessible uniquement à Azure AD. Il invalide également l’ancienne clé publique associée à l’agent d’authentification.
+6. Azure AD stocke la nouvelle clé publique de l’agent d’authentification dans une base de données dans Azure SQL Database, qui accessible uniquement à Azure AD. Il invalide également l’ancienne clé publique associée à l’agent d’authentification.
 7. Le nouveau certificat (émis à l’étape 5) est ensuite stocké sur le serveur dans le magasin de certificats Windows (plus précisément à l’emplacement [CERT_SYSTEM_STORE_CURRENT_USER](https://msdn.microsoft.com/library/windows/desktop/aa388136.aspx#CERT_SYSTEM_STORE_CURRENT_USER)).
     - Étant donné que la procédure de renouvellement d’approbation se produit de manière non interactive (sans la présence de l’administrateur général), l’agent d’authentification n’a plus accès pour mettre à jour le certificat existant à l’emplacement CERT_SYSTEM_STORE_LOCAL_MACHINE. 
     

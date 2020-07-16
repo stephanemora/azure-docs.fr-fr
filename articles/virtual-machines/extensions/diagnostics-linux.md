@@ -9,12 +9,12 @@ ms.tgt_pltfrm: vm-linux
 ms.topic: article
 ms.date: 12/13/2018
 ms.author: akjosh
-ms.openlocfilehash: 4c34996cb47b1f09f47454f162674248820ce975
-ms.sourcegitcommit: 6a9f01bbef4b442d474747773b2ae6ce7c428c1f
+ms.openlocfilehash: 824ba9e1f9b4325c1e0974ed1c22b465ec4b85a8
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "84118551"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85298954"
 ---
 # <a name="use-linux-diagnostic-extension-to-monitor-metrics-and-logs"></a>Utilisez l’extension de diagnostic Linux pour surveiller les métriques et les journaux d’activité
 
@@ -74,7 +74,12 @@ Distributions et versions prises en charge :
 
 ### <a name="sample-installation"></a>Exemple d’installation
 
-Avant l’exécution, remplissez les valeurs correctes pour les variables dans la première section :
+> [!NOTE]
+> Pour un des exemples, avant l’exécution, remplissez les valeurs correctes pour les variables dans la première section. 
+
+L’exemple de configuration téléchargé dans ces exemples collecte un ensemble de données standard et les envoie au Stockage Table. L’URL de l’exemple de configuration et son contenu sont susceptibles d’être modifiés. Dans la plupart des cas, vous devez télécharger une copie du fichier JSON des paramètres du portail et la personnaliser selon vos besoins, puis utiliser des modèles ou une automatisation de votre propre version du fichier de configuration plutôt que de télécharger cette URL à chaque fois.
+
+#### <a name="azure-cli-sample"></a>Exemple Azure CLI
 
 ```azurecli
 # Set your Azure VM diagnostic variables correctly below
@@ -103,8 +108,6 @@ my_lad_protected_settings="{'storageAccountName': '$my_diagnostic_storage_accoun
 # Finallly tell Azure to install and enable the extension
 az vm extension set --publisher Microsoft.Azure.Diagnostics --name LinuxDiagnostic --version 3.0 --resource-group $my_resource_group --vm-name $my_linux_vm --protected-settings "${my_lad_protected_settings}" --settings portal_public_settings.json
 ```
-
-L’exemple de configuration téléchargé dans ces exemples collecte un ensemble de données standard et les envoie au Stockage Table. L’URL de l’exemple de configuration et son contenu sont susceptibles d’être modifiés. Dans la plupart des cas, vous devez télécharger une copie du fichier JSON des paramètres du portail et la personnaliser selon vos besoins, puis utiliser des modèles ou une automatisation de votre propre version du fichier de configuration plutôt que de télécharger cette URL à chaque fois.
 
 #### <a name="powershell-sample"></a>Exemple de code PowerShell
 
@@ -439,6 +442,9 @@ Vous devez spécifier « table » ou « sinks », ou les deux.
 
 Contrôle la capture des fichiers journaux. L’extension de diagnostic Linux capture les nouvelles lignes de texte au fil de leur écriture dans le fichier et les écrit dans des lignes de la table et/ou dans les récepteurs spécifiés (JsonBlob ou EventHub).
 
+> [!NOTE]
+> Les fileLogs sont capturés par un sous-composant de LAD appelé `omsagent`. Pour pouvoir collecter des fileLogs, vous devez vous assurer que l’utilisateur `omsagent` dispose des autorisations de lecture sur les fichiers que vous spécifiez, ainsi que des autorisations d’exécution sur tous les répertoires du chemin d’accès à ce fichier. Vous pouvez vérifier cela en exécutant `sudo su omsagent -c 'cat /path/to/file'` après l’installation de LAD.
+
 ```json
 "fileLogs": [
     {
@@ -451,7 +457,7 @@ Contrôle la capture des fichiers journaux. L’extension de diagnostic Linux ca
 
 Élément | Valeur
 ------- | -----
-fichier | Nom du chemin complet du fichier journal à surveiller et à capturer. Le nom du chemin doit désigner un seul fichier. Il ne peut pas nommer un répertoire ni contenir des caractères génériques.
+fichier | Nom du chemin complet du fichier journal à surveiller et à capturer. Le nom du chemin doit désigner un seul fichier. Il ne peut pas nommer un répertoire ni contenir des caractères génériques. Le compte d’utilisateur « omsagent » doit avoir un accès en lecture au chemin d’accès au fichier.
 table | (facultatif) La table Stockage Azure, dans le compte de stockage désigné (tel que spécifié dans la configuration protégée), dans laquelle les nouvelles lignes de la « fin » du fichier sont écrites.
 sinks | (facultatif) Une liste séparée par des virgules des noms des récepteurs supplémentaires auxquels les lignes des journaux sont envoyées.
 
@@ -564,23 +570,36 @@ BytesPerSecond | Nombre d’octets lus ou écrits par seconde
 
 Les valeurs agrégées pour tous les disques peuvent être obtenues en définissant `"condition": "IsAggregate=True"`. Pour obtenir des informations pour un périphérique spécifique (par exemple /dev/sdf1), définissez `"condition": "Name=\\"/dev/sdf1\\""`.
 
-## <a name="installing-and-configuring-lad-30-via-cli"></a>Installation et configuration de l’extension de diagnostic Linux 3.0 via CLI
+## <a name="installing-and-configuring-lad-30"></a>Installation et configuration de LAD 3.0
 
-En supposant que vos paramètres protégés sont dans le fichier PrivateConfig.json et que vos informations de configuration publique sont PublicConfig.json, exécutez la commande suivante :
+### <a name="azure-cli"></a>Azure CLI
+
+En supposant que vos paramètres protégés sont dans le fichier ProtectedSettings.json et que vos informations de configuration publique sont PublicSettings.json, exécutez la commande suivante :
 
 ```azurecli
-az vm extension set *resource_group_name* *vm_name* LinuxDiagnostic Microsoft.Azure.Diagnostics '3.*' --private-config-path PrivateConfig.json --public-config-path PublicConfig.json
+az vm extension set --publisher Microsoft.Azure.Diagnostics --name LinuxDiagnostic --version 3.0 --resource-group <resource_group_name> --vm-name <vm_name> --protected-settings ProtectedSettings.json --settings PublicSettings.json
 ```
 
-La commande suppose que vous utilisez le mode Azure Resource Manager (arm) d’Azure CLI. Pour configurer l’extension de diagnostic Linux pour des machines virtuelles du modèle de déploiement classique (ASM), passez au mode « asm » (`azure config mode asm`) et omettez le nom du groupe de ressources dans la commande. Pour plus d’informations, consultez la [documentation relative à l’interface de ligne de commande multiplateforme](https://docs.microsoft.com/azure/xplat-cli-connect).
+Cette commande suppose que vous utilisez le mode Azure Resource Manager (ARM) d’Azure CLI. Pour configurer l’extension de diagnostic Linux pour des machines virtuelles du modèle de déploiement classique (ASM), passez au mode « asm » (`azure config mode asm`) et omettez le nom du groupe de ressources dans la commande. Pour plus d’informations, consultez la [documentation relative à l’interface de ligne de commande multiplateforme](https://docs.microsoft.com/azure/xplat-cli-connect).
+
+### <a name="powershell"></a>PowerShell
+
+En supposant que vos paramètres protégés sont dans la variable `$protectedSettings` et que vos informations de configuration publique sont dans la variable `$publicSettings`, exécutez la commande suivante :
+
+```powershell
+Set-AzVMExtension -ResourceGroupName <resource_group_name> -VMName <vm_name> -Location <vm_location> -ExtensionType LinuxDiagnostic -Publisher Microsoft.Azure.Diagnostics -Name LinuxDiagnostic -SettingString $publicSettings -ProtectedSettingString $protectedSettings -TypeHandlerVersion 3.0
+```
 
 ## <a name="an-example-lad-30-configuration"></a>Exemple de configuration de l’extension de diagnostic Linux 3.0
 
 Voici un exemple de configuration de l’extension de diagnostic Linux 3.0 basé sur les définitions précédentes, avec quelques explications. Pour appliquer cet exemple à votre cas, vous devez utiliser le nom de votre compte de stockage, votre jeton SAS de compte SAP et vos jetons SAS EventHubs.
 
-### <a name="privateconfigjson"></a>PrivateConfig.json
+> [!NOTE]
+> Selon que vous utilisiez Azure CLI ou PowerShell pour installer LAD, la méthode pour fournir des paramètres publics et protégés diffère. Si vous utilisez Azure CLI, enregistrez les paramètres suivants dans ProtectedSettings.json et PublicSettings.json à utiliser avec l’exemple de commande ci-dessus. Si vous utilisez PowerShell, enregistrez les paramètres dans `$protectedSettings` et `$publicSettings` en exécutant `$protectedSettings = '{ ... }'`.
 
-Ces paramètres privés configurent :
+### <a name="protected-settings"></a>Paramètres protégés
+
+Ces paramètres protégés configurent les éléments suivants :
 
 * un compte de stockage
 * un jeton SAS de compte correspondant
@@ -628,7 +647,7 @@ Ces paramètres privés configurent :
 }
 ```
 
-### <a name="publicconfigjson"></a>PublicConfig.json
+### <a name="public-settings"></a>Paramètres publics
 
 Ces paramètres publics font que l’extension de diagnostic Linux :
 

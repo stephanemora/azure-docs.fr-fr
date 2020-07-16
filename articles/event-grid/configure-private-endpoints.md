@@ -1,18 +1,14 @@
 ---
 title: Configurer des points de terminaison privés pour les rubriques ou les domaines Azure Event Grid
 description: Cet article explique comment configurer des points de terminaison privés pour les rubriques ou les domaines Azure Event Grid.
-services: event-grid
-author: spelluru
-ms.service: event-grid
 ms.topic: how-to
-ms.date: 04/22/2020
-ms.author: spelluru
-ms.openlocfilehash: b72462334fa2311b017be49860ed422dfa35430c
-ms.sourcegitcommit: b396c674aa8f66597fa2dd6d6ed200dd7f409915
+ms.date: 07/07/2020
+ms.openlocfilehash: ace3f7f59e4f26388652d7bda1a5ee28800a414b
+ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/07/2020
-ms.locfileid: "82890828"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86115333"
 ---
 # <a name="configure-private-endpoints-for-azure-event-grid-topics-or-domains"></a>Configurer des points de terminaison privés pour les rubriques ou les domaines Azure Event Grid
 Vous pouvez utiliser des [points de terminaison privés](../private-link/private-endpoint-overview.md) pour autoriser l’entrée sécurisée d’événements directement à partir de votre réseau virtuel vers vos rubriques et domaines via une [liaison privée](../private-link/private-link-overview.md), sans passer par le réseau Internet public. Le point de terminaison privé utilise une adresse IP de l’espace d’adressage du réseau virtuel pour votre rubrique ou domaine. Pour plus d’informations conceptuelles, consultez [Sécurité du réseau](network-security.md).
@@ -484,4 +480,5 @@ Invoke-RestMethod -Method 'Get'
 Vous pouvez approuver la connexion même après qu’elle a été rejetée via l’API. Si vous utilisez le Portail Azure, vous ne pouvez pas approuver un point de terminaison qui a été rejeté. 
 
 ## <a name="next-steps"></a>Étapes suivantes
-Pour en savoir plus sur la configuration des paramètres de pare-feu IP, consultez [Configurer le pare-feu IP pour les rubriques ou les domaines Azure Event Grid](configure-firewall.md).
+* Pour en savoir plus sur la configuration des paramètres de pare-feu IP, consultez [Configurer le pare-feu IP pour les rubriques ou les domaines Azure Event Grid](configure-firewall.md).
+* Pour résoudre les problèmes de connectivité réseau, consultez [Résoudre les problèmes de connectivité réseau](troubleshoot-network-connectivity.md).

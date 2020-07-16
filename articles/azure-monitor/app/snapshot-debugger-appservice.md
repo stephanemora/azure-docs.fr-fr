@@ -6,12 +6,12 @@ author: brahmnes
 ms.author: bfung
 ms.date: 03/26/2019
 ms.reviewer: mbullwin
-ms.openlocfilehash: 8af688e38003e0613a06d7d8622ce279a3838589
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 6928da704236c4bb5492f99a4a5327bf297a323d
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80298270"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84676838"
 ---
 # <a name="enable-snapshot-debugger-for-net-apps-in-azure-app-service"></a>Activer le Débogueur de capture instantanée pour les applications .NET dans Azure App Service
 
@@ -28,12 +28,12 @@ Si vous utilisez une préversion de .NET Core, suivez les instructions pour [Act
 
 Le Débogueur de capture instantanée Application Insights est préinstallé dans le cadre de l’exécution d’App Services, mais vous devez l’activer pour obtenir des captures instantanées pour votre application App Service. Une fois que vous avez déployé une application, même si vous avez inclus le SDK Application Insights dans le code source, suivez les étapes ci-dessous pour activer le débogueur de capture instantanée.
 
-1. Accédez au volet **App Services** dans le portail Azure.
-2. Accédez au volet **Paramètres > Application Insights**.
+1. Accédez au panneau de configuration Azure pour votre App Service.
+2. Accédez à la page **Paramètres > Application Insights**.
 
    ![Activer App Insights sur le portail App Services](./media/snapshot-debugger/applicationinsights-appservices.png)
 
-3. Suivez les instructions dans le volet pour créer une ressource ou sélectionnez une ressource App Insights existante pour superviser votre application. Vérifiez également que les deux commutateurs du Débogueur de capture instantanée sont définis sur **On** (Activé).
+3. Suivez les instructions dans la page pour créer une ressource ou sélectionnez une ressource App Insights existante pour superviser votre application. Vérifiez également que les deux commutateurs du Débogueur de capture instantanée sont définis sur **On** (Activé).
 
    ![Ajouter l’extension de site Application Insights][Enablement UI]
 

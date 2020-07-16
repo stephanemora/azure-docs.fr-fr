@@ -6,12 +6,12 @@ ms.author: lufittl
 ms.service: mysql
 ms.topic: conceptual
 ms.date: 01/22/2019
-ms.openlocfilehash: a94b2897b3e84688cd7dc5c7bca96a0f7a4449d1
-ms.sourcegitcommit: f0b206a6c6d51af096a4dc6887553d3de908abf3
+ms.openlocfilehash: 12316abd4a738d54e01f88873498e4b299d6053d
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/28/2020
-ms.locfileid: "84142076"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85556371"
 ---
 # <a name="use-azure-active-directory-for-authenticating-with-mysql"></a>Utiliser Azure Active Directory pour l’authentification avec MySQL
 
@@ -66,8 +66,11 @@ L’authentification Azure Active Directory prend en charge les méthodes suivan
 - Intégration d’Azure Active Directory
 - Authentification universelle Azure Active Directory avec MFA
 - Utilisation des certificats ou de clés secrètes client d’application Active Directory
+- [Identité gérée](howto-connect-with-managed-identity.md)
 
 Une fois authentifié auprès d’Active Directory, vous récupérez un jeton. Ce jeton est votre mot de passe de connexion.
+
+Notez que les opérations de gestion, telles que l’ajout de nouveaux utilisateurs, sont uniquement prises en charge pour les rôles d’utilisateur Azure AD à ce stade.
 
 > [!NOTE]
 > Pour plus d’informations sur la façon de se connecter avec un jeton Active Directory, consultez [Configurer et se connecter avec Azure AD pour Azure Database pour MySQL](howto-configure-sign-in-azure-ad-authentication.md).

@@ -5,17 +5,17 @@ description: Découvrez comment modifier les clés d’accès du compte Stockage
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
-ms.topic: conceptual
+ms.topic: how-to
 ms.author: aashishb
 author: aashishb
 ms.reviewer: larryfr
-ms.date: 03/06/2020
-ms.openlocfilehash: f1541c177cea2d223a5e7df576d95fab7eafb310
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.date: 06/19/2020
+ms.openlocfilehash: 3a99bff20eb7135b384bfef5be4ece9c5fff0461
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80296943"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85483310"
 ---
 # <a name="regenerate-storage-account-access-keys"></a>Régénérer des clés d’accès de compte de stockage
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -23,6 +23,9 @@ ms.locfileid: "80296943"
 Découvrez comment changer les clés d’accès des comptes Stockage Azure utilisées par Azure Machine Learning. Azure Machine Learning peut utiliser des comptes de stockage pour stocker des données ou des modèles formés.
 
 Pour des raisons de sécurité, vous devrez peut-être modifier les clés d’accès d’un compte Stockage Azure. Lorsque vous régénérez la clé d’accès, Azure Machine Learning doit être mis à jour pour utiliser la nouvelle clé. Azure Machine Learning peut utiliser le compte de stockage à la fois pour le stockage des modèles et comme banque de données.
+
+> [!IMPORTANT]
+> Les informations d’identification enregistrées avec les magasins de données sont enregistrées dans votre coffre de clés Azure Key Vault associé à l’espace de travail. Si la [suppression réversible ](https://docs.microsoft.com/azure/key-vault/general/overview-soft-delete) est activée pour votre coffre de clés, lisez cet article pour la mise à jour des informations d’identification. L’annulation de l’inscription du magasin de données et sa réinscription sous le même nom échouent.
 
 ## <a name="prerequisites"></a>Prérequis
 
@@ -85,7 +88,7 @@ Pour mettre à jour Azure Machine Learning afin d’utiliser la nouvelle clé, e
 
 1. Générez à nouveau la clé. Pour plus d’informations sur la regénération d’une clé d’accès, consultez [Gérer les clés d’accès d’un compte de stockage](../storage/common/storage-account-keys-manage.md). Enregistrez la nouvelle clé.
 
-1. Pour mettre à jour l’espace de travail afin d’utiliser la nouvelle clé, procédez comme suit :
+1. L’espace de travail Azure Machine Learning synchronise automatiquement la nouvelle clé et commence à l’utiliser après une heure. Pour forcer l’espace de travail à synchroniser la nouvelle clé immédiatement, suivez les étapes suivantes :
 
     1. Pour vous connecter à l’abonnement Azure qui contient votre espace de travail en utilisant la commande Azure CLI suivante :
 
@@ -105,27 +108,35 @@ Pour mettre à jour Azure Machine Learning afin d’utiliser la nouvelle clé, e
 
         Cette commande synchronise automatiquement les nouvelles clés du compte de stockage Azure utilisé par l’espace de travail.
 
-1. Pour réinscrire les banques de données qui utilisent le compte de stockage, utilisez les valeurs de la section [Éléments à mettre à jour](#whattoupdate) et la clé de l’étape 1 avec le code suivant :
-
-    ```python
-    # Re-register the blob container
-    ds_blob = Datastore.register_azure_blob_container(workspace=ws,
+1. Vous pouvez réenregistrer les magasins de données qui utilisent le compte de stockage via le kit de développement logiciel (SDK) ou [le studio Azure Machine Learning](https://ml.azure.com).
+    1. **Pour réinscrire les magasins de données via le kit de développement logiciel (SDK) Python**, utilisez les valeurs de la section [Éléments à mettre à jour](#whattoupdate) et la clé de l’étape 1 avec le code suivant. 
+    
+        Puisque `overwrite=True` est spécifié, ce code écrase l’inscription existante et la met à jour pour utiliser la nouvelle clé.
+    
+        ```python
+        # Re-register the blob container
+        ds_blob = Datastore.register_azure_blob_container(workspace=ws,
+                                                  datastore_name='your datastore name',
+                                                  container_name='your container name',
+                                                  account_name='your storage account name',
+                                                  account_key='new storage account key',
+                                                  overwrite=True)
+        # Re-register file shares
+        ds_file = Datastore.register_azure_file_share(workspace=ws,
                                               datastore_name='your datastore name',
-                                              container_name='your container name',
+                                              file_share_name='your container name',
                                               account_name='your storage account name',
                                               account_key='new storage account key',
                                               overwrite=True)
-    # Re-register file shares
-    ds_file = Datastore.register_azure_file_share(workspace=ws,
-                                          datastore_name='your datastore name',
-                                          file_share_name='your container name',
-                                          account_name='your storage account name',
-                                          account_key='new storage account key',
-                                          overwrite=True)
+        
+        ```
     
-    ```
-
-    Puisque `overwrite=True` est spécifié, ce code écrase l’inscription existante et la met à jour pour utiliser la nouvelle clé.
+    1. **Pour réenregistrer les magasins de données via le studio**, sélectionnez **Magasins de données** dans le volet gauche du studio. 
+        1. Sélectionnez le magasin de données à mettre à jour.
+        1. Sélectionnez le bouton **Mettre à jour les informations d’identification** en haut à gauche. 
+        1. Utilisez votre nouvelle clé d’accès de l’étape 1 pour remplir le formulaire et cliquez sur **Enregistrer**.
+        
+            Si vous mettez à jour les informations d’identification de votre **magasin de données par défaut**, effectuez cette étape et répétez l’étape 2b pour resynchroniser votre nouvelle clé avec le magasin de données par défaut de l’espace de travail. 
 
 ## <a name="next-steps"></a>Étapes suivantes
 

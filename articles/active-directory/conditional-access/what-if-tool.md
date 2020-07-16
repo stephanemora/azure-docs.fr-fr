@@ -4,19 +4,19 @@ description: Découvrez comment vous pouvez comprendre l’impact de vos straté
 services: active-directory
 ms.service: active-directory
 ms.subservice: conditional-access
-ms.topic: article
-ms.date: 02/25/2020
+ms.topic: conceptual
+ms.date: 06/22/2020
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: nigu
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: dc87b434664ba12cefeb233972e749f631d8a2b4
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 30d9ca806a7ddaf7d6ba657d8224d312a6aae33b
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "77620682"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85253135"
 ---
 # <a name="troubleshoot-using-the-what-if-tool-in-conditional-access"></a>Détecter un problème à l’aide de l’outil What If dans l’accès conditionnel
 
@@ -40,7 +40,7 @@ Dans l’**outil de simulation d’accès conditionnel**, vous devez tout d’ab
      
 Pour la prochaine étape, vous pouvez lancer une simulation qui évalue vos paramètres. Seules les stratégies qui sont activées font partie de l’évaluation.
 
-Une fois l’évaluation terminée, l’outil génère un rapport sur les stratégies affectées.
+Une fois l’évaluation terminée, l’outil génère un rapport sur les stratégies affectées. Pour obtenir plus d’informations sur une stratégie d’accès conditionnel, le [workbook Insights et rapports sur l’accès conditionnel](howto-conditional-access-insights-reporting.md) peut fournir des détails supplémentaires sur les stratégies en mode rapport seul et sur les stratégies actuellement activées.
 
 ## <a name="running-the-tool"></a>Exécution de l’outil
 
@@ -104,6 +104,5 @@ Sur la liste des stratégies qui s’appliquent à votre utilisateur, vous pouve
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-- Pour savoir comment configurer une stratégie d’accès conditionnel, voir [Exiger une authentification multifacteur (MFA) pour des applications spécifiques disposant d’un accès conditionnel Azure Active Directory](app-based-mfa.md).
-- Si vous êtes prêt à configurer des stratégies d’accès conditionnel pour votre environnement, consultez les [meilleures pratiques pour l’accès conditionnel dans Azure Active Directory](best-practices.md). 
-- Si vous souhaitez migrer des stratégies classiques, consultez [Migrer les stratégies classiques dans le portail Azure](policy-migration.md)  
+- Vous trouverez plus d’informations sur l’application de la stratégie d’accès conditionnel à l’aide du mode rapport seul des stratégies dans [Insights et rapports sur l’accès conditionnel](howto-conditional-access-insights-reporting.md).
+- Si vous êtes prêt à configurer des stratégies d’accès conditionnel pour votre environnement, consultez [Stratégies d’accès conditionnel courantes](concept-conditional-access-policy-common.md). 

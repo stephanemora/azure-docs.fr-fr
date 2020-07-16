@@ -3,12 +3,12 @@ title: Concepts – Clusters et clouds privés
 description: Découvrez les principales fonctionnalités des centres de données à définition logicielle Azure VMware et des clusters vSphere dans la Solution VMware sur Azure.
 ms.topic: conceptual
 ms.date: 05/04/2020
-ms.openlocfilehash: f51b76b654a43d690aa5c97fa9df99fad1f47d7a
-ms.sourcegitcommit: d9cd51c3a7ac46f256db575c1dfe1303b6460d04
+ms.openlocfilehash: 09e1fd45b1dd873509f942ef8b524783acfed4ce
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/04/2020
-ms.locfileid: "82739789"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84906987"
 ---
 # <a name="azure-vmware-solution-avs-preview-private-cloud-and-cluster-concepts"></a>Concepts de cloud privé et de cluster de la solution VMware sur Azure (AVS) en préversion
 
@@ -38,7 +38,7 @@ Des nœuds d’infrastructure hyper-convergés et nus sont utilisés dans les cl
 
 | Type d’hôte              |             UC             |   RAM (Go)   |  Niveau de cache du vSAN NVMe (To, RAW)  |  Niveau de capacité du vSAN SSD (To, RAW)  |
 | :---                   |            :---:            |    :---:     |               :---:              |                :---:               |
-| Haut de gamme (HE)          |  Deux processeurs Intel 18 cœurs cadencés à 2,3 GHz  |     576      |                3,2               |                15,20               |
+| Haut de gamme (HE)          |  Deux processeurs Intel 18 cœurs cadencés à 2,3 GHz  |     576      |                3.2               |                15,20               |
 
 Les hôtes utilisés pour créer ou mettre à l’échelle des clusters sont acquis à partir d’un pool isolé d’hôtes. Ces hôtes ont passé des tests matériels et toutes les données ont été effacées des disques Flash en toute sécurité. Lorsque vous supprimez un hôte d’un cluster, les disques internes sont effacés en toute sécurité et l’hôte est placé dans le pool isolé d’hôtes. Lorsque vous ajoutez un hôte à un cluster, un hôte assaini du pool isolé est utilisé.
 
@@ -51,7 +51,7 @@ Les versions actuelles des logiciels VMware utilisés dans des clusters de cloud
 | VCSA / vSphere / ESXi |    6,7 U2    | 
 | ESXi                  |    6,7 U2    | 
 | vSAN                  |    6,7 U2    |
-| NSX-T                 |      2,5     |
+| NSX-T                 |      2.5     |
 
 Pour tout nouveau cluster dans un cloud privé, la version du logiciel correspond à ce qui est actuellement en cours d’exécution dans le cloud privé. Pour tout nouveau cloud privé dans un abonnement client, la version la plus récente de la pile logicielle est installée.
 
@@ -61,10 +61,10 @@ Les stratégies et processus généraux de mise à niveau pour le logiciel de pl
 
 La maintenance de l’hôte et la gestion du cycle de vie sont effectuées sans impact sur la capacité ou les performances des clusters du cloud privé. Les mises à niveau de microprogramme et la réparation ou le remplacement de matériel sont des exemples de maintenance automatisée de l’hôte.
 
-Microsoft est responsable de la gestion du cycle de vie des appliances NSX-T telles que le gestionnaire et les périphéries NSX-T. Microsoft est également responsable de l’amorçage de la configuration réseau, par exemple, la création de la passerelle de niveau 0 et l’activation du routage Nord-Sud. En tant qu’administrateur de votre cloud privé AVS, vous êtes responsable de la configuration du SDN NSX-T, par exemple, des segments réseau, des règles de pare-feu distribuées, des passerelles de niveau 1 et des équilibreurs de charge.
+Microsoft est responsable de la gestion du cycle de vie des appliances NSX-T telles que le gestionnaire et la périphérie NSX-T. Microsoft est également responsable de l’amorçage de la configuration réseau, par exemple, la création de la passerelle de niveau 0 et l’activation du routage Nord-Sud. En tant qu’administrateur de votre cloud privé AVS, vous êtes responsable de la configuration du SDN NSX-T, par exemple, des segments réseau, des règles de pare-feu distribuées, des passerelles de niveau 1 et des équilibreurs de charge.
 
 > [!IMPORTANT]
-> Un administrateur AVS ne doit pas modifier la configuration des périphéries NSX-T ou de la passerelle de niveau 0. Cela peut entraîner une perte de service.
+> L’administrateur AVS ne doit pas modifier la configuration de la périphérie NSX-T ou de la passerelle de niveau 0. Cela peut entraîner une perte de service.
 
 ## <a name="backup-and-restoration"></a>Sauvegarde et restauration
 

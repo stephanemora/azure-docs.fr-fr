@@ -9,14 +9,17 @@ ms.subservice: management
 ms.date: 10/23/2019
 ms.reviewer: jushiman
 ms.custom: mimckitt
-ms.openlocfilehash: cbe080b4c2b6e73ae15fd186589bd43535bfc13d
-ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
+ms.openlocfilehash: 54515b347a95b9315ca9ba87568fb2104c3b2b45
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/12/2020
-ms.locfileid: "83198402"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84737000"
 ---
-# <a name="orchestration-mode-preview"></a>Mode d’orchestration (préversion)
+# <a name="orchestration-modes-preview"></a>Modes d’orchestration (préversion)
+
+> [!CAUTION]
+> Merci à tous ceux qui ont participé à cette préversion publique. Nous avons pu recueillir des commentaires précieux de la part de notre communauté. Cette préversion est maintenant **clôturée** pour les nouveaux participants et ce, afin d’intégrer les commentaires. Nous allons mettre à jour cet espace avec les nouvelles informations.
 
 Les groupes identiques de machines virtuelles fournissent un regroupement logique des machines virtuelles gérées par la plateforme. Avec les groupes identiques, vous créez un modèle de configuration de machine virtuelle, ajoutez ou supprimez automatiquement des instances supplémentaires en fonction de la charge de l’UC ou de la mémoire, puis effectuez une mise à niveau automatique vers la dernière version du système d’exploitation. Traditionnellement, les groupes identiques vous permettent de créer des machines virtuelles à l’aide d’un modèle de configuration de machine virtuelle fourni lors de la création d’un groupe identique, et le groupe identique peut uniquement gérer des machines virtuelles qui sont créées implicitement en fonction du modèle de configuration.
 

@@ -1,31 +1,31 @@
 ---
 title: Règles de pare-feu IP
-description: Configurez des règles de pare-feu IP au niveau serveur pour un pare-feu Azure SQL Database ou Azure Synapse Analytics. Gérez l’accès aux bases de données et configurez des règles de pare-feu IP au niveau de la base de données pour une base unique ou mise en pool.
+description: Configurez des règles de pare-feu IP au niveau serveur pour une base de données dans Azure SQL Database ou un pare-feu Azure Synapse Analytics. Gérez l’accès et configurez des règles de pare-feu IP au niveau de la base de données pour SQL Database.
 services: sql-database
 ms.service: sql-database
 ms.subservice: security
-titleSuffix: Azure SQL Database and Azure Synapse
+titleSuffix: Azure SQL Database and Azure Synapse Analytics
 ms.custom: sqldbrb=1
 ms.devlang: ''
 ms.topic: conceptual
 author: VanMSFT
 ms.author: vanto
 ms.reviewer: carlrab
-ms.date: 03/18/2019
-ms.openlocfilehash: 4ebb430945a00007f3b7260da87369bf6fd61ae2
-ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
+ms.date: 06/17/2020
+ms.openlocfilehash: e18c0470a2d1be8323c2fe1c0780bfd47f3f64cb
+ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "84028800"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86085087"
 ---
 # <a name="azure-sql-database-and-azure-synapse-ip-firewall-rules"></a>Règles de pare-feu IP Azure SQL Database et Azure Synapse
 [!INCLUDE[appliesto-sqldb-asa](../includes/appliesto-sqldb-asa.md)]
 
-Lorsque vous créez dans Azure SQL Database ou Azure Synapse un serveur nommé *mysqlserver*, par exemple, un pare-feu au niveau du serveur bloque tout accès au point de terminaison public du serveur (accessible à l'adresse *mysqlserver.database.windows.net*). Par souci de simplicité, le terme *SQL Database* est utilisé pour désigner à la fois SQL Database et Azure Synapse (anciennement Azure SQL Data Warehouse).
+Lorsque vous créez dans Azure SQL Database ou Azure Synapse Analytics un serveur nommé *mysqlserver*, par exemple, un pare-feu au niveau du serveur bloque tout accès au point de terminaison public du serveur (accessible à l'adresse *mysqlserver.database.windows.net*). Par souci de simplicité, le terme *SQL Database* est utilisé pour désigner à la fois SQL Database et Azure Synapse Analytics (anciennement Azure SQL Data Warehouse).
 
 > [!IMPORTANT]
-> Cet article ne s'applique *pas* à *Azure SQL Managed Instance*. Pour plus d'informations sur la configuration réseau, consultez [Connecter votre application à Azure SQL Managed Instance](../managed-instance/connect-application-instance.md).
+> Cet article ne s’applique *pas* à *Azure SQL Managed Instance*. Pour plus d'informations sur la configuration réseau, consultez [Connecter votre application à Azure SQL Managed Instance](../managed-instance/connect-application-instance.md).
 >
 > Azure Synapse ne prend en charge que les règles de pare-feu IP au niveau serveur. Il ne prend pas en charge les règles de pare-feu IP au niveau de la base de données.
 
@@ -102,6 +102,14 @@ Pour autoriser des applications hébergées dans Azure à se connecter à votre 
 
 > [!IMPORTANT]
 > Cette option configure le pare-feu pour autoriser toutes les connexions à partir d’Azure, notamment les connexions issues des abonnements d’autres clients. Si vous sélectionnez cette option, vérifiez que votre connexion et vos autorisations utilisateur limitent l’accès aux seuls utilisateurs autorisés.
+
+## <a name="permissions"></a>Autorisations
+
+Pour pouvoir créer et gérer des règles de pare-feu IP pour Azure SQL Server, vous devez être :
+
+- dans le rôle [Contributeur de SQL Server](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#sql-server-contributor)
+- dans le rôle [Gestionnaire de sécurité SQL](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#sql-security-manager)
+- propriétaire de la ressource qui contient SQL Server Azure
 
 ## <a name="create-and-manage-ip-firewall-rules"></a>Créer et gérer des règles de pare-feu IP
 

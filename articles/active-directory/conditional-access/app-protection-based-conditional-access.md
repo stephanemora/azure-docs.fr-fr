@@ -4,19 +4,19 @@ description: Découvrez comment exiger une stratégie de protection des applicat
 services: active-directory
 ms.service: active-directory
 ms.subservice: conditional-access
-ms.topic: article
+ms.topic: how-to
 ms.date: 05/08/2020
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: spunukol, rosssmi
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 4476502896705c2133b09b203bea0d6f5d74f121
-ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
+ms.openlocfilehash: dae584bdfa97b2c30cab5f15881323c26366592c
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/20/2020
-ms.locfileid: "83681416"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85253356"
 ---
 # <a name="how-to-require-app-protection-policy-and-an-approved-client-app-for-cloud-app-access-with-conditional-access"></a>Procédure : Exiger une stratégie de protection d’application pour l’accès aux applications cloud avec l’accès conditionnel
 
@@ -37,7 +37,7 @@ Pour obtenir la liste des applications clientes éligibles, consultez [Présence
 
 ## <a name="scenario-1-office-365-apps-require-approved-apps-with-app-protection-policies"></a>Scénario 1 : Les applications Office 365 demandent des applications approuvées avec des stratégies de protection d’application
 
-Dans ce scénario, Contoso a décidé que tout accès mobile aux ressources Office 365 doit utiliser des applications clientes approuvées, telles que Outlook Mobile, OneDrive et Microsoft Teams, protégées par une stratégie de protection d’application avant de recevoir l’accès. Tous les utilisateurs de Contoso se connectent déjà à l’aide d’informations d’identification Azure AD et disposent des licences qui leur sont attribuées, notamment Azure AD Premium P1 ou P2 et Microsoft Intune.
+Dans ce scénario, Contoso a décidé que tout accès mobile aux ressources Office 365 doit utiliser des applications clientes approuvées, telles que Outlook Mobile et OneDrive, protégées par une stratégie de protection d’application avant de recevoir l’accès. Tous les utilisateurs de Contoso se connectent déjà à l’aide d’informations d’identification Azure AD et disposent des licences qui leur sont attribuées, notamment Azure AD Premium P1 ou P2 et Microsoft Intune.
 
 Les organisations doivent effectuer les étapes suivantes pour exiger l’utilisation d’une application cliente approuvée sur des appareils mobiles.
 

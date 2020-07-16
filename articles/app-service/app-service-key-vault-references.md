@@ -6,12 +6,12 @@ ms.topic: article
 ms.date: 10/09/2019
 ms.author: mahender
 ms.custom: seodec18
-ms.openlocfilehash: dd0a03ea76d517486bb9bda6d9628fb529166dd8
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 5b76c940066539995dbefa76d503b5412ce0c359
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81453725"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85557909"
 ---
 # <a name="use-key-vault-references-for-app-service-and-azure-functions"></a>Utiliser des références Key Vault pour App Service et Azure Functions
 
@@ -43,11 +43,15 @@ Une référence Key Vault est de la forme `@Microsoft.KeyVault({referenceString}
 > | SecretUri=_URI_secret_                                                       | L’**URI_secret** doit être l’URI complet du plan de données d’un secret dans Key Vault, y compris une version, par exemple, https://myvault.vault.azure.net/secrets/mysecret/ec96f02080254f109c51a1f14cdb1931  |
 > | VaultName=_Nom_coffre_;SecretName=_Nom_secret_;SecretVersion=_Version_secret_ | Le **Nom_coffre** doit être le nom de votre ressource Key Vault. Le **Nom_secret** doit être le nom du secret cible. La **Version_secret** doit être la version du secret à utiliser. |
 
-Par exemple, une référence complète avec Version se présente ainsi :
+> [!NOTE] 
+> Les versions sont actuellement requises. Pendant la rotation des secrets, vous devez mettre à jour la version dans la configuration de votre application.
+
+Par exemple, une référence complète ressemble à ce qui suit :
 
 ```
 @Microsoft.KeyVault(SecretUri=https://myvault.vault.azure.net/secrets/mysecret/ec96f02080254f109c51a1f14cdb1931)
 ```
+
 Sinon :
 
 ```
@@ -68,7 +72,7 @@ Afin d’utiliser une référence Key Vault pour un paramètre d’application, 
 
 Quand vous automatisez des déploiements de ressources par le biais de modèles Azure Resource Manager, vous pouvez avoir besoin de séquencer vos dépendances dans un ordre particulier pour que cette fonctionnalité fonctionne. Sinon, vous devez définir vos paramètres d’application comme leur propre ressource, au lieu d’utiliser une propriété `siteConfig` dans la définition de site. C’est parce que le site doit être défini en premier pour que le système puisse affecter l’identité et que cette identité puisse être utilisée dans la stratégie d’accès.
 
-Un exemple de pseudo-modèle pour une application de fonction peut se présenter comme suit :
+Voici à quoi peut ressembler un exemple de pseudo-modèle d’application de fonction :
 
 ```json
 {

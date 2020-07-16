@@ -4,20 +4,20 @@ description: Trouvez les réponses aux questions les plus fréquentes sur l’ac
 services: active-directory
 ms.service: active-directory
 ms.subservice: conditional-access
-ms.topic: article
-ms.date: 05/28/2020
+ms.topic: troubleshooting
+ms.date: 06/22/2020
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: calebb
 ms.collection: M365-identity-device-management
 ms.custom: has-adal-ref
-ms.openlocfilehash: 1704fb50586168be6f960e62b918019cb67ce4c8
-ms.sourcegitcommit: 1692e86772217fcd36d34914e4fb4868d145687b
+ms.openlocfilehash: 5e75f7214e3a9aa5b44a763cc3448583b47185f9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/29/2020
-ms.locfileid: "84167806"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85253237"
 ---
 # <a name="azure-active-directory-conditional-access-faqs"></a>Forum aux questions sur l’accès conditionnel dans Azure Active Directory
 
@@ -54,6 +54,12 @@ Le logiciel Microsoft Teams est également pris en charge séparément, en tant 
 Les clients de bureau Microsoft Teams pour Windows et Mac prennent en charge l’authentification moderne. L’authentification moderne permet d’utiliser la connexion basée sur la bibliothèque ADAL (Azure Active Directory Authentication Library) pour les applications clientes Microsoft Office sur plusieurs plateformes.
 
 Pour plus d’informations, consultez l’article [Dépendances du service d’accès conditionnel](service-dependencies.md) et envisagez de cibler les stratégies sur l’[application Office 365](concept-conditional-access-cloud-apps.md#office-365-preview) à la place.
+
+## <a name="why-are-some-tabs-not-working-in-microsoft-teams-after-enabling-conditional-access-policies"></a>Pourquoi certains onglets ne fonctionnent-ils pas dans Microsoft Teams après l’activation des stratégies d’accès conditionnel ?
+
+Après l’activation de certaines stratégies d’accès conditionnel sur le locataire dans Microsoft Teams, certains onglets peuvent ne plus fonctionner comme prévu dans le client de bureau. Toutefois, les onglets affectés fonctionnent lors de l’utilisation du client web Microsoft Teams. Les onglets affectés peuvent inclure Power BI, Formulaires, VSTS, PowerApps et Liste SharePoint.
+
+Pour afficher les onglets affectés, vous devez utiliser le client web Teams dans Edge, Internet Explorer ou Chrome avec l’extension Comptes Windows 10 installée. Certains onglets dépendent de l’authentification web, qui ne fonctionne pas dans le client de bureau Microsoft Teams lorsque l’accès conditionnel est activé. Microsoft collabore avec des partenaires pour activer ces scénarios. À ce jour, nous avons activé des scénarios impliquant Planner, OneNote et Stream.
 
 ## <a name="next-steps"></a>Étapes suivantes
 

@@ -4,12 +4,12 @@ description: Découvrez comment créer un cluster Azure Kubernetes Service (AKS)
 services: container-service
 ms.topic: article
 ms.date: 6/18/2020
-ms.openlocfilehash: ebbe2f754aa70c6c65ec7016da29a4a1b0bd7dd6
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: c788f2009bdc771bcdde20d1c3dbe9eafdbcffcb
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85374523"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86244223"
 ---
 # <a name="create-a-private-azure-kubernetes-service-cluster"></a>Créer un cluster Azure Kubernetes Service privé
 
@@ -83,7 +83,7 @@ Comme indiqué, l'appairage VNet permet d’accéder à votre cluster privé. Po
 
 ## <a name="hub-and-spoke-with-custom-dns"></a>Hub-and-spoke avec DNS personnalisé
 
-[Les architectures Hub-and-spoke](https://docs.microsoft.com/azure/architecture/reference-architectures/hybrid-networking/hub-spoke) sont couramment utilisées pour déployer des réseaux dans Azure. Dans la plupart de ces déploiements, les paramètres DNS des réseaux virtuels spoke sont configurés pour faire référence à un redirecteur DNS central afin d’autoriser la résolution DNS locale et basée sur Azure. Lors du déploiement d’un cluster AKS dans un environnement de mise en réseau de ce type, certaines considérations spéciales doivent être prises en compte.
+[Les architectures Hub-and-spoke](/azure/architecture/reference-architectures/hybrid-networking/hub-spoke) sont couramment utilisées pour déployer des réseaux dans Azure. Dans la plupart de ces déploiements, les paramètres DNS des réseaux virtuels spoke sont configurés pour faire référence à un redirecteur DNS central afin d’autoriser la résolution DNS locale et basée sur Azure. Lors du déploiement d’un cluster AKS dans un environnement de mise en réseau de ce type, certaines considérations spéciales doivent être prises en compte.
 
 ![Hub-and-spoke de cluster privé](media/private-clusters/aks-private-hub-spoke.png)
 
@@ -116,9 +116,9 @@ Comme indiqué, l'appairage VNet permet d’accéder à votre cluster privé. Po
 [az-feature-list]: /cli/azure/feature?view=azure-cli-latest#az-feature-list
 [az-extension-add]: /cli/azure/extension#az-extension-add
 [az-extension-update]: /cli/azure/extension#az-extension-update
-[private-link-service]: /azure/private-link/private-link-service-overview#limitations
+[private-link-service]: ../private-link/private-link-service-overview.md#limitations
 [virtual-network-peering]: ../virtual-network/virtual-network-peering-overview.md
 [azure-bastion]: ../bastion/bastion-create-host-portal.md
 [express-route-or-vpn]: ../expressroute/expressroute-about-virtual-network-gateways.md
-[devops-agents]: https://docs.microsoft.com/azure/devops/pipelines/agents/agents?view=azure-devops
+[devops-agents]: /azure/devops/pipelines/agents/agents?view=azure-devops
 [availability-zones]: availability-zones.md

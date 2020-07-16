@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: text-analytics
 ms.topic: article
-ms.date: 05/13/2020
+ms.date: 06/25/2020
 ms.author: aahi
-ms.openlocfilehash: 2fd6c908aa95ef22cbf7ea0b62b925d84d66cd28
-ms.sourcegitcommit: f0b206a6c6d51af096a4dc6887553d3de908abf3
+ms.openlocfilehash: 12c09ad8e1db3914263fcc864c9c2d09069d63a6
+ms.sourcegitcommit: fdaad48994bdb9e35cdd445c31b4bac0dd006294
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/28/2020
-ms.locfileid: "84143246"
+ms.lasthandoff: 06/26/2020
+ms.locfileid: "85412581"
 ---
 # <a name="migrate-to-version-3x-of-the-text-analytics-api"></a>Migrer vers la version 3.x de l’API Analyse de texte
 
@@ -44,7 +44,7 @@ Si votre application utilise l’API REST, mettez à jour son point de terminais
 ## <a name="feature-changes"></a>Évolution des fonctionnalités
 
 > [!NOTE] 
-> Actuellement, les [catégories d’entité v3](named-entity-types.md) sont retournées uniquement sur le texte en anglais. L’API retourne les résultats de la version 2.1 pour les demandes dans d’autres langues, à condition qu’elles soient prises en charge dans la version 2.1.
+> Actuellement, les [catégories d’entité v3](named-entity-types.md) sont retournées uniquement sur le texte en anglais et espagnol. L’API retourne les résultats de la version 2.1 pour les demandes dans d’autres langues, à condition qu’elles soient prises en charge dans la version 2.1.
 
 Dans la version 2.1, l’API Analyse de texte utilise un seul point de terminaison pour la reconnaissance d’entité nommée (NER) et la liaison d’entités. La version 3 fournit une détection étendue des entités nommées et utilise des points de terminaison séparés pour les demandes NER et de liaison d’entités. À partir de v3.1-preview.1, NER peut également détecter les informations personnelles `pii` et médicales `phi`. 
 

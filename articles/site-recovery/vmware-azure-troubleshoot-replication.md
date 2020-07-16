@@ -7,12 +7,12 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 08/2/2019
 ms.author: mayg
-ms.openlocfilehash: 1db32d506cc455b020fc6c0f2bba10361e961324
-ms.sourcegitcommit: 1f48ad3c83467a6ffac4e23093ef288fea592eb5
+ms.openlocfilehash: e9e66cbb024aa64e8c4cb5db9fc1c172fdc573fc
+ms.sourcegitcommit: e995f770a0182a93c4e664e60c025e5ba66d6a45
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/29/2020
-ms.locfileid: "84197043"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86135368"
 ---
 # <a name="troubleshoot-replication-issues-for-vmware-vms-and-physical-servers"></a>Résoudre les problèmes de réplication pour les serveurs physiques et machines virtuelles VMware
 
@@ -95,16 +95,16 @@ Pour résoudre ce problème, procédez comme suit pour vérifier la connectivit�
    - Service d’application InMage Scout
 4. Sur la machine source, examinez les journaux à l’emplacement ci-après pour obtenir les détails de l’erreur :
 
-       C:\Program Files (X86)\Microsoft Azure Site Recovery\agent\svagents*log
+    *C:\Program Files (X86)\Microsoft Azure Site Recovery\agent\svagents\*.log*
 
 ### <a name="process-server-with-no-heartbeat-error-806"></a>Serveur de processus dépourvu de pulsation [erreur 806]
 Si le serveur de processus est dépourvu de pulsation, vérifiez les points suivants :
 1. La machine virtuelle du serveur de processus est opérationnelle.
 2. Consultez les journaux ci-après sur le serveur de processus pour obtenir les détails de l’erreur :
 
-       C:\ProgramData\ASR\home\svsystems\eventmanager*.log
-       and
-       C:\ProgramData\ASR\home\svsystems\monitor_protection*.log
+    *C:\ProgramData\ASR\home\svsystems\eventmanager\*.log*\
+    et
+    *C:\ProgramData\ASR\home\svsystems\monitor_protection\*.log*
 
 ### <a name="master-target-server-with-no-heartbeat-error-78022"></a>Serveur cible maître dépourvu de pulsation [erreur 78022]
 
@@ -117,7 +117,7 @@ Pour résoudre ce problème, vérifiez l’état du service en procédant comme 
     - Vérifiez que le service svagents est en cours d’exécution. S’il l’est, redémarrez-le.
     - Vérifiez les journaux à l’emplacement ci-après pour obtenir les détails de l’erreur :
 
-          C:\Program Files (X86)\Microsoft Azure Site Recovery\agent\svagents*log
+        *C:\Program Files (X86)\Microsoft Azure Site Recovery\agent\svagents\*.log*
 3. Pour inscrire le serveur cible maître auprès du serveur de configuration, accédez au dossier **%PROGRAMDATA%\ASR\Agent**, puis exécutez ce qui suit dans l’invite de commandes :
    ```
    cmd
@@ -147,25 +147,25 @@ Certains des problèmes les plus courants sont répertoriés ci-dessous
 **Procédure de résolution** : Référez-vous à cet [article](https://support.microsoft.com/help/4493364/fix-error-occurs-when-you-back-up-a-virtual-machine-with-non-component) de la base de connaissances
 
 #### <a name="cause-4-app-consistency-not-enabled-on-linux-servers"></a>Cause 4 : Cohérence des applications non activée sur les serveurs Linux
-**Procédure de résolution** : Azure Site Recovery pour le système d’exploitation Linux prend en charge les scripts personnalisés des applications à des fins de cohérence. Le script personnalisé avec options pré et post-script sera utilisé par l’agent Mobilité Azure Site Recovery pour la cohérence des applications. [Voici](https://docs.microsoft.com/azure/site-recovery/site-recovery-faq#replication) les étapes pour l’activer.
+**Procédure de résolution** : Azure Site Recovery pour le système d’exploitation Linux prend en charge les scripts personnalisés des applications à des fins de cohérence. Le script personnalisé avec options pré et post-script sera utilisé par l’agent Mobilité Azure Site Recovery pour la cohérence des applications. [Voici](./site-recovery-faq.md#replication) les étapes pour l’activer.
 
 ### <a name="more-causes-due-to-vss-related-issues"></a>Autres causes provoquées par des problèmes liés à VSS :
 
 Pour mieux résoudre le problème, vérifiez les fichiers sur la machine source pour obtenir le code d’erreur exact de l’échec :
 
-    C:\Program Files (x86)\Microsoft Azure Site Recovery\agent\Application Data\ApplicationPolicyLogs\vacp.log
+*C:\Program Files (x86)\Microsoft Azure Site Recovery\agent\Application Data\ApplicationPolicyLogs\vacp.log*
 
 Comment localiser les erreurs dans le fichier ?
 Recherchez la chaîne « vacpError » en ouvrant le fichier vacp.log dans un éditeur
 
-    Ex: vacpError:220#Following disks are in FilteringStopped state [\\.\PHYSICALDRIVE1=5, ]#220|^|224#FAILED: CheckWriterStatus().#2147754994|^|226#FAILED to revoke tags.FAILED: CheckWriterStatus().#2147754994|^|
+`Ex: `**`vacpError`**`:220#Following disks are in FilteringStopped state [\\.\PHYSICALDRIVE1=5, ]#220|^|224#FAILED: CheckWriterStatus().#2147754994|^|226#FAILED to revoke tags.FAILED: CheckWriterStatus().#2147754994|^|`
 
 Dans l’exemple ci-dessus, **2147754994** est le code d’erreur qui vous informe de l’échec, comme indiqué ci-dessous
 
 #### <a name="vss-writer-is-not-installed---error-2147221164"></a>L’enregistreur VSS n’est pas installé - erreur 2147221164
 
 *Procédure de résolution* : Pour générer une balise de cohérence d’application, Azure Site Recovery utilise le service VSS (cliché instantané de volume) de Microsoft. Il installe un fournisseur VSS pour que l’opération prenne des clichés instantanés de la cohérence d’application. Ce fournisseur VSS est installé en tant que service. Si le service de fournisseur VSS n’est pas installé, la création de clichés instantanés de la cohérence d’application échoue et l’ID d’erreur 0x80040154 « Classe non inscrite » s’affiche. </br>
-Consultez [l’article relatif au dépannage de l’installation de l’enregistreur VSS](https://docs.microsoft.com/azure/site-recovery/vmware-azure-troubleshoot-push-install#vss-installation-failures)
+Consultez [l’article relatif au dépannage de l’installation de l’enregistreur VSS](./vmware-azure-troubleshoot-push-install.md#vss-installation-failures)
 
 #### <a name="vss-writer-is-disabled---error-2147943458"></a>L’enregistreur VSS est désactivé - erreur 2147943458
 
@@ -195,4 +195,4 @@ Vérifiez que le type de démarrage du service fournisseur VSS est défini sur *
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Si vous avez besoin d’aide supplémentaire, publiez votre question sur la [page de questions Microsoft Q&R sur Azure Site Recovery](https://docs.microsoft.com/answers/topics/azure-site-recovery.html). Nous avons une communauté active et l’un de nos ingénieurs peut vous aider.
+Si vous avez besoin d’aide supplémentaire, publiez votre question sur la [page de questions Microsoft Q&R sur Azure Site Recovery](/answers/topics/azure-site-recovery.html). Nous avons une communauté active et l’un de nos ingénieurs peut vous aider.

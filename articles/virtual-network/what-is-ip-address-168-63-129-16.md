@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 05/15/2019
 ms.author: genli
-ms.openlocfilehash: 287f881fb17dd84357f540ee562e21c66c11ab95
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: bae1fbc89564ca17938e6a630146be5e5fb5b11f
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "77114363"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85550853"
 ---
 # <a name="what-is-ip-address-1686312916"></a>Quelle est l’adresse IP 168.63.129.16 ?
 
@@ -37,7 +37,7 @@ L’adresse IP 168.63.129.16 est une adresse IP publique virtuelle qui est utili
 L’adresse IP publique 168.63.129.16 est utilisée dans toutes les régions et tous les clouds nationaux. Cette adresse IP publique spéciale ne change pas car elle appartient à Microsoft. Nous vous conseillons d’autoriser cette adresse IP dans toutes les stratégies de pare-feu local (dans la machine virtuelle) dans le sens sortant. La communication est sécurisée entre cette adresse IP spéciale et les ressources car seule la plateforme Azure interne peut envoyer un message à partir de cette adresse. Si cette adresse est bloquée, un comportement inattendu peut se produire dans différentes situations. L’adresse IP 168.63.129.16 est une [adresse IP virtuelle du nœud hôte](../virtual-network/security-overview.md#azure-platform-considerations). Les routes définies par l’utilisateur n’affectent donc pas cette adresse.
 
 - L’agent de machine virtuelle a besoin d’une communication sortante avec WireServer (168.63.129.16) sur les ports 80, 443 et 32526. Ils doivent être ouverts dans le pare-feu local sur la machine virtuelle. Les groupes de sécurité réseau configurés n’affectent pas la communication sur ces ports avec l’adresse 168.63.129.16.
-- La machine virtuelle peut obtenir des services DNS auprès de l’adresse 168.63.129.16. Si cette situation n’est pas souhaitable, ce trafic peut être bloqué dans le pare-feu local sur la machine virtuelle. Par défaut, les groupes de sécurité réseau configurés n’affectent pas la communication DNS, sauf si elle est spécifiquement ciblée par le biais de la balise de service [AzurePlatformDNS](../virtual-network/service-tags-overview.md#available-service-tags).
+- La machine virtuelle peut obtenir des services DNS auprès de l’adresse 168.63.129.16. Si cette situation n’est pas souhaitable, ce trafic peut être bloqué dans le pare-feu local sur la machine virtuelle. Par défaut, les groupes de sécurité réseau configurés n’affectent pas la communication DNS, sauf si elle est spécifiquement ciblée par le biais de la balise de service [AzurePlatformDNS](../virtual-network/service-tags-overview.md#available-service-tags). Pour bloquer le trafic DNS vers Azure DNS via un NSG, créez une règle de trafic sortant pour refuser le trafic vers [AzurePlatformDNS](../virtual-network/service-tags-overview.md#available-service-tags) et spécifiez « * » pour « Plages de ports de destination » et « Any » pour le protocole.
 - Quand la machine virtuelle fait partie d’un pool de back-ends d’équilibreur de charge, la communication avec la [sonde d’intégrité](../load-balancer/load-balancer-custom-probe-overview.md) doit être autorisée à partir de l’adresse 168.63.129.16. La configuration du groupe de sécurité réseau par défaut inclut une règle qui autorise cette communication. Cette règle exploite la balise de service [AzureLoadBalancer](../virtual-network/service-tags-overview.md#available-service-tags). Si vous le souhaitez, vous pouvez bloquer ce trafic en configurant le groupe de sécurité réseau, mais cela entraîne l’échec des sondes.
 
 Dans un scénario de réseau non virtuel (Classic), la sonde d’intégrité provient d'une adresse IP privée et 168.63.129.16 n’est pas utilisée.

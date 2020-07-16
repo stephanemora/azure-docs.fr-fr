@@ -8,12 +8,12 @@ ms.service: storage
 ms.topic: troubleshooting
 ms.date: 06/15/2018
 ms.author: delhan
-ms.openlocfilehash: db36033ea524603416f16db27f40d5eefb8bf613
-ms.sourcegitcommit: ced98c83ed25ad2062cc95bab3a666b99b92db58
+ms.openlocfilehash: a49e5fbe9eac689b630a0f3b443729faf29cdb0d
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/31/2020
-ms.locfileid: "80437120"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84974515"
 ---
 # <a name="azure-storage-explorer-troubleshooting-guide"></a>Guide de résolution des problèmes de l’Explorateur de stockage Azure
 
@@ -48,7 +48,7 @@ Vous devez disposer d’au moins un rôle qui accorde l’accès en lecture aux 
 
 Le stockage Azure présente deux couches d’accès : _gestion_ et _données_. Les abonnements et les comptes de stockage sont accessibles via la couche de gestion. Les conteneurs, objets blob et autres ressources de données sont accessibles via la couche de données. Par exemple, si vous souhaitez obtenir la liste de vos comptes de stockage depuis Azure, vous devez envoyer une requête au point de terminaison de gestion. Si vous voulez consulter la liste des conteneurs d’objets blob dans un compte, vous envoyez une requête au point de terminaison du service approprié.
 
-Les rôles RBAC peuvent contenir des autorisations d’accès à ces couches de données ou de gestion. Le rôle Lecteur vous accorde, par exemple, un accès en lecture seule aux ressources de la couche de gestion.
+Les rôles RBAC peuvent vous octroyer des autorisations d’accès à ces couches de données ou de gestion. Le rôle Lecteur vous accorde, par exemple, un accès en lecture seule aux ressources de la couche de gestion.
 
 À proprement parler, le rôle Lecteur ne fournit aucune autorisation d’accès à la couche de données, et il n’est pas nécessaire pour accéder à la couche de données.
 
@@ -58,7 +58,14 @@ Si vous ne disposez d’un rôle qui accorde une autorisation d’accès à la c
 
 ### <a name="what-if-i-cant-get-the-management-layer-permissions-i-need-from-my-administrator"></a>Que se passe-t-il si je n’obtiens pas les autorisations d’accès à la couche de gestion que mon administrateur doit me fournir ?
 
-Nous n’avons actuellement pas de solution liée à RBAC permettant de résoudre ce problème. En guise de moyen de contournement, vous pouvez demander un URI SAP à [attacher à votre ressource](https://docs.microsoft.com/azure/vs-azure-tools-storage-manage-with-storage-explorer?tabs=linux#use-a-shared-access-signature-uri).
+Si vous souhaitez accéder à des files d’attente ou des conteneurs d’objets BLOB, vous pouvez les attacher à ces ressources à l’aide de vos informations d’identification Azure.
+
+1. Ouvrez la boîte de dialogue de connexion.
+2. Sélectionnez Ajouter une ressource via Azure Active Directory (Azure AD). Cliquez sur Suivant.
+3. Sélectionnez le compte d’utilisateur et le locataire associés à la ressource à laquelle vous effectuez l’attachement. Cliquez sur Suivant.
+4. Sélectionnez le type de ressource, entrez l’URL de la ressource, puis entrez un nom d’affichage unique pour la connexion. Cliquez sur Suivant. Cliquez sur Se connecter.
+
+Pour d’autres types de ressource, nous n’avons actuellement pas de solution liée à RBAC. En guise de moyen de contournement, vous pouvez demander un URI SAP à [attacher à votre ressource](https://docs.microsoft.com/azure/vs-azure-tools-storage-manage-with-storage-explorer?tabs=linux#use-a-shared-access-signature-uri).
 
 ### <a name="recommended-built-in-rbac-roles"></a>Rôles RBAC intégrés recommandés
 
@@ -297,6 +304,8 @@ Si vous avez accidentellement procédé à un attachement au moyen d’une URL S
 
 ## <a name="linux-dependencies"></a>Dépendances Linux
 
+### <a name="snap"></a>Snap
+
 L’Explorateur Stockage 1.10.0 et les versions ultérieures sont disponibles en tant que snap sur le Snap Store. Le snap Explorateur Stockage installe automatiquement toutes ses dépendances, et il est mis à jour dès qu’une nouvelle version du snap est disponible. L’installation du snap Explorateur Stockage est la méthode d’installation recommandée.
 
 Pour bien fonctionner, l’Explorateur Stockage a besoin d’un gestionnaire de mots de passe que vous pouvez être amené à connecter manuellement. Vous pouvez connecter l’Explorateur Stockage au gestionnaire de mots de passe de votre système en exécutant la commande suivante :
@@ -305,57 +314,76 @@ Pour bien fonctionner, l’Explorateur Stockage a besoin d’un gestionnaire de 
 snap connect storage-explorer:password-manager-service :password-manager-service
 ```
 
+### <a name="targz-file"></a>Fichier.tar.gz
+
 Vous pouvez aussi télécharger l’application sous forme de fichier. tar. gz, mais vous devrez installer les dépendances manuellement.
 
-> [!IMPORTANT]
-> L'Explorateur Stockage fourni dans le téléchargement .tar.gz est uniquement pris en charge pour les distributions Ubuntu. Les autres distributions n’ont pas été vérifiées et peuvent nécessiter des packages alternatifs ou supplémentaires.
+L'Explorateur Stockage fourni dans le téléchargement .tar.gz est uniquement pris en charge pour les versions suivantes d’Ubuntu. Il se peut que l’Explorateur Stockage fonctionne sur d’autres distributions Linux, mais elles ne sont pas officiellement prises en charge.
 
-Les packages suivants correspondent aux exigences les plus courantes pour l'Explorateur Stockage sous Linux :
+- Ubuntu 20.04 x64
+- Ubuntu 18.04 x64
+- Ubuntu 16.04 x64
 
-* [Runtime .NET Core 2.2](/dotnet/core/install/dependencies?tabs=netcore22&pivots=os-linux)
-* `libgconf-2-4`
-* `libgnome-keyring0` ou `libgnome-keyring-dev`
-* `libgnome-keyring-common`
+L’Explorateur Stockage exige l’installation de .NET Core sur votre système. Nous vous recommandons .NET Core 2.1, mais l’Explorateur Stockage fonctionnera également avec la version 2.2.
 
 > [!NOTE]
-> L’Explorateur Stockage 1.7.0 et versions antérieures nécessitent .NET Core 2.0. Si vous disposez d’une version plus récente de .NET Core, vous devrez appliquer une [mise à jour corrective de l’Explorateur Stockage](#patching-storage-explorer-for-newer-versions-of-net-core). Si vous exécutez l’Explorateur Stockage 1.8.0 ou une version ultérieure, vous devez pouvoir utiliser .NET Core jusqu’à la version 2.2. Le fonctionnement des versions allant au-delà de 2.2 n’a pas été vérifié pour l’instant.
+> L’Explorateur Stockage 1.7.0 et versions antérieures nécessitent .NET Core 2.0. Si vous disposez d’une version plus récente de .NET Core, vous devrez appliquer une [mise à jour corrective de l’Explorateur Stockage](#patching-storage-explorer-for-newer-versions-of-net-core). Si vous exécutez l’Explorateur Stockage 1.8.0 ou une version ultérieure, vous devez utiliser .NET Core 2.1.
 
-# <a name="ubuntu-1904"></a>[Ubuntu 19.04](#tab/1904)
+# <a name="ubuntu-2004"></a>[Ubuntu 20.04](#tab/2004)
 
-1. Téléchargez l'Explorateur Stockage.
-2. Installez le [runtime .NET Core](https://dotnet.microsoft.com/download/linux-package-manager/ubuntu19-04/runtime-current).
-3. Exécutez la commande suivante :
+1. Téléchargez le fichier .tar.gz de l’Explorateur Stockage.
+2. Installez le [runtime .NET Core](https://docs.microsoft.com/dotnet/core/install/linux) :
    ```bash
-   sudo apt-get install libgconf-2-4 libgnome-keyring0
+   wget https://packages.microsoft.com/config/ubuntu/20.04/packages-microsoft-prod.deb -O packages-microsoft-prod.deb; \
+     dpkg -i packages-microsoft-prod.deb; \
+     sudo apt-get update; \
+     sudo apt-get install -y apt-transport-https && \
+     sudo apt-get update && \
+     sudo apt-get install -y dotnet-runtime-2.1
    ```
 
 # <a name="ubuntu-1804"></a>[Ubuntu 18.04](#tab/1804)
 
-1. Téléchargez l'Explorateur Stockage.
-2. Installez le [runtime .NET Core](https://dotnet.microsoft.com/download/linux-package-manager/ubuntu18-04/runtime-current).
-3. Exécutez la commande suivante :
+1. Téléchargez le fichier .tar.gz de l’Explorateur Stockage.
+2. Installez le [runtime .NET Core](https://docs.microsoft.com/dotnet/core/install/linux) :
    ```bash
-   sudo apt-get install libgconf-2-4 libgnome-keyring-common libgnome-keyring0
+   wget https://packages.microsoft.com/config/ubuntu/18.04/packages-microsoft-prod.deb -O packages-microsoft-prod.deb; \
+     dpkg -i packages-microsoft-prod.deb; \
+     sudo apt-get update; \
+     sudo apt-get install -y apt-transport-https && \
+     sudo apt-get update && \
+     sudo apt-get install -y dotnet-runtime-2.1
    ```
 
 # <a name="ubuntu-1604"></a>[Ubuntu 16.04](#tab/1604)
 
-1. Téléchargez l'Explorateur Stockage.
-2. Installez le [runtime .NET Core](https://dotnet.microsoft.com/download/linux-package-manager/ubuntu16-04/runtime-current).
-3. Exécutez la commande suivante :
+1. Téléchargez le fichier .tar.gz de l’Explorateur Stockage.
+2. Installez le [runtime .NET Core](https://docs.microsoft.com/dotnet/core/install/linux) :
    ```bash
-   sudo apt install libgnome-keyring-dev
-   ```
-
-# <a name="ubuntu-1404"></a>[Ubuntu 14.04](#tab/1404)
-
-1. Téléchargez l'Explorateur Stockage.
-2. Installez le [runtime .NET Core](https://dotnet.microsoft.com/download/linux-package-manager/ubuntu14-04/runtime-current).
-3. Exécutez la commande suivante :
-   ```bash
-   sudo apt install libgnome-keyring-dev
+   wget https://packages.microsoft.com/config/ubuntu/16.04/packages-microsoft-prod.deb -O packages-microsoft-prod.deb; \
+     dpkg -i packages-microsoft-prod.deb; \
+     sudo apt-get update; \
+     sudo apt-get install -y apt-transport-https && \
+     sudo apt-get update && \
+     sudo apt-get install -y dotnet-runtime-2.1
    ```
 ---
+
+De nombreuses bibliothèques requise par l’Explorateur Stockage sont préinstallées avec les installations standard Canonical d’Ubuntu. Il se peut que certaines de ces bibliothèques soient manquantes dans les environnements personnalisés. Si vous rencontrez des problèmes lors du lancement de l’Explorateur Stockage, nous vous recommandons de vérifier si les packages suivants sont installés sur votre système :
+
+- iproute2
+- libasound2
+- libatm1
+- libgconf2-4
+- libnspr4
+- libnss3
+- libpulse0
+- libsecret-1-0
+- libx11-xcb1
+- libxss1
+- libxtables11
+- libxtst6
+- xdg-utils
 
 ### <a name="patching-storage-explorer-for-newer-versions-of-net-core"></a>Mise à jour corrective de l’Explorateur Stockage pour les versions plus récentes de .NET Core
 

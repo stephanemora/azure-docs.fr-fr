@@ -1,14 +1,14 @@
 ---
 title: Remédier aux ressources non conformes
 description: Ce guide explique comment corriger les ressources qui ne sont pas conformes aux stratégies dans Azure Policy.
-ms.date: 02/26/2020
+ms.date: 06/09/2020
 ms.topic: how-to
-ms.openlocfilehash: acdb067e888ecbe68e3221944568b202f2510c41
-ms.sourcegitcommit: 1f25aa993c38b37472cf8a0359bc6f0bf97b6784
+ms.openlocfilehash: be55f16734a94acfcc89d632f4cb79f550fa74d5
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/26/2020
-ms.locfileid: "83849958"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84636306"
 ---
 # <a name="remediate-non-compliant-resources-with-azure-policy"></a>Corriger les ressources non conformes avec Azure Policy
 
@@ -51,9 +51,6 @@ Lorsque vous créez une affectation à l’aide du portail, Azure Policy génèr
 - Durant l’utilisation du SDK (par exemple, Azure PowerShell)
 - Quand une ressource en dehors de l’étendue de l’affectation est modifiée par le modèle
 - Quand une ressource en dehors de l’étendue de l’affectation est lue par le modèle
-
-> [!NOTE]
-> Azure PowerShell et .NET sont les seuls SDK qui prennent en charge cette fonctionnalité.
 
 ### <a name="create-managed-identity-with-powershell"></a>Créer une identité managée avec PowerShell
 
@@ -183,7 +180,7 @@ Pour accéder à d’autres cmdlets et exemples de correction, consultez le modu
 
 ### <a name="create-a-remediation-task-during-policy-assignment-in-the-azure-portal"></a>Créer une tâche de correction au moment d’affecter une stratégie sur le portail Azure
 
-Une façon simple de créer une tâche de correction est d’utiliser le portail Azure pendant l’affectation d’une stratégie. Si la définition de la stratégie à affecter est un effet **deployIfNotExists** ou **Modify**, l’Assistant situé sous l’onglet **Correction** propose une option _Créer une tâche de correction_. Si cette option est sélectionnée, une tâche de correction est créée en même temps que l’affectation de la stratégie.
+Une façon simple de créer une tâche de correction est d’utiliser le portail Azure pendant l’affectation d’une stratégie. Si la définition de la stratégie à affecter est un effet **deployIfNotExists** ou **Modify**, l’Assistant situé sous l’onglet **Correction** propose une option _Créer une tâche de correction_. Si cette option est sélectionnée, une tâche de correction est créée en même temps que l’attribution de la stratégie.
 
 ## <a name="next-steps"></a>Étapes suivantes
 

@@ -3,16 +3,18 @@ title: Restrictions concernant le nommage des ressources
 description: Affiche les règles et restrictions concernant le nommage des ressources Azure.
 ms.topic: conceptual
 ms.date: 05/21/2020
-ms.openlocfilehash: 73e5f7ce7f5c13a0ce456372d299e49033c7e704
-ms.sourcegitcommit: 1692e86772217fcd36d34914e4fb4868d145687b
+ms.openlocfilehash: ca13203b6d31c1eeb939c668a58e67f0d462a905
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/29/2020
-ms.locfileid: "84170577"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85554346"
 ---
 # <a name="naming-rules-and-restrictions-for-azure-resources"></a>Règles de nommage et restrictions pour les ressources Azure
 
 Cet article récapitule les règles et restrictions concernant le nommage des ressources Azure. Pour obtenir des recommandations sur la façon de nommer des ressources, consultez [Conventions de nommage et de catégorisation recommandées](/azure/cloud-adoption-framework/ready/azure-best-practices/naming-and-tagging).
+
+Cet article répertorie les ressources par espace de noms de fournisseur de ressources. Pour obtenir une liste qui mappe les fournisseurs de ressources et les services Azure, voir [Fournisseurs de ressources pour les services Azure](azure-services-resource-providers.md).
 
 Les noms de ressources ne respectent pas la casse, sauf indication contraire dans la colonne relative aux caractères valides.
 
@@ -34,7 +36,7 @@ Dans les tableaux suivants, le terme « alphanumérique » fait référence au
 > [!div class="mx-tableFixed"]
 > | Entité | Étendue | Longueur | Caractères valides |
 > | --- | --- | --- | --- |
-> | service | globale | 1-50 | Caractères alphanumériques.<br><br>Doit commencer par une lettre. |
+> | service | globale | 1-50 | Caractères alphanumériques et traits d’union.<br><br>Doit commencer par une lettre et se terminer par un caractère alphanumérique. |
 > | service / apis | service | 1-256 | Impossibilité d’utiliser :<br> `*#&+:<>?` |
 > | service / apis / issues | api | 1-256 | Impossibilité d’utiliser :<br> `*#&+:<>?` |
 > | service / apis / issues / attachments | problème | 1-256 | Impossibilité d’utiliser :<br> `*#&+:<>?` |
@@ -172,8 +174,8 @@ Dans les tableaux suivants, le terme « alphanumérique » fait référence au
 > | galleries / images / versions | image | Entier de 32 bits | Chiffres et points. |
 > | images | resource group | 1-80 | Caractères alphanumériques, traits de soulignement, points et traits d’union.<br><br>Doit commencer par un caractère alphanumérique. Doit se terminer par un caractère alphanumérique ou un trait de soulignement. |
 > | snapshots | resource group | 1-80 | Caractères alphanumériques, traits de soulignement, points et traits d’union.<br><br>Doit commencer par un caractère alphanumérique. Doit se terminer par un caractère alphanumérique ou un trait de soulignement. |
-> | virtualMachines | resource group | 1-15 (Windows)<br>1-64 (Linux)<br><br>Voir la remarque ci-dessous. | Impossibilité d’utiliser :<br> `\/""[]:|<>+=;,?*@&`<br><br>Ne peut pas commencer par un trait de soulignement. Ne peut pas se terminer par un point ou un trait d’union. |
-> | virtualMachineScaleSets | resource group | 1-15 (Windows)<br>1-64 (Linux)<br><br>Voir la remarque ci-dessous. | Impossibilité d’utiliser :<br> `\/""[]:|<>+=;,?*@&`<br><br>Ne peut pas commencer par un trait de soulignement. Ne peut pas se terminer par un point ou un trait d’union. |
+> | virtualMachines | resource group | 1-15 (Windows)<br>1-64 (Linux)<br><br>Voir la remarque ci-dessous. | Impossibilité d’utiliser :<br> `\/"'[]:|<>+=;,?*@&`<br><br>Ne peut pas commencer par un trait de soulignement. Ne peut pas se terminer par un point ou un trait d’union. |
+> | virtualMachineScaleSets | resource group | 1-15 (Windows)<br>1-64 (Linux)<br><br>Voir la remarque ci-dessous. | Impossibilité d’utiliser :<br> `\/"'[]:|<>+=;,?*@&`<br><br>Ne peut pas commencer par un trait de soulignement. Ne peut pas se terminer par un point ou un trait d’union. |
 
 > [!NOTE]
 > Les machines virtuelles Azure portent deux noms distincts : un nom de ressource et un nom d’hôte. Quand vous créez une machine virtuelle dans le portail, la même valeur est utilisée pour les deux noms. Les restrictions mentionnées dans le tableau précédent concernent le nom d’hôte. Le nom de ressource proprement dit peut comporter jusqu’à 64 caractères.
@@ -522,7 +524,7 @@ Dans les tableaux suivants, le terme « alphanumérique » fait référence au
 > [!div class="mx-tableFixed"]
 > | Entité | Étendue | Longueur | Caractères valides |
 > | --- | --- | --- | --- |
-> | espaces de noms | globale | 6-50 | Caractères alphanumériques et traits d’union<br><br>Doit commencer et se terminer par un caractère alphanumérique. |
+> | espaces de noms | globale | 6-50 | Caractères alphanumériques et traits d’union<br><br>Doit commencer par une lettre. Doit se terminer par un caractère alphanumérique. |
 > | namespaces / AuthorizationRules | espace de noms | 1-256 | Caractères alphanumériques, points, traits d’union et traits de soulignement.<br><br>Doit commencer par un caractère alphanumérique. |
 > | namespaces / notificationHubs | espace de noms | 1-260 | Caractères alphanumériques, points, traits d’union et traits de soulignement.<br><br>Doit commencer par un caractère alphanumérique. |
 > | namespaces / notificationHubs / AuthorizationRules | hub de notification | 1-256 | Caractères alphanumériques, points, traits d’union et traits de soulignement.<br><br>Doit commencer par un caractère alphanumérique. |

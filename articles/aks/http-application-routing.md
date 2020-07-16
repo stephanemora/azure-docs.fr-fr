@@ -6,12 +6,12 @@ author: lachie83
 ms.topic: article
 ms.date: 08/06/2019
 ms.author: laevenso
-ms.openlocfilehash: 041767474fbc56ee7a53bcbd54f27873d17dab77
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 216705ef4ff7c235179c1f1be38a993ecd2fe782
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85413635"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86244410"
 ---
 # <a name="http-application-routing"></a>Routage d’applications HTTP
 
@@ -20,7 +20,7 @@ La solution de routage des applications HTTP permet d’accéder facilement aux 
 Lorsque ce module complémentaire est activé, il crée une zone DNS dans votre abonnement. Pour plus d’informations sur les coûts DNS, consultez [Tarification de DNS][dns-pricing].
 
 > [!CAUTION]
-> Le module complémentaire de routage des applications HTTP est conçu pour vous permettre de créer rapidement un contrôleur d’entrée et d’accéder à vos applications. Ce module complémentaire n’est pas recommandé pour une utilisation en production. Pour les déploiements d’entrée prêts pour la production qui incluent plusieurs réplicas et la prise en charge de TLS, consultez [Créer un contrôleur d’entrée HTTPS](https://docs.microsoft.com/azure/aks/ingress-tls).
+> Le module complémentaire de routage des applications HTTP est conçu pour vous permettre de créer rapidement un contrôleur d’entrée et d’accéder à vos applications. Ce module complémentaire n’est pas recommandé pour une utilisation en production. Pour les déploiements d’entrée prêts pour la production qui incluent plusieurs réplicas et la prise en charge de TLS, consultez [Créer un contrôleur d’entrée HTTPS](./ingress-tls.md).
 
 ## <a name="http-routing-solution-overview"></a>Vue d’ensemble de la solution de routage HTTP
 

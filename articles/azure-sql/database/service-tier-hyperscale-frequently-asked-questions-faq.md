@@ -11,12 +11,12 @@ author: dimitri-furman
 ms.author: dfurman
 ms.reviewer: ''
 ms.date: 03/03/2020
-ms.openlocfilehash: d265726835620c5b468c8a81570e80c7167b2997
-ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
+ms.openlocfilehash: dbb1d73fc2b19ef701cb08ced24c634bbbadb235
+ms.sourcegitcommit: f7e160c820c1e2eb57dc480b2a8fd6bef7053e91
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86084339"
+ms.lasthandoff: 07/10/2020
+ms.locfileid: "86231588"
 ---
 # <a name="azure-sql-database-hyperscale-faq"></a>Questions fréquentes (FAQ) sur le niveau Hyperscale dans Azure SQL Database
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -45,12 +45,12 @@ Les niveaux de service basés sur vCore sont différenciés en fonction de la di
 | **Idéal pour** |Tous|Offre des options de calcul et de stockage équilibrées et économiques.|La plupart des charges de travail d’entreprise. Mise à l’échelle automatique de la taille de stockage jusqu’à 100 To, mise à l’échelle verticale et horizontale rapide du calcul, restauration rapide de la base de données.|Applications OLTP avec des débits de transactions élevés et une faible latence des E/S. Offre une meilleure résilience aux défaillances et des basculements rapides à l’aide de plusieurs réplicas mis à jour de façon synchrone.|
 |  **Type de ressource** ||SQL Database / SQL Managed Instance | Base de données unique | SQL Database / SQL Managed Instance |
 | **Taille de calcul**|SQL Database* | 1 à 80 cœurs virtuels | 1 à 80 cœurs virtuels* | 1 à 80 cœurs virtuels |
-| |Instance managée SQL | 8, 16, 24, 32, 40, 64, 80 cœurs virtuels | N/A | 8, 16, 24, 32, 40, 64, 80 cœurs virtuels |
+| **Taille de calcul**|Instance managée SQL | 8, 16, 24, 32, 40, 64, 80 cœurs virtuels | N/A | 8, 16, 24, 32, 40, 64, 80 cœurs virtuels |
 | **Type de stockage** | Tous |Stockage distant Premium (par instance) | Stockage découplé avec cache disque SSD local (par instance) | Stockage SSD local ultra-rapide (par instance) |
 | **Taille de stockage** | SQL Database *| 5 Go - 4 To | Jusqu’à 100 To | 5 Go - 4 To |
-| | Instance managée SQL  | 32 Go - 8 To | N/A | 32 Go - 4 To |
+| **Taille de stockage** | Instance managée SQL  | 32 Go - 8 To | N/A | 32 Go - 4 To |
 | **D’OPÉRATIONS D’E/S PAR SECONDE** | Base de données unique | 500 IOPS par vCore avec 7000 IOPS au maximum | L’architecture hyperscale est une architecture à plusieurs niveaux avec une mise en cache sur plusieurs niveaux. L’efficacité des IOPS dépend de la charge de travail. | 5 000 IOPS avec un maximum de 200 000 IOPS|
-| | Instance managée SQL | Dépend de la taille du fichier | N/A | 1375 IOPS/vCore |
+| **D’OPÉRATIONS D’E/S PAR SECONDE** | Instance managée SQL | Dépend de la taille du fichier | N/A | 1375 IOPS/vCore |
 |**Disponibilité**|Tous|1 réplica, pas d’échelle horizontale en lecture, pas de cache local | Plusieurs réplicas, jusqu’à 4 échelles horizontales en lecture, cache local partiel | 3 réplicas, 1 échelle horizontale en lecture, haute disponibilité redondante interzone, stockage local complet |
 |**Sauvegardes**|Tous|RA-GRS, 7 à 35 jours de rétention (7 jours par défaut)| RA-GRS, 7 jours de rétention, récupération jusqu’à une date et heure (PITR) à durée constante | RA-GRS, 7 à 35 jours de rétention (7 jours par défaut) |
 

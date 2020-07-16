@@ -1,6 +1,6 @@
 ---
 title: Connecter des journaux Office 365 à Azure Sentinel | Microsoft Docs
-description: Découvrez comment connecter des données Office 365 à Azure Sentinel.
+description: Découvrez comment utiliser le connecteur de journal Office 365 pour apporter des informations sur les activités de l’utilisateur et de l’administrateur en cours dans Exchange et SharePoint, OneDrive inclus.
 services: sentinel
 documentationcenter: na
 author: yelevin
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 05/21/2020
 ms.author: yelevin
-ms.openlocfilehash: bcd00247486faeea47ef4a4a43fa1df5420321e6
-ms.sourcegitcommit: 8017209cc9d8a825cc404df852c8dc02f74d584b
+ms.openlocfilehash: 180b25f80bd27caea20b1c17cd84fda38c172e0f
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/01/2020
-ms.locfileid: "84248938"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85559338"
 ---
 # <a name="connect-office-365-logs-to-azure-sentinel"></a>Connecter des journaux Office 365 à Azure Sentinel
 

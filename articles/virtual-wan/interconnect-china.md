@@ -9,6 +9,7 @@ ms.date: 03/25/2020
 ms.author: sukishen
 ms.openlocfilehash: d89a3c65eb8d8bffd4cf87160286d1905bd1ba5b
 ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
+ms.translationtype: HT
 ms.contentlocale: fr-FR
 ms.lasthandoff: 05/21/2020
 ms.locfileid: "83747607"
@@ -43,7 +44,7 @@ Selon le fournisseur et vos besoins, vous devez maintenant acheter l’un des se
 * WAN défini par logiciel (SDWAN)
 * Accès dédié à Internet
 
-Ensuite, vous devez convaincre ce fournisseur de s’ouvrir au Réseau Microsoft mondial et à son réseau de périmètre à Hong Kong (R.A.S.), pas Beijing ou Shanghai. En l’occurrence, Hong Kong est très important en raison de sa connexion physique et de son emplacement en Chine.
+Ensuite, vous devez convaincre ce fournisseur de s’ouvrir au Réseau Microsoft mondial et à son réseau de périmètre à Hong Kong (R.A.S.), pas Beijing ou Shanghai. En l’occurrence, Hong Kong (R.A.S.) est très important en raison de sa connexion physique et de son emplacement en Chine.
 
 Si la plupart des clients pensent que l’utilisation de Singapour pour l’interconnexion constitue le meilleur choix car cela semble être plus proche de la Chine sur la carte, ce n’est pas vrai. Les cartes de fibre réseau révèlent que presque toutes les connexions réseau passent par Beijing, Shanghai et Hong Kong (R.A.S.). Ainsi, Hong Kong (R.A.S.) est un meilleur choix pour une interconnexion avec la Chine.
 
@@ -130,7 +131,7 @@ Il existe également des options pour terminer l’ExpressRoute en provenance de
 
 ### <a name="option-3-expressroute-only"></a><a name="option-3"></a>Option 3 : ExpressRoute uniquement
 
-Cette section présente une conception où ExpressRoute est utilisé pour Hong Kong et les autres branches. Cette option montre l’interconnexion à l’aide d’ExpressRoute aux deux extrémités. Ici, vous avez un flux de trafic différent de l’autre. Le trafic Microsoft 365 est acheminé vers le hub sécurisé Azure Virtual WAN, puis de là vers le réseau de périmètre Microsoft Edge et Internet.
+Cette section présente une conception où ExpressRoute est utilisé pour Hong Kong (R.A.S.) et les autres branches. Cette option montre l’interconnexion à l’aide d’ExpressRoute aux deux extrémités. Ici, vous avez un flux de trafic différent de l’autre. Le trafic Microsoft 365 est acheminé vers le hub sécurisé Azure Virtual WAN, puis de là vers le réseau de périmètre Microsoft Edge et Internet.
 
 Le trafic qui va vers les branches interconnectées ou de celles-ci vers les emplacements en Chine suit une approche différente au sein de cette architecture. Actuellement, Virtual WAN ne prend pas en charge le transit d’ExpressRoute à ExpressRoute. Le trafic profite d’ExpressRoute Global Reach ou de l’interconnexion tierce sans passer par le hub Virtual WAN. Il passe directement d’un périmètre d’entreprise Microsoft (MSEE) à un autre.
 

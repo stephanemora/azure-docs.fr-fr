@@ -3,8 +3,8 @@ title: Planifier un déploiement de proxy d’application Azure Active Directory
 description: Guide complet sur la planification du déploiement d’un proxy d’application au sein de votre organisation
 services: active-directory
 documentationcenter: azure
-author: barbaraselden
-manager: CelesteDG
+author: kenwith
+manager: celestedg
 ms.assetid: ''
 ms.service: active-directory
 ms.subservice: app-mgmt
@@ -13,14 +13,13 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.date: 04/04/2019
-ms.author: baselden
-ms.custom: has-adal-ref
-ms.openlocfilehash: 040ad734cdf3b2d382baa55006fbda02fdcf457d
-ms.sourcegitcommit: 1692e86772217fcd36d34914e4fb4868d145687b
+ms.author: kenwith
+ms.openlocfilehash: fdcea318fcd0796a790818794f6dd7cd949c17cd
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/29/2020
-ms.locfileid: "84169506"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85367782"
 ---
 # <a name="plan-an-azure-ad-application-proxy-deployment"></a>Planifier le déploiement d’un proxy d’application Azure AD
 
@@ -254,7 +253,7 @@ Pour savoir quelle méthode d’authentification unique est la mieux adaptée lo
 
 ###  <a name="working-with-other-types-of-applications"></a>Utilisation des autres types d’applications
 
-Le proxy d’application Azure AD peut également prendre en charge les applications qui ont été développées pour utiliser la bibliothèque d’authentification Microsoft ([MSAL](https://azure.microsoft.com/blog/start-writing-applications-today-with-the-new-microsoft-authentication-sdks/)). Pour prendre en charge les applications clientes natives, il utilise les jetons émis par Azure AD qui sont compris dans les informations d’en-tête de la requête cliente. Il effectue ainsi la pré-authentification à la place des utilisateurs.
+Le proxy d’application Azure AD peut également prendre en charge les applications qui ont été développées pour utiliser la bibliothèque d’authentification Microsoft ([MSAL](https://docs.microsoft.com/azure/active-directory/develop/v2-overview)). Pour prendre en charge les applications clientes natives, il utilise les jetons émis par Azure AD qui sont compris dans les informations d’en-tête de la requête cliente. Il effectue ainsi la pré-authentification à la place des utilisateurs.
 
 Pour plus d’informations sur les configurations possibles du proxy d’application, lisez [Publication d’applications clientes natives et mobiles](https://docs.microsoft.com/azure/active-directory/active-directory-application-proxy-native-client) et [Applications basées sur les revendications](https://docs.microsoft.com/azure/active-directory/active-directory-application-proxy-claims-aware-apps).
 
@@ -318,7 +317,7 @@ Les articles suivants abordent des scénarios courants qui peuvent également ê
 * [Problème lors de l’affichage de la page de l’application](application-proxy-page-appearance-broken-problem.md)
 * [Le chargement de l’application est trop long](application-proxy-page-load-speed-problem.md)
 * [Les liens sur la page de l’application ne fonctionnent pas](application-proxy-page-links-broken-problem.md)
-* [Quels ports dois-je ouvrir pour mon application ?](application-proxy-connectivity-ports-how-to.md)
+* [Quels ports dois-je ouvrir pour mon application ?](application-proxy-add-on-premises-application.md)
 * [Aucun connecteur ne fonctionne dans un groupe de connecteurs pour mon application](application-proxy-connectivity-no-working-connector.md)
 * [Configurer dans le portail d’administration](application-proxy-config-how-to.md)
 * [Configurer l’authentification unique vers mon application](application-proxy-config-sso-how-to.md)

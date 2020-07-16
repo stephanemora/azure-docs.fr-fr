@@ -4,12 +4,12 @@ description: Découvrez comment utiliser le programme de mise à l’échelle au
 services: container-service
 ms.topic: article
 ms.date: 07/18/2019
-ms.openlocfilehash: f40d13b6b9a37f4c5efcc73e52b631bd2eec659a
-ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
+ms.openlocfilehash: e87470e577f4d2613b43cc02755ccc2d500c0ef8
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/20/2020
-ms.locfileid: "83683559"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84730014"
 ---
 # <a name="automatically-scale-a-cluster-to-meet-application-demands-on-azure-kubernetes-service-aks"></a>Mise à l’échelle automatique d’un cluster pour répondre aux demandes applicatives d’Azure Kubernetes Service (AKS)
 
@@ -99,7 +99,7 @@ az aks update \
 L’exemple ci-dessus met à jour le programme de mise à l’échelle automatique du cluster sur le pool de nœuds dans *myAKSCluster* en définissant un minimum de *1* et un maximum de *5* nœuds.
 
 > [!NOTE]
-Le programme de mise à l’échelle automatique de cluster prend les décisions de mise à l’échelle en fonction des nombres minimum et maximum définis sur chaque pool de nœuds, mais il ne les applique pas. Par exemple, définir un paramètre min-count sur 5 lorsque le nombre actuel de nœuds est 3 ne met pas immédiatement le pool à l’échelle à 5. Si vous modifiez le nombre minimum sur le pool de nœuds en lui attribuant une valeur supérieure au nombre actuel de nœuds, cette nouvelle limite sera respectée lorsqu’il y aura suffisamment de pods non planifiables qui nécessiteraient deux nouveaux nœuds supplémentaires et déclencheraient un événement du programme de mise à l’échelle automatique. Après cela, la nouvelle limite de nombre minimum sera respectée pour le programme de mise à l’échelle automatique de cluster.
+> Le programme de mise à l’échelle automatique de cluster prend les décisions de mise à l’échelle en fonction des nombres minimum et maximum définis sur chaque pool de nœuds, mais il ne les applique pas après la mise à jour des nombres minimum ou maximum. Par exemple, définir un nombre minimum de 5 lorsque le nombre actuel de nœuds est 3 n’effectue pas immédiatement un Scale-up du pool sur 5. Si le nombre minimum sur le pool de nœuds a une valeur supérieure au nombre actuel de nœuds, les nouveaux paramètres minimum ou maximum seront respectés lorsqu’il y aura suffisamment de pods non planifiables qui nécessiteraient deux nouveaux nœuds supplémentaires et déclencheraient un événement du programme de mise à l’échelle automatique. Après l’événement de mise à l’échelle, les nouvelles limites de nombre sont respectées.
 
 Surveillez les performances de vos applications et services, puis ajustez les nombres de nœuds du programme de mise à l’échelle automatique de cluster pour les faire correspondre aux performances requises.
 

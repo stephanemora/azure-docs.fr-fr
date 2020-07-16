@@ -6,12 +6,12 @@ ms.author: yegu
 ms.service: cache
 ms.topic: conceptual
 ms.date: 02/20/2020
-ms.openlocfilehash: aded023c9f4c045f612e33d32c1e3ac71afddf02
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 8af8db6b6853d6b8cbd4ba1105f05ebb9bcf771b
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "77530206"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84974838"
 ---
 # <a name="prepay-for-azure-cache-for-redis-compute-resources-with-reserved-capacity"></a>Prépayer les ressources de calcul Azure Cache pour Redis avec une capacité de réserve
 
@@ -30,9 +30,9 @@ Si vous souhaitez en savoir plus sur la facturation des achats de réservation p
 
 ## <a name="determine-the-right-cache-size-before-purchase"></a>Déterminer la bonne taille de cache avant l’achat
 
-La taille de la réservation doit s’appuyer sur le nombre total de calculs utilisés par le cache existant ou à déployer prochainement dans une région spécifique et qui utilise le même niveau de performance.
+La taille de la réservation doit s’appuyer sur la quantité totale de mémoire utilisée par le cache existant ou à déployer prochainement dans une région spécifique et qui utilise le même niveau de service.
 
-Par exemple, supposons que vous exécutiez un cache 32 vCore Gen5 à usage général et deux caches 16 vCore Gen5 à mémoire optimisée. Admettons également que vous envisagez de déployer au cours du mois prochain un autre serveur de base de données Gen5 32 vCore à usage général et un serveur de base de données Gen5 16 vCore à mémoire optimisée. Imaginons que vous savez que ces ressources vous seront nécessaires pendant au moins 1 an. Dans ce cas, vous devez acheter une réservation de 64 (2x32) vCores pour une durée d’un an, pour un usage général de bases de données uniques - Gen5 et une réservation de 48 (2x16 + 16) vCores pour une durée d’un an pour une base de données unique à mémoire optimisée - Gen5
+Supposons, par exemple, que vous exécutiez deux caches, l’un à 13 Go et l’autre à 26 Go. Vous aurez besoin des deux pendant une période minimale d’un an. Par ailleurs, supposons que vous envisagiez d’étendre les caches de 13 Go existants à 26 Go pendant un mois pour répondre à votre demande saisonnière, puis de revenir à la situation initiale. Dans ce cas, vous pouvez acheter un cache P1 et un cache P2 ou 3 caches P1 sur une réservation d’un an pour maximiser vos économies. Vous bénéficiez d’une remise sur la quantité totale de mémoire cache que vous réservez, indépendamment de l’allocation de la quantité dans vos caches.
 
 
 ## <a name="buy-azure-cache-for-redis-reserved-capacity"></a>Acheter une capacité réservée Azure Cache pour Redis

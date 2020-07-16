@@ -4,21 +4,20 @@ description: Découvrez comment utiliser la condition d’emplacement pour contr
 services: active-directory
 ms.service: active-directory
 ms.subservice: conditional-access
-ms.topic: article
-ms.workload: identity
-ms.date: 05/28/2020
+ms.topic: conceptual
+ms.date: 06/15/2020
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: calebb
 ms.collection: M365-identity-device-management
 ms.custom: contperfq4
-ms.openlocfilehash: 781d8b89dd1b7fa6b2ed9707f6d4c485b4abdf20
-ms.sourcegitcommit: 12f23307f8fedc02cd6f736121a2a9cea72e9454
+ms.openlocfilehash: 7db7e64840d248b66a61ff310f9441800e1afc31
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/30/2020
-ms.locfileid: "84220582"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85253220"
 ---
 # <a name="using-the-location-condition-in-a-conditional-access-policy"></a>Utilisation de la condition d’emplacement dans une stratégie d’accès conditionnel 
 
@@ -65,7 +64,7 @@ Cette option peut être prise en compte dans les stratégies d’accès conditio
 Certaines organisations peuvent choisir de définir les limites IP de régions ou pays entiers sous la forme d’emplacements nommés pour les stratégies d’accès conditionnel. Elles peuvent utiliser ces emplacements lors du blocage du trafic inutile, si elles sont certaines que les utilisateurs acceptés ne seront jamais issus d’un lieu tel que la Corée du Nord. Ces mappages d’adresses IP à des pays sont régulièrement mis à jour. 
 
 > [!NOTE]
-> Ces pays n’incluent pas de plages d’adresses IPv6, mais uniquement les plages d’adresses IPv4 connues.
+> Ces pays n’incluent pas de plages d’adresses IPv6, uniquement les plages d’adresses IPv4 connues, et ne peuvent pas être marqués comme étant approuvés.
 
 ![Créer un emplacement basé sur le pays ou la région dans le Portail Azure](./media/location-condition/new-named-location-country-region.png)
 
@@ -102,7 +101,7 @@ Avec la préversion de l’emplacement nommé, vous pouvez :
 
 - Configurer jusqu’à 195 emplacements nommés
 - Configurer jusqu’à 2 000 plages d’adresses IP par emplacement nommé
-- Configurer des adresses de type IPv6 maximum
+- Configurer des adresses IPv6 avec des adresses IPv4
 
 Nous avons également ajouté des vérifications supplémentaires pour aider à limiter les changements suite à une configuration incorrecte.
 
@@ -115,7 +114,7 @@ Avec la préversion, il existe désormais deux options de création :
 - **Emplacement des plages d’adresses IP**
 
 > [!NOTE]
-> Ces pays n’incluent pas de plages d’adresses IPv6, mais uniquement les plages d’adresses IPv4 connues.
+> Ces pays n’incluent pas de plages d’adresses IPv6, uniquement les plages d’adresses IPv4 connues, et ne peuvent pas être marqués comme étant approuvés.
 
 ![Interface d’emplacement nommé en préversion](./media/location-condition/named-location-preview.png)
 
@@ -141,6 +140,30 @@ Cette option s’applique à :
 ### <a name="selected-locations"></a>Des emplacements sélectionnés
 
 Avec cette option, vous pouvez sélectionner un ou plusieurs emplacements nommés. Pour une stratégie avec ce paramètre à appliquer, un utilisateur doit se connecter à partir de l’un des emplacements sélectionnés. Lorsque vous cliquez sur **Sélectionner**, le contrôle de sélection du réseau nommé qui affiche la liste des réseaux nommés s’ouvre. La liste indique également si l’emplacement réseau a été marqué comme approuvé. L’emplacement nommé appelé **Adresses IP approuvées MFA** est utilisé pour inclure les paramètres IP pouvant être configurés dans la page des paramètres du service d’authentification multifacteur.
+
+## <a name="ipv6-traffic"></a>Trafic IPv6
+
+Par défaut, les stratégies d’accès conditionnel s’appliquent à tout le trafic IPv6. Avec la [préversion d’emplacement nommé](#preview-features), vous pouvez exclure des plages d’adresses IPv6 spécifiques d’une stratégie d’accès conditionnel. Cette option est utile dans les cas où vous ne souhaitez pas que la stratégie soit appliquée pour des plages IPv6 spécifiques. Par exemple, si vous ne souhaitez pas appliquer une stratégie pour les utilisations sur votre réseau d’entreprise et que votre réseau d’entreprise est hébergé sur des plages IPv6 publiques.  
+
+### <a name="when-will-my-tenant-have-ipv6-traffic"></a>Quand mon locataire aura-t-il un trafic IPv6 ?
+
+Actuellement, Azure Active Directory (Azure AD) ne prend pas en charge les connexions réseau directes qui utilisent IPv6. Toutefois, dans certains cas, le trafic d’authentification est transféré par proxy via un autre service. Dans ces cas, l’adresse IPv6 est utilisée lors de l’évaluation de la stratégie.
+
+La majeure partie du trafic IPv6 qui est transférée par proxy à Azure AD provient de Microsoft Exchange Online. Lorsqu’elles sont disponibles, Exchange privilégie les connexions IPv6. **Par conséquent, si vous avez des stratégies d’accès conditionnel pour Exchange, qui ont été configurées pour des plages IPv4 spécifiques, vous devez vous assurer que vous avez également ajouté les plages IPv6 de votre organisation.** Si vous n’incluez pas de plages IPv6, vous risquez de provoquer un comportement inattendu pour les deux cas suivants :
+
+- Lorsqu’un client de messagerie est utilisé pour se connecter à Exchange Online avec l’authentification héritée, Azure AD peut recevoir une adresse IPv6. La demande d’authentification initiale est envoyée à Exchange et est ensuite transmise par proxy à Azure AD.
+- Quand Outlook Web Access (OWA) est utilisé dans le navigateur, il vérifie périodiquement que toutes les stratégies d’accès conditionnel sont toujours respectées. Cette vérification permet d’intercepter les cas où un utilisateur est passé d’une adresse IP autorisée à un nouvel emplacement, comme un café en ville. Dans ce cas, si une adresse IPv6 est utilisée et si l’adresse IPv6 n’est pas dans une plage configurée, il se peut que la session de l’utilisateur soit interrompue et redirigée vers Azure AD pour une nouvelle authentification. 
+
+Il s’agit des raisons les plus courantes pour lesquelles vous devrez peut-être configurer des plages IPv6 dans vos emplacements nommés. En outre, si vous utilisez des réseaux virtuels Azure, vous recevrez du trafic provenant d’une adresse IPv6. Si le trafic du réseau virtuel est bloqué par une stratégie d’accès conditionnel, vérifiez votre journal des connexions Azure AD. Une fois que vous avez identifié le trafic, vous pouvez obtenir l’adresse IPv6 utilisée et l’exclure de votre stratégie. 
+
+> [!NOTE]
+> Si vous souhaitez spécifier une plage CIDR IP pour une seule adresse, appliquez le masque de bits /32. Si vous indiquez que l’adresse IPv6 est 2607:fb90:b27a:6f69:f8d5:dea0:fb39:74a et si vous souhaitez exclure cette adresse unique en tant que plage, utilisez 2607:fb90:b27a:6f69:f8d5:dea0:fb39:74a/32.
+
+### <a name="identifying-ipv6-traffic-in-the-azure-ad-sign-in-activity-reports"></a>Identification du trafic IPv6 dans les rapports d’activité de connexion Azure AD
+
+Vous pouvez découvrir le trafic IPv6 dans votre locataire en accédant aux [rapports d’activité de connexion Azure AD](../reports-monitoring/concept-sign-ins.md). Une fois le rapport d’activité ouvert, ajoutez la colonne « Adresse IP ». Cette colonne vous permettra d’identifier le trafic IPv6.
+
+Vous pouvez également trouver l’adresse IP du client en cliquant sur une ligne du rapport, puis en accédant à l’onglet « Emplacement » dans les détails de l’activité de connexion. 
 
 ## <a name="what-you-should-know"></a>Ce que vous devez savoir
 
