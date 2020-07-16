@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 02/19/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: 143410f0bf0659161427f4b5391124f53f712972
-ms.sourcegitcommit: 50ef5c2798da04cf746181fbfa3253fca366feaa
+ms.openlocfilehash: 218ec6a5beab32729e106a7397d58ebaa2a30123
+ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/30/2020
-ms.locfileid: "82611991"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86086923"
 ---
 # <a name="windows-10-enterprise-multi-session-faq"></a>FAQ sur Windows 10 Entreprise multisession
 
@@ -53,7 +53,7 @@ Windows 10 Entreprise multisession peut être joint à un domaine Azure AD Hyb
  
 ## <a name="where-can-i-find-the-windows-10-enterprise-multi-session-image"></a>Où trouver l’image Windows 10 Entreprise multisession ?
 
-Windows 10 Entreprise multisession est disponible dans la galerie Azure. Pour le trouver, accédez au portail Azure, puis recherchez la version de Windows 10 Entreprise pour les bureaux virtuels. Pour obtenir une image intégrée à Office ProPlus, accédez au portail Azure, puis recherchez Microsoft Windows 10 + Office 365 ProPlus.
+Windows 10 Entreprise multisession est disponible dans la galerie Azure. Pour le trouver, accédez au portail Azure, puis recherchez la version de Windows 10 Entreprise pour les bureaux virtuels. Pour obtenir une image intégrée à Microsoft 365 Apps for enterprise, accédez au portail Azure et recherchez **Microsoft Windows 10 + Microsoft 365 Apps for enterprise**.
 
 ## <a name="which-windows-10-enterprise-multi-session-image-should-i-use"></a>Quelle image de Windows 10 Entreprise multisession dois-je utiliser ?
 
@@ -61,7 +61,7 @@ La galerie Azure propose plusieurs versions, notamment Windows 10 Entreprise mu
  
 ## <a name="which-windows-10-enterprise-multi-session-versions-are-supported"></a>Quelles sont les versions de Windows 10 Entreprise multisession qui sont prises en charge ?
 
-Les versions de Windows 10 Entreprise multisession qui sont prises en charge et disponibles dans la galerie Azure sont la version 1809 et les versions ultérieures. Ces versions suivent la même stratégie de cycle de vie de support que Windows 10 Entreprise. Autrement dit, la version Spring est prise en charge pendant 18 mois et la version Fall pendant 30 mois.
+Les versions de Windows 10 Entreprise multisession qui sont prises en charge et disponibles dans la galerie Azure sont la version 1809 et les versions ultérieures. Ces versions suivent la même stratégie de cycle de vie de support que Windows 10 Entreprise. Autrement dit, la version du mois de mars est prise en charge pendant 18 mois et la version du mois de septembre pendant 30 mois.
  
 ## <a name="which-profile-management-solution-should-i-use-for-windows-10-enterprise-multi-session"></a>Quelle solution de gestion des profils dois-je utiliser pour Windows 10 Entreprise multisession ?
 

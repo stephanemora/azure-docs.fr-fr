@@ -4,12 +4,12 @@ description: Découvrir comment l’agent MARS prend en charge les scénarios de
 ms.reviewer: srinathv
 ms.topic: conceptual
 ms.date: 12/02/2019
-ms.openlocfilehash: 5656c113a6823a1708854a547b199bd16c521b04
-ms.sourcegitcommit: 50ef5c2798da04cf746181fbfa3253fca366feaa
+ms.openlocfilehash: 64f43f42fc23b1ca9591b6a49c3acce6c52c09d6
+ms.sourcegitcommit: e995f770a0182a93c4e664e60c025e5ba66d6a45
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/30/2020
-ms.locfileid: "82611481"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86134970"
 ---
 # <a name="about-the-microsoft-azure-recovery-services-mars-agent"></a>À propos de l’agent Microsoft Azure Recovery Services (MARS)
 
@@ -53,7 +53,7 @@ L’agent MARS prend en charge les scénarios de restauration suivants :
 
 - Les **sauvegardes incrémentielles** (sauvegardes suivantes) s’exécutent conformément à la planification que vous spécifiez. Durant des sauvegardes incrémentielles, les fichiers modifiés sont identifiés et un nouveau disque dur virtuel est créé. Le disque dur virtuel est compressé et chiffré, puis envoyé au coffre. Une fois la sauvegarde incrémentielle terminée, le nouveau disque dur virtuel est fusionné avec le disque dur virtuel créé après la réplication initiale. Ce disque dur virtuel fusionné fournit le dernier état à utiliser pour la comparaison dans le cadre de la sauvegarde en cours.
 
-- L’agent MARS peut exécuter le travail de sauvegarde en **mode optimisé** en utilisant le journal des modifications USN (nombre de séquences de mise à jour), ou en **mode non optimisé** en vérifiant les modifications apportées aux répertoires ou aux fichiers via une analyse du volume entier. Le mode non optimisé est plus lent parce que l’agent doit analyser chaque fichier sur le volume et effectuer une comparaison avec les métadonnées afin de déterminer les fichiers modifiés.  La **sauvegarde initiale** s’exécutera toujours en mode non optimisé. Si la sauvegarde précédente a échoué, la tâche de sauvegarde planifiée suivante s’exécute en mode non optimisé.
+- L’agent MARS peut exécuter le travail de sauvegarde en **mode optimisé** en utilisant le journal des modifications USN (nombre de séquences de mise à jour), ou en **mode non optimisé** en vérifiant les modifications apportées aux répertoires ou aux fichiers via une analyse du volume entier. Le mode non optimisé est plus lent parce que l’agent doit analyser chaque fichier sur le volume et effectuer une comparaison avec les métadonnées afin de déterminer les fichiers modifiés.  La **sauvegarde initiale** s’exécutera toujours en mode non optimisé. Si la sauvegarde précédente a échoué, la tâche de sauvegarde planifiée suivante s’exécute en mode non optimisé. Pour plus d’informations sur ces modes et leur vérification, consultez [cet article](backup-azure-troubleshoot-slow-backup-performance-issue.md#cause-backup-job-running-in-unoptimized-mode).
 
 ### <a name="additional-scenarios"></a>Autres cas de figure
 

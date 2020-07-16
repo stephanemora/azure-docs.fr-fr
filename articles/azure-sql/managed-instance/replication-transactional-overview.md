@@ -3,7 +3,7 @@ title: Réplication transactionnelle
 titleSuffix: Azure SQL Managed Instance
 description: Découvrez comment utiliser la réplication transactionnelle SQL Server avec Azure SQL Managed Instance.
 services: sql-database
-ms.service: sql-database
+ms.service: sql-managed-instance
 ms.subservice: data-movement
 ms.custom: sqldbrb=1
 ms.devlang: ''
@@ -12,12 +12,12 @@ author: MashaMSFT
 ms.author: mathoma
 ms.reviewer: carlrab
 ms.date: 04/20/2020
-ms.openlocfilehash: e23b772c6f57a2649d626e879d404e76ab2ab380
-ms.sourcegitcommit: 12f23307f8fedc02cd6f736121a2a9cea72e9454
+ms.openlocfilehash: 00f456d87bd5791b7d49644cb801dca20431b0b5
+ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/30/2020
-ms.locfileid: "84219340"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86086396"
 ---
 # <a name="transactional-replication-with-azure-sql-managed-instance"></a>Réplication transactionnelle avec Azure SQL Managed Instance
 [!INCLUDE[appliesto-sqlmi](../includes/appliesto-sqlmi.md)]
@@ -29,8 +29,8 @@ La réplication transactionnelle est une fonctionnalité d’Azure SQL Managed I
 Vous pouvez utiliser la réplication transactionnelle pour transmettre les modifications apportées à une instance managée Azure SQL à :
 
 - Une base de données SQL Server, locale ou sur une machine virtuelle Azure.
-- Une base de données unique ou mise en pool dans Azure SQL Database.
-- Une base de données unique ou mise en pool dans Azure SQL Managed Instance.
+- Une base de données dans Azure SQL Database
+- Une base de données d’instance dans Azure SQL Managed Instance
 
   > [!NOTE]
   > Pour bénéficier de toutes les fonctionnalités d’Azure SQL Managed Instance, vous devez utiliser les dernières versions de [SQL Server Management Studio (SSMS)](https://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms) et de [SQL Server Data Tools (SSDT)](https://docs.microsoft.com/sql/ssdt/download-sql-server-data-tools-ssdt).
@@ -43,8 +43,8 @@ Les principaux composants de la réplication transactionnelle sont la **base de 
 
 | Role | Azure SQL Database | Azure SQL Managed Instance |
 | :----| :------------- | :--------------- |
-| **Base de données du serveur de publication** | Non | Oui |
-| **Base de données du serveur de distribution** | Non | Oui|
+| **Publisher** | Non | Oui |
+| **Serveur de distribution** | Non | Oui|
 | **Abonné de type pull** | Non | Oui|
 | **Abonné de type push**| Oui | Oui|
 | &nbsp; | &nbsp; | &nbsp; |
@@ -196,7 +196,7 @@ Pour plus d’informations sur la configuration de la réplication transactionne
 - [Configurer la réplication entre une base de données du serveur de publication SQL Managed Instance et un abonné](../managed-instance/replication-between-two-instances-configure-tutorial.md)
 - [Configurer la réplication entre une base de données du serveur de publication SQL Managed Instance, une base de données du serveur de distribution SQL Managed Instance et un abonné SQL Server](../managed-instance/replication-two-instances-and-sql-server-configure-tutorial.md)
 - [Créer une publication](https://docs.microsoft.com/sql/relational-databases/replication/publish/create-a-publication).
-- [Créer un abonnement par émission de données](https://docs.microsoft.com/sql/relational-databases/replication/create-a-push-subscription) en utilisant le nom du serveur en tant qu’abonné (par exemple `N'azuresqldbdns.database.windows.net`) et le nom de la base de données Azure SQL Database comme base de données de destination (par exemple **Adventureworks** ).
+- [Créer un abonnement par émission de données](https://docs.microsoft.com/sql/relational-databases/replication/create-a-push-subscription) en utilisant le nom du serveur en tant qu’abonné (par exemple `N'azuresqldbdns.database.windows.net`) et le nom de la base de données Azure SQL Database comme base de données de destination (par exemple **Adventureworks** )
 
 ## <a name="see-also"></a>Voir aussi  
 

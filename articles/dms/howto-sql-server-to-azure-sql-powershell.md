@@ -12,16 +12,16 @@ ms.workload: data-services
 ms.custom: seo-lt-2019
 ms.topic: article
 ms.date: 02/20/2020
-ms.openlocfilehash: 494ef67938df161915390d9adc74093bafa550f5
-ms.sourcegitcommit: 1f48ad3c83467a6ffac4e23093ef288fea592eb5
+ms.openlocfilehash: a092ec3d211ed3fafadd73c37b3e58c353b618d6
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/29/2020
-ms.locfileid: "84192659"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85253407"
 ---
 # <a name="migrate-a-sql-server-database-to-azure-sql-database-using-azure-powershell"></a>Migrer une base de données SQL Server vers Azure SQL Database à l’aide d’Azure PowerShell
 
-Dans cet article, vous allez migrer la base de données **Adventureworks2012** restaurée vers une instance locale de SQL Server 2016 ou ultérieur ou Azure SQL Database, à l’aide de Microsoft Azure PowerShell. Vous pouvez migrer des bases de données d’une instance SQL Server vers Azure SQL Database à l’aide du module `Az.DataMigration` dans Microsoft Azure PowerShell.
+Dans cet article, vous allez migrer la base de données **Adventureworks2012** restaurée sur une instance locale de SQL Server 2016 ou ultérieure ou sur Azure SQL Database à l’aide de Microsoft Azure PowerShell. Vous pouvez migrer des bases de données d’une instance SQL Server vers Azure SQL Database à l’aide du module `Az.DataMigration` dans Microsoft Azure PowerShell.
 
 Dans cet article, vous apprendrez comment :
 > [!div class="checklist"]
@@ -38,7 +38,7 @@ Pour effectuer cette procédure, vous avez besoin de :
 * [SQL Server 2016 ou version ultérieure](https://www.microsoft.com/sql-server/sql-server-downloads) (toute édition)
 * Activer le protocole TCP/IP, qui est désactivé par défaut avec l’installation de SQL Server Express. Activer le protocole TCP/IP en suivant l’article [Activer ou désactiver un protocole réseau de serveur](https://docs.microsoft.com/sql/database-engine/configure-windows/enable-or-disable-a-server-network-protocol#SSMSProcedure).
 * Pour configurer votre [pare-feu Windows pour accéder au moteur de base de données](https://docs.microsoft.com/sql/database-engine/configure-windows/configure-a-windows-firewall-for-database-engine-access).
-* Une instance Azure SQL Database. Vous pouvez créer une instance Azure SQL Database en suivant les indications de l’article [Création d’une base de données Azure SQL à l’aide du portail Azure](https://docs.microsoft.com/azure/sql-database/sql-database-get-started-portal).
+* Une instance Azure SQL Database. Vous pouvez créer une instance Azure SQL Database en suivant les indications de l’article [Création d’une base de données dans Azure SQL Database à l’aide du portail Azure](https://docs.microsoft.com/azure/sql-database/sql-database-get-started-portal).
 * [Assistant Migration des données](https://www.microsoft.com/download/details.aspx?id=53595) version 3.3 ou ultérieure.
 * Un réseau virtuel Microsoft Azure créé à l’aide du modèle de déploiement Azure Resource Manager, qui fournit une connectivité de site à site à vos serveurs sources locaux pour le service Azure Database Migration Service via [ExpressRoute](https://docs.microsoft.com/azure/expressroute/expressroute-introduction) ou une passerelle [VPN](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-about-vpngateways).
 * Avoir terminé l’évaluation de votre base de données locale et de la migration de schéma à l’aide de l’Assistant Migration de données, comme indiqué dans l’article [Évaluer votre migration vers SQL Server](https://docs.microsoft.com/sql/dma/dma-assesssqlonprem).
@@ -96,7 +96,7 @@ Une fois l’instance Azure Database Migration Service créée, générez un pro
 Vous pouvez créer un objet d’informations de connexion de base de données à l’aide de la cmdlet `New-AzDmsConnInfo`. Cette cmdlet attend les paramètres suivants :
 
 * *ServerType*. Type de connexion de base de données demandé, par exemple, MySQL, Oracle ou MySQL. Utilisez SQL pour SQL Server et Azure SQL.
-* *DataSource*. Nom ou adresse IP d’une instance SQL Server ou d’une base de données Azure SQL.
+* *DataSource*. Nom ou adresse IP d’une instance SQL Server ou d’Azure SQL Database.
 * *AuthType*. Type d’authentification pour la connexion, qui peut être SqlAuthentication ou WindowsAuthentication.
 * Le paramètre *TrustServerCertificate* définit une valeur qui indique si le canal est chiffré tout en ignorant l’analyse de la chaîne de certificat pour valider l’approbation. La valeur doit être « true » ou « false ».
 

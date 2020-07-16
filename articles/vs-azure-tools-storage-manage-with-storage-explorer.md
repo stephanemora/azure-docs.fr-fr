@@ -8,12 +8,12 @@ ms.devlang: multiple
 ms.topic: article
 ms.date: 11/08/2019
 ms.author: cawa
-ms.openlocfilehash: 11166d5578b90fe6ec936389bcd173c4c26b4852
-ms.sourcegitcommit: 1692e86772217fcd36d34914e4fb4868d145687b
+ms.openlocfilehash: f588ed6d35f3f8882d546b78ff833d62f33ac0a4
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/29/2020
-ms.locfileid: "84171240"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84975263"
 ---
 # <a name="get-started-with-storage-explorer"></a>Prise en main de l’Explorateur Stockage
 
@@ -55,9 +55,9 @@ snap connect storage-explorer:password-manager-service :password-manager-service
 
 Vous pouvez aussi obtenir l’Explorateur Stockage en téléchargeant un fichier au format *.tar.gz*. Vous devez installer les dépendances manuellement. L’installation à l’aide du fichier *.tar.gz* est prise en charge sur les distributions suivantes de Linux :
 
+* Ubuntu 20.04 x64
 * Ubuntu 18.04 x64
 * Ubuntu 16.04 x64
-* Ubuntu 14.04 x64
 
 L’installation à l’aide du fichier *.tar.gz* peut fonctionner sur d’autres distributions, mais seules celles listées sont officiellement prises en charge.
 

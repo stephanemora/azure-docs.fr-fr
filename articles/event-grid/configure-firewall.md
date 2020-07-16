@@ -1,18 +1,14 @@
 ---
 title: Configurer le pare-feu IP pour les rubriques ou domaines Azure Event Grid (version préliminaire)
 description: Cet article explique comment configurer les paramètres de pare-feu pour les rubriques ou domaines Event Grid.
-services: event-grid
-author: spelluru
-ms.service: event-grid
 ms.topic: conceptual
-ms.date: 04/22/2020
-ms.author: spelluru
-ms.openlocfilehash: 0db6c2c346a6eb6ef016340fcfc2974c85958e6c
-ms.sourcegitcommit: c535228f0b77eb7592697556b23c4e436ec29f96
+ms.date: 07/07/2020
+ms.openlocfilehash: 1cb285af6a463b2e0f413b1f876df96f82bb7f93
+ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/06/2020
-ms.locfileid: "82858097"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86116469"
 ---
 # <a name="configure-ip-firewall-for-azure-event-grid-topics-or-domains-preview"></a>Configurer le pare-feu IP pour les rubriques ou domaines Azure Event Grid (version préliminaire)
 Par défaut, la rubrique et le domaine sont accessibles sur Internet tant que la demande s’accompagne d’une authentification et d’une autorisation valides. Avec le pare-feu IP, vous pouvez les limiter à un ensemble d’adresses IPv4 ou de plages d’adresses IPv4 dans la notation [CIDR (Classless InterDomain Routing)](https://en.wikipedia.org/wiki/Classless_Inter-Domain_Routing). Les serveurs de publication provenant de toute autre adresse IP seront rejetés et recevront une réponse 403 (interdit). Pour plus d’informations sur les fonctionnalités de sécurité réseau prises en charge par Event Grid, consultez [Sécurité réseau pour Event Grid](network-security.md).
@@ -280,3 +276,4 @@ Invoke-RestMethod -Method 'Get'
 * Pour plus d’information sur la surveillance des remises des événements, consultez [Surveiller la remise des messages Event Grid](monitor-event-delivery.md).
 * Pour plus d’informations sur la clé d’authentification, consultez la page [Sécurité et authentification Azure Event Grid](security-authentication.md).
 * Pour plus d’informations sur la création d’un abonnement Azure Event Grid, consultez [Schéma d’abonnement à Event Grid](subscription-creation-schema.md).
+* Pour résoudre les problèmes de connectivité réseau, consultez [Résoudre les problèmes de connectivité réseau](troubleshoot-network-connectivity.md).

@@ -1,19 +1,19 @@
 ---
 title: Importer des données dans un index de recherche à l’aide du Portail Azure
 titleSuffix: Azure Cognitive Search
-description: Découvrez comment utiliser l’Assistant Importer des données dans le portail Azure pour explorer des données Azure à partir de Cosmos DB, de Stockage Blob, de Stockage Table, de SQL Database et de SQL Server sur des machines virtuelles Azure.
+description: Découvrez comment utiliser l’Assistant Importer des données dans le portail Azure pour explorer des données Azure à partir de Cosmos DB, de Stockage Blob, de Stockage Table, de SQL Database, de SQL Managed Instance et de SQL Server sur des machines virtuelles Azure.
 author: HeidiSteen
 manager: nitinme
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 11/04/2019
-ms.openlocfilehash: 0ed2bd7f1e03d8d5fa11f7e76010d087605f0fe1
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 8d786f1ebadc961ab367fdcc9b27c4d829a68400
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "75460698"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85321379"
 ---
 # <a name="import-data-wizard-for-azure-cognitive-search"></a>Assistant Importation de données pour la Recherche cognitive Azure
 
@@ -65,7 +65,7 @@ Vous devez créer cette table ou vue unique avant d’exécuter l’Assistant et
 | ---------- | ----------- |
 | **Source de données existante** |Si des indexeurs sont déjà définis dans votre service de recherche, il existe peut-être une définition de source de données que vous pouvez réutiliser. Dans la Recherche cognitive Azure, les objets de source de données sont uniquement utilisés par les indexeurs. Vous pouvez créer un objet de source de données par programmation ou via l’Assistant **Importation des données**, puis le réutiliser si nécessaire.|
 | **Exemples**| La Recherche cognitive Azure intègre deux exemples de sources de données qui sont utilisées dans des tutoriels et autres guides de démarrage rapide : une base de données immobilières SQL et une base d’hôtels toutes deux hébergées dans Cosmos DB. Pour consulter une procédure pas à pas basée sur l’exemple Hotels, reportez-vous au guide de démarrage rapide [Créer un index sur le portail Azure](search-get-started-portal.md). |
-| [**Azure SQL Database**](search-howto-connecting-azure-sql-database-to-azure-search-using-indexers.md) |Le nom du service, les informations d’identification d’un utilisateur de base de données avec autorisation de lecture, ainsi que le nom de la base de données peuvent être spécifiés sur la page ou par le biais d’une chaîne de connexion ADO.NET. Choisissez l’option de chaîne de connexion permettant d’afficher ou de personnaliser les propriétés. <br/><br/>La table ou la vue qui fournit l’ensemble de lignes doit être spécifiée sur la page. Cette option s’affiche une fois que la connexion aboutit : vous pouvez alors faire votre choix dans une liste déroulante.|
+| [**Azure SQL Database ou SQL Managed Instance**](search-howto-connecting-azure-sql-database-to-azure-search-using-indexers.md) |Le nom du service, les informations d’identification d’un utilisateur de base de données avec autorisation de lecture, ainsi que le nom de la base de données peuvent être spécifiés sur la page ou par le biais d’une chaîne de connexion ADO.NET. Choisissez l’option de chaîne de connexion permettant d’afficher ou de personnaliser les propriétés. <br/><br/>La table ou la vue qui fournit l’ensemble de lignes doit être spécifiée sur la page. Cette option s’affiche une fois que la connexion aboutit : vous pouvez alors faire votre choix dans une liste déroulante.|
 | **SQL Server dans les machines virtuelles Azure** |Spécifiez un nom de service complet, un ID d’utilisateur et un mot de passe, ainsi qu’une base de données pour la chaîne de connexion. Afin d’utiliser cette source de données, vous devez avoir préalablement installé un certificat dans le magasin local pour chiffrer la connexion. Pour obtenir des instructions, reportez-vous à [Connexion de machines virtuelles SQL à la Recherche cognitive Azure](search-howto-connecting-azure-sql-iaas-to-azure-search-using-indexers.md). <br/><br/>La table ou la vue qui fournit l’ensemble de lignes doit être spécifiée sur la page. Cette option s’affiche une fois que la connexion aboutit : vous pouvez alors faire votre choix dans une liste déroulante. |
 | [**Azure Cosmos DB**](search-howto-index-cosmosdb.md)|La configuration requise inclut le compte, la base de données et la collection. Tous les documents de la collection seront inclus dans l’index. Vous pouvez définir une requête pour aplatir ou filtrer l’ensemble de lignes, ou laisser la requête vide. Aucune requête n’est nécessaire dans cet Assistant.|
 | [**Stockage Blob Azure**](search-howto-indexing-azure-blob-storage.md) |La configuration requise inclut le compte de stockage et un conteneur. Si les noms d’objets blob suivent une convention d’affectation de noms virtuelle à des fins de regroupement, vous pouvez indiquer la partie de répertoire virtuel du nom comme dossier sous le conteneur. Consultez la page [Indexation de Stockage Blob](search-howto-indexing-azure-blob-storage.md) pour plus d’informations. |
@@ -93,7 +93,7 @@ L’Assistant Importation des données se démarre à partir de la barre de comm
 
    ![Commande Importer des données dans le portail](./media/search-import-data-portal/import-data-cmd2.png "Démarrer l’Assistant Importer des données")
 
-Vous pouvez aussi lancer l’**Importation des données** à partir d’autres services Azure, dont Azure Cosmos DB, Azure SQL Database et Stockage Blob Azure. Recherchez **Ajouter Recherche cognitive Azure** dans le volet de navigation de gauche de la page de présentation du service.
+Vous pouvez aussi lancer l’**Importation des données** à partir d’autres services Azure, dont Azure Cosmos DB, Azure SQL Database, SQL Managed Instance et le stockage Blob Azure. Recherchez **Ajouter Recherche cognitive Azure** dans le volet de navigation de gauche de la page de présentation du service.
 
 <a name="index-definition"></a>
 

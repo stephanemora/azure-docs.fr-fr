@@ -4,7 +4,6 @@ description: Étendez la prise en charge de SQL Server 2008 et SQL Server 2008
 services: virtual-machines-windows
 documentationcenter: ''
 author: MashaMSFT
-manager: craigg
 tags: azure-service-management
 ms.service: virtual-machines-sql
 ms.topic: conceptual
@@ -14,12 +13,12 @@ ms.date: 04/08/2019
 ms.author: mathoma
 ms.reviewer: jroth
 ms.custom: seo-lt-2019
-ms.openlocfilehash: 62ed33b8344d0d5a79cd956274c5f7ddd62a714a
-ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
+ms.openlocfilehash: 48288ed3765fa939fc56a4469f64070315c4c6aa
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "84034250"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84668744"
 ---
 # <a name="extend-support-for-sql-server-2008-and-sql-server-2008-r2-with-azure"></a>Étendre la prise en charge pour SQL Server 2008 et SQL Server 2008 R2 avec Azure
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
@@ -61,7 +60,7 @@ Des captures instantanées Azure Site Recovery avec cohérence des applications 
 
 ### <a name="database-migration-service"></a>Database Migration Service
 
-[Database Migration Service](/azure/dms/dms-overview) représente une option pour les clients qui souhaitent migrer d’un environnement local vers une machine virtuelle Azure en mettant à niveau SQL Server vers la version 2012 ou une version ultérieure.
+[Azure Database Migration Service](/azure/dms/dms-overview) représente une option pour les clients qui souhaitent migrer d’un environnement local vers une machine virtuelle Azure en mettant à niveau SQL Server vers la version 2012 ou une version ultérieure.
 
 ## <a name="disaster-recovery"></a>Récupération d'urgence
 
@@ -74,7 +73,7 @@ Les solutions de récupération d’urgence pour SQL Server en fin de support su
 ## <a name="security-patching"></a>Correctifs de sécurité
 Les mises à jour de sécurité étendues pour les machines virtuelles SQL Server sont remises via les canaux Microsoft Update après que la machine virtuelle SQL Server a été inscrite auprès du [fournisseur de ressources](sql-vm-resource-provider-register.md) de machine virtuelle SQL. Les correctifs peuvent être téléchargés manuellement ou automatiquement.
 
-*Automated patching* est activée par défaut. La mise à jour corrective automatisée permet à Azure de corriger automatiquement SQL Server et le système d’exploitation. Vous pouvez spécifier un jour de la semaine, une heure et une durée pour la fenêtre de maintenance si l’extension IaaS SQL Server est installée. Azure effectue la mise à jour corrective dans cette fenêtre de maintenance. La planification de la fenêtre de maintenance utilise les paramètres régionaux de la machine virtuelle pour l’heure.  Pour plus d’informations, consultez [Mise à jour corrective automatisée pour SQL Server dans les machines virtuelles Azure](automated-patching.md).
+*Automated patching* est activée par défaut. La mise à jour corrective automatisée permet à Azure de corriger automatiquement SQL Server et le système d’exploitation. Vous pouvez spécifier un jour de la semaine, une heure et une durée pour la fenêtre de maintenance si l’extension IaaS SQL Server est installée. Azure effectue la mise à jour corrective dans cette fenêtre de maintenance. La planification de la fenêtre de maintenance utilise les paramètres régionaux de la machine virtuelle pour l’heure. Pour plus d’informations, consultez [Mise à jour corrective automatisée pour SQL Server dans les machines virtuelles Azure](automated-patching.md).
 
 
 ## <a name="next-steps"></a>Étapes suivantes

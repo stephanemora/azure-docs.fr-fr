@@ -3,17 +3,17 @@ title: Utiliser le Visualiseur d’erreurs de dessin Azure Maps
 description: Cet article explique comment visualiser les avertissements et erreurs retournés par l’API de conversion du Créateur.
 author: anastasia-ms
 ms.author: v-stharr
-ms.date: 05/18/2020
+ms.date: 06/12/2020
 ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: philmea
-ms.openlocfilehash: 01d131833f36c1b46eea1b9c08339b067fb9e937
-ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
+ms.openlocfilehash: 7e43995c4221127580333c3f013fcb209730f863
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/20/2020
-ms.locfileid: "83681958"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84791115"
 ---
 # <a name="using-the-azure-maps-drawing-error-visualizer"></a>Utilisation du Visualiseur d’erreurs de dessin Azure Maps
 
@@ -78,15 +78,15 @@ Ouvrez le fichier _index.html_ dans l’un des navigateurs ci-dessous avec le nu
 
 Après le lancement de l’outil Visualiseur d’erreurs de dessin, la page de chargement s’affiche. La page de chargement contient une zone glisser-déposer. La zone glisser-déposer fonctionne également comme bouton qui lance une boîte de dialogue de l’Explorateur de fichiers.
 
-![Application Visualiseur d’erreurs de dessin – Page de démarrage](./media/drawing-errors-visualizer/start-page.png)
+:::image type="content" source="./media/drawing-errors-visualizer/start-page.png" alt-text="Application Visualiseur d’erreurs de dessin – Page de démarrage":::
 
 Le fichier _ConversionWarningsAndErrors.json_ a été placé à la racine du répertoire téléchargé. Pour charger le fichier _ConversionWarningsAndErrors.json_, vous pouvez le glisser-déposer sur la zone ou cliquer sur la zone, rechercher le fichier dans la boîte de dialogue de l’Explorateur de fichiers, puis le charger.
 
-![Application Visualiseur d’erreurs de dessin – Glisser-déposer pour charger des données](./media/drawing-errors-visualizer/loading-data.gif)
+:::image type="content" source="./media/drawing-errors-visualizer/loading-data.gif" alt-text="Application Visualiseur d’erreurs de dessin – Glisser-déposer pour charger des données":::
 
-Une fois le fichier _ConversionWarningsAndErrors.json_ chargé, vous voyez s’afficher la liste de vos avertissements et erreurs de package de dessin. Chaque erreur ou avertissement est spécifié par sa couche, son niveau et un message détaillé. Vous pouvez maintenant accéder à chaque erreur pour en savoir plus sur la manière de la résoudre.  
+Une fois le fichier _ConversionWarningsAndErrors.json_ chargé, vous voyez s’afficher la liste de vos avertissements et erreurs de package de dessin. Chaque erreur ou avertissement est spécifié par sa couche, son niveau et un message détaillé. Pour voir des informations détaillées sur une erreur ou un avertissement, cliquez sur le lien **Détails**. Une section inflexible s’affiche alors en dessous de la liste. Vous pouvez maintenant accéder à chaque erreur pour en savoir plus sur la manière de la résoudre.
 
-![Application Visualiseur d’erreurs de dessin – Erreurs et avertissements](./media/drawing-errors-visualizer/errors.png)
+:::image type="content" source="./media/drawing-errors-visualizer/errors.png" alt-text="Application Visualiseur d’erreurs de dessin – Erreurs et avertissements":::
 
 ## <a name="next-steps"></a>Étapes suivantes
 

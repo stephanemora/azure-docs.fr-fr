@@ -6,12 +6,12 @@ author: joannapea
 ms.author: joanpo
 ms.topic: conceptual
 ms.date: 10/30/2019
-ms.openlocfilehash: a7b4de3b1d2998a1b6083283c3f397fc77fe9670
-ms.sourcegitcommit: 1692e86772217fcd36d34914e4fb4868d145687b
+ms.openlocfilehash: 8263e2b2d3d8d029cd28f6c8ea6c556fb9fe23be
+ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/29/2020
-ms.locfileid: "84167585"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86108292"
 ---
 # <a name="supported-data-stores-in-azure-data-share"></a>Magasins de données pris en charge dans Azure Data Share
 
@@ -38,16 +38,17 @@ Azure Data Share offre une flexibilité aux consommateurs de données lorsqu’i
 
 Le tableau ci-dessous détaille les différentes combinaisons et choix à la disposition des consommateurs de données, lors de l’acceptation et de la configuration de leur partage de données. Pour plus d’informations sur la configuration des mappages de jeu de données, consultez le [Guide pratique pour configurer les mappages de jeu de données](how-to-configure-mapping.md).
 
-|  | Stockage Blob Azure | Azure Data Lake Storage Gen1 | Azure Data Lake Storage Gen2 | Azure SQL Database | Azure Synapse Analytics 
-|:--- |:--- |:--- |:--- |:--- |:--- |
-| Stockage Blob Azure | ✓ || ✓|
-| Azure Data Lake Storage Gen1 | ✓ | | ✓|
-| Azure Data Lake Storage Gen2 | ✓ | | ✓|
-| Azure SQL Database | ✓ | | ✓| ✓| ✓|
-| Azure Synapse Analytics (anciennement Azure SQL DW) | ✓ | | ✓| ✓| ✓|
+| Banque de données | Stockage Blob Azure | Azure Data Lake Storage Gen1 | Azure Data Lake Storage Gen2 | Azure SQL Database | Azure Synapse Analytics | Explorateur de données Azure
+|:--- |:--- |:--- |:--- |:--- |:--- |:--- |
+| Stockage Blob Azure | ✓ || ✓ ||
+| Azure Data Lake Storage Gen1 | ✓ | | ✓ ||
+| Azure Data Lake Storage Gen2 | ✓ | | ✓ ||
+| Azure SQL Database | ✓ | | ✓ | ✓ | ✓ ||
+| Azure Synapse Analytics (anciennement Azure SQL DW) | ✓ | | ✓ | ✓ | ✓ ||
+| Explorateur de données Azure |||||| ✓ |
 
 ## <a name="share-from-a-storage-account"></a>Partager à partir d’un compte de stockage
-Azure Data Share prend en charge le partage de fichiers, dossiers et de systèmes de fichiers à partir d’Azure Data Lake Gen1 et Azure Data Lake Gen2. Le service prend également en charge le partage de blobs, de dossiers et de conteneurs à partir de Stockage Blob Azure. Seul l’objet blob de blocs est actuellement pris en charge. Lorsque les dossiers sont partagés dans un partage basé sur une capture instantanée, le consommateur de données peut choisir d’effectuer une copie complète des données de partage ou de tirer parti de la capacité de capture instantanée incrémentielle pour copier uniquement les fichiers nouveaux ou mis à jour. Les fichiers existants portant le même nom seront remplacés.
+Azure Data Share prend en charge le partage de fichiers, dossiers et de systèmes de fichiers à partir d’Azure Data Lake Gen1 et Azure Data Lake Gen2. Le service prend également en charge le partage de blobs, de dossiers et de conteneurs à partir de Stockage Blob Azure. Seul l’objet blob de blocs est actuellement pris en charge. Lorsque les systèmes de fichiers, les conteneurs ou les dossiers sont partagés dans un partage basé sur une capture instantanée, le consommateur de données peut choisir d’effectuer une copie complète des données de partage ou de tirer parti de la capacité de capture instantanée incrémentielle pour copier uniquement les fichiers nouveaux ou mis à jour. L’instantané incrémentiel est basé sur l’heure de la dernière modification des fichiers. Les fichiers existants portant le même nom seront remplacés.
 
 ## <a name="share-from-a-sql-based-source"></a>Partager à partir d’une source SQL
 Azure Data Share prend en charge le partage de tables ou d’affichages à partir d’Azure SQL Database et d’Azure Synapse Analytics (anciennement Azure SQL DW). Le consommateur de données peut choisir d’accepter les données dans Data Lake Store Gen2 ou Stockage Blob Azure en tant que fichier CSV ou Parquet. Notez que, par défaut, les formats de fichier sont CSV. Le consommateur de données peut choisir de recevoir les données au format Parquet. Il peut le faire dans les paramètres de mappage de jeu de données lors de la réception des données. 

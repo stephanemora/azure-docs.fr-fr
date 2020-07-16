@@ -7,44 +7,47 @@ author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 04/09/2020
-ms.openlocfilehash: 05ff56c904fc48a1041ad40f00110a8ff0fd01f1
-ms.sourcegitcommit: 3abadafcff7f28a83a3462b7630ee3d1e3189a0e
+ms.date: 06/23/2020
+ms.openlocfilehash: d562931b7578935a4544dfd953ff2de74a5350a6
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/30/2020
-ms.locfileid: "82592041"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85260982"
 ---
 # <a name="partial-term-search-and-patterns-with-special-characters-wildcard-regex-patterns"></a>Recherche de termes partiels et modèles avec des caractères spéciaux (caractère générique, expression régulière, modèles)
 
-Une *recherche de terme partiel* fait référence à des requêtes composées de fragments de termes où, au lieu d’un terme entier, vous pouvez avoir juste le début, le milieu ou la fin du terme (elle est parfois appelée requête de préfixe, d’infixe ou de suffixe). Un *modèle* peut être une combinaison de fragments, souvent avec des caractères spéciaux commue des tirets ou des barres obliques qui font partie de la chaîne de requête. Parmi les cas d’utilisation courants figurent l’interrogation de parties d’un numéro de téléphone, une URL, des personnes ou des codes de produit ou des mots composés.
+Une *recherche de terme partiel* fait référence à des requêtes composées de fragments de termes où, au lieu d’un terme entier, vous pouvez avoir juste le début, le milieu ou la fin du terme (elle est parfois appelée requête de préfixe, d’infixe ou de suffixe). Une recherche de terme partiel peut inclure une combinaison de fragments, souvent avec des caractères spéciaux comme des tirets ou des barres obliques qui font partie de la chaîne de requête. Les cas d’usage courants incluent les parties d’un numéro de téléphone, une URL, des codes ou des mots composés avec trait d’union.
 
-La recherche partielle et de modèle peut être problématique si les termes de l’index ne sont pas au format attendu. Pendant la [phase d’analyse lexicale](search-lucene-query-architecture.md#stage-2-lexical-analysis) de l’indexation (sur la base de l’analyseur standard par défaut), les caractères spéciaux sont ignorés, les chaînes composites et composées sont fractionnées et l’espace blanc est supprimé ; ceci peut provoquer l’échec des requêtes de modèle quand aucune correspondance n’est trouvée. Par exemple, un numéro de téléphone comme `+1 (425) 703-6214` (segmenté en unités `"1"`, `"425"`, `"703"`, `"6214"`) n’apparaît pas dans une requête `"3-62"`, car ce contenu n’existe pas dans l’index en réalité. 
+La recherche de terme partiel et les chaînes de requête qui comprennent des caractères spéciaux peuvent être problématiques si l’index n’a pas de jetons au format attendu. Pendant la [phase d’analyse lexicale](search-lucene-query-architecture.md#stage-2-lexical-analysis) de l’indexation (en supposant une utilisation de l’analyseur standard par défaut), les caractères spéciaux sont ignorés, les mots composées sont fractionnés et l’espace blanc est supprimé ; ceci peut provoquer l’échec des requêtes quand aucune correspondance n’est trouvée. Par exemple, un numéro de téléphone comme `+1 (425) 703-6214` (segmenté en unités `"1"`, `"425"`, `"703"`, `"6214"`) n’apparaît pas dans une requête `"3-62"`, car ce contenu n’existe pas dans l’index en réalité. 
 
-La solution consiste à appeler un analyseur qui conserve une chaîne complète, dont les espaces et les caractères spéciaux si nécessaire, afin que vous puissiez mettre en correspondance les termes partiels et les modèles. La création d’un champ supplémentaire pour une chaîne intacte associée à l’utilisation d’un analyseur préservant le contenu est la base de la solution.
+La solution consiste à appeler pendant l’indexation un analyseur qui conserve une chaîne complète, y compris les espaces et les caractères spéciaux si nécessaire, afin que vous puissiez inclure les espaces et les caractères dans votre chaîne de requête. De même, le fait d’avoir une chaîne complète qui n’est pas tokenisée en parties plus petites autorise des critères spéciaux pour les requêtes « commence par » ou « se termine par », où le modèle que vous fournissez peut être évalué par rapport à un terme qui n’est pas transformé par l’analyse lexicale. La création d’un champ supplémentaire pour une chaîne intacte, ainsi que l’utilisation d’un analyseur à conservation du contenu qui émet des jetons de terme entier, est la solution pour les critères spéciaux et pour la correspondance sur les chaînes de requête qui incluent des caractères spéciaux.
 
 > [!TIP]
-> Vous êtes familiarisé avec Postman et les API REST ? [Téléchargez la collection d’exemples de requêtes](https://github.com/Azure-Samples/azure-search-postman-samples/) pour interroger les termes partiels et les caractères spéciaux décrits dans cet article.
+> Si vous connaissez Postman et les API REST, [téléchargez la collection d’exemples de requêtes](https://github.com/Azure-Samples/azure-search-postman-samples/) pour interroger les termes partiels et les caractères spéciaux décrits dans cet article.
 
-## <a name="what-is-partial-search-in-azure-cognitive-search"></a>Qu’est-ce que la recherche partielle dans la Recherche cognitive Azure ?
+## <a name="what-is-partial-term-search-in-azure-cognitive-search"></a>Qu’est-ce que la recherche de terme partiel dans Recherche cognitive Azure ?
 
-Dans la Recherche cognitive Azure, la recherche partielle et le modèle sont disponibles dans les formes suivantes :
+Recherche cognitive Azure recherche des termes tokenisés entiers dans l’index, et ne trouvera pas de correspondance sur un terme partiel, sauf si vous incluez des opérateurs génériques d’espace réservé (`*` et `?`) ou que vous mettez en forme la requête en tant qu’expression régulière. Les termes partiels sont spécifiés à l’aide des techniques suivantes :
 
-+ La [recherche par préfixe](query-simple-syntax.md#prefix-search) ; par exemple, `search=cap*`, qui établit une correspondance avec « Capitaine Crochet » ou « Le Capitole ». Vous pouvez utiliser la syntaxe de requête simple ou la syntaxe de requête Lucene complète pour la recherche de préfixe.
++ Les [requêtes d’expression régulière](query-lucene-syntax.md#bkmk_regex) peuvent être n’importe quelle expression régulière valide sous Apache Lucene. 
 
-+ La [recherche par caractères génériques](query-lucene-syntax.md#bkmk_wildcard) ou les [expressions régulières](query-lucene-syntax.md#bkmk_regex) qui recherchent un modèle ou des parties d’une chaîne incorporée. Les expressions génériques et régulières exigent la syntaxe Lucene complète. Les requêtes de suffixe et d’index sont formulées comme une expression régulière.
++ Les [opérateurs génériques avec correspondance de préfixe](query-simple-syntax.md#prefix-search) font référence à un modèle généralement reconnu qui comprend le début d’un terme, suivi d’opérateurs de suffixe `*` ou `?`, comme pour la mise en correspondance de `search=cap*` sur « Cap’n Jack’s Waterfront Inn » ou « Gacc Capital ». La mise en correspondance de préfixe est prise en charge dans la syntaxe de requête Lucene simple et complète.
 
-  Voici quelques exemples de recherche de termes partiels. Pour une requête de suffixe, si l’on considère le terme « alphanumérique », vous devez utiliser une recherche par caractères génériques (`search=/.*numeric.*/`) pour trouver une correspondance. Pour un terme partiel qui inclut des caractères intérieurs, comme un fragment d’URL, vous devrez peut-être ajouter des caractères d’échappement. Dans JSON, une barre oblique `/` est placée dans une séquence d’échappement avec une barre oblique inverse `\`. Par conséquent, `search=/.*microsoft.com\/azure\/.*/` est la syntaxe pour le fragment d’URL « microsoft.com/azure/ ».
++ La [mise en correspondance générique avec infixe et suffixe](query-lucene-syntax.md#bkmk_wildcard) place les opérateurs `*` et `?` à l’intérieur ou au début d’un terme, et nécessite une syntaxe d’expression régulière (où l’expression est entourée de barres obliques). Par exemple, la chaîne de requête (`search=/.*numeric*./`) retourne les résultats sur « alphanumeric » et « alphanumerical » en tant que correspondances de suffixe et d’infixe.
 
-Comme indiqué précédemment, tous les éléments ci-dessus exigent que l’index contienne des chaînes dans un format propice aux critères spéciaux, ce que l’analyseur standard ne fournit pas. En suivant les étapes décrites dans cet article, vous pouvez garantir que le contenu nécessaire existe pour prendre en charge ces scénarios.
+Pour la recherche de terme partiel ou de modèle, et quelques autres formes de requête telles que la recherche approximative, les analyseurs ne sont pas utilisés au moment de la requête. Pour ces formes de requête, que l’analyseur détecte par la présence d’opérateurs et de délimiteurs, la chaîne de requête est passée au moteur sans analyse lexicale. Pour ces formes de requête, l’analyseur spécifié sur le champ est ignoré.
+
+> [!NOTE]
+> Quand une chaîne de requête partielle inclut des caractères, tels que des barres obliques dans un fragment d’URL, vous devrez peut-être ajouter des caractères d’échappement. Dans JSON, une barre oblique `/` est placée dans une séquence d’échappement avec une barre oblique inverse `\`. Par conséquent, `search=/.*microsoft.com\/azure\/.*/` est la syntaxe pour le fragment d’URL « microsoft.com/azure/ ».
 
 ## <a name="solving-partialpattern-search-problems"></a>Résolution des problèmes liés à la recherche partielle/de modèles
 
-Quand vous devez effectuer une recherche sur des fragments ou modèles ou des caractères spéciaux, vous pouvez remplacer l’analyseur par défaut par un analyseur personnalisé qui fonctionne sous des règles plus simples de segmentation du texte en unités lexicales, en préservant l’intégralité de la chaîne. En prenant un peu de recul, l’approche ressemble à ceci :
+Quand vous devez effectuer une recherche sur des fragments, modèles ou caractères spéciaux, vous pouvez remplacer l’analyseur par défaut par un analyseur personnalisé qui fonctionne selon des règles de tokenisation plus simples, préservant la chaîne entière dans l’index. En prenant un peu de recul, l’approche ressemble à ceci :
 
-+ Définir un champ pour stocker une version intacte de la chaîne (en supposant que vous voulez du texte analysé et non analysé)
-+ Choisir un analyseur prédéfini ou définir un analyseur personnalisé qui génère une chaîne intacte non analysée
-+ Attribuer l’analyseur personnalisé au champ
++ Définir un champ pour stocker une version intacte de la chaîne (en supposant que vous voulez du texte analysé et non analysé au moment de la requête)
++ Évaluer et choisir parmi les différents analyseurs qui émettent des jetons au niveau de précision approprié
++ Attribuer l’analyseur au champ
 + Générer et tester l’index
 
 > [!TIP]
@@ -52,7 +55,7 @@ Quand vous devez effectuer une recherche sur des fragments ou modèles ou des ca
 
 ## <a name="duplicate-fields-for-different-scenarios"></a>Dupliquer des champs pour différents scénarios
 
-Les analyseurs sont affectés par champ, ce qui signifie que vous pouvez créer des champs dans votre index pour optimiser les différents scénarios. Plus précisément, vous pouvez définir « featureCode » et « featureCodeRegex » pour prendre en charge une recherche en texte intégral normale sur le premier et critères spéciaux avancés sur le second.
+Les analyseurs déterminent comment les termes sont tokenisés dans un index. Les analyseurs étant affectés par champ, vous pouvez créer des champs dans votre index pour optimiser les différents scénarios. Par exemple, vous pouvez définir « featureCode » et « featureCodeRegex » pour prendre en charge une recherche en texte intégral normale sur le premier et des critères spéciaux avancés sur le second. Les analyseurs affectés à chaque champ déterminent comment le contenu de chaque champ est tokenisé dans l’index.  
 
 ```json
 {
@@ -84,9 +87,9 @@ Lors du choix d’un analyseur qui produit des jetons à terme entier, les analy
 
 Si vous utilisez un outil de test de l’API Web tel que Postman, vous pouvez ajouter l’[appel REST de l’analyseur de test](https://docs.microsoft.com/rest/api/searchservice/test-analyzer) pour inspecter la sortie segmentée en jetons.
 
-Vous devez disposer d’un index existant à utiliser. À partir d’un index existant et d’un champ contenant des tirets ou des termes partiels, vous pouvez essayer différents analyseurs sur des termes spécifiques pour voir quels jetons sont émis.  
+Vous devez avoir un index rempli avec lequel travailler. À partir d’un index existant et d’un champ contenant des tirets ou des termes partiels, vous pouvez essayer différents analyseurs sur des termes spécifiques pour voir quels jetons sont émis.  
 
-1. Vérifiez l’analyseur Standard pour voir comment les termes sont segmentés en jetons par défaut.
+1. Vérifiez d’abord l’analyseur Standard pour voir comment les termes sont tokenisés par défaut.
 
    ```json
    {
@@ -95,7 +98,7 @@ Vous devez disposer d’un index existant à utiliser. À partir d’un index ex
    }
     ```
 
-1. Évaluez la réponse pour voir comment le texte est segmenté en jetons dans l’index. Notez la manière dont chaque terme est en minuscules et segmenté.
+1. Évaluez la réponse pour voir comment le texte est segmenté en jetons dans l’index. Notez la manière dont chaque terme est en minuscules et segmenté. Seules les requêtes qui correspondent à ces jetons retourneront ce document dans les résultats. Une requête qui comprend « 10-NOR » échouera.
 
     ```json
     {
@@ -121,7 +124,7 @@ Vous devez disposer d’un index existant à utiliser. À partir d’un index ex
         ]
     }
     ```
-1. Modifiez la requête pour utiliser l’analyseur `whitespace` ou `keyword` :
+1. Maintenant, modifiez la requête pour utiliser l’analyseur `whitespace` ou `keyword` :
 
     ```json
     {
@@ -130,7 +133,7 @@ Vous devez disposer d’un index existant à utiliser. À partir d’un index ex
     }
     ```
 
-1. À présent, la réponse se compose d’un jeton unique, en majuscules, avec des tirets conservés en tant que partie de la chaîne. Si vous devez effectuer une recherche sur un critère spécial ou sur un terme partiel, le moteur de requête dispose maintenant de la base pour trouver une correspondance.
+1. À présent, la réponse se compose d’un jeton unique, en majuscules, avec des tirets conservés en tant que partie de la chaîne. Si vous devez effectuer une recherche sur un modèle ou un terme partiel tel que « 10-NOR », le moteur de requête dispose maintenant de la base pour trouver une correspondance.
 
 
     ```json
@@ -147,7 +150,7 @@ Vous devez disposer d’un index existant à utiliser. À partir d’un index ex
     }
     ```
 > [!Important]
-> N’oubliez pas que les analyseurs de requêtes mettent souvent les termes en minuscules dans une expression de recherche lors de la création de l’arborescence de requêtes. Si vous utilisez un analyseur qui ne met pas les entrées de texte en minuscules et que vous n’obtenez pas les résultats attendus, cela peut être la raison. La solution consiste à ajouter un filtre de jeton lowercase, comme décrit dans la section « Utiliser des analyseurs personnalisés », ci-dessous.
+> N’oubliez pas que les analyseurs de requêtes mettent souvent les termes en minuscules dans une expression de recherche lors de la création de l’arborescence de requêtes. Si vous utilisez un analyseur qui ne met pas les entrées de texte en minuscules durant l’indexation, et que vous n’obtenez pas les résultats attendus, cela peut être la raison. La solution consiste à ajouter un filtre de jeton lowercase, comme décrit dans la section « Utiliser des analyseurs personnalisés », ci-dessous.
 
 ## <a name="configure-an-analyzer"></a>Configurer un analyseur
  
@@ -233,13 +236,13 @@ Les sections précédentes ont expliqué la logique. Cette section parcourt chaq
 
   Pour les requêtes d’infixe et de suffixe, telles que l’interrogation « num » ou « numérique pour trouver une correspondance sur «alphanumérique », utilisez la syntaxe Lucene complète et une expression régulière : `search=/.*num.*/&queryType=full`
 
-## <a name="tips-and-best-practices"></a>Conseils et meilleures pratiques
-
-### <a name="tune-query-performance"></a>Régler les performances des requêtes
+## <a name="tune-query-performance"></a>Régler les performances des requêtes
 
 Si vous implémentez la configuration recommandée qui comprend le générateur de jetons keyword_v2 et le filtre de jeton lowercase, vous remarquerez peut-être une baisse des performances de requêtes en raison du traitement du filtre de jeton supplémentaire sur les jetons existants dans votre index. 
 
-L’exemple suivant ajoute un [EdgeNGramTokenFilter](https://lucene.apache.org/core/6_6_1/analyzers-common/org/apache/lucene/analysis/ngram/EdgeNGramTokenizer.html) pour que les correspondances de préfixe soient plus rapides. Des jetons supplémentaires sont générés pour les combinaisons de 2 à 25 caractères qui incluent des caractères : (pas seulement MS, MSF, MSFT, MSFT/, MSFT/S, MSFT/SQ, MSFT/SQL). Comme vous pouvez l’imaginer, les résultats supplémentaires de segmentation du texte en unités lexicales entraîne un plus grand index.
+L’exemple suivant ajoute un [EdgeNGramTokenFilter](https://lucene.apache.org/core/6_6_1/analyzers-common/org/apache/lucene/analysis/ngram/EdgeNGramTokenizer.html) pour que les correspondances de préfixe soient plus rapides. Des jetons supplémentaires sont générés pour les combinaisons de 2 à 25 caractères qui incluent des caractères : (pas seulement MS, MSF, MSFT, MSFT/, MSFT/S, MSFT/SQ, MSFT/SQL). 
+
+Comme vous pouvez l’imaginer, les résultats supplémentaires de segmentation du texte en unités lexicales entraîne un plus grand index. Si vous disposez d’une capacité suffisante pour accueillir l’index plus volumineux, cette approche offrant un temps de réponse plus rapide peut constituer une meilleure solution.
 
 ```json
 {
@@ -276,20 +279,6 @@ L’exemple suivant ajoute un [EdgeNGramTokenFilter](https://lucene.apache.org/c
   "side": "front"
   }
 ]
-```
-
-### <a name="use-different-analyzers-for-indexing-and-query-processing"></a>Utiliser des analyseurs différents pour l’indexation et le traitement des requêtes
-
-Les analyseurs sont appelés pendant l’indexation et pendant l’exécution de la requête. Il est courant d’utiliser le même analyseur pour les deux, mais vous pouvez configurer des analyseurs personnalisés pour chaque charge de travail. Les remplacements d’analyseur sont spécifiés dans la [définition de l’index](https://docs.microsoft.com/rest/api/searchservice/create-index) dans la section `analyzers`, puis référencés sur des champs spécifiques. 
-
-Lorsque l’analyse personnalisée est requise uniquement pendant l’indexation, vous pouvez appliquer l’analyseur personnalisé à l’indexation et continuer à utiliser l’analyseur Lucene standard (ou un autre analyseur) pour les requêtes.
-
-Pour spécifier une analyse spécifique au rôle, vous pouvez définir des propriétés sur le champ pour chacun d’eux, en définissant `indexAnalyzer` et `searchAnalyzer` au lieu de la propriété `analyzer` par défaut.
-
-```json
-"name": "featureCode",
-"indexAnalyzer":"my_customanalyzer",
-"searchAnalyzer":"standard",
 ```
 
 ## <a name="next-steps"></a>Étapes suivantes

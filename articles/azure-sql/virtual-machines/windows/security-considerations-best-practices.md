@@ -1,10 +1,9 @@
 ---
-title: Considérations relatives à la sécurité de SQL Server dans Azure | Microsoft Docs
+title: Considérations sur la sécurité | Microsoft Docs
 description: Cette rubrique fournit des instructions générales pour la sécurisation de SQL Server en cours d’exécution sur une machine virtuelle Azure.
 services: virtual-machines-windows
 documentationcenter: na
 author: MashaMSFT
-manager: craigg
 editor: ''
 tags: azure-service-management
 ms.assetid: d710c296-e490-43e7-8ca9-8932586b71da
@@ -15,14 +14,14 @@ ms.workload: iaas-sql-server
 ms.date: 03/23/2018
 ms.author: mathoma
 ms.reviewer: jroth
-ms.openlocfilehash: f04620430571a1f86d601eac2b1b662c77499a76
-ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
+ms.openlocfilehash: 4421b30d672cc026a033febb34b8b31afa0ef3c7
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "84034280"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84668796"
 ---
-# <a name="security-considerations-for-sql-server-in-azure-virtual-machines"></a>Considérations relatives à la sécurité de SQL Server sur les machines virtuelles Azure
+# <a name="security-considerations-for-sql-server-on-azure-virtual-machines"></a>Considérations relatives à la sécurité de SQL Server sur les machines virtuelles Azure
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
 
 Cette rubrique comprend des instructions de sécurité générales pour créer un accès sécurisé aux instances SQL Server dans une machine virtuelle Azure.
@@ -31,7 +30,7 @@ Azure est conforme à plusieurs règlements et normes de l’industrie et vous p
 
 [!INCLUDE [learn-about-deployment-models](../../../../includes/learn-about-deployment-models-both-include.md)]
 
-## <a name="control-access-to-the-sql-vm"></a>Contrôler l’accès à la machine virtuelle SQL
+## <a name="control-access-to-the-sql-virtual-machine"></a>Contrôler l’accès à la machine virtuelle SQL
 
 Lorsque vous créez votre machine virtuelle SQL Server, déterminez comment contrôler attentivement les personnes qui ont accès à la machine et à SQL Server. En règle générale, vous devez systématiquement :
 
@@ -54,7 +53,7 @@ Les options sélectionnées dans le portail utilisent les règles de sécurité 
 
 Outre les règles de groupe de sécurité réseau pour limiter le trafic réseau, vous pouvez utiliser le Pare-feu Windows sur la machine virtuelle.
 
-Lorsque vous utilisez des points de terminaison avec le modèle de déploiement classique, supprimez-les sur la machine virtuelle si vous n’en avez pas besoin. Pour obtenir des instructions sur l’utilisation de listes ACL avec des points de terminaison, voir [Gestion de l’ACL sur un point de terminaison](/previous-versions/azure/virtual-machines/windows/classic/setup-endpoints#manage-the-acl-on-an-endpoint) Cela n’est pas nécessaire pour les machines virtuelles qui utilisent le Gestionnaire des ressources.
+Lorsque vous utilisez des points de terminaison avec le modèle de déploiement classique, supprimez-les sur la machine virtuelle si vous n’en avez pas besoin. Pour obtenir des instructions sur l’utilisation de listes ACL avec des points de terminaison, voir [Gestion de l’ACL sur un point de terminaison](/previous-versions/azure/virtual-machines/windows/classic/setup-endpoints#manage-the-acl-on-an-endpoint) Cela n’est pas nécessaire pour les machines virtuelles qui utilisent Azure Resource Manager.
 
 Enfin, pensez à activer l’option de connexion chiffrée pour l’instance du moteur de base de données SQL Server dans votre machine virtuelle Azure. Configurez l’instance SQL Server avec un certificat signé. Pour plus d’informations, voir [Activation des connexions chiffrées dans le moteur de base de données](https://docs.microsoft.com/sql/database-engine/configure-windows/enable-encrypted-connections-to-the-database-engine) et [Syntaxe de la chaîne de connexion](https://msdn.microsoft.com/library/ms254500.aspx).
 
@@ -109,7 +108,7 @@ Pour plus d’informations sur la sécurité des machines virtuelles, consultez 
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Si vous vous intéressez également à l’optimisation des performances, voir [Meilleures pratiques relatives aux performances de SQL Server sur les machines virtuelles Azure](performance-guidelines-best-practices.md).
+Si vous vous intéressez également à l’optimisation des performances, consultez [Bonnes pratiques relatives aux performances de SQL Server sur les machines virtuelles Azure](performance-guidelines-best-practices.md).
 
 Pour d’autres rubriques relatives à l’utilisation de SQL Server sur des machines virtuelles Azure, voir [SQL Server sur les machines virtuelles Azure](sql-server-on-azure-vm-iaas-what-is-overview.md). Si vous avez des questions sur les machines virtuelles SQL Server, consultez le [Forum aux Questions](frequently-asked-questions-faq.md).
 

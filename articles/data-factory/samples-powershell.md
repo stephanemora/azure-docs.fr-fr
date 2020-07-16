@@ -10,12 +10,12 @@ manager: jroth
 ms.reviewer: maghan
 ms.topic: conceptual
 ms.date: 01/16/2018
-ms.openlocfilehash: 709ceb465594c566349cf9ea5bfed7db73c9a0cf
-ms.sourcegitcommit: 1f48ad3c83467a6ffac4e23093ef288fea592eb5
+ms.openlocfilehash: c640adb0758c8dfd9dcdae3e26fd023afd5499f7
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/29/2020
-ms.locfileid: "84194748"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85252268"
 ---
 # <a name="azure-powershell-samples-for-azure-data-factory"></a>Exemples Azure PowerShell pour Azure Data Factory
 
@@ -28,7 +28,7 @@ Le tableau suivant comprend des liens vers des exemples de scripts Azure PowerS
 |**Copie de données**||
 |[Copier des objets blob à partir d’un dossier vers un autre dossier dans un stockage Blob Azure](scripts/copy-azure-blob-powershell.md?toc=%2fpowershell%2fmodule%2ftoc.json)| Ce script PowerShell copie des objets blob depuis un dossier du Stockage Blob Azure vers un autre dossier de ce même stockage. |
 |[Copier des données d’une base de données SQL Server vers le Stockage Blob Azure](scripts/hybrid-copy-powershell.md?toc=%2fpowershell%2fmodule%2ftoc.json)| Ce script PowerShell copie des données à partir d’une base de données SQL Server vers un stockage Blob Azure. |
-|[Copie en bloc](scripts/bulk-copy-powershell.md?toc=%2fpowershell%2fmodule%2ftoc.json)| Cet exemple de script PowerShell copie les données de plusieurs tables dans une base de données Azure SQL vers un entrepôt de données Azure SQL. |
+|[Copie en bloc](scripts/bulk-copy-powershell.md?toc=%2fpowershell%2fmodule%2ftoc.json)| Cet exemple de script PowerShell copie les données de plusieurs tables dans une base de données Azure SQL Database vers un entrepôt de données Azure SQL. |
 |[Copie incrémentielle](scripts/incremental-copy-powershell.md?toc=%2fpowershell%2fmodule%2ftoc.json)| Cet exemple de script PowerShell charge uniquement les enregistrements nouveaux ou mis à jour à partir d’un magasin de données source vers un magasin de données récepteur, après la copie initiale complète des données de la source vers le récepteur. |
 |**Transformer des données**||
 |[Transformer des données à l’aide d’un cluster Spark](scripts/transform-data-spark-powershell.md?toc=%2fpowershell%2fmodule%2ftoc.json)| Ce script PowerShell transforme les données en exécutant un programme sur un cluster Spark. |

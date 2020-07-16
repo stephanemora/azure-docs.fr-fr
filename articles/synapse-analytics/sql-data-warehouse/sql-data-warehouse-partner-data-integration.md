@@ -6,17 +6,17 @@ author: mabasile-MSFT
 manager: craigg
 ms.service: synapse-analytics
 ms.topic: conceptual
-ms.subservice: ''
+ms.subservice: sql-dw
 ms.date: 03/27/2019
 ms.author: mabasile
 ms.reviewer: igorstan
 ms.custom: seo-lt-2019
-ms.openlocfilehash: b3d77a84aa5206257f82bc5d634e1a3eae1a7790
-ms.sourcegitcommit: fc718cc1078594819e8ed640b6ee4bef39e91f7f
+ms.openlocfilehash: c8ab5bc5072612edd3eaabbd13468567a92f42e4
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "83996417"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85296387"
 ---
 # <a name="azure-synapse-analytics-data-integration-partners"></a>Partenaires d’intégration de données d’Azure Synapse Analytics
 
@@ -36,7 +36,7 @@ Pour créer votre solution d’entrepôt de données avec la fonctionnalité de 
 | ![Générateurs d’informations](./media/sql-data-warehouse-partner-data-integration/informationbuilders_logo.png) |**Générateurs d’informations (gestion des données Omni-Gen)**<br>La plateforme de gestion des données Omni-Gen du générateur d’informations fournit des solutions pour l’intégration de données, la qualité des données et la gestion des données de référence. Il facilite l’accès, le déplacement et la fusion de toutes les données, quel que soit leur format, leur emplacement, leur volume ou leur latence.|[Page du produit](https://www.informationbuilders.com/3i-platform)<br> [Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/informationbuilders.omni-gen-mdm) |
 | ![Matillion](./media/sql-data-warehouse-partner-data-integration/matillion-logo.png) |**Matillion**<br>Matillion est un logiciel de transformation de données pour les entrepôts de données cloud. Seul Matillion est spécialement conçu pour Azure Synapse, afin de permettre aux entreprises d’atteindre de nouveaux niveaux de simplicité, de vitesse, d’échelle et d’économies. Les produits Matillion sont très appréciés et approuvés par des organisations de toutes tailles en réponse à leurs besoins en matière d’intégration et de transformation des données. Apprenez-en davantage sur la façon dont vous pouvez libérer le potentiel de vos données grâce à l’approche basée sur le cloud adoptée par Matillion pour la transformation des données.| [Page du produit](https://www.matillion.com/technology/cloud-data-warehouse/microsoft-azure-synapse/)<br> [Azure Marketplace](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/matillion.matillion-etl-azure-synapse?tab=Overview) |
 | ![oh22 HEDDA.IO](./media/sql-data-warehouse-partner-data-integration/heddaiowhitebg-logo.png) |**oh22 HEDDA<span></span>.IO**<br>HEDDA<span></span>.IO d’oh22 est un produit de qualité des données basé sur les connaissances conçu pour Microsoft Azure. Il permet de créer une base de connaissances pour effectuer diverses tâches critiques liées à la qualité des données, notamment la correction, l’enrichissement et la normalisation des données. HEDDA<span></span>.IO offre également la possibilité de nettoyer les données à l’aide de services cloud de données de référence proposés par des fournisseurs de données de référence ou développés et fournis par vos soins.| [Page du produit](https://hedda.io)<br> [Azure Marketplace]( https://azuremarketplace.microsoft.com/en-us/marketplace/apps/oh22.hedda-io) |
-| ![Qubole](./media/sql-data-warehouse-partner-data-integration/qubole_logo.png) |**Qubole**<br>Qubole fournit une plateforme cloud native qui permet aux utilisateurs d’effectuer des opérations d’ETL, des analyses et des charges de travail IA/ML. Il prend en charge plusieurs moteurs open source : Apache Spark, TensorFlow, Presto, Airflow, Hadoop, Hive et bien plus encore. Il fournit des outils faciles à utiliser destinés aux utilisateurs finaux qui permettent de traiter des données, notamment des outils de requête SQL, des notebooks et des tableaux de bord utilisant des moteurs open source puissants.|[Page du produit](https://www.qubole.com/)<br> [Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/qubole-inc.qubole-data-service?tab=Overview) |
+| ![Qubole](./media/sql-data-warehouse-partner-data-integration/qubole_logo.png) |**Qubole**<br>Qubole fournit une plateforme cloud native qui permet aux utilisateurs d’effectuer des opérations d’ETL, des analyses et des charges de travail IA/ML. Il prend en charge plusieurs moteurs open source : Apache Spark, TensorFlow, Presto, Airflow, Hadoop, Hive et bien plus encore. Il fournit des outils faciles à utiliser destinés aux utilisateurs finaux qui permettent de traiter des données, notamment des outils de requête SQL, des notebooks et des tableaux de bord utilisant des moteurs open source puissants.|[Page du produit](https://www.qubole.com/company/partners/partners-microsoft-azure/)<br> [Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/qubole-inc.qubole-data-service?tab=Overview) |
 | ![Segment](./media/sql-data-warehouse-partner-data-integration/segment_logo.png) |**Segment**<br>Segment est une solution de gestion des données et d’analytique qui vous permet de mieux comprendre les données client provenant de sources différentes. Il vous permet de connecter vos données à plus de 200 outils pour créer des décisions, des produits et des expériences de meilleure qualité. Segment transformera et chargera pour vous plusieurs sources de données dans votre entrepôt à l’aide de ses connecteurs de données intégrés.|[Page du produit](https://segment.com/)<br> |
 | ![Skyvia](./media/sql-data-warehouse-partner-data-integration/skyvia_logo.png) |**Skyvia (intégration de données)**<br>Skyvia (intégration de données) fournit un Assistant qui automatise les importations de données. Cet Assistant vous permet de migrer des données entre plusieurs sources différentes, notamment des CRM, des bases de données d’application, des fichiers CSV et bien plus encore. |[Page du produit](https://skyvia.com/)<br> |
 | ![SnapLogic](./media/sql-data-warehouse-partner-data-integration/snaplogic_logo.png) |**SnapLogic**<br>La plateforme SnapLogic permet aux clients de transférer rapidement des données à destination ou en provenance d’un entrepôt de données Azure Synapse. Elle offre la possibilité d’intégrer des centaines d’applications, services et scénarios IoT en une seule solution.|[Page du produit](https://www.snaplogic.com/)<br>[Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/snaplogic.snaplogic-elastic-integration-windows)<br> |
@@ -48,4 +48,4 @@ Pour créer votre solution d’entrepôt de données avec la fonctionnalité de 
 
 
 ## <a name="next-steps"></a>Étapes suivantes
-Pour plus d’informations sur d’autres partenaires, voir [Partenaires Business Intelligence](sql-data-warehouse-partner-business-intelligence.md) et [Partenaires de gestion des données](sql-data-warehouse-partner-data-management.md).
+Pour en savoir plus à propos de nos partenaires, consultez [Partenaires aidant à la décision](sql-data-warehouse-partner-business-intelligence.md), [Partenaires de gestion des données](sql-data-warehouse-partner-data-management.md) et [Partenaires en Machine Learning et en IA](sql-data-warehouse-partner-machine-learning-ai.md).

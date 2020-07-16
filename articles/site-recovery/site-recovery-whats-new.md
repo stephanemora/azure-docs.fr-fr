@@ -3,12 +3,12 @@ title: Nouveautés d’Azure Site Recovery
 description: Fournit un résumé des nouvelles fonctionnalités et des dernières mises à jour du service Azure Site Recovery.
 ms.topic: conceptual
 ms.date: 06/01/2020
-ms.openlocfilehash: e0015aa9de51e3cb43473a079d09698fcbeef9a0
-ms.sourcegitcommit: 223cea58a527270fe60f5e2235f4146aea27af32
+ms.openlocfilehash: f774dbd3172199e82509301f520eac4e25deb15b
+ms.sourcegitcommit: e995f770a0182a93c4e664e60c025e5ba66d6a45
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/01/2020
-ms.locfileid: "84259216"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86131074"
 ---
 # <a name="whats-new-in-site-recovery"></a>Nouveautés de Site Recovery
 
@@ -22,6 +22,7 @@ Pour les composants Site Recovery, nous prenons en charge les versions N-4, où
 
 **Mettre à jour** |  **Installation unifiée** | **OVA du serveur de configuration** | **Agent du service Mobilité** | **Fournisseur Site Recovery** | **Agent Recovery Services**
 --- | --- | --- | --- | --- | ---
+[Cumul 47](https://support.microsoft.com/help/4570609/) | 9.34.5634.1 | 5.1.6100.0 | 9.34.5634.1 | 5.1.6100.0 | 2.0.9183.0
 [Cumul 46](https://support.microsoft.com/help/4564347/) | 9.33.5598.1 | 5.1.5900.0 | 9.33.5598.1 | 5.1.5900.0 | 2.0.9175.0
 [Cumul 45](https://support.microsoft.com/help/4550047/) | 9.32.5487.1 | 5.1.5400.0 | 9.32.5487.1 | 5.1.5400.0 | 2.0.9165.0
 [Cumul 43](https://support.microsoft.com/help/4537047/) | 9.31.5449.1 | 5.1.5300.0 | 9.31.5449.1 | 5.1.5300.0 | 2.0.9165.0
@@ -32,6 +33,17 @@ Pour les composants Site Recovery, nous prenons en charge les versions N-4, où
 
 > [!NOTE]
 > Le correctif cumulatif 44 n’est pas indiqué dans le tableau, car il n’inclut pas de mises à jour pour les fournisseurs et les agents Site Recovery.
+
+## <a name="updates-june-2020"></a>Mises à jour (juin 2020)
+
+### <a name="update-rollup-47"></a>Correctif cumulatif 47
+
+Le [correctif cumulatif 47](https://support.microsoft.com/help/4570609/update-rollup-47-for-azure-site-recovery) fournit les mises à jour suivantes :
+
+**Mettre à jour** | **Détails**
+--- | ---
+**Fournisseurs et agents** | Mises à jour des agents et des fournisseurs Site Recovery comme décrit dans le correctif cumulatif.
+**Correctifs/améliorations** | Un certain nombre de correctifs et d’améliorations, comme détaillé dans le correctif cumulatif.
 
 ## <a name="updates-june-2020"></a>Mises à jour (juin 2020)
 
@@ -346,8 +358,8 @@ Les fonctionnalités ajoutées ce mois-ci sont résumées dans le tableau.
 **Fonctionnalité** | **Détails**
 --- | ---
 **Mappage réseau** | Pour la récupération d’urgence de machines virtuelles Azure, vous pouvez maintenant utiliser n’importe quel réseau cible disponible lorsque vous activez la réplication.
-**SSD Standard** | Vous pouvez désormais configurer la récupération d’urgence pour les machines virtuelles Azure utilisant des [disques SSD standard](https://docs.microsoft.com/azure/virtual-machines/windows/disks-standard-ssd).
-**Espaces de stockage direct** | Vous pouvez configurer la récupération d’urgence pour les applis s’exécutant sur les applications de machine virtuelle Azure à l’aide de [Storage Spaces Direct](https://docs.microsoft.com/windows-server/storage/storage-spaces/storage-spaces-direct-overview) pour une haute disponibilité.  L’utilisation de Storage Spaces Direct (S2D) avec Site Recovery offre une protection complète aux charges de travail de machine virtuelle Azure. S2D vous permet d’héberger un cluster invité dans Azure. Cela est particulièrement utile lorsqu’une machine virtuelle héberge une application critique, comme la couche SAP ASCS, SQL Server ou un serveur de fichiers avec montée en puissance parallèle.
+**SSD Standard** | Vous pouvez désormais configurer la récupération d’urgence pour les machines virtuelles Azure utilisant des [disques SSD standard](../virtual-machines/windows/disks-types.md#standard-ssd).
+**Espaces de stockage direct** | Vous pouvez configurer la récupération d’urgence pour les applis s’exécutant sur les applications de machine virtuelle Azure à l’aide de [Storage Spaces Direct](/windows-server/storage/storage-spaces/storage-spaces-direct-overview) pour une haute disponibilité.  L’utilisation de Storage Spaces Direct (S2D) avec Site Recovery offre une protection complète aux charges de travail de machine virtuelle Azure. S2D vous permet d’héberger un cluster invité dans Azure. Cela est particulièrement utile lorsqu’une machine virtuelle héberge une application critique, comme la couche SAP ASCS, SQL Server ou un serveur de fichiers avec montée en puissance parallèle.
 
 
 ### <a name="vmwarephysical-server-disaster-recovery"></a>VMware/récupération d’urgence de serveur physique
@@ -365,7 +377,7 @@ Les fonctionnalités ajoutées ce mois-ci sont résumées dans le tableau.
 
 ### <a name="accelerated-networking-azure-vms"></a>Mise en réseau accélérée (machines virtuelles Azure)
 
-L’accélération réseau permet la virtualisation d’E/S de racine unique (SR-IOV) sur une machine virtuelle, améliorant ainsi les performances réseau. Quand vous activez la réplication pour une machine virtuelle Azure, Site Recovery détecte si l’accélération réseau est activée ou non. Si elle l’est, Site Recovery configure automatiquement l’accélération réseau sur la machine virtuelle Azure du réplica cible après le basculement, à la fois sur [Windows](https://docs.microsoft.com/azure/virtual-network/create-vm-accelerated-networking-powershell#enable-accelerated-networking-on-existing-vms) et sur [Linux](https://docs.microsoft.com/azure/virtual-network/create-vm-accelerated-networking-cli#enable-accelerated-networking-on-existing-vms).
+L’accélération réseau permet la virtualisation d’E/S de racine unique (SR-IOV) sur une machine virtuelle, améliorant ainsi les performances réseau. Quand vous activez la réplication pour une machine virtuelle Azure, Site Recovery détecte si l’accélération réseau est activée ou non. Si elle l’est, Site Recovery configure automatiquement l’accélération réseau sur la machine virtuelle Azure du réplica cible après le basculement, à la fois sur [Windows](../virtual-network/create-vm-accelerated-networking-powershell.md#enable-accelerated-networking-on-existing-vms) et sur [Linux](../virtual-network/create-vm-accelerated-networking-cli.md#enable-accelerated-networking-on-existing-vms).
 
 [Plus d’informations](azure-vm-disaster-recovery-with-accelerated-networking.md)
 
@@ -427,7 +439,7 @@ Les fonctionnalités ajoutées ce mois-ci sont résumées dans le tableau.
 **Prise en charge de Linux** | Nouvelle prise en charge d’Oracle Linux 6.8, Oracle Linux 6.9 et Oracle Linux 7.0 avec le noyau compatible Red Hat et pour le noyau Unbreakable Enterprise Kernel (UEK) Release 5.
 **Système de fichiers Linux BTRFS** | Pris en charge pour les machines virtuelles Azure.
 **Machines virtuelles Azure dans les zones de disponibilité** | Vous pouvez activer la réplication vers une autre région pour les machines virtuelles Azure déployées dans les zones de disponibilité. Vous pouvez désormais activer la réplication pour une machine virtuelle Azure et définir comme cible du basculement une instance de machine virtuelle unique, une machine virtuelle dans un groupe à haute disponibilité ou une machine virtuelle dans une zone de disponibilité. Le paramètre n’impacte pas la réplication. [Lisez](https://azure.microsoft.com/blog/disaster-recovery-of-zone-pinned-azure-virtual-machines-to-another-region/) l’annonce.
-**Stockage avec pare-feu (portail/PowerShell)** | Nouvelle prise en charge des [comptes de stockage avec pare-feu](https://docs.microsoft.com/azure/storage/common/storage-network-security).<br/><br/> Vous pouvez répliquer des machines virtuelles Azure avec des disques non managés sur des comptes de stockage avec pare-feu sur une autre région Azure pour les scénarios de récupération d’urgence.<br/><br/> Vous pouvez utiliser des comptes de stockage avec pare-feu en tant que comptes de stockage cibles pour des disques non managés.<br/><br/> Fonction prise en charge dans le portail et avec PowerShell.
+**Stockage avec pare-feu (portail/PowerShell)** | Nouvelle prise en charge des [comptes de stockage avec pare-feu](../storage/common/storage-network-security.md).<br/><br/> Vous pouvez répliquer des machines virtuelles Azure avec des disques non managés sur des comptes de stockage avec pare-feu sur une autre région Azure pour les scénarios de récupération d’urgence.<br/><br/> Vous pouvez utiliser des comptes de stockage avec pare-feu en tant que comptes de stockage cibles pour des disques non managés.<br/><br/> Fonction prise en charge dans le portail et avec PowerShell.
 
 ## <a name="updates-december-2018"></a>Mises à jour (décembre 2018)
 
@@ -468,7 +480,7 @@ Les fonctionnalités ajoutées ce mois-ci sont résumées dans le tableau.
 **Prise en charge des régions** | Site Recovery prend désormais en charge les régions Australie Centre 1 et Australie Centre 2.
 **Prise en charge du chiffrement de disque** | Prise en charge ajoutée pour la récupération d’urgence des machines virtuelles Azure chiffrées au moyen d’ADE (Azure Disk Encryption) avec l’application Azure AD. [Plus d’informations](azure-to-azure-how-to-enable-replication-ade-vms.md)
 **Exclusion de disque** | Les disques non initialisés sont maintenant automatiquement exclus lors de la réplication de machine virtuelle Azure.
-**Stockage avec pare-feu (PowerShell)** | Nouvelle prise en charge des [comptes de stockage avec pare-feu](https://docs.microsoft.com/azure/storage/common/storage-network-security).<br/><br/> Vous pouvez répliquer des machines virtuelles Azure avec des disques non managés sur des comptes de stockage avec pare-feu sur une autre région Azure pour les scénarios de récupération d’urgence.<br/><br/> Vous pouvez utiliser des comptes de stockage avec pare-feu en tant que comptes de stockage cibles pour des disques non managés.<br/><br/> Prise en charge avec PowerShell uniquement.
+**Stockage avec pare-feu (PowerShell)** | Nouvelle prise en charge des [comptes de stockage avec pare-feu](../storage/common/storage-network-security.md).<br/><br/> Vous pouvez répliquer des machines virtuelles Azure avec des disques non managés sur des comptes de stockage avec pare-feu sur une autre région Azure pour les scénarios de récupération d’urgence.<br/><br/> Vous pouvez utiliser des comptes de stockage avec pare-feu en tant que comptes de stockage cibles pour des disques non managés.<br/><br/> Prise en charge avec PowerShell uniquement.
 
 
 ### <a name="update-rollup-29"></a>Correctif cumulatif 29
@@ -506,7 +518,7 @@ Les fonctionnalités ajoutées ce mois-ci sont résumées dans le tableau.
 
 **Fonctionnalité** | **Détails**
 --- | ---
-**Prise en charge de Linux** | Nouvelle prise en charge de RedHat Enterprise Linux 6.10 ; CentOS 6.10.<br/><br/> Les machines virtuelles Linux utilisant le style de partition GPT (GUID Partition Table) en mode de compatibilité avec un BIOS hérité sont désormais prises en charge. Consultez le [FAQ sur les machines virtuelles Azure](https://docs.microsoft.com/azure/virtual-machines/linux/faq-for-disks) pour plus d’informations.
+**Prise en charge de Linux** | Nouvelle prise en charge de RedHat Enterprise Linux 6.10 ; CentOS 6.10.<br/><br/> Les machines virtuelles Linux utilisant le style de partition GPT (GUID Partition Table) en mode de compatibilité avec un BIOS hérité sont désormais prises en charge. Consultez le [FAQ sur les machines virtuelles Azure](../virtual-machines/linux/faq-for-disks.md) pour plus d’informations.
 **Récupération d’urgence des machines virtuelles après la migration** | Prise en charge de la récupération d’urgence vers une région secondaire pour une machine virtuelle VMware locale migrée vers Azure, sans avoir à désinstaller le service de mobilité sur la machine virtuelle avant d’activer la réplication.
 **Windows Server 2008** | Prise en charge de la migration des machines exécutant Windows Server 2008 R2/2008 64 bits et 32 bits.<br/><br/> Migration uniquement (réplication et basculement). La restauration automatique n’est pas prise en charge.
 

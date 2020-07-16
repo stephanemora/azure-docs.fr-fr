@@ -7,16 +7,16 @@ author: msmimart
 manager: celestedg
 ms.service: active-directory
 ms.workload: identity
-ms.topic: conceptual
+ms.topic: how-to
 ms.author: mimart
 ms.subservice: B2C
 ms.date: 02/10/2020
-ms.openlocfilehash: 99e04c95156e40eed8c2b9aa88a2bee6f39e90c9
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 3106e5a640ed66828558078e6986979ad7195450
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81392890"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85386213"
 ---
 # <a name="monitor-azure-ad-b2c-with-azure-monitor"></a>Superviser Azure AD B2C avec Azure Monitor
 
@@ -25,8 +25,8 @@ Utilisez Azure Monitor pour router les journaux de connexion et d’[audit](view
 Vous pouvez router des événements de journal vers :
 
 * Un [compte de stockage](../storage/blobs/storage-blobs-introduction.md) Azure.
-* Un [hub d’événements](../event-hubs/event-hubs-about.md) Azure (pour les intégrer à vos instances Splunk et Sumo Logic).
 * Un [espace de travail Log Analytics](../azure-monitor/platform/resource-logs-collect-workspace.md) (pour analyser les données, créer des tableaux de bord et générer des alertes sur des événements spécifiques).
+* Un [hub d’événements](../event-hubs/event-hubs-about.md) Azure (pour les intégrer à vos instances Splunk et Sumo Logic).
 
 ![Azure Monitor](./media/azure-monitor/azure-monitor-flow.png)
 
@@ -89,7 +89,7 @@ Téléchargez le modèle Azure Resource Manager et les fichiers de paramètres 
 
 Ensuite, mettez à jour les fichiers de paramètres avec les valeurs que vous avez enregistrées précédemment. L’extrait de code JSON suivant illustre un exemple de fichier de paramètres de modèle Azure Resource Manager. Pour `authorizations.value.roleDefinitionId`, utilisez la valeur du [rôle intégré](../role-based-access-control/built-in-roles.md) du *rôle Contributeur*, `b24988ac-6180-42a0-ab88-20f7382dd24c`.
 
-```JSON
+```json
 {
     "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
     "contentVersion": "1.0.0.0",

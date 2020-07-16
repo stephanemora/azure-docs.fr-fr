@@ -5,12 +5,12 @@ description: Découvrir les meilleures pratiques de l’opérateur relatives à 
 services: container-service
 ms.topic: conceptual
 ms.date: 12/06/2018
-ms.openlocfilehash: 305d4c15aaf72a47549497902e3027064fbfd608
-ms.sourcegitcommit: 34a6fa5fc66b1cfdfbf8178ef5cdb151c97c721c
+ms.openlocfilehash: 72808f315f28a996a88e6cc56ae232a136726451
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82208089"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85298019"
 ---
 # <a name="best-practices-for-cluster-security-and-upgrades-in-azure-kubernetes-service-aks"></a>Meilleures pratiques relatives aux mises à jour et à la sécurité du cluster dans Azure Kubernetes Service (AKS)
 
@@ -173,7 +173,7 @@ Pour plus d’informations sur les filtres disponibles, consultez les [Profils d
 
 ## <a name="regularly-update-to-the-latest-version-of-kubernetes"></a>Effectuer des mises à jour régulières vers la dernière version de Kubernetes
 
-**Meilleures pratiques** - Pour rester informé des nouvelles fonctionnalités et correctifs de bogues, effectuez des mises à jour régulières vers la version Kubernetes dans votre cluster AKS.
+**Bonnes pratiques** - Pour rester informé des nouvelles fonctionnalités et correctifs de bogues, effectuez des mises à jour régulières vers la version Kubernetes dans votre cluster AKS.
 
 Kubernetes sort de nouvelles fonctionnalités à un rythme plus effréné que les plateformes d’infrastructure plus traditionnelles. Les mises à jour Kubernetes incluent de nouvelles fonctionnalités et des correctifs de sécurité ou de bogues. En général, les nouvelles fonctionnalités passent d’un état *alpha*, puis *bêta* avant d’atteindre un état *stable* et d’être disponibles et recommandées pour une utilisation en production. Ce cycle devrait vous permettre de mettre à jour Kubernetes sans rencontrer de changements cassants ou ajuster vos déploiements et modèles.
 

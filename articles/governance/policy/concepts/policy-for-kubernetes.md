@@ -1,14 +1,14 @@
 ---
 title: Préversion – Découvrir Azure Policy pour Kubernetes
 description: Découvrez comment Azure Policy utilise Rego et Open Policy Agent pour gérer des clusters exécutant Kubernetes dans Azure ou localement. Ceci est une fonctionnalité en préversion.
-ms.date: 05/20/2020
+ms.date: 06/12/2020
 ms.topic: conceptual
-ms.openlocfilehash: 9969bed9cb7c84faf9736bff2fb8337dc05d1bb0
-ms.sourcegitcommit: 12f23307f8fedc02cd6f736121a2a9cea72e9454
+ms.openlocfilehash: a044ea33f1a7710c4bb97d30cf8f11d4de2838b1
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/30/2020
-ms.locfileid: "84221155"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85373622"
 ---
 # <a name="understand-azure-policy-for-kubernetes-clusters-preview"></a>Comprendre Azure Policy pour les clusters Kubernetes (préversion)
 
@@ -25,7 +25,7 @@ Azure Policy pour Kubernetes prend en charge les environnements de cluster suiva
 - [Moteur AKS](https://github.com/Azure/aks-engine/blob/master/docs/README.md)
 
 > [!IMPORTANT]
-> Azure Policy pour Kubernetes est disponible en préversion et prend uniquement en charge les pools de nœuds Linux et les définitions de stratégie intégrées. Les définitions de stratégie intégrée se trouvent dans la catégorie **Kubernetes**. Les définitions de stratégie limitées en préversion avec l’effet **EnforceRegoPolicy** et la catégorie **Service Kubernetes** associée sont _déconseillées_. Vous pouvez utiliser l’effet [EnforceOPAConstraint](./effects.md#enforceopaconstraint) mis à jour à la place.
+> Azure Policy pour Kubernetes est disponible en préversion et prend uniquement en charge les pools de nœuds Linux et les définitions de stratégie intégrées. Les définitions de stratégie intégrée se trouvent dans la catégorie **Kubernetes**. Les définitions de stratégie limitées en version préversion avec les effets **EnforceOPAConstraint** et **EnforceRegoPolicy**, ainsi que la catégorie **Service Kubernetes** associée sont _déconseillées_. À la place, utilisez les effets _audit_ et _deny_ avec le mode Fournisseur de ressources `Microsoft.Kubernetes.Data`.
 
 ## <a name="overview"></a>Vue d’ensemble
 
@@ -52,9 +52,6 @@ Avant d’installer le module complémentaire Azure Policy ou d’activer des fo
 1. Azure CLI 2.0.62 ou version ultérieure doit être installé et configuré. Exécutez `az --version` pour trouver la version. Si vous devez effectuer une installation ou une mise à niveau, consultez [Installer Azure CLI](/cli/azure/install-azure-cli).
 
 1. Inscrivez les fournisseurs de ressources et les fonctionnalités en préversion.
-
-   > [!CAUTION]
-   > Lorsque vous inscrivez une fonctionnalité sur un abonnement, vous ne pouvez plus la désinscrire. Après avoir activé des fonctionnalités en préversion, des valeurs par défaut peuvent être utilisées pour tous les clusters AKS créés ultérieurement dans l’abonnement. N’activez pas les fonctionnalités d’évaluation sur les abonnements de production. Utilisez un abonnement distinct pour tester les fonctionnalités d’évaluation et recueillir des commentaires.
 
    - Portail Azure :
 
@@ -370,7 +367,7 @@ kubectl get pods -n gatekeeper-system
 
 ## <a name="policy-language"></a>Langage de stratégie
 
-La structure du langage Azure Policy pour la gestion de Kubernetes suit celle des définitions de stratégies existantes. L’effet _EnforceOPAConstraint_, qui permet de gérer les clusters Kubernetes, prend des propriétés « details » propres au [Framework de contraintes d’OPA](https://github.com/open-policy-agent/frameworks/tree/master/constraint) et à Gatekeeper v3. Pour plus d’informations et pour obtenir des exemples, voir l’effet [EnforceOPAConstraint](./effects.md#enforceopaconstraint).
+La structure du langage Azure Policy pour la gestion de Kubernetes suit celle des définitions de stratégies existantes. Avec un [mode Fournisseur de ressources](./definition-structure.md#resource-provider-modes) de `Microsoft.Kubernetes.Data`, les effets [audit](./effects.md#audit) et [deny](./effects.md#deny) sont utilisés pour gérer vos clusters Kubernetes. Les effets _audit_ et _deny_ doivent fournir des **informations** sur les propriétés spécifiques à l’utilisation d’[OPA Constraint Framework](https://github.com/open-policy-agent/frameworks/tree/master/constraint) et de Gatekeeper v3.
 
 Au sein des propriétés _details.constraintTemplate_ et _details.constraint_ de la définition de stratégie, Azure Policy transmet les URI de ces [CustomResourceDefinitions](https://github.com/open-policy-agent/gatekeeper#constraint-templates) (CRD) au module complémentaire. Rego est le langage pris en charge par OPA et Gatekeeper pour valider une requête au cluster Kubernetes. Grâce à la prise en charge d’une norme existante pour la gestion de Kubernetes, Azure Policy permet de réutiliser des règles existantes et de les jumeler avec Azure Policy afin de bénéficier d’une expérience de rapports de conformité du cloud unifiée. Pour plus d’informations, consultez [What is Rego?](https://www.openpolicyagent.org/docs/latest/policy-language/#what-is-rego).
 

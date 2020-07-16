@@ -5,12 +5,12 @@ author: sajayantony
 ms.topic: article
 ms.date: 03/18/2020
 ms.author: sajaya
-ms.openlocfilehash: 005c035468a4225f96e8ef69b2ef31a82bf7eedb
-ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
+ms.openlocfilehash: f160910024d9d64d22028c72825b98d93f66f15d
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/20/2020
-ms.locfileid: "83682817"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85390361"
 ---
 # <a name="frequently-asked-questions-about-azure-container-registry"></a>Forum aux questions sur Azure Container Registry
 
@@ -269,6 +269,7 @@ La configuration d’un registre de conteneurs Azure pour l’accès par tirage 
 - [Pourquoi le portail Azure ne liste-t-il pas tous mes dépôts ou étiquettes ?](#why-does-the-azure-portal-not-list-all-my-repositories-or-tags)
 - [Pourquoi le portail Azure ne parvient-il pas à récupérer les dépôts ou les étiquettes ?](#why-does-the-azure-portal-fail-to-fetch-repositories-or-tags)
 - [Pourquoi ma requête tirer (pull) ou envoyer (push) échoue-t-elle avec une opération non autorisée ?](#why-does-my-pull-or-push-request-fail-with-disallowed-operation)
+- [Le format du référentiel n’est pas valide ou n’est pas pris en charge](#repository-format-is-invalid-or-unsupported)
 - [Comment collecter les traces http sur Windows ?](#how-do-i-collect-http-traces-on-windows)
 
 ### <a name="check-health-with-az-acr-check-health"></a>Contrôler l’intégrité avec `az acr check-health`
@@ -438,6 +439,13 @@ Voici quelques scénarios dans lesquels les opérations peuvent ne pas être aut
 * Les registres classiques ne sont plus pris en charge. Effectuez une mise à niveau vers un [niveau de service](https://aka.ms/acr/skus) pris en charge à l’aide de la commande [az acr update](https://docs.microsoft.com/cli/azure/acr?view=azure-cli-latest#az-acr-update) ou du portail Azure.
 * L’image ou le référentiel peuvent être verrouillés afin qu’il ne soit pas possible de les supprimer ou de les mettre à jour. Vous pouvez utiliser la commande [az acr show repository](https://docs.microsoft.com/azure/container-registry/container-registry-image-lock) pour afficher les attributs actuels.
 * Certaines opérations ne sont pas autorisées si l’image est en contrôle. En savoir plus sur le [contrôle](https://github.com/Azure/acr/tree/master/docs/preview/quarantine).
+* Votre registre a peut-être atteint sa [limite de stockage](container-registry-skus.md#service-tier-features-and-limits).
+
+### <a name="repository-format-is-invalid-or-unsupported"></a>Le format du référentiel n’est pas valide ou n’est pas pris en charge
+
+Si vous voyez une erreur telle que « format de référentiel non pris en charge », « format non valide » ou « les données requises n’existent pas » lors de la spécification d’un nom de référentiel dans les opérations de référentiel, vérifiez l’orthographe du nom. Les noms de référentiel valides ne peuvent inclure que des caractères alphanumériques en minuscules, des points, des tirets, des tirets du bas et des barres obliques. 
+
+Pour connaître les règles complètes de nommage de référentiel, consultez la [spécification de distribution Open Container Initiative](https://github.com/docker/distribution/blob/master/docs/spec/api.md#overview).
 
 ### <a name="how-do-i-collect-http-traces-on-windows"></a>Comment collecter les traces http sur Windows ?
 

@@ -3,19 +3,18 @@ title: Prise en main des certificats Key Vault
 description: Les scénarios suivants décrivent plusieurs utilisations principales du service de gestion des certificats Key Vault, notamment les étapes supplémentaires requises pour créer votre premier certificat dans le coffre de clés.
 services: key-vault
 author: msmbaldwin
-manager: rkarlin
 tags: azure-resource-manager
 ms.service: key-vault
 ms.subservice: certificates
 ms.topic: conceptual
-ms.date: 01/07/2019
+ms.date: 06/13/2020
 ms.author: mbaldwin
-ms.openlocfilehash: 5881314f0d3c62e7d6181ebd7bb27a5e0e87729a
-ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
+ms.openlocfilehash: 316a6c13b55664bdabf7c0cb3e37d7bb18b8649f
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "81427665"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84765095"
 ---
 # <a name="get-started-with-key-vault-certificates"></a>Prise en main des certificats Key Vault
 Les scénarios suivants décrivent plusieurs utilisations principales du service de gestion des certificats Key Vault, notamment les étapes supplémentaires requises pour créer votre premier certificat dans le coffre de clés.
@@ -97,13 +96,19 @@ Remarque : cette procédure (jusqu’à la fin de l’étape 3.1) est une opéra
 -   L’utilisateur peut également modifier la stratégie qui est fonctionnelle au moment de l’importation, mais qui contient des erreurs, car aucune information n’a été spécifiée lors de l’importation. Ex. Aucune information sur l’émetteur.  
 
 ### <a name="formats-of-import-we-support"></a>Formats d’importation que nous prenons en charge
+Azure Key Vault prend en charge les fichiers de certificat .pem et .pfx pour l’importation de certificats dans le coffre de clés.
 Nous prenons en charge le type d’importation suivant pour le format de fichier PEM. Un seul certificat encodé en PEM avec une clé non chiffrée encodée en PKCS #8, avec les éléments suivants
 
 -----BEGIN CERTIFICATE----- -----END CERTIFICATE-----
 
 -----BEGIN PRIVATE KEY----- -----END PRIVATE KEY-----
 
-Pour la fusion de certificat, nous prenons en charge 2 formats PEM. Vous pouvez fusionner un seul certificat encodé en PKCS #8 ou un fichier P7B encodé en Base64. -----BEGIN CERTIFICATE----- -----END CERTIFICATE-----
+Quand vous importez le certificat, vous devez vérifier que la clé est incluse dans le fichier. Si vous avez la clé privée ailleurs et dans un autre format, vous devez associer la clé au certificat. Certaines autorités de certification fournissent des certificats dans différents formats. Vous devez donc vérifier qu’ils sont au format .pem ou .pfx avant d’importer le certificat. 
+
+### <a name="formats-of-merge-csr-we-support"></a>Formats de fusion de CSR que nous prenons en charge
+AKV prend en charge 2 formats basés sur PEM. Vous pouvez fusionner un seul certificat encodé en PKCS#8 ou un fichier P7B encodé en Base64 (chaîne de certificats signés par l’autorité de certification). 
+
+-----BEGIN CERTIFICATE----- -----END CERTIFICATE-----
 
 Pour l’instant, nous ne prenons pas en charge les clés EC au format PEM.
 
@@ -123,4 +128,3 @@ Pour l’instant, nous ne prenons pas en charge les clés EC au format PEM.
   (4) : l’autorité de certification que vous avez choisie répond avec un certificat X509.  
 
   (5) : votre application termine la création du certificat par le biais d’une fusion avec le certificat X509 provenant de votre autorité de certification.
-

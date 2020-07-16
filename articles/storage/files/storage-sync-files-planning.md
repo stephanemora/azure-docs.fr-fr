@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 01/15/2020
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: 778a18edafadc0bd043df1e9a5ab1d660fab6525
-ms.sourcegitcommit: 64fc70f6c145e14d605db0c2a0f407b72401f5eb
+ms.openlocfilehash: 561ec6d59349fca585beda8b1bd60073d2603077
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "83869717"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85552182"
 ---
 # <a name="planning-for-an-azure-file-sync-deployment"></a>Planification d’un déploiement de synchronisation de fichiers Azure
 
@@ -130,13 +130,14 @@ Invoke-AzStorageSyncCompatibilityCheck -Path <path> -SkipSystemChecks
  
 Pour tester uniquement la configuration requise :
 ```powershell
-Invoke-AzStorageSyncCompatibilityCheck -ComputerName <computer name>
+Invoke-AzStorageSyncCompatibilityCheck -ComputerName <computer name> -SkipNamespaceChecks
 ```
  
 Pour afficher les résultats au format CSV :
 ```powershell
 $errors = Invoke-AzStorageSyncCompatibilityCheck […]
-$errors | Select-Object -Property Type, Path, Level, Description | Export-Csv -Path <csv path>
+$validation.Results | Select-Object -Property Type, Path, Level, Description, Result | Export-Csv -Path
+    C:\results.csv -Encoding utf8
 ```
 
 ### <a name="file-system-compatibility"></a>Compatibilité du système de fichiers
@@ -254,9 +255,7 @@ En fonction de la stratégie de votre organisation ou d'exigences réglementaire
 - Configurer Azure File Sync de manière à prendre en charge votre proxy dans votre environnement
 - Limiter l'activité du réseau à partir d'Azure File Sync
 
-Pour en savoir plus sur la configuration de la fonctionnalité de mise en réseau d'Azure File Sync, consultez :
-- [Paramètres de proxy et de pare-feu d’Azure File Sync](storage-sync-files-firewall-and-proxy.md)
-- [S'assurer qu'Azure File Sync est un bon voisin dans votre centre de données](storage-sync-files-server-registration.md)
+Pour en savoir plus sur Azure File Sync et la mise en réseau, consultez [Considérations relatives à la mise en réseau Azure File Sync](storage-sync-files-networking-overview.md).
 
 ## <a name="encryption"></a>Chiffrement
 Lorsque vous utilisez Azure File Sync, vous devez prendre en compte trois couches de chiffrement différentes : le chiffrement sur le stockage au repos de Windows Server, le chiffrement en transit entre l'agent Azure File Sync et Azure, et le chiffrement au repos de vos données sur le partage de fichiers Azure. 
@@ -358,7 +357,7 @@ Si vous disposez déjà d'un serveur de fichiers Windows, Azure File Sync peut y
 
 Il est également possible d'utiliser Data Box pour migrer des données vers un déploiement Azure File Sync. Généralement, les clients qui souhaitent utiliser Data Box pour ingérer des données pensent que cela accélérera leur déploiement ou résoudra les problèmes de bande passante limitée. L'utilisation d'une instance de Data Box pour ingérer des données dans votre déploiement Azure File Sync peut effectivement réduire l'utilisation de la bande passante. En revanche, dans la plupart des scénarios, un chargement de données en ligne via l'une des méthodes décrites ci-dessus sera probablement plus rapide. Pour en savoir plus sur l'utilisation de Data Box pour ingérer des données dans votre déploiement Azure File Sync, consultez [Migrer des données vers Azure File Sync avec Azure Data Box](storage-sync-offline-data-transfer.md).
 
-Lors de la migration des données vers leur nouveau déploiement Azure File Sync, les clients commettent souvent l'erreur de copier les données directement sur le partage de fichiers Azure plutôt que sur leurs serveurs de fichiers Windows. Bien qu'Azure File Sync identifie tous les nouveaux fichiers sur le partage de fichiers Azure, et les synchronise avec vos partages de fichiers Windows, cette opération est généralement beaucoup plus lente que le chargement de données via le serveur de fichiers Windows. De nombreux outils de copie Azure, tels qu'AzCopy, présentent l'inconvénient supplémentaire de ne pas copier toutes les métadonnées importantes d'un fichier, comme les timestamps et les listes de contrôle d'accès.
+Lors de la migration des données vers leur nouveau déploiement Azure File Sync, les clients commettent souvent l'erreur de copier les données directement sur le partage de fichiers Azure plutôt que sur leurs serveurs de fichiers Windows. Bien qu'Azure File Sync identifie tous les nouveaux fichiers sur le partage de fichiers Azure, et les synchronise avec vos partages de fichiers Windows, cette opération est généralement beaucoup plus lente que le chargement de données via le serveur de fichiers Windows. Quand vous utilisez des outils de copie Azure tels qu’AzCopy, il est important d’utiliser la version la plus récente. Pour une vue d’ensemble des outils de copie Azure qui vous garantissent de pouvoir copier toutes les métadonnées importantes d’un fichier telles que les horodatages et les listes ACL, consultez le [tableau des outils de copie de fichiers](storage-files-migration-overview.md#file-copy-tools).
 
 ## <a name="antivirus"></a>Antivirus
 Du fait que les antivirus analysent les fichiers pour détecter la présence éventuelle de code malveillant connu, ils peuvent provoquer le rappel de fichiers hiérarchisés. Dans les versions 4.0 et ultérieures de l'agent Azure File Sync, les fichiers hiérarchisés sont dotés de l'attribut Windows sécurisé FILE_ATTRIBUTE_RECALL_ON_DATA_ACCESS. Nous vous recommandons de contacter l'éditeur de votre logiciel pour savoir comment configurer la solution de manière à ignorer la lecture des fichiers dotés cet attribut (la plupart le font automatiquement). 
@@ -368,7 +367,7 @@ Les solutions antivirus internes de Microsoft, Windows Defender et System Center
 > [!Note]  
 > Les fournisseurs de logiciels antivirus peuvent vérifier la compatibilité entre leur produit et Azure File Sync en utilisant la [suite de tests de compatibilité des antivirus avec Azure File Sync](https://www.microsoft.com/download/details.aspx?id=58322), qui est disponible en téléchargement dans le Centre de téléchargement Microsoft.
 
-## <a name="backup"></a>Backup 
+## <a name="backup"></a>Sauvegarde 
 Tout comme les solutions antivirus, les solutions de sauvegarde peuvent provoquer le rappel de fichiers hiérarchisés. Pour sauvegarder le partage de fichiers Azure, nous vous recommandons d’utiliser une solution de sauvegarde cloud au lieu d’un produit de sauvegarde locale.
 
 Si vous utilisez une solution de sauvegarde sur site, les sauvegardes doivent être effectuées sur un serveur dans le groupe de synchronisation qui a la hiérarchisation cloud désactivée. Lorsque vous effectuez une restauration, utilisez les options de restauration au niveau du volume ou au niveau du fichier. Les fichiers restaurés en utilisant l’option de restauration au niveau du fichier seront synchronisés avec tous les points de terminaison dans le groupe de synchronisation et les fichiers existants seront remplacés par la version restaurée à partir de la sauvegarde.  Les restaurations au niveau du volume ne remplaceront pas les versions plus récentes des fichiers dans le partage de fichiers Azure ou d’autres points de terminaison serveur.

@@ -11,12 +11,12 @@ author: oslake
 ms.author: moslake
 ms.reviewer: ninarn, carlrab
 ms.date: 04/09/2020
-ms.openlocfilehash: f79eb910728286ef5dc3a28974353db012bc5a16
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 5a246288eb3c4063a85935c20abec5c86467d340
+ms.sourcegitcommit: e132633b9c3a53b3ead101ea2711570e60d67b83
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84449649"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86042371"
 ---
 # <a name="elastic-pools-help-you-manage-and-scale-multiple-databases-in-azure-sql-database"></a>Les pools élastiques vous aident à gérer et à mettre à l’échelle plusieurs bases de données dans Azure SQL Database
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]

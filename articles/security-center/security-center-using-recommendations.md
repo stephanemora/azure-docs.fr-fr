@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/22/2019
 ms.author: memildin
-ms.openlocfilehash: a1034eb47010da2b0e795ee8c79646f06151cac1
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 8039be7b69444cc32e763e9a1fb074e7dda4a5ba
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "77603288"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84783229"
 ---
 # <a name="use-azure-security-center-recommendations-to-enhance-security"></a>Utiliser les recommandations Azure Security Center pour améliorer la sécurité
 Vous pouvez réduire les risques d’un incident de sécurité en configurant une stratégie de sécurité, puis en implémentant les recommandations fournies par Azure Security Center. Cet article explique comment utiliser les stratégies de sécurité et les recommandations d'Azure Security Center pour prévenir une attaque de sécurité. 
@@ -57,7 +57,7 @@ Dans le cadre de ses activités de supervision quotidiennes, Jeff se connecte à
 
 2. Jeff vérifie son **degré de sécurisation** pour savoir si les abonnements sont bien sécurisés et constate que celui-ci s’élève à 548.
 
-3. Jeff doit déterminer quelles recommandations gérer en premier. Jeff clique donc sur le degré de sécurisation et commence à gérer les recommandations selon l’amélioration qu’elles apportent à l’[impact du degré de sécurisation](security-center-secure-score.md).
+3. Jeff doit déterminer quelles recommandations gérer en premier. Jeff clique donc sur le degré de sécurisation et commence à gérer les recommandations selon l’amélioration qu’elles apportent à son [degré de sécurisation](secure-score-security-controls.md).
 
 4. Étant donné que Jeff a un grand nombre de machines virtuelles et serveurs connectés, il décide de se concentrer sur **Compute et applications**.
 

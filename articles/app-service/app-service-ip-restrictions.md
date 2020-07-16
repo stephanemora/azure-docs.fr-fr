@@ -7,12 +7,12 @@ ms.topic: article
 ms.date: 06/06/2019
 ms.author: ccompy
 ms.custom: seodec18
-ms.openlocfilehash: 298555da2056bc4c16d4d7b16615604f9798b91b
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: a77172aacc4c58e6430339328410744cc866def3
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81639266"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85207122"
 ---
 # <a name="azure-app-service-access-restrictions"></a>Restrictions d’accès dans Azure App Service
 
@@ -59,6 +59,10 @@ Les points de terminaison de service vous permettent de restreindre l’accès �
 Les points de terminaison de service ne peuvent pas être utilisés pour restreindre l’accès aux applications qui s’exécutent dans un environnement App Service Environment. Si votre application se trouve dans un environnement App Service Environment, vous pouvez contrôler l’accès à votre application avec des règles d’accès IP. 
 
 Avec les points de terminaison de service, vous pouvez configurer votre application avec les passerelles d’application ou d’autres appareils WAF. Vous pouvez également configurer des applications à plusieurs niveaux avec des serveurs principaux sécurisés. Pour plus d’informations sur certaines des possibilités, consultez [Fonctionnalités de mise en réseau et App Service](networking-features.md) et [Intégration d’Application Gateway avec les points de terminaison de service](networking/app-gateway-with-service-endpoints.md).
+
+> [!NOTE]
+> Les points de terminaison de service ne sont actuellement pas pris en charge pour les applications web qui utilisent une adresse IP virtuelle IP SSL. 
+>
 
 ## <a name="managing-access-restriction-rules"></a>Gestion des règles de restriction d’accès
 

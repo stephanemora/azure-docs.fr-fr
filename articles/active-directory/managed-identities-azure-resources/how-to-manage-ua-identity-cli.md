@@ -1,6 +1,6 @@
 ---
 title: Gérer une identité managée attribuée par l’utilisateur – Azure CLI – Azure AD
-description: Instructions détaillées pour créer, répertorier et supprimer une identité managée affectée par l’utilisateur en utilisant Azure CLI.
+description: Instructions pas à pas pour créer, lister et supprimer une identité managée affectée par l’utilisateur en utilisant Azure CLI.
 services: active-directory
 documentationcenter: ''
 author: MarkusVi
@@ -9,29 +9,29 @@ editor: ''
 ms.service: active-directory
 ms.subservice: msi
 ms.devlang: na
-ms.topic: conceptual
+ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 04/17/2020
 ms.author: markvi
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: be5defb85547e8750dea9ceaa481217aa40a004e
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 4761ea8affa85e30ee95f5fc2a665df12dfa128d
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81639759"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85609227"
 ---
 # <a name="create-list-or-delete-a-user-assigned-managed-identity-using-the-azure-cli"></a>Créer, répertorier ou supprimer une identité managée affectée par l’utilisateur en utilisant Azure CLI
 
 
 Les identités managées pour ressources Azure fournissent aux services Azure une identité managée dans Azure Active Directory. Vous pouvez utiliser cette identité pour vous authentifier auprès de services prenant en charge l’authentification Azure AD, sans avoir recours à des informations d’identification dans votre code. 
 
-Dans cet article, vous allez découvrir comment créer, répertorier et supprimer une identité managée affectée par l’utilisateur en utilisant Azure CLI.
+Dans cet article, vous allez découvrir comment créer, lister et supprimer une identité managée affectée par l’utilisateur en utilisant Azure CLI.
 
 ## <a name="prerequisites"></a>Prérequis
 
-- Si vous n’êtes pas familiarisé avec les identités managées pour ressources Azure, consultez la [section Vue d’ensemble](overview.md). **Veillez à consulter la [différence entre les identités managées affectées par le système et celles affectées par l’utilisateur](overview.md#how-does-the-managed-identities-for-azure-resources-work)** .
+- Si vous n’êtes pas familiarisé avec les identités managées pour ressources Azure, consultez la [section Vue d’ensemble](overview.md). **Veillez à consulter la [différence entre les identités managées affectées par le système et celles affectées par l’utilisateur](overview.md#managed-identity-types)** .
 - Si vous n’avez pas encore de compte Azure, [inscrivez-vous à un essai gratuit](https://azure.microsoft.com/free/) avant de continuer.
 - Pour exécuter les exemples de script d’Azure CLI, vous disposez de trois options :
     - Utilisez [Azure Cloud Shell](../../cloud-shell/overview.md) à partir du portail Azure (voir section suivante).

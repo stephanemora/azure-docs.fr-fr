@@ -1,21 +1,17 @@
 ---
 title: Remise d’événement avec une identité de service managé
 description: Cet article explique comment activer une identité de service managé pour une rubrique Azure Event Grid. Utilisez-la pour transférer des événements vers des destinations prises en charge.
-services: event-grid
-author: spelluru
-ms.service: event-grid
 ms.topic: how-to
-ms.date: 04/24/2020
-ms.author: spelluru
-ms.openlocfilehash: a13b9339c55d4d70c19ce737e81f34106dd3d6f6
-ms.sourcegitcommit: 1692e86772217fcd36d34914e4fb4868d145687b
+ms.date: 07/07/2020
+ms.openlocfilehash: 5138a89101a7e6c1770952028de9c3d478bc3852
+ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/29/2020
-ms.locfileid: "84167993"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86119189"
 ---
 # <a name="event-delivery-with-a-managed-identity"></a>Remise d’événement avec une identité managée
-Cet article explique comment activer une [identité de service managé](../active-directory/managed-identities-azure-resources/overview.md) pour une rubrique ou un domaine Azure Event Grid. Utilisez-le pour transférer des événements vers des destinations prises en charge, telles que des files d’attente et rubriques Service Bus, des concentrateurs d’événements et des comptes de stockage.
+Cet article explique comment activer une [identité de service managé](../active-directory/managed-identities-azure-resources/overview.md) pour des rubriques ou des domaines Azure Event Grid. Utilisez-le pour transférer des événements vers des destinations prises en charge, telles que des files d’attente et rubriques Service Bus, des concentrateurs d’événements et des comptes de stockage.
 
 Les étapes décrites en détail dans cet article sont les suivantes :
 1. Créer une rubrique ou un domaine avec une identité affectée par le système, ou mettre à jour une rubrique ou un domaine existants pour activer une identité. 
@@ -44,11 +40,16 @@ Vous pouvez également utiliser la commande `az eventgrid domain create` pour cr
 Dans la section précédente, vous avez appris à activer une identité managée par le système lors de la création d’une rubrique ou d’un domaine. Dans cette section, vous allez apprendre à activer une identité managée par le système pour une rubrique ou un domaine existant. 
 
 ### <a name="use-the-azure-portal"></a>Utilisation du portail Azure
+La procédure suivante vous montre comment activer une identité managée par le système pour une rubrique. Les étapes d’activation d’une identité pour un domaine sont similaires. 
+
 1. Accédez au [portail Azure](https://portal.azure.com).
-2. Dans la barre de recherche, recherchez **rubriques Event Grid**.
+2. Dans la barre de recherche en haut, recherchez **Rubriques Event Grid**.
 3. Sélectionnez la **rubrique** pour laquelle vous souhaitez activer l’identité managée. 
 4. Basculez vers l’onglet **Identité**. 
-5. Positionnez le commutateur pour activer l’identité. 
+5. **Activez** le commutateur pour activer l’identité. 
+1. Sélectionnez **Enregistrer** dans la barre d’outils pour enregistrer le paramètre. 
+
+    :::image type="content" source="./media/managed-service-identity/identity-existing-topic.png" alt-text="Page identité pour une rubrique"::: 
 
 La procédure permettant d’activer une identité pour un domaine Event Grid est similaire.
 
@@ -93,7 +94,7 @@ L’exemple suivant ajoute une identité managée pour une rubrique Event Grid n
 Les étapes sont similaires pour l’ajout d’une identité à d’autres rôles mentionnés dans le tableau. 
 
 ### <a name="use-the-azure-cli"></a>Utilisation de l’interface de ligne de commande Microsoft Azure
-L’exemple présenté dans cette section montre comment utiliser Azure CLI pour ajouter une identité à un rôle RBAC. Les exemples de commandes sont destinés aux rubriques Event Grid. Les commandes sont similaires pour les domaines Event Grid. 
+L’exemple présenté dans cette section montre comment utiliser Azure CLI pour ajouter une identité à un rôle RBAC. Les exemples de commandes sont destinés aux rubriques Event Grid. Les commandes pour les domaines Event Grid sont similaires. 
 
 #### <a name="get-the-principal-id-for-the-topics-system-identity"></a>Obtenir l’ID du principal pour l’identité système de la rubrique 
 Tout d’abord, récupérez l’ID du principal de l’identité managée par le système de la rubrique et attribuez l’identité aux rôles appropriés.

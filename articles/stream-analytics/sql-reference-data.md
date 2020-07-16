@@ -5,14 +5,14 @@ author: mamccrea
 ms.author: mamccrea
 ms.reviewer: mamccrea
 ms.service: stream-analytics
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 01/29/2019
-ms.openlocfilehash: b9a855a89a37cde0be3c30b2428c32db361aa2e8
-ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
+ms.openlocfilehash: e00ab059c68d7a3f2288d94894199773cab63ac5
+ms.sourcegitcommit: e132633b9c3a53b3ead101ea2711570e60d67b83
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "84021685"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86039294"
 ---
 # <a name="use-reference-data-from-a-sql-database-for-an-azure-stream-analytics-job"></a>Utiliser les données de référence d’une base de données SQL pour une tâche Azure Stream Analytics
 
@@ -156,7 +156,7 @@ Quand vous utilisez la requête delta, des [tables temporelles dans Azure SQL Da
  
 2. Créez la requête delta. 
    
-   Cette requête récupère toutes les lignes dans votre base de données SQL qui ont été insérées ou supprimées entre l’heure de début **\@deltaStartTime** et l’heure de fin **\@deltaEndTime**. La requête delta doit retourner les mêmes colonnes que la requête d’instantané, ainsi que l’opération (**_operation_**) de la colonne. Cette colonne définit si la ligne est insérée ou supprimée entre **\@deltaStartTime** et **\@deltaEndTime**. Les lignes obtenues sont marquées avec le chiffre **1** si les enregistrements ont été insérés ou avec le chiffre **2** s’ils ont été supprimés. La requête doit également ajouter un **filigrane** du côté SQL Server pour s’assurer que toutes les mises à jour de la période delta sont correctement capturées. L’utilisation de la requête delta sans **filigrane** peut produire un jeu de données de référence incorrect.  
+   Cette requête récupère toutes les lignes dans la base de données SQL qui ont été insérées ou supprimées entre l’heure de début **\@deltaStartTime** et l’heure de fin **\@deltaEndTime**. La requête delta doit retourner les mêmes colonnes que la requête d’instantané, ainsi que l’opération (**_operation_**) de la colonne. Cette colonne définit si la ligne est insérée ou supprimée entre **\@deltaStartTime** et **\@deltaEndTime**. Les lignes obtenues sont marquées avec le chiffre **1** si les enregistrements ont été insérés ou avec le chiffre **2** s’ils ont été supprimés. La requête doit également ajouter un **filigrane** du côté SQL Server pour s’assurer que toutes les mises à jour de la période delta sont correctement capturées. L’utilisation de la requête delta sans **filigrane** peut produire un jeu de données de référence incorrect.  
 
    Pour les enregistrements qui ont été mis à jour, la table temporelle se charge de la comptabilité en capturant une opération d’insertion et de suppression. Le runtime Stream Analytics applique ensuite les résultats de la requête delta à l’instantané précédent pour conserver les données de référence à jour. Un exemple de requête delta est présenté ci-dessous :
 

@@ -6,16 +6,16 @@ services: storage
 author: tamram
 ms.service: storage
 ms.topic: how-to
-ms.date: 12/04/2019
+ms.date: 06/22/2020
 ms.author: tamram
 ms.subservice: common
 ms.custom: has-adal-ref
-ms.openlocfilehash: 0cda75469edaa183ed6553a431b9ad13b611db7d
-ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
+ms.openlocfilehash: ddb079051414168b125ce2e42e8badd55580f0c5
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/12/2020
-ms.locfileid: "83201065"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85212619"
 ---
 # <a name="acquire-a-token-from-azure-ad-for-authorizing-requests-from-a-client-application"></a>Obtenir un jeton à partir d’Azure AD pour autoriser les requêtes à partir d’une application cliente
 
@@ -58,7 +58,7 @@ Ensuite, accordez à votre application l’autorisation d’appeler les API de S
 
     ![Capture d’écran montrant les autorisations pour le stockage](media/storage-auth-aad-app/registered-app-permissions-1.png)
 
-Le volet **Autorisations d’API** indique à présent que votre application Azure AD enregistrée a accès à Microsoft Graph et au Stockage Azure. Les autorisations sont accordées à Microsoft Graph automatiquement quand vous inscrivez votre application pour la première fois dans Azure AD.
+Le volet **Autorisations d’API** indique à présent que votre application Azure AD enregistrée a accès à Microsoft Graph et aux API de Stockage Azure. Les autorisations sont accordées à Microsoft Graph automatiquement quand vous inscrivez votre application pour la première fois dans Azure AD.
 
 ![Capture d’écran montrant les autorisations de l’application inscrite](media/storage-auth-aad-app/registered-app-permissions-2.png)
 
@@ -213,7 +213,7 @@ private AuthenticationProperties BuildAuthenticationPropertiesForIncrementalCons
 {
     AuthenticationProperties properties = new AuthenticationProperties();
 
-    // Set the scopes, including the scopes that ADAL.NET or MSAL.NET need for the Token cache.
+    // Set the scopes, including the scopes that MSAL.NET needs for the token cache.
     string[] additionalBuildInScopes = new string[] { "openid", "offline_access", "profile" };
     properties.SetParameter<ICollection<string>>(OpenIdConnectParameterNames.Scope,
                                                  scopes.Union(additionalBuildInScopes).ToList());
@@ -284,8 +284,8 @@ CloudBlockBlob blob = new CloudBlockBlob(
 Pour exécuter l’exemple, vous devrez peut-être configurer le flux d’octroi implicite pour l’inscription de votre application. Procédez comme suit :
 
 1. Accédez à votre inscription d’application dans le Portail Microsoft Azure.
-1. Dans la section Gérer, sélectionnez le paramètre **authentification**.
-1. Sous **Paramètres avancés**, dans la section **Octroi implicite**, cochez les cases pour activer des jetons d’accès et des jetons d’ID, comme illustré dans l’image suivante :
+1. Dans la section **Gérer**, sélectionnez le paramètre **authentification**.
+1. Dans la section **Octroi implicite**, activez la case des jetons d’ID, comme illustré dans l’image suivante :
 
     ![Capture d’écran montrant comment activer les paramètres pour le flux d’octroi implicite](media/storage-auth-aad-app/enable-implicit-grant-flow.png)
 
@@ -294,13 +294,13 @@ Pour exécuter l’exemple, vous devrez peut-être configurer le flux d’octroi
 Lorsque vous exécutez l’exemple, vous pouvez constater que vous devez mettre à jour l’URI de redirection spécifié dans l’inscription de votre application pour utiliser le port *localhost* attribué lors de l’exécution. Pour mettre à jour l’URI de redirection pour utiliser le port affecté, procédez comme suit :
 
 1. Accédez à votre inscription d’application dans le Portail Microsoft Azure.
-1. Dans la section Gérer, sélectionnez le paramètre **authentification**.
+1. Dans la section **Gérer**, sélectionnez le paramètre **authentification**.
 1. Sous **URI de redirection**, modifiez le port pour correspondre à celui utilisé par l’exemple d’application, comme indiqué dans l’image suivante :
 
     ![Capture d’écran montrant les URI de redirection pour l’inscription de l’application](media/storage-auth-aad-app/redirect-uri.png)
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-- Pour en savoir plus sur la plateforme d’identité Microsoft, veuillez consulter la page [Plateforme d’identité Microsoft](https://docs.microsoft.com/azure/active-directory/develop/).
-- Pour en savoir plus sur les rôles RBAC relatifs au Stockage Azure, consultez [Gérer les droits d’accès aux données de stockage avec RBAC](storage-auth-aad-rbac.md).
-- Pour plus d’informations sur l’utilisation des identités managées pour les ressources Azure avec le Stockage Azure, consultez [Authentifier l’accès aux objets BLOB et files d’attente avec Azure Active Directory et des identités gérées pour les ressources Azure](storage-auth-aad-msi.md).
+- [Plateforme d’identité Microsoft](https://docs.microsoft.com/azure/active-directory/develop/)
+- [Gérer les droits d’accès aux données de stockage avec RBAC](storage-auth-aad-rbac.md)
+- [Authenticate access to blobs and queues with Azure Active Directory and managed identities for Azure Resources](storage-auth-aad-msi.md) (Authentifier l’accès aux objets blob et files d’attente avec Azure Active Directory et les identités managées pour les ressources Azure)

@@ -5,13 +5,13 @@ author: ajlam
 ms.author: andrela
 ms.service: mysql
 ms.topic: conceptual
-ms.date: 3/18/2020
-ms.openlocfilehash: af0069adc741cfc802c37c90c0c7ec3c3ba74bb2
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.date: 7/7/2020
+ms.openlocfilehash: b5751bdccde33fa16d5f09cfbe9a411a351518b0
+ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "79537225"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86086549"
 ---
 # <a name="understand-business-continuity-in-azure-database-for-mysql"></a>Comprendre la continuité d’activité dans Azure Database pour MySQL
 
@@ -47,6 +47,10 @@ L’autre solution consiste à utiliser la fonctionnalité de géorestauration d
 
 > [!IMPORTANT]
 > La géorestauration n’est possible que si vous avez provisionné le serveur avec le stockage de sauvegardes géoredondantes. Si vous souhaitez basculer des sauvegardes redondantes localement aux sauvegardes géoredondantes pour un serveur existant, vous devez effectuer une image mémoire de votre serveur existant en utilisant mysqldump et la restaurer vers un serveur nouvellement créé configuré avec des sauvegardes géoredondantes.
+
+## <a name="cross-region-read-replicas"></a>Réplicas en lecture inter-régions
+
+Vous pouvez utiliser des réplicas en lecture inter-régions pour améliorer la planification de la continuité d’activité et de la reprise d’activité. Les réplicas en lecture sont mis à jour de manière asynchrone à l’aide de la technologie de réplication des journaux des transactions de MySQL. Pour plus d’informations sur les réplicas en lecture, les régions disponibles et le basculement, consultez cet [article sur les concepts relatifs aux réplicas en lecture](concepts-read-replicas.md). 
 
 ## <a name="next-steps"></a>Étapes suivantes
 

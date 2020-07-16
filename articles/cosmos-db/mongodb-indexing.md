@@ -4,16 +4,16 @@ description: Cet article présente une vue d’ensemble des fonctionnalités d�
 ms.service: cosmos-db
 ms.subservice: cosmosdb-mongo
 ms.devlang: nodejs
-ms.topic: conceptual
-ms.date: 04/03/2020
+ms.topic: how-to
+ms.date: 06/16/2020
 author: timsander1
 ms.author: tisande
-ms.openlocfilehash: fd602f88acf26e821e57e0a844f543aac08dad0d
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: e0b14eefcc0b484c92faf1148ae2972f51b04d31
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81732709"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85260693"
 ---
 # <a name="manage-indexing-in-azure-cosmos-dbs-api-for-mongodb"></a>Gérer l’indexation dans l’API pour MongoDB d’Azure Cosmos DB
 
@@ -21,7 +21,7 @@ L’API d’Azure Cosmos DB pour MongoDB tire parti des fonctionnalités de base
 
 ## <a name="indexing-for-mongodb-server-version-36"></a>Indexation pour le serveur MongoDB version 3.6
 
-L’API d’Azure Cosmos DB pour le serveur MongoDB version 3.6 indexe automatiquement le champ `_id`, qui ne peut pas être abandonné. Elle applique automatiquement l’unicité du champ `_id` par clé de partition.
+L’API d’Azure Cosmos DB pour le serveur MongoDB version 3.6 indexe automatiquement le champ `_id`, qui ne peut pas être abandonné. Elle applique automatiquement l’unicité du champ `_id` par clé de partition. Dans l’API d’Azure Cosmos DB pour MongoDB, le partitionnement et l’indexation sont des concepts distincts. Vous n’êtes pas tenu d’indexer votre clé de partition. Toutefois, comme pour toute autre propriété dans votre document, si cette propriété est un filtre courant dans vos requêtes, nous vous recommandons d’indexer la clé de partition.
 
 Pour indexer des champs supplémentaires, appliquez les commandes de gestion d’index MongoDB. Comme dans MongoDB, l’API d’Azure Cosmos DB pour MongoDB indexe automatiquement le champ `_id` uniquement. Cette stratégie d’indexation par défaut est différente de celle de l’API SQL Azure Cosmos DB, qui indexe tous les champs par défaut.
 
@@ -72,6 +72,98 @@ Voici un exemple de création d’index géospatial sur le champ `location` :
 ### <a name="text-indexes"></a>Index de texte
 
 L’API d’Azure Cosmos DB pour MongoDB ne prend pas en charge les index de texte actuellement. Pour les requêtes de recherche de texte sur les chaînes, vous devez utiliser l’intégration de la [recherche cognitive Azure](https://docs.microsoft.com/azure/search/search-howto-index-cosmosdb) à Azure Cosmos DB.
+
+## <a name="wildcard-indexes"></a>Index génériques
+
+Vous pouvez utiliser des index génériques pour prendre en charge des requêtes sur des champs inconnus. Supposons que vous disposiez d’une collection contenant des données sur des familles.
+
+Voici un exemple de document dans cette collection :
+
+```json
+  "children": [
+     {
+         "firstName": "Henriette Thaulow",
+         "grade": "5"
+     }
+  ]
+```
+
+Voici un autre exemple, cette fois avec un ensemble de propriétés légèrement différent dans `children` :
+
+```json
+  "children": [
+      {
+        "familyName": "Merriam",
+        "givenName": "Jesse",
+        "pets": [
+            { "givenName": "Goofy" },
+            { "givenName": "Shadow" }
+      },
+      {
+        "familyName": "Merriam",
+        "givenName": "John",
+      }
+  ]
+```
+
+Dans cette collection, les documents peuvent avoir de nombreuses propriétés possibles. Si vous souhaitez indexer toutes les données dans le tableau `children`, vous avez deux options : créer des index distincts pour chaque propriété individuelle ou créer un seul index générique pour l’ensemble du tableau `children`.
+
+### <a name="create-a-wildcard-index"></a>Créer un index générique
+
+La commande suivante crée un index générique sur toutes les propriétés dans `children` :
+
+`db.coll.createIndex({"children.$**" : 1})`
+
+**Contrairement à MongoDB, les index génériques peuvent prendre en charge plusieurs champs dans les prédicats de requête**. Il n’y aura pas de différence dans les performances de requête si vous utilisez un seul index générique au lieu de créer un index distinct pour chaque propriété.
+
+Vous pouvez créer les types d’index suivants à l’aide de la syntaxe des caractères génériques :
+
+- Champ unique
+- Géospatial
+
+### <a name="indexing-all-properties"></a>Indexation de toutes les propriétés
+
+Voici comment vous pouvez créer un index de caractères génériques sur tous les champs :
+
+`db.coll.createIndex( { "$**" : 1 } )`
+
+Lors du démarrage du développement, il peut être utile de créer un index générique sur tous les champs. À mesure que d’autres propriétés sont indexées dans un document, les frais d’unité de requête (RU) pour l’écriture et la mise à jour du document augmentent. Par conséquent, si vous avez une charge de travail avec d’importantes opérations d’écriture, vous devez opter pour des chemins d’index individuels au lieu d’utiliser des index génériques.
+
+### <a name="limitations"></a>Limites
+
+Les index génériques ne prennent pas en charge les types ou propriétés d’index suivants :
+
+- Composé
+- TTL
+- Unique
+
+**Contrairement à MongoDB**, dans l’API d’Azure Cosmos DB pour MongoDB, vous **ne pouvez pas** utiliser des index génériques pour les opérations suivantes :
+
+- Création d’un index générique incluant plusieurs champs spécifiques
+
+`db.coll.createIndex(
+    { "$**" : 1 },
+    { "wildcardProjection " :
+        {
+           "children.givenName" : 1,
+           "children.grade" : 1
+        }
+    }
+)`
+
+- Création d’un index générique excluant plusieurs champs spécifiques
+
+`db.coll.createIndex(
+    { "$**" : 1 },
+    { "wildcardProjection" :
+        {
+           "children.givenName" : 0,
+           "children.grade" : 0
+        }
+    }
+)`
+
+Vous pouvez également créer plusieurs index génériques.
 
 ## <a name="index-properties"></a>Propriétés d’index
 
@@ -253,7 +345,12 @@ Après la suppression des index par défaut, vous pouvez ajouter d’autres inde
 
 Les index composés comportent des références à plusieurs champs d’un document. Si vous souhaitez créer un index composé, effectuez une mise à niveau vers la version 3.6 en envoyant une [demande de support](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade).
 
+### <a name="wildcard-indexes-version-32"></a>Index génériques (version 3.2)
+
+Si vous souhaitez créer un index générique, effectuez une mise à niveau vers la version 3.6 en déposant une [demande de support](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade).
+
 ## <a name="next-steps"></a>Étapes suivantes
 
 * [Indexation dans Azure Cosmos DB](../cosmos-db/index-policy.md)
 * [Faire expirer automatiquement des données avec la durée de vie dans Azure Cosmos DB](../cosmos-db/time-to-live.md)
+* Pour en savoir plus sur la relation entre le partitionnement et l’indexation, consultez le guide pratique pour [interroger un conteneur Azure Cosmos](how-to-query-container.md).

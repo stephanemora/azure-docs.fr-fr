@@ -6,16 +6,16 @@ services: storage
 author: tamram
 ms.service: storage
 ms.topic: conceptual
-ms.date: 05/11/2020
+ms.date: 06/22/2020
 ms.author: tamram
 ms.reviewer: artek
 ms.subservice: common
-ms.openlocfilehash: c4d14c21174f9631a1ad72489d4c0bafe013572c
-ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
+ms.openlocfilehash: 9502194b2020723801469b511f46d3e806290ba5
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/20/2020
-ms.locfileid: "83681338"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85213990"
 ---
 # <a name="azure-storage-redundancy"></a>Redondance de Stockage Azure
 
@@ -62,8 +62,8 @@ Le tableau suivant répertorie les types de comptes de stockage qui prennent en 
 |    Type de compte de stockage    |    Régions prises en charge    |    Services pris en charge    |
 |----------------------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------|---------------------------------------------------------------------------------------------------------------------------------------------|
 |    Universel v2<sup>1</sup>    | Asie du Sud-Est<br /> Australie Est<br /> Europe septentrionale<br />  Europe occidentale<br /> France Centre<br /> Japon Est<br /> Afrique du Sud Nord<br /> Sud du Royaume-Uni<br /> USA Centre<br /> USA Est<br /> USA Est 2<br /> USA Ouest 2    |    Objets blob de blocs<br /> Objets blob de pages<sup>2</sup><br /> Partages de fichiers (standard)<br /> Tables<br /> Files d’attente<br /> |
-|    BlockBlobStorage<sup>1</sup>    | Europe occidentale<br /> USA Est    |    Objets blob de blocs uniquement    |
-|    FileStorage    | Europe occidentale<br /> USA Est    |    Azure Files uniquement    |
+|    BlockBlobStorage<sup>1</sup>    | Asie du Sud-Est<br /> Europe occidentale<br /> USA Est    |    Objets blob de blocs uniquement    |
+|    FileStorage    | Asie du Sud-Est<br /> Europe occidentale<br /> USA Est    |    Azure Files uniquement    |
 
 <sup>1</sup> Le niveau archive n’est pas actuellement pris en charge sur les comptes ZRS.<br />
 <sup>2</sup> Les comptes de stockage qui contiennent des disques managés Azure pour les machines virtuelles utilisent toujours LRS. Les disques non managés Azure doivent également utiliser LRS. Il est possible de créer un compte de stockage utilisant GRS pour les disques non managés Azure, mais cela n’est pas recommandé en raison de problèmes potentiels relatifs à la cohérence de la géoréplication asynchrone. Ni les disques managés, ni les disques non managés ne prennent en charge ZRS ou GZRS. Pour plus d’informations sur les disques managés, voir [Tarification des disques managés Azure](https://azure.microsoft.com/pricing/details/managed-disks/).
@@ -81,7 +81,7 @@ Le service Stockage Azure offre deux options pour la copie de vos données vers 
 - La réplication par **stockage géoredondant (GRS)** copie vos données de façon synchrone trois fois au sein d’un même emplacement physique dans la région primaire en utilisant une réplication LRS. Elle copie ensuite vos données de façon asynchrone vers un emplacement physique unique dans la région secondaire.
 - La réplication par **stockage géoredondant interzone (GZRS)** copie vos données de façon synchrone dans trois zones de disponibilité Azure au sein de la région primaire en utilisant une réplication ZRS. Elle copie ensuite vos données de façon asynchrone vers un emplacement physique unique dans la région secondaire.
 
-La principale différence entre les réplications GRS et GZRS réside dans la manière dont les données sont répliquées dans la région primaire. Dans l’emplacement secondaire, les données sont toujours répliquées de manière synchrone trois fois en utilisant une réplication LRS.
+La principale différence entre les réplications GRS et GZRS réside dans la manière dont les données sont répliquées dans la région primaire. Dans l’emplacement secondaire, les données sont toujours répliquées de manière synchrone trois fois en utilisant une réplication LRS. LRS dans la région secondaire protège vos données contre les défaillances matérielles.
 
 Avec les réplications GRS ou GZRS, les données de l’emplacement secondaire ne sont disponibles pour l’accès en lecture ou en écriture qu’en cas de basculement vers la région secondaire. Pour un accès en lecture à l’emplacement secondaire, configurez votre compte de stockage pour utiliser un stockage géoredondant avec accès en lecture (RA-GRS) ou un stockage géoredondant interzone avec accès en lecture (RA-GZRS). Pour plus d’informations, voir [Accès en lecture aux données dans la région secondaire](#read-access-to-data-in-the-secondary-region).
 
@@ -120,13 +120,15 @@ Pour plus d’informations sur la tarification, consultez les détails de la tar
 
 ## <a name="read-access-to-data-in-the-secondary-region"></a>Accès en lecture aux données dans la région secondaire
 
-Le stockage géo-redondant (GRS ou GZRS) réplique vos données vers un autre emplacement physique dans la région secondaire pour offrir une protection contre les pannes régionales. Toutefois, ces données peuvent être lues uniquement si le client ou Microsoft lance un basculement de la région primaire vers la région secondaire. Lorsque vous activez l’accès en lecture à la région secondaire, vos données sont accessibles en lecture si la région primaire devient indisponible. Pour l’accès en lecture à la région secondaire, activez le stockage géographiquement redondant avec accès en lecture (RA-GRS) ou le stockage géographiquement redondant interzone avec accès en lecture (RA-GZRS).
+Le stockage géo-redondant (GRS ou GZRS) réplique vos données vers un autre emplacement physique dans la région secondaire pour offrir une protection contre les pannes régionales. Toutefois, ces données peuvent être lues uniquement si le client ou Microsoft lance un basculement de la région primaire vers la région secondaire. Lorsque vous activez l’accès en lecture à la région secondaire, vos données sont accessibles en lecture à tous moments, y compris dans la situation où la région primaire devient indisponible. Pour l’accès en lecture à la région secondaire, activez le stockage géographiquement redondant avec accès en lecture (RA-GRS) ou le stockage géographiquement redondant interzone avec accès en lecture (RA-GZRS).
 
 ### <a name="design-your-applications-for-read-access-to-the-secondary"></a>Concevoir vos applications pour l’accès en lecture à la région secondaire
 
-Si votre compte de stockage est configuré pour l’accès en lecture à la région secondaire, vous pouvez concevoir vos applications pour qu’elles passent en toute transparence à la lecture des données de la région secondaire si la région primaire devient indisponible pour une raison quelconque. La région secondaire étant toujours disponible pour l’accès en lecture, vous pouvez tester votre application pour vous assurer qu’elle peut lire à partir de la région secondaire en cas de panne. Pour plus d’informations sur la conception de vos applications pour la haute disponibilité, consultez [Utilisez la géo-redondance pour concevoir des applications hautement disponibles](geo-redundant-design.md).
+Si votre compte de stockage est configuré pour l’accès en lecture à la région secondaire, vous pouvez concevoir vos applications pour qu’elles passent en toute transparence à la lecture des données de la région secondaire si la région primaire devient indisponible pour une raison quelconque. 
 
-Lorsque l’accès en lecture à la région secondaire est activé, vos données peuvent être lues à partir des points de terminaison tant secondaire que primaire de votre compte de stockage. Le point de terminaison secondaire ajoute le suffixe *– secondary* au nom du compte. Par exemple, si votre point de terminaison primaire pour le stockage d’objets blob est `myaccount.blob.core.windows.net`, le point de terminaison secondaire est `myaccount-secondary.blob.core.windows.net`. Les clés d’accès pour votre compte de stockage sont les mêmes pour les points de terminaison primaire et secondaire.
+La région secondaire est disponible pour l’accès en lecture une fois que vous avez activé RA-GRS ou RA-GZRS, afin que vous puissiez tester votre application à l’avance pour vous assurer qu’elle sera correctement lue à partir du serveur secondaire en cas de panne. Pour plus d’informations sur la conception de vos applications pour la haute disponibilité, consultez [Utilisez la géo-redondance pour concevoir des applications hautement disponibles](geo-redundant-design.md).
+
+Lorsque l’accès en lecture à la base de données secondaire est activé, votre application peut être lue à partir du point de terminaison secondaire, ainsi que du point de terminaison principal. Le point de terminaison secondaire ajoute le suffixe *– secondary* au nom du compte. Par exemple, si votre point de terminaison primaire pour le stockage d’objets blob est `myaccount.blob.core.windows.net`, le point de terminaison secondaire est `myaccount-secondary.blob.core.windows.net`. Les clés d’accès pour votre compte de stockage sont les mêmes pour les points de terminaison primaire et secondaire.
 
 ### <a name="check-the-last-sync-time-property"></a>Vérifier la propriété Heure de la dernière synchronisation
 

@@ -1,6 +1,6 @@
 ---
 title: Fonctionnalités de repérage dans Azure Sentinel | Microsoft Docs
-description: Cet article décrit comment utiliser les fonctionnalités de repérage Azure Sentinel.
+description: Utilisez les requêtes de chasse intégrées à Azure Sentinel pour vous aider à poser les bonnes questions afin de détecter les problèmes dans vos données.
 services: sentinel
 documentationcenter: na
 author: yelevin
@@ -16,12 +16,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/10/2019
 ms.author: yelevin
-ms.openlocfilehash: 52af688917aa531d125f83844df29a988ed7cb7e
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: cceeb1fc9715dfd7b1ac714c424421c51d292757
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81686631"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85552284"
 ---
 # <a name="hunt-for-threats-with-azure-sentinel"></a>Repérer les menaces avec Azure Sentinel
 

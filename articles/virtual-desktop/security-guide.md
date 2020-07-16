@@ -8,14 +8,14 @@ ms.topic: conceptual
 ms.date: 05/07/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: 5330c427088734b049b2cb4f7735ac0099a52b47
-ms.sourcegitcommit: a6d477eb3cb9faebb15ed1bf7334ed0611c72053
+ms.openlocfilehash: 95f1027f4f5ace6963a38edf0dc028ddca351b7e
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/08/2020
-ms.locfileid: "82943673"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84736670"
 ---
-# <a name="security-best-practices"></a>Meilleures pratiques de sécurité
+# <a name="security-best-practices"></a>Bonnes pratiques de sécurité
 
 Windows Virtual Desktop est un service de bureau virtuel géré qui comprend de nombreuses fonctionnalités de sécurité pour garantir la sécurité de votre organisation. Dans un déploiement Windows Virtual Desktop, Microsoft gère des portions des services au nom du client. Le service dispose de nombreuses fonctionnalités de sécurité avancées intégrées, telles que la connexion inversée, qui réduisent le risque lié au fait que les bureaux à distance sont accessibles depuis n’importe où.
 
@@ -137,7 +137,7 @@ Considérez les hôtes de session comme une extension de votre déploiement de p
 
 ### <a name="manage-office-pro-plus-security"></a>Gérer la sécurité d’Office Pro plus
 
-En plus de sécuriser vos hôtes de session, il est important de sécuriser également les applications qui s'y exécutent. Office Pro plus est l’une des applications les plus courantes déployées dans les hôtes de session. Pour améliorer la sécurité du déploiement d’Office, nous vous recommandons d'utiliser le [Conseiller en stratégie de sécurité](/DeployOffice/overview-of-security-policy-advisor) pour les applications Microsoft 365 pour les entreprises. Cet outil identifie les stratégies que vous pouvez appliquer à votre déploiement pour davantage de sécurité. Conseiller en stratégie de sécurité recommande également des stratégies en fonction de leur impact sur votre sécurité et votre productivité.
+En plus de sécuriser vos hôtes de session, il est important de sécuriser également les applications qui s'y exécutent. Office Pro plus est l’une des applications les plus courantes déployées dans les hôtes de session. Pour améliorer la sécurité du déploiement d’Office, nous vous recommandons d’utiliser le [Conseiller en stratégie de sécurité](/DeployOffice/overview-of-security-policy-advisor) pour Microsoft 365 Apps for enterprise. Cet outil identifie les stratégies que vous pouvez appliquer à votre déploiement pour davantage de sécurité. Conseiller en stratégie de sécurité recommande également des stratégies en fonction de leur impact sur votre sécurité et votre productivité.
 
 ### <a name="other-security-tips-for-session-hosts"></a>Autres conseils de sécurité pour les hôtes de session
 

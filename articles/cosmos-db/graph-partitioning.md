@@ -5,15 +5,15 @@ author: luisbosquez
 ms.author: lbosq
 ms.service: cosmos-db
 ms.subservice: cosmosdb-graph
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 06/24/2019
 ms.custom: seodec18
-ms.openlocfilehash: 44d3b7c2b9e23b90f696162747d9728b18fb7d3f
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 78c15da1ea9fe5f6307ce388e4d64d372e9eb8c8
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "77623375"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85261764"
 ---
 # <a name="using-a-partitioned-graph-in-azure-cosmos-db"></a>Utilisation d’un graphique partitionné dans Azure Cosmos DB
 
@@ -21,7 +21,7 @@ Une des fonctionnalités clés de l’API Gremlin dans Azure Cosmos DB est la ca
 
 **Vous devez procéder à un partitionnement** si le conteneur doit stocker plus de 20 Go ou si vous souhaitez allouer plus de 10 000 unités de requête par seconde (RU). Les mêmes principaux généraux du [mécanisme de partitionnement Azure Cosmos DB](partition-data.md) s’appliquent avec quelques optimisations spécifiques des graphiques, décrites ci-dessous.
 
-![Partitionnement dans Graph.](./media/graph-partitioning/graph-partitioning.png)
+:::image type="content" source="./media/graph-partitioning/graph-partitioning.png" alt-text="Partitionnement dans Graph." border="false":::
 
 ## <a name="graph-partitioning-mechanism"></a>Mécanisme de partitionnement dans Graph
 

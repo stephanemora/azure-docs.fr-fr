@@ -11,12 +11,12 @@ ms.date: 01/15/2019
 ms.custom:
 - amqp
 - mqtt
-ms.openlocfilehash: 73981cb0f124e1577690f893ead60e6375f16298
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 78899f44ba6610f17d19b025f61d968a629c8ad6
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82133142"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85565880"
 ---
 # <a name="glossary-of-iot-hub-terms"></a>Glossaire des termes d’IoT Hub
 
@@ -222,7 +222,7 @@ Les [métriques IoT Hub](iot-hub-metrics.md) fournissent des données sur l’é
 
 ## <a name="iot-hub-query-language"></a>Langage de requête IoT Hub
 
-Le [langage de requête IoT Hub](iot-hub-devguide-query-language.md) est un langage similaire à SQL, qui vous permet d’interroger vos [](#job) et jumeaux d’appareil.
+Le [langage de requête IoT Hub](iot-hub-devguide-query-language.md) est un langage similaire à SQL, qui vous permet d’interroger vos [Travaux](#job) et jumeaux d’appareil.
 
 ## <a name="iot-hub-resource-rest-api"></a>API REST de ressource IoT Hub
 
@@ -343,7 +343,7 @@ Vous pouvez utiliser un service d’émission de jeton pour implémenter un méc
 
 ## <a name="twin-queries"></a>Requêtes de jumeaux
 
-Les [requêtes de jumeaux d’appareil et de module](iot-hub-devguide-query-language.md) utilisent le langage de requête similaire à SQL d’IoT Hub pour extraire des informations de vos jumeaux d’appareil ou jumeaux de module. Vous pouvez utiliser le même langage de requête IoT Hub pour récupérer des informations sur l’exécution de [](#job) dans votre hub IoT.
+Les [requêtes de jumeaux d’appareil et de module](iot-hub-devguide-query-language.md) utilisent le langage de requête similaire à SQL d’IoT Hub pour extraire des informations de vos jumeaux d’appareil ou jumeaux de module. Vous pouvez utiliser le même langage de requête IoT Hub pour récupérer des informations sur l’exécution d’un [Travail](#job) dans votre hub IoT.
 
 ## <a name="twin-synchronization"></a>Synchronisation des jumeaux
 

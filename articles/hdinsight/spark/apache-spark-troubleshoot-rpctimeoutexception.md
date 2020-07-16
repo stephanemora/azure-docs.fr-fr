@@ -7,12 +7,12 @@ author: hrasheed-msft
 ms.author: hrasheed
 ms.reviewer: jasonh
 ms.date: 07/29/2019
-ms.openlocfilehash: b15ac80295a0113eb0c384e1cc3185f3304c39c6
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: a29d36c5ba6fdd51de27afa3ab4dfe1258332200
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "75894280"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85208414"
 ---
 # <a name="scenario-rpctimeoutexception-for-apache-spark-thrift-server-in-azure-hdinsight"></a>Scénario : RpcTimeoutException pour le serveur Thrift Apache Spark dans Azure HDInsight
 
@@ -36,7 +36,7 @@ java.lang.OutOfMemoryError: GC overhead limit exceeded
 
 ## <a name="cause"></a>Cause
 
-Ces erreurs sont dues à un manque de ressources mémoire lors du traitement des données. Si le processus de nettoyage de la mémoire de Java démarre, il peut causer le retrait de l’application Spark. Les requêtes commencent à expirer et à arrêter le traitement. L’erreur `Futures timed out` indique qu’un cluster est soumis à de fortes contraintes.
+Ces erreurs sont dues à un manque de ressources mémoire lors du traitement des données. Si le processus de nettoyage de la mémoire Java démarre, il peut causer l’arrêt du fonctionnement de l’application Spark. Les requêtes commencent à expirer et à arrêter le traitement. L’erreur `Futures timed out` indique qu’un cluster est soumis à de fortes contraintes.
 
 ## <a name="resolution"></a>Résolution
 

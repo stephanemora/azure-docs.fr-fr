@@ -1,25 +1,23 @@
 ---
 title: Sécurité du réseau pour les ressources Azure Event Grid
 description: Cet article explique comment configurer l’accès à partir de points de terminaison privés
-services: event-grid
 author: VidyaKukke
-ms.service: event-grid
 ms.topic: conceptual
-ms.date: 03/11/2020
+ms.date: 07/07/2020
 ms.author: vkukke
-ms.openlocfilehash: d6d6d8df8f3c5da762ac672b304ec072a723e7d7
-ms.sourcegitcommit: c535228f0b77eb7592697556b23c4e436ec29f96
+ms.openlocfilehash: 1887b6b5919a8b0f6e8f570b2471d74d9541df31
+ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/06/2020
-ms.locfileid: "82857048"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86119240"
 ---
 # <a name="network-security-for-azure-event-grid-resources"></a>Sécurité du réseau pour les ressources Azure Event Grid
 Cet article explique comment utiliser les fonctionnalités de sécurité suivantes avec Azure Event Grid : 
 
-- Étiquettes de service en sortie (préversion)
+- Étiquettes de service en sortie
 - Règles de pare-feu IP en entrée (préversion)
-- Points de terminaison privés pour l’entrée (préversion)
+- Points de terminaison privés pour l’entrée
 
 
 ## <a name="service-tags"></a>Balises de service
@@ -28,8 +26,8 @@ Une étiquette de service représente un groupe de préfixes d’adresses IP d�
 Vous pouvez utiliser des étiquettes de service pour définir des contrôles d’accès réseau sur les [groupes de sécurité réseau](../virtual-network/security-overview.md#security-rules) ou le [pare-feu Azure](../firewall/service-tags.md). Utilisez des étiquettes de service à la place des adresses IP spécifiques lors de la création de règles de sécurité. En spécifiant le nom de l’étiquette de service (par exemple, **AzureEventGrid**) dans le champ *Source* ou *Destination*  approprié d’une règle, vous pouvez autoriser ou refuser le trafic pour le service correspondant.
 
 | Balise du service | Objectif | Peut-elle utiliser le trafic entrant ou sortant ? | Peut-elle être étendue à une zone régionale ? | Peut-elle être utilisée avec le Pare-feu Azure ? |
-| --- | -------- |:---:|:---:|:---:|:---:|:---:|:---:|:---:|
-| AzureEventGrid | Azure Event Grid. <br/><br/>*Remarque :* Cette balise couvre les points de terminaison Azure Event Grid dans les régions USA Centre Sud, USA Est, Usa Est 2, USA Ouest 2 et USA Centre uniquement. | Les deux | Non | Non |
+| --- | -------- |:---:|:---:|:---:|
+| AzureEventGrid | Azure Event Grid. | Les deux | Non | Non |
 
 
 ## <a name="ip-firewall"></a>Pare-feu IP 
@@ -37,6 +35,7 @@ Azure Event Grid prend en charge les contrôles d’accès basés sur IP pour la
 
 Par défaut, la rubrique et le domaine sont accessibles sur Internet tant que la demande s’accompagne d’une authentification et d’une autorisation valides. Avec le pare-feu IP, vous pouvez les limiter à un ensemble d’adresses IP ou de plages d’adresses IP dans la notation [CIDR (Classless InterDomain Routing)](https://en.wikipedia.org/wiki/Classless_Inter-Domain_Routing). Les serveurs de publication provenant de toute autre adresse IP seront rejetés et recevront une réponse 403 (interdit).
 
+Pour obtenir des instructions pas à pas sur la configuration du pare-feu IP pour les rubriques et les domaines, consultez [Configurer le pare-feu IP](configure-firewall.md).
 
 ## <a name="private-endpoints"></a>Instances Private Endpoint
 Vous pouvez utiliser des [points de terminaison privés](../private-link/private-endpoint-overview.md) pour autoriser l’entrée sécurisée d’événements directement à partir de votre réseau virtuel vers vos rubriques et domaines via une [liaison privée](../private-link/private-link-overview.md), sans passer par le réseau Internet public. Un point de terminaison privé est une interface réseau spéciale pour un service Azure dans votre réseau virtuel. Lorsque vous créez un point de terminaison privé pour votre rubrique ou domaine, il offre une connectivité sécurisée entre les clients sur votre réseau virtuel et votre ressource Event Grid. Une adresse IP est attribuée au point de terminaison privé à partir de la plage d’adresses IP de votre réseau virtuel. La connexion entre le point de terminaison privé et le service Event Grid utilise une liaison privée.
@@ -61,7 +60,7 @@ Lorsque vous résolvez l’URL du point de terminaison de la rubrique ou du doma
 | Nom                                          | Type      | Valeur                                         |
 | --------------------------------------------- | ----------| --------------------------------------------- |  
 | `topicA.westus.eventgrid.azure.net`             | CNAME     | `topicA.westus.privatelink.eventgrid.azure.net` |
-| `topicA.westus.privatelink.eventgrid.azure.net` | CNAME     | \<Profil Azure Traffic Manager\>
+| `topicA.westus.privatelink.eventgrid.azure.net` | CNAME     | \<Azure traffic manager profile\>
 
 Vous pouvez refuser ou contrôler l’accès pour un client en dehors du réseau virtuel via le point de terminaison public à l’aide du [pare-feu ID](#ip-firewall). 
 
@@ -100,3 +99,5 @@ La fonctionnalité **Pare-feu IP** est disponible dans les niveaux De base et P
 Vous pouvez configurer le pare-feu IP de votre ressource Event Grid pour limiter l’accès au réseau Internet public à un ensemble spécifique d’adresses IP ou de plages d’adresses IP. Pour obtenir des instructions pas à pas, consultez [Configurer le pare-feu IP](configure-firewall.md).
 
 Vous pouvez configurer des points de terminaison privés pour limiter l’accès exclusivement aux réseaux virtuels sélectionnés. Pour obtenir des instructions pas à pas, consultez [Configurer des points de terminaison privés](configure-private-endpoints.md).
+
+Pour résoudre les problèmes de connectivité réseau, consultez [Résoudre les problèmes de connectivité réseau](troubleshoot-network-connectivity.md)

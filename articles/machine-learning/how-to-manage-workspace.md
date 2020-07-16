@@ -1,5 +1,5 @@
 ---
-title: Créer des espaces de travail Azure Machine Learning dans le portail
+title: Créer des espaces de travail dans le portail
 titleSuffix: Azure Machine Learning
 description: Découvrez comment créer, afficher et supprimer des espaces de travail Azure Machine Learning dans le Portail Azure.
 services: machine-learning
@@ -10,12 +10,12 @@ ms.author: sgilley
 author: sdgilley
 ms.date: 12/27/2019
 ms.custom: seodec18
-ms.openlocfilehash: c729f59fbb92584ff613147577ab097e63307ace
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 71bb85c5812a3e779570cdd87c5092e5b0de52f9
+ms.sourcegitcommit: e132633b9c3a53b3ead101ea2711570e60d67b83
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84430445"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86045703"
 ---
 # <a name="create-and-manage-azure-machine-learning-workspaces-in-the-azure-portal"></a>Créer et gérer des espaces de travail Azure Machine Learning dans le Portail Azure
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]

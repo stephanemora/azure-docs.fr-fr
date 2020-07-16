@@ -7,12 +7,12 @@ ms.service: web-application-firewall
 ms.topic: article
 ms.date: 10/25/2019
 ms.author: victorh
-ms.openlocfilehash: 4bca41effc4e9834f8c76308556facb0681717cd
-ms.sourcegitcommit: b396c674aa8f66597fa2dd6d6ed200dd7f409915
+ms.openlocfilehash: a84e48c7fbb6d63a4bf8946b66bd35f354643ccb
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/07/2020
-ms.locfileid: "82888891"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84753598"
 ---
 # <a name="resource-logs-for-azure-web-application-firewall"></a>Journaux de ressources pour le pare-feu d’applications web Azure
 
@@ -42,11 +42,11 @@ Pour stocker vos journaux d’activité, vous disposez de trois options :
 
 La journalisation d’activité est automatiquement activée pour chaque ressource Resource Manager. Vous devez activer la journalisation de l’accès et des performances pour commencer à collecter les données disponibles dans ces journaux d’activité. Pour activer la journalisation, utilisez les étapes suivantes :
 
-1. Notez l’ID de ressource de votre compte de stockage, où les données de journalisation sont stockées. Cette valeur a le format suivant : /abonnements/\<subscriptionId\>/resourceGroups/\<nom du groupe de ressources\>/providers/Microsoft.Storage/storageAccounts/\<nom du compte de stockage\>. Vous pouvez utiliser n’importe quel compte de stockage dans votre abonnement. Vous pouvez utiliser le portail Azure pour rechercher ces informations.
+1. Notez l’ID de ressource de votre compte de stockage, où les données de journalisation sont stockées. Cette valeur se présente sous la forme : /subscriptions/\<subscriptionId\>/resourceGroups/\<resource group name\>/providers/Microsoft.Storage/storageAccounts/\<storage account name\>. Vous pouvez utiliser n’importe quel compte de stockage dans votre abonnement. Vous pouvez utiliser le portail Azure pour rechercher ces informations.
 
     ![Portail : ID de ressource du compte de stockage](../media/web-application-firewall-logs/diagnostics1.png)
 
-2. Notez l’ID de ressource de votre passerelle Application Gateway pour laquelle la journalisation est activée. Cette valeur a le format suivant : /abonnements/\<subscriptionId\>/resourceGroups/\<nom du groupe de ressources\>/providers/Microsoft.Network/applicationGateways/\<nom de la passerelle Application Gateway\>. Vous pouvez utiliser le portail pour rechercher ces informations.
+2. Notez l’ID de ressource de votre passerelle Application Gateway pour laquelle la journalisation est activée. Cette valeur se présente sous la forme : /subscriptions/\<subscriptionId\>/resourceGroups/\<resource group name\>/providers/Microsoft.Network/applicationGateways/\<application gateway name\>. Vous pouvez utiliser le portail pour rechercher ces informations.
 
     ![Portail : ID de ressource de la passerelle Application Gateway](../media/web-application-firewall-logs/diagnostics2.png)
 
@@ -108,7 +108,7 @@ Le journal d’accès n’est généré que si vous l’avez activé sur chaque 
 {
     "resourceId": "/SUBSCRIPTIONS/{subscriptionId}/RESOURCEGROUPS/PEERINGTEST/PROVIDERS/MICROSOFT.NETWORK/APPLICATIONGATEWAYS/{applicationGatewayName}",
     "operationName": "ApplicationGatewayAccess",
-    "time": "2017-04-26T19:27:38Z",
+    "timestamp": "2017-04-26T19:27:38Z",
     "category": "ApplicationGatewayAccessLog",
     "properties": {
         "instanceId": "ApplicationGatewayRole_IN_0",

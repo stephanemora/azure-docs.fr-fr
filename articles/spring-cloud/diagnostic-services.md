@@ -6,12 +6,12 @@ ms.service: spring-cloud
 ms.topic: conceptual
 ms.date: 01/06/2020
 ms.author: brendm
-ms.openlocfilehash: 83b223ab2195516492d55ac85be6e7db0dffbd98
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 57850b45820ec259337a8ad5b67bfebfd6762c24
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/27/2020
-ms.locfileid: "82176785"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84790583"
 ---
 # <a name="analyze-logs-and-metrics-with-diagnostics-settings"></a>Analyser les journaux et les métriques avec les paramètres de diagnostic
 
@@ -174,3 +174,31 @@ AppPlatformLogsforSpring
 ### <a name="learn-more-about-querying-application-logs"></a>En savoir plus sur l’interrogation des journaux d’application
 
 Azure Monitor fournit une prise en charge étendue de l’interrogation des journaux d’application à l’aide de Log Analytics. Pour plus d’informations sur ce service, consultez [Bien démarrer avec les requêtes de journal dans Azure Monitor](../azure-monitor/log-query/get-started-queries.md). Pour plus d’informations sur la création de requêtes pour analyser vos journaux d’application, consultez [Vue d’ensemble des requêtes de journal dans Azure Monitor](../azure-monitor/log-query/log-query-overview.md).
+
+## <a name="frequently-asked-questions-faq"></a>Forum Aux Questions (FAQ)
+
+### <a name="how-to-convert-multi-line-java-stack-traces-into-a-single-line"></a>Comment convertir des traces de pile Java à plusieurs lignes en une ligne unique ?
+
+Il existe une solution de contournement pour convertir les traces de pile à plusieurs lignes en une ligne unique. Vous pouvez modifier la sortie du journal Java pour remettre en forme les messages de trace de pile, en remplaçant les caractères de saut de ligne par un jeton. Si vous utilisez la bibliothèque Logback Java, vous pouvez remettre en forme les messages de trace de pile en ajoutant `%replace(%ex){'[\r\n]+', '\\n'}%nopex` comme suit :
+
+```xml
+<configuration>
+    <appender name="CONSOLE" class="ch.qos.logback.core.ConsoleAppender">
+        <encoder>
+            <pattern>
+                level: %level, message: "%logger{36}: %msg", exceptions: "%replace(%ex){'[\r\n]+', '\\n'}%nopex"%n
+            </pattern>
+        </encoder>
+    </appender>
+    <root level="INFO">
+        <appender-ref ref="CONSOLE"/>
+    </root>
+</configuration>
+```
+Vous pouvez ensuite remplacer le jeton par des caractères de saut de ligne dans Log Analytics comme indiqué ci-dessous :
+
+```sql
+AppPlatformLogsforSpring
+| extend Log = array_strcat(split(Log, '\\n'), '\n')
+```
+Vous pourrez peut-être appliquer la même stratégie pour d’autres bibliothèques de journaux Java.

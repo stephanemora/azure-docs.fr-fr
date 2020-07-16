@@ -8,12 +8,12 @@ ms.author: brjohnst
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 04/24/2020
-ms.openlocfilehash: dfd75ad2c6ae246bfe6ee8b983744b3db07a841f
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 5b585a903267386358552154228705c1921df619
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82194939"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85255328"
 ---
 # <a name="simple-query-syntax-in-azure-cognitive-search"></a>Syntaxe de requête simple dans la recherche cognitive Azure
 
@@ -62,6 +62,14 @@ Vérifiez que tous les caractères dangereux et réservés dans une URL sont enc
 
 Les caractères dangereux sont ``" ` < > # % { } | \ ^ ~ [ ]``. Les caractères réservés sont `; / ? : @ = + &`.
 
+### <a name="querying-for-special-characters"></a>Exécution d’une requête pour des caractères spéciaux
+
+Dans certains cas, vous rechercherez un caractère spécial, tel que l’émoji « ❤ » ou le signe « € ». Le cas échéant, assurez-vous que l’analyseur que vous utilisez n’ignore pas ces caractères.  L’analyseur standard ignore la plupart des caractères spéciaux de façon à ce qu’ils ne deviennent pas des jetons dans votre index.
+
+La première étape consiste donc à vous assurer que vous utilisez un analyseur qui prendra en compte ces jetons d’éléments. Par exemple, l’analyseur « Whitespace » prend en compte toutes les séquences de caractères séparées par des espaces blancs comme des jetons, donc la chaîne « ❤ » est considérée comme un jeton. En outre, un analyseur comme Microsoft English Analyzer (« en.microsoft ») considère la chaîne « € » comme un jeton. Vous pouvez [tester un analyseur](https://docs.microsoft.com/rest/api/searchservice/test-analyzer) pour voir quels jetons il génère pour une requête donnée.
+
+Lorsque vous utilisez des caractères Unicode, assurez-vous que les symboles sont correctement placés dans une séquence d’échappement dans l’URL de la requête (par exemple, pour « ❤ » utilisez la séquence d’échappement `%E2%9D%A4+`). Postman effectue cette traduction automatiquement.
+
 ###  <a name="query-size-limits"></a><a name="bkmk_querysizelimits"></a> Limites de taille des requêtes
 
  Il existe une limite à la taille des requêtes que vous pouvez envoyer à la Recherche cognitive Azure. Plus précisément, vous pouvez avoir au maximum 1 024 clauses (des expressions séparées par AND, OR, etc.). Il existe également une limite d’environ 32 Ko pour la taille d’un terme individuel dans une requête. Si votre application génère des requêtes de recherche par programmation, nous vous recommandons de la concevoir de façon à ce qu’elle ne génère pas des requêtes d’une taille illimitée.  
@@ -94,17 +102,17 @@ Lorsque vous choisissez un paramètre **searchMode**, tenez compte des modèles 
 
 <a name="prefix-search"></a>
 
-## <a name="prefix-search"></a>Recherche par préfixe
+## <a name="wildcard-prefix-matching--"></a>Correspondance du préfixe de caractère générique (*, ?)
 
-L’opérateur de suffixe est un astérisque `*`. Par exemple, `lingui*` trouve « linguistique » ou « linguini », en ignorant la casse. 
+Pour les requêtes « commence par », ajoutez un opérateur de suffixe en tant qu’espace réservé pour le reste d’un terme. Utilisez un astérisque `*` pour plusieurs caractères ou `?` pour les caractères uniques. Par exemple, `lingui*` correspond à « linguistique » ou « linguini », en ignorant la casse. 
 
-Comme pour les filtres, une requête de préfixe recherche une correspondance exacte. Par conséquent, il n’existe aucun scoring de pertinence (tous les résultats reçoivent un score de recherche de 1.0). Les requêtes de préfixe peuvent être lentes, en particulier si l’index est volumineux et le préfixe constitué d’un petit nombre de caractères. 
+Comme pour les filtres, une requête de préfixe recherche une correspondance exacte. Par conséquent, il n’existe aucun scoring de pertinence (tous les résultats reçoivent un score de recherche de 1.0). Sachez que les requêtes de préfixe peuvent être lentes, en particulier si l’index est volumineux et le préfixe constitué d’un petit nombre de caractères. Une autre méthodologie, telle que la segmentation du texte en unités lexicales de type edge n-gram, peut s’effectuer plus rapidement.
 
-Si vous souhaitez exécuter une requête de suffixe portant sur la dernière partie de la chaîne, utilisez une [recherche par caractères génériques](query-lucene-syntax.md#bkmk_wildcard) et la syntaxe Lucene complète.
+Pour les autres variantes de requêtes de caractères génériques, telles que la correspondance de suffixes ou d’infixes à la fin ou au milieu d’un terme, utilisez la [syntaxe Lucene complète pour la recherche de caractères génériques](query-lucene-syntax.md#bkmk_wildcard).
 
 ## <a name="phrase-search-"></a>Recherche d'expressions `"`
 
-Une recherche de termes est une requête portant sur un ou plusieurs termes et dans laquelle un des termes est considéré comme une correspondance. Une recherche d'expression est une expression exacte placée entre guillemets `" "`. Par exemple, si `Roach Motel` (sans guillemets) recherche les documents contenant `Roach` et/ou `Motel` n’importe où dans n’importe quel ordre, `"Roach Motel"` (avec des guillemets) établit une correspondance seulement avec les documents qui contiennent cette expression entière, avec les mots dans cet ordre (l’analyse de texte s’applique néanmoins toujours).
+Une recherche de termes est une requête portant sur un ou plusieurs termes et dans laquelle un des termes est considéré comme une correspondance. Une recherche d'expression est une expression exacte placée entre guillemets `" "`. Par exemple, si `Roach Motel` (sans guillemets) recherche les documents contenant `Roach` et/ou `Motel` n’importe où dans n’importe quel ordre, `"Roach Motel"` (avec des guillemets) établit une correspondance seulement avec les documents qui contiennent cette expression entière, avec les mots dans cet ordre (l’analyse lexicale s’applique néanmoins toujours).
 
 ## <a name="see-also"></a>Voir aussi  
 

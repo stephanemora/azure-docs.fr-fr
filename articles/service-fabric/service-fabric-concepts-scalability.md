@@ -5,12 +5,12 @@ author: masnider
 ms.topic: conceptual
 ms.date: 08/26/2019
 ms.author: masnider
-ms.openlocfilehash: 17827342b67d37d9fbeb56654824e004367823ef
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 1780cb47696813b5d26035f54e0685969482dba6
+ms.sourcegitcommit: bcb962e74ee5302d0b9242b1ee006f769a94cfb8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79236725"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86058110"
 ---
 # <a name="scaling-in-service-fabric"></a>Mise à l’échelle dans Service Fabric
 Azure Service Fabric facilite la création d’applications évolutives en gérant les services, les partitions et les réplicas sur les nœuds d’un cluster. L’exécution de nombreuses charges de travail sur un même appareil permet une utilisation maximale des ressources, mais permet également de choisir la façon dont vous mettez à l’échelle vos charges de travail. Cette vidéo Channel 9 décrit comment vous pouvez générer des applications de microservices scalables :
@@ -127,7 +127,7 @@ Mais pourquoi essayer de choisir un seul schéma de partition pour tous les util
 Lorsque vous créez des services devant subir une mise à l’échelle, envisagez le modèle dynamique ci-dessous. Vous aurez peut-être à l’adapter à votre situation :
 
 1. Plutôt que d’essayer de choisir un schéma de partitionnement global à l’avance, créez un « service gestionnaire ».
-2. Le travail de ce service gestionnaire est d’examiner les informations relatives aux clients lorsqu’ils se connectent à votre service. En fonction de ces informations, le service de gestionnaire crée une instance de votre service de stockage de contacts _réel_, _juste pour ce client_. Si une configuration, une isolation ou une mise à niveau particulières sont nécessaires, vous pouvez également décider de rendre disponible une instance d’application pour ce client. 
+2. Le travail de ce service gestionnaire est d’examiner les informations relatives aux clients lorsqu’ils se connectent à votre service. En fonction de ces informations, le service gestionnaire crée une instance de votre service de stockage de contacts _réel_, _juste pour ce client_. Si une configuration, une isolation ou une mise à niveau particulières sont nécessaires, vous pouvez également décider de rendre disponible une instance d’application pour ce client. 
 
 Ce modèle de création dynamique présente de nombreux avantages :
 

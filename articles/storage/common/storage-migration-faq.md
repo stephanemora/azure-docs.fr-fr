@@ -9,12 +9,12 @@ ms.topic: article
 ms.date: 10/31/2018
 ms.author: genli
 ms.subservice: common
-ms.openlocfilehash: d594f3cf556fe311e0b7400a23fd61d0336fe5f1
-ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
+ms.openlocfilehash: f0272d53c5fc4c565baf5d7105bd6e1b4a0ef535
+ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83651118"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86114599"
 ---
 # <a name="frequently-asked-questions-about-azure-storage-migration"></a>Questions fréquemment posées (FAQ) sur la migration de Stockage Azure
 
@@ -26,9 +26,11 @@ Cet article répond aux questions courantes sur la migration de Stockage Azure.
 
 Pour copier des fichiers entre des conteneurs, vous utilisez AzCopy. Voir l’exemple suivant :
 
-    AzCopy /Source:https://xxx.blob.core.windows.net/xxx
-    /Dest:https://xxx.blob.core.windows.net/xxx /SourceKey:xxx /DestKey:xxx
-    /S
+```azurepowershell-interactive
+AzCopy /Source:https://xxx.blob.core.windows.net/xxx
+/Dest:https://xxx.blob.core.windows.net/xxx /SourceKey:xxx /DestKey:xxx
+/S
+```
 
 AzCopy utilise l'[API copie d'objet blob](https://docs.microsoft.com/rest/api/storageservices/copy-blob) pour copier chaque fichier dans le conteneur.  
 
@@ -54,11 +56,15 @@ Vous pouvez utiliser l’interface de ligne de commande Azure.
 
 - Télécharger un seul objet blob :
 
-      azure storage blob download -k "<Account Key>" -a "<Storage Account Name>" --container "<Blob Container Name>" -b "<Remote File Name>" -d "<Local path where the file will be downloaded to>"
+    ```azurecli-interactive
+    azure storage blob download -k "<Account Key>" -a "<Storage Account Name>" --container "<Blob Container Name>" -b "<Remote File Name>" -d "<Local path where the file will be downloaded to>"
+    ```
 
 - Charger un seul objet blob :
 
-      azure storage blob upload -k "<Account Key>" -a "<Storage Account Name>" --container "<Blob Container Name>" -f "<Local File Name>"
+    ```azurecli-interactive
+    azure storage blob upload -k "<Account Key>" -a "<Storage Account Name>" --container "<Blob Container Name>" -f "<Local File Name>"
+    ```
 
 **Comment migrer des objets blob d’un compte de stockage vers un autre ?**
 
@@ -160,15 +166,19 @@ Procédez comme suit :
 
     Pour copier des disques entiers dans le compte de stockage :
 
-        AzCopy /Source:https://sourceaccount.blob.core.windows.net/mycontainer1
-        /Dest:https://destaccount.blob.core.windows.net/mycontainer2
-        /SourceKey:key1 /DestKey:key2 /S
+    ```azurepowershell-interactive
+    AzCopy /Source:https://sourceaccount.blob.core.windows.net/mycontainer1
+    /Dest:https://destaccount.blob.core.windows.net/mycontainer2
+    /SourceKey:key1 /DestKey:key2 /S
+    ```
 
     Pour copier un seul disque, indiquez le nom du disque dans le **modèle** :
 
-        AzCopy /Source:https://sourceaccount.blob.core.windows.net/mycontainer1
-        /Dest:https://destaccount.blob.core.windows.net/mycontainer2
-        /SourceKey:key1 /DestKey:key2 /Pattern:abc.vhd
+    ```azurepowershell-interactive
+    AzCopy /Source:https://sourceaccount.blob.core.windows.net/mycontainer1
+    /Dest:https://destaccount.blob.core.windows.net/mycontainer2
+    /SourceKey:key1 /DestKey:key2 /Pattern:abc.vhd
+    ```
 
 L'opération peut prendre plusieurs heures.
 
@@ -190,9 +200,11 @@ Il n'existe aucune option permettant de sauvegarder directement la totalité d'u
 
 3.  Exécutez la commande suivante pour déplacer le conteneur. Vous devez remplacer le texte par les valeurs réelles.   
 
-            AzCopy /Source:https://sourceaccount.blob.core.windows.net/mycontainer1
-            /Dest:https://destaccount.blob.core.windows.net/mycontainer2
-            /SourceKey:key1 /DestKey:key2 /S
+    ```azurepowershell-interactive
+    AzCopy /Source:https://sourceaccount.blob.core.windows.net/mycontainer1
+    /Dest:https://destaccount.blob.core.windows.net/mycontainer2
+    /SourceKey:key1 /DestKey:key2 /S
+    ```
 
     - `/Source`: Indiquez l’URI du compte de stockage source (jusqu’au conteneur).  
     - `/Dest`: Indiquez l’URI du compte de stockage cible (jusqu’au conteneur).  
@@ -215,19 +227,20 @@ Il n'existe pas de solution de sauvegarde. Mais Azure Files prend également en 
 - D'un partage à un conteneur d'objets blob dans un compte de stockage ou vers un autre compte de stockage.
 
 Pour plus d’informations, voir [Transférer des données avec AzCopy sur Windows](storage-use-azcopy.md).
+
 ## <a name="configuration"></a>Configuration
 
 **Comment changer l'emplacement secondaire par une région en Europe pour un compte de stockage ?**
 
 Lorsque vous créez un compte de stockage, vous sélectionnez la région primaire pour le compte. La sélection de la région secondaire dépend de la région primaire et ne peut pas être modifiée. Pour plus d’informations, consultez [Stockage géoredondant (GRS) : réplication interrégion pour le stockage Azure](storage-redundancy.md).
 
-**Où puis-je obtenir plus d'informations sur le chiffrement du service de stockage Azure (SSE) ?**  
+**Où puis-je obtenir plus d'informations sur le chiffrement du stockage Azure ?**  
 
 Voir les articles suivants :
 
--  [Guide de sécurité du Stockage Azure](../blobs/security-recommendations.md)
-
--  [Azure Storage Service Encryption pour les données au repos](storage-service-encryption.md)
+- [Chiffrement du stockage Azure pour les données au repos](storage-service-encryption.md)
+- [Utiliser des clés gérées par le client avec Azure Key Vault pour gérer le chiffrement du stockage Azure](encryption-customer-managed-keys.md)
+- [Fournir une clé de chiffrement lors d’une requête au stockage d’objets blob (préversion)](encryption-customer-provided-keys.md)
 
 **Comment chiffrer des données dans un compte de stockage ?**
 
@@ -253,19 +266,19 @@ Si vous utilisez des machines virtuelles, vous devez effectuer des étapes suppl
 
 Pour autoriser d'autres personnes à accéder aux ressources de stockage :
 
--   Utilisez un jeton avec signature d'accès partagé SAS (Shared Access Signature) pour fournir l'accès à une ressource.
+- Utilisez un jeton avec signature d'accès partagé SAS (Shared Access Signature) pour fournir l'accès à une ressource.
 
--   Fournissez à un utilisateur la clé primaire ou secondaire du compte de stockage. Pour plus d’informations, consultez [Gérer les clés d’accès au compte de stockage](storage-account-keys-manage.md).
+- Fournissez à un utilisateur la clé primaire ou secondaire du compte de stockage. Pour plus d’informations, consultez [Gérer les clés d’accès au compte de stockage](storage-account-keys-manage.md).
 
--   Modifiez la stratégie d'accès pour autoriser un accès anonyme. Pour plus d'informations, voir [Accorder à des utilisateurs anonymes des autorisations d’accès aux conteneurs et objets blob](../blobs/storage-manage-access-to-resources.md#grant-anonymous-users-permissions-to-containers-and-blobs).
+- Modifiez la stratégie d'accès pour autoriser un accès anonyme. Pour plus d'informations, voir [Accorder à des utilisateurs anonymes des autorisations d’accès aux conteneurs et objets blob](../blobs/storage-manage-access-to-resources.md#grant-anonymous-users-permissions-to-containers-and-blobs).
 
 **Où AzCopy est-il installé ?**
 
--   Si vous accédez à AzCopy à partir de la ligne de commande Microsoft Azure Storage, saisissez **AzCopy**. La ligne de commande est installée avec AzCopy.
+- Si vous accédez à AzCopy à partir de la ligne de commande Microsoft Azure Storage, saisissez **AzCopy**. La ligne de commande est installée avec AzCopy.
 
--   Si vous avez installé la version 32 bits, AzCopy se trouve ici : **%ProgramFiles(x86)%\\Microsoft SDKs\\Azure\\AzCopy**.
+- Si vous avez installé la version 32 bits, AzCopy se trouve ici : **%ProgramFiles(x86)%\\Microsoft SDKs\\Azure\\AzCopy**.
 
--   Si vous avez installé la version 64 bits, AzCopy se trouve ici : **%ProgramFiles%\\Microsoft SDKs\\Azure\\AzCopy**.
+- Si vous avez installé la version 64 bits, AzCopy se trouve ici : **%ProgramFiles%\\Microsoft SDKs\\Azure\\AzCopy**.
 
 **Comment je utiliser un domaine personnalisé HTTPS avec mon compte de stockage ? Par exemple, comment faire apparaître « https:\//mystorageaccountname.blob.core.windows.net/images/image.gif » sous la forme « https:\//www.contoso.com/images/image.gif » ?**
 
@@ -284,15 +297,15 @@ Un stockage géoredondant avec accès en lecture est requis pour accéder au sto
 
 **Pour un compte de stockage répliqué (par exemple un stockage redondant interzone, un stockage géoredondant ou un stockage redondant avec accès en lecture), comment accéder aux données stockées dans la région secondaire ?**
 
--   Si vous utilisez un stockage redondant interzone ou un stockage géoredondant, vous ne pouvez accéder aux données de la région secondaire qu'en procédant à un basculement vers cette région. Pour plus d’informations sur le processus de basculement, consultez [Récupération d’urgence et basculement de compte de stockage](storage-disaster-recovery-guidance.md).
+- Si vous utilisez un stockage redondant interzone ou un stockage géoredondant, vous ne pouvez accéder aux données de la région secondaire qu'en procédant à un basculement vers cette région. Pour plus d’informations sur le processus de basculement, consultez [Récupération d’urgence et basculement de compte de stockage](storage-disaster-recovery-guidance.md).
 
--   Si vous utilisez un stockage géoredondant avec accès en lecture, vous pouvez accéder à tout moment aux données de la région secondaire. Appliquez l'une des méthodes suivantes :  
+- Si vous utilisez un stockage géoredondant avec accès en lecture, vous pouvez accéder à tout moment aux données de la région secondaire. Appliquez l'une des méthodes suivantes :  
 
-    - **AzCopy** : Ajoutez **-secondary** au nom du compte de stockage dans l’URL pour accéder au point de terminaison secondaire. Par exemple :  
+  - **AzCopy** : Ajoutez **-secondary** au nom du compte de stockage dans l’URL pour accéder au point de terminaison secondaire. Par exemple :  
 
       `https://storageaccountname-secondary.blob.core.windows.net/vhds/BlobName.vhd`
 
-    - **Jeton SAS** : Utilisez un jeton SAS pour accéder aux données du point de terminaison. Pour plus d’informations, consultez [Utilisation des signatures d’accès partagé](storage-sas-overview.md).
+  - **Jeton SAS** : Utilisez un jeton SAS pour accéder aux données du point de terminaison. Pour plus d’informations, consultez [Utilisation des signatures d’accès partagé](storage-sas-overview.md).
 
 **Comment utiliser FTP pour accéder aux données d'un compte de stockage ?**
 
@@ -300,6 +313,6 @@ Il n'existe aucun moyen d'accéder directement à un compte de stockage via FTP.
 
 Si vous souhaitez uniquement télécharger des données sans avoir à utiliser l'Explorateur de stockage ou une application similaire, vous pouvez utiliser un jeton SAS. Pour plus d’informations, consultez [Utilisation des signatures d’accès partagé](storage-sas-overview.md).
 
-## <a name="need-help-contact-support"></a>Vous avez besoin d’aide ? Contactez le support technique.
+## <a name="need-help-contact-support"></a>Vous avez besoin d’aide ? Contacter le support technique
 
 Si vous avez besoin d’aide, [contactez le support technique](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) pour obtenir une prise en charge rapide de votre problème.

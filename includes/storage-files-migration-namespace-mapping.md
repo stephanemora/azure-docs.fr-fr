@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 2/20/2020
 ms.author: fauhse
 ms.subservice: files
-ms.openlocfilehash: 948090d0ee956ca1798d7b0f46bb33276c4d6354
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: e0d963d6491574bf630061749ba4d3538549fa34
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82143571"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85570151"
 ---
 Dans cette étape, vous évaluez le nombre de partages de fichiers Azure dont vous avez besoin. Une seule instance Windows Server (ou cluster) peut synchroniser jusqu’à 30 partages de fichiers Azure.
 
@@ -58,7 +58,7 @@ Un autre aspect important d’Azure File Sync et de l’équilibre entre les per
 > [!IMPORTANT]
 > Le vecteur d’échelle le plus important pour Azure File Sync est le nombre d’éléments (fichiers et dossiers) qui doivent être synchronisés.
 
-Azure File Sync prend en charge la synchronisation jusqu’à 100 000 éléments sur un partage de fichiers Azure unique. Cette limite peut être dépassée et indique uniquement ce que l’équipe Azure File Sync teste régulièrement.
+Azure File Sync prend en charge la synchronisation de 100 millions d’éléments sur un même partage de fichiers Azure. Cette limite peut être dépassée et indique uniquement ce que l’équipe Azure File Sync teste régulièrement.
 
 Il est recommandé de maintenir un petit nombre d’éléments par étendue de synchronisation. C’est un facteur important à prendre en compte quand vous mappez des dossiers aux partages de fichiers Azure.
 

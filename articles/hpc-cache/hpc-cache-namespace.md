@@ -1,17 +1,17 @@
 ---
-title: Créer un cache Azure HPC Cache
+title: Créer une instance de cache Azure HPC Cache
 description: Comment créer une instance de cache Azure HPC Cache
 author: ekpgh
 ms.service: hpc-cache
 ms.topic: conceptual
 ms.date: 10/30/2019
 ms.author: rohogue
-ms.openlocfilehash: aaa939051a1aeafdb0650119772fc7214506aa8d
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: be09d8b903d63b9fb2b57f8b9b7486b02a60085c
+ms.sourcegitcommit: e132633b9c3a53b3ead101ea2711570e60d67b83
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "73582179"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86045805"
 ---
 # <a name="plan-the-aggregated-namespace"></a>Planifier l’espace de noms agrégé
 
@@ -29,14 +29,14 @@ Par exemple, imaginez un système dans lequel une instance Azure HPC Cache est u
 
 Les données des modèle sont stockées dans un centre de données et les informations nécessaires à ce travail sont stockées dans les sous-répertoires suivants :
 
-    /goldline/templates/acme2017/sku798
-    /goldline/templates/acme2017/sku980 
+* */goldline/templates/acme2017/sku798*
+* */goldline/templates/acme2017/sku980* 
 
 Le système de stockage du centre de données expose les exportations suivantes :
 
-    /
-    /goldline
-    /goldline/templates
+* */*
+* */goldline*
+* */goldline/templates*
 
 Les données à analyser ont été copiées dans un conteneur de stockage Blob Azure nommé « sourcecollection » à l’aide de l’[utilitaire CLFSLoad](hpc-cache-ingest.md#pre-load-data-in-blob-storage-with-clfsload).
 

@@ -4,21 +4,18 @@ description: Cet article décrit comment configurer et consulter les journaux d�
 author: ajlam
 ms.author: andrela
 ms.service: mysql
-ms.topic: conceptual
-ms.date: 4/13/2020
-ms.openlocfilehash: fcd436f87b24d8cdc246d2f1d33a49311e72d46b
-ms.sourcegitcommit: ea006cd8e62888271b2601d5ed4ec78fb40e8427
+ms.topic: how-to
+ms.date: 6/24/2020
+ms.openlocfilehash: 508e2d229c067ac84d4c8d6338e658df8d3fa932
+ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/14/2020
-ms.locfileid: "81380301"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86113205"
 ---
 # <a name="configure-and-access-audit-logs-for-azure-database-for-mysql-in-the-azure-portal"></a>Configurer et consulter les journaux d’audit Azure Database pour MySQL dans le portail Azure
 
 Vous pouvez configurer les [journaux d’audit Azure Database pour MySQL](concepts-audit-logs.md) et les paramètres de diagnostic à partir du portail Azure.
-
-> [!IMPORTANT]
-> Pour l’instant, la fonctionnalité Journal d’audit n’existe qu’en préversion.
 
 ## <a name="prerequisites"></a>Prérequis
 
@@ -27,6 +24,9 @@ Pour parcourir ce guide pratique, vous avez besoin des éléments suivants :
 - [Serveur Azure Database pour MySQL](quickstart-create-mysql-server-database-using-azure-portal.md)
 
 ## <a name="configure-audit-logging"></a>Configurer l’enregistrement d’audit
+
+>[!IMPORTANT]
+> Il est recommandé de ne consigner que les types d’événements et les utilisateurs requis à des fins d’audit pour garantir que les performances de votre serveur ne sont pas fortement affectées.
 
 Activez et configurez l’enregistrement d’audit.
 

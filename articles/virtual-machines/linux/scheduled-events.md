@@ -1,18 +1,19 @@
 ---
 title: Événements planifiés pour les machines virtuelles Linux dans Azure
 description: Planifiez des événements en utilisant le service de métadonnées Azure pour vos machines virtuelles Linux.
-author: mimckitt
-ms.service: virtual-machines-windows
-ms.topic: article
+author: EricRadzikowskiMSFT
+ms.service: virtual-machines-linux
+ms.topic: how-to
 ms.workload: infrastructure-services
 ms.date: 06/01/2020
-ms.author: mimckitt
-ms.openlocfilehash: c888a28607101cdf41fcd9b47cf25a2fc5da6337
-ms.sourcegitcommit: d118ad4fb2b66c759b70d4d8a18e6368760da3ad
+ms.author: ericrad
+ms.reviewer: mimckitt
+ms.openlocfilehash: ba06350a564990899a593714a1f49d1e00ea544a
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/02/2020
-ms.locfileid: "84299517"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85262104"
 ---
 # <a name="azure-metadata-service-scheduled-events-for-linux-vms"></a>Service de métadonnées Azure : événements planifiés pour les machines virtuelles Linux
 
@@ -53,7 +54,12 @@ Les événements planifiés sont remis à :
 - Machines virtuelles autonomes.
 - Toutes les machines virtuelles d’un service cloud
 - Toutes les machines virtuelles d’un groupe à haute disponibilité
+- Toutes les machines virtuelles d’une zone à haute disponibilité. 
 - Toutes les machines virtuelles d’un groupe de placement de groupe identique 
+
+> [!NOTE]
+> Les événements planifiés, spécifiques aux machines virtuelles dans une zone de disponibilité, sont dirigés vers des machines virtuelles uniques d’une zone.
+> Par exemple, si vous avez 100 machines virtuelles dans un groupe à haute disponibilité et que l’une d’elles doit être mise à jour, l’événement planifié les concernera toutes, tandis que s’il y a 100 machines virtuelles uniques dans une zone, l’événement concernera uniquement la machine virtuelle impactée.
 
 Par conséquent, vérifiez le champ `Resources` de l’événement pour identifier les machines virtuelles concernées.
 
@@ -70,7 +76,7 @@ Les versions du service Événements planifiés sont gérées. Ces versions sont
 | Version | Type de version | Régions | Notes de publication | 
 | - | - | - | - | 
 | 2019-08-01 | Disponibilité générale | Tous | <li> Ajout de la prise en charge pour EventSource |
-| 2019-04-01 | Disponibilité générale | Tous | <li> Ajout de la prise en charge pour Description de l'événement |
+| 2019-04-01 | Disponibilité générale | Tous | <li> Ajout de la prise en charge pour Description de l’événement |
 | 2019-01-01 | Disponibilité générale | Tous | <li> Ajout de la prise en charge des groupes de machines virtuelles identiques, EventType « Terminate » |
 | 2017-11-01 | Disponibilité générale | Tous | <li> Ajout de la prise en charge de l’éviction de machine virtuelle Spot, EventType « Preempt »<br> | 
 | 2017-08-01 | Disponibilité générale | Tous | <li> Suppression du trait de soulignement ajouté au début des noms de ressources pour les machines virtuelles IaaS<br><li>Spécification d’en-tête de métadonnées appliquée à toutes les requêtes | 

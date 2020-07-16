@@ -1,18 +1,18 @@
 ---
 title: Mettre à jour une offre de Place de marché commerciale existante
 description: Comment mettre à jour une offre de Place de marché commerciale existante, notamment la modification, la suppression d’un brouillon, l’annulation d’une demande de publication, l’arrêt de la vente d’une offre ou d’un plan et la synchronisation des audiences privées.
-author: dsindona
-ms.author: dsindona
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
+author: keferna
+ms.author: keferna
 ms.date: 01/16/2020
-ms.openlocfilehash: 8b8362a4d5ad742f29637ed03133bc6983bd5dd9
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 62170df567f552699304710902a1f83b84728af2
+ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80285144"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86120702"
 ---
 # <a name="update-an-existing-offer-in-the-commercial-marketplace"></a>Mettre à jour une offre existante dans la Place de marché commerciale existante
 
@@ -37,20 +37,29 @@ Lorsque vous êtes prêt à publier votre offre mise à jour, sélectionnez **Pu
 > [!IMPORTANT]
 > Vous devez examiner votre préversion de l’offre une fois qu’elle est disponible et sélectionner **Démarrer** pour publier votre offre mise à jour à l’attention de votre audience ciblée (publique ou privée).
 
+## <a name="add-a-plan-to-an-existing-offer"></a>Ajouter un plan à une offre existante
+
+Pour ajouter un plan à une offre existante que vous avez déjà publiée :
+
+1. Avec la page **Vue d’ensemble de l’offre** pour votre offre existante ouverte, allez à la page **Vue d’ensemble du plan** et sélectionnez **Créer un nouveau plan**.
+1. Créez un nouveau plan en suivant les [instructions](./create-new-saas-offer.md#plan-overview) à l’aide du**modèle de tarification des plans existant**.
+1. Sélectionnez**Enregistrer le brouillon** après avoir changer le nom du plan. 
+1. Sélectionnez **Publier** une fois que vous êtes prêt à publier vos mises à jour. La page **[Examiner et publier](#review-and-publish-an-updated-offer)** s’ouvre et fournit un état d’achèvement pour vos mises à jour.
+
 ## <a name="update-a-plan-within-an-existing-offer"></a>Mettre à jour un plan au sein d’une offre existante
 
 Pour apporter des modifications à un plan au sein d’une offre existante que vous avez déjà publiée :
 
-- Avec la page **Vue d’ensemble de l’offre** ouverte pour votre offre existante, choisissez le plan que vous souhaitez modifier. Si le plan n’est pas accessible à partir de la liste **Vue d’ensemble du plan**, sélectionnez **Voir tous les plans**.
-- Vous pouvez choisir de sélectionner le plan **Nom**, **Modèle de tarification** ou **Disponibilité**. *Actuellement, les plans sont disponibles uniquement en anglais (États-Unis)* .
-- Sélectionnez **Enregistrer** après avoir apporté les modifications nécessaires au nom du plan, à la description, à la tarification ou à la disponibilité pour l’audience. 
-- Sélectionnez **Publier** une fois que vous êtes prêt à publier vos mises à jour. La page **[Examiner et publier](#review-and-publish-an-updated-offer)** s’ouvre et fournit un état d’achèvement pour vos mises à jour.
+1. Avec la page **Vue d’ensemble de l’offre** ouverte pour votre offre existante, choisissez le plan que vous souhaitez modifier. Si le plan n’est pas accessible à partir de la liste **Vue d’ensemble du plan**, sélectionnez **Voir tous les plans**.
+1. Vous pouvez choisir de sélectionner le plan **Nom**, **Modèle de tarification** ou **Disponibilité**. *Actuellement, les plans sont disponibles uniquement en anglais (États-Unis)* .
+1. Sélectionnez **Enregistrer** après avoir apporté les modifications nécessaires au nom du plan, à la description, à la tarification ou à la disponibilité pour l’audience. 
+1. Sélectionnez **Publier** une fois que vous êtes prêt à publier vos mises à jour. La page **[Examiner et publier](#review-and-publish-an-updated-offer)** s’ouvre et fournit un état d’achèvement pour vos mises à jour.
 
 ## <a name="compare-changes-to-marketplace-offers"></a>Comparer les modifications apportées aux offres de la Place de marché
 
 Vous pouvez auditer les modifications apportées à une offre [publiée](#compare-changes-to-published-offer) ou [en préversion](#compare-changes-to-a-preview-offer) avant de les publier en direct en utilisant **Comparer**.
 
->[!NOTE]
+> [!NOTE]
 > Une offre publiée est une offre qui a été publiée en préversion ou en direct.
 
 Voir ci-dessous pour obtenir des informations d’audit d’ordre général :
@@ -122,9 +131,9 @@ Après avoir confirmé que vous souhaitez supprimer le brouillon de plan, ce der
 
 Pour annuler une offre avec l’état **Publication en cours d’exécution** :
 
-- Sélectionnez le nom de l’offre pour ouvrir la page **Vue d’ensemble de l’offre**.
-- Sélectionnez **Annuler la publication** à partir de l’angle supérieur droit de la page.
-- Confirmez que vous souhaitez arrêter la publication de l’offre.
+1. Sélectionnez le nom de l’offre pour ouvrir la page **Vue d’ensemble de l’offre**.
+1. Sélectionnez **Annuler la publication** à partir de l’angle supérieur droit de la page.
+1. Confirmez que vous souhaitez arrêter la publication de l’offre.
 
 Si vous souhaitez publier l’offre ultérieurement, vous devrez redémarrer le processus de publication.
 

@@ -1,18 +1,18 @@
 ---
 title: Publier une offre de services gérés sur la place de marché Azure
-description: Découvrez comment publier une offre de service géré qui intègre des clients à la gestion des ressources déléguées Azure.
+description: Découvrez comment publier une offre de service géré qui intègre les clients à Azure Lighthouse.
 ms.date: 05/04/2020
 ms.topic: how-to
-ms.openlocfilehash: 214a71faca59072660f1e1f413cb107d8e8f6fc9
-ms.sourcegitcommit: dee7b84104741ddf74b660c3c0a291adf11ed349
+ms.openlocfilehash: 19364164617a32a561140e985c8723f8deafe1a7
+ms.sourcegitcommit: e995f770a0182a93c4e664e60c025e5ba66d6a45
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85920904"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86133312"
 ---
 # <a name="publish-a-managed-service-offer-to-azure-marketplace"></a>Publier une offre de services gérés sur la place de marché Azure
 
-Dans cet article, vous allez découvrir comment publier une offre de service managé publique ou privée sur la [Place de marché Azure](https://azuremarketplace.microsoft.com) à l’aide du programme [Place de marché commerciale](../../marketplace/partner-center-portal/commercial-marketplace-overview.md) dans l’Espace partenaires. Les clients qui achètent l’offre peuvent alors intégrer des abonnements et des groupes de ressources pour la [gestion des ressources déléguées Azure](../concepts/azure-delegated-resource-management.md).
+Dans cet article, vous allez découvrir comment publier une offre de service managé publique ou privée sur la [Place de marché Azure](https://azuremarketplace.microsoft.com) à l’aide du programme [Place de marché commerciale](../../marketplace/partner-center-portal/commercial-marketplace-overview.md) dans l’Espace partenaires. Les clients qui achètent l’offre délèguent ensuite des abonnements ou des groupes de ressources, ce qui vous permet de les gérer avec [Azure Lighthouse](../overview.md).
 
 ## <a name="publishing-requirements"></a>Exigences de publication
 
@@ -20,10 +20,10 @@ Pour créer et publier des offres, vous devez disposer d’un [compte valide dan
 
 Conformément aux [exigences de certification des offres de services managés](/legal/marketplace/certification-policies#7004-business-requirements), vous devez disposer d’un [niveau de compétence de plateforme cloud Silver ou Gold](/partner-center/learn-about-competencies) ou être [Fournisseur de services managés Azure Expert](https://partner.microsoft.com/membership/azure-expert-msp) pour publier une offre de services managés.
 
-Votre ID Microsoft Partner Network (MPN) est [automatiquement associé](../../billing/billing-partner-admin-link-started.md) aux offres que vous publiez pour suivre votre impact sur les engagements client.
+Votre ID Microsoft Partner Network (MPN) est [automatiquement associé](../../cost-management-billing/manage/link-partner-id.md) aux offres que vous publiez pour suivre votre impact sur les engagements client.
 
 > [!NOTE]
-> Si vous ne souhaitez pas publier d’offre sur la Place de marché Azure, vous pouvez intégrer des clients manuellement à l’aide de modèles Azure Resource Manager. Pour plus d’informations, voir [Intégrer un client dans la gestion des ressources déléguées Azure](onboard-customer.md).
+> Si vous ne souhaitez pas publier d’offre sur la Place de marché Azure, vous pouvez intégrer des clients manuellement à l’aide de modèles Azure Resource Manager. Pour plus d’informations, consultez [Intégration d’un client à Azure Lighthouse](onboard-customer.md).
 
 ## <a name="create-your-offer"></a>Créer votre offre
 
@@ -31,7 +31,7 @@ Pour obtenir des instructions détaillées sur la création de votre offre, y co
 
 Pour en savoir plus sur le processus général de publication, consultez [Guide de l’éditeur Place de marché Microsoft Azure et AppSource](../../marketplace/marketplace-publishers-guide.md). Vous devez également examiner les [stratégies de certification de la Place de marché commerciale](/legal/marketplace/certification-policies), en particulier la section [Managed Services](/legal/marketplace/certification-policies#700-managed-services).
 
-Une fois qu’un client a ajouté votre offre, il est en mesure de déléguer un ou plusieurs abonnements ou groupes de ressources, qui seront ensuite [intégrés pour la gestion des ressources déléguées Azure](#the-customer-onboarding-process).
+Après avoir ajouté votre offre, un client peut déléguer un ou plusieurs abonnements ou groupes de ressources, qui seront ensuite [intégrés à Azure Lighthouse](#the-customer-onboarding-process).
 
 > [!IMPORTANT]
 > Chaque plan d’une offre de service managé comprend une section **Détails du manifeste** dans laquelle vous définissez les entités Azure Active Directory (Azure AD) de votre locataire qui ont accès aux groupes de ressources ou aux abonnements délégués pour les clients qui achètent ce plan. Il est important de savoir que tout groupe (ou utilisateur ou principal de service) que vous incluez aura les mêmes autorisations pour chaque client achetant le plan. Pour affecter différents groupes à chaque client, vous devez publier un [plan privé](../../marketplace/private-offers.md) distinct exclusif pour chaque client.
@@ -44,7 +44,7 @@ Vous pouvez [publier une version mise à jour de votre offre](../..//marketplace
 
 ## <a name="the-customer-onboarding-process"></a>Processus d’intégration des clients
 
-Une fois qu’un client a ajouté votre offre, il est en mesure de [déléguer un ou plusieurs abonnements ou groupes de ressources spécifiques](view-manage-service-providers.md#delegate-resources), qui seront ensuite intégrés pour la gestion des ressources déléguées Azure. Si un client a accepté une offre mais n’a pas encore délégué de ressources, il voit une note s’afficher en haut de la section **Offres de fournisseur** de la page [**Fournisseurs de services**](view-manage-service-providers.md) du portail Azure.
+Après avoir ajouté votre offre, un client peut déléguer un ou plusieurs abonnements ou groupes de ressources, qui seront ensuite [intégrés à Azure Lighthouse](view-manage-service-providers.md#delegate-resources). Si un client a accepté une offre mais n’a pas encore délégué de ressources, il voit une note s’afficher en haut de la section **Offres de fournisseur** de la page [**Fournisseurs de services**](view-manage-service-providers.md) du portail Azure.
 
 > [!IMPORTANT]
 > La délégation doit être effectuée par un compte non invité dans le locataire client qui a le [rôle intégré Propriétaire](../../role-based-access-control/built-in-roles.md#owner) pour l’abonnement en cours d’intégration (ou qui contient les groupes de ressources en cours d’intégration). Pour voir tous les utilisateurs qui peuvent déléguer l’abonnement, un utilisateur du locataire du client peut sélectionner l’abonnement dans le portail Azure, ouvrir **Contrôle d’accès (IAM)** et [afficher tous les utilisateurs ayant le rôle Propriétaire](../../role-based-access-control/role-assignments-list-portal.md#list-owners-of-a-subscription).

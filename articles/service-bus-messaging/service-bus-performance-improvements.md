@@ -1,21 +1,14 @@
 ---
 title: Meilleures pratiques pour améliorer les performances à l’aide de Azure Service Bus
 description: Explique comment utiliser Service Bus pour optimiser les performances lors de l’échange de messages répartis.
-services: service-bus-messaging
-documentationcenter: na
-author: axisc
-manager: timlt
-editor: spelluru
-ms.service: service-bus-messaging
 ms.topic: article
-ms.date: 03/12/2020
-ms.author: aschhab
-ms.openlocfilehash: 267965ee41280a677050d1676285dda8734bc044
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.date: 06/23/2020
+ms.openlocfilehash: e0a6e54c1e941d7b7ff244ac40066a564e2ebbc4
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81606054"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85341107"
 ---
 # <a name="best-practices-for-performance-improvements-using-service-bus-messaging"></a>Meilleures pratiques relatives aux améliorations de performances à l’aide de la messagerie Service Bus
 
@@ -355,7 +348,7 @@ Objectif : Réduire la latence de bout en bout d’une file d’attente ou d’u
 
 Objectif : Maximiser le débit d’une file d’attente ou d’une rubrique comportant un grand nombre d’expéditeurs. Chaque expéditeur envoie des messages à une vitesse modérée. Le nombre de destinataires est faible.
 
-Service Bus permet jusqu’à 1 000 connexions simultanées vers une entité de messagerie (ou 5 000 avec AMQP). Cette limite s’applique au niveau de l’espace de noms et les rubriques/files d’attente/abonnements sont limités par la limite de connexions simultanées par espace de noms. Pour les files d’attente, ce nombre est partagé entre les expéditeurs et les destinataires. Si les 1 000 connexions sont requises pour les expéditeurs, remplacez la file d’attente par une rubrique et un seul abonnement. Une rubrique accepte jusqu’à 1 000 connexions simultanées provenant d’expéditeurs, alors que l’abonnement accepte un 1 000 connexions simultanées destinataires. Si plus de 1 000 expéditeurs simultanés sont requis, les expéditeurs doivent envoyer leurs messages vers le protocole de Service Bus via HTTP.
+Service Bus permet jusqu’à 1000 connexions simultanées vers une entité de messagerie. Cette limite s’applique au niveau de l’espace de noms et les rubriques/files d’attente/abonnements sont limités par la limite de connexions simultanées par espace de noms. Pour les files d’attente, ce nombre est partagé entre les expéditeurs et les destinataires. Si les 1 000 connexions sont requises pour les expéditeurs, remplacez la file d’attente par une rubrique et un seul abonnement. Une rubrique accepte jusqu’à 1 000 connexions simultanées provenant d’expéditeurs, alors que l’abonnement accepte un 1 000 connexions simultanées destinataires. Si plus de 1 000 expéditeurs simultanés sont requis, les expéditeurs doivent envoyer leurs messages vers le protocole de Service Bus via HTTP.
 
 Pour maximiser le débit, procédez comme suit :
 

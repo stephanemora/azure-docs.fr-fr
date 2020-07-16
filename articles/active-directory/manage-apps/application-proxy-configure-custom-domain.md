@@ -3,25 +3,25 @@ title: Domaines personnalisés dans le proxy d’application Azure AD | Microsof
 description: Configurer et gérer des domaines personnalisés dans le Proxy d’application Azure AD.
 services: active-directory
 documentationcenter: ''
-author: msmimart
-manager: CelesteDG
+author: kenwith
+manager: celestedg
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 10/24/2019
-ms.author: mimart
-ms.reviewer: harshja
+ms.author: kenwith
+ms.reviewer: japere
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: fda84a68921500e8ba40aa6d04bfb5939f79a1ef
-ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
+ms.openlocfilehash: 646a32509921709711b208c263ac6b077555eac5
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/21/2020
-ms.locfileid: "83736481"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84764908"
 ---
 # <a name="configure-custom-domains-with-azure-ad-application-proxy"></a>Configurer des domaines personnalisés dans avec le Proxy d’application Azure AD
 
@@ -138,7 +138,7 @@ Nous vous déconseillons d’utiliser une autorité de certification racine priv
 
 La gestion des certificats s’effectue par le biais les pages d’application individuelles. Accédez à la page **Proxy d’application** de l’application pour accéder au champ **Certificat**.
 
-Vous pouvez utiliser le même certificat pour plusieurs applications. Si un certificat chargé fonctionne avec une autre application, il est appliqué automatiquement. Vous n’êtes pas invité à le charger à nouveau lorsque vous ajoutez ou configurez l’application. 
+Lorsqu’un certificat est téléchargé pour une application, il est également automatiquement appliqué aux **nouvelles applications** configurées qui utilisent le même certificat. Vous devrez télécharger à nouveau le certificat pour les applications existantes dans votre locataire.
 
 Quand un certificat expire, vous recevez un message d’avertissement vous demandant de charger un autre certificat. Si le certificat est révoqué, il se peut que vos utilisateurs reçoivent un avertissement de sécurité lors de l’accès à l’application. Pour mettre à jour le certificat d’une application, accédez à la page **Proxy d’application** de l’application, sélectionnez **Certificat**, puis chargez un nouveau certificat. Si l’ancien certificat n’est pas utilisé par d’autres applications, il est automatiquement supprimé. 
 

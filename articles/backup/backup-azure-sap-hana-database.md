@@ -3,12 +3,12 @@ title: Sauvegarder une base de données SAP HANA sur Azure avec Sauvegarde Azure
 description: Dans cet article, découvrez comment sauvegarder des bases de données SAP HANA sur des machines virtuelles Azure avec le service Sauvegarde Azure.
 ms.topic: conceptual
 ms.date: 11/12/2019
-ms.openlocfilehash: 20086516dc37538474a31c7735e9b2d3b1a3d5b2
-ms.sourcegitcommit: 8017209cc9d8a825cc404df852c8dc02f74d584b
+ms.openlocfilehash: c9f9841ac40a39fc51c0e722415c871650bec86d
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/01/2020
-ms.locfileid: "84248564"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84667316"
 ---
 # <a name="back-up-sap-hana-databases-in-azure-vms"></a>Sauvegarder des bases de données SAP HANA dans des machines virtuelles Azure
 
@@ -183,7 +183,7 @@ Spécifiez les paramètres de stratégie comme suit :
 10. Après avoir défini la stratégie de sauvegarde, cliquez sur **OK**.
 
 > [!NOTE]
-> Chaque sauvegarde de fichier journal est chaînée à la sauvegarde complète précédente pour former une chaîne de récupération. Cette sauvegarde complète est conservée jusqu’à la fin de la durée de conservation de la dernière sauvegarde de fichier journal. Il est donc possible que la sauvegarde complète soit conservée pour une durée supplémentaire afin que tous les journaux puissent être récupérés. Supposons que l’utilisateur effectue une sauvegarde complète hebdomadaire, une sauvegarde différentielle par jour et des journaux d’activité toutes les 2 heures. Tous sont conservés 30 jours. Cependant, la sauvegarde complète hebdomadaire ne peut être réellement nettoyée/supprimée que lorsque la sauvegarde complète suivante est disponible, à savoir après 30 + 7 jours. Par exemple, la sauvegarde complète hebdomadaire a lieu le 16 novembre. Conformément à la stratégie de rétention, elle doit être conservée jusqu’au 16 décembre. La dernière sauvegarde de fichier journal de cette sauvegarde complète a lieu avant la prochaine sauvegarde complète planifiée, le 22 novembre. Tant que ce journal n’est pas disponible, jusqu’au 22 décembre, la sauvegarde complète du 16 novembre ne peut pas être supprimée. La sauvegarde complète du 16 novembre est donc conservée jusqu’au 22 décembre.
+> Chaque sauvegarde de fichier journal est chaînée à la sauvegarde complète précédente pour former une chaîne de récupération. Cette sauvegarde complète est conservée jusqu’à la fin de la durée de conservation de la dernière sauvegarde de fichier journal. Il est donc possible que la sauvegarde complète soit conservée pour une durée supplémentaire afin que tous les journaux puissent être récupérés. Supposons que l’utilisateur effectue une sauvegarde complète hebdomadaire, une sauvegarde différentielle par jour et des journaux d’activité toutes les 2 heures. Tous sont conservés 30 jours. Cependant, la sauvegarde complète hebdomadaire ne peut être réellement nettoyée/supprimée que lorsque la sauvegarde complète suivante est disponible, à savoir après 30 + 7 jours. Par exemple, la sauvegarde complète hebdomadaire a lieu le 16 novembre. Conformément à la stratégie de conservation, elle doit être conservée jusqu’au 16 décembre. La dernière sauvegarde de fichier journal de cette sauvegarde complète a lieu avant la prochaine sauvegarde complète planifiée, le 22 novembre. Tant que ce journal n’est pas disponible, jusqu’au 22 décembre, la sauvegarde complète du 16 novembre ne peut pas être supprimée. La sauvegarde complète du 16 novembre est donc conservée jusqu’au 22 décembre.
 
 ## <a name="run-an-on-demand-backup"></a>Exécuter une sauvegarde à la demande
 
@@ -191,7 +191,7 @@ Les sauvegardes s’exécutent conformément à la planification de la stratégi
 
 1. Dans le menu du coffre, cliquez sur **Éléments de sauvegarde**.
 2. Dans **Éléments de sauvegarde**, sélectionnez la machine virtuelle exécutant la base de données SAP HANA, puis cliquez sur **Sauvegarder maintenant**.
-3. Dans **Sauvegarder maintenant**, utilisez le contrôle de calendrier pour sélectionner le dernier jour de rétention du point de récupération. Cliquez ensuite sur **OK**.
+3. Dans **Sauvegarder maintenant**, choisissez le type de sauvegarde que vous souhaitez effectuer. Cliquez ensuite sur **OK**. Cette sauvegarde sera conservée en fonction de la stratégie associée à cet élément de sauvegarde.
 4. Surveiller les notifications du portail. Vous pouvez surveiller la progression du travail dans le tableau de bord du coffre > **Travaux de sauvegarde** > **En cours d’exécution**. Selon la taille de votre base de données, la création de la sauvegarde initiale peut prendre un certain temps.
 
 ## <a name="run-sap-hana-studio-backup-on-a-database-with-azure-backup-enabled"></a>Exécuter une sauvegarde SAP HANA Studio d’une base de données pour laquelle le service Sauvegarde Azure est activé

@@ -11,12 +11,12 @@ author: MashaMSFT
 ms.author: mathoma
 ms.reviewer: sstein, carlrab
 ms.date: 08/27/2019
-ms.openlocfilehash: cba39b1631988ec33fb349357de3efa6a321fc03
-ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
+ms.openlocfilehash: 80fa5b7264d675317fba3cc12fa5049bdea76906
+ms.sourcegitcommit: e132633b9c3a53b3ead101ea2711570e60d67b83
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "84032300"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86042575"
 ---
 # <a name="tutorial-add-an-azure-sql-database-elastic-pool-to-a-failover-group"></a>Tutoriel : Ajouter un pool élastique Azure SQL Database à un groupe de basculement
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -268,7 +268,7 @@ Testez le basculement de votre groupe de basculement à l’aide du portail Azur
 1. Sélectionnez **Basculement** dans le volet des tâches pour faire basculer votre groupe de basculement contenant votre pool élastique.
 1. Sélectionnez **Oui** en réponse à l’avertissement qui signale que les sessions TDS seront déconnectées.
 
-   ![Basculer votre groupe de basculement contenant votre base de données SQL](./media/failover-group-add-elastic-pool-tutorial/failover-sql-db.png)
+   ![Basculer le groupe de basculement contenant votre base de données](./media/failover-group-add-elastic-pool-tutorial/failover-sql-db.png)
 
 1. Vérifiez quel est le serveur principal et quel est le serveur secondaire. Si le basculement a réussi, les deux serveurs doivent avoir échangé leur rôle.
 1. Sélectionnez **Basculement** à nouveau pour rétablir les paramètres d’origine du groupe de basculement.

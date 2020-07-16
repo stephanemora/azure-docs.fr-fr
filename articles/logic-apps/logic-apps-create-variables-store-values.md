@@ -6,12 +6,12 @@ ms.suite: integration
 ms.reviewer: klam, logicappspm
 ms.topic: conceptual
 ms.date: 09/20/2019
-ms.openlocfilehash: 55984082a6b287e9f7cdca005a24ef3c18032491
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 02e9426c7fc537a43fadddb5e2c34fd9c311d69b
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "75456699"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84753265"
 ---
 # <a name="store-and-manage-values-by-using-variables-in-azure-logic-apps"></a>Stocker et gérer des valeurs en utilisant des variables dans Azure Logic Apps
 

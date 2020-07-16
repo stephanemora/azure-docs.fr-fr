@@ -3,7 +3,7 @@ title: Limites des ressources
 titleSuffix: Azure SQL Managed Instance
 description: Cet article fournit une vue d’ensemble des limites de ressources pour Azure SQL Managed Instance.
 services: sql-database
-ms.service: sql-database
+ms.service: sql-managed-instance
 ms.subservice: operations
 ms.custom: ''
 ms.devlang: ''
@@ -12,12 +12,12 @@ author: bonova
 ms.author: bonova
 ms.reviewer: carlrab, jovanpop, sachinp, sstein
 ms.date: 02/25/2020
-ms.openlocfilehash: b72195c818e418cfca9c88fe666b27b277aa7bda
-ms.sourcegitcommit: 69156ae3c1e22cc570dda7f7234145c8226cc162
+ms.openlocfilehash: 85d347c45e1ca2cd39c7504e44bd3ea063f788d6
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/03/2020
-ms.locfileid: "84309099"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84708415"
 ---
 # <a name="overview-of-azure-sql-managed-instance-resource-limits"></a>Vue d’ensemble des limites de ressources Azure SQL Managed Instance
 [!INCLUDE[appliesto-sqlmi](../includes/appliesto-sqlmi.md)]
@@ -82,6 +82,7 @@ SQL Managed Instance a deux niveaux de service : [Usage général](../database/
 | Latence d’E/S de stockage (approximative) | 5 - 10 ms | 1 - 2 ms |
 | OLTP en mémoire | Non pris en charge | Disponible, [la taille dépend du nombre de vCores](#in-memory-oltp-available-space) |
 | Nombre maximal de sessions | 30000 | 30000 |
+| Nombre maximal d’ouvriers simultanés (demandes) | Gen4 : 210 * nombre de vCores + 800<br>Gen5 : 105 * nombre de vCores + 800 | Gen4 : 210 * nombre de vCores + 800<br>Gen5 : 105 * nombre de vCores + 800 |
 | [Réplicas en lecture seule](../database/read-scale-out.md) | 0 | 1 (inclus dans le prix) |
 | Isolation du calcul | Gen5 :<br/>\- Pris en charge pour 80 vCores<br/>\- Non pris en charge pour les autres tailles<br/><br/>Gen4 n’est pas pris en charge en raison d’une dépréciation|Gen5 :<br/>\- Pris en charge pour 60, 64, 80 vCores<br/>\- Non pris en charge pour les autres tailles<br/><br/>Gen4 n’est pas pris en charge en raison d’une dépréciation|
 
@@ -126,6 +127,9 @@ SQL Managed Instance prend actuellement en charge le déploiement uniquement sur
 
 ## <a name="regional-resource-limitations"></a>Limitations des ressources régionales
 
+> [!Note]
+> Pour obtenir les dernières informations sur la disponibilité des régions pour les abonnements, consultez tout d’abord le [billet de blog officiel sur la COVID-19](https://aka.ms/sqlcapacity).
+
 Les types d’abonnements pris en charge peuvent contenir un nombre limité de ressources par région. SQL Managed Instance a deux limites par défaut par région Azure (qui peuvent être augmentées à la demande en créant une [demande spéciale de support dans le portail Azure](../database/quota-increase-request.md)) en fonction du type d’abonnement :
 
 - **Limite de sous-réseaux** : nombre maximal de sous-réseaux sur lesquels des instances managées SQL sont déployées dans une seule et même région.
@@ -149,6 +153,9 @@ Le tableau suivant montre les **limites régionales par défaut** pour les types
 \* Lors de la planification de déploiements, prenez en considération le fait que le niveau de service critique pour l’entreprise (BC) requiert quatre (4) fois plus de capacité vCore que le niveau de service usage général (GP). Par exemple : 1 GP vCore = 1 unité vCore et 1 BC vCore = 4 unités vCore. Pour simplifier votre analyse de la consommation par rapport aux limites par défaut, récapitulez les unités vCore de tous les sous-réseaux de la région où SQL Managed Instance est déployé et comparez les résultats avec les limites d’unités d’instance pour votre type d’abonnement. La limite **Nombre maximal d’unités de vCore** s’applique à chaque abonnement dans une région. Il n’y a pas de limite par sous-réseau individuel sauf que la somme de tous les vCores déployés sur plusieurs sous-réseaux doit être inférieure ou égale à **nombre maximum d’unités vCore**.
 
 \*\* Des limites de sous-réseau et de vCore plus importantes s’appliquent dans les régions suivantes : Australie Est, USA Est, USA Est 2, Europe Nord, USA Centre Sud, Asie Sud-Est, Royaume-Uni Sud, Europe Ouest, USA Ouest 2.
+
+> [!IMPORTANT]
+> Si la limite de vCore et de sous-réseau est 0, cela signifie que la limite régionale par défaut pour votre type d’abonnement n’est pas définie. Vous pouvez également utiliser la demande d’augmentation de quota pour obtenir l’accès à l’abonnement dans une région spécifique en suivant la même procédure, en fournissant les valeurs de vCore et de sous-réseau requises.
 
 ## <a name="request-a-quota-increase"></a>Demander une augmentation de quota
 

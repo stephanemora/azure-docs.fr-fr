@@ -13,12 +13,12 @@ ms.devlang: powershell
 ms.topic: conceptual
 ms.date: 01/19/2018
 ms.author: jingwang
-ms.openlocfilehash: 225414760507bb023d0a514290420fc7cb59b950
-ms.sourcegitcommit: 6a9f01bbef4b442d474747773b2ae6ce7c428c1f
+ms.openlocfilehash: ab3b5c2ba892205f87235f7f0ce009719016622d
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "84118317"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85322122"
 ---
 # <a name="invoke-an-ssis-package-using-stored-procedure-activity-in-azure-data-factory"></a>Appeler un package SSIS à l’aide de l’activité de procédure stockée dans Azure Data Factory
 Cet article décrit comment appeler un package SSIS à partir d’un pipeline Azure Data Factory à l’aide d’une activité de procédure stockée. 
@@ -82,7 +82,7 @@ Notez les points suivants :
 * Pour créer des instances de fabrique de données, le compte d’utilisateur que vous utilisez pour vous connecter à Azure doit être un membre des rôles **contributeur** ou **propriétaire**, ou un **administrateur** de l’abonnement Azure.
 
 ### <a name="create-an-azure-sql-database-linked-service"></a>Créer un service lié Azure SQL Database
-Créez un service lié pour lier votre base de données Azure SQL qui héberge le catalogue SSIS à votre fabrique de données. Data Factory utilise les informations de ce service lié pour se connecter à la base de données SSISDB, et exécute une procédure stockée pour exécuter un package SSIS. 
+Créez un service lié pour lier votre base de données dans Azure SQL Database qui héberge le catalogue SSIS à votre fabrique de données. Data Factory utilise les informations de ce service lié pour se connecter à la base de données SSISDB, et exécute une procédure stockée pour exécuter un package SSIS. 
 
 1. Créez un fichier JSON nommé **AzureSqlDatabaseLinkedService.json** dans le dossier **C:\ADF\RunSSISPackage** avec le contenu suivant : 
 

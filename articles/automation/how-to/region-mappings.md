@@ -6,16 +6,16 @@ ms.service: automation
 ms.subservice: process-automation
 author: mgoedtel
 ms.author: magoedte
-ms.date: 04/23/2020
+ms.date: 06/12/2020
 ms.topic: conceptual
 manager: carmonm
 ms.custom: references_regions
-ms.openlocfilehash: d594d5a9dd263817023d2b5987c03aa50828191c
-ms.sourcegitcommit: 1f48ad3c83467a6ffac4e23093ef288fea592eb5
+ms.openlocfilehash: a8b5f14147ee748f5d32d794f51d5437eeddfb51
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/29/2020
-ms.locfileid: "84191860"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85261186"
 ---
 # <a name="supported-regions-for-linked-log-analytics-workspace"></a>Régions prises en charge pour l’espace de travail Log Analytics lié
 
@@ -30,23 +30,25 @@ Le tableau suivant renseigne sur les mappages pris en charge :
 |**États-Unis**||
 |EastUS<sup>1</sup>|USAEst2|
 |WestUS2|WestUS2|
-|WestCentralUS<sup>2</sup>|WestCentralUS<sup>2</sup>|
+|USACentreOuest|USACentreOuest|
 |**Canada**||
 |CanadaCentral|CanadaCentral|
 |**Asie-Pacifique**||
 |AustralieSudEst|AustralieSudEst|
 |AsieSudEst|AsieSudEst|
 |CentralIndia|CentralIndia|
+|ChinaEast2<sup>2</sup>|ChinaEast2|
 |JaponEst|JaponEst|
 |**Europe**||
 |RoyaumeUniSud|RoyaumeUniSud|
 |WestEurope|WestEurope|
 |**Gouvernement des États-Unis**||
 |USGovVirginie|USGovVirginie|
+|USGovArizona<sup>2</sup>|USGovArizona|
 
 <sup>1</sup> Le mappage EastUS entre des espaces de travail Log Analytics et des comptes Automation n’est pas un mappage exact de région à région, mais c’est le mappage correct.
 
-<sup>2</sup> En raison de restrictions de capacité, la région n’est pas disponible lorsque vous créez des ressources. Cela inclut les espaces de travail Log Analytics et les comptes Automation. Toutefois, les ressources liées préexistantes dans la région doivent continuer à fonctionner.
+<sup>2</sup> Dans cette région, seul Update Management est pris en charge, d’autres fonctionnalités comme Change Tracking et Inventory ne sont pas disponibles pour l’instant.
 
 ## <a name="unlink-a-workspace"></a>Supprimer la liaison d’un espace de travail
 

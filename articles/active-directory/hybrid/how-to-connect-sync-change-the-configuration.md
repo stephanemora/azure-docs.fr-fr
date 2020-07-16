@@ -7,17 +7,17 @@ manager: daveba
 ms.assetid: 7b9df836-e8a5-4228-97da-2faec9238b31
 ms.service: active-directory
 ms.workload: identity
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 08/30/2018
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a9fb43061b42a43755564f825fa01e65dacad3e5
-ms.sourcegitcommit: 0b80a5802343ea769a91f91a8cdbdf1b67a932d3
+ms.openlocfilehash: ea7f2fbd910f574a6486f1db2eaa9b99a4e3ca3e
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/25/2020
-ms.locfileid: "83827293"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85357866"
 ---
 # <a name="azure-ad-connect-sync-make-a-change-to-the-default-configuration"></a>Synchronisation d’Azure AD Connect : modifier la configuration par défaut
 L’objectif de cet article est d’expliquer comment apporter des modifications à la configuration par défaut dans la synchronisation Azure Active Directory (Azure AD) Connect. Elle explique pas à pas la procédure pour les scénarios courants. À la fin, vous serez capable d’apporter des modifications simples à votre configuration en fonction de vos propres règles d’entreprise.
@@ -243,7 +243,7 @@ Certains attributs Azure AD ne sont pas importés dans l’espace connecteur AD 
  5. Cliquez sur **OK** pour enregistrer.
 ![Ajouter l’attribut source au schéma du connecteur AD local](./media/how-to-connect-sync-change-the-configuration/usertype1.png)
 
-### <a name="step-3-add-the-usertype-to-the-azure-ad-connector-schema"></a>Étape 3 : Ajouter UserType au schéma du Connecteur Azure AD
+### <a name="step-3-add-the-usertype-attribute-to-the-azure-ad-connector-schema"></a>Étape 3 : Ajouter un attribut UserType au schéma du Connecteur Azure AD
 Par défaut, l’attribut UserType n’est pas importé dans l’espace Azure AD Connect. Pour ajouter l’attribut UserType à la liste des attributs importés :
 
  1. Accédez à l’onglet **Connecteurs** dans Synchronization Service Manager.
@@ -340,7 +340,7 @@ Vous pouvez procéder comme suit pour vérifier les modifications tandis que vou
 
 1. Exécutez une **Importation intégrale** sur le **Connecteur AD local** :
 
-   1. Accédez à l’onglet **Opérations** dans Synchronization Service Manager.
+   1. Accédez à l’onglet **Connecteurs** dans Synchronization Service Manager.
    2. Cliquez avec le bouton droit sur le **Connecteur AD local**, puis sélectionnez **Exécuter**.
    3. Dans la boîte de dialogue contextuelle, sélectionnez **Importation intégrale**, puis cliquez sur **OK**.
    4. Attendez que l'opération se termine.

@@ -7,15 +7,15 @@ ms.subservice: cosmosdb-graph
 ms.topic: reference
 ms.date: 09/10/2019
 ms.author: sngun
-ms.openlocfilehash: 989a033a843b861c34dc9dbdbced50399f8e5cd7
-ms.sourcegitcommit: b55d7c87dc645d8e5eb1e8f05f5afa38d7574846
+ms.openlocfilehash: 1db7937cb574ce62986f25e0bfa688dc54b5c606
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "81449882"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84700597"
 ---
 # <a name="azure-cosmos-db-gremlin-compatibility"></a>Compatibilité Azure Cosmos DB Gremlin
-Le moteur Azure Cosmos DB Graph suit de près la spécification des étapes de traversée [Apache TinkerPop](https://tinkerpop.apache.org/docs/current/reference/#graph-traversal-steps), mais avec quelques différences.
+Le moteur Azure Cosmos DB Graph suit de près la spécification des étapes de traversée [Apache TinkerPop](https://tinkerpop.apache.org/docs/current/reference/#graph-traversal-steps), mais avec quelques différences au niveau de l’implémentation, spécifiques à Azure Cosmos DB. Pour connaître la liste des étapes Gremlin prises en charge, consultez l’article [Prise en charge du protocole câble d’API Gremlin](gremlin-support.md).
 
 ## <a name="behavior-differences"></a>Différences de comportement
 
@@ -27,7 +27,7 @@ Le moteur Azure Cosmos DB Graph suit de près la spécification des étapes de t
 
 * La cardinalité des ensembles ***`property(set, 'xyz', 1)`*** n’est pas prise en charge. Utilisez `property(list, 'xyz', 1)` à la place. Pour plus d’informations, consultez [Vertex properties with TinkerPop](http://tinkerpop.apache.org/docs/current/reference/#vertex-properties) (Propriétés de vertex avec TinkerPop).
 
-* ***`atch()`*** permet d'interroger des graphiques à l'aide d’une correspondance déclarative de modèles. Cette fonctionnalité n’est pas disponible.
+* L’***étape `match()`*** n’est pas disponible actuellement. Cette étape fournit des fonctions d’interrogation déclarative.
 
 * Les ***objets en tant que propriétés*** sur les sommets ou arêtes ne sont pas pris en charge. Les propriétés peuvent uniquement être des types primitifs ou des tableaux.
 
@@ -40,6 +40,36 @@ Le moteur Azure Cosmos DB Graph suit de près la spécification des étapes de t
 * Les **fonctions et les expressions lambda** ne sont pas prises en charge actuellement. Cela comprend les fonctions `.map{<expression>}`, `.by{<expression>}` et `.filter{<expression>}`. Pour plus d’informations et pour découvrir comment les réécrire à l’aide d’étapes Gremlin, consultez [A Note on Lambdas](http://tinkerpop.apache.org/docs/current/reference/#a-note-on-lambdas) (Remarque sur les lambdas).
 
 * Les ***transactions*** ne sont pas prises en charge en raison de la nature distribuée du système.  Configurez un modèle d’accès concurrentiel optimiste approprié sur le compte Gremlin pour « lire vos propres écrits », et utilisez l’accès concurrentiel optimiste pour résoudre les conflits d’écritures.
+
+## <a name="known-limitations"></a>Limitations connues
+
+* **Utilisation de l’index pour les requêtes Gremlin avec des étapes `.V()` mi-parcours** : Actuellement, seul le premier appel `.V()` d’une traversée utilisera l’index pour résoudre les filtres ou prédicats qui lui sont associés. Les appels suivants ne consultent pas l’index, ce qui peut augmenter la latence et le coût de la requête.
+    
+    Dans l’hypothèse de l’indexation par défaut, une requête Gremlin de lecture classique commençant par l’étape `.V()` utiliserait des paramètres dans les étapes de filtrage associées, tels que `.has()` ou `.where()`, pour optimiser le coût et les performances de la requête. Par exemple :
+
+    ```java
+    g.V().has('category', 'A')
+    ```
+
+    Toutefois, lorsque plusieurs étapes `.V()` sont incluses dans la requête Gremlin, la résolution des données pour la requête peut ne pas être optimale. Utilisez la requête suivante en guise d’exemple :
+
+    ```java
+    g.V().has('category', 'A').as('a').V().has('category', 'B').as('b').select('a', 'b')
+    ```
+
+    Cette requête retourne deux groupes de sommets en fonction de leur propriété appelée `category`. Dans ce cas, seul le premier appel, `g.V().has('category', 'A')` utilise l’index pour résoudre les sommets en fonction des valeurs de leurs propriétés.
+
+    Une solution de contournement pour cette requête consiste à utiliser des étapes de sous-parcours, telles que `.map()` et `union()`. En voici quelques exemples :
+
+    ```java
+    // Query workaround using .map()
+    g.V().has('category', 'A').as('a').map(__.V().has('category', 'B')).as('b').select('a','b')
+
+    // Query workaround using .union()
+    g.V().has('category', 'A').fold().union(unfold(), __.V().has('category', 'B'))
+    ```
+
+    Vous pouvez examiner les performances des requêtes à l’aide de l’étape [Gremlin `executionProfile()`](graph-execution-profile.md).
 
 ## <a name="next-steps"></a>Étapes suivantes
 * Visitez la page [Cosmos DB User Voice](https://feedback.azure.com/forums/263030-azure-cosmos-db) pour partager vos commentaires et aider l'équipe à se concentrer sur les fonctionnalités qui sont importantes pour vous.

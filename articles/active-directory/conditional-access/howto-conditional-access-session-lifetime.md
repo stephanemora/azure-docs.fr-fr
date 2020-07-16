@@ -4,19 +4,19 @@ description: Personnalisez la configuration de la session d’authentification A
 services: active-directory
 ms.service: active-directory
 ms.subservice: conditional-access
-ms.topic: conceptual
-ms.date: 05/26/2020
+ms.topic: how-to
+ms.date: 06/29/2020
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: jlu, calebb
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: cc75b300704ef7f8218134c9d384b0718fca1e97
-ms.sourcegitcommit: 12f23307f8fedc02cd6f736121a2a9cea72e9454
+ms.openlocfilehash: 2cf89864eb6e52baf925f82aa590619d7cfeabb2
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/30/2020
-ms.locfileid: "84220698"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85552116"
 ---
 # <a name="configure-authentication-session-management-with-conditional-access"></a>Configurer la gestion de session d’authentification avec l’accès conditionnel
 
@@ -51,13 +51,17 @@ Le paramètre de fréquence de connexion fonctionne avec les applications qui on
 - Dynamics CRM en ligne
 - Portail Azure
 
+Le paramètre de fréquence de connexion fonctionne également avec les applications SAML, à condition que celles-ci ne suppriment pas leurs propres cookies et qu’elles soient régulièrement redirigées vers Azure AD pour l’authentification.
+
 ### <a name="user-sign-in-frequency-and-multi-factor-authentication"></a>Fréquence de connexion des utilisateurs et authentification multifacteur
 
-La fréquence de connexion ne s'appliquait auparavant qu'à l'authentification à un facteur sur les appareils joints à Azure AD, joints à Azure AD Hybride et inscrits auprès d'Azure AD. Il n'y avait pas de moyen facile pour nos clients de renforcer l'authentification multifacteur (MFA) sur ces appareils. Conformément aux commentaires des clients, la fréquence de connexion s'appliquera également à l'authentification multifacteur.
+La fréquence de connexion ne s’appliquait qu’à l’authentification à un facteur sur les appareils qui étaient joints à Azure AD, joints à Azure AD Hybride et inscrits auprès d’Azure AD. Il n'y avait pas de moyen facile pour nos clients de renforcer l'authentification multifacteur (MFA) sur ces appareils. Conformément aux commentaires des clients, la fréquence de connexion s'appliquera également à l'authentification multifacteur.
+
+[![Fréquence de connexion et MFA](media/howto-conditional-access-session-lifetime/conditional-access-flow-chart-small.png)](media/howto-conditional-access-session-lifetime/conditional-access-flow-chart.png#lightbox)
 
 ### <a name="user-sign-in-frequency-and-device-identities"></a>Fréquence de connexion des utilisateurs et identités des appareils
 
-Si vous avez des appareils joints à Azure AD, joints à Hybrid Azure AD ou inscrits auprès d’Azure AD, quand un utilisateur déverrouille son appareil ou se connecte de façon interactive, cet événement satisfait également à la stratégie de fréquence de connexion. Dans les 2 exemples suivants, la fréquence de connexion de l’utilisateur est définie sur 1 heure :
+Si vous avez des appareils joints à Azure AD, joints à Azure AD Hybride ou inscrits auprès d’Azure AD, quand un utilisateur déverrouille son appareil ou se connecte de façon interactive, cet événement satisfait également à la stratégie de fréquence de connexion. Dans les deux exemples suivants, la fréquence de connexion de l’utilisateur est définie sur 1 heure :
 
 Exemple 1 :
 
@@ -101,7 +105,7 @@ L’accès conditionnel est une fonctionnalité d’Azure AD Premium et nécessi
 
 ![Stratégie d’accès conditionnel configurée pour la fréquence de connexion](media/howto-conditional-access-session-lifetime/conditional-access-policy-session-sign-in-frequency.png)
 
-Sur les appareils Windows inscrits dans Azure AD, connectez-vous à l’appareil qui est considéré invite. Par exemple, si vous avez configuré la Fréquence de connexion sur 24 heures pour les applications Office, les utilisateurs sur les appareils Windows inscrits dans Azure AD satisferont à la stratégie de fréquence de connexion en se connectant à l’appareil, et ils ne seront donc pas invités à le faire de nouveau lors de l’ouverture des applications Office.
+Sur les appareils Windows inscrits dans Azure AD, connectez-vous à l’appareil qui est considéré invite. Par exemple, si vous avez configuré la fréquence de connexion sur 24 heures pour les applications Office, les utilisateurs d’appareils Windows inscrits à Azure AD répondront à la stratégie de fréquence de connexion en se connectant à l’appareil et ne seront donc pas réinvités à le faire pour ouvrir des applications Office.
 
 Si vous avez configuré une autre fréquence de connexion pour différentes applications web qui s’exécutent dans la même session de navigateur, la stratégie la plus stricte sera appliquée aux deux applications, car toutes les applications en cours d’exécution dans la même session de navigateur partagent un jeton de session unique.
 

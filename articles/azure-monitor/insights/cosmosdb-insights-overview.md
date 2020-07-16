@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: mrbullwinkle
 ms.author: mbullwin
 ms.date: 05/11/2020
-ms.openlocfilehash: 05000f4c670860be249d80b0e695a8a8760510be
-ms.sourcegitcommit: cf7caaf1e42f1420e1491e3616cc989d504f0902
+ms.openlocfilehash: 3fd4bcd13b4d92d2c6e61d10ae9e62996b5dfcf5
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/22/2020
-ms.locfileid: "83797590"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84945492"
 ---
 # <a name="explore-azure-monitor-for-azure-cosmos-db"></a>Explorer Azure Monitor pour Azure Cosmos DB
 
@@ -119,6 +119,10 @@ Dans la mesure où cette expérience s’appuie sur des modèles de classeur Azu
 Les classeurs sont enregistrés au sein d’un groupe de ressources, soit dans la section **Mes rapports** qui est privée ou dans la section **Rapports partagés** accessible à tous les utilisateurs ayant accès au groupe de ressources. Une fois que vous avez enregistré le classeur personnalisé, vous devez accéder à la galerie de classeurs pour le lancer.
 
 ![Lancez la galerie de classeurs à partir de la barre de commandes](./media/cosmosdb-insights-overview/gallery.png)
+
+## <a name="troubleshooting"></a>Dépannage
+
+Pour obtenir des conseils sur la résolution des problèmes, consultez l’[article de résolution des problèmes](troubleshoot-workbooks.md) pour les insights basés sur des classeurs.
 
 ## <a name="next-steps"></a>Étapes suivantes
 

@@ -8,12 +8,12 @@ ms.topic: how-to
 ms.date: 11/18/2019
 ms.author: normesta
 ms.reviewer: stewu
-ms.openlocfilehash: 9a54565f320ae45a4a8297a40027c5e6b3b25202
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 522f9215a0b66c5e6bec5abf41e45489efec19ac
+ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84465964"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86106309"
 ---
 # <a name="tune-performance-hive-hdinsight--azure-data-lake-storage-gen2"></a>Régler les performances : Hive, HDInsight et Azure Data Lake Storage Gen2
 
@@ -57,17 +57,18 @@ Des charges de travail d’e/s intensives peuvent bénéficier de davantage de p
 
 Le nombre de tâches simultanées en cours d’exécution ou le parallélisme sera limité par la mémoire YARN totale.  Le nombre de conteneurs YARN détermine le nombre de tâches simultanées pouvant être exécutées.  Pour rechercher la mémoire YARN par nœud, vous pouvez accéder à Ambari.  Accédez à YARN et affichez l’onglet Configurations.  La mémoire YARN s’affiche dans cette fenêtre.  
 
-        Total YARN memory = nodes * YARN memory per node
-        # of YARN containers = Total YARN memory / Tez container size
+- Mémoire YARN totale = nœuds * mémoire YARN par nœud
+- \# de conteneurs YARN = mémoire YARN totale/taille de conteneur Tez
+
 La clé de l’amélioration des performances à l’aide de Data Lake Storage Gen2 consiste à augmenter la concurrence autant que possible.  Tez calcule automatiquement le nombre de tâches à créer pour que vous ne deviez pas le définir.   
 
 ## <a name="example-calculation"></a>Exemple de calcul
 
 Supposons que vous disposiez d’un cluster D14 à 8 nœuds.  
 
-    Total YARN memory = nodes * YARN memory per node
-    Total YARN memory = 8 nodes * 96GB = 768GB
-    # of YARN containers = 768GB / 3072MB = 256
+- Mémoire YARN totale = nœuds * mémoire YARN par nœud
+- Mémoire YARN totale = 8 nœuds * 96 Go = 768 Go
+- \# de conteneurs YARN = 768 Go/3 072 Mo = 256
 
 ## <a name="further-information-on-hive-tuning"></a>Informations supplémentaires sur l’optimisation de Hive
 

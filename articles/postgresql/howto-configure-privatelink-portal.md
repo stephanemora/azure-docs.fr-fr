@@ -4,14 +4,14 @@ description: Découvrez comment configurer Private Link pour Azure Database pour
 author: kummanish
 ms.author: manishku
 ms.service: postgresql
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 01/09/2020
-ms.openlocfilehash: 72dcf95c8ae8d8da34532fa96e3bf0371f5112fd
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 6986d5882e4d62ffc2e25b7ea998f46f41c67330
+ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79370914"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86102461"
 ---
 # <a name="create-and-manage-private-link-for-azure-database-for-postgresql---single-server-using-portal"></a>Créer et gérer le service Azure Private Link pour Azure Database pour PostgreSQL – Serveur unique à l’aide du Portail Azure
 
@@ -95,6 +95,10 @@ Dans cette section, vous allez créer un réseau virtuel et le sous-réseau pour
 
 1. Lorsque le message **Validation passed** (Validation réussie) apparaît, sélectionnez **Créer**.
 
+> [!NOTE]
+> Il peut arriver que l’instance Azure Database pour PostgreSQL et le sous-réseau de réseau virtuel se trouvent dans des abonnements différents. Dans ce cas, vous devez vérifier les configurations suivantes :
+> - Assurez-vous que le fournisseur de ressources **Microsoft.DBforPostgreSQL** est inscrit pour les deux abonnements. Pour plus d’informations, reportez-vous à [resource-manager-registration][resource-manager-portal]
+
 ## <a name="create-an-azure-database-for-postgresql-single-server"></a>Créer un serveur unique Azure Database pour PostgreSQL
 
 Dans cette section, vous allez créer un serveur Azure Database pour PostgreSQL dans Azure. 
@@ -165,6 +169,9 @@ Dans cette section, vous allez créer un serveur PostgreSQL et lui ajouter un po
     |Intégrer à une zone DNS privée |Sélectionnez **Oui**. |
     |Zone DNS privée |Sélectionnez *(New)privatelink.postgres.database.azure.com* |
     |||
+
+    > [!Note] 
+    > Utilisez la zone DNS privée prédéfinie pour votre service ou indiquez le nom de la zone DNS de votre choix. Pour plus d’informations, reportez-vous à la [Configuration de la zone DNS des services Azure](../private-link/private-endpoint-dns.md).
 
 1. Sélectionnez **Revoir + créer**. Vous êtes redirigé vers la page **Vérifier + créer** où Azure valide votre configuration. 
 2. Lorsque le message **Validation passed** (Validation réussie) apparaît, sélectionnez **Créer**. 
@@ -246,3 +253,6 @@ Lorsque vous avez fini d’utiliser le point de terminaison privé, le serveur P
 ## <a name="next-steps"></a>Étapes suivantes
 
 Dans ce guide pratique, vous avez créé une machine virtuelle sur un réseau virtuel, une instance Azure Database pour PostgreSQL – Serveur unique et un point de terminaison privé pour un accès privé. Vous vous êtes connecté à une machine virtuelle à partir d’Internet et avez communiqué de façon sécurisée avec le serveur PostgreSQL via Azure Private Link. Pour plus d’informations sur les points de terminaison privés, consultez [Qu’est-ce qu’Azure Private Endpoint ?](https://docs.microsoft.com/azure/private-link/private-endpoint-overview)
+
+<!-- Link references, to text, Within this same GitHub repo. -->
+[resource-manager-portal]: ../azure-resource-manager/management/resource-providers-and-types.md

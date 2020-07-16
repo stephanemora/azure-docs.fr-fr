@@ -3,15 +3,15 @@ title: Configurer un pare-feu IP pour votre compte Azure Cosmos DB
 description: Découvrez comment configurer les stratégies de contrôle d’accès IP pour la prise en charge du pare-feu dans les comptes Azure Cosmos.
 author: markjbrown
 ms.service: cosmos-db
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 10/31/2019
 ms.author: mjbrown
-ms.openlocfilehash: 1c24782285ac9b06d5499351eebe1693ade07297
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: b1f1ac9e7c5d44fd5cf6e7d692a71f5cf34b48df
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "78162942"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85261679"
 ---
 # <a name="configure-ip-firewall-in-azure-cosmos-db"></a>Configurer un pare-feu IP dans Azure Cosmos DB
 
@@ -25,7 +25,7 @@ Vous pouvez sécuriser les données stockées dans votre compte Azure Cosmos DB 
 
 Pour définir la stratégie de contrôle d’accès IP dans le portail Azure, accédez à la page du compte Azure Cosmos DB, puis sélectionnez **Pare-feu et réseaux virtuels** dans le menu de navigation. Définissez la valeur **Autoriser l’accès depuis** sur **Réseaux sélectionnés**, puis choisissez **Enregistrer**.
 
-![Capture d’écran montrant comment ouvrir la page Pare-feu sur le Portail Azure](./media/how-to-configure-firewall/azure-portal-firewall.png)
+:::image type="content" source="./media/how-to-configure-firewall/azure-portal-firewall.png" alt-text="Capture d’écran montrant comment ouvrir la page Pare-feu sur le portail Azure":::
 
 Lorsque le contrôle d’accès IP est activé, le portail Azure offre la possibilité de spécifier des adresses IP, des plages d’adresses IP et des commutateurs. Les commutateurs permettent d’accéder à d’autres services Azure et au portail Azure. Les sections suivantes fournissent plus d’informations sur ces commutateurs.
 
@@ -45,13 +45,13 @@ Lorsque vous activez une stratégie de contrôle d’accès IP par programme, vo
 
 Vous pouvez autoriser l’accès de demandes au portail Azure en sélectionnant l’option **Autoriser l’accès à partir du portail Azure**, comme illustré dans la capture d’écran suivante :
 
-![Capture d’écran montrant comment activer l’accès au Portail Azure](./media/how-to-configure-firewall/enable-azure-portal.png)
+:::image type="content" source="./media/how-to-configure-firewall/enable-azure-portal.png" alt-text="Capture d’écran montrant comment activer l’accès au portail Azure":::
 
 ### <a name="allow-requests-from-global-azure-datacenters-or-other-sources-within-azure"></a>Autoriser les demandes à partir de centres de données Azure internationaux ou d’autres sources au sein d’Azure
 
 Si vous accédez à votre compte Azure Cosmos DB à partir de services qui ne fournissent pas d’adresse IP statique (par exemple, Azure Stream Analytics et Azure Functions), vous pouvez toujours utiliser le pare-feu IP pour limiter l’accès. Vous pouvez autoriser l’accès à partir d’autres sources au sein du portail Azure en sélectionnant l’option **Accepter les connexions des centres de données Azure**, comme illustré dans la capture d’écran suivante :
 
-![Capture d’écran montrant comment ouvrir la page Pare-feu sur le Portail Azure](./media/how-to-configure-firewall/enable-azure-services.png)
+:::image type="content" source="./media/how-to-configure-firewall/enable-azure-services.png" alt-text="Capture d’écran montrant comment ouvrir la page Pare-feu sur le portail Azure":::
 
 Lorsque vous activez cette option, l’adresse IP `0.0.0.0` est ajoutée à la liste des adresses IP autorisées. L’adresse IP `0.0.0.0` limite les demandes envoyées à votre compte Azure Cosmos DB à partir de la plage d’adresses IP du centre de données Azure. Ce paramètre n’autorise aucune autre plage d’adresses IP à accéder à votre compte Azure Cosmos DB.
 
@@ -66,7 +66,7 @@ Le portail détecte automatiquement l’adresse IP du client. Il peut s’agir d
 
 Pour ajouter votre adresse IP actuelle à la liste des adresses IP, sélectionnez **Ajouter mon adresse IP actuelle**. Ensuite, sélectionnez **Enregistrer**.
 
-![Capture d’écran montrant comment configurer les paramètres de pare-feu pour l’adresse IP actuelle](./media/how-to-configure-firewall/enable-current-ip.png)
+:::image type="content" source="./media/how-to-configure-firewall/enable-current-ip.png" alt-text="Capture d’écran montrant comment configurer les paramètres de pare-feu pour l’adresse IP actuelle":::
 
 ### <a name="requests-from-cloud-services"></a>Demandes à partir de services cloud
 
@@ -74,7 +74,7 @@ Dans Azure, les services cloud sont une méthode courante d’hébergement de la
 
 Vous pouvez récupérer des adresses IP pour vos services cloud dans le portail Azure, comme illustré dans la capture d’écran suivante :
 
-![Capture d’écran illustrant l’adresse IP publique pour un service cloud affichée dans le portail Azure](./media/how-to-configure-firewall/public-ip-addresses.png)
+:::image type="content" source="./media/how-to-configure-firewall/public-ip-addresses.png" alt-text="Capture d’écran illustrant l’adresse IP publique pour un service cloud affichée dans le portail Azure":::
 
 Quand vous effectuez un scale-out de votre service cloud en ajoutant des instances de rôle, ces nouvelles instances ont automatiquement accès au compte Azure Cosmos DB car elles font partie du même service cloud.
 
@@ -84,7 +84,7 @@ Vous pouvez également utiliser des [machines virtuelles](https://azure.microsof
 
 Vous pouvez récupérer des adresses IP pour les machines virtuelles dans le portail Azure, comme illustré dans la capture d’écran suivante :
 
-![Capture d’écran illustrant une adresse IP publique pour une machine virtuelle affichée dans le portail Azure](./media/how-to-configure-firewall/public-ip-addresses-dns.png)
+:::image type="content" source="./media/how-to-configure-firewall/public-ip-addresses-dns.png" alt-text="Capture d’écran illustrant une adresse IP publique pour une machine virtuelle affichée dans le portail Azure":::
 
 Quand vous ajoutez des instances de machine virtuelle au groupe, elles ont automatiquement accès à votre compte Azure Cosmos DB.
 

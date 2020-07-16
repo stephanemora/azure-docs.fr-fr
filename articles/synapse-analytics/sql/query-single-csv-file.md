@@ -5,16 +5,16 @@ services: synapse analytics
 author: azaricstefan
 ms.service: synapse-analytics
 ms.topic: how-to
-ms.subservice: ''
+ms.subservice: sql
 ms.date: 05/20/2020
 ms.author: v-stazar
 ms.reviewer: jrasnick, carlrab
-ms.openlocfilehash: f264a62428f919fe23797171926ddf63c585c42b
-ms.sourcegitcommit: f1132db5c8ad5a0f2193d751e341e1cd31989854
+ms.openlocfilehash: 628631fb7fddbc07dcb865e3d3badbfb608ad097
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/31/2020
-ms.locfileid: "84234123"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85214449"
 ---
 # <a name="query-csv-files"></a>Interroger des fichiers CSV
 
@@ -179,6 +179,37 @@ WHERE
 
 > [!NOTE]
 > Cette requête échouerait si ESCAPECHAR n’était pas spécifié, car la virgule dans « Slov,enia » serait traitée comme un délimiteur de champ plutôt que comme une partie du nom de pays/région. « Slov, enia » serait alors traité comme deux colonnes. Par conséquent, cette ligne aurait une colonne plus que les autres lignes et que ce que vous avez défini dans la clause WITH.
+
+### <a name="escaping-quoting-characters"></a>Échappement des caractères de délimitation
+
+La requête suivante montre comment lire un fichier avec une ligne d’en-tête, avec une nouvelle ligne de style UNIX, des colonnes délimitées par des virgules et un guillemet double placé dans une séquence d’échappement dans les valeurs. Notez l’emplacement différent du fichier par rapport aux autres exemples.
+
+Aperçu du fichier :
+
+![La requête suivante montre comment lire un fichier avec une ligne d’en-tête, avec une nouvelle ligne de style UNIX, des colonnes délimitées par des virgules et un guillemet double placé dans une séquence d’échappement dans les valeurs.](./media/query-single-csv-file/population-unix-hdr-escape-quoted.png)
+
+```sql
+SELECT *
+FROM OPENROWSET(
+        BULK 'csv/population-unix-hdr-escape-quoted/population.csv',
+        DATA_SOURCE = 'SqlOnDemandDemo',
+        FORMAT = 'CSV', PARSER_VERSION = '2.0',
+        FIELDTERMINATOR =',',
+        ROWTERMINATOR = '0x0a',
+        FIRSTROW = 2
+    )
+    WITH (
+        [country_code] VARCHAR (5) COLLATE Latin1_General_BIN2,
+        [country_name] VARCHAR (100) COLLATE Latin1_General_BIN2,
+        [year] smallint,
+        [population] bigint
+    ) AS [r]
+WHERE
+    country_name = 'Slovenia';
+```
+
+> [!NOTE]
+> Le caractère de délimitation doit être placé dans une séquence d’échappement avec un autre caractère de délimitation. Le caractère de délimitation peut apparaître dans la valeur de colonne seulement si la valeur est encapsulée avec des caractères de délimitation.
 
 ## <a name="tab-delimited-files"></a>Fichiers délimités par des tabulations
 

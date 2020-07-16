@@ -5,17 +5,17 @@ author: craigshoemaker
 ms.topic: reference
 ms.date: 02/14/2020
 ms.author: cshoe
-ms.custom: fasttrack-edit
-ms.openlocfilehash: 4df0faf3f74ef3423dcd42c2c76af8b39a889a92
-ms.sourcegitcommit: 318d1bafa70510ea6cdcfa1c3d698b843385c0f6
+ms.custom: fasttrack-edit, tracking-python
+ms.openlocfilehash: 2eaa2202ac6c2f0fac0f53c6eeb2f5d08c764f1e
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/21/2020
-ms.locfileid: "83773947"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85413346"
 ---
 # <a name="azure-event-grid-output-binding-for-azure-functions"></a>Liaison de sortie Azure Event Grid pour Azure Functions
 
-Utilisez la liaison de sortie Event Grid pour écrire des événements dans une rubrique personnalisée. Vous devez avoir une [clé d’accès valide pour la rubrique personnalisée](../event-grid/security-authentication.md#authenticate-publishing-clients-using-sas-or-key).
+Utilisez la liaison de sortie Event Grid pour écrire des événements dans une rubrique personnalisée. Vous devez avoir une [clé d’accès valide pour la rubrique personnalisée](../event-grid/security-authenticate-publishing-clients.md).
 
 Pour plus d’informations sur les détails d’installation et de configuration, consultez la [vue d’ensemble](./functions-bindings-event-grid.md).
 
@@ -162,7 +162,7 @@ module.exports = function(context) {
 
 # <a name="python"></a>[Python](#tab/python)
 
-L’exemple suivant montre une liaison de déclencheur dans un fichier *function.json* et une [fonction Python](functions-reference-python.md) qui utilise la liaison. Il envoie ensuite un événement à la rubrique Event Grid personnalisée, comme spécifié par `topicEndpointUri`.
+L’exemple suivant montre une liaison de déclencheur dans un fichier *function.json* et une [fonction Python](functions-reference-python.md) qui utilise la liaison. Il envoie ensuite un événement à la rubrique personnalisée, comme spécifié par `topicEndpointUri`.
 
 Voici les données de liaison dans le fichier *function.json* :
 
@@ -187,7 +187,7 @@ Voici les données de liaison dans le fichier *function.json* :
 }
 ```
 
-Voici l’exemple Python pour envoyer un événement à une rubrique Event Grid personnalisée en définissant `EventGridOutputEvent` :
+Voici l’exemple Python pour envoyer un événement à une rubrique personnalisée en définissant `EventGridOutputEvent` :
 
 ```python
 import logging

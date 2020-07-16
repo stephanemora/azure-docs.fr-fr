@@ -2,23 +2,24 @@
 title: Déplacement de l’authentification d’application d’AD FS vers Azure Active Directory
 description: Cet article a pour but d’aider les organisations à comprendre comment déplacer des applications vers Azure AD, et se concentre sur les applications SaaS fédérées.
 services: active-directory
-author: barbaraselden
-manager: CelesteDG
+author: kenwith
+manager: celestedg
 ms.service: active-directory
 ms.subservice: app-mgmt
-ms.topic: conceptual
+ms.topic: how-to
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.date: 04/01/2020
-ms.author: baselden
+ms.author: kenwith
+ms.reviewer: baselden
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 30b777cce9b704be558460edf20cf243258c160b
-ms.sourcegitcommit: 67bddb15f90fb7e845ca739d16ad568cbc368c06
+ms.openlocfilehash: 33b67c836be3395061e33b5988a4bb06fa5ee20f
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82202296"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85608549"
 ---
 # <a name="moving-application-authentication-from-active-directory-federation-services-to-azure-active-directory"></a>Déplacement de l’authentification d’application des services de fédération Active Directory (AD FS) vers Azure Active Directory
 
@@ -397,7 +398,7 @@ Pour implémenter des stratégies intégrées dans Azure AD, vous pouvez utilise
 Dans ce tableau, nous avons répertorié des options d’autorisation et d’exclusion utiles, ainsi que la façon dont elles sont mappées sur Azure AD. 
 
 
-| | Comment configurer l’option Autoriser dans Azure AD ?| Comment configurer l’option Exclure dans Azure AD ? |
+| Option | Comment configurer l’option Autoriser dans Azure AD ?| Comment configurer l’option Exclure dans Azure AD ? |
 | - | - | - |
 | À partir d’un réseau spécifique| Correspond à un [Emplacement nommé](https://docs.microsoft.com/azure/active-directory/reports-monitoring/quickstart-configure-named-locations) dans Azure AD| Utilisez l’option **Exclure** pour les [emplacements approuvés](https://docs.microsoft.com/azure/active-directory/conditional-access/location-condition) |
 | À partir de groupes spécifiques| [Définir une affectation Utilisateur/Groupes](https://docs.microsoft.com/azure/active-directory/manage-apps/assign-user-or-group-access-portal)| Utiliser l’option **Exclure** dans les utilisateurs et les groupes |
@@ -462,7 +463,7 @@ Selon la façon dont vous configurez votre application, vérifiez que l’authen
 ‎ |
 | Authentification unique par mot de passe| Télécharger et installer [l’extension de connexion sécurisée ](https://docs.microsoft.com/azure/active-directory/user-help/active-directory-saas-access-panel-introduction)[-](https://docs.microsoft.com/azure/active-directory/user-help/active-directory-saas-access-panel-introduction)[ Mes applications](https://docs.microsoft.com/azure/active-directory/user-help/active-directory-saas-access-panel-introduction). Cette extension vous permet de lancer les applications cloud de votre organisation qui vous obligent à utiliser un processus d’authentification unique.  
 ‎ |
-| Application Proxy (Proxy d’application)| Vérifiez que votre connecteur est en cours d’exécution et affecté à votre application. Pour obtenir de l’aide, consultez le [Guide de résolution des problèmes de proxy d’application](https://docs.microsoft.com/azure/active-directory/manage-apps/application-proxy-troubleshoot)[](https://docs.microsoft.com/azure/active-directory/manage-apps/application-proxy-troubleshoot).  
+| Application Proxy (Proxy d’application)| Vérifiez que votre connecteur est en cours d’exécution et affecté à votre application. Pour obtenir de l’aide, consultez le [Guide de résolution des problèmes de proxy d’application](https://docs.microsoft.com/azure/active-directory/manage-apps/application-proxy-troubleshoot).  
 ‎ |
 
 > [!NOTE]

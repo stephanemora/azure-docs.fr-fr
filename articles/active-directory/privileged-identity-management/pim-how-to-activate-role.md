@@ -7,25 +7,25 @@ author: curtand
 manager: mtillman
 editor: ''
 ms.service: active-directory
-ms.topic: conceptual
+ms.topic: how-to
 ms.workload: identity
 ms.subservice: pim
-ms.date: 06/28/2019
+ms.date: 07/06/2020
 ms.author: curtand
 ms.custom: pim
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 8f95a1a08189668e5b6f88941069566b00a73bce
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 433ccecdc5eee5314114d020571761ee82afd6b9
+ms.sourcegitcommit: 0100d26b1cac3e55016724c30d59408ee052a9ab
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "77499203"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86024097"
 ---
 # <a name="activate-my-azure-ad-roles-in-pim"></a>Activer mes rôles Azure AD dans PIM
 
 Le service Azure Active Directory (Azure AD) Privileged Identity Management (PIM) simplifie la gestion par les entreprises de l’accès privilégié aux ressources dans Azure AD et d’autres services en ligne Microsoft, tels qu’Office 365 ou Microsoft Intune.  
 
-Si vous êtes éligible à un rôle d’administrateur, vous pouvez activer ce rôle quand vous devez effectuer des actions privilégiées. Par exemple, si vous gérez occasionnellement des fonctionnalités d’Office 365, les administrateurs de rôle privilégié de votre organisation peuvent ne pas vous attribuer le rôle d’administrateur général permanent, étant donné que ce rôle affecte également les autres services. Au lieu de cela, ils peuvent vous attribuer des rôles Azure AD tels qu’administrateur Exchange Online. Vous pouvez faire une demande pour activer ce rôle lorsque vous avez besoin de ses privilèges. Vous aurez ainsi le contrôle d’administrateur pendant une période prédéterminée.
+Si vous êtes éligible à un rôle d’administrateur, vous devez activer ce rôle quand vous devez effectuer des actions privilégiées. Par exemple, si vous gérez occasionnellement des fonctionnalités d’Office 365, les administrateurs de rôle privilégié de votre organisation peuvent ne pas vous attribuer le rôle d’administrateur général permanent, étant donné que ce rôle affecte également les autres services. Au lieu de cela, ils peuvent vous attribuer des rôles Azure AD tels qu’administrateur Exchange Online. Vous pouvez faire une demande pour activer ce rôle lorsque vous avez besoin de ses privilèges. Vous aurez ainsi le contrôle d’administrateur pendant une période prédéterminée.
 
 Cet article est destiné aux administrateurs qui doivent activer leur rôle Azure AD dans Privileged Identity Management.
 
@@ -42,7 +42,7 @@ Depuis novembre 2019, la partie Rôles Azure AD de Privileged Identity Manageme
 
 ## <a name="activate-a-role"></a>Activer un rôle
 
-Lorsque vous devez assumer un rôle Azure AD, vous pouvez demander une activation à l’aide de l’option de navigation **Mes rôles** dans Privileged Identity Management.
+Lorsque vous devez assumer un rôle Azure AD, vous pouvez demander une activation en ouvrant **Mes rôles** dans Privileged Identity Management.
 
 1. Connectez-vous au [portail Azure](https://portal.azure.com/).
 
@@ -56,7 +56,7 @@ Lorsque vous devez assumer un rôle Azure AD, vous pouvez demander une activatio
 
     ![Rôles Azure AD : liste Mes rôles éligibles](./media/pim-how-to-activate-role/activate-link.png)
 
-1. Sélectionnez **Activer** pour ouvrir le volet Activer.
+1. Sélectionnez **Activer** pour ouvrir la page Activer.
 
     ![Rôles Azure AD : la page d’activation contient la durée et l’étendue](./media/pim-how-to-activate-role/activate-page.png)
 
@@ -76,29 +76,9 @@ Lorsque vous devez assumer un rôle Azure AD, vous pouvez demander une activatio
 
 1. Sélectionnez **Activer**.
 
-    Si le rôle ne nécessite pas d’approbation, il est activé et ajouté à la liste des rôles actifs. Si vous voulez utiliser le rôle, suivez les étapes décrites dans la section suivante.
-
-    ![Volet Activer complètement renseigné comportant l’étendue, l’heure de début, la durée et le motif](./media/pim-how-to-activate-role/azure-ad-activation-status.png)
-
     Si [l’activation du rôle nécessite une approbation](pim-resource-roles-approval-workflow.md), une notification s’affiche dans le coin supérieur droit de votre navigateur pour vous informer que la demande est en attente d’approbation.
 
     ![La requête d’activation est en attente de la notification d’approbation](./media/pim-resource-roles-activate-your-roles/resources-my-roles-activate-notification.png)
-
-## <a name="use-a-role-immediately-after-activation"></a>Utiliser un rôle immédiatement après son activation
-
-En cas de retard après l’activation, suivez ces étapes après l’activation pour utiliser immédiatement vos rôles Azure AD.
-
-1. Ouvrez Azure AD Privileged Identity Management.
-
-1. Sélectionnez **Mes rôles** pour afficher la liste de vos rôles Azure AD et rôles de ressources Azure éligibles.
-
-1. Sélectionnez des **rôles Azure AD**.
-
-1. Sélectionnez l’onglet **Rôles actifs**.
-
-1. Une fois que le rôle est actif, déconnectez-vous du portail, puis reconnectez-vous.
-
-    Le rôle doit maintenant être disponible.
 
 ## <a name="view-the-status-of-your-requests"></a>Afficher l’état de vos demandes
 
@@ -133,8 +113,6 @@ Si vous n’avez pas besoin de l’activation d’un rôle nécessitant une appr
 Quand vous activez un rôle dans Privileged Identity Management, il est possible que l’activation ne se propage pas instantanément à tous les portails qui nécessitent le rôle privilégié. Parfois, même si la modification est propagée, son application immédiate peut être empêchée par la mise en cache web dans un portail. Si l’activation est retardée, voici les étapes à suivre.
 
 1. Déconnectez-vous du portail Microsoft Azure, puis reconnectez-vous.
-
-    Lorsque vous activez un rôle Azure AD, vous voyez apparaître les phases de l’activation. Une fois toutes les phases terminées, un lien **Se déconnecter** s’affiche. Vous pouvez utiliser ce lien pour vous déconnecter. Cette procédure résout la plupart des cas de retard d’activation.
 
 1. Dans Privileged Identity Management, vérifiez que vous êtes répertorié en tant que membre du rôle.
 

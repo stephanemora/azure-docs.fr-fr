@@ -8,12 +8,12 @@ ms.topic: troubleshooting
 ms.date: 03/30/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: 195668886a0c1ba9f96939a7e5e3960a6932dee5
-ms.sourcegitcommit: f1132db5c8ad5a0f2193d751e341e1cd31989854
+ms.openlocfilehash: aad3bffeba4395ba415fb99a3667d04d18769a47
+ms.sourcegitcommit: 0100d26b1cac3e55016724c30d59408ee052a9ab
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/31/2020
-ms.locfileid: "84235894"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86026693"
 ---
 # <a name="tenant-and-host-pool-creation"></a>Création d’un pool de locataires et d’hôtes
 
@@ -30,7 +30,8 @@ Rendez-vous sur le site [Windows Virtual Desktop Tech Community](https://techcom
 
 Pour utiliser l’image multisession Windows 10 Entreprise, accédez à la Place de marché Azure, sélectionnez **Prise en main** > **Microsoft Windows 10** > [Windows 10 Enterprise for Virtual Desktops, Version 1809](https://azuremarketplace.microsoft.com/marketplace/apps/microsoftwindowsdesktop.windows-10?tab=PlansAndPrice) (Windows 10 Entreprise pour postes de travail virtuels, version 1809).
 
-![Capture d’écran de la sélection de Windows 10 Entreprise pour postes de travail virtuels, version 1809.](../media/AzureMarketPlace.png)
+> [!div class="mx-imgBorder"]
+> ![Capture d’écran de la sélection de Windows 10 Entreprise pour postes de travail virtuels, version 1809.](../media/AzureMarketPlace.png)
 
 ## <a name="creating-windows-virtual-desktop-tenant"></a>Création d’un locataire Windows Virtual Desktop
 
@@ -54,7 +55,8 @@ Contact your IT Admin to review the configuration of your service subscriptions.
 
 ### <a name="error-the-user-isnt-authorized-to-query-the-management-service"></a>Erreur : L’utilisateur n’est pas autorisé à interroger le service de gestion
 
-![Capture d’écran PowerShell indiquant qu’un utilisateur n’est pas autorisé à interroger le service de gestion](../media/UserNotAuthorizedNewTenant.png)
+> [!div class="mx-imgBorder"]
+> ![Capture d’écran PowerShell indiquant qu’un utilisateur n’est pas autorisé à interroger le service de gestion](../media/UserNotAuthorizedNewTenant.png)
 
 Exemple d’erreur brute :
 
@@ -75,7 +77,8 @@ Exemple d’erreur brute :
 
 **Correctif :** Suivez les instructions de l’article [Attribuer le rôle d’application TenantCreator à un utilisateur dans votre locataire Azure Active Directory](tenant-setup-azure-active-directory.md#assign-the-tenantcreator-application-role). Après avoir suivi la procédure, vous disposerez d’un utilisateur doté du rôle TenantCreator.
 
-![Capture d’écran de l’attribution du rôle TenantCreator](../media/TenantCreatorRoleAssigned.png)
+> [!div class="mx-imgBorder"]
+> ![Capture d’écran de l’attribution du rôle TenantCreator](../media/TenantCreatorRoleAssigned.png)
 
 ## <a name="creating-windows-virtual-desktop-session-host-vms"></a>Création de machines virtuelles hôtes de la session Windows Virtual Desktop
 
@@ -87,7 +90,8 @@ Le modèle Windows Virtual Desktop - Provision a host pool est accessible à par
 
 ### <a name="error-when-using-the-link-from-github-the-message-create-a-free-account-appears"></a>Erreur : Quand vous cliquez sur le lien GitHub, le message « Créer un compte gratuit » s’affiche
 
-![Capture d’écran de création d’un compte gratuit](../media/be615904ace9832754f0669de28abd94.png)
+> [!div class="mx-imgBorder"]
+> ![Capture d’écran de création d’un compte gratuit](../media/be615904ace9832754f0669de28abd94.png)
 
 **Cause 1 :** Aucun abonnement n’est actif dans le compte utilisé pour la connexion à Azure, ou le compte utilisé n’est pas autorisé à visualiser les abonnements.
 
@@ -110,7 +114,8 @@ Le modèle Windows Virtual Desktop - Provision a host pool est accessible à par
 
 ### <a name="error-you-receive-template-deployment-is-not-valid-error"></a>Erreur : Vous recevez une erreur « Le déploiement du modèle n’est pas valide »
 
-![Capture d’écran de l’erreur « Le déploiement du modèle ... n’est pas valide »](../media/troubleshooting-marketplace-validation-error-generic.png)
+> [!div class="mx-imgBorder"]
+> ![Capture d’écran de l’erreur « Le déploiement du modèle ... n’est pas valide »](../media/troubleshooting-marketplace-validation-error-generic.png)
 
 Avant d’effectuer une action spécifique, vous devez vérifier le journal d’activité pour voir l’erreur détaillée concernant la validation du déploiement qui a échoué.
 
@@ -119,10 +124,14 @@ Pour voir l’erreur dans le journal d’activité :
 1. Quittez l’offre de déploiement actuelle de la Place de marché Azure.
 2. Dans la barre de recherche du haut, recherchez et sélectionnez **Journal d’activité**.
 3. Recherchez une activité nommée **Valider le déploiement** dont l’état est **Échec** et sélectionnez l’activité.
-   ![Capture d’écran de l’activité **Valider le déploiement** avec un état **Échec**](../media/troubleshooting-marketplace-validation-error-activity-summary.png)
+   
+   > [!div class="mx-imgBorder"]
+   > ![Capture d’écran de l’activité **Valider le déploiement** avec un état **Échec**](../media/troubleshooting-marketplace-validation-error-activity-summary.png)
 
 4. Sélectionnez JSON, puis faites défiler jusqu’au bas de l’écran jusqu’à ce que le champ « statusMessage » apparaisse.
-   ![Capture d’écran de l’activité en échec, avec un encadré rouge autour de la propriété statusMessage du texte JSON.](../media/troubleshooting-marketplace-validation-error-json-boxed.png)
+   
+   > [!div class="mx-imgBorder"]
+   > ![Capture d’écran de l’activité en échec, avec un encadré rouge autour de la propriété statusMessage du texte JSON.](../media/troubleshooting-marketplace-validation-error-json-boxed.png)
 
 Si votre modèle d’opération dépasse la limite de quota, vous pouvez effectuer une des actions suivantes pour résoudre cela :
 
@@ -140,7 +149,8 @@ Suivez les instructions ci-après pour détecter les problèmes d’échecs de d
 
 ### <a name="error-your-deployment-failedhostnamejoindomain"></a>Erreur : Votre déploiement a échoué….\<hostname>/joindomain
 
-![Capture d’écran du message d’échec du déploiement](../media/e72df4d5c05d390620e07f0d7328d50f.png)
+> [!div class="mx-imgBorder"]
+> ![Capture d’écran du message d’échec du déploiement](../media/e72df4d5c05d390620e07f0d7328d50f.png)
 
 Exemple d’erreur brute :
 
@@ -181,7 +191,8 @@ Pour corriger cela, effectuez les actions suivantes :
 
 ### <a name="error-vmextensionprovisioningerror"></a>Erreur : VMExtensionProvisioningError
 
-![Capture d’écran du message d’échec du déploiement indiquant l’échec de l’approvisionnement du terminal](../media/7aaf15615309c18a984673be73ac969a.png)
+> [!div class="mx-imgBorder"]
+> ![Capture d’écran du message d’échec du déploiement indiquant l’échec du provisionnement du terminal](../media/7aaf15615309c18a984673be73ac969a.png)
 
 **Cause 1 :** Erreur temporaire au niveau de l’environnement Windows Virtual Desktop.
 
@@ -191,7 +202,8 @@ Pour corriger cela, effectuez les actions suivantes :
 
 ### <a name="error-the-admin-username-specified-isnt-allowed"></a>Erreur : Le nom d’utilisateur spécifié pour l’administrateur n’est pas autorisé
 
-![Capture d’écran du message d’échec du déploiement dans lequel un nom d’administrateur spécifié n’est pas autorisé](../media/f2b3d3700e9517463ef88fa41875bac9.png)
+> [!div class="mx-imgBorder"]
+> ![Capture d’écran du message d’échec du déploiement dans lequel un nom d’administrateur spécifié n’est pas autorisé](../media/f2b3d3700e9517463ef88fa41875bac9.png)
 
 Exemple d’erreur brute :
 
@@ -210,7 +222,8 @@ Exemple d’erreur brute :
 
 ### <a name="error-vm-has-reported-a-failure-when-processing-extension"></a>Erreur : La machine virtuelle a signalé un échec lors du traitement de l’extension
 
-![Capture d’écran du message d’échec du déploiement indiquant que l’opération de ressource s’est terminée avec l’échec de l’approvisionnement du terminal](../media/49c4a1836a55d91cd65125cf227f411f.png)
+> [!div class="mx-imgBorder"]
+> ![Capture d’écran du message d’échec du déploiement indiquant que l’opération de ressource s’est terminée avec l’échec du provisionnement du terminal](../media/49c4a1836a55d91cd65125cf227f411f.png)
 
 Exemple d’erreur brute :
 
@@ -236,7 +249,8 @@ Exemple d’erreur brute :
 
 ### <a name="error-deploymentfailed--powershell-dsc-configuration-firstsessionhost-completed-with-errors"></a>Erreur : DeploymentFailed - La configuration DSC PowerShell de « FirstSessionHost » s’est terminée avec des erreurs
 
-![Capture d’écran du message d’échec du déploiement indiquant que la configuration DSC PowerShell de « FirstSessionHost » s’est terminée avec des erreurs](../media/64870370bcbe1286906f34cf0a8646ab.png)
+> [!div class="mx-imgBorder"]
+> ![Capture d’écran du message d’échec du déploiement indiquant que la configuration DSC PowerShell de « FirstSessionHost » s’est terminée avec des erreurs](../media/64870370bcbe1286906f34cf0a8646ab.png)
 
 Exemple d’erreur brute :
 
@@ -365,7 +379,8 @@ New-RdsRoleAssignment -TenantName <Windows Virtual Desktop tenant name> -RoleDef
 
 ### <a name="error-user-requires-azure-multi-factor-authentication-mfa"></a>Erreur : L’utilisateur nécessite une authentification multifacteur (MFA)
 
-![Capture d’écran du message d’échec du déploiement en raison d’une absence d’authentification multifacteur](../media/MFARequiredError.png)
+> [!div class="mx-imgBorder"]
+> ![Capture d’écran du message d’échec du déploiement en raison d’une absence d’authentification multifacteur](../media/MFARequiredError.png)
 
 Exemple d’erreur brute :
 
@@ -390,6 +405,12 @@ Si vous exécutez le modèle Resource Manager GitHub, renseignez les paramètres
 - Mot de passe d’administrateur du locataire : secret de mot de passe que vous avez généré pour le principal du service
 - IsServicePrincipal : **true**
 - AadTenantId : ID de locataire Azure AD du principal de service que vous avez créé
+
+### <a name="error-vmsubnet-not-available-when-configuring-virtual-networks"></a>Erreur : vmSubnet n’est pas disponible lors de la configuration des réseaux virtuels
+
+**Cause :** Dans le modèle Marketplace WVD, l’interface utilisateur affiche uniquement les sous-réseaux qui ont au moins autant d’adresses IP disponibles que le nombre total de machines virtuelles spécifiées dans le modèle. Le nombre réel d’adresses IP disponibles sur le sous-réseau doit être égal au nombre de nouvelles machines virtuelles déployées, mais il ne peut pas être calculé par l’interface utilisateur actuelle.
+
+**Correctif :** Vous pouvez spécifier un sous-réseau avec au moins autant d’adresses IP disponibles que le nombre de machines virtuelles ajoutées en n’utilisant pas l’interface utilisateur de la Place de marché. Pour cela, vous pouvez spécifier le nom du sous-réseau dans le paramètre « **existingSubnetName** » quand vous [redéployez un déploiement existant](expand-existing-host-pool-2019.md#redeploy-from-azure) ou [déployez à l’aide du modèle ARM sous-jacent à partir de GitHub](create-host-pools-arm-template.md#run-the-azure-resource-manager-template-for-provisioning-a-new-host-pool).
 
 ## <a name="next-steps"></a>Étapes suivantes
 

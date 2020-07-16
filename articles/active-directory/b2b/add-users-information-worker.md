@@ -4,7 +4,7 @@ description: La collaboration B2B permet aux professionnels de l’information e
 services: active-directory
 ms.service: active-directory
 ms.subservice: B2B
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 12/19/2018
 ms.author: mimart
 author: msmimart
@@ -12,12 +12,12 @@ manager: celestedg
 ms.reviewer: mal
 ms.custom: it-pro, seo-update-azuread-jan
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: abb5c6939d8c88db35a776aa8f2c075a4bdcc609
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 9bc3175017e5b26251d1a12d0d1e2c51c4e5f9c9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "77565415"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85387386"
 ---
 # <a name="how-users-in-your-organization-can-invite-guest-users-to-an-app"></a>Comment procéder pour inviter des utilisateurs invités à accéder à une application ?
 
@@ -28,7 +28,7 @@ Une fois qu’un utilisateur invité a été ajouté au répertoire dans Azure A
  - Configurer l’application pour le libre-service et affecter le groupe à l’application
 
 > [!NOTE]
-> Cet article décrit comment configurer la gestion en libre-service pour les applications SAML et de la galerie que vous avez ajoutées à votre locataire Azure AD. Vous pouvez également [configurer des groupes Office 365 en libre-service](https://docs.microsoft.com/azure/active-directory/users-groups-roles/groups-self-service-management) afin que vos utilisateurs puissent gérer l’accès à leurs propres groupes Office 365. Pour obtenir d’autres méthodes permettant aux utilisateurs de partager des fichiers et applications Office avec des utilisateurs invités, consultez [Accès invité dans les groupes Office 365](https://support.office.com/article/guest-access-in-office-365-groups-bfc7a840-868f-4fd6-a390-f347bf51aff6) et [Partager des fichiers ou dossiers SharePoint](https://support.office.com/article/share-sharepoint-files-or-folders-1fe37332-0f9a-4719-970e-d2578da4941c).
+> Cet article décrit comment configurer la gestion en libre-service pour les applications SAML et de la galerie que vous avez ajoutées à votre locataire Azure AD. Vous pouvez également [configurer des groupes de Microsoft 365 libre-service](https://docs.microsoft.com/azure/active-directory/users-groups-roles/groups-self-service-management) afin que vos utilisateurs puissent gérer l’accès à leurs propres groupes de Microsoft 365. Pour plus d’informations sur la façon dont les utilisateurs peuvent partager des fichiers et des applications Office avec les utilisateurs invités, consultez [Accès invité dans des groupes de Microsoft 365](https://support.office.com/article/guest-access-in-office-365-groups-bfc7a840-868f-4fd6-a390-f347bf51aff6) et [Partager des fichiers ou dossiers SharePoint](https://support.office.com/article/share-sharepoint-files-or-folders-1fe37332-0f9a-4719-970e-d2578da4941c).
 
 ## <a name="invite-a-guest-user-to-an-app-from-the-access-panel"></a>Inviter un utilisateur invité à une application depuis le Panneau d’accès
 

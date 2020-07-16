@@ -5,15 +5,15 @@ author: jseb225
 ms.author: jeanb
 ms.reviewer: mamccrea
 ms.service: stream-analytics
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 12/06/2018
 ms.custom: seodec18
-ms.openlocfilehash: 52800f52e72e4aabcc8f6ebc733443615607f3a3
-ms.sourcegitcommit: 0b80a5802343ea769a91f91a8cdbdf1b67a932d3
+ms.openlocfilehash: ae352ead9e3ba6980c82ea48dca3db872b8d1e6d
+ms.sourcegitcommit: e132633b9c3a53b3ead101ea2711570e60d67b83
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/25/2020
-ms.locfileid: "83835493"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86043442"
 ---
 # <a name="management-net-sdk-set-up-and-run-analytics-jobs-using-the-azure-stream-analytics-api-for-net"></a>Kit de développement logiciel (SDK) .NET de gestion : Configurer et exécuter des tâches analytics à l’aide de l’API Azure Stream Analytics pour .NET
 Découvrez comment configurer et exécuter des travaux d’analyse à l’aide de l’API Stream Analytics pour .NET avec le Kit de développement logiciel (SDK) Management .NET. configurer un projet, créer des sources d’entrée et de sortie, des transformations, et démarrer et arrêter des tâches. Pour vos tâches d’analyse, vous pouvez diffuser des données à partir du stockage d’objets blob ou d’un hub d’événements.
@@ -212,7 +212,7 @@ La méthode **TestConnection** teste si le travail Stream Analytics est en mesur
 ## <a name="create-a-stream-analytics-output-target"></a>Création d’une cible de sortie Stream Analytics
 La création d’une cible de sortie est similaire à la création d’une source d’entrée Stream Analytics. Tout comme les sources d’entrée, les cibles de sortie sont liées à une tâche spécifique. Pour utiliser la même cible de sortie pour différents travaux, vous devez appeler la méthode à nouveau et spécifier un nom de travail différent.
 
-Le code suivant crée une cible de sortie (base de données Azure SQL). Vous pouvez personnaliser le type de données de la cible de sortie et/ou le type de sérialisation.
+Le code suivant crée une cible de sortie (Azure SQL Database). Vous pouvez personnaliser le type de données de la cible de sortie et/ou le type de sérialisation.
 
    ```csharp
    // Create an output

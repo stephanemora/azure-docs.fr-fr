@@ -7,18 +7,18 @@ documentationcenter: na
 author: asudbring
 ms.service: load-balancer
 ms.devlang: na
-ms.topic: article
+ms.topic: how-to
 ms.custom: seodec18
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 05/05/2020
 ms.author: allensu
-ms.openlocfilehash: 7563eb4d22048021886925f6864e3616bed83a75
-ms.sourcegitcommit: c535228f0b77eb7592697556b23c4e436ec29f96
+ms.openlocfilehash: 1c8acd2d8055359288608f7bd2e5f54f8c4f6cc3
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/06/2020
-ms.locfileid: "82858768"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84809190"
 ---
 # <a name="azure-monitor-logs-for-public-basic-load-balancer"></a>Journaux Azure Monitor pour une instance publique de Basic Load Balancer
 
@@ -38,7 +38,7 @@ La journalisation d’activité est automatiquement activée pour chaque ressour
 Connectez-vous au [portail Azure](https://portal.azure.com). Si vous ne disposez pas déjà d'un équilibreur de charge, [créez un équilibreur de charge](https://docs.microsoft.com/azure/load-balancer/quickstart-create-basic-load-balancer-portal) avant de continuer.
 
 1. Dans le portail, cliquez sur **Groupes de ressources**.
-2. Sélectionnez le groupe **\<nom_groupe_ressources>** dans lequel se trouve votre équilibreur de charge.
+2. Sélectionnez **\<resource-group-name>** l’emplacement de votre équilibreur de charge.
 3. Sélectionnez votre équilibreur de charge.
 4. Sélectionnez **Supervision** > **Paramètres de diagnostic**.
 5. Dans le volet **Paramètres de diagnostic**, sous **Paramètres de diagnostic**, sélectionnez **+ Ajouter un paramètre de diagnostic**.

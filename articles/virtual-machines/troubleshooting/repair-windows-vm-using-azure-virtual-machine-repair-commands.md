@@ -14,19 +14,25 @@ ms.tgt_pltfrm: vm-windows
 ms.devlang: azurecli
 ms.date: 09/10/2019
 ms.author: v-miegge
-ms.openlocfilehash: b754c9e02567939569bf2ef59359dbb2614a6647
-ms.sourcegitcommit: 12f23307f8fedc02cd6f736121a2a9cea72e9454
+ms.openlocfilehash: f23df5924354fa688743d29919095413ec12ce18
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/30/2020
-ms.locfileid: "84219894"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85444350"
 ---
 # <a name="repair-a-windows-vm-by-using-the-azure-virtual-machine-repair-commands"></a>Réparer une machine virtuelle Windows à l’aide des commandes de réparation de machine virtuelle Azure
 
 Si votre machine virtuelle Windows dans Azure rencontre une erreur de démarrage ou une erreur de disque, vous devrez peut-être appliquer la procédure d’atténuation du problème sur le disque lui-même. Comme exemple courant, citons l’échec de mise à jour d’une application qui empêche le bon démarrage de la machine virtuelle. Cet article explique comment utiliser les commandes de réparation de machine virtuelle Azure pour connecter le disque à une autre machine virtuelle Windows afin de corriger les erreurs éventuelles, puis recréer votre machine virtuelle d’origine.
 
 > [!IMPORTANT]
-> Les scripts de cet article s’appliquent uniquement aux machines virtuelles qui utilisent [Azure Resource Manager](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview).
+> * Les scripts de cet article s’appliquent uniquement aux machines virtuelles qui utilisent [Azure Resource Manager](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview).
+> * Une connectivité sortante à partir de la machine virtuelle (port 443) est nécessaire pour l’exécution du script.
+> * Vous ne pouvez exécuter qu’un seul script à la fois.
+> * Vous ne pouvez pas annuler un script en cours d’exécution.
+> * La durée maximale d’exécution d’un script est de 90 minutes (le script expire après ce délai).
+> * Pour les machines virtuelles utilisant Azure Disk Encryption, seuls les disques managés chiffrés avec le chiffrement à passe unique (avec ou sans clé KEK) est pris en charge.
+
 
 ## <a name="repair-process-overview"></a>Vue d’ensemble du processus de réparation
 
@@ -44,12 +50,6 @@ Pour obtenir de la documentation et des instructions supplémentaires, consultez
 
 ## <a name="repair-process-example"></a>Exemple de processus de réparation
 
-> [!NOTE]
-> * Une connectivité sortante à partir de la machine virtuelle (port 443) est nécessaire pour l’exécution du script.
-> * Vous ne pouvez exécuter qu’un seul script à la fois.
-> * Vous ne pouvez pas annuler un script en cours d’exécution.
-> * La durée maximale d’exécution d’un script est de 90 minutes (le script expire après ce délai).
-
 1. Lancement d’Azure Cloud Shell
 
    Azure Cloud Shell est un interpréteur de commandes interactif et gratuit que vous pouvez utiliser pour exécuter les étapes de cet article. Il contient des outils Azure courants préinstallés et configurés pour être utilisés avec votre compte.
@@ -59,6 +59,8 @@ Pour obtenir de la documentation et des instructions supplémentaires, consultez
    Sélectionnez **Copier** pour copier les blocs de code, collez-les ensuite dans Cloud Shell, puis sélectionnez **Entrée** pour exécuter le code.
 
    Si vous préférez installer et utiliser l’interface de ligne de commande en local, ce démarrage rapide nécessite au minimum la version 2.0.30 d’Azure CLI. Exécutez ``az --version`` pour trouver la version. Si vous devez installer ou mettre à niveau votre interface Azure CLI, consultez [Installer Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli).
+   
+   Si vous devez vous connecter à Cloud Shell avec un compte différent de celui avec lequel vous êtes actuellement connecté au portail Azure, vous pouvez utiliser ``az login`` [az login reference](https://docs.microsoft.com/cli/azure/reference-index?view=azure-cli-latest#az-login).  Pour basculer entre les abonnements associés à votre compte, vous pouvez utiliser ``az account set --subscription`` [az account set reference](https://docs.microsoft.com/cli/azure/account?view=azure-cli-latest#az-account-set).
 
 2. Si vous utilisez les commandes `az vm repair` pour la première fois, ajoutez l’extension CLI vm-repair.
 
@@ -72,7 +74,7 @@ Pour obtenir de la documentation et des instructions supplémentaires, consultez
    az extension update -n vm-repair
    ```
 
-3. Exécutez `az vm repair create`. Cette commande permet de créer une copie du disque de système d’exploitation de la machine virtuelle hors service, de créer une machine virtuelle de réparation dans un nouveau groupe de ressources, et d’attacher une copie du disque de système d’exploitation.  La machine virtuelle de réparation aura la même taille et sera dans la même région que la machine virtuelle hors service spécifiée. Le groupe de ressources et le nom de la machine virtuelle utilisés au cours des différentes étapes serviront à la machine virtuelle hors service.
+3. Exécutez `az vm repair create`. Cette commande permet de créer une copie du disque de système d’exploitation de la machine virtuelle hors service, de créer une machine virtuelle de réparation dans un nouveau groupe de ressources, et d’attacher une copie du disque de système d’exploitation.  La machine virtuelle de réparation aura la même taille et sera dans la même région que la machine virtuelle hors service spécifiée. Le groupe de ressources et le nom de la machine virtuelle utilisés au cours des différentes étapes serviront à la machine virtuelle hors service. Si votre machine virtuelle utilise Azure Disk Encryption, la commande tentera de déverrouiller le disque chiffré afin qu’il soit accessible quand il est attaché à la machine virtuelle de réparation.
 
    ```azurecli-interactive
    az vm repair create -g MyResourceGroup -n myVM --repair-username username --repair-password password!234 --verbose

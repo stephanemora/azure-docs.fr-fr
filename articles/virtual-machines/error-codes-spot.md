@@ -4,15 +4,15 @@ description: Découvrez les codes d’erreur que vous pouvez voir quand vous uti
 author: cynthn
 ms.service: virtual-machines
 ms.workload: infrastructure-services
-ms.topic: article
+ms.topic: troubleshooting
 ms.date: 03/25/2020
 ms.author: cynthn
-ms.openlocfilehash: 5a34dc2b9468c6c5af4af0e0addfd8b9ebb7e792
-ms.sourcegitcommit: 980c3d827cc0f25b94b1eb93fd3d9041f3593036
+ms.openlocfilehash: 4625a0fa75f992ac18eeb91629af373a426aa955
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/02/2020
-ms.locfileid: "80547813"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84676571"
 ---
 # <a name="error-messages-for-spot-vms-and-scale-sets"></a>Messages d’erreur pour les groupes de machines virtuelles identiques et les machines virtuelles Spot
 
@@ -21,7 +21,7 @@ Voici quelques codes d’erreur que vous pouvez recevoir quand vous utilisez des
 
 | Clé | Message | Description |
 |-----|---------|-------------|
-| SkuNotAvailable | Le niveau demandé pour la ressource « \<ressource\> » n’est pas disponible dans l’emplacement « \<emplacement\> » pour l’abonnement « \<ID_abonnement\> ». Essayez un autre niveau ou déployez sur un autre emplacement. | Il n’y a pas assez de capacité Azure Spot sur cet emplacement pour créer votre machine virtuelle ou votre instance de groupe de machines virtuelles identiques. |
+| SkuNotAvailable | Le niveau demandé pour la ressource « \<resource\> » n’est pas disponible dans l’emplacement « \<location\> » pour l’abonnement « \<subscriptionID\> ». Essayez un autre niveau ou déployez sur un autre emplacement. | Il n’y a pas assez de capacité Azure Spot sur cet emplacement pour créer votre machine virtuelle ou votre instance de groupe de machines virtuelles identiques. |
 | EvictionPolicyCanBeSetOnlyOnAzureSpotVirtualMachines  |  Une stratégie d’éviction peut être définie seulement sur des machines virtuelles Azure Spot. | Cette machine virtuelle n’étant pas une machine virtuelle Spot, vous ne pouvez pas définir la stratégie d’éviction. |
 | AzureSpotVMNotSupportedInAvailabilitySet  |  Les machines virtuelles Azure Spot ne sont pas prises en charge dans les groupes à haute disponibilité. | Vous devez choisir d’utiliser une machine virtuelle Spot, ou bien une machine virtuelle dans un groupe à haute disponibilité ; vous ne pouvez pas choisir les deux. |
 | AzureSpotFeatureNotEnabledForSubscription  |  L’abonnement n’est pas activé avec la fonctionnalité Azure Spot. | Utilisez un abonnement qui prend en charge les machines virtuelles Spot. |

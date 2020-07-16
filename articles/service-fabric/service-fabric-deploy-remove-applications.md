@@ -4,11 +4,11 @@ description: Découvrez comment supprimer et déployer des applications dans Azu
 ms.topic: conceptual
 ms.date: 01/19/2018
 ms.openlocfilehash: e3fdd194f2949f1246e991968e02b3278f33f7db
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79236709"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84699836"
 ---
 # <a name="deploy-and-remove-applications-using-powershell"></a>Déployer et supprimer des applications avec PowerShell
 
@@ -64,7 +64,7 @@ Si vous souhaitez vérifier le package d’application en local, utilisez l’ap
 
 La commande [Copy-ServiceFabricApplicationPackage](/powershell/module/servicefabric/copy-servicefabricapplicationpackage?view=azureservicefabricps) charge le package d’application dans le magasin d’images du cluster.
 
-Supposons que vous génériez une application nommée *MyApplication* et que vous créiez un package pour cette application dans Visual Studio 2015. Par défaut, le nom du type application répertorié dans le fichier ApplicationManifest.xml est « MyApplicationType ».  Le package d’application, qui contient le manifeste de l’application, les manifestes de service et les packages de code / configuration / données requis, se trouve sous *C:\Users\<username\>\Documents\Visual Studio 2015\Projects\MyApplication\MyApplication\pkg\Debug*. 
+Supposons que vous génériez une application nommée *MyApplication* et que vous créiez un package pour cette application dans Visual Studio 2015. Par défaut, le nom du type application répertorié dans le fichier ApplicationManifest.xml est « MyApplicationType ».  Le package d’application, qui contient le manifeste de l’application, les manifestes de service et les packages de code/configuration/données requis, se trouve sous *C:\Users\<username\>\Documents\Visual Studio 2015\Projects\MyApplication\MyApplication\pkg\Debug*. 
 
 La commande suivante répertorie le contenu du package d’application :
 

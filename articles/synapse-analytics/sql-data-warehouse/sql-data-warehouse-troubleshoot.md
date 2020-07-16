@@ -6,17 +6,17 @@ author: kevinvngo
 manager: craigg
 ms.service: synapse-analytics
 ms.topic: conceptual
-ms.subservice: ''
+ms.subservice: sql-dw
 ms.date: 02/04/2019
 ms.author: kevin
 ms.reviewer: jrasnick
 ms.custom: azure-synapse
-ms.openlocfilehash: 6f697cf205af9bdfaadfe20e123bcf0b4935c90f
-ms.sourcegitcommit: 0b80a5802343ea769a91f91a8cdbdf1b67a932d3
+ms.openlocfilehash: 44755ab13b95db1ffec8183d00a4054e291c5a50
+ms.sourcegitcommit: e132633b9c3a53b3ead101ea2711570e60d67b83
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/25/2020
-ms.locfileid: "83829985"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86039022"
 ---
 # <a name="troubleshooting-synapse-sql-in-azure-synapse-analytics"></a>Résolution des problèmes liés à Synapse SQL dans Azure Synapse Analytics
 
@@ -28,7 +28,7 @@ Cet article répertorie les problèmes courants liés à Synapse SQL.
 | :----------------------------------------------------------- | :----------------------------------------------------------- |
 | Échec de connexion pour l’utilisateur 'NT AUTHORITY\ANONYMOUS LOGON'. (Microsoft SQL Server, erreur : 18456) | Cette erreur se produit quand un utilisateur Azure AD tente de se connecter à la base de données MASTER alors qu’elle ne contient pas d’utilisateur.  Pour corriger ce problème, spécifiez le pool SQL auquel vous souhaitez vous connecter ou ajoutez l’utilisateur à la base de données MASTER.  Consultez l’article [Présentation de la sécurité](sql-data-warehouse-overview-manage-security.md) pour plus de détails. |
 | Le serveur principal « MyUserName » n’est pas en mesure d’accéder à la base de données « master » dans le contexte de sécurité actuel. La base de données utilisateur par défaut ne peut pas être ouverte. Échec de la connexion. Échec de la connexion pour l'utilisateur 'MyUserName'. (Microsoft SQL Server, erreur : 916) | Cette erreur se produit quand un utilisateur Azure AD tente de se connecter à la base de données MASTER alors qu’elle ne contient pas d’utilisateur.  Pour corriger ce problème, spécifiez le pool SQL auquel vous souhaitez vous connecter ou ajoutez l’utilisateur à la base de données MASTER.  Consultez l’article [Présentation de la sécurité](sql-data-warehouse-overview-manage-security.md) pour plus de détails. |
-| Erreur CTAIP                                                  | Cette erreur peut se produire lorsqu’un identifiant de connexion a été créé sur la base de données MASTER du serveur SQL, mais pas sur la base de données SQL.  Si vous rencontrez cette erreur, consultez l’article [Vue d’ensemble de la sécurité](sql-data-warehouse-overview-manage-security.md) .  Cet article explique comment créer un identifiant de connexion et un utilisateur sur la base de données MASTER, puis comment créer un utilisateur dans la base de données SQL. |
+| Erreur CTAIP                                                  | Cette erreur peut se produire lorsqu’un identifiant de connexion a été créé sur la base de données MASTER SQL Database, mais pas sur la base de données SQL Database spécifique.  Si vous rencontrez cette erreur, consultez l’article [Vue d’ensemble de la sécurité](sql-data-warehouse-overview-manage-security.md) .  Cet article explique comment créer un identifiant de connexion et un utilisateur sur la base de données MASTER, puis comment créer un utilisateur dans la base de données SQL. |
 | Bloqué par le pare-feu                                          | Les pools SQL sont protégés par des pare-feu pour s’assurer que seules les adresses IP connues ont accès à une base de données. Les pare-feu sont sécurisés par défaut, ce qui signifie que vous devez activer explicitement une adresse IP ou une plage d’adresses avant de vous connecter.  Pour configurer votre pare-feu pour l’accès, suivez les étapes décrites dans la section [Configuration de l’accès au pare-feu du serveur pour l’adresse IP de votre client](create-data-warehouse-portal.md) dans les [Instructions d’approvisionnement](create-data-warehouse-portal.md). |
 | Connexion impossible avec l’outil ou le pilote                           | Avec le pool SQL Synapse, il est recommandé d’utiliser [SSMS](/sql/ssms/download-sql-server-management-studio-ssms?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest), [SSDT pour Visual Studio](sql-data-warehouse-install-visual-studio.md) ou [sqlcmd](sql-data-warehouse-get-started-connect-sqlcmd.md) pour interroger vos données. Pour plus d’informations sur les pilotes et la connexion à Azure Synapse, consultez les articles [Pilotes pour Azure Synapse](sql-data-warehouse-connection-strings.md) et [Connexion à Azure Synapse](sql-data-warehouse-connect-overview.md). |
 
@@ -80,6 +80,6 @@ Pour obtenir une aide supplémentaire lors de la recherche d’une solution à v
 * [Demandes de fonctionnalités](https://feedback.azure.com/forums/307516-sql-data-warehouse)
 * [Vidéos](https://azure.microsoft.com/documentation/videos/index/?services=sql-data-warehouse)
 * [Création d’un ticket de support](sql-data-warehouse-get-started-create-support-ticket.md)
-* [Page de questions Microsoft Q&R](https://docs.microsoft.com/answers/topics/azure-synapse-analytics.html)
+* [Page de questions Microsoft Q&A](https://docs.microsoft.com/answers/topics/azure-synapse-analytics.html)
 * [Forum Stack Overflow](https://stackoverflow.com/questions/tagged/azure-sqldw)
 * [Twitter](https://twitter.com/hashtag/SQLDW)

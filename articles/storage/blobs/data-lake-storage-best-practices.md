@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 12/06/2018
 ms.author: normesta
 ms.reviewer: sachins
-ms.openlocfilehash: 79c4f051318113ebe0c7e0085539d2f24405b4f9
-ms.sourcegitcommit: c535228f0b77eb7592697556b23c4e436ec29f96
+ms.openlocfilehash: e008bad2043d8cd633f0849aefc62c4ed7a7e89d
+ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/06/2020
-ms.locfileid: "82857880"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86104875"
 ---
 # <a name="best-practices-for-using-azure-data-lake-storage-gen2"></a>Bonnes pratiques d’utilisation d’Azure Data Lake Storage Gen2
 
@@ -77,11 +77,11 @@ Lorsque des données arrivent dans Data Lake Store, il est important d’avoir p
 
 Dans des charges de travail IoT peuvent se trouver un grand nombre de données arrivées dans le magasin de données, couvrant de nombreux produits, appareils, organisations et clients. Il est important de planifier à l’avance la disposition du répertoire pour des questions d’organisation, de sécurité et de traitement efficace des données pour des consommateurs de flux. Voici un modèle général de disposition à prendre en compte :
 
-    {Region}/{SubjectMatter(s)}/{yyyy}/{mm}/{dd}/{hh}/
+*{Region}/{SubjectMatter(s)}/{yyyy}/{mm}/{dd}/{hh}/*
 
 Par exemple, la télémétrie d’arrivée d’un moteur d’avion dans le Royaume-Uni ressemble à la structure suivante :
 
-    UK/Planes/BA1293/Engine1/2017/08/11/12/
+*UK/Planes/BA1293/Engine1/2017/08/11/12/*
 
 Il est important de placer la date à la fin de la structure de répertoires. Si vous voulez verrouiller certaines régions ou certains thèmes à des utilisateurs/groupes, vous pouvez le faire facilement avec les autorisations POSIX. Sinon, s’il fallait restreindre l’affichage des données du Royaume-Uni ou de certains avions à certains groupes de sécurité, avec la structure de date au début, une autorisation différente serait nécessaire pour de nombreux répertoires sous chaque répertoire heure. De plus, placer la structure de date au début augmente grandement le nombre de répertoires à mesure que le temps passe.
 
@@ -91,13 +91,13 @@ Il est important de placer la date à la fin de la structure de répertoires. Si
 
 Parfois le traitement de fichiers échoue en raison de corruption des données ou de formats inattendus. Dans ces cas, la structure du répertoire peut profiter d’un dossier **/bad** où déplacer les fichiers pour une inspection plus en détail. La tâche de traitement par lots peut aussi gérer le rapport ou la notification de ces fichiers *bad* en vue d’une intervention manuelle. Considérez la structure de modèle suivante :
 
-    {Region}/{SubjectMatter(s)}/In/{yyyy}/{mm}/{dd}/{hh}/
-    {Region}/{SubjectMatter(s)}/Out/{yyyy}/{mm}/{dd}/{hh}/
-    {Region}/{SubjectMatter(s)}/Bad/{yyyy}/{mm}/{dd}/{hh}/
+*{Region}/{SubjectMatter(s)}/In/{yyyy}/{mm}/{dd}/{hh}/* \
+*{Region}/{SubjectMatter(s)}/Out/{yyyy}/{mm}/{dd}/{hh}/* \
+*{Region}/{SubjectMatter(s)}/Bad/{yyyy}/{mm}/{dd}/{hh}/*
 
 Par exemple, une firme marketing qui reçoit quotidiennement des extraits de données de mises à jour client de la part de leurs clients en Amérique du Nord. Avant et après avoir été traité, il peut ressembler à l’extrait de code suivant :
 
-    NA/Extracts/ACMEPaperCo/In/2017/08/14/updates_08142017.csv
-    NA/Extracts/ACMEPaperCo/Out/2017/08/14/processed_updates_08142017.csv
+*NA/Extracts/ACMEPaperCo/In/2017/08/14/updates_08142017.csv*\
+*NA/Extracts/ACMEPaperCo/Out/2017/08/14/processed_updates_08142017.csv*
 
 Dans le cas courant de traitement des données par lots dans des bases de données directement, telles que Hive ou des bases de données SQL traditionnelles, il n’y a pas besoin de dossiers **/in** ou **/out** car la sortie se trouve déjà dans un dossier différent pour le tableau Hive ou la base de données externe. Par exemple, des extraits quotidiens de la part de clients arrivent dans leurs dossiers respectifs, et l’orchestration par des outils comme Azure Data Factory, Apache Oozie ou Apache Airflow déclenche une tâche quotidienne Hive ou Spark pour traiter et écrire les données dans un tableau Hive.

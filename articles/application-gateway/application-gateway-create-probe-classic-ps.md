@@ -4,15 +4,15 @@ description: Apprendre à créer une sonde personnalisée pour Application Gatew
 services: application-gateway
 author: vhorne
 ms.service: application-gateway
-ms.topic: article
+ms.topic: how-to
 ms.date: 11/13/2019
 ms.author: victorh
-ms.openlocfilehash: 0ba3e9ae7b5075d1f5457cb2960423ad1c737e94
-ms.sourcegitcommit: 7e04a51363de29322de08d2c5024d97506937a60
+ms.openlocfilehash: 3a555fff758fdd1f4ddff60c7828a3e44af008ce
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/14/2020
-ms.locfileid: "81312552"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84807289"
 ---
 # <a name="create-a-custom-probe-for-azure-application-gateway-classic-by-using-powershell"></a>Créer une sonde personnalisée pour Azure Application Gateway (classique) en utilisant PowerShell
 
@@ -149,7 +149,7 @@ Les paramètres de configuration sont :
 | **Délai d'expiration** | Définit le délai d’expiration d’un contrôle de réponse HTTP.|
 | **Seuil de défaillance sur le plan de l’intégrité** | Le nombre d’échecs de réponses HTTP nécessaires pour marquer l’instance de serveur principal comme *défectueuse*.|
 
-Le nom de la sonde est référencé dans la configuration \<BackendHttpSettings\> pour affecter le pool principal qui va utiliser les paramètres de sonde personnalisée.
+Le nom de la sonde est référencé dans la configuration \<BackendHttpSettings\> pour affecter le pool principal qui utilise les paramètres de sonde personnalisée.
 
 ## <a name="add-a-custom-probe-to-an-existing-application-gateway"></a>Ajoute une sonde personnalisée à une passerelle d’application existante
 

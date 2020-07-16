@@ -4,15 +4,15 @@ description: Découvrez comment créer des principaux de service pour automatise
 author: minewiskan
 ms.service: azure-analysis-services
 ms.topic: conceptual
-ms.date: 05/26/2020
+ms.date: 07/07/2020
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: 9797b4c8f8059f9cfefbb70672aa202c7a3f4825
-ms.sourcegitcommit: 1692e86772217fcd36d34914e4fb4868d145687b
+ms.openlocfilehash: 28947d1fa4ece5d6285651ef07342cae06ad8bc8
+ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/29/2020
-ms.locfileid: "84168333"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86077369"
 ---
 # <a name="automation-with-service-principals"></a>Automatisation à l’aide de principaux de service
 
@@ -20,7 +20,7 @@ Les principaux de service sont des ressources d’application Azure Active Direc
 
 Dans Analysis Services, les principaux de service sont utilisés avec Azure Automation, avec le mode sans assistance de PowerShell, avec des applications clientes personnalisées et avec des applications web, dans le but d’automatiser les tâches courantes. Par exemple, le provisionnement des serveurs, le déploiement des modèles, l’actualisation des données, la mise à l’échelle et les opérations de suspension/reprise peuvent être automatisés à l’aide de principaux de service. Les autorisations sont attribuées aux principaux de service via l’appartenance au rôle, comme les comptes UPN standard d’Azure AD.
 
-Analysis Services prend également en charge les opérations effectuées par des identités gérées à l’aide de principaux du service. Pour en savoir plus, consultez [Identités managées pour ressources Azure](../active-directory/managed-identities-azure-resources/overview.md) et [Services Azure prenant en charge l’authentification Azure AD](../active-directory/managed-identities-azure-resources/services-support-managed-identities.md#azure-analysis-services).  
+Analysis Services prend également en charge les opérations effectuées par des identités gérées à l’aide de principaux du service. Pour en savoir plus, consultez [Identités managées pour ressources Azure](../active-directory/managed-identities-azure-resources/overview.md) et [Services Azure prenant en charge l’authentification Azure AD](../active-directory/managed-identities-azure-resources/services-support-managed-identities.md#azure-analysis-services).    
 
 ## <a name="create-service-principals"></a>Créer des principaux de service
  
@@ -38,7 +38,7 @@ Les informations d’identification et les certificats des principaux de service
 
 ## <a name="add-service-principals-to-server-admin-role"></a>Ajouter des principaux de service au rôle d’administrateur de serveur
 
-Avant de pouvoir utiliser un principal de service pour les opérations de gestion d’un serveur Analysis Services, vous devez l’ajouter au rôle Administrateurs de serveur. Pour plus d’informations, consultez [Ajouter un principal de service au rôle d’administrateur du serveur](analysis-services-addservprinc-admins.md)
+Avant de pouvoir utiliser un principal de service pour les opérations de gestion d’un serveur Analysis Services, vous devez l’ajouter au rôle Administrateurs de serveur. Les principaux de service doivent être ajoutés directement au rôle d’administrateur de serveur. L’ajout d’un principal de service à un groupe de sécurité, puis l’ajout de ce groupe de sécurité au rôle d’administrateur de serveur n’est pas pris en charge. Pour plus d’informations, consultez [Ajouter un principal de service au rôle d’administrateur du serveur](analysis-services-addservprinc-admins.md)
 
 ## <a name="service-principals-in-connection-strings"></a>Principaux de service dans les chaînes de connexion
 
@@ -92,7 +92,7 @@ Invoke-ProcessTable -Server "asazure://westcentralus.asazure.windows.net/myserve
 
 ### <a name="amo-and-adomd"></a>AMO et ADOMD 
 
-Lorsque vous vous connectez à une application cliente ou à une application web, les packages installables des [bibliothèques clientes AMO et ADOMD](analysis-services-data-providers.md) version 15.0.2 (et ultérieures) issus de NuGet prennent en charge l’utilisation des principaux de service dans les chaînes de connexion à l’aide de la syntaxe suivante : `app:AppID`, puis le mot de passe ou `cert:thumbprint`. 
+Lorsque vous vous connectez à une application cliente ou à une application web, les packages installables des [bibliothèques clientes AMO et ADOMD](https://docs.microsoft.com/analysis-services/client-libraries?view=azure-analysis-services-current) version 15.0.2 (et ultérieures) issus de NuGet prennent en charge l’utilisation des principaux de service dans les chaînes de connexion à l’aide de la syntaxe suivante : `app:AppID`, puis le mot de passe ou `cert:thumbprint`. 
 
 Dans l’exemple suivant, `appID` et `password` sont utilisés pour effectuer une opération d’actualisation d’une base de données model :
 

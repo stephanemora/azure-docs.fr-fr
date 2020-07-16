@@ -6,17 +6,17 @@ author: billmath
 manager: daveba
 ms.service: active-directory
 ms.workload: identity
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 12/06/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 609ad2539753a838f02c4a79be56444ca0fb07f9
-ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
+ms.openlocfilehash: b7eb632405ef17ef4100503f30168c1207179f48
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "84014384"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85373860"
 ---
 # <a name="prerequisites-for-azure-ad-connect-cloud-provisioning"></a>Prérequis pour le provisionnement cloud Azure AD Connect
 Cet article fournit des conseils sur la façon de choisir et d’utiliser l’approvisionnement cloud Azure Active Directory (Azure AD) Connect en tant que solution d’identité.
@@ -27,7 +27,7 @@ Cet article fournit des conseils sur la façon de choisir et d’utiliser l’ap
 Vous avez besoin des éléments suivants pour utiliser le provisionnement cloud Azure AD Connect :
     
 - Un compte d’administrateur d’identité hybride pour votre locataire Azure AD qui n’est pas un utilisateur invité.
-- Un serveur local pour l’agent de provisionnement avec Windows 2012 R2 ou ultérieur.
+- Un serveur local pour l’agent de provisionnement avec Windows 2012 R2 ou ultérieur.  Ce serveur doit être un serveur de niveau 0 basé sur le [modèle de niveau d’administration Active Directory](https://docs.microsoft.com/windows-server/identity/securing-privileged-access/securing-privileged-access-reference-material).
 - Des configurations de pare-feu locales.
 
 >[!NOTE]

@@ -9,16 +9,15 @@ ms.custom: sqldbrb=1
 ms.devlang: ''
 ms.topic: conceptual
 author: dalechen
-manager: dcscontentpm
 ms.author: ninarn
 ms.reviewer: carlrab, vanto
 ms.date: 01/14/2020
-ms.openlocfilehash: 4aa8d35e48c28cadecb6acc1f56ca6c44a145719
-ms.sourcegitcommit: 309cf6876d906425a0d6f72deceb9ecd231d387c
+ms.openlocfilehash: acc61cefbc9d89f11eae5b6549add57871035ddb
+ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/01/2020
-ms.locfileid: "84266965"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86078967"
 ---
 # <a name="troubleshoot-transient-connection-errors-in-sql-database-and-sql-managed-instance"></a>Résoudre les erreurs de connexion temporaires dans SQL Database et SQL Managed Instance
 
@@ -106,7 +105,7 @@ Pour concrétiser ce test, débranchez votre ordinateur du réseau avant lancer 
 - Suspend toute exécution à l’aide de la méthode **Console.ReadLine** ou d’une boîte de dialogue contenant un bouton OK. L’utilisateur appuie sur la touche Entrée après la connexion de l’ordinateur au réseau.
 - Essaie de nouveau de se connecter, et attend la réussite.
 
-#### <a name="test-by-misspelling-the-database-name-when-connecting"></a>Teste en fournissant un nom de base de données mal orthographié au moment de la connexion
+#### <a name="test-by-misspelling-the-user-name-when-connecting"></a>Teste en fournissant un nom d’utilisateur mal orthographié au moment de la connexion
 
 Votre programme peut délibérément mal orthographier le nom d’utilisateur avant la première tentative de connexion. L’erreur est :
 

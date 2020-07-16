@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 03/18/2019
 ms.author: christoc
 ms.reviewer: xpouyat; juliako
-ms.openlocfilehash: 1ab70d56bd3def58d0e814035070cf027a88cd3d
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 67d3591a22ba68c0ddb5c4e2b467e133ef20102b
+ms.sourcegitcommit: bcb962e74ee5302d0b9242b1ee006f769a94cfb8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79227017"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86057464"
 ---
 # <a name="advanced-media-encoder-premium-workflow-tutorials"></a>Didacticiels de workflows avancés Media Encoder Premium
 ## <a name="overview"></a>Vue d’ensemble
@@ -187,7 +187,7 @@ Pour que le workflow détermine automatiquement la propriété de nom du fichier
 
 L’éditeur d’expressions vous permet de saisir n’importe quelle valeur littérale, combinée avec une ou plusieurs variables. Les variables commencent par le symbole de dollar. Lorsque vous appuyez sur la touche $, l’éditeur affiche une liste déroulante contenant les variables disponibles. Dans notre cas, nous allons utiliser à la fois la variable de répertoire de sortie et la variable de nom du fichier d’entrée de base :
 
-    ${ROOT_outputWriteDirectory}\\${ROOT_sourceFileBaseName}.MP4
+`${ROOT_outputWriteDirectory}\\${ROOT_sourceFileBaseName}.MP4`
 
 ![Éditeur d’expressions renseigné](./media/media-services-media-encoder-premium-workflow-tutorials/media-services-expression-editor.png)
 
@@ -265,16 +265,16 @@ Plusieurs fichiers sont ajoutés à l’élément multimédia de sortie. Nous de
 
 La dénomination des fichiers de sortie peut être contrôlée au moyen d’expressions dans le concepteur. Ouvrez le volet des propriétés d’un des composants File Output et ouvrez l’éditeur d’expressions correspondant à la propriété de fichier. Notre premier fichier de sortie a été configuré via l’expression suivante (consultez le didacticiel relatif à la conversion [d’un fichier MXF à une sortie MP4 à débit binaire unique](media-services-media-encoder-premium-workflow-tutorials.md#MXF_to_MP4)) :
 
-    ${ROOT_outputWriteDirectory}\${ROOT_sourceFileBaseName}.MP4
+`${ROOT_outputWriteDirectory}\${ROOT_sourceFileBaseName}.MP4`
 
 Autrement dit, notre nom de fichier est déterminé par deux variables : le répertoire de sortie dans lequel écrire et le nom de base du fichier source. Le premier est exposé sous la forme d’une propriété sur la racine du workflow et le second est déterminé par le fichier entrant. Le répertoire de sortie sert au test en local ; cette propriété sera remplacée par le moteur de workflow lorsque le workflow est exécuté par le processeur multimédia cloud dans Azure Media Services.
 Pour donner à nos deux fichiers de sortie des noms de sortie cohérents, modifiez la première expression d’affectation de noms de fichier comme suit :
 
-    ${ROOT_outputWriteDirectory}\${ROOT_sourceFileBaseName}_640x360_1.MP4
+`${ROOT_outputWriteDirectory}\${ROOT_sourceFileBaseName}_640x360_1.MP4`
 
 et la seconde comme suit :
 
-    ${ROOT_outputWriteDirectory}\${ROOT_sourceFileBaseName}_960x540_2.MP4
+`${ROOT_outputWriteDirectory}\${ROOT_sourceFileBaseName}_960x540_2.MP4`
 
 Exécutez un test intermédiaire pour vous assurer que les deux fichiers de sortie MP4 sont correctement générés.
 
@@ -287,7 +287,7 @@ Nous verrons plus tard que lorsque nous générons un fichier .ism en complémen
 
 Créez un troisième composant File Output pour générer le flux sortant à partir du multiplexeur et configurez l’expression d’affectation de noms de fichier comme suit :
 
-    ${ROOT_outputWriteDirectory}\${ROOT_sourceFileBaseName}_128kbps_audio.MP4
+`${ROOT_outputWriteDirectory}\${ROOT_sourceFileBaseName}_128kbps_audio.MP4`
 
 ![Création du composant File Output par le multiplexeur audio](./media/media-services-media-encoder-premium-workflow-tutorials/media-services-audio-muxer-creating-file-output.png)
 
@@ -319,7 +319,7 @@ Un composant appelé « AMS Manifest Writer » permet de générer le fichier 
 
 Comme pour nos autres composants de sortie de fichier, configurez le nom de sortie du fichier .ism à l’aide d’une expression, comme suit :
 
-    ${ROOT_outputWriteDirectory}\\${ROOT_sourceFileBaseName}_manifest.ism
+`${ROOT_outputWriteDirectory}\\${ROOT_sourceFileBaseName}_manifest.ism`
 
 Notre workflow terminé prend l’aspect suivant :
 
@@ -342,11 +342,11 @@ Dans le workflow précédent, nous avons spécifié une expression simple permet
 
 Par exemple, notre composant de sortie de fichier pour le premier fichier vidéo est configuré avec l’expression suivante :
 
-    ${ROOT_outputWriteDirectory}\${ROOT_sourceFileBaseName}_640x360_1.MP4
+`${ROOT_outputWriteDirectory}\${ROOT_sourceFileBaseName}_640x360_1.MP4`
 
 Quant à la deuxième sortie vidéo, nous obtenons une expression du type :
 
-    ${ROOT_outputWriteDirectory}\\${ROOT_sourceFileBaseName}_960x540_2.MP4
+`${ROOT_outputWriteDirectory}\\${ROOT_sourceFileBaseName}_960x540_2.MP4`
 
 Pourquoi ne pas rendre tout cela plus clair, juste et pratique en évitant ces doublons et en renforçant les possibilités de configuration ? Heureusement, cela est possible : nous pouvons renforcer la convivialité en utilisant à la fois les fonctionnalités d’expression du concepteur et les fonctions permettant de créer des propriétés personnalisées à la racine de notre workflow.
 
@@ -391,7 +391,7 @@ La modification d’une de ces trois valeurs a également pour effet de reconfig
 ### <a name="have-generated-output-file-names-rely-on-published-property-values"></a><a id="MXF_to__multibitrate_MP4_output_files"></a>Utilisation des valeurs de propriété publiées pour les noms de fichiers de sortie générés
 Au lieu de coder les noms de fichier générés, nous pouvons maintenant modifier notre expression de nom de fichier sur chacun des composants File Output pour qu’elle utilise les propriétés de débit binaire que nous avons publiées sur la racine du graphique. En commençant par la première sortie de fichier, recherchez la propriété de fichier et modifiez l’expression comme suit :
 
-    ${ROOT_outputWriteDirectory}\${ROOT_sourceFileBaseName}_${ROOT_video1bitrate}kbps.MP4
+`${ROOT_outputWriteDirectory}\${ROOT_sourceFileBaseName}_${ROOT_video1bitrate}kbps.MP4`
 
 Vous pouvez consulter et saisir les différents paramètres de cette expression en vous plaçant dans la fenêtre d’expression et en appuyant sur le signe dollar du clavier. La propriété video1bitrate que nous avons publiée précédemment apparaît parmi les paramètres disponibles.
 
@@ -401,11 +401,11 @@ Vous pouvez consulter et saisir les différents paramètres de cette expression 
 
 Procédez de la même manière pour la sortie de fichier de notre deuxième vidéo :
 
-    ${ROOT_outputWriteDirectory}\${ROOT_sourceFileBaseName}_${ROOT_video2bitrate}kbps.MP4
+`${ROOT_outputWriteDirectory}\${ROOT_sourceFileBaseName}_${ROOT_video2bitrate}kbps.MP4`
 
 ainsi que pour la sortie du fichier audio uniquement :
 
-    ${ROOT_outputWriteDirectory}\${ROOT_sourceFileBaseName}_${ROOT_audio1bitrate}bps_audio.MP4
+`${ROOT_outputWriteDirectory}\${ROOT_sourceFileBaseName}_${ROOT_audio1bitrate}bps_audio.MP4`
 
 Si nous modifions maintenant le débit binaire d’un des fichiers audio ou vidéo, l’encodeur concerné sera reconfiguré et la convention de nom de fichier basée sur le débit sera automatiquement appliquée.
 
@@ -462,11 +462,11 @@ Contrairement aux vidéos MP4, le composant JPG Encoder génère plusieurs fich
 
 *Présentation du composant Scene Search JPG File Writer*
 
-Configurez la propriété de chemin d’accès du dossier de sortie avec l’expression : ${ROOT_outputWriteDirectory}
+Configurez la propriété de chemin d’accès du dossier de sortie avec l’expression : `${ROOT_outputWriteDirectory}`
 
 et la propriété de préfixe de nom de fichier avec :
 
-    ${ROOT_sourceFileBaseName}_thumb_
+`${ROOT_sourceFileBaseName}_thumb_`
 
 Le préfixe détermine la dénomination des fichiers de miniatures. Ces fichiers sont suivis d’un nombre indiquant la position du curseur de défilement dans le flux.
 
@@ -551,11 +551,11 @@ Ouvrez maintenant les propriétés de découpage à partir du composant de déco
 
 Pour l’heure de début du découpage audio :
 
-    ${ROOT_TrimmingStartTime}
+`${ROOT_TrimmingStartTime}`
 
 et pour son heure de fin :
 
-    ${ROOT_TrimmingEndTime}
+`${ROOT_TrimmingEndTime}`
 
 ### <a name="finished-workflow"></a><a id="time_based_trim_finish"></a>Worflow terminé
 ![Worflow terminé](./media/media-services-media-encoder-premium-workflow-tutorials/media-services-finished-workflow-time-base-trimming.png)
@@ -591,7 +591,7 @@ Les scripts sont écrits en Groovy, un langage de script compilé de manière dy
 
 Nous allons écrire un simple script Groovy Hello World dans le contexte de notre composant realizeScript. Entrez les paramètres suivants dans l’éditeur :
 
-    node.log("hello world");
+`node.log("hello world");`
 
 Exécutez maintenant une série de tests en local. Une fois les tests effectués, inspectez la propriété des journaux d’activité (via l’onglet Système sur le composant de script).
 

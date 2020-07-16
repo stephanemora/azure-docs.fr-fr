@@ -1,28 +1,26 @@
 ---
-title: Séries Ddv4 et Ddsv4 - Machines virtuelles Microsoft Azure
+title: Séries Ddv4 et Ddsv4
 description: Spécifications relatives aux machines virtuelles des séries Dv4, Ddv4, Dsv4 et Ddsv4.
 author: brbell
 ms.author: brbell
-ms.reviewer: cynthn
+ms.reviewer: mimckitt
 ms.custom: mimckitt
 ms.service: virtual-machines
+ms.subservice: sizes
 ms.topic: conceptual
 ms.date: 06/01/2020
-ms.openlocfilehash: 42b42a7477326196546ad445367691192f00569a
-ms.sourcegitcommit: 309cf6876d906425a0d6f72deceb9ecd231d387c
+ms.openlocfilehash: 28963f7b8d6b7fd7361d114935a401a00b6683a3
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/01/2020
-ms.locfileid: "84263243"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84753669"
 ---
 # <a name="ddv4-and-ddsv4-series"></a>Séries Ddv4 et Ddsv4
 
-Les séries Ddv4 et Ddsv4 s'exécutent sur les processeurs Intel&reg; ​​Xeon&reg; Platinum 8272CL (Cascade Lake) dans une configuration de type « Hyper-Threading » qui apporte davantage de valeur ajoutée à la plupart des charges de travail à usage général. Caractéristiques : vitesse d'horloge Turbo continue de 3,4 GHz, [technologie Intel&reg; Turbo Boost 2.0](https://www.intel.com/content/www/us/en/architecture-and-technology/turbo-boost/turbo-boost-technology.html), [technologie Intel&reg; Hyper-Threading](https://www.intel.com/content/www/us/en/architecture-and-technology/hyper-threading/hyper-threading-technology.html) et [Intel&reg; Advanced Vector Extensions 512 (Intel&reg; AVX-512)](https://www.intel.com/content/www/us/en/architecture-and-technology/avx-512-overview.html). Ces nouvelles tailles de machines virtuelles disposeront d'un stockage local 50 % plus volumineux, ainsi que de meilleures IOPS de disque local en lecture et en écriture par rapport aux tailles [Dv3/Dsv3](https://docs.microsoft.com/azure/virtual-machines/dv3-dsv3-series) avec des [machines virtuelles Gen2](https://docs.microsoft.com/azure/virtual-machines/linux/generation-2).
+Les séries Ddv4 et Ddsv4 s'exécutent sur les processeurs Intel&reg; ​​Xeon&reg; Platinum 8272CL (Cascade Lake) dans une configuration de type « Hyper-Threading » qui apporte davantage de valeur ajoutée à la plupart des charges de travail à usage général. Caractéristiques : vitesse d'horloge Turbo continue de 3,4 GHz, [technologie Intel&reg; Turbo Boost 2.0](https://www.intel.com/content/www/us/en/architecture-and-technology/turbo-boost/turbo-boost-technology.html), [technologie Intel&reg; Hyper-Threading](https://www.intel.com/content/www/us/en/architecture-and-technology/hyper-threading/hyper-threading-technology.html) et [Intel&reg; Advanced Vector Extensions 512 (Intel&reg; AVX-512)](https://www.intel.com/content/www/us/en/architecture-and-technology/avx-512-overview.html). Elles prennent également en charge la technologie [Intel&reg; Deep Learning Boost](https://software.intel.com/content/www/us/en/develop/topics/ai/deep-learning-boost.html). Ces nouvelles tailles de machines virtuelles disposeront d'un stockage local 50 % plus volumineux, ainsi que de meilleures IOPS de disque local en lecture et en écriture par rapport aux tailles [Dv3/Dsv3](https://docs.microsoft.com/azure/virtual-machines/dv3-dsv3-series) avec des [machines virtuelles Gen2](https://docs.microsoft.com/azure/virtual-machines/linux/generation-2).
 
 Les cas d'usage de la série D englobent les applications de classe Entreprise, les bases de données relationnelles, la mise en cache en mémoire et l'analytique.
-
-> [!IMPORTANT]
-> Si vous déployez une nouvelle machine virtuelle avec les séries Ddv4 ou Ddsv4 et que vous comptez utiliser une image Linux, vous devez utiliser RHEL 8.x, CentOS 8.x ou Oracle 7.x (ou version plus récente). Si vous choisissez RHEL 7.x, CentOS 7.x ou Oracle 6.x, une erreur de type Alerte sur le noyau se produira. Microsoft procède actuellement au déploiement d'un correctif. Seuls RHEL, CentOS et Oracle sont concernés. 
 
 ## <a name="ddv4-series"></a>Série Ddv4
 
@@ -69,7 +67,7 @@ Migration dynamique : Prise en charge
 
 Mises à jour avec préservation de la mémoire : Prise en charge
 
-| Taille | Processeurs virtuels | Mémoire : Gio | Stockage temporaire (SSD) en Gio | Disques de données max. | Débit de stockage temporaire et mis en cache max. : IOPS/MBps | Débit du disque non mis en cache max. : IOPS/Mbits/s | Nombre max. de cartes réseau/Bande passante réseau attendue (Mbits/s) |
+| Taille | Processeurs virtuels | Mémoire : Gio | Stockage temporaire (SSD) en Gio | Disques de données max. | Débit de stockage temporaire et mis en cache max. : IOPS/Mbits/s (taille du cache en Gio) | Débit du disque non mis en cache max. : IOPS/Mbits/s | Nombre max. de cartes réseau/Bande passante réseau attendue (Mbits/s) |
 |---|---|---|---|---|---|---|---|
 | Standard_D2ds_v4 | 2 | 8 | 75 | 4 | 19000/120(50) | 3000/48 | 2/1 000 |
 | Standard_D4ds_v4 | 4 | 16 | 150 | 8 | 38500/242(100) | 6 400/96 | 2/2 000 |

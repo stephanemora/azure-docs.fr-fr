@@ -4,21 +4,18 @@ description: Cet article décrit comment configurer et consulter les journaux d�
 author: ajlam
 ms.author: andrela
 ms.service: mariadb
-ms.topic: conceptual
-ms.date: 4/13/2020
-ms.openlocfilehash: 506bf076c955beb5c5e57811bbdb42bfedb8cbe3
-ms.sourcegitcommit: ea006cd8e62888271b2601d5ed4ec78fb40e8427
+ms.topic: how-to
+ms.date: 6/24/2020
+ms.openlocfilehash: 30ca62305c325943e17ee574873cfbbbaee97f77
+ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/14/2020
-ms.locfileid: "81382965"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86113035"
 ---
 # <a name="configure-and-access-audit-logs-in-the-azure-portal"></a>Configurer et consulter les journaux d’audit dans le portail Azure
 
 Vous pouvez configurer les [journaux d’audit Azure Database for MariaDB](concepts-audit-logs.md) et les paramètres de diagnostic à partir du Portail Azure.
-
-> [!IMPORTANT]
-> Pour l’instant, la fonctionnalité Journal d’audit n’existe qu’en préversion.
 
 ## <a name="prerequisites"></a>Prérequis
 
@@ -27,6 +24,9 @@ Pour parcourir ce guide pratique, vous avez besoin des éléments suivants :
 - [Serveur Azure Database for MariaDB](quickstart-create-mariadb-server-database-using-azure-portal.md)
 
 ## <a name="configure-audit-logging"></a>Configurer l’enregistrement d’audit
+
+>[!IMPORTANT]
+> Il est recommandé de ne consigner que les types d’événements et les utilisateurs requis à des fins d’audit pour garantir que les performances de votre serveur ne sont pas fortement affectées.
 
 Activez et configurez l’enregistrement d’audit.
 

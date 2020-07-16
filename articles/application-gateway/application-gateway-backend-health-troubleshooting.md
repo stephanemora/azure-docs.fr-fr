@@ -4,15 +4,15 @@ description: Décrit comment résoudre les problèmes d’intégrité des back-e
 services: application-gateway
 author: surajmb
 ms.service: application-gateway
-ms.topic: article
-ms.date: 08/30/2019
+ms.topic: troubleshooting
+ms.date: 06/09/2020
 ms.author: surmb
-ms.openlocfilehash: c51d79d55f77468030100fa10973e2a31148ceae
-ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
+ms.openlocfilehash: b5524d0612bf8f5d69979a8392f664e417c5f98d
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83648444"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84808191"
 ---
 <a name="troubleshoot-backend-health-issues-in-application-gateway"></a>Résoudre les problèmes d’intégrité des back-ends dans Application Gateway
 ==================================================
@@ -81,7 +81,7 @@ Quand vous recevez un état d’intégrité Non sain pour tous les serveurs back
 Le message affiché dans la colonne **Détails** fournit des insights plus détaillés, qui vous aident à entreprendre la résolution du problème.
 
 > [!NOTE]
-> La demande de sondage par défaut est envoyée au format \<protocole\>://127.0.0.1:\<port\>/. Par exemple, http://127.0.0.1:80 pour une sonde HTTP sur le port 80. Seuls les codes d’état HTTP de 200 à 399 sont considérés comme sains. Le protocole et le port de destination sont hérités des paramètres HTTP. Si vous souhaitez qu’Application Gateway sonde sur un autre protocole, nom d’hôte ou chemin et reconnaisse un autre code d’état comme sain, configurez une sonde personnalisée et associez-la aux paramètres HTTP.
+> La demande de sonde par défaut est envoyée au format \<protocol\>://127.0.0.1:\<port\>/. Par exemple, http://127.0.0.1:80 pour une sonde HTTP sur le port 80. Seuls les codes d’état HTTP de 200 à 399 sont considérés comme sains. Le protocole et le port de destination sont hérités des paramètres HTTP. Si vous souhaitez qu’Application Gateway sonde sur un autre protocole, nom d’hôte ou chemin et reconnaisse un autre code d’état comme sain, configurez une sonde personnalisée et associez-la aux paramètres HTTP.
 
 <a name="error-messages"></a>Messages d’erreur
 ------------------------
@@ -170,7 +170,7 @@ Vérifiez également qu’aucun NSG, UDR ou pare-feu ne bloque l’accès à l�
 
 **Message :** Le code d\'état de la réponse HTTP du back-end ne correspond pas au paramètre de la sonde. Attendu :{HTTPStatusCode0} Reçu :{HTTPStatusCode1}.
 
-**Cause :** Une fois que la connexion TCP a été établie et que la négociation TLS est terminée (si TLS est activé), Application Gateway envoie la sonde sous forme de requête HTTP GET au serveur back-end. Comme décrit plus haut, la sonde par défaut est envoyée au format \<protocole\>://127.0.0.1:\<port\>/ et considère comme sains les codes d’état de réponse compris entre 200 et 399. Si le serveur retourne un autre code d’état, il est marqué comme Non sain, avec ce message.
+**Cause :** Une fois que la connexion TCP a été établie et que la négociation TLS est terminée (si TLS est activé), Application Gateway envoie la sonde sous forme de requête HTTP GET au serveur back-end. Comme décrit plus haut, la sonde par défaut est envoyée à \<protocol\>://127.0.0.1:\<port\>/ et considère comme intègre les codes d’état de la réponse compris entre 200 et 399. Si le serveur retourne un autre code d’état, il est marqué comme Non sain, avec ce message.
 
 **Solution :** Selon le code de réponse du serveur back-end, effectuez les étapes appropriées parmi les suivantes. Quelques codes d’état courants sont décrits ici :
 
@@ -209,7 +209,7 @@ Pour en savoir plus sur la correspondance des sondes d’Application Gateway, [c
 
 #### <a name="backend-server-certificate-invalid-ca"></a>Autorité de certification non valide pour le certificat du serveur back-end
 
-**Message :** Le certificat de serveur utilisé par le serveur back-end n’est pas signé par une autorité de certification reconnue. Ajoutez le serveur back-end à la liste approuvée d’Application Gateway en chargeant le certificat racine du certificat de serveur qui est utilisé par le serveur back-end.
+**Message :** Le certificat de serveur utilisé par le serveur back-end n’est pas signé par une autorité de certification reconnue. Autorisez le back-end sur l’instance Application Gateway en chargeant le certificat racine du certificat de serveur utilisé par le back-end.
 
 **Cause :** Le chiffrement SSL de bout en bout avec Application Gateway v2 implique la vérification du certificat du serveur back-end pour garantir que le serveur est sain.
 Pour qu’un certificat TLS/SSL soit approuvé, ce certificat utilisé par le serveur back-end doit être émis par l’une des autorités de certification figurant dans le magasin de certificats approuvés d’Application Gateway. Si le certificat n’a pas été émis par une autorité de certification approuvée (ce qui est le cas des certificats auto-signés, par exemple), les utilisateurs doivent charger le certificat de l’émetteur dans Application Gateway.

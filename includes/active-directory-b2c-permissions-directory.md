@@ -5,14 +5,14 @@ ms.subservice: B2C
 ms.topic: include
 ms.date: 02/12/2020
 ms.author: mimart
-ms.openlocfilehash: 587a4bfed00415499bcca6d6054d4ab25cddf0b8
-ms.sourcegitcommit: d118ad4fb2b66c759b70d4d8a18e6368760da3ad
+ms.openlocfilehash: f8c972bdb9195008c2983d3993e8d9369749b284
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/02/2020
-ms.locfileid: "84298915"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85200173"
 ---
-#### <a name="app-registrations-preview"></a>[Inscriptions d’applications (préversion)](#tab/app-reg-preview/)
+#### <a name="app-registrations"></a>[Inscriptions des applications](#tab/app-reg-ga/) 
 
 1. Sous **Gérer**, sélectionnez **Autorisations de l’API**.
 1. Sous **Autorisations configurées**, sélectionnez **Ajouter une autorisation**.
@@ -24,11 +24,10 @@ ms.locfileid: "84298915"
     * **Policy** > **Policy.ReadWrite.TrustFramework** : Pour les scénarios d’intégration continue/livraison continue (CI/CD). Par exemple, pour le déploiement de stratégies personnalisées avec Azure Pipelines.
 1. Sélectionnez **Ajouter des autorisations**. Comme vous l’indiquent les instructions, patientez quelques minutes avant de passer à l’étape suivante.
 1. Sélectionnez **Accorder le consentement de l’administrateur pour (nom de votre abonné)** .
-1. Sélectionnez le compte administrateur actuellement connecté ou connectez-vous avec un compte de votre locataire Azure AD B2C qui possède au minimum le rôle *Administrateur d’application cloud*.
-1. Sélectionnez **Accepter**.
+1. Si vous n’êtes pas connecté avec un compte Administrateur général, connectez-vous avec un compte de votre locataire Azure AD B2C ayant au minimum le rôle *Administrateur d’application cloud*, puis sélectionnez **Accorder le consentement administrateur pour (nom de votre locataire)** .
 1. Sélectionnez **Actualiser**, puis vérifiez que la mention « Accordé pour ... » apparaît sous **État**. La propagation des autorisations peut prendre quelques minutes.
 
-#### <a name="applications"></a>[Applications](#tab/applications/)
+#### <a name="applications-legacy"></a>[Applications (héritées)](#tab/applications-legacy/)
 
 1. Dans la page de vue d’ensemble **Application inscrite**, sélectionnez **Paramètres**.
 1. Sous **Accès d’API**, sélectionnez **Autorisations requises**.

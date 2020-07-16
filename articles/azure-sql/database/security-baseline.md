@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 04/09/2020
 ms.author: mbaldwin
 ms.custom: security-benchmark
-ms.openlocfilehash: 50d408da248bfcea7088af52cd551579da0ad14e
-ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
+ms.openlocfilehash: 3c890dc48c97580fd8de5c817c96b62d4eb9c009
+ms.sourcegitcommit: e132633b9c3a53b3ead101ea2711570e60d67b83
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "84039920"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86045941"
 ---
 # <a name="azure-security-baseline-for-azure-sql-database--sql-managed-instance"></a>Base de référence de sécurité Azure pour Azure SQL Database et SQL Managed Instance
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
@@ -43,7 +43,7 @@ Comment utiliser des points de terminaison de service de réseau virtuel et des 
 
 https://docs.microsoft.com/azure/sql-database/sql-database-vnet-service-endpoint-rule-overview
 
-**Supervision d’Azure Security Center** : Oui
+**Supervision Azure Security Center** : Oui
 
 **Responsabilité** : Customer
 
@@ -85,7 +85,7 @@ https://docs.microsoft.com/azure/security-center/security-center-network-recomme
 
 ### <a name="14-deny-communications-with-known-malicious-ip-addresses"></a>1.4 : Refuser les communications présentant des adresses IP connues comme étant malveillantes
 
-**Aide** : Activez le Service Protection DDoS Standard sur les réseaux virtuels associés à votre instance Azure SQL Database à des fins de protection contre les attaques par déni de service distribué. Utilisez la fonctionnalité de renseignement sur les menaces intégrée à Azure Security Center pour refuser les communications avec des adresses IP Internet connues comme étant malveillantes ou inutilisées.
+**Conseils** : Activez le Service Protection DDoS Standard sur les réseaux virtuels associés à votre instance Azure SQL Database à des fins de protection contre les attaques par déni de service distribué. Utilisez la fonctionnalité de renseignement sur les menaces intégrée à Azure Security Center pour refuser les communications avec des adresses IP Internet connues comme étant malveillantes ou inutilisées.
 
 Configurer la protection DDoS :
 
@@ -285,7 +285,7 @@ https://docs.microsoft.com/azure/sql-database/sql-database-insights-alerts-porta
 
 ### <a name="27-enable-alerts-for-anomalous-activity"></a>2.7 : Activer des alertes en cas d’activité anormale
 
-**Aide** : Utilisez Azure Security Center protection avancée contre les menaces pour Azure SQL Database pour la surveillance et les alertes en cas d’activité anormale. Activez Advanced Data Security pour vos bases de données SQL. Advanced Data Security inclut des fonctionnalités permettant de découvrir et de classifier les données sensibles, de présenter et de corriger les vulnérabilités de votre base de données et de détecter les activités anormales susceptibles d’indiquer une menace ciblant votre base de données.
+**Conseils** : Utilisez Azure Security Center protection avancée contre les menaces pour Azure SQL Database pour la surveillance et les alertes en cas d’activité anormale. Activez Advanced Data Security pour vos bases de données SQL. Advanced Data Security inclut des fonctionnalités permettant de découvrir et de classifier les données sensibles, de présenter et de corriger les vulnérabilités de votre base de données et de détecter les activités anormales susceptibles d’indiquer une menace ciblant votre base de données.
 
 Comprendre Advanced Threat Protection et les alertes pour Azure SQL Database :
 
@@ -353,7 +353,7 @@ https://docs.microsoft.com/powershell/module/azuread/get-azureaddirectoryrolemem
 
 Comment configurer et gérer l’authentification Azure Active Directory avec Azure SQL :
 
-https://docs.microsoft.com/azure/sql-database/sql-database-authentication-aad-configure
+https://docs.microsoft.com/azure/azure-sql/database/authentication-aad-configure
 
 **Supervision Azure Security Center** : Oui
 
@@ -449,7 +449,7 @@ Comment configurer des emplacements nommés dans Azure : https://docs.microsoft
 
 Comment configurer et gérer l’authentification Azure Active Directory avec Azure SQL :
 
-https://docs.microsoft.com/azure/sql-database/sql-database-authentication-aad-configure
+https://docs.microsoft.com/azure/azure-sql/database/authentication-aad-configure
 
 Comment créer et configurer une instance AAD :
 
@@ -477,7 +477,7 @@ https://docs.microsoft.com/azure/active-directory/governance/access-reviews-over
 
 Comment configurer et gérer l’authentification Azure Active Directory avec Azure SQL :
 
-https://docs.microsoft.com/azure/sql-database/sql-database-authentication-aad-configure
+https://docs.microsoft.com/azure/azure-sql/database/authentication-aad-configure
 
 Comment intégrer des journaux d’activité Azure dans Azure Monitor :
 
@@ -639,7 +639,7 @@ https://docs.microsoft.com/azure/sql-database/transparent-data-encryption-azure-
 
 ### <a name="49-log-and-alert-on-changes-to-critical-azure-resources"></a>4.9 : Consigner et alerter les modifications apportées aux ressources Azure critiques
 
-**Conseils** : Utilisez Azure Monitor avec le journal d’activité Azure pour créer des alertes en cas de modifications sur des instances de production Azure SQL Database et autres ressources critiques ou associées.
+**Aide** : Utilisez Azure Monitor avec le journal d’activité Azure pour créer des alertes en cas de modifications sur des instances de production Azure SQL Database et autres ressources critiques ou associées.
 
 Comment créer des alertes pour les événements du journal des activités Azure :
 
@@ -655,9 +655,9 @@ https://docs.microsoft.com/azure/azure-monitor/platform/alerts-activity-log
 
 ### <a name="51-run-automated-vulnerability-scanning-tools"></a>5.1 : Exécuter les outils d’analyse des vulnérabilités automatisés
 
-**Aide** : Activez Advanced Data Security pour Azure SQL Database et suivez les recommandations de Azure Security Center relatives à l’évaluation des vulnérabilités sur vos serveurs.
+**Conseils** : Activez Advanced Data Security pour Azure SQL Database et suivez les recommandations de Azure Security Center relatives à l’évaluation des vulnérabilités sur vos serveurs.
 
-Comment exécuter l'évaluation des vulnérabilités sur vos instances Azure SQL Database :
+Procédure d’exécution de l'évaluation des vulnérabilités sur Azure SQL Database :
 
 https://docs.microsoft.com/azure/sql-database/sql-vulnerability-assessment
 
@@ -697,7 +697,7 @@ Comment exporter un rapport d’évaluation des vulnérabilités dans Azure Secu
 
 https://docs.microsoft.com/azure/sql-database/sql-vulnerability-assessment#implementing-vulnerability-assessment
 
-**Supervision d’Azure Security Center** : Non applicable
+**Supervision Azure Security Center** : Non applicable
 
 **Responsabilité** : Customer
 
@@ -709,7 +709,7 @@ Comprendre le degré de sécurisation Azure Security Center :
 
 https://docs.microsoft.com/azure/security-center/security-center-secure-score
 
-**Supervision d’Azure Security Center** : Oui
+**Supervision Azure Security Center** : Oui
 
 **Responsabilité** : Customer
 
@@ -741,7 +741,7 @@ Créer et utiliser des balises :
 
 https://docs.microsoft.com/azure/azure-resource-manager/resource-group-using-tags
 
-**Supervision d’Azure Security Center** : actuellement non disponible
+**Supervision Azure Security Center** : actuellement non disponible
 
 **Responsabilité** : Customer
 
@@ -961,7 +961,7 @@ https://docs.microsoft.com/azure/governance/policy/tutorials/create-and-manage
 
 ### <a name="79-implement-automated-configuration-monitoring-for-azure-services"></a>7.9 : Mettre en place la surveillance de la configuration automatique pour les services Azure
 
-**Aide** : Utilisez Azure Security Center pour effectuer des analyses de ligne de base pour Azure SQL Database.
+**Conseils** : Utilisez Azure Security Center pour effectuer des analyses de ligne de base pour Azure SQL Database.
 
 Comment corriger les recommandations dans Azure Security Center :
 
@@ -1069,7 +1069,7 @@ https://docs.microsoft.com/azure/sql-database/sql-database-business-continuity
 
 ### <a name="92-perform-complete-system-backups-and-backup-any-customer-managed-keys"></a>9.2 : effectuer des sauvegardes complètes du système et sauvegarder les clés gérées par le client
 
-**Conseils** : Azure SQL Database crée automatiquement des sauvegardes de base de données, qui sont conservées entre 7 et 35 jours, en tirant parti du stockage géoredondant avec accès en lecture seule (RA-GRS) d’Azure pour garantir leur conservation, même en cas d’indisponibilité du centre de données. Ces sauvegardes sont créées automatiquement. Si nécessaire, activez les sauvegardes géoredondantes à long terme pour vos instances Azure SQL Database.
+**Conseils** : Azure SQL Database crée automatiquement des sauvegardes de base de données, qui sont conservées entre 7 et 35 jours, en tirant parti du stockage géoredondant avec accès en lecture seule (RA-GRS) d’Azure pour garantir leur conservation, même en cas d’indisponibilité du centre de données. Ces sauvegardes sont créées automatiquement. Si nécessaire, activez les sauvegardes géoredondantes à long terme pour vos bases de données Azure SQL.
 
 Si vous utilisez des clés gérées par le client pour Transparent Data Encryption, assurez-vous que ces clés sont sauvegardées.
 

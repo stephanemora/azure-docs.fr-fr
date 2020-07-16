@@ -4,12 +4,12 @@ description: Découvrez comment gérer et surveiller les sauvegardes de l’agen
 ms.reviewer: srinathv
 ms.topic: conceptual
 ms.date: 10/07/2019
-ms.openlocfilehash: 0afe83edc638cba4cd14cc27b84a98937175fc86
-ms.sourcegitcommit: 8017209cc9d8a825cc404df852c8dc02f74d584b
+ms.openlocfilehash: 2cd536e191702e2619030c2e0fa06262d2e004ee
+ms.sourcegitcommit: bcb962e74ee5302d0b9242b1ee006f769a94cfb8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/01/2020
-ms.locfileid: "84248598"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86057821"
 ---
 # <a name="manage-microsoft-azure-recovery-services-mars-agent-backups-by-using-the-azure-backup-service"></a>Gérer les sauvegardes de l’agent Microsoft Azure Recovery Services (MARS) à l’aide du service Sauvegarde Azure
 
@@ -167,6 +167,27 @@ Une phrase secrète est utilisée pour chiffrer et déchiffrer les données lors
 
     ![Générez une phrase secrète.](./media/backup-azure-manage-mars/passphrase2.png)
 - Assurez-vous que la phrase secrète est enregistrée en toute sécurité à un autre emplacement (autre que la machine source), de préférence dans Azure Key Vault. Suivez toutes les phrases secrètes si vous avez plusieurs machines sauvegardées avec les agents MARS.
+
+## <a name="managing-backup-data-for-unavailable-machines"></a>Gestion des données de sauvegarde pour les machines non disponibles
+
+Cette section décrit un scénario dans lequel votre machine source qui a été protégée avec MARS n’est plus disponible, car elle a été supprimée, endommagée, infectée par un programme malveillant/ransomware ou a été mise hors service.
+
+Pour ces machines, le service Sauvegarde Azure s’assure que le dernier point de récupération n’expire pas (c’est-à-dire qu’il n’est pas nettoyé) en fonction des règles de conservation spécifiées dans la stratégie de sauvegarde. Ainsi, vous pouvez restaurer la machine de manière sécurisée.  Envisagez les scénarios suivants que vous pouvez effectuer sur les données sauvegardées :
+
+### <a name="scenario-1-the-source-machine-is-unavailable-and-you-no-longer-need-to-retain-backup-data"></a>Scénario 1 : La machine source n’est pas disponible et vous n’avez plus besoin de conserver les données de sauvegarde
+
+- Vous pouvez supprimer les données sauvegardées du portail Azure à l’aide de la procédure décrite dans [cet article](backup-azure-delete-vault.md#delete-protected-items-on-premises).
+
+### <a name="scenario-2-the-source-machine-is-unavailable-and-you-need-to-retain-backup-data"></a>Scénario 2 : La machine source n’est pas disponible et vous devez conserver les données de sauvegarde
+
+La gestion de la stratégie de sauvegarde pour MARS s’effectue par le biais de la console MARS et non du portail. Si vous devez étendre les paramètres de conservation pour les points de récupération existants avant qu’ils n’expirent, vous devez restaurer la machine, installer la console MARS et étendre la stratégie.
+
+- Pour restaurer la machine, effectuez les étapes suivantes :
+  - [Restaurer la machine virtuelle sur une autre machine cible](backup-azure-restore-windows-server.md#use-instant-restore-to-restore-data-to-an-alternate-machine)
+  - Recréer la machine cible avec le même nom d’hôte que la machine source
+  - Installer l’agent et refaire l’inscription dans le même coffre et avec la même phrase secrète
+  - Lancer le client MARS pour prolonger la durée de conservation en fonction de vos besoins
+- Votre machine nouvellement restaurée, protégée par MARS, continuera à effectuer des sauvegardes.  
 
 ## <a name="next-steps"></a>Étapes suivantes
 

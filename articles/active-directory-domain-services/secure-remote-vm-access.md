@@ -10,12 +10,12 @@ ms.workload: identity
 ms.topic: how-to
 ms.date: 03/30/2020
 ms.author: iainfou
-ms.openlocfilehash: a17f27831dd0a674c1d55cde6974aba5e1bfcfc3
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 8a9382af630d80480e5bec50d629451ebe49bf73
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82105724"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84734467"
 ---
 # <a name="secure-remote-access-to-virtual-machines-in-azure-active-directory-domain-services"></a>Sécuriser l’accès à distance aux machines virtuelles dans Azure Active Directory Domain Services
 
@@ -41,7 +41,7 @@ Pour effectuer ce qui est décrit dans cet article, vous avez besoin des ressour
 * Un locataire Azure Active Directory associé à votre abonnement, synchronisé avec un annuaire local ou un annuaire cloud uniquement.
     * Si nécessaire, [créez un locataire Azure Active Directory][create-azure-ad-tenant] ou [associez un abonnement Azure à votre compte][associate-azure-ad-tenant].
 * Un domaine managé Azure Active Directory Domain Services activé et configuré dans votre locataire Azure AD.
-    * Si nécessaire, [créez et configurez une instance Azure Active Directory Domain Services][create-azure-ad-ds-instance].
+    * Si nécessaire, [créez et configurez un domaine managé Azure Active Directory Domain Services][create-azure-ad-ds-instance].
 * Un sous-réseau de *charges de travail* créé dans votre réseau virtuel Azure Active Directory Domain Services.
     * Si nécessaire, [configurez un réseau virtuel pour une instance Azure Active Directory Domain Services][configure-azureadds-vnet].
 * Un compte d’utilisateur membre du groupe *Administrateurs Azure AD DC* dans votre locataire Azure AD.
@@ -55,16 +55,16 @@ Un déploiement des services Bureau à distance suggéré comprend les deux mach
 * *RDGVM01* : exécute les serveurs Broker pour les connexions Bureau à distance, Accès Web des services Bureau à distance et Passerelle des services Bureau à distance.
 * *RDSHVM01* : exécute le serveur Hôte de session Bureau à distance.
 
-Assurez-vous que les machines virtuelles sont déployées dans un sous-réseau de *charges de travail* de votre réseau virtuel Azure AD DS, puis joignez les machines virtuelles à un domaine managé Azure Active AD DS. Pour plus d’informations, découvrez comment [créer une machine virtuelle Windows Server et la joindre à domaine managé Azure Active AD DS][tutorial-create-join-vm].
+Assurez-vous que les machines virtuelles sont déployées dans un sous-réseau de *charges de travail* de votre réseau virtuel Azure AD DS, puis joignez les machines virtuelles à un domaine managé. Pour plus d’informations, découvrez comment [créer une machine virtuelle Windows Server et la joindre à un domaine managé][tutorial-create-join-vm].
 
-Le déploiement de l’environnement de Bureau à distance contient un certain nombre d’étapes. Le guide de déploiement de Bureau à distance existant peut être utilisé sans modification spécifique à utiliser dans un domaine managé Azure AD DS :
+Le déploiement de l’environnement de Bureau à distance contient un certain nombre d’étapes. Le guide de déploiement de Bureau à distance existant peut être utilisé sans modification spécifique dans un domaine managé :
 
 1. Connectez-vous aux machines virtuelles créées pour l’environnement de Bureau à distance à l’aide d’un compte faisant partie du groupe *Administrateurs Azure AD DC*, par exemple, *contosoadmin*.
 1. Pour créer et configurer des services Bureau à distance, utilisez le [Guide de déploiement de l’environnement de Bureau à distance][deploy-remote-desktop] existant. Distribuez les composants du serveur Bureau à distance sur vos machines virtuelles Azure à votre guise.
     * Spécificité d’Azure AD DS : lorsque vous configurez le gestionnaire de licences des services Bureau à distance, définissez-le sur mode **Par appareil**, non **Par utilisateur** comme indiqué dans le Guide de déploiement.
 1. Si vous souhaitez fournir l’accès à l’aide d’un navigateur web, [Configurez le client web Bureau à distance pour vos utilisateurs][rd-web-client].
 
-Avec le Bureau à distance déployé dans le domaine managé Azure AD DS, vous pouvez gérer et utiliser le service comme vous le feriez avec un domaine AD DS local.
+Avec le Bureau à distance déployé dans le domaine managé, vous pouvez gérer et utiliser le service comme vous le feriez avec un domaine AD DS local.
 
 ## <a name="deploy-and-configure-nps-and-the-azure-mfa-nps-extension"></a>Déployer et configurer le serveur NPS (Network Policy Server) et l’extension Azure MFA NPS
 
@@ -76,7 +76,7 @@ Les utilisateurs doivent être [inscrits pour utiliser Azure Multi-Factor Authen
 
 Pour intégrer Azure Multi-Factor Authentication dans votre environnement de Bureau à distance Azure AD DS, créez un serveur NPS et installez l’extension :
 
-1. Créez une machine virtuelle Windows Server 2016 ou 2019 supplémentaire, par exemple, *NPSVM01*, qui est connectée à un sous-réseau de *charges de travail* dans votre réseau virtuel Azure AD DS. Joignez la machine virtuelle au domaine managé Azure AD DS.
+1. Créez une machine virtuelle Windows Server 2016 ou 2019 supplémentaire, par exemple, *NPSVM01*, qui est connectée à un sous-réseau de *charges de travail* dans votre réseau virtuel Azure AD DS. Joignez la machine virtuelle au domaine managé.
 1. Connectez-vous à la machine virtuelle NPS en tant que compte faisant partie du groupe *Administrateurs Azure AD DC*, par exemple, *contosoadmin*.
 1. Dans le **Gestionnaire de serveur**, sélectionnez **Ajouter des rôles et des fonctionnalités**, puis installez le rôle *Services de stratégie et d’accès réseau*.
 1. Consultez l’article de procédure existant pour [installer et configurer l’extension Azure MFA NPS][nps-extension].
@@ -87,9 +87,9 @@ Une fois le serveur NPS et l’extension Azure Multi-Factor Authentication NPS i
 
 Pour intégrer l’extension Azure Multi-Factor Authentication NPS, consultez l’article de procédure existant pour [intégrer votre infrastructure de Passerelle des services Bureau à distance à l’aide de l’extension de serveur NPS (Network Policy Server) et d’Azure AD][azure-mfa-nps-integration].
 
-Les options de configuration supplémentaires suivantes sont nécessaires pour l’intégration avec un domaine managé Azure AD DS :
+Les options de configuration supplémentaires suivantes sont nécessaires pour l’intégration avec un domaine managé :
 
-1. N’[Enregistrez pas le serveur NPS dans Active Directory][register-nps-ad]. Cette étape échoue dans un domaine managé Azure AD DS.
+1. N’[Enregistrez pas le serveur NPS dans Active Directory][register-nps-ad]. Cette étape échoue dans un domaine managé.
 1. À l’[étape 4 pour configurer la stratégie réseau][create-nps-policy], activez également la case à cocher **Ignorer les propriétés de numérotation des comptes d’utilisateurs**.
 1. Si vous utilisez Windows Server 2019 pour le serveur NPS et l’extension Azure Multi-Factor Authentication NPS, exécutez la commande suivante pour mettre à jour le canal sécurisé afin de permettre au serveur NPS de communiquer correctement :
 

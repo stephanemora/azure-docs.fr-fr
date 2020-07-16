@@ -6,15 +6,15 @@ author: hrasheed-msft
 ms.author: hrasheed
 ms.reviewer: jasonh
 ms.service: hdinsight
-ms.topic: conceptual
+ms.topic: how-to
 ms.custom: hdinsightactive
 ms.date: 01/31/2020
-ms.openlocfilehash: 79cd3ddd21af700fd36d0e565b9f5a1be1e56343
-ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
+ms.openlocfilehash: f3bfd430023330d3a399a0a760fd353b6ee60941
+ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "84015129"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86085886"
 ---
 # <a name="migrate-hdinsight-cluster-to-a-newer-version"></a>Effectuer la migration d’un cluster HDInsight vers une version plus récente
 
@@ -51,7 +51,7 @@ Les documents suivants fournissent des conseils sur la migration de certaines ch
 
 ## <a name="backup-and-restore"></a>Sauvegarde et restauration
 
-Pour plus d’informations sur la sauvegarde et la restauration d’une base de données, consultez [Récupérer une base de données Azure SQL à l’aide des sauvegardes de base de données automatisées](../azure-sql/database/recovery-using-backups.md).
+Pour plus d’informations sur la sauvegarde et la restauration d’une base de données, consultez [Récupérer une base de données dans Azure SQL Database à l’aide des sauvegardes de base de données automatisées](../azure-sql/database/recovery-using-backups.md).
 
 ## <a name="next-steps"></a>Étapes suivantes
 

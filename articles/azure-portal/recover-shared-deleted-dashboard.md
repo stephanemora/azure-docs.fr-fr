@@ -5,15 +5,15 @@ services: azure-portal
 author: mgblythe
 ms.author: mblythe
 ms.date: 01/21/2020
-ms.topic: conceptual
+ms.topic: troubleshooting
 ms.service: azure-portal
 manager: mtillman
-ms.openlocfilehash: af0c72f0bc5dd8f3a3cbae7b82b1ac56447cbb08
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 7b3cc088a87731d2a118a4fe5183831e4d1bd6cc
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "77133291"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84763973"
 ---
 # <a name="recover-a-deleted-dashboard-in-the-azure-portal"></a>Récupérer un tableau de bord supprimé dans le Portail Azure
 
@@ -21,7 +21,7 @@ Si vous êtes dans le cloud Azure public et que vous supprimez un tableau de bor
 
 1. Dans le menu du Portail Azure, sélectionnez **Groupes de ressources**, puis sélectionnez le groupe de ressources dans lequel vous avez publié le tableau de bord (par défaut, il est nommé **dashboards**).
 
-1. Sous **Journal d’activité**, développez l’opération **Supprimer le tableau de bord**. Sélectionnez l’onglet **Historique des modifications**, puis sélectionnez **\<deleted resource\>** .
+1. Sous **Journal d’activité**, développez l’opération **Supprimer le tableau de bord**. Sélectionnez l’onglet **Historique des modifications**, puis **\<deleted resource\>** .
 
     ![Capture d’écran de l’onglet Historique des modifications](media/recover-shared-deleted-dashboard/change-history-tab.png)
 

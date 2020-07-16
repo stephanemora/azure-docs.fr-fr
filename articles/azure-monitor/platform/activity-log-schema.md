@@ -4,22 +4,41 @@ description: Décrit le schéma d’événements pour chaque catégorie dans le 
 author: bwren
 services: azure-monitor
 ms.topic: reference
-ms.date: 12/04/2019
+ms.date: 06/09/2020
 ms.author: bwren
 ms.subservice: logs
-ms.openlocfilehash: 25517b48ad7dcddffaaeb4ac2f86397d99e0be2c
-ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
+ms.openlocfilehash: 553492a3ca6868279b1aec9446e2ce04ca673ab0
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "84017509"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84945356"
 ---
 # <a name="azure-activity-log-event-schema"></a>Schéma d’événements du journal d’activité
-Le [journal d’activité Azure](platform-logs-overview.md) apporte des insights sur les événements liés aux abonnements qui se sont produits dans Azure. Cet article décrit le schéma d’événements pour chaque catégorie. 
+Le [journal d’activité Azure](platform-logs-overview.md) apporte des insights sur les événements liés aux abonnements qui se sont produits dans Azure. Cet article décrit les catégories du journal d’activité et le schéma de chacune d’elles. 
 
-Les exemples ci-dessous montrent le schéma lorsque vous accédez au journal d'activité depuis le portail, PowerShell, l’interface CLI et l’API REST. Le schéma est différent lorsque vous [diffusez le journal d’activité vers le stockage ou Event Hubs](resource-logs-stream-event-hubs.md). Un mappage de ces propriétés vers le [schéma des journaux de la ressource](diagnostic-logs-schema.md) est fourni à la fin de cet article.
+Le schéma varie selon votre mode d’accès au journal :
+ 
+- Les schémas décrits dans cet article sont ceux utilisés quand vous accédez au journal d’activité à partir de l’[API REST](https://docs.microsoft.com/rest/api/monitor/activitylogs). Il s’agit aussi du schéma qui est utilisé quand vous sélectionnez l’option **JSON** pour afficher un événement sur le portail Azure.
+- Consultez la section finale [Schéma du compte de stockage et des hubs d’événements](#schema-from-storage-account-and-event-hubs) pour connaître le schéma utilisé quand vous envoyez le journal d’activité à Stockage Azure ou Azure Event Hubs à l’aide d’un [paramètre de diagnostic](diagnostic-settings.md).
+- Consultez [Informations de référence sur Azure Monitor](https://docs.microsoft.com/azure/azure-monitor/reference/) pour connaître le schéma utilisé quand vous envoyez le journal d’activité vers un espace de travail Log Analytics à l’aide d’un [paramètre de diagnostic ](diagnostic-settings.md).
 
-## <a name="administrative"></a>Administratif
+
+## <a name="categories"></a>Catégories
+Chaque événement dans le journal d’activité est associé à l’une des catégories décrites dans le tableau suivant. Consultez les sections ci-dessous pour obtenir des détails supplémentaires sur chaque catégorie et sur le schéma qu’elles utilisent quand vous accédez au journal d’activité depuis le portail, PowerShell, l’interface CLI et l’API REST. Le schéma est différent lorsque vous [diffusez le journal d’activité vers le stockage ou Event Hubs](resource-logs-stream-event-hubs.md). Un mappage des propriétés au [schéma des journaux de ressources](diagnostic-logs-schema.md) est fourni dans la dernière section de l’article.
+
+| Catégorie | Description |
+|:---|:---|
+| [Administrative](#administrative-category) | Contient l’enregistrement de toutes les opérations de création, mise à jour, suppression et action effectuées par le biais de Resource Manager. Les événements _créer une machine virtuelle_ et _supprimer un groupe de sécurité réseau_ sont deux exemples d’événements Administratif.<br><br>Chaque action effectuée par un utilisateur ou une application avec Resource Manager est modélisée comme une opération effectuée sur un type de ressource spécifique. Si le type d’opération est _Écrire_, _Supprimer_ ou _Action_, les enregistrements de début et de réussite ou d’échec de cette opération sont enregistrés dans la catégorie Administratif. Les événements de la catégorie Administratif incluent également les changements apportés au contrôle d’accès en fonction du rôle dans un abonnement. |
+| [Service Health](#service-health-category) | Contient l’enregistrement de tous les incidents d’intégrité du service qui se sont produits dans Azure. L’événement _SQL Azure dans la région USA Est rencontre des temps d’arrêt_ est un exemple d’événement d’intégrité du service. <br><br>Les événements Service Health se présentent sous six types : _Action requise_, _Récupération assistée_, _Incident_, _Maintenance_, _Information_ ou _Sécurité_. Ces événements sont créés uniquement si une ressource dans l’abonnement est impactée par l’événement.
+| [Resource Health](#resource-health-category) | Contient l’enregistrement de tous les événements d’intégrité de ressource survenus dans vos ressources Azure. L’événement _L’état d’intégrité de la machine virtuelle est passé à Indisponible_ est un exemple d’événement d’intégrité de ressource.<br><br>Les événements d’intégrité de ressource peuvent représenter l’un de ces quatre états d’intégrité : _Disponible_, _Indisponible_, _Détérioré_ et _Inconnu_. En outre, les événements d’intégrité de ressource peuvent être classés dans la catégorie _Lancé par la plateforme_ ou _Lancé par l’utilisateur_. |
+| [Alert](#alert-category) | Contient l’enregistrement des activations d’alertes Azure. L’événement _Le % processeur sur ma machine virtuelle a dépassé 80 au cours des 5 dernières minutes_.|
+| [Autoscale](#autoscale-category) | Contient l’enregistrement de tous les événements liés au fonctionnement du moteur de mise à l’échelle automatique selon les paramètres d’échelle automatique définis dans votre abonnement. L’événement _Échec de l’action de scale-up de la mise à l’échelle automatique_ est un exemple d’événement de mise à l’échelle automatique. |
+| [Recommandation](#recommendation-category) | Contient les événements de recommandation d’Azure Advisor. |
+| [Sécurité](#security-category) | Contient l’enregistrement de toutes les alertes générées par Azure Security Center. L’événement _Fichier à extension double suspect exécuté_ est un exemple d’événement de sécurité. |
+| [Stratégie](#policy-category) | Contient les enregistrements de toutes les opérations d’action à effet effectuées par Azure Policy. Les événements _Audit_ et _Refuser_ sont des exemples d’événements de stratégie. Chaque action effectuée par Policy est modélisée en tant qu’opération sur une ressource. |
+
+## <a name="administrative-category"></a>Catégorie Administrative
 Cette catégorie contient l’enregistrement de toutes les opérations de création, mise à jour, suppression et action effectuées par le biais du gestionnaire de ressources. Les exemples de types d’événements que vous pouvez voir dans cette catégorie incluent « créer une machine virtuelle » et « supprimer un groupe de sécurité réseau ». Toute mesure prise par un utilisateur ou une application utilisant le gestionnaire de ressources est modélisée comme une opération sur un type de ressources en particulier. Si le type d’opération est Écrire, Supprimer ou Action, les enregistrements de début et de réussite ou d’échec de cette opération sont enregistrés dans la catégorie Administrative. La catégorie Administrative inclut également toute modification apportée à un contrôle d’accès basé sur un rôle dans un abonnement.
 
 ### <a name="sample-event"></a>Exemple d’événement
@@ -137,7 +156,7 @@ Cette catégorie contient l’enregistrement de toutes les opérations de créat
 | submissionTimestamp |Horodatage lorsque l’événement est devenu disponible pour l’interrogation. |
 | subscriptionId |ID d’abonnement Azure. |
 
-## <a name="service-health"></a>État d’intégrité du service
+## <a name="service-health-category"></a>Catégorie Service Health
 Cette catégorie contient l’enregistrement de tout incident de l’état d’intégrité du service qui se sont produits dans Azure. Un exemple du type d’événement que vous pouvez voir dans cette catégorie est « SQL Azure dans la région USA Est rencontre des temps d’arrêt. » Les événements d’intégrité du service se présentent sous cinq types : action requise, récupération assistée, incident, maintenance, informations ou sécurité et n’apparaissent que si une ressource de votre abonnement est affectée par l’événement.
 
 ### <a name="sample-event"></a>Exemple d’événement
@@ -197,7 +216,7 @@ Cette catégorie contient l’enregistrement de tout incident de l’état d’i
 ```
 Reportez-vous à l’article [Notifications d’intégrité du service](./../../azure-monitor/platform/service-notifications.md) pour plus d’informations sur les valeurs dans les propriétés.
 
-## <a name="resource-health"></a>Intégrité des ressources
+## <a name="resource-health-category"></a>Catégorie Resource Health
 Cette catégorie contient l’enregistrement de tout événement d’intégrité de la ressource survenu dans vos ressources Azure. Par exemple, cette catégorie peut comporter le type d’événement suivant : « L’état d’intégrité de la machine virtuelle est passé à Indisponible ». Les événements d’intégrité de ressource peuvent représenter l’un des quatre états d’intégrité : Disponible, Indisponible, Détérioré et Inconnu. En outre, les événements d’intégrité de ressource peuvent être initiés par la plateforme ou initiés par l’utilisateur.
 
 ### <a name="sample-event"></a>Exemple d’événement
@@ -286,7 +305,7 @@ Cette catégorie contient l’enregistrement de tout événement d’intégrité
 | properties.cause | Description de la cause de l’événement d’intégrité de la ressource. « UserInitiated » ou « PlatformInitiated ». |
 
 
-## <a name="alert"></a>Alerte
+## <a name="alert-category"></a>Catégorie Alert
 Cette catégorie contient l’enregistrement de toutes les activations des alertes Azure classiques. Un exemple du type d’événement que vous pouvez voir dans cette catégorie est « % du processeur sur myVM a été supérieur à 80 pour les 5 dernières minutes. » Une variété de systèmes Azure possèdent un concept d’alertes : vous pouvez définir une règle quelconque et recevoir une notification lorsque les conditions correspondent à cette règle. Chaque fois qu’un type d’alerte Azure pris en charge « s’active » ou si les conditions sont remplies pour générer une notification, un enregistrement de l’activation est également envoyé à cette catégorie du journal d’activité.
 
 ### <a name="sample-event"></a>Exemple d’événement
@@ -400,7 +419,7 @@ Le champ Propriétés contient des valeurs différentes en fonction de la source
 | properties.MetricName | Le nom métrique utilisé dans l’évaluation de la règle d’alerte métrique. |
 | properties.MetricUnit | L’unité métrique utilisée dans l’évaluation de la règle d’alerte métrique. |
 
-## <a name="autoscale"></a>Mise à l’échelle automatique
+## <a name="autoscale-category"></a>Catégorie Autoscale
 Cette catégorie contient l’enregistrement de tous les événements liés au fonctionnement du moteur de mise à l’échelle automatique selon les paramètres d’échelle automatique définis dans votre abonnement. Un exemple du type d’événement que vous pouvez voir dans cette catégorie est « Échec de l’action de monter en puissance de la mise à l’échelle automatique. » À l’aide de la mise à l’échelle automatique, vous pouvez automatiquement effectuer un scale-out ou un scale-in du nombre d’instances dans un type de ressource pris en charge basé sur l’heure du jour et/ou les données de charge (métriques) à l’aide d’un paramètre de mise à l’échelle automatique. Lorsque les conditions sont remplies pour monter ou descendre en puissance, les événements de démarrage réussis ou échoués sont enregistrés dans cette catégorie.
 
 ### <a name="sample-event"></a>Exemple d’événement
@@ -487,7 +506,7 @@ Cette catégorie contient l’enregistrement de tous les événements liés au f
 | submissionTimestamp |Horodatage lorsque l’événement est devenu disponible pour l’interrogation. |
 | subscriptionId |ID d’abonnement Azure. |
 
-## <a name="security"></a>Sécurité
+## <a name="security-category"></a>Catégorie Security
 Cette catégorie contient l’enregistrement de toutes les alertes générées par Azure Security Center. Voici un exemple du type d’événement que vous pouvez voir dans cette catégorie : « Suspicious double extension file executed. » (Fichier à extension double suspect exécuté.).
 
 ### <a name="sample-event"></a>Exemple d’événement
@@ -575,7 +594,7 @@ Cette catégorie contient l’enregistrement de toutes les alertes générées p
 | submissionTimestamp |Horodatage lorsque l’événement est devenu disponible pour l’interrogation. |
 | subscriptionId |ID d’abonnement Azure. |
 
-## <a name="recommendation"></a>Recommandation
+## <a name="recommendation-category"></a>Catégorie Recommendation
 Cette catégorie contient l’enregistrement de toutes les nouvelles recommandations générées pour vos services. Exemple de recommandation : « Utiliser les groupes à haute disponibilité pour une meilleure tolérance de panne. » Quatre types d’événements Recommandation peuvent être générés : Haute disponibilité, Performances, Sécurité et Optimisation des coûts. 
 
 ### <a name="sample-event"></a>Exemple d’événement
@@ -655,7 +674,7 @@ Cette catégorie contient l’enregistrement de toutes les nouvelles recommandat
 | properties.recommendationImpact| Impact de la recommandation. Les valeurs possibles sont « High » (Élevé), « Medium » (Moyen) ou « Low » (Bas) |
 | properties.recommendationRisk| Risque de la recommandation. Les valeurs possibles sont « Error » (Erreur), « Warning » (Avertissement) et « None » (Aucun). |
 
-## <a name="policy"></a>Policy
+## <a name="policy-category"></a>Catégorie Policy
 
 Cette catégorie contient les enregistrements de toutes les opérations d’action à effet effectuées par [Azure Policy](../../governance/policy/overview.md). Cette catégorie pourrait par exemple contenir les types d’événements _Audit_ et _Deny_ (Refus). Chaque action effectuée par Policy est modélisée en tant qu’opération sur une ressource.
 
@@ -774,7 +793,7 @@ Cette catégorie contient les enregistrements de toutes les opérations d’acti
 
 
 ## <a name="schema-from-storage-account-and-event-hubs"></a>Schéma à partir du compte de stockage et des Event Hubs
-Lorsque vous diffusez en continu le contenu du journal d’activité Azure vers un compte de stockage ou vers Event Hubs, les données suivent le [schéma des journaux de ressource](diagnostic-logs-schema.md). Le tableau qui suit fournit un mappage des propriétés du schéma ci-dessus vers le schéma des journaux de ressource.
+Lorsque vous diffusez en continu le contenu du journal d’activité Azure vers un compte de stockage ou vers Event Hubs, les données suivent le [schéma des journaux de ressource](diagnostic-logs-schema.md). Le tableau ci-dessous fournit un mappage des propriétés des schémas ci-dessus au schéma des journaux de ressources.
 
 > [!IMPORTANT]
 > Depuis le 1er novembre 2018, le format des données de journal d’activité écrites dans le compte de stockage est devenu JSON Lines. Pour plus de détails sur ce changement de format, consultez [Préparation à la modification du format dans les journaux de ressources Azure Monitor archivés dans un compte de stockage](diagnostic-logs-append-blobs.md).
@@ -807,7 +826,7 @@ Voici un exemple d’événement utilisant ce schéma.
 {
     "records": [
         {
-            "time": "2015-01-21T22:14:26.9792776Z",
+            "time": "2019-01-21T22:14:26.9792776Z",
             "resourceId": "/subscriptions/s1/resourceGroups/MSSupportGroup/providers/microsoft.support/supporttickets/115012112305841",
             "operationName": "microsoft.support/supporttickets/write",
             "category": "Write",
@@ -831,7 +850,7 @@ Voici un exemple d’événement utilisant ce schéma.
                     "nbf": "1421876371",
                     "exp": "1421880271",
                     "ver": "1.0",
-                    "http://schemas.microsoft.com/identity/claims/tenantid": "1e8d8218-c5e7-4578-9acc-9abbd5d23315 ",
+                    "http://schemas.microsoft.com/identity/claims/tenantid": "00000000-0000-0000-0000-000000000000",
                     "http://schemas.microsoft.com/claims/authnmethodsreferences": "pwd",
                     "http://schemas.microsoft.com/identity/claims/objectidentifier": "2468adf0-8211-44e3-95xq-85137af64708",
                     "http://schemas.xmlsoap.org/ws/2005/05/identity/claims/upn": "admin@contoso.com",

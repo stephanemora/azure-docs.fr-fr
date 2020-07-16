@@ -1,15 +1,14 @@
 ---
 title: Sauvegarder des bases de données SQL Server sur des machines virtuelles Azure
 description: Dans cet article, découvrez comment sauvegarder des bases de données SQL Server sur des machines virtuelles Azure avec la Sauvegarde Azure.
-ms.reviewer: vijayts
 ms.topic: conceptual
 ms.date: 09/11/2019
-ms.openlocfilehash: faf5ffd65f9b3133c504413201d58aee988af71a
-ms.sourcegitcommit: 8017209cc9d8a825cc404df852c8dc02f74d584b
+ms.openlocfilehash: 16e24ed94d8017d9fb922193bb16a33ec7a9cdfd
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/01/2020
-ms.locfileid: "84248105"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84817546"
 ---
 # <a name="back-up-sql-server-databases-in-azure-vms"></a>Sauvegarder des bases de données SQL Server sur des machines virtuelles Azure
 
@@ -34,9 +33,10 @@ Dans cet article, vous allez apprendre à :
 Pour pouvoir sauvegarder une base de données SQL Server, vérifiez les critères suivants :
 
 1. Identifiez ou créez un [coffre Recovery Services](backup-sql-server-database-azure-vms.md#create-a-recovery-services-vault) dans la même région et avec le même abonnement que la machine virtuelle qui héberge l’instance SQL Server.
-2. Vérifiez que la machine virtuelle dispose d’une [connectivité réseau](backup-sql-server-database-azure-vms.md#establish-network-connectivity).
-3. Assurez-vous que les bases de données SQL Server respectent les [instructions de nommage pour Sauvegarde Azure](#database-naming-guidelines-for-azure-backup).
-4. Vérifiez que vous n’avez aucune autre solution de sauvegarde activée pour la base de données. Désactivez tous les autres sauvegardes SQL Server avant de sauvegarder la base de données.
+1. Vérifiez que la machine virtuelle dispose d’une [connectivité réseau](backup-sql-server-database-azure-vms.md#establish-network-connectivity).
+1. Assurez-vous que les bases de données SQL Server respectent les [instructions de nommage pour Sauvegarde Azure](#database-naming-guidelines-for-azure-backup).
+1. Vérifiez que la longueur combinée du nom de la machine virtuelle SQL Server et du nom du groupe de ressources ne dépasse pas 84 caractères pour les machines virtuelles Azure Resource Manager (ARM) (et 77 caractères pour les machines virtuelles classiques). Cette limitation est due au fait que certains caractères sont réservés par le service.
+1. Vérifiez que vous n’avez aucune autre solution de sauvegarde activée pour la base de données. Désactivez tous les autres sauvegardes SQL Server avant de sauvegarder la base de données.
 
 > [!NOTE]
 > Vous pouvez activer Sauvegarde Azure pour une machine virtuelle Azure et une base de données SQL Server s’exécutant sur la machine virtuelle sans conflit.
@@ -264,7 +264,7 @@ Pour créer une stratégie de sauvegarde :
 
 Vous pouvez activer la protection automatique pour sauvegarder automatiquement toutes les bases de données existantes et futures sur une instance SQL Server autonome ou à un groupe de disponibilité Always On.
 
-* Il n’existe aucune limite sur le nombre de bases de données que vous pouvez sélectionner en une fois pour la protection automatique.
+* Il n’existe aucune limite sur le nombre de bases de données que vous pouvez sélectionner à la fois pour la protection automatique. La détection s’exécute généralement toutes les huit heures. Cela étant, pour détecter et protéger les nouvelles bases de données immédiatement, vous pouvez exécuter manuellement une détection en sélectionnant l’option **Redétecter les bases de données**.
 * Vous ne pouvez pas protéger ou exclure sélectivement des bases de données de la protection dans une instance lorsque vous activez la protection automatique.
 * Si votre instance inclut déjà des bases de données protégées, elles restent protégées par leurs stratégies respectives même après que vous avez activé la protection automatique. Toutes les bases de données non protégées que vous ajoutez par la suite ont une seule stratégie que vous définissez au moment de l’activation de la protection automatique et qui est affichée sous **Configurer la sauvegarde**. Toutefois, vous pouvez modifier ultérieurement la stratégie associée à une base de données protégée automatiquement.  
 

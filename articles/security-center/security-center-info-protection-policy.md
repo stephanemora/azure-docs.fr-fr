@@ -11,14 +11,14 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 04/29/2019
+ms.date: 06/11/2020
 ms.author: memildin
-ms.openlocfilehash: 5120e7ca3a29f12066343e5c4a81d6e51278f9ef
-ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
+ms.openlocfilehash: abcdc903e1509c266b9ea6666c296a59183e83c5
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "84020402"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84711083"
 ---
 # <a name="customize-the-sql-information-protection-policy-in-azure-security-center-preview"></a>Personnaliser la stratégie de protection des informations SQL dans Azure Security Center (préversion)
  
@@ -75,7 +75,11 @@ Pour personnaliser la stratégie de protection des informations pour votre locat
 7. Veillez à cliquer sur **Enregistrer** dans le panneau principal **Étiquettes** pour appliquer toutes vos modifications.
  
 Une fois que votre stratégie de protection des informations est entièrement définie et enregistrée, il s’applique à la classification des données sur toutes les bases de données Azure SQL dans votre locataire.
- 
+
+## <a name="manage-sql-information-protection-using-azure-powershell"></a>Gérer la protection des informations SQL à l’aide d’Azure PowerShell
+
+- [Get-AzSqlInformationProtectionPolicy](https://docs.microsoft.com/powershell/module/az.security/get-azsqlinformationprotectionpolicy) : récupère la stratégie de protection des informations SQL du locataire effective.
+- [Set-AzSqlInformationProtectionPolicy](https://docs.microsoft.com/powershell/module/az.security/set-azsqlinformationprotectionpolicy) : définit la stratégie de protection des informations SQL du locataire effective.
  
 ## <a name="next-steps"></a>Étapes suivantes
  
@@ -83,5 +87,5 @@ Dans cet article, vous avez appris à définir une stratégie de protection des 
 
 Pour plus d’informations sur les stratégies de sécurité et la sécurité des données dans Azure Security Center, consultez les articles suivants :
  
-- [Définition des stratégies de sécurité dans Azure Security Center](tutorial-security-policy.md) : découvrez comment configurer des stratégies de sécurité pour vos groupes de ressources et abonnements Azure
-- [Sécurité des données Azure Security Center](security-center-data-security.md) : découvrez comment Security Center gère et protège les données
+- [Définition de stratégies de sécurité dans Azure Security Center](tutorial-security-policy.md) : découvrez comment configurer des stratégies de sécurité pour vos groupes de ressources et abonnements Azure
+- [Sécurité des données Azure Security Center](security-center-data-security.md) : découvrez comment Security Center gère et protège les données

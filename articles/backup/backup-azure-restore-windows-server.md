@@ -4,12 +4,12 @@ description: Dans cet article, découvrez comment restaurer des données stocké
 ms.reviewer: saurse
 ms.topic: conceptual
 ms.date: 09/07/2018
-ms.openlocfilehash: 446ebf563a09131b715b2e08033a7a0278a1fd95
-ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
+ms.openlocfilehash: 040ac3069500d0e52441df6f07d92645a7ae69df
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83652094"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84764432"
 ---
 # <a name="restore-files-to-windows-server-using-the-mars-agent"></a>Restaurer des fichiers sur Windows Server avec l’agent MARS
 
@@ -51,7 +51,7 @@ Si vous avez supprimé accidentellement un fichier et que vous voulez le restaur
    > L’option de restauration de fichiers et dossiers individuels requiert .NET Framework version 4.5.2 ou ultérieure. Si vous ne voyez pas l’option **Individual Files and Folders** (Fichiers et dossiers individuels), vous devez mettre à niveau .NET Framework vers la version 4.5.2 ou une version ultérieure, puis réessayer.
 
    > [!TIP]
-   > L’option **Individual Files and Folders** (Fichiers et dossiers individuels) autorise un accès rapide aux données de point de récupération. Elle convient pour la récupération de fichiers individuels, avec des tailles ne totalisant pas plus de 80 Go, et offre des vitesses de transfert ou de copie pouvant atteindre 6 Mbits/s lors de la récupération. L’option **Volume** récupère toutes les données sauvegardées dans un volume spécifié. Cette option offre des vitesses de transfert supérieures (jusqu’à 60 Mbits/s), ce qui est idéal pour la récupération de données de grande taille ou de volumes entiers.
+   > L’option **Individual Files and Folders** (Fichiers et dossiers individuels) autorise un accès rapide aux données de point de récupération. Elle convient pour la récupération de fichiers individuels, avec des tailles ne totalisant pas plus de 80 Go, et offre des vitesses de transfert ou de copie pouvant atteindre 6 Mbits/s lors de la récupération. L’option **Volume** récupère toutes les données sauvegardées dans un volume spécifié. Cette option offre des vitesses de transfert supérieures (jusqu’à 40 Mbits/s), ce qui est idéal pour la récupération de données de grande taille ou de volumes entiers.
 
 5. Dans la page **Sélectionner le volume et la date**, sélectionnez le volume qui contient les fichiers et dossiers à restaurer.
 

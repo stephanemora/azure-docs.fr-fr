@@ -3,14 +3,14 @@ title: Azure Kubernetes Service (AKS) avec contrat SLA de durée de fonctionneme
 description: Découvrez l’offre de Contrat SLA de durée de fonctionnement facultative pour le serveur d’API Azure Kubernetes Service (AKS).
 services: container-service
 ms.topic: conceptual
-ms.date: 05/19/2020
+ms.date: 06/24/2020
 ms.custom: references_regions
-ms.openlocfilehash: 2df0ad675f03b25363ab0f5b13dceb762a657ed7
-ms.sourcegitcommit: d118ad4fb2b66c759b70d4d8a18e6368760da3ad
+ms.openlocfilehash: 9f8b0cc5a80853542b15d1993713d8a97f5371b9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/02/2020
-ms.locfileid: "84299551"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85361572"
 ---
 # <a name="azure-kubernetes-service-aks-uptime-sla"></a>Contrat SLA de durée de fonctionnement Azure Kubernetes Service (AKS)
 
@@ -23,29 +23,45 @@ Les clients peuvent toujours créer un nombre illimité de clusters gratuits ave
 > [!Important]
 > Pour les clusters avec verrouillage de sortie, consultez [limiter le trafic de sortie](limit-egress-traffic.md) pour ouvrir les ports appropriés.
 
+## <a name="region-availability"></a>Disponibilité des régions
+
+Le contrat SLA de durée de fonctionnement est disponible dans les régions publiques où [AKS est pris en charge](https://azure.microsoft.com/global-infrastructure/services/?products=kubernetes-service).
+
+* Azure Government n’est pas pris en charge.
+* Azure China 21Vianet n’est pas pris en charge.
+
+## <a name="limitations"></a>Limites
+
+* Les clusters privés ne sont actuellement pas pris en charge.
+
 ## <a name="sla-terms-and-conditions"></a>Conditions générales des contrats SLA
 
 Le contrat SLA de durée de fonctionnement est une fonctionnalité payante et activée par cluster. Le tarif du contrat SLA de durée de fonctionnement est déterminé par le nombre de clusters discrets, et non par la taille des clusters individuels. Consultez [Détails de la tarification du contrat SLA de durée de fonctionnement](https://azure.microsoft.com/pricing/details/kubernetes-service/) pour en savoir plus.
 
 ## <a name="before-you-begin"></a>Avant de commencer
 
-* Azure CLI version 2.7.0 ou ultérieure
+* Installez [Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest) version 2.8.0 ou ultérieure
 
-## <a name="creating-a-cluster-with-uptime-sla"></a>Création d’un cluster avec un contrat SLA de durée de fonctionnement
+## <a name="creating-a-new-cluster-with-uptime-sla"></a>Création d’un cluster avec un contrat SLA de durée de fonctionnement
+
+> [!NOTE]
+> Actuellement, si vous activez le contrat SLA de durée de fonctionnement, il n’existe aucun moyen de le supprimer d’un cluster.
 
 Pour créer un nouveau cluster avec le contrat SLA de durée de fonctionnement, vous utilisez Azure CLI.
 
-L’exemple suivant crée un groupe de ressources nommé *myResourceGroup* à l’emplacement *eastus*.
+L’exemple suivant crée un groupe de ressources nommé *myResourceGroup* à l’emplacement *eastus* :
 
 ```azurecli-interactive
+# Create a resource group
 az group create --name myResourceGroup --location eastus
 ```
-Utilisez la commande [az aks create][az-aks-create] pour créer un cluster AKS. L’exemple suivant crée un cluster à un nœud nommé *myAKSCluster*. Il est également possible d’activer Azure Monitor pour conteneurs à l’aide du paramètre *--enable-addons monitoring*.  Cette opération prend plusieurs minutes.
+Utilisez la commande [`az aks create`][az-aks-create] pour créer un cluster AKS. L’exemple suivant crée un cluster à un nœud nommé *myAKSCluster*. Cette opération prend plusieurs minutes :
 
 ```azurecli-interactive
-az aks create --resource-group myResourceGroup --name myAKSCluster --uptime-sla --node-count 1 --enable-addons monitoring --generate-ssh-keys
+# Create an AKS cluster with uptime SLA
+az aks create --resource-group myResourceGroup --name myAKSCluster --uptime-sla --node-count 1
 ```
-Au bout de quelques minutes, la commande se termine et retourne des informations au format JSON sur le cluster. L’extrait de code JSON suivant montre le niveau payant pour la référence (SKU), indiquant que votre cluster est activé avec un contrat SLA de durée de fonctionnement.
+Au bout de quelques minutes, la commande se termine et retourne des informations au format JSON sur le cluster. L’extrait de code JSON suivant montre le niveau payant pour la référence SKU, indiquant que votre cluster est activé avec un contrat SLA de durée de fonctionnement :
 
 ```output
   },
@@ -55,15 +71,61 @@ Au bout de quelques minutes, la commande se termine et retourne des informations
   },
 ```
 
-## <a name="limitations"></a>Limites
+## <a name="modify-an-existing-cluster-to-use-uptime-sla"></a>Modifier un cluster existant pour utiliser un contrat SLA de durée de fonctionnement
 
-* Actuellement, la conversion en cluster existant pour activer le contrat SLA de durée de fonctionnement n’est pas possible.
-* Actuellement, il n’existe aucun moyen de supprimer le contrat SLA de durée de fonctionnement d’un cluster AKS après la création lorsqu’il est activé.  
-* Les clusters privés ne sont actuellement pas pris en charge.
+Vous pouvez éventuellement mettre à jour vos clusters existants pour utiliser un contrat SLA de durée de fonctionnement.
+
+Si vous aviez créé un cluster AKS lors des étapes précédentes, supprimez le groupe de ressources :
+
+```azurecli-interactive
+# Delete the existing cluster by deleting the resource group 
+az group delete --name myResourceGroup --yes --no-wait
+```
+
+Créez un autre groupe de ressources :
+
+```azurecli-interactive
+# Create a resource group
+az group create --name myResourceGroup --location eastus
+```
+
+Créez un autre cluster, sans utiliser de contrat SLA de durée de fonctionnement :
+
+```azurecli-interactive
+# Create a new cluster without uptime SLA
+az aks create --resource-group myResourceGroup --name myAKSCluster--node-count 1
+```
+
+Utilisez la commande [`az aks update`][az-aks-nodepool-update] pour mettre à jour le cluster existant :
+
+```azurecli-interactive
+# Update an existing cluster to use Uptime SLA
+ az aks update --resource-group myResourceGroup --name myAKSCluster --uptime-sla
+ ```
+
+ L’extrait de code JSON suivant montre le niveau payant pour la référence SKU, indiquant que votre cluster est activé avec un contrat SLA de durée de fonctionnement :
+
+ ```output
+  },
+  "sku": {
+    "name": "Basic",
+    "tier": "Paid"
+  },
+  ```
+
+## <a name="clean-up"></a>Nettoyer
+
+Pour éviter des frais, nettoyez toutes les ressources que vous avez créées. Pour supprimer le cluster, utilisez la commande [`az group delete`][az-group-delete] qui supprime le groupe de ressources AKS :
+
+```azurecli-interactive
+az group delete --name myResourceGroup --yes --no-wait
+```
+
 
 ## <a name="next-steps"></a>Étapes suivantes
 
 Utilisez [Zones de disponibilité][availability-zones] pour augmenter la haute disponibilité avec les charges de travail de votre cluster AKS.
+
 Configurez votre cluster pour [limiter le trafic de sortie](limit-egress-traffic.md).
 
 <!-- LINKS - External -->
@@ -79,3 +141,5 @@ Configurez votre cluster pour [limiter le trafic de sortie](limit-egress-traffic
 [limit-egress-traffic]: ./limit-egress-traffic.md
 [az-extension-add]: /cli/azure/extension#az-extension-add
 [az-extension-update]: /cli/azure/extension#az-extension-update
+[az-aks-nodepool-update]: /cli/azure/aks/nodepool?view=azure-cli-latest#az-aks-nodepool-update
+[az-group-delete]: /cli/azure/group#az-group-delete

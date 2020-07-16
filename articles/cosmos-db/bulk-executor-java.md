@@ -5,22 +5,22 @@ author: tknandu
 ms.service: cosmos-db
 ms.subservice: cosmosdb-sql
 ms.devlang: java
-ms.topic: conceptual
-ms.date: 05/28/2019
+ms.topic: how-to
+ms.date: 06/05/2020
 ms.author: ramkris
 ms.reviewer: sngun
-ms.openlocfilehash: f5c6562c6def1fa588724b3bc5da502536b16aa9
-ms.sourcegitcommit: 7d8158fcdcc25107dfda98a355bf4ee6343c0f5c
+ms.openlocfilehash: 6e283ff140e02d604fdf5e20d69fff96aab94f71
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/09/2020
-ms.locfileid: "80985641"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85260591"
 ---
 # <a name="use-bulk-executor-java-library-to-perform-bulk-operations-on-azure-cosmos-db-data"></a>Utiliser la bibliothèque Java de l’exécuteur en bloc pour effectuer des opérations en bloc sur les données Azure Cosmos DB
 
 Ce tutoriel fournit des instructions sur l’utilisation de la bibliothèque Java BulkExecutor d’Azure Cosmos DB pour importer et mettre à jour des documents Azure Cosmos DB. Pour en savoir plus sur la bibliothèque de l’exécuteur en bloc et sur la façon dont elle vous aide à profiter d’un débit et d’un stockage conséquents, consultez l’article [Vue d’ensemble de la bibliothèque BulkExecutor](bulk-executor-overview.md). Dans ce tutoriel, vous allez créer une application Java qui génère des documents aléatoires, qui sont ensuite importés en bloc dans un conteneur Azure Cosmos. Après l’importation, vous mettrez à jour en bloc certaines propriétés d’un document. 
 
-Actuellement, la bibliothèque de l’exécuteur en bloc est prise en charge uniquement par les comptes d’API Gremlin et d’API SQL Azure Cosmos DB. Cet article décrit comment utiliser la bibliothèque Java de l’exécuteur en bloc avec des comptes d’API SQL. Pour en savoir plus sur l’utilisation de la bibliothèque .NET de l’exécuteur en bloc avec l’API Gremlin, consultez [Effectuer des opérations en bloc dans l’API Gremlin Azure Cosmos DB](bulk-executor-graph-dotnet.md).
+Actuellement, la bibliothèque de l’exécuteur en bloc est prise en charge uniquement par les comptes d’API Gremlin et d’API SQL Azure Cosmos DB. Cet article décrit comment utiliser la bibliothèque Java de l’exécuteur en bloc avec des comptes d’API SQL. Pour en savoir plus sur l’utilisation de la bibliothèque .NET de l’exécuteur en bloc avec l’API Gremlin, consultez [Effectuer des opérations en bloc dans l’API Gremlin Azure Cosmos DB](bulk-executor-graph-dotnet.md). La bibliothèque d’exécuteur en bloc décrite est disponible uniquement pour le [kit de développement logiciel (SDK) Azure Cosmos DB de synchronisation Java v2](sql-api-sdk-java.md) et est la solution actuellement recommandée pour la prise en charge en bloc Java. Elle n’est actuellement pas disponible pour les versions 3.x, 4.x ou d’autres versions ultérieures du kit de développement logiciel (SDK).
 
 ## <a name="prerequisites"></a>Prérequis
 

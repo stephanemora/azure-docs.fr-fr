@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 03/22/2019
 ms.author: apimpm
-ms.openlocfilehash: 6614e70d130abe46067c657bda3ccdd7000caddc
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 40ea26a2394b7ca093f1bba2456ebf5ef116cd0f
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79224861"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84695808"
 ---
 # <a name="api-management-policy-expressions"></a>Expressions de stratégie de la Gestion des API
 Cet article décrit la syntaxe des expressions de stratégie dans C# 7. Chaque expression a accès à la variable de [contexte](api-management-policy-expressions.md#ContextVariables) fournie implicitement et à un [sous-ensemble](api-management-policy-expressions.md#CLRTypes) autorisé de types .NET Framework.
@@ -104,7 +104,7 @@ Le tableau suivant liste les types .NET Framework et leurs membres qui sont auto
 |System.Collections.Generic.IReadOnlyDictionary<TKey, TValue>|Tous|
 |System.Collections.Generic.ISet\<T>|Tous|
 |System.Collections.Generic.KeyValuePair<TKey, TValue>|Tous|
-|System.Collections.Generic.List\<T>|Tous|
+|System.Collections.Generic.IList\<T>|Tous|
 |System.Collections.Generic.Queue\<T>|Tous|
 |System.Collections.Generic.Stack\<T>|Tous|
 |System.Convert|Tous|
@@ -235,7 +235,7 @@ Une variable nommée `context` est implicitement disponible dans toutes les [exp
 |BasicAuthCredentials|Password: string<br /><br /> UserId: string|
 |Jwt AsJwt(input: this string)|input: string<br /><br /> Si le paramètre d’entrée contient une valeur valide d’en-tête de jeton JWT, la méthode renvoie un objet de type `Jwt` ; sinon, la méthode renvoie `null`.|
 |bool TryParseJwt(input: this string, result: out Jwt)|input: string<br /><br /> result: out Jwt<br /><br /> Si le paramètre d’entrée contient une valeur valide d’en-tête de jeton JWT, la méthode renvoie `true` et le paramètre de résultats contient une valeur de type `Jwt` ; sinon, la méthode renvoie `false`.|
-|Jwt|Algorithm: string<br /><br /> Audience: IEnumerable<string\><br /><br /> Claims: IReadOnlyDictionary<string, string[]><br /><br /> ExpirationTime: DateTime?<br /><br /> Id: string<br /><br /> Issuer: string<br /><br /> IssuedAt: DateTime?<br /><br /> NotBefore: DateTime?<br /><br /> Subject: string<br /><br /> Type: string|
+|Jwt|Algorithm: string<br /><br /> Audiences: IEnumerable<string\><br /><br /> Claims: IReadOnlyDictionary<string, string[]><br /><br /> ExpirationTime: DateTime?<br /><br /> Id: string<br /><br /> Issuer: string<br /><br /> IssuedAt: DateTime?<br /><br /> NotBefore: DateTime?<br /><br /> Subject: string<br /><br /> Type: string|
 |string Jwt.Claims.GetValueOrDefault(claimName: string, defaultValue: string)|claimName: string<br /><br /> defaultValue: string<br /><br /> Renvoie des valeurs de revendication séparées par des virgules ou `defaultValue` si l’en-tête est introuvable.|
 |byte[] Encrypt(input: this byte[], alg: string, key:byte[], iv:byte[])|input - texte brut à déchiffrer<br /><br />alg - nom de l'algorithme de chiffrement symétrique<br /><br />key - clé de chiffrement<br /><br />iv - vecteur d'initialisation<br /><br />Renvoie un texte brut chiffré.|
 |byte[] Encrypt(input: this byte[], alg: System.Security.Cryptography.SymmetricAlgorithm)|input - texte brut à déchiffrer<br /><br />alg - algorithme de chiffrement<br /><br />Renvoie un texte brut chiffré.|

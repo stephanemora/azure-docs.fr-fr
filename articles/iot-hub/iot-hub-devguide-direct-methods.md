@@ -10,12 +10,12 @@ ms.author: rezas
 ms.custom:
 - amqp
 - mqtt
-ms.openlocfilehash: 9fb2242f6e3f8ce78a0e5043a53ce3055819725b
-ms.sourcegitcommit: b9d4b8ace55818fcb8e3aa58d193c03c7f6aa4f1
+ms.openlocfilehash: 873f871625b812937d1e6ac360f7e0565121a4eb
+ms.sourcegitcommit: e132633b9c3a53b3ead101ea2711570e60d67b83
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "82583684"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86045992"
 ---
 # <a name="understand-and-invoke-direct-methods-from-iot-hub"></a>Comprendre et appeler des méthodes directes à partir d’IoT Hub
 
@@ -33,7 +33,7 @@ Reportez-vous à [l’aide sur la communication cloud-à-appareil](iot-hub-devgu
 
 ## <a name="method-lifecycle"></a>Cycle de vie de méthode
 
-Les méthodes directes sont implémentées sur l’appareil et peuvent nécessiter de zéro à plusieurs entrées dans la charge utile pour s’instancier correctement. Vous appelez une méthode directe via un URI côté service (`{iot hub}/twins/{device id}/methods/`). Un appareil reçoit des méthodes directes via une rubrique MQTT spécifique de l’appareil (`$iothub/methods/POST/{method name}/`) ou via des liens AMQP (les propriétés d’application `IoThub-methodname` et `IoThub-status`). 
+Les méthodes directes sont implémentées sur l’appareil et peuvent nécessiter de zéro à plusieurs entrées dans la charge utile pour s’instancier correctement. Vous appelez une méthode directe via un URI côté service (`{iot hub}/twins/{device id}/methods/`). Un appareil reçoit des méthodes directes via une rubrique MQTT spécifique de l’appareil (`$iothub/methods/POST/{method name}/`) ou via des liens AMQP (les propriétés d’application `IoThub-methodname` et `IoThub-status`).
 
 > [!NOTE]
 > Lorsque vous appelez une méthode directe sur un appareil, les noms et les valeurs de propriété peuvent contenir uniquement des caractères alphanumériques US-ASCII imprimables, à l’exception des caractères suivants : ``{'$', '(', ')', '<', '>', '@', ',', ';', ':', '\', '"', '/', '[', ']', '?', '=', '{', '}', SP, HT}``.
@@ -41,7 +41,7 @@ Les méthodes directes sont implémentées sur l’appareil et peuvent nécessit
 
 Les méthodes directes sont synchrones et réussissent ou échouent à l’issue du délai d’expiration (par défaut : 30 secondes, définissable entre 5 et 300 secondes). Les méthodes directes sont utiles dans des scénarios interactifs où vous souhaitez qu’un appareil agisse si et seulement s’il est en ligne et reçoit des commandes. Par exemple, allumer une lumière à partir d’un téléphone. Dans ces scénarios, vous souhaitez constater immédiatement la réussite ou l’échec de la commande, de façon à ce que le service cloud puisse agir sur le résultat dès que possible. L’appareil peut renvoyer un corps de message résultant de la méthode, mais il n’est pas obligatoire que la méthode procède de la sorte. Il existe ni garantie de classement, ni sémantique de concurrence sur les appels de méthode.
 
-Les méthodes directes sont exclusivement HTTPS côté cloud, et MQTT ou AMQP côté appareil.
+Les méthodes directes sont exclusivement HTTPS côté cloud, et MQTT, AMQP, MQTT sur WebSockets ou AMQP sur WebSockets côté appareil.
 
 La charge utile des requêtes et des réponses de méthodes correspond à un document JSON d’une taille pouvant aller jusqu’à 128 Ko.
 
@@ -80,12 +80,11 @@ La valeur fournie en tant que `responseTimeoutInSeconds` dans la requête corres
 
 La valeur fournie en tant que `connectTimeoutInSeconds` dans la requête correspond à la durée pendant laquelle le service IoT Hub doit attendre pour qu’un appareil déconnecté soit mis en ligne après l’appel d’une méthode directe. La valeur par défaut est 0, ce qui signifie que les appareils doivent déjà être en ligne lors de l’appel d’une méthode directe. La valeur maximale pour `connectTimeoutInSeconds` est 300 secondes.
 
-
-#### <a name="example"></a> Exemple
+#### <a name="example"></a>Exemple
 
 Cet exemple vous permettra de lancer en toute sécurité une demande d’appel d’une méthode directe sur un appareil IoT inscrit auprès d’un IoT Hub Azure.
 
-Pour commencer, utilisez l’[extension Microsoft Azure IoT pour Azure CLI](https://github.com/Azure/azure-iot-cli-extension) afin de créer une SharedAccessSignature. 
+Pour commencer, utilisez l’[extension Microsoft Azure IoT pour Azure CLI](https://github.com/Azure/azure-iot-cli-extension) afin de créer une SharedAccessSignature.
 
 ```bash
 az iot hub generate-sas-token -n <iothubName> -du <duration>
@@ -114,7 +113,7 @@ Exécutez la commande modifiée pour appeler la méthode directe spécifiée. Le
 > L’exemple ci-dessus illustre l’appel d’une méthode directe sur un appareil.  Si vous souhaitez appeler une méthode directe dans un module IoT Edge, vous devez modifier la demande d’URL comme indiqué ci-dessous :
 
 ```bash
-https://<iothubName>.azure-devices.net/twins/<deviceId>/modules/<moduleName>/methods?api-version=2018-06
+https://<iothubName>.azure-devices.net/twins/<deviceId>/modules/<moduleName>/methods?api-version=2018-06-30
 ```
 ### <a name="response"></a>response
 

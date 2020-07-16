@@ -1,14 +1,14 @@
 ---
 title: Considérations sur le programme des fournisseurs de solutions cloud
 description: Pour les partenaires CSP, la gestion des ressources déléguées Azure permet d’améliorer la sécurité et le contrôle en activant des autorisations précises.
-ms.date: 12/18/2019
+ms.date: 07/06/2020
 ms.topic: conceptual
-ms.openlocfilehash: 15b66568ae468d772c0fb7141a10e336cd94afc3
-ms.sourcegitcommit: dee7b84104741ddf74b660c3c0a291adf11ed349
+ms.openlocfilehash: 8dd40c5c4f7131554dcc3249777de9f0d92c35bb
+ms.sourcegitcommit: e995f770a0182a93c4e664e60c025e5ba66d6a45
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85921619"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86131509"
 ---
 # <a name="azure-lighthouse-and-the-cloud-solution-provider-program"></a>Azure Lighthouse et le programme Fournisseur de solutions cloud
 
@@ -27,19 +27,19 @@ Avec le mécanisme Administrer au nom de, tout utilisateur auquel le rôle [Agen
 
 ## <a name="azure-delegated-resource-management"></a>Gestion des ressources déléguées Azure
 
-La gestion des ressources déléguées Azure vous permet d’affecter des groupes différents à différents clients ou rôles, comme illustré dans le diagramme suivant. Étant donné que les utilisateurs disposent du niveau d’accès approprié attribué par le biais de la gestion des ressources déléguées Azure, vous pouvez réduire le nombre d’utilisateurs ayant le rôle Agent d’administration (et disposant ainsi d’un accès Administrer au nom de complet). Cela contribue à améliorer la sécurité en limitant les accès inutiles aux ressources de vos clients. Cela vous offre également une plus grande flexibilité pour gérer plusieurs clients à grande échelle.
+Azure Lighthouse permet d’attribuer différents groupes aux clients et aux rôles, comme l’illustre le diagramme suivant. Étant donné que les utilisateurs disposent du niveau d’accès approprié attribué par le biais de la gestion des ressources déléguées Azure, vous pouvez réduire le nombre d’utilisateurs ayant le rôle Agent d’administration (et disposant ainsi d’un accès Administrer au nom de complet). Cela contribue à améliorer la sécurité en limitant les accès inutiles aux ressources de vos clients. Cela vous offre également une plus grande flexibilité pour gérer plusieurs clients à grande échelle.
 
-L’intégration d’un abonnement que vous avez créé par le biais du programme Fournisseur de solutions cloud suit les étapes décrites dans [Intégrer un abonnement à la gestion des ressources déléguées Azure](../how-to/onboard-customer.md). Tout utilisateur auquel le rôle Agent d’administration est attribué dans votre locataire peut effectuer cette intégration.
+L’intégration d’un abonnement créé par le biais du programme CSP suit les étapes décrites dans [Intégration d’un abonnement à Azure Lighthouse](../how-to/onboard-customer.md). Tout utilisateur auquel le rôle Agent d’administration est attribué dans votre locataire peut effectuer cette intégration.
 
 ![Gestion des locataires à l’aide du mécanisme Administrer au nom de et de la gestion des ressources déléguées Azure](../media/csp-2.jpg)
 
 > [!NOTE]
-> La page [**Mes clients** du portail Azure](../how-to/view-manage-customers.md) comprend désormais une section **Fournisseur de solutions cloud (préversion)** , qui affiche des informations de facturation et des ressources pour les clients CSP qui ont [signé le contrat client Microsoft (MCA)](/partner-center/confirm-customer-agreement) et sont [sous le plan Azure](/partner-center/azure-plan-get-started). Pour plus d’informations, voir [Bien démarrer avec votre compte de facturation dans le cadre d’un Contrat Partenaire Microsoft](../../billing/mpa-overview.md).
+> La page [**Mes clients** du portail Azure](../how-to/view-manage-customers.md) comprend désormais une section **Fournisseur de solutions cloud (préversion)** , qui affiche des informations de facturation et des ressources pour les clients CSP qui ont [signé le contrat client Microsoft (MCA)](/partner-center/confirm-customer-agreement) et sont [sous le plan Azure](/partner-center/azure-plan-get-started). Pour plus d’informations, voir [Bien démarrer avec votre compte de facturation dans le cadre d’un Contrat Partenaire Microsoft](../../cost-management-billing/understand/mpa-overview.md).
 >
 > Des clients CSP peuvent apparaître dans cette section, qu’ils aient ou non aussi été intégrés pour la gestion des ressources déléguées Azure. Si c'est le cas, ils apparaîtront également dans la section **Clients**, comme décrit dans [Voir et gérer les clients et les ressources déléguées](../how-to/view-manage-customers.md). De même, il n’est pas nécessaire qu’un client CSP apparaisse dans la section **Fournisseur de solutions cloud (préversion)** de **Mes clients** pour pouvoir les intégrer à la gestion des ressources déléguée Azure.
 
 ## <a name="next-steps"></a>Étapes suivantes
 
 - Découvrez les [Expériences de gestion inter-locataire](cross-tenant-management-experience.md).
-- Découvrez comment [intégrer un abonnement dans la gestion des ressources déléguées Azure](../how-to/onboard-customer.md).
+- Découvrez comment [intégrer un abonnement à Azure Lighthouse](../how-to/onboard-customer.md).
 - Découvrez le [Programme Fournisseur de solutions cloud](/partner-center/csp-overview).

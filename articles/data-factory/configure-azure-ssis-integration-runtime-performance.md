@@ -10,12 +10,12 @@ author: swinarko
 ms.author: sawinark
 ms.reviewer: ''
 manager: anandsub
-ms.openlocfilehash: 36662a0089fef34a539788cfac667b5086a10c78
-ms.sourcegitcommit: 1f48ad3c83467a6ffac4e23093ef288fea592eb5
+ms.openlocfilehash: 6a3b463196142691a59f625429953d1e82502f3d
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/29/2020
-ms.locfileid: "84194264"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85255532"
 ---
 # <a name="configure-the-azure-ssis-integration-runtime-for-high-performance"></a>Configurer Azure-SSIS Integration Runtime pour de hautes performances
 
@@ -150,7 +150,7 @@ Voici les instructions à suivre pour définir la valeur correcte pour la propri
 
 ## <a name="ssisdbpricingtier"></a>SSISDBPricingTier
 
-**SSISDBPricingTier** est le niveau de tarification pour la base de données du catalogue SSIS (SSISDB) sur une base de données Azure SQL. Ce paramètre affecte le nombre maximal de rôles de travail dans l’instance IR, la vitesse de la file d’attente de l’exécution d’un package et la vitesse de chargement du journal d’exécution.
+**SSISDBPricingTier** est le niveau de tarification pour la base de données du catalogue SSIS (SSISDB) dans Azure SQL Database. Ce paramètre affecte le nombre maximal de rôles de travail dans l’instance IR, la vitesse de la file d’attente de l’exécution d’un package et la vitesse de chargement du journal d’exécution.
 
 -   Si vous ne vous souciez pas de la vitesse d’exécution de la file d’attente du package et de chargement du journal d’exécution, vous pouvez choisir le niveau tarifaire le plus bas de la base de données. Azure SQL Database avec le tarif De base prend en charge 8 threads de travail dans une instance de runtime d’intégration.
 

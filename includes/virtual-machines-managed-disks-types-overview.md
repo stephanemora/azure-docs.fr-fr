@@ -5,15 +5,15 @@ services: virtual-machines
 author: roygara
 ms.service: virtual-machines
 ms.topic: include
-ms.date: 08/15/2019
+ms.date: 06/03/2020
 ms.author: rogarana
 ms.custom: include file
-ms.openlocfilehash: 72d87142f9b9c1f7bcb2b02281851bd1e29bc9c8
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 45b611144d5a62171061febfd4efa98db69bacb9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "78262023"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84436046"
 ---
 Azure Managed Disks propose quatre types de disque, chaque type étant destiné à des scénarios clients spécifiques.
 
@@ -26,8 +26,8 @@ Le tableau suivant compare quatre types de disque managé : les disques Ultra, l
 |Type de disque   |SSD   |SSD   |SSD   |HDD   |
 |Scénario   |Charges de travail gourmandes en E/S, telles que le système [SAP HANA](../articles/virtual-machines/workloads/sap/hana-vm-operations-storage.md), les bases de données de niveau supérieur (par exemple, SQL et Oracle), et autres charges de travail très lourdes en transactions.   |Charges de travail de production et sensibles aux performances   |Serveurs web, applications d’entreprise peu utilisées et Dev/Test   |Sauvegarde, non critique, accès peu fréquent   |
 |Taille maximale du disque   |65 536 gibioctets (Gio)    |32 767 Gio    |32 767 Gio   |32 767 Gio   |
-|Débit max.   |2 000 Mio/s    |900 Mio/s   |750 Mio/s   |500 Mio/s   |
-|Nb max. d’E/S par seconde   |160 000    |20 000   |6 000 / 750   |2 000   |
+|Débit max.   |2 000 Mo/s    |900 Mo/s   |750 Mo/s   |500 Mo/s   |
+|Nb max. d’E/S par seconde   |160 000    |20 000   |6 000 / 750   |2 000   |
 
 ## <a name="ultra-disk"></a>Disque Ultra
 

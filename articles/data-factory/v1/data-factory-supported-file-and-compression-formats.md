@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 01/10/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: 901e15994b8a51a5fd45d57ca7a4db7778d968e1
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 33f67e1bfa27f4314f64cbcc4d472905fcb15099
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79236433"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85318762"
 ---
 # <a name="file-and-compression-formats-supported-by-azure-data-factory"></a>Formats de fichiers et de compression pris en charge dans Azure Data Factory
 *Cette rubrique s’applique aux connecteurs suivants : [Amazon S3](data-factory-amazon-simple-storage-service-connector.md), [Azure Blob](data-factory-azure-blob-connector.md), [Azure Data Lake Store](data-factory-azure-datalake-connector.md), [File System](data-factory-onprem-file-system-connector.md), [FTP](data-factory-ftp-connector.md), [HDFS](data-factory-hdfs-connector.md), [HTTP](data-factory-http-connector.md) et [SFTP](data-factory-sftp-connector.md).*
@@ -497,7 +497,7 @@ La section **compression** a deux propriétés :
 
 Lorsque vous spécifiez la propriété `compression` dans un jeu de données JSON d’entrée, le pipeline peut lire les données compressées à partir de la source. Lorsque vous spécifiez la propriété dans un jeu de données JSON de sortie, l’activité de copie peut écrire les données compressées dans la destination. Voici quelques exemples de scénarios :
 
-* Lire les données compressées GZIP à partir d’un objet blob Azure, les décompresser et écrire des données du résultat dans une base de données Azure SQL. Dans ce cas, vous définissez le jeu de données d’objets Blob Azure d’entrée avec la propriété JSON `compression` `type` au format GZIP.
+* Lire les données compressées GZIP à partir d’un objet blob Azure, les décompresser et écrire des données du résultat dans une Azure SQL Database. Dans ce cas, vous définissez le jeu de données d’objets Blob Azure d’entrée avec la propriété JSON `compression` `type` au format GZIP.
 * Lire les données d’un fichier de texte brut dans le système de fichiers local, les compresser en utilisant le format GZIP et écrire les données compressées dans un objet blob Azure. Dans ce cas, vous définissez le jeu de données d’objets Blob Azure de sortie avec la propriété JSON `compression` `type` au format GZIP.
 * Lisez le fichier .zip à partir du serveur FTP, décompressez-le pour accéder aux fichiers qu’il contient et placez ces derniers dans Azure Data Lake Store. Dans ce cas, vous définissez le jeu de données FTP d’entrée avec la propriété JSON `compression` `type` au format ZipDeflate.
 * Lire les données compressées au format GZIP à partir d’un objet blob Azure, les décompresser, les compresser en utilisant le format BZIP2 et écrire les données résultantes dans un objet blob Azure. Dans ce cas, vous définissez le jeu de données d’objet blob Azure d’entrée avec le paramètre `compression` `type` défini sur GZIP et le jeu de données de sortie avec le paramètre `compression` `type` défini sur BZIP2.   

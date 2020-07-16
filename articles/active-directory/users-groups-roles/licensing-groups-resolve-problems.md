@@ -8,19 +8,19 @@ author: curtand
 manager: daveba
 ms.service: active-directory
 ms.subservice: users-groups-roles
-ms.topic: article
+ms.topic: how-to
 ms.workload: identity
 ms.date: 11/08/2019
 ms.author: curtand
 ms.reviewer: sumitp
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 43eba1b2f3373555e871b586ae633dcb64abfd9b
-ms.sourcegitcommit: b9d4b8ace55818fcb8e3aa58d193c03c7f6aa4f1
+ms.openlocfilehash: 79552c099adfa94f3515ff1b9c78103cb82830a1
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "82582696"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85611286"
 ---
 # <a name="identify-and-resolve-license-assignment-problems-for-a-group-in-azure-active-directory"></a>Identification et résolution des problèmes d’affectation de licences pour un groupe dans Azure Active Directory
 
@@ -120,7 +120,7 @@ La mise à jour d’attribution de licence sur un utilisateur entraîne le décl
 ## <a name="licenseassignmentattributeconcurrencyexception-in-audit-logs"></a>LicenseAssignmentAttributeConcurrencyException dans les journaux d’audit
 
 **Problème :** L’utilisateur dispose de LicenseAssignmentAttributeConcurrencyException pour l’affectation de licence dans les journaux d’audit.
-Lorsque la gestion des licences basée sur les groupes tente d’affecter simultanément la même licence à un utilisateur, cette exception est enregistrée sur l’utilisateur. Cela se produit généralement lorsqu’un utilisateur est membre de plusieurs groupes avec la même licence affectée. Azure AD réessaiera de traiter la licence utilisateur et de résoudre le problème. Aucune action du client n’est requise pour résoudre ce problème.
+Lorsque la gestion des licences basée sur les groupes tente d’affecter simultanément la même licence à un utilisateur, cette exception est enregistrée sur l’utilisateur. Cela se produit généralement lorsqu’un utilisateur est membre de plusieurs groupes avec la même licence affectée. Azure AD va réessayer de traiter la licence d'utilisation et va résoudre le problème. Aucune action du client n’est requise pour résoudre ce problème.
 
 ## <a name="more-than-one-product-license-assigned-to-a-group"></a>Plusieurs licences de produit affectées à un groupe
 

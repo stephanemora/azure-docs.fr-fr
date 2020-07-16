@@ -9,20 +9,21 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: text-analytics
 ms.topic: conceptual
-ms.date: 05/08/2020
+ms.date: 07/07/2020
 ms.author: aahi
-ms.openlocfilehash: efe76323b4159af01f1eaf470d9c1833edd0a186
-ms.sourcegitcommit: 595cde417684e3672e36f09fd4691fb6aa739733
+ms.openlocfilehash: 8d08a0ab8f817d70343686f907ac444af392ea06
+ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/20/2020
-ms.locfileid: "83702136"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86108923"
 ---
 # <a name="install-and-run-text-analytics-containers"></a>Installer et exécuter les conteneurs Analyse de texte
 
 > [!NOTE]
 > * Le conteneur Analyse des sentiments v3 est désormais en disposition générale. Les conteneurs Extraction de phrases clés et Détection de langue sont disponibles sous la forme d’une préversion publique non contrôlée.
 > * Les fonctionnalités Liaison d’entités et Reconnaissance d'entité nommée ne sont actuellement pas disponibles en tant que conteneurs.
+> * Actuellement, vous ne serez pas facturé pour l’utilisation des conteneurs Analyse de texte pour l’intégrité.
 
 Les conteneurs vous permettent d’exécuter les API d’analyse de texte dans votre propre environnement et sont très utiles pour répondre à vos besoins spécifiques en matière de sécurité et de gouvernance des données. Les conteneurs Analyse de texte fournissent un traitement en langage naturel avancé sur le texte brut et incluent trois fonctions principales : analyse des sentiments, extraction d’expressions clés et détection de la langue. 
 
@@ -59,6 +60,8 @@ Le tableau suivant décrit les spécifications minimales et recommandées pour l
 |---|---------|-------------|--|--|
 | **Détection de la langue, Extraction de phrases clés**   | 1 cœur, 2 Go de mémoire | 1 cœur, 4 Go de mémoire |15 | 30|
 | **Analyse des sentiments v3**   | 1 cœur, 2 Go de mémoire | 4 cœurs, 8 Go de mémoire |15 | 30|
+| **Analyse de texte pour l’intégrité – 1 document/demande**   |  4 cœurs, 10 Go de mémoire | 6 cœurs, 12 Go de mémoire |15 | 30|
+| **Analyse de texte pour l’intégrité – 10 documents/demande**   |  6 cœurs, 16 Go de mémoire | 8 cœurs, 20 Go de mémoire |15 | 30|
 
 Le cœur d’UC et la quantité de mémoire correspondent aux paramètres `--cpus` et `--memory` qui sont utilisés dans le cadre de la commande `docker run`.
 
@@ -80,6 +83,10 @@ Images conteneur pour Analyse de texte disponibles dans Microsoft Container Regi
 
 [!INCLUDE [docker-pull-language-detection-container](../includes/docker-pull-language-detection-container.md)]
 
+# <a name="text-analytics-for-health-preview"></a>[Analyse de texte pour l’intégrité (préversion)](#tab/healthcare)
+
+[!INCLUDE [docker-pull-health-container](../includes/docker-pull-health-container.md)]
+
 ***
 
 ## <a name="how-to-use-the-container"></a>Comment utiliser le conteneur
@@ -92,13 +99,6 @@ Une fois que le conteneur est sur l’[ordinateur hôte](#the-host-computer), ap
 ## <a name="run-the-container-with-docker-run"></a>Exécuter le conteneur avec `docker run`
 
 Utilisez la commande [docker run](https://docs.docker.com/engine/reference/commandline/run/) (Exécution Docker) pour exécuter les conteneurs. Chaque conteneur continuera à s’exécuter jusqu’à ce que vous l’arrêtiez.
-
-Remplacez les espaces réservés suivants par vos valeurs :
-
-| Espace réservé | Valeur | Format ou exemple |
-|-------------|-------|---|
-| **{API_KEY}** | Clé de votre ressource Analyse de texte. Cette information est disponible dans le portail Azure, sur la page **Key and endpoint** (Clé et point de terminaison) de votre ressource. |`xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx`|
-| **{ENDPOINT_URI}** | Point de terminaison pour accéder à l’API Analyse de texte. Cette information est disponible dans le portail Azure, sur la page **Key and endpoint** (Clé et point de terminaison) de votre ressource. | `https://<your-custom-subdomain>.cognitiveservices.azure.com` |
 
 > [!IMPORTANT]
 > * les commandes docker dans les sections suivantes utilisent la barre oblique inverse, `\`, comme caractère de continuation de ligne. Remplacez-la ou supprimez-la en fonction des exigences de votre système d’exploitation hôte. 
@@ -116,6 +116,10 @@ Remplacez les espaces réservés suivants par vos valeurs :
 # <a name="language-detection-preview"></a>[Détection de langue (préversion)](#tab/language)
 
 [!INCLUDE [docker-run-language-detection-container](../includes/docker-run-language-detection-container.md)]
+
+# <a name="text-analytics-for-health-preview"></a>[Analyse de texte pour l’intégrité (préversion)](#tab/healthcare)
+
+[!INCLUDE [docker-run-health-container](../includes/docker-run-health-container.md)]
 
 ***
 
@@ -161,8 +165,8 @@ Dans cet article, vous avez découvert des concepts et le flux de travail pour l
    * *Analyse des sentiments*
    * *Extraction de phrases clés (préversion)* 
    * *Détection de langue (préversion)*
-   
-* Les images conteneur sont téléchargées à partir de Microsoft Container Registry (MCR) dans Azure.
+   * *Analyse de texte pour l’intégrité (préversion)*
+* Les images conteneur sont téléchargées à partir de Microsoft Container Registry (MCR) ou du référentiel de conteneur de préversion.
 * Les images conteneurs s’exécutent dans Docker.
 * Vous pouvez utiliser l’API REST ou le kit SDK pour appeler des opérations dans des conteneurs Analyse de texte en spécifiant l’URI hôte du conteneur.
 * Vous devez spécifier les informations de facturation lors de l’instanciation d’un conteneur.

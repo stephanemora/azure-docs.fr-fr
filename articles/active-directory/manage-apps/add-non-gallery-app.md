@@ -2,22 +2,22 @@
 title: Ajouter une application hors galerie - Plateforme d’identité Microsoft | Microsoft Docs
 description: Ajoutez une application hors galerie à votre locataire Azure AD.
 services: active-directory
-author: msmimart
-manager: CelesteDG
+author: kenwith
+manager: celestedg
 ms.service: active-directory
 ms.subservice: app-mgmt
-ms.topic: article
+ms.topic: how-to
 ms.workload: identity
 ms.date: 10/24/2019
-ms.author: mimart
+ms.author: kenwith
 ms.reviewer: arvinh,luleon
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: bd5a5f100dbe09c3b82f58183a118ee3bf455f70
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: cbefcec884fcf179c182cd50efeb58a0fc357378
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "77063609"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85555125"
 ---
 # <a name="add-an-unlisted-non-gallery-application-to-your-azure-ad-organization"></a>Ajouter une application non répertoriée (hors galerie) à votre organisation Azure AD
 
@@ -70,7 +70,7 @@ Cet article explique comment ajouter une application ne figurant pas dans la gal
 
       Comportement pour les utilisateurs **assignés** :
 
-       | Paramètres de propriété d'application | | | Expérience de l’utilisateur assigné | |
+       | Propriété d’application | Propriété d’application | Propriété d’application | Expérience de l’utilisateur assigné | Expérience de l’utilisateur assigné |
        |---|---|---|---|---|
        | Connexion permise pour les utilisateurs ? | Assignation requise de utilisateur ? | Visible par les utilisateurs ? | Est-ce que les utilisateurs assignés peuvent se connecter ? | Est-ce que les utilisateurs assignés peuvent voir l’application ?* |
        | Oui | Oui | Oui | Oui | Oui  |
@@ -84,7 +84,7 @@ Cet article explique comment ajouter une application ne figurant pas dans la gal
 
       Comportement pour les utilisateurs **non assignés** :
 
-       | Paramètres de propriété d'application | | | Expérience de l’utilisateur non assigné | |
+       | Propriété d’application | Propriété d’application | Propriété d’application | Expérience de l’utilisateur non assigné | Expérience de l’utilisateur non assigné |
        |---|---|---|---|---|
        | Connexion permise pour les utilisateurs ? | Assignation requise de utilisateur ? | Visible par les utilisateurs ? | Est-ce que les utilisateurs non assignés peuvent se connecter ? | Est-ce que les utilisateurs non assignés peuvent voir l’application ?* |
        | Oui | Oui | Oui | non  | non   |

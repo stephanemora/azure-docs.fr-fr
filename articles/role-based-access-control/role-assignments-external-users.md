@@ -9,19 +9,19 @@ editor: ''
 ms.assetid: ''
 ms.service: role-based-access-control
 ms.devlang: ''
-ms.topic: conceptual
+ms.topic: how-to
 ms.tgt_pltfrm: ''
 ms.workload: identity
 ms.date: 11/25/2019
 ms.author: rolyon
 ms.reviewer: skwan
 ms.custom: it-pro
-ms.openlocfilehash: 568cb7602d9cb454685ef69e820288bcc68563c4
-ms.sourcegitcommit: 4499035f03e7a8fb40f5cff616eb01753b986278
+ms.openlocfilehash: 870c9c91e285988cdc1fb294b3fc9b3270de7483
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/03/2020
-ms.locfileid: "82735757"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85361902"
 ---
 # <a name="add-or-remove-azure-role-assignments-for-external-guest-users-using-the-azure-portal"></a>Ajouter ou supprimer des attributions de rôle Azure pour des utilisateurs invités externes à l’aide du portail Azure
 
@@ -89,7 +89,9 @@ Dans Azure RBAC, vous attribuez un rôle pour accorder un accès. Pour ajouter 
 
     Si vous n’avez pas les autorisations pour attribuer des rôles, l’option Ajouter une attribution de rôle sera désactivée.
 
-    ![Ajoutez un menu](./media/role-assignments-external-users/add-menu.png)
+    ![Menu Ajouter une attribution de rôle](./media/shared/add-role-assignment-menu.png)
+
+    Le volet Ajouter une attribution de rôle s’ouvre.
 
 1. Dans la liste déroulante **Rôle**, sélectionnez un rôle, tel que **Contributeur de machines virtuelles**.
 
@@ -119,7 +121,9 @@ Si l’utilisateur invité ne figure pas encore dans votre annuaire, vous pouvez
 
 1. Cliquez sur **Ajouter** > **Ajouter une attribution de rôle** pour ouvrir le volet Ajouter une attribution de rôle.
 
-    ![Ajoutez un menu](./media/role-assignments-external-users/add-menu.png)
+    ![Menu Ajouter une attribution de rôle](./media/shared/add-role-assignment-menu.png)
+
+    Le volet Ajouter une attribution de rôle s’ouvre.
 
 1. Dans la liste déroulante **Rôle**, sélectionnez un rôle, tel que **Contributeur de machines virtuelles**.
 

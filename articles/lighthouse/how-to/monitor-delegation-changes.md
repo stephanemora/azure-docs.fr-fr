@@ -1,18 +1,18 @@
 ---
 title: Superviser les changements de délégation dans votre locataire gérant
 description: Découvrez comment superviser l’activité de délégation à votre locataire gérant à partir des locataires clients.
-ms.date: 03/30/2020
+ms.date: 07/07/2020
 ms.topic: how-to
-ms.openlocfilehash: 9a772cc577392558f050211b7f767928ecbb707b
-ms.sourcegitcommit: dee7b84104741ddf74b660c3c0a291adf11ed349
+ms.openlocfilehash: b30cbc025f97ab76be55f0f83e15603b40092ce3
+ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85919140"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86105164"
 ---
 # <a name="monitor-delegation-changes-in-your-managing-tenant"></a>Superviser les changements de délégation dans votre locataire gérant
 
-En tant que fournisseur de services, vous souhaiterez peut-être savoir quand les abonnements clients ou les groupes de ressources sont délégués à votre locataire par le biais de la [gestion des ressources déléguées Azure](../concepts/azure-delegated-resource-management.md), ou quand des ressources déléguées sont supprimées.
+En tant que fournisseur de services, vous souhaiterez peut-être savoir quand les abonnements clients ou les groupes de ressources sont délégués à votre locataire par le biais d’[Azure Lighthouse](../overview.md) ou quand des ressources déléguées sont supprimées.
 
 Dans le locataire gérant, le [journal d’activité Azure](../../azure-monitor/platform/platform-logs-overview.md) effectue le suivi de l’activité de délégation au niveau du locataire. Cette activité journalisée comprend les délégations ajoutées ou supprimées de tous les locataires clients.
 
@@ -158,5 +158,5 @@ else
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-- Découvrez comment intégrer des clients à la [gestion des ressources déléguées Azure](../concepts/azure-delegated-resource-management.md).
+- Découvrez comment intégrer des clients à [Azure Lighthouse](../concepts/azure-delegated-resource-management.md).
 - Découvrez [Azure Monitor](../../azure-monitor/index.yml) et le [journal d’activité Azure](../../azure-monitor/platform/platform-logs-overview.md).

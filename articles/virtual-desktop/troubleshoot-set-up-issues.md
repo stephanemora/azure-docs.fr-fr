@@ -8,19 +8,19 @@ ms.topic: troubleshooting
 ms.date: 01/08/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: 65a61babe58e1cb9438262186a7f4cf37cb10a34
-ms.sourcegitcommit: 50ef5c2798da04cf746181fbfa3253fca366feaa
+ms.openlocfilehash: 3e248e7af5fc9ed2bc144a4b302577be56524d7d
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/30/2020
-ms.locfileid: "82612551"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85361165"
 ---
 # <a name="host-pool-creation"></a>Création d’un pool d’hôtes
 
 >[!IMPORTANT]
 >Ce contenu s’applique à la mise à jour Printemps 2020 avec des objets Azure Resource Manager Windows Virtual Desktop. Si vous utilisez la version Automne 2019 de Windows Virtual Desktop sans objets Azure Resource Manager, consultez [cet article](./virtual-desktop-fall-2019/troubleshoot-set-up-issues-2019.md).
 >
-> La mise à jour Printemps 2020 de Windows Virtual Desktop est en préversion publique. Cette préversion est fournie sans contrat de niveau de service, et nous déconseillons son utilisation pour les charges de travail de production. Certaines fonctionnalités peuvent être limitées ou non prises en charge. 
+> La mise à jour Printemps 2020 de Windows Virtual Desktop est en préversion publique. Cette préversion est fournie sans contrat de niveau de service, c’est pourquoi nous déconseillons son utilisation pour les charges de travail de production. Certaines fonctionnalités peuvent être limitées ou non prises en charge. 
 > Pour plus d’informations, consultez [Conditions d’Utilisation Supplémentaires relatives aux Évaluations Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 Cet article décrit les problèmes pouvant survenir lors de la configuration initiale du locataire Windows Virtual Desktop et de l’infrastructure associée du pool d’hôtes de la session.
@@ -37,7 +37,8 @@ Pour utiliser l’image multisession Windows 10 Entreprise, accédez à la Plac
 
 ### <a name="error-create-a-free-account-appears-when-accessing-the-service"></a>Erreur : « Créer un compte gratuit » s’affiche lors de l’accès au service
 
-![Image du portail Azure affichant le message « Créer un compte gratuit »](media/create-new-account.png)
+> [!div class="mx-imgBorder"]
+> ![Image du portail Azure affichant le message « Créer un compte gratuit »](media/create-new-account.png)
 
 **Cause** : Aucun abonnement n’est actif dans le compte que vous avez utilisé pour vous connecter à Azure, ou le compte n’est pas autorisé à visualiser les abonnements. 
 
@@ -62,7 +63,8 @@ Suivez les instructions ci-après pour détecter les problèmes d’échecs de d
 
 ### <a name="error-your-deployment-failedhostnamejoindomain"></a>Erreur : Votre déploiement a échoué….\<hostname>/joindomain
 
-![Capture d’écran du message d’échec du déploiement](media/failure-joindomain.png)
+> [!div class="mx-imgBorder"]
+> ![Capture d’écran du message d’échec du déploiement](media/failure-joindomain.png)
 
 Exemple d’erreur brute :
 
@@ -103,7 +105,8 @@ Pour corriger cela, effectuez les actions suivantes :
 
 ### <a name="error-vmextensionprovisioningerror"></a>Erreur : VMExtensionProvisioningError
 
-![Capture d’écran du message d’échec du déploiement indiquant l’échec de l’approvisionnement du terminal](media/failure-vmextensionprovisioning.png)
+> [!div class="mx-imgBorder"]
+> ![Capture d’écran du message d’échec du déploiement indiquant l’échec du provisionnement du terminal](media/failure-vmextensionprovisioning.png)
 
 **Cause 1 :** Erreur temporaire au niveau de l’environnement Windows Virtual Desktop.
 
@@ -113,7 +116,8 @@ Pour corriger cela, effectuez les actions suivantes :
 
 ### <a name="error-the-admin-username-specified-isnt-allowed"></a>Erreur : Le nom d’utilisateur spécifié pour l’administrateur n’est pas autorisé
 
-![Capture d’écran du message d’échec du déploiement dans lequel un nom d’administrateur spécifié n’est pas autorisé](media/failure-username.png)
+> [!div class="mx-imgBorder"]
+> ![Capture d’écran du message d’échec du déploiement dans lequel un nom d’administrateur spécifié n’est pas autorisé](media/failure-username.png)
 
 Exemple d’erreur brute :
 
@@ -130,7 +134,8 @@ Exemple d’erreur brute :
 
 ### <a name="error-vm-has-reported-a-failure-when-processing-extension"></a>Erreur : La machine virtuelle a signalé un échec lors du traitement de l’extension
 
-![Capture d’écran du message d’échec du déploiement indiquant que l’opération de ressource s’est terminée avec l’échec de l’approvisionnement du terminal](media/failure-processing.png)
+> [!div class="mx-imgBorder"]
+> ![Capture d’écran du message d’échec du déploiement indiquant que l’opération de ressource s’est terminée avec l’échec du provisionnement du terminal](media/failure-processing.png)
 
 Exemple d’erreur brute :
 
@@ -149,7 +154,8 @@ Exemple d’erreur brute :
 
 ### <a name="error-deploymentfailed--powershell-dsc-configuration-firstsessionhost-completed-with-errors"></a>Erreur : DeploymentFailed - La configuration DSC PowerShell de « FirstSessionHost » s’est terminée avec des erreurs
 
-![Capture d’écran du message d’échec du déploiement indiquant que la configuration DSC PowerShell de « FirstSessionHost » s’est terminée avec des erreurs](media/failure-dsc.png)
+> [!div class="mx-imgBorder"]
+> ![Capture d’écran du message d’échec du déploiement indiquant que la configuration DSC PowerShell de « FirstSessionHost » s’est terminée avec des erreurs](media/failure-dsc.png)
 
 Exemple d’erreur brute :
 

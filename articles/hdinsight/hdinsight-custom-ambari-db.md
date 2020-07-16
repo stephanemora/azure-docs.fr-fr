@@ -5,21 +5,21 @@ author: hrasheed-msft
 ms.reviewer: jasonh
 ms.service: hdinsight
 ms.custom: hdinsightactive
-ms.topic: conceptual
-ms.date: 10/29/2019
+ms.topic: how-to
+ms.date: 06/24/2019
 ms.author: hrasheed
-ms.openlocfilehash: 4cb96e1299010636e0bce3cb99fbba9862822564
-ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
+ms.openlocfilehash: 1858e06567a0ab0907e6d2cb60358ff4ac00f9a2
+ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "84022263"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86086345"
 ---
 # <a name="set-up-hdinsight-clusters-with-a-custom-ambari-db"></a>Configurer des clusters HDInsight avec une base de données Ambari personnalisée
 
 Apache Ambari simplifie la gestion et la surveillance d’un cluster Apache Hadoop. Ambari fournit une interface utilisateur web et une API REST faciles à utiliser. Ambari est inclus dans les clusters HDInsight, et sert à surveiller le cluster et à apporter des modifications de configuration.
 
-Dans le cadre de la création normale de clusters, comme décrit dans d’autres articles tels que [Configurer des clusters dans HDInsight](hdinsight-hadoop-provision-linux-clusters.md), Ambari est déployé dans une [base de données Azure SQL S0](../azure-sql/database/resource-limits-dtu-single-databases.md#standard-service-tier) qui est gérée par HDInsight et n’est pas accessible aux utilisateurs.
+Dans le cadre de la création normale de clusters, comme décrit dans d’autres articles tels que [Configurer des clusters dans HDInsight](hdinsight-hadoop-provision-linux-clusters.md), Ambari est déployé dans [Azure SQL Database S0](../azure-sql/database/resource-limits-dtu-single-databases.md#standard-service-tier) qui est géré par HDInsight et n’est pas accessible aux utilisateurs.
 
 La fonctionnalité Ambari DB personnalisée vous permet de déployer un nouveau cluster et de configurer Ambari dans une base de données externe que vous gérez. Le déploiement est effectué avec un modèle Azure Resource Manager. Cette fonctionnalité permet de bénéficier des avantages suivants :
 
@@ -38,6 +38,7 @@ Vous pouvez déployer une base de données Ambari personnalisée avec tous les t
 
 La base de données Ambari personnalisée présente les autres exigences suivantes :
 
+- Le nom de la base de données ne peut pas contenir de traits d’union ou d’espaces
 - Vous devez disposer d’un serveur et d’une base de données Azure SQL DB existants.
 - La base de données que vous fournissez pour l’installation d’Ambari doit être vide. Le schéma dbo par défaut ne doit pas contenir de tables.
 - L’utilisateur utilisé pour se connecter à la base de données doit disposer d’autorisations SELECT, CREATE TABLE et INSERT sur la base de données.

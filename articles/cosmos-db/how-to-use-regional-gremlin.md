@@ -5,14 +5,14 @@ author: luisbosquez
 ms.author: lbosq
 ms.service: cosmos-db
 ms.subservice: cosmosdb-graph
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 09/09/2019
-ms.openlocfilehash: 7aa1e0aa6bbbee9d40eb0d48318a8e2908a75f9d
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 4880fa5bdccdc6416962e2f7e6da395f3db7be44
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "78897862"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85263593"
 ---
 # <a name="regional-endpoints-for-azure-cosmos-db-graph-account"></a>Points de terminaison régionaux pour le compte de graphe Azure Cosmos DB
 Comme la base de données de graphes Azure Cosmos DB est [globalement distribuée](distribute-data-globally.md), les applications peuvent utiliser plusieurs points de terminaison de lecture. Les applications qui ont besoin d’un accès en écriture dans plusieurs emplacements doivent activer la fonctionnalité [multimaître](how-to-multi-master.md).
@@ -43,7 +43,7 @@ Le CNAME de compte de base de données globale pointe toujours vers une région 
 
 Le panneau Vue d’ensemble du Portail Azure constitue le moyen le plus simple d’obtenir la liste des régions pour le compte de graphe Azure Cosmos DB. Cela fonctionne pour les applications qui ne changent pas souvent de régions ou qui ont un moyen de mettre à jour la liste par le biais de la configuration de l’application.
 
-![Récupérer des régions du compte de graphe Cosmos DB à partir du portail](./media/how-to-use-regional-gremlin/get-end-point-portal.png )
+:::image type="content" source="./media/how-to-use-regional-gremlin/get-end-point-portal.png " alt-text="Récupérer des régions du compte de graphe Cosmos DB à partir du portail":::
 
 L’exemple ci-dessous illustre les principes généraux d’accès à un point de terminaison Gremlin régional. L’application doit prendre en compte le nombre de régions auxquelles envoyer le trafic et le nombre de clients Gremlin correspondants à instancier.
 

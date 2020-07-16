@@ -5,18 +5,18 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: conditional-access
 ms.topic: conceptual
-ms.date: 03/25/2020
+ms.date: 07/02/2020
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: calebb, rogoya
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 20b699f0672b49dd2f947e0cf00d0ffcef7961e6
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: fbf4d7b9f622ff590eee401544bf62655fd8d096
+ms.sourcegitcommit: 0100d26b1cac3e55016724c30d59408ee052a9ab
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80295305"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86024381"
 ---
 # <a name="common-conditional-access-policies"></a>Stratégies d’accès conditionnel courantes
 
@@ -42,7 +42,8 @@ Pour plus d’informations sur les comptes d’accès d’urgence et la raison p
 
 ## <a name="additional-policies"></a>Stratégies supplémentaires
 
-* [Accès conditionnel basé sur le risque (requiert Azure AD Premium P2)](howto-conditional-access-policy-risk.md)
+* [Authentification de l’accès conditionnel basé sur les risques (requiert Azure AD Premium P2)](howto-conditional-access-policy-risk.md)
+* [Accès conditionnel basé sur les risques des utilisateurs (requiert Azure AD Premium P2)](howto-conditional-access-policy-risk-user.md)
 * [Exiger un emplacement approuvé pour l’inscription MFA](howto-conditional-access-policy-registration.md)
 * [Bloquer l’accès par emplacement](howto-conditional-access-policy-location.md)
 * [Exiger un appareil conforme](howto-conditional-access-policy-compliant-device.md)

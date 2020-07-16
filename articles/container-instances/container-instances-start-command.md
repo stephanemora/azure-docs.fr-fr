@@ -3,12 +3,12 @@ title: Écraser le point d’entrée dans l’instance de conteneur
 description: Définir une ligne de commande pour écraser le point d’entrée dans une image conteneur lorsque vous déployez une instance de conteneur Azure
 ms.topic: article
 ms.date: 04/15/2019
-ms.openlocfilehash: d9554603f78a07fa44af51d8f39a91e1b3c39f70
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 23221de3dc91c37c2e6fb96489539d3954efcd87
+ms.sourcegitcommit: 1e6c13dc1917f85983772812a3c62c265150d1e7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84693054"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86169627"
 ---
 # <a name="set-the-command-line-in-a-container-instance-to-override-the-default-command-line-operation"></a>Définir la ligne de commande dans une instance de conteneur pour remplacer l’opération de ligne de commande par défaut
 
@@ -54,8 +54,8 @@ La syntaxe de ligne de commande varie en fonction de l’API Azure ou de l’out
 
 |    |  Azure CLI   | Portail | Modèle | 
 | ---- | ---- | --- | --- |
-| Commande unique | `--command-line "python myscript.py arg1 arg2"` | **Remplacement de commande** : `python, myscript.py, arg1, arg2` | `"command": ["python", "myscript.py", "arg1", "arg2"]` |
-| Commandes multiples | `--command-line "/bin/bash -c 'mkdir test; touch test/myfile; tail -f /dev/null'"` |**Remplacement de commande** : `/bin/bash, -c, mkdir test; touch test/myfile; tail -f /dev/null` | `"command": ["/bin/bash", "-c", "mkdir test; touch test/myfile; tail -f /dev/null"]` |
+| **Commande unique** | `--command-line "python myscript.py arg1 arg2"` | **Remplacement de commande** : `python, myscript.py, arg1, arg2` | `"command": ["python", "myscript.py", "arg1", "arg2"]` |
+| **Commandes multiples** | `--command-line "/bin/bash -c 'mkdir test; touch test/myfile; tail -f /dev/null'"` |**Remplacement de commande** : `/bin/bash, -c, mkdir test; touch test/myfile; tail -f /dev/null` | `"command": ["/bin/bash", "-c", "mkdir test; touch test/myfile; tail -f /dev/null"]` |
 
 ## <a name="azure-cli-example"></a>Exemple Azure CLI
 

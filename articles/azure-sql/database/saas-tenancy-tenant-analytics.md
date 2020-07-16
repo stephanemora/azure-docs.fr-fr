@@ -1,6 +1,6 @@
 ---
 title: Analyses entre clients à l’aide de données extraites
-description: Obtenez des informations sur les requêtes analytiques entre locataires à l'aide de données extraites de plusieurs instances d'Azure SQL Database dans une application monolocataire.
+description: Obtenez des informations sur les requêtes analytiques entre locataires à l’aide de données extraites de plusieurs bases de données Azure SQL dans une application monolocataire.
 services: sql-database
 ms.service: sql-database
 ms.subservice: scenario
@@ -11,12 +11,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: ''
 ms.date: 12/18/2018
-ms.openlocfilehash: 3078cf7a7b16d5932e861f28a352002aa01cea45
-ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
+ms.openlocfilehash: cc748e8a816b944a20a12c8e8e345dca21dfaabd
+ms.sourcegitcommit: e132633b9c3a53b3ead101ea2711570e60d67b83
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "84026750"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86043510"
 ---
 # <a name="cross-tenant-analytics-using-extracted-data---single-tenant-app"></a>Analytique entre locataires à l’aide des données extraites – Application monolocataire
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -89,8 +89,8 @@ Il existe souvent de nombreuses bases de données transactionnelles qui contienn
 Dans les étapes suivantes, vous déployez le magasin d’analytique, qui est appelé **tenantanalytics**. Vous déployez également des tables prédéfinies qui sont remplies plus loin dans le didacticiel :
 1. Dans PowerShell ISE, open *…\Learning Modules\Operational Analytics\Tenant Analytics\Demo-TenantAnalytics.ps1* 
 2. Définissez la variable $DemoScenario dans le script pour correspondre à votre choix de magasin d’analytique :
-    - Pour utiliser une base de données SQL sans magasin de colonnes, définissez **$DemoScenario** = **2**
-    - Pour utiliser une base de données SQL avec magasin de colonnes, définissez **$DemoScenario** = **3**  
+    - Pour utiliser SQL Database sans columnstore, définissez **$DemoScenario** = **2**
+    - Pour utiliser SQL Database avec columnstore, définissez **$DemoScenario** = **3**  
 3. Appuyez sur **F5** pour exécuter le script de démonstration (qui appelle le script *Deploy-TenantAnalytics\<XX>.ps1*), qui crée la base de données d’analyse du locataire. 
 
 Maintenant que vous avez déployé l’application et l’avez remplie de données client intéressantes, utilisez [SQL Server Management Studio (SSMS)](https://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms) pour connecter les serveurs **tenants1-dpt-&lt;Utilisateur&gt;** et **catalogue-dpt-&lt;Utilisateur&gt;** à l’aide de l’identifiant = *developer* et du mot de passe = *P\@ssword1*. Consultez le [didacticiel d’introduction](../../sql-database/saas-dbpertenant-wingtip-app-overview.md) pour plus d’informations.

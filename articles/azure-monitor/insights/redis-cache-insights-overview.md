@@ -5,12 +5,12 @@ ms.topic: conceptual
 author: mrbullwinkle
 ms.author: mbullwin
 ms.date: 05/21/2020
-ms.openlocfilehash: d892c58413803ff65fbd8ca8b25a61bc5ffeb26f
-ms.sourcegitcommit: 1f25aa993c38b37472cf8a0359bc6f0bf97b6784
+ms.openlocfilehash: 469b402c694bcfae5a826c03ea35dbef2c365148
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/26/2020
-ms.locfileid: "83847359"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84945407"
 ---
 # <a name="explore-azure-monitor-for-azure-cache-for-redis-preview"></a>Explorer Azure Monitor pour Azure Cache pour Redis (préversion)
 
@@ -179,6 +179,10 @@ Les classeurs sont enregistrés dans un groupe de ressources, soit dans la secti
 Une fois que vous avez enregistré un classeur personnalisé, accédez à la galerie de classeurs pour l’ouvrir.
 
 ![Barre de commandes avec l’option Galerie mise en surbrillance](./media/cosmosdb-insights-overview/gallery.png)
+
+## <a name="troubleshooting"></a>Dépannage
+
+Pour obtenir des conseils sur la résolution des problèmes, consultez l’[article de résolution des problèmes](troubleshoot-workbooks.md) pour les insights basés sur des classeurs.
 
 ## <a name="next-steps"></a>Étapes suivantes
 

@@ -1,18 +1,18 @@
 ---
 title: Déterminer votre option de publication – Place de marché commerciale de Microsoft
 description: Cet article décrit les critères d’éligibilité et la configuration requise pour la publication d’offres sur Microsoft AppSource et la Place de marché Azure.
-author: dsindona
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
-ms.date: 04/14/2020
-ms.author: dsindona
-ms.openlocfilehash: 7c8a8bcef548ae752b6ddeb7663dd82b3f245349
-ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
+author: keferna
+ms.author: keferna
+ms.date: 06/22/2020
+ms.openlocfilehash: 3d8692d3180e4164bff544f71a1216097a390773
+ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/05/2020
-ms.locfileid: "85957883"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86103651"
 ---
 # <a name="determine-your-publishing-option"></a>Déterminer votre option de publication
 
@@ -56,11 +56,11 @@ Les applications **Microsoft AppSource** sont des solutions métier qui peuvent 
 Les applications de la **Place de marché Azure** sont des solutions techniques de type « module » créées sur ou pour Azure. Elles sont destinées à un public d’informaticiens généralistes ou spécialisés (développeurs). Les services de conseil de la Place de marché Azure sont des offres de services professionnels qui aident les clients à commencer à utiliser Azure ou à l’utiliser plus.
 
 >[!Note]
->Listes croisées (pour applications SaaS uniquement) : quand une offre basée sur une liste ou un essai répond aux critères d’un public d’utilisateurs professionnels aussi bien que d’un public technique, elle est publiée dans les deux vitrines. Découvrez plus en détail les options de publication ci-dessous.
+>« Cross-listing » (pour applications Saas uniquement) : si votre offre Saas est destinée à un public technique (Place de marché Azure) et un public commercial (AppSource), vous pouvez sélectionner une catégorie et/ou une sous-catégorie applicable aux Storefronts. Gardez à l’esprit que l’intention de proposer une offre de « cross-listing » doit être basée sur une proposition de valeur qui s’étend aux deux publics. Cliquez[ici](./gtm-offer-listing-best-practices.md#categories) pour voir les catégories applicables à chaque Storefront.
 
 ## <a name="choose-a-publishing-option"></a>Choisir une option de publication
 
-Les options de publication disponibles offrent un engagement client différencié tout en vous donnant accès au partage des prospects et aux [avantages de la place de marché commerciale](gtm-your-marketplace-benefits.md). Notez les appels à l’action qui correspondent à l’option de publication :
+Les options de publication disponibles offrent un engagement client différencié tout en vous donnant accès au partage des prospects et aux [avantages de la place de marché commerciale](https://docs.microsoft.com/azure/marketplace/gtm-your-marketplace-benefits). Notez les appels à l’action qui correspondent à l’option de publication :
 
 | **Option de publication**    | **Description**  |
 | :------------------- | :-------------------|

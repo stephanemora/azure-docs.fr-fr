@@ -2,21 +2,21 @@
 title: Comment configurer l’authentification unique par mot de passe pour des applications Azure AD | Microsoft Docs
 description: Comment configurer l’authentification unique par mot de passe (SSO) sur vos applications d’entreprise Azure AD dans la plateforme d’identité Microsoft (Azure AD)
 services: active-directory
-author: msmimart
-manager: CelesteDG
+author: kenwith
+manager: celestedg
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.workload: identity
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 07/10/2019
-ms.author: mimart
+ms.author: kenwith
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 563bda275b73f76b042b5e57a9909ca78c504bb3
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 043adc309c3480865eb9aa7a7bff8d35e85bc78a
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "77063524"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84763497"
 ---
 # <a name="configure-password-single-sign-on"></a>Configurer l’authentification unique par mot de passe
 
@@ -68,7 +68,7 @@ Si l’application n’a pas été ajoutée à votre locataire Azure AD, consul
 
 Si la tentative d'analyse Azure AD échoue, vous pouvez configurer l’authentification manuellement.
 
-1. Sous **\<Configuration nom de l’application>** , sélectionnez **Configurer les paramètres d’authentification unique par mot de passe \<nom de l’application>** pour afficher la page **Configuration l’authentification**. 
+1. Sous **Configuration \<application name>** , sélectionnez **Configurer les paramètres d’authentification unique par mot de passe \<application name>** pour afficher la page **Configurer l’authentification**. 
 
 2. Sélectionnez **Détecter manuellement les champs de connexion**. Des instructions supplémentaires décrivant la détection manuelle des champs de connexion s’affichent.
 

@@ -7,20 +7,20 @@ manager: CelesteDG
 ms.service: active-directory
 ms.subservice: azuread-dev
 ms.custom: aaddev
-ms.topic: conceptual
+ms.topic: how-to
 ms.workload: identity
 ms.date: 10/03/2018
 ms.author: ryanwi
 ms.reviewer: jlu, annaba, hirsin
 ROBOTS: NOINDEX
-ms.openlocfilehash: 3168d36bf4c2d3c696173725f669b12dc168dcc6
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: bae052e06aae4881dd7203a5616b35e9c96997fb
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80154999"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85551729"
 ---
-# <a name="how-to-migrate-from-the-azure-access-control-service"></a>Guide pratique : Effectuer une migration à partir d’Azure Access Control Service
+# <a name="how-to-migrate-from-the-azure-access-control-service"></a>Procédure : Effectuer une migration à partir d’Azure Access Control Service
 
 [!INCLUDE [active-directory-azuread-dev](../../../includes/active-directory-azuread-dev.md)]
 
@@ -112,9 +112,9 @@ Depuis novembre 2017, tous les composants d’Access Control Service sont entiè
 
 Voici le planning de la mise hors service des composants d’Access Control Service :
 
-- **Novembre 2017** : l’expérience d’administration d’Azure AD dans le portail Azure Classic a été [mise hors service](https://blogs.technet.microsoft.com/enterprisemobility/2017/09/18/marching-into-the-future-of-the-azure-ad-admin-experience-retiring-the-azure-classic-portal/). La gestion des espaces de noms pour Access Control sera alors disponible à une nouvelle URL dédiée : `https://manage.windowsazure.com?restoreClassic=true`. Utilisez cette URL pour afficher vos espaces de noms, activer et désactiver des espaces de noms et pour en supprimer si vous le souhaitez.
+- **Novembre 2017** :  l’expérience d’administration d’Azure AD dans le Portail Azure Classic a été [mise hors service](https://blogs.technet.microsoft.com/enterprisemobility/2017/09/18/marching-into-the-future-of-the-azure-ad-admin-experience-retiring-the-azure-classic-portal/). La gestion des espaces de noms pour Access Control sera alors disponible à une nouvelle URL dédiée : `https://manage.windowsazure.com?restoreClassic=true`. Utilisez cette URL pour afficher vos espaces de noms, activer et désactiver des espaces de noms et pour en supprimer si vous le souhaitez.
 - **2 avril 2018** : le Portail Azure Classic est entièrement mis hors service, ce qui signifie que la gestion des espaces de noms d’Access Control n’est plus disponible à aucune URL. Dès lors, vous ne pourrez pas désactiver, activer, supprimer ou énumérer vos espaces de noms Access Control Service. Toutefois, le portail de gestion d’Access Control sera entièrement fonctionnel et accessible à l’adresse `https://\<namespace\>.accesscontrol.windows.net`. Tous les autres composants d’Access Control Service continueront à fonctionner normalement.
-- **7 novembre 2018** : tous les composants d’Access Control sont définitivement mis hors service. Cela inclut le portail de gestion Access Control Service, le service de gestion, le service STS et le moteur de règles de transformation des jetons. À ce moment-là, toutes les demandes envoyées à Access Control Service (situé dans \<espace_de_noms\>.accesscontrol.windows.net) échoueront. Vous devrez avoir migré l’ensemble des applications et services vers d’autres technologies bien avant cette date.
+- **7 novembre 2018** : tous les composants d’Access Control sont définitivement mis hors service. Cela inclut le portail de gestion Access Control Service, le service de gestion, le service STS et le moteur de règles de transformation des jetons. À ce moment-là, toutes les demandes envoyées à Access Control Service (sur \<namespace\>.accesscontrol.windows.net) échoueront. Vous devrez avoir migré l’ensemble des applications et services vers d’autres technologies bien avant cette date.
 
 > [!NOTE]
 > Une stratégie désactive les espaces de noms qui n’ont pas demandé de jeton pendant une période donnée. Depuis début septembre 2018, cette période est actuellement de 14 jours d’inactivité, mais sera réduite à 7 jours d’inactivité dans les semaines à venir. Si vous disposez d’espaces de noms Access Control actuellement désactivés, vous pouvez [télécharger et installer ACS PowerShell](#download-and-install-acs-powershell) pour réactiver les espaces de noms.
@@ -162,7 +162,7 @@ Pour les applications web qui utilisent Access Control Service pour authentifier
 - Intégration étroite avec Windows Identity Foundation (WIF).
 - Fédération avec les comptes Google, Facebook, Yahoo, Azure Active Directory et AD FS, ainsi qu’avec les comptes Microsoft.
 - Prise en charge des protocoles d’authentification suivants : OAuth 2.0 Draft 13, WS-Trust et Web Services Federation (WS-Federation).
-- Prise en charge des formats de jeton suivants : JWT (JSON Web Token), SAML 1.1, SAML 2.0, et SWT (Simple Web Token).
+- Prise en charge des formats de jeton suivants : JSON Web Token (JWT), SAML 1.1, SAML 2.0 et Simple Web Token (SWT).
 - Une expérience de découverte de domaine d’accueil, intégrée à WIF, permettant aux utilisateurs de choisir le type de compte à utiliser pour se connecter. Hébergée par l’application web, cette expérience est entièrement personnalisable.
 - Transformation des jetons permettant une personnalisation enrichie des revendications reçues par l’application web en provenance d’Access Control Service, notamment :
     - Transfert de revendications provenant des fournisseurs d’identité.
@@ -281,10 +281,13 @@ Parfois, il se peut qu’Azure Active Directory et Azure Active Directory B2C ne
 
 Dans ce cas, il peut être préférable de migrer votre application web vers un autre service d’authentification cloud. Nous vous recommandons d’explorer les options suivantes. Chacune des options suivantes offre des fonctionnalité similaires à Access Control Service :
 
-|     |     |
-| --- | --- |
-| ![Cette image affiche le logo Auth0](./media/active-directory-acs-migration/rsz-auth0.png) | [Auth0](https://auth0.com/acs) est un service d’identité cloud souple qui a formulé des [conseils généraux pour la migration des clients d’Access Control Service](https://auth0.com/acs) et prend en charge presque toutes les fonctionnalités d’Access Control Service. |
-| ![Cette image affiche le logo Ping Identity](./media/active-directory-acs-migration/rsz-ping.png) | [Ping Identity](https://www.pingidentity.com) propose deux solutions similaires à Access Control Service. PingOne est un service d’identité cloud qui prend en charge la plupart des fonctionnalités d’Access Control Service, et PingFederate est un produit d’identité locale similaire qui offre davantage de souplesse. Pour plus d’informations sur l’utilisation de ces produits, consultez les [Conseils concernant la mise hors service d’Access Control Service de Ping](https://www.pingidentity.com/en/company/blog/2017/11/20/migrating_from_microsoft_acs_to_ping_identity.html). |
+![Cette image affiche le logo Auth0](./media/active-directory-acs-migration/rsz-auth0.png) 
+
+[Auth0](https://auth0.com/acs) est un service d’identité cloud souple qui a formulé des [conseils généraux pour la migration des clients d’Access Control Service](https://auth0.com/acs) et prend en charge presque toutes les fonctionnalités d’Access Control Service.
+
+![Cette image affiche le logo Ping Identity](./media/active-directory-acs-migration/rsz-ping.png)
+
+[Ping Identity](https://www.pingidentity.com) propose deux solutions similaires à Access Control Service. PingOne est un service d’identité cloud qui prend en charge la plupart des fonctionnalités d’Access Control Service, et PingFederate est un produit d’identité locale similaire qui offre davantage de souplesse. Pour plus d’informations sur l’utilisation de ces produits, consultez les [Conseils concernant la mise hors service d’Access Control Service de Ping](https://www.pingidentity.com/en/company/blog/2017/11/20/migrating_from_microsoft_acs_to_ping_identity.html).
 
 Notre objectif en utilisant Ping Identity et Auth0 est de vous assurer que tous les clients d’Access Control Service ont un chemin de migration pour leurs applications et services, qui réduise le volume de travail requis pour abandonner Access Control Service.
 
@@ -343,10 +346,12 @@ Parfois, il se peut que les informations d’identification de client Azure Acti
 
 Dans ces cas, vous pouvez envisager de migrer votre application web vers un autre service d’authentification cloud. Nous vous recommandons d’explorer les options suivantes. Chacune des options suivantes offre des fonctionnalité similaires à Access Control Service :
 
-|     |     |
-| --- | --- |
-| ![Cette image affiche le logo Auth0](./media/active-directory-acs-migration/rsz-auth0.png) | [Auth0](https://auth0.com/acs) est un service d’identité cloud souple qui a formulé des [conseils généraux pour la migration des clients d’Access Control Service](https://auth0.com/acs) et prend en charge presque toutes les fonctionnalités d’Access Control Service. |
-| ![Cette image affiche le logo Ping Identity](./media/active-directory-acs-migration/rsz-ping.png) | [Ping Identity](https://www.pingidentity.com) propose deux solutions similaires à Access Control Service. PingOne est un service d’identité cloud qui prend en charge la plupart des fonctionnalités d’Access Control Service, et PingFederate est un produit d’identité locale similaire qui offre davantage de souplesse. Pour plus d’informations sur l’utilisation de ces produits, consultez les [Conseils concernant la mise hors service d’Access Control Service de Ping](https://www.pingidentity.com/en/company/blog/2017/11/20/migrating_from_microsoft_acs_to_ping_identity.html). |
+![Cette image affiche le logo Auth0](./media/active-directory-acs-migration/rsz-auth0.png)
+
+[Auth0](https://auth0.com/acs) est un service d’identité cloud souple qui a formulé des [conseils généraux pour la migration des clients d’Access Control Service](https://auth0.com/acs) et prend en charge presque toutes les fonctionnalités d’Access Control Service.
+
+![Cette image illustre le logo Ping Identity](./media/active-directory-acs-migration/rsz-ping.png)
+[Ping Identity](https://www.pingidentity.com) offre deux solutions similaires à ACS. PingOne est un service d’identité cloud qui prend en charge la plupart des fonctionnalités d’Access Control Service, et PingFederate est un produit d’identité locale similaire qui offre davantage de souplesse. Pour plus d’informations sur l’utilisation de ces produits, consultez les [Conseils concernant la mise hors service d’Access Control Service de Ping](https://www.pingidentity.com/en/company/blog/2017/11/20/migrating_from_microsoft_acs_to_ping_identity.html).
 
 Notre objectif en utilisant Ping Identity et Auth0 est de vous assurer que tous les clients d’Access Control Service ont un chemin de migration pour leurs applications et services, qui réduise le volume de travail requis pour abandonner Access Control Service.
 

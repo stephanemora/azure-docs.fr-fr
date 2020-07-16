@@ -8,12 +8,12 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 05/15/2019
 ms.author: asrastog
-ms.openlocfilehash: d10744f2536cdf89115cdccd0bea6f1e5155774c
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 18a37731171be5894a1481fb35569c9c7cf307f2
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79370455"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84790515"
 ---
 # <a name="use-iot-hub-message-routing-to-send-device-to-cloud-messages-to-different-endpoints"></a>Utiliser le routage des messages IoT Hub pour envoyer des messages appareil-à-cloud à différents points de terminaison
 
@@ -35,7 +35,15 @@ Un hub IoT a un point de terminaison intégré par défaut (**messages/événeme
 
 Chaque message est routé vers tous les points de terminaison dont il correspond aux requêtes de routage. En d’autres termes, un message peut être routé vers plusieurs points de terminaison.
 
-IoT Hub prend actuellement en charge les services suivants en tant que points de terminaison personnalisés :
+
+Si votre point de terminaison personnalisé a des configurations de pare-feu, envisagez d’utiliser l’exception interne approuvée de Microsoft pour accorder à votre hub IoT l’accès au point de terminaison spécifique : le [Stockage Azure](./virtual-network-support.md#egress-connectivity-to-storage-account-endpoints-for-routing), [Azure Event Hubs](./virtual-network-support.md#egress-connectivity-to-event-hubs-endpoints-for-routing) et [Azure Service Bus](./virtual-network-support.md#egress-connectivity-to-service-bus-endpoints-for-routing). Cette option est disponible uniquement dans certaines régions pour les hubs IoT avec une [identité de service managé](./virtual-network-support.md).
+
+IoT Hub prend actuellement en charge les points de terminaison suivants :
+
+ - Point de terminaison intégré
+ - Stockage Azure
+ - Files d’attente et rubriques Service Bus
+ - Event Hubs
 
 ### <a name="built-in-endpoint"></a>Point de terminaison intégré
 
@@ -75,9 +83,6 @@ public void ListBlobsInContainer(string containerName, string iothub)
 }
 ```
 
-> [!NOTE]
-> Si votre compte de stockage a des configurations de pare-feu qui limitent la connectivité d’IoT Hub, envisagez d’utiliser l’[exception interne approuvée de Microsoft](./virtual-network-support.md#egress-connectivity-to-storage-account-endpoints-for-routing) (disponible dans certaines régions pour les hubs IoT avec identité de service managée).
-
 Pour créer un compte de stockage compatible Azure Data Lake Gen2, créez un nouveau compte de stockage v2 et sélectionnez *activé* dans le champ *Espace de noms hiérarchique* de l’onglet **Avancé**, comme indiqué dans l’image suivante :
 
 ![Sélectionner le stockage Azure Data Lake Gen2](./media/iot-hub-devguide-messages-d2c/selectadls2storage.png)
@@ -87,17 +92,9 @@ Pour créer un compte de stockage compatible Azure Data Lake Gen2, créez un nou
 
 Les options **Sessions** ou **Détection des doublons** ne doivent pas être activées pour les files d’attente et rubriques Service Bus utilisées comme points de terminaison IoT Hub. Si l’une de ces options est activée, le point de terminaison s’affiche comme **Inaccessible** dans le portail Azure.
 
-> [!NOTE]
-> Si votre ressource Service Bus a des configurations de pare-feu qui limitent la connectivité d’IoT Hub, envisagez d’utiliser l’[exception interne approuvée de Microsoft](./virtual-network-support.md#egress-connectivity-to-service-bus-endpoints-for-routing) (disponible dans certaines régions pour les hubs IoT avec identité de service managée).
-
-
 ### <a name="event-hubs"></a>Event Hubs
 
 En plus du point de terminaison compatible Event Hubs intégré, vous pouvez router des données vers des points de terminaison personnalisés de type Event Hubs. 
-
-> [!NOTE]
-> Si votre ressource Event Hubs a des configurations de pare-feu qui limitent la connectivité d’IoT Hub, envisagez d’utiliser l’[exception interne approuvée de Microsoft](./virtual-network-support.md#egress-connectivity-to-event-hubs-endpoints-for-routing) (disponible dans certaines régions pour les hubs IoT avec identité de service managée).
-
 
 ## <a name="reading-data-that-has-been-routed"></a>Lecture de données qui ont été routées
 
@@ -146,11 +143,9 @@ Dans la plupart des cas, l’augmentation moyenne de la latence est inférieure 
 
 ## <a name="monitoring-and-troubleshooting"></a>Surveillance et dépannage
 
-IoT Hub fournit plusieurs métriques liées aux routages et aux point de terminaison pour vous donner une vue d’ensemble de l’intégrité de votre hub et des messages envoyés. Vous pouvez combiner les informations de plusieurs métriques pour identifier la cause racine des problèmes. Par exemple, utilisez la métrique **Routage : messages de télémétrie annulés** ou **d2c.telemetry.egress.dropped** pour identifier le nombre de messages qui ont été supprimés quand ils ne correspondaient pas aux requêtes sur aucune des routes et que la route de secours était désactivée. [Métriques IoT Hub](iot-hub-metrics.md) liste toutes les métriques activées par défaut pour votre hub IoT.
+IoT Hub fournit plusieurs métriques liées aux routages et aux point de terminaison pour vous donner une vue d’ensemble de l’intégrité de votre hub et des messages envoyés. [Métriques IoT Hub](iot-hub-metrics.md) liste toutes les métriques activées par défaut pour votre hub IoT. Grâce aux journaux de diagnostic des **routes** dans les [paramètres de diagnostic](../iot-hub/iot-hub-monitor-resource-health.md) d’Azure Monitor, vous pouvez suivre les erreurs qui se produisent lors de l’évaluation d’une requête de routage et de l’intégrité du point de terminaison par IoT Hub. Vous pouvez utiliser l’API REST [Obtenir l’intégrité du point de terminaison](https://docs.microsoft.com/rest/api/iothub/iothubresource/getendpointhealth#iothubresource_getendpointhealth) pour récupérer l’[état d’intégrité](iot-hub-devguide-endpoints.md#custom-endpoints) des points de terminaison. 
 
-Vous pouvez utiliser l’API REST [Obtenir l’intégrité du point de terminaison](https://docs.microsoft.com/rest/api/iothub/iothubresource/getendpointhealth#iothubresource_getendpointhealth) pour récupérer l’[état d’intégrité](iot-hub-devguide-endpoints.md#custom-endpoints) des points de terminaison. Nous vous recommandons d’utiliser les [métriques IoT Hub](iot-hub-metrics.md) associées à la latence de routage des messages pour identifier et déboguer des erreurs lorsque le point de terminaison est inactif ou n’est pas sain. Par exemple, pour le type de point de terminaison Event Hubs, vous pouvez superviser **d2c.endpoints.latency.eventHubs**. L’état d’un point de terminaison non sain doit être mis à jour vers l’état sain si IoT Hub a établi un état cohérent d’intégrité.
-
-Grâce aux journaux de diagnostic des **routes** dans les [paramètres de diagnostic](../iot-hub/iot-hub-monitor-resource-health.md) d’Azure Monitor, vous pouvez suivre les erreurs qui se produisent lors de l’évaluation d’une requête de routage et de l’intégrité du point de terminaison, telle qu’elle est perçue par IoT Hub, par exemple quand un point de terminaison est inactif. Vous pouvez envoyer ces journaux de diagnostic aux journaux Azure Monitor, à Event Hubs ou à Stockage Azure pour un traitement personnalisé.
+Pour obtenir plus d’informations et de l’aide sur le résolution des problèmes liés au routage, utilisez le [Guide de résolution des problèmes concernant le routage](troubleshoot-message-routing.md).
 
 ## <a name="next-steps"></a>Étapes suivantes
 

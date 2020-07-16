@@ -4,15 +4,15 @@ description: Cet article explique comment configurer les composants d’Azure Ap
 services: application-gateway
 author: vhorne
 ms.service: application-gateway
-ms.topic: article
+ms.topic: conceptual
 ms.date: 03/24/2020
 ms.author: absha
-ms.openlocfilehash: bd6f04ca7e24e380ad657f967284704ad613375a
-ms.sourcegitcommit: fc718cc1078594819e8ed640b6ee4bef39e91f7f
+ms.openlocfilehash: 1e3ef1133628f0470ee92237abf20d3bb0a9e21a
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "83996395"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85254665"
 ---
 # <a name="application-gateway-configuration-overview"></a>Présentation de la configuration d’Application Gateway
 
@@ -307,7 +307,7 @@ Notez que le nom du cookie d’affinité par défaut est *ApplicationGatewayAffi
 
 ### <a name="connection-draining"></a>Vidage des connexions
 
-Le vidage des connexions vous permet de supprimer élégamment des membres du pool de back-ends pendant les mises à jour de service planifiées. Vous pouvez appliquer ce paramètre à tous les membres d’un pool de back-ends lors de la création d’une règle. Elle garantit que toutes les instances de désinscription d’un pool de back-ends continuent à gérer les connexions existantes et à traiter les demandes en cours pendant un délai d’expiration configurable, et ne reçoivent aucune nouvelle demande ou connexion. La seule exception concerne les demandes liées à la désinscription des instances en raison d’une affinité de session gérée par la passerelle et qui continueront d’être transmises par proxy aux instances de désinscription. Le vidage des connexions s’applique aux instances back-end qui sont explicitement supprimées du pool de back-ends.
+Le vidage des connexions vous permet de supprimer élégamment des membres du pool de back-ends pendant les mises à jour de service planifiées. Vous pouvez appliquer ce paramètre à tous les membres d’un pool principal en activant le drainage de la connexion sur le paramètre HTTP. Elle garantit que toutes les instances de désinscription d’un pool de back-ends continuent à gérer les connexions existantes et à traiter les demandes en cours pendant un délai d’expiration configurable, et ne reçoivent aucune nouvelle demande ou connexion. La seule exception concerne les demandes liées à la désinscription des instances en raison d’une affinité de session gérée par la passerelle et qui continueront d’être transmises par proxy aux instances de désinscription. Le vidage des connexions s’applique aux instances back-end qui sont explicitement supprimées du pool de back-ends.
 
 ### <a name="protocol"></a>Protocol
 

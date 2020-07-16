@@ -4,16 +4,16 @@ description: Cet article explique comment configurer et accéder aux journaux de
 author: ajlam
 ms.author: andrela
 ms.service: mariadb
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 4/13/2020
-ms.openlocfilehash: 1e67637d36eaba55e4c6baaf6f775fc7b79fcd14
-ms.sourcegitcommit: 530e2d56fc3b91c520d3714a7fe4e8e0b75480c8
+ms.openlocfilehash: a2642ebbad7c8d7a2e092a6e00929e32b72b52d8
+ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/14/2020
-ms.locfileid: "81270591"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86104977"
 ---
-# <a name="configure-and-access-slow-query-logs-from-the-azure-portal"></a>Configurer et consulter les journaux des requêtes lentes à partir du portail Azure
+# <a name="configure-and-access-azure-database-for-maria-db-slow-query-logs-from-the-azure-portal"></a>Configurer et consulter les journaux des requêtes lentes dans Azure Database pour Maria DB à partir du portail Azure
 
 Vous pouvez configurer, lister et télécharger les [journaux des requêtes lentes Azure Database for MariaDB](concepts-server-logs.md) à partir du portail Azure.
 
@@ -34,7 +34,7 @@ Configurer l’accès au journal des requêtes lentes.
 
 5. Définissez **slow_query_log** sur **ON** (Activé).
 
-6. Sélectionnez l’emplacement de sortie des journaux avec **log_output**. Pour envoyer des journaux vers le stockage local et vers les journaux de diagnostic Azure Monitor, sélectionnez **Fichier**. 
+6. Sélectionnez l’emplacement de sortie des journaux avec **log_output**. Pour envoyer des journaux au stockage local et aux journaux de diagnostic Azure Monitor, sélectionnez **Fichier**. 
 
 7. Changez tous les autres paramètres nécessaires. 
 

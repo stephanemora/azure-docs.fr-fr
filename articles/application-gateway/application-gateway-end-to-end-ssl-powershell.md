@@ -4,15 +4,15 @@ description: Cet article explique comment configurer le protocole TLS de bout en
 services: application-gateway
 author: vhorne
 ms.service: application-gateway
-ms.topic: article
-ms.date: 4/8/2019
+ms.topic: how-to
+ms.date: 06/09/2020
 ms.author: victorh
-ms.openlocfilehash: 57f2ce1fb8bf6415387eac5c760dadeb04e65648
-ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
+ms.openlocfilehash: e35569a1dc5ce7c1cb2889ac3e2ca8f60f8ccd42
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83648421"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84808209"
 ---
 # <a name="configure-end-to-end-tls-by-using-application-gateway-with-powershell"></a>Configurer le protocole TLS de bout en bout avec Application Gateway en utilisant PowerShell
 
@@ -167,7 +167,7 @@ Tous les éléments de configuration sont définis avant la création de la pass
    > [!NOTE]
    > La sonde par défaut obtient la clé publique de la liaison TLS *par défaut* sur l’adresse IP du serveur principal et compare la valeur de clé publique reçue à celle que vous fournissez ici. 
    > 
-   > Si vous utilisez des en-têtes d’hôte et une indication du nom du serveur (SNI) sur le serveur principal, la clé publique récupérée n’est pas nécessairement le site vers lequel vous souhaitez que le trafic soit dirigé. En cas de doute, visitez https://127.0.0.1/ sur les serveurs principaux pour confirmer le certificat utilisé pour la liaison TLS *par défaut*. Utilisez la clé publique de cette demande dans cette section. Si vous utilisez des en-têtes d’hôte et une indication du nom du serveur (SNI) sur les liaisons HTTPS et que vous ne recevez pas une réponse et un certificat à partir d’une demande de navigateur manuelle vers https://127.0.0.1/ sur les serveurs principaux, vous devez configurer une liaison TLS par défaut sur ceux-ci. Si vous ne le faites pas, les sondes échouent et le serveur principal ne figure pas dans la liste approuvée.
+   > Si vous utilisez des en-têtes d’hôte et une indication du nom du serveur (SNI) sur le serveur principal, la clé publique récupérée n’est pas nécessairement le site vers lequel vous souhaitez que le trafic soit dirigé. En cas de doute, visitez https://127.0.0.1/ sur les serveurs principaux pour confirmer le certificat utilisé pour la liaison TLS *par défaut*. Utilisez la clé publique de cette demande dans cette section. Si vous utilisez des en-têtes d’hôte et une indication du nom du serveur (SNI) sur les liaisons HTTPS et que vous ne recevez pas une réponse et un certificat à partir d’une demande de navigateur manuelle vers https://127.0.0.1/ sur les serveurs principaux, vous devez configurer une liaison TLS par défaut sur ceux-ci. Si vous ne le faites pas, les sondes échouent et le serveur principal n’est pas approuvé.
    
    Pour plus d’informations sur SNI dans Application Gateway, consultez [Présentation de la terminaison TLS et du chiffrement TLS de bout en bout avec Application Gateway](ssl-overview.md).
 
@@ -176,7 +176,7 @@ Tous les éléments de configuration sont définis avant la création de la pass
    ```
 
    > [!NOTE]
-   > Le certificat fourni dans l’étape précédente doit être la clé publique du certificat .pfx présent sur le serveur principal. Exportez le certificat (pas le certificat racine) installé sur le serveur principal au format .CER (Claim, Evidence, and Reasoning) et utilisez-le dans cette étape. Cette étape permet d’ajouter le serveur principal à la liste approuvée par la passerelle d’application.
+   > Le certificat fourni dans l’étape précédente doit être la clé publique du certificat .pfx présent sur le serveur principal. Exportez le certificat (pas le certificat racine) installé sur le serveur principal au format .CER (Claim, Evidence, and Reasoning) et utilisez-le dans cette étape. Cette étape autorise le serveur principal avec la passerelle d’application.
 
    Si vous utilisez la référence SKU Application Gateway v2, créez un certificat racine approuvé au lieu d’un certificat d’authentification. Pour plus d’informations, consultez [Présentation du chiffrement TLS de bout en bout sur la passerelle Application Gateway](ssl-overview.md#end-to-end-tls-with-the-v2-sku) :
 

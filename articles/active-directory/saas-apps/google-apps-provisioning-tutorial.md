@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/06/2020
 ms.author: Zhchia
-ms.openlocfilehash: aff2eca677bbacf16cf6de638547dd52b6985e02
-ms.sourcegitcommit: 1692e86772217fcd36d34914e4fb4868d145687b
+ms.openlocfilehash: 5ecf8ca6e6790b218216aed9a6ff82c8a7ac9dd2
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/29/2020
-ms.locfileid: "84170168"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85250143"
 ---
 # <a name="tutorial-configure-g-suite-for-automatic-user-provisioning"></a>Tutoriel : Configurer G Suite pour l’attribution automatique d’utilisateurs
 
@@ -125,7 +125,7 @@ Cette section vous guide tout au long des étapes de configuration du service d�
 
 ### <a name="to-configure-automatic-user-provisioning-for-g-suite-in-azure-ad"></a>Pour configurer l’approvisionnement automatique d’utilisateurs pour G Suite dans Azure AD :
 
-1. Connectez-vous au [portail Azure](https://portal.azure.com). Sélectionnez **Applications d’entreprise**, puis **Toutes les applications**.
+1. Connectez-vous au [portail Azure](https://portal.azure.com). Sélectionnez **Applications d’entreprise**, puis **Toutes les applications**. Les utilisateurs devront se connecter à portal.azure.com et ne pourront pas utiliser aad.portal.azure.com
 
     ![Panneau Applications d’entreprise](./media/google-apps-provisioning-tutorial/enterprise-applications.png)
 

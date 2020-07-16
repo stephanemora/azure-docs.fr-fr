@@ -6,16 +6,16 @@ ms.author: yegu
 ms.service: cache
 ms.topic: conceptual
 ms.date: 05/01/2017
-ms.openlocfilehash: 8083efe833ec80290713fc14d9cb89acd8263fa2
-ms.sourcegitcommit: ae3d707f1fe68ba5d7d206be1ca82958f12751e8
+ms.openlocfilehash: 4854fabb3dccc276ec32a596a42263acd07ac276
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/10/2020
-ms.locfileid: "81010900"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85316072"
 ---
 # <a name="aspnet-session-state-provider-for-azure-cache-for-redis"></a>Fournisseur d’États de session ASP.NET pour le Cache Azure pour Redis
 
-Le Cache Azure pour Redis intègre un fournisseur d’État de session qui vous permet de stocker l’État de votre session en mémoire avec le Cache Azure pour Redis plutôt qu’avec une base de données SQL Server. Pour utiliser le fournisseur d’État de session de la mise en cache, configurez d’abord votre cache, puis configurez votre application ASP.NET pour la mise en cache à l’aide du package NuGet de l’État de session du Cache Azure pour Redis.
+Le Cache Azure pour Redis intègre un fournisseur d’État de session qui vous permet de stocker l’État de votre session en mémoire avec le Cache Azure pour Redis plutôt qu’avec une base de données SQL Server. Pour utiliser le fournisseur d’État de session de la mise en cache, configurez d’abord votre cache, puis configurez votre application ASP.NET pour la mise en cache à l’aide du package NuGet de l’État de session du Cache Azure pour Redis. Pour les applications ASP.NET Core, consultez [Gestion de session et d’état dans ASP.NET Core](https://docs.microsoft.com/aspnet/core/fundamentals/app-state).
 
 Dans une application cloud réelle, il n’est souvent pas pratique d’éviter de stocker une forme d’état de session utilisateur, mais certaines approches ont davantage d’incidence que d’autres sur les performances et l'extensibilité. Si vous devez stocker un état, la meilleure solution consiste à veiller à ce qu’il reste de petite taille et à le stocker dans des cookies. Si cette approche est impossible, le mieux est d’utiliser l’état de session ASP.NET avec un fournisseur de cache distribué en mémoire. La pire solution du point de vue des performances et de l’extensibilité consiste à utiliser un fournisseur d’état de session s'appuyant sur une base de données. Cette rubrique comporte des conseils sur l’utilisation du fournisseur d’État de session ASP.NET concernant le Cache Azure pour Redis. Pour plus d’informations sur les autres options d’état de session, consultez [Options d’état de session ASP.NET](#aspnet-session-state-options).
 
@@ -94,7 +94,7 @@ Configurez les attributs avec les valeurs du panneau de votre cache sur le porta
 * **operationTimeoutInMilliseconds** : ce paramètre vous permet de remplacer le paramètre syncTimeout dans le client StackExchange.Redis. S’il n’est pas spécifié, le paramètre par défaut syncTimeout 1000 est utilisé. Pour plus d’informations, consultez le [modèle de configuration StackExchange.Redis](https://go.microsoft.com/fwlink/?LinkId=398705).
 * **redisSerializerType** : ce paramètre vous permet de spécifier une sérialisation personnalisée du contenu de session envoyé à Redis. Le type spécifié doit implémenter `Microsoft.Web.Redis.ISerializer` et déclarer un constructeur public sans paramètre. Par défaut, `System.Runtime.Serialization.Formatters.Binary.BinaryFormatter` est utilisé.
 
-Pour plus d’informations sur ces propriétés, consultez la publication du blog d’origine [Announcing ASP.NET Session State Provider for Redis](https://blogs.msdn.com/b/webdev/archive/2014/05/12/announcing-asp-net-session-state-provider-for-redis-preview-release.aspx)(en anglais).
+Pour plus d’informations sur ces propriétés, consultez la publication du blog d’origine [Announcing ASP.NET Session State Provider for Redis](https://devblogs.microsoft.com/aspnet/announcing-asp-net-session-state-provider-for-redis-preview-release/)(en anglais).
 
 N’oubliez pas de commenter la section relative au fournisseur d’état de session standard InProc dans votre fichier web.config.
 

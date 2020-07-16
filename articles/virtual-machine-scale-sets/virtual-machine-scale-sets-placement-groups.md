@@ -6,15 +6,15 @@ ms.author: mimckitt
 ms.topic: conceptual
 ms.service: virtual-machine-scale-sets
 ms.subservice: management
-ms.date: 11/9/2017
+ms.date: 06/25/2020
 ms.reviewer: jushiman
 ms.custom: mimckitt
-ms.openlocfilehash: c2490d8dc1d828992d309f07de1f75fa61ecb3be
-ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
+ms.openlocfilehash: 0848d092c342b29c1839a4dd4cebd0bad62ea3ca
+ms.sourcegitcommit: 0100d26b1cac3e55016724c30d59408ee052a9ab
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/12/2020
-ms.locfileid: "83200962"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86023004"
 ---
 # <a name="working-with-large-virtual-machine-scale-sets"></a>Utilisation de grands groupes de machines virtuelles identiques
 Vous pouvez désormais créer des [groupes de machines virtuelles identiques](/azure/virtual-machine-scale-sets/) Azure d’une capacité maximum de 1 000 machines virtuelles. Dans ce document, un _grand groupe de machines virtuelles identiques_ est défini comme un groupe identique pouvant contenir plus de 100 machines virtuelles. Cette fonctionnalité est définie par une propriété de groupe identique (_singlePlacementGroup=False_). 
@@ -33,6 +33,7 @@ Pour déterminer si votre application peut utiliser efficacement de grands group
 - Les groupes identiques créés à partir d’images d’Azure Marketplace peuvent monter en puissance jusqu'à 1 000 machines virtuelles.
 - Les groupes identiques créés à partir d’images personnalisées (images de machine virtuelle que vous créez et téléchargez vous-même) peuvent actuellement monter en puissance jusqu’à 600 machines virtuelles.
 - Les grands groupes identiques requièrent Azure Disques managés. Les groupes identiques qui ne sont pas créés avec la fonctionnalité Disques managés nécessitent plusieurs comptes de stockage (un toutes les 20 machines virtuelles). Les grands groupes identiques sont conçus pour fonctionner exclusivement avec la fonctionnalité Disques managés afin de réduire vos frais de gestion de stockage et d’éviter tout risque d’exécution dans les limites d’abonnement des comptes de stockage. 
+- Grande échelle (SPG = false) ne prend pas en charge la mise en réseau InfiniBand
 - L’équilibrage de charge de type Couche 4 avec les groupes identiques composés de plusieurs groupes de placement nécessite la [Référence SKU standard d’Azure Load Balancer](../load-balancer/load-balancer-standard-overview.md). La référence SKU standard Load Balancer fournit des avantages supplémentaires, tels que la possibilité d’équilibrer la charge parmi plusieurs groupes identiques. La référence (SKU) standard requiert également que le groupe identique soit associé à un groupe de sécurité réseau, sans quoi les pools NAT ne fonctionneront pas correctement. Si vous devez utiliser la référence SKU de base Azure Load Balancer, veillez à ce que le groupe identique soit configuré pour utiliser un seul groupe de placement, ce qui est le paramètre par défaut.
 - L’équilibrage de charge de type Couche 7 avec Azure Application Gateway est pris en charge pour tous les groupes identiques.
 - Un groupe identique est défini avec un seul sous-réseau. Vérifiez que votre sous-réseau dispose d’un espace d’adressage suffisamment grand pour toutes les machines virtuelles requises. Par défaut, un groupe identique surprovisionne (c’est-à-dire qu’il crée des machines virtuelles supplémentaires au moment du déploiement ou de la montée en charge pour lesquelles vous n’êtes pas facturé) afin d’améliorer les performances et la fiabilité du déploiement. Prévoyez un espace d’adressage 20 % supérieur au nombre de machines virtuelles que vous envisagez d’atteindre.
@@ -42,7 +43,7 @@ Pour déterminer si votre application peut utiliser efficacement de grands group
 ## <a name="creating-a-large-scale-set"></a>Création d’un grand groupe identique
 Lorsque vous créez un groupe identique dans le portail Azure, il suffit de spécifier la valeur pour le *Nombre d’instances* à 1 000. Si vous spécifiez plus de 100 instances, l’option *Activer la mise à l’échelle au-delà de 100 instances* sera définie sur *Oui*, ce qui lui permettra de mettre à l’échelle en fonction de plusieurs groupes de placement. 
 
-![](./media/virtual-machine-scale-sets-placement-groups/portal-large-scale.png)
+![Cette image montre le panneau d’instances du portail Azure. Des options permettant de sélectionner le nombre et la taille des instances sont disponibles.](./media/virtual-machine-scale-sets-placement-groups/portal-large-scale.png)
 
 Vous pouvez créer un grand groupe de machines virtuelles identiques à l’aide de la commande [Azure CLI](https://github.com/Azure/azure-cli) _az vmss create_. Cette commande définit des valeurs par défaut intelligentes comme la taille du sous-réseau en fonction de l’argument _instance-count_ :
 
@@ -76,7 +77,7 @@ Si vous créez un grand groupe identique en composant un modèle Azure Resource 
     }
 ```
 
-Pour obtenir un exemple complet d’un modèle de grand groupe identique, consultez [https://github.com/gbowerman/azure-myriad/blob/master/bigtest/bigbottle.json](https://github.com/gbowerman/azure-myriad/blob/master/bigtest/bigbottle.json).
+Pour obtenir un exemple complet d’un modèle de grand groupe identique, consultez [https://github.com/gbowerman/azure-myriad/blob/main/bigtest/bigbottle.json](https://github.com/gbowerman/azure-myriad/blob/main/bigtest/bigbottle.json).
 
 ## <a name="converting-an-existing-scale-set-to-span-multiple-placement-groups"></a>Conversion d’un groupe identique existant afin qu’il couvre plusieurs groupes de placement
 Pour qu’un groupe de machines virtuelles identiques existant puisse prendre en charge plus de 100 machines virtuelles, vous devez affecter à la propriété _singlePlacementGroup_ la valeur _false_ dans le modèle de groupe identique. Vous pouvez tester la modification de cette propriété avec [Azure Resource Explorer](https://resources.azure.com/). Pour rechercher un groupe identique existant, sélectionnez _Modifier_ et modifiez la propriété _singlePlacementGroup_. Si vous ne voyez pas cette propriété, c’est peut-être parce que vous visionnez le groupe identique avec une version antérieure de l’API Microsoft.Compute.

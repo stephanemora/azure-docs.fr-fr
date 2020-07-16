@@ -4,23 +4,23 @@ description: Comment développer d’un pool d’hôtes existant avec de nouveau
 services: virtual-desktop
 author: Heidilohr
 ms.service: virtual-desktop
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 04/30/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: d46d5618d7e3dc26775401f4a90d0c98d75ea31a
-ms.sourcegitcommit: a6d477eb3cb9faebb15ed1bf7334ed0611c72053
+ms.openlocfilehash: 07394fb2d33aaacdc8e47bc2d1809854c0c8ca1b
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/08/2020
-ms.locfileid: "82929211"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85209349"
 ---
 # <a name="expand-an-existing-host-pool-with-new-session-hosts"></a>Développer un pool d’hôtes existant avec de nouveaux hôtes de session
 
 >[!IMPORTANT]
 >Ce contenu s’applique à la mise à jour Printemps 2020 avec des objets Azure Resource Manager Windows Virtual Desktop. Si vous utilisez la version Automne 2019 de Windows Virtual Desktop sans objets Azure Resource Manager, consultez [cet article](./virtual-desktop-fall-2019/expand-existing-host-pool-2019.md).
 >
-> La mise à jour Printemps 2020 de Windows Virtual Desktop est en préversion publique. Cette préversion est fournie sans contrat de niveau de service, c’est pourquoi nous déconseillons son utilisation pour les charges de travail de production. Certaines fonctionnalités peuvent être limitées ou non prises en charge. 
+> La mise à jour Printemps 2020 de Windows Virtual Desktop est en préversion publique. Cette préversion est fournie sans contrat de niveau de service, c’est pourquoi nous déconseillons son utilisation pour les charges de travail de production. Certaines fonctionnalités peuvent être limitées ou non prises en charge.
 > Pour plus d’informations, consultez [Conditions d’Utilisation Supplémentaires relatives aux Évaluations Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 À mesure que vous intensifiez l’utilisation au sein de votre pool d’hôtes, il se peut que vous deviez développer votre pool d’hôtes existant avec de nouveaux hôtes de session pour gérer la nouvelle charge.
@@ -50,19 +50,19 @@ Pour développer votre pool d’hôtes en ajoutant des machines virtuelles :
 
 3. Dans le menu sur le côté gauche de l’écran, sélectionnez **Pools d’hôtes**, puis sélectionnez le nom du pool d’hôtes auquel vous souhaitez ajouter des machines virtuelles.
 
-4. Sélectionnez **Machines virtuelles** dans le menu du côté gauche de l’écran.
+4. Sélectionnez **Hôtes de session** dans le menu du côté gauche de l’écran.
 
 5. Sélectionnez **+ Ajouter** pour commencer à créer votre pool d’hôtes.
 
 6. Sélectionnez directement l’onglet **Détails de machine virtuelle**. Vous pouvez y voir et modifier les détails de la machine virtuelle que vous souhaitez ajouter au pool d’hôtes.
 
 7. Sélectionnez le groupe de ressources sous lequel vous souhaitez créer les machines virtuelles, puis sélectionnez la région. Vous pouvez choisir la région en cours d’utilisation ou une nouvelle région.
-   
+
 8. Entrez le nombre d’hôtes de session que vous souhaitez ajouter à votre pool d’hôtes dans **Nombre de machines virtuelles**. Par exemple, si vous étendez votre pool d’hôte avec cinq hôtes, entrez **5**.
-   
+
     >[!NOTE]
     >Vous ne pouvez pas modifier la taille ou l’image des machines virtuelles, car il est important que toutes les machines virtuelles du pool d’hôtes aient la même taille.
-    
+
 9. Pour les **informations sur le réseau virtuel**, sélectionnez le réseau virtuel et le sous-réseau auxquels vous souhaitez joindre les machines virtuelles. Vous pouvez sélectionner le même réseau virtuel que vos machines existantes, ou en choisir un autre qui est plus adapté à la région que vous avez sélectionnée à l’étape 7.
 
 10. Pour le **Compte d’administrateur**, entrez le nom d’utilisateur et le mot de passe du domaine Active Directory associés au réseau virtuel que vous avez sélectionné. Ces informations d’identification permettront de joindre les machines virtuelles au réseau virtuel.
@@ -70,9 +70,9 @@ Pour développer votre pool d’hôtes en ajoutant des machines virtuelles :
       >[!NOTE]
       >Vérifiez que les noms des administrateurs sont conformes aux informations fournies à cette étape, et qu’aucune authentification MFA n’est activée sur le compte.
 
-11. Sélectionnez l’onglet **Étiquette** si vous souhaitez regrouper les machines virtuelles avec des étiquettes. Sinon, ignorez cet onglet. 
+11. Sélectionnez l’onglet **Étiquette** si vous souhaitez regrouper les machines virtuelles avec des étiquettes. Sinon, ignorez cet onglet.
 
-12. Sélectionnez l’onglet **Vérifier + créer**. Passez en revue vos choix et, si tout semble parfait, sélectionnez **Créer**. 
+12. Sélectionnez l’onglet **Vérifier + créer**. Passez en revue vos choix et, si tout semble parfait, sélectionnez **Créer**.
 
 ## <a name="next-steps"></a>Étapes suivantes
 

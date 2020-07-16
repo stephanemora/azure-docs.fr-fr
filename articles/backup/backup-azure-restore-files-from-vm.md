@@ -4,12 +4,12 @@ description: Dans cet article, découvrez comment récupérer des fichiers et de
 ms.topic: conceptual
 ms.date: 03/01/2019
 ms.custom: references_regions
-ms.openlocfilehash: 68fa3bb2b17da01004220f5876911fa3289a2e7c
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: ded26718f176629f6c53ae90abf3c7e69b4df893
+ms.sourcegitcommit: 0100d26b1cac3e55016724c30d59408ee052a9ab
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85124985"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86027163"
 ---
 # <a name="recover-files-from-azure-virtual-machine-backup"></a>Récupérer des fichiers à partir d’une sauvegarde de machine virtuelle Azure
 
@@ -247,9 +247,9 @@ L’accès à `download.microsoft.com` est requis pour télécharger les composa
 
 ## <a name="file-recovery-from-virtual-machine-backups-having-large-disks"></a>Récupération de fichiers à partir de sauvegardes de machines virtuelles avec des disques de grande taille
 
-Cette section explique comment effectuer une récupération de fichiers à partir de sauvegardes de machines virtuelles Azure avec plus de seize disques et que la taille de chaque disque est supérieure à 32 To.
+Cette section explique comment effectuer une récupération de fichiers à partir de sauvegardes de machines virtuelles Azure avec plus de 16 disques ou lorsque la taille de chaque disque est supérieure à 4 To.
 
-Étant donné que le processus de récupération de fichier joint tous les disques de la sauvegarde, quand un grand nombre de disques (> 16) ou des disques de grande taille (> 32 To chacun) sont utilisés, les points d’action suivants sont recommandés :
+Étant donné que le processus de récupération de fichier joint tous les disques de la sauvegarde, lorsqu’un grand nombre de disques (> 16) ou des disques de grande taille (> 4 To chacun) sont utilisés, les points d’action suivants sont recommandés :
 
 - Conservez un serveur de restauration distinct (machines virtuelles D2v3 machine virtuelle Azure) pour la récupération de fichiers. Vous pouvez l’utiliser uniquement pour la récupération de fichiers, puis l’arrêter lorsque vous n’en avez pas besoin. La restauration sur l’ordinateur d’origine n’est pas recommandée, car elle pourrait nuire considérablement à la machine virtuelle elle-même.
 - Exécutez ensuite une fois le script afin de vérifier si l’opération de récupération de fichiers a été effectuée correctement.

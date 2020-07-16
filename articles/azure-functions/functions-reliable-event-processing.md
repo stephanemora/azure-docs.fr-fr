@@ -5,12 +5,12 @@ author: craigshoemaker
 ms.topic: conceptual
 ms.date: 09/12/2019
 ms.author: cshoe
-ms.openlocfilehash: e4f35495d8a01146068cffb9159c29c46c3c0d29
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: fe5efd2bf4c235688aad90ae37b54268d290540c
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "75561865"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84676129"
 ---
 # <a name="azure-functions-reliable-event-processing"></a>Traitement des événements fiables Azure Functions
 
@@ -91,7 +91,7 @@ Deux éléments sont nécessaires pour implémenter un disjoncteur dans un proce
 
 Les détails de l’implémentation peuvent varier, mais pour partager l’état entre les instances, vous avez besoin d’un mécanisme de stockage. Vous pouvez choisir de stocker l’état dans le stockage Azure, un cache Redis ou tout autre compte accessible par une collection de fonctions.
 
-[Azure Logic Apps](../logic-apps/logic-apps-overview.md) ou des [entités durables](./durable/durable-functions-overview.md) constituent une solution naturelle pour gérer le workflow et l’état du circuit. D’autres services peuvent fonctionner tout aussi bien, mais les applications logiques sont utilisées pour cet exemple. L’utilisation d’applications logiques vous permet de suspendre et de redémarrer l’exécution d’une fonction tout en bénéficiant du contrôle nécessaire pour implémenter le modèle de disjoncteur.
+[Azure Logic Apps](../logic-apps/logic-apps-overview.md) ou les [fonctions durables](./durable/durable-functions-overview.md) constituent une solution naturelle pour gérer le workflow et l’état du circuit. D’autres services peuvent fonctionner tout aussi bien, mais les applications logiques sont utilisées pour cet exemple. L’utilisation d’applications logiques vous permet de suspendre et de redémarrer l’exécution d’une fonction tout en bénéficiant du contrôle nécessaire pour implémenter le modèle de disjoncteur.
 
 ### <a name="define-a-failure-threshold-across-instances"></a>Définir un seuil d’échec entre les instances
 
@@ -123,7 +123,7 @@ Grâce à cette approche, aucun message n’est perdu, tous les messages sont tr
 ## <a name="resources"></a>Ressources
 
 - [Exemples de traitement des événements fiables](https://github.com/jeffhollan/functions-csharp-eventhub-ordered-processing)
-- [Disjoncteur Azure Durable Functions](https://github.com/jeffhollan/functions-durable-actor-circuitbreaker)
+- [Disjoncteur d’entité durable Azure](https://github.com/jeffhollan/functions-durable-actor-circuitbreaker)
 
 ## <a name="next-steps"></a>Étapes suivantes
 

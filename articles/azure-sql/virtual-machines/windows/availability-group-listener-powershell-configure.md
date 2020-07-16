@@ -4,7 +4,6 @@ description: Configurez les écouteurs de groupe de disponibilité sur le modèl
 services: virtual-machines
 documentationcenter: na
 author: MikeRayMSFT
-manager: craigg
 editor: monicar
 ms.assetid: 14b39cde-311c-4ddf-98f3-8694e01a7d3b
 ms.service: virtual-machines-sql
@@ -14,27 +13,26 @@ ms.workload: iaas-sql-server
 ms.date: 02/06/2019
 ms.author: mikeray
 ms.custom: seo-lt-2019
-ms.openlocfilehash: 63f8c9a1e47c5885132cb4a613924e9f1ed81166
-ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
+ms.openlocfilehash: 8f2a2ecb499a88ac8e33b6d281ccde4e5adffebd
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "84037220"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84669378"
 ---
 # <a name="configure-one-or-more-always-on-availability-group-listeners---resource-manager"></a>Configurer un ou plusieurs écouteurs de groupe de disponibilité AlwaysOn - Resource Manager
+
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
 
+Ce document vous montre comment utiliser PowerShell pour effectuer l’une des tâches suivantes :
+- Créer un équilibreur de charge
+- Ajouter des adresses IP à un équilibreur de charge existant pour les groupes de disponibilité SQL Server
 
-Cette rubrique explique comment effectuer les opérations suivantes :
-
-* créer un équilibreur de charge interne pour les groupes de disponibilité SQL Server à l’aide d’applets de commande PowerShell ;
-* ajouter des adresses IP supplémentaires à un équilibreur de charge pour plusieurs groupes de disponibilité. 
-
-Un écouteur de groupe de disponibilité est un nom de réseau virtuel auquel les clients se connectent pour accéder aux bases de données. Sur les machines virtuelles Azure, un équilibreur de charge comporte l’adresse IP de l’écouteur. L’équilibreur de charge achemine le trafic vers l’instance de SQL Server qui est à l’écoute sur le port de la sonde. Dans la plupart des cas, un groupe de disponibilité utilise un équilibreur de charge interne. Un équilibreur de charge interne Azure peut héberger une ou plusieurs adresses IP. Chaque adresse IP utilise un port de sonde spécifique. Ce document explique comment utiliser PowerShell pour créer un équilibreur de charge ou ajouter des adresses IP à un équilibreur de charge existant pour les groupes de disponibilité SQL Server. 
+Un écouteur de groupe de disponibilité est un nom de réseau virtuel auquel les clients se connectent pour accéder aux bases de données. Sur les machines virtuelles Azure, un équilibreur de charge comporte l’adresse IP de l’écouteur. L’équilibreur de charge achemine le trafic vers l’instance de SQL Server qui est à l’écoute sur le port de la sonde. Dans la plupart des cas, un groupe de disponibilité utilise un équilibreur de charge interne. Un équilibreur de charge interne Azure peut héberger une ou plusieurs adresses IP. Chaque adresse IP utilise un port de sonde spécifique. 
 
 L’affectation de plusieurs adresses IP à un équilibreur de charge interne est une nouveauté d’Azure qui n’est disponible que dans le modèle Resource Manager. Pour effectuer cette tâche, vous devez disposer d’un groupe de disponibilité SQL Server déployé sur des machines virtuelles Azure dans le modèle Resource Manager. Les deux machines virtuelles SQL Server doivent appartenir au même groupe à haute disponibilité. Vous pouvez utiliser le [modèle Microsoft](availability-group-azure-marketplace-template-configure.md) pour créer automatiquement le groupe de disponibilité dans Azure Resource Manager. Ce modèle crée automatiquement le groupe de disponibilité, y compris l’équilibreur de charge interne. Si vous préférez, vous pouvez [configurer manuellement un groupe de disponibilité AlwaysOn](availability-group-manually-configure-tutorial.md).
 
-Cette rubrique requiert que vos groupes de disponibilité soient déjà configurés.  
+Pour effectuer les étapes décrites dans cet article, vous devez avoir déjà configuré vos groupes de disponibilité.  
 
 Rubriques connexes :
 
@@ -61,13 +59,13 @@ Si vous restreignez l’accès avec un groupe de sécurité réseau Azure, véri
 
 ## <a name="determine-the-load-balancer-sku-required"></a>Déterminer la référence SKU requise pour l'équilibreur de charge
 
-Deux références SKU sont disponibles pour [Azure Load Balancer](../../../load-balancer/load-balancer-overview.md) : De base et Standard. L'équilibreur de charge standard est recommandé. Si les machines virtuelles se trouvent dans un groupe à haute disponibilité, l'équilibreur de charge de base est autorisé. Si les machines virtuelles se trouvent dans une zone de disponibilité, un équilibreur de charge standard est requis. L'équilibreur de charge standard exige que toutes les machines virtuelles utilisent des adresses IP standard.
+L’[équilibreur de charge Azure](../../../load-balancer/load-balancer-overview.md) se décline en deux références SKU : De base et Standard. L'équilibreur de charge standard est recommandé. Si les machines virtuelles se trouvent dans un groupe à haute disponibilité, l'équilibreur de charge de base est autorisé. Si les machines virtuelles se trouvent dans une zone de disponibilité, un équilibreur de charge standard est requis. L'équilibreur de charge standard exige que toutes les machines virtuelles utilisent des adresses IP standard.
 
 Le [modèle Microsoft](availability-group-azure-marketplace-template-configure.md) actuel de groupe de disponibilité utilise un équilibreur de charge de base avec des adresses IP de base.
 
    > [!NOTE]
    > Si vous utilisez un équilibreur de charge standard et Stockage Azure pour le témoin cloud, vous devez configurer un [point de terminaison de service](https://docs.microsoft.com/azure/storage/common/storage-network-security?toc=%2fazure%2fvirtual-network%2ftoc.json#grant-access-from-a-virtual-network). 
-
+   > 
 
 Les exemples présentés dans cet article spécifient un équilibreur de charge standard. Dans les exemples, le script inclut `-sku Standard`.
 
@@ -137,7 +135,8 @@ foreach($VMName in $VMNames)
 ```
 
 ## <a name="example-script-add-an-ip-address-to-an-existing-load-balancer-with-powershell"></a><a name="Add-IP"></a> Exemple de script : Ajouter une adresse IP à un équilibreur de charge existant à l’aide de PowerShell
-Pour utiliser plusieurs groupes de disponibilité, ajoutez une adresse IP supplémentaire à l’équilibreur de charge. Chaque adresse IP requiert une règle d’équilibrage de charge, un port de sonde et un port frontal propres.
+
+Pour utiliser plusieurs groupes de disponibilité, ajoutez une adresse IP supplémentaire à l’équilibreur de charge. Chaque adresse IP nécessite une règle d’équilibrage de charge, un port de sonde et un port frontal propres.
 
 Le port frontal est le port que les applications utilisent pour se connecter à l’instance SQL Server. Les adresses IP de groupes de disponibilité différents peuvent utiliser le même port frontal.
 
@@ -196,17 +195,17 @@ $ILB | Add-AzLoadBalancerRuleConfig -Name $LBConfigRuleName -FrontendIpConfigura
 
 1. Lancez SQL Server Management Studio et connectez-vous au réplica principal.
 
-1. Accédez à **Haute disponibilité AlwaysOn** | **Groupes de disponibilité** | **Écouteurs de groupe de disponibilité**. 
+1. Accédez à **Haute disponibilité AlwaysOn** > **Groupes de disponibilité** > **Écouteurs de groupe de disponibilité**. 
 
-1. Vous devez maintenant voir le nom de l'écouteur que vous avez créé dans le Gestionnaire du cluster de basculement. Cliquez avec le bouton droit sur l’écouteur, puis cliquez sur **Propriétés**.
+1. Vous devez maintenant voir le nom de l'écouteur que vous avez créé dans le Gestionnaire du cluster de basculement. Cliquez avec le bouton droit sur le nom de l’écouteur, puis sélectionnez **Propriétés**.
 
-1. Dans le champ **Port**, indiquez le numéro de port de l’écouteur de groupe de disponibilité à l’aide du paramètre $EndpointPort utilisé précédemment (valeur par défaut : 1433), puis cliquez sur **OK**.
+1. Dans le champ **Port**, indiquez le numéro de port de l’écouteur du groupe de disponibilité à l’aide du paramètre $EndpointPort utilisé précédemment (valeur par défaut : 1433), puis cliquez sur **OK**.
 
 ## <a name="test-the-connection-to-the-listener"></a>Tester la connexion à l’écouteur
 
 Pour tester la connexion :
 
-1. Envoyez une requête RDP à un serveur SQL qui se trouve dans le même réseau virtuel, mais qui ne possède pas le réplica. Il peut s’agir de l’autre serveur SQL du cluster.
+1. Utilisez le protocole RDP (Remote Desktop Protocol) pour vous connecter à un serveur SQL qui est sur le même réseau virtuel mais qui n’a pas de réplica. Il peut s’agir de l’autre serveur SQL du cluster.
 
 1. Utilisez l’utilitaire **sqlcmd** pour tester la connexion. Par exemple, le script suivant établit une connexion **sqlcmd** avec le réplica principal au moyen de l’écouteur avec une authentification Windows :
    
@@ -223,23 +222,28 @@ Pour tester la connexion :
 La connexion SQLCMD se connecte automatiquement à l’instance SQL Server hébergeant le réplica principal. 
 
 > [!NOTE]
-> Vérifiez que le port spécifié est ouvert sur le pare-feu des deux serveurs SQL. Les deux serveurs requièrent une règle de trafic entrant sur le port TCP utilisé. Pour plus d’informations, consultez [Ajouter ou modifier une règle de pare-feu](https://technet.microsoft.com/library/cc753558.aspx) . 
-> 
+> Vérifiez que le port spécifié est ouvert sur le pare-feu des deux serveurs SQL. Les deux serveurs requièrent une règle de trafic entrant sur le port TCP utilisé. Pour plus d’informations, consultez [Ajouter ou modifier une règle de pare-feu](https://technet.microsoft.com/library/cc753558.aspx). 
 > 
 
 ## <a name="guidelines-and-limitations"></a>Instructions et limitations
+
 Notez les instructions suivantes concernant l’écouteur de groupe de disponibilité dans Azure utilisant l’équilibrage de charge interne :
 
 * Avec un équilibreur de charge interne, vous n’accédez à l’écouteur qu’à partir du même réseau virtuel.
 
-* Si vous restreignez l’accès avec un groupe de sécurité réseau Azure, vérifiez que les règles d’autorisation comprennent l’adresse IP de la machine virtuelle du serveur backend SQL, les adresses IP flottantes de l’équilibreur de charge pour l’écouteur de groupe de disponibilité, et l’adresse IP du cluster principal, le cas échéant.
+* Si vous restreignez l’accès avec un groupe de sécurité réseau Azure, assurez-vous que les règles d’autorisation sont les suivantes :
+  - Adresses IP principales des machines virtuelles SQL Server
+  - Adresses IP flottantes de l’équilibreur de charge pour l’écouteur GA
+  - Adresse IP principale du cluster, le cas échéant.
 
 * Créez un point de terminaison de service lorsque vous utilisez un équilibreur de charge standard avec Stockage Azure pour le témoin cloud. Pour plus d'informations, consultez [Accorder l'accès à partir d'un réseau virtuel](https://docs.microsoft.com/azure/storage/common/storage-network-security?toc=%2fazure%2fvirtual-network%2ftoc.json#grant-access-from-a-virtual-network).
 
 ## <a name="for-more-information"></a>Informations supplémentaires
+
 Pour plus d’informations, consultez [Configure Always On availability group in Azure VM manually (Configuration manuelle d’un groupe de disponibilité Always On dans une machine virtuelle Azure)](availability-group-manually-configure-tutorial.md).
 
 ## <a name="powershell-cmdlets"></a>Applets de commande PowerShell
+
 Utilisez les applets de commande PowerShell suivantes pour créer un équilibreur de charge interne pour les machines virtuelles Azure.
 
 * [New-AzLoadBalancer](https://msdn.microsoft.com/library/mt619450.aspx) permet de créer un équilibreur de charge. 

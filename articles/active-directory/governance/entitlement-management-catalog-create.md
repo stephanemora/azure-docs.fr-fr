@@ -10,18 +10,18 @@ ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: conceptual
+ms.topic: how-to
 ms.subservice: compliance
-ms.date: 03/22/2020
+ms.date: 06/18/2020
 ms.author: barclayn
 ms.reviewer: hanki
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: ffa6f2fbdcde41d81e268779c3a0586bd8310792
-ms.sourcegitcommit: ced98c83ed25ad2062cc95bab3a666b99b92db58
+ms.openlocfilehash: 16a9c8ddfbc2c2a45067080dc68a759de226591b
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/31/2020
-ms.locfileid: "80437555"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85339580"
 ---
 # <a name="create-and-manage-a-catalog-of-resources-in-azure-ad-entitlement-management"></a>Créer et gérer un catalogue de ressources dans la gestion des droits d’utilisation Azure AD
 
@@ -57,7 +57,7 @@ Vous pouvez également créer un catalogue à l'aide de Microsoft Graph.  Un uti
 
 ## <a name="add-resources-to-a-catalog"></a>Ajouter des ressources à un catalogue
 
-Pour inclure des ressources dans un package d’accès, les ressources doivent exister dans un catalogue. Les types de ressources que vous pouvez ajouter sont des groupes, des applications et des sites SharePoint Online. Pour les groupes, il peut s’agir de groupes Office 365 ou de groupes de sécurité Azure AD créés sur le cloud. Pour les applications, il peut s’agir d’applications d’entreprise Azure AD, ce qui inclut les applications SaaS et vos propres applications fédérées avec Azure AD. Pour les sites, il peut s’agir de sites ou de collection de sites SharePoint Online.
+Pour inclure des ressources dans un package d’accès, les ressources doivent exister dans un catalogue. Les types de ressources que vous pouvez ajouter sont des groupes, des applications et des sites SharePoint Online. Pour les groupes, il peut s’agir de groupes Microsoft 365 ou de groupes de sécurité Azure AD créés sur le cloud. Pour les applications, il peut s’agir d’applications d’entreprise Azure AD, ce qui inclut les applications SaaS et vos propres applications fédérées avec Azure AD. Pour les sites, il peut s’agir de sites ou de collection de sites SharePoint Online.
 
 **Rôle prérequis :** Voir [Rôles requis pour ajouter des ressources à un catalogue](entitlement-management-delegate.md#required-roles-to-add-resources-to-a-catalog)
 

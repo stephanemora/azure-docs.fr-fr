@@ -3,12 +3,12 @@ title: Spécification de points de terminaison du service Service Fabric
 description: Comment décrire les ressources du point de terminaison dans un manifeste de service, y compris comment configurer des points de terminaison HTTPS
 ms.topic: conceptual
 ms.date: 2/23/2018
-ms.openlocfilehash: 88e71d15829e68bde635f5b4d40224b8fa914f40
-ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
+ms.openlocfilehash: 458a10ca118bbb14f22ad9b1ae127c2036573db9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "81417592"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85610742"
 ---
 # <a name="specify-resources-in-a-service-manifest"></a>Spécifier des ressources dans un manifeste de service
 ## <a name="overview"></a>Vue d’ensemble
@@ -52,8 +52,6 @@ Reportez-vous à [Configuration de services Reliable Services avec état](servic
 
 ## <a name="example-specifying-an-http-endpoint-for-your-service"></a>Exemple : spécification d’un point de terminaison HTTP pour votre service
 Le manifeste de service suivant définit une seule ressource de point de terminaison TCP et deux ressources de point de terminaison HTTP dans l’élément &lt;Ressources&gt;.
-
-Les points de terminaison HTTP sont automatiquement répertoriés dans la liste de contrôle d’accès par Service Fabric.
 
 ```xml
 <?xml version="1.0" encoding="utf-8"?>
@@ -157,6 +155,8 @@ Voici un exemple de fichier ApplicationManifest illustrant la configuration requ
 
 Pour les clusters Linux, le **MY** stocke par défaut dans le dossier **/var/lib/sfcerts**.
 
+## <a name="port-acling-for-http-endpoints"></a>Port liste ACL pour les points de terminaison HTTP
+Service Fabric effectue automatiquement des points de terminaison HTTP(S) ACL spécifiés par défaut. Il n'effectuera **pas** de mise en liste ACL automatique si un terminal n'est pas associé à une [SecurityAccessPolicy](service-fabric-assign-policy-to-endpoint.md) et si Service Fabric est configuré pour fonctionner en utilisant un compte avec des privilèges d'administrateur.
 
 ## <a name="overriding-endpoints-in-servicemanifestxml"></a>Écraser des points de terminaison dans ServiceManifest.xml
 

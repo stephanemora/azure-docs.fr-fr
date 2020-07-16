@@ -11,12 +11,12 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.date: 01/10/2018
-ms.openlocfilehash: 1642c90f0a345bdaf5dd69ddb6c0e26c34faba91
-ms.sourcegitcommit: 1f48ad3c83467a6ffac4e23093ef288fea592eb5
+ms.openlocfilehash: 62da43879b581d6737eee1310cf642e9692051de
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/29/2020
-ms.locfileid: "84196002"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85248443"
 ---
 # <a name="pipelines-and-activities-in-azure-data-factory"></a>Pipelines et activités dans Azure Data Factory
 > [!div class="op_single_selector" title1="Sélectionnez la version du service Data Factory que vous utilisez :"]
@@ -156,7 +156,7 @@ Les stratégies affectent le comportement d'exécution d'une activité, en parti
 | longRetryInterval |TimeSpan |00:00:00 |Le délai entre les nouvelles tentatives longues |
 
 ## <a name="sample-copy-pipeline"></a>Exemple de pipeline de copie
-Dans l’exemple de pipeline suivant, il existe une activité de type **Copy** in the **d’activités** . Dans cet exemple, l’[activité de copie](data-factory-data-movement-activities.md) copie des données d’un stockage Blob Azure vers une base de données Azure SQL.
+Dans l’exemple de pipeline suivant, il existe une activité de type **Copy** in the **d’activités** . Dans cet exemple, l’[activité de copie](data-factory-data-movement-activities.md) duplique des données d’un stockage Blob Azure vers une base de données Azure SQL.
 
 ```json
 {

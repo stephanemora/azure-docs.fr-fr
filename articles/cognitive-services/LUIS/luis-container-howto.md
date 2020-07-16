@@ -11,12 +11,12 @@ ms.subservice: language-understanding
 ms.topic: conceptual
 ms.date: 04/01/2020
 ms.author: aahi
-ms.openlocfilehash: 2df36d80aea34da1693cecde524d239abd2bb04a
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 8c5e384e85861cdced3ed6dbe60733128b499407
+ms.sourcegitcommit: e132633b9c3a53b3ead101ea2711570e60d67b83
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "82100241"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86039005"
 ---
 # <a name="install-and-run-luis-docker-containers"></a>Installer et exécuter des conteneurs Docker LUIS
 

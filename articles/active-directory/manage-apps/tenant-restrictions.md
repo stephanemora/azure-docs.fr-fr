@@ -3,8 +3,8 @@ title: Utiliser des restrictions liées aux abonnés pour gérer l’accès aux 
 description: Comment utiliser des restrictions liées au locataire pour gérer les utilisateurs qui peuvent accéder aux applications en fonction de leur client Azure AD.
 services: active-directory
 documentationcenter: ''
-author: msmimart
-manager: CelesteDG
+author: kenwith
+manager: celestedg
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.workload: identity
@@ -12,15 +12,15 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.date: 03/28/2019
-ms.author: mimart
+ms.author: kenwith
 ms.reviewer: richagi
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 7c43a1250f4d2be956b028689ee10eb4b968701f
-ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
+ms.openlocfilehash: cd302791aa783f1a95d48f666366aa845fcaadbb
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/20/2020
-ms.locfileid: "83680143"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84763021"
 ---
 # <a name="use-tenant-restrictions-to-manage-access-to-saas-cloud-applications"></a>Utiliser des restrictions liées au locataire pour gérer l’accès aux applications cloud SaaS
 
@@ -155,7 +155,7 @@ Fiddler est un proxy de débogage web gratuit qui peut être utilisé pour captu
 
    1. Dans l’outil débogueur web Fiddler, sélectionnez le menu **Règles** et sélectionnez **Personnaliser les règles...** pour ouvrir le fichier CustomRules.
 
-   2. Ajoutez les lignes suivantes au début de la fonction `OnBeforeRequest`. Remplacez le \<domaine du locataire\> par un domaine enregistré auprès de votre locataire (par exemple, `contoso.onmicrosoft.com`). Remplacez \<l’ID de répertoire\> par l’identificateur GUID Azure AD de votre client.
+   2. Ajoutez les lignes suivantes au début de la fonction `OnBeforeRequest`. Remplacez \<tenant domain\> (domaine du locataire) par un domaine inscrit auprès de votre locataire (par exemple, `contoso.onmicrosoft.com`). Remplacez \<directory ID\> par l’identificateur GUID Azure AD de votre locataire.
 
       ```JScript.NET
       if (

@@ -1,14 +1,14 @@
 ---
-title: Terminologie - Azure
+title: Terminologie de Live Video Analytics sur IoT Edge - Azure
 description: Cet article fournit une vue d’ensemble de la terminologie de Live Video Analytics sur IoT Edge.
 ms.topic: conceptual
 ms.date: 05/30/2020
-ms.openlocfilehash: 51fcc962f6546d727dbbc5e7ff62dc9c4e5677af
-ms.sourcegitcommit: 223cea58a527270fe60f5e2235f4146aea27af32
+ms.openlocfilehash: 58f3d7b54fd0bd19e6bc0a057ef053bb2c74cd97
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/01/2020
-ms.locfileid: "84260332"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84816529"
 ---
 # <a name="terminology"></a>Terminologie
 
@@ -18,13 +18,13 @@ Cet article fournit une vue d’ensemble de la terminologie liée à [Live Video
 
 Azure Media Services est une plateforme multimédia cloud qui vous permet de créer des solutions multimédias. Vous pouvez en savoir plus à son sujet dans la documentation [Azure Media Services](../latest/media-services-overview.md).
 
-## <a name="asset"></a>Actif multimédia
+## <a name="asset"></a>Asset
 
 Un [actif multimédia](../latest/assets-concept.md) est une entité dans Azure Media Services qui est mappée à un conteneur d’objets blob dans le compte de stockage Azure associé à un compte Media Services. Tous les fichiers associés à un actif multimédia sont stockés en tant qu’objets blob dans ce conteneur tandis que Media Services contient les métadonnées (par exemple, un nom, une description, une heure de création) associées à l’actif multimédia.
 
 Live Video Analytics sur IoT Edge peut créer des actifs multimédias et/ou ajouter des données à des actifs multimédias existants. Ainsi, les scénarios d’enregistrement et lecture vidéo en continu et basé sur des événements (avec capture vidéo sur l’appareil périphérique, enregistrement sur Azure Media Services et lecture par le biais des fonctionnalités de streaming Azure Media Services existantes) sont possibles.
 
-## <a name="streaming"></a>Streaming
+## <a name="streaming"></a>Diffusion en continu
 
 Si vous avez regardé une vidéo sur un appareil mobile à partir de services comme Netflix, YouTube, etc., vous avez expérimenté le streaming vidéo. La lecture commence peu après avoir appuyé sur « Lecture » (si vous disposez d’une bande passante suffisante) et vous pouvez effectuer une recherche dans la chronologie de la vidéo. Avec le streaming, l’idée est de fournir uniquement la partie de la vidéo en cours de visionnage et de laisser l’utilisateur démarrer la vidéo alors que les données sont encore en cours de transfert depuis un serveur vers le client de lecture. Dans le contexte d’Azure Media Services, le [streaming](https://en.wikipedia.org/wiki/Streaming_media) fait référence au processus de remise de contenu multimédia depuis [Azure Media Services](https://docs.microsoft.com/azure/media-services/azure-media-player/azure-media-player-overview) vers un client de streaming (par exemple, le Lecteur multimédia Azure). Vous pouvez utiliser Azure Media Services pour diffuser en streaming des vidéos sur des clients à l’aide de protocoles de streaming multimédia HTTP, comme [HTTP Live Streaming (TLS)](https://developer.apple.com/streaming/) et [MPEG-DASH](https://dashif.org/about/). HLS est pris en charge par le Lecteur multimédia Azure et des lecteurs web comme [JW Player](https://www.jwplayer.com/), [hls.js](https://github.com/video-dev/hls.js/), [VideoJS](https://videojs.com/), [Shaka Player de Google](https://github.com/google/shaka-player), et vous pouvez effectuer un rendu en mode natif dans des applications mobiles avec [Exoplayer](https://github.com/google/ExoPlayer) d’Android et [AV Foundation](https://developer.apple.com/av-foundation/) d’iOS. MPEG-DASH est également pris en charge par le Lecteur multimédia Azure. [Retrouvez la liste des clients dans cette page](https://dashif.org/clients/). 
 

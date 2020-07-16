@@ -1,6 +1,6 @@
 ---
 title: Créer et supprimer une identité managée affectée par l’utilisateur en utilisant Azure Resource Manager
-description: Instructions détaillées pour créer et supprimer une identité managée affectée par l’utilisateur en utilisant Azure Resource Manager.
+description: Instructions pas à pas pour créer et supprimer une identité managée affectée par l’utilisateur en utilisant Azure Resource Manager.
 services: active-directory
 documentationcenter: ''
 author: MarkusVi
@@ -9,18 +9,18 @@ editor: ''
 ms.service: active-directory
 ms.subservice: msi
 ms.devlang: na
-ms.topic: conceptual
+ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 12/10/2019
 ms.author: markvi
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 244965da4e22c0808fd1ea9088aa182b27eaf484
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 466b0853648fab078af89f01a9aea157205e81d1
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79227745"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85608481"
 ---
 # <a name="create-list-and-delete-a-user-assigned-managed-identity-using-azure-resource-manager"></a>Créer, afficher et supprimer une identité managée affectée par l’utilisateur en utilisant Azure Resource Manager
 
@@ -33,16 +33,16 @@ Il n’est pas possible d’afficher et de supprimer une identité managée affe
 
 - [Afficher une identité managée affectée par l’utilisateur](how-to-manage-ua-identity-cli.md#list-user-assigned-managed-identities)
 - [Supprimer une identité managée affectée par l’utilisateur](how-to-manage-ua-identity-cli.md#delete-a-user-assigned-managed-identity)
-  ## <a name="prerequisites"></a>Conditions préalables requises
+  ## <a name="prerequisites"></a>Prérequis
 
-- Si vous n’êtes pas familiarisé avec les identités managées pour ressources Azure, consultez la [section Vue d’ensemble](overview.md). **Veillez à consulter la [différence entre les identités managées affectées par le système et celles affectées par l’utilisateur](overview.md#how-does-the-managed-identities-for-azure-resources-work)** .
+- Si vous n’êtes pas familiarisé avec les identités managées pour ressources Azure, consultez la [section Vue d’ensemble](overview.md). **Veillez à consulter la [différence entre les identités managées affectées par le système et celles affectées par l’utilisateur](overview.md#managed-identity-types)** .
 - Si vous n’avez pas encore de compte Azure, [inscrivez-vous à un essai gratuit](https://azure.microsoft.com/free/) avant de continuer.
 
 ## <a name="template-creation-and-editing"></a>Création et modification du modèle
 
 Comme pour le portail Azure et le script, les modèles Azure Resource Manager offrent la possibilité de déployer des ressources nouvelles ou modifiées définies par un groupe de ressources Azure. Plusieurs options sont disponibles pour la modification du modèle et le déploiement, à la fois localement et sur le portail, y compris :
 
-- Utiliser un [modèle personnalisé à partir de Azure Marketplace](../../azure-resource-manager/templates/deploy-portal.md#deploy-resources-from-custom-template), lequel vous permet de créer un modèle à partir de zéro, ou à partir d’un modèle commun existant ou d’un [modèle de démarrage rapide](https://azure.microsoft.com/documentation/templates/).
+- Utiliser un [modèle personnalisé à partir de Place de marché Azure](../../azure-resource-manager/templates/deploy-portal.md#deploy-resources-from-custom-template), lequel vous permet de créer un modèle à partir de zéro, ou à partir d’un modèle commun existant ou d’un [modèle de démarrage rapide](https://azure.microsoft.com/documentation/templates/).
 - Dériver à partir d’un groupe de ressources existant, en exportant un modèle à partir du [déploiement d’origine](../../azure-resource-manager/management/manage-resource-groups-portal.md#export-resource-groups-to-templates), ou à partir de l’[état actuel du déploiement](../../azure-resource-manager/management/manage-resource-groups-portal.md#export-resource-groups-to-templates).
 - Utilisation d’un [éditeur local JSON (VS Code, par exemple)](../../azure-resource-manager/resource-manager-create-first-template.md), puis téléchargement/déploiement à l’aide de PowerShell ou Azure CLI.
 - Utilisez le [projet de groupe de ressources Azure](../../azure-resource-manager/templates/create-visual-studio-deployment-project.md) de Visual Studio pour créer et déployer un modèle. 

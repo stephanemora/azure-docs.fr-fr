@@ -7,21 +7,21 @@ author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 02/18/2020
-ms.openlocfilehash: 192591dedb0b5519fdcecde8c8683be87237c828
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.date: 06/30/2020
+ms.openlocfilehash: c940d0dd4c92aca92291bfe1dbd6c15f1091f0b8
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82127827"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85611609"
 ---
 # <a name="collect-and-analyze-log-data-for-azure-cognitive-search"></a>Collecter et analyser des données de journal pour Recherche cognitive Azure
 
-Les journaux de diagnostic ou opérationnels fournissent des informations sur les opérations détaillées de Recherche cognitive Azure et sont utiles pour surveiller les processus de charge de travail et de service. En interne, les journaux d’activité existent sur le back-end pendant une courte période, suffisante pour l’investigation et l’analyse si vous émettez un ticket de support. Toutefois, si vous souhaitez utiliser la direction automatique sur les données opérationnelles, vous devez configurer un paramètre de diagnostic pour spécifier l’emplacement où les informations de journalisation sont collectées.
+Les journaux de diagnostic ou opérationnels fournissent des informations sur les opérations détaillées de Recherche cognitive Azure et sont utiles pour surveiller les processus de charge de travail et de service. En interne, des informations système existent sur le back-end pendant une courte période, suffisante pour l’investigation et l’analyse si vous émettez un ticket de support. Toutefois, si vous souhaitez utiliser la direction automatique sur les données opérationnelles, vous devez configurer un paramètre de diagnostic pour spécifier l’emplacement où les informations de journalisation sont collectées.
 
-La configuration de journaux d’activité est utile pour les diagnostics et la conservation de l’historique opérationnel. Après avoir activé la journalisation, vous pouvez exécuter des requêtes ou créer des rapports pour une analyse structurée.
+La journalisation des diagnostics est activée via l’intégration à [Azure Monitor](https://docs.microsoft.com/azure/azure-monitor/). 
 
-Le tableau suivant énumère les options de collecte et de persistance des données.
+Quand vous configurez la journalisation des diagnostics, vous êtes invité à spécifier un mécanisme de stockage. Le tableau suivant énumère les options de collecte et de persistance des données.
 
 | Ressource | Utilisé pour |
 |----------|----------|
@@ -29,15 +29,15 @@ Le tableau suivant énumère les options de collecte et de persistance des donn�
 | [Archiver avec le stockage Blob](https://docs.microsoft.com/azure/storage/blobs/storage-blobs-overview) | Les événements et les mesures sont archivés dans un conteneur de blobs et stockés dans des fichiers JSON. Les journaux d’activité peuvent être très granulaires (par heure/minute), ce qui est utile pour la recherche d’un incident spécifique, mais pas pour une investigation ouverte. Utilisez un éditeur JSON pour afficher un fichier journal brut ou Power BI pour agréger et visualiser les données du journal.|
 | [Diffuser vers un Event Hub](https://docs.microsoft.com/azure/event-hubs/) | Les événements et les mesures sont diffusés vers un service Azure Event Hubs. Choisissez cette option comme autre service de collecte de données pour les journaux d’activité très volumineux. |
 
-Les journaux Azure Monitor et le Stockage Blob sont tous les deux disponibles sous la forme d’un service gratuit pour vous permettre de l’essayer sans frais pendant la durée de vie de votre abonnement Azure. L’inscription à Application Insights et son utilisation sont gratuits tant que la taille de données d’application n’excède pas certaines limites. (Pour plus d’informations, consultez la [page des tarifs](https://azure.microsoft.com/pricing/details/monitor/).)
-
 ## <a name="prerequisites"></a>Prérequis
 
-Si vous utilisez Log Analytics ou Stockage Azure, vous pouvez créer des ressources à l’avance.
+Créez des ressources à l’avance pour pouvoir en sélectionner une ou plusieurs lors de la configuration de la journalisation des diagnostics.
 
-+ [Créer un espace de travail Log Analytics](https://docs.microsoft.com/azure/azure-monitor/learn/quick-create-workspace)
++ [Créer un espace de travail Log Analytics](../azure-monitor/learn/quick-create-workspace.md)
 
-+ [Créez un compte de stockage](https://docs.microsoft.com/azure/storage/common/storage-quickstart-create-account)
++ [Créez un compte de stockage](../storage/common/storage-quickstart-create-account.md)
+
++ [Créer un hub d’événements](../event-hubs/event-hubs-create.md)
 
 ## <a name="enable-data-collection"></a>Activer la collecte des données
 
@@ -91,20 +91,59 @@ Deux tables contiennent des journaux d’activité et des mesures pour Recherche
 
    ![Table AzureDiagnostics](./media/search-monitor-usage/azurediagnostics-table.png "Table AzureDiagnostics")
 
+## <a name="kusto-query-examples"></a>Exemples de requêtes Kusto
+
+Si vous avez activé la journalisation des diagnostics, vous pouvez interroger **AzureDiagnostics** pour obtenir la liste des opérations exécutées sur votre service et à quel moment. Vous pouvez également mettre en corrélation l’activité pour examiner les changements de performances.
+
+#### <a name="example-list-operations"></a>Exemple : Lister les opérations 
+
+Retournez une liste d’opérations et un nombre de chacune d’elles.
+
+```
+AzureDiagnostics
+| summarize count() by OperationName
+```
+
+#### <a name="example-correlate-operations"></a>Exemple : Mettre en corrélation les opérations
+
+Associez une demande de requête à des opérations d’indexation et restituez les points de données sur un graphique de temps pour voir si les opérations coïncident.
+
+```
+AzureDiagnostics
+| summarize OperationName, Count=count()
+| where OperationName in ('Query.Search', 'Indexing.Index')
+| summarize Count=count(), AvgLatency=avg(DurationMs) by bin(TimeGenerated, 1h), OperationName
+| render timechart
+```
+
+## <a name="logged-operations"></a>Opérations journalisées
+
+Les événements journalisés capturés par Azure Monitor incluent ceux qui sont liés à l’indexation et aux requêtes. La table **AzureDiagnostics** dans Log Analytics collecte les données opérationnelles relatives aux requêtes et à l’indexation.
+
+| NomOpération | Description |
+|---------------|-------------|
+| ServiceStats | Cette opération est un appel de routine à l’API [GET Service Statistics](https://docs.microsoft.com/rest/api/searchservice/get-service-statistics), appelée directement ou implicitement pour remplir une page de présentation du portail lors de son chargement ou de son actualisation. |
+| Query.Search |  Demandes de requêtes par rapport à un index. Consultez [Superviser les requêtes](search-monitor-queries.md) pour plus d’informations sur les requêtes journalisées.|
+| Indexing.Index  | Cette opération est un appel à [Ajout, mise à jour ou suppression de documents](https://docs.microsoft.com/rest/api/searchservice/addupdate-or-delete-documents). |
+| indexes.Prototype | Il s’agit d’un index créé par l’Assistant Importation de données. |
+| Indexers.Create | Créez un indexeur de manière explicite ou implicite à l’aide de l’Assistant Importation de données. |
+| Indexers.Get | Retourne le nom d’un indexeur chaque fois que l’indexeur est exécuté. |
+| Indexers.Status | Retourne l’état d’un indexeur chaque fois que l’indexeur est exécuté. |
+| DataSources.Get | Retourne le nom de la source de données chaque fois qu’un indexeur est exécuté.|
+| Indexes.Get | Retourne le nom d’un index chaque fois qu’un indexeur est exécuté. |
+
 ## <a name="log-schema"></a>Schéma du journal
 
-Les structures de données qui contiennent des données de journal Recherche cognitive Azure sont conformes au schéma ci-dessous. 
-
-Pour le Stockage Blob, chaque blob a un objet racine appelé **records** contenant un tableau d’objets de journal. Chaque objet blob contient des enregistrements de toutes les opérations qui ont eu lieu au cours de la même heure.
+Si vous créez des rapports personnalisés, les structures de données qui contiennent des données de journal Recherche cognitive Azure sont conformes au schéma ci-dessous. Pour le Stockage Blob, chaque blob a un objet racine appelé **records** contenant un tableau d’objets de journal. Chaque objet blob contient des enregistrements de toutes les opérations qui ont eu lieu au cours de la même heure.
 
 Le tableau suivant est une liste partielle des champs communs à la journalisation des ressources.
 
-| Nom | Type |  Exemple | Notes |
+| Nom | Type | Exemple | Notes |
 | --- | --- | --- | --- |
 | timeGenerated |DATETIME |"2018-12-07T00:00:43.6872559Z" |Horodatage de l’opération |
-| resourceId |string |«/SUBSCRIPTIONS/11111111-1111-1111-1111-111111111111/<br/>RESOURCEGROUPS/DEFAULT/PROVIDERS/<br/>  MICROSOFT.SEARCH/SEARCHSERVICES/SEARCHSERVICE » |Votre ID de ressource |
+| resourceId |string |«/SUBSCRIPTIONS/11111111-1111-1111-1111-111111111111/<br/>RESOURCEGROUPS/DEFAULT/PROVIDERS/<br/> MICROSOFT.SEARCH/SEARCHSERVICES/SEARCHSERVICE » |Votre ID de ressource |
 | operationName |string |« Query.Search » |Nom de l’opération |
-| operationVersion |string |"2019-05-06" |Version d’API utilisée |
+| operationVersion |string |"30/06/2020" |Version d’API utilisée |
 | catégorie |string |« OperationLogs » |constant |
 | resultType |string |« Success » |Valeurs possibles : Réussite ou Échec |
 | resultSignature |int |200 |Code de résultat HTTP |
@@ -115,20 +154,20 @@ Le tableau suivant est une liste partielle des champs communs à la journalisati
 
 Les propriétés ci-dessous sont spécifiques à Recherche cognitive Azure.
 
-| Nom | Type |  Exemple | Notes |
+| Nom | Type | Exemple | Notes |
 | --- | --- | --- | --- |
 | Description_s |string |« GET /indexes(’content’)/docs » |Point de terminaison de l’opération |
 | Documents_d |int |42 |Nombre de documents traités |
 | IndexName_s |string |"test-index" |Nom de l’index associé à l’opération |
-| Query_s |string |"?search=AzureSearch&$count=true&api-version=2019-05-06" |Paramètres de requête |
+| Query_s |string |"?search=AzureSearch&$count=true&api-version=2020-06-30" |Paramètres de requête |
 
 ## <a name="metrics-schema"></a>Schéma de mesures
 
 Les mesures sont capturées pour les demandes de requête et mesurées à des intervalles d’une minute. Chaque mesure expose des valeurs minimales, maximales et moyennes par minute. Pour plus d’informations, consultez [Surveiller les demandes de requête](search-monitor-queries.md).
 
-| Nom | Type |  Exemple | Notes |
+| Nom | Type | Exemple | Notes |
 | --- | --- | --- | --- |
-| resourceId |string |«/SUBSCRIPTIONS/11111111-1111-1111-1111-111111111111/<br/>RESOURCEGROUPS/DEFAULT/PROVIDERS/<br/> MICROSOFT.SEARCH/SEARCHSERVICES/SEARCHSERVICE » |votre ID de ressource |
+| resourceId |string |«/SUBSCRIPTIONS/11111111-1111-1111-1111-111111111111/<br/>RESOURCEGROUPS/DEFAULT/PROVIDERS/<br/>MICROSOFT.SEARCH/SEARCHSERVICES/SEARCHSERVICE » |votre ID de ressource |
 | metricName |string |« Latency » |Nom de la mesure |
 | time |DATETIME |"2018-12-07T00:00:43.6872559Z" |Horodatage de l’opération |
 | average |int |64 |Valeur moyenne des échantillons bruts dans l’intervalle de temps de la mesure, en secondes ou en pourcentage, en fonction de la mesure. |

@@ -8,12 +8,12 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 09/18/2017
 ms.author: eustacea
-ms.openlocfilehash: 3d02d3573902964a8549fa0eeb1f4f1471de1752
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: cce3a0e6993ea91236a3ce8c8b14eb6c66f72ad1
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79237325"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84717798"
 ---
 # <a name="device-authentication-using-x509-ca-certificates"></a>Authentification des appareils à l’aide de certificats d’autorité de certification X.509
 
@@ -50,7 +50,7 @@ Le propriétaire d’un certificat d’autorité de certification X.509 peut sig
 
 ![img-generic-cert-chain-of-trust](./media/generic-cert-chain-of-trust.png)
 
-Sur le certificat d’appareil (également appelé certificat feuille), le *Nom du sujet* doit être défini sur l’**ID d’appareil** utilisé lors de l’inscription de l’appareil IoT dans IoT Hub. Ce paramètre est requis pour l’authentification.
+Sur le certificat d’appareil (également appelé certificat feuille), le *Nom du sujet* doit être défini sur l’**ID d’appareil** (`CN=deviceId`) utilisé lors de l’inscription de l’appareil IoT dans le hub Azure IoT. Ce paramètre est requis pour l’authentification.
 
 Découvrez ici comment [créer une chaîne de certificats](https://github.com/Azure/azure-iot-sdk-c/blob/master/tools/CACertificates/CACertificateOverview.md) lors de la signature des appareils.
 

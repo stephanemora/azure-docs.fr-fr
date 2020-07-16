@@ -10,16 +10,16 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 06/18/2020
 ms.author: xiaojul
-ms.openlocfilehash: 5bdb77d27b01f576ca06aa5b6d3df0572b3b1ea6
-ms.sourcegitcommit: 4042aa8c67afd72823fc412f19c356f2ba0ab554
+ms.openlocfilehash: 0197bb81fdba8bab20742d95aebaa2028bb90c18
+ms.sourcegitcommit: 0100d26b1cac3e55016724c30d59408ee052a9ab
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/24/2020
-ms.locfileid: "85307160"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86027679"
 ---
 # <a name="set-up-web-endpoints"></a>Configurer des points de terminaison Web
 
-Dans cet article, vous apprendrez à configurer des points de terminaison Web dans une application Commandes personnalisées vous permettant d’effectuer des requêtes HTTP à partir d’une application cliente. Effectuez les tâches suivantes :
+Dans cet article, vous apprendrez à configurer des points de terminaison web dans une application Commandes personnalisées vous permettant d’effectuer des requêtes HTTP à partir d’une application cliente. Vous allez effectuer les étapes suivantes :
 
 - Configurer des points de terminaison Web dans une application Commandes personnalisées
 - Appeler des points de terminaison Web dans une application Commandes personnalisées
@@ -46,11 +46,12 @@ Dans cet article, vous apprendrez à configurer des points de terminaison Web da
    | Nom | UpdateDeviceState | Nom du point de terminaison Web. |
    | URL | https://webendpointexample.azurewebsites.net/api/DeviceState | URL du point de terminaison avec laquelle votre application Commandes personnalisées doit communiquer. |
    | Méthode | POST | Interactions autorisées (par exemple GET, POST) avec votre point de terminaison.|
-   | headers | Clé : app, Valeur : nom unique pour votre application | Paramètres d’en-tête à inclure dans l’en-tête de la demande.|
+   | headers | Clé : application, Valeur : prendre les 8 premiers chiffres de votre applicationId | Paramètres d’en-tête à inclure dans l’en-tête de la demande.|
 
     > [!NOTE]
     > - Exemple de point de terminaison Web créé à l’aide d'[Azure Function](https://docs.microsoft.com/azure/azure-functions/), qui se connecte à la base de données enregistrant l’état du téléviseur et du ventilateur
     > - L’en-tête suggéré n’est nécessaire que pour l’exemple de point de terminaison
+    > - Pour vous assurer que la valeur de l’en-tête est unique dans notre exemple de point de terminaison, prenez les 8 premiers chiffres de votre applicationId
     > - Dans le monde réel, le point de terminaison Web peut être le point de terminaison du [hub IoT](https://docs.microsoft.com/azure/iot-hub/about-iot-hub) qui gère vos appareils
 
 1. Cliquez sur **Enregistrer**.
@@ -74,6 +75,8 @@ Dans cet article, vous apprendrez à configurer des points de terminaison Web da
     > - Les paramètres de la demande suggérés sont uniquement nécessaires pour l’exemple de point de terminaison
 
 1. Dans **On Success - Action to execute**, sélectionnez **Send speech response**.
+    
+    Dans **Éditeur simple**, entrez `{SubjectDevice} is {OnOff}`.
    
    > [!div class="mx-imgBorder"]
    > ![Action Appeler les points de terminaison Web en cas de réussite](media/custom-commands/setup-web-endpoint-edit-action-on-success-send-response.png)
@@ -86,6 +89,9 @@ Dans cet article, vous apprendrez à configurer des points de terminaison Web da
    > - Vous pouvez également accéder directement aux champs de la réponse http en utilisant `{YourWebEndpointName.FieldName}`. Par exemple : `{UpdateDeviceState.TV}`
 
 1. Dans **On Failure - Action to execute**, sélectionnez **Send speech response**
+
+    Dans **Éditeur simple**, entrez `Sorry, {WebEndpointErrorMessage}`.
+
    > [!div class="mx-imgBorder"]
    > ![Action Appeler les points de terminaison Web en cas d’échec](media/custom-commands/setup-web-endpoint-edit-action-on-fail.png)
 

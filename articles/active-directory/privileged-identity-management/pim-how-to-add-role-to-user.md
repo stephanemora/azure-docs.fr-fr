@@ -7,18 +7,18 @@ author: curtand
 manager: mtillman
 editor: ''
 ms.service: active-directory
-ms.topic: conceptual
+ms.topic: how-to
 ms.workload: identity
 ms.subservice: pim
-ms.date: 02/07/2020
+ms.date: 07/01/2020
 ms.author: curtand
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 5048cefaae10cd55091dd72f0b73a3cf9d731a35
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 7cdea30e7b630b2fa62b004f98cb67fd1994f915
+ms.sourcegitcommit: 0100d26b1cac3e55016724c30d59408ee052a9ab
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79227713"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86024164"
 ---
 # <a name="assign-azure-ad-roles-in-privileged-identity-management"></a>Attribuer des rôles dans Azure AD dans Privileged Identity Management
 
@@ -53,15 +53,13 @@ Suivez ces étapes pour rendre un utilisateur éligible pour un rôle d'administ
 
     ![Rôles Azure AD](./media/pim-how-to-add-role-to-user/roles-list.png)
 
-1. Sélectionnez **Ajouter un membre** pour ouvrir la page **Nouvelle affectation**.
+1. Sélectionnez **Ajouter des affectations** pour ouvrir la page **Ajouter des affectations**.
 
-1. Choisissez **Sélectionner un rôle** pour ouvrir la page Sélectionner un rôle.
+1. Choisissez **Sélectionner un rôle** pour ouvrir la page **Sélectionner un rôle**.
 
     ![Volet Nouvelle affectation](./media/pim-how-to-add-role-to-user/select-role.png)
 
-1. Sélectionnez un rôle que vous souhaitez attribuer et cliquez sur **Sélectionner**.
-
-1. Sélectionnez un membre à affecter au rôle, puis cliquez sur **Sélectionner**.
+1. Sélectionnez un rôle, puis un membre à affecter à ce rôle, puis cliquez sur **Suivant**.
 
 1. Dans la liste **Type d’affectation** du volet **Paramètres d’appartenance**, sélectionnez **Éligible** ou **Actif**.
 
@@ -69,15 +67,11 @@ Suivez ces étapes pour rendre un utilisateur éligible pour un rôle d'administ
 
     - Les attributions **actives** n’exigent pas des membres qu’ils effectuent une action pour utiliser ce rôle. Les membres attribués comme étant actifs détiennent à tout moment les privilèges affectés au rôle.
 
-1. Si l’attribution doit être permanente (éligible de façon permanente ou attribuée définitivement), cochez la case **Définitivement**.
-
-    Selon les paramètres du rôle, cette case à cocher peut ne pas être affichée ou être non modifiable.
-
-1. Pour spécifier une durée d’attribution spécifique, décochez la case et modifiez les champs des heures et dates de début et/ou de fin. Quand vous avez terminé, sélectionnez **Terminé**.
+1. Pour spécifier une durée d’attribution spécifique, ajoutez des zones de date et heure de début et de fin. Lorsque vous avez terminé, sélectionnez **Affecter** pour créer la nouvelle attribution de rôle.
 
     ![Paramètres des appartenances - date et heure](./media/pim-how-to-add-role-to-user/start-and-end-dates.png)
 
-1. Pour créer la nouvelle attribution de rôle, sélectionnez **Ajouter**. Une notification de l’état s’affiche.
+1. Une fois le rôle attribué, une notification d’état d’attribution s’affiche.
 
     ![Nouvelle affectation - Notification](./media/pim-how-to-add-role-to-user/assignment-notification.png)
 
@@ -129,7 +123,7 @@ Suivez ces étapes pour rendre un utilisateur éligible pour un rôle d'administ
 
 1. Maintenant que l’utilisateur est éligible pour le rôle, indiquez-lui qu’il peut l’activer en suivant les instructions contenues dans [Activer mes rôles Azure AD dans Privileged Identity Management](pim-how-to-activate-role.md).
 
-    Les administrateurs éligibles sont invités à s’inscrire au service d’authentification multifacteur (MFA) Azure lors de l’activation. Si un utilisateur ne peut pas s’inscrire pour l’authentification multifacteur (MFA) Azure ou utilise un compte Microsoft (tel que @outlook.com), vous devez le rendre permanent dans tous ses rôles.
+    Les administrateurs éligibles sont invités à s’inscrire au service d’authentification multifacteur Azure lors de l’activation. Si un utilisateur ne peut pas s’inscrire pour l’authentification multifacteur (MFA) Azure ou utilise un compte Microsoft (tel que @outlook.com), vous devez le rendre permanent dans tous ses rôles.
 
 ## <a name="make-a-role-assignment-permanent"></a>Rendre une attribution de rôle permanente
 

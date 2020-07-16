@@ -11,13 +11,13 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.custom: seo-lt-2019
-ms.date: 03/11/2020
-ms.openlocfilehash: 694f10b53d02d44d189cbe7cbe492f48ac3b5669
-ms.sourcegitcommit: d118ad4fb2b66c759b70d4d8a18e6368760da3ad
+ms.date: 06/10/2020
+ms.openlocfilehash: d339e68dcf49c74c508029fda3e7eb548ec92588
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/02/2020
-ms.locfileid: "84299772"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84770949"
 ---
 # <a name="troubleshoot-copy-activity-performance"></a>Résoudre les problèmes de performances de l’activité de copie
 
@@ -57,7 +57,7 @@ Les détails et les durées d’exécution en bas de l’affichage de l’analys
 | --------------- | ------------------------------------------------------------ |
 | File d'attente           | Temps écoulé jusqu’à ce que l’activité de copie commence sur le runtime d’intégration. |
 | Script de pré-copie | Temps écoulé entre le début de l’activité de copie sur le runtime d’intégration et la fin de l’exécution du script de pré-copie de l’activité de copie dans la banque de données réceptrice. Appliquez lorsque vous configurez le script de pré-copie pour les récepteurs de base de données : par exemple, lors de l’écriture de données dans Azure SQL Database, effectuez un nettoyage avant de copier les nouvelles données. |
-| Transférer        | Temps écoulé entre la fin de l’étape précédente et le transfert par le runtime de toutes les données de la source vers le récepteur. Les sous-étapes sous « Transfert » s’exécutent en parallèle.<br><br>- **Temps jusqu’au premier octet :** Temps écoulé entre la fin de l’étape précédente et l’heure à laquelle le runtime d'intégration reçoit le premier octet du magasin de données source. S’applique aux sources non basées sur des fichiers.<br>- **Liste des sources :** Durée d’énumération des fichiers sources ou des partitions de données. Ces derniers s’appliquent lorsque vous configurez des options de partition pour des sources de base de données, par exemple lorsque vous copiez des données à partir de bases de données comme Oracle/SAP HANA/Teradata/Netezza/etc.<br/>-**Lecture à partir de la source :** Durée de récupération des données dans le magasin de données source.<br/>- **Écriture dans le récepteur :** Durée d’écriture des données dans le magasin de données récepteur. |
+| Transférer        | Temps écoulé entre la fin de l’étape précédente et le transfert par le runtime de toutes les données de la source vers le récepteur. <br/>Notez que les sous-étapes sous le transfert s’exécutent en parallèle et que certaines opérations ne sont pas affichées actuellement, par exemple, l’analyse/la génération du format de fichier.<br><br/>- **Temps jusqu’au premier octet :** Temps écoulé entre la fin de l’étape précédente et l’heure à laquelle le runtime d'intégration reçoit le premier octet du magasin de données source. S’applique aux sources non basées sur des fichiers.<br>- **Liste des sources :** Durée d’énumération des fichiers sources ou des partitions de données. Ces derniers s’appliquent lorsque vous configurez des options de partition pour des sources de base de données, par exemple lorsque vous copiez des données à partir de bases de données comme Oracle/SAP HANA/Teradata/Netezza/etc.<br/>-**Lecture à partir de la source :** Durée de récupération des données dans le magasin de données source.<br/>- **Écriture dans le récepteur :** Durée d’écriture des données dans le magasin de données récepteur. Notez que certains connecteurs n’ont pas cette métrique à l’heure actuelle, notamment Recherche cognitive Azure, Azure Data Explorer, Stockage de tables Azure, Oracle, SQL Server, Common Data Service, Dynamics 365, Dynamics CRM, Salesforce/Salesforce Service Cloud. |
 
 ## <a name="troubleshoot-copy-activity-on-azure-ir"></a>Résoudre les problèmes liés à l’activité de copie sur Azure IR
 
@@ -70,7 +70,6 @@ Si les performances de l’activité de copie ne répondent pas à vos attentes 
 - **Le « transfert – temps jusqu’au premier octet » a connu une longue durée de travail :** cela signifie que votre requête source prend beaucoup de temps pour retourner des données. Vérifiez et optimisez la requête ou le serveur. Si vous avez besoin d’une aide supplémentaire, contactez votre équipe de magasin de données.
 
 - **Le « transfert – liste des sources » a connu une longue durée de travail :** cela signifie que l’énumération des fichiers sources ou des partitions de données de la base de données source est lente.
-
   - Lorsque vous copiez des données à partir d’une source basée sur des fichiers, si vous utilisez le **filtre de caractères génériques** sur le chemin d’accès au dossier ou le nom de fichier (`wildcardFolderPath` ou `wildcardFileName`), ou si vous utilisez le **filtre de l’heure de dernière modification du fichier** (`modifiedDatetimeStart` ou `modifiedDatetimeEnd`), notez qu’un tel filtre entraînerait une activité de copie répertoriant tous les fichiers sous le dossier spécifié vers le côté client puis appliquerait le filtre. Cette énumération de fichiers peut devenir le goulot d’étranglement, en particulier lorsque seul un petit ensemble de fichiers répond à la règle de filtre.
 
     - Vérifiez si vous pouvez [copier des fichiers en fonction du chemin d’accès de fichier ou du nom de fichier partitionné DateHeure](tutorial-incremental-copy-partitioned-file-name-copy-data-tool.md). De cette façon, le côté source n’est plus chargé.

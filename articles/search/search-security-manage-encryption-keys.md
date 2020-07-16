@@ -8,12 +8,12 @@ ms.author: natinimn
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 01/08/2020
-ms.openlocfilehash: cb17fe24339ad618229b3456ece15c206f79bdb7
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: f6bda61960efd9a5e176f8792601e315ba96bcca
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "76899953"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85553286"
 ---
 # <a name="encryption-at-rest-of-content-in-azure-cognitive-search-using-customer-managed-keys-in-azure-key-vault"></a>Chiffrement du contenu au repos dans Recherche cognitive Azure à l’aide de clés gérées par le client dans Azure Key Vault
 
@@ -26,7 +26,7 @@ Le chiffrement avec des clés gérées par le client est configuré au niveau de
 Toutes les clés ne doivent pas nécessairement se trouver dans le même Key Vault. Un service de recherche unique peut héberger plusieurs index chiffrés ou cartes de synonymes chiffrés avec leurs propres clés de chiffrement gérées par le client et stockées dans différents Key Vaults.  Vous pouvez également avoir des index et des cartes de synonymes dans le même service qui ne sont pas chiffrés à l’aide de clés gérées par le client. 
 
 > [!IMPORTANT] 
-> Cette caractéristique est disponible dans l’[API REST version 2019-05-06](https://docs.microsoft.com/rest/api/searchservice/) et le [.NET SDK version 8.0-preview](search-dotnet-sdk-migration-version-9.md). Il n’existe actuellement aucune prise en charge pour configurer des clés de chiffrement gérées par le client dans le Portail Azure. Le service Recherche doit être créé après janvier 2019 et ne peut pas être un service gratuit (partagé).
+> Cette caractéristique est disponible dans l’[API REST](https://docs.microsoft.com/rest/api/searchservice/) et le [.NET SDK version 8.0-preview](search-dotnet-sdk-migration-version-9.md). Il n’existe actuellement aucune prise en charge pour configurer des clés de chiffrement gérées par le client dans le Portail Azure. Le service Recherche doit être créé après janvier 2019 et ne peut pas être un service gratuit (partagé).
 
 ## <a name="prerequisites"></a>Prérequis
 
@@ -38,7 +38,7 @@ Les services suivants sont utilisés dans cet exemple.
 
 + [Azure PowerShell](https://docs.microsoft.com/powershell/azure/overview) ou [Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli) est utilisé pour les tâches de configuration.
 
-+ [Postman](search-get-started-postman.md), [Azure PowerShell](search-create-index-rest-api.md) et le [kit de développement logiciel (SDK) Recherche cognitive Azure](https://aka.ms/search-sdk-preview) permettent d’appeler l’API REST. Il n’existe pour l’instant aucun portail pour le chiffrement géré par le client.
++ [Postman](search-get-started-postman.md), [Azure PowerShell](search-create-index-rest-api.md) et le [.NET SDK Preview](https://aka.ms/search-sdk-preview) peuvent être utilisés pour appeler l’API REST. Il n’existe pour l’instant aucun portail pour le chiffrement géré par le client.
 
 >[!Note]
 > En raison de la nature du chiffrement avec des clés gérées par le client, Recherche cognitive Azure ne pourra pas récupérer vos données si votre clé de coffre Azure est supprimée. Pour éviter la perte de données provoquée par des suppressions accidentelles de clés de Key Vault, vous **devez** activer la suppression réversible et la protection de purge dans Key Vault avant de pouvoir l’utiliser. Pour plus d'informations, consultez [Suppression réversible d’Azure Key Vault](https://docs.microsoft.com/azure/key-vault/key-vault-ovw-soft-delete).   

@@ -3,12 +3,12 @@ title: Déployer Live Video Analytics sur un appareil IoT Edge - Azure
 description: Cet article répertorie les étapes permettant de déployer Live Video Analytics sur votre appareil IoT Edge. C’est utile si, par exemple, vous disposez d’un accès à un ordinateur local Linux et que vous avez déjà crée un compte Azure Media Services.
 ms.topic: how-to
 ms.date: 04/27/2020
-ms.openlocfilehash: db0addfbc2fc5b322c2f6dd9b51f3ace10935589
-ms.sourcegitcommit: 223cea58a527270fe60f5e2235f4146aea27af32
+ms.openlocfilehash: eaaa793bb5b84ac4ae352f242215b8d3e7d56cf1
+ms.sourcegitcommit: 0100d26b1cac3e55016724c30d59408ee052a9ab
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/01/2020
-ms.locfileid: "84260862"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86026965"
 ---
 # <a name="deploy-live-video-analytics-on-an-iot-edge-device"></a>Déployer Live Video Analytics sur un appareil IoT Edge
 
@@ -23,7 +23,7 @@ Cet article répertorie les étapes permettant de déployer Live Video Analytics
 * [Enregistrer un appareil IoT Edge](https://docs.microsoft.com/azure/iot-edge/how-to-register-device)
 * [Installer le runtime Azure IoT Edge sur des systèmes Linux Debian](https://docs.microsoft.com/azure/iot-edge/how-to-install-iot-edge-linux)
 * [Créer un compte Azure Media Services](../latest/create-account-howto.md)
-    * Utilisez l’une de ces régions : USA Est 2, USA Centre, USA Centre Nord, Japon Ouest, USA Ouest 2, USA Centre-Ouest, Canada Est, Royaume-Uni Sud, France Centre, France Sud, Suisse Nord, Suisse Ouest et Japon Ouest.
+    * Utilisez l’une de ces régions : USA Est 2, USA Centre, USA Centre Nord, Japon Est, USA Ouest 2, USA Centre-Ouest, Canada Est, Royaume-Uni Sud, France Centre, France Sud, Suisse Nord, Suisse Ouest et Japon Ouest.
     * Nous vous recommandons d’utiliser des comptes de stockage à usage général v2 (GPv2).
 
 ## <a name="configuring-azure-resources-for-using-live-video-analytics"></a>Configuration des ressources Azure pour utiliser Live Video Analytics
@@ -259,4 +259,4 @@ Testons ensuite l’exemple en appelant une méthode directe. Lisez [Méthodes d
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-[Démarrage rapide : Bien démarrer - Live Video Analytics sur IoT Edge](get-started-detect-motion-emit-events-quickstart.md)
+[Démarrage rapide : Bien démarrer – Live Video Analytics sur IoT Edge](get-started-detect-motion-emit-events-quickstart.md)

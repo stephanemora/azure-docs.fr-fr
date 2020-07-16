@@ -8,19 +8,19 @@ manager: daveba
 ms.assetid: 05f16c3e-9d23-45dc-afca-3d0fa9dbf501
 ms.service: active-directory
 ms.workload: identity
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 02/26/2020
 ms.subservice: hybrid
 ms.author: billmath
 search.appverid:
 - MET150
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c41b11ab65f5710d338ce0041579e1eb4678ec42
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 47f0dea435af56f6994b57079983a63b3a29600d
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80331367"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85358560"
 ---
 # <a name="implement-password-hash-synchronization-with-azure-ad-connect-sync"></a>Implémenter la synchronisation de hachage de mot de passe avec la synchronisation Azure AD Connect
 Cet article vous fournit les informations nécessaires pour synchroniser vos mots de passe utilisateur à partir d’une instance Active Directory (AD) locale vers une instance Azure Active Directory (Azure AD) dans le cloud.
@@ -89,14 +89,13 @@ Si un utilisateur est concerné par la synchronisation de hachage de mot de pass
 
 Vous pouvez continuer à vous connecter aux services cloud à l’aide d’un mot de passe synchronisé qui a expiré dans votre environnement local. Votre mot de passe cloud est mis à jour la prochaine fois que vous modifiez le mot de passe dans l’environnement local.
 
-##### <a name="public-preview-of-the-enforcecloudpasswordpolicyforpasswordsyncedusers-feature"></a>Préversion publique de la fonctionnalité *EnforceCloudPasswordPolicyForPasswordSyncedUsers*
+##### <a name="enforcecloudpasswordpolicyforpasswordsyncedusers"></a>EnforceCloudPasswordPolicyForPasswordSyncedUsers
 
 S’il existe des utilisateurs synchronisés qui interagissent uniquement avec des services intégrés Azure AD et doivent également respecter une stratégie d’expiration de mot de passe, vous pouvez les forcer à respecter votre stratégie d’expiration de mot de passe Azure AD en activant la fonctionnalité *EnforceCloudPasswordPolicyForPasswordSyncedUsers*.
 
 Quand *EnforceCloudPasswordPolicyForPasswordSyncedUsers* est désactivée (ce qui est le paramètre par défaut), Azure AD Connect affecte la valeur « DisablePasswordExpiration » à l’attribut PasswordPolicies. Cette action est effectuée chaque fois que le mot de passe d’un utilisateur est synchronisé, et indique à Azure AD qu’il faut ignorer la stratégie d’expiration du mot de passe cloud pour cet utilisateur. Vous pouvez vérifier la valeur de l’attribut à l’aide du module Azure AD PowerShell à l’aide de la commande suivante :
 
 `(Get-AzureADUser -objectID <User Object ID>).passwordpolicies`
-
 
 Pour activer la fonctionnalité EnforceCloudPasswordPolicyForPasswordSyncedUsers, exécutez la commande suivante en utilisant le module MSOnline PowerShell, comme illustré ci-dessous. Vous devez taper Oui pour le paramètre Activer, comme illustré ci-dessous :
 
@@ -123,10 +122,9 @@ Inconvénient : si des comptes synchronisés doivent avoir des mots de passe sa
 `Set-AzureADUser -ObjectID <User Object ID> -PasswordPolicies "DisablePasswordExpiration"`
 
 > [!NOTE]
-> Cette fonctionnalité est actuellement en préversion publique.
 > La commande PowerShell Set-MsolPasswordPolicy ne fonctionne pas sur les domaines fédérés. 
 
-#### <a name="public-preview-of-synchronizing-temporary-passwords-and-force-password-change-on-next-logon"></a>Préversion publique de la synchronisation des mots de passe temporaires et « Forcer la modification du mot de passe à la prochaine ouverture de session »
+#### <a name="synchronizing-temporary-passwords-and-force-password-change-on-next-logon"></a>Synchronisation des mots de passe temporaires et « Forcer la modification du mot de passe à la prochaine ouverture de session »
 
 Il est courant de forcer un utilisateur à modifier son mot de passe lors de sa première ouverture de session, en particulier après la réinitialisation d’un mot de passe d’administrateur.  Il s’agit généralement de définir un mot de passe « temporaire ». Vous devez pour cela sélectionner l’indicateur « L’utilisateur doit changer le mot de passe à la prochaine ouverture de session » sur un objet utilisateur dans Active Directory (AD).
   
@@ -141,9 +139,6 @@ Pour prendre en charge les mots de passe temporaires dans Azure AD pour les util
 
 > [!CAUTION]
 > Vous devez utiliser cette fonctionnalité uniquement quand la réinitialisation de mot de passe en libre-service (SSPR) et la réécriture du mot de passe sont activées sur le locataire.  Ainsi, si un utilisateur modifie son mot de passe via SSPR, il sera synchronisé avec Active Directory.
-
-> [!NOTE]
-> Cette fonctionnalité est actuellement en préversion publique.
 
 #### <a name="account-expiration"></a>Expiration du compte
 

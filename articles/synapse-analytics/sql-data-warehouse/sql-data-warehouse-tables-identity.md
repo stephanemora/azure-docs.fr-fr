@@ -6,21 +6,21 @@ author: XiaoyuMSFT
 manager: craigg
 ms.service: synapse-analytics
 ms.topic: conceptual
-ms.subservice: ''
+ms.subservice: sql-dw
 ms.date: 04/30/2019
 ms.author: xiaoyul
 ms.reviewer: igorstan
 ms.custom: seo-lt-2019, azure-synapse
-ms.openlocfilehash: e681e8ad655c31d5078b56b8f1a49cfd7c664533
-ms.sourcegitcommit: bd5fee5c56f2cbe74aa8569a1a5bce12a3b3efa6
+ms.openlocfilehash: 60f2e3f949a4f627839a07137ebaf77518db87a4
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/06/2020
-ms.locfileid: "80742636"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85213973"
 ---
 # <a name="using-identity-to-create-surrogate-keys-in-synapse-sql-pool"></a>Utiliser IDENTITY pour créer des clés de substitution dans le pool SQL Synapse
 
-Recommandations et exemples d’utilisation de la propriété IDENTITY pour créer des clés de substitution dans des tables du pool SQL Synapse.
+Dans cet article, vous trouverez des recommandations et exemples d’utilisation de la propriété IDENTITY pour créer des clés de substitution dans des tables du pool SQL Synapse.
 
 ## <a name="what-is-a-surrogate-key"></a>Qu’est-ce qu’une clé de substitution ?
 

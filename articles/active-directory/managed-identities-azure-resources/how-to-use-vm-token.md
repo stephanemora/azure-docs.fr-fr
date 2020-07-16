@@ -9,18 +9,18 @@ editor: ''
 ms.service: active-directory
 ms.subservice: msi
 ms.devlang: na
-ms.topic: conceptual
+ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 12/01/2017
 ms.author: markvi
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a58103bad3914bd0c0c6e70f8e3d2882271e1070
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 51f254bef223294661180f21019ae8c5a842015c
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80049207"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85608379"
 ---
 # <a name="how-to-use-managed-identities-for-azure-resources-on-an-azure-vm-to-acquire-an-access-token"></a>Guide pratique de l’utilisation d’identités managées pour ressources Azure sur une machine virtuelle Azure afin d’acquérir un jeton d’accès 
 
@@ -45,9 +45,9 @@ Si vous envisagez d’utiliser les exemples de Azure PowerShell dans cet article
 
 ## <a name="overview"></a>Vue d’ensemble
 
-Une application cliente peut demander un [jeton d’accès pour l’application uniquement](../develop/developer-glossary.md#access-token) des identités managées pour ressources Azure afin d’accéder à une ressource donnée. Le jeton est [basé sur le principal du service des identités managées pour ressources Azure](overview.md#how-does-the-managed-identities-for-azure-resources-work). Par conséquent, il n’est pas nécessaire que le client s’inscrive pour obtenir un jeton d’accès sous son propre principal du service. Le jeton peut être utilisé comme un jeton du porteur dans [les appels de service à service nécessitant des informations d’identification du client](../develop/v2-oauth2-client-creds-grant-flow.md).
+Une application cliente peut demander un [jeton d’accès pour l’application uniquement](../develop/developer-glossary.md#access-token) des identités managées pour ressources Azure afin d’accéder à une ressource donnée. Le jeton est [basé sur le principal du service des identités managées pour ressources Azure](overview.md#managed-identity-types). Par conséquent, il n’est pas nécessaire que le client s’inscrive pour obtenir un jeton d’accès sous son propre principal du service. Le jeton peut être utilisé comme un jeton du porteur dans [les appels de service à service nécessitant des informations d’identification du client](../develop/v2-oauth2-client-creds-grant-flow.md).
 
-|  |  |
+| Lien | Description |
 | -------------- | -------------------- |
 | [Obtenir un jeton par HTTP](#get-a-token-using-http) | Détails du protocole pour le point de terminaison de jeton d’identités managées pour ressources Azure |
 | [Obtenir un jeton à l’aide de la bibliothèque Microsoft.Azure.Services.AppAuthentication pour .NET](#get-a-token-using-the-microsoftazureservicesappauthentication-library-for-net) | Exemple d’utilisation de la bibliothèque Microsoft.Azure.Services.AppAuthentication à partir d’un client .NET
@@ -354,11 +354,11 @@ Le point de terminaison d’identités managées pour ressources Azure signale d
 
 | Code d’état | Motif de l’erreur | Procédure de gestion |
 | ----------- | ------------ | ------------- |
-| 404 Introuvable. | Le point de terminaison IMDS est en cours de mise à jour. | Réessayez avec interruption exponentielle. Consultez les conseils ci-dessous. |
+| 404 Introuvable. | Le point de terminaison IMDS est en cours de mise à jour. | Réessayer avec interruption exponentielle. Consultez les conseils ci-dessous. |
 | 429 Trop de requêtes. |  Limite IMDS atteinte. | Réessayer avec interruption exponentielle. Consultez les conseils ci-dessous. |
 | Erreur 4xx dans la requête. | Un ou plusieurs des paramètres de la requête étaient incorrects. | Ne faites pas de nouvel essai.  Examinez les détails de l’erreur pour plus d’informations.  Les erreurs 4xx sont des erreurs au moment de la conception.|
 | Erreur 5xx temporaire de service. | Le sous-système d’identités managées pour ressources Azure ou Azure Active Directory ont retourné une erreur temporaire. | Il est possible de faire une nouvelle tentative après un délai d’une seconde.  Si vous réessayez trop souvent ou trop rapidement, IMDS et/ou Azure AD peut renvoyer une erreur de limite de débit (429).|
-| délai d'expiration | Le point de terminaison IMDS est en cours de mise à jour. | Réessayez avec interruption exponentielle. Consultez les conseils ci-dessous. |
+| délai d'expiration | Le point de terminaison IMDS est en cours de mise à jour. | Réessayer avec interruption exponentielle. Consultez les conseils ci-dessous. |
 
 Si une erreur se produit, le corps de réponse HTTP correspondant contient des données JSON avec les détails de l’erreur :
 
@@ -373,15 +373,15 @@ Cette section documente les réponses possibles aux erreurs. Un état « 200 OK 
 
 | Code d’état | Error | Description de l’erreur | Solution |
 | ----------- | ----- | ----------------- | -------- |
-| 400 Demande incorrecte | invalid_resource | AADSTS50001 : L’application nommée *\<URI\>* est introuvable dans le tenant nommé *\<TENANT-ID\>* . Cela peut se produire si l’application n’a pas été installée par l’administrateur du locataire ni acceptée par un utilisateur dans le locataire. Vous avez peut-être envoyé votre requête d’authentification au locataire incorrect.\ | (Linux uniquement) |
+| 400 Demande incorrecte | invalid_resource | AADSTS50001 : L’application nommée *\<URI\>* est introuvable dans le locataire nommé *\<TENANT-ID\>* . Cela peut se produire si l’application n’a pas été installée par l’administrateur du locataire ni acceptée par un utilisateur dans le locataire. Vous avez peut-être envoyé votre requête d’authentification au locataire incorrect.\ | (Linux uniquement) |
 | 400 Demande incorrecte | bad_request_102 | En-tête de métadonnées requis non spécifié | Le champ d’en-tête de métadonnées `Metadata` est absent de votre requête, ou bien il n’est pas correctement formaté. La valeur spécifiée doit être `true`, en minuscules. Un « Exemple de requête » est disponible à la section REST précédente.|
-| 401 Non autorisé | unknown_source | *\<URI\>* de source inconnue | Vérifiez que votre URI de requête HTTP GET est correctement mise en forme. La partie `scheme:host/resource-path` doit être spécifiée comme `http://localhost:50342/oauth2/token`. Un « Exemple de requête » est disponible à la section REST précédente.|
+| 401 Non autorisé | unknown_source | Source inconnue *\<URI\>* | Vérifiez que votre URI de requête HTTP GET est correctement mise en forme. La partie `scheme:host/resource-path` doit être spécifiée comme `http://localhost:50342/oauth2/token`. Un « Exemple de requête » est disponible à la section REST précédente.|
 |           | invalid_request | Il manque un paramètre nécessaire à la requête, elle comprend une valeur de paramètre non valide, plus d’un paramètre à la fois, ou bien elle est incorrecte. |  |
 |           | unauthorized_client | Le client n’est pas autorisé à demander un jeton d’accès avec cette méthode. | Occasionné par une demande n’ayant pas utilisé de bouclage local pour appeler l’extension, ou sur une machine virtuelle dont les identités managées pour ressources Azure ne sont pas correctement configurées. Si vous avez besoin d’aide pour configurer une machine virtuelle, voir [Configurer des identités managées pour ressources Azure sur une machine virtuelle en utilisant le portail Azure](qs-configure-portal-windows-vm.md). |
 |           | access_denied | Le propriétaire de la ressource ou le serveur d’autorisation a refusé la requête. |  |
 |           | unsupported_response_type | Le serveur d’autorisation ne prend pas en charge l’obtention d’un jeton d’accès par cette méthode. |  |
 |           | invalid_scope | L’étendue demandée est incorrecte, inconnue ou non valide. |  |
-| Erreur interne 500 du serveur | unknown | Impossible de récupérer le jeton depuis Active Directory. Pour plus d’informations, consultez les journaux d’activité dans *\<Chemin d’accès de fichier\>* | Vérifiez que les identités managées pour ressources Azure ont été activées sur la machine virtuelle. Si vous avez besoin d’aide pour configurer une machine virtuelle, voir [Configurer des identités managées pour ressources Azure sur une machine virtuelle en utilisant le portail Azure](qs-configure-portal-windows-vm.md).<br><br>Vérifiez également que votre URI de requête HTTP GET est correctement mise en forme, en particulier l’URI de la ressource spécifiée dans la chaîne de requête. Un « Exemple de requête » est disponible à la section REST précédente. Pour obtenir la liste des services et leur ID de ressource respectif, consultez [Services Azure prenant en charge l'authentification Azure AD](services-support-msi.md).
+| Erreur interne 500 du serveur | unknown | Impossible de récupérer le jeton depuis Active Directory. Pour plus d’informations, consultez les journaux d’activité dans *\<file path\>* | Vérifiez que les identités managées pour ressources Azure ont été activées sur la machine virtuelle. Si vous avez besoin d’aide pour configurer une machine virtuelle, voir [Configurer des identités managées pour ressources Azure sur une machine virtuelle en utilisant le portail Azure](qs-configure-portal-windows-vm.md).<br><br>Vérifiez également que votre URI de requête HTTP GET est correctement mise en forme, en particulier l’URI de la ressource spécifiée dans la chaîne de requête. Un « Exemple de requête » est disponible à la section REST précédente. Pour obtenir la liste des services et leur ID de ressource respectif, consultez [Services Azure prenant en charge l'authentification Azure AD](services-support-msi.md).
 
 ## <a name="retry-guidance"></a>Conseils sur les nouvelles tentatives 
 

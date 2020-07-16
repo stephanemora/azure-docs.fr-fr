@@ -1,23 +1,23 @@
 ---
-title: Configurer Azure Private Link
+title: Configuration d’un point de terminaison privé (préversion)
 titleSuffix: Azure Machine Learning
 description: Utilisez Azure Private Link pour accéder en toute sécurité à votre espace de travail Azure Machine Learning à partir d’un réseau virtuel.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
-ms.topic: conceptual
+ms.topic: how-to
 ms.author: aashishb
 author: aashishb
 ms.reviewer: larryfr
 ms.date: 03/13/2020
-ms.openlocfilehash: 5428f24ea5ab780c4b51e0af37908077ddc32232
-ms.sourcegitcommit: b396c674aa8f66597fa2dd6d6ed200dd7f409915
+ms.openlocfilehash: ed3b59b9e6aecb91f4ecb9d569b989b6b2396c48
+ms.sourcegitcommit: e995f770a0182a93c4e664e60c025e5ba66d6a45
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/07/2020
-ms.locfileid: "82891368"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86134872"
 ---
-# <a name="configure-azure-private-link-for-an-azure-machine-learning-workspace-preview"></a>Configurer Azure Private Link pour un espace de travail Azure Machine Learning (préversion)
+# <a name="configure-azure-private-link-for-an-azure-machine-learning-workspace-preview"></a>Configuration d’Azure Private Link pour un espace de travail Azure Machine Learning (préversion)
 
 Dans ce document, vous allez apprendre à utiliser Azure Private Link avec votre espace de travail Azure Machine Learning. Cette capacité est actuellement disponible en version préliminaire dans les régions USA Est, USA Ouest 2 et USA Centre Sud. 
 
@@ -99,14 +99,13 @@ Pour plus d’informations, consultez [Déployer des ressources à l’aide de m
 
 ## <a name="using-a-workspace-over-a-private-endpoint"></a>Utilisation d’un espace de travail sur un point de terminaison privé
 
-Étant donné que les communications avec l’espace de travail sont autorisées uniquement à partir du réseau virtuel, tous les environnements de développement qui utilisent l’espace de travail doivent être faire partie du réseau virtuel. Par exemple, une machine virtuelle du réseau virtuel ou un ordinateur connecté au réseau virtuel à l’aide d’une passerelle VPN.
+Étant donné que les communications avec l’espace de travail sont autorisées uniquement à partir du réseau virtuel, tous les environnements de développement qui utilisent l’espace de travail doivent être faire partie du réseau virtuel. Par exemple, une machine virtuelle sur le réseau virtuel.
 
 > [!IMPORTANT]
 > Pour éviter toute interruption temporaire de la connectivité, Microsoft recommande de vider le cache DNS sur les ordinateurs qui se connectent à l’espace de travail après avoir activé Azure Private Link. 
 
 Pour plus d’informations sur Machines virtuelles Microsoft Azure, consultez la [documentation relative à Machines Virtuelles](/azure/virtual-machines/).
 
-Pour plus d’informations sur les passerelles VPN, consultez [Qu’est-ce qu’une passerelle VPN ?](/azure/vpn-gateway/vpn-gateway-about-vpngateways)
 
 ## <a name="using-azure-storage"></a>Utilisation de Stockage Azure
 

@@ -2,13 +2,13 @@
 title: Fonctions de modèle - date
 description: Décrit les fonctions à employer dans un modèle Azure Resource Manager pour utiliser les dates.
 ms.topic: conceptual
-ms.date: 04/27/2020
-ms.openlocfilehash: 0c31b26361a262a502b2a9e0fb068391846cab4b
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.date: 06/22/2020
+ms.openlocfilehash: abdc88ce15279b90f8f9dc05a38a2ae236498f12
+ms.sourcegitcommit: bcb962e74ee5302d0b9242b1ee006f769a94cfb8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82192295"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86058042"
 ---
 # <a name="date-functions-for-arm-templates"></a>Fonctions de date pour les modèles ARM
 
@@ -29,7 +29,7 @@ Ajoute une durée à une valeur de base. Le format ISO 8601 est attendu.
 |:--- |:--- |:--- |:--- |
 | base | Oui | string | Valeur datetime de début pour l’ajout. Utilisez le [format d’horodatage ISO 8601](https://en.wikipedia.org/wiki/ISO_8601). |
 | duration | Oui | string | Valeur de temps à ajouter à la base. Il peut s’agir d’une valeur négative. Utilisez le [format de durée ISO 8601](https://en.wikipedia.org/wiki/ISO_8601#Durations). |
-| format | Non  | string | Format de sortie pour le résultat de date et d’heure. S’il n’est pas fourni, le format de la valeur de base est utilisé. Utilisez des [chaînes de format standard](https://docs.microsoft.com/dotnet/standard/base-types/standard-date-and-time-format-strings) ou des [chaînes de format personnalisé](https://docs.microsoft.com/dotnet/standard/base-types/custom-date-and-time-format-strings). |
+| format | Non | string | Format de sortie pour le résultat de date et d’heure. S’il n’est pas fourni, le format de la valeur de base est utilisé. Utilisez des [chaînes de format standard](/dotnet/standard/base-types/standard-date-and-time-format-strings) ou des [chaînes de format personnalisé](/dotnet/standard/base-types/custom-date-and-time-format-strings). |
 
 ### <a name="return-value"></a>Valeur retournée
 
@@ -144,13 +144,13 @@ Retourne la valeur de date/heure (UTC) actuelle au format spécifié. Si aucun f
 
 | Paramètre | Obligatoire | Type | Description |
 |:--- |:--- |:--- |:--- |
-| format |Non  |string |Valeur encodée de l’URI à convertir en une chaîne. Utilisez des [chaînes de format standard](https://docs.microsoft.com/dotnet/standard/base-types/standard-date-and-time-format-strings) ou des [chaînes de format personnalisé](https://docs.microsoft.com/dotnet/standard/base-types/custom-date-and-time-format-strings). |
+| format |Non |string |Valeur encodée de l’URI à convertir en une chaîne. Utilisez des [chaînes de format standard](/dotnet/standard/base-types/standard-date-and-time-format-strings) ou des [chaînes de format personnalisé](/dotnet/standard/base-types/custom-date-and-time-format-strings). |
 
-### <a name="remarks"></a>Notes 
+### <a name="remarks"></a>Notes
 
 Vous pouvez uniquement utiliser cette fonction dans une expression pour la valeur par défaut d’un paramètre. Son utilisation partout ailleurs dans un modèle retourne une erreur. La fonction n’est pas autorisée dans d’autres parties du modèle, car elle retourne une valeur différente chaque fois qu’elle est appelée. Le déploiement du même modèle avec les mêmes paramètres ne produit pas forcément les mêmes résultats.
 
-Si vous choisissez l’[option de redéployer un déploiement précédent réussi](rollback-on-error.md) et que ce déploiement inclut un paramètre qui utilise utcNow, le paramètre n’est pas réévalué. Au lieu de cela, la valeur du paramètre du déploiement précédent est automatiquement réutilisée dans le déploiement de la restauration.
+Si vous choisissez l’[option de restauration en cas d’erreur](rollback-on-error.md) d’un déploiement antérieur ayant abouti et que celui-ci comprend un paramètre qui utilise utcNow, le paramètre n’est pas réévalué. Au lieu de cela, la valeur du paramètre du déploiement précédent est automatiquement réutilisée dans le déploiement de la restauration.
 
 Soyez prudent quand vous redéployez un modèle basé sur la fonction utcNow pour une valeur par défaut. Si vous effectuez un tel déploiement sans fournir de valeur pour le paramètre, la fonction est réévaluée. Si vous souhaitez mettre à jour une ressource existante au lieu d’en créer une autre, passez la valeur du paramètre qui était utilisée dans le déploiement précédent.
 
@@ -164,7 +164,7 @@ L’exemple de modèle suivant montre des formats différents pour la valeur de 
 
 ```json
 {
-    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+    "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
     "contentVersion": "1.0.0.0",
     "parameters": {
         "utcValue": {

@@ -4,18 +4,18 @@ description: Découvrez comment installer et utiliser l’extension CLI d’Azur
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
-ms.topic: conceptual
+ms.topic: reference
 ms.reviewer: jmartens
 ms.author: jordane
 author: jpe316
-ms.date: 03/05/2020
+ms.date: 06/22/2020
 ms.custom: seodec18
-ms.openlocfilehash: d401522ffc45e2e7ea20de70a59ed967dd7623ab
-ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
+ms.openlocfilehash: 5a532ec11cdcd97bd1f72c40f603bce7cc4b12c1
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83659795"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85611762"
 ---
 # <a name="install--use-the-cli-extension-for-azure-machine-learning"></a>Installer et utiliser l’extension CLI pour Azure Machine Learning
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -158,6 +158,49 @@ Les commandes suivantes montrent comment utiliser l'interface de ligne de comman
 
     Pour plus d’informations, consultez [aaz ml computetarget create amlcompute](https://docs.microsoft.com/cli/azure/ext/azure-cli-ml/ml/computetarget/create?view=azure-cli-latest#ext-azure-cli-ml-az-ml-computetarget-create-amlcompute).
 
++ <a id="computeinstance"></a> Gérer des instances de calcul.  Dans tous les exemples ci-dessous, le nom de l’instance de calcul est **cpu**
+
+    + Créer un nouveau computeinstance.
+
+        ```azurecli-interactive
+        az ml computetarget create computeinstance  -n cpu -s "STANDARD_D3_V2" -v
+        ```
+    
+        Pour plus d’informations, consultez [az ml computetarget create computeinstance](https://docs.microsoft.com/cli/azure/ext/azure-cli-ml/ml/computetarget/create?view=azure-cli-latest#ext-azure-cli-ml-az-ml-computetarget-create-computeinstance).
+
+    + Arrêter un computeinstance.
+    
+        ```azurecli-interactive
+        az ml computetarget stop computeinstance -n cpu -v
+        ```
+    
+        Pour plus d’informations, consultez [az ml computetarget stop computeinstance](https://docs.microsoft.com/cli/azure/ext/azure-cli-ml/ml/computetarget/computeinstance?view=azure-cli-latest#ext-azure-cli-ml-az-ml-computetarget-computeinstance-stop).
+    
+    + Démarrer un computeinstance.
+    
+        ```azurecli-interactive
+        az ml computetarget start computeinstance -n cpu -v
+       ```
+    
+        Pour plus d’informations, consultez [az ml computetarget start computeinstance](https://docs.microsoft.com/cli/azure/ext/azure-cli-ml/ml/computetarget/computeinstance?view=azure-cli-latest#ext-azure-cli-ml-az-ml-computetarget-computeinstance-start).
+    
+    + Redémarrer un computeinstance.
+    
+        ```azurecli-interactive
+        az ml computetarget restart computeinstance -n cpu -v
+       ```
+    
+        Pour plus d’informations, consultez [az ml computetarget restart computeinstance](https://docs.microsoft.com/cli/azure/ext/azure-cli-ml/ml/computetarget/computeinstance?view=azure-cli-latest#ext-azure-cli-ml-az-ml-computetarget-computeinstance-restart).
+    
+    + Supprimer un computeinstance.
+    
+        ```azurecli-interactive
+        az ml computetarget delete -n cpu -v
+       ```
+    
+        Pour plus d’informations, consultez [az ml computetarget delete computeinstance](https://docs.microsoft.com/cli/azure/ext/azure-cli-ml/ml/computetarget?view=azure-cli-latest#ext-azure-cli-ml-az-ml-computetarget-delete).
+
+
 ## <a name="run-experiments"></a><a id="experiments"></a>Exécuter des expériences
 
 * Exécutez votre expérimentation. Lorsque vous utilisez cette commande, spécifiez le nom du fichier runconfig (le texte avant \*.runconfig si vous regardez le système de fichiers) avec le paramètre - c.
@@ -195,23 +238,7 @@ Les commandes suivantes montrent comment utiliser des jeux de données dans Azur
 
     Pour obtenir des informations sur le format du fichier JSON utilisé pour définir le jeu de données, exécutez la commande `az ml dataset register --show-template`.
 
-    Pour plus d’informations, consultez [az ml dataset register](https://docs.microsoft.com/cli/azure/ext/azure-cli-ml/ml/dataset?view=azure-cli-latest#ext-azure-cli-ml-az-ml-dataset-archive).
-
-+ Archiver un jeu de données actif ou déprécié :
-
-    ```azurecli-interactive
-    az ml dataset archive -n dataset-name
-    ```
-
-    Pour plus d’informations, consultez [az ml dataset archive](https://docs.microsoft.com/cli/azure/ext/azure-cli-ml/ml/dataset?view=azure-cli-latest#ext-azure-cli-ml-az-ml-dataset-archive).
-
-+ Déprécier un jeu de données :
-
-    ```azurecli-interactive
-    az ml dataset deprecate -d replacement-dataset-id -n dataset-to-deprecate
-    ```
-
-    Pour plus d’informations, consultez [az ml dataset deprecate](https://docs.microsoft.com/cli/azure/ext/azure-cli-ml/ml/dataset?view=azure-cli-latest#ext-azure-cli-ml-az-ml-dataset-archive).
+    Pour plus d’informations, consultez [az ml dataset register](https://docs.microsoft.com/cli/azure/ext/azure-cli-ml/ml/dataset?view=azure-cli-latest#ext-azure-cli-ml-az-ml-dataset-register).
 
 + Lister tous les jeux de données dans un espace de travail :
 
@@ -219,7 +246,7 @@ Les commandes suivantes montrent comment utiliser des jeux de données dans Azur
     az ml dataset list
     ```
 
-    Pour plus d’informations, consultez [az ml dataset list](https://docs.microsoft.com/cli/azure/ext/azure-cli-ml/ml/dataset?view=azure-cli-latest#ext-azure-cli-ml-az-ml-dataset-archive).
+    Pour plus d’informations, consultez [az ml dataset list](https://docs.microsoft.com/cli/azure/ext/azure-cli-ml/ml/dataset?view=azure-cli-latest#ext-azure-cli-ml-az-ml-dataset-list).
 
 + Obtenir les détails d’un jeu de données :
 
@@ -227,15 +254,7 @@ Les commandes suivantes montrent comment utiliser des jeux de données dans Azur
     az ml dataset show -n dataset-name
     ```
 
-    Pour plus d’informations, consultez [az ml dataset show](https://docs.microsoft.com/cli/azure/ext/azure-cli-ml/ml/dataset?view=azure-cli-latest#ext-azure-cli-ml-az-ml-dataset-archive).
-
-+ Réactiver un jeu de données archivé ou déprécié :
-
-    ```azurecli-interactive
-    az ml dataset reactivate -n dataset-name
-    ```
-
-    Pour plus d’informations, consultez [az ml dataset reactivate](https://docs.microsoft.com/cli/azure/ext/azure-cli-ml/ml/dataset?view=azure-cli-latest#ext-azure-cli-ml-az-ml-dataset-archive).
+    Pour plus d’informations, consultez [az ml dataset show](https://docs.microsoft.com/cli/azure/ext/azure-cli-ml/ml/dataset?view=azure-cli-latest#ext-azure-cli-ml-az-ml-dataset-show).
 
 + Désinscrire un jeu de données :
 

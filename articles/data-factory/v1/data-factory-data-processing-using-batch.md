@@ -11,12 +11,12 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.date: 01/10/2018
-ms.openlocfilehash: c6fb590cbb57e8798bf65d0aa30585ae3db3691d
-ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
+ms.openlocfilehash: ab4e2f480ab0ef2deea3909d56f4fe1da17bbd07
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "84021532"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85321403"
 ---
 # <a name="process-large-scale-datasets-by-using-data-factory-and-batch"></a>Traiter des jeux de données volumineux à l’aide de Data Factory et de Batch
 > [!NOTE]
@@ -925,7 +925,7 @@ Le débogage consiste à utiliser quelques techniques de base.
    >
 1. L’activité personnalisée n’utilise pas le ficher **app.config** de votre package. Par conséquent, si votre code lit des chaînes de connexion dans le fichier de configuration, il ne fonctionne pas lors de l’exécution. La meilleure pratique lorsque vous utilisez Azure Batch consiste à stocker les secrets dans Azure Key Vault. Ensuite, utilisez un principal de service basé sur le certificat pour protéger le coffre de clés et distribuez le certificat au pool Azure Batch. L’activité personnalisée .NET peut alors accéder aux secrets du coffre de clés lors de l’exécution. Cette solution générique peut s’adapter à n’importe quel type de clé secrète, et pas seulement à une chaîne de connexion.
 
-    Il existe une solution plus facile, mais elle n’est pas recommandée. Vous pouvez créer un service lié à une base de données SQL avec des paramètres de chaîne de connexion. Ensuite, vous pouvez créer un jeu de données qui utilise le service lié et chaîner le jeu de données comme un jeu de données d’entrée factice à l’activité .NET personnalisée. Vous pouvez ensuite accéder à la chaîne de connexion du service lié dans le code de l’activité personnalisée. Cela devrait fonctionner correctement lors de l’exécution.  
+    Il existe une solution plus facile, mais elle n’est pas recommandée. Vous pouvez créer un service lié à SQL Database avec des paramètres de chaîne de connexion. Ensuite, vous pouvez créer un jeu de données qui utilise le service lié et chaîner le jeu de données comme un jeu de données d’entrée factice à l’activité .NET personnalisée. Vous pouvez ensuite accéder à la chaîne de connexion du service lié dans le code de l’activité personnalisée. Cela devrait fonctionner correctement lors de l’exécution.  
 
 #### <a name="extend-the-sample"></a>Étendre l’exemple
 Vous pouvez étendre cet exemple pour en savoir plus sur les fonctionnalités Azure Data Factory et Azure Batch. Par exemple, pour traiter des tranches dans une autre plage de temps, procédez comme suit :

@@ -10,12 +10,12 @@ ms.workload: identity
 ms.topic: conceptual
 ms.date: 05/26/2020
 ms.author: iainfou
-ms.openlocfilehash: 29d7772ef688134e8fc9009ec32cffacc3f23ca7
-ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
+ms.openlocfilehash: 837ca3afaf014c41fded09fa8342eed1c13e5dcf
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "84014449"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84734926"
 ---
 # <a name="benefits-of-migration-from-the-classic-to-resource-manager-deployment-model-in-azure-active-directory-domain-services"></a>Avantages de la migration du modèle de déploiement Classic vers le modèle de déploiement Resource Manager dans Azure Active Directory Domain Services
 
@@ -30,7 +30,7 @@ Cet article décrit les avantages de la migration. Pour commencer, consultez [Mi
 
 ## <a name="migration-benefits"></a>Avantages de la migration
 
-Le processus de migration permet à une instance Azure AD DS existante qui utilise le modèle de déploiement Classic de passer au modèle de déploiement Resource Manager. Lorsque vous migrez un domaine managé Azure AD DS du modèle de déploiement Classic vers le modèle Resource Manager, vous n'êtes pas obligé de rattacher les machines au domaine managé, ou de supprimer l'instance Azure AD DS et d'en créer une à partir de zéro. Les machines virtuelles restent jointes au domaine managé Azure AD DS à la fin du processus de migration.
+Le processus de migration permet à un domaine managé existant qui utilise le modèle de déploiement Classic de passer au modèle de déploiement Resource Manager. Lorsque vous migrez un domaine managé du modèle de déploiement Classic vers le modèle Resource Manager, vous n'êtes pas obligé de rattacher les machines au domaine managé, ou de supprimer le domaine managé et d'en créer un à partir de zéro. Les machines virtuelles restent jointes au domaine managé à la fin du processus de migration.
 
 À l'issue de la migration, Azure AD DS fournit de nombreuses fonctionnalités qui ne sont disponibles que pour les domaines utilisant le modèle de déploiement Resource Manager, par exemple :
 
@@ -46,7 +46,7 @@ Le processus de migration permet à une instance Azure AD DS existante qui utili
 * Le support a accès à plus de données de télémétrie, ce qui lui permet de résoudre les problèmes plus efficacement
 * Chiffrement au repos à l'aide de [disques managés Azure][managed-disks] pour les données des contrôleurs de domaines managés
 
-Les domaines managés Azure AD DS qui utilisent un modèle de déploiement Resource Manager vous permettent de rester à jour en profitant des fonctionnalités les plus récentes. Les nouvelles fonctionnalités ne sont pas disponibles pour les domaines managés Azure AD DS qui utilisent le modèle de déploiement Classic.
+Les domaines managés qui utilisent un modèle de déploiement Resource Manager vous permettent de rester à jour en profitant des fonctionnalités les plus récentes. Les nouvelles fonctionnalités ne sont pas disponibles pour les domaines managés qui utilisent le modèle de déploiement Classic.
 
 ## <a name="next-steps"></a>Étapes suivantes
 

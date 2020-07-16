@@ -2,14 +2,14 @@
 title: Configurer les nœuds de transaction Azure Blockchain Service
 description: Configuration des nœuds de transaction Azure Blockchain Service
 ms.date: 11/20/2019
-ms.topic: article
+ms.topic: how-to
 ms.reviewer: janders
-ms.openlocfilehash: 8fa18496d0c1aa59beb55569e731967d5ebea427
-ms.sourcegitcommit: 2d7910337e66bbf4bd8ad47390c625f13551510b
+ms.openlocfilehash: 90836ad94410dfec5caa32275362f1407c9f5b1a
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/08/2020
-ms.locfileid: "80876927"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85212562"
 ---
 # <a name="configure-azure-blockchain-service-transaction-nodes"></a>Configurer les nœuds de transaction Azure Blockchain Service
 

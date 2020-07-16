@@ -5,12 +5,13 @@ ms.topic: conceptual
 author: lzchen
 ms.author: lechen
 ms.date: 10/15/2019
-ms.openlocfilehash: 0396bd8d150c6145a39f36e7be9e6e2dcacef2c4
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.custom: tracking-python
+ms.openlocfilehash: c9d69c0f39d9cad52dc86c3ab33d202c88131ab0
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "77669945"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84753208"
 ---
 # <a name="track-incoming-requests-with-opencensus-python"></a>Suivre les requêtes entrantes avec OpenCensus Python
 
@@ -32,7 +33,7 @@ Commencez par instrumenter votre application Python avec le dernier [kit SDK Ope
     )
     ```
 
-3. Vérifiez qu’AzureExporter est correctement configuré dans votre fichier `settings.py` sous `OPENCENSUS`.
+3. Vérifiez qu’AzureExporter est correctement configuré dans votre fichier `settings.py` sous `OPENCENSUS`. Pour les requêtes provenant d’URL que vous ne souhaitez pas suivre, ajoutez-les à `BLACKLIST_PATHS`.
 
     ```python
     OPENCENSUS = {
@@ -41,20 +42,7 @@ Commencez par instrumenter votre application Python avec le dernier [kit SDK Ope
             'EXPORTER': '''opencensus.ext.azure.trace_exporter.AzureExporter(
                 connection_string="InstrumentationKey=<your-ikey-here>"
             )''',
-        }
-    }
-    ```
-
-4. Vous pouvez également ajouter des URL à `settings.py` sous `BLACKLIST_PATHS` pour les requêtes dont vous ne souhaitez pas effectuer le suivi.
-
-    ```python
-    OPENCENSUS = {
-        'TRACE': {
-            'SAMPLER': 'opencensus.trace.samplers.ProbabilitySampler(rate=0.5)',
-            'EXPORTER': '''opencensus.ext.azure.trace_exporter.AzureExporter(
-                connection_string="InstrumentationKey=<your-ikey-here>",
-            )''',
-            'BLACKLIST_PATHS': ['https://example.com'],  <--- These sites will not be traced if a request is sent from it.
+            'BLACKLIST_PATHS': ['https://example.com'],  <--- These sites will not be traced if a request is sent to it.
         }
     }
     ```
@@ -86,7 +74,7 @@ Commencez par instrumenter votre application Python avec le dernier [kit SDK Ope
     
     ```
 
-2. Vous pouvez configurer votre intergiciel `flask` directement dans le code. Pour les requêtes provenant d’URL que vous ne souhaitez pas suivre, ajoutez-les à `BLACKLIST_PATHS`.
+2. Vous pouvez aussi configurer votre application `flask` via `app.config`. Pour les requêtes provenant d’URL que vous ne souhaitez pas suivre, ajoutez-les à `BLACKLIST_PATHS`.
 
     ```python
     app.config['OPENCENSUS'] = {

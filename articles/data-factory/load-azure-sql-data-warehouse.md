@@ -10,13 +10,13 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.custom: seo-lt-2019
-ms.date: 05/29/2020
-ms.openlocfilehash: 2f3932f3374367e260685ae5145da8858384c3a2
-ms.sourcegitcommit: 1f48ad3c83467a6ffac4e23093ef288fea592eb5
+ms.date: 06/08/2020
+ms.openlocfilehash: 8891c65707822abeb2bcca52280d9b56dc725e4f
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/29/2020
-ms.locfileid: "84194765"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85251992"
 ---
 # <a name="load-data-into-azure-synapse-analytics-by-using-azure-data-factory"></a>Charger des données dans Azure Synapse Analytics à l’aide d’Azure Data Factory
 
@@ -42,7 +42,7 @@ Cet article explique comment utiliser l’outil de copie de données Data Factor
 
 * Abonnement Azure : Si vous n’avez pas d’abonnement Azure, créez un [compte gratuit](https://azure.microsoft.com/free/) avant de commencer.
 * Azure Synapse Analytics : l'entrepôt de données conserve les données copiées à partir de SQL Database. Si vous ne disposez pas d’Azure Synapse Analytics, consultez les instructions dans [Créer une instance Azure Synapse Analytics](../sql-data-warehouse/sql-data-warehouse-get-started-tutorial.md).
-* Azure SQL Database : ce tutoriel copie les données à partir d’une base de données SQL avec l’exemple de données Adventure Works LT. Vous pouvez créer une base de données SQL en suivant les instructions dans [Création d’une base de données Azure SQL](../azure-sql/database/single-database-create-quickstart.md).
+* Azure SQL Database : ce tutoriel copie les données de l’échantillon de jeu de données Adventure Works LT à Azure SQL Database. Vous pouvez créer cet échantillon de base de données dans SQL Database en suivant les instructions données dans [Création d’un échantillon de base de données dans Azure SQL Database](../azure-sql/database/single-database-create-quickstart.md).
 * Compte Azure Storage : Stockage Azure est utilisé comme objet blob _intermédiaire_ dans l’opération de copie en bloc. Si vous ne possédez pas de compte de stockage Azure, consultez les instructions dans [Créer un compte de stockage](../storage/common/storage-account-create.md).
 
 ## <a name="create-a-data-factory"></a>Créer une fabrique de données
@@ -136,11 +136,13 @@ Cet article explique comment utiliser l’outil de copie de données Data Factor
 1. Dans la page **Résumé**, vérifiez les paramètres, puis cliquez sur **Suivant**.
 
     ![Page de résumé](./media/load-azure-sql-data-warehouse/summary-page.png)
-1. Dans la page **Déploiement**, sélectionnez **Surveiller** pour surveiller le pipeline (tâche).
 
-1. Notez que l’onglet **Surveiller** sur la gauche est sélectionné automatiquement. Lorsque l’exécution du pipeline s’effectue correctement, sélectionnez le lien **CopyFromSQLToSQLDW** dans la colonne **NOM DU PIPELINE** pour afficher les détails de l’exécution d'activité et réexécuter le pipeline.
+1. Sur la page **Déploiement**, sélectionnez **Surveiller** pour surveiller le pipeline (tâche). 
+ 
+1. Notez que l’onglet **Surveiller** sur la gauche est sélectionné automatiquement. Lorsque l’exécution du pipeline s’effectue correctement, sélectionnez le lien **CopyFromSQLToSQLDW** dans la colonne **NOM DU PIPELINE** pour afficher les détails de l’exécution d'activité ou réexécuter le pipeline.
 
     [![Superviser les exécutions de pipelines](./media/load-azure-sql-data-warehouse/pipeline-monitoring.png)](./media/load-azure-sql-data-warehouse/pipeline-monitoring.png#lightbox)
+
 1. Pour revenir à l’affichage des exécutions du pipeline, sélectionnez le lien **Toutes les exécutions de pipelines** affiché en haut de la fenêtre. Sélectionnez **Actualiser** pour actualiser la liste.
 
     ![Surveiller des exécutions d’activités](./media/load-azure-sql-data-warehouse/activity-monitoring.png)

@@ -1,14 +1,14 @@
 ---
 title: Comprendre le fonctionnement des effets
 description: Les définitions Azure Policy ont différents effets qui déterminent la manière dont la conformité est gérée et rapportée.
-ms.date: 05/20/2020
+ms.date: 06/15/2020
 ms.topic: conceptual
-ms.openlocfilehash: 223acb523b8a7e4bc14d894c0eb6781d147b8923
-ms.sourcegitcommit: 69156ae3c1e22cc570dda7f7234145c8226cc162
+ms.openlocfilehash: 54c2a687c6386c075ef5802826bc60b87b4d3ee4
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/03/2020
-ms.locfileid: "84308878"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84791416"
 ---
 # <a name="understand-azure-policy-effects"></a>Comprendre les effets d’Azure Policy
 
@@ -22,22 +22,26 @@ Une définition de stratégie prend en charge ces effets :
 - [Deny](#deny)
 - [DeployIfNotExists](#deployifnotexists)
 - [Désactivé](#disabled)
-- [EnforceOPAConstraint](#enforceopaconstraint) (préversion)
-- [EnforceRegoPolicy](#enforceregopolicy) (préversion)
 - [Modify](#modify)
+
+Les effets suivants sont _dépréciés_ :
+
+- [EnforceOPAConstraint](#enforceopaconstraint)
+- [EnforceRegoPolicy](#enforceregopolicy)
+
+> [!IMPORTANT]
+> À la place des effets **EnforceOPAConstraint** ou **EnforceRegoPolicy**, utilisez _audit_ et _deny_ avec le mode Fournisseur de ressources `Microsoft.Kubernetes.Data`. Les définitions de stratégie intégrées ont été mises à jour. Quand des attributions de stratégies existantes de ces définitions de stratégie intégrées sont modifiées, le paramètre _effect_ doit être remplacé par une valeur de la liste _allowedValues_ mise à jour.
 
 ## <a name="order-of-evaluation"></a>Ordre d’évaluation
 
-Les requêtes pour créer ou mettre à jour une ressource via Azure Resource Manager sont évaluées en premier par Azure Policy. Azure Policy répertorie toutes les affectations qui s’appliquent à la ressource, puis évalue la ressource en fonction de chaque définition. Azure Policy traite plusieurs effets avant de transmettre la requête au fournisseur de ressources approprié. Cela empêche un fournisseur de ressources d’effectuer un traitement inutile de la ressource lorsque celle-ci ne satisfait pas aux contrôles de gouvernance d’Azure Policy.
+Les demandes de création ou de mise à jour d’une ressource sont évaluées en premier par Azure Policy. Azure Policy répertorie toutes les affectations qui s’appliquent à la ressource, puis évalue la ressource en fonction de chaque définition. Pour un [mode Fournisseur de ressources](./definition-structure.md#resource-manager-modes), Azure Policy traite plusieurs des effets avant de transmettre la demande au fournisseur de ressources approprié. Cet ordre empêche un fournisseur de ressources d’effectuer un traitement inutile d’une ressource quand elle ne satisfait pas aux contrôles de gouvernance d’Azure Policy. Avec un [mode Fournisseur de ressources](./definition-structure.md#resource-provider-modes), le fournisseur de ressources gère l’évaluation et le résultat, et renvoie les résultats à Azure Policy.
 
 - **Désactivé** est vérifié en premier pour déterminer si la règle de stratégie doit être évaluée.
-- **Append** et **Modify** sont ensuite évalués. Puisque l’un comme l’autre peuvent modifier la requête, une modification peut empêcher le déclenchement d’un effet Audit ou Deny.
+- **Append** et **Modify** sont ensuite évalués. Puisque l’un comme l’autre peuvent modifier la requête, une modification peut empêcher le déclenchement d’un effet Audit ou Deny. Ces effets sont disponibles uniquement avec un mode Gestionnaire des ressources.
 - **Deny** est ensuite évalué. L’évaluation de Deny avant Audit empêche la double journalisation d’une ressource indésirable.
-- **Audit** est alors évalué avant que la requête ne soit envoyée au fournisseur de ressources.
+- L’**audit** est évalué en dernier.
 
-Une fois que le fournisseur de ressources a retourné un code de réussite, **AuditIfNotExists** et **DeployIfNotExists** déterminent si une journalisation de conformité ou une action supplémentaire est requise.
-
-Il n’existe pas actuellement d’ordre d’évaluation pour les effets **EnforceOPAConstraint** ou **EnforceRegoPolicy**.
+Une fois que le fournisseur de ressources a retourné un code de réussite sur une demande en mode Gestionnaire des ressources, **AuditIfNotExists** et **DeployIfNotExists** effectuent une évaluation pour déterminer si une journalisation ou une action de conformité supplémentaire est nécessaire.
 
 ## <a name="append"></a>Ajouter
 
@@ -73,7 +77,7 @@ Exemple 1 : paire **champ/valeur** unique utilisant un [alias](definition-struct
 }
 ```
 
-Exemple 2 : paire **champ/valeur** unique utilisant un [alias](definition-structure.md#aliases) **\[\*\]** avec un tableau **value** afin de définir des règles IP sur un compte de stockage. En utilisant l’alias **\[\*\]** , l’effet ajoute la **value** à un tableau potentiellement préexistant. Si le tableau n’existe pas déjà, il est créé.
+Exemple 2 : paire **champ/valeur** unique utilisant un [alias](definition-structure.md#aliases) **\[\*\]** avec un tableau **value** afin de définir des règles IP sur un compte de stockage. En utilisant l’alias **\[\*\]** , l’effet ajoute la **value** à un tableau potentiellement préexistant. Si le tableau n’existe pas encore, il est créé.
 
 ```json
 "then": {
@@ -88,24 +92,30 @@ Exemple 2 : paire **champ/valeur** unique utilisant un [alias](definition-struct
 }
 ```
 
-
-
-
 ## <a name="audit"></a>Audit
 
 Audit permet de créer un événement d’avertissement dans le journal d’activité lors de l’évaluation d’une ressource non conforme, mais il n’arrête pas la requête.
 
 ### <a name="audit-evaluation"></a>Évaluation Audit
 
-Audit est le dernier effet vérifié par Azure Policy pendant la création ou la mise à jour d’une ressource. Azure Policy envoie ensuite la ressource au fournisseur de ressources. Audit fonctionne de la même façon pour une requête de ressource et un cycle d’évaluation. Azure Policy ajoute une opération `Microsoft.Authorization/policies/audit/action` dans le journal d’activité et marque la ressource comme non conforme.
+Audit est le dernier effet vérifié par Azure Policy pendant la création ou la mise à jour d’une ressource. Pour un mode Gestionnaire des ressources, Azure Policy envoie ensuite la ressource au fournisseur de ressources. Audit fonctionne de la même façon pour une requête de ressource et un cycle d’évaluation. Azure Policy ajoute une opération `Microsoft.Authorization/policies/audit/action` dans le journal d’activité et marque la ressource comme non conforme.
 
 ### <a name="audit-properties"></a>Propriétés d’Audit
 
-L’effet Audit n’a pas d’autres propriétés utilisables dans la condition **then** de la définition de stratégie.
+Pour un mode Gestionnaire des ressources, l’effet audit n’a pas d’autres propriétés utilisables dans la condition **then** de la définition de stratégie.
+
+Pour le mode Fournisseur de ressources `Microsoft.Kubernetes.Data`, l’effet audit contient les sous-propriétés de **details** supplémentaires suivantes.
+
+- **constraintTemplate** (obligatoire)
+  - Modèle de contrainte CustomResourceDefinition (CRD) qui définit de nouvelles contraintes. Le modèle définit la logique Rego, le schéma de contrainte et les paramètres de contrainte transmis via des objets **values** (valeurs) d’Azure Policy.
+- **constraint** (obligatoire)
+  - Implémentation CRD du modèle de contrainte. Utilise des paramètres transmis via des **valeurs** telles que `{{ .Values.<valuename> }}`. Dans l’exemple 2 ci-dessous, ces valeurs sont `{{ .Values.excludedNamespaces }}` et `{{ .Values.allowedContainerImagesRegex }}`.
+- **values** (facultatif)
+  - Définit des paramètres et valeurs à transmettre à la contrainte. Chaque valeur doit exister dans le modèle de contrainte CRD.
 
 ### <a name="audit-example"></a>Exemple Audit
 
-Exemple : utilisation de l’effet Audit.
+Exemple 1 : Utilisation de l’effet audit pour les modes Gestionnaire des ressources.
 
 ```json
 "then": {
@@ -113,9 +123,25 @@ Exemple : utilisation de l’effet Audit.
 }
 ```
 
+Exemple 2 : Utilisation de l’effet audit pour le mode Fournisseur de ressources `Microsoft.Kubernetes.Data`. Les informations supplémentaires dans **details** définissent le modèle de contrainte et CRD à utiliser dans Kubernetes pour limiter les images de conteneur autorisées.
+
+```json
+"then": {
+    "effect": "audit",
+    "details": {
+        "constraintTemplate": "https://raw.githubusercontent.com/Azure/azure-policy/master/built-in-references/Kubernetes/container-allowed-images/template.yaml",
+        "constraint": "https://raw.githubusercontent.com/Azure/azure-policy/master/built-in-references/Kubernetes/container-allowed-images/constraint.yaml",
+        "values": {
+            "allowedContainerImagesRegex": "[parameters('allowedContainerImagesRegex')]",
+            "excludedNamespaces": "[parameters('excludedNamespaces')]"
+        }
+    }
+}
+```
+
 ## <a name="auditifnotexists"></a>AuditIfNotExists
 
-AuditIfNotExists active l’audit sur des ressources qui satisfont à la condition **if**, mais dont les composants ne sont pas spécifiés dans la propriété **details** de la condition **then**.
+AuditIfNotExists active l’audit de ressources _liées_ à la ressource qui correspond à la condition **if**, mais dont les propriétés ne sont pas spécifiées dans les détails (**details**) de la condition **then**.
 
 ### <a name="auditifnotexists-evaluation"></a>Évaluation AuditIfNotExists
 
@@ -125,7 +151,7 @@ AuditIfNotExists s’exécute après qu’un fournisseur de ressources a traité
 
 La propriété **details** des effets AuditIfNotExists possède toutes les sous-propriétés qui définissent les ressources connexes testées.
 
-- **Type** [obligatoire]
+- **Type** (obligatoire)
   - Spécifie le type de la ressource connexe à évaluer.
   - Si **details.type** est un type de ressource sous la ressource de condition **if**, la stratégie envoie des requêtes pour les ressources de ce **type** dans l’étendue de la ressource évaluée. Sinon, la stratégie envoie des requêtes dans le même groupe de ressources que la ressource évaluée.
 - **Name** (facultatif)
@@ -185,17 +211,26 @@ Deny empêche l’exécution d’une requête de ressource qui ne correspond pas
 
 ### <a name="deny-evaluation"></a>Évaluation Deny
 
-Lors de la création ou de la mise à jour d’une ressource correspondante, Deny empêche l’envoi de la requête au fournisseur de ressources. La requête renvoie une erreur `403 (Forbidden)`. Dans le portail, l’erreur 403 (Interdit) peut être considérée comme l’état du déploiement qui a été empêché par l’affectation de stratégie.
+Lors de la création ou de la mise à jour d’une ressource correspondante dans un mode Gestionnaire des ressources, deny empêche l’envoi de la demande au fournisseur de ressources. La requête renvoie une erreur `403 (Forbidden)`. Dans le portail, l’erreur 403 (Interdit) peut être considérée comme l’état du déploiement qui a été empêché par l’affectation de stratégie. Pour un mode Fournisseur de ressources, le fournisseur de ressources gère l’évaluation de la ressource.
 
 Lors de l’évaluation des ressources existantes, les ressources qui correspondent à une définition de stratégie Deny sont marquées comme non conformes.
 
 ### <a name="deny-properties"></a>Propriétés de Deny
 
-L’effet Deny n’a pas d’autres propriétés utilisables dans la condition **then** de la définition de stratégie.
+Pour un mode Gestionnaire des ressources, l’effet deny n’a pas d’autres propriétés utilisables dans la condition **then** de la définition de stratégie.
+
+Pour le mode Fournisseur de ressources `Microsoft.Kubernetes.Data`, l’effet deny contient les sous-propriétés de **details** supplémentaires suivantes.
+
+- **constraintTemplate** (obligatoire)
+  - Modèle de contrainte CustomResourceDefinition (CRD) qui définit de nouvelles contraintes. Le modèle définit la logique Rego, le schéma de contrainte et les paramètres de contrainte transmis via des objets **values** (valeurs) d’Azure Policy.
+- **constraint** (obligatoire)
+  - Implémentation CRD du modèle de contrainte. Utilise des paramètres transmis via des **valeurs** telles que `{{ .Values.<valuename> }}`. Dans l’exemple 2 ci-dessous, ces valeurs sont `{{ .Values.excludedNamespaces }}` et `{{ .Values.allowedContainerImagesRegex }}`.
+- **values** (facultatif)
+  - Définit des paramètres et valeurs à transmettre à la contrainte. Chaque valeur doit exister dans le modèle de contrainte CRD.
 
 ### <a name="deny-example"></a>Exemple Deny
 
-Exemple : utilisation de l’effet Deny.
+Exemple 1 : Utilisation de l’effet deny pour les modes Gestionnaire des ressources.
 
 ```json
 "then": {
@@ -203,6 +238,21 @@ Exemple : utilisation de l’effet Deny.
 }
 ```
 
+Exemple 2 : Utilisation de l’effet deny pour le mode Fournisseur de ressources `Microsoft.Kubernetes.Data`. Les informations supplémentaires dans **details** définissent le modèle de contrainte et CRD à utiliser dans Kubernetes pour limiter les images de conteneur autorisées.
+
+```json
+"then": {
+    "effect": "deny",
+    "details": {
+        "constraintTemplate": "https://raw.githubusercontent.com/Azure/azure-policy/master/built-in-references/Kubernetes/container-allowed-images/template.yaml",
+        "constraint": "https://raw.githubusercontent.com/Azure/azure-policy/master/built-in-references/Kubernetes/container-allowed-images/constraint.yaml",
+        "values": {
+            "allowedContainerImagesRegex": "[parameters('allowedContainerImagesRegex')]",
+            "excludedNamespaces": "[parameters('excludedNamespaces')]"
+        }
+    }
+}
+```
 
 ## <a name="deployifnotexists"></a>DeployIfNotExists
 
@@ -222,7 +272,7 @@ Au cours d’un cycle d’évaluation, les définitions de stratégie ayant un e
 
 La propriété **details** de l’effet DeployIfNotExists comprend toutes les sous-propriétés qui définissent les ressources connexes testées, ainsi que le déploiement de modèle à exécuter.
 
-- **Type** [obligatoire]
+- **Type** (obligatoire)
   - Spécifie le type de la ressource connexe à évaluer.
   - Commence par tenter d’extraire une ressource sous la ressource de condition **if**, puis effectue une requête dans le même groupe de ressources que la ressource de condition **if**.
 - **Name** (facultatif)
@@ -246,14 +296,14 @@ La propriété **details** de l’effet DeployIfNotExists comprend toutes les so
   - Si une ressource connexe correspondante renvoie true, l’effet est satisfait et ne déclenche pas le déploiement.
   - Peut utiliser [field()] pour vérifier l’équivalence des valeurs dans la condition **if**.
   - Par exemple, permet de vérifier que la ressource parent (dans la condition **if**) réside dans le même emplacement de la ressource en tant que ressource connexe correspondante.
-- **roleDefinitionIds** [obligatoire]
+- **roleDefinitionIds** (obligatoire)
   - Cette propriété doit inclure un tableau de chaînes qui correspondent aux ID de rôle de contrôle de l’accès en fonction du rôle accessibles par l’abonnement. Pour plus d’informations, consultez [Correction - Configurer une définition de stratégie](../how-to/remediate-resources.md#configure-policy-definition).
 - **DeploymentScope** (facultatif)
   - Les valeurs autorisées sont _Subscription_ et _ResourceGroup_.
   - Définit le type de déploiement à déclencher. _Subscription_ indique un [déploiement au niveau de l’abonnement](../../../azure-resource-manager/templates/deploy-to-subscription.md), _ResourceGroup_ indique un déploiement dans un groupe de ressources.
   - Une propriété _location_ doit être spécifiée dans _Deployment_ pour les déploiements au niveau de l’abonnement.
   - La valeur par défaut est _ResourceGroup_.
-- **Deployment** [obligatoire]
+- **Deployment** (obligatoire)
   - Cette propriété doit inclure le déploiement de modèle complet, car elle est transmise à l’API PUT `Microsoft.Resources/deployments`. Pour plus d’informations, consultez [l’API REST Deployments](/rest/api/resources/deployments).
 
   > [!NOTE]
@@ -319,13 +369,12 @@ Cet effet peut s’avérer utile pour tester certaines situations ou lorsque la 
 Une alternative à l’effet Désactivé est **enforcementMode**, qui est défini sur l’attribution de stratégie.
 Lorsque **enforcementMode** est _Désactivé_, les ressources sont toujours évaluées. La journalisation, notamment les journaux d’activité, et l’effet de stratégie ne se produisent pas. Pour plus d’informations, consultez [Attribution de stratégie - Mode de mise en conformité](./assignment-structure.md#enforcement-mode).
 
-
 ## <a name="enforceopaconstraint"></a>EnforceOPAConstraint
 
 Cet effet est utilisé avec une définition de stratégie _mode_ de `Microsoft.Kubernetes.Data`. Il est utilisé pour transmettre les règles de contrôle d’admission de Gatekeeper v3 définies avec le [Framework de contraintes d’OPA](https://github.com/open-policy-agent/frameworks/tree/master/constraint#opa-constraint-framework) à [Open Policy Agent](https://www.openpolicyagent.org/) (OPA) aux clusters Kubernetes sur Azure.
 
 > [!NOTE]
-> [Azure Policy pour Kubernetes](./policy-for-kubernetes.md) est disponible en préversion et prend uniquement en charge les pools de nœuds Linux et les définitions de stratégie intégrées.
+> [Azure Policy pour Kubernetes](./policy-for-kubernetes.md) est disponible en préversion et prend uniquement en charge les pools de nœuds Linux et les définitions de stratégie intégrées. Les définitions de stratégie intégrée se trouvent dans la catégorie **Kubernetes**. Les définitions de stratégie limitées en préversion avec l’effet **EnforceOPAConstraint** et la catégorie **Service Kubernetes** associée sont _dépréciées_. À la place, utilisez les effets _audit_ et _deny_ avec le mode Fournisseur de ressources `Microsoft.Kubernetes.Data`.
 
 ### <a name="enforceopaconstraint-evaluation"></a>Évaluation d’EnforceOPAConstraint
 
@@ -336,11 +385,11 @@ Toutes les 15 minutes, une analyse complète du cluster est réalisée, et les 
 
 La propriété **details** de l’effet EnforceOPAConstraint contient les sous-propriétés qui décrivent la règle de contrôle d’admission de Gatekeeper v3.
 
-- **constraintTemplate** [obligatoire]
+- **constraintTemplate** (obligatoire)
   - Modèle de contrainte CustomResourceDefinition (CRD) qui définit de nouvelles contraintes. Le modèle définit la logique Rego, le schéma de contrainte et les paramètres de contrainte transmis via des objets **values** (valeurs) d’Azure Policy.
-- **constraint** [obligatoire]
+- **constraint** (obligatoire)
   - Implémentation CRD du modèle de contrainte. Utilise des paramètres transmis via des **valeurs** telles que `{{ .Values.<valuename> }}`. Dans l’exemple ci-dessous, ces valeurs sont `{{ .Values.cpuLimit }}` et `{{ .Values.memoryLimit }}`.
-- **valeurs** [facultatif]
+- **values** (facultatif)
   - Définit des paramètres et valeurs à transmettre à la contrainte. Chaque valeur doit exister dans le modèle de contrainte CRD.
 
 ### <a name="enforceopaconstraint-example"></a>Exemple EnforceOPAConstraint
@@ -381,7 +430,7 @@ Exemple : Règle de contrôle d’admission de Gatekeeper v3 pour définir les l
 Cet effet est utilisé avec une définition de stratégie _mode_ de `Microsoft.ContainerService.Data`. Il sert à transmettre des règles de contrôle d’admission de Gatekeeper v2 définies avec [Rego](https://www.openpolicyagent.org/docs/latest/policy-language/#what-is-rego) à [Open Policy Agent](https://www.openpolicyagent.org/) (OPA) sur [Azure Kubernetes Service](../../../aks/intro-kubernetes.md).
 
 > [!NOTE]
-> [Azure Policy pour Kubernetes](./policy-for-kubernetes.md) est disponible en préversion et prend uniquement en charge les pools de nœuds Linux et les définitions de stratégie intégrées. Les définitions de stratégie intégrée se trouvent dans la catégorie **Kubernetes**. Les définitions de stratégie limitées en préversion avec l’effet **EnforceRegoPolicy** et la catégorie **Service Kubernetes** associée sont _déconseillées_. Vous pouvez utiliser l’effet [EnforceOPAConstraint](#enforceopaconstraint) mis à jour à la place.
+> [Azure Policy pour Kubernetes](./policy-for-kubernetes.md) est disponible en préversion et prend uniquement en charge les pools de nœuds Linux et les définitions de stratégie intégrées. Les définitions de stratégie intégrée se trouvent dans la catégorie **Kubernetes**. Les définitions de stratégie limitées en préversion avec l’effet **EnforceRegoPolicy** et la catégorie **Service Kubernetes** associée sont _déconseillées_. À la place, utilisez les effets _audit_ et _deny_ avec le mode Fournisseur de ressources `Microsoft.Kubernetes.Data`.
 
 ### <a name="enforceregopolicy-evaluation"></a>Évaluation d’EnforceRegoPolicy
 
@@ -392,11 +441,11 @@ Toutes les 15 minutes, une analyse complète du cluster est réalisée, et les 
 
 La propriété **details** de l’effet EnforceRegoPolicy contient les sous-propriétés qui décrivent la règle de contrôle d’admission Gatekeeper v2.
 
-- **policyId** [required]
+- **policyId** (obligatoire)
   - Nom unique transmis en tant que paramètre à la règle de contrôle d’admission Rego.
-- **policy** [required]
+- **policy** (obligatoire)
   - Spécifie l’URI de la règle de contrôle d’admission Rego.
-- **policyParameters** [optional]
+- **policyParameters** (facultatif)
   - Définit des paramètres et des valeurs à transmettre à la stratégie Rego.
 
 ### <a name="enforceregopolicy-example"></a>Exemple EnforceRegoPolicy
@@ -445,15 +494,21 @@ Lorsqu’une définition de stratégie utilisant l’effet Modify est exécutée
 
 La propriété **details** de l’effet Modify comporte toutes les sous-propriétés qui définissent les autorisations nécessaires à la correction, ainsi que les **opérations** utilisées pour ajouter, mettre à jour ou supprimer les valeurs des étiquettes.
 
-- **roleDefinitionIds** [obligatoire]
+- **roleDefinitionIds** (obligatoire)
   - Cette propriété doit inclure un tableau de chaînes qui correspondent aux ID de rôle de contrôle de l’accès en fonction du rôle accessibles par l’abonnement. Pour plus d’informations, consultez [Correction - Configurer une définition de stratégie](../how-to/remediate-resources.md#configure-policy-definition).
   - Le rôle défini doit inclure toutes les opérations accordées au rôle [Contributeur](../../../role-based-access-control/built-in-roles.md#contributor).
-- **operations** [obligatoire]
+- **conflictEffect** (facultatif)
+  - Détermine la définition de stratégie « wins » dans le cas où plusieurs définitions de stratégie modifient la même propriété.
+    - Pour les ressources nouvelles ou mises à jour, la définition de stratégie avec _deny_ est prioritaire. Les définitions de stratégie avec _audit_ ignorent toutes les **opérations**. Si plusieurs définitions de stratégie ont _deny_, la demande est refusée pour raison de conflit. Si toutes les définitions de stratégie ont _audit_, aucune des **opérations** des définitions de stratégie en conflit n’est traitée.
+    - Pour les ressources existantes, si plusieurs définitions de stratégie ont _deny_, l’état de conformité est _Conflit_. Si au plus une définition de stratégie a _deny_, chaque attribution retourne l’état de conformité _Non conforme_.
+  - Valeurs disponibles : _audit_, _deny_, _disabled_.
+  - La valeur par défaut est _deny_.
+- **operations** (obligatoire)
   - Tableau de toutes les opérations d’étiquette à effectuer sur les ressources correspondantes.
   - Propriétés :
-    - **operation** [obligatoire]
+    - **operation** (obligatoire)
       - Définit l’action à effectuer sur une ressource correspondante. Les options sont les suivantes : _addOrReplace_, _Add_, _Remove_. _Add_ a le même comportement que l’effet [Append](#append).
-    - **field** [obligatoire]
+    - **field** (obligatoire)
       - Étiquette à ajouter, remplacer ou supprimer. Les noms d’étiquette doivent respecter la même convention de nommage que les autres [champs](./definition-structure.md#fields).
     - **value** (facultatif)
       - Valeur à affecter à l’étiquette.
@@ -528,6 +583,7 @@ Exemple 2 : Supprimez l’étiquette `env` et ajoutez l’étiquette `environmen
         "roleDefinitionIds": [
             "/providers/Microsoft.Authorization/roleDefinitions/b24988ac-6180-42a0-ab88-20f7382dd24c"
         ],
+        "conflictEffect": "deny",
         "operations": [
             {
                 "operation": "Remove",
@@ -542,8 +598,6 @@ Exemple 2 : Supprimez l’étiquette `env` et ajoutez l’étiquette `environmen
     }
 }
 ```
-
-
 
 ## <a name="layering-policy-definitions"></a>Superposition de définitions de stratégie
 

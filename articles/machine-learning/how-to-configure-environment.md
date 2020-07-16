@@ -8,15 +8,15 @@ ms.author: roastala
 ms.service: machine-learning
 ms.subservice: core
 ms.reviewer: larryfr
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 12/27/2019
-ms.custom: seodec18
-ms.openlocfilehash: ab9a02efedb0e002ac13294429c06e39ea18019c
-ms.sourcegitcommit: 6a9f01bbef4b442d474747773b2ae6ce7c428c1f
+ms.custom: seodec18, tracking-python
+ms.openlocfilehash: 0d8f6069193607d19e10c013f3d9cb1cf00a7de6
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "84117469"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84816717"
 ---
 # <a name="configure-a-development-environment-for-azure-machine-learning"></a>Configurer un environnement de développement pour Azure Machine Learning
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -59,7 +59,7 @@ L’[instance de calcul Azure Machine Learning (préversion)](concept-compute-in
 
 Vous n’avez rien à installer ou à configurer pour une instance de calcul.  créez à tout moment depuis votre espace de travail Azure Machine Learning. Indiquez juste un nom et spécifiez un type de machine virtuelle Azure. Essayez dès maintenant avec ce [Didacticiel : Configurer l'environnement et l'espace de travail](tutorial-1st-experiment-sdk-setup.md).
 
-En savoir plus sur les [instances de calcul](concept-compute-instance.md).
+Pour en savoir plus sur les instances de calcul, notamment comment installer des paquets, consultez [instances de calcul](concept-compute-instance.md).
 
 Pour mettre fin à la facturation des frais de calcul, [arrêtez l’instance de calcul](tutorial-1st-experiment-sdk-train.md#clean-up-resources).
 

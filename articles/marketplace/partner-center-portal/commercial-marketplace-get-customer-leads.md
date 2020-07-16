@@ -1,18 +1,18 @@
 ---
 title: Gestion des prospects du marketplace commercial de Microsoft
 description: En savoir plus sur la génération et la réception des prospects de vos offres Microsoft AppSource et Place de marché Azure
-author: qianw211
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
-ms.topic: conceptual
+ms.topic: article
+author: keferna
+ms.author: keferna
 ms.date: 03/30/2020
-ms.author: dsindona
-ms.openlocfilehash: 6234719216c7ef40df99a26153d7677f7a747f55
-ms.sourcegitcommit: cf7caaf1e42f1420e1491e3616cc989d504f0902
+ms.openlocfilehash: ca6e9a66d6c4daa4706813f945850b51505adeca
+ms.sourcegitcommit: e995f770a0182a93c4e664e60c025e5ba66d6a45
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/22/2020
-ms.locfileid: "83800933"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86133448"
 ---
 # <a name="customer-leads-from-your-commercial-marketplace-offer"></a>Prospects de votre offre de marketplace commercial
 
@@ -87,10 +87,12 @@ Les informations du client sont envoyées dans plusieurs champs. L’exemple sui
 
 ## <a name="best-practices-for-lead-management"></a>Meilleures pratiques de gestion des prospects
 
+Voici quelques recommandations pour faire avancer les prospects dans le cycle de vente :
+
 - **Processus** : Définissez un processus de vente clair, avec des jalons, des analyses et des responsabilités claires dans l’équipe.
 - **Qualification** : Définissez les conditions préalables qui indiquent si un prospect était pleinement qualifié. Assurez-vous que les représentants commerciaux ou marketing qualifient les prospects avec soins avant de les incorporer dans le processus de vente.
-- **Suivi** : N’oubliez pas d’effectuer un suivi. Une transaction nécessite en général entre 5 et 12 appels de suivi.
-- **Soins** : Soignez vos prospects pour bénéficier d’une plus grande marge de profits.
+- **Suivi** : N’oubliez pas d’effectuer un suivi dans les 24 heures. Le prospect sera intégré au système CRM de votre choix juste après que le client aura déployé la version d’évaluation ; envoyez-lui un e-mail à chaud. Demandez à programmer un appel téléphonique afin de mieux comprendre si votre produit est une bonne solution pour résoudre le problème. Une transaction implique en général de nombreux appels de suivi.
+- **Soins** : Soignez vos prospects pour bénéficier d’une plus grande marge de profits. Restez en contact avec eux sans les harceler. Nous vous recommandons d’envoyer au moins quelques e-mails aux prospects avant de clore le dossier ; ne renoncez pas après la première tentative. N’oubliez pas que ces clients ont passé du temps à tester votre produit dans le cadre d’un essai gratuit : ce sont d’excellents prospects.
 
 ## <a name="common-questions-about-lead-management"></a>Questions courantes sur la gestion des prospects
 
@@ -107,18 +109,21 @@ La réponse dépend du type d’offre que vous publiez. Les offres de logiciel e
 Recherchez `"MSFT_TEST"` dans votre destination de prospect. Voici un exemple de prospect test de Microsoft :
 
 ```
-company = MSFT_TEST_636573304831318844
-country = US
-description = MSFT_TEST_636573304831318844
-email = MSFT_TEST_636573304831318844@test.com
-encoding = UTF-8
-encoding = UTF-8
-first_name = MSFT_TEST_636573304831318844
-last_name = MSFT_TEST_636573304831318844
-lead_source = MSFT_TEST_636573304831318844-MSFT_TEST_636573304831318844|<Offer Name>
-oid = 00Do0000000ZHog
-phone = 1234567890
-title = MSFT_TEST_636573304831318844
+{
+    "UserDetails": {
+      "FirstName": "MSFT_TEST_636573304831318844",
+      "LastName": "MSFT_TEST_636573304831318844",
+      "Email": "MSFT_TEST_636573304831318844@test.com",
+      "Phone": "1234567890",
+      "Country": "US",
+      "Company": "MSFT_TEST_636573304831318844",
+      "Title": "MSFT_TEST_636573304831318844"
+    },
+    "LeadSource": "AzureMarketplace",
+    "ActionCode": "INS",
+    "OfferTitle": "Contoso Test"
+    "Description": "MSFT_TEST_636573304831318844"
+}
 ```
 
 ### <a name="i-have-a-live-offer-but-why-am-i-not-seeing-any-leads"></a>J’ai une offre en ligne, mais je ne vois aucun prospect. Pourquoi ?

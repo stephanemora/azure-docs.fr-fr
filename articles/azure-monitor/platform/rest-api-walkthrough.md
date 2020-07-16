@@ -5,12 +5,12 @@ ms.subservice: metrics
 ms.topic: conceptual
 ms.date: 03/19/2018
 ms.custom: has-adal-ref
-ms.openlocfilehash: 1de3afc380c5c3c82a869de0ff2319b013e26438
-ms.sourcegitcommit: 50ef5c2798da04cf746181fbfa3253fca366feaa
+ms.openlocfilehash: 602d11b20e50ec5ba56d0d9c1762292c07d0b67b
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/30/2020
-ms.locfileid: "82610885"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84945339"
 ---
 # <a name="azure-monitoring-rest-api-walkthrough"></a>Procédure pas à pas d’utilisation de l’API REST d’Azure Monitor
 
@@ -705,16 +705,30 @@ Le résultat doit être similaire à l’exemple suivant :
 
 ## <a name="retrieve-activity-log-data"></a>Récupérer les données du journal d’activité
 
-Outre les définitions des métriques et les valeurs associées, il est également possible d’utiliser l’API REST d’Azure Monitor pour récupérer des insights supplémentaires intéressants relatifs aux ressources Azure. Par exemple, il est possible d’obtenir les données du [journal d’activité](https://msdn.microsoft.com/library/azure/dn931934.aspx) par requête. L’exemple suivant montre comment utiliser des API REST Azure Monitor pour demander des données de journal d’activité au sein d’une plage de dates spécifique pour un abonnement Azure :
+Outre les définitions des métriques et les valeurs associées, il est également possible d’utiliser l’API REST d’Azure Monitor pour récupérer des insights supplémentaires intéressants relatifs aux ressources Azure. Par exemple, il est possible d’obtenir les données du [journal d’activité](https://msdn.microsoft.com/library/azure/dn931934.aspx) par requête. Les exemples de demandes suivants utilisent l’API REST Azure Monitor pour interroger le journal d’activité.
 
-```powershell
-$apiVersion = "2015-04-01"
-$filter = "eventTimestamp ge '2017-08-18' and eventTimestamp le '2017-08-19'and eventChannels eq 'Admin, Operation'"
-$request = "https://management.azure.com/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/providers/microsoft.insights/eventtypes/management/values?api-version=${apiVersion}&`$filter=${filter}"
-Invoke-RestMethod -Uri $request `
-    -Headers $authHeader `
-    -Method Get `
-    -Verbose
+Obtenir les journaux d’activité avec filter :
+
+``` HTTP
+GET https://management.azure.com/subscriptions/089bd33f-d4ec-47fe-8ba5-0753aa5c5b33/providers/microsoft.insights/eventtypes/management/values?api-version=2015-04-01&$filter=eventTimestamp ge '2018-01-21T20:00:00Z' and eventTimestamp le '2018-01-23T20:00:00Z' and resourceGroupName eq 'MSSupportGroup'
+```
+
+Obtenir les journaux d’activité avec filter et select :
+
+```HTTP
+GET https://management.azure.com/subscriptions/089bd33f-d4ec-47fe-8ba5-0753aa5c5b33/providers/microsoft.insights/eventtypes/management/values?api-version=2015-04-01&$filter=eventTimestamp ge '2015-01-21T20:00:00Z' and eventTimestamp le '2015-01-23T20:00:00Z' and resourceGroupName eq 'MSSupportGroup'&$select=eventName,id,resourceGroupName,resourceProviderName,operationName,status,eventTimestamp,correlationId,submissionTimestamp,level
+```
+
+Obtenir les journaux d’activité avec select :
+
+```HTTP
+GET https://management.azure.com/subscriptions/089bd33f-d4ec-47fe-8ba5-0753aa5c5b33/providers/microsoft.insights/eventtypes/management/values?api-version=2015-04-01&$select=eventName,id,resourceGroupName,resourceProviderName,operationName,status,eventTimestamp,correlationId,submissionTimestamp,level
+```
+
+Obtenir les journaux d’activité sans filter ou select :
+
+```HTTP
+GET https://management.azure.com/subscriptions/089bd33f-d4ec-47fe-8ba5-0753aa5c5b33/providers/microsoft.insights/eventtypes/management/values?api-version=2015-04-01
 ```
 
 ## <a name="next-steps"></a>Étapes suivantes

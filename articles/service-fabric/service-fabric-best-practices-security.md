@@ -5,12 +5,12 @@ author: peterpogorski
 ms.topic: conceptual
 ms.date: 01/23/2019
 ms.author: pepogors
-ms.openlocfilehash: fa8bb41684271c7d4ebe90e31ce8019994fc1f41
-ms.sourcegitcommit: efefce53f1b75e5d90e27d3fd3719e146983a780
+ms.openlocfilehash: 9f6049a69b88c85f4e1bdf1c2400866739a6718d
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/01/2020
-ms.locfileid: "80478742"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84944319"
 ---
 # <a name="azure-service-fabric-security"></a>Sécurité de Microsoft Azure Service Fabric 
 
@@ -87,7 +87,7 @@ Pour sécuriser votre cluster Service Fabric par `Common Name` de certificat, ut
 > [!NOTE]
 > Les clusters Service Fabric utilisent le premier certificat valide trouvé dans le magasin de certificats de votre hôte. Sur Windows, il s’agit du certificat dont la date d’expiration la plus récente correspond à votre nom commun et à votre empreinte d’émetteur.
 
-Les domaines Azure, tels que *\<VOTRE SOUS-DOMAINE\>.cloudapp.azure.com ou \<VOTRE SOUS-DOMAINE\>.trafficmanager.net, sont la propriété de Microsoft. Les autorités de certification n’émettent pas de certificats pour les domaines à des utilisateurs non autorisés. Pour qu’une autorité de certification émette un certificat portant ce nom commun, la plupart des utilisateurs doivent acheter un domaine auprès d’un bureau d’enregistrement ou disposer d’une autorisation d’administrateur de domaine.
+Les domaines Azure, tels que *\<YOUR SUBDOMAIN\>.cloudapp.azure.com ou \<YOUR SUBDOMAIN\>.trafficmanager.net, appartiennent à Microsoft. Les autorités de certification n’émettent pas de certificats pour les domaines à des utilisateurs non autorisés. Pour qu’une autorité de certification émette un certificat portant ce nom commun, la plupart des utilisateurs doivent acheter un domaine auprès d’un bureau d’enregistrement ou disposer d’une autorisation d’administrateur de domaine.
 
 Pour plus d’informations sur la façon de configurer le service DNS afin de résoudre votre domaine en adresse IP Microsoft, examinez comment configurer [Azure DNS pour héberger votre domaine](https://docs.microsoft.com/azure/dns/dns-delegate-domain-azure-dns).
 
@@ -157,7 +157,7 @@ Pour permettre à votre application d’accéder aux secrets, incluez le certifi
 ```
 ## <a name="authenticate-service-fabric-applications-to-azure-resources-using-managed-service-identity-msi"></a>Authentifier les applications Service Fabric auprès de ressources Azure à l’aide de MSI (Managed Service Identity)
 
-Pour en savoir plus sur les identités managées pour les ressources Azure, consultez [Que sont les identités managées pour les ressources Azure ?](../active-directory/managed-identities-azure-resources/overview.md#how-does-the-managed-identities-for-azure-resources-work)
+Pour en savoir plus sur les identités managées pour les ressources Azure, consultez [Que sont les identités managées pour les ressources Azure ?](../active-directory/managed-identities-azure-resources/overview.md)
 Les clusters Azure Service Fabric sont hébergés sur des groupes de machines virtuelles identiques qui prennent en charge [Managed Service Identity](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/services-support-msi#azure-services-that-support-managed-identities-for-azure-resources).
 Pour obtenir la liste des services avec lesquels vous pouvez utiliser MSI pour l’authentification, consultez [Services Azure prenant en charge l’authentification Azure Active Directory](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/services-support-msi#azure-services-that-support-azure-ad-authentication).
 
@@ -217,7 +217,12 @@ cosmos_db_password=$(curl 'https://management.azure.com/subscriptions/<YOUR SUBS
 Ces règles de pare-feu complètent vos groupes de sécurité réseau sortant autorisés, comprenant Service Fabric et Stockage, en tant que destinations autorisées depuis votre réseau virtuel.
 
 ## <a name="tls-12"></a>TLS 1.2
-[TSG](https://github.com/Azure/Service-Fabric-Troubleshooting-Guides/blob/master/Security/TLS%20Configuration.md)
+
+Microsoft [Azure recommande](https://azure.microsoft.com/updates/azuretls12/) à tous les clients d’effectuer une migration complète vers des solutions qui prennent en charge le protocole TLS (Transport Layer Security) 1.2 et de s’assurer que TLS 1.2 est utilisé par défaut.
+
+Les services Azure, y compris [Service Fabric](https://techcommunity.microsoft.com/t5/azure-service-fabric/microsoft-azure-service-fabric-6-3-refresh-release-cu1-notes/ba-p/791493), ont terminé le travail d’ingénierie visant à supprimer les dépendances envers les protocoles TLS 1.0/1.1, et offrent une prise en charge complète aux clients qui souhaitent que leurs charges de travail soient configurées pour accepter et établir uniquement des connexions TLS 1.2.
+
+Les clients doivent configurer leurs charges de travail hébergées sur Azure et leurs applications locales qui interagissent avec les services Azure de sorte qu’elles utilisent TLS 1.2 par défaut. Voici comment [configurer des nœuds de cluster et des applications Service Fabric](https://github.com/Azure/Service-Fabric-Troubleshooting-Guides/blob/master/Security/TLS%20Configuration.md) pour utiliser une version TLS spécifique.
 
 ## <a name="windows-defender"></a>Windows Defender 
 

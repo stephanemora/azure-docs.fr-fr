@@ -3,22 +3,19 @@ title: Mise à l’échelle d’un type de nœud Azure Service Fabric
 description: Découvrez comment mettre à l’échelle un cluster Service Fabric en ajoutant un groupe de machines virtuelles identiques.
 ms.topic: article
 ms.date: 02/13/2019
-ms.openlocfilehash: 5ea4f37a6c088c6f738ef05db8b5b295982c27fe
-ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
+ms.openlocfilehash: 2d700367049e0bf9bf710aad110c850a78c26220
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/20/2020
-ms.locfileid: "83674225"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85610691"
 ---
 # <a name="scale-up-a-service-fabric-cluster-primary-node-type"></a>Monter en puissance un type de nœud principal de cluster Service Fabric
 Cet article explique comment monter en puissance un type de nœud principal de cluster Service Fabric en augmentant les ressources de machine virtuelle. Un cluster Service Fabric est un groupe de machines virtuelles ou physiques connectées au réseau, sur lequel vos microservices sont déployés et gérés. Une machine ou une machine virtuelle faisant partie d’un cluster est appelée un nœud. Les groupes de machines virtuelles identiques constituent une ressource de calcul Azure que vous utilisez pour déployer et gérer une collection de machines virtuelles en tant que groupe. Chaque type de nœud défini dans un cluster Azure est [ configuré comme un groupe identique distinct](service-fabric-cluster-nodetypes.md). Chaque type de nœud peut alors faire l’objet d’une gestion séparée. Une fois que vous avez créé un cluster Service Fabric, vous pouvez mettre à l’échelle le type de nœud d’un cluster verticalement (changement des ressources des nœuds) ou mettre à niveau le système d’exploitation des machines virtuelles du type de nœud.  Une mise à l’échelle peut s’effectuer à tout moment, même lorsque des charges de travail sont en cours d’exécution sur le cluster.  Lorsque vous mettez vos nœuds à l’échelle, vos applications sont automatiquement mises à l’échelle.
 
 > [!WARNING]
-> Ne commencez pas à modifier la référence SKU de la machine virtuelle de la propriété nodetype principale en cas d’absence d’intégrité du cluster. En cas de non-intégrité du cluster, vous ne ferez que le déstabiliser encore plus en essayant de modifier la référence SKU de la machine virtuelle.
+> N’essayez pas une procédure de mise à l’échelle de type de nœud principal si l’état du cluster n’est pas sain, car cela déstabilisera uniquement le cluster.
 >
-> Nous vous recommandons de ne pas modifier la référence des machines virtuelles d’un type de nœud/d’un groupe identique présentant un niveau de [durabilité inférieur à Silver](service-fabric-cluster-capacity.md#the-durability-characteristics-of-the-cluster). Modifier la taille de référence (SKU) des machines virtuelles est une opération d’infrastructure sur place destructrice de données. Faute de pouvoir ne serait-ce que retarder ou surveiller cette modification, il est possible que l’opération occasionne une perte de données pour les services avec état ou provoque d’autres problèmes opérationnels imprévus, même pour les charges de travail sans état. Cela signifie le type de votre nœud principal, qui exécute les services système de la structure de service avec état, ou tout type de nœud exécutant les charges de travail de votre d’application avec état.
->
-
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
@@ -159,6 +156,8 @@ Get-ServiceFabricClusterHealth
 ## <a name="migrate-nodes-to-the-new-scale-set"></a>Migrez les nœuds vers le nouveau groupe identique
 
 Nous sommes maintenant prêts à désactiver les nœuds du groupe identique d’origine. À mesure que ces nœuds sont désactivés, les services système et les nœuds initiaux (seed) migrent vers les machines virtuelles du nouveau groupe identique, car ils sont également marqués comme type de nœud principal.
+
+Pour la mise à l’échelle des types de nœuds non principaux, au cours de cette étape, vous devez modifier la contrainte de placement de service pour inclure le nouveau type de nœud/groupe de machines virtuelles identiques, puis réduire l’ancien nombre d’instances de groupe de machines virtuelles identiques à zéro, un nœud à la fois (pour garantir la suppression du nœud sans impact sur la fiabilité).
 
 ```powershell
 # Disable the nodes in the original scale set.

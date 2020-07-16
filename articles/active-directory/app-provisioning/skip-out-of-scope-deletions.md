@@ -2,31 +2,31 @@
 title: Ignorer la suppression des utilisateurs qui sortent de l’étendue
 description: Découvrez comment remplacer le comportement par défaut de déprovisionnement des utilisateurs hors étendue.
 services: active-directory
-author: cmmdesai
-manager: CelesteDG
+author: kenwith
+manager: celestedg
 ms.service: active-directory
 ms.subservice: app-provisioning
-ms.topic: article
+ms.topic: how-to
 ms.workload: identity
 ms.date: 12/10/2019
-ms.author: chmutali
+ms.author: kenwith
 ms.reviewer: celested
-ms.openlocfilehash: 5f17886736efb87cf44bc54c82ccca794482a093
-ms.sourcegitcommit: 3abadafcff7f28a83a3462b7630ee3d1e3189a0e
+ms.openlocfilehash: 719258933dfadf34b8678bf03ee07ee6cc76e331
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/30/2020
-ms.locfileid: "82593265"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84789903"
 ---
 # <a name="skip-deletion-of-user-accounts-that-go-out-of-scope"></a>Ignorer la suppression des comptes d’utilisateurs qui sortent de l’étendue
 
 Par défaut, le moteur de provisionnement Azure AD supprime de manière réversible ou désactive les utilisateurs qui sortent de l’étendue. Cependant, dans certains scénarios, comme le provisionnement entrant d’utilisateurs de Workday vers AD, ce comportement par défaut peut ne pas convenir et vous pouvez souhaiter le remplacer.  
 
-Ce guide explique comment utiliser l’API Microsoft Graph et son Afficheur pour définir l’indicateur ***SkipOutOfScopeDeletions*** qui contrôle le traitement des comptes qui sortent de l’étendue. 
-* Si ***SkipOutOfScopeDeletions*** est défini sur 0 (false), les comptes qui sortent de l’étendue sont désactivés dans la cible.
-* Si ***SkipOutOfScopeDeletions*** est défini sur 1 (true), les comptes qui sortent de l’étendue ne sont pas désactivés dans la cible. Cet indicateur est défini au niveau de l’*application de provisionnement* et peut être configuré à l’aide de l’API Graph. 
+Cet article explique comment utiliser l’API Microsoft Graph et son Afficheur pour définir l’indicateur ***SkipOutOfScopeDeletions*** qui contrôle le traitement des comptes qui sortent de l’étendue. 
+* Si ***SkipOutOfScopeDeletions*** est défini sur 0 (false), les comptes en dehors de l’étendue seront désactivés dans la cible.
+* Si ***SkipOutOfScopeDeletions*** est défini sur 1 (true), les comptes en dehors de l’étendue ne seront pas désactivés dans la cible. Cet indicateur est défini au niveau de l’*application de provisionnement* et peut être configuré à l’aide de l’API Graph. 
 
-Comme cette configuration est largement utilisée avec l’application de *provisionnement d’utilisateurs de Workday vers Active Directory*, les étapes ci-dessous incluent des captures d’écran de l’application Workday. Cependant, elles peuvent aussi être utilisées pour **toutes les autres applications**, comme ServiceNow, Salesforce, Dropbox, etc.
+Du fait que cette configuration est largement utilisée avec l’application de *provisionnement d’utilisateurs de Workday vers Active Directory*, les étapes suivantes incluent des captures d’écran de l’application Workday. Cependant, la configuration peut aussi être utilisée avec *toutes les autres applications*, comme ServiceNow, Salesforce et Dropbox.
 
 ## <a name="step-1-retrieve-your-provisioning-app-service-principal-id-object-id"></a>Étape 1 : Récupérer l’ID de principal du service de l’application de provisionnement (ID d’objet)
 

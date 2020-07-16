@@ -4,12 +4,12 @@ description: En savoir plus sur l’utilisation des identités managées pour Az
 ms.topic: conceptual
 ms.date: 12/09/2019
 ms.custom: sfrev
-ms.openlocfilehash: a26f188ed2f5e18bdf775cd1fb21001495ffdc89
-ms.sourcegitcommit: b55d7c87dc645d8e5eb1e8f05f5afa38d7574846
+ms.openlocfilehash: a5c82f49195fc6d790ca4308d78b70106b6cc042
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "81461444"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84710301"
 ---
 # <a name="using-managed-identities-for-azure-with-service-fabric"></a>Utilisation des identités managées pour Azure avec Service Fabric
 
@@ -35,7 +35,7 @@ Il existe deux types d’identités administrées :
 - Une **identité managée attribué par le système** est activée directement sur une instance de service Azure.  Le cycle de vie d’une identité attribuée par le système est propre à l’instance de service Azure sur laquelle elle est activée.
 - Une **identité managée attribuée par l’utilisateur** est créée en tant que ressource Azure autonome. L’identité peut être assignée à une ou plusieurs instances de service Azure et est managée séparément des cycles de vie de ces instances.
 
-Pour mieux comprendre la différence entre les types d’identités managées, consultez [Comment fonctionnent les identités managées pour les ressources Azure ?](../active-directory/managed-identities-azure-resources/overview.md#how-does-the-managed-identities-for-azure-resources-work)
+Pour mieux comprendre la différence entre les types d’identités managées, consultez [Comment fonctionnent les identités managées pour les ressources Azure ?](../active-directory/managed-identities-azure-resources/overview.md#managed-identity-types).
 
 ## <a name="supported-scenarios-for-service-fabric-applications"></a>Scénarios pris en charge pour les applications Service Fabric
 

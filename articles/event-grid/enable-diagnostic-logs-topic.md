@@ -1,18 +1,14 @@
 ---
 title: Azure Event Grid – Activer les journaux de diagnostic pour des rubriques ou domaines
 description: Cet article fournit des instructions pas à pas sur l’activation des journaux de diagnostic pour une rubrique Azure Event Grid.
-services: event-grid
-author: spelluru
-ms.service: event-grid
 ms.topic: how-to
-ms.date: 04/27/2020
-ms.author: spelluru
-ms.openlocfilehash: 13a2168c854475b841b0ebc52bb678c7ca22a1bb
-ms.sourcegitcommit: 1895459d1c8a592f03326fcb037007b86e2fd22f
+ms.date: 07/07/2020
+ms.openlocfilehash: 7811c2eef4379b7e3d5ed07dbd0df8e2a52dba85
+ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/01/2020
-ms.locfileid: "82626460"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86114701"
 ---
 #  <a name="enable-diagnostic-logs-for-azure-event-grid-topics-or-domains"></a>Activer les journaux de diagnostic pour des rubriques ou domaines Azure Event Grid
 Les paramètres de diagnostic permettent aux utilisateurs d’Event Grid de capturer et d’afficher les journaux d’**échec de publication et de remise** dans un compte de stockage, un Event Hub ou espace de travail Log Analytics. Cet article fournit des instructions pas à pas pour activer ces journaux de diagnostic sur une rubrique Event Grid.
@@ -25,15 +21,19 @@ Les paramètres de diagnostic permettent aux utilisateurs d’Event Grid de capt
     - Event Hub
     - Espace de travail Log Analytics
 
-## <a name="steps-for-enabling-diagnostic-logs-for-a-topic"></a>Étapes d’activation des journaux de diagnostic pour une rubrique
+## <a name="enable-diagnostic-logs-for-a-custom-topic"></a>Activer les journaux de diagnostic pour une rubrique personnalisée
 
 > [!NOTE]
 > La procédure suivante fournit des instructions pas à pas pour l’activation des journaux de diagnostic pour une rubrique. Les étapes d’activation des journaux de diagnostic pour un domaine sont très similaires. À l’étape 2, accédez à l’Event Grid **domaine** dans le portail Azure.  
 
 1. Connectez-vous au [portail Azure](https://portal.azure.com).
 2. Accédez à la rubrique Event Grid pour laquelle vous souhaitez activer les paramètres de journal de diagnostic. 
-3. Sous **Supervision**, sélectionnez **Paramètres de diagnostic** dans le menu de gauche.
-4. Dans la page **Paramètres de diagnostic**, sélectionnez **Ajouter un nouveau paramètre de diagnostic**. 
+    1. Dans la barre de recherche en haut, recherchez **Rubriques Event Grid**. 
+    
+        ![Rechercher des rubriques personnalisées](./media/enable-diagnostic-logs-topic/search-custom-topics.png)
+    1. Sélectionnez la **rubrique** dont vous souhaitez configurer les paramètres de diagnostic. 
+1. Sous **Supervision**, sélectionnez **Paramètres de diagnostic** dans le menu de gauche.
+1. Dans la page **Paramètres de diagnostic**, sélectionnez **Ajouter un nouveau paramètre de diagnostic**. 
     
     ![Bouton Ajouter un paramètre de diagnostic](./media/enable-diagnostic-logs-topic/diagnostic-settings-add.png)
 5. Donnez un **nom** au paramètre de diagnostic. 
@@ -52,6 +52,38 @@ Les paramètres de diagnostic permettent aux utilisateurs d’Event Grid de capt
     ![Paramètre de diagnostic dans la liste](./media/enable-diagnostic-logs-topic/diagnostic-setting-list.png)
 
      Vous pouvez également activer la collecte de toutes les métriques de la rubrique. 
+
+## <a name="enable-diagnostic-logs-for-a-system-topic"></a>Activer les journaux de diagnostic pour une rubrique système
+
+1. Connectez-vous au [portail Azure](https://portal.azure.com).
+2. Accédez à la rubrique Event Grid pour laquelle vous souhaitez activer les paramètres de journal de diagnostic. 
+    1. Dans la barre de recherche en haut, recherchez **rubriques système Event Grid**. 
+    
+        ![Rechercher des rubriques système](./media/enable-diagnostic-logs-topic/search-system-topics.png)
+    1. Sélectionnez la **rubrique système** dont vous souhaitez configurer les paramètres de diagnostic. 
+    
+        ![Sélectionner une rubrique système](./media/enable-diagnostic-logs-topic/select-system-topic.png)
+3. Sélectionnez **Paramètres de diagnostic** sous **Supervision** dans le volet gauche, puis sélectionnez **Ajouter un paramètre de diagnostic**. 
+
+    ![Ajouter des paramètres de diagnostic - Bouton](./media/enable-diagnostic-logs-topic/system-topic-add-diagnostic-settings-button.png)
+4. Donnez un **nom** au paramètre de diagnostic. 
+7. Sélectionnez **DeliveryFailures** dans la section **Journal**. 
+    ![Sélectionner les échecs de livraison](./media/enable-diagnostic-logs-topic/system-topic-select-delivery-failures.png)
+6. Activez une ou plusieurs destinations de capture pour les journaux, puis configurez-les en sélectionnant une ressource de capture créée précédemment. 
+    - Si vous sélectionnez **Envoyer à Log Analytics**, sélectionnez un espace de travail Log Analytics.
+        ![Envoyer à Log Analytics](./media/enable-diagnostic-logs-topic/system-topic-select-log-workspace.png) 
+    - Si vous sélectionnez **Archiver dans un compte de stockage**, sélectionnez **Compte de stockage - Configurer**, puis le compte de stockage dans votre abonnement Azure. 
+
+        ![Archiver dans un compte de stockage Azure](./media/enable-diagnostic-logs-topic/system-topic-select-storage-account.png)
+    - Si vous sélectionnez **Diffuser vers un hub d'événements**, sélectionnez **Hub d'événements - Configurer**, puis l’espace de noms Event Hubs, le hub d'événements et la stratégie d’accès. 
+        ![Diffuser vers un hub d’événements](./media/enable-diagnostic-logs-topic/system-topic-select-event-hub.png)
+8. Sélectionnez **Enregistrer**. Ensuite, sélectionnez **X** dans l’angle droit pour fermer la page. 
+9. À présent, dans la page **Paramètres de diagnostic**, vérifiez la présence d'une nouvelle entrée dans la table **Paramètres de diagnostic**. 
+    ![Paramètre de diagnostic dans la liste](./media/enable-diagnostic-logs-topic/system-topic-diagnostic-settings-targets.png)
+
+     Vous pouvez également activer la collecte de toutes les **métriques** de la rubrique système.
+
+    ![Rubrique système - Activer toutes les métriques](./media/enable-diagnostic-logs-topic/system-topics-metrics.png)
 
 ## <a name="view-diagnostic-logs-in-azure-storage"></a>Afficher les journaux de diagnostic dans Stockage Azure 
 

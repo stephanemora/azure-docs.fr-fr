@@ -4,12 +4,12 @@ description: Découvrez comment utiliser le programme de mise à l’échelle au
 services: container-service
 ms.topic: article
 ms.date: 07/18/2019
-ms.openlocfilehash: e87470e577f4d2613b43cc02755ccc2d500c0ef8
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 9aa06ea2fbc3aff218a4940fa60da767fabca500
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84730014"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86252026"
 ---
 # <a name="automatically-scale-a-cluster-to-meet-application-demands-on-azure-kubernetes-service-aks"></a>Mise à l’échelle automatique d’un cluster pour répondre aux demandes applicatives d’Azure Kubernetes Service (AKS)
 
@@ -213,7 +213,7 @@ AKS gère la mise à l’échelle automatique des clusters en votre nom et l’e
 
 Pour configurer les journaux à envoyer (push), de la mise à l’échelle automatique de cluster à Log Analytics, suivez ces étapes.
 
-1. Configurez une règle pour les journaux de ressources, afin d’envoyer (push) les journaux de la mise à l’échelle automatique de cluster vers Log Analytics. [Les instructions sont détaillées ici](https://docs.microsoft.com/azure/aks/view-master-logs#enable-resource-logs) ; veillez à cocher la case `cluster-autoscaler` lors de la sélection des options pour « Journaux d’activité ».
+1. Configurez une règle pour les journaux de ressources, afin d’envoyer (push) les journaux de la mise à l’échelle automatique de cluster vers Log Analytics. [Les instructions sont détaillées ici](./view-master-logs.md#enable-resource-logs) ; veillez à cocher la case `cluster-autoscaler` lors de la sélection des options pour « Journaux d’activité ».
 1. Cliquez sur la section « Journaux d’activité » de votre cluster via le Portail Azure.
 1. Dans Log Analytics, entrez l’exemple de requête suivant :
 

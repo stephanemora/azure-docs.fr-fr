@@ -7,12 +7,12 @@ ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 06/21/2019
-ms.openlocfilehash: 3b95863c1ae53bd0642aec356f55aba1faf8ef09
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 49c83fab54b7188c3a3838f3162e71d8495989dd
+ms.sourcegitcommit: e132633b9c3a53b3ead101ea2711570e60d67b83
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79535780"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86037509"
 ---
 # <a name="azure-stream-analytics-solution-patterns"></a>Modèles de solution Azure Stream Analytics
 

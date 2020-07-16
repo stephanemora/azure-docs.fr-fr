@@ -4,23 +4,20 @@ description: Cet article explique comment configurer et consulter les journaux d
 author: ajlam
 ms.author: andrela
 ms.service: mariadb
-ms.topic: conceptual
-ms.date: 4/13/2020
-ms.openlocfilehash: e9716f0fa8e0ae44d614bbb28ed6846105e683d6
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.topic: how-to
+ms.date: 6/24/2020
+ms.openlocfilehash: d0f5f71ed636cc67e742198436b48a09d291e798
+ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81384126"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86120056"
 ---
-# <a name="configure-and-access-audit-logs-in-the-azure-cli"></a>Configurer et consulter les journaux d'audit dans Azure CLI
+# <a name="configure-and-access-azure-database-for-maria-db-audit-logs-in-the-azure-cli"></a>Configurer et consulter les journaux d’audit Azure Database pour Maria DB dans l’interface de ligne de commande Azure
 
 Vous pouvez configurer les [journaux d'audit Azure Database for MariaDB](concepts-audit-logs.md) à partir d'Azure CLI.
 
-> [!IMPORTANT]
-> Pour l’instant, la fonctionnalité Journal d’audit n’existe qu’en préversion.
-
-## <a name="prerequisites"></a>Conditions préalables requises
+## <a name="prerequisites"></a>Prérequis
 
 Pour parcourir ce guide pratique, vous avez besoin des éléments suivants :
 
@@ -33,14 +30,17 @@ Pour parcourir ce guide pratique, vous avez besoin des éléments suivants :
 
 ## <a name="configure-audit-logging"></a>Configurer l’enregistrement d’audit
 
+>[!IMPORTANT]
+> Il est recommandé de ne consigner que les types d’événements et les utilisateurs requis à des fins d’audit pour garantir que les performances de votre serveur ne sont pas fortement affectées.
+
 Activez et configurez l'enregistrement d'audit en procédant comme suit : 
 
-1. Activez les journaux d'audit en définissant le paramètre **audit_logs_enabled** sur « ON ». 
+1. Activez les journaux d’audit en définissant le paramètre **audit_logs_enabled** sur « ON ». 
     ```azurecli-interactive
     az mariadb server configuration set --name audit_log_enabled --resource-group myresourcegroup --server mydemoserver --value ON
     ```
 
-1. Sélectionnez les [types d'événements](concepts-audit-logs.md#configure-audit-logging) à enregistrer en mettant à jour le paramètre **audit_log_egitvents**.
+1. Sélectionnez les [types d’événements](concepts-audit-logs.md#configure-audit-logging) à enregistrer en mettant à jour le paramètre **audit_log_events**.
     ```azurecli-interactive
     az mariadb server configuration set --name audit_log_events --resource-group myresourcegroup --server mydemoserver --value "ADMIN,CONNECTION"
     ```

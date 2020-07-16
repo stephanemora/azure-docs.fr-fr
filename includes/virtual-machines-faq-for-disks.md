@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 03/31/2019
 ms.author: rogarana
 ms.custom: include file
-ms.openlocfilehash: de8574cd691c77bb764c7e695db1e7c2f23c5f3a
-ms.sourcegitcommit: 0b80a5802343ea769a91f91a8cdbdf1b67a932d3
+ms.openlocfilehash: 9764d3964a38408493bafe0e9c8ca059b055ca21
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/25/2020
-ms.locfileid: "83837895"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85242177"
 ---
 Dans cet article, nous allons répondre à certaines questions fréquentes sur Azure Disques managés et les disques SSD Premium Azure.
 
@@ -451,7 +451,7 @@ Les disques 8 Tio, 16 Tio et 32 Tio sont prises en charge dans toutes les régio
 
 **Prenez-vous en charge l’activation de la mise en cache de l’hôte sur toutes les tailles de disque ?**
 
-Nous prenons en charge la mise en cache d’hôte en lecture seule et en lecture/écriture sur les tailles de disque inférieures à 4 Tio. Pour les tailles de disque supérieures à 4 Tio, nous prenons en charge uniquement la mise en cache définie sur None (Aucun). Nous vous recommandons de tirer parti de la mise en cache pour les plus petites tailles de disque, où vous pouvez vous attendre à observer une amélioration des performances avec les données mises en cache dans la machine virtuelle.
+La mise en cache de l’hôte (lecture seule et lecture/écriture) est prise en charge sur les tailles de disque inférieures à 4 Tio. Cela signifie que tout disque approvisionné jusqu’à 4095 Gio peut tirer parti de la mise en cache de l’hôte. La mise en cache de l’hôte n’est pas prise en charge pour les tailles de disque supérieures ou égales à 4096 Gio. Par exemple, un disque P50 Premium approvisionné à 4095 Gio peut tirer parti de la mise en cache de l’hôte et un disque P50 approvisionné à 4096 Gio ne peut pas tirer parti de la mise en cache de l’hôte. Nous vous recommandons de tirer parti de la mise en cache pour les plus petites tailles de disque, où vous pouvez vous attendre à observer une amélioration des performances avec les données mises en cache dans la machine virtuelle.
 
 ## <a name="what-if-my-question-isnt-answered-here"></a>Que dois-je faire si je n’ai pas trouvé de réponse à ma question ici ?
 

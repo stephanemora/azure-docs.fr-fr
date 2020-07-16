@@ -8,16 +8,16 @@ manager: daveba
 ms.subservice: hybrid
 ms.service: active-directory
 ms.workload: identity
-ms.topic: article
+ms.topic: how-to
 ms.date: 02/27/2019
 ms.author: billmath
 author: billmath
-ms.openlocfilehash: 6a89c5e3fb84f797d9ad7f81626fb7185ce3e076
-ms.sourcegitcommit: c535228f0b77eb7592697556b23c4e436ec29f96
+ms.openlocfilehash: 72ec59d0082071746cb8db2b06412d90b4958914
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/06/2020
-ms.locfileid: "82854151"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85359957"
 ---
 # <a name="configure-group-claims-for-applications-with-azure-active-directory"></a>Configurer des revendications de groupe pour des applications avec Azure Active Directory
 
@@ -222,6 +222,6 @@ Pour émettre des noms de groupes à retourner au format netbiosDomain\samAccoun
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-[Affecter un utilisateur ou un groupe à une application d’entreprise](../../active-directory/manage-apps/assign-user-or-group-access-portal.md)
-
-[Configurer des revendications de rôle](../../active-directory/develop/active-directory-enterprise-app-role-management.md)
+- [Ajouter une autorisation à une application web ASP.NET Core à l’aide de groupes et revendications de groupe (exemple de code)](https://github.com/Azure-Samples/active-directory-aspnetcore-webapp-openidconnect-v2/blob/master/5-WebApp-AuthZ/5-2-Groups/README.md)
+- [Affecter un utilisateur ou un groupe à une application d’entreprise](../../active-directory/manage-apps/assign-user-or-group-access-portal.md)
+- [Configurer des revendications de rôle](../../active-directory/develop/active-directory-enterprise-app-role-management.md)

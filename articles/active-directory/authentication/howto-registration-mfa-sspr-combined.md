@@ -11,12 +11,12 @@ author: iainfoulds
 manager: daveba
 ms.reviewer: rhicock
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 40266f1b340ebe0ab665c576ff3be0e62ba7c705
-ms.sourcegitcommit: cf7caaf1e42f1420e1491e3616cc989d504f0902
+ms.openlocfilehash: 7feb69b2ea53794b780a983ed8ab4ba5874ac022
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/22/2020
-ms.locfileid: "83798274"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85260846"
 ---
 # <a name="enable-combined-security-information-registration-in-azure-active-directory"></a>Activation de l’inscription combinée des informations de sécurité dans Azure Active Directory
 
@@ -48,6 +48,9 @@ Si vous avez configuré la liste Affectation site à zone dans Internet Explorer
 ## <a name="conditional-access-policies-for-combined-registration"></a>Stratégies d’accès conditionnel pour l’inscription combinée
 
 La sécurisation de l’inscription des utilisateurs pour l’authentification multifacteur et la réinitialisation de mot de passe en libre-service est désormais possible avec les actions de l’utilisateur dans la stratégie d’accès conditionnel. Cette fonctionnalité est accessible aux organisations qui ont activé la [fonctionnalité d’inscription combinée](../authentication/concept-registration-mfa-sspr-combined.md). Cette fonctionnalité peut être activée dans les organisations qui souhaitent que les utilisateurs s’inscrivent à l’authentification multifacteur et à la réinitialisation de mot de passe en libre-service depuis un emplacement central, tel qu’un emplacement réseau approuvé pendant l’intégration de ressources humaines.
+
+> [!NOTE]
+> Cette stratégie s’applique uniquement lorsqu’un utilisateur accède à une page d’inscription combinée. Cette stratégie n’applique pas l’inscription MFA lorsqu’un utilisateur accède à d’autres applications. Vous pouvez créer une stratégie d’inscription MFA à l’aide de [Azure Identity Protection - Configurer la stratégie MFA](../identity-protection/howto-identity-protection-configure-mfa-policy.md).
 
 Pour plus d’informations sur la création d’emplacements approuvés dans l’accès conditionnel, consultez l’article [Qu’est-ce que la condition d’emplacement de l’accès conditionnel Azure Active Directory ?](../conditional-access/location-condition.md#named-locations)
 

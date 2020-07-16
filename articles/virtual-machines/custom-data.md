@@ -7,18 +7,16 @@ ms.service: virtual-machines
 ms.topic: article
 ms.date: 03/06/2020
 ms.author: mimckitt
-ms.openlocfilehash: c0dd5c8cd61d1c7abf11d97e858fdc30d774e456
-ms.sourcegitcommit: 223cea58a527270fe60f5e2235f4146aea27af32
+ms.openlocfilehash: 444c3afefcf4cfdafc817af3b7bc6ce4463853c1
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/01/2020
-ms.locfileid: "84259114"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84678356"
 ---
 # <a name="custom-data-and-cloud-init-on-azure-virtual-machines"></a>Données personnalisées et Cloud-init sur les machines virtuelles Azure
 
-## <a name="what-is-custom-data"></a>Que sont les données personnalisées ?
-
-Les clients demandent souvent comment injecter un script ou d’autres métadonnées dans une machine virtuelle Microsoft Azure au moment de la configuration.  Dans d’autres clouds, ce concept est souvent appelé données utilisateur.  Dans Microsoft Azure, nous disposons d’une fonctionnalité similaire appelée données personnalisées. 
+Vous devrez peut-être injecter un script ou d’autres métadonnées dans une machine virtuelle Microsoft Azure au moment du provisionnement.  Dans d’autres clouds, ce concept est souvent appelé données utilisateur.  Dans Microsoft Azure, nous disposons d’une fonctionnalité similaire appelée données personnalisées. 
 
 Les données personnalisées sont uniquement accessibles à la machine virtuelle lors du premier démarrage ou de l’installation initiale ; nous appelons cela la « configuration ». La configuration est le processus au cours duquel les paramètres de création de la machine virtuelle (par exemple, le nom d’hôte, le nom d’utilisateur, le mot de passe, les certificats, les données personnalisées, les clés, etc.) sont mis à la disposition de la machine virtuelle et un agent de configuration les traite, par exemple l’agent [Linux](https://docs.microsoft.com/azure/virtual-machines/extensions/agent-linux) ou [Cloud-init](https://docs.microsoft.com/azure/virtual-machines/linux/using-cloud-init#troubleshooting-cloud-init). 
 

@@ -6,12 +6,12 @@ ms.author: brendm
 ms.service: spring-cloud
 ms.topic: how-to
 ms.date: 05/13/2020
-ms.openlocfilehash: 81df4364324b03bb624e051fd71b25f0d6cdb049
-ms.sourcegitcommit: 1692e86772217fcd36d34914e4fb4868d145687b
+ms.openlocfilehash: d113d20e87d58bad007a35fce47d597a67849a6e
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/29/2020
-ms.locfileid: "84172144"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85445200"
 ---
 # <a name="how-to-enable-system-assigned-managed-identity-for-azure-spring-cloud-application"></a>Activer une identité managée affectée par le système pour une application Azure Spring Cloud
 Les identités managées pour les ressources Azure fournissent une identité automatiquement managée dans Azure Active Directory à une ressource Azure telle que votre application Azure Spring Cloud. Vous pouvez utiliser cette identité pour vous authentifier sur n’importe quel service prenant en charge l’authentification Azure AD, sans avoir d’informations d’identification dans votre code.
@@ -53,11 +53,11 @@ az spring-cloud app identity assign -n app_name -s service_name -g resource_grou
 ```
 
 ## <a name="obtain-tokens-for-azure-resources"></a>Obtenir des jetons pour les ressources Azure
-Une application peut utiliser son identité managée pour obtenir des jetons afin d’accéder à d’autres ressources protégées par Azure AD, comme Azure Key Vault. Ces jetons représentent l'application qui accède à la ressource, et non un utilisateur spécifique de l'application.
+Une application peut utiliser son identité managée pour obtenir des jetons afin d’accéder à d’autres ressources protégées par Azure Active Directory, comme Azure Key Vault. Ces jetons représentent l'application qui accède à la ressource, et non un utilisateur spécifique de l'application.
 
 Vous pouvez être amené à [configurer la ressource cible pour autoriser l'accès à partir de votre application](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/howto-assign-access-portal). Par exemple, si vous demandez un jeton pour accéder à Key Vault, vérifiez que vous avez ajouté une stratégie d'accès qui inclut l'identité de votre application. Si tel n’est pas le cas, vos appels au coffre de clés sont rejetés, même s’ils incluent le jeton. Pour en savoir plus sur les ressources qui prennent en charge les jetons Azure Active Directory, consultez [Services Azure prenant en charge l’authentification Azure AD](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/services-support-managed-identities#azure-services-that-support-azure-ad-authentication).
 
-Azure Spring Cloud partage le même point de terminaison pour l'acquisition de jetons auprès d'Azure Virtual Machine. Consultez [Utiliser le jeton de la machine virtuelle](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/how-to-use-vm-token) pour accéder à des exemples de code et de script ainsi qu'à des conseils sur des sujets importants tels que la gestion des erreurs HTTP et de l'expiration des jetons.
+Azure Spring Cloud partage le même point de terminaison pour l'acquisition de jetons auprès d'Azure Virtual Machine. Nous vous recommandons d’utiliser le SDK Java ou des instances Spring Boot Starters pour acquérir un jeton.  Consultez [Utiliser le jeton de la machine virtuelle](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/how-to-use-vm-token) pour accéder à des exemples de code et de script ainsi qu'à des conseils sur des sujets importants tels que la gestion des erreurs HTTP et de l'expiration des jetons.
 
 Recommandé : utilisez le kit de développement logiciel (SDK) Java ou des « starters » Spring Boot pour obtenir des jetons.  Consultez les exemples fournis dans [Étapes suivantes](#next-steps).
 
@@ -82,3 +82,5 @@ az spring-cloud app identity remove -n app_name -s service_name -g resource_grou
 ## <a name="next-steps"></a>Étapes suivantes
 * [Utiliser des identités managées avec le kit de développement logiciel (SDK) Java](https://github.com/Azure-Samples/Azure-Spring-Cloud-Samples)
 * [Accéder à Azure Key Vault avec des identités managées dans un « starter » Spring Boot](https://github.com/microsoft/azure-spring-boot/blob/master/azure-spring-boot-starters/azure-keyvault-secrets-spring-boot-starter/README.md#use-msi--managed-identities)
+* [En savoir plus sur les identités managées pour les ressources Azure](https://github.com/MicrosoftDocs/azure-docs/blob/master/articles/active-directory/managed-identities-azure-resources/overview.md)
+

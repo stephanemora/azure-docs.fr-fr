@@ -4,20 +4,20 @@ description: Cet article décrit comment configurer la réplication des données
 author: ajlam
 ms.author: andrela
 ms.service: mariadb
-ms.topic: conceptual
-ms.date: 3/30/2020
-ms.openlocfilehash: 332feffead74174ba0b9b278d8de1c5957d5b9e6
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.topic: how-to
+ms.date: 6/11/2020
+ms.openlocfilehash: 623c072cb8cb2c7fb1b9b6ec7d3ea661302d5e6a
+ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80422473"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86104671"
 ---
 # <a name="configure-data-in-replication-in-azure-database-for-mariadb"></a>Configurer la réplication des données entrantes dans Azure Database for MariaDB
 
-Cet article décrit comment configurer la réplication des données entrantes dans Azure Database for MariaDB en configurant les serveurs maître et réplica. Cet article suppose que vous ayez déjà utilisé des serveurs et des bases de données MariaDB.
+Cet article décrit comment configurer [Data-in Replication](concepts-data-in-replication.md) dans Azure Database for MariaDB en configurant les serveurs maître et réplica. Cet article suppose que vous ayez déjà utilisé des serveurs et des bases de données MariaDB.
 
-Pour créer un réplica dans Azure Database for MariaDB, réplication des données entrantes synchronise les données provenant d’un serveur MariaDB maître qui s’exécute en local, dans des machines virtuelles ou dans des services de base de données.
+Pour créer un réplica dans Azure Database for MariaDB, [Data-in Replication](concepts-data-in-replication.md) synchronise les données provenant d’un serveur MariaDB maître qui s’exécute en local, dans des machines virtuelles ou dans des services de base de données. La réplication des données entrantes est basée sur la réplication selon la position du fichier journal binaire (binlog) native à MariaDB. Pour découvrir plus en détail la réplication binlog, consultez la [vue d’ensemble de la réplication binlog](https://mariadb.com/kb/en/library/replication-overview/).
 
 Passez en revue les [limitations et conditions requises](concepts-data-in-replication.md#limitations-and-considerations) de la Réplication des données entrantes avant de suivre les étapes décrites dans cet article.
 
@@ -41,6 +41,12 @@ Passez en revue les [limitations et conditions requises](concepts-data-in-replic
 3. Ajoutez l’adresse IP du serveur maître aux règles de pare-feu du réplica. 
 
    Mettez à jour les règles de pare-feu à l’aide du [portail Azure](howto-manage-firewall-portal.md) ou d’[Azure CLI](howto-manage-firewall-cli.md).
+
+> [!NOTE]
+> Communication sans biais
+>
+> Microsoft promeut un environnement diversifié et inclusif. Cet article contient des références au mot _esclave_. Le [guide de style pour la communication sans biais](https://github.com/MicrosoftDocs/microsoft-style-guide/blob/master/styleguide/bias-free-communication.md) de Microsoft reconnaît celui-ci comme un mot d’exclusion. Le mot est utilisé dans cet article par souci de cohérence, car il s’agit du mot qui figure dans le logiciel. Une fois que le mot aura été supprimé du logiciel, cet article sera mis à jour en conséquence.
+>
 
 ## <a name="configure-the-master-server"></a>Configurer le serveur maître
 

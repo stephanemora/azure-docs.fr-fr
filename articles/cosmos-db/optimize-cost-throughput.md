@@ -6,12 +6,12 @@ ms.author: mjbrown
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 02/07/2020
-ms.openlocfilehash: c80ab4acd745717e2e68ae7d9dc818594ad1ce9e
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 548faa6c702c599ed766c7f03123dd02fb43684d
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79501470"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85610725"
 ---
 # <a name="optimize-provisioned-throughput-cost-in-azure-cosmos-db"></a>Optimiser le coût du débit approvisionné dans Azure Cosmos DB
 
@@ -117,7 +117,7 @@ Par défaut, Azure Cosmos DB indexe automatiquement chaque propriété de chaque
 
 Vous pouvez surveiller le nombre total d’unités de requête approvisionnées, le nombre de demandes de limitation de taux, ainsi que le nombre d’unités de requête que vous avez consommées dans le portail Azure. L’image suivante montre un exemple de métrique d’utilisation :
 
-![Surveiller les unités de requête dans le portail Azure](./media/optimize-cost-throughput/monitoring.png)
+:::image type="content" source="./media/optimize-cost-throughput/monitoring.png" alt-text="Surveiller les unités de requête dans le Portail Azure":::
 
 Vous pouvez également définir des alertes pour vérifier si le nombre de demandes de limitation de taux dépasse un seuil spécifique. Consultez l’article [Comment surveiller un compte Azure Cosmos DB](use-metrics.md) pour plus d’informations. Ces alertes peuvent envoyer un e-mail aux administrateurs de compte ou appeler un Webhook HTTP personnalisé ou une fonction Azure afin d’augmenter automatiquement le débit approvisionné. 
 
@@ -155,7 +155,7 @@ Les étapes suivantes vous aider à rendre vos solutions hautement évolutives e
 
 1. Si vous avez considérablement surapprovisionné le débit sur les conteneurs et les bases de données, vous devez comparer les unités de requête approvisionnées et les unités de requêtes consommées afin d’ajuster les charges de travail.  
 
-2. Une méthode permettant d’estimer la quantité de débit réservé requis par votre application consiste à enregistrer les frais d’unité de requête associés à l’exécution des opérations courantes sur un élément représentatif utilisé par votre application (un conteneur ou une base de données Azure Cosmos), puis à évaluer le nombre d’opérations que vous prévoyez d’effectuer chaque seconde. Veillez à mesurer et à inclure également les requêtes courantes et leur utilisation. Pour savoir comment estimer le coût des RU de requêtes par programme ou à l’aide du portail, voir [Optimiser le coût des requêtes](../synapse-analytics/sql-data-warehouse/backup-and-restore.md). 
+2. Une méthode permettant d’estimer la quantité de débit réservé requis par votre application consiste à enregistrer les frais d’unité de requête associés à l’exécution des opérations courantes sur un élément représentatif utilisé par votre application (un conteneur ou une base de données Azure Cosmos), puis à évaluer le nombre d’opérations que vous prévoyez d’effectuer chaque seconde. Veillez à mesurer et à inclure également les requêtes courantes et leur utilisation. Pour savoir comment estimer le coût des RU de requêtes par programme ou à l’aide du portail, voir [Optimiser le coût des requêtes](optimize-cost-queries.md). 
 
 3. Une autre façon d’évaluer les opérations et leur coût en unités de requête consiste à activer les journaux d’activité Azure Monitor afin d’obtenir la répartition par opération/durée et les frais de chaque requête. Azure Cosmos DB applique des frais de requête pour chaque opération : ainsi, les frais de chaque opération peuvent être consignés dans la réponse à des fins d’analyse ultérieure. 
 

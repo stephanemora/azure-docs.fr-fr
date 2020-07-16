@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 06/18/2020
 ms.author: xiaojul
-ms.openlocfilehash: 2032ba11c307adda7035d64828d5089da49bedba
-ms.sourcegitcommit: 4042aa8c67afd72823fc412f19c356f2ba0ab554
+ms.openlocfilehash: 1c9b0b48c7862990cfa2c8ba38bde0851058a228
+ms.sourcegitcommit: 0100d26b1cac3e55016724c30d59408ee052a9ab
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/24/2020
-ms.locfileid: "85307173"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86023021"
 ---
 # <a name="debug-errors-when-running-a-custom-commands-application"></a>Déboguer les erreurs lors de l’exécution d’une application Commandes personnalisées
 
@@ -27,9 +27,8 @@ Si vous exécutez une application Commandes personnalisées à partir d’une [a
 
 | Code d'erreur | Détails |
 | ------- | -------- |
-| 401 | AuthenticationFailure : WebSocket Upgrade failed with an authentication error |
-| 1 000 | Exceeded maximum websocket connection idle duration(> 300,000 ms) |
-| 1002 | Le serveur a retourné le code d'état '404' alors que le code d'état attendu était '101'. |
+| [401](#error-401) | AuthenticationFailure : WebSocket Upgrade failed with an authentication error |
+| [1002](#error-1002)] | Le serveur a retourné le code d'état '404' alors que le code d'état attendu était '101'. |
 
 ### <a name="error-401"></a>Erreur 401
 - La région spécifiée dans l’application cliente ne correspond pas à la région de l’application Commandes personnalisées
@@ -37,9 +36,6 @@ Si vous exécutez une application Commandes personnalisées à partir d’une [a
 - La clé de la ressource Speech n’est pas valide
     
     Vérifiez que votre clé de ressource Speech est correcte.
-
-### <a name="error-1000"></a>Erreur 1000 
-Les connexions inactives sont interrompues par le serveur après 5 minutes. Essayez de vous connecter.
 
 ### <a name="error-1002"></a>Erreur 1002 
 - Votre application Commandes personnalisées n’est pas publiée
@@ -49,10 +45,12 @@ Les connexions inactives sont interrompues par le serveur après 5 minutes. Ess
 - L’ID de votre application Commandes personnalisées n’est pas valide
 
     Assurez-vous que l’ID de votre application Commandes personnalisées est correct.
-
-- Vous tentez d’accéder à une application Commandes personnalisées en dehors de votre ressource Speech
+ application Commandes personnalisées en dehors de votre ressource Speech
 
     Assurez-vous que l’application Commandes personnalisées est créée sous votre ressource Speech.
+
+Pour plus d’informations sur la résolution des problèmes de connexion, reportez-vous à la [résolution des problèmes client de l’assistant vocal Windows](https://github.com/Azure-Samples/Cognitive-Services-Voice-Assistant/tree/master/clients/csharp-wpf#troubleshooting)
+
 
 ## <a name="dialog-is-canceled"></a>Le dialogue est annulé
 
@@ -70,14 +68,14 @@ L’événement CancelledDialog se compose du code d’annulation et de la descr
 
 | Code d’annulation | Description de l’annulation |
 | ------- | --------------- | ----------- |
-| MaxTurnThresholdReached | Aucune progression après le nombre maximal de tours autorisés |
-| RecognizerQuotaExceeded | Dépassement du quota d’utilisation du module de reconnaissance |
-| RecognizerConnectionFailed | Échec de la connexion au module de reconnaissance |
-| RecognizerUnauthorized | Impossible d’accéder à cette application avec l’abonnement actuel |
-| RecognizerInputExceededAllowedLength | L’entrée dépasse la longueur maximale prise en charge pour le module de reconnaissance |
-| RecognizerNotFound | Module de reconnaissance introuvable |
-| RecognizerInvalidQuery | Requête non valide pour le module de reconnaissance |
-| RecognizerError | Le module de reconnaissance retourne une erreur |
+| [MaxTurnThresholdReached](#no-progress-was-made-after-the-max-number-of-turns-allowed) | Aucune progression après le nombre maximal de tours autorisés |
+| [RecognizerQuotaExceeded](#recognizer-usage-quota-exceeded) | Dépassement du quota d’utilisation du module de reconnaissance |
+| [RecognizerConnectionFailed](#connection-to-the-recognizer-failed) | Échec de la connexion au module de reconnaissance |
+| [RecognizerUnauthorized](#this-application-cannot-be-accessed-with-the-current-subscription) | Impossible d’accéder à cette application avec l’abonnement actuel |
+| [RecognizerInputExceededAllowedLength](#input-exceeds-the-maximum-supported-length) | L’entrée dépasse la longueur maximale prise en charge pour le module de reconnaissance |
+| [RecognizerNotFound](#recognizer-not-found) | Module de reconnaissance introuvable |
+| [RecognizerInvalidQuery](#invalid-query-for-the-recognizer) | Requête non valide pour le module de reconnaissance |
+| [RecognizerError](#recognizer-return-an-error) | Le module de reconnaissance retourne une erreur |
 
 ### <a name="no-progress-was-made-after-the-max-number-of-turns-allowed"></a>Aucune progression après le nombre maximal de tours autorisés
 Le dialogue est annulé lorsqu’un emplacement requis n’est pas correctement mis à jour après un certain nombre de tours. Le nombre maximal par défaut est 3.

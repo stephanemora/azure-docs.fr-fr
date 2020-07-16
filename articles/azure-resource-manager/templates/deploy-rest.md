@@ -2,13 +2,13 @@
 title: Déploiement de ressources avec le modèle et l’API REST
 description: Utilisez Azure Resource Manager et l’API REST Resource Manager pour déployer des ressources sur Azure. Les ressources sont définies dans un modèle Resource Manager.
 ms.topic: conceptual
-ms.date: 05/20/2020
-ms.openlocfilehash: d7865ac6f9b2bb176ea5308e326dec0741a80962
-ms.sourcegitcommit: 6fd8dbeee587fd7633571dfea46424f3c7e65169
+ms.date: 06/04/2020
+ms.openlocfilehash: a2280d3bb406fd7e5c41558478363de68cbd44b8
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/21/2020
-ms.locfileid: "83723117"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84678407"
 ---
 # <a name="deploy-resources-with-arm-templates-and-resource-manager-rest-api"></a>Déployer des ressources avec des modèles Resource Manager et l’API REST Resource Manager
 
@@ -73,7 +73,7 @@ Les exemples de cet article illustrent des déploiements dans des groupes de res
    }
    ```
 
-1. Validez votre déploiement avant son exécution en exécutant l’opération [Valider un déploiement de modèle](/rest/api/resources/deployments/validate) . Lorsque vous testez le déploiement, indiquez les paramètres exactement comme vous le feriez lors de l'exécution du déploiement (voir l'étape suivante).
+1. Avant de déployer votre modèle, vous pouvez obtenir un aperçu des changements que le modèle apportera à votre environnement. Utilisez l’[opération de simulation](template-deploy-what-if.md) pour vérifier que le modèle apporte les changements prévus. Cette opération vérifie aussi que le modèle ne comporte pas d’erreurs.
 
 1. Pour déployer un modèle, indiquez votre ID d’abonnement, le nom du groupe de ressources et le nom du déploiement dans l’URI de requête.
 
@@ -133,7 +133,7 @@ Les exemples de cet article illustrent des déploiements dans des groupes de res
       "properties": {
       "mode": "Incremental",
       "template": {
-        "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+        "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
         "contentVersion": "1.0.0.0",
         "parameters": {
           "storageAccountType": {

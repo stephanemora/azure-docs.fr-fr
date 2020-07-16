@@ -1,27 +1,24 @@
 ---
-title: Séries Edv4 et Edsv4 - Machines virtuelles Microsoft Azure
+title: Séries Edv4 et Edsv4
 description: Spécifications relatives aux machines virtuelles des séries Ev4, Edv4, Esv4 et Edsv4.
 author: brbell
 ms.author: brbell
-ms.reviewer: cynthn
+ms.reviewer: jushiman
 ms.custom: mimckitt
 ms.service: virtual-machines
+ms.subservice: sizes
 ms.topic: conceptual
 ms.date: 02/04/2020
-ms.openlocfilehash: 795891f56985504a3584089d7377f753605ba4dd
-ms.sourcegitcommit: 309cf6876d906425a0d6f72deceb9ecd231d387c
+ms.openlocfilehash: 7a21fb1c8da365176c27921bd58a5dffae468d2c
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/01/2020
-ms.locfileid: "84263038"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84735946"
 ---
 # <a name="edv4-and-edsv4-series"></a>Séries Edv4 et Edsv4
 
-Les séries Edv4 et Edsv4 s’exécutent sur les processeurs Intel&reg; Xeon&reg; Platinum 8272CL (Cascade Lake) dans une configuration hyper-thread. Idéales pour les applications d’entreprise gourmandes en mémoire, elles proposent jusqu’à 504 Gio de RAM, la [technologie Intel&reg; Turbo Boost 2.0](https://www.intel.com/content/www/us/en/architecture-and-technology/turbo-boost/turbo-boost-technology.html), la [technologie Intel&reg; Hyper-Threading](https://www.intel.com/content/www/us/en/architecture-and-technology/hyper-threading/hyper-threading-technology.html) et la [technologie Intel&reg; Advanced Vector Extensions 512 (Intel&reg; AVX-512)](https://www.intel.com/content/www/us/en/architecture-and-technology/avx-512-overview.html). Ces nouvelles tailles de machines virtuelles disposeront d’un stockage local 50 % plus volumineux ainsi que de meilleures IOPS de disque local en lecture et en écriture par rapport aux tailles [Ev3/Esv3](https://docs.microsoft.com/azure/virtual-machines/ev3-esv3-series) avec des [machines virtuelles Gen2](https://docs.microsoft.com/azure/virtual-machines/linux/generation-2).
-
-
-> [!IMPORTANT]
-> Si vous déployez une nouvelle machine virtuelle avec les séries Edv4 ou Edsv4 et que vous comptez utiliser une image Linux, vous devez utiliser RHEL 8.x, CentOS 8.x ou Oracle 7.x (ou version plus récente). Si vous choisissez RHEL 7.x, CentOS 7.x ou Oracle 6.x, une erreur de type Alerte sur le noyau se produira. Microsoft procède actuellement au déploiement d'un correctif. Seuls RHEL, CentOS et Oracle sont concernés.
+Les séries Edv4 et Edsv4 s’exécutent sur les processeurs Intel&reg; Xeon&reg; Platinum 8272CL (Cascade Lake) dans une configuration hyper-thread. Idéales pour les applications d’entreprise gourmandes en mémoire, elles proposent jusqu’à 504 Gio de RAM, la [technologie Intel&reg; Turbo Boost 2.0](https://www.intel.com/content/www/us/en/architecture-and-technology/turbo-boost/turbo-boost-technology.html), la [technologie Intel&reg; Hyper-Threading](https://www.intel.com/content/www/us/en/architecture-and-technology/hyper-threading/hyper-threading-technology.html) et la [technologie Intel&reg; Advanced Vector Extensions 512 (Intel&reg; AVX-512)](https://www.intel.com/content/www/us/en/architecture-and-technology/avx-512-overview.html). Elles prennent également en charge la technologie [Intel&reg; Deep Learning Boost](https://software.intel.com/content/www/us/en/develop/topics/ai/deep-learning-boost.html). Ces nouvelles tailles de machines virtuelles disposeront d’un stockage local 50 % plus volumineux ainsi que de meilleures IOPS de disque local en lecture et en écriture par rapport aux tailles [Ev3/Esv3](https://docs.microsoft.com/azure/virtual-machines/ev3-esv3-series) avec des [machines virtuelles Gen2](https://docs.microsoft.com/azure/virtual-machines/linux/generation-2).
 
 ## <a name="edv4-series"></a>Série Edv4
 
@@ -63,7 +60,7 @@ Migration dynamique : Prise en charge
 
 Mises à jour avec préservation de la mémoire : Prise en charge
 
-| Taille | Processeurs virtuels | Mémoire : Gio | Stockage temporaire (SSD) en Gio | Disques de données max. | Débit de stockage temporaire et mis en cache max. : IOPS/MBps | Débit du disque non mis en cache max. : IOPS/Mbits/s | Nombre max. de cartes réseau/Bande passante réseau attendue (Mbits/s) |
+| Taille | Processeurs virtuels | Mémoire : Gio | Stockage temporaire (SSD) en Gio | Disques de données max. | Débit de stockage temporaire et mis en cache max. : IOPS/Mbits/s (taille du cache en Gio) | Débit du disque non mis en cache max. : IOPS/Mbits/s | Nombre max. de cartes réseau/Bande passante réseau attendue (Mbits/s) |
 |---|---|---|---|---|---|---|---|
 | Standard_E2ds_v4  | 2 | 16 | 75 | 4 | 19000/120(50) | 3 200/48 | 2/1 000 |
 | Standard_E4ds_v4  | 4 | 32 | 150 | 8 | 38500/242(100) | 6 400/96 | 2/2 000 |

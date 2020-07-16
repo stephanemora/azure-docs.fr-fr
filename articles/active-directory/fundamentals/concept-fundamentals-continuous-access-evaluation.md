@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: jlu
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: bdf904bb2c0d133ea07cd32274fad5b6601da5d9
-ms.sourcegitcommit: 2721b8d1ffe203226829958bee5c52699e1d2116
+ms.openlocfilehash: f0cb402741163c657b3e7961eb5a4f9c8e18dafd
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/28/2020
-ms.locfileid: "84148121"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84673018"
 ---
 # <a name="continuous-access-evaluation"></a>Évaluation de l’accès continu
 
@@ -40,6 +40,7 @@ L’évaluation de l’accès continu est implémentée en permettant aux servic
 
 - Le compte d’utilisateur est supprimé ou désactivé
 - Le mot de passe d’un utilisateur a été modifié ou réinitialisé
+- MFA est activée pour l’utilisateur
 - L’administrateur révoque tous les jetons d’actualisation d’un utilisateur
 - Risque utilisateur élevé détecté par Azure AD Identity Protection
 
@@ -76,7 +77,7 @@ Nous augmenterons la durée de vie des jetons d’accès à 24 heures dans les 
 1. Un jeton d’accès est présenté au fournisseur de ressources. Le fournisseur de ressources évalue la validité du jeton et vérifie s’il existe un événement de révocation pour l’utilisateur. Le fournisseur de ressources utilise ces informations pour décider d’accorder ou non l’accès à la ressource.
 1. Dans ce cas, le fournisseur de ressources refuse l’accès et envoie une contestation de revendication 401+ au client.
 1. Le client compatible avec l’EAC comprend la contestation de revendication 401+. Il contourne les caches et revient à l’étape 1, en renvoyant à Azure AD son jeton d’actualisation avec la contestation de revendication. Azure AD réévalue ensuite toutes les conditions et invite l’utilisateur à se réauthentifier dans ce cas.
- 
+
 ## <a name="faqs"></a>FAQ
 
 ### <a name="what-is-the-lifetime-of-my-access-token"></a>Quelle est la durée de vie de mon jeton d’accès ?

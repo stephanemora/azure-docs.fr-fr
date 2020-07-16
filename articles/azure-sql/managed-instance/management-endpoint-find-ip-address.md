@@ -3,8 +3,8 @@ title: Découvrir l’adresse IP de point de terminaison de gestion
 titleSuffix: Azure SQL Managed Instance
 description: Découvrir comment obtenir l’adresse IP publique du point de terminaison de gestion Azure SQL Managed Instance et vérifier la protection de son pare-feu intégré
 services: sql-database
-ms.service: sql-database
-ms.subservice: managed-instance
+ms.service: sql-managed-instance
+ms.subservice: operations
 ms.custom: sqldbrb=1
 ms.devlang: ''
 ms.topic: conceptual
@@ -12,12 +12,12 @@ author: srdan-bozovic-msft
 ms.author: srbozovi
 ms.reviewer: sstein, carlrab
 ms.date: 12/04/2018
-ms.openlocfilehash: 88965c25702917f17a226cfa51de662703136aae
-ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
+ms.openlocfilehash: 40a44fe46cf38c633380c4c353960cc4e11f2f3d
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "84031160"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84708720"
 ---
 # <a name="determine-the-management-endpoint-ip-address---azure-sql-managed-instance"></a>Déterminer l’adresse IP du point de terminaison de gestion - Azure SQL Managed Instance 
 [!INCLUDE[appliesto-sqlmi](../includes/appliesto-sqlmi.md)]
@@ -26,11 +26,11 @@ Le cluster virtuel Azure SQL Managed Instance contient un point de terminaison d
 
 Pour déterminer l’adresse IP de gestion, effectuez une [recherche DNS](/windows-server/administration/windows-commands/nslookup) sur le nom de domaine complet de votre instance SQL Managed Instance : `mi-name.zone_id.database.windows.net`. Cette opération retourne une entrée DNS similaire à `trx.region-a.worker.vnet.database.windows.net`. Vous pouvez ensuite effectuer une recherche DNS sur ce nom de domaine complet avec la partie « . vnet » en moins. L’adresse IP de gestion est alors retournée. 
 
-Cette commande PowerShell le fera pour vous si vous remplacez \<MI FQDN\> par l’entrée DNS de votre instance SQL Managed Instance : `mi-name.zone_id.database.windows.net`.
+Ce code PowerShell le fera pour vous si vous remplacez \<MI FQDN\> par l’entrée DNS de SQL Managed Instance : `mi-name.zone_id.database.windows.net` :
   
 ``` powershell
   $MIFQDN = "<MI FQDN>"
   resolve-dnsname $MIFQDN | select -first 1  | %{ resolve-dnsname $_.NameHost.Replace(".vnet","")}
 ```
 
-Pour plus d’informations sur les instances SQL Managed Instance et la connectivité, consultez [Architecture de la connectivité Azure SQL Database Managed Instance](connectivity-architecture-overview.md).
+Pour plus d’informations sur SQL Managed Instance et la connectivité, consultez [Architecture de la connectivité Azure SQL Managed Instance](connectivity-architecture-overview.md).

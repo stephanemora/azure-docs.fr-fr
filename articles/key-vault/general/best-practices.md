@@ -10,12 +10,12 @@ ms.subservice: general
 ms.topic: conceptual
 ms.date: 03/07/2019
 ms.author: mbaldwin
-ms.openlocfilehash: 2a81d28998c531339a1b719e37e4b90004157edf
-ms.sourcegitcommit: ac4a365a6c6ffa6b6a5fbca1b8f17fde87b4c05e
+ms.openlocfilehash: 16828435dc8913fff8da4717ee7f77cc701504ed
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/10/2020
-ms.locfileid: "83005844"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85213072"
 ---
 # <a name="best-practices-to-use-key-vault"></a>Meilleures pratiques pour utiliser Key Vault
 
@@ -33,9 +33,22 @@ Voici quelques suggestions concernant le contrôle de l’accès à votre coffre
 
 Nous recommandons d’utiliser un coffre par application et par environnement (développement, préproduction et production). Cela vous aide à éviter le partage de secrets entre environnements et réduit la menace en cas de violation.
 
-## <a name="backup"></a>Backup
+## <a name="backup"></a>Sauvegarde
 
 Veillez à effectuer des sauvegardes régulières de votre coffre lors de la mise à jour, de la suppression ou de la création d’objets au sein d’un coffre.
+
+### <a name="azure-powershell-backup-commands"></a>Utilisation de commandes de sauvegarde Azure PowerShell
+
+* [Certificat de sauvegarde](https://docs.microsoft.com/powershell/module/azurerm.keyvault/Backup-AzureKeyVaultCertificate?view=azurermps-6.13.0)
+* [Clé de sauvegarde](https://docs.microsoft.com/powershell/module/azurerm.keyvault/Backup-AzureKeyVaultKey?view=azurermps-6.13.0)
+* [Secret de sauvegarde](https://docs.microsoft.com/powershell/module/azurerm.keyvault/Backup-AzureKeyVaultSecret?view=azurermps-6.13.0)
+
+### <a name="azure-cli-backup-commands"></a>Interface de ligne de commande Azure de sauvegarde
+
+* [Certificat de sauvegarde](https://docs.microsoft.com/cli/azure/keyvault/certificate?view=azure-cli-latest#az-keyvault-certificate-backup)
+* [Clé de sauvegarde](https://docs.microsoft.com/cli/azure/keyvault/key?view=azure-cli-latest#az-keyvault-key-backup)
+* [Secret de sauvegarde](https://docs.microsoft.com/cli/azure/keyvault/secret?view=azure-cli-latest#az-keyvault-secret-backup)
+
 
 ## <a name="turn-on-logging"></a>Activer la journalisation
 

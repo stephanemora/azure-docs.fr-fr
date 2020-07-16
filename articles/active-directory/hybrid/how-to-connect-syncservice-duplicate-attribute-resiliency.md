@@ -11,17 +11,17 @@ ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 01/15/2018
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 5585f0cd04dca4145f0322db9d625e35372b24b5
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 82632fb104438e1b5279b1525fbce2b6d8e7ceeb
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "78298341"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85356880"
 ---
 # <a name="identity-synchronization-and-duplicate-attribute-resiliency"></a>Synchronisation des identités et résilience d’attribut en double
 La résilience d’attribut en double est une fonctionnalité d’Azure Active Directory qui élimine les problèmes liés aux conflits entre les valeurs **UserPrincipalName** et **ProxyAddress** SMTP lors de l’exécution de l’un des outils de synchronisation de Microsoft.
@@ -40,7 +40,7 @@ En cas de tentative d’approvisionnement d’un nouvel objet avec une valeur UP
 
 ## <a name="behavior-with-duplicate-attribute-resiliency"></a>Comportement avec une résilience d’attribut en double
 Au lieu de rejeter l’approvisionnement ou la mise à jour d’un objet comportant un attribut en double, Azure Active Directory met en « quarantaine » l’attribut en double qui enfreint la contrainte d’unicité. Si cet attribut est requis pour l’approvisionnement, comme pour UserPrincipalName, le service affecte une valeur d’espace réservé. Le format de ces valeurs temporaires est  
-_**\<OriginalPrefix>+\<4DigitNumber>\@\<InitialTenantDomain>.onmicrosoft.com**_ .
+_**\<OriginalPrefix>+\<4DigitNumber>\@\<InitialTenantDomain>.onmicrosoft.com**_.
 
 Le processus de résilience d’attribut gère uniquement les valeurs **ProxyAddress** UPN et SMTP.
 
@@ -137,7 +137,7 @@ Voici un exemple de notification par e-mail d’un conflit ProxyAddress :
 ## <a name="resolving-conflicts"></a>Résolution des conflits
 Les stratégies et tactiques de résolution des problèmes pour ces erreurs ne doivent pas différer de la façon dont les erreurs d’attribut en double ont été traitées par le passé. La seule différence est que la tâche du minuteur effectue un balayage du client côté serveur afin d’ajouter automatiquement l’attribut en question à l’objet concerné lorsque le conflit est résolu.
 
-L’article suivant présente différentes stratégies de dépannage et de résolution : [Les attributs en double ou non valides empêchent la synchronisation d’annuaires dans Office 365](https://support.microsoft.com/kb/2647098).
+L’article suivant décrit les différentes stratégies de dépannage et de résolution : [Les attributs en double ou non valides empêchent la synchronisation d’annuaires dans Office 365](https://support.microsoft.com/kb/2647098).
 
 ## <a name="known-issues"></a>Problèmes connus
 Aucun de ces problèmes connus n’entraîne une dégradation du service ou une perte des données. Plusieurs d’entre eux relèvent de l’esthétisme ; d’autres génèrent des erreurs d’attribut en double («*pré-résilience*»), au lieu de mettre en quarantaine l’attribut à l’origine du conflit ; un dernier requiert un travail de correction manuelle supplémentaire pour certaines erreurs.

@@ -3,17 +3,17 @@ title: Charger un disque dur virtuel sur Azure ou copier un disque d’une régi
 description: Découvrez comment charger un disque dur virtuel sur un disque managé Azure et comment copier un disque managé d’une région à l’autre avec Azure PowerShell via le chargement direct.
 author: roygara
 ms.author: rogarana
-ms.date: 03/27/2020
-ms.topic: article
+ms.date: 06/15/2020
+ms.topic: how-to
 ms.service: virtual-machines
 ms.tgt_pltfrm: linux
 ms.subservice: disks
-ms.openlocfilehash: 6242baf5a541231d367d456450388ef455312780
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: d03e911b88e6a7729b0519e74941b47d85a97901
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82182512"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84944625"
 ---
 # <a name="upload-a-vhd-to-azure-or-copy-a-managed-disk-to-another-region---azure-powershell"></a>Charger un disque dur virtuel sur Azure ou copier un disque managé dans une autre région - Azure PowerShell
 
@@ -47,6 +47,9 @@ Avant de pouvoir créer un disque dur standard vide pour le chargement, vous dev
 Ensuite, à partir de votre interpréteur de commandes local, créez un disque HDD Standard vierge pour le chargement en spécifiant le paramètre **Upload** dans **-CreateOption** ainsi que le paramètre **-UploadSizeInBytes** dans la cmdlet [New-AzDiskConfig](https://docs.microsoft.com/powershell/module/az.compute/new-azdiskconfig?view=azps-1.8.0). Ensuite, appelez [New-AzDisk](https://docs.microsoft.com/powershell/module/az.compute/new-azdisk?view=azps-1.8.0) pour créer le disque.
 
 Remplacez `<yourdiskname>`, `<yourresourcegroupname>`et `<yourregion>`, puis exécutez les commandes suivantes :
+
+> [!TIP]
+> Si vous créez un disque de système d’exploitation, ajoutez -HyperVGeneration ’<yourGeneration>’ à `New-AzDiskConfig`.
 
 ```powershell
 $vhdSizeBytes = (Get-Item "<fullFilePathHere>").length
@@ -98,6 +101,9 @@ Le script suivant effectue cette opération pour vous. Le processus est similair
 > Vous devez ajouter un décalage de 512 quand vous fournissez la taille en octets d’un disque managé d’Azure. En effet, Azure omet le pied de page lors du retour de la taille du disque. Si vous ne le faites pas, la copie échouera. Le script suivant s’en charge pour vous.
 
 Remplacez `<sourceResourceGroupHere>`, `<sourceDiskNameHere>`, `<targetDiskNameHere>`, `<targetResourceGroupHere>`, `<yourOSTypeHere>` et `<yourTargetLocationHere>` (la valeur d'emplacement pourrait par exemple être uswest2) par vos valeurs, puis exécutez le script suivant afin de copier un disque managé.
+
+> [!TIP]
+> Si vous créez un disque de système d’exploitation, ajoutez -HyperVGeneration ’<yourGeneration>’ à `New-AzDiskConfig`.
 
 ```powershell
 

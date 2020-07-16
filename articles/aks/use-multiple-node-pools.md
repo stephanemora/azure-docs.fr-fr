@@ -4,12 +4,12 @@ description: Découvrez comment créer et gérer plusieurs pools de nœuds pour 
 services: container-service
 ms.topic: article
 ms.date: 04/08/2020
-ms.openlocfilehash: bf7e767f1a7b0c657c744c96b308160393e3f326
-ms.sourcegitcommit: 50ef5c2798da04cf746181fbfa3253fca366feaa
+ms.openlocfilehash: 64eaa3fd38a9f3de7e2032ef7ff7a18924353a1d
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/30/2020
-ms.locfileid: "82610919"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85318434"
 ---
 # <a name="create-and-manage-multiple-node-pools-for-a-cluster-in-azure-kubernetes-service-aks"></a>Créer et gérer plusieurs pools de nœuds pour un cluster dans Azure Kubernetes Service (AKS)
 
@@ -42,7 +42,7 @@ Les limitations suivantes s’appliquent lorsque vous créez et gérez les clust
 > [!Important]
 > Si vous exécutez un pool de nœuds système unique pour votre cluster AKS dans un environnement de production, nous vous recommandons d’utiliser au moins trois nœuds pour le pool de nœuds.
 
-Pour commencer, créez un cluster AKS avec un pool de nœuds unique. L’exemple suivant utilise la commande [az group create][az-group-create] pour créer un groupe de ressources nommé *myResourceGroup* dans la région *eastus*. Un cluster AKS nommé *myAKSCluster* est alors créé à l’aide de la commande [az aks create][az-aks-create]. Un paramètre *--kubernetes-version* de valeur *1.15.7* est utilisé pour montrer comment mettre à jour un pool de nœuds dans une étape suivante. Vous pouvez spécifier une [version Kubernetes prise en charge][supported-versions].
+Pour commencer, créez un cluster AKS avec un pool de nœuds unique. L’exemple suivant utilise la commande [az group create][az-group-create] pour créer un groupe de ressources nommé *myResourceGroup* dans la région *eastus*. Un cluster AKS nommé *myAKSCluster* est alors créé à l’aide de la commande [az aks create][az-aks-create].
 
 > [!NOTE]
 > La référence SKU d’équilibreur de charge *De base* **n’est pas prise en charge** en cas d’utilisation de plusieurs pools de nœuds. Par défaut, les clusters AKS sont créés avec la référence SKU d'équilibreur de charge *Standard* à partir d'Azure CLI et du portail Azure.
@@ -58,7 +58,6 @@ az aks create \
     --vm-set-type VirtualMachineScaleSets \
     --node-count 2 \
     --generate-ssh-keys \
-    --kubernetes-version 1.15.7 \
     --load-balancer-sku standard
 ```
 
@@ -82,8 +81,7 @@ az aks nodepool add \
     --resource-group myResourceGroup \
     --cluster-name myAKSCluster \
     --name mynodepool \
-    --node-count 3 \
-    --kubernetes-version 1.15.5
+    --node-count 3
 ```
 
 > [!NOTE]
@@ -104,7 +102,7 @@ L’exemple de sortie suivant montre que *mynodepool* a été créé avec trois 
     "count": 3,
     ...
     "name": "mynodepool",
-    "orchestratorVersion": "1.15.5",
+    "orchestratorVersion": "1.15.7",
     ...
     "vmSize": "Standard_DS2_v2",
     ...
@@ -123,7 +121,7 @@ L’exemple de sortie suivant montre que *mynodepool* a été créé avec trois 
 ```
 
 > [!TIP]
-> Si aucune taille *VmSize* n’est spécifiée lorsque vous ajoutez un pool de nœuds, la taille par défaut est *Standard_DS2_v3* pour les pools de nœuds Windows et *Standard_DS2_v2* pour les pools de nœuds Linux. Si aucune version *OrchestratorVersion* n’est spécifiée, la version par défaut est identique à celle du plan de contrôle.
+> Si aucune taille *VmSize* n’est spécifiée lorsque vous ajoutez un pool de nœuds, la taille par défaut est *Standard_D2s_v3* pour les pools de nœuds Windows et *Standard_DS2_v2* pour les pools de nœuds Linux. Si aucune version *OrchestratorVersion* n’est spécifiée, la version par défaut est identique à celle du plan de contrôle.
 
 ### <a name="add-a-node-pool-with-a-unique-subnet-preview"></a>Ajouter un pool de nœuds avec un sous-réseau unique (préversion)
 
@@ -144,7 +142,6 @@ az aks nodepool add \
     --cluster-name myAKSCluster \
     --name mynodepool \
     --node-count 3 \
-    --kubernetes-version 1.15.5
     --vnet-subnet-id <YOUR_SUBNET_RESOURCE_ID>
 ```
 
@@ -153,25 +150,29 @@ az aks nodepool add \
 > [!NOTE]
 > Les opérations de mise à niveau et de mise à l’échelle sur un cluster ou un pool de nœuds ne peuvent pas se produire simultanément. Toute tentative de les exécuter simultanément retourne une erreur. En effet, chaque opération doit être terminée sur la ressource cible avant l’exécution de la demande suivante sur cette même ressource. Pour en savoir plus, voir notre [Guide de résolution des problèmes](https://aka.ms/aks-pending-upgrade).
 
-Lors de la création de votre cluster AKS à la première étape, la valeur *1.15.7* a été spécifiée pour `--kubernetes-version`. Celle-ci définit la version Kubernetes à la fois pour le plan de contrôle et le pool de nœuds par défaut. Les commandes de cette section expliquent comment mettre à niveau un seul pool de nœuds.
-
-La relation entre la mise à niveau de la version Kubernetes du plan de contrôle et le pool de est décrite [ci-dessous](#upgrade-a-cluster-control-plane-with-multiple-node-pools).
+Les commandes de cette section expliquent comment mettre à niveau un seul pool de nœuds. La relation entre la mise à niveau de la version Kubernetes du plan de contrôle et le pool de est décrite [ci-dessous](#upgrade-a-cluster-control-plane-with-multiple-node-pools).
 
 > [!NOTE]
 > La version de l'image de système d'exploitation du pool de nœuds est liée à la version Kubernetes du cluster. Vous n'obtiendrez les mises à niveau de l'image de système d'exploitation qu'après une mise à niveau du cluster.
 
-Comme il existe deux pools de nœuds dans cet exemple, nous devons utiliser la commande [az aks nodepool upgrade][az-aks-nodepool-upgrade] pour mettre à niveau un pool de nœuds. Nous allons mettre à niveau *mynodepool* vers Kubernetes *1.15.7*. Utilisez la commande [az aks nodepool upgrade][az-aks-nodepool-upgrade] pour mettre à niveau le pool de nœuds, comme dans l’exemple suivant :
+Comme il existe deux pools de nœuds dans cet exemple, nous devons utiliser la commande [az aks nodepool upgrade][az-aks-nodepool-upgrade] pour mettre à niveau un pool de nœuds. Pour voir les mises à niveau disponibles, utilisez [az aks get-upgrades][az-aks-get-upgrades]
+
+```azurecli-interactive
+az aks get-upgrades --resource-group myResourceGroup --name myAKSCluster
+```
+
+Nous allons mettre à niveau *mynodepool*. Utilisez la commande [az aks nodepool upgrade][az-aks-nodepool-upgrade] pour mettre à niveau le pool de nœuds, comme dans l’exemple suivant :
 
 ```azurecli-interactive
 az aks nodepool upgrade \
     --resource-group myResourceGroup \
     --cluster-name myAKSCluster \
     --name mynodepool \
-    --kubernetes-version 1.15.7 \
+    --kubernetes-version KUBERNETES_VERSION \
     --no-wait
 ```
 
-Listez de nouveau l’état de vos pools de nœuds à l’aide de la commande [az aks node pool list][az-aks-nodepool-list]. L’exemple suivant montre que *mynodepool* est dans l’état *Mise à niveau* vers *1.15.7* :
+Listez de nouveau l’état de vos pools de nœuds à l’aide de la commande [az aks node pool list][az-aks-nodepool-list]. L’exemple suivant montre que *mynodepool* est en cours de *mise à niveau* (état Upgrading) vers *KUBERNETES_VERSION* :
 
 ```azurecli
 az aks nodepool list -g myResourceGroup --cluster-name myAKSCluster
@@ -184,7 +185,7 @@ az aks nodepool list -g myResourceGroup --cluster-name myAKSCluster
     "count": 3,
     ...
     "name": "mynodepool",
-    "orchestratorVersion": "1.15.7",
+    "orchestratorVersion": "KUBERNETES_VERSION",
     ...
     "provisioningState": "Upgrading",
     ...
@@ -812,6 +813,8 @@ Dans cet article, vous avez appris comment créer et gérer plusieurs pools de n
 
 Pour créer et utiliser des pools de nœuds de conteneur Windows Server, consultez [Créer un conteneur Windows Server dans AKS][aks-windows].
 
+Utilisez les [groupes de placement de proximité][reduce-latency-ppg] pour réduire la latence dans vos applications AKS.
+
 <!-- EXTERNAL LINKS -->
 [kubernetes-drain]: https://kubernetes.io/docs/tasks/administer-cluster/safely-drain-node/
 [kubectl-get]: https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#get
@@ -824,6 +827,7 @@ Pour créer et utiliser des pools de nœuds de conteneur Windows Server, consult
 [aks-windows]: windows-container-cli.md
 [az-aks-get-credentials]: /cli/azure/aks#az-aks-get-credentials
 [az-aks-create]: /cli/azure/aks#az-aks-create
+[az-aks-get-upgrades]: /cli/azure/aks?view=azure-cli-latest#az-aks-get-upgrades
 [az-aks-nodepool-add]: /cli/azure/aks/nodepool?view=azure-cli-latest#az-aks-nodepool-add
 [az-aks-nodepool-list]: /cli/azure/aks/nodepool?view=azure-cli-latest#az-aks-nodepool-list
 [az-aks-nodepool-update]: /cli/azure/aks/nodepool?view=azure-cli-latest#az-aks-nodepool-update
@@ -848,3 +852,4 @@ Pour créer et utiliser des pools de nœuds de conteneur Windows Server, consult
 [node-resource-group]: faq.md#why-are-two-resource-groups-created-with-aks
 [vmss-commands]: ../virtual-machine-scale-sets/virtual-machine-scale-sets-networking.md#public-ipv4-per-virtual-machine
 [az-list-ips]: /cli/azure/vmss?view=azure-cli-latest.md#az-vmss-list-instance-public-ips
+[reduce-latency-ppg]: reduce-latency-ppg.md

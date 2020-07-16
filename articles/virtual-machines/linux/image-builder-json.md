@@ -1,19 +1,19 @@
 ---
 title: Créer un modèle de générateur d’images Azure (préversion)
 description: Découvrez comment créer un modèle à utiliser avec le générateur d’images Azure.
-author: danis
+author: danielsollondon
 ms.author: danis
-ms.date: 03/24/2020
+ms.date: 06/23/2020
 ms.topic: article
 ms.service: virtual-machines-linux
 ms.subservice: imaging
 ms.reviewer: cynthn
-ms.openlocfilehash: f567114613f484f0765a6e007c3f0ba97480a968
-ms.sourcegitcommit: a9784a3fd208f19c8814fe22da9e70fcf1da9c93
+ms.openlocfilehash: 975d6842110ffa864a534e09cf35d0d33612d7d5
+ms.sourcegitcommit: e995f770a0182a93c4e664e60c025e5ba66d6a45
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/22/2020
-ms.locfileid: "83779345"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86135073"
 ---
 # <a name="preview-create-an-azure-image-builder-template"></a>Aperçu : Créer un modèle de générateur d’images Azure 
 
@@ -29,7 +29,7 @@ Voici le format de modèle de base :
     "tags": {
         "<name": "<value>",
         "<name>": "<value>"
-             }
+     },
     "identity":{},           
     "dependsOn": [], 
     "properties": { 
@@ -88,7 +88,7 @@ Par défaut, Image Builder utilise une machine virtuelle de build « Standard_D
 
 ## <a name="osdisksizegb"></a>osDiskSizeGB
 
-Par défaut, Image Builder ne modifie pas la taille de l’image et utilise la taille de l’image source. Vous pouvez augmenter la taille du disque du système d’exploitation (Win et Linux). Cette valeur est facultative, et la valeur 0 indique de conserver la taille de l’image source. 
+Par défaut, Image Builder ne modifie pas la taille de l’image et utilise la taille de l’image source. La taille du disque du système d’exploitation (Win et Linux) peut **seulement** être augmentée. Cette opération est facultative ; la valeur 0 indique de conserver la taille de l’image source. Vous ne pouvez pas choisir une taille de disque du système d’exploitation inférieure à celle de l’image source.
 
 ```json
  {
@@ -308,7 +308,7 @@ Le personnalisateur de redémarrage vous permet de redémarrer une machine virtu
         ],
 ```
 
-Système d’exploitation pris en charge :  Windows
+Système d’exploitation pris en charge : Windows
  
 Propriétés de personnalisation :
 - **Type** : WindowsRestart
@@ -391,7 +391,8 @@ Les fichiers dans le personnalisateur de fichier peuvent être téléchargés de
 
 ### <a name="windows-update-customizer"></a>Personnalisateur de Windows Update
 Ce personnalisateur est basé sur [le provisionneur Windows Update de la communauté](https://packer.io/docs/provisioners/community-supported.html) pour Packer, un projet open source géré par la communauté Packer. Microsoft teste et valide le provisionneur à l’aide du service Image Builder et prend en charge l’examen des problèmes rencontrés, et travaille à la résolution des problèmes, mais le projet open source n’est pas officiellement pris en charge par Microsoft. Pour obtenir une documentation détaillée et une aide sur le provisionneur de Windows Update, consultez le référentiel du projet.
- 
+
+```json
      "customize": [
             {
                 "type": "WindowsUpdate",
@@ -403,7 +404,8 @@ Ce personnalisateur est basé sur [le provisionneur Windows Update de la communa
                 "updateLimit": 20
             }
                ], 
-Système d’exploitation pris en charge :  Windows
+OS support: Windows
+```
 
 Propriétés de personnalisation :
 - **type** : WindowsUpdate.
@@ -521,7 +523,7 @@ La sortie de l’image correspond à une ressource d’image managée.
  
 Propriétés de distribution :
 - **type** - managedImage 
-- **imageId** – ID de ressource de l’image de destination, format attendu : /subscriptions/\<subscriptionId>/resourceGroups/\<destinationResourceGroupName>/providers/Microsoft.Compute/images/\<imageName>
+- **imageId** - ID de ressource de l’image de destination, format attendu : /subscriptions/\<subscriptionId>/resourceGroups/\<destinationResourceGroupName>/providers/Microsoft.Compute/images/\<imageName>
 - **location** - Emplacement de l’image managée.  
 - **runOutputName** - Nom unique d’identification de la distribution.  
 - **artifactTags** - Facultatif, balises de paire de valeur de clé spécifiées par l’utilisateur.
@@ -561,7 +563,7 @@ Avant de pouvoir distribuer dans la galerie d’images, vous devez créer une ga
 Propriétés de distribution de galeries d’images partagées :
 
 - **type** - sharedImage  
-- **galleryImageId** - ID de la galerie d’images partagées. Le format est : /subscriptions/\<subscriptionId>/resourceGroups/\<resourceGroupName>/providers/Microsoft.Compute/galleries/\<sharedImageGalleryName>/images/\<imageGalleryName>.
+- **galleryImageId** - ID de la galerie d’images partagées. Le format est : /subscriptions/\<subscriptionId>/resourceGroups/\<resourceGroupName>/providers/Microsoft.Compute/galleries/\<sharedImageGalleryName>/images/\<imageGalleryName>.
 - **runOutputName** - Nom unique d’identification de la distribution.  
 - **artifactTags** - Facultatif, balises de paire de valeur de clé spécifiées par l’utilisateur.
 - **replicationRegions** - Tableau de régions pour la réplication. Une des régions doit être la région où la galerie est déployée.

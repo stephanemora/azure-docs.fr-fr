@@ -6,15 +6,15 @@ ms.author: avverma
 ms.topic: conceptual
 ms.service: virtual-machine-scale-sets
 ms.subservice: management
-ms.date: 04/14/2020
+ms.date: 06/26/2020
 ms.reviewer: jushiman
 ms.custom: avverma
-ms.openlocfilehash: c06ad5ab2688bd62fdf898950a8f64cd655a9fcc
-ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
+ms.openlocfilehash: af0dea5297cca02b12aecdc8252e62030032b93e
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/12/2020
-ms.locfileid: "83124973"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85601341"
 ---
 # <a name="azure-virtual-machine-scale-set-automatic-os-image-upgrades"></a>Mises à niveau automatiques d’images de système d’exploitation de groupes de machines virtuelles identiques Azure
 
@@ -46,7 +46,7 @@ Le processus de mise à niveau se déroule comme suit :
 L’orchestrateur de mise à niveau du système d’exploitation du groupe identique vérifie l’intégrité de tout le groupe identique avant de procéder à la mise à niveau de chaque lot. Durant la mise à niveau d’un lot, il peut arriver que d’autres activités de maintenance planifiées ou non planifiées aient lieu en même temps et impactent l’intégrité des instances du groupe identique. Si c’est le cas et que plus de 20 % des instances du groupe identique passent à l’état non sain, la mise à niveau du groupe identique s’arrête à la fin du lot en cours.
 
 ## <a name="supported-os-images"></a>Images de système d’exploitation prises en charge
-Seules certaines images de plateforme de système d’exploitation sont actuellement prises en charge. La prise en charge des images personnalisées est disponible [en préversion](virtual-machine-scale-sets-automatic-upgrade.md#automatic-os-image-upgrade-for-custom-images-preview) pour les images personnalisées via la [Galerie d’images partagées](shared-image-galleries.md).
+Seules certaines images de plateforme de système d’exploitation sont actuellement prises en charge. Les images personnalisées [sont prises en charge](virtual-machine-scale-sets-automatic-upgrade.md#automatic-os-image-upgrade-for-custom-images) si le groupe identique utilise des images personnalisées via [Shared Image Gallery](shared-image-galleries.md).
 
 Les références SKU de plateforme suivantes sont prises en charge (et d’autres sont régulièrement ajoutées) :
 
@@ -77,90 +77,25 @@ Les références SKU de plateforme suivantes sont prises en charge (et d’autre
 ### <a name="service-fabric-requirements"></a>Exigence pour Service Fabric
 
 Si vous utilisez Service Fabric, assurez-vous que les conditions suivantes sont remplies :
--   Le [niveau de durabilité](../service-fabric/service-fabric-cluster-capacity.md#the-durability-characteristics-of-the-cluster) de Service Fabric est Silver ou Gold, et non Bronze.
+-   Le [niveau de durabilité](../service-fabric/service-fabric-cluster-capacity.md#durability-characteristics-of-the-cluster) de Service Fabric est Silver ou Gold, et non Bronze.
 -   L’extension Service Fabric sur la définition du modèle de groupe identique doit avoir TypeHandlerVersion 1.1 ou version ultérieure.
 -   Le niveau de durabilité doit être identique au cluster Service Fabric et à l’extension de Service Fabric de la définition du modèle de groupe identique.
+- Une sonde d’intégrité supplémentaire ou l’utilisation de l’extension d’intégrité d’application n’est pas nécessaire.
 
 Assurez-vous que les paramètres de durabilité ne sont pas incompatibles avec le cluster Service Fabric et l’extension Service Fabric, car une incompatibilité entraînera des erreurs de mise à niveau. Les niveaux de durabilité peuvent être modifiés selon les instructions indiquées sur[cette page](../service-fabric/service-fabric-cluster-capacity.md#changing-durability-levels).
 
 
-## <a name="automatic-os-image-upgrade-for-custom-images-preview"></a>Mise à niveau automatique de l’image du système d’exploitation pour les images personnalisées (préversion)
+## <a name="automatic-os-image-upgrade-for-custom-images"></a>Mise à niveau automatique de l’image du système d’exploitation pour les images personnalisées
 
-> [!IMPORTANT]
-> La mise à niveau automatique de l’image du système d’exploitation pour les images personnalisées est actuellement en préversion publique. Une procédure de consentement est requise pour utiliser la fonctionnalité en préversion publique décrite ci-dessous.
-> Cette préversion est fournie sans contrat de niveau de service et n’est pas recommandée pour les charges de travail de production. Certaines fonctionnalités peuvent être limitées ou non prises en charge.
-> Pour plus d’informations, consultez [Conditions d’Utilisation Supplémentaires relatives aux Évaluations Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
-
-La mise à niveau automatique de l’image du système d’exploitation est disponible en préversion pour les images personnalisées déployées via la [Galerie d’images partagées](shared-image-galleries.md). Les autres images personnalisées ne sont pas prises en charge pour les mises à niveau automatiques de l’image du système d’exploitation.
-
-L’activation de la fonctionnalité en préversion requiert une inscription unique pour la fonctionnalité *AutomaticOSUpgradeWithGalleryImage* par abonnement, comme indiqué ci-dessous.
-
-### <a name="rest-api"></a>API REST
-L’exemple suivant décrit comment activer la préversion pour votre abonnement :
-
-```
-POST on `/subscriptions/{subscriptionId}/providers/Microsoft.Features/providers/Microsoft.Compute/features/AutomaticOSUpgradeWithGalleryImage/register?api-version=2015-12-01`
-```
-
-L’inscription de la fonctionnalité peut prendre jusqu’à 15 minutes. Pour vérifier l’état de l’inscription :
-
-```
-GET on `/subscriptions/{subscriptionId}/providers/Microsoft.Features/providers/Microsoft.Compute/features/AutomaticOSUpgradeWithGalleryImage?api-version=2015-12-01`
-```
-
-Une fois que la fonctionnalité a été enregistrée pour votre abonnement, effectuez le processus d’inscription en propageant la modification dans le fournisseur de ressources de calcul.
-
-```
-POST on `/subscriptions/{subscriptionId}/providers/Microsoft.Compute/register?api-version=2019-12-01`
-```
-
-### <a name="azure-powershell"></a>Azure PowerShell
-Utilisez l’applet de commande [Register-AzProviderFeature](/powershell/module/az.resources/register-azproviderfeature) pour activer la préversion pour votre abonnement.
-
-```azurepowershell-interactive
-Register-AzProviderFeature -FeatureName AutomaticOSUpgradeWithGalleryImage -ProviderNamespace Microsoft.Compute
-```
-
-L’inscription de la fonctionnalité peut prendre jusqu’à 15 minutes. Pour vérifier l’état de l’inscription :
-
-```azurepowershell-interactive
-Get-AzProviderFeature -FeatureName AutomaticOSUpgradeWithGalleryImage -ProviderNamespace Microsoft.Compute
-```
-
-Une fois que la fonctionnalité a été enregistrée pour votre abonnement, effectuez le processus d’inscription en propageant la modification dans le fournisseur de ressources de calcul.
-
-```azurepowershell-interactive
-Register-AzResourceProvider -ProviderNamespace Microsoft.Compute
-```
-
-### <a name="azure-cli-20"></a>Azure CLI 2.0
-Utilisez [az feature register](/cli/azure/feature#az-feature-register) pour activer la préversion pour votre abonnement.
-
-```azurecli-interactive
-az feature register --namespace Microsoft.Compute --name AutomaticOSUpgradeWithGalleryImage
-```
-
-L’inscription de la fonctionnalité peut prendre jusqu’à 15 minutes. Pour vérifier l’état de l’inscription :
-
-```azurecli-interactive
-az feature show --namespace Microsoft.Compute --name AutomaticOSUpgradeWithGalleryImage
-```
-
-Une fois que la fonctionnalité a été enregistrée pour votre abonnement, effectuez le processus d’inscription en propageant la modification dans le fournisseur de ressources de calcul.
-
-```azurecli-interactive
-az provider register --namespace Microsoft.Compute
-```
+La mise à niveau automatique de l’image du système d’exploitation est prise en charge pour les images personnalisées déployées via [Shared Image Gallery](shared-image-galleries.md). Les autres images personnalisées ne sont pas prises en charge pour les mises à niveau automatiques de l’image du système d’exploitation.
 
 ### <a name="additional-requirements-for-custom-images"></a>Exigences supplémentaires pour les images personnalisées
-- Le processus d’abonnement décrit ci-dessus ne doit être effectué qu’une seule fois par abonnement. Après inscription, les mises à niveau automatiques du système d’exploitation peuvent être activées pour n’importe quel groupe identique de cet abonnement.
-- La Galerie d’images partagées peut se trouver dans n’importe quel abonnement et ne nécessite pas d’être choisie séparément. Seul l’abonnement à un groupe identique requiert l’acceptation de la fonctionnalité.
-- Le processus de configuration de la mise à niveau automatique de l’image du système d’exploitation est le même pour tous les groupes identiques, comme indiqué dans la [section Configuration](virtual-machine-scale-sets-automatic-upgrade.md#configure-automatic-os-image-upgrade) de cette page.
+- Le processus de paramétrage et de configuration de la mise à niveau automatique de l’image du système d’exploitation est le même pour tous les groupes identiques, comme indiqué dans la [section Configuration](virtual-machine-scale-sets-automatic-upgrade.md#configure-automatic-os-image-upgrade) de cette page.
 - Les instances de groupes identiques configurées pour les mises à niveau automatiques de l’image du système d’exploitation sont mises à niveau vers la dernière version de l’image de la Galerie d’images partagées lorsqu’une nouvelle version de l’image est publiée et [répliquée](shared-image-galleries.md#replication) dans la région de ce groupe identique. Si la nouvelle image n’est pas répliquée vers la région où le groupe est déployé, les instances du groupe identique ne seront pas mises à niveau vers la dernière version. La réplication régionale d’images vous permet de contrôler le déploiement de la nouvelle image pour vos groupes identiques.
 - La nouvelle version de l’image ne doit pas être exclue de la version la plus récente pour cette image de la galerie. Les versions d’image exclues de la dernière version de l’image de la galerie ne sont pas déployées dans le groupe identique via la mise à niveau automatique de l’image du système d’exploitation.
 
 > [!NOTE]
->Un groupe identique peut nécessiter jusqu’à 3 heures pour lancer le premier déploiement de mise à niveau d’une image après la configuration du groupe identique pour les mises à niveau automatiques du système d’exploitation. Il s’agit d’un délai unique par groupe identique. Les déploiements d’images suivants sont déclenchés sur le groupe identique dans un délai de 30 minutes.
+>Un groupe identique peut nécessiter jusqu’à 3 heures pour lancer le premier déploiement de mise à niveau d’une image après la première configuration du groupe identique pour les mises à niveau automatiques du système d’exploitation. Il s’agit d’un délai unique par groupe identique. Les déploiements d’images suivants sont déclenchés sur le groupe identique dans un délai de 30 à 60 minutes.
 
 
 ## <a name="configure-automatic-os-image-upgrade"></a>Configurer la mise à niveau automatique d’image de système d’exploitation
@@ -193,11 +128,14 @@ Update-AzVmss -ResourceGroupName "myResourceGroup" -VMScaleSetName "myScaleSet" 
 ```
 
 ### <a name="azure-cli-20"></a>Azure CLI 2.0
-Utilisez la cmdlet [az vmss update](/cli/azure/vmss#az-vmss-update) pour configurer les mises à niveau automatiques d’image de système d’exploitation pour votre groupe identique. Utilisez Azure CLI 2.0.47 ou une version ultérieure. L’exemple suivant configure les mises à niveau automatiques pour le groupe identique nommé *myScaleSet* dans le groupe de ressources appelé *myResourceGroup* :
+Utilisez `[az vmss update](/cli/azure/vmss#az-vmss-update)` pour configurer les mises à niveau automatiques d’image de système d’exploitation pour votre groupe identique. Utilisez Azure CLI 2.0.47 ou une version ultérieure. L’exemple suivant configure les mises à niveau automatiques pour le groupe identique nommé *myScaleSet* dans le groupe de ressources appelé *myResourceGroup* :
 
 ```azurecli-interactive
 az vmss update --name myScaleSet --resource-group myResourceGroup --set UpgradePolicy.AutomaticOSUpgradePolicy.EnableAutomaticOSUpgrade=true
 ```
+
+> [!NOTE]
+>Après la configuration des mises à niveau automatiques d’image de système d’exploitation pour votre groupe identique, vous devez également appliquer aux machines virtuelles du groupe identique le dernier modèle de groupe identique si votre groupe identique utilise la [stratégie de mise à jour](virtual-machine-scale-sets-upgrade-scale-set.md#how-to-bring-vms-up-to-date-with-the-latest-scale-set-model) « Manuel ».
 
 ## <a name="using-application-health-probes"></a>Utilisation de sondes d’intégrité d’application
 

@@ -1,10 +1,9 @@
 ---
-title: Configurer un groupe de disponibilité dans plusieurs régions
-description: Cet article explique comment configurer un groupe de disponibilité SQL Server sur des machines virtuelles avec un réplica dans une autre région.
+title: Configurer un groupe de disponibilité SQL Server Always On dans différentes régions
+description: Cet article explique comment configurer un groupe de disponibilité SQL Server Always On sur des machines virtuelles avec un réplica dans une autre région.
 services: virtual-machines
 documentationCenter: na
 author: MikeRayMSFT
-manager: craigg
 editor: monicar
 tags: azure-service-management
 ms.assetid: 388c464e-a16e-4c9d-a0d5-bb7cf5974689
@@ -15,14 +14,15 @@ ms.workload: iaas-sql-server
 ms.date: 05/02/2017
 ms.author: mikeray
 ms.custom: seo-lt-2019
-ms.openlocfilehash: 996b5a59c5c79a045cd396a24778fe0928682c5a
-ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
+ms.openlocfilehash: 8ab62a93546719e172eec34168a0692daccf281a
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "84030030"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84669305"
 ---
-# <a name="configure-an-availability-group-on-azure-sql-server-virtual-machines-in-different-regions"></a>Configurer un groupe de disponibilité sur des machines virtuelles Azure SQL Server dans plusieurs régions
+# <a name="configure-a-sql-server-always-on-availability-group-across-different-azure-regions"></a>Configurer un groupe de disponibilité SQL Server Always On dans différentes régions Azure
+
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
 
 Cet article explique comment configurer un réplica de groupe de disponibilité SQL Server AlwaysOn sur des machines virtuelles Azure dans un emplacement Azure distant. Utilisez cette configuration pour prendre en charge la récupération d’urgence.
@@ -107,13 +107,13 @@ Pour créer un réplica dans un centre de données distant, procédez comme suit
 
 1. Ajoutez l’adresse IP en tant que dépendance pour le nom du cluster principal.
 
-   Ouvrez à nouveau les propriétés du cluster, puis sélectionnez l’onglet **Dépendances**. Configurez une dépendance OU pour les deux adresses IP : 
+   Rouvrez les propriétés du cluster, puis sélectionnez l’onglet **Dépendances**. Configurez une dépendance OU pour les deux adresses IP : 
 
    ![Propriétés du cluster](./media/availability-group-manually-configure-multiple-regions/cluster-ip-dependencies.png)
 
 1. Ajoutez une ressource d’adresse IP au rôle du groupe de disponibilité dans le cluster. 
 
-   Dans Gestionnaire du cluster de basculement, cliquez avec le bouton droit sur le rôle du groupe de disponibilité, sélectionnez **Ajouter une ressource**, **Autres ressources**, puis **Adresse IP**.
+   Dans Gestionnaire du cluster de basculement, cliquez avec le bouton droit sur le rôle du groupe de disponibilité, choisissez **Ajouter une ressource**, **Autres ressources**, puis **Adresse IP**.
 
    ![Création d’une adresse IP](./media/availability-group-manually-configure-multiple-regions/20-add-ip-resource.png)
 
@@ -133,7 +133,7 @@ Pour créer un réplica dans un centre de données distant, procédez comme suit
 
 1. [Définissez les paramètres de cluster dans PowerShell](availability-group-manually-configure-tutorial.md#setparam).
 
-Exécutez le script PowerShell avec le nom réseau du cluster, une adresse IP et un port de sonde que vous avez configurés sur l’équilibrage de charge dans la nouvelle région.
+   Exécutez le script PowerShell avec le nom réseau du cluster, une adresse IP et un port de sonde que vous avez configurés sur l’équilibrage de charge dans la nouvelle région.
 
    ```powershell
    $ClusterNetworkName = "<MyClusterNetworkName>" # The cluster name for the network in the new region (Use Get-ClusterNetwork on Windows Server 2012 of higher to find the name).
@@ -170,16 +170,16 @@ Si vous ne pouvez pas modifier les chaînes de connexion, vous pouvez configurer
 Pour tester la connectivité de l’écouteur à la région distante, vous pouvez basculer le réplica vers la région distante. Si le réplica est asynchrone, le basculement est vulnérable à la perte potentielle de données. Pour effectuer un basculement sans perte de données, modifiez le mode de disponibilité en synchrone et définissez le mode de basculement automatique. Utiliser les étapes suivantes :
 
 1. Dans l’**Explorateur d’objets**, connectez-vous à l’instance de SQL Server qui héberge le réplica principal.
-1. Sous **Groupes de disponibilité AlwaysOn**, **Groupes de disponibilité**, cliquez avec le bouton droit sur votre groupe de disponibilité, puis cliquez sur **Propriétés**.
+1. Sous **Groupes de disponibilité AlwaysOn**, **Groupes de disponibilité**, cliquez avec le bouton droit sur votre groupe de disponibilité, puis sélectionnez **Propriétés**.
 1. Dans la page **Général**, sous **Réplicas de disponibilité**, configurez le réplica secondaire dans le site de récupération d’urgence pour qu’il utilise le mode de disponibilité **Validation synchrone** et le mode de basculement **Automatique**.
 1. Si vous avez un réplica secondaire dans le même site que le réplica principal pour la haute disponibilité, configurez ce réplica en **Validation asynchrone** et **Manuel**.
-1. Cliquez sur OK.
-1. Dans l’**Explorateur d’objets**, cliquez sur le groupe de disponibilité puis sur **Afficher le tableau de bord**.
+1. Sélectionnez OK.
+1. Dans l’**Explorateur d’objets**, cliquez avec le bouton droit sur le groupe de disponibilité, puis sélectionnez **Afficher le tableau de bord**.
 1. Dans le tableau de bord, vérifiez que le réplica sur le site de récupération d’urgence est synchronisé.
-1. Dans l’**Explorateur d’objets**, cliquez sur le groupe de disponibilité puis sur **Basculer...** . SQL Server Management Studio ouvre un assistant pour effectuer le basculement vers SQL Server.  
-1. Cliquez sur **Suivant** et sélectionnez l’instance de SQL Server sur le site de récupération d’urgence. Cliquez à nouveau sur **Suivant** .
-1. Connectez-vous à l’instance de SQL Server sur le site de récupération d’urgence et cliquez sur **Suivant**.
-1. Dans la page **Synthèse**, vérifiez les paramètres et cliquez sur **Terminer**.
+1. Dans l’**Explorateur d’objets**, cliquez avec le bouton droit sur le groupe de disponibilité, puis sélectionnez **Basculer...** . SQL Server Management Studio ouvre un assistant pour effectuer le basculement vers SQL Server.  
+1. Sélectionnez **Suivant** et sélectionnez l’instance de SQL Server sur le site de reprise d’activité. Sélectionnez **Suivant** de nouveau.
+1. Connectez-vous à l’instance de SQL Server sur le site de reprise d’activité et sélectionnez **Suivant**.
+1. Dans la page **Synthèse**, vérifiez les paramètres et sélectionnez **Terminer**.
 
 Après avoir testé la connectivité, replacez le réplica principal dans votre centre de données principal et rétablissez les paramètres de fonctionnement normaux du mode de disponibilité. Le tableau suivant présente les paramètres de fonctionnement normaux de l’architecture décrite dans ce document :
 
@@ -197,7 +197,7 @@ Pour plus d'informations, voir les rubriques suivantes :
 - [Effectuer un basculement manuel planifié d'un groupe de disponibilité (SQL Server)](https://msdn.microsoft.com/library/hh231018.aspx)
 - [Effectuer un basculement manuel forcé d'un groupe de disponibilité (SQL Server)](https://msdn.microsoft.com/library/ff877957.aspx)
 
-## <a name="additional-links"></a>Liens supplémentaires
+## <a name="next-steps"></a>Étapes suivantes
 
 * [Groupes de disponibilité AlwaysOn](https://msdn.microsoft.com/library/hh510230.aspx)
 * [Machines virtuelles Azure](https://docs.microsoft.com/azure/virtual-machines/windows/)

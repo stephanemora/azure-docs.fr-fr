@@ -3,12 +3,12 @@ title: Créer un cluster Service Fabric dans le portail Azure
 description: Apprenez à configurer un cluster Service Fabric sécurisé dans Azure à l’aide du portail Azure et d’Azure Key Vault.
 ms.topic: conceptual
 ms.date: 09/06/2018
-ms.openlocfilehash: 64a4c430cc7402419d64b77fdcc9a6389cf9de6d
-ms.sourcegitcommit: e0330ef620103256d39ca1426f09dd5bb39cd075
+ms.openlocfilehash: eeadfcf24ad2448c845f3d612247686347600001
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/05/2020
-ms.locfileid: "82792477"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85611150"
 ---
 # <a name="create-a-service-fabric-cluster-in-azure-using-the-azure-portal"></a>Création d’un cluster Service Fabric dans Azure à partir du portail Azure
 > [!div class="op_single_selector"]
@@ -209,7 +209,7 @@ Chacune des valeurs NodeTypes que vous spécifiez dans votre cluster entraîne l
 [service-fabric-cluster-security]: service-fabric-cluster-security.md
 [service-fabric-cluster-security-roles]: service-fabric-cluster-security-roles.md
 [service-fabric-cluster-capacity]: service-fabric-cluster-capacity.md
-[service-fabric-cluster-durability]: service-fabric-cluster-capacity.md#the-durability-characteristics-of-the-cluster
+[service-fabric-cluster-durability]: service-fabric-cluster-capacity.md#durability-characteristics-of-the-cluster
 [service-fabric-connect-and-communicate-with-services]: service-fabric-connect-and-communicate-with-services.md
 [service-fabric-health-introduction]: service-fabric-health-introduction.md
 [service-fabric-reliable-services-backup-restore]: service-fabric-reliable-services-backup-restore.md

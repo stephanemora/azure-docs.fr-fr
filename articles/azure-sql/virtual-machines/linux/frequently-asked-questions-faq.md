@@ -1,10 +1,9 @@
 ---
-title: Forum Aux Questions (FAQ) concernant SQL Server sur les machines virtuelles Linux Azure | Microsoft Docs
-description: Cet article fournit des réponses aux questions fréquemment posées sur l’exécution de SQL Server sur les machines virtuelles Linux Azure.
+title: Questions fréquentes (FAQ) sur les machines virtuelles SQL Server sur Linux | Microsoft Docs
+description: Cet article fournit des réponses aux questions fréquemment posées sur l’exécution des machines virtuelles SQL Server sur Linux.
 services: virtual-machines-linux
 documentationcenter: ''
 author: MashaMSFT
-manager: craigg
 tags: azure-service-management
 ms.service: virtual-machines-sql
 ms.topic: troubleshooting
@@ -12,21 +11,21 @@ ms.workload: iaas-sql-server
 ms.date: 12/13/2017
 ms.author: mathoma
 ms.reviewer: jroth
-ms.openlocfilehash: f5447e61936b55db353404aae7cb391377d78294
-ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
+ms.openlocfilehash: afd36eb079b6e5f29fa664050cded3c5ddd17d8e
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "84035340"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84669458"
 ---
-# <a name="frequently-asked-questions-for-sql-server-on-linux-azure-virtual-machines"></a>Forum Aux Questions (FAQ) concernant SQL Server sur les machines virtuelles Linux Azure
+# <a name="frequently-asked-questions-for-sql-server-on-linux-virtual-machines"></a>Questions fréquentes (FAQ) sur les machines virtuelles SQL Server sur Linux
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
 
 > [!div class="op_single_selector"]
 > * [Windows](../windows/frequently-asked-questions-faq.md)
 > * [Linux](frequently-asked-questions-faq.md)
 
-Cet article fournit des réponses à certaines des questions les plus courantes sur l’exécution de [SQL Server sur les machines virtuelles Linux Azure](sql-server-on-linux-vm-what-is-iaas-overview.md).
+Cet article fournit des réponses à certaines des questions les plus courantes sur l’exécution des [machines virtuelles SQL Server sur Linux](sql-server-on-linux-vm-what-is-iaas-overview.md).
 
 [!INCLUDE [support-disclaimer](../../../../includes/support-disclaimer.md)]
 
@@ -34,15 +33,15 @@ Cet article fournit des réponses à certaines des questions les plus courantes 
 
 1. **Quelles images de galerie de machines virtuelles SQL Server sont disponibles ?**
 
-   Azure gère les images de machines virtuelles pour toutes les versions majeures prises en charge de SQL Server sur toutes les éditions pour Linux et Windows. Pour plus d’informations, consultez la liste complète des [images de machines virtuelles Linux](sql-server-on-linux-vm-what-is-iaas-overview.md#create) et [images de machines virtuelles Windows](../windows/sql-server-on-azure-vm-iaas-what-is-overview.md#payasyougo).
+   Azure gère les images de machines virtuelles pour toutes les versions majeures prises en charge de SQL Server sur toutes les éditions Linux et Windows. Pour plus d’informations, consultez la liste complète des [images de machines virtuelles Linux](sql-server-on-linux-vm-what-is-iaas-overview.md#create) et [images de machines virtuelles Windows](../windows/sql-server-on-azure-vm-iaas-what-is-overview.md#payasyougo).
 
 1. **Les images de galerie de machines virtuelles SQL Server sont-elles mises à jour?**
 
-   Tous les deux mois, les images SQL Server dans la galerie de machines virtuelles sont mises à jour avec les dernières mises à jour Linux et Windows. Pour les images Linux, cela inclut les dernières mises à jour système. Pour les images Windows, cela inclut toutes les mises à jour marquées comme importantes dans Windows Update, dont les Service Packs et mises à jour de sécurité SQL Server essentiels. Les mises à jour cumulatives SQL Server sont gérées différemment pour Linux et Windows. Pour Linux, les mises à jour cumulatives SQL Server figurent également dans l’actualisation. Toutefois, à ce stade, les machines virtuelles Windows ne sont pas mises à jour avec les mises à jour cumulatives SQL Server ou Windows Server.
+   Tous les deux mois, les images SQL Server dans la galerie de machines virtuelles sont mises à jour avec les dernières mises à jour Linux et Windows. Pour les images Linux, cela inclut les dernières mises à jour système. Pour les images Windows, sont comprises toutes les mises à jour marquées comme importantes dans Windows Update, dont les Service Packs et mises à jour de sécurité SQL Server importants. Les mises à jour cumulatives SQL Server sont gérées différemment pour Linux et Windows. Pour Linux, les mises à jour cumulatives SQL Server figurent également dans l’actualisation. Toutefois, à ce stade, les machines virtuelles Windows ne sont pas mises à jour avec les mises à jour cumulatives SQL Server ou Windows Server.
 
 1. **Quels sont les packages SQL Server associés également installés ?**
 
-   Pour voir les packages SQL Server installés par défaut sur les machines virtuelles Linux SQL Server, consultez [Packages installés](sql-server-on-linux-vm-what-is-iaas-overview.md#packages).
+   Pour voir les packages SQL Server installés par défaut sur les machines virtuelles SQL Server sur Linux, consultez [Packages installés](sql-server-on-linux-vm-what-is-iaas-overview.md#packages).
 
 1. **Est-ce que des images de machines virtuelles SQL Server peuvent être supprimées de la galerie ?**
 
@@ -50,9 +49,9 @@ Cet article fournit des réponses à certaines des questions les plus courantes 
 
 ## <a name="creation"></a>Création
 
-1. **Comment faire pour créer une machine virtuelle Linux Azure avec SQL Server ?**
+1. **Comment créer une machine virtuelle Linux avec SQL Server ?**
 
-   La solution la plus simple consiste à créer une machine virtuelle Linux qui inclut SQL Server. Pour obtenir un didacticiel sur l’inscription à Azure et la création d’une machine virtuelle SQL à partir du portail, consultez la rubrique [Approvisionnement d’une machine virtuelle Linux SQL Server dans le portail Azure](sql-vm-create-portal-quickstart.md). Vous avez également la possibilité d’installer manuellement SQL Server sur une machine virtuelle avec une version sous licence gratuite (Developer ou Express) ou en réutilisant une licence locale. Si vous utilisez votre propre licence, vous devez posséder [License Mobility via Software Assurance sur Azure](https://azure.microsoft.com/pricing/license-mobility).
+   La solution la plus simple consiste à créer une machine virtuelle Linux qui comprend SQL Server. Pour obtenir un tutoriel sur l’inscription à Azure et la création d’une machine virtuelle SQL Server à partir du portail, consultez [Provisionner une machine virtuelle Linux exécutant SQL Server dans le portail Azure](sql-vm-create-portal-quickstart.md). Vous avez également la possibilité d’installer manuellement SQL Server sur une machine virtuelle avec une version sous licence gratuite (Developer ou Express) ou en réutilisant une licence locale. Si vous utilisez votre propre licence, vous devez posséder [License Mobility via Software Assurance sur Azure](https://azure.microsoft.com/pricing/license-mobility).
 
 1. **Pourquoi ne puis-je pas configurer une machine virtuelle SQL Server RHEL ou SLES avec un abonnement Azure associé à une limite de dépense ?**
 
@@ -74,13 +73,13 @@ Cet article fournit des réponses à certaines des questions les plus courantes 
 
 ## <a name="administration"></a>Administration
 
-1. **Puis-je gérer une machine virtuelle Linux SQL Server avec SSMS (SQL Server Management Studio) ?**
+1. **Est-ce que je peux gérer une machine virtuelle Linux exécutant SQL Server avec SSMS (SQL Server Management Studio) ?**
 
-   Oui, mais SSMS est pour l’instant un outil Windows uniquement. Vous devez vous connecter à distance à partir d’un ordinateur Windows pour utiliser SSMS avec les machines virtuelles Linux SQL Server. Localement sur Linux, le nouvel outil [mssql-conf](https://docs.microsoft.com/sql/linux/sql-server-linux-configure-mssql-conf) peut effectuer de nombreuses tâches d’administration. Pour afficher un outil de gestion de bases de données multiplateforme, consultez [Azure Data Studio](https://docs.microsoft.com/sql/azure-data-studio/what-is).
+   Oui, mais SSMS est pour l’instant un outil Windows uniquement. Vous devez vous connecter à distance à partir d’un ordinateur Windows pour utiliser SSMS avec les machines virtuelles Linux exécutant SQL Server. Localement sur Linux, le nouvel outil [mssql-conf](https://docs.microsoft.com/sql/linux/sql-server-linux-configure-mssql-conf) peut effectuer de nombreuses tâches d’administration. Pour afficher un outil de gestion de bases de données multiplateforme, consultez [Azure Data Studio](https://docs.microsoft.com/sql/azure-data-studio/what-is).
 
-1. **Puis-je supprimer complètement SQL Server d’une machine virtuelle SQL ?**
+1. **Puis-je supprimer complètement SQL Server d’une machine virtuelle SQL Server ?**
 
-   Oui, mais vous serez toujours facturé pour votre machine virtuelle SQL de la manière décrite dans [Tarification des machines virtuelles SQL Server Azure](../windows/pricing-guidance.md?toc=%2fazure%2fvirtual-machines%2flinux%2fsql%2ftoc.json). Si vous n’avez plus besoin de SQL Server, vous pouvez déployer une nouvelle machine virtuelle et y migrer les données et les applications. Vous pouvez ensuite supprimer la machine virtuelle SQL Server.
+   Oui, mais vous serez toujours facturé pour votre machine virtuelle SQL Server de la manière décrite dans [Tarification des machines virtuelles SQL Server Azure](../windows/pricing-guidance.md?toc=%2fazure%2fvirtual-machines%2flinux%2fsql%2ftoc.json). Si vous n’avez plus besoin de SQL Server, vous pouvez déployer une nouvelle machine virtuelle et y migrer les données et les applications. Vous pouvez ensuite supprimer la machine virtuelle SQL Server.
 
 ## <a name="updating-and-patching"></a>Mise à jour et mise à jour corrective
 
@@ -92,18 +91,18 @@ Cet article fournit des réponses à certaines des questions les plus courantes 
 
 1. **Les solutions de haute disponibilité SQL Server sont-elles prises en charge sur les machines virtuelles Azure ?**
 
-   Pas pour l'instant. Les groupes de disponibilité AlwaysOn et le clustering de basculement requièrent une solution de clustering dans Linux, telle que Pacemaker. Les distributions Linux prises en charge pour SQL Server ne gèrent pas les modules complémentaires de haute disponibilité dans le cloud.
+   Pas pour l'instant. Les groupes de disponibilité AlwaysOn et le clustering de basculement nécessitent une solution de clustering dans Linux, telle que Pacemaker. Les distributions Linux prises en charge pour SQL Server ne gèrent pas les modules complémentaires de haute disponibilité dans le cloud.
 
 ## <a name="resources"></a>Ressources
 
 **Machines virtuelles Linux** :
 
 * [Vue d’ensemble de SQL Server sur une machine virtuelle Linux](sql-server-on-linux-vm-what-is-iaas-overview.md)
-* [Approvisionner une machine virtuelle Linux SQL Server](sql-vm-create-portal-quickstart.md)
+* [Provisionner SQL Server sur une machine virtuelle Linux](sql-vm-create-portal-quickstart.md)
 * [Documentation relative à SQL Server sur Linux](https://docs.microsoft.com/sql/linux/sql-server-linux-overview)
 
 **Machines virtuelles Windows** :
 
 * [Vue d’ensemble de SQL Server sur une machine virtuelle Windows](../windows/sql-server-on-azure-vm-iaas-what-is-overview.md)
-* [Approvisionner une machine virtuelle Windows SQL Server](../windows/sql-vm-create-portal-quickstart.md)
+* [Provisionner SQL Server sur une machine virtuelle Windows](../windows/sql-vm-create-portal-quickstart.md)
 * [Forum Aux Questions (Windows)](../windows/frequently-asked-questions-faq.md)

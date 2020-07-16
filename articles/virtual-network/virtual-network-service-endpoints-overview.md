@@ -13,12 +13,12 @@ ms.workload: infrastructure-services
 ms.date: 11/08/2019
 ms.author: sumi
 ms.custom: ''
-ms.openlocfilehash: 9dd4bc79760dde00808358fe489f6e539c2b9a2e
-ms.sourcegitcommit: 12f23307f8fedc02cd6f736121a2a9cea72e9454
+ms.openlocfilehash: 692d86fa27ea42df6fe1128b64e408a5d4a4d08b
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/30/2020
-ms.locfileid: "84220428"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85444452"
 ---
 # <a name="virtual-network-service-endpoints"></a>Points de terminaison de service de réseau virtuel
 
@@ -39,7 +39,7 @@ Cette fonctionnalité est disponible pour les services et régions Azure suivant
 - **[Azure Service Bus](../service-bus-messaging/service-bus-service-endpoints.md?toc=%2fazure%2fvirtual-network%2ftoc.json)** (*Microsoft.ServiceBus*) : mis à la disposition générale dans toutes les régions Azure.
 - **[Azure Event Hubs](../event-hubs/event-hubs-service-endpoints.md?toc=%2fazure%2fvirtual-network%2ftoc.json)** (*Microsoft.EventHub*) : mis à la disposition générale dans toutes les régions Azure.
 - **[Azure Data Lake Store Gen 1](../data-lake-store/data-lake-store-network-security.md?toc=%2fazure%2fvirtual-network%2ftoc.json)** (*Microsoft.AzureActiveDirectory*) : Disponibilité générale dans toutes les régions Azure où ADLS Gen1 est disponible.
-- **[Azure App Service](https://docs.microsoft.com/azure/app-service/app-service-ip-restrictions)** : En disponibilité générale dans toutes les régions Azure où App Service est disponible.
+- **[Azure App Service](https://docs.microsoft.com/azure/app-service/app-service-ip-restrictions)** (*Microsoft.Web*) : En disponibilité générale dans toutes les régions Azure où App Service est disponible.
 
 **Préversion publique**
 
@@ -90,7 +90,7 @@ Les points de terminaison de service fournissent les avantages suivants :
 
 ### <a name="considerations"></a>Considérations
 
-- Après l’activation d’un point de terminaison de service, les adresses IP sources des machines virtuelles dans le sous-réseau basculent. Les adresses IP sources passent de l’utilisation des adresses IPv4 publiques à l’utilisation de leur adresse IPv4 privée lors de la communication avec le service à partir de ce sous-réseau. Toute connexion TCP ouverte existante pour le service sera fermée lors de ce changement. Assurez-vous qu’aucune tâche critique n’est en cours d’exécution lors de l’activation ou de la désactivation d’un point de terminaison de service à un service pour un sous-réseau. En outre, assurez-vous que vos applications peuvent se connecter automatiquement aux services Azure après le changement d’adresse IP.
+- Après l’activation d’un point de terminaison de service, les adresses IP sources basculent de l’utilisation des adresses IPv4 publiques à l’utilisation de leur adresse IPv4 privée lors de la communication avec le service à partir de ce sous-réseau. Toute connexion TCP ouverte existante pour le service sera fermée lors de ce changement. Assurez-vous qu’aucune tâche critique n’est en cours d’exécution lors de l’activation ou de la désactivation d’un point de terminaison de service à un service pour un sous-réseau. En outre, assurez-vous que vos applications peuvent se connecter automatiquement aux services Azure après le changement d’adresse IP.
 
   Le changement d’adresse IP affecte uniquement le trafic de service à partir de votre réseau virtuel. L’impact sur tout autre trafic adressé vers ou depuis des adresses IPv4 publiques attribuées à vos machines virtuelles est inexistant. Si vous possédez des règles de pare-feu existantes à l’aide d’adresses IP publiques Azure pour les services Azure, ces règles cessent de fonctionner avec le changement pour les adresses privées de réseau virtuel.
 - Avec les points de terminaison de service, les entrées DNS pour les services Azure ne sont pas modifiées et continuent de résoudre les adresses IP publiques assignées au service Azure.

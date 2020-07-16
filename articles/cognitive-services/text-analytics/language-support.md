@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: text-analytics
 ms.topic: conceptual
-ms.date: 06/03/2020
+ms.date: 06/25/2020
 ms.author: aahi
-ms.openlocfilehash: 4fd893691f68c8b51fa3ef234d7828b1bd70cea5
-ms.sourcegitcommit: 813f7126ed140a0dff7658553a80b266249d302f
+ms.openlocfilehash: 367e214a3945ec9d6ed0ffc5b11e6af25dc41503
+ms.sourcegitcommit: fdaad48994bdb9e35cdd445c31b4bac0dd006294
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/06/2020
-ms.locfileid: "84465590"
+ms.lasthandoff: 06/26/2020
+ms.locfileid: "85413329"
 ---
 # <a name="text-analytics-api-v3-language-support"></a>Prise en charge linguistique de l’API Analyse de texte v3 
 
@@ -57,7 +57,7 @@ ms.locfileid: "84465590"
 #### <a name="named-entity-recognition-ner"></a>[Reconnaissance d’entité nommée (NER)](#tab/named-entity-recognition)
 
 > [!NOTE]
-> * NER v3 prend actuellement en charge seulement la langue anglaise. Si vous appelez NER v3 avec une autre langue, l’API retourne les résultats de la version 2.1 à condition que la langue soit prise en charge dans v2.1.
+> * NER v3 prend actuellement en charge seulement la langue anglaise et la langue espagnole. Si vous appelez NER v3 avec une autre langue, l’API retourne les résultats de la version 2.1 à condition que la langue soit prise en charge dans v2.1.
 > * v2.1 retourne l’ensemble complet des entités disponibles uniquement en anglais, chinois simplifié, français, allemand et espagnol.  Les entités « Person », « Location » et « Organization » sont retournées pour les autres langues prises en charge.
 
 | Langage               | Code langue | Prise en charge de v2.1 | Prise en charge de v3 | À partir de la version de modèle v3 : |       Notes        |
@@ -82,7 +82,7 @@ ms.locfileid: "84465590"
 | Portugais (Portugal) |    `pt-PT`    |     ✓      |            |                                 | `pt` également accepté |
 | Portugais (Brésil)   |    `pt-BR`    |     ✓      |            |                                 |                    |
 | Russe              |     `ru`      |     ✓      |            |                                 |                    |
-| Espagnol               |     `es`      |     ✓      |            |                                 |                    |
+| Espagnol               |     `es`      |     ✓      |     ✓       |              2020-04-01                   |                    |
 | Suédois               |     `sv`      |     ✓      |            |                                 |                    |
 | Turc               |     `tr`      |     ✓      |            |                                 |                    |
 

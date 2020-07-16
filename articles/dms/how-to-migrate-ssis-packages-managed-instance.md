@@ -1,5 +1,5 @@
 ---
-title: Migrer des packages SSIS vers une instance managée SQL
+title: Migrer des packages SSIS vers SQL Managed Instance
 titleSuffix: Azure Database Migration Service
 description: Découvrez comment migrer des packages et projets SQL Server Integration Services (SSIS) vers Azure SQL Managed Instance à l’aide d’Azure Database Migration Service ou de l’Assistant Migration de données.
 services: database-migration
@@ -12,12 +12,12 @@ ms.workload: data-services
 ms.custom: seo-lt-2019
 ms.topic: article
 ms.date: 02/20/2020
-ms.openlocfilehash: d27905acc60e953ec5ed92e77d7a352c1c3fec8b
-ms.sourcegitcommit: 1f48ad3c83467a6ffac4e23093ef288fea592eb5
+ms.openlocfilehash: 13fcda03f3ccd0c28e1dce594c46b8c0d9449054
+ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/29/2020
-ms.locfileid: "84196566"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86086566"
 ---
 # <a name="migrate-sql-server-integration-services-packages-to-an-azure-sql-managed-instance"></a>Migrer les packages SQL Server Integration Services vers une instance managée Azure SQL Managed Instance
 Si vous utilisez SQL Server Integration Services (SSIS) et souhaitez migrer vos projets/packages SSIS de la source SSISDB hébergée par SQL Server vers la destination SSISDB hébergée par une instance managée Azure SQL Managed Instance, vous pouvez effectuer cette migration à l’aide d’Azure Database Migration Service.

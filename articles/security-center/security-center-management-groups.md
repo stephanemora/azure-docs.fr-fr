@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 12/19/2018
 ms.author: memildin
-ms.openlocfilehash: 734876380d22f5d4d6dae0dd375b238fd5f6ffed
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 236153612f6056e90cb9b5af128f49ed550e3fe9
+ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "74559349"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86080871"
 ---
 # <a name="gain-tenant-wide-visibility-for-azure-security-center"></a>Gagner en visibilité au niveau locataire dans Azure Security Center
 Cet article explique comment gérer la position de sécurité de votre organisation à grande échelle en appliquant des stratégies de sécurité à tous les abonnements Azure liés à votre locataire Azure Active Directory.
@@ -74,7 +74,7 @@ Les administrateurs de locataires Azure Active Directory n’ont pas d’accès 
 
 3. Sous **Gestion des accès aux ressources Azure**, définissez le commutateur sur **Oui**.
 
-   ![L’administrateur général peut gérer des abonnements et des groupes d’administration Azure - capture d’écran](./media/security-center-management-groups/aad-properties-global-admin-setting.png)
+   ![Gestion des accès aux ressources Azure - capture d’écran](./media/security-center-management-groups/aad-properties-global-admin-setting.png)
 
    - Quand vous définissez le commutateur sur Oui, le rôle Administrateur de l’accès utilisateur vous est attribué dans Azure RBAC au niveau de l’étendue racine (/). Ceci vous accorde l’autorisation d’attribuer des rôles dans tous les abonnements et groupes d’administration Azure associés à cet annuaire Azure AD. Ce commutateur est disponible seulement pour les utilisateurs auxquels le rôle Administrateur général a été attribué dans Azure AD.
 
@@ -161,7 +161,7 @@ Une fois que les rôles RBAC ont été attribués aux utilisateurs, l’administ
 
 2. Dans la liste de navigation, cliquez sur **Azure Active Directory**, puis sur **Propriétés**.
 
-3. Sous **L’administrateur général peut gérer des abonnements et des groupes d’administration Azure**, positionnez le commutateur sur **Non**.
+3. Sous **Gestion des accès aux ressources Azure**, définissez le commutateur sur **Non**.
 
 4. Cliquez sur **Enregistrer** pour enregistrer votre paramètre.
 

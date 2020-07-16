@@ -6,15 +6,15 @@ ms.author: mhopkins
 ms.date: 12/08/2016
 ms.service: storage
 ms.subservice: queues
-ms.topic: conceptual
-ms.reviewer: cbrooks
+ms.topic: how-to
+ms.reviewer: dineshm
 ms.custom: seo-javascript-september2019
-ms.openlocfilehash: 7abcad03678131668700f5d2c64b9c971081cb89
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 4b8f15831c02a74bbba85ca4327369af6a4dbb2a
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80060935"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84808804"
 ---
 # <a name="use-azure-queue-service-to-create-and-delete-queues-from-nodejs"></a>Utiliser le service File d’attente Azure pour créer et supprimer des files d’attente de Node.js
 [!INCLUDE [storage-selector-queue-include](../../../includes/storage-selector-queue-include.md)]
@@ -23,6 +23,9 @@ ms.locfileid: "80060935"
 
 ## <a name="overview"></a>Vue d’ensemble
 Ce guide décrit le déroulement de scénarios courants dans le cadre de l’utilisation du service de File d’attente Microsoft Azure. Les exemples sont écrits en utilisant l'API Node.js. Les scénarios traités incluent **l’insertion**, la **lecture furtive**, la **récupération** et la **suppression** des messages de file d’attente, ainsi que la **création et suppression des files d’attente**.
+
+> [!IMPORTANT]
+> Cet article fait référence à la version héritée de la bibliothèque de client Stockage Azure pour JavaScript. Pour vous familiariser avec la dernière version, consultez [Démarrage rapide : Bibliothèque de client Stockage File d’attente Azure pour JavaScript](storage-quickstart-queues-nodejs.md)
 
 [!INCLUDE [storage-queue-concepts-include](../../../includes/storage-queue-concepts-include.md)]
 

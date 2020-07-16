@@ -11,17 +11,17 @@ ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: conceptual
-ms.date: 03/09/2020
+ms.topic: how-to
+ms.date: 06/09/2020
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 661d4f622dce45aeca1d41ead60f05ccdcfbc9c9
-ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
+ms.openlocfilehash: 118abaef1fd1458057a7dbe28d5cd74ded55fe28
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "81406875"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85358291"
 ---
 # <a name="azure-active-directory-pass-through-authentication-frequently-asked-questions"></a>Authentification directe Azure Active Directory : Forum aux questions
 
@@ -44,7 +44,7 @@ Non. L’authentification directe est uniquement disponible dans l’instance à
 Oui. Toutes les fonctionnalités, y compris l’authentification multifacteur Azure, peuvent être utilisées avec l’authentification directe.
 
 ## <a name="does-pass-through-authentication-support-alternate-id-as-the-username-instead-of-userprincipalname"></a>L’authentification directe prend-elle en charge « l’ID alternatif » comme le nom d’utilisateur, plutôt que « userPrincipalName » ?
-La connexion à l’aide d’une valeur autre qu’un UPN, telle qu’une autre adresse e-mail, est actuellement testée en préversion privée pour l’authentification directe (PTA) et la synchronisation du hachage de mot de passe (PHS).
+Oui, la connexion avec une valeur autre qu’un UPN, telle qu’une autre adresse e-mail, est prise en charge pour l’authentification directe (PTA) et la synchronisation du hachage de mot de passe (PHS). Pour plus d’informations, consultez [ID de connexion de substitution](../authentication/howto-authentication-use-email-signin.md).
 
 ## <a name="does-password-hash-synchronization-act-as-a-fallback-to-pass-through-authentication"></a>La synchronisation du hachage de mot de passe agit-elle comme solution de secours pour l’authentification directe ?
 

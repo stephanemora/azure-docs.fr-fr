@@ -1,10 +1,9 @@
 ---
 title: Configuration du stockage pour les machines virtuelles SQL Server | Microsoft Docs
-description: Cette rubrique décrit comment Azure configure le stockage pour les machines virtuelles SQL Server lors de la configuration (modèle de déploiement Resource Manager). Elle explique également comment vous pouvez configurer le stockage pour vos machines virtuelles SQL Server existantes.
+description: Cette rubrique décrit comment Azure configure le stockage pour les machines virtuelles SQL Server lors du provisionnement (modèle de déploiement Azure Resource Manager). Elle explique également comment vous pouvez configurer le stockage pour vos machines virtuelles SQL Server existantes.
 services: virtual-machines-windows
 documentationcenter: na
 author: MashaMSFT
-manager: jroth
 tags: azure-resource-manager
 ms.assetid: 169fc765-3269-48fa-83f1-9fe3e4e40947
 ms.service: virtual-machines-sql
@@ -13,17 +12,17 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 12/26/2019
 ms.author: mathoma
-ms.openlocfilehash: f5f71f342152a1f7d524053f1a2f82937784dbd1
-ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
+ms.openlocfilehash: 21609e38625d0911476c85a9d6e518f5ff7e9e61
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "84030000"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84667367"
 ---
 # <a name="storage-configuration-for-sql-server-vms"></a>Configuration du stockage pour les machines virtuelles SQL Server
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
 
-Lorsque vous configurez une image de machine virtuelle SQL Server dans Azure, le portail permet d’automatiser la configuration de votre stockage. Cela inclut l’attachement du stockage à la machine virtuelle, ce qui permet à SQL Server d’y accéder et le configure de façon à l’optimiser en fonction de vos besoins spécifiques.
+Quand vous configurez une image de machine virtuelle SQL Server dans Azure, le portail Azure permet d’automatiser la configuration de votre stockage. Cela inclut l’attachement du stockage à la machine virtuelle, ce qui permet à SQL Server d’y accéder et le configure de façon à l’optimiser en fonction de vos besoins spécifiques.
 
 Cette rubrique explique comment Azure configure le stockage pour vos machines virtuelles SQL Server à la fois lors de la configuration et pour les machines virtuelles existantes. Cette configuration est basée sur les [meilleures pratiques pour les performances](performance-guidelines-best-practices.md) pour les machines virtuelles Azure exécutant SQL Server.
 
@@ -57,7 +56,7 @@ En outre, il vous est possible de définir la mise en cache pour les disques. Le
 
 La mise en cache du disque pour SSD Premium peut être *ReadOnly*, *ReadWrite* ou *Aucune*. 
 
-- La mise en cache *ReadOnly* s'avère particulièrement intéressante pour les fichiers de données SQL Server stockés sur le stockage Premium. La mise en cache *ReadOnly* offre une faible latence de lecture, de très hautes performances d'E/S et de débit en cas de lectures à partir du cache, dans la mémoire de la machine virtuelle ou du SSD local. Ces lectures sont nettement plus rapides que les lectures à partir du disque de données, provenant du stockage blob Azure. Le stockage Premium ne tient pas compte des lectures traitées à partir du cache pour le calcul du nombre d’E/S par seconde et du débit du disque. Dès lors, votre application peut offrir de meilleures performances totales en termes d’E/S par seconde et de débit. 
+- La mise en cache *ReadOnly* s'avère particulièrement intéressante pour les fichiers de données SQL Server stockés sur le stockage Premium. La mise en cache *ReadOnly* offre une faible latence de lecture, de très hautes performances d'E/S et de débit en cas de lectures à partir du cache, dans la mémoire de la machine virtuelle ou du SSD local. Ces lectures sont nettement plus rapides que les lectures à partir du disque de données, provenant du stockage Blob Azure. Le stockage Premium ne tient pas compte des lectures traitées à partir du cache pour le calcul du nombre d’E/S par seconde et du débit du disque. Dès lors, votre application peut offrir de meilleures performances totales en termes d’E/S par seconde et de débit. 
 - La configuration de cache *Aucune* doit être utilisée pour les disques hébergeant le fichier journal SQL Server, car ce fichier journal est écrit de manière séquentielle et ne tire pas parti de la mise en cache *ReadOnly*. 
 - La mise en cache *ReadWrite* ne doit pas être utilisée pour héberger des fichiers SQL Server, car SQL Server ne prend pas en charge la cohérence des données avec le cache *ReadWrite*. Les écritures gaspillent la capacité du cache blob *ReadOnly* et les latences augmentent légèrement si les écritures interviennent dans les couches du cache blob *ReadOnly*. 
 
@@ -76,7 +75,7 @@ En fonction de votre choix, Azure exécute les tâches de configuration du stock
 
 Pour plus d’informations sur la manière dont Azure configure les paramètres de stockage, consultez la section [Configuration du stockage](#storage-configuration). Pour une procédure pas à pas détaillée de la création d’une machine virtuelle SQL Server dans le portail Azure, consultez [le tutoriel de provisionnement](../../../azure-sql/virtual-machines/windows/create-sql-vm-portal.md).
 
-### <a name="resource-manage-templates"></a>Modèles Resource Manager
+### <a name="resource-manager-templates"></a>Modèles Resource Manager
 
 Si vous utilisez les modèles Resource Manager suivants, deux disques de données premium sont attachés par défaut, sans aucune configuration de pool de stockage. Toutefois, vous pouvez personnaliser ces modèles afin de modifier le nombre de disques de données premium attachés à la machine virtuelle.
 
@@ -113,7 +112,7 @@ Vous pouvez modifier les paramètres de disque des lecteurs configurés lors du 
 
 ## <a name="storage-configuration"></a>Configuration du stockage
 
-Cette section contient des informations de référence sur les modifications de configuration de stockage qu’Azure effectue automatiquement lors du provisionnement des machines virtuelles SQL dans le portail Azure.
+Cette section contient des informations de référence sur les modifications de configuration de stockage qu’Azure effectue automatiquement lors du provisionnement des machines virtuelles SQL Server dans le portail Azure.
 
 * Azure configure un pool de stockage à partir du stockage sélectionné à partir de votre machine virtuelle. La prochaine section de cette rubrique fournit les détails de la configuration du pool de stockage.
 * La configuration automatique du stockage utilise toujours des [disques de données P30 premium](../../../virtual-machines/windows/disks-types.md). Par conséquent, il existe un mappage 1:1 entre le nombre de téraoctets sélectionné et le nombre de disques de données attachés à votre machine virtuelle.
@@ -148,7 +147,7 @@ Le tableau suivant décrit les trois options de type de charge de travail dispon
 | **Entrepôt de données** |Optimise le stockage pour les charges de travail d’analyse et de création de rapports |Indicateur de trace 610<br/>Indicateur de trace 1117 |
 
 > [!NOTE]
-> Vous pouvez uniquement spécifier le type de charge de travail si vous configurez une machine virtuelle SQL en la sélectionnant à l’étape de configuration du stockage.
+> Vous pouvez uniquement spécifier le type de charge de travail si vous provisionnez une machine virtuelle SQL Server en la sélectionnant à l’étape de configuration du stockage.
 
 ## <a name="next-steps"></a>Étapes suivantes
 

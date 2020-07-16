@@ -4,12 +4,12 @@ description: Apprenez à personnaliser les paramètres d’authentification et d
 ms.topic: article
 ms.date: 10/24/2019
 ms.custom: seodec18
-ms.openlocfilehash: d57b196bf95ebdf31bc459ad4b9d718fd32ca495
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 6efa5461fab9faf3ce1599a01540cf314b34281b
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79236193"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85205643"
 ---
 # <a name="advanced-usage-of-authentication-and-authorization-in-azure-app-service"></a>Utilisation avancée des paramètres d’authentification et d’autorisation dans Azure App Service
 
@@ -17,8 +17,8 @@ Cet article vous explique comment personnaliser les [paramètres d’authentific
 
 Pour commencer rapidement, consultez l’un des didacticiels suivants :
 
-* [Didacticiel : authentifier et autoriser les utilisateurs de bout en bout dans Azure App Service (Windows)](app-service-web-tutorial-auth-aad.md)
-* [Didacticiel : authentifier et autoriser les utilisateurs de bout en bout dans Azure App Service pour Linux](containers/tutorial-auth-aad.md)
+* [Tutoriel : Authentifier et autoriser les utilisateurs de bout en bout dans Azure App Service (Windows)](app-service-web-tutorial-auth-aad.md)
+* [Tutoriel : Authentifier et autoriser les utilisateurs de bout en bout dans Azure App Service pour Linux](containers/tutorial-auth-aad.md)
 * [Comment configurer votre application pour utiliser une connexion Azure Active Directory](configure-authentication-provider-aad.md)
 * [Comment configurer votre application pour utiliser une connexion Facebook](configure-authentication-provider-facebook.md)
 * [Comment configurer votre application pour utiliser une connexion Google](configure-authentication-provider-google.md)
@@ -35,7 +35,7 @@ Sous **Mesure à prendre quand une demande n’est pas authentifiée**, sélecti
 
 Dans la page de connexion, la barre de navigation ou tout autre emplacement de votre application, ajoutez un lien de connexion pour chacun des fournisseurs que vous avez activés (`/.auth/login/<provider>`). Par exemple :
 
-```HTML
+```html
 <a href="/.auth/login/aad">Log in with Azure AD</a>
 <a href="/.auth/login/microsoftaccount">Log in with Microsoft Account</a>
 <a href="/.auth/login/facebook">Log in with Facebook</a>
@@ -47,7 +47,7 @@ Lorsque l’utilisateur clique sur l’un des liens, la page de connexion respec
 
 Pour rediriger l’utilisateur post-connexion vers une URL personnalisée, utilisez le paramètre de chaîne de requête `post_login_redirect_url` (à ne pas confondre avec l’URI de redirection de votre configuration de fournisseur d’identité). Par exemple, pour diriger l’utilisateur vers `/Home/Index` après sa connexion, utilisez le code HTML suivant :
 
-```HTML
+```html
 <a href="/.auth/login/<provider>?post_login_redirect_url=/Home/Index">Log in</a>
 ```
 
@@ -103,7 +103,7 @@ Les utilisateurs peuvent initier une déconnexion en envoyant une requête `GET`
 
 Voici un lien de déconnexion simple dans une page web :
 
-```HTML
+```html
 <a href="/.auth/logout">Sign out</a>
 ```
 
@@ -170,15 +170,15 @@ Votre application peut également obtenir des détails supplémentaires sur l’
 
 Lorsque le jeton d'accès de votre fournisseur (et non le [jeton de session](#extend-session-token-expiration-grace-period)) expire, vous devez réauthentifier l’utilisateur avant de réutiliser ce jeton. Vous pouvez éviter l’expiration du jeton en effectuant un appel `GET` au point de terminaison `/.auth/refresh` de votre application. Lorsqu’il est appelé, App Service actualise automatiquement les jetons d’accès dans le magasin de jetons pour l’utilisateur authentifié. Les demandes de jeton suivantes effectuées via le code de votre application permettent d’obtenir les jetons actualisés. Toutefois, pour que l’actualisation des jetons soit effective, le magasin de jetons doit contenir les [jetons d’actualisation](https://auth0.com/learn/refresh-tokens/) pour votre fournisseur. La procédure pour obtenir des jetons d’actualisation est fournie par chaque fournisseur. La liste suivante en fournit toutefois un bref résumé :
 
-- **Google** : ajouter un paramètre de chaîne de requête `access_type=offline` à votre appel d’API `/.auth/login/google`. Si vous utilisez le kit de développement logiciel Mobile Apps, vous pouvez ajouter le paramètre à l’une des surcharges `LogicAsync` (voir [Google Refresh Tokens](https://developers.google.com/identity/protocols/OpenIDConnect#refresh-tokens) (Jetons d’actualisation Google)).
-- **Facebook** : ne fournit pas de jetons d’actualisation. Les jetons de longue durée expirent au bout de 60 jours (voir [Facebook Expiration and Extension of Access Tokens](https://developers.facebook.com/docs/facebook-login/access-tokens/expiration-and-extension) (Expiration et prolongation des jetons d’accès Facebook)).
-- **Twitter** : les jetons d’accès n’expirent pas (voir [Twitter OAuth FAQ](https://developer.twitter.com/en/docs/basics/authentication/FAQ) (FAQ sur l’authentification OAuth Twitter)).
-- **Compte Microsoft** : au moment de [configurer les paramètres d’authentification de compte Microsoft](configure-authentication-provider-microsoft.md), sélectionnez l’étendue `wl.offline_access`.
-- **Azure Active Directory** : dans [https://resources.azure.com](https://resources.azure.com), procédez comme suit :
+- **Google** : ajouter un paramètre de chaîne de requête `access_type=offline` à votre appel d’API `/.auth/login/google`. Si vous utilisez le kit de développement logiciel Mobile Apps, vous pouvez ajouter le paramètre à l’une des surcharges `LogicAsync` (voir [Google Refresh Tokens](https://developers.google.com/identity/protocols/OpenIDConnect#refresh-tokens) (Jetons d’actualisation Google)).
+- **Facebook** : ne fournit pas de jetons d’actualisation. Les jetons de longue durée expirent au bout de 60 jours (voir [Facebook Expiration and Extension of Access Tokens](https://developers.facebook.com/docs/facebook-login/access-tokens/expiration-and-extension) (Expiration et prolongation des jetons d’accès Facebook)).
+- **Twitter** : les jetons d’accès n’expirent pas (voir les [questions fréquentes sur Twitter OAuth](https://developer.twitter.com/en/docs/basics/authentication/FAQ)).
+- **Compte Microsoft** : au moment de [configurer les paramètres d’authentification de compte Microsoft](configure-authentication-provider-microsoft.md), sélectionnez l’étendue `wl.offline_access`.
+- **Azure Active Directory** : Dans [https://resources.azure.com](https://resources.azure.com), effectuez les étapes suivantes :
     1. En haut de la page, sélectionnez **Lecture/écriture**.
-    2. Dans le navigateur de gauche, accédez à **abonnements** >  **_\<subscription\_name_**  > **resourceGroups** >  **_\<resource\_group\_name>_**  > **fournisseurs** > **Microsoft.Web** > **sites** >  **_\<app\_name>_**  > **config** > **authsettings**. 
+    2. Dans le navigateur de gauche, accédez à **subscriptions** > ** _\<subscription\_name_** > **resourceGroups** > **_ \<resource\_group\_name> _** > **providers** > **Microsoft.Web** > **sites** > **_ \<app\_name>_** > **config** > **authsettings**. 
     3. Cliquez sur **Modifier**.
-    4. Modifiez la propriété suivante. Remplacez la valeur _\<app\_id>_ par l’ID d’application Azure Active Directory du service auquel vous souhaitez accéder.
+    4. Modifiez la propriété suivante. Remplacez la valeur _\<app\_id>_ par l’ID d’application Azure Active Directory du service auquel vous voulez accéder.
 
         ```json
         "additionalLoginParams": ["response_type=code id_token", "resource=<app_id>"]
@@ -190,7 +190,7 @@ Une fois que votre fournisseur est configuré, vous pouvez [rechercher le jeton 
 
 Pour actualiser votre jeton d’accès à tout moment, il vous suffit d’appeler `/.auth/refresh` dans n’importe quel langage. L’extrait de code suivant utilise jQuery pour actualiser vos jetons d’accès à partir d’un client JavaScript.
 
-```JavaScript
+```javascript
 function refreshTokens() {
   let refreshUrl = "/.auth/refresh";
   $.ajax(refreshUrl) .done(function() {
@@ -223,7 +223,7 @@ az webapp auth update --resource-group <group_name> --name <app_name> --token-re
 
 Les options Compte Microsoft et Azure Active Directory permettent de se connecter à partir de multiples domaines. Par exemple, l’option Compte Microsoft prend en charge les comptes _outlook.com_, _live.com_ et _hotmail.com_. Azure Active Directory prend en charge un nombre illimité de domaines personnalisés pour les comptes de connexion. Toutefois, vous pouvez accélérer l’accès de vos utilisateurs directement à votre propre page de connexion Azure AD (par exemple, `contoso.com`). Pour suggérer le nom de domaine des comptes de connexion, procédez comme suit.
 
-Dans [https://resources.azure.com](https://resources.azure.com), accédez à **abonnements** >  **_\< subscription\_ name_**  > **resourceGroups** >  **_\< resource\_ group\_ name>_**  > **fournisseurs** > **Microsoft.Web** > **sites** >  **_\< app\_ name>_**  > **config** > **authsettings**. 
+Dans [https://resources.azure.com](https://resources.azure.com), accédez à **subscriptions**> ** _\<subscription\_name_** > **resourceGroups** > **_ \<resource\_group\_name> _** > **providers** > **Microsoft.Web** > **sites** > **_ \<app\_name> _** > **config** > **authsettings**. 
 
 Cliquez sur **Modifier**, modifiez la propriété suivante, puis cliquez sur **Put**. Veillez à remplacer la valeur _\<domain\_name>_ par le domaine souhaité.
 
@@ -281,5 +281,5 @@ Si l’un des autres niveaux ne fournit pas l’autorisation dont vous avez beso
 ## <a name="next-steps"></a>Étapes suivantes
 
 > [!div class="nextstepaction"]
-> [Didacticiel : Authentifier et autoriser des utilisateurs de bout en bout (Windows)](app-service-web-tutorial-auth-aad.md)
-> [Didacticiel : Authentifier et autoriser des utilisateurs de bout en bout (Linux)](containers/tutorial-auth-aad.md)
+> [Tutoriel : Authentifier et autoriser des utilisateurs de bout en bout (Windows)](app-service-web-tutorial-auth-aad.md)
+> [Tutoriel : Authentifier et autoriser des utilisateurs de bout en bout (Linux)](containers/tutorial-auth-aad.md)

@@ -11,12 +11,12 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.date: 01/10/2018
-ms.openlocfilehash: cc316636c3f708d4b3ef81a22f57dab9b140d2fa
-ms.sourcegitcommit: 1f48ad3c83467a6ffac4e23093ef288fea592eb5
+ms.openlocfilehash: 9b5a2bb939384ff06423693c8e4a788b80f3908c
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/29/2020
-ms.locfileid: "84195954"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85318890"
 ---
 # <a name="azure-data-factory---json-scripting-reference"></a>Azure Data Factory - Référence de script JSON
 > [!NOTE]
@@ -114,7 +114,7 @@ La section typeProperties est différente pour chaque activité. Les activités 
 L’**Activité de copie** a deux sous-sections dans la section typeProperties : **source** et **sink**. Consultez la section [Magasins de données](#data-stores) de cet article pour obtenir des exemples JSON montrant comment utiliser un magasin de données comme source et/ou récepteur.
 
 ### <a name="sample-copy-pipeline"></a>Exemple de pipeline de copie
-Dans l’exemple de pipeline suivant, il existe une activité de type **Copy** in the **d’activités** . Dans cet exemple, [l’activité de copie](data-factory-data-movement-activities.md) copie des données d’un stockage blob Azure vers une base de données Azure SQL.
+Dans l’exemple de pipeline suivant, il existe une activité de type **Copy** in the **d’activités** . Dans cet exemple, l’[activité de copie](data-factory-data-movement-activities.md) duplique des données d’un stockage Blob Azure vers une base de données Azure SQL.
 
 ```json
 {
@@ -337,7 +337,7 @@ La section **policy** de la définition du jeu de données définit les critère
 | Nom de la stratégie | Description | Appliqué(e) à | Obligatoire | Default |
 | --- | --- | --- | --- | --- |
 | minimumSizeMB |Valide le fait que les données dans un **objet blob Azure** répondent aux exigences de taille minimale (en mégaoctets). |Objets blob Azure |Non |N/D |
-| minimumRows |Valide le fait que les données dans une **base de données Azure SQL** ou une **table Azure** contiennent le nombre minimal de lignes. |<ul><li>Azure SQL Database</li><li>table Azure</li></ul> |Non |N/D |
+| minimumRows |Valide le fait que les données dans **Azure SQL Database** ou une **table Azure** contiennent le nombre minimal de lignes. |<ul><li>Azure SQL Database</li><li>table Azure</li></ul> |Non |N/D |
 
 **Exemple :**
 
@@ -4843,7 +4843,7 @@ Le tableau suivant décrit les propriétés utilisées dans la définition JSON 
 | linkedServiceName |Le service lié Azure Storage utilisé par le cluster à la demande pour le stockage et le traitement des données. <p>Actuellement, vous ne pouvez pas créer un cluster HDInsight à la demande qui utilise un Azure Data Lake Store en guise de stockage. Si vous souhaitez stocker les données de résultat à partir du traitement HDInsight dans un Azure Data Lake Store, utilisez une activité de copie pour copier les données du stockage Blob Azure dans Azure Data Lake Store.</p>  | Oui |
 | additionalLinkedServiceNames |Spécifie les comptes de stockage supplémentaires pour le service lié HDInsight afin que le service Data Factory puisse les enregistrer en votre nom. |Non |
 | osType |Type de système d'exploitation. Les valeurs autorisées sont les suivantes : Windows (par défaut) et Linux |Non |
-| hcatalogLinkedServiceName |Le nom du service lié à SQL Azure pointant vers la base de données HCatalog. Le cluster HDInsight à la demande est créé en utilisant la base de données Azure SQL en tant que metastore. |Non |
+| hcatalogLinkedServiceName |Le nom du service lié à SQL Azure pointant vers la base de données HCatalog. Le cluster HDInsight à la demande est créé en utilisant Azure SQL Database en tant que metastore. |Non |
 
 ### <a name="json-example"></a>Exemple JSON
 Le JSON suivant définit un service lié HDInsight à la demande sous Linux. Le service Data Factory crée automatiquement un cluster HDInsight **sous Linux** lors du traitement d’une tranche de données.

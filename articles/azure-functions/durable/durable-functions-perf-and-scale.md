@@ -5,12 +5,12 @@ author: cgillum
 ms.topic: conceptual
 ms.date: 11/03/2019
 ms.author: azfuncdf
-ms.openlocfilehash: 260811c4ae15b45de6f7bc1b22e3ed6dcea44259
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 8f8df703030220f2c5a79bdb34e3ffbac8ee84a0
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79235293"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84762120"
 ---
 # <a name="performance-and-scale-in-durable-functions-azure-functions"></a>Performances et mise à l’échelle dans Fonctions durables (Azure Functions)
 
@@ -52,6 +52,13 @@ Le délai maximal d’interrogation est configurable via la propriété `maxQueu
 
 > [!NOTE]
 > Lorsqu’il est exécuté dans les plans Consommation et Premium d’Azure Functions, le [contrôleur de mise à l'échelle Azure Functions](../functions-scale.md#how-the-consumption-and-premium-plans-work) interrogera chaque contrôle et chaque file d'attente des éléments de travail toutes les 10 secondes. Cette interrogation supplémentaire est nécessaire pour déterminer quand activer les instances d'application de fonction et pour prendre des décisions de mise à l'échelle. Au moment d’écrire ces lignes, cet intervalle de 10 secondes est constant et ne peut pas être configuré.
+
+### <a name="orchestration-start-delays"></a>Retards de début de l’orchestration
+Les instances d’orchestration sont démarrées en plaçant un message `ExecutionStarted` dans l’une des files d’attente de contrôle du hub de tâches. Dans certaines conditions, vous pouvez observer des délais de plusieurs secondes entre le moment où l’exécution d’une orchestration est planifiée et le moment où elle commence à s’exécuter. Pendant ce laps de temps, l’instance d’orchestration reste dans l’état `Pending`. Il existe deux causes possibles pour ce retard :
+
+1. **Files d’attente de contrôle en backlog** : Si la file d’attente de contrôle de cette instance contient un grand nombre de messages, cela peut prendre du temps avant que le message `ExecutionStarted` ne soit reçu et traité par le runtime. Les backlogs de messages peuvent se produire lorsque des orchestrations traitent un grand nombre d’événements simultanément. Les événements qui se trouvent dans la file d’attente de contrôle incluent les événements de début d’orchestration, les saisies semi-automatiques d’activité, les minuteurs durables, l’achèvement et les événements externes. Si ce retard se produit dans des circonstances normales, envisagez de créer un hub de tâches avec un plus grand nombre de partitions. La configuration d’un plus grand nombre de partitions entraîne la création par le runtime d’autres files d’attente de contrôle pour la distribution de la charge.
+
+2. **Retards d’interrogation de secours** : Une autre cause courante des retards d’orchestration est le [comportement d’interrogation de secours précédemment décrit pour les files d’attente de contrôle](#queue-polling). Toutefois, ce retard est attendu uniquement en cas de Scale-out d’une application sur plusieurs instances. S’il n’existe qu’une seule instance d’application ou si l’instance d’application qui démarre l’orchestration est également la même instance qui interroge la file d’attente de contrôle cible, il n’y aura pas de retard d’interrogation de la file d’attente. Les retards d’interrogation de secours peuvent être réduits en mettant à jour les paramètres **host.json**, comme décrit précédemment.
 
 ## <a name="storage-account-selection"></a>Sélection du compte de stockage
 

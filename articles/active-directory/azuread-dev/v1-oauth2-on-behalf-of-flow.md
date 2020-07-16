@@ -14,12 +14,12 @@ ms.author: ryanwi
 ms.reviewer: hirsin, nacanuma
 ms.custom: aaddev
 ROBOTS: NOINDEX
-ms.openlocfilehash: 192c91f700dd82f453d52f6891f8aaaaeef8c7ef
-ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
+ms.openlocfilehash: 6f52ddbfbdfa30108670b985fba5c5263ce517b2
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83642069"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85551671"
 ---
 # <a name="service-to-service-calls-that-use-delegated-user-identity-in-the-on-behalf-of-flow"></a>Appels de service à service utilisant l’identité utilisateur déléguée dans le flux On-Behalf-Of
 
@@ -79,7 +79,7 @@ Inscrivez le service de niveau intermédiaire et l’application cliente dans Az
 1. Sélectionnez **Inscrire** pour créer l’application.
 1. Configurez les autorisations pour votre application. Dans **Autorisations des API**, sélectionnez **Ajouter une autorisation**, puis **Mes API**.
 1. Tapez le nom du service de niveau intermédiaire dans le champ de texte.
-1. Choisissez **Sélectionner les autorisations**, puis sélectionnez **Accéder à \<Nom du service>** .
+1. Choisissez **Sélectionner les autorisations**, puis sélectionnez **Accéder à \<service name>** .
 
 ### <a name="configure-known-client-applications"></a>Configurer les applications clientes connues
 
@@ -105,7 +105,7 @@ L’application cliente est sécurisée par un secret partagé ou par un certifi
 
 Lorsque l’application utilise un secret partagé, la demande de jeton d’accès de service à service contient les paramètres suivants :
 
-| Paramètre |  | Description |
+| Paramètre | Type | Description |
 | --- | --- | --- |
 | grant_type |Obligatoire | Type de la demande de jeton. Une demande OBO utilise un jeton d’accès JWT : la valeur doit donc être **urn:ietf:params:oauth:grant-type:jwt-bearer**. |
 | assertion |Obligatoire | Valeur du jeton d’accès utilisé dans la requête. |
@@ -139,7 +139,7 @@ grant_type=urn%3Aietf%3Aparams%3Aoauth%3Agrant-type%3Ajwt-bearer
 
 Une demande de jeton d’accès de service à service avec un certificat contient les paramètres suivants :
 
-| Paramètre |  | Description |
+| Paramètre | Type | Description |
 | --- | --- | --- |
 | grant_type |Obligatoire | Type de la demande de jeton. Une demande OBO utilise un jeton d’accès JWT : la valeur doit donc être **urn:ietf:params:oauth:grant-type:jwt-bearer**. |
 | assertion |Obligatoire | Valeur du jeton utilisé dans la demande. |
@@ -249,7 +249,7 @@ Certains services web basés sur OAuth doivent accéder à d’autres API de ser
 
 Une demande de service à service pour obtenir une assertion SAML contient les paramètres suivants :
 
-| Paramètre |  | Description |
+| Paramètre | Type | Description |
 | --- | --- | --- |
 | grant_type |Obligatoire | Type de la demande de jeton. Pour une demande qui utilise un JWT, la valeur doit être **urn:ietf:params:oauth:grant-type:jwt-bearer**. |
 | assertion |Obligatoire | Valeur du jeton d’accès utilisé dans la requête.|
@@ -283,9 +283,9 @@ La réponse contient un jeton SAML encodé en UTF8 et Base64url.
 - ext_expires_in : 0
 - expires_on : 1529627844
 - resource : `https://api.contoso.com`
-- access_token : \<Assertion SAML\>
+- access_token : \<SAML assertion\>
 - issued_token_type : urn:ietf:params:oauth:token-type:saml2
-- refresh_token : \<Jeton d’actualisation\>
+- refresh_token : \<Refresh token\>
 
 ## <a name="client-limitations"></a>Limitations du client
 

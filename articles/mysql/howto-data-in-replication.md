@@ -4,20 +4,26 @@ description: Cet article décrit comment configurer la réplication des données
 author: ajlam
 ms.author: andrela
 ms.service: mysql
-ms.topic: conceptual
-ms.date: 3/27/2020
-ms.openlocfilehash: 18c1d8b42dc73951901ec4ae9b79715ddbd47617
-ms.sourcegitcommit: efefce53f1b75e5d90e27d3fd3719e146983a780
+ms.topic: how-to
+ms.date: 6/11/2020
+ms.openlocfilehash: d1012a2afa84270089ae44b1c5d224e65a2e01ae
+ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/01/2020
-ms.locfileid: "80474045"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86118560"
 ---
 # <a name="how-to-configure-azure-database-for-mysql-data-in-replication"></a>Comment configurer Azure Database pour MySQL pour la réplication de données entrantes MySQL
 
-Cet article décrit comment configurer la Réplication des données entrantes dans Azure Database pour MySQL en configurant les serveurs maître et réplica. Cet article suppose que vous avez déjà utilisé des serveurs et des bases de données MySQL.
+Cet article décrit comment configurer la [Réplication des données entrantes](concepts-data-in-replication.md) dans Azure Database pour MySQL en configurant les serveurs maître et réplica. Cet article suppose que vous avez déjà utilisé des serveurs et des bases de données MySQL.
 
-Pour créer un réplica dans le service Azure Database pour MySQL, la Réplication des données entrantes synchronise les données provenant d’un serveur MySQL maître qui s’exécute en local, dans des machines virtuelles ou dans des services de base de données cloud.
+> [!NOTE]
+> Communication sans stéréotype
+>
+> La diversité et l’inclusion sont au cœur des valeurs de Microsoft. Cet article contient des références au mot _esclave_. Le [guide de style de Microsoft sur la communication sans stéréotype](https://github.com/MicrosoftDocs/microsoft-style-guide/blob/master/styleguide/bias-free-communication.md) le reconnaît comme un mot à exclure. Le mot est utilisé dans cet article par souci de cohérence, car il s’agit du mot qui figure dans le logiciel. Une fois que le mot aura été supprimé du logiciel, cet article sera mis à jour en conséquence.
+>
+
+Pour créer un réplica dans le service Azure Database pour MySQL, la [Réplication des données entrantes](concepts-data-in-replication.md) synchronise les données provenant d’un serveur MySQL maître qui s’exécute en local, dans des machines virtuelles ou dans des services de base de données cloud. La réplication des données est basée sur une réplication selon la position du fichier journal binaire (binlog) native à MySQL. Pour en savoir plus sur la réplication binlog, consultez la [vue d’ensemble de la réplication binlog MySQL](https://dev.mysql.com/doc/refman/5.7/en/binlog-replication-configuration-overview.html).
 
 Passez en revue les [limitations et conditions requises](concepts-data-in-replication.md#limitations-and-considerations) de la Réplication des données entrantes avant de suivre les étapes décrites dans cet article.
 

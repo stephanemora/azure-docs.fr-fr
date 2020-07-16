@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 09/01/2019
 ms.author: sngun
 ms.custom: seodec18
-ms.openlocfilehash: a5ef03689a6374dc1cf945a787f9f82b9979a1e0
-ms.sourcegitcommit: 0b80a5802343ea769a91f91a8cdbdf1b67a932d3
+ms.openlocfilehash: f6b2d081b0dc475e0950b12de31bab83cbe7da8b
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/25/2020
-ms.locfileid: "83834904"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85213089"
 ---
 # <a name="frequently-asked-questions-about-different-apis-in-azure-cosmos-db"></a>Questions fréquentes sur les différentes API dans Azure Cosmos DB
 
@@ -152,7 +152,7 @@ Oui, l’API SQL prend en charge les transactions entre documents exprimées sou
 
 Un conteneur est un groupe de documents accompagnés de leur logique d’application JavaScript. Un conteneur est une entité facturable, où le [coût](performance-levels.md) est déterminé par le débit et le stockage utilisé. Des conteneurs peuvent s’étendre à un ou plusieurs serveurs ou partitions, et peuvent être mis à l’échelle pour gérer des volumes de stockage ou de débit pratiquement illimités.
 
-* Pour l’API SQL, un conteneur est mappé à un conteneur.
+* Pour l’API SQL, la ressource est appelée conteneur.
 * Pour les comptes d’API Azure Cosmos DB pour MongoDB, les conteneurs sont mappés vers des collections.
 * Pour les comptes d’API Cassandra et Table, les conteneurs sont mappés vers des tables.
 * Pour les comptes d’API Gremlin, les conteneurs sont mappés vers des graphes.

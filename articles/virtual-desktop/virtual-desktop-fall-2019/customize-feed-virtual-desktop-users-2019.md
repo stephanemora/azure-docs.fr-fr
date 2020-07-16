@@ -8,12 +8,12 @@ ms.topic: how-to
 ms.date: 03/30/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: 58f05b2f9f15166e161b31578b47cf06afcb13a0
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 248156c403e7e74665ec1c856588d8a2ca76e208
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85362575"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86244563"
 ---
 # <a name="customize-feed-for-windows-virtual-desktop-users"></a>Personnaliser le flux pour les utilisateurs de Windows Virtual Desktop
 
@@ -76,5 +76,5 @@ Set-RdsRemoteDesktop -TenantName <tenantname> -HostPoolName <hostpoolname> -AppG
 
 Maintenant que vous avez personnalisé le flux pour les utilisateurs, connectez-vous à un client Windows Virtual Desktop pour faire des tests. Pour cela, passez aux rubriques de procédures Se connecter à Windows Virtual Desktop :
 
- * [Se connecter à partir de Windows 10 ou Windows 7](../connect-windows-7-and-10.md)
+ * [Se connecter à partir de Windows 10 ou Windows 7](connect-windows-7-10-2019.md)
  * [Se connecter à partir d’un navigateur web](connect-web-2019.md)

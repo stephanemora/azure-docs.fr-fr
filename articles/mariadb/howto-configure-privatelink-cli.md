@@ -4,14 +4,14 @@ description: Découvrez comment configurer une instance Private Link pour Azure 
 author: kummanish
 ms.author: manishku
 ms.service: mariadb
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 01/09/2020
-ms.openlocfilehash: c28c5494c1cff2c198a94ea6b92003ae74ee2c8e
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 97901ee0c431699ac8217619042daefd86df2f38
+ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79371696"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86120974"
 ---
 # <a name="create-and-manage-private-link-for-azure-database-for-mariadb-using-cli"></a>Créer et gérer Private Link pour Azure Database for MariaDB à l'aide de l'interface CLI
 
@@ -20,7 +20,7 @@ Private Endpoint est le composant fondamental de Private Link dans Azure. Il per
 > [!NOTE]
 > Cette fonctionnalité est disponible dans toutes les régions Azure où Azure Database for MariaDB prend en charge les niveaux tarifaires Usage général et Mémoire optimisée.
 
-## <a name="prerequisites"></a>Conditions préalables requises
+## <a name="prerequisites"></a>Prérequis
 
 Pour parcourir ce guide pratique, vous avez besoin des éléments suivants :
 
@@ -49,7 +49,7 @@ az network vnet create \
 ```
 
 ## <a name="disable-subnet-private-endpoint-policies"></a>Désactiver les stratégies Private Endpoint du sous-réseau 
-Azure déploie des ressources sur un sous-réseau au sein d’un réseau virtuel. vous devez donc créer ou mettre à jour le sous-réseau pour désactiver les stratégies réseau de Private Endpoint. Mettez à jour une configuration de sous-réseau nommée *mySubnet* avec [az network vnet subnet update](https://docs.microsoft.com/cli/azure/network/vnet/subnet?view=azure-cli-latest#az-network-vnet-subnet-update) :
+Azure déploie des ressources sur un sous-réseau au sein d’un réseau virtuel. vous devez donc créer ou mettre à jour le sous-réseau pour désactiver les [stratégies réseau](../private-link/disable-private-endpoint-network-policy.md) de point de terminaison privé. Mettez à jour une configuration de sous-réseau nommée *mySubnet* avec [az network vnet subnet update](https://docs.microsoft.com/cli/azure/network/vnet/subnet?view=azure-cli-latest#az-network-vnet-subnet-update) :
 
 ```azurecli-interactive
 az network vnet subnet update \
@@ -72,7 +72,7 @@ az vm create \
 Créez un serveur Azure Database for MariaDB avec la commande az mariadb server create. N’oubliez pas que le nom de votre serveur MariaDB doit être unique dans Azure. Par conséquent, remplacez la valeur d’espace réservé entre crochets par votre propre valeur unique : 
 
 ```azurecli-interactive
-# Create a logical server in the resource group 
+# Create a server in the resource group 
 az mariadb server create \
 --name mydemoserver \
 --resource-group myResourcegroup \
@@ -82,20 +82,24 @@ az mariadb server create \
 --sku-name GP_Gen5_2
 ```
 
-Notez que l’ID du serveur MariaDB est similaire à  ```/subscriptions/subscriptionId/resourceGroups/myResourceGroup/providers/Microsoft.DBforMariaDB/servers/servername.``` Vous allez utiliser l’ID du serveur MariaDB à l’étape suivante. 
+> [!NOTE]
+> Il peut arriver que l’instance Azure Database for MariaDB et le sous-réseau de réseau virtuel se trouvent dans des abonnements différents. Dans ce cas, vous devez vérifier les configurations suivantes :
+> - Assurez-vous que le fournisseur de ressources **Microsoft.DBforMariaDB** est inscrit pour les deux abonnements. Pour plus d’informations, reportez-vous à [resource-manager-registration][resource-manager-portal]
 
 ## <a name="create-the-private-endpoint"></a>Créer l’instance Private Endpoint 
 Créez un point de terminaison privé pour le serveur MariaDB dans votre réseau virtuel : 
+
 ```azurecli-interactive
 az network private-endpoint create \  
     --name myPrivateEndpoint \  
     --resource-group myResourceGroup \  
     --vnet-name myVirtualNetwork  \  
     --subnet mySubnet \  
-    --private-connection-resource-id "<MariaDB Server ID>" \  
-    --group-ids mariadbServer \  
+    --private-connection-resource-id $(az resource show -g myResourcegroup -n mydemoserver --resource-type "Microsoft.DBforMariaDB/servers" --query "id") \    
+    --group-id mariadbServer \  
     --connection-name myConnection  
  ```
+
 
 ## <a name="configure-the-private-dns-zone"></a>Configurer la zone DNS privée 
 Créez une zone DNS privée pour le domaine du serveur MariaDB et créez un lien d’association avec le réseau virtuel. 
@@ -122,7 +126,7 @@ az network private-dns record-set a add-record --record-set-name mydemoserver --
 ```
 
 > [!NOTE] 
-> Le nom de domaine complet dans le paramètre DNS du client n’est pas résolu en adresse IP privée configurée. Vous devez configurer une zone DNS pour le FQDN configuré, comme indiqué [ici](../dns/dns-operations-recordsets-portal.md).
+> Le FQDN du paramètre DNS client n’est pas résolu en adresse IP privée configurée. Vous devez configurer une zone DNS pour le FQDN configuré, comme indiqué [ici](../dns/dns-operations-recordsets-portal.md).
 
 ## <a name="connect-to-a-vm-from-the-internet"></a>Se connecter à une machine virtuelle à partir d’Internet
 
@@ -191,3 +195,6 @@ az group delete --name myResourceGroup --yes
 
 ## <a name="next-steps"></a>Étapes suivantes
 En savoir plus sur [Qu’est-ce qu’Azure Private Endpoint ?](https://docs.microsoft.com/azure/private-link/private-endpoint-overview)
+
+<!-- Link references, to text, Within this same GitHub repo. -->
+[resource-manager-portal]: ../azure-resource-manager/management/resource-providers-and-types.md

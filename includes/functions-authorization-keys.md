@@ -4,14 +4,18 @@ ms.service: azure-functions
 ms.topic: include
 ms.date: 05/06/2020
 ms.author: glenga
-ms.openlocfilehash: 926434d7110877e234888682cb6c946afe3ae685
-ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
+ms.openlocfilehash: 046bd8fcbb8fab50269c8d35da0956bdc63f2304
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83648942"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85298597"
 ---
 Functions vous permet d’utiliser des clés pour rendre plus difficile l’accès à vos points de terminaison de fonctions HTTP pendant le développement. Si le niveau d’accès HTTP sur une fonction déclenchée par HTTP n’est pas défini sur `anonymous`, les requêtes doivent contenir une clé d’accès API. 
+
+Bien que les clés fournissent un mécanisme de sécurité par défaut, vous pouvez envisager d’utiliser des options supplémentaires pour sécuriser un point de terminaison HTTP en production. Par exemple, il n’est généralement pas recommandé de diffuser un secret partagé dans des applications publiques. Si votre fonction est appelée depuis un client public, vous pouvez envisager de mettre en place un autre mécanisme de sécurité. Pour plus d’informations, consultez [Sécuriser un point de terminaison HTTP en production](../articles/azure-functions/functions-bindings-http-webhook-trigger.md#secure-an-http-endpoint-in-production).
+
+Lorsque vous renouvelez les valeurs clés de votre fonction, vous devez redistribuer manuellement les valeurs clé mises à jour à tous les clients qui appellent votre fonction.  
 
 #### <a name="authorization-scopes-function-level"></a>Étendues d’autorisation (au niveau de la fonction)
 

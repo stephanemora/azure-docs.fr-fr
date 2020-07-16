@@ -1,6 +1,6 @@
 ---
 title: Créer, répertorier et supprimer une identité managée affectée par l’utilisateur en utilisant Azure PowerShell – Azure AD
-description: Instructions détaillées pour créer, répertorier et supprimer une identité managée affectée par l’utilisateur en utilisant Azure PowerShell.
+description: Instructions pas à pas pour créer, lister et supprimer une identité managée affectée par l’utilisateur en utilisant Azure PowerShell.
 services: active-directory
 documentationcenter: ''
 author: MarkusVi
@@ -9,32 +9,32 @@ editor: ''
 ms.service: active-directory
 ms.subservice: msi
 ms.devlang: na
-ms.topic: conceptual
+ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 04/16/2018
 ms.author: markvi
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c512a867685b4480c7b31ac582e2cee069ee2447
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 675c9a795a75f2a37e107ab9e8129a761581cde0
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "74547399"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85608447"
 ---
-# <a name="create-list-or-delete-a-user-assigned-managed-identity-using-azure-powershell"></a>Créer, répertorier ou supprimer une identité managée affectée par l’utilisateur en utilisant Azure PowerShell
+# <a name="create-list-or-delete-a-user-assigned-managed-identity-using-azure-powershell"></a>Créer, lister ou supprimer une identité managée affectée par l’utilisateur en utilisant Azure PowerShell
 
 [!INCLUDE [preview-notice](~/includes/active-directory-msi-preview-notice-ua.md)]
 
 Les identités managées pour ressources Azure fournissent aux services Azure une identité managée dans Azure Active Directory. Vous pouvez utiliser cette identité pour vous authentifier auprès de services prenant en charge l’authentification Azure AD, sans avoir recours à des informations d’identification dans votre code. 
 
-Dans cet article, vous allez découvrir comment créer, répertorier et supprimer une identité managée affectée par l’utilisateur en utilisant Azure PowerShell.
+Dans cet article, vous allez découvrir comment créer, lister et supprimer une identité managée affectée par l’utilisateur en utilisant Azure PowerShell.
 
 [!INCLUDE [az-powershell-update](../../../includes/updated-for-az.md)]
 
 ## <a name="prerequisites"></a>Prérequis
 
-- Si vous n’êtes pas familiarisé avec les identités managées pour ressources Azure, consultez la [section Vue d’ensemble](overview.md). **Veillez à consulter la [différence entre les identités managées affectées par le système et celles affectées par l’utilisateur](overview.md#how-does-the-managed-identities-for-azure-resources-work)** .
+- Si vous n’êtes pas familiarisé avec les identités managées pour ressources Azure, consultez la [section Vue d’ensemble](overview.md). **Veillez à consulter la [différence entre les identités managées affectées par le système et celles affectées par l’utilisateur](overview.md#managed-identity-types)** .
 - Si vous n’avez pas encore de compte Azure, [inscrivez-vous à un essai gratuit](https://azure.microsoft.com/free/) avant de continuer.
 - Installez [la dernière version d’Azure PowerShell](/powershell/azure/install-az-ps) si ce n’est déjà fait.
 - Si vous exécutez PowerShell en local, vous devez également effectuer les opérations suivantes : 

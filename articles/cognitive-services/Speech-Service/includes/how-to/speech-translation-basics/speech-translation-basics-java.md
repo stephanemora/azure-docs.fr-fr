@@ -4,12 +4,12 @@ ms.service: cognitive-services
 ms.topic: include
 ms.date: 04/13/2020
 ms.author: trbye
-ms.openlocfilehash: 73e6e117428808aae39e361a3b119e9b2af1ac27
-ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
+ms.openlocfilehash: 60d5fb524d07590ed28641a6c91b87dbeb7dfc9f
+ms.sourcegitcommit: 0100d26b1cac3e55016724c30d59408ee052a9ab
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "81399677"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86035539"
 ---
 ## <a name="prerequisites"></a>Prérequis
 
@@ -17,7 +17,7 @@ Cet article part du principe que vous disposez d’un compte Azure et d’un abo
 
 ## <a name="install-the-speech-sdk"></a>Installer le Kit de développement logiciel (SDK) Speech
 
-Avant de pouvoir faire quoi que ce soit, vous devez installer le SDK Speech. Selon votre plateforme, suivez les instructions fournies dans la section <a href="https://docs.microsoft.com/en-us/azure/cognitive-services/speech-service/speech-sdk#get-the-speech-sdk" target="_blank">Obtenir le kit SDK Speech <span class="docon docon-navigate-external x-hidden-focus"></span></a> de l’article Kit SDK Speech.
+Avant de pouvoir faire quoi que ce soit, vous devez installer le SDK Speech. Selon votre plateforme, suivez les instructions fournies dans la section <a href="https://docs.microsoft.com/en-us/azure/cognitive-services/speech-service/speech-sdk#get-the-speech-sdk" target="_blank">Obtenir le kit SDK Speech <span class="docon docon-navigate-external x-hidden-focus"></span></a> de l’article _À propos du kit SDK Speech_.
 
 ## <a name="import-dependencies"></a>Importer les dépendances
 
@@ -105,7 +105,7 @@ La fonction [`setSpeechRecognitionLanguage`][recognitionlang] attend une chaîne
 
 ## <a name="add-translation-language"></a>Ajout d’une langue de traduction
 
-Une autre tâche courante de traduction vocale consiste à spécifier les langues de traduction cibles. S’il en faut au moins une, il est aussi possible d’en indiquer plusieurs. Dans l’extrait de code suivant, les langues de traduction cibles sont le français et l’allemand.
+Une autre tâche courante de traduction vocale consiste à spécifier les langues de traduction cibles. S’il en faut au moins une, il est aussi possible d’en indiquer plusieurs. Dans l’extrait de code suivant, le français et l’allemand sont définis comme langues de traduction cibles.
 
 ```java
 static void translateSpeech() {

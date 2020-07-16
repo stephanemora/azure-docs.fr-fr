@@ -9,17 +9,17 @@ editor: ''
 ms.assetid: ''
 ms.service: virtual-network
 ms.devlang: na
-ms.topic: article
+ms.topic: how-to
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 ms.date: 04/15/2020
 ms.author: gsilva
-ms.openlocfilehash: 202acff5bae87174781dc6c914bebf0494dfcf05
-ms.sourcegitcommit: f57297af0ea729ab76081c98da2243d6b1f6fa63
+ms.openlocfilehash: 2dc7b0447a97cdafc88d2cee4612aba22c1e0eea
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/06/2020
-ms.locfileid: "82871456"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84975790"
 ---
 # <a name="create-a-windows-vm-with-accelerated-networking-using-azure-powershell"></a>Créer une machine virtuelle Windows avec mise en réseau accélérée à l’aide d’Azure PowerShell
 
@@ -66,6 +66,10 @@ La mise en réseau accélérée est prise en charge dans la plupart des instance
 Dans des instances qui acceptent l’hyperthreading, la mise en réseau accélérée est prise en charge dans des instances de machine virtuelle comptant au minimum quatre processeurs virtuels. Séries prises en charge : D/Dsv3, D/Dsv4, E/Esv3, Ea/Easv4, Fsv2, Lsv2, Ms/Mms et Ms/Mmsv2.
 
 Pour plus d’informations sur les instances de machine virtuelle, reportez-vous à [Tailles des machines virtuelles Windows dans Azure](../virtual-machines/windows/sizes.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
+
+### <a name="custom-images"></a>Images personnalisées
+
+Si vous utilisez une image personnalisée et si votre image prend en charge l’accélération réseau, veillez à disposer des pilotes nécessaires compatibles avec les cartes réseau Mellanox ConnectX-3 et ConnectX-4 Lx dans Azure.
 
 ### <a name="regions"></a>Régions
 
@@ -327,7 +331,7 @@ Un groupe de machines virtuelles identiques est légèrement différent, mais il
 3. Définissez les mises à jour appliquées sur automatique afin que les modifications soient immédiatement récupérées :
 
     ```azurepowershell
-    $vmss.UpgradePolicy.AutomaticOSUpgrade = $true
+    $vmss.UpgradePolicy.Mode = "Automatic"
     
     Update-AzVmss -ResourceGroupName "myResourceGroup" `
         -VMScaleSetName "myScaleSet" `

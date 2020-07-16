@@ -1,20 +1,20 @@
 ---
-title: Se connecter à SQL Server ou Azure SQL Database
+title: Établir une connexion à SQL Server, Azure SQL Database ou Azure SQL Managed Instance
 description: Automatiser des tâches pour les bases de données SQL localement ou dans le cloud à l’aide d’Azure Logic Apps
 services: logic-apps
 ms.suite: integration
 ms.reviewer: estfan, jonfan, logicappspm
 ms.topic: conceptual
-ms.date: 05/12/2020
+ms.date: 06/06/2020
 tags: connectors
-ms.openlocfilehash: f63553ced8484b3ce328fb9537d5831ae1e27fe8
-ms.sourcegitcommit: 1f48ad3c83467a6ffac4e23093ef288fea592eb5
+ms.openlocfilehash: ba8a6e5b53634850670a7d6b2fb55ef0e7b18d09
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/29/2020
-ms.locfileid: "84191490"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85255498"
 ---
-# <a name="automate-workflows-for-sql-server-or-azure-sql-database-by-using-azure-logic-apps"></a>Automatiser les workflows pour SQL Server ou Azure SQL Database à l’aide d’Azure Logic Apps
+# <a name="automate-workflows-for-a-sql-database-by-using-azure-logic-apps"></a>Automatiser les workflows pour une base de données SQL à l’aide d’Azure Logic Apps
 
 Cet article explique comment accéder aux données dans votre base de données SQL depuis une application logique avec le connecteur SQL Server. Vous pouvez ainsi automatiser des tâches, des processus ou des workflows qui gèrent vos données et ressources SQL en créant des applications logiques. Le connecteur SQL Server fonctionne pour [SQL Server](https://docs.microsoft.com/sql/sql-server/sql-server-technical-documentation), ainsi que [Azure SQL Database](../azure-sql/database/sql-database-paas-overview.md) et [Azure SQL Managed instance](../azure-sql/managed-instance/sql-managed-instance-paas-overview.md).
 
@@ -26,83 +26,31 @@ Si vous débutez avec les applications logiques, consultez [Qu’est-ce qu’Azu
 
 * Un abonnement Azure. Si vous n’avez pas encore d’abonnement, vous pouvez [vous inscrire pour obtenir un compte Azure gratuitement](https://azure.microsoft.com/free/).
 
-* Une [base de données SQL Server](https://docs.microsoft.com/sql/relational-databases/databases/create-a-database) ou une [base de données SQL Azure](../azure-sql/database/single-database-create-quickstart.md)
+* Une [base de données SQL Server](https://docs.microsoft.com/sql/relational-databases/databases/create-a-database), [Azure SQL Database](../azure-sql/database/single-database-create-quickstart.md) ou [Azure SQL Managed Instance](../azure-sql/managed-instance/instance-create-quickstart.md).
 
-  Vos tables doivent contenir des données afin que votre application logique puisse renvoyer les résultats lors de l’appel des opérations. Si vous créez une base de données Azure SQL, vous pouvez utiliser les exemples de bases de données inclus.
+  Vos tables doivent contenir des données afin que votre application logique puisse renvoyer les résultats lors de l’appel des opérations. Si vous utilisez Azure SQL Database, vous pouvez utiliser des échantillons de bases de données inclus.
 
 * Le nom de votre serveur SQL, le nom de la base de données, votre nom d’utilisateur et votre mot de passe. Vous avez besoin de ces informations d’identification pour autoriser votre application logique à accéder à votre serveur SQL.
 
-  * Pour SQL Server, vous trouverez ces informations dans la chaîne de connexion :
+  * Pour un SQL Server local, vous trouverez ces informations dans la chaîne de connexion :
 
     `Server={your-server-address};Database={your-database-name};User Id={your-user-name};Password={your-password};`
 
-  * Pour Azure SQL Database, vous trouverez ces informations dans la chaîne de connexion, ou dans le portail Azure sous les propriétés de base de données SQL :
+  * Pour Azure SQL Database, vous trouverez ces informations dans la chaîne de connexion.
+  
+    Par exemple, pour trouver cette chaîne dans le Portail Azure, ouvrez votre base de données. Dans le menu de la base de données, sélectionnez **Chaînes de connexion** ou **Propriétés** :
 
     `Server=tcp:{your-server-name}.database.windows.net,1433;Initial Catalog={your-database-name};Persist Security Info=False;User ID={your-user-name};Password={your-password};MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=False;Connection Timeout=30;`
 
-* La [passerelle de données locale](../logic-apps/logic-apps-gateway-install.md) installée sur un ordinateur local et une [ressource de passerelle de données Azure créée sur le Portail Azure](../logic-apps/logic-apps-gateway-connection.md) dans ces scénarios :
+<a name="multi-tenant-or-ise"></a>
 
-  * Les applications logiques ne s’exécutent pas dans un [environnement de service d’intégration (ISE)](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md).
+* Selon que vos applications logiques vont être exécutées dans Azure global à plusieurs locataires ou dans un [environnement de service d’intégration (ISE)](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md), voici d’autres exigences requises pour la connexion à un SQL Server local :
 
-  * Les applications logiques *s’exécutent* bien dans un environnement de service d’intégration, mais vous devez utiliser l’authentification Windows pour votre connexion à SQL Server. Dans ce scénario, utilisez la version non ISE du connecteur SQL Server ainsi que la passerelle de données, car la version ISE ne prend pas en charge l’authentification Windows.
+  * Pour les applications logiques dans Azure global à plusieurs locataires qui se connectent à un SQL Server local, vous devez disposer de [ la passerelle de données locale](../logic-apps/logic-apps-gateway-install.md) installée sur un ordinateur local et d’une [ressource de passerelle de données qui est déjà créée dans Azure](../logic-apps/logic-apps-gateway-connection.md).
+
+  * Pour les applications logiques d’un ISE qui se connectent à un SQL Server local et utilisent l’Authentification Windows, le connecteur SQL Server avec version ISE ne prend pas en charge l’Authentification Windows. Vous devez donc toujours utiliser la passerelle de données et le connecteur SQL Server non ISE. Pour les autres types d’authentification, vous n’avez pas besoin d’utiliser la passerelle de données et pouvez utiliser le connecteur avec version ISE.
 
 * L’application logique où vous devez avoir accès à votre base de données SQL. Pour démarrer votre application logique avec un déclencheur SQL, vous avez besoin d’une [application logique vide](../logic-apps/quickstart-create-first-logic-app-workflow.md).
-
-<a name="add-sql-trigger"></a>
-
-## <a name="add-a-sql-trigger"></a>Ajouter un déclencheur SQL
-
-Dans Azure Logic Apps, chaque application logique doit démarrer avec un [déclencheur](../logic-apps/logic-apps-overview.md#logic-app-concepts), qui s’active lorsqu’un événement spécifique se produit ou lorsqu’une condition particulière est remplie. Chaque fois que le déclencheur s’active, le moteur Logic Apps crée une instance d’application logique et lance l’exécution du flux de travail de votre application logique.
-
-1. Dans le portail Azure ou Visual Studio, créez une application logique vide, qui ouvre le Concepteur d'applications logiques. Cet exemple utilise le portail Azure.
-
-1. Dans la zone de recherche du Concepteur, entrez le filtre « sql server ». Dans la liste des déclencheurs, sélectionnez le déclencheur SQL souhaité.
-
-   Cet exemple utilise le déclencheur **Lorsqu'un élément est créé**.
-
-   ![Sélectionner le déclencheur « Lorsqu'un élément est créé »](./media/connectors-create-api-sqlazure/select-sql-server-trigger.png)
-
-1. Si vous êtes invité à créer une connexion, [créez votre connexion SQL maintenant](#create-connection). Si votre connexion existe, sélectionnez un **Nom de table**.
-
-   ![Sélectionnez la table de votre choix](./media/connectors-create-api-sqlazure/azure-sql-database-table.png)
-
-1. Définissez les propriétés **Intervalle** et **Fréquence** qui spécifient la fréquence à laquelle votre application logique vérifie la table.
-
-   Ce déclencheur ne renvoie qu’une seule ligne de la table sélectionnée. Pour effectuer d’autres tâches, ajoutez d’autres actions qui effectuent les tâches de votre choix. Par exemple, pour afficher les données de cette ligne, vous pouvez ajouter d’autres actions qui créent un fichier qui comprend les champs de la ligne retournée, puis envoient des alertes par e-mail. Pour en savoir plus sur les autres actions disponibles pour ce connecteur, consultez la [page de référence du connecteur](https://docs.microsoft.com/connectors/sql/).
-
-1. Lorsque c’est chose faite, dans la barre d’outils du concepteur, sélectionnez **Enregistrer**.
-
-   Cette étape active et publie automatiquement votre application logique dans Azure.
-
-<a name="add-sql-action"></a>
-
-## <a name="add-a-sql-action"></a>Ajouter une action SQL
-
-Dans Azure Logic Apps, une [action](../logic-apps/logic-apps-overview.md#logic-app-concepts) est une étape de votre flux de travail qui suit un déclencheur ou une autre action. Dans cet exemple, l’application logique commence par le [déclencheur de périodicité](../connectors/connectors-native-recurrence.md) et appelle une action qui reçoit une ligne d’une base de données SQL.
-
-1. Dans le portail Azure ou Visual Studio, ouvrez votre application logique dans le Concepteur d’applications logiques. Cet exemple utilise le portail Azure.
-
-1. Sous le déclencheur auquel/l’action à laquelle vous souhaitez ajouter l’action SQL, sélectionnez **Nouvelle étape**.
-
-   ![Ajouter une nouvelle étape à une application logique](./media/connectors-create-api-sqlazure/select-new-step-logic-app.png)
-
-   Pour ajouter une action entre des étapes, déplacez votre souris sur la flèche de connexion. Cliquez sur le signe ( **+** ) qui s’affiche, puis sélectionnez **Ajouter une action**.
-
-1. Sous **Choisir une action**, dans la zone de recherche, entrez « sql server » en guise de filtre. Dans la liste des actions, sélectionnez l’action SQL souhaitée.
-
-   Cet exemple utilise l’action **Obtenir la ligne**, qui obtient un enregistrement unique.
-
-   ![Rechercher et sélectionner l’action SQL « Obtenir la ligne »](./media/connectors-create-api-sqlazure/find-select-sql-get-row-action.png)
-
-   Cette action ne renvoie qu’une seule ligne de la table sélectionnée. Pour afficher les données de cette ligne, vous pouvez ajouter d’autres actions qui créent un fichier qui comprend les champs de la ligne retournée, et stocker ce fichier dans un compte de stockage cloud. Pour en savoir plus sur les autres actions disponibles pour ce connecteur, consultez la [page de référence du connecteur](https://docs.microsoft.com/connectors/sql/).
-
-1. Si vous êtes invité à créer une connexion, [créez votre connexion SQL maintenant](#create-connection). Si vous avez établi une connexion, sélectionnez un **nom de table**, puis entrez l’**ID de ligne** correspondant à l’enregistrement souhaité.
-
-   ![Entrez le nom de la table et l’ID de ligne.](./media/connectors-create-api-sqlazure/specify-table-row-id-property-value.png)
-
-1. Lorsque c’est chose faite, dans la barre d’outils du concepteur, sélectionnez **Enregistrer**.
-
-   Cette étape active et publie automatiquement votre application logique dans Azure.
 
 <a name="create-connection"></a>
 
@@ -110,7 +58,154 @@ Dans Azure Logic Apps, une [action](../logic-apps/logic-apps-overview.md#logic-a
 
 [!INCLUDE [Create connection general intro](../../includes/connectors-create-connection-general-intro.md)]
 
-[!INCLUDE [Create a connection to SQL Server or Azure SQL Database](../../includes/connectors-create-api-sqlazure.md)]
+Maintenant, effectuez les étapes suivantes :
+
+* [Établissez une connexion à Azure SQL Database ou à Azure SQL Managed Instance basés sur le Cloud](#connect-azure-sql-db)
+* [Se connecter à un SQL Server local](#connect-sql-server)
+
+<a name="connect-azure-sql-db"></a>
+
+### <a name="connect-to-azure-sql-database-or-managed-instance"></a>Se connecter à Azure SQL Database ou à Azure SQL Database Managed Instance
+
+La première fois que vous ajoutez un [déclencheur SQL](#add-sql-trigger) ou une [action SQL](#add-sql-action), et que vous n’avez pas préalablement créé de connexion à votre base de données, vous êtes invité à effectuer ces étapes :
+
+1. Pour le **Type d’authentification**, sélectionnez l’authentification requise et activée sur votre base de données dans Azure SQL Database ou Azure SQL Managed Instance :
+
+   | Authentification | Description |
+   |----------------|-------------|
+   | [**Azure AD Integrated**](../azure-sql/database/authentication-aad-overview.md) | - Prend en charge le connecteur SQL Server non-ISE et ISE. <p><p>- Nécessite une identité valide dans Azure Active Directory (Azure AD) qui a accès à votre base de données. <p>Pour plus d’informations, consultez les rubriques suivantes : <p>- [Vue d’ensemble de la sécurité Azure SQL : authentification](../azure-sql/database/security-overview.md#authentication) <br>- [Autoriser l’accès à la base de données Azure SQL : authentification et autorisation](../azure-sql/database/logins-create-manage.md#authentication-and-authorization) <br>- [Azure SQL : authentification Azure AD Integrated](../azure-sql/database/authentication-aad-overview.md) |
+   | [**Authentification SQL Server**](https://docs.microsoft.com/sql/relational-databases/security/choose-an-authentication-mode#connecting-through-sql-server-authentication) | - Prend en charge le connecteur SQL Server non-ISE et ISE. <p><p>- Requiert un nom d’utilisateur et un mot de passe sécurisé valides qui sont créés et stockés dans votre base de données. <p>Pour plus d’informations, consultez les rubriques suivantes : <p>- [Vue d’ensemble de la sécurité Azure SQL : authentification](../azure-sql/database/security-overview.md#authentication) <br>- [Autoriser l’accès à la base de données Azure SQL : authentification et autorisation](../azure-sql/database/logins-create-manage.md#authentication-and-authorization) |
+   |||
+
+   Cet exemple se poursuit avec **Azure AD Integrated** :
+
+   ![Sélectionnez le type d’authentification à utiliser](./media/connectors-create-api-sqlazure/select-azure-ad-authentication.png)
+
+1. Après avoir sélectionné **Azure AD Integrated**, sélectionnez **Se connecter**. Selon que vous utilisez Azure SQL Database ou Azure SQL Managed Instance, sélectionnez vos informations d’identification d’utilisateur pour l’authentification.
+
+1. Sélectionnez ces valeurs pour votre base de données :
+
+   | Propriété | Obligatoire | Description |
+   |----------|----------|-------------|
+   | **Nom du serveur** | Oui | L’adresse pour votre SQL Server, par exemple, `Fabrikam-Azure-SQL.database.windows.net` |
+   | **Nom de la base de données** | Oui | Le nom de votre base de données SQL, par exemple, `Fabrikam-Azure-SQL-DB` |
+   | **Nom de la table** | Oui | La table que vous voulez utiliser, par exemple, `SalesLT.Customer` |
+   ||||
+
+   > [!TIP]
+   > Ces informations se trouvent dans la chaîne de connexion de votre base de données. Par exemple, Dans le Portail Azure, recherchez et ouvrez votre base de données. Dans le menu de la base de données, sélectionnez **Chaînes de connexion** ou **Propriétés**, d’où vous pouvez trouver cette chaîne :
+   >
+   > `Server=tcp:{your-server-address}.database.windows.net,1433;Initial Catalog={your-database-name};Persist Security Info=False;User ID={your-user-name};Password={your-password};MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=False;Connection Timeout=30;`
+
+   Cet exemple montre comment ces valeurs peuvent être présentées :
+
+   ![Créer une connexion à la base de données SQL](./media/connectors-create-api-sqlazure/azure-sql-database-create-connection.png)
+
+1. Maintenant, poursuivez avec les étapes que vous n’avez pas encore effectuées dans [Ajouter un déclencheur SQL](#add-sql-trigger) ou [Ajouter une action SQL](#add-sql-action).
+
+<a name="connect-sql-server"></a>
+
+### <a name="connect-to-on-premises-sql-server"></a>Se connecter à un SQL Server local
+
+La première fois que vous ajoutez un [déclencheur SQL](#add-sql-trigger) ou une [action SQL](#add-sql-action), et que vous n’avez pas préalablement créé de connexion à votre base de données, vous êtes invité à effectuer ces étapes :
+
+1. Pour les connexions à votre SQL Server local qui nécessitent la passerelle de données locale, assurez-vous que vous avez [rempli ces conditions préalables](#multi-tenant-or-ise).
+
+   Sinon, votre ressource de passerelle de données n’apparaîtra pas dans la liste de **Passerelle de connexion** lorsque vous créerez votre connexion.
+
+1. Pour le **Type d’authentification**, sélectionnez l’authentification requise et activée sur votre SQL Server :
+
+   | Authentification | Description |
+   |----------------|-------------|
+   | [**Authentification Windows**](https://docs.microsoft.com/sql/relational-databases/security/choose-an-authentication-mode#connecting-through-windows-authentication) | - Prend en charge uniquement le connecteur SQL Server non-ISE, qui nécessite une ressource de passerelle de données créée préalablement dans Azure pour votre connexion, que vous utilisiez Azure à plusieurs locataires ou un ISE. <p><p>- Requiert un nom d’utilisateur et un mot de passe Windows valides pour confirmer votre identité par le biais de votre compte Windows. <p>Pour plus d'informations, consultez [Authentication Windows](https://docs.microsoft.com/sql/relational-databases/security/choose-an-authentication-mode#connecting-through-windows-authentication) |
+   | [**Authentification SQL Server**](https://docs.microsoft.com/sql/relational-databases/security/choose-an-authentication-mode#connecting-through-sql-server-authentication) | - Prend en charge le connecteur SQL Server non-ISE et ISE. <p><p>- Requiert un nom d’utilisateur et un mot de passe sécurisé valides qui sont créés et stockés dans votre SQL Server. <p>Pour plus d’informations, consultez [Authentification SQL Server](https://docs.microsoft.com/sql/relational-databases/security/choose-an-authentication-mode#connecting-through-sql-server-authentication). |
+   |||
+
+   Cet exemple se poursuit avec l’**authentification Windows** :
+
+   ![Sélectionnez le type d’authentification à utiliser](./media/connectors-create-api-sqlazure/select-windows-authentication.png)
+
+1. Sélectionnez ou fournissez les valeurs suivantes pour votre base de données SQL :
+
+   | Propriété | Obligatoire | Description |
+   |----------|----------|-------------|
+   | **Nom du serveur SQL** | Oui | L’adresse pour votre SQL Server, par exemple, `Fabrikam-Azure-SQL.database.windows.net` |
+   | **Nom de la base de données SQL** | Oui | Le nom de votre base de données SQL Server, par exemple, `Fabrikam-Azure-SQL-DB` |
+   | **Nom d’utilisateur** | Oui | Votre nom d’utilisateur pour le serveur et la base de données SQL |
+   | **Mot de passe** | Oui | Votre mot de passe pour le serveur et la base de données SQL |
+   | **Abonnement** |  Oui, pour l’Authentification Windows | L’abonnement Azure pour la ressource de passerelle de données que vous avez créée précédemment dans Azure |
+   | **Passerelle de connexion** | Oui, pour l’Authentification Windows | Le nom de la ressource de passerelle de données que vous avez créée précédemment dans Azure <p><p>**Conseil** : Si votre passerelle n’apparaît pas dans la liste, vérifiez que vous avez correctement [configuré votre passerelle](https://docs.microsoft.com/azure/logic-apps/logic-apps-gateway-connection). |
+   |||
+
+   > [!TIP]
+   > Ces informations se trouvent dans la chaîne de connexion de votre base de données :
+   > 
+   > * `Server={your-server-address}`
+   > * `Database={your-database-name}`
+   > * `User ID={your-user-name}`
+   > * `Password={your-password}`
+
+   Cet exemple montre comment ces valeurs peuvent être présentées :
+
+   ![Créer une connexion SQL Server terminé](./media/connectors-create-api-sqlazure/sql-server-create-connection-complete.png)
+
+1. Quand vous êtes prêt, sélectionnez **Créer**.
+
+1. Maintenant, poursuivez avec les étapes que vous n’avez pas encore effectuées dans [Ajouter un déclencheur SQL](#add-sql-trigger) ou [Ajouter une action SQL](#add-sql-action).
+
+<a name="add-sql-trigger"></a>
+
+## <a name="add-a-sql-trigger"></a>Ajouter un déclencheur SQL
+
+1. Dans le [Portail Azure](https://portal.azure.com) ou Visual Studio, créez une application logique vide, qui ouvre le Concepteur d’application logique. Cet exemple se poursuit avec le Portail Azure.
+
+1. Dans la zone de recherche du concepteur, entrez `sql server`. Dans la liste des déclencheurs, sélectionnez le déclencheur SQL souhaité. Cet exemple utilise le **Lorsqu'un élément est créé** déclencheur.
+
+   ![Sélectionner le déclencheur « Lorsqu'un élément est créé »](./media/connectors-create-api-sqlazure/select-sql-server-trigger.png)
+
+1. Si vous vous connectez à votre base de données SQL pour la première fois, vous êtes invité à [créer dès à présent votre connexion à la base de données SQL](#create-connection). Après avoir créé cette connexion, vous pouvez passer à l’étape suivante.
+
+1. Dans le déclencheur, spécifiez l’intervalle et la fréquence à laquelle le déclencheur vérifie la table.
+
+1. Pour ajouter d’autres propriétés disponibles pour ce déclencheur, ouvrez la liste **Ajouter un nouveau paramètre**.
+
+   Ce déclencheur ne renvoie qu’une seule ligne de la table sélectionnée. Pour effectuer d’autres tâches, continuez en ajoutant une [action du connecteur SQL](#add-sql-action) ou [une autre action](../connectors/apis-list.md) qui effectue la tâche suivante que vous souhaitez dans votre flux de travail d’application logique.
+   
+   Par exemple, pour afficher les données de cette ligne, vous pouvez ajouter d’autres actions qui créent un fichier qui comprend les champs de la ligne retournée, puis envoient des alertes par e-mail. Pour en savoir plus sur les autres actions disponibles pour ce connecteur, consultez la [page de référence du connecteur](https://docs.microsoft.com/connectors/sql/).
+
+1. Dans la barre d’outils du Concepteur, sélectionnez **Enregistrer**.
+
+   Bien que cette étape active et publie automatiquement votre application logique dynamique dans Azure, la seule action que votre application logique prend en compte est la vérification de votre base de données en fonction de l’intervalle et de la fréquence spécifiés.
+
+<a name="add-sql-action"></a>
+
+## <a name="add-a-sql-action"></a>Ajouter une action SQL
+
+Dans cet exemple, l’application logique commence par le [déclencheur de périodicité](../connectors/connectors-native-recurrence.md) et appelle une action qui reçoit une ligne d’une base de données SQL.
+
+1. Dans le [Portail Azure](https://portal.azure.com) ou dans Visual Studio, ouvrez votre application logique dans le Concepteur d’application logique. Cet exemple se poursuit avec le Portail Azure.
+
+1. Sous le déclencheur auquel/l’action à laquelle vous souhaitez ajouter l’action SQL, sélectionnez **Nouvelle étape**.
+
+   ![Ajoutez une action à votre application logique](./media/connectors-create-api-sqlazure/select-new-step-logic-app.png)
+
+   Ou, pour ajouter une action entre des étapes, déplacez votre souris sur la flèche de connexion. Cliquez sur le signe ( **+** ) qui s’affiche, puis sélectionnez **Ajouter une action**.
+
+1. Sous **Choisir une action**, dans la zone de recherche, entrez `sql server`. Dans la liste des actions, sélectionnez l’action SQL souhaitée. Cet exemple utilise l’action **Obtenir la ligne**, qui obtient un enregistrement unique.
+
+   ![Sélectionnez l’action SQL « Obtenir la ligne »](./media/connectors-create-api-sqlazure/select-sql-get-row-action.png)
+
+1. Si vous vous connectez à votre base de données SQL pour la première fois, vous êtes invité à [créer dès à présent votre connexion à la base de données SQL](#create-connection). Après avoir créé cette connexion, vous pouvez passer à l’étape suivante.
+
+1. Sélectionnez le **nom de la table**, qui est `SalesLT.Customer` dans cet exemple. Entrez l’**identifiant de la ligne** pour l’enregistrement de votre choix.
+
+   ![Sélectionnez le nom de la table et spécifier l’identifiant de la ligne](./media/connectors-create-api-sqlazure/specify-table-row-id.png)
+
+   Cette action ne renvoie qu’une seule ligne de la table sélectionnée. Ainsi, pour afficher les données dans cette ligne, vous pouvez ajouter d’autres actions qui créent un fichier qui comprend les champs de la ligne retournée, et stocker ce fichier dans un compte de stockage cloud. Pour en savoir plus sur les autres actions disponibles pour ce connecteur, consultez la [page de référence du connecteur](https://docs.microsoft.com/connectors/sql/).
+
+1. Lorsque c’est chose faite, dans la barre d’outils du concepteur, sélectionnez **Enregistrer**.
+
+   Cette étape active et publie automatiquement votre application logique dans Azure.
 
 ## <a name="handle-bulk-data"></a>Gérer des données en bloc
 
@@ -132,21 +227,30 @@ Parfois, vous manipulez des jeux de résultats tellement volumineux que le conne
 
 ### <a name="handle-dynamic-bulk-data"></a>Gérer les données en bloc dynamiques
 
-Parfois, lorsque vous effectuez un appel à une procédure stockée dans le connecteur SQL Server, la sortie retournée est dynamique. Dans ce scénario, procédez comme suit :
+Parfois, lorsque vous effectuez un appel à une procédure stockée au moyen du connecteur SQL Server, la sortie retournée est dynamique. Dans ce scénario, procédez comme suit :
 
-1. Ouvrez **Concepteur Logic Apps**.
-1. Exécutez une série de tests de votre application logique pour afficher le format de sortie. Copiez votre exemple de sortie.
+1. Dans le [portail Azure](https://portal.azure.com), ouvrez votre application logique dans le Concepteur d’applications logiques.
+
+1. Affichez le format de sortie en effectuant une série de tests. Copiez et enregistrez votre exemple de sortie.
+
 1. Dans le concepteur, sous l’action où vous appelez la procédure stockée, sélectionnez **Nouvelle étape**.
+
 1. Sous **Choisir une action**, recherchez et sélectionnez l’action [**Analyser JSON**](../logic-apps/logic-apps-perform-data-operations.md#parse-json-action).
+
 1. Dans l’option **Analyser JSON**, sélectionnez **Utiliser l’exemple de charge utile pour générer le schéma**.
-1. Dans la fenêtre **Entrer ou coller un exemple de charge utile JSON**, collez votre exemple de sortie, puis sélectionnez **Terminé**.
-1. Si vous recevez une erreur indiquant que Logic Apps ne peut pas générer de schéma, vérifiez que la syntaxe de votre exemple de sortie est correctement mise en forme. Si vous ne pouvez toujours pas générer le schéma, entrez-en un manuellement dans la zone **Schéma**.
+
+1. Dans la zone **Entrer ou coller un exemple de charge utile JSON**, collez votre exemple de sortie, puis sélectionnez **Terminé**.
+
+   > [!NOTE]
+   > Si vous recevez une erreur indiquant que Logic Apps ne peut pas générer de schéma, vérifiez que la syntaxe de votre exemple de sortie est correctement mise en forme. Si vous ne pouvez toujours pas générer le schéma dans la zone **Schéma**, entrez manuellement le schéma.
+
 1. Dans la barre d’outils du Concepteur, sélectionnez **Enregistrer**.
-1. Pour accéder aux propriétés du contenu JSON, utilisez les jetons de données qui s’affichent dans la liste de contenu dynamique sous l’[action **Analyser JSON**](../logic-apps/logic-apps-perform-data-operations.md#parse-json-action).
+
+1. Pour référencer les propriétés de contenu JSON, cliquez à l’intérieur des zones d’édition où vous souhaitez référencer ces propriétés afin que la liste de contenu dynamique s’affiche. Dans la liste, sous l’en-tête [**Analyser JSON**](../logic-apps/logic-apps-perform-data-operations.md#parse-json-action), sélectionnez les jetons de données pour les propriétés de contenu JSON que vous souhaitez.
 
 ## <a name="connector-specific-details"></a>Détails spécifiques du connecteur
 
-Pour obtenir des informations techniques sur les déclencheurs, les actions et les limites de ce connecteur, consultez la page [Informations de référence du connecteur](https://docs.microsoft.com/connectors/sql/).
+Pour obtenir des informations techniques sur les déclencheurs, les actions et les limites de ce connecteur, consultez la [page de référence du connecteur](https://docs.microsoft.com/connectors/sql/), qui est générée à partir de la description Swagger.
 
 ## <a name="next-steps"></a>Étapes suivantes
 

@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 02/25/2020
 ms.author: memildin
-ms.openlocfilehash: d5b4986c24a1db61527e6a9ff7be249f189d6248
-ms.sourcegitcommit: 8017209cc9d8a825cc404df852c8dc02f74d584b
+ms.openlocfilehash: 782884f53f0ec17c47b79cf66504d0e3ad3fc29d
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/01/2020
-ms.locfileid: "84248547"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84783212"
 ---
 # <a name="faq---general-questions-about-azure-security-center"></a>FAQ - Questions générales sur Azure Security Center
 
@@ -37,14 +37,8 @@ Azure Security Center surveille les ressources Azure suivantes :
 
 * Machines virtuelles (VM) (y compris [Cloud Services](../cloud-services/cloud-services-choose-me.md))
 * Groupes identiques de machines virtuelles
-* Réseaux virtuels Azure
-* Containers
-* Service SQL Azure
-* Compte de Stockage Azure
-* Azure Web Apps (dans [App Service Environment](../app-service/environment/intro.md))
 * Solutions de partenaires intégrées à votre abonnement Azure, par exemple pare-feu d’applications web sur les machines virtuelles et sur App Service Environment
-
-En outre, les machines non-Azure (notamment locales) peuvent également être supervisées par Azure Security Center. Les [ordinateurs Windows](./quick-onboard-windows-computer.md) et les [ordinateurs Linux](./quick-onboard-linux-computer.md) sont pris en charge.
+* [Nombreux services Azure PaaS listés dans la vue d’ensemble du produit](features-paas.md)
 
 
 ## <a name="how-can-i-see-the-current-security-state-of-my-azure-resources"></a>Comment connaître l’état de sécurité actuel de mes ressources Azure ?
@@ -87,7 +81,7 @@ Azure Security Center collecte, analyse et fusionne automatiquement les données
 
 
 ## <a name="why-did-secure-score-values-change"></a>Pourquoi les valeurs du niveau de sécurité ont-elles changé ? <a name="secure-score-faq"></a>
-Depuis février 2019, Security Center a ajusté le score de quelques recommandations, afin de mieux adapter leur niveau de gravité. À la suite de cet ajustement, il est possible que l’ensemble des valeurs des niveaux de sécurité aient changé.  Pour plus d’informations sur le niveau de sécurité, consultez [Calcul des scores de sécurité](security-center-secure-score.md).
+Depuis février 2019, Security Center a ajusté le score de quelques recommandations, afin de mieux adapter leur niveau de gravité. À la suite de cet ajustement, il est possible que l’ensemble des valeurs des niveaux de sécurité aient changé.  Pour plus d’informations sur le degré de sécurisation, consultez [Degré de sécurisation amélioré dans Azure Security Center](secure-score-security-controls.md).
 
 
 ## <a name="whats-the-difference-between-threats-detected-and-alerted-on-by-microsoft-security-response-center-versus-azure-security-center"></a>Quelle est la différence entre les menaces détectées et faisant l’objet d’une alerte par Microsoft Security Response Center et par Azure Security Center ?

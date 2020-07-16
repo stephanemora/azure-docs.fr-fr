@@ -4,20 +4,23 @@ description: Découvrez comment ajouter un principal de service d’automatisati
 author: minewiskan
 ms.service: azure-analysis-services
 ms.topic: conceptual
-ms.date: 05/19/2020
+ms.date: 07/07/2020
 ms.author: owend
 ms.reviewer: minewiskan
 ms.custom: fasttrack-edit
-ms.openlocfilehash: bc3e17ce5becf039703585167e1ef3aa825cf2ab
-ms.sourcegitcommit: 595cde417684e3672e36f09fd4691fb6aa739733
+ms.openlocfilehash: 4ce23e9da84d01a288c1c37c6a6d884db2ed3969
+ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/20/2020
-ms.locfileid: "83697530"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86077556"
 ---
 # <a name="add-a-service-principal-to-the-server-administrator-role"></a>Ajouter un principal de service au rôle d’administrateur du serveur 
 
- Pour automatiser les tâches PowerShell sans assistance, un principal de service doit disposer des privilèges **Administrateur du serveur** sur le serveur Analysis Services géré. Cet article décrit comment ajouter un principal de service au rôle d’administrateurs du serveur sur un serveur Azure AS. Pour ce faire, vous pouvez utiliser SQL Server Management Studio ou un modèle Resource Manager.
+ Pour automatiser les tâches PowerShell sans assistance, un principal de service doit disposer des privilèges **Administrateur du serveur** sur le serveur Analysis Services géré. Cet article décrit comment ajouter un principal de service au rôle d’administrateurs du serveur sur un serveur Azure AS. Pour ce faire, vous pouvez utiliser SQL Server Management Studio ou un modèle Resource Manager. 
+
+> [!NOTE]
+> Les principaux de service doivent être ajoutés directement au rôle d’administrateur de serveur. L’ajout d’un principal de service à un groupe de sécurité, puis l’ajout de ce groupe de sécurité au rôle d’administrateur de serveur n’est pas pris en charge. 
 
 ## <a name="before-you-begin"></a>Avant de commencer
 Avant d’exécuter cette tâche, vous devez disposer d’un principal de service inscrit dans Azure Active Directory.

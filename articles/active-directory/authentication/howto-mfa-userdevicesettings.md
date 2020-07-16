@@ -11,12 +11,12 @@ author: iainfoulds
 manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 048224a55c2bbcbc99281d070d88d34e2dc77168
-ms.sourcegitcommit: 7e04a51363de29322de08d2c5024d97506937a60
+ms.openlocfilehash: 295738ee5943a6cf54bc7e1e3ce4bba621dbe29f
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/14/2020
-ms.locfileid: "81309769"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84658687"
 ---
 # <a name="manage-user-settings-for-azure-multi-factor-authentication"></a>Gérer les paramètres utilisateur pour Azure Multi-Factor Authentication
 
@@ -31,6 +31,10 @@ Si le rôle *Administrateur d’authentification* vous est attribué, vous pouve
 1. Choisissez l’utilisateur sur lequel vous souhaitez effectuer une action et sélectionnez **Méthodes d’authentification**. En haut de la fenêtre, choisissez l’une des options suivantes pour l’utilisateur :
    - **Réinitialiser le mot de passe** permet de réinitialiser le mot de passe de l’utilisateur et d’affecter un mot de passe temporaire qui doit être changé à la prochaine connexion.
    - **Exiger le réenregistrement de la MFA** permet d’imposer à l’utilisateur, à sa prochaine connexion, de configurer une nouvelle méthode d’authentification MFA.
+   
+      > [!NOTE]
+      > Les méthodes d’authentification actuellement inscrites de l’utilisateur ne sont pas supprimées lorsqu’un administrateur requiert une nouvelle inscription pour MFA. Une fois qu’un utilisateur a effectué une nouvelle inscription pour MFA, nous lui recommandons de consulter ses informations de sécurité et de supprimer toutes les méthodes d’authentification précédemment inscrites qui ne sont plus utilisables.
+   
    - **Révoquer les sessions MFA** permet d’effacer les sessions MFA mémorisées de l’utilisateur et d’obliger ce dernier à s’authentifier via MFA la prochaine fois que cette méthode est imposée par la stratégie de l’appareil.
 
    ![Gérer les méthodes d’authentification à partir du portail Azure](./media/howto-mfa-userdevicesettings/manage-authentication-methods-in-azure.png)

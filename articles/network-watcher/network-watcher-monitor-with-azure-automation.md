@@ -7,17 +7,17 @@ documentationcenter: na
 author: damendo
 ms.service: network-watcher
 ms.devlang: na
-ms.topic: article
+ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/22/2017
 ms.author: damendo
-ms.openlocfilehash: 74c9f44ff5fbbbb50bba1594d371633fd49857eb
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: d833a4cf26ee8ab69d16cbd1d776ca49a2df4bc4
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "76845038"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84738213"
 ---
 # <a name="monitor-vpn-gateways-with-network-watcher-troubleshooting"></a>Surveiller les passerelles VPN à l’aide de la résolution des problèmes Network Watcher
 

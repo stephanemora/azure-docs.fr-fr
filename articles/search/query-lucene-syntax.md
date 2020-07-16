@@ -7,7 +7,7 @@ author: brjohnstmsft
 ms.author: brjohnst
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 02/10/2020
+ms.date: 06/23/2020
 translation.priority.mt:
 - de-de
 - es-es
@@ -19,12 +19,12 @@ translation.priority.mt:
 - ru-ru
 - zh-cn
 - zh-tw
-ms.openlocfilehash: f4c3330b23b8b724cdbf5d7e09eec8a8dd5b8cfa
-ms.sourcegitcommit: 8dc84e8b04390f39a3c11e9b0eaf3264861fcafc
+ms.openlocfilehash: 3bf9dc0e69707eaed8c2a844f6ed3169e65a5342
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/13/2020
-ms.locfileid: "81258981"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85564086"
 ---
 # <a name="lucene-query-syntax-in-azure-cognitive-search"></a>Syntaxe de requête Lucene dans la Recherche cognitive Azure
 
@@ -46,13 +46,13 @@ L’exemple suivant recherche les documents dans l’index avec la syntaxe de re
 Le paramètre `searchMode=all` est approprié dans cet exemple. Quand des opérateurs se trouvent sur la requête, vous devez généralement définir `searchMode=all` pour garantir que *tous* les critères sont satisfaits.
 
 ```
-GET /indexes/hotels/docs?search=category:budget AND \"recently renovated\"^3&searchMode=all&api-version=2019-05-06&querytype=full
+GET /indexes/hotels/docs?search=category:budget AND \"recently renovated\"^3&searchMode=all&api-version=2020-06-30&querytype=full
 ```
 
  Vous pouvez aussi utiliser POST :  
 
 ```
-POST /indexes/hotels/docs/search?api-version=2019-05-06
+POST /indexes/hotels/docs/search?api-version=2020-06-30
 {
   "search": "category:budget AND \"recently renovated\"^3",
   "queryType": "full",
@@ -166,21 +166,23 @@ L’exemple suivant permet d’illustrer les différences entre les deux. Suppos
  Pour promouvoir un terme, utilisez le signe « ^ » (caret) avec un facteur de promotion (un nombre) à la fin du terme recherché. Vous pouvez également promouvoir des expressions. Plus le facteur de promotion est élevé, plus le terme est pertinent par rapport aux autres termes de recherche. Par défaut, le facteur de promotion est égal à 1. Ce facteur doit être positif, mais il peut être inférieur à 1 (par exemple 0,20).  
 
 ##  <a name="regular-expression-search"></a><a name="bkmk_regex"></a> Recherche d’expression régulière  
- Une recherche d’expression régulière trouve une correspondance en fonction du contenu placé entre des barres obliques « / », comme le décrit la [classe RegExp](https://lucene.apache.org/core/6_6_1/core/org/apache/lucene/util/automaton/RegExp.html).  
+ Une recherche d’expression régulière trouve une correspondance en fonction de modèles qui sont valides sous Apache Lucene, comme le décrit la [classe RegExp](https://lucene.apache.org/core/6_6_1/core/org/apache/lucene/util/automaton/RegExp.html). Dans Recherche cognitive Azure, une expression régulière est placée entre des barres obliques `/`.
 
  Par exemple, pour rechercher des documents contenant « motel » ou « hotel », spécifiez `/[mh]otel/`. Les recherches d’expression régulière se font par comparaison avec des mots individuels.
 
 Certains outils et certaines langues imposent des exigences supplémentaires en matière de caractères d’échappement. Pour JSON, les chaînes qui incluent une barre oblique sont placées dans une séquence d’échappement avec une barre oblique inverse : « microsoft.com/azure/ » devient `search=/.*microsoft.com\/azure\/.*/` où `search=/.* <string-placeholder>.*/` configure l’expression régulière et `microsoft.com\/azure\/` est la chaîne avec une barre oblique d’échappement.
 
-##  <a name="wildcard-search"></a><a name="bkmk_wildcard"></a> Recherche par caractères génériques  
+##  <a name="wildcard-search"></a><a name="bkmk_wildcard"></a> Recherche par caractères génériques
 
-Vous pouvez utiliser la syntaxe généralement reconnue pour effectuer des recherches avec plusieurs caractères génériques (*) ou un caractère générique unique (?). Notez que l’Analyseur de requêtes Lucene prend en charge l’utilisation de ces symboles avec un terme unique, et non une expression.
+Vous pouvez utiliser la syntaxe généralement reconnue pour effectuer des recherches avec plusieurs caractères génériques (`*`) ou un caractère générique unique (`?`). Par exemple, une expression de requête `search=alpha*` retourne « alphanumérique » ou « alphabétique ». Notez que l’Analyseur de requêtes Lucene prend en charge l’utilisation de ces symboles avec un terme unique, et non une expression.
 
-La recherche de préfixe utilise également le caractère astérisque (`*`). Par exemple, une expression de requête `search=note*` retourne « notebook » ou « notepad ». La syntaxe Lucene complète n’est pas requise pour la recherche de préfixe. La syntaxe simple prend en charge ce scénario.
+La syntaxe Lucene complète prend en charge la correspondance de préfixe, d’infixe et de suffixe. Toutefois, si tout ce dont vous avez besoin est la correspondance de préfixe, vous pouvez utiliser la syntaxe simple (la correspondance de préfixe est prise en charge dans les deux).
 
-Recherche de suffixe, où `*` ou `?` précède la chaîne, requiert une syntaxe Lucene complète et une expression régulière (vous ne pouvez pas utiliser un symbole * ou ? comme premier caractère d’une recherche). À partir du terme « alphanumérique », une expression de requête (`search=/.*numeric.*/`) trouvera la correspondance.
+La correspondance de suffixe, où `*` ou `?` précède la chaîne (comme dans `search=/.*numeric./`), ou la correspondance d’infixe nécessite une syntaxe Lucene complète ainsi que les barres obliques `/` délimiteurs d’expressions régulières. Vous ne pouvez pas utiliser un signe * ou ? comme premier caractère d’un terme, ou dans un terme, sans `/`. 
 
 > [!NOTE]  
+> En règle générale, les critères spéciaux sont lents ; vous préférerez donc peut-être explorer d’autres méthodes, telles que la tokenisation Edge n-Gram qui crée des jetons pour les séquences de caractères d’un terme. L’index sera plus grand, mais les requêtes pourront s’exécuter plus rapidement, en fonction de la construction du modèle et de la longueur des chaînes que vous indexez.
+>
 > Pendant l’analyse des requêtes, les requêtes qui sont formulées sous forme de préfixe, de suffixe, de caractère générique ou d’expression régulière sont transmises telles quelles à l’arborescence de requête, en ignorant [l’analyse lexicale](search-lucene-query-architecture.md#stage-2-lexical-analysis). Les correspondances ne seront trouvées que si l’index contient les chaînes au format spécifié par votre requête. Dans la plupart des cas, vous aurez besoin d’un autre analyseur lors de l’indexation qui préserve l’intégrité de la chaîne pour que le terme partiel et les critères spéciaux soient respectés. Pour plus d’informations, consultez [Recherche de termes partiels dans les requêtes Recherche cognitive Azure](search-query-partial-matching.md).
 
 ##  <a name="scoring-wildcard-and-regex-queries"></a><a name="bkmk_searchscoreforwildcardandregexqueries"></a> Scoring des requêtes avec des caractères génériques et des expressions régulières

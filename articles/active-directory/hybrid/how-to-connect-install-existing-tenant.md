@@ -1,5 +1,5 @@
 ---
-title: 'Azure AD Connect : lorsque vous avez déjà Azure AD | Microsoft Docs'
+title: 'Azure AD Connect : Quand vous avez déjà Azure AD | Microsoft Docs'
 description: Cette rubrique décrit comment utiliser Connect lorsque vous avez un client Azure AD existant.
 services: active-directory
 documentationcenter: ''
@@ -11,19 +11,19 @@ ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 04/25/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 3636b88b14cf7e76e4fb023434316e7ee31ded04
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 001706d63b22899016cc2c45e384597db3d6747f
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "71336821"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85358826"
 ---
-# <a name="azure-ad-connect-when-you-have-an-existent-tenant"></a>Azure AD Connect : lorsque vous avez un client existant
+# <a name="azure-ad-connect-when-you-have-an-existent-tenant"></a>Azure AD Connect : Quand vous avez un locataire existant
 La plupart des rubriques sur l’utilisation d’Azure AD Connect suppose que vous démarrez avec un nouveau client Azure AD qui ne contient aucun utilisateur ni autres objets. Mais si vous avez démarré avec un client Azure AD, auquel vous avez ajouté des utilisateurs et d’autres objets, et que vous souhaitez désormais utiliser Connect, alors cette rubrique est faite pour vous.
 
 ## <a name="the-basics"></a>Concepts de base

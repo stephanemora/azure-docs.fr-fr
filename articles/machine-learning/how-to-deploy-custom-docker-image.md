@@ -5,17 +5,18 @@ description: Découvrez comment utiliser une image de base Docker personnalisée
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
-ms.topic: conceptual
+ms.topic: how-to
 ms.author: jordane
 author: jpe316
 ms.reviewer: larryfr
-ms.date: 03/16/2020
-ms.openlocfilehash: a237beb72e35a236e353c58db520a8d611fdfdcd
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.date: 06/17/2020
+ms.custom: tracking-python
+ms.openlocfilehash: 8ad3ec9f257289abab1c2d881a798a43a2c1d8ad
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81618009"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84976759"
 ---
 # <a name="deploy-a-model-using-a-custom-docker-base-image"></a>Déployer un modèle à l’aide d’une image de base Docker personnalisée
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -174,7 +175,7 @@ Pour plus d’informations sur le chargement d’images existantes sur un regist
 
 Pour utiliser une image personnalisée, vous avez besoin des informations suivantes :
 
-* __Nom de l’image__. Par exemple, `mcr.microsoft.com/azureml/o16n-sample-user-base/ubuntu-miniconda` est le chemin d’accès à une image Docker de base fournie par Microsoft.
+* __Nom de l’image__. Par exemple, `mcr.microsoft.com/azureml/o16n-sample-user-base/ubuntu-miniconda:latest` est le chemin d’accès à une image Docker de base fournie par Microsoft.
 
     > [!IMPORTANT]
     > Pour les images personnalisées que vous avez créées, veillez à inclure toutes les étiquettes qui ont été utilisées avec l’image. Par exemple, si votre image a été créée avec une étiquette spécifique, telle que `:v1`. Si vous n’avez pas utilisé d’étiquette spécifique lors de la création de l’image, une étiquette `:latest` a été appliquée.
@@ -204,15 +205,7 @@ Pour plus d’informations sur les images de base ONNX Runtime, consultez la [se
 > [!TIP]
 > Dans la mesure où ces images sont disponibles publiquement, vous n’avez pas besoin de fournir une adresse, un nom d’utilisateur ni un mot de passe lors de leur utilisation.
 
-Pour plus d’informations, consultez [Conteneurs Azure Machine Learning](https://github.com/Azure/AzureML-Containers).
-
-> [!TIP]
->__Si votre modèle est entraîné sur une capacité de calcul Azure Machine Learning__, avec la __version 1.0.22 ou une version ultérieure__ du SDK Azure Machine Learning, une image est créée durant l’entraînement. Pour découvrir le nom de cette image, utilisez `run.properties["AzureML.DerivedImageName"]`. L’exemple suivant illustre l’utilisation de cette image :
->
-> ```python
-> # Use an image built during training with SDK 1.0.22 or greater
-> image_config.base_image = run.properties["AzureML.DerivedImageName"]
-> ```
+Pour en savoir plus, consultez le répertoire [Azure Machine Learning containers](https://github.com/Azure/AzureML-Containers) sur GitHub.
 
 ### <a name="use-an-image-with-the-azure-machine-learning-sdk"></a>Utiliser une image avec le kit SDK Azure Machine Learning
 
@@ -227,7 +220,7 @@ from azureml.core.environment import Environment
 myenv = Environment(name="myenv")
 # Enable Docker and reference an image
 myenv.docker.enabled = True
-myenv.docker.base_image = "mcr.microsoft.com/azureml/o16n-sample-user-base/ubuntu-miniconda"
+myenv.docker.base_image = "mcr.microsoft.com/azureml/o16n-sample-user-base/ubuntu-miniconda:latest"
 ```
 
 Pour utiliser une image d’un __registre de conteneurs privé__ qui ne se trouve pas dans votre espace de travail, vous devez utiliser `docker.base_image_registry` pour spécifier l’adresse du dépôt ainsi qu’un nom d’utilisateur et un mot de passe :
@@ -288,7 +281,7 @@ Avant de déployer un modèle à l’aide de l’interface de ligne de commande 
         "docker": {
             "arguments": [],
             "baseDockerfile": null,
-            "baseImage": "mcr.microsoft.com/azureml/o16n-sample-user-base/ubuntu-miniconda",
+            "baseImage": "mcr.microsoft.com/azureml/o16n-sample-user-base/ubuntu-miniconda:latest",
             "enabled": false,
             "sharedVolumes": true,
             "shmSize": null

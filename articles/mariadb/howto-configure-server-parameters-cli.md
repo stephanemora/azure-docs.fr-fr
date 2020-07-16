@@ -5,16 +5,16 @@ author: ajlam
 ms.author: andrela
 ms.service: mariadb
 ms.devlang: azurecli
-ms.topic: conceptual
-ms.date: 4/1/2020
-ms.openlocfilehash: 3ba06ea592d51eedbe827e1ab6418f65722d579c
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.topic: how-to
+ms.date: 6/11/2020
+ms.openlocfilehash: a5aed10927a808d0002f765d493709e0e49483ff
+ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80632302"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86104807"
 ---
-# <a name="customize-server-configuration-parameters-by-using-azure-cli"></a>Personnaliser les paramètres de configuration du serveur à l’aide d’Azure CLI
+# <a name="configure-server-parameters-in-azure-database-for-mariadb-using-the-azure-cli"></a>Configurer les paramètres de serveur dans Azure Database pour MariaDB à l’aide de l’interface de ligne de commande Azure
 Vous pouvez répertorier, afficher et mettre à jour les paramètres de configuration d’un serveur Azure Database pour MariaDB à l’aide d’Azure CLI, l’utilitaire en ligne de commande Azure. Un sous-ensemble de configurations de moteur est exposé au niveau du serveur et peut être modifié.
 
 ## <a name="prerequisites"></a>Prérequis
@@ -54,6 +54,14 @@ az mariadb server configuration set --name slow_query_log --resource-group myres
 ```
 
 Ce code réinitialise la configuration **slow\_query\_log** à la valeur par défaut **OFF**. 
+
+## <a name="setting-parameters-not-listed"></a>Configurer les paramètres non listés
+Si le paramètre de serveur que vous souhaitez mettre à jour n’est pas listé dans le portail Azure, vous pouvez éventuellement définir le paramètre au niveau de la connexion avec `init_connect`. Cela définit les paramètres de serveur pour chaque client qui se connecte. 
+
+Mettez à jour le paramètre **init\_connect** de configuration du serveur du serveur **mydemoserver.mariadb.database.azure.com** sous le groupe de ressources **myresourcegroup** pour définir les valeurs comme le jeu de caractères.
+```azurecli-interactive
+az mariadb server configuration set --name init_connect --resource-group myresourcegroup --server mydemoserver --value "SET character_set_client=utf8;SET character_set_database=utf8mb4;SET character_set_connection=latin1;SET character_set_results=latin1;"
+```
 
 ## <a name="working-with-the-time-zone-parameter"></a>Utilisation avec le paramètre de fuseau horaire
 

@@ -3,24 +3,24 @@ title: Configurer l’accélération automatique de la connexion à l’aide de 
 description: Découvrez comment configurer la stratégie de découverte du domaine d’accueil pour l’authentification Azure Active Directory pour les utilisateurs fédérés (et notamment l’accélération automatique et les indications de domaine).
 services: active-directory
 documentationcenter: ''
-author: msmimart
-manager: CelesteDG
+author: kenwith
+manager: celestedg
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.workload: infrastructure-services
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 04/08/2019
-ms.author: mimart
+ms.author: kenwith
 ms.custom: seoapril2019
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 340cf77ae6b4c5677ed91f6a0626b73d259e5fd2
-ms.sourcegitcommit: 366e95d58d5311ca4b62e6d0b2b47549e06a0d6d
+ms.openlocfilehash: 16af484e77787ee1d729ce97eec8c666bf925837
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/01/2020
-ms.locfileid: "82690503"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84763582"
 ---
 # <a name="configure-azure-active-directory-sign-in-behavior-for-an-application-by-using-a-home-realm-discovery-policy"></a>Configurer le comportement de la connexion Azure Active Directory pour une application à l’aide d’une stratégie de découverte du domaine d’accueil
 
@@ -81,8 +81,8 @@ Pour plus d’informations sur l’accélération automatique à l’aide des in
 ### <a name="home-realm-discovery-policy-for-auto-acceleration"></a>Stratégie de découverte du domaine d’accueil pour l’accélération automatique
 Certaines applications n’offrent pas la possibilité de configurer la demande d’authentification qu’elles émettent. Dans ces cas, il est impossible d’utiliser des indications de domaine pour contrôler l’accélération automatique. Vous pouvez configurer l’accélération automatique par le biais d’une stratégie pour obtenir le même comportement.  
 
-## <a name="enable-direct-authentication-for-legacy-applications"></a>Activer l’authentification directe pour les applications héritées
-Pour les applications, il est recommandé d’utiliser des bibliothèques AAD et une connexion interactive pour authentifier les utilisateurs. Les bibliothèques gèrent les flux d’utilisateurs fédérés.  Parfois, les applications héritées ne sont pas écrites pour comprendre la fédération. Elles n’exécutent pas la découverte de domaine d’accueil et n’interagissent pas avec le point de terminaison fédéré approprié pour authentifier un utilisateur. Si vous le souhaitez, vous pouvez utiliser la stratégie de découverte de domaine d’accueil pour permettre à certaines applications héritées qui envoient des informations d’identification de nom d’utilisateur/mot de passe de s’authentifier directement auprès d’Azure Active Directory. La synchronisation de hachage de mot de passe doit être activée. 
+## <a name="enable-direct-ropc-authentication-of-federated-users-for-legacy-applications"></a>Activer l’authentification ROPC directe des utilisateurs fédérés pour les applications héritées
+Pour les applications, il est recommandé d’utiliser des bibliothèques AAD et une connexion interactive pour authentifier les utilisateurs. Les bibliothèques gèrent les flux d’utilisateurs fédérés.  Parfois, les applications héritées, en particulier celles qui utilisent l’octroi ROPC, envoient le nom d’utilisateur et le mot de passe directement à Azure AD ; elles ne sont pas écrites pour comprendre la fédération. Elles n’exécutent pas la découverte de domaine d’accueil et n’interagissent pas avec le point de terminaison fédéré approprié pour authentifier un utilisateur. Si vous le souhaitez, vous pouvez utiliser la stratégie de découverte du domaine d’accueil pour autoriser des applications héritées spécifiques qui envoient des informations d’identification de nom d’utilisateur/mot de passe avec l’octroi ROPC à s’authentifier directement auprès d’Azure Active Directory. La synchronisation de hachage de mot de passe doit être activée. 
 
 > [!IMPORTANT]
 > Activez uniquement l’authentification directe si vous avez activé la synchronisation de hachage de mot de passe et que vous pouvez authentifier cette application sans aucune stratégie implémentée par votre fournisseur d’identité locale. Si vous désactivez la synchronisation de hachage de mot de passe ou la synchronisation d’annuaires avec AD Connect pour une raison quelconque, vous devez supprimer cette stratégie pour empêcher la possibilité d’authentification directe à l’aide d’un hachage de mot de passe obsolète.
@@ -110,7 +110,7 @@ Voici un exemple de définition de la stratégie de découverte du domaine d’a
     {  
     "AccelerateToFederatedDomain":true,
     "PreferredDomain":"federated.example.edu",
-    "AllowCloudPasswordValidation":true
+    "AllowCloudPasswordValidation":false
     }
    }
 ```

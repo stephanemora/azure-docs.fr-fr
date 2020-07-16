@@ -10,13 +10,13 @@ author: nabhishek
 ms.author: abnarain
 manager: anandsub
 ms.custom: seo-lt-2019
-ms.date: 03/13/2020
-ms.openlocfilehash: 6d18a8d09749b832984872b57eec8a36abc1b2e2
-ms.sourcegitcommit: c535228f0b77eb7592697556b23c4e436ec29f96
+ms.date: 06/09/2020
+ms.openlocfilehash: 23563074bc8bbf02b36e86ff6c78acf3034670a6
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/06/2020
-ms.locfileid: "82857701"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84655872"
 ---
 # <a name="create-and-configure-a-self-hosted-integration-runtime"></a>Créer et configurer un runtime d’intégration auto-hébergé
 
@@ -56,13 +56,13 @@ Pour créer et installer un runtime d’intégration auto-hébergé, suivez les 
 
 Suivez les étapes ci-dessous pour créer un runtime d’intégration auto-hébergé à l’aide de l’interface utilisateur Azure Data Factory.
 
-1. Sur la page **Prise en main** de l’interface utilisateur Azure Data Factory, sélectionnez l’onglet **Auteur** dans le volet le plus à gauche.
+1. Dans la page **Prise en main** de l’interface utilisateur Azure Data Factory, sélectionnez l’[onglet Gérer](https://docs.microsoft.com/azure/data-factory/author-management-hub) dans le volet le plus à gauche.
 
-   ![Bouton Auteur de la page d'accueil](media/doc-common-process/get-started-page-author-button.png)
+   ![Bouton Gérer de la page d’accueil](media/doc-common-process/get-started-page-manage-button.png)
 
-1. En bas du volet le plus à gauche, sélectionnez **Connexions**, puis **Runtimes d’intégration** dans la fenêtre **Connexions**. Sélectionnez **+Nouveau**.
+1. Sélectionnez **Runtimes d’intégration** dans le volet gauche, puis **+ Nouveau**.
 
-   ![Créer un runtime d’intégration](media/create-self-hosted-integration-runtime/new-integration-runtime.png)
+   ![Créer un runtime d’intégration](media/doc-common-process/manage-new-integration-runtime.png)
 
 1. Sur la page **Configuration du runtime d’intégration**, sélectionnez **Azure, auto-hébergé**, puis **Continuer**. 
 
@@ -97,7 +97,7 @@ Vous pouvez automatiser l'installation du runtime d’intégration auto-héberg�
 
 Vous pouvez utiliser une ligne de commande pour configurer ou gérer un runtime d’intégration auto-hébergé existant. Cette utilisation contribue notamment à automatiser l’installation et l’inscription de nœuds de runtime d'intégration auto-hébergé.
 
-Dmgcmd.exe est inclus dans le programme d'installation auto-hébergé. Il est généralement situé dans le dossier C:\Program Files\Microsoft Integration Runtime\3.0\Shared\. Cette application prend en charge différents paramètres et peut être appelé à l’aide d'une ligne de commande en utilisant des scripts de commandes par lot pour l’automatisation.
+Dmgcmd.exe est inclus dans le programme d'installation auto-hébergé. Il est généralement situé dans le dossier C:\Program Files\Microsoft Integration Runtime\4.0\Shared\. Cette application prend en charge différents paramètres et peut être appelé à l’aide d'une ligne de commande en utilisant des scripts de commandes par lot pour l’automatisation.
 
 Utilisez l’application comme suit :
 
@@ -375,9 +375,9 @@ Vous pouvez utiliser l'outil Gestionnaire de configuration pour afficher et mett
 
 Si vous sélectionnez l'option **Utiliser le proxy système** pour le proxy HTTP, le runtime d’intégration auto-hébergé utilise les paramètres du proxy dans diahost.exe.config et diawp.exe.config. Si ces fichiers ne spécifient aucun proxy, le runtime d’intégration auto-hébergé se connecte directement au service cloud sans passer par un proxy. La procédure suivante fournit des instructions pour mettre à jour le fichier diahost.exe.config :
 
-1. Dans l’Explorateur de fichiers, effectuez une copie de sauvegarde de C:\Program Files\Microsoft Integration Runtime\3.0\Shared\diahost.exe.config en tant que sauvegarde du fichier d’origine.
+1. Dans l’Explorateur de fichiers, effectuez une copie de sauvegarde de C:\Program Files\Microsoft Integration Runtime\4.0\Shared\diahost.exe.config en tant que sauvegarde du fichier d’origine.
 1. Ouvrez le Bloc-notes en tant qu’administrateur.
-1. Dans le Bloc-notes, ouvrez le fichier texte C:\Program Files\Microsoft Integration Runtime\3.0\Shared\diahost.exe.config.
+1. Dans le Bloc-notes, ouvrez le fichier texte C:\Program Files\Microsoft Integration Runtime\4.0\Shared\diahost.exe.config.
 1. Localisez la balise par défaut **system.net** comme indiqué dans le code suivant :
 
     ```xml
@@ -395,7 +395,7 @@ Si vous sélectionnez l'option **Utiliser le proxy système** pour le proxy HTTP
     </system.net>
     ```
 
-    La balise de proxy permet des propriétés supplémentaires pour spécifier les paramètres requis comme `scriptLocation`. Reportez-vous [\<proxy\> élément (paramètres réseau)](https://msdn.microsoft.com/library/sa91de1e.aspx) pour connaître la syntaxe.
+    La balise de proxy permet des propriétés supplémentaires pour spécifier les paramètres requis comme `scriptLocation`. Consultez [\<proxy\>Elément (paramètres réseau)](https://msdn.microsoft.com/library/sa91de1e.aspx) pour connaître la syntaxe.
 
     ```xml
     <proxy autoDetect="true|false|unspecified" bypassonlocal="true|false|unspecified" proxyaddress="uriString" scriptLocation="uriString" usesystemdefault="true|false|unspecified "/>

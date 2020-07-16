@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/13/2020
 ms.author: Zhchia
-ms.openlocfilehash: 0c7c1f5f633554a88b74694ed2aeafcd30c13a89
-ms.sourcegitcommit: 366e95d58d5311ca4b62e6d0b2b47549e06a0d6d
+ms.openlocfilehash: 0aea258ac52e078c48255b39145193272aa65b25
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/01/2020
-ms.locfileid: "82690599"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85367969"
 ---
 # <a name="tutorial-configure-lucidchart-for-automatic-user-provisioning"></a>Tutoriel : Configurer Lucidchart pour le provisionnement automatique d’utilisateurs
 
@@ -162,6 +162,7 @@ Une fois que vous avez configuré l’approvisionnement, utilisez les ressources
 ## <a name="change-log"></a>Journal des modifications
 
 * 30/04/2020 - Ajout de la prise en charge de l’attribut d’extension d’entreprise et de l’attribut personnalisé « CanEdit » pour les utilisateurs.
+* 15/06/2020 : la suppression réversible des utilisateurs est activée (prise en charge de l’attribut [actif](https://tools.ietf.org/html/rfc7643)).
 
 ## <a name="additional-resources"></a>Ressources supplémentaires
 

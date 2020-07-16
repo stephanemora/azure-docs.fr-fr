@@ -6,16 +6,16 @@ documentationcenter: ''
 ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
-ms.date: 03/13/2020
+ms.date: 06/09/2020
 author: nabhishek
 ms.author: abnarain
 manager: anandsub
-ms.openlocfilehash: 901761c8a5dc17cd7f00c3f04153c8e9aa99b648
-ms.sourcegitcommit: c535228f0b77eb7592697556b23c4e436ec29f96
+ms.openlocfilehash: c7880fd7fb687483409ce591059e0f5b2d2e2991
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/06/2020
-ms.locfileid: "82858006"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84659697"
 ---
 # <a name="how-to-create-and-configure-azure-integration-runtime"></a>Comment créer et configurer un runtime d’intégration Azure
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
@@ -48,13 +48,13 @@ Vous pouvez configurer un runtime d’intégration Azure existant pour modifier 
 ### <a name="create-an-azure-ir-via-azure-data-factory-ui"></a>Créer une Azure IR via l’interface utilisateur Azure Data Factory
 Pour créer un Azure IR à l’aide de l’interface utilisateur Azure Data Factory, procédez comme suit.
 
-1. Dans la page **Prise en main** de l’interface utilisateur Azure Data Factory, sélectionnez l’onglet **Auteur** dans le volet gauche.
+1. Dans la page **Prise en main** de l’interface utilisateur Azure Data Factory, sélectionnez l’[onglet Gérer](https://docs.microsoft.com/azure/data-factory/author-management-hub) dans le volet le plus à gauche.
 
-   ![Bouton Auteur de la page d'accueil](media/doc-common-process/get-started-page-author-button.png)
+   ![Bouton Gérer de la page d’accueil](media/doc-common-process/get-started-page-manage-button.png)
 
-1. En bas du volet gauche, sélectionnez **Connexions**, puis **Runtimes d’intégration** dans la fenêtre **Connexions**. Sélectionnez **+Nouveau**.
+1. Sélectionnez **Runtimes d’intégration** dans le volet gauche, puis **+ Nouveau**.
 
-   ![Créer un runtime d’intégration](media/create-azure-integration-runtime/new-integration-runtime.png)
+   ![Créer un runtime d’intégration](media/doc-common-process/manage-new-integration-runtime.png)
 
 1. Sur la page **Configuration du runtime d’intégration**, sélectionnez **Azure, auto-hébergé**, puis **Continuer**. 
 

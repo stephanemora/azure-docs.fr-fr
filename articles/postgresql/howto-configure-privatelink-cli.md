@@ -4,14 +4,14 @@ description: Découvrez comment configurer une liaison privée pour Azure Databa
 author: kummanish
 ms.author: manishku
 ms.service: postgresql
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 01/09/2020
-ms.openlocfilehash: a6baf8b4609382be4a5a31d12cac581da2c17de6
-ms.sourcegitcommit: ae3d707f1fe68ba5d7d206be1ca82958f12751e8
+ms.openlocfilehash: ec4c40430f2cfe04a86ec5f3304aeebd00e4f658
+ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/10/2020
-ms.locfileid: "81011665"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86118271"
 ---
 # <a name="create-and-manage-private-link-for-azure-database-for-postgresql---single-server-using-cli"></a>Création et gestion de Private Link pour Azure Database pour PostgreSQL – Serveur unique avec l’interface CLI
 
@@ -49,7 +49,7 @@ az network vnet create \
 ```
 
 ## <a name="disable-subnet-private-endpoint-policies"></a>Désactiver les stratégies Private Endpoint du sous-réseau 
-Azure déploie des ressources sur un sous-réseau au sein d’un réseau virtuel. vous devez donc créer ou mettre à jour le sous-réseau pour désactiver les stratégies réseau de Private Endpoint. Mettez à jour une configuration de sous-réseau nommée *mySubnet* avec [az network vnet subnet update](https://docs.microsoft.com/cli/azure/network/vnet/subnet?view=azure-cli-latest#az-network-vnet-subnet-update) :
+Azure déploie des ressources sur un sous-réseau au sein d’un réseau virtuel. Vous devez donc créer ou mettre à jour le sous-réseau pour désactiver les [stratégies réseau](../private-link/disable-private-endpoint-network-policy.md) de point de terminaison privé. Mettez à jour une configuration de sous-réseau nommée *mySubnet* avec [az network vnet subnet update](https://docs.microsoft.com/cli/azure/network/vnet/subnet?view=azure-cli-latest#az-network-vnet-subnet-update) :
 
 ```azurecli-interactive
 az network vnet subnet update \
@@ -72,7 +72,7 @@ az vm create \
 Créez une instance Azure Database pour PostgreSQL avec la commande « az postgres server create ». N’oubliez pas que le nom de votre serveur PostgreSQL doit être unique dans Azure. Par conséquent, remplacez la valeur d’espace réservé entre crochets par votre propre valeur unique : 
 
 ```azurecli-interactive
-# Create a logical server in the resource group 
+# Create a server in the resource group 
 az postgres server create \
 --name mydemoserver \
 --resource-group myresourcegroup \
@@ -82,18 +82,17 @@ az postgres server create \
 --sku-name GP_Gen5_2
 ```
 
-Notez que l’ID du serveur PostgreSQL est similaire à  ```/subscriptions/subscriptionId/resourceGroups/myResourceGroup/providers/Microsoft.DBforPostgreSQL/servers/servername.``` Vous utiliserez l’ID du serveur PostgreSQL à l’étape suivante. 
-
 ## <a name="create-the-private-endpoint"></a>Créer l’instance Private Endpoint 
 Créez un point de terminaison privé pour le serveur PostgreSQL dans votre Réseau virtuel : 
+
 ```azurecli-interactive
 az network private-endpoint create \  
     --name myPrivateEndpoint \  
     --resource-group myResourceGroup \  
     --vnet-name myVirtualNetwork  \  
     --subnet mySubnet \  
-    --private-connection-resource-id "<PostgreSQL Server ID>" \  
-    --group-ids postgresqlServer \  
+    --private-connection-resource-id $(az resource show -g myResourcegroup -n mydemoserver --resource-type "Microsoft.DBforPostgreSQL/servers" --query "id") \    
+    --group-id postgresqlServer \  
     --connection-name myConnection  
  ```
 
@@ -123,6 +122,10 @@ az network private-dns record-set a add-record --record-set-name myserver --zone
 
 > [!NOTE] 
 > Le nom de domaine complet dans le paramètre DNS du client n’est pas résolu en adresse IP privée configurée. Vous devez configurer une zone DNS pour le FQDN configuré, comme indiqué [ici](../dns/dns-operations-recordsets-portal.md).
+
+> [!NOTE]
+> Il peut arriver que l’instance Azure Database pour PostgreSQL et le sous-réseau de réseau virtuel se trouvent dans des abonnements différents. Dans ce cas, vous devez vérifier les configurations suivantes :
+> - Assurez-vous que le fournisseur de ressources **Microsoft.DBforPostgreSQL** est inscrit pour les deux abonnements. Pour plus d’informations, reportez-vous à [resource-manager-registration][resource-manager-portal]
 
 ## <a name="connect-to-a-vm-from-the-internet"></a>Se connecter à une machine virtuelle à partir d’Internet
 
@@ -194,3 +197,6 @@ az group delete --name myResourceGroup --yes
 
 ## <a name="next-steps"></a>Étapes suivantes
 - En savoir plus sur [Qu’est-ce qu’Azure Private Endpoint ?](https://docs.microsoft.com/azure/private-link/private-endpoint-overview)
+
+<!-- Link references, to text, Within this same GitHub repo. -->
+[resource-manager-portal]: ../azure-resource-manager/management/resource-providers-and-types.md

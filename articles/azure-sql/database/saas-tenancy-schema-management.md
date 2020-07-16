@@ -11,12 +11,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: ''
 ms.date: 09/19/2018
-ms.openlocfilehash: a9378d0f499814706762349a0eac2c5a26ca939a
-ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
+ms.openlocfilehash: 60c2330578ef4b8e3e40dc3e37a0c8b1eb291e2f
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "84026810"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85255549"
 ---
 # <a name="manage-schema-in-a-saas-application-using-the-database-per-tenant-pattern-with-azure-sql-database"></a>Gérer le schéma dans une application SaaS à l’aide du modèle de base de données par locataire avec Azure SQL Database
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -49,12 +49,10 @@ Le modèle de base de données par locataire isole efficacement les données de 
 ![Écran](./media/saas-tenancy-schema-management/schema-management-dpt.png)
 
 
-## <a name="elastic-jobs-limited-preview"></a>Préversion limitée des travaux élastiques
+## <a name="elastic-jobs-public-preview"></a>Préversion publique des tâches élastiques
 
-Il existe une nouvelle version des travaux élastiques qui est désormais une fonctionnalité intégrée d’Azure SQL Database. Cette nouvelle version des travaux élastiques est pour le moment en préversion limitée. Cette préversion limitée prend actuellement en charge l’utilisation de PowerShell pour créer un agent de travail et de T-SQL pour créer et gérer des travaux.
-
-> [!NOTE]
-> Ce didacticiel utilise des fonctionnalités du service SQL Database en préversion limitée (travaux de base de données élastiques). Si vous souhaitez réaliser ce didacticiel, envoyez votre ID d’abonnement à SaaSFeedback@microsoft.com avec l’objet Préversion des travaux élastiques. Une fois que vous avez reçu la confirmation que votre abonnement a été activé, [téléchargez et installez les dernières applets de commande pour les travaux en version préliminaire](https://github.com/jaredmoo/azure-powershell/releases). Cette version préliminaire est limitée. Contactez SaaSFeedback@microsoft.com pour toute question ou demande de prise en charge associées.
+Il existe une nouvelle version des travaux élastiques qui est désormais une fonctionnalité intégrée d’Azure SQL Database. Cette nouvelle version des tâches élastiques est pour le moment en préversion publique. Cette préversion publique prend actuellement en charge l’utilisation de PowerShell pour créer un agent de travail et de T-SQL pour créer et gérer des tâches.
+Consultez l’article [Tâches de base de données élastique](https://docs.microsoft.com/azure/azure-sql/database/elastic-jobs-overview) pour plus d’informations.
 
 ## <a name="get-the-wingtip-tickets-saas-database-per-tenant-application-scripts"></a>Obtenir les scripts de l’application de base de données par locataire SaaS Wingtip Tickets
 
@@ -67,7 +65,7 @@ Ce didacticiel nécessite l’utilisation de PowerShell pour créer un agent de 
 1. **Dans PowerShell ISE**, ouvrez …\\Learning Modules\\Schema Management\\*Demo-SchemaManagement.ps1*.
 1. Appuyez sur **F5** pour exécuter le script.
 
-Le script *Demo-SchemaManagement.ps1* appelle le script *Deploy-SchemaManagement.ps1* pour créer une base de données SQL nommée *osagent* sur le serveur de catalogue. Il crée ensuite l’agent de travail, à l’aide de la base de données en tant que paramètre.
+Le script *Demo-SchemaManagement.ps1* appelle le script *Deploy-SchemaManagement.ps1* pour créer une base de données nommée *osagent* sur le serveur de catalogue. Il crée ensuite l’agent de travail, à l’aide de la base de données en tant que paramètre.
 
 ## <a name="create-a-job-to-deploy-new-reference-data-to-all-tenants"></a>Créer un travail pour déployer les nouvelles données de référence sur tous les locataires
 

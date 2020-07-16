@@ -4,16 +4,16 @@ description: Comment installer des modules linguistiques pour les machines virtu
 services: virtual-desktop
 author: Heidilohr
 ms.service: virtual-desktop
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 04/03/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: c40df9d821e069e2cd5ff0c42d5841f6b9041c96
-ms.sourcegitcommit: d597800237783fc384875123ba47aab5671ceb88
+ms.openlocfilehash: 70592d940e3766597475f4a7b90a3902a53406d5
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/03/2020
-ms.locfileid: "80634130"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85361300"
 ---
 # <a name="install-language-packs"></a>Installer des modules linguistiques
 
@@ -36,7 +36,8 @@ Pour installer les modules linguistiques :
 4. Sous **Pays ou région**, sélectionnez le pays ou la région de votre choix dans le menu déroulant.
     Dans cet exemple, nous allons sélectionner **France**, comme illustré dans la capture d’écran suivante :
 
-    ![Capture d’écran de la page Région. La région actuellement sélectionnée est la France.](media/region-page-france.png)
+    > [!div class="mx-imgBorder"]
+    > ![Capture d’écran de la page Région. La région actuellement sélectionnée est la France.](media/region-page-france.png)
 
 5. Après cela, sélectionnez **Langue**, puis **Ajouter une langue par défaut**. Choisissez la langue que vous souhaitez installer dans la liste, puis sélectionnez **Suivant**.
 6. Lorsque la fenêtre **Installer des fonctionnalités linguistiques** s’ouvre, activez les cases à cocher intitulées **Installer le module linguistique et Définir comme langue d’affichage**.
@@ -45,15 +46,19 @@ Pour installer les modules linguistiques :
 
     Voici une rapide démonstration visuelle. Les images suivantes montrent comment installer les modules linguistiques français et néerlandais, puis définir le français comme langue d’affichage.
 
-    ![Capture d’écran de la page Langue au début du processus. La langue d’affichage Windows sélectionnée est l’anglais.](media/language-page-default.png)
+    > [!div class="mx-imgBorder"]
+    > ![Capture d’écran de la page Langue au début du processus. La langue d’affichage Windows sélectionnée est l’anglais.](media/language-page-default.png)
 
-    ![Capture d’écran de la fenêtre de sélection de la langue. L’utilisateur a entré « français » dans la barre de recherche pour trouver les modules linguistiques en français.](media/select-language-french.png)
+    > [!div class="mx-imgBorder"]
+    > ![Capture d’écran de la fenêtre de sélection de la langue. L’utilisateur a entré « français » dans la barre de recherche pour trouver les modules linguistiques en français.](media/select-language-french.png)
 
-    ![Capture d’écran de la page Installer des fonctionnalités linguistiques. Le français est sélectionné comme langue préférée. Les options sélectionnées sont « Définir comme langue d’affichage », « Installer le module linguistique », « Reconnaissance vocale » et « Écriture manuscrite ».](media/install-language-features.png)
+    > [!div class="mx-imgBorder"]
+    > ![Capture d’écran de la page Installer des fonctionnalités linguistiques. Le français est sélectionné comme langue préférée. Les options sélectionnées sont « Définir comme langue d’affichage », « Installer le module linguistique », « Reconnaissance vocale » et « Écriture manuscrite ».](media/install-language-features.png)
 
     Une fois les modules linguistiques installés, vous devez voir les noms de vos modules linguistiques dans la liste des langues.
 
-    ![Capture d’écran de la page Langue avec les nouveaux modules linguistiques installés. Les modules linguistiques français et néerlandais sont répertoriés sous « Langues préférées ».](media/language-page-complete.png)
+    > [!div class="mx-imgBorder"]
+    > ![Capture d’écran de la page Langue avec les nouveaux modules linguistiques installés. Les modules linguistiques français et néerlandais sont listés sous « Langues préférées ».](media/language-page-complete.png)
 
 9. Si une fenêtre s’affiche et vous invite à vous déconnecter de votre session : Déconnectez-vous, puis reconnectez-vous. La langue d’affichage doit maintenant être la langue que vous avez sélectionnée.
 
@@ -89,13 +94,13 @@ Pour exécuter Sysprep sur votre ordinateur :
 
 1. Ouvrez PowerShell en tant qu’administrateur.
 2. Exécutez la cmdlet suivante pour accéder au répertoire approprié :
-   
+
     ```powershell
     cd Windows\System32\Sysprep
     ```
 
 3. Ensuite, exécutez la cmdlet suivante :
-    
+
     ```powershell
     .\sysprep.exe
     ```
@@ -113,7 +118,8 @@ Si un message d’erreur s’affiche pendant le processus Sysprep, voici ce que 
 
    Le texte du fichier d’erreur vous indique que vous devez désinstaller un module linguistique spécifique, comme illustré dans l’image suivante. Copiez le nom du module linguistique pour l’étape suivante.
 
-   ![Capture d’écran du fichier setuperr. Le texte avec le nom du module est mis en surbrillance en bleu foncé.](media/setuperr-package-name.png)
+   > [!div class="mx-imgBorder"]
+   > ![Capture d’écran du fichier setuperr. Le texte avec le nom du module est mis en surbrillance en bleu foncé.](media/setuperr-package-name.png)
 
 2. Ouvrez une nouvelle fenêtre PowerShell et exécutez la cmdlet suivante avec le nom du module que vous avez copié à l’étape 2 pour supprimer le module linguistique :
 
@@ -137,7 +143,8 @@ Pour capturer une image :
 
 3. Entrez un nom pour votre image dans le champ **Nom** et attribuez-le au groupe de ressources à l’aide du menu déroulant **Groupe de ressources**, comme indiqué dans l’image suivante.
 
-   ![Capture d’écran de la fenêtre Créer une image. Le nom que l’utilisateur a donné à cette image de test est « vmwvd-image-fr » et a été attribué au groupe de ressources « testwvdimagerg ».](media/create-image.png)
+   > [!div class="mx-imgBorder"]
+   > ![Capture d’écran de la fenêtre Créer une image. Le nom que l’utilisateur a donné à cette image de test est « vmwvd-image-fr » et a été attribué au groupe de ressources « testwvdimagerg ».](media/create-image.png)
 
 4. Sélectionnez **Create** (Créer).
 

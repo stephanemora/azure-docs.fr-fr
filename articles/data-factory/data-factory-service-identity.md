@@ -8,14 +8,14 @@ editor: ''
 ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
-ms.date: 01/16/2020
+ms.date: 07/06/2020
 ms.author: jingwang
-ms.openlocfilehash: d47450f3252074d3bae8df97766bf8858fca5972
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 7c1de2b6ef59efdaaed64fcf687fed0c834683c0
+ms.sourcegitcommit: e132633b9c3a53b3ead101ea2711570e60d67b83
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "81416594"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86037594"
 ---
 # <a name="managed-identity-for-data-factory"></a>Identité managée pour Data Factory
 
@@ -79,7 +79,7 @@ Appelez ensuite l’API avec la section« identity » dans le corps de la requ
 PATCH https://management.azure.com/subscriptions/<subsID>/resourceGroups/<resourceGroupName>/providers/Microsoft.DataFactory/factories/<data factory name>?api-version=2018-06-01
 ```
 
-**Corps de la requête** : ajoutez "identity": { "type": "SystemAssigned" }.
+**Corps de la requête** : add "identity": { "type": "SystemAssigned" }.
 
 ```json
 {
@@ -117,7 +117,7 @@ PATCH https://management.azure.com/subscriptions/<subsID>/resourceGroups/<resour
 
 ### <a name="generate-managed-identity-using-an-azure-resource-manager-template"></a>Générer l’identité managée avec un modèle Azure Resource Manager
 
-**Modèle** : ajouter "identity": { "type": "SystemAssigned" }.
+**Modèle** : add "identity": { "type": "SystemAssigned" }.
 
 ```json
 {
@@ -191,8 +191,63 @@ Id                    : 765ad4ab-XXXX-XXXX-XXXX-51ed985819dc
 Type                  : ServicePrincipal
 ```
 
+### <a name="retrieve-managed-identity-using-rest-api"></a>Récupérer l’identité managée à l’aide d’API REST
+
+L'ID de principal et l'ID de locataire de l'identité managée seront renvoyés lorsque vous aurez obtenu une fabrique de données spécifique, comme illustré ci-dessous.
+
+Appeler l’API ci-dessous dans la requête :
+
+```
+GET https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DataFactory/factories/{factoryName}?api-version=2018-06-01
+```
+
+**Réponse**: Vous obtiendrez une réponse comme indiqué dans l’exemple ci-dessous. La section « identité » est remplie en conséquence.
+
+```json
+{
+    "name":"<dataFactoryName>",
+    "identity":{
+        "type":"SystemAssigned",
+        "principalId":"554cff9e-XXXX-XXXX-XXXX-90c7d9ff2ead",
+        "tenantId":"72f988bf-XXXX-XXXX-XXXX-2d7cd011db47"
+    },
+    "id":"/subscriptions/<subscriptionId>/resourceGroups/<resourceGroupName>/providers/Microsoft.DataFactory/factories/<dataFactoryName>",
+    "type":"Microsoft.DataFactory/factories",
+    "properties":{
+        "provisioningState":"Succeeded",
+        "createTime":"2020-02-12T02:22:50.2384387Z",
+        "version":"2018-06-01",
+        "factoryStatistics":{
+            "totalResourceCount":0,
+            "maxAllowedResourceCount":0,
+            "factorySizeInGbUnits":0,
+            "maxAllowedFactorySizeInGbUnits":0
+        }
+    },
+    "eTag":"\"03006b40-XXXX-XXXX-XXXX-5e43617a0000\"",
+    "location":"<region>",
+    "tags":{
+
+    }
+}
+```
+
+> [!TIP] 
+> Pour récupérer l’identité managée à partir d’un modèle ARM, ajoutez une section **sorties** dans le JSON ARM :
+
+```json
+{
+    "outputs":{
+        "managedIdentityObjectId":{
+            "type":"string",
+            "value":"[reference(resourceId('Microsoft.DataFactory/factories', parameters('<dataFactoryName>')), '2018-06-01', 'Full').identity.principalId]"
+        }
+    }
+}
+```
+
 ## <a name="next-steps"></a>Étapes suivantes
-Consultez les rubriques suivantes qui expliquent quand et comment utiliser l’identité managée de fabrique de données :
+Consultez les rubriques suivantes qui expliquent quand et comment utiliser l’identité managée de fabrique de données :
 
 - [Stocker des informations d’identification dans Azure Key Vault](store-credentials-in-key-vault.md)
 - [Copier des données vers ou depuis Azure Data Lake Storage Gen1 à l’aide d’Azure Data Factory](connector-azure-data-lake-store.md)

@@ -3,17 +3,17 @@ title: Exigences du package de dessin dans le Créateur Azure Maps
 description: Découvrez les exigences du package de dessin pour convertir les fichiers de conception de votre bâtiment en données cartographiques à l’aide du service de conversion d’Azure Maps
 author: anastasia-ms
 ms.author: v-stharr
-ms.date: 5/18/2020
+ms.date: 6/12/2020
 ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: philMea
-ms.openlocfilehash: c0c81f529dfc959916ff7c102b2b903a808b9672
-ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
+ms.openlocfilehash: c8699ff86573084e3199b096b25dd5d97cce2985
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/20/2020
-ms.locfileid: "83681911"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84791569"
 ---
 # <a name="drawing-package-requirements"></a>Exigences du package de dessin
 
@@ -31,10 +31,10 @@ Glossaire des termes utilisés dans ce document.
 
 | Terme  | Définition |
 |:-------|:------------|
-| Calque | Calque DWG AutoCAD.|
-| Niveau | Zone d’un immeuble à une élévation définie. Par exemple, l’étage d’un immeuble. |
+| Couche | Calque DWG AutoCAD.|
+| Level | Zone d’un immeuble à une élévation définie. Par exemple, l’étage d’un immeuble. |
 | Xref  |Fichier au format DWG AutoCAD (.dwg) attaché au dessin principal en tant que référence externe.  |
-| Caractéristique | Objet combinant une géométrie avec des informations de métadonnées supplémentaires. |
+| Fonctionnalité | Objet combinant une géométrie avec des informations de métadonnées supplémentaires. |
 | Classes de caractéristiques | Blueprint commun pour les caractéristiques. Par exemple, une unité est une classe de caractéristiques et un bureau est une caractéristique. |
 
 ## <a name="drawing-package-structure"></a>Structure de package de dessin
@@ -56,8 +56,8 @@ Un fichier DWG unique est requis pour chaque niveau du bâtiment. Les données d
 
 Le [service de conversion d’Azure Maps](https://docs.microsoft.com/rest/api/maps/conversion) peut extraire d’un fichier DWG les classes de caractéristiques suivantes :
 
-* Niveaux
-* Unités
+* Levels
+* Units
 * Zones
 * Ouvertures
 * Murs
@@ -77,9 +77,9 @@ Toutes les entités de calque doivent être de l’un des types suivants : Lign
 
 Le tableau ci-dessous présente les types d’entités et les caractéristiques pris en charge pour chaque calque. Si un calque contient des types d’entités non pris en charge, le [service de conversion d’Azure Maps](https://docs.microsoft.com/rest/api/maps/conversion) ignore ces entités.  
 
-| Couche | Types d’entités | Caractéristiques |
+| Couche | Types d’entités | Fonctionnalités |
 | :----- | :-------------------| :-------
-| [Extérieur](#exterior-layer) | Polygone, Polyligne (fermée), Cercle | Niveaux
+| [Extérieur](#exterior-layer) | Polygone, Polyligne (fermée), Cercle | Levels
 | [Unité](#unit-layer) |  Polygone, Polyligne (fermée), Cercle | Pénétrations verticales, Unités
 | [Mur](#wall-layer)  | Polygone, Polyligne (fermée), Cercle | Non applicable. Pour plus d’informations, consultez [Calque Mur](#wall-layer).
 | [Porte](#door-layer) | Polygone, Polyligne, Ligne, Arc circulaire, Cercle | Ouvertures
@@ -169,12 +169,13 @@ Un exemple de calque ZoneLabel est visible en tant que calque ZONELABELS dans l�
 
 Le dossier zip doit contenir un fichier manifeste au niveau racine du répertoire, et le fichier doit être nommé **manifest.json**. Il décrit les fichiers DWG pour permettre au [service de conversion d’Azure Maps](https://docs.microsoft.com/rest/api/maps/conversion) d’analyser leur contenu. Seuls les fichiers identifiés par le manifeste sont ingérés. Les fichiers qui se trouvent dans le dossier zip mais qui ne sont pas correctement répertoriés dans le manifeste seront ignorés.
 
-Les chemins d’accès aux fichiers, dans l’objet **buildingLevels** du fichier manifeste doivent être relatifs à la racine du dossier zip. Le nom du fichier DWG doit correspondre exactement au nom du niveau du bâtiment. Par exemple, un fichier DWG pour le niveau « sous-sol » serait nommé « sous-sol.dwg ». Un fichier DWG pour le niveau 2 serait nommé « niveau_2.dwg ». Si votre nom de niveau comporte une espace, remplacez-la par un trait de soulignement. 
+Les chemins d’accès aux fichiers, dans l’objet **buildingLevels** du fichier manifeste doivent être relatifs à la racine du dossier zip. Le nom du fichier DWG doit correspondre exactement au nom du niveau du bâtiment. Par exemple, un fichier DWG pour le niveau « sous-sol » serait nommé « sous-sol.dwg ». Un fichier DWG pour le niveau 2 serait nommé « niveau_2.dwg ». Si votre nom de niveau comporte une espace, remplacez-la par un trait de soulignement.
 
 Bien que des exigences s’appliquent à l’utilisation des objets de manifeste, tous les objets ne sont pas obligatoires. Le tableau ci-dessous répertorie les objets obligatoires et facultatifs pour la version 1.1 du [service de conversion d’Azure Maps](https://docs.microsoft.com/rest/api/maps/conversion).
 
 | Object | Obligatoire | Description |
 | :----- | :------- | :------- |
+| version | true |Version du schéma du manifeste. Actuellement, seule la version 1.1 est prise en charge.|
 | directoryInfo | true | Décrit les coordonnées géographiques du bâtiment et les informations de contact. Peut également être utilisée pour décrire les coordonnées géographiques et les informations de contact d’un occupant. |
 | buildingLevels | true | Spécifie les niveaux des bâtiments et les fichiers contenant la conception des niveaux. |
 | georeference | true | Contient des informations géographiques numériques pour le dessin du bâtiment. |
@@ -188,14 +189,14 @@ Les sections suivantes détaillent les exigences pour chaque objet.
 
 | Propriété  | type | Obligatoire | Description |
 |-----------|------|----------|-------------|
-| name      | chaîne/entier | true   |  Nom du bâtiment. |
-| streetAddress|    chaîne/entier |    false    | Adresse du bâtiment. |
-|unité     | chaîne/entier    |  false    |  Unité dans le bâtiment. |
-| localité |    chaîne/entier |    false |    Nom d’une zone, d’un quartier ou d’une région. Par exemple, « Marais » ou « Montmartre ». La localité ne fait pas partie de l’adresse postale. |
+| name      | string | true   |  Nom du bâtiment. |
+| streetAddress|    string |    false    | Adresse du bâtiment. |
+|unité     | string    |  false    |  Unité dans le bâtiment. |
+| localité |    string |    false |    Nom d’une zone, d’un quartier ou d’une région. Par exemple, « Marais » ou « Montmartre ». La localité ne fait pas partie de l’adresse postale. |
 | adminDivisions |    Tableau de chaînes JSON |    false     | Tableau contenant les désignations d’adresses (pays, état/territoire, municipalité) ou (pays, préfecture, municipalité, localité). Utilisez les codes de pays ISO 3166 et les codes d’état/territoire ISO 3166-2. |
-| postalCode |    chaîne/entier    | false    | Code de tri de courrier postal. |
+| postalCode |    string    | false    | Code de tri de courrier postal. |
 | hoursOfOperation |    string |     false | Suit le format d’[heures d’ouvertures OSM](https://wiki.openstreetmap.org/wiki/Key:opening_hours/specification). |
-| phone    | chaîne/entier |    false |    Numéro de téléphone associé au bâtiment. Doit inclure l’indicatif du pays. |
+| phone    | string |    false |    Numéro de téléphone associé au bâtiment. Doit inclure l’indicatif du pays. |
 | site Web    | string |    false    | Site web associé au bâtiment. Commence par http ou https. |
 | nonPublic |    bool    | false | Indicateur spécifiant si le bâtiment est ouvert au public. |
 | anchorLatitude | numeric |    false | Latitude d’une ancre de bâtiment (punaise). |
@@ -209,11 +210,11 @@ L’objet `buildingLevels` contient un tableau JSON de niveaux de bâtiments.
 
 | Propriété  | Type | Obligatoire | Description |
 |-----------|------|----------|-------------|
-|levelName    |chaîne/entier    |true |    Nom de niveau descriptif. Par exemple : Étage 1, Hall, Zone de stationnement bleue, Sous-sol, etc.|
+|levelName    |string    |true |    Nom de niveau descriptif. Par exemple : Étage 1, Hall, Zone de stationnement bleue, Sous-sol, etc.|
 |ordinal | entier |    true | Une valeur ordinale est utilisée pour déterminer l’ordre vertical des niveaux. Toute bâtiment doit avoir un niveau dont la valeur ordinale est 0. |
-|heightAboveFacilityAnchor | numeric |    false |    Hauteur de niveau au-dessus du rez-de-chaussée, exprimée en mètres. |
+|heightAboveFacilityAnchor | numeric | false |    Hauteur de niveau au-dessus de l’ancre, exprimée en mètres. |
 | verticalExtent | numeric | false | Hauteur du sol au plafond (épaisseur) du niveau, exprimée en mètres. |
-|filename |    chaîne/entier |    true |    Chemin d’accès dans le système de fichiers du dessin de CAO d’un niveau de bâtiment. Il doit être relatif à la racine du fichier zip du bâtiment. |
+|filename |    string |    true |    Chemin d’accès dans le système de fichiers du dessin de CAO d’un niveau de bâtiment. Il doit être relatif à la racine du fichier zip du bâtiment. |
 
 ### <a name="georeference"></a>georeference
 
@@ -227,13 +228,13 @@ L’objet `buildingLevels` contient un tableau JSON de niveaux de bâtiments.
 
 | Propriété  | Type | Obligatoire | Description |
 |-----------|------|----------|-------------|
-|exterior    |Tableau de chaînes/entiers|    true|    Noms des calques qui définissent le profil extérieur du bâtiment.|
-|unité|    Tableau de chaînes/entiers|    true|    Noms des calques qui définissent des unités.|
-|wall|    Tableau de chaînes/entiers    |false|    Noms des calques qui définissent des murs.|
-|door    |Tableau de chaînes/entiers|    false   | Noms des calques qui définissent des portes.|
-|unitLabel    |Tableau de chaînes/entiers|    false    |Noms des calques qui définissent des noms d’unités.|
-|zone | Tableau de chaînes/entiers    | false    | Noms des calques qui définissent des zones.|
-|zoneLabel | Tableau de chaînes/entiers |     false |    Noms des calques qui définissent des noms de zones.|
+|exterior    |Tableau de chaînes|    true|    Noms des calques qui définissent le profil extérieur du bâtiment.|
+|unité|    Tableau de chaînes|    true|    Noms des calques qui définissent des unités.|
+|wall|    Tableau de chaînes    |false|    Noms des calques qui définissent des murs.|
+|door    |Tableau de chaînes|    false   | Noms des calques qui définissent des portes.|
+|unitLabel    |Tableau de chaînes|    false    |Noms des calques qui définissent des noms d’unités.|
+|zone | Tableau de chaînes    | false    | Noms des calques qui définissent des zones.|
+|zoneLabel | Tableau de chaînes |     false |    Noms des calques qui définissent des noms de zones.|
 
 ### <a name="unitproperties"></a>unitProperties
 
@@ -241,19 +242,19 @@ L’objet `unitProperties` contient un tableau JSON de propriétés d’unité.
 
 | Propriété  | Type | Obligatoire | Description |
 |-----------|------|----------|-------------|
-|unitName    |chaîne/entier    |true    |Nom de l’unité à associer à cet enregistrement de `unitProperty`. Cet enregistrement n’est valide que si une étiquette correspondant à `unitName` est trouvée dans le ou les calques `unitLabel`. |
-|categoryName|    chaîne/entier|    false    |Nom de catégorie. Pour obtenir la liste complète des catégories, consultez [catégories](https://aka.ms/pa-indoor-spacecategories). |
+|unitName    |string    |true    |Nom de l’unité à associer à cet enregistrement de `unitProperty`. Cet enregistrement n’est valide que si une étiquette correspondant à `unitName` est trouvée dans le ou les calques `unitLabel`. |
+|categoryName|    string|    false    |Nom de catégorie. Pour obtenir la liste complète des catégories, consultez [catégories](https://aka.ms/pa-indoor-spacecategories). |
 |navigableBy| Tableau de chaînes |    false    |Indique les types d’agents de navigation pouvant traverser l’unité. Par exemple, « piéton ». Cette propriété informe les fonctionnalités d’orientation.  Les valeurs autorisées sont `pedestrian`, `wheelchair`, `machine`, `bicycle`, `automobile`, `hiredAuto`, `bus`, `railcar`, `emergency`, `ferry`, `boat`et `disallowed`.|
 |routeThroughBehavior|    string|    false    |Comportement d’itinéraire pour l’unité. Les valeurs autorisées sont `disallowed`, `allowed` et `preferred`. La valeur par défaut est `allowed`.|
 |occupants    |Tableau d’objets directoryInfo |false    |Liste d’occupants de l’unité. |
-|nameAlt|    chaîne/entier|    false|    Autre nom de l’unité. |
-|nameSubtitle|    chaîne/entier    |false|    Sous-titre de l’unité. |
-|addressRoomNumber|    chaîne/entier|    false|    Numéro de salle/unité/appartement/suite de l’unité.|
-|verticalPenetrationCategory|    chaîne/entier|    false| Lorsque cette propriété est définie, la caractéristique qui en résulte est une pénétration verticale (VRT) au lieu d’une unité. Des VRT peuvent être utilisées pour accéder à d’autres caractéristiques de VRT dans les niveaux supérieurs ou inférieurs. Pénétration verticale est un nom de [Catégorie](https://aka.ms/pa-indoor-spacecategories). Si cette propriété est définie, la propriété categoryName est remplacée par verticalPenetrationCategory. |
+|nameAlt|    string|    false|    Autre nom de l’unité. |
+|nameSubtitle|    string    |false|    Sous-titre de l’unité. |
+|addressRoomNumber|    string|    false|    Numéro de salle/unité/appartement/suite de l’unité.|
+|verticalPenetrationCategory|    string|    false| Lorsque cette propriété est définie, la caractéristique qui en résulte est une pénétration verticale (VRT) au lieu d’une unité. Des VRT peuvent être utilisées pour accéder à d’autres caractéristiques de VRT dans les niveaux supérieurs ou inférieurs. Pénétration verticale est un nom de [Catégorie](https://aka.ms/pa-indoor-spacecategories). Si cette propriété est définie, la propriété categoryName est remplacée par verticalPenetrationCategory. |
 |verticalPenetrationDirection|    string|    false    |Si la valeur `verticalPenetrationCategory` est définie, définissez éventuellement la direction de déplacement valide. Les valeurs autorisées sont `lowToHigh`, `highToLow`, `both` et `closed`. La valeur par défaut est `both`.|
 | nonPublic | bool | false | Indique si l’unité est ouverte au public. |
 | isRoutable | bool | false | Lorsque la valeur est `false`, la navigation dans ou via l’unité est impossible. La valeur par défaut est `true`. |
-| isOpenArea | bool | false | Permet à l’agent de navigation d’entrer dans l’unité sans qu’une ouverture soit associée à celle-ci. Par défaut, cette valeur est définie sur `true`, sauf si l’unité a une ouverture. |
+| isOpenArea | bool | false | Permet à l’agent de navigation d’entrer dans l’unité sans qu’il soit nécessaire d’attacher une ouverture à celle-ci. Par défaut, cette valeur est définie sur `true` pour les unités sans ouvertures, et sur `false` pour les unités avec ouvertures.  Le fait d’attribuer manuellement à `isOpenArea` la valeur `false` sur une unité sans ouverture donne lieu à un avertissement. Cela est dû au fait que l’unité qui en découle n’est pas accessible à un agent de navigation.|
 
 ### <a name="the-zoneproperties-object"></a>Objet zoneProperties
 
@@ -261,10 +262,11 @@ L’objet `zoneProperties` contient un tableau JSON de propriétés de zone.
 
 | Propriété  | Type | Obligatoire | Description |
 |-----------|------|----------|-------------|
-|zoneName        |chaîne/entier    |true    |Nom de zone à associer à l’enregistrement `zoneProperty`. Cet enregistrement n’est valide que si une étiquette correspondant à `zoneName` est trouvée dans le calque `zoneLabel` de la zone.  |
-|categoryName|    chaîne/entier|    false    |Nom de catégorie. Pour obtenir la liste complète des catégories, consultez [catégories](https://aka.ms/pa-indoor-spacecategories). |
-|zoneNameAlt|    chaîne/entier|    false    |Autre nom de la zone.  |
-|zoneNameSubtitle|    chaîne/entier |    false    |Sous-titre de la zone. |
+|zoneName        |string    |true    |Nom de zone à associer à l’enregistrement `zoneProperty`. Cet enregistrement n’est valide que si une étiquette correspondant à `zoneName` est trouvée dans le calque `zoneLabel` de la zone.  |
+|categoryName|    string|    false    |Nom de catégorie. Pour obtenir la liste complète des catégories, consultez [catégories](https://aka.ms/pa-indoor-spacecategories). |
+|zoneNameAlt|    string|    false    |Autre nom de la zone.  |
+|zoneNameSubtitle|    string |    false    |Sous-titre de la zone. |
+|zoneSetId|    string |    false    | ID défini pour établir une relation entre plusieurs zones pour qu’elles puissent être interrogées ou sélectionnées en tant que groupe. Il peut s’agir, par exemple, de zones qui s’étendent sur plusieurs niveaux. |
 
 ### <a name="sample-drawing-package-manifest"></a>Exemple de manifeste du package de dessin
 

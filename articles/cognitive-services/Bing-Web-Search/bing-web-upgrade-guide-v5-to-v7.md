@@ -11,12 +11,12 @@ ms.subservice: bing-web-search
 ms.topic: conceptual
 ms.date: 02/12/2019
 ms.author: scottwhi
-ms.openlocfilehash: 2133cd59c524112ae8a77c0a20cbce1d1336a38d
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 7ee8d05a542c6906d4ebe70f7e2a461752c6e3f3
+ms.sourcegitcommit: 32592ba24c93aa9249f9bd1193ff157235f66d7e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "68881302"
+ms.lasthandoff: 07/01/2020
+ms.locfileid: "85609450"
 ---
 # <a name="upgrade-from-bing-web-search-api-v5-to-v7"></a>Mise à niveau de l’API Recherche Web Bing v5 vers v7
 
@@ -81,7 +81,7 @@ Bloqué|InvalidRequest.Blocked
 
 - Ajout du paramètre de requête [answerCount](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-web-api-v7-reference#answercount). Utilisez ce paramètre pour spécifier le nombre de réponses que la réponse doit inclure. Les réponses sont choisies en fonction du classement. Par exemple, si vous définissez ce paramètre sur trois (3), la réponse inclut les trois réponses de rang supérieur.  
 
-- Ajout du paramètre de requête [promote](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-web-api-v7-reference#promote). Utilisez ce paramètre avec `answerCount` pour inclure explicitement un ou plusieurs types de réponse, quel que soit leur classement. Par exemple, pour promouvoir des vidéos et des images dans la réponse, définissez promote sur *videos,images*. La liste des réponses que vous souhaitez promouvoir n’entre pas dans la limite `answerCount`. Par exemple, si `answerCount` est 2 et `promote` est défini sur *videos,images*, la réponse peut inclure des pages web, des actualités, des vidéos et des images.
+- Ajout du paramètre de requête [promote](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-web-api-v7-reference#promote). Utilisez ce paramètre avec `answerCount` pour inclure explicitement un ou plusieurs types de réponse, quel que soit leur classement. Par exemple, pour promouvoir des vidéos et des images dans la réponse, définissez la promo sur *vidéos, images*. La liste des réponses que vous souhaitez promouvoir n’entre pas dans la limite `answerCount`. Par exemple, si `answerCount` est 2 et `promote` est défini sur *vidéos, images*, la réponse peut inclure des pages web, des actualités, des vidéos et des images.
 
 ### <a name="object-changes"></a>Modifications d’objet
 

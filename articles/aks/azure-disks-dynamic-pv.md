@@ -5,12 +5,12 @@ description: Découvrez comment créer un volume persistant dynamiquement avec d
 services: container-service
 ms.topic: article
 ms.date: 03/01/2019
-ms.openlocfilehash: 9ac41b1738d1691f6547f508d1a38dec89b0bb79
-ms.sourcegitcommit: 34a6fa5fc66b1cfdfbf8178ef5cdb151c97c721c
+ms.openlocfilehash: 44741452f95995327914978bbfd5b0a49566faa5
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82208140"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84751351"
 ---
 # <a name="dynamically-create-and-use-a-persistent-volume-with-azure-disks-in-azure-kubernetes-service-aks"></a>Créer et utiliser un volume persistant de manière dynamique avec des disques Azure sur Azure Kubernetes Service (AKS)
 
@@ -38,7 +38,11 @@ Chaque cluster AKS comprend deux classes de stockage précréées, toutes deux c
 * La classe de stockage *Premium managée* provisionne un disque Azure Premium.
     * Les disques Premium reposent sur un disque SSD à faible latence et hautes performances. Ils conviennent parfaitement aux machines virtuelles exécutant une charge de travail en production. Si les nœuds AKS dans votre cluster utilisent le stockage Premium, sélectionnez la classe *Premium managée*.
     
-Ces classes de stockage par défaut ne vous permettent de mettre à jour la taille du volume après la création. Pour activer cette fonctionnalité, ajoutez la ligne *allowVolumeExpansion: true* à l’une des classes de stockage par défaut ou créez votre propre classe de stockage personnalisée. Vous pouvez modifier une classe de stockage existant à l’aide de la commande `kubectl edit sc`. Pour plus d’informations sur les classes de stockage et la création de votre propre classe, consultez [Options de stockage pour les applications dans AKS][storage-class-concepts].
+Si vous utilisez l’une des classes de stockage par défaut, vous ne pouvez pas mettre à jour la taille du volume après avoir créé la classe de stockage. Pour pouvoir faire cette mise à jour après la création d’une classe de stockage, ajoutez la ligne `allowVolumeExpansion: true` à l’une des classes de stockage par défaut, ou créez une classe de stockage personnalisée. Vous pouvez modifier une classe de stockage existante à l’aide de la commande `kubectl edit sc`. 
+
+Par exemple, si vous souhaitez utiliser un disque de taille 4 Tio, vous devez créer une classe de stockage qui définit `cachingmode: None`, car [la mise en cache de disque n’est pas prise en charge pour les disques de 4 Tio ou plus](../virtual-machines/windows/premium-storage-performance.md#disk-caching).
+
+Pour plus d’informations sur les classes de stockage et la création de votre propre classe de stockage, consultez [Options de stockage pour les applications dans AKS][storage-class-concepts].
 
 Utilisez la commande [kubectl get sc][kubectl-get] pour voir les classes de stockage créées au préalable. L’exemple suivant montre les classes de stockage pré-créées disponibles au sein d’un cluster AKS :
 

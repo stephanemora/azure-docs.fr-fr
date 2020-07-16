@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 07/08/2019
 ms.author: cynthn
 ms.custom: include file
-ms.openlocfilehash: d848b92da5d4181832adff8499b3531d020c30c9
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 4e31560126919e4c61b176a6eaa62ee7f9b4a624
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "78155470"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85112048"
 ---
 Les disques de système d’exploitation éphémères sont créés sur le stockage local de la machine virtuelle (VM) et ne sont pas enregistrés dans le Stockage Azure à distance. Les disques de système d’exploitation éphémères conviennent particulièrement bien aux charges de travail sans état, car les applications tolèrent les défaillances individuelles des machines virtuelles, mais sont plus sensibles au temps de déploiement de machine virtuelle et de réinitialisation des instances de machines virtuelles individuelles. Comparé à un disque de système d’exploitation standard, un disque éphémère offre une latence plus faible pour les opérations de lecture/écriture et permet une réinitialisation plus rapide des machines virtuelles. 
  
@@ -47,6 +47,9 @@ Différences clés entre les disques de système d’exploitation persistants et
 Vous pouvez déployer des machines virtuelles et images d’instance jusqu’à la taille du cache des machines virtuelles. Par exemple, les images Windows Server Standard de la place de marché sont d’environ 127 Go, ce qui signifie que vous avez besoin d’une taille de machine virtuelle qui a un cache supérieur à 127 Go. Dans ce cas, la référence [Standard_DS2_v2](~/articles/virtual-machines/dv2-dsv2-series.md) a une taille de cache de 86 Gio, ce qui n’est pas suffisant. La référence Standard_DS3_v2 a une taille de cache de 172 Gio, ce qui est suffisant. Dans ce cas, la référence Standard_DS3_v2 est la taille minimale de la série DSv2 que vous pouvez utiliser avec cette image. Les images Linux de base dans les images de la place de marché et Windows Server qui sont signalées par `[smallsize]` ont tendance à être d’environ 30 Gio et peuvent utiliser la plupart des tailles de machine virtuelle disponibles.
 
 Les disques éphémères nécessitent également que la taille de machine virtuelle prenne en charge le stockage Premium. Les tailles ont généralement (mais pas toujours) un `s` dans le nom, comme DSv2 et EsV3. Pour plus d’informations, consultez [Tailles de machine virtuelle Azure](../articles/virtual-machines/linux/sizes.md) pour plus d’informations sur les tailles prenant en charge le stockage Premium.
+
+## <a name="preview---ephemeral-os-disks-can-now-be-stored-on-temp-disks"></a>Préversion - Les disques de système d’exploitation éphémères peuvent désormais être stockés sur des disques temporaires
+Les disques de système d’exploitation éphémères peuvent désormais être stockés sur le disque temporaire/ressources de la machine virtuelle en plus du cache de la machine virtuelle. À présent, vous pouvez donc utiliser des disques de système d’exploitation éphémères avec des machines virtuelles qui n’ont pas de cache ou qui ne disposent pas d’un cache suffisant, mais qui disposent d’un disque temporaire/ressources pour stocker le disque de système d’exploitation éphémère, tel que Dav3, Dav4, Eav4 et Eav3. Si une machine virtuelle dispose d’un cache et d’un espace temporaire suffisants, vous pouvez également spécifier où vous voulez stocker le disque de système d’exploitation éphémère à l’aide d’une nouvelle propriété appelée [DiffDiskPlacement](https://docs.microsoft.com/rest/api/compute/virtualmachines/list#diffdiskplacement). Actuellement, cette fonctionnalité est uniquement disponible en tant que version préliminaire. Cette préversion est fournie sans contrat de niveau de service et n’est pas recommandée pour les charges de travail de production. Pour commencer, [demandez l’accès](https://forms.office.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbR6cQw0fZJzdIsnbfbI13601URTBCRUZPMkQwWFlCOTRIMFBSNkM1NVpQQS4u).
 
 ## <a name="powershell"></a>PowerShell
 
@@ -198,7 +201,24 @@ A : Oui, vous pouvez attacher un disque de données managé à une machine virt
 
 **Q : Toutes les tailles de machine virtuelle sont-elles prises en charge par les disques de système d’exploitation éphémères ?**
 
-A : Non, toutes les tailles de machines virtuelles Stockage Premium sont prises en charge (DS, ES, FS, GS et M), à l’exception des tailles de séries B, N et H.  
+A : Non, la plupart des tailles de machine virtuelle Stockage Premium sont prises en charge (DS, ES, FS, GS, M, etc.). Pour savoir si une taille de machine virtuelle particulière prend en charge les disques de système d’exploitation éphémères, vous pouvez :
+
+Appeler l’applet de commande PowerShell `Get-AzComputeResourceSku`
+```azurepowershell-interactive
+ 
+$vmSizes=Get-AzComputeResourceSku | where{$_.ResourceType -eq 'virtualMachines' -and $_.Locations.Contains('CentralUSEUAP')} 
+
+foreach($vmSize in $vmSizes)
+{
+   foreach($capability in $vmSize.capabilities)
+   {
+       if($capability.Name -eq 'EphemeralOSDiskSupported' -and $capability.Value -eq 'true')
+       {
+           $vmSize
+       }
+   }
+}
+```
  
 **Q : Le disque de système d’exploitation éphémère peut-il être appliqué aux machines virtuelles et groupes identiques existants ?**
 

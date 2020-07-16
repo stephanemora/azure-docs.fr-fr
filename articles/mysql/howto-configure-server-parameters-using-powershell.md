@@ -5,16 +5,16 @@ author: ajlam
 ms.author: andrela
 ms.service: mysql
 ms.devlang: azurepowershell
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 4/29/2020
-ms.openlocfilehash: 0de816d25bbc1563885413d8dbd52dc7bda7d538
-ms.sourcegitcommit: 50ef5c2798da04cf746181fbfa3253fca366feaa
+ms.openlocfilehash: 8f21b4daff6f5e30fdbb109e683ad7a3e75c8ad6
+ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/30/2020
-ms.locfileid: "82614162"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86101611"
 ---
-# <a name="customize-azure-database-for-mysql-server-parameters-using-powershell"></a>Personnaliser les paramètres de serveur Azure Database pour MySQL à l’aide de PowerShell
+# <a name="configure-server-parameters-in-azure-database-for-mysql-using-powershell"></a>Configurer les paramètres de serveur dans Azure Database pour MySQL à l’aide de PowerShell
 
 Vous pouvez lister, afficher et mettre à jour les paramètres de configuration d’un serveur Azure Database pour MySQL à l’aide de PowerShell. Un sous-ensemble de configurations de moteur est exposé au niveau du serveur et peut être modifié.
 
@@ -26,8 +26,8 @@ Pour utiliser ce guide pratique, il vous faut :
 - Un [serveur Azure Database pour MySQL](quickstart-create-mysql-server-database-using-azure-powershell.md)
 
 > [!IMPORTANT]
-> Tant que le module Az.MySql PowerShell est en préversion, vous devez l’installer séparément du module Az PowerShell à l’aide de la commande suivante : `Install-Module -Name Az.MySql -AllowPrerelease`.
-> Une fois que le module Az.MySql PowerShell est en disponibilité générale, il devient partie intégrante des versions futures du module Az PowerShell et disponible en mode natif dans Azure Cloud Shell.
+> Tant que le module PowerShell Az.MySql est en préversion, vous devez l’installer séparément du module Az PowerShell à l’aide de la commande suivante : `Install-Module -Name Az.MySql -AllowPrerelease`.
+> Une fois le module PowerShell Az.MySql généralement disponible, il devient partie intégrante des versions futures du module Az PowerShell et disponible en mode natif dans Azure Cloud Shell.
 
 Si vous choisissez d’utiliser PowerShell localement, connectez-vous à votre compte Azure à l’aide de l’applet de commande [Connect-AzAccount](/powershell/module/az.accounts/Connect-AzAccount).
 

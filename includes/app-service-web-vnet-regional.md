@@ -2,14 +2,14 @@
 author: ccompy
 ms.service: app-service-web
 ms.topic: include
-ms.date: 04/15/2020
+ms.date: 06/08/2020
 ms.author: ccompy
-ms.openlocfilehash: f7208307df51ecefb76f9adaedea59b327cdc19e
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: ee81b391587b994bd79e9f0950d041de70153b5c
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81604873"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84488786"
 ---
 L’utilisation de l’intégration au réseau virtuel régional permet à votre application d’accéder aux :
 
@@ -56,11 +56,7 @@ Une adresse est utilisée pour chaque instance du plan. Si vous mettez votre app
 
 Si vous voulez que vos applications d’un autre plan atteignent un réseau virtuel auquel sont déjà connectées des applications d’un autre plan, sélectionnez un sous-réseau différent de celui utilisé par l’intégration au réseau virtuel préexistante.
 
-La fonctionnalité est en préversion pour Linux. Le formulaire Linux de la fonctionnalité prend uniquement en charge les appels aux adresses RFC 1918 (10.0.0.0/8, 172.16.0.0/12, 192.168.0.0/16).
-
-### <a name="web-or-function-app-for-containers"></a>Web App/Function App pour conteneurs
-
-Si vous hébergez votre application sur Linux avec les images intégrées, l’intégration au réseau virtuel régional fonctionne sans modification supplémentaire. Si vous utilisez Web App ou Function App pour conteneurs, vous devez modifier votre image Docker pour utiliser l’intégration au réseau virtuel. Dans votre image docker, utilisez la variable d’environnement PORT comme port d’écoute du serveur web principal au lieu d’utiliser un numéro de port codé en dur. La variable d’environnement PORT est automatiquement définie par la plateforme au démarrage du conteneur. Si vous utilisez SSH, le démon SSH doit être configuré pour écouter sur le numéro de port spécifié par la variable d’environnement SSH_PORT quand vous utilisez l’intégration au réseau virtuel régional. Il n’existe pas de prise en charge de l’intégration au réseau virtuel avec passerelle obligatoire sur Linux.
+La fonctionnalité est entièrement prise en charge pour les applications web Windows et Linux. Tous les comportements sont identiques entre les applications Windows et les applications Linux.
 
 ### <a name="service-endpoints"></a>Points de terminaison de service
 

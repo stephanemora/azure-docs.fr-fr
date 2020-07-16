@@ -2,13 +2,13 @@
 title: Vue d’ensemble des modèles
 description: Décrit les avantages apportés par l’utilisation de modèles Azure Resource Manager pour le déploiement de ressources.
 ms.topic: conceptual
-ms.date: 04/06/2020
-ms.openlocfilehash: b3b5fb383ac89d0968a437f35aab656afa1913f0
-ms.sourcegitcommit: 09a124d851fbbab7bc0b14efd6ef4e0275c7ee88
+ms.date: 06/22/2020
+ms.openlocfilehash: b1c61d5eac012f2b807c0121460804c46b12c8d0
+ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2020
-ms.locfileid: "82086332"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86119359"
 ---
 # <a name="what-are-arm-templates"></a>Que sont les modèles ARM ?
 
@@ -54,7 +54,7 @@ Si vous essayez de choisir entre utiliser des modèles Resource Manager et l’u
 
 * **Code exportable** : Vous pouvez obtenir un modèle pour un groupe de ressources existant en exportant l’état actuel du groupe de ressources ou en consultant le modèle utilisé pour un déploiement particulier. L’affichage du [modèle exporté](export-template-portal.md) est un moyen utile pour en découvrir plus sur sa syntaxe.
 
-* **Outils de création** : Vous pouvez créer des modèles avec [Visual Studio Code](use-vs-code-to-create-template.md) et l’extension d’outil de modèle. Vous bénéficiez d’IntelliSense, de la mise en surbrillance de la syntaxe, de l’aide en ligne et de nombreuses autres fonctions de langage. Outre Visual Studio code, vous pouvez également utiliser [Visual Studio](create-visual-studio-deployment-project.md).
+* **Outils de création** : Vous pouvez créer des modèles avec [Visual Studio Code](quickstart-create-templates-use-visual-studio-code.md) et l’extension d’outil de modèle. Vous bénéficiez d’IntelliSense, de la mise en surbrillance de la syntaxe, de l’aide en ligne et de nombreuses autres fonctions de langage. Outre Visual Studio code, vous pouvez également utiliser [Visual Studio](create-visual-studio-deployment-project.md).
 
 ## <a name="template-file"></a>Fichier de modèle
 
@@ -129,3 +129,4 @@ Pour plus d’informations sur les modèles imbriqués, consultez [Utilisation d
 * Pour obtenir un didacticiel pas à pas vous guidant tout au long du processus de création d’un modèle, consultez :[Totoriel : Créer et déployer votre premier modèle ARM](template-tutorial-create-first-template.md).
 * Pour plus d’informations sur les propriétés de fichiers de modèle, consultez [Comprendre la structure et la syntaxe des modèles Azure Resource Manager](template-syntax.md).
 * Pour en savoir plus sur l’exportation de modèles, consultez [Démarrage rapide : Créer et déployer des modèles Resource Manager à l’aide du portail Azure](quickstart-create-templates-use-the-portal.md).
+* Pour obtenir des réponses aux questions les plus fréquentes, consultez [Foire aux questions sur les modèles ARM](frequently-asked-questions.md).

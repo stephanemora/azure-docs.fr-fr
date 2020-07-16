@@ -3,20 +3,19 @@ title: Prise en charge pour la migration de serveurs physiques dans Azure Migrat
 description: Découvrez la prise en charge pour la migration de serveurs physiques dans Azure Migrate.
 ms.topic: conceptual
 ms.custom: fasttrack-edit
-ms.date: 01/07/2020
-ms.openlocfilehash: 8f8b94ab77a1eef8e771384f5d69da98a1d7ae6c
-ms.sourcegitcommit: b0ff9c9d760a0426fd1226b909ab943e13ade330
+ms.date: 06/14/2020
+ms.openlocfilehash: fe23989845d3c0b229a194c9a2a58f879b757811
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/01/2020
-ms.locfileid: "80520281"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84770337"
 ---
 # <a name="support-matrix-for-physical-server-migration"></a>Tableau de prise en charge pour la migration de serveurs physiques
 
 Cet article résume les paramètres et les limites de la migration de serveurs physiques avec [Azure Migrate : Migration de serveur](migrate-services-overview.md#azure-migrate-server-migration-tool). Si vous recherchez des informations sur l’évaluation de serveurs physiques VMware pour la migration vers Azure, consultez le [tableau de prise en charge de l’évaluation](migrate-support-matrix-physical.md).
 
-
-## <a name="overview"></a>Vue d’ensemble
+## <a name="migrating-machines-as-physical"></a>Migration de machines en tant qu’ordinateurs physiques
 
 Vous pouvez migrer des machines locales en tant que serveurs physiques à l’aide de la réplication basée sur un agent. Avec cet outil, vous pouvez effectuer la migration d’une large gamme de machines vers Azure :
 

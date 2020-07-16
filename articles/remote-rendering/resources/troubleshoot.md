@@ -5,12 +5,12 @@ author: florianborn71
 ms.author: flborn
 ms.date: 02/25/2020
 ms.topic: troubleshooting
-ms.openlocfilehash: 59dc64c952aab6b37e6a779ab1e7e85b9a8ab4b7
-ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
+ms.openlocfilehash: 2cb143e08e3901b1d0ab7181df68f06887069012
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "84018818"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85563268"
 ---
 # <a name="troubleshoot"></a>Dépanner
 
@@ -105,7 +105,7 @@ Si ces deux étapes n’ont pas permis de résoudre le problème, il est nécess
 
 **Le modèle dépasse les limites de la machine virtuelle sélectionnée, notamment le nombre maximal de polygones :**
 
-Consultez les [limitations de taille de machine virtuelle](../reference/limits.md#overall-number-of-polygons) spécifiques.
+Consultez les [limites de taille de machine virtuelle](../reference/limits.md#overall-number-of-polygons) spécifiques.
 
 **Le modèle ne se trouve pas dans le frustum de l’appareil photo :**
 
@@ -146,6 +146,16 @@ Azure Remote Rendering se raccroche au pipeline de rendu Unity pour créer la co
 
 ![Débogueur de frames Unity](./media/troubleshoot-unity-pipeline.png)
 
+## <a name="checkerboard-pattern-is-rendered-after-model-loading"></a>Le modèle de damier est rendu après le chargement du modèle
+
+Si l’image rendue se présente comme suit : ![Damier](../reference/media/checkerboard.png) alors le convertisseur atteint les [limites de polygone pour la taille de machine virtuelle standard](../reference/vm-sizes.md). Pour atténuer ce problème, basculez vers une taille de **machine virtuelle Premium** ou réduisez le nombre de polygones visibles.
+
+## <a name="the-rendered-image-in-unity-is-upside-down"></a>L’image rendue dans Unity est à l’envers
+
+Veillez à suivre à la lettre le [Tutoriel Unity : Afficher des modèles distants](../tutorials/unity/view-remote-models/view-remote-models.md). Une image à l’envers indique que Unity est nécessaire pour créer une cible de rendu hors écran. Ce comportement n’est pas pris en charge actuellement, et crée un impact énorme sur les performances sur HoloLens 2.
+
+Ce problème peut être lié à MSAA, à HDR ou à l’activation du post-traitement. Vérifiez que le profil de qualité inférieure est sélectionné et défini comme valeur par défaut dans Unity. Pour ce faire, accédez à *Edit > Project Settings... > Quality* (Modifier > Paramètres du projet... > Qualité).
+
 ## <a name="unity-code-using-the-remote-rendering-api-doesnt-compile"></a>Le code Unity utilisant l’API Remote Rendering ne se compile pas
 
 ### <a name="use-debug-when-compiling-for-unity-editor"></a>Utiliser Debug lors de la compilation dans l’éditeur Unity
@@ -162,6 +172,10 @@ Nous avons constaté de faux échecs lors de tentative de compilation d’exempl
     reg.exe ADD "HKLM\SOFTWARE\Policies\Microsoft\Windows Advanced Threat Protection" /v groupIds /t REG_SZ /d "Unity”
     ```
     
+### <a name="arm64-builds-for-unity-projects-fail-because-audiopluginmshrtfdll-is-missing"></a>Les builds Arm64 pour les projets Unity échouent car AudioPluginMsHRTF.dll est manquant
+
+`AudioPluginMsHRTF.dll` pour Arm64 a été ajouté au package *Windows Mixed Reality* *(com.unity.xr.windowsmr.metro)* dans la version 3.0.1. Vérifiez que la version 3.0.1 ou ultérieure est installée par le biais de Unity Package Manager. Dans la barre de menus Unity, accédez à *Window > Package Manager* (Fenêtre > Gestionnaire de package) et recherchez le package *Windows Mixed Reality*.
+
 ## <a name="unstable-holograms"></a>Hologrammes instables
 
 Si les objets rendus semblent se déplacer avec les mouvements des têtes, vous rencontrez peut-être des problèmes avec la *Reprojection en phase tardive* (LSR). Pour obtenir des conseils sur la façon d’aborder une telle situation, consultez la section relative à la [reprojection en phase tardive](../overview/features/late-stage-reprojection.md).
@@ -171,6 +185,56 @@ Les hologrammes instables (hologrammes qui oscillent, déformés, qui vacillent 
 Une autre valeur à examiner est `ARRServiceStats.LatencyPoseToReceiveAvg`. Elle doit toujours être inférieure à 100 ms. Si vous voyez des valeurs plus élevées, cela indique que vous êtes connecté à un centre de données qui est trop éloigné.
 
 Pour obtenir la liste des atténuations potentielles, consultez les [instructions pour la connectivité réseau](../reference/network-requirements.md#guidelines-for-network-connectivity).
+
+## <a name="z-fighting"></a>Z-fighting
+
+Bien qu’ARR propose une [fonctionnalité d’atténuation du Z-fighting](../overview/features/z-fighting-mitigation.md), il est possible que le Z-fighting soit encore visible dans la scène. Ce guide vise à résoudre ce problème.
+
+### <a name="recommended-steps"></a>Étapes recommandées
+
+Utilisez le workflow suivant pour atténuer le Z-fighting  :
+
+1. Testez la scène avec les paramètres par défaut d’ARR (atténuation du Z-fighting activée).
+
+1. Désactivez l’atténuation du Z-fighting par le biais de son [API](../overview/features/z-fighting-mitigation.md). 
+
+1. Changez les plans proche et lointain de la caméra de façon à obtenir une plage plus proche.
+
+1. Résolvez les problèmes de la scène à l’aide de la section suivante.
+
+### <a name="investigating-remaining-z-fighting"></a>Examen du Z-fighting restant
+
+Si vous avez effectué les étapes ci-dessus et que le Z-fighting restant est inacceptable, vous devez en rechercher la cause sous-jacente. Comme indiqué dans la [page de fonctionnalité d’atténuation du Z-fighting](../overview/features/z-fighting-mitigation.md), il existe deux raisons principales pour la présence de Z-fighting : la perte de précision de profondeur à l’extrémité lointaine de la plage de profondeur, et des surfaces qui se croisent tout en étant coplanaires. La perte de précision de profondeur est une éventualité mathématique qui ne peut être atténuée qu’en effectuant l’étape 3 ci-dessus. Des surfaces coplanaires traduisent un défaut d’élément multimédia source, et il est préférable de les corriger dans les données sources.
+
+ARR offre une fonctionnalité permettant de déterminer si des surfaces peuvent présenter un Z-fighting : la [mise en surbrillance du damier](../overview/features/z-fighting-mitigation.md). Vous pouvez également déterminer visuellement ce qui provoque le Z-fighting. La première animation ci-dessous montre un exemple de perte de précision de profondeur dans la distance, tandis que la deuxième montre un exemple de surfaces presque coplanaires :
+
+![Z-fighting - précision de profondeur](./media/depth-precision-z-fighting.gif)  ![Z-fighting - surfaces coplanaires](./media/coplanar-z-fighting.gif)
+
+Comparez ces exemples à votre Z-fighting pour en déterminer la cause, ou suivez éventuellement ce workflow pas à pas :
+
+1. Placez la caméra au-dessus des surfaces Z-fighting pour regarder directement la surface.
+1. Reculez lentement la caméra afin de l’éloigner des surfaces.
+1. Si le Z-fighting est visible à tout moment, les surfaces sont parfaitement coplanaires. 
+1. Si le Z-fighting est visible la plupart du temps, les surfaces sont presque coplanaires.
+1. Si le Z-fighting est uniquement visible de loin, la cause est un manque de précision de profondeur.
+
+Les surfaces coplanaires peuvent avoir plusieurs causes :
+
+* Un objet a été dupliqué par l’application d’exportation en raison d’une erreur ou d’approches de workflow différentes.
+
+    Vérifiez ces problèmes avec l’application concernée.
+
+* Les surfaces sont dupliquées et retournées de façon à apparaître recto verso dans les convertisseurs qui utilisent le front-face ou back-face culling.
+
+    L’importation par le biais de la [conversion de modèle](../how-tos/conversion/model-conversion.md) détermine le côté principal du modèle. Le caractère bilatéral est considéré comme la valeur par défaut. La surface sera rendue sous la forme d’un mur fin avec un éclairage physiquement correct des deux côtés. Le caractère unilatéral peut être impliqué par des indicateurs dans l’élément multimédia source, ou forcé explicitement pendant la [conversion de modèle](../how-tos/conversion/model-conversion.md). En outre, mais de manière facultative, le [mode unilatéral](../overview/features/single-sided-rendering.md) peut être défini sur « normal ».
+
+* Des objets se croisent dans les éléments multimédias sources.
+
+     Un Z-fighting peut aussi être créé quand des objets sont transformés de telle manière que certaines de leurs surfaces se chevauchent. La transformation de certaines parties de l’arborescence de la scène dans la scène importée dans ARR peut également créer ce problème.
+
+* Des surfaces sont intentionnellement créées pour se toucher, comme des décalques ou du texte sur des murs.
+
+
 
 ## <a name="next-steps"></a>Étapes suivantes
 

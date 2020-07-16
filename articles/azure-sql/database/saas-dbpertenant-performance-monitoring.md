@@ -1,6 +1,6 @@
 ---
 title: 'Application SaaS : Monitorage des performances de nombreuses bases de données'
-description: Superviser et gérer les performances des bases de données Azure SQL et des pools dans une application SaaS mutualisée
+description: Superviser et gérer les performances d’Azure SQL Database dans une application SaaS multilocataire
 services: sql-database
 ms.service: sql-database
 ms.subservice: scenario
@@ -11,14 +11,14 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: ''
 ms.date: 01/25/2019
-ms.openlocfilehash: 458349ec666de7cdb94fca5422143738fea50a26
-ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
+ms.openlocfilehash: 714ddf69bd8bca70019487576830b319bd25a7c0
+ms.sourcegitcommit: e132633b9c3a53b3ead101ea2711570e60d67b83
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "84027970"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86042813"
 ---
-# <a name="monitor-and-manage-performance-of-azure-sql-database-and-pools-in-a-multi-tenant-saas-app"></a>Superviser et gérer les performances d’Azure SQL Database et des pools dans une application SaaS mutualisée
+# <a name="monitor-and-manage-performance-of-azure-sql-database-in-a-multi-tenant-saas-app"></a>Superviser et gérer les performances d’Azure SQL Database dans une application SaaS multilocataire
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
 
 Ce didacticiel aborde plusieurs scénarios de gestion de performance clés utilisés dans les applications SaaS. Les fonctionnalités intégrées de surveillance et d’alerte de base de données de SQL Database, ainsi que les pools élastiques sont illustrés à l’aide d’un générateur de charge destiné à simuler l’activité de toutes les bases de données client.

@@ -5,12 +5,12 @@ author: craigshoemaker
 ms.topic: reference
 ms.date: 02/18/2019
 ms.author: cshoe
-ms.openlocfilehash: 2d0cf18de09932c5d66e269a85919f4d85383c5b
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: ca3e342d42e6baf2bc4caaed07dc196203d8a032
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79235213"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85261067"
 ---
 # <a name="azure-functions-binding-expression-patterns"></a>Modèles d’expressions de liaison Azure Functions
 
@@ -37,7 +37,8 @@ Les expressions de liaison de paramètres d’application ne sont pas identifié
 
 Lorsqu’une fonction s’exécute localement, les valeurs des paramètres de l’application proviennent du fichier *local.settings.json*.
 
-Veuillez noter que la propriété `connection` des déclencheurs et liaisons est un cas spécial et résout automatiquement les valeurs en tant que paramètres de l’application, sans les signes de pourcentage. 
+> [!NOTE]
+> La propriété `connection` des déclencheurs et des liaisons est un cas spécial et résout automatiquement les valeurs en tant que paramètres de l’application, sans les signes de pourcentage. 
 
 L’exemple suivant est un déclencheur de stockage de file d’attente Azure qui utilise un paramètre d’application `%input-queue-name%` pour définir la file d’attente sur laquelle effectuer le déclenchement.
 

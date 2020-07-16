@@ -13,12 +13,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 02/11/2019
 ms.author: akjosh
-ms.openlocfilehash: 2cfc48f7c152f0f38ca70713dc989029e4e64e8b
-ms.sourcegitcommit: 318d1bafa70510ea6cdcfa1c3d698b843385c0f6
+ms.openlocfilehash: 68dddde965900b966efa96fbd7da7141f1ed8a94
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/21/2020
-ms.locfileid: "83773115"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84753556"
 ---
 # <a name="nvidia-gpu-driver-extension-for-linux"></a>Extension du pilote GPU NVIDIA pour Linux
 
@@ -39,8 +39,8 @@ Cette extension prend en charge les distributions suivantes de système d’expl
 | Distribution | Version |
 |---|---|
 | Linux : Ubuntu | 16.04 LTS, 18.04 LTS |
-| Linux : Red Hat Enterprise Linux | 7.3, 7.4, 7.5, 7.6 |
-| Linux : CentOS | 7.3, 7.4, 7.5, 7.6 |
+| Linux : Red Hat Enterprise Linux | 7.3, 7.4, 7.5, 7.6, 7.7 |
+| Linux : CentOS | 7.3, 7.4, 7.5, 7.6, 7.7 |
 
 ### <a name="internet-connectivity"></a>Connectivité Internet
 
@@ -62,7 +62,7 @@ Le JSON suivant illustre le schéma pour l’extension.
   "properties": {
     "publisher": "Microsoft.HpcCompute",
     "type": "NvidiaGpuDriverLinux",
-    "typeHandlerVersion": "1.2",
+    "typeHandlerVersion": "1.3",
     "autoUpgradeMinorVersion": true,
     "settings": {
     }
@@ -77,7 +77,7 @@ Le JSON suivant illustre le schéma pour l’extension.
 | apiVersion | 2015-06-15 | Date |
 | publisher | Microsoft.HpcCompute | string |
 | type | NvidiaGpuDriverLinux | string |
-| typeHandlerVersion | 1.2 | int |
+| typeHandlerVersion | 1.3 | int |
 
 ### <a name="settings"></a>Paramètres
 
@@ -113,7 +113,7 @@ L’exemple suivant suppose que l’extension est imbriquée dans la ressource d
   "properties": {
     "publisher": "Microsoft.HpcCompute",
     "type": "NvidiaGpuDriverLinux",
-    "typeHandlerVersion": "1.2",
+    "typeHandlerVersion": "1.3",
     "autoUpgradeMinorVersion": true,
     "settings": {
     }
@@ -131,14 +131,14 @@ Set-AzVMExtension
     -Publisher "Microsoft.HpcCompute" `
     -ExtensionName "NvidiaGpuDriverLinux" `
     -ExtensionType "NvidiaGpuDriverLinux" `
-    -TypeHandlerVersion 1.2 `
+    -TypeHandlerVersion 1.3 `
     -SettingString '{ `
     }'
 ```
 
 ### <a name="azure-cli"></a>Azure CLI
 
-L’exemple suivant reprend les exemples Azure Resource Manager et PowerShell ci-dessus et ajoute des paramètres personnalisés afin d’illustrer l’installation personnalisée du pilote. Plus précisément, il met à jour le noyau du système d’exploitation et installe un pilote de la version spécifique du kit de ressources CUDA.
+L’exemple suivant reflète les exemples Azure Resource Manager et PowerShell ci-dessus.
 
 ```azurecli
 az vm extension set \
@@ -146,10 +146,21 @@ az vm extension set \
   --vm-name myVM \
   --name NvidiaGpuDriverLinux \
   --publisher Microsoft.HpcCompute \
-  --version 1.2 \
+  --version 1.3 
+```
+
+L’exemple suivant ajoute également deux paramètres personnalisés facultatifs afin d’illustrer l’installation personnalisée du pilote. Plus précisément, il met à jour le noyau du système d’exploitation vers la dernière version et installe un pilote de la version spécifique du kit de ressources CUDA. Là encore, notez que les paramètres « --settings » sont facultatifs et définis par défaut. Notez que la mise à jour du noyau peut accroître la durée d’installation de l’extension. Il se peut également que le choix d’une version spécifique (plus ancienne) du kit de ressources CUDA ne soit pas toujours compatible avec les nouveaux noyaux.
+
+```azurecli
+az vm extension set \
+  --resource-group myResourceGroup \
+  --vm-name myVM \
+  --name NvidiaGpuDriverLinux \
+  --publisher Microsoft.HpcCompute \
+  --version 1.3 \
   --settings '{ \
     "updateOS": true, \
-    "driverVersion": "9.1.85" \
+    "driverVersion": "10.0.130" \
   }'
 ```
 
@@ -167,7 +178,7 @@ Get-AzVMExtension -ResourceGroupName myResourceGroup -VMName myVM -Name myExtens
 az vm extension list --resource-group myResourceGroup --vm-name myVM -o table
 ```
 
-La sortie de l’exécution de l’extension est enregistrée dans le fichier suivant :
+La sortie de l’exécution de l’extension est enregistrée dans le fichier suivant. Consultez ce fichier pour suivre l’état de toute installation (de longue durée), ainsi que pour résoudre les éventuels échecs.
 
 ```bash
 /var/log/azure/nvidia-vmext-status

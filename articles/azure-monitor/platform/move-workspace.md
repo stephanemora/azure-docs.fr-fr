@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 11/13/2019
-ms.openlocfilehash: ca9bb3853698b831fe87f48de346183e4bcd0976
-ms.sourcegitcommit: 4499035f03e7a8fb40f5cff616eb01753b986278
+ms.openlocfilehash: e0ecfd3acb6a8a1d40e006aef1bbf63eae0e1ff4
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/03/2020
-ms.locfileid: "82731706"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84770796"
 ---
 # <a name="move-a-log-analytics-workspace-to-different-subscription-or-resource-group"></a>Déplacer un espace de travail Log Analytics vers un autre abonnement ou groupe de ressources
 
@@ -38,6 +38,8 @@ Solutions qui doivent être supprimées avant de pouvoir dissocier votre compte 
 - Démarrer/arrêter des machines virtuelles pendant les heures creuses
 - Azure Security Center
 
+>[!IMPORTANT]
+> - Une fois activé dans un espace de travail, Azure Sentinel **ne prend actuellement pas en charge** le déplacement de cet espace de travail vers d’autres groupes de ressources ou abonnements. Si vous devez déplacer l’espace de travail, contactez [Azure Sentinel](mailto:AzureSentinel@microsoft.com).
 
 ### <a name="delete-solutions-in-azure-portal"></a>Supprimer des solutions dans le portail Azure
 Procédez comme suit pour supprimer les solutions via le portail Azure :

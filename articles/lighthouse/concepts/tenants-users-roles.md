@@ -1,30 +1,30 @@
 ---
 title: Locataires, rôles et utilisateurs dans les scénarios Azure Lighthouse
 description: Découvrez les concepts d’Azure Active Directory pour les locataires, les utilisateurs et les rôles, ainsi que la façon dont ils peuvent être utilisés dans les scénarios Azure Lighthouse.
-ms.date: 04/03/2020
+ms.date: 07/03/2020
 ms.topic: conceptual
-ms.openlocfilehash: 7ed5af18efbb0f5b97dcab20093cc45e8bed1d03
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 6bcfd1603469ba27971fffa8e7c46f0f696bb6a2
+ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "82144917"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86105385"
 ---
 # <a name="tenants-roles-and-users-in-azure-lighthouse-scenarios"></a>Locataires, rôles et utilisateurs dans les scénarios Azure Lighthouse
 
-Avant d’intégrer des clients pour la [gestion des ressources déléguées Azure](azure-delegated-resource-management.md), il est important de comprendre comment les locataires, les utilisateurs et les rôles fonctionnent dans Azure Active Directory (Azure AD), ainsi que la façon dont ils peuvent être utilisés dans les scénarios Azure Lighthouse.
+Avant d’intégrer des clients pour la [Azure Lighthouse](../overview.md), il est important de comprendre comment les locataires, les utilisateurs et les rôles fonctionnent dans Azure Active Directory (Azure AD), ainsi que la façon dont ils peuvent être utilisés dans les scénarios Azure Lighthouse.
 
-Un *locataire* est une instance dédiée et approuvée d’Azure AD. En général, chaque locataire représente une seule organisation. La gestion des ressources déléguées Azure permet d’opérer une projection logique des ressources d’un locataire sur un autre. Cela permet aux utilisateurs du locataire de gestion (appartenant par exemple à un fournisseur de services) d’accéder à des ressources déléguées dans le locataire d’un client, ou permet aux [entreprises avec plusieurs locataires de centraliser leurs opérations de gestion](enterprise.md).
+Un *locataire* est une instance dédiée et approuvée d’Azure AD. En général, chaque locataire représente une seule organisation. [La gestion des ressources déléguées Azure](azure-delegated-resource-management.md) permet d’opérer une projection logique des ressources d’un locataire sur un autre. Cela permet aux utilisateurs du locataire de gestion (appartenant par exemple à un fournisseur de services) d’accéder à des ressources déléguées dans le locataire d’un client, ou permet aux [entreprises avec plusieurs locataires de centraliser leurs opérations de gestion](enterprise.md).
 
 Pour atteindre cette projection logique, un abonnement (ou un ou plusieurs groupes de ressources au sein d’un abonnement) dans le locataire client doit être *intégré* pour la gestion des ressources déléguées Azure. Ce processus d’intégration peut être effectué [par le biais de modèles Azure Resource Manager](../how-to/onboard-customer.md) ou par [la publication d’une offre publique ou privée sur la Place de marché Azure](../how-to/publish-managed-services-offers.md).
 
 Quelle que soit la méthode d’intégration choisie, vous devez définir des *autorisations*. Chaque autorisation spécifie un compte d’utilisateur dans le locataire gérant qui aura accès aux ressources déléguées, et un rôle intégré qui définit les autorisations dont chacun de ces utilisateurs aura besoin pour ces ressources.
 
-## <a name="role-support-for-azure-delegated-resource-management"></a>Prise en charge des rôles pour la gestion des ressources déléguées Azure
+## <a name="role-support-for-azure-lighthouse"></a>Prise en charge des rôles pour Azure Lighthouse
 
 Lors de la définition d’une autorisation, chaque compte utilisateur doit recevoir un des [rôles de contrôle d'accès en fonction du rôle intégrés](../../role-based-access-control/built-in-roles.md). Les rôles personnalisés et les [Rôles Administrateur classique de l’abonnement](../../role-based-access-control/classic-administrators.md) ne sont pas pris en charge.
 
-Tous les [rôles intégrés](../../role-based-access-control/built-in-roles.md) sont actuellement pris en charge avec la gestion des ressources déléguées Azure, avec les exceptions suivantes :
+Tous les [rôles intégrés](../../role-based-access-control/built-in-roles.md) sont actuellement pris en charge par Azure Lighthouse, avec les exceptions suivantes :
 
 - Le rôle [propriétaire](../../role-based-access-control/built-in-roles.md#owner) n’est pas pris en charge.
 - Les rôles intégrés disposant d’une autorisation [DataActions](../../role-based-access-control/role-definitions.md#dataactions) ne sont pas pris en charge.
@@ -47,5 +47,5 @@ Lorsque vous créez vos autorisations, nous vous recommandons de suivre ces meil
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-- Consultez les [pratiques de sécurité recommandées pour la gestion des ressources déléguées Azure](recommended-security-practices.md).
-- Intégrez vos clients à la gestion des ressources déléguées Azure [en utilisant des modèles Azure Resource Manager](../how-to/onboard-customer.md) ou [en publiant une offre de services managés privés ou publics sur la Place de marché Azure](../how-to/publish-managed-services-offers.md).
+- Consultez les [pratiques de sécurité recommandées pour Azure Lighthouse](recommended-security-practices.md).
+- Intégrez vos clients à Azure Lighthouse [en utilisant des modèles Azure Resource Manager](../how-to/onboard-customer.md) ou [en publiant une offre de services managés privés ou publics sur la Place de marché Azure](../how-to/publish-managed-services-offers.md).

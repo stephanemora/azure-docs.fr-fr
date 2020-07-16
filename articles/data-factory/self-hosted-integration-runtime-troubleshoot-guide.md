@@ -5,14 +5,14 @@ services: data-factory
 author: nabhishek
 ms.service: data-factory
 ms.topic: troubleshooting
-ms.date: 11/07/2019
+ms.date: 06/24/2020
 ms.author: abnarain
-ms.openlocfilehash: f27132eb21d245d0d26de910abba088ba3b8efde
-ms.sourcegitcommit: 1692e86772217fcd36d34914e4fb4868d145687b
+ms.openlocfilehash: e77d621d5699c434e691de0a523e58e49166d8d6
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/29/2020
-ms.locfileid: "84170970"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85315142"
 ---
 # <a name="troubleshoot-self-hosted-integration-runtime"></a>Résoudre les problèmes liés au runtime d’intégration auto-hébergé
 
@@ -22,7 +22,9 @@ Cet article présente des méthodes couramment employées pour résoudre les pro
 
 ## <a name="common-errors-and-resolutions"></a>Problèmes courants et leur résolution
 
-### <a name="error-message-self-hosted-integration-runtime-cant-connect-to-cloud-service"></a>Message d’erreur : Le runtime d’intégration auto-hébergé ne peut pas se connecter au service Cloud
+### <a name="error-message"></a>Message d’erreur : 
+
+`Self-hosted integration runtime can't connect to cloud service`
 
 ![Problème de connexion de l’IR auto-hébergé](media/self-hosted-integration-runtime-troubleshoot-guide/unable-to-connect-to-cloud-service.png)
 
@@ -86,7 +88,8 @@ Voici la réponse attendue :
 > *    Vérifiez si le certificat TLS/SSL « wu2.frontend.clouddatahub.net/ » est approuvé sur le serveur proxy.
 > *    Si vous utilisez l’authentification Active Directory sur le proxy, remplacez le compte de service par le compte d’utilisateur qui peut accéder au proxy en tant que « Service Integration Runtime ».
 
-### <a name="error-message-self-hosted-integration-runtime-node-logical-shir-is-in-inactive-running-limited-state"></a>Message d’erreur : Le nœud du runtime d’intégration auto-hébergé /le runtime d’intégration auto-hébergé logique présente l’état Inactif/ « En cours d’exécution (limité) »
+### <a name="error-message"></a>Message d’erreur : 
+`Self-hosted integration runtime node/ logical SHIR is in Inactive/ "Running (Limited)" state`
 
 #### <a name="cause"></a>Cause 
 
@@ -130,6 +133,146 @@ Ce comportement se produit lorsque les nœuds ne peuvent pas communiquer entre e
 1. Pour résoudre le problème, essayez l’une des méthodes suivantes, voire les deux :
     - Placez tous les nœuds dans le même domaine.
     - Ajoutez l’adresse IP au mappage de l’hôte dans tous les fichiers hôtes de la machine virtuelle hébergée.
+
+
+## <a name="troubleshoot-connectivity-issue"></a>Résoudre un problème de connectivité
+
+### <a name="troubleshoot-connectivity-issue-between-self-hosted-ir-and-data-factory-or-self-hosted-ir-and-data-sourcesink"></a>Résoudre un problème de connectivité entre le runtime d’intégration auto-hébergé et Data Factory ou le runtime d’intégration auto-hébergé et la source de données/le récepteur
+
+Pour résoudre le problème de connectivité réseau, vous devez savoir comment [collecter la trace réseau](#how-to-collect-netmon-trace), comprendre comment l’utiliser et [analyser la trace netmon](#how-to-analyze-netmon-trace) avant d’appliquer les outils Netmon dans des cas réels à partir du runtime d’intégration auto-hébergé.
+
+Parfois, lorsque nous dépannons des problèmes de connectivité comme le suivant entre le runtime d’intégration auto-hébergé et Data Factory : 
+
+![Échec de la requête HTTP](media/self-hosted-integration-runtime-troubleshoot-guide/http-request-error.png)
+
+Ou un problème entre le runtime d’intégration auto-hébergé et la source de données/le récepteur, nous rencontrons les erreurs suivantes :
+
+**Message d’erreur :** 
+`Copy failed with error:Type=Microsoft.DataTransfer.Common.Shared.HybridDeliveryException,Message=Cannot connect to SQL Server: ‘IP address’`
+
+**Message d’erreur :** 
+`One or more errors occurred. An error occurred while sending the request. The underlying connection was closed: An unexpected error occurred on a receive. Unable to read data from the transport connection: An existing connection was forcibly closed by the remote host. An existing connection was forcibly closed by the remote host Activity ID.`
+
+**Résolution :** Lorsque vous rencontrez les problèmes ci-dessus, reportez-vous aux instructions de résolution suivantes :
+
+Prenez la trace netmon et analysez-la plus en détail.
+- Tout d’abord, vous pouvez définir le filtre pour voir toute réinitialisation à partir du serveur vers le côté client. Dans l’exemple ci-dessous, vous pouvez voir que le côté serveur correspond au serveur Data Factory.
+
+    ![Serveur Data Factory](media/self-hosted-integration-runtime-troubleshoot-guide/data-factory-server.png)
+
+- Lorsque vous obtenez le package de réinitialisation, vous pouvez trouver la conversation en suivant le protocole TCP.
+
+    ![Rechercher la conversation](media/self-hosted-integration-runtime-troubleshoot-guide/find-conversation.png)
+
+- Vous pouvez ensuite obtenir la conversation entre le client et le serveur Data Factory ci-dessous en supprimant le filtre.
+
+    ![Obtenir la conversation](media/self-hosted-integration-runtime-troubleshoot-guide/get-conversation.png)
+- En fonction de la trace netmon collectée, nous pouvons dire que la durée de vie (TimeToLive) totale est 64. D’après les **valeurs de durée de vie et de limite de tronçon par défaut** mentionnées dans [cet article](https://packetpushers.net/ip-time-to-live-and-hop-limit-basics/) (comme extrait ci-dessous), nous pouvons voir que le système Linux réinitialise le package et provoque la déconnexion.
+
+    Les valeurs de durée de vie et de limite de tronçon par défaut varient entre différents systèmes d’exploitation. Voici les valeurs par défaut pour certains d’entre-eux :
+    - Noyau Linux 2.4 (circa 2001) : 255 pour TCP, UDP et ICMP
+    - Noyau Linux 4.10 (2015) : 64 pour TCP, UDP et ICMP
+    - Windows XP (2001) : 128 pour TCP, UDP et ICMP
+    - Windows 10 (2015) : 128 pour TCP, UDP et ICMP
+    - Windows Server 2008 : 128 pour TCP, UDP et ICMP
+    - Windows Server 2019 (2018) : 128 pour TCP, UDP et ICMP
+    - macOS (2001) : 64 pour TCP, UDP et ICMP
+
+    ![TTL 61](media/self-hosted-integration-runtime-troubleshoot-guide/ttl-61.png)
+    
+    Toutefois, la durée de vie affichée est de 61 au lieu de 64 dans l’exemple ci-dessus, car lorsque le package réseau atteint la destination, il doit passer par différents tronçons tels que des routeurs/périphériques réseau. Le nombre de routeurs/périphériques réseau sera déduit dans la durée de vie (TTL) finale.
+    Dans ce cas, nous pouvons voir que la réinitialisation (Reset) peut être envoyée à partir du système Linux avec TTL 64.
+
+- Nous devons vérifier le quatrième tronçon du runtime d’intégration auto-hébergé pour confirmer l’origine de l’appareil de réinitialisation.
+ 
+    *Package réseau provenant du système Linux A avec TTL 64 -> B TTL 64 moins 1 = 63 -> C TTL 63 moins 1 = 62 -> TTL 62 moins 1 = 61 Runtime d’intégration auto-hébergé*
+
+- Dans le cas idéal, la durée de vie (TTL) sera de 128, ce qui signifie que le système Windows exécute notre Data Factory. Comme indiqué dans l’exemple ci-dessous, *128 – 107 = 21 tronçons*, ce qui signifie que 21 tronçons pour le package ont été envoyés depuis Data Factory vers le runtime d’intégration auto-hébergé au cours de la négociation TCP 3.
+ 
+    ![TTL 107](media/self-hosted-integration-runtime-troubleshoot-guide/ttl-107.png)
+
+    Par conséquent, vous devez faire appel à l’équipe réseau pour vérifier à quoi correspond le quatrième tronçon provenant du runtime d'intégration auto-hébergé. S’il s’agit du pare-feu en tant que système Linux, consultez tous les journaux pour déterminer la raison pour laquelle ce périphérique réinitialise le package après la négociation TCP 3. Toutefois, si vous n’êtes pas sûr de l’emplacement où effectuer vos investigations, essayez d’obtenir la trace netmon à partir du runtime d'intégration auto-hébergé et du pare-feu pendant la période problématique afin de déterminer quel périphérique peut réinitialiser ce package et provoquer la déconnexion. Dans ce cas, vous devez également encourager votre équipe réseau à avancer.
+
+### <a name="how-to-collect-netmon-trace"></a>Procédure de collecte de la trace netmon
+
+1.  Téléchargez les outils Netmon à partir de [ce site web](https://www.microsoft.com/en-sg/download/details.aspx?id=4865) et installez-les sur votre ordinateur serveur (quel que soit le serveur qui présente le problème) et le client (par exemple, le runtime d'intégration auto-hébergé).
+
+2.  Créez un dossier, par exemple, avec le chemin suivant : *D:\netmon*. Assurez-vous qu’il dispose de suffisamment d’espace pour enregistrer le journal.
+
+3.  Capturez les informations d’adresse IP et de port. 
+    1. Démarrez une invite de commandes.
+    2. Sélectionnez Exécuter en tant qu'administrateur et exécutez la commande suivante :
+       
+        ```
+        Ipconfig /all >D:\netmon\IP.txt
+        netstat -abno > D:\netmon\ServerNetstat.txt
+        ```
+
+4.  Capturez la trace netmon (package réseau).
+    1. Démarrez une invite de commandes.
+    2. Sélectionnez Exécuter en tant qu'administrateur et exécutez la commande suivante :
+        
+        ```
+        cd C:\Program Files\Microsoft Network Monitor 3
+        ```
+    3. Vous pouvez utiliser trois commandes différentes pour capturer la page réseau :
+        - Option A : Commande de fichier RoundRobin (capture un seul fichier et remplace les anciens journaux).
+
+            ```
+            nmcap /network * /capture /file D:\netmon\ServerConnection.cap:200M
+            ```         
+        - Option B : Commande de fichier chaînée (crée un fichier si 200 Mo sont atteints).
+        
+            ```
+            nmcap /network * /capture /file D:\netmon\ServerConnection.chn:200M
+            ```          
+        - Option C : Commande de fichier planifiée.
+
+            ```
+            nmcap /network * /capture /StartWhen /Time 10:30:00 AM 10/28/2011 /StopWhen /Time 11:30:00 AM 10/28/2011 /file D:\netmon\ServerConnection.chn:200M
+            ```  
+
+5.  Appuyez sur **Ctrl+C** pour arrêter la capture de la trace netmon.
+ 
+> [!NOTE]
+> Si vous pouvez uniquement collecter la trace netmon sur l’ordinateur client, obtenez l’adresse IP du serveur pour mieux analyser la trace.
+
+### <a name="how-to-analyze-netmon-trace"></a>Procédure d’analyse de la trace netmon
+
+Lorsque vous essayez d’établir une connexion Telnet à **8.8.8.8 888** avec la trace netmon ci-dessus collectée, vous êtes censé voir la trace ci-dessous :
+
+![trace netmon 1](media/self-hosted-integration-runtime-troubleshoot-guide/netmon-trace-1.png)
+
+![trace netmon 2](media/self-hosted-integration-runtime-troubleshoot-guide/netmon-trace-2.png)
+ 
+
+Cela signifie que vous n’avez pas pu établir la connexion TCP côté serveur **8.8.8.8** sur la base du port **888**, de sorte que vous y voyez deux packages supplémentaires **SynReTransmit**. Étant donné que la source **SELF-HOST2** n’a pas pu établir de connexion à **8.8.8.8** au niveau du premier package, elle continue à établir la connexion.
+
+> [!TIP]
+> - Vous pouvez cliquer sur **Charger le filtre** -> **Filtre standard** -> **Adresses** -> **Adresses IPv4**.
+> - Entrez **IPv4.Address == 8.8.8.8** comme filtre, puis cliquez sur **Appliquer**. Après cela, vous verrez uniquement la communication de l’ordinateur local à la destination **8.8.8.8**.
+
+![filtre d’adresses 1](media/self-hosted-integration-runtime-troubleshoot-guide/filter-addresses-1.png)
+        
+![filtre d’adresses 2](media/self-hosted-integration-runtime-troubleshoot-guide/filter-addresses-2.png)
+
+L’exemple ci-dessous montre à quoi ressemblerait un scénario approprié. 
+
+- Si Telnet **8.8.8.8 53** fonctionne correctement sans aucun problème, vous pouvez voir la négociation TCP 3, puis la session se termine avec la négociation TCP 4.
+
+    ![exemple de scénario correct 1](media/self-hosted-integration-runtime-troubleshoot-guide/good-scenario-1.png)
+     
+    ![exemple de scénario correct 2](media/self-hosted-integration-runtime-troubleshoot-guide/good-scenario-2.png)
+
+- Sur la base de la négociation TCP 3 ci-dessus, vous pouvez voir le flux de travail ci-dessous :
+
+    ![Flux de travail de négociation TCP 3](media/self-hosted-integration-runtime-troubleshoot-guide/tcp-3-handshake-workflow.png)
+ 
+- La négociation TCP 4 destinée à terminer la session et son flux de travail s’affichent comme suit :
+
+    ![Négociation TCP 4](media/self-hosted-integration-runtime-troubleshoot-guide/tcp-4-handshake.png)
+
+    ![Flux de travail de négociation TCP 4](media/self-hosted-integration-runtime-troubleshoot-guide/tcp-4-handshake-workflow.png) 
 
 
 ## <a name="next-steps"></a>Étapes suivantes

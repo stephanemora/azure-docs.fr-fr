@@ -11,12 +11,12 @@ manager: philmea
 ms.custom:
 - amqp
 - mqtt
-ms.openlocfilehash: ddbb1c6fd705e658867c0d594981e87bc8cd6afe
-ms.sourcegitcommit: a6d477eb3cb9faebb15ed1bf7334ed0611c72053
+ms.openlocfilehash: aa6aa7a8d98ae756a65a2618371c320118875c42
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/08/2020
-ms.locfileid: "82930486"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84710437"
 ---
 # <a name="get-connected-to-azure-iot-central"></a>Se connecter à Azure IoT Central
 
@@ -261,7 +261,7 @@ Le tableau suivant récapitule à quelles fonctionnalités des appareils Azure I
 | Propriété (accessible en écriture) | Propriétés souhaitées et signalées du jumeau d’appareil |
 | Commande | Méthodes directes |
 
-Pour en savoir plus sur l'utilisation des Kits de développement logiciel (SDK) d’appareil, voir [Connecter un appareil du kit DevDiv à votre application Azure IoT Central](howto-connect-devkit.md) pour obtenir un exemple de code.
+Pour en savoir plus sur l’utilisation des SDK d’appareil, consultez [Connecter un appareil DevKit IoT MXChip à votre application Azure IoT Central](howto-connect-devkit.md) pour obtenir un exemple de code.
 
 ### <a name="protocols"></a>Protocoles
 

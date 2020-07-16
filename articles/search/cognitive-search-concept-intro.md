@@ -1,5 +1,5 @@
 ---
-title: Présentation de l’enrichissement par IA
+title: Concepts d’enrichissement de l’IA
 titleSuffix: Azure Cognitive Search
 description: L’extraction de contenu, le traitement du langage naturel et le traitement des images sont utilisés pour créer du contenu pouvant faire l’objet de recherches dans les index Recherche cognitive Azure à l’aide de compétences cognitives et d’algorithmes d’IA personnalisés prédéfinis.
 manager: nitinme
@@ -7,17 +7,21 @@ author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 03/24/2020
-ms.openlocfilehash: cdff42c6ff0cadb5ce4b3d7fc469d648349d1e88
-ms.sourcegitcommit: 309cf6876d906425a0d6f72deceb9ecd231d387c
+ms.date: 06/18/2020
+ms.openlocfilehash: cb9214dcd79e45b4c587c7ab47e425f2fdd8714c
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/01/2020
-ms.locfileid: "84265197"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85564423"
 ---
-# <a name="getting-started-with-ai-enrichment"></a>Prise en main de l’enrichissement par IA
+# <a name="ai-enrichment-in-azure-cognitive-search"></a>Enrichissement de l’IA dans Recherche cognitive Azure
 
-L’enrichissement par IA est une capacité d’indexation de Recherche cognitive Azure utilisée pour extraire du texte à partir d’images, de blobs et d’autres sources de données non structurées. L’enrichissement et l’extraction facilitent les recherches de votre contenu dans un [index](search-what-is-an-index.md) ou une [base de connaissances](knowledge-store-concept-intro.md). L’extraction et l’enrichissement sont implémentés à l’aide de *compétences cognitives* rattachées au pipeline d’indexation. Les compétences cognitives intégrées au service se répartissent en fonction des catégories suivantes : 
+L’enrichissement par IA est une extension des [indexeurs](search-indexer-overview.md) qui peut être utilisée pour extraire du texte à partir d’images, de blobs et d’autres sources de données non structurées. L’enrichissement et l’extraction facilitent les recherches de votre contenu dans les objets de sortie de l’indexeur, un [index de recherche](search-what-is-an-index.md) ou une [base de connaissances](knowledge-store-concept-intro.md). 
+
+L’extraction et l’enrichissement sont implémentés à l’aide de *compétences cognitives* rattachées au pipeline piloté par l’indexeur. Vous pouvez utiliser les compétences intégrées de Microsoft ou incorporer un traitement externe dans une [*compétence personnalisés*](cognitive-search-create-custom-skill-example.md) que vous créez. Un module d’entité ou un classifieur de documents ciblant un domaine spécifique comme la finance, les publications scientifiques ou la médecine sont des exemples de compétence personnalisée.
+
+Les compétences intégrées se répartissent en fonction des catégories suivantes : 
 
 + Les compétences de **traitement en langage naturel** incluent la [reconnaissance d’entité](cognitive-search-skill-entity-recognition.md), la [détection de la langue](cognitive-search-skill-language-detection.md), l’[extraction de phrases clés](cognitive-search-skill-keyphrases.md), la manipulation de texte, la [détection de sentiments](cognitive-search-skill-sentiment.md) et la [détection d’informations d’identification personnelle](cognitive-search-skill-pii-detection.md). Grâce à ces compétences, un texte non structuré est mappé sous la forme de champs pouvant être interrogés et filtrés dans un index.
 
@@ -25,9 +29,9 @@ L’enrichissement par IA est une capacité d’indexation de Recherche cognitiv
 
 ![Diagramme de pipeline d’enrichissement](./media/cognitive-search-intro/cogsearch-architecture.png "vue d’ensemble du pipeline d’enrichissement")
 
-Les compétences cognitives de la Recherche cognitive Azure sont basées sur les modèles Machine Learning préentraînés des API Cognitive Services : [Vision par ordinateur](https://docs.microsoft.com/azure/cognitive-services/computer-vision/) et [Analyse de texte](https://docs.microsoft.com/azure/cognitive-services/text-analytics/overview). 
+Les compétences intégrées de la Recherche cognitive Azure sont basées sur les modèles Machine Learning préentraînés des API Cognitive Services : [Vision par ordinateur](https://docs.microsoft.com/azure/cognitive-services/computer-vision/) et [Analyse de texte](https://docs.microsoft.com/azure/cognitive-services/text-analytics/overview). Vous pouvez attacher une ressource Cognitive Services si vous souhaitez tirer parti de ces ressources lors du traitement du contenu.
 
-Le traitement en langage naturel et le traitement des images sont appliqués durant la phase d’ingestion des données. Les résultats sont intégrés à la composition d’un document au sein d’un index pouvant faire l’objet de recherches dans la Recherche cognitive Azure. Les données sont fournies en tant que jeu de données Azure, puis transmises via un pipeline d’indexation à l’aide des [compétences intégrées](cognitive-search-predefined-skills.md) dont vous avez besoin. L’architecture est extensible. Par conséquent, si les compétences intégrées ne sont pas suffisantes, vous pouvez créer et attacher des [compétences personnalisées](cognitive-search-create-custom-skill-example.md) pour intégrer un traitement personnalisé. Par exemple, il peut s’agir d’un module d’entité ou d’un classifieur de documents ciblant un domaine spécifique comme la finance, les publications scientifiques ou la médecine.
+Le traitement en langage naturel et le traitement des images sont appliqués durant la phase d’ingestion des données. Les résultats sont intégrés à la composition d’un document au sein d’un index pouvant faire l’objet de recherches dans la Recherche cognitive Azure. Les données sont fournies en tant que jeu de données Azure, puis transmises via un pipeline d’indexation à l’aide des [compétences intégrées](cognitive-search-predefined-skills.md) dont vous avez besoin.  
 
 ## <a name="when-to-use-ai-enrichment"></a>Quand utiliser l’enrichissement par IA
 
@@ -55,8 +59,7 @@ Un [ensemble de compétences](cognitive-search-defining-skillset.md) assemblé �
 
 Les compétences personnalisées peuvent prendre en charge des scénarios plus complexes, tels que la reconnaissance de formulaires ou la détection d’entité personnalisée à l’aide d’un modèle que vous fournissez et encapsulez dans l’[interface web des compétences personnalisées](cognitive-search-custom-skill-interface.md). Plusieurs exemples de compétences personnalisées incluent [Form Recognizer](/azure/cognitive-services/form-recognizer/overview), l’intégration de l’[API Recherche d’entités Bing](https://docs.microsoft.com/azure/search/cognitive-search-create-custom-skill-example) et la [reconnaissance d’entité personnalisée](https://github.com/Microsoft/SkillsExtractorCognitiveSearch).
 
-
-## <a name="steps-in-an-enrichment-pipeline"></a>Étapes d’un pipeline d’enrichissement
+<a name="enrichment-steps"> ## Étapes d’un pipeline d’enrichissement </a>
 
 Un pipeline d’enrichissement est basé sur des [*indexeurs*](search-indexer-overview.md). Les indexeurs remplissent un index basé sur des mappages champ à champ entre l’index et votre source de données pour la craquage de documents. Les compétences, désormais rattachées aux indexeurs, interceptent et enrichissent les documents en fonction des ensembles de compétences que vous définissez. Une fois l’indexation effectuée, vous pouvez accéder au contenu via des requêtes de recherche ainsi qu’à l’aide de tous les [types de requête pris en charge par la Recherche cognitive Azure](search-query-overview.md).  Si vous ne connaissez pas les indexeurs, cette section vous guide tout au long des étapes.
 
@@ -80,7 +83,7 @@ En interne, le pipeline génère une collection de documents enrichis. Vous pouv
 
 #### <a name="add-a-knowledgestore-element-to-save-enrichments"></a>Ajouter un élément knowledgeStore pour enregistrer des enrichissements
 
-L’[API REST du service Recherche (api-version=2019-05-06-Preview)](search-api-preview.md) étend les ensembles de compétences avec une définition `knowledgeStore` qui fournit une connexion de stockage Azure ainsi que des projections décrivant la manière dont les enrichissements sont stockés. Cela s’ajoute à votre index. Dans un pipeline IA standard, les documents enrichis sont temporaires, utilisés uniquement pendant l’indexation, puis ignorés. Avec la base de connaissances, les documents enrichis sont conservés. Pour plus d’informations, consultez [Base de connaissances (préversion)](knowledge-store-concept-intro.md).
+L’[API REST du service Recherche (api-version=2020-06-30)](https://docs.microsoft.com/rest/api/searchservice/) étend les ensembles de compétences avec une définition `knowledgeStore` qui fournit une connexion de stockage Azure ainsi que des projections décrivant la manière dont les enrichissements sont stockés. Cela s’ajoute à votre index. Dans un pipeline IA standard, les documents enrichis sont temporaires, utilisés uniquement pendant l’indexation, puis ignorés. Avec la base de connaissances, les documents enrichis sont conservés. Pour plus d’informations, consultez [Base de connaissances](knowledge-store-concept-intro.md).
 
 ### <a name="step-3-search-index-and-query-based-access"></a>Étape 3 : Accès basé sur des requêtes et index de recherche
 
@@ -118,6 +121,6 @@ Les index sont générés à partir d’un schéma d’index qui définit les ch
 + [Exemple : Création d’une compétence personnalisée pour l’enrichissement par IA (C#)](cognitive-search-create-custom-skill-example.md)
 + [Démarrage rapide : Procédure pas à pas d’enrichissement par IA à partir du portail](cognitive-search-quickstart-blob.md)
 + [Tutoriel : En savoir plus sur les API d’enrichissement par IA](cognitive-search-tutorial-blob.md)
-+ [Base de connaissances (préversion)](knowledge-store-concept-intro.md)
++ [Base de connaissances](knowledge-store-concept-intro.md)
 + [Créer une base de connaissances avec REST](knowledge-store-create-rest.md)
 + [Conseils de dépannage](cognitive-search-concept-troubleshooting.md)

@@ -1,23 +1,24 @@
 ---
-title: Connecter des données d’intelligence des menaces à Azure Sentinel | Microsoft Docs
+title: Connecter des données de renseignement sur les menaces à Azure Sentinel | Microsoft Docs
 description: Découvrez comment connecter des données de veille contre les menaces à Azure Sentinel.
 documentationcenter: na
 author: yelevin
 manager: rkarlin
 editor: ''
-ms.service: security-center
+ms.service: azure-sentinel
+ms.subservice: azure-sentinel
 ms.devlang: na
-ms.topic: conceptual
+ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/22/2019
 ms.author: yelevin
-ms.openlocfilehash: eec07a01edc6b126bb7cd3a814912ea5c5b14195
-ms.sourcegitcommit: c5661c5cab5f6f13b19ce5203ac2159883b30c0e
+ms.openlocfilehash: 8036203e33fd63a25ecfa7c4ea720e01259be04a
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/01/2020
-ms.locfileid: "80529097"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84769871"
 ---
 # <a name="connect-data-from-threat-intelligence-providers"></a>Connecter des données issues de fournisseurs de veille contre les menaces
 
@@ -70,7 +71,7 @@ Vous pouvez transmettre en continu des indicateurs de menace à Azure Sentinel e
 
 2. [Configurez des autorisations d’API](/graph/auth-v2-service#2-configure-permissions-for-microsoft-graph) pour l’application inscrite : Ajoutez l’autorisation d’Application Microsoft Graph **ThreatIndicators.ReadWrite.OwnedBy** à votre application inscrite.
 
-3. Demandez à votre administrateur client Azure Active Directory d’accorder un consentement administrateur à l’application inscrite pour votre organisation. À partir du portail Azure : **Azure Active Directory** > **Inscriptions des applications** >  **\<_Nom de l’application_>**  > **Afficher les autorisations de l’API** > **Accorder un consentement administrateur pour \<_nom du locataire_>** .
+3. Demandez à votre administrateur client Azure Active Directory d’accorder un consentement administrateur à l’application inscrite pour votre organisation. À partir du portail Azure : **Azure Active Directory** > **Inscriptions des applications** >  **\<_app name_>**  > **Afficher les autorisations de l’API** > **Accorder un consentement administrateur pour \<_tenant name_>** .
 
 4. Configurez votre produit ou application de la plateforme Threat Intelligence qui utilise une intégration directe avec l’API Microsoft Graph Security tiIndicators pour envoyer des indicateurs à Azure Sentinel en spécifiant les éléments suivants :
     

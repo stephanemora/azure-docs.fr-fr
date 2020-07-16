@@ -7,15 +7,15 @@ ms.workload: infrastructure-services
 ms.topic: how-to
 ms.date: 07/03/2019
 ms.author: cynthn
-ms.openlocfilehash: 0c3f5541405d1fd983bbf988b99d2b4e10d8908c
-ms.sourcegitcommit: af1cbaaa4f0faa53f91fbde4d6009ffb7662f7eb
+ms.openlocfilehash: 6e156af2d4805ba310443a2acf6cc47d06a735eb
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/22/2020
-ms.locfileid: "81865659"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84762324"
 ---
 # <a name="move-a-windows-vm-to-another-azure-subscription-or-resource-group"></a>Déplacement d’une machine virtuelle Windows vers un autre abonnement ou groupe de ressources Azure
-Cet article vous explique comment déplacer une machine virtuelle Windows entre des groupes de ressources ou des abonnements. Le déplacement entre abonnements peut être pratique si, à l’origine, vous avez créé une machine virtuelle dans un abonnement personnel, et que vous souhaitez à présent la déplacer vers l’abonnement de votre entreprise afin de poursuivre votre travail. Vous n’avez pas besoin de démarrer la machine virtuelle afin de la déplacer, et elle doit continuer de fonctionner pendant le déplacement.
+Cet article vous explique comment déplacer une machine virtuelle Windows entre des groupes de ressources ou des abonnements. Le déplacement entre abonnements peut être pratique si, à l’origine, vous avez créé une machine virtuelle dans un abonnement personnel, et que vous souhaitez à présent la déplacer vers l’abonnement de votre entreprise afin de poursuivre votre travail. Vous n’avez pas besoin d’arrêter la machine virtuelle afin de la déplacer, et elle doit continuer de fonctionner pendant le déplacement.
 
 > [!IMPORTANT]
 >De nouveaux ID de ressource sont créés dans le cadre du déplacement. Une fois que la machine virtuelle a été déplacée, vous devez mettre à jour vos outils et vos scripts pour utiliser les nouveaux ID de ressource.

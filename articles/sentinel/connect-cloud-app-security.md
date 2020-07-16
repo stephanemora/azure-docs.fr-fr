@@ -1,6 +1,6 @@
 ---
 title: Connecter des données Cloud App Security à Azure Sentinel | Microsoft Docs
-description: Découvrez comment connecter des données Cloud App Security à Azure Sentinel.
+description: Découvrez comment utiliser le connecteur Microsoft Cloud App Security (MCAS) pour diffuser en continu des alertes et des journaux Cloud Discovery entre MCAS et Azure Sentinel. 
 services: sentinel
 documentationcenter: na
 author: yelevin
@@ -14,16 +14,14 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/24/2020
 ms.author: yelevin
-ms.openlocfilehash: 266d97e834247088d40837cbec1436e00d0f4be2
-ms.sourcegitcommit: 7581df526837b1484de136cf6ae1560c21bf7e73
+ms.openlocfilehash: 8439c8f7aa4e75abd727d2ce2e80d98e6fce5411
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/31/2020
-ms.locfileid: "80422143"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85563943"
 ---
 # <a name="connect-data-from-microsoft-cloud-app-security"></a>Connecter des données à partir de Microsoft Cloud App Security 
-
-
 
 Le connecteur [Microsoft Cloud App Security](https://docs.microsoft.com/cloud-app-security/what-is-cloud-app-security) (MCAS) vous permet de diffuser en continu des alertes et des [journaux Cloud Discovery](https://docs.microsoft.com/cloud-app-security/tutorial-shadow-it) entre MCAS et Azure Sentinel. Vous bénéficiez ainsi d’une visibilité accrue sur vos applications, de fonctionnalités d’analytique sophistiquées pour identifier et combattre les cybermenaces, et contrôlez le déplacement de vos données.
 
@@ -49,6 +47,8 @@ Si Cloud App Security est déployé et ingère vos données, les données d’al
 1. Pour sélectionner les journaux que vous souhaitez diffuser en continu dans Azure Sentinel, vous pouvez sélectionner **Alertes** et **Journaux Cloud Discovery** (préversion). 
 
 1. Cliquez sur **Appliquer les modifications**.
+
+1. Vous pouvez décider si les alertes d’Azure Security Center génèrent automatiquement des incidents dans Azure Sentinel. Sous **Créer des incidents**, sélectionnez **Activé** pour activer la règle analytique par défaut qui crée automatiquement des incidents à partir d’alertes. Vous pouvez ensuite modifier cette règle sous **Analytique** sous l’onglet **Règles actives**.
 
 1. Pour utiliser le schéma approprié dans Log Analytics pour les alertes Cloud App Security, entrez `SecurityAlert` dans la fenêtre de requête. Pour le schéma des journaux Cloud Discovery, entrez `McasShadowItReporting`.
 

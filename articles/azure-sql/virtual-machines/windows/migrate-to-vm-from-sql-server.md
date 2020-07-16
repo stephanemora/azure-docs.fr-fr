@@ -4,7 +4,6 @@ description: Découvrez comment migrer une base de données utilisateur locale v
 services: virtual-machines-windows
 documentationcenter: ''
 author: MashaMSFT
-manager: craigg
 editor: ''
 tags: azure-service-management
 ms.assetid: 00fd08c6-98fa-4d62-a3b8-ca20aa5246b1
@@ -15,12 +14,12 @@ ms.topic: article
 ms.date: 08/18/2018
 ms.author: mathoma
 ms.reviewer: jroth
-ms.openlocfilehash: 82f1958c4fb37fcc7dfbb0e5dd41e814e8e44ada
-ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
+ms.openlocfilehash: 7da9b83001d50c8e9a03188ed8dbf1245189bc30
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "84027880"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84668846"
 ---
 # <a name="migrate-a-sql-server-database-to-sql-server-on-an-azure-virtual-machine"></a>Migrez une base de données SQL Server dans SQL Server sur une machine virtuelle Azure
 
@@ -51,11 +50,11 @@ Les méthodes de migration principales consistent à :
 
 ## <a name="choose-a-migration-method"></a>Choisir une méthode de migration
 
-Pour obtenir des performances de transfert de données optimales, migrez les fichiers de base de données de la machine virtuelle Azure à l’aide d’un fichier de sauvegarde compressé.
+Pour obtenir les meilleures performances de transfert de données, migrez les fichiers de base de données de la machine virtuelle Azure à l’aide d’un fichier de sauvegarde compressé.
 
 Pour réduire le temps d’arrêt pendant la migration de base de données, utilisez l’option AlwaysOn ou l’option de réplication transactionnelle.
 
-S’il n’est pas possible d’utiliser les méthodes décrites ci-dessus, migrez manuellement votre base de données. Cette méthode consiste généralement à effectuer une sauvegarde de la base de données, puis une copie de la sauvegarde de la base de données dans Azure, et enfin à effectuer une restauration de la base de données. Vous pouvez également copier les fichiers de base de données eux-mêmes dans Azure, puis les joindre. Il existe plusieurs méthodes permettant d’effectuer manuellement le processus de migration d’une base de données vers une machine virtuelle Azure.
+S’il n’est pas possible d’utiliser les méthodes décrites ci-dessus, migrez manuellement votre base de données. En règle générale, vous effectuez une sauvegarde de la base de données, puis une copie de la sauvegarde de la base de données dans Azure et enfin une restauration de la base de données. Vous pouvez également copier les fichiers de base de données eux-mêmes dans Azure, puis les joindre. Il existe plusieurs méthodes permettant d’effectuer manuellement le processus de migration d’une base de données vers une machine virtuelle Azure.
 
 > [!NOTE]
 > Lorsque vous procédez à une mise à niveau vers SQL Server 2014 ou SQL Server 2016 depuis des versions antérieures de SQL Server, vous devez prendre en compte les éventuelles modifications nécessaires. Nous vous recommandons de gérer toutes les dépendances de fonctionnalités non prises en charge par la nouvelle version de SQL Server dans le cadre de votre projet de migration. Pour plus d’informations sur les éditions et les scénarios pris en charge, consultez [Mise à niveau vers SQL Server](https://msdn.microsoft.com/library/bb677622.aspx).
@@ -64,30 +63,30 @@ Le tableau suivant répertorie les principales méthodes de migration et expliqu
 
 | Méthode | Version de base de données source | Version de base de données de destination | Contrainte de taille pour la sauvegarde de base de données source | Notes |
 | --- | --- | --- | --- | --- |
-| [Effectuer une sauvegarde locale en utilisant la compression et copier manuellement le fichier de sauvegarde dans la machine virtuelle Azure](#backup-and-restore) |SQL Server 2005 ou ultérieur |SQL Server 2005 ou ultérieur |[Limite de stockage de machine virtuelle Azure](https://azure.microsoft.com/documentation/articles/azure-resource-manager/management/azure-subscription-service-limits/) | Il s’agit d’une technique très simple et éprouvée pour déplacer des bases de données d’une machine à l’autre. |
-| [Effectuer une sauvegarde vers l’URL et une restauration dans la machine virtuelle Azure depuis l’URL](#backup-to-a-url-and-restore) |SQL Server 2012 SP1 CU2 ou ultérieur | SQL Server 2012 SP1 CU2 ou ultérieur | < 12,8 To pour SQL Server 2016, sinon < 1 To | Cette méthode représente simplement une autre façon de déplacer le fichier de sauvegarde sur la machine virtuelle à l’aide du stockage Azure. |
+| [Effectuer une sauvegarde locale en utilisant la compression et copier manuellement le fichier de sauvegarde dans la machine virtuelle Azure](#back-up-and-restore) |SQL Server 2005 ou ultérieur |SQL Server 2005 ou ultérieur |[Limite de stockage de machine virtuelle Azure](https://azure.microsoft.com/documentation/articles/azure-resource-manager/management/azure-subscription-service-limits/) | Cette technique est simple et éprouvée pour déplacer des bases de données d’une machine à l’autre. |
+| [Effectuer une sauvegarde vers l’URL et une restauration dans la machine virtuelle Azure depuis l’URL](#backup-to-url-and-restore-from-url) |SQL Server 2012 SP1 CU2 ou ultérieur | SQL Server 2012 SP1 CU2 ou ultérieur | < 12,8 To pour SQL Server 2016, sinon < 1 To | Cette méthode représente simplement une autre façon de déplacer le fichier de sauvegarde sur la machine virtuelle à l’aide du stockage Azure. |
 | [Détacher, puis copier les données et les fichiers journaux dans Stockage Blob Azure et les rattacher à SQL Server dans la machine virtuelle Azure à partir d’URL](#detach-and-attach-from-a-url) | SQL Server 2005 ou ultérieur |SQL Server 2014 ou ultérieur | [Limite de stockage de machine virtuelle Azure](https://azure.microsoft.com/documentation/articles/azure-resource-manager/management/azure-subscription-service-limits/) | Utilisez cette méthode quand vous envisagez de [stocker ces fichiers à l’aide du service de stockage d’objets Blob Azure](https://msdn.microsoft.com/library/dn385720.aspx) et de les rattacher à SQL Server s’exécutant dans une machine virtuelle Azure, en particulier avec les bases de données très volumineuses. |
-| [Convertir l’ordinateur local pour les disques durs virtuels Hyper-V, charger sur le stockage d’objets Blob Azure, puis déployer une nouvelle machine virtuelle en utilisant le disque dur virtuel chargé](#convert-to-a-vm-upload-to-a-url-and-deploy-as-a-new-vm) |SQL Server 2005 ou ultérieur |SQL Server 2005 ou ultérieur |[Limite de stockage de machine virtuelle Azure](https://azure.microsoft.com/documentation/articles/azure-resource-manager/management/azure-subscription-service-limits/) |À utiliser lors de [la mise en service de votre propre licence SQL Server](../../../azure-sql/azure-sql-iaas-vs-paas-what-is-overview.md), lors de la migration d’une base de données que vous allez exécuter sur une version plus ancienne de SQL Server, ou lors de la migration d’un système et de bases de données d’un système utilisateur dans le cadre de la migration de base de données dépendant des autres bases de données utilisateur et/ou bases de données système. |
+| [Convertir l’ordinateur local pour les disques durs virtuels Hyper-V, charger sur le stockage d’objets Blob Azure, puis déployer une nouvelle machine virtuelle en utilisant le disque dur virtuel chargé](#convert-to-a-vm-upload-to-a-url-and-deploy-as-a-new-vm) |SQL Server 2005 ou ultérieur |SQL Server 2005 ou ultérieur |[Limite de stockage de machine virtuelle Azure](https://azure.microsoft.com/documentation/articles/azure-resource-manager/management/azure-subscription-service-limits/) |À utiliser lors de [la mise en service de votre propre licence SQL Server](../../../azure-sql/azure-sql-iaas-vs-paas-what-is-overview.md), lors de la migration d’une base de données que vous allez exécuter sur une version plus ancienne de SQL Server ou lors de la migration d’un système et de bases de données d’un système utilisateur dans le cadre de la migration de base de données dépendant des autres bases de données utilisateur et/ou bases de données système. |
 | [Expédition du disque dur à l’aide du Service d’importation/exportation Windows](#ship-a-hard-drive) |SQL Server 2005 ou ultérieur |SQL Server 2005 ou ultérieur |[Limite de stockage de machine virtuelle Azure](https://azure.microsoft.com/documentation/articles/azure-resource-manager/management/azure-subscription-service-limits/) |Utilisez le [Service Import/Export de Windows](../../../storage/common/storage-import-export-service.md) lorsque la méthode de copie manuelle est trop lente, par exemple avec de très grandes bases de données. |
 | [Utiliser l’Assistant Ajout de réplica Azure](../../../virtual-machines/windows/sqlclassic/virtual-machines-windows-classic-sql-onprem-availability.md) |SQL Server 2012 ou ultérieur |SQL Server 2012 ou ultérieur |[Limite de stockage de machine virtuelle Azure](https://azure.microsoft.com/documentation/articles/azure-resource-manager/management/azure-subscription-service-limits/) |Réduit le temps d’arrêt ; à utiliser lorsque vous disposez d’un déploiement local Always On. |
 | [Utiliser la réplication transactionnelle de SQL Server](https://msdn.microsoft.com/library/ms151176.aspx) |SQL Server 2005 ou ultérieur |SQL Server 2005 ou ultérieur |[Limite de stockage de machine virtuelle Azure](https://azure.microsoft.com/documentation/articles/azure-resource-manager/management/azure-subscription-service-limits/) |À utiliser si vous devez réduire le temps d’arrêt et que vous ne disposez pas d’un déploiement local Always On. |
 
-## <a name="backup-and-restore"></a>Sauvegarde et restauration
+## <a name="back-up-and-restore"></a>Sauvegarde et restauration
 
 Sauvegardez votre base de données avec compression, copiez la sauvegarde sur la machine virtuelle, puis restaurez la base de données. Si le volume de votre fichier de sauvegarde est supérieur à 1 To, vous devez créer un jeu agrégé car la taille maximale d’un disque de machine virtuelle est de 1 To. Utilisez les étapes générales suivantes pour faire migrer une base de données utilisateur à l’aide de cette méthode manuelle :
 
 1. Effectuez une sauvegarde complète de la base de données vers un emplacement sur site.
-2. Créez ou téléchargez une machine virtuelle avec la version de SQL Server souhaitée.
+2. Créez ou chargez une machine virtuelle avec la version de SQL Server souhaitée.
 3. Configurez la connectivité en fonction de vos besoins. Consultez [Se connecter à une machine virtuelle SQL Server sur Azure (Resource Manager)](ways-to-connect-to-sql.md).
-4. Copiez vos fichiers de sauvegarde à votre machine virtuelle à l’aide du Bureau à distance, de l’Explorateur Windows ou de la commande de copie à partir d’une invite de commandes.
+4. Copiez vos fichiers de sauvegarde sur votre machine virtuelle à l’aide du Bureau à distance, de l’Explorateur Windows ou de la commande de copie à partir d’une invite de commandes.
 
-## <a name="backup-to-a-url-and-restore"></a>Sauvegarder vers une URL et restaurer
+## <a name="backup-to-url-and-restore-from-url"></a>Sauvegarde sur URL et restauration à partir de l’URL
 
 Au lieu de sauvegarder dans un fichier local, vous pouvez utiliser la [sauvegarde sur URL](https://msdn.microsoft.com/library/dn435916.aspx), puis effectuer la restauration sur la machine virtuelle à partir de l’URL. SQL Server 2016 prend en charge les jeux de sauvegarde distribuée. Ils sont recommandés pour les performances et doivent dépasser les limites de taille par objet blob. Pour les bases de données très volumineuses, il est recommandé d’utiliser le [Service d’importation/exportation Windows](../../../storage/common/storage-import-export-service.md) .
 
 ## <a name="detach-and-attach-from-a-url"></a>Détacher et attacher à partir d’une URL
 
-Détachez votre base de données et vos fichiers journaux et transférez-les vers le [stockage Blob Azure](https://msdn.microsoft.com/library/dn385720.aspx). Puis attachez la base de données sur votre machine virtuelle Azure à partir de l’URL. Utilisez cette méthode si vous souhaitez que les fichiers de la base de données physique résident dans le stockage Blob. Cela peut être utile pour les bases de données très volumineuses. Utilisez les étapes générales suivantes pour faire migrer une base de données utilisateur à l’aide de cette méthode manuelle :
+Détachez votre base de données et vos fichiers journaux et transférez-les vers le [stockage Blob Azure](https://msdn.microsoft.com/library/dn385720.aspx). Puis attachez la base de données sur votre machine virtuelle Azure à partir de l’URL. Utilisez cette méthode si vous souhaitez que les fichiers de la base de données physique résident dans le stockage Blob, ce qui peut être utile pour les bases de données très volumineuses. Utilisez les étapes générales suivantes pour faire migrer une base de données utilisateur à l’aide de cette méthode manuelle :
 
 1. Détachez les fichiers de base de données de l’instance de base de données sur site.
 2. Copiez les fichiers de la base de données détachée dans Stockage Blob Azure à l’aide de l’[utilitaire de ligne de commande AZCopy](../../../storage/common/storage-use-azcopy.md).

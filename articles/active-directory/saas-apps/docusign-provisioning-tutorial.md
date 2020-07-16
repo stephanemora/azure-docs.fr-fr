@@ -1,5 +1,5 @@
 ---
-title: 'Didacticiel : configurer DocuSign pour l’approvisionnement automatique d’utilisateurs avec Azure Active Directory | Microsoft Docs'
+title: 'Tutoriel : Configurer DocuSign pour l’approvisionnement automatique d’utilisateurs avec Azure Active Directory | Microsoft Docs'
 description: Découvrez comment configurer l’authentification unique entre Azure Active Directory et DocuSign.
 services: active-directory
 documentationCenter: na
@@ -15,18 +15,18 @@ ms.topic: article
 ms.date: 01/26/2018
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 88b65c8e8962ad8420ded47da1a343672123c589
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 3c0a6302383240f65d900369128337a41a13ecfa
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "77058176"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84805065"
 ---
-# <a name="tutorial-configure-docusign-for-automatic-user-provisioning"></a>Didacticiel : configurer DocuSign pour l’approvisionnement automatique d’utilisateurs
+# <a name="tutorial-configure-docusign-for-automatic-user-provisioning"></a>Tutoriel : Configurer DocuSign pour l’approvisionnement automatique d’utilisateurs
 
 L’objectif de ce didacticiel est de vous montrer les étapes à effectuer dans DocuSign et Azure AD pour approvisionner et retirer automatiquement des comptes utilisateur d’Azure AD vers DocuSign.
 
-## <a name="prerequisites"></a>Conditions préalables requises
+## <a name="prerequisites"></a>Prérequis
 
 Le scénario décrit dans ce didacticiel part du principe que vous disposez des éléments suivants :
 
@@ -77,6 +77,9 @@ L’objectif de cette section est d’expliquer comment activer l’approvisionn
     a. Dans la zone de texte **Nom d’utilisateur Admin**, tapez le nom d’un compte DocuSign auquel le profil **System Administrator** (Administrateur système) est affecté dans DocuSign.com.
    
     b. Dans la zone de texte **Mot de passe d’administrateur**, entrez le mot de passe de ce compte.
+
+> [!NOTE]
+> Si l’authentification unique et l’approvisionnement d’utilisateurs sont configurés, les informations d’identification d’autorisation utilisées pour l’approvisionnement doivent être configurées pour fonctionner avec l’authentification unique et le nom d’utilisateur/mot de passe.
 
 1. Sur le portail Azure, cliquez sur **Tester la connexion** pour vérifier qu’Azure AD peut se connecter à votre application DocuSign.
 

@@ -1,18 +1,18 @@
 ---
 title: Superviser les ressources déléguées à grande échelle
 description: Découvrez comment utiliser efficacement les journaux Azure Monitor de manière scalable sur les locataires de clients que vous gérez.
-ms.date: 02/03/2020
+ms.date: 07/07/2020
 ms.topic: how-to
-ms.openlocfilehash: bdd91cec650d6810d1d62230219f840a172141d9
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 3be7494f929fc91e2b01bde0b4f26f7c2e4b907b
+ms.sourcegitcommit: e995f770a0182a93c4e664e60c025e5ba66d6a45
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84634113"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86133454"
 ---
 # <a name="monitor-delegated-resources-at-scale"></a>Superviser les ressources déléguées à grande échelle
 
-En tant que fournisseur de services, vous assurez peut-être la gestion des ressources déléguée Azure de plusieurs locataires clients. [Azure Lighthouse](../overview.md) permet aux fournisseurs de services d’effectuer des opérations à grande échelle sur plusieurs locataires à la fois, améliorant ainsi l'efficacité des tâches de gestion.
+En tant que fournisseur de services, vous avez peut-être intégré les locataires de plusieurs clients à [Azure Lighthouse](../overview.md). Azure Lighthouse permet aux fournisseurs de services d’effectuer des opérations à grande échelle sur plusieurs locataires à la fois, améliorant ainsi l’efficacité des tâches de gestion.
 
 Cette rubrique vous montre comment utiliser les [Journaux Azure Monitor](../../azure-monitor/platform/data-platform-logs.md) de manière scalable sur les locataires de clients que vous gérez.
 
@@ -22,7 +22,7 @@ Pour collecter des données, vous devez créer des espaces de travail Log Analyt
 
 Nous vous recommandons de créer ces espaces de travail directement dans les locataires des clients. Ainsi, leurs données restent dans leurs locataires au lieu d’être exportées vers les vôtres. Cela permet également d’effectuer une supervision centralisée de l’ensemble des ressources ou services pris en charge par Log Analytics. Ainsi, vous disposez d’une plus grande flexibilité par rapport aux types de données que vous supervisez.
 
-Vous pouvez créer un espace de travail Log Analytics à l’aide du [portail Azure](../../azure-monitor/learn/quick-create-workspace.md), d’[Azure CLI](../../azure-monitor/learn/quick-create-workspace-cli.md) ou d’[Azure PowerShell](../../azure-monitor/learn/quick-create-workspace-posh.md).
+Vous pouvez créer un espace de travail Log Analytics à l’aide du [portail Azure](../../azure-monitor/learn/quick-create-workspace.md), d’[Azure CLI](../../azure-monitor/learn/quick-create-workspace-cli.md) ou d’[Azure PowerShell](../../azure-monitor/platform/powershell-workspace-configuration.md).
 
 ## <a name="deploy-policies-that-log-data"></a>Déployer des stratégies qui journalisent les données
 

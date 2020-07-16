@@ -6,17 +6,17 @@ author: mabasile-MSFT
 manager: craigg
 ms.service: synapse-analytics
 ms.topic: conceptual
-ms.subservice: ''
+ms.subservice: sql-dw
 ms.date: 03/27/2019
 ms.author: mabasile
 ms.reviewer: igorstan
 ms.custom: seo-lt-2019
-ms.openlocfilehash: 23e3ccff11dc33858249565d3ad8396b19dd87c6
-ms.sourcegitcommit: 595cde417684e3672e36f09fd4691fb6aa739733
+ms.openlocfilehash: e529e398b90050bf654c702ec34686bdc173c9e5
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/20/2020
-ms.locfileid: "83698894"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85299328"
 ---
 # <a name="azure-synapse-analytics-business-intelligence-partners"></a>Partenaires décisionnels Azure Synapse Analytics
 
@@ -38,12 +38,12 @@ Pour créer votre solution complète d’entrepôt de données à l’aide du po
 | ![SiSense](./media/sql-data-warehouse-partner-business-intelligence/sisense_logo.png) |**SiSense**<br>SiSense est un logiciel d’aide à la décision à pile complète, intégrant les outils dont une entreprise a besoin pour analyser et visualiser des données : une base de données analytique hautement performante, la possibilité d’associer plusieurs sources, une extraction de données simple (ETL, extraction, transformation et chargement), ainsi qu’une visualisation des données web. Commencez à analyser et à visualiser des jeux de données volumineux avec le logiciel décisionnel et d’analyse SiSense dès aujourd’hui. |[Page du produit](https://www.sisense.com/product/)<br> |
 | ![Tableau](./media/sql-data-warehouse-partner-business-intelligence/tableau_sparkle_logo.png) |**Tableau**<br>Les outils d’analyse en libre service Tableau permettent à tous les utilisateurs de visualiser et de comprendre une multitude de types de données, depuis les fichiers plats jusqu’aux bases de données. Tableau comporte un connecteur optimisé natif pour le pool SQL Synapse qui prend en charge à la fois les données actives et l’analytique en mémoire. |[Page du produit](https://www.tableau.com/)<br> [Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/tableau.tableau-server)<br>|
 | ![Targit](./media/sql-data-warehouse-partner-business-intelligence/targit_logo.png) |**Targit (Decision Suite)**<br>Targit Decision Suite offre une plateforme décisionnelle et d’analyse regroupant dans une même solution cohésive des tableaux de bord en temps réel, des analyses en libre service, des fonctions de création de rapports conviviales, de remarquables fonctionnalités mobiles et une technologie de découverte de données simple. Targit encourage les entreprises à passer à l’action. |[Page du produit](https://www.targit.com/targit-decision-suite/analytics)<br> [Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/targit.targit-decision-suite)<br> |
-| ![ThoughtSpot](./media/sql-data-warehouse-partner-business-intelligence/thoughtspot-logo.png) |**ThoughtSpot**<br>Utilisez la recherche pour obtenir des Insights granulaires à partir de milliards de lignes de données ou laissez l’IA découvrir des insights à partir de questions que vous n’avez peut-être pas pensé poser. ThoughtSpot aide les commerciaux à rechercher des insights cachés dans les données de leur entreprise en quelques secondes. Utilisez la recherche pour analyser vos données et obtenir des Insights automatisés lorsque vous en avez besoin.|[Page du produit](https://www.thoughtspot.com)<br>|
+| ![ThoughtSpot](./media/sql-data-warehouse-partner-business-intelligence/thoughtspot-logo.png) |**ThoughtSpot**<br>Utilisez la recherche pour tirer des insights précis de milliards de lignes de données ou laissez l’IA révéler des insights à partir de questions que vous n’avez peut-être pas pensé poser. ThoughtSpot aide les commerciaux à rechercher des insights cachés dans les données de leur entreprise en quelques secondes. Utilisez la recherche pour analyser vos données et obtenir des Insights automatisés lorsque vous en avez besoin.|[Page du produit](https://www.thoughtspot.com)<br>|
 | ![Yellowfin](./media/sql-data-warehouse-partner-business-intelligence/yellowfin_logo.png) |**Yellowfin**<br>Yellowfin est l’un des meilleurs fournisseurs de solutions cloud de décisionnel pour la création de rapports et de tableaux de bord ad hoc selon BARC ; The BI Survey. Connectez-vous au pool SQL Synapse, puis créez et partagez de remarquables rapports et tableaux de bord par le biais de fonctionnalités décisionnelles et géodécisionnelles collaboratives primées. |[Page du produit](https://www.yellowfinbi.com/)<br> [Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/yellowfin.yellowfin-for-azure-byol) |
 
 <!--https://img.youtube.com/vi/0b8sPW2UHrU/0.jpg-->
 
 ## <a name="next-steps"></a>Étapes suivantes
-Pour en savoir plus sur certains de nos autres partenaires, consultez [Partenaires d’intégration de données](sql-data-warehouse-partner-data-integration.md) et [Partenaires de gestion de données](sql-data-warehouse-partner-data-management.md).
+Pour en savoir plus sur certains de nos autres partenaires, consultez [Partenaires d’intégration des données](sql-data-warehouse-partner-data-integration.md), [Partenaires de gestion des données](sql-data-warehouse-partner-data-management.md) et [Partenaires de Machine Learning et d’IA](sql-data-warehouse-partner-machine-learning-ai.md).
 
  

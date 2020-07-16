@@ -7,16 +7,16 @@ author: msmimart
 manager: celestedg
 ms.service: active-directory
 ms.workload: identity
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 05/12/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: d1989f65f73ac4f9dc8dd328fa9d7ed267eec1aa
-ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
+ms.openlocfilehash: 4f44e9853182a8fcb222b8f895796cf5efc67def
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83636412"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85389596"
 ---
 # <a name="configure-the-resource-owner-password-credentials-flow-in-azure-ad-b2c"></a>Configurer le flux des informations d’identification par mot de passe du propriétaire de ressource dans Azure AD B2C
 
@@ -51,8 +51,8 @@ Le flux des informations d’identification par mot de passe du propriétaire de
 
 Utilisez votre application de développement d’API favorite pour générer un appel d’API et examinez la réponse pour déboguer votre flux d’utilisateur. Construisez un appel comme celui-ci, avec les informations contenues dans le tableau suivant en tant que corps de la requête POST :
 - Remplacez *\<tenant-name>.onmicrosoft.com* par le nom de votre locataire B2C.
-- Remplacez *\<B2C_1A_ROPC_Auth>* par le nom complet de votre stratégie d’informations d’identification de mot de passe du propriétaire de ressource.
-- Remplacez *\<bef2222d56-552f-4a5b-b90a-1988a7d634c3>* par l’ID d’application issu de votre inscription.
+- Remplacez *\<B2C_1A_ROPC_Auth>* par le nom complet de votre politique d'identification des mots de passe des propriétaires de ressources.
+- Remplacez *\<bef2222d56-552f-4a5b-b90a-1988a7d634c3>* par l’ID d’application extrait de l’inscription.
 
 `https://<tenant-name>.b2clogin.com/<tenant-name>.onmicrosoft.com/B2C_1_ROPC_Auth/oauth2/v2.0/token`
 

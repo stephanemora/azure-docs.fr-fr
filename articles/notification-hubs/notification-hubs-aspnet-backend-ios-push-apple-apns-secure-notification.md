@@ -4,9 +4,7 @@ description: Découvrez comment envoyer des notifications Push sécurisées à u
 documentationcenter: ios
 author: sethmanheim
 manager: femila
-editor: jwargo
 services: notification-hubs
-ms.assetid: 17d42b0a-2c80-4e35-a1ed-ed510d19f4b4
 ms.service: notification-hubs
 ms.workload: mobile
 ms.tgt_pltfrm: ios
@@ -16,12 +14,12 @@ ms.date: 01/04/2019
 ms.author: sethm
 ms.reviewer: jowargo
 ms.lastreviewed: 01/04/2019
-ms.openlocfilehash: 96d1dd514f6fb9c11d7194714337583d6b4387cf
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: aa84ad9f48f79a77bad1445dadc8c5c965b13655
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "75530746"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85248698"
 ---
 # <a name="azure-notification-hubs-secure-push"></a>Notifications Push sécurisées avec Azure Notification Hubs
 
@@ -50,7 +48,7 @@ Veuillez noter que dans le flux précédent (et dans ce didacticiel), nous parto
 Ce didacticiel sur les notifications Push sécurisées montre comment envoyer une notification Push en toute sécurité. Il s’appuie sur le didacticiel [Envoi de notifications à des utilisateurs](notification-hubs-aspnet-backend-ios-apple-apns-notification.md). Vous devez donc suivre ce dernier au préalable.
 
 > [!NOTE]
-> Ce didacticiel repose sur l'hypothèse que vous avez créé et configuré votre hub de notification comme décrit dans [Prise en main de Notification Hubs (iOS)](notification-hubs-ios-apple-push-notification-apns-get-started.md).
+> Ce didacticiel repose sur l'hypothèse que vous avez créé et configuré votre hub de notification comme décrit dans [Envoyer des notification Push à des applications iOS avec Azure Notification Hubs](ios-sdk-get-started.md).
 
 [!INCLUDE [notification-hubs-aspnet-backend-securepush](../../includes/notification-hubs-aspnet-backend-securepush.md)]
 

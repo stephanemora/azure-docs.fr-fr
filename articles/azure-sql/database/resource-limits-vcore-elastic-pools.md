@@ -10,13 +10,13 @@ ms.topic: conceptual
 author: oslake
 ms.author: moslake
 ms.reviewer: carlrab, sstein
-ms.date: 05/29/2020
-ms.openlocfilehash: 03884a7d1b834ef8c176434ad4127e1638aabcb1
-ms.sourcegitcommit: f1132db5c8ad5a0f2193d751e341e1cd31989854
+ms.date: 06/10/2020
+ms.openlocfilehash: 4ffd92c0641b74682a74ffd2898e226999ac2dd4
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/31/2020
-ms.locfileid: "84235744"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84668455"
 ---
 # <a name="resource-limits-for-elastic-pools-using-the-vcore-purchasing-model"></a>Limites de ressources pour les pools élastiques suivant le modèle d’achat vCore
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -28,7 +28,7 @@ Pour connaître les limites du modèle d’achat DTU, consultez [Limites des res
 > [!IMPORTANT]
 > Dans certaines circonstances, vous devrez peut-être réduire une base de données pour récupérer l’espace inutilisé. Pour plus d’informations, consultez [Gérer l’espace des fichiers dans Azure SQL Database](file-space-manage.md).
 
-Vous pouvez définir le niveau de service, la taille de calcul et la quantité de stockage à l’aide du [Portail Azure](elastic-pool-manage.md#azure-portal), de [PowerShell](elastic-pool-manage.md#powershell), [d’Azure CLI](elastic-pool-manage.md#azure-cli) ou de [l’API REST](elastic-pool-manage.md#rest-api).
+Vous pouvez définir le niveau de service, la taille de calcul (objectif de service) et la quantité de stockage à l’aide du [portail Azure](elastic-pool-manage.md#azure-portal), de [PowerShell](elastic-pool-manage.md#powershell), d’[Azure CLI](elastic-pool-manage.md#azure-cli) ou de l’[API REST](elastic-pool-manage.md#rest-api).
 
 > [!IMPORTANT]
 > Pour des instructions et des informations sur la mise à l’échelle, consultez [Mettre à l’échelle un pool élastique](elastic-pool-scale.md).
@@ -40,7 +40,7 @@ Vous pouvez définir le niveau de service, la taille de calcul et la quantité d
 
 ### <a name="general-purpose-service-tier-generation-4-compute-platform-part-1"></a>Niveau de service d’usage général : Plateforme de calcul de génération 4 (partie 1)
 
-|Taille de calcul|GP_Gen4_1|GP_Gen4_2|GP_Gen4_3|GP_Gen4_4|GP_Gen4_5|GP_Gen4_6
+|Taille de calcul (objectif de service)|GP_Gen4_1|GP_Gen4_2|GP_Gen4_3|GP_Gen4_4|GP_Gen4_5|GP_Gen4_6
 |:--- | --: |--: |--: |--: |--: |--: |
 |Génération de calcul|Gen4|Gen4|Gen4|Gen4|Gen4|Gen4|
 |vCores|1|2|3|4|5|6|
@@ -72,7 +72,7 @@ Vous pouvez définir le niveau de service, la taille de calcul et la quantité d
 
 ### <a name="general-purpose-service-tier-generation-4-compute-platform-part-2"></a>Niveau de service d’usage général : Plateforme de calcul de génération 4 (partie 2)
 
-|Taille de calcul|GP_Gen4_7|GP_Gen4_8|GP_Gen4_9|GP_Gen4_10|GP_Gen4_16|GP_Gen4_24|
+|Taille de calcul (objectif de service)|GP_Gen4_7|GP_Gen4_8|GP_Gen4_9|GP_Gen4_10|GP_Gen4_16|GP_Gen4_24|
 |:--- | --: |--: |--: |--: |--: |--: |
 |Génération de calcul|Gen4|Gen4|Gen4|Gen4|Gen4|Gen4|
 |vCores|7|8|9|10|16|24|
@@ -106,7 +106,7 @@ Vous pouvez définir le niveau de service, la taille de calcul et la quantité d
 
 ### <a name="general-purpose-service-tier-generation-5-compute-platform-part-1"></a>Niveau de service d’usage général : Plateforme de calcul de génération 5 (partie 1)
 
-|Taille de calcul|GP_Gen5_2|GP_Gen5_4|GP_Gen5_6|GP_Gen5_8|GP_Gen5_10|GP_Gen5_12|GP_Gen5_14|
+|Taille de calcul (objectif de service)|GP_Gen5_2|GP_Gen5_4|GP_Gen5_6|GP_Gen5_8|GP_Gen5_10|GP_Gen5_12|GP_Gen5_14|
 |:--- | --: |--: |--: |--: |---: | --: |--: |
 |Génération de calcul|Gen5|Gen5|Gen5|Gen5|Gen5|Gen5|Gen5|
 |vCores|2|4|6|8|10|12|14|
@@ -138,7 +138,7 @@ Vous pouvez définir le niveau de service, la taille de calcul et la quantité d
 
 ### <a name="general-purpose-service-tier-generation-5-compute-platform-part-2"></a>Niveau de service d’usage général : Plateforme de calcul de génération 5 (partie 2)
 
-|Taille de calcul|GP_Gen5_16|GP_Gen5_18|GP_Gen5_20|GP_Gen5_24|GP_Gen5_32|GP_Gen5_40|GP_Gen5_80|
+|Taille de calcul (objectif de service)|GP_Gen5_16|GP_Gen5_18|GP_Gen5_20|GP_Gen5_24|GP_Gen5_32|GP_Gen5_40|GP_Gen5_80|
 |:--- | --: |--: |--: |--: |---: | --: |--: |
 |Génération de calcul|Gen5|Gen5|Gen5|Gen5|Gen5|Gen5|Gen5|
 |vCores|16|18|20|24|32|40|80|
@@ -172,7 +172,7 @@ Vous pouvez définir le niveau de service, la taille de calcul et la quantité d
 
 ### <a name="fsv2-series-compute-generation-preview"></a>Génération de calcul de série Fsv2 (préversion)
 
-|Taille de calcul|GP_Fsv2_72|
+|Taille de calcul (objectif de service)|GP_Fsv2_72|
 |:--- | --: |
 |Génération de calcul|Série Fsv2|
 |vCores|72|
@@ -209,7 +209,7 @@ Vous pouvez définir le niveau de service, la taille de calcul et la quantité d
 
 ### <a name="business-critical-service-tier-generation-4-compute-platform-part-1"></a>Niveau de service vital pour l’entreprise : Plateforme de calcul de génération 4 (partie 1)
 
-|Taille de calcul|BC_Gen4_2|BC_Gen4_3|BC_Gen4_4|BC_Gen4_5|BC_Gen4_6|
+|Taille de calcul (objectif de service)|BC_Gen4_2|BC_Gen4_3|BC_Gen4_4|BC_Gen4_5|BC_Gen4_6|
 |:--- | --: |--: |--: |--: |--: |--: |
 |Génération de calcul|Gen4|Gen4|Gen4|Gen4|Gen4|
 |vCores|2|3|4|5|6|
@@ -241,7 +241,7 @@ Vous pouvez définir le niveau de service, la taille de calcul et la quantité d
 
 ### <a name="business-critical-service-tier-generation-4-compute-platform-part-2"></a>Niveau de service vital pour l’entreprise : Plateforme de calcul de génération 4 (partie 2)
 
-|Taille de calcul|BC_Gen4_7|BC_Gen4_8|BC_Gen4_9|BC_Gen4_10|BC_Gen4_16|BC_Gen4_24|
+|Taille de calcul (objectif de service)|BC_Gen4_7|BC_Gen4_8|BC_Gen4_9|BC_Gen4_10|BC_Gen4_16|BC_Gen4_24|
 |:--- | --: |--: |--: |--: |--: |--: |
 |Génération de calcul|Gen4|Gen4|Gen4|Gen4|Gen4|Gen4|
 |vCores|7|8|9|10|16|24|
@@ -275,7 +275,7 @@ Vous pouvez définir le niveau de service, la taille de calcul et la quantité d
 
 ### <a name="business-critical-service-tier-generation-5-compute-platform-part-1"></a>Niveau de service vital pour l’entreprise : Plateforme de calcul de génération 5 (partie 1)
 
-|Taille de calcul|BC_Gen5_4|BC_Gen5_6|BC_Gen5_8|BC_Gen5_10|BC_Gen5_12|BC_Gen5_14|
+|Taille de calcul (objectif de service)|BC_Gen5_4|BC_Gen5_6|BC_Gen5_8|BC_Gen5_10|BC_Gen5_12|BC_Gen5_14|
 |:--- | --: |--: |--: |--: |---: | --: |--: |
 |Génération de calcul|Gen5|Gen5|Gen5|Gen5|Gen5|Gen5|
 |vCores|4|6|8|10|12|14|
@@ -307,7 +307,7 @@ Vous pouvez définir le niveau de service, la taille de calcul et la quantité d
 
 ### <a name="business-critical-service-tier-generation-5-compute-platform-part-2"></a>Niveau de service vital pour l’entreprise : Plateforme de calcul de génération 5 (partie 2)
 
-|Taille de calcul|BC_Gen5_16|BC_Gen5_18|BC_Gen5_20|BC_Gen5_24|BC_Gen5_32|BC_Gen5_40|BC_Gen5_80|
+|Taille de calcul (objectif de service)|BC_Gen5_16|BC_Gen5_18|BC_Gen5_20|BC_Gen5_24|BC_Gen5_32|BC_Gen5_40|BC_Gen5_80|
 |:--- | --: |--: |--: |--: |---: | --: |--: |
 |Génération de calcul|Gen5|Gen5|Gen5|Gen5|Gen5|Gen5|Gen5|
 |vCores|16|18|20|24|32|40|80|
@@ -341,7 +341,7 @@ Vous pouvez définir le niveau de service, la taille de calcul et la quantité d
 
 ### <a name="m-series-compute-generation-preview"></a>Génération de calcul de série M (préversion)
 
-|Taille de calcul|BC_M_128|
+|Taille de calcul (objectif de service)|BC_M_128|
 |:--- | --: |
 |Génération de calcul|Série M|
 |vCores|128|
@@ -378,7 +378,7 @@ Si tous les vCore d’un pool élastique sont occupés, chaque base de données 
 Le tableau suivant décrit les propriétés des bases de données mises en pool.
 
 > [!NOTE]
-> Les limites de ressources des bases de données individuelles dans les pools élastiques sont généralement identiques à celles des bases de données uniques situées hors des pools qui ont la même taille de calcul. Par exemple, le nombre maximal de workers simultanés dans une base de données GP_Gen4_1 est de 200. Par conséquent, le nombre maximal de workers simultanés pour une base de données dans un pool GP_Gen4_1 est aussi de 200. Notez que le nombre total de workers simultanés dans le pool GP_Gen4_1 est de 210.
+> Les limites de ressources des bases de données individuelles dans les pools élastiques sont généralement identiques à celles des bases de données uniques situées hors des pools qui ont la même taille de calcul (objectif de service). Par exemple, le nombre maximal de workers simultanés dans une base de données GP_Gen4_1 est de 200. Par conséquent, le nombre maximal de workers simultanés pour une base de données dans un pool GP_Gen4_1 est aussi de 200. Notez que le nombre total de workers simultanés dans le pool GP_Gen4_1 est de 210.
 
 | Propriété | Description |
 |:--- |:--- |

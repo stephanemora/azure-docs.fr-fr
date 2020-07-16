@@ -11,12 +11,12 @@ services: iot-edge
 ms.custom:
 - amqp
 - mqtt
-ms.openlocfilehash: c1e14fe6764a9f5e850d3b975ef3bcc6cb28bf78
-ms.sourcegitcommit: 69156ae3c1e22cc570dda7f7234145c8226cc162
+ms.openlocfilehash: 0155294777e1d732e5ff3874102b90049d9a123d
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/03/2020
-ms.locfileid: "84309150"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84782583"
 ---
 # <a name="configure-an-iot-edge-device-to-act-as-a-transparent-gateway"></a>Configurer un appareil IoT Edge en tant que passerelle transparente
 
@@ -34,9 +34,9 @@ La configuration d’une connexion de passerelle transparente s’effectue en tr
 2. Créez une identité d’appareil pour l’appareil en aval afin qu’il puisse s’authentifier sur IoT Hub. Configurez l’appareil en aval pour envoyer des messages par le biais de l’appareil de passerelle. Pour plus d’informations, consultez [Authentifier un appareil en aval auprès d’Azure IoT Hub](how-to-authenticate-downstream-device.md).
 3. Connectez l’appareil en aval à l’appareil de passerelle et commencez à envoyer des messages. Pour plus d’informations, voir [Connecter un appareil en aval à une passerelle Azure IoT Edge](how-to-connect-downstream-device.md).
 
-Pour qu’un appareil fonctionne comme une passerelle, il doit être capable de se connecter de manière sécurisée aux appareils en aval associés. Azure IoT Edge vous permet d’utiliser une infrastructure à clé publique (PKI) pour configurer des connexions sécurisées entre les appareils. Dans ce cas, nous autorisons un appareil en aval à se connecter à un appareil IoT Edge faisant office de passerelle transparente. Pour assurer un niveau raisonnable de sécurité, l’appareil en aval doit confirmer l’identité de l’appareil de passerelle. Cette vérification d’identité empêche vos appareils de se connecter à des passerelles potentiellement malveillantes.
+Pour qu’un appareil fasse office de passerelle, il doit se connecter de manière sécurisée aux appareils en aval qui lui sont associés. Azure IoT Edge vous permet d’utiliser une infrastructure à clé publique (PKI) pour configurer des connexions sécurisées entre les appareils. Dans ce cas, nous autorisons un appareil en aval à se connecter à un appareil IoT Edge faisant office de passerelle transparente. Pour assurer un niveau raisonnable de sécurité, l’appareil en aval doit confirmer l’identité de l’appareil de passerelle. Cette vérification d’identité empêche vos appareils de se connecter à des passerelles potentiellement malveillantes.
 
-Un appareil en aval dans un scénario de passerelle transparente peut être n’importe quelle application ou plateforme dont l’identité a été créée avec le service cloud [Azure IoT Hub](https://docs.microsoft.com/azure/iot-hub). Dans de nombreux cas, ces applications utilisent [Azure IoT device SDK](../iot-hub/iot-hub-devguide-sdks.md). Pour des raisons pratiques, un appareil en aval peut même être une application fonctionnant sur l’appareil de passerelle IoT Edge proprement dit. Cependant, un appareil IoT Edge ne peut pas se trouver en aval d’une passerelle IoT Edge.
+Un appareil en aval est une application ou une plateforme dont l’identité a été créée avec le service cloud [Azure IoT Hub](https://docs.microsoft.com/azure/iot-hub). Ces applications utilisent souvent [Azure IoT device SDK](../iot-hub/iot-hub-devguide-sdks.md). Un appareil en aval peut même être une application fonctionnant sur l’appareil de passerelle IoT Edge proprement dit. Cependant, un appareil IoT Edge ne peut pas se trouver en aval d’une passerelle IoT Edge.
 
 Vous pouvez créer n’importe quelle infrastructure de certificat permettant l’approbation requise pour votre topologie de l’appareil à la passerelle. Dans cet article, nous nous basons sur la même configuration de certificat que vous utiliseriez pour activer la [sécurité d’autorité de certification X.509](../iot-hub/iot-hub-x509ca-overview.md) dans IoT Hub, ce qui implique d’avoir un certificat d’autorité de certification X.509 associé à un hub IoT spécifique (l’autorité de certification racine du hub IoT), une série de certificats signés par cette autorité de certification ainsi qu’une autorité de certification pour l’appareil IoT Edge.
 
@@ -95,7 +95,7 @@ Pour les scénarios de production, vous devez générer ces fichiers avec votre 
 
 ## <a name="deploy-edgehub-to-the-gateway"></a>Déployer edgeHub sur la passerelle
 
-À la première installation d’IoT Edge sur un appareil, un seul module système démarre automatiquement : l’agent IoT Edge. Une fois que vous avez créé le premier déploiement d’un appareil, le deuxième module système, le concentrateur IoT Edge, démarre également.
+À la première installation d’IoT Edge sur un appareil, un seul module système démarre automatiquement : l’agent IoT Edge. Une fois que vous avez créé le premier déploiement d’un appareil, le deuxième module système, le hub IoT Edge, démarre également.
 
 Le hub IoT Edge est chargé de recevoir les messages entrants des appareils en aval et de les acheminer vers la destination suivante. Si le module **edgeHub** ne fonctionne pas sur votre appareil, créez un déploiement initial pour votre appareil. Le déploiement apparaîtra vide, car vous n’ajoutez aucun module, mais il garantit que les deux modules système sont démarrés.
 

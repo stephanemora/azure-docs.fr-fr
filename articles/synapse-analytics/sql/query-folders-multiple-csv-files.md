@@ -1,22 +1,22 @@
 ---
-title: Interroger plusieurs dossiers et fichiers csv à l’aide de SQL à la demande (préversion)
+title: Interroger plusieurs dossiers et fichiers à l’aide de SQL à la demande (préversion)
 description: SQL à la demande (préversion) prend en charge la lecture de plusieurs fichiers ou dossiers en utilisant des caractères génériques similaires à ceux utilisés dans le système d’exploitation Windows.
 services: synapse analytics
 author: azaricstefan
 ms.service: synapse-analytics
 ms.topic: how-to
-ms.subservice: ''
+ms.subservice: sql
 ms.date: 04/15/2020
 ms.author: v-stazar
 ms.reviewer: jrasnick, carlrab
-ms.openlocfilehash: cb136fa9a3dc63144d26820b7170250b3598ba77
-ms.sourcegitcommit: f1132db5c8ad5a0f2193d751e341e1cd31989854
+ms.openlocfilehash: 6c61bd420121800ade48de88cbcaadf37343262d
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/31/2020
-ms.locfileid: "84235428"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85207629"
 ---
-# <a name="query-folders-and-multiple-csv-files"></a>Interroger plusieurs dossiers et fichiers CSV  
+# <a name="query-folders-and-multiple-files"></a>Interroger des dossiers et plusieurs fichiers  
 
 Cet article explique comment écrire une requête à l’aide de SQL à la demande (préversion) dans Azure Synapse Analytics.
 

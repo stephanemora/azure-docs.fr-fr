@@ -9,12 +9,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: cpendleton
 ms.custom: codepen
-ms.openlocfilehash: ee8e8ee4ca64de0390b6fa34e36fb4d06348a8ac
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 28fee67ccfc1e67d89d0151c8e14bd7c0b688749
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80804807"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85207088"
 ---
 # <a name="how-to-use-image-templates"></a>Guide pratique pour utiliser des modèles d’image
 
@@ -104,6 +104,17 @@ L’exemple suivant utilise le modèle `marker-arrow` avec le rouge comme couleu
 Consultez la page Pen <a href='https://codepen.io/azuremaps/pen/EqQvzq/'>Marqueur HTML avec un modèle d’icône intégré</a> d’Azure Maps (<a href='https://codepen.io/azuremaps'>@azuremaps</a>) sur le site <a href='https://codepen.io'>CodePen</a>.
 </iframe>
 
+
+> [!TIP]
+> Les modèles d’image peuvent aussi être utilisés en dehors de la carte. La fonction getImageTemplate retourne une chaîne SVG qui comprend des espaces réservés : `{color}`, `{secondaryColor}`, `{scale}`, `{text}`. Remplacez les valeurs de ces espaces réservés pour créer une chaîne SVG valide. Vous pouvez ajouter la chaîne SVG directement au modèle DOM HTML ou la convertir en URI de données et l’insérer dans une étiquette d’image. Par exemple :
+> ```JavaScript
+> //Retrieve an SVG template and replace the placeholder values.
+> var svg = atlas.getImageTemplate('marker').replace(/{color}/, 'red').replace(/{secondaryColor}/, 'white').replace(/{text}/, '').replace(/{scale}/, 1);
+>
+> //Convert to data URI for use in image tags.
+> var dataUri = 'data:image/svg+xml;base64,' + btoa(svg);
+> ```
+
 ## <a name="create-custom-reusable-templates"></a>Créer des modèles réutilisables personnalisés
 
 Si votre application utilise la même icône avec des icônes différentes ou si vous créez un module qui ajoute des modèles d’image supplémentaires, vous pouvez facilement ajouter et récupérer ces icônes à partir du SDK web Azure Maps. Utilisez les fonctions statiques suivantes sur l’espace de noms `atlas`.
@@ -175,6 +186,25 @@ Ce tableau liste tous les modèles d’image actuellement disponibles dans le SD
 |||||
 | zig-zag | zig-zag-vertical | dots |  |
 | ![icône zig-zag](./media/image-templates/zig-zag.png) | ![icône zig-zag-vertical](./media/image-templates/zig-zag-vertical.png) | ![icône dots](./media/image-templates/dots.png) | |
+
+**Icônes d’images préchargées**
+
+La carte précharge un ensemble d’icônes dans le sprite d’image de la carte en utilisant les modèles `marker`, `pin` et `pin-round`. Le nom de ces icônes et leur valeur de couleur sont listés dans le tableau ci-dessous.
+
+| nom d’icône | couleur | couleur secondaire |
+|-----------|-------|----------------|
+| `marker-black` | `#231f20` | `#ffffff` |
+| `marker-blue` | `#1a73aa` | `#ffffff` |
+| `marker-darkblue` | `#003963` | `#ffffff` |
+| `marker-red` | `#ef4c4c` | `#ffffff` |
+| `marker-yellow` | `#f2c851` | `#ffffff` |
+| `pin-blue` | `#2072b8` | `#ffffff` |
+| `pin-darkblue` | `#003963` | `#ffffff` |
+| `pin-red` | `#ef4c4c` | `#ffffff` |
+| `pin-round-blue` | `#2072b8` | `#ffffff` |
+| `pin-round-darkblue` | `#003963` | `#ffffff` |
+| `pin-round-red` | `#ef4c4c` | `#ffffff` |
+
 
 ## <a name="try-it-now-tool"></a>Outil Essayer maintenant
 

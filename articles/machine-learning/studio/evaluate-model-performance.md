@@ -1,35 +1,39 @@
 ---
-title: Évaluation des performances du modèle
+title: Évaluation et validation croisée de modèles
 titleSuffix: ML Studio (classic) - Azure
-description: En savoir plus sur l’évaluation des performances d'un modèle dans Azure Machine Learning Studio (classique) et sur les métriques disponibles pour cette tâche.
+description: Découvrez les métriques que vous pouvez utiliser pour surveiller les performances de modèles dans Azure Machine Learning Studio (classique).
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: studio
-ms.topic: conceptual
+ms.topic: how-to
 author: likebupt
 ms.author: keli19
 ms.custom: seodec18, previous-author=heatherbshapiro, previous-ms.author=hshapiro
 ms.date: 03/20/2017
-ms.openlocfilehash: caa37dbc3a09236c8e9553eba506e6c0b25e51e2
-ms.sourcegitcommit: 6a9f01bbef4b442d474747773b2ae6ce7c428c1f
+ms.openlocfilehash: bd6c291cd703d56f86dc26c041eb39023bba0578
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "84118436"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84945101"
 ---
-# <a name="how-to-evaluate-model-performance-in-azure-machine-learning-studio-classic"></a>Évaluation des performances d’un modèle dans Azure Machine Learning Studio (classique)
+# <a name="evaluate-model-performance-in-azure-machine-learning-studio-classic"></a>Évaluer des performances d’un modèle dans Azure Machine Learning Studio (classique)
 
-Cet article explique comment évaluer les performances d’un modèle dans Azure Machine Learning Studio (classique) et décrit brièvement les métriques disponibles pour cette opération. Il vous présente trois scénarios d’apprentissage supervisé courants : 
+Dans cet article, vous allez découvrir les métriques que vous pouvez utiliser pour surveiller les performances de modèles dans Azure Machine Learning Studio (classique).  L’évaluation des performances d’un modèle constitue l’une des étapes clés du processus de science des données. Elle indique l’efficacité de la notation (prédictions) d’un jeu de données par un modèle formé. Azure Machine Learning Studio (classique) prend en charge l’évaluation des modèles via deux de ses principaux modules d’apprentissage automatique : 
++ [Évaluer le modèle][evaluate-model] 
++ [Modèle de validation croisée][cross-validate-model]
 
+Ces modules vous permettent de déterminer l’efficacité de votre modèle sur le plan du nombre de métriques couramment utilisées dans les domaines de l’apprentissage automatique et des statistiques.
+
+L’évaluation des modèles doit être envisagée avec les éléments suivants :
++ [Optimisation des paramètres pour les algorithmes](algorithm-parameters-optimize.md)
++ [Interprétabilité de modèles](interpret-model-results.md)
+
+Il vous présente trois scénarios d’apprentissage supervisé courants : 
 * régression
 * classification binaire ; 
 * classification multiclasse.
 
-
-
-L’évaluation des performances d’un modèle constitue l’une des étapes clés du processus de science des données. Elle indique l’efficacité de la notation (prédictions) d’un jeu de données par un modèle formé. 
-
-Azure Machine Learning Studio (classique) prend en charge l’évaluation des modèles via deux de ses principaux modules d’apprentissage automatique : [Évaluer le modèle][evaluate-model] et [Effectuer la validation croisée du modèle][cross-validate-model]. Ces modules vous permettent de déterminer l’efficacité de votre modèle sur le plan du nombre de métriques couramment utilisées dans les domaines de l’apprentissage automatique et des statistiques.
 
 ## <a name="evaluation-vs-cross-validation"></a>Évaluation et validation croisée
 L’évaluation et la validation croisée constituent deux méthodes standard de mesure des performances d’un modèle. Elles génèrent toutes deux des métriques d’évaluation que vous pouvez inspecter ou comparer avec les métriques d’autres modèles.

@@ -1,18 +1,18 @@
 ---
-title: Séries Eav4 et Easv4 – Machines virtuelles Azure
+title: Séries Eav4 et Easv4
 description: Spécifications pour les machines virtuelles des séries Eav4 et Easv4.
-services: virtual-machines
 author: migerdes
 ms.service: virtual-machines
+ms.subservice: sizes
 ms.topic: article
 ms.date: 02/03/2020
-ms.author: lahugh
-ms.openlocfilehash: ab45298dbcb8988da7d0211fcbde3087d0099038
-ms.sourcegitcommit: ced98c83ed25ad2062cc95bab3a666b99b92db58
+ms.author: jushiman
+ms.openlocfilehash: 230809f4fe42ce0fc8b8c85024b42926a27e699f
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/31/2020
-ms.locfileid: "80437077"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84678237"
 ---
 # <a name="eav4-and-easv4-series"></a>Séries Eav4 et Easv4
 

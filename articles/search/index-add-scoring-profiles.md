@@ -8,12 +8,12 @@ ms.author: ramero
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 05/06/2020
-ms.openlocfilehash: 56757d1c2810efe608601c231946b2242df82b19
-ms.sourcegitcommit: b396c674aa8f66597fa2dd6d6ed200dd7f409915
+ms.openlocfilehash: 4bc5897401a62d45e8b1c987d7ef50e0c8a6de08
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/07/2020
-ms.locfileid: "82890176"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85565357"
 ---
 # <a name="add-scoring-profiles-to-an-azure-cognitive-search-index"></a>Ajouter des profils de score à un index Recherche cognitive Azure
 
@@ -61,7 +61,7 @@ Un *scoring* détermine un score de recherche pour chaque élément dans un jeu 
  Pour utiliser ce profil de score, votre requête est formulée de façon à spécifier le profil de la chaîne de caractères de requête. Dans la requête ci-dessous, notez la présence du paramètre de requête `scoringProfile=geo`.  
 
 ```  
-GET /indexes/hotels/docs?search=inn&scoringProfile=geo&scoringParameter=currentLocation--122.123,44.77233&api-version=2019-05-06 
+GET /indexes/hotels/docs?search=inn&scoringProfile=geo&scoringParameter=currentLocation--122.123,44.77233&api-version=2020-06-30 
 ```  
 
  Cette requête effectue une recherche du terme « inn », puis transmet l'emplacement actuel. Notez que cette requête inclut d’autres paramètres, tels que `scoringParameter`. Les paramètres de requête sont décrits dans [Recherche dans des documents &#40;API REST de Recherche cognitive Azure&#41;](https://docs.microsoft.com/rest/api/searchservice/Search-Documents).  
@@ -77,7 +77,7 @@ Le score de recherche est calculé sur la base de propriétés statistiques des 
 
  Des valeurs de score de recherche peuvent être répétées dans un jeu de résultats. Par exemple, vous pouvez avoir dix éléments dont le score est 1,2, vingt éléments dont le score est 1,0, et vingt éléments dont le score est 0,5. Quand plusieurs correspondances ont le même score de recherche, le classement des éléments ayant le même score n'est ni défini ni stable. Si vous exécutez de nouveau la requête, il se peut que des éléments changent de position. Si deux éléments ont un score identique, il est impossible de prédire celui qui apparaîtra en première position.  
 
-## <a name="when-to-use-custom-scoring"></a>Quand utiliser un calcul de score personnalisé  
+## <a name="when-to-add-scoring-logic"></a>Quand ajouter une logique de notation 
  Quand le classement par défaut produit des résultats trop éloignés de vos objectifs, vous devez créer un ou plusieurs profils de calcul de score. Par exemple, vous pouvez décider que la pertinence de la recherche doit privilégier les éléments récemment ajoutés. De même, il se peut qu'un champ affiche une marge bénéficiaire, ou un autre un revenu potentiel. La volonté de privilégier les correspondances qui génèrent des bénéfices pour votre entreprise peut être un facteur important dans la décision d'utiliser des profils de calcul de score.  
 
  Un classement basé sur la pertinence peut également être mis en œuvre par l'intermédiaire de profils de calcul de score. Songez aux pages de résultats de recherche que vous avez utilisées par le passé, qui vous permettaient de trier par prix, date, évaluation ou pertinence. Dans Recherche cognitive Azure, les profils de calcul de score déterminent l'option « pertinence ». Vous contrôlez la définition de la pertinence en fonction de vos objectifs et du type d'expérience de recherche que vous souhaitez.  

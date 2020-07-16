@@ -10,21 +10,22 @@ ms.author: sstein
 ms.reviewer: genemi
 ms.date: 11/14/2019
 ms.custom: sqldbrb=2
-ms.openlocfilehash: c2556cb1dcf59cdb8ae5014b7dd95fa2c431dc93
-ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
+ms.openlocfilehash: b099158261de55c829ab2b89a2f994b35b3e50d4
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "84038790"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85254036"
 ---
-# <a name="application-development-overview---sql-database--sql-managed-instance"></a>Vue d’ensemble du développement des applications | SQL Database et SQL Managed Instance 
+# <a name="application-development-overview---sql-database--sql-managed-instance"></a>Vue d’ensemble du développement des applications | SQL Database et SQL Managed Instance
+
 [!INCLUDE[appliesto-sqldb-asa](../includes/appliesto-sqldb-asa.md)]
 
 Cet article explique les aspects de base qu’un développeur doit prendre en compte lors de l’écriture d’un code permettant d’établir une connexion à votre base de données dans Azure. Cet article s’applique à Azure SQL Database et Azure SQL Managed Instance.
 
 ## <a name="language-and-platform"></a>Langage et plateforme
 
-Vous pouvez utiliser différents [langages de programmation et plateformes](connect-query-content-reference-guide.md) pour vous connecter à une base de données Azure SQL et l’interroger. Vous trouverez des [exemples d’applications](https://azure.microsoft.com/resources/samples/?service=sql-database&sort=0) qui peuvent vous permettre de vous connecter à la base de données Azure SQL.
+Vous pouvez utiliser différents [langages de programmation et plateformes](connect-query-content-reference-guide.md) pour vous connecter à une base de données Azure SQL et l’interroger. Vous trouverez des [exemples d’applications](https://azure.microsoft.com/resources/samples/?service=sql-database&sort=0) qui peuvent vous permettre de vous connecter à la base de données.
 
 Vous pouvez tirer parti des outils open source comme [cheetah](https://github.com/wunderlist/cheetah), [sql-cli](https://www.npmjs.com/package/sql-cli) et [VS Code](https://code.visualstudio.com/). En outre, Azure SQL Database fonctionne avec des outils Microsoft, tels que [Visual Studio](https://www.visualstudio.com/downloads/) et [SQL Server Management Studio](https://msdn.microsoft.com/library/ms174173.aspx). Le Portail Azure, PowerShell et les API REST peuvent également contribuer à accroître votre productivité.
 
@@ -44,7 +45,7 @@ Si vous utilisez un [pool de connexions](https://msdn.microsoft.com/library/8xx3
 
 ## <a name="resiliency"></a>Résilience
 
-Azure SQL Database est un service cloud où vous pouvez attendre des erreurs temporaires qui se produisent dans l’infrastructure sous-jacente ou dans la communication entre les entités du cloud. Bien qu’Azure SQL Database résiste aux échecs d’infrastructure transitive, ces échecs peuvent affecter votre connectivité. Lorsqu’une erreur temporaire se produit au moment de la connexion à SQL Database, votre code doit effectuer une [nouvelle tentative d’appel](troubleshoot-common-connectivity-issues.md). Nous vous recommandons d’utiliser une logique de nouvelle tentative basée sur une logique d’interruption, afin d’éviter que la base de données SQL ne soit inondée de tentatives simultanées de plusieurs clients. La logique de nouvelle tentative dépend des [messages d’erreur pour les programmes clients SQL Database](troubleshoot-common-errors-issues.md).
+Azure SQL Database est un service cloud où vous pouvez attendre des erreurs temporaires qui se produisent dans l’infrastructure sous-jacente ou dans la communication entre les entités du cloud. Bien qu’Azure SQL Database résiste aux échecs d’infrastructure transitive, ces échecs peuvent affecter votre connectivité. Lorsqu’une erreur temporaire se produit au moment de la connexion à SQL Database, votre code doit effectuer une [nouvelle tentative d’appel](troubleshoot-common-connectivity-issues.md). Nous vous recommandons d’utiliser une logique de nouvelle tentative basée sur une logique d’interruption afin d’éviter que le service ne soit inondé de tentatives simultanées de plusieurs clients. La logique de nouvelle tentative dépend des [messages d’erreur pour les programmes clients SQL Database](troubleshoot-common-errors-issues.md).
 
 Pour plus d’informations sur la préparation aux événements de maintenance planifiée sur Azure SQL Database, consultez [Planification des événements de maintenance Azure dans Azure SQL Database](planned-maintenance.md).
 
@@ -53,7 +54,7 @@ Pour plus d’informations sur la préparation aux événements de maintenance p
 - Assurez-vous que le pare-feu de l’ordinateur qui héberge votre programme client autorise les communications TCP sortantes sur le port 1433.  Plus d’informations : [Configurer un pare-feu Azure SQL Database](firewall-configure.md).
 - Si votre programme client se connecte à la base de données SQL pendant que votre client s’exécute sur une machine virtuelle Azure, vous devez ouvrir certaines plages de ports sur la machine virtuelle. Plus d’informations : [Ports au-delà de 1433 pour ADO .NET 4.5 et SQL Database](adonet-v12-develop-direct-route-ports.md).
 - Parfois, les connexions clientes à Azure SQL Database ignorent le proxy et interagissent directement avec la base de données. Les ports autres que le port 1433 deviennent importants. Pour plus d’informations, consultez [Architecture de connectivité d’Azure SQL Database](connectivity-architecture.md) et [Ports au-delà de 1433 pour ADO.NET 4.5 et SQL Database](adonet-v12-develop-direct-route-ports.md).
-- Pour la configuration de mise en réseau d’une instance gérée SQL, consultez [Configuration réseau des instances gérées SQL](../managed-instance/how-to-content-reference-guide.md#network-configuration).
+- Pour la configuration de mise en réseau d’une instance de SQL Managed Instance, consultez [Configuration réseau de SQL Managed Instance](../managed-instance/how-to-content-reference-guide.md#network-configuration).
 
 ## <a name="next-steps"></a>Étapes suivantes
 

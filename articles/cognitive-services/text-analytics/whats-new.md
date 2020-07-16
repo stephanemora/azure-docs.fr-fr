@@ -8,18 +8,35 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: text-analytics
 ms.topic: conceptual
-ms.date: 06/03/2020
+ms.date: 07/07/2020
 ms.author: aahi
-ms.openlocfilehash: 7ab886b65e665bdd38e2461e49fa051213602f0e
-ms.sourcegitcommit: 813f7126ed140a0dff7658553a80b266249d302f
+ms.openlocfilehash: 3d9fb7f3fa01c06cc778e4062dd1d136e9c6e342
+ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/06/2020
-ms.locfileid: "84462790"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86103396"
 ---
 # <a name="whats-new-in-the-text-analytics-api"></a>Nouveautés de l’API Analyse de texte
 
 L’API Analyse de texte est mise à jour de manière continue. Pour vous informer des développements récents, cet article vous fournit des informations sur les nouvelles versions et fonctionnalités.
+
+## <a name="july-2020"></a>Juillet 2020
+
+### <a name="text-analytics-for-health-container-public-gated-preview"></a>Analyse de texte pour la préversion publique archivée pour le conteneur d’intégrité
+
+L’Analyse de texte pour le conteneur d’intégrité est désormais en préversion publique archivée, ce qui vous permet d’extraire des informations à partir de texte en anglais non structuré dans des documents cliniques tels que les formulaires d’admission des patients, les notes du médecin, les documents de recherche et les bilans de sortie d'hospitalisation. Actuellement, vous ne serez pas facturé pour l’utilisation de l’Analyse de texte pour l’utilisation du conteneur d’intégrité. 
+
+Le conteneur offre les fonctionnalités suivantes :
+
+* Reconnaissance d’entité nommée
+* Extraction des relations
+* Liaison d’entités
+* Négation
+
+
+> [!div class="nextstepaction"]
+> [En savoir plus sur l’Analyse de texte pour le conteneur d’intégrité](how-tos/text-analytics-for-health.md)
 
 ## <a name="may-2020"></a>Mai 2020
 
@@ -61,9 +78,6 @@ Les noms des propriétés suivantes dans la réponse JSON ont été changés, le
 ### <a name="text-analytics-api-v31-public-preview"></a>Préversion publique de l’API Analyse de texte v3.1
    * Nouvelle fonctionnalité Analyse des sentiments - [Exploration des opinions](how-tos/text-analytics-how-to-sentiment-analysis.md#opinion-mining)
    * Nouveau [filtre de domaine (`PII`) Personnel](how-tos/text-analytics-how-to-entity-linking.md#named-entity-recognition-versions-and-features) pour les informations médicales protégées (`PHI`).
-   * Nouvelles catégories Informations personnelles (`PII`) :
-      * Classification internationale des maladies (CIM-9-CM)
-      * Classification internationale des maladies (CIM-10-CM)
 
 > [!div class="nextstepaction"]
 > [En savoir plus sur la préversion de l’API Analyse de texte v3.1](https://westcentralus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v3-1-preview-1/operations/Languages)

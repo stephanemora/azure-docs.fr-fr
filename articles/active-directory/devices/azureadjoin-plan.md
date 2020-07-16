@@ -4,27 +4,27 @@ description: Explique les étapes nécessaires pour implémenter des appareils j
 services: active-directory
 ms.service: active-directory
 ms.subservice: devices
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 11/21/2019
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sandeo
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a6bbecf0e365ba7a8424da775245181fa64c21f6
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: d43e6e89faa8eca720e3aeafc873af1a18b9753b
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "78672692"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85555017"
 ---
-# <a name="how-to-plan-your-azure-ad-join-implementation"></a>Guide pratique pour planifier votre implémentation de la jonction Azure AD
+# <a name="how-to-plan-your-azure-ad-join-implementation"></a>Procédure : Planifier votre implémentation de la jointure d’Azure AD
 
 La jonction Azure AD vous permet de joindre des appareils directement à Azure AD sans qu’il soit nécessaire de se joindre à Active Directory local, tout en conservant vos utilisateurs productifs et sécurisés. La jonction Azure AD est prête à l’emploi par les entreprises pour les déploiements à grande échelle et les déploiements limités.   
 
 Cet article vous fournit les informations nécessaires pour planifier votre implémentation de la jonction Azure AD.
  
-## <a name="prerequisites"></a>Conditions préalables requises
+## <a name="prerequisites"></a>Prérequis
 
 Cet article suppose que vous avez lu la [Présentation de la gestion des appareils dans Azure Active Directory](../device-management-introduction.md).
 
@@ -32,15 +32,14 @@ Cet article suppose que vous avez lu la [Présentation de la gestion des apparei
 
 Pour planifier votre implémentation de jointure à Azure AD, familiarisez-vous avec les éléments suivants :
 
-|   |   |
-|---|---|
-|![Vérification][1]|Passer en revue vos scénarios|
-|![Vérification][1]|Passer en revue votre infrastructure d’identité|
-|![Vérification][1]|Évaluer votre gestion des appareils|
-|![Vérification][1]|Comprendre les considérations relatives aux applications et aux ressources|
-|![Vérification][1]|Comprendre vos options de provisionnement|
-|![Vérification][1]|Configurer l’itinérance des états d’entreprise|
-|![Vérification][1]|Configurer un accès conditionnel|
+> [!div class="checklist"]
+> - Passer en revue vos scénarios
+> - Passer en revue votre infrastructure d’identité
+> - Évaluer votre gestion des appareils
+> - Comprendre les considérations relatives aux applications et aux ressources
+> - Comprendre vos options de provisionnement
+> - Configurer l’itinérance des états d’entreprise
+> - Configurer un accès conditionnel
 
 ## <a name="review-your-scenarios"></a>Passer en revue vos scénarios 
 
@@ -85,7 +84,7 @@ Si votre fournisseur d’identité ne prend pas en charge ces protocoles, la jon
 
 Vous ne pouvez pas utiliser l’authentification basée sur des cartes à puce ou sur des certificats pour joindre des appareils à Azure AD. Cependant, vous pouvez utiliser des cartes à puce pour vous connecter à des appareils joints à Azure AD si vous avez configuré AD FS.
 
-**Recommandation :** Implémentez Windows Hello Entreprise pour l’authentification forte sans mot de passe à des appareils Windows 10.
+**Recommandation :** Implémentez Windows Hello Entreprise pour l'authentification forte sans mot de passe à des appareils Windows 10.
 
 ### <a name="user-configuration"></a>Configuration des utilisateurs
 
@@ -104,9 +103,9 @@ La jonction Azure AD :
 
 - Est applicable seulement aux appareils Windows 10. 
 - N’est pas applicable aux versions antérieures de Windows ou à d’autres systèmes d’exploitation. Si vous avez des appareils Windows 7/8.1, vous devez les mettre à niveau vers Windows 10 pour déployer la jonction Azure AD.
-- N’est pas pris en charge sur les appareils avec module de plateforme sécurisée (TPM) en mode FIPS.
+- Est prise en charge pour les modules TPM 2.0 compatibles FIPS, mais pas pour les modules TPM 1.2. Si vos appareils sont dotés de modules TPM 1.2 compatibles FIPS, vous devez les désactiver avant de procéder à la jonction Azure AD. Microsoft ne propose aucun outil permettant de désactiver le mode FIPS pour les modules TPM car il dépend du fabricant de ces modules. Pour obtenir de l'aide, contactez votre fabricant OEM.
  
-**Recommandation :** Utilisez toujours la version de Windows 10 la plus récente pour bénéficier des fonctionnalités mises à jour.
+**Recommandation :** Utilisez toujours la version la plus récente de Windows 10 pour bénéficier de fonctionnalités à jour.
 
 ### <a name="management-platform"></a>Plateforme de gestion
 
@@ -157,13 +156,13 @@ Si vos applications sont créées de façon personnalisée et/ou hébergées loc
 
 Si vous utilisez AD FS, consultez [Vérifier et gérer l’authentification unique avec AD FS](/previous-versions/azure/azure-services/jj151809(v%3dazure.100)). 
 
-**Recommandation :** Envisagez l’hébergement dans le cloud (par exemple Azure) et l’intégration à Azure AD pour une meilleure expérience.
+**Recommandation :** Envisagez l'hébergement dans le cloud (Azure, par exemple) et l'intégration à Azure AD pour une meilleure expérience.
 
 ### <a name="on-premises-applications-relying-on-legacy-protocols"></a>Applications locales s’appuyant sur des protocoles hérités
 
 Les utilisateurs bénéficient de l’authentification unique sur les appareils joints à Azure AD si l’appareil a accès à un contrôleur de domaine. 
 
-**Recommandation :** Déployez le [proxy d’application Azure AD](/azure/active-directory/manage-apps/application-proxy) pour permettre l’accès sécurisé à ces applications.
+**Recommandation :** Déployez le [proxy Azure AD App](/azure/active-directory/manage-apps/application-proxy) pour permettre un accès sécurisé à ces applications.
 
 ### <a name="on-premises-network-shares"></a>Partages de réseau local
 
@@ -185,6 +184,8 @@ Les appareils joints à AD Azure ne prennent pas en charge les applications loca
 
 La connexion Bureau à distance à des appareils joints à Azure AD nécessite que l’ordinateur hôte soit joint à Azure AD ou à Azure AD Hybride. Le Bureau à distance depuis un appareil non joint ou non-Windows n’est pas pris en charge. Pour plus d’informations, consultez [Se connecter à un PC distant joint à Azure AD](/windows/client-management/connect-to-remote-aadj-pc)
 
+À partir de la mise à jour de Windows 10 2004, les utilisateurs peuvent utiliser le Bureau à distance à partir d’un appareil Azure AD enregistré sous Windows 10 joint à un appareil Azure AD. 
+
 ## <a name="understand-your-provisioning-options"></a>Comprendre vos options de provisionnement
 
 Vous pouvez provisionner la jonction Azure AD en utilisant les approches suivantes :
@@ -195,7 +196,7 @@ Vous pouvez provisionner la jonction Azure AD en utilisant les approches suivant
  
 Voici une comparaison de ces trois approches 
  
-|   | Configuration en libre-service | Windows Autopilot | Inscription en bloc |
+| Élément | Configuration en libre-service | Windows Autopilot | Inscription en bloc |
 | --- | --- | --- | --- |
 | Nécessite une interaction utilisateur pour la configuration | Oui | Oui | Non |
 | Nécessite du travail de la part du département informatique | Non | Oui | Oui |
@@ -259,8 +260,8 @@ Sélectionnez **Certain(e)s** ou **Tous**, en fonction de l’étendue de votre 
 
 En fonction de votre étendue, une des actions suivantes se produit : 
 
-- **L’utilisateur est dans l’étendue MDM** : Si vous avez un abonnement Azure AD Premium, l’inscription MDM est automatisée, ainsi que la jonction Azure AD. Tous les utilisateurs de l’étendue doivent avoir une licence appropriée pour votre MDM. Si l’inscription MDM échoue dans ce scénario, la jonction Azure AD est également annulée.
-- **L’utilisateur n’est pas dans l’étendue MDM** : si les utilisateurs ne sont pas dans l’étendue MDM, la jonction Azure AD se termine sans aucune inscription MDM. Ceci aboutit à un appareil non géré.
+- **L'utilisateur est dans l'étendue MDM** : Si vous disposez d'un abonnement Azure AD Premium, l'inscription MDM est automatisée, ainsi que la jonction Azure AD. Tous les utilisateurs de l’étendue doivent avoir une licence appropriée pour votre MDM. Si l’inscription MDM échoue dans ce scénario, la jonction Azure AD est également annulée.
+- **L'utilisateur n'est pas dans l'étendue MDM** : Si les utilisateurs ne sont pas dans l'étendue MDM, la jonction Azure AD se termine sans aucune inscription MDM. Ceci aboutit à un appareil non géré.
 
 ### <a name="mdm-urls"></a>URL MDM
 
@@ -282,7 +283,7 @@ GAM ne s’applique pas à la jonction Azure AD.
 
 Si vous voulez activer l’itinérance des états dans Azure AD, afin que les utilisateurs puissent synchroniser leurs paramètres entre différents appareils, consultez [Activer Enterprise State Roaming dans Azure Active Directory](enterprise-state-roaming-enable.md). 
 
-**Recommandation** : Activez ce paramètre même pour des appareils joints à Azure AD Hybride.
+**Recommandation** : Activez ce paramètre même pour des appareils joints à Azure AD hybrides.
 
 ## <a name="configure-conditional-access"></a>Configurer un accès conditionnel
 

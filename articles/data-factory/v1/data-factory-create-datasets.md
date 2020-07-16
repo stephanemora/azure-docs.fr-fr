@@ -11,12 +11,12 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.date: 01/10/2018
-ms.openlocfilehash: 4c97c1be81f1aef393f4aa101fc84972e3ae9ac7
-ms.sourcegitcommit: 1f48ad3c83467a6ffac4e23093ef288fea592eb5
+ms.openlocfilehash: 1865e1a2ff9a01f75b9849fb340dc0d080feabc1
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/29/2020
-ms.locfileid: "84193836"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85248282"
 ---
 # <a name="datasets-in-azure-data-factory"></a>Jeux de données dans Azure Data Factory
 > [!div class="op_single_selector" title1="Sélectionnez la version du service Data Factory que vous utilisez :"]
@@ -38,7 +38,7 @@ Une activité peut inclure zéro ou plusieurs **jeux de données** d’entrée e
 
 Avant de créer un jeu de données, créez un **service lié** pour lier votre magasin de données à la fabrique de données. Les services liés ressemblent à des chaînes de connexion. Ils définissent les informations de connexion nécessaires à Data Factory pour se connecter à des ressources externes. Les jeux de données identifient données dans les magasins de données liés, par exemple des tables SQL, des fichiers, des dossiers et des documents. Par exemple, un service lié de stockage Azure relie un compte de stockage à la fabrique de données. Un jeu de données blob Azure représente le conteneur d’objets blob et le dossier qui contient les objets blob d’entrée à traiter.
 
-Voici un exemple de scénario. Pour copier des données du stockage Blob vers une base de données SQL, vous devez créer deux services liés : Stockage Azure et Azure SQL Database. Créez ensuite deux jeux de données : le jeu de données d’objets blob Azure (qui fait référence au service lié Stockage Azure) et le jeu de données de table SQL Azure (qui fait référence au service lié Azure SQL Database). Les services liés Stockage Azure et Azure SQL Database contiennent des chaînes de connexion utilisées par la fabrique de données pendant l’exécution pour se connecter à votre instance Stockage Azure et Azure SQL Database, respectivement. Le jeu de données d’objets blob Azure spécifie le conteneur d’objets blob et le dossier d’objets blob qui contient les objets blob d’entrée dans votre stockage Blob. Le jeu de données de table SQL Azure spécifie la table SQL dans votre base de données SQL dans laquelle les données doivent être copiées.
+Voici un exemple de scénario. Pour copier des données du stockage Blob vers une base de données SQL Database, vous devez créer deux services liés : Stockage Azure et Azure SQL Database. Créez ensuite deux jeux de données : le jeu de données d’objets blob Azure (qui fait référence au service lié Stockage Azure) et le jeu de données de table SQL Azure (qui fait référence au service lié Azure SQL Database). Les services liés Stockage Azure et Azure SQL Database contiennent des chaînes de connexion utilisées par la fabrique de données pendant l’exécution pour se connecter à votre instance Stockage Azure et Azure SQL Database, respectivement. Le jeu de données d’objets blob Azure spécifie le conteneur d’objets blob et le dossier d’objets blob qui contient les objets blob d’entrée dans votre stockage Blob. Le jeu de données de table SQL Azure spécifie la table SQL dans votre base de données SQL dans laquelle les données doivent être copiées.
 
 Le diagramme suivant montre la relation entre le pipeline, l’activité, le jeu de données et le service lié dans la fabrique de données :
 
@@ -281,7 +281,7 @@ La section **policy** dans la définition du jeu de données définit les critè
 | Nom de stratégie | Description | Appliqué(e) à | Obligatoire | Default |
 | --- | --- | --- | --- | --- |
 | minimumSizeMB |Valide le fait que les données dans un **stockage blob Azure** répondent aux exigences de taille minimale (en mégaoctets). |Stockage Blob Azure |Non |N/D |
-| minimumRows |Valide le fait que les données dans une **base de données Azure SQL** ou une **table Azure** contiennent le nombre minimal de lignes. |<ul><li>Base de données Azure SQL</li><li>Table Azure</li></ul> |Non |N/D |
+| minimumRows |Valide le fait que les données dans une **base de données Azure SQL** ou une **table Azure** contiennent le nombre minimal de lignes. |<ul><li>Azure SQL Database</li><li>Table Azure</li></ul> |Non |N/D |
 
 #### <a name="examples"></a>Exemples
 **minimumSizeMB :**

@@ -1,5 +1,5 @@
 ---
-title: Déboguer et résoudre les problèmes de pipelines de Machine Learning dans Application Insights
+title: Surveiller & collecter les fichiers journaux de pipeline
 titleSuffix: Azure Machine Learning
 description: Ajoutez la journalisation à vos pipelines de formation et de scoring par lots et affichez les résultats enregistrés dans Application Insights.
 services: machine-learning
@@ -7,25 +7,24 @@ author: sanpil
 ms.author: sanpil
 ms.service: machine-learning
 ms.subservice: core
-ms.workload: data-services
 ms.topic: how-to
 ms.date: 01/16/2020
 ms.custom: seodec18, tracking-python
-ms.openlocfilehash: faf83ad35e6aed191d07d7a297a547ec0d9921b2
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: a87ceb5a216b05f3fae6d570bbfed1c4a622c911
+ms.sourcegitcommit: bcb962e74ee5302d0b9242b1ee006f769a94cfb8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84555750"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86055713"
 ---
-# <a name="debug-and-troubleshoot-machine-learning-pipelines-in-application-insights"></a>Déboguer et résoudre les problèmes de pipelines de Machine Learning dans Application Insights
+# <a name="collect-machine-learning-pipeline-log-files-in-application-insights-for-alerts-and-debugging"></a>Collecter les fichiers journaux de pipeline de Machine Learning dans Application Insights pour les alertes et le débogage
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
 
 La bibliothèque Python [OpenCensus](https://opencensus.io/quickstart/python/) peut être utilisée pour acheminer les journaux vers Application Insights à partir de vos scripts. L’agrégation des journaux issus des exécutions de pipeline dans un même emplacement vous permet de créer des requêtes et de diagnostiquer les problèmes. L’utilisation d’Application Insights vous permet de suivre les journaux dans le temps et de comparer les journaux de pipeline entre les exécutions.
 
 Le fait de disposer de vos journaux dans un emplacement unique permet d’obtenir un historique des exceptions et des messages d’erreur. Étant donné qu’Application Insights s’intègre aux alertes Azure, vous pouvez également créer des alertes basées sur des requêtes Application Insights.
 
-## <a name="prerequisites"></a>Conditions préalables requises
+## <a name="prerequisites"></a>Prérequis
 
 * Suivez les étapes pour créer un espace de travail [Azure Machine Learning](./how-to-manage-workspace.md) et [créer votre premier pipeline](./how-to-create-your-first-pipeline.md)
 * [Configurez votre environnement de développement](./how-to-configure-environment.md) pour installer le SDK Azure Machine Learning.

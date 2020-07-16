@@ -7,21 +7,21 @@ author: saveenr
 ms.author: saveenr
 ms.reviewer: jasonwhowell
 ms.assetid: 07830b36-2fe3-4809-a846-129cf67b6a9e
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 08/20/2019
-ms.openlocfilehash: b8c7d2ba1c782c3b6ae3034d6a9aab5eb19be954
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 6409ac10a524f75709cbbf185efb03359606e88c
+ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "70813642"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86121365"
 ---
 # <a name="manage-azure-data-lake-analytics-using-a-java-app"></a>Gérer Azure Data Lake Analytics à l’aide d’une application Java
 [!INCLUDE [manage-selector](../../includes/data-lake-analytics-selector-manage.md)]
 
 Cet article explique comment gérer des comptes, des sources de données, des utilisateurs et des travaux Azure Data Lake Analytics à l’aide d’une application écrite avec le SDK Azure pour Java. 
 
-## <a name="prerequisites"></a>Conditions préalables requises
+## <a name="prerequisites"></a>Prérequis
 * **Kit de développement Java (JDK) 8** (à l’aide de Java version 1.8).
 * **IntelliJ** ou un autre environnement de développement Java approprié. Les instructions de ce document utilisent Intellij.
 * Création d’une application Azure Active Directory (AAD) et récupération de ses **ID client**, **ID de locataire** et **Clé**. Pour plus d’informations sur les applications AAD et pour savoir comment obtenir un ID client, consultez [Création de l’application Active Directory et du principal du service à l’aide du portail](../active-directory/develop/howto-create-service-principal-portal.md). L’URI de réponse et la Clé seront disponibles sur le portail une fois l’application créée et la clé générée.
@@ -35,7 +35,7 @@ L’extrait de code ci-dessous fournit le code pour une authentification **non i
 2. Cliquez avec le bouton droit sur le projet sur le côté gauche de l’écran et cliquez sur **Ajouter la prise en charge Framework**. Choisissez **Maven** et cliquez sur **OK**.
 3. Ouvrez le fichier **« pom.xml »** créé et ajoutez l’extrait de texte suivant entre la balise **\</version>** et la balise **\</project>** :
 
-```
+```xml
 <dependencies>
     <dependency>
         <groupId>com.microsoft.azure</groupId>

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 03/30/2018
 ms.author: akjosh
-ms.openlocfilehash: 67df46742be52b03bd91af19654fbfac5df29646
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 5d0eee6b89ec3e0be944f17c361aafa598724069
+ms.sourcegitcommit: e132633b9c3a53b3ead101ea2711570e60d67b83
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "79226865"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86042116"
 ---
 # <a name="virtual-machine-extensions-and-features-for-linux"></a>Extensions et fonctionnalités de machine virtuelle pour Linux
 
@@ -115,7 +115,7 @@ L’image suivante illustre l’installation de l’extension de script personna
 
 ### <a name="azure-resource-manager-templates"></a>Modèles Microsoft Azure Resource Manager
 
-Les extensions de machine virtuelle peuvent être ajoutées à un modèle Azure Resource Manager et exécutées avec le déploiement du modèle. Lorsque vous déployez une extension avec un modèle, vous pouvez créer des déploiements Azure entièrement configurés. Par exemple, le code JSON suivant est tiré d’un modèle Resource Manager qui déploie un ensemble de machines virtuelles à charge équilibrée et une base de données Azure SQL, puis installe une application .NET Core sur chaque machine virtuelle. L’extension de machine virtuelle se charge de l’installation du logiciel.
+Les extensions de machine virtuelle peuvent être ajoutées à un modèle Azure Resource Manager et exécutées avec le déploiement du modèle. Lorsque vous déployez une extension avec un modèle, vous pouvez créer des déploiements Azure entièrement configurés. Par exemple, le code JSON suivant est tiré d’un modèle Resource Manager qui déploie un ensemble de machines virtuelles à charge équilibrée et Azure SQL Database, puis installe une application .NET Core sur chaque machine virtuelle. L’extension de machine virtuelle se charge de l’installation du logiciel.
 
 Pour plus d’informations, consultez le [modèle Resource Manager complet](https://github.com/Microsoft/dotnet-core-sample-templates/tree/master/dotnet-core-music-linux).
 

@@ -1,6 +1,6 @@
 ---
 title: Connecter des données Fortinet à Azure Sentinel | Microsoft Docs
-description: Découvrez comment connecter des données Fortinet à Azure Sentinel.
+description: Connectez votre appliance Fortinet à Azure Sentinel pour consulter des tableaux de bord, créer des alertes personnalisées et améliorer les enquêtes. 
 services: sentinel
 documentationcenter: na
 author: yelevin
@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 12/30/2019
 ms.author: yelevin
-ms.openlocfilehash: aabc95fcb8d3b32b89bb83f4f6892c3d40b03417
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 72ba4acd694933db503b01611e63867af99a129f
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "77588193"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85555952"
 ---
 # <a name="connect-fortinet-to-azure-sentinel"></a>Connecter Fortinet à Azure Sentinel
 

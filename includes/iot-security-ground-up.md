@@ -1,6 +1,6 @@
 ---
-title: Fichier Include
-description: Fichier Include
+title: Fichier include
+description: Fichier include
 services: iot-fundamentals
 author: robinsh
 ms.service: iot-fundamentals
@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 04/24/2018
 ms.author: robinsh
 ms.custom: include file
-ms.openlocfilehash: 128a2e8b200f1323b88aad635f27c1b686ecbed2
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 4f7ec9bbf7877d8067b3d8b1566a5cd2c2075281
+ms.sourcegitcommit: e132633b9c3a53b3ead101ea2711570e60d67b83
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "72789710"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86050227"
 ---
 L’Internet des objets (IoT, Internet of Things) confronte les entreprises du monde entier à des défis uniques en termes de sécurité, de confidentialité et de conformité. Contrairement à la technologie informatique traditionnelle où ces problèmes sont axés sur les logiciels et leur mode d’implémentation, l’IoT porte sur les effets de la convergence entre le monde informatique et le monde physique. La protection des solutions IoT implique un approvisionnement sécurisé des appareils, une connexion sécurisée entre ces appareils et le cloud et une protection efficace des données dans le cloud, dans le cadre du traitement et du stockage. Cependant, les appareils avec contraintes de ressources, la répartition géographique des déploiements et le grand nombre d’appareils inclus au sein d’une solution vont à l’encontre de ces fonctionnalités.
 
@@ -89,7 +89,7 @@ En utilisant Azure Active Directory (AAD) pour l’authentification et l’autor
 
 Une fois les données dans le cloud, elles peuvent être traitées et stockées dans n’importe quel flux de travail défini par l’utilisateur. L’accès à chaque partie des données est contrôlé avec Azure Active Directory, en fonction du service de stockage utilisé.
 
-Toutes les clés utilisées par l’infrastructure IoT sont stockées dans le cloud de manière sécurisée. Les clés peuvent être substituées si un réapprovisionnement est nécessaire. Les données peuvent être stockées dans [Cosmos DB](../articles/cosmos-db/introduction.md) ou dans des [bases de données SQL](../articles/sql-database/sql-database-faq.md), ce qui permet de définir le niveau de sécurité souhaité. En outre, Azure fournit un moyen de surveiller et d’auditer tous les accès à vos données pour vous informer de toute intrusion ou de tout accès non autorisé.
+Toutes les clés utilisées par l’infrastructure IoT sont stockées dans le cloud de manière sécurisée. Les clés peuvent être substituées si un réapprovisionnement est nécessaire. Les données peuvent être stockées dans [Azure Cosmos DB](../articles/cosmos-db/introduction.md) ou dans [SQL Database](../articles/sql-database/sql-database-faq.md), ce qui permet de définir le niveau de sécurité souhaité. En outre, Azure fournit un moyen de surveiller et d’auditer tous les accès à vos données pour vous informer de toute intrusion ou de tout accès non autorisé.
 
 ## <a name="conclusion"></a>Conclusion
 
@@ -103,12 +103,12 @@ Chaque accélérateur de solution crée des instances de services Azure, telles 
 
 * [**Azure IoT Hub**](https://azure.microsoft.com/services/iot-hub/) : votre passerelle connectant le cloud aux appareils. Vous pouvez évoluer vers des millions de connexions par hub et traiter des volumes de données de grande envergure en bénéficiant de la prise en charge de l’authentification par appareil, qui vous aide à sécuriser votre solution.
 
-* [**Azure Cosmos DB**](https://azure.microsoft.com/services/cosmos-db/) : service de base de données évolutif et entièrement indexé pour données semi-structurées, qui gère les métadonnées (attributs, configuration, propriétés de sécurité, etc.) des appareils que vous approvisionnez. Azure Cosmos DB assure un traitement hautes performances et à débit élevé, ainsi qu’une indexation des données indépendante du schéma. Ce service offre également une interface de requête SQL enrichie.
+* [**Azure Cosmos DB**](https://azure.microsoft.com/services/cosmos-db/) : service de base de données évolutif et entièrement indexé pour données semi-structurées, qui gère les métadonnées (attributs, configuration, propriétés de sécurité, etc.) des appareils que vous provisionnez. Azure Cosmos DB assure un traitement hautes performances et à débit élevé, ainsi qu’une indexation des données indépendante du schéma. Ce service offre également une interface de requête SQL enrichie.
 
 * [**Azure Stream Analytics**](https://azure.microsoft.com/services/stream-analytics/) : traitement des flux en temps réel dans le cloud, permettant de développer et de déployer rapidement une solution d’analyse à faible coût pour obtenir des informations en temps réel de la part des appareils, capteurs, infrastructures et applications. Les données de ce service entièrement géré peuvent être mises à l’échelle selon n’importe quel volume. Vous continuez à bénéficier d’un débit élevé, d’une faible latence et de la résilience.
 
-* [**Azure App Services**](https://azure.microsoft.com/services/app-service/) : plateforme cloud permettant de créer de puissantes applications web et mobiles qui se connectent aux données n’importe où, que ce soit localement ou dans le cloud. Créez des applications mobiles attrayantes pour iOS, Android et Windows. Assurez l’intégration avec vos applications SaaS (Software as a Service) et d’entreprise grâce à une connectivité prête à l’emploi à des dizaines d’applications et services basés sur le cloud. Encodez dans votre environnement de développement intégré et votre langage favoris (.NET, Node.js, PHP, Python ou Java) pour créer rapidement des applications web et des API.
+* [**Azure App Services**](https://azure.microsoft.com/services/app-service/) : plateforme cloud qui permet de créer des applications web et mobiles puissantes qui se connectent aux données n’importe où, que ce soit localement ou dans le cloud. Créez des applications mobiles attrayantes pour iOS, Android et Windows. Assurez l’intégration avec vos applications SaaS (Software as a Service) et d’entreprise grâce à une connectivité prête à l’emploi à des dizaines d’applications et services basés sur le cloud. Encodez dans votre environnement de développement intégré et votre langage favoris (.NET, Node.js, PHP, Python ou Java) pour créer rapidement des applications web et des API.
 
-* [**Logic Apps**](https://azure.microsoft.com/services/app-service/logic/) : fonctionnalité Azure App Service qui vous aide à intégrer votre solution IoT dans vos systèmes métier existants et à automatiser les processus de flux de travail. Logic Apps permet aux développeurs de concevoir des flux de travail qui démarrent à partir d’un déclencheur et exécutent une série d’étapes — des règles et actions utilisant des connecteurs puissants pour l’intégration à vos processus d’entreprise. Logic Apps offre une connectivité prête à l’emploi vers un vaste écosystème d’applications SaaS, basées sur le cloud et locales.
+* [**Logic Apps**](https://azure.microsoft.com/services/app-service/logic/) : fonctionnalité Azure App Service qui vous aide à intégrer votre solution IoT dans vos systèmes métier existants et à automatiser les processus de flux de travail. Logic Apps permet aux développeurs de concevoir des flux de travail qui démarrent à partir d’un déclencheur et exécutent une série d’étapes — des règles et actions utilisant des connecteurs puissants pour l’intégration à vos processus d’entreprise. Logic Apps offre une connectivité prête à l’emploi vers un vaste écosystème d’applications SaaS, basées sur le cloud et locales.
 
-* [**Stockage Blob Azure**](https://azure.microsoft.com/services/storage/) : stockage cloud fiable et économique pour les données que vos appareils envoient au cloud.
+* [**Stockage Blob Azure**](https://azure.microsoft.com/services/storage/) : stockage cloud fiable et économique pour les données que vos appareils envoient au cloud.

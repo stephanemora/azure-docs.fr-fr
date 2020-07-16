@@ -4,14 +4,14 @@ description: Découvrez comment configurer une instance Private Link pour Azure 
 author: kummanish
 ms.author: manishku
 ms.service: mysql
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 01/09/2020
-ms.openlocfilehash: f83f52f1c1800803c5e1d47f1931f7b13b2c11de
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 78634ee7236c8bc0d256bac7eea521e699c0c39d
+ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79368007"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86113268"
 ---
 # <a name="create-and-manage-private-link-for-azure-database-for-mysql-using-cli"></a>Créer et gérer une liaison privée pour Azure Database pour MySQL en utilisant l’interface CLI
 
@@ -20,7 +20,7 @@ Private Endpoint est le composant fondamental de Private Link dans Azure. Il per
 > [!NOTE]
 > Cette fonctionnalité est disponible dans toutes les régions Azure où Azure Database pour MySQL prend en charge les niveaux tarifaires Usage général et Mémoire optimisée.
 
-## <a name="prerequisites"></a>Conditions préalables requises
+## <a name="prerequisites"></a>Prérequis
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
@@ -45,7 +45,7 @@ az network vnet create \
 ```
 
 ## <a name="disable-subnet-private-endpoint-policies"></a>Désactiver les stratégies Private Endpoint du sous-réseau 
-Azure déploie des ressources sur un sous-réseau au sein d’un réseau virtuel. vous devez donc créer ou mettre à jour le sous-réseau pour désactiver les stratégies réseau de Private Endpoint. Mettez à jour une configuration de sous-réseau nommée *mySubnet* avec [az network vnet subnet update](https://docs.microsoft.com/cli/azure/network/vnet/subnet?view=azure-cli-latest#az-network-vnet-subnet-update) :
+Azure déploie des ressources sur un sous-réseau au sein d’un réseau virtuel. vous devez donc créer ou mettre à jour le sous-réseau pour désactiver les [stratégies réseau](../private-link/disable-private-endpoint-network-policy.md) de point de terminaison privé. Mettez à jour une configuration de sous-réseau nommée *mySubnet* avec [az network vnet subnet update](https://docs.microsoft.com/cli/azure/network/vnet/subnet?view=azure-cli-latest#az-network-vnet-subnet-update) :
 
 ```azurecli-interactive
 az network vnet subnet update \
@@ -68,7 +68,7 @@ Notez l’adresse IP publique de la machine virtuelle. Vous utiliserez cette adr
 Créez un serveur Azure Database pour MySQL avec la commande az mysql server create. N’oubliez pas que le nom de votre serveur MySQL doit être unique dans Azure. Par conséquent, remplacez la valeur d’espace réservé entre crochets par votre propre valeur unique : 
 
 ```azurecli-interactive
-# Create a logical server in the resource group 
+# Create a server in the resource group 
 az mysql server create \
 --name mydemoserver \
 --resource-group myResourcegroup \
@@ -78,18 +78,21 @@ az mysql server create \
 --sku-name GP_Gen5_2
 ```
 
-Notez que l’ID du serveur MySQL est similaire à ```/subscriptions/subscriptionId/resourceGroups/myResourceGroup/providers/Microsoft.DBforMySQL/servers/servername.``` Vous allez utiliser l’ID du serveur MySQL à l’étape suivante. 
+> [!NOTE]
+> Il peut arriver que l’instance Azure Database pour MySQL et le sous-réseau de réseau virtuel se trouvent dans des abonnements différents. Dans ce cas, vous devez vérifier les configurations suivantes :
+> - Assurez-vous que le fournisseur de ressources **Microsoft.DBforMySQL** est inscrit pour les deux abonnements. Pour plus d’informations, reportez-vous à [resource-manager-registration][resource-manager-portal]
 
 ## <a name="create-the-private-endpoint"></a>Créer l’instance Private Endpoint 
 Créez un point de terminaison privé pour le serveur MySQL dans votre réseau virtuel : 
+
 ```azurecli-interactive
 az network private-endpoint create \  
     --name myPrivateEndpoint \  
     --resource-group myResourceGroup \  
     --vnet-name myVirtualNetwork  \  
     --subnet mySubnet \  
-    --private-connection-resource-id "<MySQL Server ID>" \  
-    --group-ids mysqlServer \  
+    --private-connection-resource-id $(az resource show -g myResourcegroup -n mydemoserver --resource-type "Microsoft.DBforMySQL/servers" --query "id") \    
+    --group-id mysqlServer \  
     --connection-name myConnection  
  ```
 
@@ -190,3 +193,6 @@ az group delete --name myResourceGroup --yes
 
 ## <a name="next-steps"></a>Étapes suivantes
 - En savoir plus sur [Qu’est-ce qu’Azure Private Endpoint ?](https://docs.microsoft.com/azure/private-link/private-endpoint-overview)
+
+<!-- Link references, to text, Within this same GitHub repo. -->
+[resource-manager-portal]: ../azure-resource-manager/management/resource-providers-and-types.md

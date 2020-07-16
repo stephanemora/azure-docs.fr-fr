@@ -5,18 +5,18 @@ description: Découvrez comment contourner et résoudre les erreurs courantes de
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
-ms.topic: conceptual
+ms.topic: troubleshooting
 author: clauren42
 ms.author: clauren
 ms.reviewer: jmartens
 ms.date: 03/05/2020
-ms.custom: contperfq4
-ms.openlocfilehash: f65b263bb90356a4d739ebc963458cc7e992863c
-ms.sourcegitcommit: 69156ae3c1e22cc570dda7f7234145c8226cc162
+ms.custom: contperfq4, tracking-python
+ms.openlocfilehash: 13ce9204ad09d2ecb4b149cf50696aa73d927314
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/03/2020
-ms.locfileid: "84307943"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85214364"
 ---
 # <a name="troubleshoot-docker-deployment-of-models-with-azure-kubernetes-service-and-azure-container-instances"></a>Résolution des problèmes de déploiement Docker des modèles avec Azure Kubernetes Service et Azure Container Instances 
 
@@ -277,7 +277,7 @@ Pour plus d’informations sur la configuration de `autoscale_target_utilization
 
 Un code d’état 504 indique que la requête a expiré. Le délai d’expiration par défaut est de une minute.
 
-Vous pouvez augmenter le délai d’expiration ou essayer d’accélérer le service en modifiant le fichier score.py pour supprimer les appels inutiles. Si ces actions ne corrigent pas le problème, utilisez les informations de cet article pour déboguer le fichier score.py. Le code peut être dans un état suspendu ou une boucle infinie.
+Vous pouvez augmenter le délai d’expiration ou essayer d’accélérer le service en modifiant le fichier score.py pour supprimer les appels inutiles. Si ces actions ne corrigent pas le problème, utilisez les informations de cet article pour déboguer le fichier score.py. Le code peut être dans un état sans réponse ou une boucle infinie.
 
 ## <a name="advanced-debugging"></a>Débogage avancé
 

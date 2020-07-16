@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/04/2019
 ms.author: memildin
-ms.openlocfilehash: 5146878adf10e452f38fecb115ec40792ffa84f3
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: cf732b92c1a208dd4c312ae442969ef958a021b4
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79139995"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84791178"
 ---
 # <a name="alert-validation-eicar-test-file-in-azure-security-center"></a>Validation des alertes (fichier de test EICAR) dans Azure Security Center
 Ce document est conçu pour vous apprendre à vérifier si votre système est correctement configuré pour les alertes dans Azure Security Center.
@@ -39,7 +39,7 @@ Après avoir installé l’agent de Security Center sur votre ordinateur, suivez
 
 1. Copiez un exécutable (par exemple, **calc.exe**) sur le bureau de votre ordinateur ou dans le répertoire de votre choix et renommez-le **ASC_AlertTest_662jfi039N.exe**.
 1. Ouvrez l’invite de commandes et exécutez ce fichier avec un argument (un faux nom d’argument), tel que : ```ASC_AlertTest_662jfi039N.exe -foo```
-1. Patientez 5 à 10 minutes puis ouvrez les alertes dans Security Center. Une alerte similaire à l'[exemple](#alert-validate) ci-dessous doit s'afficher :
+1. Patientez 5 à 10 minutes puis ouvrez les alertes dans Security Center. Une alerte doit s’afficher.
 
 > [!NOTE]
 > En examinant cette alerte de test, veillez à ce que la valeur du champ **Arguments Auditing Enabled** (Audit pour arguments activé) soit **true**. S’il est **false**, vous devez activer la ligne de commande d’audit pour arguments. Pour ce faire, utilisez la commande suivante :
@@ -57,11 +57,7 @@ Après avoir installé l’agent de Security Center sur votre ordinateur, suivez
 
     ```./asc_alerttest_662jfi039n testing eicar pipe```
 
-1. Patientez 5 à 10 minutes puis ouvrez les alertes dans Security Center. Une alerte similaire à l'[exemple](#alert-validate) ci-dessous doit s'afficher :
-
-### <a name="alert-example"></a>Exemple d’alerte <a name="alert-validate"></a>
-
-![Exemple de validation d'alerte](./media/security-center-alert-validation/security-center-alert-validation-fig2.png) 
+1. Patientez 5 à 10 minutes puis ouvrez les alertes dans Security Center. Une alerte doit s’afficher.
 
 
 ## <a name="validate-alerts-on-kubernetes"></a>Valider des alertes sur Kubernetes<a name="validate-kubernetes"></a>

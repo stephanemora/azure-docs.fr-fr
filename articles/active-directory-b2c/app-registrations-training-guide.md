@@ -6,20 +6,20 @@ author: msmimart
 manager: celestedg
 ms.service: active-directory
 ms.workload: identity
-ms.topic: conceptual
+ms.topic: reference
 ms.date: 05/25/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: e60e8452b5cd3750a7b3478c860de95d8992528d
-ms.sourcegitcommit: d118ad4fb2b66c759b70d4d8a18e6368760da3ad
+ms.openlocfilehash: c89ed98d8100df270f09f1d2d1b621e71e326fe3
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/02/2020
-ms.locfileid: "84302061"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85386298"
 ---
 # <a name="the-new-app-registrations-experience-for-azure-active-directory-b2c"></a>Nouvelle expérience d’inscriptions d’applications pour Azure Active Directory B2C
 
-La nouvelle expérience d’ **[inscriptions d’applications](https://aka.ms/b2cappregistrations)** Azure Active Directory Azure AD B2C (Azure AD B2C) est désormais en disponibilité générale. Si vous êtes plus à l’aise avec l’expérience **Applications** pour l’inscription d’applications pour Azure AD B2C, appelée ici « l’expérience héritée », ce guide vous permet de commencer à utiliser la nouvelle expérience.
+Nouvelle expérience **[d’inscriptions d’applications](https://aka.ms/b2cappregistrations)** pour Azure Active Directory B2C (Azure AD B2C) est à présent disponible. Si vous êtes plus à l’aise avec l’expérience **Applications** pour l’inscription d’applications pour Azure AD B2C, appelée ici « l’expérience héritée », ce guide vous permet de commencer à utiliser la nouvelle expérience.
 
 ## <a name="overview"></a>Vue d’ensemble
 Auparavant, vous deviez gérer vos applications Azure AD B2C destinées aux consommateurs séparément du reste de vos applications à l’aide de l’expérience héritée. Cela signifiait différentes expériences de création d’applications à différents emplacements dans Azure.
@@ -58,7 +58,7 @@ Dans la nouvelle expérience, vous sélectionnez un type de compte de support pa
 
 Pour comprendre les différents types de comptes, sélectionnez **M’aider à choisir** dans l’expérience de création. 
 
-Dans l’expérience héritée, les applications étaient toujours créées en tant qu’applications orientées client. Pour ces applications, le type de compte est défini sur **Comptes dans un annuaire organisationnel ou un fournisseur d’identité. Pour l’authentification des utilisateurs auprès d’Azure AD B2C.** 
+Dans l’expérience héritée, les applications étaient toujours créées en tant qu’applications orientées client. Pour ces applications, le type de compte est défini sur **Comptes dans un annuaire organisationnel ou un fournisseur d’identité. Pour l’authentification des utilisateurs auprès d’Azure AD B2C**.
 > [!NOTE]
 > Cette option est requise pour pouvoir exécuter les flux d’utilisateurs Azure AD B2C afin d’authentifier les utilisateurs de cette application. Découvrez [comment inscrire une application pour l’utiliser avec des flux d’utilisateurs](tutorial-register-applications.md).
 
@@ -79,11 +79,11 @@ En savoir plus sur [les autorisations et le consentement](../active-directory/de
 ## <a name="platformsauthentication-reply-urlsredirect-uris"></a>Plateformes/Authentification : URL de réponse/URl de redirection
 Dans l’expérience héritée, les différents types de plateformes étaient gérés sous **Propriétés** en tant qu’URL de réponse pour les API/applications web et en tant qu’URI de redirection pour les clients natifs. Les « clients natifs » sont également appelés « clients publics » et incluent des applications pour iOS, macOS, Android et d’autres types d’applications mobiles et de bureau. 
 
-Dans la nouvelle expérience, les URL de réponse et les URI de redirection sont tous deux appelés URI de redirection et se trouvent dans la section **Authentification** d’une application. Les inscriptions d’applications ne se limitent pas aux API/applications web ou aux applications natives. Vous pouvez utiliser le même processus d’inscription d’applications pour tous ces types de plateformes en inscrivant les URI de redirection correspondants. 
+Dans la nouvelle expérience, les URL de réponse et les URI de redirection sont tous deux appelés URI de redirection et se trouvent dans la section **Authentification** d’une application. Les inscriptions d’applications ne se limitent pas aux applications web ou natives. Vous pouvez utiliser le même processus d’inscription d’applications pour tous ces types de plateformes en inscrivant les URI de redirection correspondants. 
 
 Les URI de redirection doivent être associés à un type d’application, qu’elle soit web ou publique (mobile et de bureau). [En savoir plus sur les URI de redirection](../active-directory/develop/quickstart-configure-app-access-web-apis.md#add-redirect-uris-to-your-application)
 
-La question de savoir si une application doit être traitée comme un client public trouve sa réponse à l’exécution à partir du type de plateforme d’URI de redirection, si possible. Le paramètre **Traiter l’application en tant que client public** doit avoir la valeur *Oui* pour les flux susceptibles de ne pas utiliser d’URI de redirection, comme les flux ROPC.
+<!-- Whether an application should be treated as a public client is inferred at run-time from the Redirect URI platform type, if possible. The **Treat application as a public client** setting should be set to **Yes** for flows that might not use a redirect URI, such as ROPC flows. -->
 
 Les plateformes **iOS/macOS** et **Android** sont un type de client public. Elles offrent un moyen simple de configurer des applications iOS/macOS ou Android avec des URI de redirection correspondants pour une utilisation avec MSAL. En savoir plus sur les [options de configuration d’application](../active-directory/develop/msal-client-applications.md).
 
@@ -93,7 +93,7 @@ Les plateformes **iOS/macOS** et **Android** sont un type de client public. Elle
 Dans la nouvelle expérience, au lieu du panneau **Clés**, vous utilisez le panneau **Certificats et secrets** pour gérer les certificats et les secrets. Les informations d’identification permettent aux applications de s’identifier auprès du service d’authentification lors de la réception de jetons à un emplacement adressable sur le web (à l’aide d’un schéma HTTPS). Nous vous recommandons d’utiliser un certificat au lieu d’une clé secrète client pour les scénarios d’informations d’identification du client lors de l’authentification auprès d’Azure AD. Les certificats ne peuvent pas être utilisés pour l’authentification auprès d’Azure AD B2C.
 
 
-## <a name="features-not-available-in-azure-ad-b2c-tenants"></a>Fonctionnalités non disponibles dans les locataires Azure AD B2C
+## <a name="features-not-applicable-in-azure-ad-b2c-tenants"></a>Fonctionnalités non disponibles dans les locataires Azure AD B2C
 Les capacités d’inscriptions d’applications Azure AD suivantes ne s’appliquent pas aux locataires Azure AD B2C :
 - **Rôles et administrateurs** : cette opération nécessite une licence Azure AD Premium P1 ou P2 qui n’est actuellement pas disponible pour Azure AD B2C.
 - **Personnalisation** : la personnalisation de l’interface utilisateur et de l’expérience utilisateur est configurée dans l’expérience **Personnalisation de l’entreprise** ou dans le cadre d’un flux d’utilisateurs. Apprenez à [personnaliser l’interface utilisateur dans Azure Active Directory B2C](customize-ui-overview.md).
@@ -117,4 +117,4 @@ Pour prendre en main la nouvelle expérience d’inscriptions d’applications 
 * Découvrez [comment inscrire une application cliente native](add-native-application.md).
 * Découvrez [comment inscrire une application Microsoft Graph pour gérer les ressources Azure AD B2C](microsoft-graph-get-started.md).
 * Découvrez [comment utiliser Azure AD B2C en tant que fournisseur de services SAML](identity-provider-adfs2016-custom.md).
-* En savoir plus sur les [types d’applications](application-types.md)
+* En savoir plus sur les [types d’applications](application-types.md).

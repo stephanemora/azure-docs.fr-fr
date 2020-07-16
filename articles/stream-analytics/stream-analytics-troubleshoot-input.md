@@ -5,15 +5,15 @@ author: sidram
 ms.author: sidram
 ms.reviewer: mamccrea
 ms.service: stream-analytics
-ms.topic: conceptual
+ms.topic: troubleshooting
 ms.date: 05/01/2020
 ms.custom: seodec18
-ms.openlocfilehash: 9d8d87e0a2fb21603802f533a3566aa6743a9a79
-ms.sourcegitcommit: 0b80a5802343ea769a91f91a8cdbdf1b67a932d3
+ms.openlocfilehash: 3cac20e33ff865058ce41799ae8841a05716edc9
+ms.sourcegitcommit: e132633b9c3a53b3ead101ea2711570e60d67b83
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/25/2020
-ms.locfileid: "83831889"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86045074"
 ---
 # <a name="troubleshoot-input-connections"></a>Résoudre les problèmes liés aux connexions d’entrée
 
@@ -138,6 +138,28 @@ FROM data
 ### <a name="ensure-that-inputs-bind-to-different-consumer-groups"></a>Vérifiez que les entrées sont liées à différents groupes de consommateurs.
 
 Pour les requêtes dans lesquelles au moins trois entrées sont connectées au même groupe de consommateurs Event Hubs, créez des groupes de consommateurs distincts. Vous devez dans ce cas créer d’autres entrées Stream Analytics.
+
+### <a name="create-separate-inputs-with-different-consumer-groups"></a>Créer des entrées distinctes avec différents groupes de consommateurs
+
+Vous pouvez créer des entrées distinctes avec différents groupes de consommateurs pour le même hub d’événements. La requête UNION suivante est un exemple où *InputOne* et *InputTwo* font référence à la même source de concentrateur d’événements. Toute requête peut avoir des entrées distinctes avec différents groupes de consommateurs. La requête UNION n’est qu’un exemple.
+
+```sql
+WITH 
+DataOne AS 
+(
+SELECT * FROM InputOne 
+),
+
+DataTwo AS 
+(
+SELECT * FROM InputTwo 
+),
+
+SELECT foo FROM DataOne
+UNION 
+SELECT foo FROM DataTwo
+
+```
 
 ## <a name="get-help"></a>Obtenir de l’aide
 

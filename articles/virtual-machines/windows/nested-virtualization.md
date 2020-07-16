@@ -7,12 +7,12 @@ ms.date: 10/09/2017
 ms.topic: how-to
 ms.service: virtual-machines-windows
 ms.workload: infrastructure
-ms.openlocfilehash: 2c66f88cc49028fae50d89a9a7c24233d5a926b4
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 543ed51cc10cce017e0e57a1a351ce382f1ca35f
+ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81865712"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86083506"
 ---
 # <a name="how-to-enable-nested-virtualization-in-an-azure-vm"></a>Guide d’activation de la virtualisation imbriquée dans une machine virtuelle Azure
 
@@ -137,7 +137,7 @@ Vous pouvez affecter une adresse IP à la machine virtuelle invitée en définis
 ###  <a name="option-1-configure-dhcp-to-dynamically-assign-an-ip-address-to-the-guest-virtual-machine"></a>Option 1 : Configurer DHCP pour affecter dynamiquement une adresse IP à la machine virtuelle invitée
 Suivez les étapes ci-dessous pour configurer DHCP sur la machine virtuelle hôte pour l’attribution dynamique d’adresses.
 
-#### <a name="install-dchp-server-on-the-azure-vm"></a>Installer le serveur DHCP sur la machine virtuelle Azure
+#### <a name="install-dhcp-server-on-the-azure-vm"></a>Installer le serveur DHCP sur la machine virtuelle Azure
 
 1. Ouvrez le Gestionnaire de serveurs. Dans le tableau de bord, cliquez sur **Ajouter des rôles et fonctionnalités**. La fenêtre de l’Assistant Ajouter des rôles et fonctionnalités s’affiche.
   
@@ -181,6 +181,3 @@ Dans cet exemple, vous utiliserez une adresse dans la plage 192.168.0.0/24.
 Dans la machine virtuelle invitée, ouvrez votre navigateur et accédez à une page web.
     ![GuestVM](./media/virtual-machines-nested-virtualization/guest-virtual-machine.png)
 
-## <a name="set-up-intranet-connectivity-for-the-guest-virtual-machine"></a>Configurer une connectivité intranet pour la machine virtuelle invitée
-
-Pour obtenir des instructions sur l’activation de la connectivité transparente entre les machines virtuelles Azure et les machines virtuelles invitées, consultez [ce document](https://docs.microsoft.com/virtualization/hyper-v-on-windows/user-guide/nested-virtualization-azure-virtual-network).

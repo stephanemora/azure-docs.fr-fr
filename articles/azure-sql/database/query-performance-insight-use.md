@@ -11,12 +11,12 @@ author: danimir
 ms.author: danil
 ms.reviewer: jrasnik, carlrab
 ms.date: 03/10/2020
-ms.openlocfilehash: afb8e18cbad6a47a99d3ccf05bdb9957f1f9778e
-ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
+ms.openlocfilehash: 01287f344d77dedade30892d76f5fdbd54481df1
+ms.sourcegitcommit: e132633b9c3a53b3ead101ea2711570e60d67b83
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "84035550"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86042881"
 ---
 # <a name="query-performance-insight-for-azure-sql-database"></a>Query Performance Insight pour Azure SQL Database
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -234,9 +234,9 @@ Le premier cas se produit quand le magasin de requêtes est en lecture seule et 
 
 Le deuxième cas se produit quand le magasin de requêtes est désactivé ou que les paramètres ne sont pas définis de façon optimale. Vous pouvez changer la stratégie de conservation et de capture, et aussi activer le magasin de requêtes en exécutant les commandes suivantes fournies dans [SQL Server Management Studio (SSMS)](https://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms) ou le portail Azure.
 
-### <a name="recommended-retention-and-capture-policy"></a>Stratégie de conservation et de capture recommandée
+### <a name="recommended-retention-and-capture-policy"></a>Stratégie de rétention et de capture recommandée
 
-Il existe deux types de stratégies de conservation :
+Il existe deux types de stratégies de rétention :
 
 * **En fonction de la taille** : Si cette stratégie est définie sur **AUTO**, les données sont automatiquement nettoyées quand la taille maximale est atteinte.
 * **En fonction de l’heure** : Par défaut, cette stratégie est définie sur 30 jours. Si le magasin de requêtes manque d’espace, il supprime les informations de requête de plus de 30 jours.

@@ -4,14 +4,14 @@ description: Découvrez comment configurer une instance Private Link pour Azure 
 author: kummanish
 ms.author: manishku
 ms.service: mariadb
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 01/09/2020
-ms.openlocfilehash: 3f421cad64caf91b898bb1ec13dc909b93b7f72d
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: db2fa377cc10759fc57c3e4a27bd7815a5724bd7
+ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79370336"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86114735"
 ---
 # <a name="create-and-manage-private-link-for-azure-database-for-mariadb-using-portal"></a>Création et gestion de Private Link pour Azure Database for MariaDB avec le portail
 
@@ -116,11 +116,15 @@ Dans cette section, vous allez créer un serveur Azure Database for MariaDB dans
     |Version  | Sélectionnez la version de base de données du serveur MariaDB qui est requise.|
     | Calcul + Stockage| Sélectionnez le niveau tarifaire requis pour le serveur en fonction de la charge de travail. |
     |||
- 
+
 7. Sélectionnez **OK**. 
 8. Sélectionnez **Revoir + créer**. Vous êtes redirigé vers la page **Vérifier + créer** où Azure valide votre configuration. 
 9. Quand le message Validation réussie s’affiche, sélectionnez **Créer**. 
 10. Quand le message Validation réussie s’affiche, sélectionnez Créer. 
+
+> [!NOTE]
+> Il peut arriver que l’instance Azure Database for MariaDB et le sous-réseau de réseau virtuel se trouvent dans des abonnements différents. Dans ce cas, vous devez vérifier les configurations suivantes :
+> - Assurez-vous que le fournisseur de ressources **Microsoft.DBforMariaDB** est inscrit pour les deux abonnements. Pour plus d’informations, reportez-vous à [resource-manager-registration][resource-manager-portal]
 
 ## <a name="create-a-private-endpoint"></a>Créer un Private Endpoint
 
@@ -165,6 +169,9 @@ Dans cette section, vous allez créer un point de terminaison privé pour l’aj
     |Intégrer à une zone DNS privée |Sélectionnez **Oui**. |
     |Zone DNS privée |Sélectionnez *(New)privatelink.mariadb.database.azure.com* |
     |||
+
+    > [!Note] 
+    > Utilisez la zone DNS privée prédéfinie pour votre service ou indiquez le nom de la zone DNS de votre choix. Pour plus d’informations, reportez-vous à la [Configuration de la zone DNS des services Azure](../private-link/private-endpoint-dns.md).
 
 1. Sélectionnez **Revoir + créer**. Vous êtes redirigé vers la page **Vérifier + créer** où Azure valide votre configuration. 
 2. Lorsque le message **Validation passed** (Validation réussie) apparaît, sélectionnez **Créer**. 
@@ -245,3 +252,6 @@ Lorsque vous avez fini d’utiliser le point de terminaison privé, le serveur M
 ## <a name="next-steps"></a>Étapes suivantes
 
 Dans ce guide pratique, vous avez créé une machine virtuelle sur un réseau virtuel, une instance Azure Database for MariaDB et un point de terminaison privé pour un accès privé. Vous vous êtes connecté à une machine virtuelle à partir d’Internet et avez communiqué de façon sécurisée avec le serveur MariaDB via Azure Private Link. Pour plus d’informations sur les points de terminaison privés, consultez [Qu’est-ce qu’Azure Private Endpoint ?](https://docs.microsoft.com/azure/private-link/private-endpoint-overview)
+
+<!-- Link references, to text, Within this same GitHub repo. -->
+[resource-manager-portal]: ../azure-resource-manager/management/resource-providers-and-types.md

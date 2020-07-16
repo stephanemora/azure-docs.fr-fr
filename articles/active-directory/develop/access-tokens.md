@@ -13,12 +13,12 @@ ms.date: 05/18/2020
 ms.author: hirsin
 ms.reviewer: hirsin
 ms.custom: aaddev, identityplatformtop40, fasttrack-edit
-ms.openlocfilehash: 3e1d000ed316a1a92e6dcdab0f9b7d577fd33d8b
-ms.sourcegitcommit: 318d1bafa70510ea6cdcfa1c3d698b843385c0f6
+ms.openlocfilehash: 75c211ea61359c244c6280b9664a4f412b3d2279
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/21/2020
-ms.locfileid: "83772231"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85552012"
 ---
 # <a name="microsoft-identity-platform-access-tokens"></a>Jetons d’accès de la plateforme d’identités Microsoft
 
@@ -230,11 +230,13 @@ Cette étape est déterminée par la logique métier de votre application, certa
 
 ## <a name="user-and-application-tokens"></a>Jetons d’utilisateur et d’application
 
-Votre application peut recevoir des jetons au nom d’un utilisateur (le flux habituel) ou directement d’une application (via le flux des informations d’identification client [[v1.0](../azuread-dev/v1-oauth2-client-creds-grant-flow.md), [v2.0](v2-oauth2-client-creds-grant-flow.md)]). Ces jetons réservés aux applications indiquent que l’appel provient d’une application et qu’aucun utilisateur ne lui est associé. Ces jetons sont traités en grande partie de la même façon, à quelques différences près :
+Votre application peut recevoir des jetons pour utilisateur (le flux généralement décrit) ou directement d’une application (via le [flux des informations d’identification du client](v1-oauth2-client-creds-grant-flow.md)). Ces jetons réservés aux applications indiquent que l’appel provient d’une application et qu’aucun utilisateur ne lui est associé. Ces jetons sont traités en grande partie de la même façon :
 
-* Les jetons réservés aux applications n’ont pas de revendication `scp`, mais une revendication `roles`. C’est à cet endroit que l’autorisation de l’application est enregistrée (contrairement aux autorisations déléguées). Pour en savoir plus sur les autorisations déléguées et les autorisations d’application, consultez l’autorisation et le consentement ([v1.0](../azuread-dev/v1-permissions-consent.md), [v2.0](v2-permissions-and-consent.md)).
-* De nombreuses revendications propres aux êtres humains sont manquantes, comme `name` ou `upn`.
-* Les revendications `sub` et `oid` sont les mêmes.
+* Utilisez `roles` pour afficher les autorisations qui ont été accordées au sujet du jeton (le principal de service, plutôt qu’un utilisateur dans ce cas).
+* Utilisez `oid` ou `sub` pour vérifier que le principal de service appelant est celui attendu.
+
+Si votre application doit faire la distinction entre les jetons d’accès pour l’application uniquement et les jetons d’accès pour les utilisateurs, utilisez la [revendication facultative](active-directory-optional-claims.md) `idtyp`.  En ajoutant la revendication `idtyp` au champ `accessToken` et en recherchant la valeur `app`, vous pouvez détecter les jetons d’accès pour l’application uniquement.  Les jetons d’ID et les jetons d’accès pour les utilisateurs ne contiennent pas la revendication `idtyp`.
+
 
 ## <a name="token-revocation"></a>Révocation de jetons
 
@@ -254,7 +256,7 @@ La durée de vie des jetons d’actualisation peut être modifiée à l’aide d
 
 Les jetons d’actualisation peuvent être révoqués par le serveur en raison d’une modification des informations d’identification ou en raison d’une action d’utilisation ou d’administration.  Les jetons d’actualisation se répartissent en deux classes : ceux émis pour les clients confidentiels (colonne la plus à droite) et ceux émis pour les clients publics (toutes les autres colonnes).   
 
-|   | Cookie basé sur un mot de passe | Jeton basé sur un mot de passe | Cookie non basé sur un mot de passe | Jeton non basé sur un mots de passe | Jeton client confidentiel |
+| Modifier | Cookie basé sur un mot de passe | Jeton basé sur un mot de passe | Cookie non basé sur un mot de passe | Jeton non basé sur un mots de passe | Jeton client confidentiel |
 |---|-----------------------|----------------------|---------------------------|--------------------------|---------------------------|
 | Le mot de passe expire | Reste actif | Reste actif | Reste actif | Reste actif | Reste actif |
 | Mot de passe modifié par l’utilisateur | Révoqué | Révoqué | Reste actif | Reste actif | Reste actif |

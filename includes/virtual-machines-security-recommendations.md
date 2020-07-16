@@ -1,6 +1,6 @@
 ---
-title: Fichier Include
-description: Fichier Include
+title: Fichier include
+description: Fichier include
 services: virtual-machines
 author: msmbaldwin
 ms.service: virtual-machines
@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 11/13/2019
 ms.author: mbaldwin
 ms.custom: include file
-ms.openlocfilehash: df577ab2b5e9658fd55324c8fd6fd008621b4d46
-ms.sourcegitcommit: 980c3d827cc0f25b94b1eb93fd3d9041f3593036
+ms.openlocfilehash: 30f852f1bf4994f525ccb65c3827af8f8ae02f96
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/02/2020
-ms.locfileid: "80545902"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85838975"
 ---
 Cet article contient des recommandations de sécurité pour les Machines virtuelles Azure. Suivez ces recommandations pour respecter plus facilement les obligations de sécurité décrites dans notre modèle de responsabilité partagée. Ces recommandations vous aideront également à améliorer la sécurité globale de vos solutions d’application web. Pour plus d’informations sur les mesures prises par Microsoft pour assumer ses responsabilités de fournisseur de services, consultez [Responsabilités partagées pour le cloud computing](https://gallery.technet.microsoft.com/Shared-Responsibilities-81d0ff91).
 
@@ -38,7 +38,7 @@ Pour obtenir des informations générales sur Azure Security Center, consultez [
 | Chiffrez les disques de système d’exploitation. | [Azure Disk Encryption](../articles/security/azure-security-disk-encryption-overview.md) vous permet de chiffrer vos disques de machines virtuelles IaaS Windows et Linux. Sans les clés nécessaires, le contenu des disques chiffrés est illisible. Le chiffrement des disques protège les données stockées contre tout accès non autorisé qui serait rendu possible par la copie du disque.| [Oui](../articles/security-center/security-center-apply-disk-encryption.md) |
 | Chiffrez les disques de données. | [Azure Disk Encryption](../articles/security/azure-security-disk-encryption-overview.md) vous permet de chiffrer vos disques de machines virtuelles IaaS Windows et Linux. Sans les clés nécessaires, le contenu des disques chiffrés est illisible. Le chiffrement des disques protège les données stockées contre tout accès non autorisé qui serait rendu possible par la copie du disque.| -  |
 | Limitez le nombre de logiciels installés. | Installez uniquement les logiciels nécessaires à l’application correcte de votre solution. Cette règle permet de réduire la surface d’attaque de votre solution. | - |
-| Utilisez des logiciels antivirus ou anti-programmes malveillants. | Azure vous permet d’utiliser des logiciels anti-programmes malveillants provenant de fournisseurs de sécurité tels que Microsoft, Symantec, Trend Micro et Kaspersky. Ces logiciels permettent de protéger vos machines virtuelles contre les fichiers malveillants, les logiciels de publicité et d’autres menaces. Vous pouvez déployer Microsoft Antimalware en fonction des charges de travail de votre application. Utilisez une configuration de base sécurisée par défaut ou une configuration personnalisée avancée. Pour plus d’informations, consultez [Microsoft Antimalware pour les services cloud Azure et les machines virtuelles](../articles/security/azure-security-antimalware.md). | - |
+| Utilisez des logiciels antivirus ou anti-programmes malveillants. | Azure vous permet d’utiliser des logiciels anti-programmes malveillants provenant de fournisseurs de sécurité tels que Microsoft, Symantec, Trend Micro et Kaspersky. Ces logiciels permettent de protéger vos machines virtuelles contre les fichiers malveillants, les logiciels de publicité et d’autres menaces. Vous pouvez déployer Microsoft Antimalware en fonction des charges de travail de votre application. Microsoft Antimalware n’est disponible que pour les ordinateurs Windows. Utilisez une configuration de base sécurisée par défaut ou une configuration personnalisée avancée. Pour plus d’informations, consultez [Microsoft Antimalware pour les services cloud Azure et les machines virtuelles](../articles/security/azure-security-antimalware.md). | - |
 | Stockez les secrets et les clés de façon sécurisée. | Simplifiez la gestion de vos secrets et de vos clés en fournissant aux propriétaires d’applications une option sécurisée et gérée de manière centralisée. Cette gestion réduit le risque de compromissions ou de fuites accidentelles. Azure Key Vault permet de stocker les clés dans des modules de sécurité matériels (HSM) certifiés conformes aux normes FIPS 140-2 de niveau 2. Si vous avez besoin de stocker vos clés et vos secrets à l’aide de la norme FIPS 140.2 de niveau 3, vous pouvez utiliser [Azure Dedicated HSM](../articles/dedicated-hsm/overview.md). | - |
 
 ## <a name="identity-and-access-management"></a>Gestion de l’identité et de l’accès 

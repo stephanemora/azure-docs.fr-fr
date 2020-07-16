@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 06/18/2020
 ms.author: xiaojul
-ms.openlocfilehash: b0a26b4d3f0f59f8e05c5990bbc64ee55f12f124
-ms.sourcegitcommit: 4042aa8c67afd72823fc412f19c356f2ba0ab554
+ms.openlocfilehash: 9c84b35318637f5b89e6c88c0ebb3fd6616533fc
+ms.sourcegitcommit: 0100d26b1cac3e55016724c30d59408ee052a9ab
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/24/2020
-ms.locfileid: "85307159"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86023123"
 ---
 # <a name="debug-errors-when-authoring-a-custom-commands-application"></a>Déboguer les erreurs lors de la création d’une application Commandes personnalisées
 
@@ -35,20 +35,20 @@ Lors de la suppression d’une application Commandes personnalisées, les comman
 Si la suppression de l’application LUIS échoue, accédez à votre compte [LUIS](https://www.luis.ai/) pour la supprimer manuellement.
 
 ### <a name="toomanyrequests"></a>TooManyRequests
-Lorsque vous tenterez de supprimer un grand nombre d’applications en même temps, des erreurs « TooManyRequests » s’afficheront probablement. Cela signifie que vos demandes de suppression sont limitées par Azure. 
+Lorsque vous tenterez de supprimer un grand nombre d’applications en même temps, des erreurs « TooManyRequests » s’afficheront probablement. Ces messages d’erreur signifient que vos demandes de suppression sont limitées par Azure. 
 
 Actualisez votre page et essayez de supprimer moins d’applications.
 
 ## <a name="errors-when-modifying-an-application"></a>Erreurs lors de la modification d’une application
 
 ### <a name="cant-delete-a-parameter-or-a-web-endpoint"></a>Impossible de supprimer un paramètre ou un point de terminaison Web
-Vous n’êtes pas autorisé à supprimer un paramètre lorsqu’il est utilisé. Supprimez toute référence du paramètre dans les réponses vocales, exemples de phrases, conditions, actions, puis réessayez.
+Vous n’êtes pas autorisé à supprimer un paramètre lorsqu’il est utilisé. Supprimez toute référence du paramètre dans les réponses vocales, les exemples de phrases, les conditions, les actions, puis réessayez.
 
 ### <a name="cant-delete-a-web-endpoint"></a>Impossible de supprimer un point de terminaison Web
 Vous n’êtes pas autorisé à supprimer un point de terminaison Web lorsqu’il est utilisé. Supprimez toute action **Appeler le point de terminaison Web** qui utilise ce point de terminaison Web avant de supprimer un point de terminaison Web.
 
 ## <a name="errors-when-training-an-application"></a>Erreurs lors de l’apprentissage d’une application
-### <a name="build-in-intents"></a>Intentions intégrées
+### <a name="built-in-intents"></a>Intentions intégrées
 LUIS intègre des intentions Oui/Non. L’apprentissage échoue si les exemples de phrases contiennent uniquement « Oui » ou « Non ». 
 
 | Mot clé | Variantes | 
@@ -61,10 +61,10 @@ Les commandes personnalisées n’autorisent pas le partage d’exemples de phra
 
 Assurez-vous qu’aucun exemple de phrase courante n’est partagé entre différentes commandes. 
 
-Pour connaître les meilleures pratiques en matière d’équilibrage des exemples de phrases sur différentes commandes, reportez-vous à la section [Meilleures pratiques LUIS](https://docs.microsoft.com/azure/cognitive-services/luis/luis-concept-best-practices).
+Pour connaître les meilleures pratiques en matière d’équilibrage des exemples de phrases sur différentes commandes, reportez-vous aux [Meilleures pratiques LUIS](https://docs.microsoft.com/azure/cognitive-services/luis/luis-concept-best-practices).
 
 ### <a name="empty-sample-sentences"></a>Exemples de phrases vides
-Vous devez avoir au moins 1 exemple de phrase pour chaque commande.
+Vous devez avoir au moins un exemple de phrase pour chaque commande.
 
 ### <a name="undefined-parameter-in-sample-sentences"></a>Paramètre non défini dans les exemples de phrases
 Un ou plusieurs paramètres sont utilisés dans les exemples de phrases, mais ils ne sont pas définis.
@@ -72,7 +72,7 @@ Un ou plusieurs paramètres sont utilisés dans les exemples de phrases, mais il
 ### <a name="training-takes-too-long"></a>L’apprentissage prend trop de temps
 L’apprentissage LUIS est conçu pour apprendre rapidement avec peu d’exemples. N’ajoutez pas trop d’exemples de phrases. 
 
-Si vous utilisez nombreux exemples de phrases similaires, définissez un paramètre, extrayez-le vers un modèle, puis ajoutez-le aux exemples de phrases.
+Si vous avez de nombreux exemples de phrases qui sont similaires, définissez un paramètre, extrayez-les vers un modèle, puis ajoutez-les aux exemples de phrases.
 
 Par exemple, vous pouvez définir un paramètre {vehicle} pour les exemples de phrases ci-dessous, et ajouter uniquement « Réserver un(e) {vehicle} » à des exemples de phrases.
 
@@ -82,13 +82,15 @@ Par exemple, vous pouvez définir un paramètre {vehicle} pour les exemples de p
 | Book a flight | Réserver un(e) {vehicle} |
 | Réserver un taxi | Réserver un(e) {vehicle} |
 
-Pour connaître les meilleures pratiques en matière d’apprentissage LUIS, reportez-vous à la section [Meilleures pratiques LUIS](https://docs.microsoft.com/azure/cognitive-services/luis/luis-concept-best-practices).
+Pour connaître les meilleures pratiques en matière d’apprentissage LUIS, reportez-vous aux [Meilleures pratiques LUIS](https://docs.microsoft.com/azure/cognitive-services/luis/luis-concept-best-practices).
 
 ## <a name="cant-update-luis-key"></a>Impossible de mettre à jour la clé LUIS
 ### <a name="reassign-to-e0-authoring-resource"></a>Réaffecter à la ressource de création E0
 LUIS ne prend pas en charge la réaffectation d’une application LUIS à la ressource de création E0.
 
-Si vous avez besoin de remplacer votre ressource de création F0 par E0 ou par une autre ressource E0, recréez l’application.
+Si vous avez besoin de remplacer votre ressource de création F0 par E0 ou par une autre ressource E0, recréez l’application. 
+
+Pour exporter rapidement une application existante et l’importer dans une nouvelle application, reportez-vous à [déploiement continu avec Azure DevOps](./how-to-custom-commands-deploy-cicd.md).
 
 ### <a name="save-button-is-disabled"></a>Le bouton Enregistrer est désactivé
 Si vous n’affectez jamais une ressource de prédiction LUIS à votre application, le bouton Enregistrer est désactivé lorsque vous essayez de modifier votre ressource de création sans ajouter de ressource de prédiction.

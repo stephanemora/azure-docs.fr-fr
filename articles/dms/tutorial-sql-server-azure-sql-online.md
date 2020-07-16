@@ -12,12 +12,12 @@ ms.workload: data-services
 ms.custom: seo-lt-2019
 ms.topic: article
 ms.date: 01/21/2020
-ms.openlocfilehash: 6e7ef31f7d48096fe94570ca9f3275bda23452f9
-ms.sourcegitcommit: 1f48ad3c83467a6ffac4e23093ef288fea592eb5
+ms.openlocfilehash: e923a09eeb15d05a32e99a1e9a46e36b72552736
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/29/2020
-ms.locfileid: "84194161"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85318468"
 ---
 # <a name="tutorial-migrate-sql-server-to-a-single-database-or-pooled-database-in-azure-sql-database-online-using-dms"></a>Tutoriel : Migrer SQL Server vers une base de données unique ou mise en pool dans Azure SQL Database en ligne à l’aide de DMS
 
@@ -164,7 +164,7 @@ Pour évaluer une base de données locale, effectuez les étapes suivantes :
 Une fois que vous êtes à l’aise avec l’évaluation et que vous pensez que la base de données sélectionnée est un candidat viable pour la migration vers une base de données unique ou mise en pool dans Azure SQL Database, utilisez DMA pour migrer le schéma vers Azure SQL Database.
 
 > [!NOTE]
-> Avant de créer un projet de migration dans DMA, vérifiez que vous avez déjà provisionné une base de données Azure SQL comme indiqué dans les prérequis. Dans ce tutoriel, le nom de la base de données Azure SQL devrait être **AdventureWorksAzure**, mais vous pouvez lui attribuer un autre nom si vous le souhaitez.
+> Avant de créer un projet de migration dans DMA, vérifiez que vous avez déjà provisionné une base de données SQL dans Azure, comme indiqué dans les prérequis. Dans ce tutoriel, le nom de la base de données Azure SQL devrait être **AdventureWorksAzure**, mais vous pouvez lui attribuer un autre nom si vous le souhaitez.
 
 > [!IMPORTANT]
 > Si vous utilisez SSIS, sachez que l’Assistant Migration de données ne prend pas en charge la migration de la SSISDB source. Toutefois, vous pouvez redéployer vos projets ou packages SSIS vers la SSISDB de destination qui est hébergée par Azure SQL Database. Pour plus d’informations sur la migration des packages SSIS, consultez l’article [Migrer des packages SQL Server Integration Services vers Azure](https://docs.microsoft.com/azure/dms/how-to-migrate-ssis-packages).
@@ -291,7 +291,7 @@ Une fois le service créé, recherchez-le dans le portail Azure, ouvrez-le, puis
 
 ## <a name="specify-target-details"></a>Spécifier les détails de la cible
 
-1. Sélectionnez **Enregistrer** puis, sur l'écran **Détails de la cible de migration**, spécifiez les détails de connexion de l'instance cible d'Azure SQL Database, à savoir l'instance d'Azure SQL Database pré-approvisionnée sur laquelle le schéma **AdventureWorks2012** a été déployé à l'aide de DMA.
+1. Sélectionnez **Enregistrer** puis, sur l’écran **Détails de la cible de migration**, spécifiez les détails de connexion de l’instance cible d’Azure SQL Database, à savoir l’instance d’Azure SQL Database pré-approvisionnée sur laquelle le schéma **AdventureWorks2012** a été déployé à l’aide de DMA.
 
     ![Sélectionner la cible](media/tutorial-sql-server-to-azure-sql-online/dms-select-target3.png)
 

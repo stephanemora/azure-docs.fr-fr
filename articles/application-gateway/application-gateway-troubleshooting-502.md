@@ -4,18 +4,18 @@ description: 'Découvrez comment résoudre l’erreur de serveur Application Gat
 services: application-gateway
 author: vhorne
 ms.service: application-gateway
-ms.topic: article
+ms.topic: troubleshooting
 ms.date: 11/16/2019
 ms.author: amsriva
-ms.openlocfilehash: a48ed39af243296bcb76cb61f1fe64e4e95ab7e7
-ms.sourcegitcommit: c8a0fbfa74ef7d1fd4d5b2f88521c5b619eb25f8
+ms.openlocfilehash: 1b0abe998540c4fcc0a9b83f6d1175e18a560871
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/05/2020
-ms.locfileid: "82801737"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84808153"
 ---
 # <a name="troubleshooting-bad-gateway-errors-in-application-gateway"></a>Résolution des erreurs de passerelle incorrecte dans Application Gateway
-<p class="alert is-flex is-primary"><span class="has-padding-left-medium has-padding-top-extra-small"><a class="button is-primary" href="https://azurevirtualsupportagent.services.microsoft.com?content=66c070b6-1c47-4c7f-b928-317a8c8b452f" target='_blank'>Démarrer</a></span><span class="has-padding-small">Résoudre votre problème rapidement en utilisant notre agent virtuel pour exécuter des <b>diagnostics automatisés.</b></span><span class="has-padding-small"><a href="https://privacy.microsoft.com/privacystatement" target='_blank'><div align="right"><sub>Déclaration de confidentialité</sub></div></a></span></p>
+
 Découvrez comment résoudre les erreurs de passerelle incorrecte (502) reçues lors de l’utilisation d’Azure Application Gateway.
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
@@ -111,7 +111,7 @@ Les propriétés supplémentaires suivantes sont ajoutées :
 | Nom |Nom de la sonde. Ce nom est utilisé pour désigner la sonde dans les paramètres HTTP du serveur principal. |
 | Protocol |Protocole utilisé pour envoyer la sonde. La sonde utilise le protocole défini dans les paramètres HTTP du serveur principal |
 | Host |Nom d’hôte pour l’envoi de la sonde. S’applique uniquement lorsque plusieurs sites sont configurés sur la passerelle d’application. Ce nom est différent du nom d’hôte de la machine virtuelle. |
-| Path |Chemin relatif de la sonde. Le chemin valide commence par « / ». La sonde est envoyée à \<protocole\>://\<hôte\>:\<port\>\<chemin d’accès\> |
+| Path |Chemin relatif de la sonde. Le chemin valide commence par « / ». La sonde est envoyée à \<protocol\>://\<host\>:\<port\>\<path\> |
 | Intervalle |Intervalle d’analyse en secondes. Il s’agit de l’intervalle de temps qui s’écoule entre deux analyses consécutives. |
 | Délai d’attente |Délai d’expiration de l’analyse en secondes. Si aucune réponse valide n’est reçue dans le délai imparti, la sonde est marquée comme étant en échec. |
 | Seuil de défaillance sur le plan de l’intégrité |Nombre de tentatives d’analyse Le serveur principal est marqué comme étant défectueux après que le nombre d’échecs consécutifs a atteint le seuil de défaillance. |
@@ -122,7 +122,7 @@ Vérifiez que la sonde d’intégrité personnalisée est correctement configur�
 
 * Assurez-vous que la sonde est correctement spécifiée suivant les indications du [guide](application-gateway-create-probe-ps.md).
 * Si la passerelle d’application est configurée pour un seul site, le nom d’hôte par défaut doit être spécifié sous la forme `127.0.0.1`, sauf s’il est configuré d’une autre manière dans la sonde personnalisée.
-* Assurez-vous qu’un appel à http://\<hôte\>:\<port\>\<chemin d’accès\> retourne un code de résultat HTTP 200.
+* Assurez-vous qu’un appel à http://\<host\>:\<port\>:\<path\> retourne un code de résultat HTTP 200.
 * Assurez-vous que les paramètres Interval, Time-out et UnhealtyThreshold se trouvent dans la plage acceptable.
 * Si vous utilisez une sonde HTTPS, vérifiez que le serveur back-end ne nécessite pas SNI en configurant un certificat de secours sur le serveur back-end lui-même.
 

@@ -17,11 +17,11 @@ ms.date: 05/05/2017
 ms.author: radeltch
 ms.custom: H1Hack27Feb2017
 ms.openlocfilehash: e50733c843dfd21e35572f00fc6690e1e84aba97
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79235885"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84688889"
 ---
 # <a name="install-sap-netweaver-ha-on-a-windows-failover-cluster-and-shared-disk-for-an-sap-ascsscs-instance-in-azure"></a>Installer la haute disponibilité SAP NetWeaver sur un cluster de basculement Windows et un disque partagé pour une instance SAP ASCS/SCS dans Azure
 
@@ -185,7 +185,7 @@ L’installation de SAP avec une instance ASCS/SCS à haute disponibilité impli
 1. Dans le Gestionnaire DNS Windows, créez une entrée DNS pour le nom d’hôte virtuel de l’instance ASC/SCS.
 
    > [!IMPORTANT]
-   > L’adresse IP que vous affectez au nom d’hôte virtuel de l’instance ASC/SCS doit être identique à celle que vous avez affectée à l’équilibrage de charge Azure Load Balancer (\<SID\>-lb-ascs).  
+   > L’adresse IP que vous affectez au nom d’hôte virtuel de l’instance ASC/SCS doit être identique à celle que vous avez affectée à Azure Load Balancer (\<SID\>-lb-ascs).  
    >
    >
 
@@ -267,7 +267,7 @@ Pour ajouter un port de sondage :
 
    Le numéro de port est défini dans les modèles Azure Resource Manager SAP. Vous pouvez affecter le numéro de port dans PowerShell.
 
-   Pour définir une nouvelle valeur ProbePort pour la ressource de cluster SAP \<SID\> IP, exécutez le script PowerShell suivant pour mettre à jour les variables PowerShell en fonction de votre environnement :
+   Pour définir une nouvelle valeur ProbePort pour la ressource de cluster IP \<SID\> SAP, exécutez le script PowerShell suivant pour mettre à jour les variables PowerShell en fonction de votre environnement :
 
    ```powershell
    $SAPSID = "PR1"      # SAP <SID>
@@ -325,7 +325,7 @@ Pour ajouter un port de sondage :
    }
    ```
 
-   Après avoir mis en ligne le rôle de cluster SAP \<SID\>, vérifiez que **ProbePort** est défini sur la nouvelle valeur.
+   Après avoir mis en ligne le rôle de cluster \<SID\> SAP, vérifiez que **ProbePort** est défini sur la nouvelle valeur.
 
    ```powershell
    $SAPSID = "PR1"     # SAP <SID>
@@ -374,7 +374,7 @@ Installez l’instance de serveur d’application principal (PAS) \<SID\>-di-0 s
 
 ## <a name="install-the-sap-additional-application-server"></a><a name="0ba4a6c1-cc37-4bcf-a8dc-025de4263772"></a> Installer le serveur d’applications supplémentaire SAP
 
-Installez un serveur d’applications supplémentaire SAP (AAS) sur toutes les machines virtuelles désignées pour héberger une instance de serveur d’applications SAP. Par exemple, sur \<SID\>-di-1 à \<SID\>-di-&lt;n&gt;.
+Installez un serveur d’applications supplémentaire SAP (AAS) sur toutes les machines virtuelles désignées pour héberger une instance de serveur d’applications SAP. Par exemple, sur \<SID\>-di-1 pour \<SID\>-di-&lt;n&gt;.
 
 > [!NOTE]
 > Cette étape conclut l’installation d’un système SAP NetWeaver de haute disponibilité. Procédez maintenant à un test de basculement.
@@ -390,7 +390,7 @@ Le groupe de clusters SAP PR1 s’exécute sur le nœud de cluster A, par exempl
 
 ![Figure 6 : Gestionnaire du cluster de basculement : Le groupe de cluster SAP \<SID\> s’exécute sur le nœud de cluster A][sap-ha-guide-figure-5000]
 
-_**Figure 6 :** Gestionnaire du cluster de basculement : Le groupe de cluster SAP \<SID\> s’exécute sur le nœud de cluster A_
+_**Figure 6 :** Gestionnaire du cluster de basculement : Le groupe de cluster \<SID\> SAP s’exécute sur le nœud de cluster A_
 
 Dans l’outil de configuration et de gestion de SIOS DataKeeper, vous pouvez constater que les données du disque partagé sont répliquées de manière synchrone à partir du lecteur du volume source S sur le nœud de cluster A vers le lecteur du volume cible S sur le nœud de cluster B. Par exemple, il est répliqué de pr1-ascs-0 [10.0.0.40] vers pr1-ascs-1 [10.0.0.41].
 
@@ -400,7 +400,7 @@ _**Figure 7 :** Dans SIOS DataKeeper, répliquer le volume local du nœud de c
 
 ### <a name="failover-from-node-a-to-node-b"></a><a name="5e959fa9-8fcd-49e5-a12c-37f6ba07b916"></a> Basculement du nœud A au nœud B
 
-1. Choisissez l’une des options suivantes pour lancer le basculement du groupe de clusters SAP \<SID\> du nœud de cluster A au nœud de cluster B :
+1. Choisissez l’une des options suivantes pour lancer le basculement du groupe de clusters \<SID\> SAP du nœud de cluster A au nœud de cluster B :
    - Gestionnaire du cluster de basculement  
    - Applet de commande PowerShell de cluster de basculement
 
@@ -411,15 +411,15 @@ _**Figure 7 :** Dans SIOS DataKeeper, répliquer le volume local du nœud de c
    Move-ClusterGroup -Name $SAPClusterGroup
 
    ```
-2. Redémarrez le nœud de cluster A dans le système d’exploitation invité Windows. Cela lance le basculement automatique du groupe de clusters SAP \<SID\> du nœud A vers le nœud B.  
-3. Redémarrez le nœud de cluster A à partir du portail Azure. Cela lance le basculement automatique du groupe de clusters SAP \<SID\> du nœud A vers le nœud B.  
-4. Redémarrez le nœud de cluster A à l’aide d’Azure PowerShell. Cela lance le basculement automatique du groupe de clusters SAP \<SID\> du nœud A vers le nœud B.
+2. Redémarrez le nœud de cluster A dans le système d’exploitation invité Windows. Cela lance le basculement automatique du groupe de clusters \<SID\> SAP du nœud A vers le nœud B.  
+3. Redémarrez le nœud de cluster A à partir du portail Azure. Cela lance le basculement automatique du groupe de clusters \<SID\> SAP du nœud A vers le nœud B.  
+4. Redémarrez le nœud de cluster A à l’aide d’Azure PowerShell. Cela lance le basculement automatique du groupe de clusters \<SID\> SAP du nœud A vers le nœud B.
 
-   Après le basculement, le groupe de clusters SAP \<SID\> s’exécute sur le nœud de cluster B. Par exemple, il s’exécute sur pr1-ascs-1.
+   Après le basculement, le groupe de clusters \<SID\> SAP s’exécute sur le nœud de cluster B. Par exemple, il s’exécute sur pr1-ascs-1.
 
    ![Figure 8 : Dans le Gestionnaire du cluster de basculement, le groupe de cluster SAP \<SID\> s’exécute sur le nœud de cluster B][sap-ha-guide-figure-5002]
 
-   _**Figure 8** : Dans le Gestionnaire du cluster de basculement, le groupe de cluster SAP \<SID\> s’exécute sur le nœud de cluster B_
+   _**Figure 8** : Dans le Gestionnaire du cluster de basculement, le groupe de cluster \<SID\> SAP s’exécute sur le nœud de cluster B_
 
    Le disque partagé est maintenant monté sur le nœud de cluster B. SIOS DataKeeper réplique les données du lecteur du volume source S sur le nœud de cluster B vers le lecteur du volume cible sur le nœud de cluster A. Par exemple, il est répliqué de pr1-ascs-1 [10.0.0.41] vers pr1-ascs-0 [10.0.0.40].
 

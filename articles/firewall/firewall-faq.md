@@ -5,14 +5,14 @@ services: firewall
 author: vhorne
 ms.service: firewall
 ms.topic: conceptual
-ms.date: 05/18/2020
+ms.date: 07/07/2020
 ms.author: victorh
-ms.openlocfilehash: d1ec04a0c16feb6d404018ff9538b9572e1d71c2
-ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
+ms.openlocfilehash: 27cdff24672f70407e8f8f89c6c49a8c2de87d0a
+ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83649615"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86078423"
 ---
 # <a name="azure-firewall-faq"></a>FAQ Pare-feu Azure
 
@@ -211,3 +211,15 @@ Un test Ping TCP ne se connecte pas réellement au nom de domaine complet cible.
 ## <a name="are-there-limits-for-the-number-of-ip-addresses-supported-by-ip-groups"></a>Le nombre d’adresses IP prises en charge par les groupes IP est-il limité ?
 
 Oui. Pour plus d’informations, consultez [Abonnement Azure et limites, quotas et contraintes de service](../azure-resource-manager/management/azure-subscription-service-limits.md#azure-firewall-limits)
+
+## <a name="can-i-move-an-ip-group-to-another-resource-group"></a>Puis-je déplacer un groupe IP vers un autre groupe de ressources ?
+
+Non, le déplacement d’un groupe IP vers un autre groupe de ressources n’est pas pris en charge actuellement.
+
+## <a name="what-is-the-tcp-idle-timeout-for-azure-firewall"></a>Quel est le délai d’inactivité TCP pour le pare-feu Azure ?
+
+Le comportement standard d’un pare-feu réseau consiste à garantir que les connexions TCP restent actives et à les fermer rapidement en l’absence d’activité. Le délai d’inactivité TCP du pare-feu Azure est de quatre minutes. Ce paramètre n’est pas configurable. Si une période d’inactivité est supérieure à la valeur de délai d’expiration, le maintien de la session TCP ou HTTP n’est pas garanti. Une pratique courante consiste à utiliser TCP keep-alive. Cela permet de maintenir la connexion active pendant une période plus longue. Pour plus d’informations, consultez ces [exemples .NET](https://docs.microsoft.com/dotnet/api/system.net.servicepoint.settcpkeepalive?redirectedfrom=MSDN&view=netcore-3.1#System_Net_ServicePoint_SetTcpKeepAlive_System_Boolean_System_Int32_System_Int32_).
+
+## <a name="can-i-deploy-azure-firewall-without-a-public-ip-address"></a>Puis-je déployer un pare-feu Azure sans adresse IP publique ?
+
+Non. Actuellement, vous devez déployer le pare-feu Azure avec une adresse IP publique.

@@ -11,12 +11,12 @@ ms.date: 06/10/2019
 ms.custom:
 - amqp
 - mqtt
-ms.openlocfilehash: 9554713e50e7a2ead2e25f274428ad0ecba4934d
-ms.sourcegitcommit: 309a9d26f94ab775673fd4c9a0ffc6caa571f598
+ms.openlocfilehash: d054ff893e1bfdc0f48ede2e2aaa6050885ccc0a
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/09/2020
-ms.locfileid: "82996951"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85314037"
 ---
 # <a name="reference---iot-hub-endpoints"></a>Référence - Points de terminaison IoT Hub
 
@@ -38,11 +38,11 @@ La liste ci-dessous décrit les points de terminaison :
 
 * **Gestion d’identité de l’appareil**. Chaque IoT Hub expose un ensemble de points de terminaison HTTPS REST afin de gérer les identités des appareils (par exemple pour les opérations de création, de récupération, de mise à jour et de suppression). Les [identités des appareils](iot-hub-devguide-identity-registry.md) sont utilisées pour l’authentification et le contrôle d’accès des appareils.
 
-* **Gestion des représentations d’appareils**. Chaque hub IoT expose un ensemble de points de terminaison REST HTTPS orientés service pour interroger et mettre à jour les [jumeaux d’appareil](iot-hub-devguide-device-twins.md) (mise à jour des étiquettes et des propriétés).
+* **Gestion des représentations d’appareils**. Chaque hub IoT expose un ensemble de points de terminaison REST HTTPS orientés service pour interroger et mettre à jour les [jumeaux d’appareil](iot-hub-devguide-device-twins.md) (mise à jour des étiquettes et des propriétés). 
 
 * **Gestion des travaux**. Chaque hub IoT Hub expose un ensemble de points de terminaison REST HTTPS orientés service pour interroger et gérer les [travaux](iot-hub-devguide-jobs.md).
 
-* **Points de terminaison des appareils**. Pour chaque appareil dans le registre des identités, IoT Hub expose un ensemble de points de terminaison :
+* **Points de terminaison des appareils**. Pour chaque appareil figurant dans le registre des identités, IoT Hub expose un ensemble de points de terminaison. Sauf indication contraire, ces points de terminaison sont exposés en utilisant les protocoles [MQTT v3.1.1](https://mqtt.org/), HTTPS 1.1 et [AMQP 1.0](https://www.amqp.org/). Les protocoles AMQP et MQTT sont également disponibles sur [WebSockets](https://tools.ietf.org/html/rfc6455) sur le port 443.
 
   * *Envoyer des messages appareil-à-cloud*. Un appareil utilise ce point de terminaison pour [envoyer des messages appareil-à-cloud](iot-hub-devguide-messages-d2c.md).
 
@@ -50,11 +50,9 @@ La liste ci-dessous décrit les points de terminaison :
 
   * *Initier des téléchargements de fichiers*. Un appareil utilise ce point de terminaison pour recevoir un URI SAP du Stockage Azure provenant d’IoT Hub pour [charger un fichier](iot-hub-devguide-file-upload.md).
 
-  * *Récupérer et mettre à jour les propriétés d’une représentation d’appareil*. Un appareil utilise ce point de terminaison pour accéder aux propriétés de son [jumeau d’appareil](iot-hub-devguide-device-twins.md).
+  * *Récupérer et mettre à jour les propriétés d’une représentation d’appareil*. Un appareil utilise ce point de terminaison pour accéder aux propriétés de son [jumeau d’appareil](iot-hub-devguide-device-twins.md). HTTPS n’est pas pris en charge.
 
-  * *Recevoir des requêtes de méthodes directes*. Un appareil utilise ce point de terminaison pour écouter les requêtes des [méthodes directes](iot-hub-devguide-direct-methods.md).
-
-    Ces points de terminaison sont exposés en utilisant les protocoles [MQTT v3.1.1](https://mqtt.org/), HTTPS 1.1 et [AMQP 1.0](https://www.amqp.org/). Les protocoles AMQP et MQTT sont également disponibles sur [WebSockets](https://tools.ietf.org/html/rfc6455) sur le port 443.
+  * *Recevoir des requêtes de méthodes directes*. Un appareil utilise ce point de terminaison pour écouter les requêtes des [méthodes directes](iot-hub-devguide-direct-methods.md). HTTPS n’est pas pris en charge.
 
 * **Points de terminaison de service**. Chaque IoT Hub expose un ensemble de points de terminaison pour que votre système principal de solution puisse communiquer avec vos appareils. À une exception près, ces points de terminaison sont uniquement exposés au moyen des protocoles [AMQP](https://www.amqp.org/) et AMQP sur WebSockets. Le point de terminaison d’appel de méthode directe est exposé via le protocole HTTPS.
   
@@ -85,14 +83,9 @@ IoT Hub prend actuellement en charge les services Azure suivants en tant que poi
 
 Pour connaître les limites du nombre de points de terminaison que vous pouvez ajouter, consultez [Quotas et limitation](iot-hub-devguide-quotas-throttling.md).
 
-Vous pouvez utiliser l’API REST [Get Endpoint Health](https://docs.microsoft.com/rest/api/iothub/iothubresource/getendpointhealth#iothubresource_getendpointhealth) pour obtenir l’état d’intégrité des points de terminaison. Nous vous recommandons d’utiliser les [métriques IoT Hub](iot-hub-metrics.md) associées à la latence de routage des messages pour identifier et déboguer des erreurs lorsque le point de terminaison est inactif ou n’est pas sain, car nous nous attendons à ce que la latence soit plus élevée lorsque le point de terminaison se trouve dans l’un des états indiqués ci-dessous.
+## <a name="endpoint-health"></a>État d’intégrité des points de terminaison
 
-|État d’intégrité|Description|
-|---|---|
-|healthy|Le point de terminaison accepte des messages comme prévu.|
-|unhealthy|Le point de terminaison n’accepte pas les messages comme prévu, et IoT Hub réessaie d’envoyer des données à ce point de terminaison. L’état d’un point de terminaison non sain doit être mis à jour vers l’état sain si IoT Hub a établi un état cohérent d’intégrité.|
-|unknown|IoT Hub n’a pas établi une connexion avec le point de terminaison. Aucun message n’a été remis à ce point de terminaison ni rejeté par celui-ci.|
-|dead|Le point de terminaison n’accepte pas les messages une fois que IoT Hub a réessayé d’envoyer des messages pendant la nouvelle période d’essai.|
+[!INCLUDE [iot-hub-endpoint-health](../../includes/iot-hub-include-endpoint-health.md)]
 
 ## <a name="field-gateways"></a>Passerelles de champ
 

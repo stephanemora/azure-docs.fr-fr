@@ -11,16 +11,16 @@ ms.workload: identity
 ms.topic: troubleshooting
 ms.date: 09/20/2019
 ms.author: iainfou
-ms.openlocfilehash: f72e98213977a09b97cab9966ec69194cd8439e8
-ms.sourcegitcommit: 1f25aa993c38b37472cf8a0359bc6f0bf97b6784
+ms.openlocfilehash: 991bb3e296f18ef6d5182048d8ce4601c0fc09c9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/26/2020
-ms.locfileid: "83845965"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84734994"
 ---
 # <a name="known-issues-service-principal-alerts-in-azure-active-directory-domain-services"></a>Problèmes connus : Alertes liées aux principaux de service dans Azure AD Domain Services
 
-[Les principaux de service](../active-directory/develop/app-objects-and-service-principals.md) sont des applications que la plateforme Azure utilise pour gérer, mettre à jour et tenir à jour un domaine managé Azure AD DS. Si un principal de service est supprimé, les fonctionnalités dans le domaine managé Azure AD DS sont affectées.
+[Les principaux de service](../active-directory/develop/app-objects-and-service-principals.md) sont des applications que la plateforme Azure utilise pour gérer, mettre à jour et tenir à jour un domaine managé Azure AD DS (Azure Active Directory Domain Services). Si un principal de service est supprimé, les fonctionnalités dans le domaine managé Azure AD DS sont affectées.
 
 Cet article vous aide à résoudre les alertes liées à la configuration des principaux de service.
 
@@ -30,7 +30,7 @@ Cet article vous aide à résoudre les alertes liées à la configuration des pr
 
 *Un principal de service requis pour que les services de domaine Azure AD fonctionnent correctement a été supprimé de votre annuaire Azure AD. Cette configuration affecte la capacité de Microsoft à surveiller, gérer, mettre à jour et synchroniser votre domaine géré.*
 
-Si un principal de service requis est supprimé, la plateforme Azure ne peut pas effectuer de tâches de gestion automatisées. Le domaine managé Azure AD DS risque de ne pas appliquer correctement les mises à jour ou de ne pas effectuer de sauvegardes.
+Si un principal de service requis est supprimé, la plateforme Azure ne peut pas effectuer de tâches de gestion automatisées. Le domaine managé risque de ne pas appliquer correctement les mises à jour ou de ne pas effectuer de sauvegardes.
 
 ### <a name="check-for-missing-service-principals"></a>Vérifier les principaux de service manquants
 
@@ -64,18 +64,18 @@ Si l’ID d’application *2565bd9d-da50-47d4-8b85-4c97f669dc36* est manquant da
     New-AzureAdServicePrincipal -AppId "2565bd9d-da50-47d4-8b85-4c97f669dc36"
     ```
 
-L’intégrité du domaine managé Azure AD DS se met automatiquement à jour dans les deux heures, et l’alerte est supprimée.
+L’intégrité du domaine managé se met automatiquement à jour dans les deux heures, et l’alerte est supprimée.
 
 ### <a name="re-register-the-microsoft-aad-namespace"></a>Réinscrire l’espace de noms Microsoft AAD
 
 Si l’ID d’application *443155a6-77f3-45e3-882b-22b3a8d431fb*, *abba844e-bc0e-44b0-947a-dc74e5d09022* ou *d87dcbc6-a371-462e-88e3-28ad15ec4e64* est manquant dans votre annuaire Azure AD, effectuez les étapes suivantes pour réinscrire le fournisseur de ressources *Microsoft.AAD* :
 
 1. Dans le portail Azure, recherchez et sélectionnez **Abonnements**.
-1. Choisissez l’abonnement associé à votre domaine managé Azure AD DS.
+1. Choisissez l’abonnement associé à votre domaine managé.
 1. Dans la navigation de gauche, choisissez **Fournisseurs de ressources**.
 1. Recherchez *Microsoft.AAD*, puis sélectionnez **Réinscrire**.
 
-L’intégrité du domaine managé Azure AD DS se met automatiquement à jour dans les deux heures, et l’alerte est supprimée.
+L’intégrité du domaine managé se met automatiquement à jour dans les deux heures, et l’alerte est supprimée.
 
 ## <a name="alert-aadds105-password-synchronization-application-is-out-of-date"></a>Alerte AADDS105 : La synchronisation du mot de passe est obsolète
 
@@ -105,7 +105,7 @@ Pour recréer l’application Azure AD utilisée pour la synchronisation des inf
     Remove-AzureADServicePrincipal -ObjectId $spObject
     ```
 
-Une fois que vous avez supprimé les deux applications, la plateforme Azure les recrée automatiquement et tente de reprendre la synchronisation de mot de passe. L’intégrité du domaine managé Azure AD DS se met automatiquement à jour dans les deux heures, et l’alerte est supprimée.
+Une fois que vous avez supprimé les deux applications, la plateforme Azure les recrée automatiquement et tente de reprendre la synchronisation de mot de passe. L’intégrité du domaine managé se met automatiquement à jour dans les deux heures, et l’alerte est supprimée.
 
 ## <a name="next-steps"></a>Étapes suivantes
 

@@ -8,12 +8,12 @@ ms.topic: troubleshooting
 ms.date: 05/11/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: 1e4428fecdbb5d664111adc591812a5122bf2eda
-ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
+ms.openlocfilehash: df2990e3799d0b16f316c522185ac9b779ca48e4
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/12/2020
-ms.locfileid: "83125112"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85362354"
 ---
 # <a name="session-host-virtual-machine-configuration"></a>Configuration d’une machine virtuelle hôte de session
 
@@ -121,7 +121,8 @@ Lorsque l’agent Windows Virtual Desktop est installé pour la première fois s
 
 ### <a name="error-the-status-filed-in-get-azwvdsessionhost-cmdlet-shows-status-as-unavailable"></a>Erreur : L’état consigné dans la cmdlet Get-AzWvdSessionHost indique Non disponible.
 
-![La cmdlet Get-AzWvdSessionHost indique un état Non disponible.](media/23b8e5f525bb4e24494ab7f159fa6b62.png)
+> [!div class="mx-imgBorder"]
+> ![La cmdlet Get-AzWvdSessionHost indique un état Non disponible.](media/23b8e5f525bb4e24494ab7f159fa6b62.png)
 
 **Cause :** L’agent n’est pas en mesure de se mettre à jour vers une nouvelle version.
 
@@ -136,7 +137,7 @@ Lorsque l’agent Windows Virtual Desktop est installé pour la première fois s
 
 ## <a name="error-windows-virtual-desktop-agent-registry-entry-isregistered-shows-a-value-of-0"></a>Erreur : L'entrée de registre IsRegistered de l'agent Windows Virtual Desktop affiche une valeur nulle.
 
-**Cause :** Le jeton d’inscription a expiré ou a été généré avec une valeur d’expiration de 999999.
+**Cause :** Le jeton d’inscription a expiré.
 
 **Correctif :** Suivez ces instructions pour corriger l'erreur de registre de l'agent.
 
@@ -194,7 +195,8 @@ Si vous rencontrez des problèmes avec la pile côte à côte Windows Virtual De
 
 La sortie de **qwinsta** indique **rdp-sxs** si la pile côte à côte est installée et activée.
 
-![Pile côte à côte installée ou activée avec qwinsta indiquée par rdp-sxs dans la sortie.](media/23b8e5f525bb4e24494ab7f159fa6b62.png)
+> [!div class="mx-imgBorder"]
+> ![Pile côte à côte installée ou activée avec qwinsta indiquée par rdp-sxs dans la sortie.](media/23b8e5f525bb4e24494ab7f159fa6b62.png)
 
 Examinez les entrées de registre répertoriées ci-dessous et vérifiez que leurs valeurs correspondent. En cas de clés de registre manquantes ou de valeurs incompatibles, suivez les instructions contenues dans [Créer un pool d’hôtes avec PowerShell](create-host-pools-powershell.md) pour savoir comment réinstaller la pile côte à côte.
 
@@ -208,7 +210,8 @@ Examinez les entrées de registre répertoriées ci-dessous et vérifiez que leu
 
 ### <a name="error-o_reverse_connect_stack_failure"></a>Erreur : O_REVERSE_CONNECT_STACK_FAILURE
 
-![Code d'erreur O_REVERSE_CONNECT_STACK_FAILURE.](media/23b8e5f525bb4e24494ab7f159fa6b62.png)
+> [!div class="mx-imgBorder"]
+> ![Code d’erreur O_REVERSE_CONNECT_STACK_FAILURE.](media/23b8e5f525bb4e24494ab7f159fa6b62.png)
 
 **Cause :** La pile côte à côte n'est pas installée sur la machine virtuelle hôte de session.
 
@@ -244,19 +247,21 @@ Suivez ces instructions pour exécuter la correction à partir des mêmes sous-r
             psexec.exe \\<VMname> cmd
     ```
 
-    >[!Note]
+    >[!NOTE]
     >VMname correspond au nom de la machine virtuelle présentant un dysfonctionnement de pile côte à côte.
 
 7. Acceptez le Contrat de licence PsExec en cliquant sur Accepter.
 
-    ![Capture d'écran du Contrat de licence logiciel.](media/SoftwareLicenseTerms.png)
+    > [!div class="mx-imgBorder"]
+    > ![Capture d’écran du Contrat de licence logiciel.](media/SoftwareLicenseTerms.png)
 
-    >[!Note]
+    >[!NOTE]
     >Cette boîte de dialogue s’affiche uniquement lors de la première exécution de PsExec.
 
 8. Une fois la session d'invite de commandes ouverte sur la machine virtuelle présentant un dysfonctionnement de pile côte à côte, exécutez qwinsta et vérifiez qu'une entrée nommée rdp-sxs est disponible. Si ce n’est pas le cas, cela signifie qu'une pile côte à côte n’est pas présente et que le problème n'est pas lié à cette dernière.
 
-    ![Invite de commandes Administrateur](media/AdministratorCommandPrompt.png)
+    > [!div class="mx-imgBorder"]
+    > ![Invite de commandes Administrateur](media/AdministratorCommandPrompt.png)
 
 9. Exécutez la commande suivante afin de répertorier les composants Microsoft installés sur la machine virtuelle présentant un dysfonctionnement de pile côte à côte.
 
@@ -324,7 +329,8 @@ Pour identifier le numéro de votre version de Windows 10 Entreprise multisessi
 3. Sélectionnez **À propos de votre PC**.
 4. Regardez quel nombre figure à côté de « Version ». Le nombre doit être « 1809 » ou « 1903 », comme dans l’image suivante.
 
-    ![Capture d’écran de la fenêtre Spécifications Windows. Le numéro de version est mis en surbrillance en bleu.](media/windows-specifications.png)
+    > [!div class="mx-imgBorder"]
+    > ![Capture d’écran de la fenêtre Spécifications Windows. Le numéro de version est mis en surbrillance en bleu.](media/windows-specifications.png)
 
 Maintenant que vous connaissez le numéro de votre version, passez directement à la section correspondante.
 

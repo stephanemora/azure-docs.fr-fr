@@ -8,14 +8,14 @@ ms.author: jlembicz
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 11/04/2019
-ms.openlocfilehash: d46d0309b3d2ffb638016e88ba022e49009eedf2
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 8bb10c8e0e1f62e72d48d80014d75dd656490889
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79236841"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85565914"
 ---
-# <a name="how-full-text-search-works-in-azure-cognitive-search"></a>Fonctionnement de la recherche en texte intégral dans Recherche cognitive Azure
+# <a name="full-text-search-in-azure-cognitive-search"></a>Recherche en texte intégral dans Recherche cognitive Azure
 
 Cet article est destiné aux développeurs qui ont besoin d’une compréhension approfondie du fonctionnement de la recherche en texte intégral Lucene dans la Recherche cognitive Azure. Pour les requêtes de texte, la Recherche cognitive Azure. fournit en toute transparence les résultats attendus dans la plupart des scénarios, mais il se peut que vous obteniez un résultat « étrange » dans certains cas. Dans ce cas, le fait d’avoir une connaissance des quatre phases d’exécution des requêtes Lucene (analyse des requêtes, analyse lexicale, mise en correspondance des documents et notation) peut vous permettre d’identifier les modifications spécifiques des paramètres de requête ou de la configuration d’index qui permettront d’obtenir le résultat souhaité. 
 
@@ -52,7 +52,7 @@ Une requête de recherche est une spécification complète de ce qui doit être 
 L’exemple suivant est une requête de recherche que vous pourriez envoyer à la Recherche cognitive Azure à l’aide de [l’API REST](https://docs.microsoft.com/rest/api/searchservice/search-documents).  
 
 ~~~~
-POST /indexes/hotels/docs/search?api-version=2019-05-06
+POST /indexes/hotels/docs/search?api-version=2020-06-30
 {
     "search": "Spacious, air-condition* +\"Ocean view\"",
     "searchFields": "description, title",
@@ -94,7 +94,7 @@ L’analyseur de requêtes restructure les sous-requêtes en une *arborescence d
 
  ![Mode de recherche de requête booléenne : quelconque][2]
 
-### <a name="supported-parsers-simple-and-full-lucene"></a>Analyseurs pris en charge : simple et complet (Lucene) 
+### <a name="supported-parsers-simple-and-full-lucene"></a>Analyseurs pris en charge : Lucene simple et complet 
 
  La Recherche cognitive Azure expose deux langages de requête différents, `simple` (valeur par défaut) et `full`. En définissant le paramètre `queryType` avec votre requête de recherche, vous indiquez à l’analyseur de requêtes le langage de requête choisi afin qu’il sache comment interpréter les opérateurs et la syntaxe. Le [langage de requête simple](https://docs.microsoft.com/rest/api/searchservice/simple-query-syntax-in-azure-search) est intuitif et robuste, généralement adapté à l’interprétation de l’entrée d’utilisateur telle quelle, sans traitement côté client. Il prend en charge les opérateurs de requête courants des moteurs de recherche web. Le [langage de requête complet Lucene](https://docs.microsoft.com/rest/api/searchservice/lucene-query-syntax-in-azure-search), que vous pouvez obtenir en définissant `queryType=full`, étend le langage de requête simple par défaut en y ajoutant la prise en charge de plusieurs opérateurs et types de requête, tels que les caractères génériques, et les requêtes partielles, d’expression régulière et portant sur des champs. Par exemple, une expression régulière envoyée en syntaxe de requête simple serait interprétée en tant que chaîne de requête et pas en tant qu’expression. L’exemple de requête de cet article utilise le langage de requête complet Lucene.
 
@@ -239,7 +239,7 @@ Pour comprendre l’extraction, il est utile de connaître quelques notions de b
 Pour produire les termes d’un index inversé, le moteur de recherche effectue une analyse lexicale sur le contenu des documents, de façon similaire à ce qui se produit pendant le traitement des requêtes :
 
 1. Les *entrées de texte* sont transmises à un analyseur, en minuscules, débarrassées des signes de ponctuation et ainsi de suite, en fonction de la configuration de l’analyseur. 
-2. Les *jetons* sont le résultat de l’analyse de texte.
+2. Les *jetons* sont le résultat de l’analyse lexicale.
 3. Les *termes* sont ajoutés à l’index.
 
 Il est commun, mais pas obligatoire, d’utiliser les mêmes analyseurs pour les opérations de recherche et d’indexation afin que les termes de requête ressemblent davantage aux termes de l’index.
@@ -261,7 +261,7 @@ Dans notre exemple, pour le champ **titre**, l’index inversé ressemble à cec
 | complexe | 3 |
 | retraite | 4 |
 
-Dans le champ Titre, seul *hôtel* apparaît dans deux documents : 1, 3.
+Dans le champ Titre, seul *hôtel* apparaît dans deux documents : 1, 3.
 
 Pour le champ **Description**, l’index est le suivant :
 

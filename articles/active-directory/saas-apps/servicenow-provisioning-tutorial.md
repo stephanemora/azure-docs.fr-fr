@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/10/2019
 ms.author: jeedes
-ms.openlocfilehash: e3d4ca6f8e67f069bffcd27563d7f32b55f6591e
-ms.sourcegitcommit: a9784a3fd208f19c8814fe22da9e70fcf1da9c93
+ms.openlocfilehash: da62efff5db5c71b087657b0eec93f8dd4702665
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/22/2020
-ms.locfileid: "83780511"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84751497"
 ---
 # <a name="tutorial-configure-servicenow-for-automatic-user-provisioning"></a>Tutoriel : Configurer ServiceNow pour l'approvisionnement automatique d'utilisateurs
 
@@ -54,12 +54,19 @@ Le scénario décrit dans ce tutoriel part du principe que vous disposez des pr�
 
 1. Identifiez le nom de votre instance ServiceNow. Vous pouvez trouver le nom de l’instance dans l’URL que vous utilisez pour accéder à ServiceNow. Dans l’exemple ci-dessous, le nom de l’instance est dev35214.
 
-![Instance ServiceNow](media/servicenow-provisioning-tutorial/servicenow_instance.png)
+   ![Instance ServiceNow](media/servicenow-provisioning-tutorial/servicenow_instance.png)
 
-    
 2. Obtenez les informations d’identification d’un administrateur dans ServiceNow. Accédez au profil utilisateur dans ServiceNow et vérifiez que l’utilisateur a le rôle d’administrateur. 
 
-![Rôle d’administrateur ServiceNow](media/servicenow-provisioning-tutorial/servicenow-admin-role.png)
+   ![Rôle d’administrateur ServiceNow](media/servicenow-provisioning-tutorial/servicenow-admin-role.png)
+
+3. Vérifiez que les paramètres suivants sont **désactivés** dans ServiceNow :
+
+   1. Sélectionnez **System Security** > **High security settings** > **Require basic authentication for incoming SCHEMA requests**.
+   2. Sélectionnez **System Properties** > **Web Services** > **Require basic authorization for incoming SOAP requests**.
+     
+   > [!IMPORTANT]
+   > Si ces paramètres sont *activés*, le moteur de provisionnement ne pourra pas communiquer avec ServiceNow.
 
 ## <a name="step-3-add-servicenow-from-the-azure-ad-application-gallery"></a>Étape 3. Ajouter ServiceNow à partir de la galerie d’applications Azure AD
 
@@ -142,6 +149,14 @@ Une fois que vous avez configuré l’approvisionnement, utilisez les ressources
 * **EntryJoiningPropertyValueIsMissing :** Passez en revue vos [mappages d’attributs](https://docs.microsoft.com/azure/active-directory/manage-apps/customize-application-attributes) pour identifier l’attribut correspondant. Cette valeur doit être présente sur l’utilisateur ou le groupe que vous tentez d’approvisionner. 
 * Passez en revue l’[API SOAP de ServiceNow](https://docs.servicenow.com/bundle/newyork-application-development/page/integrate/web-services-apis/reference/r_DirectWebServiceAPIFunctions.html) pour comprendre les exigences ou les limitations (par exemple, le format pour spécifier l’indicatif du pays pour un utilisateur).
 * Par défaut, les demandes d'approvisionnement sont envoyées à https://{nom-de-votre-instance}.service-now.com/{nom-table}. Si vous avez besoin de l'URL d'un locataire personnalisé, vous pouvez entrer l'URL complète dans le champ du nom de l'instance.
+* **ServiceNowInstanceInvalid** 
+  
+  `Details: Your ServiceNow instance name appears to be invalid.  Please provide a current ServiceNow administrative user name and          password along with the name of a valid ServiceNow instance.`                                                              
+
+   Cette erreur indique un problème de communication avec l’instance de ServiceNow. Vérifiez bien que les paramètres suivants sont *désactivés* dans ServiceNow :
+   
+   1. Sélectionnez **System Security** > **High security settings** > **Require basic authentication for incoming SCHEMA requests**.
+   2. Sélectionnez **System Properties** > **Web Services** > **Require basic authorization for incoming SOAP requests**.
 
 ## <a name="additional-resources"></a>Ressources supplémentaires
 

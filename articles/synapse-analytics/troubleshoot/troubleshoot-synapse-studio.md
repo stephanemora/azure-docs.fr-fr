@@ -4,15 +4,16 @@ description: Résoudre les problèmes liés à Azure Synapse Studio
 author: julieMSFT
 ms.service: synapse-analytics
 ms.topic: conceptual
+ms.subservice: sql
 ms.date: 04/15/2020
 ms.author: jrasnick
 ms.reviewer: jrasnick
-ms.openlocfilehash: ede38317762e5aac5562c9bb3494713c3edacc69
-ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
+ms.openlocfilehash: 20978a6389c790575fa26258c4468f891af733ff
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "81427473"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85211457"
 ---
 # <a name="azure-synapse-studio-preview-troubleshooting"></a>Résolution des problèmes liés à Azure Synapse Studio (préversion)
 
@@ -99,4 +100,4 @@ Certains navigateurs prennent en charge l’affichage des horodatages sous l’o
 ![afficher-horodatage](media/troubleshooting-synapse-studio/show-time-stamp.png)
 
 ## <a name="next-steps"></a>Étapes suivantes
-Si les étapes précédentes ne résolvent pas le problème, [créer un ticket de support](../../sql-data-warehouse/sql-data-warehouse-get-started-create-support-ticket.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json)
+Si les étapes précédentes ne permettent pas de résoudre le problème, [créez un ticket de support](../../sql-data-warehouse/sql-data-warehouse-get-started-create-support-ticket.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json)

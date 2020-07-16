@@ -5,22 +5,22 @@ services: virtual-desktop
 author: Heidilohr
 ms.service: virtual-desktop
 ms.topic: troubleshooting
-ms.date: 05/20/2020
+ms.date: 06/19/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: 7bf05fe039de2ab9e25495f9e2652fde8fac34e1
-ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
+ms.openlocfilehash: 56a31caeefb3589527fdbbac118fa3a544a0d1a1
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/21/2020
-ms.locfileid: "83747698"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85208891"
 ---
 # <a name="windows-virtual-desktop-service-connections"></a>Connexions au service Windows Virtual Desktop
 
 >[!IMPORTANT]
 >Ce contenu s’applique à la mise à jour Printemps 2020 avec des objets Azure Resource Manager Windows Virtual Desktop. Si vous utilisez la version Automne 2019 de Windows Virtual Desktop sans objets Azure Resource Manager, consultez [cet article](./virtual-desktop-fall-2019/troubleshoot-service-connection-2019.md).
 >
-> La mise à jour Printemps 2020 de Windows Virtual Desktop est en préversion publique. Cette préversion est fournie sans contrat de niveau de service et nous déconseillons son utilisation pour les charges de travail de production. Certaines fonctionnalités peuvent être limitées ou non prises en charge. 
+> La mise à jour Printemps 2020 de Windows Virtual Desktop est en préversion publique. Cette préversion est fournie sans contrat de niveau de service, c’est pourquoi nous déconseillons son utilisation pour les charges de travail de production. Certaines fonctionnalités peuvent être limitées ou non prises en charge. 
 > Pour plus d’informations, consultez [Conditions d’Utilisation Supplémentaires relatives aux Évaluations Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 Appuyez-vous sur cet article pour résoudre les problèmes liés aux connexions à un client Windows Virtual Desktop.
@@ -33,15 +33,17 @@ Vous pouvez nous fournir des commentaires et discuter du service Windows Virtual
 
 Si l’utilisateur peut démarrer les clients Bureau à distance et s’authentifier, il ne voit cependant aucune icône dans le flux de découverte web.
 
-Vérifiez que l’utilisateur signalant les problèmes a été affecté aux groupes d’applications à l’aide de cette ligne de commande :
+1. Vérifiez que l’utilisateur signalant les problèmes a été affecté aux groupes d’applications à l’aide de cette ligne de commande :
 
-```PowerShell
-Get-AzRoleAssignment -SignInName <userupn>
-```
+     ```powershell
+     Get-AzRoleAssignment -SignInName <userupn>
+     ```
 
-Vérifiez que l’utilisateur se connecte avec les informations d’identification correctes.
+2. Vérifiez que l’utilisateur se connecte avec les informations d’identification correctes.
 
-Si le client web est utilisé, vérifiez qu’il n’y a aucun problème d’informations d’identification mises en cache.
+3. Si le client web est utilisé, vérifiez qu’il n’y a aucun problème d’informations d’identification mises en cache.
+
+4. Si l’utilisateur fait partie d’un groupe d’utilisateurs Azure Active Directory (AD), assurez-vous que le groupe d’utilisateurs est un groupe de sécurité au lieu d’un groupe de distribution. Le bureau virtuel Windows ne prend pas en charge les groupes de distribution Azure AD.
 
 ## <a name="next-steps"></a>Étapes suivantes
 

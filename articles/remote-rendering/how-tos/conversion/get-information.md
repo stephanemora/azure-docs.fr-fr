@@ -5,12 +5,12 @@ author: malcolmtyrrell
 ms.author: matyrr
 ms.date: 03/05/2020
 ms.topic: how-to
-ms.openlocfilehash: d5f843add0649682bae8c472bc50b6beea33bf93
-ms.sourcegitcommit: 642a297b1c279454df792ca21fdaa9513b5c2f8b
+ms.openlocfilehash: 722d3e218272202074820db442ab1592042c7011
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/06/2020
-ms.locfileid: "80679299"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84805007"
 ---
 # <a name="get-information-about-a-converted-model"></a>Obtenir des informations sur un modèle converti
 
@@ -100,7 +100,7 @@ Cette section enregistre des informations sur le format du fichier source.
 Cette section fournit des informations sur la scène source. Il y a souvent des discordances entre les valeurs de cette section et les valeurs équivalentes dans l’outil qui a créé le modèle source. De telles différences sont attendues, car le modèle est modifié pendant les étapes d’exportation et de conversion.
 
 * `numMeshes`: Nombre de composants du maillage, où chaque composant peut référencer un seul matériau.
-* `numFaces`: Nombre total de _triangles_ dans le modèle. Notez que le maillage est triangulé lors de la conversion.
+* `numFaces`: Nombre total de _triangles_ dans le modèle. Notez que le maillage est triangulé lors de la conversion. Ce nombre contribue à la limite de polygones dans la [taille de machine virtuelle de rendu standard](../../reference/vm-sizes.md#how-the-renderer-evaluates-the-number-of-polygons).
 * `numVertices`: Nombre total de vertex dans le modèle.
 * `numMaterial`: Nombre total de matériaux dans le modèle.
 * `numFacesSmallestMesh`: Nombre de triangles dans le plus petit maillage du modèle.

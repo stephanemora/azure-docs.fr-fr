@@ -1,6 +1,6 @@
 ---
-title: Fichier Include
-description: Fichier Include
+title: Fichier include
+description: Fichier include
 services: virtual-machines
 author: cynthn
 ms.service: virtual-machines
@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 03/10/2020
 ms.author: cynthn
 ms.custom: include file
-ms.openlocfilehash: 2daaf9bbdf90029f0aad4333ab94e2d1d1d3d7ff
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 7cf03de2efdb1026934985c225a2a9eecbfbb5a1
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79129236"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84902525"
 ---
 ## <a name="limitations"></a>Limites
 
@@ -71,8 +71,7 @@ L’infrastructure qui prend en charge vos machines virtuelles peut parfois êtr
 
 **Le contrôle de maintenance** offre aux clients la possibilité d’ignorer les mises à jour régulières de la plateforme planifiées sur leurs hôtes dédiés, puis de les appliquer au moment de leur choix dans une fenêtre de 35 jours.
 
-> [!NOTE]
->  Le contrôle de maintenance est actuellement disponible en préversion publique. Pour plus d’informations, voir **Contrôler les mises à jour avec le contrôle de maintenance à l’aide de [CLI](https://docs.microsoft.com/azure/virtual-machines/maintenance-control-cli?toc=/azure/virtual-machines/linux/toc.json&bc=/azure/virtual-machines/linux/breadcrumb/toc.json) ou de [PowerShell](https://docs.microsoft.com/azure/virtual-machines/maintenance-control-powershell?toc=/azure/virtual-machines/linux/toc.json&bc=/azure/virtual-machines/linux/breadcrumb/toc.json)** .
+Pour plus d’informations, consultez [Gestion des mises à jour des plateformes avec le contrôle de maintenance](https://docs.microsoft.com/azure/virtual-machines/maintenance-control).
 
 ## <a name="capacity-considerations"></a>Considérations relatives à la capacité
 

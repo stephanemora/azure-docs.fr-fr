@@ -5,18 +5,18 @@ description: Découvrez comment accéder à un espace de travail Azure Machine L
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
-ms.topic: conceptual
+ms.topic: how-to
 ms.reviewer: jmartens
 ms.author: larryfr
 author: Blackmist
-ms.date: 03/06/2020
+ms.date: 06/30/2020
 ms.custom: seodec18
-ms.openlocfilehash: 127a0a2b7f7573db91df9347169e90de3e14c4c9
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: f289be1b3432d9c62b4841c513088afa16e0e447
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79232889"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85609246"
 ---
 # <a name="manage-access-to-an-azure-machine-learning-workspace"></a>Gérer l'accès à un espace de travail Azure Machine Learning
 [!INCLUDE [aml-applies-to-basic-enterprise-sku](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -29,7 +29,7 @@ Un espace de travail Azure Machine Learning est une ressource Azure. Comme toute
 
 | Role | Niveau d’accès |
 | --- | --- |
-| **Lecteur** | Actions en lecture seule dans l’espace de travail. Les lecteurs peuvent répertorier et afficher des ressources dans un espace de travail, mais pas créer ou mettre à jour ces ressources. |
+| **Lecteur** | Actions en lecture seule dans l’espace de travail. Les lecteurs peuvent lister et visualiser des ressources (y compris [magasin de données](how-to-access-data.md)) dans un espace de travail, mais pas créer ou mettre à jour ces ressources. |
 | **Contributeur** | Afficher, créer, modifier ou supprimer (le cas échéant) des ressources dans un espace de travail. À titre d'exemple, les contributeurs peuvent créer une expérience, créer ou joindre un cluster de calcul, envoyer une exécution et déployer un service web. |
 | **Propriétaire** | Accès total à l’espace de travail, avec possibilité d’afficher, de créer, de modifier ou de supprimer (le cas échéant) des ressources dans un espace de travail. Vous pouvez modifier les attributions de rôles. |
 
@@ -59,6 +59,14 @@ Le champ `user` correspond à l’adresse e-mail d’un utilisateur présent dan
 az ml workspace share -w my_workspace -g my_resource_group --role Contributor --user jdoe@contoson.com
 ```
 
+> [!NOTE]
+> La commande « az ml workspace share » ne fonctionne pas pour un compte fédéré par Azure Active Directory B2B. Utilisez le portail de l’interface utilisateur Azure à la place de la commande.
+
+
+## <a name="azure-machine-learning-operations"></a>Opérations d’Azure Machine Learning
+
+Azure Machine Learning a des actions intégrées pour de nombreuses opérations et tâches. Pour obtenir une liste complète, consultez [Opérations des fournisseurs de ressources Azure](/azure/role-based-access-control/resource-provider-operations#microsoftmachinelearningservices).
+
 ## <a name="create-custom-role"></a>Créer un rôle personnalisé
 
 Si les rôles intégrés ne suffisent pas, vous pouvez créer des rôles personnalisés. Les rôles personnalisés peuvent disposer d'autorisations en lecture, écriture, suppression et calcul dans cet espace de travail. Vous pouvez rendre le rôle disponible au niveau d’un espace de travail spécifique, d’un groupe de ressources spécifique ou d’un abonnement spécifique.
@@ -87,7 +95,8 @@ Pour créer un rôle personnalisé, commencez par créer un fichier de définiti
 }
 ```
 
-Vous pouvez modifier le champ `AssignableScopes` pour définir l’étendue de ce rôle personnalisé au niveau de l’abonnement, du groupe de ressources ou d'un espace de travail spécifique.
+> [!TIP]
+> Vous pouvez modifier le champ `AssignableScopes` pour définir l’étendue de ce rôle personnalisé au niveau de l’abonnement, du groupe de ressources ou d'un espace de travail spécifique.
 
 Ce rôle personnalisé peut tout faire dans l'espace de travail, à l'exception de ce qui suit :
 
@@ -110,9 +119,6 @@ az ml workspace share -w my_workspace -g my_resource_group --role "Data Scientis
 
 Pour en savoir plus sur les rôles personnalisés, voir [Rôles personnalisés pour les ressources Azure](/azure/role-based-access-control/custom-roles).
 
-Pour plus d’informations sur les opérations (actions) utilisables avec des rôles personnalisés, consultez [Opérations de fournisseur de ressources](/azure/role-based-access-control/resource-provider-operations#microsoftmachinelearningservices).
-
-
 ## <a name="frequently-asked-questions"></a>Forum aux questions
 
 
@@ -126,7 +132,7 @@ Le tableau suivant résume les activités Azure Machine Learning et les autorisa
 | Créer un cluster de calcul | Non requis | Non requis | Propriétaire, contributeur ou rôle personnalisé autorisant : `workspaces/computes/write` |
 | Créer une machine virtuelle Notebook | Non requis | Propriétaire ou contributeur | Impossible |
 | Créer une instance de calcul | Non requis | Non requis | Propriétaire, contributeur ou rôle personnalisé autorisant : `workspaces/computes/write` |
-| Activité de plan de données telle que l’envoi d’une exécution, l’accès aux données, le déploiement d’un modèle ou la publication d’un pipeline | Non requis | Non requis | Propriétaire, contributeur ou rôle personnalisé autorisant : `workspaces/*/write` <br/> Notez que vous avez également besoin d’un magasin de données inscrit dans l’espace de travail pour autoriser MSI à accéder aux données de votre compte de stockage. |
+| Activité de plan de données comme l’envoi d’une exécution, l’accès aux données, le déploiement d’un modèle ou la publication d’un pipeline | Non requis | Non requis | Propriétaire, contributeur ou rôle personnalisé autorisant : `workspaces/*/write` <br/> Vous avez également besoin d’un magasin de données inscrit dans l’espace de travail pour autoriser MSI à accéder aux données de votre compte de stockage. |
 
 
 ### <a name="q-how-do-i-list-all-the-custom-roles-in-my-subscription"></a>Q. Comment répertorier tous les rôles personnalisés dans mon abonnement ?
@@ -139,7 +145,7 @@ az role definition list --subscription <sub-id> --custom-role-only true
 
 ### <a name="q-how-do-i-find-the-role-definition-for-a-role-in-my-subscription"></a>Q. Comment rechercher la définition d’un rôle dans mon abonnement ?
 
-Dans Azure CLI, exécutez la commande suivante. Notez que `<role-name>` doit être au même format que celui retourné par la commande ci-dessus.
+Dans Azure CLI, exécutez la commande suivante. `<role-name>` doit être au même format que celui retourné par la commande ci-dessus.
 
 ```azurecli-interactive
 az role definition list -n <role-name> --subscription <sub-id>
@@ -153,7 +159,7 @@ Dans Azure CLI, exécutez la commande suivante.
 az role definition update --role-definition update_def.json --subscription <sub-id>
 ```
 
-Notez que vous devez disposer d’autorisations sur l’ensemble de l’étendue de votre nouvelle définition de rôle. Par exemple, si ce nouveau rôle a une étendue sur trois abonnements, vous devez disposer d’autorisations sur les trois abonnements. 
+Vous devez disposer d’autorisations sur l’ensemble de l’étendue de votre nouvelle définition de rôle. Par exemple, si ce nouveau rôle a une étendue sur trois abonnements, vous devez disposer d’autorisations sur les trois abonnements. 
 
 > [!NOTE]
 > Les mises à jour de rôle peuvent prendre entre 15 minutes et 1 heure pour s’appliquer à toutes les attributions de rôles de cette étendue.
@@ -165,7 +171,7 @@ Oui, vous pouvez définir un rôle qui empêche la mise à jour de l’édition 
 
 ### <a name="q-what-permissions-are-needed-to-perform-quota-operations-in-a-workspace"></a>Q. Quelles sont les autorisations nécessaires pour effectuer des opérations de quota dans un espace de travail ? 
 
-Vous avez besoin d’autorisations au niveau de l’abonnement pour effectuer toute opération liée aux quotas dans l’espace de travail. Cela signifie que le paramétrage d’un quota au niveau de l’abonnement ou au niveau de l’espace de travail pour vos ressources de calcul managées ne peut se faire que si vous disposez d’autorisations d’écriture dans l’étendue de l’abonnement. 
+Vous avez besoin d’autorisations au niveau de l’abonnement pour effectuer une opération liée aux quotas dans l’espace de travail. Cela signifie que le paramétrage d’un quota au niveau de l’abonnement ou au niveau de l’espace de travail pour vos ressources de calcul managées ne peut se faire que si vous disposez d’autorisations d’écriture dans l’étendue de l’abonnement. 
 
 
 ## <a name="next-steps"></a>Étapes suivantes

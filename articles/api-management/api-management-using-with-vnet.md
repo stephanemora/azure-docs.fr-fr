@@ -10,15 +10,15 @@ ms.service: api-management
 ms.workload: mobile
 ms.tgt_pltfrm: na
 ms.topic: article
-ms.date: 05/21/2020
+ms.date: 06/10/2020
 ms.author: apimpm
 ms.custom: references_regions
-ms.openlocfilehash: f7a036a382ac3b16093529a67abe9ef78b897274
-ms.sourcegitcommit: d118ad4fb2b66c759b70d4d8a18e6368760da3ad
+ms.openlocfilehash: 76107a3713a7570bc3bbca15aa1b47e76560bf66
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/02/2020
-ms.locfileid: "84300069"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84674276"
 ---
 # <a name="how-to-use-azure-api-management-with-virtual-networks"></a>Utilisation de la gestion des API Azure avec des réseaux virtuels
 Les réseaux virtuels Azure vous permettent de placer vos ressources Azure dans un réseau routable non-Internet dont vous contrôlez l’accès. Ces réseaux peuvent ensuite être connectés à vos réseaux locaux à l’aide de différentes technologies VPN. Pour en savoir plus sur les réseaux virtuels Azure, commencez par consulter la page [Présentation du réseau virtuel Azure](../virtual-network/virtual-networks-overview.md).
@@ -118,16 +118,15 @@ Voici une liste des problèmes courants de configuration incorrecte qui peuvent 
 | * / 1433                     | Règle de trafic sortant           | TCP                | VIRTUAL_NETWORK / SQL                 | **Accès aux points de terminaison de SQL Azure**                           | Externe et interne  |
 | * / 5671, 5672, 443          | Règle de trafic sortant           | TCP                | VIRTUAL_NETWORK / EventHub            | Dépendance pour le [journal pour la stratégie Event Hub](api-management-howto-log-event-hubs.md) et l’agent de surveillance | Externe et interne  |
 | * / 445                      | Règle de trafic sortant           | TCP                | VIRTUAL_NETWORK / Storage             | Dépendance du partage de fichiers Azure pour [GIT](api-management-configuration-repository-git.md)                      | Externe et interne  |
-| * / 1886                     | Règle de trafic sortant           | TCP                | VIRTUAL_NETWORK / AzureCloud            | Nécessaire pour publier l’état d’intégrité sur Resource Health          | Externe et interne  |
-| * / 443                     | Règle de trafic sortant           | TCP                | VIRTUAL_NETWORK / AzureMonitor         | Publier les [journaux de diagnostic et les métriques](api-management-howto-use-azure-monitor.md)                       | Externe et interne  |
-| * / 25                       | Règle de trafic sortant           | TCP                | VIRTUAL_NETWORK / INTERNET            | Se connecter au relais SMTP pour envoyer des e-mails                    | Externe et interne  |
-| * / 587                      | Règle de trafic sortant           | TCP                | VIRTUAL_NETWORK / INTERNET            | Se connecter au relais SMTP pour envoyer des e-mails                    | Externe et interne  |
-| * / 25028                    | Règle de trafic sortant           | TCP                | VIRTUAL_NETWORK / INTERNET            | Se connecter au relais SMTP pour envoyer des e-mails                    | Externe et interne  |
-| * / 6381 - 6383              | Trafic entrant et sortant | TCP                | VIRTUAL_NETWORK / VIRTUAL_NETWORK     | Accéder au service Redims pour les stratégies de [limite de débit](api-management-access-restriction-policies.md#LimitCallRateByKey) entre machines         | Externe et interne  |
+| * / 443                     | Règle de trafic sortant           | TCP                | VIRTUAL_NETWORK / AzureCloud            | Extension Intégrité et surveillance         | Externe et interne  |
+| * / 1886, 443                     | Règle de trafic sortant           | TCP                | VIRTUAL_NETWORK / AzureMonitor         | Publier les [journaux et métriques de diagnostic](api-management-howto-use-azure-monitor.md) et les informations d’[intégrité des ressources](../service-health/resource-health-overview.md)                     | Externe et interne  |
+| * / 25, 587, 25028                       | Règle de trafic sortant           | TCP                | VIRTUAL_NETWORK / INTERNET            | Se connecter au relais SMTP pour envoyer des e-mails                    | Externe et interne  |
+| * / 6381 - 6383              | Trafic entrant et sortant | TCP                | VIRTUAL_NETWORK / VIRTUAL_NETWORK     | Accéder au service Redis pour les stratégies de [cache](api-management-caching-policies.md) entre machines         | Externe et interne  |
+| * / 4290              | Trafic entrant et sortant | UDP                | VIRTUAL_NETWORK / VIRTUAL_NETWORK     | Compteurs de synchronisation pour les stratégies de [limite de débit](api-management-access-restriction-policies.md#LimitCallRateByKey) entre machines         | Externe et interne  |
 | * / *                        | Trafic entrant            | TCP                | AZURE_LOAD_BALANCER / VIRTUAL_NETWORK | Équilibrage de charge de l’infrastructure Azure                          | Externe et interne  |
 
 >[!IMPORTANT]
-> Les ports pour lesquels *l’objectif* est indiqué en **gras** sont nécessaires au déploiement du service Gestion des API. Toutefois, le blocage des autres ports entraîne une dégradation de la capacité à utiliser et à surveiller le service en cours d’exécution.
+> Les ports pour lesquels *l’objectif* est indiqué en **gras** sont nécessaires au déploiement du service Gestion des API. Toutefois, le blocage des autres ports entraîne une **dégradation** de la capacité à utiliser et **superviser le service en cours d’exécution et fournir le contrat SLA validé**.
 
 + **Fonctionnalités TLS** : pour activer la génération et la validation de la chaîne de certification TLS/SSL, le service Gestion des API nécessite une connectivité réseau sortante vers ocsp.msocsp.com, mscrl.microsoft.com et crl.microsoft.com. Cette dépendance n’est pas requise si l’un des certificats que vous chargez sur la gestion de API contient la totalité de la chaîne permettant d’accéder à la racine de l’AC.
 
@@ -167,7 +166,7 @@ Voici une liste des problèmes courants de configuration incorrecte qui peuvent 
       - CAPTCHA du portail des développeurs
 
 ## <a name="troubleshooting"></a><a name="troubleshooting"> </a>Dépannage
-* **Installation initiale** : si le déploiement initial du service Gestion des API sur un sous-réseau échoue, nous vous recommandons de commencer par déployer une machine virtuelle sur ce sous-réseau. Ensuite, utilisez le Bureau à distance pour vous connecter à la machine virtuelle et confirmez qu’il existe une connectivité à chacune des ressources de votre abonnement Azure mentionnées ci-dessous.
+* **Installation initiale** : si le déploiement initial du service Gestion des API sur un sous-réseau échoue, nous vous recommandons de commencer par déployer une machine virtuelle sur ce sous-réseau. Ensuite, utilisez le Bureau à distance pour vous connecter à la machine virtuelle et vérifiez la connectivité à chacune des ressources de votre abonnement Azure mentionnées ci-dessous
     * Stockage Blob Azure
     * Azure SQL Database
     * Azure Storage Table

@@ -15,14 +15,14 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/16/2017
 ms.author: monicar
-ms.openlocfilehash: 7c80ba6b15cec08da9bcefea243493a824ef66bd
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: fa7464c70593c83c708aba49235ecdde1be0cc9f
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79234853"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84807756"
 ---
-# <a name="microsoft-azure-glossary-a-dictionary-of-cloud-terminology-on-the-azure-platform"></a>Glossaire Microsoft Azure : un dictionnaire de la terminologie des technologies cloud sur la plateforme Azure
+# <a name="microsoft-azure-glossary-a-dictionary-of-cloud-terminology-on-the-azure-platform"></a>Glossaire Microsoft Azure : Dictionnaire de la terminologie cloud sur la plateforme Azure
 
 Le glossaire Microsoft Azure est un petit dictionnaire de la terminologie des technologies cloud pour la plateforme Azure. Voir aussi :
 
@@ -31,7 +31,7 @@ Le glossaire Microsoft Azure est un petit dictionnaire de la terminologie des te
 
 ## <a name="account"></a>account
 Compte utilisé pour l’accès et la gestion d’un abonnement Azure. On l’appelle souvent « compte Azure », bien qu’il puisse s’agir d’un compte Microsoft professionnel, scolaire ou personnel existant, ou encore d’un nom d’utilisateur et d’un mot de passe Office 365. Vous pouvez également créer un compte pour gérer un abonnement Azure lorsque vous vous inscrivez pour bénéficier de la [version d’évaluation gratuite](https://azure.microsoft.com).  
-Consultez les pages [Sign up for an Azure subscription with your Office 365 account](cost-management-billing/manage/office-365-account-for-azure-subscription.md) (S’inscrire à un abonnement Azure avec un compte Office 365) et [Accounts you can use to sign in](active-directory/fundamentals/active-directory-how-subscriptions-associated-directory.md) (Comptes utilisables pour l’inscription).
+Consultez les pages [Souscrire un abonnement Azure avec un compte Microsoft 365](cost-management-billing/manage/microsoft-365-account-for-azure-subscription.md) et [Comptes utilisables pour l’inscription](active-directory/fundamentals/active-directory-how-subscriptions-associated-directory.md).
 
 ## <a name="api-app"></a>application API
 Autre nom pour [application App Service](#app-service-app).
@@ -70,7 +70,7 @@ Voir [Géo-réplication active pour Azure SQL Database](sql-database/sql-databas
 <!-- The meaning of "geo" in this term seems to be different than the meaning provided in the "geo" entry -->
 
 ## <a name="image"></a>image
-Un fichier qui contient la configuration du système d’exploitation et des applications, et qui peut servir à créer un nombre illimité de machines virtuelles. Deux types d’images peuvent être utilisés dans Azure : l’image de machine virtuelle et l’image du système d’exploitation. Une image de machine virtuelle inclut un système d'exploitation et tous les disques attachés à une machine virtuelle lors de la création de l'image. Une image du système d’exploitation contient uniquement un système d’exploitation généralisé sans aucune configuration du disque de données.  
+Un fichier qui contient la configuration du système d’exploitation et des applications, et qui peut servir à créer un nombre illimité de machines virtuelles. Deux types d’images peuvent être utilisés dans Azure : Image de machine virtuelle et image de système d’exploitation. Une image de machine virtuelle inclut un système d'exploitation et tous les disques attachés à une machine virtuelle lors de la création de l'image. Une image du système d’exploitation contient uniquement un système d’exploitation généralisé sans aucune configuration du disque de données.  
 Voir [Parcourir et sélectionner des images de machines virtuelles Windows dans Azure avec PowerShell ou l’interface de ligne de commande](virtual-machines/windows/cli-ps-findimage.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
 
 ## <a name="limits"></a>limites
@@ -112,7 +112,7 @@ Voir [Présentation d’Azure Resource Manager](azure-resource-manager/managemen
 
 ## <a name="role"></a>rôle
 Un moyen de contrôler l’accès qui peut être affecté aux utilisateurs ainsi qu’aux groupes et services. Les rôles rendent possibles des actions telles que la création, la gestion et la lecture sur les ressources Azure.  
-Voir [RBAC : rôles intégrés](role-based-access-control/built-in-roles.md)
+Consultez [RBAC : Rôles intégrés](role-based-access-control/built-in-roles.md)
 
 ## <a name="service-level-agreement-sla"></a><a name="sla"></a>Contrat de Niveau de Service (SLA)
 Les contrats SLA décrivent les engagements de Microsoft en matière de temps d’activité et de connectivité. Chaque service Azure dispose d’un contrat SLA spécifique.  

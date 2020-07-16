@@ -8,17 +8,17 @@ manager: KumudD
 ms.service: virtual-network
 ms.subservice: ip-services
 ms.devlang: na
-ms.topic: article
+ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/24/2017
 ms.author: allensu
-ms.openlocfilehash: e4197923fa71c719611bea7603113cab331d4ba8
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 819b6af0d336e454aeeb67a9be62109cb6b08bb8
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82147795"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84708227"
 ---
 # <a name="assign-multiple-ip-addresses-to-virtual-machines-using-powershell"></a>Affecter plusieurs adresses IP à des machines virtuelles avec PowerShell
 
@@ -94,7 +94,7 @@ Les étapes qui suivent expliquent comment créer un exemple de machine virtuell
 
 6. Définissez la configuration IP principale de la carte réseau. Remplacez 10.0.0.4 par une adresse valide dans le sous-réseau que vous avez créé, si vous n’utilisez pas la valeur définie précédemment. Avant d’attribuer une adresse IP statique, il est recommandé de vérifier tout d’abord qu’elle n’est pas déjà utilisée. Entrez la commande `Test-AzPrivateIPAddressAvailability -IPAddress 10.0.0.4 -VirtualNetwork $VNet`. Si l’adresse est disponible, la sortie retourne *True*. S’il n’est pas disponible, la sortie retourne *False* et la liste des adresses disponibles. 
 
-    Dans les commandes suivantes, **remplacez \<<replace-with-your-unique-name> par le nom DNS unique à utiliser.** Le nom doit être unique sur toutes les adresses IP publiques au sein d’une région Azure. Il s'agit d'un paramètre facultatif. Il peut être supprimé si vous voulez uniquement vous connecter à la machine virtuelle à l’aide de l’adresse IP publique.
+    Dans les commandes suivantes, **remplacez \<replace-with-your-unique-name> par le nom DNS unique à utiliser.** Le nom doit être unique sur toutes les adresses IP publiques au sein d’une région Azure. Il s'agit d'un paramètre facultatif. Il peut être supprimé si vous voulez uniquement vous connecter à la machine virtuelle à l’aide de l’adresse IP publique.
 
     ```powershell
     

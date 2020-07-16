@@ -12,12 +12,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 ms.date: 12/12/2018
 ms.author: genli
-ms.openlocfilehash: 660c7fa0051654fd9b0012740ce7ed3ee1e91531
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 1ab2861f73d66987230c9e3398227c8e80665e96
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "71059181"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84769606"
 ---
 # <a name="troubleshoot-azure-virtual-machines-boot-errors"></a>Résoudre les erreurs de démarrage dans Machines virtuelles Azure
 
@@ -26,12 +26,12 @@ Cet article liste les erreurs de démarrage courantes que vous pouvez recevoir q
 ## <a name="boot-errors-and-solutions"></a>Erreurs de démarrage et solutions
 
 * [Erreurs de démarrage BitLocker](troubleshoot-bitlocker-boot-error.md) 
+* [La machine virtuelle ne démarre pas après la mise à jour de Windows](troubleshoot-stuck-updating-boot-error.md)
 * [Windows indique « Vérification du système de fichiers » pendant le démarrage](troubleshoot-check-disk-boot-error.md)
 * [Erreurs liées à un écran bleu](troubleshoot-common-blue-screen-error.md)
 * [Le démarrage de la machine virtuelle est bloqué sur « Préparation de Windows](troubleshoot-vm-boot-configure-update.md)
 * [Erreur « Échec du service critique » sur écran bleu](troubleshoot-critical-service-failed-boot-error.md)
 * [Problème de boucle de redémarrage](troubleshoot-reboot-loop.md)
-* [Le démarrage de la machine virtuelle est bloqué au niveau de la mise à jour de Windows](troubleshoot-stuck-updating-boot-error.md)
 
 ## <a name="next-steps"></a>Étapes suivantes
 

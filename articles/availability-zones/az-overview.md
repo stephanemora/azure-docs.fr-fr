@@ -7,12 +7,12 @@ ms.topic: article
 ms.date: 04/28/2020
 ms.author: cynthn
 ms.custom: fasttrack-edit, mvc
-ms.openlocfilehash: 124aac96550b5d462c0794053452ed28dba27452
-ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
+ms.openlocfilehash: 78f50abf68412d2edcb7a6504c8e5c1b788e5901
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "84013212"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85413159"
 ---
 # <a name="regions-and-availability-zones-in-azure"></a>Régions et zones de disponibilité dans Azure
 
@@ -43,7 +43,7 @@ Une région est constituée d’un ensemble de centres de données déployés da
 
 Une zone de disponibilité est une offre à haute disponibilité qui protège vos applications et vos données contre les défaillances des centres de données. Les Zones de disponibilité sont des emplacements physiques uniques au sein d’une région Azure. Chaque zone de disponibilité est composée d’un ou de plusieurs centres de données équipés d’une alimentation, d’un système de refroidissement et d’un réseau indépendants. Pour garantir la résilience, un minimum de trois zones distinctes sont activées dans toutes les régions. La séparation physique des Zones de disponibilité dans une région protège les applications et les données des défaillances dans le centre de données. Les services redondants interzone répliquent vos applications et données entre des Zones de disponibilité pour les protéger contre des points uniques de panne. Avec les Zones de disponibilité, Azure propose des contrats de niveau de service de durée de fonctionnement des machines virtuelles de pointe de 99,99 %. La version complète du [contrat SLA Azure](https://azure.microsoft.com/support/legal/sla/virtual-machines/) explique la disponibilité garantie d’Azure dans son ensemble.
 
-Une zone de disponibilité dans une région Azure est une combinaison d’un domaine d’erreur et d’un domaine de mise à jour. Par exemple, si vous créez trois ou plusieurs machines virtuelles dans trois zones d’une région Azure, vos machines virtuelles sont efficacement réparties sur trois domaines d’erreur et trois domaines de mise à jour. La plateforme Azure reconnaît cette répartition entre les domaines de mise à jour pour vous assurer que les machines virtuelles des différentes zones ne sont pas mises à jour en même temps.
+Une zone de disponibilité dans une région Azure est une combinaison d’un domaine d’erreur et d’un domaine de mise à jour. Par exemple, si vous créez trois ou plusieurs machines virtuelles dans trois zones d’une région Azure, vos machines virtuelles sont efficacement réparties sur trois domaines d’erreur et trois domaines de mise à jour. La plateforme Azure reconnaît cette répartition entre les domaines de mise à jour pour vous assurer que les machines virtuelles des différentes zones ne sont pas planifiées pour être mises à jour en même temps.
 
 Générez la haute disponibilité dans votre architecture d’applications par la colocalisation de vos ressources de calcul, de stockage, de mise en réseau et de données dans une zone et une réplication dans d’autres zones. Les services Azure qui prennent en charge les Zones de disponibilité sont classés en deux catégories :
 
@@ -102,7 +102,7 @@ Comme mentionné précédemment, Azure classe les services en trois catégories�
 > | Services cloud : Série Av2 | Recherche cognitive Azure | Azure NetApp Files |
 > | Services cloud : Série Dv2 | Explorateur de données Azure | Azure Quantum |
 > | Services cloud : Série Dv3 | Azure Data Share | Azure Time Series Insights |
-> | Services cloud : Série Ev3 | Azure Database pour MySQL |  Azure VMware Solution by CloudSimple  |
+> | Services cloud : Série Ev3 | Azure Database pour MySQL | Azure VMware Solution by CloudSimple |
 > | Services cloud : IP de niveau d'instance | Azure Database pour PostgreSQL | Services cloud : A8 - A11 (Calcul intensif) |
 > | Services cloud : Adresse IP réservée | Azure Database Migration Service | Services cloud : Série G |
 > | Stockage sur disque | Azure Databricks | Services cloud : Série H |

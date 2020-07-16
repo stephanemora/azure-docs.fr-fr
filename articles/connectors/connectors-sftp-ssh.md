@@ -6,18 +6,27 @@ ms.suite: integration
 author: divyaswarnkar
 ms.reviewer: estfan, logicappspm
 ms.topic: article
-ms.date: 05/06/2020
+ms.date: 06/17/2020
 tags: connectors
-ms.openlocfilehash: 7635d98bb48543dd07f05f34ea854af870876cc3
-ms.sourcegitcommit: a6d477eb3cb9faebb15ed1bf7334ed0611c72053
+ms.openlocfilehash: c2f3af4b0e2fafdd95798b412f37ed20204cd42f
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/08/2020
-ms.locfileid: "82927443"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84807744"
 ---
 # <a name="monitor-create-and-manage-sftp-files-by-using-ssh-and-azure-logic-apps"></a>Superviser, créer et gérer des fichiers SFTP à l’aide de SSH et d’Azure Logic Apps
 
-Pour automatiser les tâches qui surveillent, créent, envoient et reçoivent des fichiers sur un serveur [Secure File Transfer Protocol (SFTP)](https://www.ssh.com/ssh/sftp/) à l’aide du protocole [Secure Shell (SSH)](https://www.ssh.com/ssh/protocol/), vous pouvez générer et automatiser les workflows d’intégration à l’aide d’Azure Logic Apps et du connecteur SFTP-SSH. SFTP est un protocole réseau qui fournit un accès aux fichiers, le transfert de fichiers et la gestion des fichiers sur n’importe quel flux de données fiable. Voici quelques exemples de tâches que vous pouvez automatiser :
+Pour automatiser les tâches qui surveillent, créent, envoient et reçoivent des fichiers sur un serveur [Secure File Transfer Protocol (SFTP)](https://www.ssh.com/ssh/sftp/) à l’aide du protocole [Secure Shell (SSH)](https://www.ssh.com/ssh/protocol/), vous pouvez générer et automatiser les workflows d’intégration à l’aide d’Azure Logic Apps et du connecteur SFTP-SSH. SFTP est un protocole réseau qui fournit un accès aux fichiers, le transfert de fichiers et la gestion des fichiers sur n’importe quel flux de données fiable.
+
+> [!NOTE]
+> Actuellement, le connecteur SFTP-SSH ne prend pas en charge les serveurs SFTP suivants :
+> 
+> * IBM DataPower
+> * OpenText Secure MFT
+> * OpenText GXS
+
+Voici quelques exemples de tâches que vous pouvez automatiser :
 
 * Superviser à quel moment des fichiers sont ajoutés ou changés.
 * Obtenir, créer, copier, renommer, mettre à jour, lister et supprimer des fichiers.

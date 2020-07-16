@@ -9,14 +9,14 @@ ms.workload: identity
 ms.topic: how-to
 ms.date: 03/18/2020
 ms.author: iainfou
-ms.openlocfilehash: bdfc7d37d99dc5511f47e33d1848c3f142a9693e
-ms.sourcegitcommit: 62c5557ff3b2247dafc8bb482256fef58ab41c17
+ms.openlocfilehash: 99b61bdd4318bf7c77ae53cc9b77e66ebd6c098a
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/03/2020
-ms.locfileid: "80654473"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84733396"
 ---
-# <a name="review-security-audit-events-in-azure-ad-domain-services-using-azure-monitor-workbooks"></a>Examiner les événements d’audit de sécurité dans Azure AD Domain Services à l’aide des classeurs Azure Monitor
+# <a name="review-security-audit-events-in-azure-active-directory-domain-services-using-azure-monitor-workbooks"></a>Examiner les événements d’audit de sécurité dans Azure Active Directory Domain Services à l’aide d’Azure Monitor Workbooks
 
 Pour mieux comprendre l’état de votre domaine managé Azure Active Directory Domain Services (Azure AD DS), vous pouvez activer des événements d’audit de sécurité. Il est alors possible d’examiner ces événements d’audit de sécurité à l’aide des classeurs Azure Monitor qui combinent du texte, des requêtes analytiques et des paramètres dans des rapports interactifs enrichis. Azure AD DS comprend des modèles de classeurs pour avoir une vue d’ensemble de la sécurité et l’activité des comptes et vous permettre ainsi d’explorer les événements d’audit et de gérer votre environnement.
 
@@ -31,7 +31,7 @@ Pour faire ce qui est décrit dans cet article, vous avez besoin des ressources 
 * Un locataire Azure Active Directory associé à votre abonnement, synchronisé avec un annuaire local ou un annuaire cloud uniquement.
     * Si nécessaire, [créez un locataire Azure Active Directory][create-azure-ad-tenant] ou [associez un abonnement Azure à votre compte][associate-azure-ad-tenant].
 * Un domaine managé Azure Active Directory Domain Services activé et configuré dans votre locataire Azure AD.
-    * Si nécessaire, suivez le tutoriel pour [créer et configurer une instance Azure Active Directory Domain Services][create-azure-ad-ds-instance].
+    * Si nécessaire, suivez le tutoriel pour [créer et configurer un domaine managé Azure Active Directory Domain Services][create-azure-ad-ds-instance].
 * Événements d’audit de sécurité activés pour votre domaine managé Azure Active Directory Domain Services qui diffusent en continu des données vers un espace de travail Log Analytics.
     * Si nécessaire, [activez les audits de sécurité pour Azure Active Directory Domain Services][enable-security-audits].
 

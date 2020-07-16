@@ -8,14 +8,14 @@ ms.author: anumamah
 ms.reviewer: nibaccam
 ms.service: machine-learning
 ms.subservice: core
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 12/05/2019
-ms.openlocfilehash: a7827349166ce55b1604f949f1d78a1ddce7c5e0
-ms.sourcegitcommit: 6a9f01bbef4b442d474747773b2ae6ce7c428c1f
+ms.openlocfilehash: 119f26f8d5a425462382a873d7ca4bcfdd6f3d03
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "84116023"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85214500"
 ---
 # <a name="understand-automated-machine-learning-results"></a>Comprendre les résultats des Machine Learning automatisés
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -265,6 +265,9 @@ Un bon modèle a généralement une courbe en cloche ou un taux d’erreurs proc
 ## <a name="model-interpretability-and-feature-importance"></a><a name="explain-model"></a> Interprétabilité du modèle et importance des fonctionnalités
 Le Machine Learning automatisé fournit un tableau de bord d’interprétation Machine Learning pour vos exécutions.
 Pour plus d’informations sur l’activation des caractéristiques d’interprétabilité, consultez le [guide pratique](how-to-machine-learning-interpretability-automl.md) sur l’activation de l’interprétabilité dans des expériences de machine learning automatisé.
+
+> [!NOTE]
+> Le modèle ForecastTCN n’est actuellement pas pris en charge par le client d’explication. Ce modèle ne retourne pas de tableau de bord s’il est retourné comme meilleur modèle et ne prend pas en charge les exécutions d’explications à la demande.
 
 ## <a name="next-steps"></a>Étapes suivantes
 

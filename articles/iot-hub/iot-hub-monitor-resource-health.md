@@ -1,20 +1,19 @@
 ---
 title: Surveiller l’intégrité de votre Azure IoT Hub | Microsoft Docs
 description: Utilisez Azure Monitor et Azure Resource Health pour surveiller votre IoT Hub et diagnostiquer rapidement les problèmes
-author: kgremban
-manager: philmea
+author: robinsh
 ms.service: iot-hub
 services: iot-hub
 ms.topic: conceptual
-ms.date: 11/11/2019
-ms.author: kgremban
+ms.date: 04/21/2020
+ms.author: robinsh
 ms.custom: amqp
-ms.openlocfilehash: a1d74085090a3e20764d7b6fee84ffca52d5cb74
-ms.sourcegitcommit: ffc6e4f37233a82fcb14deca0c47f67a7d79ce5c
+ms.openlocfilehash: d00e3dc5e43eb6978f6835ac4b7d101e4a42a226
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/21/2020
-ms.locfileid: "81732443"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84792017"
 ---
 # <a name="monitor-the-health-of-azure-iot-hub-and-diagnose-problems-quickly"></a>Surveiller l’intégrité d’Azure IoT Hub et diagnostiquer rapidement les problèmes
 
@@ -32,8 +31,6 @@ IoT Hub propose également ses propres métriques pour vous aider à comprendre 
 ## <a name="use-azure-monitor"></a>Utiliser Azure Monitor
 
 Azure Monitor fournit des informations de diagnostic pour les ressources Azure, ce qui vous permet de contrôler les opérations qui ont lieu au sein de votre IoT Hub.
-
-Les paramètres de diagnostic d’Azure Monitor remplacent le moniteur d’opérations d’IoT Hub. Si vous utilisez actuellement la surveillance des opérations, vous devez migrer vos flux de travail. Pour plus d’informations, consultez [Migrer de la surveillance des opérations vers les paramètres de diagnostic](iot-hub-migrate-to-diagnostics-settings.md).
 
 Pour en savoir plus sur les mesures et les événements spécifiques surveillés par Azure Monitor, consultez [Mesures prises en charge avec Azure Monitor](../azure-monitor/platform/metrics-supported.md) et [Services, schémas et catégories pris en charge pour les journaux de diagnostic Azure](../azure-monitor/platform/diagnostic-logs-schema.md).
 
@@ -121,11 +118,11 @@ La catégorie d’opérations d’identité des appareils effectue le suivi des 
 
 #### <a name="routes"></a>Itinéraires
 
-La catégorie de routage des messages assure le suivi des erreurs qui se produisent pendant l’évaluation du routage des messages et de l’intégrité du point de terminaison perçue par IoT Hub. Cette catégorie inclut les événements de type :
+La catégorie de [routage des messages](https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-messages-d2c) assure le suivi des erreurs qui se produisent pendant l’évaluation du routage des messages et de l’intégrité du point de terminaison perçue par IoT Hub. Cette catégorie inclut les événements de type :
 
 * Une règle est évaluée sur « indéfinie »
 * Un point de terminaison est signalé comme étant inactif par IoT Hub
-* Toutes les erreurs reçues depuis un point de terminaison 
+* Toutes les erreurs reçues depuis un point de terminaison
 
 Cette catégorie n’inclut pas les erreurs spécifiques aux messages eux-mêmes (les erreurs de limitation des appareils, par exemple) qui sont signalées dans la catégorie « télémétrie des appareils ».
 
@@ -134,17 +131,24 @@ Cette catégorie n’inclut pas les erreurs spécifiques aux messages eux-mêmes
     "records":
     [
         {
-            "time": "UTC timestamp",
-            "resourceId": "Resource Id",
-            "operationName": "endpointUnhealthy",
-            "category": "Routes",
-            "level": "Error",
-            "properties": "{\"deviceId\": \"<deviceId>\",\"endpointName\":\"<endpointName>\",\"messageId\":<messageId>,\"details\":\"<errorDetails>\",\"routeName\": \"<routeName>\"}",
-            "location": "Resource location"
+            "time":"2019-12-12T03:25:14Z",
+            "resourceId":"/SUBSCRIPTIONS/91R34780-3DEC-123A-BE2A-213B5500DFF0/RESOURCEGROUPS/ANON-TEST/PROVIDERS/MICROSOFT.DEVICES/IOTHUBS/ANONHUB1",
+            "operationName":"endpointUnhealthy",
+            "category":"Routes",
+            "level":"Error",
+            "resultType":"403004",
+            "resultDescription":"DeviceMaximumQueueDepthExceeded",
+            "properties":"{\"deviceId\":null,\"endpointName\":\"anon-sb-1\",\"messageId\":null,\"details\":\"DeviceMaximumQueueDepthExceeded\",\"routeName\":null,\"statusCode\":\"403\"}",
+            "location":"westus"
         }
     ]
 }
 ```
+
+Voici plus de détails sur le routage des journaux de diagnostic :
+
+* [Liste des codes d’erreur du journal de diagnostic du routage](troubleshoot-message-routing.md#diagnostics-error-codes)
+* [Liste operationNames des journaux de diagnostic de routage](troubleshoot-message-routing.md#diagnostics-operation-names)
 
 #### <a name="device-telemetry"></a>Télémétrie d’appareil
 

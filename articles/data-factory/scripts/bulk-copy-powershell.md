@@ -10,16 +10,16 @@ ms.workload: data-services
 ms.topic: article
 ms.custom: seo-lt-2019
 ms.date: 10/31/2017
-ms.openlocfilehash: efc79f82a2181099f832da0d4a17fc370bf4f7f6
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: e0fedd2a304c73347b7ec72818b5289c1df2e561
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "74929869"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85248613"
 ---
 # <a name="powershell-script---copy-multiple-tables-in-bulk-by-using-azure-data-factory"></a>Script PowerShell - Copier plusieurs tables en bloc avec Azure Data Factory
 
-Cet exemple de script PowerShell copie les données de plusieurs tables dans une base de données Azure SQL vers un entrepôt de données Azure SQL.
+Cet exemple de script PowerShell copie les données de plusieurs tables dans Azure SQL Database vers un entrepôt de données Azure SQL.
 
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 

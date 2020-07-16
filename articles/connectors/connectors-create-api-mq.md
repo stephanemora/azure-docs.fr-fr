@@ -9,12 +9,12 @@ ms.reviewer: valthom, estfan, logicappspm
 ms.topic: article
 ms.date: 05/14/2020
 tags: connectors
-ms.openlocfilehash: 17143257fcb6b9c71bb56e1f4c4958dce503c234
-ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
+ms.openlocfilehash: e9e554fdc092e49f5a87049de0e3dc3163105f58
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83652464"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85609501"
 ---
 # <a name="connect-to-an-ibm-mq-server-from-azure-logic-apps"></a>Se connecter à un serveur IBM MQ depuis Azure Logic Apps
 
@@ -94,7 +94,7 @@ Lorsque votre application logique tente de se connecter à votre serveur MQ loca
      > [!IMPORTANT]
      > Veillez à installer le certificat dans le magasin **Certificats - Ordinateur local** > **Autorités de certification racines de confiance**.
 
-* Le serveur MQ requiert la définition de la spécification de chiffrement que vous souhaitez utiliser pour les connexions SSL. Toutefois, SsLStream dans .NET ne vous permet pas de spécifier l’ordre des spécifications de chiffrement. Pour contourner cette limitation, vous pouvez modifier la configuration de votre serveur MQ afin qu’elle corresponde à la première spécification de chiffrement de la suite que le connecteur envoie dans la négociation SSL.
+* Le serveur MQ vous demande de définir la spécification de chiffrement que vous souhaitez utiliser pour les connexions TLS/SSL. Toutefois, SslStream dans .NET ne vous permet pas de spécifier l’ordre des spécifications de chiffrement. Pour contourner cette limitation, vous pouvez modifier la configuration de votre serveur MQ afin qu’elle corresponde à la première spécification de chiffrement de la suite que le connecteur envoie dans la négociation TLS/SSL.
 
   Lorsque vous essayez la connexion, le serveur MQ enregistre un message d’événement qui indique que la connexion a échoué, car l’autre terminaison a utilisé la mauvaise spécification de chiffrement. Le message d’événement contient la spécification de chiffrement qui apparaît en premier dans la liste. Mettez à jour la spécification de chiffrement dans la configuration du canal pour qu’elle corresponde à la spécification de chiffrement du message d’événement.
 

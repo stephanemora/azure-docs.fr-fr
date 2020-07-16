@@ -6,12 +6,12 @@ ms.author: dech
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 05/06/2020
-ms.openlocfilehash: a9368e67abf3c45981cf1f85fe46a2a2799a6877
-ms.sourcegitcommit: 602e6db62069d568a91981a1117244ffd757f1c2
+ms.openlocfilehash: aa7d67cd6bd1bd422bd257b75ac5bde3bd534d7e
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/06/2020
-ms.locfileid: "82864332"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85481831"
 ---
 # <a name="partitioning-in-azure-cosmos-db"></a>Partitionnement dans Azure Cosmos DB
 
@@ -34,6 +34,14 @@ Les transactions (dans les procédures stockées ou dans les déclencheurs) ne s
 En savoir plus sur la [façon dont Azure Cosmos DB gère les partitions](partition-data.md). (Il n’est pas nécessaire de connaître le fonctionnement interne de la création ou de l’exécution de vos applications mais il n’est décrit ici qu’à titre d’information.)
 
 ## <a name="choosing-a-partition-key"></a><a id="choose-partitionkey"></a>Choix d’une clé de partition
+
+Une clé de partition a deux composants : le **chemin de clé de partition** et la **valeur de clé de partition**. Par exemple, considérez un élément { "userId" : "Andrew", "worksFor": "Microsoft" } si vous choisissez « userId » comme clé de partition, voici les deux composants de la clé de partition :
+
+* Chemin de clé de partition (par exemple : « /userId »). Le chemin de clé de partition accepte les caractères alphanumériques et les traits de soulignement (_). Vous pouvez également utiliser des objets imbriqués à l’aide de la notation de chemin standard (/).
+
+* La valeur de clé de partition (par exemple : « Andrew »). La valeur de clé de partition peut être de type chaîne ou numérique.
+
+Pour en savoir plus sur les limites du débit, du stockage et de la longueur de la clé de partition, consultez l’article [Quotas de service Azure Cosmos DB](concepts-limits.md).
 
 La sélection de votre clé de partition est un choix de conception simple, mais important dans Azure Cosmos DB. Une fois que vous avez sélectionné votre clé de partition, il n’est pas possible de la modifier sur place. Si vous avez besoin de modifier votre clé de partition, vous devez déplacer vos données vers un nouveau conteneur à l’aide de la nouvelle clé de partition de votre choix.
 

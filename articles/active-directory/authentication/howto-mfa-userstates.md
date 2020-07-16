@@ -11,21 +11,21 @@ author: iainfoulds
 manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 0db72e30fbced17665c112ad56510d7c2ca23d12
-ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
+ms.openlocfilehash: e8ef25df8fdb11715ebba954e31a97939d6ac0e1
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83639619"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85476833"
 ---
 # <a name="enable-per-user-azure-multi-factor-authentication-to-secure-sign-in-events"></a>Activer Multi-Factor Authentication par utilisateur pour sécuriser les événements de connexion
 
 Il existe deux façons de sécuriser les événements de connexion de l’utilisateur en exigeant Multi-Factor Authentication dans Azure AD. La première option (recommandée) consiste à définir une stratégie d’accès conditionnel qui requiert une authentification multifacteur sous certaines conditions. La seconde option consiste à activer Azure Multi-Factor Authentication (MFA) pour chaque utilisateur. S’il est activé individuellement, l’utilisateur effectue l’authentification multifacteur chaque fois qu’il se connecte (à quelques exceptions près, notamment lorsqu’il se connecte à partir d’adresses IP approuvées ou que la fonctionnalité de _mémorisation des appareils_ est activée).
 
 > [!NOTE]
-> Il est recommandé d’activer Microsoft Azure Multi-Factor Authentication à l’aide de stratégies d’accès conditionnel. Il n’est plus conseillé de modifier des états utilisateur, sauf si vos licences n’incluent pas l’accès conditionnel, car cela oblige les utilisateurs à effectuer une authentification multifacteur chaque fois qu’ils se connectent.
+> Il est recommandé d’activer Microsoft Azure Multi-Factor Authentication à l’aide de stratégies d’accès conditionnel. Il n’est plus conseillé de modifier des états utilisateur, sauf si vos licences n’incluent pas l’accès conditionnel, car cela oblige les utilisateurs à effectuer une authentification multifacteur chaque fois qu’ils se connectent. Pour commencer à utiliser l’accès conditionnel, consultez [Tutoriel : Événements de connexion utilisateur sécurisée avec Azure Multi-Factor Authentication](tutorial-enable-azure-mfa.md).
 >
-> Pour commencer à utiliser l’accès conditionnel, consultez [Tutoriel : Événements de connexion utilisateur sécurisée avec Azure Multi-Factor Authentication](tutorial-enable-azure-mfa.md).
+> Pour les locataires libres Azure AD sans accès conditionnel, vous pouvez [utiliser les paramètres de sécurité par défaut pour protéger les utilisateurs](../fundamentals/concept-fundamentals-security-defaults.md).
 
 ## <a name="azure-multi-factor-authentication-user-states"></a>Azure Multi-Factor Authentication - État utilisateur
 
@@ -39,7 +39,7 @@ Les comptes d'utilisateur dans Azure Multi-Factor Authentication peuvent présen
 | Statut | Description | Applications affectées (autres que des navigateurs) | Applications du navigateur affectées | Authentification moderne affectée |
 |:---:| --- |:---:|:--:|:--:|
 | Désactivé | État par défaut d’un nouvel utilisateur non inscrit dans Azure Multi-Factor Authentication. | Non | Non | Non |
-| activé | L'utilisateur ne s’est pas inscrit à Azure Multi-Factor Authentication. Il sera invité à s’inscrire la prochaine fois qu’il se connectera. | Non.  Ils continuent de fonctionner jusqu’à ce que le processus d’inscription soit terminé. | Oui. Après expiration de la session, l’inscription à Azure Multi-Factor Authentication est nécessaire.| Oui. Après expiration du jeton d’accès, l’inscription à Azure Multi-Factor Authentication est nécessaire. |
+| activé | L’utilisateur a été inscrit dans Azure Multi-Factor Authentication, mais il n’a pas enregistré de méthode d’authentification. Il sera invité à s’inscrire la prochaine fois qu’il se connectera. | Non.  Ils continuent de fonctionner jusqu’à ce que le processus d’inscription soit terminé. | Oui. Après expiration de la session, l’inscription à Azure Multi-Factor Authentication est nécessaire.| Oui. Après expiration du jeton d’accès, l’inscription à Azure Multi-Factor Authentication est nécessaire. |
 | Appliquée | L'utilisateur a été inscrit et a terminé le processus d'inscription pour Azure Multi-Factor Authentication. | Oui. Les applications requièrent des mots de passe d'application. | Oui. Azure Multi-Factor Authentication est requise à la connexion. | Oui. Azure Multi-Factor Authentication est requise à la connexion. |
 
 L’état d’un utilisateur indique si un administrateur l’a inscrit dans Azure Multi-Factor Authentication et s’il a terminé le processus d’inscription.
@@ -84,7 +84,7 @@ Pour modifier l’état utilisateur avec [Azure AD PowerShell](/powershell/azure
 * *Appliqué*
 * *Désactivé*  
 
-Ne basculez pas les utilisateurs directement vers l’état *Appliquée*. Sinon, les applications sans navigateur cesseront de fonctionner, car l’utilisateur n’a pas effectué l’enregistrement Azure Multi-Factor Authentication et obtenu un [mot de passe d’application](howto-mfa-mfasettings.md#app-passwords).
+Ne basculez pas les utilisateurs directement vers l’état *Appliquée*. Sinon, les applications sans navigateur cesseront de fonctionner, car l’utilisateur n’a pas effectué l’enregistrement Azure Multi-Factor Authentication et obtenu un [mot de passe d’application](howto-mfa-app-passwords.md).
 
 Pour commencer, installez le module *MSOnline* à l’aide de [Install-Module](/powershell/module/powershellget/install-module), comme suit :
 

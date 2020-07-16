@@ -5,22 +5,22 @@ author: ajlam
 ms.author: andrela
 ms.service: mysql
 ms.topic: conceptual
-ms.date: 3/19/2020
-ms.openlocfilehash: b42f0d7a8146f7f2b313959273abd22303c89a60
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.date: 6/24/2020
+ms.openlocfilehash: 8b12e1bd7bd67c3d22bdb62255b481d81976b969
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80062544"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85362123"
 ---
 # <a name="audit-logs-in-azure-database-for-mysql"></a>Journaux d’audit dans Azure Database pour MySQL
 
 Dans Azure Database pour MySQL, le journal d’audit est disponible pour les utilisateurs. Le journal d’audit peut être utilisé pour suivre l’activité au niveau de la base de données et est couramment utilisé à des fins de conformité.
 
-> [!IMPORTANT]
-> Pour l’instant, la fonctionnalité Journal d’audit n’existe qu’en préversion.
-
 ## <a name="configure-audit-logging"></a>Configurer l’enregistrement d’audit
+
+>[!IMPORTANT]
+> Il est recommandé de ne consigner que les types d’événements et les utilisateurs requis à des fins d’audit pour garantir que les performances de votre serveur ne sont pas fortement affectées.
 
 Par défaut, le journal d’audit est désactivé. Pour l’activer, affectez la valeur ON à `audit_log_enabled`.
 
@@ -28,12 +28,10 @@ Les autres paramètres que vous pouvez ajuster incluent :
 
 - `audit_log_events` : contrôle les événements à enregistrer. Consultez le tableau ci-dessous pour des événements d’audit spécifiques.
 - `audit_log_include_users`: Utilisateurs MySQL à inclure pour la journalisation. La valeur par défaut de ce paramètre est vide, ce qui inclut tous les utilisateurs pour la journalisation. Il a une plus grande priorité que `audit_log_exclude_users`. La longueur maximale du paramètre est de 512 caractères.
-> [!Note]
-> `audit_log_include_users` a une priorité plus élevée que `audit_log_exclude_users`. Par exemple, si `audit_log_include_users` = `demouser` et `audit_log_exclude_users` = `demouser`, l’utilisateur sera inclus dans les journaux d’audit, car `audit_log_include_users` a une priorité plus élevée.
 - `audit_log_exclude_users`: utilisateurs MySQL à exclure de la journalisation. La longueur maximale du paramètre est de 512 caractères.
 
-> [!Note]
-> Pour `sql_text`, le journal est tronqué s’il dépasse 2 048 caractères.
+> [!NOTE]
+> `audit_log_include_users` a une priorité plus élevée que `audit_log_exclude_users`. Par exemple, si `audit_log_include_users` = `demouser` et `audit_log_exclude_users` = `demouser`, l’utilisateur sera inclus dans les journaux d’audit, car `audit_log_include_users` a une priorité plus élevée.
 
 | **Event** | **Description** |
 |---|---|
@@ -85,6 +83,9 @@ Les sections suivantes décrivent la sortie des journaux d’audit MySQL en fonc
 
 Le schéma ci-dessous s’applique aux types d’événements GENERAL, DML_SELECT, DML_NONSELECT, DML, DDL, DCL et ADMIN.
 
+> [!NOTE]
+> Pour `sql_text`, le journal est tronqué s’il dépasse 2 048 caractères.
+
 | **Propriété** | **Description** |
 |---|---|
 | `TenantId` | Votre ID d’abonné |
@@ -114,7 +115,7 @@ Le schéma ci-dessous s’applique aux types d’événements GENERAL, DML_SELEC
 ### <a name="table-access"></a>Accès à la table
 
 > [!NOTE]
-> Les journaux d’accès à la table sont uniquement des sorties pour MySQL 5.7.
+> Les journaux d’accès à la table sont uniquement des sorties pour MySQL 5.7.<br>Pour `sql_text`, le journal est tronqué s’il dépasse 2 048 caractères.
 
 | **Propriété** | **Description** |
 |---|---|

@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 04/13/2020
 ms.author: sohamnc
-ms.openlocfilehash: ee4bd24264be9e7730d4dc99af4e61b05a7692bc
-ms.sourcegitcommit: 3abadafcff7f28a83a3462b7630ee3d1e3189a0e
+ms.openlocfilehash: a0946da7ff516aa241a0c6d845723c43618ce70e
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/30/2020
-ms.locfileid: "82594132"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84809479"
 ---
 # <a name="frequently-asked-questions-for-azure-front-door"></a>Questions fréquentes (FAQ) sur Azure Front Door
 
@@ -46,7 +46,7 @@ Les principaux scénarios pouvant justifier l’utilisation d’Application Gate
 
 - Front Door peut effectuer un équilibrage de charge basé sur le chemin uniquement au niveau mondial, mais si vous souhaitez équilibrer encore davantage le trafic avec votre réseau virtuel, vous devez utiliser Application Gateway.
 - Étant donné que Front Door ne fonctionne pas au niveau de la machine virtuelle ou du conteneur, il ne peut pas effectuer de drainage des connexions, contrairement à Application Gateway. 
-- Avec Application Gateway derrière AFD, vous pouvez atteindre un déchargement TLS/SSL de 100 % et acheminer uniquement les requêtes HTTP au sein du réseau virtuel.
+- Avec Application Gateway derrière Front Door, vous pouvez atteindre un déchargement TLS/SSL de 100 % et acheminer uniquement les requêtes HTTP au sein du réseau virtuel.
 - Front Door et Application Gateway prennent tous deux en charge l’affinité de session. Alors que Front Door peut diriger le trafic ultérieur d’une session utilisateur vers le même cluster ou back-end dans une région donnée, Application Gateway peuvent diriger avec affinité le trafic vers le même serveur au sein du cluster.  
 
 ### <a name="can-we-deploy-azure-load-balancer-behind-front-door"></a>Est-il possible de déployer Azure Load Balancer derrière Front Door ?
@@ -98,7 +98,7 @@ Pour verrouiller votre application afin de n’accepter que le trafic provenant 
     > [!WARNING]
     > L’espace IP back-end de Front Door pourra changer ultérieurement, mais avant cela nous ferons en sorte d’avoir procédé à l’intégration avec les [balises de service et les plages d’adresses IP Azure](https://www.microsoft.com/download/details.aspx?id=56519). Nous vous recommandons de vous abonner aux [balises de service et aux plages d’adresses IP Azure](https://www.microsoft.com/download/details.aspx?id=56519) pour vous tenir informé des modifications ou mises à jour.
 
--    Effectuez une opération GET sur votre porte d’entrée avec la version d’API `2020-01-01` ou une version ultérieure. Dans l’appel d’API, recherchez le champ `frontdoorID`. Filtrez sur l’en-tête entrant « **X-Azure-FDID** » envoyé par Front Door à votre back-end avec la valeur du champ `frontdoorID`. 
+-    Effectuez une opération GET sur votre porte d’entrée avec la version d’API `2020-01-01` ou une version ultérieure. Dans l’appel d’API, recherchez le champ `frontdoorID`. Filtrez sur l’en-tête entrant « **X-Azure-FDID** » envoyé par Front Door à votre back-end avec la valeur du champ `frontdoorID`. Vous pouvez également trouver la valeur `Front Door ID` sous la section Vue d’ensemble de la page du portail Front Door. 
 
 ### <a name="can-the-anycast-ip-change-over-the-lifetime-of-my-front-door"></a>L’adresse IP anycast peut-elle changer pendant la durée de vie de ma porte d’entrée ?
 

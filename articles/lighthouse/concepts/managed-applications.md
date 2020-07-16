@@ -3,12 +3,12 @@ title: Azure Lighthouse et applications managées Azure
 description: Azure Lighthouse et applications managées Azure
 ms.date: 05/01/2020
 ms.topic: conceptual
-ms.openlocfilehash: d9923d31e78675927b4ca235607b2a61b24ccc41
-ms.sourcegitcommit: 31236e3de7f1933be246d1bfeb9a517644eacd61
+ms.openlocfilehash: 3e1477de18b24cf5099cd4479a82169e3ecada26
+ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/04/2020
-ms.locfileid: "82782582"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86121603"
 ---
 # <a name="azure-lighthouse-and-azure-managed-applications"></a>Azure Lighthouse et applications managées Azure
 
@@ -47,4 +47,4 @@ Les clients peuvent également être intéressés par les applications managées
 ## <a name="next-steps"></a>Étapes suivantes
 
 - Découvrez les [applications managées Azure](../../azure-resource-manager/managed-applications/overview.md).
-- Découvrez comment [intégrer un abonnement dans la gestion des ressources déléguées Azure](../how-to/onboard-customer.md).
+- Découvrez comment [intégrer un abonnement à Azure Lighthouse](../how-to/onboard-customer.md).

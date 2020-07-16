@@ -16,12 +16,12 @@ ms.date: 07/12/2017
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 5c3102480e316c634930c356ae02f769767b7d08
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 327d365cd1b110a6b57b11f92e70d221d3712cfb
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "69900036"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85550186"
 ---
 # <a name="azure-ad-connect-sync-functions-reference"></a>Synchronisation d’Azure AD Connect : Référence des fonctions
 Dans Azure AD Connect, les fonctions servent à manipuler une valeur d’attribut pendant la synchronisation.  
@@ -52,42 +52,100 @@ Les fonctions ayant pour type **mvbin**, **mvstr** et **mvref** ne peuvent fonct
 
 ## <a name="functions-reference"></a>Référence des fonctions
 
-| Liste des fonctions |  |  |  |  |
-| --- | --- | --- | --- | --- |
-| **Certificate** | | | | |
-| [CertExtensionOids](#certextensionoids) |[CertFormat](#certformat) |[CertFriendlyName](#certfriendlyname) |[CertHashString](#certhashstring) | |
-| [CertIssuer](#certissuer) |[CertIssuerDN](#certissuerdn) |[CertIssuerOid](#certissueroid) |[CertKeyAlgorithm](#certkeyalgorithm) | |
-| [CertKeyAlgorithmParams](#certkeyalgorithmparams) |[CertNameInfo](#certnameinfo) |[CertNotAfter](#certnotafter) |[CertNotBefore](#certnotbefore) | |
-| [CertPublicKeyOid](#certpublickeyoid) |[CertPublicKeyParametersOid](#certpublickeyparametersoid) |[CertSerialNumber](#certserialnumber) |[CertSignatureAlgorithmOid](#certsignaturealgorithmoid) | |
-| [CertSubject](#certsubject) |[CertSubjectNameDN](#certsubjectnamedn) |[CertSubjectNameOid](#certsubjectnameoid) |[CertThumbprint](#certthumbprint) | |
-[CertVersion](#certversion) |[IsCert](#iscert) | | | |
-| **Conversion** | | | | |
-| [CBool](#cbool) |[CDate](#cdate) |[CGuid](#cguid) |[ConvertFromBase64](#convertfrombase64) | |
-| [ConvertToBase64](#converttobase64) |[ConvertFromUTF8Hex](#convertfromutf8hex) |[ConvertToUTF8Hex](#converttoutf8hex) |[CNum](#cnum) | |
-| [CRef](#cref) |[CStr](#cstr) |[StringFromGuid](#stringfromguid) |[StringFromSid](#stringfromsid) | |
-| **Date / Heure** | | | | |
-| [DateAdd](#dateadd) |[DateFromNum](#datefromnum) |[FormatDateTime](#formatdatetime) |[Now](#now) | |
-| [NumFromDate](#numfromdate) | | | | |
-| **Directory** | | | | |
-| [DNComponent](#dncomponent) |[DNComponentRev](#dncomponentrev) |[EscapeDNComponent](#escapedncomponent) | | |
-| **Evaluation** | | | | |
-| [IsBitSet](#isbitset) |[IsDate](#isdate) |[IsEmpty](#isempty) |[IsGuid](#isguid) | |
-| [IsNull](#isnull) |[IsNullOrEmpty](#isnullorempty) |[IsNumeric](#isnumeric) |[IsPresent](#ispresent) | |
-| [IsString](#isstring) | | | | |
-| **Mathématique** | | | | |
-| [BitAnd](#bitand) |[BitOr](#bitor) |[RandomNum](#randomnum) | | |
-| **Multi-valued** | | | | |
-| [Contains](#contains) |[Count](#count) |[Item](#item) |[ItemOrNull](#itemornull) | |
-| [Join](#join) |[RemoveDuplicates](#removeduplicates) |[Split](#split) | | |
-| **Flux de programme** | | | | |
-| [Error](#error) |[IIF](#iif) |[Select](#select) |[Switch](#switch) | |
-| [Where](#where) |[With](#with) | | | |
-| **Text** | | | | |
-| [GUID](#guid) |[InStr](#instr) |[InStrRev](#instrrev) |[LCase](#lcase) | |
-| [Left](#left) |[Len](#len) |[LTrim](#ltrim) |[Mid](#mid) | |
-| [PadLeft](#padleft) |[PadRight](#padright) |[PCase](#pcase) |[Replace](#replace) | |
-| [ReplaceChars](#replacechars) |[Right](#right) |[RTrim](#rtrim) |[Trim](#trim) | |
-| [UCase](#ucase) |[Word](#word) | | | |
+* **Certificate**
+  * [CertExtensionOids](#certextensionoids)
+  * [CertFormat](#certformat)
+  * [CertFriendlyName](#certfriendlyname)
+  * [CertHashString](#certhashstring)
+  * [CertIssuer](#certissuer)
+  * [CertIssuerDN](#certissuerdn)
+  * [CertIssuerOid](#certissueroid)
+  * [CertKeyAlgorithm](#certkeyalgorithm)
+  * [CertKeyAlgorithmParams](#certkeyalgorithmparams)
+  * [CertNameInfo](#certnameinfo)
+  * [CertNotAfter](#certnotafter)
+  * [CertNotBefore](#certnotbefore)
+  * [CertPublicKeyOid](#certpublickeyoid)
+  * [CertPublicKeyParametersOid](#certpublickeyparametersoid)
+  * [CertSerialNumber](#certserialnumber)
+  * [CertSignatureAlgorithmOid](#certsignaturealgorithmoid)
+  * [CertSubject](#certsubject)
+  * [CertSubjectNameDN](#certsubjectnamedn)
+  * [CertSubjectNameOid](#certsubjectnameoid)
+  * [CertThumbprint](#certthumbprint)
+  * [CertVersion](#certversion)
+  * [IsCert](#iscert)
+* **Conversion**
+  * [CBool](#cbool)
+  * [CDate](#cdate)
+  * [CGuid](#cguid)
+  * [ConvertFromBase64](#convertfrombase64)
+  * [ConvertToBase64](#converttobase64)
+  * [ConvertFromUTF8Hex](#convertfromutf8hex)
+  * [ConvertToUTF8Hex](#converttoutf8hex)
+  * [CNum](#cnum)
+  * [CRef](#cref)
+  * [CStr](#cstr)
+  * [StringFromGuid](#stringfromguid)
+  * [StringFromSid](#stringfromsid)
+* **Date / Heure**
+  * [DateAdd](#dateadd)
+  * [DateFromNum](#datefromnum)
+  * [FormatDateTime](#formatdatetime)
+  * [Now](#now)
+  * [NumFromDate](#numfromdate)
+* **Directory**
+  * [DNComponent](#dncomponent)
+  * [DNComponentRev](#dncomponentrev)
+  * [EscapeDNComponent](#escapedncomponent)
+* **Evaluation**
+  * [IsBitSet](#isbitset)
+  * [IsDate](#isdate)
+  * [IsEmpty](#isempty)
+  * [IsGuid](#isguid)
+  * [IsNull](#isnull)
+  * [IsNullOrEmpty](#isnullorempty)
+  * [IsNumeric](#isnumeric)
+  * [IsPresent](#ispresent)
+  * [IsString](#isstring)
+* **Mathématique**
+  * [BitAnd](#bitand)
+  * [BitOr](#bitor)
+  * [RandomNum](#randomnum)
+* **Valeur multiple**
+  * [Contains](#contains)
+  * [Count](#count)
+  * [Item](#item)
+  * [ItemOrNull](#itemornull)
+  * [Join](#join)
+  * [RemoveDuplicates](#removeduplicates)
+  * [Split](#split)
+* **Flux de programme**
+  * [Error](#error)
+  * [IIF](#iif)
+  * [Select](#select)
+  * [Switch](#switch)
+  * [Where](#where)
+  * [With](#with)
+* **Text**
+  * [GUID](#guid)
+  * [InStr](#instr)
+  * [InStrRev](#instrrev)
+  * [LCase](#lcase)
+  * [Left](#left)
+  * [Len](#len)
+  * [LTrim](#ltrim)
+  * [Mid](#mid)
+  * [PadLeft](#padleft)
+  * [PadRight](#padright)
+  * [PCase](#pcase)
+  * [Replace](#replace)
+  * [ReplaceChars](#replacechars)
+  * [Right](#right)
+  * [RTrim](#rtrim)
+  * [Trim](#trim)
+  * [UCase](#ucase)
+  * [Word](#word)
 
 ---
 ### <a name="bitand"></a>BitAnd

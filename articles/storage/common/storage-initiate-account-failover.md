@@ -6,16 +6,16 @@ services: storage
 author: tamram
 ms.service: storage
 ms.topic: how-to
-ms.date: 05/28/2020
+ms.date: 06/11/2020
 ms.author: tamram
-ms.reviewer: cbrooks
+ms.reviewer: artek
 ms.subservice: common
-ms.openlocfilehash: 905554d1763bdd3c5990a43c5c8d98f336e1c442
-ms.sourcegitcommit: 1692e86772217fcd36d34914e4fb4868d145687b
+ms.openlocfilehash: cbdeb1c55af157a0bf5160d2420974fd014ea3b3
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/29/2020
-ms.locfileid: "84171206"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84807594"
 ---
 # <a name="initiate-a-storage-account-failover"></a>Lancer un basculement de compte de stockage
 
@@ -44,16 +44,16 @@ Pour plus d’informations sur la redondance du Stockage Azure, consultez [Redon
 Pour lancer un basculement de compte à partir du portail Azure, procédez comme suit :
 
 1. Accédez à votre compte de stockage.
-2. Sous **Paramètres**, sélectionnez **Géoréplication**. L'illustration suivante représente l'état de géoréplication et de basculement d'un compte de stockage.
+1. Sous **Paramètres**, sélectionnez **Géoréplication**. L'illustration suivante représente l'état de géoréplication et de basculement d'un compte de stockage.
 
-    ![Capture d'écran représentant l'état de géoréplication et de basculement](media/storage-initiate-account-failover/portal-failover-prepare.png)
+    :::image type="content" source="media/storage-initiate-account-failover/portal-failover-prepare.png" alt-text="Capture d’écran représentant l’état de géoréplication et de basculement":::
 
-3. Vérifiez que votre compte de stockage est configuré en tant que stockage géoredondant (GRS) ou stockage géographiquement redondant avec accès en lecture (RA-GRS). Si ce n'est pas le cas, sélectionnez **Configuration** sous **Paramètres** pour mettre à jour votre compte et le rendre géoredondant.
-4. La propriété **Heure de la dernière de synchronisation** indique le décalage entre le secondaire et le primaire. **Heure de la dernière de synchronisation** fournit une estimation de l'étendue de la perte de données que vous connaîtrez une fois le basculement terminé. Pour plus d’informations sur la vérification de la propriété **Heure de la dernière synchronisation**, consultez [Vérification de la propriété Heure de la dernière synchronisation d’un compte de stockage](last-sync-time-get.md).
-5. Sélectionnez **Préparer un basculement**.
-6. Passez en revue la boîte de dialogue de confirmation. Lorsque vous êtes prêt, entrez **Oui** pour confirmer votre choix et lancer le basculement.
+1. Vérifiez que votre compte de stockage est configuré en tant que stockage géoredondant (GRS) ou stockage géographiquement redondant avec accès en lecture (RA-GRS). Si ce n'est pas le cas, sélectionnez **Configuration** sous **Paramètres** pour mettre à jour votre compte et le rendre géoredondant.
+1. La propriété **Heure de la dernière de synchronisation** indique le décalage entre le secondaire et le primaire. **Heure de la dernière de synchronisation** fournit une estimation de l'étendue de la perte de données que vous connaîtrez une fois le basculement terminé. Pour plus d’informations sur la vérification de la propriété **Heure de la dernière synchronisation**, consultez [Vérification de la propriété Heure de la dernière synchronisation d’un compte de stockage](last-sync-time-get.md).
+1. Sélectionnez **Préparer un basculement**.
+1. Passez en revue la boîte de dialogue de confirmation. Lorsque vous êtes prêt, entrez **Oui** pour confirmer votre choix et lancer le basculement.
 
-    ![Capture d'écran représentant la boîte de dialogue de confirmation d'un basculement de compte](media/storage-initiate-account-failover/portal-failover-confirm.png)
+    :::image type="content" source="media/storage-initiate-account-failover/portal-failover-confirm.png" alt-text="Capture d’écran représentant la boîte de dialogue de confirmation d’un basculement de compte":::
 
 ## <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
 
@@ -94,7 +94,7 @@ Invoke-AzStorageAccountFailover -ResourceGroupName <resource-group-name> -Name <
 
 Pour lancer un basculement de compte à partir de l'interface de ligne de commande Azure, exécutez la commande suivante :
 
-```azurecli
+```azurecli-interactive
 az storage account show \ --name accountName \ --expand geoReplicationStats
 az storage account failover \ --name accountName
 ```
@@ -115,5 +115,5 @@ Une fois que vous avez réactivé GRS pour votre compte de stockage, Microsoft c
 
 - [Récupération d'urgence et basculement de compte de stockage](storage-disaster-recovery-guidance.md)
 - [Vérifier la propriété Heure de la dernière synchronisation pour un compte de stockage](last-sync-time-get.md)
-- [Utilisez la géo-redondance pour concevoir des applications hautement disponibles](geo-redundant-design.md)
+- [Utiliser la géoredondance pour concevoir des applications hautement disponibles](geo-redundant-design.md)
 - [Tutoriel : Générer une application hautement disponible avec le stockage Blob](../blobs/storage-create-geo-redundant-storage.md)

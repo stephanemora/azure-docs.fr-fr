@@ -5,14 +5,14 @@ author: kanshiG
 ms.author: govindk
 ms.reviewer: sngun
 ms.service: cosmos-db
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 06/18/2019
-ms.openlocfilehash: b65bc6097d4841c79a68d4313ac7a3f89f6d1dbb
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 5428de23eb0e1b8c31f4576881526ec08ccc9698
+ms.sourcegitcommit: 0100d26b1cac3e55016724c30d59408ee052a9ab
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80065931"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86027826"
 ---
 # <a name="monitor-and-debug-with-metrics-in-azure-cosmos-db"></a>Superviser et déboguer à l’aide de métriques dans Azure Cosmos DB
 
@@ -26,7 +26,7 @@ Cet article explique des cas d’utilisation courants et montre comment utiliser
 
 1. Ouvrez le volet **Métriques**. Par défaut, le volet des métriques montre les métriques de stockage, d’index et d’unités de requête pour toutes les bases de données dans votre compte Azure Cosmos. Vous pouvez filtrer ces métriques par base de données, conteneur ou région. Vous pouvez également filtrer les métriques en fonction d’une précision temporelle spécifique. Vous trouverez plus de détails sur les métriques de débit, de stockage, de disponibilité, de latence et de cohérence sous les onglets correspondants. 
 
-   ![Métriques de performances Cosmos DB dans le portail Azure](./media/use-metrics/performance-metrics.png)
+   :::image type="content" source="./media/use-metrics/performance-metrics.png" alt-text="Métriques de performances Cosmos DB dans le Portail Azure":::
 
 Les métriques suivantes sont disponibles dans le volet **Métriques** : 
 
@@ -46,17 +46,17 @@ Les sections suivantes décrivent des scénarios courants où vous pouvez utilis
 
 ## <a name="understand-how-many-requests-are-succeeding-or-causing-errors"></a>Connaître le nombre de requêtes ayant abouti ou ayant provoqué une erreur
 
-Pour commencer, accédez au [portail Azure](https://portal.azure.com), puis accédez au panneau **Métriques**. Dans le panneau, recherchez le graphique **Nombre de requêtes ayant dépassé la capacité par tranche de 1 minute. Ce graphique montre, minute par minute, le nombre total de requêtes, segmentées par code d’état. Pour plus d’informations sur les codes d’état HTTP, consultez [Codes d’état HTTP pour Azure Cosmos DB](https://docs.microsoft.com/rest/api/cosmos-db/http-status-codes-for-cosmosdb).
+Pour commencer, accédez au [portail Azure](https://portal.azure.com), puis accédez au panneau **Métriques**. Dans le panneau, recherchez le graphique **Nombre de requêtes ayant dépassé la capacité par tranche de 1 minute. Ce graphique montre, minute par minute, le nombre total de requêtes, segmentées par code d’état. Pour plus d’informations sur les codes d’état HTTP, consultez [Codes d’état HTTP pour Azure Cosmos DB](/rest/api/cosmos-db/http-status-codes-for-cosmosdb).
 
 Le code d’état d’erreur le plus courant est 429 (limitation du débit). Cette erreur signifie que les requêtes envoyées à Azure Cosmos DB sont supérieures au débit provisionné. Dans ce cas, la solution la plus courante consiste à [effectuer une montée en puissance des unités de requête](./set-throughput.md) pour une collection donnée.
 
-![Nombre de requêtes par minute](media/use-metrics/metrics-12.png)
+:::image type="content" source="media/use-metrics/metrics-12.png" alt-text="Nombre de requêtes par minute":::
 
 ## <a name="determine-the-throughput-distribution-across-partitions"></a>Déterminer la distribution du débit entre les partitions
 
 Il est essentiel d’avoir une bonne cardinalité des clés de partition pour vos applications évolutives. Pour déterminer la distribution du débit au sein d’un conteneur partitionné, accédez au **panneau Métriques** dans le [portail Azure](https://portal.azure.com). Sous l’onglet **Débit**, la répartition du débit est affichée dans le graphique **Nombre maximal de RU/seconde consommées par chaque partition physique**. Le graphique suivant montre un exemple de mauvaise distribution des données mise en évidence par l’asymétrie de la partition située à l’extrême gauche.
 
-![Partition fortement utilisée à 15 h 05](media/use-metrics/metrics-17.png)
+:::image type="content" source="media/use-metrics/metrics-17.png" alt-text="Partition unique fortement utilisée":::
 
 Une distribution inégale du débit peut aboutir à une *forte utilisation* de certaines partitions. Dans ce cas, une limitation des requêtes peut se produire et nécessiter un repartitionnement. Pour plus d’informations sur le partitionnement dans Azure Cosmos DB, consultez [Partitionner et mettre à l’échelle dans Azure Cosmos DB](./partition-data.md).
 
@@ -64,11 +64,11 @@ Une distribution inégale du débit peut aboutir à une *forte utilisation* de c
 
 Il est essentiel d’avoir une bonne cardinalité de partition pour vos applications évolutives. Pour déterminer la distribution du stockage au sein d’un conteneur partitionné, accédez au panneau Métriques dans le [portail Azure](https://portal.azure.com). Dans l’onglet Stockage, la répartition du stockage est indiquée dans le graphe Stockage de données + d’index consommé par les premières clés de partition. Le graphe suivant montre une mauvaise distribution du stockage des données, mise en évidence par l’asymétrie de la partition située à l’extrême gauche.
 
-![Exemple de mauvaise distribution des données](media/use-metrics/metrics-07.png)
+:::image type="content" source="media/use-metrics/metrics-07.png" alt-text="Exemple de mauvaise distribution des données":::
 
 Vous pouvez connaître la clé de partition à l’origine du déséquilibre de la distribution en cliquant sur la partition du graphique.
 
-![Clé de partition provoquant un déséquilibre de la distribution](media/use-metrics/metrics-05.png)
+:::image type="content" source="media/use-metrics/metrics-05.png" alt-text="Clé de partition provoquant un déséquilibre de la distribution":::
 
 Une fois que vous avez identifié la clé de partition qui est à l’origine du déséquilibre, il est possible que vous deviez repartitionner votre conteneur avec une clé de partition mieux distribuée. Pour plus d’informations sur le partitionnement dans Azure Cosmos DB, consultez [Partitionner et mettre à l’échelle dans Azure Cosmos DB](./partition-data.md).
 

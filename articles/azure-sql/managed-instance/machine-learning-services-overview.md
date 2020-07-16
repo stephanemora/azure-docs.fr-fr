@@ -2,7 +2,7 @@
 title: Machine Learning Services dans Azure SQL Managed Instance (préversion)
 description: Cet article fournit une vue d’ensemble ou Machine Learning Services dans Azure SQL Managed Instance.
 services: sql-database
-ms.service: sql-database
+ms.service: sql-managed-instance
 ms.subservice: machine-learning
 ms.custom: ''
 ms.devlang: ''
@@ -11,13 +11,13 @@ author: garyericson
 ms.author: garye
 ms.reviewer: carlrab, davidph
 manager: cgronlun
-ms.date: 05/27/2020
-ms.openlocfilehash: fb74cc3aba3ad37e36a4d7cbe726bde4cb088e90
-ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
+ms.date: 06/03/2020
+ms.openlocfilehash: b5daf283df1ef5d6b42da5bf0a4652aedf2f6284
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "84031190"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84708737"
 ---
 # <a name="machine-learning-services-in-azure-sql-managed-instance-preview"></a>Machine Learning Services dans Azure SQL Managed Instance (préversion)
 
@@ -63,3 +63,4 @@ L’utilisation de Machine Learning Services dans SQL Managed Instance n’est p
 - Prenez connaissance des [différences principales de Machine Learning SQL Services dans SQL Server](machine-learning-services-differences.md).
 - Pour apprendre à utiliser Python dans Machine Learning Services, consultez [Exécuter des scripts Python](https://docs.microsoft.com/sql/machine-learning/tutorials/quickstart-python-create-script?context=/azure/azure-sql/managed-instance/context/ml-context&view=sql-server-ver15).
 - Pour apprendre à utiliser R dans Machine Learning Services, consultez [Exécuter des scripts R](https://docs.microsoft.com/sql/machine-learning/tutorials/quickstart-r-create-script?context=/azure/azure-sql/managed-instance/context/ml-context&view=sql-server-ver15).
+- Pour plus d’informations sur le machine learning sur d’autres plateformes SQL, consultez la [documentation sur le machine learning SQL](https://docs.microsoft.com/sql/machine-learning/).

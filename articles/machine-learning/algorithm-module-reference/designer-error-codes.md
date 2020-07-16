@@ -5,16 +5,16 @@ description: Résoudre les exceptions des modules dans le concepteur Azure Machi
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
-ms.topic: reference
+ms.topic: troubleshooting
 author: likebupt
 ms.author: keli19
 ms.date: 04/16/2020
-ms.openlocfilehash: 540c3eace72a1692a927916a48f772047115375f
-ms.sourcegitcommit: 1692e86772217fcd36d34914e4fb4868d145687b
+ms.openlocfilehash: 2e84d2f7c1a45f1ef18e5dc32b58d75bb17e2516
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/29/2020
-ms.locfileid: "84167245"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85213752"
 ---
 # <a name="exceptions-and-error-codes-for-the-designer-preview"></a>Exceptions et codes d’erreur du concepteur (préversion)
 
@@ -1515,7 +1515,7 @@ Exception de la bibliothèque interne.
 
 Cette erreur est fournie pour capturer les erreurs internes du moteur qui n’auraient pas été gérées autrement. Par conséquent, la cause de cette erreur peut être différente selon le module qui a généré l’erreur.  
 
-Pour obtenir plus d’aide, nous vous recommandons de publier le message détaillé qui accompagne l’erreur sur le forum Azure Machine Learning, en indiquant une description du scénario, y compris les données utilisées comme entrées. Ces commentaires nous aideront à hiérarchiser les erreurs et à identifier les problèmes les plus importants qui feront l’objet de travaux ultérieurs.  
+Pour obtenir plus d’aide, nous vous recommandons de publier le message détaillé qui accompagne l’erreur sur le [forum Azure Machine Learning](https://docs.microsoft.com/answers/topics/azure-machine-learning.html), en indiquant une description du scénario, y compris les données utilisées comme entrées. Ces commentaires nous aideront à hiérarchiser les erreurs et à identifier les problèmes les plus importants qui feront l’objet de travaux ultérieurs.  
 
 |Messages d’exception|
 |------------------------|

@@ -1,18 +1,14 @@
 ---
 title: Stockage Blob Azure en tant que source Event Grid
 description: Décrit les propriétés fournies pour les événements de stockage Blob avec Azure Event Grid.
-services: event-grid
-author: spelluru
-ms.service: event-grid
 ms.topic: conceptual
-ms.date: 04/09/2020
-ms.author: spelluru
-ms.openlocfilehash: 8d22f8a2722dc55a13ce8e3752ca69d6e7251070
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.date: 07/07/2020
+ms.openlocfilehash: a226a46dcc85e2bb4940364d2802397edb2c2397
+ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82115123"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86113749"
 ---
 # <a name="azure-blob-storage-as-an-event-grid-source"></a>Stockage Blob Azure en tant que source Event Grid
 
@@ -52,8 +48,7 @@ Ces événements sont déclenchés si vous activez un espace de noms hiérarchiq
 > [!NOTE]
 > Si vous voulez vérifier que l’événement **Microsoft.Storage.BlobCreated** est déclenché uniquement quand un objet blob de blocs est entièrement validé, filtrez l’événement pour l’appel d’API REST `FlushWithClose`. Cet appel d’API déclenche l’événement **Microsoft.Storage.BlobCreated** uniquement quand les données sont entièrement validées dans un objet blob de blocs. Pour savoir comment créer un filtre, consultez [Filtrer des événements pour Event Grid](https://docs.microsoft.com/azure/event-grid/how-to-filter-events).
 
-<a id="example-event" />
-
+<a name="example-event"></a>
 ### <a name="the-contents-of-an-event-response"></a>Le contenu d’une réponse à un événement
 
 Quand un événement est déclenché, le service Event Grid envoie les données relatives à cet événement au point de terminaison d’abonnement.
@@ -318,7 +313,7 @@ L’objet de données comporte les propriétés suivantes :
 | contentOffset | nombre | Décalage, en octets, d’une opération d’écriture effectuée au point où l’application de déclenchement d’événement a effectué l’écriture dans le fichier. <br>Apparaît uniquement pour les événements déclenchés sur les comptes de stockage d’objets blob qui ont un espace de noms hiérarchique.|
 | destinationUrl |string | URL du fichier qui existera une fois l’opération terminée. Par exemple, si un fichier est renommé, la propriété `destinationUrl` contient l’URL du nouveau nom de fichier. <br>Apparaît uniquement pour les événements déclenchés sur les comptes de stockage d’objets blob qui ont un espace de noms hiérarchique.|
 | sourceUrl |string | URL du fichier qui existe avant l’opération. Par exemple, si un fichier est renommé, `sourceUrl` contient l’URL du nom de fichier d’origine avant l’opération de renommage. <br>Apparaît uniquement pour les événements déclenchés sur les comptes de stockage d’objets blob qui ont un espace de noms hiérarchique. |
-| url | string | Chemin de l’objet blob. <br>Si le client utilise une API REST d’objet blob, l’URL présente la structure suivante : *\<nom-compte-stockage\>.blob.core.windows.net/\<nom-conteneur\>/\<nom-fichier\>* . <br>Si le client utilise une API REST Data Lake Storage, l’URL présente la structure suivante : *\<nom-compte-stockage\>.dfs.core.windows.net/\<nom-système-fichiers\>/\<nom-fichier\>* . |
+| url | string | Chemin de l’objet blob. <br>Si le client utilise une API REST Blob, la structure de l’URL est *\<storage-account-name\>.blob.core.windows.net/\<container-name\>/\<file-name\>* . <br>Si le client utilise une API REST Data Lake Storage, la structure de l’URL est *\<storage-account-name\>.dfs.core.windows.net/\<file-system-name\>/\<file-name\>* . |
 | recursive | string | `True` pour effectuer l’opération sur tous les répertoires enfants ; sinon, `False`. <br>Apparaît uniquement pour les événements déclenchés sur les comptes de stockage d’objets blob qui ont un espace de noms hiérarchique. |
 | sequencer | string | Une valeur de chaîne opaque représentant l’ordre logique des événements pour n’importe quel nom d’objet Blob particulier.  Les utilisateurs peuvent utiliser la comparaison de chaînes standard pour comprendre l’ordre relatif de deux événements sur le même nom d’objet Blob. |
 | storageDiagnostics | object | Des données de diagnostic occasionnellement incluses par le service de stockage Azure. Elles doivent, le cas échéant, être ignorées par les consommateurs d’événements. |

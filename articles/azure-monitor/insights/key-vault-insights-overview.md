@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: mrbullwinkle
 ms.author: mbullwin
 ms.date: 04/13/2019
-ms.openlocfilehash: 542861afe49d03a179a9740d5a58b9d27e0d7f20
-ms.sourcegitcommit: d118ad4fb2b66c759b70d4d8a18e6368760da3ad
+ms.openlocfilehash: 97bea90e67b9449a8f5fd7b333b9ac149abef2f8
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/02/2020
-ms.locfileid: "84302491"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84945458"
 ---
 # <a name="monitoring-your-key-vault-service-with-azure-monitor-for-key-vault-preview"></a>Analyse de votre service de coffre de clés avec Azure Monitor pour Key Vault (préversion)
 Azure Monitor pour Key Vault (préversion) offre une analyse complète de vos coffres de clés en fournissant une vue unifiée des requêtes, des performances, des échecs et de la latence de Key Vault.
@@ -158,23 +158,19 @@ Vous pouvez configurer les classeurs Vue d’ensemble et Échecs des coffres de 
 
 ## <a name="troubleshooting"></a>Dépannage
 
+Pour obtenir des conseils généraux sur la résolution des problèmes, consultez l’[article de résolution des problèmes](troubleshoot-workbooks.md) pour les insights basés sur des classeurs.
+
 Cette section est destinée à vous aider à diagnostiquer et résoudre certains des problèmes communs que vous êtes susceptible de rencontrer lors de l’utilisation d’Azure Monitor pour Key Vault (préversion). La liste ci-dessous permet d’identifier les informations pertinentes pour un problème spécifique.
 
 ### <a name="resolving-performance-issues-or-failures"></a>Résolution des problèmes de performances ou des échecs
 
 Pour résoudre les problèmes liés aux coffres de clés que vous identifiez auprès d’Azure Monitor pour Key Vault (préversion), consultez le [documentation d’Azure Key Vault](https://docs.microsoft.com/azure/key-vault/).
 
-### <a name="why-can-i-only-see-200-key-vaults"></a>Pourquoi ne puis-je voir que 200 coffres de clés ?
+### <a name="why-can-i-only-see-200-key-vaults"></a>Pourquoi je ne vois pas plus de 200 coffres de clés ?
 
 Un maximum de 200 coffres de clés peuvent être sélectionnés et affichés. Quel que soit le nombre d’abonnements sélectionnés, le nombre de coffres de clés sélectionnés est limité à 200.
 
-### <a name="what-will-happen-when-a-pinned-item-is-clicked"></a>Que se passe-t-il quand l’utilisateur clique sur un élément épinglé ?
-
-Lorsqu’un utilisateur clique sur un élément épinglé au tableau de bord, cela ouvre l’un des deux éléments suivants :
-* Si les insights ont été enregistrés : l’instance Insights à partir de laquelle l’élément épinglé a été enregistré s’ouvre.
-* Si les insights n’ont pas été enregistrés : une nouvelle instance Insights par défaut s’ouvre.
-
-### <a name="why-dont-i-see-all-my-subscriptions-in-the-subscription-picker"></a>Pourquoi ne puis-je pas voir tous mes abonnements dans le sélecteur d’abonnement ?
+### <a name="why-dont-i-see-all-my-subscriptions-in-the-subscription-picker"></a>Pourquoi je ne vois pas tous mes abonnements dans le sélecteur d’abonnement ?
 
 Nous affichons uniquement les abonnements qui contiennent des coffres de clés, choisis dans le filtre d’abonnement sélectionné, et qui sont sélectionnés dans la rubrique « Répertoire + abonnement » dans l’en-tête du portail Azure.
 
@@ -192,15 +188,15 @@ Pour apporter des modifications, sélectionnez « Mode d’édition » pour mo
 
 Nous utilisons le fragment de temps « Auto » ; par conséquent, il dépend de l’intervalle de temps sélectionné.
 
-### <a name="what-is-the-time-range-when-any-part-of-the-workbook-is-pinned"></a>Quel est l’intervalle de temps pendant lequel une partie du classeur est épinglée ?
+### <a name="what-is-the-time-range-when-any-part-of-the-workbook-is-pinned"></a>Quel est l’intervalle de temps quand une partie du classeur est épinglée ?
 
 L’intervalle de temps dépendra des paramètres du tableau de bord.
 
-### <a name="why-do-i-not-see-any-data-for-my-key-vault-under-the-operations--latency-sections"></a>Pourquoi ne vois-je aucune donnée concernant mon coffre de clés dans la section Opérations et latence ?
+### <a name="why-do-i-not-see-any-data-for-my-key-vault-under-the-operations--latency-sections"></a>Pourquoi je ne vois pas de données pour mon coffre de clés dans la section Opérations et latence ?
 
 Pour afficher vos données basées sur les journaux, vous devez activer les journaux pour chacun des coffres de clés que vous souhaitez analyser. Vous pouvez effectuer cette opération dans les paramètres de diagnostic pour chaque coffre de clés. Vous devrez envoyer vos données à un espace de travail Log Analytics désigné.
 
-### <a name="i-have-already-enabled-logs-for-my-key-vault-why-am-i-still-unable-to-see-my-data-under-operations--latency"></a>J’ai déjà activé les journaux de mon coffre de clés, pourquoi ne puis-je toujours pas voir mes données sous Opérations et latence ?
+### <a name="i-have-already-enabled-logs-for-my-key-vault-why-am-i-still-unable-to-see-my-data-under-operations--latency"></a>J’ai déjà activé les journaux pour mon coffre de clés, pourquoi je ne vois toujours pas mes données sous Opérations et latence ?
 
 Actuellement, les journaux de diagnostic ne fonctionnent pas de manière rétroactive. Par conséquent, les données ne commenceront à apparaître que lorsque des actions seront effectuées sur vos coffres de clés. Par conséquent, cette opération peut prendre un certain temps, allant de quelques heures à une journée, selon le degré d’activité de votre coffre de clés.
 

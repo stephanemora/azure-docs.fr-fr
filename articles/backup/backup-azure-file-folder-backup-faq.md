@@ -3,12 +3,12 @@ title: Sauvegarde des fichiers et des dossiers - Questions courantes
 description: Cette section répond aux questions courantes liées à la sauvegarde des fichiers et des dossiers avec Sauvegarde Microsoft Azure.
 ms.topic: conceptual
 ms.date: 07/29/2019
-ms.openlocfilehash: 6e9f265672ff15e40444a46a3e440e73a0051a5b
-ms.sourcegitcommit: 8dc84e8b04390f39a3c11e9b0eaf3264861fcafc
+ms.openlocfilehash: 0ecff00fdfaf9b0ca494cd1c78d0a5e16b198995
+ms.sourcegitcommit: bcb962e74ee5302d0b9242b1ee006f769a94cfb8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/13/2020
-ms.locfileid: "81254748"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86056172"
 ---
 # <a name="common-questions-about-backing-up-files-and-folders"></a>Questions courantes sur la sauvegarde de fichiers et de dossiers
 
@@ -159,7 +159,8 @@ Oui. Vous pouvez utiliser l’option **Modifier les propriétés** de l’agent 
 
 ### <a name="manage"></a>Gérer
 
-**Puis-je effectuer la récupération si j’ai oublié ma phrase secrète ?**
+#### <a name="can-i-recover-if-i-forgot-my-passphrase"></a>Puis-je effectuer la récupération si j’ai oublié ma phrase secrète ?
+
 L’agent de sauvegarde Azure a besoin d’une phrase secrète (que vous avez fournie lors de l’inscription) pour déchiffrer les données sauvegardées lors de la restauration. Passez en revue les scénarios ci-dessous pour comprendre les options de gestion d’une phrase secrète perdue :
 
 | Ordinateur d’origine <br> *(ordinateur source sur lequel les sauvegardes ont été effectuées)* | Passphrase | Options disponibles |
@@ -177,7 +178,7 @@ Tenez compte des conditions suivantes :
   * une *phrase secrète différente*, vous ne serez pas en mesure de restaurer vos données sauvegardées.
 * Si votre ordinateur d’origine est endommagé (vous empêchant de régénérer la phrase secrète via la console MARS) mais que vous pouvez restaurer le dossier de travail d’origine utilisé par l’agent MARS ou y accéder, vous pourrez peut-être effectuer la restauration (si vous avez oublié le mot de passe). Pour obtenir de l’aide, contactez le service clientèle.
 
-**Comment effectuer la récupération si j’ai perdu mon ordinateur d’origine (sur lequel les sauvegardes ont été effectuées) ?**
+#### <a name="how-do-i-recover-if-i-lost-my-original-machine-where-backups-were-taken"></a>Comment effectuer la récupération si j’ai perdu mon ordinateur d’origine (sur lequel les sauvegardes ont été effectuées) ?
 
 Si vous avez la même phrase secrète (que celle que vous avez fournie lors de l’inscription) de l’ordinateur d’origine, vous pouvez restaurer les données sauvegardées sur un autre ordinateur. Passez en revue les scénarios ci-dessous pour comprendre vos options de restauration.
 
@@ -185,6 +186,10 @@ Si vous avez la même phrase secrète (que celle que vous avez fournie lors de l
 | --- | --- | --- |
 | Perdue |Disponible |Vous pouvez installer et inscrire l’agent MARS sur un autre ordinateur avec la même phrase secrète que celle que vous avez fournie lors de l’inscription de l’ordinateur d’origine. Choisissez **Option de récupération** > **Autre emplacement** pour effectuer la restauration. Pour plus d’informations, consultez cet [article](https://docs.microsoft.com/azure/backup/backup-azure-restore-windows-server#use-instant-restore-to-restore-data-to-an-alternate-machine).
 | Perdue |Perdue |Impossible de récupérer les données ou les données ne sont pas disponibles |
+
+### <a name="my-backup-jobs-have-been-failing-or-not-running-for-a-long-time-im-past-the-retention-period-can-i-still-restore"></a>Mes tâches de sauvegarde ont échoué ou n’ont pas été exécutées pendant une longue période. Ma période de rétention a expiré. Puis-je encore à restaurer ?
+
+Par mesure de sécurité, la sauvegarde Azure conserve le dernier point de récupération, même s’il est ultérieur à la période de rétention. Une fois que les sauvegardes sont relancées et que les nouveaux points de récupération deviennent disponibles, le point de récupération plus ancien est supprimé conformément à la rétention spécifiée.
 
 ### <a name="what-happens-if-i-cancel-an-ongoing-restore-job"></a>Que se passe-t-il si j’annule un travail de restauration en cours ?
 

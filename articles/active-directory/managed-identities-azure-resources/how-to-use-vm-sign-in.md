@@ -1,6 +1,6 @@
 ---
 title: Utiliser des identités managées sur une machine virtuelle Azure pour se connecter – Azure AD
-description: Instructions et exemples détaillés concernant l’utilisation d’un principal du service d’identités managées pour ressources Azure pour la connexion client par script et l’accès aux ressources.
+description: Instructions et exemples détaillés sur l’utilisation d’un principal du service d’identités managées pour ressources Azure pour la connexion cliente par script et l’accès aux ressources.
 services: active-directory
 documentationcenter: ''
 author: MarkusVi
@@ -9,20 +9,20 @@ editor: ''
 ms.service: active-directory
 ms.subservice: msi
 ms.devlang: na
-ms.topic: conceptual
+ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 12/01/2017
 ms.author: markvi
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 34f4dc749c0254b5aa4e9ff018d2a869832de3f0
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 1380562cfc073d906ea4cfc0d6d849e9ca2a70d3
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "74547387"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85608413"
 ---
-# <a name="how-to-use-managed-identities-for-azure-resources-on-an-azure-vm-for-sign-in"></a>Guide pratique de l’utilisation d’identités managées pour ressources Azure sur une machine virtuelle Azure pour se connecter 
+# <a name="how-to-use-managed-identities-for-azure-resources-on-an-azure-vm-for-sign-in"></a>Comment utiliser des identités managées pour ressources Azure sur une machine virtuelle Azure pour se connecter 
 
 [!INCLUDE [preview-notice](../../../includes/active-directory-msi-preview-notice.md)]  
 Cet article fournit des exemples de script PowerShell et CLI pour la connexion à l’aide du principal du service d’identités managées pour ressources Azure, et des conseils sur des sujets importants tels que la gestion des erreurs.
@@ -41,7 +41,7 @@ Si vous envisagez d’utiliser les exemples de Azure PowerShell ou Azure CLI dan
 
 ## <a name="overview"></a>Vue d’ensemble
 
-Les identités managées pour ressources Azure fournissent un [objet principal du service](../develop/developer-glossary.md#service-principal-object)[créé lors de l’activation d’identités managées pour ressources Azure](overview.md#how-does-the-managed-identities-for-azure-resources-work) sur la machine virtuelle. Le principal du service peut accorder l’accès aux ressources Azure et être utilisé comme identité par des clients de script/ligne de commande pour la connexion et l’accès aux ressources. En règle générale, pour accéder à des ressources sécurisées sous sa propre identité, un client de script doit :  
+Les identités managées pour ressources Azure fournissent un [objet principal du service](../develop/developer-glossary.md#service-principal-object), qui est [créé lors de l’activation d’identités managées pour ressources Azure](overview.md) sur la machine virtuelle. L’accès à des ressources Azure peut être donné au principal du service, et celui-ci peut être utilisé comme identité par des clients de script/ligne de commande pour la connexion et l’accès aux ressources. En règle générale, pour accéder à des ressources sécurisées sous sa propre identité, un client de script doit :  
 
    - être inscrit et consenti avec Azure AD comme une application cliente web/confidentielle
    - connectez-vous sous son principal du service, à l’aide des informations d’identification de l’application (normalement incorporées dans le script)

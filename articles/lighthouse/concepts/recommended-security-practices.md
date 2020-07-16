@@ -1,18 +1,18 @@
 ---
 title: Pratiques de sécurité recommandées
-description: Lorsque vous utilisez la gestion des ressources déléguées Azure, il est important de prendre en compte la sécurité et le contrôle d’accès.
-ms.date: 03/24/2020
+description: Lorsque vous utilisez Azure Lighthouse, il est important de prendre en compte la sécurité et le contrôle d’accès.
+ms.date: 07/06/2020
 ms.topic: conceptual
-ms.openlocfilehash: d9b806aaf988fedfde6ce468f3eff948aa8ce344
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 2c620feabf5bcedc35a36104c3ba305ac9337ff0
+ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "80246906"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86105419"
 ---
 # <a name="recommended-security-practices"></a>Pratiques de sécurité recommandées
 
-Lorsque vous utilisez la [gestion des ressources déléguées Azure](azure-delegated-resource-management.md), il est important de prendre en compte la sécurité et le contrôle d’accès. Les utilisateurs de votre locataire ayant un accès direct aux abonnements et aux groupes de ressources du client, il est souhaitable de prendre des mesures pour maintenir la sécurité de votre locataire. Vous devez également vous assurer que vous autorisez uniquement l’accès nécessaire pour gérer efficacement les ressources de vos clients. Cette rubrique fournit des recommandations pour vous y aider.
+Lorsque vous utilisez [Azure Lighthouse](../overview.md), il est important de prendre en compte la sécurité et le contrôle d’accès. Les utilisateurs de votre locataire ayant un accès direct aux abonnements et aux groupes de ressources du client, il est souhaitable de prendre des mesures pour maintenir la sécurité de votre locataire. Vous devez également vous assurer que vous autorisez uniquement l’accès nécessaire pour gérer efficacement les ressources de vos clients. Cette rubrique fournit des recommandations pour vous y aider.
 
 ## <a name="require-azure-multi-factor-authentication"></a>Exiger l’utilisation d’Azure Multi-Factor Authentication
 

@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 4/10/2020
 ms.topic: how-to
 ms.service: digital-twins
-ms.openlocfilehash: bfdf1263ccee78b57ccf79c63efcc01d95dd13c6
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 6d51abab46cd8450dd3a09e5e5ef47e6267b990d
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85392248"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86258096"
 ---
 # <a name="manage-a-graph-of-digital-twins-using-relationships"></a>Gérer un graphique de jumeaux numériques à l’aide de relations
 
@@ -21,6 +21,8 @@ Azure Digital Twins consiste en un [graphique de jumeaux](concepts-twins-graph.m
 Une fois que vous disposez d’une instance [Azure Digital Twins](how-to-set-up-instance.md) opérationnelle et que vous avez configuré l’[authentification](how-to-authenticate-client.md) pour votre application cliente, vous pouvez utiliser des [**API DigitalTwins**](how-to-use-apis-sdks.md) pour créer, modifier et supprimer des jumeaux numériques et leurs relations dans une instance Azure Digital Twins. Vous pouvez également utiliser le [Kit de développement logiciel (SDK) .NET (C#)](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/digitaltwins/Azure.DigitalTwins.Core) ou l’[interface CLI Azure Digital Twins](how-to-use-cli.md).
 
 Cet article se concentre sur la gestion des relations et du graphique dans son ensemble. Pour utiliser des jumeaux numériques individuels, consultez [Procédure : Gestion des jumeaux numériques](how-to-manage-twin.md).
+
+[!INCLUDE [visualizing with Azure Digital Twins explorer](../../includes/digital-twins-visualization.md)]
 
 ## <a name="create-relationships"></a>Créer des relations
 

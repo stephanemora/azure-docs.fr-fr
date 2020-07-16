@@ -4,14 +4,14 @@ description: Découvrez comment configurer une instance Private Link pour Azure 
 author: kummanish
 ms.author: manishku
 ms.service: mysql
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 01/09/2020
-ms.openlocfilehash: 4a4824a9f8340b12bca7e18562d723eb24e58b71
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 5547c78007d38788d71e84f8fbf3ca8b60dc1576
+ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79371917"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86101747"
 ---
 # <a name="create-and-manage-private-link-for-azure-database-for-mysql-using-portal"></a>Créer et gérer une liaison privée pour Azure Database pour MySQL en utilisant le portail
 
@@ -122,6 +122,10 @@ Dans cette section, vous allez créer un serveur Azure Database pour MySQL dans 
 9. Quand le message Validation réussie s’affiche, sélectionnez **Créer**. 
 10. Quand le message Validation réussie s’affiche, sélectionnez Créer. 
 
+> [!NOTE]
+> Il peut arriver que l’instance Azure Database pour MySQL et le sous-réseau de réseau virtuel se trouvent dans des abonnements différents. Dans ce cas, vous devez vérifier les configurations suivantes :
+> - Assurez-vous que le fournisseur de ressources **Microsoft.DBforMySQL** est inscrit pour les deux abonnements. Pour plus d’informations, reportez-vous à [resource-manager-registration][resource-manager-portal]
+
 ## <a name="create-a-private-endpoint"></a>Créer un Private Endpoint
 
 Dans cette section, vous allez créer un serveur MySQL et lui ajouter un point de terminaison privé. 
@@ -167,6 +171,9 @@ Dans cette section, vous allez créer un serveur MySQL et lui ajouter un point d
     |Intégrer à une zone DNS privée |Sélectionnez **Oui**. |
     |Zone DNS privée |Sélectionnez *(New)privatelink.mysql.database.azure.com* |
     |||
+
+    > [!Note] 
+    > Utilisez la zone DNS privée prédéfinie pour votre service ou indiquez le nom de la zone DNS de votre choix. Pour plus d’informations, reportez-vous à la [Configuration de la zone DNS des services Azure](../private-link/private-endpoint-dns.md).
 
 1. Sélectionnez **Revoir + créer**. Vous êtes redirigé vers la page **Vérifier + créer** où Azure valide votre configuration. 
 2. Lorsque le message **Validation passed** (Validation réussie) apparaît, sélectionnez **Créer**. 
@@ -248,3 +255,6 @@ Lorsque vous avez fini d’utiliser le point de terminaison privé, le serveur M
 ## <a name="next-steps"></a>Étapes suivantes
 
 Dans ce guide pratique, vous avez créé une machine virtuelle sur un réseau virtuel, une instance Azure Database pour MySQL et un point de terminaison privé pour un accès privé. Vous vous êtes connecté à une machine virtuelle à partir d’Internet et avez communiqué de façon sécurisée avec le serveur MySQL via Azure Private Link. Pour plus d’informations sur les points de terminaison privés, consultez [Qu’est-ce qu’Azure Private Endpoint ?](https://docs.microsoft.com/azure/private-link/private-endpoint-overview).
+
+<!-- Link references, to text, Within this same GitHub repo. -->
+[resource-manager-portal]: ../azure-resource-manager/management/resource-providers-and-types.md

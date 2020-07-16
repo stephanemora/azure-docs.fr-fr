@@ -8,20 +8,20 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: text-analytics
 ms.topic: conceptual
-ms.date: 04/01/2020
+ms.date: 07/07/2020
 ms.author: aahi
-ms.openlocfilehash: e4b61c6fe2f62745d0f5268221cbb5c84803eb10
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 1dde59456126ce1221bdb71f09957c0fd3609427
+ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "80876413"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86108705"
 ---
 # <a name="deploy-a-text-analytics-container-to-azure-container-instances"></a>Déployer un conteneur Analyse de texte dans Azure Container Instances
 
 Découvrez comment déployer le conteneur [Analyse de texte][install-and-run-containers] de Cognitive Services sur Azure [Container Instances][container-instances]. Cette procédure illustre la création d’une ressource Analyse de texte, la création d’une image Analyse des sentiments associée et la possibilité de procéder à l’orchestration des deux depuis un navigateur. L’utilisation de conteneurs peut détourner l’attention des développeurs de la gestion de l’infrastructure, au lieu de se concentrer sur le développement d’applications.
 
-## <a name="prerequisites"></a>Conditions préalables requises
+## <a name="prerequisites"></a>Prérequis
 
 * Utilisez un abonnement Azure. Si vous n’avez pas d’abonnement Azure, créez un [compte gratuit](https://azure.microsoft.com/free/) avant de commencer.
 
@@ -40,6 +40,10 @@ Découvrez comment déployer le conteneur [Analyse de texte][install-and-run-con
 #### <a name="sentiment-analysis"></a>[Analyse des sentiments](#tab/sentiment)
 
 [!INCLUDE [Verify the Sentiment Analysis container instance](../includes/verify-sentiment-analysis-container.md)]
+
+#### <a name="text-analytics-for-health"></a>[Analyse de texte pour l’intégrité](#tab/health)
+
+[!INCLUDE [Verify the health container instance](../includes/verify-health-container.md)]
 
 ***
 

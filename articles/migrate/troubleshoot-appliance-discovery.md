@@ -6,12 +6,12 @@ ms.manager: abhemraj
 ms.author: hamusa
 ms.topic: troubleshooting
 ms.date: 01/02/2020
-ms.openlocfilehash: 3d9e4e54d2b1186278afc72c72cdd6bcf33dd41b
-ms.sourcegitcommit: f1132db5c8ad5a0f2193d751e341e1cd31989854
+ms.openlocfilehash: 40bd39299380c400f945585651a7ad99e3eb3fa7
+ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/31/2020
-ms.locfileid: "84235456"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86114055"
 ---
 # <a name="troubleshoot-the-azure-migrate-appliance-and-discovery"></a>Résoudre les problèmes d’appliance et de découverte Azure Migrate
 
@@ -27,7 +27,7 @@ Cet article vous aide à résoudre les problèmes liés au déploiement de l'app
 
 Si vous recevez l’erreur « Le fichier manifeste indiqué n’est pas valide : entrée de manifeste OVF non valide », procédez comme suit :
 
-1. Vérifiez si le fichier OVA de l’appliance Azure Migrate est correctement téléchargé en contrôlant sa valeur de hachage. [Plus d’informations](https://docs.microsoft.com/azure/migrate/tutorial-assessment-vmware) Si la valeur de hachage ne correspond pas, téléchargez à nouveau le fichier OVA et recommencez le déploiement.
+1. Vérifiez si le fichier OVA de l’appliance Azure Migrate est correctement téléchargé en contrôlant sa valeur de hachage. [Plus d’informations](./tutorial-prepare-vmware.md) Si la valeur de hachage ne correspond pas, téléchargez à nouveau le fichier OVA et recommencez le déploiement.
 2. Si le déploiement échoue une nouvelle fois et vous utilisez le client VMware vSphere pour déployer le fichier OVF, essayez plutôt de le déployer à l’aide du client web vSphere. Si le déploiement échoue de nouveau, essayez un autre navigateur web.
 3. Si vous utilisez le client web vSphere et tentez de le déployer sur vCenter Server 6.5 ou 6.7, essayez de déployer le fichier OVA directement sur l’hôte ESXi :
    - Connectez-vous directement à l’hôte ESXi (au lieu de vCenter Server) avec le client web (https://<*adresse IP de l’hôte*>/ui).
@@ -40,7 +40,7 @@ Cela peut se produire si l’ordinateur de l’appliance se trouve derrière un 
 
 - Veillez à fournir les informations d’identification pour l’autorisation si le proxy en a besoin.
 - Si vous utilisez un proxy de pare-feu basé sur des URL pour contrôler la connectivité sortante, ajoutez [ces URL](migrate-appliance.md#url-access) à une liste verte.
-- Si vous utilisez un proxy d’interception pour vous connecter à Internet, importez le certificat de proxy sur la machine virtuelle de l’appliance en suivant [ces étapes](https://docs.microsoft.com/azure/migrate/concepts-collector).
+- Si vous utilisez un proxy d’interception pour vous connecter à Internet, importez le certificat de proxy sur la machine virtuelle de l’appliance en suivant [ces étapes](./migrate-appliance.md).
 
 ## <a name="cant-sign-into-azure-from-the-appliance-web-app"></a>Impossible de se connecter à Azure à partir de l’application web de l’appliance
 
@@ -64,7 +64,7 @@ Une erreur de synchronisation de la date et de l’heure (802) indique que l’h
 
 Si cette erreur de connexion s’affiche, il est possible que vous ne puissiez pas vous connecter à vCenter Server *Nom_Serveur*.com:9443. Les détails de l’erreur indiquent qu’aucun des points de terminaison qui écoutent `https://\*servername*.com:9443/sdk` ne peut accepter le message.
 
-- Vérifiez si vous exécutez la dernière version de l’appliance. Si ce n’est pas le cas, mettez-la à niveau vers la [dernière version](https://docs.microsoft.com/azure/migrate/concepts-collector).
+- Vérifiez si vous exécutez la dernière version de l’appliance. Si ce n’est pas le cas, mettez-la à niveau vers la [dernière version](./migrate-appliance.md).
 - Si le problème se produit encore avec la dernière version, il est possible que l’appliance ne parvienne pas à résoudre le nom du serveur vCenter Server spécifié ou que le port indiqué soit incorrect. Par défaut, si le port n’est pas spécifié, le collecteur tente de se connecter au port numéro 443.
 
     1. Effectuez un test ping sur *Nom_Serveur*.com à partir de l’appliance.
@@ -77,10 +77,10 @@ Si cette erreur de connexion s’affiche, il est possible que vous ne puissiez p
 
 - L’erreur 60052 « L’appliance n’est peut-être pas inscrite correctement dans le projet Azure Migrate » se produit si le compte Azure utilisé pour inscrire l’appliance ne dispose pas des autorisations suffisantes.
     - Vérifiez que le compte d’utilisateur Azure utilisé pour inscrire l’appliance dispose au moins d’autorisations Contributeur pour l’abonnement.
-    - [Apprenez-en davantage](https://docs.microsoft.com/azure/migrate/migrate-appliance#appliance---vmware) sur les rôles et autorisations Azure requis.
+    - [Apprenez-en davantage](./migrate-appliance.md#appliance---vmware) sur les rôles et autorisations Azure requis.
 - L’erreur 60039 « L’appliance n’est peut-être pas inscrite correctement dans le projet Azure Migrate » peut se produire si l’inscription échoue car le projet Azure Migrate utilisé pour inscrire l’appliance est introuvable.
     - Dans le Portail Azure, vérifiez si le projet se trouve dans le groupe de ressources.
-    - Si le projet n’existe pas, créez un projet Azure Migrate dans votre groupe de ressources et réinscrivez l’appliance. [Découvrez comment](https://docs.microsoft.com/azure/migrate/how-to-add-tool-first-time#create-a-project-and-add-a-tool) créer un nouveau projet.
+    - Si le projet n’existe pas, créez un projet Azure Migrate dans votre groupe de ressources et réinscrivez l’appliance. [Découvrez comment](./how-to-add-tool-first-time.md#create-a-project-and-add-a-tool) créer un nouveau projet.
 
 ## <a name="error-6003060031-key-vault-management-operation-failed"></a>Error 60030/60031 : Échec de l’opération de gestion de Key Vault
 
@@ -88,7 +88,7 @@ Si l’erreur 60030 ou 60031 s’affiche, « Une opération de gestion d’Azu
 - Vérifiez que le compte d’utilisateur Azure utilisé pour inscrire l’appliance dispose au moins d’autorisations Contributeur pour l’abonnement.
 - Vérifiez que le compte a accès au coffre de clés spécifié dans le message d’erreur, puis retentez l’opération.
 - Si le problème persiste, contactez le support technique Microsoft.
-- [Apprenez-en davantage](https://docs.microsoft.com/azure/migrate/migrate-appliance#appliance---vmware) sur les rôles et autorisations Azure requis.
+- [Apprenez-en davantage](./migrate-appliance.md#appliance---vmware) sur les rôles et autorisations Azure requis.
 
 ## <a name="error-60028-discovery-couldnt-be-initiated"></a>Erreur 60028 : Impossible de démarrer la découverte
 
@@ -103,7 +103,7 @@ Erreur 60025 : « Une opération Azure AD a échoué. L’erreur s’est prod
 - Vérifiez que le compte d’utilisateur qui lance la découverte est identique à celui utilisé pour inscrire l’appliance.
 - Accordez des autorisations d’accès à l’application Azure Active Directory au compte d’utilisateur pour lequel l’opération de découverte échoue.
 - Supprimez le groupe de ressources créé précédemment pour le projet Azure Migrate. Créez un autre groupe de ressources pour recommencer.
-- [En savoir plus](https://docs.microsoft.com/azure/migrate/migrate-appliance#appliance---vmware) sur les autorisations d’application Azure Active Directory.
+- [En savoir plus](./migrate-appliance.md#appliance---vmware) sur les autorisations d’application Azure Active Directory.
 
 
 ## <a name="error-50004-cant-connect-to-host-or-cluster"></a>Erreur 50004 : Impossible de se connecter à l’hôte ou au cluster
@@ -144,6 +144,10 @@ Si des machines virtuelles découvertes n’apparaissent pas dans le portail ou 
 
 Si vous supprimez des machines virtuelles et qu’elles apparaissent toujours dans le portail, attendez 30 minutes. Si elles apparaissent toujours, actualisez comme décrit ci-dessus.
 
+## <a name="i-do-not-see-performance-data-for-some-network-adapters-on-my-physical-servers"></a>Je ne vois pas les données de performances pour certaines cartes réseau sur mes serveurs physiques
+
+Cela peut se produire si la virtualisation Hyper-V est activée sur le serveur physique. Le débit du réseau est capturé sur les cartes réseau virtuelles détectées en raison d’un écart de production.
+
 ## <a name="error-the-file-uploaded-is-not-in-the-expected-format"></a>Erreur : Le fichier chargé n’est pas au format attendu
 Certains outils ont des paramètres régionaux qui créent le fichier CSV avec un point-virgule comme délimiteur. Modifiez les paramètres afin que le délimiteur soit une virgule.
 
@@ -168,39 +172,54 @@ Azure Migrate prend en charge la découverte des applications, des rôles et des
 Les erreurs classiques de découverte d’application sont résumées dans le tableau. 
 
 **Error** | **Cause** | **Action**
---- | --- | --- | ---
-10000 : « Impossible de découvrir les applications installées sur le serveur » | Cela peut se produire si le système d’exploitation de l’ordinateur n’est pas Windows ou Linux. | Utilisez uniquement la découverte d’application pour Windows/Linux.
-10001 : « Impossible de récupérer les applications installées sur le serveur » | Erreur interne : certains fichiers sont manquants dans l’appliance. | Contactez le Support Microsoft.
-10002 : « Impossible de récupérer les applications installées sur le serveur » | L’agent de découverte sur l’appliance peut ne pas fonctionner correctement. | Si le problème ne se résout pas de lui-même dans les 24 heures, contactez le support technique.
-10003 « Impossible de récupérer les applications installées sur le serveur » | L’agent de découverte sur l’appliance peut ne pas fonctionner correctement. | Si le problème ne se résout pas de lui-même dans les 24 heures, contactez le support technique.
-10004 : « Impossible de découvrir les applications installées pour les machines <Windows/Linux> » |  Les informations d’identification permettant d’accéder aux machines <Windows/Linux> n’ont pas été fournies dans l’appliance.| Ajoutez des informations d’identification à l’appliance qui accède aux machines <Windows/Linux>.
-10005 : « Impossible d’accéder au serveur local » | Les informations d’identification d’accès sont peut-être incorrectes. | Mettez à jour les informations d’identification de l’appliance pour vous assurer d’avoir accès à la machine correspondante. 
-10006 : « Impossible d’accéder au serveur local » | Cela peut se produire si le système d’exploitation de l’ordinateur n’est pas Windows ou Linux.|  Utilisez uniquement la découverte d’application pour Windows/Linux.
-10007 : « Impossible de traiter les métadonnées récupérées. » | Cette erreur interne s’est produite lors de la tentative de désérialisation de JSON. | Contactez le Support Microsoft pour la résoudre.
-9000/9001/9002 : « Impossible de découvrir les applications installées sur le serveur » | Les outils VMware ne sont peut-être pas installés ou sont endommagés. | Installez/réinstallez les outils VMware sur l’ordinateur concerné, puis vérifiez qu’il s’exécute correctement.
-9003 : « Impossible de découvrir les applications installées sur le serveur » | Cela peut se produire si le système d’exploitation de l’ordinateur n’est pas Windows ou Linux. | Utilisez uniquement la découverte d’application pour Windows/Linux.
-9004 : « Impossible de découvrir les applications installées sur le serveur » | Cela peut se produire si la machine virtuelle est hors tension. | Pour la découverte, assurez-vous que la machine virtuelle est activée.
-9005 : Impossible de découvrir les applications installées sur la machine virtuelle | Cela peut se produire si le système d’exploitation de l’ordinateur n’est pas Windows ou Linux. | Utilisez uniquement la découverte d’application pour Windows/Linux.
-9006/9007 : « Impossible de récupérer les applications installées sur le serveur » | L’agent de découverte sur l’appliance peut ne pas fonctionner correctement. | Si le problème ne se résout pas de lui-même dans les 24 heures, contactez le support technique.
-9008 : « Impossible de récupérer les applications installées sur le serveur. » | Il s'agit peut-être d'une erreur interne.  | Si le problème ne se résout pas de lui-même dans les 24 heures, contactez le support technique.
-9009 : « Impossible de récupérer les applications installées sur le serveur » | Peut se produire si les paramètres de contrôle de compte d’utilisateur (UAC) Windows sur le serveur sont restrictifs et empêchent la découverte des applications installées. | Recherchez les paramètres « Contrôle de compte d’utilisateur » sur le serveur, et configurez le paramètre UAC du serveur sur l’un des deux niveaux inférieurs.
-9010 : « La machine virtuelle est hors tension » | La machine virtuelle est hors tension.  | Vérifiez que la machine virtuelle est sous tension.
-9011 : « Le fichier à télécharger à partir de l’invité est introuvable sur la machine virtuelle invitée. » | Ce problème peut se produire en raison d’une erreur interne. | Le problème devrait être résolu automatiquement dans les 24 heures. Si le problème persiste, contactez le support Microsoft.
-9012 : « Le contenu du fichier de résultats est vide » | Ce problème peut se produire en raison d’une erreur interne. | Le problème devrait être résolu automatiquement dans les 24 heures. Si le problème persiste, contactez le support Microsoft.
-9013 : « Un nouveau profil temporaire est créé pour chaque connexion à la machine virtuelle VMware. » | Un nouveau profil temporaire est créé pour chaque connexion à la machine virtuelle. | Vérifiez que le nom d’utilisateur fourni dans les informations d’identification de la machine virtuelle invitée est au format UPN.
-9014 : « Impossible de récupérer les métadonnées du système de fichiers de la machine virtuelle invitée » | Une erreur s’est produite lors de la connexion à l’hôte ESXi | Vérifiez que l’appliance peut se connecter au port 443 sur l’hôte ESXi qui exécute la machine virtuelle.
-9015 : « Impossible de se connecter aux machines virtuelles VMware en raison de privilèges insuffisants sur vCenter. » | Le rôle Opérations invité n’est pas activé sur le compte d’utilisateur vCenter. | Vérifiez que le rôle Opérations invité est activé sur le compte d’utilisateur vCenter.
-9016 : « Impossible de se connecter aux machines virtuelles VMware, car l’agent des opérations invité n’a plus de données. » | Les outils VMware ne sont pas installés correctement ou ne sont pas à jour. | Assurez-vous que les outils VMware sont correctement installés et à jour.
-9017 : « Le fichier contenant les métadonnées découvertes est introuvable sur la machine virtuelle » | Ce problème peut se produire en raison d’une erreur interne. | Contactez le Support Microsoft pour la résoudre.
-9018 : « PowerShell n’est pas installé sur les machines virtuelles invitées » | PowerShell n’est pas disponible sur la machine virtuelle invitée. | Installez PowerShell sur la machine virtuelle invitée.
-9019 : « Détection impossible en raison d’échecs d’opérations de la machine virtuelle invitée. » | Échec de l’opération de l’invité VMware sur la machine virtuelle. | Vérifiez que les informations d’identification de la machine virtuelle sont valides et que le nom d’utilisateur fourni dans les informations d’identification de la machine virtuelle invitée est au format UPN.
-9020 : « L’autorisation de création de fichier est refusée » | Le rôle associé à l’utilisateur ou à la stratégie de groupe restreint l’utilisateur à créer le fichier dans le dossier. | Vérifiez si l’utilisateur invité fourni dispose de l’autorisation de créer le fichier dans le dossier. Consultez **Notifications** dans Évaluation du serveur pour connaître le nom du dossier.
-9021 : « L’autorisation de création de fichier est refusée dans le dossier System Temp Path » | La version de l’outil VMware sur la machine virtuelle n’est pas prise en charge. | Mettez à niveau votre outil VMware à une version ultérieure à la version 10.2.0.
-9022 : « L’accès à l’objet WMI est refusé » | Le rôle associé à l’utilisateur ou à la stratégie de groupe restreint l’accès de l’utilisateur à l’objet WMI. | Contactez le support Microsoft.
-9023 : « La valeur de la variable d’environnement SystemRoot est vide » | Inconnu | Contactez le support Microsoft.
-9024 : « La valeur de la variable d’environnement TEMP est vide » | Inconnu | Contactez le support Microsoft.
-9025 : « PowerShell est corrompu sur les machines virtuelles invitées » | Inconnu | Réinstallez PowerShell sur la machine virtuelle invitée et vérifiez si PowerShell peut y être exécuté.
-8084 : « Impossible de découvrir les applications en raison d'une erreur VMware :  <Exception from VMware> » | L’appliance Azure Migrate utilise des API VMware pour découvrir des applications. Ce problème peut se produire si une exception est déclenchée par vCenter Server pendant la tentative de découverte des applications. Le message de défaillance de VMware apparaît dans le message d’erreur affiché dans le portail. | Recherchez le message dans la [documentation VMware](https://pubs.vmware.com/vsphere-51/topic/com.vmware.wssdk.apiref.doc/index-faults.html) et suivez les étapes permettant de le résoudre. Si vous ne pouvez pas résoudre ce problème, contactez le support technique de Microsoft.
+--- | --- | ---
+9000 : Impossible de détecter l'état de VMware Tools.     |   VMware Tools n’est peut-être pas installé ou est endommagé.    |   Vérifiez que VMware Tools est installé et exécuté sur la machine virtuelle.
+9001 : VMware Tools n’est pas installé.     |   VMware Tools n’est peut-être pas installé ou est endommagé.    |   Vérifiez que VMware Tools est installé et exécuté sur la machine virtuelle.
+9002 : VMware Tools n’est pas en cours d'exécution.   |   VMware Tools n’est peut-être pas installé ou est endommagé.    |   Vérifiez que VMware Tools est installé et exécuté sur la machine virtuelle.
+9003 : Type de système d’exploitation non pris en charge pour la détection de machine virtuelle invitée.    |   Le système d’exploitation en cours d’exécution sur le serveur n’est ni Windows, ni Linux.    |   Les types de système d’exploitation pris en charge sont Windows et Linux uniquement. Si le serveur est effectivement Windows ou Linux, vérifiez le type de système d’exploitation spécifié dans vCenter Server.
+9004 : La machine virtuelle n’est pas en cours d’exécution.     |   La machine virtuelle est hors tension.  |   Vérifiez que la machine virtuelle est sous tension.
+9005 : Type de système d’exploitation non pris en charge pour la détection de machine virtuelle invitée.    |   Type de système d’exploitation non pris en charge pour la détection de machine virtuelle invitée.     |   Les types de système d’exploitation pris en charge sont Windows et Linux uniquement.
+9006 : L’URL permettant de télécharger le fichier de métadonnées à partir de l’invité est vide.     |   Cela peut se produire si l’agent de détection ne fonctionne pas correctement.    |   Le problème devrait être résolu automatiquement dans les 24 heures. Si le problème persiste, contactez le support technique Microsoft.
+9007 : Le processus exécutant la tâche de détection dans la machine virtuelle invitée est introuvable.   |   Cela peut se produire si l’agent de découverte ne fonctionne pas correctement.   |   Le problème devrait être résolu automatiquement dans les 24 heures. Si le problème persiste, contactez le support technique Microsoft.
+9008 : Impossible de récupérer l’état du processus de machine virtuelle invitée.   |   Ce problème peut se produire en raison d’une erreur interne.   |   Le problème devrait être résolu automatiquement dans les 24 heures. Si le problème persiste, contactez le support technique Microsoft.
+9009 : Le contrôle de compte d'utilisateur Windows a empêché l’exécution de la tâche de détection sur le serveur.  |   Les paramètres de contrôle de compte d’utilisateur (UAC) Windows sur le serveur sont restrictifs et empêchent la détection des applications installées.  |   Dans les paramètres « Contrôle de compte d’utilisateur » sur le serveur, configurez le paramètre UAC du serveur sur l’un des deux niveaux inférieurs.
+9010 : La machine virtuelle est hors tension.     |   La machine virtuelle est hors tension.  |   Vérifiez que la machine virtuelle est sous tension.
+9011 : Fichier de métadonnées détecté introuvable dans le système de fichiers de la machine virtuelle invitée.    |   Ce problème peut se produire en raison d’une erreur interne.   |   Le problème devrait être résolu automatiquement dans les 24 heures. Si le problème persiste, contactez le support technique Microsoft.
+9012 : Le fichier de métadonnées détecté est vide.     |   Ce problème peut se produire en raison d’une erreur interne.   |   Le problème devrait être résolu automatiquement dans les 24 heures. Si le problème persiste, contactez le support technique Microsoft.
+9013 : Un nouveau profil temporaire est créé pour chaque connexion.    |   Un nouveau profil temporaire est créé pour chaque connexion à la machine virtuelle VMware.    |   Contactez le Support Microsoft pour la résoudre.
+9014 : Impossible de récupérer les métadonnées du système de fichiers de la machine virtuelle invitée.     |   Aucune connectivité à l’hôte ESXi    |   Vérifiez que l’appliance peut se connecter au port 443 sur l’hôte ESXi qui exécute la machine virtuelle.
+9015 : Le rôle Opérations invité n’est pas activé sur le compte d’utilisateur vCenter.   |   Le rôle Opérations Guest n’est pas activé sur le compte d’utilisateur vCenter.   |   Vérifiez que le rôle Opérations invité est activé sur le compte d’utilisateur vCenter.
+9016 : Détection impossible parce que l’agent des opérations invité est obsolète.   |   Les outils VMware ne sont pas installés correctement ou ne sont pas à jour.    |   Assurez-vous que les outils VMware sont correctement installés et à jour.
+9017 : Le fichier contenant les métadonnées découvertes est introuvable sur la machine virtuelle.  |   Ce problème peut se produire en raison d’une erreur interne.   |   Contactez le Support Microsoft pour la résoudre.
+9018 : PowerShell n’est pas installé sur les machines virtuelles invitées.  |   PowerShell n’est pas disponible sur la machine virtuelle invitée.    |   Installez PowerShell sur la machine virtuelle invitée.
+9019 : Détection impossible en raison d’échecs d’opérations de la machine virtuelle invitée.     |   Échec de l’opération de l’invité VMware sur la machine virtuelle.    |   Vérifiez que les informations d’identification de la machine virtuelle sont valides et que le nom d’utilisateur fourni dans les informations d’identification de la machine virtuelle invitée est au format UPN.
+9020 : L’autorisation de création de fichier est refusée.    |   Le rôle associé à l’utilisateur ou à la stratégie de groupe empêche l’utilisateur de créer le fichier dans le dossier    |   Vérifiez si l’utilisateur invité fourni dispose de l’autorisation de créer le fichier dans le dossier. Consultez **Notifications** dans Évaluation du serveur pour connaître le nom du dossier.
+9021 : Impossible de créer le fichier dans le chemin d’accès System Temp.     |   VMware Tools signale System Temp au lieu du chemin d’accès Users Temp.    |   Mettez à niveau votre outil VMware Tools à une version ultérieure à la version 10287 (format NGC/VI Client).
+9022 : L’accès à l’objet WMI est refusé.    |   Le rôle associé à l’utilisateur ou à la politique de groupe restreint l’accès de l’utilisateur à l’objet WMI.  |   Contactez le support Microsoft.
+9023 : Impossible d’exécuter PowerShell, car la valeur de la variable d’environnement SystemRoot est vide.    |   La valeur de la variable d’environnement SystemRoot est vide pour la machine virtuelle invitée.     |   Contactez le Support Microsoft pour la résoudre.
+9024 : Impossible de détecter si la valeur de la variable d’environnement TEMP est vide.    |   La valeur de la variable d’environnement TEMP est vide pour la machine virtuelle invitée.   |   Contactez le support Microsoft.
+9025 : PowerShell est endommagé sur les machines virtuelles invitées.  |   PowerShell est endommagé sur la machine virtuelle invitée.    |   Réinstallez PowerShell sur la machine virtuelle invitée et vérifiez si PowerShell peut y être exécuté.
+9026 : Impossible d’exécuter les opérations d’invité sur la machine virtuelle.  |   L’état de la machine virtuelle n’autorise pas l’exécution des opérations d’invité sur la machine virtuelle.   |   Contactez le Support Microsoft pour la résoudre.
+9027 : L’agent des opérations invité n’est pas en cours d’exécution sur la machine virtuelle.   |   Impossible de contacter l’agent des opérations invitées en cours d’exécution au sein de la machine virtuelle.    |   Contactez le Support Microsoft pour la résoudre.
+9028 : Impossible de créer le fichier en raison d’un stockage sur disque insuffisant dans la machine virtuelle.     |   Espace insuffisant sur le disque   |   Assurez-vous que l’espace disponible est suffisant dans le stockage sur disque de la machine virtuelle.
+9029 : Aucun accès à PowerShell depuis les informations d’identification de la machine virtuelle invitée fournies.   |   L’accès à PowerShell n’est pas disponible pour l’utilisateur.     |   Vérifiez que l’utilisateur ajouté sur l’appareil peut accéder à PowerShell sur la machine virtuelle invitée.
+9030 : Impossible de collecter les métadonnées détectées, car l’hôte ESXi est déconnecté.     |   L’hôte ESXi est dans un état déconnecté.   |   Vérifiez que l’hôte ESXi exécutant la machine virtuelle est connecté.
+9031 : Impossible de collecter les métadonnées détectées, car l’hôte ESXi ne répond pas.   |   L’hôte distant n’est pas dans un état valide.    |   Vérifiez que l'hôte ESXi exécutant la machine virtuelle est exécuté et connecté.
+9032 : Détection impossible en raison d’une erreur interne.   |   Ce problème peut se produire en raison d’une erreur interne.   |   Contactez le Support Microsoft pour la résoudre.
+9033 : Détection impossible, car le nom d’utilisateur de la machine virtuelle contient des caractères non valides.     |   Des caractères non valides ont été détectés dans le nom d’utilisateur.   |   Fournissez à nouveau les informations d’identification de la machine virtuelle en vérifiant qu’il n’y a pas de caractères.
+9034 : Le nom d’utilisateur fourni n’est pas au format UPN.    |   Le nom d’utilisateur n’est pas au format UPN.  |   Assurez-vous que le nom d’utilisateur est au format User Principal Name (UPN).
+9035 : Impossible de détecter si le mode de langage PowerShell n’est pas défini sur « Full Language » (Langage complet).  |   Le mode de langage pour PowerShell dans la machine virtuelle invitée n’est pas défini sur « Full Language » (Langage complet).   |   Assurez-vous que le mode de langage PowerShell est défini sur « Full Language » (Langage complet).
+10000 : Le type de système d'exploitation n'est pas pris en charge.   |   Le système d’exploitation en cours d’exécution sur le serveur n’est ni Windows, ni Linux.    |   Les types de système d’exploitation pris en charge sont Windows et Linux uniquement.
+10001 : Le script pour la détection de serveur est introuvable sur l’appliance.    |   Le bot de détection ne fonctionne pas comme prévu.   |   Contactez le Support Microsoft pour la résoudre.
+10002 : La tâche de détection n’a pas été terminée dans les temps.     |   L’agent de détection ne fonctionne pas comme prévu.     |   Le problème devrait être résolu automatiquement dans les 24 heures. Si le problème persiste, contactez le support technique Microsoft.
+10003 : Le processus d’exécution de la tâche de détection a rencontré une erreur.    |   Le processus d’exécution de la tâche de détection a rencontré une erreur.  |   Le problème devrait être résolu automatiquement dans les 24 heures. Si le problème persiste, contactez le support Microsoft.
+10004 : Informations d'identification non fournies pour le type de système d'exploitation invité.  |   Les informations d’identification permettant d’accéder aux machines de ce type de système d’exploitation n’ont pas été fournies dans l’appliance Azure Migrate.    |   Ajouter des informations d’identification pour les machines sur l’appliance
+10005 : Les informations d'identification fournies ne sont pas valides.   |   Les informations d’identification fournies pour que l’appliance accède au serveur sont incorrectes.  |   Mettez à jour les informations d’identification fournies dans l’appliance et vérifiez que le serveur est accessible avec ces informations d’identification.
+10006 : Type de système d’exploitation invité non pris en charge par la banque d’informations d’identification.  |   Le système d’exploitation en cours d’exécution sur le serveur n’est ni Windows, ni Linux.    |   Les types de système d’exploitation pris en charge sont Windows et Linux uniquement.
+10007 : Impossible de traiter les métadonnées récupérées.    |   Cette erreur s’est produite lors de la tentative de désérialisation du JSON.    |   Contactez le Support Microsoft pour la résoudre.
+10008 : Impossible de créer un fichier sur le serveur.    |  Ce problème peut se produire en raison d’une erreur interne.    |   Contactez le Support Microsoft pour la résoudre.
+10009 : Impossible d’écrire les métadonnées détectées dans un fichier sur le serveur.  |   Ce problème peut se produire en raison d’une erreur interne.   |   Contactez le Support Microsoft pour la résoudre.
+
 
 
 

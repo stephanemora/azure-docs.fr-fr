@@ -1,18 +1,18 @@
 ---
 title: Déployer à grande échelle Azure Policy vers des abonnements délégués
-description: Découvrez comment la gestion des ressources déléguées Azure vous permet de déployer une définition et une affectation de stratégie sur plusieurs locataires.
-ms.date: 11/8/2019
-ms.topic: conceptual
-ms.openlocfilehash: 3fe7e48c56e9a5af93e9642ee16c50cfbce34f9e
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+description: Découvrez comment Azure Lighthouse vous permet de déployer une définition et une affectation de stratégie sur plusieurs locataires.
+ms.date: 07/07/2020
+ms.topic: how-to
+ms.openlocfilehash: 6d7c6206916f87072f68cc0fe953c8049896cd0b
+ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81481820"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86111794"
 ---
 # <a name="deploy-azure-policy-to-delegated-subscriptions-at-scale"></a>Déployer à grande échelle Azure Policy vers des abonnements délégués
 
-En tant que fournisseur de services, vous assurez peut-être la gestion des ressources déléguée Azure de plusieurs locataires clients. [Azure Lighthouse](../overview.md) permet aux fournisseurs de services d’effectuer des opérations à grande échelle sur plusieurs locataires à la fois, améliorant ainsi l'efficacité des tâches de gestion.
+En tant que fournisseur de services, vous avez peut-être intégré les locataires de plusieurs clients à [Azure Lighthouse](../overview.md). Azure Lighthouse permet aux fournisseurs de services d’effectuer des opérations à grande échelle sur plusieurs locataires à la fois, améliorant ainsi l’efficacité des tâches de gestion.
 
 Cette rubrique montre comment utiliser [Azure Policy](../../governance/policy/index.yml) pour déployer une définition et une affectation de stratégie sur plusieurs locataires à l’aide de commandes PowerShell. Dans cet exemple, la définition de stratégie veille à ce que les comptes de stockage soient sécurisés en n'autorisant que le trafic HTTPS.
 

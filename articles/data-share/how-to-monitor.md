@@ -4,14 +4,14 @@ description: Découvrez comment surveiller l’état d’une invitation, l’abo
 author: joannapea
 ms.author: joanpo
 ms.service: data-share
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 07/10/2019
-ms.openlocfilehash: 15089dd99de0471c244a6c0d93931438442599a7
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 3ee3f0d37c8e35972a1fc2b8c5d04504d2e065f3
+ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "73490506"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86120192"
 ---
 # <a name="monitor-azure-data-share"></a>Superviser Azure Data Share  
 
@@ -40,13 +40,17 @@ Affichez l’état de vos abonnements de partage en accédant à Partages envoy�
 
 ## <a name="snapshot-history"></a>Historique des instantanés 
 
-Dans l’onglet Historique, vous pouvez afficher les instantanés qui ont été copiés dans votre locataire de consommateur de données. Vous êtes en mesure de surveiller la fréquence et la durée de chaque intervalle d’instantané. 
+Dans l’onglet **Historique** d’un partage, vous pouvez afficher le moment où les données sont copiées du fournisseur de données vers le magasin de données du consommateur de données. Vous êtes en mesure de surveiller la fréquence, la durée et l’état de chaque instantané. 
 
 ![Historique des instantanés](./media/sent-shares.png "Historique des instantanés") 
 
-Vous pouvez afficher plus de détails sur chaque exécution d’instantané en cliquant sur la date de début de l’exécution. 
+Vous pouvez afficher plus de détails sur chaque exécution d’instantané en cliquant sur la date de début de l’exécution. Cliquez ensuite sur l’état de chaque jeu de données pour afficher la quantité de données transférées, le nombre de fichiers/enregistrements copiés, la durée de l’instantané, le nombre de vCores utilisés et le message d’erreur, le cas échéant. 
 
-Par défaut, l'historique des instantanés est défini sur 30 jours. Si vous souhaitez afficher plus de 30 jours d'historique, accédez à Surveillance -> Paramètres de diagnostic, puis sélectionnez **Ajouter un paramètre de diagnostic**. Vous devez sélectionner un compte de stockage pour y stocker ces journaux. 
+L'historique des instantanés est de 30 jours. Si vous avez besoin d’enregistrer et de consulter plus de 30 jours d’historique, vous pouvez utiliser le paramètre de diagnostic.
+
+## <a name="diagnostic-setting"></a>Paramètre de diagnostic
+
+Vous pouvez configurer le paramètre de diagnostic pour enregistrer les données du journal ou les événements. Accédez à Supervision -> Paramètres de diagnostic et sélectionnez **Ajouter un paramètre de diagnostic**. Sélectionnez les données du journal ou les événements qui vous intéressent, ainsi que l’emplacement où vous souhaitez les stocker ou les envoyer. 
 
 ![Historique des instantanés](./media/diagnostic-settings.png "Paramètres de diagnostic") 
 

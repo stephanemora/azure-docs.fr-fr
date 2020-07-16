@@ -4,12 +4,12 @@ description: Créer des alertes de journal d’activité à l’aide du portail 
 ms.topic: conceptual
 ms.subservice: alerts
 ms.date: 06/25/2019
-ms.openlocfilehash: 45345d06e64194224df48a33fab1e74433a1eaac
-ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
+ms.openlocfilehash: 242192118d59f972cebe2837d74c34310cac74aa
+ms.sourcegitcommit: bcb962e74ee5302d0b9242b1ee006f769a94cfb8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/21/2020
-ms.locfileid: "83744261"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86056257"
 ---
 # <a name="create-view-and-manage-activity-log-alerts-by-using-azure-monitor"></a>Créer, afficher et gérer des alertes de journal d’activité à l’aide d’Azure Monitor  
 
@@ -200,6 +200,11 @@ Pour créer une règle d’alerte de journal d’activité à l’aide d’un mo
 }
 ```
 L’exemple JSON précédent peut, par exemple, être enregistré en tant que sampleActivityLogAlert.json pour les besoins de cette procédure pas à pas, et peut être déployé à l’aide d’[Azure Resource Manager dans le portail Azure](../../azure-resource-manager/templates/deploy-portal.md).
+
+  > [!NOTE]
+  > 
+  > Notez que le plus haut niveau d'alerte du journal d'activité pouvant être défini est l'abonnement.
+  > Cela signifie qu’il n’y a pas d’option permettant de définir une alerte sur deux abonnements. par conséquent, la définition doit être une alerte par abonnement.
 
 Les champs suivants sont les options que vous pouvez utiliser dans le modèle Azure Resource Manager pour les champs de conditions : Notez que « Resource Health », « Advisor » et « Service Health » ont des champs de propriétés supplémentaires pour leurs champs spéciaux. 
 1. resourceId :  ID de la ressource concernée dans l’événement du journal d’activité sur lequel l’alerte doit être générée.

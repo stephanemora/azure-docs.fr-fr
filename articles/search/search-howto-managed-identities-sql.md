@@ -1,7 +1,7 @@
 ---
-title: Configurer une connexion à une base de données Azure SQL à l’aide d’une identité managée (préversion)
+title: Configurer une connexion à Azure SQL Database à l’aide d’une identité managée (version préliminaire)
 titleSuffix: Azure Cognitive Search
-description: Découvrez comment configurer une connexion d’indexeur à une base de données Azure SQL à l’aide d’une identité managée (préversion)
+description: Découvrez comment configurer une connexion d’indexeur à Azure SQL Database à l’aide d’une identité managée (version préliminaire)
 manager: luisca
 author: markheff
 ms.author: maheff
@@ -9,22 +9,23 @@ ms.devlang: rest-api
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 05/18/2020
-ms.openlocfilehash: 87389651707a3bdcc18ae7eb03b88681b5303c4d
-ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
+ms.openlocfilehash: d0933f5305007bc4a8238adb2b6b949ab0c11edf
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83663457"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85559933"
 ---
-# <a name="set-up-an-indexer-connection-to-an-azure-sql-database-using-a-managed-identity-preview"></a>Configurer une connexion d’indexeur à une base de données Azure SQL à l’aide d’une identité managée (préversion)
+# <a name="set-up-an-indexer-connection-to-azure-sql-database-using-a-managed-identity-preview"></a>Configurer une connexion d’indexeur à Azure SQL Database à l’aide d’une identité managée (version préliminaire)
 
 > [!IMPORTANT] 
 > La prise en charge de la configuration d’une connexion à une source de données à l’aide d’une identité managée fait actuellement l’objet d’une préversion publique contrôlée. Les fonctionnalités en préversion sont fournies sans contrat de niveau de service et ne sont pas recommandées pour les charges de travail de production.
 > Vous pouvez demander l’accès à la préversion en remplissant [ce formulaire](https://aka.ms/azure-cognitive-search/mi-preview-request).
 
-Cette page explique comment configurer une connexion d’indexeur à une base de données Azure SQL à l’aide d’une identité managée au lieu de fournir des informations d’identification dans la chaîne de connexion de l’objet source de données.
+Cette page explique comment configurer une connexion d’indexeur à Azure SQL Database à l’aide d’une identité managée au lieu de fournir des informations d’identification dans la chaîne de connexion de l’objet source de données.
 
 Avant d’en apprendre plus sur cette fonctionnalité, il est recommandé de comprendre ce qu’est un indexeur et savoir comment configurer un indexeur pour votre source de données. Pour plus d’informations, consultez les liens suivants :
+
 * [Présentation de l’indexeur](search-indexer-overview.md)
 * [Indexeur Azure SQL](search-howto-connecting-azure-sql-database-to-azure-search-using-indexers.md)
 
@@ -39,7 +40,7 @@ Quand une identité managée affectée par le système est activée, Azure crée
 Après avoir sélectionné **Enregistrer**, vous verrez un ID d’objet qui a été attribué à votre service de recherche.
 
 ![ID d’objet](./media/search-managed-identities/system-assigned-identity-object-id.png "ID de l'objet")
- 
+
 ### <a name="2---provision-azure-active-directory-admin-for-sql-server"></a>2 – Approvisionner un administrateur Azure Active Directory pour SQL Server
 
 Lors de la connexion à la base de données à l’étape suivante, vous devez vous connecter avec un compte Azure Active Directory (Azure AD) disposant d’un accès administrateur à la base de données afin de permettre à votre service de recherche d’y accéder.
@@ -102,7 +103,7 @@ Lors de l’indexation d’une base de données SQL, la source de données doit 
 * **name** est le nom unique de la source de données au sein de votre service de recherche.
 * **type** est `azuresql`
 * **credentials**
-    * Le format d’**informations d’identification** est différent selon que vous utilisez ou non une identité managée. Vous indiquerez ici un nom Initial Catalog ou Database et un ResourceId qui n’a pas de clé de compte ni de mot de passe. Le ResourceId doit inclure l’ID d’abonnement de la base de données Azure SQL, le groupe de ressources de la base de données SQL et le nom de la base de données SQL. 
+    * Le format d’**informations d’identification** est différent selon que vous utilisez ou non une identité managée. Vous indiquerez ici un nom Initial Catalog ou Database et un ResourceId qui n’a pas de clé de compte ni de mot de passe. Le ResourceId doit inclure l’ID d’abonnement d’Azure SQL Database, le groupe de ressources d’Azure SQL Database et le nom de la base de données SQL. 
     * Format de la chaîne de connexion de l’identité managée :
         * *Initial Catalog|Database=**nom de la base de données**;ResourceId=/subscriptions/**votre ID d’abonnement**/resourceGroups/**votre nom de groupe de ressources**/providers/Microsoft.Sql/servers/**votre nom de serveur SQL**/;Connection Timeout=**durée de la connexion**;*
 * **container** spécifie le nom de la table ou de l’affichage que vous souhaitez indexer.
@@ -110,7 +111,7 @@ Lors de l’indexation d’une base de données SQL, la source de données doit 
 Exemple de création d’un objet de source de données Azure SQL à l’aide de l’[API REST](https://docs.microsoft.com/rest/api/searchservice/create-data-source) :
 
 ```
-POST https://[service name].search.windows.net/datasources?api-version=2019-05-06
+POST https://[service name].search.windows.net/datasources?api-version=2020-06-30
 Content-Type: application/json
 api-key: [admin key]
 
@@ -131,7 +132,7 @@ L’index spécifie les champs d’un document, les attributs et d’autres cons
 Voici comment créer un index avec un champ `booktitle` pouvant faire l’objet d’une recherche :   
 
 ```
-POST https://[service name].search.windows.net/indexes?api-version=2019-05-06
+POST https://[service name].search.windows.net/indexes?api-version=2020-06-30
 Content-Type: application/json
 api-key: [admin key]
 
@@ -155,7 +156,7 @@ Une fois l’index et la source de données créés, vous êtes prêt à créer 
 Exemple de définition d’indexeur pour un indexeur Azure SQL :
 
 ```
-POST https://[service name].search.windows.net/indexers?api-version=2019-05-06
+POST https://[service name].search.windows.net/indexers?api-version=2020-06-30
 Content-Type: application/json
 api-key: [admin key]
 

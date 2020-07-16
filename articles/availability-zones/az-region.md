@@ -4,15 +4,15 @@ description: Pour créer des applications hautement disponibles et résilientes 
 author: cynthn
 ms.service: azure
 ms.topic: article
-ms.date: 04/27/2020
+ms.date: 07/06/2020
 ms.author: cynthn
 ms.custom: fasttrack-edit, mvc, references_regions
-ms.openlocfilehash: 903bfd0be6c82cb5836248a784805b45edcabf36
-ms.sourcegitcommit: 1f48ad3c83467a6ffac4e23093ef288fea592eb5
+ms.openlocfilehash: eec92672801d33290df1690d8cb17e79d4626192
+ms.sourcegitcommit: e132633b9c3a53b3ead101ea2711570e60d67b83
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/29/2020
-ms.locfileid: "84196372"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86042048"
 ---
 # <a name="regions-that-support-availability-zones-in-azure"></a>Régions prenant en charge les Zones de disponibilité dans Azure
 
@@ -28,34 +28,43 @@ Pour voir les services disponibles dans chaque région, ainsi que la feuille de 
 |----------------------------|----------|----------|---------|---------|--------------|------------|--------|----------|----------|-------------|-------------|
 |          |USA Centre|USA Est|USA Est 2|USA Ouest 2|France Centre|Europe Nord|Sud du Royaume-Uni|Europe Ouest|Japon Est|Asie Sud-Est|Australie Est|
 | **Calcul**                         |            |              |           |           |                |              |          |             |            |                |                |
-| Machines virtuelles Linux          | &#10003;   | &#10003;     | &#10003;  | &#10003;  | &#10003;       | &#10003;     | &#10003; | &#10003;    | &#10003;   | &#10003;       |                |
-| Machines virtuelles Windows        | &#10003;   | &#10003;     | &#10003;  | &#10003;  | &#10003;       | &#10003;     | &#10003; | &#10003;    | &#10003;   | &#10003;       |                |
-| Virtual Machine Scale Sets      | &#10003;   | &#10003;     | &#10003;  | &#10003;  | &#10003;       | &#10003;     | &#10003; | &#10003;    | &#10003;   | &#10003;       |                |
+| Machines virtuelles Linux          | &#10003;   | &#10003;     | &#10003;  | &#10003;  | &#10003;       | &#10003;     | &#10003; | &#10003;    | &#10003;   | &#10003;       | &#10003;               |
+| Machines virtuelles Windows        | &#10003;   | &#10003;     | &#10003;  | &#10003;  | &#10003;       | &#10003;     | &#10003; | &#10003;    | &#10003;   | &#10003;       | &#10003;               |
+| Virtual Machine Scale Sets      | &#10003;   | &#10003;     | &#10003;  | &#10003;  | &#10003;       | &#10003;     | &#10003; | &#10003;    | &#10003;   | &#10003;       | &#10003;               |
 | ILB Azure App Service Environments | &#10003;   | &#10003;     | &#10003;  | &#10003;  | &#10003;       | &#10003;     | &#10003; | &#10003;    | &#10003;   | &#10003;       |                |
 | Azure Kubernetes Service        | &#10003;   | &#10003;     | &#10003;  | &#10003;  | &#10003;       | &#10003;     | &#10003; | &#10003;    | &#10003;   | &#10003;       |                |
 | **Stockage**   |            |              |           |           |                |              |          |             |            |                |                |
-| Disques managés                   | &#10003;   | &#10003;     | &#10003;  | &#10003;  | &#10003;       | &#10003;     | &#10003; | &#10003;    | &#10003;   | &#10003;       |                |
-| Stockage redondant interzone          | &#10003;   | &#10003;     | &#10003;  | &#10003;  | &#10003;       | &#10003;     | &#10003; | &#10003;    | &#10003;   | &#10003;       |                |
+| Disques managés                   | &#10003;   | &#10003;     | &#10003;  | &#10003;  | &#10003;       | &#10003;     | &#10003; | &#10003;    | &#10003;   | &#10003;       | &#10003;               |
+| Stockage redondant interzone          | &#10003;   | &#10003;     | &#10003;  | &#10003;  | &#10003;       | &#10003;     | &#10003; | &#10003;    | &#10003;   | &#10003;       | &#10003;               |
 | **Mise en réseau**                     |            |              |           |           |                |              |          |             |            |                |                |
-| Adresse IP standard        | &#10003;   | &#10003;     | &#10003;  | &#10003;  | &#10003;       | &#10003;     | &#10003; | &#10003;    | &#10003;   | &#10003;       |                |
-| Standard Load Balancer     | &#10003;   | &#10003;     | &#10003;  | &#10003;  | &#10003;       | &#10003;     | &#10003; | &#10003;    | &#10003;   | &#10003;       |                |
-| Passerelle VPN            | &#10003;   |  &#10003;    | &#10003;  | &#10003;  | &#10003;       | &#10003;     |  &#10003;  | &#10003;    |  &#10003;   | &#10003;       |                |
-| Passerelle ExpressRoute   | &#10003;   |  &#10003;    | &#10003;  | &#10003;  | &#10003;       | &#10003;     |  &#10003;  | &#10003;    |  &#10003;   | &#10003;       |                |
-| Application Gateway (V2)    | &#10003;   |  &#10003;    | &#10003;  | &#10003;  | &#10003;       | &#10003;     |  &#10003;  | &#10003;    |  &#10003;   | &#10003;       |                |
+| Adresse IP standard        | &#10003;   | &#10003;     | &#10003;  | &#10003;  | &#10003;       | &#10003;     | &#10003; | &#10003;    | &#10003;   | &#10003;       | &#10003;               |
+| Standard Load Balancer     | &#10003;   | &#10003;     | &#10003;  | &#10003;  | &#10003;       | &#10003;     | &#10003; | &#10003;    | &#10003;   | &#10003;       | &#10003;               |
+| Passerelle VPN            | &#10003;   |  &#10003;    | &#10003;  | &#10003;  | &#10003;       | &#10003;     |  &#10003;  | &#10003;    |  &#10003;   | &#10003;       | &#10003;               |
+| Passerelle ExpressRoute   | &#10003;   |  &#10003;    | &#10003;  | &#10003;  | &#10003;       | &#10003;     |  &#10003;  | &#10003;    |  &#10003;   | &#10003;       | &#10003;               |
+| Application Gateway (V2)    | &#10003;   |  &#10003;    | &#10003;  | &#10003;  | &#10003;       | &#10003;     |  &#10003;  | &#10003;    |  &#10003;   | &#10003;       | &#10003;               |
 | Pare-feu Azure           | &#10003;   | &#10003;     | &#10003;  | &#10003;  | &#10003;       | &#10003;     | &#10003; | &#10003;    |  &#10003;       | &#10003;       |                |
 | **Bases de données**                     |            |              |           |           |                |              |          |             |            |                |                |
 | Explorateur de données Azure                   | &#10003;   | &#10003;     | &#10003;  | &#10003;  | &#10003;       | &#10003;     | &#10003; | &#10003;    | &#10003;        | &#10003;       |                |
 | SQL Database                    | &#10003;   | &#10003;     | &#10003;  | &#10003;(Préversion) | &#10003;       | &#10003;(Préversion)     | &#10003; | &#10003;    | &#10003;       | &#10003;       |&#10003;        |
 | Cache Azure pour Redis           | &#10003;   | &#10003;     | &#10003;  | &#10003;  | &#10003;       | &#10003;     | &#10003; | &#10003;    |  &#10003;       | &#10003;       |                |
-| Azure Cosmos DB      | &#10003;   |  &#10003;  |  &#10003; | &#10003; |  &#10003;  | &#10003;    | &#10003; |  &#10003;   |     &#10003;       | &#10003;    | &#10003;    |
+| Azure Cosmos DB      | &#10003;   |  &#10003;  |  &#10003; | &#10003; |  &#10003;  | &#10003;    | &#10003; |  &#10003;   |     &#10003;       | &#10003;    | &#10003;  |
 | **Analyse**                       |            |              |           |           |                |              |          |             |            |                |                |
-| Event Hubs                      | &#10003;   |   &#10003; | &#10003;  | &#10003;  | &#10003; | &#10003; | &#10003; | &#10003; | &#10003; | &#10003;       |                |
+| Event Hubs                      | &#10003;   |   &#10003; | &#10003;  | &#10003;  | &#10003; | &#10003; | &#10003; | &#10003; | &#10003; | &#10003;       |  &#10003;              |
 | **Intégration**                     |            |              |           |           |                |              |          |             |            |                |                |
-| Service Bus (Niveau Premium uniquement) | &#10003;   |  &#10003;  | &#10003;  | &#10003;  | &#10003;  | &#10003;     |&#10003;   | &#10003;    |&#10003;      | &#10003;       |                |
+| Service Bus (Niveau Premium uniquement) | &#10003;   |  &#10003;  | &#10003;  | &#10003;  | &#10003;  | &#10003;     |&#10003;   | &#10003;    |&#10003;      | &#10003;       |  &#10003;              |
 | Event Grid | &#10003;   |  &#10003;  | &#10003;  | &#10003;  | &#10003;  | &#10003;     |&#10003;   | &#10003;    |&#10003;      | &#10003;       |                |
 | **Identité**                     |            |              |           |           |                |              |          |             |            |                |                |
 | Services de domaine Azure AD | &#10003;   |  &#10003;  | &#10003;  | &#10003;  | &#10003;  | &#10003;     |&#10003;   | &#10003;    |&#10003;      | &#10003;       |                |
 
+Azure offre également une prise en charge Zones de disponibilité dans les régions suivantes :
+
+- Gouvernement américain - Virginie
+- Australie Est
+- Afrique du Sud Nord
+- États-Unis - partie centrale méridionale
+- Centre du Canada
+
+Pour en savoir plus sur la prise en charge de Zones de disponibilité dans ces cinq régions, contactez votre représentant commercial ou client Microsoft.
 
 ## <a name="next-steps"></a>Étapes suivantes
 

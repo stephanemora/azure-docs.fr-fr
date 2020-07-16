@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 03/10/2020
 ms.author: trbye
 zone_pivot_groups: programming-languages-set-two-with-js
-ms.openlocfilehash: 979899dd1c4c7624b3fca6e69c4dbdfeb6cbd758
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: ed2c59a92f348812afac3e39719d3814f0720621
+ms.sourcegitcommit: 0100d26b1cac3e55016724c30d59408ee052a9ab
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/01/2020
-ms.locfileid: "85833568"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86023038"
 ---
 # <a name="choose-a-speech-recognition-mode"></a>Choisir un mode de reconnaissance vocale
 

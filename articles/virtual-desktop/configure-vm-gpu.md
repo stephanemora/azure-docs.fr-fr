@@ -4,22 +4,22 @@ description: Découvrez comment activer le rendu et le codage avec accélératio
 services: virtual-desktop
 author: gundarev
 ms.service: virtual-desktop
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 05/06/2019
 ms.author: denisgun
-ms.openlocfilehash: 99393ed518df590140f79933623a9f7ec96edc85
-ms.sourcegitcommit: 90d2d95f2ae972046b1cb13d9956d6668756a02e
+ms.openlocfilehash: f7a26b6a622368fe9601ea3b6555386b6a121540
+ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/14/2020
-ms.locfileid: "83402294"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86081092"
 ---
 # <a name="configure-graphics-processing-unit-gpu-acceleration-for-windows-virtual-desktop"></a>Configurer l’accélération GPU pour Windows Virtual Desktop
 
 >[!IMPORTANT]
 >Ce contenu s’applique à la mise à jour Printemps 2020 avec des objets Azure Resource Manager Windows Virtual Desktop. Si vous utilisez la version Automne 2019 de Windows Virtual Desktop sans objets Azure Resource Manager, consultez [cet article](./virtual-desktop-fall-2019/configure-vm-gpu-2019.md).
 >
-> La mise à jour Printemps 2020 de Windows Virtual Desktop est en préversion publique. Cette préversion est fournie sans contrat de niveau de service, c’est pourquoi nous déconseillons son utilisation pour les charges de travail de production. Certaines fonctionnalités peuvent être limitées ou non prises en charge. 
+> La mise à jour Printemps 2020 de Windows Virtual Desktop est en préversion publique. Cette préversion est fournie sans contrat de niveau de service, c’est pourquoi nous déconseillons son utilisation pour les charges de travail de production. Certaines fonctionnalités peuvent être limitées ou non prises en charge.
 > Pour plus d’informations, consultez [Conditions d’Utilisation Supplémentaires relatives aux Évaluations Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 Windows Virtual Desktop prend en charge le rendu et le codage avec accélération GPU pour des performances d’applications et une extensibilité améliorées. L’accélération GPU est particulièrement importante pour les applications graphiques.
@@ -60,22 +60,36 @@ Par défaut, le rendu des applications et des bureaux exécutés dans des config
 
 ## <a name="configure-gpu-accelerated-frame-encoding"></a>Configurer le codage d’image avec accélération GPU
 
-Le Bureau à distance code tous les graphiques rendus par les applications et les bureaux (que le rendu ait été fait avec le GPU ou l’UC) pour la transmission aux clients Bureau à distance. Par défaut, le Bureau à distance n’exploite pas les GPU disponibles pour ce codage. Configurez la stratégie de groupe pour l’hôte de session afin d’activer le codage d’image avec accélération GPU. Continuez les étapes ci-dessus :
+Le Bureau à distance code tous les graphiques rendus par les applications et les bureaux (que le rendu ait été fait avec le GPU ou l’UC) pour la transmission aux clients Bureau à distance. Quand une partie de l’écran est fréquemment mise à jour, cette partie de l’écran est encodée à l’aide d’un codec vidéo (H.264/AVC). Par défaut, le Bureau à distance n’exploite pas les GPU disponibles pour ce codage. Configurez la stratégie de groupe pour l’hôte de session afin d’activer le codage d’image avec accélération GPU. Continuez les étapes ci-dessus :
+ 
+>[!NOTE]
+>L’encodage de trames avec accélération GPU n’est pas disponible dans les machines virtuelles de la série NVv4.
 
-1. Sélectionnez la stratégie **Prioriser le mode H.264/AVC 444 Graphics pour les connexions Bureau à distance** et définissez-la sur **Activé** pour forcer le codec H.264/AVC 444 dans la session à distance.
-2. Sélectionnez la stratégie **Configurer le codage matériel H.264/AVC pour les connexions Bureau à distance** et définissez-la sur **Activé** pour activer le codage de matériel pour AVC/H.264 dans la session à distance.
+1. Sélectionnez la stratégie **Configurer le codage matériel H.264/AVC pour les connexions Bureau à distance** et définissez-la sur **Activé** pour activer le codage de matériel pour AVC/H.264 dans la session à distance.
 
     >[!NOTE]
     >Dans Windows Server 2016, définissez l’option **Préférer le codage matériel AVC** sur **Toujours essayer**.
 
-3. Maintenant que les stratégies de groupe ont été modifiées, forcez une mise à jour de la stratégie de groupe. Ouvrez l’invite de commandes et tapez :
+2. Maintenant que les stratégies de groupe ont été modifiées, forcez une mise à jour de la stratégie de groupe. Ouvrez l’invite de commandes et tapez :
 
     ```batch
     gpupdate.exe /force
     ```
 
-4. Déconnectez-vous de la session Bureau à distance.
+3. Déconnectez-vous de la session Bureau à distance.
 
+## <a name="configure-fullscreen-video-encoding"></a>Configurer l’encodage vidéo plein écran
+
+Si vous utilisez souvent des applications qui produisent un contenu à fréquence d’images élevée, tel que la modélisation 3D, les applications CAO/FAO et vidéo, vous pouvez choisir d’activer un encodage vidéo plein écran pour une session à distance. Le profil vidéo en plein écran fournit une fréquence d’images supérieure et une meilleure expérience utilisateur pour ces applications au détriment de la bande passante réseau et des ressources de l’hôte de session et du client. Il est recommandé d’utiliser l’encodage de trames avec accélération GPU pour un encodage vidéo plein écran. Configurez la stratégie de groupe pour l’hôte de session afin d’activer le codage d’image en plein écran. Continuez les étapes ci-dessus :
+
+1. Sélectionnez la stratégie **Prioriser le mode H.264/AVC 444 Graphics pour les connexions Bureau à distance** et définissez-la sur **Activé** pour forcer le codec H.264/AVC 444 dans la session à distance.
+2. Maintenant que les stratégies de groupe ont été modifiées, forcez une mise à jour de la stratégie de groupe. Ouvrez l’invite de commandes et tapez :
+
+    ```batch
+    gpupdate.exe /force
+    ```
+
+3. Déconnectez-vous de la session Bureau à distance.
 ## <a name="verify-gpu-accelerated-app-rendering"></a>Vérifier le rendu d’application avec accélération GPU
 
 Pour vérifier que les applications utilisent le GPU pour le rendu, essayez l’une des opérations suivantes :
@@ -90,7 +104,14 @@ Pour vérifier que le Bureau à distance utilise le codage avec accélération G
 1. Connectez-vous au bureau de la machine virtuelle à l’aide du client Windows Virtual Desktop.
 2. Lancer l’Observateur d’événements et accédez au nœud suivant : **Journaux des applications et services** > **Microsoft** > **Windows** > **RemoteDesktopServices-RdpCoreCDV** > **Opérationnel**
 3. Pour déterminer si de codage avec accélération GPU est utilisé, recherchez l’ID d’événement 170. Si vous voyez « Encodeur matériel AVC activé : 1 » alors le codage GPU est utilisé.
-4. Pour déterminer si le mode AVC 444 est utilisé, recherchez l’ID d’événement 162. Si vous voyez « AVC disponible : 1 Profil initial : 2048 » alors AVC 444 est utilisé.
+
+## <a name="verify-fullscreen-video-encoding"></a>Vérifier l’encodage vidéo plein écran
+
+Pour vérifier que le Bureau à distance utilise le codage en plein écran :
+
+1. Connectez-vous au bureau de la machine virtuelle à l’aide du client Windows Virtual Desktop.
+2. Lancer l’Observateur d’événements et accédez au nœud suivant : **Journaux des applications et services** > **Microsoft** > **Windows** > **RemoteDesktopServices-RdpCoreCDV** > **Opérationnel**
+3. Pour déterminer si de codage en plein écran est utilisé, recherchez l’ID d’événement 162. Si vous voyez « AVC disponible : 1 Profil initial : 2048 » alors AVC 444 est utilisé.
 
 ## <a name="next-steps"></a>Étapes suivantes
 

@@ -3,12 +3,12 @@ title: Mettre à niveau des nœuds de cluster pour utiliser des disques managés
 description: Voici comment mettre à niveau un cluster Service Fabric existant pour utiliser des disques managés Azure avec peu ou pas de temps d’arrêt de votre cluster.
 ms.topic: how-to
 ms.date: 4/07/2020
-ms.openlocfilehash: 5f4698718a35970e47de2a0ee6d053802c8ef919
-ms.sourcegitcommit: a53fe6e9e4a4c153e9ac1a93e9335f8cf762c604
+ms.openlocfilehash: 46dec6ae29fdd8f2a418f695c31900e6df4483e1
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/09/2020
-ms.locfileid: "80991209"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85611626"
 ---
 # <a name="upgrade-cluster-nodes-to-use-azure-managed-disks"></a>Mettre à niveau des nœuds de cluster pour utiliser des disques managés Azure
 
@@ -22,7 +22,7 @@ La stratégie générale de mise à niveau d’un nœud de cluster Service Fabri
 
 3. Vérifiez que le cluster et les nouveaux nœuds sont intègres, puis supprimez le groupe identique d’origine et l’état du nœud pour les nœuds supprimés.
 
-Cet article vous guide tout au long des étapes de mise à niveau du type de nœud principal d’un exemple de cluster pour utiliser des disques managés tout en évitant les temps d’arrêt du cluster (voir remarque ci-dessous). L’état initial de l’exemple de cluster de test se compose d’un type de nœud de [durabilité Silver](service-fabric-cluster-capacity.md#the-durability-characteristics-of-the-cluster), soutenu par un groupe identique à cinq nœuds.
+Cet article vous guide tout au long des étapes de mise à niveau du type de nœud principal d’un exemple de cluster pour utiliser des disques managés tout en évitant les temps d’arrêt du cluster (voir remarque ci-dessous). L’état initial de l’exemple de cluster de test se compose d’un type de nœud de [durabilité Silver](service-fabric-cluster-capacity.md#durability-characteristics-of-the-cluster), soutenu par un groupe identique à cinq nœuds.
 
 > [!CAUTION]
 > Vous rencontrerez une panne avec cette procédure uniquement si vous avez des dépendances sur le DNS du cluster (par exemple, lors de l’accès à [Service Fabric Explorer](service-fabric-visualizing-your-cluster.md)). La [meilleure pratique architecturale pour les services frontaux](https://docs.microsoft.com/azure/architecture/microservices/design/gateway) consiste à avoir un certain type d’[équilibreur de charge](https://docs.microsoft.com/azure/architecture/guide/technology-choices/load-balancing-overview) devant vos types de nœud pour rendre possible l’échange de nœuds sans provoquer de panne.

@@ -1,5 +1,5 @@
 ---
-title: Configurer des alertes et des notifications (Portail Azure)
+title: Configurer des alertes et des notifications (le Portail Azure)
 description: Utilisez le Portail Azure pour créer des alertes qui peuvent déclencher des notifications ou l’automation lorsque les conditions spécifiées sont remplies.
 services: sql-database
 ms.service: sql-database
@@ -11,20 +11,20 @@ author: aamalvea
 ms.author: aamalvea
 ms.reviewer: jrasnik, carlrab
 ms.date: 05/04/2020
-ms.openlocfilehash: 0e9b8f7bc4129c07145130f198b738839b0c7b55
-ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
+ms.openlocfilehash: d03c1cad9692058c47dd643be9770284b207bb74
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "84035130"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85553493"
 ---
-# <a name="create-alerts-for-azure-sql-database-and-azure-synapse-using-azure-portal"></a>Créer des alertes pour Azure SQL Database et Azure Synapse à l'aide du Portail Azure
+# <a name="create-alerts-for-azure-sql-database-and-azure-synapse-analytics-using-the-azure-portal"></a>Créer des alertes pour Azure SQL Database et Azure Synapse Analytics à l’aide du Portail Azure
 [!INCLUDE[appliesto-sqldb-asa](../includes/appliesto-sqldb-asa.md)]
 
 
 ## <a name="overview"></a>Vue d’ensemble
 
-Cet article explique comment configurer des alertes pour des bases de données dans Azure SQL Database et Azure Synapse (anciennement Azure SQL Data Warehouse) à l’aide du Portail Azure. Les alertes peuvent vous envoyer un e-mail ou appeler un webhook lorsqu'une métrique (taille de la base de données ou utilisation du processeur, par exemple) atteint le seuil. Il présente également les meilleures pratiques à adopter pour définir les périodes d’alerte.
+Cet article explique comment configurer des alertes pour des bases de données dans Azure SQL Database et Azure Synapse Analytics (anciennement Azure SQL Data Warehouse) à l’aide du Portail Azure. Les alertes peuvent vous envoyer un e-mail ou appeler un webhook lorsqu'une métrique (taille de la base de données ou utilisation du processeur, par exemple) atteint le seuil.
 
 > [!NOTE]
 > Pour obtenir des instructions spécifiques sur Azure SQL Managed Instance, consultez [Créer des alertes pour Azure SQL Managed Instance](../managed-instance/alerts-create.md).
@@ -42,9 +42,9 @@ Vous pouvez configurer une alerte pour effectuer les opérations suivantes lors 
 
 Vous pouvez configurer et obtenir des informations sur les règles d’alerte avec
 
-* [Azure portal](../../azure-monitor/platform/alerts-classic-portal.md)
+* [Le portail Azure](../../azure-monitor/platform/alerts-classic-portal.md)
 * [PowerShell](../../azure-monitor/platform/alerts-classic-portal.md)
-* [interface de ligne de commande (CLI)](../../azure-monitor/platform/alerts-classic-portal.md)
+* [Une interface de ligne de commande (CLI)](../../azure-monitor/platform/alerts-classic-portal.md)
 * [API REST Azure Monitor](https://msdn.microsoft.com/library/azure/dn931945.aspx)
 
 ## <a name="create-an-alert-rule-on-a-metric-with-the-azure-portal"></a>Créer une règle d’alerte sur une métrique avec le Portail Azure
@@ -60,7 +60,7 @@ Vous pouvez configurer et obtenir des informations sur les règles d’alerte av
 4. Dans la section **Condition**, cliquez sur **Ajouter**.
   ![Définir la condition](./media/alerts-insights-configure-portal/create-rule.png)
 5. Sur la page **Configurer la logique du signal**, sélectionnez un signal.
-  ![Sélectionnez un signal](./media/alerts-insights-configure-portal/select-signal.png).
+  ![Sélectionner un signal](./media/alerts-insights-configure-portal/select-signal.png)
 6. Une fois que vous avez sélectionné un signal, par exemple **Pourcentage UC**, la page **Configurer la logique du signal** s’affiche.
   ![Configurer la logique du signal](./media/alerts-insights-configure-portal/configure-signal-logic.png)
 7. Sur cette page, configurez ce type de seuil, l’opérateur, le type d’agrégation, la valeur de seuil, la granularité d’agrégation et la fréquence d’évaluation. Cliquez ensuite sur **Terminé**.

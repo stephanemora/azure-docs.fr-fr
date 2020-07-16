@@ -6,12 +6,12 @@ ms.author: joanpo
 ms.service: data-share
 ms.topic: conceptual
 ms.date: 07/10/2019
-ms.openlocfilehash: 96a5d3d5c894dda4270c5a8832f188ead56a1ce4
-ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
+ms.openlocfilehash: 229d4fd6647a8a1b756fedee2a864d00b9c7de62
+ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "84020895"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86110995"
 ---
 # <a name="roles-and-requirements-for-azure-data-share"></a>Rôles et exigences pour Azure Data Share 
 
@@ -30,9 +30,8 @@ Pour partager ou recevoir des données à partir d’un magasin de données Azur
 
 Voici un résumé des rôles attribués à l’identité managée de la ressource Data Share :
 
-| |  |  |
-|---|---|---|
 |**Type de magasin de données**|**Magasin de données source de fournisseurs de données**|**Magasin de données cible de consommateurs de données**|
+|---|---|---|
 |Stockage Blob Azure| Lecteur des données blob du stockage | Contributeur aux données Blob du stockage
 |Azure Data Lake Gen1 | Propriétaire | Non pris en charge
 |Azure Data Lake Gen2 | Lecteur des données blob du stockage | Contributeur aux données Blob du stockage
@@ -42,9 +41,8 @@ Voici un résumé des rôles attribués à l’identité managée de la ressourc
 
 Pour le partage basé sur SQL, un utilisateur SQL doit être créé à partir d’un fournisseur externe dans la base de données SQL portant le même nom que la ressource Azure Data Share. Voici un résumé de l’autorisation requise par l’utilisateur SQL.
 
-| |  |  |
-|---|---|---|
 |**Type de base de données SQL**|**Autorisation de l’utilisateur SQL fournisseur de données**|**Autorisation de l’utilisateur SQL consommateur de données**|
+|---|---|---|
 |Azure SQL Database | db_datareader | db_datareader, db_datawriter, db_ddladmin
 |Azure Synapse Analytics (anciennement SQL DW) | db_datareader | db_datareader, db_datawriter, db_ddladmin
 |
@@ -103,4 +101,3 @@ Pour afficher une invitation Azure Data Share pour la première fois dans votre 
 ## <a name="next-steps"></a>Étapes suivantes
 
 - En savoir plus sur les rôles dans Azure : [Comprendre les définitions de rôles](../role-based-access-control/role-definitions.md)
-

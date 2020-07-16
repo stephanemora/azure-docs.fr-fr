@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 10/01/2017
 ms.author: abnarain
 robots: noindex
-ms.openlocfilehash: 390cddf557905e95e313896f9f172e30b81352b9
-ms.sourcegitcommit: 1f48ad3c83467a6ffac4e23093ef288fea592eb5
+ms.openlocfilehash: 5d83f05c16004edc3ad4842b7e4e9d4b9babe577
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/29/2020
-ms.locfileid: "84195938"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85319065"
 ---
 # <a name="troubleshoot-issues-with-using-data-management-gateway"></a>Résoudre les problèmes liés à l’utilisation de la passerelle de gestion des données
 Cet article fournit des informations sur la résolution des problèmes liés à l’utilisation de la passerelle de gestion des données.
@@ -224,7 +224,7 @@ Cela peut se produire pour différentes raisons et la procédure de résolution 
 #### <a name="resolution"></a>Résolution
 Autorisez les connexions TCP sortantes sur le port TCP/1433 côté client de la passerelle de gestion des données avant la connexion à une base de données SQL.
 
-Si la base de données cible est une base de données Azure SQL, vérifiez également les paramètres de pare-feu SQL Server pour Azure.
+Si la base de données cible se trouve dans Azure SQL Database, vérifiez également les paramètres de pare-feu SQL Server pour Azure.
 
 Consultez la section suivante pour tester la connexion à la banque de données locale.
 

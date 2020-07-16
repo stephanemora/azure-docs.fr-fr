@@ -12,12 +12,12 @@ ms.date: 08/20/2019
 ms.author: ajburnle
 ms.custom: it-pro, seodec18
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d7a596454a48a1d6fcee77634363dd38f34a4d58
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: c439bbded7fe55f1edd5eb1597f98b339e340956
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81603345"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85386332"
 ---
 # <a name="azure-active-directory-deployment-plans"></a>Plans de déploiement Azure Active Directory
 Vous souhaitez des conseils de bout en bout sur le déploiement des fonctionnalités Azure Active Directory (Azure AD) ? Les plans de déploiement Azure AD abordent les notions de base (valeur commerciale, planification et procédures opérationnelles) nécessaires pour réussir à déployer les fonctionnalités Azure AD les plus courantes.
@@ -66,12 +66,13 @@ L’extension du déploiement à des groupes d’utilisateurs plus importants do
 | [Réinitialisation de mot de passe en libre service](../authentication/howto-sspr-deployment.md)| La réinitialisation de mot de passe en libre-service offre à vos utilisateurs la possibilité de réinitialiser leur mot de passe, sans intervention de l’administrateur, quand et où ils en ont besoin. |
 | [Sans mot de passe](../authentication/howto-authentication-passwordless-deployment.md) | Implémenter l’authentification par mot de passe à l’aide de l’application Microsoft Authenticator ou de clés de sécurité FIDO2 dans votre organisation |
 
-## <a name="deploy-application-management"></a>Gestion des applications de déploiement
+## <a name="deploy-application-and-device-management"></a>Gestion des applications et périphériques de déploiement
 
 | Fonctionnalité | Description|
 | -| - |
 | [Authentification unique](../manage-apps/plan-sso-deployment.md)| Avec l’authentification unique, vos utilisateurs peuvent accéder à toutes les applications et ressources dont ils ont besoin pour travailler en se connectant une seule fois. Une fois qu’ils se sont connectés, ils peuvent passer de Microsoft Office à SalesForce, à Box ou à des applications internes sans devoir entrer encore une fois les informations d’identification. |
 | [Volet d’accès](../manage-apps/access-panel-deployment-plan.md)| Offrez aux utilisateurs un hub simple leur permettant de découvrir toutes leurs applications et d’y accéder. Donnez-leur la possibilité d’accroître leur productivité grâce à des fonctionnalités en libre-service, pour demander l’accès à de nouveaux groupes et applications ou gérer l’accès à ces ressources pour le compte d’autres utilisateurs. |
+| [Appareils](../devices/plan-device-deployment.md) | Cet article vous aide à évaluer les méthodes d’intégration de votre périphérique avec Azure AD, à choisir le plan d’implémentation et fournit des liens clés vers les outils de gestion des périphériques pris en charge. |
 
 
 ## <a name="deploy-hybrid-scenarios"></a>Déployer des scénarios hybrides

@@ -7,16 +7,16 @@ author: msmimart
 manager: celestedg
 ms.service: active-directory
 ms.workload: identity
-ms.topic: article
+ms.topic: how-to
 ms.date: 04/10/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: e97df60739b04884e8a9cd68679c23d4407e4947
-ms.sourcegitcommit: d118ad4fb2b66c759b70d4d8a18e6368760da3ad
+ms.openlocfilehash: a1af5fb7d0a1f8844016fcb6096e3a7ad9946f9f
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/02/2020
-ms.locfileid: "84298800"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85384887"
 ---
 # <a name="tutorial-register-a-web-application-in-azure-active-directory-b2c"></a>Tutoriel : Inscrire une application web dans Azure Active Directory B2C
 
@@ -47,7 +47,7 @@ Pour inscrire une application dans votre locataire Azure AD B2C, vous pouvez uti
 1. Dans le portail Azure, recherchez et sélectionnez **Azure AD B2C**.
 1. Sélectionnez **Inscriptions d’applications**, puis **Nouvelle inscription**.
 1. Entrez un **Nom** pour l’application. Par exemple, *webapp1*.
-1. Sous **Types de comptes pris en charge**, sélectionnez **Comptes dans un annuaire organisationnel (tout annuaire Azure AD mutualisé) et comptes Microsoft personnels (par exemple, Skype, Xbox)** .
+1. Sous **Types de comptes pris en charge**, sélectionnez **Comptes dans un répertoire organisationnel ou un fournisseur d'identité. Pour l’authentification des utilisateurs avec Azure AD B2C**.
 1. Sous **URI de redirection**, sélectionnez **Web**, puis entrez `https://jwt.ms` dans la zone de texte de l’URL.
 
     L’URI de redirection est le point de terminaison auquel l’utilisateur est envoyé par le serveur d’autorisation (dans ce cas, Azure AD B2C) après avoir terminé son interaction avec l’utilisateur, et auquel un jeton d’accès ou un code d’autorisation est envoyé en cas d’autorisation réussie. Dans une application de production, il s’agit généralement d’un point de terminaison accessible publiquement dans lequel votre application s’exécute, comme `https://contoso.com/auth-response`. À des fins de test comme dans ce didacticiel, vous pouvez le définir sur `https://jwt.ms`, une application web Microsoft qui affiche le contenu décodé d’un jeton (le contenu du jeton ne quitte jamais votre navigateur). Pendant le développement d’une application, vous pouvez ajouter le point de terminaison sur lequel votre application écoute localement, comme `https://localhost:5000`. Vous pouvez ajouter des URI de redirection à vos applications inscrites à tout moment et les modifier.

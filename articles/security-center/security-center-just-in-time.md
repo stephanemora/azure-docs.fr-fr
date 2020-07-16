@@ -8,12 +8,12 @@ ms.service: security-center
 ms.topic: conceptual
 ms.date: 02/25/2020
 ms.author: memildin
-ms.openlocfilehash: cc4e267c6912b8938db1ba5497a27f9c0026bd79
-ms.sourcegitcommit: d187fe0143d7dbaf8d775150453bd3c188087411
+ms.openlocfilehash: b24e0487aef73ed7852cb4a64766a1f8d92aff94
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/08/2020
-ms.locfileid: "80887331"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84677427"
 ---
 # <a name="secure-your-management-ports-with-just-in-time-access"></a>Sécuriser vos ports de gestion avec un accès juste-à-temps
 
@@ -211,7 +211,7 @@ Pour ce faire, exécutez la commande suivante dans PowerShell :
 
 1.    Attribuez une variable qui conserve la stratégie d’accès juste-à-temps à une machine virtuelle pour une machine virtuelle :
 
-        $JitPolicy = (@{    id="/subscriptions/SUBSCRIPTIONID/resourceGroups/RESOURCEGROUP/providers/Microsoft.Compute/virtualMachines/VMNAME"   ports=(@{        number=22;        protocol="\*";        allowedSourceAddressPrefix=@("\*");        maxRequestAccessDuration="PT3H"},        @{        number=3389;        protocol="\*";        allowedSourceAddressPrefix=@("\*");        maxRequestAccessDuration="PT3H"})})
+        $JitPolicy = (@{    id="/subscriptions/SUBSCRIPTIONID/resourceGroups/RESOURCEGROUP/providers/Microsoft.Compute/virtualMachines/VMNAME";   ports=(@{        number=22;        protocol="\*";        allowedSourceAddressPrefix=@("\*");        maxRequestAccessDuration="PT3H"},        @{        number=3389;        protocol="\*";        allowedSourceAddressPrefix=@("\*");        maxRequestAccessDuration="PT3H"})})
 
 2.    Insérez la stratégie d’accès juste-à-temps à une machine virtuelle d’une machine virtuelle dans le tableau :
     
@@ -228,7 +228,7 @@ Dans l’exemple suivant, vous pouvez voir une demande d’accès juste-à-temps
 Exécutez la commande suivante dans PowerShell :
 1.    Configurez les propriétés de la demande d’accès à une machine virtuelle
 
-        $JitPolicyVm1 = (@{     id="/SUBSCRIPTIONID/resourceGroups/RESOURCEGROUP/providers/Microsoft.Compute/virtualMachines/VMNAME"   ports=(@{      number=22;      endTimeUtc="2018-09-17T17:00:00.3658798Z";      allowedSourceAddressPrefix=@("IPV4ADDRESS")})})
+        $JitPolicyVm1 = (@{     id="/SUBSCRIPTIONID/resourceGroups/RESOURCEGROUP/providers/Microsoft.Compute/virtualMachines/VMNAME";   ports=(@{      number=22;      endTimeUtc="2018-09-17T17:00:00.3658798Z";      allowedSourceAddressPrefix=@("IPV4ADDRESS")})})
 2.    Insérez les paramètres de la demande d’accès à la machine virtuelle dans un tableau :
 
         $JitPolicyArr=@($JitPolicyVm1)

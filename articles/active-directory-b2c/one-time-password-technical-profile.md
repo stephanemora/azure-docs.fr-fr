@@ -11,12 +11,12 @@ ms.topic: reference
 ms.date: 03/26/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 35497f978a1819f09411487e4bbc7eb1d05cc80d
-ms.sourcegitcommit: 0fda81f271f1a668ed28c55dcc2d0ba2bb417edd
+ms.openlocfilehash: 9592afbf74e65bcb2fe9319da764bf06d8d4eb6c
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/07/2020
-ms.locfileid: "82900377"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85385720"
 ---
 # <a name="define-a-one-time-password-technical-profile-in-an-azure-ad-b2c-custom-policy"></a>Définir un profil technique de mot de passe à usage unique dans une stratégie personnalisée Azure AD B2C
 
@@ -30,13 +30,13 @@ Le profil technique de mot de passe à usage unique peut également renvoyer un 
 
 L’attribut **Name** de l’élément **Protocol** doit être défini sur `Proprietary`. L’attribut **handler** doit contenir le nom qualifié complet d’Assembly de gestionnaire de protocole utilisé par Azure AD B2C :
 
-```XML
+```xml
 Web.TPEngine.Providers.OneTimePasswordProtocolProvider, Web.TPEngine, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
 ```
 
 L’exemple suivant montre un profil technique de mot de passe à usage unique :
 
-```XML
+```xml
 <TechnicalProfile Id="VerifyCode">
   <DisplayName>Validate user input verification code</DisplayName>
   <Protocol Name="Proprietary" Handler="Web.TPEngine.Providers.OneTimePasswordProtocolProvider, Web.TPEngine, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" />
@@ -84,7 +84,7 @@ Les paramètres suivants peuvent être utilisés pour configurer le mode de gén
 
 L'exemple suivant `TechnicalProfile` est utilisé pour générer un code :
 
-```XML
+```xml
 <TechnicalProfile Id="GenerateCode">
   <DisplayName>Generate Code</DisplayName>
   <Protocol Name="Proprietary" Handler="Web.TPEngine.Providers.OneTimePasswordProtocolProvider, Web.TPEngine, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" />
@@ -151,7 +151,7 @@ Les métadonnées suivantes peuvent être utilisées pour configurer les message
 
 L'exemple suivant `TechnicalProfile` est utilisé pour la vérification d'un code :
 
-```XML
+```xml
 <TechnicalProfile Id="VerifyCode">
   <DisplayName>Verify Code</DisplayName>
   <Protocol Name="Proprietary" Handler="Web.TPEngine.Providers.OneTimePasswordProtocolProvider, Web.TPEngine, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" />
@@ -169,5 +169,5 @@ L'exemple suivant `TechnicalProfile` est utilisé pour la vérification d'un cod
 
 Consultez l’article suivant pour accéder à un exemple d’utilisation de profil technique avec mot de passe à usage unique et vérification par e-mail personnalisée :
 
-- [Vérification par e-mail personnalisée dans Azure Active Directory B2C](custom-email.md)
+- Vérification par e-mail personnalisée dans Azure Active Directory B2C ([Mailjet](custom-email-mailjet.md), [SendGrid](custom-email-sendgrid.md))
 

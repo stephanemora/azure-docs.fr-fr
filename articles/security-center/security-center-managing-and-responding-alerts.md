@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/15/2020
 ms.author: memildin
-ms.openlocfilehash: 8e44ce594375deeac47f037515d96c57d15c8359
-ms.sourcegitcommit: 632e7ed5449f85ca502ad216be8ec5dd7cd093cb
+ms.openlocfilehash: f8b09c71e9ad55528788f97fb986606f21e8b0ec
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/30/2020
-ms.locfileid: "80398404"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84769769"
 ---
 # <a name="manage-and-respond-to-security-alerts-in-azure-security-center"></a>Gérer et résoudre les alertes de sécurité dans Azure Security Center
 
@@ -58,21 +58,26 @@ Le Centre de sécurité collecte, analyse et intègre automatiquement les donné
 
 1. Après avoir examiné les informations, cliquez sur une ressource qui a été attaquée.
 
+    Le volet gauche de la page d’alerte de sécurité affiche des informations générales concernant l’alerte de sécurité : titre, gravité, état, durée d’activité, description de l’activité suspecte et ressource affectée. En regard de la ressource affectée figurent les étiquettes Azure pertinentes pour la ressource. Utilisez-les pour déduire le contexte organisationnel de la ressource lors de l’examen de l’alerte.
+
+    Le volet droit comprend l’onglet **Détails de l’alerte** contenant des détails supplémentaires sur l’alerte pour vous aider à examiner le problème : adresses IP, fichiers, processus et bien plus encore.
+     
     ![Suggestions sur la façon de traiter les alertes de sécurité](./media/security-center-managing-and-responding-alerts/security-center-alert-remediate.png)
 
-    La section **Informations générales** peut vous donner un aperçu de ce qui a déclenché l’alerte de sécurité. Elle affiche des informations telles que la ressource cible, l’adresse IP source (le cas échéant), elle indique si l’alerte est toujours active et affiche des recommandations sur la façon de résoudre le problème.  
+    Dans le volet droit figure aussi l’onglet **Entreprendre une action**. Utilisez cet onglet pour prendre d’autres mesures concernant l’alerte de sécurité. Actions telles que :
+    - *Atténuer la menace* : fournit des étapes de correction manuelle pour cette alerte de sécurité
+    - *Empêcher les attaques futures* : fournit des recommandations de sécurité pour aider à réduire la surface d’attaque, améliorer la posture de sécurité et ainsi empêcher les attaques futures
+    - *Déclencher une réponse automatisée* : permet de déclencher une application logique en guide de réponse à cette alerte de sécurité.
+    - *Supprimer les alertes similaires* : permet de supprimer les alertes futures ayant des caractéristiques similaires si l’alerte n’est pas pertinente pour votre organisation.
 
-    > [!NOTE]
-    >Dans certains cas, l’adresse IP source n’est pas disponible, certains journaux d’activité d’événements Windows de la sécurité n’incluent pas l’adresse IP.
+    ![Onglet Entreprendre une action](./media/security-center-managing-and-responding-alerts/alert-take-action.png)
 
-1. Les étapes de correction suggérées par Security Center dépendent de l’alerte de sécurité. Suivez-les pour chaque alerte. 
 
-    Dans certains cas, afin d’atténuer une alerte de sécurité, vous devrez peut-être utiliser d’autres contrôles ou services Azure pour implémenter la correction recommandée. 
+
 
 ## <a name="see-also"></a>Voir aussi
 
-Dans ce document, vous avez appris à configurer des stratégies de sécurité dans le Centre de sécurité. Pour plus d’informations sur le Centre de sécurité, consultez les rubriques suivantes :
+Dans ce document, vous avez découvert comment afficher les alertes de sécurité. Pour d’autres informations connexes, consultez les pages suivantes :
 
-- [Le module Microsoft Learn sur la façon d’utiliser les fonctionnalités d’alerte d’Azure Security Center pour surveiller les menaces et y répondre](https://docs.microsoft.com/learn/modules/resolve-threats-with-azure-security-center/)
-* [Alertes de sécurité dans Azure Security Center](security-center-alerts-overview.md).
-* [Gestion des incidents de sécurité](security-center-incident.md)
+- [Configurer des règles de suppression d’alerte](alerts-suppression-rules.md)
+- [Automatiser les réponses aux alertes et aux recommandations avec l’automatisation de workflow](workflow-automation.md)

@@ -1,29 +1,29 @@
 ---
 title: Erreurs liées à des ressources introuvables
-description: Explique comment résoudre les erreurs liées à des ressources introuvables lors d'un déploiement à l'aide d'un modèle Azure Resource Manager.
+description: Explique comment résoudre les erreurs liées à une ressource introuvable. L’erreur peut survenir pendant le déploiement d’un modèle Azure Resource Manager ou au cours d’opérations de gestion.
 ms.topic: troubleshooting
-ms.date: 06/01/2020
-ms.openlocfilehash: 5d827f68ec97cfa77fb69a34284bd572286641a4
-ms.sourcegitcommit: 223cea58a527270fe60f5e2235f4146aea27af32
+ms.date: 06/10/2020
+ms.openlocfilehash: 224af4ce0fe5053201f25d8207f4ca8cdc73e638
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/01/2020
-ms.locfileid: "84259352"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84667945"
 ---
-# <a name="resolve-not-found-errors-for-azure-resources"></a>Résoudre les erreurs de ressources Azure introuvables
+# <a name="resolve-resource-not-found-errors"></a>Résoudre les erreurs liées à des ressources introuvables
 
-Cet article décrit les erreurs que vous pouvez observer lorsqu’une ressource est introuvable pendant le déploiement.
+Cet article décrit l’erreur que vous rencontrez quand une ressource est introuvable au cours d’une opération. En règle générale, vous obtenez cette erreur pendant le déploiement de ressources. Elle peut aussi survenir quand vous effectuez des tâches de gestion et que Azure Resource Manager ne trouve pas la ressource nécessaire. Par exemple, si vous essayez d’ajouter des étiquettes à une ressource qui n’existe pas, vous obtenez cette erreur.
 
 ## <a name="symptom"></a>Symptôme
 
-Lorsque votre modèle inclut le nom d’une ressource qui ne peut pas être résolue, vous recevez une erreur similaire à celle-ci :
+Deux codes d’erreur indiquent que la ressource est introuvable. L’erreur **NotFound** retourne un résultat qui se présente comme ceci :
 
 ```
 Code=NotFound;
 Message=Cannot find ServerFarm with name exampleplan.
 ```
 
-Si vous utilisez les fonctions [reference](template-functions-resource.md#reference) ou [listKeys](template-functions-resource.md#listkeys) avec une ressource qui ne peut pas être résolue, vous recevez l’erreur suivante :
+L’erreur **ResourceNotFound** retourne un résultat qui se présente comme ceci :
 
 ```
 Code=ResourceNotFound;
@@ -33,11 +33,23 @@ group {resource group name} was not found.
 
 ## <a name="cause"></a>Cause
 
-Resource Manager a besoin de récupérer les propriétés d’une ressource, mais ne peut pas identifier la ressource dans votre abonnement.
+Resource Manager a besoin de récupérer les propriétés d’une ressource, mais ne trouve pas la ressource dans vos abonnements.
 
-## <a name="solution-1---set-dependencies"></a>Solution 1 : Définir des dépendances
+## <a name="solution-1---check-resource-properties"></a>Solution 1 : Vérifier les propriétés de la ressource
 
-Si vous souhaitez déployer la ressource manquante dans le modèle, vérifiez si vous devez ajouter une dépendance. Resource Manager optimise le déploiement en créant des ressources en parallèle, quand cela est possible. Si une ressource doit être déployée après une autre ressource, vous devez utiliser l’élément **dependsOn** de votre modèle. Par exemple, quand vous déployez une application web, le plan App Service doit être présent. Si vous n’avez pas spécifié que l’application web est dépendante du plan App Service, Resource Manager crée les deux ressources en même temps. Vous obtenez une erreur indiquant que la ressource du plan App Service est introuvable, car elle n’existe pas encore au moment où vous tentez de définir une propriété dans l’application web. Vous pouvez éviter cette erreur en définissant la dépendance dans l’application web.
+Quand vous obtenez cette erreur pendant que vous effectuez une tâche de gestion, vérifiez les valeurs que vous spécifiez pour la ressource. Les trois valeurs à vérifier sont les suivantes :
+
+* Nom de la ressource
+* Nom de groupe ressources
+* Abonnement
+
+Si vous utilisez PowerShell ou Azure CLI, vérifiez que vous exécutez bien la commande dans l’abonnement qui contient la ressource. Vous pouvez changer d’abonnement avec [Set-AzContext](/powershell/module/Az.Accounts/Set-AzContext) ou [az account set](/cli/azure/account#az-account-set). De nombreuses commandes proposent également un paramètre d’abonnement qui vous permet de spécifier un abonnement différent du contexte actuel.
+
+Si vous ne parvenez pas à vérifier les propriétés, connectez-vous au [portail](https://portal.azure.com). Recherchez la ressource que vous essayez d’utiliser et examinez le nom de la ressource, le groupe de la ressource et l’abonnement.
+
+## <a name="solution-2---set-dependencies"></a>Solution 2 : Définir des dépendances
+
+Si vous obtenez cette erreur pendant le déploiement d’un modèle, il peut être nécessaire d’ajouter une dépendance. Resource Manager optimise le déploiement en créant des ressources en parallèle, quand cela est possible. Si une ressource doit être déployée après une autre ressource, vous devez utiliser l’élément **dependsOn** de votre modèle. Par exemple, quand vous déployez une application web, le plan App Service doit être présent. Si vous n’avez pas spécifié que l’application web est dépendante du plan App Service, Resource Manager crée les deux ressources en même temps. Vous obtenez une erreur indiquant que la ressource du plan App Service est introuvable, car elle n’existe pas encore au moment où vous tentez de définir une propriété dans l’application web. Vous pouvez éviter cette erreur en définissant la dépendance dans l’application web.
 
 ```json
 {
@@ -70,23 +82,19 @@ Si vous observez des problèmes de dépendance, vous devez déterminer l’ordre
 
    ![déploiement séquentiel](./media/error-not-found/deployment-events-sequence.png)
 
-## <a name="solution-2---get-resource-from-different-resource-group"></a>Solution 2 : Obtenir les ressources des différents groupes de ressources
+## <a name="solution-3---get-external-resource"></a>Solution 3 : Obtenir une ressource externe
 
-Lorsque la ressource existe dans un groupe de ressources différent de celui dans lequel a lieu le déploiement, utilisez la [fonction resourceId](template-functions-resource.md#resourceid) pour obtenir le nom complet de la ressource.
+Quand vous déployez un modèle et que vous devez obtenir une ressource qui existe dans un abonnement ou un groupe de ressources différent, utilisez la [fonction resourceId](template-functions-resource.md#resourceid). Cette fonction retourne le nom complet de la ressource.
+
+Les paramètres d’abonnement et de groupe de ressources de la fonction resourceId sont facultatifs. Si vous ne les spécifiez pas, ils indiquent par défaut l’abonnement et le groupe de ressources actuels. Quand vous utilisez une ressource située dans un groupe de ressources ou un abonnement différent, veillez à fournir ces valeurs.
+
+L’exemple suivant obtient l’ID d’une ressource qui appartient à un groupe de ressources différent.
 
 ```json
 "properties": {
   "name": "[parameters('siteName')]",
   "serverFarmId": "[resourceId('plangroup', 'Microsoft.Web/serverfarms', parameters('hostingPlanName'))]"
 }
-```
-
-## <a name="solution-3---check-reference-function"></a>Solution 3 : Vérifier la fonction de référence
-
-Recherchez une expression qui inclut la fonction [reference](template-functions-resource.md#reference). Les valeurs que vous fournissez varient selon si la ressource fait partie des mêmes modèle, groupe de ressources et abonnement. Vérifiez que vous fournissez les valeurs de paramètres requises pour votre scénario. Si la ressource se trouve dans un autre groupe de ressources, fournissez l’ID complet de la ressource. Par exemple, pour faire référence à un compte de stockage dans un autre groupe de ressources, utilisez :
-
-```json
-"[reference(resourceId('exampleResourceGroup', 'Microsoft.Storage/storageAccounts', 'myStorage'), '2017-06-01')]"
 ```
 
 ## <a name="solution-4---get-managed-identity-from-resource"></a>Solution 4 : Obtenir une identité managée à partir d'une ressource
@@ -116,4 +124,12 @@ Ou, pour obtenir l'ID de locataire d'une identité managée appliquée à un gro
 
 ```json
 "[reference(resourceId('Microsoft.Compute/virtualMachineScaleSets',  variables('vmNodeType0Name')), 2019-12-01, 'Full').Identity.tenantId]"
+```
+
+## <a name="solution-5---check-functions"></a>Solution 5 : Vérifier les fonctions
+
+Quand vous déployez un modèle, recherchez des expressions qui utilisent les fonctions [reference](template-functions-resource.md#reference) ou [listKeys](template-functions-resource.md#listkeys). Les valeurs que vous fournissez varient selon si la ressource fait partie des mêmes modèle, groupe de ressources et abonnement. Vérifiez que vous fournissez les valeurs de paramètres nécessaires pour votre scénario. Si la ressource se trouve dans un autre groupe de ressources, fournissez l’ID complet de la ressource. Par exemple, pour faire référence à un compte de stockage dans un autre groupe de ressources, utilisez :
+
+```json
+"[reference(resourceId('exampleResourceGroup', 'Microsoft.Storage/storageAccounts', 'myStorage'), '2017-06-01')]"
 ```

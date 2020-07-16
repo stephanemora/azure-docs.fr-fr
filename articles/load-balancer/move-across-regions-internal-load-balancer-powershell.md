@@ -3,15 +3,15 @@ title: Déplacer un Azure Load Balancer interne vers une autre région Azure à 
 description: Utilisez un modèle Azure Resource Manager pour déplacer un Azure Load Balancer interne d’une région Azure vers une autre à l’aide d’Azure PowerShell.
 author: asudbring
 ms.service: load-balancer
-ms.topic: article
+ms.topic: how-to
 ms.date: 09/17/2019
 ms.author: allensu
-ms.openlocfilehash: f8e431124155fe23853fe61e985fe4db522c3f77
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 63083c4bd058c63e21a40f2d245312a3f010b696
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "75644271"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84808361"
 ---
 # <a name="move-azure-internal-load-balancer-to-another-region-using-powershell"></a>Déplacer un Azure Load Balancer interne vers une autre région à l’aide de PowerShell
 
@@ -20,7 +20,7 @@ Il existe différents scénarios dans lesquels vous pourriez souhaiter déplacer
 Les équilibreurs de charge internes Azure ne peuvent pas être déplacés d’une région à l’autre. Toutefois, vous pouvez utiliser un modèle Azure Resource Manager pour exporter la configuration existante et le réseau virtuel d’un équilibreur de charge interne.  Vous pouvez ensuite déplacer la ressource dans une autre région en exportant l’équilibreur de charge et le réseau virtuel vers un modèle, en modifiant les paramètres pour qu’ils correspondent à la région de destination, puis en déployant les modèles dans la nouvelle région.  Pour plus d’informations sur Resource Manager et les modèles, consultez [Exporter des groupes de ressources vers des modèles](https://docs.microsoft.com/azure/azure-resource-manager/manage-resource-groups-powershell#export-resource-groups-to-templates)
 
 
-## <a name="prerequisites"></a>Conditions préalables requises
+## <a name="prerequisites"></a>Prérequis
 
 - Vérifiez que l’équilibreur de charge interne se trouve dans la région Azure à partir de laquelle vous souhaitez effectuer le déplacement.
 
@@ -60,7 +60,7 @@ Les étapes suivantes montrent comment préparer l’équilibreur de charge inte
    Export-AzResourceGroup -ResourceGroupName <source-resource-group-name> -Resource $sourceVNETID -IncludeParameterDefaultValue
    ```
 
-4. Le fichier téléchargé est nommé d’après le groupe de ressources à partir duquel la ressource a été exportée.  Recherchez le fichier nommé **\<resource-group-name>.json** qui a été exporté à partir de la commande, et ouvrez-le dans l’éditeur de votre choix :
+4. Le fichier téléchargé est nommé d’après le groupe de ressources à partir duquel la ressource a été exportée.  Recherchez le fichier **\<resource-group-name>.json** qui a été exporté à partir de la commande et ouvrez-le dans l’éditeur de votre choix :
    
    ```azurepowershell
    notepad.exe <source-resource-group-name>.json
@@ -105,9 +105,9 @@ Les étapes suivantes montrent comment préparer l’équilibreur de charge inte
     Get-AzLocation | format-table
     
     ```
-8.  Vous pouvez également modifier d’autres paramètres dans le fichier **\<nom_groupe_de_ressources>.json** si vous le souhaitez ; ces paramètres sont facultatifs en fonction de vos besoins :
+8.  Vous pouvez également changer d’autres paramètres dans le fichier **\<resource-group-name>.json** ; ces paramètres sont facultatifs en fonction de vos besoins :
 
-    * **Espace d’adressage** : l’espace d’adressage du réseau virtuel peut être changé avant l’enregistrement en modifiant la section **resources** > **addressSpace** et en modifiant la propriété **addressPrefixes** dans le fichier **\<nom_groupe_de_ressources>.json** :
+    * **Espace d’adressage** : l’espace d’adressage du réseau virtuel peut être modifié avant l’enregistrement en modifiant la section **resources** > **addressSpace** et en modifiant la propriété **addressPrefixes** dans le fichier **\<resource-group-name>.json** :
 
         ```json
                 "resources": [
@@ -127,7 +127,7 @@ Les étapes suivantes montrent comment préparer l’équilibreur de charge inte
 
         ```
 
-    * **Sous-réseau** : le nom du sous-réseau et l’espace d’adressage du sous-réseau peuvent être changés ou ajoutés en modifiant la section **subnets** du fichier **\<nom_groupe_de_ressources>.json**. Le nom du sous-réseau peut être changé en modifiant la propriété **name**. Vous pouvez changer l’espace d’adressage du sous-réseau en modifiant la propriété **addressPrefix** dans le fichier **\<nom_groupe_de_ressources>.json** :
+    * **Sous-réseau** : le nom du sous-réseau et l’espace d’adressage du sous-réseau peuvent être modifiés ou ajoutés en modifiant la section **subnets** du fichier **\<resource-group-name>.json**. Le nom du sous-réseau peut être changé en modifiant la propriété **name**. Vous pouvez modifier l’espace d’adressage du sous-réseau en modifiant la propriété **addressPrefix** dans le fichier **\<resource-group-name>.json** :
 
         ```json
                 "subnets": [
@@ -158,7 +158,7 @@ Les étapes suivantes montrent comment préparer l’équilibreur de charge inte
                 ]
         ```
 
-         Dans le fichier **\<nom_groupe_de_ressources>.json**, pour modifier le préfixe d’adresse, vous devez le modifier à deux emplacements, la section ci-dessus et la section **type** indiquée ci-dessous.  Modifiez la propriété **addressPrefix** pour qu’elle corresponde à celle ci-dessus :
+         Dans le fichier **\<resource-group-name>.json**, pour modifier le préfixe d’adresse, vous devez le modifier à deux emplacements, la section ci-dessus et la section **type** indiquée ci-dessous.  Modifiez la propriété **addressPrefix** pour qu’elle corresponde à celle ci-dessus :
 
         ```json
          "type": "Microsoft.Network/virtualNetworks/subnets",
@@ -202,7 +202,7 @@ Les étapes suivantes montrent comment préparer l’équilibreur de charge inte
     New-AzResourceGroup -Name <target-resource-group-name> -location <target-region>
     ```
     
-11. Déployez le fichier **\<nom_groupe_de_ressources>.json** modifié sur le groupe de ressources créé à l’étape précédente à l’aide de [New-AzResourceGroupDeployment](https://docs.microsoft.com/powershell/module/az.resources/new-azresourcegroupdeployment?view=azps-2.6.0) :
+11. Déployez le fichier **\<resource-group-name>.json** modifié sur le groupe de ressources créé à l’étape précédente à l’aide de [New-AzResourceGroupDeployment](https://docs.microsoft.com/powershell/module/az.resources/new-azresourcegroupdeployment?view=azps-2.6.0) :
 
     ```azurepowershell-interactive
 
@@ -241,7 +241,7 @@ Les étapes suivantes montrent comment préparer l’équilibreur de charge inte
    ```azurepowershell-interactive
    Export-AzResourceGroup -ResourceGroupName <source-resource-group-name> -Resource $sourceIntLBID -IncludeParameterDefaultValue
    ```
-4. Le fichier téléchargé est nommé d’après le groupe de ressources à partir duquel la ressource a été exportée.  Recherchez le fichier nommé **\<resource-group-name>.json** qui a été exporté à partir de la commande, et ouvrez-le dans l’éditeur de votre choix :
+4. Le fichier téléchargé est nommé d’après le groupe de ressources à partir duquel la ressource a été exportée.  Recherchez le fichier **\<resource-group-name>.json** qui a été exporté à partir de la commande et ouvrez-le dans l’éditeur de votre choix :
    
    ```azurepowershell
    notepad.exe <source-resource-group-name>.json
@@ -263,7 +263,7 @@ Les étapes suivantes montrent comment préparer l’équilibreur de charge inte
              }
     ```
  
-6. Pour modifier la valeur du réseau virtuel cible qui a été déplacé ci-dessus, vous devez d’abord obtenir l’ID de ressource, puis le copier et le coller dans le fichier **\<nom_groupe_de_ressources>.json**.  Pour obtenir l’ID, utilisez [Get-AzVirtualNetwork](https://docs.microsoft.com/powershell/module/az.network/get-azvirtualnetwork?view=azps-2.6.0) :
+6. Pour modifier la valeur du réseau virtuel cible qui a été déplacé ci-dessus, vous devez d’abord obtenir l’ID de ressource, puis le copier et le coller dans le fichier **\<resource-group-name>.json**.  Pour obtenir l’ID, utilisez [Get-AzVirtualNetwork](https://docs.microsoft.com/powershell/module/az.network/get-azvirtualnetwork?view=azps-2.6.0) :
    
    ```azurepowershell-interactive
     $targetVNETID = (Get-AzVirtualNetwork -Name <target-vnet-name> -ResourceGroupName <target-resource-group-name>).Id
@@ -275,7 +275,7 @@ Les étapes suivantes montrent comment préparer l’équilibreur de charge inte
     /subscriptions/7668d659-17fc-4ffd-85ba-9de61fe977e8/resourceGroups/myResourceGroupVNET-Move/providers/Microsoft.Network/virtualNetworks/myVNET2-Move
     ```
 
-7.  Dans le fichier **\<nom_groupe_de_ressources>.json**, collez l’**ID de ressource** de la variable à la place de **defaultValue** dans le deuxième paramètre pour l’ID de réseau virtuel cible, en veillant à placer le chemin entre guillemets :
+7.  Dans le fichier **\<resource-group-name>.json**, collez l’**ID de ressource** de la variable à la place de **defaultValue** dans le deuxième paramètre pour l’ID de réseau virtuel cible, en veillant à placer le chemin entre guillemets :
    
     ```json
          "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
@@ -291,7 +291,7 @@ Les étapes suivantes montrent comment préparer l’équilibreur de charge inte
              }
     ```
 
-8. Pour modifier la région cible où la configuration de l’équilibreur de charge interne sera déplacée, modifiez la propriété **location** sous **resources** dans le fichier **\<nom_groupe_de_ressources>.json** :
+8. Pour modifier la région cible où la configuration de l’équilibreur de charge interne sera déplacée, modifiez la propriété **location** sous **resources** dans le fichier **\<resource-group-name>.json** :
 
     ```json
         "resources": [
@@ -315,7 +315,7 @@ Les étapes suivantes montrent comment préparer l’équilibreur de charge inte
     ```
 12. Vous pouvez également changer d’autres paramètres dans le modèle ; ces paramètres sont facultatifs en fonction de vos besoins :
     
-    * **Référence SKU** : vous pouvez permuter la référence SKU de l’équilibreur de charge interne dans la configuration entre les valeurs basic et standard en modifiant la propriété **sku** > **name** dans le fichier **\<nom_groupe_de_ressources** :
+    * **Référence SKU** : vous pouvez permuter la référence SKU de l’équilibreur de charge interne dans la configuration entre les valeurs basic et standard en modifiant la propriété **sku** > **name** dans le fichier **\<resource-group-name>.json** :
 
         ```json
         "resources": [
@@ -405,7 +405,7 @@ Les étapes suivantes montrent comment préparer l’équilibreur de charge inte
                     }
                 ]
         ```
-        Pour terminer l’ajout ou la suppression d’une règle NAT de trafic entrant, la règle doit être présente ou supprimée en tant que propriété **type** à la fin du fichier **\<resource-group-name>.json** :
+        Pour terminer l’ajout ou la suppression d’une règle NAT de trafic entrant, il faut que la règle soit présente ou supprimée en tant que propriété **type** à la fin du fichier **\<resource-group-name>.json** :
 
         ```json
         {
@@ -438,7 +438,7 @@ Les étapes suivantes montrent comment préparer l’équilibreur de charge inte
     ```azurepowershell-interactive
     New-AzResourceGroup -Name <target-resource-group-name> -location <target-region>
     ```
-11. Déployez le fichier **\<nom_groupe_de_ressources>.json** modifié sur le groupe de ressources créé à l’étape précédente à l’aide de [New-AzResourceGroupDeployment](https://docs.microsoft.com/powershell/module/az.resources/new-azresourcegroupdeployment?view=azps-2.6.0) :
+11. Déployez le fichier **\<resource-group-name>.json** modifié sur le groupe de ressources créé à l’étape précédente à l’aide de [New-AzResourceGroupDeployment](https://docs.microsoft.com/powershell/module/az.resources/new-azresourcegroupdeployment?view=azps-2.6.0) :
 
     ```azurepowershell-interactive
 

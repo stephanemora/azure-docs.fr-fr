@@ -5,12 +5,12 @@ author: cgillum
 ms.topic: conceptual
 ms.date: 10/30/2019
 ms.author: azfuncdf
-ms.openlocfilehash: 4a117e7f69647af3ad82f9013bfa40556ccc0dbd
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 3ba190f40d3b9451aec6e86ea69b7d0fe6e66aa3
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "77152888"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84807841"
 ---
 # <a name="durable-functions-versions-overview"></a>Vue d’ensemble des versions de Durable Functions
 
@@ -82,3 +82,7 @@ Dans le cas où une classe de base abstraite contenait des méthodes virtuelles,
 #### <a name="functionjson-changes-javascript-and-c-script"></a>Modifications de function.json (script JavaScript et C#)
 
 Dans Durable Functions 1.x, la liaison du client d’orchestration utilise un `type` de `orchestrationClient`. La version 2.x utilise `durableClient` à la place.
+
+#### <a name="raise-event-changes"></a>Changements liés au déclenchement d’événements
+
+Dans Durable Functions 1.x, l’appel de l’API de [déclenchement d’événement](durable-functions-external-events.md#send-events) et la spécification d’une instance qui n’existait pas a occasionné un échec silencieux. À partir de 2.x, le déclenchement d’un événement pour une orchestration inexistante entraîne une exception.

@@ -5,13 +5,13 @@ author: kirillg
 ms.author: kirillg
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 05/11/2020
-ms.openlocfilehash: 533cd8fa69c01b8a36ff5e314ce61a4b624e62ec
-ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
+ms.date: 06/04/2020
+ms.openlocfilehash: 20b0bcfe5043d4767199c36796fa1123ed779363
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83655809"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84791144"
 ---
 # <a name="create-azure-cosmos-containers-and-databases-with-autoscale-throughput"></a>Créer des conteneurs et des bases de données Azure Cosmos en débit de mise à l’échelle automatique
 
@@ -29,7 +29,7 @@ Les bases de données et conteneurs Azure Cosmos configurés avec un débit appr
 
 * **Évolutifs :** Les bases de données et les conteneurs mettent automatiquement à l’échelle le débit approvisionné le cas échéant. Les connexions client et les applications ne sont pas interrompues et il n'y a aucun impact sur les contrats de niveau de service Azure Cosmos DB.
 
-* **Économiques :** la mise à l’échelle automatique permet d’optimiser l’utilisation et le coût de l’utilisation de l’unité de requête/s en mettant à l’échelle la taille des unités quand elles ne sont pas utilisées. Vous payez uniquement les ressources dont vos charges de travail ont besoin sur une base horaire.
+* **Économiques :** la mise à l’échelle automatique permet d’optimiser l’utilisation et le coût de l’utilisation de l’unité de requête/s en mettant à l’échelle la taille des unités quand elles ne sont pas utilisées. Vous payez uniquement les ressources dont vos charges de travail ont besoin sur une base horaire. Sur l’ensemble des heures du mois, si vous définissez le nombre maximal de RU/s(Tmax) avec mise à l’échelle automatique et que vous utilisez la totalité de Tmax pour 66 % des heures ou moins, la mise à l’échelle automatique vous permettra de faire des économies. Pour en savoir plus, consultez l’article qui explique [comment choisir entre le débit provisionné standard (manuel) et avec mise à l’échelle automatique](how-to-choose-offer.md).
 
 * **Hautement disponibles :** les bases de données et les conteneurs qui utilisent la mise à l’échelle automatique utilisent le même backend Azure Cosmos DB distribué à l'échelle mondiale, à tolérance de panne et à haute disponibilité pour garantir la durabilité des données et la haute disponibilité.
 
@@ -57,8 +57,9 @@ Vous êtes facturé toutes les heures pour le débit le plus élevé `T` sur leq
 
 Le point d’entrée pour le débit maximal de mise à l’échelle automatique `Tmax` démarre à 4 000 RU/s, qui est mis à l’échelle entre 400 et 4 000 RU/s. Vous pouvez définir `Tmax` par incréments de 1 000 RU/s et modifier la valeur à tout moment.  
 
-## <a name="enable-autoscale-on-existing-resources"></a>Activer la mise à l’échelle automatique sur les ressources existantes ##
-Utilisez le [Portail Azur](how-to-provision-autoscale-throughput.md#enable-autoscale-on-existing-database-or-container) pour activer la mise à l’échelle automatique sur une base de données ou un conteneur existant. Vous pouvez basculer entre la mise à l’échelle automatique et le débit approvisionné standard (manuel) à tout moment. Pour plus d’informations, consultez [cette documentation](autoscale-faq.md#how-does-the-migration-between-autoscale-and-standard-manual-provisioned-throughput-work).
+## <a name="enable-autoscale-on-existing-resources"></a>Activer la mise à l’échelle automatique sur les ressources existantes
+
+Utilisez le [Portail Azur](how-to-provision-autoscale-throughput.md#enable-autoscale-on-existing-database-or-container) pour activer la mise à l’échelle automatique sur une base de données ou un conteneur existant. Vous pouvez basculer entre la mise à l’échelle automatique et le débit approvisionné standard (manuel) à tout moment. Pour plus d’informations, consultez [cette documentation](autoscale-faq.md#how-does-the-migration-between-autoscale-and-standard-manual-provisioned-throughput-work). Pour l’instant, pour toutes les API, vous pouvez uniquement utiliser le portail Azure pour activer la mise à l’échelle automatique sur les ressources existantes.
 
 ## <a name="throughput-and-storage-limits-for-autoscale"></a><a id="autoscale-limits"></a> Limites de débit et de stockage pour la mise à l’échelle automatique
 

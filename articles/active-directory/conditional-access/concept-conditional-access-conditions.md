@@ -5,18 +5,18 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: conditional-access
 ms.topic: conceptual
-ms.date: 03/25/2020
+ms.date: 07/02/2020
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: calebb
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 622950c394d59d8ba504901f5bb0eea6bc04707f
-ms.sourcegitcommit: be32c9a3f6ff48d909aabdae9a53bd8e0582f955
+ms.openlocfilehash: 121b3ced2e021f3907983623ea60185286797670
+ms.sourcegitcommit: 0100d26b1cac3e55016724c30d59408ee052a9ab
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/26/2020
-ms.locfileid: "82160713"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86024442"
 ---
 # <a name="conditional-access-conditions"></a>Accès conditionnel : Conditions
 
@@ -32,6 +32,10 @@ Par exemple, pour prendre ses décisions quant à l’accès à une application 
 
 Pour les clients ayant accès à [Identity Protection](../identity-protection/overview-identity-protection.md), le risque à la connexion peut être évalué dans le cadre d’une stratégie d’accès conditionnel. Le risque à la connexion reflète la probabilité qu’une requête d’authentification donnée soit rejetée par le propriétaire de l’identité. Pour plus d’informations sur le risque à la connexion, consultez les articles [Que sont les risques ?](../identity-protection/concept-identity-protection-risks.md#sign-in-risk) et [ Configurer et activer des stratégies de risque](../identity-protection/howto-identity-protection-configure-risk-policies.md).
 
+## <a name="user-risk"></a>Risque de l’utilisateur 
+
+Pour les clients ayant accès à [Identity Protection](../identity-protection/overview-identity-protection.md), le risque utilisateur peut être évalué dans le cadre d’une stratégie d’accès conditionnel. Un risque utilisateur reflète la probabilité qu’une identité ou un compte donné soit compromis. Pour plus d’informations sur le risque utilisateur, consultez les articles [Qu’est-ce que le risque](../identity-protection/concept-identity-protection-risks.md#user-risk) et [Comment : Configurer et activer des stratégies de risque](../identity-protection/howto-identity-protection-configure-risk-policies.md).
+
 ## <a name="device-platforms"></a>Plateformes d’appareils
 
 La plateforme d’appareil se caractérise par le système d’exploitation qui s’exécute sur un appareil. Azure AD identifie la plateforme à l’aide des informations fournies par l’appareil, telles que des chaînes d’agent utilisateur. Étant donné que les chaînes d’agent utilisateur peuvent être modifiées, ces informations ne sont pas vérifiées. La plateforme d’appareil doit être utilisée conjointement avec des stratégies de conformité d’appareil Microsoft Intune ou dans le cadre d’une instruction de bloc. Le comportement par défaut est l’application à toutes les plateformes d’appareil.
@@ -41,11 +45,8 @@ L’accès conditionnel Azure AD prend en charge les plateformes d’appareil su
 - Android
 - iOS
 - Windows Phone
--  Windows
+- Windows
 - macOS
-
-> [!WARNING]
-> Microsoft a connaissance d’un problème concernant les stratégies d’accès conditionnel et les appareils macOS 10.15.4. Pour plus d’informations, consultez le billet de blog suivant : [Known Issue: Conditional access unexpectedly blocking macOS 10.15.4 native mail client/other apps](https://techcommunity.microsoft.com/t5/intune-customer-success/known-issue-conditional-access-unexpectedly-blocking-macos-10-15/ba-p/1322283).
 
 Si vous bloquez l’authentification héritée à l’aide de la condition **Autres clients**, vous pouvez également définir la condition de plateforme de l’appareil.
 
@@ -115,21 +116,17 @@ Dans **Windows 10 Creators Update (version 1703)** ou version ultérieure, la pr
 
 Pour déployer automatiquement cette extension sur les navigateurs Chrome, créez la clé de Registre suivante :
 
-|    |    |
-| --- | --- |
-| Path | HKEY_LOCAL_MACHINE\Software\Policies\Google\Chrome\ExtensionInstallForcelist |
-| Nom | 1 |
-| Type | REG_SZ (String) |
-| Données | ppnbnpeolgkicgegkbkbjmhlideopiji;https\://clients2.google.com/service/update2/crx |
+- Chemin d’accès HKEY_LOCAL_MACHINE\Software\Policies\Google\Chrome\ExtensionInstallForcelist
+- Nom 1
+- REG_SZ de type (String)
+- Data ppnbnpeolgkicgegkbkbjmhlideopiji;https\://clients2.google.com/service/update2/crx
 
 Pour la prise en charge de Chrome dans **Windows 8.1 et 7**, créez la clé de Registre suivante :
 
-|    |    |
-| --- | --- |
-| Path | HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Google\Chrome\AutoSelectCertificateForUrls |
-| Nom | 1 |
-| Type | REG_SZ (String) |
-| Données | {"pattern":"https://device.login.microsoftonline.com","filter":{"ISSUER":{"CN":"MS-Organization-Access"}}} |
+- Chemin d’accès HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Google\Chrome\AutoSelectCertificateForUrls
+- Nom 1
+- REG_SZ de type (String)
+- Data {« pattern » : « https://device.login.microsoftonline.com », « Filter »:{« ISSUER »:{« CN » : « MS-Organization-Access »}}}
 
 Ces navigateurs prennent en charge l’authentification des appareils, ce qui permet de les identifier et de les valider par rapport à une stratégie. La vérification de l’appareil échoue si le navigateur est en cours d’exécution en mode privé.
 

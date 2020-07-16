@@ -5,12 +5,12 @@ description: Découvrir les bonnes pratiques de l’opérateur relatives à l’
 services: container-service
 ms.topic: conceptual
 ms.date: 11/26/2018
-ms.openlocfilehash: 00643dc1699d1cbd47efd271738015ea05e895e2
-ms.sourcegitcommit: 67addb783644bafce5713e3ed10b7599a1d5c151
+ms.openlocfilehash: 12c65f3b4241d3e732c51acb6ffa95ff314efb50
+ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/05/2020
-ms.locfileid: "80668351"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86077761"
 ---
 # <a name="best-practices-for-cluster-isolation-in-azure-kubernetes-service-aks"></a>Bonnes pratiques relatives à l’isolation de clusters dans Azure Kubernetes Service (AKS)
 
@@ -30,7 +30,7 @@ Kubernetes fournit des fonctionnalités qui vous permettent d’isoler logiqueme
   * Le planificateur comprend également des fonctionnalités plus avancées, notamment les teintes (taints) et tolérances (tolerations), les sélecteurs de nœud ainsi que l’affinité ou l’anti-affinité des nœuds et des pods. Pour plus d’informations sur ces fonctionnalités, consultez [Bonnes pratiques relatives aux fonctionnalités avancées du planificateur dans AKS][aks-best-practices-advanced-scheduler].
 * **Réseau** : inclut l’utilisation de stratégies réseau pour contrôler le flux du trafic à destination et en provenance des pods.
 * **Authentification et autorisation** : incluent l’utilisation du contrôle d’accès en fonction du rôle (RBAC) et de l’intégration Azure Active Directory (AD), les identités de pod et les secrets dans Azure Key Vault. Pour plus d’informations sur ces fonctionnalités, consultez [Bonnes pratiques relatives à l’authentification et à l’autorisation dans AKS][aks-best-practices-identity].
-* **Conteneurs** : incluent les stratégies de sécurité des pods, les contextes de sécurité des pods ainsi que l’analyse d’images et de runtimes à la recherche de vulnérabilités. Implique également l’utilisation d’App Armor ou de Seccomp (Secure Computing) pour restreindre l’accès du conteneur au nœud sous-jacent.
+* **Conteneurs** comprend le module complémentaire Azure Policy pour AKS afin d’appliquer la sécurité de pod, l’utilisation de contextes de sécurité de pod et l’analyse des deux images et du runtime pour les vulnérabilités. Implique également l’utilisation d’App Armor ou de Seccomp (Secure Computing) pour restreindre l’accès du conteneur au nœud sous-jacent.
 
 ## <a name="logically-isolate-clusters"></a>Isoler logiquement des clusters
 

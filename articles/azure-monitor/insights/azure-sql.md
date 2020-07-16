@@ -7,12 +7,12 @@ author: danimir
 ms.author: danil
 ms.date: 02/21/2020
 ms.reviewer: carlrab
-ms.openlocfilehash: 80c03661970ec218dd8b36664ecb67623068ac5d
-ms.sourcegitcommit: 6a9f01bbef4b442d474747773b2ae6ce7c428c1f
+ms.openlocfilehash: bb9bc847944a4228a7b583e21d0aa957f1910a29
+ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "84116551"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86087178"
 ---
 # <a name="monitor-azure-sql-database-using-azure-sql-analytics-preview"></a>Superviser Azure SQL Database avec Azure SQL Analytics (préversion)
 
@@ -58,11 +58,11 @@ Le tableau ci-dessous présente les options prises en charge pour deux versions 
 
 Procédez de la manière décrite dans [Ajouter des solutions Azure Monitor à partir de la Galerie Solutions](../../azure-monitor/insights/solutions.md) pour ajouter Azure SQL Analytics (préversion) à votre espace de travail Log Analytics.
 
-### <a name="configure-azure-sql-databases-to-stream-diagnostics-telemetry"></a>Configurer des bases de données Azure SQL pour diffuser en continu la télémétrie de diagnostic
+### <a name="configure-azure-sql-database-to-stream-diagnostics-telemetry"></a>Configurer Azure SQL Database pour diffuser en continu les données de télémétrie de diagnostic
 
 Après avoir créé une solution Azure SQL Analytics dans votre espace de travail, **configurez chacune** des ressources que vous souhaitez surveiller pour diffuser en continu sa télémétrie de diagnostic vers Azure SQL Analytics. Suivez les instructions détaillées de cette page :
 
-- Activez Azure Diagnostics pour votre base de données Azure SQL afin de [diffuser en continu les données de télémétrie de diagnostic vers Azure SQL Analytics](../../azure-sql/database/metrics-diagnostic-telemetry-logging-streaming-export-configure.md).
+- Activez Azure Diagnostics pour votre base de données pour [diffuser en continu les données de télémétrie de diagnostic vers Azure SQL Analytics](../../azure-sql/database/metrics-diagnostic-telemetry-logging-streaming-export-configure.md).
 
 La page ci-dessus fournit également des instructions sur l’activation de la prise en charge de la surveillance de plusieurs abonnements Azure depuis un espace de travail Azure SQL Analytics faisant office de tableau de bord unique.
 
@@ -72,7 +72,7 @@ Lorsque vous ajoutez Azure SQL Analytics à votre espace de travail, la vignette
 
 ![Vignette de résumé d’Azure SQL Analytics](./media/azure-sql/azure-sql-sol-tile-01.png)
 
-Une fois chargée, la vignette indique le nombre de bases de données et de pools élastiques dans SQL Database et le nombre d’instances gérées et de bases de données d’instance dans SQL Managed Instance dont Azure SQL Analytics reçoit la télémétrie de diagnostic.
+Une fois chargée, la vignette indique le nombre de bases de données et de pools élastiques dans SQL Database ainsi que le nombre d’instances et de bases données d’instance dans SQL Managed Instance dont Azure SQL Analytics reçoit les données de télémétrie de diagnostic.
 
 ![Vignette Azure SQL Analytics](./media/azure-sql/azure-sql-sol-tile-02.png)
 
@@ -106,7 +106,7 @@ Lorsque la vignette Azure SQL Analytics des bases de données est sélectionnée
 
 En sélectionnant l’une des vignettes, vous ouvrez le rapport détaillé d’une perspective en particulier. Une fois la perspective sélectionnée, le rapport détaillé est ouvert.
 
-La sélection de la vue SQL Managed Instance présente les détails concernant l’utilisation de l’instance gérée, les bases de données qu’elle contient et la télémétrie relative aux requêtes exécutées sur l’instance.
+La sélection de la vue SQL Managed Instance présente des détails concernant l’utilisation de l’instance, les bases de données d’instance et les données de télémétrie pour les requêtes exécutées sur l’instance managée.
 
 ![Délais d’expiration d’Azure SQL Analytics](./media/azure-sql/azure-sql-sol-metrics-mi.png)
 

@@ -11,12 +11,12 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.date: 01/10/2018
-ms.openlocfilehash: 2b0238d8026bff435fce9c03b6517efb6a55311d
-ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
+ms.openlocfilehash: f1e861bf9c6cc2a485ac9f153a0c932ec2e6fbb2
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "84019909"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85318907"
 ---
 # <a name="azure-data-factory---samples"></a>Azure Data Factory - Exemples
 > [!NOTE]
@@ -48,7 +48,7 @@ Vous trouverez les modèles Azure Resource Manager suivants pour Data Factory su
 
 | Modèle | Description |
 | --- | --- |
-| [Copier à partir du Stockage Blob Azure vers une base de données Azure SQL](https://github.com/Azure/azure-quickstart-templates/tree/master/101-data-factory-blob-to-sql-copy) |Le déploiement de ce modèle crée une fabrique de données Azure avec un pipeline qui copie les données à partir du Stockage Blob Azure spécifié vers une base de données Azure SQL |
+| [Copier à partir du Stockage Blob Azure vers une base de données Azure SQL](https://github.com/Azure/azure-quickstart-templates/tree/master/101-data-factory-blob-to-sql-copy) |Le déploiement de ce modèle crée une fabrique de données Azure avec un pipeline qui copie les données à partir du Stockage Blob Azure spécifié vers Azure SQL Database |
 | [Copier à partir de Salesforce vers le Stockage Blob Azure](https://github.com/Azure/azure-quickstart-templates/tree/master/101-data-factory-salesforce-to-blob-copy) |Le déploiement de ce modèle crée une fabrique de données Azure avec un pipeline qui copie les données à partir du compte Salesforce spécifié vers le Stockage Blob Azure. |
 | [Transformer les données en exécutant le script Hive sur un cluster Azure HDInsight](https://github.com/Azure/azure-quickstart-templates/tree/master/101-data-factory-hive-transformation) |Le déploiement de ce modèle crée une fabrique de données Azure avec un pipeline qui transforme les données en exécutant le script Hive sur un cluster Azure HDInsight Hadoop. |
 
@@ -104,7 +104,7 @@ Les composants suivants doivent être installés sur votre ordinateur :
    4. Sélectionnez le **groupe de ressources** pour la fabrique de données.
    5. Sélectionnez **USA Ouest**, **USA Est** ou **Europe Nord** pour la **région**.
    6. Cliquez sur **Suivant**.
-6. Dans la page **Configurer des banques de données**, spécifiez une **base de données Azure SQL** et un **compte de stockage Azure** existants, ou créez-en des nouveaux, puis cliquez sur Suivant.
+6. Dans la page **Configurer des banques de données**, spécifiez une **base de données dans Azure SQL Database** et un **compte de stockage Azure** existants, ou créez-en des nouveaux, puis cliquez sur Suivant.
 7. Dans la page **Configurer le calcul**, sélectionnez les valeurs par défaut, puis cliquez sur **Suivant**.
 8. Dans la page **Résumé**, passez en revue tous les paramètres, puis cliquez sur **Suivant**.
 9. Dans la page **État du déploiement**, patientez jusqu’à ce que le déploiement soit terminé, puis cliquez sur **Terminer**.

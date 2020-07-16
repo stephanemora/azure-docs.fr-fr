@@ -5,12 +5,12 @@ services: container-service
 ms.topic: conceptual
 ms.date: 05/06/2019
 ms.custom: references_regions
-ms.openlocfilehash: e27a920aea18affd78f840d3063b8082f716745b
-ms.sourcegitcommit: 1f48ad3c83467a6ffac4e23093ef288fea592eb5
+ms.openlocfilehash: 6706d9c1c683cdf46fe42822cad67a49a69843a9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/29/2020
-ms.locfileid: "84193952"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85389817"
 ---
 # <a name="create-and-configure-an-azure-kubernetes-services-aks-cluster-to-use-virtual-nodes-in-the-azure-portal"></a>Créer et configurer un cluster Azure Kubernetes Service (AKS) pour utiliser des nœuds virtuels sur le Portail Azure
 
@@ -59,7 +59,7 @@ Les régions suivantes sont prises en charge pour les déploiements de nœuds vi
 * USA Ouest 2 (westus2)
 
 ## <a name="known-limitations"></a>Limitations connues
-Le fonctionnement des nœuds virtuel dépend fortement de l’ensemble de fonctionnalités d’ACI. Les scénarios suivants ne sont pas encore pris en charge avec les nœuds virtuels
+Le fonctionnement des nœuds virtuel dépend fortement de l’ensemble de fonctionnalités d’ACI. Outre les [quotas et les limites pour Azure Container Instances](../container-instances/container-instances-quotas.md), les scénarios suivants ne sont pas encore pris en charge avec les nœuds virtuels :
 
 * Utilisation du principal du service pour extraire des images ACR. Une [solution de contournement](https://github.com/virtual-kubelet/azure-aci/blob/master/README.md#private-registry) consiste à utiliser les [Secrets Kubernetes](https://kubernetes.io/docs/tasks/configure-pod-container/pull-image-private-registry/#create-a-secret-by-providing-credentials-on-the-command-line)
 * [Limitations du réseau virtuel](../container-instances/container-instances-vnet.md), dont le peering de réseaux virtuels, les stratégies réseau Kubernetes et le trafic sortant vers Internet avec les groupes de sécurité réseau.
@@ -67,7 +67,7 @@ Le fonctionnement des nœuds virtuel dépend fortement de l’ensemble de foncti
 * [Alias d’hôte](https://kubernetes.io/docs/concepts/services-networking/add-entries-to-pod-etc-hosts-with-host-aliases/)
 * [Arguments](../container-instances/container-instances-exec.md#restrictions) pour exécution dans ACI
 * [DaemonSets](concepts-clusters-workloads.md#statefulsets-and-daemonsets) ne déploiera pas de pods dans le nœud virtuel
-* Les nœuds virtuels prennent en charge la planification des pods Linux. Vous pouvez installer manuellement le fournisseur d’[ACI Virtual Kubelet](https://github.com/virtual-kubelet/azure-aci) open source pour planifier des conteneurs Windows Server sur ACI. 
+* Les nœuds virtuels prennent en charge la planification des pods Linux. Vous pouvez installer manuellement le fournisseur d’[ACI Virtual Kubelet](https://github.com/virtual-kubelet/azure-aci) open source pour planifier des conteneurs Windows Server sur ACI.
 
 ## <a name="sign-in-to-azure"></a>Connexion à Azure
 

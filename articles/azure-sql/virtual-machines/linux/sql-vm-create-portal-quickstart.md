@@ -3,7 +3,6 @@ title: 'Démarrage rapide : Créer une machine virtuelle SQL Server Linux dans 
 description: Ce didacticiel montre comment créer une machine virtuelle Linux SQL Server 2017 dans le portail Azure.
 services: virtual-machines-linux
 author: MashaMSFT
-manager: craigg
 ms.date: 10/22/2019
 tags: azure-service-management
 ms.topic: conceptual
@@ -11,14 +10,14 @@ ms.service: virtual-machines-sql
 ms.workload: iaas-sql-server
 ms.author: mathoma
 ms.reviewer: jroth
-ms.openlocfilehash: ac7a836f339e86ce3705d64d04cad143f1043a81
-ms.sourcegitcommit: 223cea58a527270fe60f5e2235f4146aea27af32
+ms.openlocfilehash: 41f39c7e60e79e034d4c855a77bfee0f6fa2094d
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/01/2020
-ms.locfileid: "84259522"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84669509"
 ---
-# <a name="provision-a-linux-sql-server-virtual-machine-in-the-azure-portal"></a>Approvisionnement d’une machine virtuelle Linux SQL Server dans le portail Azure
+# <a name="provision-a-linux-virtual-machine-running-sql-server-in-the-azure-portal"></a>Provisionner une machine virtuelle Linux exécutant SQL Server dans le portail Azure
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
 
 > [!div class="op_single_selector"]
@@ -28,7 +27,7 @@ ms.locfileid: "84259522"
 Dans ce guide de démarrage rapide, vous utilisez le portail Azure pour créer une machine virtuelle Linux dans laquelle est installé SQL Server 2017. Vous allez apprendre à effectuer les tâches suivantes : 
 
 
-* [Créer une machine virtuelle Linux SQL à partir de la galerie](#create)
+* [Créer une machine virtuelle Linux exécutant SQL Server à partir de la galerie](#create)
 * [Se connecter à la nouvelle machine virtuelle avec SSH](#connect)
 * [Modifier le mot de passe d’administrateur](#password)
 * [Configurer des connexions à distance](#remote)
@@ -125,7 +124,7 @@ Si vous êtes sous Windows et que vous n’avez pas d’interpréteur de command
 
 Pour en savoir plus la connexion aux machines virtuelles Linux, consultez [Création d’une machine virtuelle Linux sur Azure à l’aide du portail](https://docs.microsoft.com/azure/virtual-machines/virtual-machines-linux-quick-create-portal).
 
-> [!Note]
+> [!NOTE]
 > Si vous voyez une alerte de sécurité PuTTY relative à la clé d’hôte du serveur non mise en cache dans le Registre, choisissez parmi les options suivantes. Si vous faites confiance à cet ordinateur hôte, sélectionnez **Yes** (Oui) pour ajouter la clé à la mémoire cache de PuTTy et poursuivre la connexion. Si vous souhaitez vous connecter une seule fois, sans ajouter la clé dans le cache, sélectionnez **No** (Non). Si vous ne faites pas confiance à cet ordinateur hôte, sélectionnez **Cancel** (Annuler) pour abandonner la connexion.
 
 ## <a name="change-the-sa-password"></a><a id="password"></a> Changer le mot de passe AS

@@ -10,12 +10,12 @@ ms.service: cognitive-services
 ms.topic: article
 ms.date: 05/07/2020
 ms.author: aahi
-ms.openlocfilehash: f751aa947988544977f9baf2746191921c1aa9d4
-ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
+ms.openlocfilehash: 69984f9dbd94bcdca2e272a5bdebbb7fc1464dae
+ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83590658"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86104404"
 ---
 # <a name="container-support-in-azure-cognitive-services"></a>Prise en charge des conteneurs dans Azure Cognitive Services
 
@@ -63,6 +63,7 @@ Les conteneurs Azure Cognitive Services fournissent l’ensemble suivant de cont
 | [Analyse de texte][ta-containers-keyphrase] | F0, S | **Extraction de phrases clés** ([image](https://go.microsoft.com/fwlink/?linkid=2018757&clcid=0x409)) | Extraire des expressions clés pour identifier les points principaux. Par exemple, pour le texte d’entrée « Le repas était délicieux et le personnel adorable », l’API renvoie les principaux points de discussion : « repas » et « personnel adorable ». |
 | [Analyse de texte][ta-containers-language] | F0, S | **Détection de la langue** ([image](https://go.microsoft.com/fwlink/?linkid=2018759&clcid=0x409)) | Détecter la langue (parmi 120 langues maximum) dans laquelle le texte d’entrée est rédigé et générer un code de langue unique pour chaque document envoyé dans la demande. Le code de langue est associé à un score indiquant la puissance de l’analyse. |
 | [Analyse de texte][ta-containers-sentiment] | F0, S | **Analyse des sentiments v3** ([image](https://go.microsoft.com/fwlink/?linkid=2018654&clcid=0x409)) | Analyser le texte brut pour obtenir des indices sur un sentiment positif ou négatif. Cette version d’Analyse des sentiments renvoie des étiquettes de sentiment (par exemple, *positif* ou *négatif*) pour chaque document et phrase qu’elle contient. |
+| [Analyse de texte][ta-containers-health] | F0, S | **Analyse de texte pour la santé** | Extraire et étiqueter des informations médicales à partir de textes cliniques non structurés. |
 
 <!--
 |[Personalizer](https://go.microsoft.com/fwlink/?linkid=2083923&clcid=0x409) |F0, S0|**Personalizer** ([image](https://go.microsoft.com/fwlink/?linkid=2083928&clcid=0x409))|Azure Personalizer is a cloud-based API service that allows you to choose the best experience to show to your users, learning from their real-time behavior.|
@@ -130,4 +131,5 @@ Installer et explorer les fonctionnalités fournies par les conteneurs dans Azur
 [ta-containers-keyphrase]: text-analytics/how-tos/text-analytics-how-to-install-containers.md?tabs=keyphrase
 [ta-containers-language]: text-analytics/how-tos/text-analytics-how-to-install-containers.md?tabs=language
 [ta-containers-sentiment]: text-analytics/how-tos/text-analytics-how-to-install-containers.md?tabs=sentiment
+[ta-containers-health]: text-analytics/how-tos/text-analytics-how-to-install-containers.md?tabs=health
 [request-access]: https://forms.office.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbRyQZ7B8Cg2FEjpibPziwPcZUNlQ4SEVORFVLTjlBSzNLRlo0UzRRVVNPVy4u

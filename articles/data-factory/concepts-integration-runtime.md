@@ -11,12 +11,12 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 03/26/2020
-ms.openlocfilehash: eb5e15f5387628fea293c767202ece77b14f656c
-ms.sourcegitcommit: 6a9f01bbef4b442d474747773b2ae6ce7c428c1f
+ms.openlocfilehash: 8b3dba7996b098ec398c9fe94705c18190b30ba6
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "84113329"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84753567"
 ---
 # <a name="integration-runtime-in-azure-data-factory"></a>Infrastructure Integration Runtime dans Azure Data Factory 
 
@@ -30,6 +30,8 @@ IR est l’infrastructure de calcul utilisée par Azure Data Factory pour fourni
 - **Exécution des packages SSIS** : exécute en mode natif les packages SSIS (SQL Server Integration Services) dans un environnement Compute Azure managé.
 
 Dans Data Factory, une activité désigne l’action à effectuer. Un service lié désigne un magasin de données cible ou un service de calcul. Un runtime d’intégration permet de créer une passerelle entre l’activité et les services liés.  Il est référencé par l'activité ou le service lié, et fournit l'environnement Compute dans lequel l'activité s'exécute ou depuis lequel elle est envoyée. L’activité peut être effectuée de la façon la plus efficace possible dans la région la plus proche du magasin de données cible ou du service de calcul, tout en respectant les exigences de conformité et de sécurité.
+
+Il est possible de créer des runtimes d'intégration dans l’expérience utilisateur Azure Data Factory via le [hub de gestion](author-management-hub.md) et des activités, jeux de données ou flux de données qui y font référence.
 
 ## <a name="integration-runtime-types"></a>Types de runtime d’intégration
 
@@ -55,7 +57,7 @@ Le schéma suivant montre comment les différents runtimes d’intégration peuv
 
 Un runtime d'intégration Azure peut :
 
-- Exécution de flux de données dans Azure 
+- Exécuter des flux de données dans Azure 
 - Exécuter des activités de copie entre les magasins de données cloud
 - Répartir les activités de transformation suivantes dans un réseau public : Notebook Databricks / Jar /activité Python, activité Hive HDInsight, activité Pig HDInsight, activité MapReduce HDInsight, activité Spark HDInsight, activité de diffusion en continu HDInsight, activité d’exécution par lot Machine Learning, activités des ressources de mise à jour de Machine Learning, activité de procédure stockée, activité U-SQL Data Lake Analytics, activité personnalisée .NET, activité web, activité de recherche et activité d’obtention des métadonnées.
 
@@ -64,7 +66,7 @@ Un runtime d'intégration Azure peut :
 L'infrastructure Azure Integration Runtime prend en charge les connexions aux magasins de données et aux services de calcul à l'aide de points de terminaison publiquement accessibles. Utilisez un runtime d’intégration auto-hébergé pour l’environnement du réseau virtuel Azure.
 
 ### <a name="azure-ir-compute-resource-and-scaling"></a>Ressources de calcul et mise à l’échelle du runtime d'intégration Azure
-Le runtime d’intégration Azure fournit une expérience de calcul serverless complètement managée dans Azure.  Vous n’avez plus à vous soucier de l’approvisionnement de l’infrastructure, de l’installation du logiciel, des mises à jour correctives ou de la mise à l’échelle des besoins.  Par ailleurs, vous payez uniquement pour ce que vous utilisez.
+Le runtime d’intégration Azure fournit une expérience de calcul entièrement gérée, sans serveur dans Azure.  Vous n’avez plus à vous soucier de l’approvisionnement de l’infrastructure, de l’installation du logiciel, des mises à jour correctives ou de la mise à l’échelle des besoins.  Par ailleurs, vous payez uniquement pour ce que vous utilisez.
 
 Le runtime d’intégration Azure fournit le calcul natif pour déplacer des données entre les magasins de données cloud de manière sécurisée, fiable et efficace.  Vous pouvez définir le nombre d’unités d’intégration des données à utiliser sur l’activité de copie. Ainsi, la taille de calcul du runtime d’intégration Azure est mise à l’échelle sans que vous deviez ajuster la taille du runtime d’intégration Azure. 
 
@@ -108,7 +110,7 @@ Le runtime d’intégration Azure SSIS peut être configuré dans un réseau pub
 
 ### <a name="azure-ssis-ir-compute-resource-and-scaling"></a>Ressources de calcul et mise à l’échelle du runtime d’intégration Azure SSIS
 
-Le runtime d’intégration Azure SSIS est un cluster complètement managé de machines virtuelles Azure qui est chargé d’exécuter vos packages SSIS. Vous pouvez utiliser votre propre base de données SQL Azure ou instance managée SQL pour le catalogue de projets/packages SSIS (SSISDB). Vous pouvez monter en puissance le calcul en spécifiant la taille du nœud et augmenter la taille des instances en spécifiant le nombre de nœuds du cluster. Vous pouvez maîtriser le coût d’exécution de votre runtime d’intégration Azure SSIS en l’arrêtant et en le démarrant comme bon vous semble.
+Le runtime d’intégration Azure SSIS est un cluster entièrement géré de machines virtuelles Azure qui est chargé d’exécuter vos packages SSIS. Vous pouvez utiliser votre propre base de données SQL Azure ou instance managée SQL pour le catalogue de projets/packages SSIS (SSISDB). Vous pouvez monter en puissance le calcul en spécifiant la taille du nœud et augmenter la taille des instances en spécifiant le nombre de nœuds du cluster. Vous pouvez maîtriser le coût d’exécution de votre runtime d’intégration Azure SSIS en l’arrêtant et en le démarrant comme bon vous semble.
 
 Pour en savoir plus, consultez l’article « Comment créer et configurer le runtime d’intégration Azure SSIS » sous Procédures.  Une fois votre runtime d’intégration créé, vous pouvez déployer et gérer vos packages SSIS existants, sans changement ou presque, à l’aide des outils SQL Server Data Tools (SSDT) et SQL Server Management Studio (SSMS), comme si vous utilisez SSIS en local.
 
