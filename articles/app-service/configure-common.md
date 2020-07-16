@@ -6,12 +6,12 @@ ms.assetid: 9af8a367-7d39-4399-9941-b80cbc5f39a0
 ms.topic: article
 ms.date: 08/13/2019
 ms.custom: seodec18
-ms.openlocfilehash: 18469c94b66acab27b58243e8d15eb924843319b
-ms.sourcegitcommit: 98e79b359c4c6df2d8f9a47e0dbe93f3158be629
+ms.openlocfilehash: e4ebb33333dc59432fd269c4847abdeab91d935c
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/07/2020
-ms.locfileid: "80811120"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85389771"
 ---
 # <a name="configure-an-app-service-app-in-the-azure-portal"></a>Configurer une app App Service dans le portail Azure
 
@@ -168,9 +168,9 @@ Ici, vous pouvez configurer quelques paramètres communs pour l'application. Cer
 - **Paramètres de la plateforme** : Vous permet de configurer les paramètres de la plateforme d'hébergement, notamment :
     - **Nombre de bits** : 32 bits ou 64 bits.
     - **Protocole WebSocket** : Pour [ASP.NET SignalR] ou [socket.io](https://socket.io/), par exemple.
-    - **Toujours actif** : Gardez l'application chargée même s’il n'y a aucun trafic. Vous devez l'activer pour les WebJobs continus ou pour les WebJobs déclenchés à l’aide d’une expression CRON.
+    - **Toujours actif** : Garde l'application chargée même s’il n'y a aucun trafic. Vous devez l'activer pour les WebJobs continus ou pour les WebJobs déclenchés à l’aide d’une expression CRON.
       > [!NOTE]
-      > Avec la fonctionnalité Always On, vous ne pouvez pas contrôler le point de terminaison. Il envoie toujours une requête à la racine de l’application.
+      > Avec la fonctionnalité Always On, l’équilibreur de charge frontal envoie une requête à la racine de l’application. Impossible de configurer ce point de terminaison d’application du App Service.
     - **Version de pipeline gérée** : Le [mode pipeline] IIS. Définissez ce paramètre sur **Classique** si vous utilisez une application héritée nécessitant une version plus ancienne d'IIS.
     - **Version HTTP** : Utilisez la version **2.0** pour activer la prise en charge du protocole [HTTPS/2](https://wikipedia.org/wiki/HTTP/2).
     > [!NOTE]

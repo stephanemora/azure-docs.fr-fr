@@ -11,12 +11,12 @@ ms.subservice: core
 ms.topic: how-to
 ms.date: 05/28/2020
 ms.custom: seodec18
-ms.openlocfilehash: aa348728cd4e9ac0ce5d70cb293ac850cc549666
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 11bb692027d8a2e5033c7bdaf8eb2c565d1562b0
+ms.sourcegitcommit: 3541c9cae8a12bdf457f1383e3557eb85a9b3187
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84817132"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86205692"
 ---
 # <a name="featurization-in-automated-machine-learning"></a>Caractérisation dans le Machine Learning automatisé
 
@@ -104,7 +104,7 @@ Le tableau suivant décrit les garde-fous des données pris en charge ainsi que 
 Garde-fou|Statut|Condition&nbsp;pour&nbsp;le déclencheur
 ---|---|---
 **Imputation des valeurs de caractéristique manquantes** |Passed <br><br><br> Terminé| Aucune valeur de caractéristique manquante n’a été détectée dans vos données d’entraînement. Découvrez plus d’informations sur l’[imputation d’une valeur manquante](https://docs.microsoft.com/azure/machine-learning/how-to-use-automated-ml-for-ml-models#advanced-featurization-options). <br><br> Des valeurs de caractéristique manquantes ont été détectées dans vos données de formation et imputées.
-**Gestion des caractéristiques à cardinalité élevée** |Passed <br><br><br> Terminé| Aucune caractéristique à cardinalité élevée n’a été détectée après analyse de vos entrées. Découvrez-en plus sur la [détection de caractéristiques à cardinalité élevée](#automatic-featurization). <br><br> Des caractéristiques à cardinalité élevée ont été détectées dans vos entrées et ont été gérées.
+**Gestion des caractéristiques à cardinalité élevée** |Passed <br><br><br> Terminé| Aucune caractéristique à cardinalité élevée n’a été détectée après analyse de vos entrées. <br><br> Des caractéristiques à cardinalité élevée ont été détectées dans vos entrées et ont été gérées.
 **Gestion du fractionnement de la validation** |Terminé| La configuration de la validation a été définie sur `'auto'` et les données de formation contenaient *moins de 20 000 lignes*. <br> Chaque itération du modèle entraîné a été validée à l’aide de la validation croisée. Découvrez-en plus sur les [données de validation](https://docs.microsoft.com/azure/machine-learning/how-to-configure-auto-train#train-and-validation-data). <br><br> La configuration de la validation a été définie sur `'auto'` et les données de formation contenaient *plus de 20 000 lignes*. <br> Les données d’entrée ont été divisées en un jeu de données d’entraînement et un jeu de données de validation pour la validation du modèle.
 **Détection de l’équilibrage des classes** |Passed <br><br><br><br><br> Alerté | Vos entrées ont été analysées et toutes les classes sont équilibrées dans vos données d’entraînement. Un jeu de données est considéré comme équilibré si chaque classe a une bonne représentation dans le jeu de données, telle que mesurée par le nombre et le ratio des échantillons. <br><br><br> Des classes déséquilibrées ont été détectées dans vos entrées. Pour corriger le biais du modèle, résolvez le problème d’équilibrage. Découvrez-en plus sur les [données déséquilibrées](https://docs.microsoft.com/azure/machine-learning/concept-manage-ml-pitfalls#identify-models-with-imbalanced-data).
 **Détection des problèmes de mémoire** |Passed <br><br><br><br> Terminé |<br> Aucun problème potentiel d’insuffisance de mémoire n’a été détecté après analyse des valeurs {horizon, décalage, fenêtre dynamique} sélectionnées. Découvrez-en plus sur les [configurations de prévision](https://docs.microsoft.com/azure/machine-learning/how-to-auto-train-forecast#configure-and-run-experiment) de série chronologique. <br><br><br>Les valeurs {horizon, décalage, fenêtre dynamique} sélectionnées ont été analysées et peuvent entraîner une insuffisance de mémoire dans votre expérience. Les configurations de la fenêtre dynamique ou de décalage ont été désactivées.

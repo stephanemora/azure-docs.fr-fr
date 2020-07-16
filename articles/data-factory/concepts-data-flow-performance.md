@@ -6,13 +6,13 @@ ms.topic: conceptual
 ms.author: makromer
 ms.service: data-factory
 ms.custom: seo-lt-2019
-ms.date: 05/21/2020
-ms.openlocfilehash: 327fffd807d93fda67ff650954ece65e5db58e63
-ms.sourcegitcommit: cf7caaf1e42f1420e1491e3616cc989d504f0902
+ms.date: 07/06/2020
+ms.openlocfilehash: 9f420b37bd44a46d4149e89cf5876d8e8b712581
+ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/22/2020
-ms.locfileid: "83798109"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86114378"
 ---
 # <a name="mapping-data-flows-performance-and-tuning-guide"></a>Guide des performances et du réglage du mappage de flux de données
 
@@ -35,13 +35,15 @@ Lors de la conception de flux de données de mappage, vous pouvez effectuer un t
 
 ![Supervision du flux de données](media/data-flow/mon003.png "Moniteur Data Flow 3")
 
- Pour les exécutions de débogage de pipeline, il faut environ une minute de temps de configuration de cluster dans vos calculs des performances globales pour un cluster à chaud. Si vous initialisez le runtime d’intégration Azure par défaut, la rotation peut prendre environ 5 minutes.
+ Pour les exécutions de débogage de pipeline, il faut environ une minute de temps de configuration de cluster dans vos calculs des performances globales pour un cluster à chaud. Si vous initialisez le Azure Integration Runtime par défaut, la rotation peut prendre environ 4 minutes.
 
 ## <a name="increasing-compute-size-in-azure-integration-runtime"></a>Augmentation de la taille de calcul dans Azure Integration Runtime
 
 Un runtime d’intégration avec davantage de cœurs augmente le nombre de nœuds dans les environnements de calcul Spark et fournit davantage de puissance de traitement pour lire, écrire et transformer vos données. Les flux de données ADF utilisent Spark comme moteur de calcul. L'environnement Spark fonctionne très bien sur les ressources à mémoire optimisée.
-* Essayez un cluster **optimisé pour le calcul** si vous voulez que votre vitesse de traitement soit supérieure à votre vitesse d’entrée.
-* Essayez un cluster **à mémoire optimisée** si vous voulez mettre en cache plus de données en mémoire. L’option À mémoire optimisée a un coût plus élevé par cœur que l’option Optimisé pour le calcul, mais elle permettra probablement d’obtenir des vitesses de transformation plus rapides. Si vous rencontrez des erreurs de mémoire insuffisante lors de l’exécution de vos flux de données, basculez vers une configuration de Azure IR optimisée en mémoire.
+
+Nous vous recommandons d’utiliser l’option **À mémoire optimisée** pour la production de la plupart des charges de travail. Vous serez en mesure de stocker davantage de données en mémoire et de réduire les erreurs de mémoire insuffisante. L’option À mémoire optimisée a un coût plus élevé par cœur que l’option Optimisé pour le calcul, mais elle permettra probablement d’obtenir des vitesses de transformation plus rapides et plus de pipelines réussies. Si vous rencontrez des erreurs de mémoire insuffisante lors de l’exécution de vos flux de données, basculez vers une configuration de Azure IR optimisée en mémoire.
+
+L’option **À mémoire optimisée** peut suffire pour le débogage et la préversion des données d’un nombre limité de lignes de données. L’option « Optimisé pour le calcul » ne fonctionnera probablement pas aussi bien avec les charges de travail de production.
 
 ![Nouveau runtime d'intégration](media/data-flow/ir-new.png "Nouveau runtime d'intégration")
 
@@ -53,7 +55,7 @@ Par défaut, l’activation du débogage utilise le runtime d’intégration Azu
 
 ### <a name="decrease-cluster-compute-start-up-time-with-ttl"></a>Réduire le temps de démarrage du calcul de cluster avec TTL
 
-Azure IR comporte une propriété, située sous Propriétés du flux de données, qui vous permet de constituer un pool de ressources de calcul de cluster pour votre fabrique. Avec ce pool, vous pouvez soumettre séquentiellement des activités de flux de données à des fins d'exécution. Une fois le pool établi, 1 à 2 minutes sont nécessaires pour permettre au cluster Spark à la demande d'exécuter chacune des tâches ultérieures. La configuration initiale du pool de ressources prend environ 6 minutes. Spécifiez la durée pendant laquelle vous souhaitez conserver le pool de ressources dans le paramètre de durée de vie (TTL).
+Azure IR comporte une propriété, située sous Propriétés du flux de données, qui vous permet de constituer un pool de ressources de calcul de cluster pour votre fabrique. Avec ce pool, vous pouvez soumettre séquentiellement des activités de flux de données à des fins d'exécution. Une fois le pool établi, 1 à 2 minutes sont nécessaires pour permettre au cluster Spark à la demande d'exécuter chacune des tâches ultérieures. La configuration initiale de la liste de ressources partagées prend environ 4 minutes. Spécifiez la durée pendant laquelle vous souhaitez conserver le pool de ressources dans le paramètre de durée de vie (TTL).
 
 ## <a name="optimizing-for-azure-sql-database-and-azure-sql-data-warehouse-synapse"></a>Optimisation pour Azure SQL Database et Azure SQL Data Warehouse Synapse
 
@@ -110,7 +112,7 @@ Pour éviter les insertions ligne par ligne dans votre entrepôt de données, co
 
 ## <a name="optimizing-for-files"></a>Optimisation des fichiers
 
-À chaque transformation, vous pouvez définir sous l’onglet Optimiser le schéma de partitionnement que vous souhaitez que Data Factory utilise. Il est recommandé de commencer par tester les récepteurs basés sur des fichiers en conservant le partitionnement et les optimisations par défaut.
+À chaque transformation, vous pouvez définir sous l’onglet Optimiser le schéma de partitionnement que vous souhaitez que Data Factory utilise. Il est recommandé de commencer par tester les récepteurs basés sur des fichiers en conservant le partitionnement et les optimisations par défaut. Si vous laissez le partitionnement en « partitionnement en cours » dans le récepteur pour une destination de fichier, Spark peut définir un partitionnement par défaut approprié pour vos charges de travail. Le partitionnement par défaut utilise 128 Mo par partition.
 
 * Pour les petits fichiers, il est parfois plus efficace et plus rapide de choisir un nombre moins élevé de partitions que de demander à Spark de partitionner ces petits fichiers.
 * Si vous n’avez pas suffisamment d’informations sur vos données sources, choisissez le partitionnement *Tourniquet (round robin)* , puis définissez le nombre de partitions.
@@ -143,7 +145,7 @@ Si vous utilisez des caractères génériques, votre pipeline ne contiendra qu�
 
 L’instruction For Each en mode parallèle du pipeline génère plusieurs clusters en mettant en place des clusters de travail pour chaque activité de flux de données exécutée. Cela peut entraîner la limitation de service Azure avec un grand nombre d’exécutions simultanées. Toutefois, l’utilisation de l’exécution de flux de données dans l’instruction For Each avec un ensemble séquentiel dans le pipeline permet d’éviter la limitation et l’épuisement des ressources. Cela force Data Factory à exécuter chacun de vos fichiers séquentiellement sur un flux de données.
 
-Si vous utilisez l’instruction For Each avec un flux de données en séquence, il est recommandé d’utiliser le paramètre TTL dans Azure Integration Runtime. Cela est dû au fait que chaque fichier entraîne un temps de démarrage de cluster de 5 minutes dans votre itérateur.
+Si vous utilisez l’instruction For Each avec un flux de données en séquence, il est recommandé d’utiliser le paramètre TTL dans Azure Integration Runtime. Cela est dû au fait que chaque fichier entraîne un temps de démarrage de cluster de 4 minutes dans votre itérateur.
 
 ### <a name="optimizing-for-cosmosdb"></a>Optimisation pour CosmosDB
 
@@ -153,13 +155,13 @@ La définition des propriétés de débit et de lot sur les récepteurs CosmosDB
 * Débit : Définissez un paramètre de débit plus élevé ici pour permettre aux documents d’écrire plus rapidement sur CosmosDB. N’oubliez pas les coûts d’unité de requête supérieurs inhérents à un paramètre de débit élevé.
 *   Budget du débit d’écriture : Utilisez une valeur inférieure au nombre total d’unités de requête par minute. Si vous avez un flux de données avec un grand nombre de partitions Spark, la définition d’un budget de débit permet d’équilibrer davantage ces partitions.
 
-## <a name="join-performance"></a>Performances de jointure
+## <a name="join-and-lookup-performance"></a>Performances de jointure et de recherche
 
 La gestion des performances des jointures dans votre flux de données est une opération très courante que vous effectuerez tout au long du cycle de vie de vos transformations de données. Dans ADF, les flux de données ne nécessitent pas de tri des données avant les jointures, car ces opérations sont exécutées en tant que jointures hachées dans Spark. Toutefois, vous pouvez bénéficier de performances améliorées grâce à l’optimisation de jointure de « diffusion » qui s’applique aux transformations de jointure, d’existence et de recherche.
 
 Cela permet d’éviter les lectures aléatoires à la volée en poussant le contenu de chaque côté de votre relation de jointure dans le nœud Spark. Cela fonctionne bien pour les tables plus petites utilisées pour les recherches de référence. Les tables volumineuses, qui peuvent ne pas être contenues dans la mémoire du nœud, ne sont pas de bons candidats pour l’optimisation de la diffusion.
 
-La configuration recommandée pour les flux de données avec de nombreuses opérations de jointure consiste à définir systématiquement le paramètre d’optimisation « Diffusion » sur « Auto » et à utiliser une configuration Azure Integration Runtime à mémoire optimisée. Si vous rencontrez des erreurs de mémoire insuffisante ou des délais d’expiration de diffusion au cours des exécutions de flux de données, vous pouvez désactiver l’optimisation de la diffusion. Toutefois, cela se traduit par des flux de données plus lents. Si vous le souhaitez, vous pouvez indiquer au flux de données de pousser uniquement le côté gauche ou droit de la jointure, ou les deux.
+La configuration recommandée pour les flux de données avec de nombreuses opérations de jointure consiste à définir systématiquement le paramètre d’optimisation « Diffusion » sur « Auto » et à utiliser une configuration Azure Integration Runtime ***à mémoire optimisée***. Si vous rencontrez des erreurs de mémoire insuffisante ou des délais d’expiration de diffusion au cours des exécutions de flux de données, vous pouvez désactiver l’optimisation de la diffusion. Toutefois, cela se traduit par des flux de données plus lents. Si vous le souhaitez, vous pouvez indiquer au flux de données de pousser uniquement le côté gauche ou droit de la jointure, ou les deux.
 
 ![Paramètres de diffusion](media/data-flow/newbroad.png "Paramètres de diffusion")
 

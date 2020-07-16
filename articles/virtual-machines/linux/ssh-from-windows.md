@@ -8,12 +8,12 @@ ms.tgt_pltfrm: vm-linux
 ms.topic: article
 ms.date: 11/26/2018
 ms.author: cynthn
-ms.openlocfilehash: cdf901ca56c150cfed6ba3d462ce493d40bd2488
-ms.sourcegitcommit: 31e9f369e5ff4dd4dda6cf05edf71046b33164d3
+ms.openlocfilehash: 81dfac2a1623253a110833a96fddd1b41bd11b26
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/22/2020
-ms.locfileid: "81757994"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85390225"
 ---
 # <a name="how-to-use-ssh-keys-with-windows-on-azure"></a>Comment utiliser des clés SSH avec Windows sur Azure
 
@@ -63,15 +63,15 @@ Pour créer une paire de clés SSH RSA avec PuTTYgen :
 
 2. Cliquez sur **Générer**. Par défaut, PuTTYgen génère une clé SSH-2 RSA 2048 bits.
 
-4. Survolez la zone vide avec la souris pour donner un caractère aléatoire à la clé.
+3. Survolez la zone vide avec la souris pour donner un caractère aléatoire à la clé.
 
-5. Une fois la clé publique générée, vous pouvez entrer une phrase secrète et la confirmer. Vous êtes invité à entrer la phrase secrète quand vous vous authentifiez auprès de la machine virtuelle avec votre clé SSH privée. Sans cette phrase secrète, toute personne qui récupère votre clé privée peut se connecter à une machine virtuelle ou un service utilisant cette clé. Nous vous recommandons de créer une phrase secrète. Toutefois, si vous oubliez cette phrase secrète, il sera impossible de la récupérer.
+4. Une fois la clé publique générée, vous pouvez entrer une phrase secrète et la confirmer. Vous êtes invité à entrer la phrase secrète quand vous vous authentifiez auprès de la machine virtuelle avec votre clé SSH privée. Sans cette phrase secrète, toute personne qui récupère votre clé privée peut se connecter à une machine virtuelle ou un service utilisant cette clé. Nous vous recommandons de créer une phrase secrète. Toutefois, si vous oubliez cette phrase secrète, il sera impossible de la récupérer.
 
-6. La clé publique apparaît en haut de la fenêtre. Vous copiez l’intégralité de cette clé publique et la collez dans le portail Azure ou dans un modèle Azure Resource Manager quand vous créez une machine virtuelle Linux. Vous pouvez également sélectionner **Enregistrer la clé publique** pour enregistrer une copie sur votre ordinateur :
+5. La clé publique apparaît en haut de la fenêtre. Vous copiez l’intégralité de cette clé publique et la collez dans le Portail Azure ou dans un modèle Azure Resource Manager quand vous créez une machine virtuelle Linux. Vous pouvez également sélectionner **Enregistrer la clé publique** pour enregistrer une copie sur votre ordinateur. Notez que, lors de l’enregistrement dans un fichier, PuTTY convertit la clé publique dans un format différent, [RFC4716](https://tools.ietf.org/html/rfc4716). Le format RFC4716 peut ne pas être compatible avec toutes les API. Ainsi, pour utiliser dans le Portail Azure, nous vous recommandons de copier la clé publique affichée dans la fenêtre PuTTY.
 
     ![Enregistrer le fichier de clé publique PuTTY](./media/ssh-from-windows/save-public-key.png)
 
-7. Pour enregistrer la clé privée au format de clé privée PuTTy (fichier .ppk), vous pouvez aussi sélectionner **Enregistrer la clé privée**. Vous aurez besoin du fichier .ppk par la suite si vous voulez utiliser PuTTY pour établir une connexion SSH à la machine virtuelle.
+6. Pour enregistrer la clé privée au format de clé privée PuTTy (fichier .ppk), vous pouvez aussi sélectionner **Enregistrer la clé privée**. Vous aurez besoin du fichier .ppk par la suite si vous voulez utiliser PuTTY pour établir une connexion SSH à la machine virtuelle.
 
     ![Enregistrer le fichier de clé privée PuTTY](./media/ssh-from-windows/save-ppk-file.png)
 

@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 06/26/2020
 ms.author: kumud
-ms.openlocfilehash: 19824e978af78e85f9e8c790517bd66b1f6c0113
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 5d32c130205420ef8f20d7ce8cb97f9a2595e978
+ms.sourcegitcommit: f7e160c820c1e2eb57dc480b2a8fd6bef7053e91
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85481729"
+ms.lasthandoff: 07/10/2020
+ms.locfileid: "86232200"
 ---
 # <a name="azure-virtual-network-frequently-asked-questions-faq"></a>FAQ sur les réseaux virtuels Azure
 
@@ -406,9 +406,8 @@ Azure Active Directory (Azure AD) ne prend pas en charge les points de terminais
 ### <a name="are-there-any-limits-on-how-many-vnet-service-endpoints-i-can-set-up-from-my-vnet"></a>Le nombre de points de terminaison de service de réseau virtuel que je peux configurer à partir de mon réseau virtuel est-il limité ?
 Il n’existe aucune limite sur le nombre total de points de terminaison de service de réseau virtuel dans un réseau virtuel. Pour une ressource de service Azure (par exemple, un compte de stockage Azure), les services peuvent appliquer des limites sur le nombre de sous-réseaux utilisés pour la sécurisation de la ressource. Le tableau suivant présente des exemples des limites qui s’appliquent : 
 
-|||
-|---|---|
 |Service Azure| Limites sur les règles de réseau virtuel|
+|---|---|
 |Stockage Azure| 100|
 |Azure SQL| 128|
 |Azure SQL Data Warehouse.|  128|

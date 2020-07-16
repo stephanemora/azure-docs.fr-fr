@@ -11,15 +11,14 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: carlrab
 ms.date: 08/20/2019
-ms.openlocfilehash: c2c0e6d1d3ffd9ec3091e92530ec5c191f3f7ca6
-ms.sourcegitcommit: d118ad4fb2b66c759b70d4d8a18e6368760da3ad
+ms.openlocfilehash: 80bc254aafa9c221fcaf724331928b7f30360eac
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/02/2020
-ms.locfileid: "84297953"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85610844"
 ---
 # <a name="what-is-sql-data-sync-for-azure"></a>Présentation de SQL Data Sync pour Azure
-[!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
 
 SQL Data Sync est un service basé sur Azure SQL Database qui vous permet de synchroniser les données choisies de manière bidirectionnelle sur plusieurs bases de données, à la fois locales et dans le cloud. 
 
@@ -29,13 +28,13 @@ SQL Data Sync est un service basé sur Azure SQL Database qui vous permet de syn
 
 ## <a name="overview"></a>Vue d’ensemble 
 
-Data Sync est basé sur le concept d’un groupe de synchronisation. Un groupe de synchronisation est un groupe de bases de données que vous souhaitez synchroniser.
+SQL Data Sync est basé sur le concept d’un groupe de synchronisation. Un groupe de synchronisation est un groupe de bases de données que vous souhaitez synchroniser.
 
 Data Sync utilise une topologie hub and spoke pour synchroniser les données. Vous définissez l’une des bases de données du groupe de synchronisation en tant que base de données Hub. Le reste des bases de données sont des bases de données membres. La synchronisation se produit uniquement entre le hub et des membres individuels.
 
 - Le **base de données Hub** doit être une base de données Azure SQL Database.
 - Les **bases de données membres** peuvent être des bases de données dans Azure SQL Database ou dans des instances de SQL Server.
-- La **base de données de synchronisation** contient les métadonnées et le journal de Data Sync. La base de données de synchronisation doit être une base de données Azure SQL Database située dans la même région que la base de données Hub. La base de données de synchronisation est créée par le client et lui appartient.
+- La **base de données de métadonnées de synchronisation** contient les métadonnées et le journal de Data Sync. La base de données de métadonnées de synchronisation doit être une base de données Azure SQL Database située dans la même région que la base de données Hub. La base de données de métadonnées de synchronisation est créée par le client et lui appartient. Vous ne pouvez avoir qu’une seule base de données de métadonnées de synchronisation par région et par abonnement. La base de données de métadonnées de synchronisation ne peut pas être supprimée ou de renommée tant que des groupes de synchronisation ou des agents de synchronisation existent. Microsoft recommande de créer une nouvelle base de données vide, à utiliser comme base de données de métadonnées de synchronisation. SQL Data Sync crée les tables dans cette base de données et exécute une charge de travail fréquente.
 
 > [!NOTE]
 > Si vous utilisez une base de données locale comme base de données membre, vous devez [installer et configurer un agent de synchronisation local](sql-data-sync-sql-server-configure.md#add-on-prem).
@@ -72,7 +71,7 @@ Data Sync n’est pas la solution préconisée pour les scénarios suivants :
 ## <a name="how-it-works"></a>Fonctionnement
 
 - **Suivi des modifications de données :** Data Sync effectue le suivi des modifications en utilisant des déclencheurs d’insertion, de mise à jour et de suppression. Les modifications sont enregistrées dans une table latérale dans la base de données utilisateur. BULK INSERT n’active aucun déclencheur par défaut. Si FIRE_TRIGGERS n’est pas spécifié, aucun déclencheur d’insertion ne s’exécute. Ajoutez l’option FIRE_TRIGGERS afin que Data Sync puisse suivre ces insertions. 
-- **Synchronisation des données :** Data Sync est conçu dans un modèle de Hub and Spoke. Le hub se synchronise avec chaque membre individuellement. Les modifications depuis le hub sont téléchargées vers le membre, puis les modifications à partir du membre sont téléchargées vers le hub.
+- **Synchronisation des données :** SQL Data Sync est conçu dans un modèle de Hub and Spoke. Le hub se synchronise avec chaque membre individuellement. Les modifications depuis le hub sont téléchargées vers le membre, puis les modifications à partir du membre sont chargées vers le hub.
 - **Résolution des conflits :** Data Sync fournit deux options pour la résolution de conflit, *Priorité au hub* ou *Priorité au membre*.
   - Si vous sélectionnez *Priorité au hub*, les modifications dans le hub remplacent toujours les modifications dans le membre.
   - Si vous sélectionnez *Priorité au membre*, les modifications dans le membre remplacent toujours les modifications dans le hub. S’il existe plusieurs membres, la valeur finale dépend du membre qui se synchronise en premier.
@@ -137,7 +136,7 @@ Le provisionnement et le déprovisionnement lors de la création, la mise à jou
 - Les noms des objets (bases de données, tables et colonnes) ne peuvent pas contenir les caractères imprimables suivants : point (.), crochet gauche ou crochet droit (]).
 - L’authentification Azure Active Directory n’est pas prise en charge.
 - Les tables avec le même nom mais avec un schéma différent (par exemple dbo.customers et sales.customers) ne sont pas prises en charge.
-- Les colonnes avec des type de données définis par l’utilisateur ne sont pas prises en charge.
+- Les colonnes avec des type de données définis par l’utilisateur ne sont pas prises en charge
 - Le déplacement de serveurs entre différents abonnements n’est pas pris en charge. 
 
 #### <a name="unsupported-data-types"></a>Types de données non pris en charge
@@ -200,16 +199,16 @@ Oui. Vous devez avoir un compte SQL Database pour héberger la base de données 
 
 Pas directement. Vous pouvez toutefois effectuer une synchronisation entre les bases de données SQL Server de façon indirecte, en créant une base de données Hub dans Azure, puis en ajoutant les bases de données locales au groupe de synchronisation.
 
-### <a name="can-i-use-data-sync-to-sync-between-sql-databases-that-belong-to-different-subscriptions"></a>Puis-je utiliser Data Sync pour synchroniser entre des SQL Databases qui appartiennent à différents abonnements ?
+### <a name="can-i-use-data-sync-to-sync-between-databases-in-sql-database-that-belong-to-different-subscriptions"></a>Puis-je utiliser Data Sync pour synchroniser entre des bases de données dans SQL Database qui appartiennent à différents abonnements
 
-Oui. Vous pouvez synchroniser entre des SQL Databases qui appartiennent à des groupes de ressources appartenant à différents abonnements.
+Oui. Vous pouvez synchroniser entre des bases de données qui appartiennent à des groupes de ressources appartenant à différents abonnements.
 
 - Si les abonnements appartiennent au même locataire et que disposez d’autorisations sur tous les abonnements, vous pouvez configurer le groupe de synchronisation dans le portail Azure.
 - Sinon, vous devez utiliser PowerShell pour ajouter les membres de synchronisation appartenant à différents abonnements.
 
-### <a name="can-i-use-data-sync-to-sync-between-sql-databases-that-belong-to-different-clouds-like-azure-public-cloud-and-azure-china-21vianet"></a>Puis-je utiliser Data Sync pour synchroniser entre des bases de données SQL Database qui appartiennent à différents clouds (comme le cloud public Azure et Azure Chine 21Vianet) ?
+### <a name="can-i-use-data-sync-to-sync-between-databases-in-sql-database-that-belong-to-different-clouds-like-azure-public-cloud-and-azure-china-21vianet"></a>Puis-je utiliser Data Sync pour synchroniser entre des bases de données SQL Database qui appartiennent à différents clouds (comme le cloud public Azure et Azure Chine 21Vianet)
 
-Oui. Vous pouvez synchroniser des bases de données SQL qui appartiennent à différents clouds, vous devez utiliser PowerShell pour ajouter les membres de synchronisation appartenant aux différents abonnements.
+Oui. Vous pouvez synchroniser entre des bases de données qui appartiennent à des clouds différents. Vous devez utiliser PowerShell pour ajouter les membres de synchronisation appartenant à différents abonnements.
 
 ### <a name="can-i-use-data-sync-to-seed-data-from-my-production-database-to-an-empty-database-and-then-sync-them"></a>Puis-je utiliser Data Sync pour envoyer des données de ma base de données de production vers une base de données vide, et ensuite les synchroniser ?
 
@@ -217,9 +216,9 @@ Oui. Créez manuellement le schéma dans la nouvelle base de données en créant
 
 ### <a name="should-i-use-sql-data-sync-to-back-up-and-restore-my-databases"></a>Dois-je utiliser SQL Data Sync pour sauvegarder et restaurer mes bases de données ?
 
-Il est déconseillé d’utiliser SQL Data Sync pour créer une sauvegarde de vos données. Vous ne pouvez pas sauvegarder et restaurer à un point précis dans le temps, car les synchronisations de SQL Data Sync ne sont pas affectées à des versions. Par ailleurs, SQL Data Sync ne sauvegarde pas d’autres objets SQL, notamment les procédures stockées, et n’effectue pas rapidement l’équivalent d’une opération de restauration.
+Il est déconseillé d’utiliser SQL Data Sync pour créer une sauvegarde de vos données. Vous ne pouvez pas sauvegarder et restaurer à un point précis dans le temps car les synchronisations de SQL Data Sync ne sont pas affectées à des versions. Par ailleurs, SQL Data Sync ne sauvegarde pas d’autres objets SQL, notamment les procédures stockées, et n’effectue pas rapidement l’équivalent d’une opération de restauration.
 
-Consultez [Copie d’une base de données Azure SQL](database-copy.md) pour prendre connaissance d’une technique de sauvegarde recommandée.
+Consultez [Copie d’une base de données dans Azure SQL Database](database-copy.md) pour prendre connaissance d’une technique de sauvegarde recommandée.
 
 ### <a name="can-data-sync-sync-encrypted-tables-and-columns"></a>Data Sync peut-il synchroniser des tables et colonnes chiffrées ?
 
@@ -236,6 +235,10 @@ Oui. SQL Data Sync prend en charge le classement dans les scénarios suivants :
 ### <a name="is-federation-supported-in-sql-data-sync"></a>La fédération est-elle prise en charge dans SQL Data Sync ?
 
 La base de données racine de fédération peut être utilisée sans limitation dans SQL Data Sync. Vous ne pouvez pas ajouter de point de terminaison de base de données fédérée à la version actuelle de SQL Data Sync.
+
+### <a name="can-i-use-data-sync-to-sync-data-exported-from-dynamics-365-using-bring-your-own-database-byod-feature"></a>Puis-je utiliser SQL Data Sync pour synchroniser des données exportées à partir de Dynamics 365 à l’aide de la fonctionnalité BYOD (apportez votre propre base de données) ?
+
+La fonctionnalité Dynamics 365 apportez votre propre base de données permet aux administrateurs d’exporter des entités de données depuis l’application dans leur propre base de données Microsoft Azure SQL. SQL Data Sync peut être utilisé pour synchroniser ces données dans d’autres bases de données si les données sont exportées à l’aide de **l’envoi (push) incrémentiel** (l’envoi intégral n’est pas pris en charge) et **si l’activation des déclencheurs dans la base de données cible** est définie sur **Oui**.
 
 ## <a name="next-steps"></a>Étapes suivantes
 
@@ -259,3 +262,4 @@ Pour plus d’informations sur Azure SQL Database, consultez les articles suivan
 
 - [Vue d’ensemble des bases de données SQL](sql-database-paas-overview.md)
 - [Gestion du cycle de vie des bases de données](https://msdn.microsoft.com/library/jj907294.aspx)
+ 

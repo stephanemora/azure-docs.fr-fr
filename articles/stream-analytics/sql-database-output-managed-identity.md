@@ -4,14 +4,14 @@ description: Cet article explique comment utiliser les identités managées afin
 author: mamccrea
 ms.author: mamccrea
 ms.service: stream-analytics
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 05/08/2020
-ms.openlocfilehash: a8699b3942fe3a4b23f1d72036b7364cdab36f8e
-ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
+ms.openlocfilehash: 757dd7280867e9b31fdc0750fc0848de8f266770
+ms.sourcegitcommit: e132633b9c3a53b3ead101ea2711570e60d67b83
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83651978"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86045618"
 ---
 # <a name="use-managed-identities-to-access-azure-sql-database-from-an-azure-stream-analytics-job-preview"></a>Utiliser les identités managées pour accéder à Azure SQL Database à partir d’une tâche Azure Stream Analytics (préversion)
 
@@ -96,7 +96,7 @@ Créez ensuite un utilisateur de base de données autonome dans votre base de do
    CREATE USER [ASA_JOB_NAME] FROM EXTERNAL PROVIDER; 
    ```
 
-1. Pour que l’Azure Active Directory de Microsoft vérifie si la tâche Stream Analytics a accès à SQL Database, nous devons autoriser Azure Active Directory à communiquer avec la base de données. Pour ce faire, accédez de nouveau à la page « Pare-feu et réseau virtuel » dans le portail Azure, puis activez l’option « Autoriser les services et les ressources Azure à accéder à ce serveur ». 
+1. Pour que l’Azure Active Directory de Microsoft vérifie si la tâche Stream Analytics a accès à SQL Database, nous devons autoriser Azure Active Directory à communiquer avec la base de données. Pour ce faire, accédez de nouveau à la page « Pare-feu et réseau virtuel » dans le Portail Azure, puis activez l’option « Autoriser les services et les ressources Azure à accéder à ce serveur ». 
 
    ![Pare-feu et réseau virtuel](./media/sql-db-output-managed-identity/allow-access.png)
 

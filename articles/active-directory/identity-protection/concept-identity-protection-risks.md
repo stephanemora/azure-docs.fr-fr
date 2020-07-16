@@ -5,18 +5,18 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: identity-protection
 ms.topic: conceptual
-ms.date: 10/18/2019
+ms.date: 06/26/2020
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sahandle
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 775ff6b3ba003bed22ccd5a42cb4da005c4dbb69
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: de905c61642c36a07c7f87e0be910b0f035bffc1
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79227841"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85555260"
 ---
 # <a name="what-is-risk"></a>Quel est le risque ?
 
@@ -38,7 +38,7 @@ Ces risques sont calculés hors connexion à l’aide de sources d’information
 
 | Détection d’événements à risque | Description |
 | --- | --- |
-| Informations d’identification divulguées | Ce type de détection d’événement à risque indique que les informations d’identification valides de l’utilisateur ont fuité. Souvent, lorsque les cybercriminels compromettent les mots de passe valides d’utilisateurs légitimes, ils le font dans le but de les rendre publics. Ce partage se fait généralement en publiant publiquement sur le « dark web », via des sites de pastebin, ou en échangeant et vendant des informations d’identification sur le marché noir. Lorsque le service d’informations de connexion fuitées de Microsoft acquiert des informations d’identification utilisateur sur le dark web, des ou d’autres sources, ces informations sont comparées aux informations d’identification valides actuelles des utilisateurs d’Azure AD pour rechercher des correspondances valides. |
+| Informations d’identification divulguées | Ce type de détection d’événement à risque indique que les informations d’identification valides de l’utilisateur ont fuité. Souvent, lorsque les cybercriminels compromettent les mots de passe valides d’utilisateurs légitimes, ils le font dans le but de les rendre publics. Ce partage se fait généralement en publiant publiquement sur le « dark web », via des sites de pastebin, ou en échangeant et vendant des informations d’identification sur le marché noir. Lorsque le service d’informations de connexion fuitées de Microsoft acquiert des informations d’identification utilisateur sur le dark web, des ou d’autres sources, ces informations sont comparées aux informations d’identification valides actuelles des utilisateurs d’Azure AD pour rechercher des correspondances valides. Pour plus d’informations sur informations de connexion divulguées, consultez [Questions courantes](#common-questions). |
 | Azure AD Threat Intelligence | Ce type de détection d’événement à risque indique une activité utilisateur inhabituelle pour l’utilisateur donné ou qui est cohérente avec des modèles d’attaque connus selon les sources internes et externes de Microsoft Threat Intelligence. |
 
 ### <a name="sign-in-risk"></a>Risque à la connexion
@@ -64,8 +64,34 @@ Ces risques peuvent être calculés en temps réel ou hors connexion à l’aide
 | --- | --- | --- |
 | Risque supplémentaire détecté | Temps réel ou hors connexion | Cette détection indique que l’une des détections Premium ci-dessus a eu lieu. Étant donné que les détections Premium ne sont visibles que pour les clients Azure AD Premium P2, on les appelle « Risque supplémentaire détecté » pour les clients dépourvus de licences Azure AD Premium P2. |
 
+## <a name="common-questions"></a>Questions courantes
+
+### <a name="leaked-credentials"></a>Informations d’identification divulguées
+
+#### <a name="where-does-microsoft-find-leaked-credentials"></a>Où Microsoft trouve-t-il les informations d’identification divulguées ?
+
+Microsoft découvre des fuites d'informations d'identification à divers endroits, notamment :
+
+- Les sites de téléchargement publics tels que pastebin.com et paste.ca où les malfaiteurs publient généralement ce genre de contenu. Ce genre de site est la première étape pour les malfaiteurs en quête d'informations d’identification volées.
+- Forces de l'ordre.
+- D'autres groupes chez Microsoft qui s’occupent des recherches sur le dark web.
+
+#### <a name="why-arent-i-seeing-any-leaked-credentials"></a>Pourquoi ne vois-je aucune information d'identification divulguée ?
+
+Les informations d'identification divulguées sont traitées chaque fois que Microsoft trouve une nouvelle occurrence de données accessibles au public. En raison de leur nature sensible, les informations d'identification divulguées sont supprimés peu après le traitement. Seules les nouvelles informations d’identification divulguées détectées après l’activation de la synchronisation de hachage de mot de passe (PHS) seront traitées pour votre locataire. La vérification par rapport aux paires d’informations d’identification précédemment détectées n’est pas effectuée. 
+
+#### <a name="i-havent-seen-any-leaked-credential-risk-events-for-quite-some-time"></a>Je n’ai pas vu d’événements à risque concernant les informations d’identification divulguées depuis un moment.
+
+Si vous n’avez pas vu d’événements à risque concernant les informations d’identification divulguées, cela peut être dû à plusieurs raisons :
+
+- Vous n'avez aucun PHS activé pour votre locataire.
+- Microsoft n'a trouvé aucune paire d’informations d’identification divulguées et correspondant à vos utilisateurs.
+
+#### <a name="how-often-does-microsoft-process-new-credentials"></a>À quelle fréquence Microsoft traite-t-il les nouvelles informations d’identification ?
+
+Les informations d’identification sont traitées immédiatement après avoir été détectées, normalement en plusieurs lots par jour.
+
 ## <a name="next-steps"></a>Étapes suivantes
 
 - [Stratégies disponibles pour atténuer les risques](concept-identity-protection-policies.md)
-
 - [Vue d’ensemble de la sécurité](concept-identity-protection-security-overview.md)

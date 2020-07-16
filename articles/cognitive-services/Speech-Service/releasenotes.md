@@ -8,17 +8,85 @@ manager: jhakulin
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
-ms.date: 06/08/2020
+ms.date: 07/07/2020
 ms.author: oliversc
 ms.custom: seodec18
-ms.openlocfilehash: 13a7250bc89b1c9f81996dfa4e15d7d4469779ab
-ms.sourcegitcommit: 1de57529ab349341447d77a0717f6ced5335074e
+ms.openlocfilehash: 2dd2d3b8564535a64ff961479ed94fc92fb210f5
+ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/09/2020
-ms.locfileid: "84607871"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86112984"
 ---
 # <a name="release-notes"></a>Notes de publication
+
+## <a name="text-to-speech-2020-july-release"></a>Synthèse vocale 2020 - version de juillet
+
+### <a name="new-features"></a>Nouvelles fonctionnalités
+
+* **Neural TTS, 15 nouvelles voix neuronales** : INLes nouvelles voix ajoutées au portefeuille Neural TTS sont Salma en `ar-EG` arabe (Égypte), Zariyah en `ar-SA` arabe (Arabie saoudite), Alba en `ca-ES` catalan (Espagne), Christel en `da-DK` danois (Danemark), Neerja en `es-IN` anglais (Inde), Noora en `fi-FI` finnois (Finlande), Swara en `hi-IN` hindi (Inde), Colette en `nl-NL` néerlandais (Pays-Bas), Zofia en `pl-PL` polonais (Pologne), Fernanda en `pt-PT` portugais (Portugal), Dariya en `ru-RU` russe (Russie), Hillevi en `sv-SE` suédois (Suède), Achara en `th-TH` thaï (Thaïlande), HiuGaai en `zh-HK` chinois (cantonais, traditionnel) et HsiaoYu en `zh-TW` chinois (mandarin de Taïwan). Vérifier tous les [langages pris en charge](https://docs.microsoft.com/azure/cognitive-services/speech-service/language-support#neural-voices).  
+
+* **Custom Voice, des tests vocaux personnalisés et simplifiés avec le flux d’apprentissage pour simplifier l’expérience utilisateur** : Avec la nouvelle fonctionnalité de test, chaque voix sera automatiquement testée avec un ensemble de tests prédéfini optimisé pour chaque langage afin de couvrir les scénarios de l’assistant général et vocal. Ces ensembles de tests sont soigneusement sélectionnés et testés pour inclure des cas d’usage et des phonèmes typiques dans le langage. En outre, les utilisateurs peuvent toujours choisir de télécharger leurs propres scripts de test lors de l’apprentissage d’un modèle.
+
+* **Création de contenu audio : un ensemble de nouvelles fonctionnalités sont disponibles pour activer des fonctionnalités de gestion audio et de réglage vocal plus puissantes**
+
+    * `Pitch`, `rate` et `volume` sont améliorés pour prendre en charge le paramétrage avec une valeur prédéfinie, telle que lent, moyen et rapide. Il est désormais simple pour les utilisateurs de choisir une valeur « constante » pour leur édition audio.
+
+    ![Réglage audio](media/release-notes/audio-tuning.png)
+
+    * Les utilisateurs peuvent dorénavant passer en revue les `Audio history` pour leur fichier de travail. Grâce à cette fonctionnalité, les utilisateurs peuvent facilement suivre tous les éléments audio générés associés à un fichier de travail. Ils peuvent vérifier la version de l’historique et comparer la qualité lors du paramétrage. 
+
+    ![Historique audio](media/release-notes/audio-history.png)
+
+    * La fonctionnalité `Clear` est désormais plus flexible. Les utilisateurs peuvent effacer un paramètre de paramétrage spécifique tout en conservant d’autres paramètres disponibles pour le contenu sélectionné.  
+
+    * Un didacticiel a été ajoutée sur la [page d’accueil](https://speech.microsoft.com/audiocontentcreation) pour aider les utilisateurs à prendre rapidement en main le paramétrage de la voix TTS et la gestion audio. 
+
+### <a name="general-tts-voice-quality-improvements"></a>Améliorations générales de la qualité de la voix TTS
+
+* Amélioration du vocodeur TTS pour une plus grande fidélité et une latence moindre.
+
+    * Mise à jour d’Elsa dans `it-IT` à un nouveau vocodeur qui a gagné + 0,464  sur la CMOS (note d’opinion moyenne comparative ) en qualité vocale, 40 % plus rapide en synthèse et réduction de 30 % sur la latence du premier octet. 
+    * Mise à jour de Xiaoxiao dans `zh-CN` au nouveau vocodeur avec gain sur la CMOS de + 0148 pour le domaine général, + 0,348 pour le style Newscast et + 0,195 pour le style Lyrique. 
+
+* Mise à jour `de-DE` et `ja-JP` modèles vocaux pour rendre la sortie TTS plus naturelle.
+    
+    * Mise à jour de Katja dans `de-DE` avec la dernière méthode de modélisation prosodie, le gain MOS (note d’opinion moyenne) est de + 0,13. 
+    * Mise à jour de Nanami dans `ja-JP` avec un nouveau modèle d’accentuation prosodie, le gain MOS (note d’opinion moyenne) est de + 0,19 ;  
+
+* Amélioration de la précision de la prononciation au niveau des mots dans 5 langages.
+
+    | Langage | Réduction des erreurs de prononciation |
+    |---|---|
+    | `en-GB` | 51 % |
+    | `ko-KR` | 17 % |
+    | `pt-BR` | 39 |
+    | `pt-PT` | 77 % |
+    | `id-ID` | 46 % |
+
+### <a name="bug-fixes"></a>Résolution des bogues
+
+* Lecture des devises
+    * Correction du problème de lecture des devises pour `es-ES` et `es-MX`
+     
+    | Langage | Entrée | Lecture après amélioration |
+    |---|---|---|
+    | `es-MX` | 1,58 USD | un peso cincuenta y ocho centavos |
+    | `es-ES` | 1,58 USD | un dólar cincuenta y ocho centavos |
+
+    * Prise en charge d’une devise négative (telle que « - 325 € ») dans les paramètres régionaux suivants : `en-US`, `en-GB`, `fr-FR`, `it-IT`, `en-AU`, `en-CA`.
+
+* Amélioration de la lecture des adresses dans `pt-PT`.
+* Correction des problèmes de prononciation de Natasha (`en-AU`) et Libby (`en-UK`) sur le mot « for » et « four ».  
+* Correction des bogues sur l’outil de création de contenu audio
+    * La pause supplémentaire et inattendue après le deuxième paragraphe est corrigée.  
+    * La fonctionnalité « aucune interruption » est rajoutée à partir d’un bogue de régression. 
+    * Le problème d’actualisation aléatoire de Speech Studio est résolu.  
+
+### <a name="samplessdk"></a>Exemples / SDK
+
+* JavaScript : Correctifs du problème de lecture dans FireFox et Safari sur macOS et iOS. 
+
 ## <a name="speech-sdk-1121-2020-june-release"></a>Kit SDK Speech 1.12.1 : version de juin 2020
 **CLI Speech (également appelée SPX)**
 -   Ajout des fonctionnalités de recherche d’aide dans l’interface CLI :
@@ -33,7 +101,7 @@ ms.locfileid: "84607871"
 
 **Résolution des bogues**
 -   **C\#, C++**  : Correction du problème en raison duquel l’enregistrement du microphone ne fonctionnait pas dans la version 1.12 dans la reconnaissance de l’orateur.
--   **JavaScript** : Correctifs pour la synthèse vocale dans FireFox et Safari sur MacOS et iOS.
+-   **JavaScript** : Correctifs pour la synthèse vocale dans FireFox et Safari sur macOS et iOS.
 -   Correctif pour l’incident de violation d’accès du vérificateur d’applications Windows lors d’une transcription de conversation, dans le cas de l’utilisation d’un flux de 8 canaux.
 -   Correction pour l’incident de violation d’accès du vérificateur d’applications Windows lors d’une traduction de conversation entre plusieurs appareils.
 
@@ -215,7 +283,7 @@ Restez en bonne santé !
 - Ajout de la prise en charge des entrées `Compressed` pour ALaw, Mulaw, FLAC sous Android, iOS et Linux
 - Ajout de `SendMessageAsync` dans la classe `Connection` pour l'envoi d'un message au service
 - Ajout de `SetMessageProperty` dans la classe `Connection` pour la propriété de définition d'un message
-- Ajout de liaisons TTS pour Java (Jre et Android), Python, Swift et Objective-C
+- Ajout de liaisons TTS pour Java (JRE et Android), Python, Swift et Objective-C
 - Ajout de la prise en charge de la lecture TTS pour macOS, iOS et Android
 - Ajout d'informations sur la « limite de mot » pour TTS
 

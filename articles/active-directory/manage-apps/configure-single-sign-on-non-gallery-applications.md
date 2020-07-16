@@ -2,22 +2,22 @@
 title: Authentification unique SAML - applications hors galerie - Plateforme d’identité Microsoft | Microsoft Docs
 description: Configurer l’authentification unique (SSO) sur des applications hors galerie dans la plateforme d’identité Microsoft (Azure AD)
 services: active-directory
-author: msmimart
-manager: CelesteDG
+author: kenwith
+manager: celestedg
 ms.service: active-directory
 ms.subservice: app-mgmt
-ms.topic: article
+ms.topic: how-to
 ms.workload: identity
-ms.date: 07/19/2019
-ms.author: celested
+ms.date: 06/08/2020
+ms.author: kenwith
 ms.reviewer: arvinh,luleon
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 6d97cef332b24700920693bab55dcbd396015dc7
-ms.sourcegitcommit: 0690ef3bee0b97d4e2d6f237833e6373127707a7
+ms.openlocfilehash: 3cee2b9a0ea32a3b331849263c8a97f55930542d
+ms.sourcegitcommit: 0100d26b1cac3e55016724c30d59408ee052a9ab
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/21/2020
-ms.locfileid: "83758365"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86024229"
 ---
 # <a name="configure-saml-based-single-sign-on-to-non-gallery-applications"></a>Configurer l’authentification unique SAML pour des applications non issues de la galerie
 
@@ -41,6 +41,8 @@ Si l’application n’a pas été ajoutée à votre locataire Azure AD, consult
    - Pour rechercher l’application, dans le menu **Type d’application**, sélectionnez **Toutes les applications**, puis sélectionnez **Appliquer**. Entrez le nom de l’application dans la zone de recherche, puis sélectionnez l’application dans les résultats.
 
 3. Sous la section **Gérer**, sélectionnez **Authentification unique**. 
+
+   - Notez qu’il existe des scénarios où l’option **Authentification unique** n’est pas disponible. Par exemple, si l’application a été inscrite à l’aide d’**Inscriptions d’applications** la fonctionnalité d’authentification unique est configurée pour utiliser OIDC OAuth par défaut. Dans ce cas, l’option **Authentification unique** ne s’affiche pas dans le volet de navigation sous **Applications d’entreprise**. Quand vous utilisez **inscriptions d’applications** pour ajouter votre application personnalisée, vous configurez les options dans le fichier du manifeste. Pour en savoir plus sur le fichier manifeste, consultez (https://docs.microsoft.com/azure/active-directory/develop/reference-app-manifest). Pour en savoir plus sur les normes SSO, consultez (https://docs.microsoft.com/azure/active-directory/develop/authentication-vs-authorization#authentication-and-authorization-using-microsoft-identity-platform). D’autres scénarios dans lesquels **l’authentification unique** sera absente de la navigation incluent les cas où une application est hébergée dans un autre locataire ou si votre compte ne dispose pas des autorisations requises (administrateur général, administrateur d’application Cloud, administrateur d’application ou propriétaire du principal de service). Les autorisations peuvent également être à l’origine d’un scénario dans lequel vous pouvez ouvrir **l’authentification unique**, mais vous ne pourrez pas l’enregistrer. En savoir plus sur les rôles d’administration d’Azure AD voir (https://docs.microsoft.com/azure/active-directory/users-groups-roles/directory-assign-admin-roles).
 
 4. Sélectionnez **SAML**. La page **Configurer l’authentification unique avec SAML - Préversion** s’affiche.
 
@@ -122,9 +124,9 @@ Depuis Azure AD, vous pouvez télécharger le certificat actif au format Base64 
 
 ## <a name="step-4-set-up-the-application-to-use-azure-ad"></a>Étape 4. Configurer l’application pour utiliser Azure AD
 
-La section **Configurer\<nom_application** liste les valeurs qui doivent être configurées dans l’application afin qu’elle utilise Azure AD comme fournisseur d’identité SAML. Les valeurs requises dépendent de l’application. Pour plus d’informations, consultez la documentation SAML de l’application. Pour trouver la documentation, accédez à la rubrique **Configurer \<nom de l’application>** et sélectionnez **Afficher les instructions détaillées**. La documentation s’affiche dans la page **Configurer l’authentification**. Cette page vous aide à renseigner l’**URL de connexion**, l’**Identificateur Azure AD** et l’**URL de déconnexion** dans la rubrique **Configurer \<nom de l’application >** .
+La section **Configurer\<applicationName>** liste les valeurs qui doivent être configurées dans l’application afin d’utiliser Azure AD comme fournisseur d’identité SAML. Les valeurs requises dépendent de l’application. Pour plus d’informations, consultez la documentation SAML de l’application. Pour trouver la documentation, accédez à la rubrique **Configurer \<application name>** et sélectionnez **Afficher les instructions détaillées**. La documentation s’affiche dans la page **Configurer l’authentification**. Cette page vous aide à renseigner les valeurs de l’**URL de connexion**, l’**Identificateur Azure AD** et l’**URL de déconnexion** dans la rubrique **Configurer \<application name>** .
 
-1. Faites défiler jusqu'à la section **Configurer \<nom_application>** . 
+1. Faites défiler jusqu’à la section **Configurer \<applicationName>** . 
    
    ![Étape 4 Configurer l’application](media/configure-single-sign-on-non-gallery-applications/step-four-app-config.png)
 

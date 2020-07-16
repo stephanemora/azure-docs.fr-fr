@@ -5,12 +5,12 @@ description: Découvrir comment mettre à jour ou réinitialiser les information
 services: container-service
 ms.topic: article
 ms.date: 03/11/2019
-ms.openlocfilehash: 8420771e32aa792aa79a07fdf4362ad0d9b45d48
-ms.sourcegitcommit: d6e4eebf663df8adf8efe07deabdc3586616d1e4
+ms.openlocfilehash: 7dcbd91063d4f36c4d78023b6548db0c968eda74
+ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/15/2020
-ms.locfileid: "81392628"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86077692"
 ---
 # <a name="update-or-rotate-the-credentials-for-azure-kubernetes-service-aks"></a>Mettre à jour ou faire tourner les informations d’identification pour Azure Kubernetes Service (AKS)
 
@@ -31,9 +31,19 @@ Lorsque vous souhaitez mettre à jour les informations d’identification d’un
 * mettre à jour les informations d’identification du principal du service existant utilisées par le cluster, ou
 * créer un principal du service et mettre à jour le cluster pour qu’il utilise ces nouvelles informations d’identification.
 
+### <a name="check-the-expiration-date-of-your-service-principal"></a>Vérifier la date d’expiration de votre principal de service
+
+Pour vérifier la date d’expiration de votre principal de service, utilisez la commande [az ad sp credential list][az-ad-sp-credential-list]. L’exemple suivant obtient l’ID du principal de service pour le cluster nommé *myAKSCluster* dans le groupe de ressources *myResourceGroup* à l’aide de la commande [az aks show][az-aks-show]. L’ID du principal de service est défini en tant que variable nommée *SP_ID* pour être utilisé dans la commande [az ad sp credential list][az-ad-sp-credential-list].
+
+```azurecli
+SP_ID=$(az aks show --resource-group myResourceGroup --name myAKSCluster \
+    --query servicePrincipalProfile.clientId -o tsv)
+az ad sp credential list --id $SP_ID --query "[].endDate" -o tsv
+```
+
 ### <a name="reset-existing-service-principal-credential"></a>Réinitialiser les informations d’identification du principal de service existant
 
-Pour mettre à jour les informations d’identification du principal de service existant, obtenez l’ID du principal de service de votre cluster à l’aide de la commande [az aks show][az-aks-show]. L’exemple suivant permet d’obtenir l’ID du cluster *myAKSCluster* dans le groupe de ressources *myResourceGroup*. L’ID du principal du service est défini en tant que variable nommée *SP_ID* pour être utilisé dans d’autres commandes.
+Pour mettre à jour les informations d’identification du principal de service existant, obtenez l’ID du principal de service de votre cluster à l’aide de la commande [az aks show][az-aks-show]. L’exemple suivant permet d’obtenir l’ID du cluster *myAKSCluster* dans le groupe de ressources *myResourceGroup*. L’ID du principal du service est défini en tant que variable nommée *SP_ID* pour être utilisé dans d’autres commandes. Ces commandes utilisent la syntaxe Bash.
 
 ```azurecli-interactive
 SP_ID=$(az aks show --resource-group myResourceGroup --name myAKSCluster \
@@ -88,7 +98,7 @@ az aks update-credentials \
     --name myAKSCluster \
     --reset-service-principal \
     --service-principal $SP_ID \
-    --client-secret $SP_SECRET
+    --client-secret "$SP_SECRET"
 ```
 
 La mise à jour des informations d’identification du principal du service dans AKS prend quelques instants.
@@ -120,4 +130,5 @@ Dans cet article, le principal de service du cluster AKS lui-même et les applic
 [aad-integration]: azure-ad-integration.md
 [create-aad-app]: azure-ad-integration.md#create-the-server-application
 [az-ad-sp-create]: /cli/azure/ad/sp#az-ad-sp-create-for-rbac
+[az-ad-sp-credential-list]: /cli/azure/ad/sp/credential#az-ad-sp-credential-list
 [az-ad-sp-credential-reset]: /cli/azure/ad/sp/credential#az-ad-sp-credential-reset

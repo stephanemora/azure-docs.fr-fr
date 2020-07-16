@@ -7,18 +7,18 @@ author: shoatman
 manager: CelesteDG
 ms.service: active-directory
 ms.subservice: develop
-ms.topic: conceptual
+ms.topic: reference
 ms.workload: identity
 ms.date: 09/12/2019
 ms.author: shoatman
 ms.custom: aaddev
 ms.reviewer: shoatman
-ms.openlocfilehash: 9e35ba5a3f3705a52e80262da9bbfbfda489bf83
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: f6816da35aad51e88449361d2a80542c4349ffac
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80050375"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85479417"
 ---
 # <a name="android-microsoft-authentication-library-configuration-file"></a>Fichier de configuration de la bibliothèque d’authentification Microsoft Authentication Android
 
@@ -34,7 +34,7 @@ Cet article vous permet de comprendre les différents paramètres inclus dans ce
 |-----------|------------|-------------|-------|
 | `client_id` | String | Oui | ID client de votre application indiqué dans la [page d’inscription d’application](https://ms.portal.azure.com/#blade/Microsoft_AAD_RegisteredApps/ApplicationsListBlade) |
 | `redirect_uri`   | String | Oui | URI de redirection de votre application indiqué dans la [page d’inscription d’application](https://ms.portal.azure.com/#blade/Microsoft_AAD_RegisteredApps/ApplicationsListBlade) |
-| `authorities` | List\<Authority> | Non | Liste des autorités dont votre application a besoin |
+| `authorities` | Liste \<Authority> | Non | Liste des autorités dont votre application a besoin |
 | `authorization_user_agent` | AuthorizationAgent (enum) | Non | Valeurs possibles : `DEFAULT`, `BROWSER`, `WEBVIEW` |
 | `http` | HttpConfiguration | Non | Configurez `HttpUrlConnection` `connect_timeout` et `read_timeout` |
 | `logging` | LoggingConfiguration | Non | Spécifie le niveau de détail de la journalisation. Les configurations facultatives incluent : `pii_enabled`, qui prend une valeur booléenne et `log_level`, qui prend `ERROR`, `WARNING`, `INFO` ou `VERBOSE`. |
@@ -150,7 +150,7 @@ Les paramètres globaux suivants concernent la propriété logging :
 | Propriété | Type de données  | Obligatoire | Notes |
 | ----------|-------------|-----------|---------|
 | `pii_enabled`  | boolean | Non | Indique d’émettre ou non des données personnelles. |
-| `log_level`   | boolean | Non | Indique quels messages de journal générer. |
+| `log_level`   | string | Non | Indique quels messages de journal générer. Les niveaux de journalisation pris en charge sont les suivants : `ERROR`, `WARNING`, `INFO` et `VERBOSE`. |
 | `logcat_enabled` | boolean | Non | Indique de générer une sortie vers logcat en plus de l’interface de journalisation. |
 
 ### <a name="account_mode"></a>account_mode

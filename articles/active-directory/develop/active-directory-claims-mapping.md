@@ -9,16 +9,16 @@ ms.service: active-directory
 ms.subservice: develop
 ms.custom: aaddev
 ms.workload: identity
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 10/22/2019
 ms.author: ryanwi
 ms.reviewer: paulgarn, hirsin, jeedes, luleon
-ms.openlocfilehash: 7c462f25703b581c0882582d57fa8e5d2902dc4f
-ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
+ms.openlocfilehash: d9c46368b42cac1d06f7d78d5e0d03ad2de0bada
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/21/2020
-ms.locfileid: "83737501"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85478397"
 ---
 # <a name="how-to-customize-claims-emitted-in-tokens-for-a-specific-app-in-a-tenant-preview"></a>Procédure : Personnaliser des revendications émises dans des jetons pour une application spécifique dans un locataire (préversion)
 
@@ -325,6 +325,7 @@ L’élément ID identifie la propriété définie sur la source qui fournit la 
 | Utilisateur | jobtitle | Poste |
 | Utilisateur | employeeid | ID d’employé |
 | Utilisateur | facsimiletelephonenumber | Numéro de télécopie |
+| Utilisateur | assignedroles | Liste des rôles d’application attribués à l’utilisateur|
 | application, ressource, audience | displayname | Nom d’affichage |
 | application, ressource, audience | objected | ObjectID |
 | application, ressource, audience | tags | Balise de principal du service |

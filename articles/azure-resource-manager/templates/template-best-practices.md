@@ -2,25 +2,21 @@
 title: Meilleures pratiques relatives aux modèles
 description: Décrit les approches recommandées pour la création de modèles Azure Resource Manager. Fournit des suggestions pour éviter des problèmes qui se produisent couramment lors de l’utilisation de modèles.
 ms.topic: conceptual
-ms.date: 12/02/2019
-ms.openlocfilehash: 870636d6457d842c89f261c2537644c17a335294
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.date: 06/09/2020
+ms.openlocfilehash: a85e9afd64c416628c35bd36d16086f28d0732d3
+ms.sourcegitcommit: bcb962e74ee5302d0b9242b1ee006f769a94cfb8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80156410"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86058059"
 ---
 # <a name="arm-template-best-practices"></a>Bonnes pratiques de modèle ARM
 
-Cet article donne des recommandations sur la façon de construire votre modèle Azure Resource Manager (ARM). Celles-ci vous aident à éviter des problèmes qui se produisent couramment en cas d’utilisation d’un modèle ARM pour déployer une solution.
-
-Pour obtenir des suggestions sur la façon de gérer vos abonnements Azure, consultez [Structure d’entreprise Azure : gouvernance normative de l’abonnement](/azure/architecture/cloud-adoption/appendix/azure-scaffold?toc=%2Fen-us%2Fazure%2Fazure-resource-manager%2Ftoc.json&bc=%2Fen-us%2Fazure%2Fbread%2Ftoc.json).
-
-Pour obtenir des suggestions sur la création de modèles qui fonctionnent dans tous les environnements cloud Azure, voir [Développer des modèles Azure Resource Manager de cohérence du cloud](templates-cloud-consistency.md).
+Cet article explique comment utiliser les pratiques recommandées lors de la construction de votre modèle ARM. Celles-ci vous aident à éviter des problèmes qui se produisent couramment en cas d’utilisation d’un modèle ARM pour déployer une solution.
 
 ## <a name="template-limits"></a>Limites de modèle
 
-Limitez la taille de votre modèle à 4 Mo et celle de chaque fichier de paramètres à 64 ko. La limite de 4 Mo s’applique à l’état final du modèle une fois développé avec les définitions des ressources itératives et les valeurs des variables et des paramètres. 
+Limitez la taille de votre modèle à 4 Mo et celle de chaque fichier de paramètres à 64 ko. La limite de 4 Mo s’applique à l’état final du modèle une fois développé avec les définitions des ressources itératives et les valeurs des variables et des paramètres.
 
 Vous devez également respecter les limites suivantes :
 
@@ -234,7 +230,7 @@ Les informations suivantes peuvent être utiles lorsque vous travaillez avec des
    * [Configurer l’accès WinRM pour les machines virtuelles dans Azure Resource Manager](../../virtual-machines/windows/winrm.md)
    * [Autoriser l’accès externe à votre machine virtuelle à l’aide du portail Azure](../../virtual-machines/windows/nsg-quickstart-portal.md)
    * [Autoriser l’accès externe à votre machine virtuelle à l’aide de PowerShell](../../virtual-machines/windows/nsg-quickstart-powershell.md)
-   * [Autoriser l’accès externe à votre machine virtuelle Linux à l’aide de l’interface de ligne de commande Azure](../../virtual-machines/virtual-machines-linux-nsg-quickstart.md)
+   * [Autoriser l’accès externe à votre machine virtuelle Linux à l’aide de l’interface de ligne de commande Azure](../../virtual-machines/linux/nsg-quickstart.md)
 
 * La propriété **domainNameLabel** pour les adresses IP publiques doit être unique. La valeur **domainNameLabel** doit comporter entre 3 et 63 caractères et respecter les règles spécifiées par cette expression régulière : `^[a-z][a-z0-9-]{1,61}[a-z0-9]$`. Comme la fonction **uniqueString** génère une chaîne de 13 caractères, le paramètre **dnsPrefixString** est limité à 50 caractères :
 
@@ -275,7 +271,12 @@ Les informations suivantes peuvent être utiles lorsque vous travaillez avec des
    > [!NOTE]
    > Pour garantir que les clés secrètes sont chiffrées lorsqu’elles sont transmises comme paramètres à des machines virtuelles et à des extensions, utilisez la propriété **protectedSettings** des extensions appropriées.
    > 
-   > 
+
+## <a name="use-test-toolkit"></a>Utiliser le kit de ressources de test
+
+Le kit de test du modèle ARM est un script qui vérifie si votre modèle utilise les pratiques recommandées. Lorsque votre modèle n’est pas conforme aux pratiques recommandées, il retourne une liste d’avertissements avec les modifications suggérées. Le kit à outils de test vous permet d’apprendre à implémenter les meilleures pratiques dans votre modèle.
+
+Une fois que vous avez terminé votre modèle, exécutez le kit de test pour voir s’il existe des moyens d’améliorer l’implémentation informatique. Pour plus d’informations, consultez [Kit à outils des modèles ARM](test-toolkit.md)
 
 ## <a name="next-steps"></a>Étapes suivantes
 

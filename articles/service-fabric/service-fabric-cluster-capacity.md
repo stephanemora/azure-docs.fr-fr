@@ -5,12 +5,12 @@ ms.topic: conceptual
 ms.date: 05/21/2020
 ms.author: pepogors
 ms.custom: sfrev
-ms.openlocfilehash: 774b114a47958b173f891ed13d423f9b051ee37c
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: f2af8dcb2460e4e95d29bd81e6994d145ac61a48
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85610538"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86247775"
 ---
 # <a name="service-fabric-cluster-capacity-planning-considerations"></a>Considérations en matière de planification de la capacité du cluster Service Fabric
 
@@ -26,7 +26,7 @@ Cet article vous guidera à travers les points de décision significatifs pour c
 
 ## <a name="initial-number-and-properties-of-cluster-node-types"></a>Nombre initial et propriétés des types de nœuds de cluster
 
-Un *type de nœud* définit la taille, le nombre et les propriétés d’un ensemble de nœuds (machines virtuelles) du cluster. Chaque type de nœud qui est défini dans un cluster Service Fabric est mappé à un [groupe de machines virtuelles identiques distinct](https://docs.microsoft.com/azure/virtual-machine-scale-sets/overview).
+Un *type de nœud* définit la taille, le nombre et les propriétés d’un ensemble de nœuds (machines virtuelles) du cluster. Chaque type de nœud qui est défini dans un cluster Service Fabric est mappé à un [groupe de machines virtuelles identiques distinct](../virtual-machine-scale-sets/overview.md).
 
 Comme chaque type de nœud est un groupe identique distinct, il peut faire l’objet d’une montée ou descente en puissance de manière indépendante, avoir différents jeux de ports ouverts et présenter différentes métriques de capacité. Pour plus d’informations sur la relation entre les types de nœuds et les groupes de machines virtuelles identiques, consultez [Types de nœuds de cluster Service Fabric](service-fabric-cluster-nodetypes.md).
 
@@ -34,7 +34,7 @@ Chaque cluster requiert un **type de nœud principal**, qui exécute des service
 
 **Les types de nœuds non principaux** peuvent être utilisés pour définir des rôles d’application (comme les services en *frontaux* et *principaux*) et pour isoler physiquement les services au sein d’un cluster. Les clusters Service Fabric peuvent avoir zéro, un ou plusieurs types de nœuds non principaux.
 
-Le type de nœud principal est configuré à l’aide de l’attribut `isPrimary` sous la définition du type de nœud dans le modèle de déploiement Azure Resource Manager. Pour obtenir la liste complète des propriétés de type de nœud, consultez l’[Objet NodeTypeDescription](https://docs.microsoft.com/azure/templates/microsoft.servicefabric/clusters#nodetypedescription-object). Par exemple, ouvrez un fichier *AzureDeploy.json* dans [Exemples de cluster Service Fabric](https://github.com/Azure-Samples/service-fabric-cluster-templates/tree/master/) et *Rechercher sur la page* pour rechercher l’objet `nodetTypes`.
+Le type de nœud principal est configuré à l’aide de l’attribut `isPrimary` sous la définition du type de nœud dans le modèle de déploiement Azure Resource Manager. Pour obtenir la liste complète des propriétés de type de nœud, consultez l’[Objet NodeTypeDescription](/azure/templates/microsoft.servicefabric/clusters#nodetypedescription-object). Par exemple, ouvrez un fichier *AzureDeploy.json* dans [Exemples de cluster Service Fabric](https://github.com/Azure-Samples/service-fabric-cluster-templates/tree/master/) et *Rechercher sur la page* pour rechercher l’objet `nodetTypes`.
 
 ### <a name="node-type-planning-considerations"></a>Considérations relatives à la planification du type de nœud
 
@@ -79,7 +79,7 @@ Le tableau ci-dessous présente les niveaux de durabilité de Service Fabric, le
 > Avec la durabilité Bronze, la mise à jour automatique de l'image du système d'exploitation n'est pas disponible. Bien que l'[application Patch Orchestration](service-fabric-patch-orchestration-application.md) (destinée uniquement aux clusters hébergés non-Azure) *ne soit pas recommandée* pour les niveaux de durabilité Argent ou supérieurs, il s’agit de votre seule option pour automatiser les mises à jour Windows en ce qui concerne les domaines de mise à niveau de Service Fabric.
 
 > [!IMPORTANT]
-> Quel que soit le niveau de durabilité, la [désallocation](https://docs.microsoft.com/rest/api/compute/virtualmachinescalesets/deallocate) d’un groupe de machines virtuelles identiques a pour effet de détruire le cluster.
+> Quel que soit le niveau de durabilité, la [désallocation](/rest/api/compute/virtualmachinescalesets/deallocate) d’un groupe de machines virtuelles identiques a pour effet de détruire le cluster.
 
 ### <a name="bronze"></a>Bronze
 

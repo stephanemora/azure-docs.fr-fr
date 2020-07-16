@@ -1,18 +1,18 @@
 ---
 title: Gestion des ressources déléguées Azure
-description: Les offres de services managés permettent aux fournisseurs de services de vendre des offres de gestion des ressources à des clients sur la Place de marché Azure.
+description: La gestion des ressources déléguées Azure est un élément clé d’Azure Lighthouse, qui permet aux fournisseurs de services de gérer les ressources déléguées à l’échelle avec souplesse et précision.
 ms.date: 05/28/2020
 ms.topic: conceptual
-ms.openlocfilehash: e6f741ccbf0d52e0859722aa304aa6c273fb5acf
-ms.sourcegitcommit: 12f23307f8fedc02cd6f736121a2a9cea72e9454
+ms.openlocfilehash: bbe3c28cdcd252755b8350eaa5d2e72044981174
+ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/30/2020
-ms.locfileid: "84219069"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86120889"
 ---
 # <a name="azure-delegated-resource-management"></a>Gestion des ressources déléguées Azure
 
-La gestion des ressources déléguées Azure est l’un des principaux composants d’Azure Lighthouse. Grâce à la gestion des ressources déléguées Azure, les fournisseurs de services peuvent simplifier les expériences d’engagement et d’intégration des clients, tout en gérant les ressources déléguées à grande échelle avec agilité et précision.
+La gestion des ressources déléguées Azure est un élément clé d’[Azure Lighthouse](../overview.md). Grâce à la gestion des ressources déléguées Azure, les fournisseurs de services peuvent simplifier les expériences d’engagement et d’intégration des clients, tout en gérant les ressources déléguées à grande échelle avec agilité et précision.
 
 ## <a name="what-is-azure-delegated-resource-management"></a>Qu’est-ce que la gestion des ressources déléguées Azure ?
 

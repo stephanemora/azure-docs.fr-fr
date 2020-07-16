@@ -3,13 +3,13 @@ title: Principaux de service pour Azure Kubernetes Services (AKS)
 description: Créer et gérer un principal de service Azure Active Directory pour un cluster dans Azure Kubernetes Service (AKS)
 services: container-service
 ms.topic: conceptual
-ms.date: 04/02/2020
-ms.openlocfilehash: 2c792eb4dc060e3f5d7fa2d8f2176bdd51538c43
-ms.sourcegitcommit: d6e4eebf663df8adf8efe07deabdc3586616d1e4
+ms.date: 06/16/2020
+ms.openlocfilehash: 7f62c7dc7aacf9be4a59498aa5c556e9991ad578
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/15/2020
-ms.locfileid: "81392738"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85298546"
 ---
 # <a name="service-principals-with-azure-kubernetes-service-aks"></a>Principaux de service avec Azure Kubernetes Service (AKS)
 
@@ -87,7 +87,10 @@ Pour déléguer des autorisations, créez une attribution de rôle à l’aide d
 az role assignment create --assignee <appId> --scope <resourceScope> --role Contributor
 ```
 
-L’élément `--scope` d’une ressource doit être un ID de ressource complet, tel que */subscriptions/\<guid\>/resourceGroups/myResourceGroup* ou */subscriptions/\<guid\>/resourceGroups/myResourceGroupVnet/providers/Microsoft.Network/virtualNetworks/myVnet*
+L’élément `--scope` d’une ressource doit être un ID de ressource complet, tel que */subscriptions/\<guid\>/resourceGroups/myResourceGroup* ou  */subscriptions/\<guid\>/resourceGroups/myResourceGroupVnet/providers/Microsoft.Network/virtualNetworks/myVnet*
+
+> [!NOTE]
+> Si vous avez supprimé l’attribution de rôle contributeur du groupe de ressources de nœud, les opérations ci-dessous peuvent échouer.  
 
 Les sections suivantes détaillent les délégations courantes que vous serez peut-être amené à effectuer.
 
@@ -106,6 +109,9 @@ Vous pouvez utiliser un réseau avancé dans lequel le réseau virtuel et le sou
   - *Microsoft.Network/publicIPAddresses/join/action*
   - *Microsoft.Network/publicIPAddresses/read*
   - *Microsoft.Network/publicIPAddresses/write*
+  - Si vous utilisez [des tables de routage personnalisées sur des clusters Kubenet](configure-kubenet.md#bring-your-own-subnet-and-route-table-with-kubenet) ajoutez ces autorisations supplémentaires :
+    - *Microsoft.Network/routeTables/write*
+    - *Microsoft.Network/routeTables/read*
 - Ou attribuez le rôle intégré [Contributeur de réseaux][rbac-network-contributor] sur le sous-réseau dans le réseau virtuel
 
 ### <a name="storage"></a>Stockage
