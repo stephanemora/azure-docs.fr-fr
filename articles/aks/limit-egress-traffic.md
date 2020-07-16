@@ -6,12 +6,12 @@ ms.topic: article
 ms.author: jpalma
 ms.date: 06/29/2020
 author: palma21
-ms.openlocfilehash: 6aed6c84439e65646c15367cdad3bf13c5573256
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 9d06852e9d3d61b3e3d368a1d1c6f4107aff1442
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85831673"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86251312"
 ---
 # <a name="control-egress-traffic-for-cluster-nodes-in-azure-kubernetes-service-aks"></a>Contrôler le trafic de sortie pour les nœuds de cluster dans Azure Kubernetes Service (AKS)
 
@@ -239,7 +239,7 @@ Voici un exemple d’architecture du déploiement :
   * Les demandes des nœuds d’agent AKS suivent une route définie par l’utilisateur qui a été mise en place sur le sous-réseau où le cluster AKS a été déployé.
   * Le pare-feu Azure sort du réseau virtuel depuis un front-end d’adresses IP publiques
   * L’accès à l’Internet public ou à d’autres services Azure circule vers et depuis l’adresse IP du front-end du pare-feu
-  * L’accès au plan de contrôle AKS peut être protégé par les [Plages d’adresses IP autorisées du serveur d’API](https://docs.microsoft.com/azure/aks/api-server-authorized-ip-ranges), qui comprennent l’adresse IP front-end publique du pare-feu.
+  * L’accès au plan de contrôle AKS peut être protégé par les [Plages d’adresses IP autorisées du serveur d’API](./api-server-authorized-ip-ranges.md), qui comprennent l’adresse IP front-end publique du pare-feu.
 * Trafic interne
   * Si vous le souhaitez, à la place ou en plus d’un [Équilibreur de charge public](load-balancer-standard.md), vous pouvez utiliser un [Équilibreur de charge interne](internal-lb.md) pour le trafic interne, que vous pouvez également isoler sur son propre sous-réseau.
 
@@ -353,7 +353,7 @@ FWPRIVATE_IP=$(az network firewall show -g $RG -n $FWNAME --query "ipConfigurati
 ```
 
 > [!NOTE]
-> Si vous utilisez un accès sécurisé au serveur d’API AKS avec des [plages d’adresses IP autorisées](https://docs.microsoft.com/azure/aks/api-server-authorized-ip-ranges), vous devez ajouter l’adresse IP publique du pare-feu dans la plage d’adresses IP autorisées.
+> Si vous utilisez un accès sécurisé au serveur d’API AKS avec des [plages d’adresses IP autorisées](./api-server-authorized-ip-ranges.md), vous devez ajouter l’adresse IP publique du pare-feu dans la plage d’adresses IP autorisées.
 
 ### <a name="create-a-udr-with-a-hop-to-azure-firewall"></a>Créer une route définie par l’utilisateur avec un tronçon vers le pare-feu Azure
 
@@ -389,7 +389,7 @@ az network firewall network-rule create -g $RG -f $FWNAME --collection-name 'aks
 az network firewall application-rule create -g $RG -f $FWNAME --collection-name 'aksfwar' -n 'fqdn' --source-addresses '*' --protocols 'http=80' 'https=443' --fqdn-tags "AzureKubernetesService" --action allow --priority 100
 ```
 
-Pour plus d’informations sur le service Pare-feu Azure, consultez la [documentation de Pare-feu Azure](https://docs.microsoft.com/azure/firewall/overview).
+Pour plus d’informations sur le service Pare-feu Azure, consultez la [documentation de Pare-feu Azure](../firewall/overview.md).
 
 ### <a name="associate-the-route-table-to-aks"></a>Associer la table de routage à AKS
 
@@ -722,7 +722,7 @@ kubectl apply -f example.yaml
 ### <a name="add-a-dnat-rule-to-azure-firewall"></a>Ajouter une règle DNAT au pare-feu Azure
 
 > [!IMPORTANT]
-> Lorsque vous utilisez le Pare-feu Azure pour limiter le trafic de sortie et créer un itinéraire défini par l’utilisateur (UDR) afin de forcer tout le trafic de sortie, veillez à créer une règle DNAT appropriée dans le Pare-feu pour autoriser le trafic d’entrée. L’utilisation du Pare-feu Azure avec une UDR perturbe la configuration d’entrée en raison d’un routage asymétrique (ce problème se produit si le sous-réseau AKS a un itinéraire par défaut qui conduit à l’adresse IP privée du pare-feu, alors que vous utilisez un service d’équilibreur de charge public, d’entrée ou Kubernetes de type : LoadBalancer). Dans ce cas, le trafic d’équilibreur de charge entrant est reçu par le biais de son adresse IP publique, mais le chemin de retour passe par l’adresse IP privée du pare-feu. Le pare-feu étant avec état, il supprime le paquet de retour, car le pare-feu n’a pas connaissance d’une session établie. Pour découvrir comment intégrer un Pare-feu Azure avec votre équilibreur de charge d’entrée ou de service, voir [Intégrer un pare-feu Azure avec Azure Standard Load Balancer](https://docs.microsoft.com/azure/firewall/integrate-lb).
+> Lorsque vous utilisez le Pare-feu Azure pour limiter le trafic de sortie et créer un itinéraire défini par l’utilisateur (UDR) afin de forcer tout le trafic de sortie, veillez à créer une règle DNAT appropriée dans le Pare-feu pour autoriser le trafic d’entrée. L’utilisation du Pare-feu Azure avec une UDR perturbe la configuration d’entrée en raison d’un routage asymétrique (ce problème se produit si le sous-réseau AKS a un itinéraire par défaut qui conduit à l’adresse IP privée du pare-feu, alors que vous utilisez un service d’équilibreur de charge public, d’entrée ou Kubernetes de type : LoadBalancer). Dans ce cas, le trafic d’équilibreur de charge entrant est reçu par le biais de son adresse IP publique, mais le chemin de retour passe par l’adresse IP privée du pare-feu. Le pare-feu étant avec état, il supprime le paquet de retour, car le pare-feu n’a pas connaissance d’une session établie. Pour découvrir comment intégrer un Pare-feu Azure avec votre équilibreur de charge d’entrée ou de service, voir [Intégrer un pare-feu Azure avec Azure Standard Load Balancer](../firewall/integrate-lb.md).
 
 
 Pour configurer la connectivité entrante, une règle DNAT doit être écrite sur le pare-feu Azure. Pour tester la connectivité au cluster, une règle est définie de sorte que l’adresse IP publique front-end du pare-feu soit acheminée vers l’adresse IP interne exposée par le service interne.

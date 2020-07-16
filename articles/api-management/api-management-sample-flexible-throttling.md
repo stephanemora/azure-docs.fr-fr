@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 02/03/2018
 ms.author: apimpm
-ms.openlocfilehash: 467d9cee74567fc0d19031773415675ae7c51818
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: fc36211eeb58f18546e4eae24ad003c6b2ae761b
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "71066765"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86243169"
 ---
 # <a name="advanced-request-throttling-with-azure-api-management"></a>Limitation de requêtes avancée avec Gestion des API Azure
 La possibilité de limiter les requêtes entrantes est un rôle clé du service Gestion des API Azure. En contrôlant la fréquence des requêtes ou le nombre total de requêtes/données transférées, Gestion des API permet aux fournisseurs d’API de protéger leurs API contre les abus et de créer de la valeur pour différents niveaux de produits API.
@@ -32,7 +32,7 @@ La possibilité de limiter les requêtes entrantes est un rôle clé du service 
 > [!NOTE]
 > Les stratégies `rate-limit-by-key` et `quota-by-key` ne sont pas disponibles dans le niveau Consommation de Gestion des API Azure. 
 
-Les nouvelles stratégies [rate-limit-by-key](/azure/api-management/api-management-access-restriction-policies#LimitCallRateByKey) et [quota-by-key](/azure/api-management/api-management-access-restriction-policies#SetUsageQuotaByKey) fournissent une solution plus souple pour le contrôle du trafic. Ces nouvelles stratégies vous permettent de définir des expressions pour identifier les clés qui servent à effectuer le suivi de l’utilisation du trafic. Il est plus facile d’en comprendre le fonctionnement avec un exemple. 
+Les nouvelles stratégies [rate-limit-by-key](./api-management-access-restriction-policies.md#LimitCallRateByKey) et [quota-by-key](./api-management-access-restriction-policies.md#SetUsageQuotaByKey) fournissent une solution plus souple pour le contrôle du trafic. Ces nouvelles stratégies vous permettent de définir des expressions pour identifier les clés qui servent à effectuer le suivi de l’utilisation du trafic. Il est plus facile d’en comprendre le fonctionnement avec un exemple. 
 
 ## <a name="ip-address-throttling"></a>Limitation par adresse IP
 Les stratégies suivantes limitent l’adresse IP d’un client à 10 appels par minute, avec un total d’un million d’appels et 10 000 Ko de bande passante par mois. 
@@ -62,10 +62,10 @@ Si un utilisateur final est authentifié, une clé de limitation de la clé peut
 Cet exemple montre l’en-tête d’autorisation, pour le convertir en objet `JWT` et utiliser le sujet du jeton pour identifier l’utilisateur et l’utiliser comme la clé de limitation du débit. Si l’identité de l’utilisateur est stockée dans le `JWT` comme l’une des autres revendications, cette valeur peut être utilisée à la place.
 
 ## <a name="combined-policies"></a>Stratégies combinées
-Bien que les nouvelles stratégies de limitation offrent davantage de contrôle que les stratégies de limitation existantes, il est toujours utile de combiner les deux fonctions. La limitation par clé d’abonnement produit ([Limiter la fréquence des appels par abonnement](/azure/api-management/api-management-access-restriction-policies#LimitCallRate) et [Définir le quota d’utilisation par abonnement](/azure/api-management/api-management-access-restriction-policies#SetUsageQuota)) constitue un excellent moyen de permettre la monétisation d’une API en facturant en fonction des niveaux d’utilisation. Le contrôle plus fin sur la limitation de la bande passante par utilisateur est gratuite et empêche que le comportement de certains utilisateurs dégrade l'expérience des autres. 
+Bien que les nouvelles stratégies de limitation offrent davantage de contrôle que les stratégies de limitation existantes, il est toujours utile de combiner les deux fonctions. La limitation par clé d’abonnement produit ([Limiter la fréquence des appels par abonnement](./api-management-access-restriction-policies.md#LimitCallRate) et [Définir le quota d’utilisation par abonnement](./api-management-access-restriction-policies.md#SetUsageQuota)) constitue un excellent moyen de permettre la monétisation d’une API en facturant en fonction des niveaux d’utilisation. Le contrôle plus fin sur la limitation de la bande passante par utilisateur est gratuite et empêche que le comportement de certains utilisateurs dégrade l'expérience des autres. 
 
 ## <a name="client-driven-throttling"></a>Limitation par client
-Lorsque la clé de limitation est définie en utilisant une [expression de stratégie](/azure/api-management/api-management-policy-expressions), le fournisseur d'API est celui qui choisit comment définir la limitation. Toutefois, un développeur peut souhaiter contrôler la limitation de débit de leurs propres clients. Cela peut être possible si le fournisseur de l'API introduit un en-tête personnalisé afin de permettre à l'application client du développeur de communiquer la clé à l'API.
+Lorsque la clé de limitation est définie en utilisant une [expression de stratégie](./api-management-policy-expressions.md), le fournisseur d'API est celui qui choisit comment définir la limitation. Toutefois, un développeur peut souhaiter contrôler la limitation de débit de leurs propres clients. Cela peut être possible si le fournisseur de l'API introduit un en-tête personnalisé afin de permettre à l'application client du développeur de communiquer la clé à l'API.
 
 ```xml
 <rate-limit-by-key calls="100"
@@ -80,4 +80,3 @@ Gestion des API Azure permet la limitation du débit et du devis pour à la fois
 
 ## <a name="next-steps"></a>Étapes suivantes
 Faites-nous part de vos commentaires en tant que problème GitHub pour cette rubrique. Il serait intéressant d’en savoir davantage sur les autres valeurs de clé potentielles qui se sont avérées être un choix judicieux dans vos scénarios.
-

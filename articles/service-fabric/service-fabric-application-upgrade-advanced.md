@@ -3,26 +3,26 @@ title: Rubriques avancées sur la mise à niveau d’application
 description: Cet article traite de sujets avancés se rapportant à la mise à niveau d’une application Service Fabric.
 ms.topic: conceptual
 ms.date: 03/11/2020
-ms.openlocfilehash: 98d8213cc50f73ef2c053e1fe5574fe33a2f3cb6
-ms.sourcegitcommit: 309cf6876d906425a0d6f72deceb9ecd231d387c
+ms.openlocfilehash: cc2fdc8f99b74078bd8d5274cbe52265ab8455ae
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/01/2020
-ms.locfileid: "84263089"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86248082"
 ---
 # <a name="service-fabric-application-upgrade-advanced-topics"></a>Mise à niveau des applications Service Fabric : Rubriques avancées
 
 ## <a name="add-or-remove-service-types-during-an-application-upgrade"></a>Ajouter ou supprimer des types de services pendant la mise à niveau d’une application
 
-Si un type de service est ajouté à une application publiée dans le cadre d’une mise à niveau, le nouveau type de service est ajouté à l’application déployée. Une telle mise à niveau n’affecte pas les instances de service qui faisaient déjà partie de l’application, mais une instance du type de service qui a été ajoutée doit être créée pour que le nouveau type de service soit actif (voir [New-ServiceFabricService](https://docs.microsoft.com/powershell/module/servicefabric/new-servicefabricservice?view=azureservicefabricps)).
+Si un type de service est ajouté à une application publiée dans le cadre d’une mise à niveau, le nouveau type de service est ajouté à l’application déployée. Une telle mise à niveau n’affecte pas les instances de service qui faisaient déjà partie de l’application, mais une instance du type de service qui a été ajoutée doit être créée pour que le nouveau type de service soit actif (voir [New-ServiceFabricService](/powershell/module/servicefabric/new-servicefabricservice?view=azureservicefabricps)).
 
-De même, des types de services peuvent également être supprimés d’une application dans le cadre d’une mise à niveau. Toutefois, toutes les instances de service du type de service à supprimer doivent être supprimées avant de procéder à la mise à niveau (voir [Remove-ServiceFabricService](https://docs.microsoft.com/powershell/module/servicefabric/remove-servicefabricservice?view=azureservicefabricps)).
+De même, des types de services peuvent également être supprimés d’une application dans le cadre d’une mise à niveau. Toutefois, toutes les instances de service du type de service à supprimer doivent être supprimées avant de procéder à la mise à niveau (voir [Remove-ServiceFabricService](/powershell/module/servicefabric/remove-servicefabricservice?view=azureservicefabricps)).
 
 ## <a name="avoid-connection-drops-during-stateless-service-planned-downtime"></a>Éviter les abandons de connexion pendant les temps d’arrêt planifiés de service sans état
 
 Pour des temps d’arrêt planifiés d’instance sans état, tels que pour la mise à niveau d’application/de cluster ou la désactivation de nœud, des connexions peuvent être abandonnées en raison de la suppression du point de terminaison une fois l’instance arrêtée, ce qui se traduit par des fermetures de connexion forcées.
 
-Pour éviter cela, configurez la fonctionnalité *RequestDrain* en ajoutant une *durée de délai de fermeture d’instance* dans la configuration du service pour permettre aux demandes existantes depuis le cluster de se vider sur les points de terminaison exposés. Cette configuration est atteinte quand le point de terminaison publié par l’instance sans état est supprimé *avant* le démarrage du délai précédant la fermeture de l’instance. Ce délai permet un vidage correct des demandes existantes avant l’arrêt réel de l’instance. Les clients sont avertis du changement de point de terminaison par la fonction de rappel, au moment du démarrage du délai, et peuvent ainsi résoudre le point de terminaison et éviter d’envoyer de nouvelles demandes à l’instance en cours d’arrêt. Ces demandes peuvent provenir de clients utilisant un [proxy inversé](https://docs.microsoft.com/azure/service-fabric/service-fabric-reverseproxy) ou l’API de résolution du point de terminaison de service avec le modèle de notification ([ServiceNotificationFilterDescription](https://docs.microsoft.com/dotnet/api/system.fabric.description.servicenotificationfilterdescription)) pour la mise à jour des points de terminaison.
+Pour éviter cela, configurez la fonctionnalité *RequestDrain* en ajoutant une *durée de délai de fermeture d’instance* dans la configuration du service pour permettre aux demandes existantes depuis le cluster de se vider sur les points de terminaison exposés. Cette configuration est atteinte quand le point de terminaison publié par l’instance sans état est supprimé *avant* le démarrage du délai précédant la fermeture de l’instance. Ce délai permet un vidage correct des demandes existantes avant l’arrêt réel de l’instance. Les clients sont avertis du changement de point de terminaison par la fonction de rappel, au moment du démarrage du délai, et peuvent ainsi résoudre le point de terminaison et éviter d’envoyer de nouvelles demandes à l’instance en cours d’arrêt. Ces demandes peuvent provenir de clients utilisant un [proxy inversé](./service-fabric-reverseproxy.md) ou l’API de résolution du point de terminaison de service avec le modèle de notification ([ServiceNotificationFilterDescription](/dotnet/api/system.fabric.description.servicenotificationfilterdescription)) pour la mise à jour des points de terminaison.
 
 ### <a name="service-configuration"></a>Configuration de service
 
@@ -77,7 +77,7 @@ Il existe plusieurs façons de configurer le délai côté service.
 
 ### <a name="client-configuration"></a>Configuration de client
 
-Pour recevoir une notification suite à la modification d’un point de terminaison, les clients doivent inscrire un rappel. Pour plus d'informations, consultez [ServiceNotificationFilterDescription](https://docs.microsoft.com/dotnet/api/system.fabric.description.servicenotificationfilterdescription)
+Pour recevoir une notification suite à la modification d’un point de terminaison, les clients doivent inscrire un rappel. Pour plus d'informations, consultez [ServiceNotificationFilterDescription](/dotnet/api/system.fabric.description.servicenotificationfilterdescription)
 La notification de modification est une indication que les points de terminaison ont changé, et que le client doit les résoudre et cesser d’utiliser ceux qui ne sont plus publiés, car ils seront bientôt indisponibles.
 
 ### <a name="optional-upgrade-overrides"></a>Substitutions de mise à niveau facultatives
@@ -94,7 +94,7 @@ La durée du délai modifiée s’applique uniquement à l’instance de mise à
 
 > [!NOTE]
 > * Les paramètres de vidage des demandes ne peuvent pas empêcher l’équilibreur de charge Azure d’envoyer de nouvelles demandes aux points de terminaison en cours de maintenance.
-> * Un mécanisme de résolution basé sur une réclamation n’entraîne pas le vidage approprié des demandes, car il déclenche une résolution de service après une défaillance. Comme décrit précédemment, il est préférable de l’améliorer pour vous abonner aux notifications de modification de point de terminaison en utilisant [ServiceNotificationFilterDescription](https://docs.microsoft.com/dotnet/api/system.fabric.description.servicenotificationfilterdescription).
+> * Un mécanisme de résolution basé sur une réclamation n’entraîne pas le vidage approprié des demandes, car il déclenche une résolution de service après une défaillance. Comme décrit précédemment, il est préférable de l’améliorer pour vous abonner aux notifications de modification de point de terminaison en utilisant [ServiceNotificationFilterDescription](/dotnet/api/system.fabric.description.servicenotificationfilterdescription).
 > * Les paramètres ne sont pas honorés quand la mise à niveau n’a aucun impact, c.-à-d. quand les réplicas ne sont pas arrêtés pendant la mise à niveau.
 >
 >
@@ -114,7 +114,7 @@ La durée du délai modifiée s’applique uniquement à l’instance de mise à
 
 En mode *Monitored*, Service Fabric applique des stratégies de contrôle d’intégrité pour s’assurer que l’application est saine au fil de l’avancement de la mise à niveau. En cas de non-respect des stratégies de contrôle d’intégrité, la mise à niveau est interrompue ou restaurée automatiquement en fonction de la valeur *FailureAction* spécifiée.
 
-En mode *UnmonitoredManual*, l’administrateur de l’application possède un contrôle total sur la progression de la mise à niveau. Ce mode est utile lorsque vous appliquez des stratégies d’évaluation de l’intégrité personnalisées ou lorsque vous effectuez des mises à niveau non conventionnelles pour contourner totalement la surveillance de l’intégrité (par exemple, si l’application présente déjà une perte de données). Une mise à niveau en cours d’exécution dans ce mode s’interrompt à la fin de chaque UD et doit être reprise explicitement à l’aide de la commande [Resume-ServiceFabricApplicationUpgrade](https://docs.microsoft.com/powershell/module/servicefabric/resume-servicefabricapplicationupgrade?view=azureservicefabricps). Lorsqu’une mise à niveau est interrompue et prête à être reprise par l’utilisateur, son état de mise à niveau sera *RollforwardPending* (voir [UpgradeState](https://docs.microsoft.com/dotnet/api/system.fabric.applicationupgradestate?view=azure-dotnet)).
+En mode *UnmonitoredManual*, l’administrateur de l’application possède un contrôle total sur la progression de la mise à niveau. Ce mode est utile lorsque vous appliquez des stratégies d’évaluation de l’intégrité personnalisées ou lorsque vous effectuez des mises à niveau non conventionnelles pour contourner totalement la surveillance de l’intégrité (par exemple, si l’application présente déjà une perte de données). Une mise à niveau en cours d’exécution dans ce mode s’interrompt à la fin de chaque UD et doit être reprise explicitement à l’aide de la commande [Resume-ServiceFabricApplicationUpgrade](/powershell/module/servicefabric/resume-servicefabricapplicationupgrade?view=azureservicefabricps). Lorsqu’une mise à niveau est interrompue et prête à être reprise par l’utilisateur, son état de mise à niveau sera *RollforwardPending* (voir [UpgradeState](/dotnet/api/system.fabric.applicationupgradestate?view=azure-dotnet)).
 
 Enfin, le mode *UnmonitoredAuto* est utile pour effectuer des itérations de mise à niveau rapides pendant le test ou le développement du service, car aucune entrée utilisateur n’est requise et aucune stratégie de contrôle d’intégrité d’application n’est évaluée.
 
@@ -205,11 +205,11 @@ ApplicationParameters  : { "ImportantParameter" = "2"; "NewParameter" = "testAft
 
 ## <a name="roll-back-application-upgrades"></a>Restaurer des mises à niveau d’application
 
-Tandis que les mises à niveau peuvent être restaurées par progression dans un des trois modes (*Monitored*, *UnmonitoredAuto* ou *UnmonitoredManual*), elles peuvent uniquement être restaurées en mode *UnmonitoredAuto* ou *UnmonitoredManual*. La restauration en mode *UnmonitoredAuto* fonctionne de la même façon que la restauration par progression, à la différence que la valeur par défaut de *UpgradeReplicaSetCheckTimeout* change (voir [Paramètres de mise à niveau d’application](service-fabric-application-upgrade-parameters.md)). La restauration en mode *UnmonitoredManual* fonctionne de la même façon que la restauration par progression : la restauration s’interrompt à la fin de chaque UD et doit être reprise explicitement à l’aide de la commande [ Resume-ServiceFabricApplicationUpgrade](https://docs.microsoft.com/powershell/module/servicefabric/resume-servicefabricapplicationupgrade?view=azureservicefabricps).
+Tandis que les mises à niveau peuvent être restaurées par progression dans un des trois modes (*Monitored*, *UnmonitoredAuto* ou *UnmonitoredManual*), elles peuvent uniquement être restaurées en mode *UnmonitoredAuto* ou *UnmonitoredManual*. La restauration en mode *UnmonitoredAuto* fonctionne de la même façon que la restauration par progression, à la différence que la valeur par défaut de *UpgradeReplicaSetCheckTimeout* change (voir [Paramètres de mise à niveau d’application](service-fabric-application-upgrade-parameters.md)). La restauration en mode *UnmonitoredManual* fonctionne de la même façon que la restauration par progression : la restauration s’interrompt à la fin de chaque UD et doit être reprise explicitement à l’aide de la commande [ Resume-ServiceFabricApplicationUpgrade](/powershell/module/servicefabric/resume-servicefabricapplicationupgrade?view=azureservicefabricps).
 
-Les restaurations peuvent être déclenchées automatiquement lorsque les stratégies d’intégrité d’une mise à niveau en mode *Monitored* avec une valeur *FailureAction* définie sur *Rollback* sont enfreintes (voir [Paramètres de mise à niveau d’application](service-fabric-application-upgrade-parameters.md)) ou explicitement à l’aide de la commande [Start-ServiceFabricApplicationRollback](https://docs.microsoft.com/powershell/module/servicefabric/start-servicefabricapplicationrollback?view=azureservicefabricps).
+Les restaurations peuvent être déclenchées automatiquement lorsque les stratégies d’intégrité d’une mise à niveau en mode *Monitored* avec une valeur *FailureAction* définie sur *Rollback* sont enfreintes (voir [Paramètres de mise à niveau d’application](service-fabric-application-upgrade-parameters.md)) ou explicitement à l’aide de la commande [Start-ServiceFabricApplicationRollback](/powershell/module/servicefabric/start-servicefabricapplicationrollback?view=azureservicefabricps).
 
-Pendant la restauration, la valeur *UpgradeReplicaSetCheckTimeout* et le mode peuvent être modifiés à tout moment à l’aide de la commande [Update-ServiceFabricApplicationUpgrade](https://docs.microsoft.com/powershell/module/servicefabric/update-servicefabricapplicationupgrade?view=azureservicefabricps).
+Pendant la restauration, la valeur *UpgradeReplicaSetCheckTimeout* et le mode peuvent être modifiés à tout moment à l’aide de la commande [Update-ServiceFabricApplicationUpgrade](/powershell/module/servicefabric/update-servicefabricapplicationupgrade?view=azureservicefabricps).
 
 ## <a name="next-steps"></a>Étapes suivantes
 [mise à niveau de votre application à l’aide de Visual Studio](service-fabric-application-upgrade-tutorial.md) vous guide à travers une mise à niveau de l’application à l’aide de Visual Studio.

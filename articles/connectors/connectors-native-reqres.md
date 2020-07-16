@@ -7,12 +7,12 @@ ms.reviewers: jonfan, logicappspm
 ms.topic: conceptual
 ms.date: 05/29/2020
 tags: connectors
-ms.openlocfilehash: 9f3f361b3e9fafdb350f943c0a8adcd87fa06c78
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 25aafee59c7f5f7ae59aa2fd7871de8926907f68
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84325131"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86261379"
 ---
 # <a name="receive-and-respond-to-inbound-https-requests-in-azure-logic-apps"></a>Recevoir des requêtes HTTPS entrantes et y répondre dans Azure Logic Apps
 
@@ -24,7 +24,7 @@ Avec [Azure Logic Apps](../logic-apps/logic-apps-overview.md) et le déclencheur
 
 * Recevoir et répondre à un appel HTTPS en provenance d’une autre application logique.
 
-Le déclencheur de requête prend en charge [Azure Active Directory Open Authentication](../active-directory/develop/about-microsoft-identity-platform.md) (Azure AD OAuth) pour autoriser les appels entrants adressés à votre application logique. Pour plus d’informations sur l’activation de cette authentification, consultez [Accès et données sécurisés dans Azure Logic Apps : Activer l’authentification Azure AD OAuth](../logic-apps/logic-apps-securing-a-logic-app.md#enable-oauth).
+Le déclencheur de requête prend en charge [Azure Active Directory Open Authentication](/azure/active-directory/develop/) (Azure AD OAuth) pour autoriser les appels entrants adressés à votre application logique. Pour plus d’informations sur l’activation de cette authentification, consultez [Accès et données sécurisés dans Azure Logic Apps : Activer l’authentification Azure AD OAuth](../logic-apps/logic-apps-securing-a-logic-app.md#enable-oauth).
 
 ## <a name="prerequisites"></a>Prérequis
 
@@ -157,7 +157,7 @@ Ce déclencheur intégré crée un point de terminaison HTTPS qui peut être app
          "account": {
             "name": "Contoso",
             "ID": "12345",
-            "address": { 
+            "address": {
                "number": "1234",
                "street": "Anywhere Street",
                "city": "AnyTown",
@@ -172,9 +172,9 @@ Ce déclencheur intégré crée un point de terminaison HTTPS qui peut être app
 1. Pour vérifier que le corps de la demande de l’appel entrant correspond au schéma spécifié, procédez comme suit :
 
    1. Dans la barre de titre du déclencheur de requête, sélectionnez le bouton représentant des points de suspension ( **...** ).
-   
+
    1. Dans les paramètres du déclencheur, activez la **validation du schéma**, puis sélectionnez **terminé**.
-   
+
       Si le corps de la demande de l’appel entrant ne correspond pas à votre schéma, le déclencheur renvoie une `HTTP 400 Bad Request` erreur.
 
 1. Pour spécifier des propriétés supplémentaires, ouvrez la liste **Ajouter un nouveau paramètre**, puis sélectionnez les paramètres que vous souhaitez ajouter.
@@ -259,7 +259,7 @@ Votre application logique garde la requête entrante ouverte seulement pendant u
 
    Le déclencheur de requête est réduit dans cet exemple pour des raisons de simplicité.
 
-1. Ajoutez toutes les valeurs requises pour le message de réponse. 
+1. Ajoutez toutes les valeurs requises pour le message de réponse.
 
    Dans certains champs, cliquer dans leurs zones ouvre la liste de contenu dynamique. Vous pouvez ensuite sélectionner des jetons qui représentent les sorties disponibles à partir des étapes précédentes du workflow. Les propriétés du schéma spécifié dans l’exemple précédent apparaissent désormais dans la liste de contenu dynamique.
 
@@ -271,7 +271,7 @@ Votre application logique garde la requête entrante ouverte seulement pendant u
 
    ![En-têtes - Basculer vers la vue texte](./media/connectors-native-reqres/switch-to-text-view.png)
 
-   Voici plus d’informations sur les propriétés que vous pouvez définir dans l’action Réponse. 
+   Voici plus d’informations sur les propriétés que vous pouvez définir dans l’action Réponse.
 
    | Nom de la propriété | Nom de la propriété JSON | Obligatoire | Description |
    |---------------|--------------------|----------|-------------|
@@ -282,7 +282,7 @@ Votre application logique garde la requête entrante ouverte seulement pendant u
 
 1. Pour spécifier des propriétés supplémentaires, comme un schéma JSON pour le corps de la réponse, ouvrez la liste **Ajouter un nouveau paramètre**, puis sélectionnez les paramètres que vous souhaitez ajouter.
 
-1. Lorsque vous avez terminé, enregistrez votre application logique. Dans la barre d’outils du Concepteur, sélectionnez **Enregistrer**. 
+1. Lorsque vous avez terminé, enregistrez votre application logique. Dans la barre d’outils du Concepteur, sélectionnez **Enregistrer**.
 
 ## <a name="next-steps"></a>Étapes suivantes
 

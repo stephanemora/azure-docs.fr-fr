@@ -4,12 +4,12 @@ description: Découvrez comment envoyer des journaux de ressources et des donné
 ms.topic: article
 ms.date: 07/02/2020
 ms.author: danlep
-ms.openlocfilehash: c76d8a2e7e468c511f0df47ebb240a787f40e026
-ms.sourcegitcommit: 1e6c13dc1917f85983772812a3c62c265150d1e7
+ms.openlocfilehash: d9f3e844e9d82e540776cdcf821770929d238e3f
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/09/2020
-ms.locfileid: "86169729"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86259604"
 ---
 # <a name="container-group-and-instance-logging-with-azure-monitor-logs"></a>Groupe de conteneurs et journalisation des instances de conteneur avec les journaux d’activité Azure Monitor
 
@@ -29,7 +29,7 @@ Les sections suivantes décrivent comment créer un groupe de conteneurs dans le
 Pour activer la journalisation dans vos instances de conteneur, vous avez besoin des éléments suivants :
 
 * [Espace de travail Log Analytics](../azure-monitor/learn/quick-create-workspace.md)
-* [Azure CLI](/cli/azure/install-azure-cli) (ou [Cloud Shell](/azure/cloud-shell/overview))
+* [Azure CLI](/cli/azure/install-azure-cli) (ou [Cloud Shell](../cloud-shell/overview.md))
 
 ## <a name="get-log-analytics-credentials"></a>Obtenir les informations d’identification de Log Analytics
 
@@ -153,7 +153,7 @@ ContainerInstanceLog_CL
 
 Pour plus d’informations sur l’interrogation des journaux d’activité et la configuration d’alertes dans les journaux d’activité Azure Monitor, consultez :
 
-* [Présentation des recherches dans les journaux d’activité Azure Monitor](../log-analytics/log-analytics-log-search.md)
+* [Présentation des recherches dans les journaux d’activité Azure Monitor](../azure-monitor/log-query/log-query-overview.md)
 * [Alertes unifiées dans Azure Monitor](../azure-monitor/platform/alerts-overview.md)
 
 

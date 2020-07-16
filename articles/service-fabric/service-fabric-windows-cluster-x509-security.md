@@ -5,12 +5,12 @@ author: dkkapur
 ms.topic: conceptual
 ms.date: 10/15/2017
 ms.author: dekapur
-ms.openlocfilehash: 1277af2e8f9de575fbe51ea0f43bbcfd2812e610
-ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
+ms.openlocfilehash: 43825728da34c027557f6e6d722e39d494451e55
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83653644"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86255929"
 ---
 # <a name="secure-a-standalone-cluster-on-windows-by-using-x509-certificates"></a>Sécuriser un cluster autonome sur Windows à l’aide de certificats X.509
 Cet article vous explique comment sécuriser la communication entre les différents nœuds de votre cluster Windows autonome. Il décrit également comment authentifier les clients qui se connectent à ce cluster à l’aide de certificats X.509. L’authentification garantit que seuls les utilisateurs autorisés peuvent accéder au cluster et aux applications déployées, et effectuer des tâches de gestion. La sécurité par certificat doit être activée sur le cluster lors de sa création.  
@@ -110,7 +110,7 @@ Cette section décrit les certificats requis pour sécuriser votre cluster Windo
 
 
 > [!NOTE]
-> Un [Thumbprint](https://en.wikipedia.org/wiki/Public_key_fingerprint) est l’identité principale d’un certificat. Lisez la section [Retrieve a thumbprint of a certificate](https://msdn.microsoft.com/library/ms734695.aspx) (Récupérer l’empreinte numérique d’un certificat) pour déterminer l’empreinte des certificats que vous créez.
+> Un [Thumbprint](https://en.wikipedia.org/wiki/Public_key_fingerprint) est l’identité principale d’un certificat. Lisez la section [Retrieve a thumbprint of a certificate](/dotnet/framework/wcf/feature-details/how-to-retrieve-the-thumbprint-of-a-certificate) (Récupérer l’empreinte numérique d’un certificat) pour déterminer l’empreinte des certificats que vous créez.
 > 
 > 
 
@@ -125,7 +125,7 @@ Le tableau suivant répertorie les certificats dont vous aurez besoin pour la co
 | ServerCertificateCommonNames |Recommandé pour un environnement de production. Ce certificat est présenté au client lorsqu’il tente de se connecter à ce cluster. CertificateIssuerThumbprint correspond à l’empreinte de l’émetteur de ce certificat. Si plusieurs certificats portant le même nom sont utilisés, vous pouvez spécifier plusieurs empreintes d’émetteur. Pour plus de commodité, vous pouvez choisir d’utiliser le même certificat pour les éléments ClusterCertificateCommonNames et ServerCertificateCommonNames. Vous pouvez utiliser un ou deux noms communs de certificat de serveur. |
 | ServerCertificateIssuerStores |Recommandé pour un environnement de production. Ce certificat correspond à l’émetteur du certificat de serveur. Au lieu de spécifier l’empreinte numérique de l’émetteur sous ServerCertificateCommonNames, vous pouvez fournir le nom commun de l’émetteur et le nom de magasin correspondant sous cette section.  Cela facile la substitution des certificats d’émetteur de serveur. Plusieurs émetteurs peuvent être spécifiés si plus d’un certificat de serveur est utilisé. Une valeur IssuerCommonName vide a pour effet de mettre en liste verte tous les certificats dans les magasins correspondants spécifié sous X509StoreNames.|
 | ClientCertificateThumbprints |Installez ce jeu de certificats sur les clients authentifiés. Il peut y avoir plusieurs certificats clients installés sur les machines qui seront autorisées à accéder au cluster. Définissez l’empreinte de chaque certificat dans la variable CertificateThumbprint. Si vous affectez la valeur *true* à IsAdmin, le client sur lequel ce certificat est installé peut effectuer des activités de gestion d’administrateur sur le cluster. Si IsAdmin est défini sur *false*, le client ayant ce certificat peut effectuer les actions uniquement autorisées pour les droits d’accès utilisateur, généralement en lecture seule. Pour plus d’informations sur les rôles, consultez [Contrôle d’accès en fonction du rôle](service-fabric-cluster-security.md#role-based-access-control-rbac). |
-| ClientCertificateCommonNames |Définissez le nom commun du premier certificat client pour CertificateCommonName. L’élément CertificateIssuerThumbprint est l’empreinte numérique relative à l’émetteur de ce certificat. Pour en savoir plus sur les noms communs et l’émetteur, consultez la section [Work with certificates](https://msdn.microsoft.com/library/ms731899.aspx) (Utilisation des certificats). |
+| ClientCertificateCommonNames |Définissez le nom commun du premier certificat client pour CertificateCommonName. L’élément CertificateIssuerThumbprint est l’empreinte numérique relative à l’émetteur de ce certificat. Pour en savoir plus sur les noms communs et l’émetteur, consultez la section [Work with certificates](/dotnet/framework/wcf/feature-details/working-with-certificates) (Utilisation des certificats). |
 | ClientCertificateIssuerStores |Recommandé pour un environnement de production. Ce certificat correspond à l’émetteur du certificat client (rôles administrateur et non-administrateur). Au lieu de spécifier l’empreinte numérique de l’émetteur sous ClientCertificateCommonNames, vous pouvez fournir le nom commun de l’émetteur et le nom de magasin correspondant sous cette section.  Cela facile la substitution des certificats d’émetteur de client. Plusieurs émetteurs peuvent être spécifiés si plus d’un certificat client est utilisé. Une valeur IssuerCommonName vide a pour effet de mettre en liste verte tous les certificats dans les magasins correspondants spécifié sous X509StoreNames.|
 | ReverseProxyCertificate |Recommandé pour un environnement de test. Ce certificat facultatif peut être spécifié si vous souhaitez sécuriser votre [proxy inversé](service-fabric-reverseproxy.md). Assurez-vous que reverseProxyEndpointPort est défini dans nodeTypes, si vous utilisez ce certificat. |
 | ReverseProxyCertificateCommonNames |Recommandé pour un environnement de production. Ce certificat facultatif peut être spécifié si vous souhaitez sécuriser votre [proxy inversé](service-fabric-reverseproxy.md). Assurez-vous que reverseProxyEndpointPort est défini dans nodeTypes, si vous utilisez ce certificat. |
@@ -248,7 +248,7 @@ Si vous utilisez des magasins d’émetteur, la substitution du certificat d’�
 ## <a name="acquire-the-x509-certificates"></a>Acquérir des certificats X.509
 Pour sécuriser les communications à l’intérieur du cluster, vous devez d’abord obtenir des certificats X.509 pour vos nœuds de cluster. En outre, pour limiter les connexions à ce cluster aux ordinateurs/utilisateurs autorisés, vous devez obtenir et installer des certificats pour les ordinateurs clients.
 
-Utilisez un certificat X.509 signé par une [autorité de certification](https://en.wikipedia.org/wiki/Certificate_authority) pour sécuriser les clusters exécutant des charges de travail de production. Pour plus d’informations sur la façon d’obtenir ces certificats, consultez [How to obtain a certificate](https://msdn.microsoft.com/library/aa702761.aspx) (Comment obtenir un certificat). 
+Utilisez un certificat X.509 signé par une [autorité de certification](https://en.wikipedia.org/wiki/Certificate_authority) pour sécuriser les clusters exécutant des charges de travail de production. Pour plus d’informations sur la façon d’obtenir ces certificats, consultez [How to obtain a certificate](/dotnet/framework/wcf/feature-details/how-to-obtain-a-certificate-wcf) (Comment obtenir un certificat). 
 
 Le certificat doit posséder un certain nombre de propriétés pour fonctionner correctement :
 
@@ -262,7 +262,7 @@ Le certificat doit posséder un certain nombre de propriétés pour fonctionner 
 
 Pour les clusters que vous utilisez à des fins de test, vous pouvez choisir d’utiliser un certificat auto-signé.
 
-Si vous avez d’autres questions, consultez les [questions fréquemment posées sur les certificats](https://docs.microsoft.com/azure/service-fabric/cluster-security-certificate-management#troubleshooting-and-frequently-asked-questions).
+Si vous avez d’autres questions, consultez les [questions fréquemment posées sur les certificats](./cluster-security-certificate-management.md#troubleshooting-and-frequently-asked-questions).
 
 ## <a name="optional-create-a-self-signed-certificate"></a>Facultatif : Créer un certificat auto-signé
 Pour créer un certificat auto-signé qui peut être sécurisé correctement, l’une des solutions consiste à utiliser le script CertSetup.ps1 contenu dans le dossier du Kit de développement logiciel (SDK) Service Fabric dans le répertoire C:\Program Files\Microsoft SDKs\Service Fabric\ClusterSetup\Secure. Modifiez ce fichier pour changer le nom par défaut du certificat. (Recherchez la valeur CN = ServiceFabricDevClusterCert.) Exécutez ce script en tant que `.\CertSetup.ps1 -Install`.
@@ -357,7 +357,7 @@ $ConnectArgs = @{  ConnectionEndpoint = '10.7.0.5:19000';  X509Credential = $Tru
 Connect-ServiceFabricCluster $ConnectArgs
 ```
 
-Vous pouvez ensuite exécuter d’autres commandes PowerShell pour travailler avec ce cluster. Par exemple, vous pouvez exécuter [Get-ServiceFabricNode](https://docs.microsoft.com/powershell/module/servicefabric/get-servicefabricnode?view=azureservicefabricps) pour afficher la liste des nœuds sur ce cluster sécurisé.
+Vous pouvez ensuite exécuter d’autres commandes PowerShell pour travailler avec ce cluster. Par exemple, vous pouvez exécuter [Get-ServiceFabricNode](/powershell/module/servicefabric/get-servicefabricnode?view=azureservicefabricps) pour afficher la liste des nœuds sur ce cluster sécurisé.
 
 
 Pour supprimer le cluster, connectez-vous au nœud du cluster dans lequel vous avez téléchargé le package Service Fabric, ouvrez une ligne de commande et accédez au dossier du package. Exécutez à présent la commande suivante :
@@ -370,4 +370,3 @@ Pour supprimer le cluster, connectez-vous au nœud du cluster dans lequel vous a
 > Une configuration incorrecte des certificats peut empêcher l’affichage du cluster pendant le déploiement. Pour diagnostiquer les problèmes de sécurité, ouvrez le groupe de l’Observateur d’événements **Journaux des applications et des services** > **Microsoft-Service Fabric**.
 > 
 > 
-

@@ -3,12 +3,12 @@ title: Règles d’accès du pare-feu
 description: Configurez des règles pour accéder à un registre de conteneurs Azure derrière un pare-feu, en autorisant l’accès à des noms de domaine d’API REST et de point de terminaison de données, ou à des plages d’adresses IP spécifiques du service (« mise en liste verte »).
 ms.topic: article
 ms.date: 05/18/2020
-ms.openlocfilehash: 4774191087b3e88e657e8dc9bc6a9f9c406153e2
-ms.sourcegitcommit: 1f25aa993c38b37472cf8a0359bc6f0bf97b6784
+ms.openlocfilehash: 679dbcaf30653b855d35825f94e93f87ac68c322
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/26/2020
-ms.locfileid: "83849981"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86246977"
 ---
 # <a name="configure-rules-to-access-an-azure-container-registry-behind-a-firewall"></a>Configurer des règles pour accéder à un registre de conteneurs Azure derrière un pare-feu
 
@@ -183,7 +183,7 @@ Si vous devez accéder à Microsoft Container Registry (MCR) derrière un pare-f
 
 * En savoir plus sur les [meilleures pratiques Azure pour la sécurité réseau](../security/fundamentals/network-best-practices.md)
 
-* En savoir plus sur les [groupes de sécurité](/azure/virtual-network/security-overview) dans un réseau virtuel Azure
+* En savoir plus sur les [groupes de sécurité](../virtual-network/security-overview.md) dans un réseau virtuel Azure
 
 * En savoir plus sur la configuration de [liaison privée](container-registry-private-link.md) pour un registre de conteneurs
 
@@ -199,4 +199,3 @@ Si vous devez accéder à Microsoft Container Registry (MCR) derrière un pare-f
 
 [az-acr-update]: /cli/azure/acr#az-acr-update
 [az-acr-show-endpoints]: /cli/azure/acr#az-acr-show-endpoints
-

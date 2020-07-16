@@ -5,12 +5,12 @@ author: vturecek
 ms.topic: conceptual
 ms.date: 11/01/2017
 ms.author: vturecek
-ms.openlocfilehash: 3c1a6cfa5227369bf1cde4af087019727c22c0c2
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 0899e33e875fea4a1708e593876b7ef771004677
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "75462954"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86253182"
 ---
 # <a name="how-to-use-the-reliable-services-communication-apis"></a>Utilisation des API de communication de Reliable Services
 Azure Service Fabric, en tant que plateforme, est totalement indépendant de la communication entre les services. Tous les protocoles et toutes les piles sont acceptables, de UDP à HTTP. C'est au développeur de services de choisir comment les services doivent communiquer. L’infrastructure d’application de Reliable Services fournit des piles de communication intégrées, ainsi que des API que vous pouvez utiliser pour générer vos composants de communication personnalisés.
@@ -188,7 +188,7 @@ public CompletableFuture<String> openAsync(CancellationToken cancellationToken)
 Service Fabric fournit des API qui permettent aux clients et à d’autres services de demander cette adresse par nom de service. Ceci est important, car l’adresse du service n’est pas statique. Les services se déplacent dans le cluster à des fins d’équilibrage des ressources et de disponibilité. Ce mécanisme permet aux clients de résoudre l'adresse d'écoute pour un service.
 
 > [!NOTE]
-> Pour suivre une procédure pas à pas complète sur l’écriture d’un écouteur de communication consultez [Services Service Fabric Web API avec l’auto-hébergement](service-fabric-reliable-services-communication-webapi.md) pour C#, alors que pour Java vous pouvez écrire votre propre implémentation de serveur HTTP, consultez l’exemple d’application EchoServer sur https://github.com/Azure-Samples/service-fabric-java-getting-started.
+> Pour suivre une procédure pas à pas complète sur l’écriture d’un écouteur de communication consultez [Services Service Fabric Web API avec l’auto-hébergement](./service-fabric-reliable-services-communication-aspnetcore.md) pour C#, alors que pour Java vous pouvez écrire votre propre implémentation de serveur HTTP, consultez l’exemple d’application EchoServer sur https://github.com/Azure-Samples/service-fabric-java-getting-started.
 >
 >
 

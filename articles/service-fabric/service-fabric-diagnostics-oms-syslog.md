@@ -5,12 +5,12 @@ author: srrengar
 ms.topic: conceptual
 ms.date: 10/23/2018
 ms.author: srrengar
-ms.openlocfilehash: 5bd3bda71943b2ba8a34cd4fbd0b20917b875670
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: fe31c6fdca3651bfe56e798b30d50c9f047c680b
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "75645750"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86258642"
 ---
 # <a name="service-fabric-linux-cluster-events-in-syslog"></a>événements de cluster Linux Service Fabric dans Syslog
 
@@ -113,6 +113,6 @@ L’exemple ci-dessus vient d’un événement NodeDown. Vous pouvez consulter l
 
 ## <a name="next-steps"></a>Étapes suivantes
 * [Déployez l’agent Log Analytics](service-fabric-diagnostics-oms-agent.md) sur vos nœuds pour collecter les compteurs de performances, ainsi que les statistiques et les journaux d’activité Docker de vos conteneurs
-* Familiarisez-vous avec les fonctionnalités de [requête et de recherche dans les journaux](../log-analytics/log-analytics-log-searches.md) proposées par Journaux Azure Monitor
-* [Utilisez le Concepteur de vues pour créer des vues personnalisées dans Journaux Azure Monitor](../log-analytics/log-analytics-view-designer.md)
-* Informations de référence pour en savoir plus sur [l’intégration de Journaux Azure Monitor à Syslog](../log-analytics/log-analytics-data-sources-syslog.md).
+* Familiarisez-vous avec les fonctionnalités de [requête et de recherche dans les journaux](../azure-monitor/log-query/log-query-overview.md) proposées par Journaux Azure Monitor
+* [Utilisez le Concepteur de vues pour créer des vues personnalisées dans Journaux Azure Monitor](../azure-monitor/platform/view-designer.md)
+* Informations de référence pour en savoir plus sur [l’intégration de Journaux Azure Monitor à Syslog](../azure-monitor/platform/data-sources-syslog.md).

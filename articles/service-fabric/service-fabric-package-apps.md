@@ -3,12 +3,12 @@ title: Packager une application Azure Service Fabric
 description: Découvrez la mise en package d’une application Azure Service Fabric et sa préparation au déploiement sur un cluster.
 ms.topic: conceptual
 ms.date: 2/23/2018
-ms.openlocfilehash: 7c99eec28ac06ecf666d6dda1015f889841a5dbf
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: c00e46915c7bf147d224911ef4988d9fedd691c7
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84701045"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86260967"
 ---
 # <a name="package-an-application"></a>Empaqueter une application
 
@@ -211,7 +211,7 @@ Cette option vous évite de devoir copier le package d’application dans le mag
 `sfpkg` est un fichier zip qui contient le package d’application initial avec l’extension « .sfpkg ».
 Dans le fichier zip, le package d’application peut être compressé ou non compressé. La compression du package d’application dans le fichier zip est effectuée aux niveaux du code, de la configuration et du package de données, comme [mentionné précédemment](service-fabric-package-apps.md#compress-a-package).
 
-Pour créer un `sfpkg`, commencez par un dossier qui contient le package d’application d’origine, compressé ou non. Ensuite, utilisez n’importe quel utilitaire pour compresser le dossier avec l’extension « .sfpkg ». Par exemple, utilisez [ZipFile.CreateFromDirectory](https://msdn.microsoft.com/library/hh485721(v=vs.110).aspx).
+Pour créer un `sfpkg`, commencez par un dossier qui contient le package d’application d’origine, compressé ou non. Ensuite, utilisez n’importe quel utilitaire pour compresser le dossier avec l’extension « .sfpkg ». Par exemple, utilisez [ZipFile.CreateFromDirectory](/dotnet/api/system.io.compression.zipfile.createfromdirectory?view=netcore-3.1#System_IO_Compression_ZipFile_CreateFromDirectory_System_String_System_String_System_IO_Compression_CompressionLevel_System_Boolean_).
 
 ```csharp
 ZipFile.CreateFromDirectory(appPackageDirectoryPath, sfpkgFilePath);

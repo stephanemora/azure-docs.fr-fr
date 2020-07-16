@@ -4,12 +4,12 @@ description: Cet article fournit une vue d’ensemble de la gestion d’une appl
 ms.topic: conceptual
 ms.date: 10/21/2019
 ms.custom: sfrev
-ms.openlocfilehash: 7a9f59e3e44d3302ac19c7a9e7e77beb51947ce4
-ms.sourcegitcommit: acb82fc770128234f2e9222939826e3ade3a2a28
+ms.openlocfilehash: 7ad0d4f6d92ba8d85383df281bd14681f43bb6d4
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/21/2020
-ms.locfileid: "81682640"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86258736"
 ---
 # <a name="service-fabric-application-resource-model"></a>Modèle de ressource d’application Service Fabric
 
@@ -56,7 +56,7 @@ Les ressources de votre cluster peuvent être sécurisées en définissant le ni
 
 * Autorisez l’accès aux objets blob et aux files d’attente en utilisant [Azure Active Directory](../storage/common/storage-auth-aad-app.md).
 * Octroyez l’accès aux données d’objet blob et de file d’attente Azure en utilisant le [contrôle d’accès en fonction du rôle (RBAC) dans le portail Azure](../storage/common/storage-auth-aad-rbac-portal.md).
-* Déléguez l’accès en utilisant une [signature d’accès partagé](https://docs.microsoft.com/rest/api/storageservices/delegate-access-with-shared-access-signature).
+* Déléguez l’accès en utilisant une [signature d’accès partagé](/rest/api/storageservices/delegate-access-with-shared-access-signature).
 
 L’exemple illustré dans la capture d’écran suivante utilise un accès en lecture anonyme pour les objets blob.
 
@@ -166,13 +166,13 @@ Vous pouvez mettre à niveau une application qui est déjà déployée sur un cl
 
 Pour supprimer une application qui a été déployée à l’aide du modèle de ressources de l’application dans Resource Manager :
 
-1. Utilisez l’applet de commande [Get-AzResource](https://docs.microsoft.com/powershell/module/az.resources/get-azresource?view=azps-2.5.0) pour obtenir l’ID de ressource de l’application :
+1. Utilisez l’applet de commande [Get-AzResource](/powershell/module/az.resources/get-azresource?view=azps-2.5.0) pour obtenir l’ID de ressource de l’application :
 
     ```powershell
     Get-AzResource  -Name <String> | f1
     ```
 
-1. Supprimez les ressources d’application à l’aide de l’applet de commande [Remove-AzResource](https://docs.microsoft.com/powershell/module/az.resources/remove-azresource?view=azps-2.5.0):
+1. Supprimez les ressources d’application à l’aide de l’applet de commande [Remove-AzResource](/powershell/module/az.resources/remove-azresource?view=azps-2.5.0):
 
     ```powershell
     Remove-AzResource  -ResourceId <String> [-Force] [-ApiVersion <String>]

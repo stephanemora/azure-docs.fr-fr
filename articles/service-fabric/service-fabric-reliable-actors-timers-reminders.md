@@ -3,12 +3,12 @@ title: Minuteurs et rappels dans Reliable Actors
 description: Présentation des minuteurs et rappels pour Service Fabric Reliable Actors, avec notamment des conseils sur l’utilisation de chacun d’eux.
 ms.topic: conceptual
 ms.date: 11/02/2017
-ms.openlocfilehash: 67dc5d9706c2176b2fe70d2540be00d0af79fd80
-ms.sourcegitcommit: 309a9d26f94ab775673fd4c9a0ffc6caa571f598
+ms.openlocfilehash: a464fda3f8b0f293efd36cf0a064156bd7795d44
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/09/2020
-ms.locfileid: "82996349"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86245945"
 ---
 # <a name="actor-timers-and-reminders"></a>Minuteries et rappels d’acteur
 Les acteurs peuvent planifier un travail régulier par eux-mêmes en inscrivant des minuteries ou des rappels. Cet article montre comment utiliser des minuteries et des rappels, puis explique les différences entre les deux.
@@ -130,7 +130,7 @@ Les rappels sont un mécanisme permettant de déclencher des rappels persistants
 > [!NOTE]
 > La fiabilité des rappels est liée aux garanties de fiabilité d’état fournies par le fournisseur d’état d’acteur. Cela signifie que pour les acteurs dont la persistance de l’état est définie sur *Aucune*, les rappels ne sont pas déclenchés après un basculement.
 
-Pour inscrire un rappel, un acteur appelle la méthode [`RegisterReminderAsync`](https://docs.microsoft.com/dotnet/api/microsoft.servicefabric.actors.runtime.actorbase.registerreminderasync?view=azure-dotnet#remarks) fournie dans la classe de base, comme illustré dans l’exemple suivant :
+Pour inscrire un rappel, un acteur appelle la méthode [`RegisterReminderAsync`](/dotnet/api/microsoft.servicefabric.actors.runtime.actorbase.registerreminderasync?view=azure-dotnet#remarks) fournie dans la classe de base, comme illustré dans l’exemple suivant :
 
 ```csharp
 protected override async Task OnActivateAsync()

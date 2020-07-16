@@ -5,12 +5,12 @@ author: hrushib
 ms.topic: article
 ms.date: 2/01/2019
 ms.author: hrushib
-ms.openlocfilehash: 34c6495e094a1160f6ac75b9f098934d5cbce967
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: c77f069d93e368652c30cd100b0f99ca55341882
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "75610146"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86261218"
 ---
 # <a name="understanding-periodic-backup-configuration-in-azure-service-fabric"></a>Compréhension de la configuration de la sauvegarde périodique dans Azure Service Fabric
 
@@ -158,23 +158,23 @@ Supposons que les exigences de sauvegarde de données de ces applications sont l
 
 Pour répondre à ces exigences de sauvegarde de données, des stratégies de sauvegarde BP_1 à BP_5 sont créées, et la sauvegarde est activée comme suit.
 1. MyApp_A
-    1. Créer une stratégie de sauvegarde, _BP_1_, avec une planification de sauvegarde basée sur la fréquence, où la fréquence est définie sur 24 h. Le stockage de sauvegarde est configuré pour utiliser l’emplacement de stockage _BackupStore1_. Activer cette stratégie pour l’application _MyApp_A_ à l’aide de l’API [Activer la sauvegarde de l’application](https://docs.microsoft.com/rest/api/servicefabric/sfclient-api-enableapplicationbackup). Cette action active la sauvegarde de données à l’aide de la stratégie de sauvegarde _BP_1_ pour toutes les partitions de _Services fiables avec état_ et de _Reliable Actors_ appartenant à l’application _MyApp_A_.
+    1. Créer une stratégie de sauvegarde, _BP_1_, avec une planification de sauvegarde basée sur la fréquence, où la fréquence est définie sur 24 h. Le stockage de sauvegarde est configuré pour utiliser l’emplacement de stockage _BackupStore1_. Activer cette stratégie pour l’application _MyApp_A_ à l’aide de l’API [Activer la sauvegarde de l’application](/rest/api/servicefabric/sfclient-api-enableapplicationbackup). Cette action active la sauvegarde de données à l’aide de la stratégie de sauvegarde _BP_1_ pour toutes les partitions de _Services fiables avec état_ et de _Reliable Actors_ appartenant à l’application _MyApp_A_.
 
-    2. Créer une stratégie de sauvegarde, _BP_2_, avec une planification de sauvegarde basée sur la fréquence, où la fréquence est définie sur 1 h. Le stockage de sauvegarde est configuré pour utiliser l’emplacement de stockage _BackupStore1_. Activer cette stratégie pour le service _SvcA3_ à l’aide de l’API [Activer la sauvegarde du service](https://docs.microsoft.com/rest/api/servicefabric/sfclient-api-enableservicebackup). Cette action remplace la stratégie propagée _BP_1_ par la stratégie de sauvegarde explicitement activée _BP_2_ pour toutes les partitions du service _SvcA3_, ce qui amène la sauvegarde de données à utiliser la stratégie de sauvegarde _BP_2_ pour ces partitions.
+    2. Créer une stratégie de sauvegarde, _BP_2_, avec une planification de sauvegarde basée sur la fréquence, où la fréquence est définie sur 1 h. Le stockage de sauvegarde est configuré pour utiliser l’emplacement de stockage _BackupStore1_. Activer cette stratégie pour le service _SvcA3_ à l’aide de l’API [Activer la sauvegarde du service](/rest/api/servicefabric/sfclient-api-enableservicebackup). Cette action remplace la stratégie propagée _BP_1_ par la stratégie de sauvegarde explicitement activée _BP_2_ pour toutes les partitions du service _SvcA3_, ce qui amène la sauvegarde de données à utiliser la stratégie de sauvegarde _BP_2_ pour ces partitions.
 
-    3. Créer une stratégie de sauvegarde, _BP_3_, avec une planification de sauvegarde basée sur la fréquence, où la fréquence est définie sur 24 h. Le stockage de sauvegarde est configuré pour utiliser l’emplacement de stockage _BackupStore2_. Activer cette stratégie pour la partition _SvcA1_P2_ à l’aide de L’API [Activer la sauvegarde de la partition](https://docs.microsoft.com/rest/api/servicefabric/sfclient-api-enablepartitionbackup). Cette action remplace la stratégie propagée _BP_1_ par la stratégie de sauvegarde explicitement activée _BP_3_ pour la partition _SvcA1_P2_.
+    3. Créer une stratégie de sauvegarde, _BP_3_, avec une planification de sauvegarde basée sur la fréquence, où la fréquence est définie sur 24 h. Le stockage de sauvegarde est configuré pour utiliser l’emplacement de stockage _BackupStore2_. Activer cette stratégie pour la partition _SvcA1_P2_ à l’aide de L’API [Activer la sauvegarde de la partition](/rest/api/servicefabric/sfclient-api-enablepartitionbackup). Cette action remplace la stratégie propagée _BP_1_ par la stratégie de sauvegarde explicitement activée _BP_3_ pour la partition _SvcA1_P2_.
 
 2. MyApp_B
-    1. Créer une stratégie de sauvegarde, _BP_4_, avec une planification de sauvegarde basée sur l’heure, où le type de fréquence de planification est défini sur hebdomadaire, le jour d’exécution défini sur dimanche, et l’heure d’exécution définie sur 8 h 00. Le stockage de sauvegarde est configuré pour utiliser l’emplacement de stockage _BackupStore1_. Activer cette stratégie pour le service _SvcB1_ à l’aide de l’API [Activer la sauvegarde du service](https://docs.microsoft.com/rest/api/servicefabric/sfclient-api-enableservicebackup). Cette action active la sauvegarde de données à l’aide de la stratégie de sauvegarde _BP_4_ pour toutes les partitions du service _SvcB1_.
+    1. Créer une stratégie de sauvegarde, _BP_4_, avec une planification de sauvegarde basée sur l’heure, où le type de fréquence de planification est défini sur hebdomadaire, le jour d’exécution défini sur dimanche, et l’heure d’exécution définie sur 8 h 00. Le stockage de sauvegarde est configuré pour utiliser l’emplacement de stockage _BackupStore1_. Activer cette stratégie pour le service _SvcB1_ à l’aide de l’API [Activer la sauvegarde du service](/rest/api/servicefabric/sfclient-api-enableservicebackup). Cette action active la sauvegarde de données à l’aide de la stratégie de sauvegarde _BP_4_ pour toutes les partitions du service _SvcB1_.
 
-    2. Créer une stratégie de sauvegarde, _BP_5_, avec une planification de sauvegarde basée sur l’heure, où le type de fréquence de planification est défini sur quotidien, et l’heure d’exécution définie sur 8 h 00. Le stockage de sauvegarde est configuré pour utiliser l’emplacement de stockage _BackupStore1_. Activer cette stratégie pour la partition _SvcB2_P1_ à l’aide de L’API [Activer la sauvegarde de la partition](https://docs.microsoft.com/rest/api/servicefabric/sfclient-api-enablepartitionbackup). Cette action active la sauvegarde de données à l’aide de la stratégie de sauvegarde _BP_5_ pour la partition _SvcB2_P1_.
+    2. Créer une stratégie de sauvegarde, _BP_5_, avec une planification de sauvegarde basée sur l’heure, où le type de fréquence de planification est défini sur quotidien, et l’heure d’exécution définie sur 8 h 00. Le stockage de sauvegarde est configuré pour utiliser l’emplacement de stockage _BackupStore1_. Activer cette stratégie pour la partition _SvcB2_P1_ à l’aide de L’API [Activer la sauvegarde de la partition](/rest/api/servicefabric/sfclient-api-enablepartitionbackup). Cette action active la sauvegarde de données à l’aide de la stratégie de sauvegarde _BP_5_ pour la partition _SvcB2_P1_.
 
 Le diagramme suivant illustre explicitement les stratégies de sauvegarde activées et les stratégies de sauvegarde propagées.
 
 ![Hiérarchie des applications Service Fabric][0]
 
 ## <a name="disable-backup"></a>Désactiver la sauvegarde
-Les stratégies de sauvegarde peuvent être désactivées quand il n’est pas nécessaire de sauvegarder des données. Une stratégie de sauvegarde activée au niveau d’une _application_ ne peut être désactivée que pour cette _application_ à l’aide de l’API [Désactiver la sauvegarde de l’application](https://docs.microsoft.com/rest/api/servicefabric/sfclient-api-disableapplicationbackup). Une stratégie de sauvegarde activée au niveau d’un _service_ ne peut être désactivée que pour ce _service_ à l’aide de l’API [Désactiver la sauvegarde du service](https://docs.microsoft.com/rest/api/servicefabric/sfclient-api-disableservicebackup). Et une stratégie de sauvegarde activée au niveau d’une _partition_ ne peut être désactivée que pour cette _partition_ à l’aide de l’API [Désactiver la sauvegarde de la partition](https://docs.microsoft.com/rest/api/servicefabric/sfclient-api-disablepartitionbackup).
+Les stratégies de sauvegarde peuvent être désactivées quand il n’est pas nécessaire de sauvegarder des données. Une stratégie de sauvegarde activée au niveau d’une _application_ ne peut être désactivée que pour cette _application_ à l’aide de l’API [Désactiver la sauvegarde de l’application](/rest/api/servicefabric/sfclient-api-disableapplicationbackup). Une stratégie de sauvegarde activée au niveau d’un _service_ ne peut être désactivée que pour ce _service_ à l’aide de l’API [Désactiver la sauvegarde du service](/rest/api/servicefabric/sfclient-api-disableservicebackup). Et une stratégie de sauvegarde activée au niveau d’une _partition_ ne peut être désactivée que pour cette _partition_ à l’aide de l’API [Désactiver la sauvegarde de la partition](/rest/api/servicefabric/sfclient-api-disablepartitionbackup).
 
 * La désactivation d’une stratégie de sauvegarde pour une _application_ arrête toutes les sauvegardes périodiques de données qui se produisent en raison de la propagation de la stratégie de sauvegarde aux partitions de service avec état fiable ou aux partitions Reliable Actor.
 
@@ -192,19 +192,19 @@ Les stratégies de sauvegarde peuvent être désactivées quand il n’est pas n
 ## <a name="suspend--resume-backup"></a>Suspendre et reprendre une sauvegarde
 Certaines situations peuvent exiger une suspension temporaire de la sauvegarde périodique des données. Dans ce cas, selon l’exigence, l’API Suspendre la sauvegarde peut être utilisée au niveau d’une _application_, d’un _service_ ou d’une _partition_. La suspension d’une sauvegarde périodique est transitive vers la sous-arborescence de la hiérarchie de l’application à partir du point où elle est appliquée. 
 
-* Lorsque la suspension est appliquée à une _application_ à l’aide de l’API [Suspendre la sauvegarde de l’application](https://docs.microsoft.com/rest/api/servicefabric/sfclient-api-suspendapplicationbackup), la sauvegarde périodique des données est suspendue pour l’ensemble des services et partitions sous cette application.
+* Lorsque la suspension est appliquée à une _application_ à l’aide de l’API [Suspendre la sauvegarde de l’application](/rest/api/servicefabric/sfclient-api-suspendapplicationbackup), la sauvegarde périodique des données est suspendue pour l’ensemble des services et partitions sous cette application.
 
-* Lorsque la suspension est appliquée à un _service_ à l’aide de l’API [Suspendre la sauvegarde du service](https://docs.microsoft.com/rest/api/servicefabric/sfclient-api-suspendservicebackup), la sauvegarde périodique des données est suspendue pour toutes les partitions sous ce service.
+* Lorsque la suspension est appliquée à un _service_ à l’aide de l’API [Suspendre la sauvegarde du service](/rest/api/servicefabric/sfclient-api-suspendservicebackup), la sauvegarde périodique des données est suspendue pour toutes les partitions sous ce service.
 
-* Lorsque la suspension est appliquée à une _partition_ à l’aide de l’API [Suspendre la sauvegarde de la partition](https://docs.microsoft.com/rest/api/servicefabric/sfclient-api-suspendpartitionbackup), la sauvegarde périodique des données est suspendue cette partition.
+* Lorsque la suspension est appliquée à une _partition_ à l’aide de l’API [Suspendre la sauvegarde de la partition](/rest/api/servicefabric/sfclient-api-suspendpartitionbackup), la sauvegarde périodique des données est suspendue cette partition.
 
 Une fois la nécessité de suspension passée, la sauvegarde périodique des données peut être restaurée à l’aide de l’API Reprendre la sauvegarde appropriée. La sauvegarde périodique doit être reprise au même niveau d’_application_, de _service_ ou de _partition_ que celui auquel elle a été suspendue.
 
-* Si une suspension a été appliquée au niveau d’une _application_, elle doit être reprise à l’aide l’API [Reprendre la sauvegarde de l’application](https://docs.microsoft.com/rest/api/servicefabric/sfclient-api-resumeapplicationbackup). 
+* Si une suspension a été appliquée au niveau d’une _application_, elle doit être reprise à l’aide l’API [Reprendre la sauvegarde de l’application](/rest/api/servicefabric/sfclient-api-resumeapplicationbackup). 
 
-* Si une suspension a été appliquée au niveau d’un _service_, elle doit être reprise à l’aide l’API [Reprendre la sauvegarde du service](https://docs.microsoft.com/rest/api/servicefabric/sfclient-api-resumeservicebackup).
+* Si une suspension a été appliquée au niveau d’un _service_, elle doit être reprise à l’aide l’API [Reprendre la sauvegarde du service](/rest/api/servicefabric/sfclient-api-resumeservicebackup).
 
-* Si une suspension a été appliquée au niveau d’une _partition_, elle doit être reprise à l’aide l’API [Reprendre la sauvegarde de la partition](https://docs.microsoft.com/rest/api/servicefabric/sfclient-api-resumepartitionbackup).
+* Si une suspension a été appliquée au niveau d’une _partition_, elle doit être reprise à l’aide l’API [Reprendre la sauvegarde de la partition](/rest/api/servicefabric/sfclient-api-resumepartitionbackup).
 
 ### <a name="difference-between-suspend-and-disable-backups"></a>Différence entre la suspension et la désactivation des sauvegardes
 Vous ne devriez désactiver les sauvegardes que lorsqu’elles ne sont plus nécessaires pour une application, un service ou une partition spécifiques. Il est en fait possible de demander la désactivation de la sauvegarde avec le paramètre de nettoyage des sauvegardes, ce qui a pour effet de supprimer également toutes les sauvegardes existantes. Il convient cependant de recourir à une suspension quand on souhaite désactiver temporairement les sauvegardes, par exemple, quand le disque local est saturé ou lorsque le chargement de la sauvegarde échoue en raison d’un problème réseau connu. 
@@ -217,7 +217,7 @@ Une partition de service peut perdre des données en raison de défaillances ina
 Quand Service Fabric détecte que la partition perd des données, il appelle la méthode d’interface `OnDataLossAsync` sur la partition, et attend que la partition effectue l’action requise pour sortir de la perte de données. Dans ce cas, si la stratégie de sauvegarde effective au niveau la partition a l’indicateur `AutoRestoreOnDataLoss` défini sur `true`, la restauration est déclenchée automatiquement à l’aide de la dernière sauvegarde disponible pour cette partition.
 
 ## <a name="get-backup-configuration"></a>Obtenir la configuration de la sauvegarde
-Des API distinctes sont disponibles pour obtenir des informations sur la configuration de la sauvegarde au niveau d’une _application_, d’un _service_ et d’une _partition_. Ces API sont respectivement [Obtenir les informations sur la configuration de la sauvegarde de l’application](https://docs.microsoft.com/rest/api/servicefabric/sfclient-api-getapplicationbackupconfigurationinfo), [Obtenir les informations sur la configuration de la sauvegarde du service](https://docs.microsoft.com/rest/api/servicefabric/sfclient-api-getservicebackupconfigurationinfo) et [Obtenir les informations sur la configuration de la sauvegarde de la partition](https://docs.microsoft.com/rest/api/servicefabric/sfclient-api-getpartitionbackupconfigurationinfo). Essentiellement, ces API retournent la stratégie de sauvegarde applicable, le niveau auquel la stratégie de sauvegarde est appliquée, et des détails sur la suspension de la sauvegarde. Voici une brève description des résultats retournés par ces API.
+Des API distinctes sont disponibles pour obtenir des informations sur la configuration de la sauvegarde au niveau d’une _application_, d’un _service_ et d’une _partition_. Ces API sont respectivement [Obtenir les informations sur la configuration de la sauvegarde de l’application](/rest/api/servicefabric/sfclient-api-getapplicationbackupconfigurationinfo), [Obtenir les informations sur la configuration de la sauvegarde du service](/rest/api/servicefabric/sfclient-api-getservicebackupconfigurationinfo) et [Obtenir les informations sur la configuration de la sauvegarde de la partition](/rest/api/servicefabric/sfclient-api-getpartitionbackupconfigurationinfo). Essentiellement, ces API retournent la stratégie de sauvegarde applicable, le niveau auquel la stratégie de sauvegarde est appliquée, et des détails sur la suspension de la sauvegarde. Voici une brève description des résultats retournés par ces API.
 
 - Informations sur la configuration de la sauvegarde de l’application : fournissent les détails de la stratégie de sauvegarde appliquée au niveau de l’application, et toutes les stratégies remplacées au niveau des services et partitions appartenant à l’application. Ces résultats incluent également les informations de suspension de l’application ainsi que de ses services et partitions.
 
@@ -233,13 +233,13 @@ Ces API prennent également en charge la pagination des résultats. Quand le par
 
 Voici de brèves informations sur les variantes prises en charge.
 
-- [Obtenir la liste des sauvegardes d’application](https://docs.microsoft.com/rest/api/servicefabric/sfclient-api-getapplicationbackuplist) : retourne la liste des sauvegardes disponibles pour chaque partition appartenant à une application Service Fabric donnée.
+- [Obtenir la liste des sauvegardes d’application](/rest/api/servicefabric/sfclient-api-getapplicationbackuplist) : retourne la liste des sauvegardes disponibles pour chaque partition appartenant à une application Service Fabric donnée.
 
-- [Obtenir la liste des sauvegardes de service](https://docs.microsoft.com/rest/api/servicefabric/sfclient-api-getservicebackuplist) : retourne la liste des sauvegardes disponibles pour chaque partition appartenant à un service Service Fabric donné.
+- [Obtenir la liste des sauvegardes de service](/rest/api/servicefabric/sfclient-api-getservicebackuplist) : retourne la liste des sauvegardes disponibles pour chaque partition appartenant à un service Service Fabric donné.
  
-- [Obtenir la liste des sauvegardes de partition](https://docs.microsoft.com/rest/api/servicefabric/sfclient-api-getpartitionbackuplist) : retourne la liste des sauvegardes disponibles pour la partition spécifiée.
+- [Obtenir la liste des sauvegardes de partition](/rest/api/servicefabric/sfclient-api-getpartitionbackuplist) : retourne la liste des sauvegardes disponibles pour la partition spécifiée.
 
 ## <a name="next-steps"></a>Étapes suivantes
-- [Informations de référence sur l’API REST de sauvegarde et restauration](https://docs.microsoft.com/rest/api/servicefabric/sfclient-index-backuprestore)
+- [Informations de référence sur l’API REST de sauvegarde et restauration](/rest/api/servicefabric/sfclient-index-backuprestore)
 
 [0]: ./media/service-fabric-backuprestoreservice/backup-policy-association-example.png

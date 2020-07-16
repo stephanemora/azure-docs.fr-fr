@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 01/29/2018
 ms.author: apimpm
-ms.openlocfilehash: 0d122a56035e58bd5065da8fde56246da6478d54
-ms.sourcegitcommit: f57297af0ea729ab76081c98da2243d6b1f6fa63
+ms.openlocfilehash: f594d4467e64ead40ff3c26aaf3e3a44cb673a98
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/06/2020
-ms.locfileid: "82871261"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86250292"
 ---
 # <a name="how-to-log-events-to-azure-event-hubs-in-azure-api-management"></a>Comment enregistrer des événements sur Azure Event Hubs dans Gestion des API Azure
 Les concentrateurs d'événements Azure sont un service d'entrée de données hautement évolutif qui peut traiter des millions d'événements par seconde afin que vous puissiez traiter et analyser les grandes quantités de données générées par vos périphériques connectés et vos applications. Les concentrateurs d'événements fonctionnent comme la « porte d'entrée » d’un pipeline d’événements, et une fois que les données sont collectées dans un concentrateur d'événements, elles peuvent être transformées et stockées à l'aide de n'importe quel fournisseur d'analyse en temps réel ou d’adaptateurs de traitement par lot ou de stockage. Les concentrateurs d'événements dissocient la production d'un flux d'événements de la consommation de ces événements, de manière à ce que les consommateurs d'événements puissent accéder aux événements selon leur propre planification.
@@ -27,12 +27,12 @@ Cet article, qui complète la vidéo [Intégrer la gestion des API Azure avec Ev
 
 ## <a name="create-an-azure-event-hub"></a>Création d'un hub d'événements Azure
 
-Vous trouverez des instructions détaillées pour créer un hub d’événements et obtenir les chaînes de connexion nécessaires pour envoyer et recevoir des événements sur le hub dans la section [Créer un espace de noms et un hub d’événements Event Hubs avec le Portail Azure](https://docs.microsoft.com/azure/event-hubs/event-hubs-create).
+Vous trouverez des instructions détaillées pour créer un hub d’événements et obtenir les chaînes de connexion nécessaires pour envoyer et recevoir des événements sur le hub dans la section [Créer un espace de noms et un hub d’événements Event Hubs avec le Portail Azure](../event-hubs/event-hubs-create.md).
 
 ## <a name="create-an-api-management-logger"></a>Créer un enregistreur d’événements de gestion des API
-Maintenant que vous disposez d’un hub d’événements, l’étape suivante consiste à configurer un [enregistreur d’événements](https://docs.microsoft.com/rest/api/apimanagement/2019-12-01/logger) dans votre service Gestion des API afin qu’il puisse enregistrer des événements dans le hub d’événements.
+Maintenant que vous disposez d’un hub d’événements, l’étape suivante consiste à configurer un [enregistreur d’événements](/rest/api/apimanagement/2019-12-01/logger) dans votre service Gestion des API afin qu’il puisse enregistrer des événements dans le hub d’événements.
 
-Les enregistreurs d’événements de gestion des API peuvent être configurés à l’aide de l’ [API REST Gestion des API](https://aka.ms/apimapi). Pour obtenir des exemples détaillés de requêtes, consultez [Créer des enregistreurs d'événements](https://docs.microsoft.com/rest/api/apimanagement/2019-12-01/logger/createorupdate).
+Les enregistreurs d’événements de gestion des API peuvent être configurés à l’aide de l’ [API REST Gestion des API](https://aka.ms/apimapi). Pour obtenir des exemples détaillés de requêtes, consultez [Créer des enregistreurs d'événements](/rest/api/apimanagement/2019-12-01/logger/createorupdate).
 
 ## <a name="configure-log-to-eventhub-policies"></a>Configurer des stratégies Enregistrer sur event hub
 
@@ -69,7 +69,7 @@ Cliquez sur **Enregistrer** pour enregistrer la configuration de la stratégie m
 
 ## <a name="preview-the-log-in-event-hubs-by-using-azure-stream-analytics"></a>Afficher un aperçu du journal dans Event Hubs à l’aide d’Azure Stream Analytics
 
-Vous pouvez afficher un aperçu du journal dans Event Hubs à l’aide de [requêtes Azure Stream Analytics](https://docs.microsoft.com/azure/event-hubs/process-data-azure-stream-analytics). 
+Vous pouvez afficher un aperçu du journal dans Event Hubs à l’aide de [requêtes Azure Stream Analytics](../event-hubs/process-data-azure-stream-analytics.md). 
 
 1. Dans le Portail Azure, accédez au Event Hub auquel le journal envoie des événements. 
 2. Sous **Fonctionnalités**, sélectionnez l’onglet **Traiter les données**.
@@ -79,11 +79,11 @@ Vous pouvez afficher un aperçu du journal dans Event Hubs à l’aide de [requ�
 ## <a name="next-steps"></a>Étapes suivantes
 * En savoir plus sur Azure Event Hubs
   * [Prise en main avec Azure Event Hubs](../event-hubs/event-hubs-c-getstarted-send.md)
-  * [Réception de messages avec EventProcessorHost](../event-hubs/event-hubs-dotnet-standard-getstarted-receive-eph.md)
+  * [Réception de messages avec EventProcessorHost](../event-hubs/event-hubs-dotnet-standard-getstarted-send.md)
   * [Guide de programmation Event Hubs](../event-hubs/event-hubs-programming-guide.md)
 * En savoir plus sur l’intégration de Gestion des API et Event Hubs
-  * [Référence d’entité d’enregistreur](https://docs.microsoft.com/rest/api/apimanagement/2019-12-01/logger)
-  * [Référence de stratégie log-to-eventhub](https://docs.microsoft.com/azure/api-management/api-management-advanced-policies#log-to-eventhub)
+  * [Référence d’entité d’enregistreur](/rest/api/apimanagement/2019-12-01/logger)
+  * [Référence de stratégie log-to-eventhub](./api-management-advanced-policies.md#log-to-eventhub)
   * [Surveiller des API avec la Gestion des API Azure, Event Hubs et Moesif](api-management-log-to-eventhub-sample.md)  
 * En savoir plus sur [l’intégration avec Azure Application Insights](api-management-howto-app-insights.md)
 

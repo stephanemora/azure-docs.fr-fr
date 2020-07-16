@@ -5,12 +5,12 @@ author: rapatchi
 ms.topic: conceptual
 ms.date: 11/27/2017
 ms.author: rapatchi
-ms.openlocfilehash: 0a243c1cd0ab0dcb93a1cc6169c89ba18606f346
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: c093958b9a8c5a21cb6996db891705ec8c3d21ab
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "75451681"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86246280"
 ---
 # <a name="azure-service-fabric-java-client-apis"></a>API du client Java Azure Service Fabric
 
@@ -125,5 +125,4 @@ Pour chaque API, vous trouverez quatre surcharges d’implémentation. S’il ex
     * Cette variante de l’appel d’API peut être utilisée si vous souhaitez employer une programmation asynchrone réactive et traiter la réponse REST RAW
 
 ## <a name="next-steps"></a>Étapes suivantes
-* En savoir plus sur les [API REST Service Fabric](https://docs.microsoft.com/rest/api/servicefabric/)
-
+* En savoir plus sur les [API REST Service Fabric](/rest/api/servicefabric/)

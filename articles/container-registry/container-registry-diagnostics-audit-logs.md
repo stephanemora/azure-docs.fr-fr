@@ -3,12 +3,12 @@ title: Collecter et analyser les journaux de ressources
 description: Enregistrez et analysez les événements des journaux des ressources pour Azure Container Registry tels que l’authentification, l’envoi (push) d’images et le tirage (pull) d’images.
 ms.topic: article
 ms.date: 06/01/2020
-ms.openlocfilehash: b41b1001a669fe42721471bc196e7628eabff983
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 8757b8bdb67cf75b1ba800658d80b2a44311f1ba
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84343181"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86252485"
 ---
 # <a name="azure-container-registry-logs-for-diagnostic-evaluation-and-auditing"></a>Journaux d’Azure Container Registry pour l’évaluation et l’audit de diagnostics
 
@@ -142,10 +142,9 @@ ContainerRegistryLoginEvents
 
 En plus d’envoyer les journaux à Log Analytics, ou comme alternative, un scénario courant consiste à sélectionner un compte de stockage Azure comme destination du journal. Pour archiver les journaux dans le stockage Azure, créez un compte de stockage avant d’activer l’archivage via les paramètres de diagnostic.
 
-Vous pouvez également diffuser en continu les événements du journal de diagnostic vers un service [Azure Event Hub](../event-hubs/event-hubs-what-is-event-hubs.md). Le service Event Hubs peut traiter à chaque seconde des millions d’événements que vous pouvez transformer et stocker à l’aide de tout fournisseur d’analyses en temps réel. 
+Vous pouvez également diffuser en continu les événements du journal de diagnostic vers un service [Azure Event Hub](../event-hubs/event-hubs-about.md). Le service Event Hubs peut traiter à chaque seconde des millions d’événements que vous pouvez transformer et stocker à l’aide de tout fournisseur d’analyses en temps réel. 
 
 ## <a name="next-steps"></a>Étapes suivantes
 
 * En savoir plus sur l’utilisation de [Log Analytics](../azure-monitor/log-query/get-started-portal.md) et la création de [requêtes de journal](../azure-monitor/log-query/get-started-queries.md).
 * Consultez [vue d’ensemble des journaux de plateforme Azure](../azure-monitor/platform/platform-logs-overview.md) pour en savoir plus sur les journaux de plateforme disponibles dans différentes couches d’Azure.
-

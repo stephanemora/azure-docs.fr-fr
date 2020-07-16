@@ -13,18 +13,18 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 01/13/2020
 ms.author: apimpm
-ms.openlocfilehash: 8c1d126f01580574a83850e63945aa7e513eaeda
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: e7be1e90d10a84465d6416f2c13a6e4b6855077b
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "76713135"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86250071"
 ---
 # <a name="how-to-secure-apis-using-client-certificate-authentication-in-api-management"></a>Comment sécuriser les API à l'aide d'une authentification par certificat client dans la Gestion des API
 
 La Gestion des API permet de sécuriser l'accès aux API (par ex. client à gestion des API) en utilisant des certificats client. Vous pouvez valider le certificat entrant et en vérifier les propriétés en les comparant aux valeurs souhaitées à l’aide d’expressions de stratégie.
 
-Pour savoir comment sécuriser l’accès au service back-end d’une API à l’aide de certificats clients (par exemple, de la Gestion des API vers le back-end), consultez [Comment sécuriser les services principaux à l’aide d’une authentification par certificat client dans la Gestion des API Azure](https://docs.microsoft.com/azure/api-management/api-management-howto-mutual-certificates).
+Pour savoir comment sécuriser l’accès au service back-end d’une API à l’aide de certificats clients (par exemple, de la Gestion des API vers le back-end), consultez [Comment sécuriser les services principaux à l’aide d’une authentification par certificat client dans la Gestion des API Azure](./api-management-howto-mutual-certificates.md).
 
 > [!IMPORTANT]
 > Pour recevoir et vérifier des certificats clients via HTTP/2 dans les niveaux Developer, Basic, Standard ou Premium, vous devez activer le paramètre « Négocier le certificat client » dans le panneau « Domaines personnalisés », comme indiqué ci-dessous.
@@ -99,5 +99,5 @@ L’exemple suivant montre comment vérifier l’empreinte d’un certificat cli
 
 ## <a name="next-steps"></a>Étapes suivantes
 
--   [Comment sécuriser les services principaux à l'aide d'une authentification par certificat client](https://docs.microsoft.com/azure/api-management/api-management-howto-mutual-certificates)
--   [Comment télécharger des certificats](https://docs.microsoft.com/azure/api-management/api-management-howto-mutual-certificates)
+-   [Comment sécuriser les services principaux à l'aide d'une authentification par certificat client](./api-management-howto-mutual-certificates.md)
+-   [Comment télécharger des certificats](./api-management-howto-mutual-certificates.md)

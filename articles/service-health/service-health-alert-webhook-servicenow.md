@@ -3,12 +3,12 @@ title: Envoyer des alertes sur l’intégrité de service avec ServiceNow
 description: Obtenir des notifications personnalisées sur les événements d’intégrité du service sur votre instance ServiceNow.
 ms.topic: conceptual
 ms.date: 06/10/2019
-ms.openlocfilehash: 3daae05aabff571010d043cf5602847e95ea29f0
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 5cd17af080714fdf2e9e5b168e72f975c8d3a3f6
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "77654101"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86260209"
 ---
 # <a name="send-azure-service-health-alerts-with-servicenow-using-webhooks"></a>Envoyer des alertes Azure Service Health avec ServiceNow à l’aide de webhooks
 
@@ -140,9 +140,10 @@ Cet article vous explique comment intégrer les alertes sur l’intégrité du s
      ![Chemin d’accès à l’API de base dans ServiceNow](./media/webhook-alerts/servicenow-base-api-path.png)
 
 1.  Votre URL d’intégration complète ressemble à ce qui suit :
-        
-         https://<yourInstanceName>.service-now.com/<baseApiPath>?apiKey=<secret>
 
+    ```http
+    https://<yourInstanceName>.service-now.com/<baseApiPath>?apiKey=<secret>
+    ```
 
 ## <a name="create-an-alert-using-servicenow-in-the-azure-portal"></a>Créer une alerte à l’aide de ServiceNow dans le portail Azure
 ### <a name="for-a-new-action-group"></a>Pour un nouveau groupe d’action :

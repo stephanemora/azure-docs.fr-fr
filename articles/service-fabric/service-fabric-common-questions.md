@@ -4,12 +4,12 @@ description: Forum aux questions sur Service Fabric, fonctionnalités, cas d’u
 ms.topic: troubleshooting
 ms.date: 08/18/2017
 ms.author: pepogors
-ms.openlocfilehash: bf61858b446c1ac6d4a0210571fffaa721ad0166
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 056ff2475e0ae8c78887e24e07a3e33f12d7df88
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "78254883"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86258938"
 ---
 # <a name="commonly-asked-service-fabric-questions"></a>Questions fréquentes sur Service Fabric
 
@@ -22,9 +22,9 @@ Les utilisateurs posent fréquemment des questions sur l’utilisation et les fo
 
 ### <a name="how-do-i-roll-back-my-service-fabric-cluster-certificate"></a>Comment restaurer mon certificat de cluster Service Fabric ?
 
-Restaurer une mise à niveau pour votre application nécessite de détecter les échecs d’intégrité avant que le quorum du cluster Service Fabric ne valide la modification. Les modifications validées peuvent uniquement être restaurées par progression. Le recours à un ingénieur en charge de la remontée d’information via le support technique peut être nécessaire pour récupérer votre cluster, si un changement de certificat cassant non surveillé a été introduit.  La [mise à niveau des applications de Service Fabric](https://docs.microsoft.com/azure/service-fabric/service-fabric-application-upgrade?branch=master) applique des [paramètres de mise à niveau d’application](https://docs.microsoft.com/azure/service-fabric/service-fabric-application-upgrade-parameters?branch=master), et garantit une mise à niveau sans temps d’arrêt.  En suivant notre mode de surveillance recommandé pour la mise à niveau des applications, la progression automatique via les domaines de mise à jour est basée sur la réussite des vérifications d’intégrité. Une restauration automatique a lieu en cas d’échec de la mise à jour d’un service par défaut.
+Restaurer une mise à niveau pour votre application nécessite de détecter les échecs d’intégrité avant que le quorum du cluster Service Fabric ne valide la modification. Les modifications validées peuvent uniquement être restaurées par progression. Le recours à un ingénieur en charge de la remontée d’information via le support technique peut être nécessaire pour récupérer votre cluster, si un changement de certificat cassant non surveillé a été introduit.  La [mise à niveau des applications de Service Fabric](./service-fabric-application-upgrade.md?branch=master) applique des [paramètres de mise à niveau d’application](./service-fabric-application-upgrade-parameters.md?branch=master), et garantit une mise à niveau sans temps d’arrêt.  En suivant notre mode de surveillance recommandé pour la mise à niveau des applications, la progression automatique via les domaines de mise à jour est basée sur la réussite des vérifications d’intégrité. Une restauration automatique a lieu en cas d’échec de la mise à jour d’un service par défaut.
  
-Si votre cluster utilise toujours la propriété classique d’empreinte du certificat dans votre modèle Resource Manager, il est recommandé de [modifier le cluster de l’utilisation de l’empreinte du certificat à l’utilisation du nom commun](https://docs.microsoft.com/azure/service-fabric/service-fabric-cluster-change-cert-thumbprint-to-cn) pour tirer parti des fonctionnalités modernes de gestion des secrets.
+Si votre cluster utilise toujours la propriété classique d’empreinte du certificat dans votre modèle Resource Manager, il est recommandé de [modifier le cluster de l’utilisation de l’empreinte du certificat à l’utilisation du nom commun](./service-fabric-cluster-change-cert-thumbprint-to-cn.md) pour tirer parti des fonctionnalités modernes de gestion des secrets.
 
 ### <a name="can-i-create-a-cluster-that-spans-multiple-azure-regions-or-my-own-datacenters"></a>Puis-je créer un cluster qui englobe plusieurs régions Azure ou mes propres centres de données ?
 
@@ -41,7 +41,7 @@ Voici quelques points importants à prendre en compte :
 
 ### <a name="do-service-fabric-nodes-automatically-receive-os-updates"></a>Les nœuds Service Fabric reçoivent-ils automatiquement les mises à jour du système d’exploitation ?
 
-Vous pouvez utiliser la fonctionnalité [Mise à jour automatique de l’image de système d’exploitation d’un groupe de machines virtuelles identiques](https://docs.microsoft.com/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-automatic-upgrade), actuellement en disponibilité générale.
+Vous pouvez utiliser la fonctionnalité [Mise à jour automatique de l’image de système d’exploitation d’un groupe de machines virtuelles identiques](../virtual-machine-scale-sets/virtual-machine-scale-sets-automatic-upgrade.md), actuellement en disponibilité générale.
 
 Pour les clusters qui ne s’exécutent PAS sur Azure, nous [proposons une application](service-fabric-patch-orchestration-application.md) permettant de corriger les systèmes d’exploitation qui se trouvent sous les nœuds Service Fabric.
 
@@ -126,7 +126,7 @@ Non. Les machines virtuelles de faible priorité ne sont pas prises en charge.
 Les procédés suivants permettent à votre application d’obtenir des informations d’identification pour s’authentifier auprès de Key Vault :
 
 R. Au cours de votre travail de génération/compression d’applications, vous pouvez extraire un certificat et l’utiliser dans le package de données de votre application SF en vue de l’authentification auprès de Key Vault.
-B. Pour les hôtes MSI d’un groupe de machines virtuelles identiques, vous pouvez développer un élément PowerShell SetupEntryPoint simple pour votre application SF afin d’obtenir [un jeton d’accès à partir du point de terminaison MSI](https://docs.microsoft.com/azure/active-directory/managed-service-identity/how-to-use-vm-token), puis [récupérer vos secrets à partir de Key Vault](/powershell/module/azurerm.keyvault/get-azurekeyvaultsecret).
+B. Pour les hôtes MSI d’un groupe de machines virtuelles identiques, vous pouvez développer un élément PowerShell SetupEntryPoint simple pour votre application SF afin d’obtenir [un jeton d’accès à partir du point de terminaison MSI](../active-directory/managed-identities-azure-resources/how-to-use-vm-token.md), puis [récupérer vos secrets à partir de Key Vault](/powershell/module/azurerm.keyvault/get-azurekeyvaultsecret).
 
 ## <a name="application-design"></a>Conception des applications
 
@@ -177,9 +177,9 @@ Les conteneurs constituent un moyen simple d’encapsuler les services et leurs 
 
 Nous avons des composants de Service Fabric en Open Source ([infrastructure des services fiable](https://github.com/Azure/service-fabric-services-and-actors-dotnet), [infrastructure des acteurs fiable](https://github.com/Azure/service-fabric-services-and-actors-dotnet), [bibliothèques d’intégration ASP.NET Core](https://github.com/Azure/service-fabric-aspnetcore), [Service Fabric Explorer](https://github.com/Azure/service-fabric-explorer) et [l’interface de ligne de commande Service Fabric](https://github.com/Azure/service-fabric-cli)) sur GitHub et acceptons des contributions de communautés à ces projets. 
 
-Nous avons [récemment annoncé](https://blogs.msdn.microsoft.com/azureservicefabric/2018/03/14/service-fabric-is-going-open-source/) que nous prévoyons d’ouvrir la source au runtime Service Fabric. À ce stade, nous avons le [référentiel de Service Fabric](https://github.com/Microsoft/service-fabric/) sur GitHub avec les outils build et de test Linux, ce qui signifie que vous pouvez cloner le référentiel, générer Service Fabric pour Linux, exécuter des tests de base, ouvrir des problèmes et soumettre des requêtes d’extraction. Nous nous efforçons de faire en sorte que l’environnement build Windows migré soit également présent avec un environnement CI complet.
+Nous avons [récemment annoncé](https://techcommunity.microsoft.com/t5/azure-service-fabric/bg-p/Service-Fabric) que nous prévoyons d’ouvrir la source au runtime Service Fabric. À ce stade, nous avons le [référentiel de Service Fabric](https://github.com/Microsoft/service-fabric/) sur GitHub avec les outils build et de test Linux, ce qui signifie que vous pouvez cloner le référentiel, générer Service Fabric pour Linux, exécuter des tests de base, ouvrir des problèmes et soumettre des requêtes d’extraction. Nous nous efforçons de faire en sorte que l’environnement build Windows migré soit également présent avec un environnement CI complet.
 
-Consultez le [blog Service Fabric](https://blogs.msdn.microsoft.com/azureservicefabric/) pour en savoir plus.
+Consultez le [blog Service Fabric](https://techcommunity.microsoft.com/t5/azure-service-fabric/bg-p/Service-Fabric) pour en savoir plus.
 
 ## <a name="next-steps"></a>Étapes suivantes
 

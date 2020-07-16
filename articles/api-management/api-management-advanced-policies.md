@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 01/10/2020
 ms.author: apimpm
-ms.openlocfilehash: 5b17b7784691cdf38c45e4f306b2ed14b981a2d7
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 3843ff986fdc37c37690bee9616861f16a334c67
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84751257"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86243730"
 ---
 # <a name="api-management-advanced-policies"></a>Stratégies avancées de la Gestion des API
 
@@ -38,7 +38,7 @@ Cette rubrique est une ressource de référence au sujet des stratégies Gestion
 -   [Set request method](#SetRequestMethod) : permet de modifier la méthode HTTP d’une demande.
 -   [Set status code](#SetStatus) : permet de donner la valeur spécifiée au code d’état HTTP.
 -   [Set variable](api-management-advanced-policies.md#set-variable) : conserve une valeur dans une variable de [contexte](api-management-policy-expressions.md#ContextVariables) nommée pour permettre d’y accéder ultérieurement.
--   [Trace](#Trace) : ajoute des traces personnalisées à la sortie [API Inspector](https://azure.microsoft.com/documentation/articles/api-management-howto-api-inspector/), aux données de télémétrie Application Insights et aux journaux de ressources.
+-   [Trace](#Trace) : ajoute des traces personnalisées à la sortie [API Inspector](./api-management-howto-api-inspector.md), aux données de télémétrie Application Insights et aux journaux de ressources.
 -   [Wait](#Wait) : attend l’exécution des stratégies [Send request](api-management-advanced-policies.md#SendRequest), [Get value from cache](api-management-caching-policies.md#GetFromCacheByKey) ou [Control flow](api-management-advanced-policies.md#choose) pour continuer.
 
 ## <a name="control-flow"></a><a name="choose"></a> Control flow
@@ -140,7 +140,7 @@ Cet exemple montre comment effectuer un filtrage du contenu en supprimant des é
 
 ### <a name="usage"></a><a name="ChooseUsage"></a> Utilisation
 
-Cette stratégie peut être utilisée dans les [sections](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) et [étendues](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes) de stratégie suivantes.
+Cette stratégie peut être utilisée dans les [sections](./api-management-howto-policies.md#sections) et [étendues](./api-management-howto-policies.md#scopes) de stratégie suivantes.
 
 -   **Sections de la stratégie :** inbound, outbound, backend, on-error
 
@@ -148,7 +148,7 @@ Cette stratégie peut être utilisée dans les [sections](https://azure.microsof
 
 ## <a name="forward-request"></a><a name="ForwardRequest"></a> Forward request
 
-La stratégie `forward-request` transfère la demande entrante au service principal spécifié dans le [contexte](api-management-policy-expressions.md#ContextVariables) de la demande. L’URL du service back-end est spécifiée dans les [paramètres](https://azure.microsoft.com/documentation/articles/api-management-howto-create-apis/#configure-api-settings) de l’API et peut être modifiée à l’aide de la stratégie [set backend service](api-management-transformation-policies.md).
+La stratégie `forward-request` transfère la demande entrante au service principal spécifié dans le [contexte](api-management-policy-expressions.md#ContextVariables) de la demande. L’URL du service back-end est spécifiée dans les [paramètres](./import-and-publish.md) de l’API et peut être modifiée à l’aide de la stratégie [set backend service](api-management-transformation-policies.md).
 
 > [!NOTE]
 > En cas de suppression cette stratégie, la demande n’est pas transférée au service principal et les stratégies de la section outbound sont évaluées immédiatement après la réussite des stratégies de la section inbound.
@@ -259,7 +259,7 @@ Cette stratégie au niveau de l’opération ne transmet pas de demandes au serv
 
 ### <a name="usage"></a>Usage
 
-Cette stratégie peut être utilisée dans les [sections](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) et [étendues](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes) de stratégie suivantes.
+Cette stratégie peut être utilisée dans les [sections](./api-management-howto-policies.md#sections) et [étendues](./api-management-howto-policies.md#scopes) de stratégie suivantes.
 
 -   **Sections de la stratégie :** backend
 -   **Étendues de la stratégie :** toutes les étendues
@@ -309,7 +309,7 @@ L’exemple suivant montre comment limiter le nombre de requêtes transmises à 
 
 ### <a name="usage"></a>Usage
 
-Cette stratégie peut être utilisée dans les [sections](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) et [étendues](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes) de stratégie suivantes.
+Cette stratégie peut être utilisée dans les [sections](./api-management-howto-policies.md#sections) et [étendues](./api-management-howto-policies.md#scopes) de stratégie suivantes.
 
 -   **Sections de la stratégie :** inbound, outbound, backend, on-error
 
@@ -320,7 +320,7 @@ Cette stratégie peut être utilisée dans les [sections](https://azure.microsof
 La stratégie `log-to-eventhub` envoie des messages au format spécifié à un Event Hub défini par une entité Enregistreur d’événements. Comme son nom l’indique, la stratégie est utilisée pour enregistrer certaines informations sur le contexte de la réponse ou de la demande à des fins d’analyse en ligne ou hors ligne.
 
 > [!NOTE]
-> Vous trouverez un guide de configuration étape par étape d’un Event Hub et des événements de journalisation à la page [Guide pratique de l’enregistrement d’événements de la Gestion des API avec Azure Event Hubs](https://azure.microsoft.com/documentation/articles/api-management-howto-log-event-hubs/).
+> Vous trouverez un guide de configuration étape par étape d’un Event Hub et des événements de journalisation à la page [Guide pratique de l’enregistrement d’événements de la Gestion des API avec Azure Event Hubs](./api-management-howto-log-event-hubs.md).
 
 ### <a name="policy-statement"></a>Instruction de la stratégie
 
@@ -363,7 +363,7 @@ Toute chaîne peut être utilisée comme valeur à consigner dans Event Hubs. Da
 
 ### <a name="usage"></a>Usage
 
-Cette stratégie peut être utilisée dans les [sections](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) et [étendues](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes) de stratégie suivantes.
+Cette stratégie peut être utilisée dans les [sections](./api-management-howto-policies.md#sections) et [étendues](./api-management-howto-policies.md#scopes) de stratégie suivantes.
 
 -   **Sections de la stratégie :** inbound, outbound, backend, on-error
 
@@ -407,7 +407,7 @@ status code and media type. If no example or schema found, the content is empty.
 
 ### <a name="usage"></a>Usage
 
-Cette stratégie peut être utilisée dans les [sections](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) et [étendues](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes) de stratégie suivantes.
+Cette stratégie peut être utilisée dans les [sections](./api-management-howto-policies.md#sections) et [étendues](./api-management-howto-policies.md#scopes) de stratégie suivantes.
 
 -   **Sections de la stratégie :** inbound, outbound, on-error
 
@@ -475,7 +475,7 @@ Dans l’exemple suivant, le transfert de la demande est retenté jusqu’à dix
 
 ### <a name="usage"></a>Usage
 
-Cette stratégie peut être utilisée dans les [sections](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) et [étendues](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes) de stratégie suivantes. Notez que des restrictions d’utilisation des stratégies enfants seront héritées par cette stratégie.
+Cette stratégie peut être utilisée dans les [sections](./api-management-howto-policies.md#sections) et [étendues](./api-management-howto-policies.md#scopes) de stratégie suivantes. Notez que des restrictions d’utilisation des stratégies enfants seront héritées par cette stratégie.
 
 -   **Sections de la stratégie :** inbound, outbound, backend, on-error
 
@@ -525,7 +525,7 @@ La stratégie `return-response` abandonne l’exécution du pipeline et renvoie 
 
 ### <a name="usage"></a>Usage
 
-Cette stratégie peut être utilisée dans les [sections](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) et [étendues](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes) de stratégie suivantes.
+Cette stratégie peut être utilisée dans les [sections](./api-management-howto-policies.md#sections) et [étendues](./api-management-howto-policies.md#scopes) de stratégie suivantes.
 
 -   **Sections de la stratégie :** inbound, outbound, backend, on-error
 
@@ -550,7 +550,7 @@ La stratégie `send-one-way-request` envoie une demande à l’URL indiquée san
 
 ### <a name="example"></a> Exemple
 
-Cet exemple de stratégie montre un exemple d’utilisation de la stratégie `send-one-way-request` pour envoyer un message à une salle de conversation Slack si le code de la réponse HTTP est supérieur ou égal à 500. Pour plus d’informations sur cet exemple, consultez la page [Utilisation de services externes à partir du service Gestion des API Azure](https://azure.microsoft.com/documentation/articles/api-management-sample-send-request/).
+Cet exemple de stratégie montre un exemple d’utilisation de la stratégie `send-one-way-request` pour envoyer un message à une salle de conversation Slack si le code de la réponse HTTP est supérieur ou égal à 500. Pour plus d’informations sur cet exemple, consultez la page [Utilisation de services externes à partir du service Gestion des API Azure](./api-management-sample-send-request.md).
 
 ```xml
 <choose>
@@ -599,7 +599,7 @@ Cet exemple de stratégie montre un exemple d’utilisation de la stratégie `se
 
 ### <a name="usage"></a>Usage
 
-Cette stratégie peut être utilisée dans les [sections](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) et [étendues](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes) de stratégie suivantes.
+Cette stratégie peut être utilisée dans les [sections](./api-management-howto-policies.md#sections) et [étendues](./api-management-howto-policies.md#scopes) de stratégie suivantes.
 
 -   **Sections de la stratégie :** inbound, outbound, backend, on-error
 
@@ -625,7 +625,7 @@ La stratégie `send-request` envoie la demande fournie à l’URL spécifiée, s
 
 ### <a name="example"></a> Exemple
 
-Cet exemple montre un moyen de vérifier un jeton de référence avec un serveur d’autorisation. Pour plus d’informations sur cet exemple, consultez la page [Utilisation de services externes à partir du service Gestion des API Azure](https://azure.microsoft.com/documentation/articles/api-management-sample-send-request/).
+Cet exemple montre un moyen de vérifier un jeton de référence avec un serveur d’autorisation. Pour plus d’informations sur cet exemple, consultez la page [Utilisation de services externes à partir du service Gestion des API Azure](./api-management-sample-send-request.md).
 
 ```xml
 <inbound>
@@ -686,7 +686,7 @@ Cet exemple montre un moyen de vérifier un jeton de référence avec un serveur
 
 ### <a name="usage"></a>Usage
 
-Cette stratégie peut être utilisée dans les [sections](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) et [étendues](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes) de stratégie suivantes.
+Cette stratégie peut être utilisée dans les [sections](./api-management-howto-policies.md#sections) et [étendues](./api-management-howto-policies.md#scopes) de stratégie suivantes.
 
 -   **Sections de la stratégie :** inbound, outbound, backend, on-error
 
@@ -728,7 +728,7 @@ Notez l’utilisation de [propriétés](api-management-howto-properties.md) en t
 
 ### <a name="usage"></a>Usage
 
-Cette stratégie peut être utilisée dans les [sections](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) et [étendues](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes) de stratégie suivantes.
+Cette stratégie peut être utilisée dans les [sections](./api-management-howto-policies.md#sections) et [étendues](./api-management-howto-policies.md#scopes) de stratégie suivantes.
 
 -   **Sections de la stratégie :** inbound
 
@@ -747,7 +747,7 @@ La stratégie `set-method` permet de modifier la méthode d’une requête HTTP.
 
 ### <a name="example"></a> Exemple
 
-Cet exemple de stratégie, qui utilise la stratégie `set-method`, montre un exemple d’envoi d’un message à une salle de conversation Slack si le code de la réponse HTTP est supérieur ou égal à 500. Pour plus d’informations sur cet exemple, consultez la page [Utilisation de services externes à partir du service Gestion des API Azure](https://azure.microsoft.com/documentation/articles/api-management-sample-send-request/).
+Cet exemple de stratégie, qui utilise la stratégie `set-method`, montre un exemple d’envoi d’un message à une salle de conversation Slack si le code de la réponse HTTP est supérieur ou égal à 500. Pour plus d’informations sur cet exemple, consultez la page [Utilisation de services externes à partir du service Gestion des API Azure](./api-management-sample-send-request.md).
 
 ```xml
 <choose>
@@ -783,7 +783,7 @@ Cet exemple de stratégie, qui utilise la stratégie `set-method`, montre un exe
 
 ### <a name="usage"></a>Usage
 
-Cette stratégie peut être utilisée dans les [sections](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) et [étendues](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes) de stratégie suivantes.
+Cette stratégie peut être utilisée dans les [sections](./api-management-howto-policies.md#sections) et [étendues](./api-management-howto-policies.md#scopes) de stratégie suivantes.
 
 -   **Sections de la stratégie :** inbound, on-error
 
@@ -802,7 +802,7 @@ La stratégie `set-status` permet de donner la valeur spécifiée au code d’é
 
 ### <a name="example"></a> Exemple
 
-Cet exemple montre comment renvoyer une réponse 401 si le jeton d’autorisation n’est pas valide. Pour plus d’informations, consultez la page [Utiliser des services externes à partir du service Gestion des API Azure](https://azure.microsoft.com/documentation/articles/api-management-sample-send-request/).
+Cet exemple montre comment renvoyer une réponse 401 si le jeton d’autorisation n’est pas valide. Pour plus d’informations, consultez la page [Utiliser des services externes à partir du service Gestion des API Azure](./api-management-sample-send-request.md).
 
 ```xml
 <choose>
@@ -833,7 +833,7 @@ Cet exemple montre comment renvoyer une réponse 401 si le jeton d’autorisatio
 
 ### <a name="usage"></a>Usage
 
-Cette stratégie peut être utilisée dans les [sections](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) et [étendues](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes) de stratégie suivantes.
+Cette stratégie peut être utilisée dans les [sections](./api-management-howto-policies.md#sections) et [étendues](./api-management-howto-policies.md#scopes) de stratégie suivantes.
 
 -   **Sections de la stratégie :** outbound, backend, on-error
 -   **Étendues de la stratégie :** toutes les étendues
@@ -871,7 +871,7 @@ L’exemple suivant montre une stratégie set variable dans la section inbound. 
 
 ### <a name="usage"></a>Usage
 
-Cette stratégie peut être utilisée dans les [sections](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) et [étendues](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes) de stratégie suivantes.
+Cette stratégie peut être utilisée dans les [sections](./api-management-howto-policies.md#sections) et [étendues](./api-management-howto-policies.md#scopes) de stratégie suivantes.
 
 -   **Sections de la stratégie :** inbound, outbound, backend, on-error
 -   **Étendues de la stratégie :** toutes les étendues
@@ -916,9 +916,9 @@ Les expressions utilisées dans la stratégie `set-variable` doivent renvoyer un
 
 La stratégie `trace` ajoute une trace personnalisée à la sortie API Inspector, aux données de télémétrie Application Insights et/ou aux journaux de ressources.
 
--   La stratégie ajoute une trace personnalisée à la sortie [API Inspector](https://azure.microsoft.com/documentation/articles/api-management-howto-api-inspector/) quand le suivi est déclenché, c.-à-d. que l’en-tête de demande `Ocp-Apim-Trace` est présent et a la valeur true et que l’en-tête de requête `Ocp-Apim-Subscription-Key` est présent et contient une clé valide qui autorise le suivi.
--   La stratégie crée des données de télémétrie [Trace](https://docs.microsoft.com/azure/azure-monitor/app/data-model-trace-telemetry) dans Application Insights, quand l’intégration à [Application Insights](https://docs.microsoft.com/azure/api-management/api-management-howto-app-insights) est activée et que le niveau `severity` spécifié dans la stratégie est supérieur ou égal au niveau `verbosity` spécifié dans le paramètre du diagnostic.
--   La stratégie ajoute une propriété dans l’entrée du journal quand les [journaux de ressources](https://docs.microsoft.com/azure/api-management/api-management-howto-use-azure-monitor#diagnostic-logs) sont activés et que le niveau de gravité spécifié dans la stratégie est supérieur ou égal au niveau de verbosité spécifié dans le paramètre du diagnostic.
+-   La stratégie ajoute une trace personnalisée à la sortie [API Inspector](./api-management-howto-api-inspector.md) quand le suivi est déclenché, c.-à-d. que l’en-tête de demande `Ocp-Apim-Trace` est présent et a la valeur true et que l’en-tête de requête `Ocp-Apim-Subscription-Key` est présent et contient une clé valide qui autorise le suivi.
+-   La stratégie crée des données de télémétrie [Trace](../azure-monitor/app/data-model-trace-telemetry.md) dans Application Insights, quand l’intégration à [Application Insights](./api-management-howto-app-insights.md) est activée et que le niveau `severity` spécifié dans la stratégie est supérieur ou égal au niveau `verbosity` spécifié dans le paramètre du diagnostic.
+-   La stratégie ajoute une propriété dans l’entrée du journal quand les [journaux de ressources](./api-management-howto-use-azure-monitor.md#activity-logs) sont activés et que le niveau de gravité spécifié dans la stratégie est supérieur ou égal au niveau de verbosité spécifié dans le paramètre du diagnostic.
 
 ### <a name="policy-statement"></a>Instruction de la stratégie
 
@@ -946,7 +946,7 @@ La stratégie `trace` ajoute une trace personnalisée à la sortie API Inspector
 | -------- | ---------------------------------------------------------------------------------------------------------------------------------------------------- | -------- |
 | trace    | Élément racine.                                                                                                                                        | Oui      |
 | message  | Chaîne ou expression à journaliser.                                                                                                                 | Oui      |
-| metadata | Ajoute une propriété personnalisée aux données de télémétrie [Trace](https://docs.microsoft.com/azure/azure-monitor/app/data-model-trace-telemetry) Application Insights. | Non        |
+| metadata | Ajoute une propriété personnalisée aux données de télémétrie [Trace](../azure-monitor/app/data-model-trace-telemetry.md) Application Insights. | Non        |
 
 ### <a name="attributes"></a>Attributs
 
@@ -959,7 +959,7 @@ La stratégie `trace` ajoute une trace personnalisée à la sortie API Inspector
 
 ### <a name="usage"></a>Usage
 
-Cette stratégie peut être utilisée dans les [sections](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) et [étendues](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes) de stratégie suivantes.
+Cette stratégie peut être utilisée dans les [sections](./api-management-howto-policies.md#sections) et [étendues](./api-management-howto-policies.md#scopes) de stratégie suivantes.
 
 -   **Sections de la stratégie :** inbound, outbound, backend, on-error
 
@@ -1029,7 +1029,7 @@ Dans l’exemple suivant, deux stratégies `choose` sont les stratégies enfants
 
 ### <a name="usage"></a>Usage
 
-Cette stratégie peut être utilisée dans les [sections](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) et [étendues](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes) de stratégie suivantes.
+Cette stratégie peut être utilisée dans les [sections](./api-management-howto-policies.md#sections) et [étendues](./api-management-howto-policies.md#scopes) de stratégie suivantes.
 
 -   **Sections de la stratégie :** inbound, outbound, backend
 -   **Étendues de la stratégie :** toutes les étendues
@@ -1040,5 +1040,5 @@ Pour plus d’informations sur l’utilisation de stratégies, consultez les pag
 
 -   [Stratégies dans Gestion des API](api-management-howto-policies.md)
 -   [Expressions de stratégie](api-management-policy-expressions.md)
--   [Référence de stratégie](api-management-policy-reference.md) pour obtenir la liste complète des instructions et des paramètres de stratégie
+-   [Référence de stratégie](./api-management-policies.md) pour obtenir la liste complète des instructions et des paramètres de stratégie
 -   [Exemples de stratégie](policy-samples.md)

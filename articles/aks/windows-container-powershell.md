@@ -4,12 +4,12 @@ description: Découvrez comment créer rapidement un cluster Kubernetes et dépl
 services: container-service
 ms.topic: article
 ms.date: 05/26/2020
-ms.openlocfilehash: 735869da1432c241927597789f00a0bd2aea63f3
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 036c97d406e37e038474287daf39182ddce194a1
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85207946"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86250870"
 ---
 # <a name="create-a-windows-server-container-on-an-azure-kubernetes-service-aks-cluster-using-powershell"></a>Création d’un conteneur Windows Server sur un cluster Azure Kubernetes Service (AKS) à l’aide de PowerShell
 
@@ -47,7 +47,7 @@ Les limitations supplémentaires suivantes s’appliquent aux pools de nœuds Wi
 
 ## <a name="create-a-resource-group"></a>Créer un groupe de ressources
 
-Un [groupe de ressources Azure](/azure/azure-resource-manager/resource-group-overview) est un groupe logique dans lequel des ressources Azure sont déployées et gérées. Lorsque vous créez un groupe de ressources, vous devez spécifier un emplacement. Il s’agit de l’emplacement de stockage des métadonnées de groupe de ressources. C’est également là que vos ressources s’exécutent dans Azure si vous ne spécifiez pas une autre région lors de la création de ressources. Créez un groupe de ressources avec la cmdlet [New-AzResourceGroup][new-azresourcegroup].
+Un [groupe de ressources Azure](../azure-resource-manager/management/overview.md) est un groupe logique dans lequel des ressources Azure sont déployées et gérées. Lorsque vous créez un groupe de ressources, vous devez spécifier un emplacement. Il s’agit de l’emplacement de stockage des métadonnées de groupe de ressources. C’est également là que vos ressources s’exécutent dans Azure si vous ne spécifiez pas une autre région lors de la création de ressources. Créez un groupe de ressources avec la cmdlet [New-AzResourceGroup][new-azresourcegroup].
 
 L’exemple suivant crée un groupe de ressources nommé **myResourceGroup** à l’emplacement **eastus**.
 
@@ -70,7 +70,7 @@ ResourceId        : /subscriptions/00000000-0000-0000-0000-000000000000/resource
 
 ## <a name="create-an-aks-cluster"></a>Créer un cluster AKS
 
-Utilisez l’utilitaire de ligne de commande `ssh-keygen` pour générer une paire de clés SSH. Pour plus d’informations, consultez [Étapes rapides : Création et utilisation d’une paire de clés publique et privée SSH pour les machines virtuelles Linux dans Azure](/azure/virtual-machines/linux/mac-create-ssh-keys).
+Utilisez l’utilitaire de ligne de commande `ssh-keygen` pour générer une paire de clés SSH. Pour plus d’informations, consultez [Étapes rapides : Création et utilisation d’une paire de clés publique et privée SSH pour les machines virtuelles Linux dans Azure](../virtual-machines/linux/mac-create-ssh-keys.md).
 
 Pour pouvoir exécuter un cluster AKS qui prend en charge des pools de nœuds pour les conteneurs Windows Server, votre cluster doit appliquer une stratégie de réseau qui utilise un plug-in réseau [Azure CNI][azure-cni-about] (avancé). Pour plus d’informations sur la planification des plages de sous-réseau nécessaires et les considérations réseau, consultez [Configurer le réseau Azure CNI][use-advanced-networking]. Utilisez la commande [New-AzAks][new-azaks] ci-dessous pour créer un cluster AKS nommé **myAKSCluster**. L’exemple suivant crée les ressources réseau nécessaires si elles n’existent pas.
 

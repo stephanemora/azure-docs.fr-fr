@@ -5,12 +5,12 @@ author: mikkelhegn
 ms.topic: conceptual
 ms.date: 01/24/2019
 ms.author: mikhegn
-ms.openlocfilehash: 80e3d990b6e8026c57ffff0048d0447a95529564
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 92f6f495f6aac23785dd2a21672747bffb07e2e3
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79229225"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86256252"
 ---
 # <a name="visualize-your-cluster-with-service-fabric-explorer"></a>Visualiser votre cluster à l’aide de l’outil Service Fabric Explorer
 
@@ -132,7 +132,7 @@ Les opérations suivantes sont possibles :
 * Déclencher et suivre la sauvegarde d’une partition.
 * Déclencher et suivre la restauration d’une partition.
 
-Pour plus d’informations sur le service Sauvegarde et restauration, consultez la [référence sur l’API REST](https://docs.microsoft.com/rest/api/servicefabric/sfclient-index-backuprestore).
+Pour plus d’informations sur le service Sauvegarde et restauration, consultez la [référence sur l’API REST](/rest/api/servicefabric/sfclient-index-backuprestore).
 ## <a name="next-steps"></a>Étapes suivantes
 * [Gestion de vos applications Service Fabric dans Visual Studio](service-fabric-manage-application-in-visual-studio.md)
 * [Déploiement d’application Service Fabrix à l’aide de PowerShell](service-fabric-deploy-remove-applications.md)

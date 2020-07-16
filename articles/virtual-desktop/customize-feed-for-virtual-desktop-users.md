@@ -8,12 +8,12 @@ ms.topic: how-to
 ms.date: 08/29/2019
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: 99c63fd04a40b1a4e591f5ad42d8f776e8e5b67c
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 9c2ad99a59e548ff7793455dac21748dd057c5fc
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85208499"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86248694"
 ---
 # <a name="customize-feed-for-windows-virtual-desktop-users"></a>Personnaliser le flux pour les utilisateurs de Windows Virtual Desktop
 
@@ -124,7 +124,7 @@ Vous pouvez changer le nom d’affichage pour un Bureau à distance publié en d
 
 Maintenant que vous avez personnalisé le flux pour les utilisateurs, connectez-vous à un client Windows Virtual Desktop pour faire des tests. Pour cela, passez aux rubriques de procédures Se connecter à Windows Virtual Desktop :
 
- * [Se connecter avec Windows 10 ou Windows 7](connect-windows-7-and-10.md)
+ * [Se connecter avec Windows 10 ou Windows 7](connect-windows-7-10.md)
  * [Se connecter avec le client web](connect-web.md)
  * [Se connecter avec le client Android](connect-android.md)
  * [Se connecter avec le client iOS](connect-ios.md)

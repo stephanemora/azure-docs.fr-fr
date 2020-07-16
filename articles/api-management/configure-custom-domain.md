@@ -12,12 +12,12 @@ ms.workload: integration
 ms.topic: article
 ms.date: 01/13/2020
 ms.author: apimpm
-ms.openlocfilehash: 380b61df8a774e69454577d201cebf1c495b4f74
-ms.sourcegitcommit: ac4a365a6c6ffa6b6a5fbca1b8f17fde87b4c05e
+ms.openlocfilehash: 981d3134e957e1f19b9cd88ee13a72fc45d79277
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/10/2020
-ms.locfileid: "83004746"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86252893"
 ---
 # <a name="configure-a-custom-domain-name"></a>Configuration d’un nom de domaine personnalisé
 
@@ -71,8 +71,8 @@ Pour effectuer les étapes décrites dans cet article, vous devez disposer des �
     > Les noms de domaine génériques, `*.contoso.com` par exemple, sont pris en charge à tous les niveaux, à l’exception du niveau Consommation.
 
     > [!TIP]
-    > Nous vous recommandons d’utiliser [Azure Key Vault pour gérer les certificats](https://docs.microsoft.com/azure/key-vault/certificates/about-certificates) et les définir sur Rotation automatique.
-    > Si vous utilisez Azure Key Vault pour gérer le certificat TLS/SSL de domaine personnalisé, assurez-vous que le certificat est inséré dans Key Vault [en tant que _certificat_](https://docs.microsoft.com/rest/api/keyvault/CreateCertificate/CreateCertificate), pas en tant que _secret_.
+    > Nous vous recommandons d’utiliser [Azure Key Vault pour gérer les certificats](../key-vault/certificates/about-certificates.md) et les définir sur Rotation automatique.
+    > Si vous utilisez Azure Key Vault pour gérer le certificat TLS/SSL de domaine personnalisé, assurez-vous que le certificat est inséré dans Key Vault [en tant que _certificat_](/rest/api/keyvault/createcertificate/createcertificate), pas en tant que _secret_.
     >
     > Pour extraire un certificat TLS/SSL, le service Gestion des API doit disposer des autorisations nécessaires pour répertorier et obtenir les secrets sur l’Azure Key Vault contenant le certificat. Lorsque vous utilisez le portail Azure, toutes les étapes nécessaires pour la configuration sont effectuées automatiquement. Lorsque vous utilisez les outils de ligne de commande ou APIM, ces autorisations doivent être accordées manuellement. Cette opération comprend deux étapes. Utilisez tout d’abord la page Identités managées sur votre instance APIM pour vous assurer que l’identité managée est activée. Notez aussi l’ID du principal qui s’affiche sur cette page. Ensuite, sur le coffre de clés Azure Key Vault contenant le certificat, fournissez la liste des autorisations à cet ID du principal et accordez-lui les autorisations nécessaires pour obtenir les secrets.
     >

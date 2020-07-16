@@ -5,12 +5,12 @@ author: dkkapur
 ms.topic: conceptual
 ms.date: 9/11/2018
 ms.author: dekapur
-ms.openlocfilehash: 495949d1a4ec927c601f174521c360f51034a2fb
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 6b07e3fe14478cf45df2f02378da4e83853cf9ea
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85079339"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86261032"
 ---
 # <a name="plan-and-prepare-your-service-fabric-standalone-cluster-deployment"></a>Planifier et préparer votre déploiement de cluster Service Fabric autonome
 
@@ -59,10 +59,10 @@ Voici les spécifications recommandées pour les ordinateurs d’un cluster Serv
 * Connectivité à un ou plusieurs réseaux sécurisés pour tous les ordinateurs
 * Système d’exploitation Windows Server installé (versions valides 2012 R2, 2016, 1709 ou 1803). Les versions 6.4.654.9590 et ultérieures de Service Fabric prennent également en charge Windows Server 2019 et 1809.
 * [.NET Framework 4.5.1 ou version ultérieure](https://www.microsoft.com/download/details.aspx?id=40773), installation complète
-* [Windows PowerShell 3.0](https://msdn.microsoft.com/powershell/scripting/install/installing-windows-powershell)
-* Le [service RemoteRegistry](https://technet.microsoft.com/library/cc754820) doit être exécuté sur tous les ordinateurs
+* [Windows PowerShell 3.0](/powershell/scripting/windows-powershell/install/installing-windows-powershell?view=powershell-7)
+* Le [service RemoteRegistry](/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/cc754820(v=ws.11)) doit être exécuté sur tous les ordinateurs
 * **Le lecteur d’installation de Service Fabric doit être un système de fichiers NTFS.**
-* **Les services Windows *Journaux de performances et alertes* et *Journal des événements Windows* doivent [être activés](https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/cc755249(v=ws.11))** .
+* **Les services Windows *Journaux de performances et alertes* et *Journal des événements Windows* doivent [être activés](/previous-versions/windows/it-pro/windows-server-2008-r2-and-2008/cc755249(v=ws.11))** .
 
 > [!IMPORTANT]
 > L’administrateur de cluster déployant et configurant le cluster doit disposer de [privilèges d’administrateur](https://social.technet.microsoft.com/wiki/contents/articles/13436.windows-server-2012-how-to-add-an-account-to-a-local-administrator-group.aspx) sur chaque ordinateur. Vous ne pouvez pas installer Service Fabric sur un contrôleur de domaine.
@@ -157,7 +157,7 @@ Passed                     : True
 Actuellement, ce module de test de configuration ne valide pas la configuration de sécurité. Cette opération doit donc être effectuée de manière indépendante.
 
 > [!NOTE]
-> Nous améliorons en permanence ce module afin de le rendre plus fiable. Par conséquent, s’il existe un cas défectueux ou manquant qui, selon vous, n’est pas actuellement détecté par TestConfiguration, faites-le nous savoir via nos [canaux de prise en charge](https://docs.microsoft.com/azure/service-fabric/service-fabric-support).
+> Nous améliorons en permanence ce module afin de le rendre plus fiable. Par conséquent, s’il existe un cas défectueux ou manquant qui, selon vous, n’est pas actuellement détecté par TestConfiguration, faites-le nous savoir via nos [canaux de prise en charge](./service-fabric-support.md).
 >
 >
 

@@ -5,12 +5,12 @@ author: suhuruli
 ms.topic: conceptual
 ms.date: 11/02/2017
 ms.author: suhuruli
-ms.openlocfilehash: 15448a9bd8998a99e8fce578b05130694ecd5fd0
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 6f2361bf76bd4f9d297fbe541b950840f13966cc
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "75614483"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86246399"
 ---
 # <a name="debug-your-java-service-fabric-application-using-eclipse"></a>Débogage de votre application Java Service Fabric avec Eclipse
 > [!div class="op_single_selector"]
@@ -41,5 +41,5 @@ Si l’application se bloque, vous pouvez également activer le vidage de la mé
 
 ### <a name="next-steps"></a>Étapes suivantes
 
-* [Collecter les journaux avec Diagnostics Azure pour Linux](service-fabric-diagnostics-how-to-setup-lad.md).
+* [Collecter les journaux avec Diagnostics Azure pour Linux](./service-fabric-diagnostics-event-aggregation-lad.md).
 * [Surveiller et diagnostiquer les services localement](service-fabric-diagnostics-how-to-monitor-and-diagnose-services-locally-linux.md).

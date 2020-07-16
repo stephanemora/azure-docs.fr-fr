@@ -6,12 +6,12 @@ ms.topic: article
 ms.author: juluk
 ms.date: 06/29/2020
 author: jluk
-ms.openlocfilehash: d98261629f9e1612966bf74084ae0e0fa70d3605
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 4c5d6bf83d9aa9c3717b0f8e08785b0fc897577d
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85829248"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86244444"
 ---
 # <a name="customize-cluster-egress-with-a-user-defined-route"></a>Personnaliser la sortie du cluster avec une route définie par l’utilisateur
 
@@ -75,9 +75,9 @@ Pour illustrer l’application d’un cluster avec un type de sortie utilisant u
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Consultez [Vue d’ensemble des routes définies par l’utilisateur des réseaux Azure](https://docs.microsoft.com/azure/virtual-network/virtual-networks-udr-overview).
+Consultez [Vue d’ensemble des routes définies par l’utilisateur des réseaux Azure](../virtual-network/virtual-networks-udr-overview.md).
 
-Consultez [Guide pratique pour créer, modifier ou supprimer une table de routage](https://docs.microsoft.com/azure/virtual-network/manage-route-table).
+Consultez [Guide pratique pour créer, modifier ou supprimer une table de routage](../virtual-network/manage-route-table.md).
 
 <!-- LINKS - internal -->
 [az-aks-get-credentials]: /cli/azure/aks?view=azure-cli-latest#az-aks-get-credentials

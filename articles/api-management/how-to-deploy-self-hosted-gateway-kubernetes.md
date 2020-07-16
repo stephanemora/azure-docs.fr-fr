@@ -9,12 +9,12 @@ ms.workload: mobile
 ms.topic: article
 ms.author: apimpm
 ms.date: 04/23/2020
-ms.openlocfilehash: 38cfab8a3b73eeef28249f53bd2f5c56e26b21a1
-ms.sourcegitcommit: c535228f0b77eb7592697556b23c4e436ec29f96
+ms.openlocfilehash: 51ce2e0dec8b38c9285f4f4e71dd35056b292b66
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/06/2020
-ms.locfileid: "82854113"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86254280"
 ---
 # <a name="deploy-a-self-hosted-gateway-to-kubernetes"></a>Déployer une passerelle auto-hébergée sur Kubernetes
 
@@ -65,7 +65,7 @@ Cet article explique comment déployer la passerelle auto-hébergée de la Gesti
 ### <a name="access-token"></a>Access token (Jeton d’accès)
 Sans un jeton d’accès valide, une passerelle auto-hébergée ne peut pas accéder aux données de configuration ni les télécharger à partir du point de terminaison du service Gestion des API associé. Le jeton d’accès reste valide pendant un maximum de 30 jours. Le jeton doit être regénéré, et le cluster doit être configuré avec un nouveau jeton, manuellement ou via l’automatisation, avant son expiration. 
 
-Lorsque vous automatisez l’actualisation des jetons, utilisez cette [opération d’API de gestion](https://docs.microsoft.com/rest/api/apimanagement/2019-12-01/gateway/generatetoken) pour générer un nouveau jeton. Pour plus d’informations sur la gestion des secrets Kubernetes, consultez le [site Web Kubernetes](https://kubernetes.io/docs/concepts/configuration/secret).
+Lorsque vous automatisez l’actualisation des jetons, utilisez cette [opération d’API de gestion](/rest/api/apimanagement/2019-12-01/gateway/generatetoken) pour générer un nouveau jeton. Pour plus d’informations sur la gestion des secrets Kubernetes, consultez le [site Web Kubernetes](https://kubernetes.io/docs/concepts/configuration/secret).
 
 ### <a name="namespace"></a>Espace de noms
 Les [espaces de noms](https://kubernetes.io/docs/concepts/overview/working-with-objects/namespaces/) Kubernetes permettent de diviser un cluster entre plusieurs équipes, projets ou applications. Les espaces de noms fournissent une étendue pour les ressources et les noms. Ils peuvent être associés à un quota de ressources et à des stratégies de contrôle des accès.
