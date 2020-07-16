@@ -8,12 +8,12 @@ ms.topic: conceptual
 description: Utilisez un flux NuGet personnalisé pour accéder à des packages NuGet et les utiliser dans un espace Azure Dev Spaces.
 keywords: Docker, Kubernetes, Azure, AKS, Azure Container Service, conteneurs
 manager: gwallace
-ms.openlocfilehash: 39984a3b3a1be64a497fb8088559ccfcdee4f1c6
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 77c7b733b12d9b352f9a806cadc0f900b9283ef3
+ms.sourcegitcommit: f7e160c820c1e2eb57dc480b2a8fd6bef7053e91
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "74325723"
+ms.lasthandoff: 07/10/2020
+ms.locfileid: "86229275"
 ---
 # <a name="use-a-custom-nuget-feed-with-azure-dev-spaces"></a>Utiliser un flux NuGet personnalisé avec Azure Dev Spaces
 
@@ -21,7 +21,7 @@ Un flux NuGet offre un moyen pratique d’inclure des sources de package dans un
 
 ## <a name="set-up-a-nuget-feed"></a>Configurer un flux NuGet
 
-Ajoutez une [référence de package](https://docs.microsoft.com/nuget/consume-packages/package-references-in-project-files) dans le fichier `*.csproj` sous le nœud `PackageReference`. Par exemple :
+Ajoutez une [référence de package](/nuget/consume-packages/package-references-in-project-files) dans le fichier `*.csproj` sous le nœud `PackageReference`. Par exemple :
 
 ```xml
 <ItemGroup>
@@ -31,7 +31,7 @@ Ajoutez une [référence de package](https://docs.microsoft.com/nuget/consume-pa
 </ItemGroup>
 ```
 
-Créez un fichier [NuGet.Config](https://docs.microsoft.com/nuget/reference/nuget-config-file) dans le dossier du projet et définissez les sections `packageSources` et `packageSourceCredentials` pour votre flux NuGet. La section `packageSources` contient votre URL de flux, qui doit être accessible depuis votre cluster AKS. Les `packageSourceCredentials` sont les informations d’identification permettant d’accéder au flux. Par exemple :
+Créez un fichier [NuGet.Config](/nuget/reference/nuget-config-file) dans le dossier du projet et définissez les sections `packageSources` et `packageSourceCredentials` pour votre flux NuGet. La section `packageSources` contient votre URL de flux, qui doit être accessible depuis votre cluster AKS. Les `packageSourceCredentials` sont les informations d’identification permettant d’accéder au flux. Par exemple :
 
 ```xml
 <packageSources>
@@ -71,4 +71,4 @@ La prochaine fois que vous exécuterez`azds up` ou `F5` dans Visual Studio Code 
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-En savoir plus sur [NuGet et son fonctionnement](https://docs.microsoft.com/nuget/what-is-nuget).
+En savoir plus sur [NuGet et son fonctionnement](/nuget/what-is-nuget).

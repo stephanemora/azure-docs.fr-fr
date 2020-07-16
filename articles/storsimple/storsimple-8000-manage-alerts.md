@@ -6,12 +6,12 @@ ms.service: storsimple
 ms.topic: how-to
 ms.date: 03/14/2019
 ms.author: alkohli
-ms.openlocfilehash: 36f416183bd44180bee59142714e924e0ac8fefe
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: bf41232026fcb51e63cb68d6f42b7b66d14022e1
+ms.sourcegitcommit: 3541c9cae8a12bdf457f1383e3557eb85a9b3187
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85830041"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86207796"
 ---
 # <a name="use-the-storsimple-device-manager-service-to-view-and-manage-storsimple-alerts"></a>Utiliser le service StorSimple Device Manager pour afficher et gérer les alertes StorSimple
 
@@ -199,8 +199,8 @@ En cas d'échec de la connexion au cloud sur votre appareil de production StorS
 
 ### <a name="performance-alerts"></a>Alertes de performances
 
-| Texte d'alerte | Événement | Plus d'informations/actions recommandées | |
-|:--- |:--- |:--- | --- |
+| Texte d'alerte | Événement | Plus d'informations/actions recommandées |
+|:--- |:--- |:--- |
 | La charge de l’appareil a dépassé <*seuil*>. |Plus lent que le temps de réponse attendu. |Votre appareil indique que l'utilisation d'entrée/sortie est surchargée. Cela peut entraîner du mauvais fonctionnement de votre appareil. Consultez les charges de travail que vous avez attachées à l’appareil et déterminez si certaines peuvent être déplacées vers un autre appareil ou ne sont plus nécessaires.|
 | Impossible de démarrer les services StorSimple. |Erreur de chemin d’accès des données |Si le problème persiste, contactez le support technique Microsoft. |
 

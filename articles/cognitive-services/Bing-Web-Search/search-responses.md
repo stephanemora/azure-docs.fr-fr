@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 06/25/2019
 ms.author: aahi
 ms.custom: seodec2018
-ms.openlocfilehash: 7933d5e5cf7d82de013e18b221f3a0c3ce6b5229
-ms.sourcegitcommit: a989fb89cc5172ddd825556e45359bac15893ab7
+ms.openlocfilehash: 284f8c8432d732fdfa7e16b43a47578437bcf0ba
+ms.sourcegitcommit: 3541c9cae8a12bdf457f1383e3557eb85a9b3187
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/01/2020
-ms.locfileid: "85800526"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86202238"
 ---
 # <a name="bing-web-search-api-response-structure-and-answer-types"></a>Types et structure de la réponse de l’API Recherche Web Bing  
 
@@ -435,7 +435,7 @@ Si Bing détermine que l’utilisateur rechercherait peut-être autre chose, la 
 
 Les réponses de l’API Recherche Web Bing peuvent contenir les en-têtes suivants :
 
-|||
+| En-tête | Description |
 |-|-|
 |`X-MSEdge-ClientID`|L’ID unique que Bing a affecté à l’utilisateur|
 |`BingAPIs-Market`|Le marché qui a été utilisé pour répondre à la requête|

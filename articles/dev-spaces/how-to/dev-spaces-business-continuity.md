@@ -8,24 +8,24 @@ ms.topic: conceptual
 description: Apprenez à utiliser Azure Dev Spaces et Azure Kubernetes Service pour assurer la continuité des activités et préparer la récupération d’urgence.
 keywords: 'Docker, Kubernetes, Azure, AKS, Azure Kubernetes Service, conteneurs, Helm, service Mesh, routage du service Mesh, kubectl, k8s '
 manager: gwallace
-ms.openlocfilehash: 993866a35f530616c235728cbe59e52e083aa968
-ms.sourcegitcommit: fc718cc1078594819e8ed640b6ee4bef39e91f7f
+ms.openlocfilehash: 4e47d4b05dedb981d55c527f76ae1c3a120f23d0
+ms.sourcegitcommit: f7e160c820c1e2eb57dc480b2a8fd6bef7053e91
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "83996922"
+ms.lasthandoff: 07/10/2020
+ms.locfileid: "86232421"
 ---
 # <a name="business-continuity-and-disaster-recovery-in-azure-dev-spaces"></a>Continuité d’activité et reprise d’activité dans Azure Dev Spaces
 
 ## <a name="review-disaster-recovery-guidance-for-azure-kubernetes-service-aks"></a>Passer en revue les conseils sur la reprise d’activité pour Azure Kubernetes Service (AKS)
 
-Azure Dev Spaces est une fonctionnalité d’Azure Kubernetes Service. Vous devez connaître les recommandations relatives à la reprise d’activité dans AKS et déterminer si elles s’appliquent aux clusters AKS que vous utilisez pour Dev Spaces. Pour plus d’informations, reportez-vous à [Bonnes pratiques pour la continuité d’activité et la reprise d’activité dans AKS (Azure Kubernetes Services)](https://docs.microsoft.com/azure/aks/operator-best-practices-multi-region)
+Azure Dev Spaces est une fonctionnalité d’Azure Kubernetes Service. Vous devez connaître les recommandations relatives à la reprise d’activité dans AKS et déterminer si elles s’appliquent aux clusters AKS que vous utilisez pour Dev Spaces. Pour plus d’informations, reportez-vous à [Bonnes pratiques pour la continuité d’activité et la reprise d’activité dans AKS (Azure Kubernetes Services)](../../aks/operator-best-practices-multi-region.md)
 
 ## <a name="enable-dev-spaces-on-aks-clusters-in-different-regions"></a>Activer Dev Spaces sur des clusters AKS dans différentes régions
 
 L’activation de Dev Spaces sur des clusters AKS dans différentes régions vous permet de reprendre l’utilisation de Dev Spaces juste après un incident dans une région Azure.
 
-Pour obtenir des informations générales sur les déploiements d’AKS dans plusieurs régions, consultez [Planifier le déploiement multi-région](https://docs.microsoft.com/azure/aks/operator-best-practices-multi-region#plan-for-multiregion-deployment)
+Pour obtenir des informations générales sur les déploiements d’AKS dans plusieurs régions, consultez [Planifier le déploiement multi-région](../../aks/operator-best-practices-multi-region.md#plan-for-multiregion-deployment)
 
 ### <a name="enable-dev-spaces-via-the-azure-cli"></a>Activer Dev Spaces via Azure CLI
 

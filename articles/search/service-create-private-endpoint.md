@@ -8,12 +8,12 @@ ms.author: mcarter
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 05/11/2020
-ms.openlocfilehash: e55dfc692bdd625de8873f6e61c9969ed7fbf2df
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 27fb165c36c17cee83cd9f90eba3bdcb9e32d517
+ms.sourcegitcommit: 3541c9cae8a12bdf457f1383e3557eb85a9b3187
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84466168"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86206904"
 ---
 # <a name="create-a-private-endpoint-for-a-secure-connection-to-azure-cognitive-search"></a>Créer un point de terminaison privé pour une connexion sécurisée à Recherche cognitive Azure
 
@@ -86,11 +86,11 @@ Dans cette section, vous allez créer un service Recherche cognitive Azure avec 
     | Abonnement | Sélectionnez votre abonnement. |
     | Resource group | Sélectionnez **myResourceGroup**. Vous avez créé cela dans la section précédente.|
     | Emplacement | Sélectionnez **USA Ouest**.|
-    | Nom | Entrez *myPrivateEndpoint*.  |
+    | Nom | Entrez *myPrivateEndpoint*.  |
     | Sous-ressource cible | Conservez le **searchService** par défaut. |
     | **MISE EN RÉSEAU** |  |
-    | Réseau virtuel  | Sélectionnez  *MyVirtualNetwork* dans le groupe de ressources *myResourceGroup*. |
-    | Subnet | Sélectionnez *mySubnet*. |
+    | Réseau virtuel  | Sélectionnez *MyVirtualNetwork* dans le groupe de ressources *myResourceGroup*. |
+    | Subnet | Sélectionnez *mySubnet*. |
     | **INTÉGRATION À DNS PRIVÉ** |  |
     | Intégrer à une zone DNS privée  | Conservez la valeur par défaut **Oui**. |
     | Zone DNS privée  | Conservez la valeur par défaut ** privatelink.search.windows.net**. |
@@ -189,7 +189,7 @@ Dans cette section, vous vérifierez l’accès au réseau privé du service Sea
 
 Lorsque le point de terminaison de service de recherche est privé, certaines fonctionnalités du portail sont désactivées. Vous pouvez voir et gérer les paramètres du niveau de service, mais l’accès du portail aux données d’index et aux divers autres composants de ce service, comme les définitions d’index, d’indexeur et d’ensemble de compétences, est limité pour des raisons de sécurité.
 
-1. Dans le Bureau à distance de  *myVM*, ouvrez PowerShell.
+1. Dans le Bureau à distance de *myVM*, ouvrez PowerShell.
 
 1. Entrez « nslookup [nom du service Search].search.windows.net »
 
@@ -207,7 +207,7 @@ Lorsque le point de terminaison de service de recherche est privé, certaines fo
 
 1. En effectuant le démarrage rapide à partir de la machine virtuelle, vous confirmez que le service est pleinement opérationnel.
 
-1. Fermez la connexion Bureau à distance avec  *myVM*. 
+1. Fermez la connexion Bureau à distance à *myVM*. 
 
 1. Pour vérifier que votre service n’est pas accessible sur un point de terminaison public, ouvrez Postman sur votre station de travail locale et essayez d’effectuer les premières tâches du démarrage rapide. Si vous recevez un message d’erreur indiquant que le serveur distant n’existe pas, vous avez correctement configuré un point de terminaison privé pour votre service Search.
 

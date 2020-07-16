@@ -19,12 +19,12 @@ translation.priority.mt:
 - ru-ru
 - zh-cn
 - zh-tw
-ms.openlocfilehash: 99ec639b88f3334530243242aadfa0ab52a40df0
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 68e6ec0af0b24771b21dac35c944fc7fa098b404
+ms.sourcegitcommit: 3541c9cae8a12bdf457f1383e3557eb85a9b3187
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "74113144"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86203107"
 ---
 # <a name="odata-orderby-syntax-in-azure-cognitive-search"></a>Syntaxe OData $orderby dans Recherche cognitive Azure
 
@@ -64,19 +64,27 @@ La syntaxe pour `search.score` dans **$orderby** est `search.score()`. La foncti
 
 Tirer les hôtels par ordre croissant sur le tarif de base :
 
+```odata-filter-expr
     $orderby=BaseRate asc
+```
 
 Trier les hôtels par ordre décroissant sur l’évaluation, puis par ordre croissant sur le tarif de base (rappelez-vous que l’ordre croissant est la valeur par défaut) :
 
+```odata-filter-expr
     $orderby=Rating desc,BaseRate
+```
 
 Trier les hôtels par ordre décroissant sur l’évaluation, puis par ordre croissant sur la distance à partir des coordonnées spécifiées :
 
+```odata-filter-expr
     $orderby=Rating desc,geo.distance(Location, geography'POINT(-122.131577 47.678581)') asc
+```
 
 Trier les hôtels par ordre décroissant sur search.score et l’évaluation, puis par ordre croissant sur la distance à partir des coordonnées spécifiées. Entre deux d’hôtels avec des scores ou une évaluation identique, le plus proche est listé en premier :
 
+```odata-filter-expr
     $orderby=search.score() desc,Rating desc,geo.distance(Location, geography'POINT(-122.131577 47.678581)') asc
+```
 
 ## <a name="next-steps"></a>Étapes suivantes  
 

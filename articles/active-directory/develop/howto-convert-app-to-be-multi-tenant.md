@@ -13,12 +13,12 @@ ms.date: 03/17/2020
 ms.author: ryanwi
 ms.reviewer: jmprieur, lenalepa, sureshja, kkrishna
 ms.custom: aaddev
-ms.openlocfilehash: f4b76bd91a47f14104a9f7f23a4a545ee3d40e59
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 6a48467100e396ed1b43544d1b10ae5007415e3e
+ms.sourcegitcommit: 3541c9cae8a12bdf457f1383e3557eb85a9b3187
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85477853"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86201957"
 ---
 # <a name="how-to-sign-in-any-azure-active-directory-user-using-the-multi-tenant-application-pattern"></a>Procédure : Connecter un utilisateur Azure Active Directory à l’aide du modèle d’application multilocataire
 
@@ -71,15 +71,21 @@ Les applications web et les API web reçoivent et valident les jetons de la plat
 
 Examinons la manière dont une application valide les jetons qu’elle reçoit de la plateforme d’identités Microsoft. Une application à locataire unique a généralement une valeur de point de terminaison de type :
 
+```http
     https://login.microsoftonline.com/contoso.onmicrosoft.com
+```
 
 et l’utilise pour construire une URL de métadonnées (dans ce cas, OpenID Connect) comme :
 
+```http
     https://login.microsoftonline.com/contoso.onmicrosoft.com/.well-known/openid-configuration
+```
 
 pour télécharger deux informations essentielles utilisées pour valider les jetons : les clés de connexion du client et la valeur issuer. Chaque client Azure AD possède une valeur issuer unique de type :
 
+```http
     https://sts.windows.net/31537af4-6d77-4bb9-a681-d2394888ea26/
+```
 
 où la valeur GUID est la version « rename-safe » de l’ID du client. Si vous sélectionnez le lien de métadonnées précédent pour `contoso.onmicrosoft.com`, vous pouvez afficher cette valeur issuer dans le document.
 
@@ -87,7 +93,9 @@ Lorsqu’une application client unique valide un jeton, elle vérifie la signatu
 
 Comme le point de terminaison /common ne correspond pas à un client et n’a pas la valeur issuer, lorsque vous examinez la valeur issuer dans les métadonnées pour /common, elle comporte une URL basée sur un modèle au lieu d’une valeur réelle :
 
+```http
     https://sts.windows.net/{tenantid}/
+```
 
 Par conséquent, une application mutualisée ne peut pas valider les jetons simplement en faisant correspondre la valeur issuer dans les métadonnées avec la valeur `issuer` dans le jeton. Une application mutualisée a besoin d’une logique pour déterminer les valeurs issuer valides et celles qui ne le sont pas, en fonction de la partie ID client de la valeur issuer. 
 
@@ -135,7 +143,9 @@ Votre application peut comporter plusieurs niveaux, chacun représenté par sa p
 
 Cela peut poser problème si votre application logique implique deux ou plusieurs inscriptions d’application, par exemple un client et une ressource distincts. Comment ajouter d’abord la ressource au client ? Azure AD traite ce cas en permettant au client et aux ressources d’être consentis en une seule étape. L’utilisateur voit l’ensemble des autorisations demandées par le client et les ressources sur la page de consentement. Pour activer ce comportement, l’inscription d’application de la ressource doit inclure l’ID d’application du client en tant que `knownClientApplications` dans son [manifeste d’application][AAD-App-Manifest]. Par exemple :
 
+```aad-app-manifest
     knownClientApplications": ["94da0930-763f-45c7-8d26-04d5938baab2"]
+```
 
 Cela est illustré par un client natif multiniveau appelant un exemple d’API web dans la section [Contenu connexe](#related-content) à la fin de cet article. Le diagramme ci-dessous décrit le processus de consentement pour une application multiniveau enregistrée dans un seul client.
 

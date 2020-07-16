@@ -7,12 +7,12 @@ ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 06/17/2020
-ms.openlocfilehash: b9bac7b5b23c4e7d4042b53b93347628488be953
-ms.sourcegitcommit: 93462ccb4dd178ec81115f50455fbad2fa1d79ce
+ms.openlocfilehash: a06f0838f25e771a90fb6dc6f4fcd3bd9bdeda87
+ms.sourcegitcommit: 3541c9cae8a12bdf457f1383e3557eb85a9b3187
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/06/2020
-ms.locfileid: "85984268"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86203810"
 ---
 # <a name="create-a-consulting-service-offer"></a>Créer une offre de services de conseil
 
@@ -98,12 +98,22 @@ Cette page vous permet de définir le produit principal que votre offre de servi
 
 3. Si vous avez sélectionné **Azure** comme produit principal, sélectionnez jusqu’à trois **zones de solution**. Elles permettent aux clients de la place de marché Azure de trouver votre offre plus facilement. Si vous n’avez pas choisi Azure, ignorez cette étape.
 
-    | Domaine fonctionnel | | | |
-    | --- | --- | --- | --- |
-    | Analytics | Sauvegarde | DevOps | Migration |
-    | Modernisation des applications | Données volumineuses (« Big Data ») | Récupération d’urgence | Mise en réseau |
-    | Archivage | Plateforme de données | Identité | Sécurité |
-    | IA + Machine Learning | Gestion de centres de données | Internet des Objets | Stockage |
+    - Analytics
+    - Modernisation des applications
+    - Archivage
+    - IA + Machine Learning
+    - Sauvegarde
+    - Données volumineuses (« Big Data »)
+    - Plateforme de données
+    - Gestion de centres de données
+    - DevOps
+    - Récupération d’urgence
+    - Identité
+    - Internet des Objets
+    - Migration
+    - Mise en réseau
+    - Sécurité
+    - Stockage
 
 1. Si vous avez sélectionné **Azure** comme produit principal, vous avez la possibilité de sélectionner jusqu’à six **secteurs d’activité**. Elles permettent aux clients de la place de marché Azure de trouver votre offre plus facilement. Consultez la liste complète des secteurs d’activité dans [Bonnes pratiques pour le référencement des offres](../gtm-offer-listing-best-practices.md). Si vous n’avez pas choisi Azure, ignorez cette étape.
 1. Si vous avez sélectionné un produit principal *autre* qu’Azure, sélectionnez jusqu’à trois **Produits applicables**. Elles permettent aux clients d’AppSource de trouver votre offre plus facilement. Pour plus de détails, consultez [Microsoft AppSource consulting services listing guidelines](https://go.microsoft.com/fwlink/?LinkId=828734&amp;clcid=0x409) (Instructions de référencement des services de conseil Microsoft AppSource - PDF).

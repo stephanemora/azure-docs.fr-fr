@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.workload: infrastructure-services
 ms.date: 06/30/2020
 ms.author: cherylmc
-ms.openlocfilehash: 42c8dd298c1fa0de04449945c7bb82e8b8bd6ff0
-ms.sourcegitcommit: 9b5c20fb5e904684dc6dd9059d62429b52cb39bc
+ms.openlocfilehash: 3505427ab88a2241aa2781366c3d15179b03f050
+ms.sourcegitcommit: f7e160c820c1e2eb57dc480b2a8fd6bef7053e91
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85856608"
+ms.lasthandoff: 07/10/2020
+ms.locfileid: "86231158"
 ---
 # <a name="expressroute-partners-and-peering-locations"></a>Partenaires ExpressRoute et emplacements de peering
 
@@ -205,7 +205,7 @@ Pour plus d’informations, consultez [ExpressRoute en Chine](http://www.windows
 | --- | --- | --- | --- |
 | **[Colt](https://www.colt.net/direct-connect/azure/)** |Prise en charge |Non pris en charge |Francfort |
 | **[Equinix](https://www.equinix.com/partners/microsoft-azure/)** |Prise en charge |Non pris en charge |Francfort |
-| **[e-shelter](https://www.e-shelter.de/en/microsoft-expressroutetm)** |Prise en charge |Non pris en charge |Berlin |
+| **[e-shelter](https://www.e-shelter.de/en/microsoft-expressroute)** |Prise en charge |Non pris en charge |Berlin |
 | **Interxion** |Prise en charge |Non pris en charge |Francfort |
 | **[Megaport](https://www.megaport.com/services/microsoft-expressroute/)** |Prise en charge  | Non pris en charge | Berlin |
 | **T-Systems** |Prise en charge |Non pris en charge |Berlin |
@@ -243,7 +243,7 @@ Si vous êtes à distance et que vous n’avez pas de connectivité par fibre ou
 | **Fournisseur de connectivité** | **Exchange** | **Emplacements** |
 | --- | --- | --- |
 | **[1CLOUDSTAR](https://www.1cloudstar.com/service/cloudconnect-azure-expressroute/)** |Equinix |Singapour |
-| **[Airgate Technologies, Inc.](https://www.airgate.ca/expressroute)** | Equinix, Cologix | Toronto, Montréal |
+| **[Airgate Technologies, Inc.](https://www.airgate.ca/)** | Equinix, Cologix | Toronto, Montréal |
 | **[Alaska Communications](https://www.alaskacommunications.com/For-Your-Business/Direct-Cloud-Service)** |Equinix |Seattle |
 | **[Altice Business](https://golightpath.com/transport)** |Equinix |New York, Washington DC |
 | **[Arteria Networks Corporation](https://www.arteria-net.com/business/service/cloud/sca/)** |Equinix |Tokyo |
@@ -316,7 +316,7 @@ Si vous êtes à distance et que vous n’avez pas de connectivité par fibre ou
 | **[Stream Data Centers]( https://www.streamdatacenters.com/products-services/network-cloud/ )** | Megaport |
 | **[RagingWire Data Centers](https://www.ragingwire.com/wholesale/wholesale-data-centers-worldwide-nexcenters)** | IX Reach, Megaport, PacketFabric |
 | **[vXchnge](https://www.vxchnge.com/colocation-services/interconnection)** | IX Reach, Megaport |
-| **[T5 Datacenters](https://t5datacenters.com/network-cloud-connect/)** | IX Reach |
+| **[T5 Datacenters](https://t5datacenters.com/)** | IX Reach |
 
 ## <a name="connectivity-through-national-research-and-education-networks-nren"></a>Connectivité via les réseaux NREN (National Research and Education Networks)
 

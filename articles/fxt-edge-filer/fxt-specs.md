@@ -6,12 +6,12 @@ ms.service: fxt-edge-filer
 ms.topic: conceptual
 ms.date: 06/20/2019
 ms.author: rohogue
-ms.openlocfilehash: c06b0c79e01257eebf566b9752269cb88c072d8a
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 57e312df31682ea868443423f40d54369cab6699
+ms.sourcegitcommit: f7e160c820c1e2eb57dc480b2a8fd6bef7053e91
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85846715"
+ms.lasthandoff: 07/10/2020
+ms.locfileid: "86231297"
 ---
 # <a name="azure-fxt-edge-filer-specifications"></a>Spécifications Azure FXT Edge Filer
 
@@ -46,7 +46,7 @@ Azure FXT Edge Filer est conçu pour s’adapter dans un rack d’équipement st
 
 <!-- 10x2.5 inches version -->
 
-| Dimensions du serveur de fichiers           |                          |
+| Dimensions du serveur de fichiers            | Valeur                    |
 |-----------------------------|--------------------------|
 | Hauteur                      | 42,8 mm (1,68 pouce)    |
 | Largeur (y compris les pattes) | 482,0 mm (18,97 pouces)  |
@@ -56,7 +56,7 @@ Azure FXT Edge Filer est conçu pour s’adapter dans un rack d’équipement st
 | Profondeur - entre les pattes et la protrusion avant la plus éloignée, sans cadre | 22,0 mm (0,87 pouce)  |
 | Profondeur - entre les pattes et la protrusion avant la plus éloignée, cadre compris    | 35,84 mm (1,41 pouce) |
 
-| Poids | |
+| Poids | Valeur |
 |-----------------|----------------------|
 | Poids du nœud (sans emballage, ni accessoires) | 40 lb (18,1 kg) |
 | Poids net (sans emballage, avec les accessoires) | 51 lb (23,1 kg)|

@@ -7,12 +7,12 @@ ms.service: expressroute
 ms.topic: conceptual
 ms.date: 09/18/2018
 ms.author: cherylmc
-ms.openlocfilehash: e833e20085d7cfd8f727acb394851e96e7e19368
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 58914709838c72246678ce92005de5ac18695a1f
+ms.sourcegitcommit: 3541c9cae8a12bdf457f1383e3557eb85a9b3187
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "75864364"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86204174"
 ---
 # <a name="expressroute-workflows-for-circuit-provisioning-and-circuit-states"></a>Workflows ExpressRoute d’approvisionnement du circuit et états du circuit
 Cette page vous guide de façon sommaire tout au long des workflows d’approvisionnement du service et de configuration du routage.
@@ -55,33 +55,37 @@ Cette section liste les états possibles d’un circuit ExpressRoute.
 
 Le circuit ExpressRoute signale les états suivants lors de la création des ressources.
 
-    ServiceProviderProvisioningState : NotProvisioned
-    Status                           : Enabled
-
+```output
+ServiceProviderProvisioningState : NotProvisioned
+Status                           : Enabled
+```
 
 **Quand le fournisseur de connectivité est en cours d’approvisionnement du circuit**
 
 Le circuit ExpressRoute indique les états suivants lorsque le fournisseur de connectivité procède au provisionnement du circuit.
 
-    ServiceProviderProvisioningState : Provisioning
-    Status                           : Enabled
-
+```output
+ServiceProviderProvisioningState : Provisioning
+Status                           : Enabled
+```
 
 **Quand fournisseur de connectivité a terminé le processus d’approvisionnement**
 
 Le circuit ExpressRoute indique les états suivants une fois que le fournisseur de connectivité a terminé le provisionnement du circuit.
 
-    ServiceProviderProvisioningState : Provisioned
-    Status                           : Enabled
-
+```output
+ServiceProviderProvisioningState : Provisioned
+Status                           : Enabled
+```
 
 **Quand le fournisseur de connectivité est en train d’annuler l’approvisionnement du circuit**
 
 Si le circuit ExpressRoute doit être déprovisionné, le circuit signalera les états suivants une fois que le fournisseur de services aura terminé le déprovisionnement.
 
-    ServiceProviderProvisioningState : NotProvisioned
-    Status                           : Enabled
-
+```output
+ServiceProviderProvisioningState : NotProvisioned
+Status                           : Enabled
+```
 
 Vous pouvez choisir de le réactiver si nécessaire, ou exécuter des applets de commande PowerShell pour supprimer le circuit.  
 

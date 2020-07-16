@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: how-to
 ms.date: 05/01/2018
 ms.author: allensu
-ms.openlocfilehash: 1f8dc5ef89c70cebce1d59fc389300b30dc828f6
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: edc2198cff360b6f0d2f6ace3b76d35bf77fab97
+ms.sourcegitcommit: 3541c9cae8a12bdf457f1383e3557eb85a9b3187
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84887602"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86206714"
 ---
 # <a name="media-streaming-optimization-with-azure-cdn"></a>Optimisation de la diffusion multimédia en continu avec Azure CDN 
  
@@ -82,12 +82,11 @@ Une fois le point de terminaison créé, il applique les optimisations pour tous
 Si **CDN Azure Standard fourni par Akamai** détecte que la ressource est un manifeste ou un fragment de diffusion en continu, il utilise des délais d’expiration de mise en cache différents de la livraison web générale. (voir la liste complète dans le tableau suivant). Comme toujours, les en-têtes Cache-control ou Expires en provenance de l’origine sont respectés. Si la ressource n’est pas une ressource multimédia, elle est mise en cache dans le respect des délais d’expiration pour la livraison web générale.
 
 Le temps de mise en cache négatif court est utile pour le déchargement de l’origine lorsque de nombreux utilisateurs demandent un fragment qui n’existe pas encore. Un exemple est un flux temps réel où les paquets ne sont pas disponibles à l’origine à cette seconde. L’intervalle de mise en cache plus long facilite également les demandes de déchargement de l’origine, car le contenu vidéo n’est généralement pas modifié.
- 
 
-|   | Livraison web générale | Diffusion multimédia en continu générale | Diffusion multimédia en continu de vidéo à la demande  
---- | --- | --- | ---
-Mise en cache : Positive <br> HTTP 200, 203, 300, <br> 301, 302 et 410 | 7 jours |365 jours | 365 jours   
-Mise en cache : Negative <br> HTTP 204, 305, 404, <br> et 405 | None | 1 seconde | 1 seconde
+| Mise en cache  | Livraison web générale | Diffusion multimédia en continu générale | Diffusion multimédia en continu de vidéo à la demande  
+|--- | --- | --- | ---
+| Mise en cache : Positive <br> HTTP 200, 203, 300, <br> 301, 302 et 410 | 7 jours |365 jours | 365 jours   
+| Mise en cache : Negative <br> HTTP 204, 305, 404, <br> et 405 | None | 1 seconde | 1 seconde
  
 ### <a name="deal-with-origin-failure"></a>Traitement des défaillances de l’origine  
 

@@ -6,12 +6,12 @@ author: cweining
 ms.author: cweining
 ms.date: 08/06/2018
 ms.reviewer: mbullwin
-ms.openlocfilehash: 52391ffc8eb6b6879e5fd90df26d9ccacbfacebb
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 6b6f98f3c7f540e00743ae27b532b24d2310453e
+ms.sourcegitcommit: 3541c9cae8a12bdf457f1383e3557eb85a9b3187
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "82188924"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86205717"
 ---
 # <a name="configure-application-insights-profiler"></a>Configurer Application Insights Profiler
 
@@ -32,7 +32,7 @@ Une page se présentant comme suit s’affiche :
 
 La page **Configurer Application Insights Profiler** offre les fonctionnalités suivantes :
 
-| | |
+| Fonctionnalité | Description |
 |-|-|
 Profiler maintenant | Démarre des sessions de profilage pour toutes les applications qui sont liées à cette instance d’Application Insights.
 Déclencheurs | Vous permet de configurer les déclencheurs entraînant l’exécution du profileur. 
@@ -48,7 +48,7 @@ Pour déclencher manuellement une session du profileur, l’utilisateur doit au 
 
 Cliquez sur le bouton Déclencheurs dans la barre de menus pour ouvrir la boîte de dialogue Paramètres de déclencheur. Vous pouvez configurer le déclencheur pour démarrer le profilage quand le pourcentage d’utilisation du processeur ou de la mémoire atteint le niveau que vous avez défini.
 
-| | |
+| Paramètre | Description |
 |-|-|
 Bouton Activé/Désactivé | Activé : le profileur peut être démarré avec ce déclencheur ; Désactivé : le profileur ne sera pas démarré avec ce déclencheur.
 Seuil de mémoire | Quand l’utilisation de la mémoire atteint ce pourcentage, le profileur est démarré.
@@ -58,7 +58,7 @@ Temps de recharge | Définit le temps d’attente du profileur avant de vérifie
 ## <a name="recent-profiling-sessions"></a>Sessions de profilage récentes
 Cette section de la page affiche des informations sur les sessions de profilage récentes. Une session de profilage représente la période pendant laquelle l’agent du profileur a effectué un profil sur l’une des machines hébergeant votre application. Vous pouvez ouvrir les profils à partir d’une session en cliquant sur l’une des lignes. Pour chaque session, les informations suivantes sont présentées :
 
-| | |
+| Paramètre | Description |
 |-|-|
 Déclenché par | Mode de démarrage de la session : par un déclencheur, avec le bouton Profiler maintenant ou avec l’échantillonnage par défaut. 
 Nom de l'application | Nom de l’application profilée.

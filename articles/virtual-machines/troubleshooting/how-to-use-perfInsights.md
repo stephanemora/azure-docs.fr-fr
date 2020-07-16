@@ -13,12 +13,12 @@ ms.tgt_pltfrm: vm-windows
 ms.topic: troubleshooting
 ms.date: 10/31/2018
 ms.author: genli
-ms.openlocfilehash: 783b479dd3e5f429516799d7d3ea82f363cac2ec
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 896e69bad9cd75b57ef2bf93048c332ef4d974c0
+ms.sourcegitcommit: 3541c9cae8a12bdf457f1383e3557eb85a9b3187
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85847454"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86207704"
 ---
 # <a name="how-to-use-perfinsights"></a>Utilisation de PerfInsights
 
@@ -101,9 +101,8 @@ Lorsque vous exécutez une analyse avancée des performances, vous sélectionnez
 
 Les informations portant sur la configuration de la machine virtuelle Windows, des disques ou des pools de stockage, les compteurs de performances, les journaux d’activité et les différentes traces sont recueillies. Cela varie selon le scénario de performances que vous utilisez. Le tableau suivant fournit les détails :
 
-|Données collectées                              |  |  | Scénarios de performances |  |  | |
-|----------------------------------|----------------------------|------------------------------------|--------------------------|--------------------------------|----------------------|----------------------|
-|                               | Analyse rapide des performances | Benchmarking | Analyse des performances | Analyse de fichiers Azure | Analyse avancée des performances |
+| Données collectées | Analyse rapide des performances | Benchmarking | Analyse des performances | Analyse de fichiers Azure | Analyse avancée des performances |
+|----------------------------------|----------------------------|------------------------------------|--------------------------|--------------------------------|----------------------|
 | Informations tirées des journaux d’événements       | Oui                        | Oui                                | Oui                      | Oui                  | Oui                  |
 | Informations système                | Oui                        | Oui                                | Oui                      | Oui                  | Oui                  |
 | Mappage de volume                        | Oui                        | Oui                                | Oui                      | Oui                  | Oui                  |

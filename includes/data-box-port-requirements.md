@@ -5,15 +5,15 @@ ms.subservice: pod
 ms.topic: include
 ms.date: 07/11/2019
 ms.author: alkohli
-ms.openlocfilehash: 4a3925752d1af5e43d5984b06c0a68aa9faa214b
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 948f5399ceb931d701341c2cf378482ede94979d
+ms.sourcegitcommit: 3541c9cae8a12bdf457f1383e3557eb85a9b3187
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "67839768"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86200288"
 ---
-| N° de port| Entrant ou sortant | Étendue de ports| Obligatoire| Notes |   |
-|--------|-----|-----|-----------|----------|-----------|
+| N° de port| Entrant ou sortant | Étendue de ports| Obligatoire| Notes |
+|--------|-----|-----|-----------|----------|
 | TCP 80 (HTTP)|Dans|LAN|Oui|Ce port est utilisé pour se connecter aux API REST de stockage Data Box Blog sur HTTP. Si vous ne vous connectez pas à des API REST, la connexion est automatiquement redirigée vers l’interface utilisateur web locale sur le port 8443. |
 | TCP 443 (HTTPS)|Dans|LAN|Oui|Ce port est utilisé pour se connecter aux API REST de stockage Data Box Blog sur HTTPS. Si vous ne vous connectez pas à des API REST, la connexion est automatiquement redirigée vers l’interface utilisateur web locale sur le port 8443. |
 | TCP 8443 (HTTPS-Alt)|Dans|LAN|Oui|Il s’agit d’un autre port pour le protocole HTTPS. il est utilisé lors de la connexion à l’interface utilisateur web locale pour la gestion des appareils. |

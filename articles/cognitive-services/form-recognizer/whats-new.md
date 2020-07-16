@@ -9,12 +9,12 @@ ms.subservice: forms-recognizer
 ms.topic: conceptual
 ms.date: 05/19/2020
 ms.author: pafarley
-ms.openlocfilehash: bbf098feccaf760718b97b1afb2d24bc55eef9ad
-ms.sourcegitcommit: 0100d26b1cac3e55016724c30d59408ee052a9ab
+ms.openlocfilehash: 09eba483a258c1e88b15a5795d32b3b4a029a175
+ms.sourcegitcommit: f7e160c820c1e2eb57dc480b2a8fd6bef7053e91
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/07/2020
-ms.locfileid: "86027033"
+ms.lasthandoff: 07/10/2020
+ms.locfileid: "86232710"
 ---
 # <a name="whats-new-in-form-recognizer"></a>Nouveautés de Form Recognizer
 
@@ -26,14 +26,14 @@ Le service Form Recognizer est régulièrement mis à jour. Lisez cet article po
 ## <a name="july-2020"></a>Juillet 2020
 
 ### <a name="new-features"></a>Nouvelles fonctionnalités
-* **Référence v2.0 disponible** Voir la [référence d’API v2.0](https://westus2.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2/operations/AnalyzeWithCustomForm) et les SDK mis à jour pour [.NET](https://docs.microsoft.com/dotnet/api/overview/azure/formrecognizer), [Python](https://docs.microsoft.com/python/api/overview/azure/formrecognizer), [Java](https://docs.microsoft.com/java/api/overview/azure/formrecognizer) et [JavaScript](https://docs.microsoft.com/javascript/api/overview/azure/formrecognizer).
+* **Référence v2.0 disponible** Voir la [référence d’API v2.0](https://westus2.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2/operations/AnalyzeWithCustomForm) et les SDK mis à jour pour [.NET](https://docs.microsoft.com/dotnet/api/overview/azure/ai.formrecognizer-readme-pre), [Python](https://docs.microsoft.com/python/api/azure-ai-formrecognizer/azure.ai.formrecognizer), [Java](https://docs.microsoft.com/java/api/overview/azure/formrecognizer) et [JavaScript](https://docs.microsoft.com/azure/cognitive-services/form-recognizer/).
 * Les **améliorations apportées aux tables et aux extractions** incluent un plus haut niveau de justesse et des améliorations au niveau de l’extraction de tables, en particulier la possibilité d’apprendre les en-têtes et les structures des tables dans le cadre d’un entraînement personnalisé sans étiquettes. 
 * **Prise en charge des devises** : détection et extraction des symboles monétaires du monde entier.
 * **Azure Government** Form Recognizer est désormais disponible dans Azure Government.
-*   **Fonctionnalités de sécurité améliorées** : 
-    *   **Apporter votre propre clé (BYOK)** Form Recognizer chiffre automatiquement vos données quand elles sont conservées dans le cloud afin de les protéger et de vous aider à répondre aux exigences de votre organisation concernant la sécurité et la conformité. Par défaut, votre abonnement utilise des clés de chiffrement gérées par Microsoft. Vous pouvez aussi maintenant gérer votre abonnement avec vos propres clés de chiffrement. Les [clés managées par le client (CMK), également appelées BYOK (Bring Your Own Key)](https://docs.microsoft.com/azure/cognitive-services/form-recognizer/form-recognizer-encryption-of-data-at-rest
+*    **Fonctionnalités de sécurité améliorées** : 
+    *    **Apporter votre propre clé (BYOK)** Form Recognizer chiffre automatiquement vos données quand elles sont conservées dans le cloud afin de les protéger et de vous aider à répondre aux exigences de votre organisation concernant la sécurité et la conformité. Par défaut, votre abonnement utilise des clés de chiffrement gérées par Microsoft. Vous pouvez aussi maintenant gérer votre abonnement avec vos propres clés de chiffrement. Les [clés managées par le client (CMK), également appelées BYOK (Bring Your Own Key)](https://docs.microsoft.com/azure/cognitive-services/form-recognizer/form-recognizer-encryption-of-data-at-rest
 ), offrent plus de flexibilité pour créer, permuter, désactiver et révoquer des contrôles d’accès. Vous pouvez également effectuer un audit sur les clés de chiffrement utilisées pour protéger vos données.  
-    *   **Points de terminaison privés** : sur un réseau virtuel, permettent d’[accéder aux données de façon sécurisée via une liaison privée](https://docs.microsoft.com/azure/private-link/private-link-overview).
+    *    **Points de terminaison privés** : sur un réseau virtuel, permettent d’[accéder aux données de façon sécurisée via une liaison privée](https://docs.microsoft.com/azure/private-link/private-link-overview).
 
 
 ## <a name="june-2020"></a>Juin 2020
@@ -51,10 +51,10 @@ Le service Form Recognizer est régulièrement mis à jour. Lisez cet article po
 
 ### <a name="new-features"></a>Nouvelles fonctionnalités
 * **Prise en charge du SDK pour la préversion publique de l’API Form Recognizer v 2.0** Ce mois-ci, nous avons étendu notre support technique pour inclure une préversion du SDK de Form Recognizer v2.0 (préversion). Utilisez les liens ci-dessous pour bien démarrer avec le langage de votre choix : 
-   * [Kit de développement logiciel (SDK) .NET](https://docs.microsoft.com/dotnet/api/overview/azure/formrecognizer)
+   * [Kit de développement logiciel (SDK) .NET](https://docs.microsoft.com/dotnet/api/overview/azure/ai.formrecognizer-readme-pre)
    * [Kit SDK Java](https://docs.microsoft.com/java/api/overview/azure/formrecognizer)
-   * [Kit de développement logiciel (SDK) Python](https://docs.microsoft.com/python/api/overview/azure/formrecognizer)
-   * [Kit de développement logiciel (SDK) JavaScript](https://docs.microsoft.com/javascript/api/overview/azure/formrecognizer)
+   * [Kit de développement logiciel (SDK) Python](https://docs.microsoft.com/python/api/azure-ai-formrecognizer/azure.ai.formrecognizer)
+   * [Kit de développement logiciel (SDK) JavaScript](https://docs.microsoft.com/azure/cognitive-services/form-recognizer/)
 
   Le nouveau SDK prend en charge toutes les fonctionnalités de l’API REST v2.0 pour Form Recognizer. Par exemple, vous pouvez entraîner un modèle avec ou sans étiquettes pour extraire du texte, des paires clé-valeur et des tables de vos formulaires, extraire des données à partir de reçus avec le service des reçus préintégré et extraire du texte et des tables de vos documents avec le service de disposition. Vous pouvez partager vos commentaires sur les SDK à l’aide du [formulaire de commentaires sur les SDK](https://aka.ms/FR_SDK_v1_feedback).
  

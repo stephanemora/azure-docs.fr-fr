@@ -7,12 +7,12 @@ ms.topic: troubleshooting
 ms.date: 6/12/2020
 ms.author: jeffpatt
 ms.subservice: files
-ms.openlocfilehash: ec7469210bcfae53407a157a325c749aee2c2b08
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 17c8f846201553d3cfa9a2d68b8b4a7ab655c378
+ms.sourcegitcommit: f7e160c820c1e2eb57dc480b2a8fd6bef7053e91
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85512051"
+ms.lasthandoff: 07/10/2020
+ms.locfileid: "86232376"
 ---
 # <a name="troubleshoot-azure-file-sync"></a>Résoudre les problèmes de synchronisation de fichiers Azure
 Utilisez Azure File Sync pour centraliser les partages de fichiers de votre organisation dans Azure Files tout en conservant la flexibilité, le niveau de performance et la compatibilité d’un serveur de fichiers local. Azure File Sync transforme Windows Server en un cache rapide de votre partage de fichiers Azure. Vous pouvez utiliser tout protocole disponible dans Windows Server pour accéder à vos données localement, notamment SMB, NFS et FTPS. Vous pouvez avoir autant de caches que nécessaire dans le monde entier.
@@ -690,7 +690,9 @@ Cette erreur se produit en raison de l’échec de la suppression du point de te
 | **HRESULT (décimal)** | -1906441711 |
 | **Chaîne d’erreur** | JET_errLogDiskFull |
 | **Correction requise** | Oui |
+
 | | |
+|-|-|
 | **HRESULT** | 0x80c8031a |
 | **HRESULT (décimal)** | -2134375654 |
 | **Chaîne d’erreur** | ECS_E_NOT_ENOUGH_LOCAL_STORAGE |
@@ -717,12 +719,16 @@ Cette erreur se produit parce que le point de terminaison cloud a été créé a
 | **HRESULT (décimal)** | -2134375877 |
 | **Chaîne d’erreur** | ECS_E_SYNC_METADATA_KNOWLEDGE_SOFT_LIMIT_REACHED |
 | **Correction requise** | Oui |
+
 | | |
+|-|-|
 | **HRESULT** | 0x80c8021c |
 | **HRESULT (décimal)** | -2134375908 |
 | **Chaîne d’erreur** | ECS_E_SYNC_METADATA_KNOWLEDGE_LIMIT_REACHED |
 | **Correction requise** | Oui |
+
 | | |
+|-|-|
 | **HRESULT** | 0x80c80253 |
 | **HRESULT (décimal)** | -2134375853 |
 | **Chaîne d’erreur** | ECS_E_TOO_MANY_PER_ITEM_ERRORS |

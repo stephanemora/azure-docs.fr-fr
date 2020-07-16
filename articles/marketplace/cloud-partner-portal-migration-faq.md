@@ -7,12 +7,12 @@ ms.topic: article
 author: anbene
 ms.author: mingshen
 ms.date: 06/29/2020
-ms.openlocfilehash: 2192b3757281bf6796fbf93f83cab6e71deb29f6
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.openlocfilehash: e708d9a32d63c306a2d1ee8d06b044652f108dde
+ms.sourcegitcommit: f7e160c820c1e2eb57dc480b2a8fd6bef7053e91
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86120552"
+ms.lasthandoff: 07/10/2020
+ms.locfileid: "86231877"
 ---
 # <a name="frequently-asked-questions-about-transitioning-from-the-cloud-partner-portal-to-partner-center"></a>Questions fréquentes (FAQ) sur la transition du portail Cloud Partner vers l’Espace partenaires
 
@@ -76,7 +76,7 @@ Pour les types d’offres pris en charge dans l’Espace partenaires, toutes les
 | Service de conseil | Oui | Connectez-vous à l’Espace partenaires pour créer de nouvelles offres et gérer les offres créées dans le portail Cloud Partner. En savoir plus dans [Créer une offre de services de conseil](partner-center-portal/create-consulting-service-offer.md). |
 | Service managé | Oui | Connectez-vous à l’Espace partenaires pour créer de nouvelles offres et gérer les offres créées dans le portail Cloud Partner. En savoir plus dans [Créer une offre de service managé](partner-center-portal/create-new-managed-service-offer.md). |
 | Dynamics Nav Managed Service | Non | Microsoft a fait évoluer Dynamics NAV Managed Service en [Dynamics 365 Business Central](https://docs.microsoft.com/dynamics365/business-central/). Nous avons donc supprimé les offres actives Dynamics NAV Managed Service dans AppSource. Ces offres ne sont plus détectables par les clients et n’ont pas été déplacées vers l’Espace partenaires. Pour que vos offres soient disponibles dans AppSource, transformez-les en offres Dynamics 365 Business Central et envoyez-les dans [l’Espace partenaires](https://partner.microsoft.com/). En savoir plus dans [Créer une offre Dynamics 365 Business Central](partner-center-portal/create-new-business-central-offer.md). |
-| Cortana Intelligence | Non | Microsoft a fait évoluer la feuille de route pour Cortana Intelligence. Nous avons donc supprimé les offres actives Cortana Intelligence dans AppSource. Ces offres ne sont plus détectables par les clients et n’ont pas été déplacées vers l’Espace partenaires. Pour que vos offres soient disponibles sur la place de marché commerciale, transformez-les en offres SaaS (Software as a Service) et envoyez-les dans [l’Espace partenaires](hhttps://partner.microsoft.com/). En savoir plus dans [Liste de vérification de la création d’offre SaaS dans l’Espace partenaires](partner-center-portal/offer-creation-checklist.md). |
+| Cortana Intelligence | Non | Microsoft a fait évoluer la feuille de route pour Cortana Intelligence. Nous avons donc supprimé les offres actives Cortana Intelligence dans AppSource. Ces offres ne sont plus détectables par les clients et n’ont pas été déplacées vers l’Espace partenaires. Pour que vos offres soient disponibles sur la place de marché commerciale, transformez-les en offres SaaS (Software as a Service) et envoyez-les dans [l’Espace partenaires](https://partner.microsoft.com/). En savoir plus dans [Liste de vérification de la création d’offre SaaS dans l’Espace partenaires](partner-center-portal/offer-creation-checklist.md). |
 
 ## <a name="i-cant-find-my-cloud-partner-portal-offers-in-partner-center"></a>Je ne trouve pas mes offres du portail Cloud Partner dans l’Espace partenaires
 

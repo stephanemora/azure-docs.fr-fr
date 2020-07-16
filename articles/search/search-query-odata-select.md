@@ -19,12 +19,12 @@ translation.priority.mt:
 - ru-ru
 - zh-cn
 - zh-tw
-ms.openlocfilehash: 64f15bf3d262249cdda2760c7ddf768be2590419
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: dfe438f6940d3ccd5632a47be1389a30748716b0
+ms.sourcegitcommit: 3541c9cae8a12bdf457f1383e3557eb85a9b3187
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "74113098"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86206893"
 ---
 # <a name="odata-select-syntax-in-azure-cognitive-search"></a>Syntaxe OData $select dans la Recherche cognitive Azure
 
@@ -63,7 +63,9 @@ Si vous répertoriez un champ complexe sans spécifier explicitement ses sous-ch
 
 Incluez champs `HotelId`, `HotelName`, et `Rating` de niveau supérieur dans les résultats, ainsi que le sous-champ `City` de `Address` :
 
+```odata-filter-expr
     $select=HotelId, HotelName, Rating, Address/City
+```
 
 Le résultat peut ressembler à cet exemple :
 
@@ -80,7 +82,9 @@ Le résultat peut ressembler à cet exemple :
 
 Incluez le champ `HotelName` de niveau supérieur dans les résultats, ainsi que tous les sous-champs de `Address` et les sous-champs `Type` et `BaseRate` de chaque objet de la collection `Rooms` :
 
+```odata-filter-expr
     $select=HotelName, Address, Rooms/Type, Rooms/BaseRate
+```
 
 Le résultat peut ressembler à cet exemple :
 

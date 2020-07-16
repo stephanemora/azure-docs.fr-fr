@@ -7,12 +7,12 @@ ms.topic: article
 author: keferna
 ms.author: keferna
 ms.date: 06/19/2020
-ms.openlocfilehash: 95ca527d8f7912e2c455f94036fe61828b220257
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.openlocfilehash: abad72145b095b4da77ec499f936c6912fd970a6
+ms.sourcegitcommit: f7e160c820c1e2eb57dc480b2a8fd6bef7053e91
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86121467"
+ms.lasthandoff: 07/10/2020
+ms.locfileid: "86229446"
 ---
 # <a name="what-is-a-test-drive"></a>Qu'est-ce qu’une version d'évaluation ?
 
@@ -74,7 +74,7 @@ Le processus de transformation d’une architecture de ressources en version d�
 
 ## <a name="generate-leads-from-your-test-drive"></a>Générer des prospects à partir de votre version d’évaluation
 
-Une version d’évaluation de marketplace commercial est un excellent outil pour les spécialistes marketing. Nous vous recommandons de l’intégrer dans vos efforts de mise sur le marché lorsque vous vous lancez afin de générer davantage de prospects pour votre entreprise. Pour obtenir des instructions détaillées, consultez [Prospects de votre offre de marketplace commercial](https://github.com/partner-center-portal/commercial-marketplace-get-customer-leads.md).
+Une version d’évaluation de marketplace commercial est un excellent outil pour les spécialistes marketing. Nous vous recommandons de l’intégrer dans vos efforts de mise sur le marché lorsque vous vous lancez afin de générer davantage de prospects pour votre entreprise. Pour obtenir des instructions détaillées, consultez [Prospects de votre offre de marketplace commercial](https://github.com/MicrosoftDocs/azure-docs/blob/master/articles/marketplace/partner-center-portal/commercial-marketplace-get-customer-leads.md).
 
 Si vous concluez une affaire avec un prospect ayant utilisé une version d’évaluation, n’oubliez pas de la consigner sur [Microsoft Partner Center Sales Connect](https://support.microsoft.com/help/3155788/getting-started-with-microsoft-partner-sales-connect). Nous aimerions savoir dans quels domaines une version d’évaluation a aidé le client à atteindre ses objectifs.
 

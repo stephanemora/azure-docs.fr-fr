@@ -19,12 +19,12 @@ translation.priority.mt:
 - ru-ru
 - zh-cn
 - zh-tw
-ms.openlocfilehash: 2d3952f7d2adc26892cbebcd962f2ea25b86de7d
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 741bf9e2aba6f893f670e86fb8bf5cd6c8b9d803
+ms.sourcegitcommit: 3541c9cae8a12bdf457f1383e3557eb85a9b3187
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "74113191"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86201986"
 ---
 # <a name="odata-logical-operators-in-azure-cognitive-search---and-or-not"></a>Opérateurs logiques OData dans Recherche cognitive Azure - `and`, `or`, `not`
 
@@ -93,19 +93,27 @@ Lorsqu’un champ booléen `b` apparaît tout seul dans une expression de filtre
 
 Correspondance des documents dans lesquels le champ `rating` est compris entre 3 et 5 (inclusif) :
 
+```odata-filter-expr
     rating ge 3 and rating le 5
+```
 
 Correspondance des documents dans lesquels tous les éléments du champ `ratings` sont inférieurs à 3 ou supérieurs à 5 :
 
+```odata-filter-expr
     ratings/all(r: r lt 3 or r gt 5)
+```
 
 Correspondance des documents dans lesquels le champ `location` est compris dans le polygone donné, et que le document ne contient pas le terme « public ».
 
+```odata-filter-expr
     geo.intersects(location, geography'POLYGON((-122.031577 47.578581, -122.031577 47.678581, -122.131577 47.678581, -122.031577 47.578581))') and not search.ismatch('public')
+```
 
 Correspondance des documents pour les hôtels à Vancouver, au Canada, qui comprennent une chambre de luxe avec un prix de base inférieur à 160 :
 
+```odata-filter-expr
     Address/City eq 'Vancouver' and Address/Country eq 'Canada' and Rooms/any(room: room/Type eq 'Deluxe Room' and room/BaseRate lt 160)
+```
 
 ## <a name="next-steps"></a>Étapes suivantes  
 

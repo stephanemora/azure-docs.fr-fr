@@ -12,12 +12,12 @@ author: jovanpop-msft
 ms.author: jovanpop
 ms.reviewer: bonova, sstein
 ms.date: 06/25/2020
-ms.openlocfilehash: e48a027af70ec9d002ddcfbb2ee36ded4ca7875a
-ms.sourcegitcommit: 93462ccb4dd178ec81115f50455fbad2fa1d79ce
+ms.openlocfilehash: 4eb1afdd7a6e48d8701dafc6dff44ce6e6db4902
+ms.sourcegitcommit: f7e160c820c1e2eb57dc480b2a8fd6bef7053e91
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/06/2020
-ms.locfileid: "85983517"
+ms.lasthandoff: 07/10/2020
+ms.locfileid: "86231622"
 ---
 # <a name="features-comparison-azure-sql-database-and-azure-sql-managed-instance"></a>Comparaison des fonctionnalités : Azure SQL Database et Azure SQL Managed Instance
 
@@ -167,7 +167,7 @@ Azure SQL Database et Azure SQL Managed Instance prennent en charge différents 
 | [SQL Server Management Studio (SSMS)](https://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms) | Oui | Oui [version 18.0 ou ultérieure](https://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms) |
 | [SQL Server PowerShell](https://docs.microsoft.com/sql/relational-databases/scripting/sql-server-powershell) | Oui | Oui |
 | [SQL Server Profiler](https://docs.microsoft.com/sql/tools/sql-server-profiler/sql-server-profiler) | Non - voir [Événements étendus](xevent-db-diff-from-svr.md) | Oui |
-| [System Center Operations Manager (SCOM)](https://docs.microsoft.com/system-center/scom/welcome) | [Oui](https://www.microsoft.com/download/details.aspx?id=38829) | Oui, [en préversion](https://www.microsoft.com/download/details.aspx?id=100306) |
+| [System Center Operations Manager (SCOM)](https://docs.microsoft.com/system-center/scom/welcome) | [Oui](https://www.microsoft.com/download/details.aspx?id=38829) | Oui, [en préversion](https://www.microsoft.com/download/details.aspx?id=38829) |
 
 ## <a name="migration-methods"></a>Méthodes de migration
 

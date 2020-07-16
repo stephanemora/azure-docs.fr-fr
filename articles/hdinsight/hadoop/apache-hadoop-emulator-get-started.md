@@ -9,12 +9,12 @@ ms.custom: hdinsightactive,hdiseo17may2017
 ms.topic: how-to
 ms.date: 05/29/2019
 ms.author: hrasheed
-ms.openlocfilehash: e918740c884f377048febfe2177e2fe956b1d552
-ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
+ms.openlocfilehash: de2a8e6377ababadc7d42f873a816a01a8f3b77e
+ms.sourcegitcommit: 3541c9cae8a12bdf457f1383e3557eb85a9b3187
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86085053"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86207470"
 ---
 # <a name="get-started-with-an-apache-hadoop-sandbox-an-emulator-on-a-virtual-machine"></a>Bien démarrer avec un bac à sable Apache Hadoop, un émulateur sur une machine virtuelle
 
@@ -57,7 +57,9 @@ Pour télécharger une version antérieure du bac à sable HDP, consultez les li
 
 2. Une fois connecté, entrez la commande suivante :
 
-        ambari-admin-password-reset
+    ```bash
+    ambari-admin-password-reset
+    ```
 
     Lorsque vous y êtes invité, indiquez le mot de passe du compte d’administrateur Ambari. Il est utilisé pour accéder à l’interface utilisateur web d’Ambari.
 
@@ -65,13 +67,21 @@ Pour télécharger une version antérieure du bac à sable HDP, consultez les li
 
 1. À partir d’une connexion SSH au bac à sable, utilisez la commande suivante pour démarrer l’interpréteur de commandes Hive :
 
-        hive
+    ```bash
+    hive
+    ```
+
 2. Une fois l’interpréteur de commandes a démarré, procédez comme suit pour afficher les tables fournies avec le bac à sable :
 
-        show tables;
+    ```hiveql
+    show tables;
+    ```
+
 3. Utilisez la commande suivante pour récupérer 10 lignes de la table `sample_07` :
 
-        select * from sample_07 limit 10;
+    ```hiveql
+    select * from sample_07 limit 10;
+    ```
 
 ## <a name="next-steps"></a>Étapes suivantes
 

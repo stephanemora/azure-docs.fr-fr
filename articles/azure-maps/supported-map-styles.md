@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: timlt
-ms.openlocfilehash: 2eafe3c16a89723d55ec52fde785e9ec69e45e0c
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 3db8ae98302ad6df7355ce03f5a33b5d21f1ea09
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80334036"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86242098"
 ---
 # <a name="azure-maps-supported-map-styles"></a>Styles de cartes pris en charge dans Azure Maps
 Azure Maps prend en charge plusieurs styles de mappage intégrés, qui sont décrits ci-dessous.
@@ -28,6 +28,7 @@ Une carte **routière** est une carte standard qui affiche les routes, les élé
 * [Vignette de la carte](https://docs.microsoft.com/rest/api/maps/render/getmaptile)
 * Contrôle de carte du SDK web
 * Commandes de carte Android
+* Visuel Power BI
 
 ## <a name="blank-and-blank_accessible"></a>blank et blank_accessible
 
@@ -48,6 +49,7 @@ Le style **satellite** est une combinaison d’imagerie satellite et d’imageri
 * [Vignette Satellite](https://docs.microsoft.com/rest/api/maps/render/getmapimagerytilepreview)
 * Contrôle de carte du SDK web
 * Commandes de carte Android
+* Visuel Power BI
 
 ## <a name="satellite_road_labels"></a>satellite_road_labels
 Ce style de carte est un hybride qui montre des routes et des noms superposés à une imagerie satellite et aérienne.
@@ -57,6 +59,7 @@ Ce style de carte est un hybride qui montre des routes et des noms superposés �
 **API applicables :**
 * Contrôle de carte du SDK web
 * Commandes de carte Android
+* Visuel Power BI
 
 ## <a name="grayscale_dark"></a>grayscale_dark
 **Nuances de gris foncé** est une version plus sombre du style carte routière.
@@ -68,6 +71,7 @@ Ce style de carte est un hybride qui montre des routes et des noms superposés �
 * [Vignette de la carte](https://docs.microsoft.com/rest/api/maps/render/getmaptile)
 * Contrôle de carte du SDK web 
 * Commandes de carte Android
+* Visuel Power BI
 
 
 ## <a name="grayscale_light"></a>grayscale_light
@@ -78,6 +82,7 @@ Ce style de carte est un hybride qui montre des routes et des noms superposés �
 **API applicables :**
 * Contrôle de carte du SDK web
 * Commandes de carte Android
+* Visuel Power BI
 
 
 ## <a name="night"></a>nuit
@@ -88,6 +93,7 @@ Ce style de carte est un hybride qui montre des routes et des noms superposés �
 **API applicables :**
 * Contrôle de carte du SDK web
 * Commandes de carte Android
+* Visuel Power BI
 
 ## <a name="road_shaded_relief"></a>road_shaded_relief
 Le **relief par ombres portées** est un style d’Azure Maps qui reprend le relief terrestre.
@@ -98,6 +104,7 @@ Le **relief par ombres portées** est un style d’Azure Maps qui reprend le rel
 * [Vignette de la carte](https://docs.microsoft.com/rest/api/maps/render/getmaptile)
 * Contrôle de carte du SDK web
 * Commandes de carte Android
+* Visuel Power BI
 
 ## <a name="high_contrast_dark"></a>high_contrast_dark
 
@@ -107,6 +114,7 @@ Le **relief par ombres portées** est un style d’Azure Maps qui reprend le rel
 
 **API applicables :**
 * Contrôle de carte du SDK web
+* Visuel Power BI
 
 ## <a name="next-steps"></a>Étapes suivantes
 

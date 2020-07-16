@@ -3,12 +3,12 @@ title: Conversations multitours dans QnA Maker
 description: Servez-vous des invites et du contexte pour gérer plusieurs tours (ou « multitour ») pour votre bot d’une question à l’autre. La conversation multitour est la possibilité d’avoir une conversation nourrie où le contexte de la question précédente influence la question et la réponse suivantes.
 ms.topic: conceptual
 ms.date: 04/13/2020
-ms.openlocfilehash: 8ef244e1b6baf480189bb90ea5ff53138a6f377a
-ms.sourcegitcommit: 8dc84e8b04390f39a3c11e9b0eaf3264861fcafc
+ms.openlocfilehash: 93bc6201cb627dc27071caf7beded5778b06ccb6
+ms.sourcegitcommit: f7e160c820c1e2eb57dc480b2a8fd6bef7053e91
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/13/2020
-ms.locfileid: "81261463"
+ms.lasthandoff: 07/10/2020
+ms.locfileid: "86229344"
 ---
 # <a name="use-follow-up-prompts-to-create-multiple-turns-of-a-conversation"></a>Utiliser des invites de suivi pour créer plusieurs tours de conversation
 
@@ -367,7 +367,7 @@ QnA Maker prend en charge la gestion de versions en incluant des étapes de conv
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Découvrez plus en détail les conversations contextuelles à travers cet [exemple de boîte de dialogue](https://aka.ms/qnamakermultiturnsample) ou apprenez-en davantage sur la [conception de bots conceptuels pour les conversations multitours](https://docs.microsoft.com/azure/bot-service/bot-builder-conversations?view=azure-bot-service-4.0).
+Découvrez plus en détail les conversations contextuelles à travers cet [exemple de boîte de dialogue](https://github.com/microsoft/BotBuilder-Samples/blob/master/samples/csharp_dotnetcore/adaptive-dialog/07.qnamaker/QnAMaker.csproj) ou apprenez-en davantage sur la [conception de bots conceptuels pour les conversations multitours](https://docs.microsoft.com/azure/bot-service/bot-builder-conversations?view=azure-bot-service-4.0).
 
 > [!div class="nextstepaction"]
 > [Migrer une base de connaissances](../Tutorials/migrate-knowledge-base.md)

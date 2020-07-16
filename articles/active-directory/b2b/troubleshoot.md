@@ -14,12 +14,12 @@ ms.custom:
 - it-pro
 - seo-update-azuread-jan"
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 5f8bafb04d0a5d9c6d25a7ed7e155888d492e9fc
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: a835872d4a4fedfb5ef72a1cb9499e4f969adcd3
+ms.sourcegitcommit: 3541c9cae8a12bdf457f1383e3557eb85a9b3187
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "80050781"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86202103"
 ---
 # <a name="troubleshooting-azure-active-directory-b2b-collaboration"></a>Résolution des problèmes d’Azure Active Directory B2B Collaboration
 
@@ -87,7 +87,9 @@ Si ce scénario est important pour vous, vous pouvez supprimer l’API qui envoi
 
 Un utilisateur disposant d’un compte invité ne peut pas ouvrir de session et reçoit le message d’erreur suivant :
 
+```plaintext
     AADSTS65005: Using application 'AppName' is currently not supported for your organization contoso.com because it is in an unmanaged state. An administrator needs to claim ownership of the company by DNS validation of contoso.com before the application AppName can be provisioned.
+```
 
 L’utilisateur dispose d’un compte d’utilisateur Azure et est un locataire viral qui a été abandonné ou non managé. En outre, il n’existe aucun administrateur global ou d’entreprise dans le locataire.
 

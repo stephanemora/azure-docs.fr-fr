@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: philmea
-ms.openlocfilehash: fb0293c66662c86723c31baebeed42dd42d33413
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: d55a0726000a6ed55f049ac4a4146f66421a7085
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "83677799"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86242574"
 ---
 # <a name="creator-for-indoor-maps"></a>Créateur pour cartes d’intérieur
 
@@ -35,7 +35,7 @@ Utilisez l’[API de chargement de données Azure Maps](https://docs.microsoft.c
 
 ## <a name="convert-a-drawing-package"></a>Convertir un package de dessin
 
-Le [service de conversion d’Azure Maps](https://docs.microsoft.com/rest/api/maps/conversion) convertit un package de dessin chargé en données cartographiques d’intérieur. Le service de conversion valide également le package. Les problèmes de validation sont classés en deux types : erreurs et avertissements. Si des erreurs sont détectées, le processus de conversion échoue. Si des avertissements sont détectés, la conversion échoue. Toutefois, il est recommandé d’examiner et résoudre tous les avertissements. Un avertissement signifie qu’une partie de la conversion a été ignorée ou corrigée automatiquement. L’échec de la résolution des avertissements pourrait entraîner des erreurs dans les derniers processus. Pour plus d’informations, consultez [Avertissements et erreurs du package de dessin](drawing-conversion-error-codes.md).
+Le [service de conversion d’Azure Maps](https://docs.microsoft.com/rest/api/maps/conversion) convertit un package de dessin chargé en données cartographiques d’intérieur. Le service de conversion valide également le package. Les problèmes de validation sont classés en deux types : erreurs et avertissements. Si des erreurs sont détectées, le processus de conversion échoue. Si des avertissements sont détectés, la conversion échoue. Toutefois, il est recommandé d’examiner et de résoudre tous les avertissements. Un avertissement signifie qu’une partie de la conversion a été ignorée ou corrigée automatiquement. L’échec de la résolution des avertissements pourrait entraîner des erreurs dans les derniers processus. Pour plus d’informations, consultez [Avertissements et erreurs du package de dessin](drawing-conversion-error-codes.md).
 
 Quand une erreur se produit, le service de conversion fournit un lien vers l’application web autonome [Visualiseur d’erreurs de dessin d’Azure Maps](drawing-error-visualizer.md). Vous pouvez utiliser le Visualiseur d’erreurs de dessin pour inspecter les [Avertissements et erreurs du package de dessin](drawing-conversion-error-codes.md) qui se sont produits pendant le processus de conversion. Après avoir corrigé les erreurs, vous pouvez tenter de charger et convertir le package.
 

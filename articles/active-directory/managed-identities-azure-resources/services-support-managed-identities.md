@@ -4,19 +4,19 @@ description: Liste des services qui prennent en charge les identités managées 
 services: active-directory
 author: MarkusVi
 ms.author: markvi
-ms.date: 06/11/2020
+ms.date: 07/09/2020
 ms.topic: conceptual
 ms.service: active-directory
 ms.subservice: msi
 manager: markvi
 ms.collection: M365-identity-device-management
 ms.custom: references_regions
-ms.openlocfilehash: 0dc8b77f75cffdd0b2017d8a9b0f7c168fb796cb
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 5bf397cac26d3cc46e11f8ac60110629a528cd62
+ms.sourcegitcommit: f7e160c820c1e2eb57dc480b2a8fd6bef7053e91
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85193768"
+ms.lasthandoff: 07/10/2020
+ms.locfileid: "86229820"
 ---
 # <a name="services-that-support-managed-identities-for-azure-resources"></a>Services Azure qui prennent en charge les identités managées pour ressources Azure
 
@@ -185,8 +185,8 @@ Type d'identité managée | Toutes mises à la disposition générale<br>Région
 
 | Type d'identité managée | Toutes mises à la disposition générale<br>Régions Azure à l'échelle internationale | Azure Government | Azure Germany | Azure China 21Vianet |
 | --- | :-: | :-: | :-: | :-: |
-| Attribuée par le système | ![Disponible][check] | - | - | - | 
-| Attribuée par l'utilisateur | ![Disponible][check] | - | - | - |
+| Attribuée par le système | ![Disponible][check] | ![Disponible][check] | Non disponible | ![Disponible][check] | 
+| Attribuée par l'utilisateur | ![Disponible][check] | ![Disponible][check] | Non disponible | ![Disponible][check] |
 
 
 Pour plus d’informations, voir [Utiliser les identités managées dans Azure Kubernetes Service](https://docs.microsoft.com/azure/aks/use-managed-identity).

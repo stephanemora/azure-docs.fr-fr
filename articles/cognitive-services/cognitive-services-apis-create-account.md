@@ -9,12 +9,12 @@ ms.service: cognitive-services
 ms.topic: conceptual
 ms.date: 10/23/2019
 ms.author: aahi
-ms.openlocfilehash: 4a73ff517347baa2cf589432be025bd922597ed3
-ms.sourcegitcommit: 32592ba24c93aa9249f9bd1193ff157235f66d7e
+ms.openlocfilehash: f76b444f737c4deb0fc61953c839c8826f379d5e
+ms.sourcegitcommit: 3541c9cae8a12bdf457f1383e3557eb85a9b3187
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/01/2020
-ms.locfileid: "85611388"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86207263"
 ---
 # <a name="create-a-cognitive-services-resource-using-the-azure-portal"></a>Créer un compte Cognitive Services dans le portail Azure
 
@@ -37,11 +37,17 @@ Ce guide de démarrage rapide vous montre comment commencer à utiliser Azure Co
 
     À ce stade, la ressource multiservice permet d’accéder aux services Cognitive Services suivants :
 
-    |                  |                                                      |                    |                               |                  |
-    |------------------|------------------------------------------------------|--------------------|-------------------------------|------------------|
-    | Vision par ordinateur  | Content Moderator                                    | Face               | Language Understanding (LUIS) | Analyse de texte   |
-    | Convertisseur  | Recherche Bing v7 <br>(Web, Image, Actualités, Vidéo, Visuel) | Recherche personnalisée Bing | Recherche d’entité Bing            | Suggestion automatique Bing |
-    | Vérification orthographique Bing |                                                      |                    |                               |                  |
+    - Vision par ordinateur
+    - Content Moderator
+    - Face
+    - Language Understanding (LUIS)
+    - Analyse de texte
+    - Convertisseur
+    - Recherche Bing v7 <br>(Web, Image, Actualités, Vidéo, Visuel)
+    - Recherche personnalisée Bing
+    - Recherche d’entité Bing
+    - Suggestion automatique Bing
+    - Vérification orthographique Bing
 
     #### <a name="single-service-resource"></a>[Ressource monoservice](#tab/singleservice)
 

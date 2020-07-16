@@ -6,12 +6,12 @@ ms.service: hpc-cache
 ms.topic: how-to
 ms.date: 04/15/2020
 ms.author: v-erkel
-ms.openlocfilehash: fb3e4fd4935afc4869e50ccbc35c53333d43b1df
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 10f8e92138878381b5267742b8211df81e0c49d4
+ms.sourcegitcommit: f7e160c820c1e2eb57dc480b2a8fd6bef7053e91
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85515528"
+ms.lasthandoff: 07/10/2020
+ms.locfileid: "86232676"
 ---
 # <a name="mount-the-azure-hpc-cache"></a>Monter le cache Azure HPC Cache
 
@@ -115,7 +115,7 @@ Pour garantir un montage robuste du client, passez les paramètres et arguments 
 
 > mount -o hard,proto=tcp,mountproto=tcp,retry=30 ${CACHE_IP_ADDRESS}:/${NAMESPACE_PATH} ${LOCAL_FILESYSTEM_MOUNT_POINT}
 
-| Paramètres recommandés pour la commande mount | |
+| Paramètres recommandés pour la commande mount | Description |
 --- | ---
 ``hard`` | Les montages conditionnels sur un cache Azure HPC Cache sont associés à des échecs d’application et à une perte possible de données.
 ``proto=tcp`` | Cette option prend en charge la gestion appropriée des erreurs réseau NFS.

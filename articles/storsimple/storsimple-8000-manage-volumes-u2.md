@@ -6,12 +6,12 @@ ms.service: storsimple
 ms.topic: how-to
 ms.date: 12/08/2017
 ms.author: alkohli
-ms.openlocfilehash: 3d8ab6da9327048469c8b781657bb03b6a4b9669
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 920f7f2fa6fb6e80b060f0308b124a3a1214cb3f
+ms.sourcegitcommit: 3541c9cae8a12bdf457f1383e3557eb85a9b3187
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85508246"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86204454"
 ---
 # <a name="use-the-storsimple-device-manager-service-to-manage-volumes-update-3-or-later"></a>Utiliser le service StorSimple Device Manager pour gérer des volumes (Update 3 ou versions ultérieures)
 
@@ -25,8 +25,8 @@ Le service StorSimple Device Manager est une extension dans le portail Azure 
 
 Les volumes StorSimple peuvent être les suivants :
 
-* **Volumes épinglés localement**: les données de ces volumes restent en permanence sur l’appareil StorSimple local.
-* **Volumes hiérarchisés**: les données de ces volumes peuvent se disperser dans le cloud.
+* **Volumes épinglés localement** : les données de ces volumes restent en permanence sur l’appareil StorSimple local.
+* **Volumes hiérarchisés** : les données de ces volumes peuvent se disperser dans le cloud.
 
 Un volume d’archivage est un type de volume hiérarchisé. La grande taille des blocs de déduplication utilisée pour les volumes d’archivage permet à l’appareil de transférer des segments de données plus importants vers le cloud.
 
@@ -51,7 +51,7 @@ Si vous utilisez le volume hiérarchisé pour les données d’archivage, l’ac
 
 Reportez-vous au tableau suivant pour connaître la capacité maximale allouée pour chaque type d’appareil et de volume. (Notez que les volumes épinglés localement ne sont pas disponibles sur un appareil virtuel.)
 
-|  | Taille maximale de volume hiérarchisé | Taille maximale de volume épinglé localement |
+| Type | Taille maximale de volume hiérarchisé | Taille maximale de volume épinglé localement |
 | --- | --- | --- |
 | **Appareils physiques** | | |
 | 8100 |64 To |8 To |

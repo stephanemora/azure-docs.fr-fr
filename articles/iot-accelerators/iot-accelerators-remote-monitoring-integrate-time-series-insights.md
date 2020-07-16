@@ -8,12 +8,12 @@ ms.date: 09/12/2018
 ms.topic: conceptual
 ms.service: iot-accelerators
 services: iot-accelerators
-ms.openlocfilehash: 752529454a5b6293d9cbfdf8378b46947aed5a0e
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: edf669eb813240505cba8faef41e166785cc5b18
+ms.sourcegitcommit: f7e160c820c1e2eb57dc480b2a8fd6bef7053e91
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "77564642"
+ms.lasthandoff: 07/10/2020
+ms.locfileid: "86232064"
 ---
 # <a name="integrate-azure-time-series-insights-with-remote-monitoring"></a>Intégrer Azure Time Series Insights à la Supervision à distance
 
@@ -244,7 +244,7 @@ Configurez l’environnement de déploiement `basic` pour les microservices mis 
 
 Configurez l’environnement de déploiement `standard` pour les microservices mis à jour indiqués ci-dessus.
 
-1. Sur la ligne de commande, exécutez `kubectl proxy`. Pour plus d’informations, consultez l’article [Accessing the Kubernetes API](https://kubernetes.io/docs/tasks/access-kubernetes-api/http-proxy-access-api/#using-kubectl-to-start-a-proxy-server) (Accès à l’API Kubernetes).
+1. Sur la ligne de commande, exécutez `kubectl proxy`. Pour plus d’informations, consultez l’article [Accessing the Kubernetes API](https://kubernetes.io/docs/reference/access-authn-authz/) (Accès à l’API Kubernetes).
 
 1. Ouvrez la console de gestion Kubernetes.
 

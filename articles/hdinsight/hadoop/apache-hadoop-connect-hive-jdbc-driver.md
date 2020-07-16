@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive,hdiseo17may2017,seoapr2020
 ms.date: 04/20/2020
-ms.openlocfilehash: 258dfec20644ee29368de075673dfc7798bee28a
-ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
+ms.openlocfilehash: 183bc416dde941f11bd94cfcff3bf738b35f876f
+ms.sourcegitcommit: 3541c9cae8a12bdf457f1383e3557eb85a9b3187
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86083540"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86207381"
 ---
 # <a name="query-apache-hive-through-the-jdbc-driver-in-hdinsight"></a>Requête Apache Hive par le biais du pilote JDBC dans HDInsight
 
@@ -33,7 +33,9 @@ Pour plus d’informations sur l’interface JDBC pour Hive, consultez [HiveJDB
 
 Les connexions JDBC à un cluster HDInsight sur Azure sont établies sur le port 443. Le trafic est sécurisé à l’aide de TLS/SSL. La passerelle publique derrière laquelle se trouvent les clusters redirige le trafic vers le port d’écoute réel d’HiveServer2. La chaîne de connexion suivante montre le format à utiliser pour HDInsight :
 
+```http
     jdbc:hive2://CLUSTERNAME.azurehdinsight.net:443/default;transportMode=http;ssl=true;httpPath=/hive2
+```
 
 Remplacez `CLUSTERNAME` par le nom de votre cluster HDInsight :
 
@@ -121,7 +123,7 @@ SQuirreL SQL est un client JDBC permettant d’exécuter à distance des requêt
 
 9. Une fois connecté, entrez la requête suivante dans la boîte de dialogue Requête SQL, puis sélectionnez l’icône **Exécuter** (représentant une personne qui court). La zone de résultats doit afficher les résultats de la requête.
 
-    ```hql
+    ```hiveql
     select * from hivesampletable limit 10;
     ```
 

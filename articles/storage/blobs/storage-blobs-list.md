@@ -8,16 +8,16 @@ ms.topic: how-to
 ms.date: 06/05/2020
 ms.author: tamram
 ms.subservice: blobs
-ms.openlocfilehash: ff7eac9e004a06925fbfa657278e6ec848a7d600
-ms.sourcegitcommit: cec9676ec235ff798d2a5cad6ee45f98a421837b
+ms.openlocfilehash: b5ce74e680d79cfee006cb8cade6c22bff3c055f
+ms.sourcegitcommit: 3541c9cae8a12bdf457f1383e3557eb85a9b3187
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85851271"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86202961"
 ---
 # <a name="list-blobs-with-net"></a>Lister les objets blob avec .NET
 
-Lorsque vous listez les objets blob de votre code, vous pouvez spécifier un certain nombre d’options pour gérer la façon dont les résultats sont retournés à partir du stockage Azure. Vous pouvez spécifier le nombre de résultats à retourner dans chaque ensemble de résultats, puis récupérer les ensembles suivants. Vous pouvez spécifier un préfixe pour retourner les blobs dont le nom commence par ce caractère ou cette chaîne. Vous pouvez également répertorier les blobs dans une structure de liste plate, ou hiérarchiquement. Une liste hiérarchique retourne les blobs comme s’ils étaient organisés en dossiers. 
+Lorsque vous listez les objets blob de votre code, vous pouvez spécifier un certain nombre d’options pour gérer la façon dont les résultats sont retournés à partir du stockage Azure. Vous pouvez spécifier le nombre de résultats à retourner dans chaque ensemble de résultats, puis récupérer les ensembles suivants. Vous pouvez spécifier un préfixe pour retourner les blobs dont le nom commence par ce caractère ou cette chaîne. Vous pouvez également répertorier les blobs dans une structure de liste plate, ou hiérarchiquement. Une liste hiérarchique retourne les blobs comme s’ils étaient organisés en dossiers.
 
 Cet article explique comment lister les objets blob à l’aide de la [bibliothèque cliente de stockage Azure pour .NET](/dotnet/api/overview/azure/storage?view=azure-dotnet).  
 

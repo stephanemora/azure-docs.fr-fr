@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: how-to
 ms.date: 05/01/2018
 ms.author: allensu
-ms.openlocfilehash: 22ec4058d9485858489162af223bb6d6c381797e
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 0fb136b6c37c8ef14f85455431fea80099088936
+ms.sourcegitcommit: 3541c9cae8a12bdf457f1383e3557eb85a9b3187
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84887663"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86206695"
 ---
 # <a name="large-file-download-optimization-with-azure-cdn"></a>Optimisation avec Azure CDN des téléchargements de fichiers volumineux
 
@@ -107,11 +107,10 @@ Le CDN met en cache les blocs au fur et à mesure de leur réception. Le fichier
 ### <a name="caching"></a>Mise en cache
 L’optimisation des fichiers volumineux utilise des temps d’expiration de mise en cache par défaut différents de ceux d’une livraison web générale. Il établit la distinction entre la mise en cache positive et négative basée sur les codes de réponse HTTP. Si le serveur d’origine spécifie un délai d’expiration via un en-tête Cache-control ou Expires dans la réponse, le CDN respecte cette valeur. Lorsque le serveur d’origine ne spécifie rien de tel et que le fichier remplit les conditions de type et de taille de fichier pour ce type d’optimisation, le CDN utilise les valeurs par défaut pour l’optimisation des fichiers volumineux. Autrement, le CDN utilise les paramètres par défaut pour une livraison web générale.
 
-
-|    | Livraison web générale | Optimisation des fichiers volumineux 
+| Mise en cache  | Livraison web générale | Optimisation des fichiers volumineux 
 --- | --- | --- 
-Mise en cache : positive <br> HTTP 200, 203, 300, <br> 301, 302 et 410 | 7 jours |1 jour  
-Mise en cache : négative <br> HTTP 204, 305, 404, <br> et 405 | None | 1 seconde 
+Mise en cache : Positive <br> HTTP 200, 203, 300, <br> 301, 302 et 410 | 7 jours |1 jour  
+Mise en cache : Negative <br> HTTP 204, 305, 404, <br> et 405 | None | 1 seconde 
 
 ### <a name="deal-with-origin-failure"></a>Traitement des défaillances de l’origine
 

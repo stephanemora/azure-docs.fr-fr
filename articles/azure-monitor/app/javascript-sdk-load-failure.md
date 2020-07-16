@@ -5,12 +5,12 @@ ms.topic: conceptual
 author: MSNev
 ms.author: newylie
 ms.date: 06/05/2020
-ms.openlocfilehash: 50a7e9520730159ad2df3ec3e0b75fcfa0c5ce0a
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: dae6b40e7ec8a2bb6f635a6ffca4886ed09c1364
+ms.sourcegitcommit: f7e160c820c1e2eb57dc480b2a8fd6bef7053e91
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84450583"
+ms.lasthandoff: 07/10/2020
+ms.locfileid: "86229531"
 ---
 # <a name="troubleshooting-sdk-load-failure-for-javascript-web-apps"></a>Résolution des échecs de chargement du SDK pour les applications web JavaScript
 
@@ -76,11 +76,11 @@ Si vous confirmez une panne, vous pouvez [créer un ticket de support](https://a
 Étant donné que l’extrait de code et sa configuration sont retournés par votre application dans le cadre de chaque page générée, vous pouvez modifier la configuration `src` de l’extrait de code pour utiliser une URL différente pour le Kit de développement logiciel (SDK). À l’aide de cette approche, vous pouvez contourner le problème de blocage du CDN, car la nouvelle URL ne devrait pas être bloquée.
 
 Points de terminaison CDN actuels du SDK JavaScript Application Insights
-- https://az416426.vo.msecnd.net/scripts/b/ai.2.min.js
-- https://js.monitor.azure.com/scripts/b/ai.2.min.js
+- `https://az416426.vo.msecnd.net/scripts/b/ai.2.min.js`
+- `https://js.monitor.azure.com/scripts/b/ai.2.min.js`
 
 > [!NOTE]
-> Le point de terminaison https://js.monitor.azure.com/ est un alias qui nous permet de passer d’un fournisseur de CDN à l’autre en cinq minutes environ, sans que vous ayez besoin de modifier la moindre configuration. Cela nous permet de corriger les problèmes détectés liés au CDN plus rapidement si un fournisseur de CDN est confronté à des problèmes régionaux ou mondiaux, sans que tout le monde ait à ajuster ses paramètres.
+> Le point de terminaison `https://js.monitor.azure.com/` est un alias qui nous permet de passer d’un fournisseur de CDN à l’autre en cinq minutes environ, sans que vous ayez besoin de modifier la moindre configuration. Cela nous permet de corriger les problèmes détectés liés au CDN plus rapidement si un fournisseur de CDN est confronté à des problèmes régionaux ou mondiaux, sans que tout le monde ait à ajuster ses paramètres.
 
 ## <a name="sdk-failed-to-initialize-after-loading-the-script"></a>Échec de l’initialisation du Kit de développement logiciel (SDK) après le chargement du script
 
