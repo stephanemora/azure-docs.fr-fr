@@ -5,12 +5,12 @@ author: vturecek
 ms.topic: conceptual
 ms.date: 11/01/2017
 ms.author: vturecek
-ms.openlocfilehash: e57d169decf482f8b8be1e3b31a07690bc222c5d
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: a873a32aa8c12b535c06711ea7dc7a4aa920a27f
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "75458228"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86257775"
 ---
 # <a name="connect-and-communicate-with-services-in-service-fabric"></a>Se connecter aux services et communiquer avec eux dans Service Fabric.
 Dans Service Fabric, un service s’exécute quelque part dans un cluster Service Fabric, généralement réparti sur plusieurs machines virtuelles. Il peut être déplacé d’un endroit à un autre, soit par le propriétaire du service, soit automatiquement par Service Fabric. Les services ne sont pas liés statiquement à une machine ou une adresse particulière.
@@ -163,14 +163,14 @@ Gardez à l’esprit que l’Azure Load Balancer (équilibrage de charge Azure) 
 L’infrastructure Reliable Services est livrée avec plusieurs options de communication intégrées. Le choix de l’API dépend du modèle de programmation utilisé, de la structure de communication et du langage de programmation dans lequel vos services sont écrits.
 
 * **Aucun protocole spécifique** :  Si vous pouvez choisir n’importe quelle infrastructure de communication, mais que vous souhaitez une solution rapidement opérationnelle, l’option idéale est le [service à distance](service-fabric-reliable-services-communication-remoting.md), qui rend possible des appels de procédure distante fortement typés pour Reliable Services et Reliable Actors. Il s'agit de la façon la plus simple et la plus rapide de prendre en main la communication avec les services. Le service à distance gère la résolution des adresses de service ainsi que la connexion, les nouvelles tentatives et la gestion des erreurs. Il est disponible pour les applications C# et Java.
-* **HTTP** : Pour la communication sans langage spécifié, HTTP fournit un choix normalisé avec des outils et des serveurs HTTP disponibles dans plusieurs langues, le tout pris en charge par Service Fabric. Les services peuvent utiliser n’importe quelle pile HTTP, notamment l[’API web ASP.NET](service-fabric-reliable-services-communication-webapi.md) pour les applications C#. Les clients écrits en C# peuvent exploiter les classes `ICommunicationClient` et `ServicePartitionClient`. En revanche, pour ceux écrits en Java, utilisez les classes `CommunicationClient` et `FabricServicePartitionClient`[pour la résolution de service, les connexions HTTP et les boucles de nouvelle tentative](service-fabric-reliable-services-communication.md).
+* **HTTP** : Pour la communication sans langage spécifié, HTTP fournit un choix normalisé avec des outils et des serveurs HTTP disponibles dans plusieurs langues, le tout pris en charge par Service Fabric. Les services peuvent utiliser n’importe quelle pile HTTP, notamment l[’API web ASP.NET](./service-fabric-reliable-services-communication-aspnetcore.md) pour les applications C#. Les clients écrits en C# peuvent exploiter les classes `ICommunicationClient` et `ServicePartitionClient`. En revanche, pour ceux écrits en Java, utilisez les classes `CommunicationClient` et `FabricServicePartitionClient`[pour la résolution de service, les connexions HTTP et les boucles de nouvelle tentative](service-fabric-reliable-services-communication.md).
 * **WCF** : Si votre code existant utilise WCF comme infrastructure de communication, vous pouvez utiliser `WcfCommunicationListener` pour le côté serveur et les classes `WcfCommunicationClient` et `ServicePartitionClient` pour le client. Cela n’est possible que pour les applications C# sur des clusters basés sur Windows. Pour plus d’informations, consultez cet article sur l’ [implémentation WCF de la pile de communication](service-fabric-reliable-services-communication-wcf.md).
 
 ## <a name="using-custom-protocols-and-other-communication-frameworks"></a>Utilisation des protocoles personnalisés et d’autres infrastructures de communication
 Les services peuvent utiliser un protocole ou une infrastructure quelconque pour la communication, qu’il s’agisse d’un protocole binaire personnalisé passant par des sockets TCP ou d’événements de diffusion passant par [Azure Event Hubs](https://azure.microsoft.com/services/event-hubs/) ou [Azure IoT Hub](https://azure.microsoft.com/services/iot-hub/). Service Fabric fournit des API de communication sur lesquelles vous pouvez connecter votre pile de communication, tout en maintenant pour vous la transparence de la découverte et de la connexion. Pour plus d’informations, consultez cet article sur le [modèle de communication de service fiable](service-fabric-reliable-services-communication.md) .
 
 ## <a name="next-steps"></a>Étapes suivantes
-Découvrez-en plus sur les concepts et les API disponibles dans le [modèle de communication des Reliable Services](service-fabric-reliable-services-communication.md), puis prenez rapidement en main le [service distant](service-fabric-reliable-services-communication-remoting.md), ou allez plus en profondeur pour découvrir comment écrire un écouteur de communication à l’aide de [l’API web avec auto-hébergement OWIN](service-fabric-reliable-services-communication-webapi.md).
+Découvrez-en plus sur les concepts et les API disponibles dans le [modèle de communication des Reliable Services](service-fabric-reliable-services-communication.md), puis prenez rapidement en main le [service distant](service-fabric-reliable-services-communication-remoting.md), ou allez plus en profondeur pour découvrir comment écrire un écouteur de communication à l’aide de [l’API web avec auto-hébergement OWIN](./service-fabric-reliable-services-communication-aspnetcore.md).
 
 [1]: ./media/service-fabric-connect-and-communicate-with-services/serviceendpoints.png
 [2]: ./media/service-fabric-connect-and-communicate-with-services/namingservice.png

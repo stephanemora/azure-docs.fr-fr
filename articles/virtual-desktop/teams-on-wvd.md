@@ -8,12 +8,12 @@ ms.topic: how-to
 ms.date: 05/29/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: 3fc44ca18f237fecd1c694e96f9ebc2d5b541757
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: d482b3335b31d116846ec64883b43897fcc4e43d
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85564450"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86255657"
 ---
 # <a name="use-microsoft-teams-on-windows-virtual-desktop"></a>Utiliser Microsoft Teams sur Windows Virtual Desktop
 
@@ -32,7 +32,7 @@ Avec l’optimisation des médias pour Microsoft Teams, le client Windows Deskto
 Avant d'utiliser Microsoft Teams sur Windows Virtual Desktop, vous devez effectuer les opérations suivantes :
 
 - [Préparez votre réseau](/microsoftteams/prepare-network/) pour Microsoft Teams.
-- Installez le [client Windows Desktop](connect-windows-7-and-10.md) sur un appareil Windows 10 ou Windows 10 IoT Entreprise présentant la [configuration matérielle requise pour Microsoft Teams sur un PC Windows](/microsoftteams/hardware-requirements-for-the-teams-app#hardware-requirements-for-teams-on-a-windows-pc/).
+- Installez le [client Windows Desktop](connect-windows-7-10.md) sur un appareil Windows 10 ou Windows 10 IoT Entreprise présentant la [configuration matérielle requise pour Microsoft Teams sur un PC Windows](/microsoftteams/hardware-requirements-for-the-teams-app#hardware-requirements-for-teams-on-a-windows-pc/).
 - Connectez-vous à une machine virtuelle Windows 10 multisession ou Windows 10 Entreprise.
 - Installez l’application de bureau Teams sur l’hôte, à l’aide de l’installation par machine. La fonction d’optimisation des médias de Microsoft Teams requiert l’application de bureau Teams version 1.3.00.4461 ou ultérieure.
 

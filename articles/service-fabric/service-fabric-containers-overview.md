@@ -3,12 +3,12 @@ title: Vue d’ensemble de Service Fabric et des conteneurs
 description: Voici une vue d’ensemble de Service Fabric et de la méthode à suivre pour déployer des applications de microservices au moyen de conteneurs. Cet article fournit une vue d’ensemble de l’utilisation de conteneurs et des fonctionnalités disponibles dans Service Fabric.
 ms.topic: conceptual
 ms.date: 8/8/2018
-ms.openlocfilehash: 884cefa3d6a60f55269afac73c40b9f6b21518f6
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 7c92910a92c8fa3061a1a0d53611734cf681484f
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "75458220"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86259237"
 ---
 # <a name="service-fabric-and-containers"></a>Service Fabric et conteneurs
 
@@ -65,7 +65,7 @@ La figure suivante illustre les différents types de virtualisation et niveaux d
 
 Voici des exemples pour lesquels le conteneur est un bon choix :
 
-* **Opération lift-and-shift pour IIS** : vous pouvez placer une application [ASP.NET MVC](https://www.asp.net/mvc) existante dans un conteneur au lieu de la faire migrer sur ASP.NET Core. Ces applications ASP.NET MVC dépendent des services Internet (IIS, Internet Information Services). Vous pouvez empaqueter ces applications dans des images de conteneur à partir de l’image IIS créée au préalable, puis les déployer avec Service Fabric. Pour plus d’informations sur les conteneurs Windows, consultez la page [Images conteneurs sur Windows Server](https://docs.microsoft.com/virtualization/windowscontainers/quick-start/quick-start-windows-server).
+* **Opération lift-and-shift pour IIS** : vous pouvez placer une application [ASP.NET MVC](https://www.asp.net/mvc) existante dans un conteneur au lieu de la faire migrer sur ASP.NET Core. Ces applications ASP.NET MVC dépendent des services Internet (IIS, Internet Information Services). Vous pouvez empaqueter ces applications dans des images de conteneur à partir de l’image IIS créée au préalable, puis les déployer avec Service Fabric. Pour plus d’informations sur les conteneurs Windows, consultez la page [Images conteneurs sur Windows Server](/virtualization/windowscontainers/quick-start/quick-start-windows-server).
 
 * **Mélange de conteneurs et de microservices Service Fabric** : Utilisez une image de conteneur existante pour une partie de votre application. Par exemple, vous pouvez utiliser le [conteneur NGINX](https://hub.docker.com/_/nginx/) pour le système frontal web de votre application et les services avec état pour les calculs les plus intenses du back-end.
 
@@ -90,7 +90,7 @@ Service Fabric propose plusieurs fonctionnalités de gestion des conteneurs, cel
 * Possibilité de définir des identifiants de sécurité sur le conteneur.
 * Différents modes de mise en réseau pour les conteneurs.
 
-Pour une vue d’ensemble complète de la prise en charge des conteneurs sur Azure, par exemple la création d’un cluster Kubernetes avec Azure Kubernetes Service, la création d’un registre Docker privé dans Azure Container Registry, et bien plus encore, voir [Azure for Containers](https://docs.microsoft.com/azure/containers/).
+Pour une vue d’ensemble complète de la prise en charge des conteneurs sur Azure, par exemple la création d’un cluster Kubernetes avec Azure Kubernetes Service, la création d’un registre Docker privé dans Azure Container Registry, et bien plus encore, voir [Azure for Containers](../containers/index.yml).
 
 ## <a name="next-steps"></a>Étapes suivantes
 
@@ -98,6 +98,6 @@ Dans cet article, vous avez découvert la prise en charge offerte par Service Fa
 
 [Créer sa première application conteneur Service Fabric sous Linux](service-fabric-get-started-containers-linux.md)  
 [Créer sa première application conteneur Service Fabric sous Windows](service-fabric-get-started-containers.md)  
-[En savoir plus sur les conteneurs Windows](https://docs.microsoft.com/virtualization/windowscontainers/about/)
+[En savoir plus sur les conteneurs Windows](/virtualization/windowscontainers/about/)
 
 [Image1]: media/service-fabric-containers/Service-Fabric-Types-of-Isolation.png

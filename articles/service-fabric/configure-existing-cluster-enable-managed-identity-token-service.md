@@ -4,12 +4,12 @@ description: Voici comment activer la prise en charge des identités managées d
 ms.topic: article
 ms.date: 03/11/2019
 ms.custom: sfrev
-ms.openlocfilehash: 73c890e960f26b8e0e3fa924d9ff6b7a4cd4a4dc
-ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
+ms.openlocfilehash: 722c507300cc5766d162f336f77f60293c5c90dc
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "81415686"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86257617"
 ---
 # <a name="configure-managed-identity-support-in-an-existing-service-fabric-cluster"></a>Configurer la prise en charge des identités managées dans un cluster Service Fabric existant
 
@@ -40,7 +40,7 @@ Pour activer le service de jeton d’identité managée dans un cluster existant
 ]
 ```
 
-Pour que les modifications prennent effet, vous devez également modifier la stratégie de mise à niveau pour spécifier un redémarrage forcé du runtime Service Fabric sur chaque nœud à mesure que la mise à niveau progresse au sein du cluster. Ce redémarrage garantit que le service système qui vient d’être activé est démarré et en cours d’exécution sur chaque nœud. Dans l’extrait de code ci-dessous, `forceRestart` est le paramètre essentiel permettant d’activer le redémarrage. Pour les paramètres restants, utilisez les valeurs décrites ci-dessous ou utilisez les valeurs personnalisées existantes déjà spécifiées pour la ressource de cluster. Les paramètres personnalisés pour la stratégie de mise à niveau de l’infrastructure (« upgradeDescription ») peuvent être consultés à partir du portail Azure en sélectionnant l’option « Mises à niveau de la structure » sur la ressource Service Fabric ou sur resources.azure.com. Les options par défaut pour la stratégie de mise à niveau (« upgradeDescription ») ne peuvent pas être consultées à partir de PowerShell ou de resources.azure.com. Pour plus d’informations, consultez [ClusterUpgradePolicy](https://docs.microsoft.com/dotnet/api/microsoft.azure.management.servicefabric.models.clusterupgradepolicy?view=azure-dotnet).  
+Pour que les modifications prennent effet, vous devez également modifier la stratégie de mise à niveau pour spécifier un redémarrage forcé du runtime Service Fabric sur chaque nœud à mesure que la mise à niveau progresse au sein du cluster. Ce redémarrage garantit que le service système qui vient d’être activé est démarré et en cours d’exécution sur chaque nœud. Dans l’extrait de code ci-dessous, `forceRestart` est le paramètre essentiel permettant d’activer le redémarrage. Pour les paramètres restants, utilisez les valeurs décrites ci-dessous ou utilisez les valeurs personnalisées existantes déjà spécifiées pour la ressource de cluster. Les paramètres personnalisés pour la stratégie de mise à niveau de l’infrastructure (« upgradeDescription ») peuvent être consultés à partir du portail Azure en sélectionnant l’option « Mises à niveau de la structure » sur la ressource Service Fabric ou sur resources.azure.com. Les options par défaut pour la stratégie de mise à niveau (« upgradeDescription ») ne peuvent pas être consultées à partir de PowerShell ou de resources.azure.com. Pour plus d’informations, consultez [ClusterUpgradePolicy](/dotnet/api/microsoft.azure.management.servicefabric.models.clusterupgradepolicy?view=azure-dotnet).  
 
 ```json
 "upgradeDescription": {

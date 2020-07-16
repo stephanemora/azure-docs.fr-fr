@@ -3,12 +3,12 @@ title: Azure Service Fabric - Service DNS
 description: Utilisez le service DNS de Service Fabric pour détecter des microservices depuis le cluster.
 ms.topic: conceptual
 ms.date: 7/20/2018
-ms.openlocfilehash: 317aa81238ec7a0dc24b69b1d00568901b9bc34f
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 6a6611281fd2d2368809419ad594d2eb1289b5a0
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "75458032"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86258905"
 ---
 # <a name="dns-service-in-azure-service-fabric"></a>Service DNS dans Azure Service Fabric
 Le service DNS est un service système facultatif que vous pouvez activer dans votre cluster pour détecter d’autres services utilisant le protocole DNS. 
@@ -42,7 +42,7 @@ Quand vous créez un cluster à l’aide du portail, le service DNS est activé 
 Si vous n’utilisez pas le portail pour créer votre cluster ou si vous mettez à jour un cluster existant, vous devez activer le service DNS dans un modèle :
 
 - Pour déployer un nouveau cluster, vous pouvez utiliser les [exemples de modèles](https://github.com/Azure/azure-quickstart-templates/tree/master/service-fabric-secure-cluster-5-node-1-nodetype) ou créer votre propre modèle Resource Manager. 
-- Pour mettre à jour un cluster existant, vous pouvez accéder au groupe de ressources du cluster dans le portail et cliquer sur **Script d’automatisation** pour travailler avec un modèle qui reflète l’état actuel du cluster et d’autres ressources du groupe. Pour plus d’informations, consultez [Exportation du modèle à partir d’un groupe de ressources](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-export-template).
+- Pour mettre à jour un cluster existant, vous pouvez accéder au groupe de ressources du cluster dans le portail et cliquer sur **Script d’automatisation** pour travailler avec un modèle qui reflète l’état actuel du cluster et d’autres ressources du groupe. Pour plus d’informations, consultez [Exportation du modèle à partir d’un groupe de ressources](../azure-resource-manager/templates/export-template-portal.md).
 
 Une fois que vous avez un modèle, vous pouvez activer le service DNS en effectuant les étapes suivantes :
 
@@ -103,7 +103,7 @@ Une fois que vous avez un modèle, vous pouvez activer le service DNS en effectu
 3. Après avoir mis à jour le modèle de cluster avec ces modifications, appliquez-les et laissez la mise à niveau s’accomplir. Une fois la mise à niveau terminée, le service DNS démarre votre cluster. Le nom du service est `fabric:/System/DnsService`. Il est mentionné dans la section **Système** de Service Fabric explorer. 
 
 > [!NOTE]
-> Lors de la mise à niveau du DNS de désactivé à activé, Service Fabric Explorer peut ne pas refléter le nouvel état. Pour résoudre ce problème, redémarrez les nœuds en modifiant UpgradePolicy dans votre modèle Azure Resource Manager. Pour plus d’informations, consultez la [Référence du modèle Service Fabric](https://docs.microsoft.com/azure/templates/microsoft.servicefabric/2019-03-01/clusters/applications).
+> Lors de la mise à niveau du DNS de désactivé à activé, Service Fabric Explorer peut ne pas refléter le nouvel état. Pour résoudre ce problème, redémarrez les nœuds en modifiant UpgradePolicy dans votre modèle Azure Resource Manager. Pour plus d’informations, consultez la [Référence du modèle Service Fabric](/azure/templates/microsoft.servicefabric/2019-03-01/clusters/applications).
 
 > [!NOTE]
 > L’activation du service DNS lors du développement sur un ordinateur local remplace certains paramètres DNS. Si vous rencontrez des problèmes lors de la connexion à Internet, vérifiez vos paramètres DNS.
@@ -129,7 +129,7 @@ Une fois l’application déployée, l’instance de service dans Service Fabric
 
 ![points de terminaison de service](./media/service-fabric-dnsservice/service-fabric-explorer-dns.png)
 
-L’exemple suivant définit sur `statefulsvc.app` le nom DNS d’un service avec état. Le service utilise un schéma de partitionnement nommé. Notez que les noms de partition sont en minuscules. Il est nécessaire de respecter la casse pour les partitions qui seront ciblés dans les requêtes DNS ; pour plus d’informations, consultez la section [Exécution de requêtes DNS sur une partition de service avec état](https://docs.microsoft.com/azure/service-fabric/service-fabric-dnsservice#preview-making-dns-queries-on-a-stateful-service-partition).
+L’exemple suivant définit sur `statefulsvc.app` le nom DNS d’un service avec état. Le service utilise un schéma de partitionnement nommé. Notez que les noms de partition sont en minuscules. Il est nécessaire de respecter la casse pour les partitions qui seront ciblés dans les requêtes DNS ; pour plus d’informations, consultez la section [Exécution de requêtes DNS sur une partition de service avec état](#preview-making-dns-queries-on-a-stateful-service-partition).
 
 ```xml
     <Service Name="Stateful1" ServiceDnsName="statefulsvc.app" />
@@ -253,4 +253,3 @@ public class ValuesController : Controller
 
 ## <a name="next-steps"></a>Étapes suivantes
 Pour en savoir plus sur la communication de service au sein du cluster, consultez l’article [Se connecter aux services et communiquer avec eux dans Service Fabric](service-fabric-connect-and-communicate-with-services.md)
-

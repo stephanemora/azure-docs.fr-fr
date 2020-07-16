@@ -8,12 +8,12 @@ ms.topic: how-to
 ms.date: 03/30/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: 70ae4a014768976c7dcf81ffadf1066027fa06ad
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 956934bd536d8eb5e692ed193cad1424929db24b
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85214279"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86260762"
 ---
 # <a name="expand-an-existing-host-pool-with-new-session-hosts"></a>Développer un pool d’hôtes existant avec de nouveaux hôtes de session
 
@@ -130,7 +130,7 @@ Suivez les instructions de la section [Exécuter le modèle Azure Resource Manag
 
 Maintenant que vous avez développé votre pool d’hôtes existant, vous pouvez vous connecter à un client Windows Virtual Desktop pour les tester dans le cadre d’une session utilisateur. Vous pouvez vous connecter à une session avec l’un des clients suivants :
 
-- [Se connecter avec le client Windows Desktop](../connect-windows-7-and-10.md)
+- [Se connecter avec le client Windows Desktop](connect-windows-7-10-2019.md)
 - [Se connecter avec le client web](connect-web-2019.md)
 - [Se connecter avec le client Android](connect-android-2019.md)
 - [Se connecter avec le client macOS](connect-macos-2019.md)

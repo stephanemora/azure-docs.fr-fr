@@ -5,12 +5,12 @@ author: srrengar
 ms.topic: conceptual
 ms.date: 03/27/2018
 ms.author: srrengar
-ms.openlocfilehash: 8c4721584e74bd7f7111c516f2d16bd190392bb5
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: caa6d4fc27373e524f4c492635cffbf8b735add8
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "75614364"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86247215"
 ---
 # <a name="add-logging-to-your-service-fabric-application"></a>Ajouter la journalisation à votre application Service Fabric
 
@@ -96,7 +96,7 @@ Une approche hybride d’instrumentation structurée et générique peut aussi f
 
 La journalisation ASP.NET Core ([package Microsoft.Extensions.Logging NuGet](https://www.nuget.org/packages/Microsoft.Extensions.Logging)) est une infrastructure de journalisation qui fournit une API de journalisation standard pour votre application. La prise en charge pour d’autres serveurs principaux de journalisation peut être raccordée à la journalisation ASP.NET Core. Cela vous octroie un large éventail de prise en charge de la journalisation pour votre application, sans modification d’un volume important de code.
 
-1. Ajoutez le package NuGet **Microsoft.Extensions.Logging** au projet à instrumenter. Par ailleurs, ajoutez les packages fournisseur. Pour plus d’informations, consultez l’article [Logging in ASP.NET Core](https://docs.microsoft.com/aspnet/core/fundamentals/logging) (Journalisation dans ASP.NET Core).
+1. Ajoutez le package NuGet **Microsoft.Extensions.Logging** au projet à instrumenter. Par ailleurs, ajoutez les packages fournisseur. Pour plus d’informations, consultez l’article [Logging in ASP.NET Core](/aspnet/core/fundamentals/logging) (Journalisation dans ASP.NET Core).
 2. Ajoutez une directive **using** pour **Microsoft.Extensions.Logging** à votre fichier de service.
 3. Définissez une variable privée dans votre classe de service.
 
@@ -167,13 +167,3 @@ Certains fournisseurs tiers utilisent l’approche décrite dans la section pré
 
 - En savoir plus sur [la surveillance des applications dans Service Fabric](service-fabric-diagnostics-event-generation-app.md).
 - En savoir plus sur la journalisation avec [EventFlow](service-fabric-diagnostics-event-aggregation-eventflow.md) et [Diagnostics Azure pour Windows](service-fabric-diagnostics-event-aggregation-wad.md).
-
-
-
-
-
-
-
-
-
-

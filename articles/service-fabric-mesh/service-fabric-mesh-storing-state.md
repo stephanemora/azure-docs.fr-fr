@@ -5,16 +5,16 @@ author: dkkapur
 ms.author: dekapur
 ms.date: 11/27/2018
 ms.topic: conceptual
-ms.openlocfilehash: 0b0bd611fa86d155bb5bf2e07808e7365e28871c
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: d56ce811155f7b7f60fa870dbdae2550afab2eac
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84692680"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86246824"
 ---
 # <a name="state-management-with-service-fabric"></a>Gestion d’état avec Service Fabric
 
-Service Fabric prend en charge de nombreuses option de stockage d’état. Pour une vue d’ensemble conceptuelle des modèles de gestion d’état et de Service Fabric, voir [Concepts de Service Fabric : état](/azure/service-fabric/service-fabric-concepts-state). Tous ces concepts s’appliquent, que vos services s’exécutent à l’intérieur ou à l’extérieur de Service Fabric mesh. 
+Service Fabric prend en charge de nombreuses option de stockage d’état. Pour une vue d’ensemble conceptuelle des modèles de gestion d’état et de Service Fabric, voir [Concepts de Service Fabric : état](../service-fabric/service-fabric-concepts-state.md). Tous ces concepts s’appliquent, que vos services s’exécutent à l’intérieur ou à l’extérieur de Service Fabric mesh. 
 
 Avec Service Fabric mesh, vous pouvez facilement déployer une nouvelle application et la connecter à un magasin de données existant hébergé dans Azure. En plus la possibilité d’utiliser toute base de données distante, il existe plusieurs options pour le stockage de données, selon que le service désire un stockage local ou distant. 
 

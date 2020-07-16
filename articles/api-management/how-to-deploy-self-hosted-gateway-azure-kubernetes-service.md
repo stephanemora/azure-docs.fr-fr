@@ -10,12 +10,12 @@ ms.service: api-management
 ms.topic: article
 ms.date: 04/26/2020
 ms.author: apimpm
-ms.openlocfilehash: abf7e6d7032e7e5dc35b2f4397a5630d45d762de
-ms.sourcegitcommit: 67bddb15f90fb7e845ca739d16ad568cbc368c06
+ms.openlocfilehash: 7321331adcfc81e26b40e7a3c4869b8b1e50fc0e
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82204834"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86254382"
 ---
 # <a name="deploy-to-azure-kubernetes-service"></a>Déployer sur Azure Kubernetes Service
 
@@ -36,7 +36,7 @@ Cet article explique comment déployer la passerelle auto-hébergée de la Gesti
 5. Assurez-vous que **Kubernetes** est sélectionné sous **Scripts de déploiement**.
 6. Sélectionnez le lien du fichier **<nom-passerelle>.yml** en regard de **Déploiement** pour télécharger le fichier.
 7. Ajustez les mappages de port et le nom de conteneur dans le fichier yml, si nécessaire.
-8. Selon votre scénario, vous pouvez avoir besoin de changer le [type de service](https://docs.microsoft.com/azure/aks/concepts-network#services). La valeur par défaut est `NodePort`.
+8. Selon votre scénario, vous pouvez avoir besoin de changer le [type de service](../aks/concepts-network.md#services). La valeur par défaut est `NodePort`.
 9. Sélectionnez l’icône **Copier** située à l’extrémité droite de la zone de texte **Déployer** pour enregistrer la commande `kubectl` dans le Presse-papiers.
 10. Collez la commande dans la fenêtre (ou la commande) du terminal. Notez que la commande s’attend à ce que le fichier d’environnement téléchargé soit présent dans le répertoire actif.
 ```console
@@ -63,10 +63,6 @@ contosogateway   NodePort    10.110.230.87   <none>        80:32504/TCP,443:3004
 ## <a name="next-steps"></a>Étapes suivantes
 
 * Pour en savoir plus sur la passerelle auto-hébergée, consultez [Vue d’ensemble de la passerelle auto-hébergée Gestion des API](self-hosted-gateway-overview.md)
-* En savoir plus sur [Azure Kubernetes Service](https://docs.microsoft.com/azure/aks/intro-kubernetes)
+* En savoir plus sur [Azure Kubernetes Service](../aks/intro-kubernetes.md)
 * Découvrez comment [configurer et conserver les journaux dans le cloud](how-to-configure-cloud-metrics-logs.md).
 * * Découvrez comment [configurer et conserver les journaux localement](how-to-configure-local-metrics-logs.md).
-
-
-
-

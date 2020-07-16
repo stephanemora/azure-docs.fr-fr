@@ -3,12 +3,12 @@ title: Adresse IP statique pour un groupe de conteneurs
 description: Créer un groupe de conteneurs dans un réseau virtuel et utiliser une passerelle d’application Azure pour exposer une adresse IP front-end statique à une application web conteneurisée
 ms.topic: article
 ms.date: 03/16/2020
-ms.openlocfilehash: a27cf20b7d04fedb0b9e0ab408de24d37f2935c7
-ms.sourcegitcommit: d118ad4fb2b66c759b70d4d8a18e6368760da3ad
+ms.openlocfilehash: bc128da0f4c2e92af98781cef45f48f9e8aeab31
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/02/2020
-ms.locfileid: "84299160"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86260788"
 ---
 # <a name="expose-a-static-ip-address-for-a-container-group"></a>Exposer une adresse IP statique pour un groupe de conteneurs
 
@@ -103,7 +103,7 @@ ACI_IP=$(az container show \
 
 ## <a name="create-application-gateway"></a>Créer une passerelle Application Gateway
 
-Créez une passerelle d’application dans le réseau virtuel, en suivant les étapes décrites dans le [guide de démarrage rapide consacré aux passerelles d’application](../application-gateway/quick-create-cli.md). La commande [az network application-gateway create][az-network-application-gateway-create] suivante crée une passerelle avec une adresse IP front-end publique et une route vers le groupe de conteneurs back-end. Pour plus d’informations sur les paramètres de passerelle, consultez la [documentation Application Gateway](/azure/application-gateway/).
+Créez une passerelle d’application dans le réseau virtuel, en suivant les étapes décrites dans le [guide de démarrage rapide consacré aux passerelles d’application](../application-gateway/quick-create-cli.md). La commande [az network application-gateway create][az-network-application-gateway-create] suivante crée une passerelle avec une adresse IP front-end publique et une route vers le groupe de conteneurs back-end. Pour plus d’informations sur les paramètres de passerelle, consultez la [documentation Application Gateway](../application-gateway/index.yml).
 
 ```azurecli
 az network application-gateway create \

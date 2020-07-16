@@ -3,12 +3,12 @@ title: Déployer un fichier exécutable existant sur Azure Service Fabric
 description: Découvrez comment empaqueter une application existante en tant que fichier exécutable invité afin de la déployer sur un cluster Service Fabric.
 ms.topic: conceptual
 ms.date: 03/30/2020
-ms.openlocfilehash: c6c6bc0369593c177b74261da1fd8c15dd73fcb3
-ms.sourcegitcommit: b0ff9c9d760a0426fd1226b909ab943e13ade330
+ms.openlocfilehash: 72fde75e16341164106bb952d0bb66b83be744e1
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/01/2020
-ms.locfileid: "80520485"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86259272"
 ---
 # <a name="package-and-deploy-an-existing-executable-to-service-fabric"></a>Empaqueter et déployer un fichier exécutable existant sur Service Fabric
 
@@ -76,7 +76,7 @@ Le processus d’empaquetage manuel d’un exécutable invité est basé sur les
 
 ### <a name="create-the-package-directory-structure"></a>Création de la structure de répertoires du package
 
-Vous pouvez commencer par créer la structure de répertoires, comme décrit dans [Empaqueter une application Azure Service Fabric](https://docs.microsoft.com/azure/service-fabric/service-fabric-package-apps).
+Vous pouvez commencer par créer la structure de répertoires, comme décrit dans [Empaqueter une application Azure Service Fabric](./service-fabric-package-apps.md).
 
 ### <a name="add-the-applications-code-and-configuration-files"></a>Ajout des fichiers de code et de configuration de l’application
 

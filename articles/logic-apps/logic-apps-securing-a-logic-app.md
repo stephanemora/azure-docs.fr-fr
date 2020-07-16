@@ -6,12 +6,12 @@ ms.suite: integration
 ms.reviewer: rarayudu, logicappspm
 ms.topic: conceptual
 ms.date: 07/03/2020
-ms.openlocfilehash: 769d82cae6b5f9039587018ba5a7cde407f74e4c
-ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
+ms.openlocfilehash: 902c48f2edcca6eb25958a9f22d6760faf1fcbc2
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/05/2020
-ms.locfileid: "85964241"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86248711"
 ---
 # <a name="secure-access-and-data-in-azure-logic-apps"></a>Accès et données sécurisés dans Azure Logic Apps
 
@@ -110,7 +110,7 @@ Dans le corps, incluez la propriété `KeyType` en tant que `Primary` ou `Second
 
 ### <a name="enable-azure-active-directory-oauth"></a>Activer Azure Active Directory OAuth
 
-Si votre application logique démarre avec un [Déclencheur de demande](../active-directory/develop/about-microsoft-identity-platform.md), vous pouvez activer [Azure Active Directory Open Authentication](../connectors/connectors-native-reqres.md) (Azure AD OAuth) en créant une stratégie d’autorisation pour les appels entrants adressés au déclencheur de demande. Avant d’activer cette authentification, passez en revue les considérations suivantes :
+Si votre application logique démarre avec un [Déclencheur de demande](/azure/active-directory/develop/), vous pouvez activer [Azure Active Directory Open Authentication](../connectors/connectors-native-reqres.md) (Azure AD OAuth) en créant une stratégie d’autorisation pour les appels entrants adressés au déclencheur de demande. Avant d’activer cette authentification, passez en revue les considérations suivantes :
 
 * Un appel entrant à votre application logique ne peut utiliser qu’un seul schéma d’autorisation, Azure AD OAuth ou les [signatures d’accès partagé (SAP)](#sas). Seuls les schémas d’autorisation [de type porteur](../active-directory/develop/active-directory-v2-protocols.md#tokens) sont pris en charge pour les jetons OAuth, qui ne sont gérés que pour le déclencheur de demande.
 
@@ -309,7 +309,7 @@ Vous pouvez restreindre l’accès aux entrées et aux sorties de l’historique
 
 1. Sous **Configuration du contrôle d’accès** > **Adresses IP entrantes autorisées**, sélectionnez **Plages d’adresses IP spécifiques**.
 
-1. Sous **Plages d’adresses IP pour le contenu**, spécifiez les plages d’adresses IP qui peuvent accéder au contenu issu des entrées et sorties. 
+1. Sous **Plages d’adresses IP pour le contenu**, spécifiez les plages d’adresses IP qui peuvent accéder au contenu issu des entrées et sorties.
 
    Une plage d’adresses IP valide utilise ces formats : *x.x.x.x/x* ou *x.x.x.x-x.x.x.x*
 
@@ -462,7 +462,8 @@ Si vous effectuez des déploiements dans différents environnements, vous pouvez
 Par exemple, si vous authentifiez des actions HTTP avec [Azure Active Directory Open Authentication](#azure-active-directory-oauth-authentication) (Azure AD OAuth), vous pouvez définir et rendre secrets les paramètres qui acceptent l’ID client et la clé secrète client utilisés pour l’authentification. Si vous souhaitez configurer ces paramètres dans votre application logique, utilisez la section `parameters` située dans la définition de workflow de votre application logique et le modèle Resource Manager pour le déploiement. Pour sécuriser les valeurs de paramètre que vous ne voulez pas présenter lors de la modification de votre application logique ou de la consultation de l’historique des exécutions, configurez les paramètres avec le type `securestring` ou `secureobject` et utilisez un encodage si nécessaire. Les paramètres de ce type ne sont pas retournés avec la définition de la ressource, et ne sont pas accessibles lors de l’affichage de la ressource après le déploiement. Pour accéder à ces valeurs de paramètre pendant l’exécution, utilisez l’expression `@parameters('<parameter-name>')` située dans la définition de votre workflow. Cette expression est évaluée uniquement au moment de l’exécution et est décrite par le [langage de définition du workflow](../logic-apps/logic-apps-workflow-definition-language.md).
 
 > [!NOTE]
-> Si vous utilisez un paramètre dans l’en-tête ou le corps d’une requête, il peut être visible lorsque vous consultez l’historique des exécutions de l’application logique et la requête HTTP sortante. Veillez également à définir vos stratégies d’accès au contenu en conséquence. Vous pouvez également utiliser l’[obfuscation](#obfuscate) pour masquer les entrées et les sorties dans votre historique des exécutions. Les en-têtes d’autorisation ne sont jamais visibles par le biais d’entrées ou de sorties. Si un secret est utilisé ici, il n’est pas récupérable.
+> Si vous utilisez un paramètre dans l’en-tête ou le corps d’une requête, il peut être visible lorsque vous consultez l’historique des exécutions de l’application logique et la requête HTTP sortante. Veillez également à définir vos stratégies d’accès au contenu en conséquence.
+> Vous pouvez également utiliser l’[obfuscation](#obfuscate) pour masquer les entrées et les sorties dans votre historique des exécutions. Les en-têtes d’autorisation ne sont jamais visibles par le biais d’entrées ou de sorties. Si un secret est utilisé ici, il n’est pas récupérable.
 
 Pour en savoir plus, consultez les sections suivantes de la présente rubrique :
 
@@ -680,7 +681,7 @@ Voici quelques méthodes qui permettent de sécuriser les points de terminaison 
   * [Authentification OAuth Active Directory](#azure-active-directory-oauth-authentication)
 
   * [Authentification d’une identité managée](#managed-identity-authentication)
-  
+
   Pour plus d’informations, consultez la section [Ajouter l’authentification aux appels sortants](#add-authentication-outbound) plus loin dans cette rubrique.
 
 * Restreignez l’accès des adresses IP d’application logique.
@@ -727,7 +728,8 @@ Voici quelques méthodes qui permettent de sécuriser les points de terminaison 
 Les points de terminaison HTTP et HTTPS prennent en charge différents types d’authentification. Il est possible, sur certains déclencheurs et actions permettant d’envoyer des appels sortants ou des demandes à ces points de terminaison, de spécifier un type d’authentification. Dans le Concepteur d’applications logiques, les déclencheurs et les actions qui prennent en charge le choix du type d’authentification disposent d’une propriété **Authentification**. Toutefois, celle-ci n’apparaît pas toujours par défaut. Dans ce cas, ouvrez la liste **Ajouter un nouveau paramètre** dans le déclencheur ou l’action, puis sélectionnez **Authentification**.
 
 > [!IMPORTANT]
-> Pour protéger les informations sensibles gérées par votre application logique, utilisez des paramètres sécurisés et encodez les données si nécessaire. Pour plus d’informations sur l’utilisation et la sécurisation des paramètres, consultez [Accès aux entrées de paramètres](#secure-action-parameters).
+> Pour protéger les informations sensibles gérées par votre application logique, utilisez des paramètres sécurisés et encodez les données si nécessaire.
+> Pour plus d’informations sur l’utilisation et la sécurisation des paramètres, consultez [Accès aux entrées de paramètres](#secure-action-parameters).
 
 Ce tableau identifie les types d’authentification disponibles sur les déclencheurs et les actions offrant la possibilité de sélectionner un type d’authentification :
 
@@ -814,7 +816,7 @@ Pour plus d’informations sur la sécurisation des services à l’aide de l’
 
 ### <a name="azure-active-directory-open-authentication"></a>Azure Active Directory Open Authentication
 
-Sur les déclencheurs de requête, vous pouvez utiliser [Azure Active Directory Open Authentication](../active-directory/develop/about-microsoft-identity-platform.md) (Azure AD OAuth) pour authentifier les appels entrants après avoir [configuré des stratégies d’autorisation Azure AD](#enable-oauth) pour votre application logique. Pour tous les autres déclencheurs et actions qui proposent la sélection du type d’authentification **Active Directory OAuth**, spécifiez ces valeurs de propriété :
+Sur les déclencheurs de requête, vous pouvez utiliser [Azure Active Directory Open Authentication](/azure/active-directory/develop/) (Azure AD OAuth) pour authentifier les appels entrants après avoir [configuré des stratégies d’autorisation Azure AD](#enable-oauth) pour votre application logique. Pour tous les autres déclencheurs et actions qui proposent la sélection du type d’authentification **Active Directory OAuth**, spécifiez ces valeurs de propriété :
 
 | Propriété (concepteur) | Propriété (JSON) | Obligatoire | Valeur | Description |
 |---------------------|-----------------|----------|-------|-------------|

@@ -5,12 +5,12 @@ author: mikkelhegn
 ms.topic: conceptual
 ms.date: 02/23/2018
 ms.author: mikhegn
-ms.openlocfilehash: 0bca690fd585b288f15cbab21c1c951474390318
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: b6d6ff37024a3181a43b67d2af26b067225654fe
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "78196977"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86257473"
 ---
 # <a name="manage-applications-for-multiple-environments"></a>Gestion des applications pour plusieurs environnements
 
@@ -40,8 +40,8 @@ La configuration que vous fournissez peut être divisée en deux catégories :
 
 Lorsque vous créez des instances de l’application nommée dans Service Fabric, vous avez la possibilité de passer des paramètres. La façon de procéder dépend de la création de l’instance d’application.
 
-  - Dans PowerShell, l’applet de commande [`New-ServiceFabricApplication`](https://docs.microsoft.com/powershell/module/servicefabric/new-servicefabricapplication?view=azureservicefabricps) considère les paramètres de l’application comme une table de hachage.
-  - À l’aide de sfctl, la commande [`sfctl application create`](https://docs.microsoft.com/azure/service-fabric/service-fabric-sfctl-application#sfctl-application-create) considère les paramètres comme une chaîne JSON. Le script install.sh utilise sfctl.
+  - Dans PowerShell, l’applet de commande [`New-ServiceFabricApplication`](/powershell/module/servicefabric/new-servicefabricapplication?view=azureservicefabricps) considère les paramètres de l’application comme une table de hachage.
+  - À l’aide de sfctl, la commande [`sfctl application create`](./service-fabric-sfctl-application.md#sfctl-application-create) considère les paramètres comme une chaîne JSON. Le script install.sh utilise sfctl.
   - Visual Studio vous fournit un ensemble de fichiers de paramètres dans le dossier Paramètres du projet d’application. Ces fichiers de paramètres sont utilisés lors de la publication à partir de Visual Studio, à l’aide d’Azure DevOps Services ou d’Azure DevOps Server. Dans Visual Studio, les fichiers de paramètres sont passés au script Deploy-FabricApplication.ps1.
 
 ## <a name="next-steps"></a>Étapes suivantes

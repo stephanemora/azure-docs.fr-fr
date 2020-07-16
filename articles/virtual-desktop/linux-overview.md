@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 01/23/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: 8c5de43ed29856451ad67e02a426b07cc34a0d54
-ms.sourcegitcommit: 7581df526837b1484de136cf6ae1560c21bf7e73
+ms.openlocfilehash: 3dc9d62141a63574a6796982542cb1491108eedc
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/31/2020
-ms.locfileid: "80422410"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86259857"
 ---
 # <a name="linux-support"></a>Prise en charge Linux
 
@@ -69,7 +69,7 @@ Avant de pouvoir développer un client Linux pour Windows Virtual Desktop, vous 
 
 Consultez notre documentation pour les clients suivants :
 
-- [Client Windows Desktop](connect-windows-7-and-10.md)
+- [Client Windows Desktop](connect-windows-7-10.md)
 - [Client web](connect-web.md)
 - [Client Android](connect-android.md)
 - [Client macOS](connect-macos.md)

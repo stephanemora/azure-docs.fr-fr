@@ -4,12 +4,12 @@ description: Découvrez comment déboguer des conteneurs Windows dans Azure Serv
 ms.topic: article
 ms.date: 02/14/2019
 ms.author: mikhegn
-ms.openlocfilehash: 2a00a352d09562ffe46dc8e6e63a5d4963ac3a3f
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 3e6e7785278b182cebb21115a70f35ade52303c3
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84701147"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86247249"
 ---
 # <a name="how-to-debug-windows-containers-in-azure-service-fabric-using-visual-studio-2019"></a>Procédure : Déboguer des conteneurs Windows dans Azure Service Fabric à l’aide de Visual Studio 2019
 
@@ -17,9 +17,9 @@ Avec Visual Studio 2019, vous pouvez déboguer des applications .NET dans les c
 
 ## <a name="prerequisites"></a>Prérequis
 
-* Dans Windows 10, suivez ce guide de démarrage rapide pour [configurer Windows 10 pour exécuter des conteneurs Windows](https://docs.microsoft.com/virtualization/windowscontainers/quick-start/quick-start-windows-10)
-* Dans Windows Server 2016, suivez ce guide de démarrage rapide pour [configurer Windows 2016 pour exécuter des conteneurs Windows](https://docs.microsoft.com/virtualization/windowscontainers/quick-start/quick-start-windows-server)
-* Configurer votre environnement Service Fabric local en suivant [Préparer votre environnement de développement sur Windows](https://docs.microsoft.com/azure/service-fabric/service-fabric-get-started)
+* Dans Windows 10, suivez ce guide de démarrage rapide pour [configurer Windows 10 pour exécuter des conteneurs Windows](/virtualization/windowscontainers/quick-start/quick-start-windows-10)
+* Dans Windows Server 2016, suivez ce guide de démarrage rapide pour [configurer Windows 2016 pour exécuter des conteneurs Windows](/virtualization/windowscontainers/quick-start/quick-start-windows-server)
+* Configurer votre environnement Service Fabric local en suivant [Préparer votre environnement de développement sur Windows](./service-fabric-get-started.md)
 
 ## <a name="configure-your-developer-environment-to-debug-containers"></a>Configurer votre environnement de développement pour déboguer des conteneurs
 
@@ -38,7 +38,7 @@ Avec Visual Studio 2019, vous pouvez déboguer des applications .NET dans les c
       > Vous pouvez utiliser `-CreateOneNodeCluster` pour configurer un cluster à un nœud. La configuration par défaut crée un cluster local à cinq nœuds.
       >
 
-      Pour en savoir plus sur le service DNS dans Service Fabric, consultez [Service DNS dans Azure Service Fabric](https://docs.microsoft.com/azure/service-fabric/service-fabric-dnsservice). Pour plus d’informations sur l’utilisation du proxy inverse Service Fabric à partir de services s’exécutant dans un conteneur, consultez [Gestion spéciale du proxy inverse pour les services s’exécutant dans des conteneurs](service-fabric-reverseproxy.md#special-handling-for-services-running-in-containers).
+      Pour en savoir plus sur le service DNS dans Service Fabric, consultez [Service DNS dans Azure Service Fabric](./service-fabric-dnsservice.md). Pour plus d’informations sur l’utilisation du proxy inverse Service Fabric à partir de services s’exécutant dans un conteneur, consultez [Gestion spéciale du proxy inverse pour les services s’exécutant dans des conteneurs](service-fabric-reverseproxy.md#special-handling-for-services-running-in-containers).
 
 ### <a name="known-limitations-when-debugging-containers-in-service-fabric"></a>Limitations connues lors du débogage de conteneurs dans Service Fabric
 

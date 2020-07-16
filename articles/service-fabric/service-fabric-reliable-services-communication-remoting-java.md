@@ -5,12 +5,12 @@ author: PavanKunapareddyMSFT
 ms.topic: conceptual
 ms.date: 06/30/2017
 ms.author: pakunapa
-ms.openlocfilehash: eef63d7a2c8a4b15938dfbffd7db5f9d1b22d426
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 2942c015ba9265d7f2c597ced2321a7789c28576
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "75426637"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86253387"
 ---
 # <a name="service-remoting-in-java-with-reliable-services"></a>Communication à distance des services dans Java avec Reliable Services
 > [!div class="op_single_selector"]
@@ -83,8 +83,8 @@ L'infrastructure de communication à distance propage les exceptions levées au 
 Comme la création de proxy de service est une opération légère, vous pouvez en créer autant de fois que nécessaire. Les instances de proxy de service peuvent être réutilisées tant qu’elles sont nécessaires. Si un appel de procédure distante lève une exception, vous pouvez toujours réutiliser la même instance de proxy. Chaque proxy de service contient un client de communication qui permet d’envoyer des messages sur le réseau. Lors de l’invocation d’appels distants, des vérifications en interne sont effectuées pour déterminer si le client de communication est valide. Selon les résultats de ces vérifications, le client de communication est recréé, si nécessaire. Par conséquent, si une exception se produit, il est inutile de recréer `ServiceProxy`.
 
 ### <a name="serviceproxyfactory-lifetime"></a>Durée de vie de la fabrique ServiceProxyFactory
-[FabricServiceProxyFactory](https://docs.microsoft.com/java/api/microsoft.servicefabric.services.remoting.client.fabricserviceproxyfactory) est une fabrique qui crée un proxy pour différentes interfaces de communication à distance. Si vous utilisez l’API `ServiceProxyBase.create` pour la création du proxy, l’infrastructure crée ensuite un `FabricServiceProxyFactory`.
-Il est utile d’en créer un manuellement lorsque vous devez remplacer les propriétés de [ServiceRemotingClientFactory](https://docs.microsoft.com/java/api/microsoft.servicefabric.services.remoting.client.serviceremotingclientfactory).
+[FabricServiceProxyFactory](/java/api/microsoft.servicefabric.services.remoting.client.fabricserviceproxyfactory) est une fabrique qui crée un proxy pour différentes interfaces de communication à distance. Si vous utilisez l’API `ServiceProxyBase.create` pour la création du proxy, l’infrastructure crée ensuite un `FabricServiceProxyFactory`.
+Il est utile d’en créer un manuellement lorsque vous devez remplacer les propriétés de [ServiceRemotingClientFactory](/java/api/microsoft.servicefabric.services.remoting.client.serviceremotingclientfactory).
 La fabrique est une opération coûteuse. `FabricServiceProxyFactory` conserve le cache des clients de communication.
 Il est recommandé de mettre en cache `FabricServiceProxyFactory` aussi longtemps que possible.
 
@@ -94,7 +94,7 @@ Toutes les exceptions distantes levées par l’API du service sont renvoyées a
 Le proxy de service gère toutes les exceptions de basculement pour la partition de service pour laquelle il a été créé. Il résout à nouveau les points de terminaison s’il existe des exceptions de basculement (non temporaires) et retente l’appel avec le point de terminaison correct. Le nombre de tentatives pour l’exception de basculement est illimité.
 En cas d’exceptions temporaires, il retente uniquement l’appel.
 
-Les paramètres de nouvelle tentative par défaut sont fournis par [OperationRetrySettings](https://docs.microsoft.com/java/api/microsoft.servicefabric.services.communication.client.operationretrysettings).
+Les paramètres de nouvelle tentative par défaut sont fournis par [OperationRetrySettings](/java/api/microsoft.servicefabric.services.communication.client.operationretrysettings).
 Vous pouvez configurer ces valeurs en passant l’objet OperationRetrySettings au constructeur ServiceProxyFactory.
 
 ## <a name="next-steps"></a>Étapes suivantes

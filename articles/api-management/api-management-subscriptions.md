@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 11/14/2018
 ms.author: apimpm
-ms.openlocfilehash: 9144af131e1427d0b3226655c871921ac1d91665
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 137cbec270b40042503fc7687c9deb39b0df1aa4
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "70073421"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86243288"
 ---
 # <a name="subscriptions-in-azure-api-management"></a>Abonnements dans Gestion des API Azure
 
@@ -33,7 +33,7 @@ Pour obtenir une clé d’abonnement permettant d’accéder aux API, un abonnem
 > La Gestion des API prend également en charge d’autres mécanismes de protection de l’accès aux API, entre autres :
 > - [OAuth2.0](api-management-howto-protect-backend-with-aad.md)
 > - [Certificats clients](api-management-howto-mutual-certificates-for-clients.md)
-> - [Liste verte d’adresses IP](https://docs.microsoft.com/azure/api-management/api-management-access-restriction-policies#RestrictCallerIPs)
+> - [Liste verte d’adresses IP](./api-management-access-restriction-policies.md#RestrictCallerIPs)
 
 ## <a name="scope-of-subscriptions"></a>Étendue des abonnements
 

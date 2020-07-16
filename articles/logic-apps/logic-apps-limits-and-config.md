@@ -6,12 +6,12 @@ ms.suite: integration
 ms.reviewer: jonfan, logicappspm
 ms.topic: article
 ms.date: 06/25/2020
-ms.openlocfilehash: 33e521046889733b2f0a66b839ab5dde46398318
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 350c542e1b183c79707c99989b2544fd8faa43ac
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85412693"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86248473"
 ---
 # <a name="limits-and-configuration-information-for-azure-logic-apps"></a>Limites et informations de configuration pour Azure Logic Apps
 
@@ -180,7 +180,7 @@ Comme certaines opérations de connecteur effectuent des appels asynchrones ou �
 
 ### <a name="authentication-limits"></a>Limites d’authentification
 
-Voici les limites d’une application logique qui démarre avec un déclencheur de requête et active [Azure Active Directory Open Authentication](../active-directory/develop/about-microsoft-identity-platform.md) (Azure AD OAuth) pour autoriser les appels entrants vers le déclencheur de requête :
+Voici les limites d’une application logique qui démarre avec un déclencheur de requête et active [Azure Active Directory Open Authentication](/azure/active-directory/develop/) (Azure AD OAuth) pour autoriser les appels entrants vers le déclencheur de requête :
 
 | Nom | Limite | Notes |
 | ---- | ----- | ----- |
@@ -302,7 +302,8 @@ Lorsque vous supprimez une application logique, aucune nouvelle exécution n’e
 Les adresses IP qu’Azure Logic Apps utilise pour les appels entrants et sortants dépendent de la région où se trouve votre application logique. *Toutes* les applications logiques qui se trouvent dans une même région utilisent les mêmes plages d’adresses IP. Certains appels de [Power Automate](https://docs.microsoft.com/power-automate/getting-started), tels que les requêtes **HTTP** et **HTTP + OpenAPI**, passent directement par le service Azure Logic Apps et proviennent des adresses IP listées ici. Pour plus d’informations sur les adresses IP utilisées par Power Automate, consultez [Limites et configuration dans Power Automate](https://docs.microsoft.com/flow/limits-and-config#ip-address-configuration).
 
 > [!TIP]
-> Pour réduire la complexité de la création des règles de sécurité, vous pouvez éventuellement utiliser les [balises de service](../virtual-network/service-tags-overview.md), au lieu de spécifier les adresses IP Logic Apps pour chaque région, comme décrit plus loin dans cette section. Ces balises fonctionnent dans les régions où le service Logic Apps est disponible :
+> Pour réduire la complexité de la création des règles de sécurité, vous pouvez éventuellement utiliser les [balises de service](../virtual-network/service-tags-overview.md), au lieu de spécifier les adresses IP Logic Apps pour chaque région, comme décrit plus loin dans cette section.
+> Ces balises fonctionnent dans les régions où le service Logic Apps est disponible :
 >
 > * **LogicAppsManagement** : représente les préfixes d’adresses IP entrantes pour le service Logic Apps.
 > * **LogicApps** : représente les préfixes d’adresse IP sortantes pour le service Logic Apps.
@@ -326,7 +327,8 @@ Les adresses IP qu’Azure Logic Apps utilise pour les appels entrants et sortan
 Cette section répertorie les adresses IP entrantes pour le service Azure Logic Apps uniquement. Si vous avez Azure Government, consultez [Azure Government - Adresses IP entrantes](#azure-government-inbound).
 
 > [!TIP]
-> Pour réduire la complexité de la création des règles de sécurité, vous pouvez éventuellement utiliser la [balise de service](../virtual-network/service-tags-overview.md), **LogicAppsManagement**, au lieu de spécifier les préfixes d’adresses IP Logic Apps entrants pour chaque région. Cette balise fonctionne dans les régions où le service Logic Apps est disponible.
+> Pour réduire la complexité de la création des règles de sécurité, vous pouvez éventuellement utiliser la [balise de service](../virtual-network/service-tags-overview.md), **LogicAppsManagement**, au lieu de spécifier les préfixes d’adresses IP Logic Apps entrants pour chaque région.
+> Cette balise fonctionne dans les régions où le service Logic Apps est disponible.
 
 <a name="multi-tenant-inbound"></a>
 
@@ -386,7 +388,9 @@ Cette section répertorie les adresses IP entrantes pour le service Azure Logic
 Cette section répertorie les adresses IP sortantes pour le service Azure Logic Apps et les connecteurs managés. Si vous avez Azure Government, consultez [Azure Government - Adresses IP sortantes](#azure-government-outbound).
 
 > [!TIP]
-> Pour réduire la complexité de la création des règles de sécurité, vous pouvez éventuellement utiliser la [balise de service](../virtual-network/service-tags-overview.md), **LogicApps**, au lieu de spécifier les préfixes d’adresses IP Logic Apps sortants pour chaque région. Cette balise fonctionne dans les régions où le service Logic Apps est disponible. Pour les connecteurs managés, vous devez continuer à utiliser les adresses IP.
+> Pour réduire la complexité de la création des règles de sécurité, vous pouvez éventuellement utiliser la [balise de service](../virtual-network/service-tags-overview.md), **LogicApps**, au lieu de spécifier les préfixes d’adresses IP Logic Apps sortants pour chaque région.
+> Cette balise fonctionne dans les régions où le service Logic Apps est disponible.
+> Pour les connecteurs managés, vous devez continuer à utiliser les adresses IP.
 
 <a name="multi-tenant-outbound"></a>
 
@@ -441,5 +445,5 @@ Cette section répertorie les adresses IP sortantes pour le service Azure Logic
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-* Découvrez comment [créer votre première application logique](../logic-apps/quickstart-create-first-logic-app-workflow.md)  
+* Découvrez comment [créer votre première application logique](../logic-apps/quickstart-create-first-logic-app-workflow.md)
 * En savoir plus sur [les exemples et les scénarios courants](../logic-apps/logic-apps-examples-and-scenarios.md)

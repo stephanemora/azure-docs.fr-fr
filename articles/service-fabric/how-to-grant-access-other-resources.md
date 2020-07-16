@@ -3,12 +3,12 @@ title: Accorder à une application l’accès à d’autres ressources Azure
 description: Cet article explique comment accorder à votre application Service Fabric avec identité managée l’accès à d’autres ressources Azure prenant en charge l’authentification basée sur Azure Active Directory.
 ms.topic: article
 ms.date: 12/09/2019
-ms.openlocfilehash: 3b1feab1e67e993df771564a1a7c1aba4236b2c0
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 638176ca2665146a64fb7a6bd83253eba3434a7f
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "75614791"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86258953"
 ---
 # <a name="granting-a-service-fabric-applications-managed-identity-access-to-azure-resources-preview"></a>Accorder à l’identité managée d’une application Service Fabric l’accès à des ressources Azure (préversion)
 
@@ -102,7 +102,7 @@ Et pour les identités managées attribuées par le système :
     }
 ```
 
-Pour plus d’informations, consultez [Coffres - Mettre à jour la stratégie d’accès](https://docs.microsoft.com/rest/api/keyvault/vaults/updateaccesspolicy).
+Pour plus d’informations, consultez [Coffres - Mettre à jour la stratégie d’accès](/rest/api/keyvault/vaults/updateaccesspolicy).
 
 ## <a name="next-steps"></a>Étapes suivantes
 * [Déployer une application Azure Service Fabric avec une identité managée attribuée par le système](./how-to-deploy-service-fabric-application-system-assigned-managed-identity.md)

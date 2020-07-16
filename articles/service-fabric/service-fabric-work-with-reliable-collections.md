@@ -3,12 +3,12 @@ title: Utilisation des collections fiables
 description: Découvrez les bonnes pratiques liées à l’utilisation des collections fiables dans une application Azure Service Fabric.
 ms.topic: conceptual
 ms.date: 03/10/2020
-ms.openlocfilehash: f0f1d332b3636e28ffc50ee8b8edcd253474a307
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 7df48bc0dfbef6fc85335801e64484914a218eb7
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85374693"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86255793"
 ---
 # <a name="working-with-reliable-collections"></a>Utilisation des collections fiables
 Service Fabric propose un modèle de programmation avec état disponible pour les développeurs .NET via les collections fiables. Plus précisément, Service Fabric fournit un dictionnaire fiable et des classes de file d’attente fiables. Lorsque vous utilisez ces classes, votre état est partitionné (pour l’évolutivité) répliqué (pour la disponibilité) et traité dans une partition (pour la sémantique ACID). Examinons l'utilisation type d'un objet de dictionnaire fiable afin de découvrir ses fonctionnalités réelles.
@@ -219,10 +219,10 @@ En outre, le code de service est mis à niveau à raison d’un domaine de mise 
 Vous pouvez également effectuer ce que l'on appelle communément une mise à niveau en deux phases. Dans le cadre d'une mise à niveau en deux phases, vous mettez à niveau votre service de la V1 vers la V2 : la V2 contient le code capable de prendre en charge les nouvelles modifications du schéma, mais ce code ne s'exécute pas. Lorsque le code V2 lit les données de la V1, il agit sur ces dernières et écrit les données V1. Ensuite, une fois la mise à niveau effectuée sur tous les domaines de mise à niveau, vous pouvez d’une certaine manière signaler aux instances V2 en cours d’exécution que la mise à niveau est terminée (pour ce faire, vous pouvez déployer une mise à niveau de la configuration ; c’est précisément cette opération qui en fait une mise à niveau en deux phases). À présent, les instances V2 peuvent lire les données de V1, les convertir en données V2, les exploiter et les écrire en tant que données V2. Lorsque d’autres instances lisent les données V2, elles n’ont pas besoin de les convertir. Elles les exploitent simplement et écrivent des données V2.
 
 ## <a name="next-steps"></a>Étapes suivantes
-Pour en savoir plus sur la création de contrats de données à compatibilité ascendante, consultez [Contrats de données à compatibilité ascendante](https://msdn.microsoft.com/library/ms731083.aspx).
+Pour en savoir plus sur la création de contrats de données à compatibilité ascendante, consultez [Contrats de données à compatibilité ascendante](/dotnet/framework/wcf/feature-details/forward-compatible-data-contracts).
 
-Pour découvrir les meilleures pratiques relatives au contrôle de version des contrats de données, consultez [Contrôle de version des contrats de données](https://msdn.microsoft.com/library/ms731138.aspx).
+Pour découvrir les meilleures pratiques relatives au contrôle de version des contrats de données, consultez [Contrôle de version des contrats de données](/dotnet/framework/wcf/feature-details/data-contract-versioning).
 
-Pour savoir comment implémenter des contrats de données à tolérance de version, consultez [Rappels de sérialisation avec tolérance de version](https://msdn.microsoft.com/library/ms733734.aspx).
+Pour savoir comment implémenter des contrats de données à tolérance de version, consultez [Rappels de sérialisation avec tolérance de version](/dotnet/framework/wcf/feature-details/version-tolerant-serialization-callbacks).
 
-Pour savoir comment fournir une structure de données capable d'interagir entre plusieurs versions, consultez [IExtensibleDataObject](https://msdn.microsoft.com/library/system.runtime.serialization.iextensibledataobject.aspx).
+Pour savoir comment fournir une structure de données capable d'interagir entre plusieurs versions, consultez [IExtensibleDataObject](/dotnet/api/system.runtime.serialization.iextensibledataobject?view=netcore-3.1).

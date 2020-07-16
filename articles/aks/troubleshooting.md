@@ -4,12 +4,12 @@ description: Découvrir comment résoudre les problèmes courants liés à l’u
 services: container-service
 ms.topic: troubleshooting
 ms.date: 06/20/2020
-ms.openlocfilehash: 08668289faa2341389a80b00cba11a33021da608
-ms.sourcegitcommit: bcb962e74ee5302d0b9242b1ee006f769a94cfb8
+ms.openlocfilehash: f334f501335e9e384cfcc35b356e61ab66efe7a8
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/07/2020
-ms.locfileid: "86054387"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86243679"
 ---
 # <a name="aks-troubleshooting"></a>Résolution des problèmes liés à AKS
 
@@ -22,7 +22,7 @@ Il existe également un [guide de résolution des problèmes](https://github.com
 
 ## <a name="im-getting-a-quota-exceeded-error-during-creation-or-upgrade-what-should-i-do"></a>J’obtiens une erreur de dépassement de quota pendant une opération de création ou de mise à niveau. Que dois-je faire ? 
 
- [Demandez plus de cœurs](https://docs.microsoft.com/azure/azure-portal/supportability/resource-manager-core-quotas-request).
+ [Demandez plus de cœurs](../azure-portal/supportability/resource-manager-core-quotas-request.md).
 
 ## <a name="what-is-the-maximum-pods-per-node-setting-for-aks"></a>Quel est le nombre maximal de pods par nœud pour AKS ?
 
@@ -34,7 +34,7 @@ Le nombre maximal de pods par nœud est 110 par défaut si vous déployez un clu
 Cette erreur indique qu’un sous-réseau utilisé pour un cluster n’a plus d’adresses IP disponibles dans son routage CIDR (Classless InterDomain Routing) pour que l’attribution des ressources réussisse. Pour les clusters Kubenet, un espace d’adressage IP suffisant pour chaque nœud du cluster est exigé. Pour les clusters Azure CNI, un espace d’adressage IP suffisant pour chaque nœud et pod du cluster est exigé.
 En savoir plus sur la [conception d’Azure CNI pour attribuer des adresses IP aux pods](configure-azure-cni.md#plan-ip-addressing-for-your-cluster).
 
-Ces erreurs sont également signalées dans [AKS Diagnostics](https://docs.microsoft.com/azure/aks/concepts-diagnostics), qui prend l’initiative de signaler des problèmes tels qu’une taille de sous-réseau insuffisante.
+Ces erreurs sont également signalées dans [AKS Diagnostics](./concepts-diagnostics.md), qui prend l’initiative de signaler des problèmes tels qu’une taille de sous-réseau insuffisante.
 
 Les trois (3) cas suivants entraînent une erreur de taille de sous-réseau insuffisante :
 

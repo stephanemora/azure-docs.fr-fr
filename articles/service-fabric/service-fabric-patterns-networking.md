@@ -3,12 +3,12 @@ title: Modèles de mise en réseau pour Azure Service Fabric
 description: Décrit les modèles de mise en réseau courants de Service Fabric et explique comment créer un cluster avec les fonctionnalités de mise en réseau d’Azure.
 ms.topic: conceptual
 ms.date: 01/19/2018
-ms.openlocfilehash: b9114be5498bcb7fdec4e105ad6e3ff9fcc03a7c
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 0c3664d1890fd318aa1bff508a51cb227bdcc01d
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85106628"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86258527"
 ---
 # <a name="service-fabric-networking-patterns"></a>Modèles de mise en réseau de Service Fabric
 Vous pouvez intégrer votre cluster Azure Service Fabric avec d’autres fonctionnalités de mise en réseau Azure. Dans cet article, nous vous expliquons comment créer des clusters qui utilisent les fonctionnalités suivantes :
@@ -598,10 +598,9 @@ Après le déploiement, deux équilibreurs de charge apparaissent dans le groupe
 
 ## <a name="notes-for-production-workloads"></a>Remarques pour les charges de travail de production
 
-Les modèles GitHub ci-dessus sont conçus pour fonctionner avec la référence SKU par défaut pour Azure Standard Load Balancer (SLB), la référence SKU De base. Ce SLB n’a pas de contrat SLA. Pour les charges de travail de production, la référence SKU Standard doit donc être utilisée. Pour plus d’informations, consultez la [vue d’ensemble d’Azure Standard Load Balancer](/azure/load-balancer/load-balancer-standard-overview). Tout cluster Service Fabric utilisant la référence SKU Standard pour SLB doit vérifier que chaque type de nœud a une règle autorisant le trafic sortant sur le port 443. Cette opération est nécessaire pour terminer l’installation du cluster, et tout déploiement sans règle de ce type échouera. Dans l’exemple ci-dessus d’un équilibreur de charge « interne uniquement », un équilibreur de charge externe supplémentaire doit être ajouté au modèle avec une règle autorisant le trafic sortant pour le port 443.
+Les modèles GitHub ci-dessus sont conçus pour fonctionner avec la référence SKU par défaut pour Azure Standard Load Balancer (SLB), la référence SKU De base. Ce SLB n’a pas de contrat SLA. Pour les charges de travail de production, la référence SKU Standard doit donc être utilisée. Pour plus d’informations, consultez la [vue d’ensemble d’Azure Standard Load Balancer](../load-balancer/load-balancer-overview.md). Tout cluster Service Fabric utilisant la référence SKU Standard pour SLB doit vérifier que chaque type de nœud a une règle autorisant le trafic sortant sur le port 443. Cette opération est nécessaire pour terminer l’installation du cluster, et tout déploiement sans règle de ce type échouera. Dans l’exemple ci-dessus d’un équilibreur de charge « interne uniquement », un équilibreur de charge externe supplémentaire doit être ajouté au modèle avec une règle autorisant le trafic sortant pour le port 443.
 
 ## <a name="next-steps"></a>Étapes suivantes
 [Créer un cluster](service-fabric-cluster-creation-via-arm.md)
 
 Après le déploiement, deux équilibreurs de charge apparaissent dans le groupe de ressources. Si vous parcourez les équilibreurs de charge, vous voyez l’adresse IP publique et les points de terminaison de gestion (ports 19000 et 19080) affectés à l’adresse IP publique. L’adresse IP interne statique et le point de terminaison d’application (port 80) affectés à l’équilibreur de charge interne apparaissent également. Les deux équilibreurs de charge utilisent le même pool back-end de groupe de machines virtuelles identiques.
-

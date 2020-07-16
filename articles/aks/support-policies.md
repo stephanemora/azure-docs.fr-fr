@@ -6,12 +6,12 @@ author: jnoller
 ms.topic: article
 ms.date: 01/24/2020
 ms.author: jenoller
-ms.openlocfilehash: ec58f8df5507fd9c52950e880c062e6cad964b7a
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.openlocfilehash: ce014fc338ebfad18b91ba65b614ca0a380a3f7c
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86106983"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86243849"
 ---
 # <a name="support-policies-for-azure-kubernetes-service"></a>Stratégies de support pour Azure Kubernetes Service
 
@@ -75,7 +75,7 @@ Microsoft ne fournit pas de support technique pour les éléments suivants :
   > Microsoft fera de son mieux pour assurer le support des projets open source tiers tels que Helm et Kured. Quand l’outil open source tiers est associé au fournisseur cloud Azure Kubernetes ou à d’autres bogues spécifiques à AKS, Microsoft fournit des exemples et applications issus de sa documentation.
 * Logiciels fermés tiers. Ces logiciels peuvent inclure des outils d’analyse de sécurité et des logiciels ou appareils réseau.
 * Problèmes de solutions multifournisseur ou multicloud. Par exemple, Microsoft n’assure pas le support des problèmes liés à l’exécution d’une solution de fournisseur cloud multipublic fédérée.
-* Personnalisations réseau autres que celles répertoriées dans la [documentation AKS](https://docs.microsoft.com/azure/aks/).
+* Personnalisations réseau autres que celles répertoriées dans la [documentation AKS](./index.yml).
   > [!NOTE]
   > Microsoft n’assure pas le support des problèmes et bogues liés aux groupes de sécurité réseau. Par exemple, le Support Microsoft peut répondre à des questions sur un échec de mise à jour d’un groupe de sécurité réseau ou un comportement d’équilibreur de charge ou de groupe de sécurité réseau inattendu.
 

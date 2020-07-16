@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 03/11/2019
 ms.author: apimpm
-ms.openlocfilehash: 27bb6abb7ae8eae46bc4dea3708270ecb4b731a6
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 0182c3aa9095ad6f7bf3d8d86f115517e9efb020
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "81260902"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86249601"
 ---
 # <a name="api-management-transformation-policies"></a>Stratégies de transformation de la Gestion des API
 Cette rubrique est une ressource de référence au sujet des stratégies Gestion des API suivantes. Pour plus d'informations sur l'ajout et la configuration des stratégies, consultez la page [Stratégies dans Gestion des API](https://go.microsoft.com/fwlink/?LinkID=398186).
@@ -82,7 +82,7 @@ Cette rubrique est une ressource de référence au sujet des stratégies Gestion
 |date de l’analyse|Quand les valeurs de date sont définies sur `false`, elles sont simplement copiées lors de la transformation|Non|true|
 
 ### <a name="usage"></a>Usage
- Cette stratégie peut être utilisée dans les [sections](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) et [étendues](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes) de stratégie suivantes.
+ Cette stratégie peut être utilisée dans les [sections](./api-management-howto-policies.md#sections) et [étendues](./api-management-howto-policies.md#scopes) de stratégie suivantes.
 
 -   **Sections de la stratégie :** inbound, outbound, on-error
 
@@ -126,7 +126,7 @@ Cette rubrique est une ressource de référence au sujet des stratégies Gestion
 |consider-accept-header|L’attribut doit avoir l’une des valeurs suivantes.<br /><br /> -   true : appliquer la conversion si le format JSON est demandé dans l’en-tête d’acceptation de la demande.<br />-   false : toujours appliquer la conversion.|Non|true|
 
 ### <a name="usage"></a>Usage
- Cette stratégie peut être utilisée dans les [sections](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) et [étendues](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes) de stratégie suivantes.
+ Cette stratégie peut être utilisée dans les [sections](./api-management-howto-policies.md#sections) et [étendues](./api-management-howto-policies.md#scopes) de stratégie suivantes.
 
 -   **Sections de la stratégie :** inbound, outbound, on-error
 
@@ -161,7 +161,7 @@ Cette rubrique est une ressource de référence au sujet des stratégies Gestion
 |to|Chaîne de remplacement. Spécifiez une chaîne de remplacement nulle pour supprimer la chaîne de recherche.|Oui|N/A|
 
 ### <a name="usage"></a>Usage
- Cette stratégie peut être utilisée dans les [sections](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) et [étendues](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes) de stratégie suivantes.
+ Cette stratégie peut être utilisée dans les [sections](./api-management-howto-policies.md#sections) et [étendues](./api-management-howto-policies.md#scopes) de stratégie suivantes.
 
 -   **Sections de la stratégie :** inbound, outbound, backend, on-error
 
@@ -192,7 +192,7 @@ Cette rubrique est une ressource de référence au sujet des stratégies Gestion
 |redirect-content-urls|Élément racine.|Oui|
 
 ### <a name="usage"></a>Usage
- Cette stratégie peut être utilisée dans les [sections](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) et [étendues](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes) de stratégie suivantes.
+ Cette stratégie peut être utilisée dans les [sections](./api-management-howto-policies.md#sections) et [étendues](./api-management-howto-policies.md#scopes) de stratégie suivantes.
 
 -   **Sections de la stratégie :** inbound, outbound
 
@@ -214,7 +214,7 @@ or
 ```
 
 > [!NOTE]
-> Les entités de back-end peuvent être gérées via l’[API](https://docs.microsoft.com/rest/api/apimanagement/2019-12-01/backend) de gestion et [PowerShell](https://www.powershellgallery.com/packages?q=apimanagement).
+> Les entités de back-end peuvent être gérées via l’[API](/rest/api/apimanagement/2019-12-01/backend) de gestion et [PowerShell](https://www.powershellgallery.com/packages?q=apimanagement).
 
 ### <a name="example"></a>Exemple
 
@@ -269,7 +269,7 @@ Dans cet exemple, la stratégie permet d’acheminer la requête vers un serveur
 |Nom|Description|Obligatoire|Default|
 |----------|-----------------|--------------|-------------|
 |base-url|Nouvelle URL de base du service principal.|`base-url` ou `backend-id` doit être présent.|N/A|
-|id de principal|Identificateur du serveur principal pour l’acheminement. (Les entités de back-end sont gérées via une [API](https://docs.microsoft.com/rest/api/apimanagement/2019-12-01/backend) et [PowerShell](https://www.powershellgallery.com/packages?q=apimanagement).)|`base-url` ou `backend-id` doit être présent.|N/A|
+|id de principal|Identificateur du serveur principal pour l’acheminement. (Les entités de back-end sont gérées via une [API](/rest/api/apimanagement/2019-12-01/backend) et [PowerShell](https://www.powershellgallery.com/packages?q=apimanagement).)|`base-url` ou `backend-id` doit être présent.|N/A|
 |clé de partition SF|Applicable uniquement lorsque le serveur principal est un service Service Fabric et qu’il est spécifié à l’aide de « id principal ». Utilisé pour résoudre une partition spécifique à partir du service de résolution des noms.|Non|N/A|
 |type de réplica SF|Applicable uniquement lorsque le serveur principal est un service Service Fabric et qu’il est spécifié à l’aide de « id principal ». Contrôle si la requête doit atteindre le réplica principal ou secondaire d’une partition. |Non|N/A|
 |condition de résolution SF|Applicable uniquement lorsque le serveur principal est un service Service Fabric. Condition identifiant si l’appel au serveur principal Service Fabric doit être répété avec une nouvelle résolution.|Non|N/A|
@@ -277,7 +277,7 @@ Dans cet exemple, la stratégie permet d’acheminer la requête vers un serveur
 |sf-listener-name|S’applique uniquement lorsque le back end est un service Service Fabric et qu’il est spécifié comme « backend-id ». Service Fabric Reliable Services permet de créer plusieurs écouteurs dans un service. Cet attribut permet de sélectionner un écouteur spécifique lorsqu’un service fiable principal dispose de plusieurs écouteurs. S’il n’est pas spécifié, la Gestion des API tentera d’utiliser un écouteur sans nom. Les écouteurs sans nom sont courants pour les services fiables qui n'ont qu’un seul écouteur. |Non|N/A|
 
 ### <a name="usage"></a>Usage
- Cette stratégie peut être utilisée dans les [sections](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) et [étendues](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes) de stratégie suivantes.
+ Cette stratégie peut être utilisée dans les [sections](./api-management-howto-policies.md#sections) et [étendues](./api-management-howto-policies.md#scopes) de stratégie suivantes.
 
 -   **Sections de la stratégie :** inbound, backend
 
@@ -447,7 +447,7 @@ OriginalUrl.
 
 
 ### <a name="usage"></a>Usage
- Cette stratégie peut être utilisée dans les [sections](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) et [étendues](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes) de stratégie suivantes.
+ Cette stratégie peut être utilisée dans les [sections](./api-management-howto-policies.md#sections) et [étendues](./api-management-howto-policies.md#scopes) de stratégie suivantes.
 
 -   **Sections de la stratégie :** inbound, outbound, backend
 
@@ -523,7 +523,7 @@ OriginalUrl.
 |name|Spécifie le nom de l'en-tête à définir.|Oui|N/A|
 
 ### <a name="usage"></a>Usage
- Cette stratégie peut être utilisée dans les [sections](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) et [étendues](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes) de stratégie suivantes.
+ Cette stratégie peut être utilisée dans les [sections](./api-management-howto-policies.md#sections) et [étendues](./api-management-howto-policies.md#scopes) de stratégie suivantes.
 
 -   **Sections de la stratégie :** inbound, outbound, backend, on-error
 
@@ -578,7 +578,7 @@ OriginalUrl.
 |name|Spécifie le nom du paramètre de requête à définir.|Oui|N/A|
 
 ### <a name="usage"></a>Usage
- Cette stratégie peut être utilisée dans les [sections](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) et [étendues](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes) de stratégie suivantes.
+ Cette stratégie peut être utilisée dans les [sections](./api-management-howto-policies.md#sections) et [étendues](./api-management-howto-policies.md#scopes) de stratégie suivantes.
 
 -   **Sections de la stratégie :** inbound, backend
 
@@ -656,7 +656,7 @@ OriginalUrl.
 |copy-unmatched-params|Spécifie si les paramètres de requête dans la requête entrante non présents dans le modèle d’URL d’origine sont ajoutés à l’URL définie par le modèle de réécriture|Non|true|
 
 ### <a name="usage"></a>Usage
- Cette stratégie peut être utilisée dans les [sections](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) et [étendues](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes) de stratégie suivantes.
+ Cette stratégie peut être utilisée dans les [sections](./api-management-howto-policies.md#sections) et [étendues](./api-management-howto-policies.md#scopes) de stratégie suivantes.
 
 -   **Sections de la stratégie :** inbound
 
@@ -720,7 +720,7 @@ OriginalUrl.
 |xsl:stylesheet|Élément feuille de style racine. Tous les éléments et attributs définis à l’intérieur respectent la [Spécification XSLT](https://www.w3.org/TR/xslt) standard.|Oui|
 
 ### <a name="usage"></a>Usage
- Cette stratégie peut être utilisée dans les [sections](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) et [étendues](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes) de stratégie suivantes.
+ Cette stratégie peut être utilisée dans les [sections](./api-management-howto-policies.md#sections) et [étendues](./api-management-howto-policies.md#scopes) de stratégie suivantes.
 
 -   **Sections de la stratégie :** inbound, outbound
 
@@ -731,5 +731,5 @@ OriginalUrl.
 Pour plus d'informations, voir les rubriques suivantes :
 
 + [Stratégies dans Gestion des API](api-management-howto-policies.md)
-+ [Référence de stratégie](api-management-policy-reference.md) pour obtenir la liste complète des instructions et des paramètres de stratégie
++ [Référence de stratégie](./api-management-policies.md) pour obtenir la liste complète des instructions et des paramètres de stratégie
 + [Exemples de stratégie](policy-samples.md)

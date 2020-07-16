@@ -5,12 +5,12 @@ author: masnider
 ms.topic: conceptual
 ms.date: 08/18/2017
 ms.author: masnider
-ms.openlocfilehash: a9699eae17657e96b38b3bccc95e8f84326efbb3
-ms.sourcegitcommit: 223cea58a527270fe60f5e2235f4146aea27af32
+ms.openlocfilehash: f473b70d260c552dc67d00715b6ee4bc56b670e0
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/01/2020
-ms.locfileid: "84259471"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86246552"
 ---
 # <a name="describe-a-service-fabric-cluster-by-using-cluster-resource-manager"></a>Décrire un cluster Service Fabric à l’aide de Cluster Resource Manager
 La fonctionnalité Cluster Resource Manager d’Azure Service Fabric fournit plusieurs mécanismes permettant de décrire un cluster :
@@ -36,7 +36,7 @@ Dans l’environnement Azure, Service Fabric utilise les informations de domaine
 > [!WARNING]
 > Il est important que les informations de domaine d’erreur fournies à Service Fabric soient précises. Par exemple, supposez que les nœuds de votre cluster Service Fabric s’exécutent à l’intérieur de 10 machines virtuelles, s’exécutant sur cinq hôtes physiques. Dans ce cas, même s’il y a 10 ordinateurs virtuels, il y a seulement 5 domaines d’erreur (de niveau supérieur) différents. Le partage d’un même hôte physique amène les machines virtuelles à partager le même domaine d’erreur racine, car les machines virtuelles subissent une défaillance coordonnée si leur hôte physique subit une défaillance.  
 >
-> Service Fabric s’attend à ce que le domaine d’erreur d’un nœud ne change pas. D’autres mécanismes visant à garantir la haute disponibilité des machines virtuelles, tels que [HA-VM](https://technet.microsoft.com/library/cc967323.aspx), peuvent provoquer des conflits avec Service Fabric. Ces mécanismes utilisent une migration transparente des machines virtuelles d’un hôte vers un autre. Ils ne reconfigurent ni ne notifient le code s’exécutant dans la machine virtuelle. À ce titre, ils ne sont *pas pris en charge* en tant qu’environnements d’exécution de clusters Service Fabric. 
+> Service Fabric s’attend à ce que le domaine d’erreur d’un nœud ne change pas. D’autres mécanismes visant à garantir la haute disponibilité des machines virtuelles, tels que [HA-VM](/previous-versions/system-center/virtual-machine-manager-2008-r2/cc967323(v=technet.10)), peuvent provoquer des conflits avec Service Fabric. Ces mécanismes utilisent une migration transparente des machines virtuelles d’un hôte vers un autre. Ils ne reconfigurent ni ne notifient le code s’exécutant dans la machine virtuelle. À ce titre, ils ne sont *pas pris en charge* en tant qu’environnements d’exécution de clusters Service Fabric. 
 >
 > Service Fabric doit être la seule technologie de haute disponibilité employée. Les mécanismes tels que la migration dynamique de machines virtuelles et les SAN ne sont pas nécessaires. Si ces mécanismes sont utilisés conjointement avec Service Fabric, ils _réduisent_ la disponibilité et la fiabilité des applications. En effet, ils introduisent une complexité supplémentaire, ajoutent des sources de défaillance centralisées et utilisent des stratégies de fiabilité et de disponibilité qui sont en conflit avec celles de Service Fabric. 
 >
