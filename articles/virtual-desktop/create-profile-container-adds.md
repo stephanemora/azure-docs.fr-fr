@@ -4,18 +4,18 @@ description: Cet article explique comment créer un conteneur de profil FSLogix 
 services: virtual-desktop
 author: Heidilohr
 ms.service: virtual-desktop
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 04/10/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: 916d34abfaf8223e3cf29977e13dfddf15a3fbf9
-ms.sourcegitcommit: 50ef5c2798da04cf746181fbfa3253fca366feaa
+ms.openlocfilehash: 4ee1b8d849051b9192e53f761050f1c4b6480e1b
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/30/2020
-ms.locfileid: "82607280"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85362439"
 ---
-# <a name="create-an-fslogix-profile-container-with-azure-files"></a>Créer un conteneur de profil FSLogix avec Azure Files
+# <a name="create-a-profile-container-with-azure-files-and-azure-ad-ds"></a>Créer un conteneur de profil avec Azure Files et Azure AD DS
 
 Cet article vous montre comment créer un conteneur de profil FSLogix avec Azure Files et Azure Active Directory Domain Services (AD DS).
 
@@ -41,7 +41,7 @@ Pour ajouter un administrateur :
 
 ## <a name="set-up-an-azure-storage-account"></a>Configurer un compte Stockage Azure
 
-À présent, il est temps d’activer l’authentification Azure AD DS sur SMB (Server Message Block). 
+À présent, il est temps d’activer l’authentification Azure AD DS sur SMB (Server Message Block).
 
 Pour activer l’authentification :
 
@@ -93,7 +93,8 @@ Pour obtenir la clé d’accès du compte de stockage :
 
     Cette action télécharge un fichier RDP qui vous permettra de vous connecter à la machine virtuelle avec ses propres informations d’identification.
 
-    ![Capture d’écran de l’onglet RDP de la fenêtre de connexion à la machine virtuelle.](media/rdp-tab.png)
+    > [!div class="mx-imgBorder"]
+    > ![Capture d’écran de l’onglet RDP de la fenêtre de connexion à la machine virtuelle.](media/rdp-tab.png)
 
 6. Une fois connecté à la machine virtuelle, exécutez une invite de commandes en tant qu’administrateur.
 
@@ -108,8 +109,8 @@ Pour obtenir la clé d’accès du compte de stockage :
     - Remplacez `<share-name>` par le nom du partage que vous avez créé.
     - Remplacez `<storage-account-key>` par la clé de compte de stockage récupérée d’Azure.
 
-    Par exemple :  
-  
+    Par exemple :
+
      ```cmd
      net use y: \\fsprofile.file.core.windows.net\share HDZQRoFP2BBmoYQ=(truncated)= /user:Azure\fsprofile)
      ```
@@ -124,7 +125,7 @@ Pour obtenir la clé d’accès du compte de stockage :
     - Remplacez `<user-email>` par l’UPN de l’utilisateur qui utilisera ce profil pour accéder aux machines virtuelles hôtes de session.
 
     Par exemple :
-     
+
      ```cmd
      icacls y: /grant john.doe@contoso.com:(f)
      ```
@@ -156,11 +157,13 @@ Pour configurer un conteneur de profil FSLogix :
 
 9.  Cliquez avec le bouton droit sur **Profiles**, sélectionnez **Nouveau**, puis sélectionnez **Valeur DWORD (32 bits)** . Nommez la valeur **Enabled** et définissez la valeur **Données** sur **1**.
 
-    ![Capture d’écran de la clé Profiles. Le fichier REG_DWORD est mis en surbrillance et sa valeur Données est définie sur 1.](media/dword-value.png)
+    > [!div class="mx-imgBorder"]
+    > ![Capture d’écran de la clé Profiles. Le fichier REG_DWORD est mis en surbrillance et sa valeur Données est définie sur 1.](media/dword-value.png)
 
 10. Cliquez avec le bouton droit sur **Profiles**, sélectionnez **Nouveau**, puis sélectionnez **Valeur de chaînes multiples**. Nommez la valeur **VHDLocations** et entrez l’URI du partage Azure Files `\\fsprofile.file.core.windows.net\share` comme valeur de Données.
 
-    ![Capture d’écran de la clé Profiles montrant le fichier VHDLocations. Sa valeur Données indique l’URI du partage Azure Files.](media/multi-string-value.png)
+    > [!div class="mx-imgBorder"]
+    > ![Capture d’écran de la clé Profiles montrant le fichier VHDLocations. Sa valeur Données indique l’URI du partage Azure Files.](media/multi-string-value.png)
 
 ## <a name="assign-users-to-a-session-host"></a>Attribuer des utilisateurs à un hôte de la session
 
@@ -203,13 +206,13 @@ Pour attribuer des utilisateurs :
 
      ```powershell
      $pool1 = "contoso"
-     
+
      $tenant = "contoso"
-     
+
      $appgroup = "Desktop Application Group"
-     
+
      $user1 = "jane.doe@contoso.com"
-     
+
      Add-RdsAppGroupUser $tenant $pool1 $appgroup $user1
      ```
 

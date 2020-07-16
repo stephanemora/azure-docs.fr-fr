@@ -5,17 +5,18 @@ description: Superviser les services web déployés avec Azure Machine Learning 
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
-ms.topic: conceptual
+ms.topic: how-to
 ms.reviewer: jmartens
 ms.author: larryfr
 author: blackmist
-ms.date: 03/12/2020
-ms.openlocfilehash: 464ec1fcf0986dc04bd92bbe9e31b5675e5822d4
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.date: 06/09/2020
+ms.custom: tracking-python
+ms.openlocfilehash: d28cd3b1d8722970505eb313bd8e80589ce9ff87
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79136191"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84743505"
 ---
 # <a name="monitor-and-collect-data-from-ml-web-service-endpoints"></a>Superviser et collecter des données à partir des points de terminaison de service web Machine Learning
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -43,10 +44,12 @@ En plus de la collecte des données de sortie et des réponses d’un point de t
 
 ## <a name="web-service-metadata-and-response-data"></a>Métadonnées de service web et données de réponse
 
->[!Important]
-> Azure Application Insights ne journalise que les charges utiles jusqu’à 64 Ko. Si cette limite est atteinte, seules les sorties les plus récentes du modèle sont enregistrées. 
+> [!IMPORTANT]
+> Azure Application Insights ne journalise que les charges utiles jusqu’à 64 Ko. Si cette limite est atteinte, vous risquez de voir des erreurs de type mémoire insuffisante, ou aucune information ne pourrait être enregistrée.
 
-Les métadonnées et la réponse au service (correspondant aux métadonnées de service web et aux prédictions du modèle) sont enregistrées dans les suivis Azure Application Insights sous le message `"model_data_collection"`. Vous pouvez interroger Azure Application Insights directement pour accéder à ces données, ou configurer une [exportation continue](https://docs.microsoft.com/azure/azure-monitor/app/export-telemetry) vers un compte de stockage pour une conservation plus longue ou un traitement ultérieur. Les données de modèle peuvent ensuite être utilisées dans le service Azure Machine Learning pour configurer l’étiquetage, le réentraînement, l’explicabilité, l’analyse des données ou toute autre utilisation. 
+Pour enregistrer les informations relatives à une demande au service web, ajoutez des instructions `print` à votre fichier score.py. Chaque instruction `print` génère une entrée dans la table de trace dans Application Insights, sous le message `STDOUT`. Le contenu de l’instruction `print` est contenu sous `customDimensions`, puis `Contents` dans la table de trace. Si vous imprimez une chaîne JSON, elle génère une structure de données hiérarchique dans la sortie de trace sous `Contents`.
+
+Vous pouvez interroger Azure Application Insights directement pour accéder à ces données, ou configurer une [exportation continue](https://docs.microsoft.com/azure/azure-monitor/app/export-telemetry) vers un compte de stockage pour une conservation plus longue ou un traitement ultérieur. Les données de modèle peuvent ensuite être utilisées dans le service Azure Machine Learning pour configurer l’étiquetage, le réentraînement, l’explicabilité, l’analyse des données ou toute autre utilisation. 
 
 <a name="python"></a>
 
@@ -70,10 +73,51 @@ Les métadonnées et la réponse au service (correspondant aux métadonnées de 
 
 Si vous voulez journaliser des traces personnalisées, suivez le processus de déploiement standard pour AKS ou ACI dans le document [Comment et où déployer](how-to-deploy-and-where.md). Puis procédez comme suit :
 
-1. Mettez à jour le fichier de scoring en ajoutant des instructions print
+1. Pour envoyer des données à Application Insights pendant l’inférence, mettez à jour le fichier de scoring en ajoutant des instructions print. Pour consigner des informations plus complexes, telles que les données de requête et la réponse, utilisez une structure JSON. L’exemple de fichier score.py suivant enregistre l’heure à laquelle le modèle est initialisé, l’entrée et la sortie pendant l’inférence et le moment où des erreurs se produisent :
+
+    > [!IMPORTANT]
+    > Azure Application Insights ne journalise que les charges utiles jusqu’à 64 Ko. Si cette limite est atteinte, vous risquez de voir des erreurs de type mémoire insuffisante, ou aucune information ne pourrait être enregistrée. Si les données que vous souhaitez consigner sont plus volumineuses, vous devez les stocker dans le stockage d’objets BLOB à l’aide des informations contenues dans [Collecter des données pour des modèles en production](how-to-enable-data-collection.md).
     
     ```python
-    print ("model initialized" + time.strftime("%H:%M:%S"))
+    import pickle
+    import json
+    import numpy 
+    from sklearn.externals import joblib
+    from sklearn.linear_model import Ridge
+    from azureml.core.model import Model
+    import time
+
+    def init():
+        global model
+        #Print statement for appinsights custom traces:
+        print ("model initialized" + time.strftime("%H:%M:%S"))
+        
+        # note here "sklearn_regression_model.pkl" is the name of the model registered under the workspace
+        # this call should return the path to the model.pkl file on the local disk.
+        model_path = Model.get_model_path(model_name = 'sklearn_regression_model.pkl')
+        
+        # deserialize the model file back into a sklearn model
+        model = joblib.load(model_path)
+    
+
+    # note you can pass in multiple rows for scoring
+    def run(raw_data):
+        try:
+            data = json.loads(raw_data)['data']
+            data = numpy.array(data)
+            result = model.predict(data)
+            # Log the input and output data to appinsights:
+            info = {
+                "input": raw_data,
+                "output": result.tolist()
+                }
+            print(json.dumps(info))
+            # you can return any datatype as long as it is JSON-serializable
+            return result.tolist()
+        except Exception as e:
+            error = str(e)
+            print (error + time.strftime("%H:%M:%S"))
+            return error
     ```
 
 2. Mettez à jour la configuration du service
@@ -117,19 +161,19 @@ Pour l’afficher :
 
     [![AppInsightsLoc](./media/how-to-enable-app-insights/AppInsightsLoc.png)](././media/how-to-enable-app-insights/AppInsightsLoc.png#lightbox)
 
-1. Sélectionnez l’onglet **Vue d’ensemble** qui présente l’ensemble des métriques de base de votre service
+1. À partir de la **Vue d’ensemble** ou la section __Surveillance__ dans la liste à gauche, sélectionnez __Journaux__.
 
-   [![Vue d’ensemble](./media/how-to-enable-app-insights/overview.png)](././media/how-to-enable-app-insights/overview.png#lightbox)
+    [![Onglet Vue d’ensemble de la surveillance](./media/how-to-enable-app-insights/overview.png)](./media/how-to-enable-app-insights/overview.png#lightbox)
 
-1. Pour examiner les métadonnées et la réponse de votre requête de service web, sélectionnez la table **requêtes** dans la section **Journaux (analytique)** , puis sélectionnez **Exécuter** pour afficher les requêtes.
+1. Pour afficher les informations consignées dans le fichier score.py, examinez la table __traces__. La requête suivante recherche les journaux dans lesquels la valeur __input__ a été consignée :
 
-   [![Données du modèle](./media/how-to-enable-app-insights/model-data-trace.png)](././media/how-to-enable-app-insights/model-data-trace.png#lightbox)
+    ```kusto
+    traces
+    | where customDimensions contains "input"
+    | limit 10
+    ```
 
-
-3. Pour explorer vos traces personnalisées, sélectionnez **Analytique**
-4. Dans la section du schéma, sélectionnez **Traces**. Ensuite, sélectionnez **Exécuter** pour exécuter votre requête. Les données doivent s’afficher dans un tableau et doivent correspondre aux appels personnalisés de votre fichier de scoring
-
-   [![Traces personnalisées](./media/how-to-enable-app-insights/logs.png)](././media/how-to-enable-app-insights/logs.png#lightbox)
+   [![données de trace](./media/how-to-enable-app-insights/model-data-trace.png)](././media/how-to-enable-app-insights/model-data-trace.png#lightbox)
 
 Pour plus d’informations sur l’utilisation d’Azure Application Insights, consultez [Présentation d’Application Insights](../azure-monitor/app/app-insights-overview.md).
 
@@ -138,7 +182,7 @@ Pour plus d’informations sur l’utilisation d’Azure Application Insights, c
 >[!Important]
 > Azure Application Insights ne prend en charge que les exportations vers le Stockage Blob. Les limites supplémentaires de cette fonction d’exportation sont répertoriées dans [Exporter la télémétrie depuis Application Insights](https://docs.microsoft.com/azure/azure-monitor/app/export-telemetry#continuous-export-advanced-storage-configuration).
 
-Vous pouvez utiliser l’[exportation continue](https://docs.microsoft.com/azure/azure-monitor/app/export-telemetry) d’Azure Application Insights pour envoyer des messages à un compte de stockage pris en charge, lorsqu’une conservation plus longue peut être définie. Les messages `"model_data_collection"` sont stockés au format JSON et peuvent être facilement analysés pour extraire des données de modèle. 
+Vous pouvez utiliser l’[exportation continue](https://docs.microsoft.com/azure/azure-monitor/app/export-telemetry) d’Azure Application Insights pour envoyer des messages à un compte de stockage pris en charge, lorsqu’une conservation plus longue peut être définie. Les données sont stockées au format JSON et peuvent être facilement analysées pour extraire des données de modèle. 
 
 Vous pouvez utiliser Azure Data Factory, les pipelines Azure ML ou d’autres outils de traitement de données pour transformer les données en fonction des besoins. Une fois les données transformées, vous pouvez les inscrire auprès de l’espace de travail d’Azure Machine Learning en tant que jeu de données. Pour cela, consultez [How to create and register datasets](how-to-create-register-datasets.md) (Comment créer et inscrire des jeux de données).
 

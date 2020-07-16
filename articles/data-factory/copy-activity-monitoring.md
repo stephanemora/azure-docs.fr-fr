@@ -9,14 +9,14 @@ ms.reviewer: douglasl
 ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
-ms.date: 03/11/2020
+ms.date: 06/08/2020
 ms.author: jingwang
-ms.openlocfilehash: 47824095e892ca3c919d2d871feb612758ab2308
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 4e7828810a069756d1a0cde55ab47915ad11acc5
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81417842"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85249701"
 ---
 # <a name="monitor-copy-activity"></a>Surveiller l'activité de copie
 
@@ -58,8 +58,8 @@ Les détails de l’exécution de l’activité de copie et les caractéristique
 | filesWritten | Nombre de fichiers écrits/validés sur le récepteur basé sur des fichiers. | Valeur Int64 (aucune unité) |
 | sourcePeakConnections | Nombre maximal de connexions simultanées établies vers le magasin de données source lors de l’exécution de l’activité de copie. | Valeur Int64 (aucune unité) |
 | sinkPeakConnections | Nombre maximal de connexions simultanées établies vers le magasin de données récepteur lors de l’exécution de l’activité de copie. | Valeur Int64 (aucune unité) |
-| rowsRead | Nombre de lignes lues à partir de la source (non applicable pour une copie binaire). | Valeur Int64 (aucune unité) |
-| rowsCopied | Nombre de lignes copiées vers le récepteur (non applicable pour une copie binaire). | Valeur Int64 (aucune unité) |
+| rowsRead | Nombre de lignes lues à partir de la source. Cette mesure ne s’applique pas lors de la copie de fichiers en l’absence d’analyse, par exemple, lorsque les jeux de données source et de récepteur sont de type binaire, ou d’un autre type de format avec des paramètres identiques. | Valeur Int64 (aucune unité) |
+| rowsCopied | Nombre de lignes copiées dans le récepteur. Cette mesure ne s’applique pas lors de la copie de fichiers en l’absence d’analyse, par exemple, lorsque les jeux de données source et de récepteur sont de type binaire, ou d’un autre type de format avec des paramètres identiques.  | Valeur Int64 (aucune unité) |
 | rowsSkipped | Nombre de lignes incompatibles qui ont été ignorées. Vous pouvez faire en sorte que les lignes incompatibles soient ignorées en définissant `enableSkipIncompatibleRow` sur true. | Valeur Int64 (aucune unité) |
 | copyDuration | Durée de l’exécution de la copie. | Valeur Int32, en secondes |
 | throughput | Taux de transfert de données. | Nombre à virgule flottante, en Kbits/s |

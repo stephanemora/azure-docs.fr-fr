@@ -4,16 +4,16 @@ description: Découvrez comment configurer et déployer une machine virtuelle Wi
 services: virtual-desktop
 author: Heidilohr
 ms.service: virtual-desktop
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 03/30/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: 0cb5b2ee8b8391dc4fcb78cc1d3bd212c44f1803
-ms.sourcegitcommit: 50ef5c2798da04cf746181fbfa3253fca366feaa
+ms.openlocfilehash: eafe2050f834fdd9aecba492c7121be9c1e121e2
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/30/2020
-ms.locfileid: "82614262"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85206000"
 ---
 # <a name="deploy-a-windows-7-virtual-machine-on-windows-virtual-desktop"></a>Déployer une machine virtuelle Windows 7 sur Windows Virtual Desktop
 
@@ -32,9 +32,9 @@ Une fois les conditions préalables passées en revue, vous êtes prêt à confi
 
 Pour configurer une machine virtuelle Windows 7 sur Windows Virtual Desktop :
 
-1. Connectez-vous au portail Azure et recherchez l’image Windows 7 Entreprise ou téléchargez votre propre image personnalisée Windows 7 Entreprise (x64).  
+1. Connectez-vous au portail Azure et recherchez l’image Windows 7 Entreprise ou téléchargez votre propre image personnalisée Windows 7 Entreprise (x64).
 2. Déployez une ou plusieurs machines virtuelles avec Windows 7 Entreprise en tant que système d’exploitation hôte. Vérifiez que les machines virtuelles autorisent le protocole RDP (Remote Desktop Protocol) (port TCP/3389).
-3. Connectez-vous à l’hôte Windows 7 Entreprise à l’aide du protocole RDP et authentifiez-vous avec les informations d’identification que vous avez définies lors de la configuration de votre déploiement. 
+3. Connectez-vous à l’hôte Windows 7 Entreprise à l’aide du protocole RDP et authentifiez-vous avec les informations d’identification que vous avez définies lors de la configuration de votre déploiement.
 4. Ajoutez le compte que vous avez utilisé lors de la connexion à l’hôte avec RDP pour le groupe « Utilisateur du Bureau à distance ». À défaut, vous risquez de ne pas pouvoir vous connecter à la machine virtuelle après l’avoir jointe à votre domaine Active Directory.
 5. Accédez à Windows Update sur votre machine virtuelle.
 6. Installez toutes les mises à jour Windows de la catégorie Important.
@@ -43,17 +43,18 @@ Pour configurer une machine virtuelle Windows 7 sur Windows Virtual Desktop :
 9. Activez la stratégie Remote Desktop Protocol 8.0.
 10. Joignez cette machine virtuelle à votre domaine Active Directory.
 11. Redémarrez la machine virtuelle en exécutant la commande suivante :
-    
+
      ```cmd
      shutdown /r /t 0
      ```
-    
+
 12. Suivez les instructions [ici](/powershell/module/windowsvirtualdesktop/export-rdsregistrationinfo/) pour obtenir un jeton d’inscription.
 13. [Téléchargez l’agent Windows Virtual Desktop pour Windows 7](https://query.prod.cms.rt.microsoft.com/cms/api/am/binary/RE3JZCm).
 14. [Téléchargez le gestionnaire d’agent Windows Virtual Desktop pour Windows 7](https://query.prod.cms.rt.microsoft.com/cms/api/am/binary/RE3K2e3).
 15. Ouvrez le programme d’installation de l’agent Windows Virtual Desktop et suivez les instructions. Quand vous y êtes invité, spécifiez la clé d’inscription que vous avez créée à l’étape 12.
-16. Ouvrez le programme d’installation de Windows Virtual Desktop et suivez les instructions.
+16. Ouvrez l’Agent Manager Windows Virtual Desktop et suivez les instructions.
 17. Si vous le souhaitez, bloquez le port TCP/3389 pour supprimer l’accès direct à la machine virtuelle via le protocole RDP (Remote Desktop Protocol).
+18. Confirmez éventuellement que votre .NET Framework est au moins à la version 4.7.2. Cela est particulièrement important si vous créez une image personnalisée.
 
 ## <a name="next-steps"></a>Étapes suivantes
 

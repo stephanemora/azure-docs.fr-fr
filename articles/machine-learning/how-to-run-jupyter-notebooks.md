@@ -8,16 +8,16 @@ ms.author: osomorog
 ms.reviewer: sgilley
 ms.service: machine-learning
 ms.subservice: core
-ms.topic: conceptual
-ms.date: 04/21/2020
-ms.openlocfilehash: ccdb2b24499c86a54909b2617abd7e9bf294a261
-ms.sourcegitcommit: 12f23307f8fedc02cd6f736121a2a9cea72e9454
+ms.topic: how-to
+ms.date: 06/27/2020
+ms.openlocfilehash: 476f3925886a6de68b49e1861d22e6cfaf594202
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/30/2020
-ms.locfileid: "84220188"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85601449"
 ---
-# <a name="how-to-run-jupyter-notebooks-in-your-workspace-preview"></a>Guide pratique pour exécuter des bloc-notes Jupyter dans votre espace de travail (préversion)
+# <a name="how-to-run-jupyter-notebooks-in-your-workspace"></a>Comment exécuter des blocs-notes Jupyter dans votre espace de travail
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
 
 Découvrez comment exécuter vos blocs-notes Jupyter directement dans votre espace de travail dans Azure Machine Learning Studio. En plus de la possibilité de lancer [Jupyter](https://jupyter.org/) ou [JupyterLab](https://jupyterlab.readthedocs.io), vous pouvez modifier et exécuter vos blocs-notes sans quitter l’espace de travail.
@@ -51,10 +51,12 @@ Pour créer un bloc-notes :
 1. Sélectionnez un répertoire de fichiers.
 1. Sélectionnez **Create** (Créer).
 
-> [!TIP]
-> Vous pouvez également créer des fichiers texte.  Sélectionnez le type de fichier **Texte**, puis ajoutez l’extension au nom (par exemple, monfichier.py ou monfichier.txt).  
+Vous pouvez également créer des fichiers texte.  Sélectionnez le type de fichier **Texte**, puis ajoutez l’extension au nom (par exemple, monfichier.py ou monfichier.txt).  
 
 Vous pouvez également charger des dossiers et fichiers, dont des blocs-notes, avec les outils disponibles en haut de la page Blocs-notes.  Les blocs-notes et la plupart des types de fichiers texte figurent dans la section d’aperçu.  Aucun aperçu n’est disponible pour la plupart des autres types de fichiers.
+
+> [!IMPORTANT]
+> Le contenu dans les blocs-notes et les scripts peut potentiellement lire les données de vos sessions et accéder aux données sans votre organisation dans Azure.  Chargez uniquement des fichiers provenant de sources fiables. Pour plus d’informations, consultez [Meilleures pratiques pour un codage sûr](concept-secure-code-best-practice.md#azure-ml-studio-notebooks).
 
 ### <a name="clone-samples"></a>Cloner des exemples
 
@@ -95,15 +97,37 @@ Copiez et collez l’URL pour partager un bloc-notes ou un fichier.  Seuls les a
 
 Pour modifier un bloc-notes, ouvrez n’importe quel bloc-notes situé dans la section **Fichiers utilisateur** de votre espace de travail. Cliquez sur la cellule à modifier. 
 
-Quand une instance de calcul active est en cours d’exécution, vous pouvez également utiliser la saisie semi-automatique du code, optimisée par [IntelliSense](https://code.visualstudio.com/docs/editor/intellisense), dans n’importe quel bloc-notes Python.
+Vous pouvez modifier le bloc-notes sans vous connecter à une instance de calcul.  Lorsque vous souhaitez exécuter les cellules du bloc-notes, sélectionnez ou créez une instance de calcul.  Si vous sélectionnez une instance de calcul arrêtée, elle démarre automatiquement lorsque vous exécutez la première cellule.
+
+Quand une instance de calcul est en cours d’exécution, vous pouvez également utiliser la saisie semi-automatique du code, optimisée par [IntelliSense](https://code.visualstudio.com/docs/editor/intellisense), dans n’importe quel bloc-notes Python.
 
 Vous pouvez également lancer Jupyter ou JupyterLab à partir de la barre d’outils du bloc-notes.  Azure Machine Learning ne fournit pas de mises à jour et ne corrige pas les bogues de Jupyter ou JupyterLab, car il s’agit de produits open source qui sortent des limites du Support Microsoft.
+
+### <a name="use-intellisense"></a>Utiliser IntelliSense
+
+[IntelliSense](https://code.visualstudio.com/docs/editor/intellisense) est une aide à la saisie semi-automatique de code qui comprend un certain nombre de fonctionnalités : Liste des membres, Informations sur les paramètres, Info Express et Compléter le mot. Ces fonctionnalités vous aident à en savoir plus sur le code que vous utilisez, à suivre les paramètres que vous entrez et à ajouter des appels aux propriétés et aux méthodes avec seulement quelques séquences de touches.  
+
+Lorsque vous entrez du code, utilisez Ctrl + Espace pour déclencher IntelliSense.
+
+### <a name="save-and-checkpoint-a-notebook"></a>Enregistrement et point de contrôle d’un bloc-notes
+
+Azure Machine Learning crée un fichier de point de contrôle lorsque vous créez un fichier  *ipynb* .
+
+Dans la barre d’outils du bloc-notes, sélectionnez le menu, puis **Fichier&gt;Enregistrer et effectuer un point de contrôle** pour enregistrer manuellement le bloc-notes et ajouter un fichier de point de contrôle associé au bloc-notes.
+
+:::image type="content" source="media/how-to-run-jupyter-notebooks/file-save.png" alt-text="Capture d’écran de l’outil d’enregistrement dans la barre d’outils du bloc-notes":::
+
+Chaque bloc-notes est enregistré de façon automatique toutes les 30 secondes. L’enregistrement automatique met à jour uniquement le fichier  *ipynb*  initial, et non le fichier de point de contrôle.
+ 
+Sélectionnez **Points de contrôle** dans le menu du bloc-notes pour créer un point de contrôle nommé et restaurer le bloc-notes à un point de contrôle enregistré.
+
 
 ### <a name="useful-keyboard-shortcuts"></a>Raccourcis clavier utiles
 
 |Clavier  |Action  |
 |---------|---------|
 |Maj + Entrée     |  Exécuter une cellule       |
+|Ctrl+Espace | Activer IntelliSense |
 |Ctrl + M (Windows)     |  Activer/désactiver le recouvrement par tabulation dans le bloc-notes.       |
 |Ctrl + Maj + M (Mac & Linux)     |    Activer/désactiver le recouvrement par tabulation dans le bloc-notes.     |
 |Tab (quand le recouvrement par tabulation est activé) | Ajouter un caractère « \t » (retrait)

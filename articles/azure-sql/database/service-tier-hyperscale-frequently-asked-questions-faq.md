@@ -11,12 +11,12 @@ author: dimitri-furman
 ms.author: dfurman
 ms.reviewer: ''
 ms.date: 03/03/2020
-ms.openlocfilehash: d5faa08b0b493ac9b7fc03cd15c4747c3e602f02
-ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
+ms.openlocfilehash: d265726835620c5b468c8a81570e80c7167b2997
+ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "84038070"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86084339"
 ---
 # <a name="azure-sql-database-hyperscale-faq"></a>Questions fréquentes (FAQ) sur le niveau Hyperscale dans Azure SQL Database
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -43,11 +43,11 @@ Les niveaux de service basés sur vCore sont différenciés en fonction de la di
 | | Type de ressource | Usage général |  Hyperscale | Critique pour l’entreprise |
 |:---:|:---:|:---:|:---:|:---:|
 | **Idéal pour** |Tous|Offre des options de calcul et de stockage équilibrées et économiques.|La plupart des charges de travail d’entreprise. Mise à l’échelle automatique de la taille de stockage jusqu’à 100 To, mise à l’échelle verticale et horizontale rapide du calcul, restauration rapide de la base de données.|Applications OLTP avec des débits de transactions élevés et une faible latence des E/S. Offre une meilleure résilience aux défaillances et des basculements rapides à l’aide de plusieurs réplicas mis à jour de façon synchrone.|
-|  **Type de ressource** ||Base de données unique / pool élastique / instance managée | Base de données unique | Base de données unique / pool élastique / instance managée |
-| **Taille de calcul**|Base de données unique/pool élastique* | 1 à 80 cœurs virtuels | 1 à 80 cœurs virtuels* | 1 à 80 cœurs virtuels |
+|  **Type de ressource** ||SQL Database / SQL Managed Instance | Base de données unique | SQL Database / SQL Managed Instance |
+| **Taille de calcul**|SQL Database* | 1 à 80 cœurs virtuels | 1 à 80 cœurs virtuels* | 1 à 80 cœurs virtuels |
 | |Instance managée SQL | 8, 16, 24, 32, 40, 64, 80 cœurs virtuels | N/A | 8, 16, 24, 32, 40, 64, 80 cœurs virtuels |
 | **Type de stockage** | Tous |Stockage distant Premium (par instance) | Stockage découplé avec cache disque SSD local (par instance) | Stockage SSD local ultra-rapide (par instance) |
-| **Taille de stockage** | Base de données unique / pool élastique *| 5 Go - 4 To | Jusqu’à 100 To | 5 Go - 4 To |
+| **Taille de stockage** | SQL Database *| 5 Go - 4 To | Jusqu’à 100 To | 5 Go - 4 To |
 | | Instance managée SQL  | 32 Go - 8 To | N/A | 32 Go - 4 To |
 | **D’OPÉRATIONS D’E/S PAR SECONDE** | Base de données unique | 500 IOPS par vCore avec 7000 IOPS au maximum | L’architecture hyperscale est une architecture à plusieurs niveaux avec une mise en cache sur plusieurs niveaux. L’efficacité des IOPS dépend de la charge de travail. | 5 000 IOPS avec un maximum de 200 000 IOPS|
 | | Instance managée SQL | Dépend de la taille du fichier | N/A | 1375 IOPS/vCore |

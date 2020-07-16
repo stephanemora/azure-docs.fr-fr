@@ -5,17 +5,17 @@ description: Découvrez comment déployer vos modèles Azure Machine Learning en
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
-ms.topic: conceptual
+ms.topic: how-to
 ms.author: jordane
 author: jpe316
 ms.reviewer: larryfr
-ms.date: 12/27/2019
-ms.openlocfilehash: d460112394d7c7b7d2da4e8af41c0085b67226ec
-ms.sourcegitcommit: efefce53f1b75e5d90e27d3fd3719e146983a780
+ms.date: 06/12/2020
+ms.openlocfilehash: 44c197b7d9935a7b0631c6cbcd96fde783c2fffe
+ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/01/2020
-ms.locfileid: "80475463"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86087263"
 ---
 # <a name="deploy-a-model-to-azure-container-instances"></a>Déployer un modèle sur Azure Container Instances
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -48,6 +48,10 @@ Pour plus d’informations sur les quotas et la disponibilité d’ACI en foncti
 ## <a name="deploy-to-aci"></a>Déployer sur ACI
 
 Pour déployer un modèle sur Azure Container instances, créez une __configuration de déploiement__ décrivant les ressources de calcul nécessaires. Par exemple, le nombre de cœurs et la mémoire. Vous avez également besoin d’une __configuration d’inférence__ décrivant l’environnement nécessaire pour héberger le modèle et le service Web. Pour plus d’informations sur la création de la configuration d’inférence, consultez la section [Comment et où déployer des modèles ?](how-to-deploy-and-where.md)
+
+> [!NOTE]
+> * ACI convient uniquement aux petits modèles de taille < 1 Go. 
+> * Nous vous recommandons d’utiliser un seul nœud AKS pour le développement et le test de modèles plus volumineux.
 
 ### <a name="using-the-sdk"></a>Utilisation du kit de développement logiciel
 

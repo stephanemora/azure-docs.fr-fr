@@ -12,12 +12,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 ms.date: 12/19/2019
 ms.author: tibasham
-ms.openlocfilehash: 5d6396efc9ab25baa0d32e7c33c7715863516249
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: f7e2b70b111cd195f688e236bf8f05b077acb000
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "77371361"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84678764"
 ---
 # <a name="azure-windows-vm-shutdown-is-stuck-on-restarting-shutting-down-or-stopping-services"></a>L’arrêt de Machines virtuelles Windows Azure est bloqué sur « Redémarrage », « Arrêt » ou « Arrêt des services »
 
@@ -29,7 +29,7 @@ Quand vous utilisez [Diagnostics de démarrage](https://docs.microsoft.com/azure
 
 ![Écrans Redémarrage, Arrêt ou Arrêt des services](./media/boot-error-troubleshooting-windows/restart-shut-down-stop-service.png)
  
-## <a name="cause"></a>Cause :
+## <a name="cause"></a>Cause
 
 Windows utilise le processus d’arrêt pour effectuer les opérations de maintenance du système et traiter les modifications, comme les mises à jour, les rôles et les fonctionnalités. Il n’est pas recommandé d’interrompre ce processus critique avant qu’il se termine. En fonction du nombre de mises à jour/modifications et de la taille de la machine virtuelle, le processus peut prendre beaucoup de temps. Si le processus est arrêté, il est possible que le système d’exploitation soit endommagé. Interrompez le processus seulement s’il est excessivement long.
 
@@ -43,25 +43,25 @@ Windows utilise le processus d’arrêt pour effectuer les opérations de mainte
 
 Utilisez la [console série](https://docs.microsoft.com/azure/virtual-machines/troubleshooting/serial-console-windows) pour effectuer les étapes suivantes :
 
-1. Ouvrez une session PowerShell d’administration et vérifiez le service qui est bloqué lors de l’arrêt.
+1. Ouvrez une session PowerShell d’administration et vérifiez le service qui cesse de répondre lors de l’arrêt.
 
    ``
    Get-Service | Where-Object {$_.Status -eq "STOP_PENDING"}
    ``
 
-2. Sur une commande d’administration, récupérez le PID du service bloqué.
+2. Sur une commande d’administration, récupérez le PID du service qui ne répond pas.
 
    ``
    tasklist /svc | findstr /i <STOPING SERVICE>
    ``
 
-3. Récupérez un exemple d’image mémoire à partir du processus bloqué <STOPPING SERVICE>.
+3. Récupérez un exemple d’image mémoire à partir du processus <STOPPING SERVICE> qui ne répond pas.
 
    ``
    procdump.exe -s 5 -n 3 -ma <PID>
    ``
 
-4. Tuez maintenant le processus bloqué pour débloquer le processus d’arrêt.
+4. Tuez maintenant le processus qui ne répond pas pour débloquer le processus d’arrêt.
 
    ``
    taskkill /PID <PID> /t /f

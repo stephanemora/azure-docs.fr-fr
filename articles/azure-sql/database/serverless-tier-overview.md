@@ -10,22 +10,22 @@ ms.topic: conceptual
 author: oslake
 ms.author: moslake
 ms.reviewer: sstein, carlrab
-ms.date: 5/13/2020
-ms.openlocfilehash: fd552e3236732fd37b2fc5d23dd234f0a87f0f27
-ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
+ms.date: 7/6/2020
+ms.openlocfilehash: 130b19f280c69bfbe4ca49abe1bcba5db7f23caa
+ms.sourcegitcommit: e132633b9c3a53b3ead101ea2711570e60d67b83
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "84038100"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86045958"
 ---
 # <a name="azure-sql-database-serverless"></a>Azure SQL Database serverless
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
 
-Serverless est un niveau de calcul pour les bases de données SQL Azure uniques qui met automatiquement à l’échelle les calculs en fonction de la demande en charge de travail et facture la quantité de calcul utilisée par seconde. Le niveau de calcul serverless met aussi automatiquement en pause les bases de données pendant les périodes d’inactivité, quand seul le stockage est facturé, et reprend leur exécution automatiquement avec l’activité.
+Serverless est un niveau de calcul destiné aux bases de données uniques d'Azure SQL Database qui met automatiquement à l'échelle les calculs en fonction de la demande en charge de travail, et facture la quantité de calcul utilisée par seconde. Le niveau de calcul serverless met aussi automatiquement en pause les bases de données pendant les périodes d’inactivité, quand seul le stockage est facturé, et reprend leur exécution automatiquement avec l’activité.
 
 ## <a name="serverless-compute-tier"></a>Niveau de calcul serverless
 
-Le niveau de calcul serverless pour les bases de données SQL Azure uniques est paramétré par une plage de mise à l’échelle automatique du calcul et un délai de mise en pause automatique.  La configuration de ces paramètres déterminent l’expérience de performances de base de données et le coût du calcul.
+Le niveau de calcul serverless pour les bases de données uniques dans Azure SQL Database est paramétré par une plage de mise à l’échelle automatique du calcul et un délai de mise en pause automatique. La configuration de ces paramètres déterminent l’expérience de performances de base de données et le coût du calcul.
 
 ![facturation de serverless](./media/serverless-tier-overview/serverless-billing.png)
 
@@ -66,7 +66,7 @@ Le tableau suivant résume les différences entre le niveau de calcul serverless
 
 | | **Calcul serverless** | **Calcul provisionné** |
 |:---|:---|:---|
-|**Modèle d’utilisation des bases de données**| Utilisation intermittente et imprévisible avec une utilisation moyenne du calcul moins élevée dans le temps. |  Modèles d’utilisation plus régulière avec une utilisation moyenne du calcul plus élevée dans le temps, ou plusieurs bases de données regroupées dans des pools élastiques.|
+|**Modèle d’utilisation des bases de données**| Utilisation intermittente et imprévisible avec une utilisation moyenne du calcul moins élevée dans le temps. | Modèles d’utilisation plus régulière avec une utilisation moyenne du calcul plus élevée dans le temps, ou plusieurs bases de données regroupées dans des pools élastiques.|
 | **Effort pour gérer les performances** : |Moins grand|Plus grand|
 |**Mise à l’échelle du calcul**|Automatique|Manuel|
 |**Réactivité du calcul**.|Moins rapide après les périodes d’inactivité|Immédiat|
@@ -88,9 +88,9 @@ La mémoire pour les bases de données serverless est davantage sollicitée que 
 
 #### <a name="cache-reclamation"></a>Récupération du cache
 
-Contrairement aux bases de données de calcul provisionné, la mémoire du cache SQL est sollicitée par une base de données serverless quand l’utilisation du processeur ou du cache est faible.
+Contrairement aux bases de données de calcul provisionné, la mémoire du cache SQL est sollicitée par une base de données serverless quand l’utilisation du processeur ou du cache actif est faible.  Notez que lorsque l’utilisation du processeur est faible, l’utilisation du cache actif peut rester élevée en fonction du modèle d’utilisation et empêcher la récupération de la mémoire.
 
-- L’utilisation du cache est considérée comme faible quand la taille totale des dernières entrées du cache utilisées tombe sous un certain seuil pendant une période donnée.
+- L’utilisation du cache actif est considérée comme faible quand la taille totale des dernières entrées du cache utilisées tombe sous un certain seuil pendant une période donnée.
 - Quand la récupération du cache est déclenchée, la taille de cache cible est réduite de façon incrémentielle à une fraction de sa taille précédente, et la récupération continue uniquement si l’utilisation reste faible.
 - S’il y a une récupération du cache, la stratégie de sélection des entrées du cache à supprimer est la même que celle utilisée pour les bases de données de calcul provisionné quand la mémoire est fortement sollicitée.
 - La taille du cache n’est jamais réduite en deçà de la limite de mémoire minimale telle que définie par le nombre minimal de vCores configuré, le cas échéant.
@@ -112,7 +112,7 @@ Une mise en pause automatique est déclenchée si toutes les conditions suivante
 
 Une option permet de désactiver la mise en pause automatique si vous le souhaitez.
 
-Les fonctionnalités suivantes ne prennent pas en charge la mise en pause automatique.  Autrement dit, si l’une des fonctionnalités suivantes est utilisée, la base de données reste en ligne quelle que soit sa durée d’inactivité :
+Les fonctionnalités suivantes ne prennent pas en charge la mise en pause automatique, mais prennent en charge la mise à l’échelle automatique.  Autrement dit, si l’une des fonctionnalités suivantes est utilisée, la base de données reste en ligne quelle que soit sa durée d’inactivité :
 
 - Géoréplication (géoréplication active et groupes de basculement automatique).
 - Conservation de sauvegardes à long terme (LTR).
@@ -161,19 +161,8 @@ Si vous utilisez le [chiffrement transparent des données géré par le client](
 
 La création d’une base de données ou le déplacement d’une base de données existante dans un niveau de calcul serverless s’effectuent selon le même modèle que la création d’une base de données dans un niveau de calcul provisionné, et impliquent les deux étapes suivantes.
 
-1. Spécifiez l’objectif de service. L’objectif de service précise le niveau de service, la génération du matériel et le nombre maximal de vCores. Le tableau suivant présente les options d’objectif de service :
+1. Spécifiez l’objectif de service. L’objectif de service précise le niveau de service, la génération du matériel et le nombre maximal de vCores. Pour connaître les options d’objectif de service, consultez [Limites des ressources serverless](resource-limits-vcore-single-databases.md#general-purpose---serverless-compute---gen5).
 
-   |Nom de l’objectif de service|Niveau de service|Génération du matériel|vCores max.|
-   |---|---|---|---|
-   |GP_S_Gen5_1|Usage général|Gen5|1|
-   |GP_S_Gen5_2|Usage général|Gen5|2|
-   |GP_S_Gen5_4|Usage général|Gen5|4|
-   |GP_S_Gen5_6|Usage général|Gen5|6|
-   |GP_S_Gen5_8|Usage général|Gen5|8|
-   |GP_S_Gen5_10|Usage général|Gen5|10|
-   |GP_S_Gen5_12|Usage général|Gen5|12|
-   |GP_S_Gen5_14|Usage général|Gen5|14|
-   |GP_S_Gen5_16|Usage général|Gen5|16|
 
 2. Si vous le souhaitez, spécifiez un nombre minimal de vCores et un délai de mise en pause automatique différents des valeurs par défaut. Le tableau suivant présente les valeurs disponibles pour ces paramètres.
 
@@ -183,11 +172,11 @@ La création d’une base de données ou le déplacement d’une base de donnée
    |Délai de la mise en pause automatique|Minimum : 60 minutes (1 heure)<br>Maximum : 10 080 minutes (7 jours)<br>Incréments : 10 minutes<br>Désactiver la mise en pause automatique  -1|60 minutes|
 
 
-### <a name="create-new-database-in-serverless-compute-tier"></a>Créer une base de données dans le niveau de calcul serverless 
+### <a name="create-a-new-database-in-the-serverless-compute-tier"></a>Créer une base de données dans le niveau de calcul serverless
 
 Les exemples suivants créent une base de données au niveau de calcul serverless.
 
-#### <a name="use-azure-portal"></a>Utiliser le portail Azure
+#### <a name="use-the-azure-portal"></a>Utilisation du portail Azure
 
 Consultez [Démarrage rapide : Créez une base de données unique dans Azure SQL Database à l’aide du portail Azure](single-database-create-quickstart.md).
 
@@ -199,7 +188,7 @@ New-AzSqlDatabase -ResourceGroupName $resourceGroupName -ServerName $serverName 
   -ComputeModel Serverless -Edition GeneralPurpose -ComputeGeneration Gen5 `
   -MinVcore 0.5 -MaxVcore 2 -AutoPauseDelayInMinutes 720
 ```
-#### <a name="use-azure-cli"></a>Utiliser l’interface de ligne de commande Microsoft Azure
+#### <a name="use-the-azure-cli"></a>Utilisation de l’interface de ligne de commande Microsoft Azure
 
 ```azurecli
 az sql db create -g $resourceGroupName -s $serverName -n $databaseName `
@@ -218,7 +207,7 @@ CREATE DATABASE testdb
 
 Pour plus d’informations, consultez [CREATE DATABASE](/sql/t-sql/statements/create-database-transact-sql?view=azuresqldb-current).  
 
-### <a name="move-database-from-provisioned-compute-tier-into-serverless-compute-tier"></a>Déplacer une base de données du niveau de calcul provisionné vers le niveau de calcul serverless
+### <a name="move-a-database-from-the-provisioned-compute-tier-into-the-serverless-compute-tier"></a>Déplacer une base de données du niveau de calcul provisionné vers le niveau de calcul serverless
 
 Les exemples suivants déplacent une base de données du niveau de calcul approvisionné vers le niveau de calcul serverless.
 
@@ -231,7 +220,7 @@ Set-AzSqlDatabase -ResourceGroupName $resourceGroupName -ServerName $serverName 
   -MinVcore 1 -MaxVcore 4 -AutoPauseDelayInMinutes 1440
 ```
 
-#### <a name="use-azure-cli"></a>Utiliser l’interface de ligne de commande Microsoft Azure
+#### <a name="use-the-azure-cli"></a>Utilisation de l’interface de ligne de commande Microsoft Azure
 
 ```azurecli
 az sql db update -g $resourceGroupName -s $serverName -n $databaseName `
@@ -250,7 +239,7 @@ MODIFY ( SERVICE_OBJECTIVE = 'GP_S_Gen5_1') ;
 
 Pour plus d’informations, consultez [ALTER DATABASE](/sql/t-sql/statements/alter-database-transact-sql?view=azuresqldb-current).
 
-### <a name="move-database-from-serverless-compute-tier-into-provisioned-compute-tier"></a>Déplacer une base de données du niveau de calcul serverless vers le niveau de calcul provisionné
+### <a name="move-a-database-from-the-serverless-compute-tier-into-the-provisioned-compute-tier"></a>Déplacer une base de données du niveau de calcul serverless vers le niveau de calcul provisionné
 
 Vous pouvez déplacer une base de données serverless dans un niveau de calcul provisionné de la même façon que lorsque vous déplacez une base de données de calcul provisionné dans un niveau de calcul serverless.
 
@@ -260,7 +249,7 @@ Vous pouvez déplacer une base de données serverless dans un niveau de calcul p
 
 Pour modifier le nombre maximal ou minimal de vCores et le délai de mise en pause automatique, utilisez la commande [Set-AzSqlDatabase](/powershell/module/az.sql/set-azsqldatabase) dans PowerShell à l’aide des arguments `MaxVcore`, `MinVcore` et `AutoPauseDelayInMinutes`.
 
-### <a name="use-azure-cli"></a>Utiliser l’interface de ligne de commande Microsoft Azure
+### <a name="use-the-azure-cli"></a>Utilisation de l’interface de ligne de commande Microsoft Azure
 
 Pour modifier le nombre maximal ou minimal de vCores et le délai de mise en pause automatique, utilisez la commande [az sql db update](/cli/azure/sql/db#az-sql-db-update) dans Azure CLI à l’aide des arguments `capacity`, `min-capacity` et `auto-pause-delay`.
 
@@ -307,7 +296,7 @@ Get-AzSqlDatabase -ResourceGroupName $resourcegroupname -ServerName $servername 
   | Select -ExpandProperty "Status"
 ```
 
-#### <a name="use-azure-cli"></a>Utiliser l’interface de ligne de commande Microsoft Azure
+#### <a name="use-the-azure-cli"></a>Utilisation de l’interface de ligne de commande Microsoft Azure
 
 ```azurecli
 az sql db show --name $databasename --resource-group $resourcegroupname --server $servername --query 'status' -o json
@@ -358,7 +347,7 @@ Les remises liées à Azure Hybrid Benefit et aux capacités réservées ne s’
 
 ## <a name="available-regions"></a>Régions disponibles
 
-Le niveau de calcul serverless est disponible partout dans le monde, sauf dans les régions suivantes : Chine Est, Chine Nord, Allemagne Centre, Allemagne Nord-Est, Royaume-Uni Nord, Royaume-Uni Sud 2, USA Centre-Ouest et USA Centre-Ouest, US DoD et US Gov Centre (Iowa).
+Le niveau de calcul serverless est disponible partout dans le monde, sauf dans les régions suivantes : Chine Est, Chine Nord, Allemagne Centre, Allemagne Nord-Est et US Gov Centre (Iowa).
 
 ## <a name="next-steps"></a>Étapes suivantes
 

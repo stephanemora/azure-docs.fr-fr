@@ -5,15 +5,15 @@ services: virtual-desktop
 author: Heidilohr
 ms.service: virtual-desktop
 ms.topic: conceptual
-ms.date: 05/01/2020
+ms.date: 06/12/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: a6a4712f88a6f5351845233f4179e82e4b473ded
-ms.sourcegitcommit: 309cf6876d906425a0d6f72deceb9ecd231d387c
+ms.openlocfilehash: a0853266e4fda4393ba49fb740755e6b8bd03cf5
+ms.sourcegitcommit: e132633b9c3a53b3ead101ea2711570e60d67b83
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/01/2020
-ms.locfileid: "84266727"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86038053"
 ---
 # <a name="windows-virtual-desktop-partner-integrations"></a>Intégrations de partenaires Windows Virtual Desktop
 
@@ -33,12 +33,12 @@ Citrix étend la valeur de Windows Virtual Desktop à l’aide d’outils d’en
 
 ![Logo VMware](./media/partners/vmware.png)
 
-VMware Horizon Cloud sur Microsoft Azure permet aux organisations de connecter leur propre instance de Microsoft Azure au plan de contrôle simple et intuitif d’Horizon Cloud, créant ainsi une solution sécurisée, complète et hébergée dans le cloud pour la fourniture d’applications et de bureaux Windows virtualisés. Avec la mise en production de Windows Virtual Desktop, VMware s’est associé à Microsoft pour étendre les fonctionnalités de Windows Virtual Desktop aux clients utilisant Horizon Cloud sur Microsoft Azure. Cette fonctionnalité sera disponible dans la version Tech Preview d’ici la fin 2019.
- 
-En tant que fournisseur approuvé, les avantages de Windows Virtual Desktop seront étendus aux clients VMware Horizon Cloud sur Microsoft Azure, notamment Windows 10 Entreprise pour les sessions multiples, Windows 7 avec les mises à jour de sécurité étendues gratuites pendant trois ans et FSLogix. De plus, les clients recevront des fonctionnalités adaptées aux grandes entreprises d’Horizon Cloud, comme le support étendu des points de terminaison ; la répartition globale optimisée pour le cloud ; les configurations et les options de bureau flexibles ; la gestion des environnements utilisateur ; et le support des environnements hybrides.
+VMware Horizon Cloud sur Microsoft Azure est un service cloud natif qui permet aux organisations de déployer rapidement des applications et des bureaux à distance à partir de leurs abonnements Microsoft Azure existants tout en tirant parti de l’ensemble des fonctionnalités de VMware Horizon. Horizon Cloud utilise le plan de contrôle Horizon pour fournir une interface de gestion unique pour tous les environnements Horizon, localement ou dans le cloud. Grâce à la virtualisation de bureau hybride, les clients peuvent déplacer leurs charges de travail dans Azure à leur propre rythme.
 
-- [Inscrivez-vous pour avoir accès à la préversion (Tech Preview) d’Horizon Cloud sur Microsoft Azure](https://www.vmware.com/learn/323526_TECH_PREVIEW_REG.html).
+VMware est un fournisseur Windows Virtual Desktop approuvé qui peut aider les clients qui souhaitent utiliser Windows Virtual Desktop tout en profitant des fonctionnalités supplémentaires fournies avec VMware Horizon, comme la gestion de l’alimentation intégrée et facile à utiliser, la supervision basée sur le cloud et le protocole Blast Extreme. Ces fonctionnalités s’adaptent instantanément aux conditions de réseau changeantes pour offrir une expérience utilisateur cohérente. VMware Horizon Cloud est également fourni avec VMware App Volumes et Dynamic Environment Manager. Ces outils ajoutent des fonctionnalités avancées de gestion de l’environnement des utilisateurs et des applications qui fonctionnent avec l’attachement d’application MSIX et FSLogix.
+
 - [Visitez le site web du partenaire](https://www.vmware.com/products/horizon-cloud-virtual-desktops.html).
+- [Lisez la documentation technique de VMWare Horizon Cloud](https://techzone.vmware.com/mastering-horizon-cloud-microsoft-azure).
 
 ## <a name="10zig"></a>10ZiG
 
@@ -102,6 +102,28 @@ deviceTRUST étend la valeur de Windows Virtual Desktop à leur technologie de s
 
 - [Visitez le site web du partenaire](https://devicetrust.com/wvd).
 
+## <a name="ekran-system"></a>Système Ekran
+
+![Logo du système Ekran](./media/partners/ekran.png)
+
+Ekran System est un partenaire à valeur ajoutée de Windows Virtual Desktop qui permet aux équipes informatiques de superviser l’ensemble des activités des utilisateurs distants sur les machines virtuelles Microsoft Azure. Avec Ekran System, vous pouvez enregistrer l’activité à l’écran de chaque session utilisateur dans des applications publiées ou des bureaux virtuels et collecter en même temps un large éventail de métadonnées riches en contexte (noms d’application, titres de fenêtres actives, URL visitées, séquences de touches, etc.). Les fonctionnalités avancées offrent une visibilité approfondie et des temps de réponse rapides aux incidents, ce qui fait de Ekran System une solution efficace de conformité et de gestion des menaces internes.  
+
+Les licences flottantes de point de terminaison des clients Ekran System sont automatisées pour prendre en charge les modifications dynamiques impactant les bureaux virtuels. Ekran System vous permet d’annuler automatiquement l’attribution de licences à partir de bureaux virtuels non persistants supprimés et de les supprimer de votre base de données. Ekran System s’intègre en toute transparence à Azure Active Directory et à Azure Sentinel.
+
+- [Consultez le résumé de la solution conjointe](https://query.prod.cms.rt.microsoft.com/cms/api/am/binary/RE4yqY8).
+- [Visitez la page du partenaire](https://www.ekransystem.com/product/supported-platforms/windows-virtual-desktop-monitoring).
+
+## <a name="flexxible-it"></a>Flexxible IT
+
+![Logo de Flexxible IT](./media/partners/flexxible.png)
+
+Flexxible IT est un partenaire à valeur ajoutée de Windows Virtual Desktop qui permet aux organisations de mettre à l’échelle, de superviser et de gérer efficacement l’infrastructure Windows Virtual Desktop et Citrix Workspace. Flexxible|SUITE donne aux administrateurs informatiques la possibilité de provisionner et de gérer intelligemment des charges de travail Windows Virtual Desktop locales et hébergées dans Azure.
+ 
+La technologie de Flexxible IT augmente la valeur des services natifs Windows Virtual Desktop et Citrix Workspace en automatisant les processus courants pour simplifier la configuration de l’infrastructure, le provisionnement des bureaux et la gestion quotidienne. En éliminant les scripts PowerShell complexes et les processus manuels fastidieux, SUITE offre un déploiement de bureau scalable, des fonctionnalités complètes de supervision et de création de rapports ainsi qu’une gestion déléguée sécurisée. Vous pouvez ainsi concentrer vos efforts sur l’amélioration des niveaux de service et de l’expérience Windows Virtual Desktop pour vos utilisateurs.
+
+- [Consultez le résumé de la solution conjointe](https://query.prod.cms.rt.microsoft.com/cms/api/am/binary/RE4yj7A).
+- [Visitez le site web du partenaire](https://www.flexxible.com/suite-for-windows-virtual-desktop).
+
 ## <a name="hp"></a>HP
 
 ![Logo HP](./media/partners/hp.png)
@@ -127,7 +149,7 @@ Le système d’exploitation IGEL prend en charge tous les protocoles clients d�
 
 ![Logo Ivanti](./media/partners/ivanti.png)
 
-Le Gestionnaire d’espaces de travail utilisateur Ivanti est un service à valeur ajoutée Windows Virtual Desktop qui facilite le déploiement et la gestion des bureaux en séparant les données utilisateur du bureau pour une portabilité transparente. Avec Ivanti, les utilisateurs peuvent fournir des projets complexes tels que la migration vers Windows 10, l’adoption d’Office 365 ou le déplacement de services vers le cloud plus rapidement. 
+Le Gestionnaire d’espaces de travail utilisateur Ivanti est un service à valeur ajoutée Windows Virtual Desktop qui facilite le déploiement et la gestion des bureaux en séparant les données utilisateur du bureau pour une portabilité transparente. Avec Ivanti, les utilisateurs peuvent fournir des projets complexes tels que la migration vers Windows 10, l’adoption de Microsoft 365 ou le déplacement de services vers le cloud plus rapidement. 
 
 Lorsqu’il est utilisé avec Windows Virtual Desktop, le Gestionnaire d’espaces de travail utilisateur Ivanti user Workspace Manager fournit une gestion contextuelle simple de l’expérience utilisateur du bureau, éliminant ainsi les temps de connexion longs et en éliminant les cauchemars de la stratégie de groupe. Les modèles prêts à l’emploi du Gestionnaire d’espaces de travail utilisateur Ivanti simplifient l’installation des utilisateurs via des agents et la console existante. Le Gestionnaire d’espaces de travail utilisateur Ivanti offre des bureaux réactifs et sécurisés que les utilisateurs apprécient et qui leur permettent d’économiser sur les serveurs grâce à une gestion plus efficace des utilisateurs et une réduction des risques de sécurité des points de terminaison. 
 
@@ -163,6 +185,7 @@ Le logiciel d’agrégation et de livraison d’applications Liquit permet aux e
 
 En tant que partenaire d’intégration certifié, Liquit contribue à accélérer la transition vers le Cloud sans délai de remplacement. Windows Virtual Desktop peut facilement se connecter à un environnement existant, créer un espace de travail et fournir le bureau. Vous pouvez ensuite prendre le temps de migrer à partir d’anciennes plateformes et d’apporter des modifications au serveur principal sans que vos utilisateurs s’en aperçoivent. Profitez d’une expérience utilisateur final cohérente ainsi que d’une infrastructure flexible, et gardez le contrôle de vos applications, quel que soit leur emplacement.
 
+- [Consultez le résumé de la solution conjointe](https://query.prod.cms.rt.microsoft.com/cms/api/am/binary/RE4yol8).
 - [Visitez le site web du partenaire](https://www.liquit.com/wvd/).
 
 ## <a name="login-vsi"></a>Login VSI
@@ -232,9 +255,20 @@ L’impression est une tâche fondamentale dans pratiquement tous les environnem
 
 RDPSoft est un partenaire de Windows Virtual Desktop qui fournit des solutions puissantes et peu onéreuses de surveillance, de gestion et de création de rapports. Leurs offres de contrôleurs de bureau à distance (Remote Desktop Commander) permettent aux professionnels de l’informatique d’obtenir des informations sur l’intégrité, les performances, l’activité des utilisateurs, les licences et la sécurité de leurs déploiements Windows Virtual Desktop. 
  
-Les solutions Remote Desktop Commander de RDPSoft améliorent l’administration de Windows Virtual Desktop. Les fonctionnalités de gestion Premium simplifient la délégation des tâches de gestion de Windows Virtual Desktop pour prendre en charge le personnel du bureau en fournissant une assistance à distance, une session utilisateur et une gestion des processus. En même temps, la suite de contrôleurs de bureau à distance collecte des mesures riches sur les performances et la charge par utilisateur, l’activité et l’audit des utilisateurs, la qualité de la connexion Windows Virtual Desktop (latence et bande passante), la gestion des licences et la sécurité dans une instance de base de données SQL Azure centrale pour la révision. Avec RDPSoft, les tableaux de bord de création de rapports historiques et complets sont accessibles d’un simple clic.
+Les solutions Remote Desktop Commander de RDPSoft améliorent l’administration de Windows Virtual Desktop. Les fonctionnalités de gestion Premium simplifient la délégation des tâches de gestion de Windows Virtual Desktop pour prendre en charge le personnel du bureau en fournissant une assistance à distance, une session utilisateur et une gestion des processus. En même temps, la suite Remote Desktop Commander collecte des mesures enrichies sur les performances et la charge par utilisateur, l'activité et l'audit des utilisateurs, la qualité de la connexion Windows Virtual Desktop (latence et bande passante), la gestion des licences et la sécurité dans une instance centrale d'Azure SQL Database à des fins d'évaluation. Avec RDPSoft, les tableaux de bord de création de rapports historiques et complets sont accessibles d’un simple clic.
 
 - [Visitez le site web du partenaire](https://www.rdpsoft.com/products/remote-desktop-commander/suite/).
+
+## <a name="rimo3"></a>Rimo3
+
+![Logo de Rimo3](./media/partners/rimo3.png)
+
+Rimo3 enrichit l’expérience dans Windows Virtual Desktop en accélérant le déploiement et en améliorant la gestion continue des changements. Rimo3 fournit aux équipes informatiques les connaissances nécessaires pour prendre en charge votre portefeuille d’applications en vue de préparer la migration des charges de travail d’application vers Azure. Les utilisateurs peuvent intégrer des applications et les tester dans leur espace de travail Windows Virtual Desktop cible rapidement et facilement. Les utilisateurs peuvent également comprendre de manière proactive l’impact des changements au fur et à mesure que leur organisation déploie de nouvelles applications et mises à jour. Enfin, les administrateurs informatiques peuvent tirer parti de la fonctionnalité Intelligent Smoke Testing (test de détection de fumée intelligent) de Rimo3 et automatiser les tests fonctionnels sans interrompre les sessions utilisateur.
+
+Rimo3 offre une plateforme de test d’application automatisée, facile à utiliser et scalable. Cette plateforme comprend des fonctionnalités pour les trois principes fondamentaux des tests d’application : compatibilité, fonctionnalité et performances. Elle permet aux organisations, aux dirigeants et aux équipes d’améliorer la continuité des activités, d’adopter les changements plus rapidement et d’optimiser l’expérience utilisateur.
+
+- [Consultez le résumé de la solution conjointe](https://query.prod.cms.rt.microsoft.com/cms/api/am/binary/RE4yj7B).
+- [Visitez le site web du partenaire](https://rimo3.com/outcomes/).
 
 ## <a name="sepago"></a>sepago
 

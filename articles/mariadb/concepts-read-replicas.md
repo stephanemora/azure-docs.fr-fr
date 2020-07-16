@@ -5,13 +5,13 @@ author: ajlam
 ms.author: andrela
 ms.service: mariadb
 ms.topic: conceptual
-ms.date: 5/4/2020
-ms.openlocfilehash: 6b738fc96a51893d8c0a0e75c5551007da60bdd2
-ms.sourcegitcommit: e0330ef620103256d39ca1426f09dd5bb39cd075
+ms.date: 7/7/2020
+ms.openlocfilehash: bed89b325ce28ab969bad5ed30802bdb67a21a96
+ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/05/2020
-ms.locfileid: "82793191"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86076553"
 ---
 # <a name="read-replicas-in-azure-database-for-mariadb"></a>Réplicas en lecture dans Azure Database for MariaDB
 
@@ -20,6 +20,12 @@ La fonctionnalité de réplica en lecture vous permet de répliquer les données
 Les réplicas sont de nouveaux serveurs que vous gérez de manière similaire aux serveurs Azure Database for MariaDB classiques. Pour chaque réplica en lecture, vous êtes facturé en fonction de la capacité de calcul provisionnée dans les vCores et du stockage provisionné en Go/mois.
 
 Pour en savoir plus sur la réplication GTID, consultez la [documentation sur la réplication MariaDB](https://mariadb.com/kb/en/library/gtid/).
+
+> [!NOTE]
+> Communication sans biais
+>
+> Microsoft prend en charge un environnement diversifié et d’inclusion. Cet article contient des références au mot _esclave_. Le [guide de style pour la communication sans biais](https://github.com/MicrosoftDocs/microsoft-style-guide/blob/master/styleguide/bias-free-communication.md) de Microsoft reconnaît cela comme un mot d’exclusion. Le mot est utilisé dans cet article pour des raisons de cohérence, car il s’agit du mot qui figure dans le logiciel. Une fois que le mot aura été supprimé du logiciel, cet article sera mis à jour en conséquence.
+>
 
 ## <a name="when-to-use-a-read-replica"></a>Quand utiliser un réplica en lecture
 
@@ -41,9 +47,7 @@ Vous pouvez disposer d’un serveur maître dans toute [région Azure Database f
 ### <a name="universal-replica-regions"></a>Régions de réplica universelles
 Vous pouvez créer un réplica en lecture dans les régions suivantes, quel que soit l’emplacement de votre serveur maître. Les régions de réplica universelles prises en charge sont les suivantes :
 
-Australie Est, Australie Sud-Est, USA Centre, Asie Est, USA Est, USA Est 2, Japon Est, Japon Ouest, Corée Centre, Corée Sud, USA Centre Nord, Europe Nord, USA Centre Sud, Asie Sud-Est, Royaume-Uni Sud, Royaume-Uni Ouest, Europe Ouest, USA Ouest.
-
-\* USA Ouest 2 est momentanément indisponible en tant qu’emplacement de réplica inter-régions.
+Australie Est, Australie Sud-Est, USA Centre, Asie Est, USA Est, USA Est 2, Japon Est, Japon Ouest, Corée Centre, Corée Sud, USA Centre Nord, Europe Nord, USA Centre Sud, Asie Sud-Est, Royaume-Uni Sud, Royaume-Uni Ouest, Europe Ouest, USA Ouest, USA Ouest 2, USA Centre-Ouest.
 
 ### <a name="paired-regions"></a>Régions jumelées
 Outre les régions de réplica universelles, vous pouvez créer un réplica en lecture dans la région Azure jumelée de votre serveur maître. Si vous ne connaissez pas la région jumelée de votre région, vous trouverez plus d’informations dans l’[article sur les régions jumelées Azure](../best-practices-availability-paired-regions.md).
@@ -52,12 +56,15 @@ Si vous utilisez des réplicas entre régions pour la planification de la récup
 
 Il existe toutefois quelques limitations à prendre en compte : 
 
-* Disponibilité régionale : Azure Database for MariaDB est disponible dans les régions USA Ouest 2, France Centre, Émirats arabes unis Nord et Allemagne Centre. Toutefois, leurs régions jumelées ne sont pas disponibles.
+* Disponibilité régionale : Azure Database for MariaDB est disponible dans les régions France Centre, Émirats arabes unis Nord et Allemagne Centre. Toutefois, leurs régions jumelées ne sont pas disponibles.
     
 * Paires unidirectionnelles : Certaines régions Azure sont jumelées dans une seule direction. Ces régions incluent Inde Ouest, Brésil Sud et US Gov Virginie. 
    Cela signifie qu’un serveur maître dans la région Inde Ouest peut créer un réplica dans la région Inde Sud. Toutefois, un serveur maître dans la région Inde Sud ne peut pas créer de réplica dans la région Inde Ouest. En effet, la région secondaire de la région Inde Ouest est Inde Sud, mais la région secondaire de la région Inde Sud n’est pas Inde Ouest.
 
 ## <a name="create-a-replica"></a>Créer un réplica
+
+> [!IMPORTANT]
+> La fonctionnalité de réplica en lecture est disponible uniquement pour les serveurs Azure Database for MariaDB dans les niveaux tarifaires Usage général ou Mémoire optimisée. Vérifiez que le serveur maître se trouve dans l’un de ces niveaux tarifaires.
 
 Si un serveur maître ne dispose d’aucun serveur réplica, le serveur maître redémarre tout d’abord afin de se préparer pour la réplication.
 
@@ -102,11 +109,33 @@ Lorsque vous décidez d’arrêter la réplication pour un réplica, celui-ci pe
 
 Découvrez comment [arrêter la réplication sur un réplica](howto-read-replicas-portal.md).
 
+## <a name="failover"></a>Basculement
+
+Il n’est pas possible d’effectuer un basculement automatique entre un serveur maître et un réplica. 
+
+Étant donné que la réplication est asynchrone, il existe un décalage entre le serveur maître et le réplica. Le niveau de décalage dépend d’un certain nombre de facteurs, comme la charge de travail exécutée sur le serveur maître et la latence qui existe entre les centres de données. Dans la plupart des cas, le décalage du réplica va de quelques secondes à quelques minutes. Pour connaître le décalage d’un réplica, consultez la métrique *Décalage de la réplication*, qui est disponible pour chaque réplica. Cette métrique indique le temps écoulé depuis la dernière transaction réexécutée. Il est recommandé d’observer votre réplica sur une période donnée afin de déterminer le décalage moyen. Vous pouvez configurer une alerte afin d’être averti lorsque le décalage d’un réplica sort de la plage définie et prendre les mesures nécessaires.
+
+> [!Tip]
+> Si vous basculez vers le réplica, le décalage qui existe au moment où vous supprimez la liaison entre le réplica et le serveur maître indiquera la quantité de données perdues.
+
+Une fois que vous avez décidé de basculer vers un réplica : 
+
+1. Arrêtez la réplication vers le réplica<br/>
+   Cette étape est nécessaire pour que le serveur de réplication puisse accepter les écritures. Dans le cadre de ce processus, le serveur de réplication est dissocié du serveur maître. En général, une fois que le processus d’arrêt de la réplication est lancé, le processus back-end prend environ 2 minutes. Pour comprendre les implications d’une telle action, consultez la section [Arrêter la réplication](#stop-replication).
+    
+2. Faites pointer votre application vers l’ancien réplica<br/>
+   Chaque serveur est associé à une chaîne de connexion unique. Mettez à jour votre application pour qu’elle pointe vers l’ancien réplica au lieu du serveur maître.
+    
+Lorsque votre application est en mesure de traiter les lectures et les écritures, le basculement est terminé. Le temps d’arrêt de votre application dépend du moment où vous détectez le problème et où vous effectuez les étapes 1 et 2 ci-dessus.
+
 ## <a name="considerations-and-limitations"></a>Observations et limitations
 
 ### <a name="pricing-tiers"></a>Niveaux de tarification
 
 Les réplicas en lecture ne sont actuellement disponibles que dans les niveaux tarifaires Usage général et Mémoire optimisée.
+
+> [!NOTE]
+> Le coût d’exécution du serveur de réplication est basé sur la région où le serveur de réplication est en cours d’exécution.
 
 ### <a name="master-server-restart"></a>Redémarrage du serveur maître
 

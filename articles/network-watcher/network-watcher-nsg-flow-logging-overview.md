@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/22/2017
 ms.author: damendo
-ms.openlocfilehash: ed14d3fb1cd3d9d8af37088811ce62b050778a95
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: e59a985f59da1b6a40a6b583d5e2a490611a702c
+ms.sourcegitcommit: e132633b9c3a53b3ead101ea2711570e60d67b83
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82189801"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86043850"
 ---
 # <a name="introduction-to-flow-logging-for-network-security-groups"></a>Présentation de la journalisation des flux pour les groupes de sécurité réseau
 
@@ -51,7 +51,10 @@ Les journaux de flux sont la source fidèle pour toute activité réseau au sein
 - Les journaux sont collectés via la plateforme Azure et n’affectent en aucune façon les ressources du client ou les performances réseau.
 - Les journaux sont écrits au format JSON et affichent les flux entrants et sortants conformément à une règle de groupe de sécurité réseau.
 - Chaque enregistrement de journal contient l’interface réseau (NIC) à laquelle le flux s’applique, les informations de quintuplet, ainsi que les informations sur le débit (version 2 uniquement) et les décisions de trafic. Pour plus d’informations, consultez _Format de journal_ ci-dessous.
-- Les journaux de flux intègrent une fonctionnalité de rétention qui permet de supprimer automatiquement les journaux jusqu’à un an après leur création. **REMARQUE** : La rétention n’est disponible que si vous utilisez des [comptes de stockage à usage général v2 (GPv2)](https://docs.microsoft.com/azure/storage/common/storage-account-overview#types-of-storage-accounts). 
+- Les journaux de flux intègrent une fonctionnalité de rétention qui permet de supprimer automatiquement les journaux jusqu’à un an après leur création. 
+
+> [!NOTE]
+> La rétention n’est disponible que si vous utilisez des [comptes de stockage à usage général v2 (GPv2)](https://docs.microsoft.com/azure/storage/common/storage-account-overview#types-of-storage-accounts). 
 
 **Concepts fondamentaux**
 
@@ -59,6 +62,9 @@ Les journaux de flux sont la source fidèle pour toute activité réseau au sein
 - Un groupe de sécurité réseau contient une liste de _règles de sécurité_ qui autorisent ou refusent le trafic réseau dans les ressources auxquelles il est connecté. Des groupes de sécurité réseau peuvent être associés à des sous-réseaux, à des machines virtuelles spécifiques ou à des interfaces réseau (NIC) individuelles attachées à des machines virtuelles (Resource Manager). Pour plus d’informations, consultez [Sécurité du réseau](https://docs.microsoft.com/azure/virtual-network/security-overview?toc=%2Fazure%2Fnetwork-watcher%2Ftoc.json).
 - Tous les flux de trafic au sein de votre réseau sont évalués à l’aide des règles dans le groupe de sécurité réseau applicable.
 - Le résultat de ces évaluations est recueilli dans des journaux de flux de groupe de sécurité réseau. Les journaux de flux sont collectés via la plateforme Azure et ne nécessitent aucune modification des ressources du client.
+- Remarque : Les règles sont de deux types : avec fin d’exécution et sans fin d’exécution, chacune avec des comportements de journalisation différents.
+- - Les règles NSG de refus sont avec fin d’exécution. Le groupe de sécurité réseau qui refuse le trafic le consigne dans les journaux de flux, et dans ce cas le traitement s’arrête dès qu’un groupe de sécurité réseau refuse le trafic. 
+- - Les règles NSG d’autorisation sont sans fin d’exécution, ce qui signifie que même si un groupe de sécurité réseau l’autorise, le traitement se poursuit jusqu’au groupe de sécurité réseau suivant. Le dernier groupe de sécurité réseau autorisant le trafic consigne le trafic dans les journaux de flux.
 - Les journaux de flux de groupe de sécurité réseau sont écrits dans des comptes de stockage à partir desquels ils sont accessibles.
 - Vous pouvez exporter, traiter, analyser et visualiser les journaux de flux à l’aide d’outils tels que TA, Splunk, Grafana, StealthWatch, etc.
 
@@ -104,7 +110,7 @@ L’état du flux _B_ est enregistré lorsqu’un flux est lancé. L’état du 
 Le texte ci-dessous est un exemple de journal de flux. Comme vous pouvez le voir, il existe plusieurs enregistrements qui suivent la liste des propriétés décrite dans la section précédente.
 
 > [!NOTE]
-> Les valeurs de la propriété **flowTuples* correspondent à une liste de valeurs séparées par des virgules.
+> Les valeurs de la propriété *flowTuples* correspondent à une liste de valeurs séparées par des virgules.
  
 **Exemple de format de journal de flux de groupe de sécurité réseau version 1**
 ```json
@@ -351,9 +357,9 @@ https://{storageAccountName}.blob.core.windows.net/insights-logs-networksecurity
 
 **Coûts de la journalisation de flux** : la journalisation de flux NSG est facturée selon le volume de journaux d’activité produits. Un volume de trafic élevé peut entraîner un volume important de journaux de flux avec les coûts associés. Les tarifs des journaux de flux NSG n’incluent pas les coûts de stockage afférents. L’utilisation de la fonctionnalité de stratégie de rétention avec la journalisation de flux NSG implique des coûts de stockage distincts pendant de longues périodes. Si vous n’avez pas besoin de la fonctionnalité de stratégie de conservation, nous vous recommandons de définir cette valeur sur 0. Pour en savoir plus, consultez [Tarifs Network Watcher](https://azure.microsoft.com/pricing/details/network-watcher/) et [Tarifs du stockage Azure](https://azure.microsoft.com/pricing/details/storage/) pour de plus amples informations.
 
-**Flux entrants journalisés à partir d’adresses IP Internet dans des machines virtuelles sans IP publiques** : Les machines virtuelles qui n’ont pas d’IP publique attribuée via une IP publique associée à la carte d’interface réseau en tant qu’IP publique de niveau d’instance, ou qui font partie d’un pool principal équilibreur de charge de base, utilisent une [architecture de système en réseau par défaut](../load-balancer/load-balancer-outbound-connections.md#defaultsnat) et ont une adresse IP affectée par Azure afin de faciliter la connectivité sortante. Par conséquent, vous pouvez observer des entrées de journal de flux pour les flux d’adresses IP Internet, si le flux est destiné à un port dans la plage de ports attribués à l’architecture de système en réseau. Bien qu’Azure n’autorise pas ces flux vers les machines virtuelles, la tentative est journalisée et apparaît par conception dans le journal de flux du Groupe de sécurité réseau Network Watcher. Nous recommandons que le trafic Internet entrant indésirable soit explicitement bloqué avec le Groupe de sécurité réseau.
+**Nombre d’octets et de paquets incorrect pour les flux entrants** : [Les groupes de sécurité réseau (NSG)](https://docs.microsoft.com/azure/virtual-network/security-overview) sont implémentés en tant que [pare-feu avec état](https://en.wikipedia.org/wiki/Stateful_firewall?oldformat=true). Toutefois, en raison des limitations de la plateforme, les règles qui contrôlent les flux entrants sont implémentées sans état. Pour cette raison, les nombres de paquets et d’octets ne sont pas enregistrés pour ces flux. Par conséquent, le nombre d’octets et de paquets signalé dans les journaux de flux NSG (et Traffic Analytics) peut différer du nombre réel. De plus, les flux entrants sont à l’heure actuelle sans fin d’exécution. La résolution de cette limitation est prévue d’ici décembre 2020. 
 
-**Nombre d’octets et de paquets incorrect pour les flux sans état** : [Les groupes de sécurité réseau (NSG)](https://docs.microsoft.com/azure/virtual-network/security-overview) sont implémentés en tant que [pare-feu avec état](https://en.wikipedia.org/wiki/Stateful_firewall?oldformat=true). Toutefois, de nombreuses règles internes/par défaut qui contrôlent le flux du trafic sont implémentées sans état. En raison des limitations de la plateforme, les nombres d’octets et de paquets ne sont pas enregistrés pour les flux sans état (autrement dit, les flux de trafic passant par les règles sans état), ils sont enregistrés uniquement pour les flux avec état. Par conséquent, le nombre d’octets et de paquets signalé dans les journaux de flux NSG (et Traffic Analytics) peut différer des flux réels. La résolution de cette limitation est prévue avant juin 2020.
+**Flux entrants journalisés à partir d’adresses IP Internet dans des machines virtuelles sans IP publiques** : Les machines virtuelles qui n’ont pas d’IP publique attribuée via une IP publique associée à la carte d’interface réseau en tant qu’IP publique de niveau d’instance, ou qui font partie d’un pool principal équilibreur de charge de base, utilisent une [architecture de système en réseau par défaut](../load-balancer/load-balancer-outbound-connections.md) et ont une adresse IP affectée par Azure afin de faciliter la connectivité sortante. Par conséquent, vous pouvez observer des entrées de journal de flux pour les flux d’adresses IP Internet, si le flux est destiné à un port dans la plage de ports attribués à l’architecture de système en réseau. Bien qu’Azure n’autorise pas ces flux vers les machines virtuelles, la tentative est journalisée et apparaît par conception dans le journal de flux du Groupe de sécurité réseau Network Watcher. Nous recommandons que le trafic Internet entrant indésirable soit explicitement bloqué avec le Groupe de sécurité réseau.
 
 ## <a name="best-practices"></a>Meilleures pratiques
 

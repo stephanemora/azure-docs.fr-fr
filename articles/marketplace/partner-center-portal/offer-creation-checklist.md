@@ -1,33 +1,34 @@
 ---
-title: Liste de contrôle de création d’offre SaaS – Place de marché commerciale pour Azure
-description: Détails que vous pouvez fournir dans le cadre du processus de création d’offre SaaS. – Place de marché commerciale pour Azure
-author: dsindona
-ms.author: dsindona
+title: Liste de contrôle de création d’offre SaaS dans la place de marché commerciale Microsoft
+description: Détails que vous pouvez fournir dans le cadre du processus de création d’offre SaaS dans l’Espace partenaires.
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
-ms.date: 08/14/2019
-ms.openlocfilehash: ec276c765c2a574dbbc2fc14b7b23507b4cc4798
-ms.sourcegitcommit: 1f25aa993c38b37472cf8a0359bc6f0bf97b6784
+ms.date: 05/08/2020
+ms.openlocfilehash: c56295f1e56e4ba3b6af9caf8ba38ce1f0552eeb
+ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/26/2020
-ms.locfileid: "83850009"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86101706"
 ---
-# <a name="saas-offer-creation-checklist"></a>Check-list pour la création d’une offre SaaS
+# <a name="saas-offer-creation-checklist-in-partner-center"></a>Liste de vérification de la création d’offre SaaS dans l’Espace partenaires
 
-Le processus de création d’offre SaaS vous amène à visiter plusieurs pages. Voici les détails que vous pouvez fournir sur chacune d’elles, avec des liens pour en apprendre davantage plus sur chaque élément.
+Le processus de création d’offre SaaS vous amène à visiter plusieurs pages.  Voici les détails que vous pouvez fournir sur chacune d’elles, avec des liens pour en apprendre davantage plus sur chaque élément.
 
-Les éléments que vous devez fournir ou spécifier sont indiqués ci-dessous. Certaines zones sont facultatives ou comportent des valeurs par défaut que vous pouvez modifier à votre guise. Vous n’êtes pas obligé de travailler sur ces sections dans l’ordre indiqué ici.
+Les éléments que vous devez fournir ou spécifier sont indiqués ci-dessous.  Certaines zones sont facultatives ou comportent des valeurs par défaut que vous pouvez modifier à votre guise.  Vous n’êtes pas obligé de travailler sur ces sections dans l’ordre indiqué ici.
+
+>[!Note]
+>Si vous créez une offre SaaS préconfigurable, veillez à implémenter l’intégration avec [l’API de traitement SaaS](./pc-saas-fulfillment-apis.md).  L’intégration avec les API est le seul moyen de garantir le bon fonctionnement de la fonction de traitement de la place de marché.
 
 | **Item**    | **Objectif**  |
 | :---------- | :-------------------|
 | [**Modal de nouvelle offre**](#new-offer-modal) | Collecte des informations d’identité liées à l’offre.  |
 | [Page Configuration de l’offre](#offer-setup-page) | Optez pour l’utilisation des fonctionnalités clés et choisissez comment vendre votre offre via Microsoft.  |
 | [Page Propriétés](#properties-page) | Définissez les catégories et secteurs utilisés pour grouper votre offre en fonction des places de marché, des contrats légaux associés, et de la version de votre application. |
-| [Page Référencement de l’offre](#offer-listing-page) | Définissez les détails de l’offre à afficher sur la Place de marché, dont des descriptions de votre offre et de ses composants marketing. |
-| [Page Préversion](#preview-page) | Définissez un Public de préversion limité avant de publier votre offre pour public plus important. |
-| [Page Configuration technique de l’offre](#technical-configuration-page)  | Disponible uniquement si vous choisissez de vendre l’offre via Microsoft. Définissez les détails techniques (chemin d’URL, Webhook, ID de locataire et ID d’application) utilisés pour la connexion à votre offre. |
+| [Page Référencement de l’offre](#offer-listing-page) | Définissez les détails de l’offre à afficher sur la Place de marché, dont des descriptions de votre offre et de ses composants marketing.|
+| [Page Préversion](#preview-page) | Définissez un Public de préversion limité avant de publier votre offre pour public plus important.|
+| [Page Configuration technique de l’offre](#technical-configuration-page)  |  Disponible uniquement si vous choisissez de vendre l’offre via Microsoft.  Définissez les détails techniques (URL de la page d’accueil, URL de connexion webhook, ID de locataire Azure AD et ID d’application Azure AD) utilisés par la Place de marché pour vous connecter à votre offre.  Ces paramètres sont nécessaires pour s’intégrer correctement avec les API de traitement SaaS et de facturation de la Place de marché.|
 | [**Modal de nouveau plan**](#plan-identity-modal) | Collecte des informations sur l’identité du plan.  |
 | [Page Référencement du plan](#plan-listing-page)  | Disponible uniquement si vous choisissez de vendre l’offre via Microsoft. Définissez les détails utilisés pour référencer le plan sur la place de marché.  |
 | [Page Tarification et disponibilité du plan](#plan-pricing--availability-page)  | Disponible uniquement si vous choisissez de vendre l’offre via Microsoft.  Recueille les caractéristiques de l’entreprise (modèle de tarification), l’audience et la disponibilité du marché pour chaque forfait (version) de votre offre.  |
@@ -89,7 +90,7 @@ La page de référencement vous permet de fournir le texte et les images que les
 | Titre + URL de liens utiles  | facultatif. |
 | Titre + Fichier de documents associés  | Obligatoire, min. 1 et max. 3. Doit être au format de fichier PDF. |
 | Captures d’écran.  | Obligatoire, min. 1 et max. 5 captures d’écran ; min. quatre recommandées. Doit être au format PNG 1280 X 720. |
-| Logos du Store (Petit, Moyen, Grand, Large, Bannière)  | Petit (48 X 48) et Grand (216 X 216) obligatoires. Les autres tailles sont facultatives mais recommandées : Moyen (90 x 90), Large (255 x 115), Bannière (815 x 290). Le logo doit être au format PNG |
+| Logos du Store (Petit, Moyen, Grand, Large)  | Petit (48 X 48) et Grand (216 X 216) obligatoires. Les autres tailles sont facultatives mais recommandées : Moyen (90 x 90), Large (255 x 115). Le logo doit être au format .PNG. |
 | Nom + URL + miniature des vidéos  | Facultatif, recommandé, max. 4 vidéos. La miniature doit être au format PNG 1280 x 720. La vidéo doit être hébergée sur YouTube ou Vimeo. |
 | Contacts (Programme Fournisseur de solutions Microsoft Cloud (CSP), Ingénierie, Support)  | Contacts Ingénierie et Support obligatoires (nom, e-mail et le numéro de téléphone) ; Contact Programme CSP facultatif mais recommandé. |
 | URL du support technique  | Obligatoire. |

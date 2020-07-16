@@ -3,12 +3,12 @@ title: Sauvegarder des partages de fichiers Azure à l'aide d'Azure CLI
 description: Apprenez à utiliser l'interface de ligne de commande Azure (Azure CLI) pour sauvegarder des partages de fichiers Azure dans le coffre Recovery Services
 ms.topic: conceptual
 ms.date: 01/14/2020
-ms.openlocfilehash: ff1d8c6245521d2d0262b0440177d65713058742
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: ee83d4df5a857f0ae5b554514ecda0c257a829ae
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "76844039"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85391092"
 ---
 # <a name="back-up-azure-file-shares-with-cli"></a>Sauvegarder des partages de fichiers Azure à l'aide de l'interface de ligne de commande
 
@@ -42,7 +42,7 @@ Pour créer un coffre Recovery Services, procédez comme suit :
     eastus      AzureFiles
     ```
 
-2. Utilisez la cmdlet [az backup vault create](https://docs.microsoft.com/cli/azure/backup/vault?view=azure-cli-latest#az-backup-vault-create) pour créer le coffre. Spécifiez pour le coffre le même emplacement que pour le groupe de ressources.
+1. Utilisez la cmdlet [az backup vault create](https://docs.microsoft.com/cli/azure/backup/vault?view=azure-cli-latest#az-backup-vault-create) pour créer le coffre. Spécifiez pour le coffre le même emplacement que pour le groupe de ressources.
 
     L'exemple explique comment créer un coffre Recovery Services nommé *azurefilesvault* dans la région USA Est.
 
@@ -54,28 +54,6 @@ Pour créer un coffre Recovery Services, procédez comme suit :
     Location    Name                ResourceGroup
     ----------  ----------------    ---------------
     eastus      azurefilesvault     azurefiles
-    ```
-
-3. Spécifiez le type de redondance à utiliser pour le stockage de coffre. Vous pouvez utiliser le [stockage localement redondant](https://docs.microsoft.com/azure/storage/common/storage-redundancy-lrs) ou le [stockage géoredondant](https://docs.microsoft.com/azure/storage/common/storage-redundancy-grs).
-
-    L'exemple suivant définit l'option de redondance de stockage de *azurefilesvault* sur **Georedundant** en utilisant la cmdlet [az backup vault backup-properties set](https://docs.microsoft.com/cli/azure/backup/vault/backup-properties?view=azure-cli-latest#az-backup-vault-backup-properties-set).
-
-    ```azurecli-interactive
-    az backup vault backup-properties set --name azurefilesvault --resource-group azurefiles --backup-storage-redundancy Georedundant
-    ```
-
-    Pour vérifier que le coffre a bien été créé, vous pouvez utiliser la cmdlet [az backup vault show](https://docs.microsoft.com/cli/azure/backup/vault?view=azure-cli-latest#az-backup-vault-show). Vous obtiendrez ainsi des détails sur votre coffre. L'exemple suivant illustre le résultat obtenu avec la commande *azurefilesvault* créée précédemment.
-
-    ```azurecli-interactive
-    az backup vault show --name azurefilesvault --resource-group azurefiles --output table
-    ```
-
-    Vous devez obtenir un résultat semblable à la réponse suivante :
-
-    ```output
-    Location     Name               ResourceGroup
-    ----------   ---------------    ---------------
-    eastus       azurefilesvault    azurefiles
     ```
 
 ## <a name="enable-backup-for-azure-file-shares"></a>Activer la sauvegarde des partages de fichiers Azure
@@ -108,7 +86,7 @@ Pour déclencher une sauvegarde à la demande, vous devez définir les paramètr
 * **--item-name** est le nom du partage de fichiers pour lequel vous souhaitez déclencher une sauvegarde à la demande. Pour récupérer le **nom** ou **nom convivial** de votre élément sauvegardé, utilisez la commande [az backup item list](https://docs.microsoft.com/cli/azure/backup/item?view=azure-cli-latest#az-backup-item-list).
 * **--retain-until** permet de spécifier la date jusqu'à laquelle vous souhaitez conserver le point de récupération. La valeur doit être définie au format UTC (jj-mm-aaaa).
 
-L'exemple suivant déclenche une sauvegarde à la demande du partage de fichiers *azuresfiles* sur le compte de stockage *afsaccount* avec conservation jusqu'au *20-01-2020*.
+L'exemple suivant déclenche une sauvegarde à la demande du partage de fichiers *azurefiles* sur le compte de stockage *afsaccount* avec conservation jusqu'au *20-01-2020*.
 
 ```azurecli-interactive
 az backup protection backup-now --vault-name azurefilesvault --resource-group azurefiles --container-name "StorageContainer;Storage;AzureFiles;afsaccount" --item-name "AzureFileShare;azurefiles" --retain-until 20-01-2020 --output table

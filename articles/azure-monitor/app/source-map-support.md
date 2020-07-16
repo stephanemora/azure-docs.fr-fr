@@ -4,13 +4,13 @@ description: Découvrez comment charger des mappages de source dans le conteneur
 ms.topic: conceptual
 author: markwolff
 ms.author: marwolff
-ms.date: 03/04/2020
-ms.openlocfilehash: 4b452b31338760a8f53eed54420319101836bc00
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.date: 06/23/2020
+ms.openlocfilehash: d5f01bb3034ab060227230071a21284177840e83
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79474881"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85249735"
 ---
 # <a name="source-map-support-for-javascript-applications"></a>Prise en charge du mappage de source pour les applications JavaScript
 
@@ -23,7 +23,7 @@ Les mappages de source peuvent être utilisés pour déminifier les piles d’ap
 
 Si vous disposez déjà d’un compte de stockage ou d’un conteneur d’objets blob, vous pouvez ignorer cette étape.
 
-1. [Créer un compte de stockage][create storage account].
+1. [Créer un compte de stockage][create storage account]
 2. [Créez un conteneur d’objets blob][create blob container] à l’intérieur de votre compte de stockage. Veillez à définir le « niveau d’accès public » sur `Private` de sorte que vos mappages de source ne soient pas accessibles publiquement.
 
 > [!div class="mx-imgBorder"]
@@ -31,7 +31,9 @@ Si vous disposez déjà d’un compte de stockage ou d’un conteneur d’objets
 
 ## <a name="push-your-source-maps-to-your-blob-container"></a>Envoyer (push) vos mappages de source à votre conteneur Blob
 
-Vous devez intégrer votre pipeline de déploiement continu à votre compte de stockage en le configurant de telle sorte qu’il charge automatiquement vos mappages de source dans le conteneur Blob configuré. Vous ne devez pas charger vos mappages de source dans un sous-dossier du conteneur Blob ; pour l’heure, le mappage de source est extrait uniquement à partir du dossier racine.
+Vous devez intégrer votre pipeline de déploiement continu à votre compte de stockage en le configurant de telle sorte qu’il charge automatiquement vos mappages de source dans le conteneur Blob configuré.
+
+Les mappages de sources peuvent être téléchargés vers votre conteneur de stockage d’objets BLOB avec la même structure de dossiers que celle dans laquelle ils ont été compilés et déployés. Un cas d’usage courant consiste à préfixer un dossier de déploiement avec sa version, par exemple `1.2.3/static/js/main.js`. Lors de la déminimisation via un conteneur d’objets BLOB Azure appelé `sourcemaps`, il tente de récupérer un mappage source situé dans `sourcemaps/1.2.3/static/js/main.js.map`.
 
 ### <a name="upload-source-maps-via-azure-pipelines-recommended"></a>Charger les mappages de source via Azure Pipelines (recommandé)
 

@@ -3,16 +3,16 @@ title: Authentification basée sur les certificats avec Azure Cosmos DB et Azure
 description: Apprenez comment configurer une identité Azure AD pour l’authentification basée sur certificat pour accéder aux clés depuis Azure Cosmos DB.
 author: voellm
 ms.service: cosmos-db
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 06/11/2019
 ms.author: tvoellm
 ms.reviewer: sngun
-ms.openlocfilehash: 085280a8064e4d12ac63939ada7cdb296d47dc70
-ms.sourcegitcommit: 07d62796de0d1f9c0fa14bfcc425f852fdb08fb1
+ms.openlocfilehash: ea8d4180a6e820e72f5ca0ce7e7acaf13348ae67
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "80365775"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85262495"
 ---
 # <a name="certificate-based-authentication-for-an-azure-ad-identity-to-access-keys-from-an-azure-cosmos-db-account"></a>Authentification basée sur les certificats pour une identité Azure AD pour accéder aux clés d’un compte Azure Cosmos DB
 
@@ -32,7 +32,7 @@ Dans cette étape, vous inscrirez un exemple d’application web dans votre comp
 
 1. Ouvrez le volet Azure **Active Directory**, accédez au volet **Inscriptions d’applications**, puis sélectionnez **Nouvelle inscription**. 
 
-   ![Nouvelle inscription d’application dans Active Directory](./media/certificate-based-authentication/new-app-registration.png)
+   :::image type="content" source="./media/certificate-based-authentication/new-app-registration.png" alt-text="Nouvelle inscription d’application dans Active Directory":::
 
 1. Remplissez le formulaire **Inscrire une application**, notamment les détails suivants :  
 
@@ -40,13 +40,13 @@ Dans cette étape, vous inscrirez un exemple d’application web dans votre comp
    * **Types de comptes pris en charge** : choisissez **Comptes dans cet annuaire organisationnel uniquement (répertoire par défaut)** afin de permettre aux ressources de votre répertoire actuel d’accéder à cette application. 
    * **URL de redirection** : choisissez l’application de type **Web** et fournissez une URL pointant vers l’emplacement où votre application est hébergée. Il peut s’agir de n’importe quelle URL. Pour cet exemple, vous pouvez fournir une URL de test de type `https://sampleApp.com`, même si l’application n’existe pas.
 
-   ![Inscription d’un exemple d’application web](./media/certificate-based-authentication/register-sample-web-app.png)
+   :::image type="content" source="./media/certificate-based-authentication/register-sample-web-app.png" alt-text="Inscription d’un exemple d’application web":::
 
 1. Une fois le formulaire rempli, sélectionnez **Inscrire**.
 
 1. Une fois l’application inscrite, notez l’**ID (du client) d’application** et l’ **ID d’objet**. Ces informations vous seront utiles plus tard. 
 
-   ![Obtenir les ID de l’application et de l’objet](./media/certificate-based-authentication/get-app-object-ids.png)
+   :::image type="content" source="./media/certificate-based-authentication/get-app-object-ids.png" alt-text="Obtenir les ID de l’application et de l’objet":::
 
 ## <a name="install-the-azuread-module"></a>Installer le module AzureAD
 
@@ -99,7 +99,7 @@ New-AzureADApplicationKeyCredential -ObjectId $application.ObjectId -CustomKeyId
 
 La commande ci-dessus donne une sortie similaire à la capture d’écran ci-dessous :
 
-![Sortie de la création d’informations d’identification basées sur un certificat](./media/certificate-based-authentication/certificate-based-credential-output.png)
+:::image type="content" source="./media/certificate-based-authentication/certificate-based-credential-output.png" alt-text="Sortie de la création d’informations d’identification basées sur un certificat":::
 
 ## <a name="configure-your-azure-cosmos-account-to-use-the-new-identity"></a>Configurez votre compte Azure Cosmos pour utiliser la nouvelle identité
 
@@ -109,7 +109,7 @@ La commande ci-dessus donne une sortie similaire à la capture d’écran ci-des
 
 1. Sélectionnez **Ajouter**, puis **Ajouter une attribution de rôle**. Ajoutez le sampleApp que vous avez créé à l’étape précédente avec le rôle **Contributeur**, comme indiqué dans la capture d’écran suivante :
 
-   ![Configurer le compte Azure Cosmos pour utiliser la nouvelle identité](./media/certificate-based-authentication/configure-cosmos-account-with-identify.png)
+   :::image type="content" source="./media/certificate-based-authentication/configure-cosmos-account-with-identify.png" alt-text="Configurer le compte Azure Cosmos pour utiliser la nouvelle identité":::
 
 1. Une fois le formulaire rempli, sélectionnez **Enregistrer**
 
@@ -150,7 +150,7 @@ Dans cette étape, vous vous connecterez à Azure en utilisant l’application e
 
 La commande précédente affichera les clés primaire et secondaire principales de votre compte Azure Cosmos. Vous pouvez consulter le journal d’activité de votre compte Azure Cosmos pour valider la réussite de la requête d’obtention des clés, ainsi que le déclenchement de l’événement par l’application « sampleApp ».
 
-![Valider l’appel d’obtention des clés dans Azure AD](./media/certificate-based-authentication/activity-log-validate-results.png)
+:::image type="content" source="./media/certificate-based-authentication/activity-log-validate-results.png" alt-text="Valider l’appel d’obtention des clés dans Azure AD":::
 
 ## <a name="access-the-keys-from-a-c-application"></a>Accéder aux clés à partir d’une application C# 
 
@@ -238,7 +238,7 @@ namespace TodoListDaemonWithCert
 
 Ce script génère les clés primaire et secondaire principales, comme illustré dans la capture d’écran suivante :
 
-![Sortie de l’application csharp](./media/certificate-based-authentication/csharp-application-output.png)
+:::image type="content" source="./media/certificate-based-authentication/csharp-application-output.png" alt-text="Sortie de l’application csharp":::
 
 Tout comme dans la section précédente, vous pouvez consulter le journal d’activité de votre compte Azure Cosmos pour valider le déclenchement de l’événement de la requête d’obtention des clés par l’application « sampleApp ». 
 

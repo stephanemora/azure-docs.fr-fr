@@ -2,13 +2,13 @@
 title: Déplacer des machines virtuelles Azure vers un nouveau groupe d’abonnements ou de ressources
 description: Utilisez Azure Resource Manager pour déplacer des machines virtuelles vers un nouveau groupe de ressources ou abonnement.
 ms.topic: conceptual
-ms.date: 03/31/2020
-ms.openlocfilehash: e5bd004b6619db9c9882b8e9e6005309317b8ca5
-ms.sourcegitcommit: 3beb067d5dc3d8895971b1bc18304e004b8a19b3
+ms.date: 07/06/2020
+ms.openlocfilehash: c85ec175d802a29de7a8a87ee7a51c0916762a5a
+ms.sourcegitcommit: e132633b9c3a53b3ead101ea2711570e60d67b83
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/04/2020
-ms.locfileid: "82744636"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86044547"
 ---
 # <a name="move-guidance-for-virtual-machines"></a>Conseils pour le déplacement de machines virtuelles
 
@@ -25,6 +25,18 @@ Les scénarios suivants ne sont pas encore pris en charge :
 * Les machines virtuelles et les groupes de machines virtuelles identiques basse priorité ne peuvent pas être déplacés entre des groupes de ressources ou abonnements.
 * Les machines virtuelles d’un groupe à haute disponibilité ne peuvent pas être déplacées individuellement.
 
+## <a name="azure-disk-encryption"></a>Azure Disk Encryption
+
+Vous ne pouvez pas déplacer une machine virtuelle intégrée à un coffre de clés pour implémenter [Azure Disk Encryption pour les machines virtuelles Linux ](../../../virtual-machines/linux/disk-encryption-overview.md) ou [Azure Disk Encryption pour les machines virtuelles Windows](../../../virtual-machines/windows/disk-encryption-overview.md). Pour déplacer la machine virtuelle, vous devez désactiver le chiffrement.
+
+```azurecli-interactive
+az vm encryption disable --resource-group demoRG --name myVm1
+```
+
+```azurepowershell-interactive
+Disable-AzVMDiskEncryption -ResourceGroupName demoRG -VMName myVm1
+```
+
 ## <a name="virtual-machines-with-azure-backup"></a>Machines virtuelles avec Sauvegarde Azure
 
 Pour déplacer des machines virtuelles configurées avec le service Sauvegarde Azure, vous devez supprimer les points de restauration du coffre.
@@ -37,8 +49,8 @@ Si la [suppression réversible](../../../backup/backup-azure-security-feature-cl
 2. Pour déplacer des machines virtuelles configurées avec Sauvegarde Azure, effectuez les étapes suivantes :
 
    1. Recherchez l’emplacement de votre machine virtuelle.
-   2. Recherchez un groupe de ressources dont le modèle de nommage est le suivant : `AzureBackupRG_<location of your VM>_1`. Par exemple, *AzureBackupRG_westus2_1*
-   3. Dans le portail Azure, cochez la case **Afficher les types masqués**.
+   2. Recherchez un groupe de ressources dont le modèle de nommage est le suivant : `AzureBackupRG_<location of your VM>_1`. Par exemple, *AzureBackupRG_westus2_1*.
+   3. Dans le Portail Azure, cochez la case **Afficher les types masqués**.
    4. Recherchez la ressource de type **Microsoft. Microsoft.Compute/restorePointCollections** dont le modèle de nommage est `AzureBackup_<name of your VM that you're trying to move>_###########`.
    5. Supprimez cette ressource. Cette opération supprime uniquement les points de récupération instantanée, et non les données sauvegardées dans le coffre.
    6. Une fois l’opération de suppression terminée, vous pouvez déplacer votre machine virtuelle.

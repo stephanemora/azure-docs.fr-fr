@@ -4,26 +4,23 @@ description: Fédérez avec Facebook pour permettre à des utilisateurs externes
 services: active-directory
 ms.service: active-directory
 ms.subservice: B2B
-ms.topic: conceptual
-ms.date: 05/19/2020
+ms.topic: how-to
+ms.date: 06/16/2020
 ms.author: mimart
 author: msmimart
 manager: celestedg
-ms.reviewer: mal
-ms.custom: it-pro, seo-update-azuread-jan
+ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: cd94fffded8c0e5d7b120993f069b042c2b19b6c
-ms.sourcegitcommit: 958f086136f10903c44c92463845b9f3a6a5275f
+ms.openlocfilehash: e9fa9d9e23de9a4ec93cbef6d2696d7bec70d41d
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/20/2020
-ms.locfileid: "83712347"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85551252"
 ---
 # <a name="add-a-self-service-sign-up-user-flow-to-an-app-preview"></a>Ajouter un flux utilisateur d’inscription en libre-service à une application (préversion)
-|     |
-| --- |
-| L’inscription en libre-service est une fonctionnalité en préversion publique d’Azure Active Directory. Pour plus d’informations sur les préversions, consultez [Conditions d’utilisation supplémentaires pour les préversions de Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).|
-|     |
+> [!NOTE]
+> L’inscription en libre-service est une fonctionnalité en préversion publique d’Azure Active Directory. Pour plus d’informations sur les préversions, consultez [Conditions d’utilisation supplémentaires pour les préversions de Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 Vous pouvez créer des flux d’utilisateurs pour les applications générées par votre organisation. L’association de votre flux utilisateur avec une application vous permet d’activer l’inscription sur cette application. Vous pouvez choisir plusieurs applications à associer au flux utilisateur. Une fois que vous avez associé le flux d’utilisateurs à une ou plusieurs applications, les utilisateurs qui visitent cette application pourront s'inscrire et obtenir un compte invité à l’aide des options configurées dans le flux d’utilisateurs.
 
@@ -109,3 +106,5 @@ Vous pouvez maintenant associer des applications au flux utilisateur.
 
 - [Ajouter Google à votre liste de fournisseurs d’identité sociale](google-federation.md)
 - [Ajouter Facebook à votre liste de fournisseurs d’identité sociale](facebook-federation.md)
+- [Utiliser des connecteurs d’API pour personnaliser et étendre vos flux utilisateur via des API web](api-connectors-overview.md)
+- [Ajouter un flux de travail d’approbation personnalisé à votre flux utilisateur](self-service-sign-up-add-approvals.md)

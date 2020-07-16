@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 06/18/2020
 ms.author: xiaojul
-ms.openlocfilehash: 0a3e3455615006c0e93cf32eebcdaedac9960a79
-ms.sourcegitcommit: 4042aa8c67afd72823fc412f19c356f2ba0ab554
+ms.openlocfilehash: 520b38f4c733e7bf28a2a06429ad14d016c5bd28
+ms.sourcegitcommit: 0100d26b1cac3e55016724c30d59408ee052a9ab
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/24/2020
-ms.locfileid: "85307158"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86027611"
 ---
 # <a name="send-custom-commands-activity-to-client-application"></a>Envoyer une activité Commandes personnalisées à l’application cliente
 
@@ -28,7 +28,7 @@ Effectuez les tâches suivantes :
 
 ## <a name="prerequisites"></a>Prérequis
 > [!div class = "checklist"]
-> * [Visual Studio 2019](https://visualstudio.microsoft.com/downloads/)
+> * [Visual Studio 2019](https://visualstudio.microsoft.com/downloads/) ou version ultérieure. Ce guide utilise Visual Studio 2019
 > * Clé d'abonnement Azure pour le service Speech : [Obtenez-en une gratuitement](get-started.md) ou créez-la sur le [portail Azure](https://portal.azure.com)
 > * Application [Commandes personnalisées](quickstart-custom-commands-application.md) créée précédemment
 > * Application cliente compatible avec le kit de développement logiciel (SDK) Speech : [Guide pratique pour Intégration à une application cliente à l’aide du SDK Speech](./how-to-custom-commands-setup-speech-sdk.md)
@@ -46,7 +46,7 @@ Effectuez les tâches suivantes :
      "device": "{SubjectDevice}"
    }
    ```
-1. Cliquez sur **Enregistrer** pour créer une nouvelle règle avec une action Send Activity (Activité d’envoi)
+1. Cliquez sur **Enregistrer** pour créer une nouvelle règle avec une action Envoyer l’activité, puis **Former** et **Publier** la modification
 
    > [!div class="mx-imgBorder"]
    > ![Règle d’exécution Send Activity (Activité d’envoi)](media/custom-commands/send-activity-to-client-completion-rules.png)
@@ -55,9 +55,12 @@ Effectuez les tâches suivantes :
 
 Dans [Guide pratique : Configurer une application cliente avec le Kit de développement logiciel (SDK) Speech (préversion)](./how-to-custom-commands-setup-speech-sdk.md), vous avez créé une application cliente UWP avec le Kit de développement logiciel (SDK) Speech qui gérait des commandes telles que `turn on the tv`, `turn off the fan`. Avec l'ajout de quelques éléments visuels, vous pouvez voir le résultat de ces commandes.
 
-Ajoutez des zones étiquetées avec du texte qui indique **Activé** ou **Désactivé** à l’aide du code XML suivant ajouté à `MainPage.xaml`
+Pour ajouter des zones étiquetées avec du texte qui indique **Activé** ou **Désactivé**, ajoutez le bloc XML suivant à `MainPage.xaml`.
 
 ```xml
+<StackPanel Orientation="Vertical" H......>
+......
+</StackPanel>
 <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" Margin="20">
     <Grid x:Name="Grid_TV" Margin="50, 0" Width="100" Height="100" Background="LightBlue">
         <StackPanel>
@@ -72,6 +75,7 @@ Ajoutez des zones étiquetées avec du texte qui indique **Activé** ou **Désac
         </StackPanel>
     </Grid>
 </StackPanel>
+<MediaElement ....../>
 ```
 
 ### <a name="add-reference-libraries"></a>Ajouter des bibliothèques de référence
@@ -79,15 +83,21 @@ Ajoutez des zones étiquetées avec du texte qui indique **Activé** ou **Désac
 Comme vous avez créé une charge utile JSON, vous devez ajouter une référence à la bibliothèque [JSON.NET](https://www.newtonsoft.com/json) pour gérer la désérialisation.
 
 1. Cliquez avec le bouton droit sur votre solution.
-1. Sélectionnez **Gérer les packages NuGet de la solution**, puis **Installer**. 
-1. Recherchez **Newtonsoft.json** dans la liste des mises à jour, puis mettez à jour **Microsoft.NETCore.UniversalWindowsPlatform** vers la dernière version.
+1. Sélectionnez **Gérer les packages NuGet de la solution**, puis **Parcourir** 
+1. Si vous avez déjà installé **Newtonsoft.json**, assurez-vous que sa version est au moins 12.0.3. Si ce n’est pas le cas, accédez à **Gérer les packages NuGet pour la solution - Mises à jour** et recherchez **Newtonsoft.json** pour mettre la version à jour. Ce guide utilise la version 12.0.3.
 
-> [!div class="mx-imgBorder"]
-> ![Charge utile d’activité d’envoi](media/custom-commands/send-activity-to-client-json-nuget.png)
+    > [!div class="mx-imgBorder"]
+    > ![Charge utile d’activité d’envoi](media/custom-commands/send-activity-to-client-json-nuget.png)
+
+1. Veillez également à ce que le package NuGet **Microsoft.NETCore.UniversalWindowsPlatform** soit au moins à la version 6.2.10. Ce guide utilise la version 6.2.10.
 
 Dans « MainPage.xaml.cs », ajoutez
-- `using Newtonsoft.Json;` 
-- `using Windows.ApplicationModel.Core;`
+
+```C#
+using Newtonsoft.Json; 
+using Windows.ApplicationModel.Core;
+using Windows.UI.Core;
+```
 
 ### <a name="handle-the-received-payload"></a>Gérer la charge utile reçue
 

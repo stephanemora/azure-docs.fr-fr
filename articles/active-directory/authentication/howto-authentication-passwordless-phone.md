@@ -11,12 +11,12 @@ author: iainfoulds
 manager: daveba
 ms.reviewer: librown
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 3412938cfc2ad3fbec293fd33f64e114e14e6f7e
-ms.sourcegitcommit: b55d7c87dc645d8e5eb1e8f05f5afa38d7574846
+ms.openlocfilehash: 8b5dbf26bc636107576af15a0217eb16302f63f4
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "81450970"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85601630"
 ---
 # <a name="enable-passwordless-sign-in-with-the-microsoft-authenticator-app-preview"></a>Activer la connexion sans mot de passe avec l'application Microsoft Authenticator (préversion)
 
@@ -82,9 +82,9 @@ L’administrateur peut choisir d’autoriser l’utilisateur à utiliser l’au
 
 ### <a name="ad-fs-integration"></a>Intégration AD FS
 
-Lorsqu’un utilisateur a activé l’information d’identification sans mot de passe Microsoft Authenticator, l’authentification de cet utilisateur implique toujours par défaut l’envoi d’une notification pour approbation. Cette logique empêche les utilisateurs d’un locataire hybride d’être dirigés vers ADFS pour la vérification de la connexion si ces utilisateurs ne suivent pas une étape supplémentaire consistant à cliquer sur « Utiliser votre mot de passe à la place ». Ce processus contourne également les stratégies d’accès conditionnel locales, ainsi que les flux d’authentification directe. 
+Lorsqu’un utilisateur a activé l’information d’identification sans mot de passe Microsoft Authenticator, l’authentification de cet utilisateur implique toujours par défaut l’envoi d’une notification pour approbation. Cette logique empêche les utilisateurs d’un locataire hybride d’être dirigés vers AD FS pour la vérification de la connexion si ces utilisateurs ne suivent pas une étape supplémentaire consistant à cliquer sur « Utiliser votre mot de passe à la place ». Ce processus contourne également les stratégies d’accès conditionnel locales, ainsi que les flux d’authentification directe. 
 
-Si la vérification d’authentification par téléphone sans mot de passe est en attente pour un utilisateur et que celui-ci tente de se connecter à nouveau, l’utilisateur peut accéder à ADFS pour saisir un mot de passe à la place.  
+Si la vérification d’authentification par téléphone sans mot de passe est en attente pour un utilisateur et que celui-ci tente de se connecter à nouveau, l’utilisateur peut accéder à AD FS pour saisir un mot de passe à la place.  
 
 ### <a name="azure-mfa-server"></a>Serveur Azure MFA
 
@@ -103,7 +103,7 @@ Les utilisateurs finaux soumis à une stratégie exigeant une gestion des applic
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-[Présentation de l’authentification sans mot de passe](concept-authentication-passwordless.md)
+[En savoir plus sur le fonctionnement de l’authentification par mot de passe](concept-authentication-passwordless.md)
 
 [En savoir plus sur l’inscription des appareils](../devices/overview.md#getting-devices-in-azure-ad)
 

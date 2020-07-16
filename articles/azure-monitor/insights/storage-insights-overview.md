@@ -3,15 +3,15 @@ title: Analyser les services de stockage Azure avec Azure Monitor pour le stocka
 description: Cet article décrit la fonctionnalité Azure Monitor pour le stockage, qui fournit aux administrateurs du stockage une compréhension rapide des problèmes de performances et d’utilisation avec leurs comptes de stockage Azure.
 ms.subservice: ''
 ms.topic: conceptual
-author: bwren
-ms.author: bwren
+author: mrbullwinkle
+ms.author: mbullwin
 ms.date: 05/11/2020
-ms.openlocfilehash: e69e00eb9db43a76af1d6e541f44f750452cf858
-ms.sourcegitcommit: cf7caaf1e42f1420e1491e3616cc989d504f0902
+ms.openlocfilehash: 7ab7071f504231290f72646e59a30fa855cff6cf
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/22/2020
-ms.locfileid: "83800072"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84944489"
 ---
 # <a name="monitoring-your-storage-service-with-azure-monitor-for-storage"></a>Analyse de votre service de stockage avec Azure Monitor pour le stockage
 
@@ -228,6 +228,8 @@ Dans cet exemple, nous travaillons avec le classeur Capacité du compte de stock
 
 ## <a name="troubleshooting"></a>Dépannage
 
+Pour obtenir des conseils généraux sur la résolution des problèmes, reportez-vous à [l’article de résolution des problèmes](troubleshoot-workbooks.md) pour les insights basés sur les workbooks.
+
 Cette section est destinée à vous aider à diagnostiquer et résoudre certains des problèmes communs que vous êtes susceptible de rencontrer lors de l’utilisation d’Azure Monitor pour le stockage. La liste ci-dessous permet d’identifier les informations pertinentes pour un problème spécifique.
 
 ### <a name="resolving-performance-capacity-or-availability-issues"></a>Résolution des problèmes de performances, de capacité et de disponibilité
@@ -237,24 +239,6 @@ Pour résoudre les problèmes liés au stockage que vous identifiez avec Azure M
 ### <a name="why-can-i-only-see-200-storage-accounts"></a>Pourquoi ne puis-je voir que 200 comptes de stockage ?
 
 Le nombre de comptes de stockage sélectionnés est limité à 200, quel que soit le nombre d’abonnements sélectionnés.
-
-### <a name="what-happens-when-i-click-on-a-recently-pinned-tile-in-the-dashboard"></a>Que se passe-t-il lorsque je clique sur une vignette épinglée récemment dans le tableau de bord ?
-
-* Si vous cliquez n’importe où sur la vignette, vous passez à l’onglet à partir duquel la vignette a été épinglée. Par exemple, si vous épinglez un graphique dans l’onglet « Vue d’ensemble du compte de stockage », quand vous cliquez sur cette vignette dans le tableau de bord, il ouvre cette vue par défaut. Toutefois, si vous épinglez un graphique à partir de votre copie enregistrée, il ouvre la vue de votre copie enregistrée.
-* L’icône de filtre dans le coin supérieur gauche du titre ouvre l’onglet « Configurer les paramètres de vignette ».
-* L’icône représentant une ellipse en haut à droite vous donne les options « Personnaliser les données de titre », « Personnaliser », « Actualiser » et « Supprimer du tableau de bord ».
-
-### <a name="what-happens-when-i-save-a-workbook"></a>Que se passe-t-il lorsque j’enregistre un classeur ?
-
-* Lorsque vous enregistrez un classeur, il vous permet de créer une nouvelle copie du classeur avec vos modifications et de modifier le titre. L’enregistrement ne remplace pas le classeur, le classeur actuel est toujours la vue par défaut.
-* Un **classeur** non enregistré est simplement la vue par défaut.
-
-
-### <a name="why-dont-i-see-all-my-subscriptions-in-the-portal"></a>Pourquoi ne vois-je pas tous mes abonnements sur le portail ?
-
-Le portail affichera uniquement les données des abonnements sélectionnés lors de son lancement. Pour modifier les abonnements sélectionnés, accédez au coin supérieur droit et cliquez sur le bloc-notes avec une icône de filtre. L’onglet Répertoire + abonnements s’affiche alors.
-
-![Répertoire + abonnement](./media/storage-insights-overview/fqa3.png)
 
 ### <a name="how-to-change-the-coloring-and-threshold-for-availability"></a>Comment modifier la couleur et le seuil de disponibilité ?
 
@@ -273,7 +257,7 @@ Actuellement, jusqu’à trois types d’erreurs différents sont affichés et l
 
     ![Accédez aux métriques, puis cliquez sur Modifier, puis sur Transactions, sommes](./media/storage-insights-overview/fqa7.png)
 
-1. Modifiez ensuite le nombre de fractionnements.
+3. Modifiez ensuite le nombre de fractionnements.
 
     ![Sélectionner Paramètres de métrique](./media/storage-insights-overview/fqa7-2.png)
 
@@ -282,37 +266,6 @@ Si vous souhaitez afficher n types d’erreur différents, spécifiez une valeur
 ###  <a name="i-saved-my-workbook-while-on-some-storage-account-why-cant-i-find-it-now"></a>J’ai enregistré mon classeur sur un compte de stockage. Pourquoi ne puis-je pas le trouver maintenant ?
 
 Chaque classeur est enregistré dans le compte de stockage dans lequel vous l’avez enregistré. Essayez de trouver le compte de stockage spécifique dans lequel l’utilisateur a enregistré le classeur. Sans cela, il n’existe aucun moyen de rechercher un classeur spécifique sans connaître la ressource (le compte de stockage).
-
-### <a name="what-is-time-range"></a>Qu’est-ce que l’intervalle de temps ?
-
-L’intervalle de temps affiche des données pour un intervalle de temps donné. Par exemple, si l’intervalle de temps est de 24 heures, il indique les données des dernières 24 heures.
-
-### <a name="what-is-time-granularity-time-grain"></a>Qu’est-ce que la granularité temporelle (fragment de temps) ?
-
-La granularité temporelle est la différence de temps entre deux points de données. Par exemple, si le fragment de temps est défini sur 1 seconde, cela signifie que les métriques sont collectées chaque seconde.
-
-### <a name="what-is-the-time-granularity-once-we-pin-any-part-of-the-workbooks-to-a-dashboard"></a>Quelle est la granularité temporelle après avoir épinglé une partie d’un classeur à un tableau de bord ?
-
-La granularité temporelle par défaut est définie sur Automatique, et ne peut pas être modifiée pour l’instant.
-
-### <a name="how-do-i-change-the-timespan-time-range-of-the-workbook-step-on-my-dashboard"></a>Comment modifier la plage d’intervalle de temps de l’étape de classeur sur mon tableau de bord ?
-
-Par défaut, l’intervalle de temps de la vignette de votre tableau de bord est défini sur 24 heures. Pour modifier cette valeur, cliquez sur l’ellipse en haut à droite, sélectionnez **Personnaliser les données de vignette**, cochez la case « Remplacer les paramètres de temps du tableau de bord au niveau du titre », puis choisissez un intervalle de temps à l’aide du menu déroulant.  
-
-![Sélectionnez l’ellipse dans le coin droit de la vignette et choisissez Personnaliser ces données](./media/storage-insights-overview/fqa-data-settings.png)
-
-![Dans Configurer les paramètres de vignette, sélectionnez la liste déroulante Intervalle de temps pour modifier la plage](./media/storage-insights-overview/fqa-timespan.png)
-
-### <a name="how-do-i-change-the-title-of-the-workbook-or-a-workbook-step-i-pinned-to-a-dashboard"></a>Comment modifier le titre pour une étape de classeur ou un classeur que j’ai épinglé à un tableau de bord ?
-
-Le titre de l’étape de classeur ou du classeur qui est épinglé à un tableau de bord conserve le même nom que celui qu’il avait dans le classeur. Pour modifier le titre, vous devez enregistrer votre propre copie du classeur. Vous pourrez alors renommer le classeur avant d’appuyer sur Enregistrer.
-
-![Sélectionnez Enregistrer en haut pour enregistrer une copie du classeur et modifier son nom](./media/storage-insights-overview/fqa-change-workbook-name.png)
-
-Pour modifier le nom d’une étape dans votre classeur enregistré, sélectionnez Modifier sous l’étape, puis sélectionnez l’engrenage tout en bas de Paramètres.
-
-![Sélectionnez Modifier en bas de l’étape d’un classeur pour ouvrir les Paramètres](./media/storage-insights-overview/fqa-edit.png)
-![Dans Paramètres, sélectionnez l’engrenage en bas pour pouvoir modifier le nom de l’étape](./media/storage-insights-overview/fqa-change-name.png)
 
 ## <a name="next-steps"></a>Étapes suivantes
 

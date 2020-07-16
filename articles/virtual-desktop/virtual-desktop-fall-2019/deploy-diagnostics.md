@@ -4,16 +4,16 @@ description: Comment déployer l’outil UX de diagnostic pour Windows Virtual D
 services: virtual-desktop
 author: Heidilohr
 ms.service: virtual-desktop
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 03/30/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: 6635fff957512b601fe0927769e4ea91e9270450
-ms.sourcegitcommit: 50ef5c2798da04cf746181fbfa3253fca366feaa
+ms.openlocfilehash: 544610f4011f7ad12d5b311aab3afd4bc1373ac5
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/30/2020
-ms.locfileid: "82614190"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85362337"
 ---
 # <a name="deploy-the-diagnostics-tool"></a>Déployer l’outil de diagnostic
 
@@ -195,7 +195,8 @@ Pour définir l’URI de redirection :
 6. Sélectionnez **Web** dans le menu déroulant sous Type.
 7. Entrez l’URL à partir de la page de présentation de l’application et ajoutez **/security/signIn-callback** à la fin. Par exemple : `https://<yourappname>.azurewebsites.net/security/signin-callback`.
 
-   ![La page URI de redirection](../media/redirect-uri-page.png)
+   > [!div class="mx-imgBorder"]
+   > ![La page URI de redirection](../media/redirect-uri-page.png)
 
 8. Accédez à présent à vos ressources Azure, sélectionnez la ressource Azure App Services avec le nom fourni dans le modèle, puis accédez à l’URL y associée. (Par exemple, si le nom de l’application que vous avez utilisé dans le modèle était `contosoapp45`, votre URL associée est <https://contosoapp45.azurewebsites.net>).
 9. Connectez-vous en utilisant le compte d’utilisateur Azure Active Directory approprié.
@@ -226,7 +227,7 @@ Les activités sont triées par timestamp, avec l’activité la plus récente e
 
 Les activités de connexion peuvent avoir plus d’une erreur. Vous pouvez développer le type d’activité pour consulter toutes les autres erreurs rencontrées par l’utilisateur. Sélectionnez le nom du code d’erreur pour ouvrir une boîte de dialogue qui vous permet d’obtenir plus d’informations.
 
-### <a name="investigate-the-session-host"></a>Examiner l’hôte de la session 
+### <a name="investigate-the-session-host"></a>Examiner l’hôte de la session
 
 Dans les résultats de la recherche, recherchez et sélectionnez l’hôte de la session sur lequel vous souhaitez obtenir des informations.
 

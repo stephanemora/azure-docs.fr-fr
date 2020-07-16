@@ -8,12 +8,12 @@ ms.service: storage
 ms.subservice: common
 ms.topic: conceptual
 ms.reviewer: hux
-ms.openlocfilehash: 3e5507069a3e1eeadfaf4c3eeee288b2651e88a1
-ms.sourcegitcommit: fc718cc1078594819e8ed640b6ee4bef39e91f7f
+ms.openlocfilehash: 637bdb02cd9fc5296c74633bbfa381e62673a4bf
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "83996038"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85355656"
 ---
 # <a name="manage-and-find-data-on-azure-blob-storage-with-blob-index-preview"></a>Gérer et rechercher des données dans le stockage d’objets blob Azure avec un index d’objet blob (préversion)
 
@@ -63,7 +63,7 @@ Vous pouvez appliquer plusieurs étiquettes à votre objet blob pour mieux décr
 > "Priority" = '01' 
 >
 
-Pour modifier les attributs d’étiquette d’index existants, vous devez d’abord récupérer les attributs d’étiquette existants, les modifier et effectuer le remplacement dans une opération SetBlobTags. Pour supprimer toutes les étiquettes d’index de l’objet blob, appelez l’opération SetBlobTags sans spécifier d’attributs d’étiquette. Comme les étiquettes d’index d’objet blob sont une sous-ressource du contenu des données blob, SetBlobTags ne modifie pas le contenu sous-jacent et ne modifie pas la propriété Last-Modified-Time de l’objet blob.
+Pour modifier les attributs d’étiquette d’index existants, vous devez d’abord récupérer les attributs d’étiquette existants, les modifier et effectuer le remplacement dans une opération SetBlobTags. Pour supprimer toutes les étiquettes d’index de l’objet blob, appelez l’opération SetBlobTags sans spécifier d’attributs d’étiquette. Comme les étiquettes d’index d’objet blob sont une sous-ressource du contenu des données blob, SetBlobTags ne modifie pas le contenu sous-jacent et ne modifie pas la propriété Last-Modified-Time ou ETag (étiquette d’entité) de l’objet blob. Vous pouvez créer ou modifier des étiquettes d’index pour tous les objets BLOB de base actuels et les versions précédentes. Toutefois, les étiquettes sur les instantanés ou les objets BLOB supprimés de manière réversible ne peuvent pas être modifiées. 
 
 Les limites suivantes s’appliquent aux étiquettes d’un index d’objet blob :
 - Chaque objet blob peut avoir jusqu’à 10 étiquettes d’index d’objet blob.
@@ -208,7 +208,7 @@ Les appelants utilisant une [identité AAD](../common/storage-auth-aad.md) peuve
 
 |   Opérations d’objet blob   |  Action RBAC   |
 |---------------------|----------------|
-| Rechercher des objets blob par étiquettes  | Microsoft.Storage/storageAccounts/blobServices/containers/blobs/filter |
+| Rechercher des objets blob par étiquettes  | Microsoft.Storage/storageAccounts/blobServices/containers/blobs/filter/action |
 | Définir des étiquettes d’objet blob         | Microsoft.Storage/storageAccounts/blobServices/containers/blobs/tags/write | 
 | Obtenir les étiquettes d’objet blob         | Microsoft.Storage/storageAccounts/blobServices/containers/blobs/tags/read |
 

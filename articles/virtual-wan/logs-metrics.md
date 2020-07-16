@@ -1,19 +1,19 @@
 ---
-title: Sélection du chemin d’accès Azure entre plusieurs liens ISP
+title: Métriques et journaux d’activité
 titleSuffix: Azure Virtual WAN
-description: En savoir plus sur la sélection du chemin d’accès Azure et Virtual WAN
+description: En savoir plus sur les journaux et métriques Azure Virtual WAN
 services: virtual-wan
 author: cherylmc
 ms.service: virtual-wan
-ms.topic: article
-ms.date: 06/01/2020
+ms.topic: how-to
+ms.date: 06/05/2020
 ms.author: cherylmc
-ms.openlocfilehash: 73249b2c66c7e064aa5c07ae1b78d819f4f44c23
-ms.sourcegitcommit: d118ad4fb2b66c759b70d4d8a18e6368760da3ad
+ms.openlocfilehash: 4ce5bc3b4e5ccd26ec3f6b35c995ebe2274042c5
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/02/2020
-ms.locfileid: "84302361"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84749724"
 ---
 # <a name="azure-virtual-wan-logs-and-metrics"></a>Journaux et métriques Azure Virtual WAN
 

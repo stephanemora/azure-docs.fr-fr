@@ -9,14 +9,14 @@ editor: ''
 ms.service: media-services
 ms.workload: na
 ms.topic: article
-ms.date: 05/28/2020
+ms.date: 06/03/2020
 ms.author: juliako
-ms.openlocfilehash: e072bcb0edc741b7843f470f14c3c37153338efb
-ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
+ms.openlocfilehash: d09fba2130dc302378a59200349a569cc248234b
+ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83647640"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86075431"
 ---
 # <a name="azure-media-services-v3-release-notes"></a>Notes de publication Azure Media Services v3
 
@@ -32,9 +32,27 @@ Pour vous informer des développements les plus récents, cet article détaille 
 ## <a name="known-issues"></a>Problèmes connus
 
 > [!NOTE]
-> Vous pouvez utiliser le [portail Azure](https://portal.azure.com/) pour gérer les [événements en direct](live-events-outputs-concept.md) v3, voir des [actifs multimédias](assets-concept.md) v3 et obtenir des informations sur l’accès aux API. Pour toutes les autres tâches de gestion (par exemple les transformations et travaux), utilisez l’[API REST](https://aka.ms/ams-v3-rest-ref), l’[interface de ligne de commande](https://aka.ms/ams-v3-cli-ref) ou l’un des [SDK](media-services-apis-overview.md#sdks) pris en charge.
+> Vous pouvez utiliser le [portail Azure](https://portal.azure.com/) pour gérer les [événements en direct](live-events-outputs-concept.md) v3, voir des [actifs multimédias](assets-concept.md) et des travaux v3, obtenir des informations sur l’accès aux API, et chiffrer du contenu. Pour toutes les autres tâches de gestion (par exemple gérer les transformations et les travaux), utilisez l’[API REST](https://aka.ms/ams-v3-rest-ref), l’[interface CLI](https://aka.ms/ams-v3-cli-ref) ou l’un des [kits SDK](media-services-apis-overview.md#sdks) pris en charge.
+>
+> Pour plus d’informations, consultez [les limitations du portail Azure pour Media Services v3](frequently-asked-questions.md#what-are-the-azure-portal-limitations-for-media-services-v3).
 
-Pour plus d’informations, consultez [Conseils de migration pour le passage de Media Services v2 à Media Services v3](migrate-from-v2-to-v3.md#known-issues).
+## <a name="june-2020"></a>Juin 2020
+
+### <a name="live-video-analytics-on-iot-edge-preview-release"></a>Publication en préversion de Live Video Analytics sur IoT Edge
+
+La préversion de Live Video Analytics sur IoT Edge est devenue publique. Pour plus d’informations, consultez les [notes de publication](../live-video-analytics-edge/release-notes.md).
+
+Live Video Analytics sur IoT Edge est une extension de la famille Media Services. Elle vous permet d’analyser la vidéo en direct avec des modèles AI de votre choix sur vos propres appareils périphériques, et éventuellement de capturer et d’enregistrer cette vidéo. Vous pouvez désormais créer des applications avec une analytique vidéo en temps réel à la périphérie, sans vous soucier de la complexité liée à la création et à l’exploitation d’un pipeline vidéo en direct.
+
+### <a name="search-by-topics"></a>Rechercher par sujets
+
+Vous pouvez maintenant utiliser l'API de recherche pour rechercher des vidéos traitant de sujets spécifiques (API uniquement).
+
+Les sujets sont ajoutés dans le cadre du `textScope` (paramètre facultatif). Pour plus d'informations, consultez [API](https://api-portal.videoindexer.ai/docs/services/Operations/operations/Search-Videos).  
+
+### <a name="labels-enhancement"></a>Amélioration des étiquettes
+
+Le créateur d'étiquettes a été mis à niveau et comporte désormais davantage d'étiquettes visuelles identifiables.
 
 ## <a name="may-2020"></a>Mai 2020
 
@@ -199,7 +217,7 @@ Ajout de mises à jour incluant l’amélioration des performances Media Service
 
 ## <a name="march-2019"></a>Mars 2019
 
-L’empaquetage dynamique prend désormais en charge Dolby Atmos. Pour plus d’informations, consultez [Codecs audio pris en charge par l’empaquetage dynamique](dynamic-packaging-overview.md#audio-codecs).
+L’empaquetage dynamique prend désormais en charge Dolby Atmos. Pour plus d’informations, consultez [Codecs audio pris en charge par l’empaquetage dynamique](dynamic-packaging-overview.md#audio-codecs-supported-by-dynamic-packaging).
 
 Vous pouvez désormais spécifier une liste de filtres de comptes ou d’actifs, qui s’applique à votre localisateur de streaming. Pour plus d’informations, consultez [Associer des filtres avec le localisateur de streaming](filters-concept.md#associating-filters-with-streaming-locator).
 
@@ -362,11 +380,15 @@ Les fonctionnalités suivantes sont présentes dans le Kit de développement log
 
 ### <a name="known-issues"></a>Problèmes connus
 
-* Quand vous soumettez un travail, vous pouvez spécifier l’ingestion de votre vidéo source à l’aide d’URL HTTPS, d’URL SAP ou de chemins de fichiers situés dans le stockage Blob Azure. AMS v3 ne prend pas en charge l’encodage de transfert mémorisé en bloc sur les URL HTTPS.
+* Quand vous soumettez un travail, vous pouvez spécifier l’ingestion de votre vidéo source à l’aide d’URL HTTPS, d’URL SAP ou de chemins de fichiers situés dans le stockage Blob Azure. Actuellement, Media Services v3 ne prend pas en charge l’encodage de transfert mémorisé en bloc sur les URL HTTPS.
 
 ## <a name="ask-questions-give-feedback-get-updates"></a>Poser des questions, envoyer des commentaires, obtenir des mises à jour
 
 Découvrez l’article [Communauté Azure Media Services](media-services-community.md) pour découvrir les différentes façons dont vous pouvez poser des questions, faire des commentaires et obtenir des mises à jour sur Media Services.
+
+## <a name="see-also"></a>Voir aussi
+
+[Conseils de migration pour le passage de Media Services v2 à Media Services v3](migrate-from-v2-to-v3.md#known-issues)
 
 ## <a name="next-steps"></a>Étapes suivantes
 

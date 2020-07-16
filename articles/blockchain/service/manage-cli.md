@@ -2,14 +2,14 @@
 title: Gérer une instance Azure Blockchain Service à l’aide d’Azure CLI
 description: Comment gérer une instance Azure Blockchain Service avec Azure CLI
 ms.date: 11/22/2019
-ms.topic: article
+ms.topic: how-to
 ms.reviewer: janders
-ms.openlocfilehash: ac75be644877905c1517395c1c789b1ea16fd49c
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: fc00bedee5ff55033a1d65c6d5d6bfa766f0f01e
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "74455579"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85208159"
 ---
 # <a name="manage-azure-blockchain-service-using-azure-cli"></a>Gérer une instance Azure Blockchain Service à l’aide d’Azure CLI
 

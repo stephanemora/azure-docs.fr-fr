@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 06/18/2020
 ms.author: sausin
-ms.openlocfilehash: 1d74bf089f3e5bc1fd04232b58ce95c649a170e1
-ms.sourcegitcommit: 4042aa8c67afd72823fc412f19c356f2ba0ab554
+ms.openlocfilehash: d2a14a501ebcf0913804ce39019a3fa4018ca141
+ms.sourcegitcommit: f98ab5af0fa17a9bba575286c588af36ff075615
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/24/2020
-ms.locfileid: "85307130"
+ms.lasthandoff: 06/25/2020
+ms.locfileid: "85362371"
 ---
 # <a name="add-parameters-to-commands"></a>Ajouter des paramètres aux commandes
 
@@ -60,9 +60,10 @@ Modifiez la commande **TurnOn** existante pour activer et désactiver plusieurs 
        | Configuration      | Accepter les valeurs d'entrée prédéfinies du catalogue interne | Pour les chaînes, cela limite les entrées à un ensemble de valeurs possibles |
        | Valeurs d'entrée prédéfinies     | `on`, `off`           | Ensemble de valeurs possibles et leurs alias         |
        
-        > [!div class="mx-imgBorder"]
+        
+   1. Pour ajouter des valeurs d’entrée prédéfinies, sélectionnez **Ajouter une entrée prédéfinie** et dans fenêtre **Nouvel élément**, tapez un **Nom** comme indiqué dans le tableau ci-dessus. Dans ce cas, nous n’utilisons pas d’alias. Vous pouvez donc laisser le champ vide. 
+    > [!div class="mx-imgBorder"]
         > ![Créer un paramètre](media/custom-commands/create-on-off-parameter.png)
-
    1. Sélectionnez **Enregistrer** pour enregistrer toutes les configurations du paramètre.
  
  ### <a name="add-subjectdevice-parameter"></a>Ajouter un paramètre SubjectDevice 

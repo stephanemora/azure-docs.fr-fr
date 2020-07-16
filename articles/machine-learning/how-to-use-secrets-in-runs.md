@@ -1,5 +1,5 @@
 ---
-title: Utiliser des secrets dans les cycles d’apprentissage
+title: Secrets d’authentification dans l’apprentissage
 titleSuffix: Azure Machine Learning
 description: Transmettre des secrets à des cycles d’apprentissage de manière sécurisée à l’aide du coffre de clés d’espace de travail
 services: machine-learning
@@ -8,16 +8,16 @@ ms.author: roastala
 ms.reviewer: larryfr
 ms.service: machine-learning
 ms.subservice: core
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 03/09/2020
-ms.openlocfilehash: d877794abf12b8b412cd1ecf4efd72fd1179d768
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 8fefeb162dd6f036c21485715dd680972823fbaa
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "78942260"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84677473"
 ---
-# <a name="use-secrets-in-training-runs"></a>Utiliser des secrets dans les cycles d’apprentissage
+# <a name="use-authentication-credential-secrets-in-azure-machine-learning-training-runs"></a>Utiliser les secrets d’authentification dans les exécutions d’apprentissage Azure Machine Learning
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
 
 Cet article explique comment utiliser des secrets dans des cycles d’apprentissage en toute sécurité. Les informations d’authentification, telles que votre nom d’utilisateur et votre mot de passe, sont des secrets. Par exemple, si vous vous connectez à une base de données externe pour interroger des données d’entraînement, vous devez transmettre vos nom d’utilisateur et mot de passe au contexte d’exécution à distance. La programmation de telles valeurs dans des scripts d’entraînement en texte clair n’est pas sécurisée, car elle exposerait le secret. 

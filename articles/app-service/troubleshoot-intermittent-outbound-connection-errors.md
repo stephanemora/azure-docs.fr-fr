@@ -7,12 +7,12 @@ ms.topic: troubleshooting
 ms.date: 03/24/2020
 ms.author: ramakoni
 ms.custom: security-recommendations
-ms.openlocfilehash: 028ddccdb989d35710e387081b08a3b973d75bdc
-ms.sourcegitcommit: 07d62796de0d1f9c0fa14bfcc425f852fdb08fb1
+ms.openlocfilehash: 704c6b026ab656ce52b34e5ac70ba7e2087ccbcd
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "80367269"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85252438"
 ---
 # <a name="troubleshooting-intermittent-outbound-connection-errors-in-azure-app-service"></a>Résolution des erreurs intermittentes de connexion sortante dans Azure App Service
 
@@ -160,7 +160,7 @@ Les connexions TCP et les ports SNAT ne sont pas directement liés. Un détecteu
 
 ### <a name="webjobs-and-database-connections"></a>WebJobs et connexions de base de données
  
-Si les ports SNAT sont épuisés, et que les WebJobs ne parviennent pas à se connecter à la base de données Azure SQL, il n’existe aucune métrique pour afficher le nombre de connexions ouvertes par chaque processus d’application web individuel. Pour trouver les WebJobs problématiques, déplacez plusieurs WebJobs vers un autre plan App Service pour voir si la situation s’améliore ou si un problème persiste dans l’un des plans. Répétez le processus jusqu’à ce que vous trouviez le WebJob problématique.
+Si les ports SNAT sont épuisés, et que les WebJobs ne parviennent pas à se connecter à SQL Database, il n’existe aucune métrique pour afficher le nombre de connexions ouvertes par chaque processus d’application web individuel. Pour trouver les WebJobs problématiques, déplacez plusieurs WebJobs vers un autre plan App Service pour voir si la situation s’améliore ou si un problème persiste dans l’un des plans. Répétez le processus jusqu’à ce que vous trouviez le WebJob problématique.
 
 ### <a name="using-snat-ports-sooner"></a>Utiliser les ports SNAT plus tôt
 

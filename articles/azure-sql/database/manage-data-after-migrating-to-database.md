@@ -1,7 +1,7 @@
 ---
 title: Gérer après la migration
 titleSuffix: Azure SQL Database
-description: Apprenez à gérer une base de données unique mise en pool après sa migration vers Azure SQL Database.
+description: Apprenez à gérer des bases de données uniques mises en pool après leur migration vers Azure SQL Database.
 services: sql-database
 ms.service: sql-database
 ms.subservice: service
@@ -12,17 +12,17 @@ author: joesackmsft
 ms.author: josack
 ms.reviewer: sstein
 ms.date: 02/13/2019
-ms.openlocfilehash: e36e11e4150c977b72b445e5bda7dce410c77925
-ms.sourcegitcommit: 1f48ad3c83467a6ffac4e23093ef288fea592eb5
+ms.openlocfilehash: 4c6904cfa2a7a3c3281da9a930fd59e8d511ac89
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/29/2020
-ms.locfileid: "84193926"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85249276"
 ---
 # <a name="new-dba-in-the-cloud--managing-azure-sql-database-after-migration"></a>Nouvel administrateur de base de données dans le cloud - Gérer Azure SQL Database après la migration
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
 
-Le passage d’un environnement autogéré et auto-contrôlé traditionnel à un environnement PaaS peut sembler un peu lourd dans un premier temps. En tant que développeur d’applications ou administrateur de base de données, vous avez besoin de connaître les principales fonctionnalités de la plateforme qui facilitent le maintien de la disponibilité, des performances, de la sécurité et de la résilience de votre application, en continu. Cet article va répondre précisément à ce besoin. L'article organise succinctement les ressources et vous fournit des conseils sur la façon de mieux utiliser les fonctionnalités clés de SQL Database avec des bases de données uniques et mises en pool pour gérer votre application, maintenir son efficacité et atteindre des résultats optimaux dans le cloud. Cet article vous intéresse si vous êtes dans les cas suivants :
+Le passage d’un environnement autogéré et auto-contrôlé traditionnel à un environnement PaaS peut sembler un peu lourd dans un premier temps. En tant que développeur d’applications ou administrateur de base de données, vous avez besoin de connaître les principales fonctionnalités de la plateforme qui facilitent le maintien de la disponibilité, des performances, de la sécurité et de la résilience de votre application, en continu. Cet article va répondre précisément à ce besoin. L'article organise succinctement les ressources et vous fournit des conseils sur la façon de mieux utiliser les fonctionnalités clés d’Azure SQL Database avec des bases de données uniques et mises en pool pour gérer votre application, maintenir son efficacité et atteindre des résultats optimaux dans le cloud. Cet article vous intéresse si vous êtes dans les cas suivants :
 
 - Vous êtes en train d'évaluer la migration de vos applications vers Azure SQL Database - Modernisation de vos applications.
 - Vous êtes en train d’effectuer la migration de vos applications – Scénario de migration en cours.
@@ -30,7 +30,7 @@ Le passage d’un environnement autogéré et auto-contrôlé traditionnel à un
 
 Cet article traite de certaines caractéristiques essentielles d'Azure SQL Database en tant que plateforme, auxquelles vous pouvez facilement avoir recours lorsque vous utilisez des bases de données uniques et des bases de données mises en pool dans des pools élastiques. Ces caractéristiques sont les suivantes :
 
-- Analyser des bases de données au moyen du Portail Azure
+- Analyser des bases de données au moyen du portail Azure
 - Continuité d’activité et récupération d’urgence (BCDR)
 - Sécurité et conformité
 - Surveillance et maintenance de bases de données intelligentes
@@ -90,7 +90,7 @@ Pour plus d’informations sur la récupération d’urgence, consultez : [Réc
 
 SQL Database prend très au sérieux la sécurité et la confidentialité. La sécurité au sein de SQL Database est disponible au niveau de la base de données et au niveau de la plateforme. Il est plus facile de la comprendre en la classant dans plusieurs couches. Au niveau de chaque couche, vous pouvez contrôler et fournir une sécurité optimale pour votre application. Ces couches sont les suivantes :
 
-- Identité et authentification ([authentification SQL et authentification Azure Active Directory [AAD]](logins-create-manage.md)).
+- Identité et authentification ([authentification SQL et authentification Azure Active Directory [Azure AD]](logins-create-manage.md)).
 - Activité de surveillance ([audit](../../azure-sql/database/auditing-overview.md) et [détection des menaces](threat-detection-configure.md)).
 - Protection des données réelles ([Transparent Data Encryption [TDE]](/sql/relational-databases/security/encryption/transparent-data-encryption-azure-sql) et [Always Encrypted [AE]](/sql/relational-databases/security/encryption/always-encrypted-database-engine)).
 - Contrôle de l’accès aux données sensibles et privilégiées ([sécurité au niveau des lignes](/sql/relational-databases/security/row-level-security) et [Dynamic Data Masking](/sql/relational-databases/security/dynamic-data-masking)).
@@ -104,13 +104,13 @@ SQL Database propose deux méthodes d’authentification :
 - [Authentification Azure Active Directory](authentication-aad-overview.md)
 - [Authentification SQL](https://docs.microsoft.com/sql/relational-databases/security/choose-an-authentication-mode#connecting-through-sql-server-authentication)
 
-L’authentification Windows traditionnelle n’est pas prise en charge. Azure Active Directory (AD) est un service centralisé de gestion des identités et des accès. Ce service vous permet de proposer très facilement un accès par authentification unique à tout le personnel de votre organisation. Autrement dit, les informations d’identification sont partagées entre tous les services Azure pour une authentification plus simple. AAD prend en charge [MFA (Multi Factor Authentication)](authentication-mfa-ssms-overview.md) et, en [quelques clics](../../active-directory/hybrid/how-to-connect-install-express.md), peut être intégré à Windows Server Active Directory. L’authentification SQL fonctionne exactement comme par le passé. Vous fournissez un nom d'utilisateur/mot de passe et vous pouvez authentifier des utilisateurs après de toute base de données sur un serveur donné. Cela permet également à SQL Database et SQL Data Warehouse de proposer une authentification multifacteur et des comptes d’utilisateur Invité dans un domaine Azure AD. Si vous disposez déjà d’Active Directory localement, vous pouvez fédérer l’annuaire avec Azure Active Directory pour étendre votre annuaire à Azure.
+L’authentification Windows traditionnelle n’est pas prise en charge. Azure Active Directory (Azure AD) est un service centralisé de gestion des identités et des accès. Ce service vous permet de proposer très facilement un accès par authentification unique à tout le personnel de votre organisation. Autrement dit, les informations d’identification sont partagées entre tous les services Azure pour une authentification plus simple. Azure AD prend en charge [Microsoft Azure Multi-Factor Authentication](authentication-mfa-ssms-overview.md) et, en [quelques clics](../../active-directory/hybrid/how-to-connect-install-express.md), peut être intégré à Windows Server Active Directory. L’authentification SQL fonctionne exactement comme par le passé. Vous fournissez un nom d'utilisateur/mot de passe et vous pouvez authentifier des utilisateurs après de toute base de données sur un serveur donné. Cela permet également à SQL Database et SQL Data Warehouse de proposer une authentification multifacteur et des comptes d’utilisateur Invité dans un domaine Azure AD. Si vous disposez déjà d’Active Directory localement, vous pouvez fédérer l’annuaire avec Azure Active Directory pour étendre votre annuaire à Azure.
 
 |**Si vous…**|**SQL Database/SQL Data Warehouse**|
 |---|---|
-|Préférez ne pas utiliser Azure Active Directory (AD) dans Azure|Utilisez l’[authentification SQL](security-overview.md)|
+|Préférez ne pas utiliser Azure Active Directory (Azure AD) dans Azure|Utilisez l’[authentification SQL](security-overview.md)|
 |Avez utilisé AD avec SQL Server localement|[Fédérez AD avec Azure AD](../../active-directory/hybrid/whatis-hybrid-identity.md), puis utilisez l’authentification basée sur Azure AD Authentication. Ainsi, vous pouvez utiliser l’authentification unique.|
-|Devez appliquer l’authentification multifacteur via MFA (Multi-Factor Authentication)|Imposez MFA en tant que stratégie via l’[accès conditionnel Microsoft](conditional-access-configure.md), et utilisez l’[authentification universelle Azure AD avec prise en charge de MFA](authentication-mfa-ssms-overview.md).|
+|Devez appliquer l’authentification multifacteur|Imposez l’authentification multifacteur en tant que stratégie via l’[accès conditionnel Microsoft](conditional-access-configure.md), et utilisez l’[authentification universelle Azure AD avec prise en charge de l’authentification multifacteur](authentication-mfa-ssms-overview.md).|
 |Avez des comptes Invité issus de comptes Microsoft (live.com, outlook.com) ou d’autres domaines (gmail.com)|Utilisez l’[authentification universelle Azure AD](authentication-mfa-ssms-overview.md) de SQL Database/Data Warehouse, qui tire profit d’[Azure AD B2B Collaboration](../../active-directory/b2b/what-is-b2b.md).|
 |Êtes connecté à Windows avec des informations d’identification Azure AD provenant d’un domaine fédéré|Utilisez l’[authentification intégrée Azure AD](authentication-aad-configure.md).|
 |Êtes connecté à Windows avec des informations d’identification d’un domaine non fédéré avec Azure|Utilisez l’[authentification intégrée Azure AD](authentication-aad-configure.md).|
@@ -133,7 +133,7 @@ Vous pouvez créer des règles de pare-feu au niveau du serveur ou de la base de
 
 #### <a name="service-endpoints"></a>Points de terminaison de service
 
-Par défaut, votre service SQL Database est configuré pour « Autoriser les services Azure à accéder au serveur », ce qui signifie que toutes les machines virtuelles Azure peuvent essayer de se connecter à votre base de données. Ces tentatives doivent quand même faire l’objet d’une authentification. Néanmoins, si vous ne voulez pas que votre base de données soit accessible par toutes les adresses IP Azure, vous pouvez désactiver l’option « Autoriser les services Azure à accéder au serveur ». De plus, vous pouvez configurer des [points de terminaison de service de réseau virtuel](vnet-service-endpoint-rule-overview.md).
+Par défaut, votre base de données est configurée pour « Autoriser les services Azure à accéder au serveur », ce qui signifie que toutes les machines virtuelles Azure peuvent essayer de se connecter à votre base de données. Ces tentatives doivent quand même faire l’objet d’une authentification. Néanmoins, si vous ne voulez pas que votre base de données soit accessible par toutes les adresses IP Azure, vous pouvez désactiver l’option « Autoriser les services Azure à accéder au serveur ». De plus, vous pouvez configurer des [points de terminaison de service de réseau virtuel](vnet-service-endpoint-rule-overview.md).
 
 Les points de terminaison de service vous permettent d’exposer vos ressources Azure critiques uniquement à votre propre réseau privé virtuel dans Azure. Ainsi, vous éliminez simplement tout accès public à vos ressources. Le trafic entre votre réseau virtuel et Azure reste sur le réseau principal Azure. Sans point de terminaison de service, vous obtenez un routage de paquets par tunneling forcé. Votre réseau virtuel force le trafic Internet vers votre organisation et le trafic du service Azure à emprunter le même itinéraire. Avec des points de terminaison de service, vous pouvez optimiser ce trafic puisque les paquets transitent directement depuis votre réseau virtuel vers le service sur le réseau principal Azure.
 
@@ -211,13 +211,13 @@ Le diagramme suivant montre les options relatives au magasin de clés pour les c
 
 ### <a name="how-can-i-optimize-and-secure-the-traffic-between-my-organization-and-sql-database"></a>Comment optimiser et sécuriser le trafic entre mon organisation et SQL Database
 
-Le trafic réseau entre votre organisation et SQL Database est généralement acheminé par le biais du réseau public. Toutefois, si vous choisissez d’optimiser ce parcours et de le rendre plus sécurisé, vous pouvez envisager d’utiliser Express Route. Express Route vous permet avant tout d’étendre votre réseau d’entreprise dans la plateforme Azure par le biais d’une connexion privée. Ainsi, vous ne passez pas par l’Internet public. Vous obtenez également une sécurité, une fiabilité et une optimisation du routage accrues qui se traduisent par des latences réseau inférieures et des débits beaucoup plus rapides que ceux que vous expérimenteriez par le bais de l’Internet public en temps normal. Si vous envisagez de transférer un bloc important de données entre votre organisation et Azure, l’utilisation d’Express Route peut permettre de réduire vos coûts. Vous avez trois modèles de connectivité différents à votre disposition pour la connexion entre votre organisation et Azure :
+Le trafic réseau entre votre organisation et SQL Database est généralement acheminé par le biais du réseau public. Toutefois, si vous choisissez d’optimiser ce parcours et de le rendre plus sécurisé, vous pouvez envisager d’utiliser ExpressRoute. ExpressRoute vous permet avant tout d’étendre votre réseau d’entreprise dans la plateforme Azure par le biais d’une connexion privée. Ainsi, vous ne passez pas par l’Internet public. Vous obtenez également une sécurité, une fiabilité et une optimisation du routage accrues qui se traduisent par des latences réseau inférieures et des débits beaucoup plus rapides que ceux que vous expérimenteriez par le bais de l’Internet public en temps normal. Si vous envisagez de transférer un bloc important de données entre votre organisation et Azure, l’utilisation d’ExpressRoute peut permettre de réduire vos coûts. Vous avez trois modèles de connectivité différents à votre disposition pour la connexion entre votre organisation et Azure :
 
 - [Colocalisation avec échange de cloud](../../expressroute/expressroute-connectivity-models.md#CloudExchange)
 - [Connexion universelle](../../expressroute/expressroute-connectivity-models.md#IPVPN)
 - [Connexion point à point](../../expressroute/expressroute-connectivity-models.md#Ethernet)
 
-Express Route vous permet également de doubler la limite de bande passante que vous achetez sans frais supplémentaires. Vous pouvez également configurer une connectivité interrégion à l’aide d’ExpressRoute. Pour obtenir la liste des fournisseurs de connectivité ER, consultez : [Partenaires ExpressRoute et emplacements de peering](../../expressroute/expressroute-locations.md). Les articles suivants décrivent Express Route de façon plus approfondie :
+ExpressRoute vous permet également de doubler la limite de bande passante que vous achetez sans frais supplémentaires. Vous pouvez également configurer une connectivité interrégion à l’aide d’ExpressRoute. Pour obtenir la liste des fournisseurs de connectivité ExpressRoute, consultez : [Partenaires ExpressRoute et emplacements de peering](../../expressroute/expressroute-locations.md). Les articles suivants décrivent Express Route de façon plus approfondie :
 
 - [Présentation d’ExpressRoute](../../expressroute/expressroute-introduction.md)
 - [Composants requis](../../expressroute/expressroute-prerequisites.md)
@@ -237,7 +237,7 @@ Une fois que vous avez effectué la migration de votre base de données vers SQL
 
 ### <a name="performance-monitoring-and-optimization"></a>Supervision et optimisation des performances
 
-avec Query Performance Insight, vous pouvez obtenir des recommandations sur mesure pour votre charge de travail de base de données afin que vos applications puissent continuer à s’exécuter à un niveau optimal, de façon permanente. Vous pouvez également le configurer de sorte que ces recommandations s’appliquent automatiquement et que vous n’ayez pas à vous soucier d’effectuer d’autres tâches de maintenance. Avec Index Advisor, vous pouvez implémenter automatiquement des recommandations d’index en fonction de votre charge de travail : il s’agit d’un paramétrage automatique. Les recommandations évoluent au même rythme que la charge de travail de votre application pour fournir des suggestions pertinentes. Vous avez également la possibilité de passer manuellement en revue ces recommandations et de les appliquer à votre convenance.  
+avec Query Performance Insight, vous pouvez obtenir des recommandations sur mesure pour votre charge de travail de base de données afin que vos applications puissent continuer à s’exécuter à un niveau optimal, de façon permanente. Vous pouvez également le configurer de sorte que ces recommandations s’appliquent automatiquement et que vous n’ayez pas à vous soucier d’effectuer d’autres tâches de maintenance. Avec SQL Database Advisor, vous pouvez implémenter automatiquement des recommandations d’index en fonction de votre charge de travail : il s’agit d’un paramétrage automatique. Les recommandations évoluent au même rythme que la charge de travail de votre application pour fournir des suggestions pertinentes. Vous avez également la possibilité de passer manuellement en revue ces recommandations et de les appliquer à votre convenance.  
 
 ### <a name="security-optimization"></a>Optimisation de la sécurité
 
@@ -269,7 +269,7 @@ Le portail Azure montre l’utilisation d’une base de données lorsque vous la
 
 À partir de ce graphique, vous pouvez également configurer des alertes par ressource. Ces alertes vous permettent de réagir à certaines situations spécifiques aux ressources par l’envoi d’un e-mail, d’écrire sur un point de terminaison HTTPS/HTTP ou d’effectuer une action. Pour plus d’informations, consultez [Créer des alertes](alerts-insights-configure-portal.md).
 
-#### <a name="dynamic-management-views"></a>Vues de gestion dynamique
+#### <a name="dynamic-management-views"></a>Vues de gestion dynamique (DMV)
 
 vous pouvez interroger la vue de gestion dynamique [sys.dm_db_resource_stats](/sql/relational-databases/system-dynamic-management-views/sys-dm-db-resource-stats-azure-sql-database) pour retourner l’historique des statistiques de consommation des ressources de la dernière heure, et la vue de catalogue système [sys.resource_stats](/sql/relational-databases/system-catalog-views/sys-resource-stats-azure-sql-database) pour retourner l’historique des 14 derniers jours.
 
@@ -281,11 +281,11 @@ vous pouvez interroger la vue de gestion dynamique [sys.dm_db_resource_stats](/s
 
 #### <a name="azure-sql-analytics-preview-in-azure-monitor-logs"></a>Azure SQL Analytics (préversion) dans les journaux d'activité Azure Monitor
 
-Les [journaux Azure Monitor](../../azure-monitor/insights/azure-sql.md) vous permettent de collecter et de visualiser des indicateurs de performance clés Azure SQL Database, prenant en charge jusqu'à 150 000 bases de données SQL et 5 000 pools élastiques SQL par espace de travail. Vous pouvez l’utiliser à des fins de surveillance et pour recevoir des notifications. Vous pouvez surveiller les métriques de SQL Database et des pools élastiques de plusieurs abonnements Azure. De plus, vous pouvez utiliser les pools élastiques pour identifier les problèmes à chaque couche d’une pile d’applications.
+Les [journaux Azure Monitor](../../azure-monitor/insights/azure-sql.md) vous permettent de collecter et de visualiser des indicateurs de performance clés Azure SQL Database, prenant en charge jusqu'à 150 000 bases de données et 5 000 pools élastiques SQL par espace de travail. Vous pouvez l’utiliser à des fins de surveillance et pour recevoir des notifications. Vous pouvez surveiller les métriques de SQL Database et des pools élastiques de plusieurs abonnements Azure. De plus, vous pouvez utiliser les pools élastiques pour identifier les problèmes à chaque couche d’une pile d’applications.
 
 ### <a name="i-am-noticing-performance-issues-how-does-my-sql-database-troubleshooting-methodology-differ-from-sql-server"></a>Je constate des problèmes de performances : En quoi ma méthodologie de résolution de problèmes SQL Database est-elle différente de celle de SQL Server
 
-La majorité des techniques de résolution de problèmes que vous utiliseriez pour diagnostiquer des problèmes de performance des requêtes et des bases de données restent les mêmes. Après tout, c'est le même moteur de base de données SQL qui alimente le cloud. Toutefois, la plateforme Azure SQL Database est dotée d'une « intelligence » intégrée. Celle-ci peut vous aider à résoudre et détecter les problèmes de performance encore plus facilement. Elle peut également effectuer certaines actions correctives à votre place et dans certains cas, résoudre les problèmes automatiquement de façon proactive.
+La majorité des techniques de résolution de problèmes que vous utiliseriez pour diagnostiquer des problèmes de performance des requêtes et des bases de données restent les mêmes. Après tout, c'est le même moteur de base de données qui alimente le cloud. Toutefois, la plateforme Azure SQL Database est dotée d'une « intelligence » intégrée. Celle-ci peut vous aider à résoudre et détecter les problèmes de performance encore plus facilement. Elle peut également effectuer certaines actions correctives à votre place et dans certains cas, résoudre les problèmes automatiquement de façon proactive.
 
 Votre approche de la résolution des problèmes de performance peut considérablement tirer parti des fonctionnalités intelligentes comme [Query Performance Insight (QPI)](query-performance-insight-use.md) et [Database Advisor](database-advisor-implement-performance-recommendations.md) utilisées conjointement ; c’est là que la méthodologie diffère car vous n’avez plus besoin d’examiner manuellement les détails essentiels pouvant vous aider à résoudre le problème. La plateforme fait le travail difficile à votre place. La fonctionnalité QPI en est l’exemple. En effet, elle vous permet d’explorer jusqu’au niveau de la requête et d’examiner les tendances historiques pour déterminer à quel moment précis la requête a régressé. Database Advisor vous fournit des recommandations visant à améliorer les performances globales, par exemple, sur les index manquants, les suppressions d’index, le paramétrage de vos requêtes, etc.
 

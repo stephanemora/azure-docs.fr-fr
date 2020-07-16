@@ -1,23 +1,22 @@
 ---
 title: Créer une offre de service managé sur la Place de marché commerciale Microsoft
 description: Guide pratique pour créer une offre de service managé en vue de l’annoncer sur la Place de marché Azure à l’aide du portail Place de marché commerciale de l’Espace partenaires.
-author: JnHs
-ms.author: jenhayes
-manager: evansma
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
-ms.date: 05/19/2020
-ms.openlocfilehash: 9ab2122fe1dd71a06127cad5ecc064fc42845390
-ms.sourcegitcommit: 1f25aa993c38b37472cf8a0359bc6f0bf97b6784
+author: JnHs
+ms.author: jenhayes
+ms.date: 07/07/2020
+ms.openlocfilehash: 70f0dbff2530b11e92bd0b0cc55ad92a8679ebe9
+ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/26/2020
-ms.locfileid: "83847717"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86121790"
 ---
 # <a name="create-a-managed-service-offer"></a>Créer une offre de service managé
 
-Les offres de service managé aident à mettre en œuvre les scénarios [Azure Lighthouse](../../lighthouse/overview.md). Quand un client accepte une offre de service managé, il est en mesure d’intégrer des ressources pour la [gestion des ressources déléguées Azure](../../lighthouse/concepts/azure-delegated-resource-management.md). Avant de commencer, si ce n’est déjà fait, [créez un compte de la Place de marché commerciale dans l’Espace partenaires](https://docs.microsoft.com/azure/marketplace/partner-center-portal/create-account). Vérifiez que votre compte est inscrit dans le programme de Place de marché commerciale.
+Les offres de service managé aident à mettre en œuvre les scénarios [Azure Lighthouse](../../lighthouse/overview.md). Quand un client accepte une offre de service managé, il est en mesure d’intégrer des ressources pour la [gestion des ressources déléguées Azure](../../lighthouse/concepts/azure-delegated-resource-management.md). Avant de commencer, si ce n’est déjà fait, [créez un compte de la Place de marché commerciale dans l’Espace partenaires](create-account.md). Vérifiez que votre compte est inscrit dans le programme de Place de marché commerciale.
 
 Vous devez disposer d’un [niveau de compétence de plateforme cloud Silver ou Gold](https://partner.microsoft.com/membership/cloud-platform-competency) ou être [Fournisseur de services managés Azure Expert](https://partner.microsoft.com/membership/azure-expert-msp) pour publier une offre de service managé.
 
@@ -80,6 +79,17 @@ Cette page vous permet de définir des détails, tels que le nom, la description
 > [!NOTE]
 > Il n’est pas nécessaire que le contenu du référencement de l’offre (par exemple, la description, les documents, les captures d’écran et les conditions d’utilisation) soit en anglais, tant que sa description commence par l’expression : « This application is available only in [langue autre que l’anglais]. » Il est également possible de fournir une *URL de lien utile* pour offrir du contenu dans une langue autre que celle utilisée dans le contenu de la liste des offres.
 
+Voici un exemple de la façon dont les informations de l’offre s’affichent dans le portail Azure :
+
+:::image type="content" source="media/example-managed-services.png" alt-text="Illustre la façon dont cette offre s’affiche dans le portail Azure.":::
+
+#### <a name="call-out-descriptions"></a>Descriptions de légende
+
+1. Intitulé
+2. Description
+3. Liens utiles
+4. Captures d’écran.
+
 ### <a name="name"></a>Nom
 
 Le nom que vous entrez ici s’affichera auprès des clients comme titre de votre référencement d’offre. Ce champ est prérempli avec le texte que vous avez entré pour **Alias d’offre** lorsque vous avez créé l’offre, mais vous pouvez modifier cette valeur. Ce nom peut être une marque déposée (et vous pouvez inclure des symboles de marque ou de copyright). Le nom ne peut pas comporter plus de 50 caractères et ne peut pas contenir d’emoji.
@@ -127,9 +137,9 @@ Dans cette section, vous pouvez fournir des logos et des images qui seront utili
 
 Fournissez le logo de votre offre en quatre tailles (en pixels) :
 
-- **Petit** (40 x 40)
+- **Petit** (48 x 48)
 - **Moyen** (90 x 90)
-- **Grand** (115 x 115)
+- **Grand** (216 x 216)
 - **Large** (255 x 115)
 
 Suivez ces instructions pour vos logos:
@@ -145,13 +155,13 @@ Suivez ces instructions pour vos logos:
 
 Ajoutez jusqu’à cinq captures d’écran qui illustrent le fonctionnement de votre offre. Toutes les captures d’écran doivent être au format 1280 x 720 pixels.
 
-#### <a name="videos"></a>Videos
+#### <a name="videos"></a>Vidéos
 
 Vous pouvez éventuellement ajouter jusqu’à cinq vidéos qui illustrent votre offre. Ces vidéos doivent être hébergées sur YouTube et/ou Vimeo. Pour chaque vidéo, entrez son nom, son URL et une image miniature correspondante (1280 x 720 pixels).
 
 #### <a name="additional-marketplace-listing-resources"></a>Ressources d’annonce supplémentaires de place de marché
 
-- [Meilleures pratiques pour les annonces d’offre d’une place de marché](https://docs.microsoft.com/azure/marketplace/gtm-offer-listing-best-practices)
+- [Meilleures pratiques pour les annonces d’offre d’une place de marché](../gtm-offer-listing-best-practices.md)
 
 Sélectionnez **Enregistrer le brouillon** avant de continuer.
 
@@ -220,7 +230,7 @@ Pour chaque **autorisation**, vous devez fournir les informations suivantes. Vou
 
 - **ID d’objet Azure AD** : identificateur Azure AD d’un utilisateur, d’un groupe d’utilisateurs ou d’une application auxquels certaines autorisations seront accordées (comme défini dans la définition de rôle) sur les ressources de votre client.
 - **Nom d’affichage d’objet Azure AD** : nom convivial destiné à aider le client à comprendre l’objectif de cette autorisation. Le client verra ce nom lors de la délégation de ressources.
-- **Définition de rôle** : sélectionnez l’un des rôles intégrés Azure AD disponibles dans la liste. Ce rôle détermine les autorisations sur les ressources de vos clients dont disposera l’utilisateur spécifié dans le champ **ID d’objet Azure AD**. Pour obtenir une description de ces rôles, consultez les [Rôles intégrés](../../role-based-access-control/built-in-roles.md) et [Prise en charge des rôles pour la gestion des ressources déléguées Azure](../../lighthouse/concepts/tenants-users-roles.md#role-support-for-azure-delegated-resource-management).
+- **Définition de rôle** : sélectionnez l’un des rôles intégrés Azure AD disponibles dans la liste. Ce rôle détermine les autorisations sur les ressources de vos clients dont disposera l’utilisateur spécifié dans le champ **ID d’objet Azure AD**. Pour obtenir une description de ces rôles, consultez [Rôles intégrés](../../role-based-access-control/built-in-roles.md) et [Prise en charge des rôles pour Azure Lighthouse](../../lighthouse/concepts/tenants-users-roles.md#role-support-for-azure-lighthouse).
   > [!NOTE]
   > Comme les nouveaux rôles intégrés applicables sont ajoutés à Azure, ils sont disponibles ici, même si un certain temps puis s’écouler avant qu’ils n’apparaissent.
 - **Rôles attribuables** : cette option apparaît uniquement si vous avez sélectionné Administrateur de l’accès utilisateur dans la **Définition de rôle** pour cette autorisation. Si tel est le cas, vous devez ajouter un ou plusieurs rôles attribuables ici. L’utilisateur indiqué dans le champ **ID d’objet Azure AD** sera en mesure d’attribuer ces rôles à des [identités managées](../../active-directory/managed-identities-azure-resources/overview.md), ce qui est nécessaire pour [déployer des stratégies qui peuvent être corrigées](../../lighthouse/how-to/deploy-policy-remediation.md). Notez qu’aucune autre autorisation normalement associée au rôle Administrateur de l’accès utilisateur ne s’appliquera à cet utilisateur.

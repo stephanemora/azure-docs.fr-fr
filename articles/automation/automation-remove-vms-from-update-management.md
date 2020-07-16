@@ -1,16 +1,16 @@
 ---
 title: Supprimer des machines virtuelles d’Azure Automation Update Management
-description: Cet article explique comment supprimer des machines virtuelles d’Update Management.
+description: Cet article explique comment supprimer des machines gérées avec Update Management.
 services: automation
 ms.topic: conceptual
-ms.date: 05/10/2018
+ms.date: 06/30/2020
 ms.custom: mvc
-ms.openlocfilehash: 796cf18ae4dbab50eb7f968bda065ae0351f2ae8
-ms.sourcegitcommit: 1692e86772217fcd36d34914e4fb4868d145687b
+ms.openlocfilehash: 9745ddea1035f239a9ca65a073fb698a8f42c01f
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/29/2020
-ms.locfileid: "84169404"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85610045"
 ---
 # <a name="remove-vms-from-update-management"></a>Supprimer des machines virtuelles d’Update Management
 
@@ -20,7 +20,7 @@ Lorsque vous avez terminé le déploiement des mises à jour sur les machines vi
 
 1. Dans votre compte Automation, sélectionnez **Update Management** sous **Gestion des mises à jour**.
 
-2. Utilisez la commande suivante pour identifier l’UUID d’une machine virtuelle que vous souhaitez supprimer de la gestion.
+2. Utilisez la commande suivante pour identifier l’UUID d’une machine que vous souhaitez supprimer de la gestion.
 
     ```azurecli
     az vm show -g MyResourceGroup -n MyVm -d
@@ -28,13 +28,16 @@ Lorsque vous avez terminé le déploiement des mises à jour sur les machines vi
 
 3. Dans votre espace de travail Log Analytics, accédez aux recherches enregistrées de la configuration d’étendue `MicrosoftDefaultScopeConfig-Updates` sous **Général**.
 
-4. Pour la recherche enregistrée `MicrosoftDefaultComputerGroup`, cliquez sur les points de suspension à droite, puis sélectionnez **Modifier**. 
+4. Pour la recherche enregistrée `MicrosoftDefaultComputerGroup`, cliquez sur les points de suspension à droite, puis sélectionnez **Modifier**.
 
 5. Supprimez l’UUID de la machine virtuelle.
 
 6. Répétez les étapes pour toutes les autres machines virtuelles à supprimer.
 
-7. Enregistrez la recherche enregistrée une fois que vous avez fini de la modifier. 
+7. Enregistrez la recherche enregistrée une fois que vous avez fini de la modifier.
+
+>[!NOTE]
+>Les machines s’affichent toujours une fois que vous les avez désinscrites, car nous effectuons des rapports pour toutes les machines évaluées au cours des dernières 24 heures. Une fois la machine déconnectée, vous devez attendre 24 heures avant qu’elle ne soit plus répertoriée.
 
 ## <a name="next-steps"></a>Étapes suivantes
 

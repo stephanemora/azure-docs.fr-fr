@@ -8,14 +8,14 @@ ms.topic: conceptual
 author: DavidTrigano
 ms.author: datrigan
 ms.reviewer: vanto
-ms.date: 03/19/2020
+ms.date: 06/17/2020
 ms.custom: azure-synapse
-ms.openlocfilehash: cf615da14e2749f998f900500cc33da68a625e16
-ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
+ms.openlocfilehash: 7b8c6e09616f261c371b010b38d2c0f81376a6f9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "84026280"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84944762"
 ---
 # <a name="write-audit-to-a-storage-account-behind-vnet-and-firewall"></a>Écrire un audit sur un compte de stockage situé derrière un réseau virtuel et un pare-feu
 [!INCLUDE[appliesto-sqldb-asa](../includes/appliesto-sqldb-asa.md)]
@@ -127,7 +127,7 @@ Pour configurer l’audit SQL afin d’écrire dans un compte de stockage situ�
    Exemple de requête
 
    ```html
-   PUT https://management.azure.com/subscriptions/<subscription ID>/resourceGroups/<resource group>/providers/Microsoft.Sql/servers/<azure server name>?api-version=2017-03-01-preview
+     PUT https://management.azure.com/subscriptions/<subscription ID>/resourceGroups/<resource group>/providers/Microsoft.Sql/servers/<azure server name>/auditingSettings/default?api-version=2017-03-01-preview
    ```
 
    Corps de la demande
@@ -145,6 +145,18 @@ Pour configurer l’audit SQL afin d’écrire dans un compte de stockage situ�
 
 - [Créer ou mettre à jour une stratégie d’audit de base de données (Set-AzSqlDatabaseAudit)](/powershell/module/az.sql/set-azsqldatabaseaudit)
 - [Créer ou mettre à jour une stratégie de serveur (Set-AzSqlServerAudit)](/powershell/module/az.sql/set-azsqlserveraudit)
+
+## <a name="using-azure-resource-manager-template"></a>Utilisation d’un modèle Azure Resource Manager
+
+Vous pouvez configurer l’audit pour écrire des événements de base de données sur un compte de stockage derrière le réseau virtuel et le pare-feu à l’aide d’un modèle [Azure Resource Manager](../../azure-resource-manager/management/overview.md), comme indiqué dans l’exemple suivant :
+
+> [!IMPORTANT]
+> Pour utiliser le compte de stockage derrière le réseau virtuel et le pare-feu, vous devez définir le paramètre **isStorageBehindVnet** sur true
+
+- [Déployer un serveur SQL Azure avec l’audit activé pour écrire des journaux d’audit dans un stockage d’objets BLOB](https://azure.microsoft.com/resources/templates/201-sql-auditing-server-policy-to-blob-storage)
+
+> [!NOTE]
+> Les exemples liés se trouvent sur un référentiel public externe et sont fournis « en l’état », sans garantie et ne sont pas pris en charge dans n’importe quel service/programme de support Microsoft.
 
 ## <a name="next-steps"></a>Étapes suivantes
 

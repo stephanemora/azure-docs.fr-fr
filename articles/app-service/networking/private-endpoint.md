@@ -1,20 +1,20 @@
 ---
-title: Connexion privée à une application web avec Azure Private Endpoint
-description: Connexion privée à une application web à l’aide d’un point de terminaison privé Azure
+title: Connexion privée à une application web Azure avec un point de terminaison privé
+description: Connexion privée à une application web avec Azure Private Endpoint
 author: ericgre
 ms.assetid: 2dceac28-1ba6-4904-a15d-9e91d5ee162c
 ms.topic: article
-ms.date: 06/02/2020
+ms.date: 07/07/2020
 ms.author: ericg
 ms.service: app-service
 ms.workload: web
 ms.custom: fasttrack-edit, references_regions
-ms.openlocfilehash: 15b3f2e48b78036c02ef86446f2ab920f22f7c76
-ms.sourcegitcommit: d118ad4fb2b66c759b70d4d8a18e6368760da3ad
+ms.openlocfilehash: fdad2f7c2ce4f82529866b4235ebebab8da664d3
+ms.sourcegitcommit: bcb962e74ee5302d0b9242b1ee006f769a94cfb8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/02/2020
-ms.locfileid: "84295437"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86054574"
 ---
 # <a name="using-private-endpoints-for-azure-web-app-preview"></a>Utilisation de points de terminaison privés pour application web Azure (préversion)
 
@@ -57,7 +57,7 @@ Du point de vue de la sécurité :
 - Lorsque vous activez un point de terminaison privé sur votre application web, la configuration des [restrictions d’accès][accessrestrictions] de l’application web n’est pas évaluée.
 - Vous pouvez éliminer le risque d’exfiltration de données à partir du réseau virtuel en supprimant toutes les règles de groupe de sécurité réseau dans lesquelles la destination est étiquetée Internet ou Services Azure. Lorsque vous déployez un point de terminaison privé pour une application web, vous pouvez uniquement atteindre cette application web spécifique via le point de terminaison privé. Si vous avez une autre application web, vous devez déployer un autre point de terminaison privé dédié pour celle-ci.
 
-Les journaux HTTP web de votre application web contiennent l’adresse IP source du client. Ceci est implémenté à l’aide du protocole de proxy TCP, en transférant la propriété IP du client à l’application web. Pour plus d’informations, consultez [Obtention d’informations de connexion à l’aide du proxy TCP v2][tcpproxy].
+Les journaux HTTP web de votre application web contiennent l’adresse IP source du client. Cette fonctionnalité est implémentée à l’aide du protocole de proxy TCP, en transférant la propriété IP du client à l’application web. Pour plus d’informations, consultez [Obtention d’informations de connexion à l’aide du proxy TCP v2][tcpproxy].
 
 
   > [!div class="mx-imgBorder"]
@@ -65,12 +65,50 @@ Les journaux HTTP web de votre application web contiennent l’adresse IP sourc
 
 ## <a name="dns"></a>DNS
 
-Cette fonctionnalité étant en préversion, nous ne modifions pas l’entrée DNS pendant la période de préversion. Vous devez gérer vous-même l’entrée DNS sur votre serveur DNS privé ou dans la zone privée d’Azure DNS.
+Si vous utilisez un point de terminaison privé pour votre application web, l’URL demandée doit correspondre au nom de cette application (par défaut, mywebappname.azurewebsites.net).
+
+Par défaut, si vous n’utilisez pas de point de terminaison privé, le nom public de votre application web est un nom canonique référençant le cluster.
+Voici des exemples de résolution des noms :
+
+|Nom |Type |Valeur |
+|-----|-----|------|
+|mywebapp.azurewebsites.net|CNAME|clustername.azurewebsites.windows.net|
+|clustername.azurewebsites.windows.net|CNAME|cloudservicename.cloudapp.net|
+|cloudservicename.cloudapp.net|Un|40.122.110.154| 
+
+
+Lorsque vous déployez un point de terminaison privé, nous mettons à jour l’entrée DNS pour qu’elle pointe vers le nom canonique mywebapp.privatelink.azurewebsites.net.
+Voici des exemples de résolution des noms :
+
+|Nom |Type |Valeur |Remarque |
+|-----|-----|------|-------|
+|mywebapp.azurewebsites.net|CNAME|mywebapp.privatelink.azurewebsites.net|
+|mywebapp.privatelink.azurewebsites.net|CNAME|clustername.azurewebsites.windows.net|
+|clustername.azurewebsites.windows.net|CNAME|cloudservicename.cloudapp.net|
+|cloudservicename.cloudapp.net|Un|40.122.110.154|<--Cette adresse IP publique n’est pas votre point de terminaison privé ; vous recevrez une erreur 403|
+
+Vous devez configurer un serveur DNS privé ou une zone privée Azure DNS. Pour les tests, vous pouvez modifier l’entrée de l’hôte de votre machine de test.
+La zone DNS à créer est celle-ci : **privatelink.azurewebsites.net**. Enregistrez votre application web avec un enregistrement A et l’adresse IP du point de terminaison privé.
+Voici des exemples de résolution des noms :
+
+|Nom |Type |Valeur |Remarque |
+|-----|-----|------|-------|
+|mywebapp.azurewebsites.net|CNAME|mywebapp.privatelink.azurewebsites.net|
+|mywebapp.privatelink.azurewebsites.net|Un|10.10.10.8|<--Vous définissez cette entrée dans votre système DNS pour qu’elle pointe vers l’adresse IP de votre point de terminaison privé|
+
+Après avoir terminé cette configuration DNS, vous pouvez accéder à votre application web en privé avec le nom par défaut mywebappname.azurewebsites.net.
+
+
 Si vous devez utiliser un nom DNS personnalisé, vous devez ajouter celui-ci dans votre application web. Pendant la période de préversion, le nom personnalisé doit être validé comme n’importe quel nom personnalisé, à l’aide de la résolution DNS publique. Pour plus d’informations, consultez la rubrique relative à la [validation DNS personnalisée][dnsvalidation].
 
-Si vous devez utiliser la console Kudu ou l’API REST Kudu (déploiement avec les agents autohébergés Azure DevOps, par exemple), vous devez créer deux enregistrements dans votre zone privée Azure DNS ou votre serveur DNS personnalisé. 
-- PrivateEndpointIP yourwebappname.azurewebsites.net 
-- PrivateEndpointIP yourwebappname.scm.azurewebsites.net 
+Pour la console Kudu ou l’API REST Kudu (déploiement avec les agents autohébergés Azure DevOps, par exemple), vous devez créer deux enregistrements dans votre zone privée Azure DNS ou votre serveur DNS personnalisé. 
+
+| Nom | Type | Valeur |
+|-----|-----|-----|
+| mywebapp.privatelink.azurewebsites.net | Un | PrivateEndpointIP | 
+| mywebapp.scm.privatelink.azurewebsites.net | Un | PrivateEndpointIP | 
+
+
 
 ## <a name="pricing"></a>Tarifs
 
@@ -86,8 +124,9 @@ Nous améliorons régulièrement la fonctionnalité de liaison privée et le poi
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Pour déployer un point de terminaison privé pour votre application web via le portail, voir [Comment se connecter en privé à une application web][howtoguide]
-
+- Pour déployer un point de terminaison privé pour votre application web via le portail, consultez [Se connecter en privé à une application web avec le portail][howtoguide1]
+- Pour déployer un point de terminaison privé pour votre application web Azure CLI, consultez [Se connecter en privé à une application web avec Azure CLI][howtoguide2]
+- Pour déployer un point de terminaison privé pour votre application web PowerShell, consultez [Se connecter en privé à une application web avec PowerShell][howtoguide3]
 
 
 
@@ -101,4 +140,6 @@ Pour déployer un point de terminaison privé pour votre application web via le 
 [dnsvalidation]: https://docs.microsoft.com/azure/app-service/app-service-web-tutorial-custom-domain
 [pllimitations]: https://docs.microsoft.com/azure/private-link/private-endpoint-overview#limitations
 [pricing]: https://azure.microsoft.com/pricing/details/private-link/
-[howtoguide]: https://docs.microsoft.com/azure/private-link/create-private-endpoint-webapp-portal
+[howtoguide1]: https://docs.microsoft.com/azure/private-link/create-private-endpoint-webapp-portal
+[howtoguide2]: https://docs.microsoft.com/azure/app-service/scripts/cli-deploy-privateendpoint
+[howtoguide3]: https://docs.microsoft.com/azure/app-service/scripts/powershell-deploy-private-endpoint

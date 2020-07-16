@@ -1,21 +1,21 @@
 ---
-title: Comment déployer des modèles sur des instances de calcul
+title: Déployer des modèles sur des instances de calcul
 titleSuffix: Azure Machine Learning
 description: Découvrez comment déployer vos modèles Azure Machine Learning en tant que service web en utilisant des instances de calcul.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
-ms.topic: conceptual
+ms.topic: how-to
 ms.author: mnark
 author: MrudulaN
 ms.reviewer: larryfr
 ms.date: 03/05/2020
-ms.openlocfilehash: 09164580b8bdb249fc12d14e827ad799d51cab34
-ms.sourcegitcommit: 441db70765ff9042db87c60f4aa3c51df2afae2d
+ms.openlocfilehash: 5f2872becd5fb23c71fabb63fb4eafe27c00a637
+ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/06/2020
-ms.locfileid: "80756582"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86106966"
 ---
 # <a name="deploy-a-model-to-azure-machine-learning-compute-instances"></a>Déployer un modèle sur des instances de calcul Azure Machine Learning
 

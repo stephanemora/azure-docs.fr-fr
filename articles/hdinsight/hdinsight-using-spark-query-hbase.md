@@ -5,15 +5,15 @@ author: hrasheed-msft
 ms.author: hrasheed
 ms.reviewer: jasonh
 ms.service: hdinsight
-ms.topic: conceptual
+ms.topic: how-to
 ms.custom: hdinsightactive,seoapr2020
 ms.date: 04/20/2020
-ms.openlocfilehash: e5d9d4f215752d95ee1d676e8a5b126b6d0d3ab2
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 3ddb8734a3d15a6cd5f4a43ee069d6364f7523ed
+ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82190620"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86087484"
 ---
 # <a name="use-apache-spark-to-read-and-write-apache-hbase-data"></a>Utiliser Apache Spark pour lire et écrire des données Apache HBase
 
@@ -113,15 +113,51 @@ exit
 
 ## <a name="run-spark-shell-referencing-the-spark-hbase-connector"></a>Exécuter l’interpréteur de commandes Spark en référençant le connecteur HBase Spark
 
-1. Depuis votre session SSH ouverte sur le cluster Spark, entrez la commande ci-dessous pour démarrer un interpréteur de commandes Spark :
+Une fois l’étape précédente terminée, vous devriez être en mesure d’exécuter Spark Shell, en référençant la version appropriée du connecteur Spark HBase. Pour trouver la version principale la plus récente du connecteur Spark HBase qui soit adaptée à votre scénario de cluster, consultez [SHC Core Repository](https://repo.hortonworks.com/content/groups/public/com/hortonworks/shc/shc-core/).
+
+Par exemple, le tableau suivant liste deux versions, ainsi que les commandes correspondantes actuellement utilisées par l’équipe HDInsight. Vous pouvez utiliser les mêmes versions pour vos clusters si les versions de HBase et Spark sont identiques à celles indiquées dans le tableau. 
+
+
+1. Dans votre session SSH ouverte sur le cluster Spark, entrez la commande suivante pour démarrer un interpréteur de commandes Spark :
+
+    |Version de Spark| Version HDI HBase  | Version SHC    |  Commande  |
+    | :-----------:| :----------: | :-----------: |:----------- |
+    |      2.1    | HDI 3.6 (HBase 1.1) | 1.1.0.3.1.2.2-1    | `spark-shell --packages com.hortonworks:shc-core:1.1.1-2.1-s_2.11 --repositories https://repo.hortonworks.com/content/groups/public/` |
+    |      2.4    | HDI 4.0 (HBase 2.0) | 1.1.1-2.1-s_2.11  | `spark-shell --packages com.hortonworks.shc:shc-core:1.1.0.3.1.2.2-1 --repositories http://repo.hortonworks.com/content/groups/public/` |
+
+2. Laissez cette instance de l'interpréteur de commandes Spark ouverte et passez à l'étape [Définir un catalogue et l'interroger](#define-a-catalog-and-query). Si vous ne trouvez pas les fichiers .jar correspondant à vos versions dans le référentiel SHC Core, poursuivez votre lecture. 
+
+Vous pouvez créer les fichiers .jar à partir de la branche GitHub [spark-hbase-connector](https://github.com/hortonworks-spark/shc). Par exemple, si vous utilisez Spark 2.3 et HBase 1.1, procédez comme suit :
+
+1. Clonez le référentiel :
 
     ```bash
-    spark-shell --packages com.hortonworks:shc-core:1.1.1-2.1-s_2.11 --repositories https://repo.hortonworks.com/content/groups/public/
-    ```  
+    git clone https://github.com/hortonworks-spark/shc
+    ```
+    
+2. Accédez à la branche-2.3 :
 
-2. Laissez cette instance de l’interpréteur de commandes Spark ouverte et passez à l’étape suivante.
+    ```bash
+    git checkout branch-2.3
+    ```
 
-## <a name="define-a-catalog-and-query"></a>Définir un catalogue et interroger
+3. Créez à partir de la branche (crée un fichier .jar) :
+
+    ```bash
+    mvn clean package -DskipTests
+    ```
+    
+3. Exécutez la commande suivante (veillez à modifier le nom .jar qui correspond au fichier .jar que vous avez créé) :
+
+    ```bash
+    spark-shell --jars <path to your jar>,/usr/hdp/current/hbase-client/lib/htrace-core-3.1.0-incubating.jar,/usr/hdp/current/hbase-client/lib/hbase-client.jar,/usr/hdp/current/hbase-client/lib/hbase-common.jar,/usr/hdp/current/hbase-client/lib/hbase-server.jar,/usr/hdp/current/hbase-client/lib/hbase-protocol.jar,/usr/hdp/current/hbase-client/lib/htrace-core-3.1.0-incubating.jar
+    ```
+    
+4. Laissez cette instance de l'interpréteur de commandes Spark ouverte et passez à la section suivante. 
+
+
+
+## <a name="define-a-catalog-and-query"></a>Définir un catalogue et l'interroger
 
 Dans cette étape, vous définissez un objet de catalogue qui mappe le schéma depuis Apache Spark vers Apache HBase.  
 
@@ -150,11 +186,11 @@ Dans cette étape, vous définissez un objet de catalogue qui mappe le schéma d
     |}""".stripMargin
     ```
 
-    Le code effectue les actions suivantes :  
+    Le code :  
 
-     a. Définissez un schéma de catalogue pour la table HBase nommée `Contacts`.  
-     b. Identifiez `key` comme RowKey et mappez les noms de colonnes utilisés dans Spark à la famille de colonne, au nom de colonne et au type de colonne utilisés dans HBase.  
-     c. RowKey doit également être défini en détail en tant que colonne nommée (`rowkey`), qui a une famille de colonne spécifique `cf` de `rowkey`.  
+    1. définit un schéma de catalogue pour la table HBase nommée `Contacts`.  
+    1. Identifie `key` comme RowKey et mappe les noms de colonnes utilisés dans Spark à la famille de colonne, au nom de colonne et au type de colonne utilisés dans HBase.  
+    1. Définit le RowKey en détail comme une colonne nommée (`rowkey`), qui a une famille de colonne `cf` de `rowkey`.  
 
 1. Entrez la commande ci-dessous pour définir une méthode qui fournit un DataFrame autour de votre table `Contacts` dans HBase :
 

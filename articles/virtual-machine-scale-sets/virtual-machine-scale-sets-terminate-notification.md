@@ -9,12 +9,12 @@ ms.subservice: management
 ms.date: 02/26/2020
 ms.reviewer: jushiman
 ms.custom: avverma
-ms.openlocfilehash: 695fd03d7c1856ad39b7672d826f85bc4c68a99c
-ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
+ms.openlocfilehash: 65fc822250ae8284c9f87af262356730ff1d54c4
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/12/2020
-ms.locfileid: "83125177"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85207513"
 ---
 # <a name="terminate-notification-for-azure-virtual-machine-scale-set-instances"></a>Notification d’arrêt des instances de groupe de machines virtuelles identiques Azure
 Les instances de groupe identique peuvent choisir de recevoir des notifications d’arrêt de l’instance et de configurer un délai d’attente prédéfini pour l’opération d’arrêt. La notification d’arrêt est envoyée par le biais d’Azure Metadata Service – [Scheduled Events](../virtual-machines/windows/scheduled-events.md), qui fournit des notifications et un report des opérations ayant un impact, telles que le redémarrage et le redéploiement. La solution ajoute un autre événement (Terminate) à la liste de Scheduled Events, et le délai associé à l’événement d’arrêt dépend de la limite de délai spécifiée par les utilisateurs dans leurs configurations de modèle de groupe identique.
@@ -178,7 +178,7 @@ Voici le code JSON attendu dans le corps de la requête POST. La requête doit c
 
 Vérifiez que chaque machine virtuelle du groupe identique n’approuve que l’EventID correspondant à cette machine virtuelle. Une machine virtuelle peut obtenir son propre nom de machine virtuelle [par le biais de métadonnées d’instance](virtual-machine-scale-sets-instance-ids.md#instance-metadata-vm-name). Ce nom prend la forme « {nom_groupe_identique}_{ID_instance} » et est affiché dans la section « Resources » de la réponse de la requête décrite ci-dessus.
 
-Vous pouvez également vous reporter aux exemples de scripts pour l’interrogation et la réponse aux événements à l’aide de [PowerShell](../virtual-machines/windows/scheduled-events.md#powershell-sample) et [Python](../virtual-machines/linux/scheduled-events.md#python-sample).
+Vous pouvez également vous reporter aux exemples de scripts pour l’interrogation et la réponse aux événements à l’aide de [Python](../virtual-machines/linux/scheduled-events.md#python-sample).
 
 ## <a name="tips-and-best-practices"></a>Conseils et meilleures pratiques
 -   Notifications d’arrêt uniquement sur les opérations de suppression : toutes les opérations de suppression (suppression manuelle ou scale-in lancé par la mise à l’échelle automatique) génèrent des événements Terminate si *scheduledEventsProfile* est activé sur votre groupe identique. Les autres opérations telles que le redémarrage, la réinitialisation, le redéploiement et l’arrêt/désallocation ne génèrent pas d’événements Terminate. Les notifications d’arrêt ne peuvent pas être activées pour les machines virtuelles de faible priorité.

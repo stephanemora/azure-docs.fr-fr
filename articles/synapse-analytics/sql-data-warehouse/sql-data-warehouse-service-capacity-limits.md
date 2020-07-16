@@ -6,17 +6,17 @@ author: mlee3gsd
 manager: craigg
 ms.service: synapse-analytics
 ms.topic: conceptual
-ms.subservice: ''
+ms.subservice: sql-dw
 ms.date: 2/19/2020
 ms.author: martinle
 ms.reviewer: igorstan
 ms.custom: azure-synapse
-ms.openlocfilehash: fbdf0fda51ae35fac4f3f8ae45bfcd788fc406ae
-ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
+ms.openlocfilehash: c0fcbe59aa4393f1266c0840cf05c3dc7b1f6d90
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "81414000"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85204980"
 ---
 # <a name="azure-synapse-analytics-formerly-sql-dw-capacity-limits"></a>Limites de capacité Azure Synapse Analytics (anciennement SQL DW)
 
@@ -31,7 +31,7 @@ Valeurs maximales autorisées pour les différents composants d’Azure Synapse.
 | Connexion de base de données |Sessions simultanées ouvertes maximales |1 024<br/><br/>Le nombre de sessions simultanées ouvertes peut varier en fonction de l’unité DWU sélectionnée. DWU600c et unités supérieures prennent en charge un maximum de 1 024 sessions ouvertes. DWU500c et unités inférieures peuvent prendre en charge un maximum de 512 sessions ouvertes simultanées. Notez qu’il existe des limites sur le nombre de requêtes pouvant s’exécuter simultanément. En cas de dépassement d’une limite de concurrence, la demande est placée dans une file d’attente interne où elle attend d’être traitée. |
 | Connexion de base de données |Mémoire maximale pour les instructions préparées |20 Mo |
 | [Gestion des charges de travail](resource-classes-for-workload-management.md) |Nombre maximal de requêtes simultanées |128<br/><br/>  Un maximum de 128 requêtes simultanées est exécuté et les requêtes restantes sont mises en file d’attente.<br/><br/>Le nombre de requêtes simultanées peut diminuer lorsque les utilisateurs sont assignés à des classes de ressources plus élevées ou lorsque le paramètre [unité d’entrepôt de données](memory-concurrency-limits.md) est inférieur. Certaines requêtes, comme les requêtes DMV, sont toujours autorisées à s’exécuter et n’affectent pas la limite de requêtes simultanées. Pour plus d’informations sur l’exécution de requêtes simultanées, consultez l’article [Valeurs maximales de concurrence](memory-concurrency-limits.md). |
-| [tempdb](sql-data-warehouse-tables-temporary.md) |Go maximum |399 Go par DW100c. Par conséquent, pour DWU1000c, la taille de tempdb est 3,99 To. |
+| [tempdb](sql-data-warehouse-tables-temporary.md) |Go maximum |399 Go par DW100c. Pour DWU1000c, la taille de tempdb est 3,99 To. |
 ||||
 
 ## <a name="database-objects"></a>Objets de base de données
@@ -43,7 +43,7 @@ Valeurs maximales autorisées pour les différents composants d’Azure Synapse.
 | Table de charge de travail |Tables par base de données | 100 000 |
 | Table de charge de travail |Colonnes par table |1 024 colonnes |
 | Table de charge de travail |Octets par colonne |Dépend de la colonne [type de données](sql-data-warehouse-tables-data-types.md). La limite est de 8 000 pour les types de données Char, de 4 000 pour nvarchar ou 2 Go pour les types de données MAX. |
-| Table de charge de travail |Octets par ligne, taille définie |8060 octets<br/><br/>Le nombre d’octets par ligne est calculé de la même manière que pour SQL Server avec la compression de page. Comme SQL Server, le stockage de dépassement de ligne est pris en charge, permettant d’envoyer les **colonnes de longueur variable** hors ligne. Lorsque des lignes de longueur variable sont envoyées hors ligne, seule une racine de 24 octets est stockée dans l’enregistrement principal. Pour plus d’informations, consultez [Données de dépassement de ligne de plus de 8 Ko](https://msdn.microsoft.com/library/ms186981.aspx). |
+| Table de charge de travail |Octets par ligne, taille définie |8060 octets<br/><br/>Le nombre d’octets par ligne est calculé de la même manière que pour SQL Server avec la compression de page. Comme SQL Server, le stockage de dépassement de ligne est pris en charge, permettant d’envoyer les **colonnes de longueur variable** hors ligne. Lorsque des lignes de longueur variable sont envoyées hors ligne, seule une racine de 24 octets est stockée dans l’enregistrement principal. Pour plus d’informations, consultez [Données de dépassement de ligne de plus de 8 ko](https://msdn.microsoft.com/library/ms186981.aspx). |
 | Table de charge de travail |Partitions par table |15,000<br/><br/>Pour des performances élevées, nous vous recommandons de réduire au minimum le nombre de partitions nécessaires tout en prenant quand même en charge les besoins de votre entreprise. À mesure que le nombre de partitions augmente, la charge pour les opérations Langage de définition de données (DDL) et Langage de manipulation de données (DML) augmente et ralentit les performances. |
 | Table de charge de travail |Caractères par valeur limite de partition. |4000 |
 | Index |Index non-cluster par table. |50<br/><br/>Applicable uniquement aux tables de stockage de lignes. |
@@ -79,7 +79,7 @@ Valeurs maximales autorisées pour les différents composants d’Azure Synapse.
 | SELECT |Octets par colonnes GROUP BY. |8060<br/><br/>Les colonnes incluses dans la clause GROUP BY peuvent comporter un maximum de 8 060 octets. |
 | SELECT |Octets par colonnes ORDER BY |8060 octets<br/><br/>Les colonnes incluses dans la clause ORDER BY peuvent comporter un maximum de 8060 octets. |
 | Identificateurs par instruction |Nombre d’identificateurs référencés |65 535<br/><br/> Le nombre d’identificateurs pouvant être contenus dans une seule expression d’une requête est limité. Le dépassement de ce nombre génère l’erreur SQL Server 8632. Pour plus d’informations, consultez la rubrique [Internal error: An expression services limit has been reached (Erreur interne : une limite des services d’expression est dépassée)](https://support.microsoft.com/help/913050/error-message-when-you-run-a-query-in-sql-server-2005-internal-error-a). |
-| Littéraux de chaîne | Nombre de littéraux de chaîne dans une instruction | 20 000 <br/><br/>Le nombre de constantes de chaîne pouvant être contenus dans une seule expression d’une requête est limité. Le dépassement de ce nombre génère l’erreur SQL Server 8632.|
+| Littéraux de chaîne | Nombre de littéraux de chaîne dans une instruction | 20 000 <br/><br/>Le nombre de constantes de chaîne pouvant être contenus dans une seule expression d’une requête est limité. Le dépassement de ce nombre génère l’erreur SQL Server 8632.|
 ||||
 
 ## <a name="metadata"></a>Métadonnées

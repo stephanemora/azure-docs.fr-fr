@@ -3,12 +3,12 @@ title: Développer Azure Functions avec Visual Studio Code
 description: Découvrez comment développer et tester Azure Functions à l’aide de l’extension Azure Functions pour Visual Studio Code.
 ms.topic: conceptual
 ms.date: 08/21/2019
-ms.openlocfilehash: 2d33b7dddf29d37d174bdb7734e9048bc1658840
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 459162c277a9510297580a99acb8a88b0702a290
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79235065"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84732466"
 ---
 # <a name="develop-azure-functions-by-using-visual-studio-code"></a>Développer Azure Functions avec Visual Studio Code
 
@@ -96,11 +96,15 @@ Selon votre langage de programmation, ces autres fichiers sont créés :
 
 * Un [fichier bibliothèque de classes HttpExample.cs](functions-dotnet-class-library.md#functions-class-library-project), qui implémente la fonction.
 
+À ce stade, vous pouvez ajouter des liaisons d’entrée et de sortie à votre fonction en [ajoutant un paramètre à une fonction de bibliothèque de classes C#](#add-input-and-output-bindings).
+
 # <a name="javascript"></a>[JavaScript](#tab/nodejs)
 
 * Un fichier package.json dans le dossier racine.
 
 * Un dossier HttpExample, qui contient le [fichier de définition function.json](functions-reference-node.md#folder-structure) et le [fichier index.js](functions-reference-node.md#exporting-a-function), un fichier Node.js qui contient le code de fonction.
+
+À ce stade, vous pouvez ajouter des liaisons d’entrée et de sortie à votre fonction en [modifiant le fichier function.json](#add-input-and-output-bindings).
 
 <!-- # [PowerShell](#tab/powershell)
 
@@ -113,8 +117,6 @@ Selon votre langage de programmation, ces autres fichiers sont créés :
 * An HttpExample folder that contains the [function.json definition file](functions-reference-python.md#programming-model) and the \_\_init\_\_.py file, which contains the function code.
      -->
 ---
-
-À ce stade, vous pouvez ajouter des liaisons d’entrée et de sortie à votre fonction en [modifiant le fichier function.json](#add-a-function-to-your-project), ou en [ajoutant un paramètre à une fonction de bibliothèque de classes C#](#add-a-function-to-your-project).
 
 Vous pouvez également [ajouter une fonction à votre projet](#add-a-function-to-your-project).
 
@@ -244,7 +246,7 @@ Les étapes suivantes permettent de publier votre projet dans une nouvelle appli
 
 1. Si vous n’êtes pas connecté, vous êtes invité à le faire avec **Se connecter à Azure**. Vous pouvez également **créer un compte Azure gratuit**. Une fois la connexion établie à partir du navigateur, revenez à Visual Studio Code.
 
-1. Si vous disposez de plusieurs abonnements, **Sélectionnez un abonnement** pour l’application de fonction, puis sélectionnez **+ Créer une application de fonction dans Azure... _Avancé_** . Cette option _Avancé_ vous donne plus de contrôle sur les ressources que vous créez dans Azure. 
+1. Si vous disposez de plusieurs abonnements, **Sélectionnez un abonnement** pour l’application de fonction, puis sélectionnez **+ Créer une application de fonction dans Azure... _Avancé_**. Cette option _Avancé_ vous donne plus de contrôle sur les ressources que vous créez dans Azure. 
 
 1. Suivez les invites et fournissez ces informations :
 
@@ -267,13 +269,7 @@ Lorsque vous configurez un [déploiement continu](functions-continuous-deploymen
 > [!IMPORTANT]
 > La publication sur une application de fonction existante remplace le contenu de cette application dans Azure.
 
-1. Dans Visual Studio Code, sélectionnez F1 pour ouvrir la palette de commandes. Dans la palette de commandes, recherchez et sélectionnez **Azure Functions: Deploy to function app**.
-
-1. Si vous n’êtes pas connecté, vous êtes invité à le faire avec **Se connecter à Azure**. Une fois la connexion établie à partir du navigateur, revenez à Visual Studio Code. Si vous avez plusieurs abonnements, **sélectionnez un abonnement** qui contient votre application de fonction.
-
-1. Sélectionnez votre application de fonction existante dans Azure. Dans la fenêtre d’avertissement sur le remplacement de tous les fichiers dans l’application de fonction, sélectionnez **Déployer** pour accepter l’avertissement et continuer.
-
-Le projet est régénéré, repackagé et chargé vers Azure. Le projet existant est remplacé par le nouveau package, et l’application de fonction redémarre.
+[!INCLUDE [functions-republish-vscode](../../includes/functions-republish-vscode.md)]
 
 ## <a name="get-the-url-of-the-deployed-function"></a>Obtenir l’URL de la fonction déployée
 

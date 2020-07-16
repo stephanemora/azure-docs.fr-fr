@@ -11,12 +11,12 @@ author: srinia
 ms.author: srinia
 ms.reviewer: sstein
 ms.date: 12/18/2018
-ms.openlocfilehash: 995d70419edb374c3761fe2f989ce3a757cc7a47
-ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
+ms.openlocfilehash: 62202946193c111921c97dc95a7ec7955a63804f
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "84038280"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85251163"
 ---
 # <a name="create-configure-and-manage-elastic-jobs"></a>Créer, configurer et gérer des travaux élastiques
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -27,7 +27,7 @@ Si vous n’avez pas encore utilisé de travaux élastiques, [découvrez-en plus
 
 ## <a name="create-and-configure-the-agent"></a>Créer et configurer l’agent
 
-1. Créez ou identifiez une base de données SQL de niveau S0 ou supérieur. Celle-ci sera utilisée comme *base de données des travaux* durant la création de l’agent de travail élastique.
+1. Créez ou identifiez une base de données de niveau S0 ou supérieur. Celle-ci sera utilisée comme *base de données des travaux* durant la création de l’agent de travail élastique.
 2. Créez un agent de travail élastique dans le [portail](https://portal.azure.com/#create/Microsoft.SQLElasticJobAgent) ou avec [PowerShell](elastic-jobs-powershell-create.md#create-the-elastic-job-agent).
 
    ![Création d’un agent de travail élastique](./media/elastic-jobs-overview/create-elastic-job-agent.png)

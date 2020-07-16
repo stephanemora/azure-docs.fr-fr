@@ -9,12 +9,12 @@ ms.topic: reference
 author: likebupt
 ms.author: keli19
 ms.date: 10/22/2019
-ms.openlocfilehash: d124fdc15bd34743b237985a66cc35625f5d9a4b
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: e47cb1180bbc6eaaaffd79b78563ab1b1d5e016a
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79456197"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85611813"
 ---
 # <a name="import-data-module"></a>Module Importer des données
 
@@ -43,6 +43,10 @@ Avant d’utiliser le stockage cloud, vous devez inscrire un magasin de données
 Après avoir défini les données souhaitées et une fois connecté à la source, **[Importer des données](./import-data.md)** déduit le type de données de chaque colonne en fonction des valeurs qu’elle contient et charge les données dans votre pipeline de concepteur. La sortie de **Importer des données** est un jeu de données qui peut être utilisé avec n’importe quel pipeline de concepteur.
 
 Si votre source de données change, vous pouvez actualiser le jeu de données et ajouter de nouvelles données en réexécutant [Importer des données](./import-data.md).
+
+> [!WARNING]
+> Si votre espace de travail se trouve dans un réseau virtuel, vous devez configurer vos magasins de données pour qu’ils utilisent les fonctionnalités de visualisation de données du concepteur. Pour plus d’informations sur l’utilisation des magasins de données et des jeux de données dans un réseau virtuel, consultez [Sécuriser vos cycles de vie de Machine Learning avec des réseaux virtuels privés](../how-to-enable-virtual-network.md#machine-learning-studio).
+
 
 ## <a name="how-to-configure-import-data"></a>Comment configurer Importer des données
 

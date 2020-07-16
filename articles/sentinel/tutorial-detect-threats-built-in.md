@@ -1,6 +1,6 @@
 ---
 title: Examiner les alertes avec Azure Sentinel | Microsoft Docs
-description: Utilisez ce didacticiel pour apprendre à examiner les alertes avec Azure Sentinel.
+description: Découvrez comment utiliser des modèles intégrés de détection des menaces Azure prédéfinis qui vous informent quand quelque chose de suspect se produit.
 services: sentinel
 documentationcenter: na
 author: yelevin
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/23/2019
 ms.author: yelevin
-ms.openlocfilehash: df855aa768fdeb279482b8407259be1a644322d9
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 2d1ef885ea36e2eee7fd30268fd7b1f4609a70bc
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "77585201"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85560030"
 ---
 # <a name="tutorial-detect-threats-out-of-the-box"></a>Tutoriel : Détection des menaces prête à l’emploi
 

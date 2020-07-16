@@ -10,12 +10,12 @@ ms.author: aashishb
 author: aashishb
 ms.reviewer: larryfr
 ms.date: 05/19/2020
-ms.openlocfilehash: 36012801a2d36b75a0683db6f029a4560150ac2b
-ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
+ms.openlocfilehash: be0e24977bbb1aeec74e8847b3fb128267a9ec0e
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/20/2020
-ms.locfileid: "83683056"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85392231"
 ---
 # <a name="enterprise-security-for-azure-machine-learning"></a>Sécurité de l’entreprise pour Azure Machine Learning
 
@@ -146,7 +146,7 @@ Pour utiliser vos propres clés (gérées par le client) afin de chiffrer l’in
 
 Pour activer l’approvisionnement d’une instance de Cosmos DB dans votre abonnement avec des clés gérées par le client, effectuez les actions suivantes :
 
-* Inscrivez les fournisseurs de ressources Azure Machine Learning et Azure Cosmos DB dans votre abonnement, si ce n’est pas déjà fait.
+* Inscrivez les fournisseurs de ressources Microsoft.MachineLearning et Microsoft.DocumentDB dans votre abonnement, si ce n’est pas déjà fait.
 
 * Autorisez l’application Azure Machine Learning (dans la gestion des identités et des accès) avec des autorisations de contributeur pour votre abonnement.
 
@@ -176,6 +176,11 @@ Pour plus d’informations sur les clés gérées par le client avec Cosmos DB, 
 Toutes les images conteneur dans votre registre ( Azure Container Registry) sont chiffrées au repos. Azure chiffre automatiquement une image avant de la stocker et la déchiffre quand Azure Machine Learning extrait l’image.
 
 Pour utiliser vos propres clés (gérées par le client) pour chiffrer votre Azure Container Registry, vous devez créer votre propre ACR et le joindre pendant la configuration de l’espace de travail ou chiffrer l’instance par défaut qui est créée au moment de la configuration de l’espace de travail.
+
+> [!IMPORTANT]
+> Azure Machine Learning nécessite l’activation du compte administrateur sur votre instance Azure Container Registry. Par défaut, ce paramètre est désactivé lorsque vous créez un registre de conteneurs. Pour plus d’informations sur l’activation du compte administrateur, consultez [Compte administrateur](/azure/container-registry/container-registry-authentication#admin-account).
+>
+> Une fois qu’un Azure Container Registry a été créé pour un espace de travail, ne le supprimez pas. Cela entraînerait l’arrêt de votre espace de travail Azure Machine Learning.
 
 Pour un exemple de création d’un espace de travail en utilisant un Azure Container Registry existant, consultez les articles suivants :
 

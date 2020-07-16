@@ -3,19 +3,19 @@ title: Planifier des tâches pour gérer les données contiguës
 description: Créer et exécuter des tâches récurrentes qui gèrent les données contiguës à l’aide de fenêtres glissantes dans Azure Logic Apps
 services: logic-apps
 ms.suite: integration
-ms.reviewer: deli, klam, logicappspm
+ms.reviewer: deli, logicappspm
 ms.topic: conceptual
 ms.date: 03/25/2020
-ms.openlocfilehash: 3ec71a1ed8d24eb637afbb73b5949b69a1e3c041
-ms.sourcegitcommit: ac4a365a6c6ffa6b6a5fbca1b8f17fde87b4c05e
+ms.openlocfilehash: 103805fbf395dc120acc96fbcee273abcf14939d
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/10/2020
-ms.locfileid: "83004600"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85322110"
 ---
 # <a name="schedule-and-run-tasks-for-contiguous-data-by-using-the-sliding-window-trigger-in-azure-logic-apps"></a>Planifier et exécuter des tâches pour les données contiguës à l’aide du déclencheur Fenêtre glissante dans Azure Logic Apps
 
-Pour exécuter régulièrement des tâches, processus ou travaux devant gérer des données dans des blocs contigus, vous pouvez démarrer votre workflow d’application logique avec le déclencheur **Fenêtre glissante**. Vous pouvez définir une date et une heure, ainsi qu’un fuseau horaire, pour démarrer le flux de travail, et une récurrence pour la répétition de ce flux de travail. Si des périodicités sont manquantes pour une raison quelconque, ce déclencheur les traite. Par exemple, lors de la synchronisation de données entre votre base de données et le stockage de sauvegarde, utilisez le déclencheur Fenêtre glissante afin que les données soient synchronisées sans que cela génère des écarts. Pour plus d’informations sur les déclencheurs et actions de Planification intégrés, voir [Planifier et exécuter des tâches et des workflows automatisés et récurrents avec Azure Logic Apps](../logic-apps/concepts-schedule-automated-recurring-tasks-workflows.md).
+Pour exécuter régulièrement des tâches, processus ou travaux devant gérer des données dans des blocs contigus, vous pouvez démarrer votre workflow d’application logique avec le déclencheur **Fenêtre glissante**. Vous pouvez définir une date et une heure, ainsi qu’un fuseau horaire, pour démarrer le flux de travail, et une récurrence pour la répétition de ce flux de travail. Si des récurrences sont manquées pour une raison quelconque, par exemple suite à des interruptions ou à des flux de travail désactivés, ce déclencheur traite ces récurrences manquées. Par exemple, lors de la synchronisation de données entre votre base de données et le stockage de sauvegarde, utilisez le déclencheur Fenêtre glissante afin que les données soient synchronisées sans que cela génère des écarts. Pour plus d’informations sur les déclencheurs et actions de Planification intégrés, voir [Planifier et exécuter des tâches et des workflows automatisés et récurrents avec Azure Logic Apps](../logic-apps/concepts-schedule-automated-recurring-tasks-workflows.md).
 
 Voici quelques modèles que ce déclencheur prend en charge :
 

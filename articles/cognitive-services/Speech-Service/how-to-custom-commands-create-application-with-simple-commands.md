@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 06/18/2020
 ms.author: sausin
-ms.openlocfilehash: 7f98b2c94659c083f5dbd2c43fd9015f8b60a9db
-ms.sourcegitcommit: 4042aa8c67afd72823fc412f19c356f2ba0ab554
+ms.openlocfilehash: 8e0927ccd8c94f589adf6eb11004b728f697b6e1
+ms.sourcegitcommit: f98ab5af0fa17a9bba575286c588af36ff075615
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/24/2020
-ms.locfileid: "85307134"
+ms.lasthandoff: 06/25/2020
+ms.locfileid: "85362405"
 ---
 # <a name="create-application-with-simple-commands"></a>Créer une application avec des commandes simples
 
@@ -27,6 +27,10 @@ Dans cet article, vous apprendrez comment :
 ## <a name="create-empty-application"></a>Créer une application vide
 Créez une application Commandes personnalisées vide. Pour plus d’informations, reportez-vous au [démarrage rapide](quickstart-custom-commands-application.md). Cette fois, au lieu d’importer un projet, vous créez un projet vide.
 
+1. Dans la zone **Nom**, entrez le nom de projet `Smart-Room-Lite` (ou le nom de votre choix).
+1. Dans la liste **Langue**, sélectionnez **Français - France**.
+1. Sélectionnez ou créez une ressource LUIS de votre choix.
+
    > [!div class="mx-imgBorder"]
    > ![Créer un projet](media/custom-commands/create-new-project.png)
 
@@ -36,7 +40,7 @@ Vous pouvez mettre à jour la ressource de création que vous avez sélectionné
 
 ## <a name="add-turnon-command"></a>Ajouter une commande TurnOn
 
-Dans l’application Commandes personnalisées **smart room-lite**, ajoutez une commande simple qui traite un énoncé, `turn on the tv`, et répond avec le message `Ok, turning the tv on`.
+Dans l’application Commandes personnalisées **Smart-Room-Lite** que vous venez de créer, ajoutez une commande simple qui traite un énoncé, `turn on the tv`, et répond avec le message `Ok, turning the tv on`.
 
 1. Créez une commande en sélectionnant **Nouvelle commande** en haut du volet gauche. La fenêtre **Nouvelle commande** s’ouvre.
 1. Pour le champ **Nom**, indiquez la valeur **TurnOn**.
@@ -74,7 +78,7 @@ Pour le moment, nous n’avons pas de paramètres ; nous pouvons donc passer à
 
 La commande doit maintenant avoir une règle d’exécution. Cette règle indique à l’utilisateur qu’une action d’exécution est en cours. Pour en savoir plus sur les règles et les règles d’exécution, consultez les [références](./custom-commands-references.md).
 
-1. Sélectionnez la règle d’exécution par défaut **Done** (terminé) et modifiez-la comme suit : 
+1. Sélectionnez la règle d’exécution par défaut **Done** (terminé) et modifiez-la comme suit :
 
     
     | Paramètre    | Valeur suggérée                          | Description                                        |
@@ -84,13 +88,7 @@ La commande doit maintenant avoir une règle d’exécution. Cette règle indiqu
     | **Actions**    | Envoyer une réponse vocale > Éditeur simple > Première variation > `Ok, turning the tv on` | Action à exécuter lorsque la condition de la règle est remplie |
     
 
-1. Vous pouvez également supprimer la règle d’exécution par défaut existante et en créer une en sélectionnant **Ajouter** en haut du volet central.
-1. Indiquez la valeur dans la section **Nom**.
-1. Ajoutez une action.
-   1. Créez une action en sélectionnant **Ajouter une action** dans la section **Actions**.
-   1. Dans la fenêtre **Nouvelle action**, dans la liste **Type**, sélectionnez **Envoyer une réponse vocale**.
-   1. Sous **Réponse**, sélectionnez **Éditeur simple**.
-   1. Dans le champ **Première variante**, entrez la valeur suivante pour la réponse `Ok, turning the tv on`.
+
 
    > [!div class="mx-imgBorder"]
    > ![Créer une ressource Speech](media/custom-commands/create-speech-response-action.png)
@@ -98,6 +96,9 @@ La commande doit maintenant avoir une règle d’exécution. Cette règle indiqu
 1. Sélectionnez **Enregistrer** pour enregistrer l’action.
 1. Revenez à la section **Règles d'exécution** et sélectionnez **Enregistrer** pour enregistrer toutes les modifications apportées. 
 
+
+ > [!NOTE]
+    > Il n’est pas nécessaire d’utiliser la règle de saisie semi-automatique par défaut fournie avec la commande. Si nécessaire, vous pouvez supprimer la règle de saisie semi-automatique par défaut et ajouter votre propre règle.
 
 ### <a name="try-it-out"></a>Faites un essai
 

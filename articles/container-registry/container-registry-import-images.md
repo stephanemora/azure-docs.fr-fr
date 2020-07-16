@@ -3,12 +3,12 @@ title: Importer les images conteneur
 description: Importez des images conteneur dans un registre de conteneurs Azure à l’aide d’API Azure sans avoir à exécuter de commandes Docker.
 ms.topic: article
 ms.date: 03/16/2020
-ms.openlocfilehash: caf7a47ac8f7ff0e72d2e049a7013542d274a225
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: a7a6566540880d027b1dc3428d394b352f34318d
+ms.sourcegitcommit: 0100d26b1cac3e55016724c30d59408ee052a9ab
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80051918"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86023514"
 ---
 # <a name="import-container-images-to-a-container-registry"></a>Importer des images conteneur dans un registre de conteneurs
 
@@ -72,13 +72,13 @@ az acr import \
 
 ### <a name="import-from-microsoft-container-registry"></a>Importer à partir du registre de conteneurs Microsoft
 
-Par exemple, importez la dernière image Windows Server Core à partir du dépôt `windows` dans le registre de conteneurs Microsoft.
+Par exemple, importez l’`ltsc2019`image Windows Server Core à partir du référentiel `windows` dans le registre de conteneurs Microsoft.
 
 ```azurecli
 az acr import \
 --name myregistry \
---source mcr.microsoft.com/windows/servercore:latest \
---image servercore:latest
+--source mcr.microsoft.com/windows/servercore:ltsc2019 \
+--image servercore:ltsc2019
 ```
 
 ## <a name="import-from-another-azure-container-registry"></a>Importer à partir d’un registre de conteneurs Azure

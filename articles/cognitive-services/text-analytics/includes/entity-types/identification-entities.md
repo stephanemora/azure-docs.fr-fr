@@ -105,7 +105,7 @@ Grèce
 * Numéro de carte d’identité nationale en Grèce
 
 Hong Kong (R.A.S.)
-* Numéro de carte d’identité à Hong Kong
+* Numéro de carte d’identité à Hong Kong (R.A.S.)
 
 Inde
 * Numéro de compte permanent (PAN) en Inde

@@ -6,19 +6,19 @@ author: curtand
 ms.author: curtand
 manager: mtillman
 ms.date: 04/27/2020
-ms.topic: conceptual
+ms.topic: how-to
 ms.service: active-directory
 ms.subservice: users-groups-roles
 ms.workload: identity
 ms.custom: it-pro
 ms.reviewer: jeffsta
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 5b83b0687db72c78a0c7788933acf07f5cb9e0ed
-ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
+ms.openlocfilehash: 755e59a029b0a12e51db53c6c7d3bb00358af635
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/20/2020
-ms.locfileid: "83679348"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84742010"
 ---
 # <a name="bulk-add-group-members-in-azure-active-directory"></a>Ajouter en bloc les membres d’un groupe dans Azure Active Directory
 
@@ -44,6 +44,7 @@ Les lignes d’un modèle CSV téléchargé sont les suivantes :
 - Les colonnes obligatoires sont listées en premier.
 - Nous vous déconseillons d’ajouter des colonnes au modèle. Les colonnes que vous ajouterez seront ignorées et ne seront pas traitées.
 - Nous vous recommandons de télécharger la version la plus récente du modèle CSV aussi souvent que possible.
+- Ajoutez au moins deux UPN ou ID d’objet pour télécharger le fichier avec succès.
 
 ## <a name="to-bulk-import-group-members"></a>Pour importer en bloc les membres du groupe
 

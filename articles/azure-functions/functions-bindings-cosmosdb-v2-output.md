@@ -1,18 +1,19 @@
 ---
-title: Liaison de sortie Azure Cosmos DB pour Functions 2.x
+title: Liaison de sortie Azure Cosmos DB pour Functions 2.x et versions ultérieures
 description: Découvrez comment utiliser la liaison de sortie Azure Cosmos DB dans Azure Functions.
 author: craigshoemaker
 ms.topic: reference
 ms.date: 02/24/2020
 ms.author: cshoe
-ms.openlocfilehash: 743bd21a4fd974654760402a639c661fe086d2d5
-ms.sourcegitcommit: 4499035f03e7a8fb40f5cff616eb01753b986278
+ms.custom: tracking-python
+ms.openlocfilehash: 2228a9609b0e0325dc4e6f7ccbe88417c900b688
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/03/2020
-ms.locfileid: "82735009"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85374336"
 ---
-# <a name="azure-cosmos-db-output-binding-for-azure-functions-2x"></a>Liaison de sortie Azure Cosmos DB pour Azure Functions 2.x
+# <a name="azure-cosmos-db-output-binding-for-azure-functions-2x-and-higher"></a>Liaison de sortie Azure Cosmos DB pour Azure Functions 2.x et versions ultérieures
 
 La liaison de sortie Azure Cosmos DB vous permet d’écrire un nouveau document dans une base de données Azure Cosmos DB en utilisant l’API SQL.
 

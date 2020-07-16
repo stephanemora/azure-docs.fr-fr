@@ -4,12 +4,12 @@ description: Découvrez les composants de charge de travail et de cluster de bas
 services: container-service
 ms.topic: conceptual
 ms.date: 06/03/2019
-ms.openlocfilehash: 13169628aff2fe4bff64fed36db54d18d4f830b8
-ms.sourcegitcommit: 34a6fa5fc66b1cfdfbf8178ef5cdb151c97c721c
+ms.openlocfilehash: 9b54bdbfcbc37d3863d4e6b86ae6fe5522bb5be9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82208157"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85336639"
 ---
 # <a name="kubernetes-core-concepts-for-azure-kubernetes-service-aks"></a>Concepts de base de Kubernetes pour AKS (Azure Kubernetes Service)
 
@@ -105,9 +105,9 @@ Pour conserver les fonctionnalités et les performances des nœuds, les ressourc
 
 Les règles ci-dessus relatives à l’allocation de mémoire et d’UC sont utilisées pour assurer l’intégrité des nœuds de l’agent, dont certains pods de système d’hébergement critiques pour l’intégrité du cluster. Ces règles d’allocation font également en sorte que le nœud signale moins de mémoire allouée et d’UC qu’il ne le ferait s’il faisait partie d’un cluster Kubernetes. Vous ne pouvez pas changer les réservations de ressources ci-dessus.
 
-Par exemple, si un nœud offre 7 Go, il signalera 34 % de la mémoire non allouable en plus du seuil d’éviction dur de 750Mi.
+Par exemple, si un nœud offre 7 Go, il signalera 34 % de la mémoire non allouable incluant le seuil d’éviction dur de 750Mi.
 
-`(0.25*4) + (0.20*3) = + 1 GB + 0.6GB = 1.6GB / 7GB = 22.86% reserved`
+`0.75 + (0.25*4) + (0.20*3) = 0.75GB + 1GB + 0.6GB = 2.35GB / 7GB = 33.57% reserved`
 
 En plus des réservations pour Kubernetes lui-même, le système d’exploitation du nœud sous-jacent réserve également une quantité de ressources de processeur et de mémoire pour gérer les fonctions du système d’exploitation.
 
@@ -204,11 +204,7 @@ Pour plus d’informations, consultez la section [Déploiements Kubernetes][kube
 
 Dans Kubernetes, la gestion des applications fait souvent appel à [Helm][helm]. Vous pouvez créer et utiliser des *graphiques* Helm publics existants qui contiennent une version empaquetée d’un code d’application et de manifestes YAML Kubernetes pour le déploiement de ressources. Ces graphiques Helm peuvent être stockés localement, ou souvent dans un référentiel distant, tel qu’un [référentiel de graphiques Helm Azure Container Registry][acr-helm].
 
-Pour que vous puissiez utiliser Helm, un composant de serveur appelé *Tiller* est installé dans votre cluster Kubernetes. Le composant Tiller gère l’installation des graphiques au sein du cluster. Le client Helm est lui-même installé localement sur votre ordinateur, ou peut être utilisé dans [Azure Cloud Shell][azure-cloud-shell]. Vous pouvez rechercher ou créer des graphiques Helm avec le client, puis les installer sur votre cluster Kubernetes.
-
-![Helm comprend un composant client et un composant Tiller côté serveur qui crée des ressources à l’intérieur du cluster Kubernetes](media/concepts-clusters-workloads/use-helm.png)
-
-Pour plus d’informations, consultez la section [Installer des applications avec Helm dans AKS (Azure Kubernetes Service)][aks-helm].
+Pour utiliser Helm, installez le client Helm sur votre ordinateur, ou utilisez le client Helm dans [Azure Cloud Shell][azure-cloud-shell]. Vous pouvez rechercher ou créer des graphiques Helm avec le client, puis les installer sur votre cluster Kubernetes. Pour plus d’informations, consultez la section [Installer des applications existantes avec Helm dans AKS][aks-helm].
 
 ## <a name="statefulsets-and-daemonsets"></a>Ressources StatefulSet et ressources DaemonSet
 

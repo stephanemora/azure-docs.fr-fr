@@ -4,18 +4,18 @@ description: Configurez un conteneur de profil FSLogix sur un partage de fichier
 services: virtual-desktop
 author: Heidilohr
 ms.service: virtual-desktop
-ms.topic: conceptual
-ms.date: 06/02/2020
+ms.topic: how-to
+ms.date: 06/05/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: 1ea47dbc743c980b0509a3da42da13d294bc64fc
-ms.sourcegitcommit: d118ad4fb2b66c759b70d4d8a18e6368760da3ad
+ms.openlocfilehash: 7c6b37cd8c127bf3c7643b39d54bfcdb8093c58c
+ms.sourcegitcommit: 0100d26b1cac3e55016724c30d59408ee052a9ab
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/02/2020
-ms.locfileid: "84302031"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86027390"
 ---
-# <a name="create-an-azure-files-file-share-with-a-domain-controller"></a>Créer un partage de fichiers Azure Files avec un contrôleur de domaine
+# <a name="create-a-profile-container-with-azure-files-and-ad-ds"></a>Créer un conteneur de profil avec Azure Files et AD DS
 
 Dans cet article, vous allez apprendre à créer un partage de fichiers Azure authentifié par un contrôleur de domaine sur un pool hôte Windows Virtual Desktop existant. Vous pouvez utiliser ce partage de fichiers pour stocker les profils de stockage.
 
@@ -43,7 +43,7 @@ Pour installer un compte de stockage :
     - Entrez un nom unique pour votre compte de stockage.
     - Pour **Emplacement**, nous vous recommandons de choisir le même emplacement que le pool d’hôtes Windows Virtual Desktop.
     - Pour **Performances**, sélectionnez **Standard**. (En fonction de vos besoins en E/S par seconde. Pour davantage d’informations, consultez [Options de stockage pour conteneurs de profil FSLogix dans Windows Virtual Desktop](store-fslogix-profile.md).)
-    - Pour **Type de compte**, sélectionnez **StorageV2**.
+    - Pour **Type de compte**, sélectionnez **StorageV2** ou **FileStorage** (disponible uniquement si le niveau de performance est Premium).
     - Pour **Réplication**, sélectionnez **Stockage localement redondant (LRS)** .
 
 5. Lorsque vous avez terminé, sélectionnez **Vérifier + créer**, puis sélectionnez **Créer**.
@@ -64,21 +64,22 @@ Pour créer un partage de fichiers :
 
 4. Sélectionnez **Create** (Créer).
 
-## <a name="enable-azure-active-directory-authentication"></a>Activer l’authentification Azure Active Directory
+## <a name="enable-active-directory-authentication"></a>Activer l’authentification Active Directory
 
-Ensuite, vous devez activer l’authentification Azure Active Directory (AD). Pour activer cette stratégie, vous devez suivre les instructions de cette section sur un ordinateur qui est déjà joint à un domaine. Pour activer l’authentification, suivez ces instructions sur la machine virtuelle exécutant le contrôleur de domaine :
+Ensuite, vous devez activer l’authentification Active Directory (AD). Pour activer cette stratégie, vous devez suivre les instructions de cette section sur un ordinateur qui est déjà joint à un domaine. Pour activer l’authentification, suivez ces instructions sur la machine virtuelle exécutant le contrôleur de domaine :
 
 1. Protocole RDP (Remote Desktop Protocol) à la machine virtuelle jointe au domaine.
 
 2. Suivez les instructions de [Activer l’authentification Azure AD DS pour vos partages de fichiers Azure](../storage/files/storage-files-identity-ad-ds-enable.md) pour installer le module AzFilesHybrid et activer l’authentification.
 
-3.  Ouvrez le Portail Azure, ouvrez votre compte de stockage, sélectionnez **Configuration**, puis assurez-vous que **Azure Active Directory (AD)** est défini sur **Activé**.
+3.  Ouvrez le Portail Azure, ouvrez votre compte de stockage, sélectionnez **Configuration**, puis confirmez qu’**Active Directory (AD)** est défini sur **Activé**.
 
-     ![Une capture d’écran de la page Configuration avec Azure Active Directory (AD) activé.](media/active-directory-enabled.png)
+     > [!div class="mx-imgBorder"]
+     > ![Une capture d’écran de la page Configuration avec Azure Active Directory (AD) activé.](media/active-directory-enabled.png)
 
 ## <a name="assign-azure-rbac-permissions-to-windows-virtual-desktop-users"></a>Attribuer des autorisations Azure RBAC aux utilisateurs Windows Virtual Desktop
 
-Tous les utilisateurs qui doivent disposer de profils FSLogix stockés sur le compte de stockage doivent se voir attribuer le rôle Contributeur de partage SMB des données des fichiers de stockage. 
+Tous les utilisateurs qui doivent disposer de profils FSLogix stockés sur le compte de stockage doivent se voir attribuer le rôle Contributeur de partage SMB des données des fichiers de stockage.
 
 Les utilisateurs qui se connectent aux hôtes de session Windows Virtual Desktop ont besoin d’autorisations d’accès pour accéder à votre partage de fichiers. L’octroi de l’accès à un partage de fichiers Azure implique la configuration des autorisations au niveau du partage et au niveau NTFS, comme pour un partage Windows traditionnel.
 
@@ -93,15 +94,17 @@ Pour attribuer des autorisations de contrôle d’accès en fonction des permiss
 
 2. Ouvrez le compte de stockage que vous avez créé dans [Installer un compte de stockage](#set-up-a-storage-account).
 
-3. Sélectionnez **Contrôle d’accès (IAM)** .
+3. Sélectionnez **Partages de fichiers**, puis sélectionnez le nom du partage de fichiers que vous prévoyez d’utiliser.
 
-4. Sélectionnez **Ajouter une attribution de rôle**.
+4. Sélectionnez **Contrôle d’accès (IAM)** .
 
-5. Dans l’onglet **Ajouter une attribution de rôle**, sélectionnez **Contributeur élevé de partage SMB de données de fichier de stockage** pour le compte administrateur.
-   
+5. Sélectionnez **Ajouter une attribution de rôle**.
+
+6. Dans l’onglet **Ajouter une attribution de rôle**, sélectionnez **Contributeur élevé de partage SMB de données de fichier de stockage** pour le compte administrateur.
+
      Pour attribuer des autorisations aux utilisateurs pour leurs profils FSLogix, suivez les mêmes instructions. Toutefois, lorsque vous accédez à l’étape 5, sélectionnez **Contributeur de partage SMB de données de fichier de stockage** à la place.
 
-6. Sélectionnez **Enregistrer**.
+7. Sélectionnez **Enregistrer**.
 
 ## <a name="assign-users-permissions-on-the-azure-file-share"></a>Attribuer des autorisations aux utilisateurs sur le partage de fichiers Azure
 
@@ -126,7 +129,7 @@ Voici comment procéder :
 
 5. Après avoir copié l’URI, effectuez les opérations suivantes pour le modifier en UNC :
 
-    - Suppression de `https://`
+    - Supprimez `https://` et remplacez par `\\`
     - Remplacez la barre oblique `/` par une barre oblique inverse `\`.
     - Ajoutez le nom du partage de fichiers que vous avez créé dans [Crée un partage de fichiers Azure](#create-an-azure-file-share) à la fin de l’UNC.
 
@@ -157,7 +160,7 @@ Pour configurer vos autorisations NTFS :
      ```
 
 3. Exécutez la cmdlet suivante pour vérifier les autorisations d’accès au partage de fichiers Azure :
-    
+
     ```powershell
     icacls <mounted-drive-letter>:
     ```
@@ -167,7 +170,7 @@ Pour configurer vos autorisations NTFS :
     Les *Utilisateurs Autorité NT\Utilisateurs authentifiés* et *BUILTIN\Users* disposent de certaines autorisations par défaut. Ces autorisations par défaut permettent à ces utilisateurs de lire les conteneurs de profils d’autres utilisateurs. Toutefois, les autorisations décrites dans [Configurer les autorisations de stockage à utiliser avec les conteneurs de profils et les conteneurs Office](/fslogix/fslogix-storage-config-ht) ne permettent pas aux utilisateurs de lire les conteneurs de profils d’autres utilisateurs.
 
 4. Exécutez les cmdlet suivantes pour permettre à vos utilisateurs Windows Virtual Desktop de créer leurs propres conteneurs de profils tout en bloquant l’accès à leur conteneur de profil à d’autres utilisateurs.
-     
+
      ```powershell
      icacls <mounted-drive-letter>: /grant <user-email>:(M)
      icacls <mounted-drive-letter>: /grant "Creator Owner":(OI)(CI)(IO)(M)

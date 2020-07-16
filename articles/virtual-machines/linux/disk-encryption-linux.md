@@ -8,12 +8,12 @@ ms.topic: article
 ms.author: mbaldwin
 ms.date: 08/06/2019
 ms.custom: seodec18
-ms.openlocfilehash: f1ec7328363cf835c733a4d0c266732c6748c829
-ms.sourcegitcommit: 12f23307f8fedc02cd6f736121a2a9cea72e9454
+ms.openlocfilehash: 3fbbeaeafd8de5a38489034a13738ca3a9b934d5
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/30/2020
-ms.locfileid: "84218613"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85601381"
 ---
 # <a name="azure-disk-encryption-scenarios-on-linux-vms"></a>Scénarios Azure Disk Encryption sur les machines virtuelles Linux
 
@@ -388,23 +388,7 @@ Contrairement à la syntaxe de PowerShell, l’interface CLI ne nécessite pas q
 
 
 ## <a name="disable-encryption-for-linux-vms"></a>Désactiver le chiffrement pour les machines virtuelles Linux
-Vous pouvez désactiver le chiffrement avec Azure PowerShell, Azure CLI ou un modèle Resource Manager. 
-
->[!IMPORTANT]
->La désactivation du chiffrement avec Azure Disk Encryption sur les machines virtuelles Linux est prise en charge seulement pour les volumes de données. Elle n’est pas prise en charge sur les volumes de données ou de système d’exploitation si le volume du système d’exploitation a été chiffré.  
-
-- **Désactiver le chiffrement de disque avec Azure PowerShell :** Pour désactiver le chiffrement, utilisez la cmdlet [Disable-AzVMDiskEncryption](/powershell/module/az.compute/disable-azvmdiskencryption). 
-     ```azurepowershell-interactive
-     Disable-AzVMDiskEncryption -ResourceGroupName 'MyVirtualMachineResourceGroup' -VMName 'MySecureVM' [-VolumeType DATA]
-     ```
-
-- **Désactiver le chiffrement avec Azure CLI :** pour désactiver le chiffrement, utilisez la commande [az vm encryption disable](/cli/azure/vm/encryption#az-vm-encryption-disable). 
-     ```azurecli-interactive
-     az vm encryption disable --name "MySecureVM" --resource-group "MyVirtualMachineResourceGroup" --volume-type DATA
-     ```
-- **Désactiver le chiffrement avec un modèle Resource Manager :** utilisez le modèle [Désactiver le chiffrement sur une machine virtuelle Linux en cours d’exécution](https://github.com/Azure/azure-quickstart-templates/tree/master/201-decrypt-running-linux-vm-without-aad) pour désactiver le chiffrement.
-     1. Cliquez sur **Déployer dans Azure**.
-     2. Sélectionnez l’abonnement, le groupe de ressources, l’emplacement, les conditions juridiques et le contrat.
+[!INCLUDE [disk-encryption-disable-encryption-cli](../../../includes/disk-encryption-disable-cli.md)]
 
 ## <a name="unsupported-scenarios"></a>Scénarios non pris en charge
 
@@ -412,7 +396,7 @@ Azure Disk Encryption ne fonctionne pas pour les scénarios, fonctionnalités et
 
 - Chiffrement de machines virtuelles de niveau de base ou de machines virtuelles créées par le biais de la méthode de création de machine virtuelle classique
 - Désactivation du chiffrement sur un lecteur de système d’exploitation ou de données d’une machine virtuelle Linux quand le lecteur de système d’exploitation est chiffré
-- Chiffrement du lecteur de système d’exploitation pour des groupes de machines virtuelles identiques
+- Chiffrement du lecteur de système d’exploitation pour des groupes de machines virtuelles identiques.
 - Chiffrement d’images personnalisées sur des machines virtuelles Linux
 - Intégration à un système de gestion de clés local
 - Azure Files (système de fichiers partagés).
@@ -421,11 +405,14 @@ Azure Disk Encryption ne fonctionne pas pour les scénarios, fonctionnalités et
 - Disques de système d’exploitation éphémères.
 - Chiffrement des systèmes de fichiers partagés/distribués comme (liste non exhaustive) : DFS, GFS, DRDB et CephFS.
 - Déplacement d’une machine virtuelle chiffrée vers un autre abonnement.
+- Création d’une image ou d’une capture instantanée d’une machine virtuelle chiffrée et utilisation de celle-ci pour déployer des machines virtuelles supplémentaires.
 - Vidage sur incident du noyau (kdump)
 - Oracle ACFS (ASM Cluster File System).
 - Machines virtuelles Gen2 (consultez : [Prise en charge des machines virtuelles de génération 2 sur Azure](generation-2.md#generation-1-vs-generation-2-capabilities)).
 - Machines virtuelles de la série Lsv2 (consultez : [Série Lsv2](../lsv2-series.md)).
 - Une machine virtuelle avec des « points de montage imbriqués », autrement dit, avec plusieurs points de montage dans un même chemin d’accès (par exemple, « /1stmountpoint/data/2stmountpoint »).
+- Machine virtuelle avec un lecteur de données monté sur un dossier du système d’exploitation.
+- Machines virtuelles de la série M avec des disques Accélérateur d’écriture.
 
 ## <a name="next-steps"></a>Étapes suivantes
 

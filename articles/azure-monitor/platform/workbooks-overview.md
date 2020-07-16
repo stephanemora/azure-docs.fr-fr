@@ -8,12 +8,12 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 10/23/2019
 ms.author: mbullwin
-ms.openlocfilehash: 29e675f3ae35df9211f58d45ad8450566d67a588
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: b06f39de9f977a9f777b21a53e93ca744fccdd93
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "77658232"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85560150"
 ---
 # <a name="azure-monitor-workbooks"></a>Classeurs Azure Monitor
 
@@ -31,9 +31,9 @@ Les classeurs sont actuellement compatibles avec les sources de données suivant
 * [Métriques](workbooks-data-sources.md#metrics)
 * [Azure Resource Graph](workbooks-data-sources.md#azure-resource-graph)
 * [Alertes (préversion)](workbooks-data-sources.md#alerts-preview)
-* [Intégrité de la charge de travail (préversion)](workbooks-data-sources.md#workload-health-preview)
-* [Azure Resource Health (préversion)](workbooks-data-sources.md#azure-resource-health)
-* [Azure Data Explorer (préversion)](workbooks-data-sources.md#azure-data-explorer-preview)
+* [Intégrité de la charge de travail](workbooks-data-sources.md#workload-health)
+* [Azure Resource Health](workbooks-data-sources.md#azure-resource-health)
+* [Explorateur de données Azure](workbooks-data-sources.md#azure-data-explorer)
 
 ## <a name="visualizations"></a>Visualisations
 

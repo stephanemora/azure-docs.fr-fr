@@ -4,16 +4,16 @@ description: Découvrez comment configurer Azure Active Directory (Azure AD) pou
 author: lfittl-msft
 ms.author: lufittl
 ms.service: mysql
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 01/22/2019
-ms.openlocfilehash: 9d607f0ad1ab9d9924cd05ce1a66bee34e4ff18d
-ms.sourcegitcommit: f1132db5c8ad5a0f2193d751e341e1cd31989854
+ms.openlocfilehash: ff5d2e5546c8b29ed486c587a555f47fa2c7e31b
+ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/31/2020
-ms.locfileid: "84229863"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86101424"
 ---
-# <a name="use-azure-active-directory-for-authenticating-with-mysql"></a>Utiliser Azure Active Directory pour l’authentification avec MySQL
+# <a name="use-azure-active-directory-for-authentication-with-mysql"></a>Utiliser Azure Active Directory pour l’authentification avec MySQL
 
 Cet article vous détaille les étapes de configuration de l’accès à Azure Active Directory avec Azure Database pour MySQL ainsi que la manière de vous connecter à l’aide d’un jeton Azure AD.
 
@@ -123,6 +123,15 @@ mysql -h mydb.mysql.database.azure.com \
   --enable-cleartext-plugin \ 
   --password=`az account get-access-token --resource-type oss-rdbms --output tsv --query accessToken`
 ```
+
+Considérations importantes à prendre en compte lors de la connexion :
+
+* `user@tenant.onmicrosoft.com` est le nom de l’utilisateur ou du groupe Azure AD auquel vous essayez de vous connecter
+* Ajoutez toujours le nom du serveur après le nom de groupe/utilisateur Azure AD (par exemple, `@mydb`)
+* Veillez à utiliser exactement la façon dont le nom d’utilisateur ou de groupe Azure AD est épelé
+* Les noms d’utilisateurs et de groupes Azure AD respectent la casse
+* Quand vous vous connectez en tant que groupe, utilisez uniquement le nom du groupe (par exemple, `GroupName@mydb`)
+* Si le nom contient des espaces, utilisez `\` avant chaque espace pour le placer dans une séquence d’échappement
 
 Notez le paramètre « enable-cleartext-plugin » : vous devez utiliser une configuration similaire avec d’autres clients pour vous assurer que le jeton est envoyé au serveur sans être haché.
 

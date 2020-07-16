@@ -7,19 +7,19 @@ author: msmimart
 manager: celestedg
 ms.service: active-directory
 ms.workload: identity
-ms.topic: conceptual
-ms.date: 09/26/2019
+ms.topic: reference
+ms.date: 06/06/2020
 ms.author: mimart
 ms.subservice: B2C
 ms.custom: references_regions
-ms.openlocfilehash: 46d8fb33c59fc5f0b6d844831e5ee1c937654afb
-ms.sourcegitcommit: 1f48ad3c83467a6ffac4e23093ef288fea592eb5
+ms.openlocfilehash: bb9c6dbf9984ec81fbd4b93a61552211928d0f0e
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/29/2020
-ms.locfileid: "84193792"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85388712"
 ---
-# <a name="azure-active-directory-b2c-region-availability--data-residency"></a>Azure Active Directory B2C : Disponibilité régionale et résidence des données
+# <a name="azure-active-directory-b2c-region-availability--data-residency"></a>Azure Active Directory B2C : Disponibilité des régions et résidence des données
 
 La disponibilité régionale et la résidence des données sont deux concepts très différents qui ne s’appliquent pas à Azure Active Directory B2C de la même façon qu’à Azure. Cet article explique les différences entre ces deux concepts et compare la manière dont ils s’appliquent à Azure et Azure Active Directory B2C.
 
@@ -41,7 +41,7 @@ Azure AD B2C stocke les données utilisateur dans la région États-Unis, Europe
 
 La résidence des données est déterminée par le pays ou la région que vous sélectionnez quand vous [créez un locataire Azure AD B2C](tutorial-create-tenant.md) :
 
-![Capture d’écran d’un client de la préversion](./media/data-residency/data-residency-b2c-tenant.png)
+![Capture d’écran d’un formulaire Créer un locataire, choisir un pays ou une région.](./media/data-residency/data-residency-b2c-tenant.png)
 
 Les données des pays/régions suivants sont conservées aux **États-Unis** :
 
@@ -69,4 +69,4 @@ Si c’est le cas, vous devez utiliser votre locataire UNIQUEMENT à des fins de
 
 Il existe des problèmes connus liés à la suppression d’un locataire B2C en préversion et à la recréation d’un locataire B2C à l’échelle de la production portant le même nom de domaine. *Vous devez créer un locataire B2C à l’échelle de la production portant un nom de domaine différent*.
 
-![Capture d’écran d’un client de la préversion](./media/data-residency/preview-b2c-tenant.png)
+![Capture d’écran d’un type de locataire, en tant que locataire en version préliminaire.](./media/data-residency/preview-b2c-tenant.png)

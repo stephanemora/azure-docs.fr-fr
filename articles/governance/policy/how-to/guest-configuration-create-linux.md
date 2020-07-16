@@ -3,12 +3,12 @@ title: Créer des stratégies Guest Configuration pour Linux
 description: Découvrez comment créer une stratégie Guest Configuration pour des machines virtuelles Linux.
 ms.date: 03/20/2020
 ms.topic: how-to
-ms.openlocfilehash: a636b63c80799f8bfe3dfd3a0eb37d1367cdcf0d
-ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
+ms.openlocfilehash: 5ce6dce034c9479924901e5a20b38c343dd8bac6
+ms.sourcegitcommit: 0100d26b1cac3e55016724c30d59408ee052a9ab
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83654861"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86026710"
 ---
 # <a name="how-to-create-guest-configuration-policies-for-linux"></a>Créer des stratégies Guest Configuration pour Linux
 
@@ -81,7 +81,7 @@ Même dans les environnements Linux, Guest Configuration utilise Desired State C
 
 #### <a name="configuration-requirements"></a>Exigences de configuration
 
-Le nom de la configuration personnalisée doit être cohérent partout. Le nom du fichier .zip du package de contenu, le nom de la configuration dans le fichier MOF et le nom de l’affectation d’invité dans le modèle Resource Manager doivent être identiques.
+Le nom de la configuration personnalisée doit être cohérent partout. Le nom du fichier .zip du package de contenu, celui de la configuration dans le fichier MOF et celui de l’affectation d’invité dans le modèle Azure Resource Manager (modèle ARM) doivent être identiques.
 
 ### <a name="custom-guest-configuration-configuration-on-linux"></a>Configuration Guest Configuration personnalisée sur Linux
 
@@ -347,7 +347,7 @@ describe file(attr_path) do
 end
 ```
 
-Les cmdlets `New-GuestConfigurationPolicy` et `Test-GuestConfigurationPolicyPackage` incluent un paramètre nommé **Paramètres**. Ce paramètre prend une table de hachage qui comprend toutes les informations concernant chaque paramètre et crée automatiquement toutes les sections nécessaires des fichiers utilisés pour créer chaque définition Azure Policy.
+Les cmdlets `New-GuestConfigurationPolicy` et `Test-GuestConfigurationPolicyPackage` incluent un paramètre nommé **Parameter**. Ce paramètre prend une table de hachage qui comprend toutes les informations concernant chaque paramètre et crée automatiquement toutes les sections nécessaires des fichiers utilisés pour créer chaque définition Azure Policy.
 
 L’exemple suivant crée une définition de stratégie pour auditer un chemin d’accès de fichier, que l’utilisateur fournit au moment de l’attribution de la stratégie.
 
@@ -371,7 +371,7 @@ New-GuestConfigurationPolicy
     -DisplayName 'Audit Linux file path.' `
     -Description 'Audit that a file path exists on a Linux machine.' `
     -Path './policies' `
-    -Parameters $PolicyParameterInfo `
+    -Parameter $PolicyParameterInfo `
     -Version 1.0.0
 ```
 

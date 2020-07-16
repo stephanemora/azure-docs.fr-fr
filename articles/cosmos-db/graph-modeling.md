@@ -4,15 +4,15 @@ description: Découvrez comment modéliser une base de données de graphe avec l
 author: LuisBosquez
 ms.service: cosmos-db
 ms.subservice: cosmosdb-graph
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 12/02/2019
 ms.author: lbosq
-ms.openlocfilehash: dc9a5616aa2bb1f7e09045b9cfe4f4d7e9c69be2
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: ea3aab76c8d7eaad46ae1c20f6ddb4547b25b5b7
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "78898324"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85261815"
 ---
 # <a name="graph-data-modeling-for-azure-cosmos-db-gremlin-api"></a>Modélisation des données de graphe pour l’API Gremlin d’Azure Cosmos DB
 
@@ -73,11 +73,11 @@ Un piège courant est de mapper les propriétés d’une même entité en tant q
 
 * **Propriétés basées sur les sommets** : Dans cette approche, l’entité utilise trois sommets distincts et deux arêtes pour décrire ses propriétés. Bien que cette approche puisse réduire la redondance, elle accroît la complexité du modèle. Un accroissement de la complexité du modèle peut entraîner une augmentation des temps de latence, de la complexité des requêtes et du temps de calcul. Ce modèle peut également présenter des problèmes liés au partitionnement.
 
-![Modèle d’entité avec des sommets pour les propriétés.](./media/graph-modeling/graph-modeling-1.png)
+:::image type="content" source="./media/graph-modeling/graph-modeling-1.png" alt-text="Modèle d’entité avec des sommets pour les propriétés." border="false":::
 
 * **Sommet avec des propriétés incorporées** : Cette approche tire parti de la liste de paires clé-valeur pour représenter toutes les propriétés de l’entité à l’intérieur d’un sommet. Cette approche aboutit à une complexité réduite du modèle, ce qui permet des requêtes plus simples et des traversées moins consommatrices de ressources.
 
-![Modèle d’entité avec des sommets pour les propriétés.](./media/graph-modeling/graph-modeling-2.png)
+:::image type="content" source="./media/graph-modeling/graph-modeling-2.png" alt-text="Modèle d’entité avec des sommets pour les propriétés." border="false":::
 
 > [!NOTE]
 > Les exemples ci-dessus montrent un modèle de graphe simplifié seulement pour comparer les deux méthodes de division des propriétés de l’entité.
@@ -105,7 +105,7 @@ L’utilisation d’étiquettes de relation descriptives peut améliorer l’eff
 * Utilisez des termes non génériques pour étiqueter une relation.
 * Associez l’étiquette du sommet source à l’étiquette du sommet cible avec le nom de la relation.
 
-![Exemples d’étiquetage des relations.](./media/graph-modeling/graph-modeling-3.png)
+:::image type="content" source="./media/graph-modeling/graph-modeling-3.png" alt-text="Exemples d’étiquetage des relations." border="false":::
 
 Plus l’étiquette utilisée par la traversée pour filtrer les arêtes sera spécifique, meilleur sera le résultat. Cette décision peut également avoir un impact significatif sur le coût des requêtes. Vous pouvez évaluer le coût des requêtes à tout moment [en utilisant l’étape executionProfile](graph-execution-profile.md).
 

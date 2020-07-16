@@ -4,15 +4,15 @@ description: Dans cet article, vous allez apprendre à configurer des noms de do
 services: firewall
 author: vhorne
 ms.service: firewall
-ms.topic: article
-ms.date: 05/18/2020
+ms.topic: how-to
+ms.date: 06/18/2020
 ms.author: victorh
-ms.openlocfilehash: 1195bb2676634dd3e7c9310da4e8855c4ff814f3
-ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
+ms.openlocfilehash: e921ea707e4a0df968d162726fe53064491cb032
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "84015962"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85610504"
 ---
 # <a name="configure-azure-firewall-application-rules-with-sql-fqdns"></a>Configurer des règles d’application de pare-feu Azure avec des noms de domaine complets SQL
 
@@ -24,7 +24,7 @@ Grâce aux noms de domaine complets SQL, vous pouvez filtrer le trafic :
 - Envoi local vers Azure SQL Managed Instances ou IaaS SQL en cours d’exécution dans vos réseaux virtuels.
 - Envoi rayon à rayon vers Azure SQL Managed Instances ou IaaS SQL en cours d’exécution dans vos réseaux virtuels.
 
-Le filtrage FQDN SQL est pris en charge uniquement en [mode proxy](https://docs.microsoft.com/azure/sql-database/sql-database-connectivity-architecture#connection-policy) (port 1433). Si vous utilisez SQL dans le mode de redirection par défaut, vous pouvez filtrer les accès à l’aide de la balise de service SQL dans le cadre des [règles de réseau](overview.md#network-traffic-filtering-rules).
+Le filtrage FQDN SQL est pris en charge uniquement en [mode proxy](https://docs.microsoft.com/azure/sql-database/sql-database-connectivity-architecture#connection-policy) (port 1433). Si vous utilisez SQL dans le mode de redirection par défaut, vous pouvez filtrer les accès à l’aide de la balise de service SQL dans le cadre des [règles de réseau](features.md#network-traffic-filtering-rules).
 Si vous utilisez des ports qui ne sont pas par défaut pour le trafic IaaS SQL, vous pouvez configurer ces ports dans les règles d’application de pare-feu.
 
 ## <a name="configure-using-azure-cli"></a>Configurer à l’aide d’Azure CLI

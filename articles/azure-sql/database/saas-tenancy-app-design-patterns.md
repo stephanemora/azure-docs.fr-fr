@@ -10,12 +10,12 @@ ms.author: sstein
 ms.reviewer: ''
 ms.date: 01/25/2019
 ms.custom: seoapril2019, sqldbrb=1
-ms.openlocfilehash: efb25a16b5a3ae7de831436d255358aca19b828f
-ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
+ms.openlocfilehash: 493c18efa8bad2e366424c8c8130754ce0098913
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "84027030"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85250707"
 ---
 # <a name="multi-tenant-saas-database-tenancy-patterns"></a>Modèles de location de base de données SaaS multi-locataire
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -78,7 +78,7 @@ Chaque base de données de locataire est déployée en tant que base de données
 
 #### <a name="vendor-management"></a>Gestion des fournisseurs
 
-Le fournisseur peut accéder à toutes les bases de données dans toutes les instances d’application autonomes, même si les instances d’application sont installées dans des abonnements appartenant à des locataires différents.  L’accès s’effectue par le biais de connexions SQL.  Cet accès entre instances peut permettre au fournisseur de centraliser la gestion des schémas et les requêtes entre bases de données dans le but de créer des rapports ou à des fins analytiques.  Si ce type de gestion centralisée est souhaité, vous devez déployer un catalogue qui mappe les identificateurs de locataire aux URI de base de données.  Azure SQL Database propose une bibliothèque de partitionnement qui fonctionne avec une base de données SQL pour fournir un catalogue.  La bibliothèque de partitionnement a pour nom officiel [Bibliothèque cliente de bases de données élastiques][docu-elastic-db-client-library-536r].
+Le fournisseur peut accéder à toutes les bases de données dans toutes les instances d’application autonomes, même si les instances d’application sont installées dans des abonnements appartenant à des locataires différents.  L’accès s’effectue par le biais de connexions SQL.  Cet accès entre instances peut permettre au fournisseur de centraliser la gestion des schémas et les requêtes entre bases de données dans le but de créer des rapports ou à des fins analytiques.  Si ce type de gestion centralisée est souhaité, vous devez déployer un catalogue qui mappe les identificateurs de locataire aux URI de base de données.  Azure SQL Database propose une bibliothèque de partitionnement qui fonctionne pour fournir un catalogue.  La bibliothèque de partitionnement a pour nom officiel [Bibliothèque cliente de bases de données élastiques][docu-elastic-db-client-library-536r].
 
 ## <a name="d-multi-tenant-app-with-database-per-tenant"></a>D. Application multi-locataire avec une base de données par locataire
 

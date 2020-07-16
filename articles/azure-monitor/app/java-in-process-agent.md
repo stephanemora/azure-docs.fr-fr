@@ -3,12 +3,12 @@ title: Superviser les applications Java sur tout environnement - Azure Monitor A
 description: Supervision des performances des applications Java s’exécutant dans tout environnement sans instrumenter l’application. Suivi distribué et mise en correspondance d’applications.
 ms.topic: conceptual
 ms.date: 03/29/2020
-ms.openlocfilehash: 591cfad0f4719595835f212b9205354aad7cb9e8
-ms.sourcegitcommit: eaec2e7482fc05f0cac8597665bfceb94f7e390f
+ms.openlocfilehash: 3e3d108603ad6210143deea58049ff7b230bb6fa
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "82508069"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85319701"
 ---
 # <a name="java-codeless-application-monitoring-azure-monitor-application-insights---public-preview"></a>Supervision des applications Java sans code avec Azure Monitor Application Insights - préversion publique
 
@@ -24,11 +24,11 @@ Vous pouvez toujours envoyer des données de télémétrie personnalisées à pa
 
 **1. Télécharger l’agent**
 
-Télécharger [applicationinsights-agent-3.0.0-PREVIEW.4.jar](https://github.com/microsoft/ApplicationInsights-Java/releases/download/3.0.0-PREVIEW.4/applicationinsights-agent-3.0.0-PREVIEW.4.jar)
+Télécharger [applicationinsights-agent-3.0.0-PREVIEW.5.jar](https://github.com/microsoft/ApplicationInsights-Java/releases/download/3.0.0-PREVIEW.5/applicationinsights-agent-3.0.0-PREVIEW.5.jar)
 
 **2. Pointer la machine virtuelle Java (JVM) vers l’agent**
 
-Ajoutez `-javaagent:path/to/applicationinsights-agent-3.0.0-PREVIEW.4.jar` aux arguments JVM de votre application
+Ajoutez `-javaagent:path/to/applicationinsights-agent-3.0.0-PREVIEW.5.jar` aux arguments JVM de votre application
 
 Les arguments JVM standard incluent `-Xmx512m` et `-XX:+UseG1GC`. Par conséquent, si vous savez où ajouter ces derniers, vous savez déjà où ajouter celui-ci.
 
@@ -44,7 +44,7 @@ Pointez l’agent sur votre ressource Application Insights, soit en définissant
 APPLICATIONINSIGHTS_CONNECTION_STRING=InstrumentationKey=00000000-0000-0000-0000-000000000000
 ```
 
-Soit en créant un fichier config nommé `ApplicationInsights.json` et en le plaçant dans le même répertoire que `applicationinsights-agent-3.0.0-PREVIEW.4.jar`, avec le contenu suivant :
+Soit en créant un fichier config nommé `ApplicationInsights.json` et en le plaçant dans le même répertoire que `applicationinsights-agent-3.0.0-PREVIEW.5.jar`, avec le contenu suivant :
 
 ```json
 {

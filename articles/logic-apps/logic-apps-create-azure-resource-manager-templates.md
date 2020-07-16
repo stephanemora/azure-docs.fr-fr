@@ -6,12 +6,12 @@ ms.suite: integration
 ms.reviewer: klam, logicappspm
 ms.topic: article
 ms.date: 07/26/2019
-ms.openlocfilehash: 1fdee9a5d90fc065e198d880f9d0dea10804b881
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: a9e6e8276733eeed88561ed39a6702aec76286a4
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "75972645"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85317769"
 ---
 # <a name="create-azure-resource-manager-templates-to-automate-deployment-for-azure-logic-apps"></a>Créez des modèles Azure Resource Manager afin d’automatiser le déploiement pour le service Azure Logic Apps
 
@@ -45,7 +45,7 @@ En téléchargeant votre application logique, vous recevez un modèle qui compre
 
 Vous pouvez également créer des modèles Resource Manager en utilisant Azure PowerShell avec le [module LogicAppTemplate](https://github.com/jeffhollan/LogicAppTemplateCreator). Ce module open source évalue d’abord votre application logique et toutes les connexions que celle-ci utilise. Il génère ensuite les ressources de modèle avec les paramètres nécessaires pour le déploiement.
 
-Par exemple, supposons que votre application logique reçoive un message d’une file d’attente Azure Service Bus et qu’elle ajoute des données à une base de données Azure SQL Azure. Le module conserve toute la logique d’orchestration et paramètre les chaînes de connexion SQL et Service Bus afin que vous puissiez fournir et modifier ces valeurs en fonction de vos besoins en matière de déploiement.
+Par exemple, supposons que votre application logique reçoive un message d’une file d’attente Azure Service Bus et qu’elle ajoute des données à une base de données Azure SQL. Le module conserve toute la logique d’orchestration et paramètre les chaînes de connexion SQL et Service Bus afin que vous puissiez fournir et modifier ces valeurs en fonction de vos besoins en matière de déploiement.
 
 Ces exemples montrent comment créer et déployer des applications logiques à l’aide de modèles Azure Resource Manager, d’Azure Pipelines dans Azure DevOps et d’Azure PowerShell :
 

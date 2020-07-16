@@ -4,15 +4,15 @@ description: Découvrez comment utiliser les paramètres de diagnostic Azure pou
 author: SnehaGunda
 services: cosmos-db
 ms.service: cosmos-db
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 05/05/2020
 ms.author: sngun
-ms.openlocfilehash: b1a507c54c6a6555fc945dd35ee6e54d37d49bfd
-ms.sourcegitcommit: c535228f0b77eb7592697556b23c4e436ec29f96
+ms.openlocfilehash: 881ddfec587df61201f2c251fd0dd0a8164496c3
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/06/2020
-ms.locfileid: "82857571"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85549977"
 ---
 # <a name="monitor-azure-cosmos-db-data-by-using-diagnostic-settings-in-azure"></a>Surveillez les données Azure Cosmos DB à l’aide des paramètres de diagnostic dans Azure
 
@@ -145,6 +145,21 @@ Pour plus d’informations sur la création d’un paramètre de diagnostic à l
    | order by requestCharge_s desc
    | limit 100
    ```
+
+1. Comment obtenir les frais de requête et la durée d’exécution d’une requête ?
+
+   ```kusto
+   AzureDiagnostics
+   | where TimeGenerated >= ago(24hr)
+   | where Category == "QueryRuntimeStatistics"
+   | join (
+   AzureDiagnostics
+   | where TimeGenerated >= ago(24hr)
+   | where Category == "DataPlaneRequests"
+   ) on $left.activityId_g == $right.activityId_g
+   | project databasename_s, collectionname_s, OperationName1 , querytext_s,requestCharge_s1, duration_s1, bin(TimeGenerated, 1min)
+   ```
+
 
 1. Comment obtenir la distribution pour différentes opérations ?
 

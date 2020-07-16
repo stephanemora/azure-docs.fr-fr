@@ -11,18 +11,18 @@ Customer intent: I want only specific Azure Storage account to be allowed access
 ms.assetid: ''
 ms.service: virtual-network
 ms.devlang: azurecli
-ms.topic: article
+ms.topic: how-to
 ms.tgt_pltfrm: virtual-network
 ms.workload: infrastructure-services
 ms.date: 02/03/2020
 ms.author: rdhillon
 ms.custom: ''
-ms.openlocfilehash: e01af052a936403162115965f2dc5b3ad46dd9cf
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 702ee5dd8d432582ce1df75ce71c220aa0507cba
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "78271184"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84708210"
 ---
 # <a name="manage-data-exfiltration-to-azure-storage-accounts-with-virtual-network-service-endpoint-policies-using-the-azure-cli"></a>Gérer l’exfiltration de données vers des comptes Stockage Azure avec des stratégies de points de terminaison de service de réseau virtuel à l’aide d’Azure CLI
 
@@ -313,7 +313,7 @@ La création de la machine virtuelle ne nécessite que quelques minutes. Une foi
 
 ### <a name="confirm-access-to-storage-account"></a>Vérifier l’accès au compte de stockage
 
-Ouvrez une session SSH avec la machine virtuelle *myVmPrivate*. Remplacez *\<publicIpAddress>* par l’adresse IP publique de votre machine virtuelle *myVmPrivate*.
+Ouvrez une session SSH avec la machine virtuelle *myVmPrivate*. Remplacez *\<publicIpAddress>* par l’adresse IP publique de votre machine virtuelle *myVmPrivate*.
 
 ```bash 
 ssh <publicIpAddress>

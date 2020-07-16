@@ -5,13 +5,13 @@ author: kummanish
 ms.author: manishku
 ms.service: mariadb
 ms.topic: conceptual
-ms.date: 3/18/2020
-ms.openlocfilehash: b4333513d2ba210f6a472638732cc2781b8d5c0b
-ms.sourcegitcommit: d118ad4fb2b66c759b70d4d8a18e6368760da3ad
+ms.date: 6/8/2020
+ms.openlocfilehash: d082417fc5b4df7540973d5f6e146030aaad5380
+ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/02/2020
-ms.locfileid: "84300833"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86107187"
 ---
 # <a name="connectivity-architecture-in-azure-database-for-mariadb"></a>Architecture de connectivité dans Azure Database for MariaDB
 Cet article présente l’architecture de connectivité Azure Database for MariaDB, ainsi que la façon dont le trafic est orienté vers votre instance Azure Database for MariaDB des clients dans Azure et en dehors.
@@ -43,7 +43,7 @@ Le tableau suivant répertorie les adresses IP principales et secondaires de la 
 | Chine du Nord | 139.219.15.17    |
 | Chine Nord 2 | 40.73.50.0     |
 | Asie Est | 191.234.2.139, 52.175.33.150, 13.75.33.20, 13.75.33.21     |
-| USA Est | 40.121.158.30, 191.238.6.43  |
+| USA Est | 40.121.158.30, 191.238.6.43, 40.71.8.203, 40.71.83.113   |
 | USA Est 2 |40.79.84.180, 191.239.224.107, 52.177.185.181, 40.70.144.38, 52.167.105.38  |
 | France Centre | 40.79.137.0, 40.79.129.1  |
 | France Sud | 40.79.177.0     |
@@ -71,6 +71,17 @@ Le tableau suivant répertorie les adresses IP principales et secondaires de la 
 | USA Ouest | 104.42.238.205, 23.99.34.75  |
 | USA Ouest 2 | 13.66.226.202  |
 ||||
+
+## <a name="connection-redirection"></a>Redirection de connexion
+
+Azure Database for MariaDB prend en charge une stratégie de connexion supplémentaire, la **redirection**, qui permet de réduire la latence réseau entre les applications clientes et les serveurs MariaDB. Avec cette fonctionnalité, une fois que la session TCP initiale est établie au serveur Azure Database for MariaDB, le serveur retourne l’adresse back-end du nœud qui héberge le serveur MariaDB au client. Par la suite, les paquets suivants sont directement acheminés vers le serveur, en ignorant la passerelle. Étant donné que les paquets vont directement au serveur, la latence et le débit améliorent les performances.
+
+Cette fonctionnalité est prise en charge dans les serveurs Azure Database for MariaDB avec les versions de moteur 10.2 et 10.3.
+
+La prise en charge de la redirection est disponible dans l’extension [PHP mysqlnd_azure](https://github.com/microsoft/mysqlnd_azure), développée par Microsoft et est disponible sur [PECL](https://pecl.php.net/package/mysqlnd_azure). Pour plus d’informations sur l’utilisation de la redirection dans vos applications, consultez l’article [configuration de la redirection](./howto-redirection.md).
+
+> [!IMPORTANT]
+> La prise en charge de la redirection dans l’extension [mysqlnd_azure](https://github.com/microsoft/mysqlnd_azure) PHP est actuellement disponible en préversion.
 
 ## <a name="next-steps"></a>Étapes suivantes
 

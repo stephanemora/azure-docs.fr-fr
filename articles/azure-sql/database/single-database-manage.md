@@ -1,6 +1,6 @@
 ---
 title: Créer et gérer des serveurs et des bases de données uniques
-description: Apprenez à créer et à gérer des serveurs et des bases de données uniques dans Azure SQL Database à l’aide du portail Azure, de PowerShell, de l’interface CLI Az, de Transact-SQL (T-SQL) et de l’API REST.
+description: Apprenez à créer et à gérer des serveurs et des bases de données uniques dans Azure SQL Database à l’aide du portail Azure, de PowerShell, d’Azure CLI, de Transact-SQL (T-SQL) et de l’API REST.
 services: sql-database
 ms.service: sql-database
 ms.subservice: single-database
@@ -11,19 +11,18 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: ''
 ms.date: 03/12/2019
-ms.openlocfilehash: 301d881e2065234bbd1a38e39eb1806d23c6809a
-ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
+ms.openlocfilehash: 43e28774625db0217dde1227bad160ba87750c8c
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "84025650"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85254988"
 ---
 # <a name="create-and-manage-servers-and-single-databases-in-azure-sql-database"></a>Créer et gérer des serveurs et des bases de données uniques dans Azure SQL Database
-[!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
 
 Vous pouvez créer et gérer des serveurs et des bases de données uniques dans Azure SQL Database à l’aide du portail Azure, de PowerShell, de l’interface Azure CLI, de l’API REST et de Transact-SQL.
 
-## <a name="azure-portal"></a>Portail Azure
+## <a name="the-azure-portal"></a>Le portail Azure
 
 Vous pouvez créer le groupe de ressources pour Azure SQL Database en avance ou lors de la création du serveur lui-même.
 
@@ -44,7 +43,7 @@ Pour créer une base de données Azure SQL unique à l’aide du [portail Azure]
 
 ## <a name="manage-an-existing-server"></a>Gérer un serveur existant
 
-Pour gérer un serveur existant, accédez au serveur en utilisant plusieurs méthodes, par exemple à partir d’une page de base de données SQL spécifique, de la page **Serveurs SQL** ou de la page **Toutes les ressources**.
+Pour gérer un serveur existant, accédez au serveur en utilisant plusieurs méthodes : à partir de la page d’une base de données spécifique, de la page **serveurs SQL** ou de la page **Toutes les ressources**.
 
 Pour gérer une base de données existante, accédez à la page **Bases de données SQL**, puis sélectionnez la base de données que vous souhaitez gérer. La capture d’écran suivante montre comment commencer à définir un pare-feu au niveau du serveur pour une base de données, à partir de la page **Vue d’ensemble** d’une base de données.
 
@@ -64,7 +63,7 @@ Pour gérer une base de données existante, accédez à la page **Bases de donn�
 Pour créer et gérer des serveurs, des bases de données uniques et mises en pool ainsi que des pare-feu de niveau serveur avec Azure PowerShell, utilisez les applets de commande PowerShell suivantes. Si vous devez installer ou mettre à niveau PowerShell, consultez la section relative à [l’installation du module Azure PowerShell](/powershell/azure/install-az-ps).
 
 > [!TIP]
-> Pour obtenir des exemples de scripts PowerShell, consultez [Utiliser PowerShell pour créer une base de données unique Azure SQL et configurer une règle de pare-feu de niveau serveur](scripts/create-and-configure-database-powershell.md) et [Superviser et mettre à l’échelle une base de données SQL unique avec PowerShell](scripts/monitor-and-scale-database-powershell.md).
+> Pour obtenir des exemples de scripts PowerShell, consultez [Utiliser PowerShell pour créer une base de données dans SQL Database et configurer une règle de pare-feu de niveau serveur](scripts/create-and-configure-database-powershell.md) et [Superviser et mettre à l’échelle une base de données dans SQL Database avec PowerShell](scripts/monitor-and-scale-database-powershell.md).
 
 | Applet de commande | Description |
 | --- | --- |
@@ -83,12 +82,12 @@ Pour créer et gérer des serveurs, des bases de données uniques et mises en po
 |[Remove-AzSqlServerFirewallRule](/powershell/module/az.sql/remove-azsqlserverfirewallrule)|Supprime une règle de pare-feu d’un serveur|
 | New-AzSqlServerVirtualNetworkRule | Crée une [*règle de réseau virtuel*](vnet-service-endpoint-rule-overview.md), basée sur un sous-réseau qui est un point de terminaison de service de réseau virtuel. |
 
-## <a name="azure-cli"></a>Azure CLI
+## <a name="the-azure-cli"></a>L’interface Azure CLI
 
 Pour créer et gérer les serveurs, bases de données et pare-feu avec [Azure CLI](/cli/azure), utilisez les commandes [Azure CLI](/cli/azure/sql/db) suivantes. Utilisez [Cloud Shell](/azure/cloud-shell/overview) pour exécuter l’interface CLI dans votre navigateur ou [l’installer](/cli/azure/install-azure-cli) sur macOS, Linux ou Windows. Pour créer et gérer des pools élastiques, consultez [Pools élastiques](elastic-pool-overview.md).
 
 > [!TIP]
-> Pour un démarrage rapide d’Azure CLI, consultez [Créer une base de données Azure SQL unique à l’aide d’Azure CLI](az-cli-script-samples-content-guide.md). Pour obtenir des exemples de scripts Azure CLI, consultez [Utiliser CLI pour créer une seule base de données Azure SQL et configurer une règle de pare-feu de base de données SQL](scripts/create-and-configure-database-cli.md) et [Utiliser CLI pour superviser et mettre à l’échelle une base de données Azure SQL unique](scripts/monitor-and-scale-database-cli.md).
+> Pour un démarrage rapide d’Azure CLI, consultez [Créer une base de données Azure SQL unique à l’aide d’Azure CLI](az-cli-script-samples-content-guide.md). Pour obtenir des exemples de scripts Azure CLI, consultez [Utiliser CLI pour créer une base de données Azure SQL et configurer une règle de pare-feu de base de données SQL](scripts/create-and-configure-database-cli.md) et [Utiliser CLI pour superviser et mettre à l’échelle une base de données Azure SQL](scripts/monitor-and-scale-database-cli.md).
 >
 
 | Applet de commande | Description |
@@ -127,16 +126,16 @@ Pour créer et gérer les serveurs, bases de données et pare-feu avec Transact-
 |[CREATE DATABASE](/sql/t-sql/statements/create-database-transact-sql?view=azuresqldb-current)|Crée une base de données unique. Vous devez être connecté à la base de données master pour créer une base de données.|
 | [ALTER DATABASE](/sql/t-sql/statements/alter-database-transact-sql?view=azuresqldb-current) |Modifie une base de données ou un pool élastique. |
 |[DROP DATABASE](/sql/t-sql/statements/drop-database-transact-sql)|Supprime une base de données.|
-|[sys.database_service_objectives](/sql/relational-databases/system-catalog-views/sys-database-service-objectives-azure-sql-database)|Renvoie l’édition (niveau de service), l’objectif de service (niveau tarifaire) et, le cas échéant, le nom du pool élastique pour Azure SQL Database ou un pool SQL Azure Synapse. Si vous êtes connecté à la base de données MASTER d’un serveur dans SQL Database, retourne les informations sur toutes les bases de données. Pour Azure Synapse, vous devez être connecté à la base de données MASTER.|
-|[sys.dm_db_resource_stats](/sql/relational-databases/system-dynamic-management-views/sys-dm-db-resource-stats-azure-sql-database)| Retourne la consommation du processeur, des opérations d’E/S et de la mémoire pour une base de données Azure SQL Database. Il existe une ligne pour chaque période de 15 secondes, même s'il n'y a aucune activité dans la base de données.|
-|[sys.resource_stats](/sql/relational-databases/system-catalog-views/sys-resource-stats-azure-sql-database)|Renvoie les données de stockage et l’utilisation d’UC pour une base de données Azure SQL Database. Les données sont collectées et agrégées dans des intervalles de cinq minutes.|
+|[sys.database_service_objectives](/sql/relational-databases/system-catalog-views/sys-database-service-objectives-azure-sql-database)|Renvoie l’édition (niveau de service), l’objectif de service (niveau tarifaire) et, le cas échéant, le nom du pool élastique pour Azure SQL Database ou un pool SQL Azure Synapse Analytics. Si vous êtes connecté à la base de données MASTER d’un serveur dans SQL Database, retourne les informations sur toutes les bases de données. Pour Azure Synapse Analytics, vous devez être connecté à la base de données MASTER.|
+|[sys.dm_db_resource_stats](/sql/relational-databases/system-dynamic-management-views/sys-dm-db-resource-stats-azure-sql-database)| Retourne la consommation de mémoire, d’E/S et d’UC d’une base de données dans Azure SQL Database. Il existe une ligne pour chaque période de 15 secondes, même s'il n'y a aucune activité dans la base de données.|
+|[sys.resource_stats](/sql/relational-databases/system-catalog-views/sys-resource-stats-azure-sql-database)|Renvoie les données de stockage et l’utilisation d’UC pour une base de données dans Azure SQL Database. Les données sont collectées et agrégées dans des intervalles de cinq minutes.|
 |[sys.database_connection_stats](/sql/relational-databases/system-catalog-views/sys-database-connection-stats-azure-sql-database)|Contient des statistiques pour les événements de connectivité SQL Database, ce qui fournit une vue d’ensemble du nombre d’échecs et de réussites de connexion de base de données. |
 |[sys.event_log](/sql/relational-databases/system-catalog-views/sys-event-log-azure-sql-database)|Renvoie les blocages, les échecs de connexion et les réussites de connexion Azure SQL Database. Vous pouvez utiliser ces informations pour suivre ou dépanner votre activité de base de données avec SQL Database.|
 |[sp_set_firewall_rule](/sql/relational-databases/system-stored-procedures/sp-set-firewall-rule-azure-sql-database)|Crée ou met à jour les paramètres de pare-feu de niveau serveur pour votre serveur. Cette procédure stockée est uniquement disponible dans la base de données master à la connexion du principal au niveau du serveur. Une règle de pare-feu au niveau du serveur peut uniquement être créée à l’aide de Transact-SQL, après que la première règle de pare-feu au niveau du serveur a été créée par un utilisateur disposant des autorisations au niveau d’Azure|
-|[sys.firewall_rules](/sql/relational-databases/system-catalog-views/sys-firewall-rules-azure-sql-database)|Renvoie des informations sur les paramètres de pare-feu de niveau serveur associés à votre instance Azure SQL Database.|
+|[sys.firewall_rules](/sql/relational-databases/system-catalog-views/sys-firewall-rules-azure-sql-database)|Renvoie des informations sur les paramètres de pare-feu de niveau serveur associés à votre base de données dans Azure SQL Database.|
 |[sp_delete_firewall_rule](/sql/relational-databases/system-stored-procedures/sp-delete-firewall-rule-azure-sql-database)|Supprime des paramètres de pare-feu de niveau serveur de votre serveur. Cette procédure stockée est uniquement disponible dans la base de données master à la connexion du principal au niveau du serveur.|
-|[sp_set_database_firewall_rule](/sql/relational-databases/system-stored-procedures/sp-set-database-firewall-rule-azure-sql-database)|Crée ou met à jour les règles de pare-feu de niveau base de données pour votre instance Azure SQL Database. Les règles de pare-feu d’une base de données peuvent être configurées pour la base de données MASTER, ainsi que pour les bases de données utilisateur sur SQL Database. Les règles de pare-feu d’une base de données sont utiles lors de l’utilisation d’utilisateurs de base de données autonome. |
-|[sys.database_firewall_rules](/sql/relational-databases/system-catalog-views/sys-database-firewall-rules-azure-sql-database)|Renvoie des informations sur les paramètres de pare-feu de niveau base de données associés à votre instance Azure SQL Database. |
+|[sp_set_database_firewall_rule](/sql/relational-databases/system-stored-procedures/sp-set-database-firewall-rule-azure-sql-database)|Crée ou met à jour les règles de pare-feu au niveau base de données pour votre base de données dans Azure SQL Database. Les règles de pare-feu d’une base de données peuvent être configurées pour la base de données MASTER, ainsi que pour les bases de données utilisateur sur SQL Database. Les règles de pare-feu d’une base de données sont utiles lors de l’utilisation d’utilisateurs de base de données autonome. |
+|[sys.database_firewall_rules](/sql/relational-databases/system-catalog-views/sys-database-firewall-rules-azure-sql-database)|Renvoie des informations sur les paramètres de pare-feu de niveau base de données associés à votre base de données dans Azure SQL Database. |
 |[sp_delete_database_firewall_rule](/sql/relational-databases/system-stored-procedures/sp-delete-database-firewall-rule-azure-sql-database)|Supprime un paramètre de pare-feu de niveau base de données d’une base de données. |
 
 ## <a name="rest-api"></a>API REST
@@ -166,3 +165,4 @@ Pour créer et gérer les serveurs, bases de données et pare-feu, utilisez les 
 
 - Pour en savoir plus sur la migration d’une base de données SQL Server, consultez la section [Migrer une base de données Azure SQL](migrate-to-database-from-sql-server.md).
 - Pour plus d’informations sur les fonctionnalités prises en charge, consultez la page [Fonctionnalités](features-comparison.md).
+ 

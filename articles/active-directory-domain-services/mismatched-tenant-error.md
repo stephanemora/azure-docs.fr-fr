@@ -11,14 +11,14 @@ ms.workload: identity
 ms.topic: troubleshooting
 ms.date: 03/31/2020
 ms.author: iainfou
-ms.openlocfilehash: 6ff12ce5fec8fcc49fa21ef5f3009fc2283300c4
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 40dd985b7cf09ddc2a902630cec3f0c74a1edbe1
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80654824"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84734603"
 ---
-# <a name="resolve-mismatched-directory-errors-for-existing-azure-ad-domain-services-managed-domains"></a>Résoudre des erreurs d’annuaire incompatible pour des domaines managés Azure AD Domain Services existants
+# <a name="resolve-mismatched-directory-errors-for-existing-azure-active-directory-domain-services-managed-domains"></a>Résoudre des erreurs d’annuaire incompatible pour des domaines managés Azure Active Directory Domain Services existants
 
 Si un domaine managé Azure Active Directory Domain Services (Azure AD DS) affiche une erreur de locataire incompatible, vous ne pouvez pas administrer le domaine managé jusqu’à ce qu’elle soit résolue. Cette erreur se produit si le réseau virtuel Azure sous-jacent est déplacé vers un autre annuaire Azure AD.
 
@@ -26,7 +26,7 @@ Cet article explique pourquoi l’erreur se produit et comment la résoudre.
 
 ## <a name="what-causes-this-error"></a>Quelle est la cause de cette erreur ?
 
-Une erreur d’annuaire incompatible se produit quand un domaine managé Azure AD DS et un réseau virtuel appartiennent à deux locataires Azure AD différents. Par exemple, vous pouvez avoir un domaine managé Azure AD DS nommé *aaddscontoso.com* qui s’exécute dans le locataire Azure AD de Contoso. Toutefois, le réseau virtuel Azure pour le domaine managé fait partie du locataire Azure AD Fabrikam.
+Une erreur d’annuaire incompatible se produit quand un domaine managé Azure AD DS et un réseau virtuel appartiennent à deux locataires Azure AD différents. Par exemple, vous pouvez avoir un domaine managé nommé *aaddscontoso.com* qui s’exécute dans le locataire Azure AD de Contoso. Toutefois, le réseau virtuel Azure pour le domaine managé fait partie du locataire Azure AD Fabrikam.
 
 Azure utilise le contrôle d’accès en fonction du rôle (RBAC) pour limiter l’accès aux ressources. Lorsque vous activez Azure AD DS dans un locataire Azure AD, les hachages des informations d’identification sont synchronisés avec le domaine managé. Pour effectuer cette opération, vous devez être un administrateur de locataire pour l’annuaire Azure AD et l’accès aux informations d’identification doit être contrôlé. Pour déployer des ressources sur un réseau virtuel Azure et contrôler le trafic, vous devez disposer de privilèges d’administrateur sur le réseau virtuel sur lequel vous déployez Azure AD DS.
 
@@ -41,13 +41,13 @@ Les règles suivantes s’appliquent dans l’environnement du Gestionnaire de r
 
 ### <a name="valid-configuration"></a>Configuration valide
 
-Dans l’exemple de scénario de déploiement suivant, le domaine managé Azure AD DS Contoso est activé dans le locataire Azure AD Contoso. Le domaine managé est déployé sur un réseau virtuel appartenant à un abonnement Azure détenu par le locataire Azure AD Contoso. Le domaine managé et le réseau virtuel appartiennent tous deux au même locataire Azure AD. Cet exemple de configuration est valide et entièrement pris en charge.
+Dans l’exemple de scénario de déploiement suivant, le domaine managé Contoso est activé dans le locataire Azure AD Contoso. Le domaine managé est déployé sur un réseau virtuel appartenant à un abonnement Azure détenu par le locataire Azure AD Contoso. Le domaine managé et le réseau virtuel appartiennent tous deux au même locataire Azure AD. Cet exemple de configuration est valide et entièrement pris en charge.
 
 ![Configuration valide de locataire Azure AD DS avec la partie domaine managé et réseau virtuel du même locataire Azure AD](./media/getting-started/valid-tenant-config.png)
 
 ### <a name="mismatched-tenant-configuration"></a>Configuration de locataire incompatible
 
-Dans cet exemple de scénario de déploiement, le domaine managé Azure AD DS Contoso est activé dans le locataire Azure AD Contoso. Toutefois, le domaine managé est déployé dans un réseau virtuel appartenant à un abonnement Azure détenu par le locataire Azure AD Fabrikam. Le domaine managé et le réseau virtuel appartiennent à deux locataires Azure AD différents. Cet exemple de configuration correspond à un locataire incompatible et n’est pas pris en charge. Le réseau virtuel doit être déplacé vers le même locataire Azure AD que le domaine managé.
+Dans cet exemple de scénario de déploiement, le domaine managé Contoso est activé dans le locataire Azure AD Contoso. Toutefois, le domaine managé est déployé dans un réseau virtuel appartenant à un abonnement Azure détenu par le locataire Azure AD Fabrikam. Le domaine managé et le réseau virtuel appartiennent à deux locataires Azure AD différents. Cet exemple de configuration correspond à un locataire incompatible et n’est pas pris en charge. Le réseau virtuel doit être déplacé vers le même locataire Azure AD que le domaine managé.
 
 ![Configuration de locataire incompatible](./media/getting-started/mismatched-tenant-config.png)
 
@@ -55,8 +55,8 @@ Dans cet exemple de scénario de déploiement, le domaine managé Azure AD DS C
 
 Les deux options suivantes permettent de résoudre l’erreur d’annuaire incompatible :
 
-* [Supprimez le domaine managé Azure AD DS](delete-aadds.md) de votre annuaire Azure AD existant. [Créez un domaine managé Azure AD DS de remplacement](tutorial-create-instance.md) dans le même annuaire Azure AD que le réseau virtuel que vous souhaitez utiliser. Quand vous êtes prêt, joignez au domaine managé recréé toutes les machines précédemment jointes au domaine supprimé.
-* [Déplacez l’abonnement Azure](../cost-management-billing/manage/billing-subscription-transfer.md) contenant le réseau virtuel vers le même annuaire Azure AD que le domaine managé Azure AD DS.
+* [Supprimez le domaine géré](delete-aadds.md) de votre annuaire Azure AD existant. [Créez un domaine managé de remplacement](tutorial-create-instance.md) dans le même annuaire Azure AD que le réseau virtuel que vous souhaitez utiliser. Quand vous êtes prêt, joignez au domaine managé recréé toutes les machines précédemment jointes au domaine supprimé.
+* [Déplacez l’abonnement Azure](../cost-management-billing/manage/billing-subscription-transfer.md) contenant le réseau virtuel vers le même annuaire Azure AD que le domaine managé.
 
 ## <a name="next-steps"></a>Étapes suivantes
 

@@ -3,15 +3,16 @@ title: Définir des clés uniques pour un conteneur Azure Cosmos
 description: Découvrez comment définir des clés uniques pour un conteneur Azure Cosmos avec le portail Azure, PowerShell, le SDK .Net, le SDK Java et autres kits SDK.
 author: ThomasWeiss
 ms.service: cosmos-db
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 12/02/2019
 ms.author: thweiss
-ms.openlocfilehash: af68d733dfb0e0d1c257c8db03656112eec7381b
-ms.sourcegitcommit: f57297af0ea729ab76081c98da2243d6b1f6fa63
+ms.custom: tracking-python
+ms.openlocfilehash: 056cd77104fe73f19588f3d13e11dc06fd93c3f6
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/06/2020
-ms.locfileid: "82871008"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85261543"
 ---
 # <a name="define-unique-keys-for-an-azure-cosmos-container"></a>Définir des clés uniques pour un conteneur Azure Cosmos
 
@@ -33,7 +34,7 @@ Cet article présente les différentes façons de définir des [clés uniques](u
 
 1. Si nécessaire, ajoutez d’autres entrées de clés uniques en cliquant sur **+ Ajouter une clé unique**
 
-    ![Capture d’écran d’entrée de contrainte de clé unique dans le portail Azure](./media/how-to-define-unique-keys/unique-keys-portal.png)
+    :::image type="content" source="./media/how-to-define-unique-keys/unique-keys-portal.png" alt-text="Capture d’écran d’entrée de contrainte de clé unique dans le portail Azure":::
 
 ## <a name="use-powershell"></a>Utiliser PowerShell
 

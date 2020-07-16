@@ -5,41 +5,59 @@ author: rachel-msft
 ms.author: raagyema
 ms.service: postgresql
 ms.topic: conceptual
-ms.date: 03/31/2020
-ms.openlocfilehash: 1213b38f2b67e8fed179cfda4308943808893e1b
-ms.sourcegitcommit: b0ff9c9d760a0426fd1226b909ab943e13ade330
+ms.date: 06/22/2020
+ms.openlocfilehash: 363c003a915763a7ab1165c2e0d8f945bc3dd510
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/01/2020
-ms.locfileid: "80522573"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85213684"
 ---
 # <a name="logical-decoding"></a>Décodage logique
  
 Le [décodage logique dans PostgreSQL](https://www.postgresql.org/docs/current/logicaldecoding.html) vous permet de diffuser en continu des changements de données vers des contrôles serveur consommateurs externes. Le décodage logique est couramment utilisé pour la diffusion en continu d’événements et les scénarios de capture des changements de données.
 
-Le décodage logique utilise un plug-in de sortie pour convertir les journaux d’écriture anticipée (WAL, Write Ahead Log) de Postgres dans un format lisible. Azure Database pour PostgreSQL fournit deux plug-ins de sortie : [test_decoding](https://www.postgresql.org/docs/current/test-decoding.html) et [wal2json](https://github.com/eulerto/wal2json).
- 
+Le décodage logique utilise un plug-in de sortie pour convertir les journaux d’écriture anticipée (WAL, Write Ahead Log) de Postgres dans un format lisible. Azure Database pour PostgreSQL fournit les plug-ins de sortie [wal2json](https://github.com/eulerto/wal2json), [test_decoding](https://www.postgresql.org/docs/current/test-decoding.html) et pgoutput. pgoutput est rendu disponible par Postgres à partir de Postgres version 10.
+
+Pour obtenir une vue d’ensemble du fonctionnement du décodage logique postgres, [visitez notre blog](https://techcommunity.microsoft.com/t5/azure-database-for-postgresql/change-data-capture-in-postgres-how-to-use-logical-decoding-and/ba-p/1396421). 
 
 > [!NOTE]
 > Le décodage logique est en préversion publique sur Azure Database pour PostgreSQL – Serveur unique.
 
 
-## <a name="set-up-your-server"></a>Configurer votre serveur
-Pour commencer à utiliser le décodage logique, autorisez votre serveur à enregistrer et diffuser en continu le WAL. 
+## <a name="set-up-your-server"></a>Configurer votre serveur 
+Les [réplicas en lecture](concepts-read-replicas.md) et le décodage logique dépendent du journal WAL de Postgres pour obtenir des informations. Ces deux fonctionnalités ont besoin de différents niveaux de journalisation à partir de Postgres. Le décodage logique nécessite un niveau de journalisation plus élevé que les réplicas en lecture.
 
-1. Définissez azure.replication_support sur `logical` à l’aide d’Azure CLI. 
+Pour configurer le niveau de journalisation approprié, utilisez le paramètre de prise en charge de la réplication Azure. La prise en charge de la réplication Azure propose trois options de paramétrage :
+
+* **Désactivé** : place le moins d’informations dans le journal WAL. Ce paramètre n’est pas disponible sur la plupart des serveurs Azure Database pour PostgreSQL.  
+* **Réplica** : plus de détails que l’option **Désactivé**. Il s’agit du niveau minimal de journalisation nécessaire pour que les [réplicas en lecture](concepts-read-replicas.md) fonctionnent. Il s’agit du paramètre par défaut sur la plupart des serveurs.
+* **Logique** : plus de détails que l’option **Réplica**. Il s’agit du niveau minimal de journalisation pour que le décodage logique fonctionne. Les réplicas en lecture fonctionnent également avec ce paramètre.
+
+Le serveur doit être redémarré après une modification de ce paramètre. En interne, ce paramètre définit les paramètres Postgres `wal_level`, `max_replication_slots` et `max_wal_senders`.
+
+### <a name="using-azure-cli"></a>Utilisation de l’interface de ligne de commande Azure
+
+1. Définissez azure.replication_support sur `logical`.
    ```
    az postgres server configuration set --resource-group mygroup --server-name myserver --name azure.replication_support --value logical
-   ```
-
-   > [!NOTE]
-   > Si vous utilisez des réplicas en lecture, azure.replication_support défini sur `logical` permet également l’exécution des réplicas. Si vous arrêtez d’utiliser le décodage logique, redéfinissez le paramètre sur `replica`. 
-
+   ``` 
 
 2. Redémarrez le serveur pour appliquer les modifications.
    ```
    az postgres server restart --resource-group mygroup --name myserver
    ```
+
+### <a name="using-azure-portal"></a>En passant par le portail Azure
+
+1. Définissez la prise en charge de la réplication Azure sur **logique**. Sélectionnez **Enregistrer**.
+
+   ![Azure Database pour PostgreSQL - Réplication - Prise en charge de la réplication Azure](./media/concepts-logical/replication-support.png)
+
+2. Redémarrez le serveur pour appliquer les modifications en sélectionnant **Oui**.
+
+   ![Azure Database pour PostgreSQL - Réplication - Confirmer le redémarrage](./media/concepts-logical/confirm-restart.png)
+
 
 ## <a name="start-logical-decoding"></a>Démarrer le décodage logique
 

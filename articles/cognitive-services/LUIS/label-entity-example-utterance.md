@@ -3,12 +3,12 @@ title: Étiqueter une entité dans un exemple d’énoncé
 description: Découvrez comment étiqueter une entité issue du Machine Learning avec des sous-entités dans un exemple d’énoncé, dans une page de détails d’intention du portail LUIS.
 ms.topic: conceptual
 ms.date: 05/20/2020
-ms.openlocfilehash: 959b9c6b25a7a76a87112fcbd1a10e7da12db1dd
-ms.sourcegitcommit: 6fd8dbeee587fd7633571dfea46424f3c7e65169
+ms.openlocfilehash: f576f42f46930d81212ff754a14ee30c75b79624
+ms.sourcegitcommit: 32592ba24c93aa9249f9bd1193ff157235f66d7e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/21/2020
-ms.locfileid: "83722641"
+ms.lasthandoff: 07/01/2020
+ms.locfileid: "85610487"
 ---
 # <a name="label-machine-learning-entity-in-an-example-utterance"></a>Étiqueter une entité issue du Machine Learning dans un exemple d’énoncé
 
@@ -16,7 +16,7 @@ L’étiquetage d’une entité dans un exemple d’énoncé donne à LUIS un ex
 
 Vous pouvez étiqueter les entités et sous-entités apprises issues du Machine Learning.
 
-Étant donné que vous ne pouvez pas étiqueter une expression régulière, une liste ou des entités prédéfinies, créez une entité ou une sous-entité, puis ajoutez-les en tant que fonctionnalités, le cas échéant, à l’entité ou à la sous-entité.
+Comme vous ne pouvez pas étiqueter d’expression régulière, de liste ou d’entités prédéfinies, créez une entité ou une sous-entité, puis ajoutez celle-ci comme fonctionnalité, le cas échéant, à l’entité ou à la sous-entité.
 
 ## <a name="label-example-utterances-from-the-intent-detail-page"></a>Étiqueter des exemples d’énoncés à partir de la page de détails de l’intention
 

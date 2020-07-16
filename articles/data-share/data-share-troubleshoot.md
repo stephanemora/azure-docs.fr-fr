@@ -7,12 +7,12 @@ ms.author: joanpo
 ms.service: data-share
 ms.topic: troubleshooting
 ms.date: 07/10/2019
-ms.openlocfilehash: 901f2b56bc045dc9a9837dd18b2e6ce7169aa3b9
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 510787b395388f0dc895b9646aee8208013f3b42
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "76964224"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85322036"
 ---
 # <a name="troubleshoot-common-issues-in-azure-data-share"></a>Résoudre les problèmes courants dans Azure Data Share 
 
@@ -64,7 +64,7 @@ Le partage basé sur SQL nécessite des autorisations supplémentaires. Pour plu
 
 « L’utilisateur x n’existe pas dans la base de données SQL »
 
-Si vous recevez ce message d’erreur lors de l’ajout d’un jeu de données à partir d’une source SQL, cela peut être dû au fait que vous n’avez pas créé d’utilisateur pour l’identité managée Azure Data Share sur votre instance SQL Server.  Pour résoudre ce problème, exécutez le script suivant :
+Si vous recevez ce message d’erreur lors de l’ajout d’un jeu de données à partir d’une source SQL, cela peut être dû au fait que vous n’avez pas créé d’utilisateur pour l’identité managée Azure Data Share sur votre instance SQL Database.  Pour résoudre ce problème, exécutez le script suivant :
 
 ```sql
     create user "<share_acct_name>" from external provider; 

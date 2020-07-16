@@ -6,12 +6,12 @@ ms.author: lufittl
 ms.service: postgresql
 ms.topic: conceptual
 ms.date: 11/04/2019
-ms.openlocfilehash: 8fa9a4ebe64880ae136a8460d35200fb84abb6cf
-ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
+ms.openlocfilehash: 737587ccf46d4af292dc11d37567249c13260f51
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83660183"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85565493"
 ---
 # <a name="use-azure-active-directory-for-authenticating-with-postgresql"></a>Utiliser Azure Active Directory pour l’authentification avec PostgreSQL
 
@@ -66,8 +66,11 @@ L’authentification Azure Active Directory prend en charge les méthodes suivan
 - Intégration d’Azure Active Directory
 - Authentification universelle Azure Active Directory avec MFA
 - Utilisation des certificats ou de clés secrètes client d’application Active Directory
+- [Identité gérée](howto-connect-with-managed-identity.md)
 
 Une fois authentifié auprès d’Active Directory, vous récupérez un jeton. Ce jeton est votre mot de passe de connexion.
+
+Notez que les opérations de gestion, telles que l’ajout de nouveaux utilisateurs, sont uniquement prises en charge pour les rôles d’utilisateur Azure AD à ce stade.
 
 > [!NOTE]
 > Pour plus d’informations sur la façon de se connecter avec un jeton Active Directory, consultez [Configurer et se connecter avec Azure AD pour Azure Database pour PostgreSQL](howto-configure-sign-in-aad-authentication.md).

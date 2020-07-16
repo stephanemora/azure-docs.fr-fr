@@ -3,12 +3,12 @@ title: Effectuer une récupération d’urgence de machines virtuelles
 description: Cet article explique comment effectuer une récupération d’urgence des machines virtuelles à l’aide d’AVS
 ms.topic: how-to
 ms.date: 05/04/2020
-ms.openlocfilehash: 5fdfc252486d94fcc22ebba9705fa5e259539921
-ms.sourcegitcommit: 2721b8d1ffe203226829958bee5c52699e1d2116
+ms.openlocfilehash: 5ccaa009c8e3e059597636a8bb78cc3bd255fe68
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/28/2020
-ms.locfileid: "84148155"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84749952"
 ---
 # <a name="complete-a-disaster-recovery-of-virtual-machines-using-azure-vmware-solution"></a>Effectuer une récupération d'urgence de machines virtuelles à l'aide de la solution Azure VMware
 
@@ -56,7 +56,7 @@ Si nécessaire, sélectionnez les options de réplication par défaut :
 
 - **Enable l’arrêt inactif :** suspend l’activité de la machine virtuelle pour s’assurer de la cohérence de la copie synchronisée avec le site distant.
 
-- **Stockage de destination :** sélectionnez le magasin de données distant pour les machines virtuelles protégées. Dans un cloud privé AVS, cette sélection doit être le magasin de données VSAN.
+- **Stockage de destination :** sélectionnez le magasin de données distant pour les machines virtuelles protégées. Dans un cloud privé AVS, cette sélection doit être le magasin de données vSAN.
 
 - **Conteneur de calcul :** cluster vSphere ou pool de ressources distants.
 

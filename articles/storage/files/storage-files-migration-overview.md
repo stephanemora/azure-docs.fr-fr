@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 3/18/2020
 ms.author: fauhse
 ms.subservice: files
-ms.openlocfilehash: d6141d48d67dd44c348961c6e09acf4e2531a61e
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 512688345c03ea9d5da0e4933cd6a794eaaf597b
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81685985"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84660763"
 ---
 # <a name="migrate-to-azure-file-shares"></a>Migrer vers des partages de fichiers Azure
 
@@ -120,9 +120,9 @@ Le tableau suivant classe les outils Microsoft et leurs aptitudes actuelles pour
 |![Oui, recommandé](media/storage-files-migration-overview/circle-green-checkmark.png)| Robocopy | Pris en charge. Les partages de fichiers Azure peuvent être montés comme lecteurs réseau. | Fidélité totale.* |
 |![Oui, recommandé](media/storage-files-migration-overview/circle-green-checkmark.png)| Azure File Sync | Intégré en natif dans les partages de fichiers Azure. | Fidélité totale.* |
 |![Oui, recommandé](media/storage-files-migration-overview/circle-green-checkmark.png)| Service de migration de stockage | Pris en charge de façon indirecte. Les partages de fichiers Azure peuvent être montés comme lecteurs réseau sur des serveurs cibles SMS. | Fidélité totale.* |
+|![Oui, recommandé](media/storage-files-migration-overview/circle-green-checkmark.png)| AzCopy, version 10.4 ou ultérieure| Pris en charge. | Fidélité totale.* |
 |![Pas vraiment recommandé](media/storage-files-migration-overview/triangle-yellow-exclamation.png)| Data Box | Pris en charge. | Ne copie pas les métadonnées. [Data Box peut être utilisé avec Azure File Sync](storage-sync-offline-data-transfer.md). |
-|![Non recommandé](media/storage-files-migration-overview/circle-red-x.png)| AzCopy | Pris en charge. | Ne copie pas les métadonnées. |
-|![Non recommandé](media/storage-files-migration-overview/circle-red-x.png)| Explorateur de stockage Azure | Pris en charge. | Ne copie pas les métadonnées. |
+|![Pas vraiment recommandé](media/storage-files-migration-overview/triangle-yellow-exclamation.png)| Explorateur Stockage Azure, version 1.14 | Pris en charge. | Ne copie pas les ACL. Prend en charge les timestamps.  |
 |![Non recommandé](media/storage-files-migration-overview/circle-red-x.png)| Azure Data Factory | Pris en charge. | Ne copie pas les métadonnées. |
 |||||
 

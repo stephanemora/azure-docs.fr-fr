@@ -11,12 +11,12 @@ ms.reviewer: maghan
 manager: jroth
 ms.topic: conceptual
 ms.date: 04/30/2020
-ms.openlocfilehash: 51f583b946d6f5a18325e77cfe12404daab83d22
-ms.sourcegitcommit: 309cf6876d906425a0d6f72deceb9ecd231d387c
+ms.openlocfilehash: d997c6d4eae93290cbb1e4cafe6c7ad662a65933
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/01/2020
-ms.locfileid: "84268035"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85336867"
 ---
 # <a name="continuous-integration-and-delivery-in-azure-data-factory"></a>Intégration et livraison continues dans Azure Data Factory
 
@@ -98,7 +98,7 @@ Vous trouverez ci-après un guide de configuration d’une mise en production Az
 
     ![Vue des phases](media/continuous-integration-deployment/continuous-integration-image14.png)
 
-    b.  Créer une tâche. Recherchez **Déploiement de groupe de ressources Azure**, puis sélectionnez **Ajouter**.
+    b.  Créer une tâche. Recherchez **Déploiement de modèles ARM**, puis sélectionnez **Ajouter**.
 
     c.  Dans la tâche Déploiement, sélectionnez l’abonnement, le groupe de ressources et l’emplacement de la fabrique de données cible. Fournissez les informations d’identification si nécessaire.
 
@@ -361,6 +361,14 @@ Vous trouverez ci-dessous le modèle actuel. Si vous n’avez besoin d’ajouter
                         "value": "-::secureString"
                     },
                     "resourceId": "="
+                },
+                "computeProperties": {
+                    "dataFlowProperties": {
+                        "externalComputeInfo": [{
+                                "accessToken": "-::secureString"
+                            }
+                        ]
+                    }
                 }
             }
         }
@@ -395,6 +403,7 @@ Vous trouverez ci-dessous le modèle actuel. Si vous n’avez besoin d’ajouter
                     "accessKeyId": "=",
                     "servicePrincipalId": "=",
                     "userId": "=",
+                    "host": "=",
                     "clientId": "=",
                     "clusterUserName": "=",
                     "clusterSshUserName": "=",
@@ -413,7 +422,11 @@ Vous trouverez ci-dessous le modèle actuel. Si vous n’avez besoin d’ajouter
                     "systemNumber": "=",
                     "server": "=",
                     "url":"=",
+                    "functionAppUrl":"=",
+                    "environmentUrl": "=",
                     "aadResourceId": "=",
+                    "sasUri": "|:-sasUri:secureString",
+                    "sasToken": "|",
                     "connectionString": "|:-connectionString:secureString"
                 }
             }
@@ -714,8 +727,10 @@ function triggerSortUtil {
         return;
     }
     $visited[$trigger.Name] = $true;
-    $trigger.Properties.DependsOn | Where-Object {$_ -and $_.ReferenceTrigger} | ForEach-Object{
-        triggerSortUtil -trigger $triggerNameResourceDict[$_.ReferenceTrigger.ReferenceName] -triggerNameResourceDict $triggerNameResourceDict -visited $visited -sortedList $sortedList
+    if ($trigger.Properties.DependsOn) {
+        $trigger.Properties.DependsOn | Where-Object {$_ -and $_.ReferenceTrigger} | ForEach-Object{
+            triggerSortUtil -trigger $triggerNameResourceDict[$_.ReferenceTrigger.ReferenceName] -triggerNameResourceDict $triggerNameResourceDict -visited $visited -sortedList $sortedList
+        }
     }
     $sortedList.Push($trigger)
 }

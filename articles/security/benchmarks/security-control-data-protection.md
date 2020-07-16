@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 04/14/2020
 ms.author: mbaldwin
 ms.custom: security-benchmark
-ms.openlocfilehash: 035894c80e619851264aae91daa2d7852d156964
-ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
+ms.openlocfilehash: d89320807c6322120490db85100453edf593aded
+ms.sourcegitcommit: e132633b9c3a53b3ead101ea2711570e60d67b83
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "81408545"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86045533"
 ---
 # <a name="security-control-data-protection"></a>Contrôle de sécurité : Protection des données
 
@@ -34,7 +34,7 @@ Utilisez des balises pour faciliter le suivi des ressources Azure qui stockent o
 |--|--|--|
 | 4,2 | 13.2, 2.10 | Customer |
 
-Implémentez une isolation en utilisant des abonnements et groupes d’administration distincts selon les domaines de sécurité (par exemple, le type d’environnement et le niveau de confidentialité des données). Vous pouvez limiter le niveau d’accès à vos ressources Azure demandées par vos applications et environnements d’entreprise. Il est possible de contrôler l’accès aux ressources Azure au moyen du contrôle d’accès en fonction du rôle Azure Active Directory. 
+Implémentez une isolation en utilisant des abonnements et groupes d’administration distincts selon les domaines de sécurité (par exemple, le type d’environnement et le niveau de confidentialité des données). Vous pouvez limiter le niveau d’accès à vos ressources Azure demandées par vos applications et environnements d’entreprise. Vous pouvez contrôler l’accès aux ressources Azure via le contrôle d’accès en fonction du rôle d’Azure (Azure RBAC). 
 
 - [Guide pratique pour créer des abonnements Azure supplémentaires](https://docs.microsoft.com/azure/billing/billing-create-subscription)
 
@@ -76,7 +76,7 @@ Si aucune fonctionnalité n’est disponible pour votre service spécifique dans
 
 Utilisez Azure Information Protection pour identifier les informations sensibles dans les documents Office 365.
 
-Utilisez Azure SQL Information Protection pour faciliter la classification et l’étiquetage des informations stockées dans les bases de données SQL Azure.
+Utilisez Azure SQL Information Protection pour faciliter la classification et l'étiquetage des informations stockées dans Azure SQL Database.
 
 - [Guide pratique pour implémenter la recherche de données Azure SQL](https://docs.microsoft.com/azure/sql-database/sql-database-data-discovery-and-classification)
 

@@ -1,18 +1,14 @@
 ---
 title: Azure Event Grid - Guide de résolution des problèmes
 description: Cet article fournit une liste de codes d’erreur avec les messages d’erreur correspondants, leur description et les actions recommandées.
-services: event-grid
-author: spelluru
-ms.service: event-grid
 ms.topic: conceptual
-ms.date: 08/22/2019
-ms.author: spelluru
-ms.openlocfilehash: 3b09b431e827bed4e416913c88d23ee1eddaf17c
-ms.sourcegitcommit: 1895459d1c8a592f03326fcb037007b86e2fd22f
+ms.date: 07/07/2020
+ms.openlocfilehash: ab52cea6ab43763cf2d9dc2b57b7f369072a399e
+ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/01/2020
-ms.locfileid: "82629012"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86119036"
 ---
 # <a name="troubleshoot-azure-event-grid-errors"></a>Résoudre les erreurs liées à Azure Event Grid
 Cet article fournit une liste de codes d’erreur relatifs à Azure Event Grid, avec les messages d’erreur correspondants, leur description et les actions recommandées si vous rencontrez ces erreurs. 
@@ -30,6 +26,13 @@ Cet article fournit une liste de codes d’erreur relatifs à Azure Event Grid, 
 | HttpStatusCode.Conflict <br/>409 | Une rubrique existe déjà sous le nom spécifié. Choisissez un autre nom de rubrique.   | Le nom de la rubrique personnalisée doit être unique au sein d’une même région Azure pour que l’opération de publication s’effectue correctement. Il est possible d’utiliser le même nom dans des régions Azure différentes. | Choisissez un autre nom de rubrique. |
 | HttpStatusCode.Conflict <br/> 409 | Un domaine existe déjà sous le nom spécifié. Choisissez un autre nom de domaine. | Le nom de domaine doit être unique au sein d’une même région Azure pour que l’opération de publication s’effectue correctement. Il est possible d’utiliser le même nom dans des régions Azure différentes. | Choisissez un autre nom de domaine. |
 | HttpStatusCode.Conflict<br/>409 | Limite du quota atteinte. Pour plus d’informations sur ces limites, consultez [Limites d’Azure Event Grid](../azure-resource-manager/management/azure-subscription-service-limits.md#event-grid-limits).  | Le nombre de ressources Azure Event Grid que peut utiliser chaque abonnement Azure est limité. Tout ou partie de ce quota a été dépassé et aucune ressource supplémentaire n’a pu être créée. |    Vérifiez l’utilisation des ressources actuelles et supprimez celles qui ne sont pas nécessaires. Si vous avez quand même besoin d’augmenter votre quota, envoyez un e-mail à [aeg@microsoft.com](mailto:aeg@microsoft.com) en indiquant le nombre exact de ressources nécessaires. |
+
+## <a name="error-code-403"></a>Code d’erreur : 403
+
+| Code d'erreur | Message d’erreur | Description | Action recommandée |
+| ---------- | ------------- | ----------- | ------------------ |
+| HttpStatusCode.Forbidden <br/>403 | La publication sur {Rubrique/Domaine} par le client {AdresseIP} est rejetée en raison des règles de filtrage d’adresse IP. | La rubrique ou le domaine a des règles de pare-feu IP configurées et l’accès est limité uniquement aux adresses IP configurées. | Ajoutez l’adresse IP aux règles de pare-feu IP ; consultez [Configurer le pare-feu IP](configure-firewall.md) |
+| HttpStatusCode.Forbidden <br/> 403 | La publication sur {Rubrique/Domaine} par le client est rejetée, car la demande émane du point de terminaison privé et aucune connexion de point de terminaison privée correspondante n’a été trouvée pour la ressource. | La rubrique ou le domaine a des points de terminaison privés configurés et la demande de publication provient d’un point de terminaison privé qui n’est pas configuré/approuvé. | Configurez un point de terminaison privé pour la rubrique/le domaine. [Configurer des points de terminaison privés](configure-private-endpoints.md) |
 
 ## <a name="troubleshoot-event-subscription-validation"></a>Résoudre les problèmes de validation des abonnements aux événements
 

@@ -9,15 +9,15 @@ ms.service: active-directory
 ms.subservice: develop
 ms.topic: conceptual
 ms.workload: identity
-ms.date: 07/23/2019
+ms.date: 06/16/2020
 ms.author: jmprieur
 ms.custom: aaddev
-ms.openlocfilehash: 06475b53acf6c9161888e29723feab9cdc4336d5
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 78e3bbfe910ebc3d7f21167c2a15f0c255fdc8ff
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80882724"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84904794"
 ---
 # <a name="configure-a-mobile-app-that-calls-web-apis"></a>Configurer une application mobile qui appelle des API web
 
@@ -363,7 +363,7 @@ Voici un exemple d’ajout de `LSApplicationQueriesSchemes` :
 
 ### <a name="brokered-authentication-for-xamarinandroid"></a>Authentification répartie pour Xamarin.Android
 
-MSAL.NET ne prend pas en charge les répartiteurs pour Android.
+Pour plus d’informations sur l’activation d’un répartiteur sur Android, consultez [Authentification répartie sur Xamarin.Android](msal-net-use-brokers-with-xamarin-apps.md#brokered-authentication-for-android).
 
 ## <a name="next-steps"></a>Étapes suivantes
 

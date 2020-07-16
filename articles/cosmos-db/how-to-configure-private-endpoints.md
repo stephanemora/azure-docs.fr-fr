@@ -3,15 +3,15 @@ title: Configurer Azure Private Link pour un compte Azure Cosmos
 description: Découvrez comment configurer Azure Private Link pour accéder à un compte Azure Cosmos à l’aide d’une adresse IP privée dans un réseau virtuel.
 author: ThomasWeiss
 ms.service: cosmos-db
-ms.topic: conceptual
-ms.date: 05/27/2020
+ms.topic: how-to
+ms.date: 06/11/2020
 ms.author: thweiss
-ms.openlocfilehash: c5b82e8cdea49f8dd761844ff5492df0ad109943
-ms.sourcegitcommit: 6a9f01bbef4b442d474747773b2ae6ce7c428c1f
+ms.openlocfilehash: 1ee468b99cddeb5f18f78a6d1298c8959bda075b
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "84116664"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85261628"
 ---
 # <a name="configure-azure-private-link-for-an-azure-cosmos-account"></a>Configurer Azure Private Link pour un compte Azure Cosmos
 
@@ -31,7 +31,7 @@ Afin de créer un point de terminaison privé pour un compte Azure Cosmos exista
 
 1. Sélectionnez **Connexions au point de terminaison privé** dans la liste de paramètres, puis **Point de terminaison privé** :
 
-   ![Sélections pour créer un point de terminaison privé dans le Portail Azure](./media/how-to-configure-private-endpoints/create-private-endpoint-portal.png)
+   :::image type="content" source="./media/how-to-configure-private-endpoints/create-private-endpoint-portal.png" alt-text="Sélections pour créer un point de terminaison privé dans le Portail Azure":::
 
 1. Dans le volet **Créer un point de terminaison privé – Concepts de base**, entrez ou sélectionnez les informations suivantes :
 
@@ -94,7 +94,7 @@ Une fois le point de terminaison privé provisionné, vous pouvez interroger les
 1. Recherchez le point de terminaison privé que vous avez créé précédemment. Dans ce cas, il s’agit de **cdbPrivateEndpoint3**.
 1. Sélectionnez l’onglet **Vue d’ensemble** pour afficher les paramètres DNS et les adresses IP.
 
-![Adresses IP privées dans le Portail Azure](./media/how-to-configure-private-endpoints/private-ip-addresses-portal.png)
+:::image type="content" source="./media/how-to-configure-private-endpoints/private-ip-addresses-portal.png" alt-text="Adresses IP privées dans le Portail Azure":::
 
 Plusieurs adresses IP sont créées par point de terminaison privé :
 
@@ -407,7 +407,7 @@ Pour ces comptes, vous devez créer un point de terminaison privé pour chaque t
 
 Une fois que le modèle a bien été déployé, vous pouvez voir une sortie similaire à ce que montre l’image suivante. La valeur `provisioningState` est `Succeeded` si les points de terminaison privés sont configurés correctement.
 
-![Sortie du déploiement pour le modèle Resource Manager](./media/how-to-configure-private-endpoints/resource-manager-template-deployment-output.png)
+:::image type="content" source="./media/how-to-configure-private-endpoints/resource-manager-template-deployment-output.png" alt-text="Sortie du déploiement pour le modèle Resource Manager":::
 
 Une fois le modèle déployé, les adresses IP privées sont réservées dans le sous-réseau. La règle de pare-feu du compte Azure Cosmos est configurée pour accepter uniquement les connexions à partir du point de terminaison privé.
 
@@ -628,6 +628,10 @@ Les situations et résultats suivants sont possibles lorsque vous utilisez Priva
 
 Comme décrit dans la section précédente, et à moins que des règles de pare-feu spécifiques n’aient été définies, l’ajout d’un point de terminaison privé rend votre compte Azure Cosmos accessible via des points de terminaison privés uniquement. Cela signifie que le compte Azure Cosmos peut être atteint à partir du trafic public, après sa création et avant l’ajout d’un point de terminaison privé. Pour vous assurer que l’accès au réseau public est désactivé avant même la création de points de terminaison privés, vous pouvez définir l’indicateur `publicNetworkAccess` sur `Disabled` pendant la création du compte. Pour voir un exemple d’utilisation de cet indicateur, consultez [ce modèle Azure Resource Manager](https://azure.microsoft.com/resources/templates/101-cosmosdb-private-endpoint/).
 
+## <a name="port-range-when-using-direct-mode"></a>Plage de ports lors de l’utilisation du mode direct
+
+Lorsque vous utilisez Private Link avec un compte Azure Cosmos via une connexion en mode direct, vous devez vous assurer que la plage de ports TCP complète (0 à 65535) est ouverte.
+
 ## <a name="update-a-private-endpoint-when-you-add-or-remove-a-region"></a>Mettre à jour un point de terminaison privé lors de l’ajout ou de la suppression d’une région
 
 Pour ajouter ou supprimer des régions dans un compte Azure Cosmos, vous devez ajouter ou supprimer des entrées DNS pour ce compte. Après l’ajout ou la suppression des régions, vous pouvez mettre à jour la zone DNS privée du sous-réseau pour refléter les entrées DNS ajoutées ou supprimées et leurs adresses IP privées correspondantes.
@@ -642,7 +646,9 @@ Vous pouvez utiliser les mêmes étapes lorsque vous supprimez une région. Apr�
 
 Les limitations suivantes s’appliquent lorsque vous utilisez Private Link avec un compte Azure Cosmos :
 
-* Lorsque vous utilisez Private Links avec un compte Azure Cosmos à l’aide d’une connexion en mode direct, vous ne pouvez utiliser que le protocole TCP. Le protocole HTTP n’est pas pris en charge actuellement.
+* Vous ne pouvez pas avoir plus de 200 points de terminaison privés sur un seul compte Azure Cosmos.
+
+* Lorsque vous utilisez Private Links avec un compte Azure Cosmos à travers une connexion en mode direct, vous ne pouvez utiliser que le protocole TCP. Le protocole HTTP n’est pas pris en charge actuellement.
 
 * Lorsque vous utilisez l’API Azure Cosmos DB pour les comptes MongoDB, un point de terminaison privé est pris en charge pour les comptes sur le serveur version 3.6 uniquement (c’est-à-dire les comptes utilisant le point de terminaison au format `*.mongo.cosmos.azure.com`). Private Link n’est pas pris en charge pour les comptes sur le serveur version 3.2 (c’est-à-dire les comptes utilisant le point de terminaison au format `*.documents.azure.com`). Pour utiliser Private Link, vous devez migrer les anciens comptes vers la nouvelle version.
 

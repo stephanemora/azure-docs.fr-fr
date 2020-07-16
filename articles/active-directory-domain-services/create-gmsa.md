@@ -9,22 +9,22 @@ ms.service: active-directory
 ms.subservice: domain-services
 ms.workload: identity
 ms.topic: how-to
-ms.date: 03/30/2020
+ms.date: 07/06/2020
 ms.author: iainfou
-ms.openlocfilehash: 5955f52cda73630f371a46f83ac0fb9a252b80e3
-ms.sourcegitcommit: 62c5557ff3b2247dafc8bb482256fef58ab41c17
+ms.openlocfilehash: 923502132fdbe0b4a56c0fc23c19475e9074b8ff
+ms.sourcegitcommit: e132633b9c3a53b3ead101ea2711570e60d67b83
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/03/2020
-ms.locfileid: "80655484"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86040246"
 ---
-# <a name="create-a-group-managed-service-account-gmsa-in-azure-ad-domain-services"></a>Créer un compte de service administré de groupe (gMSA) dans Azure AD Domain Services
+# <a name="create-a-group-managed-service-account-gmsa-in-azure-active-directory-domain-services"></a>Créer un compte de service administré de groupe (gMSA) dans Azure Active Directory Domain Services
 
 Les applications et les services ont souvent besoin d’une identité pour s’authentifier auprès d’autres ressources. Par exemple, un service web peut avoir besoin de s’authentifier auprès d’un service de base de données. Si une application ou un service possède plusieurs instances, comme une batterie de serveurs web, la création et la configuration manuelles des identités pour ces ressources prend beaucoup de temps.
 
 À la place, il est possible de créer un compte de service administré de groupe (gMSA) dans un domaine managé Azure Active Directory Domain Services (Azure AD DS). Le système d’exploitation Windows gère automatiquement les informations d’identification d’un gMSA, ce qui simplifie la gestion de grands groupes de ressources.
 
-Cet article vous explique comment créer un gMSA dans un domaine managé Azure AD DS à l’aide d’Azure PowerShell.
+Cet article vous explique comment créer un gMSA dans un domaine managé à l’aide d’Azure PowerShell.
 
 ## <a name="before-you-begin"></a>Avant de commencer
 
@@ -35,7 +35,7 @@ Pour faire ce qui est décrit dans cet article, vous avez besoin des ressources 
 * Un locataire Azure Active Directory associé à votre abonnement, synchronisé avec un annuaire local ou un annuaire cloud uniquement.
     * Si nécessaire, [créez un locataire Azure Active Directory][create-azure-ad-tenant] ou [associez un abonnement Azure à votre compte][associate-azure-ad-tenant].
 * Un domaine managé Azure Active Directory Domain Services activé et configuré dans votre locataire Azure AD.
-    * Si nécessaire, suivez le tutoriel pour [créer et configurer une instance Azure Active Directory Domain Services][create-azure-ad-ds-instance].
+    * Si nécessaire, suivez le tutoriel pour [créer et configurer un domaine managé Azure Active Directory Domain Services][create-azure-ad-ds-instance].
 * Une machine virtuelle de gestion Windows Server jointe au domaine managé Azure AD DS.
     * Si nécessaire, suivez le tutoriel [Créer une machine virtuelle de gestion][tutorial-create-management-vm].
 
@@ -49,11 +49,11 @@ Pour en savoir plus, consultez [Vue d’ensemble des comptes de service administ
 
 ## <a name="using-service-accounts-in-azure-ad-ds"></a>Utilisation des comptes de service dans Azure AD DS
 
-Comme les domaines managés par Azure AD DS sont verrouillés et managés par Microsoft, certaines considérations sont à prendre en compte lors de l’utilisation de comptes de service :
+Comme les domaines managés sont verrouillés et managés par Microsoft, certaines considérations sont à prendre en compte lors de l’utilisation de comptes de service :
 
 * Créez des comptes de service dans les unités d’organisation personnalisées d’un domaine managé.
     * Vous ne pouvez pas créer de compte de service dans les unités d’organisation intégrées *Utilisateurs AADDC* et *Ordinateurs AADDC*.
-    * À la place, [Créez une unité d’organisation personnalisée][create-custom-ou] dans le domaine managé Azure AD DS, puis créez des comptes de service dans cette unité d’organisation.
+    * À la place, [Créez une unité d’organisation personnalisée][create-custom-ou] dans le domaine managé, puis créez des comptes de service dans cette unité d’organisation.
 * La clé racine des services de distribution de clés (KDS) est précréée.
     * La clé racine KDS est utilisée pour générer et récupérer des mots de passe pour les comptes de service administrés de groupe (gMSA). Dans Azure AD DS, la racine KDS est créée pour vous.
     * Vous n’avez pas les privilèges nécessaires pour en créer un autre ou afficher la clé racine KDS par défaut.
@@ -65,7 +65,7 @@ Tout d’abord, créez une unité d’organisation personnalisée à l’aide de
 > [!TIP]
 > Pour effectuer ces étapes afin de créer un gMSA, [utilisez votre machine virtuelle de gestion][tutorial-create-management-vm]. Cette machine virtuelle de gestion doit déjà disposer des applets de commande AD PowerShell nécessaires et de la connexion au domaine géré.
 
-L’exemple suivant crée une unité d’organisation personnalisée nommée *myNewOU* dans le domaine managé Azure AD DS nommé *aaddscontoso.com*. Utilisez votre unité d’organisation et votre nom de domaine managé :
+L’exemple suivant crée une unité d’organisation personnalisée nommée *myNewOU* dans le domaine managé nommé *aaddscontoso.com*. Utilisez votre unité d’organisation et votre nom de domaine managé :
 
 ```powershell
 New-ADOrganizationalUnit -Name "myNewOU" -Path "DC=aaddscontoso,DC=COM"
