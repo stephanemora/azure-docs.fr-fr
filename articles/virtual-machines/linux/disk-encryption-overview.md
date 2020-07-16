@@ -8,12 +8,12 @@ ms.topic: article
 ms.author: mbaldwin
 ms.date: 08/06/2019
 ms.custom: seodec18
-ms.openlocfilehash: 5c227c6ab24d6b71445354d1b17d238e80bf6313
-ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
+ms.openlocfilehash: 75e469b30632bb7e7e8f6445db78acda784ac5da
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83655849"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85601273"
 ---
 # <a name="azure-disk-encryption-for-linux-vms"></a>Azure Disk Encryption pour les machines virtuelles Linux 
 
@@ -38,7 +38,7 @@ Les machines virtuelles Linux sont disponibles dans une [gamme de tailles](sizes
 
 | Machine virtuelle | Mémoire minimale requise |
 |--|--|
-| Machines virtuelles Linux lors du chiffrement des volumes de données uniquement| 2 Go |
+| Machines virtuelles Linux lors du chiffrement des volumes de données uniquement| 2 Go |
 | Machines virtuelles Linux lors du chiffrement des volumes de système d’exploitation et de données, et où l’utilisation du système de fichiers racine (/) est de 4 Go ou moins | 8 Go |
 | Machines virtuelles Linux lors du chiffrement des volumes de système d’exploitation et de données, et où l’utilisation du système de fichiers racine (/) est supérieure à 4 Go | L’utilisation du système de fichiers racine * 2. Par exemple, une utilisation du système de fichiers racine de 16 Go nécessite au moins 32 Go de RAM |
 
@@ -64,7 +64,6 @@ Les distributions de serveur Linux qui ne sont pas approuvées par Azure ne pren
 | Canonical | Ubuntu 14.04.5</br>[avec le noyau Azure mis à jour vers la version 4.15 ou ultérieure](disk-encryption-troubleshooting.md) | 14.04.5-LTS | Canonical:UbuntuServer:14.04.5-LTS:latest | Disque de système d’exploitation et de données |
 | Canonical | Ubuntu 14.04.5</br>[avec le noyau Azure mis à jour vers la version 4.15 ou ultérieure](disk-encryption-troubleshooting.md) | 14.04.5-DAILY-LTS | Canonical:UbuntuServer:14.04.5-DAILY-LTS:latest | Disque de système d’exploitation et de données |
 | Red Hat | RHEL 7.7 | 7,7 | RedHat:RHEL:7.7:latest | Disque de système d’exploitation et de données (voir la remarque ci-dessous) |
-| Red Hat | RHEL 7.7 | 7-RAW | RedHat:RHEL:7-RAW:latest | Disque de système d’exploitation et de données (voir la remarque ci-dessous) |
 | Red Hat | RHEL 7.7 | 7-LVM | RedHat:RHEL:7-LVM:latest | Disque de système d’exploitation et de données (voir la remarque ci-dessous) |
 | Red Hat | RHEL 7.6 | 7.6 | RedHat:RHEL:7.6:latest | Disque de système d’exploitation et de données (voir la remarque ci-dessous) |
 | Red Hat | RHEL 7.5 | 7.5 | RedHat:RHEL:7.5:latest | Disque de système d’exploitation et de données (voir la remarque ci-dessous) |
@@ -94,7 +93,7 @@ Les distributions de serveur Linux qui ne sont pas approuvées par Azure ne pren
 
 ## <a name="additional-vm-requirements"></a>Configuration requise supplémentaire pour les machines virtuelles
 
-Azure Disk Encryption nécessite la présence des modules dm-crypt et vfat sur le système. La suppression ou la désactivation de vfat de l’image par défaut empêchera le système de lire le volume de clés et d’obtenir la clé nécessaire pour déverrouiller les disques lors des redémarrages suivants. Les étapes de renforcement du système qui suppriment le module vfat du système ne sont pas compatibles avec Azure Disk Encryption. 
+Azure Disk Encryption nécessite la présence des modules dm-crypt et vfat sur le système. La suppression ou la désactivation de vfat de l’image par défaut empêchera le système de lire le volume de clés et d’obtenir la clé nécessaire pour déverrouiller les disques lors des redémarrages suivants. Les étapes de renforcement du système qui suppriment le module vfat du système ou qui appliquent une extension des points de montage/dossiers du système d’exploitation sur les lecteurs de données ne sont pas compatibles avec Azure Disk Encryption. 
 
 Avant d’activer le chiffrement, vous devez lister correctement les disques de données à chiffrer dans /etc/fstab. Utilisez l’option « nofail » lors de la création d’entrées et choisissez un nom d’appareil de bloc persistant (car les noms d’appareil au format « /dev/sdX » ne peuvent pas être associés au même disque entre les redémarrages, en particulier après le chiffrement. Pour plus d’informations sur ce comportement, consultez : [Résoudre les problèmes liés aux changements de noms d’appareil des machines virtuelles Linux](troubleshoot-device-names-problems.md)).
 
