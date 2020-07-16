@@ -6,12 +6,12 @@ ms.topic: conceptual
 ms.date: 07/07/2020
 author: palma21
 ms.author: jpalma
-ms.openlocfilehash: 55fd27d473bd47fd3321bdb2e730e4ef2d35352f
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.openlocfilehash: 560f7b958e04b55a7d642c9f95750812b86d32bc
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86106162"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86251720"
 ---
 # <a name="access-and-identity-options-for-azure-kubernetes-service-aks"></a>Options d’accès et d’identité pour Azure Kubernetes Service (AKS)
 
@@ -83,7 +83,7 @@ Depuis le cluster Kubernetes, l’authentification par jeton de Webhook est util
 
 Comme indiqué dans le graphique ci-dessus, le serveur API appelle le serveur webhook AKS et effectue les étapes suivantes :
 
-1. L’application cliente Azure AD est utilisée par kubectl pour connecter des utilisateurs avec le [flux d’octroi d’autorisation d’appareil OAuth 2,0](https://docs.microsoft.com/azure/active-directory/develop/v2-oauth2-device-code).
+1. L’application cliente Azure AD est utilisée par kubectl pour connecter des utilisateurs avec le [flux d’octroi d’autorisation d’appareil OAuth 2,0](../active-directory/develop/v2-oauth2-device-code.md).
 2. Azure AD fournit un access_token, id_token et un refresh_token.
 3. L’utilisateur envoie une requête à kubectl avec un access_token à partir de kubeconfig.
 4. Kubectl envoie l’access_token au serveur API.
@@ -140,10 +140,10 @@ AKS propose quatre rôles intégrés. Ils sont similaires aux rôles intégrés 
 
 | Role                                | Description  |
 |-------------------------------------|--------------|
-| Azure  Kubernetes Service RBAC Viewer  | Autorise l’accès en lecture seule pour voir la plupart des objets dans un espace de noms. Il n’autorise pas l’affichage des rôles ou des liaisons de rôles. Ce rôle n’autorise pas l’affichage des `Secrets`, car la lecture du contenu de secrets permet d’accéder aux informations d’identification `ServiceAccount` dans l’espace de noms, ce qui permet l’accès aux API comme n’importe quel `ServiceAccount` dans l’espace de noms (une forme d’élévation de privilèges)  |
-| Azure  Kubernetes Service RBAC Writer | Autorise la lecture/l’écriture pour la plupart des objets dans un espace de noms. Il n’autorise pas l’affichage/la modification des rôles ou des liaisons de rôles. Toutefois, ce rôle permet d’accéder à `Secrets` et aux pod en cours d’exécution comme n’importe quel ServiceAccount dans l’espace de noms. Il peut donc être utilisé pour obtenir les niveaux d’accès API de n’importe quel ServiceAccount dans l’espace de noms. |
-| Azure Kubernetes Service RBAC Admin  | Autorise l’accès administrateur, destiné à être accordé au sein d’un espace de noms. Autorise l’accès en lecture/écriture à la plupart des ressources d’un espace de noms (ou de l’étendue du cluster), y compris la possibilité de créer des rôles et des liaisons de rôle dans l’espace de noms. Ce rôle n’autorise pas l’accès en écriture au quota de ressources ou à l’espace de noms lui-même. |
-| Azure Kubernetes Service RBAC Cluster Admin  | Permet à un accès de super utilisateur d’effectuer n’importe quelle action sur n’importe quelle ressource. Il donne un contrôle total sur chaque ressource du cluster et dans tous les espaces de noms. |
+| Azure Kubernetes Service RBAC Viewer  | Autorise l’accès en lecture seule pour voir la plupart des objets dans un espace de noms. Il n’autorise pas l’affichage des rôles ou des liaisons de rôles. Ce rôle n’autorise pas l’affichage des `Secrets`, car la lecture du contenu de secrets permet d’accéder aux informations d’identification `ServiceAccount` dans l’espace de noms, ce qui permet l’accès aux API comme n’importe quel `ServiceAccount` dans l’espace de noms (une forme d’élévation de privilèges)  |
+| Azure  Kubernetes Service RBAC Writer | Autorise l’accès en lecture/écriture pour la plupart des objets dans un espace de noms. Ce rôle n’autorise pas l’affichage ni la modification des rôles et des liaisons de rôles. Toutefois, ce rôle permet d’accéder à `Secrets` et aux pod en cours d’exécution comme n’importe quel ServiceAccount dans l’espace de noms. Il peut donc être utilisé pour obtenir les niveaux d’accès API de n’importe quel ServiceAccount dans l’espace de noms. |
+| Azure Kubernetes Service RBAC Admin  | Autorise l’accès administrateur, normalement accordé au sein d’un espace de noms. Autorise l’accès en lecture/écriture à la plupart des ressources dans un espace de noms (ou dans l’étendue du cluster), y compris la possibilité de créer des rôles et des liaisons de rôles dans l’espace de noms. Ce rôle n’autorise pas l’accès en écriture au quota de ressources ou à l’espace de noms lui-même. |
+| Azure Kubernetes Service RBAC Cluster Admin  | Autorise l’accès de super utilisateur qui permet d’effectuer n’importe quelle action sur toutes les ressources. Il donne un contrôle total sur chaque ressource du cluster et dans tous les espaces de noms. |
 
 **Voir comment utiliser Azure RBAC pour l’autorisation Kubernetes (préversion) [ici](manage-azure-rbac.md).**
 
