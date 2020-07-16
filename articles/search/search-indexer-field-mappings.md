@@ -9,12 +9,12 @@ ms.devlang: rest-api
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 11/04/2019
-ms.openlocfilehash: fa815d9fb653ee61d647023f7867549aa8d655aa
-ms.sourcegitcommit: ac4a365a6c6ffa6b6a5fbca1b8f17fde87b4c05e
+ms.openlocfilehash: 7d853a8e935f7732a05b33d9b8581dcf753d8873
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/10/2020
-ms.locfileid: "83005795"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84975331"
 ---
 # <a name="field-mappings-and-transformations-using-azure-cognitive-search-indexers"></a>Mappages de champs et transformations à l’aide d’indexeurs Recherche cognitive Azure
 
@@ -39,6 +39,9 @@ Un mappage de champs se compose de trois parties :
 3. Une `mappingFunction`facultative, qui peut transformer vos données à l'aide d'une des fonctions prédéfinies. Celle-ci peut être appliquée sur les mappages de champs d’entrée et de sortie. La liste complète des fonctions est présentée [ci-dessous](#mappingFunctions).
 
 Les mappages de champs sont ajoutés au tableau `fieldMappings` dans la définition de l’indexeur.
+
+> [!NOTE]
+> Si aucun mappage de champs n’est ajouté, les indexeurs supposent que les champs de source de données doivent être mappés à des champs d’index portant le même nom. L’ajout d’un mappage de champs supprime ces mappages de champs par défaut pour les champs source et cible. Certains indexeurs, comme [l’indexeur de stockage d’objets blob](search-howto-indexing-azure-blob-storage.md), ajoutent des mappages de champs par défaut pour le champ de clé d’index.
 
 ## <a name="map-fields-using-the-rest-api"></a>Mapper des champs avec l’API REST
 
@@ -136,6 +139,27 @@ Une fois que vous avez récupéré la clé encodée au moment de la recherche, v
     }
   }]
  ```
+
+#### <a name="example---preserve-original-values"></a>Exemple : conserver les valeurs d’origine
+
+L’[indexeur de stockage d’objets blob](search-howto-indexing-azure-blob-storage.md) ajoute automatiquement un mappage de champs à partir de `metadata_storage_path`, l’URI de l’objet blob, au champ de clé d’index si aucun mappage de champs n’est spécifié. Cette valeur est encodée en Base64 afin d’être utilisée en toute sécurité comme clé de document Recherche cognitive Azure. L’exemple suivant montre comment mapper simultanément une *version* de `metadata_storage_path` en codage Base64 sécurisée pour les URL à un champ `index_key` et conserver la valeur d’origine dans un champ `metadata_storage_path` :
+
+```JSON
+
+"fieldMappings": [
+  {
+    "sourceFieldName": "metadata_storage_path",
+    "targetFieldName": "metadata_storage_path"
+  },
+  {
+    "sourceFieldName": "metadata_storage_path",
+    "targetFieldName": "index_key",
+    "mappingFunction": {
+       "name": "base64Encode"
+    }
+  }
+]
+```
 
 Si vous n’incluez aucune propriété de paramètre pour votre fonction de mappage, la valeur par défaut est `{"useHttpServerUtilityUrlTokenEncode" : true}`.
 

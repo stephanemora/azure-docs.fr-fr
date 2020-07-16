@@ -5,12 +5,12 @@ services: container-service
 manager: gwallace
 ms.topic: article
 ms.date: 06/22/2020
-ms.openlocfilehash: 095746b9cf3cada9cebf7d169078eff9eb64a52d
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 1bcdfb4bb3c910feeac0521308e1e7d733fbd959
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85444265"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86244070"
 ---
 # <a name="reduce-latency-with-proximity-placement-groups-preview"></a>Réduire la latence au moyen de groupes de placement de proximité (préversion)
 
@@ -74,7 +74,7 @@ La première ressource que vous déployez avec un groupe de placement de proximi
 
 L’exemple suivant utilise la commande [az group create][az-group-create] pour créer un groupe de ressources nommé *myResourceGroup* dans la région *centralus*. Un cluster AKS nommé *myAKSCluster* est alors créé à l’aide de la commande [az aks create][az-aks-create]. 
 
-L’accélération réseau améliore considérablement les performances des machines virtuelles sur le réseau. Dans l’idéal, utilisez des groupes de placement de proximité conjointement avec l’accélération réseau. Par défaut, AKS utilise l’accélération réseau sur des [instances de machines virtuelles prises en charge](https://docs.microsoft.com/azure/virtual-network/create-vm-accelerated-networking-cli?toc=/azure/virtual-machines/linux/toc.json#limitations-and-constraints), ce qui inclut la plupart des machines virtuelles Azure dotées de deux processeurs virtuels ou plus.
+L’accélération réseau améliore considérablement les performances des machines virtuelles sur le réseau. Dans l’idéal, utilisez des groupes de placement de proximité conjointement avec l’accélération réseau. Par défaut, AKS utilise l’accélération réseau sur des [instances de machines virtuelles prises en charge](../virtual-network/create-vm-accelerated-networking-cli.md?toc=/azure/virtual-machines/linux/toc.json#limitations-and-constraints), ce qui inclut la plupart des machines virtuelles Azure dotées de deux processeurs virtuels ou plus.
 
 Créez un cluster AKS avec un groupe de placement de proximité :
 
@@ -164,4 +164,3 @@ az group delete --name myResourceGroup --yes --no-wait
 [az-aks-create]: /cli/azure/aks#az-aks-create
 [az-group-create]: /cli/azure/group#az-group-create
 [az-group-delete]: /cli/azure/group#az-group-delete
-

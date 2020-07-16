@@ -11,14 +11,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 02/12/2019
+ms.date: 06/26/2020
 ms.author: kumud
-ms.openlocfilehash: d59a2fe32742c2d1d50b9ed33ccace5d377c59c2
-ms.sourcegitcommit: e0330ef620103256d39ca1426f09dd5bb39cd075
+ms.openlocfilehash: 19824e978af78e85f9e8c790517bd66b1f6c0113
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/05/2020
-ms.locfileid: "82791984"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85481729"
 ---
 # <a name="azure-virtual-network-frequently-asked-questions-faq"></a>FAQ sur les réseaux virtuels Azure
 
@@ -55,7 +55,14 @@ Vous pouvez utiliser les outils suivants pour créer ou configurer un réseau vi
 * Fichier de configuration réseau (netcfg - pour les réseaux virtuels classiques uniquement). Consultez l’article [Configurer un réseau virtuel à l’aide d’un fichier de configuration réseau](virtual-networks-using-network-configuration-file.md).
 
 ### <a name="what-address-ranges-can-i-use-in-my-vnets"></a>Quelles plages d’adresses puis-je utiliser dans mes réseaux virtuels ?
-Toute plage d’adresses IP définie dans [RFC 1918](https://tools.ietf.org/html/rfc1918). Par exemple, 10.0.0.0/16. Vous ne pouvez pas ajouter les plages d’adresses suivantes :
+Nous vous recommandons d’utiliser les plages d’adresses énumérées dans [RFC 1918](https://tools.ietf.org/html/rfc1918), qui ont été mis de côté par l’IETF pour les espaces d’adressage privés et non routables :
+* 10.0.0.0 - 10.255.255.255  (10/8 prefix)
+* 172.16.0.0 - 172.31.255.255  (172.16/12 prefix)
+* 192.168.0.0 - 192.168.255.255 (192.168/16 prefix)
+
+D’autres espaces d’adressage peuvent fonctionner mais peuvent avoir des effets secondaires indésirables.
+
+En outre, vous ne pouvez pas ajouter les plages d’adresses suivantes :
 * 224.0.0.0/4 (multidiffusion)
 * 255.255.255.255/32 (diffusion)
 * 127.0.0.0/8 (bouclage)

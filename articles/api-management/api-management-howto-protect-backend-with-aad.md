@@ -12,12 +12,12 @@ ms.workload: mobile
 ms.topic: article
 ms.date: 06/24/2020
 ms.author: apimpm
-ms.openlocfilehash: 72899e743e167eef5ee7d1be04cb50cafc1f2a95
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 455444fe78171e3e2b37a309fd5708f283121ed6
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85445506"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86243407"
 ---
 # <a name="protect-an-api-by-using-oauth-20-with-azure-active-directory-and-api-management"></a>Guide pratique pour protéger une API à l’aide d’OAuth 2.0 avec Azure Active Directory et Gestion des API
 
@@ -146,7 +146,7 @@ Dans cet exemple, la console de développeur est l’application cliente. Les é
 
 1. Si vous utilisez des points de terminaison **v1**, ajoutez un paramètre de corps nommé **Ressource**. Comme valeur pour ce paramètre, utilisez l’**ID d’application** de l’application back-end. 
 
-1. Si vous utilisez des points de terminaison **v2**, utilisez l’étendue que vous avez créée pour l’application back-end dans le champ **Étendue par défaut**. En outre, veillez à définir la valeur de la propriété [`accessTokenAcceptedVersion`](https://docs.microsoft.com/azure/active-directory/develop/reference-app-manifest#accesstokenacceptedversion-attribute) sur `2` dans le [manifeste de votre application](https://docs.microsoft.com/azure/active-directory/develop/reference-app-manifest).
+1. Si vous utilisez des points de terminaison **v2**, utilisez l’étendue que vous avez créée pour l’application back-end dans le champ **Étendue par défaut**. En outre, veillez à définir la valeur de la propriété [`accessTokenAcceptedVersion`](../active-directory/develop/reference-app-manifest.md#accesstokenacceptedversion-attribute) sur `2` dans le [manifeste de votre application](../active-directory/develop/reference-app-manifest.md).
 
 1. Ensuite, spécifiez les informations d’identification du client. Il s’agit des informations d’identification de client-app.
 
@@ -203,7 +203,7 @@ Maintenant que l’autorisation utilisateur OAuth 2.0 est activée sur votre AP
 
 Toutefois, que se passe-t-il si quelqu’un appelle votre API sans jeton ou avec un jeton non valide ? Par exemple, essayez d’appeler l’API sans l'en-tête `Authorization`. L’appel marchera quand même. Cela est dû au fait que Gestion des API ne valide pas le jeton d’accès à ce stade. Elle transfert simplement l’en-tête `Authorization` à l’API principale.
 
-Utilisez la stratégie [Validate JWT](https://docs.microsoft.com/azure/api-management/api-management-access-restriction-policies#ValidateJWT) pour pré-autoriser les requêtes dans Gestion des API en validant les jetons d’accès de chaque requête entrante. Si une requête n’a pas de jeton valide, Gestion des API la bloque. Par exemple, vous pouvez ajouter la stratégie ci-dessous à la section de stratégie `<inbound>` de `Echo API`. Il vérifie la revendication d’audience dans un jeton d’accès et retourne un message d’erreur si le jeton n’est pas valide. Pour plus d’informations sur la façon de configurer des stratégies, consultez [Définir ou modifier des stratégies](https://docs.microsoft.com/azure/api-management/set-edit-policies).
+Utilisez la stratégie [Validate JWT](./api-management-access-restriction-policies.md#ValidateJWT) pour pré-autoriser les requêtes dans Gestion des API en validant les jetons d’accès de chaque requête entrante. Si une requête n’a pas de jeton valide, Gestion des API la bloque. Par exemple, vous pouvez ajouter la stratégie ci-dessous à la section de stratégie `<inbound>` de `Echo API`. Il vérifie la revendication d’audience dans un jeton d’accès et retourne un message d’erreur si le jeton n’est pas valide. Pour plus d’informations sur la façon de configurer des stratégies, consultez [Définir ou modifier des stratégies](./set-edit-policies.md).
 
 
 ```xml
@@ -228,7 +228,7 @@ Dans ce guide, vous avez utilisé la console de développeur dans Gestion des AP
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-- En savoir plus sur [Azure Active Directory et OAuth2.0](../active-directory/develop/authentication-scenarios.md).
+- En savoir plus sur [Azure Active Directory et OAuth2.0](../active-directory/develop/authentication-vs-authorization.md).
 - Découvrez plus de [vidéos](https://azure.microsoft.com/documentation/videos/index/?services=api-management) sur Gestion des API.
 - Pour les autres méthodes permettant de sécuriser votre service principal, consultez [Authentification mutuelle des certificats](./api-management-howto-mutual-certificates.md).
 - [Création d’une instance du service Gestion des API](./get-started-create-service-instance.md).

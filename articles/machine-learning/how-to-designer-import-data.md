@@ -1,23 +1,23 @@
 ---
 title: Importer des données
 titleSuffix: Azure Machine Learning
-description: Découvrez comment importer vos données dans le concepteur Azure Machine Learning depuis différentes sources de données.
+description: Découvrez comment importer des données dans le concepteur Azure Machine Learning depuis différentes sources de données.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
-ms.topic: conceptual
+ms.topic: how-to
 author: peterclu
 ms.author: peterlu
 ms.date: 01/16/2020
 ms.custom: designer
-ms.openlocfilehash: 2b42f8f9dfe6ef2993b4615f0e4584874beabb28
-ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
+ms.openlocfilehash: 12473aca589f8a04dd0e09fdc2dc7f0d4e450c5a
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83644570"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85610946"
 ---
-# <a name="import-your-data-into-azure-machine-learning-designer-preview"></a>Importer vos données dans le concepteur Azure Machine Learning (préversion)
+# <a name="import-data-into-azure-machine-learning-designer-preview"></a>Importer des données dans le concepteur Azure Machine Learning (préversion)
 
 Dans cet article, vous allez apprendre à importer vos propres données dans le concepteur afin de créer des solutions personnalisées. Vous pouvez importer des données dans le concepteur de deux manières : 
 
@@ -89,6 +89,10 @@ Le concepteur utilise un type de données interne appelé pour transmettre des d
 ## <a name="data-constraints"></a>Contraintes de données
 
 Les modules du concepteur sont limités par la taille de la cible de calcul. En présence de jeux de données plus volumineux, vous devez utiliser une plus grande ressource de calcul Azure Machine Learning. Pour plus d’informations sur le calcul Azure Machine Learning, consultez [Qu’est-ce qu’une cible de calcul dans Azure Machine Learning ?](concept-compute-target.md#azure-machine-learning-compute-managed)
+
+## <a name="access-data-in-a-virtual-network"></a>Accéder à des données dans un réseau virtuel
+
+Si votre espace de travail se trouve dans un réseau virtuel, vous devez effectuer des étapes de configuration supplémentaires pour visualiser les données dans le concepteur. Pour plus d’informations sur l’utilisation des magasins de données et des jeux de données dans un réseau virtuel, consultez [Isolement réseau pendant la formation et inférence avec les réseaux virtuels privés](how-to-enable-virtual-network.md#machine-learning-studio).
 
 ## <a name="next-steps"></a>Étapes suivantes
 

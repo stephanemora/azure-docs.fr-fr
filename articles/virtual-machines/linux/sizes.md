@@ -9,12 +9,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 02/03/2020
 ms.author: jushiman
-ms.openlocfilehash: 2620795d8c4fc8adf11fc0795048ff9999d6ef83
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 568f4189c55b49aa6f3e2d4e86582165a4a89cdd
+ms.sourcegitcommit: 3541c9cae8a12bdf457f1383e3557eb85a9b3187
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84783353"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86201099"
 ---
 # <a name="sizes-for-linux-virtual-machines-in-azure"></a>Tailles des machines virtuelles Linux dans Azure
 
@@ -49,6 +49,10 @@ Lisez-en davantage sur les [Unités de calcul Azure (ACU)](../acu.md) pour déco
 ## <a name="benchmark-scores"></a>Scores de test d’évaluation
 
 En savoir plus sur les performances de calcul pour les machines virtuelles Linux à l’aide des [scores de test d’évaluation CoreMark](compute-benchmark-scores.md).
+
+## <a name="manage-costs"></a>Gérer les coûts
+
+[!INCLUDE [cost-management-horizontal](../../../includes/cost-management-horizontal.md)]
 
 ## <a name="next-steps"></a>Étapes suivantes
 

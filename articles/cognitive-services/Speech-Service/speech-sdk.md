@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 04/03/2020
 ms.author: trbye
-ms.openlocfilehash: f663c9af8c352d0170c633fe76b3fbc5268aad1e
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 5dc0a7fc9797948e834b8b3cb802bb92fce0eb59
+ms.sourcegitcommit: 32592ba24c93aa9249f9bd1193ff157235f66d7e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "81400032"
+ms.lasthandoff: 07/01/2020
+ms.locfileid: "85610759"
 ---
 # <a name="about-the-speech-sdk"></a>À propos du kit SDK Speech
 
@@ -37,7 +37,7 @@ La [Synthèse vocale ](text-to-speech.md) convertit le texte en discours synthé
 
 ### <a name="voice-assistants"></a>Assistants vocaux
 
-Les assistants vocaux qui utilisent le SDK Speech permettent aux développeurs de créer des interfaces conversationnelles naturelles pour leurs applications et leurs expériences. Le service d'assistance vocale permet une interaction rapide et fiable entre un appareil et un assistant. L'implémentation utilise le canal Direct Line Speech de Bot Framework ou le service intégré Commandes personnalisées (préversion) pour la réalisation des tâches. En outre, des assistants vocaux peuvent être créés à l'aide du [portail Custom Voice](https://aka.ms/customvoice) pour offrir une expérience vocale unique.
+Les [assistants vocaux](voice-assistants.md) qui utilisent le SDK Speech permettent aux développeurs de créer des interfaces conversationnelles naturelles pour leurs applications et leurs expériences. Le service d'assistance vocale permet une interaction rapide et fiable entre un appareil et un assistant. L'implémentation utilise le canal Direct Line Speech de Bot Framework ou le service intégré Commandes personnalisées (préversion) pour la réalisation des tâches. En outre, des assistants vocaux peuvent utiliser des voix personnalisées dans le [Portail Custom Voice](https://aka.ms/customvoice) pour ajouter une expérience de sortie vocale unique.
 
 #### <a name="keyword-spotting"></a>Identification de mot clé
 

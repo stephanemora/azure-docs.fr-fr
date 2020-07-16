@@ -13,15 +13,15 @@ ms.service: virtual-machines-linux
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
-ms.date: 05/05/2020
+ms.date: 06/23/2020
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: b56fab132b36b63dae39d32f3ab9979b3d00a828
-ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
+ms.openlocfilehash: f7947b6c04ade1fd6a5d9032f05cb6ec56e7a1f5
+ms.sourcegitcommit: e995f770a0182a93c4e664e60c025e5ba66d6a45
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "84021192"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86132081"
 ---
 # <a name="azure-virtual-machines-planning-and-implementation-for-sap-netweaver"></a>Planification et implémentation de machines virtuelles Azure pour SAP NetWeaver
 
@@ -284,9 +284,9 @@ ms.locfileid: "84021192"
 [virtual-machines-sizes-windows]:../../windows/sizes.md
 [virtual-machines-windows-classic-ps-sql-alwayson-availability-groups]:./../../windows/sqlclassic/virtual-machines-windows-classic-ps-sql-alwayson-availability-groups.md
 [virtual-machines-windows-classic-ps-sql-int-listener]:./../../windows/sqlclassic/virtual-machines-windows-classic-ps-sql-int-listener.md
-[virtual-machines-sql-server-high-availability-and-disaster-recovery-solutions]:../../../azure-sql/virtual-machines/windows/business-continuity-high-availability-disaster-recovery-hadr-overview.md
-[virtual-machines-sql-server-infrastructure-services]:../../../azure-sql/virtual-machines/windows/sql-server-on-azure-vm-iaas-what-is-overview.md
-[virtual-machines-sql-server-performance-best-practices]:../../../azure-sql/virtual-machines/windows/performance-guidelines-best-practices.md
+[virtual-machines-sql-server-high-availability-and-disaster-recovery-solutions]:./../../windows/sql/virtual-machines-windows-sql-high-availability-dr.md
+[virtual-machines-sql-server-infrastructure-services]:./../../windows/sql/virtual-machines-windows-sql-server-iaas-overview.md
+[virtual-machines-sql-server-performance-best-practices]:./../../windows/sql/virtual-machines-windows-sql-performance.md
 [virtual-machines-upload-image-windows-resource-manager]:../../virtual-machines-windows-upload-image.md
 [virtual-machines-windows-tutorial]:../../virtual-machines-windows-hero-tutorial.md
 [virtual-machines-workload-template-sql-alwayson]:https://azure.microsoft.com/documentation/templates/sql-server-2014-alwayson-dsc/
@@ -391,7 +391,7 @@ Les limitations générales par défaut et les limitations maximales des abonnem
 ## <a name="possible-scenarios"></a>Scénarios possibles
 SAP est souvent considéré comme une des applications les plus critiques au sein des entreprises. L’architecture et les opérations de ces applications sont généralement complexes, vous devez donc bien respecter les exigences relatives à la disponibilité et aux performances.
 
-Par conséquent, les entreprises doivent choisir avec soin le fournisseur de cloud auquel elles souhaitent confier l’exécution de leurs processus métier critiques. Azure constitue la plateforme de cloud public idéale pour les applications SAP et processus métiers critiques pour l’entreprise. Compte tenu de la grande variété d’infrastructures Azure, la quasi-totalité des systèmes SAP NetWeaver et S/4HANA existants peuvent être hébergés dans Azure aujourd’hui. Azure fournit aux machines virtuelles plusieurs téraoctets de mémoire et plus de 200 UC. En outre, Azure offre la fonctionnalité [HANA - Grandes instances](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-overview-architecture), qui permet des déploiements HANA avec montée en puissance parallèle (scale-up) d'un maximum de 24 To et des déploiements SAP HANA avec montée en charge parallèle (scale-out) d'un maximum de 120 To. Il est possible de dire aujourd’hui que presque tous les scénarios SAP locaux peuvent également être exécutés dans Azure. 
+Par conséquent, les entreprises doivent choisir avec soin le fournisseur de cloud auquel elles souhaitent confier l’exécution de leurs processus métier critiques. Azure constitue la plateforme de cloud public idéale pour les applications SAP et processus métiers critiques pour l’entreprise. Compte tenu de la grande variété d’infrastructures Azure, la quasi-totalité des systèmes SAP NetWeaver et S/4HANA existants peuvent être hébergés dans Azure aujourd’hui. Azure fournit aux machines virtuelles plusieurs téraoctets de mémoire et plus de 200 UC. En outre, Azure propose [HANA – Grandes instances](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-overview-architecture), qui permet des déploiements HANA avec scale-up d’un maximum de 24 To et des déploiements SAP HANA avec scale-out d’un maximum de 120 To. Il est possible de dire aujourd’hui que presque tous les scénarios SAP locaux peuvent également être exécutés dans Azure. 
 
 Pour obtenir une description approximative des scénarios et quelques scénarios non pris en charge, consultez le document [Charge de travail SAP sur les machines virtuelles Azure – Scénarios pris en charge](./sap-planning-supported-configurations.md).
 
@@ -449,6 +449,9 @@ Le principe de groupe à haute disponibilité et de domaine de mise à jour et d
 > [!IMPORTANT]
 > Les concepts de Zones de disponibilité Azure et de groupes à haute disponibilité Azure sont incompatibles. Cela signifie que vous pouvez déployer deux ou plusieurs machines virtuelles dans une zone de disponibilité ou dans un groupe à haute disponibilité Azure, mais pas dans les deux.
 
+### <a name="azure-paired-regions"></a>Régions appairées Azure
+Azure propose des paires de régions Azure fixes, entre lesquelles la réplication de certaines données est activée. L’appariement des régions est documenté dans l’article [Continuité d’activité et reprise d’activité (BCDR) : régions jumelées d’Azure](https://docs.microsoft.com/azure/best-practices-availability-paired-regions). Comme l’explique l’article, la réplication des données est liée aux types de stockage Azure que vous pouvez configurer de sorte qu’ils soient répliqués dans la région appairée. Consultez également l’article [Redondance du stockage dans une région secondaire](https://docs.microsoft.com/azure/storage/common/storage-redundancy#redundancy-in-a-secondary-region). Les types de stockage qui autorisent une telle réplication sont ceux qui ne sont pas adaptés à la charge de travail SGBD. Par conséquent, l’utilisation de la réplication du stockage Azure se limite au Stockage Blob Azure (par exemple, à des fins de sauvegarde) ou à d’autres scénarios de stockage à latence élevée. Lorsque vous recherchez des régions appairées ainsi que les services que vous souhaitez utiliser comme région primaire ou secondaire, il peut arriver que les services Azure ou les types de machines virtuelles envisagés pour votre région primaire ne soient pas disponibles dans la région appairée. Vous pouvez également rencontrer une situation dans laquelle la région appairée Azure n’est pas acceptable pour des raisons de conformité des données. Dans ce cas, il est nécessaire d’utiliser une région non appairée comme région de récupération d’urgence/secondaire. Vous devez alors vous occuper de la réplication d’une partie des données, dont Azure se serait chargé. Vous trouverez un exemple de réplication d’une instance Active Directory et d’un nom DNS dans la région de récupération d’urgence dans l’article [Configuration de la récupération d’urgence pour Active Directory et le nom DNS](https://docs.microsoft.com/azure/site-recovery/site-recovery-active-directory).
+ 
 
 ## <a name="azure-virtual-machine-services"></a>Services de machines virtuelles Azure
 Azure met à votre disposition une grande variété de machines virtuelles pour vos déploiements. Cela vous permet de réduire vos achats initiaux d'infrastructure et de technologie. L'offre de services de machines virtuelles Azure simplifie la gestion et l'exploitation des applications en fournissant des capacités de calcul et de stockage à la demande pour héberger, mettre à l'échelle et gérer les applications web et les applications connectées. La gestion de l'infrastructure est automatisée grâce à une plateforme conçue pour offrir un haut niveau de disponibilité et une mise à l'échelle dynamique, afin de répondre aux besoins d'utilisation en ayant la possibilité d'utiliser plusieurs modèles de tarification différents.
@@ -468,7 +471,7 @@ Pour la charge de travail SAP, nous avons restreint la sélection à différente
 > [!NOTE]
 > Aucun surapprovisionnement en ressources UC et mémoire ne s'applique aux types de machines virtuelles certifiés pour la charge de travail SAP.
 
-Outre la sélection de machines virtuelles prises en charge, vous devez également vérifier si celles-ci sont disponibles dans une région spécifique en consultant le site [Produits disponibles par région](https://azure.microsoft.com/global-infrastructure/services/). Mais plus important encore, vous devez déterminer si :
+Outre la sélection de types de machines virtuelles strictement pris en charge, vous devez également vérifier si ceux-ci sont disponibles dans une région donnée en consultant le site [Produits disponibles par région](https://azure.microsoft.com/global-infrastructure/services/). Mais plus important encore, vous devez déterminer si :
 
 - Les ressources UC et mémoire des différents types de machines virtuelles 
 - La bande passante IOPS des différents types de machines virtuelles
@@ -496,57 +499,16 @@ Pour plus d'informations sur la tarification Spot, consultez l'article [Machines
 En outre, Azure offre les concepts d'un hôte dédié. Le concept d'hôte dédié vous confère davantage de contrôle sur les cycles de mise à jour corrective d'Azure. Vous pouvez programmer les mises à jour correctives selon vos propres horaires. Cette offre s'adresse spécifiquement aux clients dont la charge de travail peut de ne pas suivre le cycle normal. Pour en savoir plus sur les concepts des offres d'hôte dédié Azure, consultez l'article [Hôte dédié Azure](https://docs.microsoft.com/azure/virtual-machines/windows/dedicated-hosts). Cette offre est prise en charge pour la charge de travail SAP et est utilisée par différents clients SAP qui souhaitent bénéficier d'un contrôle accru sur les mises à jour correctives de l'infrastructure et les éventuels plans de maintenance de Microsoft. Pour plus d'informations sur la façon dont Microsoft assure la maintenance et les mises à jour correctives de l'infrastructure Azure qui héberge les machines virtuelles, consultez l'article [Maintenance des machines virtuelles dans Azure](https://docs.microsoft.com/azure/virtual-machines/maintenance-and-updates).
 
 #### <a name="generation-1-and-generation-2-virtual-machines"></a>Machines virtuelles de générations 1 et 2
-L'hyperviseur de Microsoft peut gérer deux générations distinctes de machines virtuelles. Ces formats sont appelés **Génération 1** et **Génération 2**. Le format **Génération 2** a été introduit en 2012 avec l'hyperviseur Windows Server 2012. Azure a commencé par utiliser des machines virtuelles de génération 1. Lorsque vous déployez des machines virtuelles Azure, le format par défaut est toujours Génération 1. Mais vous pouvez également déployer le format de machine virtuelle de génération 2. L'article [Prise en charge des machines virtuelles de génération 2 dans Azure](https://docs.microsoft.com/azure/virtual-machines/windows/generation-2) répertorie les familles de machines virtuelles Azure qui peuvent être déployées en tant que machines virtuelles de génération 2. Cet article répertorie également les importantes différences fonctionnelles des machines virtuelles de génération 2 qui peuvent s'exécuter sur le cloud privé Hyper-V et Azure. Plus important encore, cet article répertorie les différences fonctionnelles entre les machines virtuelles de génération 1 et les machines virtuelles de génération 2, telles que celles qui sont exécutées dans Azure. 
+L'hyperviseur de Microsoft peut gérer deux générations distinctes de machines virtuelles. Ces formats sont appelés **Génération 1** et **Génération 2**. Le format **Génération 2** a été introduit en 2012 avec l'hyperviseur Windows Server 2012. Azure a commencé par utiliser des machines virtuelles de génération 1. Lorsque vous déployez des machines virtuelles Azure, le format par défaut est toujours Génération 1. Mais vous pouvez également déployer le format de machine virtuelle de génération 2. L'article [Prise en charge des machines virtuelles de génération 2 dans Azure](https://docs.microsoft.com/azure/virtual-machines/windows/generation-2) répertorie les familles de machines virtuelles Azure qui peuvent être déployées en tant que machines virtuelles de génération 2. Cet article présente également les importantes différences fonctionnelles des machines virtuelles de génération 2, qui peuvent s’exécuter sur le cloud privé Hyper-V et Azure. Plus important encore, cet article répertorie les différences fonctionnelles entre les machines virtuelles de génération 1 et les machines virtuelles de génération 2, telles que celles qui sont exécutées dans Azure. 
 
 > [!NOTE]
 > Il existe des différences fonctionnelles entre les machines virtuelles de génération 1 et de génération 2 exécutées dans Azure. Lisez l'article [Prise en charge des machines virtuelles de génération 2 dans Azure](https://docs.microsoft.com/azure/virtual-machines/windows/generation-2) pour accéder à la liste de ces différences.  
  
-Il est impossible de transférer une machine virtuelle existante d'une génération à l'autre. Pour changer de génération, vous devez déployer une nouvelle machine virtuelle de la génération souhaitée et réinstaller le logiciel que vous exécutez sur cette machine virtuelle. Cela n'affecte que l'image VHD de base de la machine virtuelle et n'a aucun impact sur les disques de données ou les partages NFS ou SMB connectés. Disques de données, partages NFS ou SMB initialement attribués, par exemple, sur une machine virtuelle de génération 1
+Il est impossible de transférer une machine virtuelle existante d'une génération à l'autre. Pour changer de génération, vous devez déployer une nouvelle machine virtuelle de la génération souhaitée et y réinstaller les logiciels que vous exécutez. Cette modification n’affecte que l’image VHD de base de la machine virtuelle et n’a aucun impact sur les disques de données ni les partages NFS et SMB initialement attachés et attribués (par exemple, sur une machine virtuelle de génération 1). 
 
 > [!NOTE]
 > Le déploiement de machines virtuelles de la famille de machines virtuelles Mv1 en tant que machines virtuelles de 2e génération est possible depuis le début du mois de mai 2020. Avec cela, il est possible d’avoir un upsizing et un downsizing apparent entre les machines virtuelles de la famille Mv1 et MV2.
-
-
-#### <a name="quotas-in-azure-virtual-machine-services"></a>Quotas dans Azure Virtual Machine Services
-L’infrastructure réseau et de stockage est partagée entre les machines virtuelles exécutant une variété de services dans l’infrastructure Azure. Et, comme dans vos propres centres de données, un approvisionnement excessif de certaines des ressources d’infrastructure a lieu dans une certaine mesure. La Plateforme Microsoft Azure utilise le disque, le processeur, le réseau et d’autres quotas pour limiter la consommation de ressources et conserver des niveaux de performance cohérents et déterministes. Les différents types et familles de machines virtuelles (E32s_v3, D64s_v3, etc) possèdent des quotas distincts pour le nombre de disques, le processeur, la RAM et le réseau.
-
-> [!NOTE]
-> Les ressources processeur et mémoire des types de machines virtuelles pris en charge par SAP sont pré-allouées sur les nœuds hôtes. Cela signifie qu’une fois la machine virtuelle déployée, les ressources sur l’hôte sont disponibles comme défini par le type de machine virtuelle.
-
-
-Quand vous planifiez et redimensionnez des solutions SAP sur Azure, vous devez prendre en compte les quotas de chaque taille de machine virtuelle. Les quotas de machines virtuelles sont décrits [ici (Linux)][virtual-machines-sizes-linux] et [ici (Windows)][virtual-machines-sizes-windows]. 
-
-Outre les quotas de ressources processeur et mémoire, les autres quotas définis pour les références SKU de machine virtuelle sont liés aux éléments suivants :
-
-- Débit du trafic réseau vers la machine virtuelle
-- IOPS pour le trafic de stockage
-- Débit pour le trafic réseau
-
-Les limites de débit pour le stockage d’une mise en réseau sont définies, ce qui signifie que les effets de voisins bruyants peuvent être conservés à un minimum absolu. Le quota lié au stockage d’une machine virtuelle remplace les quotas des disques accumulés qui sont joints (voir également plus loin dans la partie stockage). En d’autres termes, si vous montez des disques de stockage qui, cumulés, dépasseraient le quota de débit et d’IOPS de la machine virtuelle, les limites de quota de machines virtuelles sont prioritaires.
-
-#### <a name="rough-sizing-of-vms-for-sap"></a>Dimensionnement approximatif des machines virtuelles pour SAP 
-
-L’arbre de décision approximatif ci-dessous peut servir à déterminer si un système SAP s’adapte à Azure Virtual Machine Services et à ses fonctionnalités ou si un système existant doit être configuré différemment pour déployer le système sur Azure :
-
-![Arbre de décision pour décider de la capacité à déployer SAP sur Azure][planning-guide-figure-700]
-
-**Étape 1** : Les informations les plus importantes à utiliser en premier sont les exigences SAP pour un système SAP donné. La configuration SAP doit être séparée dans la partie SGBD (système de gestion de base de données) et dans les applications SAP, même si le système SAP est déjà déployé localement dans une configuration de niveau 2. Pour les systèmes existants, les SAP liés au matériel souvent utilisés peuvent être déterminés ou estimés en fonction de points de référence SAP existants. Les résultats se trouvent ici : <https://sap.com/about/benchmark.html>.
-Pour les systèmes SAP nouvellement déployés, vous devez avoir effectué un exercice de dimensionnement pour déterminer la configuration SAP du système.
-Consultez aussi ce billet de blog et le document joint pour le dimensionnement de SAP sur Azure : <https://blogs.msdn.com/b/saponsqlserver/archive/2015/12/01/new-white-paper-on-sizing-sap-solutions-on-azure-public-cloud.aspx>
-
-**Étape 2** : Pour les systèmes existants, le volume d’E/S et les opérations d’E/S par seconde sur le serveur SGBD doivent être mesurés. Pour les systèmes récemment planifiés, l’exercice de dimensionnement pour le nouveau système doit également donner une idée approximative de la configuration des E/S côté SGBD. En cas de doute, vous devrez réaliser une preuve de concept.
-
-**Étape 3** : Comparer les exigences SAP pour le serveur SGBD avec les SAP que peuvent fournir les différents types de machine virtuelle Azure. Les informations sur les SAP des différents types de machines virtuelles Azure se trouvent dans la Note de SAP [1928533]. La machine virtuelle du SGBD doit constituer une priorité, car la couche de base de données correspond à la couche d’un système SAP NetWeaver qui n’effectue pas de scale-out dans la plupart des déploiements. En revanche, la taille des instances pour la couche d’application SAP peut être augmentée. Si aucune machine virtuelle Azure prenant en charge SAP ne peut fournir les SAP requis, la charge de travail du système SAP planifié ne peut alors être exécutée dans Azure. Vous devez déployer le système localement ou modifier le volume de charge de travail pour le système.
-
-**Étape 4** : Comme indiqué [ici (Linux)][virtual-machines-sizes-linux] et [ici (Windows)][virtual-machines-sizes-windows], Azure applique un quota d’IOPS par disque, que vous utilisiez un stockage Standard ou Premium. Le nombre de disques de données pouvant être montés varie en fonction du type de machine virtuelle. Par conséquent, vous pouvez calculer le nombre maximal d’E/S par seconde pouvant être obtenues avec chaque type de machine virtuelle. En fonction de la disposition du fichier de base de données, vous pouvez entrelacer les disques pour que ceux-ci ne constituent qu’un seul volume dans le système d’exploitation invité. Toutefois, si le volume d’E/S par seconde actuel d’un système SAP déployé dépasse les limites calculées pour le type de machine virtuelle Azure le plus volumineux, et s’il est impossible de le compenser avec l’ajout de mémoire supplémentaire, la charge de travail du système SAP peut s’en trouver gravement affectée. Dans ce cas, il serait plus judicieux de ne pas déployer le système dans Azure.
-
-**Étape 5** : En particulier dans les systèmes SAP, qui sont déployés localement dans les configurations à deux niveaux, il y a de grandes chances que le système doive être configuré sur trois niveaux dans Azure. Dans cette étape, vous devez vérifier s’il existe un composant dans la couche d’application SAP, dont la taille des instances ne peut être augmentée et qui n’est pas compatible avec les ressources processeur et mémoire fournies par les différents types de machine virtuelle Azure. Si c’est le cas, le système SAP et sa charge de travail ne peuvent pas être déployés vers Azure. Cependant, si vous pouvez effectuer un scale-out des composants d’application SAP dans plusieurs machines virtuelles Azure, le système peut être déployé vers Azure.
-
-**Étape 6** : Si les composants de la couche Application SAP et SGBD peuvent être exécutés dans des machines virtuelles Azure, la configuration doit être définie en prenant en considération ce qui suit :
-
-* Nombre de machines virtuelles Azure
-* Types de machine virtuelle pour les composants individuels
-* Nombre de disques durs virtuels dans la machine virtuelle du SGBD (afin de fournir suffisamment d’E/S par seconde). 
+ 
 
 ### <a name="storage-microsoft-azure-storage-and-data-disks"></a><a name="a72afa26-4bf4-4a25-8cf7-855d6032157f"></a>Stockage : Stockage Microsoft Azure et disques de données
 Les Microsoft Azure Virtual Machines utilisent différents types de stockage. Pendant l’implémentation SAP sur Azure Virtual Machine Services, il est important de comprendre les différences entre ces deux principaux types de stockage :
@@ -567,86 +529,28 @@ Les machines virtuelles Azure proposent des disques non persistants suite au dé
 > 
 > 
 
----
+#### <a name="azure-storage-accounts"></a>Comptes de stockage Azure
 
-Le service Stockage Microsoft Azure fournit le stockage persistant et les niveaux classiques de protection et de redondance observés pour le stockage SAN. Les disques basés sur Stockage Azure sont des disques durs virtuels situés dans les services de stockage Azure. Le disque de système d’exploitation local (Windows C:\, Linux /dev/sda1) est stocké sur le Stockage Azure, comme les volumes/disques supplémentaires montés sur la machine virtuelle.
+Durant le déploiement de services ou de machines virtuelles dans Azure, le déploiement des VHD et des images de machine virtuelle est organisé dans des unités appelées comptes de stockage Azure. Les [comptes de stockage Azure](https://docs.microsoft.com/azure/storage/common/storage-account-overview) présentent des limitations en matière d’IOPS, de débit ou de tailles qu’ils peuvent contenir. Ces limitations sont documentées dans les articles suivants : 
 
-Il est possible de charger un disque dur virtuel existant depuis un site local ou d’en créer des vides au sein d’Azure et de les attacher aux machines virtuelles déployées.
+- [Objectifs d’extensibilité pour les comptes de stockage standard](../../../storage/common/scalability-targets-standard-account.md)
+- [Objectifs de scalabilité pour les comptes de stockage d’objets blob de pages Premium](../../../storage/blobs/scalability-targets-premium-page-blobs.md)
 
-Après avoir créé ou téléchargé un disque dur virtuel dans Stockage Azure, il est possible de le monter et de l’attacher à une machine virtuelle existante et de copier le disque dur virtuel (démonté) existant.
+Elles jouaient auparavant un rôle important dans la planification d’un déploiement SAP dans Azure. Il vous appartenait de gérer le nombre de disques persistants dans un compte de stockage. Vous deviez gérer les comptes de stockage et, éventuellement, créer des comptes de stockage pour obtenir des disques plus persistants. 
 
-Comme ces disques durs virtuels sont conservés, les données et les modifications au sein de ces VHD sont protégées lors du redémarrage et de la recréation d’une instance de machine virtuelle. Même si une instance est supprimée, ces disques durs virtuels sont protégés et peuvent être redéployés ou, en cas de disques autres que ceux de systèmes d’exploitation, peuvent être montés sur d’autres machines virtuelles.
+Ces dernières années, l’introduction des [Disques managés Azure](https://docs.microsoft.com/azure/storage/storage-managed-disks-overview) vous a libéré de ces tâches. Pour les déploiements SAP, il est recommandé d’utiliser des disques managés Azure au lieu de gérer vous-même les comptes de stockage Azure. Les disques managés Azure distribuent les disques sur différents comptes de stockage de façon à ne pas dépasser les limites de chacun des comptes.
 
-Vous trouverez plus d’informations sur Stockage Azure ici :
+Il existe, au sein d’un compte de stockage, un type de concept de dossier appelé « conteneur », qui peut être utilisé pour regrouper certains disques.
 
-* <https://azure.microsoft.com/documentation/services/storage/>
-* <https://docs.microsoft.com/rest/api/storageservices/Understanding-Block-Blobs--Append-Blobs--and-Page-Blobs>
-* <https://blogs.msdn.com/b/azuresecurity/archive/2015/11/17/azure-disk-encryption-for-linux-and-windows-virtual-machines-public-preview.aspx>
+Dans Azure, un nom de disque/VHD suit la convention d’affectation des noms suivante, qui implique de donner au VHD un nom unique dans Azure :
 
-#### <a name="azure-standard-storage"></a>Stockage Azure Standard
-Le stockage Azure Standard était le type de stockage disponible au lancement d’Azure IaaS. Des quotas d’E/S par seconde étaient appliqués pour chaque disque. La latence n’était pas dans la même classe que celle des appareils SAN/NAS généralement déployés pour les systèmes SAP haut de gamme hébergés en local. Néanmoins, le stockage Azure Standard s’est avéré suffisant pour plusieurs centaines de systèmes SAP déployés entre-temps dans Azure.
+`http(s)://<storage account name>.blob.core.windows.net/<container name>/<vhd name>`
 
-Les disques qui sont stockés sur des comptes de stockage Azure Standard sont facturés en fonction des données réelles stockées, du volume de transactions de stockage, du transfert de données sortantes et de l’option de redondance choisie. De nombreux disques peuvent être créés (de 1 To maximum), mais tant que ceux-ci sont vides, vous n’êtes pas facturé. Si vous remplissez ensuite un VHD avec 100 Go de données, vous êtes facturé pour le stockage de 100 Go et non pour la taille nominale pour laquelle le VHD a été créé.
-
-#### <a name="azure-premium-storage"></a><a name="ff5ad0f9-f7f4-4022-9102-af07aef3bc92"></a>Azure Premium Storage
-Le Stockage Azure Premium a été introduit dans le but de fournir les avantages suivants :
-
-* une meilleure latence d’E/S ;
-* un meilleur débit ;
-* une latence d’E/S plus stable.
-
-À cet effet, de nombreuses modifications ont été apportées, dont les deux principales sont :
-
-* l’utilisation de disques SSD dans les nœuds Stockage Azure ;
-* un nouveau cache de lecture, reposant sur le disque SSD local d’un nœud de calcul Azure.
-
-À l’inverse du stockage standard, où les capacités n’évoluent pas en fonction de la taille du disque (ou du VHD), le Stockage Premium comprend trois catégories de disques, qui sont présentées dans cet article : <https://azure.microsoft.com/pricing/details/storage/unmanaged-disks/>
-
-Vous pouvez constater que les E/S par seconde par disque et le débit du disque par disque dépendent de la catégorie de taille des disques.
-
-Pour Stockage Premium, les coûts ne sont pas basés sur le volume réel de données stocké dans les disques, mais sur la catégorie de taille du disque, sans tenir compte de la quantité de données stockée sur celui-ci.
-
-Vous pouvez également créer des disques dans Stockage Premium qui ne sont pas directement mappés aux catégories de taille présentées. Cela peut être le cas quand vous copiez des disques de Stockage Standard vers Stockage Premium. Dans ce genre de situation, un mappage vers l’option de disque Stockage Premium la plus importante est effectué.
-
-La plupart des familles de machine virtuelle Azure certifiées avec SAP peuvent utiliser le stockage Premium et/ou un mélange de stockage Azure Standard et Premium.
-
-Si vous consultez la partie de [cet article (Linux)][virtual-machines-sizes-linux] et de [cet article (Windows)][virtual-machines-sizes-windows] consacrée aux machines virtuelles de la série DS, vous constatez qu’il existe des limites de volumes de données sur les disques Stockage Premium en relation avec la précision du niveau de machine virtuelle. Les différentes machines virtuelles des séries DS ou GS présentent également des limitations différentes quant au nombre de disques de données qui peuvent être montés. Ces limites sont également documentées dans l’article mentionné ci-dessus. En résumé, cela signifie que si vous montez, par exemple, 32 disques P30 sur une seule machine virtuelle DS14, vous NE pouvez PAS obtenir un débit égal au débit maximum d’un disque P30 multiplié par 32. Au lieu de cela, le débit maximum au niveau de la machine virtuelle décrit dans l’article limite le débit des données.
-
-Vous trouverez plus d’informations sur le stockage Premium ici : <https://azure.microsoft.com/blog/2015/04/16/azure-premium-storage-now-generally-available-2>
-
-#### <a name="azure-storage-accounts"></a>Comptes Stockage Azure
-
-Durant le déploiement de services ou de machines virtuelles dans Azure, le déploiement de VHD et d’images de machine virtuelle peut être organisé dans des unités appelées comptes Stockage Azure. Lorsque vous planifiez un déploiement Azure, vous devez tenir compte des restrictions d’Azure. D’un côté, le nombre de comptes de stockage par abonnement Azure est limité. Bien que chaque compte Stockage Azure puisse contenir de nombreux fichiers de disque dur virtuel, une limite fixe d’E/S totales par compte de stockage a été établie. Lorsque vous déployez des centaines de machines virtuelles SAP avec des systèmes SGBD créant des appels d’E/S importants, il est recommandé de répartir les machines virtuelles SGBD présentant un nombre d’E/S par seconde élevé dans plusieurs comptes Stockage Azure. Faites attention à ne pas dépasser la limite actuelle de comptes Stockage Azure par abonnement. Le stockage étant un élément essentiel du déploiement de base de données pour un système SAP, ce concept est décrit plus en détail dans le [Guide de déploiement de SGBD][dbms-guide] déjà mentionné.
-
-Pour plus d’informations sur les comptes de stockage Azure, consultez [Objectifs de scalabilité pour les comptes de stockage Standard](../../../storage/common/scalability-targets-standard-account.md) et [Objectifs de scalabilité pour les comptes de stockage Blob de page Premium](../../../storage/blobs/scalability-targets-premium-page-blobs.md). En lisant ces articles, vous constaterez qu’il existe des différences de limitations entre les comptes de stockage Azure Standard et les comptes Stockage Premium. Les principales différences portent sur le volume de données qui peut être stocké dans un compte de stockage de ce type. Dans Stockage Standard, le volume est bien plus important que celui de Stockage Premium. D’un autre côté, le compte Stockage Standard est fortement limité en ce qui concerne les E/S par seconde (voir la colonne **Taux de demandes total**), tandis que le compte Stockage Premium Azure n’a aucune limitation de ce type. Nous discuterons plus précisément de ces différences lorsque nous étudierons les déploiements de systèmes SAP, notamment les serveurs SGBD.
-
-Dans un compte de stockage, vous avez la possibilité de créer des conteneurs distincts pour organiser et classer les différents disques durs virtuels. Ces conteneurs sont utilisés, par exemple, pour séparer les VHD des différentes machines virtuelles. Peu importe le nombre de conteneurs que vous utilisez pour un seul compte Stockage Azure, les performances n’en seront pas affectées.
-
-Dans Azure, un nom de disque dur virtuel suit la connexion d’attribution de noms ci-dessous qui doit fournir un nom unique pour le disque dur virtuel dans Azure :
-
-    http(s)://<storage account name>.blob.core.windows.net/<container name>/<vhd name>
-
-La chaîne ci-dessus doit identifier de manière unique le VHD stocké sur le Stockage Azure.
-
-#### <a name="managed-disks"></a><a name="c55b2c6e-3ca1-4476-be16-16c81927550f"></a>Disques managés
-
-Les disques managés sont un nouveau type de ressources d’Azure Resource Manager. Ils peuvent être utilisés à la place des disques durs virtuels qui sont stockés dans les comptes de stockage Azure. Les Disques Managés s’alignent automatiquement sur le groupe à haute disponibilité de la machine virtuelle à laquelle ils sont attachés. De fait, ils augmentent la disponibilité de votre machine virtuelle et des services exécutés sur celle-ci. Pour plus d’informations, consultez [l’article de vue d’ensemble](https://docs.microsoft.com/azure/storage/storage-managed-disks-overview).
-
-Nous vous recommandons d’utiliser des disques managés, car ils simplifient le déploiement et la gestion de vos machines virtuelles.
-SAP prend uniquement en charge la fonctionnalité Disques managés Premium. Pour plus d’informations, consultez la note SAP [1928533].
-
-#### <a name="microsoft-azure-storage-resiliency"></a>Résilience du Stockage Microsoft Azure
-
-Le Stockage Microsoft Azure stocke disque dur virtuel de base (avec le système d’exploitation) et les disques ou objets blob associés sur au moins trois nœuds de stockage distincts. Il s’agit du stockage localement redondant (LRS). Le LRS est la valeur par défaut pour tous les types de stockage dans Azure. 
-
-Il existe plusieurs autres méthodes de redondance, qui sont toutes décrites dans l’article [Réplication du Stockage Azure](https://docs.microsoft.com/azure/storage/common/storage-redundancy?toc=%2fazure%2fstorage%2fqueues%2ftoc.json).
-
-> [!NOTE]
->À compter du Stockage Premium Azure, qui est le type de stockage recommandé pour les machines virtuelles SGBD et les disques qui stockent les fichiers de base de données et les fichiers journaux/de restauration, la seule méthode disponible est LRS. Par conséquent, vous devez configurer les méthodes de base de données, telles que SQL Server Always On, Oracle Data Guard ou HANA System Replication pour permettre la réplication des données de base de données dans une autre région Azure ou une autre zone de disponibilité Azure.
+La chaîne ci-dessus doit identifier de manière unique le disque/VHD stocké sur le Stockage Azure.
 
 
-> [!NOTE]
-> Pour les déploiements SGBD, l’utilisation du stockage géo-redondant proposé par le stockage standard Azure est déconseillée, car elle influe de manière négative sur les performances et ne tient pas compte de l’ordre d’écriture sur les différents disques durs virtuels attachés à une machine virtuelle. Le fait de ne pas respecter l’ordre d’écriture sur les différents disques durs virtuels risque fortement d’aboutir à une incohérence des bases de données sur la cible de réplication, si les fichiers de base de données et les fichiers journaux/de restauration sont répartis sur plusieurs disques durs virtuels (comme cela est le plus souvent le cas) sur la machine virtuelle source.
+#### <a name="azure-persisted-storage-types"></a>Types de stockage persistants Azure
+Azure offre une grande variété d’options de stockage persistantes qui peuvent être utilisées pour la charge de travail SAP et des composants précis de la pile SAP. Pour plus d’informations, consultez le document [Stockage Azure pour les charges de travail SAP](./planning-guide-storage.md).
 
 
 ### <a name="microsoft-azure-networking"></a><a name="61678387-8868-435d-9f8c-450b2424f5bd"></a>Mise en réseau Microsoft Azure
@@ -766,6 +670,33 @@ Ce chapitre abordait plusieurs points importants sur la mise en réseau Azure. V
 * Pour configurer une connexion de site à site ou de point à site, vous devez d’abord créer un réseau virtuel Azure.
 * Après le déploiement d’une machine virtuelle, il n’est plus possible de modifier le réseau virtuel attribué à la machine virtuelle.
 
+### <a name="quotas-in-azure-virtual-machine-services"></a>Quotas des services de machines virtuelles Azure
+Nous devons être clairs sur le fait que l’infrastructure réseau et de stockage est partagée entre les machines virtuelles exécutant une variété de services dans l’infrastructure Azure. Comme dans les propres centres de données du client, il se produit dans une certaine mesure un provisionnement excessif de certaines ressources d’infrastructure. La Plateforme Microsoft Azure utilise le disque, le processeur, le réseau et d’autres quotas pour limiter la consommation de ressources et conserver des niveaux de performance cohérents et déterministes.  Les différents types de machines virtuelles (A5, A6, etc.) possèdent des quotas distincts pour le nombre de disques, le processeur, la RAM et le réseau.
+
+> [!NOTE]
+> Les ressources processeur et mémoire des types de machines virtuelles pris en charge par SAP sont pré-allouées sur les nœuds hôtes. Cela signifie qu’une fois la machine virtuelle déployée, les ressources sur l’hôte sont disponibles comme défini par le type de machine virtuelle.
+>
+>
+
+Quand vous planifiez et redimensionnez des solutions SAP sur Azure, vous devez prendre en compte les quotas de chaque taille de machine virtuelle. Les quotas de machines virtuelles sont décrits [ici (Linux)][virtual-machines-sizes-linux] et [ici (Windows)][virtual-machines-sizes-windows].
+
+Les quotas décrits représentent les valeurs maximum théoriques.  La limite d’IOPS par disque peut être atteinte avec un faible volume d’IOPS (8 Ko), et pas nécessairement avec un volume important d’IOPS (1 Mo).  La limite d’E/S par seconde est appliquée sur la granularité d’un seul disque.
+
+L’arbre de décision approximatif ci-dessous peut servir à déterminer si un système SAP s’adapte à Azure Virtual Machine Services et à ses fonctionnalités ou si un système existant doit être configuré différemment pour déployer le système sur Azure :
+
+![Arbre de décision pour décider de la capacité à déployer SAP sur Azure][planning-guide-figure-700]
+
+1. Les informations les plus importantes à utiliser en premier sont les exigences SAP pour un système SAP donné. La configuration SAP doit être séparée dans la partie SGBD (système de gestion de base de données) et dans les applications SAP, même si le système SAP est déjà déployé localement dans une configuration de niveau 2. Pour les systèmes existants, les SAP liés au matériel souvent utilisés peuvent être déterminés ou estimés en fonction de points de référence SAP existants. Les résultats se trouvent [ici](https://sap.com/about/benchmark.html). Pour les systèmes SAP nouvellement déployés, vous devez avoir effectué un exercice de dimensionnement pour déterminer la configuration SAP du système. Consultez également ce billet de blog et le document joint, concernant le [dimensionnement de SAP sur Azure](https://blogs.msdn.com/b/saponsqlserver/archive/2015/12/01/new-white-paper-on-sizing-sap-solutions-on-azure-public-cloud.aspx).
+1. Pour les systèmes existants, le volume d’E/S et les opérations d’E/S par seconde sur le serveur SGBD doivent être mesurés. Pour les systèmes récemment planifiés, l’exercice de dimensionnement pour le nouveau système doit également donner une idée approximative de la configuration des E/S côté SGBD. En cas de doute, vous devrez réaliser une preuve de concept.
+1. Comparer les exigences SAP pour le serveur SGBD avec les SAP que peuvent fournir les différents types de machine virtuelle Azure. Les informations sur les SAP des différents types de machines virtuelles Azure se trouvent dans la Note de SAP [1928533]. La machine virtuelle du SGBD doit constituer une priorité, car la couche de base de données correspond à la couche d’un système SAP NetWeaver qui n’effectue pas de scale-out dans la plupart des déploiements. En revanche, la taille des instances pour la couche d’application SAP peut être augmentée. Si aucune machine virtuelle Azure prenant en charge SAP ne peut fournir les SAP requis, la charge de travail du système SAP planifié ne peut alors être exécutée dans Azure. Vous devez déployer le système localement ou modifier le volume de charge de travail pour le système.
+1. Comme indiqué [ici (Linux)][virtual-machines-sizes-linux] et [ici (Windows)][virtual-machines-sizes-windows], Azure applique un quota d’IOPS par disque, que vous utilisiez un stockage Standard ou Premium. Le nombre de disques de données pouvant être montés varie en fonction du type de machine virtuelle. Par conséquent, vous pouvez calculer le nombre maximal d’E/S par seconde pouvant être obtenues avec chaque type de machine virtuelle. En fonction de la disposition du fichier de base de données, vous pouvez entrelacer les disques pour que ceux-ci ne constituent qu’un seul volume dans le système d’exploitation invité. Toutefois, si le volume d’E/S par seconde actuel d’un système SAP déployé dépasse les limites calculées pour le type de machine virtuelle Azure le plus volumineux, et s’il est impossible de le compenser avec l’ajout de mémoire supplémentaire, la charge de travail du système SAP peut s’en trouver gravement affectée. Dans ce cas, il serait plus judicieux de ne pas déployer le système dans Azure.
+1. En particulier dans les systèmes SAP, qui sont déployés localement dans les configurations à deux niveaux, il y a de grandes chances que le système doive être configuré sur trois niveaux dans Azure. Dans cette étape, vous devez vérifier s’il existe un composant dans la couche d’application SAP, dont la taille des instances ne peut être augmentée et qui n’est pas compatible avec les ressources processeur et mémoire fournies par les différents types de machine virtuelle Azure. Si c’est le cas, le système SAP et sa charge de travail ne peuvent pas être déployés vers Azure. Cependant, si vous pouvez effectuer un scale-out des composants d’application SAP dans plusieurs machines virtuelles Azure, le système peut être déployé vers Azure.
+
+Si les composants de la couche Application SAP et SGBD peuvent être exécutés dans des machines virtuelles Azure, la configuration doit être définie en prenant en considération ce qui suit :
+
+* Nombre de machines virtuelles Azure
+* Types de machine virtuelle pour les composants individuels
+* Nombre de disques durs virtuels dans la machine virtuelle du SGBD (afin de fournir suffisamment d’E/S par seconde).
 
 ## <a name="managing-azure-assets"></a>Gestion des ressources Azure
 
@@ -874,7 +805,7 @@ Une méthode de déploiement courante consiste à déplacer une machine virtuell
 
 Les exigences à respecter pour la préparation de votre propre disque de machine virtuelle Azure sont les suivantes :
 
-* À l’origine, la taille maximale du disque dur virtuel contenant le système d’exploitation était seulement de 127 Go. Cette limite a été repoussée en mars 2015. Désormais, la taille du disque dur virtuel contenant le système d’exploitation peut aller jusqu’à 1 To, comme tout disque dur virtuel hébergé sur Azure Storage.
+* À l’origine, la taille maximale du VHD contenant le système d’exploitation était seulement de 127 Go. Cette limite a été repoussée en mars 2015. Désormais, la taille du VHD contenant le système d’exploitation peut aller jusqu’à 1 To, comme tous les autres VHD hébergés sur le Stockage Azure.
 * Il doit être au format VHD fixe. Les disques durs virtuels ou les disques durs virtuels au format VHDx ne sont pas encore pris en charge sur Azure. Les disques durs virtuels dynamiques seront convertis en disques durs virtuels statiques lorsque vous chargez le disque dur virtuel avec les applets de commande PowerShell ou l’interface CLI
 * Les VHD montés sur la machine virtuelle et qui doivent être remontés sur celle-ci dans Azure, doivent également être au format VHD fixe. Pour connaître les limites de taille des disques de données, consultez [cet article (Linux)](../../linux/managed-disks-overview.md) et [cet article (Windows)](../../windows/managed-disks-overview.md). Les disques durs virtuels dynamiques seront convertis en disques durs virtuels statiques lorsque vous chargez le disque dur virtuel avec les applets de commande PowerShell ou l’interface CLI
 * Ajoutez un autre compte local doté de privilèges d’administrateur, pouvant être utilisé par le support Microsoft ou être attribué comme contexte d’exécution aux services et applications, jusqu’à ce que la machine virtuelle soit déployée et que des utilisateurs plus appropriés puissent être utilisés.
@@ -901,7 +832,7 @@ Les fichiers VHD contenant un système d’exploitation généralisé sont stock
 
 Les exigences à respecter pour la préparation de votre propre image de machine virtuelle Azure sont les suivantes :
 
-* À l’origine, la taille maximale du disque dur virtuel contenant le système d’exploitation était seulement de 127 Go. Cette limite a été repoussée en mars 2015. Désormais, la taille du disque dur virtuel contenant le système d’exploitation peut aller jusqu’à 1 To, comme tout disque dur virtuel hébergé sur Azure Storage.
+* À l’origine, la taille maximale du VHD contenant le système d’exploitation était seulement de 127 Go. Cette limite a été repoussée en mars 2015. Désormais, la taille du VHD contenant le système d’exploitation peut aller jusqu’à 1 To, comme tous les autres VHD hébergés sur le Stockage Azure.
 * Il doit être au format VHD fixe. Les disques durs virtuels ou les disques durs virtuels au format VHDx ne sont pas encore pris en charge sur Azure. Les disques durs virtuels dynamiques seront convertis en disques durs virtuels statiques lorsque vous chargez le disque dur virtuel avec les applets de commande PowerShell ou l’interface CLI
 * Les VHD montés sur la machine virtuelle et qui doivent être remontés sur celle-ci dans Azure, doivent également être au format VHD fixe. Pour connaître les limites de taille des disques de données, consultez [cet article (Linux)](../../windows/managed-disks-overview.md) et [cet article (Windows)](../../linux/managed-disks-overview.md). Les disques durs virtuels dynamiques seront convertis en disques durs virtuels statiques lorsque vous chargez le disque dur virtuel avec les applets de commande PowerShell ou l’interface CLI
 * Ajoutez d’autres comptes locaux, car ceux-ci peuvent être nécessaires pour le scénario de déploiement spécifique.
@@ -940,7 +871,7 @@ Si la préparation de la machine virtuelle permet à cette dernière d’être g
 
 ---
 ### <a name="transferring-vms-and-vhds-between-on-premises-to-azure"></a>Transfert de machines virtuelles et de disques durs virtuels locaux vers Azure
-Étant donné que le chargement d’images de machine virtuelle et de disques sur Azure n’est pas possible via le portail Azure, vous devez utiliser les applets de commande Azure PowerShell ou l’interface de ligne de commande. Une autre possibilité serait d’utiliser l’outil « AzCopy ». Cet outil peut copier les disques durs virtuels locaux vers Azure (et vice-versa). Il peut également copier les disques durs virtuels entre différentes régions Azure. Consultez [cette documentation][storage-use-azcopy] pour en savoir plus sur le téléchargement et l’utilisation d’AzCopy.
+Étant donné que le chargement d’images de machine virtuelle et de disques sur Azure n’est pas possible via le portail Azure, vous devez utiliser les applets de commande Azure PowerShell ou l’interface de ligne de commande. Une autre possibilité serait d’utiliser l’outil « AzCopy ». Cet outil peut copier les disques durs virtuels locaux vers Azure (et vice-versa). Il peut également copier les disques durs virtuels entre différentes régions Azure. Pour plus d’informations sur le téléchargement et l’utilisation d’AzCopy, consultez [cette documentation][storage-use-azcopy].
 
 Une troisième alternative consisterait à utiliser divers outils tiers orientés GUI. Toutefois, vérifiez que ces outils prennent en charge les objets blob de pages Azure. Dans notre cas, nous devons utiliser le magasin d’objets blob de pages Azure (les différences sont décrites ici : <https://docs.microsoft.com/rest/api/storageservices/Understanding-Block-Blobs--Append-Blobs--and-Page-Blobs>). Les outils fournis par Azure sont efficaces pour compresser les machines virtuelles et les VHD à charger. Il s’agit d’un élément important car plus la compression est efficace, plus le temps de chargement est réduit. (Ce temps varie tout de même en fonction du lien de chargement vers Internet depuis l’emplacement local et de la région de déploiement Azure ciblée). Il est logique de supposer que le chargement d’une machine virtuelle ou d’un VHD à partir d’un emplacement européen sur un centre de données Azure se trouvant aux États-Unis prendra plus de temps que le chargement de ces machines virtuelles/VHD vers les centres de données Azure européens.
 
@@ -1029,7 +960,7 @@ Les VHD ou les disques managés ne peuvent pas être actifs pendant le télécha
   ```
 
 * Téléchargement d’un VHD  
-  Une fois le système SAP et la machine virtuelle arrêtés, vous pouvez utiliser la cmdlet PowerShell Save-AzVhd sur la cible locale pour retélécharger les VHD en local. Pour ce faire, vous avez besoin de l’URL du VHD, qui se trouve dans la section Stockage du portail Azure (accédez au compte de stockage et au conteneur de stockage où le VHD a été créé), et de savoir où le VHD doit être copié.
+  Une fois le système SAP et la machine virtuelle arrêtés, vous pouvez utiliser la cmdlet PowerShell `Save-AzVhd` sur la cible locale pour retélécharger les VHD en local. Pour ce faire, vous avez besoin de l’URL du VHD, qui se trouve dans la section Stockage du portail Azure (accédez au compte de stockage et au conteneur de stockage où le VHD a été créé), et de savoir où le VHD doit être copié.
 
   Vous pouvez ensuite utiliser la commande en définissant le paramètre SourceUri comme l’URL du VHD à télécharger et LocalFilePath comme l’emplacement physique du VHD (y compris son nom). La commande pourrait ressembler à :
 
@@ -1050,7 +981,7 @@ Les VHD ou les disques managés ne peuvent pas être actifs pendant le télécha
   ```
 
 * Téléchargement d’un VHD   
-  Une fois que le système SAP est arrêté et la machine virtuelle désactivée, vous pouvez utiliser la commande de l’interface de ligne de commande Azure _azure storage blob download_ sur la cible locale pour télécharger les VHD en local. Pour ce faire, vous avez besoin du nom et du conteneur du VHD, qui se trouvent dans la section Stockage du portail Azure (accédez au compte de stockage et au conteneur de stockage où le VHD a été créé), et de savoir où le VHD doit être copié.
+  Une fois le système SAP et la machine virtuelle arrêtés, vous pouvez utiliser la commande Azure CLI `_azure storage blob download_` sur la cible locale pour retélécharger les VHD en local. Pour ce faire, vous avez besoin du nom et du conteneur du VHD, qui se trouvent dans la section Stockage du portail Azure (accédez au compte de stockage et au conteneur de stockage où le VHD a été créé), et de savoir où le VHD doit être copié.
 
   Vous pouvez ensuite utiliser la commande en définissant les paramètres d’objet blob et de conteneur du VHD à télécharger et la destination comme l’emplacement physique cible du VHD (y compris son nom). La commande pourrait ressembler à :
 
@@ -1068,7 +999,7 @@ Un système SAP ou même un serveur SGBD dédié prenant en charge une couche Ap
 
 Les disques de données peuvent être stockés en tant que fichiers VHD dans un compte de stockage Azure et peuvent être directement attachés à une machine virtuelle ou utilisés en tant qu’image. Dans ce cas, le VHD est copié vers un autre emplacement avant d’être attaché à la machine virtuelle. Le nom complet du fichier VHD dans Azure doit être unique dans Azure. Comme mentionné plus tôt, le nom est constitué de trois éléments :
 
-    http(s)://<storage account name>.blob.core.windows.net/<container name>/<vhd name>
+`http(s)://<storage account name>.blob.core.windows.net/<container name>/<vhd name>`
 
 Les disques de données peuvent également être des disques managés. Dans ce cas, le disque managé est utilisé pour créer un disque managé avant d’être attaché à la machine virtuelle. Le nom du disque managé doit être unique au sein d’un groupe de ressources.
 
@@ -1191,7 +1122,7 @@ az storage blob show --name <target blob name> --container <target container nam
 
 Dans l’idéal, la gestion de la structure d’une machine virtuelle et des disques associés doit être simple. Dans les installations locales, les clients ont développé de nombreuses méthodes pour structurer une installation du serveur.
 
-* Un disque de base qui contient le système d’exploitation et tous les fichiers binaires du système SGBD et/ou SAP. Depuis mars 2015, ce disque peut atteindre une taille allant jusqu’à 1 To, au lieu des 127 Go précédents.
+* Un disque de base qui contient le système d’exploitation et tous les fichiers binaires du système SGBD et/ou SAP. Depuis mars 2015, ce disque peut atteindre une taille de 1 To, au lieu des 127 Go précédents.
 * Un ou plusieurs disques contenant le fichier journal SGBD de la base de données SAP et le fichier journal de la zone de stockage temporaire SGBD (si le SGBD les prend en charge). Si les exigences d’E/S par seconde du journal de base de données sont élevées, vous devez entrelacer plusieurs disques afin d’atteindre le volume d’E/S par seconde requis.
 * Un certain nombre de disques contenant un ou deux fichiers de base de données de la base de données SAP ainsi que les fichiers de données temporaires SGBD (si le SGBD les prend en charge).
 
@@ -1222,7 +1153,7 @@ Pour activer les modifications, vous devez redémarrer l’agent Linux avec
 sudo service waagent restart
 ```
 
-Pour plus d’informations sur la taille recommandée du fichier d’échange, voir la Note de SAP [1597355]
+Pour plus d’informations sur la taille recommandée du fichier d’échange, consultez la note SAP [1597355].
 
 ---
 Le nombre de disques utilisés pour les fichiers de données SGBD et le type de stockage Azure sur lequel ces disques sont hébergés doivent être déterminés par rapport aux exigences d’E/S par seconde et par la latence requise. Les quotas exacts sont décrits dans [cet article (Linux)][virtual-machines-sizes-linux] et [cet article (Windows)][virtual-machines-sizes-windows].
@@ -1240,14 +1171,13 @@ Les leçons que nous avons tirées de l’expérience des déploiements SAP au c
 >
 > * [Configuration d’un RAID logiciel sur Linux][virtual-machines-linux-configure-raid]
 > * [Configurer LVM sur une machine virtuelle Linux dans Azure][virtual-machines-linux-configure-lvm]
-> * [Secrets d’Azure Storage et optimisations d’E/S dans Linux](https://docs.microsoft.com/archive/blogs/igorpag/azure-storage-secrets-and-linux-io-optimizations)
 >
 >
 
 ---
 * Premium Storage affiche des performances en hausse, en particulier pour les écritures du journal des transactions critiques. Pour les scénarios SAP censés stimuler les performances de production, il est recommandé d’utiliser des séries de machines virtuelles pouvant tirer parti du stockage Azure Premium Storage.
 
-N’oubliez pas que le disque qui contient le système d’exploitation et, comme nous le recommandons, les fichiers binaires de SAP ainsi que la base de données (la machine virtuelle de base), n’est plus limité à 127 Go. Sa taille peut désormais atteindre 1 To. Cette taille devrait être suffisante pour conserver tous les fichiers nécessaires, par exemple, les journaux d’activité de traitements par lots SAP.
+N’oubliez pas que le disque qui contient le système d’exploitation et, comme nous le recommandons, les binaires de SAP ainsi que la base de données (machine virtuelle de base) n’est plus limité à 127 Go. Sa taille peut désormais atteindre 1 To. Cette taille devrait être suffisante pour conserver tous les fichiers nécessaires, par exemple, les journaux d’activité de traitements par lots SAP.
 
 Pour plus de suggestions et de détails, en particulier pour les machines virtuelles SGBD, consultez le [Guide de déploiement de SGBD][dbms-guide].
 
@@ -1332,7 +1262,7 @@ Voir la différence d’architecture entre le modèle classique et l’ARM, comm
 
 #### <a name="configuration-of-the-sap-system-and-sap-gui-connectivity-over-the-internet"></a>Configuration de la connectivité du système SAP et de l’interface graphique utilisateur de SAP sur Internet
 
-Consultez cet article qui décrit en détail ce sujet : <https://blogs.msdn.com/b/saponsqlserver/archive/2014/06/24/sap-gui-connection-closed-when-connecting-to-sap-system-in-azure.aspx>
+Consultez cet article qui décrit en détail ce sujet : <https://blogs.msdn.com/b/saponsqlserver/archive/2014/06/24/sap-gui-connection-closed-when-connecting-to-sap-system-in-azure.aspx>.
 
 #### <a name="changing-firewall-settings-within-vm"></a>Modification des paramètres de pare-feu au sein de la machine virtuelle
 
@@ -1349,7 +1279,7 @@ Il peut être nécessaire de configurer le pare-feu sur vos machines virtuelles 
 > * Dans l’Assistant qui s’ouvre, créez une règle **Port**.
 > * Dans l’étape suivante de l’Assistant, laissez le paramètre sur TCP et tapez le numéro de port à ouvrir. Étant donné que notre ID d’instance SAP est 00, nous avons choisi 3200. Si votre instance possède un numéro différent, le port que vous avez défini précédemment en fonction du numéro d’instance doit être ouvert.
 > * Dans l’étape suivante de l’Assistant, laissez la case **Autoriser la connexion** cochée.
-> * Dans l’étape suivante de l’Assistant, vous devez définir si la règle s’applique au réseau Domaine, Privé et Public. Adaptez la règle en fonction de vos besoins. Toutefois, si vous vous connectez avec l’interface graphique utilisateur SAP de l’extérieur via le réseau public, vous devez appliquer la règle au réseau public.
+> * Dans l’étape suivante de l’Assistant, vous devez définir si la règle s’applique au réseau Domaine, Privé et Public. Ajustez-la en fonction de vos besoins. Toutefois, si vous vous connectez avec l’interface graphique utilisateur SAP de l’extérieur via le réseau public, vous devez appliquer la règle au réseau public.
 > * Dans la dernière étape de l’Assistant, nommez la règle et enregistrez votre travail en appuyant sur **Terminer**.
 >
 > La règle entre immédiatement en vigueur.
@@ -1587,7 +1517,7 @@ az vm disk attach --resource-group $rgName --vm-name SAPERPDemo --size-gb 1023 -
 
 ##### <a name="template"></a>Modèle
 
-Vous pouvez utiliser les exemples de modèles du référentiel azure-quickstart-templates sur GitHub.
+Vous pouvez utiliser les exemples de modèles du référentiel Azure-quickstart-templates sur GitHub.
 
 * [Machine virtuelle Linux simple](https://github.com/Azure/azure-quickstart-templates/tree/master/101-vm-simple-linux)
 * [Machine virtuelle Windows simple](https://github.com/Azure/azure-quickstart-templates/tree/master/101-vm-simple-windows)
@@ -1620,7 +1550,7 @@ Les raisons de la répartition des paysages de formation ou de démonstration en
 
 Pour plus de détails sur les réseaux virtuels Azure et leur définition, consultez [cet article][virtual-networks-create-vnet-arm-pportal].
 
-## <a name="deploying-sap-vms-with-corporate-network-connectivity-cross-premises"></a>Déployer des machines virtuelles SAP avec une connectivité réseau d’entreprise (intersite)
+## <a name="deploying-sap-vms-with-corporate-network-connectivity-cross-premises"></a>Déploiement de machines virtuelles SAP avec une connectivité réseau d’entreprise (entre différents locaux)
 
 Vous exécutez un paysage SAP et voulez répartir le déploiement entre un système nu pour les serveurs haut de gamme SGBD, des environnements virtualisés locaux pour les couches Application et des systèmes SAP plus petits configurés sur 2 niveaux et Azure IaaS. Le principe de base est que les systèmes SAP au sein d’un paysage SAP unique doivent communiquer entre eux et avec de nombreux autres composants logiciels déployés dans l’entreprise, indépendamment de leur forme de déploiement. Par ailleurs, aucune différence ne doit être introduite par la forme de déploiement pour la connexion de l’utilisateur final à l’interface utilisateur graphique SAP ou à d’autres interfaces. Ces conditions ne peuvent être satisfaites que si des services Active Directory/OpenLDAP et DNS sont étendus aux systèmes Azure via la connectivité de site à site/multisites ou des connexions privées comme Azure ExpressRoute.
 
@@ -1920,13 +1850,13 @@ Pour les composants SAP stratégiques, nous avons obtenu jusqu’ici ce qui suit
   Les instances de serveur d’applications SAP sont des composants redondants. Chaque instance de serveur d’applications SAP est déployée sur sa propre machine virtuelle s’exécutant dans un domaine de mise à niveau et d’erreur différent (voir les chapitres [Domaines d’erreur][planning-guide-3.2.1] et [Domaines de mise à niveau][planning-guide-3.2.2]). Cela est assuré par l’utilisation des groupes à haute disponibilité Azure (voir le chapitre [Groupes à haute disponibilité Azure][planning-guide-3.2.3]). L’indisponibilité planifiée ou non planifiée potentielle d’un domaine de mise à niveau ou d’erreur Azure entraîne l’indisponibilité d’un nombre limité de machines virtuelles avec leurs instances de serveurs d’applications SAP.
 
   Chaque instance de serveur d’applications SAP est placée dans son propre compte Azure Storage : l’indisponibilité potentielle d’un compte de stockage Azure provoquera l’indisponibilité d’une seule machine virtuelle et de son instance de serveur d’applications SAP. Toutefois, sachez qu’un abonnement Azure est limité quand au nombre de comptes Azure Storage. Pour assurer le démarrage automatique de l’instance (A)SCS après le redémarrage de la machine virtuelle, veillez à définir le paramètre de démarrage automatique dans le profil de démarrage de l’instance (A)SCS décrit dans le chapitre [Utilisation du démarrage automatique pour les instances SAP][planning-guide-11.5].
-  Pour plus de détails, voir également le chapitre [Haute disponibilité pour les serveurs d’applications SAP][planning-guide-11.4.1].
+  Pour plus d’informations, consultez également le chapitre [Haute disponibilité pour les serveurs d’applications SAP][planning-guide-11.4.1].
 
   Même si vous utilisez des disques managés, ces disques sont également stockés dans un compte de stockage Azure et peuvent être indisponibles en cas d’une panne de stockage.
 
 * *plus haute* disponibilité de l’instance (A)SCS SAP
 
-  Ici, nous utilisons le redémarrage de la machine virtuelle Azure afin de protéger la machine virtuelle avec l’instance (A)SCS SAP installée. En cas d’interruption planifiée ou non de serveurs Azure, les machines virtuelles sont redémarrées sur un autre serveur disponible. Comme mentionné précédemment, le redémarrage de la machine virtuelle Azure protège les machines virtuelles mais PAS les applications, qui sont dans ce cas l’instance (A)SCS. Ce redémarrage de machine virtuelle permet d’obtenir indirectement une plus haute disponibilité de l’instance SAP (A)SCS. Pour assurer le démarrage automatique de l’instance (A)SCS après le redémarrage de la machine virtuelle, veillez à définir le paramètre de démarrage automatique du profil de démarrage de l’instance (A)SCS décrit dans le chapitre [Utilisation du démarrage automatique pour les instances SAP][planning-guide-11.5]. Cela signifie que l’instance (A)SCS en tant que point de défaillance unique s’exécutant sur une machine virtuelle unique sera un facteur déterminant de la disponibilité de l’ensemble du paysage SAP.
+  Ici, nous utilisons le redémarrage de la machine virtuelle Azure afin de protéger la machine virtuelle avec l’instance (A)SCS SAP installée. En cas d’interruption planifiée ou non de serveurs Azure, les machines virtuelles sont redémarrées sur un autre serveur disponible. Comme nous l’avons mentionné plus tôt, le redémarrage des machines virtuelles Azure protège les machines virtuelles et NON les applications, à savoir dans ce cas l’instance (A)SCS. Ce redémarrage de machine virtuelle permet d’obtenir indirectement une plus haute disponibilité de l’instance SAP (A)SCS. Pour assurer le démarrage automatique de l’instance (A)SCS après le redémarrage de la machine virtuelle, veillez à définir le paramètre de démarrage automatique du profil de démarrage de l’instance (A)SCS décrit dans le chapitre [Utilisation du démarrage automatique pour les instances SAP][planning-guide-11.5]. Cela signifie que l’instance (A)SCS en tant que point de défaillance unique s’exécutant sur une machine virtuelle unique sera un facteur déterminant de la disponibilité de l’ensemble du paysage SAP.
 
 * *plus haute* disponibilité du serveur du SGBD (système de gestion de base de données)
 
@@ -1972,7 +1902,7 @@ Disques non managés uniquement : De plus, le nombre de machines virtuelles dé
 
 Les constructions Azure suivantes sont utilisées pour le système SAP NetWeaver afin de réduire l’impact par la correction de l’hôte et des problèmes d’infrastructure :
 
-* Le système complet est déployé sur Azure (obligatoire : la couche SGBD (système de gestion de base de données), l’instance (A)SCS et la couche d’application complète doivent s’exécuter au même emplacement).
+* Le système complet est déployé sur Azure (obligatoire : la couche SGBD, l’instance (A)SCS et la couche d’application complète doivent s’exécuter au même emplacement).
 * Le système complet s’exécute au sein d’un abonnement Azure (requis).
 * Le système complet s’exécute au sein d’un réseau virtuel Azure (requis).
 * La séparation des machines virtuelles d’un système SAP en trois groupes à haute disponibilité est possible même si toutes les machines virtuelles appartiennent au même Réseau virtuel.
@@ -1996,7 +1926,7 @@ L’architecture de haute disponibilité SAP sous Linux sur Azure est principale
 
 SAP a proposé une fonctionnalité permettant de démarrer automatiquement des instances SAP immédiatement après le démarrage du système d’exploitation au sein de la machine virtuelle. Les étapes exactes ont été documentées dans l’article de base de connaissances SAP [1909114]. Toutefois, SAP recommande de ne plus utiliser ce paramètre, car aucun contrôle n’est exercé sur l’ordre de redémarrage de l’instance, en supposant que plusieurs machines virtuelles ont été affectées ou que plusieurs instances s’exécutent sur une machine virtuelle. Dans le cas d’un scénario Azure classique d’une instance de serveur d’applications SAP sur une machine virtuelle et dans le cas du redémarrage éventuel d’une seule machine virtuelle, le démarrage automatique n’est pas critique et peut être activé en ajoutant ce paramètre :
 
-    Autostart = 1
+`Autostart = 1`
 
 Dans le profil de démarrage de l’instance ABAP et/ou Java SAP.
 
@@ -2017,7 +1947,7 @@ Les aspects relatifs à la haute disponibilité des configurations SAP à 3 couc
 #### <a name="location-of-3-tier-sap-configurations"></a>Emplacement des configurations SAP à 3 couches
 Le fractionnement de la couche Application elle-même ou de la couche Application et SGBD (système de gestion de base de données) en local et dans Azure n’est pas pris en charge. Un système SAP est totalement déployé localement OU dans Azure. Il est également impossible que certains serveurs d’applications s’exécutent en local et d’autres dans Azure. Il s’agit du point de départ de la discussion. Le déploiement des composants du SGBD (système de gestion de base de données) d’un système SAP et de la couche du serveur d’applications SAP dans deux régions Azure différentes n’est pas non plus pris en charge. Par exemple, le système SGBD dans la région USA Ouest et la couche Application SAP dans la région USA Centre. La non prise en charge de telles configurations s’explique par la sensibilité de latence de l’architecture de SAP NetWeaver.
 
-Toutefois, au cours de l’année dernière, les partenaires des centres de données ont développé la colocalisation dans les régions Azure. Ces co-emplacements sont souvent proches des centres de données Azure physiques au sein d’une région Azure. La courte distance et la connexion des ressources au sein de la colocalisation via ExpressRoute dans Azure peuvent entraîner une latence inférieure à 2 ms. Dans ce cas, il est possible de rechercher la couche SGBD (système de gestion de base de données) (y compris le stockage SAN/NAS) dans une colocalisation de ce type, ainsi que la couche Application dans Azure. [Grandes instances HANA](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-overview-architecture). 
+Toutefois, au cours de l’année dernière, les partenaires des centres de données ont développé la colocalisation dans les régions Azure. Ces co-emplacements sont souvent proches des centres de données Azure physiques au sein d’une région Azure. La courte distance et la connexion des ressources au sein de la colocalisation via ExpressRoute dans Azure peuvent donner une latence inférieure à 2 millisecondes. Dans ce cas, il est possible de rechercher la couche SGBD (système de gestion de base de données) (y compris le stockage SAN/NAS) dans une colocalisation de ce type, ainsi que la couche Application dans Azure. [Grandes instances HANA](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-overview-architecture). 
 
 ### <a name="offline-backup-of-sap-systems"></a>Sauvegarde hors connexion de systèmes SAP
 En fonction de la configuration SAP choisie (à 2 ou 3 couches), il peut être nécessaire de procéder à une sauvegarde. du contenu de la machine virtuelle elle-même et de la base de données. Les sauvegardes associées au SGBD (système de gestion de base de données) doivent être effectuées avec des méthodes de base de données. Pour une description détaillée des différentes bases de données, voir le [Guide SGBD (système de gestion de base de données)][dbms-guide]. En revanche, les données SAP peuvent être sauvegardées hors connexion (y compris le contenu de la base de données) comme décrit dans cette section ou en ligne comme indiqué dans la section suivante.
@@ -2028,7 +1958,7 @@ Outre à l’aide du Portail Azure, l’arrêt est possible via PowerShell ou l�
 Une restauration de cet état consisterait en la suppression de la machine virtuelle de base, ainsi que de ses disques d’origine et des disques montés, la copie des disques enregistrés dans le compte de stockage d’origine ou le groupe de ressources pour les disques managés, puis le redéploiement du système.
 Cet article montre comment rédiger le script de ce processus dans PowerShell : <http://www.westerndevs.com/azure-snapshots/>
 
-Veillez à installer une nouvelle licence SAP dans la mesure où la restauration d’une sauvegarde de machine virtuelle, comme décrit ci-dessus, entraîne la création d’une clé matérielle.
+Veillez à installer une nouvelle licence SAP, dans la mesure où la restauration d’une sauvegarde de machine virtuelle selon les modalités ci-dessus entraîne la création d’une clé matérielle.
 
 ### <a name="online-backup-of-an-sap-system"></a>Sauvegarde en ligne d’un système SAP
 
@@ -2065,7 +1995,7 @@ Un billet de blog détaillant comment déployer cette solution est documenté ic
 Voici les points clés de la haute disponibilité des systèmes SAP dans Azure :
 
 * À ce stade, le point de défaillance unique de SAP ne peut pas être sécurisé exactement comme il peut l’être dans des déploiements en local. La raison est que les clusters de disques partagés sont encore impossibles à créer dans Azure sans utiliser de logiciels tiers.
-* Pour la couche SGBD (système de gestion de base de données), vous devez utiliser la fonctionnalité SGBD qui ne repose pas sur la technologie de cluster de disque partagé. Pour plus de détails à ce sujet, voir le [Guide SGBD (système de gestion de base de données)][dbms-guide].
+* Pour la couche SGBD, vous devez utiliser la fonctionnalité SGBD qui ne repose pas sur la technologie de cluster de disque partagé. Pour plus de détails à ce sujet, voir le [Guide SGBD (système de gestion de base de données)][dbms-guide].
 * Pour réduire l’impact des problèmes au sein des domaines d’erreur dans l’infrastructure Azure ou de la maintenance des hôtes, vous devez utiliser des groupes à haute disponibilité Azure :
   * Il est recommandé de disposer d’un groupe à haute disponibilité pour la couche d’applications SAP.
   * Il est recommandé de disposer d’un groupe à haute disponibilité distinct pour la couche du SGBD (système de gestion de base de données) SAP.

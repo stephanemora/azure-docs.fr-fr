@@ -6,15 +6,15 @@ ms.author: jushiman
 ms.topic: how-to
 ms.service: virtual-machine-scale-sets
 ms.subservice: networking
-ms.date: 07/17/2017
+ms.date: 06/25/2020
 ms.reviewer: mimckitt
 ms.custom: mimckitt
-ms.openlocfilehash: 39539f29df48d19b956b8bab6f63da50473453d4
-ms.sourcegitcommit: 12f23307f8fedc02cd6f736121a2a9cea72e9454
+ms.openlocfilehash: 0f8075af53752da0e0abc2dec7ab49c28af2e3ec
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/30/2020
-ms.locfileid: "84221297"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85374727"
 ---
 # <a name="networking-for-azure-virtual-machine-scale-sets"></a>Mise en réseau pour des groupes de machines virtuelles identiques Azure
 
@@ -44,7 +44,7 @@ La mise en réseau accélérée Azure améliore les performances du réseau en a
 
 ## <a name="azure-virtual-machine-scale-sets-with-azure-load-balancer"></a>Groupes de machines virtuelles identiques avec Azure Load Balancer
 
-Lorsque vous utilisez des groupes de machines virtuelles identiques et un équilibreur de charge, prenez en compte ce qui suit :
+Lorsque vous utilisez des groupes de machines virtuelles identiques et un équilibreur de charge, prenez en compte les éléments suivants :
 
 * **Plusieurs groupes de machines virtuelles identiques ne peuvent pas utiliser le même équilibreur de charge**.
 * **Réacheminement de port et règles NAT de trafic entrant** :

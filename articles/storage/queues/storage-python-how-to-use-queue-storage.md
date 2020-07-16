@@ -6,21 +6,24 @@ ms.author: mhopkins
 ms.date: 09/17/2019
 ms.service: storage
 ms.subservice: queues
-ms.topic: conceptual
-ms.reviewer: cbrooks
-ms.custom: seo-javascript-october2019
-ms.openlocfilehash: ca0831fd7554058d21e315b67d6965579af1d38b
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.topic: how-to
+ms.reviewer: dineshm
+ms.custom: seo-javascript-october2019, tracking-python
+ms.openlocfilehash: 46d144a95708ac834478871ca27763f0ebd3b201
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80060915"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84805245"
 ---
 # <a name="how-to-use-azure-queue-storage-v21-from-python"></a>Comment utiliser le stockage Files d’attente Azure v2.1 à partir de Python
 
 [!INCLUDE [storage-selector-queue-include](../../../includes/storage-selector-queue-include.md)]
 
 Cet article présente des scénarios courants d’utilisation du service Stockage File d’attente Azure. Les scénarios traités incluent l’insertion, la lecture furtive, la récupération et la suppression des messages de file d’attente, ainsi que la création et la suppression de files d’attente.
+
+> [!IMPORTANT]
+> Cet article fait référence à la version héritée de la bibliothèque cliente Azure Storage pour Python. Pour vous familiariser avec la dernière version, consultez [Démarrage rapide : Bibliothèque cliente Stockage File d’attente Azure pour Python](storage-quickstart-queues-python.md)
 
 [!INCLUDE [storage-try-azure-tools-queues](../../../includes/storage-try-azure-tools-queues.md)]
 

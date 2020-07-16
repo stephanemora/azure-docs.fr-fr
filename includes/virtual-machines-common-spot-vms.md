@@ -4,15 +4,15 @@ description: Fichier include
 author: cynthn
 ms.service: virtual-machines
 ms.topic: include
-ms.date: 10/23/2019
+ms.date: 06/26/2020
 ms.author: cynthn
 ms.custom: include file
-ms.openlocfilehash: e7dbac1f4fad940b817befa3a45447cf7367c28c
-ms.sourcegitcommit: 69156ae3c1e22cc570dda7f7234145c8226cc162
+ms.openlocfilehash: 8ee5973afb9312688178abd9a186c5319032c493
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/03/2020
-ms.locfileid: "84317617"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85506041"
 ---
 L’utilisation de machines virtuelles Spot vous permet de disposer de notre capacité inutilisée en réalisant des économies significatives. Dès qu’Azure a besoin de récupérer toute la capacité, l’infrastructure Azure supprime les machines virtuelles Spot. Les machines virtuelles Spot sont donc appropriées pour les charges de travail capables de gérer les interruptions, comme les travaux de traitement par lots, les environnements de développement et de test, les charges de travail de calcul importantes, entre autres.
 
@@ -21,9 +21,17 @@ La capacité disponible dépend de divers facteurs, tels que la taille, la régi
 
 ## <a name="eviction-policy"></a>Stratégie d’éviction
 
-Les machines virtuelles peuvent être supprimées en fonction de la capacité ou du prix maximal que vous avez défini. Pour les machines virtuelles, la stratégie d’éviction est définie sur *Libérer*. De cette façon, vos machines virtuelles évincées passent à l’état arrêté-libéré, ce qui vous permet de les redéployer ultérieurement. Toutefois, la réallocation des machines virtuelles Spot dépend de la capacité disponible. Les machines virtuelles libérées sont comptabilisées dans votre quota d’instances de processeurs virtuels Spot, et vos disques sous-jacents vous seront facturés. 
+Les machines virtuelles peuvent être supprimées en fonction de la capacité ou du prix maximal que vous avez défini. Quand vous créez une VM spot, vous pouvez affecter à la stratégie d’éviction la valeur *Libérer* (par défaut) ou *Supprimer*. 
 
-Les utilisateurs peuvent s’abonner pour recevoir des notifications dans la machine virtuelle via [Azure Scheduled Events](../articles/virtual-machines/linux/scheduled-events.md). Vous serez ainsi informé si vos machines virtuelles sont en cours d’éviction, et vous aurez 30 secondes pour terminer vos tâches et arrêter la machine virtuelle avant que ne commence l’éviction. 
+La stratégie *Libérer* attribue à votre machine virtuelle l’état « arrêté-libéré », ce qui vous permet de la redéployer par la suite. Toutefois, la réussite de l’allocation n’est pas garantie. Les machines virtuelles libérées sont comptabilisées dans votre quota, et les disques sous-jacents engendrent des frais de stockage. 
+
+Si vous souhaitez que la machine virtuelle soit supprimée lorsqu’elle est écartée, définissez la stratégie d’éviction avec la valeur *Supprimer*. Les machines virtuelles évincées sont supprimées en même temps que leurs disques sous-jacents. Le stockage ne vous est donc pas facturé. 
+
+> [!NOTE]
+>
+> Actuellement, le portail ne prend pas en charge l’option d’éviction `Delete`, qui ne peut être définie qu’à l’aide de PowerShell, de l’interface CLI et des modèles.
+
+Vous pouvez vous abonner pour recevoir des notifications dans la machine virtuelle avec [Azure Scheduled Events](../articles/virtual-machines/linux/scheduled-events.md). Vous serez ainsi informé si vos machines virtuelles sont en cours d’éviction, et vous aurez 30 secondes pour terminer vos tâches et arrêter la machine virtuelle avant que ne commence l’éviction. 
 
 
 | Option | Résultat |
@@ -37,15 +45,29 @@ Les utilisateurs peuvent s’abonner pour recevoir des notifications dans la mac
 | Si le prix maximal est défini sur `-1` | La machine virtuelle ne sera pas supprimée pour des raisons de tarif. Le prix maximal sera le prix actuel (au maximum le prix des machines virtuelles standard). Le prix facturé ne dépassera jamais le tarif standard.| 
 | Modification du prix maximal | Vous devez libérer la machine virtuelle pour modifier le prix maximal. Libérez la machine virtuelle, définissez un nouveau prix maximal, puis mettez à jour la machine virtuelle. |
 
+
 ## <a name="limitations"></a>Limites
 
 Les tailles de machine virtuelle suivantes ne sont pas prises en charge pour les machines virtuelles Spot :
  - Série B
  - Versions promotionnelles de toutes les tailles (Dv2, NV, NC, H, etc.)
 
-Les machines virtuelles Spot ne peuvent pas utiliser des disques de système d’exploitation éphémères.
-
 Les machines virtuelles Spot peuvent être déployées sur n’importe quelle région, à l’exception de Microsoft Azure Chine 21Vianet.
+
+Les canaux d’abonnement suivants ne sont pas pris en charge :
+
+<a name="channel"></a>
+
+| Canaux Azure               | Disponibilité des machines virtuelles Azure Spot       |
+|------------------------------|-----------------------------------|
+| Contrat Entreprise         | Oui                               |
+| Paiement à l’utilisation                | Oui                               |
+| Fournisseur de services cloud (CSP) | [Contactez votre partenaire](https://docs.microsoft.com/partner-center/azure-plan-get-started) |
+| Avantages                     | Non disponible                     |
+| Sponsorisé                    | Oui                               |
+| Version d’évaluation gratuite                   | Non disponible                     |
+
+
 
 ## <a name="pricing"></a>Tarifs
 
@@ -75,23 +97,6 @@ En raison de la variabilité des tarifs, vous avez la possibilité de définir u
 **Q :** Puis-je demander une augmentation de mon quota pour Spot ?
 
 **R :** Oui, vous pouvez demander une augmentation de votre quota pour les machines virtuelles Spot via la [procédure de demande de quota standard](https://docs.microsoft.com/azure/azure-portal/supportability/per-vm-quota-requests).
-
-
-**Q :** Quels sont les canaux qui prennent en charge les machines virtuelles Spot ?
-
-**R :** Consultez le tableau ci-dessous pour connaître la disponibilité des machines virtuelles Spot.
-
-<a name="channel"></a>
-
-| Canaux Azure               | Disponibilité des machines virtuelles Azure Spot       |
-|------------------------------|-----------------------------------|
-| Contrat Entreprise         | Oui                               |
-| Paiement à l’utilisation                | Oui                               |
-| Fournisseur de services cloud (CSP) | [Contactez votre partenaire](https://docs.microsoft.com/partner-center/azure-plan-get-started) |
-| Contrat client Microsoft | Oui                               |
-| Avantages                     | Non disponible                     |
-| Sponsorisé                    | Oui                               |
-| Version d’évaluation gratuite                   | Non disponible                     |
 
 
 **Q :** Où puis-je poster des questions ?

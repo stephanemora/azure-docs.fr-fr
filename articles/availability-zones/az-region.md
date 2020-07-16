@@ -7,12 +7,12 @@ ms.topic: article
 ms.date: 07/06/2020
 ms.author: cynthn
 ms.custom: fasttrack-edit, mvc, references_regions
-ms.openlocfilehash: eec92672801d33290df1690d8cb17e79d4626192
-ms.sourcegitcommit: e132633b9c3a53b3ead101ea2711570e60d67b83
+ms.openlocfilehash: 2e337628542475c081a59bffd25368de313011f8
+ms.sourcegitcommit: 3541c9cae8a12bdf457f1383e3557eb85a9b3187
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/07/2020
-ms.locfileid: "86042048"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86206199"
 ---
 # <a name="regions-that-support-availability-zones-in-azure"></a>Régions prenant en charge les Zones de disponibilité dans Azure
 
@@ -24,9 +24,8 @@ Cette section répertorie les régions et services Azure qui prennent en charge 
 
 Pour voir les services disponibles dans chaque région, ainsi que la feuille de route à venir pour la disponibilité, consultez [Produits disponibles par région](https://azure.microsoft.com/global-infrastructure/services/).
 
-|                                 |Amérique |              |           |           | Europe |              |          |              | Asie-Pacifique |                 |                |
+| Service |États-Unis: USA Centre|États-Unis: USA Est|États-Unis: USA Est 2|États-Unis: USA Ouest 2|Europe : France Centre|Europe : Europe Nord|Europe : Sud du Royaume-Uni|Europe : Europe Ouest|Asie-Pacifique : Japon Est|Asie-Pacifique : Asie Sud-Est|Asie-Pacifique : Australie Est|
 |----------------------------|----------|----------|---------|---------|--------------|------------|--------|----------|----------|-------------|-------------|
-|          |USA Centre|USA Est|USA Est 2|USA Ouest 2|France Centre|Europe Nord|Sud du Royaume-Uni|Europe Ouest|Japon Est|Asie Sud-Est|Australie Est|
 | **Calcul**                         |            |              |           |           |                |              |          |             |            |                |                |
 | Machines virtuelles Linux          | &#10003;   | &#10003;     | &#10003;  | &#10003;  | &#10003;       | &#10003;     | &#10003; | &#10003;    | &#10003;   | &#10003;       | &#10003;               |
 | Machines virtuelles Windows        | &#10003;   | &#10003;     | &#10003;  | &#10003;  | &#10003;       | &#10003;     | &#10003; | &#10003;    | &#10003;   | &#10003;       | &#10003;               |

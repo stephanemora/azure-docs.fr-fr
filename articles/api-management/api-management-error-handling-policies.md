@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 01/10/2020
 ms.author: apimpm
-ms.openlocfilehash: 0bc4792b44ccff23a141460c3521d684801c4567
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: bddb4ea3759d19d1e122739fb69cf9bf96c66635
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84674259"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86243543"
 ---
 # <a name="error-handling-in-api-management-policies"></a>Gestion des erreurs dans les stratégies de la Gestion des API
 
@@ -51,7 +51,7 @@ Lors du traitement d’une requête, les étapes intégrées sont exécutées av
 La section de stratégie `on-error` peut être utilisée, quelle que soit l’étendue. Les éditeurs d’API peuvent configurer un comportement personnalisé, par exemple l’enregistrement de l’erreur dans des Event Hubs ou la création d’une nouvelle réponse à renvoyer à l’appelant.
 
 > [!NOTE]
-> La section `on-error` n’est pas présente par défaut dans les stratégies. Pour ajouter la section `on-error` à une stratégie, accédez à la stratégie de votre choix dans l’éditeur de stratégies et ajoutez-la. Pour plus d’informations sur la configuration des stratégies, consultez la page [Stratégies dans la Gestion des API](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/).
+> La section `on-error` n’est pas présente par défaut dans les stratégies. Pour ajouter la section `on-error` à une stratégie, accédez à la stratégie de votre choix dans l’éditeur de stratégies et ajoutez-la. Pour plus d’informations sur la configuration des stratégies, consultez la page [Stratégies dans la Gestion des API](./api-management-howto-policies.md).
 >
 > En l’absence de section `on-error`, les appelants recevront des messages de réponse HTTP 400 ou 500 si une condition d’erreur se produit.
 
@@ -189,5 +189,5 @@ Pour plus d’informations sur l’utilisation de stratégies, consultez les pag
 
 -   [Stratégies dans Gestion des API](api-management-howto-policies.md)
 -   [Transform and protect your API](transform-api.md) (Transformer et protéger votre API)
--   [Référence de stratégie](api-management-policy-reference.md) pour obtenir la liste complète des instructions et des paramètres de stratégie
+-   [Référence de stratégie](./api-management-policies.md) pour obtenir la liste complète des instructions et des paramètres de stratégie
 -   [Exemples de stratégie](policy-samples.md)

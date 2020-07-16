@@ -3,12 +3,12 @@ title: Mettre à niveau des nœuds de cluster pour utiliser des disques managés
 description: Voici comment mettre à niveau un cluster Service Fabric existant pour utiliser des disques managés Azure avec peu ou pas de temps d’arrêt de votre cluster.
 ms.topic: how-to
 ms.date: 4/07/2020
-ms.openlocfilehash: 46dec6ae29fdd8f2a418f695c31900e6df4483e1
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: cff0f99412f189f38f1b14d15c7285166a048c87
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85611626"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86255895"
 ---
 # <a name="upgrade-cluster-nodes-to-use-azure-managed-disks"></a>Mettre à niveau des nœuds de cluster pour utiliser des disques managés Azure
 
@@ -16,7 +16,7 @@ Les [disques managés Azure](../virtual-machines/windows/managed-disks-overview.
 
 La stratégie générale de mise à niveau d’un nœud de cluster Service Fabric pour utiliser des disques managés consiste à :
 
-1. Déployer un groupe de machines virtuelles identiques de ce type de nœud qui serait autrement dupliqué, mais avec l’objet [managedDisk](https://docs.microsoft.com/azure/templates/microsoft.compute/2019-07-01/virtualmachinescalesets/virtualmachines#ManagedDiskParameters) ajouté à la section `osDisk` du modèle de déploiement du groupe de machines virtuelles identiques. Le nouveau groupe identique doit être lié à l’équilibreur de charge/à l’adresse IP d’origine, de sorte que vos clients ne subissent aucune interruption de service pendant la migration.
+1. Déployer un groupe de machines virtuelles identiques de ce type de nœud qui serait autrement dupliqué, mais avec l’objet [managedDisk](/azure/templates/microsoft.compute/2019-07-01/virtualmachinescalesets/virtualmachines#ManagedDiskParameters) ajouté à la section `osDisk` du modèle de déploiement du groupe de machines virtuelles identiques. Le nouveau groupe identique doit être lié à l’équilibreur de charge/à l’adresse IP d’origine, de sorte que vos clients ne subissent aucune interruption de service pendant la migration.
 
 2. Une fois que les groupes identiques d’origine et mis à niveau sont exécutés côte à côte, désactivez les instances de nœud d’origine une par une afin que les services système (ou réplicas de services avec état) migrent vers le nouveau groupe identique.
 
@@ -25,7 +25,7 @@ La stratégie générale de mise à niveau d’un nœud de cluster Service Fabri
 Cet article vous guide tout au long des étapes de mise à niveau du type de nœud principal d’un exemple de cluster pour utiliser des disques managés tout en évitant les temps d’arrêt du cluster (voir remarque ci-dessous). L’état initial de l’exemple de cluster de test se compose d’un type de nœud de [durabilité Silver](service-fabric-cluster-capacity.md#durability-characteristics-of-the-cluster), soutenu par un groupe identique à cinq nœuds.
 
 > [!CAUTION]
-> Vous rencontrerez une panne avec cette procédure uniquement si vous avez des dépendances sur le DNS du cluster (par exemple, lors de l’accès à [Service Fabric Explorer](service-fabric-visualizing-your-cluster.md)). La [meilleure pratique architecturale pour les services frontaux](https://docs.microsoft.com/azure/architecture/microservices/design/gateway) consiste à avoir un certain type d’[équilibreur de charge](https://docs.microsoft.com/azure/architecture/guide/technology-choices/load-balancing-overview) devant vos types de nœud pour rendre possible l’échange de nœuds sans provoquer de panne.
+> Vous rencontrerez une panne avec cette procédure uniquement si vous avez des dépendances sur le DNS du cluster (par exemple, lors de l’accès à [Service Fabric Explorer](service-fabric-visualizing-your-cluster.md)). La [meilleure pratique architecturale pour les services frontaux](/azure/architecture/microservices/design/gateway) consiste à avoir un certain type d’[équilibreur de charge](/azure/architecture/guide/technology-choices/load-balancing-overview) devant vos types de nœud pour rendre possible l’échange de nœuds sans provoquer de panne.
 
 Voici les [modèles et cmdlets](https://github.com/microsoft/service-fabric-scripts-and-templates/tree/master/templates/nodetype-upgrade-no-outage) pour Azure Resource Manager que nous allons utiliser pour terminer le scénario de mise à niveau. Les modifications du modèle seront expliquées dans la partie [Déployer un groupe identique mis à niveau pour le type de nœud principal](#deploy-an-upgraded-scale-set-for-the-primary-node-type) ci-dessous.
 

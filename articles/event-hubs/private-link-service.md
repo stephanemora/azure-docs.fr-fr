@@ -1,18 +1,14 @@
 ---
 title: Intégrer Azure Event Hubs au service Azure Private Link
 description: Découvrir comment intégrer Azure Event Hubs au service Azure Private Link
-services: event-hubs
-author: spelluru
-ms.author: spelluru
-ms.date: 03/12/2020
-ms.service: event-hubs
+ms.date: 06/23/2020
 ms.topic: article
-ms.openlocfilehash: bb4c46ecd64958b1daf6c3f7fb5fe613dc9ba729
-ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
+ms.openlocfilehash: aa1eb4df425d83a37fbf4ac69e0e256c464dc5c9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83649901"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85312825"
 ---
 # <a name="integrate-azure-event-hubs-with-azure-private-link"></a>Intégrer Azure Event Hubs à Azure Private Link
 Le service Azure Private Link vous permet d’accéder aux services Azure (par exemple, Azure Event Hubs, Stockage Azure et Azure Cosmos DB) ainsi qu’aux services de partenaire ou de client hébergés par Azure via un **point de terminaison privé** dans votre réseau virtuel.
@@ -22,7 +18,7 @@ Un point de terminaison privé est une interface réseau qui vous permet de vous
 Pour plus d’informations, consultez [Qu’est-ce qu’Azure Private Link ?](../private-link/private-link-overview.md)
 
 > [!IMPORTANT]
-> Cette fonctionnalité est prise en charge uniquement avec le niveau **dédié**. Pour plus d’informations sur le niveau dédié, consultez [Vue d’ensemble d’Event Hubs Dedicated](event-hubs-dedicated-overview.md). 
+> Cette fonctionnalité est prise en charge pour les niveaux **standard** et **dédié**. 
 
 >[!WARNING]
 > L’activation des points de terminaison privés peut empêcher d’autres services Azure d’interagir avec Event Hubs.
@@ -62,7 +58,7 @@ Si vous avez déjà un espace de noms Event Hubs, vous pouvez créer une connexi
 2. Dans la barre de recherche, tapez **event hubs**.
 3. Dans la liste, sélectionnez l’**espace de noms** auquel vous voulez ajouter un point de terminaison privé.
 4. Sélectionnez l’onglet **Réseau** situé sous **Paramètres**.
-5. Sélectionnez l’onglet **Connexions des points de terminaison privés** en haut de la page. Si vous n’utilisez pas de niveau dédié Event Hubs, vous voyez le message : **Les connexions de point de terminaison privé sur Event Hubs sont prises en charge uniquement par les espaces de noms créés sous un cluster dédié**.
+5. Sélectionnez l’onglet **Connexions des points de terminaison privés** en haut de la page. 
 6. Sélectionnez le bouton **+ Point de terminaison privé** en haut de la page.
 
     ![Image](./media/private-link-service/private-link-service-3.png)

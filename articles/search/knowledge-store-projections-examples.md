@@ -2,35 +2,32 @@
 title: Définir des projections dans une base de connaissances
 titleSuffix: Azure Cognitive Search
 description: Exemples de modèles courants montrant comment projeter des documents enrichis dans la base de connaissances pour les utiliser avec Power BI ou Azure ML.
-manager: eladz
+manager: nitinme
 author: vkurpad
 ms.author: vikurpad
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 02/15/2020
-ms.openlocfilehash: 23c370289669c2dde4f8969a2921018cd0abc08c
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.date: 06/30/2020
+ms.openlocfilehash: f030e382a5378c84df347c545e9426adee6eacb1
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "78943677"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85566005"
 ---
-# <a name="knowledge-store-projections-how-to-shape-and-export-enrichments"></a>Projections dans une base de connaissances : guide pratique pour mettre en forme et exporter des enrichissements
+# <a name="how-to-shape-and-export-enrichments"></a>guide pratique pour mettre en forme et exporter des enrichissements
 
-> [!IMPORTANT] 
-> La base de connaissances est actuellement disponible en préversion publique. Les fonctionnalités en préversion sont fournies sans contrat de niveau de service et ne sont pas recommandées pour les charges de travail de production. Pour plus d’informations, consultez [Conditions d’Utilisation Supplémentaires relatives aux Évaluations Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). L’[API REST version 2019-05-06-Preview](search-api-preview.md) fournit des fonctionnalités en préversion. La prise en charge du portail est actuellement limitée, et il n’existe pas de prise en charge du kit SDK .NET.
+Les projections sont l’expression physique de documents enrichis dans une base de connaissances. L’utilisation efficace de documents enrichis nécessite une structure. Dans cet article, vous allez explorer la structure et les relations, apprendre à créer des propriétés de projection ainsi qu’à lier des données aux différents types de projection créés. 
 
-Les projections sont l’expression physique de documents enrichis dans une base de connaissances. L’utilisation efficace de vos documents enrichis nécessite une structure. Dans cet article, vous allez explorer la structure et les relations, apprendre à créer des propriétés de projection ainsi qu’à lier des données à différents types de projection que vous créez. 
+Pour créer une projection, les données sont mises en forme à l’aide d’une [compétence Modélisateur](cognitive-search-skill-shaper.md) afin de créer un objet personnalisé ou à l’aide de la syntaxe de mise en forme inline dans une définition de projection. 
 
-Pour créer une projection, vous devez mettre en forme les données à l’aide d’une [compétence Modélisateur](cognitive-search-skill-shaper.md) afin de créer un objet personnalisé ou utiliser la syntaxe de mise en forme inline dans une définition de projection. 
-
-Une forme de données contient toutes les données que vous envisagez de projeter, mises en forme en tant que hiérarchie de nœuds. Cet article présente plusieurs techniques pour mettre en forme les données afin de pouvoir ensuite les projeter dans des structures physiques qui permettent la création de rapports, l’analyse ou le traitement en aval. 
+Une forme de données contient toutes les données devant être projetées, mises en forme en tant que hiérarchie de nœuds. Cet article présente plusieurs techniques pour mettre en forme les données afin de pouvoir ensuite les projeter dans des structures physiques qui permettent la création de rapports, l’analyse ou le traitement en aval. 
 
 Les exemples étudiés dans cet article sont tirés de cet [exemple d’API REST](https://github.com/Azure-Samples/azure-search-postman-samples/blob/master/projections/Projections%20Docs.postman_collection.json), que vous pouvez télécharger et exécuter dans un client HTTP.
 
-## <a name="introduction-to-the-examples"></a>Présentation des exemples
+## <a name="introduction-to-projection-examples"></a>Présentation des exemples de projection
 
-Si vous avez déjà travaillé avec des [projections](knowledge-store-projection-overview.md), vous savez probablement qu’il en existe trois types :
+Il existe trois types de [projections](knowledge-store-projection-overview.md) :
 
 + Tables
 + Objets
@@ -38,7 +35,7 @@ Si vous avez déjà travaillé avec des [projections](knowledge-store-projection
 
 Les projections de table sont stockées dans le stockage Table Azure. Les projections d’objet et de fichier sont écrites dans le Stockage Blob, où les projections d’objet sont enregistrées en tant que fichiers JSON, et peuvent contenir le contenu du document source ainsi que les sorties ou enrichissements de compétence. Le pipeline d’enrichissement peut également extraire des binaires tels que des images ; ces binaires sont projetés en tant que projections de fichier. Quand un objet binaire est projeté en tant que projection d’objet, seules les métadonnées qui lui sont associées sont enregistrées en tant qu’objet blob JSON. 
 
-Pour comprendre l’intersection entre la mise en forme des données et les projections, nous allons utiliser l’ensemble de compétences suivant comme base pour l’exploration de différentes configurations. Cet ensemble de compétences traite le contenu d’images et de texte brut. Pour les scénarios que nous souhaitons prendre en charge, les projections sont définies à partir du contenu du document et des sorties des compétences.
+Pour comprendre l’intersection entre la mise en forme des données et les projections, nous allons utiliser l’ensemble de compétences suivant comme base pour l’exploration de différentes configurations. Cet ensemble de compétences traite le contenu d’images et de texte brut. Pour les scénarios souhaités, les projections sont définies à partir du contenu du document et des sorties des compétences.
 
 > [!IMPORTANT] 
 > Quand vous expérimentez des projections, il est utile de [définir la propriété de cache de l’indexeur](search-howto-incremental-index.md) pour garantir le contrôle des coûts. La modification des projections entraîne l’enrichissement de la totalité du document si le cache de l’indexeur n’est pas défini. Quand le cache est défini et que seules les projections sont mises à jour, les exécutions de l’ensemble de compétences pour les documents précédemment enrichis n’entraînent pas de frais supplémentaires liés à Cognitive Services.
@@ -206,14 +203,14 @@ Pour comprendre l’intersection entre la mise en forme des données et les proj
 
 La projection dans des tables dans le Stockage Azure est utile pour la création de rapports et l’analyse des données à l’aide d’outils comme Power BI. Power BI peut lire le contenu des tables et découvrir les relations d’après les clés qui sont générées pendant la projection. Si vous voulez créer un tableau de bord, cette tâche sera plus simple si les données sont liées entre elles. 
 
-Supposons que nous essayons de créer un tableau de bord dans lequel nous pourrons visualiser les expressions clés extraites de documents en tant que nuage de mots clés. Pour créer la structure de données appropriée, nous ajoutons une compétence Modélisateur à l’ensemble de compétences en vue de créer une forme personnalisée avec les détails et les expressions clés spécifiques du document. La forme personnalisée est appelée `pbiShape` sur le nœud racine `document`.
+Créons un tableau de bord dans lequel il est possible de visualiser les expressions clés extraites de documents en tant que nuage de mots clés. Pour créer la structure de données appropriée, ajoutez une compétence Modélisateur à l’ensemble de compétences en vue de créer une forme personnalisée avec les détails et les expressions clés spécifiques du document. La forme personnalisée est appelée `pbiShape` sur le nœud racine `document`.
 
 > [!NOTE] 
 > Les projections de table sont des tables du Stockage Azure auxquelles s’appliquent les limites de stockage imposées par le Stockage Azure. Pour plus d’informations, consultez les [limites du stockage de table](https://docs.microsoft.com/rest/api/storageservices/understanding-the-table-service-data-model). Il est utile de savoir que la taille maximale respective d’une entité et d’une propriété est de 1 Mo et 64 Ko. Ces contraintes font des tables une bonne solution pour stocker un grand nombre de petites entités.
 
 ### <a name="using-a-shaper-skill-to-create-a-custom-shape"></a>Utilisation d’une compétence Modélisateur pour créer une forme personnalisée
 
-Créez une forme personnalisée que vous pouvez projeter dans le stockage de table. Sans forme personnalisée, une projection ne peut référencer qu’un seul nœud (une projection par sortie). La création d’une forme personnalisée vous permet de regrouper différents éléments en un nouvel ensemble logique qui peut être projeté sous la forme d’une table unique, ou découpé et distribué dans une collection de tables. 
+Créez une forme personnalisée que vous pouvez projeter dans le stockage de table. Sans forme personnalisée, une projection ne peut référencer qu’un seul nœud (une projection par sortie). La création d’une forme personnalisée permet de regrouper différents éléments en un nouvel ensemble logique qui peut être projeté sous la forme d’une table unique, ou découpé et distribué dans une collection de tables. 
 
 Dans cet exemple, la forme personnalisée combine les métadonnées et les entités et expressions clés identifiées. L’objet est appelé `pbiShape` et est apparenté à `/document`. 
 
@@ -345,7 +342,7 @@ Vous pouvez effectuer votre travail en procédant comme suit :
 
 Vous disposez maintenant d’une projection de travail avec trois tables. Quand vous importez ces tables dans Power BI, celui-ci doit être en mesure de détecter les relations automatiquement.
 
-Avant de passer à l’exemple suivant, revoyons les concepts de la projection de table pour comprendre les mécanismes de découpage et des données associées.
+Avant de passer à l’exemple suivant, revoyons les aspects de la projection de table pour comprendre les mécanismes de découpage et des données associées.
 
 ### <a name="slicing"></a>Découpage 
 
@@ -363,13 +360,13 @@ Power BI utilise ces clés générées pour découvrir les relations dans les t
 
 ## <a name="projecting-to-objects"></a>Projection dans des objets
 
-Les projections d’objet n’ont pas les mêmes limitations que les projections de table et elles sont mieux adaptées pour la projection de documents volumineux. Dans cet exemple, nous projetons la totalité du document dans une projection d’objet. Les projections d’objet sont limitées à une seule projection dans un conteneur et elles ne peuvent pas être découpées.
+Les projections d’objet n’ont pas les mêmes limitations que les projections de table et elles sont mieux adaptées pour la projection de documents volumineux. Dans cet exemple, la totalité du document est envoyée en tant que projection d’objet. Les projections d’objet sont limitées à une seule projection dans un conteneur et elles ne peuvent pas être découpées.
 
-Pour définir une projection d’objet, nous allons utiliser le tableau ```objects``` dans les projections. Vous pouvez générer une nouvelle forme à l’aide de la compétence Modélisateur ou utiliser la mise en forme inline de la projection d’objet. Tandis que l’exemple de tables illustre l’approche de la création d’une forme et du découpage, cet exemple illustre l’utilisation de la mise en forme inline. 
+Pour définir une projection d’objet, utilisez le tableau ```objects``` dans les projections. Vous pouvez générer une nouvelle forme à l’aide de la compétence Modélisateur ou utiliser la mise en forme inline de la projection d’objet. Tandis que l’exemple de tables illustre l’approche de la création d’une forme et du découpage, cet exemple illustre l’utilisation de la mise en forme inline. 
 
 La mise en forme inline permet de créer une forme dans la définition des entrées d’une projection. La mise en forme inline crée un objet anonyme identique à ce qu’une compétence Modélisateur produirait (ici, `pbiShape`). La mise en forme inline est utile si vous définissez une forme que vous n’envisagez pas de réutiliser.
 
-La propriété projections est un tableau. Pour cet exemple, nous ajoutons une nouvelle instance de projection au tableau, où la définition knowledgeStore contient des projections inline. Quand vous utilisez des projections inline, vous pouvez omettre la compétence Modélisateur.
+La propriété projections est un tableau. Cet exemple comprend une nouvelle instance de projection au tableau, où la définition knowledgeStore contient des projections inline. Quand vous utilisez des projections inline, vous pouvez omettre la compétence Modélisateur.
 
 ```json
 "knowledgeStore" : {
@@ -426,7 +423,7 @@ La propriété projections est un tableau. Pour cet exemple, nous ajoutons une n
 
 Les projections de fichier sont des images extraites du document source ou des sorties d’enrichissement qui peuvent être projetées à partir du processus d’enrichissement. Les projections de fichier, comme les projections d’objet, sont implémentées sous forme d’objets blob dans le Stockage Azure et contiennent l’image. 
 
-Pour générer une projection de fichier, nous utilisons le tableau `files` dans l’objet de projection. Cet exemple projette toutes les images extraites du document dans un conteneur appelé `samplefile`.
+Pour générer une projection de fichier, utilisez le tableau `files` dans l’objet de projection. Cet exemple projette toutes les images extraites du document dans un conteneur appelé `samplefile`.
 
 ```json
 "knowledgeStore" : {
@@ -450,7 +447,7 @@ Pour générer une projection de fichier, nous utilisons le tableau `files` dans
 
 Un scénario plus complexe peut vous obliger à projeter du contenu dans différents types de projection. Par exemple, si vous devez projeter des données telles que des expressions clés et des entités dans des tables, enregistrez les résultats OCR du texte et du texte de disposition en page sous forme d’objets, puis projetez les images en tant que fichiers. 
 
-Dans cet exemple, les mises à jour apportées à l’ensemble de compétences incluent les modifications suivantes :
+Cet exemple comprend les mises à jour apportées à l’ensemble de compétences avec les modifications suivantes :
 
 1. Créer une table avec une ligne pour chaque document.
 1. Créer une table liée à la table de documents avec chaque expression clé identifiée en tant que ligne dans cette table.
@@ -463,7 +460,7 @@ Ces modifications sont répercutées plus loin dans la définition knowledgeStor
 
 ### <a name="shape-data-for-cross-projection"></a>Mettre en forme les données pour la projection croisée
 
-Pour obtenir les formes dont nous avons besoin pour ces projections, commençons par ajouter une nouvelle compétence Modélisateur qui crée un objet mis en forme appelé `crossProjection`. 
+Pour obtenir les formes nécessaires pour ces projections, commencez par ajouter une nouvelle compétence Modélisateur qui crée un objet mis en forme appelé `crossProjection`. 
 
 ```json
 {
@@ -534,7 +531,7 @@ Pour obtenir les formes dont nous avons besoin pour ces projections, commençons
 
 ### <a name="define-table-object-and-file-projections"></a>Définir des projections de table, d’objet et de fichier
 
-À partir de l’objet crossProjection regroupé, nous pouvons découper l’objet en plusieurs tables, capturer la sortie OCR sous forme d’objets blob, puis enregistrer l’image en tant que fichiers (également dans le Stockage Blob).
+À partir de l’objet crossProjection regroupé, découpez l’objet en plusieurs tables, capturez la sortie OCR sous forme d’objets blob, puis enregistrez l’image en tant que fichiers (également dans le Stockage Blob).
 
 ```json
 "knowledgeStore" : {
@@ -595,7 +592,7 @@ Les projections d’objet nécessitent un nom de conteneur pour chaque projectio
 
 ### <a name="relationships-among-table-object-and-file-projections"></a>Relations entre les projections de table, d’objet et de fichier
 
-Cet exemple met également en lumière une autre fonctionnalité des projections. La définition de plusieurs types de projections dans le même objet de projection se traduit par l’expression d’une relation dans et entre les différents types (tables, objets, fichiers). Ainsi, dans la projection d’objet, vous pouvez, à partir d’une ligne de table pour un document, rechercher tout le texte OCR pour les images contenues dans ce document. 
+Cet exemple met également en lumière une autre fonctionnalité des projections. En définissant plusieurs types de projections dans le même objet de projection, il existe une relation exprimée dans et entre les différents types (tables, objets, fichiers). Cela vous permet de commencer avec une ligne de tableau pour un document et de rechercher tout le texte OCR pour les images contenues dans ce document dans la projection de l’objet. 
 
 Si vous ne souhaitez pas que les données soient liées, définissez les projections dans différents objets de projection. Par exemple, l’extrait de code suivant entraîne la liaison des tables, sans qu’aucune relation ne soit toutefois établie entre les tables et les projections d’objet (texte OCR). 
 

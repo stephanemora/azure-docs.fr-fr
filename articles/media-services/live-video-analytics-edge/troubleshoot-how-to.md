@@ -1,14 +1,16 @@
 ---
 title: Résoudre les problèmes liés à Live Video Analytics sur IoT Edge - Azure
 description: Cet article traite des étapes de dépannage pour les problèmes liés à Live Video Analytics sur IoT Edge.
+author: IngridAtMicrosoft
 ms.topic: how-to
+ms.author: inhenkel
 ms.date: 05/24/2020
-ms.openlocfilehash: c235dd27da1d370531c1668c40586d4ae479aec7
-ms.sourcegitcommit: 223cea58a527270fe60f5e2235f4146aea27af32
+ms.openlocfilehash: dd55050521a1791a11f220cd5617d9df2fa2d160
+ms.sourcegitcommit: e132633b9c3a53b3ead101ea2711570e60d67b83
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/01/2020
-ms.locfileid: "84260442"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86045572"
 ---
 # <a name="troubleshoot-live-video-analytics-on-iot-edge"></a>Résoudre les problèmes liés à Live Video Analytics sur IoT Edge
 
@@ -128,7 +130,7 @@ Pour résoudre ce problème :
     ```
 1. Assurez-vous que les extensions suivantes sont installées. Au moment de la rédaction de ce guide, les versions des extensions étaient les suivantes :
 
-    |||
+    | Extension | Version |
     |---|---|
     |azure-cli   |      2.5.1*|
     |command-modules-nspkg         |   2.0.3|
@@ -243,7 +245,92 @@ Live Video Analytics sur IoT Edge fournit un modèle de programmation basé sur 
 
 La méthode d’Assembly Initialization Microsoft.Media.LiveVideoAnalytics.Test.Feature.Edge.AssemblyInitializer.InitializeAssemblyAsync a levé l’exception. Microsoft.Azure.Devices.Common.Exceptions.IotHubException : Microsoft.Azure.Devices.Common.Exceptions.IotHubException :<br/> `{"Message":"{\"errorCode\":504101,\"trackingId\":\"55b1d7845498428593c2738d94442607-G:32-TimeStamp:05/15/2020 20:43:10-G:10-TimeStamp:05/15/2020 20:43:10\",\"message\":\"Timed out waiting for the response from device.\",\"info\":{},\"timestampUtc\":\"2020-05-15T20:43:10.3899553Z\"}","ExceptionMessage":""}. Aborting test execution. `
 
-Nous vous recommandons de ne pas appeler plusieurs méthodes directes en parallèle, mais de le faire de façon séquentielle, c’est-à-dire passer un appel de méthode directe uniquement lorsque le premier est terminé. 
+Nous vous recommandons de ne pas appeler plusieurs méthodes directes en parallèle, mais de le faire de façon séquentielle, c’est-à-dire passer un appel de méthode directe uniquement lorsque le premier est terminé.
+
+### <a name="collecting-logs-for-submitting-a-support-ticket"></a>Récupérer des journaux d’activité pour envoyer un ticket de support
+
+Lorsque les étapes de résolution des problèmes auto-guidée ne résolvent pas vos problèmes, vous devriez aller sur le Portail Azure et [ouvrir un ticket de support](https://docs.microsoft.com/azure/azure-portal/supportability/how-to-create-azure-support-request).
+
+Procédez comme suit pour récupérer les journaux d’activité appropriés qui doivent être ajoutés au ticket. Vous pourrez charger les journaux d’activité dans l’onglet **Détails**de la demande de support.
+
+### <a name="support-bundle"></a>Support-bundle
+
+Lorsque vous devez récupérer des journaux d'activité depuis un périphérique IoT Edge, la façon la plus simple est d’utiliser la commande `support-bundle`. Cette commande récupère :
+
+- Les journaux de module
+- Les journaux du gestionnaire de sécurité IoT Edge et du moteur de conteneur
+- Sortie Json de vérification Iotedge
+- Des informations de débogage utiles
+
+#### <a name="use-the-iot-edge-security-manager"></a>Utiliser le gestionnaire de sécurite IoT Edge
+ 
+Le gestionnaire de sécurité IoT Edge est responsable des opérations comme l’initialisation du système IoT Edge au démarrage et l’approvisionnement des appareils. Si IoT Edge ne démarre pas, les journaux du gestionnaire de sécurité peuvent fournir des informations utiles. Pour afficher des journaux d’activité du gestionnaire de sécurité IoT Edge plus détaillés :
+
+1. Éditez les paramètres du démon IoT Edge sur l’appareil IoT Edge :
+
+    ```
+    sudo systemctl edit iotedge.service
+    ```
+
+1. Mettez à jour les lignes suivantes :
+
+    ```
+    [Service]
+    Environment=IOTEDGE_LOG=edgelet=debug
+    ```
+
+1. Redémarrez les Démon de Sécurité IoT Edge en exécutant ces commandes :
+
+    ```
+    sudo systemctl cat iotedge.service
+    sudo systemctl daemon-reload
+    sudo systemctl restart iotedge
+    ```
+
+1. Exécutez la commande `support-bundle` avec l’indicateur --since pour spécifier jusqu’à quand doivent remonter les journaux que vous souhaitez récupérer. Par exemple, 2h vous permettra de récupérer les journaux d'activité des deux dernières heures. Vous pouvez changer la valeur de cet indicateur pour inclure les journaux d’activité d’une période différente.
+
+    ```
+    sudo iotedge support-bundle --since 2h
+    ```
+
+### <a name="lva-debug-logs"></a>Journaux d’activité de débogage LVA
+
+Procédez comme suit pour configurer le LVA sur le module IoT Edge pour générer des journaux d'activité de débogage :
+
+1. Connectez-vous au [portail Azure](https://portal.azure.com) et accédez à votre IoT Hub.
+1. Sélectionnez **IoT Edge** dans le menu.
+1. Cliquez sur l’ID de l’appareil cible dans la liste des appareils.
+1. Cliquez sur le lien **Modules d’ensemble** depuis le menu supérieur.
+
+  ![modules d’ensemble portail azure](media/troubleshoot-how-to/set-modules.png)
+
+5. Dans la section Modules IoT Edge, trouvez et sélectionnez **lvaEdge**.
+1. Cliquez sur **Options de création de conteneur**.
+1. Dans la section Binds, ajoutez la commande suivante :
+
+    `/var/local/mediaservices/logs:/var/lib/azuremediaservices/logs`
+
+    Cela lie les dossiers de journaux d'activité entre le périphérique et le conteneur.
+
+1. Cliquez sur le bouton **Mettre à jour**
+1. Cliquez sur le bouton **Vérifier + créer** en bas de la page. Une validation simple aura lieu et un message de validation réussie sur fond vert.
+1. Cliquez sur le bouton **Créer**.
+1. Ensuite, mettez à jour le **Jumeau d’identité de module** pour diriger le paramètre DebugLogsDirectory vers le répertoire dans lequel les journaux d'activité seront enregistrés :
+    1. Sélectionnez **lvaEdge** sous la table **Modules**.
+    1. Cliquez sur le lien **Jumeau d’identité de module**. Vous le trouverez en haut de la page. Cela ouvrira un volet modifiable.
+    1. Ajoutez la paire clé-valeur suivante sous **clé souhaitée** :
+
+        `"DebugLogsDirectory": "/var/lib/azuremediaservices/logs"`
+
+    1. Cliquez sur **Save**(Enregistrer).
+
+1. Reproduisez le problème.
+1. Connectez-vous à la machine virtuelle à partir de la page IoT Hub de votre portail.
+1. Accédez au dossier `/var/local/mediaservices/logs` et compressez le contenu bin de ce dossier avant de nous le partager. (Ces fichiers journaux ne sont pas destinés à un diagnostic personnel. Ils permettent aux ingénieurs Azure d’analyser vos problèmes.)
+
+1. La collection de journaux peut être arrêtée en définissant cette valeur dans **Module Identity Twin** comme *null* de nouveau. Retournez sur la page **Module Identity Twin** et mettez à jour le paramètre suivant comme suit :
+
+    `"DebugLogsDirectory": ""`
 
 ## <a name="next-steps"></a>Étapes suivantes
 

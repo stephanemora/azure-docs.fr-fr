@@ -2,13 +2,13 @@
 title: Préparer Azure Migrate à utiliser un outil ISV/Movere
 description: Cet article explique comment préparer Azure Migrate à utiliser un outil ISV ou Movere, puis comment commencer à utiliser l’outil.
 ms.topic: how-to
-ms.date: 05/07/2020
-ms.openlocfilehash: 9513e783d4f9d7be83f1434d4dd9011844af8993
-ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
+ms.date: 06/10/2020
+ms.openlocfilehash: ed7652cb34705bac56a79b5c30e6bda3dac69af0
+ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/20/2020
-ms.locfileid: "83682651"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86103923"
 ---
 # <a name="prepare-to-work-with-an-isv-tool-or-movere"></a>Se préparer à utiliser un outil ISV ou Movere
 
@@ -36,8 +36,20 @@ Dans votre abonnement Azure, votre compte doit disposer de l’accès **Microsof
 1. Sur le portail Azure, ouvrez **Abonnements**.
 2. Sélectionnez l’abonnement approprié. Si vous ne le voyez pas, sélectionnez le **filtre d’abonnements généraux**. 
 3. Sélectionner **Mes autorisations**. Ensuite, sélectionnez **Cliquer ici pour afficher les détails d’accès complet pour cet abonnement**.
-4. Vérifiez les autorisations dans **Affectations de rôles** > **Affichage**. Si votre compte n’a pas d’autorisations, demandez à l’administrateur de l’abonnement de vous ajouter au rôle [Administrateur de l'accès utilisateur](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#user-access-administrator) ou au rôle [Propriétaire](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#owner).
- 
+4. Vérifiez les autorisations dans **Affectations de rôles** > **Affichage**. Si votre compte n’a pas d’autorisations, demandez à l’administrateur de l’abonnement de vous ajouter au rôle [Administrateur de l'accès utilisateur](../role-based-access-control/built-in-roles.md#user-access-administrator) ou au rôle [Propriétaire](../role-based-access-control/built-in-roles.md#owner).
+
+## <a name="allow-access-to-urls"></a>Autoriser l'accès à des URL
+
+Pour les outils ISV et l’Assistant Migration de données Azure, autorisez l’accès aux URL de cloud public résumées dans le tableau. Si vous utilisez un proxy basé sur les URL pour vous connecter à Internet, vérifiez que le proxy résout tous les enregistrements CNAME reçus lors de la recherche des URL. 
+
+**URL** | **Détails**
+--- | ---
+*. portal.azure.com  | Accédez au portail Azure. 
+\* .windows.net<br/> *.msftauth.net<br/> *.msauth.net <br/> *.microsoft.com<br/> *.live.com   | Connectez-vous à votre abonnement Azure. 
+*.microsoftonline.com<br/> *.microsoftonline-p.com | Créez des applications Azure Active Directory (AD) pour que l’appliance communique avec Azure Migrate. 
+management.azure.com | Faites en sorte qu’Azure Resource Manager appelle le projet Azure Migrate.
+*.servicebus.windows.net | Communication entre l’appliance et EventHub pour l’envoi des messages.
+
 
 ## <a name="start-using-the-tool"></a>Commencer à utiliser le portail
 
