@@ -11,13 +11,13 @@ ms.service: dms
 ms.workload: data-services
 ms.custom: mvc
 ms.topic: article
-ms.date: 09/05/2019
-ms.openlocfilehash: 9652b78674d6a6b905eb049564d1b17cdc7c17b7
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.date: 07/08/2020
+ms.openlocfilehash: 4e6f8a115e996ac6862f2fb04e5050b94f9f823b
+ms.sourcegitcommit: e995f770a0182a93c4e664e60c025e5ba66d6a45
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "78254927"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86132746"
 ---
 # <a name="status-of-migration-scenarios-supported-by-azure-database-migration-service"></a>État des scénarios de migration pris en charge par Azure Database Migration Service
 
@@ -48,18 +48,20 @@ Le tableau suivant présente la prise en charge d’Azure Database Migration Ser
 | Cible  | Source | Support | Statut |
 | ------------- | ------------- |:-------------:|:-------------:|
 | **Base de données Azure SQL** | SQL Server | ✔ | GA |
-|   | RDS SQL |  |  |
-|   | Oracle |  |  |
+|   | RDS SQL | X |  |
+|   | Oracle | X |  |
 | **Base de données Azure SQL MI** | SQL Server | ✔ | GA |
-|   | RDS SQL |  |  |
-|   | Oracle |  |   |
+|   | RDS SQL | X |  |
+|   | Oracle | X |   |
 | **Machine virtuelle Azure SQL** | SQL Server | ✔ | GA |
-|   | Oracle |   |   |
+|   | Oracle | X |   |
 | **Azure Cosmos DB** | MongoDB | ✔ | GA |
-| **Base de données Azure pour MySQL** | MySQL |   |   |
-|   | RDS MySQL |   |   |
-| **Base de données Azure pour PostgreSQL** | PostgreSQL |  |
-|  | RDS PostgreSQL |   |   |
+| **Base de données Azure pour MySQL** | MySQL | X |   |
+|   | RDS MySQL | X |   |
+| **Azure DB pour PostgreSQL - Serveur unique** | PostgreSQL | X |
+|  | RDS PostgreSQL | X |   |
+| **Azure DB pour PostgreSQL - Hyperscale (Citus)** | PostgreSQL | X |
+|  | RDS PostgreSQL | X |   |
 
 ### <a name="online-continuous-sync-migration-support"></a>Prise en charge de la migration en ligne (synchronisation continue)
 
@@ -69,18 +71,23 @@ Le tableau suivant présente la prise en charge d’Azure Database Migration Ser
 | ------------- | ------------- |:-------------:|:-------------:|
 | **Base de données Azure SQL** | SQL Server | ✔ | GA |
 |   | RDS SQL | ✔ | GA |
-|   | Oracle |  |  |
+|   | Oracle | X |  |
 | **Base de données Azure SQL MI** | SQL Server | ✔ | GA |
 |   | RDS SQL | ✔ | GA |
-|   | Oracle | ✔ | Préversion privée |
-| **Machine virtuelle Azure SQL** | SQL Server |   |   |
-|   | Oracle  |  |  |
+|   | Oracle | X |  |
+| **Machine virtuelle Azure SQL** | SQL Server | X |   |
+|   | Oracle  | X |  |
 | **Azure Cosmos DB** | MongoDB | ✔ | GA |
 | **Base de données Azure pour MySQL** | MySQL | ✔ | GA |
 |   | RDS MySQL | ✔ | GA |
-| **Base de données Azure pour PostgreSQL** | PostgreSQL | ✔ | GA |
+| **Azure DB pour PostgreSQL - Serveur unique** | PostgreSQL | ✔ | GA |
+|   | Azure DB pour PostgreSQL - Serveur unique* | ✔ | GA |
 |   | RDS PostgreSQL | ✔ | GA |
 |   | Oracle | ✔ | Préversion publique |
+| **Azure DB pour PostgreSQL - Hyperscale (Citus)** | PostgreSQL | ✔ | GA |
+|   | RDS PostgreSQL | ✔ | GA |
+
+\* Pris en charge pour PostgreSQL version 10 et ultérieures.
 
 ## <a name="next-steps"></a>Étapes suivantes
 

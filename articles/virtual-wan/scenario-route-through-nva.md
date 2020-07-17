@@ -8,16 +8,22 @@ ms.service: virtual-wan
 ms.topic: conceptual
 ms.date: 06/29/2020
 ms.author: cherylmc
-ms.openlocfilehash: 0716ca8f0457ca801098c97dd7a5e68751822d4d
-ms.sourcegitcommit: cec9676ec235ff798d2a5cad6ee45f98a421837b
+ms.openlocfilehash: ed64b9d281cfbbf8202a99335ea2759b27a6fc42
+ms.sourcegitcommit: 5cace04239f5efef4c1eed78144191a8b7d7fee8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85848100"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86142964"
 ---
 # <a name="scenario-route-traffic-through-an-nva"></a>Scénario : Router le trafic via une NVA
 
 Lorsque vous travaillez avec le routage de hub virtuel Virtual WAN, il existe un certain nombre de scénarios disponibles. Dans ce scénario d’appliance virtuelle réseau, l’objectif est d’acheminer le trafic via une NVA (appliance virtuelle réseau) pour la branche vers le VNet et pour le VNet vers la branche. Pour plus d’informations sur le routage de hub virtuel, consultez [À propos du routage de hub virtuel](about-virtual-hub-routing.md).
+
+> [!NOTE]
+> Certaines fonctionnalités de routage peuvent toujours être en cours de déploiement. Si le déploiement n’a pas encore eu lieu dans votre région, veuillez suivre entre-temps les étapes de ces versions des articles :
+>* [Article concernant le portail Azure](virtual-wan-route-table-nva-portal.md)
+>* [Article concernant PowerShell](virtual-wan-route-table-nva.md)
+>
 
 ## <a name="scenario-architecture"></a><a name="architecture"></a>Architecture du scénario
 

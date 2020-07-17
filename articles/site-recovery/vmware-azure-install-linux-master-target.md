@@ -8,12 +8,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 03/06/2019
 ms.author: mayg
-ms.openlocfilehash: 9ab4db53086046ff831fe91d003599841aa8148c
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 281743268364b0e9d39c7bea28afc17d753db2f6
+ms.sourcegitcommit: e995f770a0182a93c4e664e60c025e5ba66d6a45
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "83829781"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86130153"
 ---
 # <a name="install-a-linux-master-target-server-for-failback"></a>Installer un serveur cible maître Linux pour la restauration automatique
 Après avoir basculé une machine virtuelle sur Azure, vous pouvez la restaurer automatiquement sur le site local. L’opération de restauration vous oblige à reprotéger la machine virtuelle à partir d’Azure sur le site local. Pour ce faire, vous avez besoin d’un serveur cible maître, capable de recevoir le trafic. 
@@ -27,7 +27,7 @@ Si votre machine virtuelle protégée est de type Windows, vous avez besoin d’
 ## <a name="overview"></a>Vue d’ensemble
 Cet article fournit la marche à suivre pour installer un serveur cible maître Linux.
 
-Publiez des commentaires ou des questions à la fin de cet article ou sur la [page de questions Microsoft Q&A pour Azure Recovery Services](https://docs.microsoft.com/answers/topics/azure-site-recovery.html).
+Publiez des commentaires ou des questions à la fin de cet article ou sur la [page de questions Microsoft Q&A pour Azure Recovery Services](/answers/topics/azure-site-recovery.html).
 
 ## <a name="prerequisites"></a>Prérequis
 
@@ -37,6 +37,9 @@ Publiez des commentaires ou des questions à la fin de cet article ou sur la [pa
 * Le serveur maître cible doit appartenir à un réseau capable de communiquer avec le serveur de processus et le serveur de configuration.
 * La version du serveur cible maître doit être inférieure ou égale à celle du serveur de processus et du serveur de configuration. Par exemple, si la version du serveur de configuration est 9.4, celle du serveur cible maître peut être 9.4 ou 9.3 mais pas 9.5.
 * Le serveur cible maître ne peut être qu’une machine virtuelle VMware, et pas un serveur physique.
+
+> [!NOTE]
+> Veillez à ne pas activer Storage vMotion sur des composants de gestion tels qu’un serveur cible maître. Si le serveur cible maître est déplacé après une reprotection, les disques de machine virtuelle (VMDK) ne peuvent pas être détachés. Dans ce cas, la restauration automatique échoue.
 
 ## <a name="sizing-guidelines-for-creating-master-target-server"></a>Instructions de dimensionnement pour la création du serveur cible maître
 
@@ -274,16 +277,22 @@ Pour créer un disque de rétention, procédez comme suit :
 > [!NOTE]
 > Avant d’installer le serveur cible maître, vérifiez que le fichier **/etc/hosts** sur la machine virtuelle contient des entrées qui mappent le nom d’hôte local aux adresses IP associées à toutes les cartes réseau.
 
-1. Copiez la phrase secrète à partir de **C:\ProgramData\Microsoft Azure Site Recovery\private\connection.passphrase** sur le serveur de configuration. Ensuite, enregistrez-la dans un fichier **passphrase.txt** dans le même répertoire local en exécutant la commande suivante :
+1. Exécutez la commande suivante pour installer le service cible maître.
+
+    ```
+    ./install -q -d /usr/local/ASR -r MT -v VmWare
+    ```
+
+2. Copiez la phrase secrète à partir de **C:\ProgramData\Microsoft Azure Site Recovery\private\connection.passphrase** sur le serveur de configuration. Ensuite, enregistrez-la dans un fichier **passphrase.txt** dans le même répertoire local en exécutant la commande suivante :
 
     `echo <passphrase> >passphrase.txt`
 
     Exemple : 
 
-       `echo itUx70I47uxDuUVY >passphrase.txt`
+    `echo itUx70I47uxDuUVY >passphrase.txt`
     
 
-2. Notez l’adresse IP du serveur de configuration. Exécutez la commande suivante pour installer le serveur cible maître et l’inscrire auprès du serveur de configuration.
+3. Notez l’adresse IP du serveur de configuration. Exécutez la commande suivante pour inscrire le serveur auprès du serveur de configuration.
 
     ```
     /usr/local/ASR/Vx/bin/UnifiedAgentConfigurator.sh -i <ConfigurationServer IP Address> -P passphrase.txt
@@ -314,16 +323,10 @@ Une fois l’installation terminée, inscrivez le serveur de configuration à l�
 
 1. Notez l’adresse IP du serveur de configuration. Vous en aurez besoin à l’étape suivante.
 
-2. Exécutez la commande suivante pour installer le serveur cible maître et l’inscrire auprès du serveur de configuration.
+2. Exécutez la commande suivante pour inscrire le serveur auprès du serveur de configuration.
 
     ```
-    ./install -q -d /usr/local/ASR -r MT -v VmWare
-    /usr/local/ASR/Vx/bin/UnifiedAgentConfigurator.sh -i <ConfigurationServer IP Address> -P passphrase.txt
-    ```
-    Exemple : 
-
-    ```
-    /usr/local/ASR/Vx/bin/UnifiedAgentConfigurator.sh -i 104.40.75.37 -P passphrase.txt
+    /usr/local/ASR/Vx/bin/UnifiedAgentConfigurator.sh
     ```
 
      Attendez la fin du script. Si le serveur cible maître est inscrit, il figure sur la page **Site Recovery Infrastructure** (Infrastructure Site Recovery) du portail.
@@ -348,9 +351,13 @@ Vous pouvez constater que le champ **Version** indique le numéro de version du 
 
 * Le serveur cible maître ne doit pas présenter d’instantanés sur la machine virtuelle. Si des instantanés sont présents, la restauration automatique échoue.
 
-* En raison de configurations de carte réseau personnalisées, l’interface réseau est désactivée au démarrage et l’agent du serveur cible maître ne s’initialise pas. Vérifiez que les propriétés suivantes sont configurées correctement. Vérifiez ces propriétés dans le fichier /etc/sysconfig/network-scripts/ifcfg-eth de la carte Ethernet.
-    * BOOTPROTO=dhcp
-    * ONBOOT=yes
+* En raison de configurations de carte réseau personnalisées, l’interface réseau est désactivée au démarrage et l’agent du serveur cible maître ne s’initialise pas. Vérifiez que les propriétés suivantes sont configurées correctement. Vérifiez ces propriétés dans le fichier /etc/network/interfaces de la carte Ethernet.
+    * auto eth0
+    * iface eth0 inet dhcp <br>
+
+    Redémarrez le service de mise en réseau à l'aide de la commande suivante : <br>
+
+`sudo systemctl restart networking`
 
 
 ## <a name="next-steps"></a>Étapes suivantes

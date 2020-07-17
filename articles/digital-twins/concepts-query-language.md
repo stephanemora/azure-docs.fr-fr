@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 3/26/2020
 ms.topic: conceptual
 ms.service: digital-twins
-ms.openlocfilehash: 3196004015046b4d3d2789745c80d323bacdced9
-ms.sourcegitcommit: 93462ccb4dd178ec81115f50455fbad2fa1d79ce
+ms.openlocfilehash: 6da539ccd8ad293aed402a4a6d130b6701e7b9c2
+ms.sourcegitcommit: ec682dcc0a67eabe4bfe242fce4a7019f0a8c405
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/06/2020
-ms.locfileid: "85985239"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86187113"
 ---
 # <a name="about-the-query-language-for-azure-digital-twins"></a>À propos du langage de requête pour Azure Digital Twins
 
@@ -30,10 +30,10 @@ Voici les opérations disponibles dans langage de magasin de données des requê
 * Obtenir des jumeaux par propriétés des relations.
 * Obtenir des jumeaux via des types de relations multiples (requêtes`JOIN`). Le nombre de `JOIN`s autorisées (un niveau pour la préversion publique) est limité.
 * Utilisez la fonction personnalisée `IS_OF_MODEL(twinCollection, twinTypeName)`, qui permet de filtrer en fonction du [modèle](concepts-models.md) de jumeau. Elle prend en charge l’héritage.
-* Utilisez n’importe laquelle des combinaisons (opérateur `AND`, `OR`, `NOT`) ci-dessus.
 * Utilisez des fonctions scalaires : `IS_BOOL`, `IS_DEFINED`, `IS_NULL`, `IS_NUMBER`, `IS_OBJECT`, `IS_PRIMITIVE`, `IS_STRING`, `STARTS_WITH`, `ENDS_WITH`.
-* Utilisez des opérateurs de comparaison de requêtes : `AND`/`OR`/`NOT`,  `IN`/`NOT IN`, `STARTSWITH`/`ENDSWITH`, `=`, `!=`, `<`, `>`, `<=`, `>=`.
-* Utilisez la continuation : L’objet query est instancié avec une taille de page (jusqu’à 100). Vous pouvez récupérer les jumeaux numériques page par page en répétant les appels à la méthode `nextAsTwin`.
+* Utilisez des opérateurs de comparaison de requêtes : `IN`/`NIN`, `=`, `!=`, `<`, `>`, `<=`, `>=`.
+* Utilisez n’importe laquelle des combinaisons (opérateur `AND`, `OR`, `NOT`) ci-dessus.
+* Utilisez la continuation : L’objet query est instancié avec une taille de page (jusqu’à 100). Vous pouvez récupérer les jumeaux numériques une page à la fois en fournissant le jeton de continuation dans les appels suivants à l’API.
 
 ## <a name="next-steps"></a>Étapes suivantes
 

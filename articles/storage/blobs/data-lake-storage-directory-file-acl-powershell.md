@@ -9,12 +9,12 @@ ms.topic: how-to
 ms.date: 04/21/2020
 ms.author: normesta
 ms.reviewer: prishet
-ms.openlocfilehash: 67aa9fcb51742432dcd629073f15a65d14bf3597
-ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
+ms.openlocfilehash: d22b83e1f3464f6d87d2bc3821682b25e05d947b
+ms.sourcegitcommit: 5cace04239f5efef4c1eed78144191a8b7d7fee8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/05/2020
-ms.locfileid: "85961198"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86142551"
 ---
 # <a name="use-powershell-to-manage-directories-files-and-acls-in-azure-data-lake-storage-gen2"></a>Utiliser PowerShell pour gérer les répertoires, les fichiers et les listes de contrôle d’accès dans Azure Data Lake Storage Gen2
 
@@ -81,11 +81,11 @@ $storageAccount = Get-AzStorageAccount -ResourceGroupName "<resource-group-name>
 $ctx = $storageAccount.Context
 ```
 
-## <a name="create-a-file-system"></a>Créer un système de fichiers
+## <a name="create-a-container"></a>Créez un conteneur.
 
-Un système de fichiers agit comme un conteneur pour vos fichiers. Vous pouvez en créer un à l’aide de l’applet de commande `New-AzStorageContainer`. 
+Un conteneur agit comme un système de fichiers pour vos fichiers. Vous pouvez en créer un à l’aide de l’applet de commande `New-AzStorageContainer`. 
 
-Cet exemple crée un système de fichiers nommé `my-file-system`.
+Cet exemple permet de créer un conteneur nommé `my-file-system`.
 
 ```powershell
 $filesystemName = "my-file-system"
@@ -96,7 +96,7 @@ New-AzStorageContainer -Context $ctx -Name $filesystemName
 
 Créez une référence de répertoire à l’aide de l’applet de commande `New-AzDataLakeGen2Item`. 
 
-Cet exemple ajoute un répertoire nommé `my-directory` dans un système de fichiers.
+Cet exemple ajoute un répertoire nommé `my-directory` à un conteneur.
 
 ```powershell
 $filesystemName = "my-file-system"
@@ -202,7 +202,7 @@ $properties.Group
 $properties.Owner
 ```
 
-Pour lister le contenu d’un système de fichiers, omettez le paramètre `-Path` dans la commande.
+Pour lister le contenu d’un conteneur, omettez le paramètre `-Path` dans la commande.
 
 ## <a name="upload-a-file-to-a-directory"></a>Charger un fichier dans un répertoire
 
@@ -270,7 +270,7 @@ Vous pouvez obtenir, définir et mettre à jour les autorisations d’accès des
 
 Obtenez la liste ACL d’un répertoire ou d’un fichier à l’aide de l’applet de commande `Get-AzDataLakeGen2Item`.
 
-Cet exemple obtient la liste ACL du répertoire racine d’un **système de fichiers**, puis affiche celle-ci sur la console.
+Cet exemple obtient la liste ACL du répertoire racine d’un **conteneur**, puis l’affiche sur la console.
 
 ```powershell
 $filesystemName = "my-file-system"
@@ -305,7 +305,7 @@ Dans cet exemple, l’utilisateur propriétaire dispose d’autorisations de lec
 
 Utilisez l’applet de commande `set-AzDataLakeGen2ItemAclObject` pour créer une liste ACL pour l’utilisateur propriétaire, le groupe propriétaire ou d’autres utilisateurs. Ensuite, utilisez l’applet de commande `Update-AzDataLakeGen2Item` pour valider la liste ACL.
 
-Cet exemple définit la liste ACL du répertoire racine d’un **système de fichiers** pour l’utilisateur propriétaire, le groupe propriétaire ou d’autres utilisateurs, puis affiche cette liste sur la console.
+Cet exemple définit la liste ACL du répertoire racine d’un **conteneur** pour l’utilisateur propriétaire, le groupe propriétaire ou d’autres utilisateurs, puis affiche cette liste sur la console.
 
 ```powershell
 $filesystemName = "my-file-system"
@@ -349,9 +349,9 @@ L’image suivante montre la sortie après la définition de la liste ACL d’un
 Dans cet exemple, l’utilisateur propriétaire et le groupe propriétaire disposent uniquement des autorisations de lecture et d’écriture. Tous les autres utilisateurs disposent des autorisations d’écriture et d’exécution. Pour plus d’informations sur les listes de contrôle d’accès, consultez [Contrôle d’accès dans Azure Data Lake Storage Gen2](data-lake-storage-access-control.md).
 
 
-### <a name="set-acls-on-all-items-in-a-file-system"></a>Définir des listes de contrôle d’accès pour tous les éléments d’un système de fichiers
+### <a name="set-acls-on-all-items-in-a-container"></a>Définir des listes de contrôle d’accès pour tous les éléments d’un conteneur
 
-Vous pouvez utiliser `Get-AzDataLakeGen2Item` et le paramètre `-Recurse` ensemble avec l’applet de commande `Update-AzDataLakeGen2Item` pour définir de manière récursive la liste de contrôle d’accès pour les répertoires et fichiers d’un système de fichiers. 
+Vous pouvez utiliser `Get-AzDataLakeGen2Item` et le paramètre `-Recurse` ensemble avec l’applet de commande `Update-AzDataLakeGen2Item` pour définir de manière récursive la liste de contrôle d’accès pour les répertoires et fichiers d’un conteneur. 
 
 ```powershell
 $filesystemName = "my-file-system"

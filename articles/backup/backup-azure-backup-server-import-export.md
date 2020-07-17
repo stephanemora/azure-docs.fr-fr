@@ -3,12 +3,12 @@ title: Sauvegarde hors connexion pour DPM et le serveur de sauvegarde Azure
 description: Grâce à Sauvegarde Azure, vous pouvez envoyer des données en dehors du réseau à l’aide du service Azure Import/Export. Cet article explique le workflow de sauvegarde hors connexion pour DPM et le serveur de sauvegarde Azure.
 ms.topic: conceptual
 ms.date: 05/24/2020
-ms.openlocfilehash: 0ff6198eed4e3e365b443a51e5c63534c2cf0973
-ms.sourcegitcommit: dee7b84104741ddf74b660c3c0a291adf11ed349
+ms.openlocfilehash: 3f02c48ddd2c5cd4831d8c7a84dbbf42f55a562a
+ms.sourcegitcommit: ec682dcc0a67eabe4bfe242fce4a7019f0a8c405
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85921260"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86187793"
 ---
 # <a name="offline-backup-workflow-for-dpm-and-azure-backup-server-mabs"></a>Flux de travail de la sauvegarde hors connexion pour DPM et le serveur de sauvegarde Azure (MABS)
 
@@ -124,7 +124,7 @@ L’utilitaire *AzureOfflineBackupDiskPrep* prépare les disques SATA qui sont e
     | Paramètre | Description |
     | --- | --- |
     | s:&lt;*Staging Location Path*&gt; |Cette entrée obligatoire est utilisée pour fournir le chemin d’accès vers l’emplacement intermédiaire que vous avez entré dans le workflow de la section « Lancer la sauvegarde hors connexion ». |
-    | p:&lt;*Path to PublishSettingsFile*&gt; |Cette entrée optionnelle est utilisée pour fournir le chemin d’accès vers le fichier des paramètres de publication Azure que vous avez entré dans le workflow de la section « Lancer la sauvegarde hors connexion ». |
+    | p:&lt;*Path to PublishSettingsFile*&gt; |Cette entrée facultative est utilisée pour fournir le chemin du fichier de paramètres de publication Azure. |
 
     Quand vous exécutez la commande, l’utilitaire vous demande de sélectionner la tâche d’importation Azure correspondant aux disques à préparer. S’il existe un seul travail d’importation associé à l’emplacement intermédiaire spécifié, un écran similaire à l’écran suivant s’affiche.
 

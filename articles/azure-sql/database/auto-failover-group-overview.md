@@ -11,13 +11,13 @@ ms.topic: conceptual
 author: anosov1960
 ms.author: sashan
 ms.reviewer: mathoma, carlrab
-ms.date: 2/10/2020
-ms.openlocfilehash: 39329eb9ea2c396f8b5f04287f3e933bb6242f85
-ms.sourcegitcommit: 93462ccb4dd178ec81115f50455fbad2fa1d79ce
+ms.date: 07/09/2020
+ms.openlocfilehash: a4624d16f29834e8948a7bbc7ef882041727a823
+ms.sourcegitcommit: 1e6c13dc1917f85983772812a3c62c265150d1e7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/06/2020
-ms.locfileid: "85982977"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86171871"
 ---
 # <a name="use-auto-failover-groups-to-enable-transparent-and-coordinated-failover-of-multiple-databases"></a>Utiliser les groupes de basculement automatique pour permettre le basculement transparent et coordonné de plusieurs bases de données
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
@@ -239,7 +239,7 @@ Pour plus d’informations sur la création de l’instance SQL Managed Instance
 
 ### <a name="creating-a-failover-group-between-managed-instances-in-different-subscriptions"></a>Création d’un groupe de basculement entre des instances gérées d’abonnements différents
 
-Vous pouvez créer un groupe de basculement entre des instances SQL Managed Instance dans deux abonnements différents. Lorsque vous utilisez l’API PowerShell, vous pouvez le faire en spécifiant le paramètre `PartnerSubscriptionId` pour l’instance SQL Managed Instance secondaire. Lors de l’utilisation de l’API REST, chaque ID d’instance inclus dans le paramètre `properties.managedInstancePairs` peut avoir son propre subscriptionID.
+Vous pouvez créer un groupe de basculement entre des instances managées SQL dans deux abonnements différents, à condition que les abonnements soient associés au même [abonné Azure Active Directory](https://docs.microsoft.com/azure/active-directory/fundamentals/active-directory-whatis#terminology). Lorsque vous utilisez l’API PowerShell, vous pouvez le faire en spécifiant le paramètre `PartnerSubscriptionId` pour l’instance SQL Managed Instance secondaire. Lors de l’utilisation de l’API REST, chaque ID d’instance inclus dans le paramètre `properties.managedInstancePairs` peut avoir son propre subscriptionID.
   
 > [!IMPORTANT]
 > Le Portail Azure ne prend pas en charge la création de groupes de basculement sur différents abonnements. De plus, pour les groupes de basculement existants sur différents abonnements et/ou groupes de ressources, le basculement ne peut pas être initié manuellement à l’aide du portail à partir de l’instance SQL Managed Instance principale. Initiez-le plutôt à partir de l’instance géosecondaire.

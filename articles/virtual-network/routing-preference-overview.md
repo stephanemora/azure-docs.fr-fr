@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 05/18/2020
 ms.author: mnayak
-ms.openlocfilehash: ba01b89b54dc7209449490059555f531f7616720
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 171ae04a70f3639981e74d20d260a03359a0f2c8
+ms.sourcegitcommit: ec682dcc0a67eabe4bfe242fce4a7019f0a8c405
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85193360"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86187436"
 ---
 # <a name="what-is-routing-preference-preview"></a>Qu’est-ce qu’une préférence de routage (préversion) ?
 
@@ -88,7 +88,7 @@ Pour obtenir un volume mensuel supérieur à 500 To, [contactez-nous](https://a
 
 La prise en charge de préférence de routage est disponible dans les régions suivantes pour des services tels que les machines virtuelles et l’équilibreur de charge accessible via Internet qui utilisent une adresse IP publique pour la sortie Internet : Europe Nord, Europe Ouest, France Sud, Royaume-Uni Sud, USA Est, USA Centre Nord, USA Centre Sud, USA Ouest, USA Centre-Ouest, Asie Sud-Est, Allemagne Centre-Ouest, Suisse Ouest, Japon Est et Japon Ouest.
 
-La prise en charge de préférence de routage pour le compte de stockage est disponible dans les régions Azure suivantes : France Sud, USA Centre Nord, USA Centre-Ouest, Japon Est, Japon Ouest, Allemagne Centre-Ouest et Suisse Ouest.
+La prise en charge de préférence de routage pour le compte de stockage est disponible dans les régions Azure suivantes : USA Centre Nord, USA Centre-Ouest, USA Centre Sud, USA Est, USA Ouest, Europe Nord, France Sud, Allemagne Centre-Ouest, Suisse Ouest, Asie Sud-Est, Japon Est et Japon Ouest.
 ## <a name="limitations"></a>Limites
 
 * La préférence de routage est compatible uniquement avec la référence (SKU) standard d’adresse IP publique. La référence (SKU) de base d’adresse IP publique n’est pas prise en charge.
