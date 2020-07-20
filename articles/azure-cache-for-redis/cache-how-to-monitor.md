@@ -6,12 +6,12 @@ ms.author: yegu
 ms.service: cache
 ms.topic: conceptual
 ms.date: 07/13/2017
-ms.openlocfilehash: 86cbeddba699e89ce1127dbac72dac81dcc41449
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 8dd228add317b5c4cd19f1d0daefa90ce3c937b7
+ms.sourcegitcommit: ec682dcc0a67eabe4bfe242fce4a7019f0a8c405
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "76547487"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86184869"
 ---
 # <a name="how-to-monitor-azure-cache-for-redis"></a>Surveillance du cache Azure pour Redis
 
@@ -103,7 +103,7 @@ Chaque mesure inclut deux versions. Une première mesure évalue les performance
 | Cache d’écriture |Quantité de données écrites dans le cache en mégaoctets par seconde (Mo/s) au cours de l’intervalle de création des rapports. Cette valeur est dérivée des cartes réseau qui prennent en charge la machine virtuelle qui héberge le cache. Elle n’est pas spécifique de Redis. Cette valeur correspond à la bande passante réseau des données envoyées au cache depuis le client. |
 | Clients connectés |Nombre de connexions client au cache au cours de l’intervalle de création des rapports spécifié. Ce nombre mappe à `connected_clients` à partir de la commande Redis INFO. Une fois la [limite de connexions](cache-configure.md#default-redis-server-configuration) atteinte, les tentatives de connexion ultérieures au cache échouent. Même s’il n’y a aucune application cliente active, il peut rester quelques instances de clients connectés en raison de connexions et processus internes. |
 | UC |Utilisation du processeur du serveur de cache Azure pour Redis (sous forme de pourcentage) au cours de l’intervalle spécifié pour la création des rapports. Cette valeur correspond au compteur de performances `\Processor(_Total)\% Processor Time` du système d’exploitation. |
-| Erreurs | Défaillances et problèmes de performances spécifiques que le cache pourrait rencontrer pendant un intervalle de rapport spécifié. Cette mesure a huit dimensions représentant différents types d’erreurs, mais d’autres pourraient y être ajoutées à l’avenir. Les types d’erreurs actuellement représentés sont les suivants : <br/><ul><li>**Failover** : quand un cache bascule (subordonné promu en maître)</li><li>**Dataloss** : quand une perte de données se produit sur le cache</li><li>**UnresponsiveClients** : quand les clients ne lisent pas les données du serveur assez rapidement</li><li>**AOF** : quand il y a un problème lié à la persistance d’AOF</li><li>**RDB** : quand il y a un problème lié à la persistance de RDB</li><li>**Import** : quand il y a un problème lié à l’importation RDB</li><li>**Export** : quand il y a un problème lié à l’exportation RDB</li></ul> |
+| Erreurs | Défaillances et problèmes de performances spécifiques que le cache pourrait rencontrer pendant un intervalle de rapport spécifié. Cette mesure a huit dimensions représentant différents types d’erreurs, mais d’autres pourraient y être ajoutées à l’avenir. Les types d’erreurs actuellement représentés sont les suivants : <br/><ul><li>**Failover** : quand un cache bascule (nœud subordonné promu nœud principal)</li><li>**Dataloss** : quand une perte de données se produit sur le cache</li><li>**UnresponsiveClients** : quand les clients ne lisent pas les données du serveur assez rapidement</li><li>**AOF** : quand il y a un problème lié à la persistance d’AOF</li><li>**RDB** : quand il y a un problème lié à la persistance de RDB</li><li>**Import** : quand il y a un problème lié à l’importation RDB</li><li>**Export** : quand il y a un problème lié à l’exportation RDB</li></ul> |
 | Clés exclues |Nombre d’éléments supprimés du cache au cours de l’intervalle de création des rapports, en raison de la limite `maxmemory` . Ce nombre mappe à `evicted_keys` à partir de la commande Redis INFO. |
 | Clés expirées |Nombre d’éléments expirés dans le cache au cours de l’intervalle de création des rapports spécifié. Cette valeur correspond à la commande Redis INFO `expired_keys` .|
 | Gets |Nombre d’opérations get dans le cache au cours de l’intervalle de création des rapports spécifié. Cette valeur est la somme des valeurs suivantes obtenues de toutes les commandes Redis INFO : `cmdstat_get`, `cmdstat_hget`, `cmdstat_hgetall`, `cmdstat_hmget`, `cmdstat_mget`, `cmdstat_getbit` et `cmdstat_getrange`. Elle est équivalente à la somme du nombre de présences et d’absences au cours de l’intervalle de création du rapport. |

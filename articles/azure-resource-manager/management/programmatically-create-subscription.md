@@ -3,15 +3,15 @@ title: Créer des abonnements Azure par programmation
 description: Découvrez comment créer des abonnements Azure supplémentaires par programmation.
 author: amberbhargava
 ms.topic: conceptual
-ms.date: 03/17/2020
+ms.date: 06/26/2020
 ms.reviewer: andalmia
 ms.author: banders
-ms.openlocfilehash: 33f1d154f438b917b79cd299e81c9078e2f2e81d
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: b53c81a52c06780378e45b2141cbef452b4d363a
+ms.sourcegitcommit: 1e6c13dc1917f85983772812a3c62c265150d1e7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79460396"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86170630"
 ---
 # <a name="programmatically-create-azure-subscriptions-preview"></a>Créer des abonnements Azure par programmation (préversion)
 
@@ -156,7 +156,7 @@ POST https://management.azure.com/providers/Microsoft.Billing/enrollmentAccounts
 | `offerType`   | Oui      | String | Offre de l’abonnement. Les deux options pour EA sont [MS-AZR-0017P](https://azure.microsoft.com/pricing/enterprise-agreement/) (utilisation en production) et [MS-AZR-0148P](https://azure.microsoft.com/offers/ms-azr-0148p/) (développement/test, à [activer à l’aide du portail EA](https://ea.azure.com/helpdocs/DevOrTestOffer)).                |
 | `owners`      | Non       | String | ID d’objet de tout utilisateur que vous souhaitez ajouter en tant que propriétaire RBAC sur l’abonnement au moment de sa création.  |
 
-Dans la réponse, vous obtenez un objet `subscriptionOperation` pour le monitoring. Quand la création de l’abonnement est terminée, l’objet `subscriptionOperation` retourne un objet `subscriptionLink`, qui a l’ID d’abonnement.
+Dans la réponse, vous obtenez une URL `Location` pour la supervision. Quand la création de l’abonnement est terminée, une instruction GET sur l’URL `Location` retourne un objet `subscriptionLink`, qui comprend l’ID d’abonnement. Pour plus d’informations, consultez la [documentation de l’API Abonnement](https://docs.microsoft.com/rest/api/subscription/).
 
 ### <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
 
@@ -205,7 +205,7 @@ Pour obtenir la liste complète de tous les paramètres, consultez [az account c
 ### <a name="limitations-of-azure-enterprise-subscription-creation-api"></a>Limitations de l’API de création d’abonnement Azure Enterprise
 
 - Seuls des abonnements Azure Enterprise peuvent être créés à l’aide de cette API.
-- Il existe une limite de 500 abonnements par compte d’inscription. Au-delà de cette limite, les abonnements supplémentaires pour le compte peuvent être créés uniquement à partir du portail Azure. Si vous souhaitez créer des abonnements supplémentaires via l’API, créez un autre compte d’inscription.
+- Il existe une limite de 2 000 abonnements par compte d’inscription. Au-delà de cette limite, les abonnements supplémentaires pour le compte peuvent être créés uniquement à partir du portail Azure. Si vous souhaitez créer des abonnements supplémentaires via l’API, créez un autre compte d’inscription.
 - Les utilisateurs qui ne sont pas propriétaires de compte, mais qui ont été ajoutés à un compte d’inscription par le biais de RBAC, ne peuvent pas créer d’abonnements dans le portail Azure.
 - Vous ne pouvez pas sélectionner le locataire où l’abonnement doit être créé. L’abonnement est toujours créé dans le locataire de base du propriétaire du compte. Pour déplacer l’abonnement vers un autre locataire, consultez [Changer le locataire d’abonnement](../../active-directory/fundamentals/active-directory-how-subscriptions-associated-directory.md).
 
@@ -355,7 +355,7 @@ Dans la réponse, vous obtenez un objet `subscriptionCreationResult` pour le mon
 
 ### <a name="prerequisites"></a>Prérequis
 
-Vous devez avoir un rôle Administrateur général ou Agent d’administration sur le compte du fournisseur de solutions Cloud dans votre organisation pour créer un abonnement associé à votre compte de facturation. Pour plus d’informations, consultez [Espace partenaires - Affecter des rôles et des autorisations aux utilisateurs](https://docs.microsoft.com/partner-center/permissions-overview).
+Vous devez avoir un rôle Administrateur général ou Agent d’administration sur le compte du fournisseur de solutions Cloud dans votre organisation pour créer un abonnement associé à votre compte de facturation. Pour plus d’informations, consultez [Espace partenaires - Affecter des rôles et des autorisations aux utilisateurs](/partner-center/permissions-overview).
 
 L’exemple ci-dessous utilise des API REST. Actuellement, PowerShell et Azure CLI ne sont pas pris en charge.
 

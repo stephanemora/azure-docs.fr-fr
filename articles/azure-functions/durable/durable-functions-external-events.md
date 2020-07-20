@@ -4,12 +4,12 @@ description: Découvrez comment gérer des événements externes dans l’extens
 ms.topic: conceptual
 ms.date: 11/02/2019
 ms.author: azfuncdf
-ms.openlocfilehash: 0877161f8d668141c8efb7c06b10643bf209341f
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 387b5d920de4a295366cc7e948862a12cea901d3
+ms.sourcegitcommit: 1e6c13dc1917f85983772812a3c62c265150d1e7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "76262960"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86165547"
 ---
 # <a name="handling-external-events-in-durable-functions-azure-functions"></a>Gestion des événements externes dans Fonctions durables (Azure Functions)
 
@@ -20,7 +20,7 @@ Les fonctions d’orchestrateur ont la capacité d’attendre et d’écouter de
 
 ## <a name="wait-for-events"></a>Attendre des événements
 
-Les méthodes `WaitForExternalEvent` (.NET) et `waitForExternalEvent` (JavaScript) de [la liaison de déclencheur d’orchestration](durable-functions-bindings.md#orchestration-trigger) permettent à une fonction d’orchestrateur d’attendre de façon asynchrone et d’écouter un événement externe. La fonction d’orchestrateur qui écoute déclare le *nom* de l’événement et la *forme des données* qu’il s’attend à recevoir.
+Les méthodes [WaitForExternalEvent](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableOrchestrationContext.html#Microsoft_Azure_WebJobs_DurableOrchestrationContext_WaitForExternalEvent_) (.NET) et `waitForExternalEvent` (JavaScript) de la [liaison de déclencheur d’orchestration](durable-functions-bindings.md#orchestration-trigger) permettent à une fonction d’orchestrateur d’attendre de façon asynchrone et d’écouter un événement externe. La fonction d’orchestrateur qui écoute déclare le *nom* de l’événement et la *forme des données* qu’il s’attend à recevoir.
 
 # <a name="c"></a>[C#](#tab/csharp)
 
@@ -173,7 +173,14 @@ module.exports = df.orchestrator(function*(context) {
 
 ## <a name="send-events"></a>Envoyer des événements
 
-La méthode `RaiseEventAsync` (.NET) ou `raiseEvent` (JavaScript) de la [liaison du client d’orchestration](durable-functions-bindings.md#orchestration-client) envoie les événements attendus par `WaitForExternalEvent` (.NET) ou `waitForExternalEvent` (JavaScript).  La méthode `RaiseEventAsync` utilise *eventName* et *eventData* comme paramètres. Les données d’événement doivent être sérialisables au format JSON.
+Vous pouvez utiliser les méthodes [RaiseEventAsync](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableOrchestrationClient.html#Microsoft_Azure_WebJobs_DurableOrchestrationClient_RaiseEventAsync_) (.NET) ou `raiseEventAsync` (JavaScript) pour envoyer un événement externe à une orchestration. Ces méthodes sont exposées par la liaison du [client d’orchestration](durable-functions-bindings.md#orchestration-client). Vous pouvez également utiliser l’[API HTTP de déclenchement d’événement](durable-functions-http-api.md#raise-event) pour envoyer un événement externe à une orchestration.
+
+Un événement déclenché inclut les paramètres *ID d’instance*, *eventName* et *eventData*. Les fonctions d’orchestrateur gèrent ces événements à l’aide des API `WaitForExternalEvent` (.NET) ou `waitForExternalEvent` (JavaScript). Le paramètre *eventName* doit correspondre à la fois aux terminaisons d’envoi et de réception pour que l’événement soit traité. Les données d’événement doivent également être sérialisables au format JSON.
+
+En interne, les mécanismes de « déclenchement d’événement » mettent en file d’attente un message qui est récupéré par la fonction orchestrator en attente. Si l’instance n’est pas en attente sur le *nom d’événement* spécifié, le message d’événement est ajouté à une file d’attente en mémoire. Si l’instance d’orchestration commence ultérieurement à écouter ce *nom d’événement*, elle vérifiera si la file d’attente contient des messages d’événement.
+
+> [!NOTE]
+> S’il n’existe aucune instance d’orchestration avec la valeur d’*ID d’instance* spécifiée, le message d’événement est ignoré.
 
 Voici un exemple de fonction déclenchée par une file d’attente qui envoie un événement « Approval » à une instance de la fonction d’orchestrateur. L’ID d’instance de l’orchestration provient du corps du message de file d’attente.
 
@@ -209,6 +216,19 @@ En interne, `RaiseEventAsync` (.NET) ou `raiseEvent` (JavaScript) met en file d�
 
 > [!NOTE]
 > S’il n’existe aucune instance d’orchestration avec la valeur d’*ID d’instance* spécifiée, le message d’événement est ignoré.
+
+### <a name="http"></a>HTTP
+
+Voici un exemple de requête HTTP qui déclenche un événement « Approbation » pour une instance d’orchestration. 
+
+```http
+POST /runtime/webhooks/durabletask/instances/MyInstanceId/raiseEvent/Approval&code=XXX
+Content-Type: application/json
+
+"true"
+```
+
+Dans ce cas, l’ID d’instance est codé en dur sous la forme *MyInstanceId*.
 
 ## <a name="next-steps"></a>Étapes suivantes
 

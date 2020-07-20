@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: vinynigam
 ms.author: vinigam
 ms.date: 10/12/2018
-ms.openlocfilehash: 443e4b44633e949dd9bd55df1ec7d18ca93d6e04
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: de1c6e91a6502e3a5e03dde69c5559445628d369
+ms.sourcegitcommit: ec682dcc0a67eabe4bfe242fce4a7019f0a8c405
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79096230"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86184546"
 ---
 # <a name="network-performance-monitor-solution-faq"></a>FAQ relative à la solution Network Performance Monitor
 
@@ -95,43 +95,55 @@ Si un tronçon est rouge, cela signifie qu’il fait partie d'au moins un chemin
 NPM utilise un mécanisme probabiliste pour attribuer des probabilités d'erreur à chaque chemin d'accès réseau, segment réseau, tronçon réseau qui les composent selon le nombre de chemins d'accès non sains dont ils font partie. Si les segments et tronçons réseau font partie d'un nombre plus important de chemins d'accès non sains, la probabilité d'erreurs augmente. Cet algorithme fonctionne mieux en présence de nombreux nœuds avec des agents connectés les uns aux autres, car cela augmente les points de données pour calculer les probabilités d'erreurs.
 
 ### <a name="how-can-i-create-alerts-in-npm"></a>Comment puis-je créer des alertes dans NPM ?
-Pour des instructions pas à pas, reportez-vous à la [section relatives aux alertes de la documentation](https://docs.microsoft.com/azure/log-analytics/log-analytics-network-performance-monitor#alerts).
+Actuellement, la création d’alertes à partir de l’interface utilisateur NPM échoue en raison d’un problème. Veuillez créer des alertes manuellement.
 
 ### <a name="what-are-the-default-log-analytics-queries-for-alerts"></a>Quelles sont les requêtes Log Analytics par défaut pour les alertes ?
 Requête de l’analyseur de performances
 
-    NetworkMonitoring 
-     | where (SubType == "SubNetwork" or SubType == "NetworkPath") 
-     | where (LossHealthState == "Unhealthy" or LatencyHealthState == "Unhealthy") and RuleName == "<<your rule name>>"
-    
+```kusto
+NetworkMonitoring
+ | where (SubType == "SubNetwork" or SubType == "NetworkPath") 
+ | where (LossHealthState == "Unhealthy" or LatencyHealthState == "Unhealthy") and RuleName == "<<your rule name>>"
+```
+
 Requête du moniteur de connectivité de service
 
-    NetworkMonitoring                 
-     | where (SubType == "EndpointHealth" or SubType == "EndpointPath")
-     | where (LossHealthState == "Unhealthy" or LatencyHealthState == "Unhealthy" or ServiceResponseHealthState == "Unhealthy" or LatencyHealthState == "Unhealthy") and TestName == "<<your test name>>"
-    
+```kusto
+NetworkMonitoring
+ | where (SubType == "EndpointHealth" or SubType == "EndpointPath")
+ | where (LossHealthState == "Unhealthy" or LatencyHealthState == "Unhealthy" or ServiceResponseHealthState == "Unhealthy" or LatencyHealthState == "Unhealthy") and TestName == "<<your test name>>"
+```
+
 Requêtes du moniteur ExpressRoute : Requête de circuits
 
-    NetworkMonitoring
-    | where (SubType == "ERCircuitTotalUtilization") and (UtilizationHealthState == "Unhealthy") and CircuitResourceId == "<<your circuit resource ID>>"
+```kusto
+NetworkMonitoring
+ | where (SubType == "ERCircuitTotalUtilization") and (UtilizationHealthState == "Unhealthy") and CircuitResourceId == "<<your circuit resource ID>>"
+```
 
 Peering privé
 
-    NetworkMonitoring 
-     | where (SubType == "ExpressRoutePeering" or SubType == "ERVNetConnectionUtilization" or SubType == "ExpressRoutePath")   
-    | where (LossHealthState == "Unhealthy" or LatencyHealthState == "Unhealthy" or UtilizationHealthState == "Unhealthy") and CircuitName == "<<your circuit name>>" and VirtualNetwork == "<<vnet name>>"
+```kusto
+NetworkMonitoring
+ | where (SubType == "ExpressRoutePeering" or SubType == "ERVNetConnectionUtilization" or SubType == "ExpressRoutePath")   
+ | where (LossHealthState == "Unhealthy" or LatencyHealthState == "Unhealthy" or UtilizationHealthState == "Unhealthy") and CircuitName == "<<your circuit name>>" and VirtualNetwork == "<<vnet name>>"
+```
 
 Peering Microsoft
 
-    NetworkMonitoring 
-     | where (SubType == "ExpressRoutePeering" or SubType == "ERMSPeeringUtilization" or SubType == "ExpressRoutePath")
-    | where (LossHealthState == "Unhealthy" or LatencyHealthState == "Unhealthy" or UtilizationHealthState == "Unhealthy") and CircuitName == ""<<your circuit name>>" and PeeringType == "MicrosoftPeering"
+```kusto
+NetworkMonitoring
+ | where (SubType == "ExpressRoutePeering" or SubType == "ERMSPeeringUtilization" or SubType == "ExpressRoutePath")
+ | where (LossHealthState == "Unhealthy" or LatencyHealthState == "Unhealthy" or UtilizationHealthState == "Unhealthy") and CircuitName == ""<<your circuit name>>" and PeeringType == "MicrosoftPeering"
+```
 
-Requête courante   
+Requête courante
 
-    NetworkMonitoring
-    | where (SubType == "ExpressRoutePeering" or SubType == "ERVNetConnectionUtilization" or SubType == "ERMSPeeringUtilization" or SubType == "ExpressRoutePath")
-    | where (LossHealthState == "Unhealthy" or LatencyHealthState == "Unhealthy" or UtilizationHealthState == "Unhealthy") 
+```kusto
+NetworkMonitoring
+ | where (SubType == "ExpressRoutePeering" or SubType == "ERVNetConnectionUtilization" or SubType == "ERMSPeeringUtilization" or SubType == "ExpressRoutePath")
+ | where (LossHealthState == "Unhealthy" or LatencyHealthState == "Unhealthy" or UtilizationHealthState == "Unhealthy")
+```
 
 ### <a name="can-npm-monitor-routers-and-servers-as-individual-devices"></a>NPM peut-il surveiller les routeurs et serveurs en tant qu’appareils individuels ?
 NPM identifie uniquement l’adresse IP et le nom d’hôte des tronçons réseau sous-jacents (commutateurs, routeurs, serveurs, etc.) entre les adresses IP source et de destination. Il identifie également la latence entre ces tronçons identifiés. Il ne surveille pas individuellement ces tronçons sous-jacents.
@@ -147,21 +159,27 @@ Les valeurs entrantes et sortantes des bandes passantes principale et secondaire
 
 Pour des informations sur le peering MS, utilisez la requête mentionnée ci-dessous, dans Recherche dans les journaux
 
-    NetworkMonitoring 
-     | where SubType == "ERMSPeeringUtilization"
-     | project  CircuitName,PeeringName,PrimaryBytesInPerSecond,PrimaryBytesOutPerSecond,SecondaryBytesInPerSecond,SecondaryBytesOutPerSecond
-    
+```kusto
+NetworkMonitoring
+ | where SubType == "ERMSPeeringUtilization"
+ | project CircuitName,PeeringName,BitsInPerSecond,BitsOutPerSecond 
+```
+
 Pour des informations sur le peering privé, utilisez la requête mentionnée ci-dessous, dans Recherche dans les journaux
 
-    NetworkMonitoring 
-     | where SubType == "ERVNetConnectionUtilization"
-     | project  CircuitName,PeeringName,PrimaryBytesInPerSecond,PrimaryBytesOutPerSecond,SecondaryBytesInPerSecond,SecondaryBytesOutPerSecond
-  
+```kusto
+NetworkMonitoring
+ | where SubType == "ERVNetConnectionUtilization"
+ | project CircuitName,PeeringName,BitsInPerSecond,BitsOutPerSecond
+```
+
 Pour des informations sur le niveau du circuit, utilisez la requête mentionnée ci-dessous, dans Recherche dans les journaux
 
-    NetworkMonitoring 
-        | where SubType == "ERCircuitTotalUtilization"
-        | project CircuitName, PrimaryBytesInPerSecond, PrimaryBytesOutPerSecond,SecondaryBytesInPerSecond,SecondaryBytesOutPerSecond
+```kusto
+NetworkMonitoring
+ | where SubType == "ERCircuitTotalUtilization"
+ | project CircuitName, BitsInPerSecond, BitsOutPerSecond
+```
 
 ### <a name="which-regions-are-supported-for-npms-performance-monitor"></a>Quelles régions sont-elles prises en charge pour la fonctionnalité Analyseur de performances de NPM ?
 NPM peut surveiller la connectivité entre les réseaux dans n’importe quelle partie du monde, à partir d’un espace de travail hébergé dans une des [régions prises en charge](../../azure-monitor/insights/network-performance-monitor.md#supported-regions)
@@ -190,10 +208,12 @@ NPM déclenche une alerte si une latence de bout en bout entre une source et une
 
 Exemple de requête pour déterminer si un chemin n'est pas sain :
 
-    NetworkMonitoring 
-    | where ( SubType == "ExpressRoutePath")
-    | where (LossHealthState == "Unhealthy" or LatencyHealthState == "Unhealthy" or UtilizationHealthState == "Unhealthy") and          CircuitResourceID =="<your ER circuit ID>" and ConnectionResourceId == "<your ER connection resource id>"
-    | project SubType, LossHealthState, LatencyHealthState, MedianLatency 
+```kusto
+NetworkMonitoring
+ | where ( SubType == "ExpressRoutePath")
+ | where (LossHealthState == "Unhealthy" or LatencyHealthState == "Unhealthy" or UtilizationHealthState == "Unhealthy") and CircuitResourceID =="<your ER circuit ID>" and ConnectionResourceId == "<your ER connection resource id>"
+ | project SubType, LossHealthState, LatencyHealthState, MedianLatency
+```
 
 ### <a name="why-does-my-test-show-unhealthy-but-the-topology-does-not"></a>Pourquoi mon test apparaît-il comme non sain alors que ce n'est pas le cas de la topologie ? 
 NPM surveille la perte de bout en bout, la latence et la topologie à différents intervalles. La perte et la latence sont mesurées toutes les 5 secondes et agrégées toutes les trois minutes (pour l’Analyseur de performances et le Moniteur ExpressRoute) alors que la topologie est calculée à l’aide de la détermination d’itinéraire toutes les 10 minutes. Par exemple, entre 3:44 et 4:04, la topologie peut être mise à jour trois fois (3:44, 3:54, 4:04), mais la perte et la latence sont mises à jour environ sept fois (3:44, 3:47, 3:50, 3:53, 3:56, 3:59, 4:02). La topologie générée à 3:54 sera affichée selon la perte et la latence calculées à 3:56, 3:59 et 4:02. Supposons la situation suivante : vous recevez une alerte indiquant que votre circuit ER était défectueux à 3:59. Vous ouvrez une session NPM et vous essayez de définir l’heure de la topologie à 3:59. NPM affichera la topologie générée à 3:54. Pour comprendre la dernière topologie connue de votre réseau, comparez les champs TimeProcessed (heure à laquelle la perte et la latence ont été calculées) et TracerouteCompletedTime (heure à laquelle la topologie a été calculée). 
@@ -213,7 +233,7 @@ Cela peut se produire si le pare-feu d’hôte ou le pare-feu intermédiaire (pa
 * Pour vérifier qu’un pare-feu réseau intermédiaire ou groupe de sécurité réseau Azure ne bloque pas la communication sur le port requis, utilisez l’utilitaire PsPing tiers comme suit :
   * L'utilitaire PsPing peut être téléchargé [ici](https://technet.microsoft.com/sysinternals/psping.aspx). 
   * Exécutez la commande suivante à partir du nœud source.
-    * psping -n 15 \<destination node IPAddress\>:portNumber Par défaut, NPM utilise le port 8084. Si vous avez explicitement modifié cela en utilisant le script EnableRules.ps1, entrez le numéro de port personnalisé utilisé. Il s’agit d’une commande ping entre la machine Azure et le serveur local.
+    * psping -n 15 \<destination node IPAddress\>:portNumber. Par défaut, NPM utilise le port 8084. Si vous avez explicitement modifié cela en utilisant le script EnableRules.ps1, entrez le numéro de port personnalisé utilisé. Il s’agit d’une commande ping entre la machine Azure et le serveur local.
 * Vérifiez si les tests ping aboutissent. Dans le cas contraire, cela indique qu’un pare-feu réseau intermédiaire ou groupe de sécurité réseau Azure bloque le trafic sur ce port.
 * À présent, exécutez la commande entre le nœud de destination et l'adresse IP du nœud source.
 
@@ -222,7 +242,7 @@ Cela peut se produire si le pare-feu d’hôte ou le pare-feu intermédiaire (pa
 Les chemins d’accès réseau de A vers B peuvent être différents des chemins d’accès réseau de B vers A, des valeurs distinctes en termes de perte et latence peuvent être observées.
 
 ### <a name="why-are-all-my-expressroute-circuits-and-peering-connections-not-being-discovered"></a>Pourquoi mes circuits ExpressRoute et connexions de peering ne sont-ils pas détectés ?
-NPM détecte désormais les circuits ExpressRoute et les connexions de peering dans tous les abonnements auxquels l’utilisateur a accès. Choisissez tous les abonnements dans lesquels vos ressources ExpressRoute sont reliées et activez la surveillance pour chaque ressource découverte. NPM recherche les objets de connexion lors de la découverte d’un peering privé. Par conséquent, vérifiez si un réseau virtuel est associé à votre peering.
+NPM détecte désormais les circuits ExpressRoute et les connexions de peering dans tous les abonnements auxquels l’utilisateur a accès. Choisissez tous les abonnements dans lesquels vos ressources ExpressRoute sont reliées et activez la surveillance pour chaque ressource découverte. NPM recherche les objets de connexion lors de la découverte d’un peering privé. Par conséquent, vérifiez si un réseau virtuel est associé à votre peering. NPM ne détecte pas les circuits ni les Peerings qui se trouvent dans un locataire différent de l’espace de travail Log Analytics.
 
 ### <a name="the-er-monitor-capability-has-a-diagnostic-message-traffic-is-not-passing-through-any-circuit-what-does-that-mean"></a>La fonctionnalité Moniteur ER affiche un message de diagnostic « Le trafic n'est acheminé dans AUCUN circuit ». Qu'est-ce que cela signifie ?
 
@@ -233,6 +253,12 @@ Cela peut se produire si :
 * Le circuit ER est arrêté.
 * Les filtres de routage sont configurés de manière à privilégier les autres itinéraires (connexion VPN ou autre circuit ExpressRoute, par exemple) sur le circuit ExpressRoute prévu. 
 * Les nœuds locaux et Azure choisis pour surveiller le circuit ExpressRoute dans la configuration de surveillance n'ont pas de connectivité entre eux sur le circuit ExpressRoute prévu. Vérifiez que vous avez choisi des nœuds présentant une connectivité entre eux sur le circuit ExpressRoute que vous souhaitez surveiller.
+
+### <a name="why-does-expressroute-monitor-report-my-circuitpeering-as-unhealthy-when-it-is-available-and-passing-data"></a>Pourquoi Moniteur ExpressRoute signale-t-il mon circuit/Peering comme non sain alors qu’il est disponible et transmet des données ?
+Moniteur ExpressRoute compare les valeurs de performances du réseau (perte, latence et utilisation de la bande passante) signalées par les agents ou le service aux seuils définis lors de la configuration. Pour un circuit, si l’utilisation de la bande passante indiquée est supérieure au seuil défini dans la configuration, le circuit est marqué comme non sain. Pour les Peerings, si la perte, la latence ou l’utilisation de la bande passante indiquée est supérieure au seuil défini dans la configuration, le Peering est marqué comme non sain. NPM n’utilise pas de métriques ni toute autre forme de données pour déterminer l’état d’intégrité.
+
+### <a name="why-does-expressroute-monitorbandwidth-utilisation-report-a-value-differrent-from-metrics-bits-inout"></a>Pourquoi l’utilisation de la bande passante de Moniteur ExpressRoute rapporte-t-elle une valeur différente des entrées/sorties de bits des métriques ?
+Pour Moniteur ExpressRoute, l’utilisation de la bande passante correspond à la moyenne de la bande passante entrante et sortante au cours des 20 dernières minutes ; elle est exprimée en bits/s. Pour les métriques d’ExpressRoute, les entrées/sorties de bits sont des points de données par minute. En interne, le jeu de données utilisé pour les deux est le même, mais l’agrégation varie entre les métriques NPM et ER. Pour une surveillance granulaire, minute par minute et des alertes rapides, nous vous recommandons de définir des alertes directement sur les métriques ER
 
 ### <a name="while-configuring-monitoring-of-my-expressroute-circuit-the-azure-nodes-are-not-being-detected"></a>Lors de la configuration de la surveillance de mon circuit ExpressRoute, les nœuds Azure ne sont pas détectés.
 Cela peut se produire si les nœuds Azure sont connectés via Operations Manager. La fonctionnalité Moniteur ExpressRoute prend uniquement en charge les nœuds Azure connectés en tant qu'agents directs.

@@ -7,12 +7,12 @@ ms.topic: how-to
 ms.date: 10/23/2019
 ms.author: normesta
 ms.subservice: common
-ms.openlocfilehash: f0d957c05aded6641377b47c3fe383c141480b30
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: bb18e2b0af6f04cee5b6be11afbb2d2aabdadb4b
+ms.sourcegitcommit: 5cace04239f5efef4c1eed78144191a8b7d7fee8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85504472"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86142998"
 ---
 # <a name="get-started-with-azcopy"></a>Bien démarrer avec AzCopy
 
@@ -31,7 +31,7 @@ Commencez par télécharger le fichier exécutable AzCopy V10 dans un répertoir
 
 - [Windows 64 bits](https://aka.ms/downloadazcopy-v10-windows) (zip)
 - [Windows 32 bits](https://aka.ms/downloadazcopy-v10-windows-32bit) (zip)
-- [Linux](https://aka.ms/downloadazcopy-v10-linux) (tar)
+- [Linux x86-64](https://aka.ms/downloadazcopy-v10-linux) (tar)
 - [MacOS](https://aka.ms/downloadazcopy-v10-mac) (zip)
 
 Ces fichiers sont compressés dans un fichier zip (Windows et Mac) ou un fichier tar (Linux). Pour télécharger et décompresser le fichier tar sur Linux, consultez la documentation de votre distribution Linux.

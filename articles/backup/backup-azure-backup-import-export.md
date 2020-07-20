@@ -4,12 +4,12 @@ description: Découvrez comment utiliser Sauvegarde Azure pour envoyer des donn�
 ms.reviewer: saurse
 ms.topic: conceptual
 ms.date: 05/17/2018
-ms.openlocfilehash: 642787e17f347bf8233e50c65d26a1661b08fcfb
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: e5761f56106989084f12b80620ffc417b781965d
+ms.sourcegitcommit: ec682dcc0a67eabe4bfe242fce4a7019f0a8c405
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82183889"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86187827"
 ---
 # <a name="offline-backup-workflow-in-azure-backup"></a>Workflow de la sauvegarde hors connexion dans Sauvegarde Azure
 
@@ -45,7 +45,7 @@ Les charges de travail ou fonctionnalités Sauvegarde Azure suivantes prennent e
 ## <a name="prerequisites"></a>Prérequis
 
   > [!NOTE]
-  > Les prérequis et le workflow suivants s’appliquent uniquement à une sauvegarde hors connexion des fichiers et dossiers à l’aide de [la dernière version de l’agent Microsoft Azure Recovery Services](https://aka.ms/azurebackup_agent). Pour effectuer des sauvegardes hors connexion de charges de travail à l’aide de System Center DPM ou du serveur de sauvegarde Azure, consultez [Workflow de sauvegarde hors connexion pour DPM et le serveur de sauvegarde Azure](backup-azure-backup-server-import-export-.md).
+  > Les prérequis et le workflow suivants s’appliquent uniquement à une sauvegarde hors connexion des fichiers et dossiers à l’aide de [la dernière version de l’agent Microsoft Azure Recovery Services](https://aka.ms/azurebackup_agent). Pour effectuer des sauvegardes hors connexion de charges de travail à l’aide de System Center DPM ou du serveur de sauvegarde Azure, consultez [Workflow de sauvegarde hors connexion pour DPM et le serveur de sauvegarde Azure](backup-azure-backup-server-import-export.md).
 
 Avant de démarrer le workflow de sauvegarde hors connexion, assurez-vous que les prérequis suivants sont respectés :
 
@@ -90,7 +90,7 @@ Cette section décrit le workflow de sauvegarde hors connexion qui permet à vos
 
     * **Emplacement intermédiaire** : Emplacement de stockage temporaire dans lequel la copie de sauvegarde initiale est écrite. L’emplacement intermédiaire peut être sur un partage réseau ou un ordinateur local. Si l’ordinateur de copie et l’ordinateur source sont différents, spécifiez le chemin d’accès réseau complet de l’emplacement intermédiaire.
     * **Compte de stockage Azure Resource Manager** : Nom du compte de stockage de type Resource Manager (usage général v1 ou usage général v2) dans un abonnement Azure quelconque.
-    * **Conteneur de stockage Azure** : Nom du blob de stockage de destination dans le compte de stockage Azure où les données de sauvegarde sont importées avant d’être copiées dans le coffre Recovery Services.
+    * **Conteneur de stockage Azure** : Nom du conteneur de stockage d’objets blob de destination dans le compte de stockage Azure où les données de sauvegarde sont importées avant d’être copiées dans le coffre Recovery Services.
     * **ID d’abonnement Azure** : ID de l’abonnement Azure dans lequel le compte de stockage Azure est créé.
     * **Nom de la tâche d’importation Azure** : Nom unique utilisé par le service Azure Import/Export et par Sauvegarde Azure pour effectuer le suivi du transfert des données envoyées dans Azure à l’aide de disques.
   
@@ -136,7 +136,7 @@ L’utilitaire *AzureOfflineBackupDiskPrep* prépare les disques SATA qui sont e
     | Paramètre | Description |
     | --- | --- |
     | s:&lt;*Staging Location Path*&gt; |Cette entrée obligatoire est utilisée pour fournir le chemin d’accès vers l’emplacement intermédiaire que vous avez entré dans le workflow de la section « Lancer la sauvegarde hors connexion ». |
-    | p:&lt;*Path to PublishSettingsFile*&gt; |Cette entrée optionnelle est utilisée pour fournir le chemin d’accès vers le fichier des paramètres de publication Azure que vous avez entré dans le workflow de la section « Lancer la sauvegarde hors connexion ». |
+    | p:&lt;*Path to PublishSettingsFile*&gt; |Cette entrée facultative est utilisée pour fournir le chemin du fichier de paramètres de publication Azure.  |
 
     Quand vous exécutez la commande, l’utilitaire vous demande de sélectionner la tâche d’importation Azure correspondant aux disques à préparer. S’il existe une seule tâche d’importation associée à l’emplacement intermédiaire spécifié, une page similaire à celle-ci s’affiche.
 

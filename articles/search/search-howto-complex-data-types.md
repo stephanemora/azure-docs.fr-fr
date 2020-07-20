@@ -9,12 +9,12 @@ tags: complex data types; compound data types; aggregate data types
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 11/04/2019
-ms.openlocfilehash: 2edd62825de08becf22f2f953a63a7f89f55e0a6
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: e6e66dc05ac2b6e54a1be94576b8686390949145
+ms.sourcegitcommit: 1e6c13dc1917f85983772812a3c62c265150d1e7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79236877"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86171837"
 ---
 # <a name="how-to-model-complex-data-types-in-azure-cognitive-search"></a>Modélisation de types de données complexes dans Recherche cognitive Azure
 
@@ -27,7 +27,7 @@ Recherche cognitive Azure prend nativement en charge les types et les collection
 Pour commencer, nous vous recommandons le [jeu de données d’hôtels](https://github.com/Azure-Samples/azure-search-sample-data/blob/master/README.md), que vous pouvez charger dans l’Assistant **Importer des données** du portail Azure. L’Assistant détecte les types complexes dans la source et suggère un schéma d’index basé sur les structures détectées.
 
 > [!Note]
-> La prise en charge des types complexes est généralement disponible dans `api-version=2019-05-06`. 
+> La prise en charge des types complexes a commencé à être généralement disponible dans `api-version=2019-05-06`. 
 >
 > Si votre solution de recherche est basée sur des solutions de contournement antérieures de jeux de données aplatis d’une collection, vous devez modifier votre index pour inclure des types complexes pris en charge dans la dernière version d’API. Pour plus d’informations sur la mise à niveau des versions d’API, consultez [Mettre à niveau vers la dernière version de l’API REST](search-api-migration.md) ou [Mettre à niveau vers la dernière version du kit de développement logiciel (SDK) .NET](search-dotnet-sdk-migration-version-9.md).
 
@@ -111,7 +111,7 @@ Les expressions de recherche de forme libre fonctionnent comme prévu avec des t
 
 Les requêtes sont plus nuancées lorsque vous avez plusieurs termes et opérateurs, et certains termes ont des noms de champs spécifiés, comme cela est possible avec la [syntaxe Lucene](query-lucene-syntax.md). Par exemple, cette requête essaie de faire correspondre deux termes, « Portland » et « OR » à deux sous-champs du champ adresse :
 
-    search=Address/City:Portland AND Address/State:OR
+> `search=Address/City:Portland AND Address/State:OR`
 
 Des requêtes de ce type sont *sans corrélation* pour la recherche en texte intégral, contrairement aux filtres. Dans les filtres, les requêtes relatives aux sous-champs d’une collection complexe sont corrélés à l’aide de variables de portée dans [`any` ou `all`](search-query-odata-collection-operators.md). La requête Lucene ci-dessus retourne des documents contenant « Portland, Maine » et « Portland, Oregon », ainsi que d’autres villes d’Oregon. C’est dû au fait que chaque clause s’applique à toutes les valeurs de son champ dans le document entier. Il n’existe donc pas de concept de « sous-élément actuel ». Pour plus d’informations à ce sujet, consultez [Présentation de filtres de collection OData dans Recherche cognitive Azure](search-query-understand-collection-filters.md).
 
@@ -119,7 +119,7 @@ Des requêtes de ce type sont *sans corrélation* pour la recherche en texte int
 
 Le paramètre `$select` permet de choisir quels champs retourner dans les résultats de la recherche. Pour utiliser ce paramètre afin de sélectionner des sous-champs spécifiques d’un champ complexe, incluez le champ parent et le sous-champ séparés par une barre oblique (`/`).
 
-    $select=HotelName, Address/City, Rooms/BaseRate
+> `$select=HotelName, Address/City, Rooms/BaseRate`
 
 Les champs doivent être marqués comme récupérables dans l’index si vous souhaitez les afficher dans les résultats de la recherche. Seuls les champs marqués comme récupérable peuvent être utilisés dans une instruction `$select`.
 
@@ -143,11 +143,11 @@ Les opérations de tri fonctionnent lorsque les champs ont une valeur unique pou
 
 Vous pouvez faire référence à des sous-champs d’un champ complexe dans une expression de filtre. Utilisez simplement la même [syntaxe de chemin OData](query-odata-filter-orderby-syntax.md) qui est utilisé pour l’activation de facettes, le tri et la sélection de champs. Par exemple, le filtre suivant retourne tous les hôtels au Canada :
 
-    $filter=Address/Country eq 'Canada'
+> `$filter=Address/Country eq 'Canada'`
 
 Pour filtrer sur un champ de collection complexe, vous pouvez utiliser une **expression lambda**[avec les opérateurs](search-query-odata-collection-operators.md)`any` et `all`. Dans ce cas, la **variable de portée** de l’expression lambda est un objet avec des sous-champs. Vous pouvez consulter ces sous-champs avec la syntaxe de chemin OData standard. Par exemple, le filtre suivant retourne tous les hôtels avec au moins une chambre de luxe et toutes les chambres non-fumeurs :
 
-    $filter=Rooms/any(room: room/Type eq 'Deluxe Room') and Rooms/all(room: not room/SmokingAllowed)
+> `$filter=Rooms/any(room: room/Type eq 'Deluxe Room') and Rooms/all(room: not room/SmokingAllowed)`
 
 Comme avec les champs simples de niveau supérieur, les sous-champs simples de champs complexe ne peuvent être inclus dans des filtres que si leur attribut **filtrable** est défini sur `true` dans la définition d’index. Pour plus d’informations, consultez la [référence Créer une API d’index](/rest/api/searchservice/create-index).
 

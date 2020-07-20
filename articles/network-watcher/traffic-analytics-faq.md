@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/08/2018
 ms.author: damendo
-ms.openlocfilehash: 2402e72d2ef9fcda46f2f40bff48759262ee30e0
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 84e9dab149cfed265833336577d718e57bd9bc2d
+ms.sourcegitcommit: 1e6c13dc1917f85983772812a3c62c265150d1e7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82189043"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86165326"
 ---
 # <a name="traffic-analytics-frequently-asked-questions"></a>Forum aux questions pour Traffic Analytics
 
@@ -264,61 +264,70 @@ Traffic Analytics n’a pas de prise en charge intégrée des alertes. Cependant
 - Cliquez sur + Nouvelle règle d’alerte pour créer une alerte
 - Reportez-vous à la [documentation des alertes de journal](https://docs.microsoft.com/azure/azure-monitor/platform/alerts-log) pour créer l’alerte
 
-## <a name="how-do-i-check-which-vms-are-receiving-most-on-premise-traffic"></a>Comment vérifier quels sont les machines virtuelles qui reçoivent le plus de trafic local ?
+## <a name="how-do-i-check-which-vms-are-receiving-most-on-premises-traffic"></a>Comment déterminer quelles machines virtuelles reçoivent le plus de trafic local ?
 
-            AzureNetworkAnalytics_CL
-            | where SubType_s == "FlowLog" and FlowType_s == "S2S" 
-            | where <Scoping condition>
-            | mvexpand vm = pack_array(VM1_s, VM2_s) to typeof(string)
-            | where isnotempty(vm) 
-             | extend traffic = AllowedInFlows_d + DeniedInFlows_d + AllowedOutFlows_d + DeniedOutFlows_d // For bytes use: | extend traffic = InboundBytes_d + OutboundBytes_d 
-            | make-series TotalTraffic = sum(traffic) default = 0 on FlowStartTime_t from datetime(<time>) to datetime(<time>) step 1m by vm
-            | render timechart
+```
+AzureNetworkAnalytics_CL
+| where SubType_s == "FlowLog" and FlowType_s == "S2S" 
+| where <Scoping condition>
+| mvexpand vm = pack_array(VM1_s, VM2_s) to typeof(string)
+| where isnotempty(vm) 
+| extend traffic = AllowedInFlows_d + DeniedInFlows_d + AllowedOutFlows_d + DeniedOutFlows_d // For bytes use: | extend traffic = InboundBytes_d + OutboundBytes_d 
+| make-series TotalTraffic = sum(traffic) default = 0 on FlowStartTime_t from datetime(<time>) to datetime(<time>) step 1m by vm
+| render timechart
+```
 
   Pour les adresses IP :
 
-            AzureNetworkAnalytics_CL
-            | where SubType_s == "FlowLog" and FlowType_s == "S2S" 
-            //| where <Scoping condition>
-            | mvexpand IP = pack_array(SrcIP_s, DestIP_s) to typeof(string)
-            | where isnotempty(IP) 
-            | extend traffic = AllowedInFlows_d + DeniedInFlows_d + AllowedOutFlows_d + DeniedOutFlows_d // For bytes use: | extend traffic = InboundBytes_d + OutboundBytes_d 
-            | make-series TotalTraffic = sum(traffic) default = 0 on FlowStartTime_t from datetime(<time>) to datetime(<time>) step 1m by IP
-            | render timechart
+```
+AzureNetworkAnalytics_CL
+| where SubType_s == "FlowLog" and FlowType_s == "S2S" 
+//| where <Scoping condition>
+| mvexpand IP = pack_array(SrcIP_s, DestIP_s) to typeof(string)
+| where isnotempty(IP) 
+| extend traffic = AllowedInFlows_d + DeniedInFlows_d + AllowedOutFlows_d + DeniedOutFlows_d // For bytes use: | extend traffic = InboundBytes_d + OutboundBytes_d 
+| make-series TotalTraffic = sum(traffic) default = 0 on FlowStartTime_t from datetime(<time>) to datetime(<time>) step 1m by IP
+| render timechart
+```
 
 Pour l’heure, utilisez le format : aaaa-mm-jj 00:00:00
 
-## <a name="how-do-i-check-standard-deviation-in-traffic-recieved-by-my-vms-from-on-premise-machines"></a>Comment vérifier l'écart type du trafic reçu par mes machines virtuelles à partir de machines locales ?
+## <a name="how-do-i-check-standard-deviation-in-traffic-received-by-my-vms-from-on-premises-machines"></a>Comment vérifier l’écart type du trafic reçu par mes machines virtuelles à partir de machines locales ?
 
-            AzureNetworkAnalytics_CL
-            | where SubType_s == "FlowLog" and FlowType_s == "S2S" 
-            //| where <Scoping condition>
-            | mvexpand vm = pack_array(VM1_s, VM2_s) to typeof(string)
-            | where isnotempty(vm) 
-            | extend traffic = AllowedInFlows_d + DeniedInFlows_d + AllowedOutFlows_d + DeniedOutFlows_d // For bytes use: | extend traffic = InboundBytes_d + OutboundBytes_d
-            | summarize deviation = stdev(traffic)  by vm
-
+```
+AzureNetworkAnalytics_CL
+| where SubType_s == "FlowLog" and FlowType_s == "S2S" 
+//| where <Scoping condition>
+| mvexpand vm = pack_array(VM1_s, VM2_s) to typeof(string)
+| where isnotempty(vm) 
+| extend traffic = AllowedInFlows_d + DeniedInFlows_d + AllowedOutFlows_d + DeniedOutFlows_d // For bytes use: | extend traffic = InboundBytes_d + utboundBytes_d
+| summarize deviation = stdev(traffic)  by vm
+```
 
 Pour les adresses IP :
 
-            AzureNetworkAnalytics_CL
-            | where SubType_s == "FlowLog" and FlowType_s == "S2S" 
-            //| where <Scoping condition>
-            | mvexpand IP = pack_array(SrcIP_s, DestIP_s) to typeof(string)
-            | where isnotempty(IP) 
-            | extend traffic = AllowedInFlows_d + DeniedInFlows_d + AllowedOutFlows_d + DeniedOutFlows_d // For bytes use: | extend traffic = InboundBytes_d + OutboundBytes_d
-            | summarize deviation = stdev(traffic)  by IP
-            
-## <a name="how-do-i-check-which-ports-are-reachable-or-bocked-between-ip-pairs-with-nsg-rules"></a>Comment vérifier quels ports sont accessibles (ou bloqués) entre les paires d'adresses IP avec les règles du groupe de sécurité réseau ?
+```
+AzureNetworkAnalytics_CL
+| where SubType_s == "FlowLog" and FlowType_s == "S2S" 
+//| where <Scoping condition>
+| mvexpand IP = pack_array(SrcIP_s, DestIP_s) to typeof(string)
+| where isnotempty(IP) 
+| extend traffic = AllowedInFlows_d + DeniedInFlows_d + AllowedOutFlows_d + DeniedOutFlows_d // For bytes use: | extend traffic = InboundBytes_d + OutboundBytes_d
+| summarize deviation = stdev(traffic)  by IP
+```
 
-            AzureNetworkAnalytics_CL
-            | where SubType_s == "FlowLog" and TimeGenerated between (startTime .. endTime)
-            | extend sourceIPs = iif(isempty(SrcIP_s), split(SrcPublicIPs_s, " ") , pack_array(SrcIP_s)),
-            destIPs = iif(isempty(DestIP_s), split(DestPublicIPs_s," ") , pack_array(DestIP_s))
-            | mvexpand SourceIp = sourceIPs to typeof(string)
-            | mvexpand DestIp = destIPs to typeof(string)
-            | project SourceIp = tostring(split(SourceIp, "|")[0]), DestIp = tostring(split(DestIp, "|")[0]), NSGList_s, NSGRule_s, DestPort_d, L4Protocol_s, FlowStatus_s 
-            | summarize DestPorts= makeset(DestPort_d) by SourceIp, DestIp, NSGList_s, NSGRule_s, L4Protocol_s, FlowStatus_s
+## <a name="how-do-i-check-which-ports-are-reachable-or-blocked-between-ip-pairs-with-nsg-rules"></a>Comment vérifier quels ports sont accessibles (ou bloqués) entre les paires d’adresses IP avec les règles du groupe de sécurité réseau ?
+
+```
+AzureNetworkAnalytics_CL
+| where SubType_s == "FlowLog" and TimeGenerated between (startTime .. endTime)
+| extend sourceIPs = iif(isempty(SrcIP_s), split(SrcPublicIPs_s, " ") , pack_array(SrcIP_s)),
+destIPs = iif(isempty(DestIP_s), split(DestPublicIPs_s," ") , pack_array(DestIP_s))
+| mvexpand SourceIp = sourceIPs to typeof(string)
+| mvexpand DestIp = destIPs to typeof(string)
+| project SourceIp = tostring(split(SourceIp, "|")[0]), DestIp = tostring(split(DestIp, "|")[0]), NSGList_s, NSGRule_s, DestPort_d, L4Protocol_s, FlowStatus_s 
+| summarize DestPorts= makeset(DestPort_d) by SourceIp, DestIp, NSGList_s, NSGRule_s, L4Protocol_s, FlowStatus_s
+```
 
 ## <a name="how-can-i-navigate-by-using-the-keyboard-in-the-geo-map-view"></a>Comment faire pour naviguer dans la vue de la carte géographique à l’aide du clavier ?
 
@@ -347,7 +356,7 @@ La page de la carte géographique contient deux sections principales :
 ### <a name="keyboard-navigation-at-any-stage"></a>Navigation au clavier à tout moment
     
 - `Esc` réduit la sélection développée.
-- La touche `Up arrow` effectue la même action que `Esc`. La touche `Down arrow` effectue la même action que `Enter`.
+- La touche `Up-arrow` effectue la même action que `Esc`. La touche `Down arrow` effectue la même action que `Enter`.
 - Utilisez `Shift+Plus` pour effectuer un zoom avant et `Shift+Minus` pour effectuer un zoom arrière.
 
 ## <a name="how-can-i-navigate-by-using-the-keyboard-in-the-virtual-network-topology-view"></a>Comment faire pour naviguer dans la vue de la topologie des réseaux virtuels à l’aide du clavier ?

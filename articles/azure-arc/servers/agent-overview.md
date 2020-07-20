@@ -6,14 +6,14 @@ ms.service: azure-arc
 ms.subservice: azure-arc-servers
 author: mgoedtel
 ms.author: magoedte
-ms.date: 07/01/2020
+ms.date: 07/09/2020
 ms.topic: conceptual
-ms.openlocfilehash: e3d3521cfb3d3b0c6659013922ab11fe765af882
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.openlocfilehash: ed95b902c2c0768f50a0c6dadbfc617292932c2b
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86111250"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86242948"
 ---
 # <a name="overview-of-azure-arc-for-servers-agent"></a>Présentation de l’agent Azure Arc pour serveurs
 
@@ -62,7 +62,7 @@ Une fois l’agent Connected Machine pour Windows installé, les modifications d
 
     |Dossier |Description |
     |-------|------------|
-    |C:\Program Files\AzureConnectedMachineAgent |Chemin d’installation par défaut contenant les fichiers de support de l’agent.|
+    |%ProgramFiles%\AzureConnectedMachineAgent |Chemin d’installation par défaut contenant les fichiers de support de l’agent.|
     |%ProgramData%\AzureConnectedMachineAgent |Contient les fichiers de configuration de l’agent.|
     |%ProgramData%\AzureConnectedMachineAgent\Tokens |Contient les jetons acquis.|
     |%ProgramData%\AzureConnectedMachineAgent\Config |Contient le fichier de configuration de l’agent `agentconfig.json` qui enregistre ses informations d’inscription auprès du service.|
@@ -99,7 +99,7 @@ Une fois l’agent Connected Machine pour Windows installé, les modifications d
 
 * Lors de la désinstallation de l’agent, les artefacts suivants ne sont pas supprimés.
 
-    * C:\Program Files\AzureConnectedMachineAgent\Logs
+    * %ProgramFiles%\AzureConnectedMachineAgent\Logs
     * %ProgramData%\AzureConnectedMachineAgent et sous-répertoires
     * %ProgramData%\GuestConfig
 
@@ -170,9 +170,9 @@ Les versions suivantes des systèmes d’exploitation Windows et Linux sont offi
 
 ### <a name="required-permissions"></a>Autorisations requises
 
-- Pour intégrer des ordinateurs, vous devez être membre du rôle **Intégration de machine connectée à Azure**.
+* Pour intégrer des ordinateurs, vous devez être membre du rôle **Intégration de machine connectée à Azure**.
 
-- Pour lire, modifier, réintégrer et supprimer un ordinateur, vous devez être membre du rôle **Administrateur des ressources de la machine connectée à Azure**. 
+* Pour lire, modifier, réintégrer et supprimer un ordinateur, vous devez être membre du rôle **Administrateur des ressources de la machine connectée à Azure**. 
 
 ### <a name="azure-subscription-and-service-limits"></a>Limites du service et de l’abonnement Azure
 
@@ -195,19 +195,20 @@ Si la connectivité sortante est restreinte par votre pare-feu ou votre serveur 
 
 Balises de service :
 
-- AzureActiveDirectory
-- AzureTrafficManager
+* AzureActiveDirectory
+* AzureTrafficManager
 
 URL :
 
 | Ressource de l’agent | Description |
 |---------|---------|
-|management.azure.com|Azure Resource Manager|
-|login.windows.net|Azure Active Directory|
-|dc.services.visualstudio.com|Application Insights|
-|agentserviceapi.azure-automation.net|Guest Configuration|
-|*-agentservice-prod-1.azure-automation.net|Guest Configuration|
-|*.his.arc.azure.com|Service d’identité hybride|
+|`management.azure.com`|Azure Resource Manager|
+|`login.windows.net`|Azure Active Directory|
+|`dc.services.visualstudio.com`|Application Insights|
+|`agentserviceapi.azure-automation.net`|Guest Configuration|
+|`*-agentservice-prod-1.azure-automation.net`|Guest Configuration|
+|`*.guestconfiguration.azure.com` |Guest Configuration|
+|`*.his.arc.azure.com`|Service d’identité hybride|
 
 Pour obtenir la liste d’adresses IP de chaque balise de service/région, consultez le fichier JSON - [Plages d’adresses IP Azure et balises de service – Cloud Public](https://www.microsoft.com/download/details.aspx?id=56519). Microsoft publie chaque semaine une mise à jour contenant chacun des services Azure et les plages d’adresses IP qu’il utilise. Pour plus d’informations, consultez [Étiquettes de service](../../virtual-network/security-overview.md#service-tags).
 
@@ -217,8 +218,8 @@ Les URL indiquées dans le tableau précédent sont nécessaires en plus des inf
 
 Azure Arc pour serveurs (préversion) dépend des fournisseurs de ressources Azure suivants dans votre abonnement pour pouvoir utiliser ce service :
 
-- **Microsoft.HybridCompute**
-- **Microsoft.GuestConfiguration**
+* **Microsoft.HybridCompute**
+* **Microsoft.GuestConfiguration**
 
 S’ils ne sont pas inscrits, vous pouvez les inscrire à l’aide des commandes suivantes :
 

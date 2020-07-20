@@ -4,12 +4,12 @@ description: Dans cet article, découvrez comment résoudre les erreurs rencontr
 ms.reviewer: srinathv
 ms.topic: troubleshooting
 ms.date: 08/30/2019
-ms.openlocfilehash: 68310f504e94e50be9fbd4ce49055a4b318ab5d5
-ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
+ms.openlocfilehash: e40b74cc5bf995e943b20ddcd21127ed4f7d7ead
+ms.sourcegitcommit: ec682dcc0a67eabe4bfe242fce4a7019f0a8c405
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83659502"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86184189"
 ---
 # <a name="troubleshooting-backup-failures-on-azure-virtual-machines"></a>Résolution des échecs de sauvegarde sur les machines virtuelles Azure
 
@@ -186,19 +186,58 @@ Cela garantira que les captures instantanées soient effectuées via l’hôte p
 
 **Étape 3** : Essayer d’[augmenter la taille de machine virtuelle](https://azure.microsoft.com/blog/resize-virtual-machines/), puis recommencer l’opération
 
-## <a name="common-vm-backup-errors"></a>Erreurs de sauvegarde de machine virtuelle courantes
 
-| Détails de l’erreur | Solution de contournement |
-| ------ | --- |
-| **Code d’erreur** : 320001, ResourceNotFound <br/> **Message d’erreur** : Impossible d’effectuer l’opération, car la machine virtuelle n’existe plus. <br/> <br/> **Code d’erreur** : 400094, BCMV2VMNotFound <br/> **Message d’erreur** : La machine virtuelle n’existe pas <br/> <br/>  Machine virtuelle Azure introuvable.  |Cette erreur se produit lorsque la machine virtuelle principale est supprimée. Cependant, la stratégie de sauvegarde continue de rechercher une machine virtuelle à sauvegarder. Pour corriger cette erreur, suivez les étapes ci-dessous : <ol><li> Recréez la machine virtuelle avec le même nom et le même nom de groupe de ressources **nom du service cloud**,<br>**or**</li><li> Arrêtez la protection de la machine virtuelle en supprimant ou non les données de sauvegarde. Pour plus d’informations, consultez [Arrêt de la protection des machines virtuelles](backup-azure-manage-vms.md#stop-protecting-a-vm).</li></ol>|
-|**Code d’erreur** : UserErrorBCMPremiumStorageQuotaError<br/> **Message d’erreur** : Impossible de copier l’instantané de la machine virtuelle, car l’espace libre est insuffisant dans le compte de stockage | Pour les machines virtuelles Premium sur une pile de sauvegarde de machines virtuelles V1, nous copions la capture instantanée sur le compte de stockage. Cette étape permet de s’assurer que le trafic de gestion de sauvegarde, qui fonctionne sur la capture instantanée, ne limite pas le nombre d’IOPS accessibles à l’application à l’aide de disques Premium. <br><br>Nous vous conseillons d’allouer seulement 50 pour cent (soit 17,5 To) de l’espace du compte de stockage total. Ainsi, le service Sauvegarde Azure peut copier la capture instantanée sur le compte de stockage et transférer des données depuis cet emplacement copié vers le compte de stockage dans le coffre. |
-| **Code d’erreur** : 380008, AzureVmOffline <br/> **Message d’erreur** : L’installation de l’extension Microsoft Recovery Services a échoué, car la machine virtuelle n’est pas en cours d’exécution. | L’agent de machine virtuelle est une condition requise pour l’extension Recovery Services. Installez l’agent de machine virtuelle Azure, puis recommencez l’opération d’inscription. <br> <ol> <li>Vérifiez si l’agent de machine virtuelle a été installé correctement. <li>Vérifiez que l’indicateur de la configuration de la machine virtuelle est défini correctement.</ol> Apprenez-en plus sur l'installation de l'agent de machine virtuelle et sur la validation de cette opération. |
-| **Code d’erreur** : ExtensionSnapshotBitlockerError <br/> **Message d’erreur** : L’opération de capture instantanée a échoué en renvoyant l’erreur d’opération du service Cliché instantané de volume (VSS) **Ce lecteur est verrouillé par le chiffrement de lecteur BitLocker. Vous devez déverrouiller ce lecteur à partir du panneau de configuration.** |Désactivez BitLocker pour tous les lecteurs sur la machine virtuelle et vérifiez si le problème VSS est résolu. |
-| **Code d’erreur** : VmNotInDesirableState <br/> **Message d’erreur** :  La machine virtuelle n’est pas dans un état permettant les sauvegardes. |<ul><li>Si la machine virtuelle se trouve dans un état temporaire entre **En cours d’exécution** et **Arrêt**, attendez que l’état change. Déclenchez ensuite le travail de sauvegarde. <li> Si la machine virtuelle est de type Linux et utilise le module de noyau Linux à sécurité avancée, excluez le chemin d’accès de l’agent Azure Linux **/var/lib/waagent** de la stratégie de sécurité, et assurez-vous que l’extension Sauvegarde Azure est installée.  |
-| L’agent de machine virtuelle n’est pas présent sur la machine virtuelle : <br>installez les composants requis et l’agent de machine virtuelle. Ensuite, relancez l’opération. |Apprenez-en plus sur [l’installation de l’agent de machine virtuelle et la validation de cette opération](#vm-agent). |
-| **Code d’erreur** : ExtensionSnapshotFailedNoSecureNetwork <br/> **Message d’erreur** : Échec de l’opération de capture instantanée en raison de l’échec de la création du canal de communication réseau sécurisé. | <ol><li> Ouvrez l’Éditeur du Registre en exécutant **regedit.exe** avec élévation de privilèges. <li> Identifiez toutes les versions de. NET Framework présentes dans votre système. Elles se trouvent dans la hiérarchie de la clé de Registre **HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft**. <li> Pour chaque .NET Framework présent dans la clé de Registre, ajoutez la clé suivante : <br> **SchUseStrongCrypto"=dword:00000001**. </ol>|
-| **Code d’erreur** : ExtensionVCRedistInstallationFailure <br/> **Message d’erreur** : Échec de l’opération de capture instantanée en raison de l’échec de l’installation de Redistribuable Visual C++ pour Visual Studio 2012. | <li> Accédez à `C:\Packages\Plugins\Microsoft.Azure.RecoveryServices.VMSnapshot\agentVersion` et installez vcredist2013_x64.<br/>Assurez-vous que la valeur de clé de Registre qui permet l’installation du service est correctement définie. Autrement dit, définissez la valeur **Démarrer** dans **HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\Msiserver** sur **3** et non sur **4**. <br><br>Si vous rencontrez toujours des problèmes d’installation, redémarrez le service d’installation en exécutant **MSIEXEC /UNREGISTER** suivi de **MSIEXEC /REGISTER** dans une invite de commandes avec élévation de privilèges. <br><br><li> Consultez le journal des événements pour détecter la présence de problèmes liés à l’accès. Par exemple : *Produit : Microsoft Visual C++ 2013 x64 Minimum Runtime - 12.0.21005 -- Erreur 1401. Impossible de créer la clé : Software\Classes.  Erreur système 5.  Vérifiez que vous disposez des droits suffisants pour cette clé ou contactez votre service de support technique.* <br><br> Vérifiez que le compte d’administrateur ou d’utilisateur dispose d’autorisations suffisantes pour mettre à jour la clé de Registre **HKEY_LOCAL_MACHINE\SOFTWARE\Classes**. Octroyez des autorisations suffisantes et redémarrez l’agent invité Windows Azure.<br><br> <li> Si des antivirus sont en place, vérifiez que leurs règles d’exclusion autorisent l’installation.    |
-| **Code d’erreur** :  UserErrorRequestDisallowedByPolicy <BR> **Message d’erreur** : Une stratégie non valide est configurée sur la machine virtuelle qui empêche l’opération de capture instantanée. | Si vous disposez d’une stratégie Azure Policy qui [régit les étiquettes au sein de votre environnement](https://docs.microsoft.com/azure/governance/policy/tutorials/govern-tags), vous pouvez soit envisager de passer d’un [effet Deny](https://docs.microsoft.com/azure/governance/policy/concepts/effects#deny) à un [effet Modify](https://docs.microsoft.com/azure/governance/policy/concepts/effects#modify) pour la stratégie, soit créer manuellement le groupe de ressources en fonction du [schéma de nommage exigé par Sauvegarde Azure](https://docs.microsoft.com/azure/backup/backup-during-vm-creation#azure-backup-resource-group-for-virtual-machines).
+## <a name="320001-resourcenotfound---could-not-perform-the-operation-as-vm-no-longer-exists--400094-bcmv2vmnotfound---the-virtual-machine-doesnt-exist--an-azure-virtual-machine-wasnt-found"></a>320001, ResourceNotFound – Impossible d’effectuer l’opération, car la machine virtuelle n’existe plus / 400094, BCMV2VMNotFound – La machine virtuelle n’existe pas / Machine virtuelle Azure introuvable
+
+Code d’erreur : 320001, ResourceNotFound <br/> Message d’erreur : Impossible d’effectuer l’opération, car la machine virtuelle n’existe plus. <br/> <br/> Code d’erreur : 400094, BCMV2VMNotFound <br/> Message d’erreur : La machine virtuelle n’existe pas <br/>
+Machine virtuelle Azure introuvable.
+
+Cette erreur se produit lorsque la machine virtuelle principale est supprimée. Cependant, la stratégie de sauvegarde continue de rechercher une machine virtuelle à sauvegarder. Pour corriger cette erreur, suivez les étapes ci-dessous :
+- Recréez la machine virtuelle avec le même nom et le même nom de groupe de ressources **nom du service cloud**,<br>or
+- Arrêtez la protection de la machine virtuelle en supprimant ou non les données de sauvegarde. Pour plus d’informations, consultez [Arrêt de la protection des machines virtuelles](backup-azure-manage-vms.md#stop-protecting-a-vm).</li></ol>
+
+## <a name="usererrorbcmpremiumstoragequotaerror---could-not-copy-the-snapshot-of-the-virtual-machine-due-to-insufficient-free-space-in-the-storage-account"></a>UserErrorBCMPremiumStorageQuotaError – Impossible de copier l’instantané de la machine virtuelle, car l’espace libre est insuffisant dans le compte de stockage
+
+Code d’erreur : UserErrorBCMPremiumStorageQuotaError<br/> Message d’erreur : Impossible de copier l’instantané de la machine virtuelle, car l’espace libre est insuffisant dans le compte de stockage
+
+ Pour les machines virtuelles Premium sur une pile de sauvegarde de machines virtuelles V1, nous copions la capture instantanée sur le compte de stockage. Cette étape permet de s’assurer que le trafic de gestion de sauvegarde, qui fonctionne sur la capture instantanée, ne limite pas le nombre d’IOPS accessibles à l’application à l’aide de disques Premium. <br><br>Nous vous conseillons d’allouer seulement 50 pour cent (soit 17,5 To) de l’espace du compte de stockage total. Ainsi, le service Sauvegarde Azure peut copier la capture instantanée sur le compte de stockage et transférer des données depuis cet emplacement copié vers le compte de stockage dans le coffre.
+
+
+## <a name="380008-azurevmoffline---failed-to-install-microsoft-recovery-services-extension-as-virtual-machine--is-not-running"></a>380008, AzureVmOffline – L’installation de l’extension Microsoft Recovery Services a échoué, car la machine virtuelle n’est pas en cours d’exécution
+Code d’erreur : 380008, AzureVmOffline <br/> Message d’erreur : L’installation de l’extension Microsoft Recovery Services a échoué, car la machine virtuelle n’est pas en cours d’exécution.
+
+L’agent de machine virtuelle est une condition requise pour l’extension Recovery Services. Installez l’agent de machine virtuelle Azure, puis recommencez l’opération d’inscription. <br> <ol> <li>Vérifiez si l’agent de machine virtuelle a été installé correctement. <li>Vérifiez que l’indicateur de la configuration de la machine virtuelle est défini correctement.</ol> Apprenez-en plus sur l'installation de l'agent de machine virtuelle et sur la validation de cette opération.
+
+## <a name="extensionsnapshotbitlockererror---the-snapshot-operation-failed-with-the-volume-shadow-copy-service-vss-operation-error"></a>ExtensionSnapshotBitlockerError – L’opération de capture instantanée a échoué en renvoyant l’erreur d’opération du service de cliché instantané de volume (VSS)
+Code d’erreur : ExtensionSnapshotBitlockerError <br/> Message d’erreur : L’opération de capture instantanée a échoué en renvoyant l’erreur d’opération du service Cliché instantané de volume (VSS) **Ce lecteur est verrouillé par le chiffrement de lecteur BitLocker. Vous devez déverrouiller ce lecteur à partir du panneau de configuration.**
+
+Désactivez BitLocker pour tous les lecteurs sur la machine virtuelle et vérifiez si le problème VSS est résolu.
+
+## <a name="vmnotindesirablestate---the-vm-isnt-in-a-state-that-allows-backups"></a>VmNotInDesirableState – La machine virtuelle n’est pas dans un état qui autorise les sauvegardes
+Code d’erreur : VmNotInDesirableState <br/> Message d’erreur :  La machine virtuelle n’est pas dans un état permettant les sauvegardes.
+- Si la machine virtuelle se trouve dans un état temporaire entre **En cours d’exécution** et **Arrêt**, attendez que l’état change. Déclenchez ensuite le travail de sauvegarde.
+- Si la machine virtuelle est de type Linux et utilise le module de noyau Linux à sécurité avancée, excluez le chemin d’accès de l’agent Azure Linux **/var/lib/waagent** de la stratégie de sécurité, et assurez-vous que l’extension Sauvegarde Azure est installée.
+
+- L’agent de machine virtuelle n’est pas présent sur la machine virtuelle : <br>installez les composants requis et l’agent de machine virtuelle. Ensuite, relancez l’opération. |Apprenez-en plus sur [l’installation de l’agent de machine virtuelle et la validation de cette opération](#vm-agent).
+
+
+## <a name="extensionsnapshotfailednosecurenetwork---the-snapshot-operation-failed-because-of-failure-to-create-a-secure-network-communication-channel"></a>ExtensionSnapshotFailedNoSecureNetwork – Échec de l’opération de capture instantanée en raison de l’échec de la création d’un canal de communication réseau sécurisé
+Code d’erreur : ExtensionSnapshotFailedNoSecureNetwork <br/> Message d’erreur : Échec de l’opération de capture instantanée en raison de l’échec de la création du canal de communication réseau sécurisé.
+- Ouvrez l’Éditeur du Registre en exécutant **regedit.exe** avec élévation de privilèges.
+- Identifiez toutes les versions de. NET Framework présentes dans votre système. Elles se trouvent dans la hiérarchie de la clé de Registre **HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft**.
+- Pour chaque .NET Framework présent dans la clé de Registre, ajoutez la clé suivante : <br> **SchUseStrongCrypto"=dword:00000001**. </ol>
+
+
+## <a name="extensionvcredistinstallationfailure---the-snapshot-operation-failed-because-of-failure-to-install-visual-c-redistributable-for-visual-studio-2012"></a>ExtensionVCRedistInstallationFailure – Échec de l’opération de capture instantanée en raison de l’échec de l’installation de Redistributable Visual C++ pour Visual Studio 2012
+Code d’erreur : ExtensionVCRedistInstallationFailure <br/> Message d’erreur : Échec de l’opération de capture instantanée en raison de l’échec de l’installation de Redistribuable Visual C++ pour Visual Studio 2012.
+- Accédez à `C:\Packages\Plugins\Microsoft.Azure.RecoveryServices.VMSnapshot\agentVersion` et installez vcredist2013_x64.<br/>Assurez-vous que la valeur de clé de Registre qui permet l’installation du service est correctement définie. Autrement dit, définissez la valeur **Démarrer** dans **HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\Msiserver** sur **3** et non sur **4**. <br><br>Si vous rencontrez toujours des problèmes d’installation, redémarrez le service d’installation en exécutant **MSIEXEC /UNREGISTER** suivi de **MSIEXEC /REGISTER** dans une invite de commandes avec élévation de privilèges.
+- Consultez le journal des événements pour détecter la présence de problèmes liés à l’accès. Par exemple : *Produit : Microsoft Visual C++ 2013 x64 Minimum Runtime - 12.0.21005 -- Erreur 1401. Impossible de créer la clé : Software\Classes.  Erreur système 5.  Vérifiez que vous disposez des droits suffisants pour cette clé ou contactez votre service de support technique.* <br><br> Vérifiez que le compte d’administrateur ou d’utilisateur dispose d’autorisations suffisantes pour mettre à jour la clé de Registre **HKEY_LOCAL_MACHINE\SOFTWARE\Classes**. Octroyez des autorisations suffisantes et redémarrez l’agent invité Windows Azure.<br><br> <li> Si des antivirus sont en place, vérifiez que leurs règles d’exclusion autorisent l’installation.
+
+
+## <a name="usererrorrequestdisallowedbypolicy---an-invalid-policy-is-configured-on-the-vm-which-is-preventing-snapshot-operation"></a>UserErrorRequestDisallowedByPolicy – Une stratégie non valide est configurée sur la machine virtuelle qui empêche l’opération de capture instantanée
+Code d’erreur :  UserErrorRequestDisallowedByPolicy <BR> Message d’erreur : Une stratégie non valide est configurée sur la machine virtuelle qui empêche l’opération de capture instantanée.
+
+Si vous disposez d’une stratégie Azure Policy qui [régit les étiquettes au sein de votre environnement](https://docs.microsoft.com/azure/governance/policy/tutorials/govern-tags), vous pouvez soit envisager de passer d’un [effet Deny](https://docs.microsoft.com/azure/governance/policy/concepts/effects#deny) à un [effet Modify](https://docs.microsoft.com/azure/governance/policy/concepts/effects#modify) pour la stratégie, soit créer manuellement le groupe de ressources en fonction du [schéma de nommage exigé par Sauvegarde Azure](https://docs.microsoft.com/azure/backup/backup-during-vm-creation#azure-backup-resource-group-for-virtual-machines).
 
 ## <a name="jobs"></a>travaux
 

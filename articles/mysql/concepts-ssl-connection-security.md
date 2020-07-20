@@ -5,13 +5,13 @@ author: kummanish
 ms.author: manishku
 ms.service: mysql
 ms.topic: conceptual
-ms.date: 06/02/2020
-ms.openlocfilehash: 2421f8a9396b47d04db35a7cad843f6baa6f6177
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.date: 07/03/2020
+ms.openlocfilehash: 995fba8a19ba53398d46b2871eb877e13a6eb63f
+ms.sourcegitcommit: 5cace04239f5efef4c1eed78144191a8b7d7fee8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84416101"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86142361"
 ---
 # <a name="ssltls-connectivity-in-azure-database-for-mysql"></a>Connectivité SSL/TLS dans Azure Database pour MySQL
 
@@ -46,9 +46,9 @@ Azure Database pour MySQL offre la possibilité d’imposer la version du protoc
 Par exemple, la définition de la valeur du paramètre de version minimale du protocole TLS sur TLS 1.0 signifie que votre serveur autorise les connexions en provenance des clients utilisant les protocoles TLS 1.0, 1.1 et 1.2+. Si vous choisissez la valeur 1.2, en revanche, cela signifie que vous autorisez uniquement les connexions en provenance des clients utilisant TLS 1.2+ et que toutes les connexions à l’aide des protocoles TLS 1.0 et TLS 1.1 sont rejetées.
 
 > [!Note] 
-> Dans Azure Database pour MySQL, le protocole TLS est désactivé par défaut pour tous les nouveaux serveurs.
+> Par défaut, Azure Database pour MySQL n’applique aucune version TLS minimale (le paramètre `TLSEnforcementDisabled`).
 >
-> Les versions TLS actuellement prises en charge par Azure Database pour MySQL sont TLS 1.0, 1.1 et 1.2. Une fois que vous avez imposé une version TLS minimale spécifique, vous ne pouvez plus désactiver ce paramètre.
+> Une fois que vous avez appliqué une version TLS minimale, vous ne pourrez plus la désactiver.
 
 Pour découvrir comment définir le paramètre TLS pour Azure Database pour MySQL, consultez le [Guide pratique pour configurer le paramètre TLS](howto-tls-configurations.md).
 

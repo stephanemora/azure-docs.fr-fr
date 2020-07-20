@@ -6,16 +6,19 @@ ms.service: cache
 ms.topic: conceptual
 ms.date: 03/06/2019
 ms.author: yegu
-ms.openlocfilehash: ce50c665fa79c361f638fda4ec373d5215c407f8
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 9a2ec2e60ae38506d716a244872baddbbdf570e7
+ms.sourcegitcommit: ec682dcc0a67eabe4bfe242fce4a7019f0a8c405
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "74129416"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86184971"
 ---
 # <a name="how-to-set-up-geo-replication-for-azure-cache-for-redis"></a>Configurer la géoréplication pour Azure Cache pour Redis
 
-La géoréplication fournit un mécanisme permettant de lier deux instances de Cache Azure pour Redis de niveau Premium. Un cache est choisi comme cache lié principal et l'autre comme cache lié secondaire. Le cache lié secondaire est en lecture seule et les données écrites dans le cache principal sont répliquées vers le cache lié secondaire. Cette fonctionnalité peut être utilisée pour répliquer un cache entre des régions Azure. Cet article fournit un guide de configuration de la géoréplication pour vos instances Azure Cache pour Redis de niveau Premium.
+La géoréplication fournit un mécanisme permettant de lier deux instances de Cache Azure pour Redis de niveau Premium. Un cache est choisi comme cache lié principal et l'autre comme cache lié secondaire. Le cache lié secondaire est en lecture seule et les données écrites dans le cache principal sont répliquées vers le cache lié secondaire. Le transfert de données entre les instances de cache principal et secondaire est sécurisé par TLS. La géoréplication peut être utilisée pour configurer un cache qui s’étend sur deux régions Azure. Cet article fournit un guide de configuration de la géoréplication pour vos instances Azure Cache pour Redis de niveau Premium.
+
+> [!NOTE]
+> La géoréplication a été conçue comme une solution de reprise d’activité. Par défaut, votre application écrit et lit dans la région primaire. Elle peut éventuellement être configurée pour lire dans la région secondaire. La géoréplication n’assure pas de basculement automatique en raison de problèmes liés à l’ajout de latence réseau entre les régions si le reste de votre application reste dans la région primaire. Vous devrez gérer et lancer le basculement en dissociant le cache secondaire. Celui-ci sera alors promu en devenant la nouvelle instance principale.
 
 ## <a name="geo-replication-prerequisites"></a>Conditions préalables à la géoréplication
 

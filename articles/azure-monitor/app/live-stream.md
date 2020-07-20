@@ -4,12 +4,12 @@ description: Surveillez votre application web en temps réel avec des métriques
 ms.topic: conceptual
 ms.date: 04/22/2019
 ms.reviewer: sdash
-ms.openlocfilehash: 10818a531a43b50b86a6d413c7a504e2c19c3986
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: e554595a7a88e1455f7426636dc69db99a7d3e94
+ms.sourcegitcommit: 1e6c13dc1917f85983772812a3c62c265150d1e7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85507339"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86166482"
 ---
 # <a name="live-metrics-stream-monitor--diagnose-with-1-second-latency"></a>Flux de métriques temps réel : Surveiller et diagnostiquer avec une latence de 1 seconde
 
@@ -49,12 +49,12 @@ Vérifiez que les [ports sortants pour le flux de métriques temps réel](../../
 
 | |Flux temps réel | Metrics Explorer et Analytique |
 |---|---|---|
-|Latence|Données affichées en une seconde|Agrégé sur plusieurs minutes|
-|Pas de conservation|Les données persistent tant qu’elles se trouvent sur le graphique puis elles sont abandonnées.|[Données conservées pendant 90 jours](../../azure-monitor/app/data-retention-privacy.md#how-long-is-the-data-kept)|
-|À la demande|Les données sont diffusées uniquement tant que le volet Métriques temps réel est ouvert |Les données sont envoyées quand le SDK est installé et activé|
-|Gratuit|Pas de facturation pour les données du flux temps réel|Soumis à [tarification](../../azure-monitor/app/pricing.md)
-|échantillonnage|Tous les compteurs et métriques sélectionnés sont transmis. Les échecs et les traces de pile sont échantillonnés. Les processeurs de télémétrie ne sont pas appliqués.|Les événements peuvent être [échantillonnés](../../azure-monitor/app/api-filtering-sampling.md)|
-|Canal de contrôle|Les signaux de contrôle de filtre sont envoyés au SDK. Nous vous recommandons de sécuriser ce canal.|La communication est unidirectionnelle vers le portail|
+|**Latence**|Données affichées en une seconde|Agrégé sur plusieurs minutes|
+|**Pas de conservation des données**|Les données persistent tant qu’elles se trouvent sur le graphique puis elles sont abandonnées.|[Données conservées pendant 90 jours](../../azure-monitor/app/data-retention-privacy.md#how-long-is-the-data-kept)|
+|**À la demande**|Les données sont diffusées uniquement tant que le volet Métriques temps réel est ouvert |Les données sont envoyées quand le SDK est installé et activé|
+|**Gratuit**|Pas de facturation pour les données du flux temps réel|Soumis à [tarification](../../azure-monitor/app/pricing.md)
+|**Échantillonnage**|Tous les compteurs et métriques sélectionnés sont transmis. Les échecs et les traces de pile sont échantillonnés. Les processeurs de télémétrie ne sont pas appliqués.|Les événements peuvent être [échantillonnés](../../azure-monitor/app/api-filtering-sampling.md)|
+|**Canal de contrôle**|Les signaux de contrôle de filtre sont envoyés au SDK. Nous vous recommandons de sécuriser ce canal.|La communication est unidirectionnelle vers le portail|
 
 ## <a name="select-and-filter-your-metrics"></a>Sélectionner et filtrer vos métriques
 

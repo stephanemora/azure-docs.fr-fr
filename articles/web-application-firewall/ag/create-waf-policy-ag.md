@@ -7,12 +7,12 @@ author: vhorne
 ms.service: web-application-firewall
 ms.date: 02/08/2020
 ms.author: victorh
-ms.openlocfilehash: 7ab4b60747509dfe56ec2e89b38986de747dab69
-ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
+ms.openlocfilehash: 5705eedfb919c792c558384f6309325dcded4b43
+ms.sourcegitcommit: 5cace04239f5efef4c1eed78144191a8b7d7fee8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "84014534"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86146606"
 ---
 # <a name="create-web-application-firewall-policies-for-application-gateway"></a>Créer des stratégies de pare-feu d’applications web pour Application Gateway
 
@@ -23,7 +23,7 @@ Vous pouvez créer autant de stratégies que vous le souhaitez. Une fois que vou
 Si une stratégie est appliquée à votre Application Gateway, puis que vous appliquez une stratégie différente à un écouteur sur cette Application Gateway, la stratégie de l’écouteur prend effet, mais uniquement pour le ou les écouteurs auxquels elle est attribuée. La stratégie d’Application Gateway s’applique encore à tous les autres écouteurs auxquels aucune stratégie spécifique n’est attribuée. 
 
    > [!NOTE]
-   > Les stratégies WAF par site et par URI sont en préversion publique. Cela signifie que cette fonctionnalité est soumise aux conditions d’utilisation supplémentaires de Microsoft. Pour plus d’informations, consultez [Conditions d’Utilisation Supplémentaires relatives aux Évaluations Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+   > Les stratégies WAF par URI sont en préversion publique. Cela signifie que cette fonctionnalité est soumise aux conditions d’utilisation supplémentaires de Microsoft. Pour plus d’informations, consultez [Conditions d’Utilisation Supplémentaires relatives aux Évaluations Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
    > [!NOTE]
    > Une fois qu’une stratégie de pare-feu est associée à un pare-feu d'applications web (WAF), ce dernier doit toujours avoir une stratégie associée. Vous pouvez remplacer cette stratégie, mais le fait de dissocier entièrement une stratégie du WAF n’est pas pris en charge. 
 

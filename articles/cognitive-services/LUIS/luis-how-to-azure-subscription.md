@@ -3,51 +3,170 @@ title: Comment utiliser les clés de création et de runtime – LUIS
 description: Lorsque vous utilisez Language Understanding (LUIS) pour la première fois, vous n’avez pas besoin de créer de clé de création. Lorsque vous avez l’intention de publier l’application, puis d’utiliser votre point de terminaison de runtime, vous devez créer et attribuer la clé de runtime à l’application.
 services: cognitive-services
 ms.topic: how-to
-ms.date: 04/06/2020
-ms.openlocfilehash: c566e8fe56d19856f5a577e472929b7610497d7c
-ms.sourcegitcommit: 61d850bc7f01c6fafee85bda726d89ab2ee733ce
+ms.date: 07/07/2020
+ms.openlocfilehash: dfe5c416adeb4ff850dfe8f28ae4c61c8bb0844f
+ms.sourcegitcommit: 5cace04239f5efef4c1eed78144191a8b7d7fee8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/03/2020
-ms.locfileid: "84344456"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86144640"
 ---
 # <a name="create-luis-resources"></a>Créer des ressources LUIS
 
-Les ressources de création et de runtime fournissent l’authentification à votre application LUIS et au point de terminaison de prédiction.
+Les ressources de création et de runtime de prédiction de requête fournissent l’authentification à votre application LUIS et au point de terminaison de prédiction.
 
-<a name="create-luis-service"></a>
-<a name="create-language-understanding-endpoint-key-in-the-azure-portal"></a>
+<a name="azure-resources-for-luis"></a>
+<a name="programmatic-key" ></a>
+<a name="endpoint-key"></a>
+<a name="authoring-key"></a>
 
-Quand vous vous connectez au portail LUIS, vous pouvez choisir de continuer avec :
+## <a name="luis-resources"></a>Ressources LUIS
 
-* une [clé d’essai](#trial-key) gratuit qui fournit des requêtes de création et de point de terminaison de prédiction ;
-* une ressource de [création LUIS](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesLUISAllInOne) Azure.
+LUIS autorise trois types de ressources Azure et une ressource non-Azure :
+
+|Clé|Objectif|Service cognitif `kind`|Service cognitif `type`|
+|--|--|--|--|
+|Clé de création|Accédez aux données d’application et gérez-les avec des créations, des formations, des publications et des tests. Créez une clé de création LUIS si vous envisagez de créer des applications LUIS par programmation.<br><br>L’objectif de la clé de `LUIS.Authoring` est de vous permettre d’effectuer les opérations suivantes :<br>* gérer par programme les applications et les modèles Language Understanding, y compris la formation et la publication ;<br> * contrôler les autorisations d'accès à la ressource de création en attribuant le [rôle de contributeur](#contributions-from-other-authors) à des utilisateurs.|`LUIS.Authoring`|`Cognitive Services`|
+|Clé de prédiction de requête| Interrogez les requêtes de point de terminaison de prédiction. Créez une clé de prédiction LUIS avant que votre application cliente demande des prédictions au-delà des 1 000 requêtes fournies par la ressource Starter. |`LUIS`|`Cognitive Services`|
+|[Clé de ressource multi-service Cognitive Services](../cognitive-services-apis-create-account-cli.md?tabs=windows#create-a-cognitive-services-resource)|Requêtes de point de terminaison de prédiction de requête partagées avec LUIS et d’autres services Cognitive Services pris en charge.|`CognitiveServices`|`Cognitive Services`|
+|Starter|Création gratuite (sans contrôle d’accès en fonction du rôle) via le portail LUIS ou les API (y compris les kits SDK), 1 000 demandes de point de terminaison de prédiction gratuites par mois via un navigateur, une API ou des kits SDK|-|Pas une ressource Azure|
+
+À la fin du processus de création de ressource Azure, [affectez la clé](#assign-a-resource-to-an-app) à l’application dans le portail LUIS.
+
+Il est important de créer des applications LUIS dans les [régions](luis-reference-regions.md#publishing-regions) où vous souhaitez publier et interroger.
+
+## <a name="resource-ownership"></a>Propriété des ressources
+
+Une ressource Azure, telle qu’une ressource LUIS, appartient à l’abonnement qui contient la ressource.
+
+Pour transférer la propriété d’une ressource, vous pouvez :
+* Transférer la [propriété](../../cost-management-billing/manage/billing-subscription-transfer.md) de votre abonnement
+* Exporter l’application LUIS en tant que fichier, puis importez l’application sur un autre abonnement. L’exportation est disponible à partir de la page **Mes applications** dans le portail LUIS.
+
+
+## <a name="resource-limits"></a>Limites des ressources
+
+### <a name="authoring-key-creation-limits"></a>Limites de création de clés de création
+
+Vous pouvez générer jusqu'à 10 clés de création par région et par abonnement.
+
+Consultez [Limites de clés](luis-limits.md#key-limits) et [Régions Azure](luis-reference-regions.md).
+
+Les régions de publication sont différentes des régions de création. Veillez à créer une application dans la région de création qui correspond à la région de publication dans laquelle vous souhaitez que votre application cliente soit située.
+
+### <a name="key-usage-limit-errors"></a>Erreurs de limite d’utilisation de clé
+
+Les limites d’utilisation dépendent du niveau tarifaire.
+
+Si vous dépassez votre quota de transactions par seconde (TPS), vous recevez une erreur HTTP 429. Si vous dépassez votre quota de transactions par mois (TPM), vous recevez une erreur HTTP 403.
+
+
+### <a name="reset-authoring-key"></a>Réinitialiser la clé de création
+
+Pour les applications [migrées de ressource de création](luis-migration-authoring.md) : si votre clé de création est compromise, réinitialisez-la dans le portail Azure, dans la page **Clés** pour cette ressource de création.
+
+Pour les applications non encore migrées : la clé est réinitialisée sur toutes vos applications dans le portail LUIS. Si vous créez vos applications à l’aide des API de création, vous devez changer la valeur de Ocp-Apim-Subscription-Key en la définissant sur la nouvelle clé.
+
+### <a name="regenerate-azure-key"></a>Régénérer une clé Azure
+
+Régénérez les clés Azure à partir du portail Azure via la page **Clés**.
+
+
+<a name="securing-the-endpoint"></a>
+
+## <a name="app-ownership-access-and-security"></a>Propriété, accès et sécurité des applications
+
+Une application est définie par ses ressources Azure, qui sont elles-mêmes déterminées par l'abonnement du propriétaire.
+
+Vous pouvez déplacer votre application LUIS. Utilisez les ressources documentaires suivantes à partir du portail Azure ou de l'interface Azure CLI :
+
+* [Déplacer l'application entre des ressources de création LUIS](https://westus.dev.cognitive.microsoft.com/docs/services/5890b47c39e2bb17b84a55ff/operations/apps-move-app-to-another-luis-authoring-azure-resource)
+* [Déplacer des ressources vers un nouveau groupe de ressources ou un nouvel abonnement](../../azure-resource-manager/management/move-resource-group-and-subscription.md)
+* [Déplacer des ressources au sein d'un même abonnement ou entre des abonnements différents](../../azure-resource-manager/management/move-limitations/app-service-move-limitations.md)
+
+
+### <a name="contributions-from-other-authors"></a>Contributions d'autres auteurs
+
+Pour les applications [migrées de ressource de création](luis-migration-authoring.md) : les _contributeurs_ sont gérés dans le portail Azure pour la ressource de création, à l’aide de la page **Contrôle d’accès (IAM)** . Apprenez à [ajouter un utilisateur](luis-how-to-collaborate.md) à l'aide de l'adresse e-mail du collaborateur et du rôle de _contributeur_.
+
+Pour les applications qui n’ont pas encore été migrées : tous les _collaborateurs_ sont gérés dans le portail LUIS à partir de la page **Gérer -> Collaborateurs**.
+
+### <a name="query-prediction-access-for-private-and-public-apps"></a>Accès aux prédictions de requête pour les applications privées et publiques
+
+Pour une application **privée**, le runtime de prédiction de requête est accessible aux propriétaires et aux contributeurs. Pour une application **publique**, l'environnement d'exécution est accessible à tous les utilisateurs qui disposent de leur propre ressource d'exécution Azure [Cognitive Service](../cognitive-services-apis-create-account.md) ou [LUIS](#create-resources-in-the-azure-portal) et de l'ID de l'application publique.
+
+Aucun catalogue d'applications publiques n'est actuellement disponible.
+
+### <a name="authoring-permissions-and-access"></a>Autorisations et accès à la création
+L'accès à l'application à partir du portail [LUIS](luis-reference-regions.md#luis-website) ou des [API de création](https://go.microsoft.com/fwlink/?linkid=2092087) est contrôlé par la ressource de création Azure.
+
+Le propriétaire et tous les contributeurs disposent de l'accès requis pour créer l'application.
+
+|L’accès à la création inclut|Notes|
+|--|--|
+|Ajouter ou supprimer des clés de point de terminaison||
+|Exporter la version||
+|Exporter les journaux d’activité du point de terminaison||
+|Importer la version||
+|Rendre une application publique|Lorsqu’une application est publique, toute personne disposant d’une clé de création ou de point de terminaison peut interroger l’application.|
+|Modifier le modèle|
+|Publish|
+|Passez en revue les énoncés de point de terminaison pour un [apprentissage actif](luis-how-to-review-endpoint-utterances.md)|
+|Former|
+
+<a name="prediction-endpoint-runtime-key"></a>
+
+### <a name="prediction-endpoint-runtime-access"></a>Accès à l'environnement d'exécution du point de terminaison de prédiction
+
+L'accès permettant d'interroger le point de terminaison de prédiction est contrôlé par un paramètre de la page **Informations sur l'application** dans la section **Gérer**.
+
+|[Point de terminaison privé](#runtime-security-for-private-apps)|[Point de terminaison public](#runtime-security-for-public-apps)|
+|:--|:--|
+|Accessible au propriétaire et aux contributeurs|Accessible au propriétaire, aux contributeurs et à toute personne qui connaît l'ID de l'application|
+
+Vous pouvez contrôler qui voit votre clé d'exécution LUIS en l'appelant dans un environnement serveur à serveur. Si vous utilisez LUIS à partir d’un bot, la connexion entre le bot et LUIS est déjà sécurisée. Si vous appelez le point de terminaison LUIS directement, vous devez créer une API côté serveur (comme une [fonction](https://azure.microsoft.com/services/functions/) Azure) avec un accès contrôlé (comme [AAD](https://azure.microsoft.com/services/active-directory/)). Une fois l'API côté serveur appelée et authentifiée, et l'autorisation vérifiée, passez l'appel à LUIS. Bien que cette stratégie n’empêche pas les attaques de type interception (man-in-the-middle), elle masque votre clé et l’URL du point de terminaison à vos utilisateurs, vous permet d’effectuer un suivi de l’accès et vous permet d’ajouter la journalisation de la réponse du point de terminaison (comme [Application Insights](https://azure.microsoft.com/services/application-insights/)).
+
+### <a name="runtime-security-for-private-apps"></a>Sécurité d'exécution pour les applications privées
+
+L'environnement d'exécution d'une application privée est uniquement disponible pour :
+
+|Clé et utilisateur|Explication|
+|--|--|
+|Clé de création du propriétaire| Jusqu’à 1 000 accès au point de terminaison|
+|Clés de création collaborateur/contributeur| Jusqu’à 1 000 accès au point de terminaison|
+|N'importe quelle clé attribuée à LUIS par un auteur ou un collaborateur/contributeur|Dépend du niveau d’utilisation de la clé|
+
+### <a name="runtime-security-for-public-apps"></a>Sécurité d'exécution pour les applications publiques
+
+Une fois qu’une application est configurée comme étant publique, _toute_ clé de création LUIS valide ou clé de point de terminaison LUIS peut interroger votre application, tant que la clé n’a pas épuisé le quota de point de terminaison.
+
+Un utilisateur qui n'est pas propriétaire ou contributeur ne peut accéder à l'environnement d'exécution d'une application publique que s'il dispose de l'ID de l'application. LUIS ne dispose pas d’un _marché_ public, ni d’un autre moyen de rechercher une application publique.
+
+Une application publique est publiée dans toutes les régions. Ainsi, un utilisateur ayant une clé de ressource LUIS basée sur une région peut accéder à l’application dans toute région associée à la clé de ressource.
+
+
+### <a name="securing-the-query-prediction-endpoint"></a>Sécurisation du point de terminaison de prédiction de requête
+
+Vous pouvez déterminer qui peut voir votre clé d'exécution de point de terminaison de prédiction LUIS en l'appelant dans un environnement serveur à serveur. Si vous utilisez LUIS à partir d’un bot, la connexion entre le bot et LUIS est déjà sécurisée. Si vous appelez le point de terminaison LUIS directement, vous devez créer une API côté serveur (comme une [fonction](https://azure.microsoft.com/services/functions/) Azure) avec un accès contrôlé (comme [AAD](https://azure.microsoft.com/services/active-directory/)). Lorsque l’API côté serveur est appelée et que l’authentification et l’autorisation sont vérifiées, passez l’appel à LUIS. Bien que cette stratégie n’empêche pas les attaques de type interception (man-in-the-middle), elle masque votre point de terminaison à vos utilisateurs, vous permet d’effectuer le suivi de l’accès et vous permet d’ajouter la journalisation de la réponse du point de terminaison (comme [Application Insights](https://azure.microsoft.com/services/application-insights/)).
 
 <a name="starter-key"></a>
 
 ## <a name="sign-in-to-luis-portal-and-begin-authoring"></a>Se connecter au portail LUIS et commencer à créer
 
 1. Connectez-vous au [portail LUIS](https://www.luis.ai) et acceptez les conditions d’utilisation.
-1. Commencez votre application LUIS en choisissant le type de clé de création LUIS que vous souhaitez utiliser : clé d’essai gratuit ou nouvelle clé de création LUIS Azure.
+1. Commencez votre application LUIS en choisissant votre clé de création Azure LUIS.
 
-    ![Choisir un type de ressource de création Language Understanding](./media/luis-how-to-azure-subscription/sign-in-create-resource.png)
+   ![Choisir un type de ressource de création Language Understanding](./media/luis-how-to-azure-subscription/sign-in-create-resource.png)
 
 1. Une fois le processus de sélection des ressources terminé, [créez une application](luis-how-to-start-new-app.md#create-new-app-in-luis).
 
-## <a name="trial-key"></a>Clé d’essai
 
-La clé d’essai (démarrage) vous est fournie. Elle est utilisée comme clé d’authentification pour interroger le runtime de point de terminaison de prédiction, avec jusqu’à 1 000 requêtes par mois.
-
-Elle est visible à la fois dans la page **Paramètres utilisateur** et dans les pages **Gérer -> Ressources Azure** du portail .
-
-Lorsque vous êtes prêt à publier votre point de terminaison de prédiction, [créez](#create-luis-resources) et [attribuez](#assign-a-resource-to-an-app) les clés de création et de runtime de prédiction pour remplacer la fonctionnalité de clé de démarrage.
-
+<a name="create-azure-resources"></a>
 <a name="create-resources-in-the-azure-portal"></a>
 
+[!INCLUDE [Create LUIS resource in Azure portal](includes/create-luis-resource.md)]
 
-[!INCLUDE [Create LUIS resource](includes/create-luis-resource.md)]
-
-## <a name="create-resources-in-azure-cli"></a>Créer des ressources dans Azure CLI
+### <a name="create-resources-in-azure-cli"></a>Créer des ressources dans Azure CLI
 
 Utilisez [Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest) pour créer chaque ressource individuellement.
 
@@ -79,7 +198,9 @@ Ressource `kind` :
     > [!Note]
     > Ces clés ne sont **pas** utilisées par le portail LUIS tant qu’elles n’ont pas été attribuées dans le portail LUIS via le menu **Gérer -> Ressources Azure**.
 
-## <a name="assign-an-authoring-resource-in-the-luis-portal-for-all-apps"></a>Affecter une ressource de création dans le portail LUIS pour toutes les applications
+<a name="assign-an-authoring-resource-in-the-luis-portal-for-all-apps"></a>
+
+### <a name="assign-resource-in-the-luis-portal"></a>Affecter une ressource dans le portail LUIS
 
 Vous pouvez affecter une ressource de création pour une seule application ou pour toutes les applications dans LUIS. La procédure suivante affecte toutes les applications à une seule ressource de création.
 
@@ -89,7 +210,7 @@ Vous pouvez affecter une ressource de création pour une seule application ou po
 
 ## <a name="assign-a-resource-to-an-app"></a>Affecter une ressource à une application
 
-Vous pouvez affecter à une application une ressource unique, runtime de création ou de point de terminaison de prédiction, en procédant comme suit.
+Vous pouvez affecter une ressource à une application à l’aide de la procédure suivante.
 
 1. Connectez-vous au [portail LUIS](https://www.luis.ai), puis sélectionnez une application dans la liste **Mes applications**.
 1. Accédez à la page **Gérer -> Ressources Azure**.
@@ -99,7 +220,7 @@ Vous pouvez affecter à une application une ressource unique, runtime de créati
 1. Sélectionnez l’onglet de ressource Prédiction ou Création, puis le bouton **Ajouter une ressource de prédiction** ou **Ajouter une ressource de création**.
 1. Sélectionnez les champs dans le formulaire pour trouver la ressource correcte, puis sélectionnez **Enregistrer**.
 
-### <a name="assign-runtime-resource-without-using-luis-portal"></a>Affecter une ressource de runtime sans utiliser le portail LUIS
+### <a name="assign-query-prediction-runtime-resource-without-using-luis-portal"></a>Affecter une ressource de runtime de prédiction de requête sans utiliser le portail LUIS
 
 À des fins d’automation (par exemple pour le pipeline CI/CD), vous pouvez automatiser l’affectation d’une ressource de runtime LUIS à une application LUIS. Pour ce faire, vous devez suivre les étapes ci-dessous :
 
@@ -107,7 +228,7 @@ Vous pouvez affecter à une application une ressource unique, runtime de créati
 
     ![Demander un jeton Azure Resource Manager et recevoir un jeton Azure Resource Manager](./media/luis-manage-keys/get-arm-token.png)
 
-1. Utiliser le jeton pour demander les ressources de runtime LUIS dans les abonnements, à partir de l’[API d’obtention de comptes LUIS Azure](https://westus.dev.cognitive.microsoft.com/docs/services/5890b47c39e2bb17b84a55ff/operations/5be313cec181ae720aa2b26c), auxquels votre compte d’utilisateur a accès.
+1. Utiliser le jeton pour demander les ressources de runtime LUIS entre différents abonnements, à partir de l’[API d’obtention de comptes LUIS Azure](https://westus.dev.cognitive.microsoft.com/docs/services/5890b47c39e2bb17b84a55ff/operations/5be313cec181ae720aa2b26c), auxquelles votre compte d’utilisateur a accès.
 
     Cette API POST nécessite les paramètres suivants :
 
@@ -140,15 +261,6 @@ Vous pouvez affecter à une application une ressource unique, runtime de créati
 
 Lorsque vous annulez l’attribution d’une ressource, celle-ci n’est pas supprimée d’Azure. Elle n’est simplement plus liée à LUIS.
 
-## <a name="reset-authoring-key"></a>Réinitialiser la clé de création
-
-**Pour les applications [migrées de ressource de création](luis-migration-authoring.md)**  : si votre clé de création est compromise, réinitialisez-la dans le portail Azure via la page **Clés** pour cette ressource de création.
-
-**Pour les applications non encore migrées** : la clé est réinitialisée sur toutes vos applications dans le portail LUIS. Si vous créez vos applications à l’aide des API de création, vous devez changer la valeur de Ocp-Apim-Subscription-Key en la définissant sur la nouvelle clé.
-
-## <a name="regenerate-azure-key"></a>Régénérer une clé Azure
-
-Régénérez les clés Azure à partir du portail Azure via la page **Clés**.
 
 ## <a name="delete-account"></a>Supprimer le compte
 
@@ -192,6 +304,4 @@ Ajout d’une alerte de métrique pour le **nombre total d’appels** pendant un
 ## <a name="next-steps"></a>Étapes suivantes
 
 * Découvrez [comment utiliser des versions](luis-how-to-manage-versions.md) pour contrôler le cycle de vie de votre application.
-* Découvrez les concepts de [ressource de création](luis-concept-keys.md#authoring-key) et de [contributeurs](luis-concept-keys.md#contributions-from-other-authors).
-* Découvrez [comment créer](luis-how-to-azure-subscription.md) des ressources de création et de runtime.
 * Migrez vers la nouvelle [ressource de création](luis-migration-authoring.md).

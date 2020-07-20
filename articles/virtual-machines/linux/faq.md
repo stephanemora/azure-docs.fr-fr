@@ -7,12 +7,12 @@ ms.workload: infrastructure-services
 ms.topic: article
 ms.date: 05/08/2019
 ms.author: cynthn
-ms.openlocfilehash: 3c6a5e011a536cc9c34565d4f72a9bee6c6a5254
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 278e7a89385eba975f4409237727c925da66c08b
+ms.sourcegitcommit: 1e6c13dc1917f85983772812a3c62c265150d1e7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "78945163"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86169831"
 ---
 # <a name="frequently-asked-question-about-linux-virtual-machines"></a>Forum aux questions sur les machines virtuelles Linux
 Cet article traite certaines questions courantes concernant les machines virtuelles Linux créées dans Azure avec le modèle de déploiement Resource Manager. Pour la version Windows de cette rubrique, consultez les [Questions fréquences sur les machines virtuelles Windows](../windows/faq.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
@@ -73,7 +73,8 @@ Les noms d’utilisateur suivants ne sont pas autorisés :
 Il existe différentes exigences en termes de longueur du mot de passe, selon l’outil que vous utilisez :
  - Portail : entre 12 et 72 caractères
  - PowerShell : entre 8 et 123 caractères
- - Interface CLI : entre 12 et 123 caractères
+ - Interface CLI : entre 12 et 123 caractères
+ - Modèles Azure Resource Manager (ARM) : 12 à 72 caractères (les caractères de contrôle ne sont pas autorisés)
  
 
 Les mots de passe doivent également répondre à 3 des 4 exigences de complexité suivantes :

@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 05/20/2020
-ms.openlocfilehash: 0c9982fd4aa6459cdcbd715077f08092075a9776
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 05eb92e2fb887b5c64e2c73576fe85a4543ac1b7
+ms.sourcegitcommit: ec682dcc0a67eabe4bfe242fce4a7019f0a8c405
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84610064"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86184495"
 ---
 # <a name="customer-owned-storage-accounts-for-log-ingestion-in-azure-monitor"></a>Comptes de stockage appartenant au client pour l’ingestion des journaux dans Azure Monitor
 
@@ -40,7 +40,7 @@ Le compte de stockage doit remplir les conditions suivantes :
 
 - Accessible aux ressources de votre réseau virtuel qui écrivent des journaux dans le stockage.
 - Doit se trouver dans la même région que l’espace de travail auquel il est lié.
-- A explicitement autorisé Log Analytics à lire les journaux à partir du compte de stockage en sélectionnant *Autoriser les services MS approuvés à accéder à ce compte de stockage*.
+- Autoriser l’accès Azure Monitor - Si vous choisissez de limiter l’accès à votre compte de stockage pour sélectionner des réseaux, veillez à autoriser cette exception : *Autoriser les services Microsoft approuvés à accéder à ce compte de stockage*.
 
 ## <a name="process-to-configure-customer-owned-storage"></a>Processus de configuration du stockage appartenant au client
 Le processus de base pour utiliser votre propre compte de stockage pour l’ingestion est le suivant :
@@ -51,7 +51,12 @@ Le processus de base pour utiliser votre propre compte de stockage pour l’inge
 
 La seule méthode disponible pour créer et supprimer des liaisons consiste à utiliser l’API REST. Des détails sur la requête d’API spécifique requise pour chaque processus sont fournis dans les sections ci-dessous.
 
-## <a name="api-request-values"></a>Valeurs de requête d’API
+## <a name="command-line-and-rest-api"></a>Ligne de commande et API REST
+
+### <a name="command-line"></a>Ligne de commande
+Pour créer et gérer des comptes de stockage liés, utilisez [az monitor log-analytics workspace linked-storage](https://docs.microsoft.com/cli/azure/monitor/log-analytics/workspace/linked-storage). Cette commande permet de lier et de dissocier les comptes de stockage d’un espace de travail et de répertorier les comptes de stockage liés.
+
+### <a name="request-and-cli-values"></a>Valeurs de la requête et de l’interface CLI
 
 #### <a name="datasourcetype"></a>dataSourceType 
 
@@ -73,37 +78,7 @@ subscriptions/{subscriptionId}/resourcesGroups/{resourceGroupName}/providers/Mic
 ```
 
 
-
-## <a name="get-current-links"></a>Obtenir les liaisons actuelles
-
-### <a name="get-linked-storage-accounts-for-a-specific-data-source-type"></a>Obtenir les comptes de stockage liés pour un type spécifique de source de données
-
-#### <a name="api-request"></a>Requête d’API
-
-```
-GET https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.OperationalInsights/workspaces/{workspaceName}/linkedStorageAccounts/{dataSourceType}?api-version=2019-08-01-preview  
-```
-
-#### <a name="response"></a>response 
-
-```json
-{
-    "properties":
-    {
-        "dataSourceType": "CustomLogs",
-        "storageAccountIds  ": 
-        [  
-            "<storage_account_resource_id_1>",
-            "<storage_account_resource_id_2>"
-        ],
-    },
-    "id":"/subscriptions/{subscriptionId}/resourceGroups/{resourceGroup}/providers/microsoft. operationalinsights/workspaces/{resourceName}/linkedStorageAccounts/CustomLogs",
-    "name": "CustomLogs",
-    "type": "Microsoft.OperationalInsights/workspaces/linkedStorageAccounts"
-}
-```
-
-### <a name="get-all-linked-storage-accounts"></a>Obtenir tous les comptes de stockage liés
+### <a name="get-linked-storage-accounts-for-all-data-source-types"></a>Obtenir les comptes de stockage liés pour tous les types de source de données
 
 #### <a name="api-request"></a>Requête d’API
 
@@ -145,6 +120,34 @@ GET https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{
             "type": "Microsoft.OperationalInsights/workspaces/linkedStorageAccounts"
         }
     ]
+}
+```
+
+
+### <a name="get-linked-storage-accounts-for-a-specific-data-source-type"></a>Obtenir les comptes de stockage liés pour un type spécifique de source de données
+
+#### <a name="api-request"></a>Requête d’API
+
+```
+GET https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.OperationalInsights/workspaces/{workspaceName}/linkedStorageAccounts/{dataSourceType}?api-version=2019-08-01-preview  
+```
+
+#### <a name="response"></a>response 
+
+```json
+{
+    "properties":
+    {
+        "dataSourceType": "CustomLogs",
+        "storageAccountIds  ": 
+        [  
+            "<storage_account_resource_id_1>",
+            "<storage_account_resource_id_2>"
+        ],
+    },
+    "id":"/subscriptions/{subscriptionId}/resourceGroups/{resourceGroup}/providers/microsoft. operationalinsights/workspaces/{resourceName}/linkedStorageAccounts/CustomLogs",
+    "name": "CustomLogs",
+    "type": "Microsoft.OperationalInsights/workspaces/linkedStorageAccounts"
 }
 ```
 

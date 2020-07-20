@@ -1,7 +1,7 @@
 ---
 title: Objets BLOB d’index contenant plusieurs documents
 titleSuffix: Azure Cognitive Search
-description: Analysez les objets BLOB Azure pour le contenu de texte à l’aide de l’indexeur d’objets BLOB de recherche Azure cognitive, où chaque objet BLOB peut générer un ou plusieurs documents d’index de recherche.
+description: Analysez les objets blob Azure à la recherche de contenu de texte à l’aide de l’indexeur d’objets blob de Recherche cognitive Azure, où chaque objet blob peut générer un ou plusieurs documents d’index de recherche.
 manager: nitinme
 author: arv100kri
 ms.author: arjagann
@@ -9,12 +9,12 @@ ms.devlang: rest-api
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 11/04/2019
-ms.openlocfilehash: 1840bda0ecc9462a5d8f796b616d728d0bb412f7
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 1f93ae8a017c889f6c465b3ccbbb66382577e871
+ms.sourcegitcommit: 5cace04239f5efef4c1eed78144191a8b7d7fee8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "74112267"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86146791"
 ---
 # <a name="indexing-blobs-to-produce-multiple-search-documents"></a>Indexation d’objets blob pour produire plusieurs documents de recherche
 Par défaut, un indexeur d’objets blob traite le contenu d’un objet blob comme un document de recherche unique. Certaines valeurs **parsingMode** prennent en charge les scénarios où un objet blob individuel peut entraîner plusieurs documents de recherche. Les différents types de **parsingMode** qui permettent à un indexeur d’extraire plusieurs documents de recherche à partir d’un objet blob sont les suivants :
@@ -42,21 +42,27 @@ Et que votre conteneur d’objets blob a des objets blob avec la structure suiva
 
 _Blob1.json_
 
+```json
     { "temperature": 100, "pressure": 100, "timestamp": "2019-02-13T00:00:00Z" }
     { "temperature" : 33, "pressure" : 30, "timestamp": "2019-02-14T00:00:00Z" }
+```
 
 _Blob2.json_
 
+```json
     { "temperature": 1, "pressure": 1, "timestamp": "2018-01-12T00:00:00Z" }
     { "temperature" : 120, "pressure" : 3, "timestamp": "2013-05-11T00:00:00Z" }
+```
 
 Lorsque vous créez un indexeur et définissez **parsingMode** sur `jsonLines` (sans spécifier de mappage explicite pour le champ de clé), le mappage suivant est implicitement appliqué.
-    
+
+```http
     {
         "sourceFieldName" : "AzureSearch_DocumentKey",
         "targetFieldName": "id",
         "mappingFunction": { "name" : "base64Encode" }
     }
+```
 
 Cette configuration produit un index de Recherche cognitive Azure contenant les informations suivantes (ID codé en base64 raccourci par souci de concision)
 
@@ -73,22 +79,28 @@ En prenant la même définition d’index que l’exemple précédent, supposons
 
 _Blob1.json_
 
+```json
     recordid, temperature, pressure, timestamp
     1, 100, 100,"2019-02-13T00:00:00Z" 
     2, 33, 30,"2019-02-14T00:00:00Z" 
+```
 
 _Blob2.json_
 
+```json
     recordid, temperature, pressure, timestamp
     1, 1, 1,"2018-01-12T00:00:00Z" 
     2, 120, 3,"2013-05-11T00:00:00Z" 
+```
 
 Quand vous créez un indexeur avec `delimitedText` **parsingMode**, il peut sembler naturel de configurer une fonction de mappage pour le champ de clé comme suit :
 
+```http
     {
         "sourceFieldName" : "recordid",
         "targetFieldName": "id"
     }
+```
 
 Toutefois, ce mappage ne permet _pas_ d’afficher 4 documents dans l’index, car le champ `recordid` n’est pas unique _parmi les objets blob_. Par conséquent, nous vous recommandons d’utiliser le mappage de champs implicite appliqué à partir de la propriété `AzureSearch_DocumentKey` pour le champ d’index de clé avec les modes d’analyse « un-à-plusieurs ».
 

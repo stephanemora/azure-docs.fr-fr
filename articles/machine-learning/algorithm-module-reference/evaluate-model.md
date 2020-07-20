@@ -8,13 +8,13 @@ ms.subservice: core
 ms.topic: reference
 author: likebupt
 ms.author: keli19
-ms.date: 04/24/2020
-ms.openlocfilehash: e522291bdf1982ff65a62f028107b15b3249898c
-ms.sourcegitcommit: 1f25aa993c38b37472cf8a0359bc6f0bf97b6784
+ms.date: 07/08/2020
+ms.openlocfilehash: fe0d3819701e062fa2253bc6dd0c3a28eaeaadfb
+ms.sourcegitcommit: 1e6c13dc1917f85983772812a3c62c265150d1e7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/26/2020
-ms.locfileid: "83847410"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86171111"
 ---
 # <a name="evaluate-model-module"></a>Module Évaluer le modèle
 
@@ -35,10 +35,10 @@ Utilisez ce module pour mesurer la précision d’un modèle formé. Vous fourni
 
 ## <a name="how-to-use-evaluate-model"></a>Comment utiliser le modèle Evaluate
 1. Connectez la sortie du **Jeu de données noté** du module [Noter un modèle](./score-model.md) ou la sortie du Jeu de données de résultats du module [Attribuer des données à des clusters](./assign-data-to-clusters.md) au port d’entrée de gauche du module **Évaluer le modèle**. 
-  > [!NOTE] 
-  > Si vous utilisez des modules tels que « Sélectionner des colonnes dans le jeu de données » pour sélectionner une partie du jeu de données d’entrée, vérifiez que la colonne « Étiquette réelle » (utilisée dans l’apprentissage), la colonne « Probabilités notées » et la colonne « Étiquettes notées » existent pour calculer les métriques telles que l’AUC, la précision pour la classification binaire et la détection des anomalies.
-  > Les colonnes « Étiquette réelle » et « Étiquettes notées » existent pour calculer les métriques pour la classification/régression multiclasse.
-  > Les colonnes « Attributions », « DistancesToClusterCenter no.X » (X est l’index des centroïdes, qui est compris entre 0, ..., le nombre de centroïdes-1) existent pour calculer les métriques de clustering.
+    > [!NOTE] 
+    > Si vous utilisez des modules tels que « Sélectionner des colonnes dans le jeu de données » pour sélectionner une partie du jeu de données d’entrée, vérifiez que la colonne « Étiquette réelle » (utilisée dans l’apprentissage), la colonne « Probabilités notées » et la colonne « Étiquettes notées » existent pour calculer les métriques telles que l’AUC, la précision pour la classification binaire et la détection des anomalies.
+    > Les colonnes « Étiquette réelle » et « Étiquettes notées » existent pour calculer les métriques pour la classification/régression multiclasse.
+    > Les colonnes « Attributions », « DistancesToClusterCenter no.X » (X est l’index des centroïdes, qui est compris entre 0, ..., le nombre de centroïdes-1) existent pour calculer les métriques de clustering.
 
 2. [Facultatif] Connectez la sortie du **Jeu de données noté** du module [Noter un modèle](./score-model.md) ou la sortie du Jeu de données de résultats du module Attribuer des données à des clusters au port d’entrée du second modèle de **droite** du module **Évaluer le modèle**. Vous pouvez facilement comparer les résultats de deux modèles différents sur les mêmes données. Les deux algorithmes d'entrée doivent être du même type. Vous pouvez également comparer les scores de deux exécutions différentes sur les mêmes données avec des paramètres différents.
 
@@ -49,7 +49,12 @@ Utilisez ce module pour mesurer la précision d’un modèle formé. Vous fourni
 
 ## <a name="results"></a>Résultats
 
-Après avoir exécuté **Évaluer le modèle**, sélectionnez le module pour ouvrir le volet de navigation **Évaluer le modèle** à droite.  Ensuite, choisissez l’onglet **Sorties + journaux**, puis, sous cet onglet, la section **Sorties de données** comporte plusieurs icônes.   L’icône **Visualiser** contient une icône de graphique à barres et est une première façon de voir les résultats.
+Après avoir exécuté **Évaluer le modèle**, sélectionnez le module pour ouvrir le volet de navigation **Évaluer le modèle** à droite.  Ensuite, choisissez l’onglet **Sorties + journaux**, puis, sous cet onglet, la section **Sorties de données** comporte plusieurs icônes. L’icône **Visualiser** contient une icône de graphique à barres et est une première façon de voir les résultats.
+
+Pour la classification binaire, après avoir cliqué sur l’icône **Visualiser**, vous pouvez visualiser la matrice de confusion binaire.
+Pour la multiclassification, vous trouverez le fichier de tracé de la matrice de confusion sous l’onglet **Sorties + journaux** comme suit :
+> [!div class="mx-imgBorder"]
+> ![Aperçu de l’image chargée](media/module/multi-class-confusion-matrix.png)
 
 Si vous connectez des jeux de données aux deux entrées du module **Évaluer le modèle**, les résultats contiennent des métriques pour les deux jeux de données ou les deux modèles.
 Le modèle ou les données associés au port de gauche apparaissent en premier dans le rapport, suivis des métriques pour le jeu de données ou le modèle associé au port de droite.  
@@ -70,7 +75,8 @@ Cette section décrit les métriques retournées pour les types spécifiques de 
 
 ### <a name="metrics-for-classification-models"></a>Métriques pour les modèles de classification
 
-Les métriques suivantes sont rapportées lors de l’évaluation de modèles de classification.
+
+Les métriques suivantes sont rapportées lors de l’évaluation de modèles de classification binaire.
   
 -   L’**exactitude** mesure l’adéquation d’un modèle de classification sous forme de proportion de résultats réels sur le nombre total de cas.  
   
@@ -78,13 +84,10 @@ Les métriques suivantes sont rapportées lors de l’évaluation de modèles de
   
 -   Le **rappel** correspond à la fraction de tous les résultats corrects retournés par le modèle.  
   
--   Le **score F** est calculé comme étant la moyenne pondérée de précision et de rappel comprise entre 0 et 1, où la valeur de score F idéale est 1.  
+-   Le **score F1** est calculé comme la moyenne pondérée de précision et de rappel comprise entre 0 et 1, la valeur de score F1 idéale étant 1.  
   
 -   **AUC** mesure la zone sous la courbe tracée avec les vrais positifs sur l’axe y et les faux positifs sur l’axe x. Cette métrique est utile car elle fournit un nombre unique qui vous permet de comparer les modèles de types différents.  
-  
-- La **perte de journaux moyenne** est un score unique utilisé pour exprimer la pénalité des résultats incorrects. Elle est calculée comme étant la différence entre deux distributions de probabilité : la réelle et celle du modèle.  
-  
-- La **perte de journaux d’apprentissage** est un score unique qui représente l’avantage du classifieur sur une prédiction aléatoire. La perte de journaux mesure l’incertitude de votre modèle en comparant les probabilités qu’il génère avec les valeurs connues (terrestre exacte) dans les étiquettes. Vous souhaitez minimiser la perte de journaux pour l’ensemble du modèle.
+
 
 ### <a name="metrics-for-regression-models"></a>Métriques pour les modèles de régression
  
@@ -122,7 +125,7 @@ Les mesures suivantes sont rapportées lors de l’évaluation de modèles de cl
   
      Si le nombre de points de données attribués aux clusters est inférieur au nombre total de points de données disponibles, cela signifie que les points de données n’ont pas pu être attribués à un cluster.  
   
--   Les scores de la colonne **Maximal Distance to Cluster Center** (Distance maximale au centre du cluster) représentent la somme des distances entre chaque point et le centroïde du cluster de ce point.  
+-   Les scores de la colonne **Maximal Distance to Cluster Center** (Distance maximale au centre du cluster) représentent le maximum des distances entre chaque point et le centroïde du cluster de ce point.  
   
      Si ce nombre est élevé, cela peut signifier que le cluster est très dispersé. Vous devez examiner cette statistique en même temps que la **distance moyenne au centre du cluster** pour déterminer la répartition du cluster.   
 

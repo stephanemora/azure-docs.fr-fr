@@ -11,12 +11,12 @@ ms.reviewer: sawinark
 manager: mflasko
 ms.custom: seo-lt-2019
 ms.date: 07/08/2019
-ms.openlocfilehash: e928a6b54e53f9076ffe184ed4868e7741661d7e
-ms.sourcegitcommit: 6a9f01bbef4b442d474747773b2ae6ce7c428c1f
+ms.openlocfilehash: b2c1d08656ce9ef6b76e34a943f133859b78345a
+ms.sourcegitcommit: 1e6c13dc1917f85983772812a3c62c265150d1e7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "84118830"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86172024"
 ---
 # <a name="troubleshoot-ssis-integration-runtime-management-in-azure-data-factory"></a>Résoudre les problèmes de gestion du runtime d’intégration SSIS dans Azure Data Factory
 
@@ -115,7 +115,7 @@ Cette erreur signifie que la tentative de chargement des journaux d’exécution
 ## <a name="virtual-network-configuration"></a>Configuration du réseau virtuel
 
 Quand vous joignez le runtime d’intégration SSIS au réseau virtuel Azure, le runtime d’intégration SSIS utilise le réseau virtuel qui se trouve sous l’abonnement utilisateur. Pour plus d’informations, consultez [Joindre un runtime d’intégration Azure-SSIS à un réseau virtuel](https://docs.microsoft.com/azure/data-factory/join-azure-ssis-integration-runtime-virtual-network).
-
+Après le démarrage réussi du runtime d’intégration SSIS, si vous rencontrez des problèmes de connexion réseau, vous pouvez essayer d’utiliser [l’outil de diagnostic de connectivité](ssis-integration-runtime-diagnose-connectivity-faq.md) pour diagnostiquer le problème vous-même.
 En cas de problème lié au réseau virtuel, une des erreurs suivantes s’affiche.
 
 ### <a name="invalidvnetconfiguration"></a>InvalidVnetConfiguration

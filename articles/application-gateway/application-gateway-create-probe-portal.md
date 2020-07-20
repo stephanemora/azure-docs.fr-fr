@@ -6,14 +6,14 @@ services: application-gateway
 author: vhorne
 ms.service: application-gateway
 ms.topic: how-to
-ms.date: 11/14/2019
+ms.date: 07/09/2020
 ms.author: victorh
-ms.openlocfilehash: bc599eef349c2d65483de18b0cc8c04c5c2e53ad
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 5dc8bf670e14d8a44b10b8093d786091791ae793
+ms.sourcegitcommit: ec682dcc0a67eabe4bfe242fce4a7019f0a8c405
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84808217"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86186783"
 ---
 # <a name="create-a-custom-probe-for-application-gateway-by-using-the-portal"></a>Créer une sonde personnalisée pour Application Gateway à l’aide du portail
 
@@ -48,17 +48,19 @@ Les sondes sont configurées via un processus en deux étapes sur le portail. La
    |---|---|---|
    |**Nom**|customProbe|Cette valeur est le nom convivial donné à la sonde accessible par le biais du portail.|
    |**Protocole**|HTTP ou HTTPS | Protocole utilisé par la sonde d’intégrité. |
-   |**Hôte**|Par exemple, contoso.com|Cette valeur est le nom de l’hôte virtuel (différent du nom d’hôte de machine virtuelle) en cours d’exécution sur le serveur d’application. La sonde est envoyée à (protocole)://(nom d’hôte):(port de httpsetting)/urlPath.  Cela s’applique lorsque plusieurs sites sont configurés sur Application Gateway. Si Application Gateway est configurée pour un seul site, entrez « 127.0.0.1 ».|
-   |**Choisir un nom d'hôte à partir de paramètres HTTP back-end**|Oui ou Non|Définit l’en-tête *hôte* dans la sonde sur le nom d’hôte de la ressource back-end dans le pool back-end associé au paramètre HTTP auquel cette sonde est liée. Spécialement requis en cas de serveurs back-end multilocataire, comme Azure App Service. [En savoir plus](https://docs.microsoft.com/azure/application-gateway/configuration-overview#pick-host-name-from-back-end-address)|
-   |**Chemin d’accès**|/ ou un autre chemin|Reste de l’URL complète de la sonde personnalisée. Un chemin valide commence par « / ». Pour le chemin par défaut de http:\//contoso.com, utilisez simplement « / » |
+   |**Hôte**|Par exemple, contoso.com|Cette valeur est le nom de l’hôte virtuel (différent du nom d’hôte de machine virtuelle) en cours d’exécution sur le serveur d’application. La sonde est envoyée à \<protocol\>://\<host name\>:\<port\>/\<urlPath\>|
+   |**Choisir un nom d'hôte à partir de paramètres HTTP back-end**|Oui ou Non|Définit l’en-tête *host* dans la sonde sur le nom d’hôte indiqué dans les paramètres HTTP auxquels cette sonde est associée. Spécialement requis en cas de serveurs back-end multilocataire, comme Azure App Service. [En savoir plus](https://docs.microsoft.com/azure/application-gateway/configuration-overview#pick-host-name-from-back-end-address)|
+   |**Choisir un port à partir de paramètres HTTP back-end**| Oui ou Non|Définit le *port* de la sonde d’intégrité sur le port indiqué dans les paramètres HTTP auxquels cette sonde est associée. Si vous choisissez Non, vous pouvez entrer un port de destination personnalisé à utiliser |
+   |**Port**| 1-65535 | Port personnalisé à utiliser pour les sondes d’intégrité | 
+   |**Chemin d’accès**|/ ou n’importe quel chemin valide|Reste de l’URL complète de la sonde personnalisée. Un chemin valide commence par « / ». Pour le chemin par défaut de http:\//contoso.com, utilisez simplement « / » |
    |**Intervalle (secondes)**|30|Fréquence d’exécution de la sonde pour le contrôle d’intégrité. Il n’est pas recommandé de définir la valeur sur moins de 30 secondes.|
    |**Délai d’expiration (secondes)**|30|Intervalle de temps précédant l’expiration de la sonde. Si aucune réponse valide n’est reçue dans le délai imparti, la sonde est marquée comme étant en échec. L’intervalle de délai d’attente doit être suffisamment élevé pour qu’un appel HTTP puisse être envoyé afin de garantir que la page d’intégrité backend est disponible. Notez que la valeur du délai d’attente ne doit pas être supérieure à la valeur « Intervalle » utilisée dans ce paramètre de sonde ou la valeur « Délai d’attente de la demande » dans le paramètre HTTP qui sera associé à cette sonde.|
-|**Seuil de défaillance sur le plan de l’intégrité**|3|Nombre d’échecs consécutifs nécessaires pour marquer l’instance comme étant défaillante. Le seuil peut être défini sur 1 ou plus.|
+   |**Seuil de défaillance sur le plan de l’intégrité**|3|Nombre d’échecs consécutifs nécessaires pour marquer l’instance comme étant défaillante. Le seuil peut être défini sur 1 ou plus.|
    |**Utiliser des conditions de correspondance de sonde**|Oui ou Non|Par défaut, une réponse HTTP(S) avec un code d’état compris entre 200 et 399 est considérée comme intègre. Vous pouvez modifier la plage acceptable du code de réponse back-end ou du corps de la réponse back-end. [En savoir plus](https://docs.microsoft.com/azure/application-gateway/application-gateway-probe-overview#probe-matching)|
    |**Paramètres HTTP**|sélection dans une liste déroulante|La sonde est associée au(x) paramètre(s) HTTP sélectionné(s) ici et, par conséquent, surveille l’intégrité de ce pool back-end qui est associé au paramètre HTTP sélectionné. Le port utilisé pour la requête de la sonde est le même que celui utilisé dans le paramètre HTTP sélectionné. Vous ne pouvez choisir que le ou les paramètres HTTP qui ne sont associés à aucune autre sonde personnalisée. <br>Notez que seuls les paramètres HTTP qui ont le même protocole que celui choisi dans cette configuration de sonde et qui ont le même état pour le commutateur *Choisir un nom d’hôte à partir du paramètre HTTP back-end* sont disponibles pour l’association.|
    
    > [!IMPORTANT]
-   > La sonde surveille l’intégrité du back-end uniquement lorsqu’elle est associée à un ou plusieurs paramètres HTTP. Elle surveille les ressources back-end de ces pools back-end qui sont associés aux paramètres HTTP auxquels cette sonde est liée. La requête de la sonde est envoyée à http://(nom d’hôte):(port de httpsetting)/urlPath.
+   > La sonde surveille l’intégrité du back-end uniquement lorsqu’elle est associée à un ou plusieurs paramètres HTTP. Elle surveille les ressources back-end de ces pools back-end qui sont associés aux paramètres HTTP auxquels cette sonde est liée. La requête de sonde sera envoyée sous la forme \<protocol\>://\<hostName\>:\<port\>/\<urlPath\>.
 
 ### <a name="test-backend-health-with-the-probe"></a>Tester l’intégrité du back-end avec la sonde
 
@@ -71,7 +73,7 @@ Après avoir entré les propriétés de la sonde, vous pouvez tester l’intégr
 2. S’il existe des ressources back-end non intègres, vérifiez la colonne **Détails** pour comprendre la raison de l’état non intègre de la ressource. Si la ressource a été marquée comme non intègre en raison d’une configuration de sonde incorrecte, sélectionnez le lien **Revenir à la sonde** et modifiez la configuration de la sonde. Sinon, si la ressource a été marquée comme non intègre en raison d’un problème avec le back-end, résolvez les problèmes avec la ressource back-end, puis testez de nouveau le back-end en sélectionnant le lien **Revenir à la sonde** et **Tester**.
 
    > [!NOTE]
-   > Vous pouvez choisir d’enregistrer la sonde même avec des ressources back-end non intègres, mais cela n’est pas recommandé. Cela est dû au fait qu’Application Gateway supprime les ressources back-end qui sont considérées comme non intègres par la sonde du pool back-end. Dans le cas où il n’y a pas de ressources intègres dans un pool back-end, vous ne pourrez pas accéder à votre application et obtiendrez une erreur 502.
+   > Vous pouvez choisir d’enregistrer la sonde même avec des ressources back-end non intègres, mais cela n’est pas recommandé. Cela est dû au fait qu’Application Gateway ne transfère pas les requêtes aux serveurs back-end du pool de back-ends qui sont considérés comme non sains par la sonde. Dans le cas où il n’y a pas de ressources saines dans un pool de back-ends, vous ne pouvez pas accéder à votre application et vous obtenez une erreur HTTP 502.
 
    ![Afficher le résultat de la sonde][6]
 
@@ -99,14 +101,14 @@ Les sondes sont configurées via un processus en deux étapes sur le portail. La
    |**Protocole**|HTTP ou HTTPS | Protocole utilisé par la sonde d’intégrité. |
    |**Hôte**|Par exemple, contoso.com|Cette valeur est le nom de l’hôte virtuel (différent du nom d’hôte de machine virtuelle) en cours d’exécution sur le serveur d’application. La sonde est envoyée à (protocole)://(nom d’hôte):(port de httpsetting)/urlPath.  Cela s’applique lorsque plusieurs sites sont configurés sur Application Gateway. Si Application Gateway est configurée pour un seul site, entrez « 127.0.0.1 ».|
    |**Choisir un nom d'hôte à partir de paramètres HTTP back-end**|Oui ou Non|Définit l’en-tête *hôte* dans la sonde sur le nom d’hôte de la ressource back-end dans le pool back-end associé au paramètre HTTP auquel cette sonde est liée. Spécialement requis en cas de serveurs back-end multilocataire, comme Azure App Service. [En savoir plus](https://docs.microsoft.com/azure/application-gateway/configuration-overview#pick-host-name-from-back-end-address)|
-   |**Chemin d’accès**|/ ou un autre chemin|Reste de l’URL complète de la sonde personnalisée. Un chemin valide commence par « / ». Pour le chemin par défaut de http:\//contoso.com, utilisez simplement « / » |
+   |**Chemin d’accès**|/ ou n’importe quel chemin valide|Reste de l’URL complète de la sonde personnalisée. Un chemin valide commence par « / ». Pour le chemin par défaut de http:\//contoso.com, utilisez simplement « / » |
    |**Intervalle (secondes)**|30|Fréquence d’exécution de la sonde pour le contrôle d’intégrité. Il n’est pas recommandé de définir la valeur sur moins de 30 secondes.|
    |**Délai d’expiration (secondes)**|30|Intervalle de temps précédant l’expiration de la sonde. Si aucune réponse valide n’est reçue dans le délai imparti, la sonde est marquée comme étant en échec. L’intervalle de délai d’attente doit être suffisamment élevé pour qu’un appel HTTP puisse être envoyé afin de garantir que la page d’intégrité backend est disponible. Notez que la valeur du délai d’attente ne doit pas être supérieure à la valeur « Intervalle » utilisée dans ce paramètre de sonde ou la valeur « Délai d’attente de la demande » dans le paramètre HTTP qui sera associé à cette sonde.|
-|**Seuil de défaillance sur le plan de l’intégrité**|3|Nombre d’échecs consécutifs nécessaires pour marquer l’instance comme étant défaillante. Le seuil peut être défini sur 1 ou plus.|
+   |**Seuil de défaillance sur le plan de l’intégrité**|3|Nombre d’échecs consécutifs nécessaires pour marquer l’instance comme étant défaillante. Le seuil peut être défini sur 1 ou plus.|
    |**Utiliser des conditions de correspondance de sonde**|Oui ou Non|Par défaut, une réponse HTTP(S) avec un code d’état compris entre 200 et 399 est considérée comme intègre. Vous pouvez modifier la plage acceptable du code de réponse back-end ou du corps de la réponse back-end. [En savoir plus](https://docs.microsoft.com/azure/application-gateway/application-gateway-probe-overview#probe-matching)|
 
    > [!IMPORTANT]
-   > Le nom d’hôte n’est pas identique au nom du serveur. Cette valeur est le nom de l’hôte virtuel en cours d’exécution sur le serveur d’application. La sonde est envoyée à http://(nom d’hôte):(port des paramètres http)/urlPath
+   > Le nom d’hôte n’est pas identique au nom du serveur. Cette valeur est le nom de l’hôte virtuel en cours d’exécution sur le serveur d’application. La sonde est envoyée à \<protocol\>://\<hostName\>:\<port from http settings\>/\<urlPath\>
 
 ### <a name="add-probe-to-the-gateway"></a>Ajouter une sonde à la passerelle
 

@@ -3,12 +3,12 @@ title: Supervision de Kubernetes avec Azure Monitor pour conteneurs | Microsoft 
 description: Cet article décrit comment voir et analyser les performances d’un cluster Kubernetes avec Azure Monitor pour conteneurs.
 ms.topic: conceptual
 ms.date: 03/26/2020
-ms.openlocfilehash: 17efb89e36429f9658759a0ed90d4e7b785fe4b7
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: d8b298208794e4ba562a608f22f4d0a539b81b47
+ms.sourcegitcommit: 1e6c13dc1917f85983772812a3c62c265150d1e7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85340906"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86166635"
 ---
 # <a name="monitor-your-kubernetes-cluster-performance-with-azure-monitor-for-containers"></a>Superviser les performances de votre cluster Kubernetes avec Azure Monitor pour conteneurs
 
@@ -66,7 +66,7 @@ L’état d’intégrité calcule l’état global des clusters en fonction du *
 
 Le tableau suivant fournit une répartition du calcul pour le contrôle des états d’intégrité pour un cluster surveillé sur la vue multicluster.
 
-| |Statut |Disponibilité |
+| Cluster supervisé |Statut |Disponibilité |
 |-------|-------|-----------------|
 |**Pod utilisateur**| | |
 | |Healthy |100 % |

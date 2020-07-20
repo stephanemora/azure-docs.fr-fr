@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 05/27/2020
 ms.author: memildin
-ms.openlocfilehash: 22f66a7be27f42bfd0305ad1eaf297ca8c8029fa
-ms.sourcegitcommit: fc718cc1078594819e8ed640b6ee4bef39e91f7f
+ms.openlocfilehash: 060db99cf0163876b68eeee2cff8ef2d03e2b5b9
+ms.sourcegitcommit: ec682dcc0a67eabe4bfe242fce4a7019f0a8c405
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "83996752"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86187011"
 ---
 # <a name="feature-coverage-for-machines"></a>Couverture des fonctionnalités pour les machines
 
@@ -41,7 +41,6 @@ Les tableaux ci-dessous présentent les fonctionnalités Azure Security Center d
 |[Contrôles d’application adaptative](security-center-adaptive-application.md)|✔|-|✔|Standard|
 |[Mappage réseau](security-center-network-recommendations.md#network-map)|✔|✔|-|Standard|
 |[Durcissement réseau adaptatif](security-center-adaptive-network-hardening.md)|✔|-|-|Standard|
-|Contrôles réseau adaptatifs|✔|✔|-|Standard|
 |[Tableau de bord et rapports de conformité à la réglementation](security-center-compliance-dashboard.md)|✔|✔|✔|Standard|
 |Recommandations et protection contre les menaces sur les conteneurs IaaS hébergés dans Docker|-|-|-|Standard|
 |Évaluation des correctifs de système d’exploitation manquants|✔|✔|✔|Gratuit|
@@ -106,7 +105,7 @@ Pour plus d’informations sur le moment où les recommandations sont générée
  **\*** L’état de couverture et les données de prise en charge sont actuellement disponibles uniquement dans l’espace de travail Log Analytics associé à vos abonnements protégés. Il n’est pas reflété dans le portail Azure Security Center.
 
 > [!NOTE]
-> La détection de System Center Endpoint Protection (SCEP) sur une machine virtuelle Windows Server 2008 R2 requiert l’installation de SCEP après celle de PowerShell 3.0 (ou d’une version ultérieure).
+> La détection de System Center Endpoint Protection (SCEP) sur une machine virtuelle Windows Server 2008 R2 nécessite l’installation de SCEP après celle de PowerShell (v3.0 ou ultérieure).
 
 
 ## <a name="next-steps"></a>Étapes suivantes

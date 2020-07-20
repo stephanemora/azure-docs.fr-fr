@@ -11,19 +11,19 @@ ms.topic: conceptual
 ms.date: 07/17/2019
 ms.author: scottwhi
 ms.custom: seodec2018
-ms.openlocfilehash: 5d1b0b19523eb37aa83aa59b24114be9f76ffa55
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: ad2ac118908f1c1f77ea204ae2400913ac0807cb
+ms.sourcegitcommit: 5cace04239f5efef4c1eed78144191a8b7d7fee8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "68882771"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86147406"
 ---
 # <a name="add-analytics-to-the-bing-search-apis"></a>Ajouter une analytique à l’API Recherche Bing
 
 Bing Statistiques fournit l’analytique pour les API Recherche Bing. L’analytique inclut le volume d’appels, les principales chaînes de requête, la répartition géographique, et bien plus encore. Vous pouvez activer Statistiques Bing dans le [portail Azure](https://ms.portal.azure.com) en accédant à votre ressource Azure et en cliquant sur **Activer Statistiques Bing**.
 
 > [!IMPORTANT]
-> * Statistiques Bing n’est pas disponible avec des abonnements d’essai gratuit ou des ressources sur le niveau tarifaire gratuit `F0`.
+> * Statistiques Bing n’est pas disponible avec des ressources sur le niveau tarifaire gratuit `F0`.
 > * Vous ne pouvez pas utiliser de données disponibles via le tableau de bord Bing statistiques pour créer des applications en vue de les distribuer à des tiers.
 > * L’activation de Statistiques Bing augmente légèrement le prix de votre abonnement. Pour en savoir plus, voir les [tarifs](https://aka.ms/bingstatisticspricing).
 
@@ -53,7 +53,7 @@ Par défaut, les graphiques et diagrammes affichent toutes les données et métr
 - **Délai d’exécution** : période de rapport. Vous pouvez spécifier les valeurs suivantes :
   - **Tout** : Inclut jusqu’à 13 mois de données  
   - **Dernières 24 heures** : Inclut l’analytique des dernières 24 heures  
-  - **Semaine dernière** : Inclut l’analytique des sept derniers jours  
+  - **Semaine dernière** : Inclut l’analytique des 7 derniers jours  
   - **Mois dernier** : Inclut l’analytique des 30 derniers jours  
   - **Plage de dates personnalisée** : Inclut l’analytique de la plage de dates spécifiée, si elle est disponible  
 

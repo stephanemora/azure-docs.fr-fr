@@ -1,7 +1,7 @@
 ---
 title: Indexateurs pour l'analyse des données lors de l'importation
 titleSuffix: Azure Cognitive Search
-description: Analysez une base de données Azure SQL, Cosmos DB ou le stockage Azure pour extraire les données pouvant faire l’objet d’une recherche et remplir un index Recherche cognitive Azure.
+description: Analysez Azure SQL Database, SQL Managed Instance, Azure Cosmos DB ou Stockage Azure pour extraire les données pouvant être recherchées et remplir un index Recherche cognitive Azure.
 manager: nitinme
 author: HeidiSteen
 ms.author: heidist
@@ -9,12 +9,12 @@ ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 11/04/2019
 ms.custom: fasttrack-edit
-ms.openlocfilehash: 2faadc962b31560e9e2eb10372493a483bf06905
-ms.sourcegitcommit: 0fa52a34a6274dc872832560cd690be58ae3d0ca
+ms.openlocfilehash: 253cd8174ec523f6c8a6aae2b94f7ed367701fec
+ms.sourcegitcommit: 5cace04239f5efef4c1eed78144191a8b7d7fee8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/29/2020
-ms.locfileid: "84203883"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86146775"
 ---
 # <a name="indexers-in-azure-cognitive-search"></a>Indexeurs dans Recherche cognitive Azure
 
@@ -50,7 +50,7 @@ Les indexeurs analysent les magasins de données sur Azure.
 * [Azure Data Lake Storage Gen2](search-howto-index-azure-data-lake-storage.md) (en préversion)
 * [Stockage de tables Azure](search-howto-indexing-azure-tables.md)
 * [Azure Cosmos DB](search-howto-index-cosmosdb.md)
-* [Azure SQL Database](search-howto-connecting-azure-sql-database-to-azure-search-using-indexers.md)
+* [Azure SQL Database et SQL Managed Instance](search-howto-connecting-azure-sql-database-to-azure-search-using-indexers.md)
 * [SQL Server sur les machines virtuelles Azure](search-howto-connecting-azure-sql-iaas-to-azure-search-using-indexers.md)
 * [SQL Managed Instance](search-howto-connecting-azure-sql-mi-to-azure-search-using-indexers.md)
 
@@ -77,8 +77,10 @@ La définition de l’indexeur est une construction qui rassemble tous les élé
 
 Bien qu’il soit courant de planifier l’indexation, un indexeur peut également être appelé à la demande à l’aide de la [commande Exécuter](https://docs.microsoft.com/rest/api/searchservice/run-indexer) :
 
-    POST https://[service name].search.windows.net/indexers/[indexer name]/run?api-version=2019-05-06
-    api-key: [Search service admin key]
+```http
+POST https://[service name].search.windows.net/indexers/[indexer name]/run?api-version=2020-06-30
+api-key: [Search service admin key]
+```
 
 > [!NOTE]
 > Lors de l’API s’exécute avec succès, l’appel de l’indexeur a été planifié, mais le traitement réel se produit de façon asynchrone. 
@@ -91,44 +93,47 @@ Vous pouvez surveiller l’état de l’indexeur dans le portail ou à l’aide 
 
 Vous pouvez récupérer l’état et l’historique d’exécution d’un indexeur à l’aide de la [commande Get Indexer Status](https://docs.microsoft.com/rest/api/searchservice/get-indexer-status) :
 
-
-    GET https://[service name].search.windows.net/indexers/[indexer name]/status?api-version=2019-05-06
-    api-key: [Search service admin key]
+```http
+GET https://[service name].search.windows.net/indexers/[indexer name]/status?api-version=2020-06-30
+api-key: [Search service admin key]
+```
 
 La réponse contient l'état d'intégrité global de l'indexeur, le dernier appel de l'indexeur (ou celui en cours), ainsi que l'historique des appels récents de l'indexeur.
 
-    {
-        "status":"running",
-        "lastResult": {
-            "status":"success",
-            "errorMessage":null,
-            "startTime":"2018-11-26T03:37:18.853Z",
-            "endTime":"2018-11-26T03:37:19.012Z",
-            "errors":[],
-            "itemsProcessed":11,
-            "itemsFailed":0,
-            "initialTrackingState":null,
-            "finalTrackingState":null
-         },
-        "executionHistory":[ {
-            "status":"success",
-             "errorMessage":null,
-            "startTime":"2018-11-26T03:37:18.853Z",
-            "endTime":"2018-11-26T03:37:19.012Z",
-            "errors":[],
-            "itemsProcessed":11,
-            "itemsFailed":0,
-            "initialTrackingState":null,
-            "finalTrackingState":null
-        }]
-    }
+```output
+{
+    "status":"running",
+    "lastResult": {
+        "status":"success",
+        "errorMessage":null,
+        "startTime":"2018-11-26T03:37:18.853Z",
+        "endTime":"2018-11-26T03:37:19.012Z",
+        "errors":[],
+        "itemsProcessed":11,
+        "itemsFailed":0,
+        "initialTrackingState":null,
+        "finalTrackingState":null
+     },
+    "executionHistory":[ {
+        "status":"success",
+         "errorMessage":null,
+        "startTime":"2018-11-26T03:37:18.853Z",
+        "endTime":"2018-11-26T03:37:19.012Z",
+        "errors":[],
+        "itemsProcessed":11,
+        "itemsFailed":0,
+        "initialTrackingState":null,
+        "finalTrackingState":null
+    }]
+}
+```
 
 L'historique d'exécution contient les 50 exécutions les plus récentes, classées par ordre chronologique inverse (la dernière exécution est répertoriée en premier dans la réponse).
 
 ## <a name="next-steps"></a>Étapes suivantes
 Maintenant que vous avez la structure de base, l’étape suivante consiste à passer en revue les exigences et les tâches propres à chaque type de source de données.
 
-* [Azure SQL Database ou SQL Server sur une machine virtuelle Azure](search-howto-connecting-azure-sql-database-to-azure-search-using-indexers.md)
+* [Azure SQL Database, SQL Managed Instance ou SQL Server sur une machine virtuelle Azure](search-howto-connecting-azure-sql-database-to-azure-search-using-indexers.md)
 * [Azure Cosmos DB](search-howto-index-cosmosdb.md)
 * [Stockage Blob Azure](search-howto-indexing-azure-blob-storage.md)
 * [Stockage de tables Azure](search-howto-indexing-azure-tables.md)

@@ -4,20 +4,20 @@ description: Liste des métriques disponibles pour chaque type de ressource avec
 author: rboucher
 services: azure-monitor
 ms.topic: reference
-ms.date: 04/06/2020
+ms.date: 06/16/2020
 ms.author: robb
 ms.subservice: metrics
-ms.openlocfilehash: 3d7ab9d4e7a7c560fa05bdc06c7d1c357a2c2767
-ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
+ms.openlocfilehash: ffdfeacad2fcfa7f77f3bcb55e8b1edaea865202
+ms.sourcegitcommit: 5cace04239f5efef4c1eed78144191a8b7d7fee8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/12/2020
-ms.locfileid: "83196631"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86145164"
 ---
 # <a name="supported-metrics-with-azure-monitor"></a>Métriques prises en charge avec Azure Monitor
 
 > [!NOTE]
-> Cette liste est en grande partie générée automatiquement à partir de l’API REST de métriques Azure Monitor. Toute modification apportée à cette liste via Github peut être écrasée sans avertissement. Pour plus d’informations sur la façon d’effectuer des mises à jour permanentes, contactez l’auteur de cet article.
+> Cette liste est en grande partie générée automatiquement à partir de l’API REST de métriques Azure Monitor. Toute modification apportée à cette liste via GitHub peut être remplacée sans avertissement. Pour plus d’informations sur la façon d’effectuer des mises à jour permanentes, contactez l’auteur de cet article.
 
 Azure Monitor offre plusieurs moyens d’interagir avec les métriques, y compris en créant des graphiques dans le portail, en y accédant via l’API REST ou en envoyant des requêtes avec PowerShell ou l’interface CLI. 
 
@@ -2013,9 +2013,9 @@ Il existe certaines limitations dans les informations pouvant être routées et 
 |cache_used_percent|Pourcentage de cache utilisé|Pourcentage|Maximale|Pourcentage de cache utilisé. S’applique uniquement aux entrepôts de données.|None|
 |sqlserver_process_core_percent<sup>1</sup> |Pourcentage de cœurs de processus SQL Server|Pourcentage|Maximale|Pourcentage d’utilisation de l’UC pour le processus SQL Server, tel qu’il est mesuré par le système d’exploitation.|None|
 |sqlserver_process_memory_percent<sup>1</sup> |Pourcentage de mémoire de processus SQL Server|Pourcentage|Maximale|Pourcentage d’utilisation de la mémoire pour le processus SQL Server, tel qu’il est mesuré par le système d’exploitation.|None|
-|tempdb_data_size<sup>2</sup> |Taille du fichier de données tempdb en kilo-octets|Count|Maximale|Taille du fichier de données tempdb en kilo-octets.|None|
-|tempdb_log_size<sup>2</sup> |Taille du fichier journal de tempdb en kilo-octets|Count|Maximale|Taille du fichier journal de tempdb en kilo-octets.|None|
-|tempdb_log_used_percent<sup>2</sup> |Pourcentage d’utilisation du journal tempdb|Pourcentage|Maximale|Pourcentage d’utilisation du journal tempdb.|None|
+|tempdb_data_size<sup>1</sup> |Taille du fichier de données tempdb en kilo-octets|Count|Maximale|Taille du fichier de données tempdb en kilo-octets.|None|
+|tempdb_log_size<sup>1</sup> |Taille du fichier journal de tempdb en kilo-octets|Count|Maximale|Taille du fichier journal de tempdb en kilo-octets.|None|
+|tempdb_log_used_percent<sup>1</sup> |Pourcentage d’utilisation du journal tempdb|Pourcentage|Maximale|Pourcentage d’utilisation du journal tempdb.|None|
 |local_tempdb_usage_percent|Pourcentage de tempdb locale|Pourcentage|Average|Pourcentage de tempdb locale. S’applique uniquement aux entrepôts de données.|None|
 |app_cpu_billed|Processeur d'application facturé|Count|Total|Processeur d’application facturé. S’applique aux bases de données serverless.|None|
 |app_cpu_percent|Pourcentage processeur d'application|Pourcentage|Average|Pourcentage processeur d'application. S’applique aux bases de données serverless.|None|
@@ -2040,9 +2040,7 @@ Il existe certaines limitations dans les informations pouvant être routées et 
 |snapshot_backup_size_bytes|Taille de stockage de sauvegarde instantanée|Octets|Maximale|Taille de stockage de sauvegarde instantanée cumulée. S’applique aux bases de données Hyperscale.|None|
 |base_blob_size_bytes|Taille de stockage d’objet blob de base|Octets|Maximale|Taille de stockage d’objet blob de base. S’applique aux bases de données Hyperscale.|None|
 
-<sup>1</sup> Cette métrique est disponible pour les bases de données utilisant le modèle d’achat vCore avec 2 vCores et plus ou 200 DTU et plus pour les modèles d’achat DTU. 
-
-<sup>2</sup> Cette métrique est disponible pour les bases de données utilisant le modèle d’achat vCore avec 2 vCores et plus ou 200 DTU et plus pour les modèles d’achat DTU. Actuellement, cette métrique n’est pas disponible pour les entrepôts de données ni bases de données Hyperscale.
+<sup>1</sup> Cette métrique est disponible pour les bases de données utilisant le modèle d’achat vCore avec 2 vCores et plus ou 200 DTU et plus pour le modèle d’achat DTU. 
 
 ## <a name="microsoftsqlserverselasticpools"></a>Microsoft.Sql/servers/elasticPools
 
@@ -2074,27 +2072,14 @@ Il existe certaines limitations dans les informations pouvant être routées et 
 |database_cpu_used|UC utilisée|Count|Average|UC utilisée|DatabaseResourceId|
 |sqlserver_process_core_percent<sup>1</sup>|Pourcentage de cœurs de processus SQL Server|Pourcentage|Maximale|Pourcentage d’utilisation de l’UC pour le processus SQL Server, tel qu’il est mesuré par le système d’exploitation. S’applique aux pools élastiques. |None|
 |sqlserver_process_memory_percent<sup>1</sup>|Pourcentage de mémoire de processus SQL Server|Pourcentage|Maximale|Pourcentage d’utilisation de la mémoire pour le processus SQL Server, tel qu’il est mesuré par le système d’exploitation. S’applique aux pools élastiques. |None|
-|tempdb_data_size<sup>2</sup>|Taille du fichier de données tempdb en kilo-octets|Count|Maximale|Taille du fichier de données tempdb en kilo-octets.|None|
-|tempdb_log_size<sup>2</sup>|Taille du fichier journal de tempdb en kilo-octets|Count|Maximale|Taille du fichier journal de tempdb en kilo-octets. |None|
-|tempdb_log_used_percent<sup>2</sup>|Pourcentage d’utilisation du journal tempdb|Pourcentage|Maximale|Pourcentage d’utilisation du journal tempdb.|None|
+|tempdb_data_size<sup>1</sup>|Taille du fichier de données tempdb en kilo-octets|Count|Maximale|Taille du fichier de données tempdb en kilo-octets.|None|
+|tempdb_log_size<sup>1</sup>|Taille du fichier journal de tempdb en kilo-octets|Count|Maximale|Taille du fichier journal de tempdb en kilo-octets. |None|
+|tempdb_log_used_percent<sup>1</sup>|Pourcentage d’utilisation du journal tempdb|Pourcentage|Maximale|Pourcentage d’utilisation du journal tempdb.|None|
 |allocated_data_storage|Espace de données alloué|Octets|Average|Espace de données alloué|None|
 |database_allocated_data_storage|Espace de données alloué|Octets|Average|Espace de données alloué|DatabaseResourceId|
 |allocated_data_storage_percent|Pourcentage d'espace de données alloué|Pourcentage|Maximale|Pourcentage d'espace de données alloué|None|
 
-<sup>1</sup> Cette métrique est disponible pour les bases de données utilisant le modèle d’achat vCore avec 2 vCores et plus ou 200 DTU et plus pour les modèles d’achat DTU. 
-
-<sup>2</sup> Cette métrique est disponible pour les bases de données utilisant le modèle d’achat vCore avec 2 vCores et plus ou 200 DTU et plus pour les modèles d’achat DTU. Actuellement, cette métrique n’est pas disponible pour les bases de données Hyperscale.
-
-
-## <a name="microsoftsqlservers"></a>Microsoft.Sql/servers
-
-|Métrique|Nom d’affichage de la métrique|Unité|Type d’agrégation|Description|Dimensions|
-|---|---|---|---|---|---|
-|dtu_consumption_percent|Pourcentage DTU|Pourcentage|Average|Pourcentage DTU|ElasticPoolResourceId|
-|database_dtu_consumption_percent|Pourcentage DTU|Pourcentage|Average|Pourcentage DTU|DatabaseResourceId,ElasticPoolResourceId|
-|storage_used|Espace de données utilisé|Octets|Average|Espace de données utilisé|ElasticPoolResourceId|
-|database_storage_used|Espace de données utilisé|Octets|Average|Espace de données utilisé|DatabaseResourceId,ElasticPoolResourceId|
-|dtu_used|DTU utilisé|Count|Average|DTU utilisé|DatabaseResourceId|
+<sup>1</sup> Cette métrique est disponible pour les bases de données utilisant le modèle d’achat vCore avec 2 vCores et plus ou 200 DTU et plus pour le modèle d’achat DTU. 
 
 ## <a name="microsoftsqlmanagedinstances"></a>Microsoft.Sql/managedInstances
 

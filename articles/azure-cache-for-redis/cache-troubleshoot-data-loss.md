@@ -6,12 +6,12 @@ ms.author: yegu
 ms.service: cache
 ms.topic: conceptual
 ms.date: 10/17/2019
-ms.openlocfilehash: ef7824640dcd2b9dbae1d27f385e5334ba9875ff
-ms.sourcegitcommit: 595cde417684e3672e36f09fd4691fb6aa739733
+ms.openlocfilehash: ba0430461df5ce1a2d615b819dbe5e8a36ae52b7
+ms.sourcegitcommit: ec682dcc0a67eabe4bfe242fce4a7019f0a8c405
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/20/2020
-ms.locfileid: "83699224"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86184529"
 ---
 # <a name="troubleshoot-data-loss-in-azure-cache-for-redis"></a>Résoudre les problèmes de perte de données dans Azure Cache pour Redis
 
@@ -23,7 +23,7 @@ Cet article explique comment diagnostiquer les pertes de données réelles ou pe
 
 ## <a name="partial-loss-of-keys"></a>Perte partielle des clés
 
-Azure Cache pour Redis ne supprime pas de façon aléatoire les clés lorsqu’elles sont stockées en mémoire. Toutefois, il les supprime en réponse à des stratégies d’expiration ou d’éviction et à la suite de commandes de suppression de clé explicites. Les clés qui ont été écrites sur le nœud maître dans un cache Azure Cache pour Redis Premium ou Standard peuvent ne pas être immédiatement disponibles sur un réplica. Les données sont répliquées du maître vers le réplica de manière asynchrone et non bloquante.
+Azure Cache pour Redis ne supprime pas de façon aléatoire les clés lorsqu’elles sont stockées en mémoire. Toutefois, il les supprime en réponse à des stratégies d’expiration ou d’éviction et à la suite de commandes de suppression de clé explicites. Les clés qui ont été écrites sur le nœud principal d’une instance Azure Cache pour Redis Premium ou Standard peuvent ne pas être immédiatement disponibles sur un réplica. Les données sont répliquées du nœud principal vers le réplica de manière asynchrone et non bloquante.
 
 Si vous constatez que des clés ont disparu de votre cache, passez en revue les causes possibles suivantes :
 
@@ -80,7 +80,7 @@ cmdstat_hdel:calls=1,usec=47,usec_per_call=47.00
 
 ### <a name="async-replication"></a>Réplication asynchrone
 
-Toute instance Azure Cache pour Redis de niveau Standard ou Premium est configurée avec un nœud maître et au moins un réplica. Un processus en arrière-plan permet de copier les données de façon asynchrone du maître vers un réplica. Le site web [redis.io](https://redis.io/topics/replication) décrit le fonctionnement général de la réplication des données dans Redis. Dans les scénarios où les clients écrivent fréquemment dans Redis, vous pouvez subir une perte partielle de données, car l’instantanéité de cette réplication n’est pas garantie. Par exemple, si le maître tombe en panne *après* qu’un client y a écrit une clé, mais *avant* que le processus en arrière-plan n’envoie cette clé au réplica, cette clé est perdue quand le réplica prend le relais en tant que nouveau maître.
+Toute instance Azure Cache pour Redis de niveau Standard ou Premium est configurée avec un nœud principal et au moins un réplica. Les données sont copiées de façon asynchrone du nœud principal vers un réplica à l’aide d’un processus en arrière-plan. Le site web [redis.io](https://redis.io/topics/replication) décrit le fonctionnement général de la réplication des données dans Redis. Dans les scénarios où les clients écrivent fréquemment dans Redis, vous pouvez subir une perte partielle de données, car l’instantanéité de cette réplication n’est pas garantie. Par exemple, si le nœud principal subit une défaillance *après* qu’un client a écrit une clé sur celui-ci, mais *avant* que le processus en arrière-plan ait eu la l’occasion d’envoyer cette clé au réplica, cette clé est perdue quand le réplica prend le relais en tant que nouveau nœud principal.
 
 ## <a name="major-or-complete-loss-of-keys"></a>Perte majeure ou totale des clés
 
@@ -112,7 +112,7 @@ Azure Cache pour Redis utilise la base de données **db0** par défaut. Si vous 
 
 Redis est un magasin de données en mémoire. Les données sont conservées sur les machines physiques ou virtuelles qui hébergent le cache Redis. Une instance d’Azure Cache pour Redis de niveau De base ne s’exécute que sur une seule machine virtuelle. Si cette machine virtuelle tombe en panne, toutes les données que vous avez stockées dans le cache sont perdues. 
 
-Les caches de niveau Standard ou Premium utilisent deux machines virtuelles dans une configuration répliquée, offrant ainsi plus de résilience contre la perte de données. Lorsque le nœud maître d’un tel cache échoue, le nœud réplica prend le relais pour traiter automatiquement les données. Ces machines virtuelles se trouvent sur des domaines d’erreur et de mise à jour distincts, afin de réduire le risque qu’elles ne soient pas disponibles en même temps. Toutefois, en cas de défaillance majeure du centre de données, il se peut que les machines virtuelles tombent en panne simultanément. Dans ces rares cas, vos données sont perdues.
+Les caches de niveau Standard ou Premium utilisent deux machines virtuelles dans une configuration répliquée, offrant ainsi plus de résilience contre la perte de données. Quand le nœud principal d’un tel cache échoue, le nœud de réplica prend le relais pour traiter automatiquement les données. Ces machines virtuelles se trouvent sur des domaines d’erreur et de mise à jour distincts, afin de réduire le risque qu’elles ne soient pas disponibles en même temps. Toutefois, en cas de défaillance majeure du centre de données, il se peut que les machines virtuelles tombent en panne simultanément. Dans ces rares cas, vos données sont perdues.
 
 Songez à utiliser la [persistance des données Redis](https://redis.io/topics/persistence) et la [géoréplication](https://docs.microsoft.com/azure/azure-cache-for-redis/cache-how-to-geo-replication) pour renforcer la protection de vos données contre ces défaillances d’infrastructure.
 

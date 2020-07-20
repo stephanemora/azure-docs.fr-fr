@@ -10,12 +10,12 @@ ms.subservice: bing-custom-search
 ms.topic: conceptual
 ms.date: 02/12/2019
 ms.author: aahi
-ms.openlocfilehash: 2cc89bf57167db75404c044f58d18ab48edfaf38
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 7ec407b7f6baf56f0a2fe724089826d8f9303b85
+ms.sourcegitcommit: ec682dcc0a67eabe4bfe242fce4a7019f0a8c405
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "68854088"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86186841"
 ---
 # <a name="configure-your-hosted-ui-experience"></a>Configurer votre expérience d’interface utilisateur hébergée
 
@@ -35,12 +35,10 @@ Pour configurer une interface utilisateur hébergée pour vos applications web, 
   
 4. Sélectionnez une disposition.
 
-    |  |  |
-    |---------|---------|
-    |Search bar and results (Barre de recherche et de résultats) : par défaut    | Affiche une zone de recherche avec les résultats de la recherche en dessous.         |
-    |Results only (Résultats uniquement)     | Affiche uniquement les résultats de la recherche, sans zone de recherche. Lorsque vous utilisez cette mise en page, vous devez fournir la requête de recherche (`&q=<query string>`). Ajoutez le paramètre de requête à l’URL de requête dans l’extrait de code JavaScript, ou le lien vers le point de terminaison HTML.        |
-    |Pop-over (Fenêtre superposée glissante)     | Fournit une zone de recherche et affiche les résultats de recherche dans une fenêtre glissante qui vient se superposer à la fenêtre actuelle.        |
-    
+    - Barre de recherche et résultats (par défaut) : Affiche une zone de recherche avec les résultats de la recherche en dessous.
+    - Résultats uniquement : Affiche uniquement les résultats de la recherche, sans zone de recherche. Lorsque vous utilisez cette mise en page, vous devez fournir la requête de recherche (`&q=<query string>`). Ajoutez le paramètre de requête à l’URL de requête dans l’extrait de code JavaScript, ou le lien vers le point de terminaison HTML.
+    - Fenêtre superposée glissante : Fournit une zone de recherche et affiche les résultats de recherche dans une fenêtre glissante qui vient se superposer à la fenêtre actuelle.
+
 5. Sélectionnez un thème de couleur. Vous pouvez personnaliser les couleurs en fonction de votre application en cliquant sur **Customize theme** (Personnaliser le thème). Pour modifier une couleur, entrez la valeur hexadécimale de couleur RVB (par exemple, `#366eb8`), ou cliquez sur l’aperçu de la couleur.
 
    Vous pouvez consulter un aperçu de vos modifications sur le côté droit du portail. En cliquant sur **Reset to default** (Rétablir les valeurs par défaut), vous rétablissez les couleurs par défaut du thème sélectionné.
@@ -96,55 +94,38 @@ Vous pouvez configurer le comportement de votre interface utilisateur hébergée
 
 ### <a name="web-search-configurations"></a>Configurations de la recherche web :
 
-|  |  |
-|---------|---------|
-|Web results enabled (Résultats web activés)    | Détermine si la recherche sur le Web est activée (si c’est le cas, vous voyez l’onglet Web en haut de la page).        |
-|Enable autosuggest (Activer la suggestion automatique)     | Détermine si la suggestion automatique personnalisée est activée (voir les [Tarifs](https://azure.microsoft.com/pricing/details/cognitive-services/bing-custom-search/) pour connaître les frais supplémentaires).        |
-|Web results per page (Résultats web par page)    | Nombre de résultats à afficher pour une recherche sur le Web (le maximum est de 50 résultats par page).        |
-|Image caption (Légende d’image)   | Détermine si des images sont affichées avec les résultats de la recherche|
-
+- Résultats web activés : Détermine si la recherche sur le Web est activée (si c’est le cas, vous voyez l’onglet Web en haut de la page).
+- Activer la suggestion automatique : Détermine si la suggestion automatique personnalisée est activée (voir les [Tarifs](https://azure.microsoft.com/pricing/details/cognitive-services/bing-custom-search/) pour connaître les frais supplémentaires).
+- Résultats web par page : Nombre de résultats à afficher pour une recherche sur le Web (le maximum est de 50 résultats par page).
+- Légende d’image : Détermine si des images sont affichées avec les résultats de la recherche
 
 Les configurations suivantes sont affichées si vous cliquez sur **Show advanced configurations** (Afficher les configurations avancées).
 
-
-|  | |
-|---------|---------|
-|Highlight words (Mettre les mots en gras)     | Détermine si les résultats sont affichés avec les termes de la recherche en gras.         |
-|Link target (Cible du lien)    |  Détermine si la page web s’ouvre dans un nouvel onglet de navigateur (vide) ou dans le même onglet de navigateur lorsque l’utilisateur clique sur un résultat de recherche.        |
+- Mettre les mots en surbrillance : Détermine si les résultats sont affichés avec les termes de la recherche en gras.
+- Cible du lien : Détermine si la page web s’ouvre dans un nouvel onglet de navigateur (vide) ou dans le même onglet de navigateur lorsque l’utilisateur clique sur un résultat de recherche.
 
 ### <a name="image-search-configurations"></a>Configurations de la recherche d’images
 
-| | |
-|---------|---------|
-|Image results enabled (Résultats d’images activés)     | Détermine si la recherche d’images est activée (si c’est le cas, vous voyez l’onglet Images en haut de la page).            |
-|Image results per page (Résultats d’images par page)     | Nombre de résultats à afficher pour une recherche d’images (le maximum est de 150 résultats par page).          |
+- Résultats d’images activés : Détermine si la recherche d’images est activée (si c’est le cas, vous voyez l’onglet Images en haut de la page).
+- Résultats d’images par page : Nombre de résultats à afficher pour une recherche d’images (le maximum est de 150 résultats par page).
 
 La configuration suivante est affichée si vous cliquez sur **Show advanced configurations** (Afficher les configurations avancées).  
   
-| | |
-|---------|---------|
-| Enable filters (Activer les filtres)     | Ajoute des filtres dont l’utilisateur peut se servir pour filtrer les images retournées par Bing. Par exemple, l’utilisateur peut filtrer les résultats pour n’afficher que des fichiers GIF animés.|
+- Activer les filtres : Ajoute des filtres dont l’utilisateur peut se servir pour filtrer les images retournées par Bing. Par exemple, l’utilisateur peut filtrer les résultats pour n’afficher que des fichiers GIF animés.
 
 ### <a name="video-search-configurations"></a>Configurations pour la recherche de vidéos
 
-|  | |
-|---------|---------|
-|Video results enabled (Résultats vidéos activés)     | Détermine si la recherche de vidéos est activée (si c’est le cas, vous voyez l’onglet Vidéos en haut de la page).           |
-|Video results per page (Résultats vidéos par page)   | Nombre de résultats à afficher pour une recherche de vidéo (le maximum est de 150 résultats par page).        |
+- Résultats de vidéos activés : Détermine si la recherche de vidéos est activée (si c’est le cas, vous voyez l’onglet Vidéos en haut de la page).
+- Résultats de vidéos par page : Nombre de résultats à afficher pour une recherche de vidéo (le maximum est de 150 résultats par page).
 
 La configuration suivante est affichée si vous cliquez sur **Show advanced configurations** (Afficher les configurations avancées).  
   
-|  | |
-|---------|---------|
-|Enable filters (Activer les filtres)    | Ajoute des filtres dont l’utilisateur peut se servir pour filtrer les vidéos retournées par Bing. Par exemple, l’utilisateur peut filtrer les résultats pour n’afficher que les vidéos ayant une résolution spécifique ou les vidéos découvertes au cours des dernières 24 heures.          |
+- Activer les filtres : Ajoute des filtres dont l’utilisateur peut se servir pour filtrer les vidéos retournées par Bing. Par exemple, l’utilisateur peut filtrer les résultats pour n’afficher que les vidéos ayant une résolution spécifique ou les vidéos découvertes au cours des dernières 24 heures.
 
 ### <a name="miscellaneous-configurations"></a>Configurations diverses
 
-
-| |  |
-|---------|---------|
-|Titre de la page   | Texte affiché dans la zone de titre de la page des résultats de recherche (ne s’applique pas à la disposition de fenêtre superposée glissante).        |
-|Thème de la barre d’outils    | Détermine la couleur d’arrière-plan de la zone de titre de la page des résultats de recherche. |
+- Titre de la page : Texte affiché dans la zone de titre de la page des résultats de recherche (ne s’applique pas à la disposition de fenêtre superposée glissante).
+- Thème de la barre d’outils : Détermine la couleur d’arrière-plan de la zone de titre de la page des résultats de recherche.
 
 Les configurations suivantes sont affichées si vous cliquez sur **Show advanced configurations** (Afficher les configurations avancées).  
 

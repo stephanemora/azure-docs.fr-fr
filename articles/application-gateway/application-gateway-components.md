@@ -7,12 +7,12 @@ ms.service: application-gateway
 ms.topic: conceptual
 ms.date: 02/20/2019
 ms.author: absha
-ms.openlocfilehash: 46ef67e5ede1ea41469a8dcc78244e74c0bffc45
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 798137a74f22824dbfec9653bff327d3a0a1f3b4
+ms.sourcegitcommit: ec682dcc0a67eabe4bfe242fce4a7019f0a8c405
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85254325"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86186756"
 ---
 # <a name="application-gateway-components"></a>Composants de passerelle d’application
 
@@ -144,7 +144,7 @@ Vous pouvez créer différents pools de back-ends pour différents types de requ
 
 Par défaut, une passerelle d’application supervise l’intégrité de toutes les ressources de son pool de back-ends et supprime automatiquement les ressources non saines. Elle supervise ensuite les instances non saines et les rajoute au pool de back-ends sain, une fois qu’elles sont disponibles et qu’elles répondent aux sondes d’intégrité.
 
-En plus d’utiliser la surveillance par sonde d’intégrité par défaut, vous pouvez aussi personnaliser la sonde d’intégrité pour répondre aux exigences de votre application. Les sondes personnalisées permettent un contrôle plus précis de la supervision de l’intégrité. Quand vous utilisez des sondes personnalisées, vous pouvez configurer l’intervalle des sondes, l’URL et le chemin à tester ainsi que le nombre d’échecs de réponses à accepter avant de marquer l’instance de pool de back-ends comme étant non saine. Nous vous recommandons de configurer des sondes personnalisées pour superviser l’intégrité de chaque pool de back-ends.
+En plus d’utiliser la surveillance par sonde d’intégrité par défaut, vous pouvez aussi personnaliser la sonde d’intégrité pour répondre aux exigences de votre application. Les sondes personnalisées permettent un contrôle plus précis de la supervision de l’intégrité. En utilisant des sondes personnalisées, vous pouvez personnaliser le nom d’hôte, le chemin d’URL, l’intervalle d’analyse (probe), le nombre de réponses en échec autorisé avant que l’instance du pool de back-ends soit marquée comme non saine, les codes d’état et la correspondance du corps de la réponse, etc. Nous vous recommandons de configurer des sondes personnalisées pour superviser l’intégrité de chaque pool de back-ends.
 
 Pour plus d’informations, consultez [Superviser l’intégrité de votre passerelle d’application](../application-gateway/application-gateway-probe-overview.md).
 

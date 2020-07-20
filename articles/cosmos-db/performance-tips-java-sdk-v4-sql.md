@@ -5,14 +5,14 @@ author: anfeldma-ms
 ms.service: cosmos-db
 ms.devlang: java
 ms.topic: how-to
-ms.date: 06/11/2020
+ms.date: 07/08/2020
 ms.author: anfeldma
-ms.openlocfilehash: c6ff105a03181b588a9074675c97930696ac5e87
-ms.sourcegitcommit: cec9676ec235ff798d2a5cad6ee45f98a421837b
+ms.openlocfilehash: 30573eb3b35152ab5769c1aab9c4af052cb454a6
+ms.sourcegitcommit: 1e6c13dc1917f85983772812a3c62c265150d1e7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85850200"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86171021"
 ---
 # <a name="performance-tips-for-azure-cosmos-db-java-sdk-v4"></a>Conseils sur les performances pour le SDK Java v4 Azure Cosmos DB
 
@@ -37,52 +37,46 @@ Si vous vous demandez comment améliorer les performances de votre base de donn�
 * **Mode de connexion : Utiliser le mode direct**
 <a id="direct-connection"></a>
     
-    La façon dont un client se connecte à Azure Cosmos DB a des conséquences importantes sur les performances, notamment en termes de latence côté client. *ConnectionMode* est un paramètre de configuration clé disponible pour la configuration de la *ConnectionPolicy* du client. Pour le SDK Java v4 Azure Cosmos DB, les deux paramètres *ConnectionMode* disponibles sont :  
-      
-    * [Passerelle (par défaut)](/java/api/com.microsoft.azure.cosmosdb.connectionmode)  
-    * [Direct](/java/api/com.microsoft.azure.cosmosdb.connectionmode)
+    La façon dont un client se connecte à Azure Cosmos DB a des conséquences importantes sur les performances, notamment en termes de latence côté client. Le mode de connexion est un paramètre de configuration clé disponible pour la configuration du client. Pour le kit de développement logiciel (SDK) Java v4 Azure Cosmos DB, les deux modes de connexion disponibles sont les suivants :  
 
-    Ces paramètres *ConnectionMode* conditionnent essentiellement la route qu’empruntent les demandes de votre ordinateur client jusqu’aux partitions dans le back-end Azure Cosmos DB. En général, le mode direct est l’option recommandée pour optimiser les performances. Il permet à votre client d’ouvrir des connexions TCP directement aux partitions dans le back-end Azure Cosmos DB et d’envoyer les demandes *directement*, sans intermédiaire. En revanche, en mode passerelle, les demandes émises par votre client sont routées à un serveur dit « passerelle » dans le front-end Azure Cosmos DB, qui à son tour répartit vos demandes vers la ou les partitions appropriées dans le back-end Azure Cosmos DB. Si votre application s’exécute dans un réseau d’entreprise avec des restrictions de pare-feu strictes, le mode passerelle est le meilleur choix dans la mesure où il utilise le port HTTPS standard et un seul point de terminaison. Toutefois, il existe un compromis en termes de performances : le mode passerelle implique un tronçon réseau supplémentaire (client vers passerelle et passerelle vers partition) chaque fois que les données sont lues ou écrites dans Azure Cosmos DB. Pour cette raison, le mode Direct offre de meilleures performances grâce à un moins grand nombre de tronçons réseau.
+    * Mode direct (par défaut)      
+    * Mode passerelle
 
-    *ConnectionMode* est configuré durant la construction de l’instance du client Azure Cosmos DB avec le paramètre *ConnectionPolicy* :
+    Ces modes de connexion conditionnent essentiellement la route qu’empruntent les demandes de plan de données, lectures et écritures de documents, de votre ordinateur client jusqu’aux partitions dans le back-end Azure Cosmos DB. En général, le mode direct est l’option recommandée pour optimiser les performances. Il permet à votre client d’ouvrir des connexions TCP directement aux partitions dans le back-end Azure Cosmos DB et d’envoyer les demandes *directement*, sans intermédiaire. En revanche, en mode passerelle, les demandes émises par votre client sont routées à un serveur dit « passerelle » dans le front-end Azure Cosmos DB, qui à son tour répartit vos demandes vers la ou les partitions appropriées dans le back-end Azure Cosmos DB. Si votre application s’exécute dans un réseau d’entreprise avec des restrictions de pare-feu strictes, le mode passerelle est le meilleur choix dans la mesure où il utilise le port HTTPS standard et un seul point de terminaison. Toutefois, il existe un compromis en termes de performances : le mode passerelle implique un tronçon réseau supplémentaire (client vers passerelle et passerelle vers partition) chaque fois que les données sont lues ou écrites dans Azure Cosmos DB. Pour cette raison, le mode Direct offre de meilleures performances grâce à un moins grand nombre de tronçons réseau.
+
+    Le mode de connexion des demandes de plan de données est configuré dans le générateur de clients Azure Cosmos DB à l’aide des méthodes *directMode ()* ou *gatewayMode ()* , comme indiqué ci-dessous. Pour configurer l’un ou l’autre de ces modes avec les paramètres par défaut, appelez l’une des méthodes sans arguments. Sinon, transmettez une instance de classe de paramètres de configuration comme argument (*DirectConnectionConfig* pour *directMode()* , *GatewayConnectionConfig* pour *gatewayMode()* .)
     
-   #### <a name="async"></a>[Async](#tab/api-async)
+    ### <a name="java-v4-sdk"></a><a id="override-default-consistency-javav4"></a> SDK Java V4
 
-   ### <a name="java-sdk-v4-maven-comazureazure-cosmos-async-api"></a><a id="java4-connection-policy-async"></a>API Async du SDK Java v4 (Maven com.azure::azure-cosmos)
+    # <a name="async"></a>[Async](#tab/api-async)
 
-    ```java
-    public ConnectionPolicy getConnectionPolicy() {
-        ConnectionPolicy policy = new ConnectionPolicy();
-        policy.setMaxPoolSize(1000);
-        return policy;
-    }
+    API Async du Kit de développement logiciel (SDK) Java v4 (Maven com.azure::azure-cosmos)
 
-    ConnectionPolicy connectionPolicy = new ConnectionPolicy();
-    CosmosAsyncClient client = new CosmosClientBuilder()
-        .setEndpoint(HOST)
-        .setKey(MASTER)
-        .setConnectionPolicy(connectionPolicy)
-        .buildAsyncClient();
-    ```
+    [!code-java[](~/azure-cosmos-java-sql-api-samples/src/main/java/com/azure/cosmos/examples/documentationsnippets/async/SampleDocumentationSnippetsAsync.java?name=PerformanceClientConnectionModeAsync)]
 
-    #### <a name="sync"></a>[Synchronisation](#tab/api-sync)
+    # <a name="sync"></a>[Synchronisation](#tab/api-sync)
 
-    ### <a name="java-sdk-v4-maven-comazureazure-cosmos-sync-api"></a><a id="java4-connection-policy-sync"></a>API Sync du SDK Java v4 (Maven com.azure::azure-cosmos)
+    API Sync du Kit de développement logiciel (SDK) Java v4 (Maven com.azure::azure-cosmos)
 
-    ```java
-    public ConnectionPolicy getConnectionPolicy() {
-        ConnectionPolicy policy = new ConnectionPolicy();
-        policy.setMaxPoolSize(1000);
-        return policy;
-    }
+    [!code-java[](~/azure-cosmos-java-sql-api-samples/src/main/java/com/azure/cosmos/examples/documentationsnippets/sync/SampleDocumentationSnippets.java?name=PerformanceClientConnectionModeSync)]
 
-    ConnectionPolicy connectionPolicy = new ConnectionPolicy();
-    CosmosClient client = new CosmosClientBuilder()
-        .setEndpoint(HOST)
-        .setKey(MASTER)
-        .setConnectionPolicy(connectionPolicy)
-        .buildClient();
-    ```
+    --- 
+
+    La méthode *directMode()* présente une substitution supplémentaire, pour la raison suivante. Les opérations de plan de contrôle telles que CRUD de base de données et de conteneur utilisent *toujours* le mode passerelle. Lorsque l’utilisateur a configuré le mode direct pour les opérations de plan de données, les opérations de plan de contrôle utilisent les paramètres du mode passerelle par défaut. Cela convient à la plupart des utilisateurs. Toutefois, les utilisateurs qui souhaitent opter pour le mode direct pour les opérations de plan de données et de réglage des paramètres du mode de passerelle de plan de contrôle peuvent utiliser la substitution *directMode()* ci-dessous :
+
+    ### <a name="java-v4-sdk"></a><a id="override-default-consistency-javav4"></a> SDK Java V4
+
+    # <a name="async"></a>[Async](#tab/api-async)
+
+    API Async du Kit de développement logiciel (SDK) Java v4 (Maven com.azure::azure-cosmos)
+
+    [!code-java[](~/azure-cosmos-java-sql-api-samples/src/main/java/com/azure/cosmos/examples/documentationsnippets/async/SampleDocumentationSnippetsAsync.java?name=PerformanceClientDirectOverrideAsync)]
+
+    # <a name="sync"></a>[Synchronisation](#tab/api-sync)
+
+    API Sync du Kit de développement logiciel (SDK) Java v4 (Maven com.azure::azure-cosmos)
+
+    [!code-java[](~/azure-cosmos-java-sql-api-samples/src/main/java/com/azure/cosmos/examples/documentationsnippets/sync/SampleDocumentationSnippets.java?name=PerformanceClientDirectOverrideSync)]
 
     --- 
 
@@ -156,7 +150,7 @@ Pour plus d’informations, consultez les instructions propres à [Windows](http
 
 * **Paramètre ConnectionPolicy**
 
-    Par défaut, les demandes Cosmos DB en mode direct sont effectuées sur TCP lors de l’utilisation du SDK Java v4 Azure Cosmos DB. En interne, le SDK utilise une architecture spéciale en mode direct pour gérer dynamiquement les ressources réseau et obtenir les meilleures performances.
+    Par défaut, les demandes Cosmos DB en mode direct sont effectuées sur TCP lors de l’utilisation du SDK Java v4 Azure Cosmos DB. En interne, le mode direct utilise une architecture spéciale pour gérer dynamiquement les ressources réseau et obtenir de meilleures performances.
 
     Dans le SDK Java v4 Azure Cosmos DB, le mode direct est le meilleur choix pour améliorer les performances des bases de données avec la plupart des charges de travail. 
 
@@ -166,30 +160,21 @@ Pour plus d’informations, consultez les instructions propres à [Windows](http
 
         L’architecture côté client utilisée en mode direct permet une utilisation prévisible du réseau et un accès multiplexé aux réplicas Azure Cosmos DB. Le diagramme ci-dessus montre comment le mode direct route les demandes des clients vers les réplicas dans le back-end Cosmos DB. L’architecture du mode direct alloue jusqu’à 10 **canaux** du côté client par réplica de base de base de données. Un canal est une connexion TCP précédée d’une mémoire tampon des requêtes, qui correspond à une profondeur de 30 requêtes. Les canaux appartenant à un réplica sont alloués dynamiquement en fonction des besoins du **point de terminaison de service** du réplica. Quand l’utilisateur émet une requête en mode direct, **TransportClient** route la requête vers le point de terminaison de service approprié en fonction de la clé de partition. La **file d’attente des requêtes** met en mémoire tampon les requêtes avant le point de terminaison de service.
 
-    * ***Options de configuration de ConnectionPolicy pour le mode direct***
+    * ***Options de configuration du mode direct***
 
-        Ces paramètres de configuration contrôlent le comportement de l’architecture RNTBD qui régit le comportement du SDK en mode direct.
-        
-        Pour commencer, utilisez les paramètres de configuration recommandés ci-dessous. Ces options *ConnectionPolicy* sont des paramètres de configuration avancés qui peuvent affecter les performances du SDK de manière inattendue. Nous recommandons donc aux utilisateurs de ne pas les modifier, sauf s’ils ont une très bonne connaissance des compromis et que cela est absolument nécessaire. Si vous rencontrez des problèmes sur ce point particulier, contactez l’[équipe Azure Cosmos DB](mailto:CosmosDBPerformanceSupport@service.microsoft.com).
+        Si vous souhaitez opter pour un comportement de mode direct non défini par défaut, créez une instance *DirectConnectionConfig* et personnalisez ses propriétés, puis transmettez l’instance des propriétés personnalisées à la méthode *directMode()* dans le générateur de clients Azure Cosmos DB.
 
-        Si vous utilisez Azure Cosmos DB comme base de données de référence (c’est-à-dire si la base de données est utilisée pour de nombreuses opérations de lecture de point et quelques opérations d’écriture), il peut être acceptable de définir *idleEndpointTimeout* sur 0 (c’est-à-dire pas de délai d’expiration).
+        Ces paramètres de configuration contrôlent le comportement de l’architecture du mode direct sous-jacent dont il est question précédemment.
 
+        Pour commencer, utilisez les paramètres de configuration recommandés ci-dessous. Ces options *DirectConnectionConfig* correspondent à des paramètres de configuration avancés susceptibles d’affecter les performances du kit de développement logiciel (SDK) de manière inattendue. Nous recommandons donc aux utilisateurs de ne pas les modifier, sauf s’ils ont une très bonne connaissance des compromis et que cela est absolument nécessaire. Si vous rencontrez des problèmes sur ce point particulier, contactez l’[équipe Azure Cosmos DB](mailto:CosmosDBPerformanceSupport@service.microsoft.com).
 
         | Option de configuration       | Default    |
         | :------------------:       | :-----:    |
-        | bufferPageSize             | 8 192       |
-        | connectionTimeout          | « PT1M »     |
-        | idleChannelTimeout         | "PT0S"     |
-        | idleEndpointTimeout        | "PT1M10S"  |
-        | maxBufferCapacity          | 8388608    |
-        | maxChannelsPerEndpoint     | 10         |
-        | maxRequestsPerChannel      | 30         |
-        | receiveHangDetectionTime   | "PT1M5S"   |
-        | requestExpiryInterval      | "PT5S"     |
-        | requestTimeout             | « PT1M »     |
-        | requestTimerResolution     | "PT0.5S"   |
-        | sendHangDetectionTime      | "PT10S"    |
-        | shutdownTimeout            | "PT15S"    |
+        | idleConnectionTimeout      | « PT1M »     |
+        | maxConnectionsPerEndpoint  | "PT0S"     |
+        | connectTimeout             | "PT1M10S"  |
+        | idleEndpointTimeout        | 8388608    |
+        | maxRequestsPerConnection   | 10         |
 
 * **Paramétrage des requêtes parallèles pour les collections partitionnées**
 
@@ -326,17 +311,11 @@ Pour plus d’informations, consultez les instructions propres à [Windows](http
  
 * **Exclusion des chemins d’accès inutilisés de l’indexation pour des écritures plus rapides**
 
-    La stratégie d’indexation d’Azure Cosmos DB vous permet de spécifier les chemins d’accès au document à inclure ou exclure de l’indexation en tirant parti des chemins d’accès d’indexation (setIncludedPaths et setExcludedPaths). L’utilisation des chemins d’accès d’indexation peut offrir des performances d’écriture améliorées et réduire le stockage d’index pour les scénarios dans lesquels les modèles de requête sont connus d’avance, puisque les coûts d’indexation sont directement liés au nombre de chemins d’accès uniques indexés. Par exemple, le code suivant montre comment exclure de l’indexation une section entière des documents (également appelée sous-arborescence) avec le caractère générique « * ».
+    La stratégie d’indexation d’Azure Cosmos DB vous permet de spécifier les chemins d’accès au document à inclure ou exclure de l’indexation en tirant parti des chemins d’accès d’indexation (setIncludedPaths et setExcludedPaths). L’utilisation des chemins d’accès d’indexation peut offrir des performances d’écriture améliorées et réduire le stockage d’index pour les scénarios dans lesquels les modèles de requête sont connus d’avance, puisque les coûts d’indexation sont directement liés au nombre de chemins d’accès uniques indexés. Par exemple, le code suivant montre comment inclure et exclure de l’indexation une section entière des documents (également appelée sous-arborescence) avec le caractère générique « * ».
 
     ### <a name="java-sdk-v4-maven-comazureazure-cosmos"></a><a id="java4-indexing"></a>Kit de développement logiciel (SDK) Java V4 (Maven com.azure::azure-cosmos)
-    ```java
-    Index numberIndex = Index.Range(DataType.Number);
-    indexes.add(numberIndex);
-    includedPath.setIndexes(indexes);
-    includedPaths.add(includedPath);
-    indexingPolicy.setIncludedPaths(includedPaths);        
-    containerProperties.setIndexingPolicy(indexingPolicy);
-    ``` 
+
+    [!code-java[](~/azure-cosmos-java-sql-api-samples/src/main/java/com/azure/cosmos/examples/documentationsnippets/sync/SampleDocumentationSnippets.java?name=MigrateIndexingAsync)]
 
     Pour plus d’informations, consultez [Stratégies d’indexation d’Azure Cosmos DB](indexing-policies.md).
 

@@ -6,21 +6,21 @@ author: linda33wj
 ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
-ms.date: 12/10/2019
+ms.date: 07/08/2020
 ms.author: jingwang
 ms.reviewer: craigg
-ms.openlocfilehash: f9e6c8dc7438e05f960504b2cacee7fc987adf70
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: d7a872121ca6560b8ede86abc35294ab8c9b0c1b
+ms.sourcegitcommit: 5cace04239f5efef4c1eed78144191a8b7d7fee8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84022371"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86142003"
 ---
 # <a name="azure-data-factory-connector-overview"></a>Vue d’ensemble du connecteur Azure Data Factory
 
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
-Azure Data Factory prend en charge les magasins de données et les formats suivants par le biais de l’activité de copie, le flux de données, l’activité de recherche, l’activité d’extraction des métadonnées et l’activité de suppression. Cliquez sur chaque banque de données pour découvrir les fonctionnalités prises en charge et les configurations correspondantes en détail.
+Azure Data Factory prend en charge les magasins de données et les formats suivants par le biais des activités de copie, de flux de données, de recherche, d’obtention de métadonnées et de suppression. Cliquez sur chaque banque de données pour découvrir les fonctionnalités prises en charge et les configurations correspondantes en détail.
 
 ## <a name="supported-data-stores"></a>Magasins de données pris en charge
 
@@ -28,7 +28,16 @@ Azure Data Factory prend en charge les magasins de données et les formats suiva
 
 ## <a name="supported-file-formats"></a>Formats de fichiers pris en charge
 
-[!INCLUDE [data-factory-v2-file-formats](../../includes/data-factory-v2-file-formats.md)]
+Azure Data Factory prend en charge les formats de fichier suivants. Reportez-vous à chaque article pour les paramètres basés sur le format.
+
+- [Format Avro](format-avro.md)
+- [Format binaire](format-binary.md)
+- [Format Common Data Model](format-common-data-model.md)
+- [Format de texte délimité](format-delimited-text.md)
+- [Format Excel](format-excel.md)
+- [Format JSON](format-json.md)
+- [Format ORC](format-orc.md)
+- [Format Parquet](format-parquet.md)
 
 ## <a name="next-steps"></a>Étapes suivantes
 

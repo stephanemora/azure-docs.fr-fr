@@ -3,12 +3,12 @@ title: Lier des modèles pour déploiement
 description: Décrit comment utiliser des modèles liés dans un modèle Azure Resource Manager afin de créer une solution de modèle modulaire. Indique comment transmettre des valeurs de paramètres, spécifier un fichier de paramètres et créer dynamiquement des URL.
 ms.topic: conceptual
 ms.date: 06/26/2020
-ms.openlocfilehash: 1b63ebc62a944b43aef3b777dd7d285369356c29
-ms.sourcegitcommit: bcb962e74ee5302d0b9242b1ee006f769a94cfb8
+ms.openlocfilehash: 6b28268a522dde4fe16ccf9d0d01738c3b6a9b5d
+ms.sourcegitcommit: 1e6c13dc1917f85983772812a3c62c265150d1e7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/07/2020
-ms.locfileid: "86056682"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86170647"
 ---
 # <a name="using-linked-and-nested-templates-when-deploying-azure-resources"></a>Utilisation de modèles liés et imbriqués durant le déploiement de ressources Azure
 
@@ -160,7 +160,7 @@ Le modèle suivant montre la façon dont sont résolues les expressions de modè
 
 La valeur de `exampleVar` varie en fonction de la valeur de la propriété `scope` dans `expressionEvaluationOptions`. Le tableau suivant montre les résultats pour les deux portées.
 
-| `expressionEvaluationOptions` `scope` | Output |
+| Étendue `expressionEvaluationOptions` | Output |
 | ----- | ------ |
 | interne | from nested template |
 | externe (ou par défaut) | from parent template |

@@ -9,18 +9,18 @@ ms.devlang: rest-api
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 01/02/2020
-ms.openlocfilehash: d1723b6c5d56554fbff576f6a07e37455845bda4
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 60f4ed9940c70ed479c3108f3637aa55f2a42811
+ms.sourcegitcommit: 5cace04239f5efef4c1eed78144191a8b7d7fee8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79236861"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86146890"
 ---
 # <a name="how-to-index-cosmos-db-data-using-an-indexer-in-azure-cognitive-search"></a>Guide pratique pour indexer des données Cosmos DB avec un indexeur dans Recherche cognitive Azure 
 
 > [!IMPORTANT] 
 > L’API SQL est mise à la disposition générale.
-> La prise en charge de l’API MongoDB, de l’API Gremlin et de l’API Cassandra est actuellement en préversion publique. Les fonctionnalités en préversion sont fournies sans contrat de niveau de service et ne sont pas recommandées pour les charges de travail de production. Pour plus d’informations, consultez [Conditions d’Utilisation Supplémentaires relatives aux Évaluations Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). Vous pouvez demander l’accès aux préversions en remplissant [ce formulaire](https://aka.ms/azure-cognitive-search/indexer-preview). L’[API REST version 2019-05-06-Preview](search-api-preview.md) fournit des fonctionnalités en préversion. La prise en charge du portail est actuellement limitée, et il n’existe pas de prise en charge du kit SDK .NET.
+> La prise en charge de l’API MongoDB, de l’API Gremlin et de l’API Cassandra est actuellement en préversion publique. Les fonctionnalités en préversion sont fournies sans contrat de niveau de service et ne sont pas recommandées pour les charges de travail de production. Pour plus d’informations, consultez [Conditions d’Utilisation Supplémentaires relatives aux Évaluations Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). Vous pouvez demander l’accès aux préversions en remplissant [ce formulaire](https://aka.ms/azure-cognitive-search/indexer-preview). L’[API REST version 2020-06-30-Preview](search-api-preview.md) fournit des fonctionnalités en préversion. La prise en charge du portail est actuellement limitée, et il n’existe pas de prise en charge du kit SDK .NET.
 
 > [!WARNING]
 > Seuls les collections Cosmos DB dotées d’une [stratégie d’indexation](https://docs.microsoft.com/azure/cosmos-db/index-policy) configurée sur [Cohérent](https://docs.microsoft.com/azure/cosmos-db/index-policy#indexing-mode) sont prises en charge par Recherche cognitive Azure. L’indexation des collections dotées d’une stratégie d’indexation différée n’est pas recommandée et peut se traduire par des données manquantes. Les collections dont l’indexation est désactivée ne sont pas prises en charge.
@@ -33,9 +33,9 @@ L’indexeur Cosmos DB dans Recherche cognitive Azure peut analyser les [éléme
 
 + Pour l’[API SQL](https://docs.microsoft.com/azure/cosmos-db/sql-api-query-reference), qui est en disponibilité générale, vous pouvez utiliser le [portail](#cosmos-indexer-portal), l’[API REST](https://docs.microsoft.com/rest/api/searchservice/indexer-operations) ou le [Kit de développement logiciel (SDK) .NET](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.models.indexer?view=azure-dotnet) pour créer la source de données et l’indexeur.
 
-+ Pour l’[API MongoDB (préversion)](https://docs.microsoft.com/azure/cosmos-db/mongodb-introduction), vous pouvez utiliser le [portail](#cosmos-indexer-portal) ou l’[API REST version 2019-05-06-Preview](search-api-preview.md) pour créer la source de données et l’indexeur.
++ Pour l’[API MongoDB (préversion)](https://docs.microsoft.com/azure/cosmos-db/mongodb-introduction), vous pouvez utiliser le [portail](#cosmos-indexer-portal) ou l’[API REST version 2020-06-30-Preview](search-api-preview.md) pour créer la source de données et l’indexeur.
 
-+ Pour l’[API Cassandra (préversion)](https://docs.microsoft.com/azure/cosmos-db/cassandra-introduction) et l’[API Gremlin (préversion)](https://docs.microsoft.com/azure/cosmos-db/graph-introduction), vous pouvez uniquement utiliser l’[API REST version 2019-05-06-Preview](search-api-preview.md) pour créer la source de données et l’indexeur.
++ Pour l’[API Cassandra (préversion)](https://docs.microsoft.com/azure/cosmos-db/cassandra-introduction) et l’[API Gremlin (préversion)](https://docs.microsoft.com/azure/cosmos-db/graph-introduction), vous pouvez uniquement utiliser l’[API REST version 2020-06-30-Preview](search-api-preview.md) pour créer la source de données et l’indexeur.
 
 
 > [!Note]
@@ -123,7 +123,7 @@ Quand l’indexation est terminée, vous pouvez utiliser l’[Explorateur de rec
 Vous pouvez utiliser l’API REST pour indexer des données Azure Cosmos DB en suivant un flux de travail en trois parties commun à tous les indexeurs dans Recherche cognitive Azure : créer une source de données, créer un index, créer un indexeur. L’extraction de données dans Cosmos DB se produit quand vous envoyez la demande de création d’un indexeur. Lorsque cette requête est terminée, vous disposez d’un index pouvant être interrogé. 
 
 > [!NOTE]
-> Pour indexer des données à partir de l’API Gremlin ou de l’API Cassandra de Cosmos DB, vous devez d’abord demander l’accès aux préversions contrôlées en remplissant [ce formulaire](https://aka.ms/azure-cognitive-search/indexer-preview). Une fois votre demande traitée, vous recevez des instructions sur l’utilisation de l’[API REST version 2019-05-06-Preview](search-api-preview.md) pour créer la source de données.
+> Pour indexer des données à partir de l’API Gremlin ou de l’API Cassandra de Cosmos DB, vous devez d’abord demander l’accès aux préversions contrôlées en remplissant [ce formulaire](https://aka.ms/azure-cognitive-search/indexer-preview). Une fois votre demande traitée, vous recevez des instructions sur l’utilisation de l’[API REST version 2020-06-30-Preview](search-api-preview.md) pour créer la source de données.
 
 Plus haut dans cet article, il est mentionné que l’[indexation d’Azure Cosmos DB](https://docs.microsoft.com/azure/cosmos-db/index-overview) et l’[indexation de Recherche cognitive Azure ](search-what-is-an-index.md) sont des opérations distinctes. Pour l’indexation Cosmos DB, par défaut, tous les documents sont indexés automatiquement, sauf avec l’API Cassandra. Si vous désactivez l’indexation automatique, les documents sont accessibles seulement via leurs liens réflexifs ou des requêtes avec l’ID de document. L’indexation Recherche cognitive Azure nécessite l’activation de l’indexation automatique Cosmos DB dans la collection qui sera indexée par Recherche cognitive Azure. Lors de l’inscription à la préversion de l’indexeur de l’API Cassandra de Cosmos DB, vous recevez des instructions sur la configuration de l’indexation Cosmos DB.
 
@@ -154,7 +154,9 @@ Une **source de données** spécifie les données à indexer, les informations d
 
 Pour créer une source de données, formulez une requête POST :
 
-    POST https://[service name].search.windows.net/datasources?api-version=2019-05-06
+```http
+
+    POST https://[service name].search.windows.net/datasources?api-version=2020-06-30
     Content-Type: application/json
     api-key: [Search service admin key]
 
@@ -170,6 +172,7 @@ Pour créer une source de données, formulez une requête POST :
             "highWaterMarkColumnName": "_ts"
         }
     }
+```
 
 Le corps de la requête contient la définition de la source de données, qui doit inclure les champs suivants :
 
@@ -190,6 +193,7 @@ Vous pouvez spécifier une requête SQL pour aplatir les propriétés ou les tab
 
 Exemple de document :
 
+```http
     {
         "userId": 10001,
         "contact": {
@@ -199,31 +203,38 @@ Exemple de document :
         "company": "microsoft",
         "tags": ["azure", "cosmosdb", "search"]
     }
+```
 
 Requête de filtre :
 
-    SELECT * FROM c WHERE c.company = "microsoft" and c._ts >= @HighWaterMark ORDER BY c._ts
+```sql
+SELECT * FROM c WHERE c.company = "microsoft" and c._ts >= @HighWaterMark ORDER BY c._ts
+```
 
 Requête d’aplatissage :
 
-    SELECT c.id, c.userId, c.contact.firstName, c.contact.lastName, c.company, c._ts FROM c WHERE c._ts >= @HighWaterMark ORDER BY c._ts
-    
-    
+```sql
+SELECT c.id, c.userId, c.contact.firstName, c.contact.lastName, c.company, c._ts FROM c WHERE c._ts >= @HighWaterMark ORDER BY c._ts
+```
+
 Requête de projection :
 
-    SELECT VALUE { "id":c.id, "Name":c.contact.firstName, "Company":c.company, "_ts":c._ts } FROM c WHERE c._ts >= @HighWaterMark ORDER BY c._ts
-
+```sql
+SELECT VALUE { "id":c.id, "Name":c.contact.firstName, "Company":c.company, "_ts":c._ts } FROM c WHERE c._ts >= @HighWaterMark ORDER BY c._ts
+```
 
 Requête d’aplatissage de tableau :
 
-    SELECT c.id, c.userId, tag, c._ts FROM c JOIN tag IN c.tags WHERE c._ts >= @HighWaterMark ORDER BY c._ts
-
+```sql
+SELECT c.id, c.userId, tag, c._ts FROM c JOIN tag IN c.tags WHERE c._ts >= @HighWaterMark ORDER BY c._ts
+```
 
 ### <a name="3---create-a-target-search-index"></a>3 - Créer un index de recherche cible 
 
 [Créez un index Recherche cognitive Azure cible](/rest/api/searchservice/create-index) si vous n’en avez pas. L'exemple suivant crée un index avec un champ ID et un champ Description :
 
-    POST https://[service name].search.windows.net/indexes?api-version=2019-05-06
+```http
+    POST https://[service name].search.windows.net/indexes?api-version=2020-06-30
     Content-Type: application/json
     api-key: [Search service admin key]
 
@@ -243,6 +254,7 @@ Requête d’aplatissage de tableau :
          "suggestions": true
        }]
      }
+```
 
 Assurez-vous que le schéma de votre index cible est compatible avec le schéma des documents JSON source ou la sortie de votre projection de requête personnalisée.
 
@@ -267,7 +279,8 @@ Assurez-vous que le schéma de votre index cible est compatible avec le schéma 
 
 Une fois l'index et la source de données créés, vous êtes prêt à créer l’indexeur :
 
-    POST https://[service name].search.windows.net/indexers?api-version=2019-05-06
+```http
+    POST https://[service name].search.windows.net/indexers?api-version=2020-06-30
     Content-Type: application/json
     api-key: [admin key]
 
@@ -277,6 +290,7 @@ Une fois l'index et la source de données créés, vous êtes prêt à créer l�
       "targetIndexName" : "mysearchindex",
       "schedule" : { "interval" : "PT2H" }
     }
+```
 
 Cet indexeur s’exécute toutes les deux heures (intervalle de planification défini sur « PT2H »). Pour exécuter un indexeur toutes les 30 minutes, définissez l’intervalle sur « PT30M ». Le plus court intervalle pris en charge est de 5 minutes. La planification est facultative : en cas d’omission, un indexeur ne s’exécute qu’une seule fois lorsqu’il est créé. Toutefois, vous pouvez à tout moment exécuter un indexeur à la demande.   
 
@@ -299,10 +313,12 @@ Le kit de développement logiciel (SDK) .NET mis à la disposition générale of
 
 L'objectif d'une stratégie de détection des changements de données est d'identifier efficacement les données modifiées. La seule stratégie actuellement prise en charge est la [`HighWaterMarkChangeDetectionPolicy`](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.models.highwatermarkchangedetectionpolicy) qui utilise la propriété `_ts` (timestamp) fournie par Azure Cosmos DB, définie ainsi :
 
+```http
     {
         "@odata.type" : "#Microsoft.Azure.Search.HighWaterMarkChangeDetectionPolicy",
         "highWaterMarkColumnName" : "_ts"
     }
+```
 
 Cette stratégie est vivement recommandée pour garantir de bonnes performances pour l’indexeur. 
 
@@ -318,11 +334,13 @@ Pour activer la progression incrémentielle lors de l’utilisation d’une requ
 
 Dans certains cas, il se peut qu’Azure Search ne déduise pas que la requête est ordonnée par `_ts`, même si elle contient une clause `ORDER BY [collection alias]._ts`. Vous pouvez indiquer à Azure Search que les résultats sont triés à l’aide de la propriété de configuration `assumeOrderByHighWaterMarkColumn`. Pour ce faire, créez ou mettez à jour l’indexeur comme suit : 
 
+```http
     {
      ... other indexer definition properties
      "parameters" : {
             "configuration" : { "assumeOrderByHighWaterMarkColumn" : true } }
     } 
+```
 
 <a name="DataDeletionDetectionPolicy"></a>
 
@@ -330,17 +348,20 @@ Dans certains cas, il se peut qu’Azure Search ne déduise pas que la requête 
 
 Lorsque des lignes sont supprimées de la collection, vous devez normalement supprimer ces lignes de l'index de recherche. L'objectif d'une stratégie de détection des suppressions de données est d'identifier efficacement les données supprimées. La seule stratégie actuellement prise en charge est la stratégie `Soft Delete` (où la suppression est signalée par un indicateur quelconque), spécifiée comme suit :
 
+```http
     {
         "@odata.type" : "#Microsoft.Azure.Search.SoftDeleteColumnDeletionDetectionPolicy",
         "softDeleteColumnName" : "the property that specifies whether a document was deleted",
         "softDeleteMarkerValue" : "the value that identifies a document as deleted"
     }
+```
 
 Si vous utilisez une requête personnalisée, assurez-vous que la propriété référencée par `softDeleteColumnName` est projetée par la requête.
 
 L'exemple suivant crée une source de données avec des conseils pour une stratégie de suppression en douceur :
 
-    POST https://[service name].search.windows.net/datasources?api-version=2019-05-06
+```http
+    POST https://[service name].search.windows.net/datasources?api-version=2020-06-30
     Content-Type: application/json
     api-key: [Search service admin key]
 
@@ -361,6 +382,7 @@ L'exemple suivant crée une source de données avec des conseils pour une strat�
             "softDeleteMarkerValue": "true"
         }
     }
+```
 
 ## <a name="next-steps"></a><a name="NextSteps"></a>Étapes suivantes
 

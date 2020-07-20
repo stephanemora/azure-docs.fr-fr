@@ -9,19 +9,19 @@ editor: ''
 ms.assetid: 6b1a598f-89c0-4244-9b20-f4aaad5233cf
 ms.service: active-directory
 ms.devlang: na
-ms.topic: conceptual
+ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 05/01/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 309adfbebd4f4b615ac1f4061823ca01f3d3ee15
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: eaeaa8625a5bdb5bbf8ce76a68e616a913da5655
+ms.sourcegitcommit: 5cace04239f5efef4c1eed78144191a8b7d7fee8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79230113"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86146998"
 ---
 # <a name="azure-ad-connect-sync-scheduler"></a>Synchronisation d’Azure AD Connect : Scheduler
 Cette rubrique décrit le planificateur intégré dans Azure AD Connect Sync (moteur de synchronisation).
@@ -39,6 +39,14 @@ Le planificateur supervise deux tâches :
 * **Tâches de maintenance**. Renouvelle les clés et les certificats pour la réinitialisation de mot de passe et le service DRS (Device Registration Service). Vide les anciennes entrées dans le journal des opérations.
 
 Le planificateur est toujours en cours d’exécution, mais il peut être configuré pour exécuter uniquement une tâche, ou bien aucune tâche. Par exemple, si vous avez besoin d’avoir votre propre processus de cycle de synchronisation, vous pouvez désactiver cette tâche dans le planificateur, mais toujours exécuter la tâche de maintenance.
+
+>[!IMPORTANT]
+>Par défaut, un cycle de synchronisation est lancé toutes les 30 minutes. Si vous avez changé le cycle de synchronisation, vous devez vous assurer qu’un cycle de synchronisation est lancé au moins une fois tous les 7 jours. 
+>
+>* Une nouvelle synchronisation delta est requise dans les 7 jours suivant la dernière synchronisation delta.
+>* Une synchronisation delta (après une synchronisation complète) doit être effectuée dans les 7 jours suivant la dernière synchronisation complète.
+>
+>À défaut, vous risquez de rencontrer des problèmes de synchronisation, qui ne pourront être résolus qu’en effectuant une synchronisation complète. Cela s’applique également aux serveurs en préproduction.
 
 ## <a name="scheduler-configuration"></a>Configuration du planificateur
 Pour afficher vos paramètres de configuration en cours, accédez à PowerShell et exécutez `Get-ADSyncScheduler`. Vous obtenez un écran semblable à celui-ci :

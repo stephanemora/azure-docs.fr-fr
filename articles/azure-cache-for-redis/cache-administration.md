@@ -6,12 +6,12 @@ ms.service: cache
 ms.topic: conceptual
 ms.date: 07/05/2017
 ms.author: yegu
-ms.openlocfilehash: dfb760477fc528575212d79d929661c2276effbb
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 224436c155f1133621abede21878b49ebc9b3331
+ms.sourcegitcommit: ec682dcc0a67eabe4bfe242fce4a7019f0a8c405
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85079062"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86185202"
 ---
 # <a name="how-to-administer-azure-cache-for-redis"></a>Guide pratique pour administrer le Cache Azure pour Redis
 Cette rubrique explique comment effectuer des tâches d’administration comme le [redémarrage](#reboot) et la [planification des mises à jour](#schedule-updates) de vos instances du Cache Azure pour Redis.
@@ -35,9 +35,9 @@ Pour redémarrer un ou plusieurs nœuds de votre cache, sélectionnez les nœuds
 
 L’impact sur les applications clientes varie selon les nœuds que vous redémarrez.
 
-* **Master** – lorsque le nœud master est redémarré, le Cache Azure pour Redis bascule sur le nœud de réplica et le promeut au niveau master. Pendant ce basculement, il peut y avoir un court intervalle pendant lequel les connexions au cache peuvent échouer.
+* **Maître** - lorsque le nœud principal est redémarré, Azure Cache pour Redis bascule sur le nœud réplica et le promeut au niveau principal. Pendant ce basculement, il peut y avoir un court intervalle pendant lequel les connexions au cache peuvent échouer.
 * **Réplica** – lorsque le nœud réplica est redémarré, il n’y a généralement aucun impact sur les clients du cache.
-* **Master et Réplica** – lorsque les nœuds du cache sont redémarrés, toutes les données sont perdues dans le cache et les connexions au cache échouent jusqu’à ce que le nœud principal soit de nouveau disponible. Si vous avez configuré la [persistance des données](cache-how-to-premium-persistence.md), la sauvegarde la plus récente est restaurée au moment où le cache est de nouveau en ligne. Toutefois, toute écriture de cache intervenue après cette sauvegarde est perdue.
+* **Principal et réplica** - lorsque les nœuds du cache sont redémarrés, toutes les données sont perdues dans le cache et les connexions au cache échouent jusqu’à ce que le nœud principal soit de nouveau disponible. Si vous avez configuré la [persistance des données](cache-how-to-premium-persistence.md), la sauvegarde la plus récente est restaurée au moment où le cache est de nouveau en ligne. Toutefois, toute écriture de cache intervenue après cette sauvegarde est perdue.
 * **Nœuds d’un cache Premium avec activation du clustering** : lorsque vous redémarrez le ou les nœuds d’un cache Premium et que le clustering est activé, le comportement des nœuds sélectionnés est le même que lorsque vous redémarrez un ou plusieurs nœuds correspondants d’un cache non cluster.
 
 ## <a name="reboot-faq"></a>Forum aux questions sur le redémarrage
@@ -47,7 +47,7 @@ L’impact sur les applications clientes varie selon les nœuds que vous redéma
 * [Est-il possible de redémarrer mon cache à l’aide de PowerShell, de l’interface de ligne de commande ou d’autres outils de gestion ?](#can-i-reboot-my-cache-using-powershell-cli-or-other-management-tools)
 
 ### <a name="which-node-should-i-reboot-to-test-my-application"></a>Quel nœud dois-je redémarrer pour tester mon application ?
-Pour tester la résilience de votre application en cas de défaillance du nœud principal de votre cache, redémarrez le nœud **Master** . Pour tester la résilience de votre application en cas de défaillance du nœud secondaire de votre cache, redémarrez le nœud **Réplica**. Pour tester la résilience de votre application en cas de défaillance totale de votre cache, redémarrez les **deux** nœuds.
+Pour tester la résilience de votre application en cas de défaillance du nœud principal de votre cache, redémarrez le nœud **Master** . Pour tester la résilience de votre application en cas de défaillance du nœud réplica, redémarrez le nœud **réplica**. Pour tester la résilience de votre application en cas de défaillance totale de votre cache, redémarrez les **deux** nœuds.
 
 ### <a name="can-i-reboot-the-cache-to-clear-client-connections"></a>Est-il possible de redémarrer le cache pour effacer les connexions client ?
 Oui, toutes les connexions client sont effacées si vous réinitialisez le cache. Le redémarrage est utile lorsque toutes les connexions client sont utilisées, par exemple en raison d’une erreur logique ou d’un bogue dans l’application cliente. Chaque niveau tarifaire a différentes [limites de connexion client](cache-configure.md#default-redis-server-configuration) pour les différentes tailles. Une fois ces limites sont atteintes, aucune autre connexion client supplémentaire n’est acceptée. Redémarrer le cache permet d’effacer toutes les connexions client.

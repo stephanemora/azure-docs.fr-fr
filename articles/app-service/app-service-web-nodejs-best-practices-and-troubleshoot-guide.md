@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 11/09/2017
 ms.author: msangapu
 ms.custom: seodec18
-ms.openlocfilehash: 682884d11b298a97e27056af3c10802dfd410e4c
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: e2c60e851d61a5f33e1b050412b0e91b81e20a16
+ms.sourcegitcommit: 1e6c13dc1917f85983772812a3c62c265150d1e7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "75430560"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86169979"
 ---
 # <a name="best-practices-and-troubleshooting-guide-for-node-applications-on-azure-app-service-windows"></a>Bonnes pratiques et guide de résolution des problèmes pour les applications Node sur Azure App Service
 
@@ -170,7 +170,7 @@ Accédez au site de la console de débogage `https://yoursite.scm.azurewebsites.
 
 Allez dans votre répertoire site/wwwroot. Il contient une invite de commande, comme illustré dans l’exemple suivant :
 
-![](./media/app-service-web-nodejs-best-practices-and-troubleshoot-guide/scm_install_v8.png)
+![Capture d’écran qui montre votre répertoire site/wwwroot et l’invite de commandes.](./media/app-service-web-nodejs-best-practices-and-troubleshoot-guide/scm_install_v8.png)
 
 Exécutez la commande `npm install v8-profiler`.
 
@@ -203,11 +203,11 @@ http.createServer(function (req, res) {
 
 Le code précédent profile la fonction WriteConsoleLog, puis écrit la sortie du profil dans le fichier « profile.cpuprofile » sous le répertoire wwwroot de votre site. Envoyez une requête à votre application. Vous voyez qu’un fichier « profile.cpuprofile » a été créé sous le répertoire wwwroot de votre site.
 
-![](./media/app-service-web-nodejs-best-practices-and-troubleshoot-guide/scm_profile.cpuprofile.png)
+![Capture d’écran qui montre le fichier profile.cpuprofile.](./media/app-service-web-nodejs-best-practices-and-troubleshoot-guide/scm_profile.cpuprofile.png)
 
 Téléchargez ce fichier et ouvrez-le avec la fonctionnalité Outils de Chrome (F12). Appuyez sur F12 dans Chrome, puis choisissez l’onglet **Profils**. Choisissez le bouton **Charger**. Sélectionnez le fichier profile.cpuprofile que vous avez téléchargé. Cliquez sur le profil que vous venez de télécharger.
 
-![](./media/app-service-web-nodejs-best-practices-and-troubleshoot-guide/chrome_tools_view.png)
+![Capture d’écran qui montre le fichier profile.cpuprofile que vous avez chargé.](./media/app-service-web-nodejs-best-practices-and-troubleshoot-guide/chrome_tools_view.png)
 
 Vous pouvez voir que 95 % du temps a été consommé par la fonction WriteConsoleLog. Ce résultat vous montre également précisément les numéros de ligne et les fichiers source qui sont à l’origine du problème.
 

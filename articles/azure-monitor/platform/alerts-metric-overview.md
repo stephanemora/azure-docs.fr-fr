@@ -1,15 +1,15 @@
 ---
 title: Comprenez le fonctionnement des alertes de métrique dans Azure Monitor.
 description: Obtenez un aperçu des actions possibles avec les alertes de métriques et de leur fonctionnement dans Azure Monitor.
-ms.date: 03/17/2020
+ms.date: 07/09/2020
 ms.topic: conceptual
 ms.subservice: alerts
-ms.openlocfilehash: 603df6f9b00c9261885937a3d85052b3806ff4f8
-ms.sourcegitcommit: 8017209cc9d8a825cc404df852c8dc02f74d584b
+ms.openlocfilehash: cd8c28b2c26e8859eda1634d2441982336cdd460
+ms.sourcegitcommit: ec682dcc0a67eabe4bfe242fce4a7019f0a8c405
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/01/2020
-ms.locfileid: "84248819"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86187521"
 ---
 # <a name="understand-how-metric-alerts-work-in-azure-monitor"></a>Comprendre le fonctionnement des alertes de métrique dans Azure Monitor
 
@@ -135,9 +135,13 @@ Cette fonctionnalité est actuellement prise en charge pour les métriques de pl
 
 Vous disposez de trois méthodes pour spécifier l’étendue de la supervision par une règle d’alerte de métrique unique. Par exemple, avec des machines virtuelles, vous pouvez spécifier l’étendue comme suit :  
 
-- sous la forme d’une liste de machines virtuelles dans une seule région Azure d’un abonnement
+- sous la forme d’une liste de machines virtuelles (dans une seule région Azure) au sein d’un abonnement
 - pour toutes les machines virtuelles (dans une seule région Azure) dans un ou plusieurs groupes de ressources d’un abonnement ;
-- pour toutes les machines virtuelles (dans une seule région Azure) d’un abonnement.
+- pour toutes les machines virtuelles (dans une seule région Azure) d’un abonnement
+
+> [!NOTE]
+>
+> L’étendue d’une règle d’alerte de métrique multiressource doit contenir au moins une ressource du type de ressource sélectionné.
 
 La création de règles d'alerte de métrique surveillant plusieurs ressources est similaire à la [création de toute autre alerte de métrique](alerts-metric.md) surveillant une seule ressource, à la différence près que vous sélectionnez toutes les ressources que vous souhaitez surveiller. Vous pouvez également créer ces règles par le biais des [modèles Azure Resource Manager](../../azure-monitor/platform/alerts-metric-create-templates.md#template-for-a-metric-alert-that-monitors-multiple-resources). Vous recevrez des notifications individuelles pour chaque ressource supervisée.
 

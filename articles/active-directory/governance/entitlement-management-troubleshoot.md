@@ -12,16 +12,16 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: troubleshooting
 ms.subservice: compliance
-ms.date: 03/22/2020
+ms.date: 06/17/2020
 ms.author: barclayn
 ms.reviewer: markwahl-msft
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 5ddd8e1c64f4db8221937abc54e88d9a884acf3e
-ms.sourcegitcommit: 34a6fa5fc66b1cfdfbf8178ef5cdb151c97c721c
+ms.openlocfilehash: 8bf19123888dd26073016131c93047b0cd0afaf4
+ms.sourcegitcommit: 5cace04239f5efef4c1eed78144191a8b7d7fee8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82207242"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86145761"
 ---
 # <a name="troubleshoot-azure-ad-entitlement-management"></a>Résoudre les problèmes de gestion des droits d’utilisation Azure AD
 
@@ -45,7 +45,7 @@ Cet article décrit certains éléments que vous devriez vérifier pour vous aid
 
 * Si des utilisateurs ont déjà été affectés à une ressource que vous souhaitez gérer avec un package d’accès, assurez-vous qu’ils sont affectés au package d’accès avec une stratégie appropriée. Par exemple, vous envisagez d’inclure un groupe dans un package d’accès qui contient déjà des utilisateurs dans le groupe. Si ces utilisateurs dans le groupe nécessitent un accès permanent, ils doivent avoir une stratégie appropriée pour les packages d’accès, afin de ne pas perdre leur accès au groupe. Vous pouvez affecter le package d’accès soit en indiquant aux utilisateurs qu’ils demandent le package d’accès contenant cette ressource, soit en les affectant directement au package d’accès. Pour plus d’informations, consultez [Changer les paramètres de demande et d’approbation pour un package d’accès](entitlement-management-access-package-request-policy.md).
 
-* Lorsque vous supprimez un membre d’une équipe, il est également supprimé du groupe Office 365. La suppression de la fonctionnalité de conversation de l’équipe peut être retardée. Pour plus d’informations, consultez l’article [Appartenance au groupe](https://docs.microsoft.com/microsoftteams/office-365-groups#group-membership).
+* Lorsque vous supprimez un membre d’une équipe, il est également supprimé du groupe Microsoft 365. La suppression de la fonctionnalité de conversation de l’équipe peut être retardée. Pour plus d’informations, consultez l’article [Appartenance au groupe](https://docs.microsoft.com/microsoftteams/office-365-groups#group-membership).
 
 * Vérifiez que votre annuaire n’est pas en configuration multigéographique. Actuellement, la gestion des droits d’utilisation ne prend pas en charge les emplacements multigéographiques pour SharePoint Online. Les sites SharePoint Online doivent se trouver à l’emplacement géographique par défaut pour être régis par la gestion des droits d’utilisation. Pour plus d’informations, voir [Fonctionnalités multigéographiques dans OneDrive et SharePoint Online](https://docs.microsoft.com/Office365/Enterprise/multi-geo-capabilities-in-onedrive-and-sharepoint-online-in-office-365).
 
@@ -95,7 +95,9 @@ Cet article décrit certains éléments que vous devriez vérifier pour vous aid
 
 Si une erreur est rencontrée après le déclenchement d’une demande de retraitement d’un package d’accès, vous devez patienter pendant que le système retraite la demande. Le système essaie de retraiter à plusieurs reprises et sur une période de plusieurs heures, vous ne pouvez donc pas forcer le retraitement pendant cette période. 
 
-Vous ne pouvez retraiter qu’une demande dont l’état est **Échec de livraison** ou **Partiellement remis** avec une date de fin inférieure à une semaine.
+Vous ne pouvez retraiter qu’une demande dont l’état est **Échec de livraison** ou **Partiellement remis** avec une date de fin inférieure à une semaine. Dans le cas contraire, le bouton **Retraiter** est grisé.
+
+![Bouton Retraiter grisé](./media/entitlement-management-troubleshoot/cancel-reprocess-grayedout.png)
 
 - Si l’erreur est corrigée dans la fenêtre des essais, l’état de la demande passe à **Livraison en cours**. La demande sera retraitée sans aucune action supplémentaire de la part de l’utilisateur.
 
@@ -117,7 +119,7 @@ Vous ne pouvez retraiter qu’une demande dont l’état est **Échec de livrais
 
 ### <a name="cancel-a-pending-request"></a>Annuler une demande en attente
 
-Vous pouvez uniquement annuler une requête en attente qui n’a pas encore été autorisée ou dont la livraison a échoué.
+Vous pouvez uniquement annuler une requête en attente qui n’a pas encore été autorisée ou dont la livraison a échoué. Dans le cas contraire, le bouton **Annuler** est grisé.
 
 **Rôle prérequis :** Administrateur général, administrateur d’utilisateurs ou gestionnaire de package d’accès
 

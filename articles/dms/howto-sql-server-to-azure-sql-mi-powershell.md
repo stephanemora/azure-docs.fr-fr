@@ -1,5 +1,5 @@
 ---
-title: 'PowerShell : Migrer SQL Server vers une instance gérée SQL'
+title: 'PowerShell : Migrer SQL Server vers SQL Managed Instance'
 titleSuffix: Azure Database Migration Service
 description: Apprenez à migrer de SQL Server vers Azure SQL Managed Instance à l’aide d’Azure PowerShell et du service Azure Database Migration Service.
 services: database-migration
@@ -12,12 +12,12 @@ ms.workload: data-services
 ms.custom: seo-lt-2019,fasttrack-edit
 ms.topic: article
 ms.date: 02/20/2020
-ms.openlocfilehash: caa936e0d61056336d11f58e59ba512b62cd6108
-ms.sourcegitcommit: 8017209cc9d8a825cc404df852c8dc02f74d584b
+ms.openlocfilehash: eb8ec09646fa3f3c226edbe957e19d079fd2607c
+ms.sourcegitcommit: 5cace04239f5efef4c1eed78144191a8b7d7fee8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/01/2020
-ms.locfileid: "84248649"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86147424"
 ---
 # <a name="migrate-sql-server-to-sql-managed-instance-with-powershell--azure-database-migration-service"></a>Migrer SQL Server vers SQL Managed Instance avec PowerShell et Azure Database Migration Service
 
@@ -121,13 +121,11 @@ $sourceConnInfo = New-AzDmsConnInfo -ServerType SQL `
   -TrustServerCertificate:$true
 ```
 
-L’exemple suivant illustre la création de l’objet d’informations de connexion pour une instance Azure SQL Managed Instance appelée « targetmanagedinstance.database.windows.net » avec l’authentification SQL :
+L’exemple suivant illustre la création de l’objet d’informations de connexion pour une instance Azure SQL Managed Instance appelée « targetmanagedinstance » :
 
 ```powershell
-$targetConnInfo = New-AzDmsConnInfo -ServerType SQL `
-  -DataSource "targetmanagedinstance.database.windows.net" `
-  -AuthType SqlAuthentication `
-  -TrustServerCertificate:$false
+$targetResourceId = (Get-AzSqlInstance -Name "targetmanagedinstance").Id
+$targetConnInfo = New-AzDmsConnInfo -ServerType SQLMI -MiResourceId $targetResourceId
 ```
 
 ### <a name="provide-databases-for-the-migration-project"></a>Fournir des bases de données pour le projet de migration

@@ -5,13 +5,13 @@ services: logic-apps
 ms.suite: integration
 ms.reviewer: jonfan, logicappspm
 ms.topic: article
-ms.date: 04/24/2020
-ms.openlocfilehash: ede385670dec6629cc3e75a9d09c0ceb14362bdc
-ms.sourcegitcommit: 6a9f01bbef4b442d474747773b2ae6ce7c428c1f
+ms.date: 06/11/2020
+ms.openlocfilehash: 48d9990115a0e786d12915acf1eaadc196a00b0b
+ms.sourcegitcommit: 1e6c13dc1917f85983772812a3c62c265150d1e7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "84119382"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86170035"
 ---
 # <a name="connectors-for-azure-logic-apps"></a>Connecteurs pour Azure Logic Apps
 
@@ -50,7 +50,7 @@ Les connecteurs sont disponibles sous forme de déclencheurs et d’actions int�
 
   Vous pouvez également identifier les connecteurs à l’aide des catégories ci-dessous, même si certains connecteurs peuvent appartenir à plusieurs catégories. Par exemple, SAP est à la fois un connecteur entreprise et un connecteur local :
 
-  |   |   |
+  | Connecteurs | Description |
   |---|---|
   | [**Connecteurs managés**](#managed-api-connectors) | Créent des applications logiques qui utilisent des services tels que Stockage Blob Azure, Office 365, Dynamics, Power BI, OneDrive, Salesforce, SharePoint Online et bien d’autres encore. |
   | [**Connecteurs locaux**](#on-premises-connectors) | Une fois la [passerelle de données locale][gateway-doc] installée et configurée, ces connecteurs permettent à vos applications logiques d’accéder aux systèmes locaux comme SQL Server, SharePoint Server, Oracle DB, les partages de fichiers et autres. |
@@ -92,44 +92,118 @@ Les applications logiques qui s’exécutent dans un environnement ISE, ainsi q
 
 Logic Apps fournit des déclencheurs et des actions intégrés qui vous permettent de créer des workflows basés sur une planification, d’aider vos applications logiques à communiquer avec d’autres applications et services, de contrôler le workflow via vos applications logiques, et de gérer ou de manipuler des données.
 
-|   |   |   |   |
-|---|---|---|---|
-| [![Icône d’API][schedule-icon]<br>**Planification**][schedule-doc] | - Exécutez une application logique selon une récurrence spécifiée, allant des planifications de base aux planifications avancées, à l’aide du [déclencheur **Récurrence**][schedule-recurrence-doc]. <p>- Exécutez une application logique qui doit gérer les données en blocs contigus à l’aide du [déclencheur **Fenêtre glissante**][schedule-sliding-window-doc]. <p>- Suspendez votre application logique pour une durée spécifiée avec l’[action **Retarder**][schedule-delay-doc]. <p>- Suspendez votre application logique jusqu’à une date et une heure spécifiées avec l’[action **Retarder jusqu’à**][schedule-delay-until-doc]. | [![Icône d’API][batch-icon]<br>**Lot**][batch-doc] | - Traitez les messages par lot avec le déclencheur **Batch messages** (Messages par lot). <p>- Appelez les applications logiques comportant déjà des déclencheurs par lot avec l’action **Send messages to batch** (Envoyer les messages au lot). |
-| [![Icône d’API][http-icon]<br>**HTTP**][http-doc] | Appelez des points de terminaison HTTP ou HTTPS avec des déclencheurs et des actions pour HTTP. Les autres déclencheurs et actions HTTP intégrés incluent notamment [HTTP + Swagger][http-swagger-doc] et [HTTP + Webhook][http-webhook-doc]. | [![Icône d’API][http-request-icon]<br>**Requête**][http-request-doc] | - Appelez votre application logique à partir d’autres applications ou services, déclenchez lors des événements liés aux ressources Event Grid ou déclenchez lors des réponses aux alertes Azure Security Center avec le déclencheur **Requête**. <p>- Envoyez des réponses à une application ou un service avec l’action **Réponse**. |
-| [![Icône d’API][azure-api-management-icon]<br> **<br>Gestion** des API Azure][azure-api-management-doc] | Appelez les déclencheurs et les actions définis par vos propres API, gérées et publiées avec Gestion des API Azure. | [![Icône d’API][azure-app-services-icon]<br>**Azure App <br>Services**][azure-app-services-doc] | Appelez Azure API Apps ou Web Apps, hébergées sur Azure App Service. Les déclencheurs et les actions définies par ces applications apparaissent comme les autres déclencheurs et actions de première classe lorsque Swagger est inclus.|
-| [![Icône d’API][azure-logic-apps-icon]<br>**Azure Logic <br>Apps**][nested-logic-app-doc] | Appelez d’autres applications logiques qui commencent par le déclencheur **Requête**. |
-|||||
+[![Icône d’API][schedule-icon]<br>**Planification**][schedule-doc] 
+
+- Exécutez une application logique selon une récurrence spécifiée, allant des planifications de base aux planifications avancées, à l’aide du [déclencheur **Périodicité**][schedule-recurrence-doc].
+- Exécutez une application logique qui doit gérer les données en blocs contigus à l’aide du [déclencheur **Fenêtre glissante**][schedule-sliding-window-doc].
+- Suspendez votre application logique pour une durée spécifiée avec l’[action **Retarder**][schedule-delay-doc].
+- Suspendez votre application logique jusqu’à une date et une heure spécifiées avec l’[action **Retarder jusqu’à**][schedule-delay-until-doc].
+
+[![Icône d’API][batch-icon]<br>**Lot**][batch-doc]
+
+- Traitez les messages par lot avec le déclencheur **Traiter les messages par lots**.
+- Appelez les applications logiques comportant déjà des déclencheurs par lot avec l’action **Send messages to batch** (Envoyer les messages au lot).
+
+[![Icône d’API][http-icon]<br>**HTTP**][http-doc]
+
+Appelez des points de terminaison HTTP ou HTTPS avec des déclencheurs et des actions pour HTTP. Les autres déclencheurs et actions HTTP intégrés incluent notamment [HTTP + Swagger][http-swagger-doc] et [HTTP + Webhook][http-webhook-doc].
+
+[![Icône d’API][http-request-icon]<br>**Requête**][http-request-doc]
+
+- Appelez votre application logique à partir d’autres applications ou services, déclenchez lors des événements liés aux ressources Event Grid ou déclenchez lors des réponses aux alertes Azure Security Center avec le déclencheur **Requête**. 
+- Envoyez des réponses à une application ou un service avec l’action **Réponse**.
+
+[![Icône d’API][azure-api-management-icon]<br> **<br>Gestion** des API Azure][azure-api-management-doc]
+
+Appelez les déclencheurs et les actions définis par vos propres API, gérées et publiées avec Gestion des API Azure.
+
+[![Icône d’API][azure-app-services-icon]<br>**Azure App <br>Services**][azure-app-services-doc]
+
+Appelez Azure API Apps ou Web Apps, hébergées sur Azure App Service. Les déclencheurs et les actions définies par ces applications apparaissent comme les autres déclencheurs et actions de première classe lorsque Swagger est inclus.|
+
+[![Icône d’API][azure-logic-apps-icon]<br>**Azure Logic <br>Apps**][nested-logic-app-doc]
+
+Appelez d’autres applications logiques qui commencent par le déclencheur **Requête**.
 
 ### <a name="run-code-from-logic-apps"></a>Exécuter du code à partir d’applications logiques
 
 Logic Apps fournit des actions intégrées permettant d’exécuter votre propre code dans le workflow de votre application logique :
 
-|   |   |   |   |
-|---|---|---|---|
-| [![Icône d’API][azure-functions-icon]<br>**Azure Functions**][azure-functions-doc] | Appelez les fonctions Azure qui exécutent des extraits de code personnalisés (C# ou Node.js) à partir de vos applications logiques. | [![Icône d’API][inline-code-icon]<br>**Code inline**][inline-code-doc] | Ajoutez et exécutez des extraits de code JavaScript à partir de vos applications logiques. |
-|||||
+[![Icône d’API][azure-functions-icon]<br>**Azure Functions**][azure-functions-doc]
+
+Appelez les fonctions Azure qui exécutent des extraits de code personnalisés (C# ou Node.js) à partir de vos applications logiques.
+
+[![Icône d’API][inline-code-icon]<br>**Code inline**][inline-code-doc]
+
+Ajoutez et exécutez des extraits de code JavaScript à partir de vos applications logiques.
 
 ### <a name="control-workflow"></a>Contrôler le flux de travail
 
 Logic Apps fournit des actions intégrées qui permettent de structurer et de contrôler les actions du flux de travail de votre application logique :
 
-|   |   |   |   |
-|---|---|---|---|
-| [![Icône d’élément intégré][condition-icon]<br>**Condition**][condition-doc] | Évaluez une condition et exécutez différentes actions selon que la condition est true ou false. | [![Icône d’élément intégré][for-each-icon]<br>**Boucle Foreach**][for-each-doc] | Effectuez les mêmes actions sur chaque élément dans un tableau. |
-| [![Icône d’élément intégré][scope-icon]<br>**Étendue**][scope-doc] | Regroupez les actions en *étendues*, qui obtiennent leur propre état à la fin de l’exécution des actions dans l’étendue. | [![Icône d’élément intégré][switch-icon]<br>**Commutateur**][switch-doc] | Regroupez les actions en *cas*, auxquels sont affectées des valeurs uniques à l’exception du cas par défaut. Exécutez uniquement le cas dont la valeur affectée correspond au résultat d’une expression, d’un objet ou d’un jeton. Si aucune correspondance n’existe, exécutez le cas par défaut. |
-| [![Icône d’élément intégré][terminate-icon]<br>**Terminate**][terminate-doc] | Arrêtez un flux de travail d’application logique qui fonctionne activement. | [![Icône d’élément intégré][until-icon]<br>**Until**][until-doc] | Répétez les actions jusqu’à ce que la condition spécifiée ait la valeur true ou qu’un état ait changé. |
-|||||
+[![Icône d’élément intégré][condition-icon]<br>**Condition**][condition-doc]
+
+Évaluez une condition et exécutez différentes actions selon que la condition est true ou false.
+
+[![Icône d’élément intégré][for-each-icon]<br>**Boucle Foreach**][for-each-doc]
+
+Effectuez les mêmes actions sur chaque élément dans un tableau.
+
+[![Icône d’élément intégré][scope-icon]<br>**Étendue**][scope-doc]
+
+Regroupez les actions en *étendues*, qui obtiennent leur propre état à la fin de l’exécution des actions dans l’étendue.
+
+[![Icône d’élément intégré][switch-icon]<br>**Commutateur**][switch-doc]
+
+Regroupez les actions en *cas*, auxquels sont affectées des valeurs uniques à l’exception du cas par défaut. Exécutez uniquement le cas dont la valeur affectée correspond au résultat d’une expression, d’un objet ou d’un jeton. Si aucune correspondance n’existe, exécutez le cas par défaut.
+
+[![Icône d’élément intégré][terminate-icon]<br>**Terminate**][terminate-doc]
+
+Arrêtez un flux de travail d’application logique qui fonctionne activement.
+
+[![Icône d’élément intégré][until-icon]<br>**Until**][until-doc]
+
+Répétez les actions jusqu’à ce que la condition spécifiée ait la valeur true ou qu’un état ait changé.
 
 ### <a name="manage-or-manipulate-data"></a>Gérer ou manipuler des données
 
 Logic Apps fournit des actions intégrées qui permettent de manipuler les sorties de données et leur format :
 
-|   |   |
-|---|---|
-| [![Icône intégrée][data-operations-icon]<br>**Opérations avec les données**][data-operations-doc] | Effectuez des opérations avec les données : <p>- **Composer** : créez une sortie unique à partir de plusieurs entrées avec différents types. <br>- **Créer un tableau CSV** : créez un tableau CSV (valeurs séparées par des virgules) à partir d’un tableau avec des objets JSON. <br>- **Créer un tableau HTML** : créez un tableau HTML à partir d’un tableau avec des objets JSON. <br>- **Filtrer un tableau** : créez un tableau à partir des éléments d’un autre tableau qui correspondent à vos critères. <br>- **Joindre** : créez une chaîne à partir de tous les éléments d’un tableau et séparez ces éléments à l’aide du séparateur spécifié. <br>- **Analyser JSON** : Créez des jetons conviviaux à partir des propriétés et de leurs valeurs dans le contenu JSON afin de pouvoir utiliser ces propriétés dans votre workflow. <br>- **Sélectionner** : créez un tableau avec des objets JSON en transformant les éléments ou les valeurs d’un autre tableau et en mappant ces éléments sur les propriétés spécifiées. |
-| ![Icône d’élément intégré][date-time-icon]<br>**Date Heure** | Effectuez des opérations avec les horodatages : <p>- **Ajouter à l’heure** : ajoutez le nombre spécifié d’unités à un timestamp. <br>- **Convertir le fuseau horaire** : Convertit un horodatage du fuseau horaire source au fuseau horaire cible. <br>- **Heure actuelle** : Renvoyer le timestamp actuel sous forme de chaîne. <br>- **Obtenir l’heure future** : Retourne l’horodatage actuel plus les unités de temps spécifiées. <br>- **Obtenir l’heure passée** : Retourne l’horodatage actuel moins les unités de temps spécifiées. <br>- **Soustraire de l’heure** : Soustrait un nombre d’unités de temps d’un horodatage. |
-| [![Icône d’élément intégré][variables-icon]<br>**Variables**][variables-doc] | Effectuez des opérations avec les variables : <p>- **Ajouter à la variable de tableau** : insérez une valeur en tant que dernier élément dans un tableau stocké par une variable. <br>- **Ajouter à la variable de chaîne** : insérez une valeur en tant que dernier caractère dans une chaîne stockée par une variable. <br>- **Décrémenter une variable** : diminuez une variable d’une valeur constante. <br>- **Incrémenter une variable** : augmentez une variable d’une valeur constante. <br>- **Initialiser la variable** : créez une variable et déclarez son type de données et sa valeur initiale. <br>- **Définir une variable** : attribuez une autre valeur à une variable existante. |
-|  |  |
+[![Icône intégrée][data-operations-icon]<br>**Opérations avec les données**][data-operations-doc]
+
+Effectuez des opérations avec les données :
+
+- **Composer** : créez une sortie unique à partir de plusieurs entrées avec différents types.
+- **Créer un tableau CSV** : créez un tableau CSV (valeurs séparées par des virgules) à partir d’un tableau avec des objets JSON.
+- **Créer un tableau HTML** : créez un tableau HTML à partir d’un tableau avec des objets JSON.
+- **Filtrer un tableau** : créez un tableau à partir des éléments d’un autre tableau qui correspondent à vos critères.
+- **Joindre** : créez une chaîne à partir de tous les éléments d’un tableau et séparez ces éléments à l’aide du séparateur spécifié.
+- **Analyser JSON** : Créez des jetons conviviaux à partir des propriétés et de leurs valeurs dans le contenu JSON afin de pouvoir utiliser ces propriétés dans votre workflow.
+- **Select** : créez un tableau avec des objets JSON en transformant les éléments ou les valeurs d’un autre tableau et en mappant ces éléments sur les propriétés spécifiées.
+
+![Icône d’élément intégré][date-time-icon]
+
+**Date Heure**
+
+Effectuez des opérations avec les horodatages :
+
+- **Ajouter à l’heure** : ajoutez le nombre spécifié d’unités à un timestamp.
+- **Convertir le fuseau horaire** : Convertit un horodatage du fuseau horaire source au fuseau horaire cible.
+- **Heure actuelle** : Renvoyer le timestamp actuel sous forme de chaîne.
+- **Obtenir l’heure future** : Retourne l’horodatage actuel plus les unités de temps spécifiées.
+- **Obtenir l’heure passée** : Retourne l’horodatage actuel moins les unités de temps spécifiées.
+- **Soustraire de l’heure** : Soustrait un nombre d’unités de temps d’un horodatage.
+
+[![Icône d’élément intégré][variables-icon]<br>**Variables**][variables-doc]
+
+Effectuez des opérations avec les variables :
+
+- **Ajouter à une variable tableau** : insérez une valeur en tant que dernier élément dans un tableau stocké par une variable.
+- **Ajouter à une variable chaîne** : insérez une valeur en tant que dernier caractère dans une chaîne stockée par une variable.
+- **Décrémenter une variable** : diminuez une variable d’une valeur constante.
+- **Incrémenter une variable** : augmentez une variable d’une valeur constante.
+- **Initialiser la variable** : créez une variable et déclarez son type de données et sa valeur initiale.
+- **Définir une variable** : attribuez une autre valeur à une variable existante.
 
 <a name="managed-api-connectors"></a>
 
@@ -137,16 +211,62 @@ Logic Apps fournit des actions intégrées qui permettent de manipuler les sorti
 
 Logic Apps fournit les connecteurs standard ci-dessous qui sont les plus couramment utilisés pour automatiser les tâches, les processus et les workflows avec ces services ou systèmes :
 
-|   |   |   |   |
-|---|---|---|---|
-| [![Icône d’API][azure-service-bus-icon]<br>**Azure Service Bus**][azure-service-bus-doc] | Gérez les messages asynchrones, les sessions et les abonnements à une rubrique avec le connecteur le plus couramment utilisé dans Logic Apps. | [![Icône d’API][sql-server-icon]<br>**SQL Server**][sql-server-doc] | Connectez-vous à votre serveur SQL local ou à Azure SQL Database dans le cloud pour gérer les enregistrements, exécuter des procédures stockées ou exécuter des requêtes. |
-| [![Icône d’API][azure-blob-storage-icon]<br>**Stockage Blob<br>Azure**][azure-blob-storage-doc] | Connectez-vous à votre compte de stockage pour créer et gérer du contenu d’objet blob. | [![Icône d’API][office-365-outlook-icon]<br>**Office 365<br>Outlook**][office-365-outlook-doc] | Connectez-vous à votre compte de messagerie Office 365 pour créer et gérer des e-mails, des tâches, des événements de calendrier, des réunions, des contacts, des requêtes et bien plus encore. |
-| [![Icône d’API][sftp-ssh-icon]<br>**SFTP-SSH**][sftp-ssh-doc] | Connectez-vous aux serveurs SFTP auxquels vous avez accès à partir d’Internet via une connexion SSH afin de pouvoir utiliser vos fichiers et vos dossiers. | [![Icône d’API][sharepoint-online-icon]<br>**SharePoint<br>Online**][sharepoint-online-doc] | Connectez-vous à SharePoint Online pour gérer des fichiers, des pièces jointes, des dossiers et bien plus encore. | 
-| [![Icône d’API][dynamics-365-icon]<br>**Dynamics 365<br>** ][dynamics-365-doc] | Connectez-vous à votre compte Dynamics 365 pour créer et gérer des enregistrements, des éléments et bien plus encore. | [![Icône d’API][azure-queues-icon]<br> **<br>Files d’attente** Azure][azure-queues-doc] | Connectez-vous à votre compte de stockage Azure afin de créer et de gérer des files d’attente et des messages. |
-| [![Icône d’API][ftp-icon]<br>**FTP**][ftp-doc] | Connectez-vous aux serveurs FTP auxquels vous avez accès à partir d’Internet pour utiliser vos fichiers et vos dossiers. | [![Icône d’API][file-system-icon]<br> **<br>Système** de fichiers][file-system-doc] | Connectez-vous à votre partage de fichiers local afin de créer et de gérer des fichiers. |
-| [![Icône d’API][azure-event-hubs-icon]<br>**Event Hubs**][azure-event-hubs-doc] | Consommez et publiez des événements via un Event Hub. Par exemple, obtenez une sortie à partir de votre application logique à l’aide des Event Hubs, puis envoyez-la à un fournisseur d’analyses en temps réel. | [![Icône d’API][azure-event-grid-icon]<br>**Azure Event**<br>**Grid**][azure-event-grid-doc] | Surveillez les événements publiés par une grille d’événements, par exemple, lorsque les ressources Azure ou les ressources tierces changent. |
-| [![Icône d’API][salesforce-icon]<br>**Salesforce**][salesforce-doc] | Connectez-vous à votre compte Salesforce pour créer et gérer des éléments tels que des enregistrements, des travaux, des objets et bien plus encore. | [![Icône d’API][twitter-icon]<br>**Twitter**][twitter-doc] | Connectez-vous à votre compte Twitter pour gérer vos tweets, vos abonnés, votre timeline et bien plus encore. Enregistrez vos tweets dans SQL, Excel ou SharePoint. |
-|||||
+[![Icône d’API][azure-service-bus-icon]<br>**Azure Service Bus**][azure-service-bus-doc]
+
+Gérez les messages asynchrones, les sessions et les abonnements à une rubrique avec le connecteur le plus couramment utilisé dans Logic Apps.
+
+[![Icône d’API][sql-server-icon]<br>**SQL Server**][sql-server-doc]
+
+Connectez-vous à votre serveur SQL local ou à Azure SQL Database dans le cloud pour gérer les enregistrements, exécuter des procédures stockées ou exécuter des requêtes.
+
+[![Icône d’API][azure-blob-storage-icon]<br>**Stockage Blob<br>Azure**][azure-blob-storage-doc]
+
+Connectez-vous à votre compte de stockage pour créer et gérer du contenu d’objet blob.
+
+[![Icône d’API][office-365-outlook-icon]<br>**Office 365<br>Outlook**][office-365-outlook-doc]
+
+Connectez-vous à votre compte de messagerie Office 365 pour créer et gérer des e-mails, des tâches, des événements de calendrier, des réunions, des contacts, des requêtes et bien plus encore.
+
+[![Icône d’API][sftp-ssh-icon]<br>**SFTP-SSH**][sftp-ssh-doc]
+
+Connectez-vous aux serveurs SFTP auxquels vous avez accès à partir d’Internet via une connexion SSH afin de pouvoir utiliser vos fichiers et vos dossiers.
+
+[![Icône d’API][sharepoint-online-icon]<br>**SharePoint<br>Online**][sharepoint-online-doc]
+
+Connectez-vous à SharePoint Online pour gérer des fichiers, des pièces jointes, des dossiers et bien plus encore.
+
+[![Icône d’API][dynamics-365-icon]<br>**Dynamics 365<br>** ][dynamics-365-doc]
+
+Connectez-vous à votre compte Dynamics 365 pour créer et gérer des enregistrements, des éléments et bien plus encore.
+
+[![Icône d’API][azure-queues-icon]<br> **<br>Files d’attente** Azure][azure-queues-doc]
+
+Connectez-vous à votre compte de stockage Azure afin de créer et de gérer des files d’attente et des messages.
+
+[![Icône d’API][ftp-icon]<br>**FTP**][ftp-doc]
+
+Connectez-vous aux serveurs FTP auxquels vous avez accès à partir d’Internet pour utiliser vos fichiers et vos dossiers.
+
+[![Icône d’API][file-system-icon]<br> **<br>Système** de fichiers][file-system-doc]
+
+Connectez-vous à votre partage de fichiers local afin de créer et de gérer des fichiers.
+
+[![Icône d’API][azure-event-hubs-icon]<br>**Event Hubs**][azure-event-hubs-doc]
+
+Consommez et publiez des événements via un Event Hub. Par exemple, obtenez une sortie à partir de votre application logique à l’aide des Event Hubs, puis envoyez-la à un fournisseur d’analyses en temps réel.
+
+[![Icône d’API][azure-event-grid-icon]<br>**Azure Event**<br>**Grid**][azure-event-grid-doc]
+
+Surveillez les événements publiés par une grille d’événements, par exemple, lorsque les ressources Azure ou les ressources tierces changent.
+
+
+[![Icône d’API][salesforce-icon]<br>**Salesforce**][salesforce-doc]
+
+Connectez-vous à votre compte Salesforce pour créer et gérer des éléments tels que des enregistrements, des travaux, des objets et bien plus encore.
+
+[![Icône d’API][twitter-icon]<br>**Twitter**][twitter-doc]
+
+Connectez-vous à votre compte Twitter pour gérer vos tweets, vos abonnés, votre timeline et bien plus encore. Enregistrez vos tweets dans SQL, Excel ou SharePoint.
 
 <a name="on-premises-connectors"></a>
 
@@ -154,11 +274,25 @@ Logic Apps fournit les connecteurs standard ci-dessous qui sont les plus couramm
 
 Les connecteurs standard ci-dessous fournis par Logic Apps sont couramment utilisés pour offrir un accès aux données et aux ressources des systèmes locaux. Avant de créer une connexion à un système local, vous devez d’abord [télécharger, installer et configurer une passerelle de données locale][gateway-doc]. Cette passerelle fournit un canal de communication sécurisé sans avoir à configurer l’infrastructure réseau nécessaire.
 
-|   |   |   |   |   |
-|---|---|---|---|---|
-| [![Icône d’API][biztalk-server-icon]<br>**BizTalk** <br>**Server**][biztalk-server-doc] | [![Icône d’API][file-system-icon]<br> **<br>Système** de fichiers][file-system-doc] | [![Icône d’API][ibm-db2-icon]<br>**IBM DB2**][ibm-db2-doc] | [![Icône d’API][ibm-informix-icon]<br>**IBM** <br>**Informix**][ibm-informix-doc] | [![Icône d’API][mysql-icon]<br>**MySQL**][mysql-doc] |
-| [![Icône d’API][oracle-db-icon]<br>**Oracle DB**][oracle-db-doc] | [![Icône d’API][postgre-sql-icon]<br>**PostgreSQL**][postgre-sql-doc] | [![Icône d’API][sharepoint-server-icon]<br>**SharePoint <br>Server**][sharepoint-server-doc] | [![Icône d’API][sql-server-icon]<br>**SQL <br>Server**][sql-server-doc] | [![Icône d’API][teradata-icon]<br>**Teradata**][teradata-doc] |
-|||||
+[![Icône d’API][biztalk-server-icon]<br>**BizTalk** <br>**Server**][biztalk-server-doc]
+
+[![Icône d’API][file-system-icon]<br> **<br>Système** de fichiers][file-system-doc]
+
+[![Icône d’API][ibm-db2-icon]<br>**IBM DB2**][ibm-db2-doc]
+
+[![Icône d’API][ibm-informix-icon]<br>**IBM** <br>**Informix**][ibm-informix-doc]
+
+[![Icône d’API][mysql-icon]<br>**MySQL**][mysql-doc]
+
+[![Icône d’API][oracle-db-icon]<br>**Oracle DB**][oracle-db-doc]
+
+[![Icône d’API][postgre-sql-icon]<br>**PostgreSQL**][postgre-sql-doc]
+
+[![Icône d’API][sharepoint-server-icon]<br>**SharePoint <br>Server**][sharepoint-server-doc]
+
+[![Icône d’API][sql-server-icon]<br>**SQL <br>Server**][sql-server-doc]
+
+[![Icône d’API][teradata-icon]<br>**Teradata**][teradata-doc]
 
 <a name="integration-account-connectors"></a>
 
@@ -166,12 +300,29 @@ Les connecteurs standard ci-dessous fournis par Logic Apps sont couramment utili
 
 Logic Apps fournit les connecteurs standard ci-dessous pour la création de solutions entreprise-entreprise (B2B) avec vos applications logiques lorsque vous créez et payez un [compte d’intégration](../logic-apps/logic-apps-enterprise-integration-create-integration-account.md), qui est disponible par le biais d’Enterprise Integration Pack (EIP) dans Azure. Avec ce compte, vous pouvez créer et stocker des artefacts B2B tels que les partenaires commerciaux, les contrats, les mappages, les schémas, les certificats et ainsi de suite. Pour utiliser ces artefacts, associez vos applications logiques avec votre compte d’intégration. Si vous utilisez déjà BizTalk Server, ces connecteurs vous sont peut-être familiers.
 
-|   |   |   |   |
-|---|---|---|---|
-| [![Icône d’API][as2-icon]<br> **<br>Décodage** AS2][as2-doc] | [![Icône d’API][as2-icon]<br> **<br>Codage** AS2][as2-doc] | [![Icône d’API][edifact-icon]<br> **<br>Décodage** EDIFACT][edifact-decode-doc] | [![Icône d’API][edifact-icon]<br> **<br>Codage** EDIFACT][edifact-encode-doc] |
-| [![Icône d’API][flat-file-decode-icon]<br> **<br>Décodage** de fichiers plats][flat-file-decode-doc] | [![Icône d’API][flat-file-encode-icon]<br> **<br>Codage** de fichiers plats][flat-file-encode-doc] | [![Icône d’API][integration-account-icon]<br> **<br>Compte** d’intégration][integration-account-doc] | [![Icône d’API][liquid-icon]<br>**Transformations** <br>**Liquid**][json-liquid-transform-doc] |
-| [![Icône d’API][x12-icon]<br>**Décodage<br> X12**][x12-decode-doc] | [![Icône d’API][x12-icon]<br>**Codage<br> X12**][x12-encode-doc] | [![Icône d’API][xml-transform-icon]<br>**Transformations** <br>**XML**][xml-transform-doc] | [![Icône d’API][xml-validate-icon]<br>**Validation <br>XML**][xml-validate-doc] |  
-|||||
+[![Icône d’API][as2-icon]<br> **<br>Décodage** AS2][as2-doc]
+
+[![Icône d’API][as2-icon]<br> **<br>Codage** AS2][as2-doc]
+
+[![Icône d’API][edifact-icon]<br> **<br>Décodage** EDIFACT][edifact-decode-doc]
+
+[![Icône d’API][edifact-icon]<br> **<br>Codage** EDIFACT][edifact-encode-doc]
+
+[![Icône d’API][flat-file-decode-icon]<br> **<br>Décodage** de fichiers plats][flat-file-decode-doc]
+
+[![Icône d’API][flat-file-encode-icon]<br> **<br>Codage** de fichiers plats][flat-file-encode-doc]
+
+[![Icône d’API][integration-account-icon]<br> **<br>Compte** d’intégration][integration-account-doc]
+
+[![Icône d’API][liquid-icon]<br>**Transformations** <br>**Liquid**][json-liquid-transform-doc]
+
+[![Icône d’API][x12-icon]<br>**Décodage<br> X12**][x12-decode-doc]
+
+[![Icône d’API][x12-icon]<br>**Codage<br> X12**][x12-encode-doc]
+
+[![Icône d’API][xml-transform-icon]<br>**Transformations** <br>**XML**][xml-transform-doc]
+
+[![Icône d’API][xml-validate-icon]<br>**Validation <br>XML**][xml-validate-doc]
 
 <a name="enterprise-connectors"></a>
 
@@ -179,10 +330,11 @@ Logic Apps fournit les connecteurs standard ci-dessous pour la création de solu
 
 Logic Apps fournit les connecteur entreprise ci-dessous pour l’accès aux système d’entreprise, tels que SAP et IBM MQ :
 
-|   |   |   |
-|---|---|---|
-| [![Icône d’API][ibm-3270-icon]<br>**IBM 3270**][ibm-3270-doc] | [![Icône d’API][ibm-mq-icon]<br>**IBM MQ**][ibm-mq-doc] | [![Icône d’API][sap-icon]<br>**SAP**][sap-connector-doc] |
-||||
+[![Icône d’API][ibm-3270-icon]<br>**IBM 3270**][ibm-3270-doc]
+
+[![Icône d’API][ibm-mq-icon]<br>**IBM MQ**][ibm-mq-doc]
+
+[![Icône d’API][sap-icon]<br>**SAP**][sap-connector-doc]
 
 <a name="ise-connectors"></a>
 
@@ -190,14 +342,53 @@ Logic Apps fournit les connecteur entreprise ci-dessous pour l’accès aux syst
 
 Pour les applications logiques que vous créez et exécutez dans un [environnement de service d’intégration (ISE)](#integration-service-environment) isolé, le concepteur d’applications logiques identifie les déclencheurs et les actions intégrés qui s’exécutent dans votre environnement ISE à l’aide de l’étiquette **CORE**. Les connecteurs managés qui s’exécutent dans un environnement ISE sont signalés par l’étiquette **ISE**. Les connecteurs qui s’exécutent dans le service global multilocataire Logic Apps ne sont signalés par aucune étiquette. Cette liste montre les connecteurs qui ont une version ISE :
 
-|   |   |   |   |   |
-|---|---|---|---|---|
-[![Icône d’API][as2-icon]<br>**AS2**][as2-doc] | [![API icon][azure-automation-icon]<br>**Azure <br>Automation**][azure-automation-doc] | [![Icône d’API][azure-blob-storage-icon]<br>**Stockage Blob<br>Azure**][azure-blob-storage-doc] | [![Icône d’API][azure-cosmos-db-icon]<br>**Azure Cosmos <br> DB**][azure-cosmos-db-doc] | [![Icône d’API][azure-event-hubs-icon]<br>**Azure Event <br>Hubs**][azure-event-hubs-doc] |
-[![API icon][azure-event-grid-icon]<br>**Azure Event <br>Grid**][azure-event-grid-doc] | [![Icône d’API][azure-file-storage-icon]<br>**Stockage Fichier <br>Azure**][azure-file-storage-doc] | [![API icon][azure-key-vault-icon]<br>**Azure Key <br>Vault**][azure-key-vault-doc] | [![API icon][azure-monitor-logs-icon]<br> **<br>Journaux d’activité** Azure Monitor][azure-monitor-logs-doc] | [![Icône d’API][azure-service-bus-icon]<br>**Azure Service <br>Bus**][azure-service-bus-doc] |
-| [![Icône d’API][azure-sql-data-warehouse-icon]<br>**Azure SQL Data <br>Warehouse**][azure-sql-data-warehouse-doc] | [![API icon][azure-table-storage-icon]<br>**Stockage Table <br>Azure**][azure-table-storage-doc] | [![Icône d’API][azure-queues-icon]<br> **<br>Files d’attente** Azure][azure-queues-doc] | [![Icône d’API][edifact-icon]<br>**EDIFACT**][edifact-doc] | [![Icône d’API][file-system-icon]<br> **<br>Système** de fichiers][file-system-doc] |
-| [![Icône d’API][ftp-icon]<br>**FTP**][ftp-doc] | [![Icône d’API][ibm-3270-icon]<br>**IBM 3270**][ibm-3270-doc] | [![Icône d’API][ibm-db2-icon]<br>**IBM DB2**][ibm-db2-doc] | [![Icône d’API][ibm-mq-icon]<br>**IBM MQ**][ibm-mq-doc] | [![Icône d’API][sap-icon]<br>**SAP**][sap-connector-doc] |
-| [![Icône d’API][sftp-ssh-icon]<br>**SFTP-SSH**][sftp-ssh-doc] | [![Icône d’API][smtp-icon]<br>**SMTP**][smtp-doc] | [![Icône d’API][sql-server-icon]<br>**SQL<br> Server**][sql-server-doc] | [![Icône d’API][x12-icon]<br>**X12**][x12-doc] |
-||||||
+[![Icône d’API][as2-icon]<br>**AS2**][as2-doc]
+
+[![API icon][azure-automation-icon]<br>**Azure <br>Automation**][azure-automation-doc]
+
+[![Icône d’API][azure-blob-storage-icon]<br>**Stockage Blob<br>Azure**][azure-blob-storage-doc]
+
+[![Icône d’API][azure-cosmos-db-icon]<br>**Azure Cosmos <br> DB**][azure-cosmos-db-doc]
+
+[![Icône d’API][azure-event-hubs-icon]<br>**Azure Event <br>Hubs**][azure-event-hubs-doc]
+
+[![API icon][azure-event-grid-icon]<br>**Azure Event <br>Grid**][azure-event-grid-doc]
+
+[![Icône d’API][azure-file-storage-icon]<br>**Stockage Fichier <br>Azure**][azure-file-storage-doc]
+
+[![API icon][azure-key-vault-icon]<br>**Azure Key <br>Vault**][azure-key-vault-doc]
+
+[![API icon][azure-monitor-logs-icon]<br> **<br>Journaux d’activité** Azure Monitor][azure-monitor-logs-doc]
+
+[![Icône d’API][azure-service-bus-icon]<br>**Azure Service <br>Bus**][azure-service-bus-doc]
+
+[![Icône d’API][azure-sql-data-warehouse-icon]<br>**Azure SQL Data <br>Warehouse**][azure-sql-data-warehouse-doc]
+
+[![API icon][azure-table-storage-icon]<br>**Stockage Table <br>Azure**][azure-table-storage-doc]
+
+[![Icône d’API][azure-queues-icon]<br> **<br>Files d’attente** Azure][azure-queues-doc]
+
+[![Icône d’API][edifact-icon]<br>**EDIFACT**][edifact-doc]
+
+[![Icône d’API][file-system-icon]<br> **<br>Système** de fichiers][file-system-doc]
+
+[![Icône d’API][ftp-icon]<br>**FTP**][ftp-doc]
+
+[![Icône d’API][ibm-3270-icon]<br>**IBM 3270**][ibm-3270-doc]
+
+[![Icône d’API][ibm-db2-icon]<br>**IBM DB2**][ibm-db2-doc]
+
+[![Icône d’API][ibm-mq-icon]<br>**IBM MQ**][ibm-mq-doc]
+
+[![Icône d’API][sap-icon]<br>**SAP**][sap-connector-doc]
+
+[![Icône d’API][sftp-ssh-icon]<br>**SFTP-SSH**][sftp-ssh-doc]
+
+[![Icône d’API][smtp-icon]<br>**SMTP**][smtp-doc]
+
+[![Icône d’API][sql-server-icon]<br>**SQL<br> Server**][sql-server-doc]
+
+[![Icône d’API][x12-icon]<br>**X12**][x12-doc]
 
 Pour plus d’informations, consultez les rubriques suivantes :
 
@@ -243,6 +434,12 @@ Pour appeler des API qui exécutent du code personnalisé ou qui ne sont pas dis
 > Les connecteurs personnalisés créés au sein d’un ISE ne fonctionnent pas avec la passerelle de données locale. Toutefois, ces connecteurs peuvent accéder directement aux sources de données locales qui sont connectées à un réseau virtuel Azure hébergeant l’ISE. Par conséquent, les applications logiques d’un ISE n’ont généralement pas besoin de la passerelle de données lorsqu’elles communiquent avec ces ressources.
 >
 > Pour plus d’informations sur la création d’environnements ISE, consultez l’article [Se connecter à des réseaux virtuels Azure à partir d’Azure Logic Apps](../logic-apps/connect-virtual-network-vnet-isolated-environment.md).
+
+<a name="block-connections"></a>
+
+## <a name="block-creating-connections"></a>Blocage de la création de connexions
+
+Si votre organisation n’autorise pas la connexion à des ressources spécifiques à l’aide de leurs connecteurs dans Azure Logic Apps, vous pouvez [bloquer la possibilité de créer ces connexions](../logic-apps/block-connections-connectors.md) pour certains connecteurs dans les flux de travail d’application logique avec [Azure Policy](../governance/policy/overview.md). Pour plus d’informations, consultez [Blocage des connexions créées par des connecteurs spécifiques dans Azure Logic Apps](../logic-apps/block-connections-connectors.md).
 
 ## <a name="next-steps"></a>Étapes suivantes
 
@@ -476,4 +673,3 @@ Pour appeler des API qui exécutent du code personnalisé ou qui ne sont pas dis
 [x12-encode-doc]: ../logic-apps/logic-apps-enterprise-integration-X12-encode.md "Encoder les messages qui utilisent le protocole X12"
 [xml-transform-doc]: ../logic-apps/logic-apps-enterprise-integration-transform.md "Transformer des messages XML"
 [xml-validate-doc]: ../logic-apps/logic-apps-enterprise-integration-xml-validation.md "Valider des messages XML"
-

@@ -5,12 +5,12 @@ description: Découvrez comment créer et utiliser une adresse IP publique stati
 services: container-service
 ms.topic: article
 ms.date: 03/04/2019
-ms.openlocfilehash: 08a9682434605fffde73c835e7a9e9d6971d7ff0
-ms.sourcegitcommit: 6397c1774a1358c79138976071989287f4a81a83
+ms.openlocfilehash: a2f0394b172361e9053b1490a46357a5d3f2f47d
+ms.sourcegitcommit: 5cace04239f5efef4c1eed78144191a8b7d7fee8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/07/2020
-ms.locfileid: "80803380"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86145505"
 ---
 # <a name="use-a-static-public-ip-address-for-egress-traffic-in-azure-kubernetes-service-aks"></a>Utiliser une adresse IP publique statique pour le trafic de sortie dans Azure Kubernetes Service (AKS)
 
@@ -23,6 +23,9 @@ Cet article vous montre comment créer et utiliser une adresse IP publique stati
 Cet article suppose que vous avez un cluster AKS existant. Si vous avez besoin d’un cluster AKS, consultez le guide de démarrage rapide d’AKS [avec Azure CLI][aks-quickstart-cli]ou avec le [Portail Azure][aks-quickstart-portal].
 
 Azure CLI 2.0.59 (ou une version ultérieure) doit également être installé et configuré. Exécutez  `az --version` pour trouver la version. Si vous devez installer ou mettre à niveau, consultez  [Installation d’Azure CLI][install-azure-cli].
+
+> [!IMPORTANT]
+> Cet article utilise l’équilibreur de charge des références SKU *De base* dans un seul pool de nœuds. Cette configuration n’est pas disponible pour les pools de nœuds multiples, car l’équilibreur de charge des références SKU *De base* n’est pas pris en charge dans de tels scénarios. Consultez [Utiliser un équilibreur de charge Standard public dans Azure Kubernetes Service (AKS)][slb] pour plus d’informations sur l’utilisation de l’équilibreur de charge des références SKU *Standard*.
 
 ## <a name="egress-traffic-overview"></a>Vue d’ensemble du trafic de sortie
 
@@ -134,3 +137,4 @@ Pour éviter de devoir gérer plusieurs adresses IP publiques sur l’équilibre
 [aks-quickstart-cli]: kubernetes-walkthrough.md
 [aks-quickstart-portal]: kubernetes-walkthrough-portal.md
 [install-azure-cli]: /cli/azure/install-azure-cli
+[slb]: load-balancer-standard.md

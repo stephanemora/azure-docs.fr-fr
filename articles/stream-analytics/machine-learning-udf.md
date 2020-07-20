@@ -7,12 +7,12 @@ ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 03/19/2020
-ms.openlocfilehash: b138d93b400c16837c250ede1e264b54a851327c
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 50d6bebd1e38149096b865ad3654a9604d685f5d
+ms.sourcegitcommit: 5cace04239f5efef4c1eed78144191a8b7d7fee8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84488747"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86141954"
 ---
 # <a name="integrate-azure-stream-analytics-with-azure-machine-learning-preview"></a>Intégration d’Azure Stream Analytics avec Azure Machine Learning (préversion)
 
@@ -28,7 +28,7 @@ Effectuez les étapes suivantes avant d’ajouter un modèle de Machine Learning
 
 3. Assurez-vous que votre service web accepte et retourne les données sérialisées JSON.
 
-4. Déployez votre modèle sur [Azure Kubernetes Service](../machine-learning/how-to-deploy-and-where.md#choose-a-compute-target) pour les déploiements de production à grande échelle. Si le service web n’est pas en mesure de gérer le nombre de requêtes provenant de votre tâche, les performances de votre tâche Stream Analytics sont dégradées, ce qui a une incidence sur la latence. Les modèles déployés sur Azure Container Instances sont pris en charge uniquement lorsque vous utilisez le portail Azure.
+4. Déployez votre modèle sur [Azure Kubernetes Service](../machine-learning/how-to-deploy-and-where.md#choose-a-compute-target) pour les déploiements de production à grande échelle. Si le service web n’est pas en mesure de gérer le nombre de requêtes provenant de votre tâche, les performances de votre tâche Stream Analytics sont dégradées, ce qui a une incidence sur la latence. Les modèles déployés sur Azure Container Instances sont pris en charge uniquement lorsque vous utilisez le portail Azure. Actuellement, les modèles générés à l’aide du [concepteur Azure Machine Learning](https://docs.microsoft.com/azure/machine-learning/concept-designer) ne sont pas pris en charge dans Stream Analytics.
 
 ## <a name="add-a-machine-learning-model-to-your-job"></a>Ajouter un modèle Machine Learning à votre tâche
 

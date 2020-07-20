@@ -8,12 +8,12 @@ ms.workload: infrastructure-services
 ms.topic: how-to
 ms.date: 02/11/2020
 ms.author: jushiman
-ms.openlocfilehash: 9c16cd4143bc07bf5f3b1d00b890dc54bd5ea318
-ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
+ms.openlocfilehash: fef582048d1e1093a4a4d69229185e8a3d8dc229
+ms.sourcegitcommit: 5cace04239f5efef4c1eed78144191a8b7d7fee8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83659880"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86144857"
 ---
 # <a name="support-for-generation-2-vms-on-azure"></a>Support des machines virtuelles de 2e génération dans Azure
 
@@ -192,6 +192,9 @@ Vous pouvez également créer des machines virtuelles de 2e génération à l’
 * **Les machines virtuelles de 2e génération prennent-elles en charge la mise en réseau accélérée ?**  
     Oui. Pour en savoir plus, consultez [Créer une machine virtuelle avec mise en réseau accélérée](../../virtual-network/create-vm-accelerated-networking-cli.md).
 
+* **Les machines virtuelles de 2e génération prennent-elles en charge le démarrage sécurisé ou vTPM dans Azure ?**
+    Les machines virtuelles de 1ère et 2e générations dans Azure ne prennent pas en charge le démarrage sécurisé ou vTPM. 
+    
 * **La 2e génération prend-elle en charge VHDX ?**  
     Non, les machines virtuelles de 2e génération prennent en charge uniquement un disque dur virtuel.
 

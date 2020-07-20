@@ -5,12 +5,12 @@ services: automation
 ms.subservice: process-automation
 ms.date: 01/17/2019
 ms.topic: conceptual
-ms.openlocfilehash: c15ed6e9409bee71a778986d8f38ae1ab126c180
-ms.sourcegitcommit: 0b80a5802343ea769a91f91a8cdbdf1b67a932d3
+ms.openlocfilehash: 95e156c17b723c679772293401c730cbdff2220b
+ms.sourcegitcommit: 1e6c13dc1917f85983772812a3c62c265150d1e7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/25/2020
-ms.locfileid: "83828642"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86169882"
 ---
 # <a name="create-modular-runbooks"></a>Créer des runbooks modulaires
 
@@ -20,12 +20,12 @@ Il existe deux méthodes pour appeler un runbook enfant. Vous devez comprendre l
 
 |  | En ligne | Applet de commande |
 |:--- |:--- |:--- |
-| Travail |Les Runbooks enfants s’exécutent dans la même tâche que le parent. |Une tâche distincte est créée pour le Runbook enfant. |
-| Exécution |Le Runbook parent attend la fin de l’exécution du Runbook enfant avant de se poursuivre. |Le runbook parent continue immédiatement après le démarrage du runbook enfant *ou* le runbook parent attend que la tâche enfant se termine. |
-| Output |Le Runbook parent peut obtenir directement la sortie du Runbook enfant. |Le runbook parent doit récupérer la sortie à partir de la tâche du runbook enfant *ou* le runbook parent peut obtenir directement la sortie du runbook enfant. |
-| Paramètres |Les valeurs des paramètres du Runbook enfant sont spécifiées séparément et peuvent utiliser n’importe quel type de données. |Les valeurs des paramètres du runbook enfant doivent être combinées dans une table de hachage unique. Cette table de hachage peut uniquement inclure des types de données simples, tableau et objet qui utilisent la sérialisation JSON. |
-| Compte Automation |Le runbook parent peut utiliser uniquement un runbook enfant du même compte Automation. |Les runbooks parents peuvent utiliser un runbook enfant de n’importe quel compte Automation, du même abonnement Azure ou d’un autre abonnement auquel vous avez accès. |
-| Publication |Le Runbook enfant doit être publié avant la publication du Runbook parent. |Le runbook enfant est publié à tout moment avant le démarrage du runbook parent. |
+| **Travail** |Les Runbooks enfants s’exécutent dans la même tâche que le parent. |Une tâche distincte est créée pour le Runbook enfant. |
+| **Exécution** |Le Runbook parent attend la fin de l’exécution du Runbook enfant avant de se poursuivre. |Le runbook parent continue immédiatement après le démarrage du runbook enfant *ou* le runbook parent attend que la tâche enfant se termine. |
+| **Sortie** |Le Runbook parent peut obtenir directement la sortie du Runbook enfant. |Le runbook parent doit récupérer la sortie à partir de la tâche du runbook enfant *ou* le runbook parent peut obtenir directement la sortie du runbook enfant. |
+| **Paramètres** |Les valeurs des paramètres du Runbook enfant sont spécifiées séparément et peuvent utiliser n’importe quel type de données. |Les valeurs des paramètres du runbook enfant doivent être combinées dans une table de hachage unique. Cette table de hachage peut uniquement inclure des types de données simples, tableau et objet qui utilisent la sérialisation JSON. |
+| **Compte Automation** |Le runbook parent peut utiliser uniquement un runbook enfant du même compte Automation. |Les runbooks parents peuvent utiliser un runbook enfant de n’importe quel compte Automation, du même abonnement Azure ou d’un autre abonnement auquel vous avez accès. |
+| **Publication** |Le Runbook enfant doit être publié avant la publication du Runbook parent. |Le runbook enfant est publié à tout moment avant le démarrage du runbook parent. |
 
 ## <a name="invoke-a-child-runbook-using-inline-execution"></a>Appeler un Runbook enfant à l’aide de l’exécution incluse
 

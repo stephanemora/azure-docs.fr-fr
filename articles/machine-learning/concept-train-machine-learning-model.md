@@ -10,12 +10,12 @@ ms.subservice: core
 ms.topic: conceptual
 ms.date: 05/13/2020
 ms.custom: tracking-python
-ms.openlocfilehash: a8c70254c7ba7a9525b843240230ac158e29a338
-ms.sourcegitcommit: 93462ccb4dd178ec81115f50455fbad2fa1d79ce
+ms.openlocfilehash: da437f830a452a57ea1290b3d85a3faa92895bcd
+ms.sourcegitcommit: 5cace04239f5efef4c1eed78144191a8b7d7fee8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/06/2020
-ms.locfileid: "85985733"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86147045"
 ---
 # <a name="train-models-with-azure-machine-learning"></a>Former des modèles avec Azure Machine Learning
 
@@ -131,6 +131,10 @@ L’interface CLI de machine learning est une extension d’Azure CLI. Elle prop
 
 * [Utiliser l’extension CLI pour Azure Machine Learning](reference-azure-machine-learning-cli.md)
 * [MLOps sur Azure](https://github.com/microsoft/MLOps)
+
+## <a name="vs-code"></a>VS Code
+
+Vous pouvez utiliser l’extension VS Code pour exécuter et gérer vos travaux de formation. Pour en savoir plus, consultez le [guide de procédures de gestion des ressources VS Code](how-to-manage-resources-vscode.md#experiments).
 
 ## <a name="next-steps"></a>Étapes suivantes
 

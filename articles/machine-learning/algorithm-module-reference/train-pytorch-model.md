@@ -9,12 +9,12 @@ ms.topic: reference
 author: likebupt
 ms.author: keli19
 ms.date: 05/26/2020
-ms.openlocfilehash: ca5c8fdd14f155163dd55d944cafd2e209e7a94b
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: af14d4770d032c23216b805045eb27fadded5954
+ms.sourcegitcommit: 1e6c13dc1917f85983772812a3c62c265150d1e7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84450003"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86170256"
 ---
 # <a name="train-pytorch-model"></a>Entraîner un modèle Pytorch
 
@@ -27,7 +27,7 @@ Cet article explique comment utiliser le module **Train Pytorch Model** (Entraî
 2. Ajoutez le module **Train Pytorch Model** à votre pipeline. Vous trouverez ce module dans la catégorie **Model Training** (Entraînement de modèle). Développez **Train** (Entraîner), puis faites glisser le module **Train Pytorch Model** vers votre pipeline.
 
    > [!NOTE]
-   > Le module **Train Pytorch Model** peut être exécuté uniquement sur une cible de calcul de type **GPU**, sinon votre pipeline ne pourra pas fonctionner correctement. Vous pouvez sélectionner le calcul du module spécifique dans le volet droit du module en définissant **Use other compute target** (Utiliser une autre cible de calcul).
+   > Il est préférable d’exécuter le module **Train Pytorch Model** sur une cible de calcul de type **GPU** pour les jeux de données volumineux, à défaut de quoi votre pipeline échouera. Vous pouvez sélectionner le calcul du module spécifique dans le volet droit du module en définissant **Use other compute target** (Utiliser une autre cible de calcul).
 
 3.  Dans l’entrée gauche, attachez un modèle non entraîné. Attachez le jeu de données d’entraînement et le jeu de données de validation à l’entrée du milieu et de droite du module **Train Pytorch Model**.
 

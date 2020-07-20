@@ -13,12 +13,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 5/1/2019
 ms.author: alsin
-ms.openlocfilehash: 0fd2bcfb32524c6911a70157f58cea1e48b7bea9
-ms.sourcegitcommit: e995f770a0182a93c4e664e60c025e5ba66d6a45
+ms.openlocfilehash: 4f02d92e6264a05ed2cb4021adb5ae6312f58a85
+ms.sourcegitcommit: 5cace04239f5efef4c1eed78144191a8b7d7fee8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
 ms.lasthandoff: 07/08/2020
-ms.locfileid: "86135250"
+ms.locfileid: "86146644"
 ---
 # <a name="azure-serial-console-for-windows"></a>Console série Azure pour Windows
 
@@ -100,8 +100,7 @@ Si vous souhaitez que les invites de commandes du chargeur de démarrage Windows
 
 1. Connectez-vous à la console série. Si la connexion réussit, l’invite est **SAC>**  :
 
-    ![Se connecter à la console SAC](./media/virtual-machines-serial-console/virtual-machine-windows-serial-console-connect-sac.png)
-
+   ![Se connecter à la console SAC](./media/virtual-machines-serial-console/virtual-machine-windows-serial-console-connect-sac.png)
 1. Entrez `cmd` pour créer un canal qui a une instance CMD.
 
 1. Entrez `ch -si 1` ou appuyez sur les touches de raccourci `<esc>+<tab>` pour basculer vers le canal qui exécute l’instance CMD.
@@ -112,7 +111,7 @@ Si vous souhaitez que les invites de commandes du chargeur de démarrage Windows
 
 1. Pour démarrer une instance de PowerShell, entrez `PowerShell` dans l’instance CMD, puis appuyez sur **Entrée**.
 
-    ![Ouvrir l’instance PowerShell](./media/virtual-machines-serial-console/virtual-machine-windows-serial-console-powershell.png)
+   ![Ouvrir l’instance PowerShell](./media/virtual-machines-serial-console/virtual-machine-windows-serial-console-powershell.png)
 
 ### <a name="use-the-serial-console-for-nmi-calls"></a>Utiliser la console série pour les appels NMI
 Une interruption non masquable (NMI) est conçue pour créer un signal que les logiciels sur une machine virtuelle n’ignoreront pas. À l’origine, les NMI ont été utilisées pour surveiller les problèmes matériels sur les systèmes nécessitant des temps de réponse spécifiques. Aujourd’hui, les programmeurs et les administrateurs système utilisent souvent NMI comme mécanisme de débogage ou de dépannage des systèmes qui ne répondent pas.

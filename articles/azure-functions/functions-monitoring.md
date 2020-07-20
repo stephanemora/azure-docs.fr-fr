@@ -4,12 +4,13 @@ description: Découvrez comment utiliser Azure Application Insights avec Azure F
 ms.assetid: 501722c3-f2f7-4224-a220-6d59da08a320
 ms.topic: conceptual
 ms.date: 04/04/2019
-ms.openlocfilehash: 2aaf52a528f929f183c9bf4565d9f0da4918f146
-ms.sourcegitcommit: 0690ef3bee0b97d4e2d6f237833e6373127707a7
+ms.custom: fasttrack-edit
+ms.openlocfilehash: 5560d24601b8aef0d8a4058cc2c04e27e9c86362
+ms.sourcegitcommit: 1e6c13dc1917f85983772812a3c62c265150d1e7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/21/2020
-ms.locfileid: "83757753"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86170409"
 ---
 # <a name="monitor-azure-functions"></a>Surveiller l’exécution des fonctions Azure
 
@@ -245,7 +246,7 @@ Comme indiqué dans la section précédente, le runtime agrège les données sur
 
 ## <a name="configure-sampling"></a>Configurer l’échantillonnage
 
-Application Insights présente une fonctionnalité [d’échantillonnage](../azure-monitor/app/sampling.md) qui peut vous éviter de produire une quantité excessive de données de télémétrie portant sur les exécutions terminées aux heures de forte activité. Lorsque le taux d'exécutions entrantes dépasse un seuil spécifié, Application Insights commence à ignorer de manière aléatoire certaines exécutions entrantes. Par défaut, le nombre maximal d’exécutions par seconde est fixé à 20 (cinq dans la version 1.x). Vous pouvez configurer l’échantillonnage dans [host.json].  Voici un exemple :
+Application Insights présente une fonctionnalité [d’échantillonnage](../azure-monitor/app/sampling.md) qui peut vous éviter de produire une quantité excessive de données de télémétrie portant sur les exécutions terminées aux heures de forte activité. Lorsque le taux d'exécutions entrantes dépasse un seuil spécifié, Application Insights commence à ignorer de manière aléatoire certaines exécutions entrantes. Par défaut, le nombre maximal d’exécutions par seconde est fixé à 20 (cinq dans la version 1.x). Vous pouvez configurer l’échantillonnage dans [host.json](https://docs.microsoft.com/azure/azure-functions/functions-host-json#applicationinsights).  Voici un exemple :
 
 ### <a name="version-2x-and-later"></a>Version 2.x et ultérieure
 
@@ -255,12 +256,15 @@ Application Insights présente une fonctionnalité [d’échantillonnage](../azu
     "applicationInsights": {
       "samplingSettings": {
         "isEnabled": true,
-        "maxTelemetryItemsPerSecond" : 20
+        "maxTelemetryItemsPerSecond" : 20,
+        "excludedTypes": "Request"
       }
     }
   }
 }
 ```
+
+Dans la version 2.x, vous pouvez exclure certains types de données de télémétrie de l’échantillonnage. Dans l’exemple ci-dessus, les données de type `Request` sont exclues de l’échantillonnage. Cela garantit la journalisation, de *toutes* les exécutions de fonction (requêtes), tandis que d’autres types de données de télémétrie restent soumis à l’échantillonnage.
 
 ### <a name="version-1x"></a>Version 1.x 
 
@@ -313,7 +317,7 @@ Voici un exemple de représentation JSON des données `customDimensions` :
 
 ```json
 {
-  customDimensions: {
+  "customDimensions": {
     "prop__{OriginalFormat}":"C# Queue trigger function processed: {message}",
     "Category":"Function",
     "LogLevel":"Information",
@@ -533,7 +537,7 @@ Ne définissez pas `telemetryClient.Context.Operation.Id`. Ce paramètre global 
 
 ## <a name="log-custom-telemetry-in-javascript-functions"></a>Journaliser des données de télémétrie personnalisées dans les fonctions JavaScript
 
-Voici des exemples d’extraits de code qui envoient des données de télémétrie personnalisées avec le [SDK Node.js Application Insights](https://github.com/microsoft/applicationinsights-node.js) :
+Voici des exemples d’extraits de code qui envoient des données de télémétrie personnalisées avec le [SDK Node.js Application Insights](https://github.com/microsoft/applicationinsights-node.js) :
 
 ### <a name="version-2x-and-later"></a>Version 2.x et ultérieure
 
@@ -682,6 +686,42 @@ Add-AzAccount
 Get-AzSubscription
 Get-AzSubscription -SubscriptionName "<subscription name>" | Select-AzSubscription
 Get-AzWebSiteLog -Name <FUNCTION_APP_NAME> -Tail
+```
+
+## <a name="scale-controller-logs-preview"></a>Mettre à l’échelle les journaux du contrôleur (préversion)
+
+Cette fonctionnalité est en préversion. 
+
+Le [contrôleur de mise à l’échelle Azure Functions](./functions-scale.md#runtime-scaling) surveille les instances de l’hôte Azure Functions sur lequel votre application s’exécute. Ce contrôleur prend des décisions concernant l’ajout ou la suppression d’instances en fonction des performances actuelles. Vous pouvez faire en sorte que le contrôleur de mise à l’échelle émette des journaux vers Application Insights ou vers le stockage d’objets blob pour mieux comprendre les décisions prises par ce contrôleur pour votre application de fonction.
+
+Pour activer cette fonctionnalité, ajoutez un nouveau paramètre d’application nommé `SCALE_CONTROLLER_LOGGING_ENABLED`. La valeur de ce paramètre doit être au format `<DESTINATION>:<VERBOSITY>`, en fonction des éléments suivants :
+
+[!INCLUDE [functions-scale-controller-logging](../../includes/functions-scale-controller-logging.md)]
+
+Par exemple, la commande Azure CLI suivante active la journalisation détaillée à partir du contrôleur de mise à l’échelle pour Application Insights :
+
+```azurecli-interactive
+az functionapp config appsettings set --name <FUNCTION_APP_NAME> \
+--resource-group <RESOURCE_GROUP_NAME> \
+--settings SCALE_CONTROLLER_LOGGING_ENABLED=AppInsights:Verbose
+```
+
+Dans cet exemple, remplacez `<FUNCTION_APP_NAME>` et `<RESOURCE_GROUP_NAME>` par le nom de votre application de fonction et le nom du groupe de ressources, respectivement. 
+
+La commande Azure CLI suivante désactive la journalisation en définissant le niveau de détail sur `None` :
+
+```azurecli-interactive
+az functionapp config appsettings set --name <FUNCTION_APP_NAME> \
+--resource-group <RESOURCE_GROUP_NAME> \
+--settings SCALE_CONTROLLER_LOGGING_ENABLED=AppInsights:None
+```
+
+Vous pouvez également désactiver la journalisation en supprimant le paramètre `SCALE_CONTROLLER_LOGGING_ENABLED` à l’aide de la commande Azure CLI suivante :
+
+```azurecli-interactive
+az functionapp config appsettings delete --name <FUNCTION_APP_NAME> \
+--resource-group <RESOURCE_GROUP_NAME> \
+--setting-names SCALE_CONTROLLER_LOGGING_ENABLED
 ```
 
 ## <a name="disable-built-in-logging"></a>Désactiver la journalisation intégrée

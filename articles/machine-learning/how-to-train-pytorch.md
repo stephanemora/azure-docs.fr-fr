@@ -11,12 +11,12 @@ author: peterclu
 ms.reviewer: peterlu
 ms.date: 08/01/2019
 ms.custom: seodec18
-ms.openlocfilehash: df49a8e5a183f56c8584e9d85fe9cfa73bc17491
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 25343c22eab743fa0b1341a85c00a452dbb81e56
+ms.sourcegitcommit: 5cace04239f5efef4c1eed78144191a8b7d7fee8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84433826"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86146403"
 ---
 # <a name="train-pytorch-deep-learning-models-at-scale-with-azure-machine-learning"></a>Former des modèles d’apprentissage profond Pytorch à l’échelle avec Azure Machine Learning
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -147,6 +147,9 @@ estimator = PyTorch(source_directory=project_folder,
                     use_gpu=True,
                     pip_packages=['pillow==5.4.1'])
 ```
+
+> [!WARNING]
+> Azure Machine Learning exécute des scripts d’entraînement en copiant l’intégralité du répertoire source. Si vous avez des données sensibles que vous ne souhaitez pas charger, utilisez un [fichier .ignore](how-to-save-write-experiment-files.md#storage-limits-of-experiment-snapshots) ou ne l’incluez pas dans le répertoire source. Au lieu de cela, accédez à vos données à l’aide d’un [magasin de données](https://docs.microsoft.com/python/api/azureml-core/azureml.data?view=azure-ml-py).
 
 Pour plus d’informations sur la personnalisation de votre environnement Python, consultez [Créer et gérer des environnements pour l’entraînement et le déploiement](how-to-use-environments.md).
 

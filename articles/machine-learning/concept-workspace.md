@@ -8,13 +8,13 @@ ms.subservice: core
 ms.topic: conceptual
 ms.author: sgilley
 author: sdgilley
-ms.date: 12/27/2019
-ms.openlocfilehash: 03bc49c24e3c2d32e97f3e5e03bd39da63428a6e
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.date: 07/08/2020
+ms.openlocfilehash: 415c624153971e88afac3b18920a3ba3a8f2cfae
+ms.sourcegitcommit: 5cace04239f5efef4c1eed78144191a8b7d7fee8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "77505577"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86147036"
 ---
 # <a name="what-is-an-azure-machine-learning-workspace"></a>Qu’est-ce qu’un espace de travail Azure Machine Learning ?
 
@@ -53,6 +53,7 @@ Vous pouvez interagir avec votre espace de travail comme suit :
 + Dans un environnement Python avec le [kit de développement logiciel (SDK) Azure Machine Learning pour Python](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py).
 + Dans un environnement R avec le [kit de développement logiciel (SDK) Azure Machine Learning pour R](https://azure.github.io/azureml-sdk-for-r/reference/index.html).
 + Sur la ligne de commande avec l’[extension CLI](https://docs.microsoft.com/azure/machine-learning/reference-azure-machine-learning-cli) Azure Machine Learning :
++ [Extension VS Code Azure Machine Learning](how-to-manage-resources-vscode.md#workspaces)
 
 ## <a name="machine-learning-with-a-workspace"></a>Machine Learning avec un espace de travail
 
@@ -70,13 +71,13 @@ Les tâches de Machine Learning lisent et/ou écrivent des artefacts sur votre e
 
 Vous pouvez également effectuer les tâches de gestion de l’espace de travail suivantes :
 
-| Tâche de gestion de l’espace de travail   | Portail              | Studio | Kit SDK Python / Kit SDK R       | Interface de ligne de commande        |
-|---------------------------|---------|---------|------------|------------|
-| Créer un espace de travail        | **&check;**     | | **&check;** | **&check;** |
-| Gérer les accès à l’espace de travail    | **&check;**   || |  **&check;**    |
-| Mise à jour vers l’édition Enterprise    | **&check;** | **&check;**  | |     |
-| Créer et gérer des ressources de calcul    | **&check;**   | **&check;** | **&check;** |  **&check;**   |
-| Créer une machine virtuelle de notebooks |   | **&check;** | |     |
+| Tâche de gestion de l’espace de travail   | Portail              | Studio | Kit SDK Python / Kit SDK R       | Interface de ligne de commande        | VS Code
+|---------------------------|---------|---------|------------|------------|------------|
+| Créer un espace de travail        | **&check;**     | | **&check;** | **&check;** | **&check;** |
+| Gérer les accès à l’espace de travail    | **&check;**   || |  **&check;**    ||
+| Mise à jour vers l’édition Enterprise    | **&check;** | **&check;**  | |     ||
+| Créer et gérer des ressources de calcul    | **&check;**   | **&check;** | **&check;** |  **&check;**   ||
+| Créer une machine virtuelle de notebooks |   | **&check;** | |     ||
 
 > [!WARNING]
 > Le déplacement de votre espace de travail Azure Machine Learning vers un autre abonnement, ou le déplacement de l’abonnement propriétaire vers un nouveau locataire, n’est pas pris en charge. En effet, cela peut provoquer des erreurs.
@@ -90,7 +91,7 @@ Il existe plusieurs moyens de créer un espace de travail :
 * Utilisez le [portail Azure](how-to-manage-workspace.md) comme interface de type pointer-cliquer pour vous guider dans chaque étape.
 * Utilisez le [kit SDK Azure Machine Learning pour Python](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py#workspace) pour créer un espace de travail à la volée à partir de scripts Python ou de notebooks Jupyter
 * Utilisez un [modèle Azure Resource Manager](how-to-create-workspace-template.md) ou l’[interface CLI Azure Machine Learning](reference-azure-machine-learning-cli.md) lorsque vous devez automatiser ou personnaliser la création avec des normes de sécurité d’entreprise.
-* Si vous travaillez dans Visual Studio Code, utilisez l'[extension VS Code](tutorial-setup-vscode-extension.md).
+* Si vous travaillez dans Visual Studio Code, utilisez l'[extension VS Code](how-to-manage-resources-vscode.md#create-a-workspace).
 
 > [!NOTE]
 > Le nom de l’espace de travail n’est pas sensible à la casse.

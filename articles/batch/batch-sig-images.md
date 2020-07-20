@@ -4,12 +4,12 @@ description: Les pools d’images personnalisées représentent un moyen efficac
 ms.topic: conceptual
 ms.date: 07/01/2020
 ms.custom: tracking-python
-ms.openlocfilehash: 962b3c84e7f3cecc5f4d64febbfca635733a0bae
-ms.sourcegitcommit: cec9676ec235ff798d2a5cad6ee45f98a421837b
+ms.openlocfilehash: 38233bc5d279c1c0ae7789dd06acff78ea26fb89
+ms.sourcegitcommit: 5cace04239f5efef4c1eed78144191a8b7d7fee8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85851718"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86147293"
 ---
 # <a name="use-the-shared-image-gallery-to-create-a-custom-image-pool"></a>Création d’un pool d’images personnalisées avec Shared Image Gallery
 
@@ -30,7 +30,7 @@ Le recours à une image partagée pour votre scénario peut offrir plusieurs ava
 - **Préinstaller des applications.** La préinstallation des applications sur le disque du système d’exploitation est plus efficace et moins sujet aux erreurs que l’installation d’applications après l’approvisionnement des nœuds de calcul à l’aide d’un début de tâche.
 - **Copier de grandes quantités de données en une seule fois.** Intégrez les données statiques à l’image partagée managée en les copiant sur les disques de données d’une image managée. Cette opération ne doit être effectuée qu’une seule fois et rend les données accessibles à chaque nœud du pool.
 - **Augmentez la taille des pools.** Avec Shared Image Gallery, vous pouvez créer des pools plus grands avec vos images personnalisées ainsi qu’avec d’autres réplicas d’image partagée.
-- **Amélioration des performances par rapport au recours à une seule image managée comme image personnalisée.** Pour un pool d’images personnalisées Shared Image, le temps nécessaire pour atteindre l’état stable est 25 % plus court et la latence d’inactivité de la machine virtuelle 30 % inférieure.
+- **Amélioration des performances par rapport au recours à une seule image managée comme image personnalisée.** Pour un pool d’images personnalisées Shared Image, le temps nécessaire pour atteindre l’état stable peut être réduit de 25 % et la latence d’inactivité de la machine virtuelle peut être réduite de 30 %.
 - **Gestion des versions et regroupement d’images pour une gestion simplifiée.** La définition du regroupement d’images contient des informations sur la raison pour laquelle l’image a été créée, le système d’exploitation concerné et l’utilisation de l’image. Le regroupement d’images simplifie la gestion des images. Pour plus d’informations, consultez les [Définitions d’images](../virtual-machines/windows/shared-image-galleries.md#image-definitions).
 
 ## <a name="prerequisites"></a>Prérequis
@@ -83,7 +83,7 @@ Pour créer une image managée à partir d’un instantané, utilisez les outils
 
 ### <a name="create-a-shared-image-gallery"></a>Créer une galerie Shared Image Gallery
 
-Après avoir créé votre image managée, vous devez créer une galerie Shared Image Gallery pour rendre votre image personnalisée disponible. Pour apprendre à créer une galerie Shared Image Gallery pour vos images, consultez [Créer une galerie Shared Image Gallery avec l'interface de ligne de commande Azure](../virtual-machines/linux/shared-images.md) ou [Créer une galerie Shared Image Gallery à l'aide du portail Azure](../virtual-machines/linux/shared-images-portal.md).
+Après avoir créé votre image managée, vous devez créer une galerie Shared Image Gallery pour rendre votre image personnalisée disponible. Pour apprendre à créer une galerie Shared Image Gallery pour vos images, consultez [Créer une galerie Shared Image Gallery avec l'interface de ligne de commande Azure](../virtual-machines/shared-images-cli.md) ou [Créer une galerie Shared Image Gallery à l'aide du portail Azure](../virtual-machines/linux/shared-images-portal.md).
 
 ## <a name="create-a-pool-from-a-shared-image-using-the-azure-cli"></a>Créer un pool à partir d’une image partagée à l’aide de l’interface de ligne de commande Azure
 

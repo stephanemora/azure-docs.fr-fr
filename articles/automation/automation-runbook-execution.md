@@ -5,12 +5,12 @@ services: automation
 ms.subservice: process-automation
 ms.date: 04/14/2020
 ms.topic: conceptual
-ms.openlocfilehash: c9e602f9ed6a9132c78dbdf0ea3246cbeae80671
-ms.sourcegitcommit: 0b80a5802343ea769a91f91a8cdbdf1b67a932d3
+ms.openlocfilehash: 6db4ceed0121f072104312ac24abb13fb241737b
+ms.sourcegitcommit: ec682dcc0a67eabe4bfe242fce4a7019f0a8c405
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/25/2020
-ms.locfileid: "83832348"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86186042"
 ---
 # <a name="runbook-execution-in-azure-automation"></a>Exécution d'un Runbook dans Azure Automation
 
@@ -56,12 +56,12 @@ Le tableau suivant liste certaines tâches d’exécution de runbook avec l’en
 |Utilisation de modules ayant des exigences spécifiques| Runbook Worker hybride|Quelques exemples :</br> WinSCP – dépend de winscp.exe </br> Administration IIS - Dépendance sur l'activation ou la gestion d’IIS|
 |Installation d’un module avec un programme d’installation|Runbook Worker hybride|Les modules pour bac à sable doivent prendre en charge la copie.|
 |Utilisation de runbooks ou de modules nécessitant une version de .NET Framework différente de la version 4.7.2|Runbook Worker hybride|Les bacs à sable Azure prennent en charge .NET Framework 4.7.2. La mise à niveau vers une autre version n’est pas prise en charge.|
-|Exécution de scripts qui nécessitent une élévation|Runbook Worker hybride|Les bacs à sable ne permettent pas l’élévation. Avec un runbook Worker hybride, vous pouvez désactiver le Contrôle de compte d’utilisateur (UAC) et utiliser [Invoke-Command](https://docs.microsoft.com/powershell/module/microsoft.powershell.core/invoke-command?view=powershell-7) au moment d’exécuter la commande qui nécessite une élévation.|
+|Exécution de scripts qui nécessitent une élévation|Runbook Worker hybride|Les bacs à sable ne permettent pas l’élévation. Avec un runbook Worker hybride, vous pouvez désactiver le Contrôle de compte d’utilisateur (UAC) et utiliser [Invoke-Command](/powershell/module/microsoft.powershell.core/invoke-command?view=powershell-7) au moment d’exécuter la commande qui nécessite une élévation.|
 |Exécuter des scripts nécessitant un accès à WMI (Windows Management Instrumentation)|Runbook Worker hybride|Les tâches s’exécutant dans les bacs à sable du cloud ne peuvent pas accéder au fournisseur WMI. |
 
 ## <a name="resources"></a>Ressources
 
-Vos runbooks doivent inclure une logique pour gérer des [ressources](https://docs.microsoft.com/rest/api/resources/resources), par exemple, des machines virtuelles, le réseau et des ressources sur le réseau. Les ressources sont liées à un abonnement Azure et les runbooks requièrent des informations d’identification appropriées pour accéder à une ressource. Pour obtenir un exemple de gestion des ressources dans un runbook, consultez [Gérer les ressources](manage-runbooks.md#handle-resources). 
+Vos runbooks doivent inclure une logique pour gérer des [ressources](/rest/api/resources/resources), par exemple, des machines virtuelles, le réseau et des ressources sur le réseau. Les ressources sont liées à un abonnement Azure et les runbooks requièrent des informations d’identification appropriées pour accéder à une ressource. Pour obtenir un exemple de gestion des ressources dans un runbook, consultez [Gérer les ressources](manage-runbooks.md#handle-resources). 
 
 ## <a name="security"></a>Sécurité
 
@@ -71,7 +71,7 @@ ASC applique des contraintes aux utilisateurs qui peuvent exécuter des scripts,
 
 ## <a name="subscriptions"></a>Abonnements
 
-Un [abonnement](https://docs.microsoft.com/office365/enterprise/subscriptions-licenses-accounts-and-tenants-for-microsoft-cloud-offerings) Azure est un accord avec Microsoft qui vous autorise à utiliser un ou plusieurs services cloud pour lesquels vous êtes facturé. Pour Azure Automation, chaque abonnement est lié à un compte Azure Automation et vous pouvez [créer plusieurs abonnements](manage-runbooks.md#work-with-multiple-subscriptions) dans le compte.
+Un [abonnement](/office365/enterprise/subscriptions-licenses-accounts-and-tenants-for-microsoft-cloud-offerings) Azure est un accord avec Microsoft qui vous autorise à utiliser un ou plusieurs services cloud pour lesquels vous êtes facturé. Pour Azure Automation, chaque abonnement est lié à un compte Azure Automation et vous pouvez [créer plusieurs abonnements](manage-runbooks.md#work-with-multiple-subscriptions) dans le compte.
 
 ## <a name="credentials"></a>Informations d'identification
 
@@ -79,18 +79,18 @@ Un runbook nécessite des [informations d’identification](shared-resources/cre
 
 ## <a name="azure-monitor"></a>Azure Monitor
 
-Azure Automation utilise [Azure Monitor](https://docs.microsoft.com/azure/azure-monitor/overview) pour surveiller ses opérations sur les ordinateurs. Les opérations nécessitent un espace de travail Log Analytics et des [agents Log Analytics](https://docs.microsoft.com/azure/azure-monitor/platform/log-analytics-agent).
+Azure Automation utilise [Azure Monitor](../azure-monitor/overview.md) pour superviser ses opérations sur les machines. Les opérations nécessitent un espace de travail Log Analytics et des [agents Log Analytics](../azure-monitor/platform/log-analytics-agent.md).
 
 ### <a name="log-analytics-agent-for-windows"></a>Agent Log Analytics pour Windows
 
-L’[agent Log Analytics pour Windows](https://docs.microsoft.com/azure/azure-monitor/platform/agent-windows) fonctionne avec Azure Monitor pour gérer les machines virtuelles et les ordinateurs physiques Windows. Les ordinateurs peuvent être exécutés dans Azure ou dans un environnement non-Azure, par exemple un centre de données local. Vous devez configurer l’agent pour l’associer à un ou plusieurs espaces de travail Log Analytics. 
+L’[agent Log Analytics pour Windows](../azure-monitor/platform/agent-windows.md) fonctionne avec Azure Monitor pour gérer les machines virtuelles et les ordinateurs physiques Windows. Les ordinateurs peuvent être exécutés dans Azure ou dans un environnement non-Azure, par exemple un centre de données local. Vous devez configurer l’agent pour l’associer à un ou plusieurs espaces de travail Log Analytics. 
 
 >[!NOTE]
 >L’agent Log Analytics pour Windows s’appelait auparavant Microsoft Monitoring Agent (MMA).
 
 ### <a name="log-analytics-agent-for-linux"></a>Agent Log Analytics pour Linux
 
-L’[agent Log Analytics pour Linux](https://docs.microsoft.com/azure/azure-monitor/platform/agent-linux) fonctionne de la même façon que l’agent pour Windows, mais il connecte les ordinateurs Linux à Azure Monitor. L’agent est installé avec un compte d’utilisateur **nxautomation** qui autorise l’exécution de commandes nécessitant des autorisations racine, par exemple, sur un runbook Worker hybride. Le compte **nxautomation** est un compte système qui ne requiert aucun mot de passe. 
+L’[agent Log Analytics pour Linux](../azure-monitor/platform/agent-linux.md) fonctionne de la même façon que l’agent pour Windows, mais il connecte les ordinateurs Linux à Azure Monitor. L’agent est installé avec un compte d’utilisateur **nxautomation** qui autorise l’exécution de commandes nécessitant des autorisations racine, par exemple, sur un runbook Worker hybride. Le compte **nxautomation** est un compte système qui ne requiert aucun mot de passe. 
 
 Le compte **nxautomation** avec les autorisations sudo correspondantes doit être présent lors de l’[installation d’un runbook Worker hybride Linux](automation-linux-hrw-install.md). Si vous essayez d’installer le Worker et que le compte n’est pas présent ou ne dispose pas des autorisations appropriées, l’installation échoue.
 
@@ -120,7 +120,7 @@ Vos runbooks peuvent utiliser des certificats auto-signés, qui ne sont pas sign
 
 Azure Automation prend en charge un environnement pour exécuter des tâches à partir du même compte Automation. Un même runbook peut avoir beaucoup de tâches qui s’exécutent simultanément. Plus vous exécutez de travaux simultanément, plus ils peuvent être répartis vers le même bac à sable. 
 
-Les tâches qui s’exécutent dans le même processus de bac à sable peuvent s’influencer mutuellement. C’est par exemple ce qui arrive quand l’applet de commande [Disconnect-AzAccount](https://docs.microsoft.com/powershell/module/az.accounts/disconnect-azaccount?view=azps-3.7.0) est exécutée. Dans ce cas, cette applet de commande déconnecte chaque tâche du runbook dans le processus de bac à sable partagé. Pour obtenir un exemple d’utilisation de ce scénario, consultez [Prévention des travaux simultanés](manage-runbooks.md#prevent-concurrent-jobs).
+Les tâches qui s’exécutent dans le même processus de bac à sable peuvent s’influencer mutuellement. C’est par exemple ce qui arrive quand l’applet de commande [Disconnect-AzAccount](/powershell/module/az.accounts/disconnect-azaccount?view=azps-3.7.0) est exécutée. Dans ce cas, cette applet de commande déconnecte chaque tâche du runbook dans le processus de bac à sable partagé. Pour obtenir un exemple d’utilisation de ce scénario, consultez [Prévention des travaux simultanés](manage-runbooks.md#prevent-concurrent-jobs).
 
 >[!NOTE]
 >Les tâches PowerShell démarrées à partir d’un runbook qui s’exécute dans un bac à sable Azure peut ne pas s’exécuter en [mode langage PowerShell](/powershell/module/microsoft.powershell.core/about/about_language_modes) complet. 
@@ -156,7 +156,7 @@ Cette section décrit des méthodes pour gérer les exceptions ou les problèmes
 
 La variable [ErrorActionPreference](/powershell/module/microsoft.powershell.core/about/about_preference_variables#erroractionpreference) détermine la façon dont PowerShell répond à une erreur qui ne met pas fin à l’exécution. Les erreurs avec fin d’exécution provoquent systématiquement l'arrêt et ne sont pas affectées par `ErrorActionPreference`.
 
-Lorsque le runbook utilise `ErrorActionPreference`, une erreur qui ne met normalement pas fin à l’exécution, comme `PathNotFound`Get-ChildItem[ issue de la cmdlet ](https://docs.microsoft.com/powershell/module/microsoft.powershell.management/get-childitem?view=powershell-7) qui empêche le runbook d’aboutir. L’exemple suivant illustre l’utilisation de `ErrorActionPreference`. La commande finale [Write-Output](https://docs.microsoft.com/powershell/module/microsoft.powershell.utility/write-output?view=powershell-7) ne s’exécute jamais, car le script s’arrête.
+Lorsque le runbook utilise `ErrorActionPreference`, une erreur qui ne met normalement pas fin à l’exécution, comme `PathNotFound`Get-ChildItem[ issue de la cmdlet ](/powershell/module/microsoft.powershell.management/get-childitem?view=powershell-7) qui empêche le runbook d’aboutir. L’exemple suivant illustre l’utilisation de `ErrorActionPreference`. La commande finale [Write-Output](/powershell/module/microsoft.powershell.utility/write-output?view=powershell-7) ne s’exécute jamais, car le script s’arrête.
 
 ```powershell-interactive
 $ErrorActionPreference = 'Stop'
@@ -212,7 +212,7 @@ Les runbooks qui s’exécutent dans les bacs à sable Azure ne prennent pas en 
 
 Les tâches de runbook dans les bacs à sable Azure ne peuvent avoir accès aux caractéristiques des appareils ou des applications. Pour interroger les métriques de performances sur Windows, notamment celles, courantes, qui portent sur l’utilisation de la mémoire et du processeur, L’API la plus utilisée est WMI. Cependant, quelle que soit l’API utilisée, les tâches qui s’exécutent dans le cloud ne peuvent avoir accès à l’implémentation Microsoft de WBEM (Web-Based Enterprise Management). Cette plateforme est basée sur CIM (Common Information Model), qui fait office de standard sectoriel pour la définition des caractéristiques des appareils et des applications.
 
-## <a name="webhooks"></a>webhooks
+## <a name="webhooks"></a>Webhooks
 
 Les services externes, par exemple, Azure DevOps Services et GitHub, peuvent démarrer un runbook dans Azure Automation. Pour effectuer ce type de démarrage, le service utilise un [webhook](automation-webhooks.md) via une requête HTTP unique. L’utilisation d’un Webhook permet de démarrer runbooks sans implémenter une fonctionnalité Azure Automation complète. 
 
@@ -222,14 +222,13 @@ Pour partager des ressources entre tous les runbooks dans le cloud, Azure utilis
 
 Pour les tâches Azure Automation de longue durée, il est recommandé d’utiliser un runbook Worker hybride. Les Runbook Workers hybrides ne sont pas limités par la répartition de charge équilibrée et n'imposent aucune limitation en termes de durée d'exécution des runbooks. Les autres [limites](../azure-resource-manager/management/azure-subscription-service-limits.md#automation-limits) du travail s’appliquent à la fois aux bacs à sable Azure et aux Runbooks Workers hybrides. Les runbooks Workers hybrides ne sont pas limités par la répartition de charge équilibrée de trois heures, mais vous devez développer des runbooks qui s’exécutent sur les Workers qui prennent en charge les redémarrages après des problèmes inattendus au niveau de l’infrastructure locale.
 
-Une autre option consiste à optimiser un runbook en utilisant des runbooks enfants. Par exemple, il peut arriver que votre runbook exécute la même fonction en boucle sur plusieurs ressources, comme une opération de base de données sur diverses bases de données. Vous pouvez déplacer cette fonction dans un [runbook enfant](automation-child-runbooks.md) et faire en sorte que votre runbook l’appelle à l’aide de [Start-AzAutomationRunbook](https://docs.microsoft.com/powershell/module/az.automation/start-azautomationrunbook?view=azps-3.7.0). Les runbooks enfants s’exécutent en parallèle dans des processus distincts.
+Une autre option consiste à optimiser un runbook en utilisant des runbooks enfants. Par exemple, il peut arriver que votre runbook exécute la même fonction en boucle sur plusieurs ressources, comme une opération de base de données sur diverses bases de données. Vous pouvez déplacer cette fonction dans un [runbook enfant](automation-child-runbooks.md) et faire en sorte que votre runbook l’appelle à l’aide de [Start-AzAutomationRunbook](/powershell/module/az.automation/start-azautomationrunbook?view=azps-3.7.0). Les runbooks enfants s’exécutent en parallèle dans des processus distincts.
 
-L’utilisation de runbooks enfants diminue le délai d’exécution total du runbook parent. Votre runbook peut utiliser la cmdlet [Get-AzAutomationJob](https://docs.microsoft.com/powershell/module/az.automation/get-azautomationjob?view=azps-3.7.0) pour vérifier l’état de la tâche d’un runbook enfant s’il lui reste des opérations après que l’enfant a terminé.
+L’utilisation de runbooks enfants diminue le délai d’exécution total du runbook parent. Votre runbook peut utiliser la cmdlet [Get-AzAutomationJob](/powershell/module/az.automation/get-azautomationjob?view=azps-3.7.0) pour vérifier l’état de la tâche d’un runbook enfant s’il lui reste des opérations après que l’enfant a terminé.
 
 ## <a name="next-steps"></a>Étapes suivantes
 
 * Pour commencer à utiliser un runbook PowerShell, voir [Tutoriel : Créer un runbook PowerShell](learn/automation-tutorial-runbook-textual-powershell.md).
 * Pour savoir comment utiliser des runbooks, voir [Gérer les runbooks dans Azure Automation](manage-runbooks.md).
-* Pour plus d’informations sur PowerShell, consultez la [documentation PowerShell](https://docs.microsoft.com/powershell/scripting/overview).
-* * Pour obtenir des informations de référence sur les applets de commande PowerShell, consultez [Az.Automation](https://docs.microsoft.com/powershell/module/az.automation/?view=azps-3.7.0#automation
-).
+* Pour plus d’informations sur PowerShell, consultez la [documentation PowerShell](/powershell/scripting/overview).
+* * Pour obtenir des informations de référence sur les applets de commande PowerShell, consultez [Az.Automation](/powershell/module/az.automation/?view=azps-3.7.0#automation).

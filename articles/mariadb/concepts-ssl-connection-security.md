@@ -5,13 +5,13 @@ author: ajlam
 ms.author: andrela
 ms.service: mariadb
 ms.topic: conceptual
-ms.date: 06/02/2020
-ms.openlocfilehash: 4111b0b01690097535412205b60619172e2c100a
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.date: 07/08/2020
+ms.openlocfilehash: d207c318a76ec9c75f7c64d25153d1aa415e4f2b
+ms.sourcegitcommit: 5cace04239f5efef4c1eed78144191a8b7d7fee8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84416653"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86143035"
 ---
 # <a name="ssltls-connectivity-in-azure-database-for-mariadb"></a>Connectivité SSL/TLS dans Azure Database for MariaDB
 Azure Database for MariaDB prend en charge la connexion de votre serveur de base de données aux applications clientes via SSL (Secure Sockets Layer). L’application de connexions SSL entre votre serveur de base de données et vos applications clientes vous protège contre les « attaques de l’intercepteur » en chiffrant le flux de données entre le serveur et votre application.
@@ -44,9 +44,9 @@ Azure Database for MariaDB offre la possibilité d’imposer la version du proto
 Par exemple, la définition de la valeur du paramètre de version minimale du protocole TLS sur TLS 1.0 signifie que votre serveur autorise les connexions en provenance des clients utilisant les protocoles TLS 1.0, 1.1 et 1.2+. Si vous choisissez la valeur 1.2, en revanche, cela signifie que vous autorisez uniquement les connexions en provenance des clients utilisant TLS 1.2+ et que toutes les connexions à l’aide des protocoles TLS 1.0 et TLS 1.1 sont rejetées.
 
 > [!Note] 
-> Dans Azure Database for MariaDB, le protocole TLS est désactivé par défaut pour tous les nouveaux serveurs. 
+> Par défaut, Azure Database for MariaDB n’applique aucune version TLS minimale (le paramètre `TLSEnforcementDisabled`).
 >
-> Les versions TLS actuellement prises en charge par Azure Database for MariaDB sont TLS 1.0, 1.1 et 1.2. Une fois que vous avez imposé une version TLS minimale spécifique, vous ne pouvez plus désactiver ce paramètre.
+> Après avoir appliqué une version TLS minimale, vous ne pouvez plus la désactiver.
 
 Pour découvrir comment définir le paramètre TLS pour Azure Database for MariaDB, consultez le [guide pratique pour configurer le paramètre TLS](howto-tls-configurations.md).
 

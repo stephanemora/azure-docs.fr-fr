@@ -3,12 +3,12 @@ title: Ressources Azure – QnA Maker
 description: QnA Maker utilise plusieurs sources Azure, dont chacune a un objectif différent. Comprendre comment elles sont utilisées individuellement vous permet de planifier et de sélectionner le niveau tarifaire approprié ou de savoir quand modifier celui-ci. Comprendre comment elles sont utilisées en combinaison vous permet d’épingler et de résoudre des problèmes quand ils se produisent.
 ms.topic: conceptual
 ms.date: 03/25/2020
-ms.openlocfilehash: 916f5b9b012d233c6a28d5cbb75ea0b4e073d064
-ms.sourcegitcommit: f1132db5c8ad5a0f2193d751e341e1cd31989854
+ms.openlocfilehash: 7d6598510ae75a76e0a4fcaff59297b4c724ba78
+ms.sourcegitcommit: 1e6c13dc1917f85983772812a3c62c265150d1e7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/31/2020
-ms.locfileid: "84236085"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86171072"
 ---
 # <a name="azure-resources-for-qna-maker"></a>Ressources Azure pour QnA Maker
 
@@ -44,11 +44,11 @@ En général, il existe trois paramètres dont vous devez tenir compte :
 
 Le tableau suivant vous donne des indications d’ordre général.
 
-|                        | Administration de QnA Maker | App Service | Recherche cognitive Azure | Limites                      |
-| ---------------------- | -------------------- | ----------- | ------------ | -------------------------------- |
-| Expérimentation        | Référence SKU Gratuite             | Niveau Gratuit   | Niveau Gratuit    | Publier jusqu’à 2 Ko, taille de 50 Mo  |
-| Environnement de test/développement   | Référence SKU standard         | Partagé      | De base        | Publier jusqu’à 14 Ko, taille de 2 Go    |
-| Environnement de production | Référence SKU standard         | De base       | Standard     | Publier jusqu’à 49 Ko, taille de 25 Go |
+|                            | Administration de QnA Maker | App Service | Recherche cognitive Azure | Limites                      |
+| -------------------------- | -------------------- | ----------- | ------------ | -------------------------------- |
+| **Expérimentation**        | Référence SKU Gratuite             | Niveau Gratuit   | Niveau Gratuit    | Publier jusqu’à 2 Ko, taille de 50 Mo  |
+| **Environnement Dev/Test**   | Référence SKU standard         | Partagé      | De base        | Publier jusqu’à 14 Ko, taille de 2 Go    |
+| **Environnement de production** | Référence SKU standard         | De base       | Standard     | Publier jusqu’à 49 Ko, taille de 25 Go |
 
 ## <a name="recommended-settings"></a>Paramètres recommandés
 

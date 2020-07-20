@@ -2,14 +2,16 @@
 title: Intégrer Azure Active Directory dans Azure Kubernetes Service
 description: Découvrez comment utiliser Azure CLI pour créer un cluster Azure Kubernetes Service (AKS) compatible avec Azure Active Directory
 services: container-service
+author: TomGeske
 ms.topic: article
-ms.date: 04/16/2019
-ms.openlocfilehash: 85441b53b22b4d33ee2ff967d777cc3267e171da
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.date: 07/08/2020
+ms.author: thomasge
+ms.openlocfilehash: 0465c54df2095cff7647e974765e61fa9b9ff3e1
+ms.sourcegitcommit: 1e6c13dc1917f85983772812a3c62c265150d1e7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86106099"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86169457"
 ---
 # <a name="integrate-azure-active-directory-with-azure-kubernetes-service-using-the-azure-cli"></a>Intégrer Azure Active Directory avec Azure Kubernetes Service à l’aide d’Azure AD
 
@@ -19,9 +21,9 @@ Cet article explique comment créer les composants d’Azure AD requis, puis dé
 
 Pour l’exemple de script complet utilisé dans cet article, voir [Exemples Azure CLI – Intégration d’AKS avec Azure AD][complete-script].
 
-Les limites suivantes s'appliquent :
+## <a name="the-following-limitations-apply"></a>Les limites suivantes s'appliquent :
 
-- Azure AD ne peut être activé que quand vous créez un nouveau cluster prenant en charge RBAC. Vous ne pouvez pas activer Azure AD sur un cluster AKS existant.
+- Azure AD peut uniquement être activé sur un cluster où RBAC est activé.
 
 ## <a name="before-you-begin"></a>Avant de commencer
 

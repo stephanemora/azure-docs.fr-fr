@@ -4,14 +4,14 @@ description: Cet article explique comment gérer le regroupement d'inventaire à
 services: automation
 ms.subservice: change-inventory-management
 keywords: inventaire, automatisation, suivi des modifications
-ms.date: 01/28/2020
+ms.date: 06/30/2020
 ms.topic: conceptual
-ms.openlocfilehash: d237b016b8f3430ed0b28becd2712bd0c41d17b4
-ms.sourcegitcommit: 0b80a5802343ea769a91f91a8cdbdf1b67a932d3
+ms.openlocfilehash: 32d3c17a5f3d152f32b19ffbfd5c9793a7a34b80
+ms.sourcegitcommit: ec682dcc0a67eabe4bfe242fce4a7019f0a8c405
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/25/2020
-ms.locfileid: "83830614"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86185719"
 ---
 # <a name="manage-inventory-collection-from-vms"></a>Gérer une collecte de données d’inventaire à partir de machines virtuelles
 
@@ -100,7 +100,7 @@ Pour visualiser vos groupes de machines, sélectionnez l’onglet **Groupes de m
 
 ![Affichage des groupes de machines sur la page d’inventaire](./media/automation-vm-inventory/inventory-machine-groups.png)
 
-La sélection d’un groupe de machines dans la liste affiche la page Groupes de machines. Cette page affiche des détails sur le groupe de machines. Ces détails comprennent la requête d’analytique des journaux d’activité utilisée pour définir le groupe. La partie inférieure de la page présente une liste paginée des machines qui font partie de ce groupe.
+La sélection d’un groupe de machines dans la liste affiche la page Groupes de machines. Cette page affiche des détails sur le groupe de machines. Ces détails comprennent la requête de journal Azure Monitor utilisée pour définir le groupe. La partie inférieure de la page présente une liste paginée des machines qui font partie de ce groupe.
 
 ![Affichage de la page d’un groupe de machines](./media/automation-vm-inventory/machine-group-page.png)
 
@@ -115,18 +115,21 @@ Si vous souhaitez créer un autre groupe de machines, cliquez sur **+ Créer un 
 Pour supprimer votre machine virtuelle de la gestion de la fonctionnalité Suivi des modifications et inventaire :
 
 1. Dans le volet gauche du portail Azure, sélectionnez **Log Analytics**, puis sélectionnez l’espace de travail que vous avez utilisé lors de l’activation de votre machine virtuelle pour la fonctionnalité Suivi des modifications et inventaire.
-2. Sur la page Log Analytics, ouvrez le menu **Ressource**.
+2. Dans la page **Log Analytics**, ouvrez le menu **Ressource**.
 3. Sélectionnez **Machines virtuelles** sous **Sources de données de l’espace de travail**.
 4. Dans la liste, sélectionnez la machine virtuelle à déconnecter. Une coche verte s’affiche en regard du texte indiquant **Cet espace de travail** dans la colonne **Connexion OMS**, sur la machine.
 
    >[!NOTE]
    >Pour faire référence à Operations Management Suite (OMS), nous parlons maintenant de journaux Azure Monitor.
-   
+
 5. En haut de la page suivante, cliquez sur **Déconnecter**.
 6. Dans la fenêtre de confirmation, cliquez sur **Oui** pour déconnecter la machine de la gestion.
+
+>[!NOTE]
+>Les machines s’affichent toujours même après avoir été désinscrites, car nous faisons état de toutes les machines inventoriées au cours des dernières 24 heures. Une fois la machine déconnectée, vous devez attendre 24 heures avant qu’elle ne soit plus listée.
 
 ## <a name="next-steps"></a>Étapes suivantes
 
 * Pour plus d’informations sur l’utilisation de la fonctionnalité, consultez [Gérer Suivi des modifications et inventaire](change-tracking-file-contents.md).
-* Pour en savoir plus sur le suivi des modifications logicielles, consultez [Suivre les modifications logicielles dans votre environnement avec la fonctionnalité Suivi des modifications](../log-analytics/log-analytics-change-tracking.md).
+* Pour en savoir plus sur le suivi des modifications logicielles, consultez [Suivre les modifications logicielles dans votre environnement avec la fonctionnalité Suivi des modifications](./change-tracking.md).
 * Pour résoudre des problèmes généraux liés à la fonctionnalité, consultez [Résoudre les problèmes rencontrés avec la fonctionnalité Suivi des modifications et inventaire](troubleshoot/change-tracking.md).

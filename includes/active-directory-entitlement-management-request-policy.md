@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 03/30/2020
 ms.author: ajburnle
 ms.custom: include file
-ms.openlocfilehash: 7fd716be397d9ef6b9d6132cd4470f653f3cea0f
-ms.sourcegitcommit: 62c5557ff3b2247dafc8bb482256fef58ab41c17
+ms.openlocfilehash: ae3efec3722570e7e94316c5d874a74c523b1f05
+ms.sourcegitcommit: e995f770a0182a93c4e664e60c025e5ba66d6a45
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/03/2020
-ms.locfileid: "80655938"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86156486"
 ---
 ## <a name="for-users-in-your-directory"></a>Pour les utilisateurs dans votre répertoire
 
@@ -194,7 +194,7 @@ Par exemple, si vous avez mentionné Alice et Bob comme premier et deuxième app
 
 1. Dans la zone **Passer aux autres approbateurs après combien de jours ?** , entrez le nombre de jours dont les approbateurs disposent pour approuver ou refuser une demande. Si aucun approbateur n’a approuvé ou refusé la demande pendant la durée de validité de celle-ci, la demande expire (délai d’expiration) et l’utilisateur doit soumettre une autre demande pour le package d’accès. 
 
-    Les demandes ne peuvent être transférées aux approbateurs de substitution qu’un jour après que la durée de la demande a atteint sa demi-vie. Dans cet exemple, la durée de la demande est de 14 jours. Ainsi, la durée de la demande atteint sa demi-vie le jour 7. La demande ne peut donc pas être transférée avant le jour 8. Par ailleurs, les demandes ne peuvent pas être transférées le dernier jour de leur durée. Ainsi, dans l’exemple, l’ultime limite pour le transfert de la demande est le jour 13.
+    Les demandes ne peuvent être transférées à d’autres approbateurs qu’une journée après que la demande a atteint la moitié de sa durée de vie, et le délai d’expiration de la décision de l’approbateur principal doit être d’au moins quatre jours. Si le délai d’expiration de la demande est inférieur ou égal à trois jours, il n’y a pas assez de temps pour transférer la demande à d’autres approbateurs. Dans cet exemple, la durée de la demande est de 14 jours. Ainsi, la durée de la demande atteint sa demi-vie le jour 7. La demande ne peut donc pas être transférée avant le jour 8. Par ailleurs, les demandes ne peuvent pas être transférées le dernier jour de leur durée. Ainsi, dans l’exemple, l’ultime limite pour le transfert de la demande est le jour 13.
 
 ## <a name="enable-requests"></a>Activer les demandes
 

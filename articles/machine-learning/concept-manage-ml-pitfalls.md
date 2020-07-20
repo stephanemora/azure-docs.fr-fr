@@ -10,12 +10,12 @@ ms.reviewer: nibaccam
 author: nibaccam
 ms.author: nibaccam
 ms.date: 04/09/2020
-ms.openlocfilehash: e1191c01ce3f62f34c351cefd29a5e40aa68bfd3
-ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
+ms.openlocfilehash: 171b355f40939efb31e96a4bf8b2d77e97d19f25
+ms.sourcegitcommit: 5cace04239f5efef4c1eed78144191a8b7d7fee8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83658399"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86147097"
 ---
 # <a name="prevent-overfitting-and-imbalanced-data-with-automated-machine-learning"></a>Empêcher le surajustement et les données déséquilibrées avec le Machine Learning automatisé
 
@@ -71,15 +71,13 @@ Le ML automatisé implémente également des **limitations de complexité de mod
 La **validation croisée** est le processus qui consiste à prendre de nombreux sous-ensembles de vos données d’entraînement complètes et à entraîner un modèle sur chaque sous-ensemble. L’idée est qu’un modèle pourrait être « chanceux » et avoir une grande justesse avec un sous-ensemble, mais avec l’utilisation de nombreux sous-ensembles le modèle ne présentera pas cette justesse élevée à chaque fois. Avec la validation croisée, vous fournissez un jeu de données d’exclusion de validation, vous spécifiez vos plis de validation croisée (le nombre de sous-ensembles), et le ML automatisé entraîne votre modèle et ajuste les hyperparamètres afin de minimiser les erreurs sur votre jeu de validation. Il est possible qu’un pli de validation croisée présente un surajustement, mais l’utilisation de nombreux plis réduit la probabilité que votre modèle final soit surajusté. L’inconvénient est que la validation croisée entraîne des temps d’entraînement plus longs, et par conséquent un coût plus élevé, car au lieu d’entraîner un modèle une seule fois, vous l’entraînez une fois pour tous les *n* sous-ensembles de validation croisée. 
 
 > [!NOTE]
-> La validation croisée n’est pas activée par défaut ; vous devez la configurer dans les paramètres de ML automatisé. Cependant, une fois que la validation croisée est configurée et qu’un jeu de données de validation a été fourni, le processus est automatisé. Consultez 
+> La validation croisée n’est pas activée par défaut ; vous devez la configurer dans les paramètres de ML automatisé. Cependant, une fois que la validation croisée est configurée et qu’un jeu de données de validation a été fourni, le processus est automatisé. En savoir plus sur la [configuration de la validation croisée dans Auto ML](how-to-configure-cross-validation-data-splits.md)
 
 <a name="imbalance"></a>
 
 ## <a name="identify-models-with-imbalanced-data"></a>Identifier les modèles présentant des données déséquilibrées
 
 Les données déséquilibrées se trouvent généralement dans les scénarios de classification de machine learning. Il s’agit des données dont le taux d’observations dans chaque classe est disproportionné. Ce déséquilibre peut donner une idée faussement positive de la justesse d’un modèle parce que les données d’entrée présentent un biais vers une classe, ce qui influence le modèle entraîné. 
-
-Sachant que les algorithmes de classification sont généralement évalués selon des critères de justesse, il est judicieux de vérifier la justesse d’un modèle pour déterminer s’il a été impacté par des données déséquilibrées. Sa justesse pour certaines classes s’est-elle avérée élevée ou très faible ?
 
 Par ailleurs, les exécutions du ML automatisé génèrent automatiquement les graphiques suivants, qui peuvent vous aider à comprendre la cohérence des classifications de votre modèle et à identifier les modèles potentiellement impactés par des données déséquilibrées.
 
@@ -91,17 +89,19 @@ Graphique| Description
 
 ## <a name="handle-imbalanced-data"></a>Traiter les données déséquilibrées 
 
-Dans l’optique de simplifier le workflow du machine learning, le ML automatisé intègre des fonctionnalités qui permettent de gérer les données déséquilibrées, à savoir : 
+Dans l’optique de simplifier le workflow du Machine Learning, le **ML automatisé intègre des fonctionnalités** qui permettent de gérer les données déséquilibrées, à savoir : 
 
-- Une **colonne de pondération** : le ML automatisé peut utiliser une colonne pondérée en guise d’entrée. Les lignes de données sont alors pondérées, ce qui peut accentuer ou réduire « l’importance » d’une classe.
+- Une **colonne de pondération** : le ML automatisé peut utiliser une colonne de poids en guise d’entrée. Les lignes de données sont alors pondérées, ce qui peut accentuer ou réduire « l’importance » d’une classe.
 
-- Les algorithmes utilisés par le ML automatisé peuvent traiter un déséquilibre jusqu’à un rapport de 20 à 1, ce qui signifie que la classe la plus commune peut avoir 20 fois plus de lignes dans les données que la classe la moins commune.
+- Les algorithmes utilisés par le ML automatisé détectent le déséquilibre quand le nombre d’échantillons dans la classe minoritaire est égal ou inférieur à 20 % du nombre d’échantillons dans la classe majoritaire, où la classe minoritaire fait référence à celle ayant le moins d’échantillons et la classe majoritaire fait référence à celle ayant la plupart des échantillons. Par la suite, AutoML exécutera une expérience avec des données sous-échantillonnées pour vérifier si l’utilisation des poids des classes résoudrait ce problème et améliorerait les performances. S’il conclut à une amélioration des performances par le biais de cette expérience, ce recours est appliqué.
 
-Les techniques suivantes sont des options supplémentaires pour traiter les données déséquilibrées en dehors du ML automatisé. 
+- Utilisation d’une métrique de performances qui gère mieux les données déséquilibrées. Par exemple, AUC_weighted est une métrique principale qui calcule la contribution de chaque classe en fonction du nombre relatif d’échantillons représentant cette classe, d’où une meilleure fiabilité contre le déséquilibre.
+
+Les techniques suivantes sont des options supplémentaires pour traiter les données déséquilibrées **en dehors du ML automatisé**. 
 
 - Rééchantillonnage destiné à niveler le déséquilibre des classes, soit en suréchantillonnant les classes les plus petites soit en sous-échantillonnant les classes les plus grandes. Ces méthodes demandent des compétences techniques pour le traitement et l’analyse.
 
-- Utilisation d’une métrique de performances qui gère mieux les données déséquilibrées. Par exemple, le score F1 est une moyenne pondérée de la précision et du rappel. La précision mesure l’exactitude d’un classifieur (une faible précision indique un grand nombre de faux positifs), tandis que le rappel mesure l’exhaustivité d’un classifieur (un faible rappel indique un grand nombre de faux négatifs). 
+- Examinez les métriques de performances afin d’identifier les données déséquilibrées. Par exemple, le score F1 est une moyenne pondérée de la précision et du rappel. La précision mesure l’exactitude d’un classifieur (une faible précision indique un grand nombre de faux positifs), tandis que le rappel mesure l’exhaustivité d’un classifieur (un faible rappel indique un grand nombre de faux négatifs).
 
 ## <a name="next-steps"></a>Étapes suivantes
 

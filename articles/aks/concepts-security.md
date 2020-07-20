@@ -6,12 +6,12 @@ author: mlearned
 ms.topic: conceptual
 ms.date: 07/01/2020
 ms.author: mlearned
-ms.openlocfilehash: 15bd0791917ca95e61a441b71947b70c81c0598e
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: d154ca6b67f3f587234deb34cef171ffc5924530
+ms.sourcegitcommit: 5cace04239f5efef4c1eed78144191a8b7d7fee8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85831537"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86145532"
 ---
 # <a name="security-concepts-for-applications-and-clusters-in-azure-kubernetes-service-aks"></a>Concepts de sécurité pour les applications et les clusters dans AKS (Azure Kubernetes Service)
 
@@ -19,11 +19,16 @@ Pour protéger vos données clientes quand vous exécutez des charges de travail
 
 Cet article présente les concepts fondamentaux qui sécurisent vos applications dans AKS :
 
-- [Sécurité des composants maîtres](#master-security)
-- [Sécurité des nœuds](#node-security)
-- [Mise à niveau des clusters](#cluster-upgrades)
-- [Sécurité du réseau](#network-security)
-- [Secrets Kubernetes](#kubernetes-secrets)
+- [Concepts de sécurité pour les applications et les clusters dans AKS (Azure Kubernetes Service)](#security-concepts-for-applications-and-clusters-in-azure-kubernetes-service-aks)
+  - [Sécurité du maître](#master-security)
+  - [Sécurité des nœuds](#node-security)
+    - [Isolation du calcul](#compute-isolation)
+  - [Mise à niveau des clusters](#cluster-upgrades)
+    - [Isolation et drainage](#cordon-and-drain)
+  - [Sécurité du réseau](#network-security)
+    - [Groupes de sécurité réseau Azure](#azure-network-security-groups)
+  - [Secrets Kubernetes](#kubernetes-secrets)
+  - [Étapes suivantes](#next-steps)
 
 ## <a name="master-security"></a>Sécurité du maître
 
@@ -45,7 +50,14 @@ Les nœuds sont déployés sur un sous-réseau de réseau virtuel privé, sans a
 
 Pour fournir le stockage, les nœuds utilisent Azure Disques managés. Pour la plupart des tailles de nœud de machine virtuelle, il s’agit de disques Premium assortis de disques SSD hautes performances. Les données stockées sur les disques managés sont automatiquement chiffrées au repos au sein de la plateforme Azure. Pour améliorer la redondance, ces disques sont également répliqués de manière sécurisée au sein du centre de données Azure.
 
-Les environnements Kubernetes, dans AKS ou ailleurs, ne sont pas encore totalement sûrs pour une utilisation multi-locataire hostile. Des fonctionnalités de sécurité supplémentaires, telles que les *stratégies de sécurité Pod*, et des contrôles d’accès en fonction du rôle (RBAC) plus détaillés pour les nœuds rendent les attaques plus difficiles. Mais lors de l’exécution de charges de travail multi-locataires hostiles, seul un hyperviseur garantira véritablement la sécurité. Le domaine de sécurité de Kubernetes devient le cluster, et non un nœud individuel. Pour ces types de charges de travail multi-locataires hostiles, vous devez utiliser des clusters physiquement isolés. Pour plus d’informations sur les méthodes d’isolation des charges de travail, consultez [Meilleures pratiques relatives à l’isolation de clusters dans AKS][cluster-isolation],
+Les environnements Kubernetes, dans AKS ou ailleurs, ne sont pas encore totalement sûrs pour une utilisation multi-locataire hostile. Des fonctionnalités de sécurité supplémentaires, telles que les *stratégies de sécurité Pod*, et des contrôles d’accès en fonction du rôle (RBAC) plus détaillés pour les nœuds rendent les attaques plus difficiles. Mais lors de l’exécution de charges de travail multi-locataires hostiles, seul un hyperviseur garantira véritablement la sécurité. Le domaine de sécurité de Kubernetes devient le cluster, et non un nœud individuel. Pour ces types de charges de travail multi-locataires hostiles, vous devez utiliser des clusters physiquement isolés. Pour plus d’informations sur les méthodes d’isolation des charges de travail, consultez [Meilleures pratiques relatives à l’isolation de clusters dans AKS][cluster-isolation].
+
+### <a name="compute-isolation"></a>Isolation du calcul
+
+ Pour des raisons de conformité ou d’exigences réglementaires, certaines charges de travail peuvent nécessiter un niveau d’isolation élevé par rapport aux autres charges de travail client. Pour ces charges de travail, Azure fournit des [machines virtuelles isolées](..\virtual-machines\linux\isolation.md), qui peuvent être utilisées en tant que nœuds d’agent dans un cluster AKS. Ces machines virtuelles sont isolées dans un type de matériel spécifique et dédiées à un client unique. 
+
+ Pour utiliser ces machines virtuelles isolées avec un cluster AKS, sélectionnez l’une des tailles de machines virtuelles isolées répertoriées [ici](..\virtual-machines\linux\isolation.md) comme **taille de nœud** lors de la création d’un cluster AKS ou de l’ajout d’un pool de nœuds.
+
 
 ## <a name="cluster-upgrades"></a>Mise à niveau des clusters
 

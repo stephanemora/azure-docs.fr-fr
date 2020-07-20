@@ -12,14 +12,14 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 06/08/2020
+ms.date: 07/08/2020
 ms.author: b-juche
-ms.openlocfilehash: 8b417559a17dc05a07467a28d37fec9b9a7c12cb
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: a0d672f782cb9f476fa81d28ee369072caf8509b
+ms.sourcegitcommit: 5cace04239f5efef4c1eed78144191a8b7d7fee8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84553467"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86147195"
 ---
 # <a name="resource-limits-for-azure-netapp-files"></a>Limites des ressources pour Azure NetApp Files
 
@@ -61,7 +61,7 @@ Le service ajuste dynamiquement la limite maxfiles d’un volume en fonction de 
 |    >= 3 Tio mais < 4 Tio    |    80 millions     |
 |    >= 4 Tio                |    100 millions    |
 
-Quelle que soit la taille du volume, vous pouvez lancer une [demande de support](#limit_increase) pour augmenter la limite maxfiles au-delà de 100 millions.
+Si vous avez déjà alloué au moins 4 Tio de quota pour un volume, vous pouvez initier une [demande de support](#limit_increase) afin d’augmenter la limite maxfiles au-delà de 100 millions.
 
 ## <a name="request-limit-increase"></a>Demander une augmentation de limite <a name="limit_increase"></a> 
 

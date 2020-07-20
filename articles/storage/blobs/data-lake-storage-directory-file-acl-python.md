@@ -9,12 +9,12 @@ ms.topic: how-to
 ms.subservice: data-lake-storage-gen2
 ms.reviewer: prishet
 ms.custom: tracking-python
-ms.openlocfilehash: f5ff33d021f27f2c5dfb86ca87f2579602f0d1cc
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 07708de1326e0aba6485b2cf1fb0610d9710cdf7
+ms.sourcegitcommit: 5cace04239f5efef4c1eed78144191a8b7d7fee8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84559151"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86142477"
 ---
 # <a name="use-python-to-manage-directories-files-and-acls-in-azure-data-lake-storage-gen2"></a>Utiliser Python pour gérer les répertoires, les fichiers et les listes de contrôle d’accès dans Azure Data Lake Storage Gen2
 
@@ -94,11 +94,11 @@ def initialize_storage_account_ad(storage_account_name, client_id, client_secret
 > [!NOTE]
 > Pour obtenir plus d’exemples, consultez la documentation [Bibliothèque de client Azure Identity pour Python](https://pypi.org/project/azure-identity/).
 
-## <a name="create-a-file-system"></a>Créer un système de fichiers
+## <a name="create-a-container"></a>Créez un conteneur.
 
-Un système de fichiers agit comme un conteneur pour vos fichiers. Vous pouvez en créer un en appelant la méthode **FileSystemDataLakeServiceClient.create_file_system**.
+Un conteneur fait office de système de fichiers pour vos fichiers. Vous pouvez en créer un en appelant la méthode **FileSystemDataLakeServiceClient.create_file_system**.
 
-Cet exemple crée un système de fichiers nommé `my-file-system`.
+Cet exemple crée un conteneur nommé `my-file-system`.
 
 ```python
 def create_file_system():
@@ -116,7 +116,7 @@ def create_file_system():
 
 Créez une référence de répertoire en appelant la méthode **FileSystemClient.create_directory**.
 
-Cet exemple ajoute un répertoire nommé `my-directory` dans un système de fichiers. 
+Cet exemple ajoute un répertoire nommé `my-directory` à un conteneur. 
 
 ```python
 def create_directory():

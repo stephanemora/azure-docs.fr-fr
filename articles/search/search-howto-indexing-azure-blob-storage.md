@@ -10,12 +10,12 @@ ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 11/04/2019
 ms.custom: fasttrack-edit
-ms.openlocfilehash: 5df1198e6681431738f886eb7c3ad549936eab1a
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 7e3a35d95e7d2a339bf33620c9d1a140fb6a0a1d
+ms.sourcegitcommit: 5cace04239f5efef4c1eed78144191a8b7d7fee8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80067645"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86143758"
 ---
 # <a name="how-to-index-documents-in-azure-blob-storage-with-azure-cognitive-search"></a>Comment indexer des documents dans Stockage Blob Azure avec la Recherche cognitive Azure
 
@@ -33,7 +33,7 @@ Vous pouvez configurer un indexeur de Stockage Blob Azure avec les outils suivan
 
 * [Azure portal](https://ms.portal.azure.com)
 * [API REST](https://docs.microsoft.com/rest/api/searchservice/Indexer-operations) de Recherche cognitive Azure
-* [Kit de développement logiciel (SDK) .NET](https://aka.ms/search-sdk) de Recherche cognitive Azure
+* [Kit de développement logiciel (SDK) .NET](https://docs.microsoft.com/dotnet/api/overview/azure/search) de Recherche cognitive Azure
 
 > [!NOTE]
 > Certaines fonctionnalités (par exemple, les mappages de champs) ne sont pas encore disponibles dans le portail et doivent être utilisées par l’intermédiaire de programmes.
@@ -53,7 +53,8 @@ Pour l’indexation des objets blob, la source de données doit avoir les propri
 
 Pour créer une source de données :
 
-    POST https://[service name].search.windows.net/datasources?api-version=2019-05-06
+```http
+    POST https://[service name].search.windows.net/datasources?api-version=2020-06-30
     Content-Type: application/json
     api-key: [admin key]
 
@@ -63,6 +64,7 @@ Pour créer une source de données :
         "credentials" : { "connectionString" : "DefaultEndpointsProtocol=https;AccountName=<account name>;AccountKey=<account key>;" },
         "container" : { "name" : "my-container", "query" : "<optional-virtual-directory-name>" }
     }   
+```
 
 Pour plus d’informations sur l’API Créer une source de données, consultez [Créer une source de données](https://docs.microsoft.com/rest/api/searchservice/create-data-source).
 
@@ -85,7 +87,8 @@ L’index spécifie les champs d’un document, les attributs et d’autres cons
 
 Voici comment créer un index avec un champ `content` pouvant faire l'objet d'une recherche afin de stocker le texte extrait d'objets blob :   
 
-    POST https://[service name].search.windows.net/indexes?api-version=2019-05-06
+```http
+    POST https://[service name].search.windows.net/indexes?api-version=2020-06-30
     Content-Type: application/json
     api-key: [admin key]
 
@@ -96,6 +99,7 @@ Voici comment créer un index avec un champ `content` pouvant faire l'objet d'un
             { "name": "content", "type": "Edm.String", "searchable": true, "filterable": false, "sortable": false, "facetable": false }
           ]
     }
+```
 
 Pour plus d’informations sur la création d’index, consultez [Création d'un index](https://docs.microsoft.com/rest/api/searchservice/create-index)
 
@@ -104,7 +108,8 @@ Un indexeur connecte une source de données à un index de recherche cible et fo
 
 Une fois l'index et la source de données créés, vous êtes prêt à créer l’indexeur :
 
-    POST https://[service name].search.windows.net/indexers?api-version=2019-05-06
+```http
+    POST https://[service name].search.windows.net/indexers?api-version=2020-06-30
     Content-Type: application/json
     api-key: [admin key]
 
@@ -114,6 +119,7 @@ Une fois l'index et la source de données créés, vous êtes prêt à créer l�
       "targetIndexName" : "my-target-index",
       "schedule" : { "interval" : "PT2H" }
     }
+```
 
 Cet indexeur s’exécutera toutes les deux heures (intervalle de planification défini sur « PT2H »). Pour exécuter un indexeur toutes les 30 minutes, définissez l’intervalle sur « PT30M ». Le plus court intervalle pris en charge est de 5 minutes. La planification est facultative : en cas d’omission, un indexeur ne s’exécute qu’une seule fois lorsqu’il est créé. Toutefois, vous pouvez à tout moment exécuter un indexeur à la demande.   
 
@@ -130,7 +136,7 @@ En fonction de sa [configuration](#PartsOfBlobToIndex), l’indexeur d’objets 
 > [!NOTE]
 > Par défaut, les objets blob avec contenu structuré tels que JSON ou CSV sont indexés en tant que bloc de texte unique. Si vous souhaitez indexer des objets blob JSON et CSV de manière structurée, consultez [Indexation d’objets blob JSON](search-howto-index-json-blobs.md) et [Indexation d’objets blob CSV](search-howto-index-csv-blobs.md) pour en savoir plus.
 >
-> Un document composé ou incorporé (tel qu’une archive ZIP ou un document Word avec e-mail Outlook incorporé intégrant des pièces jointes) est également indexé en tant que document unique.
+> Un document composé ou incorporé (tel qu’une archive ZIP ou un document Word avec e-mail Outlook incorporé intégrant des pièces jointes, ou un fichier .MSG avec des pièces jointes) est également indexé en tant que document unique. Par exemple, toutes les images extraites des pièces jointes d’un fichier .MSG seront renvoyées dans le champ normalized_images.
 
 * Le contenu de texte du document est extrait dans un champ de chaîne nommé `content`.
 
@@ -174,14 +180,17 @@ Vous devez déterminer avec soin le champ extrait que vous souhaitez mapper sur 
 
 Pour cet exemple, sélectionnons le champ `metadata_storage_name` en tant que clé de document. Supposons également que votre index comporte un champ de clé nommé `key` et un champ `fileSize` pour le stockage de la taille du document. Pour obtenir le résultat souhaité, spécifiez les mappages de champs ci-après lors de la création ou de la mise à jour de votre indexeur :
 
+```http
     "fieldMappings" : [
       { "sourceFieldName" : "metadata_storage_name", "targetFieldName" : "key", "mappingFunction" : { "name" : "base64Encode" } },
       { "sourceFieldName" : "metadata_storage_size", "targetFieldName" : "fileSize" }
     ]
+```
 
 Pour regrouper tous ces éléments, utilisez le code ci-après pour ajouter des mappages de champs et activer le codage base 64 des clés pour un indexeur existant :
 
-    PUT https://[service name].search.windows.net/indexers/blob-indexer?api-version=2019-05-06
+```http
+    PUT https://[service name].search.windows.net/indexers/blob-indexer?api-version=2020-06-30
     Content-Type: application/json
     api-key: [admin key]
 
@@ -194,6 +203,7 @@ Pour regrouper tous ces éléments, utilisez le code ci-après pour ajouter des 
         { "sourceFieldName" : "metadata_storage_size", "targetFieldName" : "fileSize" }
       ]
     }
+```
 
 > [!NOTE]
 > Pour en savoir plus sur les mappages de champs, consultez [cet article](search-indexer-field-mappings.md).
@@ -207,7 +217,8 @@ Vous pouvez contrôler les objets BLOB qui sont indexés et ignorés.
 ### <a name="index-only-the-blobs-with-specific-file-extensions"></a>Indexer uniquement les objets blob avec des extensions de fichier spécifiques
 Vous pouvez indexer uniquement les objets blob avec des extensions de nom de fichier que vous spécifiez à l’aide du paramètre de configuration d’indexeur `indexedFileNameExtensions`. La valeur est une chaîne contenant une liste d'extensions de fichier séparées par des virgules (précédées d'un point). Par exemple, pour indexer uniquement les objets blob .PDF et .DOCX, procédez comme suit :
 
-    PUT https://[service name].search.windows.net/indexers/[indexer name]?api-version=2019-05-06
+```http
+    PUT https://[service name].search.windows.net/indexers/[indexer name]?api-version=2020-06-30
     Content-Type: application/json
     api-key: [admin key]
 
@@ -215,11 +226,13 @@ Vous pouvez indexer uniquement les objets blob avec des extensions de nom de fic
       ... other parts of indexer definition
       "parameters" : { "configuration" : { "indexedFileNameExtensions" : ".pdf,.docx" } }
     }
+```
 
 ### <a name="exclude-blobs-with-specific-file-extensions"></a>Exclusion d’objets blob avec des extensions de fichier spécifiques
 Vous pouvez exclure de l’indexation des objets blob avec des extensions de nom de fichier spécifiques à l’aide du paramètre de configuration `excludedFileNameExtensions`. La valeur est une chaîne contenant une liste d'extensions de fichier séparées par des virgules (précédées d'un point). Par exemple, pour indexer tous les objets blob, sauf ceux qui ont les extensions .PNG et .JPEG, procédez comme suit :
 
-    PUT https://[service name].search.windows.net/indexers/[indexer name]?api-version=2019-05-06
+```http
+    PUT https://[service name].search.windows.net/indexers/[indexer name]?api-version=2020-06-30
     Content-Type: application/json
     api-key: [admin key]
 
@@ -227,6 +240,7 @@ Vous pouvez exclure de l’indexation des objets blob avec des extensions de nom
       ... other parts of indexer definition
       "parameters" : { "configuration" : { "excludedFileNameExtensions" : ".png,.jpeg" } }
     }
+```
 
 Si les paramètres `indexedFileNameExtensions` et `excludedFileNameExtensions` sont tous deux présents, la Recherche cognitive Azure regarde d’abord `indexedFileNameExtensions`, puis `excludedFileNameExtensions`. Cela signifie que, si la même extension de fichier est présente dans les deux listes, elle sera exclue de l'indexation.
 
@@ -241,7 +255,8 @@ Vous pouvez contrôler les parties des objets blob à indexer à l’aide du par
 
 Par exemple, pour indexer uniquement les métadonnées de stockage, utilisez :
 
-    PUT https://[service name].search.windows.net/indexers/[indexer name]?api-version=2019-05-06
+```http
+    PUT https://[service name].search.windows.net/indexers/[indexer name]?api-version=2020-06-30
     Content-Type: application/json
     api-key: [admin key]
 
@@ -249,6 +264,7 @@ Par exemple, pour indexer uniquement les métadonnées de stockage, utilisez :
       ... other parts of indexer definition
       "parameters" : { "configuration" : { "dataToExtract" : "storageMetadata" } }
     }
+```
 
 ### <a name="using-blob-metadata-to-control-how-blobs-are-indexed"></a>Utilisation de métadonnées d’objets blob pour contrôler la manière dont les objets blob sont indexés
 
@@ -264,7 +280,8 @@ Les paramètres de configuration décrits ci-dessus s’appliquent à tous les o
 
 Par défaut, l’indexeur d’objets blob s’arrête dès qu’il rencontre un objet blob avec un type de contenu non pris en charge (par exemple, une image). Vous pouvez évidemment utiliser le paramètre `excludedFileNameExtensions` pour ignorer certains types de contenu. Toutefois, vous devrez peut-être indexer des objets blob sans connaître à l’avance tous les types de contenu possibles. Pour poursuivre l’indexation lorsqu’un type de contenu non pris en charge est détecté, définissez le paramètre de configuration `failOnUnsupportedContentType` sur `false` :
 
-    PUT https://[service name].search.windows.net/indexers/[indexer name]?api-version=2019-05-06
+```http
+    PUT https://[service name].search.windows.net/indexers/[indexer name]?api-version=2020-06-30
     Content-Type: application/json
     api-key: [admin key]
 
@@ -272,21 +289,28 @@ Par défaut, l’indexeur d’objets blob s’arrête dès qu’il rencontre un 
       ... other parts of indexer definition
       "parameters" : { "configuration" : { "failOnUnsupportedContentType" : false } }
     }
+```
 
 Pour certains objets blob, le service Recherche cognitive Azure ne parvient pas à déterminer le type de contenu ou à traiter un document avec un autre type de contenu pris en charge. Pour ignorer ce mode d’échec, définissez le paramètre de configuration `failOnUnprocessableDocument` sur false :
 
+```http
       "parameters" : { "configuration" : { "failOnUnprocessableDocument" : false } }
+```
 
 La Recherche cognitive Azure limite la taille des objets blob indexés. Ces limites sont documentées dans [Limites de service de Recherche cognitive Azure](https://docs.microsoft.com/azure/search/search-limits-quotas-capacity). Par défaut, les objets blob surdimensionnés sont traités comme des erreurs. Toutefois, vous pouvez toujours indexer des métadonnées de stockage d’objets blob surdimensionnés en définissant la valeur du paramètre configuration `indexStorageMetadataOnlyForOversizedDocuments` sur true : 
 
+```http
     "parameters" : { "configuration" : { "indexStorageMetadataOnlyForOversizedDocuments" : true } }
+```
 
 Vous pouvez également poursuivre l’indexation si des erreurs se produisent à tout moment du traitement, que ce soit durant l’analyse d’objets blob ou l’ajout de documents à un index. Pour ignorer un nombre spécifique d’erreurs, définissez les paramètres de configuration `maxFailedItems` et `maxFailedItemsPerBatch` sur les valeurs souhaitées. Par exemple :
 
+```http
     {
       ... other parts of indexer definition
       "parameters" : { "maxFailedItems" : 10, "maxFailedItemsPerBatch" : 10 }
     }
+```
 
 ## <a name="incremental-indexing-and-deletion-detection"></a>Indexation incrémentielle et détection des suppressions
 
@@ -302,7 +326,7 @@ Il existe deux façons d’implémenter l’approche de suppression réversible.
 ### <a name="native-blob-soft-delete-preview"></a>Suppression réversible native de blobs (préversion)
 
 > [!IMPORTANT]
-> La prise en charge de la suppression réversible native de blobs est disponible en préversion. Les fonctionnalités en préversion sont fournies sans contrat de niveau de service et ne sont pas recommandées pour les charges de travail de production. Pour plus d’informations, consultez [Conditions d’Utilisation Supplémentaires relatives aux Évaluations Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). L’[API REST version 2019-05-06-Preview](https://docs.microsoft.com/azure/search/search-api-preview) fournit cette fonctionnalité. Il n’y a actuellement pas de prise en charge du portail ou du SDK .NET.
+> La prise en charge de la suppression réversible native de blobs est disponible en préversion. Les fonctionnalités en préversion sont fournies sans contrat de niveau de service et ne sont pas recommandées pour les charges de travail de production. Pour plus d’informations, consultez [Conditions d’Utilisation Supplémentaires relatives aux Évaluations Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). L’[API REST version 2020-06-30-Preview](https://docs.microsoft.com/azure/search/search-api-preview) fournit cette fonctionnalité. Il n’y a actuellement pas de prise en charge du portail ou du SDK .NET.
 
 > [!NOTE]
 > Lors de l’utilisation de la stratégie de suppression réversible native de blobs, les clés de document des documents de votre index doivent être une propriété blob ou des métadonnées blob.
@@ -315,7 +339,7 @@ Utiliser les étapes suivantes :
 1. Exécutez l’indexeur ou configurez l’indexeur pour qu’il s’exécute selon une planification. Lorsque l’indexeur s’exécute et traite le blob, le document est supprimé de l’index.
 
     ```
-    PUT https://[service name].search.windows.net/datasources/blob-datasource?api-version=2019-05-06-Preview
+    PUT https://[service name].search.windows.net/datasources/blob-datasource?api-version=2020-06-30-Preview
     Content-Type: application/json
     api-key: [admin key]
     {
@@ -345,7 +369,8 @@ Utiliser les étapes suivantes :
 
 Par exemple, la stratégie suivante considère qu’un objet blob est supprimé s’il présente une propriété de métadonnées `IsDeleted` avec la valeur `true` :
 
-    PUT https://[service name].search.windows.net/datasources/blob-datasource?api-version=2019-05-06
+```http
+    PUT https://[service name].search.windows.net/datasources/blob-datasource?api-version=2020-06-30
     Content-Type: application/json
     api-key: [admin key]
 
@@ -360,6 +385,7 @@ Par exemple, la stratégie suivante considère qu’un objet blob est supprimé 
             "softDeleteMarkerValue" : "true"
         }
     }
+```
 
 #### <a name="reindexing-undeleted-blobs"></a>Réindexation des blobs non supprimés
 
@@ -396,7 +422,8 @@ Pour ce faire, tous les indexeurs et les autres composants doivent s’accorder 
 
 Si tous vos objets BLOB contiennent du texte brut dans le même encodage, vous pouvez améliorer considérablement les performances d’indexation à l’aide du **mode d’analyse de texte**. Pour utiliser le mode d’analyse de texte, définissez la `parsingMode` propriété configuration à `text`:
 
-    PUT https://[service name].search.windows.net/indexers/[indexer name]?api-version=2019-05-06
+```http
+    PUT https://[service name].search.windows.net/indexers/[indexer name]?api-version=2020-06-30
     Content-Type: application/json
     api-key: [admin key]
 
@@ -404,14 +431,16 @@ Si tous vos objets BLOB contiennent du texte brut dans le même encodage, vous p
       ... other parts of indexer definition
       "parameters" : { "configuration" : { "parsingMode" : "text" } }
     }
+```
 
 Par défaut, le `UTF-8` encodage est possible. Pour spécifier un encodage différent, utilisez la `encoding` propriété de configuration : 
 
+```http
     {
       ... other parts of indexer definition
       "parameters" : { "configuration" : { "parsingMode" : "text", "encoding" : "windows-1252" } }
     }
-
+```
 
 <a name="ContentSpecificMetadata"></a>
 ## <a name="content-type-specific-metadata-properties"></a>Propriétés de métadonnées propres au type de contenu
@@ -432,7 +461,7 @@ Le tableau ci-après récapitule le traitement appliqué pour chaque format de d
 | PPTX (application/vnd.openxmlformats-officedocument.presentationml.presentation) |`metadata_content_type`<br/>`metadata_author`<br/>`metadata_creation_date`<br/>`metadata_last_modified`<br/>`metadata_slide_count`<br/>`metadata_title` |Extraction du texte, y compris les documents incorporés |
 | PPT (application/vnd.ms-powerpoint) |`metadata_content_type`<br/>`metadata_author`<br/>`metadata_creation_date`<br/>`metadata_last_modified`<br/>`metadata_slide_count`<br/>`metadata_title` |Extraction du texte, y compris les documents incorporés |
 | PPTM (application/vnd.ms-powerpoint.presentation.macroenabled.12) |`metadata_content_type`<br/>`metadata_author`<br/>`metadata_creation_date`<br/>`metadata_last_modified`<br/>`metadata_slide_count`<br/>`metadata_title` |Extraction du texte, y compris les documents incorporés |
-| MSG (application/vnd.ms-outlook) |`metadata_content_type`<br/>`metadata_message_from`<br/>`metadata_message_from_email`<br/>`metadata_message_to`<br/>`metadata_message_to_email`<br/>`metadata_message_cc`<br/>`metadata_message_cc_email`<br/>`metadata_message_bcc`<br/>`metadata_message_bcc_email`<br/>`metadata_creation_date`<br/>`metadata_last_modified`<br/>`metadata_subject` |Extraction du texte, y compris les pièces jointes. `metadata_message_to_email`, `metadata_message_cc_email` et `metadata_message_bcc_email` sont des collections de chaînes ; les autres champs sont des chaînes.|
+| MSG (application/vnd.ms-outlook) |`metadata_content_type`<br/>`metadata_message_from`<br/>`metadata_message_from_email`<br/>`metadata_message_to`<br/>`metadata_message_to_email`<br/>`metadata_message_cc`<br/>`metadata_message_cc_email`<br/>`metadata_message_bcc`<br/>`metadata_message_bcc_email`<br/>`metadata_creation_date`<br/>`metadata_last_modified`<br/>`metadata_subject` |Extrayez le texte, y compris celui des pièces jointes. `metadata_message_to_email`, `metadata_message_cc_email` et `metadata_message_bcc_email` sont des collections de chaînes ; les autres champs sont des chaînes.|
 | ODT (application/vnd.oasis.opendocument.text) |`metadata_content_type`<br/>`metadata_author`<br/>`metadata_character_count`<br/>`metadata_creation_date`<br/>`metadata_last_modified`<br/>`metadata_page_count`<br/>`metadata_word_count` |Extraction du texte, y compris les documents incorporés |
 | ODS (application/vnd.oasis.opendocument.spreadsheet) |`metadata_content_type`<br/>`metadata_author`<br/>`metadata_creation_date`<br/>`metadata_last_modified` |Extraction du texte, y compris les documents incorporés |
 | ODP (application/vnd.oasis.opendocument.presentation) |`metadata_content_type`<br/>`metadata_author`<br/>`metadata_creation_date`<br/>`metadata_last_modified`<br/>`title` |Extraction du texte, y compris les documents incorporés |

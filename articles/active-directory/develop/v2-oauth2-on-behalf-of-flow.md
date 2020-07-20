@@ -9,16 +9,16 @@ ms.service: active-directory
 ms.subservice: develop
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 05/18/2020
+ms.date: 07/8/2020
 ms.author: hirsin
 ms.reviewer: hirsin
 ms.custom: aaddev
-ms.openlocfilehash: 9e653469eb5bffbf81a0e09982edcbd1e937ba61
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 3a0d4d205e82f377d6ea02c91fbd6db7820c3868
+ms.sourcegitcommit: 1e6c13dc1917f85983772812a3c62c265150d1e7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85553543"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86165870"
 ---
 # <a name="microsoft-identity-platform-and-oauth-20-on-behalf-of-flow"></a>Plateforme d’identités Microsoft et flux On-Behalf-Of OAuth 2.0
 
@@ -47,7 +47,7 @@ Les étapes qui suivent constituent le flux OBO et sont décrites à l’aide du
 > [!NOTE]
 > Dans ce scénario, le service de niveau intermédiaire n’a aucune interaction utilisateur pour obtenir le consentement de l’utilisateur pour accéder à l’API en aval. Par conséquent, l’option d’accorder l’accès à l’API en aval est présentée au préalable lors de l’étape de consentement pendant l’authentification. Pour savoir comment effectuer cette configuration pour votre application, consultez [Obtention du consentement pour l’application de niveau intermédiaire](#gaining-consent-for-the-middle-tier-application).
 
-## <a name="service-to-service-access-token-request"></a>Demande de jeton d’accès de service à service
+## <a name="middle-tier-access-token-request"></a>Demande de jeton d’accès de niveau intermédiaire
 
 Pour demander un jeton d’accès, adressez une requête HTTP POST au point de terminaison du jeton de la plateforme d’identités Microsoft spécifique au locataire, avec les paramètres suivants.
 
@@ -66,7 +66,7 @@ Lorsque l’application utilise un secret partagé, la demande de jeton d’acc�
 | `grant_type` | Obligatoire | Type de la demande de jeton. Pour une demande à l’aide d’un JWT, la valeur doit être `urn:ietf:params:oauth:grant-type:jwt-bearer`. |
 | `client_id` | Obligatoire | L’ID (client) d’application attribué à votre application par la page [Inscriptions d’applications du portail Azure](https://go.microsoft.com/fwlink/?linkid=2083908). |
 | `client_secret` | Obligatoire | La clé secrète client que vous avez générée pour votre application sur la page Inscriptions d’applications du portail Azure. |
-| `assertion` | Obligatoire | Valeur du jeton utilisé dans la demande.  Ce jeton doit avoir l’audience de l’application qui effectue cette requête OBO (l’application indiquée par le champ `client-id`). |
+| `assertion` | Obligatoire | Jeton d’accès qui a été envoyé à l’API de niveau intermédiaire.  Ce jeton doit comporter une revendication d’audience (`aud`) de l’application qui effectue cette requête OBO (l’application indiquée par le champ `client-id`). Les applications ne peuvent pas accepter un jeton pour une autre application. (Par exemple, si un client envoie à une API un jeton pour MS Graph, l’API ne peut pas accepter ce jeton avec OBO.  Au lieu de cela, il doit refuser le jeton.)  |
 | `scope` | Obligatoire | Liste des étendues (séparées par des espaces) pour la demande de jeton. Pour plus d’informations, consultez [Étendues](v2-permissions-and-consent.md). |
 | `requested_token_use` | Obligatoire | Spécifie comment la demande doit être traitée. Dans le flux OBO, la valeur doit être définie sur `on_behalf_of`. |
 
@@ -99,7 +99,7 @@ Une demande de jeton d’accès de service à service avec un certificat contien
 | `client_id` | Obligatoire |  L’ID (client) d’application attribué à votre application par la page [Inscriptions d’applications du portail Azure](https://go.microsoft.com/fwlink/?linkid=2083908). |
 | `client_assertion_type` | Obligatoire | La valeur doit être `urn:ietf:params:oauth:client-assertion-type:jwt-bearer`. |
 | `client_assertion` | Obligatoire | Assertion (jeton Web JSON) dont vous avez besoin pour créer et signer avec le certificat inscrit comme informations d’identification pour votre application. Pour découvrir comment inscrire votre certificat et le format de l’assertion, consultez [Informations d’identification de certificat](active-directory-certificate-credentials.md). |
-| `assertion` | Obligatoire | Valeur du jeton utilisé dans la demande. |
+| `assertion` | Obligatoire |  Jeton d’accès qui a été envoyé à l’API de niveau intermédiaire.  Ce jeton doit comporter une revendication d’audience (`aud`) de l’application qui effectue cette requête OBO (l’application indiquée par le champ `client-id`). Les applications ne peuvent pas accepter un jeton pour une autre application. (Par exemple, si un client envoie à une API un jeton pour MS Graph, l’API ne peut pas accepter ce jeton avec OBO.  Au lieu de cela, il doit refuser le jeton.)  |
 | `requested_token_use` | Obligatoire | Spécifie comment la demande doit être traitée. Dans le flux OBO, la valeur doit être définie sur `on_behalf_of`. |
 | `scope` | Obligatoire | Liste des étendues (séparées par des espaces) pour la demande de jeton. Pour plus d’informations, consultez [Étendues](v2-permissions-and-consent.md).|
 
@@ -125,7 +125,7 @@ grant_type=urn%3Aietf%3Aparams%3Aoauth%3Agrant-type%3Ajwt-bearer
 &scope=https://graph.microsoft.com/user.read+offline_access
 ```
 
-## <a name="service-to-service-access-token-response"></a>Réponse de jeton d’accès de service à service
+## <a name="middle-tier-access-token-response"></a>Réponse à une demande de jeton d’accès de niveau intermédiaire
 
 Une réponse correspondant à une réussite est une réponse JSON OAuth 2.0 avec les paramètres suivants.
 

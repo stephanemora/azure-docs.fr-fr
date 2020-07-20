@@ -6,19 +6,21 @@ ms.assetid: d2f013d1-f458-42ae-baf8-1810138118ac
 ms.topic: reference
 ms.date: 09/08/2018
 ms.author: cshoe
-ms.custom: ''
-ms.openlocfilehash: 566d6ccf43024692e19bcd6639fe5cfbbba0660d
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.custom: tracking-python
+ms.openlocfilehash: a832fe4e212ce39ca423263ed2554c2682455002
+ms.sourcegitcommit: 1e6c13dc1917f85983772812a3c62c265150d1e7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80056403"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86165655"
 ---
 # <a name="timer-trigger-for-azure-functions"></a>Déclencheur de minuteur pour Azure Functions 
 
 Cet article explique comment utiliser des déclencheurs de minuteur dans Azure Functions. Un déclencheur de minuteur vous permet d’exécuter une fonction de manière planifiée. 
 
 [!INCLUDE [intro](../../includes/functions-bindings-intro.md)]
+
+Pour savoir comment exécuter manuellement une fonction déclenchée par un minuteur, consultez [Exécuter manuellement une fonction non déclenchée via HTTP](./functions-manually-run-non-http.md).
 
 ## <a name="packages---functions-1x"></a>Packages - Functions 1.x
 
@@ -285,24 +287,7 @@ Voici quelques exemples d’expressions NCRONTAB que vous pouvez utiliser pour l
 
 Les nombres d’une expression CRON font référence à une heure et à une date, pas à un intervalle de temps. Par exemple, un 5 dans le champ `hour` correspond à 17h, pas à toutes les 5 heures.
 
-Le fuseau horaire par défaut utilisé avec les expressions CRON est le Temps universel coordonné (UTC). Pour baser votre expression CRON sur un autre fuseau horaire, créez un paramètre d’application nommé `WEBSITE_TIME_ZONE` pour votre application de fonction. Définissez la valeur sur le nom du fuseau horaire souhaité comme indiqué dans l’[index des fuseaux horaires de Microsoft](https://technet.microsoft.com/library/cc749073).
-
-  > [!NOTE]
-  > `WEBSITE_TIME_ZONE` n’est pas pris en charge sur le plan consommation Linux.
-
-Par exemple, *l’heure de l’Est* correspond à UTC-05:00. Pour que votre déclencheur de minuteur se déclenche à 10:00 AM est tous les jours, utilisez l’expression NCRONTAB suivante qui compte pour le fuseau horaire UTC :
-
-```
-"0 0 15 * * *"
-``` 
-
-Sinon, vous pouvez créer un paramètre d’application pour votre application de fonction nommé `WEBSITE_TIME_ZONE` et définir la valeur sur **Est**.  Utilisez ensuite l’expression NCRONTAB suivante : 
-
-```
-"0 0 10 * * *"
-``` 
-
-Quand vous utilisez `WEBSITE_TIME_ZONE`, l’heure est ajustée en fonction des changements d’heure du fuseau horaire spécifique (par exemple, pour tenir compte de l’heure d’été). 
+[!INCLUDE [functions-timezone](../../includes/functions-timezone.md)]
 
 ## <a name="timespan"></a>TimeSpan
 

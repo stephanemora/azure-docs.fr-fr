@@ -7,12 +7,12 @@ author: mscurrell
 ms.author: markscu
 ms.date: 08/02/2018
 ms.topic: how-to
-ms.openlocfilehash: 6fff0e224aaa6bb247543282ac16fbb33fe7e904
-ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
+ms.openlocfilehash: 55ec04df2a107dabfc72298bc8849c13f3a926e0
+ms.sourcegitcommit: 5cace04239f5efef4c1eed78144191a8b7d7fee8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/05/2020
-ms.locfileid: "85965261"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86147302"
 ---
 # <a name="storage-and-data-movement-options-for-rendering-asset-and-output-files"></a>Options de stockage et de déplacement des données pour les fichiers d’éléments multimédias et de sortie destinés au rendu
 
@@ -87,7 +87,7 @@ Dans la mesure où les fichiers sont simplement des blobs dans le Stockage Azure
 
 [Azure Files](../storage/files/storage-files-introduction.md) offre des partages de fichiers entièrement gérés dans le cloud, accessibles à l’aide du protocole SMB.  Azure Files est basé sur le Stockage Blob Azure. Cette solution [économique](https://azure.microsoft.com/pricing/details/storage/files/) peut être configurée avec la réplication des données vers une autre région. Elle est donc redondante à l’échelle mondiale.  Vous devez revoir les [objectifs de mise à l’échelle](../storage/files/storage-files-scale-targets.md#azure-files-scale-targets) pour déterminer l’opportunité d’utiliser Azure Files selon la taille du pool et le nombre de fichiers d’éléments multimédias prévus.
 
-Le montage d’un partage de fichiers Azure est expliqué dans ce [billet de blog](https://blogs.msdn.microsoft.com/windowsazurestorage/2014/05/26/persisting-connections-to-microsoft-azure-files/) et cette [documentation](../storage/files/storage-how-to-use-files-windows.md).
+Le montage d’un partage de fichiers Azure est expliqué dans cette [documentation](../storage/files/storage-how-to-use-files-windows.md).
 
 ### <a name="mounting-an-azure-files-share"></a>Montage d’un partage Azure Files
 

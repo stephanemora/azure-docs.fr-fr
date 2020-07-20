@@ -1,17 +1,17 @@
 ---
 title: Guide pratique pour préparer une application Java Spring pour le déploiement dans Azure Spring Cloud
-description: Dans cette rubrique, vous allez préparer le déploiement d’une application Java Spring dans Azure Spring Cloud.
+description: Découvrez comment préparer une application Java Spring pour le déploiement dans Azure Spring Cloud.
 author: bmitchell287
 ms.service: spring-cloud
 ms.topic: how-to
 ms.date: 02/03/2020
 ms.author: brendm
-ms.openlocfilehash: 0cbe91de889b787d6f417afbe74720b40c3026e3
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 1840979fc1380f1e0d14f3a0a74eef5fa6df6538
+ms.sourcegitcommit: 5cace04239f5efef4c1eed78144191a8b7d7fee8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85833381"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86141866"
 ---
 # <a name="prepare-a-java-spring-application-for-deployment-in-azure-spring-cloud"></a>Préparer une application Spring Java pour le déploiement dans Azure Spring Cloud
 
@@ -253,7 +253,7 @@ Ajoutez les dépendances `spring-cloud-starter-sleuth` et `spring-cloud-starter-
 </dependency>
 ```
 
- Vous devez également permettre à une instance Azure Application Insights de fonctionner avec votre instance du service Azure Spring Cloud. Pour savoir comment utiliser Application Insights avec Azure Spring Cloud, lisez le [tutoriel sur le suivi distribué](spring-cloud-tutorial-distributed-tracing.md).
+ Vous devez également permettre à une instance Azure Application Insights de fonctionner avec votre instance du service Azure Spring Cloud. Pour plus d’informations sur l’utilisation d’Application Insights avec Azure Spring Cloud, consultez la [documentation sur le suivi distribué](spring-cloud-tutorial-distributed-tracing.md).
 
 ## <a name="see-also"></a>Voir aussi
 * [Analyser les journaux et les métriques des applications](https://docs.microsoft.com/azure/spring-cloud/diagnostic-services)
@@ -264,9 +264,6 @@ Ajoutez les dépendances `spring-cloud-starter-sleuth` et `spring-cloud-starter-
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Dans cette rubrique, vous avez découvert comment configurer votre application Java Spring en vue de la déployer dans Azure Spring Cloud. Pour savoir comment configurer une instance Config Server, consultez l’article suivant.
-
-> [!div class="nextstepaction"]
-> [En savoir plus sur la configuration d’une instance Config Server](spring-cloud-tutorial-config-server.md)
+Dans cette rubrique, vous avez découvert comment configurer votre application Java Spring en vue de la déployer dans Azure Spring Cloud. Pour savoir comment configurer une instance Config Server, consultez [Configurer une instance Config Server](spring-cloud-tutorial-config-server.md).
 
 D’autres exemples sont disponibles sur GitHub : [Exemples Azure Spring Cloud](https://github.com/Azure-Samples/Azure-Spring-Cloud-Samples).

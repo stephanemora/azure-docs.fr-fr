@@ -3,12 +3,12 @@ title: FAQ - Sauvegarder des bases de données SAP HANA sur des machines virtuel
 description: Dans cet article, découvrez des réponses à des questions courantes sur la sauvegarde de bases de données SAP HANA avec le service Sauvegarde Microsoft Azure.
 ms.topic: conceptual
 ms.date: 11/7/2019
-ms.openlocfilehash: 08e0eaf5f744ebb0ada07a944f627cc1ff1ac496
-ms.sourcegitcommit: 8017209cc9d8a825cc404df852c8dc02f74d584b
+ms.openlocfilehash: 512075a24cf9400415f2367ead16b57f8b31c038
+ms.sourcegitcommit: 1e6c13dc1917f85983772812a3c62c265150d1e7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/01/2020
-ms.locfileid: "84248802"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86170324"
 ---
 # <a name="frequently-asked-questions--back-up-sap-hana-databases-on-azure-vms"></a>Forum aux questions – Sauvegarde de bases de données SAP HANA sur des machines virtuelles Azure
 
@@ -30,7 +30,7 @@ Le menu Travail de sauvegarde affiche uniquement les travaux de sauvegarde ad ho
 
 ### <a name="are-future-databases-automatically-added-for-backup"></a>Les bases de données futures sont-elles automatiquement ajoutées pour la sauvegarde ?
 
-Non, cela n’est actuellement pas pris en charge.
+Non, cette opération n’est pas prise en charge actuellement.
 
 ### <a name="if-i-delete-a-database-from-an-instance-what-will-happen-to-the-backups"></a>Si je supprime une base de données d’une instance, qu’advient-il des sauvegardes ?
 
@@ -45,7 +45,7 @@ Une base de données renommée est traitée en tant que nouvelle base de donnée
 
 Reportez-vous aux sections [Prérequis](tutorial-backup-sap-hana-db.md#prerequisites) et [Ce que fait le script de préinscription](tutorial-backup-sap-hana-db.md#what-the-pre-registration-script-does).
 
-### <a name="what-permissions-should-be-set-for-azure-to-be-able-to-back-up-sap-hana-databases"></a>Quelles autorisations doivent être définies pour qu’Azure puisse sauvegarder les bases de données SAP HANA ?
+### <a name="what-permissions-should-be-set-so-azure-can-back-up-sap-hana-databases"></a>Quelles autorisations doivent être définies pour qu’Azure puisse sauvegarder les bases de données SAP HANA ?
 
 L’exécution du script de pré-inscription définit les autorisations requises pour permettre à Azure de sauvegarder des bases de données SAP HANA. Pour plus d’informations sur ce qu’un script de préinscription permet de faire, [cliquez ici](tutorial-backup-sap-hana-db.md#what-the-pre-registration-script-does).
 
@@ -55,23 +55,57 @@ Reportez-vous à [cette section](https://docs.microsoft.com/azure/backup/backup-
 
 ### <a name="can-azure-hana-backup-be-set-up-against-a-virtual-ip-load-balancer-and-not-a-virtual-machine"></a>La sauvegarde Azure HANA peut-elle être configurée sur une adresse IP virtuelle (équilibreur de charge) et non une machine virtuelle ?
 
-Nous ne sommes pas en mesure de configurer la solution sur une adresse IP virtuelle seule pour le moment. Une machine virtuelle est nécessaire pour exécuter la solution.
-
-### <a name="i-have-a-sap-hana-system-replication-hsr-how-should-i-configure-backup-for-this-setup"></a>J’ai une réplication du système SAP HANA (HSR). Comment dois-je configurer la sauvegarde pour cette installation ?
-
-Les nœuds principal et secondaire du HSR seront traités comme deux machines virtuelles indépendantes. Vous devez configurer la sauvegarde sur le nœud principal et, lorsque le basculement intervient, vous devez configurer la sauvegarde sur le nœud secondaire (qui devient alors le nœud principal). Il n’y a pas de basculement automatique de la sauvegarde vers l’autre nœud.
+Nous ne sommes pas en mesure de configurer la solution sur une adresse IP virtuelle seule pour le moment. Une machine virtuelle est nécessaire pour exécuter la solution.
 
 ### <a name="how-can-i-move-an-on-demand-backup-to-the-local-file-system-instead-of-the-azure-vault"></a>Comment puis-je déplacer une sauvegarde à la demande vers le système de fichiers local au lieu du coffre Azure ?
 
-1. Attendez la fin de la sauvegarde en cours d’exécution sur la base de données souhaitée (vérifier son accomplissement dans Studio)
+1. Attendez la fin de la sauvegarde en cours d’exécution sur la base de données souhaitée (vérifiez son accomplissement dans Studio).
 1. Désactivez les sauvegardes de journaux et définissez la sauvegarde du catalogue sur **Filesystem** pour la base de données souhaitée en procédant comme suit :
 1. Double-cliquez sur **SYSTEMDB** -> **configuration** -> **Sélectionner une base de données** -> **Filtre (journal)**
     1. Définissez enable_auto_log_backup sur **no** (non)
-    1. Définissez log_backup_using_backint sur **false** (faux)
-1. Effectuez une sauvegarde à la demande sur la base de données souhaitée, et attendez la fin de la sauvegarde et de la sauvegarde du catalogue.
+    1. Définissez catalog_backup_using_backint sur **false**
+1. Effectuez une sauvegarde à la demande (complète / différentielle/ incrémentielle) sur la base de données souhaitée et attendez la fin de la sauvegarde et de la sauvegarde du catalogue.
+1. Si vous souhaitez également déplacer les sauvegardes du journal vers le système de fichiers, définissez enable_auto_log_backup sur **yes**
 1. Rétablissez les paramètres précédents pour autoriser la circulation des sauvegardes vers le coffre Azure :
     1. Définissez enable_auto_log_backup sur **yes** (oui)
-    1. Définissez log_backup_using_backint sur **true** (vrai)
+    1. Définissez catalog_backup_using_backint sur **true**
+
+>[!NOTE]
+>Le déplacement des sauvegardes vers le système de fichiers local et le retour vers le coffre Azure peuvent entraîner une rupture de la chaîne de journalisation des sauvegardes de journaux dans le coffre. Cela déclenche une sauvegarde complète qui, une fois terminée, démarre la sauvegarde des journaux.
+
+### <a name="how-can-i-use-sap-hana-backup-with-my-hana-replication-set-up"></a>Comment utiliser la sauvegarde SAP HANA avec la configuration de la réplication HANA ?
+
+Actuellement, la sauvegarde Azure n’a pas la possibilité de comprendre une configuration HSR. Cela signifie que les nœuds principal et secondaire de la réplication HSR seront traités comme deux machines virtuelles indépendantes. Vous devez d’abord configurer la sauvegarde sur le nœud principal. Lorsqu’un basculement se produit, la sauvegarde doit être configurée sur le nœud secondaire (qui devient alors le nœud principal). Il n’y a pas de basculement automatique de la sauvegarde vers l’autre nœud.
+
+Pour sauvegarder des données à partir du nœud actif (principal) à un moment donné, vous pouvez **basculer la protection** vers le nœud secondaire, qui devient alors le nœud principal après le basculement.
+
+Pour effectuer ce **basculement de protection**, procédez comme suit :
+
+- [Arrêtez la protection](sap-hana-db-manage.md#stop-protection-for-an-sap-hana-database) (avec conservation des données) sur le nœud principal
+- Exécutez le [script de pré-inscription](https://aka.ms/scriptforpermsonhana) sur le nœud secondaire
+- [Détectez les bases de données](tutorial-backup-sap-hana-db.md#discover-the-databases) sur le nœud secondaire et [configurez les sauvegardes](tutorial-backup-sap-hana-db.md#configure-backup) sur celles-ci
+
+Ces étapes doivent être effectuées manuellement après chaque basculement. Vous pouvez effectuer ces étapes via la ligne de commande / HTTP REST en plus du portail Azure. Pour automatiser ces étapes, vous pouvez utiliser un runbook Azure.
+
+Voici un exemple détaillé de la façon dont le **basculement de protection** doit être effectué :
+
+Dans cet exemple, vous avez deux nœuds – le nœud 1 (principal) et le nœud 2 (secondaire) dans la configuration HSR.  Les sauvegardes sont configurées sur le nœud 1. Comme indiqué ci-dessus, ne tentez pas encore de configurer des sauvegardes sur le nœud 2.
+
+Lorsque le premier basculement se produit, le nœud 2 devient le nœud principal. Ainsi,
+
+1. Arrêtez la protection du nœud 1 (principal précédent) avec l’option de conservation des données.
+1. Exécutez le script de pré-inscription sur le nœud 2 (qui est désormais le nœud principal).
+1. Découvrez les bases de données sur le nœud 2, affectez la stratégie de sauvegarde et configurez les sauvegardes.
+
+Ensuite, une première sauvegarde complète est déclenchée sur le nœud 2 et, une fois celle-ci terminée, les sauvegardes de fichiers journaux démarrent.
+
+Lorsque le basculement suivant se produit, le nœud 1 redevient principal et le nœud 2 devient secondaire. À présent, répétez le processus :
+
+1. Arrêtez la protection du nœud 2 avec l’option de conservation des données.
+1. Exécutez le script de pré-inscription sur le nœud 1 (qui est redevenu principal).
+1. Ensuite, [reprenez la sauvegarde](sap-hana-db-manage.md#resume-protection-for-an-sap-hana-database) sur le nœud 1 avec la stratégie requise (car les sauvegardes ont été arrêtées plus tôt sur le nœud 1).
+
+Ensuite, une sauvegarde complète est déclenchée de nouveau sur le nœud 1 et, une fois celle-ci terminée, les sauvegardes de fichiers journaux démarrent.
 
 ## <a name="restore"></a>Restaurer
 
@@ -87,7 +121,7 @@ Assurez-vous que l’option **Forcer le remplacement** est sélectionnée lors d
 
 Reportez-vous à la note SAP HANA [1642148](https://launchpad.support.sap.com/#/notes/1642148) pour voir quels types de restauration sont actuellement pris en charge.
 
-### <a name="can-i-use-a-backup-of-a-database-running-on-sles-to-restore-to-a-rhel-hana-system-or-vice-versa"></a>Puis-je utiliser une sauvegarde d’une base de données exécutée sur SLES pour effectuer une restauration vers un système RHEL HANA ou vice versa ?
+### <a name="can-i-use-a-backup-of-a-database-running-on-sles-to-restore-to-an-rhel-hana-system-or-vice-versa"></a>Est-ce que je peux utiliser une sauvegarde d’une base de données en cours d’exécution sur SLES pour effectuer une restauration vers un système RHEL HANA ou vice versa ?
 
 Oui, vous pouvez utiliser des sauvegardes en continu déclenchées sur une base de données HANA en cours d’exécution sur SLES pour la restaurer vers un système RHEL HANA, et vice versa. Autrement dit, la restauration entre systèmes d’exploitation est possible à l’aide de sauvegardes en continu. Toutefois, vous devez vous assurer que le système HANA vers lequel vous souhaitez restaurer et le système HANA utilisé pour la restauration sont tous deux compatibles pour la restauration en fonction de SAP. Pour connaître les types de restauration compatibles, consultez la Note SAP HANA [1642148](https://launchpad.support.sap.com/#/notes/1642148).
 

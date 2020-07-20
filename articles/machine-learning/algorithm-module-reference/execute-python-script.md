@@ -1,39 +1,40 @@
 ---
-title: 'Exécuter un script Python : Informations de référence sur les modules'
+title: 'Exécuter un script Python : sur le module Modifier les métadonnées'
 titleSuffix: Azure Machine Learning
 description: Découvrez comment utiliser le module Exécuter un script Python dans Azure Machine Learning pour exécuter du code Python.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
 ms.topic: reference
+ms.custom: tracking-python
 author: likebupt
 ms.author: keli19
-ms.date: 04/27/2020
-ms.openlocfilehash: 9b2114672db755efba1818505c8f399ac01aea71
-ms.sourcegitcommit: 999ccaf74347605e32505cbcfd6121163560a4ae
+ms.date: 06/16/2020
+ms.openlocfilehash: 2115a0bae8b26113fc10648db2584210809441de
+ms.sourcegitcommit: 5cace04239f5efef4c1eed78144191a8b7d7fee8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/08/2020
-ms.locfileid: "82983599"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86147246"
 ---
 # <a name="execute-python-script-module"></a>Module Exécuter un script Python
 
-Cet article décrit un module dans le concepteur Azure Machine Learning (version préliminaire).
+Cet article décrit le module Exécuter un script Python dans le concepteur Azure Machine Learning (préversion).
 
-Utilisez ce module pour exécuter du code Python. Pour plus d’informations sur les principes de conception et d’architecture de Python, consultez [cet article](https://docs.microsoft.com/azure/machine-learning/machine-learning-execute-python-scripts).
+Utilisez ce module pour exécuter du code Python. Pour plus d’informations sur les principes de conception et d’architecture de Python, consultez [Exécuter du code python dans le concepteur Azure Machine Learning](../how-to-designer-python.md).
 
-Python vous permet d’exécuter des tâches qui ne sont actuellement pas prises en charge par les modules existants, telles que :
+Python vous permet d’exécuter des tâches qui ne sont pas prises en charge par les modules existants, telles que :
 
-+ visualisation des données à l’aide de `matplotlib` ;
-+ utilisation de bibliothèques Python pour énumérer les jeux de données et les modèles de votre espace de travail ;
-+ lecture, chargement et manipulation de données à partir de sources non prises en charge par le module [Importer des données](./import-data.md).
-+ Exécuter votre propre code Deep Learning 
++ Visualisation des données à l’aide de `matplotlib`.
++ Utilisation des bibliothèques Python pour énumérer les jeux de données et les modèles de votre espace de travail.
++ Lecture, chargement et manipulation de données à partir de sources que le module [Importer des données](./import-data.md) ne prend pas en charge.
++ Exécution de votre propre code de deep learning. 
 
 
-Azure Machine Learning utilise la distribution Anaconda de Python, qui inclut de nombreux utilitaires courants pour le traitement des données. Nous mettrons à jour la version d’Anaconda automatiquement. La version actuelle est la suivante :
+Azure Machine Learning utilise la distribution Anaconda de Python, qui inclut de nombreux utilitaires courants pour le traitement des données. La version d’Anaconda est mise à jour automatiquement. La version actuelle est :
  -  distribution Anaconda 4.5+ pour Python 3.6 
 
-Les packages préinstallés sont les suivants :
+Les packages préinstallés sont les suivants :
 -    adal==1.2.2
 -    applicationinsights==0.11.9
 -    attrs==19.3.0
@@ -144,26 +145,37 @@ Les packages préinstallés sont les suivants :
 -    werkzeug==0.16.1
 -    wheel==0.34.2
 
- Pour installer d’autres packages absents de la liste des packages préinstallés, par exemple *scikit-misc*, ajoutez le code ci-après à votre script : 
+ Pour installer des packages qui ne figurent pas dans la liste des packages préinstallés (par exemple, *scikit-misc*), ajoutez le code suivant à votre script : 
 
  ```python
 import os
 os.system(f"pip install scikit-misc")
 ```
+
+Utilisez le code suivant pour installer des packages pour de meilleures performances, en particulier pour l’inférence :
+```python
+import importlib.util
+package_name = 'scikit-misc'
+spec = importlib.util.find_spec(package_name)
+if spec is None:
+    import os
+    os.system(f"pip install scikit-misc")
+```
+
 > [!NOTE]
-> Si votre pipeline contient plusieurs modules Execute Python Script et que vous avez besoin de packages qui ne figurent pas dans la liste préinstallée, installez les packages dans chaque module, respectivement. 
+> Si votre pipeline contient plusieurs modules Exécuter un script Python qui nécessitent des packages qui ne figurent pas dans la liste des packages préinstallés, installez les packages dans chaque module.
 
 ## <a name="upload-files"></a>Charger des fichiers
-Le module **Exécuter un script Python** prend en charge le chargement de fichiers à l’aide du [Kit de développement logiciel (SDK) Python Azure Machine Learning](https://docs.microsoft.com/python/api/azureml-core/azureml.core.run%28class%29?view=azure-ml-py#upload-file-name--path-or-stream-).
+Le module Exécuter un script Python prend en charge le chargement de fichiers à l’aide du [kit SDK Azure Machine Learning Python](https://docs.microsoft.com/python/api/azureml-core/azureml.core.run%28class%29?view=azure-ml-py#upload-file-name--path-or-stream-).
 
-L’exemple suivant montre comment charger un fichier image dans le module **Exécuter un script Python** :
+L’exemple suivant montre comment charger un fichier image dans le module Exécuter un script Python :
 
 ```Python
 
-# The script MUST contain a function named azureml_main
+# The script MUST contain a function named azureml_main,
 # which is the entry point for this module.
 
-# imports up here can be used to
+# Imports up here can be used to
 import pandas as pd
 
 # The entry point function must have two input arguments:
@@ -185,70 +197,70 @@ def azureml_main(dataframe1 = None, dataframe2 = None):
     run.upload_file(f"graphics/{img_file}", img_file)
 
     # Return value must be of a sequence of pandas.DataFrame
-    # E.g.
+    # For example:
     #   -  Single return value: return dataframe1,
     #   -  Two return values: return dataframe1, dataframe2
     return dataframe1,
 }
 ```
 
-Une fois l’exécution du pipeline terminée, vous pouvez afficher un aperçu de l’image dans le panneau de droite du module
+Une fois l’exécution du pipeline terminée, vous pouvez voir un aperçu de l’image dans le panneau droit du module.
 
 > [!div class="mx-imgBorder"]
-> ![Image chargée](media/module/upload-image-in-python-script.png)
+> ![Aperçu de l’image chargée](media/module/upload-image-in-python-script.png)
 
 ## <a name="how-to-configure-execute-python-script"></a>Comment configurer le module Exécuter un script Python
 
-Le module **Exécuter un script Python** contient un exemple de code Python que vous pouvez utiliser comme point de départ. Pour configurer le module **Exécuter un script Python**, vous fournissez un ensemble d’entrées et de code Python à exécuter dans la zone de texte **Script Python**.
+Le module Exécuter un script Python contient un exemple de code Python que vous pouvez utiliser comme point de départ. Pour configurer le module Exécuter un script Python, fournissez un ensemble d’entrées et de code Python à exécuter dans la zone de texte **Script Python**.
 
 1. Ajoutez le module **Exécuter un script Python** à votre pipeline.
 
 2. À partir du concepteur, ajoutez et connectez dans **Jeu de données 1** tous les jeux de données que vous souhaitez utiliser pour l’entrée. Référencez ce jeu de données dans votre script Python sous le nom **DataFrame1**.
 
-    L’utilisation d’un jeu de données est facultative, si vous souhaitez générer des données à l’aide de Python ou utiliser du code Python pour importer les données directement dans le module.
+    L’utilisation d’un jeu de données est facultative. Utilisez-en un si vous souhaitez générer des données à l’aide de Python ou utiliser du code Python pour importer les données directement dans le module.
 
-    Ce module prend en charge l’ajout d’un second jeu de données dans **Jeu de données 2**. Référencez ce second jeu de données dans votre script Python sous le nom DataFrame2.
+    Ce module prend en charge l’ajout d’un second jeu de données, **Dataset2**. Référencez ce second jeu de données dans votre script Python sous le nom **DataFrame2**.
 
-    Les jeux de données stockés dans Azure Machine Learning sont automatiquement convertis en dataframes **pandas** lorsqu’ils sont chargés avec ce module.
+    Les jeux de données stockés dans Azure Machine Learning sont automatiquement convertis en dataframes pandas lorsqu’ils sont chargés avec ce module.
 
     ![Mappage des entrées de l’exécution d’un script Python](media/module/python-module.png)
 
-4. Pour inclure du code ou de nouveaux packages Python, ajoutez le fichier zip contenant ces ressources personnalisées dans **Script groupé**. L’entrée dans **Script groupé** doit correspondre à un fichier zip chargé dans votre espace de travail comme jeu de données de type fichier. Vous pouvez charger le jeu de données dans la page de ressource **Jeux de données** et glisser-déposer le module du jeu de données à partir de la liste **Mes jeux de données** dans l’arborescence du module de gauche de la page de création. 
+4. Pour inclure du code ou de nouveaux packages Python, ajoutez le fichier compressé qui contient ces ressources personnalisées dans **Regroupement de script**. L’entrée ajoutée au **Regroupement de script** doit correspondre à un fichier compressé chargé dans votre espace de travail en tant que jeu de données de type fichier. Vous pouvez charger le jeu de données dans la page de ressources **Jeux de données**. Vous pouvez faire glisser le module de jeu de données à partir de la liste **Mes jeux de données** dans l’arborescence du module de gauche de la page de création du concepteur. 
 
     Tous les fichiers qui figurent dans l’archive zip chargée sont utilisables lors de l’exécution du pipeline. Si l’archive inclut une structure de répertoires, cette structure est préservée, mais vous devez ajouter au chemin d’accès un répertoire appelé **src**.
 
 5. Dans la zone de texte **Script Python**, saisissez ou collez un script Python valide.
 
     > [!NOTE]
-    > Soyez très prudent lorsque vous écrivez votre script et assurez-vous qu’il n’existe pas d’erreur de syntaxe, telle que l’utilisation d’objets non déclarés ou de modules non importés. Portez également une attention particulière à la liste des modules préinstallés. Pour importer des modules qui ne sont pas répertoriés, installez les packages correspondants dans votre script, par exemple :
+    >  Faites preuve de prudence lors de l’écriture de votre script. Assurez-vous qu’il n’existe pas d’erreurs de syntaxe, comme l’utilisation de variables non déclarées ou de modules ou fonctions non importés. Portez une attention particulière à la liste des modules préinstallés. Pour importer des modules qui ne sont pas listés, installez les packages correspondants dans votre script, tels que :
     >  ``` Python
     > import os
     > os.system(f"pip install scikit-misc")
     > ```
     
-    La zone de texte **Script Python** est préremplie avec certaines instructions en commentaires, ainsi qu’avec un exemple de code pour l’accès aux données et la sortie. Vous devez modifier ou remplacer ce code. Veillez à suivre les conventions Python concernant la mise en retrait et la casse.
+    La zone de texte **Script Python** est préremplie avec certaines instructions en commentaires, ainsi qu’avec un exemple de code pour l’accès aux données et la sortie. Vous devez modifier ou remplacer ce code. Suivez les conventions Python concernant la mise en retrait et la casse :
 
     + Le script doit contenir une fonction nommée `azureml_main` comme point d’entrée pour ce module.
-    + La fonction de point d’entrée doit avoir deux arguments d’entrée : `Param<dataframe1>` et `Param<dataframe2>`, même lorsque ces arguments ne sont pas utilisés dans votre script.
-    + Les fichiers zip connectés au troisième port d’entrée sont décompressés et stockés dans le répertoire `.\Script Bundle`, qui est également ajouté à l’élément `sys.path` Python. 
+    + La fonction de point d’entrée doit avoir deux arguments d’entrée, `Param<dataframe1>` et `Param<dataframe2>`, même lorsque ces arguments ne sont pas utilisés dans votre script.
+    + Les fichiers compressés connectés au troisième port d’entrée sont décompressés et stockés dans le répertoire `.\Script Bundle`, qui est également ajouté à l’élément `sys.path` Python. 
 
-    Par conséquent, si votre fichier zip contient `mymodule.py`, importez-le à l’aide de `import mymodule`.
+    Si votre fichier .zip contient `mymodule.py`, importez-le à l’aide de `import mymodule`.
 
-    + Deux jeux de données peuvent être renvoyés au concepteur, ce qui doit constituer une séquence de type `pandas.DataFrame`. Vous pouvez créer d’autres sorties dans votre code Python et les écrire directement dans le service Stockage Azure.
+    Deux jeux de données peuvent être renvoyés au concepteur, ce qui doit constituer une séquence de type `pandas.DataFrame`. Vous pouvez créer d’autres sorties dans votre code Python et les écrire directement dans le service Stockage Azure.
 
-6. Soumettez le pipeline, ou sélectionnez le module et cliquez sur **Exécuter la sélection** pour exécuter uniquement le script Python.
+6. Soumettez le pipeline, ou sélectionnez le module et sélectionnez **Exécuter la sélection** pour exécuter uniquement le script Python.
 
     La totalité des données et du code sont chargés sur une machine virtuelle et s’exécutent à l’aide de l’environnement Python spécifié.
 
 ## <a name="results"></a>Résultats
 
-Les résultats des calculs effectués par le code Python incorporé doivent être fournis sous la forme pandas.DataFrame, qui est automatiquement convertie au format de jeu de données Azure Machine Learning. Ceci vous permet d’utiliser les résultats avec d’autres modules du pipeline.
+Les résultats des calculs effectués par le code Python incorporé doivent être fournis en tant que `pandas.DataFrame`, qui est automatiquement converti au format de jeu de données Azure Machine Learning. Vous pouvez ensuite utiliser ces résultats avec d’autres modules dans le pipeline.
 
 Le module renvoie deux jeux de données :  
   
-+ **Résultats du jeu de données 1**, défini par le premier dataframe pandas renvoyé dans le script Python ;
++ **Jeu de données de résultats 1**, défini par la première trame de données pandas renvoyée dans un script Python.
 
-+ **Résultats du jeu de données 2**, défini par le second dataframe pandas renvoyé dans le script Python.
++ **Jeu de données de résultats 2**, défini par le second dataframe pandas retourné dans un script Python.
 
 
 ## <a name="next-steps"></a>Étapes suivantes

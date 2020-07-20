@@ -15,12 +15,12 @@ ms.date: 06/27/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a9614def5310bdc6fa8c6f37d7cdcc0a5f081a96
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 875c503a9959565d76d46902b5ecb386995ef1e5
+ms.sourcegitcommit: 5cace04239f5efef4c1eed78144191a8b7d7fee8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85360297"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86144715"
 ---
 # <a name="adsync-service-account"></a>Compte de service ADSync
 Azure AD Connect installe un service local qui orchestre la synchronisation entre Active Directory et Azure Active Directory.  Le service de synchronisation Microsoft Azure AD Sync (ADSync) s’exécute sur un serveur de votre environnement local.  Les informations d’identification du service sont définies par défaut dans les installations Express, mais peuvent être personnalisées pour répondre aux exigences de sécurité de votre organisation.  Ces informations d’identification ne sont pas utilisées pour se connecter à vos forêts locales ou à Azure Active Directory.
@@ -46,9 +46,9 @@ Microsoft recommande l'exécution du service ADSync dans le contexte d'un compte
 - compte de service administré - utilisez un compte de service administré autonome ou en groupe configuré par votre administrateur
 - compte de domaine - utilisez un compte de service de domaine configuré par votre administrateur
 
-![](media/concept-adsync-service-account/adsync1.png)
+![Capture d’écran de la page Azure AD Connect - Configuration rapide, avec les cases d’option « Personnaliser » ou « Utiliser la configuration rapide ».](media/concept-adsync-service-account/adsync1.png)
 
-![](media/concept-adsync-service-account/adsync2.png)
+![Capture d’écran de la page Azure AD Connect « Installer les composants nécessaires » avec l’option permettant d’utiliser un compte de service administré existant sélectionné.](media/concept-adsync-service-account/adsync2.png)
 
 ## <a name="diagnosing-adsync-service-account-changes"></a>Diagnostic des modifications du compte de service ADSync
 Modifier les informations d'identification du service ADSync après l'installation entraînera un échec de démarrage du service, une perte d'accès à la base de synchronisation et un échec d'authentification avec vos répertoires connectés (Azure et AD DS).  L'octroi d'un accès de base de données au nouveau compte de service ADSync ne suffit pas à résoudre ce problème. Aucune synchronisation ne sera possible avant la restauration des informations d'identification d'origine.

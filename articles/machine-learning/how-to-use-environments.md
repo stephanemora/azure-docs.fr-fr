@@ -9,14 +9,14 @@ ms.reviewer: nibaccam
 ms.service: machine-learning
 ms.subservice: core
 ms.topic: how-to
-ms.date: 03/18/2020
+ms.date: 07/08/2020
 ms.custom: tracking-python
-ms.openlocfilehash: 7cfcb42093aeb9e323527dea7def7a5b65d2dce2
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 18aa02f67112bb3f499c4a7098f422f116075f2f
+ms.sourcegitcommit: 5cace04239f5efef4c1eed78144191a8b7d7fee8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84558420"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86146367"
 ---
 # <a name="reuse-environments-for-training-and-deployment-by-using-azure-machine-learning"></a>Réutiliser des environnements à des fins d'apprentissage et de déploiement à l'aide d'Azure Machine Learning
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -50,6 +50,8 @@ Pour commencer, vous pouvez sélectionner l'un des environnements organisés :
 * L’environnement _AzureML-Minimal_ contient un ensemble minimal de packages pour permettre le suivi des exécutions et le chargement des ressources. Vous pouvez l’utiliser comme point de départ pour votre propre environnement.
 
 * L'environnement _AzureML-Tutorial_ contient des packages de science des données courants. Ces packages comprennent Scikit-Learn, Pandas, Matplotlib et un ensemble plus important de packages azureml-sdk.
+
+Pour obtenir la liste des environnements organisés, consultez l’[article relatif aux environnements organisés](resource-curated-environments.md).
 
 Les environnements organisés s'appuient sur des images Docker mises en cache, ce qui réduit le coût de préparation de l'exécution.
 

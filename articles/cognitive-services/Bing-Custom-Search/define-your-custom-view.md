@@ -10,12 +10,12 @@ ms.subservice: bing-custom-search
 ms.topic: conceptual
 ms.date: 02/12/2019
 ms.author: aahi
-ms.openlocfilehash: c14376cc80373371ec5fcb8f22a00584a6b2f714
-ms.sourcegitcommit: 537c539344ee44b07862f317d453267f2b7b2ca6
+ms.openlocfilehash: fa518900b05ba552cb066fbf55e4dbeaa6c681e2
+ms.sourcegitcommit: ec682dcc0a67eabe4bfe242fce4a7019f0a8c405
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/11/2020
-ms.locfileid: "84710165"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86183203"
 ---
 # <a name="configure-your-bing-custom-search-experience"></a>Configurer votre expérience de Recherche personnalisée Bing
 
@@ -92,8 +92,8 @@ Vous pouvez tester votre instance de recherche en utilisant le volet de visualis
 
 Le portail vous permet d’ajuster le classement de contenu de la recherche à partir de domaines, sous-pages et pages web spécifiques. Après l’envoi d’une requête de recherche dans le volet de visualisation, chaque résultat de recherche contient une liste d’ajustements que vous pouvez faire :  
 
-|            |                                                                                                                                                                      |
-|------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| Ajustement | Description |
+|------------|-------------|
 | Block      | Déplace le domaine, la sous-page ou la page Web dans la liste des éléments bloqués. Bing exclut le contenu du site sélectionné de l’affichage dans les résultats de recherche.                    |
 | Boost (Promouvoir)      | Promeut le contenu du domaine ou de la sous-page à un niveau supérieur dans les résultats de recherche.                                                                                        |
 | Demote (Rétrograder)     | Rétrograde le contenu du domaine ou de la page secondaire à un niveau inférieur dans les résultats de recherche. Vous choisissez s’il faut rétrograder le contenu issu de la sous-page ou du domaine auquel la page Web appartient. |

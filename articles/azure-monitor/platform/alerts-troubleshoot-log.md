@@ -6,12 +6,12 @@ ms.author: yalavi
 ms.topic: conceptual
 ms.subservice: alerts
 ms.date: 10/29/2018
-ms.openlocfilehash: ab6ee597cfdc5d169bd33b77a061880b19e134b6
-ms.sourcegitcommit: d118ad4fb2b66c759b70d4d8a18e6368760da3ad
+ms.openlocfilehash: 7be1c350af6c9bb84669b45a9bc8a1d9dd808133
+ms.sourcegitcommit: 1e6c13dc1917f85983772812a3c62c265150d1e7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/02/2020
-ms.locfileid: "84302291"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86165632"
 ---
 # <a name="troubleshoot-log-alerts-in-azure-monitor"></a>Alertes de journal de résolution de problèmes dans Azure Monitor  
 
@@ -183,9 +183,10 @@ Chaque règle d’alerte de journal créée dans Azure Monitor dans le cadre de 
 - Il n’y a eu aucun flux de données vers la plateforme d’analyse. L’[exécution de la requête retourne une erreur](https://dev.loganalytics.io/documentation/Using-the-API/Errors), car il n’existe aucune donnée pour la requête fournie.
 - Des modifications apportées au [langage de requête](https://docs.microsoft.com/azure/kusto/query/) incluent un format révisé pour les commandes et les fonctions. Par conséquent, la requête fournie précédemment dans une règle d’alerte n’est plus valide.
 
-[Azure Advisor](../../advisor/advisor-overview.md) vous avertit de ce comportement. Une recommandation est ajoutée pour la règle d’alerte de journal spécifique sur Azure Advisor, dans la catégorie Haute disponibilité, avec un impact moyen et une description permettant de « Réparer votre règle d’alerte de journal pour garantir la surveillance ». Si une requête d’alerte dans la règle d’alerte de journal n’est pas corrigée dans les sept jours suivant une recommandation émise par Azure Advisor, Azure Monitor désactive l’alerte de journal et empêche que vous soyez facturé inutilement lorsque la règle ne peut pas s’exécuter en permanence pendant une période prolongée (par exemple, une semaine).
+[Azure Advisor](../../advisor/advisor-overview.md) vous avertit de ce comportement. Une recommandation est ajoutée pour la règle d’alerte de journal spécifique sur Azure Advisor, dans la catégorie Haute disponibilité, avec un impact moyen et une description permettant de « Réparer votre règle d’alerte de journal pour garantir la surveillance ».
 
-Vous pouvez déterminer l’heure exacte à laquelle Azure Monitor a désactivé la règle d’alerte de journal en recherchant un événement dans le [journal d’activité Azure](../../azure-resource-manager/management/view-activity-logs.md).
+> [!NOTE]
+> Si une requête d’alerte dans la règle d’alerte de journal n’est pas rectifiée dans les sept jours suivant une recommandation émise par Azure Advisor, Azure Monitor désactive l’alerte de journal et vous évite d’être facturé inutilement quand la règle ne peut pas s’exécuter en permanence pendant une période prolongée (7 jours). Vous pouvez déterminer l’heure exacte à laquelle Azure Monitor a désactivé la règle d’alerte de journal en recherchant un événement dans le [journal d’activité Azure](../../azure-resource-manager/management/view-activity-logs.md).
 
 ## <a name="next-steps"></a>Étapes suivantes
 
