@@ -16,12 +16,12 @@ ms.date: 06/18/2020
 ms.author: barclayn
 ms.reviewer: mwahl
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d8928e7293f184e8eb366df6a29e50cbea6a7c93
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 272dd95b97c65ecc52dd73909f1ed87d5e5ae3ca
+ms.sourcegitcommit: 1e6c13dc1917f85983772812a3c62c265150d1e7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85078203"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86170494"
 ---
 # <a name="add-a-connected-organization-in-azure-ad-entitlement-management"></a>Ajouter une organisation connectée dans la gestion des droits d’utilisation Azure AD
 
@@ -54,7 +54,7 @@ Pour une démonstration de l’ajout d’une organisation connectée, regardez l
 
 Pour ajouter un annuaire ou un domaine Azure AD externe en tant qu’organisation connectée, suivez les instructions de cette section.
 
-**Rôle prérequis** : *administrateur général*, *administrateur d’utilisateurs* ou *inviteur d’invités*
+**Rôle prérequis** : *Administrateur général* ou *Administrateur d’utilisateurs*
 
 1. Dans le portail Azure, sélectionnez **Azure Active Directory**, puis **Identity Governance**.
 

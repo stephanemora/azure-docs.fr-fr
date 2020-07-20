@@ -10,12 +10,12 @@ ms.author: maxluk
 author: maxluk
 ms.date: 03/09/2020
 ms.custom: seodec18, tracking-python
-ms.openlocfilehash: a967bb1ac2c29b130ccd5e33b4aad768dd8daa6a
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 525dd90f37175dc5b2b50bc577a5a4f04649555b
+ms.sourcegitcommit: 5cace04239f5efef4c1eed78144191a8b7d7fee8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84557006"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86146378"
 ---
 # <a name="build-scikit-learn-models-at-scale-with-azure-machine-learning"></a>Créer des modèles scikit-learn à l’échelle avec Azure Machine Learning
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -146,6 +146,8 @@ estimator = SKLearn(source_directory=project_folder,
                    )
 ```
 
+> [!WARNING]
+> Azure Machine Learning exécute des scripts d’apprentissage en copiant l’intégralité du répertoire source. Si vous avez des données sensibles que vous ne souhaitez pas charger, utilisez un [fichier .ignore](how-to-save-write-experiment-files.md#storage-limits-of-experiment-snapshots) ou ne l’incluez pas dans le répertoire source. À la place, accédez à vos données à l’aide d’un [magasin de données](https://docs.microsoft.com/python/api/azureml-core/azureml.data?view=azure-ml-py).
 
 Pour plus d’informations sur la personnalisation de votre environnement Python, consultez [Créer et gérer des environnements pour l’entraînement et le déploiement](how-to-use-environments.md). 
 

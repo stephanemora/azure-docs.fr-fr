@@ -7,16 +7,16 @@ author: vhorne
 ms.service: web-application-firewall
 ms.date: 04/16/2020
 ms.author: ant
-ms.openlocfilehash: fb3b922b753b9696aa26ea189597589ecc5772db
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: eccd6b33353e071a66225279f1f1c150d4bdaafc
+ms.sourcegitcommit: 5cace04239f5efef4c1eed78144191a8b7d7fee8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81536622"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86143850"
 ---
 # <a name="migrate-web-application-firewall-policies-using-azure-powershell"></a>Migrer les stratégies de pare-feu d’applications web à l’aide d’Azure PowerShell
 
-Ce script facilite le passage d’une configuration WAF ou d’une stratégie WAF de règles personnalisées uniquement à une stratégie WAF complète. Vous pouvez voir un avertissement dans le portail qui indique *Migrer vers une stratégie WAF* ou vouloir utiliser les nouvelles fonctionnalités WAF en préversion publique, telles que les règles personnalisées Geomatch, la stratégie WAF par site et par URI ou l’ensemble de règles d’atténuation des risques des bots. Pour utiliser l’une de ces fonctionnalités, vous avez besoin d’une stratégie WAF complète associée à votre passerelle d’application. 
+Ce script facilite le passage d’une configuration WAF ou d’une stratégie WAF de règles personnalisées uniquement à une stratégie WAF complète. Vous pouvez voir un avertissement dans le portail qui indique *Migrer vers une stratégie WAF* ou vous pouvez vouloir utiliser les nouvelles fonctionnalités WAF, telles que les règles personnalisées Geomatch (préversion), la stratégie WAF par site et la stratégie WAF par URI (préversion) ou l’ensemble de règles d’atténuation des risques des bots (préversion). Pour utiliser l’une de ces fonctionnalités, vous avez besoin d’une stratégie WAF complète associée à votre passerelle d’application. 
 
 Pour plus d’informations sur la création d’une stratégie WAF, consultez [Créer des stratégies de pare-feu d’applications web pour Application Gateway](create-waf-policy-ag.md). Pour plus d’informations sur la migration, consultez [Migrer vers une stratégie WAF](create-waf-policy-ag.md#migrate-to-waf-policy).
 

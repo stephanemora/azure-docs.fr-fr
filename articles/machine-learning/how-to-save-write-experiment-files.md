@@ -12,12 +12,12 @@ ms.subservice: core
 ms.workload: data-services
 ms.topic: how-to
 ms.date: 03/10/2020
-ms.openlocfilehash: 28b687577f01d6e83f012a51bd18ad082f2bd48d
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 3db7a1489b877544cd36627f3962b6b4e1b8c462
+ms.sourcegitcommit: 5cace04239f5efef4c1eed78144191a8b7d7fee8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84433264"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86146431"
 ---
 # <a name="where-to-save-and-write-files-for-azure-machine-learning-experiments"></a>Emplacement où enregistrer et écrire des fichiers pour les expériences de Azure Machine Learning
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -30,7 +30,9 @@ Quand des exécutions d’entraînement sont lancées sur une [cible de calcul](
 
 Avant de pouvoir démarrer une expérience sur une cible de calcul ou sur votre ordinateur local, vous devez vérifier que les fichiers nécessaires sont disponibles pour cette cible de calcul, comme les fichiers de dépendance et les fichiers de données dont votre code a besoin pour s’exécuter.
 
-Azure Machine Learning exécute des scripts d’entraînement en copiant la totalité du dossier de script dans le contexte de calcul cible, puis effectue une capture instantanée. La limite de stockage pour les instantanés d’expérience est de 300 Mo et/ou de 2 000 fichiers.
+Azure Machine Learning exécute des scripts d’apprentissage en copiant l’intégralité du répertoire source. Si vous avez des données sensibles que vous ne souhaitez pas charger, utilisez un [fichier .ignore](how-to-save-write-experiment-files.md#storage-limits-of-experiment-snapshots) ou ne l’incluez pas dans le répertoire source. À la place, accédez à vos données à l’aide d’un [magasin de données](https://docs.microsoft.com/python/api/azureml-core/azureml.data?view=azure-ml-py).
+
+La limite de stockage pour les instantanés d’expérience est de 300 Mo et/ou de 2 000 fichiers.
 
 C’est pourquoi nous vous recommandons d’effectuer les opérations suivantes :
 

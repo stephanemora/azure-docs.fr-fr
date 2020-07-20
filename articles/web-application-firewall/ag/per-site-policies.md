@@ -8,12 +8,12 @@ ms.service: web-application-firewall
 ms.date: 01/24/2020
 ms.author: victorh
 ms.topic: conceptual
-ms.openlocfilehash: 1301db56cab36ae623bb94cfac97b8e4bdb934e5
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 7e40370421214ebe026090007122a641a216c256
+ms.sourcegitcommit: 5cace04239f5efef4c1eed78144191a8b7d7fee8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81682482"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86143935"
 ---
 # <a name="configure-per-site-waf-policies-using-azure-powershell"></a>Configurer des stratégies WAF par site à l’aide d’Azure PowerShell
 
@@ -29,7 +29,7 @@ Dans cet article, vous apprendrez comment :
 > * Configurer le réseau
 > * Créer une stratégie de pare-feu d’applications web (WAF)
 > * Créer une passerelle d’application avec WAF activé
-> * Appliquer la stratégie WAF globalement, par site et par URI
+> * Appliquer la stratégie WAF globalement, par site et par URI (préversion)
 > * Créer un groupe de machines virtuelles identiques
 > * Créer un compte de stockage et configurer des diagnostics
 > * Tester la passerelle d’application
@@ -250,7 +250,7 @@ $appgw = New-AzApplicationGateway `
   -FirewallPolicy $wafPolicyGlobal
 ```
 
-### <a name="apply-a-per-uri-policy"></a>Appliquer une stratégie par URI
+### <a name="apply-a-per-uri-policy-preview"></a>Appliquer une stratégie par URI (préversion)
 
 Pour appliquer une stratégie par URI, il suffit de créer une stratégie et de l’appliquer à la configuration de la règle de chemin d’accès. 
 

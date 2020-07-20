@@ -6,13 +6,13 @@ ms.subservice: update-management
 ms.topic: conceptual
 author: mgoedtel
 ms.author: magoedte
-ms.date: 04/24/2020
-ms.openlocfilehash: 0a83117d6d58f45d6ee1de2b8d61c2157738fc75
-ms.sourcegitcommit: 0b80a5802343ea769a91f91a8cdbdf1b67a932d3
+ms.date: 06/10/2020
+ms.openlocfilehash: ad9029b44ffb0c98bad58bbf012eb19d084d5446
+ms.sourcegitcommit: ec682dcc0a67eabe4bfe242fce4a7019f0a8c405
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/25/2020
-ms.locfileid: "83830989"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86185753"
 ---
 # <a name="enable-update-management-using-azure-resource-manager-template"></a>Activer Update Management à l’aide d’un modèle Azure Resource Manager
 
@@ -23,12 +23,9 @@ Vous pouvez utiliser un [modèle Azure Resource Manager](../azure-resource-manag
 * Liaison du compte Automation à l’espace de travail Log Analytics, s’il n’est pas déjà lié.
 * Activation d’Update Management.
 
-Le modèle n’automatise pas l’activation d’une ou de plusieurs machines virtuelles Azure ou non-Azure.
+Le modèle n’automatise pas l’activation d’Update Management sur une ou plusieurs machines virtuelles Azure ou non-Azure.
 
-Si vous disposez déjà d’un espace de travail Log Analytics et d’un compte Automation déployés dans une région prise en charge dans votre abonnement, ils ne sont pas liés. Update Management n’est pas encore activé pour l’espace de travail. Ce modèle permet de créer le lien et de déployer Update Management pour vos machines virtuelles. 
-
->[!NOTE]
->L’utilisateur **nxautomation** activé en lien avec Update Management sur Linux exécute uniquement des runbooks signés.
+Si vous disposez déjà d’un espace de travail Log Analytics et d’un compte Automation déployés dans une région prise en charge dans votre abonnement, ils ne sont pas liés. Ce modèle permet de créer le lien et de déployer Update Management.
 
 ## <a name="api-versions"></a>Versions d’API
 
@@ -36,22 +33,23 @@ La table suivante répertorie les versions d’API pour les ressources utilisée
 
 | Ressource | Type de ressource | Version de l'API |
 |:---|:---|:---|
-| Espace de travail | workspaces | 2017-03-15-preview |
-| Compte Automation | automation | 2015-10-31 | 
+| Espace de travail | workspaces | 2020-03-01-preview |
+| Compte Automation | automation | 2018-06-30 | 
 | Solution | solutions | 2015-11-01-preview |
 
 ## <a name="before-using-the-template"></a>Avant d’utiliser le modèle
 
-Si vous choisissez d’installer et d’utiliser PowerShell en local, vous devez exécuter le module Az d’Azure PowerShell. Exécutez `Get-Module -ListAvailable Az` pour trouver la version. Si vous devez effectuer une mise à niveau, consultez [Installation et configuration d’Azure PowerShell](/powershell/azure/install-az-ps). Si vous exécutez PowerShell en local, vous devez également exécuter [Connect-AzAccount](https://docs.microsoft.com/powershell/module/az.accounts/connect-azaccount?view=azps-3.7.0) pour créer une connexion à Azure. Avec Azure PowerShell, le déploiement utilise [New-AzResourceGroupDeployment](/powershell/module/az.resources/new-azresourcegroupdeployment).
+Si vous choisissez d’installer et d’utiliser PowerShell en local, vous devez exécuter le module Az d’Azure PowerShell. Exécutez `Get-Module -ListAvailable Az` pour trouver la version. Si vous devez effectuer une mise à niveau, consultez [Installation et configuration d’Azure PowerShell](/powershell/azure/install-az-ps). Si vous exécutez PowerShell en local, vous devez également exécuter [Connect-AzAccount](/powershell/module/az.accounts/connect-azaccount?view=azps-3.7.0) pour créer une connexion à Azure. Avec Azure PowerShell, le déploiement utilise [New-AzResourceGroupDeployment](/powershell/module/az.resources/new-azresourcegroupdeployment).
 
-Si vous choisissez d’installer et d’utiliser l’interface CLI localement, vous devez exécuter Azure CLI version 2.1.0 ou ultérieure. Exécutez `az --version` pour trouver la version. Si vous devez installer ou mettre à niveau, voir [Installer Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest). Avec Azure CLI, ce déploiement utilise [az group deployment create](https://docs.microsoft.com/cli/azure/group/deployment?view=azure-cli-latest#az-group-deployment-create). 
+Si vous choisissez d’installer et d’utiliser l’interface CLI localement, vous devez exécuter Azure CLI version 2.1.0 ou ultérieure. Exécutez `az --version` pour trouver la version. Si vous devez installer ou mettre à niveau, voir [Installer Azure CLI](/cli/azure/install-azure-cli?view=azure-cli-latest). Avec Azure CLI, ce déploiement utilise [az group deployment create](/cli/azure/group/deployment?view=azure-cli-latest#az-group-deployment-create). 
 
 Le modèle JSON est configuré de manière à vous demander les éléments suivants :
 
-* Nom de l’espace de travail
-* Région dans laquelle créer l’espace de travail
+* Nom de l’espace de travail.
+* Région dans laquelle créer l’espace de travail.
+* Pour activer les autorisations de ressource ou d’espace de travail.
 * Nom du compte Automation
-* Région dans laquelle créer le compte
+* Région dans laquelle créer le compte.
 
 Le modèle JSON spécifie une valeur par défaut pour les autres paramètres susceptibles d’être utilisés pour une configuration standard dans votre environnement. Vous pouvez stocker le modèle dans un compte de stockage Azure pour mettre en place un accès partagé dans votre organisation. Pour plus d’informations sur l’utilisation des modèles, consultez [Déployer des ressources à l’aide de modèles Resource Manager et d’Azure CLI](../azure-resource-manager/templates/deploy-cli.md).
 
@@ -59,7 +57,6 @@ Les paramètres suivants dans le modèle sont définis avec une valeur par défa
 
 * Référence SKU : la valeur par défaut est le nouveau niveau de tarification par Go publié dans le modèle de tarification d’avril 2018.
 * Conservation des données : 30 jours par défaut
-* Réservation de capacité : 100 Go par défaut
 
 >[!WARNING]
 >Lors de la création ou de la configuration d’un espace de travail Log Analytics dans un abonnement pour lequel le nouveau modèle de tarification d’avril 2018 a été choisi, le seul niveau tarifaire Log Analytics valide est **PerGB2018**.
@@ -114,18 +111,17 @@ Il est important de comprendre les détails de configuration suivants si vous d�
                 "description": "Number of days of retention. Workspaces in the legacy Free pricing tier can only have 7 days."
             }
         },
-        "immediatePurgeDataOn30Days": {
-            "type": "bool",
-            "defaultValue": "[bool('false')]",
-            "metadata": {
-                "description": "If set to true when changing retention to 30 days, older data will be immediately deleted. Use this with extreme caution. This only applies when retention is being set to 30 days."
-            }
-        },
         "location": {
             "type": "string",
             "metadata": {
                 "description": "Specifies the location in which to create the workspace."
             }
+        },
+        "resourcePermissions": {
+              "type": "bool",
+              "metadata": {
+                "description": "true to use resource or workspace permissions. false to require workspace permissions."
+              }
         },
         "automationAccountName": {
             "type": "string",
@@ -150,13 +146,11 @@ Il est important de comprendre les détails de configuration suivants si vous d�
         {
         "type": "Microsoft.OperationalInsights/workspaces",
             "name": "[parameters('workspaceName')]",
-            "apiVersion": "2017-03-15-preview",
+            "apiVersion": "2020-03-01-preview",
             "location": "[parameters('location')]",
             "properties": {
                 "sku": {
-                    "Name": "[parameters('sku')]",
-                    "name": "CapacityReservation",
-                    "capacityReservationLevel": 100
+                    "name": "[parameters('sku')]",
                 },
                 "retentionInDays": "[parameters('dataRetention')]",
                 "features": {
@@ -168,7 +162,7 @@ Il est important de comprendre les détails de configuration suivants si vous d�
             "resources": [
                 {
                     "apiVersion": "2015-11-01-preview",
-                    "location": "[resourceGroup().location]",
+                    "location": "[parameters('location')]",
                     "name": "[variables('Updates').name]",
                     "type": "Microsoft.OperationsManagement/solutions",
                     "id": "[concat('/subscriptions/', subscription().subscriptionId, '/resourceGroups/', resourceGroup().name, '/providers/Microsoft.OperationsManagement/solutions/', variables('Updates').name)]",
@@ -189,7 +183,7 @@ Il est important de comprendre les détails de configuration suivants si vous d�
         },
         {
             "type": "Microsoft.Automation/automationAccounts",
-            "apiVersion": "2015-01-01-preview",
+            "apiVersion": "2018-06-30",
             "name": "[parameters('automationAccountName')]",
             "location": "[parameters('automationAccountLocation')]",
             "dependsOn": [],
@@ -201,10 +195,10 @@ Il est important de comprendre les détails de configuration suivants si vous d�
             },
         },
         {
-            "apiVersion": "2015-11-01-preview",
+            "apiVersion": "2020-03-01-preview",
             "type": "Microsoft.OperationalInsights/workspaces/linkedServices",
             "name": "[concat(parameters('workspaceName'), '/' , 'Automation')]",
-            "location": "[resourceGroup().location]",
+            "location": "[parameters('location')]",
             "dependsOn": [
                 "[concat('Microsoft.OperationalInsights/workspaces/', parameters('workspaceName'))]",
                 "[concat('Microsoft.Automation/automationAccounts/', parameters('automationAccountName'))]"
@@ -242,8 +236,7 @@ Il est important de comprendre les détails de configuration suivants si vous d�
 ## <a name="next-steps"></a>Étapes suivantes
 
 * Pour utiliser Update Management pour des machines virtuelles, consultez [Gérer les mises à jour et les correctifs pour vos machines virtuelles Azure](automation-tutorial-update-management.md).
+
 * Si vous n’avez plus besoin de l’espace de travail Log Analytics, consultez les instructions fournies dans [Dissocier un espace de travail d’un compte Automation pour Update Management](automation-unlink-workspace-update-management.md).
+
 * Pour supprimer des machines virtuelles d’Update Management, consultez [Supprimer des machines virtuelles d’Update Management](automation-remove-vms-from-update-management.md).
-* Pour résoudre les erreurs générales d’Update Management, consultez [Résoudre les problèmes liés à Update Management](troubleshoot/update-management.md).
-* Pour résoudre les problèmes liés à l’agent de mise à jour Windows, consultez [Résoudre les problèmes de l’agent de mise à jour Windows](troubleshoot/update-agent-issues.md).
-* Pour résoudre les problèmes liés à l’agent de mise à jour Linux, consultez [Résoudre les problèmes de l’agent de mise à jour Linux](troubleshoot/update-agent-issues-linux.md).

@@ -10,12 +10,12 @@ ms.subservice: text-analytics
 ms.topic: article
 ms.date: 02/27/2019
 ms.author: aahi
-ms.openlocfilehash: fd70fe14d3765fb7c21b92f62b4d73564176baa2
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: b9e6561c1ed9870b669ec5e9825a376f8bd03c4d
+ms.sourcegitcommit: 5cace04239f5efef4c1eed78144191a8b7d7fee8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "78201065"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86145700"
 ---
 # <a name="extract-information-in-excel-using-text-analytics-and-power-automate"></a>Extraire des informations dans Excel avec Analyse de texte et Power Automate 
 
@@ -31,9 +31,9 @@ Ce didacticiel vous montre comment effectuer les opérations suivantes :
 > * Extraire le texte d’Excel et l’envoyer à l’API Analyse de texte 
 > * Utiliser les informations de l’API pour mettre à jour une feuille Excel.
 
-## <a name="prerequisites"></a>Conditions préalables requises
+## <a name="prerequisites"></a>Prérequis
 
-- Un compte Microsoft Azure [Démarrez un essai gratuit](https://azure.microsoft.com/free/) ou [connectez-vous](https://portal.azure.com/).
+- Un compte Microsoft Azure [Créez un compte gratuit](https://azure.microsoft.com/free/cognitive-services/) ou [connectez-vous](https://portal.azure.com/).
 - Ressource Analyse de texte. Si vous n’en avez pas, vous pouvez [en créer une dans le portail Azure](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesTextAnalytics) et utiliser le niveau gratuit pour suivre ce tutoriel.
 - [Clé et point de terminaison](../../cognitive-services-apis-create-account.md#get-the-keys-for-your-resource) générés automatiquement pendant l’inscription.
 - Feuille de calcul contenant les problèmes des locataires. Des exemples de données sont fournis sur GitHub
@@ -76,9 +76,9 @@ Créez des variables représentant les informations qui seront ajoutées au fich
 
 Ajoutez les informations suivantes aux variables que vous avez créées. Elles représentent les colonnes du fichier Excel. Si des variables sont réduites, vous pouvez cliquer dessus pour les développer.
 
-| Action |Name   | Type | Valeur |
+| Action |Nom   | Type | Valeur |
 |---------|---------|---|---|
-| Initialiser la variable | var_person | String | Person |
+| Initialiser la variable | var_person | String | Personne |
 | Initialiser la variable 2 | var_phone | String | Numéro_téléphone |
 | Initialiser la variable 3 | var_plumbing | String | plomberie |
 | Initialiser la variable 4 | var_other | String | Autres | 
@@ -110,7 +110,7 @@ Cliquez sur **Sélectionnez un résultat à partir des étapes précédentes**. 
 
 ## <a name="send-a-request-to-the-text-analytics-api"></a>Envoyer une demande à l’API Analyse de texte
 
-Si vous ne l’avez pas déjà fait, vous devez créer une [ressource Analyse de texte](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesTextAnalytics) dans le portail Azure.
+Si ce n’est déjà fait, vous devez créer une [ressource Analyse de texte](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesTextAnalytics) dans le portail Azure.
 
 ### <a name="create-a-text-analytics-connection"></a>Créer une connexion à la ressource Analyse de texte
 
@@ -137,7 +137,7 @@ Une fois la connexion créée, recherchez **Analyse de texte** et sélectionnez 
 > [!div class="mx-imgBorder"] 
 > :::image type="content" source="../media/tutorials/excel/extract-info.png" alt-text="Ajouter les informations d’identification Analyse de texte à votre flux.":::
 
-Cliquez dans le champ **Texte** et sélectionnez **Description** dans la fenêtre de contenu dynamique qui s’affiche. Entrez `en` pour Langue. (Cliquez sur Afficher les options avancées si vous ne voyez pas Langue)
+Cliquez dans le champ **Texte** et sélectionnez **Description** dans la fenêtre de contenu dynamique qui s’affiche. Entrez `en` pour Langue. (Cliquez sur Afficher les options avancées si vous ne voyez pas l’option Langue)
 
 > [!div class="mx-imgBorder"] 
 > :::image type="content" source="../media/tutorials/excel/description-from-dynamic-content.png" alt-text="Ajouter les informations d’identification Analyse de texte à votre flux.":::
@@ -201,7 +201,7 @@ Réduisez **Appliquer à chacun 3** en cliquant sur le nom. Créez ensuite une 
 > :::image type="content" source="../media/tutorials/excel/add-apply-action-4.png" alt-text="Ajouter les informations d’identification Analyse de texte à votre flux.":::
 
 
-Le flux vérifie ensuite si la description du problème à partir de la ligne du tableau Excel contient le mot « plomberie ». Si c’est le cas, il ajoute « plomberie » dans la colonne IssueType. Sinon, nous allons entrer « autres ».
+Le flux vérifie ensuite si la description du problème à partir de la ligne du tableau Excel contient le mot « plomberie ». Si c’est le cas, il ajoute « plomberie » dans la colonne IssueType. Sinon, nous allons entrer « autre ».
 
 Dans l’action **Appliquer à chacun 4**, ajoutez un contrôle **Condition**. Il sera nommé **Condition 3**. Dans la première zone de texte, recherchez et ajoutez **Description** à partir du fichier Excel en utilisant la fenêtre de contenu dynamique. Vérifiez que la zone centrale indique **contient**. Ensuite, dans la zone de texte de droite, recherchez et sélectionnez `var_plumbing`. 
 

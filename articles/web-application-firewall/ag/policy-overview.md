@@ -7,19 +7,19 @@ author: winthrop28
 ms.service: web-application-firewall
 ms.date: 02/01/2020
 ms.author: victorh
-ms.openlocfilehash: fff4fb5707c07098fd7fac261a36909224365cdf
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 10a90a7f94633fac52086953697eb90a98d9509d
+ms.sourcegitcommit: 5cace04239f5efef4c1eed78144191a8b7d7fee8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "80060267"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86143835"
 ---
 # <a name="azure-web-application-firewall-waf-policy-overview"></a>Vue d'ensemble de la stratégie du pare-feu d’applications web (WAF) Azure
 
 Les stratégies de pare-feu d’applications web contiennent tous les paramètres et configurations WAF. Cela englobe les exclusions, les règles personnalisées, les règles managées, etc. Ces stratégies sont ensuite associées à une passerelle d’application (globale), à un écouteur (par site) ou à une règle basée sur le chemin d’accès (par URI) afin d'être appliquées.
 
 > [!NOTE]
-> Les stratégies de pare-feu d’applications web Azure (WAF) par site et par URI sont en préversion publique.
+> Les stratégies de pare-feu d’applications web (WAF) Azure par URI sont en préversion publique.
 > 
 > Cette préversion publique est fournie sans contrat de niveau de service et ne doit pas être utilisée pour les charges de travail de production. Il est possible que certaines fonctionnalités ne soient pas prises en charge, disposent de capacités limitées ou ne soient pas accessibles à tous les emplacements Azure. Pour plus d’informations, consultez [Conditions d’Utilisation Supplémentaires relatives aux Évaluations Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
