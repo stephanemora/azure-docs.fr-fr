@@ -4,12 +4,12 @@ description: Transférez des collections d’images ou d’autres artefacts d’
 ms.topic: article
 ms.date: 05/08/2020
 ms.custom: ''
-ms.openlocfilehash: c80f10e8795c63b84bb46fc21fd3406a195b772e
-ms.sourcegitcommit: ec682dcc0a67eabe4bfe242fce4a7019f0a8c405
+ms.openlocfilehash: 7f63936ad8f2a97bae6ff63e783e38c15db35e13
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/09/2020
-ms.locfileid: "86186926"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86259459"
 ---
 # <a name="transfer-artifacts-to-another-registry"></a>Transférer des artefacts vers un autre registre
 
@@ -36,7 +36,7 @@ Cette fonctionnalité est disponible uniquement au niveau de service **Premium**
 * **Comptes de stockage** - Créez des comptes de stockage source et cible dans un abonnement ou un emplacement de votre choix. À des fins de test, vous pouvez utiliser le ou les même(s) abonnement(s) comme registres source et cible. Pour les scénarios entre différents clouds, vous créez généralement un compte de stockage distinct dans chaque cloud. Si nécessaire, créez les comptes de stockage avec [Azure CLI](../storage/common/storage-account-create.md?tabs=azure-cli) ou d’autres outils. 
 
   Créez un conteneur d’objets blob pour le transfert d’artefacts dans chaque compte. Par exemple, créez un conteneur nommé *transfert*. Plusieurs pipelines de transfert peuvent partager le même compte de stockage, mais ils doivent utiliser des étendues de conteneur de stockage différentes.
-* **Coffres de clés** - Des coffres de clés sont nécessaires pour stocker les secrets de jetons SAS utilisés pour accéder aux comptes de stockage source et cible. Créez les coffres de clés source et cible dans le ou les même(s) abonnement(s) Azure que vos registres source et cible. Si nécessaire, créez les coffres de clés avec [Azure CLI](../key-vault/quick-create-cli.md) ou d’autres outils.
+* **Coffres de clés** - Des coffres de clés sont nécessaires pour stocker les secrets de jetons SAS utilisés pour accéder aux comptes de stockage source et cible. Créez les coffres de clés source et cible dans le ou les même(s) abonnement(s) Azure que vos registres source et cible. Si nécessaire, créez les coffres de clés avec [Azure CLI](../key-vault/secrets/quick-create-cli.md) ou d’autres outils.
 * **Variables d’environnement** - Pour les exemples de commandes dans cet article, définissez les variables d’environnement suivantes pour les environnements source et cible. Tous les exemples sont mis en forme pour l’interpréteur de commandes Bash.
   ```console
   SOURCE_RG="<source-resource-group>"
@@ -257,7 +257,7 @@ az storage blob list \
 
 Utilisez l’outil AzCopy ou une autre méthode pour [transférer des données d’objet blob](../storage/common/storage-use-azcopy-blobs.md#copy-blobs-between-storage-accounts) du compte de stockage source vers le compte de stockage cible.
 
-Par exemple, la commande [`azcopy copy`](/azure/storage/common/storage-ref-azcopy-copy) suivante copie myblob du conteneur *transfert* du compte source vers le conteneur *transfert* du compte cible. Si l’objet blob existe dans le compte cible, il est remplacé. L’authentification utilise des jetons SAS avec les autorisations appropriées pour les conteneurs source et cible. (Les étapes de création des jetons ne sont pas affichées.)
+Par exemple, la commande [`azcopy copy`](../storage/common/storage-ref-azcopy-copy.md) suivante copie myblob du conteneur *transfert* du compte source vers le conteneur *transfert* du compte cible. Si l’objet blob existe dans le compte cible, il est remplacé. L’authentification utilise des jetons SAS avec les autorisations appropriées pour les conteneurs source et cible. (Les étapes de création des jetons ne sont pas affichées.)
 
 ```console
 azcopy copy \
@@ -366,6 +366,3 @@ Pour importer des images d’un seul conteneur dans un registre de conteneurs Az
 [az-deployment-group-show]: /cli/azure/deployment/group#az-deployment-group-show
 [az-acr-repository-list]: /cli/azure/acr/repository#az-acr-repository-list
 [az-acr-import]: /cli/azure/acr#az-acr-import
-
-
-

@@ -6,12 +6,12 @@ author: mlearned
 ms.topic: conceptual
 ms.date: 07/01/2020
 ms.author: mlearned
-ms.openlocfilehash: d154ca6b67f3f587234deb34cef171ffc5924530
-ms.sourcegitcommit: 5cace04239f5efef4c1eed78144191a8b7d7fee8
+ms.openlocfilehash: f957ee5293d2804298d4723ed3a763fabac9dc93
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86145532"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86244529"
 ---
 # <a name="security-concepts-for-applications-and-clusters-in-azure-kubernetes-service-aks"></a>Concepts de sécurité pour les applications et les clusters dans AKS (Azure Kubernetes Service)
 
@@ -54,9 +54,9 @@ Les environnements Kubernetes, dans AKS ou ailleurs, ne sont pas encore totaleme
 
 ### <a name="compute-isolation"></a>Isolation du calcul
 
- Pour des raisons de conformité ou d’exigences réglementaires, certaines charges de travail peuvent nécessiter un niveau d’isolation élevé par rapport aux autres charges de travail client. Pour ces charges de travail, Azure fournit des [machines virtuelles isolées](..\virtual-machines\linux\isolation.md), qui peuvent être utilisées en tant que nœuds d’agent dans un cluster AKS. Ces machines virtuelles sont isolées dans un type de matériel spécifique et dédiées à un client unique. 
+ Pour des raisons de conformité ou d’exigences réglementaires, certaines charges de travail peuvent nécessiter un niveau d’isolation élevé par rapport aux autres charges de travail client. Pour ces charges de travail, Azure fournit des [machines virtuelles isolées](../virtual-machines/linux/isolation.md), qui peuvent être utilisées en tant que nœuds d’agent dans un cluster AKS. Ces machines virtuelles sont isolées dans un type de matériel spécifique et dédiées à un client unique. 
 
- Pour utiliser ces machines virtuelles isolées avec un cluster AKS, sélectionnez l’une des tailles de machines virtuelles isolées répertoriées [ici](..\virtual-machines\linux\isolation.md) comme **taille de nœud** lors de la création d’un cluster AKS ou de l’ajout d’un pool de nœuds.
+ Pour utiliser ces machines virtuelles isolées avec un cluster AKS, sélectionnez l’une des tailles de machines virtuelles isolées répertoriées [ici](../virtual-machines/linux/isolation.md) comme **taille de nœud** lors de la création d’un cluster AKS ou de l’ajout d’un pool de nœuds.
 
 
 ## <a name="cluster-upgrades"></a>Mise à niveau des clusters
@@ -112,12 +112,12 @@ Pour plus d’informations sur les concepts fondamentaux de Kubernetes et d’AK
 [kured]: https://github.com/weaveworks/kured
 [kubernetes-network-policies]: https://kubernetes.io/docs/concepts/services-networking/network-policies/
 [secret-risks]: https://kubernetes.io/docs/concepts/configuration/secret/#risks
-[encryption-atrest]: https://docs.microsoft.com/azure/security/fundamentals/encryption-atrest
+[encryption-atrest]: ../security/fundamentals/encryption-atrest.md
 
 <!-- LINKS - Internal -->
 [aks-daemonsets]: concepts-clusters-workloads.md#daemonsets
 [aks-upgrade-cluster]: upgrade-cluster.md
-[aks-aad]: azure-ad-integration.md
+[aks-aad]: ./azure-ad-integration-cli.md
 [aks-concepts-clusters-workloads]: concepts-clusters-workloads.md
 [aks-concepts-identity]: concepts-identity.md
 [aks-concepts-scale]: concepts-scale.md
