@@ -1,4 +1,4 @@
-- name: Documentation Azure DB pour PostgreSQL
+- name: Base de données Azure pour les documents PostgreSQL
   href: index.yml
 - name: Vue d’ensemble
   items:
@@ -114,7 +114,7 @@
               href: concepts-data-encryption-postgresql.md
             - name: Chiffrement double d’infrastructure
               href: concepts-infrastructure-double-encryption.md
-            - name: Base de référence de la sécurité
+            - name: Base de référence de la sécurité pour Azure Security Benchmark
               href: security-baseline.md
         - name: Continuité de l’activité
           items:
@@ -183,6 +183,8 @@
               href: concepts-hyperscale-firewall-rules.md
             - name: Configuration du chiffrement SSL
               href: concepts-hyperscale-ssl-connection-security.md
+            - name: Base de référence de la sécurité pour Azure Security Benchmark
+              href: postgresql-hyperscale-security-baseline.md
         - name: Continuité de l’activité
           items:
             - name: Sauvegarde et restauration
