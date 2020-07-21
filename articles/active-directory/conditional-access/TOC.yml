@@ -47,8 +47,6 @@
       href: controls.md
     - name: Migrations de stratégies classiques
       href: policy-migration.md
-    - name: Stratégies de protection de la base de référence
-      href: concept-baseline-protection.md
 - name: Guides pratiques
   expanded: true
   items:
