@@ -46,6 +46,8 @@
       href: forced-tunnel-support.md
     - name: Intégration du pare-feu
       href: firewall-integration.md
+    - name: Redondance de zone
+      href: zone-redundancy.md
 - name: Informations de référence
   items:
     - name: Adresses de gestion
@@ -83,14 +85,14 @@
     - name: Tarifs
       href: 'https://azure.microsoft.com/pricing/details/app-service/'
     - name: Informations sur les quotas
-      href: '../../azure-resource-manager/management/azure-subscription-service-limits.md#app-service-limits'
+      href: ../../azure-resource-manager/management/azure-subscription-service-limits.md#app-service-limits
     - name: Mises à jour de service
       href: 'https://azure.microsoft.com/updates/?product=app-service'
     - name: Meilleures pratiques
       href: ../app-service-best-practices.md?toc=%2fazure%2fapp-service%2fenvironment%2ftoc.json
     - name: Exemples
       href: 'https://azure.microsoft.com/resources/samples/?service=app-service'
-    - name: Videos
+    - name: Vidéos
       items:
         - name: Vidéos Azure
           href: 'https://azure.microsoft.com/resources/videos/index/?services=app-service'
