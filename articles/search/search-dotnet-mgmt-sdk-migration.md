@@ -9,12 +9,12 @@ ms.service: cognitive-search
 ms.devlang: dotnet
 ms.topic: conceptual
 ms.date: 07/01/2020
-ms.openlocfilehash: 74183eafbddada0125f739a1ac4bfed0286f9cd1
-ms.sourcegitcommit: ec682dcc0a67eabe4bfe242fce4a7019f0a8c405
+ms.openlocfilehash: 436c2620b83513a2b814e050b2ae6407930b082d
+ms.sourcegitcommit: f7e160c820c1e2eb57dc480b2a8fd6bef7053e91
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/09/2020
-ms.locfileid: "86187487"
+ms.lasthandoff: 07/10/2020
+ms.locfileid: "86232047"
 ---
 # <a name="upgrading-versions-of-the-azure-search-net-management-sdk"></a>Mise à niveau des versions du Kit de développement logiciel (SDK) .NET Management
 
@@ -27,7 +27,7 @@ Les kits SDK de gestion ciblent une version spécifique de l’API REST de gesti
 | Version du SDK | Version de l’API REST correspondante | Ajout de fonctionnalités ou changement de comportement |
 |-------------|--------------------------------|-------------------------------------|
 | [3.0](https://www.nuget.org/packages/Microsoft.Azure.Management.Search/3.0.0) | api-version=2020-30-20 | Ajout de la sécurité de point de terminaison (pare-feu IP et intégration avec [Azure Private Link](../private-link/private-endpoint-overview.md)) |
-| [2.0](https://www.nuget.org/packages/Microsoft.Azure.Management.Search/2.0.0) | api-version=2019-10-01 | Améliorations de la convivialité |
+| [2.0](https://www.nuget.org/packages/Microsoft.Azure.Management.Search/2.0.0) | api-version=2019-10-01 | Améliorations de la convivialité. Rupture de la modification de la [Liste des clés de requête](https://docs.microsoft.com/rest/api/searchmanagement/querykeys/listbysearchservice) (GET n'existe plus). |
 | [1.0](https://www.nuget.org/packages/Microsoft.Azure.Management.Search/1.0.1) | api-version=2015-08-19  | Première version |
 
 ## <a name="how-to-upgrade"></a>Mise à niveau
@@ -46,7 +46,7 @@ La version 3.0 ajoute la protection de point de terminaison privée en limitant
 
 ### <a name="new-apis"></a>Nouvelles API
 
-| API | Catégorie| Détails |
+| API | Category| Détails |
 |-----|--------|------------------|
 | [NetworkRuleSet](https://docs.microsoft.com/rest/api/searchmanagement/services/createorupdate#networkruleset) | Pare-feu IP | Limitez l’accès à un point de terminaison de service à une liste d’adresses IP autorisées. Pour plus d’informations sur les concepts et pour savoir comment procéder dans le portail, consultez [Configurer le pare-feu IP](service-configure-firewall.md). |
 | [Ressource de liaison privée partagée](https://docs.microsoft.com/rest/api/searchmanagement/sharedprivatelinkresources) | Private Link | Créez une ressource de liaison privée partagée qui sera utilisée par un service de recherche.  |

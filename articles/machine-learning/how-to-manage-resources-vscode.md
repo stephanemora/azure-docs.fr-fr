@@ -1,5 +1,5 @@
 ---
-title: Créer et gérer des ressources avec l’extension VS Code
+title: Créer et gérer des ressources avec l’extension VS Code (préversion)
 titleSuffix: Azure Machine Learning
 description: Créer et gérer des ressources avec l’extension VS Code
 services: machine-learning
@@ -9,15 +9,15 @@ ms.reviewer: luquinta
 ms.service: machine-learning
 ms.subservice: core
 ms.topic: how-to
-ms.date: 07/08/2020
-ms.openlocfilehash: 5ff435a291d742b8a174d7571aa443b7cef4d1e1
-ms.sourcegitcommit: 5cace04239f5efef4c1eed78144191a8b7d7fee8
+ms.date: 07/09/2020
+ms.openlocfilehash: 2deb939745647636cc04ae124d1e843db0bef7f6
+ms.sourcegitcommit: 3541c9cae8a12bdf457f1383e3557eb85a9b3187
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86156393"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86206495"
 ---
-# <a name="manage-azure-machine-learning-resources-with-the-vs-code-extension"></a>Gérer les ressources Azure Machine Learning avec l’extension VS Code
+# <a name="manage-azure-machine-learning-resources-with-the-vs-code-extension-preview"></a>Gérer les ressources Azure Machine Learning avec l’extension VS Code (préversion)
 
 Découvrez comment gérer les ressources Azure Machine Learning avec l’extension VS Code.
 
@@ -31,7 +31,7 @@ Découvrez comment gérer les ressources Azure Machine Learning avec l’extensi
 
 Toutes les procédures ci-dessous partent du principe que vous êtes dans la vue Azure Machine Learning dans Visual Studio Code. Pour lancer l’extension, sélectionnez l’icône **Azure** dans la barre d’activité de VS Code.
 
-## <a name="workspaces"></a>Espaces de travail
+## <a name="workspaces"></a>Workspaces
 
 Pour plus d’informations, consultez [Espaces de travail](concept-workspace.md).
 
@@ -40,7 +40,7 @@ Pour plus d’informations, consultez [Espaces de travail](concept-workspace.md)
 1. Dans la vue Azure Machine Learning, cliquez avec le bouton droit sur le nœud de votre abonnement et sélectionnez **Créer un espace de travail**.
 1. À l’invite :
     1. Spécifiez un nom pour votre espace de travail.
-    1. Choisissez votre abonnement Azure.
+    1. Choisir votre abonnement Azure
     1. Choisissez ou créez un groupe de ressources dans lequel provisionner l’espace de travail.
     1. Sélectionnez l’emplacement où vous souhaitez provisionner l’espace de travail.
     1. Choisissez parmi les éditions *De base* et *Entreprise*. Apprenez-en davantage sur les différentes [éditions d’Azure Machine Learning](concept-editions.md).
@@ -69,7 +69,7 @@ Quand vous créez un espace de travail, un magasin de données est créé pour c
 
 Pour plus d’informations, consultez [Magasins de données](concept-data.md#datastores).
 
-### <a name="create-a-datastore"></a>Créer un magasin de données
+### <a name="create-a-datastore"></a>Créer une banque de données
 
 1. Développez le nœud d’abonnement qui contient votre espace de travail.
 1. Développez le nœud d’espace de travail sous lequel vous souhaitez créer le magasin de données.
@@ -91,7 +91,7 @@ Pour plus d’informations, consultez [Magasins de données](concept-data.md#dat
     - *Inspecter les paramètres en lecture seule*.
     - *Modifier*. Changez le type d’authentification et les informations d’identification. Les types d’authentification pris en charge sont la clé de compte et le jeton SAS.
 
-## <a name="datasets"></a>Jeux de données
+## <a name="datasets"></a>Groupes de données
 
 L’extension prend actuellement en charge les types de jeux de données suivants :
 
@@ -313,7 +313,7 @@ Pour créer une configuration d’exécution dans l’extension
 
 Pour plus d’informations, consultez [Modèles](concept-azure-machine-learning-architecture.md#models).
 
-### <a name="register-model"></a>Inscrire un modèle
+### <a name="register-model"></a>Inscrire le modèle
 
 1. Développez le nœud d’abonnement qui contient votre espace de travail.
 1. Développez le nœud de votre espace de travail.

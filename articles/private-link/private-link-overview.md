@@ -8,12 +8,12 @@ ms.topic: overview
 ms.date: 06/18/2020
 ms.author: allensu
 ms.custom: fasttrack-edit
-ms.openlocfilehash: c1246c2d3a58ad29503c0767b5c4af303d1f0c54
-ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
+ms.openlocfilehash: 3814711f090a7d996271f8fa5bef9ff1394d135a
+ms.sourcegitcommit: 0b2367b4a9171cac4a706ae9f516e108e25db30c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/05/2020
-ms.locfileid: "85957484"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86276581"
 ---
 # <a name="what-is-azure-private-link"></a>Qu’est-ce que Liaison privée Azure ? 
 Azure Private Link vous permet d’accéder aux services Azure PaaS (par exemple Stockage Azure et SQL Database) ainsi qu’aux services de partenaires ou de clients hébergés par Azure sur un [point de terminaison privé](private-endpoint-overview.md) dans votre réseau virtuel.
@@ -48,7 +48,7 @@ Le service Liaison privée Azure offre les avantages suivants :
 |  Azure SQL Database         | Toutes les régions publiques      |  Pris en charge pour la [stratégie de connexion](https://docs.microsoft.com/azure/azure-sql/database/connectivity-architecture#connection-policyhttps://docs.microsoft.com/azure/azure-sql/database/connectivity-architecture#connection-policy) Proxy | GA <br/> [En savoir plus](https://docs.microsoft.com/azure/sql-database/sql-database-private-endpoint-overview)      |
 |Azure Synapse Analytics (SQL Data Warehouse)| Toutes les régions publiques |  Pris en charge pour la [stratégie de connexion](https://docs.microsoft.com/azure/azure-sql/database/connectivity-architecture#connection-policyhttps://docs.microsoft.com/azure/azure-sql/database/connectivity-architecture#connection-policy) Proxy |GA <br/> [En savoir plus](https://docs.microsoft.com/azure/sql-database/sql-database-private-endpoint-overview)|
 |Azure Cosmos DB|  Toutes les régions publiques | |GA <br/> [En savoir plus](https://docs.microsoft.com/azure/cosmos-db/how-to-configure-private-endpoints)|
-|  Azure Database pour PostgreSQL - Serveur unique         | Toutes les régions publiques      |  | GA <br/> [En savoir plus](https://docs.microsoft.com/azure/postgresql/concepts-data-access-and-security-private-link)      |
+|  Azure Database pour PostgreSQL - Serveur unique         | Toutes les régions publiques      | Prise en charge des niveaux tarifaires Usage général et À mémoire optimisée | GA <br/> [En savoir plus](https://docs.microsoft.com/azure/postgresql/concepts-data-access-and-security-private-link)      |
 |  Azure Database pour MySQL         | Toutes les régions publiques      |  | GA <br/> [En savoir plus](https://docs.microsoft.com/azure/mysql/concepts-data-access-security-private-link)     |
 |  Azure Database for MariaDB         | Toutes les régions publiques      |  | GA <br/> [En savoir plus](https://docs.microsoft.com/azure/mariadb/concepts-data-access-security-private-link)      |
 |  Azure Key Vault         | Toutes les régions publiques      |  | GA   <br/> [En savoir plus](https://docs.microsoft.com/azure/key-vault/private-link-service)   |
@@ -61,7 +61,7 @@ Le service Liaison privée Azure offre les avantages suivants :
 |Azure Service Bus | Toutes les régions publiques  | Pris en charge avec le niveau Premium d’Azure Service Bus. [Cliquez pour connaître les niveaux](https://docs.microsoft.com/azure/service-bus-messaging/service-bus-premium-messaging) | GA   <br/> [En savoir plus](https://docs.microsoft.com/azure/service-bus-messaging/private-link-service)    |
 |Azure Relay | Toutes les régions publiques      |  | PRÉVERSION <br/> [En savoir plus](https://docs.microsoft.com/azure/service-bus-relay/private-link-service)  |
 |Azure Event Grid| Toutes les régions publiques       |  | GA   <br/> [En savoir plus](https://docs.microsoft.com/azure/event-grid/network-security) |
-|Azure Web Apps | Toutes les régions publiques      |  | PRÉVERSION   <br/> [En savoir plus](https://docs.microsoft.com/azure/app-service/networking/private-endpoint)   |
+|Azure Web Apps | Toutes les régions publiques      | Prise en charge avec les fonctions PremiumV2 Windows et Linux et Élastique Premium  | PRÉVERSION   <br/> [En savoir plus](https://docs.microsoft.com/azure/app-service/networking/private-endpoint)   |
 |Azure Machine Learning | USA Est, USA Ouest 2, USA Centre Sud      |  | PRÉVERSION   <br/> [En savoir plus](https://docs.microsoft.com/azure/machine-learning/how-to-configure-private-link)   |
 | Azure Automation  | Toutes les régions publiques |  | PRÉVERSION | |
 | Azure IoT Hub | Toutes les régions publiques    |  | GA   <br/> [En savoir plus](https://docs.microsoft.com/azure/iot-hub/virtual-network-support ) |

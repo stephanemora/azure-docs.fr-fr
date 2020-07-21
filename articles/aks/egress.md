@@ -5,12 +5,12 @@ description: Découvrez comment créer et utiliser une adresse IP publique stati
 services: container-service
 ms.topic: article
 ms.date: 03/04/2019
-ms.openlocfilehash: a2f0394b172361e9053b1490a46357a5d3f2f47d
-ms.sourcegitcommit: 5cace04239f5efef4c1eed78144191a8b7d7fee8
+ms.openlocfilehash: f66a33f49d856abde97756a2b4b483cfa6050d0a
+ms.sourcegitcommit: 3541c9cae8a12bdf457f1383e3557eb85a9b3187
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86145505"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86205783"
 ---
 # <a name="use-a-static-public-ip-address-for-egress-traffic-in-azure-kubernetes-service-aks"></a>Utiliser une adresse IP publique statique pour le trafic de sortie dans Azure Kubernetes Service (AKS)
 
@@ -96,7 +96,7 @@ Créez le service et le déploiement avec la commande `kubectl apply`.
 kubectl apply -f egress-service.yaml
 ```
 
-Ce service configure une nouvelle adresse IP frontend sur l’équilibreur de charge Azure. Si vous n’avez pas d’autres adresses IP configurées, **tout** le trafic sortant doit désormais utiliser cette adresse. Lorsque plusieurs adresses sont configurées sur l’équilibreur de charge Azure, la sortie utilise la première adresse IP de cet équilibreur de charge.
+Ce service configure une nouvelle adresse IP frontend sur l’équilibreur de charge Azure. Si vous n’avez pas d’autres adresses IP configurées, **tout** le trafic sortant doit désormais utiliser cette adresse. Si plusieurs adresses sont configurées sur Azure Load Balancer, toutes ces adresses sont candidates pour les flux sortants, mais une seule d’entre elles est sélectionnée au hasard.
 
 ## <a name="verify-egress-address"></a>Vérifier l’adresse de sortie
 
