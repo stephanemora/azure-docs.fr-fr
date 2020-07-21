@@ -17,12 +17,12 @@ ms.date: 04/30/2019
 ms.author: sethm
 ms.reviewer: jowargo
 ms.lastreviewed: 04/30/2019
-ms.openlocfilehash: b7ee3afc2e8b9958a868c8c117262d2017c9b600
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: 273827e68a81e87dcff15760f0b400b2d5ce8723
+ms.sourcegitcommit: f844603f2f7900a64291c2253f79b6d65fcbbb0c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "80126874"
+ms.lasthandoff: 07/10/2020
+ms.locfileid: "86220862"
 ---
 # <a name="tutorial-send-notifications-to-specific-devices-using-notification-hubs-and-google-firebase-cloud-messaging"></a>Tutoriel : Envoyer des notifications Push à des appareils spécifiques avec Notification Hubs et Google Firebase Cloud Messaging
 
@@ -117,7 +117,7 @@ La première étape consiste à ajouter des éléments de l’interface utilisat
 
     La présentation graphique de votre fichier `main_activity.xml` doit ressembler à l’image suivante :
 
-    ![][A1]
+    ![Capture d’écran d’un émulateur montrant à quoi ressemble la disposition graphique XML de l’activité principale.][A1]
 3. Créez une classe `Notifications` dans le même package que votre classe `MainActivity`.
 
     ```java

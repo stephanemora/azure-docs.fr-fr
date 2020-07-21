@@ -13,20 +13,19 @@ ms.topic: sample
 ms.date: 10/31/2017
 ms.author: apimpm
 ms.custom: mvc
-ms.openlocfilehash: 252e7b8d13cf53a98ea1f25b207740c0e623f92c
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.openlocfilehash: b5b8c82aa420b62e3b6e68ee53352eb9f77988f2
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/11/2020
-ms.locfileid: "86242965"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86506687"
 ---
 # <a name="api-management-policy-samples"></a>Exemples de stratégie dans la Gestion des API
 
 Les [stratégies](../api-management-howto-policies.md) sont une fonctionnalité puissante du système qui permet à l’éditeur de changer le comportement de l’API grâce à la configuration. Les stratégies sont un ensemble d'instructions qui sont exécutées dans l'ordre sur demande ou sur réponse d'une API. Le tableau suivant contient des liens vers des exemples et donne une brève description de chaque exemple.
 
-|                                                                                                                                                                      |                                                                                                                                                                                                                             |
-| -------------------------------------------------------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| **Stratégies de trafic entrant**                                                                                                                                                 |                                                                                                                                                                                                                             |
+| Stratégies de trafic entrant | Description |
+| ---------------- | ----------- |
 | [Ajouter un en-tête Forwarded pour autoriser l’API de service principal à concevoir des URL correctes](./set-header-to-enable-backend-to-construct-urls.md) | Montre comment ajouter un en-tête Forwarded à la demande entrante pour autoriser l’API de service principal à construire des URL correctes.                                                                                                        |
 | [Ajouter un en-tête contenant un ID de corrélation](./add-correlation-id.md)                                                             | Montre comment ajouter un en-tête contenant un ID de corrélation à la requête entrante.                                                                                                                                        |
 | [Ajouter des fonctionnalités à un service principal et mettre en cache la réponse](./cache-response.md)                                             | Montre comment ajouter des fonctionnalités à un service principal. Par exemple, accepter un nom d’emplacement au lieu des latitude et longitude dans une API de prévisions météorologiques.                                                                    |
@@ -40,7 +39,7 @@ Les [stratégies](../api-management-howto-policies.md) sont une fonctionnalité 
 | [Router la demande en fonction de la taille de son corps](./route-requests-based-on-size.md)                                            | Montre comment router les demandes en fonction de la taille de leurs corps.                                                                                                                                                       |
 | [Envoyer des informations de contexte de demande au backend](./send-request-context-info-to-backend-service.md)                    | Montre comment envoyer des informations de contexte au backend à des fins de journalisation ou de traitement.                                                                                                                                |
 | [Définir la durée du cache de réponse](./set-cache-duration.md)                                                                          | Montre comment définir la durée du cache de réponse à l’aide de la valeur maxAge dans l’en-tête Cache-Control envoyé par le backend.                                                                                                             |
-| **Stratégies de trafic sortant**                                                                                                                                                |                                                                                                                                                                                                                             |
+| **Stratégies de trafic sortant** | **Description** |
 | [Filtrer le contenu de la réponse](./filter-response-content.md)                                                                         | Montre comment filtrer des éléments de données à partir de la charge utile de la réponse en fonction du produit associé à la demande.                                                                                                        |
-| **Stratégies en cas d’erreur**                                                                                                                                                |                                                                                                                                                                                                                             |
+| **Stratégies en cas d’erreur** | **Description** |
 | [Journaliser les erreurs dans Stackify](./log-errors-to-stackify.md)                                                                           | Montre comment ajouter une stratégie de journalisation des erreurs pour envoyer les erreurs à Stackify à des fins de journalisation.                                                                                                                                            |

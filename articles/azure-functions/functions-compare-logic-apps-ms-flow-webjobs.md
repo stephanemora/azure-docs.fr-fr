@@ -4,12 +4,12 @@ description: 'Comparez les services cloud Microsoft optimisés pour les tâches 
 ms.topic: overview
 ms.date: 04/09/2018
 ms.custom: mvc
-ms.openlocfilehash: 40293056a73fd88e9ad6b3922aebfe0ba71f07dd
-ms.sourcegitcommit: 2d7910337e66bbf4bd8ad47390c625f13551510b
+ms.openlocfilehash: 9d7531fac9610b357adb37d28f5d5e90a7e4b108
+ms.sourcegitcommit: 1e6c13dc1917f85983772812a3c62c265150d1e7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/08/2020
-ms.locfileid: "80878134"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86169865"
 ---
 # <a name="choose-the-right-integration-and-automation-services-in-azure"></a>Choisir les services d’intégration et d’automatisation appropriés dans Azure
 
@@ -78,13 +78,13 @@ Azure Functions repose sur le Kit de développement logiciel (SDK) WebJobs, donc
 
 |  | Fonctions | WebJobs avec le Kit de développement logiciel (SDK) WebJobs |
 | --- | --- | --- |
-|[Modèle d’application sans serveur](https://azure.microsoft.com/solutions/serverless/) avec [mise à l’échelle automatique](functions-scale.md#how-the-consumption-and-premium-plans-work)|✔||
-|[Développement et test dans un navigateur](functions-create-first-azure-function.md) |✔||
-|[Paiement à l’utilisation](functions-scale.md#consumption-plan)|✔||
-|[Intégration avec Logic Apps](functions-twitter-email.md)|✔||
-| Événements déclencheurs |[Minuteur](functions-bindings-timer.md)<br>[Objets blob et files d’attente Stockage Azure](functions-bindings-storage-blob.md)<br>[Files d’attente et rubriques Azure Service Bus](functions-bindings-service-bus.md)<br>[Azure Cosmos DB](functions-bindings-cosmosdb.md)<br>[Azure Event Hubs](functions-bindings-event-hubs.md)<br>[HTTP/WebHook (GitHub, Slack)](functions-bindings-http-webhook.md)<br>[Azure Event Grid](functions-bindings-event-grid.md)|[Minuteur](functions-bindings-timer.md)<br>[Objets blob et files d’attente Stockage Azure](functions-bindings-storage-blob.md)<br>[Files d’attente et rubriques Azure Service Bus](functions-bindings-service-bus.md)<br>[Azure Cosmos DB](functions-bindings-cosmosdb.md)<br>[Azure Event Hubs](functions-bindings-event-hubs.md)<br>[Système de fichiers](https://github.com/Azure/azure-webjobs-sdk-extensions/blob/master/src/WebJobs.Extensions/Extensions/Files/FileTriggerAttribute.cs)|
-| Langues prises en charge  |C#<br>F#<br>JavaScript<br>Java<br>Python<br>PowerShell |C#<sup>1</sup>|
-|Gestionnaires de package|NPM et NuGet|NuGet<sup>2</sup>|
+|**[Modèle d’application serverless](https://azure.microsoft.com/solutions/serverless/) avec [mise à l’échelle automatique](functions-scale.md#how-the-consumption-and-premium-plans-work)**|✔||
+|**[Développement et test dans un navigateur](functions-create-first-azure-function.md)** |✔||
+|**[Paiement à l’utilisation](functions-scale.md#consumption-plan)**|✔||
+|**[Intégration à Logic Apps](functions-twitter-email.md)**|✔||
+| **Événements déclencheurs** |[Minuteur](functions-bindings-timer.md)<br>[Objets blob et files d’attente Stockage Azure](functions-bindings-storage-blob.md)<br>[Files d’attente et rubriques Azure Service Bus](functions-bindings-service-bus.md)<br>[Azure Cosmos DB](functions-bindings-cosmosdb.md)<br>[Azure Event Hubs](functions-bindings-event-hubs.md)<br>[HTTP/WebHook (GitHub, Slack)](functions-bindings-http-webhook.md)<br>[Azure Event Grid](functions-bindings-event-grid.md)|[Minuteur](functions-bindings-timer.md)<br>[Objets blob et files d’attente Stockage Azure](functions-bindings-storage-blob.md)<br>[Files d’attente et rubriques Azure Service Bus](functions-bindings-service-bus.md)<br>[Azure Cosmos DB](functions-bindings-cosmosdb.md)<br>[Azure Event Hubs](functions-bindings-event-hubs.md)<br>[Système de fichiers](https://github.com/Azure/azure-webjobs-sdk-extensions/blob/master/src/WebJobs.Extensions/Extensions/Files/FileTriggerAttribute.cs)|
+| **Langues prises en charge**  |C#<br>F#<br>JavaScript<br>Java<br>Python<br>PowerShell |C#<sup>1</sup>|
+|**Gestionnaires de package**|NPM et NuGet|NuGet<sup>2</sup>|
 
 <sup>1</sup> WebJobs (sans le SDK WebJobs) prend en charge C#, Java, JavaScript, Bash, .cmd, .bat, PowerShell, PHP, TypeScript et Python, entre autres. Cette liste n’est pas exhaustive. Un WebJob peut exécuter n’importe quel programme ou script pouvant s’exécuter dans le bac à sable App Service.
 

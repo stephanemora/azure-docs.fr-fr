@@ -10,12 +10,12 @@ ms.workload: big-data
 ms.topic: quickstart
 ms.custom: mvc
 ms.date: 07/01/2020
-ms.openlocfilehash: 8406c556ecaa0cea968fc1976d709b4f3c51c78b
-ms.sourcegitcommit: cec9676ec235ff798d2a5cad6ee45f98a421837b
+ms.openlocfilehash: 1613486880885a3b7838b1bf806c17f88e3be06d
+ms.sourcegitcommit: f7e160c820c1e2eb57dc480b2a8fd6bef7053e91
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85852468"
+ms.lasthandoff: 07/10/2020
+ms.locfileid: "86231265"
 ---
 # <a name="quickstart-create-an-azure-stream-analytics-job-using-the-azure-cli"></a>Démarrage rapide : Créer un travail Azure Stream Analytics avec l’interface de ligne de commande Azure
 
@@ -49,7 +49,7 @@ Dans ce guide de démarrage rapide, vous utilisez l’interface de ligne de comm
     az extension add --name stream-analytics
     ```
 
-   Installez l’[extension pour Azure IoT](/cli/azure/ext/azure-iot/azure-iot) en exécutant la commande suivante :
+   Installez l’[extension pour Azure IoT](/cli/azure/ext/azure-iot) en exécutant la commande suivante :
 
     ```azurecli
     az extension add --name azure-iot
@@ -154,7 +154,7 @@ az stream-analytics job create \
 
 ## <a name="configure-input-to-the-job"></a>Configurer l’entrée du travail
 
-Ajoutez une entrée à votre travail à l’aide de l’applet de commande [az stream-analytics input](/cli/azure/ext/stream-analytics/stream-analytics/input?view=azure-cli-latest#ext-stream-analytics-az-stream-analytics-input-create). Cette applet de commande prend le nom du travail, le nom de l’entrée du travail, le nom du groupe de ressources et la définition de l’entrée du travail comme paramètres. La définition de l’entrée du travail est un fichier JSON qui contient les propriétés nécessaires à la configuration de l’entrée du travail. Dans cet exemple, vous allez créer un hub IoT en tant qu’entrée.
+Ajoutez une entrée à votre travail à l’aide de l’applet de commande [az stream-analytics input](/cli/azure/ext/stream-analytics/stream-analytics/input?view=azure-cli-latest#ext-stream-analytics-az-stream-analytics-input-create). Cette applet de commande prend le nom du travail, le nom de l’entrée du travail, le nom du groupe de ressources et la définition de l’entrée du travail comme paramètres. La définition de l’entrée du travail est un fichier JSON qui contient les propriétés nécessaires à la configuration de l’entrée du travail. Dans cet exemple, vous allez créer un hub IoT en tant qu’entrée.
 
 Sur votre ordinateur local, créez un fichier nommé `datasource.json` et ajoutez-y les données JSON ci-après. Remplacez la valeur de `sharedAccessPolicyKey` par la partie `SharedAccessKey` de la chaîne de connexion du hub IoT que vous avez enregistrée dans une section précédente.
 
@@ -196,7 +196,7 @@ az stream-analytics input create
 
 ## <a name="configure-output-to-the-job"></a>Configurer la sortie du travail
 
-Ajoutez une sortie à votre travail à l’aide de l’applet de commande [az stream-analytics output create](/cli/azure/ext/stream-analytics/stream-analytics/output?view=azure-cli-latest#ext-stream-analytics-az-stream-analytics-output-create). Cette applet de commande prend le nom du travail, le nom de la sortie du travail, le nom du groupe de ressources et la définition de la sortie du travail comme paramètres. La définition de la sortie du travail est un fichier JSON qui contient les propriétés nécessaires à la configuration de la sortie du travail. Cet exemple utilise le stockage blob en guise de sortie.
+Ajoutez une sortie à votre travail à l’aide de l’applet de commande [az stream-analytics output create](/cli/azure/ext/stream-analytics/stream-analytics/output?view=azure-cli-latest#ext-stream-analytics-az-stream-analytics-output-create). Cette applet de commande prend le nom du travail, le nom de la sortie du travail, le nom du groupe de ressources et la définition de la sortie du travail comme paramètres. La définition de la sortie du travail est un fichier JSON qui contient les propriétés nécessaires à la configuration de la sortie du travail. Cet exemple utilise le stockage blob en guise de sortie.
 
 Sur votre ordinateur local, créez un fichier nommé `datasink.json` et ajoutez-y les données JSON ci-après. Veillez à remplacer la valeur de `accountKey` par la clé d’accès de votre compte de stockage qui correspond à la valeur stockée dans $storageAccountKey.
 

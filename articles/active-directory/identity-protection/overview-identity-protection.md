@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sahandle
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 27adab85f684143db29e248739492b68af869404
-ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
+ms.openlocfilehash: 59f83c7896ca371809d9103489b140ae73d5a42d
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83647359"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86256649"
 ---
 # <a name="what-is-azure-active-directory-identity-protection"></a>Présentation d’Azure Active Directory Identity Protection
 
@@ -94,7 +94,7 @@ Les administrateurs d’accès conditionnel peuvent également créer des strat�
 
 [!INCLUDE [Active Directory P2 license](../../../includes/active-directory-p2-license.md)]
 
-| Fonctionnalité | Détails | Azure AD Premium P2 | Azure AD Premium P1 | Azure AD Basic/Free |
+| Fonctionnalité | Détails | Azure AD Premium P2 | Azure AD Premium P1 | Azure AD Free / Applications Office 365 |
 | --- | --- | --- | --- | --- |
 | Stratégies de risque | Stratégie de risque utilisateur (via Identity Protection) | Oui | Non | Non |
 | Stratégies de risque | Stratégie de risque de connexion (via Identity Protection ou l’accès conditionnel) | Oui | Non | Non |

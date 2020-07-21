@@ -9,12 +9,12 @@ ms.subservice: general
 ms.topic: tutorial
 ms.date: 08/12/2019
 ms.author: mbaldwin
-ms.openlocfilehash: ae6ddac61ecbcef41704f71ed5188fc547a996a3
-ms.sourcegitcommit: eefb0f30426a138366a9d405dacdb61330df65e7
+ms.openlocfilehash: f98df33b3efc697e349ddeae31439dd2fb701d91
+ms.sourcegitcommit: 3541c9cae8a12bdf457f1383e3557eb85a9b3187
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/17/2020
-ms.locfileid: "81616587"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86202015"
 ---
 # <a name="how-to-use-key-vault-soft-delete-with-cli"></a>Guide pratique pour utiliser la suppression réversible Key Vault avec l’interface CLI
 
@@ -229,7 +229,7 @@ L’énumération des objets du coffre de clés supprimés indique également qu
 
 Quand la protection contre le vidage est activée, un coffre ou un objet dans un état Supprimé ne peut pas être supprimé définitivement tant que la période de conservation de 90 jours ne s’est pas écoulée. Ce type de coffre ou d’objet peut toujours être récupéré. Cette fonctionnalité donne l’assurance qu’un coffre ou un objet ne peut jamais être supprimé définitivement tant que la période de conservation ne s’est pas écoulée.
 
-Vous pouvez activer la protection contre le vidage seulement si la suppression réversible est également activée. 
+Vous pouvez activer la protection contre le vidage seulement si la suppression réversible est également activée. La désactivation de la protection contre le vidage n’est pas prise en charge.
 
 Pour activer à la fois la suppression réversible et la protection contre le vidage lors de la création d’un coffre, utilisez la commande [az keyvault create](/cli/azure/keyvault?view=azure-cli-latest#az-keyvault-create) :
 

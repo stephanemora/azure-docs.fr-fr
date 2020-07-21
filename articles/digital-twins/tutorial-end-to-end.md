@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 4/15/2020
 ms.topic: tutorial
 ms.service: digital-twins
-ms.openlocfilehash: faad1f812fc5c2cde6847a5208ee4b385f28ab3e
-ms.sourcegitcommit: b56226271541e1393a4b85d23c07fd495a4f644d
+ms.openlocfilehash: 9c07db575827254de833fc0b2390be823ebc4e57
+ms.sourcegitcommit: 3541c9cae8a12bdf457f1383e3557eb85a9b3187
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/26/2020
-ms.locfileid: "85391925"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86206566"
 ---
 # <a name="build-out-an-end-to-end-solution"></a>Créer une solution de bout en bout
 
@@ -205,8 +205,9 @@ La page *créer un abonnement aux événements* s’affiche.
 
 :::image type="content" source="media/tutorial-end-to-end/event-subscription-2.png" alt-text="Portail Azure : créer un abonnement aux événements":::
 
-Renseignez les champs comme suit :
+Renseignez les champs comme suit (les champs remplis par défaut ne sont pas mentionnés) :
 * *DÉTAILS DE L’ABONNEMENT AUX ÉVÉNEMENTS* > **Nom** : Donnez un nom à votre abonnement aux événements.
+* *DÉTAILS DE LA RUBRIQUE* > **Nom de la rubrique système** : spécifiez un nom à utiliser pour la rubrique système. 
 * *TYPES D’ÉVÉNEMENTS* > **Filtrer les types d’événements** : Sélectionnez *Télémétrie d’appareil* dans les options de menu.
 * *DÉTAILS DU POINT DE TERMINAISON* > **Type de point de terminaison** : Sélectionnez *Fonction Azure* dans les options de menu.
 * *DÉTAILS DU POINT DE TERMINAISON* > **Point de terminaison** : Cliquez sur le lien *Sélectionner un point de terminaison*. Une fenêtre *Sélectionner une fonction Azure* s’ouvre : :::image type="content" source="media/tutorial-end-to-end/event-subscription-3.png" alt-text="Abonnement aux événements dans le portail Azure : sélectionner une fonction Azure" border="false":::
@@ -361,11 +362,9 @@ Dans le [portail Azure](https://portal.azure.com/), accédez à votre rubrique E
 
 :::image type="content" source="media/tutorial-end-to-end/event-subscription-1b.png" alt-text="Portail Azure : abonnement aux événements Event Grid":::
 
-Les étapes de création de cet abonnement aux événements sont similaires à celles que vous avez suivies pour abonner la première fonction Azure à IoT Hub plus haut dans ce tutoriel. La différence est que, cette fois, vous n’avez pas besoin de spécifier *Télémétrie d’appareil* en tant que type d’événement à écouter et que vous vous connecterez à une autre fonction Azure.
+Les étapes de création de cet abonnement aux événements sont similaires à celles que vous avez suivies pour abonner la première fonction Azure à IoT Hub plus haut dans ce tutoriel. Cette fois, vous n’avez pas besoin de spécifier *Télémétrie d’appareil* comme type d’événement à écouter et vous allez vous connecter à une autre fonction Azure.
 
-Nous vous rappelons les étapes de l’abonnement :
-
-Dans la page *Créer un abonnement aux événements*, renseignez les champs comme suit :
+Dans la page *Créer un abonnement aux événements*, renseignez les champs comme suit (les champs remplis par défaut ne sont pas mentionnés) :
 * *DÉTAILS DE L’ABONNEMENT AUX ÉVÉNEMENTS* > **Nom** : Donnez un nom à votre abonnement aux événements.
 * *DÉTAILS DU POINT DE TERMINAISON* > **Type de point de terminaison** : Sélectionnez *Fonction Azure* dans les options de menu.
 * *DÉTAILS DU POINT DE TERMINAISON* > **Point de terminaison** : Cliquez sur le lien *Sélectionner un point de terminaison*. Une fenêtre *Sélectionner une fonction Azure* s’ouvre :

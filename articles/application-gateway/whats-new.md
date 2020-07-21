@@ -7,12 +7,12 @@ ms.service: application-gateway
 ms.topic: overview
 ms.date: 06/10/2020
 ms.author: victorh
-ms.openlocfilehash: dd6ec2057ede076511b567c013fc1b6fa12d8281
-ms.sourcegitcommit: eeba08c8eaa1d724635dcf3a5e931993c848c633
+ms.openlocfilehash: ebb3e6ba777646d39e3732215aa6c8fdd12ca40a
+ms.sourcegitcommit: ec682dcc0a67eabe4bfe242fce4a7019f0a8c405
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/10/2020
-ms.locfileid: "84669730"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86186688"
 ---
 # <a name="whats-new-in-azure-application-gateway"></a>Nouveautés d’Azure Application Gateway
 
@@ -27,6 +27,7 @@ Azure Application Gateway est mis à jour en continu. Pour vous informer des dé
 
 |Fonctionnalité  |Description  |Date de l’ajout  |
 |---------|---------|---------|
+| Port personnalisé pour les sondes d’intégrité | La référence SKU Application Gateway v2 offre désormais la possibilité de spécifier un port personnalisé dans la configuration de la sonde d’intégrité. Pour plus d’informations, consultez la [vue d’ensemble des sondes d’intégrité](application-gateway-probe-overview.md). | Juillet 2020
 | Module complémentaire AKS Application Gateway Ingress Controller (AGIC) (Préversion) |Le contrôleur d’entrée Application Gateway peut désormais être déployé comme module complémentaire AKS natif, en une seule ligne via Azure CLI. En tant que module complémentaire AKS, AGIC peut se transformer en service entièrement géré, tout en continuant de s’exécuter dans le cluster AKS du client. Pour plus d’informations, consultez [Différences avec le module complémentaire AGIC](ingress-controller-overview.md#difference-between-helm-deployment-and-aks-add-on). |Juin 2020 |
 | Routes définies par l’utilisateur (UDR) sur v2 (préversion) |Les routes définies par l’utilisateur sont désormais pris en charge dans certains scénarios sur les références SKU Application Gateway v2. Pour plus d’informations, consultez [Présentation de la configuration d’Application Gateway](configuration-overview.md#user-defined-routes-supported-on-the-application-gateway-subnet). |Mars 2020 |
 |Modifications du cookie d’affinité |Quand l’affinité basée sur les cookies est activée, Application Gateway injecte un autre cookie identique appelé *ApplicationGatewayAffinityCORS* en plus du cookie ApplicationGatewayAffinity existant. *ApplicationGatewayAffinityCORS* a deux attributs supplémentaires qui lui sont ajoutés (*SameSite=None; Secure*) afin que les sessions persistantes soient conservées même pour les requêtes cross-origin. Pour plus d’informations, consultez [Affinité basée sur les cookies dans Application Gateway](configuration-overview.md#cookie-based-affinity). |Février 2020 |

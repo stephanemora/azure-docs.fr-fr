@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.date: 09/03/2019
 ms.author: alkohli
 ms.localizationpriority: high
-ms.openlocfilehash: 93a7181a3b720a3b313bb75855b2564c4cd33bc1
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.openlocfilehash: ff57a67d5e6d617d6d51c924161f586f90f92c3c
+ms.sourcegitcommit: f7e160c820c1e2eb57dc480b2a8fd6bef7053e91
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "79214324"
+ms.lasthandoff: 07/10/2020
+ms.locfileid: "86231537"
 ---
 ::: zone target="docs"
 
@@ -273,7 +273,7 @@ Une fois la copie des données terminée, vous pouvez passer à leur validation.
 
 Si vous n’avez pas utilisé l’outil Split Copy pour copier les données, vous devez les valider. Pour vérifier les données, procédez comme suit.
 
-1. Exécutez le fichier `DataBoxDiskValidation.cmd` pour la validation des sommes de contrôle dans le dossier *DataBoxDiskImport* de votre lecteur.
+1. Exécutez le fichier `DataBoxDiskValidation.cmd` pour la validation des sommes de contrôle dans le dossier *DataBoxDiskImport* de votre lecteur. Cette option est disponible uniquement pour les environnements Windows. Les utilisateurs Linux doivent vérifier que les données sources copiées sur le disque répondent aux [prérequis](https://docs.microsoft.com/azure/databox/data-box-disk-limits).
     
     ![Sortie de l’outil de validation Data Box Disk](media/data-box-disk-deploy-copy-data/data-box-disk-validation-tool-output.png)
 

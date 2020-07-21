@@ -16,6 +16,8 @@
     - name: Déployer une instance de conteneur - Modèle ARM
       displayName: Resource Manager
       href: container-instances-quickstart-template.md
+    - name: Déployer une instance de conteneur - Docker CLI
+      href: container-instances-quickstart-docker-cli.md
 - name: Tutoriels
   items:
     - name: Créer et déployer une image conteneur
@@ -94,8 +96,10 @@
           href: container-instances-gpu.md
         - name: Activer le point de terminaison SSL en sidecar
           href: container-instances-container-group-ssl.md
-        - name: "Exposer une adresse\_IP statique"
+        - name: Exposer une adresse IP statique avec App Gateway
           href: container-instances-application-gateway.md
+        - name: Utiliser le Pare-feu Azure pour l’entrée et la sortie
+          href: container-instances-egress-ip-address.md
     - name: Monter des volumes de données
       items:
         - name: Partage de fichiers Azure

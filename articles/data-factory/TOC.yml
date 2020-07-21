@@ -23,7 +23,8 @@
       href: quickstart-create-data-factory-python.md
     - name: Créer une fabrique de données - REST
       href: quickstart-create-data-factory-rest-api.md
-    - name: Créer une fabrique de données - Modèle Resource Manager
+    - name: Créer une fabrique de données - Modèle ARM
+      displayName: Resource Manager
       href: quickstart-create-data-factory-resource-manager-template.md
     - name: Sécurité - Activer le chiffrement à clé gérée par le client
       href: enable-customer-managed-key.md
@@ -98,6 +99,8 @@
               href: tutorial-incremental-copy-lastmodified-copy-data-tool.md
             - name: Nouveaux fichiers selon le nom de fichier partitionné chronologiquement
               href: tutorial-incremental-copy-partitioned-file-name-copy-data-tool.md
+        - name: Générer un pipeline de copie à l’aide d’un réseau virtuel managé et de points de terminaison privés
+          href: tutorial-copy-data-portal-private.md
     - name: Transformer les données
       items:
         - name: Transformer des données avec des flux de données de mappage
@@ -126,6 +129,8 @@
                   href: tutorial-transform-data-hive-virtual-network-portal.md
                 - name: Azure PowerShell
                   href: tutorial-transform-data-hive-virtual-network.md
+        - name: Générer un pipeline de dataflow de mappage à l’aide d’un réseau virtuel managé et de points de terminaison privés
+          href: tutorial-data-flow-private.md
     - name: Flux de contrôle
       items:
         - name: Interface utilisateur (IU)
@@ -162,6 +167,8 @@
       href: concepts-pipeline-execution-triggers.md
     - name: Runtime d’intégration
       href: concepts-integration-runtime.md
+    - name: Réseau virtuel managé
+      href: managed-virtual-network-private-endpoint.md
     - name: Sécurité
       items:
         - name: Base de référence de la sécurité
@@ -408,6 +415,8 @@
           href: connector-web-table.md
         - name: Xero
           href: connector-xero.md
+        - name: Format XML
+          href: format-xml.md
         - name: Zoho
           href: connector-zoho.md
     - name: Transfert de données
@@ -469,12 +478,12 @@
           href: transform-data-using-spark.md
         - name: Activité de diffusion en continu HDInsight
           href: transform-data-using-hadoop-streaming.md
-        - name: Activité d’exécution par lot Machine Learning
-          href: transform-data-using-machine-learning.md
-        - name: "Activité des ressources de mise à jour de Machine\_Learning"
-          href: update-machine-learning-models.md
         - name: Activité d’exécution des pipelines Machine Learning
           href: transform-data-machine-learning-service.md
+        - name: Activité d’exécution par lot Machine Learning Studio (classique)
+          href: transform-data-using-machine-learning.md
+        - name: Activité de ressource de mise à jour Machine Learning Studio (classique)
+          href: update-machine-learning-models.md
         - name: Activité de procédure stockée
           href: transform-data-using-stored-procedure.md
         - name: Services liés de calcul
@@ -681,7 +690,7 @@
               href: how-to-fixed-width.md
             - name: Gestion des lignes d’erreur
               href: how-to-data-flow-error-rows.md
-            - name: Azure SQL DB vers CosmosDB
+            - name: Azure SQL DB vers Azure Cosmos DB
               href: how-to-sqldb-to-cosmosdb.md
         - name: Migration SSIS à partir d’un environnement local
           items:

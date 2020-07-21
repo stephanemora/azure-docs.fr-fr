@@ -385,6 +385,8 @@
                           href: ../common/storage-encryption-keys-cli.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
                 - name: Fournir une clé de chiffrement sur une demande
                   href: storage-blob-customer-provided-key.md
+                - name: Gérer des étendues de chiffrement
+                  href: encryption-scope-manage.md
                 - name: Activer le chiffrement de l’infrastructure pour un compte de stockage
                   href: ../common/infrastructure-encryption-enable.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
             - name: Configurer le chiffrement côté client
@@ -489,8 +491,6 @@
           items:
             - name: Superviser dans le portail Azure (classique)
               href: ../common/storage-monitor-storage-account.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
-            - name: Tutoriel sur la résolution des problèmes (classique)
-              href: ../common/storage-e2e-troubleshooting.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
         - name: Dépanner
           items:
             - name: Problèmes de latence
@@ -554,6 +554,8 @@
               href: 'https://github.com/microsoft/AzureStorageExplorer/releases'
             - name: Résoudre les problèmes de l’Explorateur de stockage
               href: ../common/storage-explorer-troubleshooting.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+            - name: Stratégie de prise en charge et cycle de vie de l’Explorateur Stockage
+              href: ../common/storage-explorer-support-policy-lifecycle.md
             - name: Accessibilité de l’Explorateur Stockage Azure
               href: ../../vs-azure-tools-storage-explorer-accessibility.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
         - name: Forum Internet du Stockage Azure

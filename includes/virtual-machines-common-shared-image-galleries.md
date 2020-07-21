@@ -4,19 +4,19 @@ description: Fichier include
 author: axayjo
 ms.service: virtual-machines
 ms.topic: include
-ms.date: 04/16/2020
+ms.date: 07/08/2020
 ms.author: akjosh
 ms.custom: include file
-ms.openlocfilehash: 5af9deef7b6c3e2ea688f9e8ad5cc498f79c784e
-ms.sourcegitcommit: 69156ae3c1e22cc570dda7f7234145c8226cc162
+ms.openlocfilehash: 2d0030549acdb55ce2be94534ec59bb07b11869d
+ms.sourcegitcommit: f844603f2f7900a64291c2253f79b6d65fcbbb0c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/03/2020
-ms.locfileid: "84317433"
+ms.lasthandoff: 07/10/2020
+ms.locfileid: "86221632"
 ---
-La galerie d’images partagées est un service qui vous permet de structurer et d’organiser vos images managées. Les galeries d’images partagées proposent les éléments suivants :
+Shared Image Gallery est un service qui vous permet de structurer et d’organiser vos images. Les galeries d’images partagées proposent les éléments suivants :
 
-- une réplication mondiale et managée des images ;
+- Réplication globale des images.
 - la gestion de versions et le regroupement d’images pour faciliter la gestion ;
 - des images hautement disponibles avec des comptes ZRS (Zone Redundant Storage) dans les régions qui prennent en charge les zones de disponibilité Azure Le stockage redondant interzone (ZRS) offre une meilleure résilience en cas de défaillances de zones.
 - Prise en charge du stockage Premium (Premium_LRS).
@@ -33,7 +33,7 @@ La fonctionnalité Galerie d’images partagées a plusieurs types de ressources
 
 | Ressource | Description|
 |----------|------------|
-| **Source d’image** | Il s’agit d’une ressource qui peut être utilisée pour créer une **version d’image** dans une galerie d’images. Une source d’image peut être une machine virtuelle Azure existante qui est [généralisée ou spécialisée](#generalized-and-specialized-images), une image managée, un capture instantanée ou une version d’image dans une autre galerie d’images. |
+| **Source d’image** | Il s’agit d’une ressource qui peut être utilisée pour créer une **version d’image** dans une galerie d’images. Une source d’image peut être une machine virtuelle Azure existante qui est [généralisée ou spécialisée](#generalized-and-specialized-images), une image managée, une capture instantanée, un disque dur virtuel ou une version d’image dans une autre galerie d’images. |
 | **Galerie d’images** | Tout comme la Place de marché Azure, une **galerie d’images** est un dépôt permettant de gérer et partager des images, mais vous contrôlez les utilisateurs qui y ont accès. |
 | **Définition d'image** | Les définitions d’image sont créées dans une galerie et contiennent des informations sur l’image et sur les exigences relatives à son utilisation en interne. Ces informations indiquent, par exemple, si l’image est Windows ou Linux, et comprennent les notes de publication et les exigences de mémoire maximale et minimale. Il s’agit d’une définition de type d’image. |
 | **Version de l’image** | Une **version d’image** est ce qui vous permet de créer une machine virtuelle quand vous utilisez une galerie. Vous pouvez avoir plusieurs versions d’une image en fonction des besoins de votre environnement. Tout comme une image managée, quand vous utilisez une **version d’image** pour créer une machine virtuelle, la version d’image permet de créer des disques pour la machine virtuelle. Les versions d’image peuvent être utilisées plusieurs fois. |
@@ -68,6 +68,7 @@ Voici d’autres paramètres qui peuvent être configurés sur votre définition
 * Suggestions concernant la quantité maximale et minimale de processeurs virtuels et de mémoire : si votre image est associée à ces types de recommandation, vous pouvez indiquer ces informations dans votre définition d’image.
 * Types de disque non autorisés : vous pouvez fournir des informations sur les besoins de votre machine virtuelle en termes de stockage. Par exemple, si l’image n’est pas adaptée aux disques durs standard, vous pouvez les ajouter à la liste de disques non autorisés.
 * Hyper-V Génération : vous pouvez spécifier si l’image a été créée à partir d’un disque dur virtuel Hyper-V de la génération 1 ou de la génération 2.
+* Informations sur le plan d’achat d’images de la Place de marché - `-PurchasePlanPublisher `, `-PurchasePlanName` et `-PurchasePlanProduct`. Pour en savoir plus sur les informations relatives au plan d’achat, consultez [Trouver des images dans la Place de marché Azure](https://docs.microsoft.com/azure/virtual-machines/windows/cli-ps-findimage) et [Donner des informations sur le plan d’achat de la Place de marché Azure lors de la création d’images](../articles/virtual-machines/marketplace-images.md).
 
 ## <a name="generalized-and-specialized-images"></a>Images généralisées et spécialisées
 
@@ -82,24 +83,7 @@ Les machines virtuelles spécialisées n'ont pas été soumises à un processus 
 
 ## <a name="regional-support"></a>Prise en charge régionale
 
-Les régions sources sont répertoriées dans la table ci-dessous. Toutes les régions publiques peuvent être choisies comme cibles. Cependant, pour que vous puissiez effectuer la réplication dans les régions Australie Centre et Australie Centre 2, votre abonnement doit figurer sur la liste verte. Pour demander la mise en liste verte, accédez à : https://azure.microsoft.com/global-infrastructure/australia/contact/
-
-
-| Régions sources        |                   |                    |                    |
-| --------------------- | ----------------- | ------------------ | ------------------ |
-| Centre de l’Australie     | Chine orientale        | Inde Sud        | Europe Ouest        |
-| Centre de l’Australie 2   | Chine orientale 2      | Asie Sud-Est     | Sud du Royaume-Uni           |
-| Australie Est        | Chine du Nord       | Japon Est         | Ouest du Royaume-Uni            |
-| Sud-Australie Est   | Chine Nord 2     | OuJapon Est         | Centre des États-Unis – US DoD     |
-| Brésil Sud          | Asie Est         | Centre de la Corée      | Est des États-Unis – US DoD        |
-| Centre du Canada        | USA Est           | Corée du Sud        | Gouvernement des États-Unis – Arizona     |
-| Est du Canada           | USA Est 2         | Centre-Nord des États-Unis   | Gouvernement des États-Unis – Texas       |
-| Inde centrale         | USA Est 2 (EUAP)    | Europe Nord       | Gouvernement américain - Virginie    |
-| USA Centre            | France Centre    | États-Unis - partie centrale méridionale   | Inde Ouest         |
-| EUAP USA Centre       | France Sud      | Centre-USA Ouest    | USA Ouest            |
-|                       |                   |                    | USA Ouest 2          |
-
-
+Toutes les régions publiques peuvent être choisies comme cibles. Cependant, pour que vous puissiez effectuer la réplication dans les régions Australie Centre et Australie Centre 2, votre abonnement doit figurer sur la liste verte. Pour demander la mise en liste verte, accédez à : https://azure.microsoft.com/global-infrastructure/australia/contact/
 
 ## <a name="limits"></a>limites 
 
@@ -246,13 +230,7 @@ Oui. Il existe 3 scénarios basés sur les types d’images.
 
 ### <a name="can-i-create-an-image-version-from-a-specialized-disk"></a>Puis-je créer une version d’image à partir d’un disque spécialisé ?
 
-Oui, la prise en charge des disques spécialisés en tant qu’images est en préversion. Vous ne pouvez créer une machine virtuelle qu’à partir d’une image spécialisée en utilisant le portail, PowerShell ou l’API. 
-
-
-Utilisez [PowerShell pour créer une image d’une machine virtuelle spécialisée](../articles/virtual-machines/image-version-vm-powershell.md).
-
-Utilisez le portail pour créer une image [Windows](../articles/virtual-machines/linux/shared-images-portal.md) ou [Linux] (../articles/virtual-machines/linux/shared-images-portal.md). 
-
+Oui, vous pouvez créer une machine virtuelle à partir d’une image spécialisée en utilisant l’interface [CLI](../articles/virtual-machines/vm-specialized-image-version-cli.md), [PowerShell](../articles/virtual-machines/vm-specialized-image-version-powershell.md) ou l’API. 
 
 ### <a name="can-i-move-the-shared-image-gallery-resource-to-a-different-subscription-after-it-has-been-created"></a>Une fois la ressource de galerie d’images partagées créée, puis-je la déplacer vers un autre abonnement ?
 

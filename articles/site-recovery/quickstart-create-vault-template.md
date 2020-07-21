@@ -1,33 +1,31 @@
 ---
 title: Démarrage rapide pour créer un coffre Recovery Services Azure avec un modèle Azure Resource Manager.
-description: Dans ce guide de démarrage rapide, vous allez apprendre à créer un coffre Recovery Services Azure à l’aide d’un modèle Azure Resource Manager.
+description: Dans ce guide de démarrage rapide, vous allez apprendre à créer un coffre Recovery Services Azure à l’aide d’un modèle Azure Resource Manager (modèle ARM).
 ms.topic: quickstart
 ms.custom: subject-armqs
 ms.date: 04/29/2020
-author: davidsmatlak
-ms.author: v-dasmat
-ms.openlocfilehash: cf85939a1dbaf8d3e8a90a3acf10bda9faac83bc
-ms.sourcegitcommit: 12f23307f8fedc02cd6f736121a2a9cea72e9454
+ms.openlocfilehash: 9112841f6f07808d80fa2b8b61e612d57d0ec20e
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/30/2020
-ms.locfileid: "84217298"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86248823"
 ---
-# <a name="quickstart-create-a-recovery-services-vault-using-a-resource-manager-template"></a>Démarrage rapide : Créer un coffre Recovery Services avec un modèle Resource Manager
+# <a name="quickstart-create-a-recovery-services-vault-using-an-arm-template"></a>Démarrage rapide : Créer un coffre Recovery Services avec un modèle ARM
 
-Ce guide de démarrage rapide explique comment configurer un coffre Recovery Services à l’aide d’un modèle Azure Resource Manager. Le service [Azure Site Recovery](site-recovery-overview.md) contribue à votre stratégie de continuité d’activité et de reprise d’activité afin que vos applications métier demeurent en ligne pendant les interruptions planifiées et non planifiées. Site Recovery gère la reprise d’activité des machines locales et des machines virtuelles Azure, notamment la réplication, le basculement et la récupération.
+Ce guide de démarrage rapide explique comment configurer un coffre Recovery Services à l’aide d’un modèle Azure Resource Manager (modèle ARM). Le service [Azure Site Recovery](site-recovery-overview.md) contribue à votre stratégie de continuité d’activité et de reprise d’activité afin que vos applications métier demeurent en ligne pendant les interruptions planifiées et non planifiées. Site Recovery gère la reprise d’activité des machines locales et des machines virtuelles Azure, notamment la réplication, le basculement et la récupération.
 
 [!INCLUDE [About Azure Resource Manager](../../includes/resource-manager-quickstart-introduction.md)]
 
-Si vous n’avez pas d’abonnement Azure actif, créez un [compte gratuit](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) avant de commencer.
+Si votre environnement remplit les prérequis et que vous êtes déjà familiarisé avec l’utilisation des modèles ARM, sélectionnez le bouton **Déployer sur Azure**. Le modèle s’ouvre dans le portail Azure.
+
+[![Déployer sur Azure](../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-recovery-services-vault-create%2Fazuredeploy.json)
 
 ## <a name="prerequisites"></a>Prérequis
 
-Aucun.
+Si vous n’avez pas d’abonnement Azure actif, créez un [compte gratuit](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) avant de commencer.
 
-## <a name="create-a-recovery-services-vault"></a>Créer un coffre Recovery Services
-
-### <a name="review-the-template"></a>Vérifier le modèle
+## <a name="review-the-template"></a>Vérifier le modèle
 
 Le modèle utilisé dans ce démarrage rapide est tiré des [modèles de démarrage rapide Azure](https://azure.microsoft.com/resources/templates/101-recovery-services-vault-create/).
 
@@ -42,7 +40,7 @@ Le modèle comprend des paramètres facultatifs pour la configuration de sauvega
 
 Pour plus d’informations sur les modèles Azure Recovery Services, consultez [Modèles de démarrage rapide Azure](https://azure.microsoft.com/resources/templates/?resourceType=Microsoft.Recoveryservices&pageNumber=1&sort=Popular).
 
-### <a name="deploy-the-template"></a>Déployer le modèle
+## <a name="deploy-the-template"></a>Déployer le modèle
 
 Pour déployer le modèle, vous devez définir l’**Abonnement**, le **Groupe de ressources** et le **Nom du coffre**.
 

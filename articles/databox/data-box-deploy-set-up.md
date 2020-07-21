@@ -6,19 +6,19 @@ author: alkohli
 ms.service: databox
 ms.subservice: pod
 ms.topic: tutorial
-ms.date: 09/03/2019
+ms.date: 07/10/2020
 ms.author: alkohli
 ms.localizationpriority: high
-ms.openlocfilehash: 850144e4835b43e219fa059bbc1c92bb3ef412f4
-ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
+ms.openlocfilehash: c74b5ba5101dae9165898aeb4f265d449988ecab
+ms.sourcegitcommit: 3541c9cae8a12bdf457f1383e3557eb85a9b3187
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/12/2020
-ms.locfileid: "83200495"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86205245"
 ---
 ::: zone target="docs"
 
-# <a name="tutorial-cable-and-connect-to-your-azure-data-box"></a>Didacticiel : branchement des câbles et connexion à une Azure Data Box
+# <a name="tutorial-cable-and-connect-to-your-azure-data-box"></a>Tutoriel : Branchement des câbles et connexion à une Azure Data Box
 
 ::: zone-end
 
@@ -38,21 +38,23 @@ Dans ce tutoriel, vous allez apprendre à :
 > * Raccordement de la Data Box
 > * Connexion à la Data Box
 
-## <a name="prerequisites"></a>Conditions préalables requises
+## <a name="prerequisites"></a>Prérequis
 
 Avant de commencer, assurez-vous que :
 
-1. Vous avez terminé le [didacticiel : Commander une Azure Data Box](data-box-deploy-ordered.md).
-2. Vous avez reçu votre Data Box et que l’état de la commande dans le portail est **Remis** 
+1. Vous avez passé la commande pour Azure Data Box.
+    - Pour une commande d’importation, consultez [Tutoriel : Commander Azure Data Box](data-box-deploy-ordered.md).
+    - Pour une commande d’exportation, consultez [Tutoriel : Commander Azure Data Box](data-box-deploy-export-ordered.md)
+1. Vous avez reçu votre Data Box et que l’état de la commande dans le portail est **Remis** 
     - Une étiquette d’expédition se trouve dans le sachet transparent fixé sur l’appareil sous l’étiquette actuelle. Gardez cette étiquette en lieu sûr car vous allez l’utiliser pour le retour.
     - Dans certaines régions d’Europe, l’appareil peut être envoyé par colis. Déballez l’appareil et conservez la boîte en cas de retour nécessaire.
-3. Vous avez consulté les [consignes de sécurité de la Data Box](data-box-safety.md).
-4. Vous avez reçu un cordon d’alimentation avec mise à la terre à utiliser avec votre périphérique de stockage de 100 To.
-5. Vous disposez d’un ordinateur hôte contenant les données que vous souhaitez copier sur Data Box Votre ordinateur hôte doit
+1. Vous avez consulté les [consignes de sécurité de la Data Box](data-box-safety.md).
+1. Vous avez reçu un cordon d’alimentation avec mise à la terre à utiliser avec votre périphérique de stockage de 100 To.
+1. Vous disposez d’un ordinateur hôte utilisé pour copier des données sur votre Data Box (commande d’importation) ou copier des données à partir de votre Data Box (commande d’exportation). Votre ordinateur hôte doit
     - Exécuter un [système d’exploitation pris en charge](data-box-system-requirements.md)
     - Être connecté à un réseau haut débit. Nous vous recommandons vivement d’utiliser au minimum une connexion 10 GbE. Si vous ne disposez pas d’une connexion 10 GbE, vous pouvez utiliser une liaison de données 1 GbE. Cependant, cela a une incidence sur les vitesses de copie. 
-6. Vous devez avoir accès à une surface plane sur laquelle placer la Data Box. Si vous souhaitez placer l’appareil sur un rack standard, vous avez besoin d’un emplacement 7U dans le rack de votre centre de données. Vous pouvez placer l’appareil à plat ou en position verticale dans le rack.
-7. Vous disposez des câbles suivants pour connecter votre Data Box à l’ordinateur hôte.
+1. Vous devez avoir accès à une surface plane sur laquelle placer la Data Box. Si vous souhaitez placer l’appareil sur un rack standard, vous avez besoin d’un emplacement 7U dans le rack de votre centre de données. Vous pouvez placer l’appareil à plat ou en position verticale dans le rack.
+1. Vous disposez des câbles suivants pour connecter votre Data Box à l’ordinateur hôte.
     - Un ou plusieurs câbles Twinax 10 GbE SFP+ cuivre ou SFP+ fibre optique (à utiliser avec les interface réseau DATA 1, DATA 2). Étant donné que Data Box est équipé de cartes Mellanox ConnectX®-3 Pro EN 10GBASE-T Double port avec l’interface réseau PCI Express 3.0, les câbles qui sont compatibles avec cette interface doivent fonctionner. Par exemple, un câble CISCO SFP-H10GB-CU3M 10GBASE-CU TWINAX SFP +3M a été utilisé pour les tests internes. Pour plus d’informations, voir la [liste des câbles et commutateurs compatibles de Mellanox](https://www.mellanox.com/pdf/firmware/ConnectX3-FW-2_42_5000-release_notes.pdf).
     - Un câble réseau RJ-45 CAT 6 (à utiliser avec l’interface réseau MGMT)
     - Un câble réseau RJ-45 CAT 6A OU RJ-45 CAT 6 (à utiliser avec l’interface réseau DATA 3 et configurés en mode 10 Gbit/s ou 1 Gbit/s, respectivement)
@@ -135,7 +137,7 @@ Procédez comme suit pour configurer votre appareil à l’aide de l’interface
 
 Une fois que les interfaces réseau de données sont configurées, vous pouvez également utiliser l’adresse IP de n’importe quelle interface, de DATA 1 à DATA 3, pour accéder aux interfaces utilisateur locales web à `https://<IP address of a data network interface>`. 
 
-Une fois que l’appareil est configuré, vous pouvez vous connecter aux partages de l’appareil et copier les données de votre ordinateur vers l’appareil. 
+Une fois que l’appareil est configuré, vous pouvez vous connecter aux partages de l’appareil et copier les données. 
 
 ::: zone-end
 
@@ -161,10 +163,15 @@ Ce tutoriel vous a apporté des connaissances concernant Azure Data Box, notamme
 > * Raccordement de la Data Box
 > * Connexion à la Data Box
 
-Passez au didacticiel suivant pour découvrir comment copier des données sur votre Data Box.
+Passez au tutoriel suivant pour savoir comment copier les données.
 
 > [!div class="nextstepaction"]
-> [Copier des données sur une Azure Data Box](./data-box-deploy-copy-data.md)
+> [Copier des données sur une Azure Data Box pour une commande d’importation](./data-box-deploy-copy-data.md)
+
+ou
+
+> [!div class="nextstepaction"]
+> [Copier des données à partir d’une Azure Data Box pour une commande d’exportation](./data-box-deploy-export-copy-data.md)
 
 ::: zone-end
 

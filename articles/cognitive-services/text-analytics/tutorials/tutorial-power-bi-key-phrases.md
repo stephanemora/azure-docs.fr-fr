@@ -10,12 +10,12 @@ ms.subservice: text-analytics
 ms.topic: tutorial
 ms.date: 12/19/2019
 ms.author: aahi
-ms.openlocfilehash: 2398bfa2ce828e716831cc7ce438bd1c241ca5f8
-ms.sourcegitcommit: 9ee0cbaf3a67f9c7442b79f5ae2e97a4dfc8227b
+ms.openlocfilehash: 4bf2f12ef79f8551291316b5446121f2735d9347
+ms.sourcegitcommit: 3541c9cae8a12bdf457f1383e3557eb85a9b3187
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "75378532"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86206582"
 ---
 # <a name="tutorial-integrate-power-bi-with-the-text-analytics-cognitive-service"></a>Tutoriel : Intégrer Power BI au service cognitif Analyse de texte
 
@@ -34,7 +34,7 @@ Ce didacticiel vous montre comment effectuer les opérations suivantes :
 <a name="Prerequisites"></a>
 
 - Microsoft Power BI Desktop. [Téléchargez-le sans frais](https://powerbi.microsoft.com/get-started/).
-- Un compte Microsoft Azure [Démarrez un essai gratuit](https://azure.microsoft.com/free/) ou [connectez-vous](https://portal.azure.com/).
+- Un compte Microsoft Azure [Créez un compte gratuit](https://azure.microsoft.com/free/cognitive-services/) ou [connectez-vous](https://portal.azure.com/).
 - Un compte d’API Cognitive Services avec l’API Analyse de texte. Si vous n’en avez pas, vous pouvez vous [inscrire](../../cognitive-services-apis-create-account.md) afin de bénéficier du niveau gratuit qui offre 5 000 transactions/mois (voir [Tarifs](https://azure.microsoft.com/pricing/details/cognitive-services/text-analytics/)), ce qui suffit à suivre ce tutoriel.
 - La [clé d’accès Analyse de texte](../../cognitive-services-apis-create-account.md#get-the-keys-for-your-resource) qui a été générée pendant le processus d’inscription.
 - Des commentaires de clients. Vous pouvez utiliser [nos exemples de données](https://aka.ms/cogsvc/ta) ou vos propres données. Ce tutoriel suppose que vous utilisez nos exemples de données.
@@ -91,7 +91,7 @@ Vous pouvez également envisager de filtrer les messages vides en utilisant le f
 
 [L’API d’extraction de phrases clés](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-V2-1/operations/56f30ceeeda5650db055a3c6) du service Analyse de texte peut traiter jusqu’à mille documents texte par requête HTTP. Power BI traite généralement les enregistrements un par un. Par conséquent, dans ce tutoriel, chacun de vos appels à l’API ne contient qu’un seul document. Pour chaque document à traiter, l’API d’extraction de phrases clés nécessite les champs ci-dessous.
 
-| | |
+| Champ | Description |
 | - | - |
 | `id`  | Identificateur unique de ce document dans la requête. La réponse contient également ce champ. De cette façon, si vous traitez plusieurs documents, vous pouvez facilement associer les phrases clés extraites au document dont elles sont issues. Dans ce tutoriel, étant donné que vous ne traitez qu’un seul document par requête, vous pouvez coder en dur la valeur de `id` afin que celle-ci soit la même pour chaque requête.|
 | `text`  | Texte à traiter. La valeur de ce champ provient de la colonne `Merged`que vous avez créée dans la [section précédente](#PreparingData), qui contient la combinaison de la ligne d’objet et du texte de commentaire. L’API d’extraction de phrases clés exige que ces données ne dépassent pas 5 120 caractères.|

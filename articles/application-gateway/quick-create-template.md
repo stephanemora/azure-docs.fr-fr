@@ -9,16 +9,16 @@ ms.topic: quickstart
 ms.date: 05/28/2020
 ms.author: victorh
 ms.custom: mvc
-ms.openlocfilehash: 986e061c03634fe33af985c9d11569848500862c
-ms.sourcegitcommit: 1692e86772217fcd36d34914e4fb4868d145687b
+ms.openlocfilehash: 963f728db55f587f7ae72aec702a099882cf401a
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/29/2020
-ms.locfileid: "84170492"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86249357"
 ---
-# <a name="quickstart-direct-web-traffic-with-azure-application-gateway---resource-manager-template"></a>Démarrage rapide : Diriger le trafic web avec Azure Application Gateway - Modèle Resource Manager
+# <a name="quickstart-direct-web-traffic-with-azure-application-gateway---arm-template"></a>Démarrage rapide : Diriger le trafic web avec Azure Application Gateway - Modèle ARM
 
-Dans ce guide de démarrage rapide, vous allez utiliser un modèle Resource Manager pour créer une passerelle Azure Application Gateway. Ensuite, vous la testerez pour être sûr qu’elle fonctionne correctement.
+Dans ce guide de démarrage rapide, vous allez utiliser un modèle Azure Resource Manager (modèle ARM) pour créer une instance Azure Application Gateway. Ensuite, vous la testerez pour être sûr qu’elle fonctionne correctement.
 
 [!INCLUDE [About Azure Resource Manager](../../includes/resource-manager-quickstart-introduction.md)]
 
@@ -26,17 +26,19 @@ Vous pouvez également suivre ce guide de démarrage rapide en utilisant le [por
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
+Si votre environnement remplit les prérequis et que vous êtes déjà familiarisé avec l’utilisation des modèles ARM, sélectionnez le bouton **Déployer sur Azure**. Le modèle s’ouvre dans le portail Azure.
+
+[![Déployer sur Azure](../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fag-docs-qs%2Fazuredeploy.json)
+
 ## <a name="prerequisites"></a>Prérequis
 
 - Compte Azure avec un abonnement actif. [Créez un compte gratuitement](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 
-## <a name="create-an-application-gateway"></a>Créer une passerelle Application Gateway
+## <a name="review-the-template"></a>Vérifier le modèle
 
 Par souci de simplicité, ce modèle crée une configuration simple avec une adresse IP front-end publique, un écouteur de base pour héberger un site unique sur cette passerelle d’application, une règle de routage des requêtes simple et deux machines virtuelles dans le pool de back-ends.
 
-### <a name="review-the-template"></a>Vérifier le modèle
-
-Le modèle utilisé dans ce guide de démarrage rapide est tiré des [modèles de démarrage rapide Azure](https://github.com/Azure/azure-quickstart-templates/blob/master/ag-docs-qs/azuredeploy.json).
+Le modèle utilisé dans ce guide de démarrage rapide est tiré des [modèles de démarrage rapide Azure](https://azure.microsoft.com/resources/templates/ag-docs-qs/).
 
 :::code language="json" source="~/quickstart-templates/ag-docs-qs/azuredeploy.json" range="001-343" highlight="197-297":::
 
@@ -50,10 +52,9 @@ Plusieurs ressources Azure sont définies dans le modèle :
 - [**Microsoft.Network/networkInterfaces**](/azure/templates/microsoft.network/networkinterfaces) : deux pour les machines virtuelles
 - [**Microsoft.Compute/virtualMachine/extensions**](/azure/templates/microsoft.compute/virtualmachines/extensions) : pour configurer IIS et les pages web
 
+## <a name="deploy-the-template"></a>Déployer le modèle
 
-### <a name="deploy-the-template"></a>Déployer le modèle
-
-Déployez le modèle Resource Manager sur Azure :
+Déployez le modèle ARM sur Azure :
 
 1. Sélectionnez **Déployer sur Azure** pour vous connecter à Azure et ouvrir le modèle. Le modèle crée une passerelle d’application, l’infrastructure réseau et deux machines virtuelles dans le pool de back-ends exécutant IIS.
 

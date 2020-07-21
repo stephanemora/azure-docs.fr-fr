@@ -5,14 +5,14 @@ ms.topic: quickstart
 ms.date: 07/22/2019
 ms.author: suhuruli
 ms.custom: mvc
-ms.openlocfilehash: eb0a83d0110002cc32998af4083d06cf6e86e16a
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.openlocfilehash: d765168ea2eddaf42715536b5da67f15bb8a8cee
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "75372684"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86258544"
 ---
-# <a name="quickstart-deploy-linux-containers-to-service-fabric"></a>Démarrage rapide : Déployer des conteneurs Linux sur Service Fabric
+# <a name="quickstart-deploy-linux-containers-to-service-fabric"></a>Démarrage rapide : Déployer des conteneurs Linux sur Service Fabric
 
 Azure Service Fabric est une plateforme de systèmes distribués pour le déploiement et la gestion de microservices et conteneurs extensibles et fiables.
 
@@ -20,7 +20,7 @@ Ce guide de démarrage rapide montre comment déployer des conteneurs Linux sur 
 
 ![Page web de l’application de vote][quickstartpic]
 
-## <a name="prerequisites"></a>Conditions préalables requises
+## <a name="prerequisites"></a>Prérequis
 
 Pour suivre ce guide de démarrage rapide :
 
@@ -108,7 +108,7 @@ Mozilla Firefox est le navigateur par défaut dans Ubuntu 16.04. Pour importer l
     ./install.sh
     ```
 
-3. Ouvrez un navigateur web et accédez au point de terminaison Service Fabric Explorer pour votre cluster. Le point de terminaison a le format suivant : **https://\<my-azure-service-fabric-cluster-url>:19080/Explorer**. Par exemple, `https://containertestcluster.eastus.cloudapp.azure.com:19080/Explorer`. </br>
+3. Ouvrez un navigateur web et accédez au point de terminaison Service Fabric Explorer pour votre cluster. Le point de terminaison a le format suivant : **https://\<my-azure-service-fabric-cluster-url>:19080/Explorer**, par exemple, `https://containertestcluster.eastus.cloudapp.azure.com:19080/Explorer`. </br>
 
 4. Développez le nœud **Applications** pour vous assurer qu’une entrée s’affiche pour le type d’application de vote et l’instance que vous avez créée.
 
@@ -179,9 +179,9 @@ az group delete --name $ResourceGroupName
 ```
 
 Si vous avez fini d’utiliser votre cluster, vous pouvez supprimer le certificat du magasin de certificats. Par exemple :
-- Sur Windows : utilisez le [composant logiciel enfichable MMC Certificats](https://docs.microsoft.com/dotnet/framework/wcf/feature-details/how-to-view-certificates-with-the-mmc-snap-in). Veillez à sélectionner **My user account** (Mon compte d’utilisateur) lors de l’ajout du composant logiciel enfichable. Accédez à `Certificates - Current User\Personal\Certificates` et supprimez le certificat.
-- Sur Mac : utilisez l’application Keychain.
-- Sur Ubuntu : suivez les étapes que vous avez utilisées pour afficher les certificats, puis supprimez le certificat.
+- Sur Windows : utilisez le [composant logiciel enfichable MMC Certificats](/dotnet/framework/wcf/feature-details/how-to-view-certificates-with-the-mmc-snap-in). Veillez à sélectionner **My user account** (Mon compte d’utilisateur) lors de l’ajout du composant logiciel enfichable. Accédez à `Certificates - Current User\Personal\Certificates` et supprimez le certificat.
+- Sur Mac : utilisez l’application Keychain.
+- Sur Ubuntu : suivez les étapes que vous avez utilisées pour afficher les certificats, puis supprimez le certificat.
 
 ## <a name="next-steps"></a>Étapes suivantes
 

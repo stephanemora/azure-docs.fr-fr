@@ -16,12 +16,12 @@ ms.topic: tutorial
 ms.date: 01/03/2018
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d6f6cb87cf7628c48ce6adf12336c4b712dc0ff9
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: b31bc86554998295bc97352d28fa3b3d4b330abe
+ms.sourcegitcommit: 5cace04239f5efef4c1eed78144191a8b7d7fee8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "82202551"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86146575"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-saml-sso-for-jira-by-resolution-gmbh"></a>Tutoriel : Intégration d’Azure Active Directory à SSO SAML pour Jira de resolution GmbH
 
@@ -117,7 +117,7 @@ Pour configurer l’authentification unique avec SSO SAML pour Jira de resolutio
     Dans la zone de texte **URL de connexion**, tapez une URL au format suivant : `https://<server-base-url>/plugins/servlet/samlsso`
 
     > [!NOTE]
-    > Dans les zones Identificateur, URL de réponse et URL de connexion, remplacez **\<server-base-url>** par l’URL de base de votre instance Jira. Vous pouvez également consulter les modèles figurant à la section **Configuration SAML de base** dans le portail Azure. Si vous rencontrez un problème, contactez le [support technique de SSO SAML pour Jira de resolution GmbH](https://www.resolution.de/go/support).
+    > Dans l’Identificateur, l’URL de réponse et l’URL de connexion, remplacez **\<server-base-url>** par l’URL de base de votre instance Jira. Vous pouvez également consulter les modèles figurant à la section **Configuration SAML de base** dans le portail Azure. Si vous rencontrez un problème, contactez le [support technique de SSO SAML pour Jira de resolution GmbH](https://www.resolution.de/go/support).
 
 4. Dans la page **Configurer l’authentification unique avec SAML**, dans la section **Certificat de signature SAML**, téléchargez le fichier **XML de métadonnées de fédération** et enregistrez-le sur votre ordinateur.
 
@@ -304,14 +304,16 @@ Pour activer la redirection vers l’authentification unique, effectuez les éta
 
 1. Accédez à la page de configuration du plug-in SSO SAML dans Jira.
 1. Cliquez sur **Redirection** dans le panneau de gauche.
-![](./media/samlssojira-tutorial/ssore1.png)
+
+   ![Capture d’écran partielle de la page de configuration du plug-in Jira SAML SingleSignOn mettant en évidence le lien de redirection dans le volet de navigation gauche.](./media/samlssojira-tutorial/ssore1.png)
 
 1. Cochez **Enable SSO Redirect** (Activer la redirection vers l’authentification unique).
-![](./media/samlssojira-tutorial/ssore2.png) 
+
+   ![Capture d’écran partielle de la page de configuration du plug-in JIRA SAML SingleSignOn mettant en évidence la case « Enable SSO Redirect » (Activer la redirection de l’authentification unique) cochée.](./media/samlssojira-tutorial/ssore2.png) 
 
 1. Choisissez le bouton **Save Settings** (Enregistrer les paramètres) dans l’angle supérieur droit.
 
-Après avoir activé l’option, vous pouvez toujours accéder à l’invite du nom d’utilisateur/mot de passe, si l’option **Enable nosso** (Activer nosso) est cochée, à partir de `https://\<server-base-url>/login.jsp?nosso`. Là aussi, remplacez **\<server-base-url>** par votre URL de base.
+Après avoir activé l’option, vous pouvez toujours accéder à l’invite du nom d’utilisateur/mot de passe, si l’option **Enable nosso** (Activer nosso) est cochée, à partir de `https://\<server-base-url>/login.jsp?nosso`. Comme toujours, remplacez **\<server-base-url>** par votre URL de base.
 
 
 ## <a name="additional-resources"></a>Ressources supplémentaires

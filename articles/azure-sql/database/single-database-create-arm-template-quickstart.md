@@ -1,6 +1,6 @@
 ---
 title: 'Azure Resource Manager : Créer une base de données unique'
-description: Créez une base de données unique dans Azure SQL Database à l’aide du modèle Azure Resource Manager.
+description: Créez une base de données unique dans Azure SQL Database à l’aide d’un modèle Azure Resource Manager.
 services: sql-database
 ms.service: sql-database
 ms.subservice: single-database
@@ -11,20 +11,20 @@ author: mumian
 ms.author: jgao
 ms.reviewer: carlrab
 ms.date: 06/24/2020
-ms.openlocfilehash: 2975b98306b7019022799d5ba69b9d7af5797a2b
-ms.sourcegitcommit: bf8c447dada2b4c8af017ba7ca8bfd80f943d508
+ms.openlocfilehash: a766d61c49fe23645c232432198eb4aa0eedb98b
+ms.sourcegitcommit: e995f770a0182a93c4e664e60c025e5ba66d6a45
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/25/2020
-ms.locfileid: "85368037"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86135641"
 ---
-# <a name="quickstart-create-a-single-database-in-azure-sql-database-using-the-azure-resource-manager-template"></a>Démarrage rapide : Créer une base de données unique dans Azure SQL Database à l’aide du modèle Azure Resource Manager
+# <a name="quickstart-create-a-single-database-in-azure-sql-database-using-an-arm-template"></a>Démarrage rapide : Créer une base de données unique dans Azure SQL Database à l’aide d’un modèle ARM
 
-La création d’une [base de données unique](single-database-overview.md) est la méthode la plus rapide et la plus simple pour créer une base de données dans Azure SQL Database. Ce guide de démarrage rapide montre comment créer une base de données unique à l’aide du modèle Azure Resource Manager.
+La création d’une [base de données unique](single-database-overview.md) est la méthode la plus rapide et la plus simple pour créer une base de données dans Azure SQL Database. Ce guide de démarrage rapide montre comment créer une base de données unique à l’aide d’un modèle Azure Resource Manager (modèle ARM).
 
 [!INCLUDE [About Azure Resource Manager](../../../includes/resource-manager-quickstart-introduction.md)]
 
-Si votre environnement remplit les prérequis et que vous êtes déjà familiarisé avec l’utilisation des modèles ARM, sélectionnez le bouton Déployer sur Azure. Le modèle s’ouvre dans le portail Azure.
+Si votre environnement remplit les prérequis et que vous êtes déjà familiarisé avec l’utilisation des modèles ARM, sélectionnez le bouton **Déployer sur Azure**. Le modèle s’ouvre dans le portail Azure.
 
 [![Déployer sur Azure](../../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-sql-database%2Fazuredeploy.json)
 
@@ -36,7 +36,7 @@ Si vous n’avez pas d’abonnement Azure, [créez un compte gratuit](https://az
 
 Une base de données comprend un ensemble défini de ressources (capacité de calcul, mémoire, E/S et stockage) qui varient selon l’un des deux [modèles d’achat](purchasing-models.md) choisi. Quand vous créez une base de données unique, vous définissez également un [serveur](logical-servers.md) pour la gérer et la placer dans le [groupe de ressources Azure](../../active-directory-b2c/overview.md) d’une région spécifiée.
 
-Le modèle utilisé dans ce guide de démarrage rapide est tiré des [modèles de démarrage rapide Azure](https://azure.microsoft.com/resources/templates/101-sql-logical-server/).
+Le modèle utilisé dans ce démarrage rapide est tiré des [modèles de démarrage rapide Azure](https://azure.microsoft.com/resources/templates/101-sql-database/).
 
 :::code language="json" source="~/quickstart-templates/101-sql-database/azuredeploy.json" range="1-67" highlight="41-65":::
 
@@ -88,4 +88,4 @@ Remove-AzResourceGroup -Name $resourceGroupName
   - [Se connecter et effectuer des requêtes à l’aide d’Azure Data Studio](https://docs.microsoft.com/sql/azure-data-studio/quickstart-sql-database?toc=/azure/sql-database/toc.json)
 - Pour créer une base de données unique à l’aide de l’interface Azure CLI, consultez [Exemples d’interface de ligne de commande Azure](az-cli-script-samples-content-guide.md).
 - Pour créer une base de données unique à l’aide d’Azure PowerShell, consultez [Exemples Azure PowerShell](powershell-script-content-guide.md).
-- Pour savoir comment créer un modèle Resource Manager, consultez [Créer votre premier modèle](../../azure-resource-manager/templates/template-tutorial-create-first-template.md).
+- Pour savoir comment créer un modèle ARM, consultez [Créer votre premier modèle](../../azure-resource-manager/templates/template-tutorial-create-first-template.md).

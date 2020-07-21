@@ -8,12 +8,12 @@ ms.author: terrychr
 ms.service: cognitive-search
 ms.topic: tutorial
 ms.date: 06/10/2020
-ms.openlocfilehash: f673fd4b49a33c2faf6bc8b489520f2a877b0689
-ms.sourcegitcommit: 374e47efb65f0ae510ad6c24a82e8abb5b57029e
+ms.openlocfilehash: 69618604c38d82567260e45d651df523055c5f7b
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/28/2020
-ms.locfileid: "85513804"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86245328"
 ---
 # <a name="tutorial-build-and-deploy-a-custom-skill-with-azure-machine-learning"></a>Tutoriel : Créer et déployer une compétence personnalisée avec Azure Machine Learning 
 
@@ -29,6 +29,9 @@ Deux jeux de données sont fournis. Si vous souhaitez effectuer l’apprentissag
 > * Entraîner et déployer un modèle sur un cluster Azure Kubernetes
 > * Lier un pipeline d’enrichissement par IA au modèle déployé
 > * Ingérer la sortie du modèle déployé en tant que compétence personnalisée
+
+> [!IMPORTANT] 
+> Cette compétence est actuellement en préversion publique. Les fonctionnalités en préversion sont fournies sans contrat de niveau de service et ne sont pas recommandées pour les charges de travail de production. Pour plus d’informations, consultez [Conditions d’Utilisation Supplémentaires relatives aux Évaluations Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). Le SDK .NET n’est actuellement pas pris en charge.
 
 ## <a name="prerequisites"></a>Prérequis
 

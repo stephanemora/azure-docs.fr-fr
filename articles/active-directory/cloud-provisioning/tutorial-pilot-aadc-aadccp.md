@@ -11,12 +11,12 @@ ms.date: 05/19/2020
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 835eb66444dd9f4c4da7689196c759621cfef999
-ms.sourcegitcommit: f98ab5af0fa17a9bba575286c588af36ff075615
+ms.openlocfilehash: fd9eff90f144909b9746e85a9c42aae2fdf02ed6
+ms.sourcegitcommit: 5cace04239f5efef4c1eed78144191a8b7d7fee8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/25/2020
-ms.locfileid: "85360756"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86146813"
 ---
 # <a name="pilot-cloud-provisioning-for-an-existing-synced-ad-forest"></a>Provisionnement cloud pilote pour une forêt AD synchronisée existante 
 
@@ -165,18 +165,18 @@ Pour configurer le provisionnement, procédez comme suit :
  2. Cliquez sur **Azure Active Directory**.
  3. Cliquez sur **Azure AD Connect**.
  4. Sélectionnez **Gérer le provisionnement (préversion)** 
- ![](media/how-to-configure/manage1.png).</br>
+ ![Capture d’écran montrant le lien « Gérer le provisionnement (préversion) ».](media/how-to-configure/manage1.png)</br>
  5.  Cliquez sur **Nouvelle configuration**
- ![](media/tutorial-single-forest/configure1.png).</br>
+ ![Capture d’écran de l’écran Provisionnement Azure AD (préversion) avec le lien « Nouvelle configuration » mis en surbrillance.](media/tutorial-single-forest/configure1.png)</br>
  6.  Dans l’écran de configuration, entrez une adresse **e-mail de notification**, déplacez le sélecteur sur **Activer** et cliquez sur **Enregistrer**.
- ![](media/tutorial-single-forest/configure2.png)</br>
+ ![Capture d’écran de l’écran de configuration avec l’e-mail de notification rempli et l’option Activer sélectionnée.](media/tutorial-single-forest/configure2.png)</br>
  7. Sous **Configurer**, sélectionnez **Tous les utilisateurs** pour modifier l’étendue de la règle de configuration.
- ![](media/how-to-configure/scope2.png)</br>
+ ![Capture d’écran de l’écran Configurer avec « Tous les utilisateurs » mis en évidence en regard de « Utilisateurs de l’étendue ».](media/how-to-configure/scope2.png)</br>
  8. Sur la droite, modifiez l’étendue pour inclure l’unité d’organisation spécifique que vous venez de créer : « OU=CPUsers,DC=contoso,DC=com ».
- ![](media/tutorial-existing-forest/scope2.png)</br>
+ ![Capture d’écran de l’écran Utilisateurs de l’étendue mettant en évidence l’étendue remplacée par l’unité d’organisation que vous avez créée.](media/tutorial-existing-forest/scope2.png)</br>
  9.  Cliquez sur **Terminé**, puis sur **Enregistrer**.
  10. L’étendue doit maintenant être définie sur une unité d’organisation. 
- ![](media/tutorial-existing-forest/scope3.png)</br>
+ ![Capture d’écran de l’écran Configurer avec « 1 unité d’organisation » mis en évidence en regard de « Utilisateurs de l’étendue ».](media/tutorial-existing-forest/scope3.png)</br>
  
 
 ## <a name="verify-users-are-provisioned-by-cloud-provisioning"></a>Vérifier que les utilisateurs sont provisionnés par provisionnement cloud

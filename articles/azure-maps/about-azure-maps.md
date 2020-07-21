@@ -9,12 +9,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: timlt
 ms.custom: mvc, references_regions
-ms.openlocfilehash: 4b53c4d1a26d8e4b8d784087dcb9b9feba9c7ded
-ms.sourcegitcommit: 1f48ad3c83467a6ffac4e23093ef288fea592eb5
+ms.openlocfilehash: 2b6c61c5c144923ece80fddf8a1412d68f35ad52
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/29/2020
-ms.locfileid: "84191750"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86242869"
 ---
 # <a name="what-is-azure-maps"></a>Qu’est-ce qu’Azure Maps ?
 
@@ -165,17 +165,25 @@ Azure Maps est conçu pour la mobilité et peut vous permettre de développer de
 
 De plus, Azure Maps offre un [contrôle de carte JavaScript](https://docs.microsoft.com/javascript/api/azure-maps-control) pratique avec un modèle de programmation simple. Le développement est simple et rapide pour les applications web et mobiles.
 
+## <a name="power-bi-visual"></a>Visuel Power BI
+
+Le visuel Azure Maps pour Power BI fournit un ensemble complet de visualisations de données pour les données spatiales sur une carte. On estime que plus de 80 % des données d’entreprise ont un contexte de localisation. Le visuel Azure Maps offre une solution sans code permettant d’obtenir des insights sur la façon dont ce contexte de localisation est associé aux données de votre entreprise et les influence.
+
+![Power BI Desktop avec le visuel Azure Maps affichant des données d’entreprise](media/power-bi-visual/azure-maps-visual-hero.png)
+
+Pour plus d’informations, consultez la documentation [Bien démarrer avec le visuel Azure Maps pour Power BI](power-bi-visual-getting-started.md).
+
 ## <a name="usage"></a>Usage
 
 Vous pouvez accéder aux services Azure Maps via le [portail Azure](https://portal.azure.com), en créant un compte Azure Maps.
 
 Azure Maps utilise un schéma d’authentification basé sur une clé. Votre compte s’accompagne de deux clés déjà générées automatiquement ; utilisez l’une ou l’autre de ces clés. Commencez à intégrer ces fonctionnalités de localisation dans votre application et formulez des demandes auprès des services Azure Maps.
 
-Remarque : Azure Maps partage les demandes d’adresse/de lieu fournies par le client (« demandes ») avec la société tierce TomTom pour la fonctionnalité de carte. Les demandes ne sont liées à aucun client ou utilisateur final quand elles sont partagées avec TomTom et ne peuvent pas être utilisées pour identifier des individus. Microsoft est en train d’ajouter TomTom à la liste des sous-traitants de services en ligne. Notez que les services Mobility et Météo incluant l’intégration à Moovit et AccuWeather sont actuellement en [préversion](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+Remarque : Azure Maps partage les demandes d’adresse/de lieu fournies par le client (« demandes ») avec la société tierce TomTom pour la fonctionnalité de carte. Les demandes ne sont liées à aucun client ou utilisateur final quand elles sont partagées avec TomTom et ne peuvent pas être utilisées pour identifier des individus. Microsoft est en train d’ajouter TomTom à la liste des sous-traitants de services en ligne. Notez que les services Mobility et Météo, qui incluent l’intégration à Moovit et AccuWeather, sont actuellement en [préversion](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 ## <a name="supported-regions"></a>Régions prises en charge
 
-Les API Azure Maps sont actuellement disponibles dans tous les pays et régions, à l’exception de :
+Les API Azure Maps sont actuellement disponibles dans tous les pays et régions, sauf les suivants :
 
 * Chine
 * Corée du Sud

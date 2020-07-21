@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.service: iot-central
 services: iot-central
 ms.custom: mvc
-ms.openlocfilehash: 42098d54725cc12691839b63c508efbecf042aa0
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: 6727a2c45187e0e6bb583bb65e176024067d81e2
+ms.sourcegitcommit: f844603f2f7900a64291c2253f79b6d65fcbbb0c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "80064419"
+ms.lasthandoff: 07/10/2020
+ms.locfileid: "86219983"
 ---
 # <a name="tutorial-use-a-device-capability-model-to-create-an-iot-plug-and-play-preview-device-and-connect-it-to-your-iot-central-application"></a>Tutoriel : Utiliser un modèle de capacité d’appareil mobile pour créer un appareil IoT Plug-and-Play (préversion) et le connecter à votre application IoT Central
 
@@ -86,7 +86,9 @@ Pour connecter un appareil à une application IoT Central, vous avez besoin d’
 
 1. Accédez à la page **Administration** et sélectionnez **Connexion de l’appareil**.
 
-1. Notez les valeurs des champs **ID Score** (Étendue de l’ID) et **Primary Key** (Clé primaire) qui s’affichent quand vous sélectionnez **View Keys** (Afficher les clés). Vous utiliserez ces valeurs plus tard dans ce tutoriel.
+1. Notez l’**étendue de l’ID**. Vous utiliserez cette valeur ultérieurement dans ce tutoriel.
+
+1. Sélectionnez le groupe d’inscriptions **SAS-IoT-Devices**. Notez la valeur de la **Clé primaire**. Vous utiliserez cette valeur ultérieurement dans ce tutoriel.
 
     ![Connexion de l’appareil](./media/tutorial-connect-pnp-device/device-connection.png)
 

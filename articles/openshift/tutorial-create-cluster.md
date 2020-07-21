@@ -6,12 +6,12 @@ ms.author: suvetriv
 ms.topic: tutorial
 ms.service: container-service
 ms.date: 04/24/2020
-ms.openlocfilehash: 61b6ad0bedb4817c262b4269a6e9f6930a6caa6c
-ms.sourcegitcommit: 93462ccb4dd178ec81115f50455fbad2fa1d79ce
+ms.openlocfilehash: b78364cef6bfd6cf91e6edf81fd57fa5912125db
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/06/2020
-ms.locfileid: "85985686"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86260684"
 ---
 # <a name="tutorial-create-an-azure-red-hat-openshift-4-cluster"></a>Tutoriel : Créer un cluster Azure Red Hat OpenShift 4
 
@@ -87,11 +87,26 @@ Lors de l’exécution de la commande `az aro create`, vous pouvez référencer 
 
 Si vous copiez votre secret d’extraction, ou que vous le référencez dans d’autres scripts, il doit se présenter sous la forme d’une chaîne JSON valide.
 
+### <a name="prepare-a-custom-domain-for-your-cluster-optional"></a>Préparer un domaine personnalisé pour votre cluster (facultatif)
+
+Lorsque vous exécutez la commande `az aro create`, vous pouvez spécifier un domaine personnalisé pour votre cluster à l’aide du paramètre `--domain foo.example.com`.
+
+Si vous fournissez un domaine personnalisé pour votre cluster, notez les points suivants :
+
+* Après avoir créé votre cluster, vous devez créer deux enregistrements DNS A dans votre serveur DNS pour le `--domain` spécifié :
+    * **api** : pointant vers le serveur d’API
+    * **\*.apps** : pointant vers l’entrée
+    * Récupérez ces valeurs en exécutant la commande suivante : `az aro show -n -g --query '{api:apiserverProfile.ip, ingress:ingressProfiles[0].ip}'`.
+
+* La console OpenShift sera disponible à une URL telle que `https://console-openshift-console.apps.foo.example.com`, au lieu du domaine intégré `https://console-openshift-console.apps.<random>.<location>.aroapp.io`.
+
+* Par défaut, OpenShift utilise des certificats auto-signés pour toutes les routes créées sur `*.apps.<random>.<location>.aroapp.io`.  Si vous choisissez d’utiliser un DNS personnalisé après vous être connecté au cluster, vous devez suivre la documentation OpenShift afin de [configurer une autorité de certification personnalisée pour votre contrôleur d’entrée](https://docs.openshift.com/container-platform/4.3/authentication/certificates/replacing-default-ingress-certificate.html) et configurer une [autorité de certification personnalisée pour votre serveur d’API](https://docs.openshift.com/container-platform/4.3/authentication/certificates/api-server.html).
+
 ### <a name="create-a-virtual-network-containing-two-empty-subnets"></a>Créer un réseau virtuel contenant deux sous-réseaux vides
 
 Vous allez maintenant créer un réseau virtuel contenant deux sous-réseaux vides.
 
-1. **Définissez les variables suivantes**.
+1. **Définissez les variables suivantes dans l’environnement de l’interpréteur de commandes où vous exécuterez les commandes `az`.**
 
    ```console
    LOCATION=eastus                 # the location of your cluster
@@ -99,9 +114,9 @@ Vous allez maintenant créer un réseau virtuel contenant deux sous-réseaux vid
    CLUSTER=cluster                 # the name of your cluster
    ```
 
-1. **Créer un groupe de ressources**
+1. **Créez un groupe de ressources**.
 
-    Un groupe de ressources Azure est un groupe logique dans lequel des ressources Azure sont déployées et gérées. Lorsque vous créez un groupe de ressources, vous devez spécifier un emplacement. Il s’agit de l’emplacement de stockage des métadonnées de groupe de ressources. C’est également là que vos ressources s’exécutent dans Azure si vous ne spécifiez pas une autre région lors de la création de ressources. Créez un groupe de ressources à l’aide de la commande [az group create][az-group-create].
+    Un groupe de ressources Azure est un groupe logique dans lequel des ressources Azure sont déployées et gérées. Lorsque vous créez un groupe de ressources, vous devez spécifier un emplacement. Il s’agit de l’emplacement de stockage des métadonnées de groupe de ressources. C’est également là que vos ressources s’exécutent dans Azure si vous ne spécifiez pas une autre région lors de la création de ressources. Créez un groupe de ressources avec la commande [az group create](https://docs.microsoft.com/cli/azure/group?view=azure-cli-latest#az-group-create).
 
     ```azurecli-interactive
     az group create --name $RESOURCEGROUP --location $LOCATION
@@ -126,7 +141,7 @@ Vous allez maintenant créer un réseau virtuel contenant deux sous-réseaux vid
 
     Les clusters Azure Red Hat OpenShift exécutant OpenShift 4 nécessitent un réseau virtuel avec deux sous-réseaux vides (pour les nœuds principaux et les nœuds worker).
 
-    Créez un réseau virtuel dans le même groupe de ressources que vous avez créé précédemment.
+    Créez un réseau virtuel dans le groupe de ressources que vous avez créé précédemment :
 
     ```azurecli-interactive
     az network vnet create \
@@ -189,10 +204,12 @@ Vous allez maintenant créer un réseau virtuel contenant deux sous-réseaux vid
 
 ## <a name="create-the-cluster"></a>Créer le cluster
 
-Exécutez la commande suivante pour créer un cluster. Si vous le souhaitez, vous pouvez [transmettre votre secret d’extraction Red Hat](#get-a-red-hat-pull-secret-optional) pour permettre au cluster d’accéder à des registres de conteneurs Red Hat et à du contenu supplémentaire.
+Exécutez la commande suivante pour créer un cluster. Si vous choisissez d’utiliser l’une des options suivantes, modifiez la commande en conséquence :
+* Si vous le souhaitez, vous pouvez [transmettre votre secret d’extraction Red Hat](#get-a-red-hat-pull-secret-optional) pour permettre au cluster d’accéder à des registres de conteneurs Red Hat et à du contenu supplémentaire. Ajoutez l’argument `--pull-secret @pull-secret.txt` à votre commande.
+* Si vous le souhaitez, vous pouvez [utiliser un domaine personnalisé](#prepare-a-custom-domain-for-your-cluster-optional). Ajoutez l’argument `--domain foo.example.com` à votre commande en remplaçant `foo.example.com` par votre propre domaine personnalisé.
 
->[!NOTE]
-> Si vous copiez/collez des commandes et utilisez l’un des paramètres facultatifs, veillez à supprimer les mots-dièse initiaux ainsi que le texte de commentaire de fin. De même, fermez l’argument sur la ligne précédente de la commande avec une barre oblique inverse de fin.
+> [!NOTE]
+> Si vous ajoutez des arguments facultatifs à votre commande, veillez à fermer l’argument situé sur la ligne précédente de la commande à l’aide d’une barre oblique inverse de fin.
 
 ```azurecli-interactive
 az aro create \
@@ -201,23 +218,15 @@ az aro create \
   --vnet aro-vnet \
   --master-subnet master-subnet \
   --worker-subnet worker-subnet
-  # --domain foo.example.com # [OPTIONAL] custom domain
-  # --pull-secret @pull-secret.txt # [OPTIONAL]
 ```
 
 Après l’exécution de la commande `az aro create`, la création d’un cluster prend normalement une trentaine de minutes.
-
->[!IMPORTANT]
-> Si vous choisissez de spécifier un domaine personnalisé, par exemple **foo.example.com**, la console OpenShift sera disponible sur une URL telle que `https://console-openshift-console.apps.foo.example.com`, au lieu de l’URL de domaine intégrée `https://console-openshift-console.apps.<random>.<location>.aroapp.io`.
->
-> Par défaut, OpenShift utilise des certificats auto-signés pour toutes les routes créées sur `*.apps.<random>.<location>.aroapp.io`.  Si vous choisissez d’utiliser un DNS personnalisé après vous être connecté au cluster, vous devez suivre la documentation OpenShift afin de [configurer une autorité de certification personnalisée pour votre contrôleur d’entrée](https://docs.openshift.com/container-platform/4.3/authentication/certificates/replacing-default-ingress-certificate.html) et configurer une [autorité de certification personnalisée pour votre serveur d’API](https://docs.openshift.com/container-platform/4.3/authentication/certificates/api-server.html).
->
 
 ## <a name="next-steps"></a>Étapes suivantes
 
 Dans cette partie du tutoriel, vous avez appris à :
 > [!div class="checklist"]
-> * Préparer les éléments requis et créer le réseau virtuel et ses sous-réseaux nécessaires
+> * Préparer les prérequis, et créer le réseau virtuel et ses sous-réseaux nécessaires
 > * Déployer un cluster
 
 Passez au tutoriel suivant :

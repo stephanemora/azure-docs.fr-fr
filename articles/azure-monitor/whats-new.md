@@ -5,17 +5,96 @@ ms.subservice: ''
 ms.topic: overview
 author: bwren
 ms.author: bwren
-ms.date: 04/06/2020
-ms.openlocfilehash: 561767b6857f4b52b3ee1eb17fedd51ad409ee29
-ms.sourcegitcommit: 813f7126ed140a0dff7658553a80b266249d302f
+ms.date: 07/08/2020
+ms.openlocfilehash: 4d061e7a105fc73f7f44c8336df82ff363ee6ded
+ms.sourcegitcommit: 3541c9cae8a12bdf457f1383e3557eb85a9b3187
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/06/2020
-ms.locfileid: "84462972"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86203764"
 ---
 # <a name="whats-new-in-azure-monitor-documentation"></a>Nouveautés dans la documentation Azure Monitor
 
 Cet article liste les nouveaux articles Azure Monitor et ceux qui ont fait l’objet d’une mise à jour importante. Il sera actualisé la première semaine de chaque mois pour inclure les mises à jour d’articles du mois précédent.
+
+## <a name="june-2020"></a>Juin 2020
+
+### <a name="general"></a>Général
+- [Déployer Azure Monitor](platform/deploy-scale.md) - Nouvel article.
+- [Clé gérée par le client dans Azure Monitor](platform/customer-managed-keys.md) - Mise à jour de la propriété billingtype. Ajout de commandes PowerShell.
+
+### <a name="agents"></a>Agents
+- [Présentation de l’agent Log Analytics](platform/log-analytics-agent.md) - Ajout de l’exigence relative à Python 2.
+
+### <a name="alerts"></a>Alertes
+- [Guide pratique pour mettre à jour des règles d’alerte ou des règles d’action quand la ressource cible est déplacée vers une autre région Azure](platform/alerts-resource-move.md) - Nouvel article.
+- [Résolution des problèmes liés aux alertes de métrique Azure](platform/alerts-troubleshoot-metric.md) - Nouvel article.
+- [Résolution des problèmes liés aux alertes de journal d’activité dans Azure Monitor](platform/alerts-troubleshoot-metric.md) - Nouvel article.
+  
+### <a name="application-insights"></a>Application Insights
+- [Azure Application Insights pour les applications web JavaScript](app/javascript.md) - Mise à jour de la section sur le SDK JavaScript. Mise à jour de l’extrait de code pour signaler les échecs de chargement.
+- [Configurer BYOS (Bring Your Own Storage) pour Profiler et le Débogueur de capture instantanée](app/profiler-bring-your-own-storage.md) - Nouvel article.
+- [Suivi des requêtes entrantes dans Azure Application Insights avec OpenCensus Python](app/opencensus-python-request.md) - Mise à jour de la journalisation et de la configuration pour OpenCensus.
+- [Superviser une application web ASP.NET dynamique avec Azure Application Insights](app/monitor-performance-live-website-now.md) - Mise à jour de la date de dépréciation pour Status Monitor v1.
+- [Superviser les services Node.js avec Azure Application Insights](app/nodejs.md) - Plusieurs mises à jour, notamment la migration à partir de versions antérieures et la configuration du SDK.
+- [Superviser les applications Python avec Azure Monitor (préversion)](app/opencensus-python.md) - Ajout d’une section sur la configuration des exportateurs Azure Monitor.
+- [Superviser vos applications sans modification du code - Instrumentation automatique pour Azure Monitor Application Insights](app/codeless-overview.md) - Nouvel article.
+- [Résolution des échecs de chargement du SDK pour les applications web JavaScript](app/javascript-sdk-load-failure.md) - Nouvel article.
+
+### <a name="containers"></a>Conteneurs
+- [Guide pratique pour arrêter la supervision de votre cluster Kubernetes hybride](insights/container-insights-optout-hybrid.md) - Ajout d’une section pour Kubernetes compatible avec Arc.
+- [Configurer un cluster Kubernetes compatible Azure Arc avec Azure Monitor pour conteneurs](insights/container-insights-enable-arc-enabled-clusters.md) - Nouvel article.
+- [Configurer Azure Red Hat OpenShift v4.x avec Azure Monitor pour conteneurs](insights/container-insights-azure-redhat4-setup.md) - Mise à jour des prérequis.
+- [Configurer Azure Monitor pour conteneurs - Live Data (préversion)](insights/container-insights-livedata-setup.md) - Suppression de la remarque signalant que la fonctionnalité n’est pas disponible dans Azure US Government.
+
+### <a name="insights"></a>Insights
+- [FAQ - Solution Network Performance Monitor dans Azure](insights/network-performance-monitor-faq.md) - Ajout d’un FAQ pour ExpressRoute Monitor.
+
+### <a name="logs"></a>Journaux
+- [Supprimer et récupérer un espace de travail Azure Log Analytics](platform/delete-workspace.md) – Ajout d’une commande PowerShell. Mise à jour de la résolution des problèmes.
+- [Gérer les espaces de travail Log Analytics dans Azure Monitor](platform/manage-access.md) - Ajout d’un exemple pour les tables non autorisées dans la section RBAC.
+- [Gérer l’utilisation et les coûts à l’aide des journaux d’activité Azure Monitor](platform/manage-cost-storage.md) - Détails supplémentaires sur le calcul de la taille des données. Mise à jour des alertes de volume de données de configuration. Détails sur les données de sécurité collectées par Azure Sentinel. Clarification sur la limite de données.
+- [Utiliser Azure Monitor Logs avec Azure Logic Apps et Power Automate](platform/logicapp-flow-connector.md) - Ajout de limites de connecteur.
+
+### <a name="metrics"></a>Métriques
+- [Métriques prises en charge par Azure Monitor par type de ressource](platform/metrics-supported.md) - Mise à jour des métriques SQL Server.
+
+
+### <a name="platform-logs"></a>Journaux de plateforme
+
+- [Exemples de modèle Resource Manager pour les paramètres de diagnostic](samples/resource-manager-diagnostic-settings.md) - Correctif pour le paramètre de diagnostic du journal d’activité.
+- [Envoyer le journal d’activité Azure à un espace de travail Log Analytics à l’aide du portail Azure](learn/quick-collect-activity-log-portal.md) - Nouvel article.
+- [Envoyer le journal d’activité Azure à un espace de travail Log Analytics à l’aide d’un modèle Azure Resource Manager](learn/quick-collect-activity-log-arm.md) - Nouvel article.
+
+#### <a name="new-and-updated-articles-from-restructure-and-consolidation-of-platform-log-content"></a>Articles nouveaux et mis à jour suite à la restructuration et au regroupement du contenu sur les journaux de plateforme
+- [Archiver des journaux de ressources Azure sur un compte de stockage](platform/resource-logs-collect-storage.md)
+- [Schéma d’événement du journal d’activité Azure](platform/activity-log-schema.md)
+- [Journal d’activité Azure](platform/activity-log.md)
+- [Exemples d’interface CLI Azure Monitor](samples/cli-samples.md)
+- [Exemples PowerShell Azure Monitor](samples/powershell-samples.md)
+- [Procédure pas à pas d’utilisation de l’API REST d’Azure Monitor](platform/rest-api-walkthrough.md)
+- [Services et schémas pris en charge pour les journaux de ressource Azure](platform/diagnostic-logs-schema.md)
+- [Journaux de ressources Azure](platform/resource-logs.md)
+- [Collecter et analyser les journaux d’activités Azure dans Azure Monitor](platform/activity-log-collect.md)
+- [Collecter les journaux de ressources Azure dans l’espace de travail Log Analytics](platform/resource-logs-collect-workspace.md)
+- [Créer des paramètres de diagnostic pour envoyer des journaux et des métriques de plateforme à différentes destinations](platform/diagnostic-settings.md)
+- [Exporter le journal d’activité Azure](platform/activity-log-export.md)
+- [Vue d’ensemble des journaux de plateforme Azure](platform/platform-logs-overview.md)
+- [Diffuser en continu les journaux de plateforme Azure vers un Event Hub](platform/resource-logs-stream-event-hubs.md)
+- [Afficher les événements du journal d’activité Azure dans Azure Monitor](platform/activity-log-view.md)
+
+### <a name="virtual-machines"></a>Machines virtuelles
+- [Activer Azure Monitor pour machines virtuelles sur le portail Azure](insights/vminsights-enable-single-vm.md) - Mise à jour de façon à inclure Azure Arc.
+- [Vue d’ensemble de l’activation d’Azure Monitor pour machines virtuelles](insights/vminsights-enable-overview.md) - Mise à jour de façon à inclure Azure Arc.
+- [Qu’est-ce qu’Azure Monitor pour machines virtuelles ?](insights/vminsights-overview.md) - Mise à jour de façon à inclure Azure Arc.
+
+
+### <a name="visualizations"></a>Visualisations
+- [Sources de données des classeurs Azure Monitor](platform/workbooks-data-sources.md) - Ajout d’une section sur les alertes et les points de terminaison personnalisés.
+- [Résolution des problèmes liés aux insights basés sur des classeurs Azure Monitor](insights/troubleshoot-workbooks.md) - Nouvel article.
+- [Mise à niveau de vos visualisations de tableau de bord Log Analytics](log-query/dashboard-upgrade.md) - Nouvel article.
+
+
 
 ## <a name="may-2020"></a>Mai 2020
 

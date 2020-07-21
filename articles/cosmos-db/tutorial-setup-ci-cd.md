@@ -7,12 +7,12 @@ ms.topic: how-to
 ms.date: 01/28/2020
 ms.author: dech
 ms.reviewer: sngun
-ms.openlocfilehash: ba90bb89d731c343dfcb3778433d444f2d9a617a
-ms.sourcegitcommit: 0100d26b1cac3e55016724c30d59408ee052a9ab
+ms.openlocfilehash: 447f999f48edb9696c74ec5decb1109eefb964d7
+ms.sourcegitcommit: 3541c9cae8a12bdf457f1383e3557eb85a9b3187
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/07/2020
-ms.locfileid: "86025860"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86206973"
 ---
 # <a name="set-up-a-cicd-pipeline-with-the-azure-cosmos-db-emulator-build-task-in-azure-devops"></a>Configurer un pipeline CI/CD avec la tâche de génération d’émulateur Azure Cosmos DB
 
@@ -37,7 +37,7 @@ Ensuite, choisissez l’organisation dans laquelle installer l’extension.
 
 ## <a name="create-a-build-definition"></a>Créer une définition de build
 
-Maintenant que l’extension est installée, connectez-vous à votre compte Azure DevOps et recherchez votre projet dans le tableau de bord de projets. Vous pouvez ajouter un [pipeline de build](https://docs.microsoft.com/azure/devops/pipelines/get-started-designer?view=vsts&tabs=new-nav) à votre projet ou modifier un pipeline de build existant. Si vous disposez déjà d’un pipeline de build, vous pouvez passer directement à la section [Ajouter la tâche de génération d’émulateur à une définition de build](#addEmulatorBuildTaskToBuildDefinition).
+Maintenant que l’extension est installée, connectez-vous à votre organisation Azure DevOps et recherchez votre projet dans le tableau de bord de projets. Vous pouvez ajouter un [pipeline de build](https://docs.microsoft.com/azure/devops/pipelines/get-started-designer?view=vsts&tabs=new-nav) à votre projet ou modifier un pipeline de build existant. Si vous disposez déjà d’un pipeline de build, vous pouvez passer directement à la section [Ajouter la tâche de génération d’émulateur à une définition de build](#addEmulatorBuildTaskToBuildDefinition).
 
 1. Pour créer une définition de build, accédez à l’onglet **Builds** dans Azure DevOps. Sélectionnez **+Nouveau.** \> **Nouveau pipeline de build**
 
@@ -68,6 +68,24 @@ Start-CosmosDbEmulator
    :::image type="content" source="./media/tutorial-setup-ci-cd/addExtension_3.png" alt-text="Ajouter la tâche de génération d’émulateur à une définition de build":::
 
 Dans ce didacticiel, vous allez ajouter la tâche au début, afin que l’émulateur soit disponible avant d’exécuter nos tests.
+
+### <a name="add-the-task-using-yaml"></a>Ajouter la tâche à l’aide de YAML
+
+Cette étape est facultative et n’est nécessaire que si vous configurez le pipeline CI/CD au moyen d’une tâche YAML. Dans ce cas, vous pouvez définir la tâche YAML comme indiqué dans le code suivant :
+
+```yml
+- task: azure-cosmosdb.emulator-public-preview.run-cosmosdbemulatorcontainer.CosmosDbEmulator@2
+  displayName: 'Run Azure Cosmos DB Emulator'
+
+- script: yarn test
+  displayName: 'Run API tests (Cosmos DB)'
+  env:
+    HOST: $(CosmosDbEmulator.Endpoint)
+    # Hardcoded key for emulator, not a secret
+    AUTH_KEY: C2y6yDjf5/R+ob0N8A7Cgv30VRDJIWEHLM+4QDU5DE2nQ9nDuVTqobD4b8mGGyPMbIZnqyMsEcaGQy67XIw/Jw==
+    # The emulator uses a self-signed cert, disable TLS auth errors
+    NODE_TLS_REJECT_UNAUTHORIZED: '0'
+```
 
 ## <a name="configure-tests-to-use-the-emulator"></a>Configurer des tests pour utiliser l’émulateur
 
@@ -155,24 +173,6 @@ Une fois que la génération a démarré, vous noterez que la tâche d’émulat
 Une fois la génération terminée, vous noterez que vos tests réussissent, et qu’ils s’exécutent tous sur l’émulateur Cosmos DB de la tâche de génération !
 
 :::image type="content" source="./media/tutorial-setup-ci-cd/buildComplete_1.png" alt-text="Enregistrer et exécuter la génération":::
-
-## <a name="set-up-using-yaml"></a>Configurer à l’aide de YAML
-
-Si vous configurez le pipeline CI/CD à l’aide d’une tâche YAML, vous pouvez définir la tâche YAML, comme indiqué dans le code suivant :
-
-```yml
-- task: azure-cosmosdb.emulator-public-preview.run-cosmosdbemulatorcontainer.CosmosDbEmulator@2
-  displayName: 'Run Azure Cosmos DB Emulator'
-
-- script: yarn test
-  displayName: 'Run API tests (Cosmos DB)'
-  env:
-    HOST: $(CosmosDbEmulator.Endpoint)
-    # Hardcoded key for emulator, not a secret
-    AUTH_KEY: C2y6yDjf5/R+ob0N8A7Cgv30VRDJIWEHLM+4QDU5DE2nQ9nDuVTqobD4b8mGGyPMbIZnqyMsEcaGQy67XIw/Jw==
-    # The emulator uses a self-signed cert, disable TLS auth errors
-    NODE_TLS_REJECT_UNAUTHORIZED: '0'
-```
 
 ## <a name="next-steps"></a>Étapes suivantes
 

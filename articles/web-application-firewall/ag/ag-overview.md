@@ -8,12 +8,12 @@ ms.service: web-application-firewall
 ms.date: 11/14/2019
 ms.author: victorh
 ms.topic: overview
-ms.openlocfilehash: 0631bc0e3e83564b2d77d4f67b418780d933215e
-ms.sourcegitcommit: 6fd28c1e5cf6872fb28691c7dd307a5e4bc71228
+ms.openlocfilehash: d7eaff980b50cc463efc09e49febd4a947a7543c
+ms.sourcegitcommit: 5cace04239f5efef4c1eed78144191a8b7d7fee8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/23/2020
-ms.locfileid: "85212902"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86142853"
 ---
 # <a name="azure-web-application-firewall-on-azure-application-gateway"></a>Pare-feu d’applications web Azure sur Azure Application Gateway
 
@@ -24,7 +24,7 @@ Le pare-feu d’applications web sur Application Gateway suit l’[ensemble de r
 Toutes les fonctionnalités WAF répertoriées ci-dessous existent dans une stratégie WAF. Vous pouvez créer plusieurs stratégies, qui peuvent être associées à une passerelle d’application, à des écouteurs individuels ou à des règles de routage basées sur les chemins d’une passerelle d’application. De cette façon, vous pouvez avoir des stratégies distinctes pour chaque site derrière votre Application Gateway, si nécessaire. Pour plus d’informations sur les stratégies WAF, voir [Créer une stratégie de pare-feu d’applications web (WAF)](create-waf-policy-ag.md).
 
    > [!NOTE]
-   > Les stratégies WAF par site et par URI sont en préversion publique. Cela signifie que cette fonctionnalité est soumise aux conditions d’utilisation supplémentaires de Microsoft. Pour plus d’informations, consultez [Conditions d’Utilisation Supplémentaires relatives aux Évaluations Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+   > Les stratégies WAF par URI sont en préversion publique. Cela signifie que cette fonctionnalité est soumise aux conditions d’utilisation supplémentaires de Microsoft. Pour plus d’informations, consultez [Conditions d’Utilisation Supplémentaires relatives aux Évaluations Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 ![Diagramme du pare-feu d’applications web d’Application Gateway](../media/ag-overview/waf1.png)
 

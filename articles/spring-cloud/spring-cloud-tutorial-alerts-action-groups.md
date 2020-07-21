@@ -6,14 +6,14 @@ ms.author: barbkess
 ms.service: spring-cloud
 ms.topic: tutorial
 ms.date: 12/29/2019
-ms.openlocfilehash: cf7e075244a83190b83e629ef300a4903b114a6d
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: 0d3fcbbb317ef70687c83ff21e2ab817d89051a6
+ms.sourcegitcommit: 5cace04239f5efef4c1eed78144191a8b7d7fee8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "77920074"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86142453"
 ---
-# <a name="tutorial-monitor-spring-cloud-resources-using-alerts-and-action-groups"></a>Tutoriel : Superviser les ressources Spring Cloud avec des alertes et des groupes d’actions
+# <a name="tutorial-how-to-monitor-spring-cloud-resources-using-alerts-and-action-groups"></a>Tutoriel : Superviser les ressources Spring Cloud avec des alertes et des groupes d’actions
 
 Les alertes Azure Spring Cloud prennent en charge la supervision des ressources en fonction de conditions telles que le stockage disponible, le taux de requêtes ou l’utilisation des données. Une alerte envoie une notification quand les taux ou les conditions répondent aux spécifications définies.
 
@@ -22,12 +22,9 @@ Deux étapes sont nécessaires pour configurer un pipeline d’alerte :
 2. Configurez des règles d’alerte. Les règles lient les modèles de métrique aux groupes d’actions en fonction de l’élément cible : ressource, métrique, condition, agrégation de temps, etc.
 
 ## <a name="prerequisites"></a>Prérequis
-En plus des éléments requis pour Azure Spring, ce tutoriel dépend des ressources suivantes.
 
-* Une instance Azure Spring Cloud déployée.  Suivez notre [guide de démarrage rapide](spring-cloud-quickstart-launch-app-cli.md) pour commencer
+En plus des exigences liées à Azure Spring, les procédures de ce tutoriel fonctionnent avec une instance Azure Spring Cloud déployée.  Pour bien démarrer, suivez un [guide de démarrage rapide](spring-cloud-quickstart-launch-app-cli.md).
 
-* Une ressource Azure à superviser. Cet exemple supervise une instance Spring Cloud.
- 
 Les procédures suivantes initialisent le **groupe d’actions** et l’**alerte** à partir de l’option **Alertes** dans le volet de navigation gauche d’une instance de Spring Cloud. (La procédure peut également démarrer à partir de la page **Vue d’ensemble d’Azure Monitor** du portail Azure.) 
 
 Accédez à partir d’un groupe de ressources à votre instance de Spring Cloud. Sélectionnez **Alertes** dans le volet gauche, puis sélectionnez **Gérer les actions** :
@@ -109,7 +106,11 @@ Vous pouvez également créer une règle à l’aide de la page **Métriques** 
    ![Capture d’écran d’ajout d’une nouvelle règle d’alerte dans le portail](media/alerts-action-groups/alerts-5.png)
 
 ## <a name="next-steps"></a>Étapes suivantes
-* [Options de métriques du portail de l’utilisateur](spring-cloud-concept-metrics.md#user-metrics-options)
-* [Créer et gérer des groupes d’actions dans le portail Azure](https://docs.microsoft.com/azure/azure-monitor/platform/action-groups)
-* [Comportement des alertes par SMS dans les groupes d’actions](https://docs.microsoft.com/azure/azure-monitor/platform/alerts-sms-behavior)
-* [Tutoriel : Utilisation du traçage distribué avec Azure Spring Cloud](https://docs.microsoft.com/azure/spring-cloud/spring-cloud-tutorial-distributed-tracing)
+
+Dans ce tutoriel, vous avez appris à configurer des alertes et des groupes d’actions pour une application Azure Spring Cloud. Pour en savoir plus sur les groupes d’actions, consultez :
+
+> [!div class="nextstepaction"]
+> [Créer et gérer des groupes d’actions dans le portail Azure](https://docs.microsoft.com/azure/azure-monitor/platform/action-groups)
+
+> [!div class="nextstepaction"]
+> [Comportement des alertes par SMS dans les groupes d’actions](https://docs.microsoft.com/azure/azure-monitor/platform/alerts-sms-behavior)

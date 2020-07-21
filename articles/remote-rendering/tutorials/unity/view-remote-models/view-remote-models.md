@@ -1,16 +1,16 @@
 ---
 title: Affichage d’un modèle rendu à distance
 description: Le tutoriel « Hello World » d’Azure Remote Rendering montre comment afficher un modèle rendu à distance par Azure
-author: michael-house
-ms.author: v-mihous
+author: florianborn71
+ms.author: flborn
 ms.date: 06/15/2020
 ms.topic: tutorial
-ms.openlocfilehash: f0b9bf1c7e085efd86f70f8246214d366265036a
-ms.sourcegitcommit: 73ac360f37053a3321e8be23236b32d4f8fb30cf
+ms.openlocfilehash: bd9e9b6754c8626a8d858b9832a8e3547b72352d
+ms.sourcegitcommit: f7e160c820c1e2eb57dc480b2a8fd6bef7053e91
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/30/2020
-ms.locfileid: "85566479"
+ms.lasthandoff: 07/10/2020
+ms.locfileid: "86231900"
 ---
 # <a name="tutorial-viewing-a-remotely-rendered-model"></a>Tutoriel : Affichage d’un modèle rendu à distance
 
@@ -30,7 +30,7 @@ Pour ce tutoriel, vous avez besoin des éléments suivants :
 
 * Un abonnement Azure actif avec paiement à l’utilisation [Créer un compte](https://azure.microsoft.com/pricing/purchase-options/pay-as-you-go/)
 * Le SDK Windows 10.0.18362.0 [(télécharger)](https://developer.microsoft.com/windows/downloads/windows-10-sdk)
-* La dernière version de Visual Studio 2019 [(télécharger)](https://visualstudio.microsoft.com/vs/older-downloads/)
+* Installez la dernière version de Visual Studio 2019 [(télécharger)](https://visualstudio.microsoft.com/vs/older-downloads/)
 * Git [(télécharger)](https://git-scm.com/downloads)
 * Unity dans sa version la plus récente (2019.3) ; nous vous recommandons d’utiliser Unity Hub [(télécharger)](https://unity3d.com/get-unity/download)
   * Installez les modules ci-dessous dans Unity :
@@ -87,13 +87,13 @@ Les étapes suivantes permettent de vérifier que votre projet utilise la versio
 1. Dans le menu supérieur de l’éditeur Unity, ouvrez *Window -> Package Manager* (Fenêtre -> Gestionnaire de packages).
 1. Sélectionnez le package **Microsoft Azure Remote Rendering**.
 1. Dans la page Package Manager (Gestionnaire de packages), vérifiez que le bouton **Update** (Mettre à jour) est disponible pour le package **Microsoft Azure Remote Rendering**. Si c’est le cas, cliquez dessus pour mettre à jour le package vers la dernière version disponible :\
-![Le package ARR dans le Gestionnaire de packages](./media/package-manager.png)
+![Le package ARR dans le Gestionnaire de package](./media/package-manager.png)
 1. La mise à jour du package peut parfois occasionner des erreurs dans la console. Si cela se produit, essayez de fermer, puis de rouvrir le projet.
 1. Quand le package est à jour, le Gestionnaire de packages affiche **Up to date** (À jour) à la place du bouton Update (Mettre à jour).\
 ![Package à jour](./media/package-up-to-date.png)
 ## <a name="configure-the-camera"></a>Configurer la caméra
 
-1. Sélectionnez le nœud **Main Camera** (Caméra principale).
+1. Sélectionner le nœud **Main Camera** (Caméra principale).
 
 1. Ouvrez le menu contextuel en cliquant avec le bouton droit sur le composant *Transform* (Transformation), puis sélectionnez l’option **Reset** (Réinitialiser) :
 
@@ -101,7 +101,7 @@ Les étapes suivantes permettent de vérifier que votre projet utilise la versio
 
 1. Définissez **Clear flags** (Effacer les indicateurs) sur *Solid Color* (Couleur unie).
 
-1. Définissez **Background** (Arrière-plan) sur *Black* (Noir) (#000000) en sélectionnant la valeur d’alpha (A) maximale (255).
+1. Définissez **Background** (Arrière-plan) sur *Black* (Noir) (#000000) en sélectionnant la valeur d’alpha (A) complètement transparente (0).
 
     ![Roue chromatique](./media/color-wheel-black.png)
 

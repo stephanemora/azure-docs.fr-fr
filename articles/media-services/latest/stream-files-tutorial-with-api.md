@@ -11,14 +11,14 @@ ms.service: media-services
 ms.workload: ''
 ms.topic: tutorial
 ms.custom: mvc
-ms.date: 03/22/2019
+ms.date: 07/09/2020
 ms.author: juliako
-ms.openlocfilehash: 4e40d26e392219fb751328bc54855d87e80bae19
-ms.sourcegitcommit: 8a9c54c82ab8f922be54fb2fcfd880815f25de77
+ms.openlocfilehash: 3c75c5074e8c75a7b2d5b7f141d5104c5cb59726
+ms.sourcegitcommit: 3541c9cae8a12bdf457f1383e3557eb85a9b3187
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "80345990"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86207562"
 ---
 # <a name="tutorial-upload-encode-and-stream-videos-with-media-services-v3"></a>Tutoriel : Télécharger, encoder et diffuser des vidéos avec Media Services v3
 
@@ -42,7 +42,7 @@ Ce didacticiel vous explique les procédures suivantes :
 
 ## <a name="prerequisites"></a>Prérequis
 
-- Si vous ne disposez pas de Visual Studio, vous pouvez obtenir [Visual Studio Community 2017](https://www.visualstudio.com/thank-you-downloading-visual-studio/?sku=Community&rel=15).
+- Si vous ne disposez pas d’une installation Visual Studio, vous pouvez obtenir [Visual Studio Community 2019](https://www.visualstudio.com/thank-you-downloading-visual-studio/?sku=Community&rel=15).
 - [Créer un compte Media Services](create-account-cli-how-to.md).<br/>Veillez à mémoriser les valeurs que vous avez utilisées pour le nom du groupe de ressources et le nom du compte Media Services.
 - Suivez les étapes décrites dans [Accéder à l’API Azure Media Services avec Azure CLI](access-api-cli-how-to.md) et enregistrez les informations d’identification. Vous en aurez besoin pour accéder à l’API.
 
@@ -164,7 +164,7 @@ Maintenant que le [localisateur de streaming](https://docs.microsoft.com/rest/ap
 
 ### <a name="clean-up-resources-in-your-media-services-account"></a>Supprimer les ressources de votre compte Media Services
 
-En règle générale, vous devez supprimer tous les éléments à l’exception des objets que vous envisagez de réutiliser (habituellement, vous réutilisez les transformations et conservez les éléments StreamingLocators, etc.). Si vous souhaitez que votre compte soit propre au terme de vos expériences, vous devez supprimer les ressources que vous n’envisagez pas de réutiliser. Par exemple, le code suivant supprime les travaux :
+En règle générale, vous devez supprimer tous les éléments à l’exception des objets que vous envisagez de réutiliser (habituellement, vous réutilisez les transformations et conservez les éléments StreamingLocators, etc.). Si vous souhaitez que votre compte soit propre au terme de vos expériences, vous devez supprimer les ressources que vous n’envisagez pas de réutiliser. Par exemple, le code suivant supprime le travail, les ressources créées et la stratégie de clé de contenu :
 
 [!code-csharp[Main](../../../media-services-v3-dotnet-tutorials/AMSV3Tutorials/UploadEncodeAndStreamFiles/Program.cs#CleanUp)]
 

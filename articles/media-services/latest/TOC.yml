@@ -194,7 +194,7 @@
               href: job-error-codes.md
     - name: Haute disponibilité
       items:
-        - name: Encodage
+        - name: Vidéo à la demande
           displayName: 'failover, bcdr, HA, high availability'
           href: media-services-high-availability-encoding.md
         - name: Diffusion en continu

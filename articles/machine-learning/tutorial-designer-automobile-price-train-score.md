@@ -1,5 +1,5 @@
 ---
-title: 'Tutoriel : Prédire les prix des voitures avec le concepteur'
+title: 'Tutoriel : Prédire le prix des voitures avec le concepteur (préversion)'
 titleSuffix: Azure Machine Learning
 description: Découvrez comment entraîner, scorer et déployer un modèle Machine Learning via une interface de type glisser-déposer. Ce tutoriel constitue la première partie d’une série en deux volets sur la prédiction des prix des véhicules automobiles à l’aide d’une régression linéaire.
 author: peterclu
@@ -10,12 +10,12 @@ ms.subservice: core
 ms.topic: tutorial
 ms.date: 06/28/2020
 ms.custom: designer
-ms.openlocfilehash: 7068c1e795e7a607776c48d1b026562a1be6b25d
-ms.sourcegitcommit: 581aaca8956b1717b7bc1c1d7710c782c22e6320
+ms.openlocfilehash: 2922b5d3aa6cee0f1222c041a0e9728936754c21
+ms.sourcegitcommit: 3541c9cae8a12bdf457f1383e3557eb85a9b3187
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/29/2020
-ms.locfileid: "85517614"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86200028"
 ---
 # <a name="tutorial-predict-automobile-price-with-the-designer-preview"></a>Tutoriel : Prédire le prix de voitures avec le concepteur (version préliminaire)
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-enterprise-sku.md)]

@@ -8,32 +8,34 @@ ms.topic: quickstart
 ms.custom: subject-armqs
 ms.date: 06/30/2020
 ms.author: victorh
-ms.openlocfilehash: 6641cc29025d39ddff33e706dd9b1b0da517b884
-ms.sourcegitcommit: 73ac360f37053a3321e8be23236b32d4f8fb30cf
+ms.openlocfilehash: 1917bed7727b97de27e560a0f2d8032a8ae08996
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/30/2020
-ms.locfileid: "85563696"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86242013"
 ---
-# <a name="quickstart-secure-your-virtual-hub-using-azure-firewall-manager---resource-manager-template"></a>Démarrage rapide : Sécurisation d’un hub virtuel à l’aide d’Azure Firewall Manager – Modèle Resource Manager
+# <a name="quickstart-secure-your-virtual-hub-using-azure-firewall-manager---arm-template"></a>Démarrage rapide : Sécuriser votre hub virtuel avec Azure Firewall Manager - Modèle ARM
 
-Ce guide de démarrage rapide consiste à utiliser un modèle Resource Manager pour sécuriser un hub virtuel à l’aide d’Azure Firewall Manager. Le pare-feu déployé comprend une règle d’application qui autorise les connexions à `www.microsoft.com`. Deux machines virtuelles Windows Server 2019 sont déployées pour tester le pare-feu. Un serveur de rebond est utilisé pour se connecter au serveur de charge de travail. À partir du serveur de charge de travail, il n’est possible de se connecter qu’à `www.microsoft.com`.
+Dans ce guide de démarrage rapide, vous allez utiliser un modèle Azure Resource Manager (modèle ARM) pour sécuriser un hub virtuel à l’aide d’Azure Firewall Manager. Le pare-feu déployé comprend une règle d’application qui autorise les connexions à `www.microsoft.com`. Deux machines virtuelles Windows Server 2019 sont déployées pour tester le pare-feu. Un serveur de rebond est utilisé pour se connecter au serveur de charge de travail. À partir du serveur de charge de travail, il n’est possible de se connecter qu’à `www.microsoft.com`.
 
 [!INCLUDE [About Azure Resource Manager](../../includes/resource-manager-quickstart-introduction.md)]
 
 Pour plus d’informations sur Azure Firewall Manager, consultez [Qu’est-ce qu’Azure Firewall Manager ?](overview.md)
 
+Si votre environnement remplit les prérequis et que vous êtes déjà familiarisé avec l’utilisation des modèles ARM, sélectionnez le bouton **Déployer sur Azure**. Le modèle s’ouvre dans le portail Azure.
+
+[![Déployer sur Azure](../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Ffwm-docs-qs%2Fazuredeploy.json)
+
 ## <a name="prerequisites"></a>Prérequis
 
 - Compte Azure avec un abonnement actif. [Créez un compte gratuitement](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 
-## <a name="create-a-secured-virtual-hub"></a>Créer un hub virtuel sécurisé
+## <a name="review-the-template"></a>Vérifier le modèle
 
 Ce modèle crée un hub virtuel sécurisé à l’aide d’Azure Firewall Manager, ainsi que les ressources nécessaires au scénario.
 
-### <a name="review-the-template"></a>Vérifier le modèle
-
-Le modèle utilisé dans ce guide de démarrage rapide est tiré des [modèles de démarrage rapide Azure](https://azure.microsoft.com/resources/templates/fwm-docs-qs/).
+Le modèle utilisé dans ce démarrage rapide est tiré des [modèles de démarrage rapide Azure](https://azure.microsoft.com/resources/templates/fwm-docs-qs/).
 
 :::code language="json" source="~/quickstart-templates/fwm-docs-qs/azuredeploy.json" range="001-477" highlight="47-76":::
 
@@ -51,9 +53,9 @@ Plusieurs ressources Azure sont définies dans le modèle :
 - [**Microsoft.Network/publicIPAddresses**](/azure/templates/microsoft.network/publicipaddresses)
 - [**Microsoft.Network/routeTables**](/azure/templates/microsoft.network/routeTables)
 
-### <a name="deploy-the-template"></a>Déployer le modèle
+## <a name="deploy-the-template"></a>Déployer le modèle
 
-Déployez le modèle Resource Manager sur Azure :
+Déployez le modèle ARM sur Azure :
 
 1. Sélectionnez **Déployer sur Azure** pour vous connecter à Azure et ouvrir le modèle. Le modèle crée un Pare-feu Azure, un réseau WAN virtuel et un hub virtuel, l’infrastructure réseau et deux machines virtuelles.
 
@@ -86,7 +88,7 @@ Déployez le modèle Resource Manager sur Azure :
 
 Maintenant que vous avez vérifié que les règles de pare-feu fonctionnent :
 
-* Vous pouvez accéder au nom de domaine complet autorisé, mais pas à d’autres.
+- Vous pouvez accéder au nom de domaine complet autorisé, mais pas à d’autres.
 
 ## <a name="clean-up-resources"></a>Nettoyer les ressources
 

@@ -7,18 +7,22 @@ ms.topic: quickstart
 ms.custom: subject-armqs
 ms.author: mblythe
 ms.date: 05/14/2020
-ms.openlocfilehash: 28671484460407efac8798505f630c13ec0b4918
-ms.sourcegitcommit: 58ff2addf1ffa32d529ee9661bbef8fbae3cddec
+ms.openlocfilehash: 5bdcbe620e88700c5607162cd2471f6b2c3e7532
+ms.sourcegitcommit: e995f770a0182a93c4e664e60c025e5ba66d6a45
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/03/2020
-ms.locfileid: "84325080"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86132831"
 ---
 # <a name="quickstart-use-an-arm-template-to-create-an-azure-database-for-postgresql---single-server"></a>Démarrage rapide : Création d’un serveur Azure Database pour PostgreSQL à l’aide d’un modèle ARM – Serveur unique
 
-Azure Database pour PostgreSQL est un service administré que vous utilisez pour exécuter, gérer et mettre à l’échelle des bases de données PostgreSQL hautement disponibles dans le cloud. Ce guide de démarrage rapide utilise un modèle ARM pour créer un serveur unique Azure Database pour PostgreSQL sur le Portail Azure, dans PowerShell ou dans Azure CLI.
+Azure Database pour PostgreSQL est un service administré que vous utilisez pour exécuter, gérer et mettre à l’échelle des bases de données PostgreSQL hautement disponibles dans le cloud. Ce guide de démarrage rapide utilise un modèle Azure Resource Manager (modèle ARM) pour créer un serveur Azure Database pour PostgreSQL dans le portail Azure, PowerShell ou Azure CLI.
 
 [!INCLUDE [About Azure Resource Manager](../../includes/resource-manager-quickstart-introduction.md)]
+
+Si votre environnement remplit les prérequis et que vous êtes déjà familiarisé avec l’utilisation des modèles ARM, sélectionnez le bouton **Déployer sur Azure**. Le modèle s’ouvre dans le portail Azure.
+
+[![Déployer sur Azure](../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3a%2f%2fraw.githubusercontent.com%2fAzure%2fazure-quickstart-templates%2fmaster%2f101-managed-postgresql-with-vnet%2fazuredeploy.json)
 
 ## <a name="prerequisites"></a>Prérequis
 
@@ -38,11 +42,9 @@ Compte Azure avec un abonnement actif. [Créez-en un gratuitement](https://azure
 
 ---
 
-## <a name="create-an-azure-database-for-postgresql-server"></a>Créer un serveur Azure Database pour PostgreSQL
+## <a name="review-the-template"></a>Vérifier le modèle
 
 Un serveur Azure Database pour PostgreSQL est créé. Il contient un ensemble configuré de ressources de calcul et de stockage. Pour plus d’informations, consultez [Niveaux tarifaires dans Azure Database pour PostgreSQL – Serveur unique](concepts-pricing-tiers.md). Vous créez ce serveur dans un [groupe de ressources Azure](../azure-resource-manager/management/overview.md).
-
-### <a name="review-the-template"></a>Vérifier le modèle
 
 Le modèle utilisé dans ce démarrage rapide est tiré des [modèles de démarrage rapide Azure](https://azure.microsoft.com/resources/templates/101-managed-postgresql-with-vnet/).
 
@@ -58,7 +60,7 @@ Le modèle définit cinq ressources Azure :
 
 Pour voir d’autres exemples de modèles Azure Database pour PostgreSQL, consultez [Modèles de démarrage rapide Azure](https://azure.microsoft.com/resources/templates/?resourceType=Microsoft.Dbforpostgresql&pageNumber=1&sort=Popular).
 
-### <a name="deploy-the-template"></a>Déployer le modèle
+## <a name="deploy-the-template"></a>Déployer le modèle
 
 # <a name="portal"></a>[Portail](#tab/azure-portal)
 
@@ -210,4 +212,4 @@ read -p "Press [ENTER] to continue: "
 Pour obtenir un tutoriel pas à pas vous guidant tout au long du processus de création d’un modèle, consultez :
 
 > [!div class="nextstepaction"]
-> [Tutoriel : Créer et déployer votre premier modèle Azure Resource Manager](../azure-resource-manager/templates/template-tutorial-create-first-template.md)
+> [Tutoriel : Créer et déployer votre premier modèle Resource Manager](../azure-resource-manager/templates/template-tutorial-create-first-template.md)

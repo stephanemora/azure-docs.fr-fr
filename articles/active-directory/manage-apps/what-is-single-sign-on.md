@@ -12,12 +12,12 @@ ms.date: 12/03/2019
 ms.author: kenwith
 ms.reviewer: arvindh, japere
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a50f2cf6fc00189c8cc764a132b550153b80b52e
-ms.sourcegitcommit: 5cace04239f5efef4c1eed78144191a8b7d7fee8
+ms.openlocfilehash: b7b2a75bff21825a47f4364a8936ee7d5f122c1a
+ms.sourcegitcommit: f844603f2f7900a64291c2253f79b6d65fcbbb0c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86144606"
+ms.lasthandoff: 07/10/2020
+ms.locfileid: "86223888"
 ---
 # <a name="what-is-single-sign-on-sso"></a>Qu’est-ce que l’authentification unique ?
 
@@ -90,6 +90,9 @@ Choisissez l’authentification unique par mot de passe quand :
 - Une application ne prend pas en charge le protocole d’authentification unique SAML.
 - Une application s’authentifie avec un nom d’utilisateur et un mot de passe au lieu de jetons d’accès et d’en-têtes.
 
+>[!NOTE]
+>Vous ne pouvez pas appliquer de stratégies d’accès conditionnel ni d’authentification multifacteur pour l’authentification unique par mot de passe.
+
 L’authentification unique par mot de passe est prise en charge pour toutes les applications cloud qui ont une page de connexion HTML. L’utilisateur peut utiliser un des navigateurs suivants :
 
 - Internet Explorer 11 sur Windows 7 ou ultérieur
@@ -136,6 +139,9 @@ L’authentification unique liée permet à Azure AD de fournir l’authentifica
 L’authentification liée peut fournir une expérience utilisateur homogène lorsque vous migrez des applications sur un certain laps de temps. Si vous migrez des applications vers Azure Active Directory, vous pouvez utiliser l’authentification liée pour publier rapidement des liens vers toutes les applications que vous voulez migrer.  Les utilisateurs peuvent trouver tous les liens dans le [portail MyApps](../user-help/active-directory-saas-access-panel-introduction.md) ou dans le [Lanceur d’applications Office 365](https://support.office.com/article/meet-the-office-365-app-launcher-79f12104-6fed-442f-96a0-eb089a3f476a). Les utilisateurs ne savent pas qu’ils accèdent à une application liée ou à une application migrée.  
 
 Une fois qu’un utilisateur s’est authentifié avec une application liée, un enregistrement de compte doit être créé avant que l’utilisateur final obtienne l’accès par authentification unique. Le provisionnement de cet enregistrement de compte peut se produire automatiquement ou il peut être effectué manuellement par un administrateur.
+
+>[!NOTE]
+>Vous ne pouvez pas appliquer de stratégies d’accès conditionnel ni d’authentification multifacteur à une application liée. Cela est dû au fait qu’une application liée ne fournit pas de possibilité d’authentification unique via Azure AD. Quand vous configurez une application liée, vous ajoutez simplement un lien qui apparaîtra dans le lanceur d’applications ou le portail MyApps. 
 
 ## <a name="disabled-sso"></a>Authentification unique désactivée
 

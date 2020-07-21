@@ -8,12 +8,12 @@ ms.topic: overview
 ms.date: 06/29/2020
 ms.author: cherylmc
 Customer intent: As someone with a networking background, I want to understand what Virtual WAN is and if it is the right choice for my Azure network.
-ms.openlocfilehash: bae8fa97d075784bba1d2f75cc06cfa3f801c052
-ms.sourcegitcommit: 0100d26b1cac3e55016724c30d59408ee052a9ab
+ms.openlocfilehash: 909f120275c58b04d8674f0610c40e13b96804b6
+ms.sourcegitcommit: 5cace04239f5efef4c1eed78144191a8b7d7fee8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/07/2020
-ms.locfileid: "86027203"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86143905"
 ---
 # <a name="about-azure-virtual-wan"></a>À propos d'Azure Virtual WAN
 
@@ -58,7 +58,7 @@ Pour configurer un WAN virtuel de bout en bout, vous devez créer les ressources
 
 * **Connexion entre hub et réseau virtuel :** La ressource Connexion entre hub et réseau virtuel permet de connecter facilement le hub à votre réseau virtuel.
 
-* **(Préversion) Connexion hub à hub** - Dans un WAN virtuel, les hubs sont tous connectés les uns aux autres. Cela signifie qu'une branche, un utilisateur ou un réseau virtuel connecté à un hub local peut communiquer avec une autre branche ou un autre réseau virtuel en utilisant l'intégralité de l'architecture maillée des hubs connectés. Vous pouvez également connecter des réseaux virtuels au sein d'un hub transitant par le hub virtuel, ainsi que des réseaux virtuels inter-hub, en utilisant l'infrastructure connectée hub à hub.
+* **Connexion de hub à hub :** les hubs sont tous connectés les uns aux autres dans un WAN virtuel. Cela signifie qu'une branche, un utilisateur ou un réseau virtuel connecté à un hub local peut communiquer avec une autre branche ou un autre réseau virtuel en utilisant l'intégralité de l'architecture maillée des hubs connectés. Vous pouvez également connecter des réseaux virtuels au sein d'un hub transitant par le hub virtuel, ainsi que des réseaux virtuels inter-hub, en utilisant l'infrastructure connectée hub à hub.
 
 * **Table de routage de hub :**  Vous pouvez créer une route de hub virtuel et l’appliquer à la table de routage de hub virtuel. Vous pouvez appliquer plusieurs itinéraires à la table de routage du hub virtuel.
 
@@ -122,7 +122,7 @@ Pour plus d’informations sur les emplacements, consultez l’article [Partenai
 
 ## <a name="route-tables-in-basic-and-standard-virtual-wans"></a><a name="route"></a>Tables de routage dans les réseaux étendus virtuels De base et Standard
 
-Les tables de routage disposent désormais de fonctionnalités d’association et de propagation. Une table de route préexistante est une table de routage qui n’a pas ces fonctionnalités. Si le routage de hub comporte des routes préexistantes et que vous souhaitez utiliser les nouvelles fonctionnalités, tenez compte des éléments suivants :
+Les tables de routage disposent désormais de fonctionnalités d’association et de propagation. Une table de routage préexistante est une table de routage qui n’a pas ces fonctionnalités. Si le routage de hub comporte des routes préexistantes et que vous souhaitez utiliser les nouvelles fonctionnalités, tenez compte des éléments suivants :
 
 * **Clients de réseau virtuel Standard avec des routes préexistantes dans le hub virtuel** : Pour utiliser les nouvelles fonctionnalités de table de route, veuillez patienter jusqu’à la semaine du 3 août que le déploiement dans Azure soit terminé. Si vous avez des routes préexistantes dans la section Routage du hub dans le portail Azure, vous devez d’abord les supprimer, puis essayer de créer de nouvelles tables de route (disponible dans la section Tables de route du hub dans le portail Azure).
 

@@ -1,5 +1,5 @@
 ---
-title: 'Tutoriel : Entraîner et déployer des modèles : Visual Studio Code'
+title: 'Tutoriel : Entraîner et déployer des modèles : VS Code (préversion)'
 titleSuffix: Azure Machine Learning
 description: Découvrez comment entraîner et déployer un modèle de classification d’images à l’aide de TensorFlow et de l’extension Azure Machine Learning de Visual Studio Code.
 services: machine-learning
@@ -8,16 +8,16 @@ ms.subservice: core
 ms.topic: tutorial
 author: luisquintanilla
 ms.author: luquinta
-ms.date: 04/13/2020
+ms.date: 07/09/2020
 ms.custom: contperfq4
-ms.openlocfilehash: 05857641df22e03362eeee1590fef62fa3a45530
-ms.sourcegitcommit: c535228f0b77eb7592697556b23c4e436ec29f96
+ms.openlocfilehash: 7d209b3434eae20b4c9a7b328f5c15032315b178
+ms.sourcegitcommit: 3541c9cae8a12bdf457f1383e3557eb85a9b3187
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/06/2020
-ms.locfileid: "82857716"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86203556"
 ---
-# <a name="train-and-deploy-an-image-classification-tensorflow-model-using-the-azure-machine-learning-visual-studio-code-extension"></a>Entraîner et déployer un modèle de classification d’images TensorFlow à l’aide de l’extension Azure Machine Learning de Visual Studio Code
+# <a name="train-and-deploy-an-image-classification-tensorflow-model-using-the-azure-machine-learning-visual-studio-code-extension-preview"></a>Entraîner et déployer un modèle de classification d’images TensorFlow à l’aide de l’extension Azure Machine Learning de Visual Studio Code (préversion)
 
 Découvrez comment entraîner et déployer un modèle de classification d’images pour reconnaître des chiffres manuscrits à l’aide de TensorFlow et de l’extension Azure Machine Learning de Visual Studio Code.
 
@@ -91,7 +91,7 @@ Pour créer une cible de calcul :
 1. Dans la barre d’activités Visual Studio Code, sélectionnez l’icône **Azure**. La vue Azure Machine Learning apparaît. 
 1. Développez votre nœud d’abonnement. 
 1. Développez le nœud **TeamWorkspace**. 
-1. Sous le nœud de l’espace de travail, cliquez avec le bouton droit sur le nœud **Calcul**, puis choisissez **Create Compute** (Créer un calcul). 
+1. Sous le nœud de l’espace de travail, cliquez avec le bouton droit sur le nœud **Clusters de calcul**, puis choisissez **Créer un calcul**. 
 
     > [!div class="mx-imgBorder"]
     > ![Créer une cible de calcul](./media/tutorial-train-deploy-image-classification-model-vscode/create-compute.png)
@@ -115,17 +115,8 @@ Pour créer une cible de calcul :
                 "scaleSettings": {
                     "maxNodeCount": 4,
                     "minNodeCount": 0,
-                    "nodeIdleTimeBeforeScaleDown": 120
-                },
-                "userAccountCredentials": {
-                    "adminUserName": "",
-                    "adminUserPassword": "",
-                    "adminUserSshPublicKey": ""
-                },
-                "subnetName": "",
-                "vnetName": "",
-                "vnetResourceGroupName": "",
-                "remoteLoginPortPublicAccess": ""
+                    "nodeIdleTimeBeforeScaleDown": "PT120S"
+                }
             }
         }
     }
@@ -138,7 +129,7 @@ Pour créer une cible de calcul :
     Azure ML: Save and Continue
     ```
 
-Après quelques minutes, la nouvelle cible de calcul apparaît dans le nœud *Compute* de votre espace de travail.
+Après quelques minutes, la nouvelle cible de calcul s’affiche dans le nœud *Clusters de calcul* de votre espace de travail.
 
 ## <a name="create-a-run-configuration"></a>Créer une configuration de série de tests
 
@@ -148,7 +139,7 @@ Pour créer une configuration de série de tests
 
 1. Dans la barre d’activités Visual Studio Code, sélectionnez l’icône **Azure**. La vue Azure Machine Learning apparaît. 
 1. Développez votre nœud d’abonnement. 
-1. Développez le nœud **TeamWorkspace > Calcul**. 
+1. Développez le nœud **TeamWorkspace > Clusters de calcul**. 
 1. Sous le nœud Calcul, cliquez avec le bouton droit sur le nœud de calcul **TeamWkspc-com** et choisissez **Créer une configuration d’exécution**.
 
     > [!div class="mx-imgBorder"]
@@ -214,6 +205,7 @@ Pour créer une configuration de série de tests
     Azure ML: Save and Continue
     ```
 
+1. Cet exemple n’utilise pas un jeu de données inscrit dans Azure Machine Learning. En effet, le jeu de données est chargé lors de l’exécution de *train.py*. Lorsque vous êtes invité à créer une référence de données pour votre exécution d’entraînement, entrez « n » dans l’invite et appuyez sur **Entrée**.
 1. Appuyez sur **Entrée** pour naviguer jusqu’au fichier de script à exécuter sur le calcul. En l’occurrence, le script pour l’entraînement du modèle est le fichier `train.py` dans le répertoire `vscode-tools-for-ai/mnist-vscode-docs-sample`.
 
     Un fichier nommé `MNIST-rc.runconfig` s’affiche dans VS Code avec un contenu similaire à celui ci-dessous :
@@ -221,6 +213,7 @@ Pour créer une configuration de série de tests
     ```json
     {
         "script": "train.py",
+        "arguments": [],
         "framework": "Python",
         "communicator": "None",
         "target": "TeamWkspc-com",

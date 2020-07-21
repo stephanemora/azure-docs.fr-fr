@@ -135,10 +135,14 @@
               href: ./partner-center-portal/create-consulting-service-offer.md
         - name: "Offres Dynamics\_365"
           items:
-            - name: "Créer une offre Dynamics\_365 for Customer Engagement et PowerApps"
+            - name: "Créer une offre Dynamics\_365 for Customer Engagement et Power Apps"
               href: ./partner-center-portal/create-new-customer-engagement-offer.md
             - name: "Créer une offre Dynamics\_365 for Operations"
-              href: ./partner-center-portal/create-new-operations-offer.md
+              items:
+                - name: "Créer une offre Dynamics\_365 for Operations"
+                  href: ./partner-center-portal/create-new-operations-offer.md
+                - name: Validation fonctionnelle
+                  href: ./dynamics-365-finance-operations-functional-validation.md
             - name: "Créer une offre Dynamics\_365 Business Central"
               href: ./partner-center-portal/create-new-business-central-offer.md
         - name: Offres de module IoT Edge

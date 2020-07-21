@@ -4,30 +4,32 @@ description: Dans ce guide de démarrage rapide, vous utilisez un modèle Azure 
 ms.date: 07/06/2020
 ms.topic: quickstart
 ms.custom: subject-armqs
-ms.openlocfilehash: 3cdcff4898a8644008193943a243be4a2ef9e8c4
-ms.sourcegitcommit: f684589322633f1a0fafb627a03498b148b0d521
+ms.openlocfilehash: a05be04064df81373f856ea0e8ca59664078695f
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/06/2020
-ms.locfileid: "85969804"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86252366"
 ---
-# <a name="quickstart-create-a-shared-query-by-using-an-azure-resource-manager-template"></a>Démarrage rapide : Créer une requête partagée en utilisant un modèle Azure Resource Manager
+# <a name="quickstart-create-a-shared-query-by-using-an-arm-template"></a>Démarrage rapide : Créer une requête partagée à l’aide d’un modèle ARM
 
 Les requêtes Resource Graph peuvent être enregistrées comme _requête privée_ ou _requête partagée_. Une requête privée est enregistrée dans le profil du portail d’une personne et n’est visible par personne d’autre. Une requête partagée est un objet Resource Manager qui peut être partagé avec d’autres utilisateurs via des autorisations et un accès en fonction du rôle. Une requête partagée fournit une exécution courante et cohérente de la découverte des ressources. Ce guide de démarrage rapide utilise un modèle Azure Resource Manager (modèle ARM) pour créer une requête partagée.
 
 [!INCLUDE [About Azure Resource Manager](../../../includes/resource-manager-quickstart-introduction.md)]
 
+Si votre environnement remplit les prérequis et que vous êtes déjà familiarisé avec l’utilisation des modèles ARM, sélectionnez le bouton **Déployer sur Azure**. Le modèle s’ouvre dans le portail Azure.
+
+:::image type="content" source="../../media/template-deployments/deploy-to-azure.svg" alt-text="Déployer le modèle Resource Manager pour créer une requête partagée dans Azure" border="false" link="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fresourcegraph-sharedquery-countos%2Fazuredeploy.json":::
+
 ## <a name="prerequisites"></a>Prérequis
 
 Si vous n’avez pas d’abonnement Azure, créez un compte [gratuit](https://azure.microsoft.com/free/) avant de commencer.
 
-## <a name="create-a-shared-query"></a>Créer une requête partagée
+## <a name="review-the-template"></a>Vérifier le modèle
 
 Dans ce guide de démarrage rapide, vous créez une requête partagée appelée _Compter les VM par OS_. Pour tester cette requête dans le kit SDK ou dans le portail avec l’Explorateur Resource Graph, consultez [Exemples - Compter les VM par OS](./samples/starter.md#count-os).
 
-### <a name="review-the-template"></a>Vérifier le modèle
-
-Le modèle utilisé dans ce guide de démarrage rapide est tiré des [modèles de démarrage rapide Azure](https://azure.microsoft.com/resources/templates/resourcegraph-sharedquery-countos/).
+Le modèle utilisé dans ce démarrage rapide est tiré des [modèles de démarrage rapide Azure](https://azure.microsoft.com/resources/templates/resourcegraph-sharedquery-countos/).
 
 :::code language="json" source="~/quickstart-templates/resourcegraph-sharedquery-countos/azuredeploy.json" highlight="28-37":::
 
@@ -35,7 +37,7 @@ La ressource définie dans le modèle est :
 
 - [Microsoft.ResourceGraph/queries](/azure/templates/microsoft.resourcegraph/queries)
 
-### <a name="deploy-the-template"></a>Déployer le modèle
+## <a name="deploy-the-template"></a>Déployer le modèle
 
 > [!NOTE]
 > Le service Azure Resource Graph est gratuit. Pour plus d’informations, consultez [Vue d’ensemble d’Azure Resource Graph](./overview.md).

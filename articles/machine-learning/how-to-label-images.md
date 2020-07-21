@@ -2,20 +2,20 @@
 title: Étiqueter des images dans un projet d’étiquetage
 title.suffix: Azure Machine Learning
 description: Découvrez comment utiliser les outils de marquage des données dans un projet d’étiquetage Azure Machine Learning.
-author: lobrien
-ms.author: laobri
+author: sdgilley
+ms.author: sgilley
 ms.service: machine-learning
 ms.subservice: core
 ms.topic: tutorial
 ms.date: 04/09/2020
-ms.openlocfilehash: 0421e5ad164c440c1b841cae66e7dafc5deadb81
-ms.sourcegitcommit: 0100d26b1cac3e55016724c30d59408ee052a9ab
+ms.openlocfilehash: 90ef75c704459ca726480e6950ba748162c66b8e
+ms.sourcegitcommit: 5cace04239f5efef4c1eed78144191a8b7d7fee8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/07/2020
-ms.locfileid: "86025129"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86147013"
 ---
-# <a name="tag-images-in-a-labeling-project-preview"></a>Étiqueter des images dans un projet d’étiquetage (préversion)
+# <a name="tag-images-in-a-labeling-project"></a>Étiqueter des images dans un projet d’étiquetage 
 
 Une fois que votre administrateur de projet a [créé un projet d’étiquetage](https://docs.microsoft.com/azure/machine-learning/how-to-create-labeling-projects#create-a-labeling-project) dans Azure Machine Learning, vous pouvez utiliser l’outil d’étiquetage (préversion publique) pour préparer rapidement les données d’un projet Machine Learning. Cet article aborde les points suivants :
 
@@ -64,7 +64,7 @@ Lorsque toutes les images de la page sont balisées, Azure active le bouton **En
 
 Une fois que vous avez envoyé les étiquettes relatives aux données disponibles, Azure actualise la page en affichant un nouvel ensemble d’images provenant de la file d’attente de travail.
 
-### <a name="assisted-machine-learning"></a>Machine Learning assisté 
+### <a name="assisted-machine-learning-preview"></a>Machine Learning assisté (préversion) 
 
 Des algorithmes Machine Learning peuvent être déclenchés. Si ces algorithmes sont activés dans votre projet, vous pouvez constater ce qui suit :
 

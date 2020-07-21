@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 01/03/2020
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 17d0c91d31f7746c53d62af87670c40e9902554c
-ms.sourcegitcommit: 0100d26b1cac3e55016724c30d59408ee052a9ab
+ms.openlocfilehash: 9ea2c20a7720cc80b36ff88595aa6ca5c57f6b9a
+ms.sourcegitcommit: f7e160c820c1e2eb57dc480b2a8fd6bef7053e91
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/07/2020
-ms.locfileid: "86026829"
+ms.lasthandoff: 07/10/2020
+ms.locfileid: "86232370"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-akamai"></a>Tutoriel : Intégration de l’authentification unique Azure Active Directory à Akamai
 
@@ -61,13 +61,13 @@ Akamai EAA est configuré en tant qu’application unique sur Azure AD. L’admi
 
 **Avantages** :
 
-• Vous ne devez configurer le fournisseur d’identité qu’une seule fois
+* Vous ne devez configurer le fournisseur d’identité qu’une seule fois
 
 **Inconvénients** :
 
-• Les utilisateurs se retrouvent avec deux portails d’applications
+* Les utilisateurs se retrouvent avec deux portails d’applications
 
-• Couverture unique et commune de la stratégie d’autorité de certification pour toutes les applications
+* Couverture de la stratégie d’autorité de certification commune unique pour toutes les applications.
 
 ![Scénario d’intégration 1](./media/header-akamai-tutorial/scenario1.png)
 
@@ -77,13 +77,14 @@ L’application Akamai EAA est configurée individuellement dans le portail Azur
 
 **Avantages** :
 
-• Vous pouvez définir des stratégies d’autorité de certification individuelles
+* Vous pouvez définir des stratégies d’autorité de certification individuelles
 
-• Toutes les applications sont représentées dans la gaufre O365 et le panneau myApps.microsoft.com.
+* Toutes les applications sont représentées dans la gaufre Office 365 et le panneau myApps.microsoft.com.
+
 
 **Inconvénients** :
 
-• Vous devez configurer plusieurs fournisseurs d’identité
+* Vous devez configurer plusieurs fournisseurs d’identité.
 
 ![Scénario d’intégration 2](./media/header-akamai-tutorial/scenario2.png)
 
@@ -450,7 +451,7 @@ Cliquez sur Save and go to Deployment.
 
 ### <a name="kerberos-authentication"></a>Authentification Kerberos
 
-Dans l’exemple ci-dessous, nous allons publier un serveur web interne [http://frp-app1.superdemo.live](http://frp-app1.superdemo.live/) et activer l’authentification unique à l’aide de KCD.
+Dans l’exemple ci-dessous, nous allons publier un serveur web interne <code>http://frp-app1.superdemo.live</code> et activer l’authentification unique à l’aide de KCD
 
 #### <a name="general-tab"></a>Onglet Général
 

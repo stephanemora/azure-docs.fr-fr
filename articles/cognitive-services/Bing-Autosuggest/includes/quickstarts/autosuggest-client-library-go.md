@@ -8,12 +8,12 @@ ms.service: cognitive-services
 ms.topic: include
 ms.date: 05/06/2020
 ms.author: aahi
-ms.openlocfilehash: 25b45f2731e94fc6a7a4bedd9c8d44b10125c273
-ms.sourcegitcommit: a6d477eb3cb9faebb15ed1bf7334ed0611c72053
+ms.openlocfilehash: ee897a22ceda4378ea9dba4579d5108a2ddf0b0d
+ms.sourcegitcommit: 5cace04239f5efef4c1eed78144191a8b7d7fee8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/08/2020
-ms.locfileid: "82975061"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86156574"
 ---
 Bien démarrer avec la bibliothèque de client Suggestion automatique Bing pour Go Suivez les étapes suivantes pour installer la bibliothèque et essayer nos exemples de tâches de base. 
 
@@ -33,7 +33,7 @@ Vous pouvez commencer à utiliser la bibliothèque de client Suggestion automati
 ## <a name="create-environment-variables"></a>Créer des variables d’environnement
 
 >[!NOTE]
-> Les points de terminaison pour les ressources autres que d’essai créées après le 1er juillet 2019 utilisent le format de sous-domaine personnalisé indiqué ci-dessous. Pour obtenir plus d’informations et une liste complète des points de terminaison régionaux, consultez [Noms de sous-domaines personnalisés pour Cognitive Services](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-custom-subdomains). 
+> Les points de terminaison pour les ressources créées après le 1er juillet 2019 utilisent le format de sous-domaine personnalisé indiqué ci-dessous. Pour obtenir plus d’informations et une liste complète des points de terminaison régionaux, consultez [Noms de sous-domaines personnalisés pour Cognitive Services](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-custom-subdomains). 
 
 En utilisant votre clé et le point de terminaison de la ressource que vous avez créée, créez deux variables d’environnement pour l’authentification :
 <!-- replace the below variable names with the names expected in the code sample.-->

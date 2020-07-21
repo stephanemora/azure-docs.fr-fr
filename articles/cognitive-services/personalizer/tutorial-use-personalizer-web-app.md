@@ -1,17 +1,17 @@
 ---
 title: Utiliser une application web – Personalizer
 description: Personnalisez une application web .NET C# à l’aide d’une boucle Personalizer pour fournir le contenu approprié à un utilisateur en fonction d’actions (avec des fonctionnalités) et de caractéristiques contextuelles.
-ms.topic: troubleshooting
+ms.topic: tutorial
 ms.date: 06/10/2020
 ms.author: diberry
-ms.openlocfilehash: 9def69a1540e81b99723c16ad34ba522d1737c7f
-ms.sourcegitcommit: 537c539344ee44b07862f317d453267f2b7b2ca6
+ms.openlocfilehash: 9514e92432c2be5441dec5ff998a9deede35d7f4
+ms.sourcegitcommit: 3541c9cae8a12bdf457f1383e3557eb85a9b3187
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/11/2020
-ms.locfileid: "84713892"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86207601"
 ---
-# <a name="add-personalizer-to-a-net-web-app"></a>Ajouter Personalizer à une application web .NET
+# <a name="tutorial-add-personalizer-to-a-net-web-app"></a>Tutoriel : Ajouter Personalizer à une application web .NET
 
 Personnalisez une application web .NET C# à l’aide d’une boucle Personalizer pour fournir le contenu approprié à un utilisateur en fonction d’actions (avec des fonctionnalités) et de caractéristiques contextuelles.
 
@@ -156,7 +156,7 @@ L’application web utilise Personalizer pour sélectionner la meilleure action 
 * les **actions** avec leurs fonctionnalités telles que `taste` et `spiceLevel`
 * les **caractéristiques contextuelles** telles que l’heure `time` de la journée, la préférence `taste` de l’utilisateur et les informations de l’agent utilisateur du navigateur, ainsi que les caractéristiques contextuelles
 * les **actions à exclure** telles que le jus
-* **eventid**, qui est différent pour chaque appel à l’API de classement
+* **eventId**, qui est différent pour chaque appel à l’API Rank.
 
 ## <a name="personalizer-model-features-in-a-web-app"></a>Fonctionnalités du modèle Personalizer dans une application web
 
@@ -212,7 +212,7 @@ L’exemple d’application web basée sur un navigateur (tout le code est fourn
 
 Installez les logiciels suivants :
 
-* [.NET Core 2.1](https://dotnet.microsoft.com/download/dotnet-core/2.1) : l’exemple de serveur principal utilise .NET Core
+* [.NET Core 2.1](https://dotnet.microsoft.com/download/dotnet-core/2.1) : l’exemple de serveur back-end utilise .NET Core
 * [Node.js](https://nodejs.org/) : le client/serveur frontal dépend de cette application
 * [Visual Studio 2019](https://visualstudio.microsoft.com/vs/) ou [CLI .NET Core](https://docs.microsoft.com/dotnet/core/tools/) : utilisez l’environnement de développement de Visual Studio 2019 ou CLI .NET Core pour générer et exécuter l’application
 
@@ -294,7 +294,7 @@ Il s’agit d’une application web .NET classique avec une application cliente,
 
 Dans le fichier **Startup.cs** du serveur, le point de terminaison et la clé Personalizer sont utilisés pour créer le client Personalizer. L’application cliente n’a pas besoin de communiquer avec Personalizer dans cette application, elle se contente de compter sur le serveur pour effectuer ces appels de Kit de développement logiciel (SDK).
 
-Le code de démarrage .NET du serveur web est le suivant :
+Le code de démarrage .NET du serveur web est le suivant :
 
 ```csharp
 using Microsoft.Azure.CognitiveServices.Personalizer;
@@ -570,7 +570,7 @@ Dans cet exemple d’application, vous pouvez sélectionner une valeur pour voir
 
 ## <a name="additional-ways-to-learn-from-this-sample"></a>Autres moyens d’apprendre de cet exemple
 
-L’exemple utilise plusieurs événements temporels configurés dans le portail Azure pour votre ressource Personalizer. Jouez avec ces valeurs, puis revenez à cet exemple d’application web pour observer l’impact des modifications sur les appels de classement et de récompense :
+L’exemple utilise plusieurs événements basés sur le temps configurés dans le portail Azure pour votre ressource Personalizer. Jouez avec ces valeurs, puis revenez à cet exemple d’application web pour observer l’impact des modifications sur les appels de classement et de récompense :
 
 * Temps d’attente des récompenses
 * Fréquence de mise à jour du modèle

@@ -8,14 +8,14 @@ ms.service: machine-learning
 ms.subservice: core
 ms.topic: tutorial
 ms.date: 04/09/2020
-ms.openlocfilehash: e20b7b447797a957f860c6b1dd9679519960ebc5
-ms.sourcegitcommit: 0100d26b1cac3e55016724c30d59408ee052a9ab
+ms.openlocfilehash: 8c0aabc3242bf9576de917ad63ce4f71bec9905e
+ms.sourcegitcommit: 5cace04239f5efef4c1eed78144191a8b7d7fee8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/07/2020
-ms.locfileid: "86025180"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86146540"
 ---
-# <a name="create-a-data-labeling-project-preview-and-export-labels"></a>Créer un projet d’étiquetage des données (préversion) et exporter des étiquettes 
+# <a name="create-a-data-labeling-project-and-export-labels"></a>Créer un projet d’étiquetage des données et exporter des étiquettes 
 
 [!INCLUDE [aml-applies-to-basic-enterprise-sku](../../includes/aml-applies-to-basic-enterprise-sku.md)]
 
@@ -82,7 +82,7 @@ Pour créer un jeu de données à partir de données que vous avez déjà stock�
 1. Sélectionnez le magasin de données.
 1. Si vos données se trouvent dans un sous-dossier de votre Stockage Blob, choisissez **Parcourir** pour sélectionner le chemin.
     * Ajoutez « /** » au chemin pour inclure tous les fichiers des sous-dossiers du chemin sélectionné.
-    * Ajoutez « **/*.* » pour inclure toutes les données figurant dans le conteneur actuel et ses sous-dossiers.
+    * Ajoutez « * */* .* » pour inclure toutes les données figurant dans le conteneur actuel et ses sous-dossiers.
 1. Fournissez une description pour votre jeu de données.
 1. Sélectionnez **Suivant**.
 1. Vérifiez les détails. Sélectionnez **Précédent** pour modifier les paramètres, ou **Créer** pour créer le jeu de données.
@@ -144,7 +144,7 @@ Pour les cadres englobants, les questions importantes sont les suivantes :
 >[!NOTE]
 > Notez bien que les étiqueteurs peuvent sélectionner les 9 premières étiquettes à l’aide des touches numériques allant de 1 à 9.
 
-## <a name="use-ml-assisted-labeling"></a>Utiliser l’étiquetage assisté par ML
+## <a name="use-ml-assisted-labeling-preview"></a>Utiliser l’étiquetage assisté par Machine Learning (préversion)
 
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-enterprise-sku.md)]
 
@@ -188,7 +188,7 @@ Une fois le projet initialisé, Azure commence à l’exécuter. Sélectionnez l
 
 Sous l’onglet **Données**, vous pouvez voir votre jeu de données et passer en revue les données étiquetées. Si vous voyez des données étiquetées de manière incorrecte, sélectionnez-les, puis choisissez **Rejeter**. Les étiquettes sont alors supprimées et les données replacées en file d’attente des données sans étiquette.
 
-Pour suspendre ou redémarrer le projet, sélectionnez le bouton **Suspendre**/**Démarrer **. Vous pouvez uniquement étiqueter des données quand le projet est en cours d’exécution.
+Pour suspendre ou redémarrer le projet, sélectionnez le bouton **Suspendre**/**Démarrer** . Vous pouvez uniquement étiqueter des données quand le projet est en cours d’exécution.
 
 Vous pouvez étiqueter des données directement à partir de la page **Détails du projet** en sélectionnant **Étiqueter les données**.
 

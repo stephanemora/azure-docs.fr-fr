@@ -4,12 +4,12 @@ description: Découvrez comment préparer des machines locales pour la migration
 ms.topic: tutorial
 ms.date: 06/08/2020
 ms.custom: MVC
-ms.openlocfilehash: e6840b75d58bf19f742f94caad74e10aebe24666
-ms.sourcegitcommit: e132633b9c3a53b3ead101ea2711570e60d67b83
+ms.openlocfilehash: aec2e95b65be2e3c69b2d29111fa1cfdbd66674e
+ms.sourcegitcommit: f844603f2f7900a64291c2253f79b6d65fcbbb0c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/07/2020
-ms.locfileid: "86044156"
+ms.lasthandoff: 07/10/2020
+ms.locfileid: "86223616"
 ---
 # <a name="prepare-on-premises-machines-for-migration-to-azure"></a>Préparer des ordinateurs locaux à une migration vers Azure
 
@@ -122,7 +122,7 @@ Pour les autres versions, préparez les machines comme cela est résumé dans le
 --- | --- | ---
 **Installer Hyper-V Integration Services pour Linux** | Regénérez l’image init Linux pour qu’elle contienne les pilotes Hyper-V nécessaires. La regénération de l’image init est l’assurance que la machine virtuelle démarrera dans Azure. | Ils sont inclus par défaut dans la plupart des nouvelles versions des distributions Linux.<br/><br/> Si ce n’est pas le cas, installez-les manuellement pour toutes les versions autres que celles indiquées ci-dessus.
 **Activer la journalisation de la console série Azure** | L’activation de la journalisation de la console vous aide à résoudre les problèmes. Vous n’avez pas besoin de redémarrer la machine virtuelle. La machine virtuelle Azure démarre en utilisant l’image de disque. Le démarrage avec une image de disque équivaut à un redémarrage pour la nouvelle machine virtuelle.<br/><br/> Suivez [ces instructions](../virtual-machines/troubleshooting/serial-console-linux.md) pour l’activer.
-**Mettre à jour le fichier de mappage d’appareils** | Mettez à jour le fichier de mappage d’appareils avec les associations entre les volumes et les noms d’appareils de façon à utiliser des identificateurs d’appareils persistants. | Installez-les manuellement pour toutes les versions autres que celles indiquées ci-dessus.
+**Mettre à jour le fichier de mappage d’appareils** | Mettez à jour le fichier de mappage d’appareils avec les associations entre les volumes et les noms d’appareils de façon à utiliser des identificateurs d’appareils persistants. | Installez-les manuellement pour toutes les versions autres que celles indiquées ci-dessus. (Applicable uniquement dans un scénario VMware basé sur un agent)
 **Mettre à jour les entrées fstab** |  Mettez à jour les entrées fstab pour utiliser des identificateurs de volumes persistants.    | Mettez-les à jour manuellement pour toutes les versions autres que celles indiquées ci-dessus.
 **Supprimer la règle udev** | Supprimez toutes les règles udev qui réservent des noms d’interface basés sur l’adresse mac, etc. | Supprimez-les manuellement pour toutes les versions autres que celles indiquées ci-dessus.
 **Mettre à jour les interfaces réseau** | Mettez à jour les interfaces réseau pour recevoir l’adresse IP basée sur DHCP.nst | Mettez-les à jour manuellement pour toutes les versions autres que celles indiquées ci-dessus.

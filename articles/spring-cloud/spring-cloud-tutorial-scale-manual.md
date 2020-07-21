@@ -1,19 +1,19 @@
 ---
 title: 'Tutoriel : Mettre à l’échelle une application dans Azure Spring Cloud | Microsoft Docs'
-description: Dans ce tutoriel, vous allez apprendre à mettre à l’échelle une application avec Azure Spring Cloud sur le portail Azure.
+description: Apprenez à mettre à l’échelle une application avec Azure Spring Cloud dans le portail Azure.
 ms.service: spring-cloud
 ms.topic: tutorial
 ms.author: brendm
 author: bmitchell287
 ms.date: 10/06/2019
-ms.openlocfilehash: 93cefd0c71e2d51187e68c6f5f02777d158e95a4
-ms.sourcegitcommit: 6571e34e609785e82751f0b34f6237686470c1f3
+ms.openlocfilehash: ca889e48510ec20b4823c6ec5e4e0149d5aaaa62
+ms.sourcegitcommit: 5cace04239f5efef4c1eed78144191a8b7d7fee8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/15/2020
-ms.locfileid: "84792062"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86141876"
 ---
-# <a name="scale-an-application-in-azure-spring-cloud"></a>Mettre à l’échelle une application dans Azure Spring Cloud
+# <a name="tutorial-scale-an-application-in-azure-spring-cloud"></a>Tutoriel : Mettre à l’échelle une application dans Azure Spring Cloud
 
 Ce tutoriel montre comment mettre à l’échelle une application de microservices à partir du tableau de bord Azure Spring Cloud sur le portail Azure.
 
@@ -23,10 +23,10 @@ Effectuez un scale-up ou un scale-down de votre application en modifiant le nomb
 
 ## <a name="prerequisites"></a>Prérequis
 
-Pour suivre ce didacticiel, vous avez besoin des éléments suivants :
+Pour suivre ces procédures, vous avez besoin des éléments suivants :
 
 * Un abonnement Azure. Si vous n’avez pas d’abonnement Azure, créez un [compte gratuit](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) avant de commencer. 
-* Une instance du service Azure Spring Cloud déployée.  Pour bien démarrer, suivez notre [guide de démarrage rapide sur le déploiement d’une application via Azure CLI](spring-cloud-quickstart-launch-app-cli.md).
+* Une instance du service Azure Spring Cloud déployée.  Pour bien démarrer, suivez notre [guide de démarrage rapide sur le déploiement d’une application par le biais d’Azure CLI](spring-cloud-quickstart-launch-app-cli.md).
 * Au moins une application déjà créée dans votre instance de ce service.
 
 ## <a name="navigate-to-the-scale-page-in-the-azure-portal"></a>Accéder à la page Mettre à l’échelle sur le portail Azure
@@ -64,7 +64,7 @@ Si vous êtes au niveau De base et limité par une ou plusieurs de ces [restrict
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Dans ce tutoriel, vous avez appris à mettre à l’échelle manuellement vos applications Azure Spring Cloud. Pour savoir comment superviser votre application, passez au tutoriel suivant.
+Dans ce tutoriel, vous avez appris à mettre à l’échelle manuellement une application Azure Spring Cloud. Pour savoir comment superviser votre application en configurant des alertes, passez au tutoriel suivant.
 
 > [!div class="nextstepaction"]
-> [Savoir comment superviser une application](spring-cloud-tutorial-distributed-tracing.md)
+> [Découvrir comment configurer des alertes](spring-cloud-tutorial-alerts-action-groups.md)

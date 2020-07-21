@@ -5,15 +5,15 @@ services: virtual-wan
 author: cherylmc
 ms.service: virtual-wan
 ms.topic: tutorial
-ms.date: 06/29/2020
+ms.date: 07/09/2020
 ms.author: cherylmc
 Customer intent: As someone with a networking background, I want to connect my local site to my VNets using Virtual WAN and I don't want to go through a Virtual WAN partner.
-ms.openlocfilehash: 13949bef7b26058c577a3ab85b4fb2e736bba8f5
-ms.sourcegitcommit: 73ac360f37053a3321e8be23236b32d4f8fb30cf
+ms.openlocfilehash: 219551f2bba229fb627092548fe5c5f5ff8798b9
+ms.sourcegitcommit: f844603f2f7900a64291c2253f79b6d65fcbbb0c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/30/2020
-ms.locfileid: "85563007"
+ms.lasthandoff: 07/10/2020
+ms.locfileid: "86220597"
 ---
 # <a name="tutorial-create-a-site-to-site-connection-using-azure-virtual-wan"></a>Tutoriel : Créer une connexion de site à site à l’aide d’Azure Virtual WAN
 
@@ -87,17 +87,7 @@ Au cours de cette étape, vous connectez votre site VPN au hub.
 
 ## <a name="connect-the-vnet-to-the-hub"></a><a name="vnet"></a>Connecter le réseau virtuel au hub
 
-Au cours de cette étape, vous créez la connexion entre votre hub et un réseau virtuel. Répétez ces étapes pour chaque réseau virtuel que vous souhaitez connecter.
-
-1. Sur la page de votre WAN virtuel, cliquez sur **Connexion de réseau virtuel**.
-2. Dans la page de connexion de réseau virtuel, cliquez sur **+ Ajouter une connexion**.
-3. Dans la page **Ajouter une connexion**, renseignez les champs suivants :
-
-    * **Nom de connexion** : nommez votre connexion.
-    * **Hubs** : sélectionnez le hub que vous souhaitez associer à cette connexion.
-    * **Abonnement** : vérifiez l’abonnement.
-    * **Réseau virtuel** : sélectionnez le réseau virtuel que vous souhaitez connecter à ce hub. Le réseau virtuel ne peut pas avoir une passerelle de réseau virtuel déjà existante.
-4. Cliquez sur **OK** pour créer la connexion de réseau virtuel.
+[!INCLUDE [Connect](../../includes/virtual-wan-connect-vnet-hub-include.md)]
 
 ## <a name="download-vpn-configuration"></a><a name="device"></a>Télécharger une configuration VPN
 
@@ -262,7 +252,7 @@ Sur la page **Modifier la passerelle VPN**, vous pouvez voir les paramètres sui
 * Adresse IP publique de la passerelle VPN (affectée par Azure)
 * Adresse IP privée de la passerelle VPN (affectée par Azure)
 * Adresse IP BGP par défaut de la passerelle VPN (affectée par Azure)
-* Option de configuration de l’adresse IP BGP personnalisée : Ce champ est réservé à APIPA (Automatic Private IP Addressing). Azure prend en charge l’adresse IP BGP dans les plages 169.254.21.* et 169.254.22.*
+* Option de configuration de l’adresse IP BGP personnalisée : Ce champ est réservé à APIPA (Automatic Private IP Addressing). Azure prend en charge l’adresse IP BGP dans les plages 169.254.21.* et 169.254.22.*. Azure accepte les connexions BGP dans ces plages, mais établit la connexion avec l’adresse IP BGP par défaut.
 
    :::image type="content" source="media/virtual-wan-site-to-site-portal/view-configuration-2.png" alt-text="Afficher la configuration" lightbox="media/virtual-wan-site-to-site-portal/view-configuration-2-expand.png":::
 

@@ -9,12 +9,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: cpendle
 ms.custom: ''
-ms.openlocfilehash: 7b73923b7fc32ae83bfc8405d074835c02031a63
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: 2422204a809e0b13f4e337d49b851a0338681853
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "77913699"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86249204"
 ---
 # <a name="migrate-from-google-maps-to-azure-maps"></a>Migrer de Google Maps vers Azure Maps
 
@@ -74,7 +74,7 @@ Voici quelques ressources associées pour Azure Maps :
 Voici un plan de migration général.
 
 1. Effectuez l’inventaire des services et des SDK Google Maps utilisés par votre application. Vérifiez qu’Azure Maps fournit des alternatives sous forme de SDK et de services.
-2. Si vous n’en avez pas encore, créez un abonnement Azure à l’adresse [https://azure.com](https://azure.com).
+2. Si vous n’en avez pas encore, créez un abonnement Azure sur [https://azure.com](https://azure.com).
 3. Créez un compte Azure Maps ([documentation](https://docs.microsoft.com/azure/azure-maps/how-to-manage-account-keys)) et une clé d’authentification ou Azure Active Directory ([documentation](https://docs.microsoft.com/azure/azure-maps/how-to-manage-authentication)).
 4. Migrez votre code d’application.
 5. Testez votre application migrée.
@@ -92,7 +92,7 @@ Voici une liste de ressources techniques utiles pour Azure Maps.
 - Blog : [https://aka.ms/AzureMapsBlog](https://aka.ms/AzureMapsBlog)
 - Blog Tech Community : [https://aka.ms/AzureMapsTechBlog](https://aka.ms/AzureMapsTechBlog)
 - Commentaires Azure Maps (UserVoice) : [https://aka.ms/AzureMapsFeedback](https://aka.ms/AzureMapsFeedback)
-- [Jupyter Notebook Azure Maps][https://github.com/Azure-Samples/Azure-Maps-Jupyter-Notebook ]
+- [Azure Maps Jupyter Notebook](https://github.com/Azure-Samples/Azure-Maps-Jupyter-Notebook)
 
 ## <a name="migration-support"></a>Prise en charge de la migration
 

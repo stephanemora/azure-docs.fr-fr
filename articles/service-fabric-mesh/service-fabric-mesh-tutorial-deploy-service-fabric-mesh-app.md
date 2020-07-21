@@ -6,12 +6,12 @@ ms.topic: tutorial
 ms.date: 09/18/2018
 ms.author: dekapur
 ms.custom: mvc, devcenter
-ms.openlocfilehash: d2bb37252bc93c982dbc090a0c3f20aef842325f
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: 3f0dca5aa9e430fa21d09509121a7ad26feda446
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "75351859"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86261332"
 ---
 # <a name="tutorial-deploy-a-service-fabric-mesh-application"></a>Tutoriel : Déployer une application Service Fabric Mesh
 
@@ -33,7 +33,7 @@ Cette série de tutoriels vous montre comment effectuer les opérations suivante
 
 [!INCLUDE [preview note](./includes/include-preview-note.md)]
 
-## <a name="prerequisites"></a>Conditions préalables requises
+## <a name="prerequisites"></a>Prérequis
 
 Avant de commencer ce tutoriel :
 
@@ -61,11 +61,11 @@ Ensuite, une boîte de dialogue **Publier une application Service Fabric** s’a
 
 Sélectionnez votre compte et votre abonnement Azure. Choisissez un **Emplacement**. Dans cet article, nous utilisons la région **USA Est**.
 
-Sous **Groupe de ressources**, sélectionnez **\<Créer un groupe de ressources...>** . Une boîte de dialogue s’affiche, dans laquelle vous allez créer un nouveau groupe de ressources. Cet article utilise l’emplacement **USA Est** et nomme le groupe **sfmeshTutorial1RG** (si plusieurs personnes utilisent le même abonnement dans votre organisation, choisissez un nom de groupe unique).  Appuyez sur **Créer** pour créer le groupe de ressources et revenir à la boîte de dialogue Publier.
+Sous **Groupe de ressources**, sélectionnez **\<Create New Resource Group...>** . Une boîte de dialogue s’affiche, dans laquelle vous allez créer un nouveau groupe de ressources. Cet article utilise l’emplacement **USA Est** et nomme le groupe **sfmeshTutorial1RG** (si plusieurs personnes utilisent le même abonnement dans votre organisation, choisissez un nom de groupe unique).  Appuyez sur **Créer** pour créer le groupe de ressources et revenir à la boîte de dialogue Publier.
 
 ![Boîte de dialogue Nouveau groupe de ressources Service Fabric mesh dans Visual studio](./media/service-fabric-mesh-tutorial-deploy-dotnetcore/visual-studio-publish-new-resource-group-dialog.png)
 
-Revenez à la boîte de dialogue **Publier une application Service Fabric** sous **Azure Container Registry**, sélectionnez **\<Créer un registre de conteneurs...>** . Dans la boîte de dialogue **Créer un registre de conteneurs**, utilisez un nom unique pour le **Nom du registre de conteneurs**. Spécifiez un **emplacement** (ce tutoriel utilise l’emplacement **USA Est**). Sélectionnez dans la liste déroulante le **groupe de ressources** que vous avez créé à l’étape précédente, par exemple, **sfmeshTutorial1RG**. Affectez à **Référence (SKU)** la valeur **De base**, puis appuyez sur **Créer** pour créer le registre de conteneurs Azure privé et retourner à la boîte de dialogue de publication.
+Revenez à la boîte de dialogue **Publier une application Service Fabric** sous **Azure Container Registry**, puis sélectionnez **\<Create New Container Registry...>** . Dans la boîte de dialogue **Créer un registre de conteneurs**, utilisez un nom unique pour le **Nom du registre de conteneurs**. Spécifiez un **emplacement** (ce tutoriel utilise l’emplacement **USA Est**). Sélectionnez dans la liste déroulante le **groupe de ressources** que vous avez créé à l’étape précédente, par exemple, **sfmeshTutorial1RG**. Affectez à **Référence (SKU)** la valeur **De base**, puis appuyez sur **Créer** pour créer le registre de conteneurs Azure privé et retourner à la boîte de dialogue de publication.
 
 ![Boîte de dialogue Visual Studio de nouveau registre de conteneurs Service Fabric Mesh](./media/service-fabric-mesh-tutorial-deploy-dotnetcore/visual-studio-publish-new-container-registry-dialog.png)
 
@@ -139,4 +139,4 @@ Passez au tutoriel suivant :
 > [!div class="nextstepaction"]
 > [Mettre à niveau une application Service Fabric Mesh](service-fabric-mesh-tutorial-upgrade.md)
 
-[azure-cli-install]: https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest
+[azure-cli-install]: /cli/azure/install-azure-cli?view=azure-cli-latest

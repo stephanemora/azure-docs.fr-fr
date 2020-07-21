@@ -16,12 +16,12 @@ ms.topic: tutorial
 ms.date: 11/19/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a1f06b0b5aa59328d2fe39d501cfdf3ad7524427
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: a24ec98e9d5978a6f896715b25bd6b08d4a0262d
+ms.sourcegitcommit: f7e160c820c1e2eb57dc480b2a8fd6bef7053e91
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "75431471"
+ms.lasthandoff: 07/10/2020
+ms.locfileid: "86232183"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-f5"></a>Tutoriel : Intégration de l’authentification unique Azure Active Directory à F5
 
@@ -42,11 +42,11 @@ Pour commencer, vous devez disposer de ce qui suit :
 * Un abonnement F5 pour lequel l’authentification unique est activée
 
 * Le déploiement de la solution conjointe nécessite la licence suivante :
-    * F5 BIG-IP® Best Bundle (ou)
+    * F5 BIG-IP&reg; Best Bundle (ou)
 
-    * Licence autonome F5 BIG-IP Access Policy Manager™ (APM)
+    * Licence autonome F5 BIG-IP Access Policy Manager&trade; (APM)
 
-    * Licence de composant additionnel F5 BIG-IP Access Policy Manager™ (APM) sur une instance existante de BIG-IP F5 BIG-IP® Local Traffic Manager™ (LTM).
+    * Licence de composant additionnel F5 BIG-IP Access Policy Manager&trade; (APM) sur une instance de BIG-IP F5 BIG-IP&reg; Local Traffic Manager&trade; (LTM) existante.
 
     * Outre la licence ci-dessus, il est possible de bénéficier d’une licence pour le système F5 avec :
 
@@ -64,7 +64,7 @@ Pour commencer, vous devez disposer de ce qui suit :
 
 ## <a name="access-guided-configuration"></a>Configuration guidée de l’accès
 
-* La configuration guidée de l’accès est prise en charge sur F5 TMOS version 13.1.0.8 et supérieures. Si votre système BIG-IP exécute une version inférieure à 13.1.0.8, consultez la section **Configuration avancée**.
+* La configuration guidée de l’accès est prise en charge sur F5 TMOS version 13.1.0.8 et ultérieures. Si votre système BIG-IP exécute une version inférieure à 13.1.0.8, consultez la section **Configuration avancée**.
 
 * La configuration guidée de l’accès présente une expérience utilisateur entièrement nouvelle et simplifiée. Cette architecture à base de workflow propose des étapes de configuration intuitives réentrantes adaptées à la topologie choisie.
 
@@ -248,7 +248,7 @@ Dans cette section, vous allez autoriser B.Simon à utiliser l’authentificatio
 
     ![Configuration F5 (Kerberos)](./media/kerbf5-tutorial/configure07.png)  
 
-1. Sous **Select a Pool** (Sélectionner un pool), spécifiez **Create New** (Créer nouveau) ou sélectionnez un pool qui existe déjà. Conservez les autres valeurs par défaut. Sous Pool Servers (Serveurs de pool), tapez l’adresse IP sous **IP Address/Node Name** (Adresse IP/Nom du nœud). Spécifiez le **Port**. Cliquez sur **Save & Next** (Enregistrer et suivant).
+1. Sous **Select a Pool** (Sélectionner un pool), spécifiez **Create New** (Créer nouveau) ou sélectionnez un pool qui existe déjà. Conservez les autres valeurs par défaut.    Sous Pool Servers (Serveurs de pool), tapez l’adresse IP sous **IP Address/Node Name** (Adresse IP/Nom du nœud). Spécifiez le **Port**. Cliquez sur **Save & Next** (Enregistrer et suivant).
  
     ![Configuration F5 (Kerberos)](./media/kerbf5-tutorial/configure08.png)
 
@@ -282,23 +282,23 @@ Dans cette section, vous allez autoriser B.Simon à utiliser l’authentificatio
 
 Vous pouvez configurer un serveur Active Directory AAA dans Access Policy Manager (APM) pour spécifier les contrôleurs de domaine et les informations d’identification dont se servira APM pour authentifier les utilisateurs.
 
-1.  Sous l’onglet Main (Principal), cliquez sur **Access Policy > AAA Servers > Active Directory** (Stratégie d’accès > Serveurs AAA > Active Directory). L’écran listant les serveurs Active Directory s’ouvre.
+1.    Sous l’onglet Main (Principal), cliquez sur **Access Policy > AAA Servers > Active Directory** (Stratégie d’accès > Serveurs AAA > Active Directory). L’écran listant les serveurs Active Directory s’ouvre.
 
-2.  Cliquez sur **Créer**. L’écran des propriétés du nouveau serveur s’ouvre.
+2.    Cliquez sur **Créer**. L’écran des propriétés du nouveau serveur s’ouvre.
 
-3.  Dans le champ **Name**, tapez un nom unique pour le serveur d’authentification.
+3.    Dans le champ **Name**, tapez un nom unique pour le serveur d’authentification.
 
-4.  Dans le champ **Domain Name**, tapez le nom du domaine Windows.
+4.    Dans le champ **Domain Name**, tapez le nom du domaine Windows.
 
-5.  Pour le paramètre **Server Connection** (Connexion au serveur), sélectionnez l’une des options suivantes :
+5.    Pour le paramètre **Server Connection** (Connexion au serveur), sélectionnez l’une des options suivantes :
 
     * Sélectionnez **Use Pool** (Utiliser un pool) pour configurer la haute disponibilité pour le serveur AAA.
 
     * Sélectionnez **Direct** pour configurer le serveur AAA pour une fonctionnalité autonome.
 
-6.  Si vous avez sélectionné **Direct**, tapez un nom dans le champ **Domain Controller** (Contrôleur de domaine).
+6.    Si vous avez sélectionné **Direct**, tapez un nom dans le champ **Domain Controller** (Contrôleur de domaine).
 
-7.  Si vous avez sélectionné **Use Pool** (Utiliser un pool), configurez le pool :
+7.    Si vous avez sélectionné **Use Pool** (Utiliser un pool), configurez le pool :
 
     * Tapez un nom dans le champ **Domain Controller Pool Name** (Nom du pool de contrôleurs de domaine).
 
@@ -306,21 +306,21 @@ Vous pouvez configurer un serveur Active Directory AAA dans Access Policy Manage
 
     * Pour superviser l’intégrité des serveurs AAA, vous pouvez sélectionner un moniteur d’intégrité : seul le moniteur **gateway_icmp** convient dans ce cas ; vous pouvez le sélectionner dans la liste **Server Pool Monitor** (Moniteur de pool de serveurs).
 
-8.  Dans le champ **Admin Name** (Nom de l’administrateur), tapez le nom d’un administrateur qui dispose d’autorisations d’administration Active Directory en veillant à respecter la casse. APM utilise les informations contenues dans les champs **Admin Name** (Nom de l’administrateur) et **Admin Password** (Mot de passe de l’administrateur) pour la requête AD. Si Active Directory est configuré pour des requêtes anonymes, vous n’avez pas besoin d’indiquer le nom de l’administrateur. Dans le cas contraire, APM a besoin d’un compte doté de privilèges suffisants pour pouvoir se lier à un serveur Active Directory, récupérer des informations de groupe d’utilisateurs ainsi que les stratégies de mot de passe Active Directory afin de prendre en charge les fonctionnalités liées aux mots de passe. (APM doit extraire les stratégies de mot de passe, par exemple, si vous sélectionnez l’option Prévenir l’utilisateur qu’il doit changer son mot de passe avant qu’il n’expire dans une action de requête AD.) Si vous ne fournissez pas d’informations de compte d’administrateur dans cette configuration, APM utilise le compte d’utilisateur pour récupérer les informations. Ceci fonctionne si le compte d’utilisateur dispose de privilèges suffisants.
+8.    Dans le champ **Admin Name** (Nom de l’administrateur), tapez le nom d’un administrateur qui dispose d’autorisations d’administration Active Directory en veillant à respecter la casse. APM utilise les informations contenues dans les champs **Admin Name** (Nom de l’administrateur) et **Admin Password** (Mot de passe de l’administrateur) pour la requête AD. Si Active Directory est configuré pour des requêtes anonymes, vous n’avez pas besoin d’indiquer le nom de l’administrateur. Dans le cas contraire, APM a besoin d’un compte doté de privilèges suffisants pour pouvoir se lier à un serveur Active Directory, récupérer des informations de groupe d’utilisateurs ainsi que les stratégies de mot de passe Active Directory afin de prendre en charge les fonctionnalités liées aux mots de passe. (APM doit extraire les stratégies de mot de passe, par exemple, si vous sélectionnez l’option Prévenir l’utilisateur qu’il doit changer son mot de passe avant qu’il n’expire dans une action de requête AD.) Si vous ne fournissez pas d’informations de compte d’administrateur dans cette configuration, APM utilise le compte d’utilisateur pour récupérer les informations. Ceci fonctionne si le compte d’utilisateur dispose de privilèges suffisants.
 
-9.  Dans le champ **Admin Password** (Mot de passe de l’administrateur), tapez le mot de passe d’administrateur associé au nom de domaine.
+9.    Dans le champ **Admin Password** (Mot de passe de l’administrateur), tapez le mot de passe d’administrateur associé au nom de domaine.
 
-10. Dans le champ **Verify Admin Password** (Vérifier le mot de passe de l’administrateur), retapez le mot de passe d’administrateur associé au paramètre **Domain Name** (Nom de domaine).
+10.    Dans le champ **Verify Admin Password** (Vérifier le mot de passe de l’administrateur), retapez le mot de passe d’administrateur associé au paramètre **Domain Name** (Nom de domaine).
 
-11. Dans le champ **Group Cache Lifetime** (Durée de vie du cache du groupe), tapez le nombre de jours. La durée de vie par défaut est de 30 jours.
+11.    Dans le champ **Group Cache Lifetime** (Durée de vie du cache du groupe), tapez le nombre de jours. La durée de vie par défaut est de 30 jours.
 
-12. Dans le champ **Password Security Object Cache Lifetime** (Durée de vie du cache d’objet de sécurité de mot de passe), tapez le nombre de jours. La durée de vie par défaut est de 30 jours.
+12.    Dans le champ **Password Security Object Cache Lifetime** (Durée de vie du cache d’objet de sécurité de mot de passe), tapez le nombre de jours. La durée de vie par défaut est de 30 jours.
 
-13. Dans la liste **Kerberos Preauthentication Encryption Type** (Type de chiffrement de la pré-authentification Kerberos), sélectionnez un type de chiffrement. La valeur par défaut est **None** (Aucun). Si vous spécifiez un type de chiffrement, le système BIG-IP inclut des données de pré-authentification Kerberos dans le premier paquet de demande de service d’authentification (AS-REQ).
+13.    Dans la liste **Kerberos Preauthentication Encryption Type** (Type de chiffrement de la pré-authentification Kerberos), sélectionnez un type de chiffrement. La valeur par défaut est **None** (Aucun). Si vous spécifiez un type de chiffrement, le système BIG-IP inclut des données de pré-authentification Kerberos dans le premier paquet de demande de service d’authentification (AS-REQ).
 
-14. Dans le champ **Timeout**, tapez un délai d’expiration (en secondes) pour le serveur AAA. (Ce paramètre est facultatif.)
+14.    Dans le champ **Timeout**, tapez un délai d’expiration (en secondes) pour le serveur AAA. (Ce paramètre est facultatif.)
 
-15. Cliquez sur **Finished** (Terminé). Le nouveau serveur s’affiche dans la liste. Le nouveau serveur Active Directory est alors ajouté à la liste de serveurs Active Directory.
+15.    Cliquez sur **Finished** (Terminé). Le nouveau serveur s’affiche dans la liste. Le nouveau serveur Active Directory est alors ajouté à la liste de serveurs Active Directory.
 
     ![Configuration F5 (Kerberos)](./media/kerbf5-tutorial/configure17.png)
 
@@ -347,7 +347,7 @@ Vous pouvez configurer un serveur Active Directory AAA dans Access Policy Manage
 1. Pour configurer le fournisseur de services SAML, accédez à **Access > Federation > SAML Service Provider > Local SP Services** (Accès > Fédération > Fournisseur de services SAML > Services SP locaux), puis cliquez sur **Create** (Créer). Fournissez les informations suivantes et cliquez sur **OK**.
 
     * Type Name (Nom de type) : KerbApp200SAML
-    * Entity ID (ID d’entité)* : https://kerbapp200.superdemo.live
+    * Entity ID (ID d’entité)* : https://kerb-app.com.cutestat.com
     * SP Name Settings (Paramètres du nom de fournisseur de services)
     * Scheme (Schéma) : https
     * Host (Hôte) : kerbapp200.superdemo.live
@@ -392,7 +392,7 @@ Vous pouvez configurer un serveur Active Directory AAA dans Access Policy Manage
 
         ![Configuration F5 (Kerberos)](./media/kerbf5-tutorial/configure31.png)
 
-1. Cliquez sur **Access Policy** (Stratégie d’accès), puis choisissez **Edit Access Policy** (Modifier la stratégie d’accès) pour le profil « KerbApp200 ».
+1. Cliquez sur **Stratégie d’accès**, puis choisissez **Modifier la stratégie d’accès** pour le profil « KerbApp200 ».
 
     ![Configuration F5 (Kerberos)](./media/kerbf5-tutorial/configure32.png)
 

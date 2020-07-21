@@ -179,6 +179,8 @@
           href: azure-nfs-volume.md
         - name: Azure NetApp Files
           href: azure-netapp-files.md
+        - name: Utiliser des disques Azure Ultra (préversion)
+          href: use-ultra-disks.md
     - name: Configurer la mise en réseau
       items:
         - name: Créer ou utiliser un réseau virtuel existant
@@ -191,8 +193,6 @@
           href: internal-lb.md
         - name: Utiliser un équilibreur de charge standard
           href: load-balancer-standard.md
-        - name: Utiliser une route définie par l’utilisateur pour la sortie
-          href: egress-outboundtype.md
         - name: Utiliser une adresse IP statique
           href: static-ip.md
         - name: Entrée
@@ -214,8 +214,14 @@
                   href: ingress-tls.md
                 - name: Utiliser une adresse IP publique statique
                   href: ingress-static-ip.md
-        - name: Trafic de sortie
-          href: egress.md
+        - name: Sortie
+          items:
+            - name: Limiter et contrôler le trafic sortant du cluster
+              href: limit-egress-traffic.md
+            - name: Utiliser une route définie par l’utilisateur pour la sortie
+              href: egress-outboundtype.md
+            - name: Utiliser une adresse IP statique et un équilibreur de charge de base
+              href: egress.md
         - name: Personnaliser CoreDNS
           href: coredns-custom.md
     - name: Sécurité et authentification
@@ -238,13 +244,11 @@
           href: ../governance/policy/concepts/policy-for-kubernetes.md?toc=/azure/aks/toc.json
         - name: Mettre à jour les informations d’identification du cluster
           href: update-credentials.md
-        - name: Limiter et contrôler le trafic sortant du cluster
-          href: limit-egress-traffic.md
         - name: Activer l’intégration d’Azure Active Directory
           items:
-            - name: AAD géré par AKS (préversion)
+            - name: AAD géré par AKS
               href: managed-aad.md
-            - name: "Utilisation de l’interface de ligne de commande Microsoft\_Azure"
+            - name: Intégration AAD (hérité)
               href: azure-ad-integration-cli.md
         - name: Utiliser Azure RBAC pour l’autorisation Kubernetes (préversion)
           href: manage-azure-rbac.md
@@ -291,8 +295,6 @@
       items:
         - name: Utiliser Local Process with Kubernetes avec Visual Studio Code (préversion)
           href: ../dev-spaces/how-to/local-process-kubernetes-vs-code.md
-        - name: Utiliser Processus local avec Kubernetes avec Visual Studio (préversion)
-          href: ../dev-spaces/how-to/local-process-kubernetes-visual-studio.md
         - name: Installer des applications existantes avec Helm
           href: kubernetes-helm.md
         - name: Utiliser OpenFaaS
@@ -383,10 +385,10 @@
       href: 'https://azure.microsoft.com/pricing/details/container-service/'
     - name: Politiques de support
       href: support-policies.md
-    - name: Feuille de route
+    - name: Feuille de route Azure
       href: 'https://azure.microsoft.com/roadmap/'
-    - name: Indiquer des commentaires sur le produit
-      href: 'https://feedback.azure.com/forums/914020-azure-kubernetes-service-aks'
+    - name: Feuille de route AKS
+      href: 'https://github.com/Azure/AKS/projects/1'
     - name: Stack Overflow
       href: 'https://stackoverflow.com/questions/tagged/azure-container-service'
     - name: Vidéos

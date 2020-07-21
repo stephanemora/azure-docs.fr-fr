@@ -1,6 +1,6 @@
 ---
-title: 'Démarrage rapide : Configurer l’authentification unique (SSO) pour une application dans votre locataire Azure Active Directory (Azure AD)'
-description: Ce guide de démarrage rapide vous guide tout au long du processus de configuration de l’authentification unique (SSO) pour une application dans votre locataire Azure Active Directory (Azure AD).
+title: 'Démarrage rapide : Configurer l’authentification unique (SSO) d’une application dans votre locataire Azure Active Directory (Azure AD)'
+description: Ce guide de démarrage rapide vous guide tout au long du processus de configuration de l’authentification unique (SSO) d’une application dans votre locataire Azure Active Directory (Azure AD).
 services: active-directory
 author: kenwith
 manager: celestedg
@@ -11,49 +11,54 @@ ms.workload: identity
 ms.date: 07/01/2020
 ms.author: kenwith
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f90edf525a8deb35376d6637090e7b424b2fd658
-ms.sourcegitcommit: e132633b9c3a53b3ead101ea2711570e60d67b83
+ms.openlocfilehash: b19427070d982918584c13c25518cffe55497000
+ms.sourcegitcommit: f844603f2f7900a64291c2253f79b6d65fcbbb0c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/07/2020
-ms.locfileid: "86038988"
+ms.lasthandoff: 07/10/2020
+ms.locfileid: "86223327"
 ---
-# <a name="quickstart-set-up-single-sign-on-sso-for-an-application-in-your-azure-active-directory-azure-ad-tenant"></a>Démarrage rapide : Configurer l’authentification unique (SSO) pour une application dans votre locataire Azure Active Directory (Azure AD)
+# <a name="quickstart-set-up-single-sign-on-sso-for-an-application-in-your-azure-active-directory-azure-ad-tenant"></a>Démarrage rapide : Configurer l’authentification unique (SSO) d’une application dans votre locataire Azure Active Directory (Azure AD)
 
-Prenez en main les connexions utilisateur simplifiées en configurant l’authentification unique pour une application que vous avez ajoutée à votre locataire Azure AD. Une fois l’authentification unique configurée, vos utilisateurs peuvent se connecter à une application à l’aide de leurs informations d’identification Azure AD. L’authentification unique est incluse dans l’édition gratuite d’Azure AD.
+Familiarisez-vous avec les connexions utilisateur simplifiées en configurant l’authentification unique d’une application que vous avez ajoutée à votre locataire Azure Active Directory (Azure AD). Dès l’authentification unique configurée, vos utilisateurs peuvent se connecter à une application avec leurs informations d’identification Azure AD. L’authentification unique est incluse dans l’édition gratuite d’Azure AD.
 
 ## <a name="prerequisites"></a>Prérequis
 
-Pour configurer l’authentification unique pour une application que vous avez ajoutée à votre locataire Azure AD, vous avez besoin des éléments suivants :
+Pour configurer l’authentification unique d’une application que vous avez ajoutée à votre locataire Azure AD, vous avez besoin des éléments suivants :
 
 - Compte Azure avec un abonnement actif. [Créez un compte gratuitement](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 - Un des rôles suivants : Administrateur général, Administrateur d’application cloud, Administrateur d’application ou propriétaire du principal de service.
-- Application qui prend en charge l’authentification unique et qui a déjà été préconfigurée et ajoutée à la galerie Azure AD. La plupart des applications peuvent utiliser Azure AD pour l’authentification unique. Les applications de la galerie Azure AD ont été préconfigurées. Si votre application n’est pas listée ou qu’il s’agit d’une application développée personnalisée, vous pouvez toujours l’utiliser avec Azure AD. Consultez les tutoriels et autres documents dans la table des matières. Ce guide de démarrage rapide se concentre sur les applications qui ont été préconfigurées pour l’authentification unique et ajoutées à la galerie Azure AD par les développeurs d’applications.
-- (Facultatif : effectuer [Voir vos applications](view-applications-portal.md)).
-- (Facultatif : effectuer [Ajouter une application](add-application-portal.md)).
-- (Facultatif : effectuer [Configurer une application](add-application-portal-configure.md)).
+- Une application prenant en charge SSO et qui a déjà été préconfigurée puis ajoutée à la galerie Azure AD. La plupart des applications peuvent utiliser Azure AD pour SSO. Les applications de la galerie Azure AD sont préconfigurées. Si votre application n’est pas listée ou qu’il s’agit d’une application personnalisée, vous pouvez toujours l’utiliser avec Azure AD. Consultez les tutoriels et autres documents dans la table des matières. Ce guide de démarrage rapide porte sur les applications qui ont été préconfigurées pour l’authentification unique puis ajoutées à la galerie Azure AD par les développeurs d’applications.
+- Facultatif : effectuer [Voir vos applications](view-applications-portal.md).
+- Facultatif : effectuer [Ajouter une application](add-application-portal.md).
+- Facultatif : effectuer [Configurer une application](add-application-portal-configure.md).
 
 
 >[!IMPORTANT]
->Nous vous recommandons d’utiliser un environnement de non-production pour tester les étapes de ce guide de démarrage rapide.
+>Pour tester les étapes de ce guide de démarrage rapide, utilisez un environnement de non-production.
 
 
 ## <a name="enable-single-sign-on-for-an-app"></a>Activer l’authentification unique pour une application
 
-Quand vous avez terminé d’ajouter une application à votre locataire Azure AD, la page de vue d’ensemble correspondante s’affiche immédiatement. Si vous configurez une application qui a déjà été ajoutée, regardez le premier guide de démarrage rapide, qui vous guide dans l’affichage des applications ajoutées à votre locataire. 
+Dès que vous avez terminé l’ajout d’une application à votre locataire Azure AD, la page de vue d’ensemble correspondante s’affiche. Si vous configurez une application qui a déjà été ajoutée, consultez le premier guide de démarrage rapide. Il vous explique étape par étape comment afficher les applications ajoutées à votre locataire. 
 
 Pour configurer l’authentification unique pour une application :
 
-1. Dans le portail Azure AD, sélectionnez **Applications d’entreprise** puis recherchez et sélectionnez l’application que vous souhaitez configurer pour l’authentification unique.
-2. Dans la section Gérer, sélectionnez **Authentification unique** pour ouvrir le volet Propriétés à des fins de modification.
-    :::image type="content" source="media/add-application-portal-setup-sso/configure-sso.png" alt-text="Montre la page de configuration de l’authentification unique dans le portail Azure AD.":::
-3. Sélectionnez SAML pour ouvrir la page de configuration de l’authentification unique. Dans cet exemple, l’application que nous configurons pour l’authentification unique est GitHub. Une fois GitHub configuré, vos utilisateurs peuvent s’y connecter en utilisant leurs informations d’identification à partir de notre locataire Azure AD.
-    :::image type="content" source="media/add-application-portal-setup-sso/github-sso.png" alt-text="Montre la page de configuration de l’authentification unique sur GitHub.":::
-4. Le processus de configuration d’une application afin d’utiliser Azure AD pour l’authentification unique basée sur SAML varie d’une application à l’autre. Notez qu’il existe un lien vers de l’aide pour GitHub. Vous trouverez des guides pour d’autres applications à l’adresse suivante : https://docs.microsoft.com/azure/active-directory/saas-apps/
-5. Suivez le guide afin de configurer l’authentification unique pour l’application. De nombreuses applications ont des exigences spécifiques en matière d’abonnement pour la fonctionnalité SSO. Par exemple, GitHub nécessite un abonnement Enterprise.
-    :::image type="content" source="media/add-application-portal-setup-sso/github-pricing.png" alt-text="Montre l’option d’authentification unique dans l’abonnement Enterprise de la page des prix GitHub.":::
+1. Dans le portail Azure AD, sélectionnez **Applications d’entreprise**. Ensuite, recherchez et sélectionnez l’application pour laquelle vous souhaitez configurer l’authentification unique.
+1. Dans la section **Gérer**, sélectionnez **Authentification unique** pour ouvrir le volet **Authentification unique** à des fins de modification.
+
+    :::image type="content" source="media/add-application-portal-setup-sso/configure-sso.png" alt-text="Capture d’écran montrant la page de configuration de l’authentification unique dans le portail Azure AD.":::
+
+1. Sélectionnez **SAML** pour ouvrir la page de configuration de SSO. Dans cet exemple, l’application que nous configurons pour SSO est GitHub. Une fois que l’application GitHub est configurée, vos utilisateurs peuvent s’y connecter en utilisant leurs informations d’identification à partir de votre locataire Azure AD.
+
+    :::image type="content" source="media/add-application-portal-setup-sso/github-sso.png" alt-text="Capture d’écran montrant la page de configuration de l’authentification unique sur GitHub.":::
+
+1. Le processus de configuration d’une application afin d’utiliser Azure AD pour l’authentification unique basée sur SAML varie d’une application à l’autre. Il existe un lien d’aide pour GitHub. Pour trouver d’autres guides d’applications, consultez [Tutoriels pour l’intégration d’applications SaaS avec Azure Active Directory](https://docs.microsoft.com/azure/active-directory/saas-apps/).
+1. Suivez le guide afin de configurer l’authentification unique pour l’application. De nombreuses applications ont des exigences spécifiques en matière d’abonnement pour la fonctionnalité SSO. Par exemple, GitHub nécessite un abonnement Enterprise.
+
+    :::image type="content" source="media/add-application-portal-setup-sso/github-pricing.png" alt-text="Capture d’écran montrant l’option d’authentification unique dans l’abonnement Enterprise de la page des prix GitHub.":::
 
 
-## <a name="next-steps"></a>Étapes suivantes
+## <a name="next-step"></a>Étape suivante
 
 - [Supprimer une application](delete-application-portal.md)

@@ -6,12 +6,12 @@ ms.topic: tutorial
 ms.date: 07/10/2019
 ms.author: dekapur
 ms.custom: mvc
-ms.openlocfilehash: 6ce2e5a71d48942642ee01d8d2cc75a232abf259
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: f06387ea317029f5648ab0884cea80262e8640a2
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "82159947"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86245005"
 ---
 # <a name="tutorial-monitor-and-diagnose-an-aspnet-core-application-on-service-fabric-using-application-insights"></a>Tutoriel : Surveiller et diagnostiquer une application ASP.NET Core dans Service Fabric à l’aide d’Application Insights
 
@@ -102,7 +102,7 @@ Voici les étapes de configuration du package NuGet :
     ![NuGet du Kit de développement AI](./media/service-fabric-tutorial-monitoring-aspnet/ai-sdk-nuget-new.png)
 5. Cliquez sur **OK** dans la boîte de dialogue *Aperçu des modifications* qui apparaît et *acceptez la licence*. Ceci termine l’ajout du package NuGet aux services.
 6. Vous devez maintenant configurer l’initialiseur de télémétrie dans les deux services. Pour effectuer cette opération, ouvrez *VotingWeb.cs* et *VotingData.cs*. Pour les deux, exécutez la procédure suivante :
-    1. Ajoutez ces deux instructions *using* en haut de chaque fichier *\<NomService>.cs*, après les instructions *using* existantes :
+    1. Ajoutez ces deux instructions *using* en haut de chaque fichier *\<ServiceName>.cs*, après les instructions *using* existantes :
 
     ```csharp
     using Microsoft.ApplicationInsights.Extensibility;
@@ -268,4 +268,4 @@ Maintenant que vous avez terminé la configuration de la surveillance et des dia
 
 * [Explorer plus en détail la surveillance et les diagnostics dans Service Fabric](service-fabric-diagnostics-overview.md)
 * [Analyse d’événement Service Fabric avec Application Insights](service-fabric-diagnostics-event-analysis-appinsights.md)
-* Pour en savoir plus sur Application Insights, consultez [Documentation Application Insights](https://docs.microsoft.com/azure/application-insights/)
+* Pour en savoir plus sur Application Insights, consultez [Documentation Application Insights](/azure/application-insights/)

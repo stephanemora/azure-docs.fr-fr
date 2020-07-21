@@ -6,15 +6,15 @@ author: kevinvngo
 ms.service: synapse-analytics
 ms.topic: overview
 ms.subservice: sql-dw
-ms.date: 05/06/2020
+ms.date: 07/10/2020
 ms.author: kevin
 ms.reviewer: jrasnick
-ms.openlocfilehash: f5f6c6970ad8bb697ceb118b6725b37e93ca80b5
-ms.sourcegitcommit: 6fd28c1e5cf6872fb28691c7dd307a5e4bc71228
+ms.openlocfilehash: f9aa0214712704c1a80f73ae3fd05929f7245eb3
+ms.sourcegitcommit: 0b2367b4a9171cac4a706ae9f516e108e25db30c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/23/2020
-ms.locfileid: "85213055"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86274138"
 ---
 # <a name="securely-load-data-using-synapse-sql"></a>Charger des données de façon sécurisée à l’aide de SQL Synapse
 
@@ -23,10 +23,10 @@ Cet article met en évidence et fournit des exemples sur les mécanismes d’aut
 
 La matrice suivante décrit les méthodes d’authentification prises en charge pour chaque type de fichier et compte de stockage. Elle s’applique à l’emplacement de stockage source et à l’emplacement du fichier d’erreur.
 
-|                      |                CSV                |              Parquet              |                ORC                |
-| :------------------: | :-------------------------------: | :-------------------------------: | :-------------------------------: |
-|  Stockage Blob Azure  | SAS/MSI/SERVICE PRINCIPAL/KEY/AAD |              SAS/KEY              |              SAS/KEY              |
-| Azure Data Lake Gen2 | SAS/MSI/SERVICE PRINCIPAL/KEY/AAD | SAS/MSI/SERVICE PRINCIPAL/KEY/AAD | SAS/MSI/SERVICE PRINCIPAL/KEY/AAD |
+|                          |                CSV                |              Parquet              |                ORC                |
+| :----------------------: | :-------------------------------: | :-------------------------------: | :-------------------------------: |
+|  **Stockage Blob Azure**  | SAS/MSI/SERVICE PRINCIPAL/KEY/AAD |              SAS/KEY              |              SAS/KEY              |
+| **Azure Data Lake Gen2** | SAS/MSI/SERVICE PRINCIPAL/KEY/AAD | SAS/MSI/SERVICE PRINCIPAL/KEY/AAD | SAS/MSI/SERVICE PRINCIPAL/KEY/AAD |
 
 ## <a name="a-storage-account-key-with-lf-as-the-row-terminator-unix-style-new-line"></a>R. Clé de compte de stockage avec LF comme indicateur de fin de ligne (nouvelle ligne de style UNIX)
 
@@ -93,6 +93,11 @@ L’authentification de l’identité managée est requise lorsque votre compte 
    > [!NOTE]
    > Seuls les membres dotés du privilège Propriétaire peuvent effectuer cette étape. Pour découvrir les divers rôles intégrés pour les ressources Azure, consultez ce [guide](../../role-based-access-control/built-in-roles.md?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json).
    
+    > [!IMPORTANT]
+    > Spécifiez le rôle RBAC **Stockage** **Données blob** Propriétaire, Contributeur ou Lecteur. Ces rôles sont différents des rôles Azure intégrés Propriétaire, Collaborateur et Lecteur. 
+
+    ![Octroi d’une autorisation RBAC pour le chargement](./media/quickstart-bulk-load-copy-tsql-examples/rbac-load-permissions.png)
+
 4. Vous pouvez maintenant exécuter l’instruction COPY en spécifiant « Identité managée » :
 
     ```sql
@@ -104,14 +109,15 @@ L’authentification de l’identité managée est requise lorsque votre compte 
     )
     ```
 
-> [!IMPORTANT]
->
-> - Spécifiez le rôle RBAC **Stockage** **Données blob** Propriétaire, Contributeur ou Lecteur. Ces rôles sont différents des rôles Azure intégrés Propriétaire, Collaborateur et Lecteur. 
-
 ## <a name="d-azure-active-directory-authentication-aad"></a>D. Authentification Azure Active Directory (AAD)
 #### <a name="steps"></a>Étapes
 
 1. Sous votre compte de stockage, accédez à **Contrôle d’accès (IAM)** , puis sélectionnez **Ajouter une attribution de rôle**. Attribuez le rôle RBAC **Propriétaire des données Blob du stockage, Contributeur ou Lecteur** à votre utilisateur AAD. 
+
+    > [!IMPORTANT]
+    > Spécifiez le rôle RBAC **Stockage** **Données blob** Propriétaire, Contributeur ou Lecteur. Ces rôles sont différents des rôles Azure intégrés Propriétaire, Collaborateur et Lecteur.
+
+    ![Octroi d’une autorisation RBAC pour le chargement](./media/quickstart-bulk-load-copy-tsql-examples/rbac-load-permissions.png)
 
 2. Configurez l’authentification Azure AD en parcourant la [documentation](https://docs.microsoft.com/azure/sql-database/sql-database-aad-authentication-configure?tabs=azure-powershell#create-an-azure-ad-administrator-for-azure-sql-server) suivante. 
 
@@ -125,9 +131,6 @@ L’authentification de l’identité managée est requise lorsque votre compte 
     )
     ```
 
-> [!IMPORTANT]
->
-> - Spécifiez le rôle RBAC **Stockage** **Données blob** Propriétaire, Contributeur ou Lecteur. Ces rôles sont différents des rôles Azure intégrés Propriétaire, Collaborateur et Lecteur. 
 
 ## <a name="e-service-principal-authentication"></a>E. Authentification d’un principal de service
 #### <a name="steps"></a>Étapes

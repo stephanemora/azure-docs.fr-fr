@@ -4,12 +4,12 @@ description: Dans ce didacticiel, vous allez apprendre comment générer une ima
 ms.topic: tutorial
 ms.date: 09/24/2018
 ms.custom: seodec18, mvc
-ms.openlocfilehash: 82b539ba8f275755ee31a00c2127a0dba7c38d9f
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: 7178d7171d4c9c0183eb744f19776f6b2fac09ef
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "78398500"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86259494"
 ---
 # <a name="tutorial-build-and-deploy-container-images-in-the-cloud-with-azure-container-registry-tasks"></a>Tutoriel : Générer et déployer des images conteneurs dans le cloud avec Azure Container Registry Tasks
 
@@ -50,7 +50,7 @@ Dupliquez ce référentiel : https://github.com/Azure-Samples/acr-build-hellowor
 
 Une fois le référentiel dupliqué, clonez votre fourche et saisissez le répertoire contenant votre clone local.
 
-Clonez le référentiel avec `git`, remplacez **\<your-github-username\>** par votre nom d’utilisateur GitHub :
+Clonez le dépôt avec `git`, remplacez **\<your-github-username\>** par votre nom d’utilisateur GitHub :
 
 ```console
 git clone https://github.com/<your-github-username>/acr-build-helloworld-node
@@ -176,7 +176,7 @@ Tous les scénarios de production doivent utiliser les [principaux du service][s
 
 #### <a name="create-a-key-vault"></a>Création d’un coffre de clés
 
-Si vous n’avez pas encore un coffre dans [Azure Key Vault](/azure/key-vault/), créez-en un avec Azure CLI à l’aide des commandes suivantes.
+Si vous n’avez pas encore un coffre dans [Azure Key Vault](../key-vault/index.yml), créez-en un avec Azure CLI à l’aide des commandes suivantes.
 
 ```azurecli-interactive
 AKV_NAME=$ACR_NAME-vault

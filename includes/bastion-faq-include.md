@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 05/04/2020
 ms.author: cherylmc
 ms.custom: include file
-ms.openlocfilehash: b8d30e7fe3138a26d9b64ec35d18260933df7999
-ms.sourcegitcommit: 31236e3de7f1933be246d1bfeb9a517644eacd61
+ms.openlocfilehash: efb32631c5ee1eedece6d2a06b94702b602ed418
+ms.sourcegitcommit: 0b2367b4a9171cac4a706ae9f516e108e25db30c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/04/2020
-ms.locfileid: "82780303"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86276110"
 ---
 ### <a name="which-regions-are-available"></a><a name="regions"></a>Quelles régions sont disponibles ?
 
@@ -48,6 +48,10 @@ RDP et SSH sont tous deux des protocoles basés sur l’utilisation. Une utilisa
 ### <a name="which-browsers-are-supported"></a><a name="browsers"></a>Quels sont les navigateurs pris en charge ?
 
 Utilisez le navigateur Microsoft Edge ou Google Chrome sous Windows. Pour Apple Mac, utilisez le navigateur Google Chrome. Microsoft Edge Chromium est également pris en charge sur Windows et Mac, respectivement.
+
+### <a name="where-does-azure-bastion-store-customer-data"></a><a name="data"></a>Où Azure bastion stocke-t-il les données client ?
+
+Azure Bastion ne déplace pas et ne stocke pas les données client en dehors de la région dans laquelle il est déployé.
 
 ### <a name="are-any-roles-required-to-access-a-virtual-machine"></a><a name="roles"></a>Certains rôles sont-ils obligatoires pour accéder à une machine virtuelle ?
 

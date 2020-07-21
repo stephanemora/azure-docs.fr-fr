@@ -9,18 +9,18 @@ ms.topic: quickstart
 ms.date: 09/03/2019
 ms.author: alkohli
 ms.localizationpriority: high
-ms.openlocfilehash: 04343f684539307957cd635822ba1ba5a1ce24c9
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.openlocfilehash: dd429dadcbe67f0ac91da19d6606626b39f34ef5
+ms.sourcegitcommit: 3541c9cae8a12bdf457f1383e3557eb85a9b3187
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "76313771"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86201083"
 ---
-# <a name="get-started-with-azure-data-box"></a>Bien démarrer avec Azure Data Box 
+# <a name="get-started-with-azure-data-box-to-import-data-into-azure"></a>Bien démarrer avec Azure Data Box pour importer des données dans Azure
 
 ::: zone target="docs"
 
-Ce démarrage rapide explique comment déployer Azure Data Box à l’aide du portail Azure. Ces étapes précisent comment brancher les câbles, puis configurer et copier des données vers Data Box données afin de les charger dans Azure. Le démarrage rapide est effectué dans le portail Azure et sur l’interface utilisateur web locale de l’appareil.
+Ce guide de démarrage rapide explique comment déployer Azure Data Box à l’aide du portail Azure pour une commande d’importation. Ces étapes précisent comment brancher les câbles, puis configurer et copier des données vers Data Box données afin de les charger dans Azure. Les étapes de ce guide de démarrage rapide sont à effectuer dans le portail Azure et dans l’interface utilisateur web locale de l’appareil.
 
 Pour obtenir des instructions pas à pas sur le déploiement et le suivi, consultez [Tutoriel : Commander Azure Data Box](data-box-deploy-ordered.md)
 
@@ -28,7 +28,7 @@ Pour obtenir des instructions pas à pas sur le déploiement et le suivi, consul
 
 ::: zone target="chromeless"
 
-Ce guide explique comment déployer Azure Data Box à partir du portail Azure. Les étapes incluent la vérification des prérequis, le câblage et la connexion de votre appareil ainsi que la copie des données sur votre appareil de façon à les charger dans Azure.
+Ce guide explique comment déployer Azure Data Box à partir du portail Azure pour une importation de données. Les étapes incluent la vérification des prérequis, le câblage et la connexion de votre appareil ainsi que la copie des données sur votre appareil de façon à les charger dans Azure.
 
 ::: zone-end
 

@@ -10,34 +10,34 @@ ms.custom: subject-armqs
 ms.workload: identity
 ms.date: 05/21/2020
 ms.author: rolyon
-ms.openlocfilehash: da25f4bc585da26b9765fd36d65a8b5e0689f725
-ms.sourcegitcommit: d118ad4fb2b66c759b70d4d8a18e6368760da3ad
+ms.openlocfilehash: 9320a68684a25949e8a0b4e2c7d72a6267401add
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/02/2020
-ms.locfileid: "84300662"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86252349"
 ---
-# <a name="quickstart-add-an-azure-role-assignment-using-an-azure-resource-manager-template"></a>Démarrage rapide : Ajouter une attribution de rôle Azure à l’aide d’un modèle Azure Resource Manager
+# <a name="quickstart-add-an-azure-role-assignment-using-an-arm-template"></a>Démarrage rapide : Ajouter une attribution de rôle Azure à l’aide d’un modèle ARM
 
-Le [contrôle d’accès en fonction du rôle Azure (RBAC Azure)](overview.md) vous permet de gérer l’accès aux ressources Azure. Dans ce démarrage rapide, vous allez créer un groupe de ressources et autoriser un utilisateur à créer et à gérer des machines virtuelles dans le groupe de ressources. Ce démarrage rapide utilise un modèle Resource Manager pour accorder l’accès.
+Le [contrôle d’accès en fonction du rôle Azure (RBAC Azure)](overview.md) vous permet de gérer l’accès aux ressources Azure. Dans ce démarrage rapide, vous allez créer un groupe de ressources et autoriser un utilisateur à créer et à gérer des machines virtuelles dans le groupe de ressources. Ce guide de démarrage rapide utilise un modèle Azure Resource Manager (modèle ARM) pour accorder l’accès.
 
 [!INCLUDE [About Azure Resource Manager](../../includes/resource-manager-quickstart-introduction.md)]
 
-Si vous n’avez pas d’abonnement Azure, créez un [compte gratuit](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) avant de commencer.
+Si votre environnement remplit les prérequis et que vous êtes déjà familiarisé avec l’utilisation des modèles ARM, sélectionnez le bouton **Déployer sur Azure**. Le modèle s’ouvre dans le portail Azure.
+
+[![Déployer sur Azure](../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-rbac-builtinrole-resourcegroup%2Fazuredeploy.json)
 
 ## <a name="prerequisites"></a>Prérequis
 
 Pour ajouter des attributions de rôles, vous devez disposer :
 
-* d’autorisations `Microsoft.Authorization/roleAssignments/write` et `Microsoft.Authorization/roleAssignments/delete`, telles que [Administrateur de l’accès utilisateur](built-in-roles.md#user-access-administrator) ou [Propriétaire de l’accès utilisateur](built-in-roles.md#owner)
+- Si vous n’avez pas d’abonnement Azure, créez un [compte gratuit](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) avant de commencer.
+- d’autorisations `Microsoft.Authorization/roleAssignments/write` et `Microsoft.Authorization/roleAssignments/delete`, telles que [Administrateur de l’accès utilisateur](built-in-roles.md#user-access-administrator) ou [Propriétaire de l’accès utilisateur](built-in-roles.md#owner)
+- Pour ajouter une attribution de rôle, vous devez spécifier trois éléments : un principal de sécurité, une définition de rôle et une étendue. Pour ce démarrage rapide, vous ou un autre utilisateur dans votre annuaire avez le rôle de principal de sécurité, la définition de rôle est [Contributeur de machine virtuelle](built-in-roles.md#virtual-machine-contributor) et l’étendue est un groupe de ressources que vous spécifiez.
 
-## <a name="create-a-role-assignment"></a>Création d'une affectation de rôle
+## <a name="review-the-template"></a>Vérifier le modèle
 
-Pour ajouter une attribution de rôle, vous devez spécifier trois éléments : un principal de sécurité, une définition de rôle et une étendue. Pour ce démarrage rapide, vous ou un autre utilisateur dans votre annuaire avez le rôle de principal de sécurité, la définition de rôle est [Contributeur de machine virtuelle](built-in-roles.md#virtual-machine-contributor) et l’étendue est un groupe de ressources que vous spécifiez.
-
-### <a name="review-the-template"></a>Vérifier le modèle
-
-Le modèle utilisé dans ce démarrage rapide est tiré des [modèles de démarrage rapide Azure](https://azure.microsoft.com/resources/templates/101-rbac-builtinrole-resourcegroup/). Le modèle a trois paramètres et une section de ressources. Notez que la section de ressources contient les trois éléments d’une attribution de rôle : principal de sécurité, définition de rôle et étendue. 
+Le modèle utilisé dans ce démarrage rapide est tiré des [modèles de démarrage rapide Azure](https://azure.microsoft.com/resources/templates/101-rbac-builtinrole-resourcegroup/). Le modèle a trois paramètres et une section de ressources. Notez que la section de ressources contient les trois éléments d’une attribution de rôle : principal de sécurité, définition de rôle et étendue.
 
 :::code language="json" source="~/quickstart-templates/101-rbac-builtinrole-resourcegroup/azuredeploy.json" highlight="30-32":::
 
@@ -45,7 +45,7 @@ La ressource définie dans le modèle est :
 
 - [Microsoft.Authorization/roleAssignments](/azure/templates/Microsoft.Authorization/roleAssignments)
 
-### <a name="deploy-the-template"></a>Déployer le modèle
+## <a name="deploy-the-template"></a>Déployer le modèle
 
 1. Connectez-vous au [portail Azure](https://portal.azure.com).
 
