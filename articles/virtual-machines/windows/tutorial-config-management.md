@@ -8,12 +8,12 @@ ms.workload: infrastructure
 ms.date: 12/05/2018
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: ed36dc669c8b89ba4a2b7831c6eb6f8742e73730
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: cf01e4baf96e4403dae443fa6c98f74c571641a8
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "82100411"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86508314"
 ---
 # <a name="tutorial-monitor-changes-and-update-a-windows-virtual-machine-in-azure"></a>Tutoriel : Superviser les changements et mettre à jour une machine virtuelle Windows dans Azure
 
@@ -37,13 +37,13 @@ Vous pouvez également ouvrir Cloud Shell dans un onglet distinct du navigateur 
 
 Pour configurer la gestion de la surveillance et de la mise à jour Azure dans ce didacticiel, vous avez besoin d’une machine virtuelle Windows Azure.
 
-Tout d’abord, définissez un nom d’utilisateur administrateur et un mot de passe pour la machine virtuelle avec [Get-Credential](https://msdn.microsoft.com/powershell/reference/5.1/microsoft.powershell.security/Get-Credential) :
+Tout d’abord, définissez un nom d’utilisateur administrateur et un mot de passe pour la machine virtuelle avec [Get-Credential](/powershell/module/microsoft.powershell.security/get-credential?view=powershell-5.1) :
 
 ```azurepowershell-interactive
 $cred = Get-Credential
 ```
 
-Ensuite, créez la machine virtuelle avec [New-AzVM](https://docs.microsoft.com/powershell/module/az.compute/new-azvm). L’exemple suivant crée une machine virtuelle nommée `myVM` à l’emplacement `East US`. S’ils n’existent pas déjà, le groupe de ressources `myResourceGroupMonitor` et les ressources réseau qui lui sont associées sont créés :
+Ensuite, créez la machine virtuelle avec [New-AzVM](/powershell/module/az.compute/new-azvm). L’exemple suivant crée une machine virtuelle nommée `myVM` à l’emplacement `East US`. S’ils n’existent pas déjà, le groupe de ressources `myResourceGroupMonitor` et les ressources réseau qui lui sont associées sont créés :
 
 ```azurepowershell-interactive
 New-AzVm `
@@ -76,7 +76,7 @@ Pour activer Update Management sur votre machine virtuelle :
 
 Une vérification est effectuée pour déterminer si Update Management est activé pour cette machine virtuelle. Cette vérification recherche la présence d’un espace de travail Log Analytics et d’un compte Automation lié, et détermine si la solution se trouve dans l’espace de travail.
 
-Vous pouvez utiliser un espace de travail [Log Analytics](../../log-analytics/log-analytics-overview.md) pour collecter les données générées par les fonctionnalités et les services, comme Update Management. L’espace de travail fournit un emplacement unique permettant de consulter et d’analyser les données provenant de plusieurs sources.
+Vous pouvez utiliser un espace de travail [Log Analytics](../../azure-monitor/log-query/log-query-overview.md) pour collecter les données générées par les fonctionnalités et les services, comme Update Management. L’espace de travail fournit un emplacement unique permettant de consulter et d’analyser les données provenant de plusieurs sources.
 
 Pour effectuer des actions supplémentaires sur les machines virtuelles qui nécessitent des mises à jour, vous pouvez utiliser Azure Automation afin d’exécuter des runbooks sur les machines virtuelles. Ces actions impliquent le téléchargement ou l’application de mises à jour.
 
@@ -86,8 +86,8 @@ Dans la fenêtre **Activer la gestion des mises à jour**, choisissez l’espace
 
 Si l’un des prérequis suivants n’est pas détecté lors de l’intégration, il est automatiquement ajouté :
 
-* Espace de travail [Log Analytics](../../log-analytics/log-analytics-overview.md)
-* [Automation](../../automation/automation-offering-get-started.md)
+* Espace de travail [Log Analytics](../../azure-monitor/log-query/log-query-overview.md)
+* [Automation](../../automation/index.yml)
 * [Worker runbook hybride](../../automation/automation-hybrid-runbook-worker.md) activé sur la machine virtuelle
 
 Une fois la solution activée, la fenêtre **Update Management** s’ouvre. Configurez l’emplacement, l’espace de travail Log Analytics et le compte Automation à utiliser, puis cliquez sur **Activer**. Si les champs sont grisés, cela signifie qu’une autre solution d’automatisation est activée pour la machine virtuelle, et donc, que vous devez utiliser l’espace de travail et le compte Automation de cette solution.

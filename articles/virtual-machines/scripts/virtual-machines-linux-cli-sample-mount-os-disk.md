@@ -15,12 +15,12 @@ ms.workload: infrastructure
 ms.date: 02/27/2017
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: f15beeee2c5843506f0bf89b4c6d66d77826e152
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 0e5cabdf9c69ead9a2d7f497aceec183cf0be900
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "81459886"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86509662"
 ---
 # <a name="troubleshoot-a-vms-operating-system-disk"></a>Résoudre les problèmes liés au disque du système d’exploitation de machines virtuelles
 
@@ -40,14 +40,14 @@ Ce script utilise les commandes suivantes pour créer un groupe de ressources, u
 
 | Commande | Notes |
 |---|---|
-| [az vm show](https://docs.microsoft.com/cli/azure/vm) | Renvoie la liste des machines virtuelles. Dans ce cas, l’option de requête permet de renvoyer le disque de système d’exploitation de la machine virtuelle. Cette valeur est ensuite ajoutée à un nom de variable « uri ». |
-| [az vm delete](https://docs.microsoft.com/cli/azure/vm) | Supprime une machine virtuelle. |
-| [az vm create](https://docs.microsoft.com/cli/azure/vm) | Crée une machine virtuelle.  |
-| [az vm disk attach](https://docs.microsoft.com/cli/azure/vm/disk) | Attache un disque à une machine virtuelle. |
-| [az vm list-ip-addresses](https://docs.microsoft.com/cli/azure/vm) | Renvoie les adresses IP d’une machine virtuelle. |
+| [az vm show](/cli/azure/vm) | Renvoie la liste des machines virtuelles. Dans ce cas, l’option de requête permet de renvoyer le disque de système d’exploitation de la machine virtuelle. Cette valeur est ensuite ajoutée à un nom de variable « uri ». |
+| [az vm delete](/cli/azure/vm) | Supprime une machine virtuelle. |
+| [az vm create](/cli/azure/vm) | Crée une machine virtuelle.  |
+| [az vm disk attach](/cli/azure/vm/disk) | Attache un disque à une machine virtuelle. |
+| [az vm list-ip-addresses](/cli/azure/vm) | Renvoie les adresses IP d’une machine virtuelle. |
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Pour plus d’informations sur l’interface Azure CLI, consultez la [documentation relative à l’interface Azure CLI](https://docs.microsoft.com/cli/azure).
+Pour plus d’informations sur l’interface Azure CLI, consultez la [documentation relative à l’interface Azure CLI](/cli/azure).
 
 Vous trouverez des exemples supplémentaires de scripts CLI de machine virtuelle dans la [documentation relative aux machines virtuelles Linux Azure](../linux/cli-samples.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).

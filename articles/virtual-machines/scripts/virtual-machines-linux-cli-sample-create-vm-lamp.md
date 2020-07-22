@@ -13,12 +13,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.custom: mvc
 ms.date: 04/05/2017
-ms.openlocfilehash: 00aa744f09b7bcbbbc258b92a8fd5ab750e447c7
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: 471690c5c0f5ebb4cea111b85cab1fe0524a36cd
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "74039117"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86509720"
 ---
 # <a name="deploy-the-lamp-stack-in-a-load-balanced-virtual-machine-scale-set"></a>Déployer la pile LAMP dans un groupe de machines virtuelles identiques à charge équilibrée
 
@@ -50,17 +50,17 @@ Ce script utilise les commandes suivantes pour créer un groupe de ressources, u
 
 | Commande | Notes |
 |---|---|
-| [az group create](https://docs.microsoft.com/cli/azure/group) | Crée un groupe de ressources dans lequel toutes les ressources sont stockées. |
-| [az vmss create](https://docs.microsoft.com/cli/azure/vmss) | Crée un groupe de machines virtuelles identiques |
-| [az network lb rule create](https://docs.microsoft.com/cli/azure/network/lb/rule) | Ajouter un point de terminaison à charge équilibrée |
-| [az vmss extension set](https://docs.microsoft.com/cli/azure/vmss/extension) | Créer l’extension qui exécute le script personnalisé sur le déploiement d’une machine virtuelle |
-| [az vmss update-instances](https://docs.microsoft.com/cli/azure/vmss) | Exécutez le script personnalisé sur les instances de machine virtuelle qui ont été déployées avant l’application de l’extension au groupe identique. |
-| [az vmss scale](https://docs.microsoft.com/cli/azure/vmss) | Augmentez le groupe identique en ajoutant des instances de machine virtuelle. Le script personnalisé est exécuté sur celles-ci lors de leur déploiement. |
-| [az network public-ip list](https://docs.microsoft.com/cli/azure/network/public-ip) | Obtenez les adresses IP des machines virtuelles créées par l’exemple. |
-| [az network lb show](https://docs.microsoft.com/cli/azure/network/lb) | Obtenez les ports frontal et principal utilisés par l’équilibrage de charge. |
+| [az group create](/cli/azure/group) | Crée un groupe de ressources dans lequel toutes les ressources sont stockées. |
+| [az vmss create](/cli/azure/vmss) | Crée un groupe de machines virtuelles identiques |
+| [az network lb rule create](/cli/azure/network/lb/rule) | Ajouter un point de terminaison à charge équilibrée |
+| [az vmss extension set](/cli/azure/vmss/extension) | Créer l’extension qui exécute le script personnalisé sur le déploiement d’une machine virtuelle |
+| [az vmss update-instances](/cli/azure/vmss) | Exécutez le script personnalisé sur les instances de machine virtuelle qui ont été déployées avant l’application de l’extension au groupe identique. |
+| [az vmss scale](/cli/azure/vmss) | Augmentez le groupe identique en ajoutant des instances de machine virtuelle. Le script personnalisé est exécuté sur celles-ci lors de leur déploiement. |
+| [az network public-ip list](/cli/azure/network/public-ip) | Obtenez les adresses IP des machines virtuelles créées par l’exemple. |
+| [az network lb show](/cli/azure/network/lb) | Obtenez les ports frontal et principal utilisés par l’équilibrage de charge. |
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Pour plus d’informations sur l’interface Azure CLI, consultez la [documentation relative à l’interface Azure CLI](https://docs.microsoft.com/cli/azure).
+Pour plus d’informations sur l’interface Azure CLI, consultez la [documentation relative à l’interface Azure CLI](/cli/azure).
 
 Vous trouverez des exemples supplémentaires de scripts CLI de machine virtuelle dans la [documentation relative aux machines virtuelles Linux Azure](../linux/cli-samples.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).

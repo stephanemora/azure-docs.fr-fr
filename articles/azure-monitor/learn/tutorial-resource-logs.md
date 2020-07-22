@@ -6,12 +6,12 @@ ms.topic: tutorial
 author: bwren
 ms.author: bwren
 ms.date: 12/15/2019
-ms.openlocfilehash: d356042d65c419163de4951e64a635a22ea90e6d
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: f2c780ffb7705575bf1bb5cabb6a09d9dabc0690
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "78269189"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86505837"
 ---
 # <a name="tutorial-collect-and-analyze-resource-logs-from-an-azure-resource"></a>Tutoriel : Collecter et analyser des journaux de ressources à partir d’une ressource Azure
 
@@ -86,7 +86,7 @@ Les données sont récupérées à partir d’un espace de travail Log Analytics
    
     ![Journaux d’activité](media/tutorial-resource-logs/logs.png)
 
-4. Le service présenté dans l’exemple écrit les journaux de ressources dans la table **AzureDiagnostics**, mais les autres services peuvent écrire dans d’autres tables. Consultez [Services, schémas et catégories pris en charge pour les journaux de ressources Azure](../platform/diagnostic-logs-schema.md) pour plus de détails sur les tables utilisées par les différents services Azure.
+4. Le service présenté dans l’exemple écrit les journaux de ressources dans la table **AzureDiagnostics**, mais les autres services peuvent écrire dans d’autres tables. Consultez [Services, schémas et catégories pris en charge pour les journaux de ressources Azure](../platform/resource-logs-schema.md) pour plus de détails sur les tables utilisées par les différents services Azure.
 
     > [!NOTE]
     > Plusieurs services écrivent des journaux de ressources dans la table AzureDiagnostics. Si vous démarrez Log Analytics à partir du menu Azure Monitor, vous devez ajouter une instruction `where` avec la colonne `ResourceProvider` pour spécifier votre service particulier. Quand vous démarrez Log Analytics à partir du menu d’une ressource, l’étendue est définie uniquement sur les enregistrements de cette ressource ; cette colonne n’est donc pas obligatoire. Pour obtenir des exemples de requêtes, consultez la documentation du service.

@@ -9,12 +9,12 @@ ms.subservice: disks
 ms.date: 03/27/2018
 ms.reviewer: mimckitt
 ms.custom: mimckitt
-ms.openlocfilehash: 5c82f087505c1634dd621252935c4017687340b2
-ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
+ms.openlocfilehash: b3b57cd2a2e5d5502f3865eddcdddfac67460dc7
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/12/2020
-ms.locfileid: "83198243"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86495023"
 ---
 # <a name="tutorial-create-and-use-disks-with-virtual-machine-scale-set-with-azure-powershell"></a>Didacticiel : Créer et utilisez les disques avec un groupe de machines virtuelles identiques à l’aide de Azure PowerShell
 
@@ -44,12 +44,12 @@ Lorsqu’un groupe identique est créé ou mis à l’échelle, deux disques son
 ### <a name="temporary-disk-sizes"></a>Tailles du disque temporaire
 | Type | Tailles courantes | Taille maximale du disque temporaire (Gio) |
 |----|----|----|
-| [Usage général](../virtual-machines/windows/sizes-general.md) | Séries A, B et D | 1 600 |
-| [Optimisé pour le calcul](../virtual-machines/windows/sizes-compute.md) | Série F | 576 |
-| [Mémoire optimisée](../virtual-machines/windows/sizes-memory.md) | Séries D, E, G et M | 6144 |
-| [Optimisé pour le stockage](../virtual-machines/windows/sizes-storage.md) | Série L | 5630 |
-| [GPU](../virtual-machines/windows/sizes-gpu.md) | Série N | 1440 |
-| [Hautes performances](../virtual-machines/windows/sizes-hpc.md) | Séries A et H | 2000 |
+| [Usage général](../virtual-machines/sizes-general.md) | Séries A, B et D | 1 600 |
+| [Optimisé pour le calcul](../virtual-machines/sizes-compute.md) | Série F | 576 |
+| [Mémoire optimisée](../virtual-machines/sizes-memory.md) | Séries D, E, G et M | 6144 |
+| [Optimisé pour le stockage](../virtual-machines/sizes-storage.md) | Série L | 5630 |
+| [GPU](../virtual-machines/sizes-gpu.md) | Série N | 1440 |
+| [Hautes performances](../virtual-machines/sizes-hpc.md) | Séries A et H | 2000 |
 
 
 ## <a name="azure-data-disks"></a>Disques de données Azure
@@ -58,12 +58,12 @@ Des disques de données supplémentaires peuvent être ajoutés si vous avez bes
 ### <a name="max-data-disks-per-vm"></a>Disques de données max. par machine virtuelle
 | Type | Tailles courantes | Disques de données max. par machine virtuelle |
 |----|----|----|
-| [Usage général](../virtual-machines/windows/sizes-general.md) | Séries A, B et D | 64 |
-| [Optimisé pour le calcul](../virtual-machines/windows/sizes-compute.md) | Série F | 64 |
-| [Mémoire optimisée](../virtual-machines/windows/sizes-memory.md) | Séries D, E, G et M | 64 |
-| [Optimisé pour le stockage](../virtual-machines/windows/sizes-storage.md) | Série L | 64 |
-| [GPU](../virtual-machines/windows/sizes-gpu.md) | Série N | 64 |
-| [Hautes performances](../virtual-machines/windows/sizes-hpc.md) | Séries A et H | 64 |
+| [Usage général](../virtual-machines/sizes-general.md) | Séries A, B et D | 64 |
+| [Optimisé pour le calcul](../virtual-machines/sizes-compute.md) | Série F | 64 |
+| [Mémoire optimisée](../virtual-machines/sizes-memory.md) | Séries D, E, G et M | 64 |
+| [Optimisé pour le stockage](../virtual-machines/sizes-storage.md) | Série L | 64 |
+| [GPU](../virtual-machines/sizes-gpu.md) | Série N | 64 |
+| [Hautes performances](../virtual-machines/sizes-hpc.md) | Séries A et H | 64 |
 
 
 ## <a name="vm-disk-types"></a>Type de disque de machine virtuelle
@@ -135,7 +135,7 @@ Update-AzVmss `
 ## <a name="prepare-the-data-disks"></a>Préparer les disques de données
 Les disques créés et attachés aux instances de machine virtuelle de votre groupe identique sont des disques bruts. Avant que vous ne puissiez les utiliser avec vos données et vos applications, les disques doivent être préparés. Pour préparer les disques, vous devez créer une partition, créer un système de fichiers, et les monter.
 
-Pour automatiser le processus sur plusieurs instances de machine virtuelle dans un groupe identique, vous pouvez utiliser l’extension de script personnalisé Azure. Cette extension peut exécuter des scripts localement sur chaque instance de machine virtuelle, par exemple pour préparer les disques de données attachés. Pour plus d’informations, consultez [Vue d’ensemble de l’extension de script personnalisé](../virtual-machines/windows/extensions-customscript.md).
+Pour automatiser le processus sur plusieurs instances de machine virtuelle dans un groupe identique, vous pouvez utiliser l’extension de script personnalisé Azure. Cette extension peut exécuter des scripts localement sur chaque instance de machine virtuelle, par exemple pour préparer les disques de données attachés. Pour plus d’informations, consultez [Vue d’ensemble de l’extension de script personnalisé](../virtual-machines/extensions/custom-script-windows.md).
 
 
 L’exemple suivant présente l’exécution d’un script à partir d’un dépôt d’exemples GitHub sur chaque instance de machine virtuelle avec la commande [Add-AzVmssExtension](/powershell/module/az.compute/Add-AzVmssExtension) qui prépare tous les disques de données attachés bruts :

@@ -7,12 +7,12 @@ author: mrbullwinkle
 ms.author: mbullwin
 ms.date: 04/10/2019
 ms.custom: mvc
-ms.openlocfilehash: 7195de1cf58e5dd2e1d0b49b309f3afc718cca92
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: 1c39bfdbcfb924505473b20b3d56a28d54c84f93
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "77656260"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86505871"
 ---
 # <a name="monitor-and-alert-on-application-health-with-azure-application-insights"></a>Surveiller et alerter sur l’intégrité des applications avec Azure Application Insights
 
@@ -28,7 +28,7 @@ Vous allez apprendre à effectuer les actions suivantes :
 
 Pour suivre ce tutoriel :
 
-Créez une [ressource Application Insights](https://docs.microsoft.com/azure/azure-monitor/learn/dotnetcore-quick-start#enable-application-insights).
+Créez une [ressource Application Insights](./dotnetcore-quick-start.md#enable-application-insights).
 
 ## <a name="sign-in-to-azure"></a>Connexion à Azure
 
@@ -56,7 +56,7 @@ Les tests de disponibilité dans Application Insights vous permettent de tester 
 
     ![Modifiez l'alerte](media/tutorial-alert/edit-alert-001.png)
 
-6. Définissez une valeur égale ou supérieure à 3 pour les emplacements incorrects. Créez un [groupe d’actions](https://docs.microsoft.com/azure/azure-monitor/platform/action-groups) pour configurer les personnes à informer si votre seuil d’alerte est dépassé.
+6. Définissez une valeur égale ou supérieure à 3 pour les emplacements incorrects. Créez un [groupe d’actions](../platform/action-groups.md) pour configurer les personnes à informer si votre seuil d’alerte est dépassé.
 
     ![Enregistrer l'interface utilisateur d’alerte](media/tutorial-alert/save-alert-001.png)
 

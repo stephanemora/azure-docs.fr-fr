@@ -11,12 +11,12 @@ ms.workload: infrastructure
 ms.date: 1/3/2020
 ms.author: ushan
 ms.custom: devops
-ms.openlocfilehash: bb7c773d02c5da5c115af79cd9e90c78e71eb6bf
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: 8aa53d4b08a4a0bdaa4e1f12169811ae88edbd2f
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "76988326"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86501872"
 ---
 # <a name="tutorial-deploy-your-app-to-linux-virtual-machines-in-azure-using-azure-devops-services-and-azure-pipelines"></a>Tutoriel : Déployer votre application sur des machines virtuelles Linux dans Azure à l’aide d’Azure DevOps Services et d’Azure Pipelines
 
@@ -24,7 +24,7 @@ L’intégration continue (CI) et le déploiement continu (CD) constituent un pi
 
 Azure Pipelines fournit un ensemble complet d’outils d’automatisation CI/CD pour les déploiements réalisés sur les machines virtuelles, que ce soit localement ou dans le cloud.
 
-Dans ce tutoriel, vous allez configurer un pipeline CI/CD basé sur YAML pour déployer votre application dans un [environnement](https://docs.microsoft.com/azure/devops/pipelines/process/environments?view=azure-devops) Azure Pipelines, sur des machines virtuelles Linux utilisées comme des ressources agissant chacune comme des serveurs web permettant d’exécuter l’application.
+Dans ce tutoriel, vous allez configurer un pipeline CI/CD basé sur YAML pour déployer votre application dans un [environnement](/azure/devops/pipelines/process/environments?view=azure-devops) Azure Pipelines, sur des machines virtuelles Linux utilisées comme des ressources agissant chacune comme des serveurs web permettant d’exécuter l’application.
 
 Vous allez apprendre à effectuer les actions suivantes :
 
@@ -41,11 +41,11 @@ Vous allez apprendre à effectuer les actions suivantes :
   Vous pouvez obtenir une [organisation Azure DevOps Services gratuite](https://go.microsoft.com/fwlink/?LinkId=307137&clcid=0x409&wt.mc_id=o~msft~vscom~home-vsts-hero~27308&campaign=o~msft~vscom~home-vsts-hero~27308).
 
   > [!NOTE]
-  > Pour plus d’informations, consultez [Se connecter à Azure DevOps Services](https://docs.microsoft.com/azure/devops/organizations/projects/connect-to-projects?view=vsts).
+  > Pour plus d’informations, consultez [Se connecter à Azure DevOps Services](/azure/devops/organizations/projects/connect-to-projects?view=vsts).
 
-*  Vous avez besoin d’une machine virtuelle Linux pour une cible de déploiement.  Pour plus d’informations, consultez [Créer et gérer des machines virtuelles Linux avec l’interface Azure CLI](https://docs.microsoft.com/azure/virtual-machines/linux/tutorial-manage-vm).
+*  Vous avez besoin d’une machine virtuelle Linux pour une cible de déploiement.  Pour plus d’informations, consultez [Créer et gérer des machines virtuelles Linux avec l’interface Azure CLI](./tutorial-manage-vm.md).
 
-*  Ouvrez le port d’entrée 80 pour votre machine virtuelle. Pour plus d’informations, consultez [Créer des groupes de sécurité réseau à l’aide du portail Azure](https://docs.microsoft.com/azure/virtual-network/tutorial-filter-network-traffic).
+*  Ouvrez le port d’entrée 80 pour votre machine virtuelle. Pour plus d’informations, consultez [Créer des groupes de sécurité réseau à l’aide du portail Azure](../../virtual-network/tutorial-filter-network-traffic.md).
 
 ## <a name="get-your-sample-app-code"></a>Obtenir le code de votre exemple d’application
 
@@ -91,13 +91,13 @@ Suivez les étapes supplémentaires décrites ci-dessous, selon la pile d’exé
 #### <a name="javascript"></a>[JavaScript](#tab/java-script)
 
 Pour installer une application JavaScript ou Node.js, vous avez besoin d’une machine virtuelle Linux et d’un serveur web Nginx pour déployer l’application.
-Si vous n’avez pas encore de machine virtuelle Linux dotée de Nginx, créez-en une maintenant dans Azure en suivant les étapes décrites dans [cet exemple](/azure/virtual-machines/linux/quick-create-cli).
+Si vous n’avez pas encore de machine virtuelle Linux dotée de Nginx, créez-en une maintenant dans Azure en suivant les étapes décrites dans [cet exemple](./quick-create-cli.md).
 
 * * * 
 
 ## <a name="create-an-azure-pipelines-environment-with-azure-virtual-machines"></a>Créer un environnement Azure Pipelines avec des machines virtuelles Azure
 
-Les machines virtuelles peuvent être ajoutées en tant que ressources dans un [environnement](https://docs.microsoft.com/azure/devops/pipelines/process/environments), et peuvent être ciblées pour les déploiements multimachines. L’historique des déploiements effectués dans un environnement permet de suivre les étapes de ces déploiements (machine virtuelle, pipeline, validation).
+Les machines virtuelles peuvent être ajoutées en tant que ressources dans un [environnement](/azure/devops/pipelines/process/environments), et peuvent être ciblées pour les déploiements multimachines. L’historique des déploiements effectués dans un environnement permet de suivre les étapes de ces déploiements (machine virtuelle, pipeline, validation).
 
 Vous pouvez créer un environnement dans le hub « **Environnements** » de la section « **Pipelines** ».
 1.  Connectez-vous à votre organisation Azure DevOps et accédez à votre projet.
@@ -163,7 +163,7 @@ Sélectionnez le modèle de **démarrage**, puis copiez l’extrait de code YAM
     artifact: drop
 ```
 
-Pour plus d’informations, suivez les étapes mentionnées dans [Générer votre application Java avec Maven](https://docs.microsoft.com/azure/devops/pipelines/ecosystems/java).
+Pour plus d’informations, suivez les étapes mentionnées dans [Générer votre application Java avec Maven](/azure/devops/pipelines/ecosystems/java).
 
 #### <a name="javascript"></a>[JavaScript](#tab/java-script)
 
@@ -196,7 +196,7 @@ Sélectionnez le modèle de **démarrage**, puis copiez l’extrait de code YAM
       artifact: drop
 ```
 
-Pour plus d’informations, suivez les étapes mentionnées dans [Générer votre application Node.js avec gulp](https://docs.microsoft.com/azure/devops/pipelines/ecosystems/javascript).
+Pour plus d’informations, suivez les étapes mentionnées dans [Générer votre application Node.js avec gulp](/azure/devops/pipelines/ecosystems/javascript).
 
 - Examinez le pipeline pour voir à quoi il sert. Vérifiez que toutes les entrées par défaut sont adaptées à votre code.
 
@@ -208,7 +208,7 @@ Pour plus d’informations, suivez les étapes mentionnées dans [Générer votr
 
 ## <a name="define-cd-steps-to-deploy-to-the-linux-vm"></a>Définir les étapes d’un déploiement continu sur une machine virtuelle Linux
 
-1. Modifiez le pipeline ci-dessus en y ajoutant un [travail de déploiement](https://docs.microsoft.com/azure/devops/pipelines/process/deployment-jobs), puis en référençant l’environnement et les ressources de machine virtuelle dont vous disposez à l’aide de la syntaxe YAML ci-dessous :
+1. Modifiez le pipeline ci-dessus en y ajoutant un [travail de déploiement](/azure/devops/pipelines/process/deployment-jobs), puis en référençant l’environnement et les ressources de machine virtuelle dont vous disposez à l’aide de la syntaxe YAML ci-dessous :
 
    ```YAML
    jobs:  
@@ -221,7 +221,7 @@ Pour plus d’informations, suivez les étapes mentionnées dans [Générer votr
      strategy:
    ```
 2. Vous pouvez sélectionner des groupes de machines virtuelles appartenant à l’environnement pour recevoir le déploiement en spécifiant les **étiquettes** que vous avez définies pour chaque machine virtuelle de l’environnement.
-Le schéma YAML complet du travail de déploiement se trouve [ici](https://docs.microsoft.com/azure/devops/pipelines/yaml-schema?view=azure-devops&tabs=schema#deployment-job).
+Le schéma YAML complet du travail de déploiement se trouve [ici](/azure/devops/pipelines/yaml-schema?view=azure-devops&tabs=schema#deployment-job).
 
 3. Vous pouvez spécifier `runOnce` ou `rolling` comme stratégie de déploiement. 
 
@@ -295,8 +295,8 @@ La vue Déploiements de l’environnement fournit le suivi complet des validatio
 ![Vue des travaux des machines virtuelles](media/tutorial-deploy-vms-azure-pipelines/vm-jobsview.png)
 
 ## <a name="next-steps"></a>Étapes suivantes
-- Vous pouvez à présent [personnaliser le pipeline](https://docs.microsoft.com/azure/devops/pipelines/customize-pipeline) que vous venez de créer.
-- Pour savoir ce que vous pouvez faire d’autre dans les pipelines YAML, consultez [Informations de référence sur le schéma YAML](https://docs.microsoft.com/azure/devops/pipelines/yaml-schema).
+- Vous pouvez à présent [personnaliser le pipeline](/azure/devops/pipelines/customize-pipeline) que vous venez de créer.
+- Pour savoir ce que vous pouvez faire d’autre dans les pipelines YAML, consultez [Informations de référence sur le schéma YAML](/azure/devops/pipelines/yaml-schema).
 - Pour découvrir comment déployer une pile LAMP (Linux, Apache, MySQL et PHP), passez au didacticiel suivant.
 
 > [!div class="nextstepaction"]
