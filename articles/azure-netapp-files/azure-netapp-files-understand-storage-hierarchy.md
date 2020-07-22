@@ -12,14 +12,14 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: overview
-ms.date: 02/27/2020
+ms.date: 07/15/2020
 ms.author: b-juche
-ms.openlocfilehash: 70d3a2a501952a5e20b1ff8e99f48f4d7aefce8d
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.openlocfilehash: 0b150491fff953434062cc583566e1113947a679
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "78163962"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86504901"
 ---
 # <a name="what-is-the-storage-hierarchy-of-azure-netapp-files"></a>Qu’est-ce que la hiérarchie de stockage d’Azure NetApp Files
 
@@ -52,7 +52,6 @@ Avant de créer un volume dans Azure NetApp Files, vous devez acheter et configu
 - Chaque volume appartient à un seul pool, mais un pool peut contenir plusieurs volumes. 
 - Un volume ne peut pas être déplacé entre des pools de capacité. <!--Within the same NetApp account, you can move a volume across pools.  -->   
   Par exemple, dans le [diagramme conceptuel de la hiérarchie de stockage](#conceptual_diagram_of_storage_hierarchy) ci-dessous, vous ne pouvez pas déplacer les volumes du Pool de capacité de 1 vers le Pool de capacité 2.
-- Impossible de supprimer un volume tant que tous ses instantanés n’ont pas été supprimés.
 
 ## <a name="conceptual-diagram-of-storage-hierarchy"></a><a name="conceptual_diagram_of_storage_hierarchy"></a>Diagramme conceptuel de la hiérarchie de stockage 
 L’exemple suivant montre les relations entre l’abonnement Azure, les comptes NetApp, les pools de capacité et les volumes.   

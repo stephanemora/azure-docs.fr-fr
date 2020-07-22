@@ -3,12 +3,12 @@ title: Lire des données capturées par Azure Event Hubs à partir d’une appli
 description: Cet article explique comment écrire du code Python permettant de capturer les données envoyées à un hub d’événements, et comment lire les données d’événements capturées à partir d’un compte de stockage Azure.
 ms.topic: quickstart
 ms.date: 06/23/2020
-ms.openlocfilehash: 752a582e59b438f7449d6722b222969dc641880c
-ms.sourcegitcommit: 01cd19edb099d654198a6930cebd61cae9cb685b
+ms.openlocfilehash: eb7e8a2c1e567e474ad7d0766d9b12e5b43de3ae
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/24/2020
-ms.locfileid: "85315300"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86521868"
 ---
 # <a name="capture-event-hubs-data-in-azure-storage-and-read-it-by-using-python-azure-eventhub-version-5"></a>Capturer des données Event Hubs dans le Stockage Azure et les lire à l’aide de Python (azure-eventhub version 5)
 
@@ -35,7 +35,7 @@ Dans ce guide de démarrage rapide, vous allez :
 - Un hub d’événements et un espace de noms Event Hubs actifs.
 [Créer un espace de noms Event Hubs comprenant un hub d’événement](event-hubs-create.md). Notez le nom de l’espace de noms Event Hubs, le nom du hub d’événements et la clé d’accès primaire de l’espace de noms. Pour obtenir la clé d’accès, consultez [Obtenir une chaîne de connexion Event Hubs](event-hubs-get-connection-string.md#get-connection-string-from-the-portal). Le nom de clé par défaut est *RootManageSharedAccessKey*. Pour ce guide de démarrage rapide, vous n’avez besoin que de la clé primaire. Vous n’avez pas besoin de la chaîne de connexion.  
 - Un compte de stockage Azure, un conteneur d’objets blob dans le compte de stockage et une chaîne de connexion au compte de stockage. Si vous n’avez pas ces éléments, effectuez les étapes suivantes :  
-    1. [Créer un compte de stockage Azure](../storage/common/storage-quickstart-create-account.md?tabs=azure-portal)  
+    1. [Créer un compte de stockage Azure](../storage/common/storage-account-create.md?tabs=azure-portal)  
     1. [Créer un conteneur d’objets blob dans le compte de stockage](../storage/blobs/storage-quickstart-blobs-portal.md#create-a-container)  
     1. [Obtenir la chaîne de connexion au compte de stockage](../storage/common/storage-configure-connection-string.md)
 
@@ -182,4 +182,4 @@ Consultez les [exemples Python sur GitHub](https://github.com/Azure/azure-sdk-fo
 [1]: ./media/event-hubs-archive-python/event-hubs-python1.png
 [About Azure storage accounts]:../storage/common/storage-create-storage-account.md
 [Visual Studio Code]: https://code.visualstudio.com/
-[Event Hubs overview]: event-hubs-what-is-event-hubs.md
+[Event Hubs overview]: ./event-hubs-about.md

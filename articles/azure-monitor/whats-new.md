@@ -6,12 +6,12 @@ ms.topic: overview
 author: bwren
 ms.author: bwren
 ms.date: 07/08/2020
-ms.openlocfilehash: 4d061e7a105fc73f7f44c8336df82ff363ee6ded
-ms.sourcegitcommit: 3541c9cae8a12bdf457f1383e3557eb85a9b3187
+ms.openlocfilehash: 192219a804365957e9eaa0577019ff18d75861bf
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/09/2020
-ms.locfileid: "86203764"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86498506"
 ---
 # <a name="whats-new-in-azure-monitor-documentation"></a>Nouveautés dans la documentation Azure Monitor
 
@@ -67,21 +67,21 @@ Cet article liste les nouveaux articles Azure Monitor et ceux qui ont fait l’o
 - [Envoyer le journal d’activité Azure à un espace de travail Log Analytics à l’aide d’un modèle Azure Resource Manager](learn/quick-collect-activity-log-arm.md) - Nouvel article.
 
 #### <a name="new-and-updated-articles-from-restructure-and-consolidation-of-platform-log-content"></a>Articles nouveaux et mis à jour suite à la restructuration et au regroupement du contenu sur les journaux de plateforme
-- [Archiver des journaux de ressources Azure sur un compte de stockage](platform/resource-logs-collect-storage.md)
+- [Archiver des journaux de ressources Azure sur un compte de stockage](./platform/resource-logs.md#send-to-azure-storage)
 - [Schéma d’événement du journal d’activité Azure](platform/activity-log-schema.md)
 - [Journal d’activité Azure](platform/activity-log.md)
 - [Exemples d’interface CLI Azure Monitor](samples/cli-samples.md)
 - [Exemples PowerShell Azure Monitor](samples/powershell-samples.md)
 - [Procédure pas à pas d’utilisation de l’API REST d’Azure Monitor](platform/rest-api-walkthrough.md)
-- [Services et schémas pris en charge pour les journaux de ressource Azure](platform/diagnostic-logs-schema.md)
+- [Services et schémas pris en charge pour les journaux de ressource Azure](./platform/resource-logs-schema.md)
 - [Journaux de ressources Azure](platform/resource-logs.md)
-- [Collecter et analyser les journaux d’activités Azure dans Azure Monitor](platform/activity-log-collect.md)
-- [Collecter les journaux de ressources Azure dans l’espace de travail Log Analytics](platform/resource-logs-collect-workspace.md)
+- [Collecter et analyser les journaux d’activités Azure dans Azure Monitor](./platform/activity-log.md)
+- [Collecter les journaux de ressources Azure dans l’espace de travail Log Analytics](./platform/resource-logs.md#send-to-log-analytics-workspace)
 - [Créer des paramètres de diagnostic pour envoyer des journaux et des métriques de plateforme à différentes destinations](platform/diagnostic-settings.md)
-- [Exporter le journal d’activité Azure](platform/activity-log-export.md)
+- [Exporter le journal d’activité Azure](./platform/activity-log.md#legacy-collection-methods)
 - [Vue d’ensemble des journaux de plateforme Azure](platform/platform-logs-overview.md)
-- [Diffuser en continu les journaux de plateforme Azure vers un Event Hub](platform/resource-logs-stream-event-hubs.md)
-- [Afficher les événements du journal d’activité Azure dans Azure Monitor](platform/activity-log-view.md)
+- [Diffuser en continu les journaux de plateforme Azure vers un Event Hub](./platform/resource-logs.md#send-to-azure-event-hubs)
+- [Afficher les événements du journal d’activité Azure dans Azure Monitor](./platform/activity-log.md#view-the-activity-log)
 
 ### <a name="virtual-machines"></a>Machines virtuelles
 - [Activer Azure Monitor pour machines virtuelles sur le portail Azure](insights/vminsights-enable-single-vm.md) - Mise à jour de façon à inclure Azure Arc.
@@ -155,7 +155,7 @@ Cet article liste les nouveaux articles Azure Monitor et ceux qui ont fait l’o
 
 ### <a name="insights"></a>Insights
 - [Azure Monitor pour Azure Cache pour Redis (préversion)](insights/redis-cache-insights-overview.md) - Nouvel article.
-- [Surveiller Key Vault avec Azure Monitor pour Key Vault (préversion)](insights/key-vaults-insights-overview.md) - Nouvel article.
+- [Surveiller Key Vault avec Azure Monitor pour Key Vault (préversion)](./insights/key-vault-insights-overview.md) - Nouvel article.
 
 ### <a name="logs"></a>Journaux d’activité
 - [Créer et configurer Log Analytics avec PowerShell](platform/powershell-workspace-configuration.md) - Ajout de la section Résolution des problèmes.
@@ -258,7 +258,7 @@ Cet article liste les nouveaux articles Azure Monitor et ceux qui ont fait l’o
 - [Superviser les applications Python avec Azure Monitor (préversion)](app/opencensus-python.md) - Ajout de métriques standard.
 - [Prise en charge du mappage de source pour les applications JavaScript – Azure Monitor Application Insights](app/source-map-support.md) - Nouvel article.
 
-### <a name="containers"></a>Containers
+### <a name="containers"></a>Conteneurs
 
 - [Questions fréquentes (FAQ) Azure Monitor](faq.md) - Mise à jour relative à Azure Monitor pour conteneurs.
 - [Configurer la supervision de GPU avec Azure Monitor pour conteneurs](insights/container-insights-gpu-monitoring.md) - Nouvel article.
@@ -280,7 +280,7 @@ Cet article liste les nouveaux articles Azure Monitor et ceux qui ont fait l’o
 
 ### <a name="platform-logs"></a>Journaux de plateforme
 
-- [Collecter et analyser le journal d’activité Azure dans Azure Monitor](platform/activity-log-collect.md) - Réécriture pour une meilleure explication de la collecte du journal d’activité avec des paramètres de diagnostic.
+- [Collecter et analyser le journal d’activité Azure dans Azure Monitor](./platform/activity-log.md) - Réécriture pour une meilleure explication de la collecte du journal d’activité avec des paramètres de diagnostic.
 
 ### <a name="virtual-machines"></a>Machines virtuelles
 
@@ -326,7 +326,7 @@ Plusieurs mises à jour effectuées dans le cadre de la réécriture du contenu 
 
 #### <a name="azure-monitor-for-containers"></a>Azure Monitor pour conteneurs
 
-- [Intégrer Azure Active Directory dans Azure Kubernetes Service](../aks/azure-ad-integration.md) - Ajout d’une note concernant la création d’une application cliente pour prendre en charge le cluster RBAC afin de prendre en charge Azure Monitor pour les conteneurs.
+- [Intégrer Azure Active Directory dans Azure Kubernetes Service](../aks/azure-ad-integration-cli.md) - Ajout d’une note concernant la création d’une application cliente pour prendre en charge le cluster RBAC afin de prendre en charge Azure Monitor pour les conteneurs.
 
 #### <a name="azure-monitor-for-vms"></a>Azure Monitor pour machines virtuelles
 
@@ -412,8 +412,8 @@ Plusieurs nouveaux articles d’aide sur le concepteur de vues, concernant les c
 
 ### <a name="platform-logs"></a>Journaux de plateforme
 
-- [Collecter le journal d’activité Azure avec des paramètres de diagnostic – Azure Monitor](platform/diagnostic-settings-legacy.md) – Informations supplémentaires concernant les propriétés modifiées.
-- [Exporter le journal d’activité Azure](platform/activity-log-export.md) – Mis à jour par rapport aux modifications apportées à l’interface utilisateur. 
+- [Collecter le journal d’activité Azure avec des paramètres de diagnostic – Azure Monitor](./platform/activity-log.md) – Informations supplémentaires concernant les propriétés modifiées.
+- [Exporter le journal d’activité Azure](./platform/activity-log.md#legacy-collection-methods) – Mis à jour par rapport aux modifications apportées à l’interface utilisateur. 
 
 ## <a name="december-2019"></a>Décembre 2019
 
@@ -450,7 +450,7 @@ Plusieurs nouveaux articles d’aide sur le concepteur de vues, concernant les c
 
 ### <a name="insights-and-solutions"></a>Insights et solutions
 
-- [Questions fréquentes sur Azure Monitor pour les conteneurs](insights/container-insights-faq.md) – Ajout d’une question concernant les champs Image et Name.
+- [Questions fréquentes sur Azure Monitor pour les conteneurs](./faq.md) – Ajout d’une question concernant les champs Image et Name.
 - [Solution Azure SQL Analytics dans Azure Monitor](insights/azure-sql.md) – Mise à jour concernant la prise en charge de Attente de la base de données pour les instances Managed Instance.
 - [Configurer Azure Monitor pour la collecte de données de l’agent de conteneurs](insights/container-insights-agent-config.md) – Ajout du paramètre pour enrich_container_logs.
 - [Configurer des clusters Kubernetes hybrides avec Azure Monitor pour les conteneurs](insights/container-insights-hybrid-setup.md) – Ajout d’une section Résolution des problèmes.
@@ -474,19 +474,19 @@ Plusieurs nouveaux articles d’aide sur le concepteur de vues, concernant les c
 
 Plusieurs articles ont été mis à jour après la restructuration du contenu relatif aux journaux de plateforme du fait de la nouvelle fonctionnalité de configuration du journal d’activité à l’aide des paramètres de diagnostic.
 
-- [Archiver des journaux de ressources Azure sur un compte de stockage](platform/resource-logs-collect-storage.md)
+- [Archiver des journaux de ressources Azure sur un compte de stockage](./platform/resource-logs.md#send-to-azure-storage)
 - [Schéma d’événement du journal d’activité Azure](platform/activity-log-schema.md)
 - [Limites du service Azure Monitor](service-limits.md)
-- [Collecter et analyser les journaux d’activité Azure dans l’espace de travail Log Analytics](platform/activity-log-collect.md)
-- [Collecter le journal d’activité Azure avec les paramètres de diagnostic (préversion) – Azure Monitor](platform/diagnostic-settings-legacy.md)
+- [Collecter et analyser les journaux d’activité Azure dans l’espace de travail Log Analytics](./platform/activity-log.md)
+- [Collecter le journal d’activité Azure avec les paramètres de diagnostic (préversion) – Azure Monitor](./platform/activity-log.md)
 - [Collecter les journaux d’activité Azure dans un espace de travail Log Analytics auprès de locataire Azure](platform/activity-log-collect-tenants.md)
-- [Collecter les journaux de ressources Azure dans l’espace de travail Log Analytics](platform/resource-logs-collect-workspace.md)
+- [Collecter les journaux de ressources Azure dans l’espace de travail Log Analytics](./platform/resource-logs.md#send-to-log-analytics-workspace)
 - [Créer un paramètre de diagnostic dans Azure à l’aide d’un modèle Resource Manager](platform/diagnostic-settings-template.md)
 - [Créer un paramètre de diagnostic pour collecter les journaux et les métriques dans Azure](platform/diagnostic-settings.md)
-- [Exporter le journal d’activité Azure](platform/activity-log-export.md)
+- [Exporter le journal d’activité Azure](./platform/activity-log.md#legacy-collection-methods)
 - [Vue d’ensemble des journaux de plateforme Azure](platform/platform-logs-overview.md)
 - [Envoyer en streaming des données de supervision Azure vers un hub d’événements](platform/stream-monitoring-data-event-hubs.md)
-- [Diffuser en continu les journaux de plateforme Azure vers un Event Hub](platform/resource-logs-stream-event-hubs.md)
+- [Diffuser en continu les journaux de plateforme Azure vers un Event Hub](./platform/resource-logs.md#send-to-azure-event-hubs)
 
 ### <a name="quickstarts-and-tutorials"></a>Guides de démarrages rapides et tutoriels
 

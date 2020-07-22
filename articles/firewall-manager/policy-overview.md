@@ -7,12 +7,12 @@ services: firewall-manager
 ms.topic: overview
 ms.date: 06/30/2020
 ms.author: victorh
-ms.openlocfilehash: 88b7dc60b865325ef7dcd9e79015fdee10b4f9a2
-ms.sourcegitcommit: 73ac360f37053a3321e8be23236b32d4f8fb30cf
+ms.openlocfilehash: 6e532634fb40eee100e73a333ac6aa7e0a79cf3c
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/30/2020
-ms.locfileid: "85563715"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86521647"
 ---
 # <a name="azure-firewall-manager-policy-overview"></a>Vue d’ensemble de la stratégie Azure Firewall Manager
 
@@ -47,8 +47,8 @@ Avec l’héritage, les modifications apportées à la stratégie parente sont a
 Le Pare-feu Azure prend en charge les règles et stratégies traditionnelles. Le tableau suivant compare les différentes stratégies et règles :
 
 
-|         |Policy  |Règles  |
-|---------|---------|---------|
+| Objet | Policy  | Règles |
+| ------- | ------- | ----- |
 |Contient     |NAT, réseau, règles d’application, DNS personnalisé et paramètres de proxy DNS, groupes IP et paramètres de renseignement sur les menaces (notamment liste verte)|NAT, réseau, règles d’application, DNS personnalisé et paramètres de proxy DNS, groupes IP et paramètres de renseignement sur les menaces (notamment liste verte)|
 |Protection     |Hubs virtuels et réseaux virtuels|Réseaux virtuels uniquement|
 |Utilisation du portail     |Gestion centralisée à l’aide de Firewall Manager|Expérience de pare-feu autonome|

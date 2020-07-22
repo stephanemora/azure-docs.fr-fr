@@ -12,12 +12,12 @@ ms.author: sstein
 ms.reviewer: v-masebo
 ms.date: 05/29/2020
 ms.custom: sqldbrb=2 
-ms.openlocfilehash: 5443955bd24ed269ebf35f974be8c0497e2bfb60
-ms.sourcegitcommit: 309cf6876d906425a0d6f72deceb9ecd231d387c
+ms.openlocfilehash: e8b9f12c57b2e4bf943e5fc9a9ebc2bbadef9ee9
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/01/2020
-ms.locfileid: "84267339"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86504970"
 ---
 # <a name="quickstart-use-php-to-query-a-database-in-azure-sql-database"></a>Démarrage rapide : Utiliser PHP pour interroger une base de données dans Azure SQL Database
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
@@ -31,7 +31,7 @@ Pour effectuer ce démarrage rapide, les éléments suivants sont requis :
 - Compte Azure avec un abonnement actif. [Créez un compte gratuitement](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio).
 - Une base de données dans Azure SQL Database ou Azure SQL Managed Instance. Utilisez l’un de ces guides de démarrage rapide pour créer et configurer une base de données :
 
-  || SQL Database | Instance managée SQL | SQL Server sur une machine virtuelle Azure |
+  | Action | SQL Database | Instance managée SQL | SQL Server sur une machine virtuelle Azure |
   |:--- |:--- |:---|:---|
   | Créer| [Portail](single-database-create-quickstart.md) | [Portail](../managed-instance/instance-create-quickstart.md) | [Portail](../virtual-machines/windows/sql-vm-create-portal-quickstart.md)
   || [INTERFACE DE LIGNE DE COMMANDE](scripts/create-and-configure-database-cli.md) | [INTERFACE DE LIGNE DE COMMANDE](https://medium.com/azure-sqldb-managed-instance/working-with-sql-managed-instance-using-azure-cli-611795fe0b44) |

@@ -14,12 +14,12 @@ ms.workload: infrastructure
 ms.date: 07/27/2017
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: d233cba65d190178c500f78d4817e233ab46d780
-ms.sourcegitcommit: b55d7c87dc645d8e5eb1e8f05f5afa38d7574846
+ms.openlocfilehash: 9dcc1b6f6f3792682f81c0d37ef2046bd1840657
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "81460068"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86526994"
 ---
 # <a name="tutorial-back-up-and-restore-files-for-linux-virtual-machines-in-azure"></a>Tutoriel : Sauvegarder et restaurer des fichiers pour des machines virtuelles Linux dans Azure
 
@@ -34,7 +34,7 @@ Vous pouvez protéger vos données en effectuant des sauvegardes à intervalles 
 
 Lorsque le service Azure Backup lance une sauvegarde, il déclenche l’extension de sauvegarde pour prendre un instantané à un moment donné. Le service Azure Backup utilise l’extension _VMSnapshotLinux_ dans Linux. L’extension est installée lors de la première sauvegarde de machine virtuelle si cette machine virtuelle est exécutée. Si la machine virtuelle n’est pas en cours d’exécution, le service Sauvegarde prend un instantané du stockage sous-jacent (car aucune écriture de l’application n’a lieu pendant l’arrêt de la machine virtuelle).
 
-Par défaut, le service Azure Backup effectue une sauvegarde cohérente avec le système de fichiers pour la machine virtuelle Linux, bien qu’il puisse être configuré pour effectuer une [sauvegarde cohérente avec les applications en utilisant des infrastructures pré-script et post-script](https://docs.microsoft.com/azure/backup/backup-azure-linux-app-consistent). Après que le service Sauvegarde Azure a pris l’instantané, les données sont transférées vers le coffre de sauvegarde. Pour optimiser l’efficacité, le service identifie et transfère uniquement les blocs de données qui ont été modifiés depuis la sauvegarde précédente.
+Par défaut, le service Azure Backup effectue une sauvegarde cohérente avec le système de fichiers pour la machine virtuelle Linux, bien qu’il puisse être configuré pour effectuer une [sauvegarde cohérente avec les applications en utilisant des infrastructures pré-script et post-script](../../backup/backup-azure-linux-app-consistent.md). Après que le service Sauvegarde Azure a pris l’instantané, les données sont transférées vers le coffre de sauvegarde. Pour optimiser l’efficacité, le service identifie et transfère uniquement les blocs de données qui ont été modifiés depuis la sauvegarde précédente.
 
 Une fois le transfert de données terminé, l’instantané est supprimé et un point de récupération est créé.
 
@@ -171,4 +171,3 @@ Passez au didacticiel suivant pour en savoir plus sur la surveillance des machin
 
 > [!div class="nextstepaction"]
 > [Gouverner les machines virtuelles](tutorial-govern-resources.md)
-
