@@ -10,12 +10,12 @@ ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 11/04/2019
 ms.custom: fasttrack-edit
-ms.openlocfilehash: 7e3a35d95e7d2a339bf33620c9d1a140fb6a0a1d
-ms.sourcegitcommit: 5cace04239f5efef4c1eed78144191a8b7d7fee8
+ms.openlocfilehash: 3ed3ff94b764c0fcb5521ef8106b32923b203a01
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86143758"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86260653"
 ---
 # <a name="how-to-index-documents-in-azure-blob-storage-with-azure-cognitive-search"></a>Comment indexer des documents dans Stockage Blob Azure avec la Recherche cognitive Azure
 
@@ -210,6 +210,25 @@ Pour regrouper tous ces éléments, utilisez le code ci-après pour ajouter des 
 >
 >
 
+#### <a name="what-if-you-need-to-encode-a-field-to-use-it-as-a-key-but-you-also-want-to-search-it"></a>Que se passe-t-il si vous devez encoder un champ à utiliser comme clé, que vous souhaitez également pouvoir rechercher ?
+
+Il peut arriver que vous deviez utiliser une version encodée d’un champ tel que metadata_storage_path en tant que clé, et que vous ayez également besoin de pouvoir rechercher ce champ (sans encodage). Pour résoudre ce dilemme, vous pouvez mapper ce champ à deux champs, l’un étant utilisé pour la clé, et l’autre à des fins de recherche. Dans l’exemple ci-dessous, le champ *key* (clé) contient le chemin d’accès encodé, tandis que le champ *path* (chemin) n’est pas encodé et sera utilisé en tant que champ pouvant faire l’objet d’une recherche dans l’index.
+
+```http
+    PUT https://[service name].search.windows.net/indexers/blob-indexer?api-version=2020-06-30
+    Content-Type: application/json
+    api-key: [admin key]
+
+    {
+      "dataSourceName" : " blob-datasource ",
+      "targetIndexName" : "my-target-index",
+      "schedule" : { "interval" : "PT2H" },
+      "fieldMappings" : [
+        { "sourceFieldName" : "metadata_storage_path", "targetFieldName" : "key", "mappingFunction" : { "name" : "base64Encode" } },
+        { "sourceFieldName" : "metadata_storage_path", "targetFieldName" : "path" }
+      ]
+    }
+```
 <a name="WhichBlobsAreIndexed"></a>
 ## <a name="controlling-which-blobs-are-indexed"></a>Contrôle les objets blob indexés
 Vous pouvez contrôler les objets BLOB qui sont indexés et ignorés.

@@ -3,12 +3,12 @@ title: Exporter à l’aide de Stream Analytics à partir d’Azure Application 
 description: Stream Analytics peut transformer, filtrer et acheminer en continu les données que vous exportez depuis Application Insights.
 ms.topic: conceptual
 ms.date: 01/08/2019
-ms.openlocfilehash: 400c727b44d3794dc9a17c59959dc5c75cea71fe
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.openlocfilehash: 70f952dcd6f8d942ac272afed58a7fe0f47d8a6e
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86110485"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86539956"
 ---
 # <a name="use-stream-analytics-to-process-exported-data-from-application-insights"></a>Utiliser Stream Analytics pour traiter des données exportées depuis Application Insights
 [Azure Stream Analytics](https://azure.microsoft.com/services/stream-analytics/) est l’outil idéal pour traiter des données [exportées depuis Application Insights](export-telemetry.md). Stream Analytics peut extraire des données de diverses sources. Il peut transformer et filtrer les données, puis les acheminer vers plusieurs récepteurs.
@@ -60,7 +60,7 @@ Comme l’exportation continue génère toujours des données vers un compte de 
     Les données seront également exportées vers votre stockage. 
 2. Inspectez les données exportées. Dans Visual Studio, sélectionnez **Afficher / Cloud Explorer**, puis ouvrez Azure / Stockage. (Si vous n’avez pas cette option de menu, vous devez installer le SDK Azure : ouvrez la boîte de dialogue Nouveau projet, puis ouvrez Visual C# / Cloud / Obtenir Microsoft Azure SDK pour .NET.)
    
-    ![](./media/export-stream-analytics/04-data.png)
+    ![Capture d'écran montrant comment définir les types d'événements que vous souhaitez voir.](./media/export-stream-analytics/04-data.png)
    
     Prenez note de la partie commune du nom du chemin d'accès, qui est dérivée du nom de l'application et de la clé d'instrumentation. 
 
@@ -69,21 +69,21 @@ Les événements sont écrits dans des fichiers blob au format JSON. Chaque fich
 ## <a name="create-an-azure-stream-analytics-instance"></a>Création d’une instance Azure Stream Analytics
 À partir du [portail Azure](https://portal.azure.com/), sélectionnez le service Azure Stream Analytics et créez une nouvelle tâche Stream Analytics :
 
-![](./media/export-stream-analytics/SA001.png)
+![Capture d'écran montrant la page principale de création d'une tâche Stream Analytics sur le portail Azure.](./media/export-stream-analytics/SA001.png)
 
-![](./media/export-stream-analytics/SA002.png)
+![Capture d'écran montrant les détails nécessaires à la création d'une tâche Stream Analytics.](./media/export-stream-analytics/SA002.png)
 
 Lors de la création de la tâche, sélectionnez **Accéder à la ressource**.
 
-![](./media/export-stream-analytics/SA003.png)
+![Capture d'écran montrant le message reçu au terme du déploiement de la nouvelle tâche Stream Analytics.](./media/export-stream-analytics/SA003.png)
 
 ### <a name="add-a-new-input"></a>Ajouter une nouvelle entrée
 
-![](./media/export-stream-analytics/SA004.png)
+![Capture d'écran montrant comment ajouter des entrées à la tâche Stream Analytics.](./media/export-stream-analytics/SA004.png)
 
 Définissez-le pour qu’il tienne compte des données de votre objet blob d’exportation continue :
 
-![](./media/export-stream-analytics/SA0005.png)
+![Capture d'écran montrant la configuration de la tâche Stream Analytics pour tenir compte des données d'un objet blob d'exportation continue.](./media/export-stream-analytics/SA0005.png)
 
 Vous devez maintenant disposer de la clé d’accès principale issue de votre compte de stockage, que vous avez notée précédemment. Définissez-la comme clé de compte de stockage.
 
@@ -109,7 +109,7 @@ Dans cet exemple :
 ## <a name="add-new-output"></a>Ajout de la nouvelle sortie
 Sélectionnez maintenant votre tâche > **Sorties** > **Ajouter**.
 
-![](./media/export-stream-analytics/SA006.png)
+![Capture d'écran montrant comment sélectionner votre tâche Stream Analytics pour ajouter une nouvelle sortie.](./media/export-stream-analytics/SA006.png)
 
 
 ![Sélectionnez le nouveau canal, cliquez sur Sorties, Ajouter, Power BI](./media/export-stream-analytics/SA010.png)
@@ -138,7 +138,7 @@ GROUP BY TumblingWindow(minute, 1), flat.ArrayValue.name
 
 * export-input est l’alias que nous avons donné au flux d’entrée
 * pbi-output est l’alias de sortie que nous avons défini
-* Nous utilisons [OUTER APPLY GetElements](https://docs.microsoft.com/stream-analytics-query/apply-azure-stream-analytics), car le nom de l'événement se trouve dans un tableau JSON imbriqué. Ensuite, l’instruction Select récupère le nom de l’événement, ainsi que le nombre d’instances portant ce nom dans la période donnée. La clause [Regrouper par](https://docs.microsoft.com/stream-analytics-query/group-by-azure-stream-analytics) regroupe les éléments en intervalles d'une minute.
+* Nous utilisons [OUTER APPLY GetElements](/stream-analytics-query/apply-azure-stream-analytics), car le nom de l'événement se trouve dans un tableau JSON imbriqué. Ensuite, l’instruction Select récupère le nom de l’événement, ainsi que le nombre d’instances portant ce nom dans la période donnée. La clause [Regrouper par](/stream-analytics-query/group-by-azure-stream-analytics) regroupe les éléments en intervalles d'une minute.
 
 ### <a name="query-to-display-metric-values"></a>Requête d'affichage des valeurs de mesure
 
@@ -212,4 +212,3 @@ Noam Ben Zeev montre comment traiter des données exportées à l’aide de Stre
 * [Exportation continue](export-telemetry.md)
 * [Référence de modèle de données détaillé pour les valeurs et types de propriétés.](export-data-model.md)
 * [Application Insights](../../azure-monitor/app/app-insights-overview.md)
-

@@ -7,12 +7,12 @@ ms.service: load-balancer
 ms.topic: article
 ms.date: 04/22/2020
 ms.author: errobin
-ms.openlocfilehash: 205a4bd119a7324c4e6524a0e29d432aa57bf315
-ms.sourcegitcommit: cec9676ec235ff798d2a5cad6ee45f98a421837b
+ms.openlocfilehash: 2b547dbc8671481275952f4c3eae5683e9e3a06c
+ms.sourcegitcommit: 3541c9cae8a12bdf457f1383e3557eb85a9b3187
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85848220"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86207541"
 ---
 # <a name="load-balancer-frequently-asked-questions"></a>Questions fréquentes sur Load Balancer
 
@@ -49,5 +49,9 @@ La commande nslookup vous permet d’envoyer une requête DNS sur le nom myip.op
 ## <a name="how-do-connections-to-azure-storage-in-the-same-region-work"></a>Comment fonctionnent les connexions au Stockage Azure dans la même région ?
 Il n’est pas nécessaire de disposer d’une connectivité sortante via les scénarios ci-dessus pour vous connecter au Stockage Azure dans la même région que la machine virtuelle. Si vous n’en souhaitez pas, utilisez les groupes de sécurité réseau (NSG), comme expliqué ci-dessus. Pour la connectivité vers le Stockage Azure dans d’autres régions, une connectivité sortante est requise. Lorsque vous vous connectez au Stockage Azure à partir d’une machine virtuelle dans la même région, l’adresse IP source dans les journaux de diagnostic de stockage est une adresse de fournisseur interne, et non l’adresse IP publique de votre machine virtuelle. Si vous souhaitez restreindre l’accès à votre compte de stockage aux machines virtuelles dans un ou plusieurs sous-réseaux du réseau virtuel dans la même région, utilisez des [points de terminaison de service du réseau virtuel](../virtual-network/virtual-network-service-endpoints-overview.md) et non votre adresse IP publique lors de la configuration de votre pare-feu de compte de stockage. Une fois les points de terminaison de service configurés, l’adresse IP privée de votre réseau virtuel apparaît dans vos journaux de diagnostic de stockage, mais pas l’adresse interne du fournisseur.
 
+## <a name="what-are-best-practises-with-respect-to-outbound-connectivity"></a>Quelles sont les meilleures pratiques en matière de connectivité sortante ?
+Standard Load Balancer et les adresses IP publiques standard introduisent des fonctionnalités et des comportements différents pour la connectivité sortante. Ils ne sont pas identiques aux références SKU De base. Si vous souhaitez une connectivité sortante lorsque vous travaillez avec des références SKU Standard, vous devez explicitement la définir avec des adresses IP publiques Standard ou l’équilibreur de charge public Standard. Cela inclut la création de la connectivité sortante lors de l’utilisation d’un équilibreur de charge Standard interne. Nous vous recommandons de toujours utiliser des règles de trafic sortant sur un équilibreur de charge public Standard. Cela signifie que lorsqu’un équilibreur de charge interne Standard est utilisé, vous devez prendre des mesures pour créer une connectivité sortante pour les machines virtuelles dans le pool principal si la connectivité sortante est souhaitée. Dans le contexte de la connectivité sortante, une seule machine virtuelle autonome, toutes les machines virtuelles d’un groupe à haute disponibilité et toutes les instances d’un groupe VMSS se comportent comme un groupe. Cela signifie que, si une seule machine virtuelle d’un groupe à haute disponibilité est associée à une référence SKU Standard, toutes les instances de machine virtuelle au sein de ce groupe à haute disponibilité se comportent maintenant selon les mêmes règles que si elles étaient associées avec la référence SKU Standard, même si une instance individuelle n’est pas directement associée. Ce comportement est également observé dans le cas d’une machine virtuelle autonome avec plusieurs cartes d’interface réseau attachées à un équilibreur de charge. Si une carte réseau est ajoutée comme composant autonome, elle aura le même comportement. Lisez attentivement la totalité de ce document pour comprendre les concepts généraux, passer en revue [Standard Load Balancer](load-balancer-standard-overview.md) pour connaître les différentes entre les références SKU et les [règles de trafic sortant](load-balancer-outbound-connections.md#outboundrules).
+L’utilisation de règles de trafic sortant vous permet un contrôle précis de tous les aspects de la connectivité sortante.
+ 
 ## <a name="next-steps"></a>Étapes suivantes
 Si votre question ne figure pas dans la liste ci-dessus, veuillez envoyer vos commentaires sur cette page avec votre question. Cela créera un problème GitHub pour l’équipe produit afin de s’assurer que toutes les questions des clients reçoivent une réponse.

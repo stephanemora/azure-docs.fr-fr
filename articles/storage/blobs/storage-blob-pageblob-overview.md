@@ -9,12 +9,12 @@ ms.date: 06/15/2020
 ms.author: tamram
 ms.reviewer: wielriac
 ms.subservice: blobs
-ms.openlocfilehash: f54adb54ca842ea389b0d3ea203d747df0071ee5
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 2338c523c13b16b4a63ee9de0d966182e26c3286
+ms.sourcegitcommit: f844603f2f7900a64291c2253f79b6d65fcbbb0c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84792028"
+ms.lasthandoff: 07/10/2020
+ms.locfileid: "86223293"
 ---
 # <a name="overview-of-azure-page-blobs"></a>Vue d’ensemble des objets blob de pages Azure
 
@@ -123,7 +123,7 @@ Dès qu’une requête d’écriture pour un ensemble séquentiel de pages réus
 
 Le diagramme ci-dessous montre 2 opérations d’écriture distinctes :
 
-![](./media/storage-blob-pageblob-overview/storage-blob-pageblob-overview-figure2.png)
+![Diagramme montrant les deux options d’écriture distinctes.](./media/storage-blob-pageblob-overview/storage-blob-pageblob-overview-figure2.png)
 
 1.  Une opération d’écriture commençant au décalage 0 de 1 024 octets de longueur 
 2.  Une opération d’écriture commençant au décalage 4096 d’une longueur de 1 024 
@@ -151,7 +151,7 @@ Cela vous permet de télécharger le blob complet ou une plage d’octets commen
 
 La figure suivante montre une opération de lecture avec un décalage de 256 et une taille de plage de 4352. Les données retournées sont mises en surbrillance en orange. Des zéros sont retournés pour les pages NUL.
 
-![](./media/storage-blob-pageblob-overview/storage-blob-pageblob-overview-figure3.png)
+![Diagramme montrant une opération de lecture avec un décalage de 256 et une taille de plage de 4 352.](./media/storage-blob-pageblob-overview/storage-blob-pageblob-overview-figure3.png)
 
 Si vous disposez d’un objet blob peu rempli, vous pouvez vous contenter de télécharger les régions de page valides pour éviter les coûts d’entrée de zéro octet et pour réduire la latence du téléchargement.  
 

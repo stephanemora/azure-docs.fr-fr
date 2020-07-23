@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 07/08/2019
 ms.author: rogarana
 ms.custom: include file
-ms.openlocfilehash: 2c8c0430e8a1f54daa99d3fd986bae0c3eaf7f61
-ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
+ms.openlocfilehash: e10d1d5aa5b45c0ea0e31df4d5d847f8541838b9
+ms.sourcegitcommit: ec682dcc0a67eabe4bfe242fce4a7019f0a8c405
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "84017600"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86218323"
 ---
 ## <a name="application-performance-indicators"></a>Indicateurs de performances d’une application
 
@@ -119,10 +119,10 @@ Le tableau ci-dessous récapitule les facteurs de performances et les étapes n�
 
 Pour plus d’informations sur les tailles de machine virtuelle et sur les E/S par seconde, le débit et la latence disponible pour chaque type de machine virtuelle, consultez [Tailles des machines virtuelles Linux](../articles/virtual-machines/linux/sizes.md) ou [Tailles des machines virtuelles Windows](../articles/virtual-machines/windows/sizes.md).
 
-| &nbsp; | **D’OPÉRATIONS D’E/S PAR SECONDE** | **Débit** | **Latence** |
+| | **D’OPÉRATIONS D’E/S PAR SECONDE** | **Débit** | **Latence** |
 | --- | --- | --- | --- |
 | **Exemple de scénario** |Application OLTP d’entreprise nécessitant un taux très élevé de transactions par seconde. |Application d’entreposage de données d’entreprise traitant de grandes quantités de données. |Applications en temps quasi-réel nécessitant une réponse instantanée aux demandes utilisateur, telles que les jeux en ligne. |
-| Facteurs de performances | &nbsp; | &nbsp; | &nbsp; |
+| **Facteurs de performances** | &nbsp; | &nbsp; | &nbsp; |
 | **Taille d’E/S** |Une plus petite taille d’E/S génère un nombre d’E/S par seconde plus élevé. |Une plus grande taille d’E/S génère un débit plus élevé. | &nbsp;|
 | **Taille de la machine virtuelle** |Utilisez une taille de machine virtuelle qui offre un nombre d’E/S par seconde supérieur aux besoins de votre application. |Utilisez une taille de machine virtuelle qui offre une limite de débit supérieure aux besoins de votre application. |Utilisez une taille de machine virtuelle qui offre une limite de mise à l’échelle supérieure aux besoins de votre application. |
 | **Taille du disque** |Utilisez une taille de disque qui offre un nombre d’E/S par seconde supérieur aux besoins de votre application. |Utilisez une taille de disque qui offre une limite de débit supérieure aux besoins de votre application. |Utilisez une taille de disque qui offre une limite de mise à l’échelle supérieure aux besoins de votre application. |

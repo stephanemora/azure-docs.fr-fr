@@ -3,12 +3,12 @@ title: Conservation et stockage des données dans Azure Application Insights | M
 description: Retention and privacy policy statement
 ms.topic: conceptual
 ms.date: 06/30/2020
-ms.openlocfilehash: 848285accd7e05607bac418b6b4ae39055a5772f
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: acee1ad0b531f23a872d78111ccd9f0ac09bcfb1
+ms.sourcegitcommit: f844603f2f7900a64291c2253f79b6d65fcbbb0c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85601358"
+ms.lasthandoff: 07/10/2020
+ms.locfileid: "86224483"
 ---
 # <a name="data-collection-retention-and-storage-in-application-insights"></a>Collecte, rétention et stockage des données dans Application Insights
 
@@ -62,7 +62,7 @@ Les principales catégories sont :
 ## <a name="how-can-i-verify-whats-being-collected"></a>Comment puis-je vérifier ce qui a été collecté ?
 Si vous développez l’application à l’aide de Visual Studio, exécutez l’application en mode débogage (F5). Les données de télémétrie s’affichent dans la fenêtre Sortie. À partir de là, vous pouvez les copier et les mettre au format JSON pour une inspection facile. 
 
-![](./media/data-retention-privacy/06-vs.png)
+![Capture d’écran montrant l’exécution de l’application en mode débogage dans Visual Studio.](./media/data-retention-privacy/06-vs.png)
 
 Il existe également une vue plus lisible dans la fenêtre Diagnostics.
 

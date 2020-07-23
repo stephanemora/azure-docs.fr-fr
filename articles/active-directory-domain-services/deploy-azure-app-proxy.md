@@ -9,14 +9,14 @@ ms.service: active-directory
 ms.subservice: domain-services
 ms.workload: identity
 ms.topic: how-to
-ms.date: 03/31/2020
+ms.date: 07/09/2020
 ms.author: iainfou
-ms.openlocfilehash: 285f5aabe32013a629eebb150e55ba343150f589
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 0880f697ceea9c10a070ede0a73235022ce0529d
+ms.sourcegitcommit: f844603f2f7900a64291c2253f79b6d65fcbbb0c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84734841"
+ms.lasthandoff: 07/10/2020
+ms.locfileid: "86220287"
 ---
 # <a name="deploy-azure-ad-application-proxy-for-secure-access-to-internal-applications-in-an-azure-active-directory-domain-services-managed-domain"></a>Déployer le proxy d’application Azure AD pour un accès sécurisé aux applications internes dans un domaine managé Azure Active Directory Domain Services
 
@@ -40,9 +40,9 @@ Pour faire ce qui est décrit dans cet article, vous avez besoin des ressources 
 
 ## <a name="create-a-domain-joined-windows-vm"></a>Créer une machine virtuelle Windows jointe à un domaine
 
-Pour acheminer le trafic vers des applications qui s’exécutent dans votre environnement, vous devez installer le composant connecteur de Proxy d’application Azure AD. Ce connecteur de Proxy d’application Azure AD doit être installé sur des machines virtuelles Windows Server jointes au domaine managé. Pour certaines applications, vous pouvez déployer plusieurs serveurs sur lesquels le connecteur est installé. Cette option de déploiement vous donne une plus grande disponibilité et vous permet de traiter des charges d’authentification plus importantes.
+Pour acheminer le trafic vers des applications qui s’exécutent dans votre environnement, vous devez installer le composant connecteur de Proxy d’application Azure AD. Ce connecteur Azure AD Application Proxy doit être installé sur une machine virtuelle Windows Server jointe au domaine managé. Pour certaines applications, vous pouvez déployer plusieurs serveurs sur lesquels le connecteur est installé. Cette option de déploiement vous donne une plus grande disponibilité et vous permet de traiter des charges d’authentification plus importantes.
 
-La machine virtuelle qui exécute le connecteur de Proxy d’application Azure AD doit se trouver sur le même réseau virtuel ou homologué dans lequel vous avez activé Azure AD DS. Les machines virtuelles qui hébergent ensuite les applications que vous publiez à l’aide du Proxy d’application doivent également être déployées sur le même réseau virtuel Azure.
+La machine virtuelle qui exécute le connecteur Azure AD Application Proxy doit se trouver sur le même réseau virtuel que votre domaine managé ou sur un réseau virtuel appairé. Les machines virtuelles qui hébergent ensuite les applications que vous publiez à l’aide du Proxy d’application doivent également être déployées sur le même réseau virtuel Azure.
 
 Pour créer une machine virtuelle pour le connecteur de Proxy d’application Azure AD, procédez comme suit :
 
@@ -72,7 +72,7 @@ Une fois qu’une machine virtuelle est prête à être utilisée en tant que co
         > [!NOTE]
         > Le compte d'administrateur général utilisé pour inscrire le connecteur doit appartenir au même répertoire que celui dans lequel vous avez activé le service Proxy d’application.
         >
-        > Par exemple, si le domaine Azure AD est *aaddscontoso.com*, l’administrateur général doit être `admin@aaddscontoso.com` ou tout autre alias valide sur ce domaine.
+        > Par exemple, si le domaine Azure AD est *contoso.com*, l’administrateur général doit être `admin@contoso.com` ou tout autre alias valide sur ce domaine.
 
    * Si l’option Configuration de sécurité renforcée d’Internet Explorer est activée sur la machine virtuelle sur laquelle vous installez le connecteur, l’écran d’inscription risque d’être bloqué. Pour autoriser l’accès, suivez les instructions du message d’erreur ou désactivez la sécurité renforcée d’Internet Explorer au cours du processus d’installation.
    * Si l’inscription du connecteur échoue, consultez[Détecter un problème du Proxy d’application](../active-directory/manage-apps/application-proxy-troubleshoot.md).

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/17/2019
 ms.author: allensu
-ms.openlocfilehash: a96e22ee8d2f9565ae676574e263beae96b5c1f2
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: e00d6b674453f12f94a2859f9b0533aea0e7332c
+ms.sourcegitcommit: 3541c9cae8a12bdf457f1383e3557eb85a9b3187
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84809403"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86207546"
 ---
 # <a name="load-balancer-health-probes"></a>Sondes d’intégrité Load Balancer
 
@@ -29,8 +29,8 @@ Les sondes d’intégrité prennent en charge plusieurs protocoles. La disponibi
 
 | | Référence SKU standard | Référence SKU De base |
 | --- | --- | --- |
-| [Types de sonde](#types) | TCP, HTTP, HTTPS | TCP, HTTP |
-| [Comportement en cas de panne de sonde](#probedown) | Toutes les sondes sont en panne, tous les flux TCP continuent. | Toutes les sondes sont en panne, tous les flux TCP arrivent à expiration. | 
+| **[Types de sondes](#types)** | TCP, HTTP, HTTPS | TCP, HTTP |
+| **[Comportement en cas de panne de sonde](#probedown)** | Toutes les sondes sont en panne, tous les flux TCP continuent. | Toutes les sondes sont en panne, tous les flux TCP arrivent à expiration. | 
 
 
 >[!IMPORTANT]
@@ -92,8 +92,8 @@ Les protocoles disponibles dépendent de la référence SKU Load Balancer utilis
 
 || TCP | HTTP | HTTPS |
 | --- | --- | --- | --- |
-| Référence SKU standard |    &#9989; |   &#9989; |   &#9989; |
-| Référence SKU De base |   &#9989; |   &#9989; | &#10060; |
+| **Référence Standard** |    &#9989; |   &#9989; |   &#9989; |
+| **Référence De base** |   &#9989; |   &#9989; | &#10060; |
 
 ### <a name="tcp-probe"></a><a name="tcpprobe"></a> Sonde TCP
 

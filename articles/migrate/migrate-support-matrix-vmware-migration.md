@@ -3,12 +3,12 @@ title: Prise en charge de la migration VMware dans Azure Migrate
 description: Découvrez la prise en charge de la migration VMware dans Azure Migrate.
 ms.topic: conceptual
 ms.date: 06/08/2020
-ms.openlocfilehash: 7b026d07c6ac1630048d8aee6778215f3a99dddb
-ms.sourcegitcommit: e995f770a0182a93c4e664e60c025e5ba66d6a45
+ms.openlocfilehash: d8a2488e16031a4d960d039d646d9da5de1c1c2e
+ms.sourcegitcommit: f844603f2f7900a64291c2253f79b6d65fcbbb0c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86134984"
+ms.lasthandoff: 07/10/2020
+ms.locfileid: "86223701"
 ---
 # <a name="support-matrix-for-vmware-migration"></a>Tableau de prise en charge pour la migration VMware
 
@@ -162,7 +162,7 @@ Architecture du système d’exploitation invité | 64 bits.
 Taille du disque du système d’exploitation | Jusqu’à 2 048 Go. 
 Nombre de disques du système d’exploitation | 1 
 Nombre de disques de données | 64 ou moins. 
-Taille de disque de données | Jusqu’à 4 095 Go 
+Taille de disque de données | Jusqu’à 8 095 Go.
 Adaptateurs réseau | Prise en charge de plusieurs adaptateurs réseau.
 Disque dur virtuel partagé | Non pris en charge. 
 Disque FC | Non pris en charge. 

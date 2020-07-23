@@ -10,13 +10,13 @@ ms.topic: conceptual
 author: stevestein
 ms.author: sstein
 ms.reviewer: carlrab
-ms.date: 06/10/2020
-ms.openlocfilehash: 9dfa45e463ecd53524e7516160324a80824e4d8d
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.date: 07/09/2020
+ms.openlocfilehash: add2e0cc2852f9ab0b63565841f670ed6c53d9a7
+ms.sourcegitcommit: 3541c9cae8a12bdf457f1383e3557eb85a9b3187
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84669526"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86206118"
 ---
 # <a name="resource-limits-for-single-databases-using-the-vcore-purchasing-model"></a>Limites de ressources pour des bases de données uniques suivant le modèle d’achat vCore
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -126,12 +126,12 @@ Le [niveau de calcul serverless](serverless-tier-overview.md) est actuellement d
 |Prise en charge de ColumnStore|Oui|Oui|Oui|Oui|Oui|Oui|
 |Stockage In-Memory OLTP (Go)|N/A|N/A|N/A|N/A|N/A|N/A|
 |Taille maximale des données (To)|100 |100 |100 |100 |100 |100|
-|Taille maximale du journal (To)|1 |1 |1 |1 |1 |1 |
+|Taille maximale du journal (To)|Illimité |Illimité |Illimité |Illimité |Illimité |Illimité |
 |Taille maximale des données TempDB (Go)|32|64|96|128|160|192|
 |Type de stockage| [Remarque 1](#notes) |[Remarque 1](#notes)|[Remarque 1](#notes) |[Remarque 1](#notes) |[Remarque 1](#notes) |[Remarque 1](#notes) |
-|Nombre maximal d’IOPS de données *|[Remarque 2](#notes)|[Remarque 2](#notes)|[Remarque 2](#notes)|[Remarque 2](#notes)|[Remarque 2](#notes)|[Remarque 2](#notes)|
+|Nbre max. d’IOPS de disque SSD local*|4000 |8000 |12 000 |16000 |20000 |24 000 |
 |Taux de journalisation maximal (Mbits/s)|100 |100 |100 |100 |100 |100 |
-|Latence d’E/S (approximative)|[Remarque 3](#notes)|[Remarque 3](#notes)|[Remarque 3](#notes)|[Remarque 3](#notes)|[Remarque 3](#notes)|[Remarque 3](#notes)|
+|Latence d’E/S (approximative)|[Remarque 2](#notes)|[Remarque 2](#notes)|[Remarque 2](#notes)|[Remarque 2](#notes)|[Remarque 2](#notes)|[Remarque 2](#notes)|
 |Nombre maximal d’ouvriers simultanés (demandes)|200|400|600|800|1 000|1200|
 |Nombre maximal de sessions simultanées|30,000|30,000|30,000|30,000|30,000|30,000|
 |Réplicas secondaires|0-4|0-4|0-4|0-4|0-4|0-4|
@@ -139,6 +139,8 @@ Le [niveau de calcul serverless](serverless-tier-overview.md) est actuellement d
 |Lecture du Scale-out|Oui|Oui|Oui|Oui|Oui|Oui|
 |Conservation du stockage de sauvegarde|7 jours|7 jours|7 jours|7 jours|7 jours|7 jours|
 |||
+
+\* Outre les E/S de disque SSD local, les charges de travail utilisent les E/S de [serveur de pages](service-tier-hyperscale.md#page-server) distant. L’efficacité des IOPS dépend de la charge de travail. Pour plus d’informations, consultez [Gouvernance des E/S de données](resource-limits-logical-server.md#resource-governance) et [E/S de données dans les statistiques d’utilisation des ressources](hyperscale-performance-diagnostics.md#data-io-in-resource-utilization-statistics).
 
 ### <a name="gen4-compute-generation-part-2"></a>Génération de calcul Gen4 (partie 2)
 
@@ -151,12 +153,12 @@ Le [niveau de calcul serverless](serverless-tier-overview.md) est actuellement d
 |Prise en charge de ColumnStore|Oui|Oui|Oui|Oui|Oui|Oui|
 |Stockage In-Memory OLTP (Go)|N/A|N/A|N/A|N/A|N/A|N/A|
 |Taille maximale des données (To)|100 |100 |100 |100 |100 |100 |
-|Taille maximale du journal (To)|1 |1 |1 |1 |1 |1 |
+|Taille maximale du journal (To)|Illimité |Illimité |Illimité |Illimité |Illimité |Illimité |
 |Taille maximale des données TempDB (Go)|224|256|288|320|512|768|
 |Type de stockage| [Remarque 1](#notes) |[Remarque 1](#notes) |[Remarque 1](#notes) |[Remarque 1](#notes) |[Remarque 1](#notes) |[Remarque 1](#notes) |
-|Nombre maximal d’IOPS de données *|[Remarque 2](#notes)|[Remarque 2](#notes)|[Remarque 2](#notes)|[Remarque 2](#notes)|[Remarque 2](#notes)|[Remarque 2](#notes)|
+|Nbre max. d’IOPS de disque SSD local*|28000 |32000 |36000 |40000 |64 000 |76 800 |
 |Taux de journalisation maximal (Mbits/s)|100 |100 |100 |100 |100 |100 |
-|Latence d’E/S (approximative)|[Remarque 3](#notes)|[Remarque 3](#notes)|[Remarque 3](#notes)|[Remarque 3](#notes)|[Remarque 3](#notes)|[Remarque 3](#notes)|
+|Latence d’E/S (approximative)|[Remarque 2](#notes)|[Remarque 2](#notes)|[Remarque 2](#notes)|[Remarque 2](#notes)|[Remarque 2](#notes)|[Remarque 2](#notes)|
 |Nombre maximal d’ouvriers simultanés (demandes)|1400|1 600|1800|2000|3200|4 800|
 |Nombre maximal de sessions simultanées|30,000|30,000|30,000|30,000|30,000|30,000|
 |Réplicas secondaires|0-4|0-4|0-4|0-4|0-4|0-4|
@@ -165,7 +167,7 @@ Le [niveau de calcul serverless](serverless-tier-overview.md) est actuellement d
 |Conservation du stockage de sauvegarde|7 jours|7 jours|7 jours|7 jours|7 jours|7 jours|
 |||
 
-\* La valeur maximale pour les tailles d’E/S est comprise entre 8 Ko et 64 Ko. Les IOPS réelles dépendent de la charge de travail. Pour plus d’informations, consultez [Gouvernance des E/S de données](resource-limits-logical-server.md#resource-governance).
+\* Outre les E/S de disque SSD local, les charges de travail utilisent les E/S de [serveur de pages](service-tier-hyperscale.md#page-server) distant. L’efficacité des IOPS dépend de la charge de travail. Pour plus d’informations, consultez [Gouvernance des E/S de données](resource-limits-logical-server.md#resource-governance) et [E/S de données dans les statistiques d’utilisation des ressources](hyperscale-performance-diagnostics.md#data-io-in-resource-utilization-statistics).
 
 ## <a name="hyperscale---provisioned-compute---gen5"></a>Hyperscale - calcul provisionné - Gen5
 
@@ -180,12 +182,12 @@ Le [niveau de calcul serverless](serverless-tier-overview.md) est actuellement d
 |Prise en charge de ColumnStore|Oui|Oui|Oui|Oui|Oui|Oui|Oui|
 |Stockage In-Memory OLTP (Go)|N/A|N/A|N/A|N/A|N/A|N/A|N/A|
 |Taille maximale des données (To)|100 |100 |100 |100 |100 |100 |100|
-|Taille maximale du journal (To)|1 |1 |1 |1 |1 |1 |1 |
+|Taille maximale du journal (To)|Illimité |Illimité |Illimité |Illimité |Illimité |Illimité |Illimité |
 |Taille maximale des données TempDB (Go)|64|128|192|256|320|384|448|
 |Type de stockage| [Remarque 1](#notes) |[Remarque 1](#notes)|[Remarque 1](#notes) |[Remarque 1](#notes) |[Remarque 1](#notes) |[Remarque 1](#notes) |[Remarque 1](#notes) |
-|Nombre maximal d’IOPS de données *|[Remarque 2](#notes)|[Remarque 2](#notes)|[Remarque 2](#notes)|[Remarque 2](#notes)|[Remarque 2](#notes)|[Remarque 2](#notes)|[Remarque 2](#notes)|
+|Nbre max. d’IOPS de disque SSD local*|8000 |16000 |24 000 |32000 |40000 |48 000 |56 000 |
 |Taux de journalisation maximal (Mbits/s)|100 |100 |100 |100 |100 |100 |100 |
-|Latence d’E/S (approximative)|[Remarque 3](#notes)|[Remarque 3](#notes)|[Remarque 3](#notes)|[Remarque 3](#notes)|[Remarque 3](#notes)|[Remarque 3](#notes)|[Remarque 3](#notes)|
+|Latence d’E/S (approximative)|[Remarque 2](#notes)|[Remarque 2](#notes)|[Remarque 2](#notes)|[Remarque 2](#notes)|[Remarque 2](#notes)|[Remarque 2](#notes)|[Remarque 2](#notes)|
 |Nombre maximal d’ouvriers simultanés (demandes)|200|400|600|800|1 000|1200|1400|
 |Nombre maximal de sessions simultanées|30,000|30,000|30,000|30,000|30,000|30,000|30,000|
 |Réplicas secondaires|0-4|0-4|0-4|0-4|0-4|0-4|0-4|
@@ -194,7 +196,7 @@ Le [niveau de calcul serverless](serverless-tier-overview.md) est actuellement d
 |Conservation du stockage de sauvegarde|7 jours|7 jours|7 jours|7 jours|7 jours|7 jours|7 jours|
 |||
 
-\* La valeur maximale pour les tailles d’E/S est comprise entre 8 Ko et 64 Ko. Les IOPS réelles dépendent de la charge de travail. Pour plus d’informations, consultez [Gouvernance des E/S de données](resource-limits-logical-server.md#resource-governance).
+\* Outre les E/S de disque SSD local, les charges de travail utilisent les E/S de [serveur de pages](service-tier-hyperscale.md#page-server) distant. L’efficacité des IOPS dépend de la charge de travail. Pour plus d’informations, consultez [Gouvernance des E/S de données](resource-limits-logical-server.md#resource-governance) et [E/S de données dans les statistiques d’utilisation des ressources](hyperscale-performance-diagnostics.md#data-io-in-resource-utilization-statistics).
 
 ### <a name="gen5-compute-generation-part-2"></a>Génération de calcul Gen5 (partie 2)
 
@@ -207,12 +209,12 @@ Le [niveau de calcul serverless](serverless-tier-overview.md) est actuellement d
 |Prise en charge de ColumnStore|Oui|Oui|Oui|Oui|Oui|Oui|Oui|
 |Stockage In-Memory OLTP (Go)|N/A|N/A|N/A|N/A|N/A|N/A|N/A|
 |Taille maximale des données (To)|100 |100 |100 |100 |100 |100 |100 |
-|Taille maximale du journal (To)|1 |1 |1 |1 |1 |1 |1 |
+|Taille maximale du journal (To)|Illimité |Illimité |Illimité |Illimité |Illimité |Illimité |Illimité |
 |Taille maximale des données TempDB (Go)|512|576|640|768|1 024|1 280|2560|
 |Type de stockage| [Remarque 1](#notes) |[Remarque 1](#notes)|[Remarque 1](#notes)|[Remarque 1](#notes) |[Remarque 1](#notes) |[Remarque 1](#notes) |[Remarque 1](#notes) |
-|Nombre maximal d’IOPS de données *|[Remarque 2](#notes)|[Remarque 2](#notes)|[Remarque 2](#notes)|[Remarque 2](#notes)|[Remarque 2](#notes)|[Remarque 2](#notes)|[Remarque 2](#notes)|
+|Nbre max. d’IOPS de disque SSD local*|64 000 |72 000 |80000 |96 000 |160 000 |192 000 |204800 |
 |Taux de journalisation maximal (Mbits/s)|100 |100 |100 |100 |100 |100 |100 |
-|Latence d’E/S (approximative)|[Remarque 3](#notes)|[Remarque 3](#notes)|[Remarque 3](#notes)|[Remarque 3](#notes)|[Remarque 3](#notes)|[Remarque 3](#notes)|[Remarque 3](#notes)|
+|Latence d’E/S (approximative)|[Remarque 2](#notes)|[Remarque 2](#notes)|[Remarque 2](#notes)|[Remarque 2](#notes)|[Remarque 2](#notes)|[Remarque 2](#notes)|[Remarque 2](#notes)|
 |Nombre maximal d’ouvriers simultanés (demandes)|1 600|1800|2000|2 400|3200|4000|8000|
 |Nombre maximal de sessions simultanées|30,000|30,000|30,000|30,000|30,000|30,000|30,000|
 |Réplicas secondaires|0-4|0-4|0-4|0-4|0-4|0-4|0-4|
@@ -221,15 +223,14 @@ Le [niveau de calcul serverless](serverless-tier-overview.md) est actuellement d
 |Conservation du stockage de sauvegarde|7 jours|7 jours|7 jours|7 jours|7 jours|7 jours|7 jours|
 |||
 
-\* La valeur maximale pour les tailles d’E/S est comprise entre 8 Ko et 64 Ko. Les IOPS réelles dépendent de la charge de travail. Pour plus d’informations, consultez [Gouvernance des E/S de données](resource-limits-logical-server.md#resource-governance).
+\* Outre les E/S de disque SSD local, les charges de travail utilisent les E/S de [serveur de pages](service-tier-hyperscale.md#page-server) distant. L’efficacité des IOPS dépend de la charge de travail. Pour plus d’informations, consultez [Gouvernance des E/S de données](resource-limits-logical-server.md#resource-governance) et [E/S de données dans les statistiques d’utilisation des ressources](hyperscale-performance-diagnostics.md#data-io-in-resource-utilization-statistics).
 
 #### <a name="notes"></a>Notes
 
 **Remarque 1** : Hyperscale est une architecture à plusieurs niveaux avec des composants de calcul et de stockage distincts : [Architecture de niveau de service Hyperscale](service-tier-hyperscale.md#distributed-functions-architecture)
 
-**Remarque 2** : L’architecture Hyperscale à plusieurs niveaux offre une mise en cache à plusieurs niveaux. L’efficacité des IOPS dépend de la charge de travail.
-
-**Remarque 3** : La latence est de 1-2 ms pour les données du cache SSD RBPEX sur les réplicas de calcul, qui met en cache les pages de données les plus utilisées. Elle est plus élevée pour les données récupérées à partir des serveurs de pages.
+**Remarque 2** : La latence est de 1 ms ou 2 ms pour les données du disque SSD de réplica
+de calcul local, qui met en cache la plupart des pages de données utilisées. Elle est plus élevée pour les données récupérées à partir des serveurs de pages.
 
 ## <a name="general-purpose---provisioned-compute---gen4"></a>Usage général - calcul provisionné - Gen4
 

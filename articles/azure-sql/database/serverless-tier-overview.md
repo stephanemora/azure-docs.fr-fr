@@ -10,13 +10,13 @@ ms.topic: conceptual
 author: oslake
 ms.author: moslake
 ms.reviewer: sstein, carlrab
-ms.date: 7/6/2020
-ms.openlocfilehash: 130b19f280c69bfbe4ca49abe1bcba5db7f23caa
-ms.sourcegitcommit: e132633b9c3a53b3ead101ea2711570e60d67b83
+ms.date: 7/9/2020
+ms.openlocfilehash: 38ca6528b77d9f36c84f5aacaa34a64d113b5978
+ms.sourcegitcommit: 3541c9cae8a12bdf457f1383e3557eb85a9b3187
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/07/2020
-ms.locfileid: "86045958"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86206933"
 ---
 # <a name="azure-sql-database-serverless"></a>Azure SQL Database serverless
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -324,6 +324,19 @@ Le volume de calcul facturé est exposé par les métriques suivantes :
 - **Fréquence de reporting** : Par minute
 
 Cette quantité est calculée chaque seconde et agrégée sur 1 minute.
+
+### <a name="minimum-compute-bill"></a>Facturation minimale du calcul
+
+Si une base de données serverless est suspendue, la facturation du calcul est égale à zéro.  Dans le cas contraire, la facturation minimale du calcul n’est pas inférieure à la quantité de vCore basée sur max (min vCore, min mémoire en Go × ⅓).
+
+Exemples :
+
+- Prenons une base de données serverless non suspendue et configurée avec 8 vCore maximum et 1 vCore minimum, correspondant à 3,0 Go de mémoire minimum.  La facturation minimale du calcul se base alors sur max (1 vCore, 3,0 Go × 1 vCore/3 Go) = 1 vCore.
+- Prenons une base de données serverless non suspendue et configurée avec 4 vCore maximum et 0,5 vCore minimum, correspondant à 2,1 Go de mémoire minimum.  La facturation minimale du calcul se base alors sur max (0,5 vCore, 2,1 Go × 1 vCore/3 Go) = 0,7 vCore.
+
+La [Calculatrice de prix Azure SQL Database](https://azure.microsoft.com/pricing/calculator/?service=sql-database) pour le serverless peut aider à déterminer la mémoire minimale configurable en fonction du nombre maximal et minimal de vCore configurés.  En règle générale, si le nombre minimal de vCore configuré est supérieur à 0,5 vCore, la facturation minimale du calcul est indépendante de la mémoire minimale configurée et se base uniquement sur le nombre minimal de vCore configurés.
+
+### <a name="example-scenario"></a>Exemple de scénario
 
 Prenons l’exemple d’une base de données serverless configurée avec 1 vCore min et 4 vCores max.  Cela représente environ 3 Go de mémoire min et 12 Go de mémoire max.  Supposons que le délai de mise en pause automatique est défini à six heures et que la charge de travail de la base de données est active durant les deux premières heures d’une période de 24 heures, mais qu’elle reste inactive le reste du temps.    
 

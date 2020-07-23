@@ -5,14 +5,14 @@ author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
 ms.topic: conceptual
-ms.date: 1/27/2020
+ms.date: 7/10/2020
 ms.author: raynew
-ms.openlocfilehash: b48dfba6fa5dc270a4d711864d15e9128f4beb98
-ms.sourcegitcommit: e995f770a0182a93c4e664e60c025e5ba66d6a45
+ms.openlocfilehash: b7551ec01e3401c0636b47a25d83173b6322d06e
+ms.sourcegitcommit: f844603f2f7900a64291c2253f79b6d65fcbbb0c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86132406"
+ms.lasthandoff: 07/10/2020
+ms.locfileid: "86219876"
 ---
 # <a name="support-matrix-for-disaster-recovery-of-on-premises-hyper-v-vms-to-azure"></a>Prendre en charge la matrice pour effectuer une récupération d’urgence de machines virtuelles Hyper-V locales vers Azure
 
@@ -76,6 +76,7 @@ Proxy HTTPS | Non | Non
 
 
 
+
 ## <a name="azure-vm-network-configuration-after-failover"></a>Configuration de réseau des machines virtuelles Azure (après basculement)
 
 **Composant** | **Hyper-V avec Virtual Machine Manager** | **Hyper-V sans Virtual Machine Manager**
@@ -136,11 +137,13 @@ Stockage chaud| Non | Non
 Objets blob de blocs | Non | Non
 Chiffrement au repos (SSE)| Oui | Oui
 Chiffrement au repos (CMK) <br></br> (Uniquement pour le basculement vers des disques managés)| Oui (via le module PowerShell Az 3.3.0 et versions ultérieures) | Oui (via le module PowerShell Az 3.3.0 et versions ultérieures)
+Double chiffrement au repos <br></br> (Uniquement pour le basculement vers des disques managés) <br></br> En savoir plus sur les régions prises en charge pour [Windows](../virtual-machines/windows/disk-encryption.md) et [Linux](../virtual-machines/linux/disk-encryption.md) | Oui (via le module PowerShell Az 3.3.0 et versions ultérieures) | Oui (via le module PowerShell Az 3.3.0 et versions ultérieures)
 Stockage Premium | Oui | Oui
 Stockage Standard | Oui | Oui
 Service d’importation/exportation | Non | Non
 Comptes Stockage Azure avec un pare-feu activé | Oui. Pour le stockage et le cache cibles. | Oui. Pour le stockage et le cache cibles.
 Modifier le compte de stockage | Non. Le compte Stockage Azure cible ne peut pas être modifié une fois la réplication activée. Pour le modifier, désactivez puis réactivez la récupération d’urgence. | Non
+Option de transfert sécurisé | Oui
 
 
 ## <a name="azure-compute-features"></a>Fonctionnalités de Calcul Azure

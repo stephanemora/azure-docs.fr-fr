@@ -7,12 +7,12 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 03/17/2020
 ms.author: philmea
-ms.openlocfilehash: 87932887edd0aac536a2c7fbd25a02d2442f9db9
-ms.sourcegitcommit: 309cf6876d906425a0d6f72deceb9ecd231d387c
+ms.openlocfilehash: 84fa7ae50b69e7e1a2fe341e34497f2bf1a75b0d
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/01/2020
-ms.locfileid: "84267628"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86260177"
 ---
 # <a name="iot-hub-high-availability-and-disaster-recovery"></a>Haute disponibilité et récupération d’urgence IoT Hub :
 
@@ -75,6 +75,8 @@ Ce long RTO s’explique par le fait que Microsoft doit effectuer l’opération
 Si vos objectifs de disponibilité ne sont pas satisfaits par le RTO associé à l’option de basculement initié par Microsoft, envisagez d’utiliser un basculement manuel pour déclencher vous-même le processus de basculement. Cette option peut vous assurer un RTO allant de 10 minutes à quelques heures. Le RTO dépend actuellement du nombre d’appareils inscrits sur l’instance IoT Hub en cours de basculement. Pour un hub hébergeant environ 100 000 appareils, vous pouvez vous attendre à un RTO de l’ordre de 15 minutes. Le temps total nécessaire pour que les opérations de runtime soient totalement opérationnelles après le déclenchement de ce processus est décrit dans la section « Temps de récupération ».
 
 L’option de basculement manuel est toujours disponible, que la région primaire rencontre ou non des temps d’arrêt. Par conséquent, vous pouvez potentiellement utiliser cette option pour effectuer des basculements planifiés. Les basculements planifiés peuvent être par exemple utilisés dans le cadre d’exercices de basculement périodiques. Il faut cependant savoir qu’une opération de basculement planifié entraîne l’arrêt du hub pendant la période définie par le RTO pour cette option. Elle s’accompagne également d’une perte de données, telle que définie dans le tableau des RPO ci-dessus. Vous pouvez envisager de configurer une instance IoT Hub de test pour exercer l’option de basculement planifié de manière périodique, afin de gagner confiance en votre capacité à maintenir le bon fonctionnement de vos solutions de bout en bout en cas d’incident réel.
+
+La fonctionnalité de basculement manuel est disponible sans coût supplémentaire pour les hubs IoT créés après le 18 mai 2017.
 
 Pour obtenir des instructions pas à pas, consultez le [Tutoriel : Effectuer un basculement manuel pour un hub IoT](tutorial-manual-failover.md)
 

@@ -9,14 +9,14 @@ ms.service: active-directory
 ms.subservice: domain-services
 ms.workload: identity
 ms.topic: troubleshooting
-ms.date: 09/20/2019
+ms.date: 07/09/2020
 ms.author: iainfou
-ms.openlocfilehash: 991bb3e296f18ef6d5182048d8ce4601c0fc09c9
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: fc665503413d2f022b10ae043aac3315597c6ba4
+ms.sourcegitcommit: f844603f2f7900a64291c2253f79b6d65fcbbb0c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84734994"
+ms.lasthandoff: 07/10/2020
+ms.locfileid: "86221389"
 ---
 # <a name="known-issues-service-principal-alerts-in-azure-active-directory-domain-services"></a>Problèmes connus : Alertes liées aux principaux de service dans Azure AD Domain Services
 
@@ -34,11 +34,11 @@ Si un principal de service requis est supprimé, la plateforme Azure ne peut pas
 
 ### <a name="check-for-missing-service-principals"></a>Vérifier les principaux de service manquants
 
-Pour vérifier quel principal de service est manquant et doit être recréé, effectuez les étapes suivantes :
+Pour vérifier quel est le principal de service manquant à recréer, procédez ainsi :
 
 1. Sur le portail Azure, sélectionnez **Azure Active Directory** dans le volet de navigation gauche.
 1. Sélectionnez **Applications d’entreprise**. Choisissez *Toutes les application* dans le menu déroulant **Type d’application**, puis sélectionnez **Appliquer**.
-1. Recherchez chacun des ID d’applications. Si aucune application existante n’est trouvée, suivez les étapes de *Résolution* pour créer le principal de service ou réinscrivez l’espace de noms.
+1. Recherchez chacun des ID d’applications suivants. Si aucune application existante n’est trouvée, suivez les étapes de *Résolution* pour créer le principal de service ou réinscrivez l’espace de noms.
 
     | ID de l'application | Résolution |
     | :--- | :--- |
@@ -49,9 +49,9 @@ Pour vérifier quel principal de service est manquant et doit être recréé, ef
 
 ### <a name="recreate-a-missing-service-principal"></a>Recréer un principal de service manquant
 
-Si l’ID d’application *2565bd9d-da50-47d4-8b85-4c97f669dc36* est manquant dans votre annuaire Azure AD, effectuez les étapes suivantes avec Azure AD PowerShell. Pour plus d’informations, consultez [Installer Azure AD PowerShell](/powershell/azure/active-directory/install-adv2).
+Si l’ID d’application *2565bd9d-da50-47d4-8b85-4c97f669dc36* est manquant dans votre annuaire Azure AD, effectuez les étapes suivantes avec Azure AD PowerShell. Pour plus d’informations, consultez [Azure AD PowerShell](/powershell/azure/active-directory/install-adv2).
 
-1. Installez le module Azure AD PowerShell, puis importez-le comme suit :
+1. Si nécessaire, installez le module Azure AD PowerShell, puis importez-le de la façon suivante :
 
     ```powershell
     Install-Module AzureAD
@@ -81,7 +81,7 @@ L’intégrité du domaine managé se met automatiquement à jour dans les deux 
 
 ### <a name="alert-message"></a>Message d’alerte
 
-*Le principal du service avec l’application ID « d87dcbc6-a371-462e-88e3-28ad15ec4e64 » a été supprimé puis recréé. Cette nouvelle création laisse des autorisations incohérentes sur les ressources Azure AD Domain Services nécessaires pour traiter votre domaine managé. La synchronisation des mots de passe dans votre domaine managé pourrait en être affectée.*
+*Le principal du service dont l’ID d’application est « d87dcbc6-a371-462e-88e3-28ad15ec4e64 » a été supprimé, puis recréé. Cette nouvelle création laisse des autorisations incohérentes sur les ressources Azure AD Domain Services nécessaires pour traiter votre domaine managé. La synchronisation des mots de passe dans votre domaine managé pourrait en être affectée.*
 
 Azure AD DS synchronise automatiquement les comptes d’utilisateur et les informations d’identification à partir d’Azure AD. En cas de problème avec l’application Azure AD utilisée pour ce processus, la synchronisation des informations d’identification entre Azure AD DS et Azure AD échoue.
 
@@ -89,7 +89,7 @@ Azure AD DS synchronise automatiquement les comptes d’utilisateur et les infor
 
 Pour recréer l’application Azure AD utilisée pour la synchronisation des informations d’identification, effectuez les étapes suivantes avec Azure AD PowerShell. Pour plus d’informations, consultez [Installer Azure AD PowerShell](/powershell/azure/active-directory/install-adv2).
 
-1. Installez le module Azure AD PowerShell, puis importez-le comme suit :
+1. Si nécessaire, installez le module Azure AD PowerShell, puis importez-le de la façon suivante :
 
     ```powershell
     Install-Module AzureAD

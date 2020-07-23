@@ -2,14 +2,14 @@
 title: Prendre en charge la matrice de la récupération d’urgence des machines virtuelles Azure à l’aide d’Azure Site Recovery
 description: Résume la prise en charge de la récupération d’urgence des machines virtuelles Azure vers une région secondaire à l’aide d’Azure Site Recovery.
 ms.topic: article
-ms.date: 06/03/2020
+ms.date: 07/10/2020
 ms.author: raynew
-ms.openlocfilehash: c729645eadc192dba4d7bb4f2c346d7b9d36434a
-ms.sourcegitcommit: e995f770a0182a93c4e664e60c025e5ba66d6a45
+ms.openlocfilehash: d56a507586c9d62fdbeae01d47bb734b98bf385b
+ms.sourcegitcommit: f844603f2f7900a64291c2253f79b6d65fcbbb0c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86132676"
+ms.lasthandoff: 07/10/2020
+ms.locfileid: "86223803"
 ---
 # <a name="support-matrix-for-azure-vm-disaster-recovery-between-azure-regions"></a>Prendre en charge la matrice de la récupération d’urgence de machines virtuelles Azure entre les régions Azure
 
@@ -205,7 +205,7 @@ Disque temporaire | Non pris en charge | Le disque temporaire est toujours exclu
 Taille maximale du disque de données | 8192 Go pour les disques managés<br></br>4095 Go pour les disques non managés|
 Taille minimale du disque de données | Aucune restriction pour les disques non managés. 2 Go pour les disques managés |
 Nombre maximal de disques de données | Jusqu’à 64, en adéquation avec la prise en charge pour une taille spécifique de machine virtuelle Azure | [En savoir plus](../virtual-machines/windows/sizes.md) sur les tailles de machines virtuelles.
-Taux de modification du disque de données | 10 Mbits/s maximum par disque pour le stockage Premium. 2 Mbits/s maximum par disque pour le stockage Standard. | Si le taux moyen de modification des données sur le disque est en permanence supérieur à la valeur maximale, la réplication ne pourra pas suivre.<br/><br/>  Toutefois, si la valeur maximale est dépassée de manière sporadique, la réplication peut suivre, mais les points de récupération pourraient être légèrement différés.
+Taux de modification du disque de données | 20 Mbit/s maximum par disque pour le Stockage Premium. 2 Mbits/s maximum par disque pour le stockage Standard. | Si le taux moyen de modification des données sur le disque est en permanence supérieur à la valeur maximale, la réplication ne pourra pas suivre.<br/><br/>  Toutefois, si la valeur maximale est dépassée de manière sporadique, la réplication peut suivre, mais les points de récupération pourraient être légèrement différés.
 Disque de données - Compte de stockage Standard | Prise en charge |
 Disque de données - Compte de stockage Premium | Prise en charge | Si une machine virtuelle a des disques répartis sur des comptes de stockage Standard et Premium, vous pouvez sélectionner un compte de stockage cible différent pour chaque disque afin d’être sûr d’avoir la même configuration de stockage dans la région cible.
 Disque managé - Standard | Pris en charge dans les régions Azure dans lesquelles Azure Site Recovery est pris en charge. |
@@ -216,6 +216,7 @@ Stockage à froid et à chaud | Non pris en charge | Les disques de machine virt
 Espaces de stockage | Prise en charge |
 Chiffrement au repos (SSE) | Prise en charge | SSE est le paramètre par défaut sur les comptes de stockage.
 Chiffrement au repos (CMK) | Prise en charge | Les clés HSM et logicielles sont prises en charge pour les disques managés
+Double chiffrement au repos | Prise en charge | En savoir plus sur les régions prises en charge pour [Windows](../virtual-machines/windows/disk-encryption.md) et [Linux](../virtual-machines/linux/disk-encryption.md).
 Azure Disk Encryption (ADE) pour système d’exploitation Windows | Pris en charge pour les machines virtuelles avec des disques managés. | Les machines virtuelles utilisant des disques non managés ne sont pas prises en charge. <br/><br/> Les clés protégées par HSM ne sont pas prises en charge. <br/><br/> Le chiffrement de volumes individuels sur un seul disque n’est pas pris en charge. |
 Azure Disk Encryption (ADE) pour système d’exploitation Linux | Pris en charge pour les machines virtuelles avec des disques managés. | Les machines virtuelles utilisant des disques non managés ne sont pas prises en charge. <br/><br/> Les clés protégées par HSM ne sont pas prises en charge. <br/><br/> Le chiffrement de volumes individuels sur un seul disque n’est pas pris en charge. |
 Ajout à chaud    | Prise en charge | L'activation de la réplication pour un disque de données que vous ajoutez à une machine virtuelle Azure répliquée est prise en charge pour les machines virtuelles utilisant des disques managés. <br/><br/> Un seul disque peut être ajouté à chaud à une machine virtuelle Azure à la fois. L’ajout parallèle de plusieurs disques n’est pas pris en charge. |
@@ -234,6 +235,7 @@ Comptes de stockage V2 à usage général (niveaux chaud et froid) | Prise en ch
 Génération 2 (démarrage UEFI) | Prise en charge
 Disques NVMe | Non pris en charge
 Disques partagés Azure | Non pris en charge
+Option de transfert sécurisé | Prise en charge
 
 >[!IMPORTANT]
 > Pour éviter les problèmes de performances, assurez-vous de vous respecter les valeurs d'évolutivité et de performances des disques VM pour les machines virtuelles [Linux](../virtual-machines/linux/disk-scalability-targets.md) ou [Windows](../virtual-machines/windows/disk-scalability-targets.md). Si vous utilisez les paramètres par défaut, Site Recovery crée les disques et comptes de stockage requis en fonction de la configuration de la source. Si vous personnalisez et sélectionnez vos propres paramètres, suivez les cibles de scalabilité et de performances de disque de vos machines virtuelles sources.
@@ -282,5 +284,7 @@ IPv6  | Non pris en charge | Les configurations mixtes qui incluent à la fois I
 
 
 ## <a name="next-steps"></a>Étapes suivantes
+
 - Lisez la [mise en réseau pour la réplication des machines virtuelles Azure](./azure-to-azure-about-networking.md).
 - Déployez la récupération d’urgence en [répliquant des machines virtuelles Azure](./azure-to-azure-quickstart.md).
+

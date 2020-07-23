@@ -1,7 +1,7 @@
 ---
 title: Prise en charge des langues – Vision par ordinateur
 titleSuffix: Azure Cognitive Services
-description: Cet article fournit la liste des langues prises en charge par les fonctionnalités Vision par ordinateur, OCR, Reconnaître le texte et Lire.
+description: Cet article donne la liste des langages naturels pris en charge par les fonctionnalités Vision par ordinateur, OCR et Analyse d’image.
 services: cognitive-services
 author: PatrickFarley
 manager: nitinme
@@ -10,20 +10,20 @@ ms.subservice: computer-vision
 ms.topic: conceptual
 ms.date: 04/17/2019
 ms.author: pafarley
-ms.openlocfilehash: 680e3647e7a5847e132a53986e2cf17150bceac3
-ms.sourcegitcommit: 73ac360f37053a3321e8be23236b32d4f8fb30cf
+ms.openlocfilehash: 81d0183b6dde1a5fe6bd9cd36910fd3dfc1cc5b1
+ms.sourcegitcommit: 3541c9cae8a12bdf457f1383e3557eb85a9b3187
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/30/2020
-ms.locfileid: "85560180"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86205284"
 ---
 # <a name="language-support-for-computer-vision"></a>Prise en charge des langues pour la Vision par ordinateur
 
 Certaines des fonctionnalités de la Vision par ordinateur prennent en charge plusieurs langues ; celles qui ne sont pas mentionnées ici ne gèrent que l’anglais.
 
-## <a name="text-detection-ocr"></a>Détection de texte (OCR, reconnaissance optique de caractères)
+## <a name="optical-character-recognition-ocr"></a>Reconnaissance optique des caractères (OCR)
 
-La Vision par ordinateur peut détecter du texte dans de nombreuses langues. Les API OCR et Lire ne vous obligent pas à spécifier un code de langue. Pour plus d’informations sur cette fonctionnalité et sur les avantages de chaque API, consultez [Lire du texte à partir d’images et de documents](concept-recognizing-text.md).
+Les API OCR de Vision par ordinateur prennent en charge plusieurs langues. Elles n’exigent pas de spécifier un code de langue. Pour plus d’informations, consultez [Reconnaissance optique de caractères (OCR)](concept-recognizing-text.md).
 
 |Langage| Code langue | API OCR | API Lire |
 |:-----|:----:|:-----:|:---:|

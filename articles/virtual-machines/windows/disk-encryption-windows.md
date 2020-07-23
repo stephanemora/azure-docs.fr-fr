@@ -8,12 +8,12 @@ ms.topic: article
 ms.author: mbaldwin
 ms.date: 08/06/2019
 ms.custom: seodec18
-ms.openlocfilehash: 81ac76ef5eeebd278dc10e03d661bb21469c8f4f
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: b423cc4cd933f84fccae5c2116be7abbdc288c67
+ms.sourcegitcommit: 3541c9cae8a12bdf457f1383e3557eb85a9b3187
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85610561"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86203671"
 ---
 # <a name="azure-disk-encryption-scenarios-on-windows-vms"></a>Scénarios Azure Disk Encryption sur les machines virtuelles Windows
 
@@ -238,6 +238,9 @@ Azure Disk Encryption ne fonctionne pas pour les scénarios, fonctionnalités et
 - Machines virtuelles Gen2 (consultez : [Prise en charge des machines virtuelles de génération 2 sur Azure](generation-2.md#generation-1-vs-generation-2-capabilities))
 - Machines virtuelles de la série Lsv2 (consultez : [Série Lsv2](../lsv2-series.md))
 - Machines virtuelles de la série M avec des disques Accélérateur d’écriture.
+- Application du [chiffrement côté serveur avec clés gérées par le client](disk-encryption.md) à des machines virtuelles chiffrées par ADE et vice versa.
+- Migration d’une machine virtuelle chiffrée par ADE vers le [chiffrement côté serveur avec clés gérées par le client](disk-encryption.md).
+
 
 ## <a name="next-steps"></a>Étapes suivantes
 

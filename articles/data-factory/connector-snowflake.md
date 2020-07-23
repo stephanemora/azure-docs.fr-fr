@@ -10,13 +10,13 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.custom: seo-lt-2019
-ms.date: 05/15/2020
-ms.openlocfilehash: 347f37fb999656a1c4951f01a75a392887b5b882
-ms.sourcegitcommit: e132633b9c3a53b3ead101ea2711570e60d67b83
+ms.date: 07/09/2020
+ms.openlocfilehash: 43839e19eb252c9fa7ab46605fd247f3a798d223
+ms.sourcegitcommit: f844603f2f7900a64291c2253f79b6d65fcbbb0c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/07/2020
-ms.locfileid: "86045669"
+ms.lasthandoff: 07/10/2020
+ms.locfileid: "86220301"
 ---
 # <a name="copy-data-from-and-to-snowflake-by-using-azure-data-factory"></a>Copier des données depuis et vers Snowflake à l’aide d’Azure Data Factory
 
@@ -60,7 +60,7 @@ Les propriétés prises en charge pour un service lié Snowflake sont les suivan
     "properties": {
         "type": "Snowflake",
         "typeProperties": {
-            "connectionString": "jdbc:snowflake://<accountname>.snowflakecomputing.com/?user=<username>&password=<password>&db=<database>&warehouse=<warehouse>(optional)"
+            "connectionString": "jdbc:snowflake://<accountname>.snowflakecomputing.com/?user=<username>&password=<password>&db=<database>&warehouse=<warehouse>"
         },
         "connectVia": {
             "referenceName": "<name of Integration Runtime>",
@@ -78,7 +78,7 @@ Les propriétés prises en charge pour un service lié Snowflake sont les suivan
     "properties": {
         "type": "Snowflake",
         "typeProperties": {
-            "connectionString": "jdbc:snowflake://<accountname>.snowflakecomputing.com/?user=<username>&db=<database>&warehouse=<warehouse>(optional)",
+            "connectionString": "jdbc:snowflake://<accountname>.snowflakecomputing.com/?user=<username>&db=<database>&warehouse=<warehouse>",
             "password": {
                 "type": "AzureKeyVaultSecret",
                 "store": { 
@@ -156,14 +156,19 @@ Si le magasin de données récepteur et le format remplissent les critères déc
 
 - Le **service lié au récepteur** est le [**stockage d’objets blob Azure**](connector-azure-blob-storage.md) avec l’authentification par **signature d’accès partagé**.
 
-- Le **format de données du récepteur** est **Parquet** ou **Texte délimité**, avec les configurations suivantes :
+- Le **format de données du récepteur** est **Parquet**, **Texte délimité** ou **JSON** avec les configurations suivantes :
 
-   - Pour le format **Parquet**, le codec de compression est **Aucun**, **Snappy**ou **Lzo**.
-   - Pour le format **texte délimité** :
-     - `rowDelimiter` est **\r\n**, ou n’importe quel caractère unique.
-     - `compression` peut être **aucune compression**, **gzip**, **bzip2**, ou **deflate**.
-     - `encodingName` conserve sa valeur par défaut ou est défini sur **utf-8**.
-     - `quoteChar` est un **guillemet double**, un **guillemet simple**ou une **chaîne vide** (sans guillemets).
+    - Pour le format **Parquet**, le codec de compression est **Aucun**, **Snappy**ou **Lzo**.
+    - Pour le format **texte délimité** :
+        - `rowDelimiter` est **\r\n**, ou n’importe quel caractère unique.
+        - `compression` peut être **aucune compression**, **gzip**, **bzip2**, ou **deflate**.
+        - `encodingName` conserve sa valeur par défaut ou est défini sur **utf-8**.
+        - `quoteChar` est un **guillemet double**, un **guillemet simple** ou une **chaîne vide** (sans guillemets).
+    - Pour le format **JSON**, la copie directe ne prend en charge que le cas où la table Snowflake de la source ou le résultat de la requête ne possède qu’une seule colonne, dont les données sont de type **VARIANT**, **OBJET** ou **TABLEAU**.
+        - `compression` peut être **aucune compression**, **gzip**, **bzip2**, ou **deflate**.
+        - `encodingName` conserve sa valeur par défaut ou est défini sur **utf-8**.
+        - `filePattern` dans le récepteur de l’activité de copie conserve sa valeur par défaut ou est défini sur **setOfObjects**.
+
 - Dans la source de l’activité de copie, `additionalColumns` n’est pas spécifié.
 - Le mappage de colonnes n’est pas spécifié.
 
@@ -282,15 +287,19 @@ Si le magasin de données source et le format remplissent les critères décrits
 
 - Le **service lié à la source** est le [**stockage d’objets blob Azure**](connector-azure-blob-storage.md) avec l’authentification par **signature d’accès partagé**.
 
-- Le **format de données source** est **Parquet**, ou **Texte délimité**, avec les configurations suivantes :
+- Le **format de données de la source** est **Parquet**, **Texte délimité** ou **JSON** avec les configurations suivantes :
 
-   - Pour le format **Parquet**, le codec de compression est **Aucun** ou **Snappy**.
+    - Pour le format **Parquet**, le codec de compression est **Aucun** ou **Snappy**.
 
-   - Pour le format **texte délimité** :
-     - `rowDelimiter` est **\r\n**, ou n’importe quel caractère unique. Si le délimiteur de ligne n’est pas « \r\n », `firstRowAsHeader` doit être **false**et `skipLineCount` n’est pas spécifié.
-     - `compression` peut être **aucune compression**, **gzip**, **bzip2**, ou **deflate**.
-     - `encodingName` est conservé comme valeur par défaut ou défini sur "UTF-8", "UTF-16", "UTF-16BE", "UTF-32", "UTF-32BE", "BIG5", "EUC-JP", "EUC-KR", "GB18030", "ISO-2022-JP", "ISO-2022-KR", "ISO-8859-1", "ISO-8859-2", "ISO-8859-5", "ISO-8859-6", "ISO-8859-7", "ISO-8859-8", "ISO-8859-9", "WINDOWS-1250", "WINDOWS-1251", "WINDOWS-1252", "WINDOWS-1253", "WINDOWS-1254", "WINDOWS-1255".
-     - `quoteChar` est un **guillemet double**, un **guillemet simple**ou une **chaîne vide** (sans guillemets).
+    - Pour le format **texte délimité** :
+        - `rowDelimiter` est **\r\n**, ou n’importe quel caractère unique. Si le délimiteur de ligne n’est pas « \r\n », `firstRowAsHeader` doit être **false**et `skipLineCount` n’est pas spécifié.
+        - `compression` peut être **aucune compression**, **gzip**, **bzip2**, ou **deflate**.
+        - `encodingName` est conservé comme valeur par défaut ou défini sur "UTF-8", "UTF-16", "UTF-16BE", "UTF-32", "UTF-32BE", "BIG5", "EUC-JP", "EUC-KR", "GB18030", "ISO-2022-JP", "ISO-2022-KR", "ISO-8859-1", "ISO-8859-2", "ISO-8859-5", "ISO-8859-6", "ISO-8859-7", "ISO-8859-8", "ISO-8859-9", "WINDOWS-1250", "WINDOWS-1251", "WINDOWS-1252", "WINDOWS-1253", "WINDOWS-1254", "WINDOWS-1255".
+        - `quoteChar` est un **guillemet double**, un **guillemet simple** ou une **chaîne vide** (sans guillemets).
+    - Pour le format **JSON**, la copie directe ne prend en charge que le cas où la table Snowflake du récepteur ne possède qu’une seule colonne, dont les données sont de type **VARIANT**, **OBJET** ou **TABLEAU**.
+        - `compression` peut être **aucune compression**, **gzip**, **bzip2**, ou **deflate**.
+        - `encodingName` conserve sa valeur par défaut ou est défini sur **utf-8**.
+        - Le mappage de colonnes n’est pas spécifié.
 
 - Dans la source de l’activité de copie : 
 

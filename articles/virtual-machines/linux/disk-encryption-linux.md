@@ -8,12 +8,12 @@ ms.topic: article
 ms.author: mbaldwin
 ms.date: 08/06/2019
 ms.custom: seodec18
-ms.openlocfilehash: 3fbbeaeafd8de5a38489034a13738ca3a9b934d5
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: b55707612c34cb3c95eafd95780955bf991c409c
+ms.sourcegitcommit: 3541c9cae8a12bdf457f1383e3557eb85a9b3187
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85601381"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86206155"
 ---
 # <a name="azure-disk-encryption-scenarios-on-linux-vms"></a>Scénarios Azure Disk Encryption sur les machines virtuelles Linux
 
@@ -413,6 +413,8 @@ Azure Disk Encryption ne fonctionne pas pour les scénarios, fonctionnalités et
 - Une machine virtuelle avec des « points de montage imbriqués », autrement dit, avec plusieurs points de montage dans un même chemin d’accès (par exemple, « /1stmountpoint/data/2stmountpoint »).
 - Machine virtuelle avec un lecteur de données monté sur un dossier du système d’exploitation.
 - Machines virtuelles de la série M avec des disques Accélérateur d’écriture.
+- Application du [chiffrement côté serveur avec clés gérées par le client](disk-encryption.md) à des machines virtuelles chiffrées par ADE et vice versa.
+- Migration d’une machine virtuelle chiffrée par ADE vers le [chiffrement côté serveur avec clés gérées par le client](disk-encryption.md).
 
 ## <a name="next-steps"></a>Étapes suivantes
 

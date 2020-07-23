@@ -13,14 +13,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 09/20/2018
+ms.date: 07/10/2020
 ms.author: mbaldwin
-ms.openlocfilehash: c45839d622f4bad5097006a364a36db05ce5dacc
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 4990d696986336e52fec3e87f4c3ea0c7517d3f8
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84012974"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86496381"
 ---
 # <a name="azure-encryption-overview"></a>Vue d’ensemble du chiffrement Azure
 
@@ -117,9 +117,13 @@ Trois types de clés sont utilisées dans le chiffrement et le déchiffrement de
 
 Azure offre plusieurs mécanismes pour protéger la confidentialité des données lorsqu’elles transitent d’un emplacement à un autre.
 
-### <a name="tlsssl-encryption-in-azure"></a>Chiffrement TLS/SSL dans Azure
+### <a name="data-link-layer-encryption-in-azure"></a>Chiffrement de la couche de liaison de données dans Azure
 
-Microsoft utilise le protocole [Transport Layer Security](https://en.wikipedia.org/wiki/Transport_Layer_Security) (TLS) pour protéger les données lorsqu’elles sont en déplacement entre les services cloud et les clients. Les centres de données Microsoft négocient une connexion TLS avec les systèmes clients qui se connectent aux services Azure. TLS fournit une authentification forte, la confidentialité et l’intégrité des messages (activation de la détection de falsification et d’interception des messages), l’interopérabilité, la flexibilité des algorithmes, ainsi que la facilité de déploiement et d’utilisation.
+Chaque fois que le trafic du client Azure s'effectue entre différents centres de données - en dehors des limites physiques non contrôlées par Microsoft (ou pour le compte de Microsoft) - une méthode de chiffrement de la couche de liaison de données utilisant les [normes de sécurité MAC IEEE 802.1AE](https://1.ieee802.org/security/802-1ae/) (également appelées MACsec) est appliquée de point à point sur le matériel réseau sous-jacent.  Les paquets sont chiffrés et déchiffrés sur les appareils avant d'être envoyés, ce qui permet d'éviter les attaques physiques de l'intercepteur ou les attaques par snooping/écoutes téléphoniques.  Étant donné que cette technologie est intégrée au matériel réseau, elle fournit un chiffrement de débit de ligne sur le matériel réseau sans augmentation mesurable de la latence de la liaison.  Ce chiffrement MACsec est activé par défaut pour tout le trafic Azure au sein d'une région ou entre des régions, et aucune intervention des clients n'est requise pour l'activer. 
+
+### <a name="tls-encryption-in-azure"></a>Chiffrement TLS dans Azure
+
+Microsoft permet aux clients d'utiliser le protocole [Transport Layer Security](https://en.wikipedia.org/wiki/Transport_Layer_Security) (TLS) pour protéger les données lorsqu'elles circulent entre les services cloud et les clients. Les centres de données Microsoft négocient une connexion TLS avec les systèmes clients qui se connectent aux services Azure. TLS fournit une authentification forte, la confidentialité et l’intégrité des messages (activation de la détection de falsification et d’interception des messages), l’interopérabilité, la flexibilité des algorithmes, ainsi que la facilité de déploiement et d’utilisation.
 
 [Perfect Forward Secrecy](https://en.wikipedia.org/wiki/Forward_secrecy) (PFS) protège les connexions entre les systèmes clients des clients et les services cloud de Microsoft par des clés uniques. Les connexions utilisent également les longueurs de clés de chiffrement RSA de 2 048 bits. Cette combinaison rend difficile pour une personne l’interception et l’accès aux données en transit.
 
@@ -141,7 +145,7 @@ Par défaut, une fois le chiffrement SMB activé pour un partage ou un serveur, 
 
 ## <a name="in-transit-encryption-in-vms"></a>Chiffrement en transit sur des machines virtuelles
 
-Les données en transit vers, à partir de et entre les machines virtuelles exécutant Windows sont chiffrées de différentes manières, en fonction de la nature de la connexion.
+Les données en transit vers, à partir de et entre les machines virtuelles exécutant Windows peuvent être chiffrées de différentes manières, en fonction de la nature de la connexion.
 
 ### <a name="rdp-sessions"></a>Sessions RDP
 
@@ -171,9 +175,9 @@ Vous pouvez configurer une connexion VPN point à site à un réseau virtuel à 
 
 Pour en savoir plus sur les connexions VPN de point à site à des réseaux virtuels Azure, consultez :
 
-[Configurer une connexion point à site sur un réseau virtuel à l’aide d’une authentification par certificat Azure native : Portail Azure](../../vpn-gateway/vpn-gateway-howto-point-to-site-resource-manager-portal.md) 
+[Configurer une connexion point à site sur un réseau virtuel à l'aide d'une authentification par certification : Portail Azure](../../vpn-gateway/vpn-gateway-howto-point-to-site-resource-manager-portal.md) 
 
-[Configurer une connexion point à site à un réseau virtuel à l’aide de l’authentification par certificat Azure native : PowerShell](../../vpn-gateway/vpn-gateway-howto-point-to-site-rm-ps.md)
+[Configurer une connexion point à site sur un réseau virtuel à l'aide d'une authentification par certificat : PowerShell](../../vpn-gateway/vpn-gateway-howto-point-to-site-rm-ps.md)
 
 ### <a name="site-to-site-vpns"></a>VPN site à site 
 

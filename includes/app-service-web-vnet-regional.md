@@ -4,12 +4,12 @@ ms.service: app-service-web
 ms.topic: include
 ms.date: 06/08/2020
 ms.author: ccompy
-ms.openlocfilehash: ee81b391587b994bd79e9f0950d041de70153b5c
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 926a1867a77b543057fa1de170cdb64ccfefe7cb
+ms.sourcegitcommit: ec682dcc0a67eabe4bfe242fce4a7019f0a8c405
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84488786"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86218264"
 ---
 L’utilisation de l’intégration au réseau virtuel régional permet à votre application d’accéder aux :
 
@@ -41,7 +41,7 @@ Si vous routez tout le trafic sortant vers votre réseau virtuel, il est soumis 
 Il existe certaines limitations concernant l’utilisation de l’intégration au réseau virtuel avec les réseaux virtuels d’une même région :
 
 * Vous ne pouvez pas accéder à des ressources via des connexions d’appairage mondiales.
-* La fonctionnalité est disponible seulement à partir des unités d’échelle Azure App Service récentes qui prennent en charge les plans App Service PremiumV2.
+* La fonctionnalité est disponible seulement à partir des unités d’échelle Azure App Service récentes qui prennent en charge les plans App Service PremiumV2. Notez que *cela ne signifie pas que votre application doive s’exécuter sur un niveau tarifaire PremiumV2*, mais seulement qu’elle doit s’exécuter sur un plan App Service pour lequel l’option PremiumV2 est disponible (ce qui signifie qu’il s’agit d’une unité d’échelle plus récente où cette fonctionnalité d’intégration au réseau virtuel est également disponible).
 * Le sous-réseau d’intégration peut être utilisé par un seul plan App Service.
 * La fonctionnalité ne peut pas être utilisée par des applications de plan Isolé qui se trouvent dans un environnement App Service.
 * La fonctionnalité nécessite un sous-réseau inutilisé /27 avec 32 adresses ou d’une taille supérieure, dans un réseau virtuel Azure Resource Manager.

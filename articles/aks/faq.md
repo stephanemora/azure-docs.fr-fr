@@ -3,12 +3,12 @@ title: Forum aux questions sur Azure Kubernetes Service (AKS)
 description: Recherchez des réponses à certaines des questions les plus fréquemment posées sur Azure Kubernetes Service (AKS).
 ms.topic: conceptual
 ms.date: 05/14/2020
-ms.openlocfilehash: 136f79df43bcc1730f187980df8726d693390faa
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: ba4ceaf0d7f9e3b344b2a6efbb84f2145c4a2f65
+ms.sourcegitcommit: 0b2367b4a9171cac4a706ae9f516e108e25db30c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84300924"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86275714"
 ---
 # <a name="frequently-asked-questions-about-azure-kubernetes-service-aks"></a>Forum aux questions sur Azure Kubernetes Service (AKS)
 
@@ -137,7 +137,7 @@ Les nœuds d’agent AKS sont facturés en tant que machines virtuelles Azure st
 
 ## <a name="can-i-movemigrate-my-cluster-between-azure-tenants"></a>Puis-je déplacer/migrer mon cluster entre des locataires Azure ?
 
-Vous pouvez utiliser la commande `az aks update-credentials` pour déplacer un cluster AKS entre des locataires Azure. Suivez les instructions de la page [Choisir de mettre à jour ou de créer un principal du service](https://docs.microsoft.com/azure/aks/update-credentials), puis de la section [Mettre à jour le cluster AKS avec les nouvelles informations d’identification](https://docs.microsoft.com/azure/aks/update-credentials#update-aks-cluster-with-new-service-principal-credentials).
+Vous pouvez utiliser la commande `az aks update-credentials` pour déplacer un cluster AKS entre des locataires Azure. Suivez les instructions de la page [Choisir de mettre à jour ou de créer un principal du service](./update-credentials.md), puis de la section [Mettre à jour le cluster AKS avec les nouvelles informations d’identification](./update-credentials.md#update-aks-cluster-with-new-service-principal-credentials).
 
 ## <a name="can-i-movemigrate-my-cluster-between-subscriptions"></a>Puis-je déplacer/migrer mon cluster entre des abonnements ?
 
@@ -145,7 +145,11 @@ Désolé... Le déplacement des clusters entre des abonnements n’est pas pris 
 
 ## <a name="can-i-move-my-aks-clusters-from-the-current-azure-subscription-to-another"></a>Puis-je déplacer mes clusters AKS de l’abonnement Azure actuel vers un autre abonnement ? 
 
-Le déplacement de votre cluster AKS et de ses ressources associées entre des abonnements Azure n'est pas pris en charge.
+Le déplacement de votre cluster AKS et des ressources associées entre des abonnements Azure n'est pas pris en charge.
+
+## <a name="can-i-move-my-aks-cluster-or-aks-infrastructure-resources-to-other-resource-groups-or-rename-them"></a>Puis-je déplacer mon cluster AKS ou mes ressources d'infrastructure AKS vers d'autres groupes de ressources ou les renommer ?
+
+Le déplacement ou le changement de nom de votre cluster AKS et des ressources associées n'est pas pris en charge.
 
 ## <a name="why-is-my-cluster-delete-taking-so-long"></a>Pourquoi la suppression de mon cluster est-elle si longue ? 
 
@@ -165,11 +169,11 @@ Le plus souvent, cela est dû au fait qu'un ou plusieurs groupes de sécurité r
 
 ## <a name="i-ran-an-upgrade-but-now-my-pods-are-in-crash-loops-and-readiness-probes-fail"></a>J'ai effectué une mise à niveau, mais maintenant mes pods se retrouvent dans des boucles de plantage, et les readiness probes échouent.
 
-Veuillez vérifier que votre principal de service n'a pas expiré.  Consultez : [Principal du service AKS](https://docs.microsoft.com/azure/aks/kubernetes-service-principal) et [Informations d'identification pour la mise à jour d’AKS](https://docs.microsoft.com/azure/aks/update-credentials).
+Veuillez vérifier que votre principal de service n'a pas expiré.  Consultez : [Principal du service AKS](./kubernetes-service-principal.md) et [Informations d'identification pour la mise à jour d’AKS](./update-credentials.md).
 
 ## <a name="my-cluster-was-working-but-suddenly-cannot-provision-loadbalancers-mount-pvcs-etc"></a>Mon cluster fonctionnait, mais tout à coup il ne peut plus approvisionner LoadBalancers, monter des revendications de volume persistant (PVC), etc. 
 
-Veuillez vérifier que votre principal de service n'a pas expiré.  Consultez : [Principal du service AKS](https://docs.microsoft.com/azure/aks/kubernetes-service-principal) et [Informations d'identification pour la mise à jour d’AKS](https://docs.microsoft.com/azure/aks/update-credentials).
+Veuillez vérifier que votre principal de service n'a pas expiré.  Consultez : [Principal du service AKS](./kubernetes-service-principal.md) et [Informations d'identification pour la mise à jour d’AKS](./update-credentials.md).
 
 ## <a name="can-i-use-the-virtual-machine-scale-set-apis-to-scale-manually"></a>Puis-je utiliser les API du groupe de machines virtuelles identiques pour effectuer une mise à l'échelle manuelle ?
 
@@ -190,9 +194,9 @@ Non, AKS est un service géré et la manipulation des ressources IaaS n'est pas 
 <!-- LINKS - internal -->
 
 [aks-upgrade]: ./upgrade-cluster.md
-[aks-cluster-autoscale]: ./autoscaler.md
+[aks-cluster-autoscale]: ./cluster-autoscaler.md
 [aks-advanced-networking]: ./configure-azure-cni.md
-[aks-rbac-aad]: ./azure-ad-integration.md
+[aks-rbac-aad]: ./azure-ad-integration-cli.md
 [node-updates-kured]: node-updates-kured.md
 [aks-preview-cli]: /cli/azure/ext/aks-preview/aks
 [az-aks-create]: /cli/azure/aks#az-aks-create

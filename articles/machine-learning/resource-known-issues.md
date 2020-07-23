@@ -11,12 +11,12 @@ ms.subservice: core
 ms.topic: troubleshooting
 ms.custom: contperfq4
 ms.date: 03/31/2020
-ms.openlocfilehash: a3e78ff2936cb3dbbc1bcf432f130fbd17622d14
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: bc41152bb39b0f5022d51dbefe16e3d56107c457
+ms.sourcegitcommit: f844603f2f7900a64291c2253f79b6d65fcbbb0c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85610062"
+ms.lasthandoff: 07/10/2020
+ms.locfileid: "86223456"
 ---
 # <a name="known-issues-and-troubleshooting-in-azure-machine-learning"></a>Problèmes connus et résolution des problèmes dans Azure Machine Learning
 
@@ -181,7 +181,27 @@ Si vous utilisez le partage de fichiers pour d’autres charges de travail, tell
 |Au moment du passage en revue des images, les images récemment étiquetées ne sont pas affichées.     |   Pour charger toutes les images étiquetées, choisissez le bouton **Premier**. Le bouton **Premier** vous ramène au début de la liste, mais charge toutes les données étiquetées.      |
 |Appuyer sur la touche Échap lors de l’étiquetage pour la détection d’objet crée une étiquette de taille zéro dans l’angle supérieur gauche. L’envoi d’étiquettes dans cet état échoue.     |   Pour supprimer l’étiquette, cliquez sur la croix en regard de celle-ci.  |
 
-### <a name="data-drift-monitors"></a>Supervision de la dérive des données
+### <a name="data-drift-monitors"></a><a name="data-drift"></a> Superviseurs de dérive de données
+
+Limitations et problèmes connus des superviseurs de dérive de données :
+
+* L’intervalle de temps lors de l’analyse des données d’historique est limité à 31 intervalles du paramètre de fréquence du moniteur. 
+* Limitation à 200 caractéristiques sauf si aucune liste de caractéristiques n’est spécifiée (toutes les caractéristiques sont utilisées).
+* La taille de calcul doit être suffisamment grande pour gérer les données.
+* Vérifiez que votre jeu de données contient des données comprises entre la date de début et la date de fin pour l’exécution d’un superviseur donné.
+* Les analyses de jeu de données ne fonctionnent que sur les jeux de données qui contiennent 50 lignes ou plus.
+* Dans le jeu de données, les colonnes, ou caractéristiques, sont classées comme catégories ou comme nombres, en fonction des conditions du tableau suivant. Si la caractéristique ne respecte pas ces conditions (par exemple, une colonne de type String avec plus de 100 valeurs uniques), elle est supprimée de notre algorithme de dérive des données, mais elle est toujours profilée. 
+
+    | Type de caractéristique | Type de données | Condition | Limites | 
+    | ------------ | --------- | --------- | ----------- |
+    | Par catégorie | string, bool, int, float | Le nombre de valeurs uniques dans la caractéristique est inférieur à 100 et inférieur à 5 % du nombre de lignes. | La valeur null est traitée comme sa propre catégorie. | 
+    | Numérique | int, float | Les valeurs de la caractéristique sont d’un type de données numérique et ne répondent pas aux conditions d’une caractéristique par catégorie. | Caractéristique supprimée si moins de 15 % des valeurs ont la valeur null. | 
+
+* Si vous avez [créé un superviseur de dérive de données](how-to-monitor-datasets.md), mais que vous ne voyez pas les données sur la page **Superviseurs de jeux de données** dans Azure Machine Learning Studio, essayez les procédures suivantes.
+
+    1. Vérifiez que vous avez sélectionné la bonne plage de dates en haut de la page.  
+    1. Sous l’onglet **Superviseurs de jeux de données**, sélectionnez le lien d’expérience pour vérifier l’état d’exécution.  Le lien se trouve tout à droite du tableau.
+    1. Si l’exécution s’est correctement déroulée, consultez les journaux des pilotes pour connaître le nombre de métriques qui ont été générées et voir s’il y a des messages d’avertissement.  Vous trouverez les journaux des pilotes sous l’onglet **Sortie + journaux** après avoir cliqué sur une expérience.
 
 * Si la fonction `backfill()` du kit de développement logiciel (SDK) ne génère pas le résultat attendu, cela peut être dû à un problème d’authentification.  Lorsque vous créez le calcul à transmettre à cette fonction, n’utilisez pas `Run.get_context().experiment.workspace.compute_targets`.  Au lieu de cela, utilisez [ServicePrincipalAuthentication](https://docs.microsoft.com/python/api/azureml-core/azureml.core.authentication.serviceprincipalauthentication?view=azure-ml-py) comme suit pour créer le calcul que vous transmettez à cette fonction `backfill()` : 
 

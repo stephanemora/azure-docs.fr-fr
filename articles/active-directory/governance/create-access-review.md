@@ -11,16 +11,16 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: how-to
 ms.subservice: compliance
-ms.date: 06/17/2020
+ms.date: 06/29/2020
 ms.author: barclayn
 ms.reviewer: mwahl
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 661339545f2c3f01ffd2e07b0fad08de8ac90278
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 4cf82080a54075353d2ff1d98a2ea19fc6a96dc7
+ms.sourcegitcommit: 3541c9cae8a12bdf457f1383e3557eb85a9b3187
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85078872"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86204036"
 ---
 # <a name="create-an-access-review-of-groups-and-applications-in-azure-ad-access-reviews"></a>Créer une révision d’accès des groupes et applications dans les révisions d’accès Azure AD
 
@@ -28,7 +28,7 @@ L’accès aux groupes et aux applications pour les employés et les invités ch
 
 Cet article explique comment créer une ou plusieurs révisions d’accès pour les membres de groupes ou pour l’accès aux applications.
 
-## <a name="prerequisites"></a>Conditions préalables requises
+## <a name="prerequisites"></a>Prérequis
 
 - Azure AD Premium P2
 - Administrateur général ou Administrateur d’utilisateurs
@@ -106,7 +106,7 @@ Pour plus d’informations, consultez [Exigences des licences](access-reviews-ov
 
 1. Pour spécifier d’autres paramètres, développez la section **Paramètres avancés**.
 
-    ![Créer une révision d’accès : paramètres avancés](./media/create-access-review/advanced-settings.png)
+    ![Créer une révision d’accès : paramètres avancés](./media/create-access-review/advanced-settings-preview.png)
 
 1. Définissez **Afficher les recommandations** sur **Activer** pour montrer aux réviseurs les recommandations du système basées sur les informations des accès de l’utilisateur.
 
@@ -114,9 +114,14 @@ Pour plus d’informations, consultez [Exigences des licences](access-reviews-ov
 
 1. Définissez **Notifications par e-mail** sur **Activer** pour qu’Azure AD envoie des notifications par e-mail aux réviseurs quand une révision d’accès commence et aux administrateurs quand une révision se termine.
 
-1. Définissez **Rappels** sur **Activer** pour qu’Azure AD envoie des rappels concernant les révisions d’accès en cours aux réviseurs qui n’ont pas terminé leur révision.
+1. Définissez **Rappels** sur **Activer** pour qu’Azure AD envoie des rappels concernant les révisions d’accès en cours aux réviseurs qui n’ont pas terminé leur révision. 
 
-    Par défaut, Azure AD envoie automatiquement un rappel à mi-parcours de l’échéance fixée pour les réviseurs n’ayant pas encore répondu.
+    >[!NOTE]
+    > Par défaut, Azure AD envoie automatiquement un rappel à mi-parcours de l'échéance fixée pour les réviseurs qui n'ont pas encore répondu.
+
+1. (Préversion) Le contenu de l'e-mail envoyé aux réviseurs est généré automatiquement en fonction des détails de la révision, comme le nom de la révision, le nom de la ressource, la date d'échéance, etc. Si vous souhaitez communiquer des informations supplémentaires telles que des instructions ou des coordonnées, vous pouvez les ajouter dans l'e-mail Contenu supplémentaire pour le réviseur qui sera inclus dans les e-mails d'invitation et de rappel envoyés aux réviseurs désignés. Ces informations seront affichées dans la section en surbrillance ci-dessous.
+
+    ![Réviser l'accès d'un utilisateur à un groupe](./media/create-access-review/review-users-access-group.png)
 
 ## <a name="start-the-access-review"></a>Démarrer la révision d’accès
 

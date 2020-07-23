@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 01/31/2020
 ms.author: trbye
-ms.openlocfilehash: 083580435c467a7d4b6a4cede0a821a2c271962f
-ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
+ms.openlocfilehash: 72fecbdc173a6174e54a28e48f983965f397ba6a
+ms.sourcegitcommit: f844603f2f7900a64291c2253f79b6d65fcbbb0c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83589650"
+ms.lasthandoff: 07/10/2020
+ms.locfileid: "86224585"
 ---
 # <a name="improve-synthesis-with-the-audio-content-creation-tool"></a>Améliorer la synthèse avec l’outil de création de contenu audio
 
@@ -23,11 +23,13 @@ ms.locfileid: "83589650"
 
 L’outil Création de contenu audio est basé sur le [SSML (Speech Synthesis Markup Language)](speech-synthesis-markup.md). Pour simplifier la personnalisation et le paramétrage, Création de contenu audio vous permet d’inspecter visuellement vos sorties de conversion de texte par synthèse vocale en temps réel.
 
+Pour la création de contenu audio, consultez le [tutoriel vidéo](https://www.youtube.com/watch?v=O1wIJ7mts_w).
+
 ## <a name="how-does-it-work"></a>Comment cela fonctionne-t-il ?
 
 Ce diagramme vous montre les étapes nécessaires pour régler les sorties de la conversion de texte par synthèse vocale. Utilisez les liens ci-dessous pour en savoir plus sur chaque étape.
 
-![](media/audio-content-creation/audio-content-creation-diagram.jpg)
+![Diagramme de la procédure à suivre pour ajuster les sorties de la conversion de texte par synthèse vocale.](media/audio-content-creation/audio-content-creation-diagram.jpg)
 
 1. Pour commencer, [configurez votre compte Azure et votre ressource Speech](#set-up-your-azure-account-and-speech-resource).
 2. [Créez un fichier de réglage audio](#create-an-audio-tuning-file) en utilisant des scripts en texte brut ou SSML.
