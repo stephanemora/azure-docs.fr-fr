@@ -5,12 +5,12 @@ author: vturecek
 ms.topic: conceptual
 ms.date: 10/12/2018
 ms.author: vturecek
-ms.openlocfilehash: c8866714ca1736b3ba785b560cb5a7aea451fdf1
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.openlocfilehash: 73ba08406e224d6c2a0d5dcaba7e7896dcb4d740
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/11/2020
-ms.locfileid: "86253335"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86529299"
 ---
 # <a name="aspnet-core-in-azure-service-fabric-reliable-services"></a>ASP.NET Core dans le modèle Azure Reliable Services de Service Fabric
 
@@ -470,8 +470,8 @@ Kestrel est le serveur web suggéré pour les services frontend qui exposent des
  
 Lorsqu’il est exposé à Internet, un service sans état doit utiliser un point de terminaison connu et stable accessible via un équilibreur de charge. Vous allez fournir cet URL aux utilisateurs de votre application. Nous vous recommandons la configuration suivante :
 
-|  |  | **Remarques** |
-| --- | --- | --- |
+| Type | Recommandation | Notes |
+| ---- | -------------- | ----- |
 | Serveur web | Kestrel | Kestrel est le serveur web par défaut, car il est pris en charge sur Windows et Linux. |
 | Configuration du port | statique | Un port statique connu doit être défini dans la configuration `Endpoints` du fichier ServiceManifest.xml, par exemple 80 pour HTTP et 443 pour HTTPS. |
 | ServiceFabricIntegrationOptions | None | Utilisez l’option `ServiceFabricIntegrationOptions.None` lors de la configuration de l’intergiciel (middleware) d’intégration à Service Fabric afin que le service n’essaie pas de valider les demandes entrantes pour un identificateur unique. Les utilisateurs externes de votre application ne connaissent pas les informations d’identification uniques utilisées par l’intergiciel (middleware). |
@@ -495,8 +495,8 @@ Si plusieurs services exposés en externe partagent le même ensemble de nœuds,
 ### <a name="internal-only-stateless-aspnet-core-service"></a>Service d’ASP.NET Core sans état interne uniquement
 Les services sans état qui sont appelés uniquement à partir du cluster doivent utiliser des URL uniques et des ports affectés dynamiquement afin d’assurer une coopération entre plusieurs services. Nous vous recommandons la configuration suivante :
 
-|  |  | **Remarques** |
-| --- | --- | --- |
+| Type | Recommandation | Notes |
+| ---- | -------------- | ----- |
 | Serveur web | Kestrel | Même si vous pouvez utiliser HTTP.sys pour les services sans état internes, Kestrel est le meilleur serveur pour permettre à plusieurs instances de service de partager un hôte.  |
 | Configuration du port | affecté de manière dynamique | Plusieurs réplicas d’un service avec état peuvent partager un processus hôte ou un système d’exploitation hôte, et nécessitent donc des ports uniques. |
 | ServiceFabricIntegrationOptions | UseUniqueServiceUrl | Avec l’affectation de port dynamique, ce paramètre empêche le problème d’erreur d’identité décrit précédemment. |
@@ -505,8 +505,8 @@ Les services sans état qui sont appelés uniquement à partir du cluster doiven
 ### <a name="internal-only-stateful-aspnet-core-service"></a>Service d’ASP.NET Core avec état interne uniquement
 Les services avec état qui sont appelés uniquement à partir du cluster doivent utiliser des ports affectés dynamiquement afin d’assurer une coopération entre plusieurs services. Nous vous recommandons la configuration suivante :
 
-|  |  | **Remarques** |
-| --- | --- | --- |
+| Type | Recommandation | Notes |
+| ---- | -------------- | ----- |
 | Serveur web | Kestrel | Le `HttpSysCommunicationListener` n’est pas conçu pour être utilisé par les services avec état dans lesquels les réplicas partagent un processus hôte. |
 | Configuration du port | affecté de manière dynamique | Plusieurs réplicas d’un service avec état peuvent partager un processus hôte ou un système d’exploitation hôte, et nécessitent donc des ports uniques. |
 | ServiceFabricIntegrationOptions | UseUniqueServiceUrl | Avec l’affectation de port dynamique, ce paramètre empêche le problème d’erreur d’identité décrit précédemment. |

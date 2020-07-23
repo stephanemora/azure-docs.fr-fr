@@ -4,30 +4,24 @@ description: Explique comment utiliser le Catalogue de sauvegarde du service Sto
 services: storsimple
 documentationcenter: NA
 author: alkohli
-manager: timlt
-editor: ''
 ms.assetid: ''
 ms.service: storsimple
 ms.devlang: NA
 ms.topic: how-to
-ms.tgt_pltfrm: NA
-ms.workload: TBD
-ms.date: 05/23/2017
+ms.date: 07/15/2020
 ms.author: alkohli
-ms.openlocfilehash: 0f0be9609dfd00e8e5dc9919b20fc42ec91ce9eb
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 8783d5ce5596cdb4678c09b79c09797ef62cc9c9
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85514559"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86527827"
 ---
 # <a name="restore-a-storsimple-volume-from-a-backup-set"></a>Restauration d’un volume StorSimple à partir d’un jeu de sauvegarde
 
 ## <a name="overview"></a>Vue d’ensemble
 
 Ce didacticiel décrit la restauration d’un appareil de la gamme StorSimple 8000 à l’aide d’un jeu de sauvegarde existant. Utilisez le panneau **Catalogue de sauvegarde** pour restaurer un volume à partir d’une sauvegarde locale ou cloud. Le panneau **Catalogue de sauvegarde** affiche tous les jeux de sauvegarde créés lors de sauvegardes manuelles ou automatisées. L’opération de restauration à partir d’un jeu de sauvegarde met le volume en ligne immédiatement pendant le téléchargement des données en arrière-plan.
-
-Pour démarrer la restauration, vous pouvez également accéder à **Appareils > [Votre appareil] > Volumes**. Dans le panneau **Volumes**, cliquez sur un volume avec le bouton droit de la souris pour appeler le menu contextuel, puis sélectionnez **Restaurer**.
 
 ## <a name="before-you-restore"></a>Avant de procéder à la restauration
 

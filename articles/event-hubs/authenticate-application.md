@@ -3,12 +3,12 @@ title: Authentifier une application pour accéder aux ressources Azure Event Hub
 description: Cet article fournit des informations sur l’authentification d’une application avec Azure Active Directory pour accéder aux ressources Azure Event Hubs
 ms.topic: conceptual
 ms.date: 06/23/2020
-ms.openlocfilehash: 50566c9405eb203778068b61a03cb9a2d22209b4
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 8cf51daef7298ff0ad487d5a072b6126557578c1
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85318179"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86537290"
 ---
 # <a name="authenticate-an-application-with-azure-active-directory-to-access-event-hubs-resources"></a>Authentifier une application avec Azure Active Directory pour accéder aux ressources Azure Event Hubs
 Microsoft Azure offre la gestion du contrôle d’accès intégré pour les ressources et les applications basées sur Azure Active Directory (Azure AD). L’un des principaux avantages de l’utilisation d’Azure AD avec Azure Event Hubs est que vous n’avez plus besoin de stocker vos informations d’identification dans le code. Au lieu de cela, vous pouvez demander un jeton d’accès OAuth 2.0 à partir de la Plateforme d’identité Microsoft. Le nom de ressource pour demander un jeton est `https://eventhubs.azure.net/` (pour les clients Kafka, il s’agit de `https://<namespace>.servicebus.windows.net`). Azure AD authentifie le principal de sécurité (un utilisateur, un groupe ou un principal de service) qui exécute l’application. Si l’authentification réussit, Azure AD retourne un jeton d’accès à l’application et l’application peut ensuite l’utiliser pour autoriser les demandes vers les ressources Azure Event Hubs.
@@ -78,7 +78,7 @@ Une fois votre application inscrite, **l’ID (client) d’application** se trou
 
 ![ID de l’application inscrite](./media/authenticate-application/application-id.png)
 
-Pour plus d’informations sur l’inscription d’une application dans Azure AD, consultez [Intégration d’applications à Azure Active Directory](../active-directory/develop/quickstart-v2-register-an-app.md).
+Pour plus d’informations sur l’inscription d’une application dans Azure AD, consultez [Intégration d’applications à Azure Active Directory](../active-directory/develop/quickstart-register-app.md).
 
 
 ### <a name="create-a-client-secret"></a>Créer une clé secrète client   
@@ -119,4 +119,3 @@ Consultez les articles associés suivants :
 - [Authentifier les requêtes adressées à Azure Event Hubs à l’aide de signatures d’accès partagé](authenticate-shared-access-signature.md)
 - [Autoriser l’accès aux ressources Event Hubs à l’aide d’Azure Active Directory](authorize-access-azure-active-directory.md)
 - [Authentifier l’accès aux ressources Event Hubs avec des signatures d’accès partagé](authorize-access-shared-access-signature.md)
-

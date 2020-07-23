@@ -3,12 +3,12 @@ title: Sauvegarder et restaurer des machines virtuelles Azure chiffrées
 description: Décrit comment sauvegarder et restaurer des machines virtuelles Azure chiffrées avec le service Sauvegarde Azure.
 ms.topic: conceptual
 ms.date: 04/03/2019
-ms.openlocfilehash: 0800a15b215b37ceb75abc0d6480331d642dc746
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 1689ff89f15248f6771ccdce525cc136221e5577
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85124501"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86538902"
 ---
 # <a name="back-up-and-restore-encrypted-azure-vm"></a>Sauvegarder et restaurer une machine virtuelle Azure chiffrée
 
@@ -30,8 +30,8 @@ Sauvegarde Azure peut sauvegarder et restaurer des machines virtuelles Azure à 
 **Non managé** | Oui | Oui
 **Managé**  | Oui | Oui
 
-- Découvrez-en plus sur [ADE](../security/azure-security-disk-encryption-overview.md), [Key Vault](../key-vault/general/overview.md) et les clés [KEK](https://docs.microsoft.com/azure/virtual-machine-scale-sets/disk-encryption-key-vault#set-up-a-key-encryption-key-kek).
-- Consultez les [Questions fréquentes (FAQ)](../security/azure-security-disk-encryption-faq.md) sur le chiffrement des disques de machines virtuelles Azure.
+- Découvrez-en plus sur [ADE](../security/fundamentals/azure-disk-encryption-vms-vmss.md), [Key Vault](../key-vault/general/overview.md) et les clés [KEK](../virtual-machine-scale-sets/disk-encryption-key-vault.md#set-up-a-key-encryption-key-kek).
+- Consultez les [Questions fréquentes (FAQ)](../security/fundamentals/azure-disk-encryption-vms-vmss.md) sur le chiffrement des disques de machines virtuelles Azure.
 
 ### <a name="limitations"></a>Limites
 
@@ -45,7 +45,7 @@ Sauvegarde Azure peut sauvegarder et restaurer des machines virtuelles Azure à 
 
 Avant de commencer, procédez comme suit :
 
-1. Veillez à disposer d’une ou plusieurs machines virtuelles [Windows](../security/azure-security-disk-encryption-windows.md) ou [Linux](../virtual-machines/linux/disk-encryption-overview.md) sur lesquelles ADE est activé.
+1. Veillez à disposer d’une ou plusieurs machines virtuelles [Windows](../virtual-machines/linux/disk-encryption-overview.md) ou [Linux](../virtual-machines/linux/disk-encryption-overview.md) sur lesquelles ADE est activé.
 2. [Passez en revue la matrice de prise en charge](backup-support-matrix-iaas.md) de la sauvegarde des machines virtuelles Azure.
 3. [Créez](backup-azure-arm-vms-prepare.md#create-a-vault) un coffre de sauvegarde Recovery Services si vous n’en avez pas.
 4. Si vous activez le chiffrement pour des machines virtuelles qui sont déjà activées pour la sauvegarde, vous devez simplement fournir à Sauvegarde des autorisations pour accéder au coffre de clés afin que les sauvegardes puissent se poursuivre sans interruption. [Découvrez-en plus](#provide-permissions) sur l’affectation de ces autorisations.

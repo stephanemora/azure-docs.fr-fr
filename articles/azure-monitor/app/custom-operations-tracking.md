@@ -4,12 +4,12 @@ description: Suivi des opérations personnalisées avec le kit SDK .NET d’Azur
 ms.topic: conceptual
 ms.date: 11/26/2019
 ms.reviewer: sergkanz
-ms.openlocfilehash: 316c1b7ea32f661b009bfee7a89cb7e5ed082f3b
-ms.sourcegitcommit: 366e95d58d5311ca4b62e6d0b2b47549e06a0d6d
+ms.openlocfilehash: 49c2ad44dab5e4f57db2f11c17c269289e56d2d5
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/01/2020
-ms.locfileid: "82690861"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86540041"
 ---
 # <a name="track-custom-operations-with-application-insights-net-sdk"></a>Suivi des opérations personnalisées avec le kit SDK .NET d’Application Insights
 
@@ -346,7 +346,7 @@ Lors de l’instrumentation d’une suppression de message, assurez-vous de déf
 
 ### <a name="dependency-types"></a>Types de dépendances
 
-Application Insights utilise un type de dépendance pour personnaliser les expériences d’interface utilisateur. Pour les files d'attente, il reconnaît les types suivants de `DependencyTelemetry` qui améliorent [l'expérience de diagnostic des transactions](/azure/azure-monitor/app/transaction-diagnostics) :
+Application Insights utilise un type de dépendance pour personnaliser les expériences d’interface utilisateur. Pour les files d'attente, il reconnaît les types suivants de `DependencyTelemetry` qui améliorent [l'expérience de diagnostic des transactions](./transaction-diagnostics.md) :
 - `Azure queue` pour les files d’attente Stockage Azure
 - `Azure Event Hubs` pour les concentrateurs d’événements Azure
 - `Azure Service Bus` pour Azure Service Bus
@@ -425,7 +425,7 @@ public async Task RunMyTaskAsync()
 
 L’opération de suppression entraîne l’arrêt de l’opération. Vous pouvez donc l’utiliser au lieu d’appeler `StopOperation`.
 
-*Avertissement* : dans certains cas, une exception non prise en charge peut [empêcher](https://docs.microsoft.com/dotnet/csharp/language-reference/keywords/try-finally) l’appel de `finally` et, par conséquent, le suivi des opérations.
+*Avertissement* : dans certains cas, une exception non prise en charge peut [empêcher](/dotnet/csharp/language-reference/keywords/try-finally) l’appel de `finally` et, par conséquent, le suivi des opérations.
 
 ### <a name="parallel-operations-processing-and-tracking"></a>Suivi et traitement d’opérations parallèles
 

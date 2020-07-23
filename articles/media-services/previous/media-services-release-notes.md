@@ -13,12 +13,12 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 10/01/2019
 ms.author: juliako
-ms.openlocfilehash: 63b3def9c37f53ebf68642faf3f45cee6602bbe5
-ms.sourcegitcommit: bcb962e74ee5302d0b9242b1ee006f769a94cfb8
+ms.openlocfilehash: b25d6c33aa2bd50cbf96fb09f0de03354d24f2da
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/07/2020
-ms.locfileid: "86057294"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86530352"
 ---
 # <a name="azure-media-services-release-notes"></a>Notes de publication d'Azure Media Services
 
@@ -29,8 +29,8 @@ Ces notes de publication pour Azure Media Services récapitulent les modificatio
 
 Nous souhaitons connaître vos impressions afin de pouvoir nous consacrer à la résolution des problèmes que vous rencontrez. Pour signaler un problème ou poser des questions, publiez un post sur le [Forum MSDN sur Azure Media Services]. 
 
-## <a name="known-issues"></a><a id="issues"/>Problèmes connus
-### <a name="media-services-general-issues"></a><a id="general_issues"/>Problèmes généraux concernant Media Services
+## <a name="known-issues"></a><a name="issues"></a>Problèmes connus
+### <a name="media-services-general-issues"></a><a name="general_issues"></a>Problèmes généraux concernant Media Services
 
 | Problème | Description |
 | --- | --- |
@@ -43,7 +43,7 @@ Nous souhaitons connaître vos impressions afin de pouvoir nous consacrer à la 
 | Les objets du kit SDK Media Services .NET ne peuvent pas être sérialisés et, par conséquent, ne fonctionnent pas avec le cache Azure pour Redis. |Si vous essayez de sérialiser l’objet AssetCollection du SDK pour l’ajouter au cache Azure pour Redis, une exception est levée. |
 |L’API REST répond avec un message d’erreur indiquant que le filtre n’est pas accessible par cette version de l’API REST lors de la tentative d’obtention d’un filtre au niveau de l’actif multimédia ou du compte.|Le filtre a été créé ou modifié avec une version d’API plus récente que celle utilisée pour essayer d’obtenir le filtre. Cela peut se produire si deux versions d’API sont utilisées par le code ou les outils employés par le client.  La meilleure solution ici consiste à mettre à niveau le code ou les outils pour utiliser la version plus récente ou les deux versions d’API.|
 
-## <a name="rest-api-version-history"></a><a id="rest_version_history"/>Historique des versions de l’API REST
+## <a name="rest-api-version-history"></a><a name="rest_version_history"></a>Historique des versions de l’API REST
 Pour obtenir des informations sur l’historique des versions de l’API REST, consultez la [Référence de l’API REST d’Azure Media Services].
 
 ## <a name="february-2020"></a>Février 2020
@@ -159,7 +159,7 @@ Pour plus d’informations sur ces propriétés, consultez [StreamingEndpoint](h
 
  Vous pouvez désormais utiliser Media Services pour accéder aux données de télémétrie/métriques pour ses services. Vous pouvez utiliser la version actuelle de Media Services pour recueillir des données de télémétrie pour les entités en temps réel de canal, de point de terminaison de streaming et d’archive. Pour plus d’informations, consultez [Télémétrie Azure Media Services](media-services-telemetry-overview.md).
 
-## <a name="july-2016-release"></a><a id="july_changes16"/>Version de juillet 2016
+## <a name="july-2016-release"></a><a name="july_changes16"></a>Version de juillet 2016
 ### <a name="updates-to-the-manifest-file-ism-generated-by-encoding-tasks"></a>Mises à jour apportées au fichier manifeste (*.ISM) généré par les tâches d’encodage
 Quand une tâche d’encodage est soumise à Media Encoder Standard ou à Media Encoder Premium, elle génère un [fichier manifeste de streaming](media-services-deliver-content-overview.md) (*.ism) dans la ressource de sortie. Dans la dernière version de service, la syntaxe de ce fichier manifeste de streaming a été mise à jour.
 

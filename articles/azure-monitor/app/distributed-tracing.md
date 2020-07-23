@@ -6,12 +6,12 @@ author: nikmd23
 ms.author: nimolnar
 ms.date: 09/17/2018
 ms.reviewer: mbullwin
-ms.openlocfilehash: 83575aa7f9b63615f453e00bd06b00a5540b9a9e
-ms.sourcegitcommit: df8b2c04ae4fc466b9875c7a2520da14beace222
+ms.openlocfilehash: 9eb753981821a6b53d81b1d03e65abf68e0064dc
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/08/2020
-ms.locfileid: "80892255"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86539990"
 ---
 # <a name="what-is-distributed-tracing"></a>Présentation du traçage distribué
 
@@ -21,9 +21,9 @@ Dans les architectures monolithiques, nous sommes habitués à résoudre les pro
 
 C’est alors qu’intervient le traçage distribué.  
 
-Le traçage distribué est l’équivalent des piles des appels pour les architectures de microservices et de cloud modernes, avec l’ajout d’un profileur de performances très simple. Dans Azure Monitor, nous proposons deux expériences pour consommer des données de trace distribuée. Tout d’abord, nous proposons la vue des [diagnostics de transaction](https://docs.microsoft.com/azure/application-insights/app-insights-transaction-diagnostics), qui ressemble à une pile des appels à laquelle est ajoutée une dimension temporelle. La vue des diagnostics de transaction offre une visibilité sur une seule transaction/requête. Elle est utile pour rechercher la cause racine des problèmes de fiabilité et des goulots d’étranglement des performances sur la base de chaque requête.
+Le traçage distribué est l’équivalent des piles des appels pour les architectures de microservices et de cloud modernes, avec l’ajout d’un profileur de performances très simple. Dans Azure Monitor, nous proposons deux expériences pour consommer des données de trace distribuée. Tout d’abord, nous proposons la vue des [diagnostics de transaction](./transaction-diagnostics.md), qui ressemble à une pile des appels à laquelle est ajoutée une dimension temporelle. La vue des diagnostics de transaction offre une visibilité sur une seule transaction/requête. Elle est utile pour rechercher la cause racine des problèmes de fiabilité et des goulots d’étranglement des performances sur la base de chaque requête.
 
-Azure Monitor offre également une vue de [mise en correspondance d’applications](https://docs.microsoft.com/azure/application-insights/app-insights-app-map) qui regroupe de nombreuses transactions afin d’afficher une vue topologique des interactions entre les systèmes et des taux moyens de performance et d’erreur. 
+Azure Monitor offre également une vue de [mise en correspondance d’applications](./app-map.md) qui regroupe de nombreuses transactions afin d’afficher une vue topologique des interactions entre les systèmes et des taux moyens de performance et d’erreur. 
 
 ## <a name="how-to-enable-distributed-tracing"></a>Activer le traçage distribué
 
@@ -33,16 +33,16 @@ L'activation du traçage distribué entre les services d'une application est aus
 
 Les agents et/ou kits de développement logiciel (SDK) Application Insights pour .NET, .NET Core, Java, Node.js et JavaScript prennent tous en charge le traçage distribué en mode natif. Les instructions permettant d’installer et de configurer chaque SDK Application Insights sont disponibles ci-dessous :
 
-* [.NET](https://docs.microsoft.com/azure/application-insights/quick-monitor-portal)
-* [.NET Core](https://docs.microsoft.com/azure/application-insights/app-insights-dotnetcore-quick-start)
-* [Java](https://docs.microsoft.com/azure/azure-monitor/app/java-in-process-agent)
-* [Node.JS](https://docs.microsoft.com/azure/application-insights/app-insights-nodejs-quick-start)
-* [JavaScript](https://docs.microsoft.com/azure/application-insights/app-insights-javascript)
+* [.NET](../learn/quick-monitor-portal.md)
+* [.NET Core](../learn/dotnetcore-quick-start.md)
+* [Java](./java-in-process-agent.md)
+* [Node.JS](../learn/nodejs-quick-start.md)
+* [JavaScript](./javascript.md)
 * [Python](opencensus-python.md)
 
-Lorsque le SDK Application Insights adéquat est installé et configuré, les collecteurs automatiques des dépendances des SDK recueillent les informations de traçage automatiquement pour les infrastructures, les bibliothèques et les technologies populaires. La liste complète des technologies prises en charge est disponible dans [la documentation de la collecte automatique de la dépendance](https://docs.microsoft.com/azure/application-insights/auto-collect-dependencies).
+Lorsque le SDK Application Insights adéquat est installé et configuré, les collecteurs automatiques des dépendances des SDK recueillent les informations de traçage automatiquement pour les infrastructures, les bibliothèques et les technologies populaires. La liste complète des technologies prises en charge est disponible dans [la documentation de la collecte automatique de la dépendance](./auto-collect-dependencies.md).
 
- De plus, toute technologie peut être pistée manuellement par un appel [TrackDependency](https://docs.microsoft.com/azure/application-insights/app-insights-api-custom-events-metrics) sur [TelemetryClient](https://docs.microsoft.com/azure/application-insights/app-insights-api-custom-events-metrics).
+ De plus, toute technologie peut être pistée manuellement par un appel [TrackDependency](./api-custom-events-metrics.md) sur [TelemetryClient](./api-custom-events-metrics.md).
 
 ## <a name="enable-via-opencensus"></a>Activation via OpenCensus
 

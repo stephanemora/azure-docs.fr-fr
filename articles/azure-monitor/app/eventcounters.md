@@ -3,16 +3,16 @@ title: Compteurs d’événements dans Application Insights | Microsoft Docs
 description: Supervisez les compteurs d’événements .NET/.NET Core système et personnalisés dans Application Insights.
 ms.topic: conceptual
 ms.date: 09/20/2019
-ms.openlocfilehash: 37d0e1e741548986788be78860830f36add1f5a8
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 06bf15bf60b1ee5e2c301935a30b3981d5233a08
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "83700439"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86539939"
 ---
 # <a name="eventcounters-introduction"></a>Présentation des compteurs d’événements
 
-`EventCounter` est le mécanisme .NET/.NET Core permettant de publier et consommer des compteurs ou des statistiques. [Ce](https://github.com/dotnet/runtime/blob/master/src/libraries/System.Diagnostics.Tracing/documentation/EventCounterTutorial.md) document donne une vue d’ensemble des `EventCounters` et des exemples sur la façon de les publier et de les consommer. Les compteurs d’événements sont pris en charge sur toutes les plateformes de système d’exploitation : Windows, Linux et macOS. Vous pouvez les considérer comme l’équivalent multiplateforme des [compteurs de performances](https://docs.microsoft.com/dotnet/api/system.diagnostics.performancecounter), uniquement pris en charge dans les systèmes Windows.
+`EventCounter` est le mécanisme .NET/.NET Core permettant de publier et consommer des compteurs ou des statistiques. [Ce](https://github.com/dotnet/runtime/blob/master/src/libraries/System.Diagnostics.Tracing/documentation/EventCounterTutorial.md) document donne une vue d’ensemble des `EventCounters` et des exemples sur la façon de les publier et de les consommer. Les compteurs d’événements sont pris en charge sur toutes les plateformes de système d’exploitation : Windows, Linux et macOS. Vous pouvez les considérer comme l’équivalent multiplateforme des [compteurs de performances](/dotnet/api/system.diagnostics.performancecounter), uniquement pris en charge dans les systèmes Windows.
 
 Alors que les utilisateurs peuvent publier n’importe quel `EventCounters` personnalisé pour répondre à leurs besoins, le runtime .NET Core 3.0 publie un ensemble de ces compteurs par défaut. Le présent document décrit les étapes nécessaires à la collecte et à l’affichage des `EventCounters` (définis par le système ou par l’utilisateur) dans Azure Application Insights.
 
@@ -91,14 +91,14 @@ L’exemple suivant montre comment ajouter/supprimer des compteurs. Cette person
 
 ## <a name="event-counters-in-metric-explorer"></a>Compteurs d’événements dans Metric Explorer
 
-Pour voir les métriques de compteur d’événements dans [Metric Explorer](https://docs.microsoft.com/azure/azure-monitor/platform/metrics-charts), sélectionnez une ressource Application Insights, puis choisissez des métriques basées sur un journal comme espace de noms de métrique. Ainsi, les métriques de compteur d’événements s’affichent sous Catégorie personnalisée.
+Pour voir les métriques de compteur d’événements dans [Metric Explorer](../platform/metrics-charts.md), sélectionnez une ressource Application Insights, puis choisissez des métriques basées sur un journal comme espace de noms de métrique. Ainsi, les métriques de compteur d’événements s’affichent sous Catégorie personnalisée.
 
 > [!div class="mx-imgBorder"]
 > ![Compteurs d’événements signalés dans Application Insights](./media/event-counters/metrics-explorer-counter-list.png)
 
 ## <a name="event-counters-in-analytics"></a>Compteurs d’événements dans Analytics
 
-Vous pouvez également rechercher et afficher des rapports de compteurs d’événements dans [Analytics](../../azure-monitor/app/analytics.md), dans la table **customMetrics**.
+Vous pouvez également rechercher et afficher des rapports de compteurs d’événements dans [Analytics](../log-query/log-query-overview.md), dans la table **customMetrics**.
 
 Par exemple, exécutez la requête suivante pour voir quels compteurs sont collectés et disponibles pour la requête :
 
@@ -144,7 +144,7 @@ Un compteur d’événements n’a pas besoin d’autorisations spéciales. Il p
 
 ### <a name="i-have-enabled-application-insights-from-azure-web-app-portal-but-i-cant-see-eventcounters"></a>J’ai activé Application Insights à partir du portail d’application web Azure. Mais je ne vois pas de compteurs d’événements.
 
- L’[extension Application Insights](https://docs.microsoft.com/azure/azure-monitor/app/azure-web-apps) pour ASP.NET Core ne prend pas encore en charge cette fonctionnalité. Ce document sera mis à jour quand cette fonctionnalité sera prise en charge.
+ L’[extension Application Insights](./azure-web-apps.md) pour ASP.NET Core ne prend pas encore en charge cette fonctionnalité. Ce document sera mis à jour quand cette fonctionnalité sera prise en charge.
 
 ## <a name="next-steps"></a><a name="next"></a>Étapes suivantes
 

@@ -7,12 +7,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 7/29/2019
 ms.author: mayg
-ms.openlocfilehash: b03ac554ed578633b55ffa2fde4838c691d04d59
-ms.sourcegitcommit: e995f770a0182a93c4e664e60c025e5ba66d6a45
+ms.openlocfilehash: d7ee72b5f6441f2b3b3ea9a7eaa41a3e1b650745
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86132207"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86528959"
 ---
 # <a name="review-cost-estimations-in-the-vmware-deployment-planner"></a>Examiner les estimations de coût dans le planificateur de déploiement VMware 
 
@@ -150,16 +150,16 @@ eastus, eastus2, westus, centralus, northcentralus, southcentralus, northeurope,
 ## <a name="supported-currencies"></a>Devises prises en charge
 Le Planificateur de déploiement Azure Site Recovery peut générer le rapport de coût avec une des devises suivantes.
 
-|Devise|Nom||Devise|Nom||Devise|Nom|
+|Devise|Nom|Devise|Nom|Devise|Nom|
 |---|---|---|---|---|---|---|---|
-|ARS|Peso argentin ($)||AUD|Dollar australien ($)||BRL|Real brésilien (R$)|
-|CAD|Dollar canadien ($)||CHF|Franc suisse (chf)||DKK|Couronne danoise (kr)|
-|EUR|Euro (€)||GBP|Livre britannique (£)||HKD|Dollar de Hong Kong (R.A.S.) (HK$)|
-|IDR|Roupie indonésienne (Rp)||INR|Roupie indienne (₹)||JPY|Yen japonais (¥)|
-|KRW|Won coréen (₩)||MXN|Peso mexicain (MXN$)||MYR|Ringgit malais (RM$)|
-|NOK|Couronne norvégienne (kr)||NZD|Dollar néo-zélandais ($)||RUB|Rouble russe (руб)|
-|SAR|Riyal saoudien (SR)||SEK|Couronne suédoise (kr)||TWD|Dollar taiwanais (NT$)|
-|TRY|Lire turque (TL)||USD| Dollar américain ($)||ZAR|Rand sud-africain (R)|
+|ARS|Peso argentin ($)|AUD|Dollar australien ($)|BRL|Real brésilien (R$)|
+|CAD|Dollar canadien ($)|CHF|Franc suisse (chf)|DKK|Couronne danoise (kr)|
+|EUR|Euro (€)|GBP|Livre britannique (£)|HKD|Dollar de Hong Kong (R.A.S.) (HK$)|
+|IDR|Roupie indonésienne (Rp)|INR|Roupie indienne (₹)|JPY|Yen japonais (¥)|
+|KRW|Won coréen (₩)|MXN|Peso mexicain (MXN$)|MYR|Ringgit malais (RM$)|
+|NOK|Couronne norvégienne (kr)|NZD|Dollar néo-zélandais ($)|RUB|Rouble russe (руб)|
+|SAR|Riyal saoudien (SR)|SEK|Couronne suédoise (kr)|TWD|Dollar taiwanais (NT$)|
+|TRY|Lire turque (TL)|USD| Dollar américain ($)|ZAR|Rand sud-africain (R)|
 
 ## <a name="next-steps"></a>Étapes suivantes
 En savoir plus sur la protection des [machines virtuelles de VMware vers Azure à l’aide d’Azure Site Recovery](./vmware-azure-tutorial.md).

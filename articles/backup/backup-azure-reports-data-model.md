@@ -3,12 +3,12 @@ title: Modèle de données pour les événements de diagnostics de sauvegarde Az
 description: Ce modèle de données fait référence au mode spécifique à la ressource pour envoyer des événements de diagnostic à Log Analytics (LA).
 ms.topic: conceptual
 ms.date: 10/30/2019
-ms.openlocfilehash: af1e4159ff2794f8d4dd11480eb7f1789e034c06
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 46d40694da4eb025afc11da0f14b28691bf13bb8
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84484497"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86538868"
 ---
 # <a name="data-model-for-azure-backup-diagnostics-events"></a>Modèle de données pour les événements de diagnostics de sauvegarde Azure
 
@@ -220,5 +220,5 @@ Ce tableau fournit plus d’informations sur les champs liés au stockage.
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-- [Découvrez comment envoyer des données de diagnostic à Log Analytics](https://docs.microsoft.com/azure/backup/backup-azure-diagnostic-events)
-- [Découvrez comment écrire des requêtes sur des tables spécifiques à des ressources](https://docs.microsoft.com/azure/backup/backup-azure-monitoring-use-azuremonitor#sample-kusto-queries)
+- [Découvrez comment envoyer des données de diagnostic à Log Analytics](./backup-azure-diagnostic-events.md)
+- [Découvrez comment écrire des requêtes sur des tables spécifiques à des ressources](./backup-azure-monitoring-use-azuremonitor.md#sample-kusto-queries)

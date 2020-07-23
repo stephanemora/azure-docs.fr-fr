@@ -3,12 +3,12 @@ title: Configurer votre propre clé pour chiffrer les données Azure Event Hubs 
 description: Cet article vous explique comment configurer votre propre clé pour chiffrer les données Azure Event Hubs au repos.
 ms.topic: conceptual
 ms.date: 06/23/2020
-ms.openlocfilehash: 2d82fc8c962496246196331c7d191c0fc057694f
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 18a59b74897b074fea9ee56947c78635f2a3509d
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85479825"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86537256"
 ---
 # <a name="configure-customer-managed-keys-for-encrypting-azure-event-hubs-data-at-rest-by-using-the-azure-portal"></a>Configurer des clés gérées par le client pour chiffrer les données Azure Event Hubs au repos via le portail Azure
 Azure Event Hubs fournit une fonctionnalité de chiffrement des données au repos avec Azure Storage Service Encryption (Azure SSE). Event Hubs utilise le service Stockage Azure pour stocker les données. Par défaut, toutes les données stockées avec ce service sont chiffrées à l'aide de clés gérées par Microsoft. 
@@ -41,7 +41,7 @@ Pour activer des clés gérées par le client dans le portail Azure, procédez c
 ## <a name="set-up-a-key-vault-with-keys"></a>Configurer un coffre de clés avec des clés
 Après avoir activé une clé gérée par le client, vous devez l'associer à votre espace de noms Azure Event Hubs. Event Hubs prend uniquement en charge Azure Key Vault. Si vous activez l'option **Chiffrement à l'aide de la clé gérée par le client** dans la section précédente, vous devez importer la clé dans Azure Key Vault. En outre, les fonctionnalités **Suppression réversible** et **Ne pas vider** doivent être configurées pour la clé. Ces paramètres peuvent être configurés à l'aide de [PowerShell](../key-vault/general/soft-delete-powershell.md) ou de l'[interface CLI](../key-vault/general/soft-delete-cli.md#enabling-purge-protection).
 
-1. Pour créer un coffre de clés, suivez le [guide de démarrage rapide](../key-vault/general/overview.md) d'Azure Key Vault. Pour plus d'informations sur l'importation de clés existantes, consultez [Présentation des clés, des secrets et des certificats](../key-vault/about-keys-secrets-and-certificates.md).
+1. Pour créer un coffre de clés, suivez le [guide de démarrage rapide](../key-vault/general/overview.md) d'Azure Key Vault. Pour plus d'informations sur l'importation de clés existantes, consultez [Présentation des clés, des secrets et des certificats](../key-vault/general/about-keys-secrets-certificates.md).
 1. Pour activer à la fois la suppression réversible et la protection contre le vidage lors de la création d'un coffre, utilisez la commande [az keyvault create](/cli/azure/keyvault?view=azure-cli-latest#az-keyvault-create).
 
     ```azurecli-interactive
@@ -419,7 +419,3 @@ Vous trouverez ci-dessous les codes d'erreur courants à rechercher lorsque le c
 Voir les articles suivants :
 - [Vue d’ensemble d’Event Hubs](event-hubs-about.md)
 - [Vue d'ensemble de Key Vault](../key-vault/general/overview.md)
-
-
-
-

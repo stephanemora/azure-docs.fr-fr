@@ -3,12 +3,12 @@ title: Sauvegarder une batterie de serveurs SharePoint dans Azure Stack
 description: Le serveur de sauvegarde Azure vous permet de sauvegarder et de restaurer vos données SharePoint sur Azure Stack. Cet article fournit des informations vous permettant de configurer votre batterie de serveurs SharePoint, afin de pouvoir stocker les données souhaitées dans Azure. Vous pouvez restaurer des données SharePoint protégées à partir d’un disque ou d’Azure.
 ms.topic: conceptual
 ms.date: 06/07/2020
-ms.openlocfilehash: 8b9257c1d175c350df06f9421b31a9e7b8e2bb80
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: bd94b24479631f9fbbe4070529d76fe6442faae2
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84657931"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86538783"
 ---
 # <a name="back-up-a-sharepoint-farm-on-azure-stack"></a>Sauvegarder une batterie de serveurs SharePoint dans Azure Stack
 
@@ -102,7 +102,7 @@ Pour sauvegarder la batterie de serveurs SharePoint, configurez la protection po
 
 1. Sous **Spécifier une stratégie de rétention en ligne**, vous pouvez préciser la façon dont les points de récupération créés à partir des sauvegardes quotidiennes, hebdomadaires, mensuelles et annuelles sont conservés dans Azure.
 
-1. Sous **Choisir la réplication en ligne**, sélectionnez la façon dont la réplication initiale complète des données aura lieu. Vous pouvez répliquer sur le réseau ou effectuer une sauvegarde en mode hors connexion (essaimage hors connexion). La sauvegarde en mode hors connexion utilise la fonctionnalité Azure Import. [En savoir plus](https://azure.microsoft.com/documentation/articles/backup-azure-backup-import-export/).
+1. Sous **Choisir la réplication en ligne**, sélectionnez la façon dont la réplication initiale complète des données aura lieu. Vous pouvez répliquer sur le réseau ou effectuer une sauvegarde en mode hors connexion (essaimage hors connexion). La sauvegarde en mode hors connexion utilise la fonctionnalité Azure Import. [En savoir plus](./backup-azure-backup-import-export.md).
 
 1. Dans la page **Résumé**, vérifiez vos paramètres. Une fois que vous avez cliqué sur **Créer un groupe**, la réplication initiale des données se produit. Une fois l’opération terminée, l’état du groupe de protection s’affiche comme **OK** dans la page **État**. La sauvegarde a alors lieu conformément aux paramètres du groupe de protection.
 

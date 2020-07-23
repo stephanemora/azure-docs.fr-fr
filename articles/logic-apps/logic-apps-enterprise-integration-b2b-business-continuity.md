@@ -8,12 +8,12 @@ ms.author: divswa
 ms.reviewer: jonfan, estfan, logicappspm
 ms.topic: article
 ms.date: 04/10/2017
-ms.openlocfilehash: 09b77862ad3379efeb8b3063a9d6c60b062ca2d7
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 3b618513965298889fb656750419dedd79729f7f
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "76905125"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86536468"
 ---
 # <a name="set-up-cross-region-disaster-recovery-for-integration-accounts-in-azure-logic-apps"></a>Configurer la reprise d’activité entre des régions pour des comptes d’intégration dans Azure Logic Apps
 
@@ -60,7 +60,7 @@ La continuité des activités dans le compte d’intégration Logic Apps prend e
 
 Lors d’un sinistre, lorsque la région primaire n’est pas disponible pour la continuité des activités, dirigez le trafic vers la région secondaire. Une région secondaire permet à une entreprise de récupérer rapidement ses fonctions de manière à respecter ses objectifs de point de récupération et de temps de récupération convenus avec ses partenaires. Elle contribue en outre à réduire les efforts nécessaires pour basculer d’une région à l’autre. 
 
-Il existe une latence attendue lorsque des numéros de contrôle sont copiés depuis une région primaire vers une région secondaire. Pour éviter d’envoyer des numéros de contrôle générés en double aux partenaires lors d’un sinistre, il est recommandé d’augmenter les numéros de contrôle dans les accords de région secondaire au moyen [d’applets de commande PowerShell](https://docs.microsoft.com/powershell/module/azurerm.logicapp/set-azurermintegrationaccountgeneratedicn?view=azurermps-6.13.0).
+Il existe une latence attendue lorsque des numéros de contrôle sont copiés depuis une région primaire vers une région secondaire. Pour éviter d’envoyer des numéros de contrôle générés en double aux partenaires lors d’un sinistre, il est recommandé d’augmenter les numéros de contrôle dans les accords de région secondaire au moyen [d’applets de commande PowerShell](/powershell/module/azurerm.logicapp/set-azurermintegrationaccountgeneratedicn?view=azurermps-6.13.0).
 
 ## <a name="fall-back-to-a-primary-region-post-disaster-event"></a>Revenir à une région primaire après un sinistre
 
@@ -68,7 +68,7 @@ Pour revenir à une région primaire lorsqu’elle est de nouveau disponible, pr
 
 1. Cessez d’accepter les messages des partenaires dans la région secondaire.  
 
-2. Augmentez les numéros de contrôle générés pour tous les accords de région primaire au moyen [d’applets de commande PowerShell](https://docs.microsoft.com/powershell/module/azurerm.logicapp/set-azurermintegrationaccountgeneratedicn?view=azurermps-6.13.0).  
+2. Augmentez les numéros de contrôle générés pour tous les accords de région primaire au moyen [d’applets de commande PowerShell](/powershell/module/azurerm.logicapp/set-azurermintegrationaccountgeneratedicn?view=azurermps-6.13.0).  
 
 3. Dirigez le trafic de la région secondaire vers la région primaire.
 
@@ -241,4 +241,3 @@ En fonction de l’intervalle de temps, l’état d’exécution incrémentiel e
 ## <a name="next-steps"></a>Étapes suivantes
 
 [Superviser les messages B2B avec les journaux d’activité Azure Monitor](../logic-apps/monitor-b2b-messages-log-analytics.md)
-

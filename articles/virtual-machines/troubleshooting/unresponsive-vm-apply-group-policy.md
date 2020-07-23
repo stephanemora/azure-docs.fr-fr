@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.topic: troubleshooting
 ms.date: 05/07/2020
 ms.author: v-mibufo
-ms.openlocfilehash: 187098f557cb691e023abb282a265b11e975c544
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: cbf2fe491e1fe0b553eab04ca7190da0413a3ba6
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84629258"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86526008"
 ---
 # <a name="vm-is-unresponsive-when-applying-group-policy-local-users-and-groups-policy"></a>La machine virtuelle ne répond pas quand une stratégie Utilisateurs locaux et groupes de stratégie de groupe est appliquée
 
@@ -27,7 +27,7 @@ Cet article décrit les étapes à suivre pour résoudre les problèmes de bloca
 
 ## <a name="symptoms"></a>Symptômes
 
-Quand vous utilisez [Diagnostics de démarrage](https://docs.microsoft.com/azure/virtual-machines/troubleshooting/boot-diagnostics) pour visualiser une capture d’écran de la machine virtuelle, l’écran est bloqué et affiche le message : « Application de la stratégie Utilisateurs locaux et groupes de stratégie de groupe ».
+Quand vous utilisez [Diagnostics de démarrage](./boot-diagnostics.md) pour visualiser une capture d’écran de la machine virtuelle, l’écran est bloqué et affiche le message : « Application de la stratégie Utilisateurs locaux et groupes de stratégie de groupe ».
 
 :::image type="content" source="media//unresponsive-vm-apply-group-policy/applying-group-policy-1.png" alt-text="Capture d’écran du chargement de l’application d’une stratégie Utilisateurs locaux et groupes de stratégie de groupe (Windows Server 2012 R2).":::
 
@@ -58,7 +58,7 @@ Voici la stratégie problématique :
 
 ### <a name="step-1-create-and-access-a-repair-vm"></a>Étape 1 : Créer une machine virtuelle de réparation et y accéder
 
-1. Suivez les [étapes 1 à 3 des commandes de réparation de machine virtuelle](https://docs.microsoft.com/azure/virtual-machines/troubleshooting/repair-windows-vm-using-azure-virtual-machine-repair-commands#repair-process-example) pour préparer une machine virtuelle de réparation.
+1. Suivez les [étapes 1 à 3 des commandes de réparation de machine virtuelle](./repair-windows-vm-using-azure-virtual-machine-repair-commands.md#repair-process-example) pour préparer une machine virtuelle de réparation.
 2. Connectez-vous à la machine virtuelle de réparation à l’aide de la connexion Bureau à distance.
 
 ### <a name="step-2-disable-the-policy"></a>Étape 2 : Désactiver la stratégie
@@ -140,7 +140,7 @@ Pour activer la collecte d’image mémoire et la console série, exécutez le s
 
 ### <a name="step-4-rebuild-the-vm"></a>Étape 4 : Régénérez la machine virtuelle.
 
-Suivez l’[étape 5 des commandes de réparation de machine virtuelle](https://docs.microsoft.com/azure/virtual-machines/troubleshooting/repair-windows-vm-using-azure-virtual-machine-repair-commands#repair-process-example) pour réassembler la machine virtuelle.
+Suivez l’[étape 5 des commandes de réparation de machine virtuelle](./repair-windows-vm-using-azure-virtual-machine-repair-commands.md#repair-process-example) pour réassembler la machine virtuelle.
 
 Si le problème est résolu, cela signifie que la stratégie est désormais désactivée localement. Pour une solution permanente, n’utilisez pas la stratégie CleanupProfiles sur les machines virtuelles. Utilisez une autre méthode pour effectuer les nettoyages des profils.
 
@@ -150,4 +150,4 @@ N’utilisez pas cette stratégie :
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Si vous rencontrez des problèmes lorsque vous appliquez une mise à jour Windows, consultez [La machine virtuelle ne répond pas (erreur « C01A001D ») lors de l’application de la mise à jour Windows](https://docs.microsoft.com/azure/virtual-machines/troubleshooting/unresponsive-vm-apply-windows-update).
+Si vous rencontrez des problèmes lorsque vous appliquez une mise à jour Windows, consultez [La machine virtuelle ne répond pas (erreur « C01A001D ») lors de l’application de la mise à jour Windows](./unresponsive-vm-apply-windows-update.md).

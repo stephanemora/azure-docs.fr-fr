@@ -6,15 +6,15 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 03/04/2019
-ms.openlocfilehash: 63d8d8d3701a9adca4bd01e6e061877f5d0bd245
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 540e824f301c402e1f65f6186b26ad1672e21d37
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80333355"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86539344"
 ---
 # <a name="log-analytics-data-security"></a>Sécurité des données Log Analytics
-Ce document est destiné à fournir des informations propres à Log Analytics, qui est une fonctionnalité d’Azure Monitor, en complément des informations disponibles sur le [Centre de confidentialité Azure](../../security/fundamentals/trust-center.md).  
+Ce document est destiné à fournir des informations propres à Log Analytics, qui est une fonctionnalité d’Azure Monitor, en complément des informations disponibles sur le [Centre de confidentialité Azure](https://www.microsoft.com/en-us/trust-center?rtc=1).  
 
 Cet article décrit les procédures de collecte, de traitement et de sécurisation des données par Log Analytics. Vous pouvez utiliser des agents pour la connexion au service web, utiliser System Center Operations Manager pour collecter des données opérationnelles ou récupérer des données à partir des diagnostics Azure pour une utilisation par Log Analytics. 
 
@@ -42,9 +42,9 @@ Nous ne recommandons pas de configurer explicitement votre agent de façon à ce
 |Plateforme/Langage | Support | Informations complémentaires |
 | --- | --- | --- |
 |Linux | Les distributions de Linux s’appuient généralement sur [OpenSSL](https://www.openssl.org) pour la prise en charge de TLS 1.2.  | Vérifiez [OpenSSL Changelog](https://www.openssl.org/news/changelog.html) pour vous assurer que votre version d’OpenSSL est prise en charge.|
-| Windows 8.0 - 10 | Pris en charge, activé par défaut. | Pour confirmer que vous utilisez toujours les [paramètres par défaut](https://docs.microsoft.com/windows-server/security/tls/tls-registry-settings).  |
-| Windows Server 2012 - 2016 | Pris en charge, activé par défaut. | Pour confirmer que vous utilisez toujours les [paramètres par défaut](https://docs.microsoft.com/windows-server/security/tls/tls-registry-settings) |
-| Windows 7 SP1 et Windows Server 2008 R2 SP1 | Pris en charge, mais non activé par défaut. | Consultez la page [Paramètres de Registre de TLS](https://docs.microsoft.com/windows-server/security/tls/tls-registry-settings) pour plus d’informations sur l’activation.  |
+| Windows 8.0 - 10 | Pris en charge, activé par défaut. | Pour confirmer que vous utilisez toujours les [paramètres par défaut](/windows-server/security/tls/tls-registry-settings).  |
+| Windows Server 2012 - 2016 | Pris en charge, activé par défaut. | Pour confirmer que vous utilisez toujours les [paramètres par défaut](/windows-server/security/tls/tls-registry-settings) |
+| Windows 7 SP1 et Windows Server 2008 R2 SP1 | Pris en charge, mais non activé par défaut. | Consultez la page [Paramètres de Registre de TLS](/windows-server/security/tls/tls-registry-settings) pour plus d’informations sur l’activation.  |
 
 ## <a name="data-segregation"></a>Ségrégation des données
 Une fois que vos données ont été ingérées par le service Log Analytics, elles sont séparées logiquement sur chaque composant dans l’ensemble du service. Toutes les données sont balisées en fonction de l’espace de travail. Ce balisage est conservé tout au long du cycle de vie des données, et il est appliqué dans chaque couche du service. Vos données sont stockées dans une base de données dédiée dans le cluster de stockage de la région que vous avez sélectionnée.
@@ -175,4 +175,3 @@ Pour accéder à votre espace de travail Log Analytics, vous vous connectez au p
 * Découvrez comment collecter des données avec Log Analytics pour vos machines virtuelles Azure en suivant les instructions de l’article de [démarrage rapide concernant Azure Virtual Machines](../../azure-monitor/learn/quick-collect-azurevm.md).  
 
 *  Si vous souhaitez collecter des données à partir d’ordinateurs physiques ou virtuels Windows ou Linux de votre environnement, consultez l’article de [démarrage rapide pour les ordinateurs Linux](../../azure-monitor/learn/quick-collect-linux-computer.md) ou de [démarrage rapide pour les ordinateurs Windows](../../azure-monitor/learn/quick-collect-windows-computer.md).
-

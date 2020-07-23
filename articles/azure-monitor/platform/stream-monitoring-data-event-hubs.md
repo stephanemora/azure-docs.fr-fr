@@ -7,15 +7,15 @@ ms.topic: conceptual
 ms.date: 11/15/2019
 ms.author: bwren
 ms.subservice: ''
-ms.openlocfilehash: 915df5d6356e2246c8937cb167c8068b00e0917b
-ms.sourcegitcommit: c535228f0b77eb7592697556b23c4e436ec29f96
+ms.openlocfilehash: 8bfec756c365c451a4e2b8236814454980d1d563
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/06/2020
-ms.locfileid: "82854626"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86539310"
 ---
 # <a name="stream-azure-monitoring-data-to-an-event-hub"></a>Envoyer en streaming des données de supervision Azure vers un hub d’événements
-Azure Monitor fournit une solution de supervision de pile complète pour les applications et services dans Azure, dans d’autres clouds et en local. En plus d’utiliser Azure Monitor pour analyser ces données et en tirer parti dans différents scénarios de supervision, vous aurez peut-être besoin de les envoyer à d’autres outils de supervision de votre environnement. Dans la plupart des cas, la méthode la plus efficace de streaming des données de supervision vers des outils externes consiste à utiliser [Azure Event Hubs](/azure/event-hubs/). Cet article fournit une brève description de la façon dont vous pouvez envoyer en streaming des données de supervision à partir de différentes sources vers un hub d’événements, ainsi que des liens vers des instructions détaillées.
+Azure Monitor fournit une solution de supervision de pile complète pour les applications et services dans Azure, dans d’autres clouds et en local. En plus d’utiliser Azure Monitor pour analyser ces données et en tirer parti dans différents scénarios de supervision, vous aurez peut-être besoin de les envoyer à d’autres outils de supervision de votre environnement. Dans la plupart des cas, la méthode la plus efficace de streaming des données de supervision vers des outils externes consiste à utiliser [Azure Event Hubs](../../event-hubs/index.yml). Cet article fournit une brève description de la façon dont vous pouvez envoyer en streaming des données de supervision à partir de différentes sources vers un hub d’événements, ainsi que des liens vers des instructions détaillées.
 
 
 ## <a name="create-an-event-hubs-namespace"></a>Créer un espace de noms Event Hubs
@@ -35,8 +35,8 @@ Avant de configurer le streaming pour une source de données, vous avez besoin d
 | Niveau | Données | Méthode |
 |:---|:---|:---|
 | [Locataire Azure](data-sources.md#azure-tenant) | Journaux d’audit Azure Active Directory | Configurez un paramètre de diagnostic de locataire sur votre locataire AAD. Consultez [Tutoriel : Streaming des journaux Azure Active Directory vers un hub d’événements Azure](../../active-directory/reports-monitoring/tutorial-azure-monitor-stream-logs-to-event-hub.md) pour plus d’informations. |
-| [Abonnement Azure](data-sources.md#azure-subscription) | Journaux d’activité | Créez un profil de journal pour exporter les événements du journal d’activité vers Event Hubs.  Pour plus d’informations, consultez [Diffuser en continu les journaux de la plateforme Azure sur Azure Event Hubs](resource-logs-stream-event-hubs.md). |
-| [Ressources Azure](data-sources.md#azure-resources) | Métriques de plateforme<br> Journaux d’activité de ressources |Ces deux types de données sont envoyés à un hub d’événements à l’aide d’un paramètre de diagnostic des ressources. Consultez [Streaming des journaux de ressources Azure vers un hub d’événements](resource-logs-stream-event-hubs.md) pour plus d’informations. |
+| [Abonnement Azure](data-sources.md#azure-subscription) | Journaux d’activité | Créez un profil de journal pour exporter les événements du journal d’activité vers Event Hubs.  Pour plus d’informations, consultez [Diffuser en continu les journaux de la plateforme Azure sur Azure Event Hubs](./resource-logs.md#send-to-azure-event-hubs). |
+| [Ressources Azure](data-sources.md#azure-resources) | Métriques de plateforme<br> Journaux d’activité de ressources |Ces deux types de données sont envoyés à un hub d’événements à l’aide d’un paramètre de diagnostic des ressources. Consultez [Streaming des journaux de ressources Azure vers un hub d’événements](./resource-logs.md#send-to-azure-event-hubs) pour plus d’informations. |
 | [Système d’exploitation (invité)](data-sources.md#operating-system-guest) | Machines virtuelles Azure | Installez l’[extension Diagnostics Azure](diagnostics-extension-overview.md) sur les machines virtuelles Windows et Linux dans Azure. Consultez [Streaming des données Diagnostics Azure dans le chemin chaud à l’aide d’Event Hubs](diagnostics-extension-stream-event-hubs.md) pour plus d’informations sur les machines virtuelles Windows et [Utiliser l’extension Diagnostics Linux pour superviser des métriques et des journaux](../../virtual-machines/extensions/diagnostics-linux.md#protected-settings) pour plus d’informations sur les machines virtuelles Linux. |
 | [Code d’application](data-sources.md#application-code) | Application Insights | Application Insights ne fournit pas de méthode directe pour envoyer en streaming des données vers des hubs d’événements. Vous pouvez [configurer l’exportation continue](../../azure-monitor/app/export-telemetry.md) des données Application Insights vers un compte de stockage, puis utiliser une application logique pour envoyer les données à un hub d’événements comme décrit dans [Streaming manuel avec une application logique](#manual-streaming-with-logic-app). |
 
@@ -56,12 +56,10 @@ Le routage de vos données de supervision vers un hub d’événements avec Azur
 | ArcSight | Non | Le connecteur intelligent ArcSight Azure Event Hub est disponible dans la [collection de connecteurs intelligents ArcSight](https://community.softwaregrp.com/t5/Discussions/Announcing-General-Availability-of-ArcSight-Smart-Connectors-7/m-p/1671852). |
 | Serveur syslog | Non | Si vous voulez envoyer en streaming des données Azure Monitor directement vers un serveur syslog, vous pouvez utiliser une [solution basée sur une fonction Azure](https://github.com/miguelangelopereira/azuremonitor2syslog/).
 | LogRhythm | Non| Les instructions permettant de configurer LogRhythm pour collecter les journaux à partir d’un Event Hub sont disponibles [ici](https://logrhythm.com/six-tips-for-securing-your-azure-cloud-environment/). 
-|Logz.io | Oui | Pour plus d’informations, consultez [Bien démarrer avec la supervision et la journalisation en utilisant Logz.io pour les applications Java exécutées sur Azure](https://docs.microsoft.com/azure/developer/java/fundamentals/java-get-started-with-logzio).
+|Logz.io | Oui | Pour plus d’informations, consultez [Bien démarrer avec la supervision et la journalisation en utilisant Logz.io pour les applications Java exécutées sur Azure](/azure/developer/java/fundamentals/java-get-started-with-logzio).
 
 
 ## <a name="next-steps"></a>Étapes suivantes
-* [Archiver le journal d’activité dans un compte de stockage](../../azure-monitor/platform/archive-activity-log.md)
+* [Archiver le journal d’activité dans un compte de stockage](./activity-log.md#legacy-collection-methods)
 * [Lire la présentation du journal d’activité Azure](../../azure-monitor/platform/platform-logs-overview.md)
 * [Définir une alerte basée sur un événement de journal d’activité](../../azure-monitor/platform/alerts-log-webhook.md)
-
-

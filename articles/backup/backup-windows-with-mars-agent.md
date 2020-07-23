@@ -3,12 +3,12 @@ title: Sauvegarder des ordinateurs Windows en utilisant l’agent MARS
 description: Utilisez l’agent Microsoft Azure Recovery Services (MARS) pour sauvegarder des ordinateurs Windows.
 ms.topic: conceptual
 ms.date: 03/03/2020
-ms.openlocfilehash: 4f0e605185be6db8629144e05f5f39309a3831ec
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 34fa0906ec63eb51d37c192f9dadddc57dbf1cdf
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85604843"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86538630"
 ---
 # <a name="back-up-windows-server-files-and-folders-to-azure"></a>Sauvegarder les fichiers et dossiers de Windows Server sur Azure
 
@@ -104,7 +104,7 @@ Pour effectuer un transfert en mode hors connexion :
 1. Écrivez les données de sauvegarde dans un emplacement intermédiaire.
 1. Utilisez l’outil AzureOfflineBackupDiskPrep pour copier les données de l’emplacement intermédiaire sur un ou plusieurs disques SATA.
 
-    L’outil crée une tâche d’importation Azure. Pour plus d’informations, consultez [Qu’est-ce que le service Azure Import/Export](https://docs.microsoft.com/azure/storage/common/storage-import-export-service).
+    L’outil crée une tâche d’importation Azure. Pour plus d’informations, consultez [Qu’est-ce que le service Azure Import/Export](../storage/common/storage-import-export-service.md).
 1. Envoyez les disques SATA à un centre de données Azure.
 
     Dans le centre de données, les données de disque sont copiées vers un compte de stockage Azure. Sauvegarde Azure copie les données de sauvegarde à partir du compte de stockage vers le coffre, et des sauvegardes incrémentielles sont planifiées.
@@ -115,7 +115,7 @@ Pour plus d'informations sur l’amorçage hors connexion, consultez [Utiliser A
 
 Vous pouvez contrôler la façon dont l’agent MARS utilise la bande passante réseau en activant la limitation de bande passante. Cette limitation s’avère utile si vous avez besoin de sauvegarder des données pendant les heures de travail, mais que vous souhaitez contrôler la quantité de bande passante utilisée par l’activité de sauvegarde et de restauration.
 
-La fonctionnalité de limitation de bande passante de Sauvegarde Azure utilise la [Qualité de service (QoS)](https://docs.microsoft.com/windows-server/networking/technologies/qos/qos-policy-top) sur le système d’exploitation local.
+La fonctionnalité de limitation de bande passante de Sauvegarde Azure utilise la [Qualité de service (QoS)](/windows-server/networking/technologies/qos/qos-policy-top) sur le système d’exploitation local.
 
 La limitation de bande passante pour les sauvegardes est disponible sur Windows Server version 2012 et ultérieures et sur Windows version 8 et ultérieures. Les systèmes d’exploitation doivent exécuter les derniers Service Packs.
 

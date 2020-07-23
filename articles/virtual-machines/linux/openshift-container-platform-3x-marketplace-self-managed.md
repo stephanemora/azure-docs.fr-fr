@@ -10,16 +10,16 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 10/14/2019
 ms.author: haroldw
-ms.openlocfilehash: 1cf6c7417aa86d47e59e08786e7807e32c175a25
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 08d32e4b7806ec53f48389b127ab34371271cf07
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "81759576"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86527232"
 ---
 # <a name="configure-prerequisites"></a>Configuration préalable requise
 
-Avant d’utiliser l’offre de la Place de marché pour déployer un cluster OpenShift Container Platform 3.11 autogéré dans Azure, vous devez configurer certaines conditions préalables.  Consultez l’article [Conditions préalables de OpenShift](https://docs.microsoft.com/azure/virtual-machines/linux/openshift-container-platform-3x-prerequisites) pour obtenir des instructions sur la création d’une clé SSH (sans phrase secrète), d’un coffre de clés Azure, d’un secret de coffre de clés et d’un principal de service.
+Avant d’utiliser l’offre de la Place de marché pour déployer un cluster OpenShift Container Platform 3.11 autogéré dans Azure, vous devez configurer certaines conditions préalables.  Consultez l’article [Conditions préalables de OpenShift](./openshift-container-platform-3x-prerequisites.md) pour obtenir des instructions sur la création d’une clé SSH (sans phrase secrète), d’un coffre de clés Azure, d’un secret de coffre de clés et d’un principal de service.
 
  
 ## <a name="deploy-using-the-marketplace-offer"></a>Déployer à l’aide de l’offre Place de marché

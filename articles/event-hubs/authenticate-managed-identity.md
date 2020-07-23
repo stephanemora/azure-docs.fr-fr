@@ -3,12 +3,12 @@ title: Authentification d’une identité managée avec Azure Active Directory
 description: Cet article fournit des informations sur l’authentification d’une identité managée avec Azure Active Directory pour accéder aux ressources Azure Event Hubs.
 ms.topic: conceptual
 ms.date: 06/23/2020
-ms.openlocfilehash: 4e9bfb9c4649732ac5afc80dfb0a522ff9f333be
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 4e3460fa4fc3807cda23d6e3835a9f0b843eb36d
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85318094"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86537273"
 ---
 # <a name="authenticate-a-managed-identity-with-azure-active-directory-to-access-event-hubs-resources"></a>Authentifier une identité managée avec Azure Active Directory pour accéder aux ressources Event Hubs
 Azure Event Hubs prend en charge l’authentification Azure Active Directory (Azure AD) avec des [identités managées pour ressources Azure](../active-directory/managed-identities-azure-resources/overview.md). Les identités managées pour ressources Azure peuvent autoriser l’accès à des ressources Event Hubs en utilisant les informations d’identification Azure AD d’applications s’exécutant dans des machines virtuelles Azure, des applications de fonction, le service Virtual Machine Scale Sets et d’autres services. En utilisant des identités managées pour ressources Azure et Azure AD Authentication, vous pouvez éviter de stocker des informations d’identification avec les applications qui s’exécutent dans le cloud.
@@ -18,7 +18,7 @@ Cet article montre comment autoriser l’accès à un hub d’événements en ut
 ## <a name="enable-managed-identities-on-a-vm"></a>Activer les identités managées sur une machine virtuelle
 Avant de pouvoir utiliser les identités managées pour ressources Azure en vue d’autoriser l’accès aux ressources Event Hubs à partir de votre machine virtuelle, vous devez les activer sur la machine virtuelle. Pour savoir comment activer des identités managées pour ressources Azure, consultez un de ces articles :
 
-- [Azure portal](../active-directory/managed-service-identity/qs-configure-portal-windows-vm.md)
+- [Azure portal](../active-directory/managed-identities-azure-resources/qs-configure-portal-windows-vm.md)
 - [Azure PowerShell](../active-directory/managed-identities-azure-resources/qs-configure-powershell-windows-vm.md)
 - [Azure CLI](../active-directory/managed-identities-azure-resources/qs-configure-cli-windows-vm.md)
 - [Modèle Azure Resource Manager](../active-directory/managed-identities-azure-resources/qs-configure-template-windows-vm.md)

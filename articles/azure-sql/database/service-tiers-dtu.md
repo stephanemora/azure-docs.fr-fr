@@ -11,12 +11,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: carlrab
 ms.date: 11/26/2019
-ms.openlocfilehash: 1922e92f9314e48ae4e3106a53cf750da5daf5e1
-ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
+ms.openlocfilehash: 7ca106e076bc789e8435b9e67d6bffa20af8a635
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "84037950"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86539174"
 ---
 # <a name="service-tiers-in-the-dtu-based-purchase-model"></a>Niveaux de service du modèle d’achat DTU
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -59,7 +59,7 @@ Le choix d’un niveau de service dépend principalement des exigences de contin
 
 Les tailles de calcul sont exprimées en unités de transaction de base de données (DTU) pour les bases de données uniques, et en unités de transaction de base de données élastique (eDTU) pour les pools élastiques. Pour plus d’informations sur les DTU et les eDTU, consultez [Modèle d’achat DTU](purchasing-models.md#dtu-based-purchasing-model).
 
-||De base|Standard|Premium|
+|De base|Standard|Premium|
 | :-- | --: | --: | --: |
 | Taille de stockage maximale | 2 Go | 1 To | 4 To  |
 | DTU maximales | 5 | 3000 | 4000 | 
@@ -70,7 +70,7 @@ Les tailles de calcul sont exprimées en unités de transaction de base de donn�
 
 ## <a name="elastic-pool-edtu-storage-and-pooled-database-limits"></a>eDTU de pool élastique, stockage et limites de base de données mise en pool
 
-| | **De base** | **Standard** | **Premium** |
+| **De base** | **Standard** | **Premium** |
 | :-- | --: | --: | --: |
 | Taille de stockage maximale par base de données  | 2 Go | 1 To | 1 To |
 | Taille de stockage maximale par pool | 156 Go | 4 To | 4 To |

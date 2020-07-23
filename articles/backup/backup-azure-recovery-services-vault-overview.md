@@ -3,12 +3,12 @@ title: Vue d’ensemble des coffres Recovery Services
 description: Vue d’ensemble et comparaison entre les coffres Recovery Services et les coffres de sauvegarde Azure.
 ms.topic: conceptual
 ms.date: 08/10/2018
-ms.openlocfilehash: 798f49629ad1012e8cc9ac3ed43f5beddd6eefeb
-ms.sourcegitcommit: 8017209cc9d8a825cc404df852c8dc02f74d584b
+ms.openlocfilehash: 11a218badfab141c41430c3f48a5e930bfa1af8b
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/01/2020
-ms.locfileid: "84248904"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86539038"
 ---
 # <a name="recovery-services-vaults-overview"></a>Vue d’ensemble des coffres Recovery Services
 
@@ -36,9 +36,9 @@ Les coffres Recovery Services sont basés sur le modèle Azure Resource Manager 
 
 Un coffre Recovery Services est une entité qui stocke les sauvegardes et les points de récupération créés au fil du temps. Le coffre Recovery Services contient également les stratégies de sauvegarde associées aux machines virtuelles protégées.
 
-La Sauvegarde Azure gère automatiquement le stockage du coffre. Découvrez comment les [paramètres de stockage peuvent être modifiés](https://docs.microsoft.com/azure/backup/backup-create-rs-vault#set-storage-redundancy).
+La Sauvegarde Azure gère automatiquement le stockage du coffre. Découvrez comment les [paramètres de stockage peuvent être modifiés](./backup-create-rs-vault.md#set-storage-redundancy).
 
-Pour en savoir plus sur la redondance du stockage, consultez les articles suivants sur la redondance [géographique](https://docs.microsoft.com/azure/storage/common/storage-redundancy-grs) et la redondance [locale](https://docs.microsoft.com/azure/storage/common/storage-redundancy-lrs).
+Pour en savoir plus sur la redondance du stockage, consultez les articles suivants sur la redondance [géographique](../storage/common/storage-redundancy.md) et la redondance [locale](../storage/common/storage-redundancy.md).
 
 ## <a name="managing-your-recovery-services-vaults-in-the-portal"></a>Gestion des coffres Recovery Services dans le portail
 
@@ -62,7 +62,7 @@ Les sections suivantes contiennent des liens vers des articles qui expliquent co
 ### <a name="back-up-data"></a>Sauvegarder des données
 
 - [Sauvegarder une machine virtuelle Azure](backup-azure-vms-first-look-arm.md)
-- [Sauvegarder des stations de travail Windows Server ou Windows](backup-try-azure-backup-in-10-mins.md)
+- [Sauvegarder des stations de travail Windows Server ou Windows](./backup-windows-with-mars-agent.md)
 - [Sauvegarder des charges de travail DPM sur Azure](backup-azure-dpm-introduction.md)
 - [Préparer la sauvegarde des charges de travail à l’aide du serveur de sauvegarde Azure](backup-azure-microsoft-azure-backup.md)
 
@@ -82,9 +82,9 @@ Les sections suivantes contiennent des liens vers des articles qui expliquent co
 
 ## <a name="azure-advisor"></a>Azure Advisor
 
-[Azure Advisor](https://docs.microsoft.com/azure/advisor/) est un consultant cloud personnalisé qui permet d’optimiser l’utilisation d’Azure. Il analyse votre utilisation d’Azure et fournit des recommandations en temps utile pour vous permettre d’optimiser et de sécuriser vos déploiements. Les recommandations sont divisées en quatre catégories : Haute disponibilité, sécurité, performances et coût.
+[Azure Advisor](../advisor/index.yml) est un consultant cloud personnalisé qui permet d’optimiser l’utilisation d’Azure. Il analyse votre utilisation d’Azure et fournit des recommandations en temps utile pour vous permettre d’optimiser et de sécuriser vos déploiements. Les recommandations sont divisées en quatre catégories : Haute disponibilité, sécurité, performances et coût.
 
-Azure Advisor fournit des [recommandations](https://docs.microsoft.com/azure/advisor/advisor-high-availability-recommendations#protect-your-virtual-machine-data-from-accidental-deletion) toutes les heures pour les machines virtuelles qui ne sont pas sauvegardées. Ainsi, vous ne risquez pas d’oublier de sauvegarder des machines virtuelles importantes. Vous pouvez également contrôler les recommandations en les répétant.  Vous pouvez cliquer sur la recommandation et activer la sauvegarde sur les machines virtuelles en ligne en spécifiant le coffre (où les sauvegardes vont être stockées) et la stratégie de sauvegarde (planification des sauvegardes et conservation des copies de sauvegarde).
+Azure Advisor fournit des [recommandations](../advisor/advisor-high-availability-recommendations.md#protect-your-virtual-machine-data-from-accidental-deletion) toutes les heures pour les machines virtuelles qui ne sont pas sauvegardées. Ainsi, vous ne risquez pas d’oublier de sauvegarder des machines virtuelles importantes. Vous pouvez également contrôler les recommandations en les répétant.  Vous pouvez cliquer sur la recommandation et activer la sauvegarde sur les machines virtuelles en ligne en spécifiant le coffre (où les sauvegardes vont être stockées) et la stratégie de sauvegarde (planification des sauvegardes et conservation des copies de sauvegarde).
 
 ![Azure Advisor](./media/backup-azure-recovery-services-vault-overview/azure-advisor.png)
 

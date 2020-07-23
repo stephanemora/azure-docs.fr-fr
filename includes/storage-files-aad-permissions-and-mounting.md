@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 04/11/2019
 ms.author: rogara
 ms.custom: include file
-ms.openlocfilehash: 5fc106bfd97e8decd47ac7d43383907dcbbbda9c
-ms.sourcegitcommit: e0330ef620103256d39ca1426f09dd5bb39cd075
+ms.openlocfilehash: e1cc3bac56e659b9a020880a26fd3d539f987503
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/05/2020
-ms.locfileid: "82792975"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86544825"
 ---
 ## <a name="2-assign-access-permissions-to-an-identity"></a>2\. Assigner des autorisations d’accès à une identité
 
@@ -92,7 +92,16 @@ Les ensembles d’autorisations suivants sont pris en charge dans le répertoire
 Utilisez la commande Windows **net use** pour monter le partage de fichiers Azure. N’oubliez pas de remplacer les valeurs d’espace réservé dans l’exemple suivant par vos propres valeurs. Pour plus d’informations sur le montage de partages de fichiers, consultez [Utilisation d’un partage de fichiers Azure avec Windows](../articles/storage/files/storage-how-to-use-files-windows.md). 
 
 ```
-net use <desired-drive-letter>: \\<storage-account-name>.file.core.windows.net\<share-name> /user:Azure\<storage-account-name> <storage-account-key>
+$connectTestResult = Test-NetConnection -ComputerName <storage-account-name>.file.core.windows.net -Port 445
+if ($connectTestResult.TcpTestSucceeded)
+{
+ net use <desired-drive letter>: \\<storage-account-name>.file.core.windows.net\<fileshare-name>
+} 
+else 
+{
+ Write-Error -Message "Unable to reach the Azure storage account via port 445. Check to make sure your organization or ISP is not blocking port 445, or use Azure P2S VPN, Azure S2S VPN, or Express Route to tunnel SMB traffic over a different port."
+}
+
 ```
 
 Si vous rencontrez des problèmes lors de la connexion à Azure Files, consultez [l’outil de dépannage que nous avons publié pour les erreurs de montage Azure Files sur Windows](https://gallery.technet.microsoft.com/Troubleshooting-tool-for-a9fa1fe5). Nous fournissons également des [conseils](https://docs.microsoft.com/azure/storage/files/storage-files-faq#on-premises-access) pour contourner des situations où le port 445 est bloqué. 
@@ -130,5 +139,13 @@ Connectez-vous à la machine virtuelle à l’aide de l’identité Azure AD à 
 Utilisez la commande suivante pour monter le partage de fichiers Azure. N’oubliez pas de remplacer les valeurs d’espace réservé par vos propres valeurs. Comme vous avez déjà effectué une authentification, vous n’avez pas besoin de fournir la clé de compte de stockage ni les informations d’identification AD DS locales ou Azure AD DS. L’expérience d’authentification unique est prise en charge pour l’authentification avec l’instance AD DS locale ou avec Azure AD DS. Si vous rencontrez des problèmes lors du montage avec les informations d’identification AD DS, consultez [Résoudre les problèmes liés à Azure Files sous Windows](https://docs.microsoft.com/azure/storage/files/storage-troubleshoot-windows-file-connection-problems) pour obtenir de l’aide.
 
 ```
-net use <desired-drive-letter>: \\<storage-account-name>.file.core.windows.net\<share-name>
+$connectTestResult = Test-NetConnection -ComputerName <storage-account-name>.file.core.windows.net -Port 445
+if ($connectTestResult.TcpTestSucceeded)
+{
+ net use <desired-drive letter>: \\<storage-account-name>.file.core.windows.net\<fileshare-name>
+} 
+else 
+{
+ Write-Error -Message "Unable to reach the Azure storage account via port 445. Check to make sure your organization or ISP is not blocking port 445, or use Azure P2S VPN, Azure S2S VPN, or Express Route to tunnel SMB traffic over a different port."
+}
 ```

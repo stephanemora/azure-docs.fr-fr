@@ -6,12 +6,12 @@ ms.suite: integration
 ms.reviewer: divswa, logicappspm
 ms.topic: article
 ms.date: 05/04/2020
-ms.openlocfilehash: c2a609266a77293a0e3a5cb9c973a6eb3f7f72a9
-ms.sourcegitcommit: 4499035f03e7a8fb40f5cff616eb01753b986278
+ms.openlocfilehash: 69d018db26a42c331ff41d242eae54d6fcc43990
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/03/2020
-ms.locfileid: "82732000"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86536248"
 ---
 # <a name="monitor-run-status-review-trigger-history-and-set-up-alerts-for-azure-logic-apps"></a>Surveiller l’état d’exécution, examiner l’historique du déclencheur et configurer des alertes pour Azure Logic Apps
 
@@ -71,7 +71,7 @@ Chaque fois que le déclencheur est activé pour un élément ou un événement,
 
    ![Examiner les détails de chaque étape de l’exécution](./media/monitor-logic-apps/review-logic-app-run-details.png)
 
-   Par exemple, vous pouvez obtenir la propriété **ID de corrélation** de l’exécution, dont vous pouvez avoir besoin lorsque vous utilisez l’[API REST pour Logic Apps](https://docs.microsoft.com/rest/api/logic).
+   Par exemple, vous pouvez obtenir la propriété **ID de corrélation** de l’exécution, dont vous pouvez avoir besoin lorsque vous utilisez l’[API REST pour Logic Apps](/rest/api/logic).
 
 1. Pour obtenir plus d’informations sur une étape spécifique, sélectionnez l’une des options suivantes :
 
@@ -138,7 +138,7 @@ Chaque exécution d’application logique démarre avec un déclencheur. L’his
 
 ## <a name="set-up-monitoring-alerts"></a>Configurer des alertes de surveillance
 
-Pour recevoir des alertes basées sur des métriques spécifiques ou des dépassements de seuils de votre application logique, configurez des [alertes dans Azure Monitor](../azure-monitor/platform/alerts-overview.md). En savoir plus sur les [métriques dans Azure](../monitoring-and-diagnostics/monitoring-overview-metrics.md). Pour configurer des alertes sans utiliser [Azure Monitor](../log-analytics/log-analytics-overview.md), procédez comme suit.
+Pour recevoir des alertes basées sur des métriques spécifiques ou des dépassements de seuils de votre application logique, configurez des [alertes dans Azure Monitor](../azure-monitor/platform/alerts-overview.md). En savoir plus sur les [métriques dans Azure](../azure-monitor/platform/data-platform.md). Pour configurer des alertes sans utiliser [Azure Monitor](../azure-monitor/log-query/log-query-overview.md), procédez comme suit.
 
 1. Dans le menu de votre application logique, sous **Surveillance**, sélectionnez **Alertes** > **Nouvelle règle d’alerte**.
 

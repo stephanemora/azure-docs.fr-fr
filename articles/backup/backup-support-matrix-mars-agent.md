@@ -3,12 +3,12 @@ title: Matrice de prise en charge pour l’agent MARS
 description: Cet article décrit la prise en charge de Sauvegarde Azure quand vous sauvegardez des machines qui exécutent l’agent MARS (Microsoft Azure Recovery Services).
 ms.date: 08/30/2019
 ms.topic: conceptual
-ms.openlocfilehash: 6085bc647c06b5907282460a2d8706b8549e1bc2
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 5ff9510dfa31bb947d50b1a91fb7f73c2d767471
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84709876"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86538647"
 ---
 # <a name="support-matrix-for-backup-with-the-microsoft-azure-recovery-services-mars-agent"></a>Tableau de prise en charge de la sauvegarde avec l’agent MARS (Microsoft Azure Recovery Services)
 
@@ -30,7 +30,7 @@ Vos options de sauvegarde varient en fonction de l’agent installé. Pour plus 
 **Installation** | **Détails**
 --- | ---
 Télécharger le dernier agent MARS | Vous pouvez télécharger la dernière version de l’agent à partir du coffre ou [le télécharger directement](https://aka.ms/azurebackup_agent).
-Installer directement sur une machine | Vous pouvez installer l’agent MARS directement sur un serveur Windows local ou sur une machine virtuelle Azure qui exécutent un des [systèmes d’exploitation pris en charge](https://docs.microsoft.com/azure/backup/backup-support-matrix-mabs-dpm#supported-mabs-and-dpm-operating-systems).
+Installer directement sur une machine | Vous pouvez installer l’agent MARS directement sur un serveur Windows local ou sur une machine virtuelle Azure qui exécutent un des [systèmes d’exploitation pris en charge](./backup-support-matrix-mabs-dpm.md#supported-mabs-and-dpm-operating-systems).
 Installer sur un serveur de sauvegarde | Quand vous configurez DPM ou MABS pour la sauvegarde sur Azure, vous téléchargez et installez l’agent MARS sur le serveur. Vous pouvez installer l’agent peut être installé sur les [systèmes d’exploitation pris en charge](backup-support-matrix-mabs-dpm.md#supported-mabs-and-dpm-operating-systems) listés dans le tableau de prise en charge des serveurs de sauvegarde.
 
 > [!NOTE]
@@ -85,7 +85,7 @@ Avec le Peering Microsoft, sélectionnez les services/régions suivants et les v
 - Région Microsoft Azure (en fonction de l’emplacement de votre coffre Recovery Services)
 - Stockage Azure (en fonction de l’emplacement de votre coffre Recovery Services)
 
-Pour plus d’informations, consultez [Exigences du routage ExpressRoute](https://docs.microsoft.com/azure/expressroute/expressroute-routing).
+Pour plus d’informations, consultez [Exigences du routage ExpressRoute](../expressroute/expressroute-routing.md).
 
 >[!NOTE]
 >Le peering public Azure est déconseillé pour les nouveaux circuits.
@@ -128,7 +128,7 @@ Les systèmes d’exploitation suivants sont en fin de support et il est vivemen
 
 Si des engagements existants empêchent leur mise à niveau, procédez à la migration des serveurs Windows vers des machines virtuelles Azure et tirez parti des sauvegardes de machine virtuelle Azure pour rester protégé. Pour plus d’informations sur la migration de votre serveur Windows, consultez la [page de migration ici](https://azure.microsoft.com/migration/windows-server/).
 
-Pour les environnements locaux ou hébergés où il n’est pas possible de mettre à niveau le système d’exploitation ou de migrer vers Azure, activez les correctifs de sécurité étendus pour les machines de façon à rester protégé et à continuer de bénéficier du support. Notez que seules certaines éditions sont éligibles aux correctifs de sécurité étendus. Pour en savoir plus, consultez la [page des questions fréquentes (FAQ)](https://www.microsoft.com/cloud-platform/extended-security-updates).
+Pour les environnements locaux ou hébergés où il n’est pas possible de mettre à niveau le système d’exploitation ou de migrer vers Azure, activez les correctifs de sécurité étendus pour les machines de façon à rester protégé et à continuer de bénéficier du support. Notez que seules certaines éditions sont éligibles aux correctifs de sécurité étendus. Pour en savoir plus, consultez la [page des questions fréquentes (FAQ)](https://www.microsoft.com/windows-server/extended-security-updates).
 
 | **Système d’exploitation**                                       | **Fichiers/dossiers** | **État du système** | **Configuration requise des logiciels et modules**                           |
 | ------------------------------------------------------------ | ----------------- | ------------------ | ------------------------------------------------------------ |

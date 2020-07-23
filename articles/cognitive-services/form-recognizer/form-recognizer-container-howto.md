@@ -7,23 +7,22 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: forms-recognizer
 ms.topic: conceptual
-ms.date: 06/24/2020
+ms.date: 07/14/2020
 ms.author: aahi
-ms.openlocfilehash: a014628a9664e33aa855cc4fbf40979236d765f9
-ms.sourcegitcommit: f98ab5af0fa17a9bba575286c588af36ff075615
+ms.openlocfilehash: 6190653934dede1fa042beca8dbd2d7c06f43cfc
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/25/2020
-ms.locfileid: "85355605"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86538018"
 ---
 # <a name="install-and-run-form-recognizer-containers-preview"></a>Installer et exécuter des conteneurs Form Recognizer (préversion)
+
+[!INCLUDE [Form Recognizer containers limit](includes/container-limit.md)]
 
 Le service Azure Form Recognizer utilise la technologie Machine Learning pour identifier et extraire des tables et des paires clé-valeur à partir de formulaires. Il associe à celles-ci des valeurs et des entrées de table, puis génère des données structurées qui incluent les relations dans le fichier d’origine. 
 
 Pour réduire la complexité et intégrer facilement un modèle Form Recognizer personnalisé dans votre processus d’automatisation de flux de travail ou une autre application, vous pouvez appeler le modèle à l’aide d’une simple API REST. Seuls cinq formulaires (ou un formulaire vide et deux formulaires complétés) sont nécessaires pour obtenir des résultats rapides, précis et adaptés à votre contenu. Cela ne nécessite pas d’intervention manuelle et aucune expertise en science des données n’est requise. Cela ne nécessite pas davantage d’étiquetage ou d’annotation de données.
-
-> [!IMPORTANT]
-> Les conteneurs Form Recognizer utilisent actuellement la version 1.0 de l’API Form Recognizer. Vous pouvez accéder à la dernière version de l’API en utilisant le service managé à la place.
 
 | Fonction | Fonctionnalités |
 |----------|----------|
@@ -64,14 +63,6 @@ Cette clé est utilisée pour démarrer le conteneur et est disponible sur la pa
 
 > [!IMPORTANT]
 > Ces clés d’abonnement sont utilisées pour accéder à votre API Cognitive Service. Ne partagez pas vos clés. Stockez-les en toute sécurité, par exemple, à l’aide de Azure Key Vault. Nous vous recommandons également de régénérer ces clés régulièrement. Une seule clé est nécessaire pour effectuer un appel d’API. Lors de la régénération de la première clé, vous pouvez utiliser la deuxième clé pour un accès continu au service.
-
-## <a name="request-access-to-the-container-registry"></a>Demander l’accès au registre de conteneurs
-
-Complétez et envoyez le [formulaire de demande](https://aka.ms/cognitivegate) pour demander l’accès au conteneur.
-
-[!INCLUDE [Request access to the container registry](../../../includes/cognitive-services-containers-request-access-only.md)]
-
-[!INCLUDE [Authenticate to the container registry](../../../includes/cognitive-services-containers-access-registry.md)]
 
 ## <a name="the-host-computer"></a>L’ordinateur hôte
 

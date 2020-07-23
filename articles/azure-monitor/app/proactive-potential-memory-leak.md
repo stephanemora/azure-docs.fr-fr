@@ -3,18 +3,18 @@ title: Détecter des fuites de mémoire - Détection intelligente Azure Applicat
 description: Surveiller les applications avec Azure Application Insights pour détecter les fuites de mémoire potentielles.
 ms.topic: conceptual
 ms.date: 12/12/2017
-ms.openlocfilehash: 85d138518dfb1313a810657016e9fe3143887b6d
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 3fe58cd7d61246c5565cd89fa782c8a977f09499
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "77671696"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86539888"
 ---
 # <a name="memory-leak-detection-preview"></a>Détection des fuites de mémoire (version préliminaire)
 
 Application Insights analyse automatiquement la consommation de mémoire des processus de votre application et peut vous avertir des fuites de mémoire potentielles ou d’une consommation accrue de la mémoire.
 
-Cette fonctionnalité ne requiert aucune configuration spéciale, autre que la [configuration des compteurs de performances](https://docs.microsoft.com/azure/application-insights/app-insights-performance-counters) pour votre application. Elle est active lorsque votre application génère suffisamment de données de télémétrie sur les compteurs de performances mémoire (par exemple, les octets privés).
+Cette fonctionnalité ne requiert aucune configuration spéciale, autre que la [configuration des compteurs de performances](./performance-counters.md) pour votre application. Elle est active lorsque votre application génère suffisamment de données de télémétrie sur les compteurs de performances mémoire (par exemple, les octets privés).
 
 ## <a name="when-would-i-get-this-type-of-smart-detection-notification"></a>Quand reçoit-on ce type de notification de détection intelligente ?
 Une notification classique suit une augmentation constante de la consommation de mémoire sur une période prolongée, pour un ou plusieurs processus et/ou une ou plusieurs machines, qui font partie intégrante de votre application. Des algorithmes Machine Learning sont utilisés pour la détection d’une consommation de mémoire accrue correspondant au modèle d’une fuite de mémoire.

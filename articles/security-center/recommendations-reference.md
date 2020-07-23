@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 04/05/2020
 ms.author: memildin
-ms.openlocfilehash: 92df0a7919a7d01b062356bfa4d32cc701e1e6f4
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: ff988dd382c5df5d764c7ab29e8a469f510ba7f9
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85341297"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86529333"
 ---
 # <a name="security-recommendations---a-reference-guide"></a>Recommandations de sécurité - Guide de référence
 
@@ -140,8 +140,8 @@ Votre niveau de sécurité est basé sur le nombre de recommandations Security C
 |Recommandation|Description et stratégie associée|severity|Correction rapide activée ? ([en savoir plus](https://docs.microsoft.com/azure/security-center/security-center-remediate-recommendations#recommendations-with-quick-fix-remediation))|Type de ressource|
 |----|----|----|----|----|
 |**L’accès aux comptes de stockage avec des configurations de pare-feu et de réseau virtuel doit être limité**|Auditer l’accès illimité au réseau dans les paramètres de pare-feu de votre compte de stockage. Au lieu de cela, configurer les règles du réseau de telle manière que seules les applications des réseaux autorisés puissent accéder au compte de stockage. Pour autoriser les connexions de clients Internet ou locaux spécifiques, vous pouvez accorder l’accès au trafic à partir de réseaux virtuels Azure spécifiques ou vers des plages d’adresses IP Internet publiques.<br>(Stratégie associée : Auditer l’accès réseau illimité aux comptes de stockage)|Faible|N|Compte de stockage|
-|**Advanced Data Security doit être activé sur SQL Managed Instance**|Advanced Data Security (ADS) est un package unifié de fonctionnalités de sécurité SQL avancées. Il permet de découvrir et de classifier les données sensibles, de présenter et de corriger les vulnérabilités de votre base de données et de détecter les activités anormales susceptibles d’indiquer une menace ciblant votre base de données. ADS est facturé au tarif de 15 $ par instance managée.<br>(Stratégie associée : Advanced Data Security doit être activé sur SQL Managed Instance)|Élevé|**O**|SQL|
-|**Advanced Data Security doit être activé sur SQL Database**|Advanced Data Security (ADS) est un package unifié de fonctionnalités de sécurité SQL avancées. Il permet de découvrir et de classifier les données sensibles, de présenter et de corriger les vulnérabilités de votre base de données et de détecter les activités anormales susceptibles d’indiquer une menace ciblant votre base de données. ADS est facturé au tarif de 15 $ par serveur SQL.<br>(Stratégie associée : Advanced Data Security doit être activé sur vos serveurs SQL)|Élevé|**O**|SQL|
+|**Advanced Data Security doit être activé sur vos instances managées**|Advanced Data Security (ADS) est un package unifié de fonctionnalités de sécurité SQL avancées. Il permet de découvrir et de classifier les données sensibles, de présenter et de corriger les vulnérabilités de votre base de données et de détecter les activités anormales susceptibles d’indiquer une menace ciblant votre base de données. ADS est facturé au tarif de 15 $ par instance managée.<br>(Stratégie associée : Advanced Data Security doit être activé sur SQL Managed Instance)|Élevé|**O**|SQL|
+|**Advanced Data Security doit être activé sur vos serveurs SQL**|Advanced Data Security (ADS) est un package unifié de fonctionnalités de sécurité SQL avancées. Il permet de découvrir et de classifier les données sensibles, de présenter et de corriger les vulnérabilités de votre base de données et de détecter les activités anormales susceptibles d’indiquer une menace ciblant votre base de données. ADS est facturé au tarif de 15 $ par serveur SQL.<br>(Stratégie associée : Advanced Data Security doit être activé sur vos serveurs SQL)|Élevé|**O**|SQL|
 |**Un administrateur Azure Active Directory doit être provisionné pour SQL Database**|Provisionnez un administrateur Azure AD pour votre base de données SQL Database afin d’activer l’authentification Azure AD. L’authentification Azure AD permet une gestion simplifiée des autorisations et une gestion centralisée des utilisateurs de bases de données et d’autres services Microsoft.<br>(Stratégie associée : Auditer l’approvisionnement d’un administrateur Azure Active Directory pour un serveur SQL)|Élevé|N|SQL|
 |**L’audit sur SQL Database doit être activé**|Activez l’audit pour SQL Database. <br>(Stratégie associée : L’audit doit être activé pour SQL Database sur les paramètres Advanced Data Security de votre serveur)|Faible|**O**|SQL|
 |**Les journaux de diagnostic dans Azure Data Lake Store doivent être activés**|Activez les journaux d’activité et conservez-les un an maximum. Permet de recréer les pistes d’activité à des fins d’investigation en cas d’incident de sécurité ou de compromission du réseau.<br>(Stratégie associée : Les journaux de diagnostic dans Azure Data Lake Store doivent être activés)|Faible|**O**|Data Lake Store|

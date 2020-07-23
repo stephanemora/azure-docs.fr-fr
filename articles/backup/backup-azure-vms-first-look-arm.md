@@ -3,12 +3,12 @@ title: Sauvegarder une machine virtuelle Azure à partir des paramètres de la m
 description: Dans cet article, découvrez comment sauvegarder une ou plusieurs machines virtuelles Azure avec le service Sauvegarde Azure.
 ms.topic: conceptual
 ms.date: 06/13/2019
-ms.openlocfilehash: 72d6e5657add3e815bb0d77fadbdbc716712bee5
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 580cb1ad5f611991212bc8cdb48c66339f14d8e8
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "76705443"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86538885"
 ---
 # <a name="back-up-an-azure-vm-from-the-vm-settings"></a>Sauvegarder une machine virtuelle Azure à partir des paramètres de la machine virtuelle
 
@@ -26,7 +26,7 @@ Cet article explique comment sauvegarder des machines virtuelles Azure avec le s
 
 Pour sauvegarder des machines virtuelles Azure, Sauvegarde Azure installe une extension sur l’agent de machine virtuelle en cours d’exécution sur la machine. Si votre machine virtuelle a été créée à partir d’une image de la Place de marché Azure, l’agent s’exécute. Dans certains cas, par exemple si vous créez une machine virtuelle personnalisée ou migrez une machine à partir d’un emplacement local, vous devrez peut-être installer l’agent manuellement.
 
-- Si vous n’avez pas besoin d’installer l’agent de machine virtuelle manuellement, suivez les instructions fournies pour les machines virtuelles [Windows](https://docs.microsoft.com/azure/virtual-machines/extensions/agent-windows) ou [Linux](https://docs.microsoft.com/azure/virtual-machines/extensions/agent-linux).
+- Si vous n’avez pas besoin d’installer l’agent de machine virtuelle manuellement, suivez les instructions fournies pour les machines virtuelles [Windows](../virtual-machines/extensions/agent-windows.md) ou [Linux](../virtual-machines/extensions/agent-linux.md).
 - Une fois que l’agent est installé et que vous activez la sauvegarde, Sauvegarde Azure installe l’extension de sauvegarde sur l’agent. L’extension est mise à jour et corrigée sans aucune intervention de l’utilisateur.
 
 ## <a name="back-up-from-azure-vm-settings"></a>Sauvegarder à partir des paramètres de la machine virtuelle Azure

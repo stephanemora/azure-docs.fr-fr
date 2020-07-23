@@ -3,12 +3,12 @@ title: Forum Aux Questions (FAQ) - Azure Event Hubs | Microsoft Docs
 description: Cet article contient une liste des questions fréquemment posées (FAQ) sur Azure Event Hubs, ainsi que leurs réponses.
 ms.topic: article
 ms.date: 06/23/2020
-ms.openlocfilehash: 0094be0eef4595662477ef1c7914ae9f118b8e25
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: bec50da97bc826eb1bd26452e8f69f5c11f2d65d
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85320581"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86537178"
 ---
 # <a name="event-hubs-frequently-asked-questions"></a>Forum Aux Questions (FAQ) sur Event Hubs
 
@@ -261,7 +261,7 @@ Event Hubs prend en charge deux types de [journaux de diagnostics](event-hubs-di
 
 ### <a name="support-and-sla"></a>Prise en charge et contrats SLA
 
-Un support technique pour Event Hubs est disponible via la [page de questions Microsoft Q&A sur Azure Service Bus](https://docs.microsoft.com/answers/topics/azure-service-bus.html). La gestion de la facturation et des abonnements est fournie gratuitement.
+Un support technique pour Event Hubs est disponible via la [page de questions Microsoft Q&A sur Azure Service Bus](/answers/topics/azure-service-bus.html). La gestion de la facturation et des abonnements est fournie gratuitement.
 
 Pour en savoir plus sur notre contrat SLA, consultez la section [Contrats de niveau de Service](https://azure.microsoft.com/support/legal/sla/) .
 
@@ -269,6 +269,6 @@ Pour en savoir plus sur notre contrat SLA, consultez la section [Contrats de niv
 
 Vous pouvez en apprendre plus sur Event Hubs en consultant les liens suivants :
 
-* [Vue d’ensemble d’Event Hubs](event-hubs-what-is-event-hubs.md)
+* [Vue d’ensemble d’Event Hubs](./event-hubs-about.md)
 * [Créer un hub d’événements](event-hubs-create.md)
 * [Majoration automatique Event Hubs](event-hubs-auto-inflate.md)

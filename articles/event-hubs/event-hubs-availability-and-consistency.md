@@ -3,12 +3,12 @@ title: Disponibilité et cohérence - Azure Event Hubs | Microsoft Docs
 description: Découvrez comment obtenir la quantité maximale de disponibilité et de cohérence avec Azure Event Hubs à l’aide de partitions.
 ms.topic: article
 ms.date: 06/23/2020
-ms.openlocfilehash: 497a6e7430c4e6f8e29f903294ca94a4cb23012b
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 45ca5cc5790824d6c67a47a23691c6b0cae0b9f8
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85315775"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86537205"
 ---
 # <a name="availability-and-consistency-in-event-hubs"></a>Disponibilité et cohérence dans Event Hubs
 
@@ -141,5 +141,5 @@ L’exemple envoie votre événement à l’une des partitions disponibles dans 
 ## <a name="next-steps"></a>Étapes suivantes
 Vous pouvez en apprendre plus sur Event Hubs en consultant les liens suivants :
 
-* [Présentation du service Event Hubs](event-hubs-what-is-event-hubs.md)
+* [Présentation du service Event Hubs](./event-hubs-about.md)
 * [Créer un concentrateur d’événements](event-hubs-create.md)

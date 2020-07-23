@@ -9,12 +9,12 @@ ms.subservice: spot
 ms.date: 03/25/2020
 ms.reviewer: jagaveer
 ms.custom: jagaveer
-ms.openlocfilehash: 756e0d62927b67d26ae75af90c64facfe9c92d31
-ms.sourcegitcommit: 69156ae3c1e22cc570dda7f7234145c8226cc162
+ms.openlocfilehash: 70d7eb000ed2d50bc22bb005621ee7515e5a2a61
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/03/2020
-ms.locfileid: "84310561"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86527453"
 ---
 # <a name="azure-spot-vms-for-virtual-machine-scale-sets"></a>Machines virtuelles Azure Spot pour les groupes identiques de machines virtuelles 
 
@@ -115,12 +115,12 @@ Pour supprimer l’instance après son exclusion, remplacez le paramètre `evict
 
 **Q :** Comment les quotas sont-ils gérés pour Spot ?
 
-**R :** Les instances Spot et les instances standard auront des pools de quotas distincts. Le quota Spot est partagé entre les machines virtuelles et les instances de groupe identique. Pour plus d’informations, consultez [Abonnement Azure et limites, quotas et contraintes de service](https://docs.microsoft.com/azure/azure-resource-manager/management/azure-subscription-service-limits).
+**R :** Les instances Spot et les instances standard auront des pools de quotas distincts. Le quota Spot est partagé entre les machines virtuelles et les instances de groupe identique. Pour plus d’informations, consultez [Abonnement Azure et limites, quotas et contraintes de service](../azure-resource-manager/management/azure-subscription-service-limits.md).
 
 
 **Q :** Puis-je demander une augmentation de mon quota pour Spot ?
 
-**R :** Oui, vous pouvez demander une augmentation de votre quota pour les machines virtuelles Spot via la [procédure de demande de quota standard](https://docs.microsoft.com/azure/azure-portal/supportability/per-vm-quota-requests).
+**R :** Oui, vous pouvez demander une augmentation de votre quota pour les machines virtuelles Spot via la [procédure de demande de quota standard](../azure-portal/supportability/per-vm-quota-requests.md).
 
 
 **Q :** Puis-je convertir des groupes identiques existants en groupes identiques Spot ?
@@ -158,7 +158,7 @@ Pour supprimer l’instance après son exclusion, remplacez le paramètre `evict
 |------------------------------|-----------------------------------|
 | Contrat Entreprise         | Oui                               |
 | Paiement à l’utilisation                | Oui                               |
-| Fournisseur de services cloud (CSP) | [Contactez votre partenaire](https://docs.microsoft.com/partner-center/azure-plan-get-started) |
+| Fournisseur de services cloud (CSP) | [Contactez votre partenaire](/partner-center/azure-plan-get-started) |
 | Avantages                     | Non disponible                     |
 | Sponsorisé                    | Oui                               |
 | Version d’évaluation gratuite                   | Non disponible                     |
@@ -166,7 +166,7 @@ Pour supprimer l’instance après son exclusion, remplacez le paramètre `evict
 
 **Q :** Où puis-je poster des questions ?
 
-**R :** Vous pouvez poster et étiqueter vos questions avec `azure-spot` sur [Questions et réponses](https://docs.microsoft.com/answers/topics/azure-spot.html). 
+**R :** Vous pouvez poster et étiqueter vos questions avec `azure-spot` sur [Questions et réponses](/answers/topics/azure-spot.html). 
 
 ## <a name="next-steps"></a>Étapes suivantes
 

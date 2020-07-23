@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 03/12/2018
-ms.openlocfilehash: 7dc4164cac1998a02ae62d7682f9630aa4faa619
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 1e674bf157d55c9b5f7cf49e8df5e17acb99ee3a
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "77658555"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86539395"
 ---
 # <a name="reference-guide-to-view-designer-visualization-parts-in-azure-monitor"></a>Guide de référence des composants de visualisation du Concepteur de vues dans Azure Monitor
 Grâce au Concepteur de vues d’Azure Monitor, vous pouvez créer plusieurs vues personnalisées dans le portail Azure qui peuvent vous aider à visualiser les données dans votre espace de travail Log Analytics. Cet article est un guide de référence pour les paramètres des composants de visualisation disponibles dans vos vues personnalisées.
@@ -318,7 +318,7 @@ Le séparateur de noms et de valeurs est le délimiteur à caractère unique à 
 Par exemple, imaginez une propriété nommée *Location* incluant des valeurs telles que *Redmond-Building 41* et *Bellevue-Building 12*. Vous pouvez spécifier un tiret (-) comme séparateur de noms et de valeurs, et *City-Building* comme nom. Chaque valeur est alors analysée en deux propriétés respectivement nommées *City* et *Building*.
 
 ### <a name="click-through-navigation"></a><a name="click-through-navigation"></a>Navigation par clic
-La navigation par clic définit l’action à effectuer quand vous cliquez sur un en-tête ou élément de liste dans une vue.  Soit une requête s’ouvre dans le [Log Analytics](../../azure-monitor/log-query/portals.md), soit une autre vue apparaît.
+La navigation par clic définit l’action à effectuer quand vous cliquez sur un en-tête ou élément de liste dans une vue.  Soit une requête s’ouvre dans le [Log Analytics](../log-query/log-query-overview.md), soit une autre vue apparaît.
 
 Le tableau suivant décrit les paramètres de la navigation par clic.
 

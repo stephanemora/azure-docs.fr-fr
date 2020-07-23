@@ -11,12 +11,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: ''
 ms.date: 09/24/2018
-ms.openlocfilehash: 80c789f955b279e7771fe39c20087baa465b3293
-ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
+ms.openlocfilehash: 88f1e40101b807e82eaf69be6c167cd4aa2e2831
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "84027650"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86539191"
 ---
 # <a name="provision-and-catalog-new-tenants-in-a-saas-application-using-a-sharded-multi-tenant-azure-sql-database"></a>Approvisionner et inscrire dans un catalogue de nouveaux locataires dans une application SaaS utilisant une base de données Azure SQL Database multilocataire
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -30,7 +30,7 @@ Cet article comprend deux parties principales :
 - [Didacticiel](#goto_1_tutorial) qui définit le code de script PowerShell responsable de l’approvisionnement et de l’inscription.
   - Le didacticiel utilise l’application SaaS Wingtip Tickets, adaptée au modèle de base de données partitionnée multilocataire.
 
-<a name="goto_2_conceptual"/>
+<a name="goto_2_conceptual"></a>
 
 ## <a name="database-pattern"></a>Modèle de base de données
 
@@ -111,7 +111,7 @@ Les scripts d’approvisionnement des locataires de ce didacticiel prennent en c
 
 Les données de locataire sont ensuite initialisées et inscrites dans la carte de partitions du catalogue. Dans l’exemple d’application, les bases de données qui contiennent plusieurs locataires reçoivent un nom générique, tel que *tenants1* ou *tenants2*. Les bases de données contenant un seul locataire prennent le nom du locataire. Les conventions de nommage spécifiques utilisées dans l’exemple ne sont pas un élément essentiel du modèle, car l’utilisation d’un catalogue permet d’attribuer n’importe quel nom à la base de données.
 
-<a name="goto_1_tutorial"/>
+<a name="goto_1_tutorial"></a>
 
 ## <a name="tutorial-begins"></a>Début du didacticiel
 

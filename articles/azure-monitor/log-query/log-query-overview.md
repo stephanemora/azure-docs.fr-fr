@@ -6,17 +6,17 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 06/19/2019
-ms.openlocfilehash: 6cd2a28ddbe970385ff44deec2158c257937982e
-ms.sourcegitcommit: 3abadafcff7f28a83a3462b7630ee3d1e3189a0e
+ms.openlocfilehash: 7e8e2015e7d0798542ff0c80d8eb39461918ad67
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/30/2020
-ms.locfileid: "82591650"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86539599"
 ---
 # <a name="overview-of-log-queries-in-azure-monitor"></a>Vue d’ensemble des requêtes de journal dans Azure Monitor
 Les requêtes de journal vous aident à tirer pleinement parti de la valeur des données collectées dans les [journaux Azure Monitor](../platform/data-platform-logs.md). Un puissant langage de requête vous permet de joindre des données provenant de plusieurs tables, d’agréger des jeux de données volumineux et d’effectuer des opérations complexes avec un minimum de code. Vous pouvez répondre à pratiquement n’importe quelle question et effectuer n’importe quelle analyse tant que les données de soutien ont été collectées et que vous comprenez comment construire la bonne requête.
 
-Certaines fonctionnalités d’Azure Monitor telles que les [insights](../insights/insights-overview.md) et les [solutions](../insights/solutions-inventory.md) traitent les données de journal sans vous exposer à des requêtes sous-jacentes. Pour tirer pleinement parti des autres fonctionnalités d’Azure Monitor, vous devez comprendre comment les requêtes sont construites et comment vous pouvez les utiliser pour analyser les données dans les journaux d’Azure Monitor de manière interactive.
+Certaines fonctionnalités d’Azure Monitor telles que les [insights](../insights/insights-overview.md) et les [solutions](../monitor-reference.md) traitent les données de journal sans vous exposer à des requêtes sous-jacentes. Pour tirer pleinement parti des autres fonctionnalités d’Azure Monitor, vous devez comprendre comment les requêtes sont construites et comment vous pouvez les utiliser pour analyser les données dans les journaux d’Azure Monitor de manière interactive.
 
 Utilisez cet article comme point de départ pour l’apprentissage des requêtes de journal dans Azure Monitor. Il répond aux questions courantes et fournit des liens vers d’autres documents offrant davantage de détails et de leçons.
 

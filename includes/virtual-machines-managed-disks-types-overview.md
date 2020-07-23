@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 06/03/2020
 ms.author: rogarana
 ms.custom: include file
-ms.openlocfilehash: 45b611144d5a62171061febfd4efa98db69bacb9
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: dbca8798af83108ca5e8bdfe5918a25423fd934d
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84436046"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86545089"
 ---
 Azure Managed Disks propose quatre types de disque, chaque type étant destiné à des scénarios clients spécifiques.
 
@@ -21,8 +21,8 @@ Azure Managed Disks propose quatre types de disque, chaque type étant destiné 
 
 Le tableau suivant compare quatre types de disque managé : les disques Ultra, les disques SSD Premium, les disques SSD Standard et les disques HDD Standard pour vous aider dans votre choix.
 
-|   | Disque Ultra   | SSD Premium   | SSD Standard   | HDD Standard   |
-|---------|---------|---------|---------|---------|
+| Detail | Disque Ultra | SSD Premium | SSD Standard | HDD Standard |
+| ------ | ---------- | ----------- | ------------ | ------------ |
 |Type de disque   |SSD   |SSD   |SSD   |HDD   |
 |Scénario   |Charges de travail gourmandes en E/S, telles que le système [SAP HANA](../articles/virtual-machines/workloads/sap/hana-vm-operations-storage.md), les bases de données de niveau supérieur (par exemple, SQL et Oracle), et autres charges de travail très lourdes en transactions.   |Charges de travail de production et sensibles aux performances   |Serveurs web, applications d’entreprise peu utilisées et Dev/Test   |Sauvegarde, non critique, accès peu fréquent   |
 |Taille maximale du disque   |65 536 gibioctets (Gio)    |32 767 Gio    |32 767 Gio   |32 767 Gio   |

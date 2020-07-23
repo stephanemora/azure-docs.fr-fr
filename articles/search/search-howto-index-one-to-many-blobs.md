@@ -8,13 +8,13 @@ ms.author: arjagann
 ms.devlang: rest-api
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 11/04/2019
-ms.openlocfilehash: 1f93ae8a017c889f6c465b3ccbbb66382577e871
-ms.sourcegitcommit: 5cace04239f5efef4c1eed78144191a8b7d7fee8
+ms.date: 07/11/2020
+ms.openlocfilehash: 6606391d7fd5c2419714531e1220d97fb29aea4d
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86146791"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86529588"
 ---
 # <a name="indexing-blobs-to-produce-multiple-search-documents"></a>Indexation d’objets blob pour produire plusieurs documents de recherche
 Par défaut, un indexeur d’objets blob traite le contenu d’un objet blob comme un document de recherche unique. Certaines valeurs **parsingMode** prennent en charge les scénarios où un objet blob individuel peut entraîner plusieurs documents de recherche. Les différents types de **parsingMode** qui permettent à un indexeur d’extraire plusieurs documents de recherche à partir d’un objet blob sont les suivants :

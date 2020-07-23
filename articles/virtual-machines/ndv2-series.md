@@ -7,12 +7,12 @@ ms.subservice: sizes
 ms.topic: article
 ms.date: 02/03/2020
 ms.author: jushiman
-ms.openlocfilehash: a5b7dea30cff70d5c45460eb8ded2fa370afa2c2
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: c298ee691b476fb58c567490ab2e62e45aba3e7c
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84726588"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86526943"
 ---
 # <a name="updated-ndv2-series"></a>Série NDv2 mise à jour
 
@@ -24,9 +24,9 @@ Les instances NDv2 offrent d’excellentes performances pour les charges de trav
 
 Il est essentiel que NDv2 soit conçu pour répondre à la fois à des charges de travail de scale-up (8 GPU par machine virtuelle) et de scale-out (plusieurs machines virtuelles travaillant ensemble) qui sont gourmandes en calcul. La série NDv2 prend désormais en charge le réseau back-end EDR InfiniBand 100 Gigabits, similaire à celui disponible dans la série HB de HPC VM, afin de permettre un clustering haute performance pour les scénarios parallèles, notamment l’entraînement distribué pour l’IA et le ML. Ce réseau principal prend en charge tous les principaux protocoles InfiniBand, y compris ceux utilisés par les bibliothèques NCCL2 de NVIDIA, ce qui permet une mise en grappe transparente des GPU.
 
-> Lors de l’[activation d’InfiniBand](https://docs.microsoft.com/azure/virtual-machines/workloads/hpc/enable-infiniband) sur la machine virtuelle ND40rs_v2, utilisez le pilote OFED 4.7-1.0.0.1.
+> Lors de l’[activation d’InfiniBand](./workloads/hpc/enable-infiniband.md) sur la machine virtuelle ND40rs_v2, utilisez le pilote OFED 4.7-1.0.0.1.
 >
-> En raison de l’augmentation de la mémoire GPU, la nouvelle machine virtuelle ND40rs_v2 nécessite l’utilisation de [deux machines virtuelles Generation](https://docs.microsoft.com/azure/virtual-machines/windows/generation-2) et d’images marketplace. 
+> En raison de l’augmentation de la mémoire GPU, la nouvelle machine virtuelle ND40rs_v2 nécessite l’utilisation de [deux machines virtuelles Generation](./windows/generation-2.md) et d’images marketplace. 
 >
 > Notez ce qui suit : Le modèle ND40s_v2 doté de 16 Go de mémoire par GPU n’est plus disponible en préversion et a été remplacé par le modèle ND40rs_v2 mis à jour.
 

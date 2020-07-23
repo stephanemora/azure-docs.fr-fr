@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 11/24/2019
 ms.author: vilibert
-ms.openlocfilehash: 20d710f717a9dff26f46ac7a201a9b694f3fbe84
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: c0041a835c02263f23c5cdc6f839756edfb070c1
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "74684126"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86526875"
 ---
 # <a name="troubleshooting-a-linux-vm-when-there-is-no-access-to-the-azure-serial-console-and-the-disk-layout-is-using-lvm-logical-volume-manager"></a>Résolution des problèmes d’une machine virtuelle Linux quand il n’y a aucun accès à la console série Azure et que la disposition du disque utilise LVM (Logical Volume Manager)
 
@@ -29,7 +29,7 @@ Ce guide de résolution des problèmes présente un avantage dans les scénarios
 
 Effectuer un instantané de la machine virtuelle concernée. 
 
-L’instantané est ensuite attaché à une machine virtuelle **de secours**. Suivez les instructions décrites [ici](https://docs.microsoft.com/azure/virtual-machines/linux/snapshot-copy-managed-disk#use-azure-portal) sur la façon d’effectuer un **instantané**.
+L’instantané est ensuite attaché à une machine virtuelle **de secours**. Suivez les instructions décrites [ici](../linux/snapshot-copy-managed-disk.md#use-azure-portal) sur la façon d’effectuer un **instantané**.
 
 ## <a name="create-a-rescue-vm"></a>Créer une machine virtuelle de secours
 En règle générale, il est recommandé d’avoir une machine virtuelle de secours dont la version du système d’exploitation est identique ou similaire. Utiliser les mêmes **région** et **groupe de ressources** que la machine virtuelle concernée
@@ -209,7 +209,7 @@ Si nécessaire, supprimez ou mettez à niveau le **noyau**
 
 
 ### <a name="example-3---enable-serial-console"></a>Exemple 3 : activer la console série
-Si l’accès à la console série Azure n’est pas possible, vérifiez les paramètres de configuration GRUB pour votre machine virtuelle Linux et corrigez-les. Vous trouverez des informations détaillées [dans ce document](https://docs.microsoft.com/azure/virtual-machines/troubleshooting/serial-console-grub-proactive-configuration)
+Si l’accès à la console série Azure n’est pas possible, vérifiez les paramètres de configuration GRUB pour votre machine virtuelle Linux et corrigez-les. Vous trouverez des informations détaillées [dans ce document](./serial-console-grub-proactive-configuration.md)
 
 ### <a name="example-4---kernel-loading-with-problematic-lvm-swap-volume"></a>Exemple 4 : chargement du noyau avec un volume d’échange de LVM problématique
 
@@ -274,4 +274,4 @@ En savoir plus sur
 
  [Console série Azure]( https://docs.microsoft.com/azure/virtual-machines/troubleshooting/serial-console-linux)
 
-[Mode mono-utilisateur](https://docs.microsoft.com/azure/virtual-machines/troubleshooting/serial-console-grub-single-user-mode)
+[Mode mono-utilisateur](./serial-console-grub-single-user-mode.md)

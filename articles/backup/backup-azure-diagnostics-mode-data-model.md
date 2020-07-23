@@ -3,12 +3,12 @@ title: Modèles de données des journaux Azure Monitor
 description: Dans cet article, découvrez les détails du modèle de données Azure Monitor Log Analytics pour les données de Sauvegarde Azure.
 ms.topic: conceptual
 ms.date: 02/26/2019
-ms.openlocfilehash: e776649ff22e3249e2472adbe298c869ff5c946a
-ms.sourcegitcommit: 9b5c20fb5e904684dc6dd9059d62429b52cb39bc
+ms.openlocfilehash: 73247dac1ca829a7893192101da0981c3edcf8d8
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85854755"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86539072"
 ---
 # <a name="log-analytics-data-model-for-azure-backup-data"></a>Modèle de données Log Analytics pour les données de sauvegarde Azure
 
@@ -18,7 +18,7 @@ Utilisez le modèle de données Log Analytics pour créer des alertes personnali
 
 > [!NOTE]
 >
-> Ce modèle de données fait référence au mode Diagnostics Azure pour envoyer des événements de diagnostic à Log Analytics (LA). Pour découvrir le modèle de données pour le nouveau mode spécifique aux ressources, vous pouvez vous reporter à l’article suivant : [Modèle de données pour les événements de diagnostics de Sauvegarde Azure](https://docs.microsoft.com/azure/backup/backup-azure-reports-data-model)
+> Ce modèle de données fait référence au mode Diagnostics Azure pour envoyer des événements de diagnostic à Log Analytics (LA). Pour découvrir le modèle de données pour le nouveau mode spécifique aux ressources, vous pouvez vous reporter à l’article suivant : [Modèle de données pour les événements de diagnostics de Sauvegarde Azure](./backup-azure-reports-data-model.md)
 
 ## <a name="using-azure-backup-data-model"></a>Utilisation du modèle de données de sauvegarde Azure
 
@@ -465,7 +465,7 @@ Précédemment, les données de diagnostic pour l’agent de sauvegarde Azure et
 
 Pour des raisons de compatibilité descendante, les données de diagnostic pour l’agent de sauvegarde Azure et la sauvegarde de machine virtuelle Azure sont actuellement envoyées à la table Azure Diagnostics à la fois dans les schémas v1 et v2 (le schéma v1 se dirigeant vers la dépréciation). Vous pouvez identifier les enregistrements Log Analytics du schéma v1 en filtrant les enregistrements pour SchemaVersion_s=="V1" dans vos requêtes de journal. 
 
-Reportez-vous à la troisième colonne « Description » dans le [modèle de données](https://docs.microsoft.com/azure/backup/backup-azure-diagnostics-mode-data-model#using-azure-backup-data-model) décrit ci-dessus pour identifier les colonnes qui appartiennent au schéma v1 uniquement.
+Reportez-vous à la troisième colonne « Description » dans le [modèle de données](#using-azure-backup-data-model) décrit ci-dessus pour identifier les colonnes qui appartiennent au schéma v1 uniquement.
 
 ### <a name="modifying-your-queries-to-use-the-v2-schema"></a>Modification de vos requêtes afin d’utiliser le schéma V2
 Comme le schéma V1 est sur le point d’être déconseillé, il est recommandé d’utiliser uniquement le schéma V2 dans toutes vos requêtes personnalisées sur les données de diagnostics Sauvegarde Azure. Voici un exemple de mise à jour de vos requêtes pour supprimer les dépendances sur le schéma V1 :

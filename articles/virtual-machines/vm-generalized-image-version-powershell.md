@@ -9,18 +9,18 @@ ms.topic: how-to
 ms.date: 05/04/2020
 ms.author: cynthn
 ms.reviewer: akjosh
-ms.openlocfilehash: efce2eb33bb95a3dc13cec4cbe0ea89d1a2c3452
-ms.sourcegitcommit: e0330ef620103256d39ca1426f09dd5bb39cd075
+ms.openlocfilehash: 68a0db9113c705134084fb5291eb267b7a31fba0
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/05/2020
-ms.locfileid: "82793885"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86525804"
 ---
 # <a name="create-a-vm-using-a-generalized-image"></a>Créer une machine virtuelle à l’aide d’une image généralisée 
 
 Créez une machine virtuelle à partir d’une image généralisée stockée dans une galerie d’images partagées. Si vous souhaitez créer une machine virtuelle à l’aide d’une image spécialisée, consultez [Créer une machine virtuelle à partir d’une image spécialisée](vm-specialized-image-version-powershell.md).
 
-Une fois que vous disposez d’une version d’image généralisée, vous pouvez créer une ou plusieurs machines virtuelles. Utilisation de l’applet de commande [New-AzVM](https://docs.microsoft.com/powershell/module/az.compute/new-azvm). 
+Une fois que vous disposez d’une version d’image généralisée, vous pouvez créer une ou plusieurs machines virtuelles. Utilisation de l’applet de commande [New-AzVM](/powershell/module/az.compute/new-azvm). 
 
 Dans cet exemple, nous utilisons l’ID de définition d’image pour nous assurer que la nouvelle machine virtuelle utilise la version la plus récente d’une image. Vous pouvez également utiliser une version spécifique en utilisant l’ID de version de l’image pour `Set-AzVMSourceImage -Id`. Par exemple, pour utiliser la version de l’image *1.0.0* tapez : `Set-AzVMSourceImage -Id "/subscriptions/<subscription ID where the gallery is located>/resourceGroups/myGalleryRG/providers/Microsoft.Compute/galleries/myGallery/images/myImageDefinition/versions/1.0.0"`. 
 

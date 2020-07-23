@@ -3,12 +3,12 @@ title: Déplacer un espace de noms Azure Event Hubs vers une autre région | Mic
 description: Cet article explique comment déplacer un espace de noms Azure Event Hubs de la région actuelle vers une autre région.
 ms.topic: how-to
 ms.date: 06/23/2020
-ms.openlocfilehash: a70397772d22a65046f87877deab6263d4b2104f
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 51b02c34b0c28420a7e27da56b107ed3925a761b
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85312957"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86537069"
 ---
 # <a name="move-an-azure-event-hubs-namespace-to-another-region"></a>Déplacer un espace de noms Azure Event Hubs vers une autre région
 Il existe différents scénarios dans lesquels vous pouvez être amené à déplacer votre espace de noms Event Hubs existant d’une région à une autre. Par exemple, vous pouvez créer un espace de noms avec la même configuration à des fins de test. Vous pouvez également créer un espace de noms secondaire dans une autre région dans le cadre de la [planification de la reprise d’activité après sinistre](event-hubs-geo-dr.md#setup-and-failover-flow).
@@ -108,5 +108,5 @@ Pour supprimer un espace de noms Event Hubs (source ou cible) à l’aide du por
 Dans ce tutoriel, vous avez déplacé un espace de noms Azure Event Hubs d’une région vers une autre et nettoyé les ressources sources.  Pour en savoir plus sur le déplacement de ressources entre régions et la reprise d’activité après sinistre dans Azure, consultez :
 
 
-- [Déplacer des ressources vers un nouveau groupe de ressource ou un nouvel abonnement](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-move-resources)
-- [Déplacer des machines virtuelles Azure vers une autre région](https://docs.microsoft.com/azure/site-recovery/azure-to-azure-tutorial-migrate)
+- [Déplacer des ressources vers un nouveau groupe de ressource ou un nouvel abonnement](../azure-resource-manager/management/move-resource-group-and-subscription.md)
+- [Déplacer des machines virtuelles Azure vers une autre région](../site-recovery/azure-to-azure-tutorial-migrate.md)

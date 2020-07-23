@@ -1,18 +1,18 @@
 ---
 title: Vue d’ensemble de la synthèse des revenus – Place de marché Azure
 description: La page Récapitulatif des paiements vous montre les détails de l’argent que vous avez gagné avec votre offre. Elle vous permet également de savoir à quels moments vous recevrez les paiements et quels montants vous percevrez.
-ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
-ms.topic: conceptual
+ms.service: marketplace
+ms.topic: article
 author: mingshen
 ms.author: mingshen
-ms.date: 04/24/2020
-ms.openlocfilehash: 29a8eb72814d865cb02bd632e084cec0cc06a1ff
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.date: 07/14/2020
+ms.openlocfilehash: 087f7df8f8e3cc5e6e01ff023a88306d5fc4102d
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86118475"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86535958"
 ---
 # <a name="payout-summary-overview"></a>Vue d’ensemble de la synthèse des revenus
 
@@ -42,19 +42,6 @@ Voici les rôles et les autorisations permettant d’accéder au rapport de reve
 | Profil fiscal | Peut mettre à jour | Aucun accès | Aucun accès | Aucun accès | Peut mettre à jour | Aucun accès |
 | Récapitulatif des paiements | Affichage | Aucun accès | Aucun accès | Aucun accès | Affichage | Aucun accès  |
 | | | | | | | |
-
-## <a name="payout-report-differences"></a>Différences dans le rapport de revenu
-
-Voici les différences dans le rapport de revenu entre le portail Cloud Partner (ancien) et l’Espace partenaires (nouveau) :
-
-| Portail des partenaires cloud | Espace partenaire |
-| --- | --- |
-| **Lien** : https://cloudpartner.azure.com/ | **Lien** : https://partner.microsoft.com/dashboard/payouts/reports/transactionhistory et https://partner.microsoft.com/dashboard/payouts/reports/incentivepayments |
-| **Navigation** : Rapports de paiement fournis dans le paiement des insights | **Navigation** : Rapports de paiement fournis dans l’Espace partenaires – Icône de paiement |
-| **Étendue** :<ul><li>La transaction par ligne est visible, quand l’encaissement est en cours, quand elle est terminée et quand elle est payée.</li><li>Rapports : montre toutes les lignes une fois que le bon de commande est créé, notamment l’encaissement et la facturation en cours ainsi que l’état de l’encaissement et les lignes qui ne peuvent pas encore être payés.</li></ul> | **Étendue** :<ul><li>Montre les lignes une fois qu’elles sont considérées comme des revenus éligibles.</li><li>Les clients paient d’abord Microsoft, puis les éditeurs de logiciels indépendants peuvent voir le rapport de paiement commencer.</li><li>Le rapport de revenu ne montre pas l’encaissement ni la facturation en cours.</li></ul> |
-| **Transaction non prête pour le paiement** : Facturation en cours | **Transaction non prête pour le paiement** : Estimation du prochain paiement : Le paiement est dans l’état non traité. |
-| **Statut de paiement** : n/a | **Statut de paiement** :<ul><li>Non traité : Le revenu est éligible au paiement.</li><li>Ensuite : Le revenu sera envoyé à l’éditeur à l’occasion du prochain paiement mensuel.</li><li>Envoyé : Le paiement a été envoyé à votre banque.</li></ul> |
-| | |
 
 ## <a name="payment-schedules"></a>Calendriers de paiement
 

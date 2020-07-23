@@ -14,18 +14,18 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 08/02/2018
 ms.author: rogardle
-ms.openlocfilehash: 5a491bf85546c982db126ef4d6260a46ca8bf88b
-ms.sourcegitcommit: f844603f2f7900a64291c2253f79b6d65fcbbb0c
+ms.openlocfilehash: 7f6b9ddfd5b25ea8482e0bbf5622fa16bc450662
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/10/2020
-ms.locfileid: "86224449"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86525599"
 ---
 # <a name="back-up-and-recover-an-oracle-database-12c-database-on-an-azure-linux-virtual-machine"></a>Sauvegarder et récupérer une base de données de la base de données Oracle Database 12c sur une machine virtuelle Linux Azure
 
 Vous pouvez utiliser Azure CLI pour créer et gérer des ressources Azure à partir d’une invite de commandes, ou utiliser des scripts. Dans cet article, nous utilisons des scripts Azure CLI pour déployer une base de données Oracle Database 12c à partir d’une image de la galerie de la Place de marché Microsoft Azure.
 
-Avant de commencer, vérifiez qu’Azure CLI est installé. Pour plus d’informations, consultez le [Guide d’installation d’Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli).
+Avant de commencer, vérifiez qu’Azure CLI est installé. Pour plus d’informations, consultez le [Guide d’installation d’Azure CLI](/cli/azure/install-azure-cli).
 
 ## <a name="prepare-the-environment"></a>Préparer l’environnement
 
@@ -33,7 +33,7 @@ Avant de commencer, vérifiez qu’Azure CLI est installé. Pour plus d’inform
 
 *   Pour effectuer le processus de sauvegarde et de récupération, vous devez créer une machine virtuelle Linux avec une instance installée d’Oracle Database 12c. L’image de la Place de marché que vous utilisez pour créer la machine virtuelle se nomme *Oracle:Oracle-Database-Ee:12.1.0.2:latest*.
 
-    Pour savoir comment créer une base de données Oracle, consultez le [Guide de création rapide d’une base de données Oracle](https://docs.microsoft.com/azure/virtual-machines/workloads/oracle/oracle-database-quick-create).
+    Pour savoir comment créer une base de données Oracle, consultez le [Guide de création rapide d’une base de données Oracle](./oracle-database-quick-create.md).
 
 
 ### <a name="step-2-connect-to-the-vm"></a>Étape 2 : connexion à la machine virtuelle
@@ -572,6 +572,3 @@ az group delete --name myResourceGroup
 [Didacticiel : créer des machines virtuelles hautement disponibles](../../linux/create-cli-complete.md)
 
 [Explorer des exemples Azure CLI de déploiement de machines virtuelles](../../linux/cli-samples.md)
-
-
-

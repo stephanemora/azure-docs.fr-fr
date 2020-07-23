@@ -6,12 +6,12 @@ author: renatosalas
 ms.author: regutier
 ms.date: 04/14/2020
 ms.reviewer: mbullwin
-ms.openlocfilehash: d84010fd62d753fafd7edffab833b203657f74c7
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 50dcd3f438645c99e0ed3cfdded7a101ee5f1852
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85361936"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86539854"
 ---
 # <a name="configure-bring-your-own-storage-byos-for-application-insights-profiler-and-snapshot-debugger"></a>Configurer BYOS (Bring Your Own Storage) pour Application Insights Profiler et le Débogueur de capture instantanée
 
@@ -21,9 +21,9 @@ Lorsque vous utilisez Application Insights Profiler ou le Débogueur de capture 
 Avec Bring Your Own Storage, ces artefacts sont téléchargés dans un compte de stockage que vous contrôlez. Cela signifie que vous contrôlez la stratégie de chiffrement au repos, la stratégie de gestion de la durée de vie et l’accès réseau. Toutefois, vous êtes responsable des coûts associés à ce compte de stockage.
 
 > [!NOTE]
-> Si vous activez Azure Private Link, vous devez disposer du BYOS. Pour plus d’informations sur Azure Private Link sur Application Insights, consultez la [documentation](https://docs.microsoft.com/azure/azure-monitor/platform/private-link-security).
+> Si vous activez Azure Private Link, vous devez disposer du BYOS. Pour plus d’informations sur Azure Private Link sur Application Insights, consultez la [documentation](../platform/private-link-security.md).
 >
-> Si vous activez les Customer-Managed Keys, vous devez disposer du BYOS. Pour plus d’informations sur Customer-Managed Keys pour Application Insights, consultez la [documentation](https://docs.microsoft.com/azure/azure-monitor/platform/customer-managed-keys).
+> Si vous activez les Customer-Managed Keys, vous devez disposer du BYOS. Pour plus d’informations sur Customer-Managed Keys pour Application Insights, consultez la [documentation](../platform/customer-managed-keys.md).
 
 ## <a name="how-will-my-storage-account-be-accessed"></a>Comment accéder à mon compte de stockage ?
 1. Les agents s’exécutant sur vos machines virtuelles ou App Service chargent les artefacts (profils, instantanés et symboles) dans les conteneurs blob de votre compte. Ce processus implique de contacter le service Application Insights Profiler ou Débogueur de capture instantanée pour obtenir un jeton SAS (signature d’accès partagé) à un nouveau blob dans votre compte de stockage.
@@ -60,7 +60,7 @@ Une fois le rôle ajouté, il apparaît sous la section « Attributions de rôl
 _![Schéma 1.1](media/profiler-bring-your-own-storage/figure-11.png)_
 _Schéma 1.1_ 
 
-Si vous utilisez également Azure Private Link, une configuration supplémentaire est nécessaire pour permettre la connexion à notre service Microsoft approuvé depuis votre réseau virtuel. Reportez-vous à la [documentation Sécurité des réseaux de stockage](https://docs.microsoft.com/azure/storage/common/storage-network-security#trusted-microsoft-services).
+Si vous utilisez également Azure Private Link, une configuration supplémentaire est nécessaire pour permettre la connexion à notre service Microsoft approuvé depuis votre réseau virtuel. Reportez-vous à la [documentation Sécurité des réseaux de stockage](../../storage/common/storage-network-security.md#trusted-microsoft-services).
 
 ### <a name="link-your-storage-account-with-your-application-insights-resource"></a>Reliez votre Compte de stockage à votre ressource Application Insights
 Pour configurer le BYOS pour des diagnostics au niveau du code (Profiler/Débogueur), il existe deux options :
@@ -73,7 +73,7 @@ Pour configurer le BYOS pour des diagnostics au niveau du code (Profiler/Débogu
 
 1. Vérifiez que vous avez installé Az PowerShell 4.2.0 ou version supérieure.
 
-    Pour installer Azure PowerShell, reportez-vous à la [documentation Azure PowerShell officielle](https://docs.microsoft.com/powershell/azure/install-az-ps).
+    Pour installer Azure PowerShell, reportez-vous à la [documentation Azure PowerShell officielle](/powershell/azure/install-az-ps).
 
 1. Installez l’extension Application Insights PowerShell.
     ```powershell
@@ -85,7 +85,7 @@ Pour configurer le BYOS pour des diagnostics au niveau du code (Profiler/Débogu
     Connect-AzAccount -Subscription "{subscription_id}"
     ```
 
-    Pour plus d’informations sur la connexion, reportez-vous à la [documentation Connect-AzAccount](https://docs.microsoft.com/powershell/module/az.accounts/connect-azaccount).
+    Pour plus d’informations sur la connexion, reportez-vous à la [documentation Connect-AzAccount](/powershell/module/az.accounts/connect-azaccount).
 
 1. Supprimez le précédent compte de stockage BYOS lié à votre ressource Application Insights.
 
@@ -121,7 +121,7 @@ Pour configurer le BYOS pour des diagnostics au niveau du code (Profiler/Débogu
 
 1. Assurez-vous que l’interface Azure CLI est installée.
 
-    Pour installer Azure CLI, reportez-vous à la documentation [Azure CLI officielle](https://docs.microsoft.com/cli/azure/install-azure-cli).
+    Pour installer Azure CLI, reportez-vous à la documentation [Azure CLI officielle](/cli/azure/install-azure-cli).
 
 1. Installez l’extension CLI Application Insights.
     ```powershell
@@ -152,7 +152,7 @@ Pour configurer le BYOS pour des diagnostics au niveau du code (Profiler/Débogu
     ```
 
     > [!NOTE]
-    > Pour effectuer des mises à jour sur les comptes de stockage liés à votre ressource Application Insights, reportez-vous à la documentation [Application Insights CLI](https://docs.microsoft.com/cli/azure/ext/application-insights/monitor/app-insights/component/linked-storage).
+    > Pour effectuer des mises à jour sur les comptes de stockage liés à votre ressource Application Insights, reportez-vous à la documentation [Application Insights CLI](/cli/azure/ext/application-insights/monitor/app-insights/component/linked-storage).
 
 #### <a name="configure-using-azure-resource-manager-template"></a>Activer l’utilisation d’un modèle Azure Resource Manager
 

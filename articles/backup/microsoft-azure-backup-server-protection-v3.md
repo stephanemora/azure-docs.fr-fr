@@ -3,12 +3,12 @@ title: Ce que le serveur de sauvegarde Azure v3 RTM peut sauvegarder
 description: Cet article fournit une matrice de protection répertoriant toutes les charges de travail, tous les types de données et toutes les installations que protège le serveur de sauvegarde Azure v3 RTM.
 ms.date: 11/13/2018
 ms.topic: conceptual
-ms.openlocfilehash: 742b43d748fbd4c1235d0555ac3bd4419880db5c
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: aebd1d1f90a2c0b84d7a6e1cb77d0e50915b091e
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84631675"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86538564"
 ---
 # <a name="azure-backup-server-v3-rtm-protection-matrix"></a>Matrice de protection du serveur de sauvegarde Azure v3 RTM
 
@@ -98,7 +98,7 @@ Avec le Peering Microsoft, sélectionnez les services/régions suivants et les v
 * Région Microsoft Azure (en fonction de l’emplacement de votre coffre Recovery Services)
 * Stockage Azure (en fonction de l’emplacement de votre coffre Recovery Services)
 
-Pour plus d’informations, consultez [Configuration requise pour le routage ExpressRoute](https://docs.microsoft.com/azure/expressroute/expressroute-routing).
+Pour plus d’informations, consultez [Configuration requise pour le routage ExpressRoute](../expressroute/expressroute-routing.md).
 
 >[!NOTE]
 >Le peering public Azure est déconseillé pour les nouveaux circuits.

@@ -8,12 +8,12 @@ ms.date: 10/16/2019
 ms.author: normesta
 ms.subservice: common
 ms.reviewer: zezha-msft
-ms.openlocfilehash: 8d2adca661882ea11d04ebe55afe25f7f9c2ef4e
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 754baa66d79d169f830332f3c39660f1d71f608a
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84219960"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86527912"
 ---
 # <a name="azcopy-login"></a>azcopy login
 
@@ -84,7 +84,7 @@ azcopy login --identity --identity-resource-id "/subscriptions/<subscriptionId>/
 Connectez-vous en tant que principal de service à l’aide d’un secret client. Définissez la variable d’environnement AZCOPY_SPA_CLIENT_SECRET sur le secret client pour une authentification du principal de service basée sur les secrets.
 
 ```azcopy
-azcopy login --service-principal
+azcopy login --service-principal --application-id "YOUR_APP_ID" --tenant-id "YOUR_TENANT_ID"
 ```
 
 Connectez-vous en tant que principal de service à l’aide d’un certificat et d’un mot de passe. Définissez la variable d’environnement AZCOPY_SPA_CERT_PASSWORD sur le mot de passe du certificat pour une autorisation du principal de service basée sur les certificats.

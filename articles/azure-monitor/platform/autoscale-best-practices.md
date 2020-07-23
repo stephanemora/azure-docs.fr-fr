@@ -4,15 +4,15 @@ description: Modèles de mise à l’échelle automatique d’Azure pour Web App
 ms.topic: conceptual
 ms.date: 07/07/2017
 ms.subservice: autoscale
-ms.openlocfilehash: a05cf87e660cc6c388ea2055bb174c47b99da4a3
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 47da813498ef2cd4d16aeaa5ab31eff24b1db267
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85846938"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86539531"
 ---
 # <a name="best-practices-for-autoscale"></a>Meilleures pratiques pour la mise à l’échelle automatique
-La mise à l’échelle automatique Azure Monitor s’applique uniquement aux [groupes de machines virtuelles identiques](https://azure.microsoft.com/services/virtual-machine-scale-sets/), aux [services cloud](https://azure.microsoft.com/services/cloud-services/), à [App Service - Web Apps](https://azure.microsoft.com/services/app-service/web/) et aux [services de gestion des API](https://docs.microsoft.com/azure/api-management/api-management-key-concepts).
+La mise à l’échelle automatique Azure Monitor s’applique uniquement aux [groupes de machines virtuelles identiques](https://azure.microsoft.com/services/virtual-machine-scale-sets/), aux [services cloud](https://azure.microsoft.com/services/cloud-services/), à [App Service - Web Apps](https://azure.microsoft.com/services/app-service/web/) et aux [services de gestion des API](../../api-management/api-management-key-concepts.md).
 
 ## <a name="autoscale-concepts"></a>Concepts de la mise à l’échelle automatique
 
@@ -151,4 +151,3 @@ Outre l’activation des alertes de journal d’activité, vous pouvez configure
 ## <a name="next-steps"></a>Étapes suivantes
 - [Créez une alerte de journal d’activité pour surveiller toutes les opérations du moteur de mise à l’échelle automatique dans votre abonnement.](https://github.com/Azure/azure-quickstart-templates/tree/master/monitor-autoscale-alert)
 - [Créer une alerte de journal d’activité pour surveiller tous les échecs d’opérations de scale-in/scale-out automatique dans votre abonnement](https://github.com/Azure/azure-quickstart-templates/tree/master/monitor-autoscale-failed-alert)
-

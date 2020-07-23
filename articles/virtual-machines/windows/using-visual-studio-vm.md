@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 04/23/2020
 ms.author: cathys
 keywords: visualstudio
-ms.openlocfilehash: ecec05da3904782199e68cfdca917a8c451edec6
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: f1da7dabfb562ea32697745460d92ed27089878c
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85105990"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86525532"
 ---
 # <a name="visual-studio-images-on-azure"></a>Images de Visual Studio sur Azure
 L’exécution de Visual Studio sur une machine virtuelle Azure préconfigurée est un moyen simple et rapide de créer un environnement de développement opérationnel à partir de rien. Des images système avec différentes configurations de Visual Studio sont disponibles sur la [Place de Marché Azure](https://azuremarketplace.microsoft.com/marketplace/apps/category/compute?filters=virtual-machine-images%3Bmicrosoft%3Bwindows&page=1&subcategories=application-infrastructure).
@@ -23,7 +23,7 @@ L’exécution de Visual Studio sur une machine virtuelle Azure préconfigurée 
 Vous êtes un nouvel utilisateur d’Azure ? [Créer un compte Azure gratuit](https://azure.microsoft.com/free).
 
 > [!NOTE]
-> Tous les abonnements ne sont pas éligibles au déploiement d’images Windows 10. Pour plus d’informations, consultez [Utilisation d’un client Windows dans Azure pour les scénarios de développement et/ou test](https://docs.microsoft.com/azure/virtual-machines/windows/client-images).
+> Tous les abonnements ne sont pas éligibles au déploiement d’images Windows 10. Pour plus d’informations, consultez [Utilisation d’un client Windows dans Azure pour les scénarios de développement et/ou test](./client-images.md).
 
 ## <a name="what-configurations-and-versions-are-available"></a>Quelles sont les configurations et les versions disponibles ?
 La Place de Marché Azure met à disposition des images pour les dernières versions principales : Visual Studio 2019, Visual Studio 2017 et Visual Studio 2015.  Pour chaque version principale publiée figurent la version initialement publiée sur le web (RTW) et les versions mises à jour les plus récentes.  Pour chacune de ces versions, il existe des éditions Visual Studio Enterprise et Visual Studio Community.  Ces images sont actualisées au moins chaque mois pour inclure les dernières mises à jour Visual Studio et Windows.  Bien que les noms des images restent identiques, la description de chaque image inclut la version de produit installée et la date de création de l’image.
@@ -77,9 +77,9 @@ Azure offre une gamme complète de tailles de machine virtuelle. Visual Studio 
    * Standard_D2S_v2
    * Standard_D3_v2
     
-Pour plus d’informations sur les tailles de machine les plus récentes, consultez [Tailles des machines virtuelles Windows dans Azure](/azure/virtual-machines/windows/sizes).
+Pour plus d’informations sur les tailles de machine les plus récentes, consultez [Tailles des machines virtuelles Windows dans Azure](./sizes.md).
 
-Avec Azure, vous pouvez rééquilibrer votre choix initial en redimensionnant la machine virtuelle. Vous pouvez soit provisionner une nouvelle machine virtuelle avec une taille plus appropriée, soit redimensionner votre machine virtuelle existante sur un autre matériel sous-jacent. Pour plus d’informations, consultez [Redimensionner une machine virtuelle Windows](/azure/virtual-machines/windows/resize-vm).
+Avec Azure, vous pouvez rééquilibrer votre choix initial en redimensionnant la machine virtuelle. Vous pouvez soit provisionner une nouvelle machine virtuelle avec une taille plus appropriée, soit redimensionner votre machine virtuelle existante sur un autre matériel sous-jacent. Pour plus d’informations, consultez [Redimensionner une machine virtuelle Windows](./resize-vm.md).
 
 ## <a name="after-the-vm-is-running-whats-next"></a>Une fois que la machine virtuelle est en cours d’exécution, que faire ?
 Visual Studio suit le modèle BYOL (apportez votre propre licence) dans Azure. Comme pour une installation sur du matériel propriétaire, l’une des premières étapes est l’attribution d’une licence à votre installation Visual Studio. Pour déverrouiller Visual Studio, effectuez l’une des actions suivantes :
@@ -96,7 +96,7 @@ En bref : utilisez l’outil de préparation système (Sysprep) et arrêtez la m
 
 <img src="media/using-visual-studio-vm/capture-vm.png" alt="Capture an image through the Azure portal UI" style="border:3px solid Silver; display: block; margin: auto;"><center> *(Figure 1) Capturer une image par le biais de l’interface utilisateur du Portail Azure.* </center>
 
-Pour plus d’informations, consultez [Créer une image managée d’une machine virtuelle généralisée dans Azure](/azure/virtual-machines/windows/capture-image-resource).
+Pour plus d’informations, consultez [Créer une image managée d’une machine virtuelle généralisée dans Azure](./capture-image-resource.md).
 
 > [!IMPORTANT]
 > N’oubliez pas d’utiliser Sysprep pour préparer la machine virtuelle. Si vous omettez cette étape, Azure ne peut pas provisionner une machine virtuelle à partir de l’image.

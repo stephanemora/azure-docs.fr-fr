@@ -11,12 +11,12 @@ ms.subservice: language-understanding
 ms.topic: conceptual
 ms.date: 11/11/2019
 ms.author: diberry
-ms.openlocfilehash: 6d8088f537c4148f780c5f250eda3dcd5198f67f
-ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
+ms.openlocfilehash: 1ecdbaa28cad633817497f4af2091b9e38ba7db2
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/20/2020
-ms.locfileid: "83683905"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86538052"
 ---
 # <a name="patterns-improve-prediction-accuracy"></a>Les modèles améliorent la précision de la prédiction
 Les modèles sont conçus pour améliorer la précision lorsque plusieurs énoncés sont très similaires.  Un modèle vous permet d’obtenir plus de précision pour une intention sans fournir de nombreux énoncés en plus.
@@ -41,7 +41,7 @@ Les modèles peuvent résoudre les situations suivantes :
 ## <a name="patterns-are-not-a-guarantee-of-intent"></a>Les modèles ne garantissent pas l’intention
 Les modèles utilisent un mélange de technologies de prédiction. La définition d’une intention pour un exemple d’énoncé dans un modèle ne garantit pas la prédiction de l’intention, mais constitue un signal fort.
 
-<a name="patterns-do-not-improve-entity-detection"/></a>
+<a name="patterns-do-not-improve-entity-detection"></a>
 
 ## <a name="patterns-do-not-improve-machine-learning-entity-detection"></a>Les modèles n’améliorent pas la détection d’entités de machine-learning
 

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-linux
 ms.devlang: azurecli
 ms.date: 10/09/2019
 ms.author: v-six
-ms.openlocfilehash: 455cb1e0067217be6edcf665e8c07e8fcd684ab5
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: e26d4070bc9fabeb3467e7bdc805faad4e6646c3
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "76842399"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86526501"
 ---
 # <a name="troubleshoot-linux-vm-starting-issues-due-to-file-system-errors"></a>Résoudre les problèmes de démarrage de machine virtuelle Linux dus à des erreurs de système de fichiers
 
@@ -75,7 +75,7 @@ Plusieurs contrôleurs de système de fichiers sont disponibles dans Linux. Ceux
 
 ## <a name="resolution"></a>Résolution
 
-Pour résoudre ce problème, démarrez la machine virtuelle en mode d’urgence à l’aide de la [console série](https://docs.microsoft.com/azure/virtual-machines/troubleshooting/serial-console-linux) et utilisez cet outil pour réparer le système de fichiers. Si la console série n’est pas activée sur la machine virtuelle ou si elle ne fonctionne pas, consultez la section [Réparer la machine virtuelle en mode hors connexion](#repair-the-vm-offline) de cet article.
+Pour résoudre ce problème, démarrez la machine virtuelle en mode d’urgence à l’aide de la [console série](./serial-console-linux.md) et utilisez cet outil pour réparer le système de fichiers. Si la console série n’est pas activée sur la machine virtuelle ou si elle ne fonctionne pas, consultez la section [Réparer la machine virtuelle en mode hors connexion](#repair-the-vm-offline) de cet article.
 
 ## <a name="use-the-serial-console"></a>Utiliser la console série
 
@@ -83,8 +83,8 @@ Pour résoudre ce problème, démarrez la machine virtuelle en mode d’urgence 
 
    > [!Note]
    > Pour plus d’informations sur l’utilisation de la console série pour Linux, consultez :
-   > * [Utiliser la console série pour accéder au GRUB et au mode mono-utilisateur](https://docs.microsoft.com/azure/virtual-machines/linux/serial-console-grub-single-user-mode)
-   > * [Utiliser la console série pour les appels SysRq et NMI](https://docs.microsoft.com/azure/virtual-machines/troubleshooting/serial-console-nmi-sysrq)
+   > * [Utiliser la console série pour accéder au GRUB et au mode mono-utilisateur](../linux/serial-console-grub-single-user-mode.md)
+   > * [Utiliser la console série pour les appels SysRq et NMI](./serial-console-nmi-sysrq.md)
 
 2. Sélectionnez l’icône du bouton d’alimentation, puis sélectionnez Redémarrer la machine virtuelle. (Si la console série n’est pas activée ou n’est pas connectée correctement, le bouton ne s’affiche pas.)
 
@@ -134,7 +134,7 @@ Pour résoudre ce problème, démarrez la machine virtuelle en mode d’urgence 
 
 ## <a name="repair-the-vm-offline"></a>Réparer la machine virtuelle en mode hors connexion
 
-1. Attachez le disque système de la machine virtuelle en tant que disque de données à une machine virtuelle de récupération (toute machine virtuelle Linux opérationnelle). Pour ce faire, vous pouvez utiliser les [commandes CLI](https://docs.microsoft.com/azure/virtual-machines/troubleshooting/troubleshoot-recovery-disks-linux) ou automatiser la configuration de la machine virtuelle de récupération à l’aide des [commandes de réparation de machine virtuelle](repair-linux-vm-using-azure-virtual-machine-repair-commands.md).
+1. Attachez le disque système de la machine virtuelle en tant que disque de données à une machine virtuelle de récupération (toute machine virtuelle Linux opérationnelle). Pour ce faire, vous pouvez utiliser les [commandes CLI](./troubleshoot-recovery-disks-linux.md) ou automatiser la configuration de la machine virtuelle de récupération à l’aide des [commandes de réparation de machine virtuelle](repair-linux-vm-using-azure-virtual-machine-repair-commands.md).
 
 2. Identifiez le nom de lecteur du disque système que vous avez attaché. Dans le cas présent, nous supposons que le nom du disque système que vous avez attaché est /dev/sdc1. Remplacez-le par la valeur correspondant à votre machine virtuelle.
 
@@ -178,6 +178,5 @@ Pour résoudre ce problème, démarrez la machine virtuelle en mode d’urgence 
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-* [Résoudre les problèmes d’une machine virtuelle Linux en attachant le disque de système d’exploitation à une machine virtuelle de récupération avec Azure CLI 2.0](https://docs.microsoft.com/azure/virtual-machines/virtual-machines-linux-troubleshoot-recovery-disks)
-* [Utiliser le portail pour attacher un disque de données à une machine virtuelle Linux](https://docs.microsoft.com/azure/virtual-machines/linux/attach-disk-portal)
-
+* [Résoudre les problèmes d’une machine virtuelle Linux en attachant le disque de système d’exploitation à une machine virtuelle de récupération avec Azure CLI 2.0](./troubleshoot-recovery-disks-linux.md)
+* [Utiliser le portail pour attacher un disque de données à une machine virtuelle Linux](../linux/attach-disk-portal.md)

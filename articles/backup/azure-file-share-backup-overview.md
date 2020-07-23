@@ -3,12 +3,12 @@ title: À propos de la sauvegarde des partages de fichiers Azure
 description: Découvrir comment sauvegarder des partages de fichiers Azure dans le coffre Recovery Services
 ms.topic: conceptual
 ms.date: 03/05/2020
-ms.openlocfilehash: 0a03871b61ab00f2dae18ba11a5a9127680a646b
-ms.sourcegitcommit: d118ad4fb2b66c759b70d4d8a18e6368760da3ad
+ms.openlocfilehash: 40cb9ca0bd34fd65ab1983af6384d617db26e996
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/02/2020
-ms.locfileid: "84299228"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86539089"
 ---
 # <a name="about-azure-file-share-backup"></a>À propos de la sauvegarde des partages de fichiers Azure
 
@@ -21,7 +21,7 @@ La sauvegarde des partages de fichiers Azure est une solution de sauvegarde clou
 * **Capacités de gestion intégrées** : Vous pouvez planifier des sauvegardes et spécifier la période de rétention souhaitée sans surcharge de nettoyage des données.
 * **Restauration instantanée** : La sauvegarde des partages de fichiers Azure utilise des instantanés de partage de fichiers, ce qui vous permet de sélectionner uniquement les fichiers que vous souhaitez restaurer instantanément.
 * **Alertes et rapports** : Vous pouvez configurer des alertes pour les échecs de sauvegarde et de restauration et utiliser la solution de création de rapports fournie par Sauvegarde Azure pour obtenir des informations sur les sauvegardes relatives à vos partages de fichiers.
-* **Protection contre la suppression accidentelle de partages de fichiers** : Sauvegarde Azure active la [fonctionnalité de suppression réversible](https://docs.microsoft.com/azure/storage/files/storage-files-prevent-file-share-deletion) au niveau du compte de stockage avec une période de rétention de 14 jours. Même si un intervenant malveillant supprime le partage de fichiers, le contenu et les points de récupération (captures instantanées) du partage de fichiers sont conservés pendant une période de rétention configurable, ce qui permet une récupération réussie et complète du contenu source et des captures instantanées sans perte de données.
+* **Protection contre la suppression accidentelle de partages de fichiers** : Sauvegarde Azure active la [fonctionnalité de suppression réversible](../storage/files/storage-files-prevent-file-share-deletion.md) au niveau du compte de stockage avec une période de rétention de 14 jours. Même si un intervenant malveillant supprime le partage de fichiers, le contenu et les points de récupération (captures instantanées) du partage de fichiers sont conservés pendant une période de rétention configurable, ce qui permet une récupération réussie et complète du contenu source et des captures instantanées sans perte de données.
 
 ## <a name="architecture"></a>Architecture
 

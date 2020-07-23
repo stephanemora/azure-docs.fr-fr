@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 10/08/2019
-ms.openlocfilehash: 430b1c044ac5fc22dbf3a4f4df33ff9017e21d6d
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 727653314104ee1b2a27a1342de9824d8f303e23
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85361953"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86539735"
 ---
 # <a name="monitoring-azure-resources-with-azure-monitor"></a>Supervision de ressources Azure avec Azure Monitor
 Lorsque vous avez des applications critiques et des processus métier basés sur des ressources Azure, vous voulez superviser ces ressources pour connaître leur disponibilité, leurs performances et leur fonctionnement. Cet article décrit les données de supervision générées par les ressources Azure et comment vous pouvez utiliser les fonctionnalités d’Azure Monitor pour analyser ces données et créer des alertes.
@@ -79,9 +79,9 @@ La collecte de données dans les journaux d’activité Azure Monitor nécessite
 ## <a name="diagnostic-settings"></a>Paramètres de diagnostic
 Les paramètres de diagnostic définissent où les journaux de ressources et les métriques d’une ressource particulière doivent être envoyés. Les destinations possibles sont les suivantes :
 
-- [Espace de travail Log Analytics](../platform/resource-logs-collect-workspace.md) qui permet d’analyser les données avec d’autres données de supervision collectées par Azure Monitor à l’aide de requêtes de journal puissantes, ainsi que d’exploiter d’autres fonctionnalités Azure Monitor, telles que les alertes et les visualisations de journal. 
-- [Hubs d’événements](../platform/resource-logs-stream-event-hubs.md) pour envoyer en streaming des données vers des systèmes externes tels que des solutions SIEM tierces et d’autres solutions Log Analytics. 
-- [Compte de stockage Azure](../platform/resource-logs-collect-storage.md) qui est utile à des fins d’audit, d’analyse statique ou de sauvegarde.
+- [Espace de travail Log Analytics](../platform/resource-logs.md#send-to-log-analytics-workspace) qui permet d’analyser les données avec d’autres données de supervision collectées par Azure Monitor à l’aide de requêtes de journal puissantes, ainsi que d’exploiter d’autres fonctionnalités Azure Monitor, telles que les alertes et les visualisations de journal. 
+- [Hubs d’événements](../platform/resource-logs.md#send-to-azure-event-hubs) pour envoyer en streaming des données vers des systèmes externes tels que des solutions SIEM tierces et d’autres solutions Log Analytics. 
+- [Compte de stockage Azure](../platform/resource-logs.md#send-to-azure-storage) qui est utile à des fins d’audit, d’analyse statique ou de sauvegarde.
 
 Suivez la procédure indiquée dans [Créer un paramètre de diagnostic pour collecter des journaux et métriques de plateforme dans Azure](../platform/diagnostic-settings.md) pour créer et gérer les paramètres de diagnostic via le portail Azure. Consultez [Créer un paramètre de diagnostic dans Azure à l’aide d’un modèle Resource Manager](../platform/diagnostic-settings-template.md) pour les définir dans un modèle et activer la supervision complète d’une ressource lors de sa création.
 
@@ -114,7 +114,7 @@ Analysez les métriques dans le Portail Azure à l’aide de **Metrics Explorer*
 ### <a name="activity-log"></a>Journal d’activité 
 Affichez les entrées du journal d’activité dans le Portail Azure avec le filtre initial défini sur la ressource actuelle. Copiez le journal d’activité dans un espace de travail Log Analytics pour y accéder et l’utiliser dans des classeurs et des requêtes de journal. 
 
-- Consultez [Afficher et récupérer les événements du journal d’activité Azure](../platform/activity-log-view.md) pour plus d’informations sur l’affichage du journal d’activité et la récupération des entrées à l’aide de différentes méthodes.
+- Consultez [Afficher et récupérer les événements du journal d’activité Azure](../platform/activity-log.md#view-the-activity-log) pour plus d’informations sur l’affichage du journal d’activité et la récupération des entrées à l’aide de différentes méthodes.
 - Consultez la documentation de votre service Azure pour connaître les événements spécifiques qui sont consignés.
 
 ![Journal d’activité](media/monitor-azure-resource/activity-log.png)
@@ -125,8 +125,8 @@ Les journaux Azure Monitor centralisent les journaux et les métriques à partir
 [Log Analytics](../log-query/get-started-portal.md) vous permet de travailler avec des [requêtes de journal](../log-query/log-query-overview.md), qui sont une fonctionnalité puissante d’Azure Monitor qui vous permet d’effectuer une analyse avancée des données de journal à l’aide d’un langage de requête complet. Ouvrez Log Analytics à partir de **Journaux** dans le menu **Supervision** pour qu’une ressource Azure utilise les requêtes de journal avec la ressource en tant qu’[étendue de requête](../log-query/scope.md#query-scope). Cela vous permet d’analyser les données de plusieurs tables uniquement pour cette ressource. Utilisez **Journaux** dans le menu d’Azure Monitor pour accéder aux journaux de toutes les ressources. 
 
 - Consultez [Bien démarrer avec les requêtes de journal dans Azure Monitor](../log-query/get-started-queries.md) pour bénéficier d’un tutoriel sur le langage de requêtes utilisé pour écrire des requêtes de journal.
-- Consultez [Collecter les journaux d’activité de ressources Azure dans l’espace de travail Log Analytics dans Azure Monitor](../platform/resource-logs-collect-workspace.md) pour plus d’informations sur la façon dont les journaux de ressources sont collectés dans les journaux Azure Monitor et la façon d’accéder à ces derniers dans une requête.
-- Consultez [Mode de collecte](../platform/resource-logs-collect-workspace.md#resource-log-collection-mode) pour obtenir une explication sur la façon dont les données des journaux de ressources sont structurées dans les journaux Azure Monitor.
+- Consultez [Collecter les journaux d’activité de ressources Azure dans l’espace de travail Log Analytics dans Azure Monitor](../platform/resource-logs.md#send-to-log-analytics-workspace) pour plus d’informations sur la façon dont les journaux de ressources sont collectés dans les journaux Azure Monitor et la façon d’accéder à ces derniers dans une requête.
+- Consultez [Mode de collecte](../platform/resource-logs.md#send-to-log-analytics-workspace) pour obtenir une explication sur la façon dont les données des journaux de ressources sont structurées dans les journaux Azure Monitor.
 - Consultez la documentation de chaque service Azure pour plus d’informations sur sa table dans les journaux Azure Monitor.
 
 ![Journaux d’activité](media/monitor-azure-resource/logs.png)
@@ -163,4 +163,4 @@ Utilisez **Alertes** dans le menu d’une ressource pour afficher les alertes et
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-* Consultez [Services, schémas et catégories pris en charge pour les journaux de ressources Azure](../platform/diagnostic-logs-schema.md) pour plus de détails sur les journaux de ressources des différents services Azure.  
+* Consultez [Services, schémas et catégories pris en charge pour les journaux de ressources Azure](../platform/resource-logs-schema.md) pour plus de détails sur les journaux de ressources des différents services Azure.  

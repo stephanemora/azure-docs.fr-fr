@@ -3,12 +3,12 @@ title: Exporter vers SQL à partir d’Application Insights | Microsoft Docs
 description: Exportez de façon continue les données Application Insights vers SQL à l’aide de Stream Analytics.
 ms.topic: conceptual
 ms.date: 09/11/2017
-ms.openlocfilehash: 3c8586e8a6950e827d1078ca7d9cc3792fa58ae0
-ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
+ms.openlocfilehash: 4975d91cc20b81de302a1dd0cb7b3326878a96a1
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86087224"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86540092"
 ---
 # <a name="walkthrough-export-to-sql-from-application-insights-using-stream-analytics"></a>Procédure pas à pas : exporter vers SQL à partir d’Application Insights à l’aide de Stream Analytics
 Cet article explique comment déplacer vos données de télémétrie d’[Azure Application Insights][start] vers Azure SQL Database à l’aide de l’[Exportation continue][export] et d’[Azure Stream Analytics](https://azure.microsoft.com/services/stream-analytics/). 
@@ -82,7 +82,7 @@ Assurez-vous que le serveur autorise l'accès aux services Azure :
 ![Parcourir, Serveurs, votre serveur, Paramètres, Pare-feu, Autoriser l’accès à Azure](./media/code-sample-export-sql-stream-analytics/100-sqlaccess.png)
 
 ## <a name="create-a-table-in-azure-sql-database"></a>Créer une table dans Azure SQL Database
-Connectez-vous à la base de données créée dans la section précédente à l’aide de votre outil de gestion préféré. Dans cette procédure pas à pas, nous utiliserons [Outils d’administration SQL Server](https://msdn.microsoft.com/ms174173.aspx) (SSMS).
+Connectez-vous à la base de données créée dans la section précédente à l’aide de votre outil de gestion préféré. Dans cette procédure pas à pas, nous utiliserons [Outils d’administration SQL Server](/sql/ssms/sql-server-management-studio-ssms?view=sql-server-ver15) (SSMS).
 
 ![Connexion à Azure SQL Database](./media/code-sample-export-sql-stream-analytics/31-sql-table.png)
 
@@ -255,4 +255,3 @@ FROM [dbo].[PageViewsTable]
 [metrics]: ../../azure-monitor/platform/metrics-charts.md
 [portal]: https://portal.azure.com/
 [start]: ../../azure-monitor/app/app-insights-overview.md
-

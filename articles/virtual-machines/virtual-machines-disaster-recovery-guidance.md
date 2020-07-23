@@ -6,12 +6,12 @@ ms.service: virtual-machines
 ms.topic: article
 ms.date: 05/31/2017
 ms.author: cynthn
-ms.openlocfilehash: f2dc43e1f07d449bf2f8ed39ce4523c99b551dae
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 6481bfe265786ca8b79f96bbcac7fe4d58076911
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "77115614"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86525821"
 ---
 # <a name="what-if-an-azure-service-disruption-impacts-azure-vms"></a>Que faire si une interruption du service Azure affecte des machines virtuelles Azure ?
 Microsoft s’engage à déployer tous les efforts nécessaires pour vous garantir en permanence la disponibilité de ses services quand vous en avez besoin. Il arrive parfois que des phénomènes incontrôlables entraînent des interruptions de service non planifiées.
@@ -35,7 +35,7 @@ Cette option est la meilleure si vous n’avez pas activé Azure Site Recovery, 
 
 
 > [!NOTE]
-> N’oubliez pas que vous n’avez aucun contrôle sur ce processus et qu’il ne se produit que pour des interruptions du service au niveau régional. Ainsi, vous devez également vous appuyer sur d’autres stratégies de sauvegarde propres à l’application pour atteindre le plus haut niveau de disponibilité. Pour plus d’informations, consultez la section consacrée aux [stratégies de données pour une récupération d’urgence](https://docs.microsoft.com/azure/architecture/reliability/disaster-recovery#disaster-recovery-plan).
+> N’oubliez pas que vous n’avez aucun contrôle sur ce processus et qu’il ne se produit que pour des interruptions du service au niveau régional. Ainsi, vous devez également vous appuyer sur d’autres stratégies de sauvegarde propres à l’application pour atteindre le plus haut niveau de disponibilité. Pour plus d’informations, consultez la section consacrée aux [stratégies de données pour une récupération d’urgence](/azure/architecture/reliability/disaster-recovery#disaster-recovery-plan).
 >
 >
 
@@ -45,7 +45,7 @@ Cette option est la meilleure si vous n’avez pas activé Azure Site Recovery, 
 
 - Pour plus d’informations sur la façon d’implémenter une stratégie de récupération d’urgence et de haute disponibilité, consultez [Récupération d’urgence et haute disponibilité pour les applications Azure](../resiliency/resiliency-disaster-recovery-high-availability-azure-applications.md).
 
-- Pour une compréhension technique détaillée des fonctionnalités de la plateforme cloud, consultez le [Guide technique de la résilience Azure](/azure/data-lake-store/data-lake-store-disaster-recovery-guidance).
+- Pour une compréhension technique détaillée des fonctionnalités de la plateforme cloud, consultez le [Guide technique de la résilience Azure](../data-lake-store/data-lake-store-disaster-recovery-guidance.md).
 
 
 - Si les instructions ne sont pas claires ou que vous souhaitez que Microsoft effectue les opérations en votre nom, contactez le [service clientèle](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade).

@@ -8,12 +8,12 @@ ms.topic: article
 ms.service: notification-hubs
 ms.reviewer: jowargo
 ms.lastreviewed: 10/16/2019
-ms.openlocfilehash: 697e8ba9c9f27e8d5644e3a78950ff006290efe7
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 34b3ea9f07475affca76c8a3ff71de61abcadde8
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "74228139"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86529707"
 ---
 # <a name="azure-notification-hubs-updates-for-ios-13"></a>Mises à jour Azure Notification Hubs pour iOS 13
 
@@ -58,7 +58,7 @@ request.Headers.Add("ServiceBusNotification-Format", "apple");
 request.Headers.Add("apns-push-type", "alert");
 ```
 
-Pour vous aider durant cette transition, quand Azure Notification Hubs détecte une notification pour laquelle `apns-push-type` n’est pas défini, le service déduit le type d’envoi (push) à partir de la demande de notification et définit automatiquement la valeur. Souvenez-vous que vous devez configurer Azure Notification Hubs pour utiliser l’authentification basée sur les jetons afin de définir l’en-tête requis. Pour plus d’informations, consultez [Authentification basée sur un jeton (HTTP/2) pour APNS](notification-hubs-push-notification-http2-token-authentification.md).
+Pour vous aider durant cette transition, quand Azure Notification Hubs détecte une notification pour laquelle `apns-push-type` n’est pas défini, le service déduit le type d’envoi (push) à partir de la demande de notification et définit automatiquement la valeur. Souvenez-vous que vous devez configurer Azure Notification Hubs pour utiliser l’authentification basée sur les jetons afin de définir l’en-tête requis. Pour plus d’informations, consultez [Authentification basée sur un jeton (HTTP/2) pour APNS](./notification-hubs-push-notification-http2-token-authentication.md).
 
 ## <a name="apns-priority"></a>Priorité APNS
 

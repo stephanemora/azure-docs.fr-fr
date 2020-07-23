@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 07/24/2019
-ms.openlocfilehash: 637db3a0749b5a0738b0ccc5136d26e435a03c7b
-ms.sourcegitcommit: 3541c9cae8a12bdf457f1383e3557eb85a9b3187
+ms.openlocfilehash: bfd25c2572e91c2984f2845e08941614fff65570
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/09/2020
-ms.locfileid: "86203122"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86539769"
 ---
 # <a name="using-service-map-solution-in-azure"></a>Utilisation de la solution Service Map dans Azure
 
@@ -241,7 +241,7 @@ Service Map intègre la recherche dans les journaux pour afficher un nombre de t
 
 ## <a name="service-desk-integration"></a>Intégration du service d’assistance
 
-L’intégration de Service Map au connecteur de gestion des services informatiques est automatique quand les deux solutions sont activées et configurées dans votre espace de travail Log Analytics. L’intégration dans Service Map est libellée « Service Desk ». Pour plus d’informations, voir [Gérer de manière centralisée les éléments de travail ITSM à l’aide d’IT Service Management Connector (version préliminaire)](https://docs.microsoft.com/azure/log-analytics/log-analytics-itsmc-overview).
+L’intégration de Service Map au connecteur de gestion des services informatiques est automatique quand les deux solutions sont activées et configurées dans votre espace de travail Log Analytics. L’intégration dans Service Map est libellée « Service Desk ». Pour plus d’informations, voir [Gérer de manière centralisée les éléments de travail ITSM à l’aide d’IT Service Management Connector (version préliminaire)](../platform/itsmc-overview.md).
 
 Le volet **Service Desk d’une machine** affiche la liste de tous les événements d’IT Service Management survenus pour le serveur sélectionné pendant la période sélectionnée. Le serveur affiche une icône s’il existe des éléments en cours, et le volet Service Desk de la machine affiche la liste de ceux-ci.
 
@@ -270,7 +270,7 @@ Le volet **Performances d’une machine** affiche des métriques de performance 
 
 ![Volet Performances d’une machine](media/service-map/machine-performance.png)
 
-Pour afficher les données de performances, vous pouvez avoir besoin d’[activer les compteurs de performances Log Analytics appropriés](https://docs.microsoft.com/azure/log-analytics/log-analytics-data-sources-performance-counters).  Les compteurs que vous souhaitez activer :
+Pour afficher les données de performances, vous pouvez avoir besoin d’[activer les compteurs de performances Log Analytics appropriés](../platform/data-sources-performance-counters.md).  Les compteurs que vous souhaitez activer :
 
 Windows :
 - Processeur(*)\\ % de temps processeur
@@ -540,7 +540,7 @@ let remoteMachines = remote | summarize by RemoteMachine;
 
 ## <a name="rest-api"></a>API REST
 
-L’ensemble des données relatives au serveur, au processus et aux dépendances dans Service Map est disponible via [l’API REST Carte de service](https://docs.microsoft.com/rest/api/servicemap/).
+L’ensemble des données relatives au serveur, au processus et aux dépendances dans Service Map est disponible via [l’API REST Carte de service](/rest/api/servicemap/).
 
 ## <a name="diagnostic-and-usage-data"></a>Données relatives aux diagnostics et à l’utilisation
 

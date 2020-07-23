@@ -3,12 +3,12 @@ title: Mettre automatiquement à l’échelle les unités de débit - Azure Even
 description: Activez la majoration automatique sur un espace de noms pour automatiquement mettre à l’échelle les unités de débit.
 ms.topic: article
 ms.date: 06/23/2020
-ms.openlocfilehash: 382d407bde61a4ca24ab5833ea51d540c8904adc
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 1be564472011622b71b3066495748dfdbe6cc791
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85322544"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86537239"
 ---
 # <a name="automatically-scale-up-azure-event-hubs-throughput-units"></a>Mettre automatiquement à l’échelle les unités de débit Azure Event Hubs
 Azure Event Hubs est une plateforme hautement évolutive de diffusion de données en continu. Ainsi, l’utilisation des unités Event Hubs augmente souvent une fois le service démarré. Ces augmentations obligent à rehausser les [unités de débit](event-hubs-scalability.md#throughput-units) prédéterminées pour mettre à l’échelle Event Hubs et gérer des taux de transfert plus conséquents. La fonctionnalité **Majoration automatique** d’Event Hubs augmente automatiquement la taille des instances en augmentant le nombre d’unités de débit pour répondre aux besoins d’utilisation. Cette opération permet d’éviter les situations de limitation, dans lesquelles :
@@ -114,5 +114,4 @@ Pour accéder au modèle complet, consultez le modèle [Create Event Hubs namesp
 
 Vous pouvez en apprendre plus sur Event Hubs en consultant les liens suivants :
 
-* [Vue d’ensemble d’Event Hubs](event-hubs-what-is-event-hubs.md)
-
+* [Vue d’ensemble d’Event Hubs](./event-hubs-about.md)

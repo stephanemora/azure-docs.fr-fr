@@ -3,12 +3,13 @@ title: Chiffrement dans la Sauvegarde Azure
 description: Découvrez comment les fonctionnalités de chiffrement de la Sauvegarde Azure vous permettent de protéger vos données de sauvegarde et de répondre aux besoins de sécurité de votre entreprise.
 ms.topic: conceptual
 ms.date: 04/30/2020
-ms.openlocfilehash: aafb9868dfb6a63ec9b6a3ae654b88b202a1a145
-ms.sourcegitcommit: 1e6c13dc1917f85983772812a3c62c265150d1e7
+ms.custom: references_regions
+ms.openlocfilehash: 099e736bfb321f0f92bd3a57f9c24e88293b42bb
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/09/2020
-ms.locfileid: "86171820"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86538749"
 ---
 # <a name="encryption-in-azure-backup"></a>Chiffrement dans la Sauvegarde Azure
 
@@ -16,7 +17,7 @@ Toutes vos données sauvegardées sont automatiquement chiffrées lorsqu’elles
 
 Outre le chiffrement au repos, toutes vos données de sauvegarde en transit sont transférées via HTTPS. Elles restent toujours sur le réseau principal Azure.
 
-Pour plus d'informations, consultez [Fonctionnalité de chiffrement du service Stockage Azure pour les données au repos](https://docs.microsoft.com/azure/storage/common/storage-service-encryption). Reportez-vous au [Forum aux questions sur la sauvegarde Azure](https://docs.microsoft.com/azure/backup/backup-azure-backup-faq#encryption) pour connaître les réponses à toutes les questions concernant le chiffrement que vous pouvez vous poser.
+Pour plus d'informations, consultez [Fonctionnalité de chiffrement du service Stockage Azure pour les données au repos](../storage/common/storage-service-encryption.md). Reportez-vous au [Forum aux questions sur la sauvegarde Azure](./backup-azure-backup-faq.md#encryption) pour connaître les réponses à toutes les questions concernant le chiffrement que vous pouvez vous poser.
 
 ## <a name="encryption-of-backup-data-using-platform-managed-keys"></a>Chiffrement des données de sauvegarde à l’aide de clés gérées par la plateforme
 
@@ -30,7 +31,7 @@ Vous trouverez [ici](encryption-at-rest-with-cmk.md) des informations complémen
 
 ## <a name="backup-of-managed-disk-vms-encrypted-using-customer-managed-keys"></a>Sauvegarde de machines virtuelles à disque managé, chiffrées à l’aide de clés gérées par le client
 
-Sauvegarde Azure vous permet aussi de sauvegarder les machines virtuelles Azure qui utilisent votre clé pour [Storage Service Encryption](https://docs.microsoft.com/azure/storage/common/storage-service-encryption). La clé utilisée pour chiffrer les disques est stockée dans le coffre Azure Key Vault et gérée par vous. La fonctionnalité Storage Service Encryption (SSE) qui utilise des clés gérées par le client se distingue d’Azure Disk Encryption (ADE) dans la mesure où ADE s’appuie sur BitLocker (pour Windows) et DM-Crypt (pour Linux) pour effectuer un chiffrement dans l’invité. De son côté, SSE chiffre les données dans le service de stockage, ce qui vous permet d’utiliser n’importe quel système d’exploitation ou n’importe quelle image pour vos machines virtuelles. Pour plus d’informations, consultez [Chiffrement de disques managés avec des clés gérées par le client](https://docs.microsoft.com/azure/virtual-machines/windows/disk-encryption#customer-managed-keys).
+Sauvegarde Azure vous permet aussi de sauvegarder les machines virtuelles Azure qui utilisent votre clé pour [Storage Service Encryption](../storage/common/storage-service-encryption.md). La clé utilisée pour chiffrer les disques est stockée dans le coffre Azure Key Vault et gérée par vous. La fonctionnalité Storage Service Encryption (SSE) qui utilise des clés gérées par le client se distingue d’Azure Disk Encryption (ADE) dans la mesure où ADE s’appuie sur BitLocker (pour Windows) et DM-Crypt (pour Linux) pour effectuer un chiffrement dans l’invité. De son côté, SSE chiffre les données dans le service de stockage, ce qui vous permet d’utiliser n’importe quel système d’exploitation ou n’importe quelle image pour vos machines virtuelles. Pour plus d’informations, consultez [Chiffrement de disques managés avec des clés gérées par le client](../virtual-machines/windows/disk-encryption.md#customer-managed-keys).
 
 ## <a name="infrastructure-level-encryption-for-backup-data"></a>Chiffrement au niveau de l’infrastructure pour les données de sauvegarde
 
@@ -41,7 +42,7 @@ En plus du chiffrement de vos données dans le coffre Recovery Services avec des
 
 ## <a name="backup-of-vms-encrypted-using-ade"></a>Sauvegarde de machines virtuelles chiffrées à l’aide d’ADE
 
-Grâce à Sauvegarde Azure, vous pouvez également sauvegarder vos machines virtuelles Azure dont le système d’exploitation ou les disques de données sont chiffrés à l’aide d’Azure Disk Encryption. ADE utilise BitLocker pour les machines virtuelles Windows et DM-Crypt pour les machines virtuelles Linux afin d’effectuer un chiffrement dans l’invité. Pour plus d’informations, consultez [Sauvegarder et restaurer des machines virtuelles chiffrées avec Sauvegarde Azure](https://docs.microsoft.com/azure/backup/backup-azure-vms-encryption).
+Grâce à Sauvegarde Azure, vous pouvez également sauvegarder vos machines virtuelles Azure dont le système d’exploitation ou les disques de données sont chiffrés à l’aide d’Azure Disk Encryption. ADE utilise BitLocker pour les machines virtuelles Windows et DM-Crypt pour les machines virtuelles Linux afin d’effectuer un chiffrement dans l’invité. Pour plus d’informations, consultez [Sauvegarder et restaurer des machines virtuelles chiffrées avec Sauvegarde Azure](./backup-azure-vms-encryption.md).
 
 ## <a name="next-steps"></a>Étapes suivantes
 

@@ -16,12 +16,12 @@ ms.date: 01/04/2019
 ms.author: sethm
 ms.reviewer: jowargo
 ms.lastreviewed: 01/04/2019
-ms.openlocfilehash: e6334659d41ba201cfdde190ccc9bfa0d58009e3
-ms.sourcegitcommit: b396c674aa8f66597fa2dd6d6ed200dd7f409915
+ms.openlocfilehash: d45b98f291a7524dac2927fc74c5dc52400209f5
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/07/2020
-ms.locfileid: "82891194"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86529979"
 ---
 # <a name="deploy-and-manage-notification-hubs-using-powershell"></a>Déployer et gérer des hubs de notification à l'aide de PowerShell
 
@@ -32,7 +32,7 @@ Cet article vous montre comment utiliser Création et gestion d’Azure Notifica
 - Création d’un concentrateur de notification
 - Définition des informations d’identification
 
-Si vous devez également créer un espace de noms Service Bus pour vos hubs de notification, consultez [Gérer Service Bus avec PowerShell](../service-bus-messaging/service-bus-powershell-how-to-provision.md).
+Si vous devez également créer un espace de noms Service Bus pour vos hubs de notification, consultez [Gérer Service Bus avec PowerShell](../service-bus-messaging/service-bus-manage-with-ps.md).
 
 La gestion des concentrateurs de notification n’est pas directement prise en charge par les applets de commande inclus avec Azure PowerShell. Dans PowerShell, la meilleure approche consiste à référencer l’assembly Microsoft.Azure.NotificationHubs.dll. L’assembly est distribué avec le [package NuGet Microsoft Azure Notification Hubs](https://www.nuget.org/packages/Microsoft.Azure.NotificationHubs/).
 
@@ -148,9 +148,9 @@ else
 
 ## <a name="additional-resources"></a>Ressources supplémentaires
 
-- [Gestion de Service Bus avec PowerShell](../service-bus-messaging/service-bus-powershell-how-to-provision.md)
-- [Comment créer des files d'attente, des rubriques et des abonnements Service Bus à l'aide d'un script PowerShell](https://docs.microsoft.com/archive/blogs/paolos/how-to-create-service-bus-queues-topics-and-subscriptions-using-a-powershell-script)
-- [Comment créer un espace de noms et un concentrateur d'événements Service Bus à l'aide d'un script PowerShell](https://docs.microsoft.com/archive/blogs/paolos/how-to-create-a-service-bus-namespace-and-an-event-hub-using-a-powershell-script)
+- [Gestion de Service Bus avec PowerShell](../service-bus-messaging/service-bus-manage-with-ps.md)
+- [Comment créer des files d'attente, des rubriques et des abonnements Service Bus à l'aide d'un script PowerShell](/archive/blogs/paolos/how-to-create-service-bus-queues-topics-and-subscriptions-using-a-powershell-script)
+- [Comment créer un espace de noms et un concentrateur d'événements Service Bus à l'aide d'un script PowerShell](/archive/blogs/paolos/how-to-create-a-service-bus-namespace-and-an-event-hub-using-a-powershell-script)
 
 Vous pouvez également télécharger des scripts prêts à l’emploi :
 
@@ -160,7 +160,7 @@ Vous pouvez également télécharger des scripts prêts à l’emploi :
 [Offres spéciales membres]: https://azure.microsoft.com/pricing/member-offers/
 [Version d'évaluation gratuite]: https://azure.microsoft.com/pricing/free-trial/
 [Installation et configuration d'Azure PowerShell]: /powershell/azureps-cmdlets-docs
-[API .NET pour Notification Hubs]: https://docs.microsoft.com/dotnet/api/overview/azure/notification-hubs?view=azure-dotnet
-[Get-AzureSBNamespace]: https://docs.microsoft.com/powershell/module/servicemanagement/azure/get-azuresbnamespace
-[New-AzureSBNamespace]: https://docs.microsoft.com/powershell/module/servicemanagement/azure/new-azuresbnamespace
-[Get-AzureSBAuthorizationRule]: https://docs.microsoft.com/powershell/module/servicemanagement/azure/get-azuresbauthorizationrule
+[API .NET pour Notification Hubs]: /dotnet/api/overview/azure/notification-hubs?view=azure-dotnet
+[Get-AzureSBNamespace]: /powershell/module/servicemanagement/azure/get-azuresbnamespace
+[New-AzureSBNamespace]: /powershell/module/servicemanagement/azure/new-azuresbnamespace
+[Get-AzureSBAuthorizationRule]: /powershell/module/servicemanagement/azure/get-azuresbauthorizationrule

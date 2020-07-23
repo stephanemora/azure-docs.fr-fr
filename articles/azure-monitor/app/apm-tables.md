@@ -5,16 +5,16 @@ ms.topic: conceptual
 author: mrbullwinkle
 ms.author: mbullwin
 ms.date: 05/09/2020
-ms.openlocfilehash: 21f387a87224615ea6afbdce620c56e3ad2cc6ea
-ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
+ms.openlocfilehash: 3175e43a841334719de80f44a226b1c7b87690d9
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/12/2020
-ms.locfileid: "83204192"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86540109"
 ---
 # <a name="workspace-based-resource-changes-preview"></a>Modifications des ressources basées sur un espace de travail (préversion)
 
-Avant l’introduction de [ressources d’Application Insights basées sur un espace de travail](create-workspace-resource.md), les données Application Insights étaient stockées séparément des autres données de journal dans Azure Monitor. Ces deux services sont basés sur Azure Data Explorer et utilisent le même langage de requête Kusto (KQL). Cela est décrit dans [les journaux de Azure Monitor](https://docs.microsoft.com/azure/azure-monitor/platform/data-platform-logs).
+Avant l’introduction de [ressources d’Application Insights basées sur un espace de travail](create-workspace-resource.md), les données Application Insights étaient stockées séparément des autres données de journal dans Azure Monitor. Ces deux services sont basés sur Azure Data Explorer et utilisent le même langage de requête Kusto (KQL). Cela est décrit dans [les journaux de Azure Monitor](../platform/data-platform-logs.md).
 
 Les données de ressources Application Insights basées sur l’espace de travail sont stockées dans un espace de travail Log Analytics avec d’autres données d’analyse et données d’application. Cela simplifie votre configuration en vous permettant d’analyser plus facilement des données sur plusieurs solutions et de tirer parti des fonctionnalités des espaces de travail.
 
@@ -467,4 +467,4 @@ Table héritée : traces
 ## <a name="next-steps"></a>Étapes suivantes
 
 * [Exploration des mesures](../../azure-monitor/platform/metrics-charts.md)
-* [Écriture de requêtes Analytics](../../azure-monitor/app/analytics.md)
+* [Écriture de requêtes Analytics](../log-query/log-query-overview.md)

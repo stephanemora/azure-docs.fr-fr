@@ -3,12 +3,12 @@ title: Protection de la récupération de l’état du système et complète
 description: Utilisez le serveur de sauvegarde Azure pour sauvegarder l’état de votre système et fournir une protection de récupération complète.
 ms.topic: conceptual
 ms.date: 05/15/2017
-ms.openlocfilehash: bab55ca607e0641ea0cc597de686f3abbb387598
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: c5096158ca0e76ca03577347d8dd3e1419a33ca0
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "82192363"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86538698"
 ---
 # <a name="back-up-system-state-and-restore-to-bare-metal-by-using-azure-backup-server"></a>Sauvegarder l’état du système et effectuer une récupération complète à l’aide du serveur de sauvegarde Azure
 
@@ -98,12 +98,12 @@ Au terme de la sauvegarde, le fichier est transféré vers l’ordinateur Serveu
 ## <a name="before-you-begin"></a>Avant de commencer
 
 1. **Déployez le Serveur de sauvegarde Azure**. Vérifiez que le Serveur de sauvegarde est correctement déployé. Pour plus d'informations, consultez les pages suivantes :
-    * [Configuration requise pour le Serveur de sauvegarde Azure](https://docs.microsoft.com/system-center/dpm/install-dpm#setup-prerequisites)
+    * [Configuration requise pour le Serveur de sauvegarde Azure](/system-center/dpm/install-dpm#setup-prerequisites)
     * [Matrice de protection du Serveur de sauvegarde](backup-mabs-protection-matrix.md)
 
-1. **Configurez le stockage**. Vous pouvez stocker les données de sauvegarde sur disque, sur bande et dans le cloud avec Azure. Pour plus d’informations, voir [Préparer l’espace de stockage](https://docs.microsoft.com/system-center/dpm/plan-long-and-short-term-data-storage).
+1. **Configurez le stockage**. Vous pouvez stocker les données de sauvegarde sur disque, sur bande et dans le cloud avec Azure. Pour plus d’informations, voir [Préparer l’espace de stockage](/system-center/dpm/plan-long-and-short-term-data-storage).
 
-1. **Configurez l’agent de protection**. Installez l’agent de protection sur l’ordinateur que vous souhaitez sauvegarder. Pour plus d’informations, voir [Déployer l’agent de protection DPM](https://docs.microsoft.com/system-center/dpm/deploy-dpm-protection-agent).
+1. **Configurez l’agent de protection**. Installez l’agent de protection sur l’ordinateur que vous souhaitez sauvegarder. Pour plus d’informations, voir [Déployer l’agent de protection DPM](/system-center/dpm/deploy-dpm-protection-agent).
 
 ## <a name="back-up-system-state-and-bare-metal"></a>Sauvegarde de l’état du système et récupération complète
 
@@ -115,7 +115,7 @@ Pour sauvegarder l’état du système et la récupération complète :
 
 1. Dans la page **Sélectionner les membres du groupe**, développez l’ordinateur, puis sélectionnez **Récupération complète** ou **État du système**.
 
-    N’oubliez pas que vous ne pouvez pas protéger la récupération complète et l’état du système pour un même ordinateur dans des groupes différents. Par ailleurs, lorsque vous sélectionnez la récupération complète, la protection de l’état du système est automatiquement activée. Pour plus d’informations, voir [Déployer des groupes de protection](https://docs.microsoft.com/system-center/dpm/create-dpm-protection-groups).
+    N’oubliez pas que vous ne pouvez pas protéger la récupération complète et l’état du système pour un même ordinateur dans des groupes différents. Par ailleurs, lorsque vous sélectionnez la récupération complète, la protection de l’état du système est automatiquement activée. Pour plus d’informations, voir [Déployer des groupes de protection](/system-center/dpm/create-dpm-protection-groups).
 
 1. Dans la page **Sélectionner la méthode de protection des données**, choisissez comment gérer les sauvegardes à court terme et les sauvegardes à long terme.
 
