@@ -14,12 +14,12 @@ ms.date: 03/18/2020
 ms.author: sethm
 ms.reviewer: jowargo
 ms.lastreviewed: 06/19/2019
-ms.openlocfilehash: aaaaedbd6d2262f632bd47aa6eefb4cc83ab1abd
-ms.sourcegitcommit: f844603f2f7900a64291c2253f79b6d65fcbbb0c
+ms.openlocfilehash: a605a11b1effd5d272dc8123f7e9c5c44262a3e8
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/10/2020
-ms.locfileid: "86223956"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86530200"
 ---
 # <a name="get-started-with-notification-hubs-using-baidu"></a>Prendre en main Notification Hubs à l’aide de Baidu
 
@@ -424,11 +424,11 @@ Par souci de simplicité, ce didacticiel utilise une application console pour la
 
 Voici les différentes approches d’envoi de notifications :
 
-* **Interface REST** :  vous pouvez prendre en charge les notifications sur une plateforme backend par l’intermédiaire de [l’interface REST](https://msdn.microsoft.com/library/windowsazure/dn223264.aspx).
+* **Interface REST** :  vous pouvez prendre en charge les notifications sur une plateforme backend par l’intermédiaire de [l’interface REST](/previous-versions/azure/reference/dn223264(v=azure.100)).
 * **Kit SDK .NET Microsoft Azure Notification Hubs** : dans le Gestionnaire de package Nuget pour Visual Studio, exécutez [Install-Package Microsoft.Azure.NotificationHubs](https://www.nuget.org/packages/Microsoft.Azure.NotificationHubs/).
 * **Node.JS** : [Guide pratique pour utiliser Notification Hubs à partir de Node.js](notification-hubs-nodejs-push-notification-tutorial.md).
-* **Mobile Apps** : pour découvrir un exemple d’envoi de notifications à partir d’un backend Azure App Service Mobile Apps intégré à Notification Hubs, consultez [Ajouter des notifications Push à votre application mobile](../app-service-mobile/app-service-mobile-windows-store-dotnet-get-started-push.md).
-* **Java / PHP** : pour découvrir un exemple d’envoi de notifications par le biais des API REST, consultez « Guide pratique pour utiliser Notification Hubs à partir de Java/PHP » ([Java](notification-hubs-java-push-notification-tutorial.md) | [PHP](notification-hubs-php-push-notification-tutorial.md)).
+* **Applications mobiles Azure** : pour découvrir un exemple de la procédure d’envoi de notifications à partir d’une application mobile Azure intégrée à Notification Hubs, consultez l’article [Ajout de notifications push à votre application mobile](/previous-versions/azure/app-service-mobile/app-service-mobile-windows-store-dotnet-get-started-push).
+* **Java/PHP** : pour voir un exemple d’envoi de notifications au moyen des API REST, consultez « Utilisation de Notification Hubs depuis Java/PHP » ([Java](notification-hubs-java-push-notification-tutorial.md) | [PHP](notification-hubs-php-push-notification-tutorial.md)).
 
 ## <a name="optional-send-notifications-from-a-net-console-app"></a>(Facultatif) Envoi de notifications à partir d’une application de console .NET.
 
